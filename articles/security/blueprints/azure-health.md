@@ -9,21 +9,22 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214944"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831622"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
 ## <a name="overview"></a>개요
 
+**Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI는 Azure PaaS 및 IaaS 솔루션의 턴키 배포를 제공하여 업계의 규정 준수 요구 사항을 충족함과 동시에 의료 데이터가 포함된 솔루션을 수집/저장/분석/상호 작용/식별하고 안전하게 배포하는 방법을 보여 줍니다. 청사진을 사용하면 규제되는 데이터가 있는 고객을 위해 클라우드 채택 및 활용을 촉진할 수 있습니다.**
 
-  **Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI는 Azure PaaS 솔루션의 턴키 배포를 제공하여 업계의 규정 준수 요구 사항을 충족할 수 있는 동시에 의료 데이터를 안전하게 수집, 저장, 분석 및 상호 작용하는 방법을 보여 줍니다. 청사진을 사용하면 규제되는 데이터가 있는 고객을 위해 클라우드 채택 및 활용을 촉진할 수 있습니다.**
+Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI 청사진은 HIPAA(HIPAA, 건강 보험 양도 및 책임에 관한 법) 및 HITRUST(Health Information Trust Alliance)를 지원하는 안전한 PaaS(Platform as a Service) 환경을 종단 간 솔루션으로 배포하는 데 도움이 되는 도구와 지침을 제공합니다. 이 솔루션을 사용하면 안전한 다중 계층 클라우드 환경에서 개인 및 비개인 의료 레코드를 수집, 저장, 분석 및 상호 작용할 수 있습니다. 
 
-Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI 청사진은 HIPAA(HIPAA, 건강 보험 양도 및 책임에 관한 법) 및 HITRUST(Health Information Trust Alliance)를 지원하는 안전한 PaaS(Platform as a Service) 환경을 종단 간 솔루션으로 배포하는 데 도움이 되는 도구와 지침을 제공합니다. 이 솔루션을 사용하면 안전한 다중 계층 클라우드 환경에서 개인 및 비개인 의료 레코드를 수집, 저장, 분석 및 상호 작용할 수 있습니다. 일반 참조 아키텍처를 사용하며 Microsoft Azure 적용을 간소화하도록 설계되었습니다. 제공되는 이 아키텍처는 배포 부담과 비용을 줄이기 위해 클라우드 기반 방식을 찾고 있는 조직의 요구 사항에 적합한 종단 간 솔루션을 보여 줍니다.
+IaaS 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레이션하는 방법과, 클라우드 기반 서비스 및 솔루션을 안전하기 관리하기 위한 PAW(Privileged Access Workstation)를 구현하는 방법을 보여 줍니다. IaaS SQL Server 데이터베이스는 SQL IaaS VM으로 가져오는 잠재적 실험 데이터를 추가하며, 해당 VM은 MSI 인증 액세스를 사용하여 SQL Azure PaaS 서비스와 상호 작용합니다. 이 두 가지 방식은 모두 공통 참조 아키텍처를 나타내며, Microsoft Azure을 간편하게 도입하는 데 사용됩니다. 제공되는 이 아키텍처는 배포 부담과 비용을 줄이기 위해 클라우드 기반 방식을 찾고 있는 조직의 요구 사항에 적합한 종단 간 솔루션을 보여 줍니다.
 
 ![](images/components.png)
 
@@ -39,23 +40,15 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
 ## <a name="deploying-the-automation"></a>자동화 배포
 
-- 솔루션을 배포하려면 배포 가이드에서 제공하는 지침을 따릅니다. 
+- 솔루션을 배포하려면 [배포 지침](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md)에서 제공하는 지침을 따릅니다. 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-이 솔루션의 작동 방식을 간략히 살펴보려면 배포에 대해 설명하고 보여 주는 이 [비디오](https://aka.ms/healthblueprintvideo)를 확인하세요.
+- 이 솔루션의 작동 방식을 간략히 살펴보려면 배포에 대해 설명하고 보여 주는 이 [비디오](https://aka.ms/healthblueprintvideo)를 확인하세요.
 
 - 자주 묻는 질문은 [FAQ](https://aka.ms/healthblueprintfaq) 가이드에서 찾을 수 있습니다.
 
 -   **아키텍처 다이어그램**. 청사진 및 사용 사례 예제 시나리오에 사용되는 참조 아키텍처를 보여 줍니다.
 
--   **배포 템플릿**. 이 배포에서는 설정 중 구성 매개 변수를 지정하여 아키텍처 구성 요소를 Microsoft Azure에 자동으로 설치하는 데 [Azure Resource Manager 템플릿](/azure/azure-resource-manager/resource-group-overview#template-deployment)을 사용합니다.
-
--   **[자동화된 배포 스크립트](https://aka.ms/healthblueprintdeploy)**. 솔루션을 배포하는 데 도움이 됩니다. 스크립트는 다음으로 구성됩니다.
-
-
--   모듈 설치 및 [전역 관리자](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) 설치 스크립트는 필요한 PowerShell 모듈을 설치하고 전역 관리자 역할이 올바르게 구성되어 있는지 확인하는 데 사용됩니다. 
--   설치 PowerShell 스크립트는 솔루션을 배포하는 데 사용되며, 미리 빌드된 데모 함수가 포함된 .zip 파일을 통해 제공됩니다.
+-   [IaaS 확장](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   이 솔루션은 온-프레미스 SQL 기반 솔루션을 Azure로 마이그레이션하는 방법과, 클라우드 기반 서비스 및 솔루션을 안전하기 관리하기 위한 Privileged Access Workstation을 구현하는 방법을 보여 줍니다. 
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
@@ -71,7 +64,7 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 # <a name="architectural-diagram"></a>아키텍처 다이어그램
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>역할
 

@@ -4,14 +4,14 @@ description: Azure Migrate에 대한 질문과 대답 해결
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699967"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239220"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -58,7 +58,7 @@ Azure Migrate는 현재 마이그레이션 프로젝트 위치로 미국 동부 
 
 Azure Migrate 어플라이언스가 작동하는 데 필요한 통신 및 방화벽 규칙이 그대로 유지되기만 하면, 추가 구성 요소(예: 바이러스 백신)를 .OVA 템플릿에 추가할 수 있습니다.   
 
-## <a name="discovery-and-assessment"></a>검색 및 평가
+## <a name="discovery"></a>검색
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Azure Migrate에서는 어떤 데이터를 수집하나요?
 
@@ -87,6 +87,12 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
   - 네트워크 출력
 
 에이전트 기반 검색은 어플라이언스 기반 검색의 최상위에서 사용할 수 있는 옵션으로, 고객이 온-프레미스 VM의 [종속성을 시각화](how-to-create-group-machine-dependencies.md)하는 데 유용합니다. 종속성 에이전트는 FQDN, OS, IP 주소, MAC 주소, VM 내부에서 실행되는 프로세스 및 VM에서 들어오거나 나가는 TCP 연결과 같은 세부 사항을 수집합니다. 에이전트 기반 검색은 선택 사항으로, VM의 종속성을 시각화하지 않을 경우에는 에이전트를 설치하지 않도록 선택할 수 있습니다.
+
+### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>분석되는 ESXi 호스트 환경의 성능에 대한 영향
+
+[일회성 검색 방식](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods)의 경우 성능 데이터를 수집하려면 vCenter Server의 통계 수준을 3으로 설정해야 합니다. 통계를 이 수준으로 설정하면 대량의 문제 해결 데이터가 수집되어 vCenter Server 데이터베이스에 저장됩니다. 따라서 vCenter Server에서 몇 가지 성능 문제가 발생할 수 있습니다. 하지만 ESXi 호스트에 대한 영향은 미미합니다.
+
+성능 데이터 연속 프로파일링 기능(미리 보기)이 새롭게 도입되었습니다. 연속 프로파일링 사용 시에는 성능 기반 평가를 실행하기 위해 vCenter Server 통계 수준을 더 이상 변경할 필요가 없습니다. 이제 수집기 어플라이언스는 온-프레미스 컴퓨터를 프로파일링하여 가상 머신의 성능 데이터를 측정합니다. 그러므로 ESXi 호스트와 vCenter Server의 성능에 대한 영향은 거의 없습니다.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>수집된 데이터는 어디에 저장되며 저장 기간은 얼마나 되나요?
 
@@ -124,11 +130,14 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 단일 마이그레이션 프로젝트에서는 1500대의 가상 머신을 검색할 수 있습니다. 온-프레미스 환경에 더 많은 컴퓨터가 있는 경우 Azure Migrate에서 대규모 환경을 검색하는 방법에 대해 [자세히 알아보세요](how-to-scale-assessment.md).
 
+## <a name="assessment"></a>평가
+
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate가 EA(기업 계약) 기반 예측 비용을 지원하나요?
 
 Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offers/enterprise-agreement-support/)에 대해 비용 예측을 지원하지 않습니다. 해결 방법은 종량제를 제품에 지정하고 평가 속성의 ‘할인’ 필드에 할인율(구독에 적용)을 수동으로 지정하는 것입니다.
 
   ![할인](./media/resources-faq/discount.png)
+  
 
 ## <a name="dependency-visualization"></a>종속성 시각화
 
@@ -138,7 +147,34 @@ Azure Migrate는 추가 요금 없이 사용할 수 있습니다. [여기](https
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>종속성 시각화에 기존 작업 영역을 사용할 수 있나요?
 
-Azure Migrate는 종속성 시각화에 기존 작업 영역을 사용하는 것을 지원하지 않습니다. 단, MMA(Microsoft Monitoring Agent)는 멀티 호밍을 지원하므로 사용자가 여러 작업 영역에 데이터를 보낼 수 있습니다. 따라서 작업 영역에 이미 에이전트가 배포되고 구성되어 있다면 MMA 에이전트에서 멀티 호밍을 활용하여 Azure Migrate 작업 영역에 대해 구성하고(기존 작업 영역에 추가로) 작동시킬 수 있습니다. [여기](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) MMA 에이전트에서 멀티 호밍을 사용하도록 설정하는 방법에 관한 블로그를 참조하세요.
+예. 이제 Azure Migrate에서는 기존 작업 영역을 마이그레이션 프로젝트에 연결하여 종속성 시각화에 활용할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization#how-does-it-work).
+
+### <a name="can-i-export-the-dependency-visualization-report"></a>종속성 시각화 보고서를 내보낼 수 있나요?
+
+아니요, 종속성 시각화를 내보낼 수 없습니다. 그러나 Azure Migrate에서 종속성 시각화에 서비스 맵을 사용하므로 [서비스 맵 REST API](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections)를 사용하여 종속성을 json 형식으로 가져올 수 있습니다.
+
+### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>MMA(Microsoft Monitoring Agent) 및 종속성 에이전트 설치를 자동화하려면 어떻게 해야 하나요?
+
+종속성 에이전트 설치에 사용할 수 있는 스크립트는 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)에 나와 있습니다. MMA의 경우에는 TechNet의 [이 페이지](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)에서 제공되는 스크립트를 활용할 수 있습니다.
+
+스크립트 외에도 SCCM(System Center Configuration Manager), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) 등의 배포 도구를 활용하여 에이전트를 배포할 수도 있습니다.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>MMA에서는 어떤 운영 체제가 지원되나요?
+
+MMA에서 지원하는 Windows 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems)에 나와 있습니다.
+MMA에서 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems)에 나와 있습니다.
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>종속성 에이전트는 어떤 운영 체제를 지원하나요?
+
+종속성 에이전트가 지원하는 Windows 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems)에 나와 있습니다.
+종속성 에이전트가 지원하는 Linux 운영 체제 목록은 [여기](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems)에 나와 있습니다.
+
+### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>1시간이 넘는 기간에 대해 Azure Migrate의 종속성을 시각화할 수 있나요?
+아니요. Azure Migrate에서는 최대 1시간 동안의 종속성을 시각화할 수 있습니다. 하지만 Azure Migrate에서는 최대 1개월 전의 특정 날짜로 돌아가 종속성을 시각화할 수 있습니다. 종속성을 시각화할 수 있는 최대 기간은 1시간입니다. 예를 들어 종속성 맵의 기간 기능을 사용해 어제의 종속성을 확인할 수는 있지만, 종속성을 확인할 수 있는 시간은 1시간입니다.
+
+### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>종속성 시각화가 10대를 초과하는 VM을 사용하는 그룹에 지원되나요?
+[그룹의 종속성 시각화](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 시에 허용되는 최대 VM 수는 10개입니다. VM이 10개보다 많은 그룹이 있다면 더 작은 그룹 여러 개로 분할한 다음 종속성을 시각화하는 것이 좋습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

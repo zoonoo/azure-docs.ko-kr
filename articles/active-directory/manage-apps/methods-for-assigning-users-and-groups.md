@@ -5,25 +5,23 @@ services: active-directory
 documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: d357a9a7f249127289a256685d9555f777742b68
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c4aa311018603b32e854d3d3423d342350e6520d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355497"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044487"
 ---
-# <a name="how-to-assign-users-and-groups-to-an-application"></a>응용 프로그램에 사용자 및 그룹을 할당하는 방법
-
-사용자가 특정 응용 프로그램에 대해 아래의 작업을 수행할 수 있으려면 먼저 액세스 권한을 부여하도록 **응용 프로그램에 할당**해야 합니다.
+# <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Azure Active Directory에서 응용 프로그램에 사용자 및 그룹 할당
+이 문서에서는 Azure AD(Azure Active Directory)에서 응용 프로그램에 사용자나 그룹을 할당하는 방법을 설명합니다. 사용자를 먼저 응용 프로그램에 할당해야 관리자가 해당 사용자에게 다음 작업을 수행할 권한을 부여할 수 있습니다.
 
 -   **응용 프로그램의 URL로 직접 이동**(SP 시작 로그온이라고도 함)하여 응용 프로그램에 액세스합니다.
 
@@ -33,17 +31,19 @@ ms.locfileid: "44355497"
 
 -   [Office 365 응용 프로그램 시작 관리자](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)에 응용 프로그램이 나타나는지 확인합니다.
 
-## <a name="methods-to-assign-applications-with-azure-active-directory"></a>Azure Active Directory로 응용 프로그램을 할당하는 방법 
+## <a name="prerequisties"></a>필수 구성 요소
+응용 프로그램에 사용자 및 그룹을 할당하기 전에 사용자 할당을 요구해야 합니다. 사용자를 할당해야 하도록 설정하려면 다음을 수행합니다.
 
-Azure Active Directory로 응용 프로그램을 할당할 수 있는 3가지 방법이 있습니다.
+1. 관리자 계정으로 Azure 포털에 로그인합니다.
+2. 주 메뉴에서 **모든 서비스** 항목을 클릭합니다.
+3. 응용 프로그램에 대해 사용하는 디렉터리를 선택합니다.
+4. **엔터프라이즈 응용 프로그램** 탭을 클릭합니다.
+5. 이 디렉터리와 연결된 응용 프로그램 목록에서 응용 프로그램을 선택합니다.
+6. **속성** 탭을 클릭합니다.
+7. **사용자 할당 필요** 토글을 [예]로 변경합니다.
+8. 화면 위쪽에 있는 **저장** 단추를 클릭합니다.
 
--   [관리자 권한으로 응용 프로그램에 직접 사용자 할당](#assign-a-user-directly-as-an-administrator)
-
--   [관리자 권한으로 응용 프로그램에 직접 그룹 할당](#assign-a-group-directly-to-an-application-as-an-administrator)
-
--   [셀프 서비스 응용 프로그램 액세스를 활성화하여 사용자가 자신의 응용 프로그램을 찾을 수 있도록 함](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
-
-## <a name="assign-a-user-directly-as-an-administrator"></a>관리자 권한으로 직접 사용자 할당
+## <a name="assign-users"></a>사용자 할당
 
 응용 프로그램에 하나 이상의 사용자를 직접 할당하려면 다음 단계를 수행합니다.
 
@@ -81,7 +81,7 @@ Azure Active Directory로 응용 프로그램을 할당할 수 있는 3가지 �
 
 잠시 후 선택한 사용자는 솔루션 설명 섹션에 설명된 메서드를 사용하여 이러한 응용 프로그램을 시작할 수 있습니다.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>관리자 권한으로 응용 프로그램에 직접 그룹 할당
+## <a name="assign-groups"></a>그룹 할당
 
 응용 프로그램에 하나 이상의 그룹을 직접 할당하려면 다음 단계를 수행합니다.
 
@@ -119,7 +119,7 @@ Azure Active Directory로 응용 프로그램을 할당할 수 있는 3가지 �
 
 잠시 후 선택한 그룹 내 사용자는 솔루션 설명 섹션에 설명된 메서드를 사용하여 이러한 응용 프로그램을 시작할 수 있습니다. 동적 그룹인 경우 이러한 할당된 그룹 내 사용자에 대해 표시되는 이러한 할당에 약간의 추가 처리 지연이 있을 수 있습니다.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>셀프 서비스 응용 프로그램 액세스를 활성화하여 사용자가 자신의 응용 프로그램을 찾을 수 있도록 함
+## <a name="enable-self-service-application-access"></a>셀프 서비스 응용 프로그램 액세스 사용
 
 셀프 서비스 응용 프로그램 액세스는 사용자가 응용 프로그램을 직접 검색하도록 하고 경우에 따라 비즈니스 그룹이 해당 응용 프로그램에 대한 액세스를 승인하도록 허용하는 유용한 방법입니다. 비즈니스 그룹이 해당 액세스 패널에서 암호 Single Sign-On 응용 프로그램 권한에 대해 해당 사용자에게 할당된 자격 증명을 관리하도록 허용할 수 있습니다.
 

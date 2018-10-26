@@ -1,100 +1,75 @@
 ---
-title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 LinkedIn 추가 | Microsoft Docs
-description: OAuth2 프로토콜과 사용자 지정 정책을 사용하여 LinkedIn 응용 프로그램 설정에 대한 방법 문서
+title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 LinkedIn 계정으로 로그인하도록 설정 | Microsoft Docs
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 LinkedIn 계정으로 로그인하도록 설정하는 방법을 설명합니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2017
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 58a595c697b6e1a70089a6683493835e0d3a9780
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b5022e1475b9f15738dd015e16946b754fcd49c9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344321"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887311"
 ---
-# <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 ID 공급자로 LinkedIn 추가
+# <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 LinkedIn 계정으로 로그인하도록 설정
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 LinkedIn 계정의 사용자가 로그인할 수 있도록 하는 방법을 설명합니다.
+이 문서에서는 Azure AD(Azure Active Directory) B2C의 [사용자 지정 정책](active-directory-b2c-overview-custom.md)을 사용하여 사용자가 LinkedIn 계정에서 로그인할 수 있도록 설정하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-[사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다.
 
-## <a name="step-1-create-a-linkedin-account-application"></a>1단계: LinkedIn 계정 응용 프로그램 만들기
-Azure AD B2C(Azure Active Directory B2C)에서 LinkedIn을 ID 공급자로 사용하려면 LinkedIn 응용 프로그램을 만들고 올바른 매개 변수를 제공해야 합니다. [LinkedIn 등록 페이지](https://www.linkedin.com/start/join)로 이동하여 LinkedIn 응용 프로그램을 등록할 수 있습니다.
+- [Azure Active Directory B2C에서 사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
+- LinkedIn 계정이 없는 경우 [LinkedIn 가입 페이지](https://www.linkedin.com/start/join)에서 계정을 생성하세요.
+- LinkedIn 응용 프로그램에서는 응용 프로그램을 나타내는 80 X 80픽셀 로고를 제공해야 합니다.
 
-1. [LinkedIn 응용 프로그램 관리](https://www.linkedin.com/secure/developer?newapp=) 웹 사이트로 이동하고, LinkedIn 계정 자격 증명으로 로그인한 다음 **응용 프로그램 만들기**를 선택합니다.
+## <a name="create-an-application"></a>응용 프로그램 만들기
 
-    ![LinkedIn 계정 - 응용 프로그램 만들기](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app1.png)
+Azure AD B2C에서 ID 공급자로 LinkedIn을 사용하려면 LinkedIn 응용 프로그램을 만들어야 합니다.
 
-2. **새 응용 프로그램을 만들기** 페이지에서 다음을 수행합니다.
+1. LinkedIn 계정 자격 증명을 사용하여 [LinkedIn 응용 프로그램 관리](https://www.linkedin.com/secure/developer?newapp=) 웹 사이트에 로그인합니다.
+2. **응용 프로그램 만들기**를 선택합니다.
+3. **회사 이름**, **응용 프로그램 이름** 및 **응용 프로그램 설명**을 입력합니다.
+4. 작성한 **응용 프로그램 로고**를 업로드합니다.
+5. 제공된 목록에서 **응용 프로그램 사용**을 선택합니다.
+6. **웹 사이트 URL**에 `https://your-tenant.b2clogin.com`을 입력합니다.  `your-tenant`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예를 들어 contoso.b2clogin.com을 입력합니다.
+7. **회사 전자 메일** 주소 및 **회사 전화** 번호를 입력합니다.
+8. 페이지 맨 아래에서 사용 약관을 읽고 동의한 다음 **제출**을 선택합니다.
+9. **인증**을 선택한 다음 나중에 사용할 수 있도록 **클라이언트 ID** 및 **클라이언트 비밀** 값을 적어 둡니다.
+10. **권한이 부여된 리디렉션 URL**에 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`를 입력합니다. `your-tenant-name`을 테넌트 이름으로 바꿉니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다. 
+11. **업데이트**를 선택합니다.
+12. **설정**을 선택하고, **응용 프로그램 상태**를 **Live**로 변경한 다음 **업데이트**를 선택합니다.
 
-    a. **회사 이름**, 회사에 대한 설명이 포함된 **이름** 및 새 앱의 **설명**을 입력합니다.
+## <a name="create-a-policy-key"></a>정책 키 만들기
 
-    b. **응용 프로그램 로고**를 업로드합니다.
+이전에 Azure AD B2C 테넌트에서 기록했던 클라이언트 암호를 저장해야 합니다.
 
-    다. **응용 프로그램 사용**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+4. 개요 페이지에서 **ID 경험 프레임워크 - 미리 보기**를 선택합니다.
+5. **정책 키**, **추가**를 차례로 선택합니다.
+6. **옵션**으로는 `Manual`을 선택합니다.
+7. 정책 키의 **이름**을 입력합니다. 예: `LinkedInSecret`. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+8. 이전에 기록해 두었던 클라이언트 암호를 **비밀**에 입력합니다.
+9. **키 사용**에서 `Signature`를 선택합니다.
+10. **만들기**를 클릭합니다.
 
-    d. **웹 사이트 URL** 상자에 **https://{tenant}.b2clogin.com**을 붙여넣습니다.  여기서 {*tenant*}는 테넌트의 이름(예: contoso.b2clogin.com)입니다.
+## <a name="add-a-claims-provider"></a>클레임 공급자 추가
 
-    e. **비즈니스 전자 메일** 주소 및 **회사 전화** 번호를 입력합니다.
+사용자가 LinkedIn 계정을 사용하여 로그인하도록 하려는 경우 Azure AD B2C가 엔드포인트를 통해 통신할 수 있는 클레임 공급자로 계정을 정의해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다. 
 
-    f. 페이지 맨 아래에서 사용 약관을 읽고 동의한 다음 **제출**을 선택합니다.
+정책의 확장 파일에서 **ClaimsProviders** 요소에 LinkedIn 계정을 추가하여 해당 계정을 클레임 공급자로 정의할 수 있습니다.
 
-    ![LinkedIn 계정 - 응용 프로그램 속성 구성](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app2.png)
-
-3. **인증**을 선택한 다음 **클라이언트 ID** 및 **클라이언트 비밀** 값을 적어 둡니다.
-
-4. **권한이 부여된 리디렉션 URL** 상자에 **https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**를 붙여넣습니다. {*tenant*}를 사용자의 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다. HTTPS 체계를 사용 중인지 확인합니다. 
-
-    ![LinkedIn 계정 - 권한이 부여된 리디렉션 URL 설정](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
-
-    >[!NOTE]
-    >클라이언트 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마세요.
-
-5. **추가**를 선택합니다.
-
-6. **설정**을 선택하고, **응용 프로그램 상태**를 **Live**로 변경한 다음 **업데이트**를 선택합니다.
-
-    ![LinkedIn 계정 - 응용 프로그램 상태 설정](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app4.png)
-
-## <a name="step-2-add-your-linkedin-application-key-to-azure-ad-b2c"></a>2단계: Azure AD B2C에 LinkedIn 응용 프로그램 키 추가
-LinkedIn 계정으로 페더레이션하려면 응용 프로그램 대신 Azure AD B2C를 신뢰하기 위해 LinkedIn 계정에 대한 클라이언트 암호가 필요합니다. Azure AD B2C 테넌트에 LinkedIn 응용 프로그램 비밀을 저장하려면 다음을 수행합니다.  
-
-1. Azure AD B2C 테넌트에서 **B2C 설정** > **ID 경험 프레임워크**를 차례로 선택합니다.
-
-2. 테넌트에 사용 가능한 키를 보려면 **정책 키**를 선택합니다.
-
-3. **추가**를 선택합니다.
-
-4. **옵션** 상자에서 **업로드**를 선택합니다.
-
-5. **이름** 상자에 **B2cRestClientCertificate**를 입력합니다.  
-    *B2C_1A_* 접두사를 자동으로 추가할 수 있습니다.
-
-6. **비밀** 상자에 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com)의 LinkedIn 응용 프로그램 비밀을 입력합니다.
-
-7. **키 사용**에는 **암호화**를 선택합니다.
-
-8. **만들기**를 선택합니다. 
-
-9. `B2C_1A_LinkedInSecret` 키를 만들었는지 확인합니다.
-
-## <a name="step-3-add-a-claims-provider-in-your-extension-policy"></a>3단계: 확장 정책에서 클레임 공급자 추가
-사용자가 LinkedIn 계정을 사용하여 로그인하도록 하려면 LinkedIn을 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신하는 엔드포인트를 지정해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
-
-확장 정책 파일에서 `<ClaimsProvider>` 노드를 추가하여 LinkedIn을 클레임 공급자로 정의합니다.
-
-1. 작업 디렉터리에서 *TrustFrameworkExtensions.xml* 확장 정책 파일을 엽니다. 
-
-2. `<ClaimsProviders>` 요소를 검색합니다.
-
-3. `<ClaimsProviders>` 요소에서 다음 XML 코드 조각을 추가합니다. 
+1. *TrustFrameworkExtensions.xml*을 엽니다.
+2. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
+3. 다음과 같이 새 **ClaimsProvider**를 추가합니다.
 
     ```xml
     <ClaimsProvider>
@@ -141,79 +116,72 @@ LinkedIn 계정으로 페더레이션하려면 응용 프로그램 대신 Azure 
     </ClaimsProvider>
     ```
 
-4. *client_id* 값을 LinkedIn 응용 프로그램 클라이언트 ID로 바꿉니다.
-
+4. **client_id**의 값을 이전에 기록해 둔 클라이언트 ID로 바꿉니다.
 5. 파일을 저장합니다.
 
-## <a name="step-4-register-the-linkedin-account-claims-provider"></a>4단계: LinkedIn 계정 클레임 공급자 등록
-ID 공급자를 설정했습니다. 그러나 등록 또는 로그인 창에서 아직 사용할 수 없습니다. 이제 `SignUpOrSignIn` 사용자 경험에 LinkedIn 계정 ID 공급자를 추가해야 합니다.
+### <a name="upload-the-extension-file-for-verification"></a>확인을 위한 확장 파일 업로드
 
-### <a name="step-41-make-a-copy-of-the-user-journey"></a>4.1단계: 사용자 경험의 복사본 만들기
-사용자 경험을 사용할 수 있도록 하려면 기존 사용자 경험 템플릿의 복제본을 만든 다음 LinkedIn ID 공급자를 추가합니다.
+지금까지 Azure AD B2C에서 LinkedIn 계정과 통신하는 방법을 알 수 있도록 정책을 구성했습니다. 정책의 확장 파일을 업로드하여 지금까지 문제가 발생하지 않았는지 확인합니다.
 
->[!NOTE]
->`<UserJourneys>` 요소를 정책의 기본 파일에서 *TrustFrameworkExtensions.xml* 확장 파일로 복사한 경우 이 섹션을 건너뛸 수 있습니다.
+1. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **정책 업로드**를 선택합니다.
+2. **정책이 있는 경우 덮어쓰기**를 사용하도록 설정하고 *TrustFrameworkExtensions.xml* 파일을 찾아서 선택합니다.
+3. **업로드**를 클릭합니다.
 
-1. 정책의 기본 파일(예: TrustFrameworkBase.xml)을 엽니다.
+## <a name="register-the-claims-provider"></a>클레임 공급자 등록
 
-2. `<UserJourneys>` 요소를 검색하고, `<UserJourney>` 노드의 전체 내용을 선택한 다음 **잘라내기**를 선택하여 선택한 텍스트를 클립보드로 이동합니다.
+이제 ID 공급자는 설정되었지만 등록 또는 로그인 화면에서 사용할 수는 없는 상태입니다. ID 공급자를 사용할 수 있게 하려면 기존 템플릿 사용자 경험의 복제본을 만든 다음 LinkedIn ID 공급자도 포함하도록 수정합니다.
 
-3. 확장 파일(예: TrustFrameworkExtensions.xml)을 열고 `<UserJourneys>` 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
+1. 시작 팩에서 *TrustFrameworkBase.xml* 파일을 엽니다.
+2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
+3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
+4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
+5. 사용자 경험 ID의 이름을 바꿉니다. 예: `SignUpSignInLinkedIn`.
 
-4. 2단계에서 클립보드로 이동한 `<UserJourney>` 노드의 전체 내용을 `<UserJourneys>` 요소로 붙여넣습니다.
+### <a name="display-the-button"></a>단추 표시
 
-### <a name="step-42-display-the-button"></a>4.2단계: "단추" 표시
-`<ClaimsProviderSelections>` 요소는 클레임 공급자 선택 옵션 목록과 해당 순서를 정의합니다. `<ClaimsProviderSelection>` 노드는 등록 또는 로그인 페이지에서 ID 공급자 단추를 사용하는 것과 유사합니다. LinkedIn 계정에 `<ClaimsProviderSelection>` 노드를 추가하면 사용자가 페이지를 열 때 새 단추가 표시됩니다. 이 요소를 추가하려면 다음을 수행합니다.
+**ClaimsProviderSelection** 요소는 등록 또는 로그인 화면의 ID 공급자 단추와 비슷합니다. LinkedIn 계정에 **ClaimsProviderSelection** 요소를 추가하면 사용자가 페이지를 열 때 새 단추가 표시됩니다.
 
-1. 복사한 사용자 경험에서 `Id="SignUpOrSignIn"`을 포함하는 `<UserJourney>` 노드를 검색합니다.
+1. 만든 사용자 경험에서 `Order="1"`이 포함된 **OrchestrationStep** 요소를 찾습니다.
+2. **ClaimsProviderSelects** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `LinkedInExchange`)으로 설정합니다.
 
-2. `Order="1"`이 포함된 `<OrchestrationStep>` 노드를 찾습니다.
-
-3. `<ClaimsProviderSelections>` 요소에서 다음 XML 코드 조각을 추가합니다.
-
-    ```xml
+    ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     ```
 
-### <a name="step-43-link-the-button-to-an-action"></a>4.3단계: 작업에 단추 연결
-이제 단추를 만들었으므로 작업에 연결해야 합니다. 이 경우에 작업을 통해 Azure AD B2C에서 LinkedIn 계정과 통신하여 토큰을 수신할 수 있게 됩니다. LinkedIn 계정 클레임 공급자의 기술 프로필을 연결하여 작업에 단추를 연결합니다.
+### <a name="link-the-button-to-an-action"></a>작업에 단추 연결
 
-1. `<UserJourney>` 노드에서 `Order="2"`를 포함하는 `<OrchestrationStep>` 노드를 검색합니다.
+이제 단추가 준비되었으므로 동작에 연결해야 합니다. 이 경우에는 Azure AD B2C가 LinkedIn 계정과 통신하여 토큰을 받는 작업을 연결합니다.
 
-2. `<ClaimsExchanges>` 요소에서 다음 XML 코드 조각을 추가합니다.
+1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
+2. 다음 **ClaimsExchange** 요소를 추가합니다. **Id**에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
 
-    ```xml
-    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAuth" />
+    ```XML
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
+    
+    **TechnicalProfileReferenceId** 값을 앞에서 만든 기술 프로필의 **ID**로 업데이트합니다. 예: `LinkedIn-OAUTH`.
 
-    >[!NOTE]
-    >* `Id`에 이전 섹션의 `TargetClaimsExchangeId`와 동일한 값이 있는지 확인합니다.
-    >* `TechnicalProfileReferenceId` ID를 이전에 만든 기술 프로필(LinkedIn-OAuth)로 설정하도록 합니다.
+3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
-## <a name="step-5-upload-the-policy-to-your-tenant"></a>5단계: 테넌트에 정책 업로드
-1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트](active-directory-b2c-navigate-to-b2c-context.md)로 전환한 다음 **Azure AD B2C**를 선택합니다.
+## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C 응용 프로그램 만들기
 
-2. **ID 경험 프레임워크**를 선택합니다.
+Azure AD B2C와의 통신은 테넌트에 만드는 응용 프로그램을 통해 수행됩니다. 이 섹션에는 아직 만들지 않은 경우 테스트 응용 프로그램을 만들기 위해 완료할 수 있는 선택적 단계가 나와 있습니다.
 
-3. **모든 정책**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+4. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
+5. 응용 프로그램 이름(예: *testapp1*)을 입력합니다.
+6. **웹앱/웹 API**에서 `Yes`를 선택하고 **회신 URL**에 `https://jwt.ms`를 입력합니다.
+7. **만들기**를 클릭합니다.
 
-4. **정책 업로드**를 선택합니다.
+## <a name="update-and-test-the-relying-party-file"></a>신뢰 당사자 파일 업데이트 및 테스트
 
-5. **정책이 있는 경우 덮어쓰기** 확인란을 선택합니다.
+만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
 
-6. *TrustFrameworkBase.xml* 및 *TrustFrameworkExtensions.xml* 파일을 업로드하고, 유효성 검사를 통과했는지 확인합니다.
-
-## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>6단계: 지금 실행을 사용하여 사용자 지정 정책 테스트
-1. **Azure AD B2C 설정**을 선택한 다음 **ID 경험 프레임워크**를 선택합니다.
-
-    >[!NOTE]
-    >지금 실행을 사용하려면 하나 이상의 응용 프로그램이 테넌트에 미리 등록되어 있어야 합니다. 응용 프로그램을 등록하는 방법은 Azure AD B2C [시작](active-directory-b2c-get-started.md) 문서 또는 [응용 프로그램 등록](active-directory-b2c-app-registration.md) 문서를 참조하세요.
-
-2. 업로드한 RP(신뢰 당사자) 사용자 지정 정책인 **B2C_1A_signup_signin**을 연 다음 **지금 실행**을 선택합니다.  
-    이제 LinkedIn 계정을 사용하여 로그인할 수 있어야 합니다.
-
-## <a name="step-7-optional-register-the-linkedin-account-claims-provider-to-the-profile-edit-user-journey"></a>7단계: (선택 사항) 프로필 편집 사용자 경험에 LinkedIn 계정 클레임 공급자 등록
-`ProfileEdit` 사용자 경험에 LinkedIn 계정 ID 공급자를 추가하려고 할 수도 있습니다. 사용자 경험을 사용할 수 있도록 하려면 "4단계"를 반복합니다. 이번에는 `Id="ProfileEdit"`를 포함하는 `<UserJourney>` 노드를 선택합니다. 정책을 저장하고, 업로드하고, 테스트합니다.
-
-## <a name="optional-download-the-complete-policy-files"></a>(선택 사항) 전체 정책 파일 다운로드
-[사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위한 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-li-app)이 제공됩니다.
+1. 작업 디렉터리에서 *SignUpOrSignIn.xml*의 복사본을 만들고 이름을 바꿉니다. 예를 들어 파일 이름을 *SignUpSignInLinkedIn.xml*로 바꿉니다.
+2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예: `SignUpSignInLinkedIn`.
+3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_linkedin`으로 업데이트할 수 있습니다.
+4. 새로 만든 사용자 경험의 ID(SignUpSignLinkedIn)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
+5. 변경 내용을 저장하고 파일을 업로드한 다음 목록에서 새 정책을 선택합니다.
+6. **응용 프로그램 선택** 필드에서 직접 만든 Azure AD B2C 응용 프로그램이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.

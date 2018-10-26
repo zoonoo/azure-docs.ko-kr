@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator 앱으로 암호 없는 Azure AD 로그인(공개 미리 보기)
+title: Microsoft Authenticator 앱(공개 미리 보기)에서 암호 없이 Azure AD에 로그인
 description: Microsoft Authenticator 앱으로 암호를 사용하지 않고 Azure AD에 로그인(공개 미리 보기)
 services: active-directory
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: d348978924b4123944e019ef1a309633ee72b516
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046931"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804330"
 ---
-# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Microsoft Authenticator 앱으로 암호 없는 휴대폰 로그인(공개 미리 보기)
+# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Microsoft Authenticator 앱(공개 미리 보기)에서 암호 없이 휴대폰에 로그인
 
 암호를 사용하지 않고 Microsoft Authenticator 앱을 사용하여 모든 Azure AD 계정에 로그인할 수 있습니다. [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 기술과 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용하여 장치에 연결되고 생체 인식 또는 PIN을 사용하는 사용자 자격 증명을 사용하도록 설정합니다.
 
@@ -37,7 +37,7 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 ### <a name="steps-to-enable"></a>사용하도록 설정하는 단계
 
-1. [Azure Active Directory V2 PowerShell 모듈의 공개 미리 보기 릴리스](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.114)를 설치합니다.  
+1. [Azure Active Directory V2 PowerShell 모듈의 공개 미리 보기 릴리스](https://www.powershellgallery.com/packages/AzureADPreview/)를 설치합니다.  
 2. PowerShell에서 두 명령을 실행합니다.
    1. `Connect-AzureAD`
       1. 인증 대화 상자에서 테넌트의 계정으로 로그인합니다. 계정은 보안 관리자나 글로벌 관리자여야 합니다.

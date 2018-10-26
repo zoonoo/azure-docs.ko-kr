@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: c0326a6b611d5f3d5633db2d2b64b8cdc15e10a7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782167"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816687"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI 콘텐츠 팩 사용 방법
 
@@ -28,50 +28,15 @@ ms.locfileid: "43782167"
 |현재, Azure AD Power BI 콘텐츠 팩은 Azure AD Graph API를 사용하여 Azure AD 테넌트에 데이터를 검색합니다. 결과적으로, 콘텐츠 팩에서 사용할 수 있는 데이터와 [보고용 Microsoft Graph API](concept-reporting-api.md)를 사용하여 검색한 데이터 간에 몇 가지 불일치를 확인할 수 있습니다. |
 |  |
 
-사용자가 Azure Active Directory 기능을 채택하고 사용하는 방법을 이해하는 것은 IT 관리자로서 중요한 일입니다. IT 인프라와 통신을 계획하여 사용량을 늘리고 AAD 기능을 최대한 활용할 수 있습니다. Azure Active Directory용 Power BI 콘텐츠 팩을 통해 사용자는 데이터를 보다 세부적으로 분석하여 이 데이터를 사용하는 방법을 이해하고 Azure Active Directory를 통해 사용자가 크게 의존하는 다양한 기능의 상황에 대해 더 많은 정보를 수집할 수 있습니다.  Azure Active Directory API를 Power BI에 통합하면 미리 빌드된 콘텐츠 팩을 쉽게 다운로드하고 Power BI가 제공하는 풍부한 시각화 환경을 사용하여 Azure Active Directory 내에서 모든 작업에 대한 정보를 얻을 수 있습니다. 사용자 고유의 대시보드를 만들고 조직 내 사람들과 쉽게 공유할 수 있습니다. 
+IT 관리자는 사용자가 Azure Active Directory 기능을 채택하고 사용하는 방식을 파악해야 합니다. 그러면 IT 인프라와 통신을 계획하여 사용량을 늘리고 Azure AD 기능을 최대한 활용할 수 있습니다. Azure Active Directory용 Power BI 콘텐츠 팩을 사용하면 데이터를 추가로 분석하여 디렉터리에서 진행 중인 작업에 대한 더욱 다양한 분석 정보를 수집할 수 있습니다. Azure Active Directory API를 Power BI에 통합하면 미리 빌드된 콘텐츠 팩을 쉽게 다운로드하고 Power BI가 제공하는 풍부한 시각화 환경을 사용하여 Azure Active Directory 내에서 모든 작업에 대한 정보를 얻을 수 있습니다. 사용자 고유의 대시보드를 만들고 조직 내 사람들과 쉽게 공유할 수 있습니다. 
 
-이 항목에서는 사용자 환경에서 콘텐츠 팩을 설치하고 사용하는 방법에 대한 단계별 지침을 제공합니다.
+## <a name="prerequisites"></a>필수 조건
 
-## <a name="installation"></a>설치  
+콘텐츠 팩 사용을 위한 Azure AD Premium(P1/P2) 라이선스가 있어야 합니다. 
 
-**Power BI 콘텐츠 팩을 설치하려면:**
+## <a name="install-the-content-pack"></a>콘텐츠 팩 설치
 
-1. Power BI 계정으로 [Power BI](https://app.powerbi.com/groups/me/getdata/services)에 로그인합니다(이 계정은 O365 계정 또는 Azure AD 계정과 동일).
-
-2. 왼쪽 탐색 창의 아래쪽에서 **데이터 가져오기**를 선택합니다.
-
-    ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/01.png)
- 
-3. **서비스** 상자에서 **가져오기**를 클릭합니다.
-   
-    ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/02.png)
-
-4.  **Azure Active Directory** 검색
-
-    ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/03.png)
- 
-5.  프롬프트가 나타나면 Azure AD 테넌트 ID를 입력한 후 **다음**을 클릭합니다.
-
-    > [!TIP] 
-    > Office 365/Azure AD 테넌트의 테넌트 ID를 가져올 수 있는 빠른 방법은 Azure AD 포털에 로그인하고, 디렉터리로 드릴다운하고, [**속성** 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에서 **디렉터리 ID**를 복사하는 것입니다.
-
-    ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/04.png) 
-
-6.  **로그인**을 클릭합니다. 
- 
-    ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/05.png) 
-
-
-
-7.  사용자 이름 및 암호를 입력한 다음 **로그인**을 클릭합니다.
- 
-    ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/06.png) 
-
-8.  앱 동의 대화 상자에서 **동의**를 클릭합니다.
- 
-9.  Azure Active Directory 작업 로그 대시보드가 만들어지면 이를 클릭합니다.
- 
-    ![Azure Active Directory Power BI 콘텐츠 팩](./media/howto-power-bi-content-pack/08.png) 
+Azure AD Power BI 콘텐츠 팩을 설치하려면 [빠른 시작](quickstart-install-power-bi-content-pack.md)을 확인하세요.
 
 ## <a name="what-can-i-do-with-this-content-pack"></a>이 콘텐츠 팩으로 무엇을 할 수 있습니까?
 
@@ -155,4 +120,6 @@ Power BI 보고서의 매일 새로 고침을 예약하려면 **데이터 집합
 
 ## <a name="next-steps"></a>다음 단계
 
-보고 개요는 [Azure Active Directory 보고](overview-reports.md)를 참조하세요.
+* [Power BI 콘텐츠 팩을 설치합니다](quickstart-install-power-bi-content-pack.md).
+* [콘텐츠 팩 오류 문제를 해결합니다](troubleshoot-content-pack.md).
+* [Azure AD 보고서란?](overview-reports.md)을 확인합니다.

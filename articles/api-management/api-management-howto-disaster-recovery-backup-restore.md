@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046382"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268532"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -74,7 +74,7 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 
 7. 새로 추가된 응용 프로그램 옆에 있는 **위임된 권한**을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
 8. **선택**을 누릅니다.
-9. **사용 권한 부여**를 클릭합니다.
+9. **권한 부여**를 클릭합니다.
 
 ### <a name="configuring-your-app"></a>앱 구성
 
@@ -115,7 +115,7 @@ namespace GetTokenResourceManagerRequests
 
     값이 지정되면 코드 예제에서는 다음 예제와 유사한 토큰을 반환해야 합니다.
 
-    ![신뢰][api-management-arm-token]
+    ![토큰][api-management-arm-token]
 
     > [!NOTE]
     > 토큰은 특정 기간 후에 만료될 수 있습니다. 코드 샘플을 다시 실행하여 새 토큰을 생성합니다.
@@ -204,7 +204,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 > 복원 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성에 적용된 **변경 내용**을 **덮어쓸 수 있습니다**.
 
 > [!NOTE]
-> 백업 및 복원 작업은 각각 Powershell *Backup-AzureRmApiManagement* 및 *Restore-AzureRmApiManagement* 명령을 사용하여 수행할 수도 있습니다.
+> PowerShell *Backup-AzureRmApiManagement* 및 *Restore-AzureRmApiManagement* 명령을 통해 백업 및 복원 작업을 각각 수행할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

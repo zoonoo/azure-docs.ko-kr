@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093621"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044776"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 트리거 및 작업 형식 참조
 
@@ -62,7 +62,7 @@ ms.locfileid: "43093621"
 
 | 값 | type | 설명 | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | 배열 | 워크플로를 실행할 것인지 여부를 결정하는 하나 이상의 [조건](#trigger-conditions)을 포함하는 배열입니다. | 
+| <*array-with-conditions*> | 배열 | 워크플로를 실행할 것인지 여부를 결정하는 하나 이상의 [조건](#trigger-conditions)을 포함하는 배열입니다. 트리거에만 사용 가능합니다. | 
 | <*runtime-config-options*> | JSON 개체 | `runtimeConfiguration` 속성을 설정하여 트리거 런타임 동작을 변경할 수 있습니다. 자세한 내용은 [런타임 구성 설정](#runtime-config-options)을 참조하세요. | 
 | <*splitOn-expression*> | 문자열 | 배열을 반환하는 트리거의 경우, 처리를 위해 여러 워크플로 인스턴스로 배열 항목을 [분할 또는 *분리*](#split-on-debatch)하는 식을 지정할 수 있습니다. | 
 | <*operation-option*> | 문자열 | `operationOptions` 속성을 설정하여 기본 동작을 변경할 수 있습니다. 자세한 내용은 [작업 옵션](#operation-options)을 참조하세요. | 
@@ -657,7 +657,7 @@ ms.locfileid: "43093621"
 
 ## <a name="trigger-conditions"></a>트리거 조건
 
-모든 트리거에 대해, 워크플로의 실행 여부를 결정하는 조건에 대한 하나 이상의 식이 들어 있는 배열을 포함할 수 있습니다. 논리 앱에 `conditions` 속성을 추가하려면 코드 보기 편집기에서 논리 앱을 엽니다.
+트리거의 경우(트리거에 한해) 워크플로의 실행 여부를 결정하는 조건에 대한 하나 이상의 식이 들어 있는 배열을 포함할 수 있습니다. 논리 앱의 트리거에 `conditions` 속성을 추가하려면 코드 보기 편집기에서 논리 앱을 엽니다.
 
 예를 들어, `conditions` 속성에서 트리거의 상태 코드를 참조하여 웹 사이트가 내부 서버 오류를 반환할 때만 트리거가 발생하도록 지정할 수 있습니다.
 
@@ -847,7 +847,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 ### <a name="control-workflow-actions"></a>워크플로 제어 작업
 
-이러한 작업은 워크플로 실행을 제어하고 다른 작업을 포함하도록 도와줍니다. 워크플로 제어 작업 외부에서, 해당 워크플로 제어 작업 내부의 작업을 직접 참조할 수 있습니다. 예를 들어, `Http` 작업이 범위 내에 있는 경우 워크플로의 어디에서든지 `@body('Http')` 식을 참조할 수 있습니다. 그러나 워크플로 제어 작업 내에서 존재하는 작업은 동일한 워크플로 제어 작업 구조 내에 있는 다른 작업 "이후에만 실행"될 수 있습니다.
+이러한 작업은 워크플로 실행을 제어하고 다른 작업을 포함하도록 도와줍니다. 워크플로 제어 작업 외부에서, 해당 워크플로 제어 작업 내부의 작업을 직접 참조할 수 있습니다. 예를 들어, `Http` 작업이 범위 내에 있는 경우 워크플로의 어디에서든지 `@body('Http')` 식을 참조할 수 있습니다. 그러나 워크플로 제어 작업 내에서 존재하는 작업은 동일한 워크플로 제작어 업 구조 내에 있는 다른 작업 "이후에만 실행"될 수 있습니다.
 
 | 작업 유형 | 설명 | 
 |-------------|-------------| 
@@ -1380,7 +1380,7 @@ Azure Logic Apps는 각각이 작업의 고유한 동작을 정의하는 다른 
 
 | 값 | type | 설명 | 
 |-------|------|-------------| 
-| <*response-status-code*> | 정수  | 들어오는 요청으로 전송되는 HTTP 상태 코드입니다. 기본 코드는 "200 정상"이지만 3xxx를 제외하고 2xx, 4xx 또는 5xx로 시작되는 어떤 유효한 상태 코드도 될 수 있습니다. | 
+| <*response-status-code*> | 정수  | 들어오는 요청으로 전송되는 HTTP 상태 코드입니다. 기본 코드는 "200 정상"이지만 3xxx를 제외하고 2xx, 4xx 또는 5xx로시작 되는 어떤 유효한 상태 코드도 될 수 있습니다. | 
 |||| 
 
 *선택 사항*
@@ -2316,9 +2316,9 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 <a name="change-trigger-concurrency"></a>
 
-### <a name="change-trigger-concurrency"></a>트리거 동시성 변경
+### <a name="change-trigger-concurrency"></a>트리거 동시성 변경경
 
-기본적으로 논리 앱 인스턴스는 동시에 또는 병렬로 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 실행됩니다. 따라서 각 트리거 인스턴스는 이전에 활성 상태이던 논리 앱 인스턴스 실행이 완료되기 전에 발생합니다. 이 제한은 백 엔드 시스템에서 수신하는 요청 수를 제한하는 데 도움이 됩니다. 
+기본적으로 논리 앱 인스턴스는 동시에 또는 병렬로 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)까지 실행됩니다. 따라서 각 트리거 인스턴스는 이전 논리 앱 인스턴스 실행이 완료되기 전에 실행됩니다. 이 제한은 백 엔드 시스템에서 수신하는 요청 수를 제한하는 데 도움이 됩니다. 
 
 디자이너를 통해 동시성 설정을 변경하면 기본 트리거 정의에서 `runtimeConfiguration.concurrency.runs` 속성이 추가 또는 업데이트되고, 그 반대의 경우도 마찬가지이므로 기본 제한을 변경하려면 코드 보기 편집기 또는 Logic Apps 디자이너를 사용할 수 있습니다. 이 속성은 병렬로 실행할 수 있는 논리 앱 인스턴스의 최대 수를 제어합니다. 
 
@@ -2385,7 +2385,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 #### <a name="edit-in-logic-apps-designer"></a>Logic Apps 디자이너에서 편집
 
-1. **For each** 작업의 오른쪽 위 모서리에서 줄임표 단추 (...)를 선택한 다음, **설정**을 선택합니다.
+1. **For each** 작업의 오른쪽 위 모서리에서 줄임표(...) 단추를 선택하고 **설정**을 선택합니다.
 
 2. **동시성 제어** 아래에서 **기본값 재정의**를 **설정**으로 지정합니다. 
 
@@ -2399,7 +2399,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 
 대기할 수 있는 실행 수에도 [기본 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 있습니다. 이 제한은 변경 가능합니다. 그러나 논리 앱이 대기 중인 실행 한도에 도달하면 Logic Apps 엔진은 새 실행을 더 이상 허용하지 않습니다. 요청 및 웹후크 트리거는 429 오류를 반환하며, 되풀이 트리거는 폴링 시도를 건너뛰기 시작합니다.
 
-대기 중인 실행에 대한 기본 제한을 변경하려면 기본 트리거 정의에서 `0` 및 `100` 사이의 `runtimeConfiguration.concurency.maximumWaitingRuns` 속성을 추가하거나 이 속성을 해당 값으로 설정합니다. 
+대기 중인 실행에 대한 기본 제한을 변경하려면 기본 트리거 정의에서 값이 `0`~`100` 사이인 `runtimeConfiguration.concurency.maximumWaitingRuns` 속성을 추가합니다. 
 
 ```json
 "<trigger-name>": {

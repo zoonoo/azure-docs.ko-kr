@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e9598cb464360e35a86b6fe35d8c965a5e7fb51d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a2a9845f82f1a81f3e187edbbb2deaa2300b3be
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963035"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585920"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>방법: ADAL을 사용하여 iOS에서 앱 간 SSO를 사용하도록 설정
 
@@ -250,7 +250,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 1. MS SDK에 대한 응용 프로그램 코드의 호출에서 브로커 모드를 활성화합니다.
 2. 새 리디렉션 URI를 설정하고 앱과 앱 등록에 이를 제공합니다.
 3. URL 구성표 등록.
-4. iOS9 지원: info.plist 파일에 권한을 추가합니다.
+4. info.plist 파일에 권한을 추가합니다.
 
 #### <a name="step-1-enable-broker-mode-in-your-application"></a>1단계: 응용 프로그램에서 브로커 모드 활성화
 
@@ -307,12 +307,16 @@ ID 플랫폼은 URL을 사용하여 브로커를 호출한 다음, 응용 프로
 
 예: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>4단계: iOS9: 앱에 구성 매개 변수 추가
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>4단계: 앱에 구성 매개 변수 추가
 
-ADAL은 canOpenURL을 사용하여 브로커가 장치에 설치되어 있는지 확인합니다. iOS 9에서 Apple은 응용 프로그램에서 쿼리할 수 있는 구성표를 잠궜습니다. `info.plist file`의 LSApplicationQueriesSchemes 섹션에 "Msauth"를 추가해야 합니다.
+ADAL은 canOpenURL을 사용하여 브로커가 장치에 설치되어 있는지 확인합니다. iOS 9에서 Apple은 응용 프로그램에서 쿼리할 수 있는 구성표를 잠갔습니다. `info.plist file`의 LSApplicationQueriesSchemes 섹션에 "Msauth"를 추가해야 합니다.
 
 ```
-<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>msauth</string>
+    </array>
+
 ```
 
 ### <a name="youve-configured-sso"></a>SSO를 구성했습니다.

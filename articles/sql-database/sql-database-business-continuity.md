@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b6708dac548db9e11d1092a6b84083d057401176
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221150"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237673"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
@@ -45,7 +45,7 @@ SQL Database는 이러한 시나리오를 완화할 수 있는 자동화된 백�
  - [기본 제공 자동화된 백업](sql-database-automated-backups.md) 및 [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 사용하면 전체 데이터베이스를 지난 35일 이내의 특정 시점으로 복원할 수 있습니다.
  - **논리 서버가 삭제되지 않은 경우** [삭제된 데이터베이스를 삭제된 시점으로 복원](sql-database-recovery-using-backups.md#deleted-database-restore)할 수 있습니다.
  - [장기 백업 보존](sql-database-long-term-retention.md)을 사용하면 백업을 최대 10년 동안 유지할 수 있습니다.
- - [지역 복제](sql-database-geo-replication-overview.md)를 사용하면 데이터 센터 규모 중단 시 응용 프로그램에서 빠른 재해 복구를 수행할 수 있습니다.
+ - [자동 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md#auto-failover-group-capabilities)을 사용하면 데이터 센터 규모 중단 시 응용 프로그램에서 빠른 재해 복구를 수행할 수 있습니다.
 
 이러한 기능은 최근 트랜잭션에 대한 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성을 갖습니다. 이러한 옵션을 이해하면 적절한 옵션을 선택할 수 있습니다. 대부분의 시나리오에서 이러한 옵션을 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트가 발생한 후 응용 프로그램이 완전히 복구되기까지 허용되는 최대 시간을 이해해야 합니다. 응용 프로그램을 완전히 복구하는 데 필요한 시간을 RTO(복구 시간 목표)라고 합니다. 또한 중단 이벤트가 발생한 후 복구될 때 응용 프로그램에서 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 기간(시간 간격)도 이해해야 합니다. 손실될 수 있는 업데이트 기간을 RPO(복구 지점 목표)라고 합니다.
 
@@ -54,9 +54,8 @@ SQL Database는 이러한 시나리오를 완화할 수 있는 자동화된 백�
 | 기능 | Basic | Standard | Premium  | 범용 | 중요 비즈니스용
 | --- | --- | --- | --- |--- |--- |
 | 백업에서 특정 시점 복원 |7일 이내의 모든 복원 지점 |35일 이내의 모든 복원 지점 |35일 이내의 모든 복원 지점 |구성된 기간 이내의 모든 복원 지점(최대 35일)|구성된 기간 이내의 모든 복원 지점(최대 35일)|
-| 지리적으로 복제된 백업에서 지역 복원 |ERT 12시간 미만, RPO 1시간 미만 |ERT 12시간 미만, RPO 1시간 미만 |ERT 12시간 미만, RPO 1시간 미만 |ERT 12시간 미만, RPO 1시간 미만|ERT 12시간 미만, RPO 1시간 미만|
-| SQL 장기 보존에서 복원 |ERT 12시간 미만, RPO 1주 미만 |ERT 12시간 미만, RPO 1주 미만 |ERT 12시간 미만, RPO 1주 미만 |ERT 12시간 미만, RPO 1주 미만|ERT 12시간 미만, RPO 1주 미만|
-| 활성 지역 복제 |ERT < 30초, RPO < 5초 |ERT 30초 미만, RPO 5초 미만 |ERT 30초 미만, RPO 5초 미만 |ERT 30초 미만, RPO 5초 미만|ERT 30초 미만, RPO 5초 미만|
+| 지리적으로 복제된 백업에서 지역 복원 |ERT < 12시간<br> RPO < 1시간 |ERT < 12시간<br>RPO < 1시간 |ERT < 12시간<br>RPO < 1시간 |ERT < 12시간<br>RPO < 1시간|ERT < 12시간<br>RPO < 1시간|
+| 자동 장애 조치 그룹 |RTO = 1시간<br>RPO 5초 미만 |RTO = 1시간<br>RPO 5초 미만 |RTO = 1시간<br>RPO 5초 미만 |RTO = 1시간<br>RPO 5초 미만|RTO = 1시간<br>RPO 5초 미만|
 
 ## <a name="recover-a-database-to-the-existing-server"></a>기존 서버에 데이터베이스 복구
 
@@ -73,7 +72,8 @@ SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 �
 * 데이터 변경(시간당 낮은 트랜잭션) 속도가 느리고, 최대 1시간의 데이터 변경 내용 손실은 비교적 허용 가능한 데이터 손실에 해당합니다.
 * 비용에 민감합니다.
 
-빠른 복구가 필요한 경우 [활성 지역 복제](sql-database-geo-replication-overview.md)(다음에 설명)를 사용합니다. 35일이 지난 기간에서 데이터를 복구해야 하는 경우 [장기 보존](sql-database-long-term-retention.md)을 사용합니다. 
+더 빠른 복구가 필요한 경우 [장애 조치(failover) 그룹](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
+)(다음에 설명)을 사용합니다. 35일이 지난 기간에서 데이터를 복구해야 하는 경우 [장기 보존](sql-database-long-term-retention.md)을 사용합니다. 
 
 ## <a name="recover-a-database-to-another-region"></a>데이터베이스를 다른 지역으로 복구
 <!-- Explain this scenario -->
@@ -82,9 +82,7 @@ SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 �
 
 * 한 가지 방법은 데이터 센터 가동 중단이 끝날 때 데이터베이스가 다시 온라인 상태가 될 때까지 기다리는 것입니다. 이러한 방법은 데이터베이스의 오프라인 유지가 가능한 응용 프로그램에 적합합니다. 예를 들어 지속적으로 작업할 필요가 없는 개발 프로젝트 또는 무료 평가판이 있습니다. 데이터 센터가 가동 중단되면 중단이 얼마나 지속될지 알 수 없으므로 이 옵션은 잠시 데이터베이스가 필요 없어도 되는 경우에만 적합합니다.
 * 또 다른 옵션은 [지역 중복 데이터베이스 백업](sql-database-recovery-using-backups.md#geo-restore)(지역 복원)을 사용하여 모든 Azure 지역의 모든 서버에서 데이터베이스를 복원하는 것입니다. 지리적 복원은 지역 중복 백업을 해당 원본으로 사용하고 가동 중단으로 인해 데이터베이스 또는 데이터 센터에 액세스할 수 없는 경우에도 데이터베이스를 복구하는 데 사용될 수 있습니다.
-* 마지막으로, 다른 데이터 영역의 보조 데이터베이스를 신속하게 승격하여 주 데이터베이스가 되도록 하고(장애 조치라고도 함), 활성 지역 복제를 사용하는 경우 응용 프로그램에서 승격된 주 데이터베이스에 연결하도록 구성할 수 있습니다. 비동기 복제의 특성으로 인해 최근 트랜잭션에 약간의 데이터 손실이 있을 수 있습니다. 자동 장애 조치(failover) 그룹을 사용하여 잠재적 데이터 손실을 최소화하도록 장애 조치(failover) 정책을 사용자 지정할 수 있습니다. 모든 경우에 사용자는 적은 양의 가동 중지 시간을 경험하며 다시 연결해야 합니다. 백업에서 데이터베이스를 복구하는 데는 몇 시간이 걸리지만 장애 조치는 몇 초면 끝납니다.
-
-다른 지역으로 장애 조치하려면 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용하여 선택한 지역에 최대 4개의 읽기 가능한 보조 데이터베이스가 포함되도록 데이터베이스를 구성할 수 있습니다. 이러한 보조 데이터베이스는 비동기 복제 메커니즘을 사용하여 주 데이터베이스와 동기화된 상태를 유지합니다. 
+* 마지막으로, 데이터베이스 하나 이상에 대해 [자동 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md#auto-failover-group-capabilities)을 구성한 경우 가동 중단 시 빠르게 복구할 수 있습니다. 자동 또는 수동 장애 조치(failover)를 사용하도록 장애 조치(failover) 정책을 사용자 지정할 수 있습니다. 장애 조치(failover) 자체는 몇 초밖에 걸리지 않지만 서비스에서 장애 조치(failover)를 활성화하려면 최소 1시간이 걸립니다. 가동 중단 규모가 장애 조치(failover)를 수행하기에 적합한지를 확인해야 하기 때문입니다. 또한 비동기 복제의 특성상 장애 조치(failover)로 인해 데이터가 약간 손실될 수도 있습니다. 자동 장애 조치(failover) RTO 및 RPO 세부 정보는 이 문서 앞부분의 표를 참조하세요.   
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -94,12 +92,12 @@ SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 �
 > 활성 지역 복제 및 자동 장애 조치(failover) 그룹을 사용하려면 SQL Server에서 구독 소유자이거나 관리 권한을 보유해야 합니다. 구독에 대한 권한을 통해 Azure Portal, PowerShell 또는 REST API를 사용하거나, Azure 구독 사용 권한을 사용하거나, SQL Server 사용 권한이 있는 Transact-SQL을 사용하여 구성하고 장애 조치할 수 있습니다.
 > 
 
-이 기능은 데이터 센터 가동 중단 발생 시 또는 응용 프로그램 업그레이드 기간에 업무 중단을 방지하기 위해 사용됩니다. 자동화된 투명 장애 조치(failover)를 사용하려면 SQL Database의 [자동 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md) 기능을 사용하여 지역에서 복제된 데이터베이스를 그룹으로 구성해야 합니다. 응용 프로그램이 다음 조건에 맞는 경우, 활성 지역 복제 및 자동 장애 조치(failover) 그룹을 사용합니다.
+응용 프로그램이 다음 조건에 맞는 경우 활성 자동 장애 조치(failover) 그룹을 사용합니다.
 
 * 중요 업무용입니다.
-* 24시간 이상의 가동 중지 시간을 허용하지 않는 SLA(서비스 수준 약정)가 있습니다.
+* 12시간 이상의 가동 중지 시간을 허용하지 않는 SLA(서비스 수준 약정)가 있습니다.
 * 가동 중지는 재무적 책임을 유발할 수 있습니다.
-* 데이터 변경 속도가 높고 1시간에 해당하는 데이터 손실은 허용할 수 없는 수준입니다.
+* 데이터 변경률이 높고 1시간에 해당하는 데이터 손실은 허용할 수 없는 수준입니다.
 * 활성 지역 복제를 사용할 때 발생하는 추가적인 비용이 잠재적인 재무적 책임과 연계된 비즈니스 손실보다 낮습니다.
 
 작업을 수행하는 시기, 복구하는 데 걸리는 시간 및 발생하는 데이터 손실의 양은 응용 프로그램에서 비즈니스 연속성 기능을 어떤 방법으로 사용할 것인지에 따라 달라집니다. 실제로 응용 프로그램 요구 사항에 따라 데이터베이스 백업 및 활성 지역 복제를 함께 사용하도록 선택할 수 있습니다. 이러한 비즈니스 지속성 기능을 사용하는 독립 실행형 데이터베이스 및 탄력적 풀에 대한 응용 프로그램 디자인 고려 사항에 대한 논의는 [클라우드 재해 복구를 위한 응용 프로그램 디자인](sql-database-designing-cloud-solutions-for-disaster-recovery.md) 및 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
@@ -136,6 +134,11 @@ SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 �
 * 적절한 로그인 및 master 데이터베이스 수준 사용 권한이 설정되었는지 확인합니다(또는 [포함된 사용자](https://msdn.microsoft.com/library/ff929188.aspx)사용).
 * 필요에 따라 감사를 구성합니다.
 * 필요에 따라 경고를 구성합니다.
+
+> [!NOTE]
+> 장애 조치(failover) 그룹을 사용 중이며 읽기-쓰기 수신기를 사용하여 데이터베이스에 연결하는 경우에는 장애 조치(failover) 후의 리디렉션이 응용 프로그램에 투명하게 자동으로 수행됩니다.  
+>
+>
 
 ## <a name="upgrade-an-application-with-minimal-downtime"></a>최소 가동 중단으로 응용 프로그램 업그레이드
 응용 프로그램 업그레이드와 같은 계획된 유지 관리로 인해 응용 프로그램을 오프라인 상태로 전환해야 하는 경우도 있습니다. [응용 프로그램 업그레이드 관리](sql-database-manage-application-rolling-upgrade.md) 에서는 활성 지역 복제를 사용하여 클라우드 응용 프로그램의 롤링 업그레이드를 사용하도록 설정함으로써 업그레이드 기간에 가동 중지 시간을 최소화하고 오류가 발생한 경우 복구 경로를 제공하는 방법을 설명합니다. 

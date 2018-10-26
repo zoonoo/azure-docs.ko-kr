@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d06d29fb43ea8d8971c3f013c1e66406a30798d3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 738e78e608dbd819f24125799a1e8d48859f1aa0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064259"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043674"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -29,7 +29,7 @@ Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 �
 
 다음 단계를 사용하여 Azure Portal에서 성능 권장 사항을 찾을 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스** > **SQL 데이터베이스**로 이동한 다음, 데이터베이스를 선택합니다.
 3. **성능 권장 사항**으로 이동하여 선택된 데이터베이스의 사용 가능한 권장 사항을 봅니다.
 
@@ -105,7 +105,7 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
     ![권장된 인덱스](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> 현재 **DROP_INDEX** 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 응용 프로그램과 호환되지 않으므로 이러한 경우에는 사용하도록 설정해서는 안 됩니다.
+> **DROP_INDEX** 옵션은 현재 파티션 전환 및 인덱스 힌트를 사용하는 응용 프로그램과 호환되지 않습니다. 
 >
 
 원하는 구성을 선택한 후 적용을 클릭합니다.

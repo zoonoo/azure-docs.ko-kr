@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 10/10/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a9a4b7728eff3057b9677d12df51cc8c477744ca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cc206e1134fe6df0280512e89447336a32a2d810
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953942"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068369"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
@@ -57,6 +57,8 @@ Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하�
 ## <a name="requirements-for-virtual-network-configuration"></a>가상 네트워크 구성 요구 사항
 -   `Microsoft.Batch`가 Azure-SSIS IR을 호스팅하는 가상 네트워크 서브넷의 구독에 속한 등록된 공급자인지 확인합니다. 클래식 가상 네트워크를 사용하는 경우 `MicrosoftAzureBatch`도 해당 가상 네트워크에 대한 클래식 Virtual Machine 기여자 역할에 조인합니다. 
 
+-   필요한 권한이 있는지 확인하세요. [필요한 권한](#perms)을 참조하세요.
+
 -   Azure-SSIS IR을 호스팅할 적절한 서브넷을 선택합니다. [서브넷 선택](#subnet)을 참조하세요. 
 
 -   가상 네트워크에서 고유한 DNS(도메인 이름 서비스) 서버를 사용하는 경우 [도메인 이름 서비스 서버](#dns_server)를 참조하세요. 
@@ -66,6 +68,18 @@ Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하�
 -   Azure Express Route를 사용하거나 UDR(사용자 정의 경로)을 구성하는 경우 [Azure ExpressRoute 또는 사용자 정의 경로](#route)를 참조하세요. 
 
 -   가상 네트워크의 리소스 그룹에서 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인합니다. [리소스 그룹 요구 사항](#resource-group)을 참조하세요. 
+
+### <a name="perms"></a> 필요한 권한
+
+Azure-SSIS 통합 런타임을 만드는 사용자에게는 다음 권한이 있어야 합니다.
+
+- 현재 버전의 Azure 가상 네트워크에 SSIS IR을 연결하는 경우 다음의 두 가지 옵션을 사용할 수 있습니다.
+
+  - 기본 제공 역할인 *네트워크 참가자*를 사용합니다. 그러나 이 역할을 사용하는 경우에는 범위가 훨씬 넓은 *Microsoft.Network/\** 권한이 필요합니다.
+
+  - *Microsoft.Network/virtualNetworks/\*/join/action* 권한을 포함하는 사용자 지정 역할을 만듭니다. 
+
+- 클래식 Azure 가상 네트워크에 SSIS IR을 연결하는 경우에는 기본 제공 역할 *클래식 가상 컴퓨터 참가자*를 사용하는 것이 좋습니다. 그렇지 않은 경우에는 가상 네트워크 연결 권한이 포함된 사용자 지정 역할을 정의해야 합니다.
 
 ### <a name="subnet"></a> 서브넷 선택
 -   GatewaySubnet은 가상 네트워크 게이트웨이 전용이므로 Azure SSIS Integration Runtime을 배포할 때는 선택하지 마세요. 

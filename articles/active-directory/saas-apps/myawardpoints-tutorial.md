@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e3e3ff05836cb49d46a25ef3fa55d40a0bd134f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184556"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>자습서: My Award Points Top Sub/Top Team과 Azure Active Directory 통합
 
@@ -50,7 +50,8 @@ My Award Points Top Sub/Top Team과 Azure AD 통합을 구성하려면 다음 �
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 My Award Points Top Sub/Top Team 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -112,7 +113,7 @@ My Award Points Top Sub/Top Team에서 Azure AD Single Sign-On을 구성하고 �
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
     > [!NOTE]
-    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. [My Award Points Top Sub/Top Team 클라이언트 지원 팀](mailto:myawardpoints@biworldwide.com)에 연락하여 이 값을 가져옵니다.
+    > `<SAMLENTITYID>` 값은 이 자습서의 이후 단계에서 가져옵니다.
 
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -122,7 +123,9 @@ My Award Points Top Sub/Top Team에서 Azure AD Single Sign-On을 구성하고 �
 
     ![Single Sign-On 구성 저장 단추](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
-6. **My Award Points Top Sub/Top Team** 쪽에서 Single Sign-On을 구성하려면 다운로드된 **메타데이터 XML**을 [My Award Points Top Sub/Top Team 지원 팀](mailto:myawardpoints@biworldwide.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+6. **My Award Points Top Sub/Top Team 구성** 섹션에서 **My Award Points Top Sub/Top Team 구성**을 선택하여 로그온 구성 창을 엽니다. **빠른 참조** 섹션에서 SAML 엔터티 ID를 복사한 다음 Azure Portal의 **My Award Points Top Sub/Top Team 도메인 및 URL** 섹션에서 `<SAMLENTITYID>` 대신 SAML 엔터티 ID 값과 로그온 URL을 추가합니다.
+
+7. **My Award Points Top Sub/Top Team** 쪽에서 Single Sign-On을 구성하려면 다운로드된 **메타데이터 XML**을 [My Award Points Top Sub/Top Team 지원 팀](mailto:myawardpoints@biworldwide.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
