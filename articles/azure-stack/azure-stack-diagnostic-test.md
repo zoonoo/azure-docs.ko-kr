@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 4f95fb5f2199e8c276b78a83391f3814303a9470
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 671818ca8f8fa07b506252d5d4d0c7a768577b19
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024622"
+ms.locfileid: "50087477"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure Stack에 대 한 유효성 검사 테스트를 실행 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "50024622"
     3. 관리자 권한으로 PowerShell을 엽니다.
     4. 실행: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. 실행: `Test-AzureStack`
-4. 테스트 실패를 보고 하는 경우 실행: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdlet 테스트-azurestack의 경우에서 로그를 수집 합니다. 진단 로그에 대 한 자세한 내용은 참조 하세요. [진단 도구를 Azure Stack](azure-stack-diagnostics.md)합니다. 하지 로그를 수집 하거나 테스트 경고를 보고 하는 경우 Microsoft 고객 서비스 지원 (CSS)에 문의 해야 합니다.
+4. 모든 테스트에서 보고 하는 경우 **실패**실행: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdlet 테스트-azurestack의 경우에서 로그를 수집 합니다. 진단 로그에 대 한 자세한 내용은 참조 하세요. [진단 도구를 Azure Stack](azure-stack-diagnostics.md)합니다. 로그를 수집 하거나 하는 경우 Microsoft 고객 서비스 지원 (CSS)에 문의 해야 테스트에서 보고 **경고**합니다.
 5. 전송 합니다 **SeedRing** Microsoft 고객 서비스 지원에 로그 합니다. Microsoft 고객 서비스 지원 문제를 해결 하는 작동 합니다.
 
 ## <a name="reference-for-test-azurestack"></a>테스트-azurestack의 경우에 대 한 참조

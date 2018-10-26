@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 683efc6f772337754fc21a1e486d35b7f92e8f81
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268532"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428252"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -122,7 +122,7 @@ namespace GetTokenResourceManagerRequests
 
 ## <a name="calling-the-backup-and-restore-operations"></a>백업 및 복원 작업 호출
 
-REST API는 [API Management 서비스 - 백업](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) 및 [API Management 서비스 - 복원](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore)입니다.
+REST API는 [API Management 서비스 - 백업](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_backup) 및 [API Management 서비스 - 복원](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_restore)입니다.
 
 다음 섹션에서 설명한 "백업 및 복원 작업"을 호출하기 전에 REST 호출에 대한 권한 부여 요청 헤더를 설정합니다.
 

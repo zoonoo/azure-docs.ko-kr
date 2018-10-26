@@ -5,22 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 9B51A3FB-EEFC-4CD8-84A8-38C52CFAD2E4
-ms.service: azure-stack
+mss.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/10/2018
+ms.date: 10/25/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 9f2668ff84ade4ba99b7aa7dcd67feafadc1c6c4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 4cb8ffe218ef1cd64b93201eddbbd09bb16026db
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377839"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087392"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>인프라 백업 서비스를 사용 하 여 Azure Stack에 대 한 백업 및 데이터 복구
 
@@ -33,7 +31,7 @@ ms.locfileid: "44377839"
 백업 서비스를 사용 하기 전에 했는지 [위치에 대 한 요구 사항](#verify-requirements-for-the-infrastructure-backup-service)합니다.
 
 > [!Note]  
-> 사용자 데이터 및 응용 프로그램 인프라 Backup 서비스가 포함 되지 않습니다. 백업에 대 한 지침은 다음 문서를 참조 하 고 복원 [App Services](https://aka.ms/azure-stack-app-service)하십시오 [SQL](https://aka.ms/azure-stack-ms-sql), 및 [MySQL](https://aka.ms/azure-stack-mysql) 리소스 공급자 및 연결 된 사용자 데이터...
+> 사용자 데이터 및 응용 프로그램 인프라 Backup 서비스가 포함 되지 않습니다. <!-- See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL](https://aka.ms/azure-stack-mysql) resource providers and associated user data. -->
 
 ## <a name="the-infrastructure-backup-service"></a>인프라 백업 서비스
 

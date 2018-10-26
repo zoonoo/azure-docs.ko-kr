@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815871"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957992"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -96,7 +96,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 
 서비스 주체 기반의 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
-1. Azure Portal에서 **[Azure Active Directory 응용 프로그램을 만듭니다](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 응용 프로그램 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
+1. Azure Portal에서 **[Azure Active Directory 응용 프로그램을 만듭니다](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**. 응용 프로그램 이름 및 연결된 서비스를 정의하는 다음 값을 적어 둡니다.
 
     - 응용 프로그램 UI
     - 응용 프로그램 키
@@ -146,7 +146,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 }
 ```
 
-### <a name="managed-identity"></a> Azure 리소스 인증용 관리 ID
+### <a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
 
 특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. Azure SQL Database 인증에 이 서비스 ID를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터베이스의 데이터에 액세스하고 복사할 수 있습니다.
 

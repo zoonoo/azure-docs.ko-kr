@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946116"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087287"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
 사용 된 **Service Fabric 클러스터** Azure Stack에서 보안된 Service Fabric 클러스터를 배포 하려면 Azure Marketplace에서 항목입니다. 
 
 Service Fabric을 사용 하 여 작업에 대 한 자세한 내용은 참조 하세요. [Azure Service Fabric의 개요](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) 하 고 [Service Fabric 클러스터 보안 시나리오](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), Azure 설명서에서.
+
+Azure Stack에서 Service Fabric 클러스터는 Microsoft.ServiceFabric 리소스 공급자를 사용 하지 않습니다. 대신, Azure Stack에서 Service Fabric 클러스터는 Desired State Configuration (DSC)를 사용 하 여 설정 하는 사전 설치 된 소프트웨어를 사용 하 여 설정 하는 가상 머신 확장 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

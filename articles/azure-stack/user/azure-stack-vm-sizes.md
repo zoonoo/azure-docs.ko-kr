@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945895"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087494"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack에서 지원 되는 가상 머신 크기
 
@@ -31,6 +31,10 @@ ms.locfileid: "49945895"
 범용 VM 크기는 분산 된 CPU 대 메모리 비율을 제공합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버 사용 됩니다.
 
 ### <a name="basic-a"></a>Basic A
+
+> [!NOTE]
+> *기본 A* 가상 머신 크기에 대 한 현재 퇴직 [virtual machine scale sets 만들기](../azure-stack-compute-add-scalesets.md) (VMSS) 포털을 통해. 이 크기를 사용 하 여 VMSS를 만들려면, PowerShell 또는 템플릿을 사용 합니다.
+
 |Size - Size\Name |vCPU     |메모리 | 최대 임시 디스크 크기 | 최대 OS 디스크 처리량: IOPS | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크 처리량 (IOPS) | 최대 NIC 수 |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20GB   |300  | 300  |1 / 1 x 300  |1   |

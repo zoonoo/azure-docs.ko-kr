@@ -9,22 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: e2b441e0266ac397226b783c66df4ca54e0b3f71
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 72b2c630c514190d2c63e3dd7faa29b0b3abab19
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870165"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944564"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 데이터 로드
 
 이 문서에서는 Data Factory를 사용하여 _Office 365에서 Azure Blob Storage로 데이터를 로드_하는 방법을 설명합니다. Azure Data Lake Gen1 또는 Gen2로 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다. Office 365에서 데이터를 복사하는 작업과 관련된 일반 정보는 [Office 365 커넥터 문서](connector-office-365.md)를 참조하세요.
-
-Data Factory를 Office 365 데이터에 연결하는 방법에 대한 9분 길이의 소개 및 데모를 보려면 다음 비디오를 시청하세요.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 

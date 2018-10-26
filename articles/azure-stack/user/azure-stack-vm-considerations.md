@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: f1088e63b33d7c0a00777d7a06e6e80244acc84d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: cb02ecb06728f5f36a0d51a3ec22cc8ba5cb44e7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954862"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094758"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack에서 virtual machines 사용 시 고려 사항
 
@@ -37,7 +37,7 @@ Azure Stack virtual machines는 주문형으로 확장 가능한 컴퓨팅 리�
 | 가상 머신 확장 |Azure는 다양 한 가상 머신 확장을 지원합니다. 사용 가능한 확장에 대 한 자세한 내용은 참조는 [가상 머신 확장 및 기능](../../virtual-machines/windows/extensions-features.md) 문서.| Azure Stack Azure에서 사용할 수 있는 확장의 하위 집합을 지원 하 고 확장의 각 특정 버전이 있습니다. Azure Stack 클라우드 관리자가 사용자에 게 사용할 수 있는 확장을 선택할 수 있습니다. 지원 되는 확장 목록을 보려면를 참조 합니다 [가상 머신 확장](#virtual-machine-extensions) 이 문서의 섹션입니다. |
 | 가상 머신 네트워크 | 테 넌 트 가상 컴퓨터에 할당 된 공용 IP 주소는 인터넷을 통해 액세스할 수 있습니다.<br><br><br>Azure 가상 컴퓨터의 고정된 DNS 이름 | 테 넌 트 가상 컴퓨터에 할당 된 공용 IP 주소는 Azure Stack 개발 키트 환경만 액세스할 수 있습니다. 사용자를 통해 Azure Stack 개발 키트에 액세스할 수 있어야 합니다. [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 하거나 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) Azure Stack에서 만든 가상 머신에 연결 합니다.<br><br>특정 Azure Stack 인스턴스 내에서 만든 가상 컴퓨터는 클라우드 관리자가 구성한 값을 기반으로 DNS 이름이 있어야 합니다. |
 | 가상 머신 저장소 | 지원 [디스크를 관리 합니다.](../../virtual-machines/windows/managed-disks-overview.md) | Managed disks는 1808 이상 버전을 사용 하 여 Azure Stack에서 지원 됩니다. |
-| 가상 머신 디스크 성능 | 디스크 유형 및 크기에 따라 달라 집니다. | 디스크를 사용 하 여 VM의 VM 크기에 따라 달라 집니다 참조에 연결 된 합니다 [Azure Stack에서 지원 되는 가상 머신 크기](azure-stack-vm-sizes.md) 문서.
+| 가상 머신 디스크 성능 | 디스크 유형 및 크기에 따라 달라 집니다. | 디스크가 연결 된 VM의 VM 크기에 따라 달라 집니다를 참조 하는 [Azure Stack에서 지원 되는 가상 머신 크기](azure-stack-vm-sizes.md) 문서.
 | API 버전 | Azure는 항상 모든 가상 머신 기능에 대 한 최신 API 버전을 가집니다. | Azure Stack 이러한 서비스에 대 한 특정 Azure 서비스 및 특정 API 버전을 지원합니다. 지원 되는 API 버전의 목록을 보려면를 참조 합니다 [API 버전](#api-versions) 이 문서의 섹션입니다. |
 |가상 컴퓨터 가용성 집합|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인<br>관리 되는 디스크 지원|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인 (최대 20)<br>관리 디스크 지원 되지 않습니다|
 |가상 머신 크기 집합|자동 크기 조정 지원|자동 크기 조정 지원 되지 않습니다.<br>확장 집합 포털, Resource Manager 템플릿 또는 PowerShell을 사용 하 여에 더 많은 인스턴스를 추가 합니다.

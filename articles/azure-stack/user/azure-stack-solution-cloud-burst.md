@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 1f3dcc7da3e91d3805cae805422778978d0187c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971334"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095341"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>자습서: Azure와 클라우드 간 크기 조정 솔루션 만들기
 
@@ -101,7 +101,7 @@ Azure 및 Azure Stack에 웹 앱을 배포 하려면 하이브리드 연속 통�
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Visual Studio 팀에 코드 추가 Services 프로젝트
 
-1. 로그인 Visual Studio Team Services (VSTS)을를 VSTS에 대 한 프로젝트 만들기 권한이 있는 계정으로~~입니다.~~
+1. VSTS에 대 한 프로젝트 만들기 권한이 있는 계정으로 Visual Studio Team Services (VSTS)을 하에 로그인 합니다.
 
     CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용할 수 있습니다. 사용 하 여 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/) 모두 사설 및 호스트 된 클라우드 개발에 대 한 합니다.
 
@@ -236,7 +236,7 @@ Visual Studio Team Services 및 Team Foundation Server (TFS)는 항상 구성 �
 
 1.  VSTO에 로그인 하 고 앱 설정 페이지로 이동 합니다.
 
-2.  온 **설정을**를 선택 **보안**합니다.
+2.  **설정**에서 **보안**을 선택합니다.
 
 3.  **VSTS 그룹**를 선택 **의해 끝점 작성자**합니다.
 

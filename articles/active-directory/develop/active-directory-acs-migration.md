@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 4fd7617bf45608cdae15919a40920ea0d214acb8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249437"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407474"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -225,7 +225,7 @@ WS-Federation 또는 WIF를 사용하여 Azure AD와 통합하려면 [비갤러�
 
 또 다른 방법은 [이 코드 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation)을 따르는 것입니다. 코드 샘플에서는 Ws-Federation을 설정하는 다른 방법을 설명합니다. 코드 샘플에서는 WIF가 아닌 ASP.NET 4.5 OWIN 미들웨어를 사용하지만 WIF를 사용하는 앱에서도 유효한 앱 등록 방법을 사용할 수 있으며, 이때 Azure AD Premium 라이선스가 필요하지 않습니다. 
 
-이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요 정보](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx)를 참조하세요.
+이 방법을 선택한 경우에는 [Azure AD의 서명 키 롤오버](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover)에 대해 이해해야 합니다. 이 방법에서는 Azure AD 글로벌 서명 키를 사용하여 토큰을 발행합니다. 기본적으로 WIF는 자동으로 서명 키를 업데이트하지 않습니다. Azure AD가 글로벌 서명 키를 교대시킬 때 변화된 사항이 적용될 수 있도록 WIF 구현이 준비가 되어 있어야 합니다. 자세한 내용은 [Azure AD의 서명 키 롤오버에 대한 중요 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)를 참조하세요.
 
 OpenID Connect 또는 OAuth 프로토콜을 통해 Azure AD와 통합할 수 있다면 그렇게 하는 것이 좋습니다. [Azure AD 개발자 가이드](https://aka.ms/aaddev)에서 웹 응용 프로그램에 Azure AD를 통합하는 방법에 대한 방대한 설명서와 자료를 확인할 수 있습니다.
 

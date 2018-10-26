@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: f573dba2e7580d58c295d204fc75e2403c0d033c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241850"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945555"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>VS Code Tools for AI: Visual Studio Code에서 Azure Machine Learning 시작
 
@@ -34,7 +34,7 @@ Visual Studio Code의 Tools for AI 확장을 사용하면 Azure Machine Learning
 
 **Tools for AI** 확장을 설치할 때 인터넷에 액세스할 수 있으면 2개 확장이 추가로 자동 설치됩니다. 이 두 확장은 [Azure 계정](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) 확장 및 [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 확장입니다.
 
-Azure Machine Learning을 사용하려면 VS Code를 Python IDE로 전환해야 합니다. [Visual Studio Code에서 Python](https://code.visualstudio.com/docs/languages/python)을 사용하려면 Tools for AI와 함께 자동으로 설치되는 Microsoft Python 확장이 필요합니다. VS Code를 효율적인 IDE로 전환하는 이 확장은 다양한 Python 인터프리터가 포함된 모든 운영 체제에서 작동합니다. 이 확장은 VS Code의 모든 기능을 활용하여 자동 완성과 IntelliSense, Lint, 디버깅, 단위 테스트 기능은 물론 가상 환경과 conda 환경을 비롯한 Python 환경 간을 손쉽게 전환하는 기능도 제공합니다. Python 코드 편집/실행/디버깅 연습을 제공하는 [Python Hello World 자습서](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)를 참조하세요.
+Azure Machine Learning을 사용하려면 VS Code를 Python IDE로 전환해야 합니다. [Visual Studio Code에서 Python](https://code.visualstudio.com/docs/languages/python)을 사용하려면 Tools for AI와 함께 자동으로 설치되는 Microsoft Python 확장이 필요합니다. VS Code를 효율적인 IDE로 전환하는 이 확장은 다양한 Python 인터프리터가 포함된 모든 운영 체제에서 작동합니다. 이 확장은 VS Code의 모든 기능을 활용하여 자동 완성과 IntelliSense, Lint, 디버깅, 단위 테스트 기능은 물론 가상 환경과 conda 환경을 비롯한 Python 환경 간을 손쉽게 전환하는 기능도 제공합니다. Python 코드 편집/실행/디버깅 연습을 제공하는 [Python Hello World 자습서](https://code.visualstudio.com/docs/python/python-tutorial)를 참조하세요.
 
 **Tools for AI 확장을 설치하려면**
 

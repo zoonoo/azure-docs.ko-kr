@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985297"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085830"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>관리자 포털을 사용 하 여 Azure Stack에서
 
@@ -40,6 +40,8 @@ ms.locfileid: "45985297"
 | | |
 
  ![관리자 포털](media/azure-stack-manage-portals/admin-portal.png)
+
+모든 Azure Stack 배포에 대 한 기본 표준 시간대는 utc (협정 세계시)로 설정 되는 참고 합니다. 선택할 수 있습니다 시간대 Azure Stack을 설치할 때 자동으로 되돌아갑니다 UTC 기본적으로 설치 하는 동안 있지만.
 
 관리자 포털에서와 같은 작업을 수행할 수 있습니다.
 
