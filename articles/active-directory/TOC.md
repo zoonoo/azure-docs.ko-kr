@@ -266,7 +266,6 @@
 
 #### 권한
 ##### [API에 대한 사용 권한 선택](develop/perms-for-given-api.md)
-##### [내 앱에 권한 부여](develop/registration-config-grant-permissions-how-to.md)
 ##### [위임된 권한 대 응용 프로그램 권한](develop/delegated-and-app-perms.md)
 ##### [응용 프로그램 동의](develop/consent-framework.md)
 
@@ -313,14 +312,6 @@
 ### 사용자 지정 도메인 이름
 #### [빠른 시작](fundamentals/add-custom-domain.md)
 ### [디렉터리 관리](fundamentals/active-directory-administer.md)
-### [엔터프라이즈 상태 로밍](active-directory-windows-enterprise-state-roaming-overview.md)
-#### [사용](active-directory-windows-enterprise-state-roaming-enable.md)
-#### [그룹 정책 설정](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-#### [Windows 10 설정](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-#### [FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
-#### [문제 해결](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
 ### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](hybrid/whatis-hybrid-identity.md)
 
 ### [토큰 수명](develop/active-directory-configurable-token-lifetimes.md)
