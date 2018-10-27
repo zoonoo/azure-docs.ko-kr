@@ -326,12 +326,6 @@
 
 ## [문제 해결](fundamentals/active-directory-troubleshooting-support-howto.md)
 
-## Azure AD 개념 증명(PoC) 배포
-### [PoC 플레이 북: 소개](active-directory-playbook-intro.md)
-### [PoC 플레이 북: 재료](active-directory-playbook-ingredients.md)
-### [PoC 플레이 북: 구현](active-directory-playbook-implementation.md)
-### [PoC 플레이 북: 구성 요소](active-directory-playbook-building-blocks.md)
-
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlet](/powershell/azure/overview)
