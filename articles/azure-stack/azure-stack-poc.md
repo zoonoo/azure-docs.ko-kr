@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: b2b81938eafe104369e52e72f9958e2adf2cca6f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 041d679cfc428278737a5668887e73f13ac694b1
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345223"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137056"
 ---
 # <a name="what-is-azure-stack"></a>Azure Stack이란?
 
@@ -30,7 +30,7 @@ Microsoft Azure Stack은 데이터 센터에서 Azure 서비스를 제공할 수
 Azure Stack 두 가지 배포 옵션 사용자의 요구를 충족하기 위해 제공됩니다.
 
 ## <a name="azure-stack-integrated-systems"></a>Azure Stack 통합 시스템
-Azure Stack 통합 시스템은 Microsoft와 [하드웨어 파트너](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)의 파트너십을 통해 제공되며, 클라우드 기반 혁신 및 컴퓨팅 관리 단순성을 제공하는 솔루션을 만듭니다. Azure Stack은 통합된 하드웨어 및 소프트웨어 시스템으로 제공되므로 클라우드에서 혁신할 수있는 기능과 함께 필요한 유연성과 제어 기능을 사용할 수 있습니다. Azure Stack 통합 시스템의 규모는 4-12 노드이며 하드웨어 파트너와 Microsoft가 공동으로 지원합니다.  Azure Stack 통합 시스템을 사용하여 새로운 시나리오를 만들고 프로덕션 워크로드에 맞는 새로운 솔루션을 배포합니다.
+Azure Stack 통합 시스템은 Microsoft와 [하드웨어 파트너](https://azure.microsoft.com/overview/azure-stack/integrated-systems/)의 파트너십을 통해 제공되며, 클라우드 기반 혁신 및 컴퓨팅 관리 단순성을 제공하는 솔루션을 만듭니다. Azure Stack은 통합된 하드웨어 및 소프트웨어 시스템으로 제공되므로 클라우드에서 혁신할 수있는 기능과 함께 필요한 유연성과 제어 기능을 사용할 수 있습니다. Azure Stack 통합 시스템 4-16 노드에서 크기 및 하드웨어 파트너와 Microsoft에서 지원 됩니다.  Azure Stack 통합 시스템을 사용하여 새로운 시나리오를 만들고 프로덕션 워크로드에 맞는 새로운 솔루션을 배포합니다.
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack 개발 키트
 

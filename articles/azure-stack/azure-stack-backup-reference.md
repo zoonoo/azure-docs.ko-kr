@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 5347fd5ce0f2d2951c34df89bcffafffed6db5c5
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139619"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138449"
 ---
 # <a name="infrastructure-backup-service-reference"></a>인프라 백업 서비스 참조
 
@@ -89,7 +89,7 @@ ms.locfileid: "42139619"
 
 | 환경 확장 | 백업 크기 예상된 | 필요한 공간의 총 크기 |
 |-------------------|--------------------------|--------------------------------|
-| 4-12 노드        | 10 GB                     | 140GB                          |
+| 4-16 노드        | 10 GB                     | 140GB                          |
 
 ### <a name="network-requirements"></a>네트워크 요구 사항
 | 저장 위치                                                                 | 세부 정보                                                                                                                                                                                 |
