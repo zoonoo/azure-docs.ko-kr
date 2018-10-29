@@ -35,16 +35,16 @@ ms.locfileid: "47392111"
 | CosmosDB | 저장소(GB) - Cosmos DB | 저장소(GB) - 무료 | 59c78b09-08e2-466a-9f3b-57a94c9e2f31
 | CosmosDB | 100 요청 단위(시간) - Cosmos DB | 100 요청 단위(시간) - 무료 | 5d638a6f-e221-41cf-ae3f-0f81d368cef6 
 | File Storage | 표준 IO - 파일(GB) - 로컬 중복 | 표준 IO - 파일(GB) - 무료 | a7f2aa67-b9a2-4593-a413-6ec86d6c8e5b
-| File Storage | 표준 IO - 파일 읽기 작업 단위(10,000초 기준) | 표준 IO - 파일 읽기 작업 단위(10,000초 기준) - 무료 | 6207404d-3389-4d20-9087-cc078ddc3fd9
-| File Storage | 표준 IO - 파일 쓰기 작업 단위(10,000초 기준) | 표준 IO - 파일 쓰기 작업 단위(10,000초 기준) - 무료 | 223d8004-d29a-46cf-b4f4-d2d34b12548b
-| File Storage | 표준 IO - 파일 프로토콜 작업 단위(10,000초 기준) | 표준 IO - 파일 프로토콜 작업 단위(10,000초 기준) - 무료 | a347d8cc-51d1-4a0e-b9eb-76f67566c3f5
-| File Storage | 표준 IO - 파일 목록 작업 단위(10,000초 기준) | 표준 IO - 파일 목록 작업 단위(10,000초 기준) - 무료 | e8ae79ad-c2ab-4d82-b226-dd3c33dfd40c
-| 핫 블록 Blob Storage | 표준 IO - 핫 블록 Blob 읽기 작업(10,000초 기준) | 표준 IO - 핫 블록 Blob 읽기 작업(10,000초 기준) - 무료 |fd7cfa1e-026e-4be1-871b-1c2386e8902e
+| File Storage | 표준 IO - 파일 읽기 작업 단위(10,000건) | 표준 IO - 파일 읽기 작업 단위(10,000건) - 무료 | 6207404d-3389-4d20-9087-cc078ddc3fd9
+| File Storage | 표준 IO - 파일 쓰기 작업 단위(10,000건) | 표준 IO - 파일 쓰기 작업 단위(10,000건) - 무료 | 223d8004-d29a-46cf-b4f4-d2d34b12548b
+| File Storage | 표준 IO - 파일 프로토콜 작업 단위(10,000건) | 표준 IO - 파일 프로토콜 작업 단위(10,000건) - 무료 | a347d8cc-51d1-4a0e-b9eb-76f67566c3f5
+| File Storage | 표준 IO - 파일 목록 작업 단위(10,000건) | 표준 IO - 파일 목록 작업 단위(10,000건) - 무료 | e8ae79ad-c2ab-4d82-b226-dd3c33dfd40c
+| 핫 블록 Blob Storage | 표준 IO - 핫 블록 Blob 읽기 작업(10,000건) | 표준 IO - 핫 블록 Blob 읽기 작업(10,000건) - 무료 |fd7cfa1e-026e-4be1-871b-1c2386e8902e
 | 핫 블록 Blob Storage | 표준 IO - 핫 블록 Blob(GB) - 로컬 중복 | 표준 IO - 핫 블록 Blob(GB) - 무료 | 67a3a3fd-826f-42c1-8843-bffa14f0da13
-| 핫 블록 Blob Storage | 표준 IO - 핫 블록 Blob 쓰기 작업(10,000초 기준) | 표준 IO - 핫 블록 Blob 쓰기 작업(10,000초 기준) - 무료 | b34bbb76-edce-4c2d-a288-81a2db1fea53
-| 핫 블록 Blob Storage  | 표준 IO - 핫 블록 Blob 쓰기/목록 작업(10,000초 기준) | 표준 IO - 핫 블록 Blob 쓰기/목록 작업(10,000초 기준) - 무료 | 7e68cf36-1198-4d3b-baa7-86a74c5b3079
+| 핫 블록 Blob Storage | 표준 IO - 핫 블록 Blob 쓰기 작업(10,000건) | 표준 IO - 핫 블록 Blob 쓰기 작업(10,000건) - 무료 | b34bbb76-edce-4c2d-a288-81a2db1fea53
+| 핫 블록 Blob Storage  | 표준 IO - 핫 블록 Blob 쓰기/목록 작업(10,000건) | 표준 IO - 핫 블록 Blob 쓰기/목록 작업(10,000건) - 무료 | 7e68cf36-1198-4d3b-baa7-86a74c5b3079
 | Managed Disk *  | 표준 관리 디스크/스냅숏(GB) - 로컬 중복 | 표준 관리 디스크/스냅숏(GB) - 무료 | ad94c237-52a5-4804-ae65-38c5bf85ef42
-| Managed Disk *  | 표준 관리 디스크 작업(10,000초 기준) | 표준 관리 디스크 작업(10,000초 기준) - 무료 | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
+| Managed Disk *  | 표준 관리 디스크 작업(10,000건) | 표준 관리 디스크 작업(10,000건) - 무료 | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
 | Managed Disk *  | Premium Storag - 페이지 Blob/P6(단위) - 로컬 중복 | Premium Storag - 페이지 Blob/P6(단위) - 무료 | 2b98c168-27ca-4cc1-b509-e887dec87657
 | SQL Database | 표준 S0 데이터베이스 일 수 - SQL Database | 표준 S0 데이터베이스 일 수 - 무료 | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
 | 공유 - 대역폭 ** | 데이터 송신(GB) | 데이터 송신(GB) - 무료 | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd

@@ -1,19 +1,19 @@
 ---
 title: 포함 파일
 description: 포함 파일
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
 ms.date: 04/24/2018
-ms.author: dobett
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 181432c3050bbc614898b1ddf779bc90239a35be
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39189459"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069949"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>처음부터 사물 인터넷 보안
 
@@ -45,8 +45,7 @@ Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거�
 
 솔루션 가속기는 모든 Microsoft 소프트웨어의 안전한 개발 및 운영을 위한 SDL 및 OSA 프로세스와 함께 Azure 플랫폼에 기본 제공된 보안 및 개인 정보를 활용합니다. 이러한 절차는 인프라 보호, 네트워크 보호, 모든 솔루션의 보안을 위한 기본 사항인 식별 및 관리 기능을 제공합니다.
 
-
-  [IoT 솔루션 가속기](../articles/iot-fundamentals/iot-introduction.md) 내에 있는 [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md)는 장치별 보안 자격 증명 및 액세스 제어를 사용하여 IoT 장치와 Azure 서비스(예: [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 및 [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md)) 간에 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스를 제공합니다.
+[IoT 솔루션 가속기](../articles/iot-fundamentals/iot-introduction.md) 내에 있는 [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md)는 장치별 보안 자격 증명 및 액세스 제어를 사용하여 IoT 장치와 Azure 서비스(예: [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 및 [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md)) 간에 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스를 제공합니다.
 
 이 문서에서는 Azure IoT 솔루션 가속기에 기본 제공되는 보안 및 개인 정보 기능을 가장 잘 전달하기 위해 솔루션 가속기를 세 가지 주요 보안 영역으로 세분화했습니다.
 
@@ -63,7 +62,9 @@ Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거�
 추가 장치 보안 기능에는 다음이 포함됩니다.
 
 * 장치는 요청하지 않은 네트워크 연결을 허용하지 않습니다. 아웃바운드 전용 방식으로 모든 연결 및 경로를 설정합니다. 백 엔드에서 명령을 받는 장치의 경우 장치는 처리할 보류 중인 모든 명령의 확인에 대한 연결을 시작해야 합니다. 장치 및 IoT Hub 간의 연결이 안전하게 설정되면 클라우드에서 장치로, 장치에서 클라우드로 메시징을 투명하게 전송할 수 있습니다.
+
 * 장치는 Azure IoT Hub와 같은 잘 알려진 서비스에 피어링을 통해 연결하거나 경로를 설정해야 합니다.
+
 * 시스템 수준 권한 부여 및 인증은 장치 ID를 사용하며 액세스 자격 증명 및 권한은 즉시 취소 가능합니다.
 
 ### <a name="secure-connectivity"></a>보안 연결
@@ -77,7 +78,9 @@ Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거�
 추가 연결 보안 기능에는 다음이 포함됩니다.
 
 * 장치 및 Azure IoT Hub 간 또는 게이트웨이 및 Azure IoT Hub 간 통신 경로는 X.509 프로토콜을 사용하여 인증된 Azure IoT Hub와 업계 표준 전송 계층 보안(TLS)을 사용하여 보안이 설정됩니다.
+
 * 요청하지 않은 인바운드 연결에서 장치를 보호하기 위해 Azure IoT Hub는 장치에 대한 연결을 열지 않습니다. 장치는 모든 연결을 시작합니다.
+
 * Azure IoT Hub는 지속적으로 장치에 대한 메시지를 저장하고 장치가 연결될 때까지 기다립니다. 이러한 명령은 2일 동안 저장되며 전원 또는 연결 문제로 인해 산발적으로 장치 연결을 가능하게 하여 이러한 명령을 수신합니다. Azure IoT Hub는 각 장치에 대한 장치별 큐를 유지 관리합니다.
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>보안 처리 및 클라우드 저장소
@@ -101,8 +104,13 @@ IoT 인프라에서 사용되는 모든 키는 보안 저장소의 클라우드�
 각 솔루션 가속기는 다음과 같은 Azure 서비스 인스턴스를 만듭니다.
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): 클라우드를 장치에 연결하는 게이트웨이입니다. 솔루션의 보안을 설정하는 장치별 인증 지원을 통해 허브당 수백만 개의 연결까지 확장할 수 있으며 대량의 데이터를 처리할 수 있습니다.
+
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): 반구조화된 데이터에 대한 확장성 있고 완전히 인덱싱된 데이터베이스 서비스로, 프로비전하는 장치에 대한 메타데이터(예: 특성, 구성 및 보안 속성)를 관리합니다. Azure Cosmos DB는 높은 성능 및 처리량 처리, 데이터의 스키마와 관계 없는 인덱싱 및 풍부한 SQL 쿼리 인터페이스를 제공합니다.
+
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): 장치, 센서, 인프라 및 응용 프로그램에서 실시간 정보를 파악하는 저비용 분석 솔루션을 빠르게 개발 및 배포하는 클라우드의 실시간 스트림 처리입니다. 이 완전히 관리되는 서비스의 데이터를 높은 처리량, 낮은 대기 시간 및 복원력을 확보하면서 어떤 볼륨으로도 확장할 수 있습니다.
+
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/): 강력한 웹 및 모바일 앱을 빌드하기 위한 클라우드 플랫폼으로 클라우드 또는 온-프레미스 등 어디서나 데이터에 연결할 수 있습니다. iOS, Android 및 Windows를 위한 유용한 모바일 앱을 빌드하세요. 수십 개의 클라우드 기반 서비스와 엔터프라이즈 응용 프로그램에 즉시 연결 가능하므로 귀사의 SaaS(Software as a Service) 및 엔터프라이즈 응용 프로그램과 통합이 용이합니다. 가장 자주 사용하는 언어와 IDE(.NET, Node.js, PHP, Python 또는 Java)로 코딩하여 더욱 빨리 웹앱과 API를 빌드하세요.
+
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service의 Logic Apps 기능을 통해 IoT 솔루션을 기존의 LOB(기간 업무) 시스템에 통합하고 워크플로 프로세스를 자동화할 수 있습니다. Logic Apps를 사용하면 개발자는 트리거부터 시작하여 비즈니스 프로세스와 통합할 강력한 커넥터를 사용하는 규칙 및 작업으로 이루어진 일련의 단계를 수행하는 워크플로를 설계할 수 있습니다. Logic Apps는 SaaS, 클라우드 기반 및 온-프레미스 응용 프로그램의 방대한 생태계에 즉시 연결을 제공합니다.
+
 * [**Azure Blob Storage**](https://azure.microsoft.com/services/storage/): 장치가 클라우드로 전송하는 데이터에 대한 안정적이고 경제적인 클라우드 저장소입니다.

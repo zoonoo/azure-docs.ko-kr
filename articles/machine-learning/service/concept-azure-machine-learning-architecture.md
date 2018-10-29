@@ -9,29 +9,29 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3011fa85dbac2135f4d9113c6b76a8b667ee4013
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952135"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237979"
 ---
 # <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>아키텍처 및 개념: Azure Machine Learning 서비스의 작동 원리 
 
 이 문서에서는 Azure Machine Learning 서비스에 대한 아키텍처 및 개념을 설명합니다. 다음 다이어그램은 서비스의 주요 구성 요소를 보여 주고, 서비스 사용 시 일반적인 일반 워크플로를 보여 줍니다. 
 
-[![Azure Machine Learning 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Azure Machine Learning Service 아키텍처 및 워크플로](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 일반적으로 워크플로는 다음 단계를 따릅니다.
 
 1. __Python__에서 기계 학습의 학습 스크립트를 개발합니다.
-1. ‘계산 대상’을 만들고 구성합니다.____
-1. 해당 환경에서 실행할 구성된 계산 대상에 ‘스크립트를 제출’합니다.____ 학습 중에 계산 대상이 실행 기록을 ‘데이터 저장소’에 저장합니다.____ 레코드는 ‘실험’에 저장됩니다.____
-1. ‘실험을 쿼리’하여 현재 및 과거 실행에서 기록된 메트릭을 확인합니다.____ 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
-1. 만족스러운 실행이 발견되면 ‘모델 레지스트리’에 지속되는 모델을 등록합니다.____
+1. __‘계산 대상’__ 을 만들고 구성합니다.
+1. 해당 환경에서 실행할 구성된 계산 대상에 __‘스크립트를 제출’__ 합니다. 학습 중에 계산 대상이 실행 기록을 __‘데이터 저장소’__ 에 저장합니다. 레코드는 __‘실험’__ 에 저장됩니다.
+1. __‘실험을 쿼리’__ 하여 현재 및 과거 실행에서 기록된 메트릭을 확인합니다. 메트릭이 원하는 결과를 표시하지 않으면 1단계로 돌아가 스크립트를 반복합니다.
+1. 만족스러운 실행이 발견되면 __‘모델 레지스트리’__ 에 지속되는 모델을 등록합니다.
 1. 점수 매기기 스크립트를 개발합니다.
-1. ‘이미지를 만들고’ ‘이미지 레지스트리’에 등록합니다.________ 
-1. Azure에서 ‘웹 서비스’로 ‘이미지를 배포’합니다.________
+1. __‘이미지를 만들고’__ __‘이미지 레지스트리’__ 에 등록합니다. 
+1. Azure에서 __‘웹 서비스’__ 로 __‘이미지를 배포’__ 합니다.
 
 
 [!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "46952135"
 
 ## <a name="workspace"></a>작업 영역
 
-작업 영역은 Azure Machine Learning 서비스에 대한 최상위 리소스입니다. Azure Machine Learning을 사용하는 동안 만드는 모든 아티팩트를 작업할 수 있는 중앙 위치를 제공합니다.
+작업 영역은 Azure Machine Learning 서비스에 대한 최상위 리소스입니다. 작업 영역은 Azure Machine Learning Service를 사용하는 동안 만드는 모든 아티팩트를 작업할 수 있는 중앙 위치를 제공합니다.
 
 작업 영역은 모델을 학습시키는 데 사용할 수 있는 계산 대상 목록을 유지합니다. 또한 스크립트의 로그, 메트릭, 출력 및 스냅숏을 포함하는 학습 실행 기록을 유지합니다. 이 정보는 최고의 모델을 생성하는 학습 실행을 판별하는 데 사용됩니다.
 
@@ -71,15 +71,15 @@ ms.locfileid: "46952135"
 
 가장 간단하게, 모델은 입력을 사용하고 출력을 생성하는 코드 조각입니다. 기계 학습 모델을 만드는 동안 알고리즘을 선택하고, 데이터를 제공하고, 하이퍼 매개 변수를 조정합니다. 학습은 학습 프로세스 중에 모델이 학습한 내용을 캡슐화하는 학습된 모델을 생성하는 반복 프로세스입니다.
 
-모델은 Azure Machine Learning에서 실행을 통해 생성됩니다. Azure Machine Learning 외부에서 학습된 모델을 사용할 수도 있습니다. 모델은 Azure Machine Learning 작업 영역 아래에 등록할 수 있습니다.
+모델은 Azure Machine Learning에서 실행을 통해 생성됩니다. Azure Machine Learning 외부에서 학습된 모델을 사용할 수도 있습니다. 모델은 Azure Machine Learning Service 작업 영역 아래에 등록할 수 있습니다.
 
-Azure Machine Learning은 프레임워크에 제약이 없습니다. 모델을 만드는 경우 scikit-learn, xgboost, PyTorch, TensorFlow, Chainer 및 CNTK와 같은 인기 있는 기계 학습 프레임워크를 사용할 수 있습니다.
+Azure Machine Learning Service는 프레임워크에 관계없이 사용할 수 있습니다. 모델을 만드는 경우 scikit-learn, xgboost, PyTorch, TensorFlow, Chainer 및 CNTK와 같은 인기 있는 기계 학습 프레임워크를 사용할 수 있습니다.
 
-모델 학습의 예제를 보려면 [빠른 시작: 기계 학습 작업 영역 만들기](quickstart-get-started.md) 문서를 참조하세요.
+모델 학습의 예제를 보려면 [빠른 시작: Machine Learning Service 작업 영역 만들기](quickstart-get-started.md) 문서를 참조하세요.
 
 ### <a name="model-registry"></a>모델 레지스트리
 
-모델 레지스트리는 Azure Machine Learning 작업 영역에서 모든 모델을 추적합니다. 
+모델 레지스트리는 Azure Machine Learning Service 작업 영역에서 모든 모델을 추적합니다. 
 
 모델은 이름 및 버전으로 식별됩니다. 기존 이름과 동일한 이름을 사용하여 모델을 등록할 때마다 레지스트리는 모델을 새 버전으로 간주합니다. 버전 번호가 증가하고 새 모델이 해당 이름으로 등록됩니다.
 
