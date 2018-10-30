@@ -233,7 +233,7 @@
 ## [Azure PowerShell(Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell(서비스 관리)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST (영문)](/rest/api/media/mediaservice)
+## [REST (영문)](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 ## 사양
 ### [라이브 수집 - 분할된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 ### [라이브 수집 - 라이브 스트리밍에서 신호 타이밍 메타데이터](media-services-specifications-live-timed-metadata.md)
