@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391371"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457073"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -67,7 +67,7 @@ VM 속성을 확인하고 VM이 [Azure 요구 사항](vmware-physical-azure-supp
 1. **설정** > **복제된 항목**에서 VM > **장애 조치(failover)** 를 클릭합니다.
 
 2. **장애 조치(Failover)** 에서 장애 조치(failover)할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
-   - **최신**: 이 옵션은 Site Recovery로 전송된 모든 데이터를 먼저 처리합니다. 이 옵션은 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
+   - **최신**: 이 옵션은 먼저 Site Recovery로 전송된 모든 데이터를 처리합니다. 이 옵션은 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
    - **가장 최근에 처리됨**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치합니다. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
    - **최신 앱 일치**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치합니다.
    - **사용자 지정**: 복구 지점을 지정합니다.
@@ -82,24 +82,23 @@ VM 속성을 확인하고 VM이 [Azure 요구 사항](vmware-physical-azure-supp
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Azure에서 장애 조치된(failed over) 가상 머신에 연결
 
-1. 장애 조치(Failover) 후 RDP/SSH를 사용하여 Azure VM에 연결하려면 표([여기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover))에 요약된 요구 사항을 따르세요.
+1. 장애 조치(Failover) 후 RDP/SSH를 사용하여 Azure VM에 연결하려면 [여기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)에서 표에 요약된 요구 사항을 따릅니다.
 2. 장애 조치(failover) 후 가상 머신으로 이동하고 [연결](../virtual-machines/windows/connect-logon.md)하여 유효성을 검사합니다.
 3. 유효성 검사 후 **커밋**을 클릭하여 장애 조치(failover) 후 가상 머신의 복구 지점을 마무리합니다. 커밋 후 다른 사용 가능한 복구 지점을 모두 삭제합니다. 이렇게 하면 장애 조치(failover) 작업이 완료됩니다.
 
 >[!TIP]
 > **복구 지점 변경**은 장애 조치된 가상 머신에 만족하지 않는 경우 장애 조치(failover) 후 다른 복구 지점을 선택하는 데 도움이 됩니다. **커밋** 후 이 옵션을 더 이상 사용할 수 없게 됩니다.
 
-장애 조치(Failover) 후 연결 문제를 해결하려면 [여기](site-recovery-failover-to-azure-troubleshoot.md)에 설명된 단계를 따릅니다.
+[여기](site-recovery-failover-to-azure-troubleshoot.md)에 설명된 단계에 따라 장애 조치(failover) 후 연결 문제를 해결합니다.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Azure VM의 다시 보호 준비 중
 
-### <a name="create-a-process-server-in-azure"></a>Azure에서 프로세스 서버 만들기
+- **Azure ExpressRoute 연결이 있으면** 설치의 일부로 구성 서버에 자동으로 설치되는 온-프레미스 프로세스 서버(기본 제공 프로세스 서버)를 사용할 수 있습니다.
 
-프로세스 서버는 Azure VM에서 데이터를 수신한 후 온-프레미스 사이트로 보냅니다. 프로세스 서버와 보호된 VM 간에 대기 시간이 짧은 네트워크가 필요합니다.
+> [!IMPORTANT]
+> 온-프레미스 환경과 Azure 간에 VPN 연결이 있는 경우 재보호 및 장애 복구를 위해 프로세스 서버로 Azure VM을 설치해야 합니다. Azure에서 프로세스 서버를 설정하려면 [이 문서](vmware-azure-set-up-process-server-azure.md)의 지침을 따릅니다.
 
-- 테스트를 수행하려는 경우, Azure ExpressRoute 연결이 있으면 구성 서버에 자동으로 설치되는 온-프레미스 프로세스 서버(기본 제공 프로세스 서버)를 사용할 수 있습니다.
-- VPN 연결이 있거나 프로덕션 환경에서 장애 복구(Failback)를 실행하는 경우 Azure VM을 장애 복구(Failback)에 대한 Azure 기반 프로세스 서버로 설정해야 합니다.
-- Azure에서 프로세스 서버를 설정하려면 [이 문서](vmware-azure-set-up-process-server-azure.md)의 지침을 따릅니다.
+재보호 및 장애 복구의 필수 요소에 대한 자세한 내용은 이 [섹션](vmware-azure-reprotect.md##before-you-begin)을 참조하세요. 
 
 ### <a name="configure-the-master-target-server"></a>마스터 대상 서버 구성
 
