@@ -124,13 +124,13 @@ C# 프로그램은 **Microsoft.IdentityModel.Clients.ActiveDirectory** 네임스
 
 C# 예제에서 사용하는 네임스페이스 중 하나는 **System.Data.SqlClient**입니다. 특히 흥미로운 것은 열거형 **SqlAuthenticationMethod**입니다. 이 열거형의 값은 다음과 같습니다.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp; MFA(Multi-Factor Authentication)를 구현하려면 Azure AD 사용자 이름과 함께 이 값을 사용합니다.
+- **SqlAuthenticationMethod.ActiveDirectory \*Interactive**\*:&nbsp; MFA(Multi-Factor Authentication)를 구현하려면 Azure AD 사용자 이름과 함께 이 값을 사용합니다.
     - 이 문서에서는 이 값을 집중적으로 다룹니다. 이 값은 사용자 암호를 요청하는 대화 상자를 표시하여 대화형 경험을 생성한 다음, 이 사용자에게 MFA가 적용되면 MFA 유효성 검사를 위한 대화 상자를 표시합니다.
     - 이 값은 .NET framework 버전 4.7.2부터 사용할 수 있습니다.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp; 이 값은 *페더레이션된* 계정에 사용합니다. 페더레이션된 계정에서 사용자 이름은 Windows 도메인에 알려져 있습니다. 이 방법은 MFA를 지원하지 않습니다.
+- **SqlAuthenticationMethod.ActiveDirectory \*Integrated**\*:&nbsp; 이 값은 *페더레이션된* 계정에 사용합니다. 페더레이션된 계정에서 사용자 이름은 Windows 도메인에 알려져 있습니다. 이 방법은 MFA를 지원하지 않습니다.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp; Azure AD 사용자 및 사용자 암호가 필요한 인증에는 이 값을 사용합니다. Azure SQL Database가 인증을 수행합니다. 이 방법은 MFA를 지원하지 않습니다.
+- **SqlAuthenticationMethod.ActiveDirectory \*Password**\*:&nbsp; Azure AD 사용자 및 사용자 암호가 필요한 인증에는 이 값을 사용합니다. Azure SQL Database가 인증을 수행합니다. 이 방법은 MFA를 지원하지 않습니다.
 
 
 
