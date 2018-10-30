@@ -10,16 +10,16 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 3fe8729a9e2524cc2ccda168a857d58664a98b10
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e75b8e8b23bbb8e49cb8d8ec55e42f6ffb204197
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801083"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023500"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-ruby"></a>빠른 시작: Ruby를 통해 Bing Spell Check API 사용 
 
-이 문서에서는 Ruby를 통해 [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/)를 사용하는 방법을 보여 줍니다. Spell Check API는 제안된 바꾸기와 함께 인식할 수 없는 단어 목록을 반환합니다. 일반적으로 텍스트를 이 API에 제출한 다음, 텍스트에서 제안된 바꾸기를 수행하거나 응용 프로그램 사용자에게 표시하여 바꾸기 여부를 결정할 수 있습니다. 이 문서에서는 "Hello, wrld!" 텍스트가 포함된 요청을 보내는 방법을 보여 줍니다. 제안된 바꾸기는 "Hello" 및 "World"입니다.
+이 문서에서는 Ruby를 통해 [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) 를 사용하는 방법을 보여 줍니다. Spell Check API는 제안된 바꾸기와 함께 인식할 수 없는 단어 목록을 반환합니다. 일반적으로 텍스트를 이 API에 제출한 다음, 텍스트에서 제안된 바꾸기를 수행하거나 응용 프로그램 사용자에게 표시하여 바꾸기 여부를 결정할 수 있습니다. 이 문서에서는 "Hello, wrld!" 텍스트가 포함된 요청을 보내는 방법을 보여 줍니다. 제안된 바꾸기는 "Hello" 및 "World"입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -31,7 +31,7 @@ ms.locfileid: "48801083"
 
 1. 즐겨 찾는 IDE에서 새 Ruby 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `subscriptionKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```ruby

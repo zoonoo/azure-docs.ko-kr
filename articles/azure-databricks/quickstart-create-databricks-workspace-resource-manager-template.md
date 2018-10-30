@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 21f30e5db59f07b6384304f9e64157d312547ad9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 225571379cc1dd3d747219db7613fbf4a53bac9a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731311"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024106"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -73,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     * 클러스터의 이름을 입력합니다.
     * 이 문서에서는 **4.0** 런타임을 사용하여 클러스터를 만듭니다. 
-    * **Terminate after ____ minutes of inactivity**(비활성 ____분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+    * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
     
     **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다. 
 

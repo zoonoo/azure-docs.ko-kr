@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0c4c86017655facd6ab29f8e9e6c8f496ef79c72
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 61bcb01f549b6a47f3c4899975d4b1b23fbd9e3b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166222"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957023"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: C# IoT Edge 모듈 개발 및 시뮬레이트된 장치에 배포
 
@@ -266,7 +266,7 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
 3. deployment.template.json 파일에는 Docker 레지스트리 자격 증명을 저장하는 **registryCredentials** 섹션이 있습니다. 실제 사용자 이름 및 암호 쌍은 Git에서 무시하는 .env 파일에 저장됩니다.  
 
-4. **CSharpModule** 모듈 쌍을 배포 매니페스트에 추가합니다. **$edgeHub** 모듈 쌍 뒤에 있는 **moduleContent** 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다. 
+4. **CSharpModule** 모듈 쌍을 배포 매니페스트에 추가합니다. **$edgeHub** 모듈 쌍 뒤에 있는 **modulesContent** 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다. 
     ```json
         "CSharpModule": {
             "properties.desired":{

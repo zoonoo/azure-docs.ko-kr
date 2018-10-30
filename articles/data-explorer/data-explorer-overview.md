@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ca6159554b58ce04252901f990b1ef0bea6c0cac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4281a79b88675df192574ab2dd3dfa39c9eefe1b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953160"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954167"
 ---
 # <a name="what-is-azure-data-explorer"></a>Azure 데이터 탐색기란?
 
@@ -63,8 +63,10 @@ Azure 데이터 탐색기 기능은 [Log Analytics](/azure/log-analytics/), [App
 
 Azure 데이터 탐색기 및 해당 쿼리 언어에 대한 사용자 의견을 보내 주세요.
 
-- [포럼 MSDN에서 질문하기](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
-
+- 질문하기
+  - [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-data-explorer)
+  - [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto)
+  - [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
 - [사용자 의견을 통해 제품 제안하기](http://aka.ms/AzureDataExplorer.UserVoice)
 
 ## <a name="next-steps"></a>다음 단계

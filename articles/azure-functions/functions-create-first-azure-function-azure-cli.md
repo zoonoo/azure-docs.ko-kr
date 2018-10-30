@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: ef5459b2b31b67afe187612ffc1ab079a5045a8c
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 07a079e00963f1f5aff96369649e2e4fb248aae0
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114913"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986001"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>명령줄에서 첫 번째 함수 만들기
 
@@ -45,7 +45,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 �
 func init MyFunctionProj
 ```
 
-메시지가 표시되면 화살표 키를 사용하여 다음 언어 선택에서 작업자 런타임을 선택합니다.
+메시지가 표시되면 다음 언어 선택에서 작업자 런타임을 선택합니다.
 
 + `dotnet`: .NET 클래스 라이브러리 프로젝트(.csproj)를 만듭니다.
 + `node`: JavaScript 프로젝트를 만듭니다.
@@ -59,110 +59,17 @@ Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 ```
 
-## <a name="create-a-function"></a>함수 만들기
-
-다음 명령은 새 프로젝트로 이동하고 `MyHtpTrigger`라는 HTTP 트리거된 함수를 만듭니다.
+다음 명령을 사용하여 새 `MyFunctionProj` 프로젝트 폴더로 이동합니다.
 
 ```bash
 cd MyFunctionProj
-func new --name MyHttpTrigger --template "HttpTrigger"
 ```
 
-명령을 실행하는 경우 JavaScript 함수인 다음 출력과 같이 표시됩니다.
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
-```output
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\index.js
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\sample.dat
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\function.json
-```
+[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
 
-## <a name="edit-the-function"></a>함수 편집
-
-기본적으로 템플릿은 요청을 생성할 때 기능 키를 필요로 하는 함수를 만듭니다. Azure에서 함수를 쉽게 테스트하려면 익명 액세스를 허용하도록 함수를 업데이트해야 합니다. 이 변경을 만드는 방식은 함수 프로젝트 언어에 따라 달라집니다.
-
-### <a name="c"></a>C\#
-
-새 함수인 MyHttpTrigger.cs 코드 파일을 열고 함수 정의의 **AuthorizationLevel** 특성을 `anonymous`의 값으로 업데이트하고 변경 내용을 저장합니다.
-
-```csharp
-[FunctionName("MyHttpTrigger")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, 
-            "get", "post", Route = null)]HttpRequest req, ILogger log)
-```
-
-### <a name="javascript"></a>JavaScript
-
-새 함수에 대한 function.json 파일을 열고, 텍스트 편집기에서 열고, **bindings.httpTrigger**의 **authLevel** 속성을 `anonymous`로 업데이트하고, 변경 내용을 저장합니다.
-
-```json
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-```
-
-이제 함수 키를 제공하지 않고도 Azure에서 함수를 호출할 수 있습니다. 로컬로 실행하는 경우 함수 키는 필요하지 않습니다.
-
-## <a name="run-the-function-locally"></a>로컬에서 함수 실행
-
-다음 명령은 함수 앱을 시작합니다. 앱은 Azure에 있는 동일한 Azure Functions 런타임을 사용하여 실행됩니다.
-
-```bash
-func host start --build
-```
-
-`--build` 옵션은 C# 프로젝트를 컴파일하는 데 필요합니다. JavaScript 프로젝트에는 이 옵션이 필요하지 않습니다.
-
-함수 호스트가 시작되면 다음 출력과 같이 보기 편하도록 나눠서 작성합니다.
-
-```output
-
-                  %%%%%%
-                 %%%%%%
-            @   %%%%%%    @
-          @@   %%%%%%      @@
-       @@@    %%%%%%%%%%%    @@@
-     @@      %%%%%%%%%%        @@
-       @@         %%%%       @@
-         @@      %%%       @@
-           @@    %%      @@
-                %%
-                %
-
-...
-
-Content root path: C:\functions\MyFunctionProj
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
-
-...
-
-Http Functions:
-
-        HttpTrigger: http://localhost:7071/api/HttpTrigger
-
-[8/27/2018 10:38:27 PM] Host started (29486ms)
-[8/27/2018 10:38:27 PM] Job host started
-```
-
-런타임 출력에서 `HTTPTrigger` 함수의 URL을 복사하고 브라우저의 주소 표시줄에 붙여넣습니다. 이 URL에 쿼리 문자열 `?name=<yourname>`을 추가하고 요청을 실행합니다. 다음은 로컬 함수에서 반환된 GET 요청에 대한 브라우저의 응답을 보여줍니다.
-
-![브라우저에서 로컬로 테스트](./media/functions-create-first-azure-function-azure-cli/functions-test-local-browser.png)
-
-이제 함수를 로컬로 실행했으므로 Azure에서 함수 앱 및 기타 필요한 리소스를 만들 수 있습니다.
+[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 

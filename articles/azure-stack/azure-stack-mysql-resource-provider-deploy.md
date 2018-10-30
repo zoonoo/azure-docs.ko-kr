@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 1c5a2e4102b251490bf3a1fa9b82e9dbce075242
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dce9d4d5d1f2e3e50cabb86ee0d8d14b2fce2923
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364424"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230032"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack에서 MySQL 리소스 공급자 배포
 
@@ -90,7 +90,7 @@ MySQL 리소스 공급자를 배포 하려면 (PowerShell ISE 없습니다 ()를
 | **VMLocalCredential** | MySQL 리소스 공급자 VM의 로컬 관리자 계정의 자격 증명입니다. | _필수_ |
 | **PrivilegedEndpoint** | IP 주소 또는 권한 있는 끝점의 DNS 이름입니다. |  _필수_ |
 | **AzureEnvironment** | Azure Stack을 배포 하기 위한 사용 하는 서비스 관리자 계정의 Azure 환경입니다. Azure AD 배포에만 필요합니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**에 중국의 Azure AD를 사용 하는 경우 또는 **AzureChinaCloud**합니다. | AzureCloud |
-| **DependencyFilesLocalPath** | 통합된 시스템만을 위한 인증서.pfx 파일을이 디렉터리에 배치 되어야 합니다. 연결이 끊어진된 환경과 다운로드 [mysql 커넥터-net 6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 이 디렉터리에 있습니다. 필요에 따라 하나의 Windows 업데이트 MSU이 패키지를 복사할 수 있습니다. | _선택적_ (_필수_ 통합된 시스템 또는 연결이 끊어진된 환경에 대 한) |
+| **DependencyFilesLocalPath** | 통합된 시스템만을 위한 인증서.pfx 파일을이 디렉터리에 배치 되어야 합니다. 연결이 끊어진된 환경에 대 한 다운로드 [mysql 커넥터-net 6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 이 디렉터리에 있습니다. 필요에 따라 하나의 Windows 업데이트 MSU이 패키지를 복사할 수 있습니다. | _선택적_ (_필수_ 통합된 시스템 또는 연결이 끊어진된 환경에 대 한) |
 | **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호입니다. | _필수_ |
 | **MaxRetryCount** | 오류가 발생 하는 경우 각 작업을 다시 시도 하려는 횟수입니다.| 2 |
 | **RetryDuration** | 시간 (초)에서 재시도 사이의 시간 제한 간격입니다. | 120 |

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: ed8230b76300d6b7fee06761133ebbea779fe3cb
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41918231"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024360"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
@@ -94,7 +94,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     * 클러스터의 이름을 입력합니다.
     * 이 문서에서는 **4.2** 런타임을 사용하여 클러스터를 만듭니다.
-    * **Terminate after ____ minutes of inactivity**(비활성 ____분 후 종료) 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
+    * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
     **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 

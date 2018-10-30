@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: pareshmu
-ms.openlocfilehash: 8372cd82e9b62c4440a9e7d525b7135153e59dde
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a55e57c2cc1c0ff2ba44f681cbae90ba69fdc434
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378071"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957794"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -49,7 +49,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **일본** |일본 서부, 일본 동부 |오사카, 도쿄 |
 | **오스트레일리아** |오스트레일리아 남동부, 오스트레일리아 동부 |멜버른, 시드니 |
 | **오스트레일리아 정부** | 오스트레일리아 중부, 오스트레일리아 중부 2 |캔버라, 캔버라2 | 
-| **인도** |인도 서부, 인도 중부, 인도 남부 |첸나이, 뭄바이 |
+| **인도** |인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
 | **대한민국** |한국 중부, 한국 남부 |부산, 서울 |
 | **남아프리카 공화국** |[남아프리카 공화국 서부+, 남아프리카 공화국 북부+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |케이프타운, 요하네스버그 |
 
@@ -76,7 +76,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 ### <a name="production-azure"></a>프로덕션 Azure
 | **위치**: | **피어링 위치 소유자** | **서비스 공급자** |
 | --- | --- | --- |
-| **암스테르담** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Verizon, Zayo |
+| **암스테르담** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **암스테르담2** | Interxion | Interxion |
 | **애틀랜타** | Equinix | Equinix, Megaport |
 | **부산** |LG CNS | LG CNS |
@@ -85,13 +85,13 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **케이프타운** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **첸나이** | Tata Communications | Global CloudXchange(GCX), SIFY, Tata Communications |
 | **첸나이2** | Airtel | Airtel |
-| **시카고** | Equinix | AT&T NetBond, Comcast, Coresite, Equinix, PacketFabric, PCCW Global Limited, Level 3 Communications, Megaport, Sprint, Verizon, Zayo |
-| **댈러스** | Equinix | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet+, Verizon, Zayo|
+| **시카고** | Equinix | Aryaka Networks, AT&T NetBond, Cologix, Comcast, Coresite, Equinix, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Verizon, Zayo |
+| **댈러스** | Equinix | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet+, Verizon, Zayo|
 | **덴버** | CoreSite | CoreSite, Megaport |
 | **더블린** | Equinix | Colt, eir, Equinix, Interxion, Megaport |
 | **홍콩** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **요하네스버그** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
-| **콸라룸푸르** | TIME | TIME |
+| **콸라룸푸르** | TIME dotCom | TIME dotCom |
 | **라스베이거스** | Switch | CenturyLink Cloud Connect, Megaport |
 | **런던** | Equinix | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **로스앤젤레스** | CoreSite | CoreSite, Equinix, Megaport, NTT, Zayo |
@@ -100,23 +100,23 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **마이애미** | Equinix | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | Bell Canada, Cologix, Telus, Zayo |
 | **뭄바이** | Tata Communications | GCX(Global CloudXchange), Sify, Tata Communications, Vodafone Idea |
-| **뭄바이2** | Airtel | Airtel, Sify |
-| **뉴욕** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, Megaport, Zayo |
+| **뭄바이2** | Airtel | Airtel, Sify, Vodafone Idea |
+| **뉴욕** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Zayo |
 | **뉴포트(웨일스)** | Next Generation Data | Level 3 Communications, Next Generation Data |
 | **오사카** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **파리** | Interxion | Colt, Intercloud, Interxion, Equinix, Orange |
 | **퀘벡 시티** | 4Degrees | Bell Canada, Megaport |
 | **샌안토니오** | CyrusOne | CenturyLink Cloud Connect, Megaport |
-| **상파울루** | Equinix | Ascenty Data Centers+, Equinix, Level 3 Communications, Neutrona Networks, Telefonica, UOLDIVEO |
-| **시애틀** | Equinix | Equinix, Level 3 Communications, Megaport |
+| **상파울루** | Equinix | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
+| **시애틀** | Equinix | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Zayo |
 | **서울** | KINX | KINX, LG CNS, Sejong Telecom |
 | **실리콘밸리** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IXReach, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo Group |
-| **싱가포르** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
+| **싱가포르** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
 | **Singapore2** | 글로벌 스위치 | Megaport, SingTel |
 | **시드니** | Equinix | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, Verizon |
 | **도쿄** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Softbank, Verizon |
 | **토론토** | Cologix | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, Megaport, Telus, Zayo |
-| **워싱턴 DC** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
+| **워싱턴 DC** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 
  **+** 는 서비스 예정을 나타냄
 
@@ -130,8 +130,8 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **뉴욕** |Equinix, CenturyLink Cloud Connect, Verizon |
 | **Phoenix** | CenturyLink Cloud Connect |
 | **샌안토니오** | Megaport |
-| **실리콘밸리** | Equinix, Level 3 Communications |
-| **시애틀** | Equinix |
+| **실리콘밸리** | Equinix, Level 3 Communications, Verizon |
+| **시애틀** | Equinix, Megaport |
 | **워싱턴 DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>중국

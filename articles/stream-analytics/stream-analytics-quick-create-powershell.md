@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 18903dfbe187de73a6edb14196fa29e02d35dbca
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 126677df01ad34d488863dd83e2f8c9a2d947824
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185383"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958893"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 
@@ -285,7 +285,9 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 간단한 Stream Analytics 작업을 배포했습니다. 다른 입력 원본을 구성하고 실시간 검색을 수행하는 방법을 알아보려면 다음 문서로 이동하세요.
+이 빠른 시작에서는 PowerShell을 사용하여 간단한 Stream Analytics 작업을 배포했습니다. [Azure Portal](stream-analytics-quick-create-portal.md)과 [Visual Studio](stream-analytics-quick-create-vs.md)를 통해서도 Stream Analytics 작업을 배포할 수 있습니다.
+
+다른 입력 원본을 구성하고 실시간 검색을 수행하는 방법을 알아보려면 다음 문서로 이동하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Stream Analytics를 사용하여 실시간 부정 행위 감지](stream-analytics-real-time-fraud-detection.md)

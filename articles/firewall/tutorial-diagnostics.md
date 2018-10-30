@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991048"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987435"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>자습서: Azure Firewall 로그 모니터링
 
@@ -51,11 +51,11 @@ ms.locfileid: "46991048"
 5. 이 예제에서 Log Analytics는 로그를 저장하므로 이름에 **방화벽 로그 분석**을 입력합니다.
 6. **Log Analytics에 보내기**를 클릭하여 작업 영역을 구성합니다. 또한 이벤트 허브 및 저장소 계정을 사용하여 진단 로그를 저장할 수도 있습니다.
 7. **Log Analytics** 아래에서 **구성**을 클릭합니다.
-8. OMS 작업 영역 페이지에서 **새 작업 영역 만들기**를 클릭합니다.
-9. **Log analytics 작업 영역** 페이지에서 새 **OMS 작업 영역** 이름에 **firewall-oms**를 입력합니다.
+8. Log Analytics 작업 영역 페이지에서 **새 작업 영역 만들기**를 클릭합니다.
+9. **Log analytics 작업 영역** 페이지에서 새 **Log Analytics 작업 영역** 이름에 **firewall-oms**를 입력합니다.
 10. 구독을 선택하고, 기존 방화벽 리소스 그룹(**Test-FW-RG**)을 사용하고, 위치에 대해 **미국 동부**를 선택하고, **무료** 가격 책정 계층을 선택합니다.
 11. **확인**을 클릭합니다.
-   ![구성 프로세스 시작][1]
+   ![구성 프로세스 시작][1] OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.  
 12. **로그** 아래에서 **AzureFirewallApplicationRule** 및 **AzureFirewallNetworkRule**을 클릭하여 응용 프로그램 및 네트워크 규칙에 대한 로그를 수집합니다.
    ![진단 설정 저장][2]
 13. **저장**을 클릭합니다.
@@ -95,6 +95,8 @@ ms.locfileid: "46991048"
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>네트워크 및 응용 프로그램 규칙 로그 보기 및 분석
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)는 카운터 및 이벤트 로그 파일을 수집합니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
+
+Azure Firewall Log Analytics 샘플 쿼리는 [Azure Firewall Log Analytics 샘플](log-analytics-samples.md)을 참조하세요.
 
 저장소 계정에 연결하고 액세스 및 성능 로그에 대한 JSON 로그 항목을 검색할 수도 있습니다. JSON 파일을 다운로드한 후 CSV로 변환하여 Excel, Power BI 또는 기타 데이터 시각화 도구에서 볼 수 있습니다.
 

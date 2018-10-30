@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 66f79b68c003aa3605653b0decc091d22fbf3860
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3889e1fc9bfaa9beccba560d4a984c451fb325da
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055188"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025245"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -32,7 +32,9 @@ Azure PowerShell을 사용하여 응용 프로그램 액세스에 사용되는 U
 
 ![URL 라우팅 예제](./media/tutorial-url-route-powershell/scenario.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+원하는 경우 [Azure CLI](tutorial-url-route-cli.md) 또는 [Azure Portal](create-url-route-portal.md)을 사용하여 이 자습서를 완료할 수 있습니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 

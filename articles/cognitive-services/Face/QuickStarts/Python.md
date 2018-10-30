@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 이미지에서 얼굴 감지 - Face API, Python'
+title: '빠른 시작: REST API 및 Python을 사용하여 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Face API를 사용하여 이미지에서 얼굴을 감지합니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: pafarley
-ms.openlocfilehash: 581c2a7d4508833647d4dbb9861000fddd75cde8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 76a9260d534057e3a03f8c8f1d7420329713ea80
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339584"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957278"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-python"></a>빠른 시작: Python을 사용하여 이미지에서 얼굴 감지
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-python"></a>빠른 시작: REST API 및 Python을 사용하여 이미지에서 얼굴 감지
 
 이 빠른 시작에서는 Face 서비스를 사용하여 원격 이미지에서 사람 얼굴을 감지합니다. 감지된 얼굴에는 사각형 경계가 표시되고 각 사람의 성별과 나이가 은 사각형과 놓입니다. 각 사람의 성별과 나이가 겹쳐 표시됩니다. 로컬 이미지를 사용하려면 [Computer Vision: Python을 사용하여 로컬 이미지 분석](../../Computer-vision/QuickStarts/python-disk.md)의 구문을 참조하세요.
 

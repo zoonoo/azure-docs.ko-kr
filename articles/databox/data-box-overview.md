@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1beecd4c37ef333464e96b93294c25d182ffdf91
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090809"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955340"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -62,7 +62,7 @@ Data Box 장치에는 이 릴리스의 다음과 같은 기능이 있습니다.
 | 차원                                              | 장치 - 너비: 309.0mm 높이: 430.4mm 깊이: 502.0mm |            
 | 랙 공간                                              | 장치 쪽 랙에 배치되는 경우 7U(랙에 설치할 수 없음)|
 | 필요한 케이블                                         | 전원 케이블 1개(포함) <br> RJ45 케이블 2개 <br> SFP+ Twinax 구리 케이블 2개|
-| Storage 용량                                        | 100TB <br> RAID 5 보호 후 사용 가능한 용량 80TB|
+| Storage 용량                                        | 100TB 장치 - RAID 5 보호 후 사용 가능한 용량 80TB|
 | 네트워크 인터페이스                                      | 1 GbE 인터페이스 2개 - MGMT, DATA 3. <br> MGMT - 관리용, 사용자 구성 불가능, 초기 설치에 사용됨 <br> DATA3 - 데이터용, 구성 가능, 기본적으로 동적임 <br> MGMT 및 DATA 3은 10GbE로 사용할 수도 있음 <br> 10GbE 인터페이스 2개 - DATA 1, DATA 2 <br> 모두 데이터용으로, 동적(기본값) 또는 정적으로 구성할 수 있음 |
 | 데이터 전송 미디어                                     | RJ45, SFP+ 구리 10GbE 이더넷  |
 | 보안                                                | 조작 방지 사용자 지정 나사를 사용한 견고한 장치 포장 <br> 장치의 하단에 변조 방지 스티커 부착|

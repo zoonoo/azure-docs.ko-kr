@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 43aa74e7250f4825702e249032db1566346ab558
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 6ed3488218a5b813478fa18f7bb05dcfb07a319c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831214"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955154"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
@@ -50,10 +50,26 @@ Azure 가속 네트워킹은 가상 머신에서 SR-IOV(단일 루트 I/O 가상
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>기존 Azure Load Balancer를 참조하는 확장 집합 만들기
 Azure Portal을 사용하여 확장 집합을 만들면 대부분의 구성 옵션에 대해 새 부하 분산 장치가 만들어집니다. 기존 부하 분산 장치를 참조해야 하는 확장 집합을 만드는 경우 CLI를 사용하여 이 작업을 수행할 수 있습니다. 다음 예제 스크립트에서는 부하 분산 장치를 만든 다음 이를 참조하는 확장 집합을 만듭니다.
 ```bash
-az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
+az network lb create \
+    -g lbtest \
+    -n mylb \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --public-ip-address-allocation Static \
+    --backend-pool-name mybackendpool
 
-az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool
-
+az vmss create \
+    -g lbtest \
+    -n myvmss \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
+    --admin-username negat \
+    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --upgrade-policy-mode Automatic \
+    --instance-count 3 \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --lb mylb \
+    --backend-pool-name mybackendpool
 ```
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Application Gateway를 참조하는 확장 집합 만들기
@@ -91,7 +107,7 @@ Azure 템플릿에서 사용자 지정 DNS 서버를 구성하려면 networkInte
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>구성 가능한 가상 머신 도메인 이름이 포함된 확장 집합 만들기
-CLI를 사용하여 가상 머신에 대한 사용자 지정 DNS 이름이 포함된 확장 집합을 만들려면 **vmss create** 명령에 **--vm-domain-name** 인수를 추가한 다음 도메인 이름을 나타내는 문자열을 추가합니다.
+CLI를 사용하여 가상 머신에 대한 사용자 지정 DNS 이름이 포함된 확장 집합을 만들려면 **virtual machine scale set create** 명령에 **--vm-domain-name** 인수를 추가한 다음, 도메인 이름을 나타내는 문자열을 추가합니다.
 
 Azure 템플릿에서 도메인 이름을 설정하려면 **networkInterfaceConfigurations** 확장 집합 섹션에 **dnsSettings** 속성을 추가합니다. 예: 
 
@@ -155,23 +171,35 @@ CLI를 사용하여 확장 집합 가상 머신에 할당된 공용 IP 주소를
 
 PowerShell을 사용하여 확장 집합 공용 IP 주소를 나열하려면 _Get-AzureRmPublicIpAddress_ 명령을 사용합니다. 예: 
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 공용 IP 주소 구성의 리소스 ID를 직접 참조하여 공용 IP 주소를 쿼리할 수도 있습니다. 예: 
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-확장 집합 가상 머신에 할당된 공용 IP 주소를 쿼리하려면 [Azure Resource Explorer](https://resources.azure.com) 또는 **2017-03-30** 버전 이상의 Azure REST API를 사용합니다.
+확장 집합 가상 머신에 할당된 공용 IP 주소를 쿼리하려면 [Azure Resource Explorer](https://resources.azure.com) 또는 **2017-03-30** 버전 이상의 Azure REST API를 사용할 수 있습니다.
 
-Resource Explorer를 사용하여 확장 집합에 대한 공용 IP 주소를 보려면 확장 집합 아래의 **publicipaddresses** 섹션을 살펴봅니다. 예: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+[Azure Resource Explorer](https://resources.azure.com)를 쿼리하려면
 
-```
+1. 웹 브라우저에서 [Azure Resource Explorer](https://resources.azure.com)를 엽니다.
+1. 옆의 *+* 를 클릭하여 왼쪽에 *구독*을 확장합니다. *구독* 아래 항목이 하나뿐이면 이미 확장되어 있습니다.
+1. 구독을 확장합니다.
+1. 리소스 그룹을 확장합니다.
+1. *공급자*를 확장합니다.
+1. *Microsoft.Compute*를 확장합니다.
+1. *virtualMachineScaleSets*를 확장합니다.
+1. 확장 집합을 확장합니다.
+1. *publicipaddresses*를 클릭합니다.
+
+Azure REST API를 쿼리하려면
+
+```bash
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
 ```
 
-예제 출력:
+[Azure Resource Explorer](https://resources.azure.com) 예제 출력 및 Azure REST API:
 ```json
 {
   "value": [
@@ -289,12 +317,14 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>확장 집합당 NSG 및 ASG
+[네트워크 보안 그룹](../virtual-network/security-overview.md)을 사용하면 보안 규칙을 사용하여 Azure 가상 네트워크에서 Azure 리소스와 주고 받는 트래픽을 필터링할 수 있습니다. [응용 프로그램 보안 그룹](../virtual-network/security-overview.md#application-security-groups)을 사용하면 Azure 리소스의 네트워크 보안을 처리하고 응용 프로그램 구조의 확장으로 그룹화할 수 있습니다.
+
 네트워크 보안 그룹은 확장 집합 가상 머신 속성의 네트워크 인터페이스 구성 섹션에 참조를 추가하여 확장 집합에 직접 적용할 수 있습니다.
 
 응용 프로그램 보안 그룹도 확장 집합 가상 머신 속성의 네트워크 인터페이스 구성 섹션에 참조를 추가하여 확장 집합에 직접 지정할 수 있습니다.
 
 예:  
-```
+```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
         {
@@ -334,6 +364,42 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
     ]
 }
 ```
+
+확장 집합과 네트워크 보안 그룹이 연결되었는지 확인하려면 `az vmss show` 명령을 사용합니다. 아래 예제에서는 `--query`를 사용하여 결과를 필터링하고 출력의 관련 섹션만 표시합니다.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].networkSecurityGroup
+
+[
+  {
+    "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/nsgName",
+    "resourceGroup": "myResourceGroup"
+  }
+]
+```
+
+응용 프로그램 보안 그룹이 확장 집합과 연결되었는지 확인하려면 `az vmss show` 명령을 사용합니다. 아래 예제에서는 `--query`를 사용하여 결과를 필터링하고 출력의 관련 섹션만 표시합니다.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].ipConfigurations[].applicationSecurityGroups
+
+[
+  [
+    {
+      "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/asgName",
+      "resourceGroup": "myResourceGroup"
+    }
+  ]
+]
+```
+
+
 
 ## <a name="next-steps"></a>다음 단계
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.

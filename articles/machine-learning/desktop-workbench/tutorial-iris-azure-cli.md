@@ -11,12 +11,12 @@ ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c5f7b8b98f97e020b4f6fb4b125d444df87f8d5a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967900"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025755"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>자습서: 명령줄 인터페이스를 사용하여 아이리스 분류
 
@@ -143,13 +143,13 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>클라우드 Git 리포지토리와 연결된 새 프로젝트 만들기
-Azure DevOps Git 리포지토리와 연결된 새 프로젝트를 만들 수 있습니다. 실험이 제출될 때마다 전체 프로젝트 폴더의 스냅숏이 원격 Git 리포지토리로 커밋됩니다. 자세한 내용은 [Azure Machine Learning Workbench 프로젝트에서 Git 리포지토리 사용](using-git-ml-project.md)을 참조하세요.
+Azure Repos에서 Git 리포지토리에 연결된 새 프로젝트를 만들 수 있습니다. 실험이 제출될 때마다 전체 프로젝트 폴더의 스냅숏이 원격 Git 리포지토리로 커밋됩니다. 자세한 내용은 [Azure Machine Learning Workbench 프로젝트에서 Git 리포지토리 사용](using-git-ml-project.md)을 참조하세요.
 
 > [!NOTE]
-> Azure Machine Learning은 Azure DevOps에서 만들어진 빈 Git 리포지토리만 지원합니다.
+> Azure Machine Learning은 Azure Repos에서 만들어진 빈 Git 리포지토리만 지원합니다.
 
 ```azure-cli
-$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <repo URL>
 ```
 > [!TIP]
 > “리포지토리 URL이 유효하지 않거나 사용자에게 액세스 권한이 없음”이라는 오류가 발생하는 경우, Azure DevOps(‘보안’, ‘개인 액세스 토큰 추가’ 메뉴)에서 보안 토큰을 만들고, 프로젝트를 만들 때 `--vststoken` 인수를 사용할 수 있습니다. 

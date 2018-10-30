@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: fbb51d8dc3b1ea4c6b34120e8fe35474ae949cf2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116915"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231239"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes에 배포 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "49116915"
 > [!Note]  
 > Azure Stack에서 Kubernetes 미리 보기입니다.
 
-다음 문서는 Kubernetes 클러스터 문제 해결 살펴봅니다. 배포 경고를 검토 하 고 배포 하는 데 필요한 요소에 의해 배포의 상태를 검토할 수 있습니다. Azure Stack에 또는 호스트 Kubernetes 사용 하는 Linux Vm에서 배포 로그를 수집 해야 합니다. 또한 관리 끝점에서 로그를 검색할 Azure Stack 관리자와 협력 해야 합니다.
+다음 문서는 Kubernetes 클러스터 문제 해결 살펴봅니다. 배포 경고를 검토 하 고 배포 하는 데 필요한 요소를 확인 하 여 배포의 상태를 검토할 수 있습니다. Azure Stack에 또는 호스트 Kubernetes 사용 하는 Linux Vm에서 배포 로그를 수집 해야 합니다. 또한 관리 끝점에서 로그를 검색할 Azure Stack 관리자와 협력 해야 합니다.
 
 ## <a name="overview-of-deployment"></a>배포 개요
 
@@ -47,7 +47,7 @@ ms.locfileid: "49116915"
     포함 하는 Kubernetes 클러스터를 설정 하 여 필요한 값을 입력 합니다.
     -  **사용자 이름** Kubernetes 클러스터의 일부인 Linux Virtual Machines 및 dvm이 대 한 사용자 이름입니다.
     -  **SSH 공개 키** dvm이 고 Kubernetes 클러스터의 일부로 생성 하는 모든 Linux 컴퓨터에 대 한 권한 부여에 사용 된 키
-    -  **서비스 원칙** Kubernetes Azure 클라우드 공급자에서 사용 하는 ID입니다. 서비스 주체를 만들 때 응용 프로그램 ID로 식별 된 클라이언트 ID입니다. 
+    -  **서비스 원칙** Kubernetes Azure 클라우드 공급자에서 사용 하는 ID입니다. 클라이언트 ID는 서비스 주체는 만들 때 응용 프로그램 ID로 확인 되었습니다. 
     -  **클라이언트 암호** 키에 서비스 주체를 만들 때 만든 것입니다.
 
 2. VM 배포를 만들고 및 사용자 지정 스크립트 확장 합니다.

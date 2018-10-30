@@ -1,5 +1,5 @@
 ---
-title: '자습서: 이미지 분류 프로젝트 빌드 - Custom Vision Service, Java'
+title: '자습서: Java용 Custom Vision SDK를 사용하여 이미지 분류 프로젝트 만들기'
 titlesuffix: Azure Cognitive Services
 description: 기본 엔드포인트를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 9a7f50e0eb33016d6a2d8f28be047b327135c51f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e302fc580d9c83d269f0deedd051a3ea23bd274e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367358"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957217"
 ---
-# <a name="tutorial-build-an-image-classification-project-with-java"></a>자습서: Java를 사용하여 이미지 분류 프로젝트 빌드
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>자습서: Java용 Custom Vision SDK를 사용하여 이미지 분류 프로젝트 만들기
 
 Java를 사용하는 Custom Vision Service로 이미지 분류 프로젝트를 만드는 방법을 알아봅니다. 프로젝트를 만든 후에는 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습시키고, 프로젝트의 기본 예측 엔드포인트 URL을 가져오고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision API를 사용하여 사용자 고유의 앱을 빌드하기 위한 템플릿으로 사용합니다.
 

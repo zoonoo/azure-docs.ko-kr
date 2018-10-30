@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bd41244192efa1333bc90bec8c00f38aaaa7f612
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 446d9ead47e9d9380a608933ced3793e99241622
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714992"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026333"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -33,7 +33,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 이 문서는 시리즈의 세 번째 자습서입니다. 이 자습서에서는 이전 자습서의 작업을 이미 완료했다고 가정합니다.
 
 1. [Azure 준비](tutorial-prepare-azure.md)
-2. 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md) 서버를 준비합니다.
+2. 온-프레미스 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 서버를 준비합니다.
 
 시작하기 전에 재해 복구를 위한 [VMware](vmware-azure-architecture.md) 또는 [Hyper-V](hyper-v-azure-architecture.md) 아키텍처를 검토하는 것이 좋습니다.
 

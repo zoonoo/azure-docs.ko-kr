@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: cbc30d1a70d7a333f56df6f0a796d3a8e6532fe8
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: adf9f40e351ca642ca3e8eabe1e5eb7850f1f00d
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068729"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945538"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-online-using-dms"></a>DMS를 사용하여 SQL Server를 Azure SQL Database로 온라인 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)로 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database로 마이그레이션합니다.
@@ -33,6 +33,10 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 > [!IMPORTANT]
 > 최적의 마이그레이션 환경을 위해 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것이 좋습니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
+
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+이 문서에서는 SQL Server에서 Azure SQL Database로의 온라인 마이그레이션을 설명합니다. 오프라인 마이그레이션의 경우 [DMS를 사용하여 Azure SQL Database로 SQL Server 오프라인 마이그레이션](tutorial-sql-server-to-azure-sql.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.

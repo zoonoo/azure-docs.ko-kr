@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419528"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945793"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>자습서: 암호화된 저장소 계정을 배포하기 위한 Azure Resource Manager 템플릿 만들기
 
@@ -40,8 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* [Visual Studio Code](https://code.visualstudio.com/)
-* Resource Manager 도구 확장. 설치하려면 [Resource Manager 도구 확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
+* [Visual Studio Code](https://code.visualstudio.com/) 및 [Resource Manager 도구 확장](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
@@ -56,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. **열기**를 선택하여 파일을 엽니다.
 4. **파일**>**이름으로 저장**을 차례로 선택하여 파일을 **azuredeploy.json**으로 저장합니다.
 
-## <a name="understand-the-format"></a>형식의 이해
+## <a name="understand-the-schema"></a>스키마 이해
 
 VS Code에서 템플릿을 루트 수준으로 축소합니다. 다음 요소가 포함된 가장 간단한 구조가 표시됩니다.
 
@@ -69,7 +68,7 @@ VS Code에서 템플릿을 루트 수준으로 축소합니다. 다음 요소가
 * **resources**: 리소스 그룹에 배포 또는 업데이트되는 리소스 종류를 지정합니다.
 * **outputs**: 배포 후 반환되는 값을 지정합니다.
 
-## <a name="use-parameters-in-template"></a>템플릿에서 매개 변수 사용
+## <a name="use-parameters"></a>매개 변수 사용
 
 매개 변수를 사용하여 특정 환경에 맞게 조정되는 값을 제공함으로써 배포를 사용자 지정할 수 있습니다. 저장소 계정의 값을 설정할 때 템플릿에 정의된 매개 변수를 사용합니다.
 
@@ -90,7 +89,7 @@ resourceGroup() 함수는 현재 리소스 그룹을 나타내는 개체를 반�
 "name": "[parameters('storageAccountType')]"
 ```
 
-## <a name="use-variables-in-template"></a>템플릿에서 변수 사용
+## <a name="use-variables"></a>변수 사용
 
 변수를 사용하면 템플릿 전체에서 사용 가능한 값을 생성할 수 있습니다. 변수는 템플릿의 복잡성을 줄이는 데 도움이 됩니다.
 
@@ -117,9 +116,7 @@ resourceGroup() 함수는 현재 리소스 그룹을 나타내는 개체를 반�
 
     ![Resource Manager 템플릿 참조 저장소 계정](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    resource-manager-template-resources-reference-storage-accounts
-1. 암호화 관련 정보를 탐색합니다.  
-1. 저장소 계정 리소스 정의의 속성 요소 내에서 다음 json을 추가합니다.
+4. 암호화 관련 정의 정보를 탐색합니다.  
 
     ```json
     "encryption": {
@@ -131,11 +128,9 @@ resourceGroup() 함수는 현재 리소스 그룹을 나타내는 개체를 반�
         }
     }
     ```
-    이 부분은 BLOB 저장소 서비스의 암호화 기능을 활성화합니다.
-
-Visual Studio Code에서 최종 리소스 요소가 다음과 같이 표시되도록 템플릿을 수정합니다.
-
-![Resource Manager 템플릿 암호화된 저장소 계정 리소스](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+5. Visual Studio Code에서 최종 리소스 요소가 다음과 같이 표시되도록 템플릿을 수정합니다.
+    
+    ![Resource Manager 템플릿 암호화된 저장소 계정 리소스](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 

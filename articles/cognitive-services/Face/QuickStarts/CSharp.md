@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 이미지에서 얼굴 감지 - Face API C#'
+title: '빠른 시작: REST API 및 C#을 사용하여 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 C#과 함께 Face API를 사용하여 이미지에서 얼굴을 감지합니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 080e616067bb0b8a640ded6faec184030314d79a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5a3b3e70a12f70874bf54e8f01a0f8baf3eec845
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341024"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954524"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-c"></a>빠른 시작: C#을 사용하여 이미지에서 얼굴 감지
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-c"></a>빠른 시작: REST API 및 C#을 사용하여 이미지에서 얼굴 감지
 
 이 빠른 시작에서는 Face API를 사용하여 이미지에서 사람 얼굴을 감지합니다.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 custom: it-pro
-ms.openlocfilehash: 8ef68c8afcf61a1a11c341a679443071aece9812
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363006"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023554"
 ---
 # <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>빠른 시작: 새 테넌트를 만들기 위해 Azure Active Directory에 액세스
 Azure AD(Azure Active Directory) 포털을 사용하여 조직의 테넌트를 새로 만드는 작업을 비롯한 모든 관리 작업을 수행할 수 있습니다. 
@@ -24,13 +24,6 @@ Azure AD(Azure Active Directory) 포털을 사용하여 조직의 테넌트를 �
 이 빠른 시작에서는 Azure Portal과 Azure Active Directory에 액세스하는 방법과 조직의 기본 테넌트를 만드는 방법을 배웁니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
-
-## <a name="prerequisites"></a>필수 조건
-시작하려면 먼저 다음 조건을 충족해야 합니다.
-
-- 조직에 유효한 Azure AD 라이선스가 있어야 합니다.
-
-- 전역 관리자여야 합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 전역 관리자 계정을 사용하여 조직의 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
@@ -76,3 +69,5 @@ Azure Portal에 로그인한 후에 조직의 테넌트를 새로 만들 수 있
 - 그룹 및 멤버 추가 - [기본 그룹 만들기 및 멤버 추가](active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 - 조직의 응용 프로그램 및 리소스 액세스를 관리하는 데 도움이 되는 [PIM(Privileged Identity Management)을 사용한 역할 기반 액세스](../../role-based-access-control/pim-azure-resource.md) 및 [조건부 액세스](../../role-based-access-control/conditional-access-azure-management.md)에 대해 알아봅니다.
+
+- [기본 라이선스 정보, 용어, 관련 기능](active-directory-whatis.md) 등, Azure AD에 대해 알아봅니다.

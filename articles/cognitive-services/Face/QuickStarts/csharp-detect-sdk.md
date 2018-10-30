@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 이미지에서 얼굴 감지 - SDK, C#'
+title: '빠른 시작: .NET SDK 및 C#을 사용하여 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Cognitive Services에서 Face Windows C# 클라이언트 라이브러리를 사용하여 이미지의 얼굴을 감지합니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344985"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954966"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>빠른 시작: C&#35;을 사용하여 이미지에서 얼굴 감지 - 얼굴
+# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>빠른 시작: .NET SDK 및 C#을 사용하여 이미지에서 얼굴 감지
 
 이 빠른 시작에서는 Face Windows 클라이언트 라이브러리를 사용하여 이미지에서 사람 얼굴을 감지합니다.
 

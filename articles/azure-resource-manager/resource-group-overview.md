@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 841f82595257c97c15398347a3e1605219d1a534
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394428"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954218"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 응용 프로그램에 대한 인프라는 일반적으로 가상 머신, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다. 
@@ -64,6 +64,30 @@ Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 �
 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)를 참조하세요.
 
 Azure, Azure 소버린 클라우드 및 Azure Stack에서 사용할 수 있는 Resource Manager 템플릿을 만드는 방법에 대한 권장 사항은 [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](templates-cloud-consistency.md)을 참조하세요.
+
+## <a name="quickstarts-and-tutorials"></a>빠른 시작 및 자습서
+
+Resource Manager 템플릿을 개발하는 방법을 알아보려면 다음 빠른 시작 및 자습서를 사용하세요.
+
+- 빠른 시작
+
+    |제목|설명|
+    |------|-----|
+    |[Azure Portal 사용](./resource-manager-quickstart-create-templates-use-the-portal.md)|포털을 사용하여 템플릿을 생성하고 템플릿을 편집 및 배포하는 프로세스를 설명합니다.|
+    |[Visual Studio Code 사용](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Visual Studio Code를 사용하여 템플릿을 생성 및 편집하고, Azure Cloud shell을 사용하여 템플릿을 배포하는 방법을 설명합니다.|
+    |[Visual Studio 사용](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Visual Studio를 사용하여 템플릿을 생성, 편집 및 배포합니다.|
+
+- 자습서
+
+    |제목|설명|
+    |------|-----|
+    |[템플릿 참조 활용](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|템플릿 참조 설명서를 활용하여 템플릿을 개발합니다. 이 자습서에서는 저장소 계정 스키마를 찾고 해당 정보를 사용하여 암호화된 저장소 계정을 만듭니다.|
+    |[여러 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)|Azure 리소스의 여러 인스턴스를 만듭니다. 이 자습서에서는 저장소 계정의 여러 인스턴스를 만듭니다.|
+    |[리소스 배포 순서 설정](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|리소스 종속성을 정의합니다. 이 자습서에서는 가상 네트워크, 가상 머신 및 종속 Azure 리소스를 만듭니다. 종속성을 정의하는 방법을 알아봅니다.|
+    |[조건 사용](./resource-manager-tutorial-use-conditions.md)|일부 매개 변수 값에 따라 리소스를 배포합니다. 이 자습서에서는 새 저장소 계정을 만드는 템플릿을 정의하거나 매개 변수 값을 기준으로 기존 저장소 계정을 사용합니다.|
+    |[Key Vault 통합](./resource-manager-tutorial-use-key-vault.md)|Azure Key Vault에서 비밀/암호를 검색합니다. 이 자습서에서는 가상 머신을 만듭니다.  가상 머신 관리자 암호는 Key Vault에서 검색됩니다.|
+    |[연결된 템플릿 만들기](./resource-manager-tutorial-create-linked-templates.md)|템플릿을 모듈화하고 템플릿에서 다른 템플릿을 호출합니다. 이 자습서에서는 가상 네트워크, 가상 머신 및 종속 리소스를 만듭니다.  종속 저장소 계정은 연결된 템플릿에서 정의됩니다. |
+    |[안전한 배포 사례 사용](./deployment-manager-tutorial.md)|Azure Deployment Manager 사용 |
 
 ## <a name="resource-groups"></a>리소스 그룹
 리소스 그룹을 정의할 때 고려해야 할 몇 가지 중요한 요인이 있습니다.
@@ -214,9 +238,9 @@ Azure는 몇 가지 리소스 특정 역할도 제공합니다. 몇 가지 일�
 
 경우에 따라 리소스에 액세스하는 코드 또는 스크립트를 실행하려고 하지만 사용자의 자격 증명으로 실행하지 않으려 할 수 있습니다. 대신, 응용 프로그램에 대한 서비스 주체를 호출하는 ID를 만들고 서비스 주체에 대한 적절한 역할을 할당하려고 합니다. Resource Manager를 사용하면 응용 프로그램에 대한 자격 증명을 만들고 프로그래밍 방식으로 응용 프로그램을 인증할 수 있습니다. 서비스 주체를 만드는 방법에 대해 알아보려면 다음 항목 중 하나를 참조하세요.
 
-* [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal.md)
+* [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](resource-group-authenticate-service-principal-cli.md)
-* [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](resource-group-create-service-principal-portal.md)
+* [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)
 
 또한 사용자가 삭제 및 수정하는 것을 방지하기 위해 명시적으로 중요한 리소스를 잠글 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 

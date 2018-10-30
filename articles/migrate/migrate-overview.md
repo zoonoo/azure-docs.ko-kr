@@ -4,15 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d2a8885ffb9148d408eff0e8a7d2ef09121e5359
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162041"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025640"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -29,16 +29,16 @@ Azure Migrate의 기능:
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
-- 현재 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션만 평가할 수 있습니다. VMware VM은 vCenter Server(버전 5.5, 6.0 또는 6.5)에서 관리되어야 합니다.
+- 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션만 평가할 수 있습니다. VMware VM은 vCenter Server(버전 5.5, 6.0 또는 6.5)에서 관리되어야 합니다.
 - Hyper-VM 및 물리적 서버를 평가하려는 경우 Hyper-VM의 경우 [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc)를 사용하고 물리적 머신의 경우 [파트너 도구](https://azure.microsoft.com/migration/partners/)를 사용합니다.
 - 단일 검색에서 최대 1500대의 VM을 검색하고, 단일 프로젝트에서 최대 1500대의 VM을 검색할 수 있습니다. 또한 단일 평가에서 최대 1500대의 VM을 평가할 수 있습니다.
 - 대규모 환경을 검색하려면 검색을 분할하고 여러 프로젝트를 만들면 됩니다. [자세히 알아보기](how-to-scale-assessment.md). Azure Migrate는 구독당 최대 20개의 프로젝트를 지원합니다.
 - 마이그레이션을 평가하는 경우 Azure Migrate는 관리 디스크만 지원합니다.
-- 미국 지리에서는 Azure Migrate 프로젝트만 만들 수 있습니다. 그러면 대상 Azure 위치에 대한 마이그레이션을 계획하는 기능에 영향을 주지 않습니다. 마이그레이션 프로젝트의 지리는 온-프레미스 환경에서 발견된 메타데이터를 저장하는 용도로만 사용됩니다. Azure Migrate에 의해 수집된 메타데이터에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment). 수집된 메타데이터는 선택한 [Azure 지리](https://azure.microsoft.com/global-infrastructure/geographies/)의 지역 중 하나에 저장됩니다.
+-  미국 지리에서는 Azure Migrate 프로젝트만 만들 수 있습니다. 그러나 대상 Azure 위치에 대한 마이그레이션을 계획할 수 있습니다.
+    - 온-프레미스 환경에서 발견된 메타데이터만 마이그레이션 프로젝트 지역에 저장됩니다.
+    - 메타데이터는 선택한 지역(미국 서중부/미국 동부)의 지역 중 하나에 저장됩니다.
+    - 종속성 시각화를 Log Analytics 작업 영역에 사용할 경우 프로젝트와 같은 지역에 생성됩니다. 
 
-**지리** | **지역**
---- | ---
-미국 | 미국 중서부, 미국 동부
 
 ## <a name="what-do-i-need-to-pay-for"></a>어떤 요금이 발생하나요?
 

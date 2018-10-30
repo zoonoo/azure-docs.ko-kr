@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 9250e38eadb9d9b1e8bf0c09fa1a9a165e5e69f1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 5a3d63637d7b680a012057b92546ccde87ac73de
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886265"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233364"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
@@ -72,9 +72,10 @@ Marketplace에는 다음 Ubuntu Server 이미지를 추가 합니다.
 
 1. `UbuntuServer`을 입력합니다.
 
-1. 최신 버전의 다음 프로필을 사용 하 여 서버를 선택 합니다.
+1. 최신 버전의 서버를 선택 합니다. 정식 버전을 확인 하 고 최신 버전이 있는지 확인 합니다.
     - **게시자**: Canonical
     - **제공**: UbuntuServer
+    - **버전**: 16.04.201806120
     - **SKU**: 16.04-LTS
 
 1. 선택 **다운로드 합니다.**

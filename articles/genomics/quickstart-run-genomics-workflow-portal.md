@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: e1d10b578d33ba8d96f43666b82e94ef5503fe77
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b8afaf9675dfac29449769e1f2ab323417376897
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731090"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026214"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행
 
@@ -40,7 +40,7 @@ Microsoft Genomics 계정을 만들려면 [Azure Portal](https://portal.azure.co
  |:-------------       |:-------------         |:----------            |
  |계정 이름         | MyGenomicsAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
  |구독         | 구독 이름|귀하의 Azure 서비스에 대한 청구 단위입니다. 구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |      
- |리소스 그룹       | MyResourceGroup       |  리소스 그룹을 사용하여 여러 Azure 리소스(저장소 계정, 게놈 계정 등)를 단일 그룹으로 그룹화하여 간단히 관리할 수 있습니다. 자세한 내용은 [리소스 그룹]을 참조하세요(https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). 유효한 리소스 그룹 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
+ |리소스 그룹       | MyResourceGroup       |  리소스 그룹을 사용하여 여러 Azure 리소스(저장소 계정, 게놈 계정 등)를 단일 그룹으로 그룹화하여 간단히 관리할 수 있습니다. 자세한 내용은 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)을 참조하세요. 유효한 리소스 그룹 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
  |위치                   | 미국 서부 2                    |    미국 서부 2, 유럽 서부 및 동남 아시아에서 서비스를 사용할 수 있습니다. |
 
 

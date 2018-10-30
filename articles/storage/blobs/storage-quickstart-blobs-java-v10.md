@@ -6,16 +6,16 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 10/19/2018
 ms.author: rogarana
-ms.openlocfilehash: dfd04aa0c8f314327afaefa67f1c63b1ff605e9b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c675dd17994abaaf6d0eed1934bec8f2220e7435
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387211"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955704"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>빠른 시작: Java Storage SDK V10(미리 보기)을 사용하여 Blob 업로드, 다운로드 및 나열
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>빠른 시작: Java Storage SDK V10을 사용하여 Blob 업로드, 다운로드 및 나열
 
 이 빠른 시작에서 새 Java Storage SDK를 사용하여 Azure Blob Storage의 컨테이너에 블록 Blob을 업로드하고, 다운로드하고, 나열하는 방법을 알아봅니다. 새 Java SDK는 RxJava를 통해 사후 프로그래밍 모델을 사용하여 비동기 연산을 제공합니다. RxJava [Java VM용 사후 확장](https://github.com/ReactiveX/RxJava)에 대해 자세히 알아보세요. 
 
@@ -116,16 +116,16 @@ Cleaning up the sample and exiting!
 
 1. 저장소 계정을 가리키는 **StorageURL** 개체의 인스턴스를 만듭니다.
 
-    * [StorageURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) 개체는 저장소 계정의 표현입니다. 새 파이프라인을 생성하는 데 사용할 수 있습니다. 
+    * [StorageURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-stable) 개체는 저장소 계정의 표현입니다. 새 파이프라인을 생성하는 데 사용할 수 있습니다. 
     * 파이프라인은 권한 부여, 로깅 및 메커니즘 다시 시도를 사용하여 요청 및 응답을 조작하는 데 사용되는 정책 집합입니다. 자세한 내용은 [HTTP 파이프라인](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline)을 참조하세요.  
-    * 파이프라인을 사용하여 [ServiceURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview) 개체의 인스턴스를 만듭니다.
-    * **ServiceURL** 개체를 사용하여 [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview)의 인스턴스를 만듭니다.
+    * 파이프라인을 사용하여 [ServiceURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-stable) 개체의 인스턴스를 만듭니다.
+    * **ServiceURL** 개체를 사용하여 [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-stable)의 인스턴스를 만듭니다.
     * **ContainerURL**은 blob 컨테이너에서 작업을 실행하는 데 필요합니다.
 
 2. 액세스하는 컨테이너를 나타내는 **ContainerURL** 개체의 인스턴스를 만듭니다. 컨테이너는 컴퓨터의 폴더로 파일을 구성하는 방법과 동일한 방식으로 BLOB을 구성합니다.
 
     * **ContainerURL**은 컨테이너 서비스에 대한 액세스 지점을 제공합니다. 
-    * [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview)을 사용하여 [BlobURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-preview) 개체의 인스턴스를 만들 수 있습니다.
+    * [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-stable)을 사용하여 [BlobURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-stable) 개체의 인스턴스를 만들 수 있습니다.
     * **BlobURL**은 BLOB을 만드는 데 필요합니다.
 
 3. 관심이 있는 특정 BLOB을 가리키는 **BlobURL** 개체의 인스턴스를 만듭니다. 
@@ -137,7 +137,7 @@ Cleaning up the sample and exiting!
 
 이 섹션에서는 **ContainerURL**의 인스턴스를 만듭니다. 이 인스턴스로 새 컨테이너를 만듭니다. 이 샘플의 컨테이너를 **빠른 시작**으로 지칭합니다. 
 
-이 예제에서 [ContainerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview)를 사용하므로 샘플이 실행될 때마다 새 컨테이너를 만들 수 있습니다. 또는 코드에서 만들 필요가 없도록 컨테이너를 미리 만들 수도 있습니다.
+이 예제에서 [ContainerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-stable#com_microsoft_azure_storage_blob__container_u_r_l_create_Metadata_PublicAccessType_Context_)를 사용하므로 샘플이 실행될 때마다 새 컨테이너를 만들 수 있습니다. 또는 코드에서 만들 필요가 없도록 컨테이너를 미리 만들 수도 있습니다.
 
 ```java
 // Create a ServiceURL to call the Blob service. We will also use this to construct the ContainerURL
@@ -168,9 +168,9 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 1. Blob에 파일을 업로드하려면 대상 컨테이너에 blob에 대한 참조를 가져옵니다. 
 2. BLOB 참조를 가져온 후에는 다음 API 중 하나를 사용하여 파일을 업로드할 수 있습니다.
 
-    * 하위 API. **BlockBlobURL** 인스턴스의 PutBlob이라고도 하는 [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview)와 PutBLock이라고도 하는 [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_)을 예로 들 수 있습니다. 
+    * 하위 API. **BlockBlobURL** 인스턴스의 PutBlob이라고도 하는 [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_)와 PutBLock이라고도 하는 [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable)을 예로 들 수 있습니다. 
 
-    * [TransferManager 클래스](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview)에 제공되는 고급 API. [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview) 메서드를 예로 들 수 있습니다. 
+    * [TransferManager 클래스](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable)에 제공되는 고급 API. [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable) 메서드를 예로 들 수 있습니다. 
 
     이 작업은 Blob이 없는 경우 BLOB을 만듭니다. 이미 BLOB이 있는 경우 덮어씁니다.
 
@@ -195,7 +195,7 @@ static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {
 
 ### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-[ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview)를 사용하여 컨테이너의 개체 목록을 가져올 수 있습니다. 컨테이너에 나열할 항목이 더 있는 경우 이 메서드는 연속 또는 그 다음 표식과 함께 한 번에 최대 5,000개의 개체를 반환합니다. 이전 **listBlobsFlatSegment** 응답에 그 다음 표식이 있는 경우 자신을 반복해서 호출하는 도우미 함수를 만듭니다.
+[ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-stable)를 사용하여 컨테이너의 개체 목록을 가져올 수 있습니다. 컨테이너에 나열할 항목이 더 있는 경우 이 메서드는 연속 또는 그 다음 표식과 함께 한 번에 최대 5,000개의 개체를 반환합니다. 이전 **listBlobsFlatSegment** 응답에 그 다음 표식이 있는 경우 자신을 반복해서 호출하는 도우미 함수를 만듭니다.
 
 ```java
 static void listBlobs(ContainerURL containerURL) {
@@ -253,7 +253,7 @@ private static Single <ContainersListBlobFlatSegmentResponse> listAllBlobs(Conta
 
 ### <a name="download-blobs"></a>Blob 다운로드
 
-[BlobURL.download](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-preview)를 사용하여 BLOB을 로컬 디스크에 다운로드합니다.
+[BlobURL.download](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-stable)를 사용하여 BLOB을 로컬 디스크에 다운로드합니다.
 
 다음 코드는 이전 섹션에서 업로드된 Blob를 다운로드합니다. 로컬 디스크에서 두 파일을 확인할 수 있게 **_DOWNLOADED** 접미사를 BLOB 이름에 추가합니다. 
 
@@ -278,7 +278,7 @@ static void getBlob(BlockBlobURL blobURL, File sourceFile) {
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서 업로드한 BLOB이 더 이상 필요 없으면 [ContainerURL.delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview)를 사용하여 전체 컨테이너를 삭제해도 됩니다. 이 메서드는 컨테이너의 파일도 삭제합니다.
+이 빠른 시작에서 업로드한 BLOB이 더 이상 필요 없으면 [ContainerURL.delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-stable)를 사용하여 전체 컨테이너를 삭제해도 됩니다. 이 메서드는 컨테이너의 파일도 삭제합니다.
 
 ```java
 containerURL.delete(null).blockingGet();
@@ -289,6 +289,6 @@ containerURL.delete(null).blockingGet();
 이 빠른 시작에서는 Java를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 알아보았습니다. 
 
 > [!div class="nextstepaction"]
-> [Java 소스 코드에 대한 Storage SDK V10](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
-> [API 참조](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview)
+> [Java 소스 코드에 대한 Storage SDK V10](https://github.com/Azure/azure-storage-java/)
+> [API 참조](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable)
 > [RxJava에 대해 자세히 알아보기](https://github.com/ReactiveX/RxJava)

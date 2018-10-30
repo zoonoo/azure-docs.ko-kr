@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 10/27/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 161b54620bd8a3c9994228a30bd7495717064168
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d80e7bc1d391d9b5bfd718ca2dc0e9dc7ecb2268
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158469"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210876"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -38,6 +38,8 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 ### <a name="new-features"></a>새로운 기능
 
 이 업데이트는 Azure Stack에 대 한 다음과 같은 향상 된 기능을 포함합니다.
+
+- 이 릴리스에서 Azure Stack 통합 4-16 노드의 시스템 지원 구성 합니다.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog 클라이언트 (일반 공급)** 이 클라이언트에는 감사, 경고 및 Azure Stack 인프라를 syslog 서버 또는 보안 정보 및 이벤트 관리 (SIEM) 소프트웨어와 관련 된 보안 로그를 전달할 수 있도록 Azure Stack에 외부입니다. Syslog 클라이언트는 이제 syslog 서버 수신 대기 하는 포트 지정을 지원 합니다.
 
@@ -147,6 +149,8 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 - <!-- 2468613 - IS --> 이 업데이트를 설치 하는 동안 경고 제목으로 표시 될 수 있습니다 *오류 – FaultType UserAccounts.New 템플릿을 누락 되었습니다.*  이러한 경고를 안전 하 게 무시할 수 있습니다. 이러한 경고는이 업데이트의 설치가 완료 된 후 자동으로 종료 됩니다.
 
 - <!-- 2489559 - IS --> 이 업데이트를 설치 하는 동안 가상 컴퓨터를 만들 하려고 하지 마십시오. 업데이트를 관리 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Stack 개요에 대 한 업데이트 관리](azure-stack-updates.md#plan-for-updates)합니다.
+
+- <!-- 3139614 | IS --> Azure Stack에 OEM에 게에서 업데이트를 적용 한 경우는 **업데이트 사용 가능** 알림 Azure Stack 관리 포털에 나타나지 않을 수 있습니다. Microsoft 업데이트를 설치 하려면 다운로드 하 고 여기에 있는 지침을 사용 하 여 수동으로 가져와서 [Azure Stack의 업데이트 적용](azure-stack-apply-updates.md)합니다.
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
 

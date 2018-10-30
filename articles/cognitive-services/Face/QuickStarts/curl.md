@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 이미지에서 얼굴 감지 - Face API cURL'
+title: '빠른 시작: REST API 및 cURL을 사용하여 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 cURL과 함께 Face API를 사용하여 이미지에서 얼굴을 감지합니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: da18b7b3666863742f987b2ee0da297c0838d266
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343064"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953351"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-curl"></a>빠른 시작: cURL을 사용하여 이미지에서 얼굴 감지
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>빠른 시작: REST API 및 cURL을 사용하여 이미지에서 얼굴 감지
 
 이 빠른 시작에서는 Face API를 사용하여 이미지에서 얼굴을 감지합니다.
 

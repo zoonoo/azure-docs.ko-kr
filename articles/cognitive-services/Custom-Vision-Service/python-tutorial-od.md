@@ -1,5 +1,5 @@
 ---
-title: '자습서: 개체 검색 프로젝트 만들기 - Custom Vision API, Python'
+title: '자습서: Python용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기 - Custom Vision Service'
 titlesuffix: Azure Cognitive Services
 description: 기본 엔드포인트를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 36b283965766130e86e079c807139998cd01c8a6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363703"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958536"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-python"></a>자습서: Python으로 개체 검색 프로젝트 빌드
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-python"></a>Python용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기
 
 Computer Vision API를 사용하여 개체 검색 프로젝트를 만드는 기본 Python 스크립트를 알아봅니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision API를 사용하여 사용자 고유의 앱을 빌드하기 위한 템플릿으로 사용합니다.
 

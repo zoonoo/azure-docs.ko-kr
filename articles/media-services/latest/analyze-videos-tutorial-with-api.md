@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 96ed5c17501aeb195ee584ce6d41a84fc2118bac
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5bb840be119f5eac380c44e2cf45b3f73a9d981e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376655"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985712"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>자습서: Azure Media Services로 비디오 분석 
 
@@ -33,9 +33,6 @@ ms.locfileid: "49376655"
 > * 앱 실행
 > * 출력 내용 검사
 > * 리소스 정리
-
-> [!Note]
-> [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)에 설명된 대로 Azure Portal을 사용하여 Media Services 계정을 10개의 S3 미디어 예약 단위로 설정합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,6 +68,9 @@ Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https
 4. 작업을 제출합니다.
 5. 작업의 상태를 확인합니다.
 6. 작업 실행에서 생성된 파일을 다운로드합니다. 
+
+> [!NOTE]
+> 비디오 또는 오디오 분석기 사전 설정을 사용할 때는 Azure Portal을 통해 S3 미디어 예약 10단위를 갖도록 계정을 설정합니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요.
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>.NET SDK로 Media Services API 사용하기
 

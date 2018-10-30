@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2402dd2adb27abb784c34a2a3569e8f6e4a60f77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f683d63683e903d947d0789a16a8efa48196d36a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954792"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026197"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -30,10 +30,9 @@ Azure CLI를 사용하여 응용 프로그램 액세스에 사용되는 URL을 �
 > * 수신기, URL 경로 맵 및 규칙 만들기
 > * 확장 가능한 백 엔드 풀 만들기
 
-
 ![URL 라우팅 예제](./media/tutorial-url-route-cli/scenario.png)
 
-원하는 경우 [Azure PowerShell](tutorial-url-route-powershell.md)을 사용하여 이 자습서를 완료할 수 있습니다.
+원하는 경우 [Azure PowerShell](tutorial-url-route-powershell.md) 또는 [Azure Portal](create-url-route-portal.md)을 사용하여 이 자습서를 완료할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 10/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff52c0fa647dd0e86b22bcfdf7af04062a135f94
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9f9464874230538bf2976b47896dae8e67c9744f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392808"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024395"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>자습서: Azure Batch를 사용하여 장면 렌더링 
 
@@ -31,7 +31,7 @@ Azure Batch Rendering Service는 클라우드 수준 렌더링 기능을 사용�
 
 ## <a name="prerequisites"></a>필수 조건
 
-사용량 기준 과금 단위로 일괄 처리에서 렌더링 응용 프로그램을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. 사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.
+사용량 기준 과금 단위로 일괄 처리에서 렌더링 응용 프로그램을 사용하는 데 종량제 구독 또는 다른 Azure 구입 옵션이 필요합니다. **사용량 기준 과금 라이선스는 금액 크레딧을 제공하는 무료 Azure 제품을 사용하는 경우 지원되지 않습니다.**
 
 이 자습서의 3ds Max 장면 샘플은 Bash 스크립트 샘플 및 JSON 구성 파일과 함께 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene)에 있습니다. 3ds Max 장면은 [Autodesk 3ds Max 샘플 파일](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)에서 제공된 것입니다. (Autodesk 3ds Max 샘플 파일은 Creative 일반 저작자 표시 - 비영리 목적 - 동일 조건 변경 허락 라이선스에 따라 사용할 수 있습니다. Copyright © Autodesk, Inc.)
 
@@ -175,7 +175,7 @@ az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2018-11-15
+    --expiry 2019-11-15
 ```
 
 명령으로 반환된 토큰은 적어둡니다. 이 토큰은 다음과 비슷하며, 이후 단계에서 사용합니다.

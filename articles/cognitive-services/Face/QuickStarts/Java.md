@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 이미지에서 얼굴 감지 - Face API, Java'
+title: '빠른 시작: REST API 및 Java를 사용하여 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java와 함께 Face API를 사용하여 이미지에서 얼굴을 감지합니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 42a8b13b87623b92ee0fe92db4e6a0caff5c3a1b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df9490a3ee2af115b48dafd323e1afdec24b392d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339118"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956224"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-java"></a>빠른 시작: Java를 사용하여 이미지에서 얼굴 감지
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>빠른 시작: REST API 및 Java를 사용하여 이미지에서 얼굴 감지
 
 이 빠른 시작에서는 Face API를 사용하여 이미지에서 사람 얼굴을 감지합니다.
 

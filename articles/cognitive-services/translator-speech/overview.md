@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 641081e4a01aa5810d569795c10e967e4b46568e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341143"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023580"
 ---
 # <a name="what-is-translator-speech-api"></a>Translator Speech API란?
 
@@ -34,7 +34,7 @@ Translator Speech 서비스는 무음 감지 기능을 사용하여 발화의 �
 Translator Speech API는 WebSocket 프로토콜을 사용하여 클라이언트 및 서버 간 전이중 통신 채널을 제공합니다. 
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator 정보
-Microsoft Translator는 클라우드 기반 기계 번역 서비스입니다. 이 서비스의 핵심에는 다양한 Microsoft 제품 및 서비스를 제공하고 전세계 수천 개 비즈니스가 해당 응용 프로그램 및 워크플로에서 사용하면서 해당 콘텐츠가 전세계 고객에게 도달하게 하는 [Translator Text API](https://www.microsoft.com/en-us/translator/translatorapi.aspx) 및 Translator Speech API가 있습니다.
+Microsoft Translator는 클라우드 기반 기계 번역 서비스입니다. 이 서비스의 핵심에는 다양한 Microsoft 제품 및 서비스를 제공하고 전세계 수천 개 비즈니스가 해당 응용 프로그램 및 워크플로에서 사용하면서 해당 콘텐츠가 전세계 고객에게 도달하게 하는 Translator Text API 및 [Translator Speech API](https://www.microsoft.com/en-us/translator/translatorapi.aspx)가 있습니다.
 
 [Microsoft Translator 서비스](https://www.microsoft.com/en-us/translator/home.aspx)를 자세히 알아보기
 

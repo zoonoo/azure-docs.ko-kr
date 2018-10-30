@@ -1,5 +1,5 @@
 ---
-title: '자습서: 이미지에서 얼굴 감지 및 포착 - Face API, C#'
+title: '자습서: C# 및 .NET SDK를 사용하여 이미지에서 얼굴 감지 및 포착'
 titleSuffix: Azure Cognitive Services
 description: 이 자습서에서는 Face API를 사용하여 이미지에서 얼굴을 감지하고 포착하는 Windows 앱을 만듭니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: pafarley
-ms.openlocfilehash: ba850c1d4f9d8018f333662eead56f8e91b3fbd7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df5e46270275ca08a8499607fbad4c1161382fab
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340956"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956497"
 ---
-# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>자습서: 이미지에서 얼굴을 감지하고 포착하는 WPF 앱 만들기
+# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image-using-the-net-sdk"></a>자습서: NET SDK를 사용하여 이미지에서 얼굴을 감지하고 포착하는 WPF 앱 만들기
 
 이 자습서에서는 .NET 클라이언트 라이브러리를 통해 Face 서비스를 사용하는 WPF(Windows Presentation Framework) 응용 프로그램을 만듭니다. 앱은 이미지에서 얼굴을 감지하고 각 얼굴 주위에 프레임을 그린 다음, 상태 표시줄에 얼굴에 대한 설명을 표시합니다. 전체 샘플 코드는 [Windows의 이미지에서 얼굴 감지 및 포착](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample)의 GitHub에서 사용할 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1e466b2945793f866aad4e6f0ace3d7379226830
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 15f465bf2aaf7c8b3a4a49819548c8db0b2ea014
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023532"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958859"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "42023532"
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-* [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+* [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="prepare-the-input-data"></a>입력 데이터 준비
 
@@ -40,7 +40,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
      "hmdt": 44
    }
    ```
-2. [Azure 포털](https://portal.azure.com/)에 로그인합니다.  
+2. [Azure Portal](https://portal.azure.com/)에 로그인합니다.  
 
 3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택합니다. **이름**이 "asaquickstartstorage"로, **위치**가 "미국 서부 2"로, **리소스 그룹**이 "asaquickstart-resourcegroup"으로 설정된 저장소 계정 작업 페이지를 작성합니다(성능 향상을 위해 스트리밍 작업과 동일한 리소스 그룹의 저장소 계정을 호스팅함). 나머지 설정은 해당 기본값으로 유지할 수 있습니다.  
 
@@ -69,7 +69,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |작업 이름   |  myasajob   |   Stream Analytics 작업을 식별하는 이름을 입력합니다. Stream Analytics 작업 이름은 영숫자 문자, 하이픈, 밑줄만 사용할 수 있으며 길이가 3자에서 63자 사이여야 합니다. |
-   |구독  | \<사용자의 구독\> |  이 작업에 사용할 Azure 구독을 선택합니다. |
+   |구독  | \<구독\> |  이 작업에 사용할 Azure 구독을 선택합니다. |
    |리소스 그룹   |   asaquickstart-resourcegroup  |   **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다. |
    |위치  |  \<사용자와 가장 가까운 지역 선택\> | Stream Analytics 작업을 호스트할 수 있는 지리적 위치를 선택합니다. 성능을 향상하고 데이터 전송 비용을 줄이기 위해 사용자에게 가장 가까운 위치를 사용합니다. |
    |스트리밍 단위  | 1  |   스트리밍 단위는 작업을 실행하는 데 필요한 컴퓨팅 리소스를 나타냅니다. 기본적으로 이 값은 1로 설정됩니다. 스트리밍 단위 크기를 조정하는 방법에 대한 자세한 내용은 [스트리밍 단위의 이해 및 크기 조정](stream-analytics-streaming-unit-consumption.md) 문서를 참조하세요.   |
@@ -96,7 +96,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |입력 별칭  |  BlobInput   |  작업의 입력을 식별하는 이름을 입력합니다.   |
-   |구독   |  \<사용자의 구독\> |  만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다. |
+   |구독   |  \<구독\> |  만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다. |
    |Storage 계정  |  myasastorageaccount |  저장소 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다. |
    |컨테이너  | container1 | 샘플 데이터를 보유하는 컨테이너의 이름을 선택합니다. 컨테이너 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다. |
 
@@ -115,7 +115,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |출력 별칭 |   BlobOutput   |   작업의 출력을 식별하는 이름을 입력합니다. |
-   |구독  |  \<사용자의 구독\>  |  만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다. |
+   |구독  |  \<구독\>  |  만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다. |
    |Storage 계정 |  asaquickstartstorage |   저장소 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.       |
    |컨테이너 |   container1  |  저장소 계정에서 만든 기존 컨테이너를 선택합니다.   |
    |경로 패턴 |   output  |  출력에 대한 기존 컨테이너 내의 경로로 사용할 이름을 입력합니다.   |
@@ -179,7 +179,9 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서 간단한 Stream Analytics 작업을 배포했습니다. 다른 입력 원본을 구성하고 실시간 검색을 수행하는 방법을 알아보려면 다음 문서로 이동하세요.
+이 빠른 시작에서는 Azure Portal을 사용하여 간단한 Stream Analytics 작업을 배포했습니다. [PowerShell](stream-analytics-quick-create-powershell.md) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 통해서도 Stream Analytics 작업을 배포할 수 있습니다.
+
+다른 입력 원본을 구성하고 실시간 검색을 수행하는 방법을 알아보려면 다음 문서로 이동하세요.
 
 > [!div class="nextstepaction"]
 > [Azure Stream Analytics를 사용하여 실시간 부정 행위 감지](stream-analytics-real-time-fraud-detection.md)

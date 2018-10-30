@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 9683a33efba427e83b2ff27ec57d2d437c61d5ce
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: a774873872d4b41c4ef5c005946db6b2a1b4e39e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166279"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955278"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 장치에 첫 번째 IoT Edge 모듈 배포
 
@@ -27,12 +27,11 @@ Azure IoT Edge는 클라우드의 강력한 기능을 사물 인터넷 장치로
 3. IoT Edge 런타임을 장치에 설치하고 시작합니다.
 4. 모듈을 IoT Edge 장치에 원격으로 배포합니다.
 
-![빠른 시작 아키텍처][2]
+![빠른 시작 아키텍처](./media/quickstart-linux/install-edge-full.png)
 
-이 빠른 시작에서는 Linux 컴퓨터 또는 가상 머신을 IoT Edge 장치로 전환합니다. 그런 다음, Azure Portal에서 모듈을 장치에 배포할 수 있습니다. 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다. 
+이 빠른 시작에서는 Linux 컴퓨터 또는 가상 머신을 IoT Edge 장치로 전환합니다. 그런 다음, Azure Portal에서 모듈을 장치에 배포할 수 있습니다. 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다.
 
-활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][lnk-account]을 만드세요.
-
+활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만드세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -43,7 +42,7 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
-   
+
 ## <a name="prerequisites"></a>필수 조건
 
 클라우드 리소스: 
@@ -51,7 +50,7 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
 * 이 빠른 시작에서 사용하는 모든 리소스를 관리하는 리소스 그룹입니다. 
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
+   az group create --name IoTEdgeResources --location westus2
    ```
 
 IoT Edge 장치:
@@ -64,9 +63,9 @@ IoT Edge 장치:
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합니다. 
+Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합니다.
 
-![IoT Hub 만들기][3]
+![IoT Hub 만들기](./media/quickstart-linux/create-iot-hub.png)
 
 이 빠른 시작에는 무료 수준의 IoT Hub가 작동합니다. 이전에 IoT Hub를 사용했고 이미 만든 체험 허브가 있으면 해당 IoT 허브를 사용할 수 있습니다. 구독마다 하나의 무료 IoT Hub만 가질 수 있습니다. 
 
@@ -76,12 +75,12 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
-   구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다. 
+   구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다.
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge 장치 등록
 
-새로 만든 IoT Hub에 IoT Edge 장치를 등록합니다. 
-![장치 등록][4]
+새로 만든 IoT Hub에 IoT Edge 장치를 등록합니다.
+![장치 등록](./media/quickstart-linux/register-device.png)
 
 IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 만듭니다. 장치 ID는 클라우드에 있으며, 사용자는 고유한 장치 연결 문자열을 사용하여 물리적 장치를 장치 ID에 연결합니다. 
 
@@ -101,11 +100,10 @@ IoT Edge 장치는 일반적인 IoT 장치와 다르게 작동하며 다른 방�
 
 1. 연결 문자열을 복사하고 저장합니다. 다음 섹션에서 이 값을 사용하여 IoT Edge 런타임을 구성할 것입니다. 
 
-
 ## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge 런타임 설치 및 시작
 
 IoT Edge 장치에 Azure IoT Edge 런타임을 설치하고 시작합니다. 
-![장치 등록][5]
+![장치 등록](./media/quickstart-linux/start-runtime.png)
 
 IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 Edge 장치가 부팅되고 IoT Edge 에이전트를 시작하여 장치를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 장치에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다. 
 
@@ -218,13 +216,13 @@ IoT Edge 장치가 구성되었습니다. 클라우드 배포 모듈을 실행�
 ## <a name="deploy-a-module"></a>모듈 배포
 
 클라우드에서 Azure IoT Edge 장치를 관리하여 원격 분석 데이터를 IoT Hub로 보낼 모듈을 배포합니다.
-![장치 등록][6]
+![장치 등록](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
-이 빠른 시작에서는 새 IoT Edge 장치를 만들고 여기에 IoT Edge 런타임을 설치했습니다. 그런 다음 장치 자체를 변경하지 않고도 장치에서 실행할 IoT Edge 모듈을 푸시할 수 있도록 Azure Portal을 사용했습니다. 이 경우 푸시한 모듈에서는 자습서에 대해 사용할 수 있는 환경 데이터를 만듭니다. 
+이 빠른 시작에서는 새 IoT Edge 장치를 만들고 여기에 IoT Edge 런타임을 설치했습니다. 그런 다음 장치 자체를 변경하지 않고도 장치에서 실행할 IoT Edge 모듈을 푸시할 수 있도록 Azure Portal을 사용했습니다. 이 경우 푸시한 모듈에서는 자습서에 대해 사용할 수 있는 환경 데이터를 만듭니다.
 
 다시 IoT Edge 장치에서 명령 프롬프트를 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
 
@@ -237,9 +235,8 @@ IoT Edge 장치가 구성되었습니다. 클라우드 배포 모듈을 실행�
 tempSensor 모듈에서 전송되는 메시지를 봅니다.
 
    ```bash
-   sudo iotedge logs tempSensor -f 
+   sudo iotedge logs tempSensor -f
    ```
-로그오프 및 로그인 후에는 위의 명령에 *sudo*가 필요하지 않습니다.
 
 ![모듈의 데이터 보기](./media/quickstart-linux/iotedge-logs.png)
 
@@ -247,16 +244,15 @@ tempSensor 모듈에서 전송되는 메시지를 봅니다.
 
 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT Hub에 도착하는 원격 분석 데이터를 볼 수 있습니다. 
 
-
 ## <a name="clean-up-resources"></a>리소스 정리
 
-IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하고 설정한 장치를 사용할 수 있습니다. 그렇지 않으면 만든 Azure 리소스를 삭제하고 장치에서 IoT Edge 런타임을 제거할 수 있습니다. 
+IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하고 설정한 장치를 사용할 수 있습니다. 그렇지 않으면 만든 Azure 리소스를 삭제하고 장치에서 IoT Edge 런타임을 제거할 수 있습니다.
 
 ### <a name="delete-azure-resources"></a>Azure 리소스 삭제
 
 새 리소스 그룹에서 가상 머신 및 IoT 허브를 만든 경우 해당 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 유지하려는 모든 해당 리소스 그룹에 있는 경우 정리하려는 개별 리소스를 삭제합니다. 
 
-**IoTEdgeResources** 그룹을 제거합니다. 
+**IoTEdgeResources** 그룹을 제거합니다.
 
    ```azurecli-interactive
    az group delete --name IoTEdgeResources 
@@ -299,27 +295,3 @@ IoT Edge 런타임에 의해 장치에서 만들어진 컨테이너를 삭제합
 
 > [!div class="nextstepaction"]
 > [Azure Function을 사용하여 센서 데이터 필터링](tutorial-deploy-function.md)
-
-
-
-<!-- Images -->
-[0]: ./media/quickstart-linux/cloud-shell.png
-[1]: ./media/quickstart-linux/view-module.png
-[2]: ./media/quickstart-linux/install-edge-full.png
-[3]: ./media/quickstart-linux/create-iot-hub.png
-[4]: ./media/quickstart-linux/register-device.png
-[5]: ./media/quickstart-linux/start-runtime.png
-[6]: ./media/quickstart-linux/deploy-module.png
-[7]: ./media/quickstart-linux/iotedged-running.png
-[8]: ./media/tutorial-simulate-device-linux/running-modules.png
-[9]: ./media/tutorial-simulate-device-linux/sensor-data.png
-
-
-<!-- Links -->
-[lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-account]: https://azure.microsoft.com/free
-[lnk-portal]: https://portal.azure.com
-[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-delete
-
-<!-- Anchor links -->
-[anchor-register]: #register-an-iot-edge-device
