@@ -1,25 +1,31 @@
 ---
-title: '빠른 시작: Java 업데이트 기술 자료 - QnA Maker'
+title: '빠른 시작: 기술 자료 업데이트 - REST, Java - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: QnA Maker용 Java로 기술 자료를 업데이트하는 방법입니다.
+description: 이 REST 기반 빠른 시작에서는 QnA Maker KB(기술 자료) 샘플을 프로그래밍 방식으로 업데이트하는 방법을 안내합니다. KB를 업데이트하는 데 사용하는 JSON 정의를 통해 질문 및 답변 쌍을 추가, 변경 또는 삭제할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: fc2792086d93e584535389c8c0f162fc1e592cbd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b7aaf57def84feec95cc6a157ac6dd33a17b2fc0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388248"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645858"
 ---
-# <a name="update-a-knowledge-base-in-java"></a>Java로 기술 자료 업데이트
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-java"></a>빠른 시작: Java를 사용하여 QnA Maker 기술 자료 업데이트
 
-다음 코드는 [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) 메서드를 사용하여 기존 기술 자료를 업데이트합니다.
+이 빠른 시작에서는 기존 QnA Maker KB(기술 자료)를 프로그래밍 방식으로 업데이트하는 방법을 안내합니다.  이 JSON을 사용하면 데이터 원본을 새로 추가, 변경 또는 삭제하여 KB를 업데이트할 수 있습니다.
+
+이 API는 QnA Maker 포털에서 편집한 다음, **저장 및 학습** 단추를 사용하는 것과 같습니다.
+
+이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
+* [업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의됩니다. 
+* [작업 세부 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 

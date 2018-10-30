@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: 대체 번역 찾기 - Translator Text, Python'
+title: '빠른 시작: 대체 번역 찾기, Python - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Translator Text API를 사용하여 컨텍스트의 용어를 대체하는 번역과 예제를 찾아봅니다.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 9035f718dda4cd1a8b34aa72272cfa376be99cac
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: cb8f6addd9fa68cd5a4683f52621b05dcd25e7b4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122725"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646418"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-python"></a>빠른 시작: Python을 사용하여 대체 번역 및 사용법 찾기
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-python"></a>빠른 시작: Translator Text REST API(Python)로 대체 번역 찾기
 
 이 빠른 시작에서는 Translator Text API를 사용하여 용어를 대신할 수 있는 대체 번역의 상세 정보와 대체 번역의 사용 예제를 찾아봅니다.
 

@@ -9,26 +9,26 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056440"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647275"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>포털에서 Azure 청사진 정의 및 할당
 
-Azure에서 청사진을 만들고 할당하는 방법을 파악한 조직은 일관된 공통 패턴을 정의할 수 있으며, Resource Manager 템플릿/정책/보안 등을 기반으로 하여 다시 사용 가능하며 빠르게 배포 가능한 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprints를 사용하여 조직 내의 청사진 생성, 게시 및 할당과 관련된 다음과 같은 몇 가지 일반적인 작업을 수행하는 방법에 대해 알아봅니다.
+Azure에서 청사진을 만들고 할당하는 방법을 파악한 조직은 일관된 공통 패턴을 정의할 수 있으며, Resource Manager 템플릿/정책/보안 등을 기반으로 하여 다시 사용 가능하며 빠르게 배포 가능한 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > - 새 청사진을 만들고 지원되는 다양한 아티팩트 추가
 > - 아직 **초안** 상태인 기존 청사진 변경
-> - 청사진을 **게시**하여 할당 가능한 상태로 설정
+> - 청사진을 **게시**하여 할당할 준비가 되었다고 표시
 > - 기존 구독에 청사진 할당
 > - 할당된 청사진의 상태 및 진행률 확인
 > - 구독에 할당된 청사진 제거
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
 ## <a name="create-a-blueprint"></a>청사진 만들기
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    ![청사진 만들기](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. 'MyBlueprint'와 같이 **청사진 이름**을 입력합니다. 청사진 이름은 숫자와 문자로 48자까지 입력할 수 있으며 공백이나 특수 문자는 포함할 수 없습니다. **청사진 설명**은 일단 비워 둡니다.  **위치 정의** 상자에서 오른쪽의 줄임표를 클릭하고 청사진을 저장할 [관리 그룹](../management-groups/overview.md)을 선택한 후에 **선택**을 클릭합니다.
+1. 'MyBlueprint'와 같이 **청사진 이름**을 입력합니다. 청사진 이름은 숫자와 문자로 48자까지 입력할 수 있으며 공백이나 특수 문자는 포함할 수 없습니다. **청사진 설명**은 일단 비워 둡니다.  **정의 위치** 상자에서 오른쪽의 줄임표를 클릭하고 청사진을 저장할 [관리 그룹](../management-groups/overview.md)을 선택한 후에 **선택**을 클릭합니다.
 
    > [!NOTE]
    > 청사진 정의는 관리 그룹에만 저장할 수 있습니다. 첫 번째 관리 그룹을 만들려면 [여기의 단계](../management-groups/create.md)를 수행하세요.
@@ -111,7 +111,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    ![아티팩트 - Resource Manager 템플릿](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. 완성된 청사진은 다음과 같이 표시됩니다. 각 아티팩트의 _매개 변수_ 열 아래에는 '매개 변수 _y_개 중 _x_개를 입력했습니다.’가 표시됩니다. **동적 매개 변수**는 각 청사진 할당 중에 설정되며, 역할 할당에 대한 **정적 매개 변수** 하나는 이미 구성된 상태입니다.
+1. 완성된 청사진은 다음과 같이 표시됩니다. 각 아티팩트의 _매개 변수_ 열 아래에는 '매개 변수 _y_개 중 _x_개를 입력했습니다.’가 표시됩니다. **동적 매개 변수**는 청사진의 각 할당 중 설정됩니다.
 
    ![완성된 청사진](./media/create-blueprint-portal/completed-blueprint.png)
 
@@ -205,7 +205,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="unassign-a-blueprint"></a>청사진 할당 해제
 
-더 이상 필요하지 않거나 업데이트된 패턴, 정책 및 디자인을 포함하는 최신 청사진으로 바뀐 청사진은 구독에서 제거할 수 있습니다. 청사진을 제거해도 해당 청사진의 일부분으로 할당된 아티팩트는 남아 있습니다. 청사진 할당을 제거 하려면 다음 단계를 수행합니다.
+청사진이 더 이상 필요하지 않거나 업데이트된 패턴, 정책 및 디자인이 포함된 새로운 청사진으로 대체된 경우에는 구독에서 청사진을 제거할 수 있습니다. 청사진을 제거해도 해당 청사진의 일부분으로 할당된 아티팩트는 남아 있습니다. 청사진 할당을 제거 하려면 다음 단계를 수행합니다.
 
 1. 왼쪽 페이지에서 **할당된 Blueprint**를 선택합니다.
 
@@ -227,6 +227,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 - [청사진 수명 주기](./concepts/lifecycle.md)에 대해 알아보기
 - [정적 및 동적 매개 변수](./concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](./concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
-- [청사진 리소스 잠금](./concepts/resource-locking.md)을 사용하는 방법 확인
+- [청사진 리소스 잠금](./concepts/resource-locking.md)을 활용하는 방법 알아보기
 - [기존 할당을 업데이트](./how-to/update-existing-assignments.md)하는 방법 알아보기
 - [일반 문제 해결 방법](./troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결

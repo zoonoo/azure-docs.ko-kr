@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f3925c26e2b7e4044daf5ac4e94fbb24393a4ddc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999888"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406503"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 모니터링 및 업데이트
 
@@ -308,7 +308,7 @@ az vm extension set \
 
 몇 분 후 새 VM이 Log Analytics 작업 영역에 표시됩니다.
 
-![OMS 블레이드](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>다음 단계
 

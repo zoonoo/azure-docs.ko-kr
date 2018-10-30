@@ -6,21 +6,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 10/19/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 4729e08399132243543c6f4e1cadd537d185e9e3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: ba77fc4596d9bb245b3cea2538804b1816e9ad14
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166256"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466973"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>자습서: Azure Data Box Edge를 사용하여 데이터 변환(미리 보기)
 
 이 자습서에서는 Data Box Edge에 계산 역할을 구성하는 방법에 대해 설명합니다. 계산 역할이 구성되면 Data Box Edge에서 데이터를 변환한 후에 Azure로 보낼 수 있습니다.
 
-이 절차를 완료하는 데 약 30-45분이 걸릴 수 있습니다. 
+이 절차를 완료하는 데 약 30-45분이 걸릴 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "49166256"
 > * 데이터 변환 및 전송 확인
 
 > [!IMPORTANT]
-> Data Box Edge는 미리 보기로 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
+> Data Box Edge는 미리 보기로 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
  
 ## <a name="prerequisites"></a>필수 조건
 
@@ -48,7 +48,8 @@ Data Box Edge에 계산 역할을 설정하기 전에 먼저 IoT Hub 리소스�
 
 ![IoT Hub 리소스 만들기](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
 
-Edge 계산 역할이 설정되지 않은 경우 다음 사항을 참고하세요. 
+Edge 계산 역할이 설정되지 않은 경우 다음 사항을 참고하세요.
+
 - IoT Hub 리소스에는 IoT 장치 또는 IoT Edge 장치가 없습니다.
 - Edge 로컬 공유는 만들 수 없습니다. 공유가 추가되면 Edge 계산에 대한 로컬 공유를 만드는 옵션이 활성화되지 않습니다.
 
@@ -91,12 +92,12 @@ Edge 계산 역할이 Edge 장치에 설정되면 두 가지 장치, 즉 IoT 장
 
     ![계산 역할 설정](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
 
-그러나 이 Edge 장치에는 사용자 지정 모듈이 없습니다. 이제 이 장치에 사용자 지정 모듈을 추가할 수 있습니다.
+그러나 이 Edge 장치에는 사용자 지정 모듈이 없습니다. 이제 이 장치에 사용자 지정 모듈을 추가할 수 있습니다. 사용자 지정 모듈 만드는 방법을 알아보려면 [Data Box Edge용 C# 모듈 개발](data-box-edge-create-iot-edge-module.md)로 이동하세요.
 
 
 ## <a name="add-a-custom-module"></a>사용자 지정 모듈 추가
 
-이 섹션에서는 사용자 지정 모듈을 IoT Edge 장치에 추가합니다. 
+이 섹션에서는 사용자 지정 모듈을 [Data Box Edge용 C# 모듈 개발](data-box-edge-create-iot-edge-module.md)에서 만든 IoT Edge 장치에 추가합니다. 
 
 이 절차에서는 사용된 사용자 지정 모듈이 Edge 장치의 로컬 공유에서 파일을 가져와 장치의 클라우드 공유로 이동하는 예를 사용합니다. 그런 다음, 클라우드 공유에서 파일을 클라우드 공유와 연결된 Azure 저장소 계정에 푸시합니다. 
 
@@ -133,11 +134,26 @@ Edge 계산 역할이 Edge 장치에 설정되면 두 가지 장치, 즉 IoT 장
 
         ![사용자 지정 모듈 추가](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
  
-    2. IoT Edge 사용자 지정 모듈에 대한 설정을 지정합니다. 모듈의 **이름** 및 **이미지 URI**를 제공합니다. 
+    2. IoT Edge 사용자 지정 모듈에 대한 설정을 지정합니다. 모듈의 **이름**과 해당 컨테이너 이미지에 대한 **이미지 URI**를 제공합니다. 
     
         ![사용자 지정 모듈 추가](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
 
-    3. **컨테이너 만들기 옵션**에서 클라우드 공유 및 로컬 공유에 대해 이전 단계에서 복사한 Edge 모듈에 대한 로컬 탑재 지점을 제공합니다(새 경로를 만드는 대신 이러한 경로를 사용해야 함). 이러한 공유는 해당 컨테이너 탑재 지점에 매핑됩니다. 또한 모듈에 환경 변수도 여기에 제공합니다.
+    3. **컨테이너 만들기 옵션**에서 클라우드 공유 및 로컬 공유에 대해 이전 단계에서 복사한 Edge 모듈에 대한 로컬 탑재 지점을 제공합니다(새 경로를 만드는 대신 이러한 경로를 사용해야 함). 로컬 탑재 지점이 [사용자 지정 코드로 모듈을 업데이트](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code)할 때 모듈에서 지정한 해당 **InputFolderPath** 및 **OutputFolderPath**로 매핑됩니다. 
+    
+        **컨테이너 만들기 옵션**에서 아래 표시된 샘플을 복사하여 붙여넣을 수 있습니다. 
+        
+        ```
+        {
+         "HostConfig": {
+          "Binds": [
+           "/home/hcsshares/mysmblocalshare:/home/LocalShare",
+           "/home/hcsshares/mysmbshare1:/home/CloudShare"
+           ]
+         }
+        }
+        ```
+
+        또한 모듈에 환경 변수도 여기에 제공합니다.
 
         ![사용자 지정 모듈 추가](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
  
@@ -146,6 +162,8 @@ Edge 계산 역할이 Edge 장치에 설정되면 두 가지 장치, 즉 IoT 장
         ![사용자 지정 모듈 추가](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
  
 6.  **경로 지정** 아래에서 모듈 간 경로를 설정합니다. 이 경우 데이터를 클라우드 공유에 푸시하는 로컬 공유의 이름을 제공합니다. **다음**을 클릭합니다.
+
+    루트를 다음 루트 문자열로 대체할 수 있습니다. "route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"
 
     ![사용자 지정 모듈 추가](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
  

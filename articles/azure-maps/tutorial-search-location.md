@@ -1,20 +1,20 @@
 ---
 title: Azure Maps를 사용하여 검색 | Microsoft Docs
 description: Azure Maps를 사용하여 주변 관심 지점 검색
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 761674c5839f0513532355116db07604f9e9d9dc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10fb30b77cc3cd18cbb6b3def9682349474fba71
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816823"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645817"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -116,11 +116,10 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     이 세그먼트는 Azure Maps 계정 키에 대한 맵 컨트롤 API를 초기화합니다. **Atlas**는 API 및 관련 시각적 구성 요소가 포함된 네임스페이스입니다. **Atlas.Map**은 시각적 및 대화형 웹 지도에 대한 컨트롤을 제공합니다.
 
 4. 변경 내용을 파일에 저장하고 브라우저에서 해당 HTML 페이지를 엽니다. 이는 계정 키를 사용하여 **atlas.map**을 호출함으로써 만들 수 있는 가장 기본적인 지도입니다.
@@ -148,14 +147,14 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
     var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. 지도가 로드되면 지도의 모든 함수를 로드해야 합니다. 이렇게 하려면 모든 맵 함수를 map eventListener 블록 내에 배치합니다. 다음 코드 줄을 추가하여 기능을 추가하기 전에 지도가 완전히 로드되도록 [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)를 맵에 추가합니다.
+3. 지도가 로드되면 지도의 모든 함수를 로드해야 합니다. 이렇게 하려면 모든 맵 함수를 map eventListener 블록 내에 배치합니다. 다음 코드 줄을 추가하여 기능을 추가하기 전에 지도가 완전히 로드되도록 [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 맵에 추가합니다.
     
     ```JavaScript
-         map.addEventListener("load", function() {
+         map.events.add("load", function() {
          });
     ```
 
-4. 다음 스크립트 블록을 **map load eventListener** 내에 추가하여 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소와 POI(관심 지점) 토큰의 조합과 같은 대부분의 유사 항목 입력을 처리합니다. 지정된 반경 내에서 가까운 주유소를 검색합니다. 그러면 응답이 GeoJSON 형식으로 구문 분석되고 지점 기능으로 변환되어 지도에 핀으로 추가됩니다. 스크립트의 마지막 부분에서는 Map의 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) 속성을 사용하여 지도에 대한 카메라 한도를 추가합니다.
+4. 다음 스크립트 블록을 **맵 로드 이벤트 내에** 추가하여 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소와 POI(관심 지점) 토큰의 조합과 같은 대부분의 유사 항목 입력을 처리합니다. 지정된 반경 내에서 가까운 주유소를 검색합니다. 그러면 응답이 GeoJSON 형식으로 구문 분석되고 지점 기능으로 변환되어 지도에 핀으로 추가됩니다. 스크립트의 마지막 부분에서는 Map의 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) 속성을 사용하여 지도에 대한 카메라 한도를 추가합니다.
 
     ```JavaScript
 
@@ -190,8 +189,8 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
             map.setCameraBounds({
                bounds: geojsonResponse.getGeoJsonResults().bbox,
                padding: 50
-            );
-        });
+            });
+    });
     ```
 5. **MapSearch.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 이제 지도가 시애틀 중심에 있고, 파란색 핀이 해당 영역의 주유소 위치를 표시하고 있습니다.
 

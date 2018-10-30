@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/10/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 63a18a6ae0ee4c6e0a01bd7ac4a26a4fb89746c2
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 1cfccdf644b1748a96f7638e574c66eace8d113a
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419491"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456663"
 ---
 # <a name="tutorial-create-multiple-resource-instances-using-resource-manager-templates"></a>자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기
 
@@ -35,8 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* [Visual Studio Code](https://code.visualstudio.com/)
-* Resource Manager 도구 확장. 설치하려면 [Resource Manager 도구 확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
+* [Visual Studio Code](https://code.visualstudio.com/) 및 [Resource Manager 도구 확장](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
@@ -121,14 +120,17 @@ Visual Studio Code에서 다음 4개의 변경 내용을 만듭니다.
 세 개의 모든 저장소 계정을 나열하려면 --name 매개 변수를 생략합니다.
 
 # <a name="clitabcli"></a>[CLI](#tab/CLI)
-```cli
-az storage account list --resource-group <ResourceGroupName>
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az storage account list --resource-group $resourceGroupName
 ```
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
 
-```powershell
-Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName>
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName
 ```
 
 ---

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 4f5097f8555d0345add7de8a0f648190bd4e1e00
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918377"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465953"
 ---
 # <a name="create-and-publish-a-product"></a>제품 만들기 및 게시  
 
@@ -31,7 +31,7 @@ Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용
 > * 제품 만들기 및 게시
 > * 제품에 API 추가
 
-![제품 추가](media/api-management-howto-add-products/added-product.png)
+![제품 자습서 추가](media/api-management-howto-add-products/added-product.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -40,19 +40,19 @@ Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용
 
 ## <a name="create-and-publish-a-product"></a>제품 만들기 및 게시
 
+![제품 추가](media/api-management-howto-add-products/02-create-publish-product-01.png)
+
 1. 왼쪽 메뉴에서 **제품**을 클릭하여 **제품** 페이지를 표시합니다.
 2. **+ 추가**를 클릭합니다.
 
-    ![추가된 제품](media/api-management-howto-add-products/add-product.png)
-
     제품을 추가하는 경우 다음 정보를 제공해야 합니다. 
 
-    | Name                     | 설명                                                                                                                                                                                                                                                                                                             |
+    | 이름                     | 설명                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 표시 이름             | **개발자 포털**에 표시하려는 이름입니다.                                                                                                                                                                                                                                                        |
-    | Name                     | 제품에 대한 설명이 포함된 이름입니다.                                                                                                                                                                                                                                                                                      |
+    | 이름                     | 제품에 대한 설명이 포함된 이름입니다.                                                                                                                                                                                                                                                                                      |
     | 설명              | **설명** 필드에서 용도, 제품을 통해 액세스할 수 있는 API, 기타 유용한 정보 등의 자세한 정보를 제공할 수 있습니다.                                                                                                                                               |
-    | 상태                    | 제품을 게시하려는 경우 **게시됨**을 누릅니다. 제품의 API를 호출하려면 먼저 제품을 게시해야 합니다. 기본적으로 새 제품은 게시되지 않으며 **관리자** 그룹에만 표시됩니다.                                                                                      |
+    | 시스템 상태                    | 제품을 게시하려는 경우 **게시됨**을 누릅니다. 제품의 API를 호출하려면 먼저 제품을 게시해야 합니다. 기본적으로 새 제품은 게시되지 않으며 **관리자** 그룹에만 표시됩니다.                                                                                      |
     | 구독 필요    | 사용자가 구독해야만 제품을 사용할 수 있게 하려면 **구독 필요**를 선택합니다.                                                                                                                                                                                                                                   |
     | 승인 필요        | 관리자가 이 제품에 대한 구독을 검토하고 허용하거나 거부하도록 하려면 **승인 필요**를 선택합니다. 상자의 선택을 취소하면 구독 시도가 자동으로 승인됩니다.                                                                                                                         |
     | 구독 수 제한 | 동시에 여러 개의 구독 수를 제한하려면 구독 제한을 입력합니다.                                                                                                                                                                                                                                |
@@ -77,7 +77,7 @@ Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용
 
 ### <a name="add-an-api-to-an-existing-product"></a>기존 제품에 API 추가
 
-![제품 추가 API](media/api-management-howto-add-products/add-product-api.png)
+![제품 추가 API](media/api-management-howto-add-products/02-create-publish-product-02.png)
 
 1. **제품** 탭에서 제품을 선택합니다.
 2. **API** 탭으로 이동합니다.

@@ -1,20 +1,20 @@
 ---
 title: Azure Maps를 사용하여 여러 경로 찾기 | Microsoft Docs
 description: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 340bf83f07b9e730cc43baccc60a39f5ba1f9942
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 864f662cd6be3c5929166db92f2dad92b9c6586e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815310"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648210"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -74,15 +74,16 @@ ms.locfileid: "48815310"
     </html>
     ```
     HTML 헤더에는 Azure Maps 라이브러리용 CSS 및 JavaScript 파일에 대한 리소스 위치가 포함됩니다. HTML 본문의 *script* 세그먼트에는 지도에 대한 인라인 JavaScript 코드가 포함됩니다.
+
 3. 다음 JavaScript 코드를 HTML 파일의 *스크립트* 블록에 추가합니다. **\<계정 키\>** 문자열을 Maps 계정에서 복사한 기본 키로 바꿉니다. 초점을 맞출 위치를 지도에 지정하지 않으면 전 세계 보기가 표시됩니다. 이 코드에서는 지도의 중심점을 설정하고, 기본적으로 특정 영역에 집중할 수 있도록 확대/축소 수준을 선언합니다.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
+    var mapCenterPosition = [-73.985708, 40.75773];
+    atlas.setSubscriptionKey("<your account key>");
     var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-         center: [-118.2437, 34.0522],
-         zoom: 12
+      center: mapCenterPosition,
+      zoom: 11
     });
     ```
     **atlas Map**은 시각적 및 대화형 웹 맵에 대한 컨트롤을 제공하고 Azure 맵 컨트롤 API의 구성 요소입니다.
@@ -93,10 +94,10 @@ ms.locfileid: "48815310"
 
 ## <a name="visualize-traffic-flow"></a>교통 흐름 시각화
 
-1. 지도에 교통 흐름 표시를 추가합니다.  **map.addEventListener**는 지도가 완전히 로드된 후 지도에 추가된 모든 맵 함수가 로드되도록 합니다.
+1. 지도에 교통 흐름 표시를 추가합니다.  **map.events.add**는 지도가 완전히 로드된 후 지도에 추가된 모든 맵 함수가 로드되도록 합니다.
 
     ```JavaScript
-    map.addEventListener("load", function() {
+    map.events.add("load", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
             flow: "relative"
@@ -146,7 +147,7 @@ ms.locfileid: "48815310"
         padding: 100
     });
     
-    map.addEventListener("load", function() { 
+    map.events.add("load", function() { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -155,7 +156,7 @@ ms.locfileid: "48815310"
         });
     });
     ```
-    **map.setCameraBounds** 호출은 출발 지점과 도착 지점의 좌표에 따라 지도 창을 조정합니다. **map.addEventListener**는 지도가 완전히 로드된 후 지도에 추가된 모든 맵 함수가 로드되도록 합니다. API **map.addPins**는 점을 시각적 구성 요소로 맵 컨트롤에 추가합니다.
+    **map.setCameraBounds** 호출은 출발 지점과 도착 지점의 좌표에 따라 지도 창을 조정합니다. **map.events.add**는 지도가 완전히 로드된 후 지도에 추가된 모든 맵 함수가 로드되도록 합니다. API **map.addPins**는 점을 시각적 구성 요소로 맵 컨트롤에 추가합니다.
 
 3. 파일을 저장하고, 브라우저를 새로 고쳐 지도에 표시된 핀을 확인합니다. 로스앤젤레스에 중심을 맞춘 지도를 선언했지만 **map.setCameraBounds**는 보기를 이동하여 출발 지점과 도착 지점을 표시했습니다.
 
@@ -165,7 +166,7 @@ ms.locfileid: "48815310"
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>여행 모드에 따라 우선 순위가 지정된 경로 렌더링
 
-이 섹션에서는 Maps 경로 서비스 API를 사용하여 운송 모드에 따라 지정된 출발 지점과 도착 지점 간의 여러 경로를 찾는 방법을 보여 줍니다. 경로 서비스는 현재 교통 상황을 고려하여 두 위치 간의 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 또한 사용자는 Azure의 광범위한 교통 기록 데이터베이스를 사용해 어떤 날짜 및 시간에 대한 경로 기간을 예측하여 미래의 경로를 계획할 수 있습니다. 자세한 내용은 [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요.  다음 코드 블록은 모두 맵 로드 후에 지도가 완전히 로드되도록 **map load eventListener 내**에 추가해야 합니다.
+이 섹션에서는 Maps 경로 서비스 API를 사용하여 운송 모드에 따라 지정된 출발 지점과 도착 지점 간의 여러 경로를 찾는 방법을 보여 줍니다. 경로 서비스는 현재 교통 상황을 고려하여 두 위치 간의 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 또한 사용자는 Azure의 광범위한 교통 기록 데이터베이스를 사용해 어떤 날짜 및 시간에 대한 경로 기간을 예측하여 미래의 경로를 계획할 수 있습니다. 자세한 내용은 [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요. 다음 코드 블록은 모두 맵 로드 후에 지도가 완전히 로드되도록 **map load eventListener 내**에 추가해야 합니다.
 
 1. 먼저 지도에 새 레이어를 추가하여 경로 또는 *linestring*을 표시합니다. 이 자습서에는 **car-route**(승용차 경로)와 **truck-route**(화물차 경로)의 두 가지 경로가 있으며, 각 경로마다 고유한 스타일이 적용됩니다. 다음 JavaScript 코드를 *script* 블록에 추가합니다.
 
@@ -233,7 +234,7 @@ ms.locfileid: "48815310"
     // Execute the car route query then add the route to the map once a response is received  
     client.route.getRouteDirections(routeQuery).then(response => {
         // Parse the response into GeoJSON
-        var geoJsonResponse = new tlas.service.geojson
+        var geoJsonResponse = new atlas.service.geojson
             .GeoJsonRouteDiraectionsResponse(response);
 
         // Get the first in the array of routes and add it to the map 

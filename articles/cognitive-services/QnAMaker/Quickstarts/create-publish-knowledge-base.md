@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: KB - QnA Maker 만들기'
+title: 기술 자료 만들기, 교육, 게시 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 예제에서는 BitLocker 키 복구에 대한 질문에 답변하기 위해 단순한 FAQ 웹 페이지에서 QnA Maker KB를 만듭니다.
 author: diberry
@@ -7,16 +7,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389669"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644788"
 ---
-# <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>빠른 시작: 기술 자료 만들기, 학습 및 게시
+# <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>QnA Maker 기술 자료 만들기, 학습 및 게시
 
 FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 예제에서는 BitLocker 키 복구에 대한 질문에 답변하기 위해 단순한 FAQ 웹 페이지에서 QnA Maker KB를 만듭니다.
 

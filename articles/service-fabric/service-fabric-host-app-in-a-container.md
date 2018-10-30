@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36b9a2e710a2a7f34ee9374e89f3fb19cc591ac3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380134"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429595"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너의 .NET 응용 프로그램 배포
 
@@ -61,7 +61,9 @@ Fabrikam Fiber CallCenter 응용 프로그램이 오류 없이 빌드되고 실�
 ## <a name="create-an-azure-sql-db"></a>Azure SQL DB 만들기
 Fabrikam Fiber CallCenter 응용 프로그램을 프로덕션 환경에서 실행하는 경우 데이터는 데이터베이스에 유지돼야 합니다. 현재는 컨테이너에 데이터를 유지할 수 있는 방법이 없으므로 프로덕션 데이터를 컨테이너로 SQL Server에 저장할 수 없습니다.
 
-[Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)를 권장합니다. Azure에서 SQL Server DB를 설정하고 실행하려면 다음 스크립트를 실행합니다.  필요에 따라 스크립트 변수를 수정합니다. *clientIP*는 개발 컴퓨터의 IP 주소입니다.  회사 방화벽을 갖추고 있다면 개발 컴퓨터의 IP 주소는 인터넷에 노출된 IP 주소가 아닐 수 있습니다.  컴퓨터의 IP 주소를 나열하는 [Azure Portal](https://portal.azure.com)을 통해 SQL 데이터베이스에 대한 서버 방화벽 규칙을 설정할 수도 있습니다.
+[Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)를 권장합니다. Azure에서 SQL Server DB를 설정하고 실행하려면 다음 스크립트를 실행합니다.  필요에 따라 스크립트 변수를 수정합니다. *clientIP*는 개발 컴퓨터의 IP 주소입니다.
+
+회사 방화벽을 갖추고 있다면 개발 컴퓨터의 IP 주소는 인터넷에 노출된 IP 주소가 아닐 수 있습니다. er데이터베이스가 방화벽 규칙에 대해 올바른 IP 주소를 가지고 있는지 확인하려면 [Azure portal](https://portal.azure.com)로 이동하여 SQL Databases 섹션에서 데이터베이스를 찾습니다. 이름을 클릭한 다음, 개요 섹션에서 “서버 방화벽 설정”을 클릭합니다. "클라이언트 IP 주소"는 개발 머신의 IP 주소입니다. "AllowClient" 규칙의 IP 주소와 일치하는지 확인합니다.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -220,7 +222,7 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
 
 ![응용 프로그램 게시][publish-app]
 
-출력 창의 배포 진행률을 따릅니다.  응용 프로그램을 배포할 때 클러스터 주소와 응용 프로그램 포트에서 브라우저와 유형을 엽니다. 예: http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/
+출력 창의 배포 진행률을 따릅니다.  응용 프로그램을 배포할 때 클러스터 주소와 응용 프로그램 포트에서 브라우저와 유형을 엽니다. 예: http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Fabrikam 웹 샘플][fabrikam-web-page-deployed]
 

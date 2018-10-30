@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: 텍스트 번역 - Translator Text, Node.js'
+title: '빠른 시작: 텍스트 번역, Node.js - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Node.js와 함께 Translator Text API를 사용하여 텍스트를 한 언어에서 다른 언어로 번역합니다.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: fe81b7fffd1705cb940e3aa52f397cf0f2cf1b14
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: fc6995c44e145b12a1173e7b4ac650348c1c180a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122186"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648482"
 ---
-# <a name="quickstart-translate-text-with-nodejs"></a>빠른 시작: Node.js를 사용하여 텍스트 번역
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-nodejs"></a>빠른 시작: Translator Text REST API(Node.js)로 텍스트 번역
 
 이 빠른 시작에서는 Translator Text API를 사용하여 텍스트를 한 언어에서 다른 언어로 번역합니다.
 

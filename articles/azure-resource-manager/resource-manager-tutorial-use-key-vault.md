@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/10/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 46291fe425e5d0fd1c142960a250c5601bd8ad29
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a2edb898c8053627684818d7fe257fe3402df5f
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078005"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645476"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합
 
@@ -154,7 +154,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 3. 다음 항목에 대한 값을 제공합니다.
 
     * **adminUsername**: 가상 머신 관리자 계정의 이름을 지정합니다.
-    * **dnsLabelPrefix**: dnsLablePrefix의 이름을 지정합니다.
+    * **dnsLabelPrefix**: dnsLabelPrefix의 이름을 지정합니다.
 4. 변경 내용을 저장합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포

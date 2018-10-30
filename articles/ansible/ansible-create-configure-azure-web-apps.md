@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 1899b1fc1e0a38d859fb3a7ce2153585579650f3
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 48b4c201b2b96bd4662e8c90be7298a4f418af53
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586716"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426559"
 ---
-# <a name="create-azure-app-service-web-apps-using-ansible-preview"></a>Ansible을 사용하여 Azure App Service Web Apps 만들기(미리 보기)
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)(또는 간단히 Web Apps)는 웹 응용 프로그램, REST API 및 모바일 백 엔드를 호스팅하는 서비스입니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
+# <a name="create-azure-app-service-web-apps-by-using-ansible-preview"></a>Ansible을 사용하여 Azure App Service Web Apps 만들기(미리 보기)
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)(또는 간단히 Web Apps)는 웹 응용 프로그램, REST API 및 모바일 백 엔드를 호스팅합니다. .NET, .NET Core, Java, Ruby, Node.js, PHP 또는 Python 등 원하는 언어로 개발할 수 있습니다.
 
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. 이 문서에서는 Ansible을 사용하여 Java 런타임을 포함하는 웹앱을 만드는 방법을 보여줍니다. 
 
@@ -25,12 +25,12 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. `sudo pip install ansible[azure]==2.7.0rc2`를 실행하여 Ansible 2.7 RC 버전을 설치할 수 있습니다. Ansible 2.7은 2018년 10월에 출시됩니다. 그 후 기본 버전은 2.7이 되므로 여기에서 버전을 지정할 필요가 없습니다. 
+> Ansible 2.7은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. `sudo pip install ansible[azure]==2.7.0rc2`를 실행하여 Ansible 2.7 RC 버전을 설치할 수 있습니다. Ansible 2.7이 릴리스된 후에 기본 버전이 2.7이 되므로 여기서 버전을 지정할 필요가 없습니다. 
 
 ## <a name="create-a-simple-app-service"></a>간단한 앱 서비스 만들기
 이 섹션에서는 다음 리소스를 정의하는 샘플 Ansible 플레이북을 제공합니다.
 - 리소스 그룹, App Service 계획 및 웹앱을 배포할 위치
-- 웹앱, Linux의 App Service에서 Java 8 및 Tomcat 컨테이너 런타임을 포함하는 웹앱
+- Linux의 App Service에서 Java 8 및 Tomcat 컨테이너 런타임을 포함하는 웹앱
 
 ```
 - hosts: localhost
@@ -62,7 +62,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
               java_container: tomcat
               java_container_version: 8.5
 ```
-위의 플레이북을 firstwebapp.yml로 저장합니다.
+위의 플레이북을 **firstwebapp.yml**로 저장합니다.
 
 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
 ```bash
@@ -84,17 +84,17 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0   
 ```
 
-## <a name="create-app-service-with-traffic-manager"></a>Traffic Manager를 사용하여 App Service 만들기
-[Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)를 사용하면 웹 클라이언트의 요청을 Azure App Service의 앱에 분산하는 방법을 제어할 수 있습니다. App Service 엔드포인트를 Azure Traffic Manager 프로필에 추가하는 경우 Azure Traffic Manager가 App Service의 상태(실행 중, 중지됨 또는 삭제됨)를 계속 추적하므로 트래픽을 수신할 엔드포인트를 결정할 수 있습니다.
+## <a name="create-an-app-service-by-using-traffic-manager"></a>Traffic Manager를 사용하여 앱 서비스 만들기
+[Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)를 사용하면 웹 클라이언트의 요청을 Azure App Service의 앱에 분산하는 방법을 제어할 수 있습니다. App Service 엔드포인트가 Azure Traffic Manager 프로필에 추가되면 Traffic Manager는 App Service 앱의 상태를 추적합니다. 상태에는 실행 중, 중지됨 및 삭제됨이 있습니다. 그런 다음, Traffic Manager는 트래픽을 수신할 엔드포인트를 결정할 수 있습니다.
 
 App Service의 앱은 [App Service 계획](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-)에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 계산 리소스 집합을 정의합니다. 다른 그룹에서에 App Service 계획 및 웹앱을 관리할 수 있습니다.
+)에서 실행됩니다. App Service 계획은 실행할 웹앱에 대한 계산 리소스 집합을 정의합니다. 다른 그룹에서 App Service 계획 및 웹앱을 관리할 수 있습니다.
 
 이 섹션에서는 다음 리소스를 정의하는 샘플 Ansible 플레이북을 제공합니다.
 - 리소스 그룹, App Service 계획을 배포할 위치
-- App Service 플랜
+- App Service 계획
 - 두 번째 리소스 그룹, 웹앱을 배포할 위치
-- 웹앱, Linux의 App Service에서 Java 8 및 Tomcat 컨테이너 런타임을 포함하는 웹앱
+- Linux의 App Service에서 Java 8 및 Tomcat 컨테이너 런타임을 포함하는 웹앱
 - Traffic Manager 프로필
 - Traffic Manager 엔드포인트, 만든 웹 사이트 사용
 
@@ -179,7 +179,7 @@ App Service의 앱은 [App Service 계획](https://docs.microsoft.com/azure/app-
       target_resource_id: "{{ webapp.webapps[0].id }}"
 
 ```
-위의 플레이북을 webapp.yml로 저장하거나 [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml)합니다.
+위의 플레이북을 **webapp.yml**로 저장하거나 [플레이북을 다운로드](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml)합니다.
 
 플레이북을 실행하려면 다음과 같이 **ansible-playbook** 명령을 사용합니다.
 ```bash

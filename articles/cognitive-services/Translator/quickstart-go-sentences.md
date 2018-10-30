@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: 문장 길이 가져오기 - Translator Text, Go'
+title: '빠른 시작: 문장 길이 가져오기, Go - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: erhopf
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 34b30179d674a42f6c9c2c358c0feb6e083089f6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 92ea2291760edf16863dc58a00bac4389f818e72
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129457"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644928"
 ---
-# <a name="quickstart-get-sentence-lengths-with-go"></a>빠른 시작: Go를 사용하여 문장 길이 가져오기
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-go"></a>빠른 시작: Translator Text REST API(Go)로 문장 길이 가져오기
 
 이 빠른 시작에서는 Translator Text API를 사용하여 텍스트에서 문장 길이를 찾습니다.
 

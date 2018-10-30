@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 216e474f519e57352b017dc3e6bcdd74d48b03de
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 552b39c520396942fa81f963c0cfa1c8c7b47db4
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238649"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456969"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿에서 조건 사용
 
 조건에 따라 Azure 리소스를 배포하는 방법을 알아봅니다. 
 
-이 자습서에 사용된 시나리오는 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)에 사용된 것과 비슷합니다. 이 자습서에서는 저장소 계정, 가상 머신, 가상 네트워크 등 몇 가지 다른 종속 리소스를 만듭니다. 새 저장소 계정을 만드는 대신, 사용자가 새 저장소 계정을 만들지, 기존 저장소 계정을 사용할지 선택하도록 할 수 있습니다. 이 목표를 달성하기 위해 추가 매개 변수를 정의합니다. 매개 변수의 값이 “new”인 경우 새 저장소 계정이 만들어집니다.
+이 자습서에 사용된 시나리오는 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)에 사용된 것과 비슷합니다. 이 자습서에서는 저장소 계정을 포함해 가상 머신, 가상 네트워크 등 몇 가지 다른 종속 리소스를 만듭니다. 매번 새 저장소 계정을 만드는 대신, 사용자가 새 저장소 계정을 만들지, 기존 저장소 계정을 사용할지 선택하도록 할 수 있습니다. 이 목표를 달성하기 위해 추가 매개 변수를 정의합니다. 매개 변수의 값이 “new”인 경우 새 저장소 계정이 만들어집니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -59,7 +59,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
 기존 템플릿에서 두 가지를 변경합니다.
 
-* 저장소 계정 이름을 제공하는 데 사용되는 매개 변수를 추가합니다. 이 매개 변수는 사용자에게 기존 저장소 계정 이름을 지정하는 옵션을 제공합니다. 또한 새 저장소 계정 이름으로 사용할 수도 있습니다.
+* 저장소 계정 이름 매개 변수를 추가합니다. 사용자는 새 저장소 계정 이름 또는 기존 저장소 계정 이름을 지정할 수 있습니다.
 * **newOrExisting**이라는 새 매개 변수를 추가합니다. 배포에서는 이 매개 변수를 사용하여 새 저장소 계정을 만들 위치를 결정하거나 기존 저장소 계정을 사용합니다.
 
 1. Visual Studio Code에서 **azuredeploy.json**을 엽니다.
@@ -72,11 +72,15 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 4. 다음 두 매개 변수를 템플릿에 추가합니다.
 
     ```json
-    "newOrExisting": {
-      "type": "string"
-    },
     "storageAccountName": {
       "type": "string"
+    },    
+    "newOrExisting": {
+      "type": "string", 
+      "allowedValues": [
+        "new", 
+        "existing"
+      ]
     },
     ```
     업데이트된 매개 변수 정의는 다음과 같습니다.
@@ -86,7 +90,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 5. 저장소 계정 정의의 시작 부분에 다음 줄을 추가합니다.
 
     ```json
-    "condition": "[equals(parameters('newOrExisting'),'yes')]",
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
     조건은 **newOrExisting**이라는 매개 변수의 값을 확인합니다. 매개 변수 값이 **new**이면 배포에서 저장소 계정을 만듭니다.
@@ -94,8 +98,15 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
     업데이트된 저장소 계정 정의는 다음과 같습니다.
 
     ![Resource Manager 사용 조건](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+6. 다음 값으로 **storageUri**를 업데이트합니다.
 
-6. 변경 내용을 저장합니다.
+    ```json
+    "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
+    ```
+
+    다른 리소스 그룹에서 기존 저장소 계정을 사용하는 경우 이 변경은 필요합니다.
+
+7. 변경 내용을 저장합니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
@@ -103,19 +114,21 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 
 Azure PowerShell을 사용하여 템플릿을 배포할 때 추가 매개 변수를 하나 지정해야 합니다.
 
-```powershell
-$resourceGroupName = "<Enter the resource group name>"
-$storageAccountName = "Enter the storage account name>"
-$location = "<Enter the Azure location>"
-$vmAdmin = "<Enter the admin username>"
-$vmPassword = "<Enter the password>"
-$dnsLabelPrefix = "<Enter the prefix>"
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+$vmAdmin = Read-Host -Prompt "Enter the admin username"
+$vmPassword = Read-Host -Prompt "Enter the admin password"
+$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting "new"
+New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin -adminPassword $vmPW `
+    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting $newOrExisting `
+    -TemplateFile azuredeploy.json
 ```
 
 > [!NOTE]

@@ -1,27 +1,28 @@
 ---
-title: '빠른 시작: Cognitive Services Speech SDK를 사용하여 브라우저에서 JavaScript로 음성 인식'
-titleSuffix: Microsoft Cognitive Services
-description: Cognitive Services Speech SDK를 사용하여 브라우저에서 JavaScript로 음성 인식
+title: '빠른 시작: Speech Service SDK를 사용하여 브라우저에서 JavaScript로 음성 인식'
+titleSuffix: Azure Cognitive Services
+description: Speech Service SDK를 사용하여 브라우저에서 JavaScript로 음성을 인식하는 방법 알아보기
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
-ms.date: 09/24/2018
+ms.component: speech-service
+ms.topic: quickstart
+ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 75dcda643741e3aeb1238f82128e4c5b058be840
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b01746c20dbef7726f129badac045c1fb440f602
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883661"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467466"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>빠른 시작: Cognitive Services Speech SDK를 사용하여 브라우저에서 JavaScript로 음성 인식
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>빠른 시작: Speech Service SDK를 사용하여 브라우저에서 JavaScript로 음성 인식
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 음성을 텍스트로 변환하는 Cognitive Services Speech SDK의 JavaScript 바인딩을 사용하여 웹 사이트를 만드는 방법을 설명합니다.
-이 응용 프로그램은 Cognitive Services Speech SDK([다운로드 버전 1.0.0](https://aka.ms/csspeech/jsbrowserpackage))를 기반으로 합니다.
+이 응용 프로그램은 Cognitive Services Speech SDK([다운로드 버전 1.0.1](https://aka.ms/csspeech/jsbrowserpackage))를 기반으로 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

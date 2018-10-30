@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 442e8d425e60566df5ce919e3463235ef1d6e4f0
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 334b7aa3a3a174055c3741f20a4817063efd21f6
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078099"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456646"
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
 
@@ -29,7 +29,7 @@ Azure Recovery Services는 BCDR 전략에 기여합니다.
 Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 
 - Azure 지역 간에 Azure VM 복제
-- 온-프레미스 VM 및 물리적 서버를 Azure 또는 보조 사이트에 복제합니다.
+- 온-프레미스 VM, Azure Stack VM 및 물리적 서버.
 
 
 ## <a name="what-does-site-recovery-provide"></a>Site Recovery의 기능은 무엇입니까?
@@ -56,10 +56,9 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 
 **지원됨** | **세부 정보**
 --- | ---
-**복제 시나리오** | 한 Azure 지역의 Azure VM을 다른 곳에 복제할 수 있습니다.<br/><br/>  온-프레미스 VMware VM, Hyper-V VM, 물리적 서버(Windows 및 Linux)를 Azure에 복제합니다.<br/><br/> 온-프레미스 VMware VM, Center VMM에서 관리하는 Hyper-V VM 및 물리적 서버를 보조 사이트에 복제합니다.
+**복제 시나리오** | 한 Azure 지역의 Azure VM을 다른 곳에 복제할 수 있습니다.<br/><br/>  온-프레미스 VMware VM, Hyper-V VM, 물리적 서버(Windows 및 Linux), Azure4 Stack VM을 Azure에 복제합니다.<br/><br/> 온-프레미스 VMware VM, Center VMM에서 관리하는 Hyper-V VM 및 물리적 서버를 보조 사이트에 복제합니다.
 **지역** | Site Recovery가 [지원되는 지역](https://azure.microsoft.com/regions/services/)을 검토합니다. |
 **복제된 컴퓨터** | [Azure VM](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions) 복제, [온-프레미스 VMware VM 및 물리적 서버](vmware-physical-azure-support-matrix.md#replicated-machines) 및 [온-프레미스 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms)에 대한 복제 요구 사항을 검토합니다.
-**VMware 서버/호스트** | 복제하려는 VMware VM은 [지원되는 호스트 및 가상화 서버](vmware-physical-azure-support-matrix.md)에 있을 수 있습니다.
 **워크로드** | 복제가 지원되는 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 또한 Site Recovery 팀이 [몇 가지 앱](site-recovery-workload.md#workload-summary)에 대해 앱별 테스팅을 수행하였습니다.
 
 

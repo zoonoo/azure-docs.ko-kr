@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: 지원되는 언어 가져오기 - Translator Text, Node.js'
+title: '빠른 시작: 지원되는 언어 가져오기, Node.js - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Node.js와 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: a3b9dde8983b87a63858b3eb1381f7c74545cb1a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: ff921243df078010bdc825d28b55d07333016774
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122861"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646419"
 ---
-# <a name="quickstart-get-supported-languages-with-nodejs"></a>빠른 시작: Node.js를 사용하여 지원되는 언어 가져오기
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-nodejs"></a>빠른 시작: Translator Text REST API(Node.js)로 지원되는 언어 가져오기
 
 이 빠른 시작에서는 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 

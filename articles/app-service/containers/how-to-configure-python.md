@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: 71cbf0bb31a72e3b257f25c159d9d9eea31dbfbb
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901621"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406469"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Linux의 Azure App Service용 Python 앱 구성
 
@@ -74,10 +74,16 @@ gunicorn --bind=0.0.0.0 --timeout 600 application:app
 
 ### <a name="custom-startup-command"></a>사용자 지정 시작 명령
 
-사용자 지정 Gunicorn 시작 명령을 제공하여 컨테이너의 시작 동작을 제어할 수 있습니다. 예를 들어 기본 모듈이 *hello.py*이고 Flask 앱 개체의 이름이 `myapp`인 Flask 앱이 있는 경우 명령은 다음과 같습니다.
+사용자 지정 Gunicorn 시작 명령을 제공하여 컨테이너의 시작 동작을 제어할 수 있습니다. 예를 들어 기본 모듈이 *hello.py*이고 해당 파일에서 Flask 앱 개체의 이름이 `myapp`인 Flask 앱이 있는 경우 명령은 다음과 같습니다.
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
+```
+
+기본 모듈이 하위 폴더(예: `website`)인 경우 `--chdir` 인수로 이 폴더를 지정합니다.
+
+```bash
+gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
 또한 Gunicorn에 대한 추가 인수(예: `--workers=4`)를 명령에 추가할 수도 있습니다. 자세한 내용은 [Gunicorn 실행](http://docs.gunicorn.org/en/stable/run.html)(docs.gunicorn.org)을 참조하세요.
@@ -105,9 +111,10 @@ App Service에서 사용자 지정 명령, Django 앱 또는 Flask 앱을 찾지
 
 - **사용자 고유의 앱 코드가 배포되면 기본 앱이 표시됩니다.**  실제로 코드를 App Service에 앱 배포하지 않았거나 App Service에서 앱 코드를 찾지 못하여 기본 앱을 대신 실행했기 때문에 기본 앱이 표시됩니다.
   - App Service를 다시 시작하고, 15-20초 동안 기다린 다음, 앱을 다시 확인합니다.
-  - SSH 또는 Kudu 콘솔을 사용하여 App Service에 직접 연결하고, 파일이 *site/wwwroot* 아래에 있는지 확인합니다. 파일이 없으면 배포 프로세스를 검토하고 앱을 다시 배포합니다.
+  - Windows 기반 인스턴스보다는 Linux용 App Service를 사용해야 합니다. Azure CLI에서 명령 `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`을 실행하여 `<resource_group_name>` 및 `<app_service_name>`을 적절하게 대체합니다. `app,linux`가 출력으로 표시되어야 합니다. 그렇지 않으면 App Service를 다시 만들고 Linux를 선택합니다.
+    - SSH 또는 Kudu 콘솔을 사용하여 App Service에 직접 연결하고, 파일이 *site/wwwroot* 아래에 있는지 확인합니다. 파일이 없으면 배포 프로세스를 검토하고 앱을 다시 배포합니다.
   - 파일이 있으면 App Service에서 특정 시작 파일을 식별하지 못한 것입니다. 앱이 [Django](#django-app) 또는 [Flask](#flask-app)에 대해 예상되는 App Service로 구성되었는지 확인하거나 [사용자 지정 시작 명령](#custom-startup-command)을 사용합니다.
-
+  
 - **브라우저에 "서비스를 사용할 수 없음"이라는 메시지가 표시됩니다.** App Service에서 Gunicorn 서버를 시작했음을 나타내는 App Service의 응답을 기다리는 동안 브라우저에서 시간이 초과되었지만 앱 코드를 지정하는 인수가 올바르지 않습니다.
   - 특히 App Service 계획에서 가장 낮은 가격 책정 계층을 사용하는 경우 브라우저를 새로 고칩니다. 예를 들어 체험 계층을 사용하는 경우 앱을 시작하는 데 시간이 더 오래 걸릴 수 있으며, 브라우저를 새로 고친 후에 응답하게 됩니다.
   - 앱이 [Django](#django-app) 또는 [Flask](#flask-app)에 대해 예상되는 App Service로 구성되었는지 확인하거나 [사용자 지정 시작 명령](#custom-startup-command)을 사용합니다.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: fc4b2f153c89d4253bc3fdd9c5a49973baa38752
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310218"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430224"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -118,6 +118,8 @@ Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 
 Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 ClientType에 대한 정보가 포함됩니다.
 
 ![예제 로그온 화면 Azure AD 감사 로그의 암호 재설정](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+Windows 10 머신이 프록시 서버 또는 방화벽 뒤에 있는 경우 passwordreset.microsoftonline.com 및 ajax.aspnetcdn.com에 대한 HTTPS 트래픽(443)을 허용해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

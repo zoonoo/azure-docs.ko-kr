@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638027"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470866"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>자습서: Azure DevTest Labs에서 랩에 액세스
 이 자습서에서는 [ 자습서: Azure DevTest Labs에서 랩 만들기](tutorial-create-custom-lab.md)에서 만들어진 랩을 사용합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "34638027"
 > * VM에 연결
 > * VM 클레임 취소
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="access-the-lab"></a>랩 액세스
 
@@ -57,6 +57,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![가상 머신에 연결](./media/tutorial-use-custom-lab/connect-button.png)
 2. 다운로드한 **RDP** 파일을 하드 디스크에 저장하고 그것을 사용하여 가상 머신에 연결합니다. 이전 섹션에서 VM을 만들 때 언급한 사용자 이름과 암호를 지정합니다. 
+
+    > [!NOTE] 
+    > Linux VM에 연결하려면 VM에 대한 SSH 및/또는 RDP 액세스가 활성화되어야 합니다. RDP를 통해 Linux VM에 연결하는 단계는 [Azure에서 Linux VM에 연결하도록 원격 데스크톱 설치 및 구성](../virtual-machines/linux/use-remote-desktop.md)을 참조하세요. 
+
 
 ## <a name="unclaim-the-vm"></a>VM 클레임 취소
 VM 사용을 마친 후에는 다음 단계에 따라 VM을 클레임 취소합니다. 

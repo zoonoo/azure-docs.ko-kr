@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ca00a414402c1cfdef55cfbde9291688f091bf77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095922"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638245"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Data Factory 버전 1과 Azure Data Factory 비교
 이 아티클에서는 Data Factory 버전 1과 Data Factory를 비교합니다. Data Factory에 대한 소개는 [Data Factory 소개](introduction.md)를 참조하세요. 데이터 팩터리 버전 1에 대한 소개는 [Azure Data Factory 소개](v1/data-factory-introduction.md)를 참조하세요. 
@@ -62,7 +62,7 @@ V1에서는 활동을 연결하기 위해 한 활동의 출력을 다른 활동�
 [Until](control-flow-until-activity.md) 활동은 do-until 루핑 구조가 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 활동과 연결된 조건이 `true`로 평가될 때까지 반복에서 일련의 활동을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다.  
 
 ### <a name="trigger-based-flows"></a>트리거 기반 흐름
-요청 시 또는 벽시계 시간에 의해 파이프라인을 트리거할 수 있습니다. [파이프라인 및 트리거](concepts-pipeline-execution-triggers.md) 문서에 트리거에 대한 자세한 내용이 있습니다. 
+요청 시(blob 게시물과 같은 이벤트 기반) 또는 벽시계 시간에 의해 파이프라인을 트리거할 수 있습니다. [파이프라인 및 트리거](concepts-pipeline-execution-triggers.md) 문서에 트리거에 대한 자세한 내용이 있습니다. 
 
 ### <a name="invoking-a-pipeline-from-another-pipeline"></a>다른 파이프라인에서 파이프라인 호출
 [파이프라인 실행 활동](control-flow-execute-pipeline-activity.md)을 사용하면 하나의 Data Factory 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.

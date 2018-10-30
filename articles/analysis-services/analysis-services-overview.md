@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d09fcde90cf182bc8197c579718ecef7c5ce1eed
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394530"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429442"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -81,29 +81,34 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는
 |브라질 남부     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |캐나다 중부    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |미국 동부     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|미국 동부 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
+|미국 동부 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|미국 동부 2     |     S8, S9   |    1    |
 |미국 중북부     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중남부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중서부   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|미국 서부     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
-|미국 서부2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
+|미국 서부     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
+|미국 서부     |    S8, S9   |    2  |
+|미국 서부2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
+|미국 서부2    |    S8, S9  |    1     |
 
 ### <a name="europe"></a>유럽
 
 |지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
 |북유럽     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|영국 남부   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|서유럽     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
+|영국 남부     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|서유럽     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|서유럽    |   S8, S9  |  1  |
 
 ### <a name="asia-pacific"></a>아시아 태평양 
 
 |지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
+|오스트레일리아 동부     |    B1, B2, S0, S1, S2, S4     |    3     |
+|오스트레일리아 동부     |    S8, S9    |    1     |
 |오스트레일리아 남동부     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|오스트레일리아 동부     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
-|일본 동부  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|일본 동부     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |동남아시아     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |인도 서부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
@@ -184,9 +189,11 @@ Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www
 
 ![BI 개발자 도구](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>Visual Studio용 SSDT(SQL Server Data Tools)
+### <a name="visual-studio"></a>Visual Studio
 
-[Visual Studio용 SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. Microsoft Analysis Services 프로젝트는 설치할 수 있는 패키지 VSIX로 Visual Studio에 사용할 수 있습니다. [Marketplace에서 다운로드](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+[Visual Studio용 SSDT(SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제는 SSDT에 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. 
+
+Visual Studio 2017을 사용하는 경우 Microsoft Analysis Services Projects는 무료 설치 가능한 VSIX 패키지로 제공됩니다. [Marketplace에서 다운로드](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

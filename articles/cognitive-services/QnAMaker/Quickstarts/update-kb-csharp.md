@@ -1,23 +1,23 @@
 ---
 title: '빠른 시작: 기술 자료 업데이트 - REST, C# - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 QnA Maker KB(기술 자료) 샘플을 프로그래밍 방식으로 업데이트하는 방법을 안내합니다. KB를 업데이트하는 데 사용하는 JSON 정의를 통해 질문 및 답변 쌍을 추가, 변경 또는 삭제할 수 있습니다.
+description: 이 REST 기반 빠른 시작에서는 QnA Maker KB(기술 자료) 샘플을 프로그래밍 방식으로 업데이트하는 방법을 안내합니다. KB를 업데이트하는 데 사용하는 JSON 정의를 통해 질문 및 답변 쌍을 추가, 변경 또는 삭제할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 9fa57a02f11461a3ea9a08b7b1b101b143924037
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 463fb4bc1cfd6ba7a7fc4df2fcde53bda7767488
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801696"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648235"
 ---
-# <a name="quickstart-update-a-qna-maker-knowledge-base-in-c"></a>빠른 시작: C#에서 QnA Maker 기술 자료 업데이트
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-c"></a>빠른 시작: C#를 사용하여 QnA Maker 기술 자료 업데이트
 
 이 빠른 시작에서는 기존 QnA Maker KB(기술 자료)를 프로그래밍 방식으로 업데이트하는 방법을 안내합니다.  이 JSON을 사용하면 데이터 원본을 새로 추가, 변경 또는 삭제하여 KB를 업데이트할 수 있습니다.
 

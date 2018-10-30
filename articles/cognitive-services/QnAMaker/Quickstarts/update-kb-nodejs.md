@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3bbc55b3bb064b2cf4b140a395e99209b71a5ce1
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1b92589fe01f171b732c04057dc290f0f32cb31a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816234"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647819"
 ---
-# <a name="quickstart-update-a-qna-maker-knowledge-base-in-nodejs"></a>빠른 시작: Node.js에서 QnA Maker 기술 자료 업데이트
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-nodejs"></a>빠른 시작: Node.js를 사용하여 QnA Maker 기술 자료 업데이트
 
 이 빠른 시작에서는 기존 QnA Maker KB(기술 자료)를 프로그래밍 방식으로 업데이트하는 방법을 안내합니다.  이 JSON을 사용하면 데이터 원본을 새로 추가, 변경 또는 삭제하여 KB를 업데이트할 수 있습니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "48816234"
 
 `update-knowledge-base.js`라는 파일을 만듭니다.
 
-## <a name="add-the-required-dependencies"></a>필요한 종속성 추가
+## <a name="add-the-required-dependencies"></a>필수 종속성 추가
 
 `update-knowledge-base.js`의 맨 위에 프로젝트에 필요한 종속성을 추가하는 다음 줄을 추가합니다.
 

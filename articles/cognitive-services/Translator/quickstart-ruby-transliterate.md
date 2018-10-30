@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: 텍스트 스크립트 변환 - Translator Text, Ruby'
+title: '빠른 시작: 텍스트 스크립트 변환, Ruby - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Ruby와 함께 Translator Text API를 사용하여 하나의 스크립트에서 한 언어의 텍스트를 다른 언어로 변환합니다.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 6595e486a93811fdded21050c39e99d4f7e5a760
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: d78586243b47563440f629689800ad618cb411d8
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121756"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647088"
 ---
-# <a name="quickstart-transliterate-text-with-ruby"></a>빠른 시작: Ruby를 사용하여 텍스트 음역
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>빠른 시작: Translator Text REST API(Ruby)로 텍스트 음역
 
 이 빠른 시작에서는 Translator Text API를 사용하여 한 언어의 텍스트를 다른 언어로 변환합니다.
 

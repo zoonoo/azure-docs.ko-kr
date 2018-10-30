@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079109"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471291"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -34,21 +34,25 @@ Azure 비용을 적절히 제어하고 최적화하려면 먼저 조직 내의 �
 
 비용 분석은 모든 [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/) 고객이 사용할 수 있습니다. 비용 데이터를 보려면 다음 범위 중 하나 이상에 대해 최소한 읽기 권한이 있어야 합니다.
 
-- *청구 계정* 범위는 https://ea.azure.com에 정의되며 엔터프라이즈 관리자 액세스가 필요합니다. 필수 구성 요소 EA 설정은 필요하지 않습니다. 비용 분석의 청구 정보는 기업 계약의 모든 구독에 대해 통합됩니다. 청구 계정을 *기업계약* 또는 *등록*이라고 하는 경우도 있습니다.
 
-- *부서* 범위는 https://ea.azure.com에 정의되며 부서 관리자 액세스가 필요합니다. EA 포털에는 **DA 요금 보기**가 가능한 설정이 필요합니다. 비용 분석의 청구 정보는 부서에 연결된 등록 계정에 속하는 모든 구독에 대해 통합됩니다.
+|**범위**|**정의되는 위치**|**범위에 대한 비용을 분석하기 위해 필요한 액세스 권한**|**필수 구성 요소 EA 설정**|**청구 데이터 통합 대상**|
+|---                |---                  |---                   |---            |---           |
+|청구 계정<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|엔터프라이즈 관리자|없음|기업계약의 모든 구독|
+|department|[https://ea.azure.com ](https://ea.azure.com )|부서 관리자|활성화된 DA 보기 요금|부서에 연결된 등록 계정에 속하는 모든 구독|
+|등록 계정<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|계정 소유자|활성화된 AO 보기 요금|등록 계정의 모든 구독|
+|관리 그룹|[https://portal.azure.com ](https://portal.azure.com )|Cost Management 읽기 권한자(또는 읽기 권한자)|활성화된 AO 보기 요금|관리 그룹 아래의 모든 구독|
+|구독|[https://portal.azure.com ](https://portal.azure.com )|Cost Management 읽기 권한자(또는 읽기 권한자)|활성화된 AO 보기 요금|구독의 모든 리소스/리소스 그룹|
+|리소스 그룹|[https://portal.azure.com ](https://portal.azure.com )|Cost Management 읽기 권한자(또는 읽기 권한자)|활성화된 AO 보기 요금|리소스 그룹의 모든 리소스|
 
-- *등록 계정* 범위는 https://ea.azure.com에 정의되며 계정 소유자 액세스가 필요합니다. EA 포털에는 **AO 요금 보기**가 가능한 설정이 필요합니다. 비용 분석의 청구 정보는 등록 계정에 속하는 모든 구독에 대해 통합됩니다. 등록 계정은 *계정 소유자*라고 하는 경우가 많습니다.
+<sup>1</sup>청구 계정은 기업계약 또는 등록이라고 하는 경우가 많습니다.
 
-- *관리 그룹* 범위는 https://portal.azure.com에 정의되며 Cost Management 읽기 권한자(또는 읽기 권한자) 액세스가 필요합니다. EA 포털에는 **AO 요금 보기**가 가능한 설정이 필요합니다. 비용 분석의 청구 정보는 관리 그룹 아래 모든 구독에 대해 통합됩니다.
-
-- *구독* 범위는 https://portal.azure.com에 정의되며 Cost Management 읽기 권한자(또는 읽기 권한자) 액세스가 필요합니다. EA 포털에는 **AO 요금 보기**가 가능한 설정이 필요합니다. 비용 분석의 청구 정보는 구독의 모든 리소스와 리소스 그룹에 대해 통합됩니다.
-
-- *리소스 그룹* 범위는 https://portal.azure.com에 정의되며 Cost Management 읽기 권한자(또는 읽기 권한자) 액세스가 필요합니다. EA 포털에는 **AO 요금 보기**가 가능한 설정이 필요합니다. 비용 분석의 청구 정보는 리소스 그룹의 모든 리소스에 대해 통합됩니다.
-
-
+<sup>2</sup>등록 계정은 계정 소유자라고 하는 경우가 많습니다.
 
 **DA 요금 보기** 및 **AO 요금 보기** 설정을 구성하는 방법에 대한 자세한 내용은 [비용에 대한 액세스 사용](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs)을 참조하세요.
+
+
+
+
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

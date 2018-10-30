@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a95675d5e37adec5fb1f1542daad329484a2a4c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092613"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649400"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -217,7 +217,7 @@ a.  Azure로 데이터 복사가 완료되면 Data Box 디스크의 데이터는
 ## <a name="audit-report"></a>감사 보고서
 
 ### <a name="how-does-azure-data-box-service-help-support-customers-chain-of-custody-procedure"></a>Azure Data Box 서비스가 고객 관리 연속성 절차에 어떻게 도움이 되나요? 
-a.  Azure Data Box 서비스는 기본적으로 관리 연속성 문서에 사용할 수 있는 보고서를 제공합니다. 주문이 완료되면 이 감사 및 복사 로그를 Azure의 저장소 계정에서 제공하며, 주문 내역을 Azure Portal의 주문에서 다운로드할 수 있습니다.
+a.  Azure Data Box 서비스는 기본적으로 관리 연속성 문서에 사용할 수 있는 보고서를 제공합니다. 이 감사 및 복사 로그는 Azure의 저장소 계정에서 제공되며, 주문이 완료되면 Azure Portal에서 [주문 기록을 다운로드](data-box-portal-admin.md#download-order-history)할 수 있습니다.
 
 
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>관리 연속성 지원에 사용 가능한 보고서의 유형은 무엇인가요?
@@ -230,7 +230,7 @@ a.  관리 연속성 지원을 위해 다음 보고를 사용할 수 있습니�
 - 데이터가 Azure Storage 계정에 복사된 후 Data Box 장치 삭제(NIST 800 88R1 표준에 따라)
 
 ### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>배송 업체 추적 로그(UPS/DHL 제공)를 사용할 수 있나요? 
-a.  배송 업체 추적 로그는 Data Box 감사 로그 보고서에 캡처됩니다. 이 보고서는 장치가 Azure 데이터 센터로 반환 되고 장치 디스크의 데이터가 정리된 후 사용할 수 있습니다. 즉시 필요한 경우 배송 업체 웹 사이트에서 직접 주문 추적 번호를 사용하여 추적 정보를 구할 수 있습니다.
+a.  운송업체 추적 로그는 Data Box 주문 기록에 캡처됩니다. 이 보고서는 장치가 Azure 데이터 센터로 반환 되고 장치 디스크의 데이터가 정리된 후 사용할 수 있습니다. 즉시 필요한 경우 배송 업체 웹 사이트에서 직접 주문 추적 번호를 사용하여 추적 정보를 구할 수 있습니다.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Azure 데이터 센터에 Data Box를 직접 전달할 수 있나요? 
 a.  아니요. 현재 Azure 데이터 센터는 UPS/DHL이 아닌 운송업체나 고객의 Data Box 배송을 수취하지 않습니다.

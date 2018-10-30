@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 62457fe5b0336cb6ae6ac4fc63f4884ed14cf9d3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856040"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405602"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Azure Log Analytics를 사용한 컨테이너 인스턴스 로깅
 
@@ -100,7 +100,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 컨테이너 그룹을 배포한 후 첫 번째 로그 항목이 Azure Portal에 표시되기 까지 몇 분(최대 10분)이 걸릴 수 있습니다. 컨테이너 그룹 로그를 보려면 Log Analytics 작업 영역을 연 후 다음을 수행합니다.
 
-1. **OMS 작업 영역** 개요에서 **로그 검색**을 선택합니다.
+1. **OMS 작업 영역** 개요에서 **로그 검색**을 선택합니다. OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.  
 1. **시도해 볼 쿼리가 몇 가지 더 있습니다**에서 **수집된 모든 데이터** 링크를 선택합니다.
 
 `search *` 쿼리에서 몇 가지 결과를 표시해야 합니다. 처음에 아무 결과도 표시되지 않으면 몇 분 정도 기다린 다음, **실행** 단추를 선택하여 쿼리를 다시 실행합니다. 기본적으로 로그 항목은 "목록" 보기에 표시됩니다. 로그 항목을 간략한 형식으로 보려면 **표**를 선택합니다. 그런 다음, 행을 확장하여 개별 로그 항목의 내용을 볼 수 있습니다.

@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: 텍스트의 언어 식별 - Translator Text, Python'
+title: '빠른 시작: 텍스트의 언어 식별, Python - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Translator Text API를 사용하여 원본 텍스트의 언어를 식별합니다.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 31fb36421dd2aef21f77b4941771e4d3db813730
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 669118ed925c961aeb1d99c9e794f6702b29a83b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125003"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644916"
 ---
-# <a name="quickstart-identify-language-from-text-with-python"></a>빠른 시작: Python을 사용하여 텍스트의 언어 식별
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-python"></a>빠른 시작: Translator Text REST API(Python)로 텍스트의 언어 식별
 
 이 빠른 시작에서는 Translator Text API를 사용하여 원본 텍스트의 언어를 식별합니다.
 

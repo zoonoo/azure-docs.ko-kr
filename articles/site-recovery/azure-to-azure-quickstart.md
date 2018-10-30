@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e10b5271caef5530c94cca73b3e2e1d435080676
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066924"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456187"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>다른 Azure 지역에 Azure VM 복제
 
@@ -24,7 +24,8 @@ ms.locfileid: "49066924"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-
+> [!NOTE]
+> 이 문서는 새로운 사용자를 기본 옵션 및 최소 사용자 지정의 Azure Site Recovery 경험으로 안내하기 위한 것입니다. 사용자 지정할 수 있는 다양한 설정에 대해 자세히 알고 싶다면 [Azure VM에 대한 복제 활성화 자습서](azure-to-azure-tutorial-enable-replication.md)를 참조하세요.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -33,15 +34,12 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 ## <a name="enable-replication-for-the-azure-vm"></a>Azure VM에 대해 복제 사용
 
 1. Azure Portal에서 **가상 머신**를 클릭한 다음 복제할 VM을 선택합니다.
-
 2. **작업**에서 **재해 복구**를 클릭합니다.
 3. **재해 복구 구성** > **대상 지역**에서 복제할 대상 지역을 선택합니다.
 4. 이 빠른 시작에서는 다른 기본 설정을 그대로 적용합니다.
 5. **복제 활성화**를 클릭합니다. VM에 대해 복제를 활성화하는 작업이 시작됩니다.
 
     ![복제 활성화](media/azure-to-azure-quickstart/enable-replication1.png)
-
-
 
 ## <a name="verify-settings"></a>설정 확인
 
@@ -68,7 +66,7 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 단일 VM을 보조 지역에 복제합니다.
+이 빠른 시작에서는 단일 VM을 보조 지역에 복제합니다. 이제 복구 계획을 사용하여 다양한 옵션을 탐색하고 Azure VM 집합을 복제해 볼 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure VM에 대해 재해 복구 구성](azure-to-azure-tutorial-enable-replication.md)

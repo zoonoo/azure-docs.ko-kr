@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ab79201442fe9c7334525972c34eba86daf27e99
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069100"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457428"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정
 
@@ -27,6 +27,9 @@ ms.locfileid: "49069100"
 > * 대상 리소스 설정 확인
 > * VM에 대해 아웃바운드 액세스 설정
 > * VM에 대한 복제 사용
+
+> [!NOTE]
+> 이 자습서는 최소 사용자 지정으로 복제를 활성화하는 단계로 사용자를 안내하기 위한 것입니다. 네트워킹 고려 사항, 자동화 또는 문제 해결을 포함해 재해 복구와 관련된 다양한 측면에 대해 자세히 알아보고 싶다면 Azure VM에 대한 ‘방법’에 있는 문서를 참조하세요.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -193,7 +196,7 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure VM의 재해 복구를 구성해 보았습니다. 다음 단계는 구성을 테스트하는 것입니다.
+이 자습서에서는 Azure VM의 재해 복구를 구성해 보았습니다. 다음 단계는 DR 드릴을 실행하여 구성을 테스트하는 것입니다.
 
 > [!div class="nextstepaction"]
 > [재해 복구 드릴 실행](azure-to-azure-tutorial-dr-drill.md)

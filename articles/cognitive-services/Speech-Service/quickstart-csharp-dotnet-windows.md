@@ -1,20 +1,21 @@
 ---
-title: '빠른 시작: Cognitive Services Speech SDK를 사용하여 Windows 기반 .NET Framework의 C#에서 음성 인식'
-titleSuffix: Microsoft Cognitive Services
-description: Cognitive Services Speech SDK를 사용하여 Windows 기반 .NET Framework의 C#에서 음성을 인식하는 방법 알아보기
+title: '빠른 시작: Speech Service SDK를 사용하여 Windows 기반 .NET Framework의 C#에서 음성 인식'
+titleSuffix: Azure Cognitive Services
+description: Speech Service SDK를 사용하여 Windows 기반 .NET Framework의 C#에서 음성을 인식하는 방법 알아보기
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 32b484451c4ee2264c25cca92b1d03d91b955a29
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 06d4a41a4a67d077f8d79eee68938dff65adf0e8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053999"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468520"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows 기반 .NET Framework의 C#에서 음성 인식
 
@@ -24,7 +25,7 @@ ms.locfileid: "47053999"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 음성 서비스 구독 키가 필요합니다. 무료로 얻을 수 있습니다. 자세한 내용은 [음성 서비스를 무료로 체험해보기](get-started.md)를 참조하세요.
+이 빠른 시작을 완료하려면 음성 서비스 구독 키가 필요합니다. 무료로 가져올 수 있습니다. 자세한 내용은 [음성 서비스를 무료로 체험해보기](get-started.md)를 참조하세요.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
@@ -52,9 +53,9 @@ ms.locfileid: "47053999"
 
     ![디버깅 시작 옵션이 강조 표시된 Visual Studio 응용 프로그램의 스크린샷](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "앱 디버깅 시작")
 
-1. 콘솔 창이 나타나면 아무 말이나 하라는 메시지가 표시됩니다. 영어 구 또는 문장을 말하세요. 음성은 음성 서비스로 전송되어 텍스트로 기록되고, 동일한 창에 표시됩니다.
+1. 콘솔 창이 나타나면 무엇이든 말해보라는 메시지가 표시됩니다. 영어 구 또는 문장을 말씀하세요. 음성은 음성 서비스로 전송되어 텍스트로 변환되고, 동일한 창에 표시됩니다.
 
-    ![인식 성공 후의 콘솔 출력 스크린샷](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "인식 성공 후의 콘솔 출력")
+    ![인식이 성공한 후의 콘솔 출력 스크린샷](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "인식이 성공한 후의 콘솔 출력")
 
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 이 예제를 `quickstart/csharp-dotnet-windows` 폴더에서 찾을 수 있습니다.

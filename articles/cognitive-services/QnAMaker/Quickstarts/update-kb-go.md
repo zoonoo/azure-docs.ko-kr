@@ -1,25 +1,31 @@
 ---
-title: '빠른 시작: Go 업데이트 기술 자료 - QnA Maker'
+title: '빠른 시작: 기술 자료 업데이트 - REST, Go - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: QnA Maker용 Go로 기술 자료를 업데이트하는 방법입니다.
+description: 이 REST 기반 빠른 시작에서는 QnA Maker KB(기술 자료) 샘플을 프로그래밍 방식으로 업데이트하는 방법을 안내합니다. KB를 업데이트하는 데 사용하는 JSON 정의를 통해 질문 및 답변 쌍을 추가, 변경 또는 삭제할 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b447b77eb1fdd9135f7d15a791414d166194b2dd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5275184994dce446a7ca572a049f3860c4782139
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389312"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646884"
 ---
-# <a name="update-a-knowledge-base"></a>기술 자료 업데이트
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-go"></a>빠른 시작: Go를 사용하여 QnA Maker 기술 자료 업데이트
 
-다음 코드는 [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) 메서드를 사용하여 기존 기술 자료를 업데이트합니다.
+이 빠른 시작에서는 기존 QnA Maker KB(기술 자료)를 프로그래밍 방식으로 업데이트하는 방법을 안내합니다.  이 JSON을 사용하면 데이터 원본을 새로 추가, 변경 또는 삭제하여 KB를 업데이트할 수 있습니다.
+
+이 API는 QnA Maker 포털에서 편집한 다음, **저장 및 학습** 단추를 사용하는 것과 같습니다.
+
+이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
+* [업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의됩니다. 
+* [작업 세부 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 1. 즐겨 찾는 IDE에 새 Go 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
@@ -191,7 +197,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>요청 상태 가져오기
 
-[Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) 메서드를 호출하여 기술 자료를 만들거나 업데이트하기 위한 요청의 상태를 확인합니다. 이 메서드를 사용하는 방법을 알아보려면 [Create](#Create) 또는 [Update](#Update) 메서드에 대한 샘플 코드를 참조하세요.
+[Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) 메서드를 호출하여 기술 자료를 만들거나 업데이트하기 위한 요청의 상태를 확인합니다. 이 메서드를 사용하는 방법을 알아보려면 [Create](create-new-kb-go.md) 빠른 시작에 대한 샘플 코드를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

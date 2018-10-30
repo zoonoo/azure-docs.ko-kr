@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: b8961edebd80d5f36d844734e3c93a4bd3b1f0cf
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42162136"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645834"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 작업, 프로세스 및 워크플로 만들기 및 자동화 - Visual Studio
 
@@ -148,6 +148,10 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
 
    ![배포 상태 출력](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   사용자가 선택한 커넥터에 입력이 필요한 경우 백그라운드에 PowerShell 창이 열리고 필요한 암호 또는 비밀 키를 요청할 수 있습니다. 이 정보를 입력한 후에 배포가 계속됩니다.
+   
+   ![배포 powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   
    배포가 완료되면 논리 앱은 Azure Portal에 상존하며 지정된 일정(1분마다)에 따라 RSS 피드를 확인합니다. 
    RSS 피드에 새 항목이 있는 경우 논리 앱은 새 항목 각각에 전자 메일을 보냅니다. 
    그렇지 않으면, 논리 앱이 다시 확인하기 전에 다음 간격 때까지 대기합니다. 

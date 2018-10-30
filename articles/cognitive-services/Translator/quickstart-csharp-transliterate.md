@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: 텍스트 스크립트 변환 - Translator Text, C#'
+title: '빠른 시작: 텍스트 스크립트 변환, C# - Translator Text'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 C#과 함께 Translator Text API를 사용하여 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 변환합니다.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 7fa8c5dc76e59ec236d6b9662bd2ba41db0add0f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: d0dd7ef04f6feb04df4fafc5b750f291d05f2862
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320410"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646214"
 ---
-# <a name="quickstart-transliterate-text-with-c35"></a>빠른 시작: C&#35;을 사용하여 텍스트 음역
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>빠른 시작: Translator Text REST API(C#)로 텍스트 음역
 
 이 빠른 시작에서는 Translator Text API를 사용하여 한 언어의 텍스트를 다른 언어로 변환합니다.
 

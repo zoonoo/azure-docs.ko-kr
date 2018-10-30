@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b1893d9713f70ee7553392a320fec52fe5c88f3c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066992"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458057"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>보조 Azure 지역에 Azure VM의 재해 복구 훈련 실행
 
@@ -26,12 +26,13 @@ ms.locfileid: "49066992"
 > * 필수 구성 요소 확인
 > * VM에 대해 테스트 장애 조치(failover) 실행
 
-
+> [!NOTE]
+> 이 자습서는 최소 단계로 DR 드릴을 수행하는 단계로 사용자를 안내하기 위한 것입니다. 네트워킹 고려 사항, 자동화 또는 문제 해결을 포함해 DR 드릴 수행과 관련된 다양한 측면에 대해 자세히 알아보고 싶다면 Azure VM에 대한 ‘방법’에 있는 문서를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - 테스트 장애 조치(failover)를 실행하기 전에 VM 속성을 확인하여 모두 올바르게 되어 있는지 확인하는 것이 좋습니다.  **복제 항목**에서 VM 속성에 액세스합니다. **Essentials** 블레이드는 컴퓨터 설정 및 상태에 대한 정보를 표시합니다.
-- 복제를 활성화할 때 설정된 기본 네트워크가 아니라 테스트 장애 조치에 대한 별도의 Azure VM 네트워크를 사용하는 것이 좋습니다.
+- 복제를 활성화할 때 설정된 기본 네트워크가 아니라 **테스트 장애 조치에 대한 별도의 Azure VM 네트워크를 사용하는 것이 좋습니다**.
 
 
 ## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행

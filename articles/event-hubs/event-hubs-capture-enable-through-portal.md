@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: ff80bc2452c9826a5c51c146a957fddc72d2dbc2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 5cb3fee975e99af3d86affcbc18d89277dde2dc1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919573"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409121"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정
 
@@ -75,6 +75,7 @@ Event Hubs 네임스페이스에 있는 기존 이벤트 허브에 캡처를 구
 
 - [Event Hubs 캡처 개요][capture-overview]를 참조하여 Event Hubs 캡처에 대해 자세히 알아봅니다.
 - Azure Resource Manager 템플릿을 사용하여 Event Hubs 캡처를 구성할 수도 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 캡처를 사용하도록 설정](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)을 참조하세요.
+- [원본으로 Event Hubs 네임스페이스를 사용하여 Azure Event Grid 구독을 만드는 방법 알아보기](store-captured-data-data-warehouse.md)
 - [Azure Portal을 사용하여 Azure Data Lake Store 시작](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

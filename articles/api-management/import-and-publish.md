@@ -3,7 +3,7 @@ title: Azure API Management에서 첫 번째 API 가져오기 및 게시 | Micro
 description: Azure API Management에서 첫 번째 API를 가져온 후 게시하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093405"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467398"
 ---
 # <a name="import-and-publish-your-first-api"></a>첫 번째 API 가져오기 및 게시 
 
@@ -73,9 +73,11 @@ ms.locfileid: "47093405"
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure Portal에서 새 APIM API 테스트
 
+![API 맵 테스트](./media/api-management-get-started/01-import-first-api-01.png)
+
 dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다.  
 1. 이전 단계에서(**API** 탭에서) 만든 API를 선택합니다.
-2. **테스트** 탭을 누릅니다.  ![API 테스트](./media/api-management-get-started/test-api.png)
+2. **테스트** 탭을 누릅니다.
 3. **GetSpeakers**를 클릭합니다.
     페이지에는 쿼리 매개 변수에 대한 필드가 표시되며, 이 경우에는 헤더 필드만 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. 키가 자동으로 채워집니다.
 4. **보내기**를 누릅니다.
@@ -87,7 +89,8 @@ dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사�
 **개발자 포털**에서 작업을 호출하여 API를 테스트할 수도 있습니다.
 
 1. **개발자 포털**로 이동합니다.
-![개발자 포털](./media/api-management-get-started/developer-portal.png)
+
+ ![개발자 포털](./media/api-management-get-started/developer-portal.png)
 
 2. **API**를 선택하고 **데모 회의 API** 및 **GetSpeakers**를 차례로 클릭합니다.
     

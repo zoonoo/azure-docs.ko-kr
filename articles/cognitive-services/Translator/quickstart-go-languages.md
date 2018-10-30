@@ -1,23 +1,23 @@
 ---
-title: '빠른 시작: 지원되는 언어 가져오기 - Translator Text, Go'
+title: '빠른 시작: 지원되는 언어 가져오기, Go - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Go와 함께 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 6f8725c834e4417321722f7d49e09765e19a3b6d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 2a93ee7b4d2c8426ad7a7f30a986d07e14192cc4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127774"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648295"
 ---
-# <a name="quickstart-get-supported-languages-with-go"></a>빠른 시작: Go를 사용하여 지원되는 언어 가져오기
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-go"></a>빠른 시작: Translator Text REST API(Go)로 지원되는 언어 가져오기
 
 이 빠른 시작에서는 Translator Text API를 사용하여 번역, 음역, 사전 조회에 지원되는 언어 목록과 예제를 가져옵니다.
 
