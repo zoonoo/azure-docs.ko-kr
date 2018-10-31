@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: a68c35ba2f740720e3d7940d6fafa2dcfe183589
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064376"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405517"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure에서 서비스 맵 구성
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -138,22 +138,22 @@ ms.locfileid: "47064376"
 | System Center Operations Manager 관리 그룹 | yes | 서비스 맵은 연결된 [System Center Operations Manager 관리 그룹](../log-analytics/log-analytics-om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br>System Center Operations Manager 에이전트 컴퓨터에서 Log Analytics로의 직접 연결이 필요합니다. |
 | Azure Storage 계정 | 아니요 | 서비스 맵은 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
-Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft Monitoring Agent)를 사용하여 모니터링 데이터를 수집하고 전송합니다. (이 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, OMS 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다.) System Center Operations Manager와 Log Analytics는 MMA의 다양한 기본 버전을 제공합니다. 이러한 버전은 각각 System Center Operations Manager, Log Analytics 또는 양쪽 모두에 보고할 수 있습니다.  
+Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft Monitoring Agent)를 사용하여 모니터링 데이터를 수집하고 전송합니다. (이 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다.) System Center Operations Manager와 Log Analytics는 MMA의 다양한 기본 버전을 제공합니다. 이러한 버전은 각각 System Center Operations Manager, Log Analytics 또는 양쪽 모두에 보고할 수 있습니다.  
 
 Linux에서는 Linux용 Log Analytics 에이전트가 모니터링 데이터를 수집하여 Log Analytics에 보냅니다. 서비스에 직접 연결되거나 Log Analytics와 통합된 Operations Manager 관리 그룹에 보고하는 Log Analytics 에이전트를 통해 서버에 있는 서비스 맵을 사용할 수 있습니다.  
 
 이 문서에서는 System Center Operations Manager 관리 그룹에 연결되어 있든 또는 Log Analytics에 직접 연결되어 있든 관계없이 Linux 또는 Windows의 모든 에이전트를 *Log Analytics 에이전트*라고 하겠습니다. 
 
-서비스 맵 에이전트는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 서비스 맵의 데이터는 항상 Log Analytics 에이전트에 의해 직접 또는 OMS 게이트웨이를 통해 Log Analytics로 전송됩니다.
+서비스 맵 에이전트는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 서비스 맵의 데이터는 항상 Log Analytics 에이전트에 의해 직접 또는 Log Analytics 게이트웨이를 통해 Log Analytics로 전송됩니다.
 
 ![서비스 맵 에이전트](media/monitoring-service-map/agents.png)
 
 Log Analytics에 연결된 관리 그룹을 사용하는 System Center Operations Manager 고객인 경우:
 
 - System Center Operations Manager 에이전트가 인터넷에 액세스하여 Log Analytics에 연결할 수 있으면 추가 구성이 필요하지 않습니다.  
-- System Center Operations Manager 에이전트가 인터넷을 통해 Log Analytics에 액세스할 수 없는 경우 OMS 게이트웨이를 System Center Operations Manager와 작동하도록 구성해야 합니다.
+- System Center Operations Manager 에이전트가 인터넷을 통해 Log Analytics에 액세스할 수 없는 경우 Log Analytics 게이트웨이를 System Center Operations Manager와 작동하도록 구성해야 합니다.
   
-Windows 또는 Linux 머신을 서비스에 직접 연결할 수 없으면, OMS 게이트웨이를 사용하여 Log Analytics에 연결하도록 Log Analytics 에이전트를 구성해야 합니다. OMS 게이트웨이를 배포하고 구성하는 방법에 자세한 내용은 [OMS 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결](../log-analytics/log-analytics-oms-gateway.md)을 참조합니다.  
+Windows 또는 Linux 컴퓨터를 서비스에 직접 연결할 수 없으면, 게이트웨이를 사용하여 Log Analytics 작업 영역에 연결하도록 Log Analytics 에이전트를 구성해야 합니다. Log Analytics 게이트웨이를 배포하고 구성하는 방법에 자세한 내용은 [Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결](../log-analytics/log-analytics-oms-gateway.md)을 참조하세요.  
 
 ### <a name="management-packs"></a>관리 팩
 Log Analytics 작업 영역에서 서비스 맵이 활성화되면 해당 작업 영역의 모든 Windows 서버에 300KB 관리 팩이 전송됩니다. [연결된 관리 그룹](../log-analytics/log-analytics-om-agents.md)에서 System Center Operations Manager 에이전트를 사용하는 경우 서비스 맵 관리 팩은 System Center Operations Manager에서 배포됩니다. 

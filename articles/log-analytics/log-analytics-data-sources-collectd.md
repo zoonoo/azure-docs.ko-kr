@@ -1,5 +1,5 @@
 ---
-title: OMS Log Analytics에서 CollectD의 데이터 수집 | Microsoft Docs
+title: Log Analytics에서 CollectD의 데이터 수집 | Microsoft Docs
 description: CollectD는 주기적으로 응용 프로그램의 데이터 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다.  이 문서에서는 Log Analytics에서 CollectD의 데이터 수집에 대한 정보를 제공합니다.
 services: log-analytics
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: eb053ef8fc66ff9d71a9576b71eb4edfcd688638
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: a1f28103f8faabae166f09185db3f3e1fee7a5ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041293"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404599"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Log Analytics에서 Linux 에이전트의 CollectD에서 데이터 수집
 [CollectD](https://collectd.org/)는 주기적으로 응용 프로그램의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 응용 프로그램은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Log Analytics에서 CollectD의 성능 데이터 수집에 대한 정보를 제공합니다.
@@ -29,7 +29,9 @@ ms.locfileid: "48041293"
 
 ![CollectD 개요](media/log-analytics-data-sources-collectd/overview.png)
 
-다음 CollectD 구성은 CollectD 데이터를 Linux 용 OMS 에이전트로 라우팅하도록 Linux용 OMS 에이전트에 포함되어 있습니다.
+다음 CollectD 구성은 CollectD 데이터를 Linux용 Log Analytics 에이전트로 라우팅하도록 Linux용 Log Analytics 에이전트에 포함되어 있습니다.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
     LoadPlugin write_http
 
@@ -52,12 +54,12 @@ ms.locfileid: "48041293"
        </URL>
     </Plugin>
 
-CollectD 구성은 기본값`write_http` 플러그 인을 사용하여 26000 포트를 통해 성능 메트릭 데이터를 Linux용 OMS 에이전트에 보냅니다. 
+CollectD 구성은 기본값`write_http` 플러그 인을 사용하여 26000 포트를 통해 성능 메트릭 데이터를 Linux용 Log Analytics 에이전트에 보냅니다. 
 
 > [!NOTE]
 > 필요한 경우 이 포트는 사용자 지정 정의된 포트로 구성될 수 있습니다.
 
-또한 Linux용 OMS 에이전트는 CollectD 메트릭에 대해 26000 포트에서 수신한 다음 OMS 스키마 메트릭으로 변환합니다. 다음은 Linux용 OMS 에이전트 구성 `collectd.conf`입니다.
+또한 Linux용 Log Analytics 에이전트는 CollectD 메트릭에 대해 26000 포트에서 수신한 다음, Log Analytics 스키마 메트릭으로 변환합니다. 다음은 Linux용 Log Analytics 에이전트 구성 `collectd.conf`입니다.
 
     <source>
       type http
@@ -72,19 +74,19 @@ CollectD 구성은 기본값`write_http` 플러그 인을 사용하여 26000 포
 
 ## <a name="versions-supported"></a>지원되는 버전
 - Log Analytics는 현재 CollectD 버전 4.8 이상을 지원합니다.
-- CollectD 메트릭 수집에 Linux용 OMS 에이전트 v1.1.0-217 이상이 필요합니다.
+- CollectD 메트릭 수집에 Linux용 Log Analytics 에이전트 v1.1.0-217 이상이 필요합니다.
 
 
 ## <a name="configuration"></a>구성
 Log Analytics에서 CollectD 데이터의 컬렉션을 구성하는 기본 단계는 다음과 같습니다.
 
-1. write_http 플러그 인을 사용하여 Linux용 OMS 에이전트에 데이터를 보내도록 CollectD를 구성합니다.  
-2. 적절한 포트에서 CollectD 데이터에 대해 수신 대기하도록 Linux용 OMS 에이전트를 구성합니다.
-3. CollectD 및 Linux용 OMS 에이전트를 다시 시작합니다.
+1. write_http 플러그 인을 사용하여 Linux용 Log Analytics 에이전트에 데이터를 보내도록 CollectD를 구성합니다.  
+2. 적절한 포트에서 CollectD 데이터에 대해 수신 대기하도록 Linux용 Log Analytics 에이전트를 구성합니다.
+3. CollectD 및 Linux용 Log Analytics 에이전트를 다시 시작합니다.
 
 ### <a name="configure-collectd-to-forward-data"></a>데이터를 전달하도록 CollectD 구성 
 
-1. CollectD 데이터를 Linux용 OMS 에이전트로 라우팅하려면 `oms.conf`를 CollectD의 구성 디렉터리에 추가해야 합니다. 이 파일의 대상은 컴퓨터의 Linux 배포판에 따라 달라집니다.
+1. CollectD 데이터를 Linux용 Log Analytics 에이전트로 라우팅하려면 `oms.conf`를 CollectD의 구성 디렉터리에 추가해야 합니다. 이 파일의 대상은 컴퓨터의 Linux 배포판에 따라 달라집니다.
 
     CollectD config 디렉터리가 /etc/collectd.d/에 있는 경우:
 
@@ -103,12 +105,12 @@ Log Analytics에서 CollectD 데이터의 컬렉션을 구성하는 기본 단�
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
         sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
 
-3. 다음 명령을 사용하여 CollectD 및 Linux 용 OMS 에이전트를 다시 시작합니다.
+3. 다음 명령을 사용하여 CollectD 및 Linux용 Log Analytics 에이전트를 다시 시작합니다.
 
     sudo service collectd restart  sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>CollectD 메트릭을 Log Analytics 스키마로 변환
-Linux용 OMS 에이전트에서 이미 수집된 인프라 메트릭과 CollectD에서 수집된 새 메트릭 간에 친숙한 모델을 유지하기 위해 다음 스키마 매핑이 사용됩니다.
+Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭과 CollectD에서 수집된 새 메트릭 간에 친숙한 모델을 유지하기 위해 다음 스키마 매핑이 사용됩니다.
 
 | CollectD 메트릭 필드 | Log Analytics 필드 |
 |:--|:--|

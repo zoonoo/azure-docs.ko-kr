@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160624"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387824"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>VM용 Azure Monitor를 사용하여 Azure 가상 머신의 상태 이해하기
 Azure에는 모니터링 공간에서 개별적으로 특정 역할이나 작업을 수행하는 여러 서비스가 포함되지만, Azure 가상 머신에서 호스팅되는 운영 체제에 대한 심층적인 상태 관점 뷰는 제공되지 않았습니다.  Log Analytics나 Azure Monitor를 사용하여 다양한 조건을 모니터링할 수 있지만 핵심 구성 요소 상태나 가상 머신의 전반적인 상태를 모델링하고 나타내도록 설계되지 않았습니다.  VM용 Azure Monitor 상태 기능을 사용하면 주요 구성 요소와 이들의 관계, 구성 요소의 상태를 측정하는 방법을 지정하는 기준이 되는 모델을 사용하여 Windows 또는 Linux 게스트 OS의 가용성 및 성능을 사전에 모니터링하고 비정상 상태가 감지되면 경고를 표시합니다.  
@@ -31,7 +31,7 @@ Azure VM 및 기본 운영 체제의 전반적인 상태를 보려면 VM용 Azur
 VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용하도록 설정](monitoring-vminsights-onboard.md)을 참조하세요.
 
 ## <a name="monitoring-configuration-details"></a>모니터링 구성 세부 정보
-이 섹션에서는 Azure Windows 및 Linux 가상 머신을 모니터링하도록 정의된 기본 상태 조건을 설명합니다.
+이 섹션에서는 Azure Windows 및 Linux 가상 머신을 모니터링하도록 정의된 기본 상태 조건을 설명합니다. 모든 상태 조건은 비정상 상태가 충족되면 경고를 표시하도록 미리 구성됩니다. 
 
 ### <a name="windows-vms"></a>Windows VM
 
@@ -110,7 +110,7 @@ Windows 운영 체제를 실행하는 Azure VM에서 상태에 액세스하면 �
 
 ![Azure Monitor의 VM 인사이트 모니터링 보기](./media/monitoring-vminsights-health/vminsights-aggregate-health.png)
 
-**구독** 및 **리소스 그룹** 드롭다운 목록에서 등록된 대상 VM이 포함된 적절한 항목을 선택하면 성능 상태를 볼 수 있습니다. 
+보고된 성능 상태를 확인하려면 **구독** 및 **리소스 그룹** 드롭다운 목록에서 그룹과 관련된 VM이 포함된 적절한 리소스 그룹을 선택합니다.  선택 항목은 상태 기능에만 적용되며 성능 또는 맵으로 전달되지 않습니다.
 
 **상태** 탭에서 다음 사항을 알아볼 수 있습니다.
 
@@ -253,21 +253,29 @@ VM용 Azure Monitor 상태 기능은 [Azure 경고](../monitoring-and-diagnostic
 
 ![모든 심각도 수준 1 경고 예제](./media/monitoring-vminsights-health/vminsights-sev1-alerts-01.png)
 
+**경고** 페이지에서 선택 사항과 일치하는 경고를 표시하도록 범위가 지정되어 있을 뿐만 아니라 가상 머신 리소스에서 발생한 상태 경고만 표시하도록 **리소스 종류**별로 필터링되어 있습니다.  이 설정은 **대상 리소스** 열 아래의 경고 목록에 반영되며, 이 열에는 특정 상태 조건의 비정상 상태가 충족되었을 때 경고가 발생한 Azure VM이 표시됩니다.  
+
+Log Analytics 쿼리를 기반으로 한 로그 경고 또는 일반적으로 기본 Azure Monitor의 [모든 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) 페이지에서 볼 수 있는 메트릭 경고와 같은, 다른 리소스 종류 또는 서비스에서 발생하는 경고는 이 보기에 포함되지 않습니다. 
+
 페이지 맨 위에 있는 드롭다운 메뉴에서 값을 선택하여 이 보기를 필터링할 수 있습니다.
 
 |열 |설명 | 
 |-------|------------| 
 |구독 |Azure 구독을 선택합니다. 선택한 구독의 경고만 보기에 포함됩니다. | 
 |리소스 그룹 |단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. | 
-|리소스 종류 |리소스 종류를 하나 이상 선택합니다. 선택한 형식의 대상이 있는 경고만 보기에 포함됩니다. 이 열은 리소스 그룹을 지정한 후에만 사용할 수 있습니다. | 
+|리소스 종류 |리소스 종류를 하나 이상 선택합니다. 기본적으로 대상 **가상 머신**의 경고만 선택되고 이 보기에 포함됩니다. 이 열은 리소스 그룹을 지정한 후에만 사용할 수 있습니다. | 
 |리소스 |리소스를 선택합니다. 해당 리소스가 대상으로 지정된 경고만 보기에 포함됩니다. 이 열은 리소스 종류를 지정한 후에만 사용할 수 있습니다. | 
 |심각도 |경고 심각도를 선택하거나, 심각도에 상관없이 모든 경고를 포함하려면 *모두*를 선택합니다. | 
 |조건 모니터링 |조건이 더 이상 활성 상태가 아니고, 시스템에서 *실행*되었거나 *해결*된 경우 경고를 필터링할 모니터 조건을 선택합니다. 또는 *모두*를 선택하여 모든 조건의 경고를 포함합니다. | 
 |경고 상태 |경고 상태(*신규*, *승인*, *닫힘*)를 선택하거나, 상태에 상관없이 모든 경고를 포함하려면 *모두*를 선택합니다. | 
-|서비스 모니터링 |서비스를 선택하거나, 모든 서비스를 포함하려면 *모두*를 선택합니다. 이 기능에는 인프라 인사이트의 경고만 지원됩니다. | 
+|서비스 모니터링 |서비스를 선택하거나, 모든 서비스를 포함하려면 *모두*를 선택합니다. 이 기능에는 *VM Insights*의 경고만 지원됩니다.| 
 |시간 범위| 선택한 기간 내에 발생한 경고만 보기에 포함됩니다. 지원되는 값은 지난 1시간, 지난 24시간, 지난 7일 및 지난 30일입니다. | 
 
-**경고 세부 정보** 페이지는 경고를 선택하면 표시되며, 경고의 세부 정보가 제공되고 상태를 변경할 수 있습니다. 경고 규칙 작업 및 경고 관리에 대한 자세한 내용은 [Azure Monitor를 사용하여 경고 만들기, 보기 및 관리](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)를 참조하세요.
+**경고 세부 정보** 페이지는 경고를 선택하면 표시되며, 경고의 세부 정보가 제공되고 상태를 변경할 수 있습니다. 경고 관리에 대한 자세한 내용은 [Azure Monitor를 사용하여 경고 만들기, 보기 및 관리](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)를 참조하세요.  
+
+>[!NOTE]
+>현재, 상태 조건에 따라 새 경고를 만들거나 포털에서 Azure Monitor의 기존 상태 경고 규칙을 수정하는 것은 지원되지 않습니다.  
+>
 
 ![선택한 경고에 대한 경고 세부 정보 창](./media/monitoring-vminsights-health/alert-details-pane-01.png)
 

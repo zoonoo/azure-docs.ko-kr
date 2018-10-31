@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 8c750937cd45e104e754335f7da51d813b8dc7ba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3c28181e1d1a4fd1cdac530ed8f393c7e0c7ea92
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999650"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426305"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 엔드포인트를 만들기, 변경 또는 삭제
 
@@ -64,7 +64,7 @@ http://portal.azure.com에서 Azure Portal에 로그인합니다.
    
    ![서비스 엔드포인트 정책 정의 만들기](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. 선택 사항: **탭**에 다음 정보를 입력하거나 선택
+5. 선택 사항: **탭**에 다음 정보를 입력하거나 선택합니다.
    
    - 키: 정책에 대한 키를 선택합니다. 예: 부서     
    - 값: 키에 대한 값 쌍을 입력합니다. 예: 금융

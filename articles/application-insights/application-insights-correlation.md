@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 696843363bc6617bb11c01cdccb9dbbb7b719a82
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298203"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341126"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -105,17 +105,19 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="open-tracing-and-application-insights"></a>Open Tracing 및 Application Insights
 
-[Open Tracing](http://opentracing.io/) 및 Application Insights 데이터 모델은 다음과 같이 표시됩니다. 
+[Open Tracing 데이터 모델 사양](http://opentracing.io/) 및 Application Insights 데이터 모델은 다음과 같은 방식으로 매핑됩니다.
 
-- `request`, `pageView`가 **Span**으로 매핑되고 `span.kind = server`입니다.
-- `dependency`가 **Span**을 매핑되고 `span.kind = client`입니다.
-- `request` 및 `dependency`의 `id`가 **Span.Id**로 매핑됩니다.
-- `operation_Id`가 **TraceId**로 매핑됩니다.
-- `operation_ParentId`가 `ChildOf` 형식의 **Reference**로 매핑됩니다.
+| Application Insights                  | Open Tracing                                      |
+|------------------------------------   |-------------------------------------------------  |
+| `Request`, `PageView`                 | `Span`(`span.kind = server` 사용)                  |
+| `Dependency`                          | `Span`(`span.kind = client` 사용)                  |
+| `Request` 및 `Dependency`의 `Id`    | `SpanId`                                          |
+| `Operation_Id`                        | `TraceId`                                         |
+| `Operation_ParentId`                  | `ChildOf` 유형의 `Reference`(상위 범위)   |
 
-Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요.
+Application Insights 데이터 모델에 대한 자세한 내용은 [데이터 모델](application-insights-data-model.md)을 참조하세요. 
 
-Open Tracing 개념의 정의는 [specification](https://github.com/opentracing/specification/blob/master/specification.md)(사양) 및 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)를 참조하세요.
+Open Tracing 개념의 정의는 Open Tracing [specification](https://github.com/opentracing/specification/blob/master/specification.md)(사양) 및 [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)를 참조하세요.
 
 
 ## <a name="telemetry-correlation-in-net"></a>.NET의 원격 분석 상관 관계

@@ -11,21 +11,21 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: c2855a9cdbb2abc01b3d3b55b12b979a2dbbf8bb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/19/2018
+ms.openlocfilehash: ac3ce8a417a63ce0a91339c38c2a5ae8b3013228
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165360"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466786"
 ---
-# <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 논리 서버 및 단일 데이터베이스 만들기 및 관리 
+# <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 논리 서버 및 단일 데이터베이스 만들기 및 관리
 
 Azure Portal, PowerShell, Azure CLI, REST API 및 Transact-SQL을 사용하여 Azure SQL 데이터베이스 논리 서버 및 단일 데이터베이스를 만들고 관리할 수 있습니다.
 
 ## <a name="azure-portal-manage-logical-servers-and-databases"></a>Azure Portal: 논리 서버 및 데이터베이스 관리
 
-Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 만드는 동안 만들 수 있습니다. 새 SQL Server를 만들거나 새 데이터베이스 만들기의 일부분으로 새 SQL Server 양식을 가져오는 여러 방법이 있습니다. 
+Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 만드는 동안 만들 수 있습니다. 새 SQL Server를 만들거나 새 데이터베이스 만들기의 일부분으로 새 SQL Server 양식을 가져오는 여러 방법이 있습니다.
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>비어 있는 SQL Server(논리 서버) 만들기
 
@@ -33,7 +33,7 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>비어 있거나 샘플인 SQL Database 만들기
 
-[Azure Portal](https://portal.azure.com)을 사용하여 Azure SQL Database를 만들려면 비어 있는 SQL Database 양식으로 이동하고 요청된 정보를 제공합니다. Azure SQL Database의 리소스 그룹 및 논리 서버를 미리 만들거나 데이터베이스 자체를 만드는 동안 만들 수 있습니다. 비어 있는 데이터베이스를 만들거나 Adventure Works LT에 따라 샘플 데이터베이스를 만들 수 있습니다. 
+[Azure Portal](https://portal.azure.com)을 사용하여 Azure SQL Database를 만들려면 비어 있는 SQL Database 양식으로 이동하고 요청된 정보를 제공합니다. Azure SQL Database의 리소스 그룹 및 논리 서버를 미리 만들거나 데이터베이스 자체를 만드는 동안 만들 수 있습니다. 비어 있는 데이터베이스를 만들거나 Adventure Works LT에 따라 샘플 데이터베이스를 만들 수 있습니다.
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -42,28 +42,25 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 
 Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
 
-### <a name="manage-an-existing-sql-server"></a>기존 SQL Server 관리
+## <a name="manage-an-existing-sql-server"></a>기존 SQL Server 관리
 
-기존 서버를 관리하려면 특정 SQL Database 페이지, **SQL server** 페이지 또는 **모든 리소스** 페이지와 같은 다양한 방법을 사용하여 서버로 이동합니다. 
+기존 서버를 관리하려면 특정 SQL Database 페이지, **SQL server** 페이지 또는 **모든 리소스** 페이지와 같은 다양한 방법을 사용하여 서버로 이동합니다.
 
-기존 데이터베이스를 관리하려면 **SQL Database** 페이지로 이동하고 관리하려는 데이터베이스를 클릭합니다. 다음 스크린샷에서는 데이터베이스의 **개요** 페이지에서 데이터베이스의 서버 수준 방화벽을 설정하기 시작하는 방법을 보여줍니다. 
+기존 데이터베이스를 관리하려면 **SQL Database** 페이지로 이동하고 관리하려는 데이터베이스를 클릭합니다. 다음 스크린샷에서는 데이터베이스의 **개요** 페이지에서 데이터베이스의 서버 수준 방화벽을 설정하기 시작하는 방법을 보여줍니다.
 
-   ![서버 방화벽 규칙](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![서버 방화벽 규칙](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
 > 데이터베이스의 성능 속성을 구성하려면 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
->
-
 > [!TIP]
 > Azure Portal 빠른 시작은 [Azure Portal에서 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
 
 ## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: 논리 서버 및 데이터베이스 관리
 
-Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 
+Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 > [!TIP]
 > PowerShell 빠른 시작은 [PowerShell을 사용하여 단일 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요. PowerShell 예제 스크립트에 대해서는 [PowerShell을 사용하여 단일 Azure SQL Database 만들기 및 방화벽 규칙 구성](scripts/sql-database-create-and-configure-database-powershell.md) 및 [PowerShell을 사용하여 단일 SQL Database 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md)을 참조하세요.
->
 
 | Cmdlet | 설명 |
 | --- | --- |
@@ -116,13 +113,10 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 
 Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 T-SQL cmdlet을 사용합니다. Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) 또는 Azure SQL Database 서버에 연결하여 Transact-SQL 명령을 전달할 수 있는 다른 프로그램을 사용하여 이러한 명령을 실행할 수 있습니다 . 탄력적 풀 관리에 대해서는 [탄력적 풀](sql-database-elastic-pool.md)을 참조하세요.
 
-
 > [!TIP]
 > Microsoft Windows에서 SQL Server Management Studio를 사용하는 빠른 시작은 [Azure SQL Database: SQL Server Management Studio를 사용하여 데이터에 연결 및 쿼리](sql-database-connect-query-ssms.md)를 참조하세요. Windows, Linux 또는 macOS에서 Visual Studio Code를 사용하는 빠른 시작은 [Azure SQL Database: Visual Studio Code를 사용하여 연결 및 데이터 쿼리](sql-database-connect-query-vscode.md)를 참조하세요.
-
 > [!IMPORTANT]
 > Transact-SQL을 사용하여 서버를 만들거나 삭제할 수 없습니다.
->
 
 | 명령 | 설명 |
 | --- | --- |
@@ -142,29 +136,28 @@ Transact-SQL을 사용하여 Azure SQL Server, 데이터베이스 및 방화벽�
 |[sys.database_firewall_rules(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Microsoft Azure SQL Database와 연결된 데이터베이스 수준 방화벽 설정에 대한 정보를 반환합니다. |
 |[sp_delete_database_firewall_rule(Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Azure SQL Database 또는 SQL Data Warehouse에서 데이터베이스 수준 방화벽 설정을 제거합니다. |
 
-
-
 ## <a name="rest-api-manage-logical-servers-and-databases"></a>REST API: 논리 서버 및 데이터베이스 관리
 
 Azure SQL Server, 데이터베이스 및 방화벽을 만들고 관리하려면 다음 REST API 요청을 사용하세요.
 
 | 명령 | 설명 |
 | --- | --- |
-|[Servers - Create 또는 Update](/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
-|[Servers - Delete](/rest/api/sql/servers/delete)|SQL 서버를 삭제합니다.|
-|[Servers - Get](/rest/api/sql/servers/get)|서버를 가져옵니다.|
-|[Servers - List](/rest/api/sql/servers/list)|서버 목록을 반환합니다.|
-|[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|리소스 그룹의 서버 목록을 반환합니다.|
-|[Servers - Update](/rest/api/sql/servers/update)|기존 서버를 업데이트합니다.|
-|[데이터베이스 - Create 또는 Update](/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
-|[데이터베이스 - Get](/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
-|[데이터베이스 - List By Elastic Pool](/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스 - List By Server](/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
-|[데이터베이스 - Update](/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
-|[Firewall Rules - Create 또는 Update](/rest/api/sql/firewallrules/createorupdate)|방화벽 규칙을 만들거나 업데이트합니다.|
-|[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|방화벽 규칙을 삭제합니다.|
-|[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|방화벽 규칙을 가져옵니다.|
-|[Firewall Rules - List By Server](/rest/api/sql/firewallrules/listbyserver)|방화벽 규칙 목록을 반환합니다.|
+|[Servers - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
+|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|SQL 서버를 삭제합니다.|
+|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|서버를 가져옵니다.|
+|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|서버 목록을 반환합니다.|
+|[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|리소스 그룹의 서버 목록을 반환합니다.|
+|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|기존 서버를 업데이트합니다.|
+|[데이터베이스 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|
+|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|데이터베이스를 삭제합니다.|
+|[데이터베이스 - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|데이터베이스를 가져옵니다.|
+|[데이터베이스 - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|탄력적 풀에서 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|서버의 데이터베이스의 목록을 반환합니다.|
+|[데이터베이스 - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|기존 데이터베이스를 업데이트합니다.|
+|[Firewall Rules - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|방화벽 규칙을 만들거나 업데이트합니다.|
+|[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|방화벽 규칙을 삭제합니다.|
+|[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|방화벽 규칙을 가져옵니다.|
+|[Firewall Rules - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|방화벽 규칙 목록을 반환합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

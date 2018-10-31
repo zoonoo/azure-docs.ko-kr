@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 31f23e3f8e792c6b61870c640f99ec3392a940d3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 96bbb221f5fa133ee88a09d489627e3d2f9b0713
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211177"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409189"
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>클러스터 및 플랫폼 모니터링
 
@@ -91,7 +91,7 @@ Service Fabric을 사용할 경우 수집할 경우 수집할 성능 카운터�
 클러스터에 대한 성능 데이터 수집을 설정하는 두 가지 일반적인 방법은 다음과 같습니다.
 
 * **에이전트 사용**  
-컴퓨터에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. 클러스터 VM 및 배포된 컨테이너에 대한 성능 데이터를 선택할 수 있는 하나의 모니터링 에이전트인 OMS 에이전트에 대한 자세한 내용은 [Service Fabric에 대해 OMS를 구성하는 방법](service-fabric-diagnostics-event-analysis-oms.md) 및 [OMS Windows 에이전트 설정](../log-analytics/log-analytics-windows-agent.md) 문서를 참조하세요.
+이는 머신에서 성능을 수집할 때 선호되는 방법이며, 일반적으로 에이전트에는 수집할 수 있는 가능한 성능 메트릭 목록이 있어서 수집하거나 변경할 메트릭을 선택하는 프로세스가 상대적으로 쉽기 때문입니다. 클러스터 VM 및 배포된 컨테이너에 대한 성능 데이터를 선택할 수 있는 하나의 모니터링 에이전트인 Log Analytics 에이전트에 대한 자세한 내용은 [Service Fabric에 대해 Log Analytics를 구성하는 방법](service-fabric-diagnostics-event-analysis-oms.md) 및 [Log Analytics 에이전트 설정](../log-analytics/log-analytics-windows-agent.md) 문서를 읽어보세요.
 
 * **성능 카운터를 테이블에 쓰도록 진단 구성**  
 Azure에 있는 클러스터의 경우 이 방법은 클러스터의 VM에서 적절한 성능 카운터를 선택하도록 Azure 진단 구성을 변경하고 컨테이너를 배포할 경우 Docker 통계를 선택할 수 있도록 하는 것입니다. 성능 카운터 수집을 설정하려면 Service Fabric에서 [WAD의 성능 카운터](service-fabric-diagnostics-event-aggregation-wad.md)를 구성하는 방법을 참조하세요.

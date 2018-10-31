@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068539"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470067"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 Virtual Network 구성
 Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트워크 집합에만 연결되도록 저장소 계정을 보호할 수 있도록 합니다.  네트워크 규칙이 구성된 경우 허용되는 네트워크의 응용 프로그램만 저장소 계정에 액세스할 수 있습니다.  허용되는 네트워크에서 호출되면 응용 프로그램은 저장소 계정에 액세스하기 위한 적절한 인증(유효한 액세스 키 또는 SAS 토큰)을 계속 요구합니다.
@@ -86,7 +86,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Allow
 ```
 
-## <a name="grant-access-from-a-virtual-network"></a>가상 네트워크의 액세스 허가
+## <a name="grant-access-from-a-virtual-network"></a>Virtual Network에서 액세스 허용
 특정 Azure Virtual Network의 액세스만 허용하도록 저장소 계정을 구성할 수 있습니다. 
 
 Virtual Network 내에서 Azure Storage에 대한 [서비스 엔드포인트](/azure/virtual-network/virtual-network-service-endpoints-overview)를 사용하도록 설정하면 트래픽이 Azure Storage 서비스에 대한 최적 경로로 전송됩니다. 가상 네트워크 및 서브넷의 ID 또한 각 요청과 함께 전송됩니다.  관리자는 저장소 계정에 대해 Virtual Network의 특정 서브넷에서 요청이 수신될 수 있도록 하는 네트워크 규칙을 구성할 수 있습니다.  이러한 네트워크 규칙을 통해 액세스가 허가된 클라이언트는 데이터에 액세스하기 위해 저장소 계정의 인증 요구 사항을 계속 충족해야 합니다.
@@ -188,7 +188,11 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 > "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다.  이러한 범위는 개별 IP 주소 규칙을 사용하여 구성해야 합니다.
 >
 
-IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용됩니다.  개인 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다.  개인 네트워크는 *10.\**, *172.16.\** 및 *192.168\** 로 시작하는 주소를 포함합니다.
+IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용됩니다.  사설망에 예약된 IP 주소 범위([RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)에 정의됨)는 IP 규칙에서 허용되지 않습니다.  사설망에는 *10.\**, *172.16.\** - *172.31.\** 및 *192.168.\** 로 시작하는 주소가 포함됩니다.
+
+> [!NOTE]
+> IP 네트워크 규칙은 Storage 계정과 동일한 Azure 지역에서 시작된 요청에 영향을 주지 않습니다.  동일한 지역 요청을 허용하려면 [Virtual Network 규칙](#grant-access-from-a-virtual-network)을 사용하세요.
+>
 
 현재 IPv4 주소만 지원됩니다.
 

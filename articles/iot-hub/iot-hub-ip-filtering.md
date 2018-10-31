@@ -7,23 +7,24 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: rezas
-ms.openlocfilehash: 864af9cae35912d95f2c0bf0b574a5ca2404a608
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 903f8284327d3d5b9ef386305a436ce44a8a11b2
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190644"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378105"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
-보안은 Azure IoT Hub를 기반으로 하는 모든 IoT 솔루션의 중요한 측면입니다. 경우에 따라 장치가 보안 구성의 일부로 연결할 수 있는 IP 주소를 명시적으로 지정해야 합니다. _IP 필터_ 기능을 사용하면 특정 IPv4 주소에서 들어오는 트래픽을 거부하거나 수락하는 규칙을 구성할 수 있습니다.
+보안은 Azure IoT Hub를 기반으로 하는 모든 IoT 솔루션의 중요한 측면입니다. 경우에 따라 장치가 보안 구성의 일부로 연결할 수 있는 IP 주소를 명시적으로 지정해야 합니다. *IP 필터* 기능을 사용하면 특정 IPv4 주소에서 들어오는 트래픽을 거부하거나 수락하는 규칙을 구성할 수 있습니다.
 
 ## <a name="when-to-use"></a>사용하는 경우
 
 특정 IP 주소에 대해 IoT Hub 엔드포인트를 차단하는 것이 유용한 두 가지 사용 사례가 있습니다.
 
-- IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 IoT Hub를 [Azure Express Route]와 사용하여 IoT Hub와 온-프레미스 인프라 간의 개인 연결을 만드는 경우입니다.
-- IoT Hub 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 합니다.
+* IoT Hub가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 IoT Hub를 [Azure ExpressRoute](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services)와 사용하여 IoT Hub와 온-프레미스 인프라 간의 개인 연결을 만드는 경우입니다.
+
+* IoT Hub 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 합니다.
 
 ## <a name="how-filter-rules-are-applied"></a>필터 규칙이 적용되는 방식
 
@@ -35,21 +36,23 @@ IoT Hub의 거부 IP 규칙에 일치하는 IP 주소에서 오는 모든 연결
 
 기본적으로 IoT Hub에 대한 포털의 **IP 필터** 그리드는 비어있습니다. 이러한 기본 설정은 허브가 모든 IP 주소의 연결을 수락한다는 것을 의미합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다.
 
-![IoT Hub 기본 IP 필터 설정][img-ip-filter-default]
+![IoT Hub 기본 IP 필터 설정](./media/iot-hub-ip-filtering/ip-filter-default.png)
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>IP 필터 규칙 추가 또는 편집
 
 IP 필터 규칙을 추가하는 경우 다음 값을 입력하라는 메시지가 표시됩니다.
 
-- **IP 필터 규칙 이름**은 최대 128자의 대/소문자를 구분하지 않는 영숫자 문자열로 고유해야 합니다. ASCII 7 비트 영숫자 및 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`만 허용됩니다.
-- IP 필터 규칙에 대한 **작업**으로 **거부** 또는 **수락**을 선택합니다.
-- 단일 IPv4 주소 또는 CIDR 표기법으로 IP 주소 블록을 제공합니다. 예를 들어 CIDR 표기법 192.168.100.0/22는 192.168.100.0에서 192.168.103.255까지 IPv4 주소 1024개를 나타냅니다.
+* **IP 필터 규칙 이름**은 최대 128자의 대/소문자를 구분하지 않는 영숫자 문자열로 고유해야 합니다. ASCII 7 비트 영숫자 및 `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`만 허용됩니다.
 
-![IP 필터 규칙을 IoT Hub에 추가][img-ip-filter-add-rule]
+* IP 필터 규칙에 대한 **작업**으로 **거부** 또는 **수락**을 선택합니다.
+
+* 단일 IPv4 주소 또는 CIDR 표기법으로 IP 주소 블록을 제공합니다. 예를 들어 CIDR 표기법 192.168.100.0/22는 192.168.100.0에서 192.168.103.255까지 IPv4 주소 1024개를 나타냅니다.
+
+![IP 필터 규칙을 IoT Hub에 추가](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
 
 규칙을 저장한 후 업데이트를 진행 중이라고 알려주는 경고가 표시됩니다.
 
-![IP 필터 규칙 저장에 대한 알림][img-ip-filter-save-new-rule]
+![IP 필터 규칙 저장에 대한 알림](./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png)
 
 최대 10개의 IP 필터 규칙에 도달하면 **추가** 옵션이 비활성화됩니다.
 
@@ -65,7 +68,7 @@ IP 필터 규칙을 추가하는 경우 다음 값을 입력하라는 메시지�
 
 IP 필터 규칙을 삭제하려면 그리드에서 규칙을 하나 이상 선택하고 **삭제**를 클릭합니다.
 
-![IoT Hub IP 필터 규칙 삭제][img-ip-filter-delete-rule]
+![IoT Hub IP 필터 규칙 삭제](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
 
 ## <a name="ip-filter-rule-evaluation"></a>IP 필터 규칙 평가
 
@@ -77,27 +80,11 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 
 새 IP 필터 규칙 순서를 저장하려면 **저장**을 클릭합니다.
 
-![IoT Hub IP 필터 규칙의 순서 변경][img-ip-filter-rule-order]
+![IoT Hub IP 필터 규칙의 순서 변경](./media/iot-hub-ip-filtering/ip-filter-rule-order.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
-- [작업 모니터링][lnk-monitor]
-- [IoT Hub 메트릭][lnk-metrics]
-
-<!-- Images -->
-[img-ip-filter-default]: ./media/iot-hub-ip-filtering/ip-filter-default.png
-[img-ip-filter-add-rule]: ./media/iot-hub-ip-filtering/ip-filter-add-rule.png
-[img-ip-filter-save-new-rule]: ./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png
-[img-ip-filter-delete-rule]: ./media/iot-hub-ip-filtering/ip-filter-delete-rule.png
-[img-ip-filter-rule-order]: ./media/iot-hub-ip-filtering/ip-filter-rule-order.png
-
-
-<!-- Links -->
-
-[IoT Hub developer guide]: iot-hub-devguide.md
-[Azure Express Route]:  https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services
-
-[lnk-monitor]: iot-hub-operations-monitoring.md
-[lnk-metrics]: iot-hub-metrics.md
+* [작업 모니터링](iot-hub-operations-monitoring.md)
+* [IoT Hub 메트릭](iot-hub-metrics.md)

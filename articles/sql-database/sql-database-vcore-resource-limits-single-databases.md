@@ -11,31 +11,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 5f0e5de7503d06d1aff319434d763d3b034053b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 12074ad28e27a249a6dc378986f014ede1cd2ab3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166366"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353583"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도
 
 이 아티클에서는 vCore 기반 구매 모델을 사용하여 Azure SQL Database 단일 데이터베이스에 대한 리소스 제한을 자세히 설명합니다.
 
-DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits.md)을 참조하세요.
+논리 서버의 단일 데이터베이스에 대한 DTU 기반 구매 모델 한도에 대해서는 [논리 서버의 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
 
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
+[Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 또는 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>단일 데이터베이스: 저장소 크기 및 계산 크기
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>범용 서비스 계층: 저장소 크기 및 크기 계산
 
-단일 데이터베이스의 경우, 다음 표에서는 각 서비스 계층과 계산 크기에서 단일 데이터베이스에 사용할 수 있는 리소스를 보여 줍니다. [Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 또는 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 계산 크기 및 저장소 용량을 설정할 수 있습니다.
+### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
 
-### <a name="general-purpose-service-tier"></a>범용 서비스 계층
-
-#### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
 |계산 크기|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
@@ -57,7 +55,8 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
-#### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+
 |계산 크기|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|
@@ -79,9 +78,10 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
-### <a name="business-critical-service-tier"></a>중요 비즈니스 서비스 계층
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>중요 비즈니스용 서비스 계층: 저장소 크기 및 크기 계산
 
-#### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
+### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
+
 |계산 크기|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
@@ -103,7 +103,8 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
-#### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+
 |계산 크기|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|5|
@@ -125,9 +126,10 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
-### <a name="hyperscale-service-tier-preview"></a>하이퍼스케일 서비스 계층(미리 보기)
+## <a name="hyperscale-service-tier-preview"></a>하이퍼스케일 서비스 계층(미리 보기)
 
-#### <a name="generation-4-compute-platform"></a>4세대 계산 플랫폼
+### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>4세대 계산 플랫폼: 저장소 크기 및 계산 크기
+
 |성능 수준|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |--: |
 |하드웨어 세대|4|4|4|4|4|4|
@@ -148,7 +150,9 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |읽기 확장|yes|예|예|예|예|yes|
 |포함되는 백업 저장소|7|7|7|7|7|7|
 |||
+
 ### <a name="generation-5-compute-platform"></a>5세대 계산 플랫폼
+
 |성능 수준|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |하드웨어 세대|5|5|5|5|5|5|5|5|

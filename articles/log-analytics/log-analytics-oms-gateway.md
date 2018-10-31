@@ -1,6 +1,6 @@
 ---
-title: OMS 게이트웨이를 사용하여 컴퓨터 연결 | Microsoft Docs
-description: Azure Automation 및 Log Analytics 서비스가 인터넷에 연결되어 있지 않을 때 Azure Automation 및 Log Analytics 서비스에 데이터를 보내기 위해 장치 및 Operations Manager 모니터링 컴퓨터를 OMS 게이트웨이와 연결합니다.
+title: Log Analytics 게이트웨이를 사용하여 컴퓨터 연결 | Microsoft Docs
+description: Azure Automation 및 Log Analytics 서비스가 인터넷에 연결되어 있지 않을 때 데이터를 보내기 위해 장치 및 Operations Manager 모니터링 컴퓨터를 Log Analytics 게이트웨이와 연결합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,34 +15,34 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ac1b04d0b8c50939ff04a87a11fd1a315c2266ff
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 463af7fc77b1f8e7d58e0dc8acbfdad336301269
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042832"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404684"
 ---
-# <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결
-이 문서에서는 직접 연결되거나 Operations Manager 모니터링 컴퓨터가 인터넷에 액세스할 수 없는 경우, OMS 게이트웨이를 사용하여 Azure Automation 및 Log Analytics와의 통신을 구성하는 방법을 설명합니다.  HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 OMS 게이트웨이에서 데이터를 수집하고 대신하여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  
+# <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결
+이 문서에서는 직접 연결되거나 Operations Manager 모니터링 컴퓨터가 인터넷에 액세스할 수 없는 경우, Log Analytics 게이트웨이를 사용하여 Azure Automation 및 Log Analytics와의 통신을 구성하는 방법을 설명합니다.  HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 Log Analytics 게이트웨이에서 데이터를 수집하고 대신하여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  
 
-OMS 게이트웨이는 다음을 지원합니다.
+Log Analytics 게이트웨이는 다음을 지원합니다.
 
 * Azure Automation Hybrid Runbook Worker  
 * Log Analytics 작업 영역에 직접 연결된 Microsoft Monitoring Agent가 있는 Windows 컴퓨터
-* Log Analytics 작업 영역에 직접 연결된 Linux용 OMS 에이전트가 있는 Linux 컴퓨터  
+* Log Analytics 작업 영역에 직접 연결된 Linux용 Log Analytics 에이전트가 있는 Linux 컴퓨터  
 * Log Analytics와 통합된 System Center Operations Manager 2012 SP1(UR7 포함), Operations Manager 2012 R2(UR3 포함), Operations Manager 2016 및 Operations Manager 버전 1801 관리 그룹.  
 
-IT 보안 정책에 따라 네트워크상의 컴퓨터가 POS(Point of Sale) 장치 또는 IT 서비스를 지원하는 서버처럼 인터넷에 연결할 수 없지만 Azure Automation 또는 Log Analytics에 연결하여 관리하고 모니터링해야 하는 경우에는, OMS 게이트웨이와 직접 통신하여 구성을 수신하고 대신 데이터를 전달하도록 구성할 수 있습니다.  이러한 컴퓨터가 OMS 에이전트와 함께 구성되어 Log Analytics 작업 영역에 직접 연결하면 모든 컴퓨터에서 OMS 에이전트를 통해 OMS 게이트웨이와 대신 통신합니다.  게이트웨이는 데이터를 에이전트에서 서비스로 직접 전송하며, 전송되는 어떠한 데이터도 분석하지 않습니다.
+IT 보안 정책에 따라 네트워크상의 컴퓨터가 POS(Point of Sale) 장치 또는 IT 서비스를 지원하는 서버처럼 인터넷에 연결할 수 없지만 Azure Automation 또는 Log Analytics에 연결하여 관리하고 모니터링해야 하는 경우에는, Log Analytics 게이트웨이와 직접 통신하여 구성을 수신하고 대신 데이터를 전달하도록 구성할 수 있습니다.  이러한 컴퓨터가 Log Analytics 에이전트와 함께 구성되어 Log Analytics 작업 영역에 직접 연결하면 모든 컴퓨터에서 Log Analytics 게이트웨이와 대신 통신합니다.  게이트웨이는 데이터를 에이전트에서 서비스로 직접 전송하며, 전송되는 어떠한 데이터도 분석하지 않습니다.
 
-Operations Manager 관리 그룹이 Log Analytics와 통합되면, OMS 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다.  Operations Manager 에이전트는 Operations Manager 경고, 구성 평가, 인스턴스 공간, 용량 데이터와 같은 일부 데이터를 관리 서버로 보냅니다. IIS 로그, 성능, 보안 이벤트와 같은 기타 대용량 데이터는 OMS 게이트웨이로 직접 보냅니다.  신뢰할 수 없는 시스템을 모니터링하기 위해 하나 이상의 Operations Manager 게이트웨이 서버를 DMZ 또는 격리된 다른 네트워크에 배포한 경우에는 OMS 게이트웨이와 통신할 수 없습니다.  Operations Manager 게이트웨이 서버는 관리 서버에만 보고할 수 있습니다.  OMS 게이트웨이와 통신하도록 Operations Manager 관리 그룹을 구성하면, 설정이 비어 있더라도 프록시 구성 정보가 Log Analytics를 위해 데이터를 수집하도록 구성된 모든 에이전트 관리 컴퓨터에 자동으로 배포됩니다.    
+Operations Manager 관리 그룹이 Log Analytics와 통합되면, Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다.  Operations Manager 에이전트는 Operations Manager 경고, 구성 평가, 인스턴스 공간, 용량 데이터와 같은 일부 데이터를 관리 서버로 보냅니다. IIS 로그, 성능, 보안 이벤트와 같은 기타 대용량 데이터는 Log Analytics 게이트웨이로 직접 전송됩니다.  신뢰할 수 없는 시스템을 모니터링하기 위해 하나 이상의 Operations Manager 게이트웨이 서버를 DMZ 또는 격리된 다른 네트워크에 배포한 경우에는 Log Analytics 게이트웨이와 통신할 수 없습니다.  Operations Manager 게이트웨이 서버는 관리 서버에만 보고할 수 있습니다.  Log Analytics 게이트웨이와 통신하도록 Operations Manager 관리 그룹을 구성하면, 설정이 비어 있더라도 프록시 구성 정보가 Log Analytics를 위해 데이터를 수집하도록 구성된 모든 에이전트 관리 컴퓨터에 자동으로 배포됩니다.    
 
 게이트웨이를 통해 Log Analytics와 통신하는 직접 연결 또는 Operations Management 그룹에 고가용성을 제공하려면 네트워크 부하 분산을 사용하여 트래픽을 여러 게이트웨이 서버로 리디렉션하고 배포할 수 있습니다.  한 게이트웨이 서버가 다운되면 트래픽이 사용 가능한 다른 노드로 리디렉션됩니다.  
 
-OMS 에이전트가 통신에 필요한 서비스 엔드포인트를 식별하고 성능 또는 이벤트 데이터 분석을 위한 OMS 게이트웨이를 모니터링하기 위해 OMS 게이트웨이를 실행하는 컴퓨터에 필요합니다.
+Log Analytics 에이전트가 통신에 필요한 서비스 엔드포인트를 식별하고 성능 또는 이벤트 데이터 분석을 위한 Log Analytics 게이트웨이를 모니터링하기 위해 Log Analytics 게이트웨이를 실행하는 컴퓨터에 필요합니다.
 
 각 에이전트는 게이트웨이에 네트워크로 연결되어 있어야 게이트웨이와 데이터를 자동으로 송수신할 수 있습니다. 도메인 컨트롤러에 게이트웨이를 설치하는 것은 권장되지 않습니다.
 
-다음 다이어그램에서는 게이트웨이 서버를 사용하여 에이전트에서 Azure Automation 및 Log Analytics로의 직접적인 데이터 흐름을 보여 줍니다.  OMS 게이트웨이가 OMS와 통신하도록 구성된 동일한 포트와 에이전트의 프록시 구성이 일치해야 합니다.  
+다음 다이어그램에서는 게이트웨이 서버를 사용하여 에이전트에서 Azure Automation 및 Log Analytics로의 직접적인 데이터 흐름을 보여 줍니다.  Log Analytics 게이트웨이가 서비스와 통신하도록 구성된 동일한 포트와 에이전트의 프록시 구성이 일치해야 합니다.  
 
 ![직접 에이전트와 서비스의 통신 다이어그램](./media/log-analytics-oms-gateway/oms-omsgateway-agentdirectconnect.png)
 
@@ -52,17 +52,17 @@ OMS 에이전트가 통신에 필요한 서비스 엔드포인트를 식별하�
 
 ## <a name="prerequisites"></a>필수 조건
 
-OMS 게이트웨이를 실행하는 컴퓨터를 지정할 때 이 컴퓨터에는 다음 항목이 있어야 합니다.
+Log Analytics 게이트웨이를 실행하는 컴퓨터를 지정할 때 이 컴퓨터에는 다음 항목이 있어야 합니다.
 
 * Windows 10, Windows 8.1, Windows 7
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008
 * .Net Framework 4.5
 * 최소 4코어 프로세서 및 8GB 메모리 
-* Windows용 OMS 에이전트 
+* Windows용 Log Analytics 에이전트 
 
 ### <a name="language-availability"></a>사용 가능한 언어
 
-OMS 게이트웨이는 다음 언어로 제공됩니다.
+Log Analytics 게이트웨이는 다음 언어로 제공됩니다.
 
 - 중국어 (간체)
 - 중국어 (번체)
@@ -82,7 +82,7 @@ OMS 게이트웨이는 다음 언어로 제공됩니다.
 - 스페인어 (국제)
 
 ### <a name="supported-encryption-protocols"></a>지원되는 암호화 프로토콜
-OMS 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 지원합니다.  SSL(Secure Sockets Layer)은 지원하지 않습니다.  Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송 계층 보안) 1.2 이상을 사용하도록 게이트웨이를 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.  자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](log-analytics-data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
+Log Analytics 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 지원합니다.  SSL(Secure Sockets Layer)은 지원하지 않습니다.  Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송 계층 보안) 1.2 이상을 사용하도록 게이트웨이를 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.  자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](log-analytics-data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
 
 ### <a name="supported-number-of-agent-connections"></a>지원되는 에이전트 연결 수
 다음 표에는 게이트웨이 서버와 통신하는 지원되는 에이전트 수가 강조 표시되어 있습니다.  이 지원은 6초마다 200KB 이하의 데이터를 업로드하는 에이전트를 기반으로 합니다. 테스트되는 에이전트별 데이터 볼륨은 하루에 약 2.7GB입니다.
@@ -92,9 +92,9 @@ OMS 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 지원합�
 |- CPU: Intel XEON CPU E5-2660 v3 \@ 2.6GHz 2코어<br> - 메모리: 4GB<br> - 네트워크 대역폭: 1Gbps| 600|  
 |- CPU: Intel XEON CPU E5-2660 v3 \@ 2.6GHz 4코어<br> - 메모리: 8GB<br> - 네트워크 대역폭: 1Gbps| 1000|  
 
-## <a name="download-the-oms-gateway"></a>OMS 게이트웨이 다운로드
+## <a name="download-the-log-analytics-gateway"></a>Log Analytics 게이트웨이 다운로드
 
-최신 버전의 OMS 게이트웨이 설치 파일을 얻는 방법은 두 가지입니다.
+최신 버전의 Log Analytics 게이트웨이 설치 파일을 얻는 방법은 두 가지입니다.
 
 1. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=54443)에서 다운로드합니다.
 
@@ -104,18 +104,18 @@ OMS 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 지원합�
    1. 작업 영역을 선택합니다.
    1. **일반**의 작업 영역 블레이드에서 **빠른 시작**을 클릭합니다.
    1. **작업 영역에 연결하는 데이터 원본 선택**에서 **컴퓨터**를 클릭합니다.
-   1. **직접 에이전트** 블레이드에서 **OMS 게이트웨이 다운로드**를 클릭합니다.<br><br> ![OMS Gateway 다운로드](./media/log-analytics-oms-gateway/download-gateway.png)
+   1. **직접 에이전트** 블레이드에서 **Log Analytics 게이트웨이 다운로드**를 클릭합니다.<br><br> ![Log Analytics 게이트웨이 다운로드](./media/log-analytics-oms-gateway/download-gateway.png)
 
 또는 
 
    1. **설정** 아래 작업 영역 블레이드에서 **고급 설정**을 클릭합니다.
-   1. **연결된 원본** > **Windows 서버**로 이동하여 **OMS 게이트웨이 다운로드**를 클릭합니다.
+   1. **연결된 원본** > **Windows 서버**로 이동하여 **Log Analytics 게이트웨이 다운로드**를 클릭합니다.
 
-## <a name="install-the-oms-gateway"></a>OMS 게이트웨이 설치
+## <a name="install-the-log-analytics-gateway"></a>Log Analytics 게이트웨이 설치
 
 게이트웨이를 설치하려면 다음 단계를 수행합니다.  이전 버전인 *Log Analytics 전달자*를 설치한 경우 이 버전으로 업그레이드됩니다.  
 
-1. 대상 폴더에서 **OMS Gateway.msi**를 두 번 클릭합니다.
+1. 대상 폴더에서 **Log Analytics gateway.msi**를 두 번 클릭합니다.
 1. **Welcome** 페이지에서 **다음**을 클릭합니다.<br><br> ![게이트웨이 설치 마법사](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
 1. **사용권 계약** 페이지에서 **동의함**을 선택하여 EULA에 동의하고 **다음**을 클릭합니다.
 1. **포트 및 프록시 주소** 페이지에서 다음 단계를 수행합니다.
@@ -126,23 +126,23 @@ OMS 게이트웨이는 TLS(전송 계층 보안) 1.0, 1.1 및 1.2만 지원합�
 1. Microsoft 업데이트를 사용할 수 없는 경우 이를 사용하도록 설정할 수 있는 [Microsoft 업데이트] 페이지가 표시됩니다. 선택한 후에 **다음**을 클릭합니다. 그렇지 않은 경우 다음 단계를 계속 진행합니다.
 1. **대상 폴더** 페이지에서 C:\Program Files\OMS Gateway 기본 폴더를 그대로 유지하거나 게이트웨이를 설치할 위치를 입력하고 **다음**을 클릭합니다.
 1. **설치 준비 완료** 페이지에서 **설치**를 클릭합니다. 사용자 계정 컨트롤이 표시되어 설치 권한을 요청할 수 있습니다. 그런 경우에는 **예**를 클릭합니다.
-1. 설치가 완료된 후에 **마침**을 클릭합니다. services.msc 스냅인을 열어 서비스가 실행 중인지 확인하고, 서비스 목록에서 **실행 중** 상태의 **OMS 게이트웨이**가 표시되는지 확인할 수 있습니다.<br><br> ![서비스 – OMS 게이트웨이](./media/log-analytics-oms-gateway/gateway-service.png)  
+1. 설치가 완료된 후에 **마침**을 클릭합니다. services.msc 스냅인을 열어 서비스가 실행 중인지 확인하고, 서비스 목록에서 **실행 중** 상태의 **Log Analytics 게이트웨이**가 표시되는지 확인할 수 있습니다.<br><br> ![서비스 - Log Analytics 게이트웨이](./media/log-analytics-oms-gateway/gateway-service.png)  
 
 ## <a name="configure-network-load-balancing"></a>네트워크 부하 분산 구성 
-Microsoft NLB(네트워크 부하 분산) 또는 하드웨어 기반 부하 분산 장치를 사용하여 고가용성 게이트웨이를 구성할 수 있습니다.  부하 분산 장치는 노드 전반에 걸쳐 OMS 에이전트 또는 Operations Manager 관리 서버에서 요청된 연결을 리디렉션하여 트래픽을 관리합니다. 게이트웨이 서버가 하나 다운되면 트래픽은 다른 노드로 리디렉션됩니다.
+Microsoft NLB(네트워크 부하 분산) 또는 하드웨어 기반 부하 분산 장치를 사용하여 고가용성 게이트웨이를 구성할 수 있습니다.  부하 분산 장치는 노드 전반에 걸쳐 Log Analytics 에이전트 또는 Operations Manager 관리 서버에서 요청된 연결을 리디렉션하여 트래픽을 관리합니다. 게이트웨이 서버가 하나 다운되면 트래픽은 다른 노드로 리디렉션됩니다.
 
 Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배포하는 방법을 알아보려면 [네트워크 부하 분산](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing)을 참조하세요.  다음 단계에서는 Microsoft 네트워크 부하 분산 클러스터를 구성하는 방법에 대해 설명합니다.  
 
 1. NLB 클러스터의 구성원인 Windows 서버에 관리 계정으로 로그인합니다.  
 1. [서버 관리자]에서 [네트워크 부하 분산 관리자]를 열고, **도구**를 클릭한 다음 **네트워크 부하 분산 관리자**를 클릭합니다.
-1. OMS 게이트웨이 서버를 설치되어 있는 Microsoft Monitoring Agent와 연결하려면 클러스터의 IP 주소를 마우스 오른쪽 단추로 클릭한 후 **클러스터에 호스트 추가**를 클릭합니다.<br><br> ![네트워크 부하 분산 관리자 – 클러스터에 호스트 추가](./media/log-analytics-oms-gateway/nlb02.png)<br> 
+1. Log Analytics 게이트웨이 서버를 설치되어 있는 Microsoft Monitoring Agent와 연결하려면 클러스터의 IP 주소를 마우스 오른쪽 단추로 클릭한 다음, **클러스터에 호스트 추가**를 클릭합니다.<br><br> ![네트워크 부하 분산 관리자 – 클러스터에 호스트 추가](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 1. 연결하려는 게이트웨이 서버의 IP 주소를 입력합니다.<br><br> ![네트워크 부하 분산 관리자 – 클러스터에 호스트 추가: 연결](./media/log-analytics-oms-gateway/nlb03.png) 
     
-## <a name="configure-oms-agent-and-operations-manager-management-group"></a>OMS 에이전트 및 Operations Manager 관리 그룹 구성
-다음 섹션에는 OMS 게이트웨이와 직접 연결되는 OMS 에이전트, Operations Manager 관리 그룹 또는 Azure Automation Hybrid Runbook Workers를 구성하여 Azure Automation 또는 Log Analytics와 통신하는 방법에 대한 단계가 포함되어 있습니다.  
+## <a name="configure-log-analytics-agent-and-operations-manager-management-group"></a>Log Analytics 에이전트 및 Operations Manager 관리 그룹 구성
+다음 섹션에는 Log Analytics 게이트웨이와 직접 연결되는 Log Analytics 에이전트, Operations Manager 관리 그룹 또는 Azure Automation Hybrid Runbook Workers를 구성하여 Azure Automation 또는 Log Analytics와 통신하는 방법에 대한 단계가 포함되어 있습니다.  
 
-### <a name="configure-standalone-oms-agent"></a>독립 실행형 OMS 에이전트 구성
-Log Analytics에 직접 연결하는 Windows 컴퓨터에 OMS 에이전트를 설치하는 방법에 대한 요구 사항과 단계를 이해하려면 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md) 또는 Linux 컴퓨터의 경우 [Log Analytics에 Linux 컴퓨터 연결](log-analytics-quick-collect-linux-computer.md)을 참조하세요. 에이전트를 구성하는 동안 프록시 서버를 지정하지 않고 OMS 게이트웨이 서버와 해당 포트 번호의 IP 주소로 해당 값을 바꿉니다.  네트워크 부하 분산 장치 뒤에 여러 개의 게이트웨이 서버를 배포한 경우 OMS 에이전트 프록시 구성은 NLB의 가상 IP 주소입니다.  
+### <a name="configure-standalone-log-analytics-agent"></a>독립 실행형 Log Analytics 에이전트 구성
+Log Analytics에 직접 연결하는 Windows 컴퓨터에 Log Analytics 에이전트를 설치하는 방법에 대한 요구 사항과 단계를 이해하려면 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agents.md) 또는 Linux 컴퓨터의 경우 [Log Analytics에 Linux 컴퓨터 연결](log-analytics-quick-collect-linux-computer.md)을 참조하세요. 에이전트를 구성하는 동안 프록시 서버를 지정하지 않고 Log Analytics 게이트웨이 서버와 해당 포트 번호의 IP 주소로 해당 값을 바꿉니다.  네트워크 부하 분산 장치 뒤에 여러 개의 게이트웨이 서버를 배포한 경우 Log Analytics 에이전트 프록시 구성은 NLB의 가상 IP 주소입니다.  
 
 Automation Hybrid Runbook Worker와 관련된 내용은 [Hybrid Runbook Worker 배포](../automation/automation-hybrid-runbook-worker.md)를 참조하세요.
 
@@ -167,24 +167,24 @@ Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-Log Analytics와 통합을 완료한 후 `netsh winhttp reset proxy`를 실행하여 변경 사항을 제거한 다음, 운영 콘솔에서 **프록시 서버 구성** 옵션을 사용하여 OMS 게이트웨이 서버를 지정할 수 있습니다. 
+Log Analytics와 통합을 완료한 후 `netsh winhttp reset proxy`를 실행하여 변경 사항을 제거한 다음, 운영 콘솔에서 **프록시 서버 구성** 옵션을 사용하여 Log Analytics 게이트웨이 서버를 지정할 수 있습니다. 
 
 1. Operations Manager 콘솔을 열고, **Operations Management Suite** 아래에서 **연결**을 클릭한 다음, **프록시 서버 구성**을 클릭합니다.<br><br> ![Operations Manager – 프록시 서버 구성](./media/log-analytics-oms-gateway/scom01.png)<br> 
-1. **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택한 다음, OMS 게이트웨이 서버의 IP 주소 또는 NLB의 가상 IP 주소를 입력합니다. `http://` 접두사로 시작해야 합니다.<br><br> ![Operations Manager – 프록시 서버 주소](./media/log-analytics-oms-gateway/scom02.png)<br> 
+1. **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택한 다음, Log Analytics 게이트웨이 서버의 IP 주소 또는 NLB의 가상 IP 주소를 입력합니다. `http://` 접두사로 시작해야 합니다.<br><br> ![Operations Manager – 프록시 서버 주소](./media/log-analytics-oms-gateway/scom02.png)<br> 
 1. **Finish**를 클릭합니다. 이제 Operations Manager 관리 그룹이 게이트웨이 서버를 통해 Log Analytics 서비스와 통신하도록 구성되었습니다.
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>Operations Manager 구성 - 특정 에이전트에서 프록시 서버 사용
-대규모이거나 복잡한 환경의 경우 특정 서버(또는 그룹) 만 OMS 게이트웨이 서버를 사용할 수 있습니다.  이러한 서버의 경우 관리 그룹에 대한 전역 값으로 이 값을 덮어쓰므로 Operations Manager 에이전트를 직접 업데이트할 수 없습니다.  대신 이러한 값을 푸시하는 데 사용된 규칙을 재정의해야 합니다.  
+대규모이거나 복잡한 환경의 경우 특정 서버(또는 그룹)만 Log Analytics 게이트웨이 서버를 사용할 수 있습니다.  이러한 서버의 경우 관리 그룹에 대한 전역 값으로 이 값을 덮어쓰므로 Operations Manager 에이전트를 직접 업데이트할 수 없습니다.  대신 이러한 값을 푸시하는 데 사용된 규칙을 재정의해야 합니다.  
 
 > [!NOTE] 
-> 이와 동일한 구성 기술을 통해 사용자 환경에서 여러 개의 OMS 게이트웨이 서버를 사용할 수 있습니다.  예를 들어 특정 OMS 게이트웨이 서버를 지역별로 지정해야 할 수도 있습니다.
+> 이와 동일한 구성 기술을 통해 사용자 환경에서 여러 개의 Log Analytics 게이트웨이 서버를 사용할 수 있습니다.  예를 들어 특정 Log Analytics 게이트웨이 서버를 지역별로 지정해야 할 수도 있습니다.
 >  
 
 1. Operations Manager 콘솔을 열고 **작성** 작업 영역을 선택합니다.  
 1. [작성] 작업 영역에서 **규칙**을 선택하고, Operations Manager 도구 모음에서 **범위** 단추를 클릭합니다. 이 단추를 사용할 수 없는 경우 [모니터링] 창에서 선택한 폴더가 아니라 개체가 있는지 확인합니다. **관리 팩 개체 범위 지정** 대화 상자에서 일반적인 대상 클래스, 그룹 또는 개체의 목록을 표시합니다. 
 1. **찾을 대상** 필드에서 **상태 관리 서비스**를 입력하고 목록에서 선택합니다.  **확인**을 클릭합니다.  
 1. **Advisor 프록시 설정 규칙**을 검색하고 [운영] 콘솔 도구 모음에서 **재정의**를 클릭한 다음, **규칙 재정의\다음 클래스의 특정 개체: 상태 관리 서비스**를 가리키고, 목록에서 특정 개체를 선택합니다.  필요에 따라 이 재정의를 적용하려는 서버의 상태 관리 서비스 개체를 포함하는 사용자 지정 그룹을 만든 다음 해당 그룹에 재정의를 적용할 수 있습니다.
-1. **속성 재정의** 대화 상자에서 **WebProxyAddress** 매개 변수 옆에 있는 **재정의** 열의 확인 표시를 클릭합니다.  **재정의 값** 필드에서 `http://` 접두사로 시작하는 OMS 게이트웨이 서버의 URL을 입력합니다.  
+1. **속성 재정의** 대화 상자에서 **WebProxyAddress** 매개 변수 옆에 있는 **재정의** 열의 확인 표시를 클릭합니다.  **재정의 값** 필드에서 `http://` 접두사로 시작하는 Log Analytics 게이트웨이 서버의 URL을 입력합니다.  
 
     >[!NOTE]
     > 이미 Microsoft System Center Advisor 모니터링 서버 그룹을 대상으로 하는 Microsoft System Center Advisor 보안 참조 재정의 관리 팩에 포함된 재정의로 자동 관리되므로 이 규칙을 사용할 필요가 없습니다.
@@ -237,20 +237,20 @@ Log Analytics와 통합을 완료한 후 `netsh winhttp reset proxy`를 실행�
 
 컴퓨터에서 업데이트 관리 솔루션을 사용하여 패치를 위해 Hybrid Runbook Worker로 자동으로 등록된 경우 다음 단계를 수행합니다.
 
-1. 작업 런타임 데이터 서비스 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-1. `Restart-Service OMSGatewayService` PowerShell cmdlet을 사용하여 OMS 게이트웨이 서비스를 다시 시작합니다.
+1. 작업 런타임 데이터 서비스 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. `Restart-Service OMSGatewayService` PowerShell cmdlet을 사용하여 Log Analytics 게이트웨이 서비스를 다시 시작합니다.
 
 컴퓨터가 Hybrid Runbook Worker 등록 cmdlet을 사용하여 Azure Automation에 등록된 경우 다음 단계를 수행합니다.
 
-1. 에이전트 서비스 등록 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. 작업 런타임 데이터 서비스 URL을 OMS 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
-1. OMS 게이트웨이 서비스를 다시 시작합니다.
+1. 에이전트 서비스 등록 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. 작업 런타임 데이터 서비스 URL을 Log Analytics 게이트웨이의 허용된 호스트 목록에 추가합니다. 예: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Log Analytics 게이트웨이 서비스를 다시 시작합니다.
     `Restart-Service OMSGatewayService`
 
 ## <a name="useful-powershell-cmdlets"></a>유용한 PowerShell cmdlet
-cmdlet은 OMS 게이트웨이 구성 설정을 업데이트하는 데 필요한 작업을 완료하는 데 도움을 줄 수 있습니다. 사용하기 전에 다음을 수행해야 합니다.
+cmdlet은 Log Analytics 게이트웨이 구성 설정을 업데이트하는 데 필요한 작업을 완료하는 데 유용할 수 있습니다. 사용하기 전에 다음을 수행해야 합니다.
 
-1. OMS 게이트웨이를 설치합니다(MSI).
+1. Log Analytics 게이트웨이(MSI)를 설치합니다.
 1. PowerShell 콘솔 창을 엽니다.
 1. 모듈을 가져오기 위해 `Import-Module OMSGateway` 명령을 입력합니다.
 1. 이전 단계에서 오류가 발생하지 않은 경우 모듈을 성공적으로 가져왔으며 cmdlet을 사용할 수 있습니다. `Get-Module OMSGateway`를 입력합니다.
@@ -272,11 +272,11 @@ cmdlet은 OMS 게이트웨이 구성 설정을 업데이트하는 데 필요한 
 | `Get-OMSGatewayAllowedClientCertificate` | |현재 허용된 클라이언트 인증서 주체 가져오기(로컬로 구성되어 허용된 주체만, 자동으로 다운로드되어 허용된 주체는 포함되지 않음) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
 ## <a name="troubleshooting"></a>문제 해결
-게이트웨이에서 기록한 이벤트를 수집하려면 OMS 에이전트도 설치해야 합니다.<br><br> ![이벤트 뷰어 – OMS 게이트웨이 로그](./media/log-analytics-oms-gateway/event-viewer.png)
+게이트웨이에서 기록한 이벤트를 수집하려면 Log Analytics 에이전트도 설치해야 합니다.<br><br> ![이벤트 뷰어 – Log Analytics 게이트웨이 로그](./media/log-analytics-oms-gateway/event-viewer.png)
 
-**OMS 게이트웨이 이벤트 ID 및 설명**
+**Log Analytics 게이트웨이 이벤트 ID 및 설명**
 
-다음 테이블은 OMS 게이트웨이 로그 이벤트의 이벤트 ID 및 설명을 보여줍니다.
+다음 테이블은 Log Analytics 게이트웨이 로그 이벤트의 이벤트 ID 및 설명을 보여줍니다.
 
 | **ID** | **설명** |
 | --- | --- |
@@ -291,24 +291,24 @@ cmdlet은 OMS 게이트웨이 구성 설정을 업데이트하는 데 필요한 
 | 104 |HTTP CONNECT 명령이 아님 |
 | 105 |대상 서버가 허용 목록에 없거나 대상 포트가 보안 포트(443)가 아님 <br> <br> 게이트웨이 서버의 MMA 에이전트 및 게이트웨이와 통신하는 에이전트는 동일한 Log Analytics 작업 영역에 연결되어야 합니다. |
 | 105 |ERROR TcpConnection – 클라이언트 인증서가 잘못됨: CN=Gateway <br><br> 다음 사항을 확인합니다. <br>    <br> &#149; 버전 번호가 1.0.395.0 이상인 게이트웨이를 사용 중입니다. <br> &#149; 게이트웨이 서버의 MMA 에이전트 및 게이트웨이와 통신하는 에이전트가 동일한 Log Analytics 작업 영역에 연결되어 있습니다. |
-| 106 |OMS 게이트웨이는 TLS 1.0, TLS 1.1 및 1.2만 지원합니다.  SSL은 지원하지 않습니다. 지원되지 않는 TLS/SSL 프로토콜 버전의 경우 OMS 게이트웨이는 이벤트 ID 106을 생성합니다.|
+| 106 |Log Analytics 게이트웨이는 TLS 1.0, TLS 1.1 및 1.2만 지원합니다.  SSL은 지원하지 않습니다. 지원되지 않는 TLS/SSL 프로토콜 버전의 경우 Log Analytics 게이트웨이는 이벤트 ID 106을 생성합니다.|
 | 107 |TLS 세션이 확인됨 |
 
 **수집할 성능 카운터**
 
-다음 테이블은 OMS 게이트웨이에 사용할 수 있는 성능 카운터를 보여줍니다. 카운터는 성능 모니터를 사용하여 추가할 수 있습니다.
+다음 테이블은 Log Analytics 게이트웨이에 사용할 수 있는 성능 카운터를 보여줍니다. 카운터는 성능 모니터를 사용하여 추가할 수 있습니다.
 
 | **Name** | **설명** |
 | --- | --- |
-| OMS 게이트웨이/활성 클라이언트 연결 |활성 클라이언트 네트워크(TCP) 연결의 수 |
-| OMS 게이트웨이/오류 수 |오류 수 |
-| OMS 게이트웨이/연결된 클라이언트 |연결된 클라이언트 수 |
-| OMS 게이트웨이/거부 횟수 |TLS 유효성 검사 오류로 인한 거부 횟수 |
+| Log Analytics 게이트웨이/활성 클라이언트 연결 |활성 클라이언트 네트워크(TCP) 연결의 수 |
+| Log Analytics 게이트웨이/오류 수 |오류 수 |
+| Log Analytics 게이트웨이/연결된 클라이언트 |연결된 클라이언트 수 |
+| Log Analytics 게이트웨이/오류 수 |TLS 유효성 검사 오류로 인한 거부 횟수 |
 
-![OMS 게이트웨이 성능 카운터](./media/log-analytics-oms-gateway/counters.png)
+![Log Analytics 게이트웨이 성능 카운터](./media/log-analytics-oms-gateway/counters.png)
 
 ## <a name="get-assistance"></a>지원 받기
-Azure Portal에 로그인되어 있으면 OMS 게이트웨이 또는 다른 Azure 서비스나 서비스의 기능에 대한 지원 요청을 작성할 수 있습니다.
+Azure Portal에 로그인되어 있으면 Log Analytics 게이트웨이 또는 다른 Azure 서비스나 서비스의 기능에 대한 지원 요청을 작성할 수 있습니다.
 지원을 요청하려면 포털의 오른쪽 위 모서리에 있는 물음표 기호를 클릭한 후 **새 지원 요청**을 클릭합니다. 그런 다음 새 지원 요청 양식을 입력합니다.
 
 ![새 지원 요청](./media/log-analytics-oms-gateway/support.png)

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 60139915e8d8dca382f4ef62b5129f1a84e7e80d
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056712"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405075"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>다중 테넌트 SQL Database SaaS 앱을 사용하여 Log Analytics 설정 및 사용
 
@@ -42,7 +42,7 @@ Azure SQL Database의 경우 Azure Portal에서 데이터베이스 및 풀에 �
 
 대규모 시나리오에서는 모니터링 및 경고에 Log Analytics를 사용할 수 있습니다. 별도의 Azure 서비스인 Log Analytics를 사용하면 다수의 서비스에 있는 작업 영역에서 수집된 진단 로그와 원격 분석에 대해 분석을 수행할 수 있습니다. Log Analytics에서 기본 제공되는 쿼리 언어와 데이터 시각화 도구를 사용하여 운영 데이터 분석을 수행할 수 있습니다. SQL 분석 솔루션은 몇 가지 사전 정의된 탄력적 풀 및 데이터베이스 모니터링과 함께 보기 및 쿼리 경고를 제공합니다. Log Analytics에는 사용자 지정 뷰 디자이너도 제공됩니다.
 
-Log Analytics 작업 영역 및 분석 솔루션은 Azure Portal과 Operations Management Suite에서 모두 열 수 있습니다. Azure Portal이 더 최신 액세스 방법이지만 일부 지역에서는 Operations Management Suite 포털이 더 나을 수 있습니다.
+OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다. Log Analytics 작업 영역 및 분석 솔루션은 Azure Portal에 있습니다. Azure Portal이 더 최신 액세스 방법이지만 일부 지역에서는 Operations Management Suite 포털이 더 나을 수 있습니다.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>테넌트에서 워크로드를 시뮬레이션하여 성능 진단 데이터 만들기 
 
@@ -70,12 +70,12 @@ Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics
 1. PowerShell ISE에서 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*을 엽니다.
 1. 스크립트를 실행하려면 F5 키를 누릅니다.
 
-이제 Azure Portal에서 또는 Operations Management Suite 포털에서 Log Analytics를 열 수 있습니다. Log Analytics 작업 영역에서 원격 분석을 수집하여 표시하는 데는 몇 분 정도 시간이 걸립니다. 시스템의 데이터 수집 시간이 길어질수록 더 유용한 데이터가 수집됩니다. 
+이제 Azure Portal에서 Log Analytics를 열 수 있습니다. Log Analytics 작업 영역에서 원격 분석을 수집하여 표시하는 데는 몇 분 정도 시간이 걸립니다. 시스템의 데이터 수집 시간이 길어질수록 더 유용한 데이터가 수집됩니다. 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Log Analytics 및 SQL Analytics 솔루션을 사용하여 풀 및 데이터베이스 모니터링
 
 
-이 연습에서는 Log Analytics 및 Operations Management Suite 포털을 열고 데이터베이스 및 풀에 대해 원격 분석이 수집되는 과정을 살펴봅니다.
+이 연습에서는 Azure Portal에서 Log Analytics를 열어 데이터베이스 및 풀에 대해 수집된 원격 분석을 살펴봅니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Log Analytics를 엽니다. 그런 다음, Log Analytics를 검색합니다.
 
@@ -127,9 +127,9 @@ Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics
 
 1. Log Analytics 작업 영역으로 돌아가서 **OMS 포털**을 선택하여 작업 영역을 엽니다.
 
-    ![Operations Management Suite 포털 타일](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Log Analytics 작업 영역](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-Operations Management Suite 포털에서 작업 영역의 로그와 메트릭 데이터를 자세히 살펴볼 수 있습니다. 
+Log Analytics 작업 영역에서 로그와 메트릭 데이터를 자세히 살펴볼 수 있습니다. 
 
 Log Analytics의 모니터링 및 경고는 Azure Portal의 각 리소스에 정의된 경고와 달리 작업 영역에 있는 데이터에 대한 쿼리를 바탕으로 합니다. 쿼리가 경고를 바탕으로 하기 때문에 데이터베이스마다 일일이 경고를 설정하는 대신 모든 데이터베이스를 대상으로 하는 하나의 경고를 정의할 수 있습니다. 쿼리는 작업 영역에서 사용 가능한 데이터를 통해서만 제한됩니다.
 

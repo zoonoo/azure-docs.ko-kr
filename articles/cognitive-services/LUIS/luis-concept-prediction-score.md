@@ -1,26 +1,26 @@
 ---
-title: LUIS에서 반환된 예측 점수 이해
+title: 예측 점수 - 의도, 엔터티 - LUIS
 titleSuffix: Azure Cognitive Services
-description: LUIS에서 예측 점수가 의미하는 내용 알아보기
+description: 예측 점수는 예측 결과에 대한 LUIS의 신뢰도를 나타냅니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: dc19151e82f44159533050e60ba2f1c6d65466fe
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032240"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637968"
 ---
 # <a name="prediction-score"></a>예측 점수
 예측 점수는 예측 결과에 대한 LUIS의 신뢰도를 나타냅니다. 
 
-예측 점수는 일반적으로 영(0)과 일(1) 사이입니다. 신뢰도가 높은 LUIS 점수의 예는 0.99입니다. 신뢰도 점수의 예는 0.01입니다. 
+예측 점수는 0(영)과 1(일) 사이입니다. 신뢰도가 높은 LUIS 점수의 예는 0.99입니다. 신뢰도 점수의 예는 0.01입니다. 
 
 |점수 값|신뢰도|
 |--|--|

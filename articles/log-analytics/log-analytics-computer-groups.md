@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7e4889148a752b552f8bd65702ea5dda450ded31
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044300"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408543"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 로그 검색의 컴퓨터 그룹 
 
@@ -62,7 +62,7 @@ Log Search에서 생성된 컴퓨터 그룹은 사용자가 정의한 검색 쿼
 
 
 ### <a name="active-directory"></a>Active Directory
-Active Directory 그룹 멤버 자격을 가져오도록 Log Analytics를 구성하면 OMS 에이전트가 있는 도메인 연결 컴퓨터의 그룹 멤버 자격을 분석합니다.  컴퓨터 그룹은 Log Analytics에서 Active Directory의 각 보안 그룹에 대해 만들어지며 각 컴퓨터는 자신이 속산 보안 그룹에 해당하는 컴퓨터 그룹에 추가됩니다.  이 멤버 자격은 4시간 간격으로 계속 업데이트됩니다.  
+Active Directory 그룹 멤버 자격을 가져오도록 Log Analytics를 구성하면 Log Analytics 에이전트가 있는 도메인 연결 컴퓨터의 그룹 멤버 자격을 분석합니다.  컴퓨터 그룹은 Log Analytics에서 Active Directory의 각 보안 그룹에 대해 만들어지며 각 컴퓨터는 자신이 속산 보안 그룹에 해당하는 컴퓨터 그룹에 추가됩니다.  이 멤버 자격은 4시간 간격으로 계속 업데이트됩니다.  
 
 Azure Portal의 Log Analytics **고급 설정**에서 Active Directory 보안 그룹을 가져오도록 Log Analytics를 구성합니다.  **컴퓨터 그룹**, **Active Directory**, 및 **컴퓨터에서 Active Directory 그룹 멤버 자격을 가져오기**를 차례로 선택합니다.  추가 구성은 필요 없습니다.
 
@@ -71,7 +71,7 @@ Azure Portal의 Log Analytics **고급 설정**에서 Active Directory 보안 �
 그룹을 가져올 때는 검색된 그룹 멤버 자격 및 가져온 그룹 수와 함께 컴퓨터 수가 메뉴에 나열됩니다.  이 링크 중 하나를 클릭하여 **ComputerGroup** 레코드와 이 정보를 반환할 수 있습니다.
 
 ### <a name="windows-server-update-service"></a>Windows Server 업데이트 서비스
-WSUS 그룹 멤버 자격을 가져오도록 Log Analytics를 구성하면 OMS 에이전트가 있는 컴퓨터의 대상 그룹 멤버 자격을 분석합니다.  클라이언트 쪽 대상을 사용하는 경우 Log Analytics에 연결되고 WSUS 대상 그룹에 속한 모든 컴퓨터의 그룹 멤버 자격을 Log Analytics로 가져옵니다. 서버 쪽을 대상으로 사용하는 경우 그룹 멤버 자격 정보를 Log Analytics로 가져오기 위해 OMS 에이전트를 WSUS 서버에 설치해야 합니다.  이 멤버 자격은 4시간 간격으로 계속 업데이트됩니다. 
+WSUS 그룹 멤버 자격을 가져오도록 Log Analytics를 구성하면 Log Analytics 에이전트가 있는 컴퓨터의 대상 그룹 멤버 자격을 분석합니다.  클라이언트 쪽 대상을 사용하는 경우 Log Analytics에 연결되고 WSUS 대상 그룹에 속한 모든 컴퓨터의 그룹 멤버 자격을 Log Analytics로 가져옵니다. 서버 쪽을 대상으로 사용하는 경우 그룹 멤버 자격 정보를 Log Analytics로 가져오기 위해 Log Analytics 에이전트를 WSUS 서버에 설치해야 합니다.  이 멤버 자격은 4시간 간격으로 계속 업데이트됩니다. 
 
 Azure Portal의 Log Analytics **고급 설정**에서 WSUS 그룹을 가져오도록 Log Analytics를 구성합니다.  **컴퓨터 그룹**, **WSUS**, 및 **WSUS 그룹 멤버 자격을 가져오기**를 차례로 선택합니다.  추가 구성은 필요 없습니다.
 

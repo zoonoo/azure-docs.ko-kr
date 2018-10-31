@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: ac5be20815b552c08e5cd1054bf24d7a10b56498
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.date: 10/03/2018
+ms.openlocfilehash: 73be0e4ecff4bc0d9b69249430bba69a93cc54ae
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124272"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093785"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 서버 로그
 Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다. 
@@ -45,6 +45,39 @@ Azure CLI에 대한 자세한 내용은 [Azure CLI를 사용한 서버 로그 �
 - **log_throttle_queries_not_using_indexes**:이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 비 인덱스 쿼리의 수 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
 
 느린 쿼리 로그 매개 변수의 전체 설명은 MySQL [느린 쿼리 로그 설명서](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)를 참조하세요. 
+
+## <a name="diagnostic-logs"></a>진단 로그
+Azure Database for MySQL은 Azure Monitor 진단 로그와 통합됩니다. MySQL 서버에서 느린 쿼리 로그를 사용하도록 설정하고 나면 Log Analytics, Event Hubs 또는 Azure Storage로 로그를 내보내도록 선택할 수 있습니다. 진단 로그를 사용하도록 설정하는 방법에 대한 자세한 내용은 [진단 로그 설명서](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)의 방법 섹션을 참조하세요.
+
+아래 표에는 각 로그의 내용에 대한 설명이 나와 있습니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 출력 방법에 따라 달라질 수 있습니다.
+
+| **속성** | **설명** |
+|---|---|---|
+| TenantId | 테넌트 ID |
+| SourceSystem | `Azure` |
+| TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
+| type | 로그의 형식 항상 `AzureDiagnostics` |
+| SubscriptionId | 서버가 속한 구독의 GUID |
+| ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
+| ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMYSQL` |
+| ResourceType | `Servers` |
+| ResourceId | 리소스 URI |
+| 리소스 | 서버의 이름 |
+| Category | `MySqlSlowLogs` |
+| OperationName | `LogEvent` |
+| Logical_server_name_s | 서버의 이름 |
+| start_time_t [UTC] | 쿼리가 시작된 시간 |
+| query_time_s | 쿼리를 실행하는 데 걸린 총 시간 |
+| lock_time_s | 쿼리가 잠긴 총 시간 |
+| user_host_s | 사용자 이름 |
+| rows_sent_s | 전송된 행 수 |
+| rows_examined_s | 검사된 행 수 |
+| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| insert_id_s | ID 삽입 |
+| sql_text_s | 전체 쿼리 |
+| server_id_s | 서버 ID |
+| thread_id_s | 스레드 ID |
+| \_ResourceId | 리소스 URI |
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure CLI에서 서버 로그 구성 및 액세스](howto-configure-server-logs-in-cli.md)

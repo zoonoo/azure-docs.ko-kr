@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344135"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430022"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>모델에 대한 하이퍼 매개 변수 튜닝
 
@@ -141,8 +141,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesian 샘플링은 초기 종료 정책을 지원하지 않습니다([초기 종료 정책 지정](#specify-an-early-termination-policy) 참조). Bayesian 매개 변수 샘플링을 사용할 때 `early_termination_policy = None`을 설정하거나 `early_termination_policy` 매개 변수를 해제해 둡니다.
-`
+> Bayesian 샘플링은 초기 종료 정책을 지원하지 않습니다([초기 종료 정책 지정](#specify-early-termination-policy) 참조). Bayesian 매개 변수 샘플링을 사용할 때 `early_termination_policy = None`을 설정하거나 `early_termination_policy` 매개 변수를 해제해 둡니다.
+
+<a name='specify-primary-metric-to-optimize'/>
 
 ## <a name="specify-primary-metric"></a>기본 메트릭 지정
 
@@ -158,9 +159,11 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 "정확도"를 최대화하도록 실행을 최적화합니다.  학습 스크립트에서 이 값을 기록해야 합니다.
 
+<a name='log-metrics-for-hyperparameter-tuning'/>
+
 ### <a name="log-metrics-for-hyperparameter-tuning"></a>하이퍼 매개 변수 튜닝에 대한 메트릭 기록
 
-모델의 학습 스크립트는 모델을 학습하는 동안 관련 메트릭을 기록해야 합니다. 하이퍼 매개 변수 조정을 구성하면 실행 성능을 평가하는 데 사용할 기본 메트릭을 지정합니다. [최적화할 기본 메트릭 지정](#specify-a-primary-metric-to-optimize)을 참조하세요.  학습 스크립트에서 하이퍼 매개 변수 조정 프로세스에 사용할 수 있도록 이 메트릭을 기록해야 합니다.
+모델의 학습 스크립트는 모델을 학습하는 동안 관련 메트릭을 기록해야 합니다. 하이퍼 매개 변수 조정을 구성하면 실행 성능을 평가하는 데 사용할 기본 메트릭을 지정합니다. [최적화할 기본 메트릭 지정](#specify-primary-metric-to-optimize)을 참조하세요.  학습 스크립트에서 하이퍼 매개 변수 조정 프로세스에 사용할 수 있도록 이 메트릭을 기록해야 합니다.
 
 다음 샘플 코드 조각을 사용하여 학습 스크립트에서 이 메트릭을 기록합니다.
 
@@ -171,6 +174,8 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 학습 스크립트는 `val_accuracy`를 계산하고 "정확도"를 기록합니다. 이것이 기본 메트릭으로 사용됩니다. 메트릭이 기록될 때마다 하이퍼 매개 변수 조정 서비스에서 수신됩니다. 이 메트릭을 보고하는 빈도를 결정하는 모델 개발자의 몫입니다.
+
+<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a>초기 종료 정책 지정
 
@@ -297,7 +302,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name`은 하이퍼 매개 변수 조정 실험에 할당하려는 이름이고, `workspace`는 실험을 만들려는 작업 영역입니다(실험에 대한 자세한 내용은 [Azure Machine Learning 서비스 작동 방법](/concept-azure-machine-learning-architecture.md) 참조).
+`experiment_name`은 하이퍼 매개 변수 조정 실험에 할당하려는 이름이고, `workspace`는 실험을 만들려는 작업 영역입니다(실험에 대한 자세한 내용은 [Azure Machine Learning 서비스 작동 방법](concept-azure-machine-learning-architecture.md) 참조).
 
 ## <a name="visualize-experiment"></a>실험 시각화
 
@@ -320,7 +325,7 @@ RunDetails(hyperdrive_run).show()
 
 ![하이퍼 매개 변수 튜닝 병렬 좌표](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
-Azure 웹 포털에서도 모든 하이퍼 매개 변수 조정 실행을 시각화할 수 있습니다. 웹 포털에서 실험을 보는 방법에 대한 자세한 내용은 [실험을 추적하는 방법](/how-to-track-experiments.md/#view-the-experiment-in-the-web-portal)을 참조하세요.
+Azure 웹 포털에서도 모든 하이퍼 매개 변수 조정 실행을 시각화할 수 있습니다. 웹 포털에서 실험을 보는 방법에 대한 자세한 내용은 [실험을 추적하는 방법](how-to-track-experiments.md#view-the-experiment-in-the-web-portal)을 참조하세요.
 
 ![하이퍼 매개 변수 튜닝 포털](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 

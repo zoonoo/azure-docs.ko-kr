@@ -2,19 +2,19 @@
 title: Azure IoT Edge 보안 관리자 | Microsoft Docs
 description: IoT Edge 장치 보안 태세와 보안 서비스의 무결성을 관리합니다.
 services: iot-edge
-keywords: 보안, 요소, enclave, IoT Edge
+keywords: 보안, 보안 요소, enclave, TEE, IoT Edge
 author: eustacea
 manager: timlt
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126346"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321186"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 보안 관리자
 
@@ -113,7 +113,7 @@ HSM PAL은 트러스트 하드웨어의 모든 루트를 추상화하여 IoT Edg
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>트러스트 하드웨어의 보안 실리콘 루트
 
-보안 실리콘은 IoT Edge 장치 하드웨어 내부에 신뢰를 확보하는 데 필요합니다.  보안 실리콘은 TPM(신뢰할 수 있는 플랫폼 모듈), eSM(embedded Secure Element), ARM Trustzone, Intel SGX 및 사용자 지정 보안 실리콘 기술을 비롯하여 다양합니다.  IoT 장치에 대한 물리적 액세스 가능성과 관련된 위협을 고려할 때 장치에 안전한 실리콘 기반 루트를 사용하는 것이 좋습니다.
+보안 실리콘은 IoT Edge 장치 하드웨어 내부에 신뢰를 확보하는 데 필요합니다.  보안 실리콘은 TPM(신뢰할 수 있는 플랫폼 모듈), eSE(embedded Secure Element), ARM TrustZone, Intel SGX 및 사용자 지정 보안 실리콘 기술을 비롯하여 다양합니다.  IoT 장치에 대한 물리적 액세스 가능성과 관련된 위협을 고려할 때 장치에 안전한 실리콘 기반 루트를 사용하는 것이 좋습니다.
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>IoT Edge 보안 관리자 통합 및 유지 관리
 

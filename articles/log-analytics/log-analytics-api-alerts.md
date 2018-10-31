@@ -1,6 +1,6 @@
 ---
-title: OMS Log Analytics 경고 REST API 사용
-description: Log Analytics 경고 REST API를 사용하여 OMS(Operations Management Suite)의 일부인 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
+title: Log Analytics 경고 REST API 사용
+description: Log Analytics 경고 REST API를 사용하여 Log Analytics의 일부인 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 85cf55b4117208266e247316b1050e3988a2ce23
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079058"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409155"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리
-Log Analytics 경고 REST API를 사용하여 OMS(Operations Management Suite)에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
+Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
 
-Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 통해 OMS 작업 영역을 호출하고 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
+Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 활용하여 Log Analytics 작업 영역을 호출하고, 이 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 현재 Log Analytics에 저장된 검색을 사용해서만 경고를 만들 수 있습니다.  자세한 내용은 [로그 검색 REST API](log-analytics-log-search-api.md) 를 참조하세요.
@@ -67,7 +67,7 @@ Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색
 ```
 
 ### <a name="creating-a-schedule"></a>일정 만들기
-고유 일정 ID와 Put 메서드를 사용하여 새 일정을 만듭니다.  두 일정은 서로 다른 저장된 검색과 연결되었다 하더라도 동일한 ID를 가질 수 없습니다.  OMS 콘솔에서 일정을 만드는 경우 일정 ID에 대해 GUID가 생성됩니다.
+고유 일정 ID와 Put 메서드를 사용하여 새 일정을 만듭니다.  두 일정은 서로 다른 저장된 검색과 연결되었다 하더라도 동일한 ID를 가질 수 없습니다.  Log Analytics 콘솔에서 일정을 만드는 경우 일정 ID에 대해 GUID가 생성됩니다.
 
 > [!NOTE]
 > Log Analytics API를 사용하여 만든 저장된 모든 검색, 일정 및 작업의 이름은 소문자여야 합니다.
@@ -102,7 +102,7 @@ Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색
 ### <a name="retrieving-actions"></a>작업 검색
 
 > [!NOTE]
-> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)를 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [Log Analytics에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)를 사용하여 작업을 검색하거나 추가할 수 있습니다.
 
 Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 
@@ -113,7 +113,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
 
 ### <a name="creating-or-editing-actions"></a>작업 만들기 또는 편집
-일정에 고유한 작업 ID와 Put 메서드를 사용하여 새 작업을 만듭니다.  OMS 콘솔에서 작업을 만드는 경우 GUID는 작업 ID에 대한 것입니다.
+일정에 고유한 작업 ID와 Put 메서드를 사용하여 새 작업을 만듭니다.  Log Analytics 콘솔에서 작업을 만드는 경우 GUID는 작업 ID에 대한 것입니다.
 
 > [!NOTE]
 > Log Analytics API를 사용하여 만든 저장된 모든 검색, 일정 및 작업의 이름은 소문자여야 합니다.
@@ -125,7 +125,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 ### <a name="deleting-actions"></a>작업 삭제
 
 > [!NOTE]
-> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)를 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [Log Analytics에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)를 사용하여 작업을 검색하거나 추가할 수 있습니다.
 
 작업 ID와 함께 Delete 메서드를 사용하여 작업을 삭제합니다.
 
@@ -146,7 +146,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 | Webhook 동작 | 경고에서 원하는 서비스로 JSON으로 데이터 푸시 |경고가 Azure로 확장되는 경우 필요 없음|
 
 > [!NOTE]
-> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요.
+> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [Log Analytics에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요.
 
 #### <a name="thresholds"></a>임계값
 경고 작업은 임계값을 한 개만 가져야 합니다.  저장된 검색의 결과가 해당 검색과 연결된 작업의 임계값과 일치하는 경우 해당 작업의 다른 프로세스가 실행됩니다.  작업은 임계값을 포함하지 않은 다른 유형의 작업과 함께 사용할 수 있도록 하는 임계값만 포함할 수 있습니다.
@@ -355,7 +355,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 전자 메일 알림은 한 명 이상의 받는 사람에게 메일을 보냅니다.  이들은 다음 표의 속성을 가집니다.
 
 > [!NOTE]
-> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 이메일 알림과 같은 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)를 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [Log Analytics에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 이메일 알림과 같은 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)를 사용하여 작업을 검색하거나 추가할 수 있습니다.
    
 
 | 자산 | 설명 |
@@ -396,16 +396,16 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### <a name="remediation-actions"></a>수정 작업
-수정은 경고에 의해 식별된 문제의 해결을 시도하는 Azure Automation의 Runbook을 시작합니다.  수정 작업에 사용되는 Runbook에 대한 웹후크를 만든 다음 WebhookUri 속성에서 URI를 지정해야 합니다.  OMS 콘솔을 사용하여 이 작업을 만드는 경우 Runbook에 대해 새 웹후크가 자동으로 생성됩니다.
+수정은 경고에 의해 식별된 문제의 해결을 시도하는 Azure Automation의 Runbook을 시작합니다.  수정 작업에 사용되는 Runbook에 대한 웹후크를 만든 다음 WebhookUri 속성에서 URI를 지정해야 합니다.  Azure Portal을 사용하여 이 작업을 만드는 경우 Runbook에 대해 새 웹후크가 자동으로 생성됩니다.
 
 > [!NOTE]
-> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 Runbook을 사용하는 수정과 같은 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)를 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [Log Analytics에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 Runbook을 사용하는 수정과 같은 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)를 사용하여 작업을 검색하거나 추가할 수 있습니다.
 
 수정은 다음 표의 속성을 포함합니다.
 
 | 자산 | 설명 |
 |:--- |:--- |
-| RunbookName |Runbook의 이름입니다. 이는 OMS 작업 영역의 Automation 솔루션에서 구성한 자동화 계정의 게시된 Runbook과 일치해야 합니다. |
+| RunbookName |Runbook의 이름입니다. 이는 Log Analytics 작업 영역의 Automation 솔루션에서 구성한 자동화 계정의 게시된 Runbook과 일치해야 합니다. |
 | WebhookUri |웹후크의 URI입니다. |
 | Expiry |웹후크의 만료 날짜 및 시간입니다.  웹후크에 대해 만료를 지정하지 않은 경우 이는 유효한 미래 날짜일 수 있습니다. |
 
@@ -458,7 +458,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 웹후크 작업은 URL을 호출하고 선택적으로 보낼 페이로드를 제공하는 것으로 프로세스를 시작합니다.  이들은 웹후크에 대해 Azure Automation Runbook 이외의 프로세스를 호출할 수 있다는 것을 제외하고 수정 작업과 유사합니다.  또한 원격 프로세스에 전달할 페이로드를 제공하는 추가 옵션을 제공합니다.
 
 > [!NOTE]
-> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 웹후크와 같은 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)를 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일을 시작으로 Log Analytics 작업 영역에서 Azure 퍼블릭 클라우드 인스턴스의 모든 경고는 Azure로 자동으로 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [Log Analytics에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 웹후크와 같은 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 API](https://docs.microsoft.com/rest/api/monitor/actiongroups)를 사용하여 작업을 검색하거나 추가할 수 있습니다.
 
 
 웹후크 작업은 임계값을 갖지 않지만 대신에 임계값과 함께 경고 작업을 가진 일정에 추가되어야 합니다.  

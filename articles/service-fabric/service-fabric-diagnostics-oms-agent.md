@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 3d7cf50bd2c845764aa2c3ac3b3db6891ff5c8d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cc051e1ba0bbea68bb1e888168883351bf4f730f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993853"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406214"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Log Analytics로 성능 모니터링
 
@@ -66,7 +66,7 @@ Log Analytics 에이전트를 클러스터에 추가하는 가장 좋은 방법�
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>Resource Manager 템플릿을 통해 에이전트 추가
 
-Azure Log Analytics 작업 영역을 배포하고 각 노드에 에이전트를 추가하는 샘플 Resource Manager 템플릿은 [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) 또는 [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux)에서 사용할 수 있습니다.
+Azure Log Analytics 작업 영역을 배포하고 각 노드에 에이전트를 추가하는 샘플 Resource Manager 템플릿은 [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) 또는 [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux)에서 사용할 수 있습니다.
 
 이 템플릿을 다운로드하고 수정하여 필요에 가장 적합한 클러스터를 배포할 수 있습니다.
 
@@ -86,7 +86,7 @@ Log Analytics 에이전트를 추가했으니, Log Analytics 포털로 이동하
 
 6. 고급 설정 블레이드를 닫습니다.
 
-7. 일반 제목 아래에서 **개요**를 클릭합니다.
+7. 일반 제목에서 **작업 영역 요약**을 클릭합니다.
 
 8. Service Fabric용 타일을 포함하여 활성화된 각 솔루션에 대해 그래프 형태의 타일이 표시됩니다. **Service Fabric** 그래프를 클릭하여 Service Fabric 분석 솔루션으로 이동합니다.
 

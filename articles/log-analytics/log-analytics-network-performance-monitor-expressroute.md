@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: f08b9e60a632428a120f9cfa50d29f1454e0b1d5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 73978609d018eb43ab8031dc6e8261861e1ee3bf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041170"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402543"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
@@ -36,7 +36,7 @@ ms.locfileid: "48041170"
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](log-analytics-network-performance-monitor.md)을 열고 **구성**을 선택합니다.
 
 ### <a name="configure-network-security-group-rules"></a>네트워크 보안 그룹 규칙 구성 
-네트워크 성능 모니터를 통한 모니터링에 사용되는 Azure에 있는 서버의 경우 가상 트랜잭션을 위해 네트워크 성능 모니터에서 사용하는 포트에 TCP 트래픽을 허용하도록 NSG(네트워크 보안 그룹) 규칙을 구성합니다. 기본 포트는 8084입니다. 이 구성을 사용하면 Azure VM에 Operations Management Suite 에이전트를 설치하여 온-프레미스 모니터링 에이전트와 통신할 수 있습니다. 
+네트워크 성능 모니터를 통한 모니터링에 사용되는 Azure에 있는 서버의 경우 가상 트랜잭션을 위해 네트워크 성능 모니터에서 사용하는 포트에 TCP 트래픽을 허용하도록 NSG(네트워크 보안 그룹) 규칙을 구성합니다. 기본 포트는 8084입니다. 이 구성을 사용하면 Azure VM에 설치된 Log Analytics 에이전트가 온-프레미스 모니터링 에이전트와 통신할 수 있습니다. 
 
 NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)을 참조하세요. 
 

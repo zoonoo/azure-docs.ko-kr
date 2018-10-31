@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 04e348d2b144bdb8fd626c52f990a560d76c08a2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: fb84b20630eb63cb53ccb1d13a383ed6287b802b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044674"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406622"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -44,7 +44,7 @@ ms.locfileid: "48044674"
 ![네트워크 성능 모니터 구성](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>모니터링을 위해 Operations Management Suite 에이전트 구성
+### <a name="configure-log-analytics-agents-for-monitoring"></a>모니터링을 위한 Log Analytics 에이전트 구성
 솔루션이 서비스 엔드포인트에 대한 노드에서 토폴로지를 검색할 수 있도록 모니터링에 사용되는 노드에서 다음과 같은 방화벽 규칙을 사용하도록 설정합니다. 
 
 ```
@@ -77,7 +77,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 9. 선택한 항목에 대해 상태 이벤트를 만들지 않으려는 경우 **이 테스트에서 검사되는 대상에서 상태 모니터링 사용**의 선택을 취소합니다. 
 10. 모니터링 조건을 선택합니다. 임계값을 입력하여 상태 이벤트 생성에 대한 사용자 지정 임계값을 설정할 수 있습니다. 조건 값이 선택한 네트워크 또는 서브네트워크 쌍에 선택된 임계값을 초과할 경우 상태 이벤트가 생성됩니다. 
-11. **저장**을 선택하여 구성을 저장합니다. 
+11. **저장** 을 선택하여 구성을 저장합니다. 
 
     ![서비스 연결 모니터 테스트 구성](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 

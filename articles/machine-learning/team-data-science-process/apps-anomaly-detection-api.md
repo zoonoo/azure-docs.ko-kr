@@ -4,7 +4,7 @@ description: 이상 감지 API는 Microsoft Azure Machine Learning을 사용하�
 services: machine-learning
 documentationcenter: ''
 author: alokkirpal
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: 9f1f3c2c808558124548008927219191469a412b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0b99aeb2ffdb78e472cdc0e11d0efaf91feb3e4a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836469"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394496"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
 ## <a name="overview"></a>개요
@@ -46,7 +46,7 @@ ms.locfileid: "34836469"
 >
 
 ## <a name="api-deployment"></a>API 배포
-API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 Azure 구독에 API를 배포해야 합니다.  이 작업은 [Azure AI 갤러리](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 수행할 수 있습니다.  그러면 두 개의 AzureML(Azure Machine Learning) 웹 서비스 및 관련 리소스가 Azure 구독에 배포됩니다. 하나는 계절성 감지가 있는 이상 감지용이고, 다른 하나는 계절성 감지가 없는 이상 감지용입니다.  배포가 완료되면 [AzureML 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 API를 관리할 수 있습니다.  이 페이지에서 API를 호출하기 위한 샘플 코드와 끝점 위치, API 키를 찾을 수 있습니다.  더 자세한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)에 있습니다.
+API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 Azure 구독에 API를 배포해야 합니다.  이 작업은 [Azure AI 갤러리](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 수행할 수 있습니다.  그러면 두 개의 AzureML(Azure Machine Learning) 웹 서비스 및 관련 리소스가 Azure 구독에 배포됩니다. 하나는 계절성 감지가 있는 이상 감지용이고, 다른 하나는 계절성 감지가 없는 이상 감지용입니다.  배포가 완료되면 [AzureML 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 API를 관리할 수 있습니다.  이 페이지에서 API를 호출하기 위한 샘플 코드와 엔드포인트 위치, API 키를 찾을 수 있습니다.  더 자세한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)에 있습니다.
 
 ## <a name="scaling-the-api"></a>API 크기 조정
 기본적으로 배포에는 1,000 트랜잭션/월 및 2 계산 시간/월을 포함하는 무료 개발/테스트 청구 계획이 있습니다.  필요에 따라 다른 계획으로 업그레이드할 수 있습니다.  다른 계획의 가격 책정에 대한 자세한 내용은 [여기](https://azure.microsoft.com/pricing/details/machine-learning/)의 "프로덕션 웹 API 가격"에 있습니다.
@@ -58,10 +58,10 @@ API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 A
 웹 서비스는 웹 또는 모바일 응용 프로그램, R, Python, Excel 등 다양한 방식으로 사용할 수 있는 REST 기반 API over HTTPS를 제공합니다.  REST API 호출을 통해 시계열 데이터를 이 서비스로 보내고 아래에서 설명한 세 가지 이상 유형의 조합을 실행합니다.
 
 ## <a name="calling-the-api"></a>API 호출
-API를 호출하려면 끝점 위치 및 API 키를 알고 있어야 합니다.  이 두 항목은 모두 API를 호출하는 샘플 코드와 함께 [AzureML 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 사용할 수 있습니다.  원하는 API로 이동한 다음 "사용" 탭을 클릭하여 찾습니다.  API를 Swagger API(즉 `format=swagger` URL 매개 변수 있음) 또는 비Swagger API(즉 `format` URL 매개 변수 없음)로 호출할 수 있습니다.  샘플 코드에서는 Swagger 형식을 사용합니다.  아래는 Swagger가 아닌 형식의 예제 요청 및 응답입니다.  이러한 예제는 계절성 끝점에 관한 것이며,  비계절성 끝점도 비슷합니다.
+API를 호출하려면 엔드포인트 위치 및 API 키를 알고 있어야 합니다.  이 두 항목은 모두 API를 호출하는 샘플 코드와 함께 [AzureML 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 사용할 수 있습니다.  원하는 API로 이동한 다음 "사용" 탭을 클릭하여 찾습니다.  API를 Swagger API(즉 `format=swagger` URL 매개 변수 있음) 또는 비Swagger API(즉 `format` URL 매개 변수 없음)로 호출할 수 있습니다.  샘플 코드에서는 Swagger 형식을 사용합니다.  아래는 Swagger가 아닌 형식의 예제 요청 및 응답입니다.  이러한 예제는 계절성 엔드포인트에 관한 것이며,  비계절성 엔드포인트도 비슷합니다.
 
 ### <a name="sample-request-body"></a>샘플 요청 본문
-요청에는 두 개의 개체, 즉 `Inputs`과 `GlobalParameters`가 있습니다.  아래 예제 요청에서는 일부 매개 변수가 명시적으로 전송되는 반면 다른 매개 변수는 전송되지 않습니다(각 끝점의 전체 매개 변수 목록을 보려면 아래로 스크롤함).  요청에서 명시적으로 전송되지 않은 매개 변수는 아래에 지정된 기본값을 사용합니다.
+요청에는 두 개의 개체, 즉 `Inputs`과 `GlobalParameters`가 있습니다.  아래 예제 요청에서는 일부 매개 변수가 명시적으로 전송되는 반면 다른 매개 변수는 전송되지 않습니다(각 엔드포인트의 전체 매개 변수 목록을 보려면 아래로 스크롤함).  요청에서 명시적으로 전송되지 않은 매개 변수는 아래에 지정된 기본값을 사용합니다.
 
     {
                 "Inputs": {
@@ -122,7 +122,7 @@ Score API는 비계절성 시계열 데이터에 이상 감지를 실행하는 �
 
 | 입력 매개 변수 | 설명 | 기본 설정 | type | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |정수 |10-2000 |시계열에 종속 |
+| detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |정수 |10-2000 |시계열에 종속 |
 | detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |둘 다 |열거형 |Both, Spikes, Dips |둘 다 |
 | bileveldetector.sensitivity |양방향 수준 변화 감지기에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
 | trenddetector.sensitivity |긍정적인 추세 감지에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
@@ -150,7 +150,7 @@ ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이�
 ![계절성 API][2]
 
 ### <a name="detectors"></a>감지기
-계절성 끝점의 감지기는 비계절성 끝점의 감지기와 비슷하지만 매개 변수 이름이 약간 다릅니다(아래 참조).
+계절성 엔드포인트의 감지기는 비계절성 엔드포인트의 감지기와 비슷하지만 매개 변수 이름이 약간 다릅니다(아래 참조).
 
 ### <a name="parameters"></a>매개 변수
 
@@ -161,7 +161,7 @@ ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이�
 | preprocess.aggregationInterval |입력 시계열 집계에 대한 초 단위 집계 간격 |0(집계가 수행되지 않음) |정수 |0: 집계 건너뜀, > 0 기타 |5분에서 1일, 시계열 종속 |
 | preprocess.aggregationFunc |지정된 AggregationInterval로 데이터를 집계하는 데 사용되는 함수 |평균 |열거형 |평균, 합계, 길이 |해당 없음 |
 | preprocess.replaceMissing |누락된 데이터를 입력하는 데 사용되는 값 |lkv(마지막으로 알려진 값) |열거형 |0, lkv, 평균 |해당 없음 |
-| detectors.historyWindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |정수 |10-2000 |시계열에 종속 |
+| detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |정수 |10-2000 |시계열에 종속 |
 | detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |둘 다 |열거형 |Both, Spikes, Dips |둘 다 |
 | bileveldetector.sensitivity |양방향 수준 변화 감지기에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
 | postrenddetector.sensitivity |긍정적인 추세 감지에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |

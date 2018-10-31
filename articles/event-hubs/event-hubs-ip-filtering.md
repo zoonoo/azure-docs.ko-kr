@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs IP 연결 필터 | Microsoft Docs
+title: Azure Event Hubs IP 필터 | Microsoft Docs
 description: 특정 IP 주소에서 Azure Event Hubs로 연결을 차단하도록 IP 필터링을 사용합니다.
 services: event-hubs
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: c229a6f84096ecca892b74f7ce65cb831fa50be3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886180"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408152"
 ---
 # <a name="use-ip-filters"></a>IP 필터 사용
 
-잘 알려진 특정 사이트에서 Azure Event Hubs만이 엑세스 가능한 시나리오의 경우 *IP 필터* 기능을 사용하면 특정 IPv4 주소에서 시작된 트래픽을 거부하거나 허용하는 규칙을 구성할 수 있습니다. 예를 들어 이 주소는 회사 NAT 게이트웨이의 주소일 것입니다.
+잘 알려진 특정 사이트에서 Azure Event Hubs만이 액세스 가능한 시나리오의 경우 *IP 필터* 기능을 사용하면 특정 IPv4 주소에서 시작된 트래픽을 거부하거나 허용하는 규칙을 구성할 수 있습니다. 예를 들어 이 주소는 회사 NAT 게이트웨이의 주소일 것입니다.
 
 ## <a name="when-to-use"></a>사용하는 경우
 
-특정 IP 주소에 대해 Event Hubs 엔드포인트를 차단하는 것이 유용한 두 가지 사용 사례는 다음과 같습니다.
+특정 IP 주소에 대해 Event Hubs를 차단하는 것이 유용한 두 가지 사용 사례는 다음과 같습니다.
 
 - Event Hubs가 지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 그 밖의 트래픽은 거부합니다. 예를 들어 [Azure ExpressRoute][express-route]에서 Event Hubs를 사용하여 온-프레미스 인프라에 개인 연결을 만듭니다. 
 - Event Hubs 관리자에 의해 의심스러운 것으로 식별된 IP 주소에서 오는 트래픽을 거부해야 합니다.
@@ -47,12 +47,12 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 > [!NOTE]
 > IP 주소를 거부하면 다른 Azure 서비스(예: Azure Stream Analytics, Azure Virtual Machines 또는 포털의 장치 탐색기)가 Event Hubs와 상호 작용하는 것을 막을 수 있습니다.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 가상 네트워크 규칙 만들기
+### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 IP 필터 규칙 만들기
 
 > [!IMPORTANT]
 > 가상 네트워크는 Event Hubs의 **표준** 및 **전용** 계층에서 지원되며 기본 계층에서는 지원되지 않습니다. 
 
-다음과 같은 Resource Manager 템플릿을사용 하면 기존 Event Hubs 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다.
+다음과 같은 Resource Manager 템플릿을 사용하면 기존 Event Hubs 네임스페이스에 IP 필터 규칙을 추가할 수 있습니다.
 
 템플릿 매개 변수:
 

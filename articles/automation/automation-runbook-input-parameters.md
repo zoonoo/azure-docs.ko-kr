@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bc03bbf63427061c8d9f9e96ebcd9dce84f9fccf
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 941a7242e1f6fddd1ff91721141be4e1f9816b31
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42144860"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344866"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 입력 매개 변수
 
@@ -31,7 +31,7 @@ Azure Automation에서 PowerShell 및 [PowerShell 워크플로 Runbook](automati
 | **속성** | **설명** |
 |:--- |:--- |
 | type |필수 사항입니다. 매개 변수 값에 필요한 데이터 형식입니다. 모든 .NET 형식이 유효합니다. |
-| Name |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
+| 이름 |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
 | 필수 |선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 이 값을 **$true**로 설정한 경우 Runbook이 시작될 때 값을 지정해야 합니다. 이 값을 **$false**로 설정한 경우 값은 선택 사항입니다. |
 | 기본값 |선택 사항입니다. Runbook이 시작될 때 값을 전달하지 않으면 매개 변수에 대해 사용될 값을 지정합니다. 기본값을 매개 변수에 대해 설정할 수 있으며 필수 설정에 관계 없이 자동으로 매개 변수를 선택적으로 만듭니다. |
 
@@ -73,6 +73,10 @@ Runbook에 object 형식 입력 매개 변수가 있는 경우 값에 전달하�
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+> [!NOTE]
+> `$null` 기본값을 가진 선택적인 `[String]` 유형 매개 변수에 값을 전달하지 않으면 이 매개 면수의 값이 `$null`이 **아니라** 빈 문자열이 됩니다.
+> 
+> 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>그래픽 Runbook에서 입력 매개 변수 구성
 
@@ -92,7 +96,7 @@ You can use the [**Write-Output**](https://technet.microsoft.com/library/hh84992
    
    | **속성** | **설명** |
    |:--- |:--- |
-   | Name |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
+   | 이름 |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
    | 설명 |선택 사항입니다. 입력 매개 변수의 목적에 대한 설명입니다. |
    | type |선택 사항입니다. 매개 변수 값에 필요한 데이터 형식입니다. 지원되는 매개 변수 형식은 **문자열**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** 및 **개체**입니다. 데이터 형식이 선택되어 있지 않으면 **문자열**에 대한 기본값으로 지정됩니다. |
    | 필수 |선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. **예**를 선택한 경우 Runbook이 시작될 때 값을 지정해야 합니다. **아니오**를 선택한 경우 Runbook이 시작될 때 값이 필요하지 않고 기본값이 설정됩니다. |

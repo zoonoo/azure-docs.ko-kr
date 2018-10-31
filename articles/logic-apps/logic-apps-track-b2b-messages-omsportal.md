@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 06/19/2018
-ms.openlocfilehash: 5bf5385824eb9b711a2fee547c29d24d7ef5a01d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125771"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405687"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 B2B 통신 추적
 
@@ -40,9 +40,9 @@ ms.locfileid: "43125771"
 >  
 > Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다.
 
-## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Log Analytics에 Logic Apps B2B 솔루션 추가
+## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>Azure에 Logic Apps B2B 솔루션 추가
 
-Log Analytics가 논리 앱에 대한 B2B 메시지를 추적하도록 하려면 OMS 포털에 **Logic Apps B2B** 솔루션을 추가해야 합니다. [Log Analytics에 솔루션 추가](../log-analytics/log-analytics-quick-create-workspace.md)에 대해 자세히 알아봅니다.
+Log Analytics가 논리 앱에 대한 B2B 메시지를 추적하도록 하려면 Log Analytics에 **Logic Apps B2B** 솔루션을 추가해야 합니다. [Log Analytics에 솔루션 추가](../log-analytics/log-analytics-quick-create-workspace.md)에 대해 자세히 알아봅니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. "로그 분석"에 대해 검색한 후 다음과 같이 **Log Analytics**를 선택합니다.
 
@@ -52,7 +52,7 @@ Log Analytics가 논리 앱에 대한 B2B 메시지를 추적하도록 하려면
 
    ![Log Analytics 작업 영역 선택](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. **관리**에서 **개요**를 선택합니다.
+3. **관리**에서 **작업 영역 요약**을 선택합니다.
 
    ![Log Analytics 포털 선택](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 

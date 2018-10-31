@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: b9e96473a6f66dcbc675da1553deaed4ad61b249
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630937"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407710"
 ---
 # <a name="powershell-dsc-extension"></a>Powershell DSC 확장
 
@@ -130,7 +130,7 @@ Windows용 DSC 확장을 사용하려면 대상 가상 머신이 인터넷에 �
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 배포 후 구성이 필요한 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다. OMS 에이전트 VM 확장을 포함하는 샘플 Resource Manager 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm)에서 찾을 수 있습니다. 
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 배포 후 구성이 필요한 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다. Log Analytics 에이전트 VM 확장을 포함하는 샘플 Resource Manager 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm)에서 찾을 수 있습니다. 
 
 가상 머신 확장에 대한 JSON 구성은 가상 머신 리소스 내에 중첩되거나 루트 또는 최상위 수준의 Resource Manager JSON 템플릿에 배치될 수 있습니다. JSON 구성의 배치는 리소스 이름 및 형식 값에 영향을 줍니다. 
 
@@ -139,7 +139,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-Azure CLI를 사용하여 OMS 에이전트 VM 확장을 기존 가상 머신에 배포할 수 있습니다. OMS 키 및 OMS ID를 OMS 작업 영역의 키로 바꿉니다. 
+Azure CLI를 사용하여 Log Analytics 에이전트 VM 확장을 기존 가상 머신에 배포할 수 있습니다. Log Analytics 키 및 Log Analytics ID를 사용자 Log Analytics 작업 영역의 해당 값으로 바꿉니다. 
 
 ```azurecli
 az vm extension set \

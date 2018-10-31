@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: ef7838c41bb479da273123c2eb3def8e12802390
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc5570b188bfdc0e1be78aa2bd5c5d92e884f377
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351305"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638021"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>API에 연결 및 인증
 
@@ -46,6 +46,7 @@ Digital Twins API를 사용하여 가동하고 실행하기 위해 API 환경으
 1. https://www.getpostman.com/으로 이동하여 앱을 다운로드합니다.
 1. [여기](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)의 단계에 따라 Azure Active Directory 응용 프로그램을 만듭니다.(또는 기존 등록을 다시 사용할 수 있습니다.) 
 1. 필수 사용 권한 아래에서 "Azure Digital Twins"를 추가하고 위임된 권한을 선택합니다. 마무리하려면 사용 권한 부여를 클릭해야 합니다.
+1. 응용 프로그램 매니페스트를 열고, oauth2AllowImplicitFlow를 true로 설정합니다.
 1. [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback)에 대한 회신 URL을 구성합니다.
 1. **권한 부여 탭**을 선택하고, **OAuth 2.0**을 클릭하고, **새 액세스 토큰 가져오기**를 선택합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746900"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409359"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -29,7 +29,9 @@ ms.locfileid: "42746900"
 >
 >
 
-패치 오케스트레이션 응용 프로그램은 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Azure Service Fabric 응용 프로그램입니다.
+[Azure 가상 머신 확장 집합 자동 OS 이미지 업그레이드](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)는 Azure에서 패치된 운영 체제를 유지하는 모범 사례이며, POA(패치 오케스트레이션 응용 프로그램)는 비 Azure 호스트 클러스터에 대한 OS 패치 일정을 기반으로 구성을 사용하는 Service Fabrics RepairManager Systems 서비스에 대한 래퍼입니다. 비 Azure 호스트 클러스터의 경우 POA가 필요하지 않지만, 가동 중지 시간 없이 Service Fabric 클러스터 호스트를 패치하려면 업그레이드 도메인에 의한 패치 설치를 예약해야 합니다.
+
+POA는 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Azure Service Fabric 응용 프로그램입니다.
 
 패치 오케스트레이션 앱은 다음과 같은 기능을 제공합니다.
 

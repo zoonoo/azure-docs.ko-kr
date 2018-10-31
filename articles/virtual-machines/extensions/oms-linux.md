@@ -15,18 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: bab579b540dbeed8ecbff8925547509edb1d78c9
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352379"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404854"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux용 Log Analytics 가상 머신 확장
 
 ## <a name="overview"></a>개요
 
 Log Analytics는 클라우드와 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공합니다. Linux용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 Virtual Machines를 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Linux용 Log Analytics 가상 머신 확장에 대한 배포 옵션을 설명합니다.
+
+>[!NOTE]
+>Microsoft OMS(Operations Management Suite)에서 Azure Monitor로 진행 중인 전환의 일부로 Windows 또는 Linux용 OMS 에이전트는 Windows용 Log Analytics 에이전트 및 Linux용 Log Analytics 에이전트로 참조됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -210,13 +213,13 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 9 | 조기 호출 사용 설정 | [Azure Linux 에이전트를 사용 가능한 최신 버전으로 업데이트](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)합니다. |
 | 10 | VM이 Log Analytics 작업 영역에 이미 연결됨 | VM을 확장 스키마에 지정된 작업 영역에 연결하려면 공용 설정에서 stopOnMultipleConnections를 false로 설정하거나 이 속성을 제거합니다. 이 VM은 연결된 각 작업 영역에 대해 한 번만 비용이 청구됩니다. |
 | 11 | 확장에 잘못된 구성이 제공됨 | 이전 예제에 따라 배포에 필요한 모든 속성 값을 설정합니다. |
-| 17 | OMS 패키지 설치 오류 | 
+| 17 | Log Analytics 패키지 설치 오류 | 
 | 19 | OMI 패키지 설치 오류 | 
 | 20 | SCX 패키지 설치 실패 |
 | 51 | 이 확장이 VM의 운영 체제에서 지원되지 않음 | |
-| 55 | OMS 서비스에 연결할 수 없거나, 필수 패키지가 없거나, dpkg 패키지 관리자가 잠겨 있음| 시스템에서 인터넷에 액세스할 수 있는지 또는 유효한 HTTP 프록시가 제공되었는지 확인합니다. 또한 작업 영역 ID가 정확한지 확인하고 curl 및 tar 유틸리티가 설치되어 있는지도 확인합니다. |
+| 55 | Log Analytics 서비스에 연결할 수 없거나, 필수 패키지가 없거나, dpkg 패키지 관리자가 잠겨 있음| 시스템에서 인터넷에 액세스할 수 있는지 또는 유효한 HTTP 프록시가 제공되었는지 확인합니다. 또한 작업 영역 ID가 정확한지 확인하고 curl 및 tar 유틸리티가 설치되어 있는지도 확인합니다. |
 
-추가 문제 해결 정보는 [MS-Agent-for-Linux 문제 해결 가이드](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md)에서 확인할 수 있습니다.
+추가 문제 해결 정보는 [Linux용 Log Analytics 에이전트 문제 해결 가이드](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md)에서 확인할 수 있습니다.
 
 ### <a name="support"></a>지원
 

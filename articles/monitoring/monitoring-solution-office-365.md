@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: e3620bbf92cab926d56c4de0817f833b61cf2b03
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125088"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406324"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -37,7 +37,7 @@ Office 365 관리 솔루션을 사용하면 Log Analytics에서 Office 365 환�
 
 - 조직 Office 365 구독
 - 전역 관리자 사용자 계정의 자격 증명
-- 감사 데이터를 수신하려면 Office 365 구독에서 [감사를 구성](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin)해야 합니다.  [사서함 감사](https://technet.microsoft.com/library/dn879651.aspx)는 별도로 구성합니다.  감사를 구성하지 않아도 솔루션을 설치하고 기타 데이터를 수집할 수는 있습니다.
+- 감사 데이터를 수신하려면 Office 365 구독에서 [감사를 구성](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin)해야 합니다.  [사서함 감사](https://technet.microsoft.com/library/dn879651.aspx)는 별도로 구성합니다.  감사를 구성하지 않아도 솔루션을 설치하고 기타 데이터를 수집할 수는 있습니다.
  
 
 ## <a name="management-packs"></a>관리 팩
@@ -477,7 +477,7 @@ At line:12 char:18
 
 ## <a name="data-collection"></a>데이터 수집
 ### <a name="supported-agents"></a>지원되는 에이전트
-Office 365 솔루션은 [OMS 에이전트](../log-analytics/log-analytics-data-sources.md)에서 데이터를 검색하지 않습니다.  즉, Office 365에서 직접 데이터를 검색합니다.
+Office 365 솔루션은 [Log Analytics 에이전트](../log-analytics/log-analytics-data-sources.md)에서 데이터를 검색하지 않습니다.  즉, Office 365에서 직접 데이터를 검색합니다.
 
 ### <a name="collection-frequency"></a>수집 빈도
 데이터가 처음으로 수집될 때까지 몇 시간이 걸릴 수 있습니다. 데이터 수집이 시작되면 Office 365는 레코드가 생성될 때마다 상세 데이터가 포함된 [웹후크 알림](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications)을 Log Analytics로 보냅니다. 이 레코드는 수신된 후 몇 분 안에 Log Analytics에서 사용할 수 있습니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434041"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405211"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -74,10 +74,10 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 ## <a name="operations"></a>작업
 이 섹션에서는 보안 작업의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
-### <a name="operations-management-suite-security-and-audit-dashboard"></a>Operations Management Suite 보안 및 감사 대시보드
-[OMS 보안 및 감사 솔루션](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)은 주의가 필요한 주요 문제에 대한 [기본 제공 검색 쿼리](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/)를 통해 조직의 IT 보안 상태에 대한 포괄적인 보기를 제공합니다. [보안 및 감사](https://technet.microsoft.com/library/mt484091.aspx) 대시보드는 OMS의 보완과 관련된 모든 정보를 볼 수 있는 홈 화면입니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며, 지난 24시간, 7일, 기타 사용자 지정 기간 동안 발생한 모든 이벤트를 확인할 수도 있습니다.
+### <a name="security-and-audit-dashboard"></a>보안 및 감사 대시보드
+[보안 및 감사 솔루션](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)은 주의가 필요한 주요 문제에 대한 [기본 제공 검색 쿼리](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/)를 통해 조직의 IT 보안 상태에 대한 포괄적인 보기를 제공합니다. [보안 및 감사](https://technet.microsoft.com/library/mt484091.aspx) 대시보드는 Log Analytics의 보안과 관련된 모든 정보를 볼 수 있는 홈 화면입니다. 이 대시보드에서 컴퓨터의 보안 상태를 대략적으로 확인할 수 있으며, 지난 24시간, 7일, 기타 사용자 지정 기간 동안 발생한 모든 이벤트를 확인할 수도 있습니다.
 
-또한 특정 이벤트가 검색되면 OMS 보안 및 규정 준수를 구성하여 [특정 작업을 자동으로 수행](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/)할 수 있습니다.
+또한 특정 이벤트가 검색되면 [특정 작업을 자동으로 수행](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/)하도록 보안 및 규정 준수를 구성할 수 있습니다.
 
 ### <a name="azure-resource-manager"></a>Azure 리소스 관리자
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)를 사용하면 솔루션의 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 [Azure Resource Manager 템플릿](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/)을 사용하고, 해당 템플릿은 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
@@ -95,7 +95,7 @@ Azure Resource Manager 템플릿 기반 배포를 사용하면 표준 보안 제
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) – Azure 인프라([활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs))와 개별 Azure 리소스([진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)) 모두의 데이터에 대한 시각화, 쿼리, 라우팅, 경고, 자동 크기 조정 및 자동화를 제공합니다. Azure Monitor를 사용하여 Azure 로그에서 생성된 보안 관련 이벤트에 대해 사용자에게 알릴 수 있습니다.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)의 [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 구성 요소 – Azure 리소스 외에도 온-프레미스 및 타사 클라우드 기반 인프라(예: AWS) 모두를 위한 IT 관리 솔루션을 제공합니다. Azure Monitor의 데이터를 Log Analytics로 직접 라우팅할 수 있으므로 전체 환경에 대한 메트릭 및 로그를 한 곳에서 볼 수 있습니다.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) – Azure 리소스 외에도 온-프레미스 및 타사 클라우드 기반 인프라(예: AWS) 모두를 위한 IT 관리 솔루션을 제공합니다. Azure Monitor의 데이터를 Log Analytics로 직접 라우팅할 수 있으므로 전체 환경에 대한 메트릭 및 로그를 한 곳에서 볼 수 있습니다.
 
 Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관련 항목을 빠르게 검색할 수 있기 때문에 이 도구는 법정 분석 및 기타 보안 분석에 유용한 도구가 될 수 있습니다. 또한 온-프레미스 [방화벽 및 프록시 로그를 Azure로 내보내고 Log Analytics를 사용하여 분석할 수 있습니다.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 

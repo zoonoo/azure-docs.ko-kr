@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: c33bec76fe17336221c873778c2993d75fec81e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962235"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405181"
 ---
 # <a name="about-expressroute-direct-preview"></a>ExpressRoute Direct 정보(미리 보기)
 
@@ -20,8 +20,8 @@ ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피�
 
 ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 제한되지 않습니다.
 
-* 저장소 및 Cosmos DB와 같은 서비스로 대규모 데이터 수집 
-* 은행, 정부 및 소매상과 같은 규제되고 전용의 격리된 연결이 필요한 산업에 대한 물리적 격리 
+* Storage 및 Cosmos DB와 같은 서비스로의 대규모 데이터 수집 
+* 은행, 정부, 소매업체 등 규제가 적용되며 전용 격리 연결을 사용해야 하는 업계의 물리적 격리 
 * 비즈니스 단위에 따라 회로 배포의 세부적인 제어
 
 > [!IMPORTANT]
@@ -31,12 +31,12 @@ ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 �
 
 ## <a name="enroll-in-the-preview"></a>미리 보기에 등록
 
-ExpressRoute Direct를 활용하려면 그 전에 먼저 미리 보기에서 구독을 등록해야 합니다. 등록하려면 구독 ID로 <ExpressRouteDirect@microsoft.com>에 이메일을 전송합니다. ExpressRoute Direct는 엔터프라이즈급 기능입니다. 추가 정보를 제공합니다.
+ExpressRoute Direct를 사용하려면 먼저 미리 보기에서 구독을 등록해야 합니다. 등록하려면 구독 ID로 <ExpressRouteDirect@microsoft.com>에 이메일을 전송합니다. ExpressRoute Direct는 엔터프라이즈급 기능입니다. 추가 정보를 제공합니다.
 
 * **ExpressRoute Direct**를 사용하여 수행하려는 시나리오
 * 위치 기본 설정 - 모든 위치의 전체 목록은 [파트너 및 피어링 위치](expressroute-locations-providers.md) 참조
 * 구현을 위한 타임라인
-* 서비스와 관련된 질문
+* 기타 궁금한 점이 있는 경우
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>서비스 공급자 및 ExpressRoute Direct를 사용하는 ExpressRoute
 
@@ -44,7 +44,7 @@ ExpressRoute Direct를 활용하려면 그 전에 먼저 미리 보기에서 구
 | --- | --- | 
 | 서비스 공급자를 활용하여 기존 인프라로 빠른 온보딩 및 연결 활성화 | 100Gbps 인프라 및 모든 계층의 전체 관리 필요
 | 이더넷 및 MPLS를 포함하는 수백 개의 공급자와 통합 | 규제 산업 및 대규모 데이터 수집에 대한 직접/전용 용량 | 
-| 50Mbps-10Gbps의 회로 SKU | 1Gbps-100Gbps의 회로 SKU
+| 50Mbps - 10Gbps의 회로 SKU | 5Gbps - 100Gbps의 회로 SKU(5Gbps, 10Gbps, 40Gbps, 100Gbps)
 | 단일 테넌트에 최적화됨 | 단일 테넌트/클라우드 서비스 공급자/여러 사업부에 최적화됨
 
 ## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct 회로
@@ -57,7 +57,7 @@ Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처�
 
 ## <a name="circuit-skus"></a>회로 SKU
 
-ExpressRoute Direct는 Azure 저장소 및 기타 빅 데이터 서비스에 대규모 데이터 수집 시나리오를 지원합니다. ExpressRoute Direct의 ExpressRoute 회로는 이제 **40G** 및 **100G** 회로 SKU도 지원합니다. 
+ExpressRoute Direct는 Azure 저장소 및 기타 빅 데이터 서비스에 대규모 데이터 수집 시나리오를 지원합니다. ExpressRoute Direct의 ExpressRoute 회로는 이제 **40Gbps** 및 **100Gbps** 회로 SKU도 지원합니다. 
 
 ## <a name="vlan-tagging"></a>VLAN 태그 지정
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jasonh
-ms.openlocfilehash: 9550468e8bc9b93216fd4c1ecf144415badfc7dc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 18ee51e54c1e44ba3affd6ca49bed5360211fa9c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103660"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408175"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 쿼리하여 HDInsight 클러스터 모니터링
 
@@ -32,7 +32,7 @@ Azure HDInsight 클러스터에서 Azure Log Analytics를 사용하는 방법에
 
 HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알아봅니다.
 
-1. Azure Portal에서 HDInsight 클러스터에 연결된 OMS 작업 영역을 엽니다.
+1. Azure Portal에서 HDInsight 클러스터에 연결된 Log Analytics 작업 영역을 엽니다.
 2. **로그 검색** 타일을 선택합니다.
 3. Azure Log Analytics를 사용하도록 구성된 모든 HDInsight 클러스터에 대해 모든 사용 가능한 메트릭을 검색하려면 검색 상자에 다음 쿼리를 입력한 다음, **실행**을 선택합니다.
 
@@ -65,7 +65,7 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 
 특정 시간 범위 중의 오류 메시지를 검색하는 방법을 알아봅니다. 다음에 나오는 단계는 관심 있는 오류 메시지에 도달할 수 있는 방법에 대한 하나의 예입니다. 찾으려는 오류를 확인할 수 있는 속성을 사용하면 됩니다.
 
-1. Azure Portal에서 HDInsight 클러스터에 연결된 OMS 작업 영역을 엽니다.
+1. Azure Portal에서 HDInsight 클러스터에 연결된 Log Analytics 작업 영역을 엽니다.
 2. **로그 검색** 타일을 선택합니다.
 3. Azure Log Analytics를 사용하도록 구성된 모든 HDInsight 클러스터의 모든 오류 메시지를 검색하려면 검색 상자에 다음 쿼리를 입력한 다음, **실행**을 선택합니다. 
 
@@ -117,7 +117,7 @@ HDInsight 클러스터에 대한 특정 메트릭을 조회하는 방법을 알�
 3. 편집하거나 삭제하려는 경고를 선택합니다.
 4. **저장**, **취소**, **사용 안 함** 및 **삭제**와 같은 옵션이 있습니다.
 
-    ![HDInsight Log Analytics OMS 경고 삭제 편집](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Log Analytics 경고 삭제 편집](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
 자세한 내용은 [Log Analytics에서 경고 규칙 작업](../log-analytics/log-analytics-alerts-creating.md)을 참조하세요.
 

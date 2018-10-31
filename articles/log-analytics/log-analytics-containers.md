@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 80749fedde17a9567aa13e1e72677dfdd027ca36
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d8f2701ca62eee261beaa49fe2a0719be7423a5b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043263"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408492"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -36,7 +36,7 @@ ms.locfileid: "48043263"
 - Service Fabric
 - Red Hat OpenShift
 
-AKS(Azure Container Service)에 호스트된 Kubernetes에 배포된 워크로드의 성능을 모니터링하려는 경우 [Azure Container Service 모니터링](../monitoring/monitoring-container-health.md)을 참조하세요.  컨테이너 모니터링 솔루션은 해당 플랫폼을 모니터링하도록 지원하지 않습니다.  
+AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워크로드의 성능을 모니터링하려는 경우 [Azure Kubernetes Service 모니터링](../monitoring/monitoring-container-health.md)을 참조하세요. 컨테이너 모니터링 솔루션은 해당 플랫폼을 모니터링하도록 지원하지 않습니다.  
 
 다음 다이어그램에서는 Log Analytics에서 다양한 컨테이너 호스트와 에이전트 간의 관계를 보여줍니다.
 
@@ -67,6 +67,7 @@ AKS(Azure Container Service)에 호스트된 Kubernetes에 배포된 워크로�
 
 ### <a name="x64-linux-distributions-supported-as-container-hosts"></a>컨테이너 호스트로 지원되는 x64 Linux 배포
 
+
 - Ubuntu 14.04 LTS 및 16.04 LTS
 - CoreOS(stable)
 - Amazon Linux 2016.09.0
@@ -78,8 +79,10 @@ AKS(Azure Container Service)에 호스트된 Kubernetes에 배포된 워크로�
 - Red Hat OCP(OpenShift Container Platform) 3.4 및 3.5
 - ACS Mesosphere DC/OS 1.7.3 - 1.8.8
 - ACS Kubernetes 1.4.5 - 1.6
-    - Kubernetes 이벤트, Kubernetes 인벤토리 및 컨테이너 프로세스는 버전 1.4.1-45 및 최근의 Linux용 OMS 에이전트에서만 지원됩니다.
+    - Kubernetes 이벤트, Kubernetes 인벤토리 및 컨테이너 프로세스는 1.4.1-45 이상 버전의 Linux용 Log Analytics 에이전트에서만 지원됩니다.
 - ACS Docker Swarm
+
+[!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)] 
 
 ### <a name="supported-windows-operating-system"></a>지원되는 Windows 운영 체제
 
@@ -96,25 +99,25 @@ AKS(Azure Container Service)에 호스트된 Kubernetes에 배포된 워크로�
 
 1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 Log Analytics 작업 영역에 컨테이너 모니터링 솔루션을 추가합니다.
 
-2. OMS 에이전트를 사용하여 Docker를 설치 및 사용합니다. 운영 체제 및 Docker 조정자에 따라 에이전트를 구성하는 데 다음 메서드를 사용할 수 있습니다.
+2. Log Analytics 에이전트를 사용하여 Docker를 설치하고 사용합니다. 운영 체제 및 Docker 조정자에 따라 에이전트를 구성하는 데 다음 메서드를 사용할 수 있습니다.
   - 독립 실행형 호스트의 경우:
-    - 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음 [Linux용 OMS 에이전트](log-analytics-agent-linux.md)를 설치 및 구성합니다.  
-    - CoreOS에서는 Linux 용 OMS 에이전트를 실행할 수 없습니다. 대신 컨테이너화된 Linux 용 OMS 에이전트 버전을 실행합니다. Azure Government 클라우드에서 컨테이너를 사용하는 경우 [CoreOS를 포함한 Linux 컨테이너 호스트](#for-all-linux-container-hosts-including-coreos) 또는 [CoreOS을 포함한 Azure Government Linux 컨테이너 호스트](#for-all-azure-government-linux-container-hosts-including-coreos)를 검토하세요.
+    - 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음, [Linux용 Log Analytics 에이전트](log-analytics-agent-linux.md)를 설치하고 구성합니다.  
+    - CoreOS에서는 Linux용 Log Analytics 에이전트를 실행할 수 없습니다. 대신 Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 실행합니다. Azure Government 클라우드에서 컨테이너를 사용하는 경우 [CoreOS를 포함한 Linux 컨테이너 호스트](#for-all-linux-container-hosts-including-coreos) 또는 [CoreOS을 포함한 Azure Government Linux 컨테이너 호스트](#for-all-azure-government-linux-container-hosts-including-coreos)를 검토하세요.
     - Windows Server 2016 및 Windows 10에서 Docker 엔진 및 클라이언트를 설치한 후 에이전트를 연결하여 정보를 수집하고 Log Analytics에 보냅니다. Windows 환경을 사용하는 경우 [Windows 컨테이너 호스트 설치 및 구성](#install-and-configure-windows-container-hosts)을 검토하세요.
   - Docker 다중 호스트 오케스트레이션의 경우:
-    - Red Hat OpenShift 환경인 경우 [Red Hat OpenShift용 OMS 에이전트 구성](#configure-an-oms-agent-for-red-hat-openshift)을 검토하세요.
+    - Red Hat OpenShift 환경인 경우 [Red Hat OpenShift용 Log Analytics 에이전트 구성](#configure-an-oms-agent-for-red-hat-openshift)을 검토하세요.
     - Azure Container Service를 사용하는 Kubernetes 클러스터가 있는 경우:
-       - [Kubernetes용 OMS Linux에이전트 구성](#configure-an-oms-linux-agent-for-kubernetes)을 검토합니다.
-       - [Kubernetes용 OMS Windows 에이전트 구성](#configure-an-oms-windows-agent-for-kubernetes)을 검토합니다.
-       - [Helm을 사용하여 Linux Kubernetes에 OMS 에이전트 배포](#use-helm-to-deploy-oms-agent-on-linux-kubernetes)를 검토합니다.
-    - Azure Container Service DC/OS 클러스터가 있는 경우 [Operations Management Suite를 사용하여 Azure Container Service DC/OS 클러스터 모니터링](../container-service/dcos-swarm/container-service-monitoring-oms.md)에서 자세한 내용을 참조하세요.
-    - Docker Swarm 모드 환경에 있는 경우 [Docker Swarm용 OMS 에이전트 구성](#configure-an-oms-agent-for-docker-swarm)에서 자세히 알아보세요.
-    - Service Fabric 클러스터가 있는 경우 [OMS Log Analytics를 사용하여 컨테이너 모니터링](../service-fabric/service-fabric-diagnostics-oms-containers.md)에서 자세히 알아보세요.
+       - [Kubernetes용 Log Analytics Linux 에이전트 구성](#configure-an-oms-linux-agent-for-kubernetes)을 검토합니다.
+       - [Kubernetes용 Log Analytics Windows 에이전트 구성](#configure-an-oms-windows-agent-for-kubernetes)을 검토합니다.
+       - [Helm을 사용하여 Linux Kubernetes에 Log Analytics 에이전트 배포](#use-helm-to-deploy-oms-agent-on-linux-kubernetes)를 검토합니다.
+    - Azure Container Service DC/OS 클러스터가 있는 경우 [Log Analytics를 사용하여 Azure Container Service DC/OS 클러스터 모니터링](../container-service/dcos-swarm/container-service-monitoring-oms.md)에서 자세한 내용을 알아보세요.
+    - Docker Swarm 모드 환경에 있는 경우 [Docker Swarm용 Log Analytics 에이전트 구성](#configure-an-oms-agent-for-docker-swarm)에서 자세히 알아보세요.
+    - Service Fabric 클러스터가 있는 경우 [Log Analytics Log Analytics를 사용한 컨테이너 모니터링](../service-fabric/service-fabric-diagnostics-oms-containers.md)에서 자세히 알아보세요.
 
 [Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.
 
 > [!IMPORTANT]
-> Docker는 컨테이너 호스트에 [OMS Agent for Linux](log-analytics-agent-linux.md)를 설치하기 **전에** 실행해야 합니다.  Docker 설치에 앞서 에이전트를 설치한 경우 Linux용 OMS 에이전트를 다시 설치해야 합니다. Docker에 대한 자세한 내용은 [Docker 웹 사이트](https://www.docker.com)를 참조하세요.
+> Docker는 컨테이너 호스트에 [Linux용 Log Analytics 에이전트](log-analytics-agent-linux.md)를 설치하기 **전에** 실행해야 합니다. Docker 설치에 앞서 에이전트를 이미 설치한 경우 Linux용 Log Analytics 에이전트를 다시 설치해야 합니다. Docker에 대한 자세한 내용은 [Docker 웹 사이트](https://www.docker.com)를 참조하세요.
 
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Linux 컨테이너 호스트 설치 및 구성
@@ -123,7 +126,7 @@ Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 
 
 **CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우:**
 
-- Linux용 OMS 에이전트를 설치하는 방법에 대한 자세한 내용과 해당 단계는 [Log Analytics에 Linux 컴퓨터 연결](log-analytics-concept-hybrid.md)을 참조하세요.
+- Linux용 Log Analytics 에이전트를 설치하는 방법에 대한 자세한 내용과 해당 단계는 [Log Analytics에 Linux 컴퓨터 연결](log-analytics-concept-hybrid.md)을 참조하세요.
 
 **CoreOS를 포함한 모든 Linux 컨테이너 호스트의 경우:**
 
@@ -143,11 +146,11 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **설치된 Linux 에이전트에서 컨테이너의 다른 에이전트로 전환**
 
-이전에 직접 설치한 에이전트를 사용하였고 이제 실행 중인 에이전트를 사용하려는 경우 먼저 Linux용 OMS 에이전트를 제거해야 합니다. [Linux용 OMS 에이전트 제거](log-analytics-agent-linux.md)를 참조하여 성공적으로 에이전트를 제거하는 방법을 알아보세요.  
+이전에 직접 설치한 에이전트를 사용하였고 이제 컨테이너에서 실행 중인 에이전트를 사용하려는 경우 먼저 Linux용 Log Analytics 에이전트를 제거해야 합니다. 성공적으로 에이전트를 제거하는 방법은 [Linux용 Log Analytics 에이전트 제거](log-analytics-agent-linux.md)를 참조하세요.  
 
-#### <a name="configure-an-oms-agent-for-docker-swarm"></a>Docker Swarm용 OMS 에이전트 구성
+#### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Docker Swarm용 Log Analytics 에이전트 구성
 
-Docker Swarm에서 전역 서비스로 OMS 에이전트를 실행할 수 있습니다. 다음 정보를 사용하여 OMS 에이전트 서비스를 만듭니다. Log Analytics 작업 영역 ID와 기본 키를 제공해야 합니다.
+Docker Swarm에서 글로벌 서비스로 Log Analytics 에이전트를 실행할 수 있습니다. 다음 정보를 사용하여 Log Analytics 에이전트 서비스를 만듭니다. Log Analytics 작업 영역 ID와 기본 키를 제공해야 합니다.
 
 - 마스터 노드에서 다음을 실행합니다.
 
@@ -178,20 +181,20 @@ Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들
     l9rh3n987g9c45zffuxdxetd9   KEY                 38 minutes ago      38 minutes ago
     ```
 
-3. 다음 명령을 실행하여 비밀을 컨테이너화된 OMS 에이전트에 탑재합니다.
+3. 다음 명령을 실행하여 비밀을 컨테이너화된 Log Analytics 에이전트에 탑재합니다.
 
     ```
     sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
     ```
 
-#### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Red Hat OpenShift용 OMS 에이전트 구성
-컨테이너 모니터링 데이터 수집을 시작하기 위해 Red Hat OpenShift에 OMS 에이전트를 추가하는 방법에는 세 가지가 있습니다.
+#### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Red Hat OpenShift용 Log Analytics 에이전트 구성
+컨테이너 모니터링 데이터 수집을 시작하기 위해 Red Hat OpenShift에 Log Analytics 에이전트를 추가하는 방법에는 세 가지가 있습니다.
 
-* 각 OpenShift 노드에서 직접 [Linux용 OMS 에이전트를 설치](log-analytics-agent-linux.md)  
+* 각 OpenShift 노드에서 직접 [Linux용 Log Analytics 에이전트를 설치](log-analytics-agent-linux.md)  
 * Azure에 있는 각 OpenShift 노드에서 [Log Analytics VM 확장을 사용하도록 설정](log-analytics-azure-vm-extension.md)  
-* OpenShift 디먼 집합으로 OMS 에이전트 설치  
+* OpenShift 디먼 집합으로 Log Analytics 에이전트 설치  
 
-이 섹션에서는 OpenShift 디먼 집합으로 OMS 에이전트를 설치하는 데 필요한 단계를 다룹니다.  
+이 섹션에서는 OpenShift 디먼 집합으로 Log Analytics 에이전트를 설치하는 데 필요한 단계를 다룹니다.  
 
 1. OpenShift 마스터 노드에 로그온하고, GitHub에서 마스터 노드로 yaml 파일 [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml)을 복사하고, Log Analytics 작업 영역 ID와 기본 키로 값을 수정합니다.
 2. 다음 명령을 실행하여 Log Analytics에 대한 프로젝트를 만들고 사용자 계정을 설정합니다.
@@ -230,7 +233,7 @@ Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들
     No events.  
     ```
 
-OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 Log Analytics 작업 영역 ID와 기본 키를 보호하기 위해 비밀을 사용하려는 경우 다음 단계를 수행합니다.
+Log Analytics 에이전트 디먼 집합 yaml 파일을 사용할 때 Log Analytics 작업 영역 ID와 기본 키를 보호하기 위해 비밀을 사용하려는 경우 다음 단계를 수행합니다.
 
 1. OpenShift 마스터 노드에 로그온하고 GitHub에서 yaml 파일 [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) 및 비밀 생성 스크립트 [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh)를 복사합니다.  이 스크립트는 비밀 정보를 보호하기 위해 Log Analytics 작업 영역 ID와 기본 키에 대한 비밀 yaml 파일을 생성합니다.  
 2. 다음 명령을 실행하여 Log Analytics에 대한 프로젝트를 만들고 사용자 계정을 설정합니다. 비밀 생성 스크립트는 Log Analytics 작업 영역 ID<WSID> 및 기본 키<KEY>를 요청하고, 완료되면 ocp-secret.yaml 파일이 생성됩니다.  
@@ -269,7 +272,7 @@ OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 Log Analytics 
     No events.  
     ```
 
-6. 다음을 실행하여 OMS 에이전트 디먼 집합 yaml 파일을 배포합니다.
+6. 다음을 실행하여 Log Analytics 에이전트 디먼 집합 yaml 파일을 배포합니다.
 
     `oc create -f ocp-ds-omsagent.yaml`  
 
@@ -294,18 +297,18 @@ OMS 에이전트 디먼 집합 yaml 파일을 사용하는 경우 Log Analytics 
      WSID:   37 bytes  
     ```
 
-#### <a name="configure-an-oms-linux-agent-for-kubernetes"></a>Kubernetes용 OMS Linux에이전트 구성
+#### <a name="configure-a-log-analytics-linux-agent-for-kubernetes"></a>Kubernetes용 Log Analytics Linux 에이전트 구성
 
-Kubernetes의 경우 Linux용 OMS 에이전트를 설치하려면 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) 페이지에는 비밀 정보를 포함 또는 포함하지 않고 사용할 수 있는 파일이 있습니다.
+Kubernetes의 경우 Linux용 Log Analytics 에이전트를 설치하려면 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [Log Analytics Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) 페이지에는 비밀 정보를 포함 또는 포함하지 않고 사용할 수 있는 파일이 있습니다.
 
-- 비밀 정보(omsagent.yaml)가 없는 Linux용 기본 OMS 에이전트 DaemonSet
-- 비밀 yaml(omsagentsecret.yaml) 파일을 생성하는 비밀 생성 스크립트를 통해 비밀 정보(omsagent-ds-secrets.yaml)를 사용하는 Linux용 OMS 에이전트 DaemonSet yaml 파일입니다.
+- 비밀 정보(omsagent.yaml)가 없는 Linux용 기본 Log Analytics 에이전트 DaemonSet
+- 비밀 yaml(omsagentsecret.yaml) 파일을 생성하는 비밀 생성 스크립트를 통해 비밀 정보(omsagent-ds-secrets.yaml)를 사용하는 Linux용 Log Analytics 에이전트 DaemonSet yaml 파일입니다.
 
 비밀을 포함 또는 포함하지 않고 omsagent DaemonSet를 만들도록 선택할 수 있습니다.
 
 **비밀이 없는 기본 OMSagent DaemonSet yaml 파일**
 
-- 기본 OMS Agent DaemonSet yaml 파일에서 `<WSID>` 및 `<KEY>`를 사용자의 WSID 및 KEY로 바꿉니다. 파일을 마스터 노드에 복사하고 다음을 실행합니다.
+- 기본 Log Analytics 에이전트 DaemonSet yaml 파일의 경우 `<WSID>` 및 `<KEY>`를 사용자의 WSID 및 KEY로 바꿉니다. 파일을 마스터 노드에 복사하고 다음을 실행합니다.
 
     ```
     sudo kubectl create -f omsagent.yaml
@@ -313,7 +316,7 @@ Kubernetes의 경우 Linux용 OMS 에이전트를 설치하려면 스크립트�
 
 **비밀이 있는 기본 OMSagent DaemonSet yaml 파일**
 
-1. 비밀 정보를 사용하여 OMS 에이전트 DaemonSet을 사용하려면 먼저 비밀을 만듭니다.
+1. 비밀 정보를 사용하여 Log Analytics 에이전트 DaemonSet을 사용하려면 먼저 비밀을 만듭니다.
     1. 스크립트 및 비밀 템플릿 파일을 복사하고 이들이 같은 디렉터리에 있는지 확인합니다.
         - 비밀 생성 스크립트 - secret-gen.sh
         - 비밀 템플릿 - secret-template.yaml
@@ -364,7 +367,7 @@ Kubernetes의 경우 Linux용 OMS 에이전트를 설치하려면 스크립트�
 
     5. ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```을 실행하여 omsagent daemon-set 만들기
 
-2. OMS 에이전트 DaemonSet가 다음과 같이 실행 중인지 확인합니다.
+2. Log Analytics 에이전트 DaemonSet이 다음과 같이 실행 중인지 확인합니다.
 
     ```
     keiko@ubuntu16-13db:~# sudo kubectl get ds omsagent
@@ -376,7 +379,7 @@ Kubernetes의 경우 Linux용 OMS 에이전트를 설치하려면 스크립트�
     ```
 
 
-Kubernetes의 경우 스크립트를 사용하여 Linux용 OMS 에이전트의 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [omsagent yaml 파일](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml)에 다음 예제 정보를 사용하여 비밀 정보를 보호합니다.
+Kubernetes의 경우 스크립트를 사용하여 Linux용 Log Analytics 에이전트의 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [omsagent yaml 파일](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml)에 다음 예제 정보를 사용하여 비밀 정보를 보호합니다.
 
 ```
 keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
@@ -393,15 +396,15 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>Kubernetes용 OMS Windows 에이전트 구성
-Windows Kubernetes의 경우 OMS 에이전트를 설치하려면 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) 페이지에는 비밀 정보를 포함하여 사용할 수 있는 파일이 있습니다.  마스터 및 에이전트 노드에 대해 별도의 OMS 에이전트를 설치해야 합니다.  
+#### <a name="configure-a-log-analytics-windows-agent-for-kubernetes"></a>Kubernetes용 Log Analytics Windows 에이전트 구성
+Windows Kubernetes의 경우 Log Analytics 에이전트를 설치하려면 스크립트를 사용하여 작업 영역 ID 및 기본 키에 대한 비밀 yaml 파일을 생성합니다. [Log Analytics Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) 페이지에는 비밀 정보를 포함하고 사용할 수 있는 파일이 있습니다.  마스터 및 에이전트 노드에 대해 별도의 Log Analytics 에이전트를 설치해야 합니다.  
 
-1. 마스터 노드에 대한 비밀 정보를 사용하여 OMS 에이전트 DaemonSet을 사용하려면 먼저 로그인하여 비밀을 만듭니다.
+1. 마스터 노드에 대한 비밀 정보를 사용하여 Log Analytics 에이전트 DaemonSet을 사용하려면 먼저 로그인하여 비밀을 만듭니다.
     1. 스크립트 및 비밀 템플릿 파일을 복사하고 이들이 같은 디렉터리에 있는지 확인합니다.
         - 비밀 생성 스크립트 - secret-gen.sh
         - 비밀 템플릿 - secret-template.yaml
 
-    2. 다음 예제와 같이 스크립트를 실행합니다. 스크립트에서 OMS 작업 영역 ID 및 기본 키를 요청하고 사용자가 이를 입력하면 스크립트에서 비밀 yaml 파일을 생성하며 사용자가 실행할 수 있습니다.   
+    2. 다음 예제와 같이 스크립트를 실행합니다. 스크립트에서 Log Analytics 작업 영역 ID 및 기본 키를 요청하고 사용자가 이를 입력하면 스크립트에서 비밀 yaml 파일을 생성하며 사용자가 실행할 수 있습니다.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -435,7 +438,7 @@ Windows Kubernetes의 경우 OMS 에이전트를 설치하려면 스크립트를
 
     5. ```kubectl create -f ws-omsagent-de-secrets.yaml```을 실행하여 omsagent daemon-set 만들기
 
-2. OMS 에이전트 DaemonSet가 다음과 같이 실행 중인지 확인합니다.
+2. Log Analytics 에이전트 DaemonSet이 다음과 같이 실행 중인지 확인합니다.
 
     ```
     root@ubuntu16-13db:~# kubectl get deployment omsagent
@@ -445,8 +448,8 @@ Windows Kubernetes의 경우 OMS 에이전트를 설치하려면 스크립트를
 
 3. Windows를 실행하는 작업자 노드에 에이전트를 설치하려면 [Windows 컨테이너 호스트 설치 및 구성](#install-and-configure-windows-container-hosts) 섹션의 단계를 따릅니다.
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Helm을 사용하여 Linux Kubernetes에 OMS 에이전트 배포
-Helm을 사용하여 Linux Kubernetes 환경에 OMS 에이전트를 배포하려면 다음 단계를 수행합니다.
+#### <a name="use-helm-to-deploy-log-analytics-agent-on-linux-kubernetes"></a>Helm을 사용하여 Linux Kubernetes에 Log Analytics 에이전트 배포
+Helm을 사용하여 Linux Kubernetes 환경에 Log Analytics 에이전트를 배포하려면 다음 단계를 수행합니다.
 
 1. ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```을 실행하여 omsagent daemon-set 만들기
 2. 결과는 다음과 유사합니다.
@@ -530,7 +533,7 @@ Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 �
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
-OMS 포털에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니터링 솔루션**을 추가합니다. Windows 에이전트를 사용하는 경우 이 솔루션을 추가할 때 에이전트와 함께 다음 관리 팩이 각 컴퓨터에 설치되어 있습니다. 관리 팩에는 구성 또는 유지 관리가 필요하지 않습니다.
+Azure Portal에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니터링 솔루션**을 추가합니다. Windows 에이전트를 사용하는 경우 이 솔루션을 추가할 때 에이전트와 함께 다음 관리 팩이 각 컴퓨터에 설치되어 있습니다. 관리 팩에는 구성 또는 유지 관리가 필요하지 않습니다.
 
 - C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs에 설치된 *ContainerManagement.xxx*
 
@@ -539,7 +542,7 @@ OMS 포털에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니터�
 
 데이터는 다음 에이전트 형식으로 3분마다 수집됩니다.
 
-- [OMS Agent for Linux](log-analytics-linux-agents.md)
+- [Linux용 Log Analytics 에이전트](log-analytics-linux-agents.md)
 - [Windows 에이전트](log-analytics-windows-agent.md)
 - [Log Analytics VM 확장](log-analytics-azure-vm-extension.md)
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239220"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407064"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -98,7 +98,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 수집기 어플라이언스에서 수집한 데이터는 마이그레이션 프로젝트를 만들면서 사용자가 지정한 Azure 위치에 저장됩니다. 데이터는 Microsoft 구독에 안전하게 저장되며, 사용자가 Azure Migrate 프로젝트를 삭제하는 경우 삭제됩니다.
 
-종속성 시각화의 경우 VM에 에이전트를 설치하는 경우 종속성 에이전트에서 수집된 데이터는 사용자의 구독에서 만든 OMS 작업 영역 내 미국에 저장됩니다. 구독에서 OMS 작업 영역을 삭제하면 이 데이터가 삭제됩니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+종속성 시각화의 경우 VM에 에이전트를 설치하는 경우 종속성 에이전트에서 수집된 데이터는 사용자의 구독에서 만든 Log Analytics 작업 영역 내 미국에 저장됩니다. 구독에서 Log Analytics 작업 영역을 삭제하면 이 데이터가 삭제됩니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>데이터는 미사용 및 전송 중에 암호화되나요?
 

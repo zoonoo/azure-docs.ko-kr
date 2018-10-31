@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps에서 Azure 가상 네트워크에 액세스
-description: 이 개요에서는 격리된 논리 앱이 개인 및 전용 리소스를 사용하는 ISE(통합 서비스 환경)에서 Azure 가상 네트워크에 연결할 수 있는 방법을 설명합니다.
+title: ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 액세스
+description: 이 개요에서는 ISE(통합 서비스 환경)가 어떻게 논리 앱에서 Azure 가상 네트워크에 액세스하는 데 도움이 되는지를 설명합니다.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 9546b8ca33ef7da2d570b547446858e2a4099234
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f21af23cf0b7b121441b1433f382db60ef7f13fe
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393152"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408662"
 ---
-# <a name="access-to-azure-virtual-network-resources-from-isolated-azure-logic-apps"></a>격리된 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
+# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
 > [!NOTE]
 > 이 기능은 *비공개 미리 보기* 상태입니다. 액세스를 요청하려면 [여기서 참여 요청을 작성](https://aka.ms/iseprivatepreview)하세요.
 
-논리 앱과 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 내의 VM(가상 머신) 및 기타 시스템이나 서비스와 같이 보호된 리소스에 액세스해야 하는 경우가 있습니다. 이러한 액세스 권한을 제공하려는 경우 논리 앱과 통합 계정을 만들 위치로 [ISE(*통합 서비스 환경*)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)을 만들 수 있습니다. 
+논리 앱과 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 내의 VM(가상 머신) 및 기타 시스템이나 서비스와 같이 보호된 리소스에 액세스해야 하는 경우가 있습니다. 이러한 액세스를 설정하려면 논리 앱과 통합 계정의 위치로 사용하는 [ISE(*통합 서비스 환경*)를 만들](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 수 있습니다. 
 
 ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 

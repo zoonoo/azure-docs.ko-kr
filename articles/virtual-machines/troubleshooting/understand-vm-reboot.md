@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: dd9a2c6a5b2183d4909b6bcfd24dc1fae401c785
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fa316ee47e6fdabacf22e1e419bfd501620dd83d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412623"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429153"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
 
@@ -73,7 +73,7 @@ VM의 운영 체제에서 작업을 수행하는 경우 시스템 로그에서 �
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center 및 Windows 업데이트
 Azure Security Center는 누락된 운영 체제 업데이트가 있는지 매일 Windows 및 Linux VM을 모니터링합니다. 보안 센터는 Windows VM에서 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. Security Center는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM이 시스템 업데이트를 누락하는 경우 Security Center는 시스템 업데이트 적용을 권장합니다. 이러한 시스템 업데이트의 응용 프로그램은 Azure Portal에서 Security Center를 통해 제어됩니다. 일부 업데이트를 적용한 후 VM을 재부팅해야 할 수 있습니다. 자세한 내용은 [Azure Security Center의 시스템 업데이트 적용](../../security-center/security-center-apply-system-updates.md)을 참조하세요.
 
-온-프레미스 서버와 같이 이러한 컴퓨터는 사용자가 관리하도록 되어 있으므로, Azure는 Windows 업데이트에서 Windows Azure VM으로 업데이트를 푸시하지 않습니다. 그러나 고객은 자동 Windows 업데이트 설정을 활성화 상태로 유지하는 것이 좋습니다. Windows 업데이트에서 업데이트를 자동으로 설치하면 업데이트가 적용된 후에 재부팅될 수도 있습니다. 자세한 내용은 [Windows 업데이트 FAQ](https://support.microsoft.com/help/12373/windows-update-faq)를 참조하세요.
+온-프레미스 서버와 같이 이러한 머신은 사용자가 관리하도록 되어 있으므로, Azure는 Windows 업데이트에서 Windows VM으로 업데이트를 푸시하지 않습니다. 그러나 고객은 자동 Windows 업데이트 설정을 활성화 상태로 유지하는 것이 좋습니다. Windows 업데이트에서 업데이트를 자동으로 설치하면 업데이트가 적용된 후에 재부팅될 수도 있습니다. 자세한 내용은 [Windows 업데이트 FAQ](https://support.microsoft.com/help/12373/windows-update-faq)를 참조하세요.
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>VM의 가용성에 영향을 주는 다른 경우
 Azure에서 VM의 사용을 적극적으로 일시 중단한 다른 경우가 있습니다. 이 작업을 수행하기 전에 전자 메일 알림을 받으므로 기본 문제를 해결할 수 있습니다. VM 사용 가능성에 영향을 주는 문제의 예로는 보안 위반 및 결제 방법의 만료가 있습니다.

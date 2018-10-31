@@ -1,23 +1,25 @@
 ---
-title: Speech 서비스 지역
+title: Speech Service 지역
+titlesuffix: Azure Cognitive Services
 description: Speech 서비스의 지역에 대한 참조입니다.
 services: cognitive-services
 author: mahilleb-msft
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: 01c76d80d6b2fd64165b126df01c391d7e18292f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a5fce6f9547a96da3ce482ce388e5ba2093f2af4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887550"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468129"
 ---
-# <a name="regions-of-the-speech-service"></a>Speech 서비스의 지역
+# <a name="regions-of-the-speech-service"></a>Speech 서비스 지역
 
-Speech 서비스는 여러 다른 지역에서 사용할 수 있습니다.
+Speech 서비스는 여러 지역에서 사용할 수 있습니다.
 구독을 만들 때 필요에 따라 사용 가능한 지역을 선택할 수 있습니다.
 
 구독을 사용하는 경우 선택한 지역을 고려해야 합니다.
@@ -29,7 +31,7 @@ REST API를 사용하여 올바른 지역별 엔드포인트를 선택합니다.
 
 ## <a name="speech-sdk"></a>음성 SDK
 
-[음성 SDK](speech-sdk.md)에서 지역을 문자열로 지정합니다(예를 들어, C#용 Speech SDK에서 `SpeechConfig.FromSubscription`에 대한 매개 변수로 지정).
+[Speech Service SDK](speech-sdk.md)에서 지역은 문자열로 지정됩니다(예: C#용 음성 SDK에서 `SpeechConfig.FromSubscription`에 대한 매개 변수로 지정).
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>음성 인식 및 번역 지역
 

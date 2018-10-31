@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996658"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322076"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 응용 프로그램의 수명 주기 전반에 걸쳐 가상 머신 확장 집합을 수정하거나 업데이트해야 할 수도 있습니다. 이러한 업데이트에는 확장 집합의 구성을 업데이트하거나 응용 프로그램 구성을 변경하는 방법이 포함될 수 있습니다. 이 문서에서는 REST API, Azure PowerShell 또는 Azure CLI를 사용하여 기존 확장 집합을 수정하는 방법에 대해 설명합니다.
@@ -126,7 +126,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 
 
 ### <a name="the-scale-set-vm-model-view"></a>확장 집합 VM 모델 보기
-확장 집합에는 모델 보기가 있는 것처럼, 확장 집합의 각 VM에도 고유한 모델 보기가 있습니다. 확장 집합의 모델 보기를 쿼리하려면 다음을 사용할 수 있습니다.
+확장 집합에는 모델 보기가 있는 것처럼, 확장 집합의 각 VM 인스턴스에도 고유한 모델 보기가 있습니다. 확장 집합의 특정 VM 인스턴스에 대한 모델 보기를 쿼리하려면 다음을 사용할 수 있습니다.
 
 - REST API에서 [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get), 아래 참조:
 
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-이러한 속성은 확장 집합의 구성 전체가 아니라 VM 자체의 구성을 설명합니다. 예를 들어, 확장 집합 모델에는 `overprovision` 속성이 있지만 확장 집합의 VM에 대한 모델은 그렇지 않습니다. 이러한 차이는 과도 프로비전이 확장 집합의 개별 VM이 아닌 확장 집합 전체의 속성이기 때문에 나타납니다(과도 프로비전에 대한 자세한 내용은 [확장 집합 디자인 고려 사항](virtual-machine-scale-sets-design-overview.md#overprovisioning) 참조).
+이러한 속성은 확장 집합의 구성 전체가 아니라 VM 인스턴스의 구성을 설명합니다. 예를 들어, 확장 집합 모델에는 `overprovision` 속성이 있지만 확장 집합의 VM 인스턴스에 대한 모델은 그렇지 않습니다. 이러한 차이는 과도 프로비전이 확장 집합의 개별 VM 인스턴스가 아닌 확장 집합 전체의 속성이기 때문에 나타납니다(과도 프로비전에 대한 자세한 내용은 [확장 집합 디자인 고려 사항](virtual-machine-scale-sets-design-overview.md#overprovisioning) 참조).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>확장 집합 VM 인스턴스 보기
-확장 집합에는 인스턴스 보기가 있는 것처럼, 확장 집합의 각 VM에도 고유한 인스턴스 보기가 있습니다. 확장 집합의 인스턴스 보기를 쿼리하려면 다음을 사용할 수 있습니다.
+확장 집합에는 인스턴스 보기가 있는 것처럼, 확장 집합의 각 VM 인스턴스에도 고유한 인스턴스 보기가 있습니다. 확장 집합의 특정 VM 인스턴스에 대한 인스턴스 보기를 쿼리하려면 다음을 사용할 수 있습니다.
 
 - REST API에서 [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview), 아래 참조:
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-이러한 속성은 확장 집합에 적용되는 모든 확장을 포함하여 VM 자체의 현재 런타임 상태를 설명합니다.
+이러한 속성은 확장 집합에 적용되는 모든 확장을 포함하여 VM 인스턴스의 현재 런타임 상태를 설명합니다.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>전역 확장 집합 속성을 업데이트하는 방법

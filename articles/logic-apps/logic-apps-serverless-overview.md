@@ -10,16 +10,16 @@ ms.reviewer: klam, estfan, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 97c928c34a18a5d4f3549c348a273df268ee1db0
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 068e5399073959d2c5aa6c4bbeb0d7bccf7d05e6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123311"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393782"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>개요: Azure Logic Apps 및 Azure Functions를 사용하는 Azure Serverless
 
-서버를 사용하지 않는 응용 프로그램은 개발 속도 향상, 필요한 코드 감소 및 규모 간소화의 이점을 제공합니다.  이 문서는 서버를 사용하지 않는 솔루션과 Azure 서버를 사용하지 않는 제품의 다른 특성을 살펴봅니다.
+[서버리스](https://azure.microsoft.com/solutions/serverless/) 응용 프로그램은 개발 속도 향상, 필요한 코드 감소 및 규모 간소화의 이점을 제공합니다.  이 문서는 서버를 사용하지 않는 솔루션과 Azure 서버를 사용하지 않는 제품의 다른 특성을 살펴봅니다.
 
 ## <a name="what-is-serverless"></a>서버를 사용하지 않음은 무엇입니까?
 

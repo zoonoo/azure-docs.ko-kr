@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a889307138564bd56168d9561a56fc391704a459
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 01b3fe57cd52149c5c1191345b42bd8544202652
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318982"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404582"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -161,12 +161,20 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 * 등록하는 동안 지정된 프록시가 올바르지 않습니다.
 * Log Analytics 및 Azure Automation 서비스 엔드포인트가 데이터 센터의 허용 목록에 없습니다. 
 
+<<<<<<< HEAD
+### <a name="resolutions"></a>해결 방법
+1. 다음 명령과 `-v` 옵션을 사용하여 Linux용 Log Analytics 에이전트가 있는 Log Analytics에 다시 등록합니다. 그러면 Log Analytics에 대한 프록시를 통해 연결되는 에이전트의 자세한 정보를 출력할 수 있습니다. 
+`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Log Analytics Workspace ID> -s <Log Analytics Workspace Key> -p <Proxy Conf> -v`
+
+  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+=======
 ### <a name="resolution"></a>해결 방법
 1. 다음 명령과 `-v` 옵션을 사용하여 Linux용 Log Analytics 에이전트가 있는 Log Analytics 서비스에 다시 등록합니다. 이렇게 하면 프록시를 통해 Log Analytics 서비스에 연결하는 에이전트에 대한 자세한 출력이 허용됩니다. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
+>>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 2. [프록시 설정 업데이트](log-analytics-agent-manage.md#update-proxy-settings) 섹션을 검토하여 프록시 서버를 통해 통신하도록 에이전트를 제대로 구성했는지 확인합니다.    
-* 다음 Log Analytics 서비스 엔드포인트가 허용 목록에 있는지 한 번 더 확인합니다.
+* 다음 Log Analytics 엔드포인트가 허용 목록에 있는지 한 번 더 확인합니다.
 
     |에이전트 리소스| 포트 | 방향 |
     |------|---------|----------|  
@@ -185,7 +193,11 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 
 1. 명령 시간을 사용하여 Linux 서버에서 시간을 확인합니다. 시간이 현재 시간에서 +/-15분인 경우 등록이 실패합니다. 이 문제를 해결하려면 Linux 서버의 날짜 및/또는 시간대를 업데이트합니다. 
 2. Linux용 Log Analytics 에이전트 최신 버전이 설치되어 있는지 확인합니다.  최신 버전은 시간 차이로 인해 등록 실패가 발생하는지 여부를 알려줍니다.
+<<<<<<< HEAD
+3. 이 항목 앞부분의 설치 지침에 따라 올바른 작업 영역 ID 및 작업 영역 키를 사용하여 다시 등록합니다.
+=======
 3. 이 문서 앞부분의 설치 지침에 따라 올바른 작업 영역 ID 및 작업 영역 키를 사용하여 다시 등록합니다.
+>>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>문제: 등록 직후에 로그 파일에 500 및 404 오류가 표시됨
 이 문제는 알려진 문제이며 Linux 데이터를 Log Analytics 작업 영역으로 처음 업로드할 때 발생합니다. 이 문제는 전송되는 데이터 또는 서비스 환경에 영향을 미치지 않습니다.
@@ -194,6 +206,17 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 
 ### <a name="probable-causes"></a>가능한 원인
 
+<<<<<<< HEAD
+- Log Analytics 서비스 등록이 실패했습니다.
+- Log Analytics에 대한 연결이 차단되었습니다.
+- Linux용 Log Analytics 에이전트가 백업되었습니다.
+
+### <a name="resolutions"></a>해결 방법
+1. `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf` 파일이 있는지 확인하여 Log Analytics 등록이 성공했는지 확인합니다.
+2. `omsadmin.sh` 명령줄 명령을 사용하여 다시 등록합니다.
+3. 프록시를 사용하는 경우 앞서 제공된 프록시 문제 해결 단계를 참조하세요.
+4. Linux용 Log Analytics 에이전트가 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. 명령 `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`를 실행하여 Linux용 Log Analytics 에이전트를 다시 시작해야 합니다. 
+=======
 - Log Analytics 서비스 등록이 실패했습니다.
 - Log Analytics 서비스에 대한 연결이 차단되었습니다.
 - Linux용 Log Analytics 에이전트가 백업되었습니다.
@@ -203,9 +226,10 @@ OMS 출력 플러그 인을 사용하는 대신 데이터 항목을 `stdout`으�
 2. `omsadmin.sh` 명령줄 명령을 사용하여 다시 등록합니다.
 3. 프록시를 사용하는 경우 앞서 제공된 프록시 문제 해결 단계를 참조하세요.
 4. Linux용 Log Analytics 에이전트가 서비스와 통신할 수 없는 경우 에이전트의 데이터가 최대 버퍼 크기인 50MB로 대기될 수 있습니다. `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]` 명령을 실행하여 에이전트를 다시 시작해야 합니다. 
+>>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
     >[!NOTE]
-    >이 문제는 에이전트 버전 1.1.0-28 및 이상에서 해결되었습니다.
+    >This issue is fixed in agent version 1.1.0-28 and later.
 
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>문제: 전달된 Syslog 메시지가 보이지 않음 

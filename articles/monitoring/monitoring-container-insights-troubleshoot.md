@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: de7ae5788224b83105e4dc9a24aea35c8b841c88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19d015947e5d2331c50cd64956e8a7650f96616d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986730"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638327"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 문제 해결
 
@@ -91,6 +91,18 @@ ms.locfileid: "46986730"
     omsagent 1.6.0.23
     docker-cimprov 1.0.0.31
     ```
+
+## <a name="error-messages"></a>오류 메시지
+
+아래 표에서는 Azure Monitor를 컨테이너에 사용할 때 발생할 수 있는 알려진 오류를 요약하고 있습니다.
+
+| 오류 메시지  | 조치 |  
+| ---- | --- |  
+| 오류 메시지: `No data for selected filters`  | 새로 만든 클러스터에 대한 모니터링 데이터 흐름을 설정하는 데는 약간의 시간이 걸릴 수 있습니다. 클러스터에 대한 데이터가 표시될 때까지 10-15분 이상 기다려주세요. |   
+| 오류 메시지: `Error retrieving data` | Azure Kubenetes 서비스 클러스터에서 상태 및 성능 모니터링을 설정하는 동안 클러스터와 Azure Log Analytics 작업 영역 간에 연결이 설정됩니다. Log Analytics 작업 영역은 클러스터에 대한 모든 모니터링 데이터를 저장하는 데 사용됩니다. Log Analytics 작업 영역이 삭제되거나 손실되었으면 이 오류가 발생할 수 있습니다. [액세스 관리](../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information)를 검토하여 작업 영역을 사용할 수 있는지 확인합니다. 작업 영역이 없는 경우 컨테이너용 Azure Monitor를 사용하여 클러스터를 다시 온보딩해야 합니다. 다시 온보딩하려면 클러스터에 대한 모니터링을 [비활성화](/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json)하고 컨테이너용 Azure Monitor를 다시 [활성화](monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster)해야 합니다. |  
+| 오류 메시지: `Error retrieving data`(az aks cli를 통해 컨테이너용 Azure Monitor를 추가한 후) | `az aks cli`를 사용하여 온보딩하는 경우 드문 경우이지만 컨테이너용 Azure Monitor가 제대로 온보딩되지 않을 수 있습니다. 솔루션이 온보딩되었는지 확인합니다. 이렇게 하려면 Log Analytics 작업 영역으로 이동하여 왼쪽 창에서 **솔루션**을 선택하여 해당 솔루션을 사용할 수 있는지 확인합니다. 이 문제를 해결하려면 [컨테이너용 Azure Monitor를 배포하는 방법](monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json)의 지침에 따라 솔루션을 다시 배포해야 합니다. |  
+
+문제 진단을 지원하기 위해 [여기](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script)서 사용할 수 있는 문제 해결 스크립트를 제공했습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 모니터링을 사용하여 AKS 클러스터 노드와 Pod에 관한 상태 메트릭을 캡처하면, Azure Portal에서 해당 상태 메트릭을 사용할 수 있습니다. 컨테이너용 Azure Monitor 사용 방법을 알아보려면 [Azure Kubernetes Service 상태 보기](monitoring-container-insights-analyze.md)를 참조하세요.

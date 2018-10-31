@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 10/15/2018
+ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394066"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345308"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션
 
@@ -38,9 +38,9 @@ ms.locfileid: "47394066"
 
 ## <a name="assess-managed-instance-compatibility"></a>Managed Instance 호환성 평가
 
-먼저 Managed Instance가 응용 프로그램의 데이터베이스 요구 사항과 호환되는지 확인합니다. Managed Instance는 온-프레미스 또는 가상 머신에서 SQL Server를 사용하는 대부분의 기존 응용 프로그램에서 리프트 앤 시프트 방식으로 쉽게 이동할 수 있도록 설계되었습니다. 그러나 경우에 따라 아직 지원되지 않는 기능이 필요할 수 있으며 해결 방법을 구현하는 데 드는 비용이 너무 높습니다. 
+먼저 Managed Instance가 응용 프로그램의 데이터베이스 요구 사항과 호환되는지 확인합니다. Managed Instance는 온-프레미스 또는 가상 머신에서 SQL Server를 사용하는 대부분의 기존 응용 프로그램에서 리프트 앤 시프트 방식으로 쉽게 이동할 수 있도록 설계되었습니다. 그러나 경우에 따라 아직 지원되지 않는 기능이 필요할 수 있으며 해결 방법을 구현하는 데 드는 비용이 너무 높습니다.
 
-[DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview)를 사용하여 Azure SQL Database에서 데이터베이스 기능에 영향을 주는 잠재적인 호환성 문제를 검색합니다. DMA는 아직 Managed Instance를 마이그레이션 대상으로 지원하지 않지만, Azure SQL Database에 대한 평가를 실행하고 제품 설명서에 대해 보고된 기능 패리티 및 호환성 문제 목록을 신중하게 검토하는 것이 좋습니다. Azure SQL Database로 마이그레이션하지 못하도록 차단하는 대부분의 문제는 Managed Instance를 통해 제거되었으므로 Managed Instance에서 차단하지 않는 일부 보고된 차단 문제가 있는지 확인하려면 [Azure SQL Database 기능](sql-database-features.md)을 참조하세요. 예를 들어 데이터베이스 간 쿼리, 동일한 인스턴스 내의 데이터베이스 간 트랜잭션, 다른 SQL 원본에 연결된 서버, CLR, 전역 임시 테이블, 인스턴스 수준 보기, Service Broker 등과 같은 기능은 Managed Instance에서 사용할 수 있습니다. 
+[DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-overview)를 사용하여 Azure SQL Database에서 데이터베이스 기능에 영향을 주는 잠재적인 호환성 문제를 검색합니다. DMA는 아직 Managed Instance를 마이그레이션 대상으로 지원하지 않지만, Azure SQL Database에 대한 평가를 실행하고 제품 설명서에 대해 보고된 기능 패리티 및 호환성 문제 목록을 신중하게 검토하는 것이 좋습니다. Azure SQL Database로 마이그레이션하지 못하도록 차단하는 대부분의 문제는 Managed Instance를 통해 제거되었으므로 Managed Instance에서 차단하지 않는 일부 보고된 차단 문제가 있는지 확인하려면 [Azure SQL Database 기능](sql-database-features.md)을 참조하세요. 예를 들어 데이터베이스 간 쿼리, 동일한 인스턴스 내의 데이터베이스 간 트랜잭션, 다른 SQL 원본에 연결된 서버, CLR, 전역 임시 테이블, 인스턴스 수준 보기, Service Broker 등과 같은 기능은 Managed Instance에서 사용할 수 있습니다.
 
 Azure SQL Database Managed Instance에서 제거되지 않은 일부 보고된 차단 문제가 있는 경우 [Azure에서 Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)와 같은 대체 옵션을 고려해야 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
@@ -60,16 +60,16 @@ Managed Instance는 클라우드로 이동할 온-프레미스 작업에 맞게 
 VNet 인프라와 Managed Instance를 만드는 방법을 알아보려면 [Managed Instance를 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
 
 > [!IMPORTANT]
-> [Managed Instance VNET 요구 사항](sql-database-managed-instance-vnet-configuration.md#requirements)에 따라 항상 대상 VNet 및 서브넷을 유지해야 합니다. 호환되지 않는 경우 새 인스턴스를 만들거나 이미 만든 인스턴스를 사용하지 못할 수 있습니다.
+> [Managed Instance VNet 요구 사항](sql-database-managed-instance-vnet-configuration.md#requirements)에 따라 항상 대상 VNet 및 서브넷을 유지해야 합니다. 호환되지 않는 경우 새 인스턴스를 만들거나 이미 만든 인스턴스를 사용하지 못할 수 있습니다.
 
 ## <a name="select-migration-method-and-migrate"></a>마이그레이션 방법 선택 및 마이그레이션
 
-Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서 대량의 데이터베이스 마이그레이션이 필요한 사용자 시나리오를 대상으로 합니다. 인스턴스 수준 및/또는 데이터베이스 간 기능을 정기적으로 사용하는 응용 프로그램의 백 엔드를 리프트 앤 시프트 방식으로 이동해야 하는 경우에 최적의 선택입니다. 이러한 시나리오의 경우 응용 프로그램을 다시 구성하지 않고도 Azure에서 전체 인스턴스를 해당 환경으로 이동할 수 있습니다. 
+Managed Instance는 온-프레미스 또는 IaaS 데이터베이스 구현에서 대량의 데이터베이스 마이그레이션이 필요한 사용자 시나리오를 대상으로 합니다. 인스턴스 수준 및/또는 데이터베이스 간 기능을 정기적으로 사용하는 응용 프로그램의 백 엔드를 리프트 앤 시프트 방식으로 이동해야 하는 경우에 최적의 선택입니다. 이러한 시나리오의 경우 응용 프로그램을 다시 구성하지 않고도 Azure에서 전체 인스턴스를 해당 환경으로 이동할 수 있습니다.
 
 SQL 인스턴스를 이동하려면 다음을 신중하게 계획해야 합니다.
 
--   배치해야 하는 모든 데이터베이스(동일한 인스턴스에서 실행되는 데이터베이스)의 마이그레이션
--   로그인, 자격 증명, SQL 에이전트 작업 및 연산자, 서버 수준 트리거를 포함하여 응용 프로그램이 종속된 인스턴스 수준 개체의 마이그레이션 
+- 배치해야 하는 모든 데이터베이스(동일한 인스턴스에서 실행되는 데이터베이스)의 마이그레이션
+- 로그인, 자격 증명, SQL 에이전트 작업 및 연산자, 서버 수준 트리거를 포함하여 응용 프로그램이 종속된 인스턴스 수준 개체의 마이그레이션
 
 Managed Instance는 정기적인 DBA 작업의 일부를 기본 제공되는 플랫폼에 위임할 수 있도록 하는 완벽하게 관리되는 서비스입니다. 따라서 [고가용성](sql-database-high-availability.md)이 기본 제공되므로 정기 백업을 위한 유지 관리 작업 또는 Always On 구성과 같이 일부 인스턴스 수준 데이터는 마이그레이션할 필요가 없습니다.
 
@@ -80,7 +80,7 @@ Managed Instance에서 지원하는 데이터베이스 마이그레이션 옵션
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
-[Azure DMS(Database Migration Service)](../dms/dms-overview.md)는 가동 중지 시간을 최소화하면서 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동하는 데 필요한 작업을 간소화합니다. 공개 미리 보기의 배포 옵션에는 Azure Virtual Machine에 있는 Azure SQL Database, Managed Instance 및 SQL Server가 포함됩니다. DMS는 엔터프라이즈 작업에 권장되는 마이그레이션 방법입니다. 
+[Azure DMS(Database Migration Service)](../dms/dms-overview.md)는 가동 중지 시간을 최소화하면서 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동하는 데 필요한 작업을 간소화합니다. 공개 미리 보기의 배포 옵션에는 Azure Virtual Machine에 있는 Azure SQL Database, Managed Instance 및 SQL Server가 포함됩니다. DMS는 엔터프라이즈 작업에 권장되는 마이그레이션 방법입니다.
 
 SQL Server 온-프레미스에서 SSIS(SQL Server Integration Services)를 사용하는 경우, DMS는 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)의 마이그레이션을 아직 지원하지 않지만, Azure SQL Database/Managed Instance에 새 SSISDB를 만들 Azure-SSIS IR(Integration Runtime)을 ADF(Azure Data Factory)에 프로비전하고 해당 패키지를 다시 배포할 수 있습니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
 
@@ -88,7 +88,7 @@ SQL Server 온-프레미스에서 SSIS(SQL Server Integration Services)를 사�
 
 ### <a name="native-restore-from-url"></a>URL에서 네이티브 복원
 
-[Azure Storage](https://azure.microsoft.com/services/storage/)에서 사용 가능한 온-프레미스 SQL Server 또는 [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)에서 가져온 네이티브 백업(.bak 파일)의 복원은 SQL DB Managed Instance의 주요 기능 중 하나이며, 오프라인 데이터베이스 마이그레이션을 빠르고 쉽게 수행할 수 있도록 합니다. 
+[Azure Storage](https://azure.microsoft.com/services/storage/)에서 사용 가능한 온-프레미스 SQL Server 또는 [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)에서 가져온 네이티브 백업(.bak 파일)의 복원은 SQL DB Managed Instance의 주요 기능 중 하나이며, 오프라인 데이터베이스 마이그레이션을 빠르고 쉽게 수행할 수 있도록 합니다.
 
 다음 다이어그램은 프로세스의 상위 수준 개요를 제공합니다.
 
@@ -104,7 +104,7 @@ SQL Server 온-프레미스에서 SSIS(SQL Server Integration Services)를 사�
 |Azure Storage에서 Managed Instance로 복원|[SAS CREDENTIAL을 사용하여 URL에서 복원](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
-> - [투명한 데이터 암호화](transparent-data-encryption-azure-sql.md)로 보호된 데이터베이스를 원시 복원 옵션을 사용하여 Azure SQL Database Managed Instance로 마이크레이션하는 경우에는 데이터베이스를 복원하기 전에 온-프레미스 또는 IaaS SQL Server의 해당 인증서를 마이그레이션해야 합니다. 자세한 단계는 [Managed Instance로 TDE 인증서 마이그레이션](sql-database-managed-instance-migrate-tde-certificate.md)을 참조하세요.
+> - [투명한 데이터 암호화](transparent-data-encryption-azure-sql.md)로 보호된 데이터베이스를 원시 복원 옵션을 사용하여 Azure SQL Database Managed Instance로 마이그레이션하는 경우에는 데이터베이스를 복원하기 전에 온-프레미스 또는 IaaS SQL Server의 해당 인증서를 마이그레이션해야 합니다. 자세한 단계는 [Managed Instance로 TDE 인증서 마이그레이션](sql-database-managed-instance-migrate-tde-certificate.md)을 참조하세요.
 > - 시스템 데이터베이스의 복원은 지원되지 않습니다. master 또는 msdb 데이터베이스에 저장된 인스턴스 수준 개체를 마이그레이션하려면, 이러한 개체를 스크립팅하고 대상 인스턴스에서 T-SQL 스크립트를 실행하는 것이 좋습니다.
 
 SAS 자격 증명을 사용하여 Managed Instance에 데이터베이스 백업을 복원하는 방법을 보여주는 빠른 시작은 [백업에서 Managed Instance 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
@@ -121,6 +121,7 @@ SAS 자격 증명을 사용하여 Managed Instance에 데이터베이스 백업�
 또한 [고가용성](sql-database-high-availability.md)이 기본 제공되므로 고가용성 설정에 대해 걱정할 필요가 없습니다.
 
 보안을 강화하려면 다음과 같이 사용할 수 있는 기능 중 일부를 사용하는 것이 좋습니다.
+
 - 데이터베이스 수준에서의 Azure Active Directory 인증
 - [감사](sql-database-managed-instance-auditing.md), [위협 탐색](sql-advanced-threat-protection.md), [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) 및 [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)과 같은 [고급 보안 기능](sql-database-security-overview.md)을 사용하여 인스턴스를 보호합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Windows Azure VM 크기 - 메모리 | Microsoft Docs
+title: Windows용 Azure VM 크기 - 메모리 | Microsoft Docs
 description: Azure의 Windows 가상 머신에 사용할 수 있는 다양한 메모리에 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 0ac25520e6de0208664e6c61ff21a988ebbd8f75
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: a81ce010e2d31a9852ca24a0ac45f6b4f60ab480
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903789"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428201"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>메모리 최적화 가상 머신 크기
 

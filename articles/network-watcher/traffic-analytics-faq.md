@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578313"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402763"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -77,9 +77,9 @@ ms.locfileid: "45578313"
 
 예. 기존 작업 영역을 선택하는 경우, 새 쿼리 언어로 마이그레이션되었는지 확인해야 합니다. 작업 영역을 업그레이드하지 않으려면 새 작업 영역을 만들어야 합니다. 새 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md)를 참조하세요.
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Azure Storage 계정과 Operations Management Suite 작업 영역이 서로 다른 구독에 있어도 되나요?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Azure Storage 계정과 Log Analytics 작업 영역이 서로 다른 구독에 있어도 되나요?
 
-예. Azure Storage 계정이 한 구독에 있고 Operations Management Suite 작업 영역이 다른 구독에 있을 수 있습니다.
+네, Azure Storage 계정이 한 구독에 있고, Log Analytics 작업 영역이 다른 구독에 있어도 됩니다.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>원시 로그를 다른 구독에 저장할 수 있나요?
 
@@ -115,7 +115,7 @@ ms.locfileid: "45578313"
 
 다음 이유로 메시지가 표시될 수 있습니다.
 - 트래픽 분석이 최근에 설정되었으며 의미 있는 인사이트를 얻는 데 필요한 데이터를 아직 충분히 수집하지 못했을 수 있습니다.
-- Operations Management Suite 작업 영역의 사용 가능한 버전을 사용하고 있고 할당량 한도를 초과했습니다. 용량이 큰 작업 영역을 사용해야 할 수도 있습니다.
+- Log Analytics 작업 영역의 체험판 버전을 사용하고 있고 할당량 한도를 초과했습니다. 용량이 큰 작업 영역을 사용해야 할 수도 있습니다.
     
 그래도 문제가 계속되면 [사용자 의견 포럼](https://feedback.azure.com/forums/217313-networking?category_id=195844)에 문제를 올려주세요.
     

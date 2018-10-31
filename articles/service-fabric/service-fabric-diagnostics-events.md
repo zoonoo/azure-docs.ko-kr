@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: b9372c806eab1b0ca69ba078d972b076c8a7d6f6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ca63d67f6d7c19b4ca6928c4cc0f9ccb06eace2b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212724"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402984"
 ---
 # <a name="service-fabric-events"></a>Service Fabric 이벤트 
 
@@ -45,7 +45,7 @@ Service Fabric 플랫폼은 클러스터 내에서 발생하는 주요 운영 �
 ## <a name="how-to-access-events"></a>이벤트에 액세스하는 방법
 
 Service Fabric 이벤트에 액세스할 수 있는 몇 가지 방법이 있습니다.
-* 작동 채널을 통해. Azure 진단 확장을 통해 수집한 후 Storage 테이블로 보내 사용하거나 OMS Log Analytics 같은 도구로 수집할 수 있습니다. 클러스터에 대해 "진단"을 사용하도록 설정하면 Azure 진단 에이전트가 클러스터에 배포되고 기본적으로 작동 채널의 로그를 읽도록 구성됩니다. 추가 로그 또는 성능 카운터를 확인하려면 진단 구성을 수정하도록 [Azure 진단 에이전트](service-fabric-diagnostics-event-aggregation-wad.md)를 구성하는 방법에 대한 자세한 내용을 읽어보세요. 
+* 작동 채널을 통해. Azure 진단 확장을 통해 수집한 후 Storage 테이블로 보내 사용하거나 Azure Log Analytics 같은 도구로 수집할 수 있습니다. 클러스터에 대해 "진단"을 사용하도록 설정하면 Azure 진단 에이전트가 클러스터에 배포되고 기본적으로 작동 채널의 로그를 읽도록 구성됩니다. 추가 로그 또는 성능 카운터를 확인하려면 진단 구성을 수정하도록 [Azure 진단 에이전트](service-fabric-diagnostics-event-aggregation-wad.md)를 구성하는 방법에 대한 자세한 내용을 읽어보세요. 
 * 클러스터를 직접 쿼리할 수 있는 EventStore 서비스의 Rest API를 통해 또는 Service Fabric 클라이언트 라이브러리를 통해. [EventStore API를 통한 클러스터 이벤트 쿼리](service-fabric-diagnostics-eventstore-query.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

@@ -14,14 +14,15 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 680cea983fb7435bf4492fc295e29f3a234a4323
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356066"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387280"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
+
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS 앱을 위한 자동 사용자 프로비저닝이란?
 Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램의 사용자 ID 생성, 관리 및 제거를 자동화할 수 있습니다.
 
@@ -42,6 +43,7 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 * 모니터링 및 문제 해결에 도움이 되는 보고 및 활동 로그.
 
 ## <a name="why-use-automated-provisioning"></a>자동 프로비전을 사용하는 이유는 무엇입니까?
+
 이 기능을 사용하게 되는 일반적인 동기는 다음과 같습니다.
 
 * 수동 프로비저닝 절차에서 빚어지는 비용, 비효율성, 사람의 실수를 방지합니다.
@@ -69,6 +71,7 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 Azure AD는 SCIM 2.0 표준의 특정 부분을 구현하는 앱에 대한 일반적 지원뿐만 아니라 다양한 인기 있는 SaaS 앱 및 인사 관리 시스템에 대한 사전 통합된 지원도 제공합니다.
 
 ### <a name="pre-integrated-applications"></a>사전 통합된 응용 프로그램
+
 Azure AD가 미리 통합된 프로비저닝 커넥터를 지원하는 모든 응용 프로그램 목록을 보려면 [사용자 프로비저닝에 대한 응용 프로그램 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
 
 Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대한 프로비전 지원을 요청하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)을 통해 메시지를 제출하세요.
@@ -77,6 +80,7 @@ Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대�
 > 응용 프로그램에서 자동화된 사용자 프로비저닝을 지원하려면, 먼저 외부 프로그램에서 사용자 만들기, 유지 관리 및 제거를 자동화하는 데 필요한 사용자 관리 API를 제공해야 합니다. 따라서 모든 SaaS 앱이 이 기능과 호환되지는 않습니다. 사용자 관리 API를 지원하는 앱의 경우 Azure AD 엔지니어링 팀에서 해당 앱에 대한 프로비전 커넥터를 빌드할 수 있게 되며, 현재 및 잠재 고객의 요구 사항에 따라 이 작업의 우선 순위가 지정됩니다. 
 
 ### <a name="connecting-applications-that-support-scim-20"></a>SCIM 2.0을 지원하는 응용 프로그램 연결
+
 SCIM 2.0 기반 사용자 관리 API를 구현하는 응용 프로그램에 일반적으로 연결하는 방법에 대한 자세한 내용은 [SCIM을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동으로 프로비전](use-scim-to-provision-users-and-groups.md)을 참조하세요.
 
     
@@ -124,26 +128,28 @@ SCIM 2.0 기반 사용자 관리 API를 구현하는 응용 프로그램에 일�
 Azure AD가 소스 시스템인 경우 프로비저닝 서비스는 [Azure AD Graph API의 차등 쿼리 기능](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)을 사용하여 사용자와 그룹을 모니터링합니다. 프로비저닝 서비스는 소스 시스템 및 대상 시스템에 대해 초기 동기화를 실행한 다음, 주기적 증분 동기화를 실행합니다. 
 
 ### <a name="initial-sync"></a>초기 동기화
+
 프로비저닝 서비스를 시작하면 첫 번째 동기화에서 다음을 수행합니다.
 
 1. [특성 매핑](customize-application-attributes.md)에 정의된 모든 특성을 검색하여 소스 시스템에서 모든 사용자와 그룹을 쿼리합니다.
 2. 구성된 [할당](assign-user-or-group-access-portal.md) 또는 [특성 기반 범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)를 사용하여 반환된 사용자 및 그룹을 필터링합니다.
 3. 사용자가 할당되었거나 프로비저닝 범위에 있는 경우 서비스는 지정된 [일치 특성](customize-application-attributes.md#understanding-attribute-mapping-properties)을 사용하여 대상 시스템에서 일치하는 사용자를 쿼리합니다. 예: 소스 시스템의 userPrincipal 이름이 일치하는 특성이고 대상 시스템의 userName에 매핑되는 경우 프로비저닝 서비스는 대상 시스템에서 소스 시스템의 userPrincipal 이름 값과 일치하는 userNames를 쿼리합니다.
-4. 대상 시스템에 일치하는 사용자가 없으면 소스 시스템에서 반환된 특성을 사용하여 생성됩니다.
-5. 일치하는 사용자가 있으면 소스 시스템에서 제공하는 특성을 사용하여 업데이트됩니다.
+4. 대상 시스템에 일치하는 사용자가 없으면 소스 시스템에서 반환된 특성을 사용하여 생성됩니다. 사용자 계정이 생성되면 프로비저닝 서비스는 새 사용자의 대상 시스템 ID를 검색 및 캐시합니다. 이 ID는 해당 사용자에 대한 모든 후속 작업을 수행하는 데 사용됩니다.
+5. 일치하는 사용자가 있으면 소스 시스템에서 제공하는 특성을 사용하여 업데이트됩니다. 사용자 계정이 일치하면 프로비저닝 서비스는 새 사용자의 대상 시스템 ID를 검색 및 캐시합니다. 이 ID는 해당 사용자에 대한 모든 후속 작업을 수행하는 데 사용됩니다.
 6. 특성 매핑에 “참조” 특성이 포함되어 있을 경우 서비스는 대상 시스템에서 추가 업데이트를 수행하여 참조된 개체를 만들고 연결합니다. 예를 들어 대상 시스템에 있는 한 사용자의 “Manager” 특성이 대상 시스템에서 생성된 다른 사용자에 연결되어 있을 수 있습니다.
 7. 초기 동기화가 끝나면 워터마크를 저장합니다. 이 워터마크는 후속 증분 동기화의 시작점을 제공합니다.
 
 ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프로비저닝뿐 아니라 그룹 및 해당 멤버 프로비저닝도 지원합니다. 이 경우 [매핑](customize-application-attributes.md)에서 그룹 프로비저닝을 사용하도록 설정하면 프로비저닝 서비스에서 사용자와 그룹을 동기화한 다음, 그룹 멤버 자격을 동기화합니다. 
 
 ### <a name="incremental-syncs"></a>증분 동기화
+
 초기 동기화 후 모든 후속 동기화는 다음을 수행합니다.
 
 1. 소스 시스템에서 마지막 워터마크가 저장된 이후 업데이트된 사용자 및 그룹을 쿼리합니다.
 2. 구성된 [할당](assign-user-or-group-access-portal.md) 또는 [특성 기반 범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)를 사용하여 반환된 사용자 및 그룹을 필터링합니다.
 3. 사용자가 할당되었거나 프로비저닝 범위에 있는 경우 서비스는 지정된 [일치 특성](customize-application-attributes.md#understanding-attribute-mapping-properties)을 사용하여 대상 시스템에서 일치하는 사용자를 쿼리합니다.
-4. 대상 시스템에 일치하는 사용자가 없으면 소스 시스템에서 반환된 특성을 사용하여 생성됩니다.
-5. 일치하는 사용자가 있으면 소스 시스템에서 제공하는 특성을 사용하여 업데이트됩니다.
+4. 대상 시스템에 일치하는 사용자가 없으면 소스 시스템에서 반환된 특성을 사용하여 생성됩니다. 사용자 계정이 생성되면 프로비저닝 서비스는 새 사용자의 대상 시스템 ID를 검색 및 캐시합니다. 이 ID는 해당 사용자에 대한 모든 후속 작업을 수행하는 데 사용됩니다.
+5. 일치하는 사용자가 있으면 소스 시스템에서 제공하는 특성을 사용하여 업데이트됩니다. 이 계정이 일치된 새 할당 계정이면 프로비저닝 서비스는 새 사용자의 대상 시스템 ID를 검색 및 캐시합니다. 이 ID는 해당 사용자에 대한 모든 후속 작업을 수행하는 데 사용됩니다.
 6. 특성 매핑에 “참조” 특성이 포함되어 있을 경우 서비스는 대상 시스템에서 추가 업데이트를 수행하여 참조된 개체를 만들고 연결합니다. 예를 들어 대상 시스템에 있는 한 사용자의 “Manager” 특성이 대상 시스템에서 생성된 다른 사용자에 연결되어 있을 수 있습니다.
 7. 이전에 프로비저닝 범위에 있던 사용자가 범위에서 제거되면(할당 취소되는 경우 포함), 서비스는 업데이트를 통해 대상 시스템에서 사용자를 해제합니다.
 8. 이전에 프로비저닝 범위에 있던 사용자가 소스 시스템에서 해제 또는 일시 삭제되면 서비스는 업데이트를 통해 대상 시스템에서 사용자를 해제합니다.
@@ -160,7 +166,8 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 * 특성 매핑 또는 범위 지정 필터가 변경되어 새 초기 동기화가 트리거됩니다. 이 경우에도 저장된 워터마크가 모두 지워지며 모든 소스 개체가 다시 평가됩니다.
 * 높은 오류 비율로 인해 프로비저닝 프로세스가 격리(아래 참조) 상태로 전환되고 4주 넘게 격리 상태로 유지됩니다. 이 이벤트가 발생하면 자동으로 서비스를 사용할 수 없게 됩니다.
 
-### <a name="errors-and-retries"></a>오류 및 다시 시도 
+### <a name="errors-and-retries"></a>오류 및 다시 시도
+
 대상 시스템의 오류로 인해 대상 시스템에서 개별 사용자를 추가, 업데이트 또는 삭제할 수 없는 경우 다음 동기화 주기에서 작업이 다시 시도됩니다. 사용자가 계속 실패하면 감소된 빈도로 다시 시도되기 시작하여, 점차 하루에 한 번만 시도되는 빈도까지 축소됩니다. 오류를 해결하려면 관리자가 “프로세스 에스크로” 이벤트에 대한 [감사 로그](check-status-user-account-provisioning.md)를 확인하여 근본 원인을 파악하고 적절한 조치를 수행해야 합니다. 일반적인 오류는 다음과 같습니다.
 
 * 대상 시스템에서 필요한 특성이 사용자의 소스 시스템에 채워져 있지 않음
@@ -169,6 +176,7 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 이러한 오류는 소스 시스템에서 영향을 받는 사용자의 특성 값을 조정하거나 충돌이 발생하지 않도록 특성 매핑을 조정하여 해결할 수 있습니다.   
 
 ### <a name="quarantine"></a>격리
+
 대상 시스템에 대한 호출이 오류(예: 잘못된 관리자 자격 증명)로 인해 대부분 또는 모두 일관되게 실패하는 경우 프로비저닝 작업이 “격리” 상태로 전환됩니다. 이 사실은 [프로비저닝 요약 보고서](check-status-user-account-provisioning.md) 및 Azure Portal에서 메일 알림이 구성된 경우 메일을 통해 알 수 있습니다. 
 
 격리 중에 증분 동기화 빈도는 하루에 한 번까지 점차 감소됩니다. 
@@ -219,26 +227,52 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 * 할당된 그룹 수 및 크기. 할당된 그룹 동기화가 사용자 동기화보다 시간이 오래 걸립니다. 할당된 그룹 수와 크기는 둘 다 성능에 영향을 줍니다. 응용 프로그램에 [그룹 개체 동기화가 사용되는 매핑](customize-application-attributes.md#editing-group-attribute-mappings)이 있는 경우 그룹 이름 및 멤버 자격과 같은 그룹 속성이 사용자와 함께 동기화됩니다. 이러한 추가 동기화 때문에 사용자 객체만 동기화하는 것보다 시간이 오래 걸립니다.
 
 
-##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>사용자가 적절히 프로비전되는지 어떻게 확인할 수 있나요?
+## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>사용자가 적절히 프로비전되는지 어떻게 확인할 수 있나요?
 
 사용자 프로비저닝 서비스에서 수행되는 모든 작업은 Azure AD 감사 로그에 기록됩니다. 원본 및 대상 시스템에 만들어진 모든 읽기 및 쓰기 작업 뿐만 아니라 각 작업 동안 읽거나 작성된 사용자 데이터를 포함합니다.
 
 Azure Portal에서 감사 로그를 읽는 방법에 대한 자세한 내용은 [프로비전 보고 가이드](check-status-user-account-provisioning.md)를 참조하세요.
 
 
-##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>사용자 프로비저닝 문제를 어떻게 해결하나요?
+## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>사용자 프로비저닝 문제를 어떻게 해결하나요?
 
 자동 사용자 프로비전 문제를 해결하는 방법에 대한 시나리오 기반 지침은 [응용 프로그램에 사용자를 구성 및 프로비전하는 문제](application-provisioning-config-problem.md)를 참조하세요.
 
 
-##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>자동 사용자 프로비저닝을 롤아웃하기 위한 모범 사례는 무엇인가요?
+## <a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>자동 사용자 프로비저닝을 롤아웃하기 위한 모범 사례는 무엇인가요?
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
 응용 프로그램에 대한 아웃바운드 사용자 프로비저닝에 대한 단계별 배포 계획 예제는 [사용자 프로비저닝에 대한 ID 배포 가이드](https://aka.ms/userprovisioningdeploymentplan)를 참조하세요.
 
+## <a name="more-frequently-asked-questions"></a>기타 질문과 대답
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 B2B 사용자에게 작동하나요?
+
+예. Azure AD 사용자 프로비저닝 서비스를 사용하여 Azure AD의 B2B(또는 게스트) 사용자를 SaaS 응용 프로그램으로 프로비전할 수 있습니다.
+
+그러나 B2B 사용자가 Azure AD를 사용하여 SaaS 응용 프로그램에 로그인하려면 SaaS 응용 프로그램의 SAML 기반 Single Sign-On 기능을 특정 방식으로 구성해야 합니다. B2B 사용자의 로그인을 지원하도록 SaaS 응용 프로그램을 구성하는 방법에 대한 자세한 내용은 [B2B 공동 작업을 위한 SaaS 앱 구성]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps)을 참조하세요.
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 동적 그룹에 작동하나요?
+
+예. “할당된 사용자 및 그룹만 동기화”하도록 구성하면 Azure AD 사용자 프로비저닝 서비스는 [동적 그룹](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule])의 멤버인지 여부에 따라 SaaS 응용 프로그램에서 사용자를 프로비전하거나 프로비전 해제할 수 있습니다. 또한 동적 그룹은 “모든 사용자 및 그룹 동기화” 옵션을 사용할 때도 작동합니다.
+
+그러나 동적 그룹의 사용은 Azure AD에서 SaaS 응용 프로그램으로의 종단 간 사용자 프로비저닝에 대한 전체 성능에 영향을 줄 수 있습니다. 동적 그룹을 사용하는 경우 다음과 같은 주의 사항 및 권장 사항에 유의하세요.
+
+* 동적 그룹의 사용자가 SaaS 응용 프로그램에서 프로비전 또는 프로비전 해제되는 속도는 동적 그룹이 멤버 자격 변경을 평가하는 속도에 따라 좌우됩니다. 동적 그룹의 처리 상태를 확인하는 방법에 대한 내용은 [멤버 자격 규칙에 대한 처리 상태 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule)을 참조하세요.
+
+* 동적 그룹을 사용하는 경우 멤버 자격을 손실하면 프로비저닝 해제 이벤트가 발생하므로 사용자 프로비전 및 프로비전 해제를 신중하게 고려하여 규칙을 지정해야 합니다.
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 중첩 그룹에 작동하나요?
+
+아니요. “할당된 사용자 및 그룹만 동기화”하도록 구성된 경우 Azure AD 사용자 프로비저닝 서비스는 중첩된 그룹에 있는 사용자를 읽거나 프로비전할 수 없습니다. 명시적으로 할당된 그룹의 직계 멤버인 사용자만 읽고 프로비전할 수 있습니다.
+
+이것은 Single Sign-On에도 영향을 미치는 “응용 프로그램에 대한 그룹 기반 할당”의 제한 사항으로, [그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )에 설명되어 있습니다.
+
+문제를 해결하려면 프로비전해야 하는 사용자를 포함하는 그룹을 명시적으로 할당(또는 [범위 지정](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts))해야 합니다.
 
 ## <a name="related-articles"></a>관련 문서
+
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 * [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](customize-application-attributes.md)
 * [특성 매핑에 대한 식 작성](functions-for-customizing-application-data.md)

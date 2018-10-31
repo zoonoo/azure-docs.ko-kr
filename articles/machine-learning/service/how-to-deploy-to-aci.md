@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237180"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429466"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Azure Container Instances에 웹 서비스 배포 
 
@@ -82,10 +82,10 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 > [모델 파일(`Webservice.deploy()`)에서 배포](#deploy-from-model-file)하는 경우 이 필수 구성 요소를 건너뜁니다.
 
-[`Webservice.deploy_from_model`](#deploy-from-registered-model) 또는 [`Webservice.deploy_from_image`](#deploy-from-image)를 사용하도록 모델을 등록합니다. 또는 이미 등록된 모델이 있는 경우 지금 검색하세요.
+[Webservice.deploy_from_model](#deploy-from-registered-model) 또는 [Webservice.deploy_from_image](#deploy-from-image)를 사용하도록 모델을 등록합니다. 또는 이미 등록된 모델이 있는 경우 지금 검색하세요.
 
 ### <a name="retrieve-a-registered-model"></a>등록된 모델 검색
-Azure Machine Learning을 사용하여 모델을 학습하는 경우 모델이 작업 영역에 이미 등록되어 있을 수 있습니다.  예를 들어 [모델 학습](tutorial-train-models-with-aml.md) 자습서]의 마지막 단계에서 모델을 등록했을 것입니다.  그런 다음, 배포할 등록된 모델을 검색합니다.
+Azure Machine Learning을 사용하여 모델을 학습하는 경우 모델이 작업 영역에 이미 등록되어 있을 수 있습니다.  예를 들어 [모델 학습](tutorial-train-models-with-aml.md) 자습서의 마지막 단계에서 모델을 등록했을 것입니다.  그런 다음, 배포할 등록된 모델을 검색합니다.
 
 ```python
 from azureml.core.model import Model
@@ -109,7 +109,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         workspace = ws)
 ```
 
-
+<a name='deploy-from-model-file'/>
 ## <a name="option-1-deploy-from-model-file"></a>옵션 1: 모델 파일에서 배포
 
 모델 파일에서 배포하는 옵션의 경우 최소의 코드만 작성하면 되지만, 구성 요소 명명에 대한 제어 권한도 최소로만 유지됩니다. 이 옵션은 모델 파일로 시작하고, 해당 파일을 작업 영역에 등록합니다.  그러나 모델 이름을 지정하거나 태그 또는 설명을 연결할 수는 없습니다.  
@@ -148,6 +148,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 1. 이제 [웹 서비스를 테스트](#test-web-service)할 수 있습니다.
 
+<a name='deploy-from-registered-model'/>
 ## <a name="option-2-deploy-from-registered-model"></a>옵션 2: 등록된 모델에서 배포
 
 등록된 모델 파일을 배포하는 옵션은 좀 더 많은 코드 줄을 사용하며 출력의 명명을 좀 더 제어할 수 있도록 합니다. 이 옵션은 이미 등록된 모델을 배포하는 편리한 방법입니다.  그러나 Docker 이미지 이름은 지정할 수 없습니다.  
@@ -173,6 +174,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 1. 이제 [웹 서비스를 테스트](#test-web-service)할 수 있습니다.
 
+<a name='deploy-from-image'/>
 ## <a name="option-3-deploy-from-image"></a>옵션 3: 이미지에서 배포
 
 `Webservice.deploy_from_image()`를 사용하여 등록된 모델(`model`)을 배포합니다. 이 메서드를 사용하여 Docker 이미지를 별도로 만든 후 해당 이미지에서 배포할 수 있습니다.
@@ -215,6 +217,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 이제 웹 서비스를 테스트할 수 있습니다.
 
+<a name='test-web-service'/>
 ## <a name="test-the-web-service"></a>웹 서비스 테스트
 
 웹 서비스는 어떤 메서드가 사용되든 동일합니다.  예측을 얻으려면 서비스의 `run` 메서드를 사용합니다.  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 47f219b7319e4d2bbadf03954f7bd7f6f39da3b4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128982"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404344"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
@@ -43,7 +43,7 @@ NPM(네트워크 성능 모니터)은 Azure 클라우드 배포 및 온-프레�
 
 모니터링 에이전트는 온-프레미스 및 Azure의 여러 서버에 설치됩니다. 에이전트는 서로 통신하지만 데이터를 전송하지 않으며 TCP 핸드셰이크 패킷을 전송합니다. 에이전트 간 통신을 위해 Azure는 트래픽에 적용될 수 있는 네트워크 토폴로지 및 경로를 매핑할 수 있습니다.
 
-1. NPM 작업 영역 만들기 OMS 작업 영역과 동일합니다.
+1. NPM 작업 영역 만들기 이는 Log Analytics 작업 영역과 동일합니다.
 2. 소프트웨어 에이전트를 설치 및 구성합니다. 
     * 온-프레미스 서버와 Azure VM에서 모니터링 에이전트를 설치합니다(개인 피어링의 경우).
     * 모니터링 에이전트가 통신할 수 있도록 모니터링 에이전트 서버의 설정을 구성합니다. (방화벽 포트 등을 엽니다.)
@@ -63,10 +63,10 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
-2. 주 **네트워크 성능 모니터** 페이지 아래쪽에서 **만들기**를 클릭하여 **네트워크 성능 모니터 - 새 솔루션 만들기** 페이지를 엽니다. **OMS 작업 영역 - 작업 영역 선택**을 클릭하여 작업 영역 페이지를 엽니다. **+ 새 작업 영역 만들기**를 클릭하여 작업 영역 페이지를 엽니다.
-3. **OMS 작업 영역** 페이지에서 **새로 만들기**를 선택한 다음, 다음 설정을 구성합니다.
+2. 주 **네트워크 성능 모니터** 페이지 아래쪽에서 **만들기**를 클릭하여 **네트워크 성능 모니터 - 새 솔루션 만들기** 페이지를 엽니다. **Log Analytics 작업 영역 - 작업 영역 선택**을 클릭하여 작업 영역 페이지를 엽니다. **+ 새 작업 영역 만들기**를 클릭하여 작업 영역 페이지를 엽니다.
+3. **Log Analytics 작업 영역** 페이지에서 **새로 만들기**를 선택한 다음, 다음 설정을 구성합니다.
 
-  * OMS 작업 영역 - 작업 영역의 이름을 입력합니다.
+  * Log Analytics 작업 영역 - 작업 영역의 이름을 입력합니다.
   * 구독 - 여러 구독이 있는 경우 새 작업 영역에 연결할 구독을 선택합니다.
   * 리소스 그룹 - 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다.
   * 위치 - 이 위치는 에이전트 연결 로그에 사용되는 저장소 계정의 위치를 지정하는 데 사용됩니다.
@@ -86,9 +86,9 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
 ### <a name="download"></a>2.1: 에이전트 설치 파일 다운로드
 
-1. 리소스에 대한 **네트워크 성능 모니터 구성** 페이지의 **일반 설정** 탭으로 이동합니다. **OMS 에이전트 설치** 섹션에서 서버 프로세서에 해당하는 에이전트를 클릭하고 설치 파일을 다운로드합니다.
+1. 리소스에 대한 **네트워크 성능 모니터 구성** 페이지의 **일반 설정** 탭으로 이동합니다. **Log Analytics 에이전트 설치** 섹션에서 서버 프로세서에 해당하는 에이전트를 클릭하고 설치 파일을 다운로드합니다.
 2. 이제 **작업 영역 ID** 및 **기본 키**를 메모장에 복사합니다.
-3. **TCP 프로토콜을 사용하여 모니터링할 OMS 에이전트 구성** 섹션에서 Powershell 스크립트를 다운로드합니다. PowerShell 스크립트는 TCP 트랜잭션에 대한 관련 방화벽 포트를 여는 데 도움이 됩니다.
+3. **TCP 프로토콜을 사용하여 모니터링할 Log Analytics 에이전트 구성** 섹션에서 Powershell 스크립트를 다운로드합니다. PowerShell 스크립트는 TCP 트랜잭션에 대한 관련 방화벽 포트를 여는 데 도움이 됩니다.
 
   ![PowerShell 스크립트](.\media\how-to-npm\7.png)
 
@@ -117,7 +117,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
     ![계좌](.\media\how-to-npm\10.png)
 6. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치**를 클릭합니다.
 7. **구성 완료** 페이지에서 **마침**을 클릭합니다.
-8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토하고 에이전트가 Azure Log Analytics(OMS)에 연결되었는지 확인합니다. 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
+8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토하고 에이전트가 Azure Log Analytics에 연결되었는지 확인할 수 있습니다. 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
 
 9. 모니터링해야 하는 각 VNET에 대해 이 프로시저를 반복합니다.
 

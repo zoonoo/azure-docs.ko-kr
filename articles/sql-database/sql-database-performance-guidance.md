@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 성능 튜닝 지침 | Microsoft Docs
-description: Azure SQL Database 쿼리 성능을 높이기 위한 권장 사항 사용 방법에 대해 알아봅니다.
+description: Azure SQL Database 쿼리 성능을 수동으로 튜닝하기 위한 권장 사항 사용 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,42 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 9af699dca5aab26f0bf24b4609bef14558236523
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/22/2018
+ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854816"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645527"
 ---
-# <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL Database에서 성능 튜닝
+# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Azure SQL Database에서 쿼리 성능 수동 튜닝
 
-Azure SQL Database는 데이터베이스의 성능을 개선하는 데 사용할 수 있는 [권장 사항](sql-database-advisor.md)을 제공하며 사용자는 Azure SQL Database를 통해 워크로드 성능을 개선하도록 [응용 프로그램에 대해 자동으로 조정](sql-database-automatic-tuning.md)하고 변경 사항을 적용할 수 있습니다.
+SQL Database에서 직면한 성능 문제를 확인한 후 이 문서는 다음과 같은 작업을 돕기 위해 작성되었습니다.
 
-권장 사항을 적용할 수 없고 성능 문제가 있는 경우 다음 방법으로 성능을 개선할 수 있습니다.
-
-- [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)에서 서비스 계층을 높이면 사용자의 데이터베이스에 더 많은 리소스가 제공됩니다.
 - 응용 프로그램을 튜닝하고 성능을 향상시킬 수 있는 몇 가지 모범 사례를 적용합니다.
 - 데이터에 대해 보다 효율적으로 작동하도록 인덱스 및 쿼리를 변경하여 데이터베이스를 튜닝합니다.
 
-요구 사항을 충족하는 리소스 양을 결정해야 하기 때문에 수동 메서드입니다. 그렇지 않으면 응용 프로그램 또는 데이터베이스 코드를 다시 작성하고 변경 내용을 배포해야 합니다.
-
-## <a name="increasing-service-tier-of-your-database"></a>데이터베이스의 서비스 계층 늘리기
-
-Azure SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 중에서 사용자가 선택할 수 있는 [두 가지 구매 모델](sql-database-service-tiers.md)을 제공합니다. 각 서비스 계층에서는 사용자의 SQL Database가 사용할 수 있는 리소스를 엄격하게 분리하며 해당 서비스 계층의 예측 가능한 성능을 보장합니다. 이 문서에서는 응용 프로그램에 대한 서비스 계층을 선택하는 데 도움이 되는 지침을 제공합니다. 또한 Azure SQL Database를 활용하도록 응용 프로그램을 튜닝할 수 있는 방법도 설명합니다. 각 서비스 계층에는 자체 [리소스 제한](sql-database-resource-limits.md)이 있습니다. 자세한 내용은 [vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md) 및 [DTU 기반 리소스 제한](sql-database-dtu-resource-limits-single-databases.md)을 참조하세요.
-
-> [!NOTE]
-> 이 문서는 Azure SQL Database의 단일 데이터베이스에 대한 성능 지침을 중심으로 살펴봅니다. 탄력적 풀과 관련된 성능 지침을 보려면 [탄력적 풀의 가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md)을 참조하세요. 단, 이 문서의 많은 튜닝 권장 사항을 탄력적 풀의 데이터베이스에 적용하고 유사한 성능 이점을 얻을 수는 있습니다.
-
-SQL 데이터베이스에 필요한 서비스 계층은 각 리소스 규격의 최고 부하 요구 사항에 따라 다릅니다. 일부 응용 프로그램은 단일 리소스를 매우 적게 사용하는 반면 다른 리소스에 대한 요구 사항은 높습니다.
-
-### <a name="service-tier-capabilities-and-limits"></a>서비스 계층 기능 및 한도
-
-각 서비스 계층에서 필요한 용량에 대해서만 요금을 지불하는 유연성을 갖도록 계산 크기를 설정합니다. 워크로드가 변함에 따라 [용량을 높거나 낮게 조정](sql-database-single-database-scale.md)할 수 있습니다. 예를 들어, 개학 전 쇼핑 시즌에 데이터베이스 워크로드가 많아질 경우 7월부터 9월까지 설정된 기간 동안 데이터베이스에 대한 계산 크기를 늘릴 수 있습니다. 최대 시즌이 끝나면 성능 수준을 줄일 수 있습니다. 비즈니스의 계절성에 따라 클라우드 환경을 최적화하여 지불하는 비용을 최소화할 수 있습니다. 이 모델은 소프트웨어 개발 출시 주기에도 적합합니다. 테스트 팀은 테스트 실행 중 용량을 할당하고 테스트가 완료되면 용량을 해제할 수 있습니다. 용량 요청 방식에서는 필요할 때마다 용량에 대해 지불하며 거의 사용하지 않는 전용 리소스에 대한 비용 지출을 방지합니다.
-
-### <a name="the-purpose-of-service-tiers"></a>서비스 계층의 용도
-
-각 데이터베이스 워크로드는 다를 수 있지만 서비스 계층의 목적은 다양한 계산 크기에서 성능 예측 가능성을 제공하는 것입니다. 데이터베이스 리소스 요구사항이 큰 고객은 더 많은 전용 컴퓨팅 환경에서 작업할 수 있습니다.
+이 문서에서는 사용자가 Azure SQL Database [데이터베이스 관리자 권장 사항](sql-database-advisor.md)과 Azure SQL Database [자동 튜닝 권장 사항](sql-database-automatic-tuning.md)을 이미 경험했다고 가정합니다. 또한 성능 문제 해결과 관련된 [모니터링 및 튜닝 개요](sql-database-monitor-tune-overview.md) 및 관련 문서를 검토했다고 가정합니다. 또한 이 문서에서는 CPU 리소스가 없으며 데이터베이스에 더 많은 리소스를 제공하기 위해 계산 크기 또는 서비스 계층을 늘려 해결할 수 있는 실행 관련 성능 문제가 없다고 가정합니다.
 
 ## <a name="tune-your-application"></a>응용 프로그램 튜닝
 
@@ -75,17 +55,6 @@ Azure SQL Database 서비스 계층이 응용 프로그램의 성능 안정성�
 ## <a name="tune-your-database"></a>데이터베이스 튜닝
 
 이 섹션에서는 Azure SQL Database를 튜닝하여 응용 프로그램에서 최고의 성능을 달성하고 최저 계산 크기에서도 실행할 수 있는 몇 가지 기법에 대해 설명합니다. 이러한 기법 중 일부는 기존 SQL Server 튜닝의 모범 사례와 동일하지만 일부 기법은 Azure SQL Database에만 해당합니다. 경우에 따라 데이터베이스에 사용된 리소스를 조사하고 추가 튜닝 영역을 찾으면 기존 SQL Server 기법을 확장하여 Azure SQL Database에서도 사용할 수 있습니다.
-
-### <a name="identify-performance-issues-using-azure-portal"></a>Azure Portal을 사용하여 성능 문제 식별
-
-Azure Portal에서 제공되는 다음 도구는 SQL Database를 사용하여 성능 문제를 분석하고 해결하는 데 도움이 될 수 있습니다.
-
-- [쿼리 성능 Insight](sql-database-query-performance.md)
-- [SQL Database 관리자](sql-database-advisor.md)
-
-Azure Portal에 이러한 도구와 사용 방법에 대한 자세한 정보가 있습니다. 먼저 Azure Portal의 도구를 사용하여 보다 효율적으로 문제를 진단 및 해결하려고 시도하는 것이 좋습니다. 특별한 경우 인덱스 누락 및 쿼리 튜닝을 위해 다음에 설명하는 수동 튜닝 방법을 사용할 것을 권장합니다.
-
-[Azure Portal에서 성능 모니터링](sql-database-monitor-tune-overview.md) 및 [DMV를 사용하여 데이터베이스 모니터링](sql-database-monitoring-with-dmvs.md) 문서에서 Azure SQL Database의 문제를 식별하는 방법에 대해 자세히 알아보세요.
 
 ### <a name="identifying-and-adding-missing-indexes"></a>누락된 인덱스 식별 및 추가
 

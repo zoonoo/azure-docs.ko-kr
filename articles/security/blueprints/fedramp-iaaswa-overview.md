@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6a2a72f46c4d5faacb7d5871f4c917a5cd578e96
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: f5ba6a001f8933283e0867367ef7bd8d3918c3fd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809168"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405381"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure 보안 및 규정 준수 청사진: FedRAMP 준수 IaaS 웹 응용 프로그램
 
@@ -72,7 +72,7 @@ ms.locfileid: "34809168"
 - Azure Key Vault
 - Azure AD(Azure Active Directory)
 - Azure 리소스 관리자
-- OMS(Operations Management Suite)
+- Log Analytics
 - Azure Monitor
 
 ## <a name="deployment-architecture"></a>배포 아키텍처
@@ -148,13 +148,13 @@ ms.locfileid: "34809168"
 
 ### <a name="logging-and-auditing"></a>로깅 및 감사
 
-OMS는 시스템 및 사용자 활동, 시스템 상태에 대한 광범위 로깅을 제공합니다. OMS [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 솔루션은 Azure 및 온-프레미스 환경의 리소스에서 생성된 데이터를 수집하고 분석합니다.
+Log Analytics는 시스템 및 사용자 활동과 시스템 상태에 대한 광범위한 로깅을 제공합니다. [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 솔루션은 Azure 및 온-프레미스 환경의 리소스에서 생성된 데이터를 수집하고 분석합니다.
 
 - **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
 - **진단 로그:** [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그입니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그 및 Application Gateway 액세스 및 방화벽 로그가 포함됩니다.
 - **로그 보관**: 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure 저장소 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다. 이러한 로그는 처리, 저장, 대시보드 보고를 위해 Azure Log Analytics에 연결됩니다.
 
-또한 이 아키텍처의 일부로 다음 OMS 솔루션이 설치됩니다. 이러한 솔루션을 FedRAMP 보안 컨트롤에 맞게 구성하는 것은 고객의 책임입니다.
+또한 이 아키텍처의 일부인 다음 모니터링 솔루션이 설치됩니다. 이러한 솔루션을 FedRAMP 보안 컨트롤에 맞게 구성하는 것은 고객의 책임입니다.
 -   [AD 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 확인 솔루션은 표준 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
 -   [맬웨어 방지 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): 맬웨어 방지 솔루션은 맬웨어, 위협 및 보호 상태를 보고합니다.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): Azure Automation 솔루션은 Runbook을 저장, 실행 및 관리합니다.

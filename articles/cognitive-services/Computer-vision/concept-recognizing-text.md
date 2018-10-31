@@ -3,19 +3,19 @@ title: 인쇄되고 필기된 텍스트 인식 - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API를 사용하여 이미지에서 인쇄되고 필기된 텍스트를 인식하는 데 관련된 개념입니다.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: 6827bf5f983834dc5222a3f3028386f8bbcb253a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985314"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338103"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>인쇄되고 필기된 텍스트 인식
 
@@ -29,7 +29,7 @@ Computer Vision은 다음 요구 사항을 충족하는 이미지에서 인쇄�
 
 - 이미지가 JPEG, PNG 또는 BMP 형식으로 제공되어야 합니다.
 - 이미지의 파일 크기가 4MB보다 작아야 합니다.
-- 이미지의 크기는 40x40픽셀에서 3200x3200픽셀 사이여야 합니다.
+- 이미지의 크기는 50x50픽셀에서 4200x4200픽셀 사이여야 합니다.
 
 > [!NOTE]
 > 이 기술은 현재 미리 보기 상태로 제공되고 있으며, 영어 텍스트에만 사용할 수 있습니다.

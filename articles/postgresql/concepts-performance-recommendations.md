@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 6de302dbcfa9d6d1d2b311f41b03d8e54aeb63f6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 46a4e69ecb08276e12ccc197de2d3ad838628b78
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395443"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378604"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 성능 권장 사항
 
 **적용 대상:** Azure Database for PostgreSQL 9.6 및 10
 
 > [!IMPORTANT]
-> 성능 권장 사항은 일부 지역에서 공개 미리 보기로 제공됩니다.
+> 성능 권장 사항은 공개 미리 보기로 제공됩니다.
 
 성능 권장 사항 기능은 성능 향상을 위해 Azure Database for PostgreSQL 서버에서 만들 수 있는 상위 인덱스를 확인합니다. 이 기능은 인덱스 권장 사항을 생성하기 위해 쿼리 저장소에서 보고한 스키마와 워크로드를 포함하여 다양한 데이터베이스 특성을 고려하고 있습니다. 성능 권장 사항이 구현되면 고객이 성능을 테스트하여 변경에 따른 영향을 평가해야 합니다. 
 

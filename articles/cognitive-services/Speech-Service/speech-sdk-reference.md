@@ -1,24 +1,25 @@
 ---
-title: 음성 SDK 참조
+title: 음성 SDK API 참조
+titleSuffix: Azure Cognitive Services
 description: 음성 SDK에 대한 참조입니다.
 services: cognitive-services
-titleSuffix: Microsoft Cognitive Services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 09/24/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b3770187033ef30982c38d8892c5b014b5dcb7c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: wolfma
+ms.openlocfilehash: fb80a3462caa59af423ef4f2f80e43f5d75e89e2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950984"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470900"
 ---
-# <a name="speech-sdk-reference"></a>음성 SDK 참조
+# <a name="speech-sdk-api-reference"></a>음성 SDK API 참조
 
-음성 SDK(소프트웨어 개발 키트)는 음성 사용이 가능한 소프트웨어를 개발하기 쉽도록 응용 프로그램이 음성 서비스의 기능에 액세스할 수 있게 합니다. 현재 SDK에서는 **음성 텍스트 변환**, **음성 번역** 및 **의도 인식**에 대한 액세스 권한을 제공합니다.
+음성 SDK(소프트웨어 개발 키트)를 사용하면 응용 프로그램에서 Speech 서비스의 기능에 액세스할 수 있으므로 음성 지원 소프트웨어를 더 쉽게 개발할 수 있습니다. 현재 SDK에서는 **음성 텍스트 변환**, **음성 번역** 및 **의도 인식**에 대한 액세스 권한을 제공합니다. 기능 및 지원되는 플랫폼에 대한 일반적인 개요는 설명서의 [진입 페이지](http://aka.ms/csspeech)에 나와 있습니다.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

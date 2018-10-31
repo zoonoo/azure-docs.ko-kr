@@ -2,18 +2,17 @@
 title: Azure Container Instances에서 gitRepo 볼륨 탑재
 description: gitRepo 볼륨을 탑재하여 컨테이너 인스턴스에 Git 리포지토리를 복제하는 방법을 알아봅니다.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
-ms.author: marsma
-ms.openlocfilehash: 34036c5ec9ccd8c502104ce862e4749c59be62b9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: danlep
+ms.openlocfilehash: af1fbe66c805517c07975b2e4cf6e13e87ec661c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105195"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388275"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Azure Container Instances에서 gitRepo 볼륨 탑재
 
@@ -90,17 +89,17 @@ Azure Resource Manager 템플릿을 사용하는 컨테이너 인스턴스 배�
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-VSTS Git 리포지토리의 경우 유효한 PAT와 함께 사용자 이름을 지정합니다(다음 예제와 같이 "vstsuser"를 사용할 수 있음).
+Azure Repos Git 리포지토리의 경우 유효한 PAT와 조합해서 사용자 이름을 지정합니다(다음 예제와 같이 “azurereposuser”를 사용할 수 있음).
 
 ```azurecli
---gitrepo-url https://vstsuser:abcdef1234fdsa4321abcdef@vstsaccountname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azurereposuser:abcdef1234fdsa4321abcdef@dev.azure.com/your-org/_git/some-private-repository
 ```
 
-GitHub 및 VSTS의 개인용 액세스 토큰에 대한 자세한 내용은 다음을 참조하세요.
+GitHub 및 Azure Repos의 개인용 액세스 토큰에 대한 자세한 내용은 다음을 참조하세요.
 
 GitHub: [명령줄에 대한 개인용 액세스 토큰 만들기][pat-github]
 
-VSTS: [액세스 인증을 위한 개인용 액세스 토큰 만들기][pat-vsts]
+Azure Repos: [액세스 인증을 위한 개인용 액세스 토큰 만들기][pat-repos]
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -113,7 +112,7 @@ Azure Container Instances에서 다른 볼륨 유형을 탑재하는 방법을 �
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
 [pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[pat-vsts]: https://docs.microsoft.com/vsts/organizations/accounts/use-personal-access-tokens-to-authenticate
+[pat-repos]: https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: d599b54fe828b88edd3d04d6cd66a4baf36c2c1a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1962a3237fb54409d17fefa314605bafa91c3e9c
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831554"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427640"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Files용 SMB를 통한 Azure Active Directory 인증(미리 보기) 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -58,7 +58,7 @@ VM에서 실행 중인 응용 프로그램과 연결된 ID가 Azure Files의 데
 ![SMB를 통한 Azure AD 인증 다이어그램을 보여 주는 스크린샷](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
 
 ### <a name="enable-azure-ad-authentication-over-smb"></a>SMB를 통한 Azure AD 인증 사용
-2018년 8월 29일 이후에 만든 새 저장소 계정 및 기존 저장소 계정에서는 Azure Files용 SMB를 통한 Azure AD 인증을 사용하도록 설정할 수 있습니다. 
+2018년 9월 24일 이후에 만든 새 저장소 계정 및 기존 저장소 계정에서는 Azure Files용 SMB를 통한 Azure AD 인증을 사용하도록 설정할 수 있습니다. 
 
 SMB를 통한 Azure AD 인증을 사용하도록 설정하려면 먼저 해당 저장소 계정이 연결된 주 Azure AD 테넌트에 대해 Azure AD Domain Services가 배포되었는지 확인하세요. Azure AD Domain Services를 아직 설정하지 않은 경우 [Azure Portal을 사용하여 Azure Active Directory Domain Services 사용](../../active-directory-domain-services/active-directory-ds-getting-started.md)에 제공된 단계별 지침을 따르세요.
 

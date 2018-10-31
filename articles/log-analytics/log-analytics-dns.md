@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9bb7adaeec89979ff86920b4bfd74c6399bda298
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9ac8d876e9c79e5aadfcf834e18e94f6ac8b3a30
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043636"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408475"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -46,7 +46,7 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 | --- | --- | --- |
 | [Windows 에이전트](log-analytics-windows-agent.md) | yes | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
-| [System Center Operations Manager 관리 그룹](log-analytics-om-agents.md) | yes | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Operations Management Suite로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Operations Management Suite 리포지토리로 전달됩니다. |
+| [System Center Operations Manager 관리 그룹](log-analytics-om-agents.md) | yes | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Log Analytics로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
@@ -58,7 +58,7 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 다음 정보를 사용하여 솔루션을 구성합니다.
 
 - 모니터링할 각 DNS 서버에 [Windows](log-analytics-windows-agent.md) 또는 [Operations Manager](log-analytics-om-agents.md) 에이전트가 있어야 합니다.
-- [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace)에서 Operations Management Suite 작업 영역으로 DNS 분석 솔루션을 추가할 수 있습니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용할 수도 있습니다.
+- [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace)에서 Log Analytics 작업 영역으로 DNS 분석 솔루션을 추가할 수 있습니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용할 수도 있습니다.
 
 솔루션은 추가 구성이 필요 없이 데이터 수집을 시작합니다. 그러나 다음 구성을 사용하여 데이터 수집을 사용자 지정할 수 있습니다.
 
@@ -76,11 +76,11 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 ## <a name="management-packs"></a>관리 팩
 
-Microsoft Monitoring Agent를 사용하여 Operations Management Suite 작업 영역에 연결하는 경우 다음 관리 팩이 설치됩니다.
+Microsoft Monitoring Agent를 사용하여 Log Analytics 작업 영역에 연결하는 경우 다음 관리 팩이 설치됩니다.
 
 - Microsoft DNS 데이터 수집기 인텔리전스 팩(Microsft.IntelligencePacks.Dns)
 
-Operations Manager 관리 그룹이 Operations Management Suite 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 System Center Operations Manager에 설치됩니다. 이 관리 팩에 대한 구성 또는 유지 관리는 필요 없습니다.
+Operations Manager 관리 그룹이 Log Analytics 작업 영역에 연결된 경우 이 솔루션을 추가할 때 다음 관리 팩이 Operations Manager에 설치됩니다. 이 관리 팩에 대한 구성 또는 유지 관리는 필요 없습니다.
 
 - Microsoft DNS 데이터 수집기 인텔리전스 팩(Microsft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS 분석 구성(Microsoft.IntelligencePack.Dns.Configuration)
@@ -91,7 +91,7 @@ Operations Manager 관리 그룹이 Operations Management Suite 작업 영역에
 
 이 섹션에서는 모든 대시보드 기능과 사용 방법에 대해 설명합니다.
 
-작업 영역에 이 솔루션을 추가하면 Operations Management Suite 개요 페이지의 솔루션 타일에 DNS 인프라에 대한 간단한 요약이 표시됩니다. 여기에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. 지난 24시간 동안 악성 도메인을 해결하기 위해 클라이언트에서 수행한 요청 수도 포함됩니다. 타일을 클릭하면 솔루션 대시보드가 열립니다.
+작업 영역에 솔루션을 추가하고 나면, Azure Portal의 Log Analytics 개요 페이지에 DNS 인프라의 간단한 요약에 대한 **솔루션 보기** 링크가 포함됩니다. 여기에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. 지난 24시간 동안 악성 도메인을 해결하기 위해 클라이언트에서 수행한 요청 수도 포함됩니다. 타일을 클릭하면 솔루션 대시보드가 열립니다.
 
 ![DNS 분석 타일](./media/log-analytics-dns/dns-tile.png)
 
@@ -185,7 +185,7 @@ Operations Manager 관리 그룹이 Operations Management Suite 작업 영역에
 
 두 가지 방법으로 사용자 의견을 제공할 수 있습니다.
 
-- **UserVoice**. 작업 중인 DNS 분석 기능에 대한 아이디어를 게시합니다. [Operations Management Suite UserVoice 페이지](https://aka.ms/dnsanalyticsuservoice)를 참조하세요.
+- **UserVoice**. 작업 중인 DNS 분석 기능에 대한 아이디어를 게시합니다. [Log Analytics UserVoice 페이지](https://aka.ms/dnsanalyticsuservoice)를 방문하세요.
 - **코호트 가입**. 새로운 고객이 코호트에 가입하여 새 기능을 미리 사용해보고 DNS 분석 기능을 향상시키는 데 도움을 줄 수 있기 바랍니다. 코호트 가입에 관심이 있는 경우 [빠른 설문 조사](https://aka.ms/dnsanalyticssurvey)에 참여하세요.
 
 ## <a name="next-steps"></a>다음 단계

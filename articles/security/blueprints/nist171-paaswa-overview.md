@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: a073c0ddfe9f75984d2aa47e51d04c7217589dc5
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e7851b39327e61f1676ae0cf1c3bff3de75b56bd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433857"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409274"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure 보안 및 규정 준수 청사진 - NIST 특별 발행물 800-171용 PaaS 웹 응용 프로그램
 
@@ -28,7 +28,7 @@ ms.locfileid: "47433857"
 
 이 Azure 보안 및 규정 준수 청사진은 Azure SQL Database 백 엔드가 있는 PaaS 웹 응용 프로그램에 대한 참조 아키텍처를 제공합니다. 웹 응용 프로그램은 Azure 데이터 센터의 개인 전용 환경인 격리된 앱 서비스 환경에서 호스팅됩니다. 이 환경에서는 Azure에서 관리되는 VM(가상 머신) 간에 웹 응용 프로그램에 대한 트래픽의 부하를 분산합니다. 이 아키텍처에는 NSG(네트워크 보안 그룹), Azure Application Gateway, Azure DNS 및 Azure Load Balancer도 포함됩니다.
 
-향상된 분석 및 보고를 위해 columnstore 인덱스를 사용하여 Azure SQL Database를 구성할 수 있습니다. Azure SQL Database는 고객의 사용량에 따라 확장/축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. Azure는 강화된 보안을 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 가장 좋습니다.
+향상된 분석 및 보고를 위해 columnstore 인덱스를 사용하여 Azure SQL 데이터베이스를 구성할 수 있습니다. Azure SQL Database는 고객의 사용량에 따라 확장/축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. Azure는 강화된 보안을 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 가장 좋습니다.
 
 솔루션은 고객이 미사용 데이터의 기밀성을 유지하려면 저장소 서비스 암호화를 사용하도록 구성할 수 있는 Azure Storage 계정을 사용합니다. Azure는 데이터 복원력을 위해 고객이 선택한 데이터 센터 내에 데이터 복사본 3부를 저장합니다. 이처럼 지역 중복 저장소가 사용되므로 데이터가 매우 멀리 떨어진 보조 데이터 센터에 복제되며, 해당 데이터 센터 내에도 복사본 3부로 다시 저장됩니다. 이러한 방식이 사용되므로 고객의 기본 데이터 센터에서 사고가 발생하더라도 데이터가 손실되지 않습니다.
 
@@ -40,7 +40,7 @@ Application Insights는 Azure Log Analytics를 통해 실시간 응용 프로그
 
 ![NIST SP 800-171 준수 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램](images/nist171-paaswa-architecture.png "NIST SP 800-171 준수 PaaS 웹 응용 프로그램 참조 아키텍처 다이어그램")
 
-이 솔루션에서는 다음과 같은 Azure 서비스를 사용합니다. 자세한 내용은 [참조 아키텍처](#deployment-architecture) 섹션을 참조하세요.
+이 솔루션에서는 다음과 같은 Azure 서비스를 사용합니다. 자세한 내용은 [배포 아키텍처](#deployment-architecture) 섹션을 참조하세요.
 
 - Azure Virtual Machines
     - (1) 관리/요새(Windows Server 2016 Datacenter)
@@ -77,8 +77,8 @@ Application Insights는 Azure Log Analytics를 통해 실시간 응용 프로그
 **배스천 호스트**: 배스천 호스트는 사용자가 이 환경에서 배포된 리소스에 액세스하는 데 사용할 수 있는 단일 진입점입니다. 배스천 호스트는 수신 허용 목록에 있는 공용 IP 주소의 원격 트래픽만 허용하여 배포된 리소스에 대한 보안 연결을 제공합니다. 원격 데스크톱 트래픽을 허용하려면 NSG에 트래픽의 원본을 정의해야 합니다.
 
 이 솔루션은 다음 구성을 사용하여 도메인 조인 배스천 호스트로 VM을 만듭니다.
--   [맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware).
--   [Azure 진단 확장](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
+-   [맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+-   [Azure 진단 확장](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   Key Vault를 사용하는 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
 -   사용하지 않을 때 VM 리소스 사용량을 줄이기 위한 [자동 종료 정책](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)
 -   자격 증명과 기타 비밀이 실행 중인 운영 체제에서 격리되는 보호된 환경에서 실행되도록 [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) 사용
@@ -180,7 +180,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 - **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 통찰력을 제공합니다. 활동 로그는 작업의 초기자, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
 - **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)에는 모든 리소스에서 내보낸 모든 로그가 포함됩니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Storage 로그, Key Vault 감사 로그, Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 사용자는 특정 요구 사항에 맞게 보존 기간을 최대 730일까지 구성할 수 있습니다.
 
-**Azure Log Analytics**: 로그는 처리, 저장 및 대시보드 보고를 위해 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)에 통합됩니다. 수집된 데이터는 Operations Management Suite 작업 영역 내에서 각 데이터 형식용 개별 테이블로 구성됩니다. 이러한 방식으로 인해 원래 원본에 관계없이 모든 데이터를 함께 분석할 수 있습니다. Security Center는 Log Analytics와 통합됩니다. 고객은 Log Analytics 쿼리를 사용하여 보안 이벤트 데이터에 액세스한 다음 다른 서비스의 데이터와 결합할 수 있습니다.
+**Azure Log Analytics**: 로그는 처리, 저장 및 대시보드 보고를 위해 [Log Analytics](https://azure.microsoft.com/services/log-analytics/)에 통합됩니다. 수집된 데이터는 Log Analytics 작업 영역 내에서 각 데이터 형식용 개별 테이블로 구성됩니다. 이러한 방식으로 인해 원래 원본에 관계없이 모든 데이터를 함께 분석할 수 있습니다. Security Center는 Log Analytics와 통합됩니다. 고객은 Log Analytics 쿼리를 사용하여 보안 이벤트 데이터에 액세스한 다음 다른 서비스의 데이터와 결합할 수 있습니다.
 
 다음 Log Analytics [관리 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)은 이 아키텍처의 일부로 포함됩니다.
 -   [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 검사 솔루션은 일정한 간격으로 서버 환경의 위험 및 상태를 평가합니다. 이 솔루션은 배포된 서버 인프라 관련 우선 순위가 지정된 권장 사항 목록을 제공합니다.
@@ -203,7 +203,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 ## <a name="compliance-documentation"></a>규정 준수 설명서
 [Azure 보안 및 규정 준수 청사진 - NIST SP 800-171 고객 책임 매트릭스](https://aka.ms/nist171-crm)에는 NIST SP 800-171에서 요구하는 모든 보안 제어가 나와 있습니다. 이 매트릭스는 각 제어의 구현이 Microsoft, 고객 또는 둘 모두의 책임인지 여부를 자세히 설명합니다.
 
-[Azure 보안 및 규정 준수 청사진 - NIST SP 800-171 PaaS 웹 응용 프로그램 컨트롤 구현 매트릭스](https://aka.ms/nist171-paaswa-cim)는 PaaS 웹 응용 프로그램 아키텍처를 통해 적용되는 NIST SP 800-171 컨트롤에 대한 정보를 제공합니다. 이 매트릭스에는 포함되는 각 컨트롤의 요구사항을 구현이 충족하는 방식에 대한 상세 설명이 포함되어 있습니다.
+[Azure 보안 및 규정 준수 청사진 - NIST SP 800-171 PaaS 웹 응용 프로그램 컨트롤 구현 매트릭스](https://aka.ms/nist171-paaswa-cim)는 PaaS 웹 응용 프로그램 아키텍처를 통해 적용되는 NIST SP 800-171 컨트롤에 대한 정보를 제공합니다. 이 매트릭스에는 포함되는 각 컨트롤의 요구 사항을 구현이 충족하는 방식에 대한 상세 설명이 포함되어 있습니다.
 
 ## <a name="guidance-and-recommendations"></a>지침 및 권장 사항
 ### <a name="vpn-and-expressroute"></a>VPN 및 ExpressRoute

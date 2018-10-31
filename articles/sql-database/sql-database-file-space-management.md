@@ -12,25 +12,35 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 306e541ad67d6b44d2d3cc4cd2f73aa09d629d0c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159944"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954762"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL Database에서 파일 공간 관리리
 이 문서에서는 Azure SQL Database의 다양한 종류의 저장소 공간을 설명하고 데이터베이스 및 탄력적 풀에 할당된 파일 공간을 명시적으로 관리해야 하는 경우 취할 수 있는 단계를 설명합니다.
 
 ## <a name="overview"></a>개요
 
-Azure SQL Database에서 Azure Portal 및 다음 API에 표시되는 대부분의 저장소 공간 메트릭은 데이터베이스 및 탄력적 풀의 사용된 데이터 페이지 수를 측정합니다.
+Azure SQL 데이터베이스의 경우, 데이터베이스에 대한 기본 데이터 파일의 할당이 사용되는 데이터 페이지의 양을 초과할 수 있는 워크로드 패턴이 있습니다. 이 상태는 사용되는 공간이 증가하고 그 후에 데이터가 삭제되는 경우 발생할 수 있습니다. 이렇게 되는 이유는 데이터가 삭제될 때 할당되어 있는 파일 공간이 자동으로 회수되지 않기 때문입니다.
+
+파일 공간 사용량 모니터링 및 데이터 파일 축소는 다음과 같은 시나리오에서 필요할 수 있습니다.
+- 데이터베이스에 할당된 파일 공간이 풀 최대 크기에 도달하는 경우 탄력적 풀의 데이터 증가를 허용합니다.
+- 단일 데이터베이스 또는 탄력적 풀의 최대 크기 감소를 허용합니다.
+- 단일 데이터베이스 또는 탄력적 풀을 더 작은 최대 크기의 다른 서비스 계층 또는 성능 계층으로 변경하는 것을 허용합니다.
+
+### <a name="monitoring-file-space-usage"></a>파일 공간 사용량 모니터링
+Azure Portal 및 다음 API에 표시되는 대부분의 저장소 공간 메트릭은 사용한 데이터 페이지의 크기만 측정합니다.
 - PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)를 포함한 Azure Resource Manager 기반 메트릭 API
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+그러나 다음 API는 데이터베이스 및 탄력적 풀에 할당된 공간의 크기도 측정합니다.
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-데이터베이스에 대한 기본 데이터 파일의 할당이 사용되는 데이터 페이지의 양을 초과할 수 있는 워크로드 패턴이 있습니다.  이는 사용된 공간이 증가하고 그 후에 데이터가 삭제되는 경우 발생합니다.  데이터가 삭제될 때 할당되어 있는 파일 공간이 자동으로 회수되지 않기 때문입니다.  이러한 시나리오에서는 데이터베이스 또는 풀에 할당된 공간이 허용 한도를 초과하여 데이터를 확장할 수 없거나 서비스 계층 및 계산 크기를 변경할 수 없게 되고, 문제를 완화하기 위해 데이터 파일을 축소해야 할 수도 있습니다.
+### <a name="shrinking-data-files"></a>데이터 파일 축소
 
 SQL DB 서비스는 사용되지 않은 할당된 공간을 회수하기 위해 데이터 파일을 자동으로 축소하지 않습니다. 이렇게 하면 데이터베이스 성능에 잠재적인 영향을 미치기 때문입니다.  하지만 고객이 [사용되지 않은 할당된 공간 회수](#reclaim-unused-allocated-space)에 설명된 단계를 수행하기로 선택하면 셀프 서비스를 통해 데이터의 파일을 축소할 수 있습니다. 
 
@@ -100,7 +110,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 |**사용된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 사용되는 데이터 공간의 합계입니다.||
 |**할당된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 할당된 데이터 공간의 합계입니다.||
 |**할당되었지만 사용되지 않은 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 할당된 데이터 공간의 크기와 사용된 데이터 공간 간의 차이입니다.|이 수량은 데이터베이스 데이터 파일을 축소하면 회수할 수 있는 탄력적 풀에 대해 할당된 공간의 최대 크기를 나타냅니다.|
-|**데이터 최대 크기**|해당 데이터베이스 모두에 대해 탄력적 풀에서 사용할 수 있는 최대 데이터 공간의 크기입니다.|탄력적 풀에 할당된 공간은 탄력적 풀 최대 크기를 초과할 수 없습니다.  초과하는 경우에는 사용되지 않은 할당된 공간은 데이터베이스 데이터 파일을 축소하여 회수할 수 있습니다.|
+|**데이터 최대 크기**|해당 데이터베이스 모두에 대해 탄력적 풀에서 사용할 수 있는 최대 데이터 공간의 크기입니다.|탄력적 풀에 할당된 공간은 탄력적 풀 최대 크기를 초과할 수 없습니다.  이 상태가 발생하면 데이터베이스 데이터 파일을 축소하여 사용되지 않은 할당된 공간을 회수할 수 있습니다.|
 ||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>저장소 공간 정보를 탄력적 풀에 쿼리
@@ -191,17 +201,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>사용되지 않는 할당된 공간 회수
 
-사용되지 않은 할당된 공간을 회수하기 위해 데이터베이스를 확인하고 나면, 다음 명령을 수정하여 각 데이터베이스에 대한 데이터 파일을 축소합니다.
+### <a name="dbcc-shrink"></a>DBCC 축소
+
+사용되지 않은 할당된 공간을 회수하기 위해 데이터베이스를 확인하고 나면, 다음 명령에서 데이터베이스 이름을 수정하여 각 데이터베이스에 대한 데이터 파일을 축소합니다.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+이 명령은 데이터베이스가 실행하는 동안 성능에 영향을 줄 수 있으므로, 가능하면 사용량이 낮은 기간 동안 실행해야 합니다.  
+
 이 명령에 대한 자세한 내용은 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)를 참조하세요. 
 
-> [!IMPORTANT] 
-> 데이터베이스 데이터 파일이 축소된 후에는 인덱스가 조각화되어 성능 최적화 효과가 없을 수 있으므로 데이터베이스 인덱스를 다시 작성하는 것이 좋습니다. 이런 문제가 발생하면 인덱스를 다시 작성해야 합니다. 조각화 및 인덱스 다시 작성에 대한 자세한 내용은 [인덱스 재구성 및 다시 작성](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)을 참조하세요.
+### <a name="auto-shrink"></a>자동 축소
+
+또는 데이터베이스에 대한 자동 축소를 사용하도록 설정할 수 있습니다.  자동 축소는 파일 관리의 복잡도를 줄여 주며 데이터베이스 성능에 대한 영향이 SHRINKDATABASE 또는 SHRINKFILE보다 더 적습니다.  자동 축소는 많은 데이터베이스에서 탄력적 풀을 관리하는 데 특히 유용할 수 있습니다.  그러나 자동 축소의 파일 공간 회수 효과는 SHRINKDATABASE 및 SHRINKFILE보다 떨어질 수 있습니다.
+자동 축소를 사용하도록 설정하려면 다음 명령에서 데이터베이스의 이름을 수정합니다.
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+이 명령에 대한 자세한 내용은 [DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) 옵션을 참조하세요. 
+
+### <a name="rebuild-indexes"></a>인덱스 다시 작성
+
+데이터베이스 데이터 파일이 축소된 후에는 인덱스가 조각화되어 성능 최적화 효과가 상실될 수 있습니다. 성능 저하가 발생하는 경우 데이터베이스 인덱스를 다시 작성하는 것을 고려합니다. 조각화 및 인덱스 다시 작성에 대한 자세한 내용은 [인덱스 재구성 및 다시 작성](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

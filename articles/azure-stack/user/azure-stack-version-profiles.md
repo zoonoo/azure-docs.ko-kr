@@ -67,7 +67,7 @@ Azure Stack에서 최신 버전의 글로벌 Azure에 API 버전을 사용 하�
 
 프로필 API는 Azure Resource Manager, PowerShell, Azure CLI, SDK 및 Microsoft Visual Studio에서 제공 하는 코드를 사용 하는 도구를 사용 하 여 작동 합니다. 도구 및 Sdk 모듈 및 응용 프로그램을 빌드할 때 포함 하는 라이브러리의 버전을 읽을 프로필을 사용할 수 있습니다.
 
-예를 들어, 사용 하 여 저장소 계정을 만드는 PowerShell을 사용 하는 경우는 **Microsoft.Storage** api-version 2016-03-30 및 api 버전을 사용 하 여 Microsoft.Compute 리소스 공급자를 사용 하는 VM을 지 원하는 리소스 공급자 2015-12-01, 조회 하는 PowerShell 모듈 지원 2016-03-30 저장용 해야 하 고는 모듈은 계산 2015-02-01을 지원 하 고 설치 합니다. 대신 프로필을 사용할 수 있습니다. Cmdlet을 사용 하 여 * * 설치 프로필 * profilename * 및 PowerShell 모듈의 올바른 버전을 로드 합니다.
+예를 들어, 사용 하 여 저장소 계정을 만드는 PowerShell을 사용 하는 경우는 **Microsoft.Storage** api-version 2016-03-30 및 api 버전을 사용 하 여 Microsoft.Compute 리소스 공급자를 사용 하는 VM을 지 원하는 리소스 공급자 2015-12-01, 조회 하는 PowerShell 모듈 지원 2016-03-30 저장용 해야 하 고는 모듈은 계산 2015-02-01을 지원 하 고 설치 합니다. 대신 프로필을 사용할 수 있습니다. Cmdlet을 사용 하 여 **설치 프로필 \*profilename**\* 및 PowerShell 모듈의 올바른 버전을 로드 합니다.
 
 마찬가지로, Python SDK를 사용 하 여 Python 기반 응용 프로그램 빌드를 프로필을 지정할 수 있습니다. SDK에서 스크립트에 지정 된 리소스 공급자에 대 한 올바른 모듈을 로드 합니다.
 

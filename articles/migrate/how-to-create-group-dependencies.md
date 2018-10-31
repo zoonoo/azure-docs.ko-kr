@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 9f95ffe47275cfda77efa294ca6e8ccebe0070eb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2d2688799b1a0b4518b9c91bbc530936c834c5e3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158617"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407439"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>그룹 종속성 매핑을 사용하여 그룹 구체화
 
@@ -39,7 +39,7 @@ Azure Migrate는 Log Analytics의 서비스 맵 솔루션을 활용하여 컴퓨
 > 마이그레이션 프로젝트에 연결된 작업 영역은 변경할 수 없습니다.
 
 ### <a name="download-and-install-the-vm-agents"></a>VM 에이전트 다운로드 및 설치
-그룹의 종속성을 보려면 그룹에 속한 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다. 또한 인터넷에 연결되지 않은 컴퓨터가 있으면 [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 다운로드하여 설치해야 합니다.
+그룹의 종속성을 보려면 그룹에 속한 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다. 또한 인터넷에 연결되지 않은 머신이 있으면 [Log Analytics 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 다운로드하여 설치해야 합니다.
 
 1. **개요**에서 **관리** > **그룹**을 클릭하고 필요한 그룹으로 이동합니다.
 2. 컴퓨터 목록의 **종속성 에이전트** 열에서 **설치 필요**를 클릭하여 에이전트를 다운로드하여 설치하는 방법과 관련된 지침을 확인합니다.

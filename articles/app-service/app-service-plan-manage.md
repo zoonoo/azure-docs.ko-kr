@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449362"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166069"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 
@@ -45,7 +45,7 @@ ms.locfileid: "39449362"
 
       ![App Service 계획을 만듭니다.][createASP] 
 
-   나. **App Service 계획**에서 계획의 이름을 입력합니다.
+   b. **App Service 계획**에서 계획의 이름을 입력합니다.
 
    다. **위치**에서 적절한 위치를 선택합니다.
 
@@ -57,6 +57,12 @@ ms.locfileid: "39449362"
 
 원본 계획과 대상 계획이 _동일한 리소스 그룹 및 지리적 지역_에 있으면 다른 App Service 계획으로 앱을 이동할 수 있습니다.
 
+> [!NOTE]
+> Azure는 각각의 새 App Service 계획을 내부적으로 웹 공간이라는 배포 단위에 배포합니다. 각 지역에는 많은 웹 공간이 있을 수 있지만 앱은 동일한 웹 공간에서 만들어진 계획 간에만 이동할 수 있습니다. App Service Environment는 격리된 웹 공간이므로 앱은 동일한 App Service Environment의 계획 간에 이동할 수 있지만 서로 다른 App Service Environment의 계획 간에는 이동할 수 없습니다.
+>
+> 계획을 만들 때 원하는 웹 공간을 지정할 수 없지만 계획이 기존 계획과 동일한 웹 공간에 만들어졌는지 확인할 수 있습니다. 간단히, 동일한 리소스 그룹 및 지역 조합으로 만들어진 모든 계획은 동일한 웹 공간에 배포됩니다. 예를 들어, 리소스 그룹 A 및 지역 B에 계획을 만든 경우 이후에 리소스 그룹 A 및 지역 B에서 만드는 모든 계획은 동일한 웹 공간에 배포됩니다. 계획이 만들어진 후에는 계획을 이동할 수 없으므로, 계획을 또 다른 리소스 그룹으로 이동해도 이 계획을 또 다른 계획으로 “동일한 웹 공간”에 이동할 수는 없습니다.
+> 
+
 1. [Azure Portal](https://portal.azure.com)에서 이동하려는 앱을 찾습니다.
 
 1. 메뉴에서 **App Service 계획** 섹션을 찾아봅니다.
@@ -67,16 +73,7 @@ ms.locfileid: "39449362"
 
 1. **App Service 계획** 선택기에서 이 앱을 이동할 기존 계획을 선택합니다.   
 
-> [!IMPORTANT]
-> **App Service 계획 선택** 페이지는 다음 기준으로 필터링됩니다. 
-> - 동일한 리소스 그룹에 존재 
-> - 동일한 지리적 지역에 존재 
-> - 동일한 웹 공간에 존재  
-> 
-> _웹 공간_은 서버 리소스의 그룹화를 정의하는 App Service의 논리적 구문입니다. 지리적 지역(예: 미국 서부)에는 App Service를 사용하는 고객을 할당하기 위한 여러 웹 공간이 포함되어 있습니다. 현재는 웹 공간 간에 App Service 리소스를 이동할 수 없습니다. 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+**App Service 계획 선택** 페이지에는 현재 앱의 App Service 계획과 동일한 리소스 그룹 및 지역에 있는 계획만 표시됩니다.
 
 각 계획에는 고유한 가격 책정 계층이 있습니다. 예를 들어 **무료** 계층에서 **표준** 계층으로 사이트를 이동하면 **표준** 계층에 할당된 모든 앱이 해당 계층의 기능과 리소스를 사용할 수 있습니다. 그러나 더 높은 계층의 계획에서 낮은 계층의 계획으로 앱을 이동하면 특정 기능에는 더 이상 액세스할 수 없게 됩니다. 앱이 대상 계획에서 사용할 수 없는 기능을 사용하고 있는 경우, 사용할 수 없는 기능을 사용한다는 오류가 표시됩니다. 
 

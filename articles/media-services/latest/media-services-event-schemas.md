@@ -4,19 +4,19 @@ description: Azure Event Grid에서 Media Services 이벤트에 대해 제공되
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: a6a6c459e170627d26aa1445f4f4dd193965fe70
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 44e195055c74babd903cf4fb830167ab92951d4a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146977"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376791"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services 이벤트에 대한 Azure Event Grid 스키마
 
@@ -26,14 +26,56 @@ ms.locfileid: "42146977"
 
 ## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
-Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
+### <a name="job-related-event-types"></a>작업 관련 이벤트 유형
+
+Media Services는 아래에 설명된 **작업** 관련 이벤트 유형을 내보냅니다. **작업** 관련 이벤트는 “작업 상태 변경 모니터링” 및 “작업 출력 상태 변경 모니터링”의 두 가지 범주로 구분됩니다. 
+
+JobStateChange 이벤트를 구독하여 모든 이벤트에 등록할 수 있습니다. 또는 특정 이벤트(예: JobErrored, JobFinished 및 JobCanceled와 같은 최종 상태)만 구독할 수 있습니다. 
+
+#### <a name="monitoring-job-state-changes"></a>작업 상태 변경 모니터링
 
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |
-| Microsoft.Media.JobStateChange| 작업 상태가 변경됩니다. |
+| Microsoft.Media.JobStateChange| 모든 작업 상태 변경에 대한 이벤트를 가져옵니다. |
+| Microsoft.Media.JobScheduled| 작업이 예약됨 상태로 전환되는 이벤트를 가져옵니다. |
+| Microsoft.Media.JobProcessing| 작업이 처리 중 상태로 전환되는 이벤트를 가져옵니다. |
+| Microsoft.Media.JobCanceling| 작업이 취소 중 상태로 전환되는 이벤트를 가져옵니다. |
+| Microsoft.Media.JobFinished| 작업이 완료됨 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
+| Microsoft.Media.JobCanceled| 작업이 취소됨 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
+| Microsoft.Media.JobErrored| 작업이 오류 상태로 전환되는 이벤트를 가져옵니다. 작업 출력을 포함하는 최종 상태입니다.|
+
+#### <a name="monitoring-job-output-state-changes"></a>작업 출력 상태 변경 모니터링
+
+| 이벤트 유형 | 설명 |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputStateChange| 모든 작업 출력 상태 변경에 대한 이벤트를 가져옵니다. |
+| Microsoft.Media.JobOutputScheduled| 작업 출력이 예약됨 상태로 전환되는 이벤트를 가져옵니다. |
+| Microsoft.Media.JobOutputProcessing| 작업 출력이 처리 중 상태로 전환되는 이벤트를 가져옵니다. |
+| Microsoft.Media.JobOutputCanceling| 작업 출력이 취소 중 상태로 전환되는 이벤트를 가져옵니다.|
+| Microsoft.Media.JobOutputFinished| 작업 출력이 완료됨 상태로 전환되는 이벤트를 가져옵니다.|
+| Microsoft.Media.JobOutputCanceled| 작업 출력이 취소됨 상태로 전환되는 이벤트를 가져옵니다.|
+| Microsoft.Media.JobOutputErrored| 작업 출력이 오류 상태로 전환되는 이벤트를 가져옵니다.|
+
+### <a name="live-event-types"></a>라이브 이벤트 유형
+
+Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보냅니다. **라이브** 이벤트에는 스트림 수준 이벤트와 트랙 수준 이벤트의 두 가지 범주가 있습니다. 
+
+#### <a name="stream-level-events"></a>스트림 수준 이벤트
+
+스트림 수준 이벤트는 스트림 또는 연결마다 발생합니다. 각 이벤트에는 연결 또는 스트림을 식별하는 `StreamId` 매개 변수가 있습니다. 각 스트림 또는 연결에는 서로 다른 유형의 트랙이 하나 이상 있습니다. 예를 들어, 인코더의 연결 하나에는 하나의 오디오 트랙과 4개의 비디오 트랙이 있을 수 있습니다. 스트림 이벤트 유형은 다음과 같습니다.
+
+| 이벤트 유형 | 설명 |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | 인코더의 연결 시도가 거부됩니다. |
 | Microsoft.Media.LiveEventEncoderConnected | 인코더에서 라이브 이벤트와의 연결을 설정합니다. |
 | Microsoft.Media.LiveEventEncoderDisconnected | 인코더에서 연결을 끊습니다. |
+
+#### <a name="track-level-events"></a>트랙 수준 이벤트
+
+트랙 수준 이벤트는 트랙마다 발생합니다. 추적 이벤트 유형은 다음과 같습니다.
+
+| 이벤트 유형 | 설명 |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | 미디어 서버가 너무 늦거나 타임스탬프가 겹치기 때문에 데이터 청크가 삭제됩니다(새 데이터 청크의 타임스탬프가 이전 데이터 청크의 종료 시간보다 이전임). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | 미디어 서버에서 스트림 또는 연결의 각 트랙에 대한 첫 번째 데이터 청크를 받습니다. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 미디어 서버에서 오디오 및 비디오 스트림이 동기화되지 않았음을 감지합니다. 사용자 환경이 영향을 받지 않으므로 이 이벤트는 경고로 사용합니다. |
@@ -41,24 +83,9 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 | Microsoft.Media.LiveEventIngestHeartbeat | 라이브 이벤트가 실행될 때 각 트랙에 대해 20초마다 게시됩니다. 수집 상태 요약을 제공합니다. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | 미디어 서버에서 들어오는 트랙의 불연속성을 감지합니다. |
 
-**라이브** 이벤트에는 스트림 수준 이벤트와 트랙 수준 이벤트의 두 가지 범주가 있습니다. 
+## <a name="event-schemas-and-properties"></a>이벤트 스키마 및 속성
 
-스트림 수준 이벤트는 스트림 또는 연결마다 발생합니다. 각 이벤트에는 연결 또는 스트림을 식별하는 `StreamId` 매개 변수가 있습니다. 각 스트림 또는 연결에는 서로 다른 유형의 트랙이 하나 이상 있습니다. 예를 들어, 인코더의 연결 하나에는 하나의 오디오 트랙과 4개의 비디오 트랙이 있을 수 있습니다. 스트림 이벤트 유형은 다음과 같습니다.
-
-* LiveEventConnectionRejected
-* LiveEventEncoderConnected
-* LiveEventEncoderDisconnected
-
-트랙 수준 이벤트는 트랙마다 발생합니다. 추적 이벤트 유형은 다음과 같습니다.
-
-* LiveEventIncomingDataChunkDropped
-* LiveEventIncomingStreamReceived
-* LiveEventIncomingStreamsOutOfSync
-* LiveEventIncomingVideoStreamsOutOfSync
-* LiveEventIngestHeartbeat
-* LiveEventTrackDiscontinuityDetected
-
-## <a name="jobstatechange"></a>JobStateChange
+### <a name="jobstatechange"></a>JobStateChange
 
 **JobStateChange** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
 
@@ -89,7 +116,142 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 
 작업 상태는 다음 중 하나일 수 있습니다. *큐에 대기됨*, *예약됨*, *처리 중*, *완료됨*, *오류*, *취소됨*, *취소 중*
 
-## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
+### <a name="jobscheduled"></a>JobScheduled
+### <a name="jobprocessing"></a>JobProcessing
+### <a name="jobcanceling"></a>JobCanceling
+
+각 비최종 작업 상태 변경(JobScheduled, JobProcessing, JobCanceling 등)에 대한 예제 스키마는 다음과 유사합니다.
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobProcessing",
+  "eventTime": "2018-10-12T16:12:18.0839935",
+  "id": "a0a6efc8-f647-4fc2-be73-861fa25ba2db",
+  "data": {
+    "previousState": "Scheduled",
+    "state": "Processing",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="jobfinished"></a>JobFinished
+### <a name="jobcanceled"></a>JobCanceled
+### <a name="joberrored"></a>JobErrored
+
+각 최종 작업 상태 변경(JobFinished, JobCanceled, JobErrored 등)에 대한 예제 스키마는 다음과 유사합니다.
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobFinished",
+  "eventTime": "2018-10-12T16:25:56.4115495",
+  "id": "9e07e83a-dd6e-466b-a62f-27521b216f2a",
+  "data": {
+    "outputs": [
+      {
+        "@odata.type": "#Microsoft.Media.JobOutputAsset",
+        "assetName": "output-7640689F",
+        "error": null,
+        "label": "VideoAnalyzerPreset_0",
+        "progress": 100,
+        "state": "Finished"
+      }
+    ],
+    "previousState": "Processing",
+    "state": "Finished",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+데이터 개체의 속성은 다음과 같습니다.
+
+| 자산 | type | 설명 |
+| -------- | ---- | ----------- |
+| outputs | 배열 | 작업 출력을 가져옵니다.|
+
+### <a name="joboutputstatechange"></a>JobOutputStateChange
+
+**JobOutputStateChange** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다.
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputStateChange",
+  "eventTime": "2018-10-12T16:25:56.0242854",
+  "id": "dde85f46-b459-4775-b5c7-befe8e32cf90",
+  "data": {
+    "previousState": "Processing",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 100,
+      "state": "Finished"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="joboutputscheduled"></a>JobOutputScheduled
+### <a name="joboutputprocessing"></a>JobOutputProcessing
+### <a name="joboutputfinished"></a>JobOutputFinished
+### <a name="joboutputcanceling"></a>JobOutputCanceling
+### <a name="joboutputcanceled"></a>JobOutputCanceled
+### <a name="joboutputerrored"></a>JobOutputErrored
+
+각 JobOutput 상태 변경에 대한 예제 스키마는 다음과 유사합니다.
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputProcessing",
+  "eventTime": "2018-10-12T16:12:18.0061141",
+  "id": "f1fd5338-1b6c-4e31-83c9-cd7c88d2aedb",
+  "data": {
+    "previousState": "Scheduled",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 0,
+      "state": "Processing"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
 **LiveEventConnectionRejected** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
 
@@ -136,7 +298,7 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 | MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | 집계된 비트 전송률이 최대 허용 한도를 초과합니다. |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | 비디오 또는 오디오 FLVTag에 대한 타임스탬프가 RTMP 인코더에서 유효하지 않습니다. |
 
-## <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
+### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
 **LiveEventEncoderConnected** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
 
@@ -169,7 +331,7 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 | EncoderIp | string | 인코더의 IP입니다. |
 | EncoderPort | string | 이 스트림이 발생한 인코더의 포트입니다. |
 
-## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
+### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
 **LiveEventEncoderDisconnected** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
 
@@ -225,7 +387,7 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 | MPI_REST_API_CHANNEL_STOP | 유지 관리 중인 채널입니다. |
 | MPI_STREAM_HIT_EOF | 인코더에서 EOF 스트림을 보냈습니다. |
 
-## <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
+### <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
 
 **LiveEventIncomingDataChunkDropped** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
 
@@ -261,7 +423,7 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 | 시간 간격 | string | 타임스탬프의 시간 간격입니다. |
 | ResultCode | string | 데이터 청크가 삭제된 이유입니다. **FragmentDrop_OverlapTimestamp** 또는 **FragmentDrop_NonIncreasingTimestamp**입니다. |
 
-## <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
+### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
 **LiveEventIncomingStreamReceived** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
 
@@ -303,7 +465,7 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 | 타임 스탬프 | string | 받은 데이터 청크의 첫 번째 타임스탬프입니다. |
 | 시간 간격 | string | 타임스탬프가 표시되는 시간 간격입니다. |
 
-## <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
+### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
 **LiveEventIncomingStreamsOutOfSync** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
 
@@ -319,7 +481,9 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
       "minLastTimestamp": "319996",
       "typeOfStreamWithMinLastTimestamp": "Audio",
       "maxLastTimestamp": "366000",
-      "typeOfStreamWithMaxLastTimestamp": "Video"
+      "typeOfStreamWithMaxLastTimestamp": "Video",
+      "timescaleOfMinLastTimestamp": "10000000", 
+      "timescaleOfMaxLastTimestamp": "10000000"       
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -335,8 +499,10 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 | TypeOfTrackWithMinLastTimestamp | string | 마지막 타임스탬프가 최소인 트랙 유형(오디오 또는 비디오)입니다. |
 | MaxLastTimestamp | string | 모든 트랙(오디오 또는 비디오) 중에서 모든 타임스탬프의 최댓값입니다. |
 | TypeOfTrackWithMaxLastTimestamp | string | 마지막 타임스탬프가 최대인 트랙 유형(오디오 또는 비디오)입니다. |
+| TimescaleOfMinLastTimestamp| string | “MinLastTimestamp”가 표시되는 시간 간격을 가져옵니다.|
+| TimescaleOfMaxLastTimestamp| string | “MaxLastTimestamp”가 표시되는 시간 간격을 가져옵니다.|
 
-## <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
+### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
 **LiveEventIncomingVideoStreamsOutOfSync** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
 
@@ -352,7 +518,8 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
       "FirstTimestamp": "2162058216",
       "FirstDuration": "2000",
       "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000"
+      "SecondDuration": "2000",
+      "timescale": "10000000"      
     },
     "dataVersion": "1.0"
   }
@@ -367,8 +534,9 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 | FirstDuration | string | 첫 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
 | SecondTimestamp | string  | 비디오 유형의 다른 트랙/품질 수준 일부에 대해 받은 타임스탬프입니다. |
 | SecondDuration | string | 두 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
+| 시간 간격 | string | 타임스탬프 및 지속 기간의 시간 간격입니다.|
 
-## <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
+### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
 **LiveEventIngestHeartbeat** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
 
@@ -414,10 +582,10 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 | DiscontinuityCount | 정수 | 마지막 20초 동안 관찰된 불연속성의 수입니다. |
 | NonIncreasingCount | 정수 | 마지막 20초 동안 받은 과거의 타임스탬프가 있는 데이터 청크의 수입니다. |
 | UnexpectedBitrate | bool | 마지막 20초 동안 허용 한도를 초과하여 예상 및 실제 비트 전송률이 다릅니다. IncomingBitrate >= 2 * bitrate OR IncomingBitrate <= bitrate/2 OR IncomingBitrate = 0인 경우에만 true입니다. |
-| 상태 | string | 라이브 이벤트의 상태입니다. |
+| 시스템 상태 | string | 라이브 이벤트의 상태입니다. |
 | Healthy | bool | 횟수 및 플래그에 기반하여 수집이 정상인지 여부를 나타냅니다. OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false이면 Healthy가 true입니다. |
 
-## <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
+### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
 **LiveEventTrackDiscontinuityDetected** 이벤트의 스키마를 보여 주는 예제는 다음과 같습니다. 
 
@@ -456,14 +624,14 @@ Media Services에서 내보내는 이벤트 유형은 다음과 같습니다.
 | DiscontinuityGap | string | 위의 두 타임스탬프 사이의 간격입니다. |
 | 시간 간격 | string | 타임스탬프와 불연속성 간격이 모두 표시되는 시간 간격입니다. |
 
-## <a name="common-event-properties"></a>일반 이벤트 속성
+### <a name="common-event-properties"></a>일반 이벤트 속성
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
 | 자산 | type | 설명 |
 | -------- | ---- | ----------- |
 | 토픽 | string | EventGrid 항목입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
-| subject | string | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |
+| 제목 | string | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. 예: "Microsoft.Media.JobStateChange". |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | string | 이벤트에 대한 고유 식별자입니다. |

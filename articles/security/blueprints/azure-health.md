@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831622"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407557"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
@@ -361,8 +361,8 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 ### <a name="azure-alerts"></a>Azure Alerts
 - Alerts는 Azure 서비스를 모니터링하는 방법을 제공하며, 데이터에 대한 조건을 구성할 수 있도록 합니다. 또한 경고 조건이 모니터링 데이터와 일치할 때 알림을 제공합니다.
 
-### <a name="operations-management-suite-oms"></a>OMS(Operations Management Suite)
-[OMS(Operations Management Suite)](/azure/operations-management-suite/operations-management-suite-overview)는 관리 서비스의 모음입니다.
+### <a name="log-analytics"></a>Log Analytics
+[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview)는 관리 서비스의 컬렉션입니다.
 
 -   Security Center에 대한 작업 영역을 사용할 수 있습니다.
 

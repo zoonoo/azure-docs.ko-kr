@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 3f70a8cf2df25f487de7cd1a8c8cbdf9431839f0
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: a29f1c4a625552dd958884c6a172bee470e61ca6
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283083"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49312610"
 ---
 | 리소스 | 대상 | 하드 한도 |
 |----------|--------------|------------|
@@ -30,3 +30,4 @@ ms.locfileid: "43283083"
 | 최대 개체(디렉터리 및 파일) 보안 설명자 크기 | 4KiB | yes |
 | 파일 크기 | 100GiB | 아니요 |
 | 계층화할 파일에 대한 최소 파일 크기 | 64KiB | yes |
+| 동시 동기화 세션 | 프로세서당 2개의 활성 동기화 세션 또는 서버당 최대 8개의 활성 동기화 세션 | yes |

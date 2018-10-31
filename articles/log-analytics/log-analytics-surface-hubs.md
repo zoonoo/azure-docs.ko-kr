@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f7fe7cee39468558ce503c050d5574e4be15ebf5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041484"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407168"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Log Analytics로 Surface Hub를 모니터링하여 상태 추적
 
@@ -51,7 +51,7 @@ Intune은 하나 이상의 장치에 적용되는 Log Analytics 구성 설정을
 1. InTune에 로그인합니다.
 2. **설정** > **연결된 원본**으로 이동합니다.
 3. Surface Hub 템플릿을 기반으로 하는 정책을 만들거나 편집합니다.
-4. 정책의 OMS (Azure Operational Insights) 섹션으로 이동한 다음 해당 정책에 Log Analytics *작업 영역 ID* 및 *작업 영역 키*를 추가합니다.
+4. 정책의 Azure Operational Insights 섹션으로 이동하여 해당 정책에 Log Analytics *작업 영역 ID* 및 *작업 영역 키*를 추가합니다.
 5. 해당 정책을 저장합니다.
 6. 장치가 속한 그룹에 해당 정책을 연결합니다.
 
@@ -66,9 +66,9 @@ Surface Hub를 관리할 Log Analytics 작업 영역에 대한 작업 영역 ID 
 
 1. Surface Hub에서 **설정**을 엽니다.
 2. 메시지가 표시되면 장치 관리자 자격 증명을 입력합니다.
-3. **이 장치**를 클릭한 다음 **모니터링** 아래에서 **OMS 설정 구성**을 클릭합니다.
+3. **이 장치**를 클릭한 다음, **모니터링**에서 **Log Analytics 설정 구성**을 클릭합니다.
 4. **모니터링 사용**을 선택합니다.
-5. OMS 설정 대화 상자에서 Log Analytics **작업 영역 ID**, **작업 영역 키**를 차례로 입력합니다.  
+5. Log Analytics 설정 대화 상자에서 Log Analytics **작업 영역 ID**, **작업 영역 키**를 차례로 입력합니다.  
    ![설정](./media/log-analytics-surface-hubs/settings.png)
 6. **확인**을 클릭하여 구성을 완료합니다.
 

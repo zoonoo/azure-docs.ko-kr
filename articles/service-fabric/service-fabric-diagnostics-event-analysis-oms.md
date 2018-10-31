@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: 49d9b5306a0fcf51cc0de036c725fca8345cd0ec
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 6dee895ba9fc024baac0500619b7d6cc62167b6d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302185"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404480"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Log Analytics를 사용하여 이벤트 분석 및 시각화
 Log Analytics는 클라우드에서 호스팅되는 서비스 및 응용 프로그램에서 원격 분석 데이터를 수집 및 분석하고 가용성 및 성능을 극대화하는 데 도움이 되는 분석 도구를 제공합니다. 이 문서에서는 Log Analytics에서 쿼리를 실행하여 인사이트를 얻는 방법과 클러스터에서 발생하는 문제를 해결하는 방법에 대해 설명합니다. 다음과 같은 일반적인 질문을 해결합니다.
@@ -105,7 +105,7 @@ Kusto 쿼리 언어는 강력합니다. 실행 가능한 또 다른 중요한 �
 ## <a name="next-steps"></a>다음 단계
 
 * 인프라 모니터링, 즉 성능 카운터를 사용하려면 [Log Analytics 에이전트 추가](service-fabric-diagnostics-oms-agent.md)를 참조하세요. 에이전트는 성능 카운터를 수집하여 기존 작업 영역에 추가합니다.
-* 온-프레미스 클러스터의 경우 Log Analytics는 Log Analytics로 데이터를 보내는 데 사용할 수 있는 게이트웨이(HTTP 전달 프록시)를 제공합니다. 자세한 내용은 [OMS 게이트웨이를 사용하여 인터넷 액세스 없이 Log Analytics에 컴퓨터 연결](../log-analytics/log-analytics-oms-gateway.md)을 참조하세요.
-* 감지 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md) 구성
-* Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능 알아보기
+* 온-프레미스 클러스터의 경우 Log Analytics는 Log Analytics로 데이터를 보내는 데 사용할 수 있는 게이트웨이(HTTP 전달 프록시)를 제공합니다. 자세한 내용은 [Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 Log Analytics에 컴퓨터 연결](../log-analytics/log-analytics-oms-gateway.md)을 참조하세요.
+* 감지 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md)를 구성합니다.
+* Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능을 알아봅니다.
 * Log Analytics에 대한 자세한 개요와 제공되는 사항을 보려면 [Log Analytics란?](../operations-management-suite/operations-management-suite-overview.md)을 참조하세요.

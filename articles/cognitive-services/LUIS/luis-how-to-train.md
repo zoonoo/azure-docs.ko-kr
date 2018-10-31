@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: f27716cc416b162a5b2df5542d709058f3b3e903
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182042"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426107"
 ---
 # <a name="train-your-luis-app-version"></a>LUIS 앱 버전 학습
 
@@ -26,8 +26,11 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 앱 학습 및 [테스트](luis-concept-test.md)는 반복적인 프로세스입니다. LUIS 앱을 학습한 후에 샘플 음성으로 앱을 테스트하여 의도 및 엔티티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습하고, 다시 테스트합니다. 
 
-## <a name="how-to-train"></a>학습 방법
-반복적인 프로세스를 시작하려면 먼저 적어도 한 번 LUIS 앱을 학습해야 합니다. 학습하기 전에 모든 의도에 하나 이상의 발언이 있는지 확인합니다.
+학습은 LUIS 포털에서 현재 사용 중인 버전에 적용됩니다. 
+
+## <a name="how-to-train-interactively"></a>대화형으로 학습하는 방법
+
+[LUIS 포털](https://www.luis.ai)에서 반복적인 프로세스를 시작하려면 먼저 적어도 한 번 LUIS 앱을 학습해야 합니다. 학습하기 전에 모든 의도에 하나 이상의 발언이 있는지 확인합니다.
 
 1. **내 앱** 페이지에서 해당 이름을 선택하여 앱에 액세스합니다. 
 
@@ -41,7 +44,18 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 >앱에 예제 발언이 포함되지 않는 하나 이상의 의도가 있는 경우 앱을 학습할 수 없습니다. 모든 의도에 발언을 추가합니다. 자세한 내용은 [예제 발언 추가](luis-how-to-add-example-utterances.md)를 참조하세요.
 
 ## <a name="train-with-all-data"></a>모든 데이터를 사용하여 학습
-학습은 음수 샘플링(negative sampling)의 작은 비율을 사용합니다. 작은 음수 샘플링 대신 모든 데이터를 사용하려면 `UseAllTrainingData`가 true로 설정된 [버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)를 사용하여 하여 이 기능을 해제합니다. 
+
+학습은 음수 샘플링(negative sampling)의 작은 비율을 사용합니다. 작은 음수 샘플링 대신 모든 데이터를 사용하려면 `UseAllTrainingData`가 true로 설정된 [버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)를 사용하여 이 기능을 해제합니다. 
+
+## <a name="unnecessary-training"></a>불필요한 학습
+
+변경할 때마다 학습할 필요는 없습니다. 학습은 변경 그룹을 모델에 적용한 후 수행해야 하며, 수행할 다음 단계는 테스트 또는 게시입니다. 테스트하거나 게시할 필요가 없으면 학습이 필요하지 않습니다. 
+
+## <a name="training-with-the-rest-apis"></a>REST API로 학습
+
+LUIS 포털에서 학습은 **학습** 단추를 한 번만 누르면 됩니다. REST API를 사용한 학습은 2단계 프로세스입니다. 첫 번째 방법은 HTTP POST를 사용한 [학습 요청](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45)입니다. 그런 다음, HTTP Get을 사용하여 [학습 상태](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46)를 요청합니다. 
+
+학습이 완료될 때를 알기 위해 모든 모델이 성공적으로 학습될 때까지 상태를 폴링해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

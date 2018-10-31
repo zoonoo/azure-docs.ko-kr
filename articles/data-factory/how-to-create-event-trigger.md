@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309362"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429391"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 
@@ -71,23 +71,26 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 | **JSON 요소** | **설명** | **형식** | **허용되는 값** | **필수** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **scope** | 저장소 계정의 Azure Resource Manager 리소스 ID입니다. | 문자열 | Azure Resource Manager ID | yes |
-| **events** | 이 트리거를 발생시키는 이벤트 유형입니다. | 배열    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | 예, 어떤 조합이든 가능합니다. |
-| **blobPathBeginsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 시작해야 합니다. 예를 들어, '/records/blobs/december/'는 records 컨테이너의 december 폴더에 있는 Blob에 대해서만 트리거를 발생시킵니다. | 문자열   | | blobPathBeginsWith, blobPathEndsWith 속성 중 하나 이상을 제공해야 합니다. |
-| **blobPathEndsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 끝나야 합니다. 예를 들어, 'december/boxes.csv'는 december 폴더의 boxes라는 이름의 Blob에 대해서만 트리거를 발생시킵니다. | 문자열   | | blobPathBeginsWith, blobPathEndsWith 속성 중 하나 이상을 제공해야 합니다. |
+| **events** | 이 트리거를 발생시키는 이벤트 유형입니다. | 배열    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | 예, 이러한 값의 조합입니다. |
+| **blobPathBeginsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 시작해야 합니다. 예를 들어 `/records/blobs/december/`는 `records` 컨테이너 아래의 `december` 폴더에서 Blob에 대한 트리거만을 시작합니다. | 문자열   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |
+| **blobPathEndsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 끝나야 합니다. 예를 들어 `december/boxes.csv`는 `december` 폴더에서 `boxes`라는 이름의 Blob에 대한 트리거만을 시작합니다. | 문자열   | | 이러한 속성 중 하나 이상에 대한 값을 제공해야 합니다. `blobPathBeginsWith` 또는 `blobPathEndsWith` |
 
 ## <a name="examples-of-event-based-triggers"></a>이벤트 기반 트리거의 예
 
 이 섹션에는 이벤트 기반 트리거 설정의 예가 제공됩니다.
 
--   **Blob path begins with**(Blob 경로 시작 문자)('/containername/') – 컨테이너에 있는 모든 Blob에 대한 이벤트를 수신합니다.
--   **Blob path begins with**(Blob 경로 시작 문자)('/containername/blobs/foldername') – containername 컨테이너 및 foldername 폴더에 있는 모든 Blob에 대한 이벤트를 수신합니다. 하위 폴더를 참조할 수도 있습니다(예: '/containername/blobs/foldername/subfoldername/').
--   **Blob path begins with**(Blob 경로 시작 문자)('/containername/blobs/foldername/file.txt') – containername 컨테이너 아래 foldername 폴더에 있는 file.txt라는 이름의 Blob에 대한 이벤트를 수신합니다.
--   **Blob path ends with**(Blob 경로 마지막 문자)('file.txt') – 모든 경로에서 file.txt라는 이름의 Blob에 대한 이벤트를 수신합니다.
--   **Blob path ends with**(Blob 경로 마지막 문자)('/containername/blobs/file.txt') – containername 컨테이너에 있는 file.txt라는 이름의 Blob에 대한 이벤트를 수신합니다.
--   **Blob path ends with**(Blob 경로 마지막 문자)('/containername/file.txt') – 모든 컨테이너의 foldername 폴더에 있는 file.txt라는 이름의 Blob에 대한 이벤트를 수신합니다.
+> [!IMPORTANT]
+> 다음 예제에 표시된 대로 컨테이너 및 폴더, 컨테이너 및 파일, 컨테이너, 폴더 및 파일을 지정할 때마다 경로의 `/blobs/` 세그먼트를 포함해야 합니다.
 
-> [!NOTE]
-> 컨테이너 및 폴더, 컨테이너 및 파일, 컨테이너, 폴더 및 파일을 지정할 때마다 경로의 `/blobs/` 세그먼트를 포함해야 합니다.
+| 자산 | 예 | 설명 |
+|---|---|---|
+| **다음으로 Blob 경로 시작** | `/containername/` | 컨테이너에서 모든 Blob에 대한 이벤트를 받습니다. |
+| **다음으로 Blob 경로 시작** | `/containername/blobs/foldername/` | `containername` 컨테이너 및 `foldername` 폴더에서 모든 Blob에 대한 이벤트를 받습니다. |
+| **다음으로 Blob 경로 시작** | `/containername/blobs/foldername/subfoldername/` | 하위 폴더를 참조할 수도 있습니다. |
+| **다음으로 Blob 경로 시작** | `/containername/blobs/foldername/file.txt` | `containername` 컨테이너 아래의 `foldername` 폴더에서 `file.txt`라는 Blob에 대한 이벤트를 받습니다. |
+| **다음으로 끝나는 Blob 경로** | `file.txt` | 모든 경로에서 `file.txt`라는 이름의 Blob에 대한 이벤트를 받습니다. |
+| **다음으로 끝나는 Blob 경로** | `/containername/blobs/file.txt` | `containername` 컨테이너 아래에서 `file.txt`라는 이름의 Blob에 대한 이벤트를 받습니다. |
+| **다음으로 끝나는 Blob 경로** | `foldername/file.txt` | 모든 컨테이너 아래의 `foldername` 폴더에서 `file.txt`라는 이름의 Blob에 대한 이벤트를 받습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 트리거에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md#triggers)를 참조하세요.

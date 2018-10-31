@@ -1,6 +1,6 @@
 ---
-title: OMS Log Analytics에서 Linux 응용 프로그램 성능 수집 | Microsoft Docs
-description: 이 문서에서는 MySQL 및 Apache HTTP 서버에 대한 성능 카운터를 수집하도록 Linux용 OMS 에이전트를 구성하는 세부 정보를 제공합니다.
+title: Log Analytics에서 Linux 응용 프로그램 성능 수집 | Microsoft Docs
+description: 이 문서에서는 MySQL 및 Apache HTTP 서버에 대한 성능 카운터를 수집하도록 Linux용 Log Analytics 에이전트를 구성하는 세부 정보를 제공합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,26 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: df5e55c2c03fec13ada258be91f0d98b7ce70d94
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044572"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406163"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Log Analytics에서 Linux 응용 프로그램에 대한 성능 카운터 수집 
-이 문서에서는 특정 응용 프로그램에 대한 성능 카운터를 수집하도록 [Linux용 OMS 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 세부 정보를 제공합니다.  이 문서에 포함된 응용 프로그램은 다음과 같습니다.  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+이 문서에서는 특정 응용 프로그램에 대한 성능 카운터를 수집하도록 [Linux용 Log Analytics 에이전트](https://github.com/Microsoft/OMS-Agent-for-Linux)를 구성하는 세부 정보를 제공합니다.  이 문서에 포함된 응용 프로그램은 다음과 같습니다.  
 
 - [MySQL](#MySQL)
 - [Apache HTTP 서버](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-OMS 에이전트가 설치된 경우 컴퓨터에서 MySQL 서버나 MariaDB 서버가 감지되면, MySQL 서버용 성능 모니터링 공급자가 자동으로 설치됩니다. 이 공급자는 성능 통계를 공개하기 위해 로컬 MySQL/MariaDB 서버에 연결합니다. 공급자가 MySQL 서버에 액세스할 수 있도록 MySQL 사용자 자격 증명을 구성해야 합니다.
+Log Analytics 에이전트가 설치된 경우 컴퓨터에서 MySQL 서버나 MariaDB 서버가 감지되면, MySQL 서버용 성능 모니터링 공급자가 자동으로 설치됩니다. 이 공급자는 성능 통계를 공개하기 위해 로컬 MySQL/MariaDB 서버에 연결합니다. 공급자가 MySQL 서버에 액세스할 수 있도록 MySQL 사용자 자격 증명을 구성해야 합니다.
 
 ### <a name="configure-mysql-credentials"></a>MySQL 자격 증명 구성
 MySQL OMI 공급자가 MySQL 인스턴스의 성능 및 상태 정보를 쿼리하려면, 미리 정의된 MySQL 사용자와 설치되어 있는 MySQL 클라이언트 라이브러리가 필요합니다.  이러한 자격 증명은 Linux 에이전트에 저장된 인증 파일에 저장됩니다.  인증 파일은 MySQL 인스턴스가 수신 대기할 바인딩 주소와 포트를 결정하고 메트릭 수집에 사용할 자격 증명을 지정합니다.  
 
-Linux용 OMS 에이전트를 설치하는 동안 MySQL OMI 공급자는 MySQL my.cnf 구성 파일(기본 위치)에서 바인딩 주소와 포트를 검색하고, MySQL OMI 인증 파일을 부분적으로 설정합니다.
+Linux용 Log Analytics 에이전트를 설치하는 동안 MySQL OMI 공급자는 MySQL my.cnf 구성 파일(기본 위치)에서 바인딩 주소와 포트를 검색하고, MySQL OMI 인증 파일을 부분적으로 설정합니다.
 
 MySQL 인증 파일은 `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`에 저장됩니다.
 
@@ -115,7 +116,7 @@ MySQL 사용자는 MySQL 서버 성능 데이터를 수집하기 위해 다음 �
 
 ### <a name="define-performance-counters"></a>성능 카운터 정의
 
-Log Analytics에 데이터를 보내도록 Linux용 OMS 에이전트를 구성한 후 수집할 성능 카운터를 구성해야 합니다.  다음 테이블의 카운터와 함께 [Log Analytics의 Windows 및 Linux 성능 데이터 원본](log-analytics-data-sources-windows-events.md)의 절차를 사용합니다.
+Log Analytics에 데이터를 보내도록 Linux용 Log Analytics 에이전트를 구성하고 나면 수집할 성능 카운터를 구성해야 합니다.  다음 테이블의 카운터와 함께 [Log Analytics의 Windows 및 Linux 성능 데이터 원본](log-analytics-data-sources-windows-events.md)의 절차를 사용합니다.
 
 | 개체 이름 | 카운터 이름 |
 |:--|:--|
@@ -151,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>성능 카운터 정의
 
-Log Analytics에 데이터를 보내도록 Linux용 OMS 에이전트를 구성한 후 수집할 성능 카운터를 구성해야 합니다.  다음 테이블의 카운터와 함께 [Log Analytics의 Windows 및 Linux 성능 데이터 원본](log-analytics-data-sources-windows-events.md)의 절차를 사용합니다.
+Log Analytics에 데이터를 보내도록 Linux용 Log Analytics 에이전트를 구성하고 나면 수집할 성능 카운터를 구성해야 합니다.  다음 테이블의 카운터와 함께 [Log Analytics의 Windows 및 Linux 성능 데이터 원본](log-analytics-data-sources-windows-events.md)의 절차를 사용합니다.
 
 | 개체 이름 | 카운터 이름 |
 |:--|:--|

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/16/2018
 ms.author: spelluru
-ms.openlocfilehash: f13e46b310f4f9048b38ab50ce0241d1b2b3161b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395698"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377653"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Node.js에서 Service Bus 토픽 및 구독을 사용하는 방법
 
@@ -73,7 +73,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Service Bus 연결 설정
 Azure 모듈은 이전 단계인 "자격 증명 구하기"에서 가져온 연결 문자열에 대해 `AZURE_SERVICEBUS_CONNECTION_STRING` 환경 변수를 읽습니다. 이러한 환경 변수가 설정되어 있지 않은 경우 `createServiceBusService`를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure Cloud Service에 대한 환경 변수를 설정하는 방법에 대한 예제는 [저장소를 포함한 Node.js 클라우드 서비스][Node.js Cloud Service with Storage]를 참조하세요.
+Azure 클라우드 서비스의 환경 변수 설정 예제는 [환경 변수 설정](../container-instances/container-instances-environment-variables.md#azure-cli-example)을 참조하세요.
 
 
 
@@ -127,7 +127,7 @@ function (returnObject, finalCallback, next)
 
 이 콜백에서 `returnObject`(서버에 요청 응답 반환)를 처리한 후에 콜백은 다음(있는 경우)을 호출하여 다른 필터를 계속 처리하거나 `finalCallback`을 호출하여 서비스 호출을 종료해야 합니다.
 
-Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter**가 포함되어 있습니다. 다음은 **ExponentialRetryPolicyFilter**를 사용하는 **ServiceBusService** 개체를 만듭니다.
+Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter**가 포함되어 있습니다. 다음 코드는 **ExponentialRetryPolicyFilter**를 사용하는 **ServiceBusService** 개체를 만듭니다.
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -242,7 +242,7 @@ Service Bus 토픽에 메시지를 보내려면 응용 프로그램에서 **Serv
 Service Bus 토픽으로 보내는 메시지는 **BrokeredMessage** 개체입니다.
 **BrokeredMessage** 개체에는 표준 속성 집합(예: `Label` 및 `TimeToLive`), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 문자열 데이터의 본문이 있습니다. 응용 프로그램은 문자열 값을 `sendTopicMessage`에 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
 
-다음 예제에서는 5개의 테스트 메시지를 `MyTopic`에 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 `messagenumber` 속성 값이 변경되며 이 값에 따라 해당 메시지를 받는 구독이 결정됩니다.
+다음 예제에서는 5개의 테스트 메시지를 `MyTopic`에 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 `messagenumber` 속성 값이 변경되며 이 속성 값에 따라 해당 메시지를 받는 구독이 결정됩니다.
 
 ```javascript
 var message = {
@@ -268,7 +268,7 @@ Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 25
 ## <a name="receive-messages-from-a-subscription"></a>구독에서 메시지 받기
 **ServiceBusService** 개체의 `receiveSubscriptionMessage` 메서드를 사용하여 구독에서 메시지를 받습니다. 기본적으로 메시지를 읽으면 구독에서 해당 메시지가 삭제됩니다. 하지만 `isPeekLock` 선택적 매개 변수를 **true**로 설정하여 메시지를 구독에서 삭제하지 않고 읽고(보고) 잠글 수 있습니다.
 
-받기 작업의 일부로 메시지를 읽고 삭제하는 기본 동작은 가장 단순한 모델이며, 실패할 경우 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이 동작에 대한 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus가 메시지를 사용되는 것으로 표시했기 때문에 응용 프로그램이 다시 시작되고 메시지를 다시 사용하기 시작할 때 충돌 전에 사용한 메시지는 누락됩니다.
+받기 작업의 일부로 메시지를 읽고 삭제하는 기본 동작은 가장 단순한 모델이며, 오류 발생 시 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이 동작에 대한 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. Service Bus가 메시지를 사용되는 것으로 표시했기 때문에 응용 프로그램이 다시 시작되고 메시지를 다시 사용하기 시작할 때 충돌 전에 사용한 메시지는 누락됩니다.
 
 `isPeekLock` 매개 변수를 **true**로 설정하면 수신은 2단계 작업이 되므로, 누락된 메시지를 허용하지 않는 응용 프로그램을 지원할 수 있습니다. Service Bus는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠그고, 응용 프로그램에 반환합니다.
 응용 프로그램은 메시지를 처리하거나 추가 처리를 위해 안전하게 저장한 후에 **deleteMessage** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료하고 삭제할 메시지를 매개 변수로 전달합니다. **deleteMessage** 메서드는 메시지를 사용됨으로 표시하고 구독에서 제거합니다.

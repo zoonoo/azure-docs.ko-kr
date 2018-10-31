@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 584db1400ddd2b4f447b7ca397f2c98b701c7848
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730952"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341874"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -22,7 +22,7 @@ Azure Storage는 여러 개발자가 보안 응용 프로그램을 빌드하도�
 - Azure Storage에 쓴 모든 데이터는 [SSE(Storage 서비스 암호화)](storage-service-encryption.md)를 사용하여 자동으로 암호화됩니다. 자세한 내용은 [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)(Azure Blob, Files, Table 및 Queue Storage에 대한 기본 암호화 발표)를 참조하세요.
 - Azure AD(Azure Active Directory) 및 RBAC(역할 기반 액세스 제어)는 다음과 같이 리소스 관리 작업 및 데이터 작업 모두에 대한 Azure Storage에 지원됩니다.   
     - 저장소 계정으로 범위가 지정된 RBAC 역할을 보안 주체에 할당하고 Azure AD를 사용하여 키 관리와 같은 리소스 관리 작업의 권한을 부여할 수 있습니다.
-    - Azure AD 통합은 Blob 및 큐 서비스의 데이터 작업에 대해 미리 보기로 지원됩니다. 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너 또는 큐로 범위가 지정된 RBAC 역할을 보안 주체 또는 관리되는 서비스 ID에 할당할 수 있습니다. 자세한 내용은 [Azure Active Directory(미리 보기)를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.   
+    - Azure AD 통합은 Blob 및 큐 서비스의 데이터 작업에 대해 미리 보기로 지원됩니다. 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너 또는 큐로 범위가 지정된 RBAC 역할을 보안 주체 또는 Azure 리소스의 관리 ID에 할당할 수 있습니다. 자세한 내용은 [Azure Active Directory(미리 보기)를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.   
 - [클라이언트 쪽 암호화](../storage-client-side-encryption.md), HTTP 또는 SMB 3.0을 사용하여 응용 프로그램과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다.  
 - 가상 머신에서 사용되는 OS 및 데이터 디스크는 [Azure Disk Encryption](../../security/azure-security-disk-encryption.md)을 사용하여 암호화될 수 있습니다. 
 - [공유 액세스 서명](../storage-dotnet-shared-access-signature-part-1.md)을 사용하여 Azure Storage의 데이터 개체에 대한 위임된 액세스 권한을 부여할 수 있습니다.

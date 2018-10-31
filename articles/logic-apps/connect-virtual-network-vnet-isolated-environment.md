@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps에서 Azure 가상 네트워크에 연결
-description: Azure Logic Apps에서 Azure 가상 네트워크에 액세스하기 위해 논리 앱 및 기타 리소스를 공용 또는 "글로벌" Azure에서 분리되도록 유지하는 개인, 전용의 격리된 통합 서비스 환경을 만들 수 있습니다.
+title: ISE(통합 서비스 환경)를 통해 Azure Logic Apps에서 Azure 가상 네트워크에 연결
+description: 논리 앱 및 통합 계정이 공용이나 “글로벌” Azure에서 격리된 비공개 상태를 유지하면서 Azure 가상 네트워크에 액세스할 수 있도록 ISE(통합 서비스 환경)를 만듭니다.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,23 +9,21 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/25/2018
-ms.openlocfilehash: 354c31014448b914b33d2bef5483efc78092f726
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b4e4e801c3c54b635f2f13b319257018ea544c03
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391924"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404123"
 ---
-# <a name="create-isolated-environments-to-access-azure-virtual-networks-from-azure-logic-apps"></a>Azure Logic Apps에서 Azure 가상 네트워크에 액세스하기 위한 격리된 환경 만들기
+# <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 통해 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
 > [!NOTE]
 > 이 기능은 *비공개 미리 보기* 상태입니다. 액세스를 요청하려면 [여기서 참여 요청을 작성](https://aka.ms/iseprivatepreview)하세요.
 
-논리 앱 및 통합 계정에서 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 대한 액세스가 필요한 통합 시나리오의 경우 가상 네트워크에 연결하고 Logic Apps 서비스를 네트워크로 배포하는 [*통합 서비스 환경*(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만들 수 있습니다. 논리 앱 및 통합 계정을 만들 때 해당 위치로 이 ISE를 선택합니다. 그러면 논리 앱 및 통합 계정은 가상 네트워크에서 VM(가상 머신), 서버, 시스템 및 서비스와 같은 리소스에 직접 액세스할 수 있습니다. 
+논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 통합 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 만듭니다. 이는 전용 저장소를 사용하는 개인적이며 격리된 환경으로, 기타 리소스가 공용 또는 *글로벌* Logic Apps 서비스와는 분리됩니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. 이 ISE를 Azure 가상 네트워크에 연결한 다음, Logic Apps 서비스를 사용자의 가상 네트워크에 배포할 수 있습니다. 논리 앱 또는 통합 계정을 만들 때 해당 위치로 이 ISE를 선택합니다. 그러면 논리 앱 및 통합 계정은 가상 네트워크에서 VM(가상 머신), 서버, 시스템 및 서비스와 같은 리소스에 직접 액세스할 수 있습니다. 
 
 ![통합 서비스 환경 선택](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
-
-ISE는 공용 또는 *글로벌* Logic Apps 서비스와 별개로 존재하는 전용 저장소 및 기타 리소스를 사용하는 개인 및 격리된 환경입니다. 이처럼 인스턴스가 분리되므로 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향을 줄일 수 있습니다. 
 
 이 문서에서는 다음 작업을 수행하는 방법에 대해 설명합니다.
 

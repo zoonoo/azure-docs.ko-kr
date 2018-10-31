@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: b724ddfc1214ac17c2138dc9875896cf3353f0c7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3642c1b7d3de751ecb8a72edaecfe7a15c0acbdb
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746629"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320835"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Apache Kafka용 Azure Event Hubs에서 Apache Flink 사용
 이 자습서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Apache Flink를 Kafka 지원 이벤트 허브에 연결하는 방법을 보여 줍니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
@@ -28,6 +28,9 @@ Apache Kafka를 사용하는 주요 이점 중 하나는 연결할 수 있는 �
 > * 프로젝트 예제 복제
 > * Flink 생산자 실행 
 > * Flink 소비자 실행
+
+> [!NOTE]
+> 이 샘플은 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/flink)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -49,11 +52,11 @@ Event Hubs 서비스에서 보내거나 받으려면 Event Hubs 네임스페이�
 
 ## <a name="clone-the-example-project"></a>프로젝트 예제 복제
 
-이제 Kafka 지원 Event Hubs 연결 문자열이 있으므로 Azure Event Hubs 리포지토리를 복제하고 `flink` 하위 폴더로 이동합니다.
+이제 Kafka 지원 Event Hubs 연결 문자열이 있으므로 Kafka용 Azure Event Hubs 리포지토리를 복제하고 `flink` 하위 폴더로 이동합니다.
 
 ```shell
-git clone https://github.com/Azure/azure-event-hubs.git
-cd azure-event-hubs/samples/kafka/flink
+git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
+cd azure-event-hubs-for-kafka/tutorials/flink
 ```
 
 ## <a name="run-flink-producer"></a>Flink 생산자 실행
@@ -129,7 +132,10 @@ Flink를 Kafka에 연결하는 방법에 대한 자세한 내용은 [Flink의 Ka
 > * Flink 생산자 실행 
 > * Flink 소비자 실행
 
-Apache Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 문서를 계속 진행하세요.
+Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 항목을 참조하세요.  
 
-> [!div class="nextstepaction"]
-> [Kafka용 Azure Event Hubs에서 Akka Streams 사용](event-hubs-kafka-akka-streams-tutorial.md)
+* [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
+* [Kafka용 Event Hubs에 대해 알아보기](event-hubs-for-kafka-ecosystem-overview.md)
+* [Kafka GitHub용 Event Hubs에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
+* [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)를 사용하여 [온-프레미스 Kafka에서 클라우드의 Kafka 지원 Event Hubs로 이벤트를 스트림합니다.](event-hubs-kafka-mirror-maker-tutorial.md)
+* [네이티브 Kafka 응용 프로그램](event-hubs-quickstart-kafka-enabled-event-hubs.md) 또는 [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)를 사용하여 Kafka 지원 Event Hubs에 스트림하는 방법을 알아봅니다.

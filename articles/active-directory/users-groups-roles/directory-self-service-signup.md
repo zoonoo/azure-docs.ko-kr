@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/28/2018
+ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 99c5e99fa3bd33ef42e8df6ceba5be4be2cd1249
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871138"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394683"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 등록이란?
 이 문서에서는 Azure AD(Azure Active Directory)의 셀프 서비스 등록 및 지원 방법을 설명합니다. 관리되지 않는 Azure AD 테넌트에서 도메인 이름을 가져오려면 [Take over an unmanaged directory as administrator](domains-admin-takeover.md)(관리되지 않는 디렉터리를 관리자로 가져오기)를 참조하세요.
@@ -44,32 +44,39 @@ ms.locfileid: "37871138"
 ### <a name="how-can-i-control-these-capabilities"></a>이러한 기능은 어떻게 제어할 수 있나요?
 관리자는 Azure AD cmdlet인 다음의 Set-MsolCompanySettings 매개 변수를 사용하여 이러한 기능을 구성할 수 있습니다.
 
-* **AllowEmailVerifiedUsers** 는 관리되지 않는 디렉터리를 만들거나 결합시킬 수 있는지 여부를 제어합니다. 이 매개 변수를 $false로 설정하면 메일로 확인된 사용자가 디렉터리를 결합시킬 수 없습니다.
-* **AllowAdHocSubscriptions**는 사용자가 셀프 서비스 등록을 수행하는 기능을 제어합니다. 이 매개 변수를 $false로 설정하면 사용자가 셀프 서비스 등록을 수행할 수 없습니다. 
+* **AllowEmailVerifiedUsers** 디렉터리를 만들거나 조인할 수 있는지 여부를 제어합니다. 이 매개 변수를 $false로 설정하면 메일로 확인된 사용자가 디렉터리를 조인할 수 없습니다.
+* **AllowAdHocSubscriptions**는 사용자가 셀프 서비스 등록을 수행하는 기능을 제어합니다. 이 매개 변수를 $false로 설정하면 사용자가 셀프 서비스 등록을 수행할 수 없습니다.
   
-  > [!NOTE]
-  > Flow 및 PowerApps 평가판 등록은 **AllowAdHocSubscriptions** 설정에서 제어하지 않습니다. 자세한 내용은 다음 문서를 참조하세요.
-  > * [내 기존 사용자가 Power BI를 사용하기 시작하지 않도록 방지하는 방법](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-  > * [조직의 Flow Q&A](https://docs.microsoft.com/flow/organization-q-and-a)
+AllowEmailVerifiedUsers 및 AllowAdHocSubscriptions는 관리 또는 관리되지 않는 디렉터리에 적용할 수 있는 디렉터리 전체 설정입니다. 예제는 다음과 같습니다.
+
+* contoso.com과 같은 확인된 도메인을 사용하여 디렉터리를 관리합니다.
+* 다른 디렉터리에서 B2B 공동 작업을 사용하여 constoso.com의 홈 디렉터리에 존재하지 않는 사용자를 초대합니다(userdoesnotexist@contoso.com).
+* 홈 디렉터리에는 AllowEmailVerifiedUsers가 설정되어 있습니다.
+
+이전 조건이 true인 경우, 멤버 사용자는 홈 디렉터리에서 생성되고, B2B 게스트 사용자는 초대 디렉터리에서 생성됩니다.
+
+Flow 및 PowerApps 평가판 등록은 **AllowAdHocSubscriptions** 설정에서 제어하지 않습니다. 자세한 내용은 다음 문서를 참조하세요.
+
+* [내 기존 사용자가 Power BI를 사용하기 시작하지 않도록 방지하는 방법](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+* [조직의 Flow Q&A](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>컨트롤이 어떻게 작동하나요?
 이 두 매개 변수를 함께 사용하여 정의하면 셀프 서비스 등록을 더욱 세밀하게 제어할 수 있습니다. 예를 들어 Azure AD에 이미 계정이 있는 사용자만 다음 명령을 사용하여 셀프 서비스 등록을 수행할 수 있습니다. 즉, 메일로 확인된 계정을 먼저 만들어야 하는 사용자는 셀프 서비스 등록을 수행할 수 없습니다.
 
-````
+````powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ````
+
 다음 순서도는 디렉터리와 셀프 서비스 등록에 대한 이러한 매개 변수 및 그 결과 조건의 다양한 조합을 설명합니다.
 
-![][1]
+![셀프 서비스 등록 제어](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 매개 변수 사용 방법에 대한 자세한 내용 및 예는 [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Microsoft Azure AD에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)
 * [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet 참조](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
-
-<!--Image references-->
-[1]: ./media/directory-self-service-signup/SelfServiceSignUpControls.png

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: fa8605f4822ff0ee5ba25ee0baca4fb2fec83b17
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497606"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385861"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
@@ -35,7 +35,7 @@ Azure Key Vault는 비밀을 안전하게 저장하고 액세스하기 위한 �
 
 근본적으로 Key Vault에 인증할 수 있는 방법을 3가지입니다.
 
-1. **[관리 서비스 ID](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)** 사용(**권장 및 모범 사례**): Azure에서 Virtual Machine에 앱을 배포하는 경우, Key Vault에 액세스할 수 있는Virtual Machine에 ID를 할당할 수 있습니다. [여기](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)에 나열된 다른 Azure 리소스에 ID를 할당할 수도 있습니다. 이런 방식의 이점은 앱/서비스에서 첫 번째 비밀의 회전을 관리하지 않는다는 점입니다. ID가 Azure에서 자동으로 회전됩니다. 
+1. **[Azure 리소스의 관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)** 사용(**권장 및 모범 사례**): Azure에서 Virtual Machine에 앱을 배포하는 경우, Key Vault에 액세스할 수 있는 Virtual Machine에 ID를 할당할 수 있습니다. [여기](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 나열된 다른 Azure 리소스에 ID를 할당할 수도 있습니다. 이런 방식의 이점은 앱/서비스에서 첫 번째 비밀의 회전을 관리하지 않는다는 점입니다. ID가 Azure에서 자동으로 회전됩니다. 
 2. **서비스 사용자 및 인증서 사용:** 2번째 옵션은 Key Vault에 액세스할 수 있는 서비스 사용자 및 연결된 인증서를 사용하는 것입니다. 인증서를 회전하는 부담이 응용 프로그램 소유자나 개발자에게 가기 때문에 권장되지 않습니다.
 3. **서비스 사용자 및 비밀 사용:** 3번째 옵션(비선호 옵션)은 서비스 사용자와 비밀을 사용하여 Key Vault에 인증하는 것입니다.
 

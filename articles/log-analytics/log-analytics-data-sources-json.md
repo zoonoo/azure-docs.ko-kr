@@ -1,6 +1,6 @@
 ---
-title: OMS Log Analytics에서 사용자 지정 JSON 데이터 수집 | Microsoft Docs
-description: Linux용 OMS 에이전트를 사용하여 Log Analytics로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 curl 또는 FluentD의 300+ 플러그 인의 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
+title: Log Analytics에서 사용자 지정 JSON 데이터 수집 | Microsoft Docs
+description: Linux용 Log Analytics 에이전트를 사용하여 Log Analytics로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 curl 또는 FluentD의 300+ 플러그 인의 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,18 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9725a3df04ef28fc3a076c3c6ca6663e36b186a8
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 69338e438ced8871de1e994ee8b816f9dc40b13a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040271"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402355"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Log Analytics에서 Linux용 OMS 에이전트를 사용하여 사용자 지정 JSON 데이터 원본 수집
-Linux용 OMS 에이전트를 사용하여 Log Analytics로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 [curl](https://curl.haxx.se/) 또는 [FluentD의 300+ 플러그 인](http://www.fluentd.org/plugins/all)의 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
+# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-log-analytics"></a>Log Analytics에서 Linux용 Log Analytics 에이전트를 사용하여 사용자 지정 JSON 데이터 원본 수집
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+Linux용 Log Analytics 에이전트를 사용하여 Log Analytics로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 [curl](https://curl.haxx.se/) 또는 [FluentD의 300+ 플러그 인](http://www.fluentd.org/plugins/all)의 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
 
 > [!NOTE]
-> 사용자 지정 JSON 데이터에 Linux용 OMS 에이전트 v1.1.0-217+가 필요합니다.
+> 사용자 지정 JSON 데이터에 Linux용 Log Analytics 에이전트 v1.1.0-217+가 필요합니다.
 
 ## <a name="configuration"></a>구성
 
@@ -80,8 +81,8 @@ Log Analytics에서 JSON 데이터를 수집하려면 `oms.api.`를 입력 플�
 </match>
 ```
 
-### <a name="restart-oms-agent-for-linux"></a>Linux용 OMS 에이전트 다시 시작
-다음 명령을 사용하여 Linux용 OMS 에이전트 서비스를 다시 시작합니다.
+### <a name="restart-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트 다시 시작
+다음 명령을 사용하여 Linux용 Log Analytics 에이전트 서비스를 다시 시작합니다.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 

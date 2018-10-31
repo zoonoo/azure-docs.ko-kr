@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406926"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430173"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -418,7 +418,7 @@ Azure에서 다양한 SQL Server 백업 가능성을 살펴보려면 [Azure Virt
 
 
 ### <a name="automated-backup-for-sql-server"></a>자동화된 SQL Server 백업
-자동화된 백업은 Windows Azure VM에서 실행 중인 SQL Server Standard 및 Enterprise 버전에 대한 자동 백업 서비스를 제공합니다. 이 서비스는 Azure Portal에서 SQL Server Windows 가상 머신 이미지에 자동으로 설치되는 [SQL Server IaaS 에이전트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)에서 제공됩니다. SQL Server가 설치된 사용자 고유의 OS 이미지를 배포하는 경우 VM 확장을 별도로 설치해야 합니다. 필요한 단계는 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)에서 설명하고 있습니다.
+자동화된 백업은 Azure의 Windows VM에서 실행 중인 SQL Server Standard 및 Enterprise 버전에 대한 자동 백업 서비스를 제공합니다. 이 서비스는 Azure Portal에서 SQL Server Windows 가상 머신 이미지에 자동으로 설치되는 [SQL Server IaaS 에이전트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)에서 제공됩니다. SQL Server가 설치된 사용자 고유의 OS 이미지를 배포하는 경우 VM 확장을 별도로 설치해야 합니다. 필요한 단계는 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)에서 설명하고 있습니다.
 
 이 방법의 기능에 대한 자세한 내용은 다음 문서에서 찾을 수 있습니다.
 

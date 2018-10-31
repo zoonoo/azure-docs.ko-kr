@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63aa455851633d1e49fd1b26861aaac8a670ef15
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948012"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404787"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 메시지를 모니터링하고 통합 계정에 대한 로깅 설정
 
@@ -58,7 +58,9 @@ ms.locfileid: "46948012"
 
    1. **Log Analytics에 보내기**를 선택합니다. 
    2. **Log Analytics** 아래에서 **구성**을 선택합니다. 
-   3. **OMS 작업 영역** 아래에서 로깅에 사용할 Log Analytics 작업 영역을 선택합니다.
+   3. **OMS 작업 영역**에서 로깅에 사용할 Log Analytics 작업 영역을 선택합니다. 
+   > [!NOTE]
+   > OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다. 
    4. **로그** 아래에서 **IntegrationAccountTrackingEvents** 범주를 선택합니다.
    5. **저장**을 선택합니다.
 
@@ -92,7 +94,9 @@ ms.locfileid: "46948012"
 
    1. **Log Analytics에 보내기**를 선택합니다. 
    2. **Log Analytics** 아래에서 **구성**을 선택합니다. 
-   3. **OMS 작업 영역** 아래에서 로깅에 사용할 Log Analytics 작업 영역을 선택합니다.
+   3. **OMS 작업 영역**에서 로깅에 사용할 Log Analytics 작업 영역을 선택합니다.
+   > [!NOTE]
+   > OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
    4. **로그** 아래에서 **IntegrationAccountTrackingEvents** 범주를 선택합니다.
    5. 완료하면 **저장**을 선택합니다.
 
@@ -129,6 +133,6 @@ Azure는 이러한 추적 스키마 형식을 지원하며 사용자 지정 유�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Log Analytics에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "OMS에서 B2B 메시지 추적")
+* [Azure Log Analytics에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Azure Log Analytics에서 B2B 메시지 추적")
 * [엔터프라이즈 통합 팩에 대해 자세히 알아보기](../logic-apps/logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4f40dfced7060dd01df7410d07ac5b7cfdf3176
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f744a1126e12766980727e31d5c50ce4aa17934c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580704"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408781"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Azure 보안 및 규정 준수 청사진: GDPR 준수 분석
 
@@ -37,13 +37,13 @@ Microsoft는 GDPR에서 식별되는 개인 데이터의 범주를 포함하여 
 
 Azure는 고객을 위해 다양한 보고 및 분석 서비스를 제공합니다. 그러나 이 솔루션은 Azure Machine Learning 서비스를 Azure SQL Database와 통합하여 데이터를 빠르게 탐색하고 더 효율적인 고객 데이터 모델링을 통해 더 빠른 결과를 제공합니다. Azure Machine Learning은 데이터 집합 간의 새로운 관계를 검색하여 쿼리 속도를 높이기 위한 기계 학습의 한 형태입니다. 데이터가 여러 통계 함수를 통해 학습되면 쿼리 워크로드를 분산하고 응답 시간을 줄이기 위해 최대 7개의 추가 쿼리 풀(고객 서버를 포함하여 총 8개)을 동일한 테이블 형식 모델과 동기화할 수 있습니다.
 
-Azure SQL Database는 향상된 분석 및 보고를 위해 columnstore 인덱스를 사용하여 구성할 수 있습니다. Azure Machine Learning 및 Azure SQL Database는 모두 고객의 사용에 따라 확장 또는 축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. Azure는 강화된 보안을 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 가장 좋습니다.
+향상된 분석 및 보고를 위해 columnstore 인덱스를 사용하여 Azure SQL 데이터베이스를 구성할 수 있습니다. Azure Machine Learning 및 Azure SQL 데이터베이스는 모두 고객의 사용에 따라 확장 또는 축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. Azure는 강화된 보안을 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 가장 좋습니다.
 
 데이터가 Azure SQL Database에 업로드되고 Azure Machine Learning에서 학습되면, 운영 사용자와 SQL/데이터 관리자는 모두 Power BI를 사용하여 이러한 데이터를 요약합니다. Power BI는 직관적으로 데이터를 표시하고, 더 많은 통찰력을 얻기 위해 여러 데이터 집합에서 정보를 가져옵니다. 높은 수준의 적응성과 Azure SQL Database와의 손쉬운 통합에 따라 고객은 비즈니스 요구 사항에 따라 다양한 시나리오를 처리하도록 구성할 수 있습니다.
 
 전체 솔루션은 고객이 Azure Portal에서 구성하는 Azure Storage를 기반으로 합니다. Azure Storage는 저장소 서비스 암호화를 통해 모든 데이터를 암호화하여 미사용 데이터의 기밀을 유지합니다. GRS(지역 중복 저장소)는 수백 마일 떨어진 별도의 위치에 보조 복사본이 저장되므로 고객의 주 데이터 센터에서 발생하는 부작용으로 인해 데이터가 손실되지 않도록 합니다.
 
-이 아키텍처는 강화된 보안을 위해 Azure Active Directory 및 Azure Key Vault를 사용하여 리소스를 관리합니다. 시스템 상태는 OMS(Operations Management Suite) 및 Azure Monitor를 통해 모니터링됩니다. 고객은 로그를 캡처하고 쉽게 탐색할 수 있는 단일 대시보드에 시스템 상태를 표시하도록 두 모니터링 서비스를 구성합니다.
+이 아키텍처는 강화된 보안을 위해 Azure Active Directory 및 Azure Key Vault를 사용하여 리소스를 관리합니다. 시스템 상태는 Log Analytics 및 Azure Monitor를 통해 모니터링됩니다. 고객은 로그를 캡처하고 쉽게 탐색할 수 있는 단일 대시보드에 시스템 상태를 표시하도록 두 모니터링 서비스를 구성합니다.
 
 Azure SQL Database는 일반적으로 보안 VPN 또는 ExpressRoute 연결을 통해 Azure SQL Database에 액세스하도록 구성된 로컬 컴퓨터에서 실행되는 SSMS(SQL Server Management Studio)를 통해 관리됩니다. **Azure에서는 관리 및 참조 아키텍처 리소스 그룹에 데이터 가져오기를 위해 VPN 또는 ExpressRoute 연결을 구성하는 것이 좋습니다**.
 
@@ -56,7 +56,7 @@ Azure SQL Database는 일반적으로 보안 VPN 또는 ExpressRoute 연결을 �
 - Azure Machine Learning
 - Azure Active Directory
 - Azure Key Vault
-- OMS(Operations Management Suite)
+- Log Analytics
 - Azure Monitor
 - Azure Storage
 - Power BI 대시보드
@@ -89,7 +89,7 @@ Azure SQL Database는 일반적으로 보안 VPN 또는 ExpressRoute 연결을 �
 
 각 NSG에는 솔루션이 안전하고 올바르게 작동할 수 있도록 특정 포트 및 프로토콜이 열려 있습니다. 또한 각 NSG에 대해 다음과 같은 구성을 사용합니다.
   - [진단 로그 및 이벤트](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)는 저장소 계정에 사용되고 저장됩니다.
-  - OMS Log Analytics는 [NSG의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)에 연결됩니다.
+  - Log Analytics는 [NSG의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)에 연결됩니다.
 
 **서브넷**: 각 서브넷은 해당 NSG에 연결됩니다.
 
@@ -138,12 +138,12 @@ Azure 환경에서 개인 데이터에 대한 액세스를 관리하는 기능�
 
 ### <a name="logging-and-auditing"></a>로깅 및 감사
 
-[OMS(Operations Management Suite)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)는 시스템 및 사용자 활동과 시스템 상태에 대한 광범위한 로깅을 제공합니다. OMS [Log Analytics](https://azure.microsoft.com/services/log-analytics/) 솔루션은 Azure 및 온-프레미스 환경의 리소스에서 생성된 데이터를 수집하고 분석합니다.
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)는 시스템 및 사용자 활동과 시스템 상태에 대한 광범위한 로깅을 제공합니다. [Log Analytics](https://azure.microsoft.com/services/log-analytics/) 솔루션은 Azure 및 온-프레미스 환경의 리소스에서 생성된 데이터를 수집하고 분석합니다.
 - **활동 로그**: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 통찰력을 제공합니다. 활동 로그는 작업의 초기자, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
 - **진단 로그**: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)에는 모든 리소스에서 내보낸 모든 로그가 포함됩니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Blob 저장소, 테이블 및 큐 로그가 포함됩니다.
 - **로그 보관**: 모든 진단 로그는 정의된 보존 기간이 2일인 보관을 위해 암호화된 중앙 집중식 Azure 저장소 계정에 기록됩니다. 이러한 로그는 처리, 저장, 대시보드 보고를 위해 Azure Log Analytics에 연결됩니다.
 
-또한 이 아키텍처의 일부로 포함된 OMS 솔루션은 다음과 같습니다.
+또한 이 아키텍처의 일부로 포함된 모니터링 솔루션은 다음과 같습니다.
 -   [AD 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 확인 솔루션은 표준 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
 -   [맬웨어 방지 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): 맬웨어 방지 솔루션은 맬웨어, 위협 및 보호 상태를 보고합니다.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): Azure Automation 솔루션은 Runbook을 저장, 실행 및 관리합니다.

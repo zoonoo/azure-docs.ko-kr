@@ -1,22 +1,23 @@
 ---
-title: Speech Service를 사용하여 텍스트 음성 변환 사용
+title: Speech Service에서 Text to Speech 사용
+titleSuffix: Azure Cognitive Services
 description: Speech Service에서 텍스트에서 음성 변환을 사용하는 방법을 알아봅니다.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165048"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469920"
 ---
-# <a name="use-text-to-speech-in-speech-service"></a>Speech Service에서 "텍스트에서 음성 변환" 사용
+# <a name="use-text-to-speech-in-speech-service"></a>Speech Service에서 "Text to Speech" 사용
 
 Speech Service는 간단한 HTTP 요청을 통해 텍스트에서 음성 변환 기능을 제공합니다. 적절한 엔드포인트에 읽혀지도록 텍스트를 `POST`하면 이 서비스가 합성 음성을 포함하는 오디오 파일(`.wav`)을 반환합니다. 그러면 응용 프로그램은 이 오디오를 적절히 사용할 수 있습니다.
 

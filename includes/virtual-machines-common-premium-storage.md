@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346999"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49437132"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM의 고성능 Premium Storage 및 관리 디스크
 
@@ -151,7 +151,11 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 ### <a name="premium-storage-disk-limits"></a>Premium Storage 디스크 한도
 프리미엄 저장소 디스크를 프로비전할 때 디스크의 크기가 최대 IOPS 및 처리량(대역폭)을 결정합니다. Azure에서는 P4(Managed Disks 전용), P6(Managed Disks 전용), P10, P15(Managed Disks 전용), P20, P30, P40 및 P50과 같은 여덟 가지 GA 형식의 프리미엄 저장소 디스크를 제공합니다. 뿐만 아니라 P60, P70 및 P80이라는 세 가지 미리 보기 디스크 크기를 제공합니다. 각 프리미엄 저장소 디스크 유형에는 특정 IOPS 및 처리량 한도가 있습니다. 디스크 유형에 대한 한도는 다음 표에 설명되어 있습니다.
 
-| 프리미엄 디스크 유형  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | P60   | P70   | P80   | |---------------------|-------|-------|-------|-------|-------|-------|-------|-------||-------||-------||-------| | 디스크 크기           | 32GiB| 64GiB| 128GiB| 256GiB| 512GiB            | 1024GiB(1TiB)    | 2048GiB(2TiB)    | 4095GiB(4TiB)    | 8192GiB(8TiB)    | 16,384GiB(16TiB)    | 32,767GiB(32TiB)    | | 디스크 당 IOPS       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              | | 디스크 당 처리량 | 초당 25MB | 초당 50MB | 초당 100MB | 초당 125MB | 초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB | 초당 480MB | 초당 750MB | 초당 750MB |
+| 프리미엄 디스크 유형  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+|---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
+| 디스크 크기           | 32GiB| 64GiB| 128GiB| 256GiB| 512GiB| 1024GiB(1TiB) | 2048GiB(2TiB)| 4095GiB(4TiB)| 8192GiB(8TiB)| 16,384GiB(16TiB)| 32,767GiB(32TiB)|
+| 디스크당 IOPS       | 120   | 240   | 500    | 1100   | 2,300   | 5,000             | 7,500            | 7,500            | 12,500          | 15,000             | 20,000             |
+| 디스크당 처리량 | 초당 25MB | 초당 50MB | 초당 100MB | 초당 125MB | 초당 150MB | 초당 200MB | 초당 250MB | 초당 250MB | 초당 480MB | 초당 750MB | 초당 750MB |
 
 > [!NOTE]
 > [Premium Storage 지원 VM](#premium-storage-supported-vms) 섹션에서 설명한 대로 VM에서 디스크 트래픽을 운용하기에 충분한 대역폭을 사용할 수 있는지 확인해야 합니다. 그렇지 않으면 처리량 및 IOPS가 낮은 값으로 제한됩니다. 최대 처리량 및 IOPS는 이전 표에 설명된 디스크 한도가 아닌 VM 한도를 기초로 합니다.  

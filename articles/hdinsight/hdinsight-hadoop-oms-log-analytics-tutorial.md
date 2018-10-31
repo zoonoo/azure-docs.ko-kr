@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jasonh
-ms.openlocfilehash: 87d1593327ab45f064c6f6b19dfbe3882baaa446
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1a526bfdd951e4dc2897ec52c03bfbe96ee14d4c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109519"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403681"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics를 사용하여 HDInsight 클러스터 모니터링
 
@@ -93,7 +93,7 @@ HDInsight는 Azure Log Analytics에 추가할 수 있는 클러스터와 관련�
 
 관리 솔루션을 설치하기 위한 지침은 [Azure의 관리 솔루션](../monitoring/monitoring-solutions.md#install-a-management-solution)을 참조하세요. 실험하려면 HDInsight Hadoop 모니터링 솔루션을 설치합니다. 완료되면 **요약**에 **HDInsightHadoop** 타일이 나열됩니다. **HDInsightHadoop** 타일을 선택합니다. HDInsightHadoop 솔루션은 다음과 같습니다.
 
-![HDInsight OMS Hadoop 모니터링 솔루션 보기](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
+![HDInsight 모니터링 솔루션 보기](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
 클러스터는 새로운 클러스터이므로 보고서에 작업이 표시되지 않습니다.
 

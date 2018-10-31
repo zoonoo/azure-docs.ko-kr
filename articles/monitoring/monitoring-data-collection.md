@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8d3e0874637bc3f13905c6038349b34c18b5fe56
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406043"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637800"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure Monitor에서 수집된 데이터 모니터링
 [Azure Monitor](../azure-monitor/overview.md)는 사용하는 응용 프로그램 및 리소스를 모니터링하는 데 도움이 되는 서비스입니다. 이 기능의 중심은 원격 분석의 저장소 및 모니터링된 리소스의 기타 데이터입니다. 이 문서에서는 이 데이터가 저장되고 Azure Monitor에서 사용되는 방법에 대한 전체 설명을 제공합니다.
@@ -108,7 +108,7 @@ Azure Monitor에서 수집되는 메트릭의 세 가지 기본 원본이 있습
 
 
 ### <a name="viewing-metrics"></a>메트릭 보기
-Azure의 메트릭은 Azure Monitor 메트릭 저장소에 수집됩니다. 빠른 검색에 최적화된 시계열 데이터베이스이며 93일 동안 메트릭 값을 저장합니다. 장기 분석 및 추세 분석을 위해 Log Analytics에 메트릭을 복사합니다.
+Azure의 메트릭은 Azure Monitor 메트릭 데이터베이스에 수집됩니다. 빠른 검색에 최적화된 시계열 데이터베이스이며 93일 동안 메트릭 값을 저장합니다. 장기 분석 및 추세 분석을 위해 Log Analytics에 메트릭을 복사합니다.
 
 메트릭 데이터는 위에서 설명한 것처럼 다양한 방법으로 사용됩니다. [메트릭 탐색기](../monitoring-and-diagnostics/monitoring-metric-charts.md)를 사용하여 메트릭 저장소에서 데이터를 직접 분석하고 시간 경과에 따라 여러 가지 메트릭의 값을 기록합니다. 대화형으로 차트를 보거나 다른 시각화 요소를 사용하여 보려는 대시보드에 고정할 수 있습니다. [Azure 모니터링 REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)를 사용하여 메트릭을 검색할 수도 있습니다.
 
@@ -173,7 +173,7 @@ Log Analytics로 메트릭을 복사하여 풍부한 쿼리 언어를 사용하�
 Azure 리소스에서 메트릭을 수집하기 위한 지침은 [Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집](../log-analytics/log-analytics-azure-storage.md)에서 확인할 수 있습니다. Azure PaaS 리소스에서 리소스 메트릭을 수집하기 위한 지침은 [Log Analytics로 Azure PaaS 리소스 메트릭의 수집 구성](../log-analytics/log-analytics-collect-azurepass-posh.md)에서 확인할 수 있습니다.
 
 ### <a name="logs-to-metrics"></a>메트릭에서 로그로
-위의 설명과 같이 메트릭은 로그보다 응답 속도가 빠르기 때문에 낮은 대기 시간과 낮은 비용으로 경고를 만들 수 있습니다. Log Analytics는 메트릭에 적합한 상당한 양의 데이터를 수집하지만 Azure 메트릭 저장소에 저장되지는 않습니다.  일반적인 예로 에이전트 및 관리 솔루션에서 수집된 성능 데이터가 있습니다. 이러한 값 중 일부는 메트릭 탐색기를 사용하여 경고 및 분석에 사용할 수 있는 메트릭 저장소로 복사할 수 있습니다.
+위의 설명과 같이 메트릭은 로그보다 응답 속도가 빠르기 때문에 낮은 대기 시간과 낮은 비용으로 경고를 만들 수 있습니다. Log Analytics는 메트릭에 적합하지만 Azure 메트릭 데이터베이스에 저장되지 않는 상당한 양의 숫자 데이터를 수집합니다.  일반적인 예로 에이전트 및 관리 솔루션에서 수집된 성능 데이터가 있습니다. 이러한 값 중 일부는 메트릭 탐색기를 사용하여 경고 및 분석에 사용할 수 있는 메트릭 데이터베이스에 복사할 수 있습니다.
 
 이 기능에 대한 설명은 [Azure Monitor에서 로그 메트릭 경고 만들기](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)에서 확인할 수 있습니다. 지원되는 값 목록은 [Azure Monitor에서 지원되는 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)에서 확인할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7557e2b993a5059df8aea63c7394539acc28c110
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295873"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403527"
 ---
 # <a name="production-readiness-checklist"></a>프로덕션 준비 검사 목록
 
@@ -36,7 +36,7 @@ ms.locfileid: "44295873"
 6. 노드 유형의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)을 이해하고 선택합니다. 실버 이상의 안정성을 사용하는 것이 좋습니다.
 7. 워크로드를 로드하고 규모 테스트를 수행하여 클러스터의 [용량 요구 사항](service-fabric-cluster-capacity.md)을 파악합니다. 
 8. 서비스 및 응용 프로그램이 모니터링되고, 응용 프로그램 로그가 생성되어 경고와 함께 저장됩니다. 예를 들어, [Service Fabric 응용 프로그램에 로깅 추가](service-fabric-how-to-diagnostics-log.md) 및 [Log Analytics를 사용하여 컨테이너 모니터링](service-fabric-diagnostics-oms-containers.md)을 참조하세요.
-9. 클러스터는 경고(예: [OMS](service-fabric-diagnostics-event-analysis-oms.md))를 사용하여 모니터링됩니다. 
+9. 클러스터는 경고(예: [Log Analytics](service-fabric-diagnostics-event-analysis-oms.md))를 사용하여 모니터링됩니다. 
 10. 기본 가상 머신 확장 집합 인프라는 경고(예: [Log Analytics](service-fabric-diagnostics-oms-agent.md))를 사용하여 모니터링됩니다.
 11. 클러스터에는 항상 [기본 및 보조 인증서](service-fabric-cluster-security-update-certs-azure.md)가 있습니다(잠기지 않도록 방지).
 12. 개발, 스테이징 및 프로덕션을 위해 별도의 클러스터를 유지 관리합니다. 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f02da6f21d0c11724b4192d5af0d5cc75d2c770c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 0c274b1ed3cbd0e00e96072adb2fca41541af686
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321566"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402663"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Log Analytics에 Operations Manager 연결
 System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 Log Analytics 작업 영역으로 Operations Manager를 통합할 수 있습니다. 이렇게 하면 Log Analytics의 기회를 활용하면서도 Operations Manager를 계속 사용하여 다음 작업을 할 수 있습니다.
@@ -37,7 +37,7 @@ Operations Manager 관리 그룹에 대한 에이전트 보고는 Log Analytics 
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 OMS 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹이 OMS 게이트웨이를 통해 Log Analytics 서비스와 통신할 수 있도록 구성하는 방법에 대한 자세한 정보 및 단계에 대해서는 [OMS 게이트웨이 사용하여 OMS에 컴퓨터 연결](log-analytics-oms-gateway.md)을 참조하세요.  
+IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹이 Log Analytics 게이트웨이를 통해 Log Analytics 서비스와 통신할 수 있도록 구성하는 방법에 대한 자세한 정보 및 단계에 대해서는 [Log Analytics 게이트웨이를 사용하여 Log Analytics에 컴퓨터 연결](log-analytics-oms-gateway.md)을 참조하세요.  
 
 ## <a name="prerequisites"></a>필수 조건 
 시작에 앞서 다음 요구 사항을 검토합니다.
@@ -69,7 +69,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 |\*.blob.core.windows.net| 443| yes|  
 |\*.ods.opinsights.azure.com| 443| yes|  
 |*.azure-automation.net | 443| yes|  
-|**OMS에 대한 Operations Manager 콘솔**|||  
+|**Log Analytics에 Operations Manager 콘솔**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.live.com| 80 및 443||  
@@ -96,12 +96,16 @@ Log Analytics 작업 영역에 Operations Manager 관리 그룹을 처음으로 
 
     `netsh winhttp set proxy <proxy>:<port>`
 
-다음 단계에 따라 Log Analytics와 통합을 완료한 후에는 `netsh winhttp reset proxy`를 실행하여 구성을 제거하고, 운영 콘솔에서 **프록시 서버 구성** 옵션을 사용하여 프록시 또는 OMS 게이트웨이 서버를 지정할 수 있습니다. 
+다음 단계에 따라 Log Analytics와 통합을 완료한 후에는 `netsh winhttp reset proxy`를 실행하여 구성을 제거한 다음, 운영 콘솔에서 **프록시 서버 구성** 옵션을 사용하여 프록시 또는 Log Analytics 게이트웨이 서버를 지정할 수 있습니다. 
 
 1. Operations Manager 콘솔에서 **관리** 작업 영역을 선택합니다.
 1. Operations Management Suite 노드를 확장하고 **연결**을 클릭합니다.
 1. **Operations Management Suite에 등록** 링크를 클릭합니다.
-1. **Operations Management Suite 등록 마법사: 인증** 페이지에서 OMS 구독과 연결된 관리자 계정의 전자 메일 주소 또는 전화 번호와 암호를 입력하고 **로그인**을 클릭합니다.
+1. **Operations Management Suite 등록 마법사: 인증** 페이지에서 OMS 구독과 연결된 관리자 계정의 이메일 주소 또는 전화 번호와 암호를 입력하고 **로그인**을 클릭합니다.
+
+   >[!NOTE]
+   >OMS를 이제 Log Analytics라고 합니다.
+   
 1. 성공적으로 인증된 후에 **Operations Management Suite 등록 마법사: 작업 영역 선택** 페이지에 Azure 테넌트, 구독 및 Log Analytics 작업 영역을 선택하라는 메시지가 나타납니다. 둘 이상의 작업 영역이 있는 경우 드롭다운 목록에서 Operations Manager 관리 그룹으로 등록하려는 작업 영역을 선택한 후 **다음**을 클릭합니다.
    
    > [!NOTE]
@@ -129,7 +133,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 1. OMS 연결 보기에서 **프록시 서버 구성**을 클릭합니다.
 1. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택하고 포트 번호와 함께 URL을 입력(예: http://corpproxy:80 )한 다음, **마침**을 클릭합니다.
 
-프록시 서버에 인증이 필요한 경우 다음 단계를 수행하여 관리 그룹에서 OMS에 보고하는 관리되는 컴퓨터에 전파해야 하는 자격 증명 및 설정을 구성합니다.
+프록시 서버에 인증이 필요한 경우 다음 단계를 수행하여 관리 그룹에서 Log Analytics에 보고하는 관리되는 컴퓨터에 전파해야 하는 자격 증명 및 설정을 구성합니다.
 
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
 1. **RunAs 구성**에서 **프로필**을 선택합니다.
@@ -143,7 +147,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 연결이 만들어지고 Log Analytics에 데이터를 수집 및 보고할 에이전트를 구성한 후 다음 구성이 관리 그룹 순서에 관계 없이 적용됩니다.
 
 * 실행 계정 **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** 가 만들어집니다. 이 계정은 실행 프로필 **Microsoft System Center Advisor Run As Profile Blob**과 연결되고 두 개의 클래스 **수집 서버** 및 **Operations Manager 관리 그룹**을 대상으로 합니다.
-* 두 개의 커넥터가 생성됩니다.  첫 번째는 **Microsoft.SystemCenter.Advisor.DataConnector**로 이름이 지정되고 관리 그룹에 있는 모든 클래스의 인스턴스에서 생성된 모든 경고를 Log Analytics로 전달하는 구독으로 자동으로 구성됩니다. 두 번째 커넥터는 **Advisor Connector**이며 OMS 웹 서비스와 통신하고 데이터를 공유합니다.
+* 두 개의 커넥터가 생성됩니다.  첫 번째는 **Microsoft.SystemCenter.Advisor.DataConnector**로 이름이 지정되고 관리 그룹에 있는 모든 클래스의 인스턴스에서 생성된 모든 경고를 Log Analytics로 전달하는 구독으로 자동으로 구성됩니다. 두 번째 커넥터는 **Advisor Connector**이며 Log Analytics와 통신하고 데이터를 공유합니다.
 * 관리 그룹에서 데이터를 수집하도록 선택한 에이전트 및 그룹은 **Microsoft System Center Advisor 모니터링 서버 그룹**에 추가됩니다.
 
 ## <a name="management-pack-updates"></a>관리 팩 업데이트
@@ -152,7 +156,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 * **Microsoft.SystemCenter.Advisor.MPUpdate** - 기본 Log Analytics 관리 팩을 업데이트합니다. 기본적으로 12시간마다 실행됩니다.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - 작업 영역에서 활성화된 솔루션 관리 팩을 업데이트합니다. 기본적으로 5분마다 실행됩니다.
 
-비활성화하여 자동 다운로드를 방지하거나 관리 서버에서 새 관리 팩을 사용할 수 있고 다운로드해야 하는 경우를 결정하도록 OMS와 동기화하는 빈도를 수정하기 위해 이러한 두 규칙을 재정의할 수 있습니다. [규칙 또는 모니터를 재정의하는 방법](https://technet.microsoft.com/library/hh212869.aspx) 단계를 따라 초 단위 값으로 **Frequency** 매개 변수를 수정하여 동기화 일정을 변경하거나 **Enabled** 매개 변수를 수정하여 규칙을 비활성화합니다. Operations Manager 관리 그룹 클래스의 모든 개체에 대한 재정의를 대상으로 합니다.
+비활성화하여 자동 다운로드를 방지하거나 관리 서버에서 새 관리 팩을 사용할 수 있고 다운로드해야 하는 경우를 결정하도록 Log Analytics와 동기화하는 빈도를 수정하기 위해 이러한 두 규칙을 재정의할 수 있습니다. [규칙 또는 모니터를 재정의하는 방법](https://technet.microsoft.com/library/hh212869.aspx) 단계를 따라 초 단위 값으로 **Frequency** 매개 변수를 수정하여 동기화 일정을 변경하거나 **Enabled** 매개 변수를 수정하여 규칙을 비활성화합니다. Operations Manager 관리 그룹 클래스의 모든 개체에 대한 재정의를 대상으로 합니다.
 
 프로덕션 관리 그룹에서 관리 팩 릴리스 제어를 위해 기존 변경 제어 프로세스를 계속 따르려면 규칙을 비활성화하고 업데이트가 허용될 때 특정 시간 동안 활성화하면 됩니다. 사용자 환경에 개발 또는 QA 관리 그룹이 있고 인터넷에 연결되어 있는 경우 Log Analytics 작업 영역으로 해당 관리 그룹을 구성하여 이 시나리오를 지원할 수 있습니다. 이렇게 하면 프로덕션 관리 그룹으로 릴리스하기 전에 Log Analytics 관리 팩의 반복적인 릴리스를 검토 및 평가할 수 있습니다.
 
@@ -160,9 +164,9 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 1. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택하고 작업 영역을 만듭니다.  
 1. Operations Manager 관리자 역할의 구성원인 계정을 사용하여 Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
-1. Operations Management Suite를 확장하고 **연결**을 선택합니다.
+1. Log Analytics를 확장하고 **연결**을 선택합니다.
 1. 창 중간의 **Operations Management Suite 다시 구성** 링크를 선택합니다.
-1. **Operations Management Suite 등록 마법사**의 지시를 따라 이메일 주소 또는 전화 번호, 새 Log Analytics 작업 영역과 연결된 관리자 계정의 암호를 입력합니다.
+1. **Log Analytics 등록 마법사**의 지시를 따라 새 Log Analytics 작업 영역과 연결된 관리자 계정의 이메일 주소 또는 전화 번호와 암호를 입력합니다.
    
    > [!NOTE]
    > **Operations Management Suite 등록 마법사: 작업 영역 선택** 페이지는 사용 중인 기존 작업 영역을 표시합니다.
@@ -213,7 +217,7 @@ Operations Manager와 통합하도록 활성화한 솔루션용 관리 팩 및 L
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
-1. OMS 포털에서 **설정** 타일을 클릭합니다.
+1. Azure Portal에서 **설정** 타일을 클릭합니다.
 1. **연결된 원본**을 선택합니다.
 1. System Center Operations Manager 섹션 아래의 표에 작업 영역에서 제거하려는 관리 그룹의 이름이 표시됩니다. **마지막 데이터** 열 아래에서 **제거**를 클릭합니다.  
    

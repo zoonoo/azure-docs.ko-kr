@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: srrengar
-ms.openlocfilehash: f99206fe673f69c78bf130026207ed58344ccea5
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 68e0192756db539767dd808d0f0d408e77c2ae1b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324428"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405653"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure 진단 확장을 사용하여 성능 모니터링
 
-이 문서에서는 Windows 클러스터에 대한 WAD(Windows Azure Diagnostics) 확장을 통해 성능 카운터의 컬렉션을 설정하는 데 필요한 단계를 설명합니다. Linux 클러스터의 경우 [OMS 에이전트](service-fabric-diagnostics-oms-agent.md)를 설정하여 노드에 대한 성능 카운터를 수집합니다. 
+이 문서에서는 Windows 클러스터에 대한 WAD(Windows Azure Diagnostics) 확장을 통해 성능 카운터의 컬렉션을 설정하는 데 필요한 단계를 설명합니다. Linux 클러스터의 경우 [Log Analytics 에이전트](service-fabric-diagnostics-oms-agent.md)를 설정하여 노드에 대한 성능 카운터를 수집합니다. 
 
  > [!NOTE]
 > WAD 확장은 이러한 단계가 작동하도록 클러스터에 배포되어야 합니다. 설정되지 않은 경우 [Miscrosoft Azure 진단을 사용하여 이벤트 집계 및 수집](service-fabric-diagnostics-event-aggregation-wad.md)으로 이동합니다.  

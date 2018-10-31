@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983670"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429561"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
 
@@ -37,7 +37,7 @@ ms.locfileid: "46983670"
 수명 주기 관리 기능은 무료 미리 보기로 제공됩니다. [Blob 나열](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 및 [Blob 계층 설정](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 호출에 대한 일반 작업 비용은 고객에게 청구됩니다. 가격 책정에 대한 자세한 내용은 [블록 Blob 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 
 ## <a name="register-for-preview"></a>미리 보기 등록 
-공개 미리 보기에 등록하려면 이 기능을 구독에 등록해 달라는 요청을 제출해야 합니다. 요청이 승인되면(며칠 이내) 미국 서부 2 및 미국 중서부 및 서유럽에 있는 기존 및 새 GPv2 또는 Blob Storage 계정에서 이 기능을 사용할 수 있습니다. 미리 보기 기간에는 블록 Blob만 사용할 수 있습니다. 대부분의 미리 보기와 마찬가지로, 이 기능은 GA 전에는 프로덕션 워크로드에 사용할 수 없습니다.
+공개 미리 보기에 등록하려면 이 기능을 구독에 등록해 달라는 요청을 제출해야 합니다. 요청이 승인되면(며칠 이내) 미국 서부 2, 미국 중서부, 미국 동부 2 및 서유럽에 있는 기존 및 새 GPv2 또는 Blob Storage 계정에서 이 기능을 사용할 수 있습니다. 미리 보기 기간에는 블록 Blob만 사용할 수 있습니다. 대부분의 미리 보기와 마찬가지로, 이 기능은 GA 전에는 프로덕션 워크로드에 사용할 수 없습니다.
 
 요청을 제출하려면 다음 PowerShell 또는 CLI 명령을 실행합니다.
 
@@ -69,7 +69,7 @@ az feature show --namespace Microsoft.Storage --name DLM
 
 ## <a name="add-or-remove-policies"></a>정책 추가 또는 제거 
 
-Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) 또는 클라이언트 도구를 사용하여 [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2) 언어로 정책을 추가, 편집 또는 제거할 수 있습니다. 
+Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate) 또는 클라이언트 도구를 사용하여 [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2) 언어로 정책을 추가, 편집 또는 제거할 수 있습니다. 
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -316,6 +316,10 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
   ]
 }
 ```
+## <a name="faq"></a>FAQ
+### <a name="i-created-a-new-policy-why-are-the-actions-specified-not-executed-immediately"></a>새 정책을 만들었습니다. 지정된 작업이 즉시 실행되지 않는 이유는 무엇인가요? 
+
+수명 주기 정책은 플랫폼에서 하루에 한 번 실행됩니다. 새 정책이 설정되면 계층화 또는 삭제와 같은 작업이 시작되고 실행되는 데 최대 24시간이 걸릴 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 05/09/2018
 ms.author: haroldw
-ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 39febceff58127fb9777ace6e3063fbe41605b79
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434894"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426450"
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
 
@@ -82,7 +82,7 @@ Azure Portal에서 다음을 수행합니다.
 
   ![앱 등록](media/openshift-post-deployment/app-registration.png)
 
-6.  1단계: API 선택을 클릭한 다음 **Windows Azure Active Directory(Microsoft.Azure.ActiveDirectory)** 를 클릭합니다. 아래쪽에서 **선택**을 선택합니다.
+6.  1단계: API 선택을 클릭한 다음, **Azure Active Directory(Microsoft.Azure.ActiveDirectory)** 를 클릭합니다. 아래쪽에서 **선택**을 선택합니다.
 
   ![앱 등록 API 선택](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -174,7 +174,7 @@ OpenShift 콘솔에 htpasswd_auth 및 [앱 등록]이라는 두 가지 인증 �
 
 ## <a name="monitor-openshift-with-log-analytics"></a>Log Analytics로 OpenShift 모니터링
 
-Log Analytics로 OpenShift를 모니터링하려면 VM 호스트에 OMS 에이전트 설치 또는 OMS 컨테이너라는 두 가지 옵션 중 하나를 사용합니다. 이 문서에는 OMS 컨테이너 배포에 대한 지침이 제공됩니다.
+Log Analytics로 OpenShift를 모니터링하려면 VM 호스트에 Log Analytics 에이전트 설치 또는 Log Analytics 컨테이너라는 두 가지 옵션 중 하나를 사용합니다. 이 문서에서는 Log Analytics 컨테이너 배포에 대한 지침이 제공됩니다.
 
 ## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Log Analytics용 OpenShift 프로젝트 만들기 및 사용자 액세스 설정
 
@@ -276,7 +276,7 @@ echo $key_data | base64 | tr -d '\n'
 oc create -f ocp-secret.yml
 ```
 
-OMS 에이전트 디먼 집합 배포:
+Log Analytics 에이전트 디먼 집합 배포:
 
 ```bash
 oc create -f ocp-omsagent.yml

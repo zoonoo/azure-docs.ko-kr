@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c23646bca6109d27e57b2f928363e65c83c634eb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7985c8e9e26126040d842ded998a953281daa2ae
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031155"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953555"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>자습서: Visual Studio를 사용하여 Service Fabric 응용 프로그램을 업그레이드하는 방법 알아보기
 
@@ -156,7 +156,7 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 이 자습서 부분에서는 다음에 대해 알아보았습니다.
 > [!div class="checklist"]
-> * Visual Studio를 사용하여 Service Fabric Mess 앱을 업그레이드하는 방법
+> * Visual Studio를 사용하여 Service Fabric Mesh 앱을 업그레이드하는 방법
 
 다음 자습서를 진행합니다.
 > [!div class="nextstepaction"]

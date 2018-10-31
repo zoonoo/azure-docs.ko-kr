@@ -1,6 +1,6 @@
 ---
 title: 장애 조치 그룹 및 활성 지역 복제 - Azure SQL Database | Microsoft Docs
-description: 활성 지역 복제와 함께 자동 장애 조치(Failover)를 사용하고 가동 중단 시 자동 장애 조치(Failover)를 사용하도록 설정합니다.
+description: 활성 지역 복제를 통한 자동 장애 조치를 사용하고 가동 중단 시 자동 장애 조치를 사용하도록 설정합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6e77d24c31401051d82501ca8064d02201bf218e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354277"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471478"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>개요: 활성 지역 복제 및 자동 장애 조치(failover) 그룹
 
@@ -279,8 +279,8 @@ ms.locfileid: "49354277"
 
 | API | 설명 |
 | --- | --- |
-| [데이터베이스 생성 또는 업데이트(createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다. |
-| [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |만들기 작업 동안 상태를 반환합니다. |
+| [데이터베이스 생성 또는 업데이트(createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다. |
+| [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |만들기 작업 동안 상태를 반환합니다. |
 | [보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |현재 주 복제본 데이터베이스에서 장애 조치(failover)를 통해 주 복제본 데이터베이스로 사용할 데이터베이스를 설정합니다. |
 | [보조 데이터베이스를 주 데이터베이스로 설정(계획되지 않은 장애 조치(failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |현재 주 복제본 데이터베이스에서 장애 조치(failover)를 통해 주 복제본 데이터베이스로 사용할 데이터베이스를 설정합니다. 이 작업으로 인해 데이터가 손실될 수 있습니다. |
 | [복제 링크 가져오기](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 특정 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |

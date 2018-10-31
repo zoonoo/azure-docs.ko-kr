@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 5f5b03090f374f936e03d487596ca0462feea348
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042431"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407506"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -63,9 +63,13 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
     ![ITSMC 솔루션 추가](./media/log-analytics-itsmc/add-itsmc-solution.png)
 
 3.  **OMS 작업 영역** 섹션에서 솔루션을 설치하려는 Azure Log Analytics 작업 영역을 선택합니다.
+   >[!NOTE]
+   >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
 4.  **OMS 작업 영역 설정** 섹션에서 솔루션 리소스 만들려는 ResourceGroup을 선택합니다.
 
     ![ITSMC 작업 영역](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    >[!NOTE]
+    >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
 
 5.  **만들기**를 클릭합니다.
 
@@ -290,7 +294,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터와의 연결이 성공적으로 설정되었는지 확인하려면 [하이브리드 연결](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) 설정 설명서에 따라 웹앱 URL을 방문합니다.  
 
 2.  ServiceNow의 데이터가 Log Analytics와 동기화되지 않으면 ServiceNow 인스턴스가 중지 상태가 아닌지 확인합니다. ServiceNow Dev 인스턴스가 오랫동안 유휴 상태일 때 중지 상태로 전환되는 경우가 있습니다. 다른 문제를 보고합니다.
-3.  OMS 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.
+3.  Log Analytics 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.
  -  ITSMC: 연결/작업 항목/컴퓨터 등에 대한 요약을 보여 줍니다. **커넥터 상태**를 보여 주는 타일을 클릭하면 관련 쿼리가 있는 **로그 검색**으로 이동됩니다. 자세한 정보는 LogType_S가 ERROR(오류)인 로그 레코드를 살펴봅니다.
  - **로그 검색** 페이지: `*`ServiceDeskLog_CL`*` 쿼리를 사용하여 오류/관련 정보를 직접 확인합니다.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114195"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954490"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage 복제
 
@@ -38,7 +38,7 @@ Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을
 | 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 아니요                              | 예                              | 예                                  | yes                                  |
 | 전체 지역 가동 중단                                                                                     | 아니요                              | 아니요                               | 예                                  | yes                                  |
 | 지역 전체가 사용할 수 없는 우 데이터(원격 지역 복제 지역의)에 대한 읽기 권한 | 아니요                              | 아니요                               | 아니요                                   | yes                                  |
-| 지정된 한 해 동안 ___의 개체 내구성을 제공하도록 설계되었습니다.                                          | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
+| 지정된 한 해 동안 개체의 \_\_ 내구성을 제공하도록 설계                                          | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
 | 지원되는 저장소 계정 형식                                                                   | GPv2, GPv1, Blob                | GPv2, GPv1(PowerShell, Azure CLI 또는 리소스 공급자 API를 통해)                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | 읽기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.99%(쿨 액세스 계층에 대해 99.9%) |
 | 쓰기 요청에 대한 가용성 SLA | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) |

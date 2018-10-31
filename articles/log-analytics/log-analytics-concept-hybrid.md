@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319747"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406877"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Azure Log Analytics 에이전트를 사용하여 하이브리드 환경에서 데이터 수집
 
@@ -38,7 +38,7 @@ Azure Log Analytics는 Windows 또는 Linux 운영 체제에서 실행되는 컴
 
 수집된 데이터를 분석하고 그에 대한 조치를 취하기 전에 먼저 Log Analytics 서비스에 데이터를 보내려는 모든 컴퓨터에 대한 에이전트를 설치 및 연결해야 합니다. Azure Automation에서 설치 프로그램, 명령줄 또는 DSC(필요한 상태 구성)를 사용하여 온-프레미스 컴퓨터에 에이전트를 설치할 수 있습니다. 
 
-Linux 및 Windows용 에이전트는 TCP 포트 443을 통해 Log Analytics 서비스와 아웃바운드 통신을 수행하고, 컴퓨터가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 아래의 요구 사항을 검토하여 필요한 네트워크 구성을 이해하세요.  IT 보안 정책에는 네트워크의 컴퓨터가 인터넷에 연결할 수 있도록 허용하지 않을 경우 [OMS 게이트웨이](log-analytics-oms-gateway.md)를 설정한 후 에이전트가 게이트웨이를 통해 Log Analytics에 연결하도록 구성할 수 있습니다. 그러면 에이전트는 구성 정보를 수신하고, 사용하도록 설정한 데이터 수집 규칙 및 솔루션에 따라 수집된 데이터를 보낼 수 있습니다. 
+Linux 및 Windows용 에이전트는 TCP 포트 443을 통해 Log Analytics 서비스와 아웃바운드 통신을 수행하고, 컴퓨터가 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우 아래의 요구 사항을 검토하여 필요한 네트워크 구성을 이해하세요.  IT 보안 정책에는 네트워크의 컴퓨터가 인터넷에 연결할 수 있도록 허용하지 않을 경우 [Log Analytics 게이트웨이](log-analytics-oms-gateway.md)를 설정한 후 에이전트가 게이트웨이를 통해 Log Analytics에 연결하도록 구성할 수 있습니다. 그러면 에이전트는 구성 정보를 수신하고, 사용하도록 설정한 데이터 수집 규칙 및 솔루션에 따라 수집된 데이터를 보낼 수 있습니다. 
 
 System Center Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 Log Analytics 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 [Operations Manager](log-analytics-om-agents.md)에서 계속 모니터링될 수도 있습니다. Log Analytics와 통합된 Operations Manager 관리 그룹에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다. Windows 에이전트는 최대 4개의 작업 영역을 보고할 수 있는 반면 Linux 에이전트는 단일 작업 영역에 대한 보고만 지원합니다.  
 
@@ -92,7 +92,7 @@ Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송
 
 Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다. 
 
-Windows 및 Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는 OMS 게이트웨이를 통해 Log Analytics 서비스와 통신하도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호)이 둘 다 지원됩니다.  서비스에 직접 연결된 Windows 에이전트의 경우, 프록시 구성은 설치 중이나 제어판 또는 PowerShell을 사용하여 [배포 후](log-analytics-agent-manage.md#update-proxy-settings)에 지정됩니다.  
+Windows 및 Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는 Log Analytics 게이트웨이를 통해 Log Analytics 서비스와 통신하도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호)이 둘 다 지원됩니다.  서비스에 직접 연결된 Windows 에이전트의 경우, 프록시 구성은 설치 중이나 제어판 또는 PowerShell을 사용하여 [배포 후](log-analytics-agent-manage.md#update-proxy-settings)에 지정됩니다.  
 
 Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](log-analytics-agent-manage.md#update-proxy-settings) proxy.conf 구성 파일을 수정하여 프록시 서버를 지정할 수 있습니다.  Linux 에이전트 프록시 구성 값은 다음 구문을 포함합니다.
 
@@ -106,8 +106,8 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](log-analytics
 |프로토콜 | https |
 |사용자 | 프록시 인증을 위한 선택적 사용자 이름 |
 |암호 | 프록시 인증을 위한 선택적 암호 |
-|proxyhost | 프록시 서버/OMS 게이트웨이의 주소 또는 FQDN |
-|포트 | 프록시 서버/OMS 게이트웨이 대한 선택적 포트 번호 |
+|proxyhost | 프록시 서버/Log Analytics 게이트웨이의 주소 또는 FQDN |
+|포트 | 프록시 서버/Log Analytics 게이트웨이 대한 선택적 포트 번호 |
 
 예: `https://user01:password@proxy01.contoso.com:30443`
 
@@ -129,4 +129,4 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](log-analytics
 
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다. 
 
-* Log Analytics에 기능을 추가하고 OMS 리포지토리로 데이터를 수집하는 [솔루션](log-analytics-add-solutions.md) 에 대해 알아봅니다.
+* Log Analytics에 기능을 추가하고 Log Analytics 작업 영역으로 데이터를 수집하는 [솔루션](log-analytics-add-solutions.md)에 대해 알아봅니다.

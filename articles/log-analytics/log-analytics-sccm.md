@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 433914bc4501b13ba65015d15b0c513a38bf1273
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 28ddfea0f4127f402b82388a10ee150b30a65736
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041665"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954235"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
 System Center Configuration Manager 환경을 Azure Log Analytics에 연결하여 장치 수집 데이터를 동기화하고 Log Analytics 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
@@ -32,7 +32,7 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 ## <a name="configuration-overview"></a>구성 개요
 다음 단계는 Log Analytics와 Configuration Manager 통합을 구성하는 단계를 요약하여 보여 줍니다.  
 
-1. Azure Portal에서 Configuration Manager를 웹 응용 프로그램 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 암호 키가 있는지 확인합니다. 이 단계를 수행하는 방법에 대한 자세한 내용은 [포털 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md)를 참조하세요.
+1. Azure Portal에서 Configuration Manager를 웹 응용 프로그램 및/또는 Web API 앱으로 등록하고 Azure Active Directory에서 등록할 때 사용한 클라이언트 ID와 클라이언트 암호 키가 있는지 확인합니다. 이 단계를 수행하는 방법에 대한 자세한 내용은 [포털 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 2. Azure Portal에서 [Configuration Manager(등록된 웹앱)에 Log Analytics에 대한 액세스 권한을 제공](#grant-configuration-manager-with-permissions-to-log-analytics)합니다.
 3. 구성 관리자에서 [DMS 연결 추가 마법사를 사용하여 연결을 추가](#add-an-oms-connection-to-configuration-manager)합니다.
 4. 구성 관리자에서 암호 또는 클라이언트 비밀 키가 만료되거나 분실된 경우 [연결 속성을 업데이트](#update-oms-connection-properties)합니다.
@@ -40,7 +40,7 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 6. Log Analytics에서 컴퓨터 그룹으로 [구성 관리자의 컬렉션을 가져옵니다](#import-collections).
 7. Log Analytics에서 [컴퓨터 그룹](log-analytics-computer-groups.md)으로 구성 관리자에서 데이터를 봅니다.
 
-[Microsoft Operations Management Suite에 구성 관리자의 데이터 동기화](https://technet.microsoft.com/library/mt757374.aspx)에서 구성 관리자를 OMS에 연결하는 방법에 대해 자세히 읽을 수 있습니다.
+[Microsoft Log Analytics에 구성 관리자의 데이터 동기화](https://technet.microsoft.com/library/mt757374.aspx)에서 Log Analytics에 구성 관리자 연결에 대해 자세히 읽을 수 있습니다.
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Configuration Manager에 Log Analytics에 대한 사용 권한 제공
 다음 절차에서는 Log Analytics 작업 영역의 *Contributor* 역할을 Configuration Manager에 대해 이전에 만든 AD 응용 프로그램 및 서비스 주체에 부여합니다.  작업 영역이 아직 없는 경우 진행하기 전에 [Azure Log Analytics에서 작업 영역 만들기](log-analytics-quick-create-workspace.md)를 참조하세요.  이를 통해 Configuration Manager는 Log Analytics 작업 영역을 인증하고 연결할 수 있습니다.  
@@ -59,20 +59,24 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 ## <a name="download-and-install-the-agent"></a>에이전트 다운로드 및 설치
 Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 호스팅하는 컴퓨터에 Microsoft Monitoring Agent를 설치하는 데 사용할 수 있는 방법을 이해하려면 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](log-analytics-agent-windows.md) 문서를 검토하세요.  
 
-## <a name="add-an-oms-connection-to-configuration-manager"></a>구성 관리자에 OMS 연결 추가
-OMS 연결을 추가하려면 구성 관리자 환경에 온라인 모드를 위해 구성된 [서비스 연결 지점](https://technet.microsoft.com/library/mt627781.aspx)이 있어야 합니다.
+## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>구성 관리자에 Log Analytics 연결 추가
+Log Analytics 연결을 추가하려면 구성 관리자 환경에 온라인 모드를 위해 구성된 [서비스 연결점](https://technet.microsoft.com/library/mt627781.aspx)이 있어야 합니다.
 
-1. 구성 관리자의 **관리** 작업 영역에서 **OMS 커넥터**를 선택합니다. 그러면 **OMS 연결 추가 마법사**가 열립니다. **다음**을 선택합니다.
+1. 구성 관리자의 **관리** 작업 영역에서 **OMS 커넥터**를 선택합니다. 그러면 **Log Analytics 연결 추가 마법사**가 열립니다. **다음**을 선택합니다.
+
+   >[!NOTE]
+   >OMS를 이제 Log Analytics라고 합니다.
+   
 2. **일반** 화면에서 아래의 작업을 완료했는지와 각 항목에 대한 상세 정보가 있는지 확인하고 **다음**을 선택합니다.
 
    1. Azure Portal에서 Configuration Manager를 웹 응용 프로그램 및/또는 웹 API 앱으로 등록했는지 여부 및 [등록 시 지정한 클라이언트 ID](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)가 있는지 여부
    2. Azure Portal에서 Azure Active Directory에 등록된 앱의 앱 비밀 키를 만들었는지 여부  
-   3. Azure Portal에서 등록된 웹앱에 OMS에 대한 액세스 권한을 제공했는지 여부  
-      ![OMS 마법사 일반 페이지 연결](./media/log-analytics-sccm/sccm-console-general01.png)
+   3. Azure Portal에서 등록된 웹앱에 Log Analytics에 대한 액세스 권한을 제공했는지 여부  
+      ![Log Analytics 마법사 일반 페이지에 연결](./media/log-analytics-sccm/sccm-console-general01.png)
 3. **Azure Active Directory** 화면에서 **테넌트**, **클라이언트 ID**, **클라이언트 암호 키**를 지정하여 Log Analytics에 대한 연결 설정을 구성하고 **다음**을 선택합니다.  
-   ![OMS Wizard Azure Active Directory 페이지에 연결](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
+   ![Log Analytics 마법사 Azure Active Directory 페이지에 연결](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
 4. 나머지 절차를 성공적으로 완료한 경우 이 페이지에 **OMS 연결 구성** 화면이 자동으로 나타납니다. **Azure 구독**, **Azure 리소스 그룹**, **Operations Management Suite 작업 영역**에 대한 연결 설정 정보가 나타납니다.  
-   ![OMS 연결 마법사의 OMS 연결 페이지](./media/log-analytics-sccm/sccm-wizard-configure04.png)
+   ![Log Analytics 마법사 Log Analytics 페이지에 연결](./media/log-analytics-sccm/sccm-wizard-configure04.png)
 5. 이 마법사는 사용자가 입력한 정보를 사용하여 Log Analytics 서비스에 연결합니다. 서비스와 동기화하려는 장치 컬렉션을 선택한 다음, **추가**를 클릭합니다.  
    ![컬렉션 선택](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
 6. **요약** 화면에서 연결 설정을 확인하고 **다음**을 선택합니다. **진행률** 화면에 연결 상태와 **완료**가 차례로 나타납니다.
@@ -91,7 +95,7 @@ Configuration Manager를 Log Analytics에 연결한 후에는 컬렉션을 추�
 2. 이 페이지에서 **Azure Active Directory** 탭을 클릭하여 **테넌트**, **클라이언트 ID**, **클라이언트 비밀 키 만료**를 클릭합니다. **클라이언트 비밀 키**가 만료되었는지 **확인**합니다.
 
 ## <a name="import-collections"></a>컬렉션 가져오기
-Configuration Manager에 OMS 연결을 추가하고 Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 실행하는 컴퓨터에 에이전트를 설치한 후 다음 단계는 컴퓨터 그룹으로 Log Analytics의 Configuration Manager 컬렉션을 가져오는 것입니다.
+구성 관리자에 Log Analytics 연결을 추가하고 구성 관리자 서비스 연결점 사이트 시스템 역할을 실행하는 컴퓨터에 에이전트를 설치한 후 다음 단계는 Log Analytics에서 구성 관리자의 컬렉션을 컴퓨터 그룹으로 가져오는 것입니다.
 
 계층 구조에서 장치 컬렉션을 가져오기 위한 초기 구성을 완료한 후에는 멤버 자격을 최신으로 유지하기 위해 3시간마다 컬렉션 멤버 정보가 검색됩니다. 언제든지 이를 비활성화하도록 선택할 수 있습니다.
 
@@ -103,7 +107,7 @@ Configuration Manager에 OMS 연결을 추가하고 Configuration Manager 서비
    ![컴퓨터 그룹 - SCCM 탭](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>구성 관리자의 데이터 보기
-Configuration Manager에 OMS 연결을 추가하고 Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 실행하는 컴퓨터에 에이전트를 설치하면 에이전트의 데이터가 Log Analytics로 전송됩니다. Log Analytics에서 Configuration Manager 컬렉션이 [컴퓨터 그룹](log-analytics-computer-groups.md)으로 나타납니다. **Settings\Computer Groups** 아래 **Configuration Manager** 페이지에서 그룹을 볼 수 있습니다.
+구성 관리자에 Log Analytics 연결을 추가하고 구성 관리자 서비스 연결점 사이트 시스템 역할을 실행하는 컴퓨터에 에이전트를 설치하면 에이전트의 데이터가 Log Analytics로 전송됩니다. Log Analytics에서 Configuration Manager 컬렉션이 [컴퓨터 그룹](log-analytics-computer-groups.md)으로 나타납니다. **Settings\Computer Groups** 아래 **Configuration Manager** 페이지에서 그룹을 볼 수 있습니다.
 
 컬렉션을 가져오면 컬렉션 멤버 자격이 있는 컴퓨터 중 삭제된 컴퓨터 수를 확인할 수 있습니다. 또한 가져온 컬렉션 수도 확인할 수 있습니다.
 

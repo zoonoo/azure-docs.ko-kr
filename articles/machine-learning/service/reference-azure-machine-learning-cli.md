@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 53e737f35904a90bb56ec15c8a8282f8775e3c3a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158906"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393494"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>Azure Machine Learning CLI란?
 
@@ -34,7 +34,7 @@ Azure Machine Learning CLI(명령줄 인터페이스) 확장은 Azure Machine Le
 
 미리 보기 PyPi 인덱스에서 다음 명령을 사용하여 CLI를 설치할 수 있습니다.
 ```AzureCLI
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.50-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 다음 명령을 사용하면 CLI를 제거할 수 있습니다.
@@ -65,7 +65,7 @@ CLI는 개발 운영 팀 직원이 수행하는 자동화 과정에서 또는 �
 
 ### <a name="workspace-creation--compute-setup"></a>작업 영역 만들기 및 컴퓨터 설정
 
-+ Machine Learning을 위한 최상위 리소스인 Azure Machine Learning 작업 영역을 만듭니다.
++ Machine Learning을 위한 최상위 리소스인 Azure Machine Learning 서비스 작업 영역을 만듭니다.
    ```AzureCLI
    az ml workspace create -n myworkspace -g myresourcegroup
    ```

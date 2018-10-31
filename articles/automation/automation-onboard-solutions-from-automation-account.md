@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5b906b4a90dbceb62c6f2381d0ffa8bc1bee7ef1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033824"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352449"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -93,11 +93,11 @@ Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. Automation 계
 
 ### <a name="all-available-machines"></a>사용 가능한 모든 컴퓨터
 
-사용 가능한 모든 컴퓨터에서 솔루션을 사용하도록 설정하려면, **사용 가능한 모든 컴퓨터에서 사용**을 선택합니다. 이렇게 하면 컴퓨터를 개별적으로 추가할 수 있는 컨트롤이 비활성화됩니다. 이 작업은 작업 영역에 보고하는 컴퓨터의 모든 이름을 컴퓨터 그룹 저장된 검색 쿼리에 추가합니다.
+사용 가능한 모든 컴퓨터에서 솔루션을 사용하도록 설정하려면, **사용 가능한 모든 컴퓨터에서 사용**을 선택합니다. 이렇게 하면 컴퓨터를 개별적으로 추가할 수 있는 컨트롤이 비활성화됩니다. 이 작업은 작업 영역에 보고하는 컴퓨터의 모든 이름을 컴퓨터 그룹 저장된 검색 쿼리에 추가합니다. 선택하면 **컴퓨터 관리** 단추가 비활성화됩니다.
 
 ### <a name="all-available-and-future-machines"></a>사용 가능한 모든 향후 컴퓨터
 
-사용 가능한 모든 컴퓨터 및 모든 향후 컴퓨터에서 솔루션을 사용하도록 설정하려면, **사용 가능한 모든 향후 컴퓨터에서 사용**을 선택합니다. 이 옵션은 작업 영역에서 저장된 검색 및 범위 구성을 삭제합니다. 그러면 작업 영역에 보고하는 모든 Azure 및 비Azure 컴퓨터에 대한 솔루션이 열립니다.
+사용 가능한 모든 컴퓨터 및 모든 향후 컴퓨터에서 솔루션을 사용하도록 설정하려면, **사용 가능한 모든 향후 컴퓨터에서 사용**을 선택합니다. 이 옵션은 작업 영역에서 저장된 검색 및 범위 구성을 삭제합니다. 그러면 작업 영역에 보고하는 모든 Azure 및 비Azure 컴퓨터에 대한 솔루션이 열립니다. 선택하면 **컴퓨터 관리** 단추가 비활성화됩니다.
 
 ### <a name="selected-machines"></a>선택한 컴퓨터
 
@@ -120,13 +120,13 @@ Automation 계정을 Log Analytics에 더 이상 통합하지 않기로 결정�
 
 1. Azure Portal에서 Automation 계정을 열고 Automation 계정 페이지에서 왼쪽의 **관련된 리소스** 섹션 아래의 **연결된 작업 영역**을 선택합니다.
 
-1. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
+2. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
 
    ![작업 영역 연결 해제 페이지](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    계속할지 묻는 메시지가 나타납니다.
 
-1. Azure Automation이 Log Analytics에서 계정 연결을 끊으려고 하는 동안 메뉴의 **알림**에서 진행 상태를 추적할 수 있습니다.
+3. Azure Automation이 Log Analytics에서 계정 연결을 끊으려고 하는 동안 메뉴의 **알림**에서 진행 상태를 추적할 수 있습니다.
 
 업데이트 관리 솔루션을 사용한 경우 솔루션을 제거한 후 더 이상 필요하지 않은 다음 항목을 제거할 수도 있습니다.
 

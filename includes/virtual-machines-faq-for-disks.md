@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7208eb112b5f4a5b458c0374541dff113906aa0c
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47185291"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400327"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -146,7 +146,7 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 이제 모든 Azure 지역에서 표준 SSD 디스크를 지원합니다.
 
 **표준 SSD를 사용하는 경우 Azure Backup을 사용할 수 있나요?**
-아니요, Azure Backup은 아직 사용할 수 없습니다.
+예. 이제 Azure Backup을 사용할 수 있습니다.
 
 **표준 SSD 디스크를 만드는 방법**
 Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표준 SSD 디스크를 만들 수 있습니다. 다음은 Resource Manager 템플릿에서 표준 SSD 디스크를 만드는 데 필요한 매개 변수입니다.
@@ -171,7 +171,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표
 템플릿을 사용하여 표준 SSD 디스크를 만드는 방법에 대한 전체 템플릿 예제를 보려면 [표준 SSD 데이터 디스크를 사용하여 Windows 이미지에서 VM 만들기](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)를 참조하세요.
 
 **기존 디스크를 표준 SSD로 변환할 수 있나요?**
-예, 할 수 있습니다. Managed Disks로 변환하는 방법에 대한 일반 지침을 보려면 [Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage)을 참조하세요. 또한 다음 값을 사용하여 디스크 유형을 표준 SSD로 업데이트하세요.
+예, 할 수 있습니다. Managed Disks로 변환하는 방법에 대한 일반 지침을 보려면 [Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)을 참조하세요. 또한 다음 값을 사용하여 디스크 유형을 표준 SSD로 업데이트하세요.
 -AccountType StandardSSD_LRS
 
 **HDD 대신 표준 SSD 디스크를 사용할 경우의 이점은 무엇입니까?**

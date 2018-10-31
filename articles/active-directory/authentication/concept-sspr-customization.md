@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f523e2e2d55a34825bbb76a5a879c7c046b6b554
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222791"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318965"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD의 셀프 서비스 암호 재설정 기능 사용자 지정
 
@@ -55,7 +55,9 @@ AD FS(Active Directory Federation Services) 관리자는 [로그인 페이지 �
 
 AD FS 로그인 페이지에 링크를 추가하려면 AD FS 서버에서 아래 명령을 사용합니다. 이렇게 하면 사용자가 이 페이지에서 SSPR 워크플로우를 시작할 수 있습니다.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>로그인 페이지와 액세스 패널의 디자인 사용자 지정
 
@@ -65,8 +67,8 @@ AD FS 로그인 페이지에 링크를 추가하려면 AD FS 서버에서 아래
 
 * 사용자가 사용자 이름을 입력한 뒤
 * 사용자가 다음과 같은 방식으로 사용자 지정된 URL에 액세스하는 경우
-    * *whr* 매개 변수를 암호 재설정 페이지에 전달(예: "https://login.microsoftonline.com/?whr=contoso.com")
-    * *username* 매개 변수를 암호 재설정 페이지에 전달(예: "https://login.microsoftonline.com/?username=admin@contoso.com")
+    * `whr` 매개 변수를 암호 재설정 페이지에 전달(예: “https://login.microsoftonline.com/?whr=contoso.com”)
+    * `username` 매개 변수를 암호 재설정 페이지에 전달(예: “https://login.microsoftonline.com/?username=admin@contoso.com”)
 
 회사 브랜딩을 구성하는 방법에 대한 자세한 내용은 문서 [Azure AD에서 로그인 페이지에 회사 브랜딩 추가](../fundamentals/customize-branding.md)에서 찾습니다.
 

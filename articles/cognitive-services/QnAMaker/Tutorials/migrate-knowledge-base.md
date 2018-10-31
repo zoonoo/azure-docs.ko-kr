@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031631"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365563"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 발표했습니다. QnA Maker GA에는 Azure에 빌드된 새로운 아키텍처가 있습니다. QnA Maker 무료 미리 보기로 만들어진 기술 자료는 QnA Maker GA로 마이그레이션해야 합니다. QnA Maker 미리 보기는 2018년 11월에 지원 중단될 예정입니다. QnA Maker GA의 변경 내용에 대한 자세한 내용은 QnA Maker GA 알림 [블로그 게시물](https://aka.ms/qnamakerga-blog)을 참조하세요.
 
-이제 QnA Maker에는 [가격 모델](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/)이 있습니다.
+이제 QnA Maker에는 [가격 모델](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)이 있습니다.
 
 필수 조건
 > [!div class="checklist"]
@@ -38,9 +38,7 @@ QnA Maker는 2018년 5월 7일에 \\\build\ 컨퍼런스에서 일반 공급을 
 
     ![기술 자료 다운로드](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai)에 로그인하고 **새 서비스 만들기**를 클릭합니다.
-
-    ![기술 자료 만들기 ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+4. Azure 자격 증명을 사용하여 [QnA Maker 포털](https://qnamaker.ai)에 로그인하고 **기술 자료 문서 만들기**를 클릭합니다.
     
 5. 아직 QnA Maker 서비스를 만들지 않은 경우 **QnA 서비스 만들기**를 선택합니다. 이미 만들었으면 2단계의 드롭다운 목록에서 QnA Maker 서비스를 선택합니다. 기술 자료를 호스트할 QnA Maker 서비스를 선택합니다.
 

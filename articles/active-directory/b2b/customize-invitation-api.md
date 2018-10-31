@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 20c824da82d6e3e66bfa2d7447c8a9573cbdce69
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985816"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091776"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 공동 작업 API 및 사용자 지정
 
@@ -79,7 +79,7 @@ API는 다음과 같은 인증 모드에서 실행될 수 있습니다.
 
 
 ## <a name="powershell"></a>PowerShell
-이제 PowerShell을 사용하여 외부 사용자를 조직에 쉽게 추가하고 초대할 수 있습니다. cmdlet을 사용하여 초대 만들기
+PowerShell을 사용하여 외부 사용자를 조직에 쉽게 추가하고 초대할 수 있습니다. cmdlet을 사용하여 초대 만들기
 
 ```
 New-AzureADMSInvitation
@@ -92,7 +92,25 @@ New-AzureADMSInvitation
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-[https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)에서 초대 API 참조를 확인할 수 있습니다.
+### <a name="invitation-status"></a>초대 상태
+
+외부 사용자에게 초대를 보낸 후 **Get-AzureADUser** cmdlet을 사용하여 해당 사용자가 수락했는지 확인할 수 있습니다. Get-AzureADUser의 다음 속성은 외부 사용자에게 초대를 보낼 때 채워집니다.
+
+* **UserState**는 초대가 **PendingAcceptance** 또는 **Accepted**인지 여부를 나타냅니다.
+* **UserStateChangedOn**은 **UserState** 속성의 최신 변경에 대한 타임스탬프를 표시합니다.
+
+**Filter** 옵션을 사용하여 **UserState**별로 결과를 필터링할 수 있습니다. 아래 예제에서는 보류 중인 초대를 보유한 사용자만 표시하도록 결과를 필터링하는 방법을 보여 줍니다. 이 예제에서는 표시할 속성을 지정할 수 있는 **Format-List** 옵션도 보여 줍니다. 
+ 
+```
+Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
+```
+
+> [!NOTE]
+> AzureAD PowerShell 모듈 또는 AzureADPreview PowerShell 모듈의 최신 버전이 있는지 확인합니다. 
+
+## <a name="see-also"></a>참고 항목
+
+[https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)에서 초대 API 참조를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

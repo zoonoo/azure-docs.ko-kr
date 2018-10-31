@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574406"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456493"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure에서 Azure 복제로 Mobility Service 자동 업데이트
 
@@ -61,6 +61,19 @@ Site Recovery에서 업데이트를 관리하도록 허용하면 자격 증명 �
 
 > [!Note] 
 > 두 옵션 모두 업데이트 관리에 사용되는 자동화 계정에 대한 알림을 제공합니다. 자격 증명 모음에서 이 기능을 처음으로 사용하는 경우 새 자동화 계정이 만들어집니다. 동일한 자격 증명 모음에서 이루어지는 모든 후속 복제에는 이전에 생성된 계정이 사용됩니다.
+
+### <a name="manage-manually"></a>수동으로 관리
+
+1. Azure VM에 설치된 모바일 서비스에 사용 가능한 새 업데이트가 있는 경우 "새 사이트 복구 복제 에이전트 업데이트를 사용할 수 있습니다. 설치하려면 클릭하세요.”라는 알림이 표시됩니다.
+
+     ![복제된 항목 창](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+3. 이 알림을 선택하여 가상 머신 선택 페이지를 엽니다.
+4. Mobile Service를 업그레이드하려는 가상 머신을 선택하고 **확인**을 선택합니다.
+
+     ![복제된 항목 VM 목록](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+
+선택한 가상 머신 각각에 대한 Mobility Service 업데이트 작업이 시작됩니다.
+
 
 ## <a name="common-issues--troubleshooting"></a>일반적인 문제 및 문제 해결
 

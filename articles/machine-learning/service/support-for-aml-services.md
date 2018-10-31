@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 0c626bd193d883f292bf8d20913ff21d86d0d761
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: a857b813cee86079b96cd2bca297c1cf098819f5
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268482"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113906"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Azure Machine Learning 서비스에 대한 지원 및 교육 받기
 
@@ -26,6 +26,8 @@ ms.locfileid: "48268482"
 + [자습서 및 방법 문서](../service/index.yml)
 + [아키텍처 개요](../service/concept-azure-machine-learning-architecture.md)
 + [비디오](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+
+## <a name="submit-doc-feedback"></a>문서 피드백 제출 
 
 문서 맨 아래에 있는 피드백 링크를 사용하여 추가 학습 자료에 대한 **요청을 제출**할 수 있습니다.
 

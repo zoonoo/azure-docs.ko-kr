@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/8/2018
+ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883961"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637565"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
 
@@ -84,7 +84,7 @@ VM당 10,000개의 SNAT 포트를 할당하려면 다음 매개 변수를 사용
 
           "allocatedOutboundPorts": 10000
 
-아웃바운드 규칙의 모든 프런트 엔드에 있는 각 공용 IP 주소는 SNAT 포트로서 최대 64,000개의 사용 후 삭제 포트를 제공합니다.  Load Balancer는 SNAT 포트를 8의 배수로 할당합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다.  공용 IP 주소의 수를 기준으로 사용 가능한 것보다 더 많은 SNAT 포트를 할당하려고 하면 구성 작업이 거부됩니다.  예를 들어 VM당 10,000개의 포트를 할당하고 백 엔드 풀의 7개 VM에서 단일 공용 IP 주소를 공유하는 경우 구성이 거부됩니다(7 x 10,0000개 SNAT 포트> 64,000개 SNAT 포트).  아웃바운드 규칙의 프런트 엔드에 더 많은 공용 IP 주소를 추가하여 시나리오를 사용하도록 설정할 수 있습니다.
+아웃바운드 규칙의 모든 프런트 엔드에 있는 각 공용 IP 주소는 SNAT 포트로 사용할 최대 64,000개의 사용 후 삭제 포트를 제공합니다.  Load Balancer는 SNAT 포트를 8의 배수로 할당합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다.  공용 IP 주소의 수를 기준으로 사용 가능한 것보다 더 많은 SNAT 포트를 할당하려고 하면 구성 작업이 거부됩니다.  예를 들어 VM당 10,000개의 포트를 할당하고 백 엔드 풀의 7개 VM에서 단일 공용 IP 주소를 공유하는 경우 구성이 거부됩니다(7 x 10,0000개 SNAT 포트> 64,000개 SNAT 포트).  아웃바운드 규칙의 프런트 엔드에 더 많은 공용 IP 주소를 추가하여 시나리오를 사용하도록 설정할 수 있습니다.
 
 포트 수로 0을 지정하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)으로 되돌릴 수 있습니다.
 

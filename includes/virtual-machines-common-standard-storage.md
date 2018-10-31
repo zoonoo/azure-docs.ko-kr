@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47061009"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312396"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>비용 효율적인 Standard Storage와 관리되지 않는 Azure VM 디스크 및 관리 Azure VM 디스크
 
@@ -25,7 +25,7 @@ Azure Standard Storage는 대기 시간에 영향을 받지 않는 워크로드�
 
 Azure VM에 표준 디스크를 만드는 방법은 두 가지입니다.
 
-**관리되지 않는 디스크**: 이 유형의 디스크는 VM 디스크에 해당하는 VHD 파일을 저장하는 데 사용되는 저장소 계정을 관리하는 원래 방법입니다. VHD 파일은 저장소 계정에 페이지 Blob으로 저장됩니다. 관리되지 않는 디스크는 DSv2 및 GS 시리즈와 같은 Premium Storage를 주로 사용하는 VM을 비롯한 모든 Azure VM 크기에 연결될 수 있습니다. Azure VM은 여러 표준 디스크 연결을 지원하며 VM당 최대 256TiB의 저장소를 허용합니다. 미리 보기 디스크 크기를 사용하는 경우 VM 당 최대 약 2PiB의 저장소를 가질 수 있습니다. 
+**관리되지 않는 디스크**: 이 유형의 디스크는 VM 디스크에 해당하는 VHD 파일을 저장하는 데 사용되는 저장소 계정을 관리하는 원래 방법입니다. VHD 파일은 저장소 계정에 페이지 Blob으로 저장됩니다. 관리되지 않는 디스크는 DSv2 및 GS 시리즈와 같은 Premium Storage를 주로 사용하는 VM을 비롯한 모든 Azure VM 크기에 연결될 수 있습니다. Azure VM은 여러 표준 디스크 연결을 지원하며 VM당 최대 256TiB의 저장소를 허용합니다. 미리 보기 디스크 크기를 사용하는 경우 VM 당 최대 약 2PiB의 저장소를 가질 수 있습니다.
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): 이 기능은 VM 디스크에 사용되는 저장소 계정을 관리해 줍니다. 필요한 디스크의 유형(프리미엄 SSD, 표준 SSD 또는 표준 HDD)과 크기를 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다. 저장소 계정에 대한 확장성 한도 내에 머무르기 위해 다수의 저장소 계정에 디스크를 배치하려고 고심할 필요가 없습니다. Azure가 알아서 처리해 드립니다.
 

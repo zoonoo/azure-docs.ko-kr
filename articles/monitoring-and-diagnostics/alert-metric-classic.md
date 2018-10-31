@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ffac9511ab93367cba3f006249bd92658a520e09
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410003"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386940"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 
@@ -36,7 +36,7 @@ Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나
 
 6. 경고가 발생하면 관리자 및 공동 관리자가 이메일 알림을 수신하게 하려면 **소유자에게 이메일 보내기...** 를 선택합니다.
 
-7. 경고가 발생하면 추가 이메일 주소에 알림을 보내려면 **추가 관리자 이메일** 필드에 해당 이메일 주소를 추가합니다. 이메일 주소가 여러 개인 경우 *email@contoso.com; email2@contoso.com*처럼 세미콜론을 사용하여 구분할 수 있습니다.
+7. 경고가 발생하면 추가 이메일 주소에 알림을 보내려면 **추가 관리자 이메일** 필드에 해당 이메일 주소를 추가합니다. 메일 주소가 여러 개인 경우 *email@contoso.com;email2@contoso.com*처럼 세미콜론을 사용하여 구분할 수 있습니다.
 
 8. 경고가 발생할 때 URI를 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
 
@@ -54,7 +54,7 @@ Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나
 
 ## <a name="with-azure-cli"></a>Azure CLI 사용
 
-이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest)을 통해 Azure CLI 사용을 가장 빠르게 시작할 수 있습니다.
+이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)을 통해 Azure CLI 사용을 가장 빠르게 시작할 수 있습니다.
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>리소스 그룹의 모든 클래식 메트릭 경고 규칙 가져오기
 

@@ -9,16 +9,16 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: bahariri
-ms.openlocfilehash: 16c101068be48ba1435ef230b29c679fcef17d08
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b1a046fdb62926d32c05bab5a1616b250911865b
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142848"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352576"
 ---
 # <a name="azure-event-hubs-for-apache-kafka-preview"></a>Apache Kafka용 Azure Event Hubs(미리 보기)
 
-Event Hubs는 기존 Kafka 기반 응용 프로그램이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 끝점을 제공합니다. Event Hubs는 [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) 및 최신 클라이언트 버전을 지원하고 MirrorMaker를 포함하여 기존 Kafka 응용 프로그램과 작동합니다. 
+Event Hubs는 기존 Kafka 기반 응용 프로그램이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 끝점을 제공합니다. Event Hubs는 [Apache Kafka 프로토콜 1.0 이상](https://kafka.apache.org/documentation/)을 지원하고 MirrorMaker를 포함하여 기존 Kafka 응용 프로그램과 작동합니다. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Kafka용 Event Hubs는 무엇을 제공하나요?
 
@@ -70,7 +70,8 @@ Kafka용 Event Hubs 통합의 공개 미리 보기의 경우 다음과 같은 Ka
 
 * [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create-kafka-enabled.md)
 * [Kafka 응용 프로그램에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [Event Hubs 자습서](event-hubs-dotnet-standard-getstarted-send.md) 시작
+* [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
+* [Event Hubs 자습서](event-hubs-dotnet-standard-getstarted-send.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
  

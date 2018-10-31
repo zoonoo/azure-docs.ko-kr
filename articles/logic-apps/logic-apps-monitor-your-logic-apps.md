@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: a08cd6289fc85b79ccec731126a33a9549d60546
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123536"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405738"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>상태 모니터링, 진단 로깅 설정, Azure Logic Apps에 대한 경고 설정
 
@@ -90,7 +90,9 @@ ms.locfileid: "43123536"
 
    1. **Log Analytics에 보내기**를 선택합니다. 
    2. **Log Analytics** 아래에서 **구성**을 선택합니다. 
-   3. **OMS 작업 영역** 아래에서 로깅에 사용할 Log Analytics 작업 영역을 선택합니다.
+   3. **OMS 작업 영역**에서 로깅에 사용할 작업 영역을 선택합니다.
+   > [!NOTE]
+   > OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
    4. **로그** 아래에서 **WorkflowRuntime** 범주를 선택합니다.
    5. 메트릭 간격을 선택합니다.
    6. 완료하면 **저장**을 선택합니다.

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/29/2018
+ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 384d0fa32b64706c9d9d9baa0e2e0bbb2ac3c522
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719599"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310252"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services의 ASP.NET Core
 
@@ -252,6 +252,50 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 이 예제에서는 WebHost 종속성 삽입 컨테이너에 `IReliableStateManager`의 singleton 인스턴스를 제공합니다. 이는 반드시 필요한 것이 아니지만 MVC 컨트롤러 작업 메서드에서 `IReliableStateManager` 및 신뢰할 수 있는 컬렉션을 사용할 수 있습니다.
 
 상태 저장 서비스에서는 `Endpoint` 구성 이름이 `KestrelCommunicationListener`에 제공되지 **않습니다**. 자세한 내용은 다음 섹션에서 설명합니다.
+
+### <a name="configure-kestrel-to-use-https"></a>HTTPS를 사용하도록 Kestrel 구성
+서비스에서 Kestrel로 HTTPS를 사용하도록 설정할 때는 여러 개의 수신 대기 옵션을 설정해야 합니다.  EndpointHttps 엔드포인트를 사용하고 특정 포트(예: 포트 443)에서 수신 대기하도록 `ServiceInstanceListener`을 업데이트합니다. Kestrel 서버를 사용하도록 웹 호스트를 구성할 때는 Kestrel이 모든 네트워크 인터페이스에 대해 IPv6 주소를 수신 대기하도록 구성해야 합니다. 
+
+```csharp
+new ServiceInstanceListener(
+serviceContext =>
+    new KestrelCommunicationListener(
+        serviceContext,
+        "EndpointHttps",
+        (url, listener) =>
+        {
+            ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting Kestrel on {url}");
+
+            return new WebHostBuilder()
+                .UseKestrel(opt =>
+                {
+                    int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
+                    opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
+                    {
+                        listenOptions.UseHttps(GetCertificateFromStore());
+                        listenOptions.NoDelay = true;
+                    });
+                })
+                .ConfigureAppConfiguration((builderContext, config) =>
+                {
+                    config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                })
+
+                .ConfigureServices(
+                    services => services
+                        .AddSingleton<HttpClient>(new HttpClient())
+                        .AddSingleton<FabricClient>(new FabricClient())
+                        .AddSingleton<StatelessServiceContext>(serviceContext))
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseStartup<Startup>()
+                .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                .UseUrls(url)
+                .Build();
+        }))
+```
+
+자습서에서 사용되는 전체 예를 보려면 [HTTPS를 사용하도록 Kestrel 구성](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#configure-kestrel-to-use-https)을 참조하세요.
+
 
 ### <a name="endpoint-configuration"></a>엔드포인트 구성
 `Endpoint` 구성은 Kestrel을 사용하는 데 필요하지 않습니다. 

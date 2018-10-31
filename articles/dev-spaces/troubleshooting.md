@@ -11,12 +11,12 @@ ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 91bec065b2c83eac6b646ae6a55bc1ae0aae01db
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226894"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353361"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -76,6 +76,23 @@ Visual Studio에서
 
     ![도구 옵션 대화 상자 스크린샷](media/common/VerbositySetting.PNG)
     
+다단계 Dockerfile을 사용하려고 할 때 이 오류가 표시될 수 있습니다. 자세한 출력은 다음과 같습니다.
+
+```cmd
+$ azds up
+Using dev space 'default' with target 'AksClusterName'
+Synchronizing files...6s
+Installing Helm chart...2s
+Waiting for container image build...10s
+Building container image...
+Step 1/12 : FROM [imagename:tag] AS base
+Error parsing reference: "[imagename:tag] AS base" is not a valid repository/tag: invalid reference format
+Failed to build container image.
+Service cannot be started.
+```
+
+이는 AKS 노드가 다단계 빌드를 지원하지 않는 이전 버전의 Docker를 실행하기 때문입니다. 다단계 빌드를 방지하려면 Dockerfile을 다시 작성해야 합니다.
+
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Dev Spaces 서비스에 연결된 공용 URL에 대한 DNS 이름 확인 실패
 
 DNS 이름 확인이 실패하는 경우 Dev Spaces 서비스에 연결된 공용 URL에 연결을 시도하면 웹 브라우저에 "페이지를 표시할 수 없음" 또는 "이 사이트는 연결할 수 없음" 오류가 표시될 수 있습니다.
@@ -206,6 +223,14 @@ Azure 구독에 대한 소유자 또는 기여자 액세스 권한이 있는 사
 ```cmd
 az provider register --namespace Microsoft.DevSpaces
 ```
+
+## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>Dev Spaces 시작 시 “오류: could not find a ready tiller pod(준비된 Tiller Pod를 찾을 수 없음)”
+
+### <a name="reason"></a>이유
+이 오류는 Helm 클라이언트가 클러스터에서 실행 중인 Tiller Pod에 더 이상 연결할 수 없는 경우에 발생합니다.
+
+### <a name="try"></a>다음을 시도해 보세요.
+클러스터에서 에이전트 노드를 다시 시작하면 대체로 이 문제가 해결됩니다.
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces에서 컨테이너를 빌드하는 데 내 기존 Dockerfile을 사용하지 않는 것처럼 보임 
 

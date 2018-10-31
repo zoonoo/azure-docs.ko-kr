@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/15/2018
+ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1d52c9b3b9b91873bd6f34443f162c74d724a65c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49367157"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471533"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -30,13 +30,6 @@ Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 �
 * 인바운드 DNAT 지원
 * Azure 구독 및 VNET 전반에 걸쳐 응용 프로그램 및 네트워크 연결 정책을 중앙에서 만들고 적용하고 기록
 * 로깅 및 분석을 위한 Azure Monitor와 완전히 통합
-
-### <a name="what-is-the-pricing-for-azure-firewall"></a>Azure Firewall의 가격 책정은 어떻게 되나요?
-
-Azure Firewall은 고정 비용 + 변동 비용이 있습니다.
-
-* 고정 요금: $1.25/방화벽/시간당
-* 변동 요금: $0.03/방화벽에서 처리하는 GB당(수신 또는 송신)
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure Firewall의 일반적인 배포 모델은 무엇입니까?
 
@@ -78,6 +71,17 @@ Azure Firewall 서비스는 네트워크 보안 그룹 기능을 보완합니다
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>서비스 엔드포인트를 사용하여 Azure Firewall을 설정하려면 어떻게 해야 하나요?
 
 PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 사용하는 것이 좋습니다. Azure Firewall 서브넷에서 서비스 엔드포인트를 사용하도록 설정하고, 연결된 스포크 가상 네트워크에서는 사용하지 않도록 설정하도록 선택할 수 있습니다. 이러한 방식으로 서비스 엔드포인트 보안과 모든 트래픽에 대한 중앙 로깅 기능의 이점을 모두 얻을 수 있습니다.
+
+### <a name="what-is-the-pricing-for-azure-firewall"></a>Azure Firewall의 가격 책정은 어떻게 되나요?
+
+Azure Firewall은 고정 비용 + 변동 비용이 있습니다.
+
+* 고정 요금: $1.25/방화벽/시간당
+* 변동 요금: $0.03/방화벽에서 처리하는 GB당(수신 또는 송신)
+
+할당 취소된 방화벽에는 비용이 들지 않습니다.
+
+자세한 내용은 [Azure Firewall 가격](https://azure.microsoft.com/pricing/details/azure-firewall/)을 참조하세요.
 
 ### <a name="how-can-i-stop-and-start-azure-firewall"></a>Azure Firewall을 중지하려면 어떻게 하나요?
 

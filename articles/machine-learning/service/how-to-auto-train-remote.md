@@ -10,12 +10,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2ec0dea7e50747f8af337874c8f12463cecb8df7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 798960f30ae13f42c0198cf4bf63412192edc63e
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163480"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429833"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -110,7 +110,7 @@ def get_data():
 
 ## <a name="configure-experiment"></a>실험 구성
 
-`AutoMLConfig`에 대해 설정을 지정합니다.  ([매개 변수 전체 목록]() 및 가능한 값을 참조하세요.)
+`AutoMLConfig`에 대해 설정을 지정합니다.  ([매개 변수 전체 목록](how-to-configure-auto-train.md#configure-experiment) 및 가능한 값을 참조하세요.)
 
 설정에서 `run_configuration`은 DSVM에 대한 설정 및 구성을 포함하는 `run_config` 개체로 설정됩니다.  
 
@@ -141,7 +141,7 @@ automl_config = AutoMLConfig(task='classification',
 
 ## <a name="submit-training-experiment"></a>학습 실험 제출
 
-이제 알고리즘, 하이퍼 매개 변수를 자동으로 선택하는 구성을 제출하고 모델을 교육합니다. (`submit` 메서드의 [설정에 대해 자세히 알아보세요]().)
+이제 알고리즘, 하이퍼 매개 변수를 자동으로 선택하는 구성을 제출하고 모델을 교육합니다.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -203,7 +203,7 @@ RunDetails(remote_run).show()
 
 ## <a name="example"></a>예
 
-`automl/03.auto-ml-remote-execution.ipynb` Notebook은 이 문서의 개념을 보여줍니다.  이 Notebook을 다운로드하려면 다음 단계를 수행합니다.
+[automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) 노트북은 이 문서의 개념을 보여줍니다.  이 Notebook을 다운로드하려면 다음 단계를 수행합니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

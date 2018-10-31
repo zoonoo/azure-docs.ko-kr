@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ad26772650cf052926a2534d343f64765f47b78f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333397"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457411"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -53,7 +53,9 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-미국 중서부, 미국 동부, 미국 동부 2, 미국 중북부, 미국 중남부, 미국 중부, 미국 서부, 미국 서부 2, 유럽 서부, 북유럽, 영국 서부, 영국 남부, 오스트레일리아 동부, 오스트레일리아 남동부 및 동남 아시아에서 NSG용 트래픽 분석을 사용할 수 있습니다. 로그 분석 작업 영역이 미국 중서부, 미국 동부, 유럽 서부, 영국 남부, 오스트레일리아 남동부 또는 동남 아시아 지역에 있어야 합니다.
+미국 중서부, 미국 동부, 미국 동부 2, 미국 중북부, 미국 중남부, 미국 중부, 미국 서부, 미국 서부 2, 캐나다 중부, 유럽 서부, 북유럽, 영국 서부, 영국 남부, 일본 동부, 인도 중부, 오스트레일리아 동부, 오스트레일리아 남동부 및 동남 아시아에서 NSG용 트래픽 분석을 사용할 수 있습니다. 
+
+로그 분석 작업 영역이 미국 중서부, 미국 동부, 유럽 서부, 영국 남부, 캐나다 중부, 일본 동부, 인도 중부, 오스트레일리아 남동부 또는 동남 아시아 지역에 있어야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,9 +66,9 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 |배포 모델   | 역할                   |
 |---------          |---------               |
 |리소스 관리자   | 소유자                  |
-|                   | 기여자            |
-|                   | 판독기                 |
-|                   | 네트워크 기여자    |
+|                   | 참가자            |
+|                   | 읽기 권한자                 |
+|                   | 네트워크 참가자    |
 |클래식            | 계정 관리자  |
 |                   | 서비스 관리자  |
 |                   | 공동 관리자       |
@@ -135,7 +137,7 @@ New-AzureRmStorageAccount `
 2. 흐름 로그를 저장할 기존 저장소 계정을 선택합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 저장소 계정에 대한 Azure 저장소 요금이 발생합니다.
 3. **보존**을 데이터를 저장하려는 일 수로 설정합니다.
 4. **트래픽 분석 상태**를 *켜기*로 선택합니다.
-5. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#traffic-analytics-supported-regions) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
+5. 기존 Log Analytics 작업 영역을 선택하거나 **새 작업 영역 만들기**를 선택하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#traffic-analytics-supported-regions) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 
     트래픽 분석 솔루션 및 NSG를 호스팅하는 로그 분석 작업 영역이 같은 지역에 있어야 하는 것은 아닙니다. 예를 들어 유럽 서부의 작업 영역에 트래픽 분석이 있고, 미국 동부 및 미국 서부에 NSG가 있을 수 있습니다. 여러 NSG를 동일한 작업 영역에 구성해도 됩니다.
 6. **저장**을 선택합니다.

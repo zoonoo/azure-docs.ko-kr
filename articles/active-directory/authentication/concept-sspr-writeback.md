@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295838"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319375"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -23,9 +23,15 @@ ms.locfileid: "46295838"
 
 비밀번호 쓰기 저장은 다음을 사용하는 환경에서 지원됩니다.
 
-* [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
+* [ADFS(Active Directory Federation Services)](../hybrid/how-to-connect-fed-management.md)
 * [암호 해시 동기화](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [통과 인증](../hybrid/how-to-connect-pta.md)
+
+> [!WARNING]
+> [2018년 11월 7일에 ACS(Azure Access Control) 서비스 사용이 중지되면](../develop/active-directory-acs-migration.md) Azure AD Connect 1.0.8641.0 이하 버전을 사용 중인 고객의 경우 비밀번호 쓰기 저장 기능의 작동이 중지됩니다. 해당 날짜부터는 Azure AD Connect 1.0.8641.0 이하 버전에서 더 이상 비밀번호 쓰기 저장이 허용되지 않습니다. 이러한 버전에서는 해당 기능에 ACS를 사용하기 때문입니다.
+>
+> 서비스 중단을 방지하려면 이전 버전 Azure AD Connect에서 최신 버전으로 업그레이드하세요([Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드](../hybrid/how-to-upgrade-previous-version.md) 문서 참조).
+>
 
 비밀번호 쓰기 저장은 다음 기능을 제공합니다.
 
@@ -37,6 +43,7 @@ ms.locfileid: "46295838"
 
 > [!Note]
 > 온-프레미스 Active Directory의 보호 그룹 내에 있는 사용자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://technet.microsoft.com/library/dn535499.aspx)을 참조하세요.
+>
 
 ## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
 
@@ -63,28 +70,30 @@ ms.locfileid: "46295838"
 1. 사용자가 어떤 종류의 암호를 가지고 있는지 확인하기 위한 검사가 수행됩니다. 암호가 온-프레미스에서 관리되는 경우:
    * 쓰기 저장 서비스를 사용 중인지 확인하기 위한 검사가 수행됩니다. 사용 중인 경우 사용자가 계속 진행할 수 있습니다.
    * 쓰기 저장 서비스가 중지된 경우 사용자에게 지금은 암호를 재설정할 수 없다고 알려줍니다.
-2. 다음으로, 사용자는 적절한 인증 게이트를 통과하여 **암호 재설정** 페이지로 이동됩니다.
-3. 사용자는 새 암호를 선택하고 다시 확인합니다.
-4. 사용자가 **제출**을 선택하면 쓰기 저장 설정 프로세스에서 만든 대칭 키로 일반 텍스트 암호가 암호화됩니다.
-5. 암호화된 암호는 HTTPS 채널을 통해 테넌트별 Service Bus Relay(쓰기 저장 설정 프로세스에서 자동으로 설정됨)로 전송되는 페이로드에 포함됩니다. 이 릴레이는 온-프레미스 설치만 알고 있는 임의로 생성된 암호에 의해 보호됩니다.
-6. 메시지가 서비스 버스에 도달하면 암호 재설정 엔드포인트가 자동으로 절전 모드에서 해제되어 보류 중인 재설정 요청이 있는지 확인합니다.
-7. 그런 다음, 서비스에서 클라우드 앵커 특성을 사용하여 해당 사용자를 찾습니다. 이 조회가 성공하려면:
+1. 다음으로, 사용자는 적절한 인증 게이트를 통과하여 **암호 재설정** 페이지로 이동됩니다.
+1. 사용자는 새 암호를 선택하고 다시 확인합니다.
+1. 사용자가 **제출**을 선택하면 쓰기 저장 설정 프로세스에서 만든 대칭 키로 일반 텍스트 암호가 암호화됩니다.
+1. 암호화된 암호는 HTTPS 채널을 통해 테넌트별 Service Bus Relay(쓰기 저장 설정 프로세스에서 자동으로 설정됨)로 전송되는 페이로드에 포함됩니다. 이 릴레이는 온-프레미스 설치만 알고 있는 임의로 생성된 암호에 의해 보호됩니다.
+1. 메시지가 서비스 버스에 도달하면 암호 재설정 엔드포인트가 자동으로 절전 모드에서 해제되어 보류 중인 재설정 요청이 있는지 확인합니다.
+1. 그런 다음, 서비스에서 클라우드 앵커 특성을 사용하여 해당 사용자를 찾습니다. 이 조회가 성공하려면:
 
    * 사용자 개체가 Active Directory 커넥터 공간에 있어야 합니다.
    * 사용자 개체가 해당 MV(metaverse) 개체에 연결되어야 합니다.
    * 사용자 개체가 해당 Azure Active Directory 커넥터 개체에 연결되어야 합니다.
-   * Active Directory 커넥터 개체에서 MV로의 링크에는 동기화 규칙 `Microsoft.InfromADUserAccountEnabled.xxx`이 있어야 합니다. <br> <br>
+   * Active Directory 커넥터 개체에서 MV로의 링크에는 동기화 규칙 `Microsoft.InfromADUserAccountEnabled.xxx`이 있어야 합니다.
+   
    클라우드에서 호출이 들어오면 동기화 엔진은 **cloudAnchor** 특성을 사용하여 Azure Active Directory 커넥터 공간 개체를 조회합니다. 그런 후 다시 링크를 따라 MV 개체로 이동한 후 Active Directory 개체로 이동합니다. 동일한 사용자에 대해 여러 Active Directory 개체(다중 포리스트)가 있을 수 있기 때문에 동기화 엔진은 `Microsoft.InfromADUserAccountEnabled.xxx` 링크에 의존하여 정확한 개체를 선택합니다.
 
    > [!Note]
    > 이 논리의 결과로 비밀번호 쓰기 저장이 작동하려면 Azure AD Connect는 PDC(주 도메인 컨트롤러) 에뮬레이터와 통신할 수 있어야 합니다. 이 기능을 수동으로 사용하도록 설정하려면 PDC 에뮬레이터에 Azure AD Connect를 연결할 수 있습니다. Active Directory 동기화 커넥터의 **속성**을 마우스 오른쪽 단추로 클릭하고 **디렉터리 파티션 구성**을 선택합니다. 여기에서 **도메인 컨트롤러 연결 설정** 섹션을 찾고 **기본 설정 도메인 컨트롤러만 사용** 확인란을 선택합니다. 기본 설정된 도메인 컨트롤러가 PDC 에뮬레이터가 아닌 경우더라도 Azure AD Connect는 비밀번호 쓰기 저장의 PDC에 연결을 시도합니다.
 
-8. 사용자 계정을 찾은 후에는 적절한 Active Directory 포리스트에서 직접 암호를 재설정하려는 시도가 수행됩니다.
-9. 암호 설정 작업이 성공하면 사용자에게 암호가 변경되었음을 알려줍니다.
+1. 사용자 계정을 찾은 후에는 적절한 Active Directory 포리스트에서 직접 암호를 재설정하려는 시도가 수행됩니다.
+1. 암호 설정 작업이 성공하면 사용자에게 암호가 변경되었음을 알려줍니다.
    > [!NOTE]
    > 사용자의 암호 해시가 암호 해시 동기화를 통해 Azure AD에 동기화되는 경우 온-프레미스 암호 정책이 클라우드 암호 정책보다 약할 수 있습니다. 이 경우 온-프레미스 정책이 적용됩니다. 이 정책을 사용하면 Single Sign-On을 제공하기 위해 암호 해시 동기화를 사용하든 아니면 페더레이션을 사용하든, 온-프레미스 정책이 클라우드에서 적용됩니다.
+   >
 
-10. 암호 설정 작업이 실패하면 다시 시도하라는 오류 메시지가 표시됩니다. 다음 이유로 작업이 실패할 수 있습니다.
+1. 암호 설정 작업이 실패하면 다시 시도하라는 오류 메시지가 표시됩니다. 다음 이유로 작업이 실패할 수 있습니다.
    * 서비스가 종료되었습니다.
    * 선택한 암호가 조직 정책을 충족하지 못했습니다.
    * 로컬 Active Directory에서 사용자를 찾을 수 없습니다.
@@ -101,10 +110,10 @@ ms.locfileid: "46295838"
    * Service Bus Relay를 만든 후 회선을 통해 도착하는 암호를 암호화하는 데 사용할 강력한 대칭 키가 생성됩니다. 이 키는 클라우드의 회사의 암호 저장소에만 존재하며 디렉터리의 다른 암호와 마찬가지로 강력하게 잠겨 있고 감사됩니다.
 * **업계 표준 TLS(전송 계층 보안)**
    1. 클라우드에서 암호 재설정 또는 변경 작업이 발생하면 공개 키를 사용하여 일반 텍스트 암호가 암호화됩니다.
-   2. 암호화된 암호는 Microsoft의 SSL 인증서를 사용하여 암호화된 채널을 통해 Service Bus Relay로 전송되는 HTTPS 메시지에 배치됩니다.
-   3. Service Bus에 메시지가 도착한 후에 온-프레미스 에이전트가 시작하고 이전에 생성된 강력한 암호를 사용하여 Service Bus에 인증합니다.
-   4. 온-프레미스 에이전트는 암호화된 메시지를 선택하고 개인 키를 사용하여 암호를 해독합니다.
-   5. 온-프레미스 에이전트는 AD DS SetPassword API를 통해 암호를 설정하려고 합니다. 이 단계에서는 클라우드에서 Active Directory 온-프레미스 암호 정책(예: 복잡성, 나이, 기록, 필터)을 적용할 수 있습니다.
+   1. 암호화된 암호는 Microsoft의 SSL 인증서를 사용하여 암호화된 채널을 통해 Service Bus Relay로 전송되는 HTTPS 메시지에 배치됩니다.
+   1. Service Bus에 메시지가 도착한 후에 온-프레미스 에이전트가 시작하고 이전에 생성된 강력한 암호를 사용하여 Service Bus에 인증합니다.
+   1. 온-프레미스 에이전트는 암호화된 메시지를 선택하고 개인 키를 사용하여 암호를 해독합니다.
+   1. 온-프레미스 에이전트는 AD DS SetPassword API를 통해 암호를 설정하려고 합니다. 이 단계에서는 클라우드에서 Active Directory 온-프레미스 암호 정책(예: 복잡성, 나이, 기록, 필터)을 적용할 수 있습니다.
 * **메시지 만료 정책**
    * 온-프레미스 서비스가 종료되었기 때문에 메시지가 Service Bus에 남아 있는 경우 시간이 초과되고 몇 분 후에 제거됩니다. 메시지의 시간 초과 및 제거를 통해 메시지 보안이 더욱 강화됩니다.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 766f617f3534ffaccdc326e7de8155adb84a69ce
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162146"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114993"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -111,17 +111,33 @@ _사용자 지정 음성 메시지_ 기능을 통해 2단계 인증에 사용자
 * 파일 크기는 5MB로 제한됩니다.
 * 인증 메시지 길이는 20초 미만이어야 합니다. 메시지가 20초보다 길면 인증이 실패할 수 있습니다. 메시지가 완료되고 인증이 시간 초과되기 전에 사용자가 응답하지 않을 수 있습니다.
 
+### <a name="custom-message-language-behavior"></a>사용자 지정 메시지 언어 동작
+
+사용자 지정 음성 메시지가 사용자에게 재생될 때 메시지 언어는 다음 요소에 따라 달라집니다.
+
+* 현재 사용자의 언어.
+   * 사용자 브라우저에서 검색된 언어.
+   * 다른 인증 시나리오는 다르게 동작할 수 있습니다.
+* 사용 가능한 사용자 지정 메시지의 언어.
+   * 이 언어는 사용자 지정 메시지가 추가될 때 관리자가 선택합니다.
+
+예를 들어, 독일어가 포함된 사용자 지정 메시지가 하나만 있는 경우 다음과 같습니다.
+
+* 독일어로 인증하는 사용자는 사용자 지정 독일어 메시지를 듣게 됩니다.
+* 영어로 인증하는 사용자는 표준 영어 메시지를 듣게 됩니다.
+
 ### <a name="set-up-a-custom-message"></a>사용자 지정 메시지 설정
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory** > **MFA 서버** > **전화 통화 설정**을 탐색합니다.
+1. **Azure Active Directory** > **MFA 서버** > **전화 통화 설정**을 탐색합니다.
 
    ![사용자 지정 전화 메시지 기록](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. **인사말 추가**를 선택합니다.
-4. 인사말 형식을 선택합니다. 언어를 선택합니다.
-5. 업로드할 .mp3 또는 .wav 사운드 파일을 선택합니다.
-6. **추가**를 선택합니다.
+1. **인사말 추가**를 선택합니다.
+1. 인사말 형식을 선택합니다. 
+1. 언어를 선택합니다.
+1. 업로드할 .mp3 또는 .wav 사운드 파일을 선택합니다.
+1. **추가**를 선택합니다.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 캐싱
 
@@ -200,10 +216,10 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>서비스 설정을 사용하여 신뢰할 수 있는 IP 기능을 사용하도록 설정
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽에서 **Azure Active Directory** > **사용자 및 그룹** > **모든 사용자**를 선택합니다.
+2. 왼쪽에서 **Azure Active Directory** > **사용자**를 선택합니다.
 3. **Multi-Factor Authentication**을 선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
-5. **서비스 설정** 페이지의 **신뢰할 수 있는 IP** 아래에 있는 다음 두 가지 옵션 중에서 선택합니다.
+5. **서비스 설정** 페이지의 **신뢰할 수 있는 IP** 아래에 있는 다음 두 가지 옵션 중 하나(또는 둘 다)를 선택합니다.
    
    * **내 인트라넷에 페더레이션된 사용자의 요청**: 이 옵션을 선택하려면 확인란을 선택합니다. 회사 네트워크에서 로그인하는 모든 페더레이션된 사용자는 AD FS에서 발급한 클레임을 사용하여 2단계 인증을 바이패스합니다. AD FS에 적절한 트래픽에 인트라넷 클레임을 추가하는 규칙이 있는지 확인합니다. 규칙이 없는 경우 AD FS에서 다음 규칙을 만듭니다.<br/>
 
@@ -239,7 +255,7 @@ Microsoft Office 2013 클라이언트 이상에 대해 최신 인증이 지원�
 * 사용자 계정에서 Multi-Factor Authentication을 사용하도록 설정하면 Outlook 및 Microsoft Skype for Business 등 대부분의 비 브라우저 클라이언트에서 앱 암호를 사용할 수 있습니다. Windows PowerShell과 같은 비 브라우저 응용 프로그램을 통해 앱 암호를 사용하여 관리 작업을 수행할 수 없습니다. 이 작업은 사용자가 관리자 계정을 가지고 있는 경우에도 수행할 수 없습니다. PowerShell 스크립트를 실행하려면 강력한 암호로 서비스 계정을 만들고 해당 계정에 2단계 인증을 사용하도록 설정하지 않습니다.
 
 >[!WARNING]
->앱 암호는 클라이언트가 온-프레미스 및 클라우드 자동 검색 끝점과 통신하는 하이브리드 환경에서는 작동하지 않습니다. 온-프레미스를 인증하려면 도메인 암호가 필요합니다. 클라우드를 통해 인증하려면 앱 암호가 필요합니다.
+>앱 암호는 클라이언트가 온-프레미스 및 클라우드 자동 검색 엔드포인트와 통신하는 하이브리드 환경에서는 작동하지 않습니다. 온-프레미스를 인증하려면 도메인 암호가 필요합니다. 클라우드를 통해 인증하려면 앱 암호가 필요합니다.
 >
 
 ### <a name="guidance-for-app-password-names"></a>앱 암호 이름에 대한 지침
@@ -306,11 +322,11 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 
 ### <a name="how-the-feature-works"></a>기능의 작동 원리
 
-Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 동안 다시 묻지 않음** 상자를 선택한 경우 브라우저에서 영구 쿠키를 설정합니다. 그러면 쿠키가 만료될 때까지 동일한 브라우저에서 사용자에게 Multi-Factor Authentication 메시지가 다시 표시되지 않습니다. 사용자가 동일한 장치에서 다른 브라우저를 열거나 쿠키를 지우는 경우 다시 확인하라는 메시지가 표시됩니다. 
+Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 동안 다시 묻지 않음** 상자를 선택한 경우 브라우저에서 영구 쿠키를 설정합니다. 그러면 쿠키가 만료될 때까지 동일한 브라우저에서 사용자에게 Multi-Factor Authentication 메시지가 다시 표시되지 않습니다. 사용자가 동일한 장치에서 다른 브라우저를 열거나 쿠키를 지우는 경우 다시 확인하라는 메시지가 표시됩니다.
 
-비 브라우저 응용 프로그램에는 앱이 최신 인증을 지원하는지 여부와 상관없이 **X일 동안 다시 묻지 않음** 옵션이 표시되지 않습니다. 이러한 앱에서는 1시간마다 새로운 액세스 토큰을 제공하는 _새로 고침 토큰_을 사용합니다. 새로 고침 토큰의 유효성이 확인되면 Azure AD가 마지막 2단계 인증이 지정된 일 수 내에 발생했는지 확인합니다. 
+비 브라우저 응용 프로그램에는 앱이 최신 인증을 지원하는지 여부와 상관없이 **X일 동안 다시 묻지 않음** 옵션이 표시되지 않습니다. 이러한 앱에서는 1시간마다 새로운 액세스 토큰을 제공하는 _새로 고침 토큰_을 사용합니다. 새로 고침 토큰의 유효성이 확인되면 Azure AD가 마지막 2단계 인증이 지정된 일 수 내에 발생했는지 확인합니다.
 
-이 기능을 사용하면 일반적으로 매번 메시지를 표시하는 웹앱의 인증 횟수가 감소합니다. 하지만 최신 인증 클라이언트에서는 인증 횟수가 늘어납니다(일반적으로 90일마다 메시지 표시).
+이 기능을 사용하면 일반적으로 매번 메시지를 표시하는 웹앱의 인증 횟수가 감소합니다. 하지만 최신 인증 클라이언트에서는 인증 횟수가 늘어납니다(일반적으로 90일마다 메시지 표시). 조건부 액세스 정책과 결합될 경우 인증 수가 증가할 수도 있습니다.
 
 >[!IMPORTANT]
 >사용자가 Azure Multi-Factor Authentication 서버 또는 제3자 다단계 인증 솔루션을 통해 AD FS에 대해 2단계 인증을 수행하는 경우 **Multi-Factor Authentication 저장** 기능은 AD FS의 **로그인 유지** 기능과 호환되지 않습니다.

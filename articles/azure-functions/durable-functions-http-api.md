@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c6d7268a8501c602354d21edc5a0feaae9b1a0b2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4c5f99ed9d20076e3e25ebca261253e576572786
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575477"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354260"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>지속성 함수의 HTTP API(Azure Functions)
 
@@ -92,6 +92,9 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 | systemKey  | 쿼리 문자열    | API를 호출하는 데 필요한 권한 부여 키입니다. |
 | showHistory| 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 오케스트레이션 실행 기록이 응답 페이로드에 포함됩니다.| 
 | showHistoryOutput| 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 작업 출력이 오케스트레이션 실행 기록에 포함됩니다.| 
+| createdTimeFrom  | 쿼리 문자열    | 선택적 매개 변수. 지정하면 지정 ISO8601 타임스탬프 시 또는 이후에 생성된 반환된 인스턴스 목록을 필터링합니다.|
+| createdTimeTo    | 쿼리 문자열    | 선택적 매개 변수. 지정하면 지정 ISO8601 타임스탬프 시 또는 이전에 생성된 반환된 인스턴스 목록을 필터링합니다.|
+| runtimeStatus    | 쿼리 문자열    | 선택적 매개 변수. 지정하면 런타임 상태를 기반으로 반환된 인스턴스 목록을 필터링합니다. 가능한 런타임 상태 값의 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 항목을 참조하세요. |
 
 `systemKey`는 Azure Functions 호스트에서 자동 생성된 권한 부여 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. `systemKey` 값을 검색하는 가장 간단한 방법은 앞에서 언급한 `CreateCheckStatusResponse` API를 사용하는 것입니다.
 
@@ -194,9 +197,13 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&conne
 
 **HTTP 202** 응답에는 앞에서 언급한 `statusQueryGetUri` 필드와 동일한 URL을 참조하는 **위치** 응답 헤더도 포함됩니다.
 
+
 ### <a name="get-all-instances-status"></a>모든 인스턴스 상태 가져오기
 
 모든 인스턴스 상태를 쿼리할 수 있습니다. '인스턴스 상태 가져오기' 요청에서 `instanceId`를 제거합니다. 매개 변수는 '인스턴스 상태 가져오기'와 동일합니다. 
+
+기억해야 할 한 가지는 `connection` 및 `code`가 선택 사항이라는 점입니다. 함수에 익명 인증이 있는 경우 코드는 필요하지 않습니다.
+AzureWebJobsStorage 앱 설정에 정의된 것과 다른 Blob Storage 연결 문자열을 사용하지 않으려면 연결 쿼리 문자열 매개 변수를 무시해도 됩니다.
 
 #### <a name="request"></a>요청
 
@@ -210,6 +217,22 @@ Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 �
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+#### <a name="request-with-filters"></a>필터를 사용한 요청
+
+요청을 필터링할 수 있습니다.
+
+Functions 1.0의 경우 요청 형식은 다음과 같습니다.
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
+```
+
+Functions 2.0 형식에는 모두 동일한 매개 변수가 있지만 약간 다른 URL 접두사가 있습니다. 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
 ```
 
 #### <a name="response"></a>response
@@ -268,6 +291,7 @@ GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={conne
 > [!NOTE]
 > 이 작업은 인스턴스 테이블에 많은 행이 있는 경우 Azure Storage I/O의 측면에서 매우 비쌀 수 있습니다. 인스턴스 테이블에 대한 자세한 내용은 [지속성 함수의 성능 및 크기 조정(Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) 설명서에서 확인할 수 있습니다.
 > 
+
 
 ### <a name="raise-event"></a>이벤트 발생
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1db1b8ee7ba3611f8d1d69f711f1ec72308c7d06
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833331"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465630"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 대회 관련 FAQ
 **Cortana Intelligence 대회는 무엇입니까?**
@@ -55,11 +55,11 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 **참가하려면 데이터 과학자여야 하나요?**
 
-번호 데이터 고급 사용자, 데이터 과학에 관심이 있는 사용자, 데이터 과학자를 꿈꾸는 분이라면 누구나 대회에 참가할 수 있습니다. 지원 문서는 모든 사용자가 경쟁할 수 있도록 디자인되었습니다. 참가 대상은 다음과 같습니다.
+아니요. 데이터 고급 사용자, 데이터 과학에 관심이 있는 사용자, 데이터 과학자를 꿈꾸는 분이라면 누구나 대회에 참가할 수 있습니다. 지원 문서는 모든 사용자가 경쟁할 수 있도록 디자인되었습니다. 참가 대상은 다음과 같습니다.
 
 * **데이터 개발자**, **데이터 과학자**, **BI** 및 **분석 전문가**: 서비스를 이용할 다른 사람을 위해 데이터 및 분석 콘텐츠를 만드는 사람.
 * **데이터 관리자**: 해당 데이터, 데이터의 의미와 사용 의도 및 목적에 대한 지식이 있는 사람
-* **학생** & **연구원**: 대학에서 교육 프로그램을 통해 데이터 관련 기술을 배우고 익히는 사람 또는 MOOC(Massive Open Online Courses) 참가자
+* **학생** 및 **연구원**: 대학에서 교육 프로그램을 통해 데이터 관련 기술을 배우고 익히는 사람 또는 MOOC(Massive Open Online Courses) 참가자
 
 **동료들과 함께 팀으로 응모할 수 있나요?**
 
@@ -106,7 +106,7 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 
 **게스트 작업 영역을 사용하여 참가할 수 있나요?**
 
-번호 대회에 참가하려면 무료 또는 표준 작업 영역을 사용해야 합니다. 게스트 작업 영역에서 대회 시작 실험을 열 수 있으나 해당 작업 영역에서 제출할 수 있는 유효한 항목을 만들 수는 없습니다. 
+아니요. 대회에 참가하려면 무료 또는 표준 작업 영역을 사용해야 합니다. 게스트 작업 영역에서 대회 시작 실험을 열 수 있으나 해당 작업 영역에서 제출할 수 있는 유효한 항목을 만들 수는 없습니다. 
 
 **모든 Azure 지역에서 작업 영역을 사용하여 대회에 참가할 수 있나요?**
 

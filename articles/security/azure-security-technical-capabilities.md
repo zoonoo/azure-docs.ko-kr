@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721333"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405568"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 
@@ -398,17 +398,17 @@ Microsoft는 조직이 클라우드로의 전환을 고려할 때 실사 작업�
 
 Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
 
-### <a name="microsoft-operations-management-suiteoms"></a>Microsoft OMS(Operations Management Suite)
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
 
-[Microsoft OMS(Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)는 하이브리드 클라우드를 위한 IT 관리 솔루션입니다. 단독으로 사용하거나 기존 System Center 배포를 확장할 수 있도록 OMS는 인프라의 클라우드 기반 관리를 위한 최대한의 유연성과 제어를 제공합니다.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)는 하이브리드 클라우드를 위한 IT 관리 솔루션입니다. 단독으로 사용하거나 기존 System Center 배포를 확장할 수 있도록 Log Analytics는 인프라의 클라우드 기반 관리를 위한 최대한의 유연성과 제어를 제공합니다.
 
-![Microsoft OMS(Operations Management Suite)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-OMS를 사용하면 경쟁력 있는 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 OMS는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 응용 프로그램 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
+Log Analytics를 사용하면 경쟁 솔루션보다 저렴한 비용으로 온-프레미스, Azure, AWS, Windows Server, Linux, VMware 및 OpenStack을 포함한 모든 클라우드의 모든 인스턴스를 관리할 수 있습니다. 클라우드 우선 세계를 위해 구축된 Log Analytics는 새로운 비즈니스 과제를 충족하고 새로운 워크로드, 응용 프로그램 및 클라우드 환경을 수용할 수 있는 가장 빠르고 비용 효율적인 방법으로 기업을 관리하기 위한 새로운 방법을 제공합니다.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)는 관리형 리소스의 데이터를 중앙 리포지토리로 수집하여 OMS에 대한 모니터링 서비스를 제공합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다.
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)는 관리되는 리소스의 데이터를 중앙 리포지토리로 수집하여 모니터링 서비스를 제공합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: f4729ce996ca918f43df1777a1962d4cd225a38e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cc182c46486d81196056953d20de74bbedc1e152
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47061077"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345869"
 ---
 ## <a name="extended-iot-scenarios"></a>확장된 IoT 시나리오
 
@@ -21,27 +21,15 @@ ms.locfileid: "47061077"
 
 | 시나리오                                                   | Azure 서비스 또는 도구              |
 |----------------------------------------------------------- |------------------------------------|
-| [IoT Hub 메시지 관리][Mg_IoT_Toolkit]                  | VS Code Azure IoT Toolkit 확장|
-| [IoT 장치 관리][Mg_IoT_Dv]                        | Azure CLI 및 IoT 확장    |
-| [IoT 장치 관리][Mg_IoT_Dv_Toolkit]                | VS Code Azure IoT Toolkit 확장|
-| [Save IoT Hub messages to Azure storage][Sv_IoT_Msg_Stor]  | Azure Table Storage                |
-| [센서 데이터 시각화][Vis_Data_PBI]                      | Microsoft Power BI                 |
-| [센서 데이터 시각화][Vis_Data_Web]                      | Azure Web Apps                     |
-| [센서 데이터를 사용하여 날씨 예측][Weather_Forecast]      | Azure Machine Learning             |
-| [자동 변칙 검색 및 반응][Anomaly_Detect] | Azure Logic Apps                   |
+| [IoT Hub 메시지 관리](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)                  | VS Code Azure IoT Toolkit 확장|
+| [IoT 장치 관리](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)                        | Azure CLI 및 IoT 확장    |
+| [IoT 장치 관리](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)                | VS Code Azure IoT Toolkit 확장|
+| [Azure Storage에 IoT Hub 메시지 저장](../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md)  | Azure Table Storage                |
+| [센서 데이터 시각화](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)                      | Microsoft Power BI                 |
+| [센서 데이터 시각화](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)                      | Azure Web Apps                     |
+| [센서 데이터를 사용하여 날씨 예측](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)      | Azure Machine Learning             |
+| [자동 변칙 검색 및 반응](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) | Azure Logic Apps                   |
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 자습서를 완료한 후 [개발자 가이드][lnk-dev-guide]에서 IoT Hub의 기능을 추가로 탐색할 수 있습니다. [방법][lnk-how-to] 섹션에서 추가 자습서를 찾을 수 있습니다.
-
-
-[Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-[Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
-[Mg_IoT_Dv_Toolkit]: ../articles/iot-hub/iot-hub-device-management-iot-toolkit.md
-[Sv_IoT_Msg_Stor]: ../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md
-[Vis_Data_Web]: ../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md
-[Vis_Data_PBI]: ../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md
-[Weather_Forecast]: ../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md
-[Anomaly_Detect]: ../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md
-[lnk-dev-guide]: ../articles/iot-hub/iot-hub-devguide.md
-[lnk-how-to]: ../articles/iot-hub/iot-hub-how-to.md
+이러한 자습서를 완료한 후 [개발자 가이드](../articles/iot-hub/iot-hub-devguide.md)에서 IoT Hub의 기능을 추가로 탐색할 수 있습니다. 

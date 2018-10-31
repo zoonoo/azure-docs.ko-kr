@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258436"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393460"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal을 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -39,11 +39,11 @@ Azure IoT Edge를 사용하면 분석을 에지로 이동할 수 있고 클라�
 }
 ```
 
-장치 쌍 및 태그에 대한 자세한 내용은 [IoT Hub의 장치 쌍 이해 및 사용][lnk-device-twin]을 참조하세요.
+장치 쌍 및 태그에 대한 자세한 내용은 [IoT Hub의 장치 쌍 이해 및 사용](../iot-hub/iot-hub-devguide-device-twins.md)을 참조하세요.
 
 ## <a name="create-a-deployment"></a>배포 만들기
 
-1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 IoT Hub로 이동합니다. 
 1. **IoT Edge**를 선택합니다.
 1. **IoT Edge 배포 추가**를 선택합니다.
 
@@ -77,7 +77,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 1. **IoT Edge 모듈**을 선택합니다.
 1. 모듈에 **이름**을 지정합니다.
 1. **이미지 URI** 필드에 대해 모듈의 컨테이너 이미지를 입력합니다. 
-1. 컨테이너에 전달되어야 하는 **컨테이너 만들기 옵션**을 지정합니다. 자세한 내용은 [docker create][lnk-docker-create]를 참조하세요.
+1. 컨테이너에 전달되어야 하는 **컨테이너 만들기 옵션**을 지정합니다. 자세한 내용은 [docker create](https://docs.docker.com/engine/reference/commandline/create/)를 참조하세요.
 1. 드롭다운 메뉴를 사용하여 **다시 시작 정책**을 선택합니다. 다음 옵션 중에서 선택합니다. 
    * **Always(항상 다시 시작)** - 모듈이 어떤 이유로든 종료되면 항상 다시 시작됩니다.
    * **Never(다시 시작 안 함)** - 모듈이 어떤 이유로든 종료되면 다시 시작되지 않습니다.
@@ -117,11 +117,11 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 배포의 세부 정보를 확인하고 이를 실행하는 장치를 모니터링하려면 다음 단계를 사용합니다.
 
-1. [Azure Portal][lnk-portal]에 로그인하고 IoT 허브로 이동합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다. 
 1. **IoT Edge**를 선택합니다.
 1. **IoT Edge 배포**를 선택합니다. 
 
-   ![IoT Edge 배포 보기][1]
+   ![IoT Edge 배포 보기](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. 배포 목록을 검사합니다. 각 배포에 대해 다음 세부 정보를 볼 수 있습니다.
    * **ID** - 배포의 이름
@@ -144,11 +144,11 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 배포를 수정하려면 다음 단계를 수행합니다. 
 
-1. [Azure Portal][lnk-portal]에 로그인하고 IoT 허브로 이동합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다. 
 1. **IoT Edge**를 선택합니다.
 1. **IoT Edge 배포**를 선택합니다. 
 
-   ![IoT Edge 배포 보기][1]
+   ![IoT Edge 배포 보기](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. 수정하려는 배포를 선택합니다. 
 1. 다음 필드를 업데이트합니다. 
@@ -156,17 +156,17 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
    * 레이블 
    * 우선 순위 
 1. **저장**을 선택합니다.
-1. [배포 모니터링][anchor-monitor]의 단계에 따라 변경 내용이 배포되는지 확인합니다. 
+1. [배포 모니터링](#monitor-a-deployment)의 단계에 따라 변경 내용이 배포되는지 확인합니다. 
 
 ## <a name="delete-a-deployment"></a>배포 삭제
 
 배포를 삭제하면 모든 장치에서 다음으로 우선 순위가 가장 높은 배포가 적용됩니다. 장치에서 다른 배포의 대상 조건을 충족하지 않으면 배포를 삭제해도 모듈이 제거되지 않습니다. 
 
-1. [Azure Portal][lnk-portal]에 로그인하고 IoT 허브로 이동합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다. 
 1. **IoT Edge**를 선택합니다.
 1. **IoT Edge 배포**를 선택합니다. 
 
-   ![IoT Edge 배포 보기][1]
+   ![IoT Edge 배포 보기](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. 확인란을 사용하여 삭제하려는 배포를 선택합니다. 
 1. **삭제**를 선택합니다.
@@ -174,16 +174,4 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Edge 장치에 모듈 배포][lnk-deployments]를 자세히 알아봅니다.
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+[Edge 장치에 모듈 배포](module-deployment-monitoring.md)에 대해 자세히 알아봅니다.

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 99df133b9f626f970189df578c6d107086b9dab9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855003"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365628"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -44,7 +44,7 @@ Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스
 
 GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 번만 수정하면 됩니다.
 
-1. GUID를 만듭니다(예: eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. [GUID](#create-guids)(예: eb7927c8-dd66-43e1-b0cf-c346a422063)를 만들고 [GUID를 등록](#register-guids-and-offers)합니다.
 
 1. Resource Manager 템플릿을 엽니다.
 
@@ -55,6 +55,8 @@ GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 
 1. 템플릿에서 오류를 확인합니다.
 
 1. 적절한 리포지토리에 템플릿을 다시 게시합니다.
+
+1. [템플릿 배포에서 GUID 성공을 확인](#verify-the-guid-deployment)합니다.
 
 ### <a name="sample-template-code"></a>샘플 템플릿 코드
 
@@ -99,6 +101,24 @@ Azure CLI를 사용하여 GUID를 추가하는 경우 **AZURE_HTTP_USER_AGENT** 
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
+## <a name="create-guids"></a>GUID 만들기
+
+GUID는 32자리의 16진수가 있는 고유 참조 번호입니다. 추적을 위한 GUID를 만들려면 GUID 생성기를 사용해야 합니다. [Azure Storage의 GUID 생성기 양식](https://aka.ms/StoragePartners)을 활용하는 것이 좋습니다. 그러나 Azure Storage의 GUID 생성기를 사용하지 않으려는 경우 사용할 수 있는 [여러 온라인 GUID 생성기](https://www.bing.com/search?q=guid%20generator)가 있습니다.
+
+> [!Note]
+> 그렇지만 [Azure Storage의 GUID 생성기 양식](https://aka.ms/StoragePartners)을 사용하여 GUID를 만드는 것이 좋습니다. 자세한 내용은 [FAQ](#faq)를 참조하세요.
+
+모든 제품 및 배포 채널에 대한 고유 GUID를 만듭니다. 템플릿을 사용하여 두 개의 솔루션을 배포하고 각각을 Azure Marketplace와 GitHub에서 사용할 수 있는 경우 4개의 GUID를 만들어야 합니다.
+
+*   Azure Marketplace의 제품 A 
+*   GitHub의 제품 A
+*   Azure Marketplace의 제품 B 
+*   GitHub의 제품 B
+
+보고는 파트너 값(Microsoft 파트너 ID) 및 GUID를 통해 수행됩니다. 
+
+SKU는 제품의 변형인 SKU와 같이 더 세부적인 수준에서 GUID를 추적할 수도 있습니다.
 
 ## <a name="register-guids-and-offers"></a>GUID 및 제품 등록
 
@@ -183,21 +203,6 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="create-guids"></a>GUID 만들기
-
-GUID는 32자리의 16진수가 있는 고유 참조 번호입니다. 추적을 위한 GUID를 만들려면 GUID 생성기를 사용해야 합니다. 사용할 수 있는 여러 [온라인 GUID 생성기](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E)가 있습니다.
-
-모든 제품 및 배포 채널에 대한 고유 GUID를 만듭니다. 템플릿을 사용하여 두 개의 솔루션을 배포하고 각각을 Azure Marketplace와 GitHub에서 사용할 수 있는 경우 4개의 GUID를 만들어야 합니다.
-
-*   Azure Marketplace의 제품 A 
-*   GitHub의 제품 A
-*   Azure Marketplace의 제품 B 
-*   GitHub의 제품 B
-
-보고는 파트너 값(Microsoft 파트너 ID) 및 GUID를 통해 수행됩니다. 
-
-SKU는 제품의 변형인 SKU와 같이 더 세부적인 수준에서 GUID를 추적할 수도 있습니다.
-
 ## <a name="notify-your-customers"></a>고객에게 알림
 
 파트너는 Resource Manager GUID 추적을 사용하는 배포에 대해 고객에게 알려야 합니다. Microsoft는 이러한 배포와 연결된 Azure 사용량을 파트너에게 보고합니다. 다음 예제에는 이러한 배포에 대해 고객에게 알리는 데 사용할 수 있는 콘텐츠가 포함되어 있습니다. 이 예제에서 \<PARTNER>는 회사 이름으로 바꿉니다. 파트너는 추적에서 고객을 제외할 수 있는 옵션을 포함하여 알림이 해당 데이터 개인 정보 및 수집 정책과 일치하는지 확인해야 합니다. 
@@ -275,3 +280,7 @@ Microsoft는 고객의 템플릿 배포 및 영향을 받는 사용량에 대한
 **추적 방법론은 DPOR(디지털 공식 파트너)과 유사한가요?**
 
 배포 및 사용량을 파트너 솔루션에 연결하는 이 새로운 방법은 파트너 솔루션을 Azure 사용량에 연결하는 메커니즘을 제공합니다. DPOR는 컨설팅(시스템 통합자) 또는 관리(관리 서비스 공급자) 파트너를 고객의 Azure 구독과 연결하기 위한 것입니다.   
+
+**Azure Storage의 GUID 생성기 양식을 사용하면 어떤 이점이 있나요?**
+
+Azure Storage의 GUID 생성기 양식은 필요한 형식의 GUID를 생성하도록 보장합니다. 또한, Azure Storage의 데이터 평면 추적 방법을 사용하는 경우 Marketplace 제어 평면 추적에 동일한 GUID를 활용할 수 있습니다. 이렇게 하면 별도의 GUIDS를 유지하지 않고도 파트너 특성으로 단일 통합 GUID를 활용할 수 있습니다.

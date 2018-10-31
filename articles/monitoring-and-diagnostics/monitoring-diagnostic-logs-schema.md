@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 8/21/2018
+ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818967"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116196"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -23,7 +23,7 @@ ms.locfileid: "42818967"
 
 ## <a name="top-level-diagnostic-logs-schema"></a>최상위 수준 진단 로그 스키마
 
-| Name | 필수/선택 | 설명 |
+| 이름 | 필수/선택 | 설명 |
 |---|---|---|
 | 실시간 | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | ResourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
@@ -53,13 +53,14 @@ ms.locfileid: "42818967"
 | Application Gateway |[Application Gateway에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Azure Automation에 대한 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 진단 로깅](../batch/batch-diagnostics.md) |
+| Azure Database for MySQL | [Azure Database for MySQL 진단 로그](../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL 진단 로그](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Cognitive Services | 스키마를 사용할 수 없음 |
 | Content Delivery Network | [CDN에 대한 Azure 진단 로그](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 로깅](../cosmos-db/logging.md) |
 | Data Factory | [Azure Monitor를 사용하여 데이터 팩터리 모니터링](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Azure Data Lake Store에 대한 진단 로그에 액세스](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| PostgreSQL용 DB |  스키마를 사용할 수 없음 |
 | Event Hubs |[Azure Event Hubs 진단 로그](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express 경로 | 스키마를 사용할 수 없음 |
 | Azure Firewall | 스키마를 사용할 수 없음 |
@@ -104,6 +105,7 @@ ms.locfileid: "42818967"
 |Microsoft.DataLakeAnalytics/accounts|요청|요청 로그|
 |Microsoft.DataLakeStore/accounts|감사|감사 로그|
 |Microsoft.DataLakeStore/accounts|요청|요청 로그|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL 느린 쿼리 로그|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 서버 로그|
 |Microsoft.Devices/IotHubs|연결|연결|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|장치 원격 분석|

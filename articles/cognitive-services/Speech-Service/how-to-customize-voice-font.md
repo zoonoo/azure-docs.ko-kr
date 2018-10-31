@@ -1,22 +1,25 @@
 ---
-title: Custom Voice란? - Azure Cognitive Services
-description: 이 문서는 인식 가능한, 독특한 브랜드의 음성을 만들 수 있도록 하는 Microsoft Text to Speech 음성 사용자 지정에 대한 개요입니다.
+title: 사용자 지정 음성 글꼴을 만드는 방법
+titlesuffix: Azure Cognitive Services
+description: 이 문서는 인식 가능한, 독특한 브랜드의 음성을 만들 수 있는 Text to Speech 음성 사용자 지정에 대한 개요입니다.
 services: cognitive-services
-author: noellelacharite
+author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolach
-ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: panosper
+ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113923"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467721"
 ---
 # <a name="creating-custom-voice-fonts"></a>사용자 지정 음성 글꼴 만들기
 
-Microsoft TTS(Text to Speech) 음성 사용자 지정을 사용하여 인식 가능한, 독특한 브랜드의 음성을 나타내는 *음성 글꼴*(voice font)을 만들 수 있습니다. 
+TTS(Text to Speech) 음성 사용자 지정을 사용하면 인식 가능한, 독특한 브랜드의 음성인 *음성 글꼴*을 만들 수 있습니다. 
 
 음성 글꼴을 만들려면 스튜디오에서 녹음한 후 관련 스크립트를 학습 데이터로서 업로드합니다. 그러면 이 서비스는 녹음한 음성에 맞게 튜닝된 고유한 음성 모델을 만듭니다. 이 음성 글꼴을 사용하여 음성을 합성할 수 있습니다. 
 

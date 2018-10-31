@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/15/2018
 ms.author: raynew
-ms.openlocfilehash: 35cce4e9e0b722e8ee1b2ea42a79f18a987033f0
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: bb756a89babef96b16419104737e87405b3527ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078648"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407404"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware VM에 대해 구성 서버 관리
 
@@ -138,6 +138,9 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 - 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
 
 모든 버전의 구성 서버로 업그레이드할 수 있는 업데이트 롤업 링크가 [wiki 업데이트 페이지](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)에 제공됩니다.
+
+> [!IMPORTANT]
+> 릴리스된 Azure Site Recovery 구성 요소의 모든 새 버전 ‘N’을 사용하면 ‘N-4’ 이전의 모든 버전은 지원되지 않는 것으로 간주됩니다. 항상 사용 가능한 최신 버전으로 업그레이드하는 것이 좋습니다.
 
 다음과 같이 서버를 업그레이드합니다.
 

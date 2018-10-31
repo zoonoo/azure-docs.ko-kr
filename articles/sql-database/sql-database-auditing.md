@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: bd40faf8a77a8940dc78375ec516c39742540231
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352840"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466684"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -79,7 +79,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
     ![탐색 창][3]
 
-5. **새로 만들기** - 이제 감사 로그가 작성될 구성에 대한 여러 옵션이 있습니다. Azure 저장소 계정, Log Analytics에서 소비에 대한 OMS 작업 영역 또는 이벤트 허브를 사용하여 소비에 대한 이벤트 허브로 로그를 작성할 수 있습니다. 이러한 옵션의 임의 조합을 구성할 수 있으며, 감사 로그는 각각 작성됩니다.
+5. **새로 만들기** - 이제 감사 로그가 작성될 구성에 대한 여러 옵션이 있습니다. Azure 저장소 계정, Log Analytics에서 사용하는 경우 Log Analytics 작업 영역 또는 이벤트 허브를 통해 사용하는 경우 이벤트 허브에 로그를 쓸 수 있습니다. 이러한 옵션의 임의 조합을 구성할 수 있으며, 감사 로그는 각각 작성됩니다.
 
     ![저장소 옵션](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -87,9 +87,9 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
     ![저장소 계정 만들기](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. OMS 작업 영역에 감사 로그 작성을 구성하려면 **Log Analytics(미리 보기)** 를 선택하고 **Log Analytics 세부 정보**를 엽니다. 로그가 작성될 OMS 작업 영역을 선택하거나 만든 다음, **확인**을 클릭합니다.
+7. Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log Analytics(미리 보기)** 를 선택하고 **Log Analytics 세부 정보**를 엽니다. 로그를 쓸 Log Analytics 작업 영역을 선택하거나 만든 다음, **확인**을 클릭합니다.
 
-    ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. 이벤트 허브에 감사 로그 작성을 구성하려면 **이벤트 허브(미리 보기)** 를 선택하고 **이벤트 허브 세부 정보**를 엽니다. 로그가 작성될 이벤트 허브를 선택한 다음, **확인**을 클릭합니다. 이벤트 허브는 데이터베이스 및 서버와 동일한 지역에 있어야 합니다.
 
@@ -109,10 +109,10 @@ Log Analytics에 감사 로그를 작성하도록 선택한 경우:
 
 - 그런 다음, **감사 레코드** 페이지의 맨 위에서 **OMS에서 열기**를 클릭하면 시간 범위 및 검색 쿼리를 사용자 지정할 수 있는 Log Analytics에서 로그 보기가 열립니다.
 
-    ![OMS에서 열기](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    ![Log Analytics에서 열기](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - 또는 Log Analytics 블레이드에서 감사 로그에 액세스할 수도 있습니다. Log Analytics 작업 영역을 열고 **일반** 섹션 아래에서 **로그**를 클릭합니다. *"SQLSecurityAuditEvents" 검색*과 같은 간단한 쿼리로 시작하여 감사 로그를 볼 수 있습니다.
-    여기에서 [OMS(Operations Management Suite) Log Analytics](../log-analytics/log-analytics-log-search.md)를 사용하여 감사 로그 데이터에서 고급 검색을 실행할 수도 있습니다. Log Analytics는 통합 검색 및 사용자 지정 대시보드를 사용하여 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 운영 정보를 제공합니다. OMS Log Analytics 검색 언어 및 명령에 대한 유용한 추가 정보는 [Log Analytics 검색 참조](../log-analytics/log-analytics-log-search.md)를 참조하세요.
+    여기서 [Log Analytics](../log-analytics/log-analytics-log-search.md)를 사용하여 감사 로그 데이터에서 고급 검색을 실행할 수도 있습니다. Log Analytics는 통합 검색 및 사용자 지정 대시보드를 사용하여 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 운영 정보를 제공합니다. Log Analytics 검색 언어 및 명령에 대한 유용한 추가 정보는 [Log Analytics 검색 참조](../log-analytics/log-analytics-log-search.md)를 참조하세요.
 
 이벤트 허브에 감사 로그를 작성하도록 선택한 경우:
 
@@ -222,17 +222,17 @@ Azure 저장소 계정에 감사 로그를 작성하도록 선택한 경우 로�
 
 **REST API - Blob 감사**
 
-- [데이터베이스 Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_createorupdate)
-- [서버 Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
-- [데이터베이스 Blob 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_get)
-- [서버 Blob 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
+- [데이터베이스 Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [서버 Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [데이터베이스 Blob 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [서버 Blob 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입니다.
 
-- [데이터베이스 *확장된* Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_createorupdate)
-- [서버 *확장된* Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
-- [데이터베이스 *확장된* Blob 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_get)
-- [서버 *확장된* Blob 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
+- [데이터베이스 *확장된* Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [서버 *확장된* Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [데이터베이스 *확장된* Blob 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [서버 *확장된* Blob 감사 정책 가져오기](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4157b812fbb17b524a21814f41e0e4ec43e39e70
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042090"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408211"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관 리 솔루션(미리 보기)
 
@@ -58,8 +58,8 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 ## <a name="configuration"></a>구성
 
 1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
-2. OMS 포털에서 **설정** &gt; **데이터** &gt; **Application Insights**를 클릭합니다.
-3. **구독 선택**에서 Application Insights 리소스가 포함된 구독을 선택하고 **응용 프로그램 이름**에서 하나 이상의 응용 프로그램을 선택합니다.
+2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
+3. **구독**에서 Application Insights 리소스가 포함된 구독을 선택한 다음, **이름**에서 하나 이상의 응용 프로그램을 선택합니다.
 4. **저장**을 클릭합니다.
 
 약 30분 내에 데이터가 제공되며 다음 이미지와 같이 Application Insights 타일이 데이터로 업데이트됩니다.
@@ -133,7 +133,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Azure Portal에서 앱에 피벗
 
-Application Insights 커넥터 블레이드는 사용자가 *OMS 포털을 사용하는 경우* 선택한 Application Insights 앱에 피벗할 수 있도록 설계되었습니다. 솔루션을 앱 문제 해결에 도움이 되는 상위 수준 모니터링 플랫폼으로 사용할 수 있습니다. 연결된 응용 프로그램에서 잠재적인 문제가 발견되면 Log Analytics 검색에서 자세히 알아보거나 Application Insights 앱에 직접 피벗할 수 있습니다.
+Application Insights 커넥터 블레이드는 사용자가 *Azure Portal을 사용하는 경우* 선택한 Application Insights 앱에 피벗할 수 있도록 설계되었습니다. 솔루션을 앱 문제 해결에 도움이 되는 상위 수준 모니터링 플랫폼으로 사용할 수 있습니다. 연결된 응용 프로그램에서 잠재적인 문제가 발견되면 Log Analytics 검색에서 자세히 알아보거나 Application Insights 앱에 직접 피벗할 수 있습니다.
 
 피벗하려면 각 행의 끝에 표시되는 줄임표(**…**)를 클릭하고 **Open in Application Insights**(Application Insights에서 열기)를 선택합니다.
 

@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 63549768f616e60e92c853047525c18cefdaddb4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a63a9d22638231aa076cc4ced9030a378d0c36e4
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386280"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429493"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>VM용 Azure Monitor를 사용하여 성능을 차트로 표시하는 방법
 VM용 Azure Monitor는 가상 머신이 얼마나 잘 실행되고 있는지 확인하기 위한 여러 가지 KPI(핵심 성과 지표)를 대상으로 하는 성능 차트 집합을 포함하고 있습니다. 이러한 차트는 시간에 따른 리소스 사용률을 표시하므로 병목 상태 및 이상 현상을 식별하거나 각 머신을 나열하는 큐브 뷰로 전환하여 선택한 메트릭을 기반으로 리소스 사용률을 볼 수 있습니다. 성능을 다룰 때 고려해야 하는 여러 요소가 있지만, VM용 Azure Monitor는 프로세서, 메모리, 네트워크 어댑터 및 디스크를 통해 표시되는 운영 체제에 집중합니다. 성능은 상태 모니터링 기능을 보완하며 시스템 구성 요소 오류를 나타내는 문제를 공개하고, 효율성 향상을 위한 튜닝 및 최적화를 지원하고, 용량 계획을 지원하는 데 도움이 됩니다.  
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Azure Monitor의 다중 VM 관점
-Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 배포된 모든 모니터링되는 다중 가상 머신 보기를 제공합니다.  Azure Monitor에서 액세스하려면 다음을 수행합니다. 
+Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 배포된 모든 모니터링되는 다중 가상 머신 보기를 제공합니다.  Azure Monitor에서 액세스하려면 다음 단계를 수행합니다. 
 
 1. Azure Portal에서 **모니터**를 선택합니다. 
 2. **솔루션** 섹션에서 **Virtual Machines(미리 보기)** 를 선택합니다.
@@ -33,7 +33,7 @@ Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 �
 
 ![VM 인사이트 성능 상위 N개 목록 보기](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-**상위 N개 차트** 탭에서 둘 이상의 Log Analytics 작업 영역이 경우 페이지 위쪽의 **작업 영역** 선택기에서 솔루션에서 사용할 수 있도록 설정된 작업 영역을 선택합니다. **그룹** 선택기에서 이 페이지의 차트 및 다른 페이지에 표시되는 결과를 더 자세히 필터링하는 데 사용할 수 있는 선택한 작업 영역과 관련된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md) 및 VM 확장 집합을 반환합니다. 선택 항목은 성능 기능에만 적용되며 상태 또는 맵으로 전달되지 않습니다.  
+**상위 N개 차트** 탭에서 둘 이상의 Log Analytics 작업 영역이 경우 페이지 위쪽의 **작업 영역** 선택기에서 솔루션에서 사용할 수 있도록 설정된 작업 영역을 선택합니다. **그룹** 선택기에서 이 페이지의 차트 및 다른 페이지에 표시되는 결과를 더 자세히 필터링하는 데 사용할 수 있는 선택한 작업 영역과 관련된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md) 및 가상 머신 확장 집합을 반환합니다. 선택 항목은 성능 기능에만 적용되며 상태 또는 맵으로 전달되지 않습니다.  
 
 기본적으로 차트는 지난 24시간을 보여줍니다. **TimeRange** 선택기로 최대 30일의 과거 시간 범위를 쿼리하여 과거의 성능을 살펴볼 수 있습니다.   
 
@@ -104,7 +104,11 @@ Azure Monitor의 성능 기능은 구독 또는 환경의 리소스 그룹에 �
 ![VM 보기에서 직접 VM 인사이트 성능 보기](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
 
 ## <a name="alerting-and-alert-management"></a>경고 및 경고 관리 
-VM에 대한 Azure Monitor의 일부로 사용하도록 설정된 성능 메트릭에는 미리 구성된 경고 규칙이 포함되어 있지 않습니다. Azure VM에서 감지된 성능 문제(예: 높은 CPU 사용률, 사용 가능한 메모리 부족, 디스크 공간 부족 등)에 해당하는 상태 경고가 있지만, 이러한 상태 경고는 VM에 대한 Azure Monitor와 통합된 것과 동일한 Log Analytics 작업 영역에 연결된 모든 VM에만 적용됩니다. 사용자 고유의 조건 또는 논리를 유연하게 지정해야 하는 경우 [Azure Monitor를 사용하여 경고 만들기, 보기 및 관리](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)의 지침에 따라 사용자 지정 경고 규칙을 만들 수 있습니다. 
+VM에 대한 Azure Monitor의 일부로 사용하도록 설정된 성능 메트릭에는 미리 구성된 경고 규칙이 포함되어 있지 않습니다. Azure VM에서 감지된 성능 문제(예: 높은 CPU 사용률, 사용 가능한 메모리 부족, 디스크 I/O, 디스크 공간 부족 등)에 해당하는 [상태 경고](monitoring-vminsights-health.md#alerting-and-alert-management)가 있지만, 이러한 상태 경고는 VM용 Azure Monitor에 활성화된 것과 동일한 Log Analytics 작업 영역에 연결된 모든 VM에만 적용됩니다. 
+
+그러나 Log Analytics 작업 영역에서 가져온 성능 메트릭의 하위 집합만 수집하고 저장할 수 있습니다. 모니터링 전략에 가상 머신의 용량 또는 상태를 효과적으로 평가하기 위해 다른 성능 메트릭을 포함하는 분석 또는 경고가 필요하거나 고유한 경고 조건 또는 논리를 지정하기 위해 유연성이 필요한 경우 Log Analytics에서 [해당 성능 카운터의 컬렉션](../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json)을 구성하고 [로그 경고](../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json)를 정의할 수 있습니다. Log Analytics를 사용하여 다른 데이터 형식을 사용하여 복잡한 분석을 수행하고 장기 보존을 제공하여 추세 분석을 지원할 수 있는 반면 메트릭은 가볍고 실시간에 가까운 시나리오를 지원할 수 있습니다. [Azure 진단 에이전트](../virtual-machines/windows/monitor.md)를 통해 수집되며 Azure Monitor 메트릭 저장소에 저장되어 낮은 대기 시간 및 저렴한 비용으로 경고를 만들 수 있습니다.
+
+이러한 추가 메트릭 및 경고 규칙의 컬렉션을 구성하기 전에 기본적인 차이점 및 기타 고려 사항을 자세히 이해하려면 [Azure Monitor를 사용하여 메트릭 및 로그의 컬렉션](monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json)의 개요를 검토하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 상태 기능을 사용하는 방법을 알아보려면 [VM용 Azure Monitor 상태 보기](monitoring-vminsights-health.md)를 참조하고, 검색된 응용 프로그램 종속성을 보려면 [VM 맵에 대한 Azure Monitor 보기](monitoring-vminsights-maps.md)를 참조하세요. 

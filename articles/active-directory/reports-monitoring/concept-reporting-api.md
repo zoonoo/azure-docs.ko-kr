@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7de7c87e5cf1747f4899f33d9e6b9cbf0bb430e1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1e6ad35702b15090202278cfdead62b245040302
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141392"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309623"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API 시작하기
 
@@ -33,6 +33,7 @@ Azure AD reporting API를 사용하면 일련의 REST 기반 API를 통해 데�
 
 문제가 발생하면 [Azure Active Directory에 대한 지원을 받는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)을 참조하세요.
 
+이 문서는 Azure AD Graph API에 적용됩니다.  Microsoft Graph API와 관련된 유사한 정보는 [directoryAudit resource type](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit)(directoryAudit 리소스 종류)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

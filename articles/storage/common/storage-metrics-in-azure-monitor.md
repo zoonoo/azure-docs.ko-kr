@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 8fe4fdfa88a5aea4b8df49d9c00fa7f6b1768209
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b9b6c67930e251302f397e199c65f949997a25cf
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363438"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637975"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -23,13 +23,13 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 ## <a name="access-metrics"></a>메트릭에 액세스
 
-Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com), Azure Monitor API(REST 및 .Net) 그리고 Operation Management Suite 및 Event Hubs와 같은 분석 솔루션에서 메트릭에 액세스할 수 있습니다. 자세한 내용은 [Azure Monitor 메트릭](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)을 참조하세요.
+Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com), Azure Monitor API(REST 및 .Net) 및 분석 솔루션(예: Event Hubs)에서 메트릭에 액세스할 수 있습니다. 자세한 내용은 [Azure Monitor 메트릭](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)을 참조하세요.
 
 메트릭은 기본적으로 활성화되며 지난 93일간의 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. Azure Monitor의 [진단 설정](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)에서 이렇게 구성합니다.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Azure Portal에서 메트릭에 액세스
 
-Azure Portal에서 시간 경과에 따른 메트릭을 모니터링할 수 있습니다. 다음은 계정 수준에서 **UsedCapacity**를 보는 방법을 보여 주는 예제입니다.
+Azure Portal에서 시간 경과에 따른 메트릭을 모니터링할 수 있습니다. 다음 예에서는 계정 수준에서 **트랜잭션**을 보는 방법을 보여 줍니다.
 
 ![Azure Portal에서 메트릭에 액세스 스크린 샷](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 

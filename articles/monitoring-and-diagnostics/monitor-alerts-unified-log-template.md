@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6ec07d02e61d50aa588d75ba7337eb9237e11207
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576870"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402900"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 로그 경고 만들기
 이 문서에서는 [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) 및 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)를 통해 [Azure Resource Manager 템플릿](..//azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure의 규모에서 프로그래밍 방식으로 [로그 경고](monitor-alerts-unified-log.md)를 관리하는 방법을 보여줍니다. 현재 Azure Alerts는 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)와 [Azure Application Insights](../application-insights/app-insights-analytics-tour.md)에서 쿼리에 대한 로그 경고를 지원합니다.
 
 ## <a name="managing-log-alert-on-log-analytics"></a>Log Analytics에서 로그 경고 관리
-Log Analytics API를 실행하고 [OMS 포털에서 경고](..//log-analytics/log-analytics-alerts-creating.md)를 관리하는 데 이전에 사용한 스키마와의 호환성을 유지하는 동안 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)에 대한 로그 경고는 [새 Azure 경고 환경](monitoring-overview-unified-alerts.md)으로 통합됩니다.
+Log Analytics API를 실행하고 이전에 사용한 스키마와의 호환성을 유지하는 동안 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)에 대한 로그 경고는 [새 Azure 경고 환경](monitoring-overview-unified-alerts.md)으로 통합됩니다.
 
 > [!NOTE]
-> 2018년 5월 14일부터 작업 영역의 모든 경고는 Azure로 자동 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](monitoring-alerts-extend.md)을 참조하세요. 
+> 2018년 5월 14일부터 작업 영역의 모든 경고는 Azure로 자동 확장됩니다. 자세한 내용은 [Azure로 경고 확장](monitoring-alerts-extend.md)을 참조하세요. 
 
 ### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 Log Analytics에 대한 로그 경고는 일정한 간격으로 저장된 검색을 실행하는 경고 규칙에 의해 만들어집니다. 쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 실행됩니다. 

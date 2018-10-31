@@ -1,6 +1,6 @@
 ---
 title: Log Analytics에서 실시간 데이터 솔루션 | Microsoft Docs
-description: 실시간 데이터는 Operations Manager 및 Windows 연결 에이전트를 포함하여 OMS 에이전트 컴퓨터에서 통합된 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 로그 데이터와 결합됩니다.
+description: Wire Data는 Log Analytics 에이전트를 사용한 컴퓨터의 통합 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 로그 데이터와 결합됩니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 32e76d1593f8bda0ebf745e76373908970aeb181
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 61ceea60962acc2e1ec032df49683e8a28381dd7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124172"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405364"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics에서 Wire Data 2.0(미리 보기) 솔루션
 
 ![Wire Data 기호](./media/log-analytics-wire-data/wire-data2-symbol.png)
 
-실시간 데이터는 사용자 환경의 Operations Manager에서 모니터링되는 데이터를 포함하여 OMS 에이전트를 통해 Windows 연결 및 Linux 연결 컴퓨터에서 수집되는 통합 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 다른 로그 데이터와 결합됩니다.
+Wire Data는 사용자 환경의 Operations Manager에서 모니터링되는 데이터를 포함하여 Log Analytics 에이전트를 통해 Windows 연결 및 Linux 연결 컴퓨터에서 수집되는 통합 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 다른 로그 데이터와 결합됩니다.
 
-OMS 에이전트 외에 Wire Data 솔루션은 IT 인프라에서 컴퓨터에 설치하는 Microsoft 종속성 에이전트를 사용합니다. 종속성 에이전트는 사용된 다양한 프로토콜 및 포트를 포함하여 [OSI 모델](https://en.wikipedia.org/wiki/OSI_model)에서 네트워크 수준 2-3에 해당하는 컴퓨터와 주고 받는 네트워크 데이터를 모니터링합니다. 그런 다음 데이터는 에이전트를 사용하여 Log Analytics에 보내집니다.  
+Log Analytics 에이전트 외에 Wire Data 솔루션은 IT 인프라에서 컴퓨터에 설치하는 Microsoft 종속성 에이전트를 사용합니다. 종속성 에이전트는 사용된 다양한 프로토콜 및 포트를 포함하여 [OSI 모델](https://en.wikipedia.org/wiki/OSI_model)에서 네트워크 수준 2-3에 해당하는 컴퓨터와 주고 받는 네트워크 데이터를 모니터링합니다. 그런 다음 데이터는 에이전트를 사용하여 Log Analytics에 보내집니다.  
 
-> [!NOTE]
-> 새 작업 영역에 이전 버전의 Wire Data 솔루션을 추가할 수 없습니다. Wire Data 솔루션이 사용하도록 설정된 경우 계속해서 사용할 수 있습니다. 그러나 Wire Data 2.0을 사용하려면 먼저 원래 버전을 제거해야 합니다.
+>[!NOTE]
+>서비스 맵을 이미 배포했거나 서비스 맵 또는 [VM용 Azure Monitor](../monitoring/monitoring-vminsights-overview.md)를 고려 중인 경우 수집된 후 Log Analytics에 저장되는 새로운 연결 메트릭 데이터 집합을 사용할 수 있습니다. 이 데이터 집합은 Wire Data와 필적할만한 정보를 제공합니다.
 
 기본적으로 Log Analytics는 사용자가 지정할 수 있는 다른 성능 카운터 뿐만 아니라 Windows 및 Linux에 기본 제공되는 카운터의 CPU, 메모리, 디스크 데이터와 네트워크 성능 데이터를 로깅합니다. 컴퓨터에 사용되는 서브넷 및 응용 프로그램 수준 프로토콜을 포함하여 네트워크 및 기타 데이터 수집이 에이전트별로 실시간으로 이루어집니다.  실시간 데이터는 TCP 전송 계층으로 내려가지 않고 응용 프로그램 수준에서 네트워크 데이터를 확인합니다.  솔루션은 개별 ACK 및 SYN을 확인하지 않습니다.  핸드셰이크가 완료되면 라이브 연결로 간주되고 연결됨으로 표시됩니다. 해당 연결은 양쪽에서 소켓이 열려 있고 데이터를 앞뒤로 전달할 수 있음을 동의할 경우 실시간 상태를 유지합니다.  어느 한 쪽에서 연결을 닫으면 연결 끊김으로 표시됩니다.  따라서 성공적으로 완료된 패킷의 대역폭만 계산하며 재전송된 패킷 또는 실패한 패킷 수는 보고하지 않습니다.
 
@@ -65,20 +65,20 @@ Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져�
 | System Center Operations Manager 관리 그룹 | yes | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](log-analytics-om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Log Analytics로의 직접 연결이 필요합니다. |
 | Azure Storage 계정 | 아니요 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
-Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft Monitoring Agent)를 사용하여 데이터를 수집하고 전송합니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, OMS 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager와 Log Analytics는 MMA의 약간 다른 버전을 제공합니다. 이러한 버전은 각각 System Center Operations Manager, Log Analytics 또는 양쪽 모두에 보고할 수 있습니다.
+Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft Monitoring Agent)를 사용하여 데이터를 수집하고 전송합니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager와 Log Analytics는 MMA의 약간 다른 버전을 제공합니다. 이러한 버전은 각각 System Center Operations Manager, Log Analytics 또는 양쪽 모두에 보고할 수 있습니다.
 
 Linux에서는 Linux용 Log Analytics 에이전트가 데이터를 수집하여 Log Analytics에 보냅니다. Log Analytics에 직접 연결된 에이전트가 있는 서버 또는 System Center Operations Manager 관리 그룹을 통해 Log Analytics에 연결된 서버에서 Wire Data를 사용할 수 있습니다.
 
-종속성 에이전트는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. Wire Data의 데이터는 항상 Log Analytics 에이전트에 의해 직접 또는 OMS 게이트웨이를 사용하여 Log Analytics로 전송됩니다.
+종속성 에이전트는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. Wire Data의 데이터는 항상 Log Analytics 에이전트에 의해 직접 또는 Log Analytics 게이트웨이를 사용하여 Log Analytics로 전송됩니다.
 
 ![에이전트 다이어그램](./media/log-analytics-wire-data/agents.png)
 
 Log Analytics에 연결된 관리 그룹을 사용하는 System Center Operations Manager 사용자인 경우:
 
 - System Center Operations Manager 에이전트가 인터넷에 액세스하여 Log Analytics에 연결할 수 있으면 추가 구성이 필요하지 않습니다.
-- System Center Operations Manager 에이전트가 인터넷을 통해 Log Analytics에 액세스할 수 없는 경우 OMS 게이트웨이를 System Center Operations Manager와 작동하도록 구성해야 합니다.
+- System Center Operations Manager 에이전트가 인터넷을 통해 Log Analytics에 액세스할 수 없는 경우 Log Analytics 게이트웨이를 System Center Operations Manager와 작동하도록 구성해야 합니다.
 
-Windows 또는 Linux 머신을 서비스에 직접 연결할 수 없으면, OMS 게이트웨이를 사용하여 Log Analytics에 연결하도록 Log Analytics 에이전트를 구성해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 OMS 게이트웨이를 다운로드할 수 있습니다.
+Windows 또는 Linux 컴퓨터를 서비스에 직접 연결할 수 없으면, Log Analytics 게이트웨이를 사용하여 Log Analytics에 연결하도록 Log Analytics 에이전트를 구성해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 Log Analytics 게이트웨이를 다운로드할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -200,6 +200,9 @@ Windows 또는 Linux 머신을 서비스에 직접 연결할 수 없으면, OMS 
 1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용하여 Activity Log Analytics 솔루션을 사용하도록 설정합니다.
 2. 데이터를 가져오려는 각 컴퓨터에 종속성 에이전트를 설치합니다. 종속성 에이전트는 모든 컴퓨터에서 에이전트를 필요로 하지 않도록 바로 인접한 연결을 모니터링할 수 있습니다.
 
+> [!NOTE]
+> 새 작업 영역에 이전 버전의 Wire Data 솔루션을 추가할 수 없습니다. Wire Data 솔루션이 사용하도록 설정된 경우 계속해서 사용할 수 있습니다. 그러나 Wire Data 2.0을 사용하려면 먼저 원래 버전을 제거해야 합니다.
+> 
 ### <a name="install-the-dependency-agent-on-windows"></a>Windows에 종속성 에이전트 설치
 
 에이전트를 설치 또는 제거하려면 관리자 권한이 필요합니다.
@@ -208,7 +211,7 @@ Windows 또는 Linux 머신을 서비스에 직접 연결할 수 없으면, OMS 
 
 Windows를 실행하는 각 컴퓨터에서 종속성 에이전트를 설치하려면 다음 단계를 따르세요.
 
-1. [사용자 환경에서 호스트되는 Windows 컴퓨터에서 데이터 수집](log-analytics-windows-agent.md)의 단계에 따라 OMS 에이전트를 설치합니다.
+1. [사용자 환경에서 호스트되는 Windows 컴퓨터에서 데이터 수집](log-analytics-windows-agent.md)의 단계에 따라 Log Analytics 에이전트를 설치합니다.
 2. 이전 섹션의 링크를 사용하여 Windows 종속성 에이전트를 다운로드한 후 다음 명령을 사용하여 실행합니다. `InstallDependencyAgent-Windows.exe`
 3. 마법사에 따라 에이전트를 설치합니다.
 4. 종속성 에이전트를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Windows 에이전트에서 로그 디렉터리는 %Programfiles%\Microsoft Dependency Agent\logs입니다.
@@ -234,7 +237,7 @@ Windows 종속성 에이전트에 대한 파일은 기본적으로 C:\Program Fi
 
 각 Linux 컴퓨터에서 종속성 에이전트를 설치하려면 다음 단계를 따르세요.
 
-1. [사용자 환경에서 호스트되는 Linux 컴퓨터에서 데이터 수집](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key)의 단계에 따라 OMS 에이전트를 설치합니다.
+1. [사용자 환경에서 호스트되는 Linux 컴퓨터에서 데이터 수집](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key)의 단계에 따라 Log Analytics 에이전트를 설치합니다.
 2. 이전 섹션의 링크를 사용하여 Linux 종속성 에이전트를 다운로드한 후 다음 명령을 사용하여 루트로 설치합니다. sh InstallDependencyAgent-Linux64.bin
 3. 종속성 에이전트를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 /var/opt/microsoft/dependency-agent/log입니다.
 

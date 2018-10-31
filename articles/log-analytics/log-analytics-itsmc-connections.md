@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics의 IT Service Management Connector와의 연결 지원 | Microsoft Docs
-description: 이 문서에서는 ITSM 제품/서비스를 OMS Log Analytics의 ITSMC(IT 서비스 관리 커넥터)와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리하는 방법에 대한 정보를 제공합니다.
+description: 이 문서에서는 ITSM 제품/서비스를 Azure Monitor의 ITSMC(IT 서비스 관리 커넥터)와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리하는 방법에 대한 정보를 제공합니다.
 documentationcenter: ''
 author: jyothirmaisuri
 manager: riyazp
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042847"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409206"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
@@ -76,7 +76,7 @@ System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 �
 | **클라이언트 암호**   | 이 ID에 대해 생성된 클라이언트 암호를 입력합니다.   |
 | **데이터 동기화 범위**   | ITSMC를 통해 동기화할 Service Manager 작업 항목을 선택합니다.  이러한 작업 항목을 Log Analytics로 가져옵니다. **옵션:** 인시던트, 변경 요청|
 | **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일 |
-| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 OMS는 지원되는 ITSM 시스템에서 영향을 받는 CI(존재하지 않는 CI)를 구성 항목으로 만듭니다. **기본**: 사용하지 않도록 설정됩니다. |
+| **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 Log Analytics는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로(존재하지 않는 CI의 경우) 만듭니다. **기본**: 사용하지 않도록 설정됩니다. |
 
 ![서비스 관리자 연결](./media/log-analytics-itsmc/service-manager-connection.png)
 
@@ -199,7 +199,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
     - [Geneva에 대해 OAuth 설정](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- Microsoft OMS 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보기](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Microsoft Log Analytics 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보기](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - 설치된 사용자 앱에 대한 통합 사용자 역할을 만듭니다. 통합 사용자 역할을 만드는 방법에 대한 자세한 내용은 [여기](#create-integration-user-role-in-servicenow-app)에 나와 있습니다.
 
 ### <a name="connection-procedure"></a>**연결 절차**
@@ -221,7 +221,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 | **필드** | **설명** |
 | --- | --- |
-| **연결 이름**   | ITSMC에 연결하려는 ServiceNow 인스턴스의 이름을 입력합니다.  이 이름은 나중에 이 ITSM/보기의 자세한 로그 분석에서 작업 항목을 구성할 때 OMS에서 사용합니다. |
+| **연결 이름**   | ITSMC에 연결하려는 ServiceNow 인스턴스의 이름을 입력합니다.  이 이름은 나중에 이 ITSM/보기의 자세한 로그 분석에서 작업 항목을 구성할 때 Log Analytics에서 사용합니다. |
 | **파트너 유형**   | **ServiceNow**를 선택합니다. |
 | **사용자 이름**   | ITSMC에 대한 연결을 지원하기 위해 ServiceNow 앱에서 만든 통합 사용자 이름을 입력합니다. 추가 정보: [ServiceNow 앱 사용자 역할 만들기](#create-integration-user-role-in-servicenow-app)|
 | **암호**   | 이 사용자 이름과 관련된 암호를 입력합니다. **참고**: 사용자 이름 및 암호는 인증 토큰 생성에만 사용되며 ITSMC 서비스에는 저장되지 않습니다.  |
@@ -247,6 +247,9 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 다음 절차를 수행합니다.
 
 1.  [ServiceNow 스토어](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1)를 방문하고 **ServiceNow 및 Microsoft OMS 통합용 사용자 앱**을 ServiceNow 인스턴스에 설치합니다.
+   
+   >[!NOTE]
+   >Microsoft OMS(Operations Management Suite)에서 Azure Monitor로의 진행 중인 전환의 일부로, OMS를 이제 Log Analytics라고 합니다.     
 2.  설치 후 ServiceNow 인스턴스의 왼쪽 탐색 모음으로 가서 Microsoft OMS 통합기를 검색한 후 선택합니다.  
 3.  **설치 검사 목록**을 클릭합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Automation에서 Runbook을 사용하여 Log Analytics 데이터 수집 | Microsoft Docs
-description: Azure Automation에서 Runbook을 만들어 Log Analytics에서 분석할 수 있게 OMS 리포지토리에 데이터를 수집하는 과정을 안내하는 단계별 자습서입니다.
+description: Azure Automation에서 Runbook을 만들어 Log Analytics에서 분석할 수 있게 리포지토리에 데이터를 수집하는 과정을 안내하는 단계별 자습서입니다.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: d3e8e876a6c01123d65c1e8df13328bdd5fad71f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347893"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409512"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Automation Runbook을 사용하여 Log Analytics에서 데이터 수집
 에이전트의 [데이터 원본](../log-analytics/log-analytics-data-sources.md)을 비롯한 다양한 원본에서 Log Analytics으로 대량의 데이터를 수집할 수 있고 [Azure에서 수집된 데이터](../log-analytics/log-analytics-azure-storage.md)도 가져올 수 있습니다.  이러한 표준 원본을 통해 액세스할 수 없는 데이터를 수집해야 하는 경우도 있습니다.  이러한 경우 [HTTP 데이터 수집기 API](../log-analytics/log-analytics-data-collector-api.md)를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 쓸 수 있습니다.  이 데이터 수집을 수행하는 일반적인 방법은 Azure Automation에서 Runbook을 사용하는 것입니다.   
@@ -56,7 +56,7 @@ Runbook에서 [모듈](../automation/automation-integration-modules.md)을 사�
 
 
 ## <a name="2-create-automation-variables"></a>2. Automation 변수 만들기
-[Automation 변수](..\automation\automation-variables.md)는 Automation 계정의 모든 Runbook에서 사용할 수 있는 값을 포함합니다.  이러한 변수를 사용하면 실제 Runbook을 편집하지 않고도 이러한 값을 변경할 수 있으므로 훨씬 유연하게 작업할 수 있습니다. HTTP 데이터 수집기 API의 모든 요청에는 OMS 작업 영역의 ID 및 키가 필요하며 변수 자산은 이 정보를 저장하는 데 이상적입니다.  
+[Automation 변수](..\automation\automation-variables.md)는 Automation 계정의 모든 Runbook에서 사용할 수 있는 값을 포함합니다.  이러한 변수를 사용하면 실제 Runbook을 편집하지 않고도 이러한 값을 변경할 수 있으므로 훨씬 유연하게 작업할 수 있습니다. HTTP 데이터 수집기 API의 모든 요청에는 Log Analytics 작업 영역의 ID 및 키가 필요하며 변수 자산은 이 정보를 저장하는 데 이상적입니다.  
 
 ![variables](media/monitoring-runbook-datacollect/variables.png)
 
@@ -66,10 +66,10 @@ Runbook에서 [모듈](../automation/automation-integration-modules.md)을 사�
 
 | 자산 | 작업 영역 ID 값 | 작업 영역 키 값 |
 |:--|:--|:--|
-| Name | WorkspaceId | WorkspaceKey |
+| 이름 | WorkspaceId | WorkspaceKey |
 | type | 문자열 | 문자열 |
 | 값 | Log Analytics 작업 영역의 작업 영역 ID를 붙여 넣습니다. | Log Analytics 작업 영역의 기본 또는 보조 키와 함께 붙여 넣습니다. |
-| 암호화 | 아니오 | 예 |
+| 암호화 | 아니요 | yes |
 
 
 
@@ -185,11 +185,11 @@ Runbook이 올바르게 작동하는지 확인한 후에는 프로덕션 환경�
 
 | 자산 | 값 |
 |:--|:--|
-| Name | AutomationJobs-Hourly |
+| 이름 | AutomationJobs-Hourly |
 | Starts | 현재 시간보다 적어도 5분 이후의 아무 시간이나 선택합니다. |
 | 되풀이 | Recurring |
 | Recur every | 1시간 |
-| Set expiration | 아니오 |
+| Set expiration | 아니요 |
 
 일정을 만든 후에는 이 일정에 따라 Runbook이 시작될 때마다 사용되는 매개 변수 값을 설정해야 합니다.
 

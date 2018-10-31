@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 82cfa9e62dcc6b3a72dcb1ccf97f1f52a88a75c4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324753"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404106"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure의 관리 솔루션에 대한 데이터 수집 상세 정보
 이 문서에는 Microsoft에서 제공하는 [관리 솔루션](monitoring-solutions.md) 목록과 자세한 설명서 링크가 포함되어 있습니다.  메서드 및 Log Analytics로 데이터를 수집하는 빈도에 대한 정보도 제공합니다.  이 문서의 정보를 사용하여 제공되는 여러 솔루션을 식별하고 여러 관리 솔루션의 데이터 흐름 및 연결 요구 사항을 이해할 수 있습니다. 
@@ -34,7 +34,7 @@ ms.locfileid: "44324753"
 - **Operations Manager** - Microsoft 모니터링 에이전트와 동일한 에이전트입니다. 이 구성에서는 Log Analytics에 연결된 [Operations Manager 관리 그룹에 연결](../log-analytics/log-analytics-om-agents.md)됩니다. 
 -  **Azure Storage** -솔루션이 Azure 저장소 계정에서 데이터를 수집합니다. 
 - **Operations Manager 필요 여부** - 연결된 Operations Manager 관리 그룹은 관리 솔루션에서 데이터를 수집하는 데 필요합니다. 
-- **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** - 에이전트가 [SCOM 관리 그룹에 연결된 경우](../log-analytics/log-analytics-om-agents.md) 데이터가 관리 서버에서 Log Analytics로 전송됩니다. 이 경우 에이전트가 Log Analytics에 직접 연결할 필요가 없습니다. 이 상자를 선택하지 않으면 에이전트가 SCOM 관리 그룹에 연결되어 있어도 데이터가 에이전트에서 Log Analytics로 직접 전송됩니다. 에이전트가 [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 통해 Log Analytics와 통신할 수 있어야 합니다.
+- **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** - 에이전트가 [SCOM 관리 그룹에 연결된 경우](../log-analytics/log-analytics-om-agents.md) 데이터가 관리 서버에서 Log Analytics로 전송됩니다. 이 경우 에이전트가 Log Analytics에 직접 연결할 필요가 없습니다. 이 상자를 선택하지 않으면 에이전트가 SCOM 관리 그룹에 연결되어 있어도 데이터가 에이전트에서 Log Analytics로 직접 전송됩니다. 에이전트가 [Log Analytics 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 통해 Log Analytics와 통신할 수 있어야 합니다.
 - **수집 빈도** - 관리 솔루션에서 데이터를 수집하는 빈도를 지정합니다. 
 
 

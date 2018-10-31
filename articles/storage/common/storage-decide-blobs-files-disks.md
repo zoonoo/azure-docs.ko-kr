@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530086"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091720"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정
 
@@ -39,7 +39,7 @@ Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장
 |내구성 옵션|LRS, ZRS, GRS, RA-GRS|LRS, ZRS, GRS|  
 |접근성|REST API|REST API<br /><br /> SMB 2.1 및 SMB 3.0(표준 파일 시스템 API)|  
 |연결|REST APIs -- 전 세계|REST APIs - 전 세계<br /><br /> SMB 2.1 -- 지역 내<br /><br /> SMB 3.0 -- 전 세계|  
-|Endpoints|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
+|엔드포인트|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |디렉터리|단일 구조 네임스페이스|실제 디렉터리 개체|  
 |이름 대/소문자 구분|대/소문자 구분|대/소문자 구분 안 함, 대/소문자 유지|  
 |용량|최대 500TiB 컨테이너|5TiB 파일 공유|  
@@ -64,8 +64,8 @@ Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하�
 |정리|자동|설명서|  
 |REST를 사용하여 액세스|VHD 내의 파일에 액세스할 수 없음|공유에 저장된 파일에 액세스할 수 있음|  
 |최대 크기|4TiB 디스크|공유 내 5TiB 파일 공유 및 1TiB 파일|  
-|최대 8KB IOps|500IOps|1000IOps|  
-|처리량|디스크당 최대 60MiB/s|파일 공유당 최대 60MiB/s|  
+|최대 IOps|500IOps|1000IOps|  
+|처리량|디스크당 최대 60MiB/s|대상은 파일 공유당 60MiB/초임(IO가 더 크면 더 많이 가져올 수 있음)|  
 
 ## <a name="next-steps"></a>다음 단계
 

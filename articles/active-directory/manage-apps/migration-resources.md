@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: barbkess
 ms.reviewer: baselden
-ms.openlocfilehash: 750bf1905a3ca352e181dcd5b7fcecdfc8d04f76
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: d2ede423a92fe9e0d45155d9470d63689bc8d281
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465506"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165544"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>응용 프로그램을 Azure Active Directory로 마이그레이션하기 위한 리소스
 
-응용 프로그램 액세스 및 인증을 Azure AD(Azure Active Directory)로 마이그레이션하는 데 도움이 되는 리소스입니다. 
+응용 프로그램 액세스 및 인증을 Azure AD(Azure Active Directory)로 마이그레이션하는 데 도움이 되는 리소스입니다. 이 짧은 설문 조사(https://aka.ms/AppsMigrationFeedback))를 통해 Azure AD로 앱을 마이그레이션하는 경험에 대한 피드백을 제공해 주세요(마이그레이션 차단, 도구/지침의 필요성 또는 온-프레미스 IDP를 유지하는 이유 포함). 
 
 | 리소스  | 설명  |
 |:-----------|:-------------|

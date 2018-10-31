@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 5aca1400ddfe1522cd9dc8d68d8cba8a222e4d21
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6fc6afa9c0ccbddcfa408556dee92618fe63c8fb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095201"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407115"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
   > [!NOTE]
@@ -45,6 +45,9 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
 
 ## <a name="configure-the-service-map-integration"></a>서비스 맵 통합 구성
 서비스 맵 관리 팩을 설치하면 **관리** 창의 **Operations Management Suite** 아래에 **Service Map**이라는 새 노드가 표시됩니다. 
+
+>[!NOTE]
+>[Operations Management Suite은 서비스 컬렉션](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)로, Log Analytics를 포함했으며 현재는 [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md)의 일부입니다.
 
 서비스 맵 통합을 구성하려면 다음을 수행합니다.
 
@@ -104,7 +107,12 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
     ![Operations Manager 분산 응용 프로그램 다이어그램](media/monitoring-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>작업 영역 편집 또는 삭제
-**서비스 맵 개요** 창(**관리** 창 --> Operations Management Suite**Operations Management Suite** > **서비스 맵**)을 통해 구성된 작업 영역을 편집하거나 삭제할 수 있습니다. 현재는 하나의 Log Analytics 작업 영역만 구성할 수 있습니다.
+**서비스 맵 개요** 창(**관리** 창 --> Operations Management Suite**Operations Management Suite** > **서비스 맵**)을 통해 구성된 작업 영역을 편집하거나 삭제할 수 있습니다.
+
+>[!NOTE]
+>[Operations Management Suite은 서비스 컬렉션](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand)로, Log Analytics를 포함했으며 현재는 [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md)의 일부입니다.
+
+현재는 하나의 Log Analytics 작업 영역만 구성할 수 있습니다.
 
 ![Operations Manager 작업 영역 편집 창](media/monitoring-service-map/scom-edit-workspace.png)
 

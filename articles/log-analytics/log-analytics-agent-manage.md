@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e00ccc4d55da805538801a0a8f3ee5502d871fab
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: eaf6aa538a4733528b52b1417c2d53318064e068
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042311"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405399"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
@@ -34,7 +34,7 @@ Log Analytics용 Windows 또는 Linux 에이전트의 초기 배포 후 에이�
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 2. **제어판**을 엽니다.
-3. **Microsoft Monitoring Agent**를 선택한 후 **Azure Log Analytics(OMS)** 탭을 클릭합니다.
+3. **Microsoft Monitoring Agent**를 선택한 다음, **Azure Log Analytics** 탭을 클릭합니다.
 4. 작업 영역을 제거하려면 작업 영역을 선택한 후 **제거**를 클릭합니다. 에이전트에서 보고를 중지할 다른 작업 영역에 대해 이 단계를 반복합니다.
 5. 작업 영역을 추가하려면 **추가**를 클릭하고 **Log Analytics 작업 영역 추가** 대화 상자에서 작업 영역 ID 및 작업 영역 키(기본 키)를 붙여넣습니다. 컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 [Azure Cloud] 드롭다운 목록에서 [Azure 미국 정부]를 선택합니다. 
 6. **확인**을 클릭하여 변경 내용을 저장합니다.
@@ -101,7 +101,7 @@ $mma.ReloadConfiguration()
 변경 내용 적용을 위해 에이전트 서비스를 다시 시작할 필요가 없습니다.
 
 ## <a name="update-proxy-settings"></a>프록시 설정 업데이트 
-배포 후 에이전트가 프록시 서버 또는 [OMS 게이트웨이](log-analytics-oms-gateway.md)를 통해 서비스와 통신하도록 구성하려면 다음 방법 중 하나를 사용하여 이 작업을 완료합니다.
+배포 후 에이전트가 프록시 서버 또는 [Log Analytics 게이트웨이](log-analytics-oms-gateway.md)를 통해 서비스와 통신하도록 구성하려면 다음 방법 중 하나를 사용하여 이 작업을 완료합니다.
 
 ### <a name="windows-agent"></a>Windows 에이전트
 
@@ -110,7 +110,7 @@ $mma.ReloadConfiguration()
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 2. **제어판**을 엽니다.
 3. **Microsoft Monitoring Agent**를 선택한 후 **프록시 설정** 탭을 클릭합니다.
-4. **프록시 서버 사용**을 클릭하고 프록시 서버 또는 게이트웨이의 URL 및 포트 번호를 제공합니다. 프록시 서버 또는 OMS 게이트웨이에 인증이 필요한 경우 인증할 사용자 이름과 암호를 입력한 다음 **확인**을 클릭합니다. 
+4. **프록시 서버 사용**을 클릭하고 프록시 서버 또는 게이트웨이의 URL 및 포트 번호를 제공합니다. 프록시 서버 또는 Log Analytics 게이트웨이에 인증이 필요한 경우 인증할 사용자 이름과 암호를 입력한 다음, **확인**을 클릭합니다. 
 
 #### <a name="update-settings-using-powershell"></a>PowerShell을 사용하여 설정 업데이트 
 
@@ -141,7 +141,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Linux 에이전트
-Linux 컴퓨터가 프록시 서버 또는 OMS 게이트웨이를 통해 Log Analytics와 통신해야 하는 경우 다음 단계를 수행합니다.  프록시 구성 값은 다음 구문 `[protocol://][user:password@]proxyhost[:port]`를 갖습니다.  *proxyhost* 속성은 프록시 서버의 정규화된 도메인 이름 또는 IP 주소를 허용합니다.
+Linux 컴퓨터가 프록시 서버 또는 Log Analytics 게이트웨이를 통해 통신해야 하는 경우 다음 단계를 수행합니다.  프록시 구성 값은 다음 구문 `[protocol://][user:password@]proxyhost[:port]`를 갖습니다.  *proxyhost* 속성은 프록시 서버의 정규화된 도메인 이름 또는 IP 주소를 허용합니다.
 
 1. 다음 명령을 실행하여 `/etc/opt/microsoft/omsagent/proxy.conf` 파일을 편집하고 특정 설정으로 값을 변경합니다.
 
@@ -185,7 +185,9 @@ Linux 컴퓨터가 프록시 서버 또는 OMS 게이트웨이를 통해 Log Ana
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>에이전트에서 Operations Manager 관리 그룹에 보고하도록 구성
 
 ### <a name="windows-agent"></a>Windows 에이전트
-Windows용 OMS 에이전트에서 System Center Operations Manager 관리 그룹에 보고하도록 구성하려면 다음 단계를 수행합니다. 
+System Center Operations Manager 관리 그룹에 보고하도록 Windows용 Log Analytics 에이전트를 구성하려면 다음 단계를 수행합니다.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 2. **제어판**을 엽니다. 
@@ -199,7 +201,9 @@ Windows용 OMS 에이전트에서 System Center Operations Manager 관리 그룹
 10. **확인**을 클릭하여 **관리 그룹 추가** 대화 상자를 닫은 다음 **확인**을 클릭하여 **Microsoft Monitoring Agent 속성** 대화 상자를 닫습니다.
 
 ### <a name="linux-agent"></a>Linux 에이전트
-OMS Agent for Linux에서 System Center Operations Manager 관리 그룹에 보고하도록 구성하려면 다음 단계를 수행합니다. 
+System Center Operations Manager 관리 그룹에 보고하도록 Linux용 Log Analytics 에이전트를 구성하려면 다음 단계를 수행합니다. 
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 1. 파일 `/etc/opt/omi/conf/omiserver.conf`
 2. `httpsport=`로 시작되는 줄이 1270 포트를 지정하도록 합니다. 예: `httpsport=1270`

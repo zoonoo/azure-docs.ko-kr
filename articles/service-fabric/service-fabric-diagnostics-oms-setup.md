@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220469"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408084"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>클러스터에 대해 Log Analytics 설정
 
@@ -80,7 +80,7 @@ Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 �
 
 * 5 노드 Service Fabric 클러스터 만들기
 * Log Analytics 작업 영역 및 Service Fabric 솔루션 만들기
-* 작업 영역에 2개 샘플 성능 카운터를 수집 및 보내도록 OMS 에이전트 구성
+* 작업 영역에 2개 샘플 성능 카운터를 수집 및 보내도록 Log Analytics 에이전트 구성
 * Service Fabric을 수집하도록 WAD 구성 및 Azure Storage 테이블로 전송(WADServiceFabric*EventTable)
 * 이러한 테이블에서 이벤트를 읽도록 Log Analytics 작업 영역 구성
 

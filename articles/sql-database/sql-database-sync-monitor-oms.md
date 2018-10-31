@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a5792998654ed1d334e514591da3bef9805a5e79
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 712c729a214cdab66961fb399c9d797a758fcf7b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163361"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409682"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Log Analytics를 사용하여 SQL 데이터 동기화 모니터링 
 
@@ -97,7 +97,7 @@ Runbook을 만드는 방법에 대한 자세한 내용은 [내 첫 번째 PowerS
 
     2.  동기화 그룹 정보
 
-    3.  OMS 정보 - 이 정보는 OMS 포털 | 설정 | 연결된 원본에서 찾습니다. Log Analytics에 데이터를 보내는 방법에 대한 자세한 내용은 [HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(미리 보기)](../log-analytics/log-analytics-data-collector-api.md)을 참조하세요.
+    3.  Log Analytics 정보 이 정보는 Azure Portal | 설정 | 연결된 원본에서 찾습니다. Log Analytics에 데이터를 보내는 방법에 대한 자세한 내용은 [HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(미리 보기)](../log-analytics/log-analytics-data-collector-api.md)을 참조하세요.
 
 11. [테스트] 창에서 Runbook을 실행합니다. 성공적으로 실행되었는지 확인합니다.
 
@@ -117,7 +117,7 @@ Runbook 일정을 예약하려면 다음을 수행합니다.
 
 4.  **새 일정 만들기**를 선택합니다.
 
-5.  **되풀이**를 '되풀이'로 설정하고 원하는 간격을 설정합니다. 여기, 스크립트 및 OMS에서 동일한 간격을 사용합니다.
+5.  **되풀이**를 '되풀이'로 설정하고 원하는 간격을 설정합니다. 여기, 스크립트 및 Log Analytics에서 동일한 간격을 사용합니다.
 
 6.  **만들기**를 선택합니다.
 
@@ -129,7 +129,7 @@ Runbook 일정을 예약하려면 다음을 수행합니다.
 
 Log Analytics를 사용하는 경고를 만들려면 다음을 수행합니다. 필수 구성 요소로서 Log Analytics를 Log Analytics 작업 영역과 연결해야 합니다.
 
-1.  OMS 포털에서 **로그 검색**을 선택합니다.
+1.  Azure Portal에서 **Log Search**를 선택합니다.
 
 2.  선택한 간격 내에서 동기화 그룹별로 오류와 경고를 선택하는 쿼리를 만듭니다. 예: 
 
@@ -147,9 +147,9 @@ Log Analytics를 사용하는 경고를 만들려면 다음을 수행합니다. 
 
 6.  **저장**을 클릭합니다. 이제 오류가 발생하면 지정된 받는 사람이 전자 메일 알림을 받습니다.
 
-## <a name="create-an-oms-view-for-monitoring"></a>OMS 모니터링 보기 만들기
+## <a name="create-a-log-analytics-view-for-monitoring"></a>모니터링을 위한 Log Analytics 보기 만들기
 
-이 단계에서는 지정된 모든 동기화 그룹을 시각적으로 모니터링할 수 있는 OMS 보기를 만듭니다. 이 보기에는 다음과 같은 몇 가지 구성 요소가 포함되어 있습니다.
+이 단계에서는 지정된 모든 동기화 그룹을 시각적으로 모니터링할 수 있는 Log Analytics 보기를 만듭니다. 이 보기에는 다음과 같은 몇 가지 구성 요소가 포함되어 있습니다.
 
 -   모든 동기화 그룹에 있는 오류, 성공 및 경고 수를 보여 주는 개요 타일
 
@@ -157,9 +157,9 @@ Log Analytics를 사용하는 경고를 만들려면 다음을 수행합니다. 
 
 -   오류, 성공 및 경고 수 및 최근 오류 메시지를 보여 주는 개별 동기화 그룹 타일
 
-OMS 보기를 구성하려면 다음을 수행합니다.
+Log Analytics 보기를 구성하려면 다음을 수행합니다.
 
-1.  OMS 홈페이지 왼쪽에서 더하기 기호를 선택하여 **뷰 디자이너**를 엽니다.
+1.  Log Analytics 홈페이지 왼쪽에서 더하기 기호를 선택하여 **뷰 디자이너**를 엽니다.
 
 2.  뷰 디자이너의 위쪽 표시줄에서 **가져오기**를 선택합니다. 그런 다음 "DataSyncLogOMSView" 샘플 파일을 선택합니다.
 
