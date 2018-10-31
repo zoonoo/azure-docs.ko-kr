@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042451"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650114"
 ---
 # <a name="entities-in-luis"></a>LUIS의 엔터티
 
@@ -61,6 +61,10 @@ ms.locfileid: "47042451"
 ## <a name="assign-entities-in-none-intent"></a>None 의도에서 엔터티 할당
 **None** 의도를 포함한 모든 의도에서 엔터티에 레이블을 지정해야 합니다. 그러면 LUIS는 발화에서 엔터티의 위치와 엔터티 주위에 있는 단어에 대해 보다 자세히 알 수 있습니다. 
 
+## <a name="entity-status-for-predictions"></a>예측할 엔터티 상태
+
+자세한 내용은 [엔터티 상태 예측](luis-how-to-add-example-utterances.md#entity-status-predictions)을 참조하세요. 
+
 ## <a name="types-of-entities"></a>엔터티의 형식
 LUIS는 미리 빌드된 엔터티, 사용자 지정 기계 학습 엔터티, 목록 엔터티 등 많은 형식의 엔터티를 제공합니다.
 
@@ -93,7 +97,7 @@ LUIS는 미리 빌드된 엔터티, 사용자 지정 기계 학습 엔터티, �
 모델에 추가할 수 있는 각 엔터티 형식의 수를 파악하려면 [제한](luis-boundaries.md#model-boundaries)을 검토하세요.
 
 ## <a name="entity-roles"></a>엔터티 역할
-엔터티 [역할](luis-concept-roles.md)은 패턴에서만 사용됩니다. 
+엔터티 [역할](luis-concept-roles.md)은 사용자 지정 및 사전 빌드된 항목에 적용되며 패턴으로만 사용됩니다. 
 
 ## <a name="composite-vs-hierarchical-entities"></a>복합 및 계층적 엔터티
 복합 엔터티 및 계층적 엔터티에는 둘 다 부모-자식 관계가 있으며 기계 학습됩니다. 기계 학습을 사용하면 LUIS는 다양한 컨텍스트(단어의 배열)를 기반으로 하여 엔터티를 이해할 수 있습니다. 복합 엔터티는 다양한 엔터티 형식을 자식으로 허용하므로 보다 유연합니다. 계층적 엔터티의 자식은 단순 엔터티뿐입니다. 
@@ -154,7 +158,7 @@ LUIS는 미리 빌드된 엔터티, 사용자 지정 기계 학습 엔터티, �
 ## <a name="data-matching-multiple-list-entities"></a>여러 목록 엔터티와 일치하는 데이터
 단어나 구가 둘 이상의 목록 엔터티와 일치하는 경우, 엔드포인트 쿼리는 각 목록 엔터티를 반환합니다.
 
-`when is the best time to go to red rock?` 쿼리에서 앱이 둘 이상의 목록에 `red`라는 단어를 갖는 경우 LUIS는 모든 엔터티를 인식하고 엔터티의 배열을 JSON 엔드포인트 응답의 일부로 반환합니다. 
+ph x="1" /&gt; 쿼리에서 앱이 둘 이상의 목록에 `red`라는 단어를 갖는 경우 LUIS는 모든 엔터티를 인식하고 엔터티의 배열을 JSON 엔드포인트 응답의 일부로 반환합니다. 
 
 ```JSON
 {
