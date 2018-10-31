@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 23bf9d5fb26ee3a0f224f7a8acc2b0539a5c1607
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364613"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406280"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터 이해
 
@@ -79,7 +79,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* 이 컴퓨터의 연결은 800개로 제한됩니다. 다른 모든 컴퓨터에서 기본적으로 연결을 200개로 제한했습니다.
+\* 이 컴퓨터에서 .NET 권장 설정 이외의 기본 연결 제한 중 일부가 발생했습니다. 지원 서비스에 문의하여 테넌트의 이 제한을 변경하기 전에, 기본 설정으로 테스트를 실행하는 것이 좋습니다.
  
 >[!NOTE]
 >4, 8, 16개 코어 컴퓨터 간에 최대 TPS는 크게 차이가 없습니다. 주요 차이점은 예상 대기 시간입니다.  

@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091409"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403613"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>인벤토리 수집을 사용하여 Azure 가상 컴퓨터 관리
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>가상 머신 리소스 페이지에서 인벤토리 수집 활성화
 
@@ -114,6 +114,10 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 1. Azure Portal의 왼쪽 창에서 **Log Analytics**를 선택한 다음 가상 머신을 온보딩할 때 사용한 작업 영역을 선택합니다.
 2. **Log Analytics** 창의 **리소스** 메뉴에서 **작업 영역 데이터 소스** 범주에 있는 **가상 머신**를 선택합니다.
 3. 목록에서 분리할 가상 머신을 선택합니다. 가상 머신은 **OMS 연결** 열의 **이 작업 영역** 옆에 녹색 확인 표시가 있습니다.
+
+   >[!NOTE]
+   >OMS를 이제 Log Analytics라고 합니다.
+   
 4. 다음 페이지 맨 위에서 **연결 끊기**를 선택합니다.
 5. 확인 창에서 **예**를 선택합니다.
     이 작업으로 관리에서 컴퓨터 연결이 끊깁니다.

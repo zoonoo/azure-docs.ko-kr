@@ -24,44 +24,45 @@
 ## [PowerShell을 사용하여 Azure AD Domain Services 사용](active-directory-ds-enable-using-powershell.md)
 ## [Azure AD부터 관리되는 도메인까지 범위가 지정된 동기화 구성](active-directory-ds-scoped-synchronization.md)
 ## [관리되는 도메인 보호](active-directory-ds-secure-your-domain.md)
-## 관리되는 도메인 가입
-### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [템플릿의 Windows Server VM](active-directory-ds-join-windows-vm-template.md)
-### [CentOS](active-directory-ds-join-centos-linux-vm.md)
-### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
-### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
-## 관리되는 도메인 관리
-### [관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
-### [관리되는 도메인에서 DNS 관리](active-directory-ds-admin-guide-administer-dns.md)
-### [이메일 알림 업데이트](active-directory-ds-notifications.md)
-### 관리되는 도메인에 대한 LDAP 구성
-#### [작업 1: 보안 LDAP를 위한 인증서 가져오기](active-directory-ds-admin-guide-configure-secure-ldap.md)
-#### [작업 2: 보안 LDAP 인증서 내보내기](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [작업 3: Azure Portal을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-#### [작업 4: 인터넷에서 관리되는 도메인에 액세스하도록 DNS 구성](active-directory-ds-ldaps-configure-dns.md)
-#### [작업 5: 관리되는 도메인에 바인딩 및 보안 LDAP 액세스 잠금](active-directory-ds-ldaps-bind-lockdown.md)
-#### [보안 LDAP 문제 해결](active-directory-ds-ldaps-troubleshoot.md)
-
-### [관리되는 도메인에 OU 만들기](active-directory-ds-admin-guide-create-ou.md)
-### [관리되는 도메인에 그룹 관리 서비스 계정 만들기](active-directory-ds-create-gmsa.md)
-### [관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
-### [관리되는 도메인에서 암호 정책 구성](active-directory-ds-password-policy.md)
+## [관리되는 도메인에 OU 만들기](active-directory-ds-admin-guide-create-ou.md)
+## [관리되는 도메인에 그룹 관리 서비스 계정 만들기](active-directory-ds-create-gmsa.md)
+## [관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
+## [관리되는 도메인에서 암호 정책 구성](active-directory-ds-password-policy.md)
 ## [가상 네트워크 선택](active-directory-ds-networking.md)
 ## 응용 프로그램 배포
 ### [SharePoint 서버에 대한 프로필 동기화 지원 구성](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Kerberos 제한 위임 구성](active-directory-ds-enable-kcd.md)
 ### [Azure AD 응용 프로그램 프록시 배포](active-directory-ds-deploy-azure-app-proxy.md)
 ## [관리되는 도메인 삭제](active-directory-ds-disable-aadds.md)
-## 문제 해결
-### [FAQ](active-directory-ds-faqs.md)
-### [문제 해결 가이드](active-directory-ds-troubleshooting.md)
-### [경고 문제 해결](active-directory-ds-troubleshoot-alerts.md)
-#### [손상된 NSG 구성 수정](active-directory-ds-troubleshoot-nsg.md)
-#### [누락된 서비스 주체 복원](active-directory-ds-troubleshoot-service-principals.md)
-#### [보안 LDAP 오류](active-directory-ds-troubleshoot-ldaps.md)
-### [일치하지 않는 테넌트 오류 해결](active-directory-ds-mismatched-tenant-error.md)
-### [일시 중단된 도메인](active-directory-ds-suspension.md)
+
+# 관리되는 도메인 가입
+## [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+## [템플릿의 Windows Server VM](active-directory-ds-join-windows-vm-template.md)
+## [CentOS](active-directory-ds-join-centos-linux-vm.md)
+## [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
+## [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+## [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
+# 관리되는 도메인 관리
+## [관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
+## [관리되는 도메인에서 DNS 관리](active-directory-ds-admin-guide-administer-dns.md)
+## [이메일 알림 업데이트](active-directory-ds-notifications.md)
+# 관리되는 도메인에 대한 LDAP 구성
+## [작업 1: 보안 LDAP를 위한 인증서 가져오기](active-directory-ds-admin-guide-configure-secure-ldap.md)
+## [작업 2: 보안 LDAP 인증서 내보내기](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+## [작업 3: Azure Portal을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+## [작업 4: 인터넷에서 관리되는 도메인에 액세스하도록 DNS 구성](active-directory-ds-ldaps-configure-dns.md)
+## [작업 5: 관리되는 도메인에 바인딩 및 보안 LDAP 액세스 잠금](active-directory-ds-ldaps-bind-lockdown.md)
+## [보안 LDAP 문제 해결](active-directory-ds-ldaps-troubleshoot.md)
+
+# 문제 해결
+## [FAQ](active-directory-ds-faqs.md)
+## [문제 해결 가이드](active-directory-ds-troubleshooting.md)
+## [경고 문제 해결](active-directory-ds-troubleshoot-alerts.md)
+### [손상된 NSG 구성 수정](active-directory-ds-troubleshoot-nsg.md)
+### [누락된 서비스 주체 복원](active-directory-ds-troubleshoot-service-principals.md)
+### [보안 LDAP 오류](active-directory-ds-troubleshoot-ldaps.md)
+## [일치하지 않는 테넌트 오류 해결](active-directory-ds-mismatched-tenant-error.md)
+## [일시 중단된 도메인](active-directory-ds-suspension.md)
 
 
 # 참고 자료

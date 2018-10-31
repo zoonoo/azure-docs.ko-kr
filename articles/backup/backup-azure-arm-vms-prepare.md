@@ -2,26 +2,25 @@
 title: 'Azure Backup: 가상 머신 백업 준비'
 description: 환경이 Azure의 가상 머신을 백업할 준비가 되었는지 확인합니다.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: 백업; 백업;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
-ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/23/2018
+ms.author: raynew
+ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884936"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025942"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 머신을 백업하기 위한 환경 준비
+# <a name="prepare-to-back-up-azure-vms"></a>Azure VM 백업 준비
 
-이 문서는 Azure Resource Manager 배포 VM(가상 머신)을 백업하기 위한 환경을 준비하는 단계를 제공합니다. 절차에 나와있는 단계는 Azure 포털을 사용합니다. 가상 머신을 백업하는 경우 백업 데이터 또는 복구 지점은 Recovery Services 자격 증명 모음에 저장됩니다. Recovery Services자격 증명 모음은 클래식 배포 및 Resource Manager 배포 가상 머신에 대한 백업 데이터를 저장합니다.
+이 문서는 Azure Resource Manager 배포 VM(가상 머신)을 백업하기 위한 환경을 준비하는 단계를 제공합니다. 절차에 나와있는 단계는 Azure 포털을 사용합니다. 가상 머신을 백업하는 경우 백업 데이터 또는 복구 지점은 Recovery Services 백업 자격 증명 모음에 저장됩니다. 
 
-> [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다.
+
 
 Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다음과 같은 필수 구성 요소가 있는지 확인합니다.
 
@@ -47,7 +46,6 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
 환경을 준비하기 전에 다음과 같은 제한 사항을 이해해야 합니다.
 
 * 32개 이상의 데이터 디스크가 있는 가상 머신의 백업은 지원되지 않습니다.
-* 예약된 IP 주소가 있고 정의된 엔드포인트가 없는 가상 머신의 백업은 지원되지 않습니다.
 * LUKS(Linux 통합 키 설치) 암호화를 통해 암호화된 Linux VM을 백업하도록 지원하지 않습니다.
 * CSV(클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버 구성을 포함하는 VM을 백업하지 않는 것이 좋습니다. 완료된 경우 CSV 작성기의 실패가 예상됩니다. 스냅숏 작업 중에 클러스터 구성에 포함된 모든 VM이 포함되어야 합니다. Azure Backup은 다중 VM 일관성을 지원하지 않습니다.
 * Backup 데이터는 VM에 연결된 네트워크 탑재된 드라이브를 포함하지 않습니다.
@@ -64,7 +62,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
   * 다중 네트워크 어댑터가 있는 가상 머신
 
   > [!NOTE]
-  > Azure Backup은 [표준 SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원합니다. 이 기능은 새로운 형식의 Microsoft Azure Virtual Machines용 저장소로서 내구성이 좋습니다. 이 저장소는 [Azure VM Backup 스택 V2](backup-upgrade-to-vm-backup-stack-v2.md)의 관리 디스크에서 지원됩니다.
+  > Azure Backup은 [표준 SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원합니다. 이 기능은 새로운 형식의 Microsoft Azure Virtual Machines용 저장소로서 내구성이 좋습니다. 이 저장소는 [Azure VM Backup 스택 V2](backup-upgrade-to-vm-backup-stack-v2.md)의 Managed Disks에서 지원됩니다.
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>VM에 대한 Recovery Services 자격 증명 모음 만들기
 Recovery Services 자격 증명 모음은 시간에 따라 생성된 모든 백업과 복구 지점을 저장하는 엔터티입니다. Recovery Services 자격 증명 모음에는 보호된 가상 머신과 연결된 백업 정책도 포함됩니다.

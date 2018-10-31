@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963392"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409002"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos DB 진단 로깅
 
@@ -356,11 +356,14 @@ $blobs | Get-AzureStorageBlobContent `
 
 진단 로깅을 사용하도록 설정한 경우, **Log Analytics로 전송** 옵션을 선택하면 컨테이너의 진단 데이터가 2시간 이내에 Log Analytics로 전달됩니다. 로깅을 켠 직후에 Log Analytics를 보면 아무 데이터도 표시되지 않습니다. 2시간을 기다린 후 다시 시도하세요. 
 
-로그를 보기 전에 Log Analytics 작업 영역이 새로운 Log Analytics 쿼리 언어를 사용할 수 있도록 업그레이드되었는지 여부를 확인하는 것이 좋습니다. 확인하려면 [Azure Portal](https://portal.azure.com)을 열고 왼쪽 끝에서 **Log Analytics**를 선택한 후, 다음 그림과 같이 작업 영역 이름을 선택합니다. **OMS 작업 영역** 페이지가 표시됩니다.
+로그를 보기 전에 Log Analytics 작업 영역이 새로운 Log Analytics 쿼리 언어를 사용할 수 있도록 업그레이드되었는지 여부를 확인하는 것이 좋습니다. 확인하려면 [Azure Portal](https://portal.azure.com)을 열고 왼쪽 끝에서 **Log Analytics**를 선택한 후, 다음 그림과 같이 작업 영역 이름을 선택합니다. **Log Analytics 작업 영역** 페이지가 표시됩니다.
 
 ![Azure Portal의 Log Analytics](./media/logging/azure-portal.png)
 
-**OMS 작업 영역** 페이지에 다음 메시지가 표시되는 경우 작업 영역이 새 언어를 사용할 수 있도록 업그레이드되지 않은 것입니다. 새 쿼리 언어로 업그레이드하는 방법에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 작업 영역 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md)를 참조하세요. 
+>[!NOTE]
+>OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.  
+
+**Log Analytics 작업 영역** 페이지에 다음 메시지가 표시되는 경우 작업 영역이 새 언어를 사용할 수 있도록 업그레이드되지 않은 것입니다. 새 쿼리 언어로 업그레이드하는 방법에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 작업 영역 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md)를 참조하세요. 
 
 ![Log Analytics 업그레이드 메시지](./media/logging/upgrade-notification.png)
 

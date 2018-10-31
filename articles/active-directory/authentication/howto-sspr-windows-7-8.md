@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ae2fab560ca9579860aeba91f9322c6521a83de1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167764"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427737"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>방법: Windows 7, 8 및 8.1에서 암호 재설정 사용
 
@@ -76,6 +76,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provide
 
 * 자세한 정보 표시 로깅을 사용하려면 REG_DWORD: "EnableLogging"을 만들고, 1로 설정합니다.
 * 자세한 정보 표시 로깅을 사용하지 않으려면 REG_DWORD: "EnableLogging"을 0으로 변경합니다.
+
+Windows 7, 8 및 8.1 컴퓨터가 프록시 서버 또는 방화벽 뒤에 있는 경우 passwordreset.microsoftonline.com에 대한 HTTPS 트래픽(443)을 허용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

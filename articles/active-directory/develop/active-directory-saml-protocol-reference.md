@@ -17,12 +17,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: b9ae7cf9d6fd383c7cdfa3957b5d9b94c7207d50
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5c560218bebd5399c85b9cebe11c7342e8d15a59
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900658"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945691"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Azure AD에서 SAML 프로토콜을 사용하는 방법
 
@@ -32,7 +32,7 @@ SAML 프로토콜에는 자신에 대한 정보를 교환하기 위해 ID 공급
 
 응용 프로그램이 Azure AD에 등록된 경우 앱 개발자는 페더레이션 관련 정보를 Azure AD에 등록합니다. 이 정보에는 응용 프로그램의 **리디렉션 URI** 및 **메타데이터 URI**가 포함됩니다.
 
-Azure AD는 클라우드 서비스의 **메타데이터 URI**를 사용하여 서명 키와 로그아웃 URI를 검색합니다. 응용 프로그램에서 메타데이터 URI를 지원하지 않으면 개발자가 Microsoft 지원에 문의하여 로그아웃 URI 및 서명 키를 제공해야 합니다.
+Azure AD는 클라우드 서비스의 **메타데이터 URI**를 사용하여 서명 키와 로그아웃 URI를 검색합니다. 고객은 **Azure AD -> 앱 등록**에서 앱을 열고 **설정 -> 속성**에서 로그아웃 URL을 업데이트할 수 있습니다. 이러한 방식으로 Azure AD는 올바른 URL로 응답을 보낼 수 있습니다. 
 
 Azure Active Directory는 테넌트별 및 공통(테넌트 독립적) single sign-on 및 single sign-out 엔드포인트를 노출합니다. 이러한 URL은 단순히 식별자가 아니라 주소 지정이 가능한 위치를 나타내므로 엔드포인트로 이동하여 메타데이터를 읽을 수 있습니다.
 

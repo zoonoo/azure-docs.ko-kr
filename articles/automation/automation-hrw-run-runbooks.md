@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a0b5188605874a04f0341cde1a68487c8a50df84
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 48dcc558d4855874df02ad5c631211f16fd8c29e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431817"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024990"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -89,7 +89,7 @@ Hybrid Runbook Worker에서 Azure 리소스에 대한 관리 ID를 사용하려�
 1. Azure VM 만들기
 2. [VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
 3. [VM에 Resource Manager의 리소스 그룹 액세스 권한 부여](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
-4. [VM의 시스템 할당 관리 ID를 사용하여 액세스 토큰 가져오기] (../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
+4. [VM의 시스템 할당 관리 ID를 사용하여 액세스 토큰을 가져오기](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
 5. 가상 머신에 [Windows Hybrid Runbook Worker를 설치](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)합니다.
 
 이전 단계가 완료되면 Runbook에서 `Connect-AzureRmAccount -Identity`를 사용하여 Azure 리소스를 인증할 수 있습니다. 이렇게 하면 실행 계정을 활용하고 실행 계정의 인증서를 관리해야 하는 필요성이 감소합니다.

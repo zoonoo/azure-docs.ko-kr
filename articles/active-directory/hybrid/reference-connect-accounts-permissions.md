@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 96d8977a63d26576d4d783dd0661409fdcee90f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 66585c495dfb46e51120ae3eef2685d634fd9606
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308862"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024973"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -113,6 +113,12 @@ DirSync에서 업그레이드하는 경우 AD DS Enterprise 관리자 자격 증
 | AD FS 서비스 계정 페이지에서 "도메인 사용자 계정 옵션 사용" |AD 사용자 계정 자격 증명 |도메인 사용자 |해당 자격 증명을 제공하는 AD 사용자 계정이 AD FS 서비스의 로그온 계정으로 사용됩니다. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>AD DS Connect 계정 만들기
+
+>[!IMPORTANT]
+>ADSyncConfig.psm1이라는 새 PowerShell 모듈은 Azure AD DS 커넥터 계정에 대한 올바른 Active Directory 권한을 구성하는 데 도움이 되는 cmdlet 컬렉션이 포함된 빌드 **1.1.880.0**(2018년 8월에 릴리스됨)에서 소개되었습니다.
+>
+>자세한 내용은 [Azure AD Connect: AD DS 커넥터 계정 권한 구성](how-to-connect-configure-ad-ds-connector-account.md)을 참조하세요.
+
 **디렉터리에 연결** 페이지에서 지정할 계정은 설치 전에 Active Directory에 있어야 합니다.  Azure AD Connect 버전 1.1.524.0 이상에는 Azure AD Connect 마법사가 Active Directory에 연결하는 데 사용되는 **AD DS Connector 계정**을 만들 수 있는 옵션이 제공됩니다.  
 
 필요한 권한도 부여되어 있어야 합니다. 설치 마법사는 사용 권한을 확인하지 않고 문제는 동기화 중에 발견됩니다.

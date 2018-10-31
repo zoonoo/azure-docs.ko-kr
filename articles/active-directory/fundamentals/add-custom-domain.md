@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b4a038c2ad9bd86f2ba78d52ed3754acec07f0
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 59743df45cf2c7810404d9e6c636790c2855cf74
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785260"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023120"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>방법: Azure Active Directory 포털을 사용하여 사용자 지정 도메인 이름 추가
 모든 새로운 Azure AD 테넌트는 *domainname*.onmicrosoft.com이라는 초기 도메인 이름으로 제공됩니다. 초기 도메인 이름을 변경하거나 삭제할 수는 없지만 조직의 이름을 해당 목록에 추가할 수는 있습니다. 사용자 지정 도메인 이름을 추가하면 *alain@contoso.com*과 같이 사용자에게 친숙한 사용자 이름을 만들 수 있습니다.
@@ -28,7 +28,7 @@ ms.locfileid: "48785260"
 ## <a name="create-your-directory-in-azure-ad"></a>Azure AD에서 디렉터리 만들기
 도메인 이름을 얻은 후에 첫 번째 Azure AD 디렉터리를 만들 수 있습니다.
 
-1. 디렉터리의 구독 소유자 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인한 다음, **Azure Active Directory**를 선택합니다.
+1. 구독의 **소유자** 역할이 있는 계정을 사용하여 디렉터리에 대한 [Azure Portal](https://portal.azure.com/)에 로그인하고 **Azure Active Directory**를 선택합니다. 구독 역할에 대한 자세한 내용은 [클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles)을 참조하세요.
 
     ![Azure Portal 화면](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 

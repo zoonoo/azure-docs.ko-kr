@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: 9728d42710ce44226363ea4954d83fcc3efbfb75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d3fbefd002f0b2774578d24cf2e3145a21a5e1f3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502955"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456408"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>보안 LDAP(LDAPS)를 사용하여 Azure AD Domain Services 관리되는 도메인에 바인딩
 
@@ -38,8 +38,8 @@ ms.locfileid: "39502955"
 **보기**를 선택한 다음, 메뉴에서 **트리**를 선택합니다. 기본 DN 필드를 비워 두고 [확인]을 클릭합니다. 검색할 컨테이너로 이동하고, 컨테이너를 마우스 오른쪽 단추로 클릭하고, [검색]을 선택합니다.
 
 > [!TIP]
-> - Azure AD에서 동기화된 사용자 및 그룹은 **AADDC 사용자** 컨테이너에 저장됩니다. 이 컨테이너의 검색 경로는 ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```과 같이 표시됩니다.
-> - 관리되는 도메인에 조인된 컴퓨터의 컴퓨터 계정은 **AADDC 컴퓨터** 컨테이너에 저장됩니다. 이 컨테이너의 검색 경로는 ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```과 같이 표시됩니다.
+> - Azure AD에서 동기화된 사용자 및 그룹은 **AADDC 사용자** 조직 구성 단위에 저장됩니다. 이 조직 구성 단의 검색 경로는 ```OU=AADDC Users,DC=CONTOSO100,DC=COM```과 같습니다.
+> - 관리되는 도메인에 조인된 컴퓨터의 컴퓨터 계정은 **AADDC 컴퓨터** 조직 구성 단위에 저장됩니다. 이 조직 구성 단의 검색 경로는 ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```과 같습니다.
 >
 >
 

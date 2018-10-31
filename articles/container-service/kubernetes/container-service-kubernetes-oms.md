@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164322"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426416"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Log Analytics를 사용하여 Azure Container Service 클러스터 모니터링
 
@@ -69,7 +69,7 @@ Container Solution에 대한 자세한 내용은 [Container Solution Log Analyti
 
 ### <a name="obtain-your-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
 Log Analytics 에이전트가 서비스와 통신하려면 작업 영역 ID 및 작업 영역 키로 구성되어야 합니다. 작업 영역 ID 및 키를 가져오려면 <https://mms.microsoft.com>에서 계정을 만들어야 합니다.
-다음 단계에 따라 계정을 만듭니다. 계정을 만들었으면 아래와 같이 **설정**, **연결된 원본**, **Linux 서버**를 차례로 클릭하여 ID 및 키를 획득해야 합니다.
+다음 단계에 따라 계정을 만듭니다. 계정 만들기를 완료하면 **Log Analytics** 블레이드에서 작업 영역의 이름을 클릭하여 ID 및 키를 가져올 수 있습니다. 그런 다음, 아래와 같이 **고급 설정**, **연결된 원본**, **Linux 서버**에서 필요한 정보를 찾습니다.
 
  ![](media/container-service-monitoring-oms/image5.png)
 

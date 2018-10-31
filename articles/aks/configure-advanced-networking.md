@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 87c3ab9624116e9c1c61041531fdf5d3b26117e1
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 4c60474c07a3853e409436359713578178b639fb
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380763"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024861"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고급 네트워킹 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "49380763"
 ## <a name="prerequisites"></a>필수 조건
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
-* 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마십시오.
+* 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
 * AKS 클러스터는 Kubernetes 서비스 주소 범위에 `169.254.0.0/16`, `172.30.0.0/16` 또는 `172.31.0.0/16`을 사용하지 못할 수도 있습니다.
 * AKS 클러스터에서 사용되는 서비스 주체에는 가상 네트워크 내의 서브넷에 대해 [네트워크 참가자](../role-based-access-control/built-in-roles.md#network-contributor) 이상의 권한이 있어야 합니다. 기본 제공 네트워크 참가자 역할을 사용하는 대신 [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 정의하려는 경우 다음 권한이 필요합니다.
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
@@ -33,23 +33,23 @@ ms.locfileid: "49380763"
 
 고급 네트워킹으로 구성한 클러스터에는 추가 계획이 필요합니다. 가상 네트워크 및 해당 서브넷의 크기는 실행하려는 Pod의 수와 클러스터에 대한 노드 수에 부합되어야 합니다.
 
-Pod 및 클러스터 노드의 IP 주소는 가상 네트워크 내의 지정된 서브넷에서 할당됩니다. 각 노드는 노드의 IP인 기본 IP와 노드에 예약된 Pod에 할당되어 있는 Azure CNI에서 미리 구성된 30개의 추가 IP 주소로 구성됩니다. 클러스터를 스케일 아웃할 때 각 노드는 서브넷의 IP 주소로 비슷하게 구성됩니다.
+Pod 및 클러스터 노드의 IP 주소는 가상 네트워크 내의 지정된 서브넷에서 할당됩니다. 각 노드는 기본 IP 주소로 구성됩니다. 기본적으로 30개의 추가 IP 주소가 노드에서 예약된 Pod에 할당된 Azure CNI에 의해 미리 구성됩니다. 클러스터를 스케일 아웃할 때 각 노드는 서브넷의 IP 주소로 비슷하게 구성됩니다. [노드당 최대 Pod](#maximum-pods-per-node)를 확인할 수도 있습니다.
 
 AKS 클러스터에 대한 IP 주소 계획은 노드 및 Pod에 대한 하나 이상의 서브넷에서 가상 네트워크 및 Kubernetes 서비스 주소 범위로 구성됩니다.
 
 | 주소 범위 / Azure 리소스 | 한도 및 크기 조정 |
 | --------- | ------------- |
 | 가상 네트워크 | Azure Virtual Network는 /8 이하일 수 있지만 구성된 IP 주소 수는 65,536개로 제한됩니다. |
-| 서브넷 | 클러스터에서 프로비전될 수 있는 노드, 포드와 모든 Kubernetes 및 Azure 리소스를 수용할 만큼 커야 합니다. 예를 들어, 내부 Azure Load Balancer를 배포하는 경우, 해당 프런트 엔드 IP는 공용 IP가 아닌 클러스터 서브넷에서 할당됩니다. <p/>‘최소’ 서브넷 크기를 계산하려면: `(number of nodes) + (number of nodes * pods per node)` <p/>50 노드 클러스터의 예: `(50) + (50 * 30) = 1,550`(/21 이상) |
+| 서브넷 | 클러스터에서 프로비전될 수 있는 노드, 포드와 모든 Kubernetes 및 Azure 리소스를 수용할 만큼 커야 합니다. 예를 들어, 내부 Azure Load Balancer를 배포하는 경우, 해당 프런트 엔드 IP는 공용 IP가 아닌 클러스터 서브넷에서 할당됩니다. <p/>‘최소’ 서브넷 크기를 계산하려면: `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>50 노드 클러스터의 예: `(50) + (50 * 30 (default)) = 1,550`(/21 이상)<p>클러스터를 만들 때 노드당 최대 Pod를 지정하지 않으면 노드당 최대 Pod 수는 *30*개로 설정됩니다. 필요한 최소 IP 주소 수는 이 값을 기준으로 합니다. 다른 최댓값을 기준으로 최소 IP 주소 요구 사항을 계산하는 경우 [노드당 최대 Pod 수를 구성하는 방법](#configure-maximum---new-clusters)을 참조하여 클러스터를 배포할 때 이 값을 설정하세요 |
 | Kubernetes 서비스 주소 범위 | 이 범위는 이 가상 네트워크 또는 이 가상 네트워크에 연결된 모든 네트워크 요소에서 사용하지 말아야 합니다. 서비스 주소 CIDR은 /12보다 작아야 합니다. |
 | Kubernetes DNS 서비스 IP 주소 | 클러스터 서비스 검색에서 사용되는 Kubernetes 서비스 주소 범위 내의 IP 주소입니다(kube-dns). |
 | Docker 브리지 주소 | 노드에서 Docker 브리지 IP 주소로 사용되는 IP 주소(CIDR 표기법)입니다. 172.17.0.1/16의 기본값 |
 
 ## <a name="maximum-pods-per-node"></a>노드당 최대 포드
 
-AKS 클러스터의 노드당 기본 최대 포드 수는 기본 및 고급 네트워킹과 클러스터 배포 방법에 따라 다릅니다.
+AKS 클러스터에서 노드당 최대 Pod 수는 110개입니다. 노드당 *기본* 최대 포드 수는 기본 및 고급 네트워킹과 클러스터 배포 방법에 따라 다릅니다.
 
-| 배포 방법 | Basic | 고급 | 배포 시 구성 가능 |
+| 배포 방법 | 기본 기본값 | 고급 기본값 | 배포 시 구성 가능 |
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | 예(최대: 110개) |
 | Resource Manager 템플릿 | 110 | 30 | 예(최대: 110개) |
@@ -151,7 +151,7 @@ AKS의 네트워킹에 대한 자세한 내용은 다음 문서를 참조하세�
 - [HTTP 응용 프로그램 라우팅 추가 기능 사용][aks-http-app-routing]
 - [내부 개인 네트워크 및 IP 주소를 사용하는 수신 컨트롤러 만들기][aks-ingress-internal]
 - [동적 공용 IP를 사용하여 수신 컨트롤러를 만들고 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt 구성][aks-ingress-tls]
-- [고정 공용 IP를 사용하여 수신 컨트롤러를 만들고, TLS 인증서를 자동으로 생성하도록 Let’s Encrypt 구성][aks-ingress-static-tls]
+- [동적 공용 IP를 사용하여 수신 컨트롤러를 만들고 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt 구성][aks-ingress-static-tls]
 
 ### <a name="acs-engine"></a>ACS 엔진
 

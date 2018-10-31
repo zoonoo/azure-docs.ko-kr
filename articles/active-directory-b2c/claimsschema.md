@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6c41890922e2235190d8844a573522846b42c779
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434503"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637734"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -48,7 +48,7 @@ ms.locfileid: "47434503"
 
 **ClaimType** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 다양한 화면에서 사용자에게 표시되는 제목입니다. 값을 [지역화](localization.md)할 수 있습니다. |
 | DataType | 0:1 | 클레임의 형식입니다. boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection 데이터 형식을 사용할 수 있습니다. |
@@ -63,7 +63,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **DefaultPartnerClaimTypes**는 다음 요소를 함할 수 있습니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 프로토콜 | 0:n | 기본 파트너 클레임 형식 이름이 포함된 프로토콜 목록입니다. |
 
@@ -150,7 +150,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Restriction** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 열거형 | 1:n | 사용자가 클레임을 선택하는 데 사용할 수 있는 사용자 인터페이스의 옵션(예: 드롭다운의 값)입니다. |
 | 패턴 | 1:1 | 사용할 정규식입니다. |

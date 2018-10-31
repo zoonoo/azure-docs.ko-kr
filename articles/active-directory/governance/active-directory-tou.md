@@ -12,19 +12,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 09/04/2018
+ms.date: 10/19/2018
 ms.author: rolyon
-ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393986"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944146"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
-Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 Azure AD 사용 약관을 시작하는 방법을 설명합니다.
+Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 사용 약관을 시작하는 방법을 설명합니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+## <a name="overview-videos"></a>개요 비디오
+
+다음 비디오는 사용 약관의 간략한 개요를 제공합니다.
+
+>[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
+
+추가 비디오를 보려면 다음을 참조하세요.
+- [Azure Active Directory의 사용 약관 배포 방법](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [Azure Active Directory의 사용 약관 롤아웃 방법](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>사용 약관으로 무엇을 할 수 있나요?
 Azure AD 사용 약관으로 다음과 같은 일을 할 수 있습니다.
@@ -33,8 +43,9 @@ Azure AD 사용 약관으로 다음과 같은 일을 할 수 있습니다.
 - 사용자 특성을 기반으로 하는 특정 사용 약관 제공(예: [동적 그룹](../users-groups-roles/groups-dynamic-membership.md)을 사용하여 의사와 간호사, 국내 직원과 해외 직원에게 맞는 사용 약관을 각각 제공).
 - Salesforce 같은 비즈니스 영향력이 높은 응용 프로그램에 액세스할 때 특정 사용 약관 제공.
 - 여러 언어로 사용 약관 제공.
+- 개인 정보 보호 규정을 준수하도록 지원
 - 사용 약관에 동의한 또는 동의하지 않은 사용자 나열.
-- 사용 약관 작업의 감사 로그 표시.
+- 준수 및 감사를 위해 사용 약관 활동 로그 표시
 
 ## <a name="prerequisites"></a>필수 조건
 Azure AD 사용 약관을 사용하고 구성하려면 다음이 필요합니다.

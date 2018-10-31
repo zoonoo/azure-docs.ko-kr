@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 694327cf7f7331a35a7e18cb68c566932c6231fc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 95c49ccc11a12c2e9174ba2d186a302f500e8bf2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363506"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650148"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화
 
@@ -97,7 +97,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 Hybrid Runbook Worker에서 Log Analytics에 연결하고 등록하려면 이 섹션에서 설명하는 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다. 이 액세스 권한이 있어야만 [Microsoft Monitoring Agent에서 Log Analytics에 연결하는 데 필요한 포트 및 URL](../log-analytics/log-analytics-agent-windows.md)에 연결할 수 있습니다.
 
-에이전트와 Log Analytics 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있어야 합니다. 방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. OMS 게이트웨이를 프록시로 사용하는 경우 하이브리드 작업자에 대해 구성해야 합니다. 이 작업을 수행하는 방법에 대한 지침은 [Automation Hybrid Worker에 대한 OMS 게이트웨이 구성](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers)을 참조하세요.
+에이전트와 Log Analytics 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인합니다. 방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. Log Analytics 게이트웨이를 프록시로 사용하면 하이브리드 작업자에 대해 구성되었는지 확인합니다. 이 작업을 수행하는 방법에 대한 지침은 [Automation Hybrid Worker에 대한 Log Analytics 게이트웨이 구성](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers)을 참조하세요.
 
 Hybrid Runbook Worker 역할에서 Automation 역할과 통신하려면 다음 포트와 URL이 필요합니다.
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: ec309bc5484c0ac96d1323c56670c147737e7c64
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377866"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458125"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -82,11 +82,11 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-키 저장소에 사용할 리포지토리 또는 공급자를 지정합니다. 현재 지원되는 리포지토리는 Blob("Blob") 및 파일 시스템("disabled")입니다. 기본값은 파일 시스템("disabled")입니다.
+키 저장소에 사용할 리포지토리 또는 공급자를 지정합니다. 현재 지원되는 리포지토리는 Blob 저장소("Blob") 및 로컬 파일 시스템("Files")입니다. 기본값은 버전 1에서는 blob, 버전 2에서는 파일 시스템입니다. 버전 1에서 파일 시스템은 App Service 계획에서 실행되는 기능에만 작동합니다.
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobsSecretStorageType|disabled|
+|AzureWebJobsSecretStorageType|파일|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 

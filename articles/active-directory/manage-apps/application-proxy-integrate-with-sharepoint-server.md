@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2017
+ms.date: 10/19/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: fcd02e264d5e85b1bef7e75d2a6375d6bf5e18c0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363952"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456901"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
@@ -194,7 +194,7 @@ KCD를 구성하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반복
 
 3. **대체 액세스 매핑 컬렉션** 옆의 드롭다운 목록에서 **대체 액세스 매핑 컬렉션 변경**을 선택합니다.
 4. 사이트를 선택합니다(예: **SharePoint – 80**).
-5. 내부 URL 또는 공용 URL로 게시된 URL을 추가하도록 선택할 수 있습니다. 이 예제에서는 엑스트라넷으로 공용 URL을 사용합니다.
+5. 내부 URL 또는 공용 URL로 게시된 URL을 추가하도록 선택할 수 있습니다. 이 예제에서는 엑스트라넷으로 공용 URL을 사용합니다. 사용자 지정 포트를 사용하는 경우 URL에 사용자 지정 포트를 포함해야 합니다.
 6. **엑스트라넷** 경로에서 **공용 URL 편집**을 클릭한 후 응용 프로그램을 게시할 때 만든 외부 URL을 입력합니다. 예를 들어 **https://sharepoint-iddemo.msappproxy.net**을 입력합니다.
 
   ![경로 입력](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)

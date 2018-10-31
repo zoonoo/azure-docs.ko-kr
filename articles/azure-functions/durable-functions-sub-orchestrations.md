@@ -2,20 +2,20 @@
 title: 지속성 함수의 하위 오케스트레이션 - Azure
 description: Azure Functions의 지속성 함수 확장에서 오케스트레이션을 호출하는 방법을 설명합니다.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 59e8eb41b7e9fe3d57196f6844d1a768c3ef598b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 32f8872737fdf6dd766ae8df8ef3ed47692e2c9c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094442"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984341"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>지속성 함수의 하위 오케스트레이션(Azure Functions)
 
@@ -31,6 +31,8 @@ ms.locfileid: "44094442"
 ## <a name="example"></a>예
 
 다음 예제에서는 프로비전해야 하는 여러 장치가 있는 IoT("사물 인터넷") 시나리오를 보여 줍니다. 다음과 같이 각 장치마다 수행해야 하는 특정 오케스트레이션이 있습니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -51,9 +53,32 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-이 오케스트레이터 함수는 일회용 장치 프로비전을 위해 그대로 사용하거나 더 큰 오케스트레이션의 일부로 포함될 수 있습니다. 후자의 경우 부모 오케스트레이터 함수는 `CallSubOrchestratorAsync` API를 사용하여 `DeviceProvisioningOrchestration` 인스턴스를 예약할 수 있습니다.
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const deviceId = context.df.getInput();
+
+    // Step 1: Create an installation package in blob storage and return a SAS URL.
+    const sasUrl = yield context.df.callActivity("CreateInstallationPackage", deviceId);
+
+    // Step 2: Notify the device that the installation package is ready.
+    yield context.df.callActivity("SendPackageUrlToDevice", { id: deviceId, url: sasUrl });
+
+    // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    yield context.df.waitForExternalEvent("DownloadCompletedAck");
+
+    // Step 4: ...
+});
+```
+
+이 오케스트레이터 함수는 일회용 장치 프로비전을 위해 그대로 사용하거나 더 큰 오케스트레이션의 일부로 포함될 수 있습니다. 후자의 경우 부모 오케스트레이터 함수는 `CallSubOrchestratorAsync`(C#) 또는 `callSubOrchestrator`(JS) API를 사용하여 `DeviceProvisioningOrchestration` 인스턴스를 예약할 수 있습니다.
 
 다음은 여러 오케스트레이터 함수를 병렬로 실행하는 방법을 보여 주는 예제입니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -74,6 +99,27 @@ public static async Task ProvisionNewDevices(
 
     // ...
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const deviceIds = yield context.df.callActivity("GetNewDeviceIds");
+
+    // Run multiple device provisioning flows in parallel
+    const provisioningTasks = [];
+    for (const deviceId of deviceIds) {
+        const provisionTask = context.df.callSubOrchestrator("DeviceProvisioningOrchestration", deviceId);
+        provisioningTasks.push(provisionTask);
+    }
+
+    yield context.df.Task.all(provisioningTasks);
+
+    // ...
+});
 ```
 
 ## <a name="next-steps"></a>다음 단계

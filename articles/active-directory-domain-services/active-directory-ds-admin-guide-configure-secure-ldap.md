@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: maheshu
-ms.openlocfilehash: 22c97da35416ba1ff593dfa5e41f557ea2ab1cc0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 42c27df658ae810ac31813ffb94f397a0070933f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182249"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429136"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 구성
 이 문서에서는 Azure AD 도메인 서비스 관리되는 도메인에 대해 LDAPS(Secure Lightweight Directory Access Protocol)를 사용하도록 설정하는 방법을 보여 줍니다. 보안 LDAP는 'SSL(Secure Sockets Layer)/TLS(Transport Layer Security)를 통한 LDAP(Lightweight Directory Access Protocol)'라고도 합니다.
@@ -86,7 +86,7 @@ New-SelfSignedCertificate -Subject contoso100.com `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
-앞의 샘플에서 '*.contoso100.com'을 관리되는 도메인의 DNS 도메인 이름으로 대체합니다. 예를 들어 'contoso100.onmicrosoft.com'이라는 관리되는 도메인을 만든 경우 앞에 나온 스크립트의 '*.contoso100.com'을 '*.contoso100.onmicrosoft.com'으로 바꿉니다.
+앞의 샘플에서 ‘.contoso100.com’을 관리되는 도메인의 DNS 도메인 이름으로 대체합니다. 예를 들어 ‘contoso100.onmicrosoft.com’이라는 관리되는 도메인을 만든 경우 Subject 특성의 ‘contoso100.com’을 ‘contoso100.onmicrosoft.com’으로 바꾸고, DnsName 특성의 ‘*.contoso100.com’을 ‘*.contoso100.onmicrosoft.com’으로 바꿉니다.
 
 ![Azure AD 디렉터리 선택](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

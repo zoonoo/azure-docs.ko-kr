@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2018
+ms.date: 10/29/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: d80e7bc1d391d9b5bfd718ca2dc0e9dc7ecb2268
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 38a8cd35d123f58d6379ade4d900e86b36b416ec
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210876"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240140"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -39,7 +39,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 
 이 업데이트는 Azure Stack에 대 한 다음과 같은 향상 된 기능을 포함합니다.
 
-- 이 릴리스에서 Azure Stack 통합 4-16 노드의 시스템 지원 구성 합니다.
+- 이 릴리스에서 Azure Stack 통합 4-16 노드의 시스템 지원 구성 합니다. 사용할 수 있습니다는 [Azure Stack Capacity Planner](http://aka.ms/azstackcapacityplanner) Azure Stack 용량 및 구성에 대 한 계획 수립에 있도록 합니다.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog 클라이언트 (일반 공급)** 이 클라이언트에는 감사, 경고 및 Azure Stack 인프라를 syslog 서버 또는 보안 정보 및 이벤트 관리 (SIEM) 소프트웨어와 관련 된 보안 로그를 전달할 수 있도록 Azure Stack에 외부입니다. Syslog 클라이언트는 이제 syslog 서버 수신 대기 하는 포트 지정을 지원 합니다.
 

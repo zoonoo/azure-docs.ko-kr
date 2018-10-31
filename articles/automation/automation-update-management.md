@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67a987d9b491ba6813e900c293529ed677c45757
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6d2076a91bc7e7c0e2ca9d2fe6899cddec2f8d0b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167684"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024497"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -69,7 +69,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 |운영 체제  |메모  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | 업데이트 평가만 지원합니다.         |
-|Windows Server 2008 R2 SP1 이상     |.NET Framework 4.5 이상이 필요합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 이상이 필요합니다. ([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1은 안정성 개선을 위해 필요합니다.  ([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 이상     |.NET Framework 4.5.1 이상이 필요합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 이상이 필요합니다. ([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1은 안정성 개선을 위해 필요합니다.  ([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치에는 CentOS에 기본 제공되지 않은 보안 데이터를 반환하기 위해 'yum'이 필요합니다.         |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
@@ -264,7 +264,34 @@ sudo yum -q --security check-update
 
 현재, CentOS에서 네이티브 분류 데이터 가용성을 지원하는 메서드 지원 메서드가 없습니다. 따라서 이러한 기능을 직접 사용하도록 설정했을 수 있는 고객에게만 최선의 지원이 제공됩니다.
 
-## <a name="ports"></a>포트
+## <a name="firstparty-predownload"></a>자사 패치 및 사전 다운로드
+
+업데이트 관리는 Windows 업데이트를 활용하여 Windows 업데이트를 다운로드 및 설치합니다. 따라서 Windows 업데이트에서 사용되는 많은 설정을 적용하고 있습니다. 설정을 사용하여 Windows 이외 업데이트를 사용하도록 설정하는 경우 업데이트 관리는 해당 업데이트도 관리합니다. 업데이트 배포를 수행하기 전에 업데이트 다운로드를 사용하도록 설정하면 업데이트 배포가 더 빠르게 진행되고 유지 관리 기간을 초과하지 않을 수 있습니다.
+
+### <a name="pre-download-updates"></a>업데이트 사전 다운로드
+
+그룹 정책에서 업데이트를 자동으로 다운로드하도록 구성하려면 [자동 업데이트 설정 구성](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5)을 **3**으로 설정할 수 있습니다. 이 경우 필요한 업데이트가 백그라운드에서 다운로드되지만 설치되지는 않습니다. 이를 통해 업데이트 관리 일정을 제어할 수 있지만, 업데이트 관리 유지 관리 기간 이후에도 업데이트를 다운로드할 수 있게 됩니다. 이를 통해 업데이트 관리에서 **유지 관리 기간을 초과함** 오류가 발생하지 않을 수 있습니다.
+
+PowerShell을 사용하여 설정할 수도 있습니다. 이를 위해 업데이트를 자동으로 다운로드하려는 시스템에서 다음 PowerShell을 실행합니다.
+
+```powershell
+$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
+$WUSettings.NotificationLevel = 3
+$WUSettings.Save()
+```
+
+### <a name="enable-updates-for-other-microsoft-products"></a>다른 Microsoft 제품에 대한 업데이트 사용
+
+기본적으로 Windows 업데이트는 Windows용 업데이트만 제공합니다. **Give me updates for other Microsoft products when I update Windows**(Windows를 업데이트할 때 다른 Microsoft 제품 업데이트 제공)를 사용하도록 설정하면 SQL Server 또는 기타 자사 소프트웨어에 대한 보안 패치 등을 포함하는 다른 제품에 대한 업데이트가 제공됩니다. 이 옵션은 그룹 정책을 통해 구성할 수 없습니다. 다른 타사 패치를 사용하도록 설정하려는 시스템에서 다음 PowerShell을 실행하면 업데이트 관리에 이 설정이 적용됩니다.
+
+```powershell
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceManager.Services
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
+
+## <a name="ports"></a>네트워크 계획
 
 다음 주소는 업데이트 관리를 위해 특별히 필요합니다. 이러한 주소에 대한 통신은 443 포트를 통해 발생합니다.
 

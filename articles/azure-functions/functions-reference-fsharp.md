@@ -1,6 +1,6 @@
 ---
 title: Azure Functions F# 개발자 참조 | Microsoft Docs
-description: F#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
+description: F# 스크립트를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -10,18 +10,21 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.date: 09/09/2016
+ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125258"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025432"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
 
-Azure Functions용 F#란 클라우드에서 작은 코드 또는 "함수"를 쉽게 실행하기 위한 솔루션입니다. 데이터는 함수 인수를 통해 F# 함수로 흐릅니다. 인수 이름은 `function.json`에 지정되며 함수 로거 및 취소 토큰 같은 항목에 액세스하기 위해 미리 정의된 이름이 있습니다.
+Azure Functions용 F#란 클라우드에서 작은 코드 또는 "함수"를 쉽게 실행하기 위한 솔루션입니다. 데이터는 함수 인수를 통해 F# 함수로 흐릅니다. 인수 이름은 `function.json`에 지정되며 함수 로거 및 취소 토큰 같은 항목에 액세스하기 위해 미리 정의된 이름이 있습니다. 
+
+>[!IMPORTANT]
+>F# 스크립트(.fsx)는 Azure Functions 런타임 [버전 1.x](functions-versions.md#creating-1x-apps)에서만 지원됩니다. 버전 2.x 런타임에서 F#을 사용하려는 경우 미리 컴파일된 F# 클래스 라이브러리 프로젝트(.fs)를 사용해야 합니다. [C# 클래스 라이브러리 프로젝트](functions-dotnet-class-library.md)를 사용할 때처럼 Visual Studio를 사용하여 F# 클래스 라이브러리 프로젝트를 만들고, 관리하고, 게시합니다. Functions 버전에 대한 자세한 내용은 [Azure Functions 런타임 버전 개요](functions-versions.md)를 참조하세요.
 
 이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다.
 

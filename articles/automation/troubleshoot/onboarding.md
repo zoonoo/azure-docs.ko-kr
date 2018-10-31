@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 044cb56b8991a1eb2dd6a1d35be621f2ffab3250
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 40a1955e88b23ecfb86412b388413b920dd2eb1a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064461"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407608"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>솔루션을 온보딩할 때 발생하는 오류 문제 해결
 
@@ -59,9 +59,11 @@ ms.locfileid: "37064461"
 
 ## <a name="mma-extension-failures"></a>MMA 확장 오류
 
-솔루션을 배포하는 경우 다양한 관련 리소스가 배포됩니다. Microsoft Monitoring Agent 확장이나 Linux용 OMS 에이전트는 이러한 리소스 중 하나입니다. 이러한 리소스는 가상 머신의 게스트 에이전트에 의해 설치된 Virtual Machine 확장으로, 온보딩하는 솔루션의 실행이 시작되면 이것이 의존하는 바이너리 및 기타 파일의 다운로드를 나중에 조정할 목적으로 구성된 OMS(Operations Management Suite) 작업 영역과의 통신을 담당합니다.
-일반적으로 알림 허브에 나타나는 알림을 통해 MMA 또는 Linux용 OMS 에이전트 설치 실패를 먼저 인식하게 됩니다. 알림을 클릭하면 특정 실패에 대한 자세한 정보가 제공됩니다. 리소스 그룹 리소스로 이동한 다음, 여기에 포함된 배포 요소로 이동하면 배포 실패에 대한 자세한 내용이 제공됩니다.
-MMA나 Linux용 OMS 에이전트 설치는 다양한 이유로 인해 실패할 수 있으며 이러한 실패를 처리하는 단계는 문제에 따라 달라집니다. 구체적인 문제 해결 단계가 이어집니다.
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
+
+솔루션을 배포하는 경우 다양한 관련 리소스가 배포됩니다. Microsoft Monitoring Agent 확장이나 Linux용 Log Analytics 에이전트는 이러한 리소스 중 하나입니다. 이러한 리소스는 가상 머신의 게스트 에이전트에 의해 설치된 Virtual Machine 확장으로, 온보딩하는 솔루션의 실행이 시작되면 이것이 의존하는 바이너리 및 기타 파일의 다운로드를 나중에 조정할 목적으로 구성된 Log Analytics 작업 영역과의 통신을 담당합니다.
+일반적으로 알림 허브에 나타나는 알림을 통해 MMA 또는 Linux용 Log Analytics 에이전트 설치 실패를 먼저 인식하게 됩니다. 알림을 클릭하면 특정 실패에 대한 자세한 정보가 제공됩니다. 리소스 그룹 리소스로 이동한 다음, 여기에 포함된 배포 요소로 이동하면 배포 실패에 대한 자세한 내용이 제공됩니다.
+MMA나 Linux용 Log Analytics 에이전트 설치는 다양한 이유로 인해 실패할 수 있으며 이러한 실패를 처리하는 단계는 문제에 따라 달라집니다. 구체적인 문제 해결 단계가 이어집니다.
 
 다음 섹션에서는 온보딩 시 발생할 수 있는 다양한 문제에 대해 설명합니다. 이러한 문제는 MMA 확장의 배포가 실패하는 원인이 됩니다.
 

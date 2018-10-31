@@ -2,24 +2,27 @@
 title: 지속성 함수의 사용자 지정 오케스트레이션 상태 - Azure
 description: 지속성 함수의 사용자 지정 오케스트레이션 상태를 구성하고 사용하는 방법을 알아봅니다.
 services: functions
-author: kadimitr
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/24/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c8eb2be6836e11ddbaed81970024ea7200ea819d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b8017288adb75c990113b0f2ff5ba29a1f1e0a18
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093094"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986681"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>지속성 함수의 사용자 지정 오케스트레이션 상태(Azure Functions)
 
 사용자 지정 오케스트레이션 상태를 사용하면 오케스트레이터 함수의 사용자 지정 상태 값을 설정할 수 있습니다. 이 상태는 HTTP GetStatus API 또는 `DurableOrchestrationClient.GetStatusAsync` API를 통해 제공됩니다.
+
+> [!NOTE]
+> JavaScript에 대한 사용자 지정 오케스트레이션 상태는 향후 릴리스에서 사용할 수 있습니다.
 
 ## <a name="sample-use-cases"></a>샘플 사용 사례 
 

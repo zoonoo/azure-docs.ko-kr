@@ -2,20 +2,20 @@
 title: 지속성 함수 확장 및 샘플 설치 - Azure
 description: Azure Functions, 포털 개발 또는 Visual Studio 개발을 위한 지속성 함수 확장을 설치하는 방법에 대해 알아봅니다.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2eb838bcb9d3f64d0bbf4657c516adb50d103223
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 6bbf232fc17b9acfd4e8cd84a0cb1346ab8ea9b5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585308"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986823"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>지속성 함수 확장 및 샘플 설치(Azure Functions)
 
@@ -45,7 +45,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 샘플을 시작할 때와 같은 지침을 따르지만 *.zip* 파일을 다운로드하는 대신 다음 단계를 수행합니다.
 
 1. 함수 앱 프로젝트를 만듭니다.
-2. ‘NuGet 패키지 관리’를 사용하여 다음 NuGet 패키지 참조를 검색하고 Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0 프로젝트에 추가합니다.
+2. ‘NuGet 패키지 관리’를 사용하여 다음 NuGet 패키지 참조를 검색하고 Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.2 프로젝트에 추가합니다.
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -75,12 +75,12 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 3. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Durable Extension을 설치합니다.
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.2
     ```
 4. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Twilio Extension을 설치합니다.
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0
     ```
 5. Azure Storage 에뮬레이터를 실행하거나 실제 Azure Storage 연결 문자열로 *local.settings.json* 파일을 업데이트합니다.
 6. Visual Studio Code에서 프로젝트를 엽니다. 
@@ -96,14 +96,14 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 2. 컴퓨터에서 [JavaScript 샘플 폴더](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript)로 이동합니다. 
 3. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Durable Extension을 설치합니다.
 
-    ```
+    ```bash
     func extensions install
     ```
     > [!NOTE] 
     > 이를 사용하려면 머신에 [.NET Core SDK](https://www.microsoft.com/net/download)가 설치되어 있어야 합니다.
 4. 명령 프롬프트/터미널 창에서 다음을 실행하여 npm 패키지를 복원합니다.
     
-    ```
+    ```bash
     npm install
     ``` 
 5. `AzureWebJobsStorage`용 Azure Storage 계정에서 연결 문자열로 *local.settings.json* 파일을 업데이트합니다.  이 저장소 계정은 지속성 함수 상태에 사용됩니다.
@@ -119,13 +119,13 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 1. 명령 프롬프트/터미널에서 함수 앱을 호스트할 폴더로 이동합니다.
 3. 다음 명령을 실행하여 함수 앱 프로젝트를 만듭니다.
 
-    ```
+    ```bash
     func init
     ``` 
 4. Azure Storage 에뮬레이터(Windows 전용)를 실행하거나 `AzureWebJobsStorage`의 실제 Azure Storage 연결 문자열로 *local.settings.json* 파일을 업데이트합니다.
 5. 다음으로 다음 명령을 실행하여 새 함수를 만든 후 마법사 단계를 따릅니다.
 
-    ```
+    ```bash
     func new
     ```
     >[!IMPORTANT]

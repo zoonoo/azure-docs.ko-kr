@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902028"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466719"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 응용 프로그램에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -49,21 +49,38 @@ SAML 토큰에 발급된 클레임을 편집해야 할만한 두 가지 이유�
 ![사용자 특성 편집][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>NameIdentifier 클레임 편집
-응용 프로그램이 다른 사용자 이름을 사용하여 배포된 경우 문제를 해결하려면 **사용자 특성** 섹션에서 **사용자 ID** 드롭다운을 클릭합니다. 이 작업을 수행하면 몇 가지 옵션이 있는 대화 상자가 제공됩니다.
+
+응용 프로그램이 다른 사용자 이름을 사용하여 배포된 경우 문제를 해결하려면 **사용자 특성** 섹션에서 **사용자 ID** 드롭다운을 선택합니다. 이 작업을 수행하면 몇 가지 옵션이 있는 대화 상자가 제공됩니다.
 
 ![사용자 특성 편집][4]
 
-드롭다운에서 **user.mail**을 선택하여 NameIdentifier 클레임을 디렉터리에서 사용자의 이메일 주소가 되도록 설정합니다. 또는 **user.onpremisessamaccountname**을 선택하여 온-프레미스 Azure AD에서 동기화된 사용자의 SAM 계정 이름으로 설정합니다.
+### <a name="attributes"></a>특성
 
-특수한 **ExtractMailPrefix()** 함수를 사용하여 이메일 주소, SAM 계정 이름 또는 사용자 계정 이름에서 도메인 접미사를 제거할 수도 있습니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith").
+`NameIdentifier`(또는 NameID) 클레임의 원하는 소스를 선택합니다. 다음 옵션 중에서 선택할 수 있습니다.
 
-![사용자 특성 편집][5]
+| 이름 | 설명 |
+|------|-------------|
+| Email | 사용자의 이메일 주소입니다. |
+| userprincipalName | 사용자의 UPN(사용자 계정 이름)입니다. |
+| onpremisessamaccount | 온-프레미스 Azure AD에서 동기화된 SAM 계정 이름입니다. |
+| objectID | Azure AD의 사용자 objectID입니다. |
+| EmployeeID | 사용자의 EmployeeID입니다. |
+| 디렉터리 확장 | [Azure AD Connect 동기화를 사용하여 온-프레미스 Active Directory에서 동기화되는](../hybrid/how-to-connect-sync-feature-directory-extensions.md) 디렉터리 확장입니다. |
+| 확장 특성 1-15 | Azure AD 스키마를 확장하는 데 사용되는 온-프레미스 확장 특성입니다. |
 
-이제 확인된 도메인에 사용자 ID 값을 결합하는 **join()** 함수가 추가되었습니다. **사용자 ID**에서 join() 함수를 선택하면 첫 번째로 이메일 주소 또는 사용자 계정 이름과 같은 사용자 ID를 선택한 다음 두 번째 드롭다운에서 확인된 도메인을 선택합니다. 확인된 도메인과 이메일 주소를 선택하면 Azure AD가 joe_smith@contoso.com에서 첫 번째 값 joe_smith를 추출해서 contoso.onmicrosoft.com에 추가합니다. 다음 예제를 참조하세요.
+### <a name="transformations"></a>변환
 
-![사용자 특성 편집][6]
+특수한 클레임 변환 함수를 사용할 수도 있습니다.
+
+| 함수 | 설명 |
+|----------|-------------|
+| **ExtractMailPrefix()** | 이메일 주소, SAM 계정 이름 또는 사용자 계정 이름에서 도메인 접미사를 제거합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
+| **join()** | 확인된 도메인에 특성을 조인합니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
+| **ToLower()** | 선택한 특성의 문자를 소문자로 변환합니다. |
+| **ToUpper()** | 선택한 특성의 문자를 대문자로 변환합니다. |
 
 ## <a name="adding-claims"></a>클레임 추가
+
 클레임을 추가할 때 특성 이름(SAML 사양에 따라 URI 패턴을 엄격히 따를 필요는 없음)을 지정할 수 있습니다. 디렉터리에 저장된 사용자 특성 중 원하는 것으로 값을 설정합니다.
 
 ![사용자 특성 추가][7]

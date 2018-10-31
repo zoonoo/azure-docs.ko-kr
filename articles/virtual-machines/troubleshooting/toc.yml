@@ -9,8 +9,6 @@ items:
     href: allocation-failure-classic.md
 - name: RDP
   items:
-  - name: 연결이 자주 끊김
-    href: troubleshoot-rdp-intermittent-connectivity.md
   - name: RDP 다시 설정
     href: reset-rdp.md
   - name: RDP 문제 해결
@@ -19,8 +17,16 @@ items:
     href: detailed-troubleshoot-rdp.md
   - name: 특정 오류 해결
     href: troubleshoot-specific-rdp-errors.md
-  - name: RDP 연결이 자주 끊기는 문제 해결
+  - name: 라이선스 없이 서버의 오류 해결
+    href: troubleshoot-rdp-no-license-server.md
+  - name: 원격 데스크톱 서비스 문제 해결
+    href: troubleshoot-remote-desktop-services-issues.md
+  - name: 내부 오류 문제 해결
+    href: Troubleshoot-rdp-internal-error.md
+  - name: 연결이 자주 끊기는 문제 해결
     href: troubleshoot-rdp-intermittent-connectivity.md
+  - name: 일반 오류 문제 해결
+    href: troubleshoot-rdp-general-error.md
 - name: SSH
   items:
   - name: SSH 문제 해결
@@ -129,9 +135,9 @@ items:
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: 시스템 다시 부팅 이해
   href: understand-vm-reboot.md
-ms.openlocfilehash: 49e216bfd9f1b7ad9c8e9f74ae67d38359f7f474
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 749bfa9916431b4131dd7d0e814835baa96c6d64
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138279"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209244"

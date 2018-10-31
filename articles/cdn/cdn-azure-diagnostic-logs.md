@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 6834222ec2befa305b558abf0976a1c9899a7086
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093029"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409257"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure 진단 로그
 
@@ -95,17 +95,23 @@ Log Analytics를 사용하여 로그를 저장하려면 아래 단계를 따릅�
 
 2. **구성**을 선택하여 Log Analytics 로깅을 구성합니다. 
 
-   **OMS 작업 영역** 페이지가 표시됩니다.
+   **Log Analytics 작업 영역** 페이지가 나타납니다.
+
+    >[!NOTE] 
+    >OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. **새 작업 영역 만들기**를 선택합니다.
 
-    **OMS 작업 영역** 페이지가 표시됩니다.
+    **Log Analytics 작업 영역** 페이지가 나타납니다.
+
+    >[!NOTE] 
+    >OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
 
     ![포털 - 진단 로그](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. **OMS 작업 영역**의 경우 OMS 작업 영역 이름을 입력합니다. OMS 작업 영역 이름은 고유해야 하며 문자, 숫자 및 하이픈만 포함해야 합니다. 공백 및 밑줄은 사용할 수 없습니다. 
+4. **Log Analytics 작업 영역**으로 Log Analytics 작업 영역 이름을 입력합니다. Log Analytics 작업 영역 이름은 고유해야 하며 문자, 숫자 및 하이픈만 포함해야 합니다. 공백 및 밑줄은 사용할 수 없습니다. 
 
 5. **구독**의 경우 드롭다운 목록에서 기존 구독을 선택합니다. 
 

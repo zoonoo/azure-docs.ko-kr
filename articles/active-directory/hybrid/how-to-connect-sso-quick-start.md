@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8cfe8c309c11eb24bc6e7af9fc3ba3eef0422c35
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405991"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638219"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -57,6 +57,9 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
 ## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
 
 [Azure AD Connect](whatis-hybrid-identity.md)를 통해 Seamless SSO를 사용하도록 설정합니다.
+
+>[!NOTE]
+> Azure AD Connect가 요구 사항을 충족하지 않는 경우 [PowerShell을 사용하여 Seamless SSO를 사용하도록 설정](tshoot-connect-sso.md#manual-reset-of-the-feature)할 수도 있습니다. Active Directory 포리스트당 둘 이상의 도메인이 있고 Seamless SSO를 사용하도록 설정하려는 도메인을 주로 사용하려는 경우 이 옵션을 사용합니다.
 
 Azure AD Connect를 새로 설치하는 경우 [사용자 지정 설치 경로](how-to-connect-install-custom.md)를 선택합니다. **사용자 로그인** 페이지에서 **Single Sign-On 사용** 옵션을 선택합니다.
 

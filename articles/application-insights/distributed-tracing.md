@@ -10,12 +10,12 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 47ea4fadba50fdbbd6d83531bd4eb40fc581d2ad
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9594ccd0449cf68a63c770cfdee03f255aa2beae
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950202"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638378"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
 
@@ -40,12 +40,12 @@ Azure Monitor에는 [응용 프로그램 맵](https://docs.microsoft.com/azure/a
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
-* [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
+* [Node.JS](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 
 적절한 Application Insight SDK가 설치되고 구성되면, 많이 사용되는 프레임워크, 라이브러리 및 기술에 대한 추적 정보가 SDK 종속성 자동 수집기를 통해 자동으로 수집됩니다. 지원되는 기술의 전체 목록은 [종속성 자동 수집 설명서](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)에 제공됩니다.
 
- 또한 [TeleletryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)의 [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 호출하여 원하는 기술을 수동으로 추적할 수 있습니다.
+ 또한 [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)의 [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)를 호출하여 원하는 기술을 수동으로 추적할 수 있습니다.
 
 ## <a name="enable-via-opencensus"></a>OpenCensus를 통해 사용하도록 설정
 
@@ -59,4 +59,4 @@ OpenCensus 웹 사이트에는 [Python](https://opencensus.io/api/python/trace/u
 
 * [OpenCensus Python 사용 가이드](https://opencensus.io/api/python/trace/usage.html)
 * [응용 프로그램 맵](./app-insights-app-map.md)
-* [통합형 성능 모니터링](./app-insights-tutorial-performance.md)
+* [종단 간 성능 모니터링](./app-insights-tutorial-performance.md)

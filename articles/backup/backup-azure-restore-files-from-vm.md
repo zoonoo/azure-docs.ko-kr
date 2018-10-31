@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616912"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638310"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -45,7 +45,7 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 
 4. **복구 지점 선택** 드롭다운 메뉴에서 원하는 파일이 있는 복구 지점을 선택합니다. 기본적으로 최신 복구 지점을 선택합니다.
 
-5. 복구 지점에서 파일을 복사하는 데 사용할 소프트웨어를 다운로드하려면 **실행 파일 다운로드**(Windows Azure VM의 경우) 또는 **스크립트 다운로드**(Linux Azure VM의 경우)를 클릭합니다.
+5. 복구 지점에서 파일을 복사하는 데 사용할 소프트웨어를 다운로드하려면 **실행 파일 다운로드**(Windows Azure VM의 경우) 또는 **스크립트 다운로드**를 클릭합니다(Linux Azure VM의 경우 python 스크립트가 생성됨).
 
     ![생성된 암호](./media/backup-azure-restore-files-from-vm/download-executable.png)
 

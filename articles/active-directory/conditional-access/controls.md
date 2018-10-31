@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 6f66deff9052b79265222f052bebb8439a95d269
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352747"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406775"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어란? 
 
@@ -105,7 +105,7 @@ ms.locfileid: "49352747"
 테넌트의 사용자가 리소스에 대한 액세스 권한을 부여 받기 전에 사용 조건에 동의하도록 요구할 수 있습니다. 관리자는 PDF 문서를 업로드하여 사용 조건을 구성하고 사용자 지정할 수 있습니다. 사용자가 이 제어 범위에 해당하는 경우 사용 조건에 동의한 경우에만 응용 프로그램에 대한 액세스가 부여됩니다. 
 
 
-### <a name="custom-controls"></a>사용자 지정 컨트롤 
+### <a name="custom-controls-preview"></a>사용자 지정 컨트롤(미리 보기) 
 
 Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 사용자를 호환 가능한 서비스로 리디렉션하는 조건부 액세스의 사용자 지정 컨트롤을 만들 수 있습니다. 이를 통해 특정 외부 다단계 인증 및 검증 공급자를 사용하여 조건부 액세스 규칙을 적용하거나 직접 사용자 지정 서비스를 빌드할 수 있습니다. 이 제어를 충족시키기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증 또는 유효성 검사 활동을 수행한 다음 Azure Active Directory로 다시 리디렉션됩니다. 사용자가 성공적으로 인증되거나 유효성이 확인되면 사용자는 조건부 액세스 흐름을 계속합니다. 
 

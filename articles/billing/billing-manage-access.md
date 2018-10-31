@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: cwatson
-ms.openlocfilehash: 623856f05eed44eca3752d56f047f9bb282bdc8e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 38cfd354f11ef3d888ad70e71549868d398495f5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392089"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429646"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>역할 기반 액세스 제어를 사용하여 Azure의 요금 청구 정보에 대한 액세스 관리
 
@@ -67,7 +67,7 @@ ms.locfileid: "47392089"
     ![청구 읽기 권한자가 Azure Portal에서 볼 수 있는 내용을 보여 주는 스크린샷](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> 청구 읽기 권한자 기능은 미리 보기의 기능이며 엔터프라이즈(EA) 구독 또는 비 글로벌 클라우드는 아직 지원하지 않습니다.
+> 청구 읽기 권한자 기능은 미리 보기로 제공되며 비전역 클라우드는 아직 지원하지 않습니다. 기업 정기가입의 경우 엔터프라이즈 관리자가 요금 보기를 사용하도록 설정하면 비용을 볼 수 있습니다.
 
 ## <a name="adding-users-to-other-roles"></a>다른 역할에 사용자 추가
 

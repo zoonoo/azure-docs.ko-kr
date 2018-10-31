@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4f2ceae349c921ce0d83fb7401e3b18404722763
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362911"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637868"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -83,6 +83,10 @@ ms.locfileid: "49362911"
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>동일한 서버에 둘 이상의 통과 인증 에이전트를 설치할 수 있나요?
 
 아니요, 단일 서버에는 통과 인증 에이전트 하나만 설치할 수 있습니다. 고가용성에 대해 통과 인증을 구성하려는 경우 [여기에 있는 지침을 따르세요](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>통과 인증 에이전트에서 사용되는 인증서를 수동으로 갱신해야 하나요?
+
+각 통과 인증 에이전트와 Azure AD 간의 통신은 인증서 기반 인증을 사용하여 보호됩니다. 이러한 [인증서는 Azure AD에서 몇 개월마다 자동으로 갱신](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents)됩니다. 따라서 이러한 인증서를 수동으로 갱신할 필요가 없습니다. 필요에 따라 만료된 이전 인증서를 정리할 수 있습니다.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>통과 인증 에이전트를 제거하려면 어떻게 해야 하나요?
 

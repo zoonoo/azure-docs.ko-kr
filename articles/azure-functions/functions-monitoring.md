@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 66d04ca93a79f4d9cdd9f162c6cd3210ae35f4d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902708"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457666"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
@@ -211,6 +211,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 
 *host.json* 파일은 함수 앱이 Application Insights로 보내는 로깅의 양을 구성합니다. 각 범주에 대해 보낼 최소 로그 수준을 나타낼 수 있습니다. 예를 들면 다음과 같습니다.
 
+#### <a name="functions-version-1"></a>Functions 버전 1 
 ```json
 {
   "logger": {
@@ -226,6 +227,22 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 }
 ```
 
+#### <a name="functions-version-2"></a>Functions 버전 2 
+Functions v2에서는 현재 [.NET Core 로깅 필터 계층 구조](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)를 사용합니다. 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
 이 예제에서는 다음 규칙을 설정합니다.
 
 1. 범주가 "Host.Results" 또는 "Function"인 로그의 경우 `Error` 수준 이상만 Application Insights로 보냅니다. `Warning` 수준 이하 로그는 무시됩니다.
@@ -236,6 +253,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 
 *host.json*에 동일한 문자열로 시작되는 여러 범주가 포함된 경우 길이가 더 긴 범주가 먼저 일치합니다. 예를 들어 “Host.Aggregator”를 제외한 런타임의 모든 항목을 `Error` 수준에서 기록하지만, “Host.Aggregator”는 `Information` 수준에서 기록하려 한다고 가정해 봅니다.
 
+#### <a name="functions-version-1"></a>Functions 버전 1 
 ```json
 {
   "logger": {
@@ -246,6 +264,21 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
+    }
+  }
+}
+```
+
+#### <a name="functions-version-2"></a>Functions 버전 2 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
     }
   }
 }

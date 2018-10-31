@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 821d263856f21897915ba7954487b4d029cc4ed0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: d6e99c2d57baa5fc62f3894abc9d04635f81f5aa
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395248"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638055"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
@@ -41,9 +41,9 @@ Azure 구독에 대한 관리자로 다른 사용자를 추가하려면 구독 �
 
 1. [Azure Portal에서 **구독**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 방문하세요.
 2. 액세스 권한을 부여하려는 구독을 선택합니다.
-3. **추가**를 선택합니다.
+3. 목록에서 **액세스 제어(IAM)** 를 선택합니다.
+4. **추가**를 선택합니다.
    (추가 단추가 없으면 사용 권한을 추가할 수 있는 권한이 없는 것입니다.)
-4. 목록에서 **액세스 제어(IAM)** 를 선택합니다.
 5. **역할**상자에서 **소유자**를 선택합니다. 
 6. **다음에 대한 액세스 할당** 상자에서 **Azure AD 사용자, 그룹 또는 응용 프로그램**을 선택합니다. 
 7. **선택** 상자에서 소유자로 추가할 사용자의 메일 주소를 입력합니다. 사용자를 선택한 다음 **저장**을 선택합니다.
@@ -67,6 +67,19 @@ Azure 구독에 대한 관리자로 다른 사용자를 추가하려면 구독 �
     공동 관리자 권한을 제거하려면 공동 관리자 사용자를 **마우스 오른쪽 단추로 클릭**한 다음, **공동 관리자 제거**를 선택합니다.
 
     ![공동 관리자를 제거하는 스크린샷](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
+### <a name="adding-a-guest-user-as-a-co-administrator"></a>게스트 사용자를 공동 관리자로 추가
+
+공동 관리자 역할이 할당된 게스트 사용자는 공동 관리자 역할의 멤버 사용자에 비해 몇 가지 차이를 나타낼 수 있습니다. 다음과 같은 시나리오를 고려해 보세요.
+
+- Azure AD 회사 또는 학교 계정이 있는 사용자 A는 Azure 구독의 서비스 관리자입니다.
+- 사용자 B에게는 Microsoft 계정이 있습니다.
+- 사용자는 A는 사용자 B에게 공동 관리자 역할을 할당합니다.
+- 사용자 B는 거의 모든 작업을 수행할 수 있지만 Azure AD 디렉터리에서 응용 프로그램을 등록하거나 사용자를 조회할 수 없습니다.
+
+사용자 B는 모든 것을 관리할 수 있다고 예상할 수 있습니다. 이러한 차이가 나타나는 이유는 Microsoft 계정이 멤버 사용자가 아닌 게스트 사용자로 구독에 추가되기 때문입니다. 게스트 사용자에 멤버 사용자와 비교할 때 Azure AD에서 다른 기본 권한을 갖습니다. 예를 들어, 멤버 사용자는 Azure AD에서 다른 사용자가 읽을 수 있지만 게스트 사용자는 그럴 수 없습니다. 멤버 사용자는 Azure AD에서 새 서비스 주체를 등록할 수 있지만 게스트 사용자는 그럴 수 없습니다. 게스트 사용자가 이러한 작업을 수행할 수 있도록 하려면 게스트 사용자가 필요한 특정 Azure AD 관리자 역할을 할당해야 합니다. 예를 들어, 이전 시나리오에서는 다른 사용자를 읽기 위한 [디렉터리 읽기 권한자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할과 서비스 주체를 만들 수 있는 [응용 프로그램 개발자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) 역할을 할당할 수 있습니다. 멤버 및 게스트 사용자와 해당 권한에 대한 자세한 내용은 [Azure Active Directory의 기본 사용자 권한이란?](../active-directory/fundamentals/users-default-permissions.md)을 참조하세요.
+
+[Azure 리소스의 기본 제공 역할](../role-based-access-control/built-in-roles.md)은 [Azure AD 관리자 역할](../active-directory/users-groups-roles/directory-assign-admin-roles.md)과 다릅니다. 기본 제공 역할은 Azure AD에 대한 액세스 권한을 부여하지 않습니다. 자세한 내용은 [다른 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
 
 <a name="change-service-administrator-for-a-subscription"></a>
 

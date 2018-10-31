@@ -1,23 +1,23 @@
 ---
-title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 UI 사용자 지정 | Microsoft Docs
-description: Azure AD B2C에서 사용자 지정 정책을 사용하는 동안 UI(사용자 인터페이스)를 사용자 지정하는 방법에 대해 알아봅니다.
+title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스 사용자 지정 | Microsoft Docs
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 사용자 인터페이스를 사용자 지정하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9908a7cf96c56e414e0a8d7faea0352b60214ea4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446166"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945063"
 ---
-# <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: 사용자 지정 정책에서 UI 사용자 지정 구성
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스 사용자 지정
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,7 +25,7 @@ ms.locfileid: "37446166"
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 먼저 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)을 완료합니다. 로컬 계정을 사용하여 등록 및 로그인하기 위한 사용자 지정 정책이 작동해야 합니다.
+[사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다. 로컬 계정을 사용하여 등록 및 로그인하기 위한 사용자 지정 정책이 작동해야 합니다.
 
 ## <a name="page-ui-customization"></a>페이지 UI 사용자 지정
 
@@ -119,27 +119,44 @@ Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
 2. **요청 보내기**를 클릭합니다.  
     오류가 발생하는 경우 [CORS 설정](#configure-cors)이 올바른지 확인합니다. Ctrl+Shift+P를 눌러 브라우저 캐시를 비우거나 개인 검색 세션을 열어야 할 수도 있습니다.
 
-## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>등록 또는 로그인 사용자 지정 정책 수정
+## <a name="modify-the-extensions-file"></a>확장 파일 수정
 
-최상위 *\<TrustFrameworkPolicy\>* 태그 아래에서 *\<BuildingBlocks\>* 태그를 찾아야 합니다. *\<BuildingBlocks\>* 태그 내에 다음 예제를 복사하여 *\<ContentDefinitions\>* 태그를 추가합니다. *your_storage_account*를 저장소 계정 이름으로 바꿉니다.
+UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 요소를 기본 파일에서 확장 파일로 복사합니다.
 
-  ```xml
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.idpselections">
-        <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>
-  ```
+1. 정책의 기본 파일을 엽니다(예: *TrustFrameworkBase.xml*).
+2. **ContentDefinitions** 요소의 전체 내용을 검색한 후 복사합니다.
+3. 확장 파일을 엽니다(예: 예: *TrustFrameworkExtensions.xml* **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
+4. 복사한 **ContentDefinitions**의 전체 내용을 **BuildingBlocks** 요소의 자식으로 붙여 넣습니다. 
+5. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 **ContentDefinition** 요소를 검색합니다.
+6. **LoadUri** 값을 저장소에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+    
+    사용자 지정 정책이 다음과 비슷해야 합니다.
+
+    ```xml
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsignin">
+          <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>
+    ```
+
+7. 확장 파일을 저장합니다.
 
 ## <a name="upload-your-updated-custom-policy"></a>업데이트된 사용자 지정 정책 업로드
 
-1. [Azure Portal](https://portal.azure.com)에서 [Azure AD B2C 테넌트의 컨텍스트로 전환](active-directory-b2c-navigate-to-b2c-context.md)한 다음 **Azure AD B2C** 블레이드를 엽니다.
+1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+4. **ID 경험 프레임워크**를 선택합니다.
 2. **모든 정책**을 클릭합니다.
 3. **업로드 정책**을 클릭합니다.
-4. 이전에 추가한 *\<ContentDefinitions\>* 태그로 `SignUpOrSignin.xml`을 업로드합니다.
+4. 이전에 변경한 확장 파일을 업로드합니다.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>**지금 실행**을 사용하여 사용자 지정 정책 테스트
 

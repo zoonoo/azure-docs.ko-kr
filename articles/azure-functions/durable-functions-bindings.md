@@ -2,20 +2,20 @@
 title: 지속성 함수의 바인딩 - Azure
 description: Azure Functions의 지속성 함수 확장에 트리거 및 바인딩을 사용하는 방법을 설명합니다.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 29cc7982dbe9991e6b0e3363cd636ac88881fc7b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f9bf42e5e20a7d9e861d0c3354040e981bf3ef21
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237284"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987752"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
@@ -112,7 +112,7 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
-    const result = yield context.df.callActivityAsync("SayHello", name);
+    const result = yield context.df.callActivity("SayHello", name);
     return result;
 });
 ```
@@ -123,7 +123,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Visual Studio를 사용하는 경우 작업 트리거는 [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET 특성을 사용하여 구성됩니다. 
 
-개발을 위해 Azure Portal을 사용하는 경우 작업 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
+개발을 위해 VS Code 또는 Azure Portal을 사용하는 경우 작업 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {
@@ -249,7 +249,7 @@ public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContex
 
 Visual Studio를 사용하는 경우 [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET 특성을 사용하여 오케스트레이션 클라이언트에 바인딩할 수 있습니다.
 
-개발을 위해 스크립팅 언어(예: *.csx* 파일)를 사용하는 경우 오케스트레이션 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
+개발을 위해 스크립팅 언어(예: *.csx* 또는 *.js* 파일)를 사용하는 경우 오케스트레이션 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {

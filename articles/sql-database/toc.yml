@@ -329,32 +329,30 @@ items:
       href: sql-database-monitor-tune-overview.md
     - name: 지능형 성능
       items:
-      - name: 쿼리
+      - name: 튜닝 관리자
         items:
-        - name: 인텔리전트 쿼리 처리
-          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-        - name: 적응 쿼리 처리
-          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-      - name: 모니터링 및 튜닝
-        items:
-        - name: 데이터베이스 관리자 성능 권장 사항
-          href: sql-database-advisor.md
         - name: 튜닝 작업 및 권장 사항
           href: sql-database-performance.md
-        - name: 성능 권장 사항 적용
-          href: sql-database-advisor-portal.md
-      - name: 인텔리전스 Insights
-        items:
-        - name: Intelligent Insights 개요
-          href: sql-database-intelligent-insights.md
-        - name: 진단 로깅
-          href: sql-database-metrics-diag-logging.md
-        - name: 진단 로그 사용
-          href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: 쿼리
           href: sql-database-query-performance.md
-        - name: 성능 문제 해결
+        - name: 데이터베이스 관리자 성능 권장 사항
+          href: sql-database-advisor.md
+        - name: 성능 권장 사항 적용
+          href: sql-database-advisor-portal.md
+      - name: 고급 모니터링
+        items:
+        - name: Azure SQL 분석 모니터링
+          href: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql
+        - name: 진단 원격 분석 로깅
+          href: sql-database-metrics-diag-logging.md
+      - name: 자동화된 문제 해결
+        items:
+        - name: 성능에 대한 Intelligent Insights
+          href: sql-database-intelligent-insights.md
+        - name: Intelligent Insights로 성능 문제 해결
           href: sql-database-intelligent-insights-troubleshoot-performance.md
+        - name: Intelligent Insights 진단 로그 사용
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
       - name: 자동 조정
         items:
         - name: 자동 튜닝 개요
@@ -363,6 +361,12 @@ items:
           href: sql-database-automatic-tuning-enable.md
         - name: 이메일 알림 사용
           href: sql-database-automatic-tuning-email-notifications.md
+      - name: 인텔리전트 쿼리 처리
+        items:
+        - name: 인텔리전트 쿼리 처리
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: 적응 쿼리 처리
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
     - name: 수동 조정
       items:
       - name: 수동 조정
@@ -634,9 +638,9 @@ items:
     href: /azure/architecture/
   - name: 고객 사례
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 416f74c395f331de6af749f3de1d3a3e966b8b35
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: c5e7a5265a7667acf462085f81c4b53c8d86236b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650063"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50221481"

@@ -2,20 +2,20 @@
 title: 지속성 함수의 진단 - Azure
 description: Azure Functions의 지속성 함수 확장을 사용하여 문제를 진단하는 방법을 알아봅니다.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ebca858632a64b5822658182a3b83c48f310164
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1c111031af4163dcc915ab6c705edbd613cfcefd
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953038"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984828"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>지속성 함수의 진단(Azure Functions)
 
@@ -153,13 +153,13 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context){
+module.exports = df.orchestrator(function*(context){
     context.log("Calling F1.");
-    yield context.df.callActivityAsync("F1");
+    yield context.df.callActivity("F1");
     context.log("Calling F2.");
-    yield context.df.callActivityAsync("F2");
+    yield context.df.callActivity("F2");
     context.log("Calling F3.");
-    yield context.df.callActivityAsync("F3");
+    yield context.df.callActivity("F3");
     context.log("Done!");
 });
 ```
@@ -184,6 +184,8 @@ Done!
 
 재생되지 않는 실행에만 로그온하려면 `IsReplaying`이 `false`인 경우에만 기록할 조건식을 작성할 수 있습니다. 위의 예제를 살펴보았지만 이번에는 재생 확인을 사용합니다.
 
+#### <a name="c"></a>C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
@@ -198,6 +200,23 @@ public static async Task Run(
     log.Info("Done!");
 }
 ```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    if (!context.df.isReplaying) context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    if (!context.df.isReplaying) context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    if (!context.df.isReplaying) context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
+```
+
 이 변경으로 인한 로그 출력은 다음과 같습니다.
 
 ```txt
@@ -206,9 +225,6 @@ Calling F2.
 Calling F3.
 Done!
 ```
-
-> [!NOTE]
-> `IsReplaying` 속성은 아직 JavaScript에서 사용할 수 없습니다.
 
 ## <a name="custom-status"></a>사용자 지정 상태
 
@@ -226,6 +242,9 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
     // ...do more work...
 }
 ```
+
+> [!NOTE]
+> JavaScript에 대한 사용자 지정 오케스트레이션 상태는 향후 릴리스에서 사용할 수 있습니다.
 
 오케스트레이션이 실행되는 동안 외부 클라이언트가 이 사용자 지정 상태를 가져올 수 있습니다.
 

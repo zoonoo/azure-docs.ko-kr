@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ba6bfe8240c758806c4ff3e46ab08fdacad83db9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241487"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405487"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "48241487"
 * Ethereum과 같은 블록체인 네트워크
 * Blockchain Workbench 마이크로 서비스
 * Application Insights
-* Azure 모니터링(OMS)
+* Azure 모니터링(Log Analytics)
 
 다음 단계를 확인하고 문제의 근본 원인을 확인하는 데 정보를 사용할 수 있습니다. 
 
@@ -52,9 +52,9 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 | ResourceGroupName | Blockchain Workbench가 배포된 Azure 리소스 그룹의 이름입니다. | yes |
 | OutputDirectory | 출력 ZIP 파일을 생성하는 경로입니다. 지정하지 않으면 기본값은 현재 디렉터리입니다. | 아니요 |
 | LookbackHours | 원격 분석을 끌어올 때 사용할 시간 수입니다. 기본값은 24시간입니다. 최댓값은 90시간입니다. | 아니요 |
-| OmsSubscriptionId | OMS가 배포되는 구독 ID입니다. 블록체인 네트워크에 대한 OMS가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다.| 아니요 |
-| OmsResourceGroup |OMS가 배포되는 리소스 그룹입니다. 블록체인 네트워크에 대한 OMS가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다.| 아니요 |
-| OmsWorkspaceName | OMS 작업 영역 이름입니다. 블록체인 네트워크에 대한 OMS가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다. | 아니요 |
+| OmsSubscriptionId | Log Analytics가 배포되는 구독 ID입니다. 블록체인 네트워크에 대한 Log Analytics가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다.| 아니요 |
+| OmsResourceGroup |Log Analytics가 배포되는 리소스 그룹입니다. 블록체인 네트워크에 대한 Log Analytics가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다.| 아니요 |
+| OmsWorkspaceName | Log Analytics 작업 영역 이름입니다. 블록체인 네트워크에 대한 Log Analytics가 Blockchain Workbench의 리소스 그룹 외부로 배포되는 경우에만 이 매개 변수를 전달합니다. | 아니요 |
 
 ## <a name="what-is-collected"></a>수집되는 항목은?
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3ea95899d48b68c78af5fdc45167b08b5e0fc1ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b42ce119db2c435f05424cceb5bb90627668bece
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195348"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407200"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>업데이트 관리와 System Center Configuration Manager 통합
 
@@ -40,7 +40,7 @@ Configuration Manager에서 업데이트 배포 관리를 계속하려는 경우
 1. [소프트웨어 업데이트 프로세스 배포](/sccm/sum/deploy-use/deploy-software-updates)에 설명된 프로세스를 사용하여 Configuration Manager 계층의 최상위 수준 사이트에서 소프트웨어 업데이트 배포를 만듭니다. 표준 배포와 다르게 구성해야 하는 유일한 설정은 배포 패키지의 다운로드 동작을 제어하는 **소프트웨어 업데이트를 설치하지 않음** 옵션입니다. 이 동작은 다음 단계에서 예약된 업데이트 배포를 만들어 업데이트 관리 솔루션에서 관리됩니다.
 
 1. Azure Automation에서 **업데이트 관리**를 선택합니다. [업데이트 배포 만들기](automation-tutorial-update-management.md#schedule-an-update-deployment)에서 설명한 단계에 따라 새 배포를 만들고, **유형** 드롭다운에서 **가져온 그룹**을 선택하여 적절한 Configuration Manager 컬렉션을 선택합니다. 다음 중요 사항에 주의하세요. a. 선택한 Configuration Manager 장치 컬렉션에 유지 관리 기간이 정의되어 있는 경우 컬렉션의 멤버는 예약된 배포에 정의된 **기간** 설정 대신 이 기간을 사용합니다.
-    나. 대상 컬렉션의 구성원은 인터넷에 연결되어 있어야 합니다(직접, 프록시 서버 또는 OMS 게이트웨이를 통해).
+    b. 대상 컬렉션의 구성원은 인터넷에 연결되어 있어야 합니다(직접, 프록시 서버 또는 Log Analytics 게이트웨이를 통해).
 
 Azure Automation을 통해 업데이트 배포가 완료되면, 선택한 컴퓨터 그룹의 멤버인 대상 컴퓨터에서 로컬 클라이언트 캐시의 예약된 시간에 업데이트를 설치합니다. [업데이트 배포 상태를 확인하여](automation-tutorial-update-management.md#view-results-of-an-update-deployment) 배포 결과를 모니터링할 수 있습니다.
 

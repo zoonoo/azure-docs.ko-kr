@@ -12,19 +12,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542247"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945878"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 이 문서에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 템플릿 만들기에 관한 단계별 연습은 [첫 번째 Azure Resource Manager 템플릿 만들기](resource-manager-create-first-template.md)를 참조하세요.
 
+## <a name="quickstarts-and-tutorials"></a>빠른 시작 및 자습서
+
+Resource Manager 템플릿을 개발하는 방법을 알아보려면 다음 빠른 시작 및 자습서를 사용하세요.
+
+- 빠른 시작
+
+  	|제목|설명|
+  	|------|-----|
+  	|[Azure Portal 사용](./resource-manager-quickstart-create-templates-use-the-portal.md)|포털을 사용하여 템플릿을 생성하고 템플릿을 편집 및 배포하는 프로세스를 설명합니다.|
+  	|[Visual Studio Code 사용](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Visual Studio Code를 사용하여 템플릿을 생성 및 편집하고, Azure Cloud shell을 사용하여 템플릿을 배포하는 방법을 설명합니다.|
+  	|[Visual Studio 사용](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Visual Studio를 사용하여 템플릿을 생성, 편집 및 배포합니다.|
+
+- 자습서
+
+  	|제목|설명|
+  	|------|-----|
+  	|[템플릿 참조 활용](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|템플릿 참조 설명서를 활용하여 템플릿을 개발합니다. 이 자습서에서는 저장소 계정 스키마를 찾고 해당 정보를 사용하여 암호화된 저장소 계정을 만듭니다.|
+  	|[여러 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)|Azure 리소스의 여러 인스턴스를 만듭니다. 이 자습서에서는 저장소 계정의 여러 인스턴스를 만듭니다.|
+  	|[리소스 배포 순서 설정](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|리소스 종속성을 정의합니다. 이 자습서에서는 가상 네트워크, 가상 머신 및 종속 Azure 리소스를 만듭니다. 종속성을 정의하는 방법을 알아봅니다.|
+  	|[조건 사용](./resource-manager-tutorial-use-conditions.md)|일부 매개 변수 값에 따라 리소스를 배포합니다. 이 자습서에서는 새 저장소 계정을 만드는 템플릿을 정의하거나 매개 변수 값을 기준으로 기존 저장소 계정을 사용합니다.|
+  	|[Key Vault 통합](./resource-manager-tutorial-use-key-vault.md)|Azure Key Vault에서 비밀/암호를 검색합니다. 이 자습서에서는 가상 머신을 만듭니다.  가상 머신 관리자 암호는 Key Vault에서 검색됩니다.|
+  	|[연결된 템플릿 만들기](./resource-manager-tutorial-create-linked-templates.md)|템플릿을 모듈화하고 템플릿에서 다른 템플릿을 호출합니다. 이 자습서에서는 가상 네트워크, 가상 머신 및 종속 리소스를 만듭니다.  종속 저장소 계정은 연결된 템플릿에서 정의됩니다. |
+  	|[안전한 배포 사례 사용](./deployment-manager-tutorial.md)|Azure Deployment Manager를 사용합니다. |
+
 ## <a name="template-format"></a>템플릿 형식
+
 가장 간단한 구조의 템플릿에 포함되는 요소는 다음과 같습니다.
 
 ```json
@@ -279,7 +304,7 @@ ms.locfileid: "45542247"
 ],
 ```
 
-자세한 내용은 [Azure Resource Manager 템플릿의 리소스 섹션](resource-manager-templates-resources.md)을 참조하세요.
+배포 동안 리소스를 조건부로 포함하거나 제외하려면 [Condition 요소](resource-manager-templates-resources.md#condition)를 사용합니다. 리소스 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿의 리소스 섹션](resource-manager-templates-resources.md)을 참조하세요.
 
 ## <a name="outputs"></a>outputs
 Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 들어, 배포된 리소스에 액세스하기 위한 URI를 반환할 수 있습니다.

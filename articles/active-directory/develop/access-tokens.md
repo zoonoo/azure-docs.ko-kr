@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f184c18e97144f7efb30d61ebd024344510f3f5c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a3768e796284895b25eb62d00a58b20ca811540
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078769"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958944"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 액세스 토큰
 
@@ -136,7 +136,7 @@ Microsoft ID는 다양한 방법으로 인증할 수 있으며 사용자 응용 
 | 값 | 설명 |
 |-----|-------------|
 | `pwd` | 암호 인증으로, 사용자의 Microsoft 암호 또는 앱의 클라이언트 비밀 중 하나입니다. |
-| `rsa` | 인증은 [Microsoft Authenticator pp](https://aka.ms/AA2kvvu) 등을 사용하여 RSA 키 증명을 기반으로 수행되었습니다. X509 인증서를 소유한 서비스를 사용하여 자체 서명된 JWT에 의해 인증이 수행된 경우 포함됩니다. |
+| `rsa` | 인증은 [Microsoft Authenticator 앱](https://aka.ms/AA2kvvu) 등을 사용하여 RSA 키 증명을 기반으로 수행되었습니다. X509 인증서를 소유한 서비스를 사용하여 자체 서명된 JWT에 의해 인증이 수행된 경우 포함됩니다. |
 | `otp` | 이메일 또는 문자 메시지를 사용하는 OTP(일회성 암호)입니다. |
 | `fed` | 페더레이션 인증 어설션(예: JWT 또는 SAML)이 사용되었습니다. |
 | `wia` | Windows 통합 인증 |
@@ -179,7 +179,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> 브라우저에서 이 URL을 사용해 보세요!
+> 브라우저에서 이 [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration)을 사용해 보세요!
 
 이 메타데이터 문서는 다음과 같은 특징이 있습니다.
 
@@ -187,7 +187,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 * 토큰 서명에 사용되는 공개 키 집합의 위치를 제공하는 `jwks_uri`를 포함합니다. `jwks_uri` 에 있는 JSON 문서는 해당 특정 시점에 사용 중인 공개 키 정보를 모두 포함합니다. 앱은 JWT 헤더에 `kid` 클레임을 사용하여 토큰 서명에 사용된 공개 키를 이 문서에서 선택할 수 있습니다. 그런 다음 올바른 공개 키와 표시된 알고리즘을 사용하여 서명 유효성 검사를 수행할 수 있습니다.
 
 > [!NOTE]
-> v1.0 엔드포인트는 `x5t` 및 `kid` 클레임을 모두 반환합니다. v2.0 토큰에는 `x5t` 클레임이 없으므로 v2.0 엔드포인트는 `kid` 클레임을 통해 응답합니다. 앞으로는 `kid` 클레임을 사용하여 토큰의 유효성을 검사하는 것이 좋습니다.
+> v1.0 엔드포인트는 `x5t` 및 `kid` 클레임을 둘 다 반환하지만, v2.0 끝점은 `kid` 클레임으로만 응답합니다. 앞으로는 `kid` 클레임을 사용하여 토큰의 유효성을 검사하는 것이 좋습니다.
 
 서명 유효성 검사는 이 문서의 범위를 벗어납니다. 필요한 경우 이 작업에 도움이 되는 다양한 오픈 소스 라이브러리가 있습니다.
 
@@ -202,7 +202,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 * `tid`가 API를 호출할 수 있는 테넌트와 일치하는지 확인합니다.
 * 사용자가 MFA를 수행했는지 확인하려면 `acr` 클레임을 사용합니다. [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)를 사용하여 강제 적용되어야 합니다.
 * 액세스 토큰의 `roles` 또는 `groups` 클레임을 요청한 경우 사용자가 이 작업을 수행하도록 허용된 그룹에 있는지 확인합니다.
-  * 암시적 흐름을 사용하여 검색한 토큰의 경우 종종 너무 커서 토큰에 맞지 않으므로 이 데이터에 대해 [Graph](https://developer.microsoft.com/graph/)를 쿼리해야 할 수 있습니다. 
+  * 암시적 흐름을 사용하여 검색한 토큰의 경우 종종 너무 커서 토큰에 맞지 않으므로 이 데이터에 대해 [Microsoft Graph](https://developer.microsoft.com/graph/)를 쿼리해야 할 수 있습니다. 
 
 ## <a name="user-and-application-tokens"></a>사용자 및 응용 프로그램 토큰
 

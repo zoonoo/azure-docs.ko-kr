@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: e51c0178691279d803e9a1afcd4147f1d6ed767e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498235"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985253"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -163,6 +163,9 @@ Azure Portal에서 Automation 계정을 연 후 **업데이트 관리**를 선�
    |다시 부팅만 - 업데이트 설치 안 함|이 옵션은 업데이트 설치를 무시하고 다시 부팅만 시작합니다.|
 
 일정 구성을 완료한 후에 **만들기** 단추를 선택하여 상태 대시보드로 돌아갑니다. **예약됨** 표에는 만든 배포 일정이 표시됩니다.
+
+> [!NOTE]
+> 업데이트 관리는 자사 업데이트 배포와 미리 다운로드 패치를 지원합니다. 이를 위해 패치 대상 시스템을 변경해야 합니다. 시스템에서 이러한 설정을 구성하는 방법은 [자사 및 미리 다운로드 지원](automation-update-management.md#firstparty-predownload)을 참조하세요.
 
 ## <a name="view-results-of-an-update-deployment"></a>업데이트 배포의 결과 보기
 

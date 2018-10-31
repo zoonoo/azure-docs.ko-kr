@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: article
+ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6be67a92c95ccf1161ffeeb636ee4f998c65fa05
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0eb028e419f05843da308c824d79a8f4e1883fb2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503692"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429748"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 경고 문제 해결
 이 문서에서는 관리되는 도메인에서 발생할 수 있는 경고에 대한 문제 해결 가이드를 제공합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "39503692"
 | AADDS105 | *응용 프로그램 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 다시 만들기를 수행할 경우 관리되는 도메인을 서비스하는 데 필요한 Azure AD Domain Services 리소스에 일치하지 않는 권한이 남게 됩니다. 관리되는 도메인에서 암호 동기화에 영향이 있을 수 있습니다.* | [암호 동기화 응용 프로그램이 만료됨](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *관리되는 도메인은 [date]에 Azure AD와 마지막으로 동기화되었습니다. 사용자가 관리되는 도메인에서 로그인할 수 없거나 그룹 멤버 자격이 Azure AD와 동기화되지 않을 수 있습니다.* | [잠시 후에 동기화가 수행되지 않았습니다.](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *관리되는 도메인은 마지막으로 [date]에 백업되었습니다.* | [잠시 후에 백업이 수행되지 않았습니다.](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *관리되는 도메인에 대한 보안 LDAP 인증서는 [date]]에 만료됩니다.* | [보안 LDAP 인증서 만료](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *관리되는 도메인에 대한 보안 LDAP 인증서는 [date]에 만료됩니다.* | [보안 LDAP 인증서 만료](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *해당 도메인과 연결된 Azure 구독이 활성 상태가 아니기 때문에 관리되는 도메인은 일시 중단됩니다.* | [비활성화된 구독으로 인한 일시 중단](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *관리되는 도메인은 잘못된 구성으로 인해 일시 중단됩니다. 서비스는 오랜 시간 동안 관리되는 도메인의 도메인 컨트롤러를 관리하거나, 패치하거나, 업데이트할 수 없었습니다.* | [잘못된 구성으로 인한 일시 중단](#aadds504-suspension-due-to-an-invalid-configuration) |
 

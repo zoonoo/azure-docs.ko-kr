@@ -1,48 +1,46 @@
 ---
-title: Azure AD v2 UWP 시작 | Microsoft Docs
-description: UWP(유니버설 Windows 플랫폼) 응용 프로그램이 Azure Active Directory v2 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식
+title: Azure AD v2.0 UWP 시작 | Microsoft Docs
+description: UWP(유니버설 Windows 플랫폼) 응용 프로그램이 Azure Active Directory v2.0 엔드포인트로 보호되는 액세스 토큰을 필요로 하는 API를 호출하는 방식
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2018
+ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966387"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986545"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 응용 프로그램(XAML)에서 Microsoft Graph API 호출
-
 
 > [!div renderon="docs"]
 > [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-이 가이드에서는 네이티브 UWP(유니버설 Windows 플랫폼) 응용 프로그램이 액세스 토큰을 요청한 다음, Microsoft Graph API를 호출하는 방법을 설명합니다. 이 가이드는 Azure Active Directory v2 엔드포인트에서 액세스 토큰을 필요로 하는 다른 API에도 적용됩니다.
+이 가이드에서는 네이티브 UWP(유니버설 Windows 플랫폼) 응용 프로그램이 액세스 토큰을 요청한 다음, Microsoft Graph API를 호출하는 방법을 설명합니다. 이 가이드는 Azure Active Directory v2.0 엔드포인트에서 액세스 토큰을 필요로 하는 다른 API에도 적용됩니다.
 
 이 가이드의 끝에서 응용 프로그램은 개인 계정을 사용하여 보호된 API를 호출합니다. outlook.com, live.com 및 기타를 예로 듭니다. 또한 응용 프로그램은 Azure Active Directory가 있는 모든 회사 또는 조직의 회사 및 학교 계정을 호출합니다.
 
 >[!NOTE]
 > 이 가이드는 유니버설 Windows 플랫폼 개발을 설치한 Visual Studio 2017을 필요로 합니다. 유니버설 Windows 플랫폼 앱을 개발하기 위해 Visual Studio를 다운로드하고 구성하는 지침은 [설정](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)을 참조하세요.
 
-### <a name="how-this-guide-works"></a>이 가이드의 작동 방식
+## <a name="how-this-guide-works"></a>이 가이드의 작동 방식
 
 ![이 가이드에서 그래프를 작동하는 방법](./media/tutorial-v2-windows-uwp/uwp-intro.png)
 
-이 가이드는 Azure Active Directory v2 엔드포인트에서 토큰을 수락하는 Microsoft Graph API 또는 Web API를 쿼리하는 샘플 UWP 응용 프로그램을 만듭니다. 이 시나리오에서는 토큰은 권한 부여 헤더를 통해 HTTP 요청에 추가됩니다. MSAL(Microsoft 인증 라이브러리)에서는 토큰 획득 및 갱신을 처리합니다.
+이 가이드는 Azure Active Directory v2.0 엔드포인트에서 토큰을 수락하는 Microsoft Graph API 또는 Web API를 쿼리하는 샘플 UWP 응용 프로그램을 만듭니다. 이 시나리오에서는 토큰은 권한 부여 헤더를 통해 HTTP 요청에 추가됩니다. MSAL(Microsoft 인증 라이브러리)에서는 토큰 획득 및 갱신을 처리합니다.
 
-### <a name="nuget-packages"></a>NuGet 패키지
+## <a name="nuget-packages"></a>NuGet 패키지
 
 이 가이드에서는 다음 NuGet 패키지를 사용합니다.
 
@@ -50,18 +48,18 @@ ms.locfileid: "46966387"
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft 인증 라이브러리|
 
-
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
 이 섹션에서는 *Microsoft에 로그인*과 Windows Desktop .NET 응용 프로그램(XAML)을 통합하는 단계별 지침을 제공합니다. 그런 다음, Microsoft Graph API와 같은 토큰을 필요로 하는 웹 API를 쿼리할 수 있습니다.
 
 이 가이드는 Graph API, 로그 아웃 단추 및 호출의 결과를 표시하는 텍스트 상자를 쿼리하는 단추를 표시하는 응용 프로그램을 만듭니다.
 
->[!NOTE]
+> [!NOTE]
 > 이 샘플의 Visual Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)하고, 실행하기 전에 코드 샘플을 구성하려면 [응용 프로그램 등록](#register-your-application "응용 프로그램 등록 단계")의 단계로 건너뜁니다.
 
 
 ### <a name="create-your-application"></a>응용 프로그램 만들기
+
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **템플릿**에서 **Visual C#** 을 선택합니다.
 3. **비어 있는 앱(유니버설 Windows)** 을 선택합니다.
@@ -79,7 +77,7 @@ ms.locfileid: "46966387"
     ```
 
 > [!NOTE]
-> 이 명령은 [Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)를 설치합니다. MSAL은 Azure Active Directory v2에 의해 보호되는 API에 액세스하는 사용자 토큰을 쿼리, 캐시 및 새로 고칩니다.
+> 이 명령은 [Microsoft 인증 라이브러리](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)를 설치합니다. MSAL은 Azure Active Directory v2.0에 의해 보호되는 API에 액세스하는 사용자 토큰을 쿼리, 캐시 및 새로 고칩니다.
 
 > [!NOTE]
 > 이 자습서는 최신 버전의 MSAL.NET을 사용하지 않지만 업데이트하는 중입니다.
@@ -193,10 +191,13 @@ ms.locfileid: "46966387"
     ```
 
 ### <a name="more-information"></a>자세한 정보
+
 #### <a name="get-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
+
 `AcquireTokenAsync` 메서드를 호출하면 사용자에게 로그인하라는 창이 표시됩니다. 처음으로 보호된 리소스에 액세스할 때 응용 프로그램에서는 사용자가 일반적으로 대화형으로 로그인하도록 요청합니다. 토큰을 획득하는 자동 작업에 실패한 경우 로그인해야 할 수도 있습니다. 사용자의 암호가 만료된 경우를 예로 듭니다.
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
+
 `AcquireTokenSilentAsync` 메서드는 사용자 개입 없이 토큰 획득 및 갱신을 자동으로 처리합니다. `AcquireTokenAsync`가 처음으로 실행되고 사용자에게 자격 증명을 묻는 메시지가 표시된 후 자동으로 토큰을 획득하기 때문에 후속 호출에 대한 토큰을 요청하는 데 `AcquireTokenSilentAsync` 메서드를 사용해야 합니다. MSAL은 토큰 캐시 및 갱신을 처리합니다.
 
 결국 `AcquireTokenSilentAsync` 메서드가 실패합니다. 사용자가 로그아웃했거나 다른 장치에서 해당 암호를 변경하면 실패할 수 있습니다. MSAL이 대화형 작업을 요구해 이 문제를 해결할 수 있다고 감지하면 `MsalUiRequiredException` 예외를 발생합니다. 응용 프로그램에서는 이러한 예외를 다음 두 가지 방법으로 처리할 수 있습니다.
@@ -333,7 +334,6 @@ ms.locfileid: "46966387"
 > [!IMPORTANT]
 > Windows 통합 인증은 이 샘플에 대해 기본적으로 구성되지 않았습니다. *엔터프라이즈 인증* 또는 *공유 사용자 인증서* 기능을 요청하는 응용 프로그램은 Windows 스토어를 통해 더 높은 수준의 확인이 필요합니다. 또한 일부 개발자가 더 높은 수준의 확인을 수행하려고 합니다. 페더레이션된 Azure Active Directory 도메인을 사용한 Windows 통합 인증이 필요한 경우에만 이 설정을 사용하도록 설정합니다.
 
-
 ## <a name="test-your-code"></a>코드 테스트
 
 응용 프로그램을 테스트하려면 F5 키를 선택하여 Visual Studio에서 프로젝트를 실행합니다. 아래와 같이 주 창이 표시됩니다.
@@ -369,7 +369,7 @@ ms.locfileid: "46966387"
 
 Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을 읽을 수 있습니다. 이 범위는 응용 프로그램 등록 포털에서 등록된 모든 응용 프로그램에서 기본적으로 자동 추가됩니다. 다른 Microsoft Graph용 API와 백 엔드 서버용 사용자 지정 API에는 추가 범위가 필요할 수 있습니다. Microsoft Graph API는 *Calendars.Read* 범위가 있어야만 사용자 일정을 나열할 수 있습니다.
 
-응용 프로그램의 컨텍스트에서 사용자 일정에 액세스하려면 응용 프로그램 등록 정보에 *Calendars.Read* 위임 권한을 추가합니다. 그런 다음, `acquireTokenSilent` 호출에 *Calendars.Read* 범위를 추가합니다. 
+응용 프로그램의 컨텍스트에서 사용자 일정에 액세스하려면 응용 프로그램 등록 정보에 *Calendars.Read* 위임 권한을 추가합니다. 그런 다음, `acquireTokenSilent` 호출에 *Calendars.Read* 범위를 추가합니다.
 
 > [!NOTE]
 > 범위 수를 늘리면 사용자에게 추가 동의를 요청하는 메시지가 표시될 수 있습니다.
@@ -392,3 +392,5 @@ Microsoft Graph API는 *user.read* 범위가 있어야만 사용자 프로필을
 **원인:** 이 문제는 Windows 10 데스크톱에서 실행되는 UWP 응용 프로그램에서 웹 인증 브로커의 알려진 제한 사항입니다. Windows 10 Mobile에서 제대로 작동합니다.
 
 **해결 방법:** **기타 옵션으로 로그인**을 선택합니다. 그런 다음, **사용자 이름과 암호로 로그인**을 선택합니다. **암호 제공**을 선택합니다. 그런 다음, 전화 인증 프로세스로 진행합니다.
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627443"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406146"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Azure와 Cloud Foundry 통합
 
@@ -70,9 +70,9 @@ Azure Service Broker는 Azure 서비스에 대한 응용 프로그램의 액세�
 
 ## <a name="6-metrics-and-logging"></a>6. 메트릭 및 로깅
 Azure Log Analytics Nozzle은 [Cloud Foundry Loggregator Firehose](https://docs.cloudfoundry.org/loggregator/architecture.html)에서 [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/)로 메트릭을 전달하는 Cloud Foundry 구성 요소입니다. Nozzle을 사용하면 여러 배포에서 CF 시스템 상태와 성능 메트릭을 수집, 확인 및 분석할 수 있습니다.
-[여기](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle)를 클릭하여 오픈 소스 및 Pivotal Cloud Foundry 환경에 Azure Log Analytics Nozzle을 배포한 다음, Azure Log Analytics OMS 콘솔의 데이터에 액세스하는 방법을 알아봅니다. 
+[여기](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle)를 클릭하여 오픈 소스 및 Pivotal Cloud Foundry 환경에 Azure Log Analytics Nozzle을 배포한 다음, Azure Log Analytics 콘솔의 데이터에 액세스하는 방법을 알아봅니다. 
 > [!NOTE]
-> PCF 2.0부터 VM의 BOSH 상태 메트릭은 Loggregator Firehose에 기본적으로 전달되고 Azure Log Analytics OMS 콘솔에 통합됩니다.
+> PCF 2.0부터 VM의 BOSH 상태 메트릭은 Loggregator Firehose에 기본적으로 전달되고 Azure Log Analytics 콘솔에 통합됩니다.
 
 ## <a name="7-cost-saving"></a>7. 비용 절감
 ### <a name="cost-saving-for-devtest-environments"></a>개발/테스트 환경에 대한 비용 절감

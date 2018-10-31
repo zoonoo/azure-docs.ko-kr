@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 9c353c9b34c3d4a2b21093cc0ae82e638f5ddd01
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 91bbbf6cced8dc3ade4906961d68a99f810d9fd9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355392"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956989"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램에 대해 Single Sign-On을 구성하는 방법
 
@@ -36,7 +36,7 @@ SSO를 구성하려면 먼저 응용 프로그램이 Azure Active Directory를 �
 ## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>응용 프로그램 프록시 응용 프로그램에 대한 Single Sign-On 모드 구성
 특정 유형의 Single Sign-On을 구성합니다. 로그온 방법은 백 엔드 응용 프로그램에서 사용하는 인증 유형에 따라 분류됩니다. 앱 프록시 응용 프로그램에서 지원하는 세 가지 유형의 로그온은 다음과 같습니다.
 
--   **암호 기반 로그온**: 암호 기반 로그온은 사용자 이름과 암호 필드를 사용하여 로그온하는 모든 응용 프로그램에 사용할 수 있습니다. 구성 단계는 [암호 SSO 구성 설명서](../active-directory-enterprise-apps-whats-new-azure-portal.md#bring-your-own-password-sso-applications)에 나와 있습니다.
+-   **암호 기반 로그온**: 암호 기반 로그온은 사용자 이름과 암호 필드를 사용하여 로그온하는 모든 응용 프로그램에 사용할 수 있습니다. 구성 단계는 [Azure AD 갤러리 응용 프로그램에 대해 암호 Single Sign-On 구성](configure-password-single-sign-on-gallery-applications.md)에 나와 있습니다.
 
 -   **Windows 통합 인증**: IWA(Windows 통합 인증)를 사용하는 응용 프로그램의 경우 KDC(Kerberos 제한 위임)를 통해 Single Sign-On을 사용할 수 있습니다. 이 방법은 Active Directory에서 응용 프로그램 프록시 커넥터에 권한을 부여하여 사용자를 가장하고 토큰을 대신 보내고 받습니다. KCD 구성에 대한 자세한 내용은 [Single Sign-on과 KCD 설명서](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
 

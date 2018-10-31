@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 917baa4b0d983df858c64cd0fa5b697b0fbb316c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2ab2ac34132eff65e1d6c77794486bc8d9858b40
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298271"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408183"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성(미리 보기)
 
@@ -74,7 +74,7 @@ Workday 통합을 시작하기 전에 다음과 같은 필수 조건을 확인�
 * 전역 관리자 액세스 권한이 있는 유효한 Azure AD Premium P1 구독
 * 테스트 및 통합을 위한 Workday 구현 테넌트
 * 테스트 목적으로 시스템 통합 사용자를 만들고 직원 데이터를 변경하기 위한 관리자 권한
-* Active Directory에 사용자 프로비전의 경우 [온-프레미스 동기화 에이전트](https://go.microsoft.com/fwlink/?linkid=847801)를 호스트하려면 Windows Service 2012 이상을 실행하는 도메인에 가입된 서버가 필요합니다.
+* Active Directory에 사용자 프로비전의 경우 [온-프레미스 동기화 에이전트](https://go.microsoft.com/fwlink/?linkid=847801)를 호스트하려면 Windows Server 2012 이상을 실행하는 도메인에 가입된 서버가 필요합니다.
 * Active Directory와 Azure AD 간의 동기화를 위한 [Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
 
 ### <a name="solution-architecture"></a>솔루션 아키텍처

@@ -5,14 +5,14 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
+ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: 4575bed18697a5661d58dc350c24a9497f7c46ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e7020ef5c1f7411c7226e7a2db489112ee6bf0a4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578816"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945504"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Application Gateway의 종단 간 SSL 개요
 
@@ -33,9 +33,21 @@ Application Gateway는 알려진 백 엔드 인스턴스, 즉 Application Gatewa
 > [!NOTE]
 > 인증 인증서 설정은 Azure Web Apps와 같은 신뢰할 수 있는 Azure 서비스에 필요하지 않습니다.
 
+## <a name="end-to-end-ssl-with-the-v2-sku"></a>v2 SKU를 사용하는 종단 간 SSL
+
+인증 인증서는 Application Gateway v2 SKU에서 더 이상 사용되지 않으며 신뢰할 수 있는 루트 인증서로 대체되었습니다. 이러한 인증서는 다음과 같은 몇 가지 주요 차이점을 제외하고 인증 인증서와 비슷합니다.
+
+- 해당 CN이 HTTP 백 엔드 설정의 호스트 이름과 일치하는 잘 알려진 CA 기관에서 서명한 인증서의 경우 종단 간 SSL 작동을 위해 추가 단계가 필요하지 않습니다. 
+
+   예를 들어, 백 엔드 인증서가 잘 알려진 CA에서 발급한 것이고 CN이 contoso.com이며, 백 엔드 http 설정의 호스트 필드도 contoso.com으로 설정된 경우 추가 단계가 필요하지 않습니다. 백 엔드 http 설정 프로토콜을 HTTPS로 설정할 수 있고, 상태 프로브 및 데이터 경로 둘 다 SSL을 사용하도록 설정할 수 있습니다. Azure Web Apps 또는 다른 Azure 웹 서비스를 백 엔드로 사용하는 경우 이러한 항목도 암시적으로 신뢰되며, 종단 간 SSL을 위한 추가 단계가 필요하지 않습니다.
+- 인증서가 자체 서명되었거나 알 수 없는 매개체가 서명한 경우 v2 SKU에서 종단 간 SSL을 사용하도록 설정하려면 신뢰할 수 있는 루트 인증서를 정의해야 합니다. Application Gateway는 해당 서버 인증서의 루트 인증서가 풀과 연결된 백 엔드 http 설정의 신뢰할 수 있는 루트 인증서 목록 중 하나와 일치하는 백 엔드와만 통신합니다.
+- 루트 인증서 일치 외에, Application Gateway는 백 엔드 http 설정에 지정된 호스트 설정이 백 엔드 서버의 SSL 인증서가 제공하는 CN(공통 이름)의 호스트 설정과 일치하는지도 확인합니다. 백 엔드에 대한 SSL 연결을 설정하려고 하면 Application Gateway는 SNI(서버 이름 표시) 확장을 백 엔드 http 설정에 지정된 호스트로 설정합니다.
+- 백 엔드 http 설정의 호스트 필드 대신 **pick hostname from backend address**(백 엔드 주소에서 호스트 이름 선택)를 선택하면 SNI 헤더가 항상 백 엔드 풀 FQDN으로 설정되고, 백 엔드 서버 SSL 인증서의 CN은 해당 FQDN과 일치해야 합니다. IP를 사용하는 백 엔드 풀 멤버는 이 시나리오에서 지원되지 않습니다.
+- 루트 인증서는 백 엔드 서버 인증서의 base64 인코딩 루트 인증서입니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-종단 간 SSL에 대해 학습한 후에는 [Azure Portal을 사용하여 SSL 종료로 Application Gateway 구성](create-ssl-portal.md)으로 이동하여 종단 간 SSL을 사용하여 Application Gateway를 만듭니다.
+종단 간 SSL에 대해 학습한 후에는 [PowerShell에서 Application Gateway를 사용하여 종단 간 SSL 구성](application-gateway-end-to-end-ssl-powershell.md)으로 이동하고 종단 간 SSL을 사용하는 Application Gateway를 만듭니다.
 
 <!--Image references-->
 

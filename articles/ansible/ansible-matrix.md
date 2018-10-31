@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: f574203f31a21f945115296693f04cff649614c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165639"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649944"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 모듈 및 버전 매트릭스
 
@@ -128,7 +128,7 @@ Ansible은 원격 호스트에서 직접 또는 플레이북을 통해 실행할
 | azure_rm_autoscale_facts            | -            | -                         | -          | yes          | yes                                 | 
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Azure에 대한 플레이북 역할 소개
-[azure_preview_module 플레이북 역할](https://galaxy.ansible.com/Azure/azure_preview_modules/)은 가장 완벽한 역할로써 최신 Azure 모듈을 모두 포함합니다. 공식 Ansible 릴리스보다 업데이트 및 버그 수정이 더 적절하게 수행됩니다. Azure 리소스를 프로비전할 목적으로 Ansible를 사용하는 경우 azure_preview_module 역할을 설치하는 것이 좋습니다.
+[azure_preview_module 플레이북 역할](https://galaxy.ansible.com/Azure/azure_preview_modules/)은 가장 완벽한 역할로써 최신 Azure 모듈을 모두 포함합니다. 공식 Ansible 릴리스보다 업데이트 및 버그 수정이 더 적절하게 수행됩니다. Azure 리소스를 프로비전할 목적으로 Ansible를 사용하는 경우 azure_preview_module 플레이북 역할을 설치하는 것이 좋습니다.
 
 azure_preview_module 플레이북 역할은 3주마다 릴리스됩니다.
 

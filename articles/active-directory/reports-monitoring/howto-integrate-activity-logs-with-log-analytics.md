@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 10/01/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 95dac6804f3226cac23bce95a1b09b2907d084b0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc918d0ee3b3b435905546507287dc655f68e8c9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395520"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429782"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Azure Monitor를 사용하여 Log Analytics와 Azure AD 로그 통합(미리 보기)
 
@@ -30,7 +30,11 @@ Log Analytics를 사용하면 데이터를 쿼리하여 특정 이벤트를 찾�
  * Azure Security Center에서 게시한 보안 로그와 Azure AD 로그인 로그를 비교합니다.
 
  * Azure Application Insights의 응용 프로그램 성능 데이터를 서로 연결하여 응용 프로그램의 로그인 페이지에서 성능 병목 현상을 해결합니다.  
- 
+
+Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure AD 로그를 위해 Log Analytics를 사용할 때의 이점을 보여 줍니다.
+
+> [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
+
 이 문서에서는 Azure Monitor를 사용하여 Log Analytics와 Azure AD(Azure Active Directory) 로그를 통합하는 방법에 대해 알아봅니다.
 
 ## <a name="supported-reports"></a>지원되는 보고서

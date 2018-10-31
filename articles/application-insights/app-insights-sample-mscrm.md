@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: c9629611544efe248b1b343ac1ba26740b9ce7e0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2fa4242de6a953e82e3f81831c491125e9a7c3f3
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091692"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026231"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>연습: Application Insights를 사용하여 Microsoft Dynamics CRM Online 작업에 대한 원격 분석 설정
 이 문서는 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/)를 사용하여 [Microsoft Dynamics CRM Online](https://www.dynamics.com/)에서 원격 분석 데이터를 가져오는 방법을 보여 줍니다. 응용 프로그램에 Application Insights 스크립트 추가, 데이터 캡처 및 데이터 시각화의 전체 프로세스를 연습합니다.
@@ -39,11 +39,7 @@ ms.locfileid: "47091692"
     ![+, 개발자 서비스, Application Insights를 클릭합니다.](./media/app-insights-sample-mscrm/01.png)
 
     응용 프로그램 유형으로 ASP.NET을 선택합니다.
-3. 시작 페이지를 열고 “클라이언트 쪽 모니터링 및 진단”을 엽니다.
-
-    ![웹 페이지에서 삽입에 대한 코드 조각](./media/app-insights-sample-mscrm/03.png)
-
-**코드 페이지를 열린 상태로 유지** 합니다. 코드가 곧 필요합니다. 
+3. 지침에 따라 [앱용 JavaScript SDK 스크립트를 가져오고](app-insights-javascript.md#set-up-application-insights-for-your-web-page), JavaScript 코드 조각을 복사하고 계측 키를 Application Insights 리소스에 대한 올바른 값으로 바꿉니다.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Microsoft Dynamics CRM의 JavaScript 웹 리소스 만들기
 1. CRM Online 인스턴스를 열고 관리자 권한으로 로그인합니다.
@@ -60,7 +56,7 @@ ms.locfileid: "47091692"
     이름을 지정하고 **스크립트(JScript)** 를 선택하고 텍스트 편집기를 엽니다.
 
     ![텍스트 편집기 열기](./media/app-insights-sample-mscrm/00004.png)
-2. Application Insights에서 코드 복사 복사하는 동안 스크립트 태그를 무시합니다. 아래 스크린샷을 참조하세요.
+2. 이전에 계측 키를 구성한 Application Insights JavaScript SDK에서 코드를 복사합니다. 복사하는 동안 스크립트 태그를 무시합니다. 아래 스크린샷을 참조하세요.
 
     ![계측 키 설정](./media/app-insights-sample-mscrm/000005.png)
 

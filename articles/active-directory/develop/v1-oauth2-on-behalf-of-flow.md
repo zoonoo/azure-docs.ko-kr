@@ -17,14 +17,17 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: cf62d961d7bd2b6ff2cb03ee577368f2ee7b8452
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a231b79bebd9684281edea48dfe7cf5f57ccdacb
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318831"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986018"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하여 서비스 간 호출
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
 OAuth 2.0 OBO(On-Behalf-Of) 흐름은 응용 프로그램이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
 
 > [!IMPORTANT]
@@ -43,6 +46,9 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름은 응용 프로그램이 서비스/웹 API�
 3. Azure AD 토큰 발급 엔드포인트는 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
 4. 토큰 B는 API B에 대한 요청의 권한 부여 헤더에 설정됩니다.
 5. 보안 리소스의 데이터가 API B에 의해 반환됩니다.
+
+>[!NOTE]
+>다운스트림 서비스에 대한 토큰을 요청하는 데 사용되는 액세스 토큰의 대상 클레임은 OBO 요청을 수행하는 서비스의 ID여야 하고, 이 토큰은 Azure Active Directory 전역 서명 키로 서명해야 합니다(포털에서 **앱 등록**을 통해 등록한 응용 프로그램의 경우 기본 설정으로 사용됨).
 
 ## <a name="register-the-application-and-service-in-azure-ad"></a>Azure AD에서 응용 프로그램 및 서비스 등록
 Azure AD에 클라이언트 응용 프로그램 및 중간 계층 서비스를 모두 등록합니다.
@@ -82,8 +88,8 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
-| grant_type |필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
-| 어설션 |필수 | 요청에 사용된 토큰 값입니다. |
+| grant_type |필수 | 토큰 요청의 형식입니다. OBO 요청은 JWT 액세스 토큰을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
+| 어설션 |필수 | 요청에 사용된 액세스 토큰 값입니다. |
 | client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure 관리 포털에서 앱 ID를 찾으려면, **Active Directory**를 클릭하고, 디렉터리를 클릭한 후 응용 프로그램 이름을 클릭합니다. |
 | client_secret |필수 | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
 | resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure 관리 포털에서 앱 ID URI을 찾으려면, **Active Directory**, 디렉터리를 차례로 클릭하고, 응용 프로그램 이름을 클릭한 후 **모든 설정**, **속성**을 클릭합니다. |
@@ -114,7 +120,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
-| grant_type |필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
+| grant_type |필수 | 토큰 요청의 형식입니다. OBO 요청은 JWT 액세스 토큰을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | 어설션 |필수 | 요청에 사용된 토큰 값입니다. |
 | client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure 관리 포털에서 앱 ID를 찾으려면, **Active Directory**를 클릭하고, 디렉터리를 클릭한 후 응용 프로그램 이름을 클릭합니다. |
 | client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
@@ -201,8 +207,54 @@ GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
+## <a name="service-to-service-calls-using-a-saml-assertion-obtained-with-an-oauth20-on-behalf-of-flow"></a>OAuth2.0 On-Behalf-Of 흐름을 사용하여 얻은 SAML 어설션을 통한 서비스 간 호출
+
+일부 OAuth 기반 웹 서비스는 비 대화형 흐름에서 SAML 어설션을 수락하는 다른 웹 서비스 API에 액세스해야 합니다.  Azure Active Directory는 SAML 기반 웹 서비스와의 on-behalf-of 흐름에 대한 응답으로 SAML 어설션을 대상 리소스로 제공할 수 있습니다. 
+
+>[!NOTE] 
+>이것은 OAuth2 기반 응용 프로그램이 SAML 토큰을 사용하는 웹 서비스 API 엔드포인트에 액세스할 수 있도록 하는 OAuth 2.0 on-behalf-of 흐름에 대한 비표준 확장입니다.  
+
+>[!TIP]
+>프런트 엔드 웹 응용 프로그램에서 SAML로 보호되는 웹 서비스를 호출하는 경우 간단히 API를 호출하고 사용자 기존 세션을 사용하게 되는 일반적인 대화형 인증 흐름을 시작할 수 있습니다.  서비스 간 호출이 사용자 컨텍스트를 제공하기 위해 SAML 토큰을 요구할 경우에만 OBO 흐름 사용을 고려해야 합니다.
+
+### <a name="obtain-a-saml-token-using-an-obo-request-with-a-shared-secret"></a>공유 비밀과 함께 OBO 요청을 사용하여 SAML 토큰 가져오기
+SAML 어설션을 가져오기 위한 서비스 간 요청에는 다음 매개 변수가 포함됩니다.
+
+| 매개 변수 |  | 설명 |
+| --- | --- | --- |
+| grant_type |필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
+| 어설션 |필수 | 요청에 사용된 액세스 토큰 값입니다.|
+| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure 관리 포털에서 앱 ID를 찾으려면, **Active Directory**를 클릭하고, 디렉터리를 클릭한 후 응용 프로그램 이름을 클릭합니다. |
+| client_secret |필수 | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
+| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. SAML 토큰의 대상이 될 리소스입니다.  Azure 관리 포털에서 앱 ID URI을 찾으려면, **Active Directory**, 디렉터리를 차례로 클릭하고, 응용 프로그램 이름을 클릭한 후 **모든 설정**, **속성**을 클릭합니다. |
+| requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
+| requested_token_type | 필수 | 요청된 토큰의 형식을 지정합니다.  해당 값은 액세스되는 리소스의 요구 사항에 따라 “urn:ietf:params:oauth:token-type:saml2” 또는 “urn:ietf:params:oauth:token-type:saml1”입니다. |
+
+
+응답에는 UTF8 및 Base64url로 인코딩된 SAML 토큰이 포함됩니다. 
+
+OBO 호출에서 소싱된 SAML 어설션에 대한 SubjectConfirmationData: 대상 응용 프로그램에 SubjectConfirmationData의 받는 사람 값이 필요한 경우 리소스 응용 프로그램 구성에서 비와일드카드 회신 URL로 설정되어야 합니다.
+
+SAML 응답에 속하지 않으므로 SubjectConfirmationData 노드는 InResponseTo 특성을 포함할 수 없습니다.  SAML 토큰을 수신하는 응용 프로그램은 InResponseTo 특성 없이 SAML 어설션을 수락할 수 있어야 합니다.
+
+동의: OAuth 흐름에서 사용자 데이터를 포함하는 SAML 토큰을 수락하려면 동의가 부여되어야 합니다.  권한 및 관리자 동의 얻기에 대한 내용은 https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent를 참조하세요.
+
+### <a name="response-with-saml-assertion"></a>SAML 어설션을 사용하여 응답
+
+| 매개 변수 | 설명 |
+| --- | --- |
+| token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
+| scope |토큰에 부여된 액세스 범위입니다. |
+| expires_in |액세스 토큰이 유효한 기간(초)입니다. |
+| expires_on |액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다. |
+| resource |수신 서비스(보안 리소스)의 앱 ID URI입니다. |
+| access_token |SAML 어설션은 access_token 매개 변수에 반환됩니다. |
+| refresh_token |토큰 새로 고침. 호출 서비스는 이 토큰을 사용하여 현재 SAML 어설션이 만료된 후 다른 액세스 토큰을 요청할 수 있습니다. |
+
+token_type: Bearer expires_in:3296 ext_expires_in:0 expires_on:1529627844 resource:https://api.contoso.com access_token: <Saml assertion> issued_token_type:urn:ietf:params:oauth:token-type:saml2 refresh_token: <Refresh token>
+
 ## <a name="client-limitations"></a>클라이언트 제한 사항
-와일드카드 회신 URL이 있는 공용 클라이언트는 OBO 흐름에 대해 `id_token`을 사용할 수 없습니다. 그러나 기밀 클라이언트는 공용 클라이언트에 등록된 와일드카드 회신 URI가 있는 경우에도 암시적 권한 부여 흐름을 통해 획득한 **액세스** 토큰을 계속 회수할 수 있습니다.
+와일드카드 회신 URL이 있는 공용 클라이언트는 OBO 흐름에 대해 `id_token`을 사용할 수 없습니다. 그러나 기밀 클라이언트는 공용 클라이언트에 등록된 와일드카드 회신 URI가 있는 경우에도 암시적 권한 부여 흐름을 통해 획득한 액세스 토큰을 계속 회수할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 OAuth 2.0 프로토콜 및 클라이언트 자격 증명을 사용하여 서비스 간 인증을 수행하는 다른 방법에 대해 자세히 알아보세요.

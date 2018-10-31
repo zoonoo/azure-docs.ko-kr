@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ff96b9a63e7340788ef2474ce9934145c184e1e1
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542772"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405823"
 ---
 # <a name="date-claims-transformations"></a>날짜 클레임 변환
 
@@ -29,8 +29,8 @@ ms.locfileid: "45542772"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | 첫 번째 클레임의 유형이며, 두 번째 클레임보다 커야 합니다. |
-| inputClaim | rightOperand | string | 두 번째 클레임의 유형이며, 첫 번째 클레임보다 작아야 합니다. |
+| inputClaim | leftOperand | string | 첫 번째 클레임의 유형이며, 두 번째 클레임보다 나중에 나와야 합니다. |
+| inputClaim | rightOperand | string | 두 번째 클레임의 유형이며, 첫 번째 클레임보다 먼저 나와야 합니다. |
 | InputParameter | AssertIfEqualTo | 부울 | 왼쪽 피연산자가 오른쪽 피연산자와 같으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
 | InputParameter | AssertIfRightOperandIsNotPresent | 부울 | 오른쪽 피연산자가 없으면 이 어설션에서 전달해야 하는지 여부를 지정합니다. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | 두 날짜 /시간 사이의 시간을 동일하게 간주하도록 허용할 시간(밀리초)을 지정합니다(예: 클럭 스큐). |
@@ -138,17 +138,17 @@ ms.locfileid: "45542772"
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-한 dateTime이 다른 dateTime보다 크거나, 작거나, 같은지 확인합니다. 결과는 true 또는 false 값이 있는 새 ClaimType 부울입니다.
+한 dateTime이 다른 dateTime보다 나중인지, 이전인지 또는 같은지 확인합니다. 결과는 `true` 또는 `false` 값이 있는 새 ClaimType 부울입니다.
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | datetime | 비교할 첫 번째 dateTime입니다. null 값은 예외를 throw합니다. |
-| InputClaim | secondDateTime | datetime | 완료할 두 번째 dateTime입니다. null 값은 현재 datetTime으로 처리됩니다. |
+| InputClaim | firstDateTime | datetime | 두 번째 dateTime보다 이전인지 또는 나중인지를 비교할 첫 번째 dateTime입니다. null 값은 예외를 throw합니다. |
+| InputClaim | secondDateTime | datetime | 첫 번째 dateTime보다 이전인지 또는 나중인지를 비교할 두 번째 dateTime입니다. Null 값은 현재 datetTime로 처리됩니다. |
 | InputParameter | operator | string | same(같음), later than(보다 이후) 또는 earlier than(보다 이전) 값 중 하나입니다. |
 | InputParameter | timeSpanInSeconds | int | 첫 번째 datetime에 시간 간격을 추가합니다. |
 | OutputClaim | result | 부울 | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
-이 클레임 변환을 사용하여 두 ClaimTypes가 서로 같거나, 더 크거나, 더 작은지 확인합니다. 예를 들어 사용자가 TOS(서비스 약관)에 마지막으로 동의한 시간을 저장할 수 있습니다. 3개월 후 사용자에게 TOS에 다시 액세스하도록 요청할 수 있습니다.
+이 클레임 변환을 사용하여 두 ClaimTypes가 서로 같은지, 하나가 더 나중인지 또는 이전인지를 확인합니다. 예를 들어 사용자가 TOS(서비스 약관)에 마지막으로 동의한 시간을 저장할 수 있습니다. 3개월 후 사용자에게 TOS에 다시 액세스하도록 요청할 수 있습니다.
 클레임 변환을 실행하려면 먼저 현재 dateTime 및 사용자가 TOS에 마지막으로 동의한 시간을 가져와야 합니다.
 
 ```XML
@@ -158,7 +158,7 @@ ms.locfileid: "45542772"
     <InputClaim ClaimTypeReferenceId="extension_LastTOSAccepted" TransformationClaimType="secondDateTime" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="operator" DataType="string" Value="greater than" />
+    <InputParameter Id="operator" DataType="string" Value="later than" />
     <InputParameter Id="timeSpanInSeconds" DataType="int" Value="7776000" />
   </InputParameters>
   <OutputClaims>
@@ -173,7 +173,7 @@ ms.locfileid: "45542772"
     - **firstDateTime**: 2018-01-01T00:00:00.100000Z
     - **secondDateTime**: 2018-04-01T00:00:00.100000Z
 - 입력 매개 변수:
-    - **operator**: greater than(보다 큼)
+    - **operator**: 보다 나중
     - **timeSpanInSeconds**: 7776000(90일)
 - 출력 클레임: 
     - **result**: true

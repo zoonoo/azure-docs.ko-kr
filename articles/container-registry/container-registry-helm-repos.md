@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
-ms.openlocfilehash: f04b4015e201d272fa624b1de265792564ac14cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 140d663524696f19844fea8906b181f468b7d157
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47047035"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647011"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>응용 프로그램 차트용 Helm 리포지토리로 Azure Container Registry 사용
 
@@ -30,7 +30,7 @@ Azure Container Registry를 사용하는 경우 빌드 파이프라인 또는 �
 이 문서의 단계를 완료하려면 다음 필수 구성 요소를 갖춰야 합니다.
 
 - **Azure Container Registry** - Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
-- **Helm 클라이언트** - 차트를 검색하고 설치하는 데 사용됩니다. Kubernetes 클러스터 내에서 Helm 서버(Tiller)도 초기화해야 합니다. 필요한 경우 [Azure Kubernetes Service 클러스터 만들기][aks-quickstart]를 수행할 수 있습니다. Helm을 설치하고 사용하는 방법에 대한 자세한 내용은 [Helm 설치][helm-install]를 참조하세요.
+- **Helm 클라이언트 버전 2.11.0(RC 버전 아님) 이상** - `helm version`을 실행하여 현재 버전을 찾습니다. Kubernetes 클러스터 내에서 Helm 서버(Tiller)도 초기화해야 합니다. 필요한 경우 [Azure Kubernetes Service 클러스터 만들기][aks-quickstart]를 수행할 수 있습니다. Helm을 설치하고 업그레이드하는 방법에 대한 자세한 내용은 [Helm 설치][helm-install]를 참조하세요.
 - **Azure CLI 버전 2.0.46 이상** - `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="add-a-repository-to-helm-client"></a>Helm 클라이언트에 리포지토리 추가

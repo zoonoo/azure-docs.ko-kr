@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 6df7d42bc291713a815cac9f719f53136ed35b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956676"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638001"
 ---
-## <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해
 AKS(Azure Kubernetes Service) 클러스터의 성능은 컨테이너용 Azure Monitor를 사용하여 두 가지 관점에서 관찰할 수 있습니다. 즉, AKS 클러스터에서 직접 볼 수도 있고 Azure Monitor에서 구독의 모든 AKS 클러스터를 볼 수도 있습니다. 
 
 이 문서는 이러한 두 관점을 이해하고 검색된 문제를 신속하게 평가, 조사 및 해결하는 데 도움이 됩니다.
@@ -109,6 +109,10 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 
 ![성능 보기의 Kubernetes 노드 계층 예제](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
+펼친 노드의 노드에서 실행되는 Pod 또는 컨테이너에서 컨트롤러로 드릴다운하여 해당 컨트롤러에 대해 필터링된 성능 데이터를 볼 수 있습니다. 특정 노드에 대한 **컨트롤러** 열 아래의 값을 클릭합니다.   
+
+![성능 보기에서 보여 주는 노드에서 컨트롤러로의 드릴다운 예제](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+
 페이지의 위쪽에서 컨트롤러 또는 컨테이너를 선택하고, 해당 개체에 대한 상태 및 리소스 사용률을 검토할 수 있습니다.  대신, 메모리 사용률을 검토하려면 **메트릭** 드롭다운 목록에서 **메모리 RSS** 또는 **메모리 작업 집합**을 선택합니다. **메모리 RSS**는 Kubernetes 버전 1.8 이상에서만 지원됩니다. 그렇지 않으면 **Min&nbsp;%** 에 대한 값이 *NaN&nbsp;%* 로 표시됩니다. 이것은 정의되지 않았거나 표현할 수 없는 값을 나타내는 숫자 데이터 형식 값입니다. 
 
 ![컨테이너 노드 성능 보기](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
@@ -144,7 +148,9 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 
 ![<Name> 컨트롤러 성능 보기](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-행 계층 구조는 컨트롤러로 시작하고 컨트롤러를 확장하며 하나 이상의 컨테이너가 표시됩니다. Pod를 확장하면 마지막 행에 Pod로 그룹화된 컨테이너가 표시됩니다.  
+행 계층 구조는 컨트롤러로 시작하고, 컨트롤러를 펼치면 하나 이상의 Pod가 표시됩니다.  Pod를 펼치면 마지막 행에 Pod로 그룹화된 컨테이너가 표시됩니다. 펼친 컨트롤러에서 실행되는 노드로 드릴다운하여 해당 노드에 대해 필터링된 성능 데이터를 볼 수 있습니다. 특정 컨트롤러에 대한 **노드** 열 아래의 값을 클릭합니다.   
+
+![성능 보기에서 보여 주는 노드에서 컨트롤러로의 드릴다운 예제](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 컨트롤러를 볼 때 표시되는 정보는 다음 표에 설명되어 있습니다.
 
@@ -178,6 +184,10 @@ Azure Monitor는 구독의 리소스 그룹에 배포된 모든 모니터링되�
 여기서 Azure Kubernetes 컨테이너의 성능 상태를 볼 수 있습니다.  
 
 ![<Name> 컨트롤러 성능 보기](./media/monitoring-container-insights-analyze/containers-containers-view.png)
+
+컨테이너에서 Pod 또는 노드로 드릴다운하여 해당 개체에 대해 필터링된 성능 데이터를 볼 수 있습니다. 특정 컨테이너에 대한 **Pod** 또는 **노드** 열 아래의 값을 클릭합니다.   
+
+![성능 보기에서 보여 주는 노드에서 컨트롤러로의 드릴다운 예제](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 컨테이너를 볼 때 표시되는 정보는 다음 표에 설명되어 있습니다.
 

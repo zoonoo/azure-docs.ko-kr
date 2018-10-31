@@ -2,20 +2,20 @@
 title: 지속성 함수의 오류 처리 - Azure
 description: Azure Functions의 지속성 함수 확장에서 오류를 처리하는 방법을 알아봅니다.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377908"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984131"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>지속성 함수의 오류 처리(Azure Functions)
 
@@ -26,6 +26,8 @@ ms.locfileid: "44377908"
 작업 함수에서 throw되는 모든 예외는 오케스트레이터 함수에 다시 마샬링되고 `FunctionFailedException`으로 throw됩니다. 오케스트레이터 함수에서 요구 사항에 적합한 오류 처리 및 보정 코드를 작성할 수 있습니다.
 
 예를 들어 한 계정에서 다른 계정으로 자금을 이체하는 다음 오케스트레이터 함수를 살펴보세요.
+
+#### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -64,11 +66,49 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const transferDetails = context.df.getInput();
+
+    yield context.df.callActivity("DebitAccount",
+        {
+            account = transferDetails.sourceAccount,
+            amount = transferDetails.amount,
+        }
+    );
+
+    try {
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.destinationAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+    catch (error) {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.sourceAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+});
+```
+
 대상 계정에 대해 **CreditAccount** 함수를 호출하지 못하면 오케스트레이터 함수는 자금을 원본 계정에 다시 입금하여 보정합니다.
 
 ## <a name="automatic-retry-on-failure"></a>실패 시 자동 다시 시도
 
 작업 함수 또는 하위 오케스트레이션 함수를 호출할 때 자동으로 다시 시도하는 정책을 지정할 수 있습니다. 다음 예제에서는 함수를 최대 3회 호출하려고 하고 각각의 다시 시도 간에 5초 동안 기다립니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -83,7 +123,21 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-`CallActivityWithRetryAsync` API는 `RetryOptions` 매개 변수를 사용합니다. `CallSubOrchestratorWithRetryAsync` API를 사용하는 하위 오케스트레이션 호출은 이처럼 동일한 다시 시도 정책을 사용할 수 있습니다.
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const retryOptions = new df.RetryOptions(5000, 3);
+    
+    yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
+
+    // ...
+});
+```
+
+`CallActivityWithRetryAsync`(C#) 또는 `callActivityWithRetry`(JS) API는 `RetryOptions` 매개 변수를 사용합니다. `CallSubOrchestratorWithRetryAsync`(C#) 또는 `callSubOrchestratorWithRetry`(JS) API를 사용하는 하위 오케스트레이션 호출은 이처럼 동일한 다시 시도 정책을 사용할 수 있습니다.
 
 자동 다시 시도 정책을 사용자 지정하기 위한 몇 가지 옵션이 있습니다. 이러한 옵션은 다음과 같습니다.
 
@@ -97,6 +151,8 @@ public static async Task Run(DurableOrchestrationContext context)
 ## <a name="function-timeouts"></a>함수 시간 제한
 
 오케스트레이터 함수가 완료되는 데 시간이 너무 오래 걸리는 경우 함수 호출을 중단할 수도 있습니다. 현재 이 작업을 제대로 수행하는 방법은 다음 예제와 같이 `context.CreateTimer`와 `Task.WhenAny`를 함께 사용하여 [지속성 타이머](durable-functions-timers.md)를 만드는 것입니다.
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -123,6 +179,30 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
         }
     }
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
+
+    const activityTask = context.df.callActivity("FlakyFunction");
+    const timeoutTask = context.df.createTimer(deadline.toDate());
+
+    const winner = yield context.df.Task.any([activityTask, timeoutTask]);
+    if (winner === activityTask) {
+        // success case
+        timeoutTask.cancel();
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
+});
 ```
 
 > [!NOTE]
