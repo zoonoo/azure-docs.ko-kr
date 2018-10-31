@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465812"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986426"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
 
@@ -113,7 +113,12 @@ App Service를 선택하면 Azure Monitor 통합 문서 템플릿 갤러리가 �
 ## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="enabling-access-to-alerts"></a>경고 액세스 사용
-리소스 그룹용 Azure Monitor에는 리소스 그룹의 리소스 경고 상태에 액세스하기 위한 특정 권한이 필요합니다. 경고를 로드할 때 오류 메시지가 표시되면 권한이 없는 것입니다. 이러한 경우 리소스 그룹이 포함된 구독에 대한 **소유자** 또는 **참가자** 역할을 부여해 줄 것을 관리자에게 요청하세요.
+
+Azure Monitor for Resource Groups에서 경고를 보려면 이 구독에 대한 소유자 또는 기여자 역할이 할당된 누군가가 구독에 속한 리소스 그룹에 대해 Azure Monitor for Resource Groups를 열어야 합니다. 이렇게 하면 읽기 권한이 있는 모든 사람이 Azure Monitor for Resource Groups에서 구독의 모든 리소스 그룹에 대한 경고를 볼 수 있습니다. 소유자 또는 기여자 역할이 할당된 사용자는 몇 분 후 이 페이지를 새로 고치세요.
+
+Azure Monitor for Resource Groups는 Azure Monitor 경고 관리 시스템을 사용하여 경고 상태를 검색합니다. 경고 관리는 기본적으로 일부 리소스 그룹 및 구독에 대해서만 구성되며, 소유자 또는 기여자 역할이 할당된 사용자만 설정할 수 있습니다. 다음 방법으로 설정할 수 있습니다.
+* 구독 내 아무 리소스 그룹에 대해 Azure Monitor for Resource Groups를 엽니다.
+* 또는 구독으로 이동하고 **리소스 공급자**를 클릭한 다음, **Alerts.Management 등록**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

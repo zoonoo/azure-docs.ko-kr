@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 4b13d2d277721d37a6b96f6640377c875f0b5c0f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b22d18408d040d564d6220e74e8b8a893fe41ae9
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161581"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646248"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 재해 복구
 고가용성 전달의 중요한 부분은 서비스가 다른 모든 유형의 오류를 감당할 수 있는지 확인하는 것입니다. 계획되지 않으며 사용자 통제 하에 있지 않은 오류의 경우 특히 이러한 과정이 중요합니다. 이 문서에서는 올바르게 모델링 및 관리되지 않는 경우 재해가 될 수 있는 몇 가지 일반적인 오류 모드에 대해 설명합니다. 또한 재해가 발생할 경우 수행할 완화 및 작업에 대해서도 설명합니다. 목표는 계획 여부에 관계없이 오류가 발생할 때 가동 중지 시간 또는 데이터 손실의 위험을 없애거나 제한하는 것입니다.
@@ -133,7 +133,7 @@ Service Fabric의 목표는 오류를 거의 항상 자동으로 관리하는 �
 ### <a name="random-failures-leading-to-cluster-failures"></a>클러스터 오류로 발전하는 임의 오류
 Service Fabric에는 시드 노드라는 개념이 있습니다. 이러한 노드는 기본 클러스터의 가용성을 유지 관리하는 노드입니다. 이러한 노드는 다른 노드와 임대 관계를 설정하고 특정 종류의 네트워크 오류 중에 결정적인 요인으로 작용하여 클러스터를 계속 작동시키는 데 도움을 줍니다. 임의 오류로 인해 클러스터의 시드 노드 과반수가 제거된 후 복구되지 않으면 클러스터는 자동으로 종료됩니다. Azure에서 시드 노드는 자동으로 관리됩니다. 이러한 노드는 사용 가능한 장애 및 업그레이드 도메인을 통해 분산되며, 단일 시드 노드가 클러스터에서 제거되면 해당 위치에 다른 시드 노드가 생성됩니다. 
 
-독립 실행형 Service Fabric 클러스터 및 Azure 둘 다에서 "주 노드 유형"은 시드를 실행하는 노드입니다. 주 노드 유형을 정의할 때 Service Fabric은 각 시스템 서비스에 대해 최대 9개의 시드 노드와 9개의 복제본을 만들어 제공되는 노드 수를 자동으로 활용합니다. 해당 시스템 서비스 복제본의 과반수에서 임의 오류가 동시에 발생할 경우 시스템 서비스는 위에 설명된 것처럼 쿼럼 손실 상태가 됩니다. 시드 노드 과반수가 손실되면 클러스터는 즉시 종료됩니다.
+독립 실행형 Service Fabric 클러스터 및 Azure 둘 다에서 "주 노드 유형"은 시드를 실행하는 노드입니다. 주 노드 유형을 정의할 때 Service Fabric은 각 시스템 서비스에 대해 최대 9개의 시드 노드와 7개의 복제본을 만들어 제공되는 노드 수를 자동으로 활용합니다. 해당 시스템 서비스 복제본의 과반수에서 임의 오류가 동시에 발생할 경우 시스템 서비스는 위에 설명된 것처럼 쿼럼 손실 상태가 됩니다. 시드 노드 과반수가 손실되면 클러스터는 즉시 종료됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [테스트 용이성 프레임워크](service-fabric-testability-overview.md)

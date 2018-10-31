@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419307"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958431"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -246,7 +246,7 @@ REST API 및 PowerShell cmdlet을 사용하여 ExpressRoute 회로의 대역폭�
 ExpressRoute Premium은 다음 기능의 모음입니다.
 
 * 증가된 라우팅 테이블은 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
-* ExpressRoute 회로에 연결할 수 있는 VNets 수가 증가합니다(기본값은 10). 자세한 내용은 [ExpressRoute 제한](#limits) 표를 참조하세요.
+* ExpressRoute 회로에서 사용할 수 있는 VNet 및 ExpressRoute Global Reach 연결 수가 증가했습니다(기본값은 10). 자세한 내용은 [ExpressRoute 제한](#limits) 표를 참조하세요.
 * Office 365 및 Dynamics 365에 연결합니다.
 * Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 한 지리적 지역의 VNet을 다른 지역의 ExpressRoute 회로와 연결할 수 있습니다.<br>
     **예제:**
@@ -255,13 +255,13 @@ ExpressRoute Premium은 다음 기능의 모음입니다.
     *  Microsoft 피어링에서는 실리콘밸리의 회로에서 유럽 서부의 SQL Azure에 연결할 수 있는 것처럼 다른 지리적 지역의 접두사가 보급됩니다.
 
 
-### <a name="limits"></a>ExpressRoute Premium을 사용하는 경우 ExpressRoute 회로에 연결할 수 있는 VNet의 수는 어떻게 되나요?
+### <a name="limits"></a>ExpressRoute 프리미엄을 사용하면 ExpressRoute 회로에서 VNet 및 ExpressRoute Global Reach 연결을 몇 개나 설정할 수 있나요?
 
-아래 표에서는 ExpressRoute 제한 및 ExpressRoute 회로당 VNet 수를 보여 줍니다.
+다음 표는 ExpressRoute 회로당 허용되는 ExpressRoute 한도와 VNet 및 ExpressRoute Global Reach 연결 수를 보여줍니다.
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 
-### <a name="how-do-i-enable-expressroute-premium"></a>ExpressRoute Premium을 사용하려면 어떻게 하나요?
+### <a name="how-do-i-enable-expressroute-premium"></a>ExpressRoute 프리미엄을 사용하려면 어떻게 하나요?
 
 ExpressRoute Premium 기능은 사용하도록 설정되면 활성화할 수 있으며, 회로 상태를 업데이트하여 종료할 수 있습니다. ExpressRoute Premium은 회로를 만들 때 또는 REST API/PowerShell cmdlet을 호출하여 사용하도록 설정할 수 있습니다.
 

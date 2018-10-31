@@ -8,25 +8,25 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/21/2018
+ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c4dafa5b15548b3dbc02a9c093232197b3f1400
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716556"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023954"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -42,6 +42,14 @@ ms.locfileid: "44716556"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* 다중 마스터 계정 및 새 세션 토큰 형식에 대한 고정 추정기 계산입니다.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* 분할된 임대 컬렉션에 대한 지원이 추가되었습니다. 파티션 키는 /id로 정의되어야 합니다.
+* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient는 변경 피드 프로세서와 함께 사용하여 문서 클라이언트의 사용자 지정 구현을 제공할 수 있는 고급 확장성 지점입니다(예: DocumentClient를 데코레이트하고 그에 대한 모든 호출을 가로채서 추가 추적, 오류 처리 등을 수행). 이 업데이트를 사용하면 새 매개 변수를 구현에 포함하도록 IChangeFeedDocumentClient를 구현하는 코드를 변경해야 합니다.
+* 사소한 진단 개선 사항입니다.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * 새 API인 Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync()를 추가했습니다. 각 파티션에 대해 예상되는 작업을 구하는 데 사용할 수 있습니다.
@@ -134,6 +142,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |2018년 10월 24일 |--- |
 | [1.3.3](#1.3.3) |2018년 5월 8일 |--- |
 | [1.3.2](#1.3.2) |2018년 4월 18일 |--- |
 | [1.3.1](#1.3.1) |2018년 3월 13일 |--- |

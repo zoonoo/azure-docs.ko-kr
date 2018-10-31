@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/07/2018
+ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: e1884048d0f02de1b3a354bc4dac2b3e98dcccc9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412860"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024422"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine 직렬 콘솔
 
@@ -28,7 +28,7 @@ Azure의 가상 머신 직렬 콘솔은 Windows 가상 머신용 텍스트 기�
 
 Linux VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](serial-console-linux.md)하세요.
 
-> [!Note] 
+> [!NOTE] 
 > 가상 머신용 직렬 콘솔은 일반적으로 글로벌 Azure 지역에서 사용할 수 있습니다. 아직 Azure Government 또는 Azure 중국 클라우드에서는 직렬 콘솔을 사용할 수 없습니다.
 
  
@@ -51,8 +51,7 @@ Linux VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](seria
   1. Azure 포털 열기
   2. 왼쪽 메뉴에서 가상 머신을 선택합니다.
   3. 목록에서 VM을 클릭합니다. VM에 대한 개요 페이지가 열립니다.
-  4. 지원 및 문제 해결 섹션까지 아래로 스크롤하여 “직렬 콘솔” 옵션을 클릭합니다. 직렬 콘솔이 있는 새 창이 열리고 연결이 시작됩니다.
-
+  4. 지원 및 문제 해결 섹션까지 아래로 스크롤하여 "직렬 콘솔" 옵션을 클릭합니다. 직렬 콘솔이 있는 새 창이 열리고 연결이 시작됩니다.
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용
 Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx))가 사용되도록 설정되어 있습니다. SAC는 서버 버전의 Windows에서 지원되지만, 클라이언트 버전(예: Windows 10, Windows 8 또는 Windows 7)에서는 사용할 수 없습니다. 2018년 2월 이전에 만든 Windows 가상 머신용 직렬 콘솔을 사용하도록 설정하려면 다음 단계를 사용하세요. 
@@ -74,7 +73,7 @@ Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Admi
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>SAC이 사용되도록 설정되어 있는지를 확인하는 방법
 
-[SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx)이 사용되도록 설정되어 있지 않으면 직렬 콘솔에 SAC 프롬프트가 표시되지 않습니다. VM 상태 정보가 표시될 때도 있고 비어 있을 때도 있습니다. 2018년 2월 이전에 만든 Windows Server 이미지를 사용하는 경우 SAC가 사용되도록 설정될 가능성이 없습니다.
+[SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx)이 사용되도록 설정되어 있지 않으면 직렬 콘솔에 SAC 프롬프트가 표시되지 않습니다. VM 상태 정보가 표시될 때도 있고 비어 있을 때도 있습니다. 2018년 2월 이전에 만든 Windows Server 이미지를 사용하는 경우 SAC가 사용되도록 설정될 가능성이 적습니다.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>직렬 콘솔에서 Windows 부팅 메뉴 사용 
 
@@ -83,24 +82,42 @@ Windows 부팅 로더 프롬프트를 사용하도록 설정하여 직렬 콘솔
 1. 원격 데스크톱을 통해 Windows 가상 머신에 연결
 2. 관리자 명령 프롬프트에서 다음 명령 실행 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. 시스템을 다시 부팅하여 부팅 메뉴를 사용하도록 설정
+
+> [!NOTE] 
+> 부팅 관리자 메뉴가 나타나도록 설정된 시간 제한은 나중에 OS 부팅 시간에 영향을 줍니다. 직렬 콘솔을 통해 부팅 관리자를 볼 수 있도록 10초 시간 제한을 추가하는 것을 수락하는 분들도 있고, 시간 제한을 더 짧게 또는 더 길게 하려는 분들도 있을 것입니다. 시간 제한 값을 원하는 값으로 설정하세요.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Windows VM에서 NMI 호출에 대해 직렬 콘솔 사용
 NMI(마스크 불가능 인터럽트)는 가상 머신에 있는 소프트웨어가 무시하는 신호를 만들도록 설계되었습니다. 지금까지 NMI는 특정 응답 시간이 필요한 시스템에서 하드웨어 문제를 모니터링하는 데 사용되었습니다.  현재, 프로그래머 및 시스템 관리자는 종종 중지된 시스템을 디버그하거나 문제를 해결하기 위한 메커니즘으로 NMI를 사용합니다.
 
-아래 표시된 명령줄에서 키보드 아이콘을 사용하여 NMI를 Azure Virtual Machine에 전송하는 데 직렬 콘솔을 사용할 수 있습니다. NMI가 전달되면 가상 머신 구성이 시스템의 응답을 제어하게 됩니다. NMI를 받는 경우 메모리 덤프의 작동을 중단하고 메모리 덤프를 만들도록 Windows를 구성할 수 있습니다.
+아래 표시된 명령줄에서 키보드 아이콘을 사용하여 NMI를 Azure 가상 머신에 전송하는 데 직렬 콘솔을 사용할 수 있습니다. NMI가 전달되면 가상 머신 구성이 시스템의 응답을 제어하게 됩니다. NMI를 받는 경우 메모리 덤프의 작동을 중단하고 메모리 덤프를 만들도록 Windows를 구성할 수 있습니다.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 
 NMI를 받을 때 크래시 덤프를 만들도록 Windows 구성에 대한 정보는 [Windows 기반 시스템에서 NMI를 사용하여 전체 크래시 덤프 파일 또는 커널 크래시 덤프 파일을 생성하는 방법](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)을 참조하세요.
 
+## <a name="open-cmd-or-powershell-in-serial-console"></a>직렬 콘솔에서 CMD 또는 Powershell 열기
+
+1. 직렬 콘솔에 연결합니다. 직렬 콘솔에 성공적으로 연결하면 다음 스크린샷처럼 **SAC>** 이 보입니다.
+
+    ![SAC에 연결](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.  `cmd`를 입력하여 CMD 인스턴스가 있는 채널을 만듭니다. 
+4.  `ch -si 1`을 입력하여 CMD 인스턴스를 실행하는 채널로 전환합니다. 
+5.  Enter 키를 누른 다음, 관리 권한이 있는 로그인 자격 증명을 입력합니다.
+6.  유효한 자격 증명을 입력하면 CMD 인스턴스가 열립니다.
+7.  PowerShell 인스턴스를 시작하려면 CMD 인스턴스에서 `PowerShell`을 입력하고 Enter 키를 누릅니다. 
+
+    ![PowerShell 인스턴스 열기](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
+
 ## <a name="disable-serial-console"></a>직렬 콘솔 비활성화
 기본적으로 모든 구독에는 모든 VM에 대한 직렬 콘솔 액세스가 활성화되어 있습니다. 구독 수준 또는 VM 수준에서 직렬 콘솔을 비활성화할 수 있습니다.
 
-> [!Note]       
-> 직렬 콘솔을 사용을 사용하거나 사용하지 않도록 설정하려면 구독에 대한 쓰기 권한이 있어야 합니다. 이 권한에는 관리자 또는 소유자 역할이 포함되지만 이에 국한되지 않습니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
+> [!NOTE]       
+> 직렬 콘솔을 사용하거나 사용하지 않도록 설정하기 위해 구독에 대한 쓰기 권한이 있어야 합니다. 여기에는 관리자 또는 소유자 역할이 포함되지만 이에 국한되지 않습니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
 
 ### <a name="subscription-level-disable"></a>구독 수준에서 비활성화
 [콘솔 REST API 호출 비활성화](https://aka.ms/disableserialconsoleapi)를 통해 전체 구독의 직렬 콘솔을 비활성화할 수 있습니다. API 설명서 페이지에 있는 "사용해 보기" 기능을 사용하여 구독의 직렬 콘솔을 비활성화하거나 활성화할 수 있습니다. `default` 필드에 `subscriptionId`, "default"를 입력하고 실행을 클릭하세요. Azure CLI 명령은 아직 사용할 수 없으며 나중에 제공될 예정입니다. [여기에서 REST API 호출을 사용해 보세요](https://aka.ms/disableserialconsoleapi).
@@ -189,29 +206,29 @@ VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 
 Windows VM에 연결할 때 상태 정보만 표시됩니다.| Windows 이미지에 Special Administrative Console을 사용하도록 설정하지 않은 경우 이런 정보가 표시됩니다. Windows VM에서 SAC를 수동으로 활성화하는 방법에 대한 정보는 [Windows의 직렬 콘솔에 액세스](#access-serial-console-for-windows)를 참조하세요. 자세한 내용은 [Windows 상태 신호](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)를 참조하세요.
 
 ## <a name="known-issues"></a>알려진 문제 
-직렬 콘솔을 통해 몇 가지 문제를 인식하고 있습니다. 이러한 문제 및 해결 방법 단계 목록은 다음과 같습니다.
+직렬 콘솔을 통해 몇 가지 문제를 인식하고 있습니다. 이러한 문제 목록 및 완화 단계는 다음과 같습니다.
 
 문제                             |   해결 방법 
 :---------------------------------|:--------------------------------------------|
-연결 배너가 표시된 후 Enter를 눌러도 로그인 프롬프트가 표시되지 않습니다. | [Enter를 누르면 아무 작업도 수행되지 않습니다.](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) 페이지를 참조하세요. 이런 문제는 Windows가 직렬 포트에 제대로 연결하지 못하게 하는 사용자 지정 VM, 강화된 어플라이언스 또는 GRUB 구성을 실행하는 경우 발생할 수 있습니다.
+연결 배너가 표시된 후 Enter를 눌러도 로그인 프롬프트가 표시되지 않습니다. | [Enter를 누르면 아무 작업도 수행되지 않습니다.](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) 페이지를 참조하세요. 이 문제는 Windows가 직렬 포트에 올바르게 연결하지 못하게 하는 사용자 지정 VM, 강화된 어플라이언스 또는 부팅 구성을 실행하는 경우에 발생할 수 있습니다. Windows 10 클라이언트 VM을 실행하는 경우에도 발생합니다. Windows Server VM만 EMS를 사용하도록 설정되었기 때문입니다.
 커널 디버깅을 사용할 수 있으면 SAC 프롬프트에 입력할 수 없음 | VM에 RDP하고 관리자 권한 명령 프롬프트에서 `bcdedit /debug {current} off`을 실행합니다. RDP할 수 없는 경우 대신 `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`을 이용하여 데이터 디스크로 연결하는 동안 다른 Azure VM에 OS 디스크를 연결하고 수정한 다음, 다시 디스크를 교체합니다.
 원래 콘텐츠에 반복 문자가 있는 경우 세 번째 문자로 SAC 결과에 PowerShell로 붙여넣기 | 해결 방법은 현재 세션에서 PSReadLine 모듈을 언로드하는 것입니다. `Remove-Module PSReadLine`을 실행하여 현재 세션에서 PSReadLine 모듈을 언로드하면 해당 모듈을 삭제하거나 제거합니다.
 일부 키보드 입력은 이상한 SAC 출력을 생성합니다(예: `[A`, `[3~`). | [VT100](https://aka.ms/vtsequences) 이스케이프 시퀀스는 SAC 프롬프트에서 지원되지 않습니다.
-매우 긴 문자열은 붙여넣기가 작동하지 않음 | 직렬 콘솔은 터미널에 붙여넣는 문자열의 길이를 2048자로 제한합니다. 이 제한은 직렬 포트 대역폭의 과부하를 방지하기 위함입니다.
+매우 긴 문자열은 붙여넣기가 작동하지 않습니다. | 직렬 콘솔은 터미널에 붙여넣는 문자열의 길이를 2048자로 제한합니다. 이 제한은 직렬 포트 대역폭의 과부하를 방지하기 위한 것입니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답 
 
 **Q. 피드백을 보내려면 어떻게 해야 하나요?**
 
-a. 으로 이동하여 피드백을 제공해 주세요 https://aka.ms/serialconsolefeedback. 또는(대안으로) azserialhelp@microsoft.com을 통해 또는 http://feedback.azure.com의 가상 머신 범주에 피드백을 보냄
+a. 으로 이동하여 피드백을 제공해 주세요 https://aka.ms/serialconsolefeedback. 또는 (대안으로) azserialhelp@microsoft.com을 통해 또는 http://feedback.azure.com의 가상 머신 범주에 피드백을 보내세요.
 
 **Q. 직렬 콘솔이 복사/붙여넣기를 지원하나요?**
 
-a. 예 지원합니다. Ctrl + Shift + C and Ctrl + Shift + V를 사용하여 터미널에 복사하고 붙여넣습니다.
+a. 예, 지원합니다. Ctrl + Shift + C 및 Ctrl + Shift + V를 사용하여 복사하고 터미널에 붙여넣습니다.
 
-**Q. 내 구독에 대한 직렬 콘솔을 사용하거나 사용하지 않도록 설정할 수 있나요?**
+**Q. 내 구독에 직렬 콘솔을 사용하거나 사용하지 않도록 설정할 수 있나요?**
 
-a. 전체 구독 수준에서 직렬 콘솔을 사용을 사용하거나 사용하지 않도록 설정하려면 구독에 대한 쓰기 권한이 있어야 합니다. 쓰기 권한이 있는 역할에는 관리자 또는 소유자 역할이 포함되지만 이에 국한되지 않습니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
+a. 전체 구독 수준에서 직렬 콘솔을 사용하거나 사용하지 않도록 설정하기 위해 구독에 대한 쓰기 권한이 있어야 합니다. 쓰기 권한이 있는 역할에는 관리자 또는 소유자 역할이 포함되지만 이에 국한되지 않습니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
 
 **Q. 내 VM의 직렬 콘솔에 액세스할 수 있나요?**
 
@@ -219,7 +236,7 @@ a. VM의 직렬 콘솔에 액세스하려면 VM에 대한 기여자 수준 이�
 
 **Q. 내 직렬 콘솔에 아무 것도 표시되지 않으면 어떻게 하나요?**
 
-a. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성됐습니다. 직렬 콘솔을 사용하도록 설정하기 위해 사용자 이미지를 구성하는 방법에 대한 자세한 내용은 [사용자 지정 또는 이전 이미지에서 직렬 콘솔을 사용하도록 설정](#Enable-Serial-Console-in-custom-or-older-images)을 참조하세요.
+a. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성되었습니다. 직렬 콘솔을 사용하도록 설정하기 위해 사용자 이미지를 구성하는 방법에 대한 자세한 내용은 [사용자 지정 또는 이전 이미지에서 직렬 콘솔을 사용하도록 설정](#enable-serial-console-in-custom-or-older-images)을 참조하세요.
 
 **Q. Virtual Machine Scale Sets에 대해 직렬 콘솔을 사용할 수 있나요?**
 

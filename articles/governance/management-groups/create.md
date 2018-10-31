@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2018
+ms.date: 10/10/2018
 ms.author: rithorn
-ms.openlocfilehash: c2d4317bcbf70a0cebf6ab1915968eeb9ef8b4c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6a45ffa13ead40b72fd1a0a3c2696a6e6829a4d5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992629"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956411"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 
@@ -48,7 +48,7 @@ ms.locfileid: "46992629"
 
 ### <a name="create-in-powershell"></a>PowerShell에서 열기
 
-PowerShell 내에서 Add-AzureRmManagementGroups cmdlet을 사용합니다.
+PowerShell 내에서 New-AzureRmManagementGroup cmdlet을 사용합니다.
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroup -GroupName 'Contoso'
@@ -69,12 +69,12 @@ New-AzureRmManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -Pa
 Azure CLI에서 az account management-group create 명령을 사용합니다.
 
 ```azurecli-interactive
-az account management-group create --group-name 'Contoso'
+az account management-group create --name 'Contoso'
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-관리 솔루션에 대해 자세히 알아보려면 다음을 참조하세요.
+관리 그룹에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
 - [Azure 관리 그룹으로 리소스 구성](overview.md)
 - [관리 그룹을 변경, 삭제 또는 관리하는 방법](manage.md)

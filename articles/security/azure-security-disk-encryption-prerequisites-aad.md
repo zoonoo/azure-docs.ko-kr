@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 6d08dbe1976363be414597401d7a4efbae82c9b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 10/12/2018
+ms.openlocfilehash: 54aef992e95454387ee2fda1d1b34d6dcae3e21e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498439"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959114"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 
@@ -49,11 +49,23 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 
 ## <a name="bkmk_GPO"></a> 네트워킹 및 그룹 정책
 
-**Azure Disk Encryption 기능을 사용하도록 설정하려면 IaaS VM에서 다음 네트워크 엔드포인트 구성 요구 사항을 충족해야 합니다.**
+**기존 AAD 매개 변수 구문을 사용하여 Azure Disk Encryption 기능을 사용하도록 설정하려면 IaaS VM이 다음 네트워크 엔드포인트 구성 요구 사항을 충족해야 합니다.** 
   - Key Vault에 연결할 토큰을 얻으려면 IaaS VM에서 Azure Active Directory 엔드포인트인 \[login.microsoftonline.com\]에 연결할 수 있어야 합니다.
   - 암호화 키를 고객 Key Vault에 쓰려면 IaaS VM에서 Key Vault 엔드포인트에 연결할 수 있어야 합니다.
   - IaaS VM은 Azure 확장 리포지토리를 호스팅하는 Azure Storage 엔드포인트 및 VHD 파일을 호스팅하는 Azure Storage 계정에 연결할 수 있어야 합니다.
-  -  보안 정책이 Azure VM에서 인터넷으로 액세스를 제한하는 경우 이전 URI를 확인하고 IP에 대한 아웃바운드 연결을 허용하도록 특정 규칙을 구성할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md)를 참조하세요.    
+  -  보안 정책이 Azure VM에서 인터넷으로 액세스를 제한하는 경우 이전 URI를 확인하고 IP에 대한 아웃바운드 연결을 허용하도록 특정 규칙을 구성할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md)를 참조하세요.
+  - Windows에서 TLS 1.0이 명시적으로 비활성화되고 .NET 버전이 4.6 이상으로 업데이트되지 않은 경우 다음과 같이 레지스트리 변경 시 ADE가 최신 TLS 버전을 선택하도록 설정됩니다.
+    
+        [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+        "SystemDefaultTlsVersions"=dword:00000001
+        "SchUseStrongCrypto"=dword:00000001
+
+        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+        "SystemDefaultTlsVersions"=dword:00000001
+        "SchUseStrongCrypto"=dword:00000001` 
+     
+
+ 
 
 
 **그룹 정책:**
@@ -65,7 +77,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 ## <a name="bkmk_PSH"></a> Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview)은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 모델을 사용하는 cmdlet 집합을 제공합니다. 브라우저에서 [Azure Cloud Shell](../cloud-shell/overview.md)을 통해 사용하거나 아래 지침에 따라 로컬 머신에 설치하여 PowerShell 세션에서 사용할 수 있습니다. 이미 로컬에 설치되어있는 경우 최신 버전의 Azure PowerShell SDK 버전을 사용하여 Azure Disk Encryption을 구성해야 합니다. 최신 버전의 [Azure PowerShell 릴리스](https://github.com/Azure/azure-powershell/releases)를 다운로드합니다.
 
-### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>로컬 머신에서 사용할 Azure PowerShell 설치(선택 사항): 
+### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>로컬 머신에서 사용할 Azure PowerShell 설치(선택 사항):  
 1. 운영 체제에 대한 링크의 지침을 수행한 다음, 아래의 나머지 단계를 계속 진행합니다.      
     - [Windows용 Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps). 
         - PowerShellGet, Azure PowerShell을 설치하고 AzureRM 모듈을 로드합니다. 
@@ -230,12 +242,12 @@ Azure에서 실행 중인 VM에서 암호화를 사용하도록 설정해야 하
 3.  반환된 appId는 다른 명령에 사용되는 Azure AD ClientID이며, az keyvault set-policy에 사용할 SPN이기도 합니다. 암호는 나중에 Azure Disk Encryption을 사용하도록 설정하는 데 사용해야 하는 클라이언트 비밀입니다. Azure AD 클라이언트 비밀을 적절하게 보호합니다.
  
 ### <a name="bkmk_ADappRM"></a> Azure Portal을 통해 Azure AD 응용 프로그램 및 서비스 주체 설정
-[포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md) 문서의 단계를 사용하여 Azure AD 응용 프로그램을 만듭니다. 아래에 나열된 각 단계는 수행할 문서 섹션으로 바로 이동합니다. 
+[포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md) 문서의 단계를 사용하여 Azure AD 응용 프로그램을 만듭니다. 아래에 나열된 각 단계는 수행할 문서 섹션으로 바로 이동합니다. 
 
-1. [필요한 권한 확인](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)
-2. [Azure Active Directory 응용 프로그램 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) 
+1. [필요한 권한 확인](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
+2. [Azure Active Directory 응용 프로그램 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - 응용 프로그램을 만들 때 원하는 이름과 로그온 URL을 사용할 수 있습니다.
-3. [응용 프로그램 ID 및 인증 키 가져오기](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) 
+3. [응용 프로그램 ID 및 인증 키 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) 
      - 인증 키는 클라이언트 비밀이며, Set-AzureRmVMDiskEncryptionExtension에 대한 AadClientSecret로 사용됩니다. 
         - 인증 키는 응용 프로그램에서 Azure AD에 로그인하기 위한 자격 증명으로 사용됩니다. Azure Portal에서 이 비밀은 키라고 하지만, 키 자격 증명 모음과는 아무런 관련이 없습니다. 이 비밀을 적절하게 보호하세요. 
      - 응용 프로그램 ID는 나중에 Set-AzureRmVMDiskEncryptionExtension에 대한 AadClientId 및 Set-AzureRmKeyVaultAccessPolicy에 대한 ServicePrincipalName으로 사용됩니다. 

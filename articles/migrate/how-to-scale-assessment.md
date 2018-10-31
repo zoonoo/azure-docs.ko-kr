@@ -4,14 +4,14 @@ description: Azure Migrate 서비스를 사용하여 많은 수의 온-프레미
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 32bed3a60c40b93471b75b9d54dccd822ccc3be8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325025"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025878"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -122,7 +122,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 1. Azure Migrate 프로젝트에서 **시작** > **검색 및 평가** > **컴퓨터 검색**을 클릭합니다.
 2. **머신 검색**에는 어플라이언스에 사용 가능한 두 가지 옵션이 있습니다. **다운로드**를 클릭하여 사용자 기본 설정에 따라 적절한 어플라이언스를 다운로드합니다.
 
-    a. **일회성 검색:** 이 모델에 대한 어플라이언스는 VM에 대한 메타데이터를 수집하기 위해 vCenter Server와 통신합니다. VM의 성능 데이터 수집을 위해 vCenter Server에 저장된 기록 성능 데이터에 의존하고 마지막 한 달의 성능 기록을 수집합니다. 이 모델에서 Azure Migrate는 각 메트릭의 평균 카운터(최고 카운터와 비교)를 수집합니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) 일회성 검색이기 때문에 검색이 완료되면 온-프레미스 환경의 변경 내용은 반영되지 않습니다. 변경 내용을 반영하려면 동일한 프로젝트에 동일한 환경의 재검색을 수행해야 합니다.
+    a. **일회성 검색:** 이 모델에 대한 어플라이언스는 VM에 대한 메타데이터를 수집하기 위해 vCenter Server와 통신합니다. VM의 성능 데이터 수집을 위해 vCenter Server에 저장된 기록 성능 데이터에 의존하고 마지막 한 달의 성능 기록을 수집합니다. 이 모델에서 Azure Migrate는 각 메트릭의 평균 카운터(최고 카운터와 비교)를 수집합니다([자세히 알아보기](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected)). 일회성 검색이기 때문에 검색이 완료되면 온-프레미스 환경의 변경 내용은 반영되지 않습니다. 변경 내용을 반영하려면 동일한 프로젝트에 동일한 환경의 재검색을 수행해야 합니다.
 
     b. **연속 검색:** 이 모델에 대한 어플라이언스는 각 VM에 대한 실시간 사용률 데이터를 수집하도록 온-프레미스 환경을 지속적으로 프로파일링합니다. 이 모델에서 최대 카운터는 각 메트릭(CPU 사용률, 메모리 사용률 등)에 대해 수집됩니다. 이 모델은 성능 데이터를 수집을 위해 vCenter Server의 통계 설정을 사용하지 않습니다. 언제든지 어플라이언스에서 연속 프로파일링을 중지할 수 있습니다.
 
@@ -148,7 +148,17 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 
 #### <a name="one-time-discovery"></a>일회성 검색
 
-OVA 버전 1.0.9.14의 경우
+<<<<<<< OVA 버전 1.0.9.15(2018/10/23에 릴리스)의 헤드
+
+ <a name="algorithm--hash-value"></a>**알고리즘**|**해시 값**
+=======
+OVA 버전 1.0.9.15의 경우
+
+**알고리즘** | **해시 값**
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37 --- | --- MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+
+<<<<<<< OVA 버전 1.0.9.14(2018/8/24에 릴리스)의 헤드 ======= OVA 버전 1.0.9.14의 경우
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 **알고리즘** | **해시 값**
 --- | ---

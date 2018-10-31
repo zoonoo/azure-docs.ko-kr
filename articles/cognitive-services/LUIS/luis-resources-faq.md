@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067771"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649315"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding FAQ
 
@@ -157,11 +157,9 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 * **엔드포인트 발언 검토** 페이지에서 LUIS가 제안하는 사용자 발언 목록에 있는 발언을 삭제할 수 있습니다. 이 목록에서 발언을 삭제하면 제안되지 않지만 로그에서 삭제되지는 않습니다.
 * 계정을 삭제하면 모든 앱과 예제 발언 및 로그가 함께 삭제됩니다. 데이터는 영구적으로 삭제하기 전에 60일 동안 서버에 유지됩니다.
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft는 자체적인 목적(예: LUIS 또는 Microsoft를 일반적으로 향상시키기 위해)을 위해 LUIS 앱 데이터에 액세스하나요?
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>내가 LUIS로 보낸 데이터를 Microsoft에서 어떻게 관리하나요?
 
-아니요. LUIS 앱의 데이터 모델은 LUIS에서 플랫폼으로 LUIS를 향상시키기 위해 사용되거나 Microsoft에서 어떤 방식으로도 사용되지 않습니다. 각 앱의 데이터는 분리되며 사용자와 협력자만 소유합니다.
-
-[사용자 개인 정보](luis-user-privacy.md), [추가적인 보안 규정 준수](luis-concept-security.md#security-compliance) 및 [데이터 저장소](luis-concept-data-storage.md)에 대해 자세히 알아보세요.
+[보안 센터](https://www.microsoft.com/trustcenter)에 당사의 약속과 고객이 Azure 서비스에서 사용할 수 있는 데이터 관리 및 액세스 옵션에 대해 설명되어 있습니다.
 
 ## <a name="language-and-translation-support"></a>언어 및 번역 지원
 

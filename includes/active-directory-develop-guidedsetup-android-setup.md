@@ -14,27 +14,28 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 5518036d34a493558458673202e52e4559e49573
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 3b1f705b14bdae43fb079f2039ca8c288dd6609e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842987"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988363"
 ---
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
 대신, 이 샘플의 Android Studio 프로젝트를 다운로드하고 싶으세요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)하면 코드 샘플을 실행하기 전에 구성하는 [구성 단계](#register-your-application)를 건너뛸 수 있습니다.
 
-### <a name="create-a-new-project"></a>새 프로젝트 만들기 
-1.  Android Studio를 연 후 **파일** > **새로 만들기** > **새 프로젝트**를 선택합니다.
-2.  응용 프로그램 이름을 지정하고 **다음**을 선택합니다.
-3.  **API 21 이상(Android 5.0)** 을 선택한 후 **다음**을 선택합니다.
-4.  **빈 활동**을 그대로 유지하고 **다음**을 선택한 후 **마침**을 선택합니다.
+### <a name="create-a-new-project"></a>새 프로젝트 만들기
 
+1. Android Studio를 연 후 **파일** > **새로 만들기** > **새 프로젝트**를 선택합니다.
+2. 응용 프로그램 이름을 지정하고 **다음**을 선택합니다.
+3. **API 21 이상(Android 5.0)** 을 선택한 후 **다음**을 선택합니다.
+4. **빈 활동**을 그대로 유지하고 **다음**을 선택한 후 **마침**을 선택합니다.
 
 ### <a name="add-msal-to-your-project"></a>프로젝트에 MSAL 추가
-1.  Android Studio에서 **Gradle Scripts** > **build.gradle(Module: app)** 을 선택합니다.
-2.  **종속성** 아래에 다음 코드를 붙여넣습니다.
+
+1. Android Studio에서 **Gradle Scripts** > **build.gradle(Module: app)** 을 선택합니다.
+2. **종속성** 아래에 다음 코드를 붙여넣습니다.
 
     ```gradle  
     compile ('com.microsoft.identity.client:msal:0.1.+') {
@@ -46,12 +47,12 @@ ms.locfileid: "48842987"
 <!--start-collapse-->
 ### <a name="about-this-package"></a>이 패키지 정보
 
-위의 코드에 있는 패키지는 Microsoft 인증 라이브러리를 설치합니다. MSAL은 획득, 캐싱, 새로 고침 및 삭제를 포함한 모든 토큰 작업을 처리합니다.  Microsoft ID 플랫폼으로 보호되는 API에 액세스하려면 토큰이 필요합니다.
+이전 코드의 패키지는 획득, 캐싱, 새로 고침, 삭제를 비롯한 모든 토큰 작업을 처리하는 MSAL(Microsoft 인증 라이브러리)을 설치합니다. Microsoft ID 플랫폼으로 보호되는 API에 액세스하려면 토큰이 필요합니다.
 <!--end-collapse-->
 
 ## <a name="create-the-apps-ui"></a>앱의 UI 만들기
 
-1. **res** > **레이아웃**으로 이동한 후 **activity_main.xml**을 엽니다. 
+1. **res** > **레이아웃**으로 이동한 후 **activity_main.xml**을 엽니다.
 2. `android.support.constraint.ConstraintLayout` 등에서 `LinearLayout`으로 작업 레이아웃을 변경합니다.
 3. `android:orientation="vertical"` 속성을 `LinearLayout` 노드에 추가합니다.
 4. 다음 코드를 `LinearLayout` 노드에 붙여넣어 현재 내용을 바꿉니다.

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6a3edfd426fcdce83bd60332ba2b1ff6224dae1a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036493"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645562"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>예제 발언 추가 및 엔터티로 레이블 지정
 
@@ -92,12 +92,12 @@ drinks 목록 엔터티에 대해 water와 soda pop이라는 두 가지 정규�
 
 발언에서 water의 동의어(예: `aqua`)를 선택한 후 드롭다운 목록에서 목록 엔터티 이름(예: **Drink**)을 선택하고 **동의어로 설정**을 선택한 후 동의어에 해당하는 목록 항목(예: **water**)을 선택합니다.
 
-![새 동의어 만들기가 강조 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![새 정규화된 보기 만들기가 강조 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## <a name="create-new-item-for-list-entity"></a>목록 엔터티의 새 항목 만들기
-발언에서 단어나 구를 선택하여 기존 목록 엔터티에 대한 새 항목을 만듭니다. Drink 목록이 있으며 새 항목으로 `tea`를 추가하려는 경우 다음 단계를 따릅니다.
+발언에서 단어나 구를 선택하여 기존 목록 엔터티에 대한 새 항목을 만듭니다. Employee 목록이 있으며 새 항목으로 `Bob Smith`를 추가하려는 경우 다음 단계를 따릅니다.
 
-발언에서 새 목록 항목에 대한 단어(예: `tea`)를 선택하고 드롭다운 목록에서 목록 엔터티 이름(예: **Drink**)을 선택한 후 **새 동의어 만들기**를 선택합니다. 
+발언에서 새 목록 항목에 대한 단어 또는 구(예: `Bob Smith`)를 선택하고 드롭다운 목록에서 목록 엔터티 이름(예: **Employee**)을 선택한 후 **새 정규화된 보기 만들기**를 선택합니다. 
 
 ![새 목록 항목을 추가하는 스크린샷](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 
@@ -159,6 +159,36 @@ drinks 목록 엔터티에 대해 water와 soda pop이라는 두 가지 정규�
     >자식 엔터티 이름은 단일 앱의 모든 엔터티에서 고유해야 합니다. 서로 다른 두 계층 구조 엔터티는 이름이 같은 자식 엔터티를 포함할 수 없습니다. 
 
     엔드포인트 JSON 쿼리 응답에서 계층적 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#hierarchical-entity-data)을 참조하세요. 계층적 엔터티 사용 방법에 대해 자세히 알아보려면 계층적 엔터티 [빠른 시작](luis-quickstart-intent-and-hier-entity.md)을 참조하세요.
+
+## <a name="entity-status-predictions"></a>엔터티 상태 예측
+
+LUIS 포털에서 새 발언을 입력하면 발언에서 엔터티 예측 오류가 발생할 수 있습니다. 예측 오류는 엔터티에 레이블이 지정되는 방식과 LUIS가 엔터티를 예측하는 방법 간의 차이입니다. 
+
+발언에 빨간색 밑줄을 사용하여 LUIS 포털에 이러한 차이가 시각적으로 표현됩니다. 빨간색 밑줄은 엔터티 대괄호 내부 또는 괄호 외부에 나타날 수 있습니다. 
+
+![엔터티 상태 예측 불일치의 스크린샷](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+
+발언에서 빨간색 밑줄이 표시된 단어를 선택합니다. 
+
+예측 불일치가 있는 경우 엔터티 상자에 빨간색 느낌표가 있는 **엔터티 상태**가 표시됩니다. 레이블이 지정된 엔터티와 예측된 엔터티 간의 차이점에 대한 정보가 포함된 엔터티 상태를 보려면 **엔터티 상태**를 선택하고 오른쪽의 항목을 선택합니다.
+
+![엔터티 상태 예측 불일치의 스크린샷](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+다음과 같은 경우 빨간색 선이 나타날 수 있습니다.
+
+    * 엔터티에 레이블이 지정되기 전에 발언이 입력된 경우
+    * 엔터티 레이블이 적용된 경우
+    * 엔터티 레이블이 제거된 경우
+    * 해당 텍스트에 대해 둘 이상의 엔터티 레이블이 예측된 경우 
+
+다음 솔루션은 엔터티 예측 불일치를 해결하도록 도와줍니다.
+
+|엔터티|시각적 표시기|예측|해결 방법|
+|--|--|--|--|
+|발언이 입력되었지만 아직 엔터티에 레이블이 지정되지 않았습니다.|빨간색 밑줄|예측이 올바릅니다.|예측 값을 사용하여 엔터티를 레이블을 지정합니다.|
+|레이블이 지정되지 않은 텍스트|빨간색 밑줄|잘못된 예측|모든 의도에서 이 잘못된 엔터티를 사용하는 현재 발언을 검토해야 합니다. 현재 발언이 이 텍스트가 예측 엔터티라고 LUIS에 잘못 알려주었습니다.
+|올바르게 레이블이 지정된 텍스트|파란색 엔터티 강조 표시, 빨간색 밑줄|잘못된 예측|다양한 위치 및 사용 현황에서 레이블이 올바르게 지정된 엔터티를 더 많이 제공합니다. LUIS에 이 엔터티가 바로 그 엔터티라고 알려주기에는 현재 발언이 충분하지 않거나 비슷한 엔터티가 동일한 컨텍스트에서 나타납니다. LUIS가 혼동하지 않도록 비슷한 엔터티를 단일 엔터티로 결합해야 합니다. 또 다른 방법은 단어의 중요성을 높이는 구 목록을 추가하는 것입니다. |
+|레이블이 잘못 지정된 텍스트|파란색 엔터티 강조 표시, 빨간색 밑줄|올바른 예측| 다양한 위치 및 사용 현황에서 레이블이 올바르게 지정된 엔터티를 더 많이 제공합니다. 
 
 
 ## <a name="remove-entity-labels-from-utterances"></a>발언에서 엔터티 레이블 제거

@@ -1,24 +1,36 @@
 ---
-title: Cognitive Services Speech Device SDK 설명서
+title: Speech Devices SDK 설명서
+titleSuffix: Azure Cognitive Services
 description: 릴리스 정보 - 가장 최근 릴리스에서 변경된 내용
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wsturman
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 2c5e1351552829072fce2839d1ce6d27a0f24af2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 2040c80687b8961c2db6b1b954a317807ebbbb13
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42351394"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946031"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK의 릴리스 정보
 
 다음 섹션에는 최신 릴리스의 변경 내용이 나와 있습니다.
+
+## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Cognitive Services Speech Devices SDK 1.0.1: 2018년 10월 릴리스 
+
+* [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 구성 요소가 1.0.1 버전으로 업데이트되었습니다. 해당 [릴리스 정보](https://aka.ms/csspeech/whatsnew)를 참조하세요. 
+* 향상된 오디오 처리 알고리즘을 사용하여 음성 인식 정확도가 향상됩니다.  
+* 연속 인식 오디오 세션 버그 하나가 해결되었습니다.
+
+**주요 변경 내용** 
+
+* 이 릴리스에는 몇 가지 주요한 변경 내용이 도입되었습니다. API와 관련된 자세한 내용은 [이 페이지](https://aka.ms/csspeech/breakingchanges_1_0_0)를 확인하세요. 
+* KWS 모델 파일은 Speech Devices SDK 1.0.1과 호환되지 않습니다. 새로운 절전 모드 해제 단어 파일이 장치에 기록되면 기존의 절전 모드 해제 단어 파일이 삭제됩니다. 
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>Cognitive Services Speech Devices SDK 0.5.0: 2018년 8월 릴리스
 

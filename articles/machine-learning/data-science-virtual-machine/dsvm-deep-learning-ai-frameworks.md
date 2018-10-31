@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 234e9233e69877c9afe79a5a053a4310d013a9ab
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952827"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646113"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>심층 학습 및 AI 프레임워크
 [데이터 과학 Virtual Machine](http://aka.ms/dsvm)(DSVM) 및 [심층 학습 VM](http://aka.ms/dsvm/deeplearning)은 예측 분석 및 이미지, 언어 이해 등의 인식 기능을 갖춘 인공 지능(AI) 응용 프로그램을 빌드하는 데 유용한 여러 심층 학습 프레임워크를 지원합니다. 
@@ -174,7 +174,7 @@ X2Go를 사용하여 VM에 로그인합니다. 터미널에서 서비스를 시�
 
     sudo systemctl start digits
 
-서비스는 시작하는 데 약 1분이 걸립니다. 웹 브라우저를 시작하여 `http://localhost:5000` 로 이동합니다.
+서비스는 시작하는 데 약 1분이 걸립니다. 웹 브라우저를 시작하여 `http://localhost:5000` 로 이동합니다. DIGITS는 보안 로그인을 제공하지 않으며 VM 외부에 공개하면 안 됩니다.
 
 
 

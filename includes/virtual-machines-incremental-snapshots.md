@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979182"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960211"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>증분 스냅숏을 사용하여 Azure 관리되지 않는 VM 디스크 백업
 ## <a name="overview"></a>개요
@@ -66,7 +66,7 @@ Blob 스냅숏은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니�
 다음을 수행하여 증분 스냅숏 복사를 구현할 수 있습니다.
 
 * [Blob 스냅숏](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)을 사용하여 기본 Blob의 스냅숏을 만듭니다.
-* [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)를 사용하여 스냅숏을 대상 백업 저장소 계정에 복사합니다. 이것이 백업 페이지 Blob입니다. 백업 페이지 Blob의 스냅숏을 만들고 백업 계정에 저장합니다.
+* [복사 Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)을 사용하여 스냅숏을 동일한 Azure 지역 또는 다른 Azure 지역의 대상 백업 저장소 계정에 복사합니다. 이것이 백업 페이지 Blob입니다. 백업 페이지 Blob의 스냅숏을 만들고 백업 계정에 저장합니다.
 * Blob 스냅숏을 사용하여 기본 Blob의 또 다른 스냅숏을 만듭니다.
 * [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges)를 사용하여 기본 Blob의 첫 번째 스냅숏과 두 번째 스냅숏 간의 차이를 만듭니다. 새 매개 변수 **prevsnapshot**을 사용하여 차이를 만들려는 스냅숏의 날짜/시간 값을 지정합니다. 이 매개 변수가 존재하는 경우 REST 응답에는 페이지 지우기를 포함하여 대상 스냅숏과 이전 스냅숏 간의 변경된 페이지만 포함됩니다.
 * [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 를 사용하여 이러한 변경 내용을 백업 페이지 Blob에 적용합니다.

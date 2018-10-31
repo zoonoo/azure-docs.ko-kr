@@ -21,14 +21,14 @@ CDN 관리 코드를 작성하려면 먼저 코드가 Azure Resource Manager와 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Azure AD 응용 프로그램 만들기 및 사용 권한 적용
 Azure Active Directory로 앱을 인증하는 방법은 두 가지가 있습니다. 개별 사용자 또는 서비스 주체 인증입니다. 서비스 주체는 Windows의 서비스 계정과 비슷합니다.  특정 사용자에게 CDN 프로필과 상호 작용하는 권한을 부여하는 대신 서비스 주체에게 권한을 부여합니다.  일반적으로, 서비스 주체는 자동화된 비대화형 프로세스에 사용됩니다.  이 자습서에서는 대화형 콘솔 앱을 작성하지만, 서비스 주체 인증 방식에 초점을 맞출 것입니다.
 
-Azure Active Directory 응용 프로그램 만들기를 비롯하여 여러 반계로 구성된 서비스 주체를 만듭니다.  만들려면 [이 자습서를 따라야 합니다](../articles/resource-group-create-service-principal-portal.md).
+Azure Active Directory 응용 프로그램 만들기를 비롯하여 여러 반계로 구성된 서비스 주체를 만듭니다.  만들려면 [이 자습서를 따라야 합니다](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 
 > [!IMPORTANT]
-> [연결된 자습서](../articles/resource-group-create-service-principal-portal.md)의 모든 단계를 따르세요.  설명한 대로 완료하는 것이 *중요합니다*.  나중에 이 정보가 필요하므로 **테넌트 ID**, **테넌트 도메인 이름**(사용자 지정 도메인을 지정하지 않을 경우, 일반적으로는 *.onmicrosoft.com* 도메인), **클라이언트 ID**, **클라이언트 인증 키**를 메모합니다.  **클라이언트 ID**와 **클라이언트 인증 키**를 신중하게 보호해야 합니다. 이 자격 증명을 사용하는 사람은 누구나 서비스 주체로 작업을 실행할 수 있습니다.
+> [연결된 자습서](../articles/active-directory/develop/howto-create-service-principal-portal.md)의 모든 단계를 따르세요.  설명한 대로 완료하는 것이 *중요합니다*.  나중에 이 정보가 필요하므로 **테넌트 ID**, **테넌트 도메인 이름**(사용자 지정 도메인을 지정하지 않을 경우, 일반적으로는 *.onmicrosoft.com* 도메인), **클라이언트 ID**, **클라이언트 인증 키**를 메모합니다.  **클라이언트 ID**와 **클라이언트 인증 키**를 신중하게 보호해야 합니다. 이 자격 증명을 사용하는 사람은 누구나 서비스 주체로 작업을 실행할 수 있습니다.
 >
 > 다중 테넌트 응용 프로그램 구성 단계에 도달하면 **아니요**를 선택합니다.
 >
-> [역할에 응용 프로그램 할당](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role) 단계에 도달하면 **독자** 역할 대신 앞서 만든 리소스 그룹 *CdnConsoleTutorial*을 사용하여 **CDN 프로필 참가자** 역할을 할당합니다.  리소스 그룹에서 응용 프로그램에 **CDN 프로필 참가자** 역할을 할당한 후에 이 자습서로 돌아옵니다. 
+> [역할에 응용 프로그램 할당](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role) 단계에 도달하면 **독자** 역할 대신 앞서 만든 리소스 그룹 *CdnConsoleTutorial*을 사용하여 **CDN 프로필 기여자** 역할을 할당합니다.  리소스 그룹에서 응용 프로그램에 **CDN 프로필 참가자** 역할을 할당한 후에 이 자습서로 돌아옵니다. 
 >
 >
 

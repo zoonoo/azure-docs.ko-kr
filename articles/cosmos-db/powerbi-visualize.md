@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: dfd66c1ac2e627b72d24a520fc37c6ebfb361556
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870002"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945181"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI 커넥터를 사용하여 Azure Cosmos DB 데이터 시각화
 
-[PowerBI](https://powerbi.microsoft.com/)는 대시보드 및 보고서를 만들고 공유할 수 있는 온라인 서비스입니다. Power BI Desktop은 다양한 데이터 원본에서 데이터를 검색할 수 있는 보고서 제작 도구입니다. Azure Cosmos DB는 Power BI Desktop에서 사용할 수 있는 데이터 원본 중 하나입니다. Power BI용 Azure Cosmos DB 커넥터를 사용하여 Azure Cosmos DB 계정에 Power BI Desktop을 연결할 수 있습니다.  Azure Cosmos DB 데이터를 Power BI로 가져온 후 변환하고, 보고서를 만든 후 Power BI에 게시할 수 있습니다.   
+[Power BI](https://powerbi.microsoft.com/)는 대시보드 및 보고서를 만들고 공유할 수 있는 온라인 서비스입니다. Power BI Desktop은 다양한 데이터 원본에서 데이터를 검색할 수 있는 보고서 제작 도구입니다. Azure Cosmos DB는 Power BI Desktop에서 사용할 수 있는 데이터 원본 중 하나입니다. Power BI용 Azure Cosmos DB 커넥터를 사용하여 Azure Cosmos DB 계정에 Power BI Desktop을 연결할 수 있습니다.  Azure Cosmos DB 데이터를 Power BI로 가져온 후 변환하고, 보고서를 만든 후 Power BI에 게시할 수 있습니다.   
 
-이 문서에서는 Azure Cosmos DB 계정을 Power BI Desktop에 연결하는 데 필요한 단계를 설명합니다. 연결된 후에는 컬렉션으로 이동하고, 데이터를 추출하고, JSON 데이터를 표 형식으로 변환한 후 PowerBI에 보고서를 게시합니다.
+이 문서에서는 Azure Cosmos DB 계정을 Power BI Desktop에 연결하는 데 필요한 단계를 설명합니다. 연결된 후에는 컬렉션으로 이동하고, 데이터를 추출하고, JSON 데이터를 표 형식으로 변환한 후 Power BI에 보고서를 게시합니다.
 
 > [!NOTE]
 > Azure Cosmos DB용 Power BI 커넥터는 Power BI Desktop에 연결됩니다. Power BI Desktop에서 만든 보고서를 PowerBI.com에 게시할 수 있습니다. Azure Cosmos DB 데이터의 직접 추출은 PowerBI.com에서 수행할 수 없습니다. 

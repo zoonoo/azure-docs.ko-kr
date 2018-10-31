@@ -3,22 +3,22 @@ title: Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세�
 description: REST를 사용하여 Azure Active Directory 인증으로 Azure Media Services API를 액세스하는 방법을 알아봅니다.
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: cfowler
+author: juliako
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2017
+ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984660"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945080"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Azure Media Services API 액세스
 
@@ -45,9 +45,9 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - [Azure Portal을 사용하여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
-- [AAD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
+- [Azure AD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 이 문서에 나와 있는 REST API를 실행합니다. 
 
     이 자습서에서는 **Postman**을 사용하지만 어떤 REST 도구든 사용할 수 있습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
@@ -60,7 +60,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 
 |설정|예|설명|
 |---|-------|-----|
-|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 엔드포인트처럼 Azure AD는 https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
+|Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 엔드포인트처럼 Azure AD는 https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
 |REST API 엔드포인트|https://amshelloworld.restv2.westus.media.azure.net/api/|응용 프로그램에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
 |클라이언트 ID(응용 프로그램 ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 응용 프로그램(클라이언트) ID입니다. 액세스 토큰을 가져오려면 클라이언트 ID가 필요합니다. |
 |클라이언트 암호|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 응용 프로그램 키(클라이언트 암호)입니다. 액세스 토큰을 가져오려면 클라이언트 암호가 필요합니다.|
@@ -144,8 +144,8 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
     Postman 창 오른쪽의 **Bulk Edit**를 클릭하고 다음 본문을 붙여 넣어도 됩니다. 클라이언트 ID와 암호 값은 적절한 값으로 바꿉니다.
 
         grant_type:client_credentials
-        client_id:{Your Client ID that you got from your AAD Application}
-        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        client_id:{Your Client ID that you got from your Azure AD Application}
+        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.azure.net
 
 8. **보내기**를 누릅니다.

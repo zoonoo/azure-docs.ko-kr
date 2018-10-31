@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
-ms.component: na
-ms.openlocfilehash: b7a7e2787128c74cd7d016c01b751d15628fb4b2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.component: ''
+ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181994"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025672"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
 ![Azure SQL 분석 기호](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure SQL 분석은 여러 구독 간 규모에 맞게 Azure SQL Database, 탄력적 풀 및 Managed Instances의 성능을 모니터링하기 위한 클라우드 모니터링 솔루션입니다. 이 솔루션은 성능 문제 해결에 대한 기본 제공 인텔리전스를 사용하여 중요한 Azure SQL Database 성능 메트릭을 수집하고 시각화합니다.
+Azure SQL 분석은 단일 창을 통해 여러 구독 간 규모에 맞게 Azure SQL Database, 탄력적 풀 및 Managed Instances의 성능을 모니터링하기 위한 클라우드 모니터링 솔루션입니다. 이 솔루션은 성능 문제 해결에 대한 기본 제공 인텔리전스를 사용하여 중요한 Azure SQL Database 성능 메트릭을 수집하고 시각화합니다.
 
 솔루션으로 수집한 메트릭을 사용하여 사용자 지정 모니터링 규칙 및 경고를 만들 수 있습니다. 솔루션은 응용 프로그램 스택의 각 계층에서 문제를 식별할 수 있습니다. Azure 진단 메트릭과 Log Analytics 뷰를 함께 사용하여 모든 Azure SQL Databases, 탄력적 풀 및 관리되는 인스턴스의 데이터베이스에 대한 데이터를 단일 Log Analytics 작업 영역에 표시합니다. Log Analytics를 통해 구조적 및 비구조적 데이터를 수집하고, 상관 관계를 지정하며 시각화할 수 있습니다.
 
@@ -66,23 +66,11 @@ Azure SQL 분석 솔루션을 Azure 대시보드에 추가하려면 다음 단�
 
 ### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>진단 원격 분석을 스트림하기 위해 Azure SQL Database, 탄력적 풀 및 Managed Instances 구성
 
-Azure SQL Database, Managed Instance 데이터베이스 및 탄력적 풀의 성능을 모니터링하기 위해 작업 영역에서 Azure SQL 분석 솔루션을 만들었으면 해당 진단 원격 분석을 솔루션에 스트림하기 위해 모니터링하려는 이러한 리소스 **각각을 구성**해야 합니다.
+Azure SQL 데이터베이스, Managed Instance 데이터베이스 및 탄력적 풀의 성능을 모니터링하기 위해 작업 영역에서 Azure SQL 분석 솔루션을 만들었으면 해당 진단 원격 분석을 솔루션에 스트림하기 위해 모니터링하려는 이러한 리소스 **각각을 구성**해야 합니다. 이 페이지에서 자세한 지침을 따르세요.
 
 - Azure SQL Database, Managed Instance 데이터베이스 및 탄력적 풀에 대한 Azure 진단을 사용하도록 설정하여 [Azure SQL Analytics에 진단 원격 분석을 스트리밍](../sql-database/sql-database-metrics-diag-logging.md)합니다.
 
-### <a name="to-configure-multiple-azure-subscriptions"></a>Azure 구독을 여러 개 구성하려면
- 
-여러 구독을 지원하려면 [PowerShell을 사용하여 Azure 리소스 메트릭 로깅 사용](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/)에서 PowerShell 스크립트를 사용합니다. 하나의 Azure 구독에서 다른 Azure 구독의 작업 영역으로 진단 데이터를 전송하는 스크립트를 실행할 때 작업 영역 리소스 ID를 매개 변수로 제공합니다.
-
-**예제**
-
-```
-PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
-```
-
-```
-PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
-```
+위의 페이지에는 단일 Azure SQL 분석 작업 영역에서 여러 Azure 구독을 모니터링하도록 설정하는 지침도 제공합니다.
 
 ## <a name="using-the-solution"></a>솔루션 사용
 
@@ -159,7 +147,48 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 ![Azure SQL 분석 쿼리](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
-### <a name="analyze-data-and-create-alerts"></a>데이터 분석 및 경고 만들기
+## <a name="permissions"></a>권한
+
+Azure SQL 분석을 사용하려면 Azure에서 사용자에게 적어도 읽기 권한자 역할이 부여되어야 합니다. 하지만 이 역할은 사용자가 쿼리 텍스트를 보거나 자동 튜닝 작업을 수행하는 것을 허용하지 않습니다. Azure에서 솔루션을 최대 범위까지 사용할 수 있는 보다 자유로운 역할은 소유자, 기여자, SQL DB 기여자 또는 SQL Server 기여자입니다. 포털에서 Azure SQL 분석을 사용하는 데 필요한 권한만 있고 다른 리소스를 관리하는 데 필요한 권한은 없는 사용자 지정 역할을 만들 수도 있습니다.
+
+### <a name="creating-a-custom-role-in-portal"></a>포털에서 사용자 지정 역할 만들기
+
+일부 조직은 Azure에서 엄격하게 권한을 제어합니다. Azure Portal에서 Azure SQL 분석을 최대로 사용하는 데 필요한 최소 읽기 및 쓰기 권한만 있는 사용자 지정 역할 "SQL 분석 모니터링 운영자"를 만드는 다음 PowerShell 스크립트를 찾아보세요.
+
+아래 스크립트의 "{SubscriptionId}"를 Azure 구독 ID로 바꾸고, Azure에서 소유자 또는 기여자 역할로 로그인된 스크립트를 실행합니다.
+
+   ```powershell
+    Connect-AzureRmAccount
+    Select-AzureRmSubscription {SubscriptionId}
+    $role = Get-AzureRmRoleDefinition -Name Reader
+    $role.Name = "SQL Analytics Monitoring Operator"
+    $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
+    $role.IsCustom = $true
+    $role.Actions.Add("Microsoft.SQL/servers/databases/read");
+    $role.Actions.Add("Microsoft.SQL/servers/databases/topQueries/queryText/*");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Resources/deployments/write");
+    $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
+    New-AzureRmRoleDefinition $role
+   ```
+
+새 역할이 만들어지면 Azure SQL 분석을 사용하기 위한 사용자 지정 권한을 부여해야 하는 각 사용자에게 이 역할을 할당합니다.
+
+## <a name="analyze-data-and-create-alerts"></a>데이터 분석 및 경고 만들기
+
+Azure SQL Analytics의 데이터 분석은 사용자 지정 쿼리 및 보고를 위한 [Log Analytics 언어](./query-language/get-started-queries.md)를 기반으로 합니다. [사용 가능한 메트릭 및 로그](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available)에서 사용자 지정 쿼리를 위해 데이터베이스 리소스에서 수집된 사용 가능 데이터에 대한 설명을 확인하세요.
+
+솔루션에서 자동화된 경고는 조건 충족 시 경고를 트리거하는 Log Analytics 쿼리 작성을 기반으로 합니다. 솔루션에서 경고를 설정할 수 있는 Log Analytics 쿼리에 대한 여러 예제를 아래에서 찾아보세요.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Azure SQL Database에 대한 경고 만들기
 
@@ -253,6 +282,10 @@ AzureDiagnostics
 > [!NOTE]
 > - 이 경고를 설정하려면 모니터링되는 Managed Instance에서 ResourceUsageStats 로그의 스트리밍을 솔루션에 대해 사용하도록 설정해야 합니다.
 > - 쿼리에 결과가 있는 경우(> 0 결과) 이 쿼리에서는 경고 규칙이 경고를 해제하도록 설정해야 합니다. 그러면 조건이 Managed Instance에 있음을 나타냅니다. Managed Instance의 저장소 비율 사용이 출력됩니다.
+
+### <a name="pricing"></a>가격
+
+솔루션은 무료로 사용할 수 있지만 매월 할당되는 무료 데이터 수집 단위를 초과하는 진단 원격 분석 데이터에는 요금이 청구됩니다. [Log Analytics 가격 책정](https://azure.microsoft.com/en-us/pricing/details/monitor)을 참조하세요. 제공되는 데이터 수집 무료 단위만큼 매월 여러 데이터베이스를 무료로 모니터링할 수 있습니다. 워크로드가 많은 활성데이터는 유휴 데이터베이스보다 더 많은 데이터를 수집합니다. Azure SQL 분석의 탐색 메뉴에서 OMS 작업 영역을 선택한 다음, [사용량 및 예상 비용]을 선택하여 솔루션에서 데이터 수집 사용량을 쉽게 모니터링할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

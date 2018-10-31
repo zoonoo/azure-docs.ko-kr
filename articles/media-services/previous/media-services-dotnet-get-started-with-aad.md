@@ -4,21 +4,21 @@ description: 이 항목에서는 Azure AD(Azure Active Directory) 인증을 사�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: b8f58f4010590dc40d5e8dc7ac1b634f161a807d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e36673c7baa03e1bcf36c149851e6455cea798fe
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784572"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945572"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Azure AD 인증을 사용하여 .NET으로 Azure Media Services API 액세스
 
@@ -29,7 +29,7 @@ windowsazure.mediaservices 4.0.0.4부터는 Azure Media Services에서 Azure AD(
 - Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요. 
 - Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 - 최신 [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 패키지.
-- [AAD 인증으로 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 항목 익히기. 
+- [Azure AD 인증으로 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 항목 익히기. 
 
 Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가지 방법 중 하나로 인증할 수 있습니다.
 
@@ -73,7 +73,7 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
 
 사용자 인증 옵션으로 Azure Media Service API에 연결하려면 클라이언트 앱에서 다음 매개 변수를 사용하여 Azure AD 토큰을 요청해야 합니다.  
 
-- Azure AD 테넌트 끝점. Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자 위로 마우스를 가져갑니다.
+- Azure AD 테넌트 엔드포인트. Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자 위로 마우스를 가져갑니다.
 - Media Services 리소스 URI.
 - Media Services(원시) 응용 프로그램 클라이언트 ID. 
 - Media Services(원시) 응용 프로그램 리디렉션 URI. 
@@ -97,14 +97,14 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
 
 다음 예제에서는 Azure AD 토큰 및 컨텍스트를 만드는 방법을 보여 줍니다.
 
-    namespace AADAuthSample
+    namespace AzureADAuthSample
     {
         class Program
         {
             static void Main(string[] args)
             {
                 // Specify your Azure AD tenant domain, for example "microsoft.onmicrosoft.com".
-                var tokenCredentials = new AzureAdTokenCredentials("{YOUR AAD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
+                var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", AzureEnvironments.AzureCloudEnvironment);
     
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
     
@@ -128,7 +128,7 @@ Azure Media Service .NET SDK를 사용하지 않는 경우 [Azure AD 인증 라�
     
 서비스 주체 옵션으로 Azure Media Services API에 연결하려면 중간 계층 앱(웹 API 또는 웹 응용 프로그램)에서 다음 매개 변수와 함께 Azure AD 토큰을 요청해야 합니다.  
 
-- Azure AD 테넌트 끝점. Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자 위로 마우스를 가져갑니다.
+- Azure AD 테넌트 엔드포인트. Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자 위로 마우스를 가져갑니다.
 - Media Services 리소스 URI.
 - Azure AD 응용 프로그램 값: **클라이언트 ID** 및 **클라이언트 암호**.
 
@@ -158,7 +158,7 @@ Azure AD에서 사용할 수 있는 형식으로 인증서를 만들고 구성�
     
 다음 예제에서는 Azure AD 토큰 및 컨텍스트를 만드는 방법을 보여 줍니다.
 
-    namespace AADAuthSample
+    namespace AzureADAuthSample
     {
     
         class Program

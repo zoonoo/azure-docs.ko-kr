@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: ae5fd0d1a16d67c0649412edce6a130150f3cc6a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9a5f9c3bd25684f19ec7ed65b7dddb9f3af37ed3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412780"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648074"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>새 Azure 노드로 Windows 가상 머신 다시 배포
-RDP(원격 데스크톱) 연결 문제 또는 Windows 기반 Azure VM(가상 컴퓨터)에 대한 응용 프로그램 액세스 문제를 해결하는 데 어려움이 있는 경우 VM을 다시 배포하는 것이 도움이 될 수 있습니다. VM을 다시 배포하면 VM이 Azure 인프라 내의 새 노드로 이동된 다음 전원이 켜지고, 모든 구성 옵션 및 관련 리소스는 그대로 유지됩니다. 이 문서에서는 Azure PowerShell 또는 Azure 포털을 사용하여 VM을 다시 배포하는 방법을 보여 줍니다.
+RDP(원격 데스크톱) 연결 문제 또는 Windows 기반 Azure VM(가상 머신)에 대한 응용 프로그램 액세스 문제를 해결하는 데 어려움이 있는 경우 VM을 다시 배포하는 것이 도움이 될 수 있습니다. VM을 다시 배포하면 Azure는 Virtual Machine을 정상적으로 종료하고 VM을 Azure 인프라 내의 새 노드로 이동한 다음, 다시 전원을 켜서 모든 구성 옵션과 관련 리소스를 그대로 유지하려고 시도합니다. 이 문서에서는 Azure PowerShell 또는 Azure 포털을 사용하여 VM을 다시 배포하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > VM을 다시 배포한 후에 임시 디스크가 손실되고 가상 네트워크 인터페이스와 연결된 동적 IP 주소가 업데이트됩니다. 

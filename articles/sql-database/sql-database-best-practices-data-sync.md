@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/20/2018
-ms.openlocfilehash: 1d292007b06e12b6be28e053bc6def3b12c7befe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/22/2018
+ms.openlocfilehash: 4bc655f1e9da00a42c60e1ab763c5503b393d4a1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063657"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646305"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
 
@@ -70,6 +70,10 @@ Azure SQL Database는 단일 자격 증명 집합만 지원합니다. 이 제약
 동기화 그룹의 각 테이블에는 기본 키가 있어야 합니다. SQL 데이터 동기화 서비스는 기본 키가 없는 테이블을 동기화 할 수 없습니다.
 
 SQL 데이터 동기화를 프로덕션에 사용하기 전에 초기 및 지속적인 동기화 성능을 테스트하세요.
+
+#### <a name="empty-tables-provide-the-best-performance"></a>빈 테이블은 최상의 성능 제공
+
+빈 테이블은 초기화 시 최상의 성능을 제공합니다. 대상 테이블이 비어 있으면 데이터 동기화에서 대량 삽입을 사용하여 데이터를 로드합니다. 그렇지 않으면 데이터 동기화에서 행 단위로 비교 및 삽입하여 충돌을 확인합니다. 하지만 성능 문제가 없는 경우 이미 데이터가 들어 있는 테이블 간에 동기화를 설정할 수 있습니다.
 
 ### <a name="provisioning-destination-databases"></a> 대상 데이터베이스 프로비전
 

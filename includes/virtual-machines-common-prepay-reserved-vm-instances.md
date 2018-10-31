@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 09-05-2018
-ms.openlocfilehash: 065ac0855fc47b23b434287f9f4406bd641f01ae
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 4b51631e8b7d3f53edd1afdba76de3031b112254
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454538"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805008"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제
 
@@ -35,7 +35,7 @@ ms.locfileid: "47454538"
   - 제한된 vCPU 크기
   - VM 시리즈: A 시리즈, Av2 시리즈 또는 G 시리즈
   - VM의 미리 보기: 미리 보기 상태로 제공되는 모든 VM 시리즈 또는 크기
-- 클라우드: 예약은 Azure 미국 정부, 독일 또는 중국 지역에서 구매에 사용할 수 없습니다.
+- 클라우드: 예약은 Azure 독일 또는 중국 지역에서 구매하는 데 사용할 수 없습니다.
 - 할당량 부족: 단일 구독으로 범위가 한정되는 예약은 vCPU 할당량을 새 RI에 대한 구독에서 사용할 수 있어야 합니다. 예를 들어 대상 구독에서 D 시리즈에 대한 할당량 한도가 10개 vCPU인 경우 11개의 Standard_D1 인스턴스에 대해 예약을 구입할 수 없습니다. 예약에 대한 할당량 확인에는 구독에 이미 배포된 VM이 포함됩니다. 예를 들어, 구독에서 D 시리즈에 대한 할당량 한도가 10개 vCPU이고 두 개의 standard_D1 인스턴스가 배포된 경우 이 구독에서 10개의 standard_D1 인스턴스에 대해 예약을 구입할 수 있습니다. 
 - 용량 제한: 드문 경우, Azure는 지역의 낮은 용량으로 인해 VM 크기의 하위 집합에 대한 새로운 예약 구매를 제한합니다.
 

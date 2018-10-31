@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052418"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944671"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
 
@@ -47,8 +47,8 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **AzureKeyVault**로 설정되어야 합니다. | 예 |
-| baseUrl | Azure Key Vault URL을 지정합니다. | 예 |
+| 형식 | 형식 속성은 **AzureKeyVault**로 설정되어야 합니다. | yes |
+| baseUrl | Azure Key Vault URL을 지정합니다. | yes |
 
 **제작 UI 사용:**
 
@@ -80,10 +80,10 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 필드의 형식 속성을 **AzureKeyVaultSecret**으로 설정해야 합니다. | 예 |
-| secretName | Azure Key Vault의 비밀 이름입니다. | 예 |
-| secretVersion | Azure Key Vault의 비밀 버전입니다.<br/>지정하지 않으면 항상 최신 버전의 비밀을 사용합니다.<br/>지정하는 경우 지정된 버전을 사용합니다.| 아니오 |
-| store | 자격 증명을 저장하는 데 사용하는 Azure Key Vault 연결된 서비스를 나타냅니다. | 예 |
+| 형식 | 필드의 형식 속성을 **AzureKeyVaultSecret**으로 설정해야 합니다. | yes |
+| secretName | Azure Key Vault의 비밀 이름입니다. | yes |
+| secretVersion | Azure Key Vault의 비밀 버전입니다.<br/>지정하지 않으면 항상 최신 버전의 비밀을 사용합니다.<br/>지정하는 경우 지정된 버전을 사용합니다.| 아니요 |
+| store | 자격 증명을 저장하는 데 사용하는 Azure Key Vault 연결된 서비스를 나타냅니다. | yes |
 
 **제작 UI 사용:**
 

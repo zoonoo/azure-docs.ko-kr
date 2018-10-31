@@ -2,25 +2,17 @@
 title: 크로스-프레미스 Azure 연결에 대한 VPN Gateway 설정 | Microsoft Docs
 description: Azure Virtual Network 게이트웨이의 VPN Gateway 설정에 대해 알아봅니다.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 10/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 60cdc7bbe08df7816560e9720f96edc51769c342
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30edc7308ad2d01d5245f8cd1073a7def674b74d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618224"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649842"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -29,10 +21,11 @@ VPN Gateway는 공용 연결을 통해 가상 네트워크와 온-프레미스 �
 VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 리소스의 구성에 따라 좌우됩니다. 이 문서의 섹션에서는 Resource Manager 배포 모델에서 생성된 가상 네트워크의 VPN Gateway와 관련된 리소스 및 설정에 대해 설명합니다. [VPN Gateway 정보](vpn-gateway-about-vpngateways.md) 문서에서 각 연결 솔루션에 대한 설명 및 토폴로지 다이어그램을 찾을 수 있습니다.
 
 >[!NOTE]
-> 이 문서에 나오는 값은 -GatewayType 'Vpn'을 사용하는 가상 네트워크 게이트웨이에 적용됩니다. 이러한 특정 가상 네트워크 게이트웨이가 VPN 게이트웨이라고 하는 이유입니다. ExpressRoute 게이트웨이에 대한 값은 VPN 게이트웨이에 사용하는 값과 같지 않습니다.
+> 이 문서에 나오는 값은 VPN 게이트웨이(-GatewayType Vpn을 사용하는 가상 네트워크 게이트웨이)에 적용됩니다. 이 문서에서는 게이트웨이 유형 또는 영역 중복 게이트웨이 중 일부를 다룹니다.
 >
->-GatewayType 'ExpressRoute'에 적용되는 값에 대해서는 [ExpressRoute에 대한 가상 네트워크 게이트웨이](../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요.
->
+>* -GatewayType 'ExpressRoute'에 적용되는 값에 대해서는 [ExpressRoute에 대한 가상 네트워크 게이트웨이](../expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요.
+>* 영역 중복 게이트웨이에 대한 내용은 [영역 중복 게이트웨이 정보](about-zone-redundant-vnet-gateways.md)를 참조하세요.
+>* Virtual WAN에 대한 내용은 [Virtual WAN 정보](../virtual-wan/virtual-wan-about.md)를 참조하세요. 
 >
 
 ## <a name="gwtype"></a>게이트웨이 유형
@@ -46,7 +39,7 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 
 VPN Gateway에는 `-GatewayType` *Vpn*이 필요합니다.
 
-예:
+예제:
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `

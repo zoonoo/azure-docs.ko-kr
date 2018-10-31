@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 6d9d05a56376c07013fdea1c94b0a3262d2397c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378088"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026299"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Azure Virtual Network 서비스 엔드포인트를 사용하여 Azure Cosmos DB 계정에 보안 액세스
 
@@ -56,8 +56,8 @@ Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스 서�
 
 1. **모든 리소스** 블레이드에서 보호할 Azure Cosmos DB 계정을 찾습니다.  
 
-> [!NOTE]
-> Azure Cosmos DB 계정에 대해 구성된 기존 IP 방화벽이 있는 경우 방화벽 구성에 대해 주의하고, IP 방화벽을 제거한 다음, 서비스 엔드포인트를 사용하도록 설정합니다. 방화벽을 비활성화하지 않고 서비스 엔드포인트를 활성화하면 해당 IP 범위의 트래픽에서 가상 IP ID가 손실되어 IP 필터 오류 메시지가 표시되면서 삭제됩니다. 따라서 이런 오류를 방지하려면 항상 방화벽 규칙을 비활성화하고 복사한 다음, 서브넷에서 서비스 엔드포인트를 활성화하고 마지막으로 Cosmos DB의 서브넷을 ACL해야 합니다. 서비스 엔드포인트를 구성하고 ACL을 추가한 후 필요하면 IP 방화벽을 다시 활성화할 수 있습니다.
+   > [!NOTE]
+   > Azure Cosmos DB 계정에 대해 구성된 기존 IP 방화벽이 있는 경우 방화벽 구성에 대해 주의하고, IP 방화벽을 제거한 다음, 서비스 엔드포인트를 사용하도록 설정합니다. 방화벽을 비활성화하지 않고 서비스 엔드포인트를 활성화하면 해당 IP 범위의 트래픽에서 가상 IP ID가 손실되어 IP 필터 오류 메시지가 표시되면서 삭제됩니다. 따라서 이런 오류를 방지하려면 항상 방화벽 규칙을 비활성화하고 복사한 다음, 서브넷에서 서비스 엔드포인트를 활성화하고 마지막으로 Cosmos DB의 서브넷을 ACL해야 합니다. 서비스 엔드포인트를 구성하고 ACL을 추가한 후 필요하면 IP 방화벽을 다시 활성화할 수 있습니다.
 
 2. 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하기 전에 나중에 사용할 수 있도록 Azure Cosmos DB 계정과 연결된 IP 방화벽 정보를 복사합니다. 서비스 엔드포인트를 구성한 후 IP 방화벽을 다시 설정할 수 있습니다.  
 
@@ -97,9 +97,8 @@ Azure PowerShell을 사용하여 Azure Cosmos DB 계정에 서비스 엔드포�
 
 1. 최신 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 설치하고 [로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)합니다.  계정에 대한 서비스 엔드포인트를 활성화하기 전에 IP 방화벽 설정을 확인하고 IP 방화벽을 완전히 삭제합니다.
 
-
-> [!NOTE]
-> Azure Cosmos DB 계정에 대해 구성된 기존 IP 방화벽이 있는 경우 방화벽 구성에 대해 주의하고, IP 방화벽을 제거한 다음, 서비스 엔드포인트를 사용하도록 설정합니다. 방화벽을 비활성화하지 않고 서비스 엔드포인트를 활성화하면 해당 IP 범위의 트래픽에서 가상 IP ID가 손실되어 IP 필터 오류 메시지가 표시되면서 삭제됩니다. 따라서 이런 오류를 방지하려면 항상 방화벽 규칙을 비활성화하고 복사한 다음, 서브넷에서 서비스 엔드포인트를 활성화하고 마지막으로 Cosmos DB의 서브넷을 ACL해야 합니다. 서비스 엔드포인트를 구성하고 ACL을 추가한 후 필요하면 IP 방화벽을 다시 활성화할 수 있습니다.
+  > [!NOTE]
+  > Azure Cosmos DB 계정에 대해 구성된 기존 IP 방화벽이 있는 경우 방화벽 구성에 대해 주의하고, IP 방화벽을 제거한 다음, 서비스 엔드포인트를 사용하도록 설정합니다. 방화벽을 비활성화하지 않고 서비스 엔드포인트를 활성화하면 해당 IP 범위의 트래픽에서 가상 IP ID가 손실되어 IP 필터 오류 메시지가 표시되면서 삭제됩니다. 따라서 이런 오류를 방지하려면 항상 방화벽 규칙을 비활성화하고 복사한 다음, 서브넷에서 서비스 엔드포인트를 활성화하고 마지막으로 Cosmos DB의 서브넷을 ACL해야 합니다. 서비스 엔드포인트를 구성하고 ACL을 추가한 후 필요하면 IP 방화벽을 다시 활성화할 수 있습니다.
 
 2. 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하기 전에 나중에 사용할 수 있도록 Azure Cosmos DB 계정과 연결된 IP 방화벽 정보를 복사합니다. 서비스 엔드포인트를 구성한 후 IP 방화벽을 다시 설정할 수 있습니다.  
 
@@ -132,7 +131,7 @@ Azure PowerShell을 사용하여 Azure Cosmos DB 계정에 서비스 엔드포�
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -174,7 +173,7 @@ Azure PowerShell을 사용하여 Azure Cosmos DB 계정에 서비스 엔드포�
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
    Set-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName -Properties $CosmosDBProperties
@@ -184,7 +183,7 @@ Azure PowerShell을 사용하여 Azure Cosmos DB 계정에 서비스 엔드포�
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -270,7 +269,7 @@ NSG 태그에 대해 자세히 알아보려면 [가상 네트워크 서비스 �
 
 Azure Cosmos DB는 공용 IP 주소를 사용하는 다중 테넌트 서비스입니다. 서비스 엔드포인트 기능을 사용하여 Azure Virtual Network의 서브넷에 대한 액세스를 제한하면 지정된 Azure Virtual Network 및 해당 서브넷을 통한 사용자의 Azure Cosmos DB 계정으로 액세스가 제한됩니다.  Azure Cosmos DB 계정은 해당 Azure Virtual Network에 상주하지 않습니다. 
 
-### <a name="what-if-anything-will-be-logged-in-log-analyticsoms-if-it-is-enabled"></a>Log Analytics/OMS(활성화된 경우)에 로그인하면 어떻게 되나요?  
+### <a name="what-if-anything-will-be-logged-in-log-analytics-if-it-is-enabled"></a>Log Analytics(활성화된 경우)에 무언가가 기록되면 어떻게 되나요?  
 
 Azure Cosmos DB는 ACL에 의해 차단된 요청에 대해 403 상태와 함께 IP 주소(마지막 8진수 없음)를 사용하여 로그를 푸시합니다.  
 

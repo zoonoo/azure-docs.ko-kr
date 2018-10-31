@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721622"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956700"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI를 사용하여 원격 모니터링 솔루션 가속기 배포
 
@@ -81,14 +81,14 @@ pcs login
 
 
 ### <a name="standard"></a>Standard
-표준 배포는 개발자가 요구에 맞게 사용자 지정하고 확장할 수 있는 프로덕션 사용 가능 배포입니다. 안정성과 확장성을 위해 응용 프로그램 마이크로 서비스는 Docker 컨테이너로 빌드되고 오케스트레이터(기본적으로 [Kubernetes](https://kubernetes.io/))를 사용하여 배포됩니다. 오케스트레이터는 응용 프로그램의 배포, 확장 및 관리를 담당합니다.
+표준 배포는 개발자가 요구에 맞게 사용자 지정하고 확장할 수 있는 프로덕션 사용 가능 배포입니다. 크기 조정 및 확장성을 위해 빌드된 프로덕션 사용 가능 아키텍처를 사용자 지정할 준비가 완료되면 표준 배포 옵션을 사용해야 합니다. 응용 프로그램 마이크로 서비스는 AKS(Azure Kubernetes Service)를 사용하여 Docker 컨테이너로 빌드되고 배포됩니다. 오케스트레이터는 응용 프로그램의 배포, 확장 및 관리를 담당합니다.
+
 
 표준 솔루션을 만들면 다음 Azure 서비스가 원가로 Azure 구독에서 프로비전됩니다.
 
 | 개수 | 리소스                                     | SKU/크기      | 용도 |
 |-------|----------------------------------------------|-----------------|----------|
-| 4     | [Linux Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)   | 표준 D2 V2  | 중복성을 위해 마이크로 서비스를 호스트하기 위한 1개 마스터 및 3개 에이전트 |
-| 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) Orchestrator |
+| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| 완전 관리형 Kubernetes 컨테이너 오케스트레이션 서비스를 사용하세요. 기본값은 에이전트 3개입니다.|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 - 표준 계층 | 장치 관리, 명령 및 제어 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | 구성 데이터와 규칙, 경보 및 메시지와 같은 장치 원격 분석 저장 |
 | 5     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | VM 저장소용 4개, 스트리밍 검사점용 1개 |

@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433500"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945521"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -40,6 +40,14 @@ vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상
 프로젝트 **개요** 페이지의 **기본 정보** 섹션으로 이동하면 메타데이터가 저장되는 조정확한 위치를 확인할 수 있습니다. 위치는 Azure Migrate를 통해 지역 내에서 임의로 선택되며 수정할 수는 없습니다. 특정 지역에만 프로젝트를 만들려는 경우 REST API를 사용하여 마이그레이션 프로젝트를 만든 다음 원하는 지역을 전달하면 됩니다.
 
    ![프로젝트 위치](./media/troubleshooting-general/geography-location.png)
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>연속 검색 OVA를 사용 중인데, 온-프레미스 환경에서 삭제된 VM이 포털에 계속 표시됩니다.
+
+응용 프로그램은 성능 데이터를 연속적으로 수집할 뿐이며 온-프레미스 환경의 구성 변경(예: VM 추가, 삭제, 디스크 추가 등)은 탐지하지 않습니다. 온-프레미스 환경에서 구성 변경이 있으면 다음을 통해 포털에 변경 내용을 반영할 수 있습니다.
+
+1. 항목 추가(VM, 디스크, 코어 등): 이러한 변경을 Azure Portal에 반영하려면 어플라이언스의 검색을 멈추었다가 다시 시작하면 됩니다. 이렇게 하면 Azure Migrate 프로젝트에서 변경 내용이 업데이트됩니다.
+
+2. VM삭제: 어플라이언스 설계 방식으로 인해 VM 삭제는 검색을 중지했다 시작해도 반영되지 않습니다. 이후 검색의 데이터는 기존 검색에 추가되는 것이지 기존 검색을 덮어쓰는 것이 아니기 때문입니다. 이 경우에는 그룹에서 VM을 제거하고 평가를 다시 계산하여 포털에서 VM을 간단히 무시하면 됩니다.
 
 ## <a name="collector-errors"></a>수집기 오류
 

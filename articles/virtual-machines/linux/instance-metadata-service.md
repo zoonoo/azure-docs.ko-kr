@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 229f3dd11a90c4f6d65c9cae2a5dd3447eedf83e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 77b19b708b32003edc4555745a233a01d6f60b71
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225262"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026282"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -299,9 +299,9 @@ subscriptionId | Virtual Machine에 대한 Azure 구독 | 2017-08-01
 tags | Virtual Machine에 대한 [태그](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
-계획 | [계획](Azure Marketplace 이미지에서 VM에 대한 https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.) | 2017-04-02
-publicKeys | VM 및 경로에 할당된 공개 키 컬렉션[https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] | 2017-04-02
-vmScaleSetName | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
+계획 | [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)(Azure Marketplace 이미지에서 VM에 대한 에는 이름, 제품 및 게시자가 포함됨) | 2017-04-02
+publicKeys | VM 및 경로에 할당된 공개 키 컬렉션[https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] | 2017-04-02
+vmScaleSetName | 가상 머신 확장 집합의 [Virtual Machine ScaleSet 이름](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 영역 | 가상 머신의 [가용성 영역](../../availability-zones/az-overview.md) | 2017-12-01 
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
 ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
@@ -310,7 +310,7 @@ subnet/prefix | 서브넷 접두사, 예:24 | 2017-04-02
 ipv6/ipaddress | VM의 로컬 IPv6 주소 | 2017-04-02 
 macAddress | VM MAC 주소 | 2017-04-02 
 scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
-ID | (미리 보기) 관리 서비스 ID [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01 
+ID | (미리 보기) Azure 리소스에 대한 관리 ID입니다. [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01 
 
 ## <a name="example-scenarios-for-usage"></a>사용법을 위한 예제 시나리오  
 

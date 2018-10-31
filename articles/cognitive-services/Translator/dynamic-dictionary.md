@@ -1,5 +1,5 @@
 ---
-title: Translator Text API 동적 사전
+title: 동적 사전 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Translator Text API의 동적 사전 기능을 사용하는 방법입니다.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 56558a2da5f29611d90021e9efb292720d1cea35
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0b96325b2d29abd230e4c389b176e97542a70282
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128131"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648249"
 ---
 # <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Translator Text API의 동적 사전 기능을 사용하는 방법
 
-단어나 구에 적용할 번역을 이미 알고 있는 경우 요청 내에 태그로 제공할 수 있습니다. 동적 사전은 적절한 이름 및 제품 이름과 같은 복합 명사에 사용할 때만 안전합니다. 
+단어나 구에 적용할 번역을 이미 알고 있는 경우 요청 내에 태그로 제공할 수 있습니다. 동적 사전은 적절한 이름 및 제품 이름과 같은 복합 명사에 사용할 때만 안전합니다.
 
-**구문:** 
+**구문:**
 
 <mstrans:dictionary translation=”구 번역”>구</mstrans:dictionary>
 
@@ -31,7 +31,6 @@ ms.locfileid: "46128131"
 
 대상 출력: Das Wort "wordomatic" ist ein Wörterbucheintrag.
 
-이 기능은 HTML 모드를 사용할 때와 그렇지 않을 때 같은 결과를 가져옵니다. 
+이 기능은 HTML 모드를 사용할 때와 그렇지 않을 때 같은 결과를 가져옵니다.
 
 이 기능은 자주 사용하지 않는 것이 좋습니다. 번역을 사용자 지정하는 보다 적절하고 훨씬 더 나은 방법은 Custom Translator를 사용하는 것입니다. Custom Translator는 컨텍스트 및 통계적 확률을 최대한 활용합니다. 컨텍스트에 따라 사용자 작업 또는 구를 보여 주는 학습 데이터를 보유하고 있거나 이러한 데이터를 만들 수 있으면 훨씬 더 나은 결과를 얻을 수 있습니다. 사용자 지정 변환기에 대한 자세한 내용은 [http://aka.ms/CustomTranslator](http://aka.ms/CustomTranslator)에서 찾을 수 있습니다.
-

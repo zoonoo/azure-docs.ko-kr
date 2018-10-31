@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 13ff24c24a881297775fa5f65821e53ceb83c351
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 727cf523f2a505729377f36738657fc5489134a7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108761"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025993"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치 구성 수정
 
@@ -65,7 +65,7 @@ StorSimple 장치 관리자 서비스에 연결된 StorSimple 장치에는 기�
 
  드롭다운 목록에서 표준 시간대를 선택합니다. 최대 두 개의 NTP(Network Time Protocol) 서버를 지정할 수 있습니다.
 
- - **기본 NTP 서버** - 이 구성은 필수 항목이며 장치를 구성하기 위해 StorSimple용 Windows PowerShell을 사용할 때 지정됩니다. 기본 Windows 서버 **time.windows.com** 을 NTP 서버로 지정할 수 있습니다. Azure Portal을 통해 기본 NTP 서버 구성을 볼 수 있지만, 변경하려면 Windows PowerShell 인터페이스를 사용해야 합니다. `Set-HcsNTPClientServerAddress` cmdlet을 사용하여 장치의 기본 NTP 서버를 수정합니다. 자세한 내용은 [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet의 구문으로 이동합니다.
+ - **기본 NTP 서버** - 이 구성은 필수 항목이며 장치를 구성하기 위해 StorSimple용 Windows PowerShell을 사용할 때 지정됩니다. 기본 Windows 서버 **time.windows.com** 을 NTP 서버로 지정할 수 있습니다. Azure Portal을 통해 기본 NTP 서버 구성을 볼 수 있지만, 변경하려면 Windows PowerShell 인터페이스를 사용해야 합니다. `Set-HcsNTPClientServerAddress` cmdlet을 사용하여 장치의 기본 NTP 서버를 수정합니다. 자세한 내용은 [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet의 구문으로 이동하세요.
 
 - **보조 NTP 서버** - 이 구성은 선택 사항입니다. 포털을 사용하여 보조 NTP 서버를 구성할 수 있습니다.
 

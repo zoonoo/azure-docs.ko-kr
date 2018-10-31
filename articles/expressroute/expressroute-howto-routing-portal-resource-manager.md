@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9b96417140bea581aeb106e45c3c93a19858dfe7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7acfb71dd3edd798095472b8f863a658dccaa51b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310884"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955188"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -156,6 +156,11 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 ### <a name="deleteprivate"></a>Azure 개인 피어링을 삭제하려면
 
 다음 이미지처럼 삭제 아이콘을 선택하면 피어링 구성을 제거할 수 있습니다.
+
+> [!WARNING]
+> 이 예제를 실행하기 전에 모든 가상 네트워크 및 ExpressRoute Global Reach 연결을 제거해야 합니다. 
+> 
+> 
 
 ![개인 피어링 삭제](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 

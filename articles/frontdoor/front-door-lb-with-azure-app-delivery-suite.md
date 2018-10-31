@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 253ec8c0d1d6725e6ae5c47c79882284c633d6e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984469"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026010"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure 응용 프로그램 배달 제품군을 통해 부하 분산
 
@@ -36,7 +36,7 @@ Microsoft Azure는 Traffic Manager, Front Door Service, Application Gateway 및 
 - 대기 시간 측면에서 요청자를 가장 가까운 백 엔드에 보내는 성능 라우팅
 - 다른 백 엔드를 백업으로 사용하여 모든 트래픽을 백 엔드로 보내는 우선 순위 라우팅
 - 각 백 엔드에 할당된 가중치에 따라 트래픽을 배포하는 가중 방식의 라운드 로빈 라우팅
-- 특정 지리적 지역에 있는 요청자가 해당 지역에 매핑된 백 엔드로 전달되도록 하는 지리적 라우팅(예: 스페인의 모든 요청이 미국 동부 Azure 지역으로 전달되어야 함)
+- 특정 지리적 지역에 있는 요청자가 해당 지역에 매핑된 백 엔드로 전달되도록 하는 지리적 라우팅(예: 스페인의 모든 요청이 프랑스 중부 Azure 지역으로 전달되어야 함)
 - IP 주소 범위를 백 엔드에 매핑하여 해당 주소에서 오는 요청이 지정된 백 엔드로 전달되도록 하는 서브넷 라우팅(예: 회사 본사의 IP 주소 범위에서 연결하는 모든 사용자는 일반 사용자와 다른 웹 콘텐츠를 가져와야 함)
 
 클라이언트에서 해당 백 엔드에 직접 연결합니다. Azure Traffic Manager는 백 엔드에서 비정상적인 경우를 감지한 다음, 클라이언트를 다른 정상적인 인스턴스로 리디렉션합니다. 서비스에 대한 자세한 내용은 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) 설명서를 참조하세요.
@@ -60,7 +60,7 @@ Load Balancer는 Azure SDN 스택의 필수적인 부분으로, 모든 UDP 및 T
 | --------------- | ------------------------ |
 |**모든 프로토콜:** Traffic Manager는 DNS 계층에서 작동하므로 모든 유형의 네트워크 트래픽(HTTP, TCP, UDP 등)을 라우팅할 수 있습니다. | **HTTP 가속:** Front Door 트래픽이 Microsoft Edge 네트워크에서 프록시됩니다.  이로 인해 HTTP(S) 요청의 대기 시간과 처리량이 향상되어 SSL 협상의 대기 시간을 줄이고 AFD에서 응용 프로그램으로의 핫 연결을 사용할 수 있습니다.|
 |**온-프레미스 라우팅:** DNS 계층에서 라우팅을 사용하여 트래픽이 항상 지점 간에 이동합니다.  지점에서 온-프레미스 데이터 센터로 라우팅하면 직접 경로를 사용할 수 있으며, 심지어 Traffic Manager를 사용하여 사용자 고유의 네트워크에서도 사용할 수 있습니다. | **독립적인 확장성:** Front Door가 HTTP 요청과 함께 작동하므로 각 응용 프로그램 마이크로 서비스의 규칙 및 상태에 따라 서로 다른 URL 경로에 대한 요청을 다른 백 엔드/지역 서비스 풀(마이크로 서비스)로 라우팅할 수 있습니다.|
-|**청구 형식:** DNS 기반 청구는 사용자에 따라 확장되고 서비스의경우 더 많은 사용자로 확장되어 사용량이 늘어나지만 비용은 줄일 수 있습니다. |**인라인 보안:** Front Door는 속도 제한 및 IP ACL과 같은 규칙을 사용하여 트래픽이 응용 프로그램에 도달하기 전에 백 엔드를 보호할 수 있습니다. 
+|**청구 형식:** DNS 기반 청구는 사용자에 따라 확장되고 서비스의 경우 더 많은 사용자로 확장되어 사용량이 늘어나지만 비용을 줄일 수 있습니다. |**인라인 보안:** Front Door는 속도 제한 및 IP ACL과 같은 규칙을 사용하여 트래픽이 응용 프로그램에 도달하기 전에 백 엔드를 보호할 수 있습니다. 
 
 </br>Front Door의 HTTP 워크로드에 대한 성능, 작동 가능성 및 보안상의 이점으로 인해 고객은 HTTP 워크로드에 Front Door를 사용하는 것이 좋습니다.    Traffic Manager와 Front Door를 병렬로 사용하여 응용 프로그램의 모든 트래픽을 처리할 수 있습니다. 
 
@@ -83,8 +83,8 @@ Load Balancer는 Azure SDN 스택의 필수적인 부분으로, 모든 UDP 및 T
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
-- [Front Door가 작동하는 방법](front-door-routing-architecture.md)을 알아봅니다.
+- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
+- [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.
 
 <!--Image references-->
 [1]: ./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure1.png

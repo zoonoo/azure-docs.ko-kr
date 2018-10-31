@@ -1,27 +1,35 @@
 ---
 title: Azure Batch 전사 API
-description: 샘플
+titlesuffix: Azure Cognitive Services
+description: 대규모 오디오 콘텐츠를 기록하는 방법에 대한 샘플입니다.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: Speech to Text
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e7523bf97d6252422ebb853b818453c935640f50
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981375"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648805"
 ---
 # <a name="batch-transcription"></a>일괄 처리 기록
 
-Batch 전사는 대용량의 오디오가 있는 경우에 적합합니다. 오디오 파일을 가리키고 전사를 비동기 모드로 다시 가져올 수 있습니다.
+일괄 처리 전사는 저장소에 대용량의 오디오가 있는 경우에 적합합니다. Rest API를 사용하면 SAS URI를 통해 오디오 파일을 가리키고 비동기적으로 전사를 받을 수 있습니다.
 
 ## <a name="batch-transcription-api"></a>Batch Transcription API
 
-Batch 전사 API는 추가 기능과 함께 비동기 음성 텍스트 변환 전사를 제공합니다.
+Batch 전사 API는 추가 기능과 함께 비동기 음성 텍스트 변환 전사를 제공합니다. 다음 용도로 사용되는 메서드를 노출하는 REST API입니다.
+
+1. 일괄 처리 요청 만들기
+
+2. 상태 쿼리 
+
+3. 기록 다운로드
 
 > [!NOTE]
 > Batch 전사 API는 일반적으로 수천 시간의 오디오를 누적하는 호출 센터에 적합합니다. API는 대용량의 오디오 녹음을 쉽게 전사할 수 있게 하는 "자체 유도(fire and forget)" 철학으로 수행됩니다.
@@ -59,7 +67,7 @@ wav |  스테레오  |
 
 ## <a name="authorization-token"></a>권한 부여 토큰
 
-통합 Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다. 기준 모델에서 전사를 가져오려는 경우 이 작업만 수행하면 됩니다. 
+Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다. 기준 모델에서 전사를 가져오려는 경우 이 작업만 수행하면 됩니다. 
 
 사용자 지정 모델을 사용자 지정하고 사용하려는 경우에는 다음과 같이 사용자 지정 음성 포털에 이 구독 키를 추가해야 합니다.
 
@@ -95,78 +103,77 @@ wav |  스테레오  |
         }
 ```
 
-토큰을 가져온 후에는 전사가 필요한 오디오 파일을 가리키는 SAS URI를 지정해야 합니다. 코드의 나머지 부분은 상태를 반복하면서 결과를 표시합니다.
+토큰을 가져온 후에는 전사가 필요한 오디오 파일을 가리키는 SAS URI를 지정해야 합니다. 코드의 나머지 부분은 상태를 반복하면서 결과를 표시합니다. 처음에는 사용할 키, 지역, 모델과 SA를 설정합니다. 아래 코드 조각은 그 예입니다. 그 다음에는 클라이언트 및 POST 요청을 인스턴스화합니다. 
 
 ```cs
-   static async Task TranscribeAsync()
-        { 
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
+            // SAS URI 
+            private const string RecordingsBlobUri = "some SAS URI";
+
+            // adapted model Ids
+            private static Guid AdaptedAcousticId = new Guid("some guid");
+            private static Guid AdaptedLanguageId = new Guid("some guid");
+
             // Creating a Batch transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
             
-            var transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
+```
 
-            // get the transcription Id from the location URI
-            var createdTranscriptions = new List<Guid>();
-            createdTranscriptions.Add(new Guid(transcriptionLocation.ToString().Split('/').LastOrDefault()))
+이제 요청이 만들어졌으며 사용자가 코드 조각처럼 전사 결과를 쿼리하고 다운로드할 수 있습니다.
 
-            while (true)
+```cs
+  
+            // get all transcriptions for the user
+            transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
+
+            // for each transcription in the list we check the status
+            foreach (var transcription in transcriptions)
             {
-                // get all transcriptions for the user
-                transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-                completed = 0; running = 0; notStarted = 0;
-
-                // for each transcription in the list we check the status
-                foreach (var transcription in transcriptions)
+                switch(transcription.Status)
                 {
-                    switch(transcription.Status)
-                    {
-                        case "Failed":
-                        case "Succeeded":
+                    case "Failed":
+                    case "Succeeded":
 
                             // we check to see if it was one of the transcriptions we created from this client.
-                            if (!createdTranscriptions.Contains(transcription.Id))
-                            {
-                                // not creted form here, continue
-                                continue;
-                            }
+                        if (!createdTranscriptions.Contains(transcription.Id))
+                        {
+                            // not creted form here, continue
+                            continue;
+                        }
                             
-                            completed++;
+                        completed++;
                             
-                            // if the transcription was successfull, check the results
-                            if (transcription.Status == "Succeeded")
-                            {
-                                var resultsUri = transcription.ResultsUrls["channel_0"];
-                                WebClient webClient = new WebClient();
-                                var filename = Path.GetTempFileName();
-                                webClient.DownloadFile(resultsUri, filename);
-                                var results = File.ReadAllText(filename);
-                                Console.WriteLine("Transcription succedded. Results: ");
-                                Console.WriteLine(results);
-                            }
-                            break;
-                        case "Running":
-                            running++;
-                            break;
-                        case "NotStarted":
-                            notStarted++;
-                            break;
+                        // if the transcription was successfull, check the results
+                        if (transcription.Status == "Succeeded")
+                        {
+                            var resultsUri = transcription.ResultsUrls["channel_0"];
+                            WebClient webClient = new WebClient();
+                            var filename = Path.GetTempFileName();
+                            webClient.DownloadFile(resultsUri, filename);
+                            var results = File.ReadAllText(filename);
+                            Console.WriteLine("Transcription succedded. Results: ");
+                            Console.WriteLine(results);
+                        }
+                    
+                    break;
+                    case "Running":
+                    running++;
+                     break;
+                    case "NotStarted":
+                    notStarted++;
+                    break;
+                    
                     }
                 }
-
-                Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
-
-                await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
             }
-
-            Console.WriteLine("Press any key...");
         }
 ```
+
+[Swagger 문서](https://westus.cris.ai/swagger/ui/index)는 위의 호출에 대한 모든 세부 정보를 제공합니다. 여기에 보여드린 샘플의 완전한 샘플이 [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI)에 있습니다.
 
 > [!NOTE]
 > 앞의 코드에서 구독 키는 Azure Portal에서 만든 Speech 리소스의 구독 키입니다. Custom Speech Service 리소스에서 가져온 키는 작동하지 않습니다.

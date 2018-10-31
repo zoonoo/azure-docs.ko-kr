@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 58ec400faee04f8624822bbcb5325fca7006c578
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 10b4fec92752e44048454e8b63e90fd9b7fecba0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698637"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023188"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 외부 수신기 구성
 > [!div class="op_single_selector"]
@@ -50,14 +50,14 @@ ms.locfileid: "38698637"
 
 이 문서에서는 **외부 부하 분산**을 사용하는 수신기를 만드는 데 중점을 둡니다. 가상 네트워크에 대한 개인 수신기를 만들려면 [ILB를 사용하여 수신기](../classic/ps-sql-int-listener.md)를 설정하는 단계를 설명하는 이 문서의 다른 버전을 참조하세요.
 
-## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>직접 서버 반환이 있는 부하 분산 VM 끝점 만들기
+## <a name="create-load-balanced-vm-endpoints-with-direct-server-return"></a>직접 서버 반환이 있는 부하 분산 VM 엔드포인트 만들기
 외부 부하 분산에서는 VM을 호스팅하는 클라우드 서비스의 공용 가상 IP 주소를 사용합니다. 따라서 이 경우에는 부하 분산 장치를 만들거나 구성할 필요가 없습니다.
 
-Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 끝점을 만들어야 합니다. 여러 지역에 복제본이 있는 경우 해당 지역에 대한 각 복제본은 동일한 VNet의 동일한 클라우드 서비스에 있어야 합니다. 여러 Azure 지역에 걸쳐 있는 가용성 그룹 복제본을 만들려면 여러 VNet을 구성해야 합니다. VNet 간 연결 구성에 대한 자세한 내용은 [VNet 간 연결 구성](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
+Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 엔드포인트를 만들어야 합니다. 여러 지역에 복제본이 있는 경우 해당 지역에 대한 각 복제본은 동일한 VNet의 동일한 클라우드 서비스에 있어야 합니다. 여러 Azure 지역에 걸쳐 있는 가용성 그룹 복제본을 만들려면 여러 VNet을 구성해야 합니다. VNet 간 연결 구성에 대한 자세한 내용은 [VNet 간 연결 구성](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
 
 1. Azure 포털에서 복제본을 호스트하는 각 VM으로 이동하고 세부 정보를 봅니다.
-2. 각 VM에 대한 **끝점** 탭을 클릭합니다.
-3. 사용할 수신기 끝점의 **이름** 및 **공용 포트**가 사용 중이지 않은지 확인합니다. 아래 예제에서는 이름이 "MyEndpoint"이고 포트는 "1433"입니다.
+2. 각 VM에 대한 **엔드포인트** 탭을 클릭합니다.
+3. 사용할 수신기 엔드포인트의 **이름** 및 **공용 포트**가 사용 중이지 않은지 확인합니다. 아래 예제에서는 이름이 "MyEndpoint"이고 포트는 "1433"입니다.
 4. 로컬 클라이언트에서 [최신 PowerShell 모듈](https://azure.microsoft.com/downloads/)을 다운로드하고 설치합니다.
 5. **Azure PowerShell**을 시작합니다. 새 PowerShell 세션이 Azure 관리 모듈이 로드된 상태로 열립니다.
 6. **Get-AzurePublishSettingsFile**을 실행합니다. 이 cmdlet은 게시 설정 파일을 로컬 디렉터리에 다운로드하도록 브라우저로 안내합니다. Azure 구독에 대한 로그인 자격 증명을 묻는 메시지가 표시될 수 있습니다.
@@ -111,7 +111,7 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 끝점�
         # Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$CloudServiceIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"OverrideAddressMatch"=1;"EnableDhcp"=0}
         # cluster res $IPResourceName /priv enabledhcp=0 overrideaddressmatch=1 address=$CloudServiceIP probeport=59999  subnetmask=255.255.255.255
 4. 변수를 설정한 후에는 앞으로 온 Windows PowerShell 창을 열고 텍스트 편집기의 스크립트를 복사하여 Azure PowerShell 세션에 붙여넣어 실행합니다. 프롬프트에 >>가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다.
-5. 각 VM에서 이 작업을 반복합니다. 이 스크립트는 클라우드 서비스의 IP 주소로 IP 주소 리소스를 구성하고 프로프 포트 등의 다른 매개 변수를 설정합니다. IP 주소 리소스를 온라인으로 불러올 때 이 자습서의 앞 부분에서 부하 분산된 끝점으로부터 프로브 포트에 대한 폴링에 응답할 수 있습니다.
+5. 각 VM에서 이 작업을 반복합니다. 이 스크립트는 클라우드 서비스의 IP 주소로 IP 주소 리소스를 구성하고 프로프 포트 등의 다른 매개 변수를 설정합니다. IP 주소 리소스를 온라인으로 불러올 때 이 자습서의 앞 부분에서 부하 분산된 엔드포인트로부터 프로브 포트에 대한 폴링에 응답할 수 있습니다.
 
 ## <a name="bring-the-listener-online"></a>수신기를 온라인 상태로 만들기
 [!INCLUDE [Bring-Listener-Online](../../../../includes/virtual-machines-ag-listener-bring-online.md)]

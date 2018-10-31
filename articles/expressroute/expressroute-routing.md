@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: ganesr
-ms.openlocfilehash: 525d75264ecb54d42d920cacb0712397f4d8c3a8
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43304360"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650131"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -211,7 +211,11 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 | SharePoint Online | 12076분 5020초 |
 | 비즈니스 온라인용 Skype | 12076:5030 |
 | Dynamics 365 | 12076:5040 |
+| Azure 글로벌 서비스* | 12076:5050 |
 | 기타 Office 365 온라인 서비스 | 12076분 5100초 |
+
+***Azure 글로벌 서비스에 Azure DevOps 포함**
+
 
 > [!NOTE]
 > Microsoft는 Microsoft에 보급하는 경로에 설정한 BGP 커뮤니티 값을 인식하지 않습니다.

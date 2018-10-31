@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 718f351ad4ce325f3585ebcbe7adfc4b5905e734
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9688b9ba305a2eb59b80b02c0b41a7f4855dd051
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998613"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024565"
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>클러스터 크기를 조정하여 웹 서비스 처리량 관리
 
@@ -65,7 +65,7 @@ az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>클러스터의 Kubernetes Pod 복제본 수 조정
  
-Azure Machine Learning CLI 또는 [Kubernetes 대시보드](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/))를 사용하여 클러스터에 할당된 Pod 복제본의 수를 조정할 수 있습니다.
+Azure Machine Learning CLI 또는 [Kubernetes 대시보드](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)를 사용하여 클러스터에 할당된 Pod 복제본의 수를 조정할 수 있습니다.
 
 Kubernetes 복제본 Pod에 자세한 내용은 [Kubernetes Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod/) 설명서를 참조하세요.
 

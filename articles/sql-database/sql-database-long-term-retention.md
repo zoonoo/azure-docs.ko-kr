@@ -11,21 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: b2d4166c25014416efbb7392acda3f3f028b4fa9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/24/2018
+ms.openlocfilehash: 7fe34423e706054daf84eaa8baf45fe201a661c9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162049"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026180"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>최대 10년 동안 Azure SQL Database 백업 저장
 
 여러 응용 프로그램에서는 규정, 규정 준수 또는 기타 비즈니스를 목적으로 Azure SQL Database의 [자동 백업](sql-database-automated-backups.md)에서 제공하는 데이터베이스 백업을 7-35일 넘게 보존하도록 요구합니다. LTR(장기 보존) 기능을 사용하여 [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) Blob 저장소에 최대 10년 동안 지정된 SQL 데이터베이스 전체 백업을 저장할 수 있습니다. 그런 다음, 새 데이터베이스로 모든 백업을 복원할 수 있습니다.
 
+> [!NOTE]
+> Azure SQL Database 논리 서버에 호스트된 데이터베이스에서 LTR을 사용할 수 있습니다. Managed Instance에 호스트되는 데이터베이스에는 아직 사용할 수 없습니다.
+> 
+
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL Database의 장기 보존 작동 방법
 
-장기 백업 보존은 PITR(지정 시간 복원)을 사용하여 만든 [자동 SQL Database 백업](sql-database-automated-backups.md)을 활용합니다. 각 SQL 데이터베이스에 대해 장기 보존 정책을 구성하고 장기 저장소에 백업을 복사해야 하는 빈도를 지정할 수 있습니다. 해당 유연성을 활성화하기 위해 네 개의 매개 변수(주간 백업 보존(W), 월간 백업 보존(M), 연간 백업 보존(Y), 연간 주(WeekOfYear)) 조합을 사용하여 정책을 정의할 수 있습니다. W를 지정하는 경우 매주 하나의 백업이 장기 저장소에 복사됩니다. M을 지정하는 경우 각 월의 첫 주 동안 하나의 백업이 장기 저장소에 복사됩니다. Y를 지정하는 경우 WeekOfYear로 지정된 주 동안 하나의 백업이 장기 저장소에 복사됩니다. 각 백업은 이러한 매개 변수에 의해 지정된 기간 동안 장기 저장소에 유지됩니다. 
+LTR(장기 백업 보존)은 [자동 생성](sql-database-automated-backups.md)되는 전체 데이터베이스 백업을 활용하여 PITR(지정 시간 복원)을 지원합니다. LTR 정책이 구성된 경우 이러한 백업이 여러 저장소 Blob에 복사됩니다.
+각 SQL 데이터베이스의 LTR 정책을 구성하고 장기 저장소 Blob에 백업을 복사해야 하는 빈도를 지정할 수 있습니다. 해당 유연성을 활성화하기 위해 네 개의 매개 변수(주간 백업 보존(W), 월간 백업 보존(M), 연간 백업 보존(Y), 연간 주(WeekOfYear)) 조합을 사용하여 정책을 정의할 수 있습니다. W를 지정하는 경우 매주 하나의 백업이 장기 저장소에 복사됩니다. M을 지정하는 경우 각 월의 첫 주 동안 하나의 백업이 장기 저장소에 복사됩니다. Y를 지정하는 경우 WeekOfYear로 지정된 주 동안 하나의 백업이 장기 저장소에 복사됩니다. 각 백업은 이러한 매개 변수에 의해 지정된 기간 동안 장기 저장소에 유지됩니다. 
 
 예제:
 

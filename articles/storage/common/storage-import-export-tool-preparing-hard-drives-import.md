@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 7fc3e68e9d714ca95a28a28b470b1e1fdbff2c47
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870896"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025627"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>가져오기 작업을 위한 하드 드라이브 준비
 
@@ -309,7 +309,7 @@ WAImportExport 도구는 Microsoft Azure Import/Export 서비스에서 사용할
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>이전 버전의 WAImportExport 도구는 어디서 찾을 수 있습니까?
 
-WAImportExport 도구에는 WAImportExport V1 도구의 모든 기능이 있습니다. WAImportExport 도구를 사용하면 여러 소스를 지정하고 여러 드라이브에 쓸 수 있습니다. 또한 하나의 CSV 파일에서 데이터를 복사해야 하는 여러 원본 위치를 쉽게 관리할 수 있습니다. 그러나 SAS 지원이 필요하거나 단일 원본을 단일 디스크에 복사하려면 [WAImportExport V1 도구를 다운로드](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)할 수 있습니다. WAImportExport V1 사용과 관련된 도움말은 [WAImportExport V1 참조](storage-import-export-tool-how-to-v1.md)를 참조하세요.
+WAImportExport 도구에는 WAImportExport V1 도구의 모든 기능이 있습니다. WAImportExport 도구를 사용하면 여러 소스를 지정하고 여러 드라이브에 쓸 수 있습니다. 또한 하나의 CSV 파일에서 데이터를 복사해야 하는 여러 원본 위치를 쉽게 관리할 수 있습니다. 그러나 SAS 지원이 필요하거나 단일 원본을 단일 디스크에 복사하려면 [WAImportExport V1 도구를 다운로드](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)하고 [WAImportExport V1 참조](storage-import-export-tool-how-to-v1.md)에서 WAImportExport V1 사용과 관련된 도움말을 참조하세요.
 
 #### <a name="what-is-a-session-id"></a>세션 ID란?
 
@@ -407,7 +407,7 @@ WAImportExport 도구는 배치 기준으로 파일을 읽고 쓰며, 배치 하
 * [Azure Import/Export 도구 설정](storage-import-export-tool-setup.md)
 * [가져오기 프로세스 중에 속성 및 메타데이터 설정](storage-import-export-tool-setting-properties-metadata-import.md)
 * [가져오기 작업을 위한 하드 드라이브를 준비하는 샘플 워크플로](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-* [자주 사용 되는 명령에 대한 빠른 참조](storage-import-export-tool-quick-reference.md) 
+* [자주 사용 되는 명령에 대한 빠른 참조](storage-import-export-tool-quick-reference.md) 
 * [복사 로그 파일을 사용하여 작업 상태 검토](storage-import-export-tool-reviewing-job-status-v1.md)
 * [가져오기 작업 복구](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [내보내기 작업 복구](storage-import-export-tool-repairing-an-export-job-v1.md)

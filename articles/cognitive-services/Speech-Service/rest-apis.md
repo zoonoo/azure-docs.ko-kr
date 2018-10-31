@@ -3,17 +3,18 @@ title: Speech Service REST API
 description: Speech Service의 REST API에 대한 참조입니다.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: f8b27277cbf3ea6d53a8f02e550beae67fc50741
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167633"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025840"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API
 
@@ -21,7 +22,7 @@ Azure Cognitive Services 음성 서비스의 REST API는 [Bing Speech API](https
 
 ## <a name="speech-to-text"></a>음성을 텍스트로 변환
 
-Speech to Text REST API에 대한 엔드포인트는 다음 표에 표시됩니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요. 
+Speech to Text REST API에 대한 엔드포인트는 다음 표에 표시됩니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -56,13 +57,13 @@ Speech to Text REST API에 대한 엔드포인트는 다음 표에 표시됩니�
 
 ### <a name="audio-format"></a>오디오 형식
 
-오디오는 HTTP `PUT` 요청 본문에서 전송됩니다. 다음 형식/인코딩의 16KHz에서 PCM 단일 채널(모노)이 포함된 16비트 WAV 형식이어야 합니다.
+오디오는 HTTP `POST` 요청 본문에서 전송됩니다. 다음 형식/인코딩의 16KHz에서 PCM 단일 채널(모노)이 포함된 16비트 WAV 형식이어야 합니다.
 
 * PCM 코덱을 사용하는 WAV 형식
 * OPUS 코덱을 사용하는 Ogg 형식
 
 >[!NOTE]
->위의 형식은 음성 서비스의 REST API 및 WebSocket을 통해 지원됩니다. [음성 SDK](/index.yml)는 현재 PCM 코덱을 사용하는 WAV 형식만 지원합니다. 
+>위의 형식은 음성 서비스의 REST API 및 WebSocket을 통해 지원됩니다. [음성 SDK](/index.yml)는 현재 PCM 코덱을 사용하는 WAV 형식만 지원합니다.
 
 ### <a name="chunked-transfer"></a>청크 분할 전송
 
@@ -144,7 +145,7 @@ HTTP 코드|의미|가능한 원인
 | `Error` | 인식 서비스에서 내부 오류가 발생하여 계속할 수 없습니다. 가능한 경우 다시 시도하세요. |
 
 > [!NOTE]
-> 오디오가 욕설로만 구성되어 있고 `profanity` 쿼리 매개 변수가 `remove`로 설정되어 있는 경우 서비스는 음성 결과를 변환하지 않습니다. 
+> 오디오가 욕설로만 구성되어 있고 `profanity` 쿼리 매개 변수가 `remove`로 설정되어 있는 경우 서비스는 음성 결과를 변환하지 않습니다.
 
 
 `detailed` 형식은 `NBest` 필드와 함께 `simple` 형식과 동일한 필드를 포함합니다. `NBest` 필드는 가능성이 가장 높은 순위에서 가능성이 가장 높은 순위까지, 동일한 음성의 대체 해석 목록입니다. 첫 번째 항목은 기본 인식 결과와 같습니다. 각 항목에는 다음 필드가 포함됩니다.
@@ -206,7 +207,7 @@ Speech Service는 Bing Speech에서 지원하는 16Khz 출력뿐만 아니라 24
 
 로캘 | 언어   | 성별 | 서비스 이름 매핑
 -------|------------|--------|------------
-ko-KR  | 영어 | Female | “Microsoft Server Speech Text to Speech Voice(en-US, Jessa24kRUS)” 
+ko-KR  | 영어 | Female | “Microsoft Server Speech Text to Speech Voice(en-US, Jessa24kRUS)”
 ko-KR  | 영어 | Male   | “Microsoft Server Speech Text to Speech Voice(en-US, Guy24kRUS)”
 
 사용 가능한 음성의 전체 목록은 [지원되는 언어](language-support.md#text-to-speech)에 나와 있습니다.
@@ -234,7 +235,7 @@ ko-KR  | 영어 | Male   | “Microsoft Server Speech Text to Speech Voice(en-US
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> 선택한 음성 및 출력 형식의 비트 전송률이 다른 경우 필요에 오디오가 다시 샘플링됩니다. 단, 24khz 음성은 `audio-16khz-16kbps-mono-siren` 및 `riff-16khz-16kbps-mono-siren` 출력 형식을 지원하지 않습니다. 
+> 선택한 음성 및 출력 형식의 비트 전송률이 다른 경우 필요에 오디오가 다시 샘플링됩니다. 단, 24khz 음성은 `audio-16khz-16kbps-mono-siren` 및 `riff-16khz-16kbps-mono-siren` 출력 형식을 지원하지 않습니다.
 
 ### <a name="request-body"></a>요청 본문
 
@@ -253,7 +254,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -327,10 +328,10 @@ cURL은 Linux(Linux용 Windows 하위 시스템)에서 사용할 수 있는 명�
 > 이 명령은 가독성을 위해 여러 줄에 표시되지만, 셸 프롬프트에서는 단일 줄에 입력해야 합니다.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -410,7 +411,7 @@ Connection: Keep-Alive
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -485,4 +486,3 @@ public class Authentication
 - [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
 - [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)
-

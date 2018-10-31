@@ -1,5 +1,5 @@
 ---
-title: CTF(Collaborative Translation Framework) 보고 - Translator Text
+title: CTF(Collaborative Translation Framework) 보고 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: CTF(Collaborative Translation Framework) 보고 사용 방법입니다.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9b3ac6e6d10fb0e70549cadfd7bf65220deb8f33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126924"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646014"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF(Collaborative Translation Framework) 보고 사용 방법
 
 > [!NOTE]
 > 이 메서드는 더 이상 사용되지 않습니다. Translator Text API V3.0에서는 사용할 수 없습니다.
 
-> 이전에 Translator Text API V2.0에서 사용할 수 있었던 CTF(Collaborative Translation Framework)는 2018년 2월 1일부터 더 이상 사용되지 않습니다. AddTranslation 및 AddTranslationArray 함수를 사용하면 사용자가 Collaborative Translation Framework를 통해 수정할 수 있습니다. 2018년 1월 31일 이후에는 이러한 두 함수가 새 문장 제출을 허용하지 않고 사용자에게 오류 메시지가 표시됩니다. 이러한 함수는 사용 중지되며 대체되지 않습니다. 
+> 이전에 Translator Text API V2.0에서 사용할 수 있었던 CTF(Collaborative Translation Framework)는 2018년 2월 1일부터 더 이상 사용되지 않습니다. AddTranslation 및 AddTranslationArray 함수를 사용하면 사용자가 Collaborative Translation Framework를 통해 수정할 수 있습니다. 2018년 1월 31일 이후에는 이러한 두 함수가 새 문장 제출을 허용하지 않고 사용자에게 오류 메시지가 표시됩니다. 이러한 함수는 사용 중지되며 대체되지 않습니다.
 
 >Translator Hub API에서 사용 가능한 유사한 기능을 통해 고유한 용어 및 스타일로 사용자 지정 번역 시스템을 빌드하고, Translator Text API의 범주 ID를 사용하여 호출할 수 있습니다. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
@@ -33,7 +33,7 @@ Collaborative(Collaborative Translation Framework) 보고 API는 CTF 스토어�
 
 ## <a name="endpoint"></a>엔드포인트
 CTF 보고 API의 엔드포인트는 http://api.microsofttranslator.com/v2/beta/ctfreporting.svc입니다.
-                        
+
 
 ## <a name="methods"></a>메서드
 | 이름 |    설명|
@@ -64,7 +64,7 @@ UserTranslationCount[]GetUserTranslationCounts(
            string to,
            int? minRating,
            int? maxRating,
-           string user, 
+           string user,
            string category
            DateTime? minDateUtc,
            DateTime? maxDateUtc,
@@ -135,12 +135,12 @@ UserTranslation[] GetUserTranslations (
             string to,
             int? minRating,
             int? maxRating,
-            string user, 
+            string user,
             string category
             DateTime? minDateUtc,
             DateTime? maxDateUtc,
             int? skip,
-            int? take); 
+            int? take);
 ```
 
 **매개 변수**
@@ -154,8 +154,8 @@ UserTranslation[] GetUserTranslations (
 | minRating| **선택 사항** 번역된 텍스트의 최소 품질 등급을 나타내는 정수 값입니다. 유효한 값은 -10에서 10 사이입니다. 기본값은 1입니다.|
 | maxRating| **선택 사항** 번역된 텍스트의 최대 품질 등급을 나타내는 정수 값입니다. 유효한 값은 -10에서 10 사이입니다. 기본값은 1입니다.|
 | 사용자| **선택 사항. 제출을 보낸 사람에 따라 결과를 필터링하는 데 사용되는 문자열입니다.**|
-| 카테고리| **선택 사항** 번역의 범주 또는 도메인을 포함하는 문자열입니다. 이 매개 변수는 기본 옵션인 general만 지원합니다.| 
-| minDateUtc| **선택 사항** 번역을 검색하려는 시작 날짜입니다. 날짜는 UTC 형식이어야 합니다.| 
+| 카테고리| **선택 사항** 번역의 범주 또는 도메인을 포함하는 문자열입니다. 이 매개 변수는 기본 옵션인 general만 지원합니다.|
+| minDateUtc| **선택 사항** 번역을 검색하려는 시작 날짜입니다. 날짜는 UTC 형식이어야 합니다.|
 | maxDateUtc| **선택 사항** 번역을 검색하려는 종료 날짜입니다. 날짜는 UTC 형식이어야 합니다.|
 | skip| **선택 사항** 페이지에서 건너뛸 결과 수입니다. 예를 들어 결과의 처음 20개 행을 건너뛰고 21번째 결과 레코드부터 보려면 이 매개 변수에 20을 지정합니다. 이 매개 변수의 기본값은 0입니다.|
 | take| **선택 사항** 검색할 결과 수입니다. 각 요청의 최대 개수는 100개입니다. 기본값은 50입니다.|
@@ -192,21 +192,3 @@ UserTranslation[] GetUserTranslations (
 **GitHib에서 코드 예제 보기**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 08/13/2018
-ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/24/2018
+ms.openlocfilehash: fd63d0ce9ef335efdebf9759d52cf93312986d16
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166506"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025381"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점 
 
@@ -103,7 +103,7 @@ Managed Instance는 파일 공유 및 Windows 폴더에 액세스할 수 없으�
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### <a name="clr"></a>CLR 
@@ -333,21 +333,22 @@ HDFS 또는 Azure Blob 저장소의 파일을 참조하는 외부 테이블은 �
  - `remote proc trans` 
 - `sp_execute_external_scripts`는 지원되지 않습니다. [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)를 참조하세요.
 - `xp_cmdshell`은 지원되지 않습니다. [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
-- `sp_addextendedproc` 및 `sp_dropextendedproc`를 포함하여 `Extended stored procedures`는 지원되지 않습니다. [확장 저장 프로시저](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)를 참조하세요.
+- `sp_addextendedproc`  및 `sp_dropextendedproc`를 포함하여 `Extended stored procedures`는 지원되지 않습니다. [확장 저장 프로시저](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)를 참조하세요.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
 - `sp_renamedb`는 지원되지 않습니다. [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql)를 참조하세요.
 
 ### <a name="sql-server-agent"></a>SQL Server 에이전트
 
 - SQL 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 Managed Instance에서 지원되지 않습니다.  
-- 작업 - 현재 T-SQL 작업 단계가 지원됩니다.
-- 다른 유형의 작업 단계는 현재 지원되지 않습니다(공개 미리 보기 동안 더 많은 단계 유형이 추가될 예정임).
-  - 다음을 포함한 복제 작업은 지원되지 않습니다.
+- 교육
+ - T-SQL 작업 단계가 지원됩니다.
+ - 다음 복제 작업이 지원됩니다.
     - 트랜잭션 로그 판독기  
     - 스냅숏
-    - 배포자  
-    - 병합  
-  - SSIS는 아직 지원되지 않습니다. 
+    - 배포자
+ - SSIS가 지원됩니다. 
+- 다음을 포함한 다른 유형의 작업 단계는 현재 지원되지 않습니다.
+  - 병합 복제 작업 단계는 지원되지 않습니다.  
   - 큐 판독기는 지원되지 않습니다.  
   - 명령 셸은 아직 지원되지 않습니다. 
   - Managed Instance는 외부 리소스(예: robocopy를 통한 네트워크 공유)에 액세스할 수 없습니다.  

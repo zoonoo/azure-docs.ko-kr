@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: eaf65bef28110d73378c213ae4781a409b86e1bd
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e0654d6a4696e6f02939cad51a715412fdcfb61a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128182"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645237"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
@@ -32,29 +32,29 @@ Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했�
 * 음역 - 음역 메서드가 API에 추가되었습니다. 이 메서드는 하나의 스크립트에서 단어 및 문장(예: 아랍어)을 다른 스크립트(예: 라틴어)로 변환합니다.
 * 언어 - 새로운 '언어' 메서드는 '번역', '사전' 및 '음역' 메서드와 함께 사용하기 위해 JSON 형식으로 언어 정보를 제공합니다.
 * 번역에 대한 새로운 기능 - 새 기능이 '번역' 메서드에 추가되어 별도 메서드로 V2 API에 있던 기능 중 일부를 지원합니다. 예제는 TranslateArray입니다.
-* 음성 메서드 - 텍스트 음성 변환 기능이 더 이상 Microsoft 변환기 API에서 지원되지 않습니다. 텍스트 음성 변환 기능은 Azure Cognitive 서비스 Bing Speech API에서 사용할 수 있습니다.
+* 음성 메서드 - 텍스트 음성 변환 기능이 더 이상 Microsoft 변환기 API에서 지원되지 않습니다. [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)에서 텍스트 음성 변환 기능을 사용할 수 있습니다.
 
 다음과 같은 V2 및 V3 메서드 목록은 V2와 함께 포함된 기능을 제공하는 V3 메서드 및 API를 식별합니다.
 
 | V2 API 메서드   | V3 API 호환성 |
 |:----------- |:-------------|
-| 번역     | 번역          |
-| TranslateArray      | 번역          |
-| GetLanguageNames      | 언어          |
-| GetLanguagesForTranslate     | 언어        |
-| GetLanguagesForSpeak      | Cognitive Services Speech API         |
-| 음성     | Cognitive Services Speech API          |
-| 감지     | 감지         |
-| DetectArray     | 감지         |
-| AddTranslation     | Microsoft Translator HUB API         |
-| AddTranslationArray    | Microsoft Translator HUB API          |
-| BreakSentences      | BreakSentence         |
+| 번역     | [번역](reference/v3-0-translate.md)          |
+| TranslateArray      | [번역](reference/v3-0-translate.md)        |
+| GetLanguageNames      | [언어](reference/v3-0-languages.md)         |
+| GetLanguagesForTranslate     | [언어](reference/v3-0-languages.md)       |
+| GetLanguagesForSpeak      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| 음성     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| 감지     | [검색](reference/v3-0-detect.md)         |
+| DetectArray     | [검색](reference/v3-0-detect.md)         |
+| AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | GetTranslations      | 기능은 더 이상 지원되지 않습니다.         |
 | GetTranslationsArray      | 기능은 더 이상 지원되지 않습니다.         |
 
 ## <a name="move-to-json-format"></a>JSON 형식으로 이동
 
-Microsoft Translator Text 번역 V2는 XML 형식으로 데이터를 허용하고 반환했습니다. V3에서 API를 사용하여 보내고 받은 모든 데이터는 JSON 형식입니다. XML은 V3에서 더 이상 허용되거나 반환되지 않습니다. 
+Microsoft Translator Text 번역 V2는 XML 형식으로 데이터를 허용하고 반환했습니다. V3에서 API를 사용하여 보내고 받은 모든 데이터는 JSON 형식입니다. XML은 V3에서 더 이상 허용되거나 반환되지 않습니다.
 
 이 변경 내용은 V2 텍스트 번역 API에 대해 작성된 응용 프로그램의 여러 측면에 영향을 줍니다. 예를 들어: 언어 API는 텍스트 번역, 음역 및 두 개의 사전 메서드에 대한 언어 정보를 반환합니다. 한 번의 호출에서 모든 메서드에 대한 모든 언어 정보를 요청하거나 개별적으로 요청할 수 있습니다.
 

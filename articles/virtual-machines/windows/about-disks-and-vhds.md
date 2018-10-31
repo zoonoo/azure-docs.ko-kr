@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: 8f5c33a63fd932bedd7f1de3d3ae47306b3ea3e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: de5322709b5d7f7bcfe6c512bab94b025d9a56a7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954486"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023559"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Azure Windows VM용 디스크 저장소 정보
 
@@ -34,7 +34,7 @@ VM에서 디스크를 사용하는 방법에 대해 살펴보겠습니다.
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-각 VM에는 임시 디스크가 포함되어 있습니다. 이러한 임시 디스크는 응용 프로그램 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 때 손실될 수 있습니다. VM의 성공적인 표준 다시 부팅 동안 임시 드라이브의 데이터가 유지됩니다. 
+각 VM에는 임시 디스크가 포함되어 있습니다. 이러한 임시 디스크는 응용 프로그램 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 때 손실될 수 있습니다. VM의 성공적인 표준 다시 부팅 동안 임시 드라이브의 데이터가 유지됩니다. 그러나 새 호스트로 이동하는 등 데이터가 지속될 수 없는 경우가 있습니다. 따라서 임시 드라이브의 모든 데이터는 시스템에 중요한 데이터여서는 안 됩니다.
 
 이 디스크는 일시적으로 D: 드라이브로 레이블이 지정되며 pagefile.sys를 저장하는 데 사용됩니다. 이 디스크를 다른 드라이브 문자로 다시 매핑하려면 [Windows 임시 디스크의 드라이브 문자 변경](change-drive-letter.md)을 참조하세요. 임시 디스크의 크기는 가상 머신의 크기에 따라 달라집니다. 자세한 내용은 [Windows 가상 머신 크기](sizes.md)를 참조하세요.
 

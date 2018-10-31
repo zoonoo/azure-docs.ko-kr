@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: d4ed53cf1f0d21e488631434b60309602169b59a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004653"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985169"
 ---
-# <a name="event-hubs-diagnostic-logs"></a>Event Hubs 진단 로그
+# <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Azure 이벤트 허브에 대한 진단 로그 설정
 
 Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습니다.
 
@@ -70,7 +70,7 @@ Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니�
 
 보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-Name | 설명
+이름 | 설명
 ------- | -------
 TaskName | 실패한 작업에 대한 설명입니다.
 ActivityId | 추적에 사용되는 내부 ID입니다.
@@ -108,7 +108,7 @@ Message | 오류 메시지입니다.
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-Name | 설명
+이름 | 설명
 ------- | -------
 ActivityId | 추적 목적에 사용되는 내부 ID입니다.
 EventName | 작업 이름입니다.  

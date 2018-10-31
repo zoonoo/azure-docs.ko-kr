@@ -8,99 +8,52 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: e3bd203c9ab1d6daaae04866cf195b3ca28c3078
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2f7c724b14efd569a5993f9a9319c9004874bc43
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041560"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647598"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>일반 데이터 형식을 인식하는 미리 빌드된 엔터티
 
-LUIS에는 날짜, 시간, 숫자, 측정값 및 통화 등, 일반적인 정보 유형을 인식하기 위한 미리 빌드된 엔터티 집합이 포함되어 있습니다. 미리 빌드된 엔터티 지원은 LUIS 앱의 문화권에 따라 다릅니다. 문화권별 지원을 비롯하여 LUIS에서 지원하는 미리 빌드된 엔터티의 전체 목록에 대해서는 [미리 빌드된 엔터티 참조](./luis-reference-prebuilt-entities.md)를 참조하세요.
-
-> [!NOTE]
-> **builtin.datetime**은 더 이상 사용되지 않습니다. 이 엔터티는 모호한 날짜 및 시간의 인식을 개선하고 날짜 및 시간 범위를 인식할 수 있도록 하는 [**builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md)로 대체됩니다.
+LUIS에는 날짜, 시간, 숫자, 측정값 및 통화 등, 일반적인 정보 유형을 인식하기 위한 미리 빌드된 엔터티 집합이 포함되어 있습니다. 
 
 ## <a name="add-a-prebuilt-entity"></a>미리 빌드된 엔터티 추가
 
 1. **내 앱** 페이지에서 해당 이름을 클릭하여 앱을 열고 왼쪽에서 **엔터티**를 클릭합니다. 
-2. **엔터티** 페이지에서 **미리 빌드된 엔터티 관리**를 클릭합니다.
 
-3. **미리 빌드된 엔터티 추가** 대화 상자에서 추가하려는 미리 빌드된 엔터티(예: "datetimeV2")를 추가합니다. 그런 다음 **Save**를 클릭합니다.
+1. **엔터티** 페이지에서 **미리 빌드된 엔터티 관리**를 클릭합니다.
+
+1. **미리 빌드된 엔터티 추가** 대화 상자에서 미리 빌드된 엔터티 datetimeV2를 선택합니다. 
 
     ![미리 빌드된 엔터티 추가 대화 상자](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
 
-## <a name="use-a-prebuilt-number-entity"></a>미리 빌드된 number 엔터티 사용
-미리 빌드된 엔터티가 응용 프로그램에 포함되어 있으면, 게시된 응용 프로그램에 해당 예측이 포함됩니다. 미리 빌드된 엔터티의 동작은 미리 학습되며 수정할 수 **없습니다**. 다음 단계에 따라 미리 빌드된 엔터티가 작동하는 방식을 확인하세요.
+1. **완료**를 선택합니다.
 
-1. **number** 엔터티를 앱에 추가하고 앱을 [학습](luis-interactive-test.md) 및 [게시](luis-how-to-publish-app.md)합니다.
-2. **앱 게시** 페이지에서 엔드포인트 URL을 클릭하여 웹 브라우저에서 LUIS 엔드포인트를 엽니다. 
-3. 숫자 식이 포함된 URL에 발언을 추가합니다. 예를 들어, `buy two plane ticktets`를 입력하면 LUIS는 `two`를 `builtin.number` 엔터티로, `2`를 `resolution` 필드의 해당 값으로 식별하는 것을 확인할 수 있습니다. `resolution` 필드는 숫자와 날짜를 클라이언트 응용 프로그램이 보다 쉽게 사용할 수 있는 정규 양식으로 해석하는 데 도움이 됩니다. 
+## <a name="publish-the-app"></a>앱 게시
 
-    ![number 엔터티를 포함하는 브라우저의 발언](./media/luis-use-prebuilt-entity/browser-query.png)
+미리 빌드된 엔터티의 값을 보는 가장 쉬운 방법은 게시된 엔드포인트에서 쿼리하는 것입니다. 
 
-LUIS는 표준 양식이 아닌 숫자를 지능적으로 인식할 수 있습니다. 발언에서 여러 다른 숫자 식을 사용하면서 LUIS가 반환하는 결과를 확인해보세요.
+1. 위쪽 도구 모음에서 **게시**를 선택합니다. **프로덕션**에 게시합니다. 
 
-다음 예제에서는 발언 "two dozen"에 대해 값 24라는 해결을 포함하는 LUIS의 JSON 응답을 보여줍니다.
+1. 녹색 성공 알림이 표시되면 **엔드포인트 목록 참조** 링크를 선택하여 엔드포인트를 봅니다.
 
-```json
-{
-  "query": "order two dozen tickets for group travel",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.905443209
-  },
-  "entities": [
-    {
-      "entity": "two dozen",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 14,
-      "resolution": {
-        "value": "24"
-      }
-    }
-  ]
-}
-```
-## <a name="use-a-prebuilt-datetimev2-entity"></a>미리 빌드된 number datetimeV2 사용
-**datetimeV2** 미리 빌드된 엔터티는 날짜, 시간, 날짜 범위 및 시간 기간을 인식합니다. 다음 단계에 따라 `datetimeV2` 미리 빌드된 엔터티가 작동하는 방식을 확인하세요.
+1. 엔드포인트를 선택합니다. 해당 엔드포인트에 대한 새 브라우저 탭이 열립니다. 브라우저 탭을 연 상태로 **테스트** 섹션을 계속 진행합니다.
 
-1. **datetimeV2** 엔터티를 앱에 추가하고 앱을 [학습](luis-interactive-test.md) 및 [게시](luis-how-to-publish-app.md)합니다.
-2. **앱 게시** 페이지에서 엔드포인트 URL을 클릭하여 웹 브라우저에서 LUIS 엔드포인트를 엽니다. 
-3. 날짜 범위가 포함된 URL에 발언을 추가합니다. 예를 들어, `book a flight tomorrow`를 입력하면 LUIS는 `tomorrow`를 `builtin.datetimeV2.date` 엔터티로, 내일 날짜를 `resolution` 필드의 해당 값으로 식별하는 것을 확인할 수 있습니다. 
+## <a name="test"></a>테스트
+엔터티를 추가한 후에는 앱을 학습할 필요가 없습니다. 
 
-다음 예제에서는 오늘 날짜가 2017년 10월 31일인 경우 LUIS의 JSON 응답이 어떻게 표시되는지를 보여 줍니다.
+**q** 매개 변수의 값을 추가하여 엔드포인트에서 새 의도를 테스트하세요. 다음은 **q**에 권장되는 발언을 알려주는 표입니다.
 
-```json
-{
-  "query": "book a flight tomorrow",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.9063408
-  },
-  "entities": [
-    {
-      "entity": "tomorrow",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 14,
-      "endIndex": 21,
-      "resolution": {
-        "values": [
-          {
-            "timex": "2017-11-01",
-            "type": "date",
-            "value": "2017-11-01"
-          }
-        ]
-      }
-    }
-  ]
-}
-```
+|발언 테스트|엔터티 값|
+|--|:--|
+|내일 항공편 예약|2018-10-19|
+|3월 3일 약속 취소|발언에서 연도가 지정되지 않았기 때문에 LUIS는 가장 가까운 과거의 3월 3일(2018-03-03) 및 미래의 3월 3일(2019-03-03)을 반환합니다.|
+|오전 10시에 회의 예약|10:00:00|
+
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

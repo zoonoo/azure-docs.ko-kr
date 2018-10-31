@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4305afff1e35e9e05f1b2314f8fb9d5a96383e9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575221"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955646"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 [Azure 운영 보안](https://docs.microsoft.com/azure/security/azure-operational-security)은 사용자가 Microsoft Azure에서 자신의 데이터, 응용 프로그램 및 기타 자산을 보호할 수 있는 서비스, 제어 및 기능을 나타냅니다. Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램, 사이버 보안 위협 상황에 대한 심층 인식 등 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합하는 프레임워크입니다.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+##  <a name="azure-management-services"></a>Azure 관리 서비스
 IT 운영 팀은 이러한 시스템의 안정성과 보안을 포함하여 데이터 센터 인프라, 응용 프로그램 및 데이터를 관리하는 역할을 담당합니다. 그러나 점점 더 복잡해지는 IT 환경에서 보안 정보를 얻으려면 조직에서 여러 보안 및 관리 시스템의 데이터를 급하게 맞추어야 합니다.
 
-[Microsoft Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)는 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 클라우드 기반 IT 관리 솔루션입니다. 핵심 기능은 Azure에서 실행되는 다음 서비스를 통해 제공됩니다. 각 서비스는 특정 관리 기능을 제공합니다. 이러한 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다. 
+[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)는 온-프레미스 및 클라우드 인프라를 관리하고 보호하도록 도와주는 클라우드 기반 IT 관리 솔루션입니다. 핵심 기능은 Azure에서 실행되는 다음 서비스를 통해 제공됩니다. Azure는 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 여러 서비스를 제공합니다. 각 서비스는 특정 관리 기능을 제공합니다. 이러한 서비스를 결합하여 다양한 관리 시나리오를 해결할 수 있습니다. 
 
-### <a name="log-analytics"></a>Log Analytics
-[Azure Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)는 관리되는 리소스의 데이터를 중앙 리포지토리에 수집하여 Operations Management Suite에 대한 모니터링 서비스를 제공합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 데이터를 수집한 후에는 경고, 분석 및 내보내기에 사용할 수 있습니다. 
+### <a name="azure-monitor"></a>Azure Monitor
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)는 관리되는 원본에서 중앙 데이터 저장소로 데이터를 수집합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 데이터를 수집한 후에는 경고, 분석 및 내보내기에 사용할 수 있습니다. 
 
 다양한 원본의 데이터를 통합하고 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 Log Analytics는 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
 
@@ -85,7 +85,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 >[!Note]
 >Security Center의 역할 및 허용된 작업에 대해 알아보려면 [Azure Security Center의 권한](https://docs.microsoft.com/azure/security-center/security-center-permissions)을 참조하세요.
 
-Security Center에서는 Microsoft Monitoring Agent를 사용하며, 이는 Operations Management Suite 및 Log Analytics 서비스에서 사용되는 것과 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) 중 하나에 저장됩니다.
+Security Center에서는 Microsoft Monitoring Agent를 사용하며, Log Analytics 서비스에서 사용하는 것과 동일한 에이전트입니다. 이 에이전트에서 수집된 데이터는 VM의 지리적 위치를 고려하여 Azure 구독 또는 새 작업 영역과 연결된 기존 Log Analytics [작업 영역](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) 중 하나에 저장됩니다.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 클라우드 앱의 성능 문제는 비즈니스에 영향을 미칠 수 있습니다. 상호 연결된 여러 구성 요소와 자주 제공되는 릴리스를 사용하면 언제든지 성능 저하가 발생할 수 있습니다. 앱을 개발하는 경우 사용자는 일반적으로 테스트에서 찾지 못한 문제를 발견합니다. 이러한 문제에 대해 즉시 알고 있어야 하며 문제를 진단하고 수정하는 도구가 있어야 합니다.
@@ -155,8 +155,8 @@ Microsoft Azure와 같은 클라우드 플랫폼은 기존 병목 현상을 제�
 -   [마이크로 서비스](https://www.visualstudio.com/learn/what-are-microservices/) 아키텍처는 비즈니스 사용 사례를 재사용 가능한 작은 서비스로 격리하는 데 사용됩니다.  이 아키텍처는 확장성과 효율성을 가능하게 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Operations Management Suite 보안 및 감사 솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
+보안 및 감사 솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [보안 및 규정 준수](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Operations Management Suite 보안 및 감사 솔루션의 보안 경고 모니터링 및 응답](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
-- [Operations Management Suite 보안 및 감사 솔루션의 리소스 모니터링](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)
+- [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)

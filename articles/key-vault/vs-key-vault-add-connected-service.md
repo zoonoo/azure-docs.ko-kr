@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465795"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958519"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 응용 프로그램에 Key Vault 추가
 
@@ -138,7 +138,29 @@ Key Vault에 대한 연결은 **연결된 서비스 추가** 프로세스를 통
       <h3>@ViewBag.Secret2</h3>
    ```
 
-축하합니다. 이제 웹앱에서 Key Vault를 사용하여 안전하게 저장된 비밀에 액세스할 수 있음을 확인했습니다.
+1. 앱을 로컬로 실행하여 구성 파일의 더미 값이 아닌 Azure Portal에서 입력한 비밀 값을 읽을 수 있는지 확인합니다.
+
+다음으로, 앱을 Azure에 게시합니다.
+
+## <a name="publish-to-azure-app-service"></a>Azure App Service에 게시
+
+1. 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **게시 대상 선택** 화면이 표시됩니다. 왼쪽에서 **App Service**, **새로 만들기**를 차례로 선택합니다.
+
+   ![앱 서비스에 게시](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. **App Service 만들기** 화면에서, 구독 및 리소스 그룹이 Key Vault를 만든 바로 그 구독 및 리소스 그룹인지 확인하고 **만들기**를 선택합니다.
+
+   ![App Service 만들기](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. 웹 응용 프로그램이 만들어지면 **게시** 화면이 나타납니다. 게시된 웹 응용 프로그램의 URL을 보면 Azure에 호스트됩니다. **Key Vault** 옆에 **없음**이 표시되면 어떤 Key Vault에 연결해야 하는지 App Service에 알려주어야 합니다. **Key Vault 추가**를 선택하고, 앞에서 만든 Key Vault를 선택합니다.
+
+   ![Key Vault 추가](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   **Key Vault 관리**가 보이면 Azure Portal에서 클릭하여 현재 설정을 살펴보고, 권한을 편집하고, 비밀을 변경할 수 있습니다.
+
+1. 이제 브라우저에서 사이트 URL 링크를 선택하여 웹 응용 프로그램을 방문합니다. Key Vault에서 올바른 값이 보이는지 확인합니다.
+
+Azure에서 웹앱을 실행할 때 웹앱이 Key Vault를 사용하여 저장된 비밀에 안전하게 액세스할 수 있다는 것을 확인했습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

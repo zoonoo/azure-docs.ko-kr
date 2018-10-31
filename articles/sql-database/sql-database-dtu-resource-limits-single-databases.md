@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 15518d8122f66c2e6f4ab398e0c69563fe0c79e0
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/23/2018
+ms.openlocfilehash: 0a514cced50a2a05008c03dfb438cceefb332d17
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354062"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987327"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU를 기반 구매 모델을 사용한 단일 데이터베이스에 대한 리소스 제한
 
@@ -81,17 +81,17 @@ ms.locfileid: "49354062"
 |||||||
 
 > [!IMPORTANT]
-> 현재 미국 중서부, 중국 동부, USDoDCentral, 독일 중부, USDoDEast, US Gov 남서부, 독일 북동부, USGovIowa, 중국 북부를 제외한 모든 지역에서 1TB를 초과하는 저장소를 프리미엄 계층에 사용할 수 있습니다. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+> 현재 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 영국 북부, 영국 남부, US DOD 중부, US DOD 동부, US Gov 중부 및 미국 중서부를 제외한 모든 지역에서 1TB를 초과하는 저장소를 프리미엄 계층에 사용할 수 있습니다.  이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 
 ## <a name="single-database-change-storage-size"></a>단일 데이터베이스: 저장소 크기 변경
 
 - 단일 데이터베이스에 대한 DTU 가격에는 특정 크기의 저장소가 추가 비용 없이 포함됩니다. 포함된 용량 외 추가 저장소는 최대 250GB씩 총 1TB이 최대 크기 제한까지 추가 비용을 내고 프로비전할 수 있고 1TB 이상일 경우 256GB씩 프로비전할 수 있습니다. 포함된 저장소 크기 및 최대 크기 제한에 대한 자세한 내용은 [단일 데이터베이스: 저장소 크기 및 계산 크기](#single-database-storage-sizes-and-compute-sizes)를 참조하세요.
-- 단일 데이터베이스에 대한 추가 저장소는 [Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/databases_update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
+- 단일 데이터베이스에 대한 추가 저장소는 [Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 통해 해당 최대 크기를 늘려 프로비전할 수 있습니다.
 - 단일 데이터베이스에 대한 추가 저장소 가격은 추가 저장소 용량에 해당 서비스 계층의 추가 저장소 단가를 곱한 것입니다. 추가 저장소 가격에 대한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 
 ## <a name="single-database-change-dtus"></a>단일 데이터베이스: DTU 변경
 
-처음에 서비스 계층, 계산 크기 및 저장소 용량을 선택한 후에 [Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/databases_update)를 사용하여 실제 환경에 따라 단일 데이터베이스를 동적으로 확장 또는 축소할 수 있습니다.
+처음에 서비스 계층, 계산 크기 및 저장소 용량을 선택한 후에 [Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update) 또는 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)를 사용하여 실제 환경에 따라 단일 데이터베이스를 동적으로 확장 또는 축소할 수 있습니다.
 
 다음 비디오에서는 서비스 계층 및 계산 크기를 동적으로 변경하여 단일 데이터베이스에 대해 사용 가능한 DTU를 늘리는 방법을 보여줍니다.
 
@@ -103,7 +103,7 @@ ms.locfileid: "49354062"
 전체 확장 프로세스 기간은 변경 전후 데이터베이스의 크기 및 서비스 계층에 따라 달라집니다. 예를 들어 표준 서비스 계층 내에서 변경되고 있는 250GB 데이터베이스는 6시간 내에 완료되어야 합니다. 프리미엄 서비스 계층 내에서 계산 크기를 변경하는 동일한 크기의 데이터베이스인 경우 3시간 내에 확장을 완료해야 합니다.
 
 > [!TIP]
-> 진행 중인 작업을 모니터링하려면 [SQL REST API를 사용하여 작업 관리](https://docs.microsoft.com/rest/api/sql/databaseoperations/databaseoperations_listbydatabase
+> 진행 중인 작업을 모니터링하려면 [SQL REST API를 사용하여 작업 관리](https://docs.microsoft.com/rest/api/sql/databaseoperations/listbydatabase
 ), [CLI를 사용하여 작업 관리](/cli/azure/sql/db/op), [T-SQL을 사용하여 작업 모니터링](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)과 두 가지 PowerShell 명령 즉, [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 및 [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)를 참조하세요.
 
 - 상위 서비스 계층이나 계산 크기로 업그레이드하는 경우 더 큰 크기(최대 크기)를 명시적으로 지정하지 않는 한, 최대 데이터베이스 크기는 증가하지 않습니다.
@@ -116,7 +116,7 @@ ms.locfileid: "49354062"
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>단일 데이터베이스: 최대 크기가 1TB보다 큰 경우 P11 및 P15의 제한 사항
 
-오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서는 P11 및 P15 데이터베이스에 대해 1TB를 초과하는 최대 크기가 지원됩니다. 다음 고려 사항 및 제한 사항은 최대 크기가 1TB보다 큰 P11 및 P15 데이터베이스에 적용됩니다.
+다음 고려 사항 및 제한 사항은 최대 크기가 1TB보다 큰 P11 및 P15 데이터베이스에 적용됩니다.
 
 - (4TB 또는 4096GB의 값을 사용하여) 데이터베이스를 만들 때 1TB보다 큰 최대 크기를 선택하면 지원되지 않는 지역에서 데이터베이스를 프로비전할 때 오류가 발생하여 만들기 명령이 실패합니다.
 - 지원되는 하위 지역 중 하나에 있는 기존 P11 및 P15 데이터베이스의 경우 1TB보다 크게 최대 저장소를 늘리려면 256GB씩 최대 4TB로 늘릴 수 있습니다. 해당 지역에서 더 큰 크기를 사용할 수 있는지 확인하려면 [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) 함수를 사용하거나 Azure Portal에서 데이터베이스 크기를 검사합니다. 기존 P11 또는 P15 데이터베이스 업그레이드는 서버 수준 보안 주체 로그인 또는 dbmanager 데이터베이스 역할의 멤버에 의해서만 수행될 수 있습니다.
@@ -131,7 +131,7 @@ ms.locfileid: "49354062"
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
-- 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버에 대한 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
+- 서버 및 구독 수준의 제한에 관한 정보는 [논리 서버에 대한 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 - DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)를 참조하세요.
 - tempdb 크기 한도에 대한 자세한 내용은 [SQL Database tempdb 한도](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database)를 참조하세요.
