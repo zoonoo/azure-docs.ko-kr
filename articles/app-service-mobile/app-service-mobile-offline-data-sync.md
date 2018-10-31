@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 403b3289a6135a59e888c4a7bf1cd9cbe40c8ac0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ab8fb4a567e4c4a7bf1e884999a4e403a98547a0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597980"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471036"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure Mobile Apps에서 오프라인 데이터 동기화
 ## <a name="what-is-offline-data-sync"></a>오프라인 데이터 동기화 정의
@@ -46,7 +46,7 @@ ms.locfileid: "34597980"
 * [Universal Windows Platform: 오프라인 동기화 사용]
 
 ## <a name="what-is-a-sync-table"></a>동기화 테이블 정의
-"/tables" 끝점에 액세스하는 데 Azure 모바일 클라이언트 SDK가 `IMobileServiceTable`(.NET 클라이언트 SDK) 또는 `MSTable`(iOS 클라이언트)와 같은 인터페이스를 제공합니다. 이러한 API는 Azure 모바일 앱 백 엔드에 직접 연결하고 클라이언트 장치에 네트워크 연결이 없는 경우 실패합니다.
+"/tables" 엔드포인트에 액세스하는 데 Azure 모바일 클라이언트 SDK가 `IMobileServiceTable`(.NET 클라이언트 SDK) 또는 `MSTable`(iOS 클라이언트)와 같은 인터페이스를 제공합니다. 이러한 API는 Azure 모바일 앱 백 엔드에 직접 연결하고 클라이언트 장치에 네트워크 연결이 없는 경우 실패합니다.
 
 오프라인 사용을 지원하려면 앱은 `IMobileServiceSyncTable`(.NET 클라이언트 SDK) 또는 `MSSyncTable`(iOS 클라이언트)과 같은 *동기화 테이블* API를 대신 사용해야 합니다. 같은 CRUD 작업 모두(만들기, 읽기, 업데이트, 삭제)가 *로컬 저장소*에 읽거나 쓰는 것을 제외하고 동기화 테이블 API에 대해 작동합니다. 모든 동기화 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다.
 

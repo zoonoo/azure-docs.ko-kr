@@ -4,7 +4,6 @@
 ## [Azure Active Directory란?](fundamentals/active-directory-whatis.md)
 ## [Azure ID 관리 정보](fundamentals/identity-fundamentals.md)
 ## [Azure ID 솔루션 이해](fundamentals/understand-azure-identity-solutions.md)
-## [하이브리드 ID 솔루션 선택](choose-hybrid-identity-solution.md)
 ## [Azure 구독 연결](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [보존 및 데이터 고려 사항](fundamentals/active-directory-data-storage-eu.md)
 ## [FAQ](fundamentals/active-directory-faq.md)
@@ -47,7 +46,6 @@
 ### [Azure AD에 새 사용자 추가](fundamentals/add-users-azure-active-directory.md)
 ### [사용자 프로필 관리](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [사용자 암호 다시 설정](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [공유 계정](active-directory-sharing-accounts.md)
 ### [관리자 역할에 사용자 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [다른 디렉터리(B2B)에서 게스트 사용자 추가](b2b/what-is-b2b.md)
 #### [B2B 사용자를 추가하는 관리자](b2b/add-users-administrator.md)
@@ -320,11 +318,15 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Azure에서 AD FS 배포](hybrid/how-to-connect-fed-azure-adfs.md)
-### [고가용성](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-### [서명 해시 알고리즘 변경](active-directory-federation-sha256-guidance.md)
+
 
 ## [문제 해결](fundamentals/active-directory-troubleshooting-support-howto.md)
+
+## Azure AD 개념 증명(PoC) 배포
+### [PoC 플레이 북: 소개](active-directory-playbook-intro.md)
+### [PoC 플레이 북: 재료](active-directory-playbook-ingredients.md)
+### [PoC 플레이 북: 구현](active-directory-playbook-implementation.md)
+### [PoC 플레이 북: 구성 요소](active-directory-playbook-building-blocks.md)
 
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)

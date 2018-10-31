@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e4fd0831ed40d8c2052f2da1b2b5c8f8c4367f92
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4753a989a672e6048e7f754b04edb116e405272a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648936"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238016"
 documentType: LandingData
 title: Azure Blueprints 설명서
 metadata:
@@ -15,7 +15,7 @@ metadata:
   manager: carmonm
   ms.service: blueprints
   ms.topic: landing-page
-  ms.date: 09/18/2018
+  ms.date: 10/30/2018
   ms.author: dacoulte
 abstract:
   description: Azure Blueprints를 통해 정책, 역할 기반 액세스 제어, Azure Resource Manager 템플릿과 같은 구성 가능한 아티팩트를 사용하여 반복 가능한 방식으로 클라우드 환경을 배포하고 업데이트할 수 있습니다.
@@ -35,3 +35,11 @@ sections:
         src: ./media/rest.svg
       text: REST API
       href: create-blueprint-rest-api.md
+- title: 참고 자료
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST API
+      html: <p><a href="/rest/api/blueprints/">Blueprints</a></p>

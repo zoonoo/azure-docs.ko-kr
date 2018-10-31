@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 637e926676c727c01c60fe0d3e4e758173bdbd18
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636549"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167413"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -643,8 +643,9 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 SAP HANA가 마스터로 실행 중인 노드에서 네트워크 인터페이스를 사용하지 않도록 설정하여 Azure 펜싱 에이전트의 설정을 테스트할 수 있습니다.
+네트워크 장애를 시뮬레이션하는 방법에 대한 설명은 [Red Hat 기술 자료 문서79523](https://access.redhat.com/solutions/79523)을 참조하세요. 이 예제에서는 net_breaker 스크립트를 사용하여 네트워크에 대한 모든 액세스를 차단합니다.
 
-<pre><code>[root@hn1-db-1 ~]# sudo ifdown eth0
+<pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
 
 클러스터 구성에 따라 이제 가상 머신을 다시 시작하거나 중지해야 합니다.
