@@ -2,20 +2,20 @@
 title: Azure Functions의 외부 파일 바인딩(실험)
 description: Azure Functions에서 외부 파일 바인딩 사용
 services: functions
-author: alexkarcher-msft
+author: craigshoemaker
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: alkarche
-ms.openlocfilehash: be2d34202b88d0d424eb23c4e078c2fdc45c6ab6
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.author: cshoe
+ms.openlocfilehash: 39036f17b8ceafebbe3660f2074e2a6c84c4df03
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093773"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248696"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions 외부 파일 바인딩(실험)
 이 문서에서는 Azure Functions에서 다른 SaaS 공급자(예: Dropbox 또는 Google Drive)로부터 파일을 조작하는 방법을 보여 줍니다. Azure Functions는 외부 파일에 대한 트리거, 입력 및 출력 바인딩을 지원합니다. 이러한 바인딩은 SaaS 공급자에 대한 API 연결을 만들거나 함수 앱의 리소스 그룹에서 기존 API 연결을 사용합니다.

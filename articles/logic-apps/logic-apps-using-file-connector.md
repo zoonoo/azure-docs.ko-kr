@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: 41dd8ad721329c4c4d2761c9e4a37c640251dac3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125281"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232548"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 온-프레미스 파일 시스템에 연결
 
@@ -99,7 +99,7 @@ ms.locfileid: "43125281"
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
 
-* Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Azure Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)에서 투표하거나 아이디어를 제출하세요.
+* Azure Logic Apps 및 커넥터 개선에 도움을 주려면 [Azure Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)에서 투표하거나 아이디어를 제출하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

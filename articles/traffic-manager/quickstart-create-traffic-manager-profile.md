@@ -4,10 +4,7 @@ description: 이 빠른 시작 문서에서는 고가용성 웹 응용 프로그
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: jeconnoc
-editor: ''
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2018
 ms.author: kumud
-ms.openlocfilehash: c969dbc347f0463f6f675a11f69776948d45a9e2
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: bf9e296d7edf5ea8f668299830c64aaf3c5f74e9
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42022833"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140488"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>빠른 시작: 고가용성 웹 응용 프로그램을 위한 Traffic Manager 프로필 만들기
 
@@ -41,7 +38,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
      | 설정         | 값     |
      | ---              | ---  |
-     | Name           | 웹앱의 고유한 이름을 입력합니다.  |
+     | 이름           | 웹앱의 고유한 이름을 입력합니다.  |
      | 리소스 그룹          | **새로 만들기**를 선택하고 *myResourceGroupTM1*을 입력합니다. |
      | App Service 계획/위치         | **새로 만들기**를 선택합니다.  App Service 계획에서 *myAppServicePlanEastUS*를 입력하고 **확인**을 선택합니다. 
      |      위치  |   미국 동부        |
@@ -53,7 +50,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
      | 설정         | 값     |
      | ---              | ---  |
-     | Name           | 웹앱의 고유한 이름을 입력합니다.  |
+     | 이름           | 웹앱의 고유한 이름을 입력합니다.  |
      | 리소스 그룹          | **새로 만들기**를 선택하고 *myResourceGroupTM2*를 입력합니다. |
      | App Service 계획/위치         | **새로 만들기**를 선택합니다.  App Service 계획에서 *myAppServicePlanWestEurope*을 입력하고 **확인**을 선택합니다. 
      |      위치  |   서유럽      |
@@ -68,7 +65,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
     
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Name                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며, Traffic Manager 프로필에 액세스하는 데 사용되는 DNS 이름 **trafficmanager.net**이 됩니다.|
+    | 이름                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며, Traffic Manager 프로필에 액세스하는 데 사용되는 DNS 이름 **trafficmanager.net**이 됩니다.|
     | 라우팅 방법          | **우선 순위** 라우팅 방법을 선택합니다.|
     | 구독            | 구독을 선택합니다.|
     | 리소스 그룹          | **기존 항목 사용**을 선택한 다음, *myResourceGroupTM1*을 선택합니다.|
@@ -90,7 +87,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | type                    | Azure 엔드포인트                                   |
-    | Name           | myPrimaryEndpoint                                        |
+    | 이름           | myPrimaryEndpoint                                        |
     | 대상 리소스 종류           | App Service                          |
     | 대상 리소스          | **앱 서비스 선택**을 클릭하여 동일한 구독에서 Web Apps의 목록을 표시합니다. **리소스**에서 첫 번째 엔드포인트로 추가할 앱 서비스를 선택합니다. |
     | 우선 순위               | **1**을 선택합니다. 이제 모든 트래픽이 정상일 경우 이 엔드포인트로 전송됩니다.    |

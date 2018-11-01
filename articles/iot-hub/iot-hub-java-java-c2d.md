@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 2c784fa2879a78e52ed7aa80cb50535a830b1ed7
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b7f0e1ff359d7ec062f35360c107e33999ca198a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376689"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414253"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>IoT Hub(Java)를 사용하여 클라우드-장치 메시지 보내기
 
@@ -46,7 +46,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 
 * [장치에서 허브로 원격 분석 데이터 보내기(Java)](quickstart-send-telemetry-java.md) 또는 [IoT Hub로 메시지 라우팅 구성](tutorial-routing.md) 자습서의 전체 작업 버전.
 
-* 최신 [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* 최신 [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
 * [Maven 3](https://maven.apache.org/install.html)
 

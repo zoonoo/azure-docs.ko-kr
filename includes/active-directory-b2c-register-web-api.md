@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 9d5af21fb3b329623b14cb8742d9ec9c5d1bad46
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134329"
+---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 웹 API를 등록하려면 표에 지정된 설정을 사용합니다.
@@ -7,9 +20,9 @@
 | 설정      | 샘플 값  | 설명                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Name** | Contoso B2C API | 소비자에게 API를 설명하는 응용 프로그램 **이름**을 입력합니다. | 
-| **웹앱/웹 API 포함** | 예 | 웹 API에 **예**를 선택합니다. |
-| **암시적 흐름 허용** | 예 | 응용 프로그램이 [OpenID Connect 로그인](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md)을 사용할 경우 **예** 선택 |
-| **회신 URL** | `https://localhost:44316/` | 회신 URL은 Azure AD B2C에서 응용 프로그램이 요청한 토큰을 반환하는 끝점입니다. [적절한](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url) **회신 URL**을 입력합니다. 이 예에서는 앱 API가 로컬이고 포트 44316에서 수신하고 있습니다. |
+| **웹앱/웹 API 포함** | yes | 웹 API에 **예**를 선택합니다. |
+| **암시적 흐름 허용** | yes | 응용 프로그램이 [OpenID Connect 로그인](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md)을 사용할 경우 **예** 선택 |
+| **회신 URL** | `https://localhost:44316/` | 회신 URL은 Azure AD B2C에서 응용 프로그램이 요청한 토큰을 반환하는 엔드포인트입니다. [적절한](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url) **회신 URL**을 입력합니다. 이 예에서는 앱 API가 로컬이고 포트 44316에서 수신하고 있습니다. |
 | **앱 ID URI** | api | 앱 ID URI는 웹 API에 사용하는 식별자입니다. 도메인을 포함하는 전체 식별자 URI가 생성됩니다. |
 
 **만들기**를 클릭하여 응용 프로그램을 등록합니다.

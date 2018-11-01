@@ -5,14 +5,14 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 1e5cb18b4e526cd0a0607f5bc93788fcf07430e1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: cf45cb8de0e40dfe5f5772dcb1a0be2aa7585fd6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364238"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156683"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>자습서: Azure Digital Twins를 사용하여 건물을 프로비전하고 작업 조건 모니터링
 
@@ -161,7 +161,7 @@ UDF(사용자 정의 함수)를 사용하여 센서 데이터의 처리 방식�
             }
         ```
         
-        수정된 UDF는 방을 사용할 수 있게 되고 이산화탄소 및 온도가 허용 한도 내에 있는 조건을 찾습니다. 이 조건이 충족되면 UDF는 `parentSpace.Notify(JSON.stringigy(alert));` 문을 사용하여 알림을 생성합니다. UDF는 조건 충족 여부에 관계없이 해당 메시지를 사용하여 모니터링되는 공간의 값을 설정합니다.
+        수정된 UDF는 방을 사용할 수 있게 되고 이산화탄소 및 온도가 허용 한도 내에 있는 조건을 찾습니다. 이 조건이 충족되면 UDF는 `parentSpace.Notify(JSON.stringify(alert));` 문을 사용하여 알림을 생성합니다. UDF는 조건 충족 여부에 관계없이 해당 메시지를 사용하여 모니터링되는 공간의 값을 설정합니다.
     
     1. 파일을 저장합니다. 
     

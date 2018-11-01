@@ -3,7 +3,7 @@ title: 기존 Azure AD Domain Services로 관리되는 도메인의 디렉터리
 description: 기존 Azure AD Domain Services로 관리되는 도메인의 디렉터리 불일치 문제 이해 및 해결
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: maheshu
-ms.openlocfilehash: f791993a95534f66097e3e7e22141bf34e311f21
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 12611c9a4016b634cb865bbf609b1c7a6961abb7
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504554"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155068"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>기존 Azure AD Domain Services로 관리되는 도메인의 디렉터리 불일치 문제 해결
 기존 Azure AD Domain Services 관리되는 도메인이 있습니다. Azure Portal로 이동하여 관리되는 도메인을 확인할 때 다음 오류 메시지가 표시됩니다.

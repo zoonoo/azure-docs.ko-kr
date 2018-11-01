@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 2a5d8540dba491dec8b2da227b0e84c10ff09c77
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395007"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093214"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 
@@ -414,7 +414,6 @@ PdM에서 정상 예제보다 소수 클래스를 구성하는 오류에 더 관
 
 | # | 제목 | 설명 |
 |--:|:------|-------------|
-| 1 | [Azure 예측 유지 관리 Machine Learning 샘플](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |다음 N번째 단위에서 오류를 예측하는 PdM 샘플입니다. 이 샘플은 Azure ML Workbench 프로젝트로 작성되었으며 PdM 초보자에게 가장 적합합니다. 이 샘플과 관련된 [추가 설명서](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)입니다.|
 | 2 | [Azure 예측 유지 관리 솔루션 템플릿](https://github.com/Azure/AI-PredictiveMaintenance) | IoT 원격 모니터링의 컨텍스트에서 예측 유지 관리 시나리오를 지원할 수 있는 전체 Azure 인프라 및 ML 모델링을 보여 주는 오픈 소스 솔루션 템플릿입니다. |
 | 3 | [예측 유지 관리에 대한 딥 러닝](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | [이 샘플의 블로그 게시물](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance)에서 예측 유지 관리에 LSTM(Long Short-Term Memory) 네트워크(되풀이 신경망의 클래스)를 사용하는 데모 솔루션을 포함한 Azure Notebook입니다.|
 | 4 | [R의 예측 유지 관리 모델링 가이드](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | R에서 스크립트를 사용하는 PdM 모델링 가이드입니다.|

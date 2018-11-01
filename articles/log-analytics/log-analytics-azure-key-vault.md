@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 1c72421be6cfb266293c98d9ad06bd6adb35019b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: be0a12bbb84db1e4016bd7126a38e750e6c0c3ad
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043608"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412825"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics의 Azure Key Vault Analytics 솔루션
 
-![Key Vault 기호](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
+![Key Vault 기호](media/log-analytics-azure-key-vault/key-vault-analytics-symbol.png)
 
 Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault AuditEvent 로그를 검토할 수 있습니다.
 
@@ -46,10 +46,10 @@ Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault Au
 1. Azure Portal에서 모니터링할 Key Vault 리소스로 이동합니다.
 2. *진단 로그*를 선택하여 다음 페이지를 엽니다.
 
-   ![Azure Key Vault 타일 이미지](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Azure Key Vault 타일 이미지](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. *진단 사용*을 클릭하여 다음 페이지를 엽니다.
 
-   ![Azure Key Vault 타일 이미지](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![Azure Key Vault 타일 이미지](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. 진단을 사용하려면 *상태*에서 *켜기*를 클릭합니다.
 5. *Log Analytics로 보내기* 확인란을 클릭합니다.
 6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 새로 만듭니다.
@@ -81,7 +81,7 @@ Azure Blob Storage에 로그를 작성할 필요가 없으며 데이터를 수�
 ## <a name="use-azure-key-vault"></a>Azure Key Vault 사용
 [솔루션을 설치](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)한 후 Log Analytics의 **개요** 페이지에서 **Azure Key Vault** 타일을 클릭하여 Key Vault 데이터를 봅니다.
 
-![Azure Key Vault 타일 이미지](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
+![Azure Key Vault 타일 이미지](media/log-analytics-azure-key-vault/log-analytics-keyvault-tile.png)
 
 **개요** 타일을 클릭한 후 로그의 요약을 확인하고 다음 범주에 대한 상세 정보를 파악할 수 있습니다.
 
@@ -90,9 +90,9 @@ Azure Blob Storage에 로그를 작성할 필요가 없으며 데이터를 수�
 * 작업별 평균 작업 대기 시간
 * 1000ms 이상이 소요되는 작업 수 및 1000ms 이상이 소요되는 작업 목록을 포함한 작업 서비스 품질
 
-![Azure Key Vault 대시보드 이미지](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
+![Azure Key Vault 대시보드 이미지](media/log-analytics-azure-key-vault/log-analytics-keyvault01.png)
 
-![Azure Key Vault 대시보드 이미지](./media/log-analytics-azure-keyvault/log-analytics-keyvault02.png)
+![Azure Key Vault 대시보드 이미지](media/log-analytics-azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>모든 작업에 대한 세부 사항을 보려면
 1. **개요** 페이지에서 **Azure Key Vault** 타일을 클릭합니다.

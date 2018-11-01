@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227056"
+---
 이 단계에서는 동일한 네트워크에서 실행 중인 클라이언트 응용 프로그램을 사용하여 가용성 그룹 수신기를 테스트합니다.
 
 클라이언트 연결에는 다음 요구 사항이 있습니다.

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/27/2018
+ms.date: 10/30/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 347fc291fc7357481bfdc88c9019c3d688925c2f
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6d3f367ce21e9574282805737f2eff6c83ea6157
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067520"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248199"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 
@@ -112,7 +112,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 ### <a name="set-nodejs-runtime"></a>Node.js 런타임 설정
 
-노드 런타임을 8.11.1로 설정합니다. <!-- To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
+노드 런타임을 8.11.1로 설정합니다. 지원되는 모든 런타임을 보려면 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)를 실행합니다.
 
 ```azurecli-interactive
 # Bash and Powershell
@@ -161,7 +161,7 @@ zip -r myUpdatedAppFiles.zip .
 
 # PowerShell
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
-``` 
+```
 
 [ZIP 파일 배포](#deploy-zip-file)와 동일한 단계를 사용하여 새로운 ZIP 파일을 App Service에 배포합니다.
 

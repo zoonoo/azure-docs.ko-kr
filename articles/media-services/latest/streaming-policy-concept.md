@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 118660e8947663328554ac0116b5519267197336
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984301"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085498"
 ---
 # <a name="streaming-policies"></a>스트리밍 정책
 
@@ -29,17 +29,17 @@ Azure Media Services v3에서 스트리밍 정책을 사용하여 StreamingLocat
 
 다음 표에는 StreamingPolicy의 속성 및 해당 정의가 나와 있습니다.
 
-|이름|type|설명|
-|---|---|---|
-|id|string|리소스에 대한 정규화된 리소스 ID입니다.|
-|이름|string|리소스의 이름입니다.|
-|properties.commonEncryptionCbcs|CommonEncryptionCbcs|CommonEncryptionCbcs 구성|
-|properties.commonEncryptionCenc|CommonEncryptionCenc|CommonEncryptionCenc 구성|
-|properties.created |string|스트리밍 정책을 만든 시간|
-|properties.defaultContentKeyPolicyName |string|현재 스트리밍 정책에서 사용하는 기본 ContentKey|
-|properties.envelopeEncryption  |EnvelopeEncryption|EnvelopeEncryption 구성|
-|properties.noEncryption|NoEncryption|NoEncryption 구성|
-|형식|string|리소스 형식입니다.|
+|이름|설명|
+|---|---|
+|id|리소스에 대한 정규화된 리소스 ID입니다.|
+|이름|리소스의 이름입니다.|
+|properties.commonEncryptionCbcs|CommonEncryptionCbcs 구성|
+|properties.commonEncryptionCenc|CommonEncryptionCenc 구성|
+|properties.created |스트리밍 정책을 만든 시간|
+|properties.defaultContentKeyPolicyName |현재 스트리밍 정책에서 사용하는 기본 ContentKey|
+|properties.envelopeEncryption  |EnvelopeEncryption 구성|
+|properties.noEncryption|NoEncryption 구성|
+|형식|리소스 형식입니다.|
 
 전체 정의는 [스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)을 참조하세요.
 

@@ -3,7 +3,7 @@ title: Azure AD 조인 및 Azure Active Directory Domain Services 비교 | Micro
 description: Azure AD 조인과 Azure AD Domain Services 중에서 결정
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
-ms.author: maheshu
-ms.openlocfilehash: e4357738417a202d5dd5a97907b5240cf855f395
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 275f537511f721ea3f01c22a962462bab458129c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504117"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156582"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory 조인과 Azure Active Directory Domain Services 중에서 선택
 이 문서에서는 Azure AD(Active Directory) 조인과 Azure AD Domain Services의 차이를 설명하고 사용 사례를 기반으로 선택하도록 도와줍니다.

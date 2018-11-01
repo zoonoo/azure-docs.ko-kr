@@ -4,21 +4,21 @@ description: Azure Portal을 사용하여 Azure AD(Azure Active Directory) 인�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 6267dd8dca4c932d4a4d96b34a8eaa26f6a59c20
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: bae134d30bd175656e4da9121bca8dbfcfe7fcdd
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785802"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229462"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure AD 인증 시작
 
@@ -49,7 +49,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 두 가지 인�
 
 사용자 인증 옵션을 사용하여 Media Service API에 연결하려면 클라이언트 앱에서 다음 매개 변수가 있는 Azure AD 토큰을 요청해야 합니다.  
 
-* Azure AD 테넌트 끝점
+* Azure AD 테넌트 엔드포인트
 * Media Services 리소스 URI
 * Media Services(원시) 응용 프로그램 클라이언트 ID 
 * Media Services(원시) 응용 프로그램 리디렉션 URI 
@@ -67,7 +67,7 @@ Media Services .NET 클라이언트 SDK를 사용하지 않는 경우 앞에서 
 
 서비스 주체 옵션을 사용하여 Media Services API에 연결하려면 중간 계층 앱(웹 API 또는 웹 응용 프로그램)에서 다음 매개 변수가 있는 Azure AD 토큰을 요청해야 합니다.  
 
-* Azure AD 테넌트 끝점
+* Azure AD 테넌트 엔드포인트
 * Media Services 리소스 URI 
 * REST Media Services의 리소스 URI
 * Azure AD 응용 프로그램 값: **클라이언트 ID** 및 **클라이언트 암호**

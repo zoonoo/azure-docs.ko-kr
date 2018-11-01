@@ -5,9 +5,6 @@ services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: jeconnoc
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -16,22 +13,22 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 7ce51017fdee92e5589c06b398c9650930d5436d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d1800fea2212628e7647b5250efa33ebb97957f9
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179840"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138075"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager 트래픽 보기
 
-Traffic Manager는 DNS 수준 라우팅을 제공하므로 최종 사용자가 프로필을 만들 때 지정한 라우팅 방법을 기준으로 정상 상태의 끝점으로 라우팅될 수 있습니다. 트래픽 보기를 통해 Traffic Manager에는 사용자 기반(DNS 확인자 세분성 수준) 및 해당 트래픽 패턴 보기가 제공됩니다. 트래픽 보기를 사용하도록 설정하면 실행 가능한 정보를 제공할 수 있게 처리됩니다. 
+Traffic Manager는 DNS 수준 라우팅을 제공하므로 최종 사용자가 프로필을 만들 때 지정한 라우팅 방법을 기준으로 정상 상태의 엔드포인트로 라우팅될 수 있습니다. 트래픽 보기를 통해 Traffic Manager에는 사용자 기반(DNS 확인자 세분성 수준) 및 해당 트래픽 패턴 보기가 제공됩니다. 트래픽 보기를 사용하도록 설정하면 실행 가능한 정보를 제공할 수 있게 처리됩니다. 
 
 트래픽 보기를 사용하여 다음을 수행할 수 있습니다.
 - 사용자 기반이 있는 위치를 이해합니다(로컬 DNS 확인자 수준 세분성까지).
 - 이 지역에서 생성된 트래픽 볼륨을 확인합니다(Azure Traffic Manager가 처리하는 DNS 쿼리로 관찰).
 - 이러한 사용자가 경험한 대표적 대기 시간 정보를 파악합니다.
-- 이러한 각 사용자 기반에서 끝점이 있는 Azure 지역까지 구체적인 트래픽 패턴을 심층 탐구합니다. 
+- 이러한 각 사용자 기반에서 엔드포인트가 있는 Azure 지역까지 구체적인 트래픽 패턴을 심층 탐구합니다. 
 
 예를 들어 트래픽 보기를 사용하여 많은 수의 트래픽이 발생하지만 높은 대기 시간 문제를 겪고 있는 지역을 이해할 수 있습니다. 다음으로 새 Azure 지역에 대한 확장 계획을 세울 때 이 정보를 참조하여 사용자들이 대기 시간 문제를 덜 겪도록 할 수 있습니다.
 
@@ -45,7 +42,7 @@ Traffic Manager는 DNS 수준 라우팅을 제공하므로 최종 사용자가 �
 
 ## <a name="visual-overview"></a>시각적 개요
 
-Traffic Manager 페이지에서 **트래픽 보기** 섹션으로 이동하면 트래픽 보기 정보의 오버레이가 있는 지리적 맵이 제공됩니다. 맵에는 Traffic Manager 프로필의 사용자 기반 및 끝점에 대한 정보가 제공됩니다.
+Traffic Manager 페이지에서 **트래픽 보기** 섹션으로 이동하면 트래픽 보기 정보의 오버레이가 있는 지리적 맵이 제공됩니다. 맵에는 Traffic Manager 프로필의 사용자 기반 및 엔드포인트에 대한 정보가 제공됩니다.
 
 ### <a name="user-base-information"></a>사용자 기반 정보
 
@@ -54,12 +51,12 @@ Traffic Manager 페이지에서 **트래픽 보기** 섹션으로 이동하면 �
 맵에서 DNS 확인자 위치를 가리키면 다음이 표시됩니다.
 - DNS 확인자의 IP 주소
 - Traffic Manager에서 표시하는 DNS 쿼리 트래픽 볼륨
-- DNS 확인자의 트래픽에서 라우트된 끝점, 끝점과 DNS 확인자 사이의 선으로 표시됨 
-- 해당 위치에서 끝점까지 평균 대기 시간, 이 둘을 연결하는 선의 색상으로 표시됨
+- DNS 확인자의 트래픽에서 라우트된 엔드포인트, 엔드포인트와 DNS 확인자 사이의 선으로 표시됨 
+- 해당 위치에서 엔드포인트까지 평균 대기 시간, 이 둘을 연결하는 선의 색상으로 표시됨
 
-### <a name="endpoint-information"></a>끝점 정보
+### <a name="endpoint-information"></a>엔드포인트 정보
 
-끝점이 있는 Azure 지역은 맵에서 파란색 점으로 표시됩니다. 엔드포인트가 외부에 있거나 매핑된 Azure 지역에 없는 경우 맵 위쪽에 표시됩니다. 끝점을 클릭하면 해당 끝점에 트래픽이 전송된 위치와 다른 위치(사용되는 DNS 확인자 기준)가 표시됩니다. 연결은 끝점과 DNS 확인자 위치 사이에 선으로 표시되고 해당 쌍 간의 대표 대기 시간에 따라 색상이 지정됩니다. 또한 끝점의 이름과 실행되는 Azure 지역, 이 Traffic Manager 프로필에서 전송한 요청의 총 볼륨을 볼 수 있습니다.
+엔드포인트가 있는 Azure 지역은 맵에서 파란색 점으로 표시됩니다. 엔드포인트가 외부에 있거나 매핑된 Azure 지역에 없는 경우 맵 위쪽에 표시됩니다. 엔드포인트를 클릭하면 해당 엔드포인트에 트래픽이 전송된 위치와 다른 위치(사용되는 DNS 확인자 기준)가 표시됩니다. 연결은 엔드포인트와 DNS 확인자 위치 사이에 선으로 표시되고 해당 쌍 간의 대표 대기 시간에 따라 색상이 지정됩니다. 또한 엔드포인트의 이름과 실행되는 Azure 지역, 이 Traffic Manager 프로필에서 전송한 요청의 총 볼륨을 볼 수 있습니다.
 
 
 ## <a name="tabular-listing-and-raw-data-download"></a>테이블 형식 목록 및 원시 데이터 다운로드

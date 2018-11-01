@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7e62986569888ebbcd9f17b4eb4cfb2c70411d4a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39393060"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231647"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Azure Logic Apps에서 데이터 작업 수행
 
@@ -48,7 +48,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
 | 조치 | 설명 | 
 |--------|-------------| 
-| [**작성**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. | 
+| [**Compose**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. | 
 | [**JSON 구문 분석**](#parse-json-action) | JSON 콘텐츠의 속성에 대해 사용자에게 친숙한 데이터 토큰을 만들어 논리 앱에서 해당 속성을 더 쉽게 사용할 수 있습니다. | 
 ||| 
 
@@ -567,7 +567,7 @@ JSON(JavaScript Object Notation) 콘텐츠의 속성을 참조하거나 액세�
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

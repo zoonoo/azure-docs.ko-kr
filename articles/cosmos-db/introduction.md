@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696451"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242293"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -55,7 +55,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
 * **"Always On" 가용성 보장**
     * 모든 단일 지역 데이터베이스 계정에 대해 99.99% 가용성 SLA 및 모든 다중 지역 데이터베이스 계정에 대해 99.999% 읽기 가용성을 보장합니다.
     * 더 높은 가용성과 더 나은 성능을 위해 원하는 수의 [Azure 지역](https://azure.microsoft.com/regions)에 배포합니다.
-    * 지역에 대한 우선 순위를 동적으로 설정하고 데이터 손실 보장이 0인 하나 이상의 지역에서 [오류를 시뮬레이션](regional-failover.md)하여 전체 앱(데이터베이스 외)에 대한 종단 간 가용성을 테스트합니다. 
+    * 지역에 대한 우선 순위를 동적으로 설정하고 데이터 손실 보장이 0인 하나 이상의 지역에서 [오류를 시뮬레이션](high-availability.md)하여 전체 앱(데이터베이스 외)에 대한 종단 간 가용성을 테스트합니다. 
 
 * **올바른 방법으로 전세계에 배포되는 응용 프로그램 작성**
     * 잘 정의되고 실용적이며 직관적인 5개 [일관성 모델](consistency-levels.md)은 중간 형태의 일관성을 포함하여 완화된 NoSQL 형태의 최종 일관성에서 강력한 SQL 형태의 일관성까지 모두 제공합니다. 
@@ -78,11 +78,11 @@ Azure Cosmos DB는 기존의 관계형 및 비관계형 데이터베이스의 �
 | 기능 | 관계형 데이터베이스   | 비관계형(NoSQL) 데이터베이스 |    Azure Cosmos DB |
 | --- | --- | --- | --- |
 | 글로벌 분포 | 아니요 | 아니요 | 예, 멀티 호밍 API를 사용하여 30개 이상의 지역에서 턴키 배포|
-| 수평적 확장 | 아니요 | 예 | 예, 독립적으로 저장소 및 처리량을 확장할 수 있습니다. | 
-| 대기 시간 보장 | 아니요 | 예 | 예, <10ms인 읽기의 99% 및 <15 ms인 쓰기 | 
-| 고가용성 | 아니요 | 예 | 예, Azure Cosmos DB는 항상 켜져 있고, PACELC 장단점이 잘 정의되어 있으며, 자동 및 수동 장애 조치 옵션을 제공합니다.|
+| 수평적 확장 | 아니요 | yes | 예, 독립적으로 저장소 및 처리량을 확장할 수 있습니다. | 
+| 대기 시간 보장 | 아니요 | yes | 예, <10ms인 읽기의 99% 및 <15 ms인 쓰기 | 
+| 고가용성 | 아니요 | yes | 예, Azure Cosmos DB는 항상 켜져 있고, PACELC 장단점이 잘 정의되어 있으며, 자동 및 수동 장애 조치 옵션을 제공합니다.|
 | 데이터 모델 + API | 관계형 + SQL | 다중 모델 + OSS API | 다중 모델 + SQL + OSS API(추가 서비스 예정) |
-| SLA | 예 | 아니요 | 예, 대기 시간, 처리량, 일관성, 가용성에 대한 포괄적 SLA |
+| SLA | yes | 아니요 | 예, 대기 시간, 처리량, 일관성, 가용성에 대한 포괄적 SLA |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB를 활용하는 솔루션
 

@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 8d3e0874637bc3f13905c6038349b34c18b5fe56
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637800"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248713"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure Monitor에서 수집된 데이터 모니터링
 [Azure Monitor](../azure-monitor/overview.md)는 사용하는 응용 프로그램 및 리소스를 모니터링하는 데 도움이 되는 서비스입니다. 이 기능의 중심은 원격 분석의 저장소 및 모니터링된 리소스의 기타 데이터입니다. 이 문서에서는 이 데이터가 저장되고 Azure Monitor에서 사용되는 방법에 대한 전체 설명을 제공합니다.
 
 Azure Monitor에서 수집된 모든 데이터는 두 가지 기본 유형, [메트릭](#metrics) 및 [로그](#logs) 중 하나에 맞습니다. 메트릭은 시간상 특정 지점에서 시스템의 일부 측면을 설명하는 숫자 값입니다. 메트릭은 간단하며 실시간에 가까운 시나리오를 지원할 수 있습니다. 로그에는 각 형식에 대해 다양한 속성 집합이 포함된 레코드로 구성된 다양한 데이터 형식이 포함됩니다. 이벤트 및 추적과 같은 원격 분석은 분석을 위해 모두 결합될 수 있도록 성능 데이터 외에 로그로 저장됩니다.
 
-![Azure Monitor 개요](../azure-monitor/media/overview/overview.png)
+![Azure Monitor 개요](media/monitoring-data-collection/overview.png)
 
 ## <a name="metrics"></a>메트릭
 메트릭은 특정 시간에 시스템의 일부 측면을 설명하는 숫자 값입니다. 메트릭은 간단하며 실시간에 가까운 시나리오를 지원할 수 있습니다. 메트릭은 값이 변경되었는지 여부와 상관 없이 정기적으로 수집됩니다. 메트릭은 자주 샘플링할 수 있고 경고는 비교적 간단한 논리를 사용하여 신속하게 발생시킬 수 있기 때문에, 메트릭은 경고에 유용합니다. 

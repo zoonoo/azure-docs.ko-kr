@@ -3,20 +3,20 @@ title: Azure Functions의 Azure Blob Storage 바인딩
 description: Azure Functions에서 Azure Blob Storage 트리거 및 바인딩을 사용하는 방법을 파악합니다.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
-ms.author: glenga
-ms.openlocfilehash: 0cd1d717189439d504232be1bc07885b12fa01bd
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.author: cshoe
+ms.openlocfilehash: c9e6898d83e5bc1360bb5b1539b12bace8acdb3f
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649706"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251042"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -88,9 +88,9 @@ Event Grid 외에 BLOB 처리를 위한 다른 방법은 Queue 저장소 트리�
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
-public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
+public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, ILogger log)
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
@@ -126,9 +126,9 @@ blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수
 `Stream`에 바인딩되는 C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
-public static void Run(Stream myBlob, TraceWriter log)
+public static void Run(Stream myBlob, ILogger log)
 {
-   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+   log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
@@ -139,9 +139,9 @@ public static void Run(Stream myBlob, TraceWriter log)
 
 using Microsoft.WindowsAzure.Storage.Blob;
 
-public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
+public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
+    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
 }
 ```
 
@@ -282,7 +282,7 @@ public void run(
 |**type** | 해당 없음 | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#trigger---usage) 섹션에서 표시됩니다. |
 |**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. | 
-|**path** | **BlobPath** |모니터링할 컨테이너입니다.  [Blob 이름 패턴](#trigger-blob-name-patterns)일 수 있습니다. | 
+|**path** | **BlobPath** |모니터링할 컨테이너입니다.  [Blob 이름 패턴](#trigger---blob-name-patterns)일 수 있습니다. | 
 |**연결** | **연결** | 이 바인딩에 사용할 저장소 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 저장소 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 저장소 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 저장소 계정의 문자열이어야 합니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -364,9 +364,9 @@ Blob 트리거는 몇 가지 메타데이터 속성을 제공합니다. 이러�
 예를 들어, 다음 C# 스크립트 및 JavaScript 예제는 컨테이너를 포함하는 트리거 Blob의 경로를 로깅합니다.
 
 ```csharp
-public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+public static void Run(string myBlob, string blobTrigger, ILogger log)
 {
-    log.Info($"Full blob path: {blobTrigger}");
+    log.LogInformation($"Full blob path: {blobTrigger}");
 } 
 ```
 
@@ -437,9 +437,9 @@ Blob Storage 입력 바인딩을 사용하여 Blob을 읽습니다.
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```        
 
@@ -485,9 +485,9 @@ public static void Run(
 C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
@@ -569,9 +569,9 @@ public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-item
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 
 ```
@@ -583,9 +583,9 @@ public static void Run(
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
@@ -717,9 +717,9 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```

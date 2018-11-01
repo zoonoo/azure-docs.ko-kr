@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377397"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232599"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 보호
 
@@ -168,7 +168,7 @@ Azure Portal의 리소스 설정 내에서 이 설정을 구성할 수 있습니
 
 ### <a name="using-parameters-and-secure-parameters"></a>매개 변수 및 보안 매개 변수 사용
 
-런타임 시 리소스 매개 변수의 값에 액세스하기 위해 [워크플로 정의 언어](http://aka.ms/logicappsdocs)는 `@parameters()` 연산을 제공합니다. 또한 [리소스 배포 템플릿에서 매개 변수를 지정](../azure-resource-manager/resource-group-authoring-templates.md#parameters)할 수 있습니다. 하지만 매개 변수 형식을 `securestring`로 지정하면 해당 매개 변수는 리소스 정의의 나머지를 반환하지 않고 배포 후에 리소스를 확인하여 액세스할 수 없게 됩니다.
+런타임 시 리소스 매개 변수의 값에 액세스하기 위해 [워크플로 정의 언어](https://aka.ms/logicappsdocs)는 `@parameters()` 연산을 제공합니다. 또한 [리소스 배포 템플릿에서 매개 변수를 지정](../azure-resource-manager/resource-group-authoring-templates.md#parameters)할 수 있습니다. 하지만 매개 변수 형식을 `securestring`로 지정하면 해당 매개 변수는 리소스 정의의 나머지를 반환하지 않고 배포 후에 리소스를 확인하여 액세스할 수 없게 됩니다.
 
 > [!NOTE]
 > 요청의 머리글이나 본문에 매개 변수를 사용하는 경우 해당 매개 변수에서는 실행 기록과 나가는 HTTP 요청에 액세스하여 볼 수 있습니다. 해당하는 콘텐츠 액세스 정책을 설정해야 합니다.

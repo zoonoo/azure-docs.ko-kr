@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 75b1edf80f1dad5f0db48c11329effe080760820
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957381"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413148"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 응용 프로그램을 모니터링할 수 있습니다. 플러그 인은 Azure Monitor에서 제공하는 인프라 데이터뿐만 아니라 Application Insights SDK에서 수집한 응용 프로그램 성능 데이터도 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
@@ -37,13 +37,13 @@ Azure Marketplace에서 Grafana 서버를 설정하고 Azure Monitor 및 Applica
 ## <a name="log-in-to-grafana"></a>Grafana에 로그인
 1. 배포가 완료되면 **리소스 그룹으로 이동**을 선택합니다. 새로 만든 리소스의 목록이 표시됩니다.
 
-    ![Grafana 리소스 그룹 개체](.\media\monitor-how-to-grafana\grafana1.png)
+    ![Grafana 리소스 그룹 개체](media/monitor-send-to-grafana/grafana1.png)
 
     네트워크 보안 그룹(이 경우 *grafana-nsg*)을 선택하면 3000 포트가 Grafana 서버에 액세스하는 데 사용됨을 알 수 있습니다.
 
 2. 리소스 목록으로 돌아가서 **공용 IP 주소**를 선택합니다. 이 화면에 있는 값을 사용하여 브라우저에서 *http://<IP address>:3000* 또는 *<DNSName>:3000*을 입력합니다. 방금 빌드한 Grafana 서버에 대한 로그인 페이지가 표시됩니다.
 
-    ![Grafana 로그인 화면](.\media\monitor-how-to-grafana\grafana2.png)
+    ![Grafana 로그인 화면](media/monitor-send-to-grafana/grafana2.png)
 
 3. 사용자 이름으로 *admin* 및 이전에 만든 Grafana 서버 관리자 암호를 사용하여 로그인합니다.
 
@@ -51,7 +51,7 @@ Azure Marketplace에서 Grafana 서버를 설정하고 Azure Monitor 및 Applica
 
 성공적으로 로그인하면 Azure Monitor 데이터 원본 플러그 인이 이미 포함되어 있는지 확인해야 합니다.
 
-![Azure Monitor 플러그 인을 보여 주는 Grafana](.\media\monitor-how-to-grafana\grafana3.png)
+![Azure Monitor 플러그 인을 보여 주는 Grafana](media/monitor-send-to-grafana/grafana3.png)
 
 1. **데이터 원본 추가**를 선택하여 Azure Monitor 및 Application Insights를 구성합니다.
 
@@ -70,7 +70,7 @@ Grafana는 Azure Monitor API에 연결하고 메트릭 데이터를 수집하는
 
 4. 이 정보를 모두 입력한 후에는 **저장**을 선택하고 Grafana에서 API를 테스트합니다. 다음과 비슷한 메시지가 표시됩니다.  
 
-    ![Azure Monitor 플러그 인을 보여 주는 Grafana](.\media\monitor-how-to-grafana\grafana4-1.png)
+    ![Azure Monitor 플러그 인을 보여 주는 Grafana](media/monitor-send-to-grafana/grafana4-1.png)
 
 > [!NOTE]
 > 플러그 인을 구성하는 동안 플러그 인이 구성되기를 원하는 Azure 클라우드(공개, Azure 미국 정부, Azure 독일 또는 Azure 중국)를 지정할 수 있습니다.
@@ -83,7 +83,7 @@ Grafana는 Azure Monitor API에 연결하고 메트릭 데이터를 수집하는
 
 2. 새 대시보드에서 **그래프**를 선택합니다. 다른 차트 옵션을 사용해 볼 수도 있지만 이 문서에서는 *그래프*를 예로 사용합니다.
 
-    ![새 Grafana 대시보드](.\media\monitor-how-to-grafana\grafana5.png)
+    ![새 Grafana 대시보드](media/monitor-send-to-grafana/grafana5.png)
 
 3. 빈 그래프가 대시보드에 표시됩니다.
 
@@ -93,14 +93,14 @@ Grafana는 Azure Monitor API에 연결하고 메트릭 데이터를 수집하는
 
 다음은 두 개의 차트가 있는 간단한 대시보드입니다. 왼쪽 차트에는 두 VM의 CPU 백분율이 표시됩니다. 오른쪽 차트에는 트랜잭션 API 유형별로 분류된 Azure Storage 계정의 트랜잭션이 표시됩니다.
 
-![두 Grafana 차트 예제](.\media\monitor-how-to-grafana\grafana6.png)
+![두 Grafana 차트 예제](media/monitor-send-to-grafana/grafana6.png)
 
 
 ## <a name="optional-create-dashboard-playlists"></a>선택 사항: 대시보드 재생 목록 만들기
 
 Grafana의 많은 유용한 기능 중 하나는 대시보드 재생 목록입니다. 여러 개의 대시보드를 만들고 각 대시보드에서 표시할 간격을 구성하여 재생 목록에 추가할 수 있습니다. **재생**을 선택하여 대시보드가 순환하는지 확인합니다. 그룹에 대한 "상태 보드"를 대형 벽면 모니터에 표시하여 제공할 수도 있습니다.
 
-![Grafana 재생 목록 예제](.\media\monitor-how-to-grafana\grafana7.png)
+![Grafana 재생 목록 예제](media/monitor-send-to-grafana/grafana7.png)
 
 
 ## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>선택 사항: 동일한 Grafana 서버에서 사용자 지정 메트릭 모니터링
@@ -117,7 +117,7 @@ Telegraf 및 InfluxDB를 설치하여 동일한 Grafana 인스턴스에서 사�
  - [Docker 호스트, 컨테이너 및 컨테이너화된 서비스에 대한 모니터링 솔루션](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 다음은 Azure Monitor 및 Application Insights의 메트릭이 포함된 전체 Grafana 대시보드에 대한 이미지입니다.
-![Grafana 예제 메트릭](.\media\monitor-how-to-grafana\grafana8.png)
+![Grafana 예제 메트릭](media/monitor-send-to-grafana/grafana8.png)
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

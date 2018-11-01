@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 6c461fe06e1a869d0495551ab014452c03dc60b2
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 75a6466578808cb5c0dd8d2e32d9445a6e5a5bf8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038539"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140539"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Azure에서 Windows 가상 머신에 태그를 지정하는 방법
 이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Windows 가상 머신에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다. Linux 가상 머신에 태그를 지정하려는 경우 [Azure에서 Linux 가상 머신에 태그를 지정하는 방법](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
@@ -51,22 +51,20 @@ PowerShell을 통해 태그를 추가하려는 경우 `Set-AzureRmResource` 명�
 
 두 번째 명령은 지정된 변수에 대한 태그를 표시합니다.
 
-        PS C:\> $tags
-
-        Name        Value
-        ----                           -----
-        Value        MyDepartment
-        Name        Department
-        Value        MyApp1
-        Name        Application
-        Value        MyName
-        Name        Created By
-        Value        Production
-        Name        Environment
+```
+    PS C:\> $tags
+    
+    Key           Value
+    ----          -----
+    Department    MyDepartment
+    Application   MyApp1
+    Created By    MyName
+    Environment   Production
+```
 
 세 번째 명령은 *$tags* 변수에 태그를 더 추가합니다. **+=** 을 사용하여 *$tags* 목록에 새로운 키/값 쌍을 추가합니다.
 
-        PS C:\> $tags += @{Name="Location";Value="MyLocation"}
+        PS C:\> $tags += @{Location="MyLocation"}
 
 네 번째 명령은 *$tags* 변수에 정의된 모든 태그를 지정된 리소스로 설정합니다. 이 경우 MyTestVM입니다.
 
@@ -74,20 +72,17 @@ PowerShell을 통해 태그를 추가하려는 경우 `Set-AzureRmResource` 명�
 
 다섯 번째 명령은 리소스의 모든 태그를 표시합니다. 여기서 볼 수 있듯이 *위치*가 이제 값이 *MyLocation*인 태그로 정의되었습니다.
 
-        PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
+```
+    PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-        Name        Value
-        ----                           -----
-        Value        MyDepartment
-        Name        Department
-        Value        MyApp1
-        Name        Application
-        Value        MyName
-        Name        Created By
-        Value        Production
-        Name        Environment
-        Value        MyLocation
-        Name        Location
+    Key           Value
+    ----          -----
+    Department    MyDepartment
+    Application   MyApp1
+    Created By    MyName
+    Environment   Production
+    Location      MyLocation
+```
 
 PowerShell을 통해 태그를 지정하는 방법에 대한 자세한 내용은 [Azure 리소스 Cmdlet][Azure Resource Cmdlets]을 참조하세요.
 

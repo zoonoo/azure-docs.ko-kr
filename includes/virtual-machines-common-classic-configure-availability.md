@@ -1,9 +1,19 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227021"
+---
 가용성 집합을 사용하면 유지 관리 중과 같은 가동 중지 시간 동안에도 가상 머신을 계속 사용할 수 있습니다. 가용성 집합 내에 비슷하게 구성된 둘 이상의 가상 머신을 배치하면 가상 머신이 실행하는 서비스나 응용 프로그램의 가용성을 유지하는 데 필요한 중복성이 생성됩니다. 이 기능이 작동하는 방식에 대한 자세한 내용은 [가상 머신의 가용성 관리][Manage the availability of virtual machines]를 참조하세요.
 
-응용 프로그램을 항상 사용 가능한 상태로 유지하고 효과적으로 실행하려면 가용성 집합과 부하 분산 끝점을 함께 사용하는 것이 가장 좋습니다. 부하가 분산된 끝점에 대한 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산][Load balancing for Azure infrastructure services]을 참조하세요.
+응용 프로그램을 항상 사용 가능한 상태로 유지하고 효과적으로 실행하려면 가용성 집합과 부하 분산 엔드포인트를 함께 사용하는 것이 가장 좋습니다. 부하가 분산된 엔드포인트에 대한 자세한 내용은 [Azure 인프라 서비스를 위한 부하 분산][Load balancing for Azure infrastructure services]을 참조하세요.
 
 다음 두 옵션 중 하나를 사용하여 클래식 가상 머신을 가용성 집합에 추가할 수 있습니다.
 

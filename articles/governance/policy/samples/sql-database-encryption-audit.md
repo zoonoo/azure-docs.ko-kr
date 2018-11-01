@@ -6,15 +6,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 4e825317cd7faf75e024e92393585e7d9812c7e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d7e8571c0b8301da953d84893ac48934a2392d55
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958852"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230006"
 ---
 # <a name="audit-sql-database-encryption"></a>SQL Database 암호화 감사
 
@@ -24,37 +24,7 @@ ms.locfileid: "46958852"
 
 ## <a name="sample-template"></a>샘플 템플릿
 
-```json
-{
-  "if": {
-    "allOf": [
-      {
-        "field": "type",
-        "equals": "Microsoft.Sql/servers/databases"
-      },
-      {
-        "field": "name",
-        "notEquals": "master"
-      }
-    ]
-  },
-  "then": {
-    "effect": "AuditIfNotExists",
-    "details": {
-      "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
-      "name": "current",
-      "existenceCondition": {
-        "allOf": [
-          {
-            "field": "Microsoft.Sql/transparentDataEncryption.status",
-            "equals": "enabled"
-          }
-        ]
-      }
-    }
-  }
-}
-```
+[!code-json[main](../../../../policy-templates/samples/SQL/audit-sql-db-tde-status/azurepolicy.json "Audit TDE for SQL Database")]
 
 [PowerShell](#deploy-with-powershell) 또는 [Azure CLI](#deploy-with-azure-cli)와 함께 [Azure Portal](#deploy-with-the-portal)을 사용하여 이 템플릿을 배포할 수 있습니다. 기본 제공 정책을 가져오려면 ID `17k78e20-9358-41c9-923c-fb736d382a12`를 사용합니다.
 

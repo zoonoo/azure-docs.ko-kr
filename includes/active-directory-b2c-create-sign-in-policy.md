@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 19e7c919345c0f56b274737840f8150f7d710501
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132777"
+---
 응용 프로그램에서 로그인만 사용하려면 **로그인** 정책을 사용합니다. 이 정책은 로그인하는 동안 고객이 경험하게 될 환경, 그리고 로그인 성공 시 응용 프로그램에서 수신하게 될 토큰의 콘텐츠를 설명합니다.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]

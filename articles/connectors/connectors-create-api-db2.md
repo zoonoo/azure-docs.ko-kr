@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 354e67183a36f511811d74a0685dea2e23d6c0e2
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 9ba2476ccf2601f5d7d2c0e93c7661f740f32145
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818878"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231766"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 IBM DB2 리소스 관리
 
@@ -65,7 +65,7 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 
 ## <a name="add-db2-action---get-tables"></a>DB2 추가 작업 - 테이블 가져오기
 
-1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다(아직 열려 있지 않은 경우).
+1. [Azure Portal](https://portal.azure.com)의 Logic App 디자이너에서 논리 앱을 엽니다(아직 열려 있지 않은 경우).
 
 1. 트리거 아래에서 **새 단계**를 선택합니다.
 
@@ -361,7 +361,7 @@ DB2 데이터베이스 테이블에서 단일 레코드를 삭제하려면 논�
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

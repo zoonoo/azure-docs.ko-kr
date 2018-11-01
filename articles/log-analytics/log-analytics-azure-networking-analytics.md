@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: f1db673ad750a5d9d9d6bda9f41555d5e3affe8d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bc2b93312ed005154aa7d2530fb5493278a15c67
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043093"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418605"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Log Analytics의 Azure 네트워킹 모니터링 솔루션
 
@@ -70,7 +70,7 @@ Azure Application Gateway 분석 및 네트워크 보안 그룹 분석 관리 �
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Log Analytics의 Azure Application Gateway 분석 솔루션
 
-![Azure Application Gateway 분석 기호](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Azure Application Gateway 분석 기호](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 Application Gateway에는 다음 로그가 지원됩니다.
 
@@ -94,10 +94,10 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 1. Azure Portal에서 모니터링할 Application Gateway 리소스로 이동합니다.
 2. *진단 로그*를 선택하여 다음 페이지를 엽니다.
 
-   ![Azure Application Gateway 리소스 이미지](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics01.png)
+   ![Azure Application Gateway 리소스 이미지](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. *진단 사용*을 클릭하여 다음 페이지를 엽니다.
 
-   ![Azure Application Gateway 리소스 이미지](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics02.png)
+   ![Azure Application Gateway 리소스 이미지](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. 진단을 사용하려면 *상태*에서 *켜기*를 클릭합니다.
 5. *Log Analytics로 보내기* 확인란을 클릭합니다.
 6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 새로 만듭니다.
@@ -117,7 +117,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 ```
 
 ### <a name="use-azure-application-gateway-analytics"></a>Azure Application Gateway 분석 사용
-![Azure Application Gateway 분석 타일 이미지](./media/log-analytics-azure-networking/log-analytics-appgateway-tile.png)
+![Azure Application Gateway 분석 타일 이미지](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-tile.png)
 
 [개요]에서 **Azure Application Gateway 분석** 타일을 클릭한 후 로그 요약을 확인한 후 다음 범주에 대한 세부 정보를 파악할 수 있습니다.
 
@@ -130,9 +130,9 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
   * Application Gateway에 대한 호스트 상태
   * Application Gateway 실패한 요청에 대해 최대값 및 95번째 백분위수
 
-![Azure Application Gateway 분석 대시보드 이미지](./media/log-analytics-azure-networking/log-analytics-appgateway01.png)
+![Azure Application Gateway 분석 대시보드 이미지](media/log-analytics-azure-networking-analytics/log-analytics-appgateway01.png)
 
-![Azure Application Gateway 분석 대시보드 이미지](./media/log-analytics-azure-networking/log-analytics-appgateway02.png)
+![Azure Application Gateway 분석 대시보드 이미지](media/log-analytics-azure-networking-analytics/log-analytics-appgateway02.png)
 
 **Azure Application Gateway 분석** 대시보드의 블레이드 중 하나에서 요약 정보를 검토한 다음 하나를 클릭하여 로그 검색 페이지에서 해당 항목에 대한 세부 정보를 봅니다.
 
@@ -141,7 +141,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Log Analytics의 Azure 네트워크 보안 그룹 분석 솔루션
 
-![Azure 네트워크 보안 그룹 분석 기호](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Azure 네트워크 보안 그룹 분석 기호](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 > [!NOTE]
 > 해당 기능이 [트래픽 분석](../network-watcher/traffic-analytics.md)으로 대체되었으므로 네트워크 보안 그룹 분석 솔루션은 커뮤니티 지원으로 이동합니다.
@@ -165,10 +165,10 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 1. Azure Portal에서 모니터링할 네트워크 보안 그룹 리소스로 이동합니다.
 2. *진단 로그*를 선택하여 다음 페이지를 엽니다.
 
-   ![Azure 네트워크 보안 그룹 리소스 이미지](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics01.png)
+   ![Azure 네트워크 보안 그룹 리소스 이미지](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. *진단 사용*을 클릭하여 다음 페이지를 엽니다.
 
-   ![Azure 네트워크 보안 그룹 리소스 이미지](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics02.png)
+   ![Azure 네트워크 보안 그룹 리소스 이미지](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. 진단을 사용하려면 *상태*에서 *켜기*를 클릭합니다.
 5. *Log Analytics로 보내기* 확인란을 클릭합니다.
 6. 기존 Log Analytics 작업 영역을 선택하거나 작업 영역을 새로 만듭니다.
@@ -196,9 +196,9 @@ Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspac
   * 허용된 흐름이 있는 네트워크 보안 그룹 규칙
   * 허용된 흐름이 있는 MAC 주소 
 
-![Azure 네트워크 보안 그룹 분석 대시보드 이미지](./media/log-analytics-azure-networking/log-analytics-nsg01.png)
+![Azure 네트워크 보안 그룹 분석 대시보드 이미지](media/log-analytics-azure-networking-analytics/log-analytics-nsg01.png)
 
-![Azure 네트워크 보안 그룹 분석 대시보드 이미지](./media/log-analytics-azure-networking/log-analytics-nsg02.png)
+![Azure 네트워크 보안 그룹 분석 대시보드 이미지](media/log-analytics-azure-networking-analytics/log-analytics-nsg02.png)
 
 **Azure 네트워크 보안 그룹 분석** 대시보드의 블레이드 중 하나에서 요약 정보를 검토한 다음 하나를 클릭하여 로그 검색 페이지에서 해당 항목에 대한 세부 정보를 봅니다.
 

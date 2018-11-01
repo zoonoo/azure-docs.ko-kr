@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 12a660b49d1a81865c34ceda38f041de9be31eb1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc4a1a7f99de657a6199985dd0c963eed741ac97
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037476"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210026"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 작성된 Home automation 앱 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "47037476"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 [http://www.luis.ai](http://www.luis.ai)의 LUIS 포털에 만들어진 무료 LUIS 계정이 필요합니다. 
+이 문서에서는 [https://www.luis.ai](https://www.luis.ai)의 LUIS 포털에 만들어진 무료 LUIS 계정이 필요합니다. 
 
 ## <a name="create-a-new-app"></a>새 앱 만들기
 응용 프로그램은 **내 앱**에서 만들고 관리할 수 있습니다. 

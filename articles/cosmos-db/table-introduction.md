@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 225811195ffa01ce26f51fdbb78ee567c747c3d1
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 07c1edd53ff30cc3128443cb8984d1a5467c4395
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43282969"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240058"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB: 테이블 API 소개
 
@@ -36,7 +36,7 @@ Azure Table Storage에 대해 작성된 응용 프로그램은 코드를 변경�
 | --- | --- | --- |
 | 대기 시간 | 빠르지만 대기 시간에 대한 상한이 없습니다. | 읽기/쓰기에 대한 1자리 밀리초 대기 시간이 지원됩니다(전 세계의 모든 규모에 대해 99번째 백분위수에서 10ms 미만의 읽기 및 15ms 미만의 쓰기 대기 시간 지원). |
 | 처리량 | 가변 처리량 모델입니다. 테이블의 확장 제한은 20,000개 작업/초입니다. | SLA를 통해 지원하는 [테이블당 예약된 전용 처리량](request-units.md)으로 확장성이 뛰어납니다. 계정에는 처리량에 대한 상한이 없으며, 테이블당 1,000만 개 이상 작업/초를 지원합니다. |
-| 글로벌 분포 | 고가용성을 위해 선택적인 읽기 가능한 보조 읽기 하위 지역 하나가 있는 단일 지역입니다. 장애 조치를 시작할 수 없습니다. | 하나에서 30개가 넘는 지역까지 [턴키 전역 배포](distribute-data-globally.md)를 수행할 수 있습니다. 전 세계 어디에서나 [자동 및 수동 장애 조치](regional-failover.md)를 지원합니다. |
+| 글로벌 분포 | 고가용성을 위해 선택적인 읽기 가능한 보조 읽기 하위 지역 하나가 있는 단일 지역입니다. 장애 조치를 시작할 수 없습니다. | 하나에서 30개가 넘는 지역까지 [턴키 전역 배포](distribute-data-globally.md)를 수행할 수 있습니다. 전 세계 어디에서나 [자동 및 수동 장애 조치](high-availability.md)를 지원합니다. |
 | 인덱싱 | PartitionKey 및 RowKey에 대한 기본 인덱스만 제공. 보조 인덱스가 없습니다. | 모든 속성에 대해 자동 및 전체 인덱싱을 수행할 수 있으며, 인덱스 관리가 없습니다. |
 | 쿼리 | 쿼리 실행 시 기본 키에 대한 인덱스를 사용하고 그렇지 않은 경우 검색합니다. | 쿼리는 빠른 쿼리 시간을 위해 속성에 대해 자동 인덱싱을 활용할 수 있습니다. |
 | 일관성 | 주 지역 내에서 강력하게 유지되며, 최종적으로는 보조 지역 내에서 유지됩니다. | 응용 프로그램 요구 사항에 따라 가용성, 대기 시간, 처리량 및 일관성을 절충할 수 있는 [잘 정의된 5가지 일관성 수준](consistency-levels.md)이 적용됩니다. |

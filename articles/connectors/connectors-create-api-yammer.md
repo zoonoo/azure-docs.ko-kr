@@ -11,12 +11,12 @@ ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 41855d6e562ddbb78df5d1d8794127e1064cc2ca
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918298"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233330"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Yammer 계정 모니터링 및 관리
 
@@ -26,7 +26,7 @@ Azure Logic Apps 및 Yammer 커넥터를 사용하면 다음과 같이 다른 �
 * 메시지, 그룹, 네트워크, 사용자의 세부 정보 등을 가져옵니다.
 * 메시지 등을 게시합니다.
 
-트리거를 사용하여 Yammer 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Yammer 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Yammer 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 피드 또는 그룹에 새 메시지가 표시되면 Slack 커넥터를 사용하여 해당 메시지를 공유할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+트리거를 사용하여 Yammer 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Yammer 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Yammer 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 피드 또는 그룹에 새 메시지가 표시되면 Slack 커넥터를 사용하여 해당 메시지를 공유할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -76,7 +76,7 @@ Azure Logic Apps 및 Yammer 커넥터를 사용하면 다음과 같이 다른 �
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

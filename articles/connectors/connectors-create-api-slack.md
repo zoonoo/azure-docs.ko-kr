@@ -11,12 +11,12 @@ ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 7af2db528866d687064e854e00e43e81d2601b2b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 675e37120b06af3add58b564495f22875647a0fa
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042328"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230355"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Slack을 모니터링 및 관리
 
@@ -27,7 +27,7 @@ Azure Logic Apps 및 Slack 커넥터를 사용하면 다음과 같이 Slack 채�
 * 메시지를 게시합니다.
 * 그룹을 만들고 방해 금지를 설정합니다.
 
-트리거를 사용하여 Slack 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Slack 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Slack 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 파일이 생성되면 Office 365 Outlook 커넥터를 사용하여 이메일을 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+트리거를 사용하여 Slack 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Slack 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Slack 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 파일이 생성되면 Office 365 Outlook 커넥터를 사용하여 이메일을 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -75,7 +75,7 @@ Azure Logic Apps 및 Slack 커넥터를 사용하면 다음과 같이 Slack 채�
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

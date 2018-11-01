@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371903e1ee080d2b98fd46ac4d6d9838416e1335
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b1b4e3e19adb38a69e16aaa98300972df3bb71a8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973425"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093652"
 ---
 # <a name="build-and-deploy-image-similarity-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 이미지 유사성 모델 빌드 및 배포
 
@@ -38,7 +38,7 @@ AMLPCV를 사용하여 이 모델을 구축하고 배포하는 경우 다음 단
 7. 웹 서비스 배포
 8. 웹 서비스 부하 테스트
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/)는 딥 러닝 프레임워크로 사용되며 학습은 ([딥 러닝 데이터 과학 VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview))과 같은 GPU 기반 컴퓨터에서 로컬로 수행되고 배포에는 Azure ML Operationalization CLI가 사용됩니다.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/)는 딥 러닝 프레임워크로 사용되며 학습은 ([딥 러닝 데이터 과학 VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview))과 같은 GPU 기반 컴퓨터에서 로컬로 수행되고 배포에는 Azure ML Operationalization CLI가 사용됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

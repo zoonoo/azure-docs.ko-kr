@@ -1,4 +1,16 @@
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: bf26af7fa4b1b31514fb82c5e28a85154b2e274a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226757"
+---
 * 변환은 기존 유지 관리 기간 동안 VM의 마이그레이션을 예약하도록 VM의 재시작이 필요합니다. 
 
 * 변환하면 되돌릴 수 없습니다. 

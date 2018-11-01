@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8be0e909ea391ed1b66fc78349cc2283d009e8cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347650"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240378"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>응용 프로그램 프록시 문제 및 오류 메시지 문제 해결
 게시된 응용 프로그램에 액세스할 때나 응용 프로그램을 게시할 때 오류가 발생한다면 다음 옵션을 확인하여 Microsoft Azure AD 응용 프로그램 프록시가 올바르게 작동하는지 확인합니다.
@@ -43,7 +43,7 @@ Azure AD 문제 해결 도구에 대한 자세한 내용은 [커넥터 네트워
 
 커넥터 마법사를 설치하는 동안 등록에 실패하는 경우 실패한 이유를 확인하는 두 가지 방법이 있습니다. **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin**에서 이벤트 로그를 확인하거나 다음 Windows PowerShell 명령을 실행합니다.
 
-    Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
+    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
 
 이벤트 로그에서 커넥터 오류를 찾으면 일반적인 오류 테이블을 사용하여 문제를 해결합니다.
 

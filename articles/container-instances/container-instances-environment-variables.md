@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 9fd23ce8236688f1456bcddb2b16b539d5e18482
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1fcb72d75dca99b6670ca3ff536403a6268554a2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855632"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238151"
 ---
 # <a name="set-environment-variables"></a>환경 변수 설정
 
@@ -46,7 +46,7 @@ az container create \
     --name mycontainer2 \
     --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
-    --environment-variables NumWords=5 MinLength=8
+    --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
 두 컨테이너의 상태가 *종료됨*으로 표시되면([az container show][az-container-show]를 사용하여 상태 확인) [az container logs][az-container-logs]로 해당 로그를 표시하여 출력을 봅니다.
@@ -95,7 +95,7 @@ New-AzureRmContainerGroup `
 이제 다음 [New-AzureRmContainerGroup][new-azurermcontainergroup] 명령을 실행합니다. 이 명령은 배열 변수, `envVars`를 채운 후 *NumWords* 및 *MinLength* 환경 변수를 지정합니다.
 
 ```azurepowershell-interactive
-$envVars = @{NumWords=5;MinLength=8}
+$envVars = @{'NumWords'='5';'MinLength'='8'}
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
@@ -167,7 +167,7 @@ Azure Portal에서 컨테이너를 시작할 때 환경 변수를 설정하려�
 다음 코드 조각이 포함된 `secure-env.yaml` 파일을 만듭니다.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: securetest
 properties:
@@ -175,10 +175,10 @@ properties:
   - name: mycontainer
     properties:
       environmentVariables:
-        - "name": "NOTSECRET"
-          "value": "my-exposed-value"
-        - "name": "SECRET"
-          "secureValue": "my-secret-value"
+        - name: 'NOTSECRET'
+          value: 'my-exposed-value'
+        - name: 'SECRET'
+          secureValue: 'my-secret-value'
       image: nginx
       ports: []
       resources:

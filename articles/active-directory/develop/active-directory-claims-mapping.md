@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes
-ms.openlocfilehash: dbe903f502cbd1b96b34b47aed09c52104995b54
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 18cd96c87f294f1dd8e62f41dd759558c2013aa0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466208"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241673"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에서 내보낸 클레임 사용자 지정(미리 보기)
 
@@ -195,7 +195,7 @@ Azure AD에서 **정책** 개체는 조직에 있는 개별 응용 프로그램 
 |http://schemas.microsoft.com/identity/claims/identityprovider|
 |http://schemas.microsoft.com/identity/claims/objectidentifier|
 |http://schemas.microsoft.com/identity/claims/puid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
 |http://schemas.microsoft.com/identity/claims/tenantid|
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
 |http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
@@ -454,7 +454,7 @@ Azure AD에서 특정 서비스 주체에 대해 토큰에 내보내지는 클�
     1. 정책을 만들려면 이 명령을 실행합니다. 
     
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
     ```
     2. 새 정책을 보고 정책 ObjectId를 가져오려면 다음 명령을 실행합니다.
     

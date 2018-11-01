@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: cde364cb5231c1cc0b1947da35994862cf45b571
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042164"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238729"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 장치에서 로컬 관리자 그룹을 관리하는 방법
 
@@ -92,9 +92,9 @@ Azure AD 조인 프로세스를 사용하는 것 외에, 수동으로 하나의 
  
 또한 명령 프롬프트를 사용하여 사용자를 추가할 수 있습니다.
 
-- 테넌트 사용자가 온-프레미스 Active Directory에서 동기화되면 `net localgroup administrators /add “Contoso\username”`을 사용합니다.
+- 테넌트 사용자가 온-프레미스 Active Directory에서 동기화되면 `net localgroup administrators /add "Contoso\username"`을 사용합니다.
 
-- 테넌트 사용자가 Azure AD에서 생성되면 `net localgroup administrators /add “AzureAD\UserUpn”`을 사용합니다.
+- 테넌트 사용자가 Azure AD에서 생성되면 `net localgroup administrators /add "AzureAD\UserUpn"`을 사용합니다.
 
 
 ## <a name="considerations"></a>고려 사항 

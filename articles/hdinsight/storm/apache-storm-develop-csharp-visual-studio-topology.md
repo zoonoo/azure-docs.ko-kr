@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371f8c1d69482381e3a400da6010825bc3ac7c1a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2765021d80701826644f095d22c650160001e907
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697784"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414899"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
 
@@ -57,7 +57,7 @@ Data Lake tools for Visual Studio를 설치하려면 [Data Lake tools for Visual
 
 Visual Studio에서 Storm 토폴로지를 제출하면 SCP.NET은 토폴로지 및 종속성이 포함된 zip 파일을 생성합니다. Java는 Linux 기반 클러스터와 호환이 더 잘되는 형식을 사용하기 때문에 이러한 zip 파일을 만드는 데 사용됩니다.
 
-1. 개발 환경에 JDK(Java Developer Kit) 7 이상을 설치합니다. Oracle JDK는 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html)에서 가져올 수 있습니다. [다른 Java 배포](http://openjdk.java.net/)를 사용할 수도 있습니다.
+1. 개발 환경에 JDK(Java Developer Kit) 7 이상을 설치합니다. Oracle JDK는 [Oracle](https://aka.ms/azure-jdks)에서 가져올 수 있습니다. [다른 Java 배포](http://openjdk.java.net/)를 사용할 수도 있습니다.
 
 2. `JAVA_HOME` 환경 변수가 Java가 포함된 디렉터리를 가리켜야 합니다.
 
@@ -70,30 +70,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 

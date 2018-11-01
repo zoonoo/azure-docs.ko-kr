@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164713"
+---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트 설치
 
 StorSimple 장치에 유지 관리 모드 업데이트를 적용하면 모든 I/O 요청이 일시 중지됩니다. NVRAM(비휘발성 임의 액세스 메모리) 등의 서비스 또는 클러스터링 서비스는 중지됩니다. 이 모드를 종료하거나 입력하면 두 컨트롤러 모두 다시 부팅됩니다. 이 모드를 종료하면 모든 서비스가 다시 시작되고 정상 상태입니다. (몇 분이 걸릴 수 있습니다.)

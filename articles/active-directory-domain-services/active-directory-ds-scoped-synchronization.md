@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 범위 동기화 | Microsoft Doc
 description: Azure AD에서 관리되는 도메인으로 범위 동기화 구성
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: maheshu
-ms.openlocfilehash: a6f56a9c855e296fb49b1c24d09189177175c9d6
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.author: ergreenl
+ms.openlocfilehash: 7726a28e0254f4316759c3d8c74f57db6a9e399e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041869"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242197"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Azure AD에서 관리되는 도메인으로 범위 동기화 구성
 이 문서에서는 Azure AD 디렉터리에서 Azure AD Domain Services 관리되는 도메인으로 특정 사용자 계정만 동기화하도록 구성하는 방법을 보여 줍니다.
@@ -65,7 +65,7 @@ PowerShell을 사용하여 이 단계 집합을 완료합니다. [PowerShell을 
 3. [다음 섹션의 스크립트](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1)를 ```Select-GroupsToSync.ps1``` 파일에 저장합니다. 다음과 같이 스크립트를 실행합니다.
 
   ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", “GroupName1”, “GroupName2”)
+  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
   ```
 
   > [!WARNING]

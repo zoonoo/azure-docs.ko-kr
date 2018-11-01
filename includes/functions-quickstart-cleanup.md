@@ -1,3 +1,16 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: a1bedf97f5ae7c48e5bcb47880a25ee1219b917b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132723"
+---
 이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 합니다. 이후의 빠른 시작, 자습서 또는 기타 이 빠른 시작에서 만든 서비스를 사용하여 작업하려는 경우 이 빠른 시작에서 만든 리소스를 정리하지 않습니다.
 
 Azure에서 *리소스*란 앱, 함수, 저장소 계정 등을 의미합니다. 리소스는 *리소스 그룹*으로 그룹화되며 그룹을 삭제하면 그룹의 모든 항목을 삭제할 수 있습니다. 

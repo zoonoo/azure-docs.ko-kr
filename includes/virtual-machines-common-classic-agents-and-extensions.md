@@ -1,5 +1,16 @@
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: b83e1ef752fede446b41153e3d486a872c2707f3
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227259"
+---
 VM 확장은 다음과 같은 작업에 도움이 될 수 있습니다.
 
 * 보안 및 ID 기능 수정(예: 계정 값 재설정 및 맬웨어 방지 프로그램)

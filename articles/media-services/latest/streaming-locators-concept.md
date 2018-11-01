@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 56e9a0b4eec347d2367c38ab00c6c9d9dca60752
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986899"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086848"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
@@ -26,20 +26,20 @@ ms.locfileid: "49986899"
 
 다음 표에는 StreamingLocator의 속성 및 해당 정의가 나와 있습니다.
 
-|이름|type|설명|
-|---|---|---|
-|id |string|리소스에 대한 정규화된 리소스 ID입니다.|
-|이름   |string|리소스의 이름입니다.|
-|properties.alternativeMediaId  |string|이 스트리밍 로케이터의 대체 미디어 ID입니다.|
-|properties.assetName   |string|자산 이름입니다.|
-|properties.contentKeys |StreamingLocatorContentKey[]|이 스트리밍 로케이터에서 사용하는 ContentKeys입니다.|
-|properties.created |string|스트리밍 로케이터를 만든 시간입니다.|
-|properties.defaultContentKeyPolicyName |string|이 스트리밍 로케이터에서 사용하는 ContentKeyPolicy의 기본 이름입니다.|
-|properties.endTime |string|스트리밍 로케이터의 종료 시간입니다.|
-|properties.startTime   |string|스트리밍 로케이터의 시작 시간입니다.|
-|properties.streamingLocatorId  |string|스트리밍 로케이터의 StreamingLocatorId입니다.|
-|properties.streamingPolicyName |string|이 스트리밍 로케이터에서 사용하는 스트리밍 정책의 이름입니다. 만든 스트리밍 정책의 이름을 지정하거나 미리 정의된 스트리밍 정책 중 하나를 사용합니다. 사용 가능한 미리 정의된 스트리밍 정책은 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' 및 'Predefined_MultiDrmStreaming'입니다.|
-|형식   |string|리소스 형식입니다.|
+|이름|설명|
+|---|---|
+|id |리소스에 대한 정규화된 리소스 ID입니다.|
+|이름   |리소스의 이름입니다.|
+|properties.alternativeMediaId|이 스트리밍 로케이터의 대체 미디어 ID입니다.|
+|properties.assetName   |자산 이름입니다.|
+|properties.contentKeys |이 스트리밍 로케이터에서 사용하는 ContentKeys입니다.|
+|properties.created |스트리밍 로케이터를 만든 시간입니다.|
+|properties.defaultContentKeyPolicyName|이 스트리밍 로케이터에서 사용하는 ContentKeyPolicy의 기본 이름입니다.|
+|properties.endTime |스트리밍 로케이터의 종료 시간입니다.|
+|properties.startTime|스트리밍 로케이터의 시작 시간입니다.|
+|properties.streamingLocatorId|스트리밍 로케이터의 StreamingLocatorId입니다.|
+|properties.streamingPolicyName |이 스트리밍 로케이터에서 사용하는 스트리밍 정책의 이름입니다. 만든 스트리밍 정책의 이름을 지정하거나 미리 정의된 스트리밍 정책 중 하나를 사용합니다. 사용 가능한 미리 정의된 스트리밍 정책은 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' 및 'Predefined_MultiDrmStreaming'입니다.|
+|형식|리소스 형식입니다.|
 
 전체 정의는 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)를 참조하세요.
 

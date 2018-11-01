@@ -4,7 +4,7 @@ description: 이 문서에서는 .NET을 사용하여 미디어 인코더 표준
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 2964be45c98350fb1f3c82f25716943493979240
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7b0de5e149b8b64252f90a01f66642c15fb25ddc
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783452"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247795"
 ---
-# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>.NET을 사용하여 미디어 인코더 표준으로 자산 인코딩
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>.NET을 사용하여 미디어 인코더 표준으로 자산 인코딩 
 Encoding 작업은 Media Services에서 가장 일반적인 처리 작업 중 하나입니다. 인코딩 작업을 만들어 한 인코딩에서 다른 인코딩으로 미디어 파일을 변환합니다. 인코딩할 때는 Media Services 기본 제공 미디어 인코더를 사용할 수 있습니다. 또한 Media Services 파트너가 제공하는 인코더를 사용할 수도 있습니다. 타사 인코더는 Azure Marketplace를 통해 사용할 수 있습니다. 
 
 이 문서에서는 .NET을 사용하여 MES(Media Encoder Standard)로 자산을 인코딩하는 방법을 설명합니다. Media Encoder Standard는 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.

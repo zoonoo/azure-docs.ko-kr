@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 3217383b105c022aef42d8000f3a41cefea542fe
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132904"
+---
 1. [Azure Portal]을 방문합니다.
 2. **App Services** > 생성한 백 엔드를 차례로 클릭합니다.
 3. 모바일 앱 설정에서 **빠른 시작** > **Cordova**를 클릭합니다.

@@ -3,17 +3,17 @@ title: Azure ExpressRoute Global Reach 구성 | Microsoft Docs
 description: 이 문서는 온-프레미스 네트워크 간의 사설 네트워크를 설정하고 Global Reach를 사용하도록 설정하기 위해 ExpressRoute 회로를 함께 연결하는 데 유용합니다.
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: cherylmc
-ms.openlocfilehash: 4006626f9768289e75ccd61a1ef0bad5389f0a7a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.author: mialdrid
+ms.openlocfilehash: 67fbf9dc430d615efe3ef894add1a26bbce792bc
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071042"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237981"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>ExpressRoute Global Reach 구성(미리 보기)
 이 문서는 PowerShell을 사용하여 ExpressRoute Global Reach를 구성하는 데 도움이 됩니다. 자세한 내용은 [ExpressRoute Global Reach](expressroute-global-reach.md)를 참조하세요.

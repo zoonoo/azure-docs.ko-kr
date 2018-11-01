@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services 개요 | Microsoft Docs
 description: Azure Active Directory Azure Active Directory Domain Services 개요
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
-ms.author: maheshu
-ms.openlocfilehash: d30d164a3e2896b1a300bf665ca09f57ce97fdf3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: ergreenl
+ms.openlocfilehash: c424ae1865a710593e509372dc2424c0b8b516a0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295872"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155170"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure AD(Active Directory) Domain Services
 ## <a name="overview"></a>개요

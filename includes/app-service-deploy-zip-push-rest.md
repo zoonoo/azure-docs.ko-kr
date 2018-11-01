@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: ed771d1817e7ee1161e0f94ec9eefb5d2dfb3e23
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50737243"
+---
 ## <a name="rest"></a>REST API를 사용하여 ZIP 파일 배포 
 
 [배포 서비스 REST API](https://github.com/projectkudu/kudu/wiki/REST-API)를 사용하여 .zip 파일을 Azure의 앱에 배포할 수 있습니다. 배포하려면 POST 요청을 https://<app_name>.scm.azurewebsites.net/api/zipdeploy에 보냅니다. POST 요청은 메시지 본문에 .zip 파일을 포함해야 합니다. 앱에 대한 배포 자격 증명은 HTTP 기본 인증을 사용하여 요청으로 제공됩니다. 자세한 내용은 [.zip 푸시 배포 참조](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)를 참조하세요. 

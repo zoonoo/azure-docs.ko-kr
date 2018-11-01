@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 0b2e0ff800ab80a2c638293ce23fc1911390f2dd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 79a02115a449c710778e4c69f470efc3ebebae53
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221119"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087052"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
@@ -47,7 +47,7 @@ Azure Functions는 논리 앱 디자이너에서 Azure Logic Apps와 통합합�
 
 Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습니다. 텍스트 분석 API를 사용하여 모니터링 중인 트윗의 감정을 검색합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
@@ -100,6 +100,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
     using System;
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
     
@@ -128,7 +129,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
     ```
     이 함수 코드는 요청에서 받은 감정 점수를 기준으로 색 범주를 반환합니다. 
 
-4. 함수를 테스트하려면 오른쪽 끝의 **테스트**를 클릭하여 테스트 탭을 확장합니다. **요청 본문**에 `0.2` 값을 입력한 다음 **실행**을 클릭합니다. 응답의 본문에 **빨강** 값이 반환됩니다. 
+4. 함수를 테스트하려면 오른쪽 끝의 **테스트**를 클릭하여 테스트 탭을 확장합니다. 요청 본문`0.2`에  값을 입력한 다음 **실행**을 클릭합니다. 응답의 본문에 **빨강** 값이 반환됩니다. 
 
     ![Azure Portal에서 함수 테스트](./media/functions-twitter-email/test.png)
 

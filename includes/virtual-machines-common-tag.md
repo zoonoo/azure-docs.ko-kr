@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227430"
+---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>템플릿을 통해 Virtual Machine에 태그 지정
 먼저 템플릿을 통한 태그 지정을 살펴보겠습니다. [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) 은 Compute(Virtual Machine), Storage(Storage 계정) 및 네트워크(공용 IP 주소, Virtual Network 및 네트워크 인터페이스) 리소스에 태그를 배치합니다. 이 템플릿은 Windows VM에 대한 것이지만 Linux VM에도 적용할 수 있습니다.
 

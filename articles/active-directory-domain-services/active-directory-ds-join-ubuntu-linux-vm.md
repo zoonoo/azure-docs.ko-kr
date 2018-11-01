@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 관리되는 도메인에 Ubuntu
 description: Ubuntu Linux 가상 머신을 Azure AD Domain Services에 가입
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: 645e1eaedf3832b384a174d9f9ede5ea835047cd
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 709c227c955aba6b31ce415767470fa18ff3684f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502970"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155272"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Azure의 Ubuntu 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Ubuntu Linux 가상 컴퓨터를 Azure AD Domain Services 관리되는 도메인에 가입하는 방법을 보여 줍니다.

@@ -2,18 +2,18 @@
 title: '빠른 시작: Node.js를 사용하여 BLOB 업로드, 다운로드 및 나열 - Azure Storage'
 description: 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Node.js용 저장소 클라이언트 라이브러리를 사용하여 Blob을 Azure Storage에 업로드하고, Blob을 다운로드하고, Blob을 컨테이너에 나열합니다.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 09/20/2018
-ms.author: cshoe
-ms.openlocfilehash: 1c62dbd6856ec7bf2663f0b70a47357b52528899
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: tamram
+ms.openlocfilehash: 267218b4b958251e6748fbae17ca1ac267cf3287
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040815"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140590"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -48,7 +48,7 @@ npm install
 ```
 
 ## <a name="run-the-sample"></a>샘플 실행
-종속성이 설치되었으므로 다음 명령을 실행하여 샘플을 실행할 수 있습니다.
+이제 종속성이 설치되었으므로 다음 명령을 발행하여 샘플을 실행할 수 있습니다.
 
 ```bash
 npm start

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 관리되는 도메인에 RHEL V
 description: Red Hat Enterprise Linux 가상 머신을 Azure AD 도메인 서비스에 가입
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: e84a4b0c1f3496bc26f4a8830f7a08ddd5506338
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: bfad3b8c8347b885fd713d30c620d6c86377fab3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503726"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155238"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Red Hat Enterprise Linux 7 가상 컴퓨터를 관리되는 도메인에 가입
 이 문서에서는 Red Hat Enterprise Linux(RHEL) 7 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입하는 방법을 보여 줍니다.

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 1bf6803ee3dc40e2e9f8c371f75933cbf2f77715
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166266"
+---
 <!--author=alkohli last changed: 08/21/17-->
 
 #### <a name="to-download-hotfixes"></a>핫픽스를 다운로드하려면
@@ -164,7 +177,7 @@ KB4037263을 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. `Get-HcsUpdateStatus` 명령을 사용하여 설치 진행률을 모니터링합니다. `RunInProgress`가 `False`로 변경되면 업데이트가 완료됩니다.
-4. 설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 시작됩니다. 옵션 1, **모든 권한으로 로그인**으로 로그인한 다음, 디스크 펌웨어 버전을 확인합니다. 형식:
+4. 설치가 완료된 후에 유지 관리 모드 핫픽스가 설치된 컨트롤러가 다시 시작됩니다. 옵션 1, **모든 권한으로 로그인**으로 로그인하고 디스크 펌웨어 버전을 확인합니다. 형식:
    
    `Get-HcsFirmwareVersion`
    

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e6511b9511d2598b58fd3afee34803ceb09ac5ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c41873d8f87a9a1203cefa37f99098f23e7aab92
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582855"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239016"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
 
@@ -45,7 +45,7 @@ Azure Cosmos DB는 스키마를 사용하지 않는 키-값 저장소가 필요�
 
 현재 Azure Table Storage를 사용하고 있다면 Azure Cosmos DB 테이블 API를 사용할 경우 다음과 같은 이점이 있습니다.
 
-- 멀티 호밍 및 [자동 및 수동 장애 조치](regional-failover.md)와 함께 턴키 방식으로 [전역 배포](distribute-data-globally.md)
+- 멀티 호밍 및 [자동 및 수동 장애 조치](high-availability.md)와 함께 턴키 방식으로 [전역 배포](distribute-data-globally.md)
 - 모든 속성("보조 인덱스")에 대한 스키마 독립적 자동 인덱싱 및 빠른 쿼리 지원 
 - 여러 지역 간에 [독립적인 저장소 및 처리량 크기 조정](partition-data.md) 지원
 - 초당 수백 개에서 수백만 개의 요청으로 확장할 수 있는 [테이블당 전용 처리량](request-units.md) 지원
@@ -117,7 +117,7 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 4. 8줄에서 StorageConnectionString 값에 포털의 기본 연결 문자열 값을 붙여넣습니다. 따옴표 내에 문자열을 붙여넣습니다.
    
     > [!IMPORTANT]
-    > 끝점에서 documents.azure.com을 사용하면 미리 보기 계정이 있다는 것을 의미하고 일반 공급 Table API SDK를 사용하려면 [새 Table API 계정](#create-a-database-account)을 만들어야 합니다. 
+    > 엔드포인트에서 documents.azure.com을 사용하면 미리 보기 계정이 있다는 것을 의미하고 일반 공급 Table API SDK를 사용하려면 [새 Table API 계정](#create-a-database-account)을 만들어야 합니다. 
     >
 
     8줄은 다음과 같이 표시됩니다.

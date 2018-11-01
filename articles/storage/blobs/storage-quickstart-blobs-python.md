@@ -2,18 +2,18 @@
 title: Azure 빠른 시작 - Python을 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
 description: 이 빠른 시작에서는 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Python용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
-ms.author: cshoe
-ms.openlocfilehash: f9e39a8630302111f4646e085872399c6def6ab2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: tamram
+ms.openlocfilehash: a264f5bdec6d09c0cbdd6ebec3a6b760deaf9547
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974496"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139082"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>빠른 시작: Python을 사용하여 BLOB 업로드, 다운로드 및 나열
 

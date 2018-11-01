@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: b12b8b30cf063092ca1a0394d5a46e03622586e4
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166077"
+---
 <!--author=SharS last changed: 9/17/15-->
 
 #### <a name="to-install-regular-updates-via-the-azure-classic-portal"></a>Azure 클래식 포털을 통해 일반 업데이트를 설치하려면

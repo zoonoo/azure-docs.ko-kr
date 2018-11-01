@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b09ebbb358b909c98df4eb05154c29b4b3cb7ee9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888257"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138330"
 ---
 # <a name="tutorial-3-add-common-utterance-formats"></a>자습서 3: 일반적인 발화 형식 추가
 
@@ -50,7 +50,7 @@ ms.locfileid: "48888257"
 
 ## <a name="create-new-intents-and-their-utterances"></a>새 의도 및 해당 발언 만들기
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **의도** 페이지에서 **새 의도 만들기**를 선택합니다. 
 
@@ -90,7 +90,7 @@ ms.locfileid: "48888257"
 
 ## <a name="caution-about-example-utterance-quantity"></a>예제 발언 수에 대한 주의 사항
 
-[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
+[!INCLUDE [Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
 ## <a name="train"></a>학습
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 497249baa10956c37762172bd0c48fad7be14e0b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e7d140f212dd2506f48b23fe99db5ba2be91dac9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319322"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421036"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리 
 이 문서에서는 데이터를 Kafka 지원 Event Hubs로 스트리밍하고 Azure Stream Analytics를 사용하여 처리하는 방법을 보여줍니다. 다음 단계를 안내합니다. 
@@ -35,7 +35,7 @@ ms.locfileid: "49319322"
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
 * Azure 구독. 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-* [Java Development Kit(JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [Java Development Kit(JDK) 1.7+](https://aka.ms/azure-jdks).
 * Maven 이진 아카이브를 [다운로드](http://maven.apache.org/download.cgi)하여 [설치](http://maven.apache.org/install.html)합니다.
 * [Git](https://www.git-scm.com/)
 * **Azure Storage 계정**. 계정이 없는 경우 계속 진행하기 전에 [만듭니다](../storage/common/storage-quickstart-create-account.md). 이 연습에서 Stream Analytics 작업은 Azure Blob 저장소에 출력 데이터를 저장합니다. 

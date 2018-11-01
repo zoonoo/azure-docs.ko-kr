@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.openlocfilehash: 0d5a7cb97636b9ca3aabf6c4199ce9e41bc1665d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304427"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230142"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 
@@ -59,7 +59,7 @@ ms.locfileid: "44304427"
 * [워크플로 실행에 대해 장기 실행 작업 설정](../logic-apps/logic-apps-create-api-app.md)
 * [웹후크로 외부 이벤트 및 작업에 응답](../logic-apps/logic-apps-create-api-app.md)
 * [HTTP 요청에 대한 동기 응답을 포함하는 호출, 트리거 또는 중첩 워크플로](../logic-apps/logic-apps-http-endpoint.md)
-* [자습서: Logic Apps 및 Power BI로 몇 분 안에 AI 기반 소셜 대시보드 빌드](http://aka.ms/logicappsdemo)
+* [자습서: Logic Apps 및 Power BI로 몇 분 안에 AI 기반 소셜 대시보드 빌드](https://aka.ms/logicappsdemo)
 * [비디오: Twilio SMS 웹후크에 응답 및 텍스트 응답 보내기](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>제어 흐름, 오류 처리 및 로깅 기능
@@ -84,11 +84,11 @@ Visual Studio, Azure DevOps 또는 기타 소스 제어 및 자동화된 빌드 
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>콘텐츠 형식, 변환 및 실행 내에서 변형
 
-Azure Logic Apps [워크플로 정의 언어](http://aka.ms/logicappsdocs)의 다양한 함수를 사용하여 여러 콘텐츠 유형을 액세스, 변환 및 변형시킬 수 있습니다. 예를 들어, `@json()` 및 `@xml()` 워크플로 식을 사용하여 문자열, JSON 및 XML 간에 변환할 수 있습니다. Logic Apps 엔진은 서비스 간에 무손실 방식으로 콘텐츠 전송을 지원하는 콘텐츠 형식을 유지합니다.
+Azure Logic Apps [워크플로 정의 언어](https://aka.ms/logicappsdocs)의 다양한 함수를 사용하여 여러 콘텐츠 유형을 액세스, 변환 및 변형시킬 수 있습니다. 예를 들어, `@json()` 및 `@xml()` 워크플로 식을 사용하여 문자열, JSON 및 XML 간에 변환할 수 있습니다. Logic Apps 엔진은 서비스 간에 무손실 방식으로 콘텐츠 전송을 지원하는 콘텐츠 형식을 유지합니다.
 
 * [논리 앱에서 워크플로 식이 작동하는 방식](../logic-apps/logic-apps-author-definitions.md)
 * [비JSON 콘텐츠 형식 처리](../logic-apps/logic-apps-content-type.md)(`application/xml`, `application/octet-stream` 및 `multipart/formdata`)
-* [Azure Logic Apps에 대한 워크플로 정의 언어 스키마](http://aka.ms/logicappsdocs)
+* [Azure Logic Apps에 대한 워크플로 정의 언어 스키마](https://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>기타 통합 및 기능
 

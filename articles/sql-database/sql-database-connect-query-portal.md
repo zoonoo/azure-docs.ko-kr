@@ -8,17 +8,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: ayoolubeko
+author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/10/2018
-ms.openlocfilehash: 6990ae0eb05af630efb8683397907200bf6d94ed
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: bd956348a26d32687e1ff76f0ffcc58cc9dcf932
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063390"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241721"
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 
@@ -35,7 +35,7 @@ SQL 쿼리 편집기는 Azure Portal에서 Azure SQL Database 또는 Azure SQL D
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 
 ## <a name="connect-using-sql-authentication"></a>SQL 인증을 사용하여 연결

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2843097d8fa0deafe7dda13fab63856009a17836
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c7464558dd7227303fd7a3cc8be71ca5e2d2cfca
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887360"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414967"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>인사이트 토큰을 사용하여 이미지에 대한 중요 정보 얻기
 
@@ -244,7 +244,7 @@ namespace VisualSearchInsightsToken
 
 ### <a name="prerequisites"></a>필수 조건
 
-이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
+이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
 
 이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
 

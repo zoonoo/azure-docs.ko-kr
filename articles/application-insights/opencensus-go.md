@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 853fd1e9939631b6c459caf89994299e7a8406b0
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 64e49dee5bf560dec263e67daa3c130a0ba8b40c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165536"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420951"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Go(미리 보기)에서 분산 추적 수집
 
@@ -208,7 +208,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     하나의 메서드 호출만 추적했으므로 응용 프로그램 맵은 흥미롭지 않습니다. 하지만 응용 프로그램은 훨씬 분산된 응용 프로그램을 시각화하도록 확장될 수 있습니다.
 
-   ![응용 프로그램 맵](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![응용 프로그램 맵](media/opencensus-go/application-map.png)
 
 4. **성능 조사**를 선택하여 자세한 성능 분석을 수행하고 성능 저하의 근본 원인을 확인합니다.
 

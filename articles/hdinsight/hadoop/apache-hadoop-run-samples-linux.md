@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: b0a4088a4473a731f9dec2d5f1e495b2eb9e937c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8b6502c23221410af95e71938fbd29f5da04bc9a
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047783"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250855"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>HDInsight에 포함된 MapReduce 예제 실행
 
@@ -212,8 +212,6 @@ GraySort는 벤치마크 정렬입니다. 이 메트릭은 엄청난 양, 일반
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md

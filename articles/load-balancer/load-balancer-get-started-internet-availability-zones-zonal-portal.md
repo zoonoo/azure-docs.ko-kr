@@ -4,10 +4,6 @@ description: Azure Portal을 사용하여 영역별 공용 IP 주소 프런트 �
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 533c48b3a004f85dfbd2970d73dcf7de21811dca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: cc3d1e9f2d87da1ed7014674877212ea0be81bca
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323616"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416769"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-public-ip-address-frontend-using-azure-portal"></a>Azure Portal을 사용하여 영역별 공용 IP 주소 프런트 엔드가 있는 Load Balancer Standard 만들기
 
@@ -33,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="create-a-load-balancer-with-zonal-frontend-ip-address"></a>영역별 프런트 엔드 IP 주소가 있는 부하 분산 장치 만들기
 

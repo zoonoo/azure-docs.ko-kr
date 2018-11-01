@@ -3,7 +3,7 @@ title: 탄력적 풀 만들기 및 관리 - Azure SQL database | Microsoft Docs
 description: Azure SQL 탄력적 풀을 만들고 관리합니다.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: acf17533ee73313937c2edb9badaef9007309373
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466072"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243098"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 만들기 및 관리
 
@@ -99,11 +99,11 @@ SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리�
 
 | 명령 | 설명 |
 | --- | --- |
-|[탄력적 풀 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|새 탄력적 풀을 만들거나 기존 탄력적 풀을 업데이트합니다.|
-|[탄력적 풀 - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|탄력적 풀을 삭제합니다.|
-|[탄력적 풀 - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|탄력적 풀을 가져옵니다.|
-|[탄력적 풀 - List By Server](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|서버에서 탄력적 풀의 목록을 반환합니다.|
-|[탄력적 풀 - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|기준 탄력적 풀을 업데이트합니다.|
+|[탄력적 풀 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|새 탄력적 풀을 만들거나 기존 탄력적 풀을 업데이트합니다.|
+|[탄력적 풀 - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|탄력적 풀을 삭제합니다.|
+|[탄력적 풀 - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|탄력적 풀을 가져옵니다.|
+|[탄력적 풀 - List By Server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|서버에서 탄력적 풀의 목록을 반환합니다.|
+|[탄력적 풀 - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|기준 탄력적 풀을 업데이트합니다.|
 |[탄력적 풀 활동](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|탄력적 풀 활동을 반환합니다.|
 |[탄력적 풀 데이터베이스 활동](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|탄력적 풀 내에서 데이터베이스에 대한 활동을 반환합니다.|
 |[데이터베이스 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|새 데이터베이스를 만들거나 기존 데이터베이스를 업데이트합니다.|

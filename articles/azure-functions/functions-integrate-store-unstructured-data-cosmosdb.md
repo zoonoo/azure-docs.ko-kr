@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: fee22c7f0215a53794869b4b775cb59a582d4992
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 94fd95414d8cf277d3c061d331a14febebf47485
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858620"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085797"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure Functions 및 Azure Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
 
@@ -83,6 +83,7 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 public static IActionResult Run(HttpRequest req, out object taskDocument, ILogger log)
 {

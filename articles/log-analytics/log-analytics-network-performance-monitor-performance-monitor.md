@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 1254afc1ad1c513c18d565be8a6543a6ee0ae94b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 17a15ca00d7343064bde84860de91b62ff136cfe
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040594"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414126"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>네트워크 성능 모니터 솔루션: 성능 모니터링
 
@@ -33,12 +33,12 @@ ms.locfileid: "48040594"
 - SNMP 없이 네트워크의 상태를 모니터링합니다.
 
 
-![네트워크 성능 모니터](media/log-analytics-network-performance-monitor/npm-performance-monitor.png)
+![네트워크 성능 모니터](media/log-analytics-network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>구성
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](log-analytics-network-performance-monitor.md)을 열고 **구성**을 선택합니다.
 
-![네트워크 성능 모니터 구성](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![네트워크 성능 모니터 구성](media/log-analytics-network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>새 네트워크 만들기
 
@@ -120,21 +120,21 @@ ms.locfileid: "48040594"
 
 드릴다운 페이지에는 **DMZ2-DMZ1** 네트워크 링크의 모든 서브네트워크 링크가 표시됩니다. 두 서브네트워크 링크에서 대기 시간이 임계값을 초과해 네트워크 링크가 비정상 상태가 되었습니다. 또한 두 서브네트워크 링크의 대기 시간 추세도 볼 수 있습니다. 그래프에서 시간 선택 컨트롤을 사용하여 필요한 시간 범위만 자세히 확인합니다. 대기 시간이 최고점에 도달한 시간대를 확인할 수 있습니다. 나중에 이 시간대의 로그를 검색하여 문제를 조사합니다. **노드 링크 보기**를 선택하여 자세히 드릴다운합니다. 
  
- ![서브네트워크 링크 페이지](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
+ ![서브네트워크 링크 페이지](media/log-analytics-network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
 이전 페이지와 마찬가지로, 특정 서브네트워크 링크의 드릴다운 페이지에는 해당 노드 링크가 나열됩니다. 여기에서도 이전 단계와 유사한 작업을 할 수 있습니다. 두 노드 간 토폴로지를 보려면 **토폴로지 보기**를 선택합니다. 
  
- ![노드 링크 페이지](media/log-analytics-network-performance-monitor/node-links.png) 
+ ![노드 링크 페이지](media/log-analytics-network-performance-monitor-performance-monitor/node-links.png) 
 
 선택된 두 노드 사이의 모든 패스가 토폴로지 맵에 그려져 있습니다. 토폴로지 맵에서 두 노드 간 경로의 홉 단위 토폴로지를 시각화할 수 있습니다. 이를 통해 두 노드 간 존재하는 경로 수와 데이터 패킷이 사용하는 패스를 분명히 확인할 수 있습니다. 네트워크 성능 병목은 빨간색으로 표시되어 있습니다. 문제가 있는 네트워크 연결 또는 장애가 발생한 네트워크 장치를 찾으려면 토폴로지 맵에서 빨간색으로 표시된 요소를 찾습니다. 
 
- ![토폴로지 맵을 포함하는 토폴로지 대시보드](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
+ ![토폴로지 맵을 포함하는 토폴로지 대시보드](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
 각 패스의 손실, 대기 시간, 홉 수는 **작업** 창에서 검토할 수 있습니다. 비정상 패스의 세부 정보를 보려면 스크롤 막대를 사용합니다. 필터를 사용하여 비정상 홉이 있는 경로를 선택하고 선택한 경로에 대한 토폴로지만 그려지도록 합니다. 토폴로지 맵을 확대 또는 축소하려면 마우스 휠을 사용합니다. 
 
 다음 그림에서 특정 네트워크 섹션의 문제 영역에 대한 근본 원인이 빨간색 경로 및 홉에 표시됩니다. 토폴로지 맵에서 노드를 선택하여 FQDN, IP 주소 등의 노드 속성을 표시합니다. 홉을 선택하면 홉의 IP 주소가 표시됩니다. 
  
-![노드 속성이 선택된 토폴로지 맵](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
+![노드 속성이 선택된 토폴로지 맵](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>다음 단계
 자세한 네트워크 성능 데이터 레코드를 보려면 [로그 검색](log-analytics-log-searches.md)을 수행합니다.

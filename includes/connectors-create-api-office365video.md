@@ -1,7 +1,20 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 20729d1e73dd0ff9010201a1c6597b616b364a09
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133476"
+---
 ### <a name="prerequisites"></a>필수 조건
 * [Office 365 비디오](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6) 계정  
 
-논리 앱에서 Office 365 비디오 계정을 사용하려면 먼저 Office 365 비디오 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure 포털의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다.  
+논리 앱에서 Office 365 비디오 계정을 사용하려면 먼저 Office 365 비디오 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure Portal의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다.  
 
 Office 365 비디오 계정에 연결하도록 논리 앱에 권한을 부여하는 단계는 다음과 같습니다.  
 

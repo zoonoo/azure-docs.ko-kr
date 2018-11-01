@@ -11,12 +11,12 @@ ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 4ae8d3dff108f14844c31d7b9d0b0871326832a3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 31357fa313cfa31c0f8a90c0f7722f627e4394d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046152"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229335"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Trello를 모니터링 및 관리
 
@@ -28,7 +28,7 @@ Azure Logic Apps 및 Trello 커넥터를 사용하면 다음과 같이 Trello �
 * 보드, 보드 레이블, 보드의 카드, 카드 주석, 카드 멤버, 팀 멤버 및 멤버로 속한 팀을 나열합니다. 
 * 팀을 가져옵니다.
 
-트리거를 사용하여 Trello 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Trello 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Trello 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 카드가 보드 또는 목록에 추가될 때 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+트리거를 사용하여 Trello 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Trello 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Trello 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 카드가 보드 또는 목록에 추가될 때 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -70,7 +70,7 @@ Azure Logic Apps 및 Trello 커넥터를 사용하면 다음과 같이 Trello �
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/11/2018
-ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1ae350e74a9b56aaaa72b38a9e3a43bddfbefefc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320441"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232276"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -332,7 +332,7 @@ ms.locfileid: "49320441"
 >
 > * [통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. Azure Virtual Network의 리소스에 연결할 수 있습니다. 
 > 
-> * API Management를 이미 사용 중인 경우 이 시나리오에 이 서비스를 사용할 수 있습니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](http://aka.ms/aisarch)를 참조하세요.
+> * API Management를 이미 사용 중인 경우 이 시나리오에 이 서비스를 사용할 수 있습니다. 자세한 내용은 [간단한 엔터프라이즈 통합 아키텍처](https://aka.ms/aisarch)를 참조하세요.
 
 | Logic Apps 지역 | 아웃바운드 IP | 
 |-------------------|-------------|  
