@@ -4,9 +4,6 @@ description: REST API를 사용하여 Azure Load Balancer를 만드는 방법을
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
-ms.openlocfilehash: ca952fa4fbea742121e579b28be35d834f17eade
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2f5d3584a429ce35e6905b14bb412c3782fb0185
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056881"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416922"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>REST API를 사용하여 Azure 기본 Load Balancer 만들기
 
@@ -34,7 +31,7 @@ Azure Load Balancer는 규칙 및 상태 프로브에 따라, 부하 분산 장�
   ```
 ### <a name="uri-parameters"></a>URI 매개 변수
 
-|Name  |그런 다음  |필수 |형식 |설명 |
+|이름  |그런 다음  |필수 |형식 |설명 |
 |---------|---------|---------|---------|--------|
 |subscriptionId   |  경로       |  True       |   string      |  Microsoft Azure 구독을 고유하게 식별하는 구독 자격 증명입니다. 구독 ID는 모든 서비스 호출에 대한 URI의 파트를 형성합니다.      |
 |resourceGroupName     |     경로    | True        |  string       |   리소스 그룹의 이름.     |
@@ -47,7 +44,7 @@ Azure Load Balancer는 규칙 및 상태 프로브에 따라, 부하 분산 장�
 
 필수 매개변수는 `location`뿐입니다. *SKU* 버전을 정의하지 않는 경우에는 기본적으로 기본 Load Balancer가 만들어집니다.  부하 분산 장치를 사용자 지정하려면 [선택적 매개 변수](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body)를 사용합니다.
 
-| Name | type | 설명 |
+| 이름 | type | 설명 |
 | :--- | :--- | :---------- |
 | location | string | 리소스 위치. [위치 나열](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 작업을 사용하여 현재 위치 목록을 가져옵니다. |
 

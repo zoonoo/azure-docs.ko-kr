@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 88626c3a4bfd4a1ff3a2e9cbc8c3f2b1c5553295
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 83852333d8e66c76f2d2710b1813a4400622e624
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303628"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417313"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
 
@@ -156,7 +156,7 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 ### <a name="release-annotations"></a>릴리스 주석
 Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](app-insights-annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.
 
-![차트의 샘플 릴리스 주석 스크린샷](./media/app-insights-asp-net/release-annotation.png)
+![차트의 샘플 릴리스 주석 스크린샷](media/app-insights-separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>다음 단계
 
 * [여러 역할에 대한 공유 리소스](app-insights-monitor-multi-role-apps.md)
