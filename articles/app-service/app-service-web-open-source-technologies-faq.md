@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d65a33dc13d0b91a9ace04dab0be6c37bcd2188f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: b34597c604160cc5c0880561a6c3afb70816f9b3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617635"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417330"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure Web Apps에 대한 오픈 소스 기술 FAQ
 
@@ -43,9 +43,9 @@ PHP 로깅을 켜려면:
 9. **저장**을 선택합니다.
 10. **wp-config.php** 옆에 있는 연필 아이콘을 선택합니다.
 11. 텍스트를 다음 코드로 변경합니다.
-   ```
+   ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
    ```
 12. Azure Portal의 웹앱 메뉴에서 웹앱을 다시 시작합니다.
 
@@ -70,7 +70,7 @@ Node.js 응용 프로그램의 버전을 변경하려면 다음 옵션 중 하�
 *   iisnode.yml 파일을 수정합니다. iisnode.yml 파일에서 Node.js 버전을 변경하면 iisnode에 사용되는 런타임 환경만 설정됩니다. Kudu cmd 등에서는 Azure Portal의 **앱 설정**에서 설정된 Node.js 버전을 사용합니다.
 
     iisnode.yml을 수동으로 설정하려면 앱 루트 폴더에 iisnode.yml 파일을 만듭니다. 파일에 다음 줄을 포함합니다.
-   ```
+   ```yml
    nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
    ```
    
@@ -80,7 +80,7 @@ Node.js 응용 프로그램의 버전을 변경하려면 다음 옵션 중 하�
     2. 웹앱 루트 폴더에 deploy.cmd, .deployment 파일이 없는 경우 기본 배포 스크립트를 만듭니다.
     3. package.json 파일 > 엔진에 Node.js 버전을 언급한 경우 iisnode.yml 파일을 만들 배포 스크립트를 실행합니다. `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. iisnode.yml 파일에는 다음 코드 줄이 있습니다.
-        ```
+        ```yml
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
 
@@ -146,7 +146,7 @@ The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but
 2. 사용자 지정 Tomcat 또는 Azure Marketplace Tomcat 웹 서버를 사용하는 경우 이 .jar 파일을 Tomcat lib 폴더로 복사합니다.
 3. Azure Portal에서 Java를 사용하도록 설정한 경우(**Java 1.8** > **Tomcat 서버** 선택) sqljdbc.* jar 파일을 앱에 해당하는 폴더에 복사합니다. 그다음에 다음 클래스 경로 설정을 web.config 파일에 추가합니다.
 
-    ```
+    ```xml
     <httpPlatform>
     <environmentVariables>
     <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7c37abe709559fc0628b94ba50634673c08af375
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: cda21c5b0d06335b13ba1aff0e9113544ca11c80
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051570"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414202"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>HDInsight의 Storm(C#)으로 Azure Event Hubs에서 이벤트 처리
 
@@ -119,7 +119,7 @@ topologyBuilder.SetJavaBolt(
 
 * [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
-* 개발 환경에서 Java JDK 1.8 이상. JDK 다운로드는 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html)에서 사용할 수 있습니다.
+* 개발 환경에서 Java JDK 1.8 이상. JDK 다운로드는 [Oracle](https://aka.ms/azure-jdks)에서 사용할 수 있습니다.
 
   * **JAVA_HOME** 환경 변수가 Java를 포함하고 있는 디렉터리를 가리켜야 합니다.
   * **%JAVA_HOME%/bin** 디렉터리가 경로에 있어야 합니다.
@@ -136,7 +136,7 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 1. 이벤트 허브가 생성된 후에는 Azure Portal에서 **EventHub** 설정을 보고 **공유 액세스 정책**을 선택합니다. **+ 추가**를 선택하여 다음 정책을 추가합니다.
 
-   | Name | 권한 |
+   | 이름 | 권한 |
    | --- | --- |
    | 기록기 |보내기 |
    | 판독기 |수신 대기 |

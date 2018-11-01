@@ -22,6 +22,8 @@ items:
     items:
     - name: 앱 추가 후 진행되는 작업
       href: plan-an-application-integration.md
+    - name: 개발자를 위한 지침
+      href: developer-guidance-for-integrating-applications.md
   - name: 온-프레미스 앱 통합 계획
     items:
     - name: 응용 프로그램 프록시
@@ -284,9 +286,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: dbf6ff0732192b74f98ed9d9a25a2bb61714b01b
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 7114e27840d9a21701fe30537dbd6d533abaef7e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085005"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413981"

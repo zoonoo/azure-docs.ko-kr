@@ -1,4 +1,16 @@
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 4dd0182e5698c992e45afae183ef94c488b27e14
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226522"
+---
 1. 포털에서 VM을 선택합니다. **DNS 이름** 아래에서 **구성**을 클릭합니다.
    
    ![DNS 이름 아래의 구성 클릭](./media/virtual-machines-common-portal-create-fqdn/configure.png)

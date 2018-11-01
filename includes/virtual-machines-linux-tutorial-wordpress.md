@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227424"
+---
 ## <a name="install-wordpress"></a>WordPress 설치
 
 스택을 사용하려는 경우 샘플 앱을 설치합니다. 예를 들어, 다음 단계는 오픈 소스 [WordPress](https://wordpress.org/) 플랫폼을 설치하여 웹 사이트 및 블로그를 만듭니다. [Drupal](http://www.drupal.org) 및 [Moodle](https://moodle.org/)을 포함하려는 다른 워크로드입니다. 
@@ -8,7 +21,7 @@
 
 ### <a name="install-the-wordpress-package"></a>WordPress 패키지 설치
 
-다음 명령을 실행합니다.
+다음 명령 실행:
 
 ```bash
 sudo apt install wordpress

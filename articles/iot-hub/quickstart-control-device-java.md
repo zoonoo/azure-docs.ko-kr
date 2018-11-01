@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 6b7de80d18250550c9bd7e52537a7a950e6ffea7
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3e936b3e08884c1728809aea9054278ffdb99045
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364770"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416990"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>빠른 시작: IoT 허브에 연결된 장치 제어(Java)
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 빠른 시작에서 실행하는 두 개의 샘플 응용 프로그램은 Java를 사용하여 작성되었습니다. 개발 컴퓨터에 Java SE 8 이상이 필요합니다.
 
-[Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html)에서 여러 플랫폼용 Java를 다운로드할 수 있습니다.
+[Oracle](https://aka.ms/azure-jdks)에서 여러 플랫폼용 Java를 다운로드할 수 있습니다.
 
 다음 명령을 사용하여 개발 컴퓨터에서 Java의 현재 버전을 확인할 수 있습니다.
 

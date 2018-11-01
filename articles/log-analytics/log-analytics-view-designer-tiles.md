@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 1c9c93c198b4d88da55ecd241e096e73e4a40d5d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042189"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413063"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Log Analytics의 뷰 디자이너 타일에 대한 참조 가이드
 Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역에 다양한 데이터 시각화를 나타내는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 타일 설정에 대한 참조 가이드입니다.
@@ -47,7 +47,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="number-tile"></a>1개 숫자 타일
 **숫자** 타일은 로그 쿼리의 레코드 수와 레이블을 모두 표시합니다.
 
-![1개 숫자 타일](media/log-analytics-view-designer/tile-number.png)
+![1개 숫자 타일](media/log-analytics-view-designer-tiles/tile-number.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -65,7 +65,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="two-numbers-tile"></a>2개 숫자 타일
 이 타일은 두 개의 서로 다른 로그 쿼리의 레코드 수와 각각에 대한 레이블을 표시합니다.
 
-![2개 숫자 타일](media/log-analytics-view-designer/tile-two-numbers.png)
+![2개 숫자 타일](media/log-analytics-view-designer-tiles/tile-two-numbers.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -86,7 +86,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="donut-tile"></a>도넛형 타일
 **도넛형** 타일은 로그 쿼리의 값 열을 요약하는 단일 숫자를 표시합니다. 도넛에서 상위 3개 레코드의 결과를 그래픽으로 표시합니다.
 
-![도넛형 타일](media/log-analytics-view-designer/tile-donut.png)
+![도넛형 타일](media/log-analytics-view-designer-tiles/tile-donut.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -110,7 +110,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="line-chart-tile"></a>꺾은선형 차트 타일
 이 타일은 시간 경과에 따른 로그 쿼리의 여러 계열을 표시하는 꺾은선형 차트입니다. 
 
-![꺾은선형 차트 및 설명선 타일](media/log-analytics-view-designer/tile-line-chart.png)
+![꺾은선형 차트 및 설명선 타일](media/log-analytics-view-designer-tiles/tile-line-chart.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -131,7 +131,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="line-chart-and-callout-tile"></a>꺾은선형 차트 및 설명선 타일
 이 타일에는 시간이 지남에 따라 로그 쿼리의 여러 계열을 표시하는 꺽은선형 차트와 요약된 값이 있는 설명선이 있습니다. 
 
-![꺾은선형 차트 및 설명선 타일](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![꺾은선형 차트 및 설명선 타일](media/log-analytics-view-designer-tiles/tile-line-chart-callout.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -156,7 +156,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="two-timelines-tile"></a>2개 타임 라인 타일
 **2개 타임 라인** 타일에서 두 로그 쿼리의 시간별 결과를 세로 막대형 차트로 표시합니다. 계열 각각의 설명선이 표시됩니다. 
 
-![2개 타임 라인 타일](media/log-analytics-view-designer/tile-two-timelines.png)
+![2개 타임 라인 타일](media/log-analytics-view-designer-tiles/tile-two-timelines.png)
 
 | 설정 | 설명 |
 |:--- |:--- |

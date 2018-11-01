@@ -1,4 +1,17 @@
-저장소 계정에서 리소스에 대한 액세스를 허용하는 공유 액세스 서명(SAS) URL을 보유하는 경우 연결 문자열에 SAS를 사용할 수 있습니다. SAS가 요청을 인증하는 데 필요한 정보를 포함하므로 SAS로 시작되는 연결 문자열은 프로토콜, 서비스 끝점 및 필요한 자격 증명을 제공하여 리소스에 액세스합니다.
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165906"
+---
+저장소 계정에서 리소스에 대한 액세스를 허용하는 공유 액세스 서명(SAS) URL을 보유하는 경우 연결 문자열에 SAS를 사용할 수 있습니다. SAS가 요청을 인증하는 데 필요한 정보를 포함하므로 SAS로 시작되는 연결 문자열은 프로토콜, 서비스 엔드포인트 및 필요한 자격 증명을 제공하여 리소스에 액세스합니다.
 
 공유 액세스 서명을 포함하는 연결 문자열을 만들려면 다음과 같은 형식의 문자열을 지정합니다.
 
@@ -10,7 +23,7 @@ FileEndpoint=myFileEndpoint;
 SharedAccessSignature=sasToken
 ```
 
-각 서비스 끝점은 선택 사항이지만 연결 문자열에는 최소한 하나 이상이 포함되어야 합니다.
+각 서비스 엔드포인트는 선택 사항이지만 연결 문자열에는 최소한 하나 이상이 포함되어야 합니다.
 
 > [!NOTE]
 > SAS와 함께 HTTPS를 사용하는 것이 가장 좋습니다.
@@ -35,7 +48,7 @@ SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145
 ```
 
 ### <a name="account-sas-example"></a>계정 SAS 예
-다음은 Blob 및 파일 저장소에 대한 계정 SAS를 포함하는 연결 문자열의 예제입니다. 두 서비스에 대한 끝점이 지정됩니다.
+다음은 Blob 및 파일 저장소에 대한 계정 SAS를 포함하는 연결 문자열의 예제입니다. 두 서비스에 대한 엔드포인트가 지정됩니다.
 
 ```
 BlobEndpoint=https://storagesample.blob.core.windows.net;

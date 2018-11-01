@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 5e002de273d50de9095c6e58b8e1a9fb9a05ed4f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1a7cc7d58975aa0cd5903581610d642193951ec4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295345"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412469"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>빠른 시작: Bing Image Search REST API 및 Java를 사용하여 검색 쿼리 보내기
 
@@ -28,7 +28,7 @@ ms.locfileid: "46295345"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [JDK(Java Development Kit) 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK(Java Development Kit) 7 또는 8](https://aka.ms/azure-jdks)
 
 * [Gson 라이브러리](https://github.com/google/gson)
 

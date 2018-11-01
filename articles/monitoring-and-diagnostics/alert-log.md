@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 627c0ee5a2fab333b8a120867ab54ea76bc66823
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976842"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419370"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리  
 
@@ -34,26 +34,26 @@ ms.locfileid: "46976842"
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Azure Portal을 통해 로그 경고 규칙 만들기
 1. [포털](https://portal.azure.com/)에서 **모니터**를 선택하고 모니터 섹션 아래에서 **경고**를 선택합니다.  
-    ![모니터링](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![모니터링](media/alert-log/AlertsPreviewMenu.png)
 
 1. **새 경고 규칙** 단추를 선택하여 Azure에서 새 경고를 만듭니다.
-    ![경고 추가](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+    ![경고 추가](media/alert-log/AlertsPreviewOption.png)
 
 1. 경고 만들기 섹션은 *경고 조건 정의*, *경고 세부 정보 정의* 및 *작업 그룹 정의*로 구성된 세 부분으로 표시됩니다.
 
-    ![규칙 만들기](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![규칙 만들기](media/alert-log/AlertsPreviewAdd.png)
 
 1.  **리소스 선택** 링크를 사용하고 리소스를 선택하여 대상을 지정하여 경고 조건을 정의합니다. _구독_, _리소스 종류_ 및 필요한 _리소스_를 선택하여 필터링합니다. 
 
     >[!NOTE]
 
     > 로그 경고 만들기의 경우 진행하기 전에 선택한 리소스에 대해 사용 가능한 **로그** 신호를 확인합니다.
-    ![리소스 선택](./media/monitor-alerts-unified/Alert-SelectResourceLog.png)
+    ![리소스 선택](media/alert-log/Alert-SelectResourceLog.png)
 
  
 1. *로그 경고*: **리소스 종류**가 *Log Analytics* 또는 *Application Insights*와 같은 분석 원본이고 신호 유형이 **로그**인지 확인한 다음, 적절한 **리소스가** 선택되면 *완료*를 클릭합니다. 다음으로 **조건 추가** 단추를 사용하여 리소스 및 *Log Analytics* 또는 *Application Insights*와 같은 선택된 로그 모니터 서비스에 대한 신호 목록 **사용자 지정 로그 검색** 옵션에서 사용할 수 있는 신호 옵션 목록을 봅니다.
 
-   ![리소스 선택 - 사용자 지정 로그 검색](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![리소스 선택 - 사용자 지정 로그 검색](media/alert-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
@@ -61,7 +61,7 @@ ms.locfileid: "46976842"
 
 1.  *로그 경고*: 선택한 후에 경고에 대한 쿼리를 **검색 쿼리** 필드에서 정의할 수 있습니다. 쿼리 구문이 올바르지 않을 경우 필드는 빨간색으로 오류를 표시합니다. 쿼리 구문이 올바른 경우 참조를 위해 정의된 쿼리의 기록 데이터가 마지막 6시간에서 지난 주까지 시간 창을 조정하는 옵션과 함께 그래프로 표시됩니다.
 
- ![경고 규칙 구성](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![경고 규칙 구성](media/alert-log/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
@@ -69,7 +69,7 @@ ms.locfileid: "46976842"
 
     >  Application insights를 사용하는 로그 경고의 메트릭 측정 유형의 경우 아래에 설명된 대로 **집계** 옵션을 사용하여 데이터를 그룹화하는 특정 변수를 지정할 수 있습니다.
 
-    ![집계 옵션](./media/monitor-alerts-unified/aggregate-on.png)
+    ![집계 옵션](media/alert-log/aggregate-on.png)
 
 1.  *로그 경고*: 준비된 시각화를 사용하여 조건, 집계 및 마지막으로 임계값의 표시된 옵션에서 **경고 논리**를 선택할 수 있습니다. 마지막으로 논리에서 **기간** 옵션을 사용하여 지정된 조건에 대해 평가할 시간을 지정합니다. **빈도**를 선택하여 경고를 실행해야 하는 빈도를 지정합니다.
 **로그 경고**의 경우 경고는 다음을 기반으로 할 수 있습니다.
@@ -83,7 +83,7 @@ ms.locfileid: "46976842"
 
     - **경고 표시 안 함**: 경고 규칙 표시 안 함 기능을 켜면 규칙에 대한 작업이 새 경고를 만든 후 정의된 기간 동안 비활성화됩니다. 규칙은 여전히 실행되고 있으며 조건을 만족하면 경고 레코드를 생성합니다. 중복 작업을 실행하지 않고 문제를 해결할 시간 여유를 갖게 됩니다.
 
-        ![로그 경고에 대한 경고 표시 안 함](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![로그 경고에 대한 경고 표시 안 함](media/alert-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > 중첩 없이 알림이 중지되도록 경고 표시 안 함의 값을 경고의 빈도보다 큰 값으로 지정
@@ -98,19 +98,19 @@ ms.locfileid: "46976842"
     - **이메일 알림**: 언급된 작업 그룹에 하나 이상의 이메일 작업이 있는 경우 작업 그룹을 통해 전송된 이메일의 *이메일 제목*을 재정의합니다. 메일 본문은 수정할 수 없으며, 이 필드는 이메일 주소에 대한 필드가 **아닙니다**.
     - **사용자 지정 Json 페이로드 포함**: 언급된 작업 그룹에 하나 이상의 웹후크 작업이 있는 경우 작업 그룹에서 사용하는 웹후크 JSON을 재정의합니다. 사용자는 관련된 작업 그룹에 구성된 모든 웹후크에 사용할 JSON 형식을 지정할 수 있습니다. 웹후크 형식에 대한 자세한 내용은 [로그 경고에 대한 웹후크 작업](monitor-alerts-unified-log-webhook.md)을 참조하세요. 샘플 JSON 데이터를 사용하여 형식을 검사할 수 있는 Webhook 보기 옵션이 제공됩니다.
 
-        ![경고 로그에 대한 작업 재정의](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![경고 로그에 대한 작업 재정의](media/alert-log/AlertsPreviewOverrideLog.png)
 
 
 1. 모든 필드가 유효하고 녹색 틱인 경우 **경고 규칙 만들기** 단추를 클릭할 수 있으며 Azure Monitor - 경고에서 경고가 생성됩니다. 경고 대시보드에서 모든 경고를 볼 수 있습니다.
 
-    ![규칙 만들기](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![규칙 만들기](media/alert-log/AlertsPreviewCreate.png)
 
     앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
 사용자는 [Azure Portal의 Logs Analytics 페이지](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
 )에서 해당 분석 쿼리를 종료한 다음, ‘경고 설정’ 단추를 통해 경고를 만들도록 푸시할 수 있습니다. 그런 다음, 위 자습서의 6단계에 있는 지침을 따릅니다.
 
- ![Log Analytics - 경고 설정](./media/monitor-alerts-unified/AlertsAnalyticsCreate.png)
+ ![Log Analytics - 경고 설정](media/alert-log/AlertsAnalyticsCreate.png)
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Azure Portal에서 로그 경고 보기 및 관리
 
@@ -122,7 +122,7 @@ ms.locfileid: "46976842"
 
 
 1. 위쪽 표시줄에서 **규칙 관리** 단추를 선택하여 규칙 관리 섹션으로 이동합니다. 여기에 비활성화된 경고를 포함한 만들어진 모든 경고 규칙이 나열됩니다.
-    ![경고 규칙 관리](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![경고 규칙 관리](media/alert-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Azure 리소스 템플릿을 사용하여 로그 경고 관리
 현재 로그 경고는 경고가 기반으로 하는 분석 플랫폼인 Log Analytics 또는 Application Insights를 기반으로 하여 서로 다른 두 리소스 템플릿을 사용하여 만들 수 있습니다.

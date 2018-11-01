@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ebbb231e7d9eefa8eb681b0e14c711e2c4f1fad7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386522"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418427"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
@@ -21,7 +21,7 @@ Azure Monitor는 이제 리소스 전체에서 '하나의 메트릭' 및 '하나
 
 새 Azure 모니터링 및 경고 플랫폼을 사용함에 따라 Azure 경고의 *클래식 경고 보기* 섹션 내에서 호스팅되는 "클래식" 모니터링 및 경고 플랫폼은 2019년 6월 이후로 사용 중지됩니다.
 
- ![Azure Portal의 클래식 경고](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Azure Portal의 클래식 경고](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 새 플랫폼에서 경고를 시작하고 다시 만드는 것이 좋습니다. 많은 수의 경고가 있는 고객을 위해 중단 또는 추가 비용 없이 기존 클래식 경고를 새 경고 시스템으로 자동으로 전환할 수 있는 방법을 제공하기 위해 노력하고 있습니다.
 

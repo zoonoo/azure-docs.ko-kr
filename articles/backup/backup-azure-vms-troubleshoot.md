@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: 5dc722b54127731be774bb4a0a7ff9cb359baa76
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 8ef8241e9f0f6223b29fa29f7a5803f57f4d6203
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145783"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415001"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
 아래 표에 나열된 정보를 참조하여 Azure Backup을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
@@ -21,10 +21,10 @@ ms.locfileid: "42145783"
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
 | VM이 더 이상 존재하지 않기 때문에 작업을 수행할 수 없습니다. - 백업 데이터를 삭제하지 않고 가상 머신의 보호를 중지합니다. http://go.microsoft.com/fwlink/?LinkId=808124의 자세한 내용 |이는 주 VM이 삭제되었지만 백업 정책이 백업을 수행하기 위해 계속 VM을 검색할 때 발생합니다. 이 오류를 해결하려면  <ol><li> 동일한 이름 및 동일한 리소스 그룹 이름[클라우드 서비스 이름]으로 가상 머신을 다시 만듭니다.<br>또는</li><li> 백업 데이터를 삭제하거나 삭제하지 않고 가상 머신의 보호를 중지합니다. [자세한 내용](http://go.microsoft.com/fwlink/?LinkId=808124).</li></ol> |
-| 가상 머신에 네트워크 연결이 없으므로 스냅숏 작업이 실패했습니다. VM이 네트워크에 액세스할 수 있는지 확인하세요. 스냅숏이 성공하기 위해서는 Azure 데이터 센터 IP 범위를 허용 목록에 추가하거나 네트워크 액세스를 위해 프록시 서버를 설정하세요. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkId=800034를 참조하세요. 이미 프록시 서버를 사용 중인 경우 프록시 서버 설정이 제대로 구성되어 있는지 확인합니다. | 가상 머신에서 아웃바운드 인터넷 연결을 거부하는 경우 발생합니다. 기본 디스크의 스냅숏을 만들기 위해서는 VM 스냅숏 확장에 인터넷 연결이 필요합니다. [네트워크 액세스 차단으로 인한 스냅숏 오류를 해결하는 방법에 대한 섹션을 참조하세요](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine). |
-| VM 에이전트가 Azure Backup 서비스와 통신할 수 없습니다. - VM이 네트워크에 연결되어 있고 VM 에이전트가 최신이며 실행 중인지 확인합니다. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkId=800034 문서를 참조하세요. |이 오류는 VM 에이전트에 문제가 있거나 Azure 인프라에 대한 네트워크 액세스가 어떤 방식으로든 차단된 경우에 발생합니다. VM 스냅숏 문제 디버깅에 대해 [자세히 알아봅니다](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup).<br> VM 에이전트는 문제를 유발하지 않으면 VM을 다시 시작합니다. 잘못된 VM 상태가 문제를 일으킬 수 있으며 VM을 다시 시작하여 이러한 상태를 초기화합니다. |
-| VM이 실패한 프로비전 상태입니다. VM을 다시 시작하고 VM이 실행 중이거나 종료되었는지 확인하세요. | 확장 오류 중 하나로 인해 VM 상태가 실패한 프로비전 상태로 이어질 때 이러한 오류가 발생합니다. 확장 목록으로 이동하여 실패한 확장이 있는지 확인하고 제거한 후 가상 머신을 다시 시작해 보세요. 모든 확장이 실행 중 상태인 경우 VM 에이전트 서비스가 실행 중인지 확인합니다. 실행 중이 아니면 VM 에이전트 서비스를 다시 시작합니다. | 
-| 관리 디스크에 대해 VMSnapshot 확장 작업이 실패했습니다. 백업 작업을 다시 시도하세요. 문제가 계속 발생하는 경우 'http://go.microsoft.com/fwlink/?LinkId=800034'의 지침을 따르세요. 문제가 계속되면 Microsoft 지원에 문의하세요. | Backup 서비스에서 스냅숏을 트리거하는 데 실패한 경우 이 오류가 발생합니다. VM 스냅숏 디버깅 문제에 대해 [자세히 알아보세요](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed). |
+| 가상 머신에 네트워크 연결이 없으므로 스냅숏 작업이 실패했습니다. VM이 네트워크에 액세스할 수 있는지 확인하세요. 스냅숏이 성공하기 위해서는 Azure 데이터 센터 IP 범위를 허용 목록에 추가하거나 네트워크 액세스를 위해 프록시 서버를 설정하세요. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkId=800034를 참조하세요. 이미 프록시 서버를 사용 중인 경우 프록시 서버 설정이 제대로 구성되어 있는지 확인합니다. | 가상 머신에서 아웃바운드 인터넷 연결을 거부하는 경우 발생합니다. 기본 디스크의 스냅숏을 만들기 위해서는 VM 스냅숏 확장에 인터넷 연결이 필요합니다. [네트워크 액세스 차단으로 인한 스냅숏 오류를 해결하는 방법에 대한 섹션을 참조하세요](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine). |
+| VM 에이전트가 Azure Backup 서비스와 통신할 수 없습니다. - VM이 네트워크에 연결되어 있고 VM 에이전트가 최신이며 실행 중인지 확인합니다. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkId=800034 문서를 참조하세요. |이 오류는 VM 에이전트에 문제가 있거나 Azure 인프라에 대한 네트워크 액세스가 어떤 방식으로든 차단된 경우에 발생합니다. VM 스냅숏 문제 디버깅에 대해 [자세히 알아봅니다](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup).<br> VM 에이전트는 문제를 유발하지 않으면 VM을 다시 시작합니다. 잘못된 VM 상태가 문제를 일으킬 수 있으며 VM을 다시 시작하여 이러한 상태를 초기화합니다. |
+| VM이 실패한 프로비전 상태입니다. VM을 다시 시작하고 VM이 실행 중이거나 종료되었는지 확인하세요. | 확장 오류 중 하나로 인해 VM 상태가 실패한 프로비전 상태로 이어질 때 이러한 오류가 발생합니다. 확장 목록으로 이동하여 실패한 확장이 있는지 확인하고 제거한 후 가상 머신을 다시 시작해 보세요. 모든 확장이 실행 중 상태인 경우 VM 에이전트 서비스가 실행 중인지 확인합니다. 실행 중이 아니면 VM 에이전트 서비스를 다시 시작합니다. |
+| 관리 디스크에 대해 VMSnapshot 확장 작업이 실패했습니다. 백업 작업을 다시 시도하세요. 문제가 계속 발생하는 경우 'http://go.microsoft.com/fwlink/?LinkId=800034'의 지침을 따르세요. 문제가 계속되면 Microsoft 지원에 문의하세요. | Backup 서비스에서 스냅숏을 트리거하는 데 실패한 경우 이 오류가 발생합니다. VM 스냅숏 디버깅 문제에 대해 [자세히 알아보세요](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtentionOperationFailed-vmsnapshot-extension-operation-failed). |
 | 저장소 계정에 사용 가능한 공간이 부족하여 가상 머신의 스냅숏을 복사할 수 없음 - 저장소 계정에 가상 머신에 연결된 프리미엄 저장소 디스크에 있는 데이터에 해당하는 만큼의 여유 공간이 있는지 확인합니다. | VM 백업 스택 V1에 있는 프리미엄 VM의 경우 저장소 계정에 스냅숏을 복사합니다. 이 작업은 스냅숏에서 작동하는 백업 관리 트래픽이 프리미엄 디스크를 사용하는 응용 프로그램에서 사용 가능한 IOPS 수를 제한하지 않도록 하기 위한 것입니다. Azure Backup 서비스에서 저장소 계정에 스냅숏을 복사하고 저장소 계정의 복사된 위치에서 자격 증명 모음으로 데이터를 전송할 수 있도록 총 저장소 계정 공간의 50%(17.5TB)만 할당하는 것이 좋습니다. | 
 | VM 에이전트가 응답하지 않으므로 작업을 수행할 수 없습니다. |이 오류는 VM 에이전트에 문제가 있거나 Azure 인프라에 대한 네트워크 액세스가 어떤 방식으로든 차단된 경우에 발생합니다. Windows VM의 경우 서비스의 VM 에이전트 서비스 상태 및 에이전트가 제어판의 프로그램에 표시되는 여부를 확인합니다. 제어판에서 프로그램을 제거하고 [아래](#vm-agent) 설명에 따라 에이전트를 다시 설치합니다. 에이전트를 다시 설치한 후 임시 백업을 트리거하여 확인합니다. |
 | 복구 서비스 확장 작업이 실패했습니다. - 최신 가상 머신 에이전트가 가상 머신에 표시되고 에이전트 서비스가 실행되도록 하세요. 백업 작업을 다시 시도합니다. 백업 작업이 실패하는 경우 Microsoft 지원에 문의하세요. |VM 에이전트가 만료된 경우에 이 오류가 throw됩니다. 아래의 "VM 에이전트 업데이트" 섹션을 참조하여 VM 에이전트를 업데이트합니다. |
@@ -74,7 +74,7 @@ ms.locfileid: "42145783"
 ## <a name="backup-or-restore-taking-time"></a>Backup 또는 복원에 시간이 걸림
 백업(12시간 초과) 또는 복원 소요 시간(6시간 초과)이 표시되는 경우
 * [백업 시간에 영향을 주는 요인](backup-azure-vms-introduction.md#total-vm-backup-time) 및 [복원 시간에 영향을 주는 요인](backup-azure-vms-introduction.md#total-restore-time)을 파악합니다.
-* [Backup 모범 사례](backup-azure-vms-introduction.md#best-practices)를 따라야 합니다. 
+* [Backup 모범 사례](backup-azure-vms-introduction.md#best-practices)를 따라야 합니다.
 
 ## <a name="vm-agent"></a>VM 에이전트
 ### <a name="setting-up-the-vm-agent"></a>VM 에이전트 설정

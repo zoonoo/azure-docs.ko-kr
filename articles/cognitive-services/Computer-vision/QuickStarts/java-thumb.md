@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: a29fd161e788a0c10e5fcb5cd5cd735e1f2cf1b4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: d90844cabeed787f0084dde09ede0fc389819c08
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343580"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420365"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Java를 사용하여 썸네일 생성
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-- [Java&trade; 플랫폼, Standard Edition Development Kit 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)(JDK 7 또는 8)이 설치되어 있어야 합니다.
+- [Java&trade; 플랫폼, Standard Edition Development Kit 7 또는 8](https://aka.ms/azure-jdks)(JDK 7 또는 8)이 설치되어 있어야 합니다.
 - Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가져오려면 [구독 키 얻기](../Vision-API-How-to-Topics/HowToSubscribe.md)를 참조하세요.
 
 ## <a name="create-and-run-the-sample-application"></a>응용 프로그램 예제 만들기 및 실행

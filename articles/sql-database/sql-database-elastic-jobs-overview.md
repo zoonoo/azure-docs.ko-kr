@@ -3,7 +3,7 @@ title: 규모가 확장된 클라우드 데이터베이스 관리 | Microsoft Do
 description: 데이터베이스 그룹에 대해 스크립트를 실행하려면 Elastic Database 작업 서비스를 사용합니다.
 services: sql-database
 ms.service: sql-database
-subservice: operations
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 2bd8bff9893b804ad48032980cef383fb6d0413f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f5878c510e048bea2ce1aedaf4e0e5dbb4611caf
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954666"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242520"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>규모가 확장된 클라우드 데이터베이스 관리
 

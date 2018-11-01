@@ -4,7 +4,7 @@ description: Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항�
 keywords: linux 가상 머신, 가상 머신 크기 집합
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
-ms.author: negat
-ms.openlocfilehash: e03016b80b0a7043a72e55b6c8b68b67b55283b1
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.author: manayar
+ms.openlocfilehash: 1c99b7a3eecdd7938b4813647afb9e48fb0173a0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388129"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739280"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
 이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.

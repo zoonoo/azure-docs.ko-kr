@@ -4,16 +4,16 @@ description: Azure IoT Edge에서 지원되는 플랫폼
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 6/21/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2163179d3353626e12495381fc64792db56ec78e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b8b4664540d07b76d0cebe5df99ba2cc67dd47e6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286365"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248565"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IoT Edge 지원
 Azure IoT Edge 제품에 대한 지원을 찾는 다양한 방법이 있습니다.
@@ -65,6 +65,3 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
 ## <a name="container-engines"></a>컨테이너 엔진
 Azure IoT Edge에는 실행되는 운영 체제에 관계 없이 모듈을 시작하기 위한 컨테이너 엔진이 필요합니다. Microsoft에서는 컨테이너 엔진인 Moby 엔진을 제공하여 이러한 요구 사항을 충족합니다. 해당 기능은 Moby 오픈 소스 프로젝트에 기반합니다. Docker CE 및 Docker EE도 널리 사용되는 다른 컨테이너 엔진이며, Moby 오픈 소스 프로젝트에 기반하고 Azure IoT Edge와 호환 가능합니다. Microsoft에서는 이러한 컨테이너 엔진을 사용하는 시스템에 대해 최고의 지원을 제공하지만 해당 시스템에서 발생한 문제를 수정하는 기능은 제공하지 않습니다. 이로 인해 Microsoft에서는 프로덕션 시스템에서 Moby 엔진을 사용하는 것이 좋습니다.
 
-
-<!-- Links -->
-[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 

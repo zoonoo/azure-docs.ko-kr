@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8cc654fca8e645253ffc79ef808075bdbe887530
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043297"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419778"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log Analytics의 뷰 디자이너 시각화 요소에 대한 참조 가이드
 Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 다양한 데이터 시각화를 나타내는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 시각화 요소 설정에 대한 참조 가이드입니다.
@@ -50,7 +50,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="list-of-queries-part"></a>쿼리 목록 요소
 쿼리 목록 요소에는 로그 검색 쿼리 목록이 표시됩니다. 각 쿼리를 선택하면 결과를 표시할 수 있습니다. 보기에는 기본적으로 쿼리 하나가 포함되어 있으며, **+ 쿼리**를 선택하면 쿼리를 더 추가할 수 있습니다.
 
-![쿼리 목록 보기](media/log-analytics-view-designer/view-list-queries.png)
+![쿼리 목록 보기](media/log-analytics-view-designer-parts/view-list-queries.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -66,7 +66,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="number-and-list-part"></a>숫자 및 목록 요소
 머리글에 로그 검색 쿼리의 레코드 수를 나타내는 숫자가 하나 표시됩니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다.
 
-![쿼리 목록 보기](media/log-analytics-view-designer/view-number-list.png)
+![쿼리 목록 보기](media/log-analytics-view-designer-parts/view-number-list.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -95,7 +95,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="two-numbers-and-list-part"></a>숫자 2개와 목록 요소
 머리글에 별도의 로그 검색 쿼리의 레코드를 보여주는 숫자 2개가 있습니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다.
 
-![2개 숫자 및 목록 보기](media/log-analytics-view-designer/view-two-numbers-list.png)
+![2개 숫자 및 목록 보기](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -126,7 +126,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="donut-and-list-part"></a>도넛 및 목록 요소
 머리글에 로그 쿼리의 값 열을 요약하는 숫자가 하나 표시됩니다. 도넛에서 상위 3개 레코드의 결과를 그래픽으로 표시합니다.
 
-![도넛 및 목록 보기](media/log-analytics-view-designer/view-donut-list.png)
+![도넛 및 목록 보기](media/log-analytics-view-designer-parts/view-donut-list.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -167,7 +167,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="two-timelines-and-list-part"></a>타임 라인 2개 및 목록 요소
 머리글에 시간에 따른 로그 쿼리 2개의 값이 로그 쿼리의 값 열을 요약한 단일 숫자를 나타내는 설명선과 함께 세로 막대형 차트로 표시됩니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다.
 
-![타임 라인 2개 및 목록 보기](media/log-analytics-view-designer/view-two-timelines-list.png)
+![타임 라인 2개 및 목록 보기](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -199,7 +199,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="information-part"></a>정보 요소
 머리글에 정적 텍스트와 선택적 링크가 표시됩니다. 목록에 정적 제목과 텍스트가 있는 항목이 하나 이상 표시됩니다.
 
-![정보 보기](media/log-analytics-view-designer/view-information.png)
+![정보 보기](media/log-analytics-view-designer-parts/view-information.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -220,7 +220,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="line-chart-callout-and-list-part"></a>꺾은선형 차트, 설명선 및 목록 요소
 머리글에 시간에 따른 로그 쿼리의 여러 계열과 요약된 값의 설명선이 있는 꺽은선형 차트가 표시됩니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다.
 
-![꺾은선형 차트, 설명선 및 목록 보기](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![꺾은선형 차트, 설명선 및 목록 보기](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -260,7 +260,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="line-chart-and-list-part"></a>꺾은선형 차트 및 목록 요소
 머리글에 시간에 따른 로그 쿼리의 여러 계열이 있는 꺾은선형 차트가 표시합니다. 목록에는 숫자 열의 상대 값 또는 시간에 따른 변화를 나타내는 그래프와 함께 상위 10개의 쿼리 결과가 표시됩니다.
 
-![꺾은선형 차트 및 목록 보기](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![꺾은선형 차트 및 목록 보기](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | 설정 | 설명 |
 |:--- |:--- |
@@ -296,7 +296,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 ## <a name="stack-of-line-charts-part"></a>꺾은선형 차트 요소 스택
 꺾은선형 차트 요소 스택에는 아래와 같이 시간 경과에 따른 로그 쿼리의 여러 계열이 있는 별도의 꺾은선형 차트 3개가 표시됩니다.
 
-![꺾은선형 차트 스택](media/log-analytics-view-designer/view-stack-line-charts.png)
+![꺾은선형 차트 스택](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
 
 | 설정 | 설명 |
 |:--- |:--- |

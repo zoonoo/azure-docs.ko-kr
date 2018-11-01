@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: beb2d618d93f4c599f946194bd483326471065f4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 9b9754c9087f2d0064cc1aa75e76520731dfb3a9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944806"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242861"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 기본 제공 정책을 사용하여 Azure Active Directory 계정의 로그인을 설정합니다.
 
@@ -34,10 +34,10 @@ ms.locfileid: "49944806"
 4. **새 응용 프로그램 등록**을 선택합니다.
 5. 응용 프로그램의 이름을 입력합니다. 예: `Azure AD B2C App`.
 6. **응용 프로그램 종류**에서 `Web app / API`를 선택합니다.
-7. **Sign-On URL**의 경우, 다음 URL을 모두 소문자로 입력합니다. 여기서 `your-B2C-tenant-name`는 Azure AD B2C 테넌트의 이름으로 바뀝니다. 예 `https://fabrikam.b2clogin.com/fabrikam.b2clogin.com/oauth2/authresp`:
+7. **Sign-On URL**의 경우, 다음 URL을 모두 소문자로 입력합니다. 여기서 `your-B2C-tenant-name`는 Azure AD B2C 테넌트의 이름으로 바뀝니다. 예 `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
-    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.b2clogin.com/oauth2/authresp
+    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 30ff970a1f6243bbba6aa42046cf6e08c808f4e5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 0d3cbc83c5d2558d7eba3de897477814df81893c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068863"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242435"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
 
@@ -40,7 +40,7 @@ ms.locfileid: "49068863"
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure Portal을 사용하여 네임스페이스 만들기
+## <a name="create-a-namespace-using-the-azure-portal"></a>Azure Portal을 사용하여 네임스페이스 만들기
 
 > [!NOTE] 
 > [PowerShell](/powershell/azure/get-started-azureps)을 사용하여 Service Bus 네임스페이스 및 메시징 엔터티를 만들 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Service Bus 리소스 관리](service-bus-manage-with-ps.md)를 참조하세요.
@@ -49,13 +49,13 @@ Service Bus 메시징 네임스페이스를 이미 만든 경우 [Azure Portal�
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Azure Portal을 사용하여 큐 만들기
+## <a name="create-a-queue-using-the-azure-portal"></a>Azure Portal을 사용하여 큐 만들기
 
 Service Bus 큐를 이미 만든 경우 [큐에 메시지 보내기](#3-send-messages-to-the-queue) 섹션으로 이동합니다.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3-send-messages-to-the-queue"></a>3. 큐에 메시지 보내기
+## <a name="send-messages-to-the-queue"></a>큐에 메시지 보내기
 
 큐에 메시지를 보내려면 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
 
@@ -214,7 +214,7 @@ Visual Studio를 시작하고 새로운 **콘솔 앱(.NET Core)** 프로젝트�
    
       ![메시지 크기][queue-message]
 
-## <a name="4-receive-messages-from-the-queue"></a>4. 큐에서 메시지 받기
+## <a name="receive-messages-from-the-queue"></a>큐에서 메시지 받기
 
 방금 보낸 메시지를 받으려면 다른 .NET Core 콘솔 응용 프로그램을 만들고 이전의 보낸 사람 응용 프로그램과 유사한 **Microsoft.Azure.ServiceBus** NuGet 패키지를 설치합니다.
 

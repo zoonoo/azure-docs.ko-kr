@@ -10,12 +10,12 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 4b544e2e59a40cebf75042c4040b84bceebcecf7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4aab76b819ba252dbe00b3faf2f69c24df14bbd1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887703"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419030"
 ---
 # <a name="tutorial-anomaly-detection-with-java-application"></a>자습서: Java 응용 프로그램을 사용하여 변칙 검색
 
@@ -28,7 +28,7 @@ ms.locfileid: "48887703"
 
 ### <a name="platform-requirements"></a>플랫폼 요구 사항
 
-이 자습서는 [IntelliJ IDEA](https://www.jetbrains.com/idea)를 사용하여 개발되었습니다. 또한 [JDK(Java Development Kit)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 버전 1.8 이상과 최신 [Apache Maven](http://maven.apache.org/) 빌드 도구를 설치해야 합니다.
+이 자습서는 [IntelliJ IDEA](https://www.jetbrains.com/idea)를 사용하여 개발되었습니다. 또한 [JDK(Java Development Kit)](https://aka.ms/azure-jdks) 버전 1.8 이상과 최신 [Apache Maven](http://maven.apache.org/) 빌드 도구를 설치해야 합니다.
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>변칙 검색을 구독하고 구독 키 받기 
 
