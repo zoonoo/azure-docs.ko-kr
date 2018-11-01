@@ -2,20 +2,20 @@
 title: Node.js에서 큐 저장소를 사용하는 방법 | Microsoft Docs
 description: Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: cshoe
+ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 3fef5a848bff0eab5a9cc6c1c9a2f70055358e15
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 38da370e8e3cd81e209d0fd592d6b2afa8c82e44
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528227"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138516"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Node.js에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

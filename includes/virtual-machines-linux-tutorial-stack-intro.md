@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: b922b5ea225c61948240e40903ac43f56fde3fb5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227041"
+---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
@@ -8,7 +21,7 @@
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
 [az vm create](/cli/azure/vm#az_vm_create) 명령을 사용하여 VM을 만듭니다. 
 
@@ -57,7 +70,7 @@ VM의 공용 IP 주소를 알고 있는 경우 [az network public-ip list](/cli/
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-다음 명령을 사용하여 가상 컴퓨터와의 SSH 세션을 만듭니다. 가상 컴퓨터의 올바른 공용 IP 주소로 대체합니다. 이 예제에서 IP 주소는 *40.68.254.142*입니다. *azureuser*는 VM을 만들 때 설정한 관리자 사용자 이름입니다.
+다음 명령을 사용하여 가상 머신과의 SSH 세션을 만듭니다. 가상 머신의 올바른 공용 IP 주소로 대체합니다. 이 예제에서 IP 주소는 *40.68.254.142*입니다. *azureuser*는 VM을 만들 때 설정한 관리자 사용자 이름입니다.
 
 ```bash
 ssh azureuser@40.68.254.142

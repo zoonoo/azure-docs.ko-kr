@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 3c8202f762c65d72417020b0524e415e55076eb0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248332"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415273"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -43,11 +43,11 @@ ms.locfileid: "48248332"
 1. Azure Portal에서 **모니터** > **경고**를 선택합니다.
 2. **경고** 창의 맨 위에서 **새 경고 규칙**을 클릭합니다.
 
-     ![새 경고 규칙](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+     ![새 경고 규칙](media/alert-activity-log/AlertsPreviewOption.png)
 
      **규칙 만들기** 창이 나타납니다.
 
-      ![새 경고 규칙 옵션](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule-options.png)
+      ![새 경고 규칙 옵션](media/alert-activity-log/create-new-alert-rule-options.png)
 
 3. **경고 조건 정의**에서 다음 정보를 제공하고 **완료**를 클릭합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "48248332"
 
     > 활동 로그 신호에 대한 리소스, 리소스 그룹 또는 전체 구독을 선택할 수 있습니다.
 
-    **경고 대상 샘플 보기** ![대상 선택](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
+    **경고 대상 샘플 보기** ![대상 선택](media/alert-activity-log/select-target.png)
 
     - **대상 조건** 아래에서 **조건 추가**를 클릭하면 **서비스 모니터링** 이름에 범주 이름이 추가된 다양한 범주의 **활동 로그** 신호를 비롯하여 대상에 사용할 수 있는 모든 신호가 표시됩니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "48248332"
 
     **조건 추가 화면**
 
-    ![조건 추가](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
+    ![조건 추가](media/alert-activity-log/add-criteria.png)
 
     **기록 시간**: 선택한 작업에 사용할 수 있는 이벤트는 지난 6/12/24시간 동안 (또는) 지난 주 동안 표시될 수 있습니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "48248332"
 
         경고 논리가 적용된 샘플 신호 그래프:
 
-        ![ 선택한 기준](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ 선택한 기준](media/alert-activity-log/criteria-selected.png)
 
 4. **경고 규칙 세부 정보 정의**에서 다음 세부 정보를 제공합니다.
 
@@ -99,20 +99,20 @@ ms.locfileid: "48248332"
 
 활동 로그에 경고 규칙을 만들 수 있는 조건을 이해하기 위한 간단한 비유는 [Azure Portal의 Activity Log](monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal)를 통해 이벤트를 탐색하거나 필터링하는 것입니다. Azure Monitor-활동 로그에서 필요한 이벤트를 필터링하거나 찾고 **활동 로그 경고 추가** 단추를 사용하여 경고를 만들 수 있습니다. 그런 다음, 위의 자습서에 설명된 대로 4단계를 수행합니다.
     
- ![ 활동 로그에서 경고 추가](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
+ ![ 활동 로그에서 경고 추가](media/alert-activity-log/add-activity-log.png)
     
 
 ### <a name="view-and-manage-in-azure-portal"></a>Azure Portal에서 보기 및 관리
 
 1. Azure Portal에서 **모니터** > **경고**를 클릭하고 창의 왼쪽 위에서 **규칙 관리**를 클릭합니다.
 
-    ![ 경고 규칙 관리](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ 경고 규칙 관리](media/alert-activity-log/manage-alert-rules.png)
 
     사용 가능한 규칙 목록이 나타납니다.
 
 2. 수정할 활동 로그 규칙을 검색합니다.
 
-    ![ 활동 로그 경고 규칙 검색](./media/monitoring-activity-log-alerts-new-experience/searth-activity-log-rule-to-edit.png)
+    ![ 활동 로그 경고 규칙 검색](media/alert-activity-log/searth-activity-log-rule-to-edit.png)
 
     사용 가능한 필터(_구독_, _리소스 그룹_, _리소스_, _신호 유형_ 또는 _상태_)를 사용하여 편집할 활동 규칙을 찾을 수 있습니다.
 
@@ -122,7 +122,7 @@ ms.locfileid: "48248332"
 
 3.  규칙을 선택하고 두 번 클릭하여 규칙 옵션을 편집합니다. 필요에 따라 변경하고 **저장**을 클릭합니다.
 
-    ![ 경고 규칙 관리](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
+    ![ 경고 규칙 관리](media/alert-activity-log/activity-log-rule-edit-page.png)
 
 4.  규칙을 사용/사용하지 않도록 설정하거나 삭제할 수 있습니다. 2단계에서 설명한 대로 규칙을 선택한 후 창의 맨 위에서 적절한 옵션을 선택합니다.
 

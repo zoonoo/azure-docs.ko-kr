@@ -3,7 +3,7 @@ title: Azure Application Insights에서 사용자 동작 분석 도구 문제 �
 description: 문제 해결 가이드 - Application Insights를 사용하여 사이트 및 앱 사용 현황 분석
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 725f67af8178c6c851999d18c771ebdd360d6d01
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: c1e5b420c4821732aa8cc19328b0955070100926
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992374"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138508"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Application Insights에서 사용자 동작 분석 도구 문제 해결
 [Application Insights의 사용자 동작 분석 도구](app-insights-usage-overview.md)에서 [사용자, 세션, 이벤트](app-insights-usage-segmentation.md), [유입 경로](usage-funnels.md), [사용자 흐름](app-insights-usage-flows.md), [재방문 주기](app-insights-usage-retention.md) 또는 코호트에 대해 질문이 있으신가요? 다음은 몇 가지 대답입니다.

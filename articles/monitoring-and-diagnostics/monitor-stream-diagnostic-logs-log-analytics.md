@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c419a3c44a38f72d56f2b7b362c62e683fc20c7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 057ce4b93be27c27e27d49e61a89a7c2b9e46dc8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993020"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421070"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Log Analytics로 Azure 진단 로그 스트리밍
 
@@ -44,21 +44,21 @@ Azure Log Analytics는 Azure 리소스에서 생성된 원시 로그 데이터�
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>포털을 사용하여 진단 로그 스트림
 1. 포털에서 Azure Monitor로 이동하고 **진단 설정**을 클릭합니다.
 
-    ![Azure Monitor의 모니터링 섹션](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
+    ![Azure Monitor의 모니터링 섹션](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-blade.png)
 
 2. 필요에 따라 리소스 그룹 또는 리소스 종류를 기준으로 목록을 필터링합니다. 그런 다음 진단 설정을 지정하려는 리소스를 클릭합니다.
 
 3. 선택한 리소스에 설정이 없는 경우, 설정을 만들라는 메시지가 표시됩니다. “진단 켜기”를 클릭합니다.
 
-   ![진단 설정 추가 - 기존 설정 없음](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
+   ![진단 설정 추가 - 기존 설정 없음](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-none.png)
 
    리소스에 기존 설정이 있는 경우 이 리소스에 이미 구성된 설정의 목록이 표시됩니다. “진단 설정 추가”를 클릭합니다.
 
-   ![진단 설정 추가 - 기존 설정](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
+   ![진단 설정 추가 - 기존 설정](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-multiple.png)
 
 3. 설정에 이름을 지정하고 **Log Analytics에 보내기** 확인란을 선택한 후 Log Analytics 작업 영역을 선택합니다.
 
-   ![진단 설정 추가 - 기존 설정](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
+   ![진단 설정 추가 - 기존 설정](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-configure.png)
 
 4. **저장**을 클릭합니다.
 

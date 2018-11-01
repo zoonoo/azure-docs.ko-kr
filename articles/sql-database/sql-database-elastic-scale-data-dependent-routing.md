@@ -3,7 +3,7 @@ title: Azure SQL Database를 사용한 데이터 종속 라우팅 | Microsoft Do
 description: Azure SQL Database의 분할된 데이터베이스 기능인 데이터 종속 라우팅을 위해 .NET 앱에서 ShardMapManager 클래스를 사용하는 방법
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: c54a644b140d65ccad1a3cba6c5a07a8e201cddb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d40d0aff62492a01694eecac0a3650fcba69c448
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869621"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242928"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>데이터 의존 라우팅을 사용하여 적절한 데이터베이스로 쿼리 라우팅
 

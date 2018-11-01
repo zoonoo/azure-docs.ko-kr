@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 58a66cfdfaada34981ef166635b0d04e2e6e8f61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57ec7c13cdf5c2e44abf23dc0452e5eab3eb77ff
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976890"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412621"
 ---
 # <a name="smart-groups"></a>스마트 그룹
 경고를 처리할 때 발생하는 일반적인 문제는 노이즈를 살펴보고 실제로 중요한 사항을 찾아내는 것입니다. 스마트 그룹은 이 문제를 해결하기 위한 것입니다.  
@@ -44,7 +44,7 @@ ms.locfileid: "46976890"
 
 스마트 그룹을 선택하면 스마트 그룹 세부 정보 페이지가 표시됩니다. 이 페이지에서 그룹을 만드는 데 사용된 추론을 포함하여 스마트 그룹 세부 정보를 확인하고, 스마트 그룹 상태를 변경할 수 있습니다.
  
-![스마트 그룹 세부 정보](media/monitoring-overview-unified-alerts/smart-group-detail.png)
+![스마트 그룹 세부 정보](media/monitoring-overview-alerts-smartgroups/smart-group-detail.png)
 
 
 스마트 그룹 세부 정보 페이지에는 다음과 같은 섹션이 있습니다.

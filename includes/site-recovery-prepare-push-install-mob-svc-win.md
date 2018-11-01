@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166352"
+---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Windows 컴퓨터에서 푸시 설치 준비
 
 1. Windows 컴퓨터와 프로세스 서버 간에 네트워크가 연결되어 있는지 확인합니다.

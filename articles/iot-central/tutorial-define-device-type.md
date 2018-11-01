@@ -3,18 +3,18 @@ title: Azure IoT Central에서 새 장치 유형 정의 | Microsoft Docs
 description: 이 자습서에서는 작성기로서 Azure IoT Central 응용 프로그램에서 새 장치 유형을 정의하는 방법을 알려줍니다. 유형에 대한 원격 분석, 상태, 속성 및 설정을 정의합니다.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 246d7f837fdf72ddb2d24139d2d3d83fcd43b640
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 8c69a863d8719a0e4eba30a6d5a619210e7f95b8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310651"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156037"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 응용 프로그램에서 새 장치 유형 정의
 

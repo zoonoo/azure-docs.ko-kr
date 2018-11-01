@@ -3,18 +3,18 @@ title: Azure IoT Central에서 장치 모니터링 | Microsoft Docs
 description: 운영자로서 Azure IoT Central 응용 프로그램을 사용하여 장치를 모니터링합니다.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 91a4fceaf5a3e573964919d365a67519b26278ca
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f7d8b3bf02fb92f24054172622e431f24bf344d9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310627"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157482"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>자습서: Azure IoT Central을 사용하여 장치 모니터링
 

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: ad45b117df545c361f17c299bee47b314a408b06
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166288"
+---
 <!--author=SharS last changed: 9/17/15-->
 
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터를 설치하려면

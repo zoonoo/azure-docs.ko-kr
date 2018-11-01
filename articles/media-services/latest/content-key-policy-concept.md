@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 9a5ef8df9b1ca87430fb5e8d1da94f1899c4a856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985865"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085960"
 ---
 # <a name="content-key-policies"></a>콘텐츠 키 정책
 
@@ -28,16 +28,16 @@ Azure Media Services v3에서 콘텐츠 키 정책을 사용하면 콘텐츠 키
 
 다음 표에는 ContentKeyPolicy의 속성 및 해당 정의가 나와 있습니다.
 
-|이름|type|설명|
-|---|---|---|
-|id|string|리소스에 대한 정규화된 리소스 ID입니다.|
-|이름|string|리소스의 이름입니다.|
-|properties.created |string|정책을 만든 날짜입니다.|
-|properties.description |string|정책에 대한 설명입니다.|
-|properties.lastModified    |string|정책을 마지막으로 수정한 날짜입니다.|
-|properties.options |ContentKeyPolicyOption[]|키 정책 옵션입니다.|
-|properties.policyId    |string|레거시 정책 ID입니다.|
-|형식   |string|리소스 형식입니다.|
+|이름|설명|
+|---|---|
+|id|리소스에 대한 정규화된 리소스 ID입니다.|
+|이름|리소스의 이름입니다.|
+|properties.created |정책을 만든 날짜입니다.|
+|properties.description |정책에 대한 설명입니다.|
+|properties.lastModified|정책을 마지막으로 수정한 날짜입니다.|
+|properties.options |키 정책 옵션입니다.|
+|properties.policyId    |레거시 정책 ID입니다.|
+|형식   |리소스 형식입니다.|
 
 전체 정의는 [콘텐츠 키 정책](https://docs.microsoft.com/rest/api/media/contentkeypolicies)을 참조하세요.
 

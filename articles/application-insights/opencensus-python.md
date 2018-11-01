@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9f14664ca035b3de1af80ca3101c22751c83237
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7507cdd7f3967dc132eecf81de347f2da791487f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963648"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414984"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Python(미리 보기)에서 분산 추적 수집
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -180,7 +180,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     하나의 메서드 호출만 추적했으므로 응용 프로그램 맵은 흥미롭지 않습니다. 하지만 응용 프로그램은 훨씬 분산된 응용 프로그램을 시각화하도록 확장될 수 있습니다.
 
-   ![응용 프로그램 맵](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![응용 프로그램 맵](media/opencensus-python/application-map.png)
 
 4. **성능 조사**를 선택하여 자세한 성능 분석을 수행하고 성능 저하의 근본 원인을 확인합니다.
 

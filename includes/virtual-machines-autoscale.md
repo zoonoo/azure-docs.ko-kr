@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227247"
+---
 [가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)과 [Azure Monitor의 자동 조정 기능](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md)을 사용하면 [VM(가상 머신)](../articles/virtual-machines/windows/overview.md)을 쉽게 [자동으로 크기 조정](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md)할 수 있습니다. VM은 자동으로 크기 조정되도록 설정된 확장 집합의 멤버여야 합니다. 이 문서에서는 자동 및 수동 방법을 사용하여 VM을 수직 및 수평으로 확장하는 방법을 더 잘 이해할 수 있는 정보를 제공합니다.
 
 ## <a name="horizontal-or-vertical-scaling"></a>수평 또는 수직적 크기 조정

@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2195a43665f99e8388b13fc6dc3e528496bd3901
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990504"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242690"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>등록된 Azure Active Directory 앱의 서비스 약관 및 개인정보처리방침
 
@@ -65,7 +65,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 앱  **등록** 섹션으로 이동하여 앱을 선택합니다.
+2.  **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
 3. 앱의  **속성** 섹션을 엽니다.
 4. 서 **비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
 5. 변경 내용을 저장합니다.
@@ -89,8 +89,8 @@ Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
 
 ```json
     "informationalUrls": { 
-        "termsOfService": “<your_terms_of_service_url>”, 
-        "privacy": “<your_privacy_statement_url>” 
+        "termsOfService": "<your_terms_of_service_url>", 
+        "privacy": "<your_privacy_statement_url>" 
     }
 ```
 

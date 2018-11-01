@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389686"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232498"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure 진단을 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -292,7 +292,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 
 ## <a name="send-logs-to-application-insights"></a>Application Insights에 로그 보내기
 
-WAD 구성의 일부로 모니터링 및 진단 데이터를 AI(Application Insights)에 보낼 수 있습니다. 이벤트 분석 및 시각화에 AI를 사용하도록 결정할 경우 "WadCfg"의 일부로 [AI 싱크를 설정하는 방법](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)을 읽어 보세요.
+WAD 구성의 일부로 모니터링 및 진단 데이터를 AI(Application Insights)에 보낼 수 있습니다. 이벤트 분석 및 시각화에 AI를 사용하도록 결정할 경우 "WadCfg"의 일부로 [AI 싱크를 설정하는 방법](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)을 읽어 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 기능 | Microsoft Docs'
 description: Azure Active Directory Domain Services의 기능
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: maheshu
-ms.openlocfilehash: a64401792fd034fde98fe1330340b1ffaa7dfcc1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: cd4fdb1e59f5b85fdfd8eb7ca17b77d02dcdac05
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505415"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157040"
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 ## <a name="features"></a>기능
@@ -39,7 +39,6 @@ ms.locfileid: "39505415"
 * **DNS 관리:** 'AAD DC 관리자' 그룹 구성원은 DNS 관리 MMC 스냅인과 같은 친숙한 DNS 관리 도구를 사용하여 관리되는 도메인에 대한 DNS를 관리할 수 있습니다.
 * **사용자 지정 조직 구성 단위(OU) 만들기:** 'AAD DC 관리자' 그룹의 구성원은 관리되는 도메인에서 사용자 지정 OU를 만들 수 있습니다. 이러한 사용자에게 사용자 지정 OU를 통해 모든 관리 권한이 부여되므로, 이러한 사용자 지정 OU 내에서 서비스 계정, 컴퓨터, 그룹 등을 추가/제거할 수 있습니다.
 * **여러 Azure 글로벌 지역에서 사용 가능:** Azure AD Domain Services를 사용할 수 있는 Azure 지역의 목록을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/) 페이지를 참조하세요.
-* 
-  **고가용성:** Azure AD Domain Services는 도메인에 고가용성을 제공합니다. 이 기능은 향상된 서비스 가동 시간과 오류 복원을 보장합니다. 기본 제공 상태 모니터링은 새 인스턴스를 생성하여 실패한 인스턴스를 대체하고 도메인에 연속 서비스를 제공하는 방법으로 오류에 대한 자동 수정 기능을 제공합니다.
+* **고가용성:** Azure AD Domain Services는 도메인에 고가용성을 제공합니다. 이 기능은 향상된 서비스 가동 시간과 오류 복원을 보장합니다. 기본 제공 상태 모니터링은 새 인스턴스를 생성하여 실패한 인스턴스를 대체하고 도메인에 연속 서비스를 제공하는 방법으로 오류에 대한 자동 수정 기능을 제공합니다.
 * **AD 계정 잠금 보호:** 2분 안에 잘못된 암호를 5번 입력하면 사용자 계정이 30분 동안 잠깁니다. 계정은 30분 후 자동으로 잠금 해제됩니다.
 * **익숙한 관리 도구 사용:** 관리되는 도메인을 관리하기 위해 Active Directory 관리 센터 또는 Active Directory PowerShell과 같은 익숙한 Windows Server Active Directory 관리 도구를 사용할 수 있습니다.

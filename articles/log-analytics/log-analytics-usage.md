@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409138"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415265"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
 
@@ -49,12 +49,12 @@ Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다
     - 데이터 수집 및 인덱싱 소요 시간  
 - 쿼리 목록
 
-![사용 및 비용 대시보드](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+![사용 및 비용 대시보드](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 )
 
 ### <a name="to-work-with-usage-data"></a>사용률 데이터를 작업하려면
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure Portal](media/log-analytics-usage/azure-portal-01.png)<br><br>  
 3. Log Analytics 작업 영역 목록에서 작업 영역을 선택합니다.
 4. 왼쪽 창의 목록에서 **사용량 및 예상 비용**을 선택합니다.
 5. **사용량 및 예상 비용** 대시보드에서 **시간: 마지막 24시간**을 선택하고 시간 간격을 변경하여 시간 범위를 수정할 수 있습니다.<br><br> ![시간 간격](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>

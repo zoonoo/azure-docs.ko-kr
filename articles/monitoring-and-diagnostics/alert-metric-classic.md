@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: ffac9511ab93367cba3f006249bd92658a520e09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 76a87b79ccc776e0facd57a1cff50fbbcb4f0b9e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386940"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414882"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 
@@ -24,11 +24,11 @@ Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나
 
 2. **모니터링** 섹션에서 **경고(클래식)** 를 선택합니다. 텍스트와 아이콘은 리소스마다 약간씩 다를 수 있습니다. 여기서 **경고(클래식)** 를 찾을 수 없는 경우 **경고** 또는 **경고 규칙**에서 찾을 수 있습니다.
 
-    ![모니터링](./media/alerts-metric-classic/AlertRulesButton.png)
+    ![모니터링](media/alert-metric-classic/AlertRulesButton.png)
 
 3. **Add metric alert(클래식)** 명령을 선택하고 필드를 채웁니다.
 
-    ![Add alert](./media/alerts-metric-classic/AddAlertOnlyParamsPage.png)
+    ![Add alert](media/alert-metric-classic/AddAlertOnlyParamsPage.png)
 
 4. 경고 규칙의 **이름을 지정**합니다. 그리고 **설명**을 선택합니다. 설명도 알림 이메일에 표시됩니다.
 

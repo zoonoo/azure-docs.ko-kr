@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: d74aa6b7ef762b7971fd67654e7fc1a23a8d83cc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e0cbf806b7999a56ccdf2826a735238fe8130bf5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038451"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240582"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 데이터베이스 보안
 
@@ -67,7 +67,7 @@ ms.locfileid: "40038451"
 |사용자 및 사용 권한|계정에 [마스터 키](#master-key)를 사용하여 데이터베이스당 사용자 리소스 및 권한 리소스를 만들 수 있습니다. [리소스 토큰](#resource-token)은 데이터베이스에 있는 권한과 연결되며 사용자가 데이터베이스에 있는 응용 프로그램 리소스에 대한 액세스 권한(읽기-쓰기, 읽기 전용 또는 액세스 권한 없음)을 보유하는지 확인합니다. 응용 프로그램 리소스에는 컨테이너, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF가 포함됩니다. 그리고 인증 중에는 리소스 토큰이 사용되어 리소스에 대한 액세스를 제공 또는 거부합니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|
 |Active Directory 통합(RBAC)| 이 표 다음의 스크린샷에 나와 있는 것처럼, Azure Portal에서 액세스 제어(IAM)를 사용하여 데이터베이스 계정에 대한 액세스도 제공할 수 있습니다. IAM은 역할 기반 액세스 제어를 제공하며 Active Directory와 통합됩니다. 다음 이미지처럼 개인 및 그룹에 대해 기본 제공 역할이나 사용자 지정 역할을 사용할 수 있습니다.|
 |글로벌 복제|Azure Cosmos DB는 단추 클릭만으로 Azure 전 세계 데이터 센터 중 어디로나 데이터를 복제할 수 있는 턴키 글로벌 배포 기능을 제공합니다. 글로벌 복제를 통해 전역적으로 크기를 조정하고 전 세계 데이터에 짧은 대기 시간으로 액세스할 수 있습니다.<br><br>보안 컨텍스트에서 글로벌 복제는 지역별 오류에 대해 데이터 보호를 보장해줍니다.<br><br>[데이터를 글로벌 배포](distribute-data-globally.md)에 대한 자세한 정보|
-|지역별 장애 조치|데이터를 둘 이상의 데이터 센터에 복제한 경우 지역 데이터 센터가 오프라인으로 전환되면 Azure Cosmos DB가 사용자 작업을 자동으로 롤오버합니다. 데이터가 복제된 지역을 사용하여 장애 조치 지역의 우선 순위가 지정된 목록을 만들 수 있습니다. <br><br>[Azure Cosmos DB의 지역별 장애 조치(Failover)](regional-failover.md)에서 자세히 알아보세요.|
+|지역별 장애 조치|데이터를 둘 이상의 데이터 센터에 복제한 경우 지역 데이터 센터가 오프라인으로 전환되면 Azure Cosmos DB가 사용자 작업을 자동으로 롤오버합니다. 데이터가 복제된 지역을 사용하여 장애 조치 지역의 우선 순위가 지정된 목록을 만들 수 있습니다. <br><br>[Azure Cosmos DB의 지역별 장애 조치(Failover)](high-availability.md)에서 자세히 알아보세요.|
 |로컬 복제|단일 데이터 센터 내에서도 Azure Cosmos DB는 고가용성을 위해 데이터를 자동으로 복제하여 [일관성 수준](consistency-levels.md)을 선택할 수 있도록 합니다. 이를 통해 모든 단일 지역 계정 및 평범한 일관성 수준의 모든 다중 지역 계정에 대한 99.99% [가용성 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 가용성을 보장합니다.|
 |자동 온라인 백업|Azure Cosmos DB 데이터베이스는 정기적으로 백업되며 georedundant 저장소에 저장됩니다. <br><br>[Azure Cosmos DB로 자동 온라인 백업 및 복원](online-backup-and-restore.md)에서 자세히 알아보세요.|
 |삭제된 데이터 복원|자동 온라인 백업을 사용하여 실수로 삭제한 데이터를 이벤트 후 최대 30일 이내에 복구할 수 있습니다. <br><br>[Azure Cosmos DB로 자동 온라인 백업 및 복원](online-backup-and-restore.md)에서 자세히 알아보세요.|

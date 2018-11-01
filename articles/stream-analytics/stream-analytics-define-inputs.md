@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 556b71d8312c7661b58a3ccf56fd76f6753ef9cf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987582"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248748"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 
@@ -115,7 +115,6 @@ IoT Hub에서 스트림 데이터를 사용하는 경우 Stream Analytics 쿼리
 | **IoTHub.ConnectionDeviceId** | 이 메시지를 보내는 데 사용된 인증 ID입니다. 이 값은 IoT Hub에서 서비스 바운드 메시지에 자동 삽입됩니다. |
 | **IoTHub.ConnectionDeviceGenerationId** | 이 메시지를 보내는 데 사용된 인증된 장치의 생성 ID입니다. 이 값은 IoT Hub에서 서비스 바운드 메시지에 자동 삽입됩니다. |
 | **IoTHub.EnqueuedTime** | IoT Hub에서 메시지가 수신된 시간입니다. |
-| **IoTHub.StreamId** | 보낸 사람 장치에 의해 추가된 사용자 지정 이벤트 속성입니다. |
 
 
 ## <a name="stream-data-from-blob-storage"></a>Blob Storage에서 데이터 스트리밍

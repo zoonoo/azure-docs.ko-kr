@@ -3,7 +3,7 @@ title: Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
 description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합 문서를 사용하여 복잡한 보고 간소화
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/19/2018
-ms.reviewer: daviste
+ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
-ms.author: mbullwin
-ms.openlocfilehash: 2a9ee67d2763eb1d88ab09520c69dd46ead3e93f
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.author: daviste
+ms.openlocfilehash: c04af7fcf996c9b86c472383eac5658e5504b27e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465937"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139825"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
 

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 6ba274bb3ff3679b4a44950db168215c54f3ade6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299749"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229420"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps 및 Azure Functions를 사용하여 스트리밍 Customer Insights 대시보드 만들기
 
@@ -26,7 +26,7 @@ Azure Logic Apps는 서버가 없는 구성 요소에서 오케스트레이션�
 
 이 시나리오에서는 고객의 피드백을 찾도록 트리거하는 논리 앱을 만듭니다. 고객 피드백에 응답하는 데 도움이 되는 일부 커넥터에는 Outlook.com, Office 365, Survey Monkey, Twitter 및 [웹 형식의 HTTP 요청](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/)이 포함됩니다. 사용자가 만든 워크플로는 Twitter에서 해시태그를 모니터링합니다.
 
-[Visual Studio에서 전체 솔루션을 빌드](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)하고 [Azure Resource Manager 템플릿을 사용하여 솔루션을 배포](../logic-apps/logic-apps-create-deploy-template.md)할 수 있습니다. 이 솔루션을 만드는 방법을 보여 주는 동영상 연습은 [이 채널 9 비디오를 시청](http://aka.ms/logicappsdemo)하세요. 
+[Visual Studio에서 전체 솔루션을 빌드](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)하고 [Azure Resource Manager 템플릿을 사용하여 솔루션을 배포](../logic-apps/logic-apps-create-deploy-template.md)할 수 있습니다. 이 솔루션을 만드는 방법을 보여 주는 동영상 연습은 [이 채널 9 비디오를 시청](https://aka.ms/logicappsdemo)하세요. 
 
 ## <a name="trigger-on-customer-data"></a>고객 데이터에서 트리거
 

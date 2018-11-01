@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5b58f4b71d8d9f3ca91d8cefc6215073fd836765
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855377"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093669"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>큐 및 이벤트가 있는 엔터프라이즈 통합 아키텍처
 
@@ -26,7 +26,7 @@ ms.locfileid: "48855377"
 
 ## <a name="architecture-components"></a>아키텍처 구성 요소
 
-이 아키텍처는 [아키텍처 참조: 간단한 엔터프라이즈 통합](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md)에 설명된 아키텍처를 기반으로 합니다. 아키텍처의 [권장 사항](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations)도 여기에 적용되지만 간략히 하기 위해 이 문서에서는 [권장 사항](#recommendations) 섹션의 권장 사항이 생략됩니다. 이 엔터프라이즈 통합 아키텍처에는 다음 구성 요소가 포함됩니다.
+이 아키텍처는 [아키텍처 참조: 간단한 엔터프라이즈 통합](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration)에 설명된 아키텍처를 기반으로 합니다. 아키텍처의 [권장 사항](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration#recommendations)도 여기에 적용되지만 간략히 하기 위해 이 문서에서는 [권장 사항](#recommendations) 섹션의 권장 사항이 생략됩니다. 이 엔터프라이즈 통합 아키텍처에는 다음 구성 요소가 포함됩니다.
 
 - **리소스 그룹**: [리소스 그룹](../azure-resource-manager/resource-group-overview.md)은 Azure 리소스에 대한 논리 컨테이너입니다.
 
@@ -143,4 +143,4 @@ Event Grid 서비스는 유효성 검사 코드를 통해 이벤트 전달을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [간단한 엔터프라이즈 통합](logic-apps-architectures-simple-enterprise-integration.md)에 대해 알아보기
+* [간단한 엔터프라이즈 통합](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration)에 대해 알아보기
