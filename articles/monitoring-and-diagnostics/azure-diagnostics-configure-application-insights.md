@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3e1f4076c7a90cbb348f31b7b92e745fff79a04f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262140"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416693"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
 클라우드 서비스, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric은 모두 Azure 진단 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure 진단 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 집합이나 전체를 파이핑할 수 있습니다.
@@ -77,11 +77,11 @@ Application Insights에 대한 싱크 예제 구성:
 
 다음 그래프에서는 이 관계를 보여 줍니다.
 
-![진단 공용 구성](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
+![진단 공용 구성](media/azure-diagnostics-configure-application-insights/AzDiag_Channels_App_Insights.png)
 
 다음 그래프에서는 구성 값 및 작동 방법을 요약합니다. 계층 구조에서 다양한 수준의 구성에 여러 싱크를 포함할 수 있습니다. 최상위 수준의 싱크는 전역 설정이며 개별 요소에 지정된 싱크는 전역 설정에 재정의와 같은 역할을 합니다.
 
-![Application Insights를 사용한 진단 싱크 구성](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
+![Application Insights를 사용한 진단 싱크 구성](media/azure-diagnostics-configure-application-insights/Azure_Diagnostics_Sinks.png)
 
 ## <a name="complete-sink-configuration-example"></a>전체 싱크 구성 예제
 다음은 공용 구성 파일의 완전한 예제로, 공용 구성 파일이 다음과 같은 작업을 합니다.

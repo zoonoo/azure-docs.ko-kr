@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a5e86b7c93344a6c61fecaa41b98bc1daa20f36f
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: af37822429098f904e08404462deb134d4370898
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423224"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421206"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 Java 모듈 개발 및 디버그
 
@@ -33,7 +33,7 @@ Azure IoT Edge용 모듈로 전환하여 비즈니스 논리를 에지에서 작
 * [Docker 확장](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 모듈을 만들려면 모듈 코드를 실행하기 위한 Java 및 Maven, 모듈 이미지를 빌드하기 위한 Docker, 모듈 이미지를 저장하기 위한 컨테이너 레지스트리가 필요합니다.
-* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html)(JDK 설치를 가리키도록 [`JAVA_HOME` 환경 변수](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) 설정)
+* [Java SE Development Kit 10](https://aka.ms/azure-jdks)(JDK 설치를 가리키도록 [`JAVA_HOME` 환경 변수](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) 설정)
 * [Maven](https://maven.apache.org/)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)

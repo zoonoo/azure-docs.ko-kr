@@ -302,8 +302,6 @@
 ##### [사용자 지정 개발 앱의 문제](manage-apps/application-sign-in-problem-custom-dev.md)
 ##### [온-프레미스 앱의 문제 - 응용 프로그램 프록시](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
-### [앱 개발](active-directory-applications-guiding-developers-for-lob-applications.md)
-
 
 ## 디렉터리 관리
 ### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)

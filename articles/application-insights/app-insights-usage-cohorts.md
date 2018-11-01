@@ -3,7 +3,7 @@ title: Azure Application Insights 사용 코호트 | Microsoft Docs
 description: 공통점이 있는 다양한 사용자, 세션, 이벤트 또는 작업의 집합을 분석합니다.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 30ef00fa1bfd2933df5e5c966cb8266d7c598a47
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 35737b91d8ef0b58223f51530f56408df1c7eb8e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162171"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138795"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 

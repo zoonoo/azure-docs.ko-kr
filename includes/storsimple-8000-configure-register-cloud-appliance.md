@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: d004de75284011f4ceaaca88fd19e61900824f51
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164881"
+---
 #### <a name="to-configure-and-register-the-cloud-appliance"></a>클라우드 어플라이언스를 구성 및 등록하려면
 
 1. **장치** 블레이드에서 만든 StorSimple Cloud Appliance를 선택하여 클릭합니다.

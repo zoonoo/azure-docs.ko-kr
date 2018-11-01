@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: srrengar
-ms.openlocfilehash: 68e0192756db539767dd808d0f0d408e77c2ae1b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: bc86ef5a32e08bc00b5a2fa53dccb8d6313f167b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405653"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230988"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure 진단 확장을 사용하여 성능 모니터링
 
@@ -115,7 +115,7 @@ WAD를 통해 성능 카운터를 수집하려면 클러스터의 Resource Manag
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. 업그레이드가 롤아웃을 완료하면(15-45분 소요) WAD는 성능 카운터를 수집하고 클러스터와 연결된 저장소 계정에서 WADPerformanceCountersTable이라는 표로 보내야 합니다. [Resource Manager 템플릿에 AI 싱크를 추가](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)하여 Application Insights에서 성능 카운터를 확인합니다.
+5. 업그레이드가 롤아웃을 완료하면(15-45분 소요) WAD는 성능 카운터를 수집하고 클러스터와 연결된 저장소 계정에서 WADPerformanceCountersTable이라는 표로 보내야 합니다. [Resource Manager 템플릿에 AI 싱크를 추가](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)하여 Application Insights에서 성능 카운터를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 클러스터에 대한 더 많은 성능 카운터를 수집합니다. 수집해야 하는 카운터 목록은 [성능 메트릭](service-fabric-diagnostics-event-generation-perf.md)을 참조하세요.

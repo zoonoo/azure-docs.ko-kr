@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 3e63a4c05fde570e598ba05c65fb99cec0427711
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f1dd07756ca484171a3d662df35493efbe5a5ee7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226420"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415622"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -34,7 +34,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 | Windows 7              | SMB 2.1     | yes                   | 아니요                   |
 | Windows Server 2008 R2 | SMB 2.1     | yes                   | 아니요                   |
 
-<sup>1</sup>Windows Server 2019는 [Windows Server 참가자 프로그램](https://insider.windows.com/for-business-getting-started-server/)을 통해 미리 보기로 제공됩니다. Windows Server 2019는 아직 프로덕션 용도로 지원되지 않지만, Azure 파일 공유에 연결할 때 [Windows 문제 해결 가이드](storage-troubleshoot-windows-file-connection-problems.md)에 없는 문제가 발생할 경우 저희에게 알려 주십시오.  
+<sup>1</sup>Windows Server 2019는 [Windows Server 참가자 프로그램](https://insider.windows.com/for-business-getting-started-server/)을 통해 미리 보기로 제공됩니다. Windows Server 2019는 아직 프로덕션 용도로 지원되지 않습니다. 다만, Azure 파일 공유에 연결할 때 [Windows 문제 해결 가이드](storage-troubleshoot-windows-file-connection-problems.md)에 없는 문제가 발생할 경우 문의해 주세요.  
 <sup>2</sup>Windows 10 버전 1507, 1607, 1703, 1709 및 1803.  
 <sup>3</sup>Windows Server 버전 1709 및 1803.
 
@@ -49,7 +49,7 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 * **445 포트가 열려 있는지 확인**: SMB 프로토콜은 TCP 포트 445가 열려 있어야 하며, 445 포트가 닫혀 있으면 연결이 실패합니다. `Test-NetConnection` cmdlet을 사용하여 방화벽이 포트 445를 차단하는지 확인할 수 있습니다. 잊지 말고 `your-storage-account-name`을 저장소 계정과 관련된 이름으로 바꿔야 합니다.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.windows.net -Port 445
     
     ```
 
@@ -70,12 +70,12 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 ## <a name="using-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 Windows에서 Azure 파일 공유를 사용하려면 Azure 파일 공유를 탑재하거나(드라이브 문자 또는 탑재 지점 경로에 할당한다는 의미) [UNC 경로](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx)를 통해 액세스해야 합니다. 
 
-Windows Server, Linux Samba 서버 또는 NAS 장치에 호스트되는 공유처럼 여러분이 기존에 상호 작용하던 다른 SMB 공유와는 달리, Azure 파일 공유는 현재 AD(Active Directory) 또는 AAD(Azure Active Directory)에 Kerberos 인증을 지원하지 않습니다. 현재 이 기능을 [개발 중](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles)입니다. 그 대신, Azure 파일 공유를 포함하는 저장소 계정의 저장소 계정 키를 사용하여 Azure 파일 공유에 액세스해야 합니다. 저장소 계정 키는 사용자가 액세스하는 파일 공유 내 모든 파일 및 폴더와 저장소 계정에 포함된 모든 파일 공유 및 다른 저장소 리소스(BLOB, 큐, 테이블 등)에 대한 관리자 권한을 포함하여 저장소 계정의 관리자 키입니다. 이 정도로는 워크로드에 충분하지 않은 경우 [Azure 파일 동기화](storage-files-planning.md#data-access-method)는 AAD 기반 Kerberos 인증 및 ACL 지원이 공개적으로 제공될 때까지 부족한 Kerberos 인증 및 ACL 지원을 해결합니다.
+Windows Server, Linux Samba 서버 또는 NAS 장치에 호스팅되는 공유처럼 여러분이 기존에 상호 작용하던 다른 SMB 공유와는 달리, Azure 파일 공유는 현재 AD(Active Directory) 또는 AAD(Azure Active Directory)에 Kerberos 인증을 지원하지 않습니다. 현재 이 기능을 [개발 중](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles)입니다. 그 대신, Azure 파일 공유를 포함하는 저장소 계정의 저장소 계정 키를 사용하여 Azure 파일 공유에 액세스해야 합니다. 저장소 계정 키는 사용자가 액세스하는 파일 공유 내 모든 파일 및 폴더와 저장소 계정에 포함된 모든 파일 공유 및 다른 저장소 리소스(BLOB, 큐, 테이블 등)에 대한 관리자 권한을 포함하여 저장소 계정의 관리자 키입니다. 이 정도로는 워크로드에 충분하지 않은 경우 [Azure 파일 동기화](storage-files-planning.md#data-access-method)는 AAD 기반 Kerberos 인증 및 ACL 지원이 공개적으로 제공될 때까지 부족한 Kerberos 인증 및 ACL 지원을 해결합니다.
 
 SMB 파일 공유를 기대하는 LOB 응용 프로그램을 Azure로 전환하는 일반적인 패턴은 Azure VM에서 전용 Windows 파일 서버를 실행하는 대신 Azure 파일 공유를 사용하는 것입니다. Azure 파일 공유를 사용하도록 기간 업무 앱을 마이그레이션할 때 고려해야 하는 중요한 사항 중 하나로, 많은 기간 업무 앱은 VM 관리 계정이 아니라 시스템 권한이 제한된 전용 서비스 계정 하에서 실행됩니다. 따라서 관리 계정이 아닌 서비스 계정의 Azure 파일 공유에 대한 자격 증명을 탑재/저장해야 합니다.
 
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>Windows에서 Azure 파일 공유 자격 증명 유지  
-[cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 유틸리티를 사용하면 저장소 계정 자격 증명을 Windows 내에 저장할 수 있습니다. 즉, UNC 경로를 통해 Azure 파일 공유에 액세스하려고 시도하거나 Azure 파일 공유를 탑재하려고 시도할 때 자격 증명을 지정할 필요가 없습니다. 저장소 계정의 자격 증명을 저장하려면 다음 PowerShell 명령을 실행하고, `<your-storage-account-name>` 및 `<your-resoure-group-name>`을 적절하게 바꿉니다.
+[cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 유틸리티를 사용하면 저장소 계정 자격 증명을 Windows 내에 저장할 수 있습니다. 즉, UNC 경로를 통해 Azure 파일 공유에 액세스하려고 시도하거나 Azure 파일 공유를 탑재하려고 시도할 때 자격 증명을 지정할 필요가 없습니다. 저장소 계정의 자격 증명을 저장하려면 다음 PowerShell 명령을 실행하고, `<your-storage-account-name>` 및 `<your-resoure-group-name>`을(를) 적절하게 바꿉니다.
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"
@@ -124,12 +124,12 @@ $credential = New-Object System.Management.Automation.PSCredential -ArgumentList
 Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
 ```
 
-서비스 계정(또는 사용자 계정)의 사용자 컨텍스트에서 새 PowerShell 창이 열립니다. 그러면 [위](#persisting-azure-file-share-credentials-in-windows)에 설명된 대로 cmdkey 유틸리티를 사용할 수 있습니다.
+서비스 계정(또는 사용자 계정)의 사용자 컨텍스트에서 새 PowerShell 창이 열립니다. 그러면 [위](#persisting-azure-file-share-credentials-in-windows)에서 설명한 대로 cmdkey 유틸리티를 사용할 수 있습니다.
 
 하지만 PowerShell 원격을 사용하여 원격 머신에 자격 증명을 저장하는 것은 불가능합니다. cmdkey는 추가의 경우에도 사용자가 PowerShell 원격을 통해 로그인 할 때 저장된 자격 증명에 액세스하는 것을 허용하지 않기 때문입니다. [원격 데스크톱](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows)을 사용하여 머신에 로그인하는 것이 좋습니다.
 
 ### <a name="mount-the-azure-file-share-with-powershell"></a>PowerShell을 사용하여 Azure 파일 공유 탑재
-일반(즉, 관리자 권한이 아닌) PowerShell 세션에서 다음 명령을 실행하여 Azure 파일 공유를 탑재합니다. `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` 및 `<desired-drive-letter>`를 적절한 정보로 바꿉니다.
+일반(즉, 관리자 권한이 아닌) PowerShell 세션에서 다음 명령을 실행하여 Azure 파일 공유를 탑재합니다. `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` 및 `<desired-drive-letter>`을(를) 적절한 정보로 바꿉니다.
 
 ```PowerShell
 $resourceGroupName = "<your-resource-group-name>"
@@ -184,7 +184,7 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     !["네트워크 드라이브 연결" 대화 상자의 스크린샷](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. 사용자 이름으로 `AZURE\`가 앞에 붙은 Storage 계정 이름을 사용하고, 암호로 Storage 계정 키를 사용합니다.
+5. 사용자 이름으로 `AZURE\`이(가) 앞에 붙은 Storage 계정 이름을 사용하고, 암호로 Storage 계정 키를 사용합니다.
     
     ![네트워크 자격 증명 대화 상자의 스크린샷](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
@@ -215,7 +215,7 @@ Azure Backup 같은 스크립트 또는 서비스를 통해 수동으로 또는 
  ![경고 메시지의 복원 단추](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Windows/Windows Server 보안
-Windows에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 수 있어야 합니다. 많은 조직에서 SMB 1에 내재된 보안 위험 때문에 포트 445를 차단합니다. CIFS(Common Internet File System)라고도 하는 SMB 1은 Windows 및 Windows Server에 포함된 레거시 파일 시스템 프로토콜입니다. SMB 1은 오래 되고 비효율적이며, 무엇보다도 안전하지 않은 프로토콜입니다. 좋은 소식은, Azure Files는 SMB 1을 지원하지 않습니다. 그리고 모든 지원되는 Windows 및 Windows Server 버전은 SMB 1을 제거하거나 사용하지 않도록 설정할 수 있습니다. 항상 프로덕션 환경에서 Azure 파일 공유를 사용하기 전에 SMB 1 클라이언트 및 서버를 Windows에서 제거하거나 사용하지 않도록 설정할 것을 [강력하게 권장합니다](https://aka.ms/stopusingsmb1).
+Windows에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 수 있어야 합니다. 많은 조직에서 SMB 1에 내재된 보안 위험 때문에 포트 445를 차단합니다. CIFS(Common Internet File System)라고도 하는 SMB 1은 Windows 및 Windows Server에 포함된 레거시 파일 시스템 프로토콜입니다. SMB 1은 구식 프로토콜로 비효율적이며 무엇보다도 보안성이 떨어집니다. 좋은 소식은, Azure Files는 SMB 1을 지원하지 않습니다. 그리고 모든 지원되는 Windows 및 Windows Server 버전은 SMB 1을 제거하거나 사용하지 않도록 설정할 수 있습니다. 프로덕션 환경에서 Azure 파일 공유를 사용하기 전에 항상 SMB 1 클라이언트 및 서버를 Windows에서 제거하거나 사용하지 않도록 설정할 것을 [강력히 권장](https://aka.ms/stopusingsmb1)합니다.
 
 다음 표에서는 각 Windows 버전의 SMB 1 상태에 대한 자세한 정보를 제공합니다.
 
@@ -274,7 +274,7 @@ Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 ### <a name="disabling-smb-1-on-legacy-versions-of-windowswindows-server"></a>레거시 버전의 Windows/Windows Server에서 SMB 1을 사용하지 않도록 설정
 > Windows Server 2012, Windows Server 2008 R2, Windows 7에 적용
 
-레거시 버전의 Windows/Windows Server에서 SMB 1을 완전히 제거할 수는 없지만 레지스트리를 통해 사용하지 않도록 설정할 수 있습니다. SMB 1을 사용하지 않도록 설정하려면 `HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Services > LanmanServer > Parameters` 아래에서 값이 `0`이고 유형이 `SMB1`인 새 레지스트리 키 `DWORD`을 만듭니다.
+레거시 버전의 Windows/Windows Server에서 SMB 1을 완전히 제거할 수는 없지만 레지스트리를 통해 사용하지 않도록 설정할 수 있습니다. SMB 1을 사용하지 않도록 설정하려면 `HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Services > LanmanServer > Parameters` 아래에서 값이 `0`이고 유형이 `SMB1`인 새 레지스트리 키 `DWORD`을(를) 만듭니다.
 
 다음 PowerShell cmdlet을 사용하면 쉽게 처리할 수 있습니다.
 

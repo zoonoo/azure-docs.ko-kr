@@ -1,3 +1,16 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 7cfce34cb2d6002dba5ec570bf859ec47e894c65
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133218"
+---
 #### <a name="prerequisites"></a>필수 조건
 * Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)
 * [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 계정 

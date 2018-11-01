@@ -3,7 +3,7 @@ title: Azure Functions의 타이머 트리거
 description: Azure Functions에서 타이머 트리거를 사용하는 방법을 파악합니다.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/08/2018
-ms.author: glenga
+ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: d1e73af69d3220c0719bd05e3f160e20f8c02858
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ae2d4d3fc4f5c0961b942326b2071a0553c81e8d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715604"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248991"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -54,13 +54,13 @@ ms.locfileid: "44715604"
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
     if(myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
 ```
 
@@ -82,13 +82,13 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 C# 스크립트 코드는 다음과 같습니다.
 
 ```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+public static void Run(TimerInfo myTimer, ILogger log)
 {
     if(myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}" );  
 }
 ```
 
@@ -110,11 +110,11 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 F# 스크립트 코드는 다음과 같습니다.
 
 ```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
+let Run(myTimer: TimerInfo, log: ILogger ) =
     if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
+        log.LogInformation("F# function is running late.")
     let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
+    log.LogInformation(sprintf "F# function executed at %s!" now)
 ```
 
 ### <a name="javascript-example"></a>JavaScript 예제
@@ -171,13 +171,13 @@ public void keepAlive(
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
     if (myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
  ```
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 6fc6afa9c0ccbddcfa408556dee92618fe63c8fb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b9146bfc284a469f12eb626c2434f4afe52335dc
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407115"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250465"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager와 서비스 맵 통합
   > [!NOTE]
@@ -53,19 +53,19 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
 
 1. 구성 마법사를 열려면 **서비스 맵 개요** 창에서 **작업 영역 추가**를 클릭합니다.  
 
-    ![서비스 맵 개요 창](media/monitoring-service-map/scom-configuration.png)
+    ![서비스 맵 개요 창](media/monitoring-service-map-scom/scom-configuration.png)
 
 2. **연결 구성** 창에서 서비스 주체의 테넌트 이름 또는 ID, 응용 프로그램 ID(사용자 이름 또는 클라이언트 ID라고도 함) 및 암호를 입력하고 **다음**을 클릭합니다. 자세한 내용은 [서비스 주체 만들기](#creating-a-service-principal)로 이동합니다.
 
-    ![연결 구성 창](media/monitoring-service-map/scom-config-spn.png)
+    ![연결 구성 창](media/monitoring-service-map-scom/scom-config-spn.png)
 
 3. **구독 선택** 창에서 Azure 구독, Azure 리소스 그룹(Log Analytics 작업 영역을 포함하는 그룹), Log Analytics 작업 영역을 선택하고 **다음**을 클릭합니다.
 
-    ![Operations Manager 구성 작업 영역](media/monitoring-service-map/scom-config-workspace.png)
+    ![Operations Manager 구성 작업 영역](media/monitoring-service-map-scom/scom-config-workspace.png)
 
 4. **컴퓨터 그룹 선택** 창에서 Operations Manager에 동기화하려는 [서비스 맵 컴퓨터 그룹]을 선택합니다. **컴퓨터 그룹 추가/제거**를 클릭하고, **사용 가능한 컴퓨터 그룹** 목록에서 그룹을 선택하고, **추가**를 클릭합니다.  그룹 선택이 완료되면 **확인**을 클릭하여 완료합니다.
     
-    ![Operations Manager 구성 컴퓨터 그룹](media/monitoring-service-map/scom-config-machine-groups.png)
+    ![Operations Manager 구성 컴퓨터 그룹](media/monitoring-service-map-scom/scom-config-machine-groups.png)
     
 5. **서버 선택** 창에서 Operations Manager 및 서비스 맵 간에 동기화하려는 서버가 있는 서비스 맵 서버 그룹을 구성합니다. **서버 추가/제거**를 클릭합니다.   
     
@@ -75,36 +75,36 @@ Operations Manager와 서비스 맵의 통합은 Microsoft.SystemCenter.ServiceM
     * 서비스 맵에서 관리됨
     * 서비스 맵 서버 그룹에 나열됨
 
-    ![Operations Manager 구성 그룹](media/monitoring-service-map/scom-config-group.png)
+    ![Operations Manager 구성 그룹](media/monitoring-service-map-scom/scom-config-group.png)
 
 6. 선택 사항: Log Analytics와 통신할 관리 서버 리소스 풀을 선택하고 **작업 영역 추가**를 클릭합니다.
 
-    ![Operations Manager 구성 리소스 풀](media/monitoring-service-map/scom-config-pool.png)
+    ![Operations Manager 구성 리소스 풀](media/monitoring-service-map-scom/scom-config-pool.png)
 
     Log Analytics 작업 영역을 구성 및 등록하는 데 1분 정도 걸릴 수 있습니다. 구성된 후에 Operations Manager는 첫 번째 서비스 맵 동기화를 시작합니다.
 
-    ![Operations Manager 구성 리소스 풀](media/monitoring-service-map/scom-config-success.png)
+    ![Operations Manager 구성 리소스 풀](media/monitoring-service-map-scom/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>서비스 맵 모니터링
 Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operations Manager 콘솔의 **모니터링** 창에 표시됩니다.
 
-![Operations Manager 모니터링 창](media/monitoring-service-map/scom-monitoring.png)
+![Operations Manager 모니터링 창](media/monitoring-service-map-scom/scom-monitoring.png)
 
 서비스 맵 폴더에는 4개의 노드가 있습니다.
 * **활성 경고**: Operations Manager와 서비스 맵 간의 통신에 대한 모든 활성 경고를 나열합니다.  이러한 경고는 Operations Manager에 동기화되는 Log Analytics 경고가 아닙니다. 
 
 * **서버**: 서비스 맵에서 동기화하도록 구성된 모니터링 대상 서버를 나열합니다.
 
-    ![Operations Manager 서버 모니터링 창](media/monitoring-service-map/scom-monitoring-servers.png)
+    ![Operations Manager 서버 모니터링 창](media/monitoring-service-map-scom/scom-monitoring-servers.png)
 
 * **컴퓨터 그룹 종속성 보기**: 서비스 맵에서 동기화되는 모든 컴퓨터 그룹을 나열합니다. 원하는 그룹을 클릭하여 해당 그룹의 배포 응용 프로그램 다이어그램을 볼 수 있습니다.
 
-    ![Operations Manager 분산 응용 프로그램 다이어그램](media/monitoring-service-map/scom-group-dad.png)
+    ![Operations Manager 분산 응용 프로그램 다이어그램](media/monitoring-service-map-scom/scom-group-dad.png)
 
 * **서버 종속성 보기**: 서비스 맵에서 동기화되는 모든 서버를 나열합니다. 원하는 서버를 클릭하면 해당 서버의 분산 응용 프로그램 다이어그램을 볼 수 있습니다.
 
-    ![Operations Manager 분산 응용 프로그램 다이어그램](media/monitoring-service-map/scom-dad.png)
+    ![Operations Manager 분산 응용 프로그램 다이어그램](media/monitoring-service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>작업 영역 편집 또는 삭제
 **서비스 맵 개요** 창(**관리** 창 --> Operations Management Suite**Operations Management Suite** > **서비스 맵**)을 통해 구성된 작업 영역을 편집하거나 삭제할 수 있습니다.
@@ -114,12 +114,12 @@ Log Analytics 작업 영역이 연결되면 새 폴더인 Service Map이 Operati
 
 현재는 하나의 Log Analytics 작업 영역만 구성할 수 있습니다.
 
-![Operations Manager 작업 영역 편집 창](media/monitoring-service-map/scom-edit-workspace.png)
+![Operations Manager 작업 영역 편집 창](media/monitoring-service-map-scom/scom-edit-workspace.png)
 
 ## <a name="configure-rules-and-overrides"></a>규칙 및 재정의 구성
 _Microsoft.SystemCenter.ServiceMapImport.Rule_ 규칙은 서비스 맵에서 주기적으로 정보를 가져오기 위해 생성됩니다. 동기화 타이밍을 변경하려면 규칙 재정의를 구성할 수 있습니다(**제작** 창 > **규칙** > **Microsoft.SystemCenter.ServiceMapImport.Rule**).
 
-![Operations Manager 재정의 속성 창](media/monitoring-service-map/scom-overrides.png)
+![Operations Manager 재정의 속성 창](media/monitoring-service-map-scom/scom-overrides.png)
 
 * **Enabled** – 자동 업데이트를 사용하거나 사용하지 않도록 설정합니다. 
 * **IntervalMinutes**: 업데이트 간 시간을 다시 설정합니다. 기본 간격은 1시간입니다. 서버 맵을 더 자주 동기화하려면 값을 변경할 수 있습니다.

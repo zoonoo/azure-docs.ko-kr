@@ -4,9 +4,6 @@ description: 이 문서에서는 사용자의 회사 도메인 이름이 Traffic
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 29822946-2d45-4434-ba47-fc180a445cc3
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: 63a78332742dcefab20401575b1df0e23c06aa78
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 45fe4fd8511cd1d725275a5a04bd4b6e13eb68f7
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035149"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138398"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>회사 인터넷 도메인이 Azure Traffic Manager 도메인을 가리키도록 설정
 
@@ -38,4 +35,4 @@ Traffic Manager 프로필을 만들 때에는 Azure에서 해당 프로필에 DN
 
 * [Traffic Manager 라우팅 방법](traffic-manager-routing-methods.md)
 * [Traffic Manager - 프로필 사용 안 함, 사용 또는 삭제](disable-enable-or-delete-a-profile.md)
-* [Traffic Manager - 끝점 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
+* [Traffic Manager - 엔드포인트 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)

@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134417"
+---
 ### <a name="server-auth"></a>방법: 공급자를 사용하여 인증(서버 흐름)
 Mobile Apps가 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, Azure App Service에서 공급자로부터 제공된 응용 프로그램 ID 및 암호를 구성해야 합니다.
 자세한 내용은 [앱에 인증 추가](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md)자습서를 참조하세요.

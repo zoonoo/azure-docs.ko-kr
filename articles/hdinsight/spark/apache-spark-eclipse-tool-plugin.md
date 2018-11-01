@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: jasonh
-ms.openlocfilehash: 836bdccbf3f8887a47da38b47b414722c878be04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ab3f4dcdc5a5ad8528080c90fa6c17f9493d19ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046015"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420305"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -32,7 +32,7 @@ Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 Scala로 작�
 ## <a name="prerequisites"></a>필수 조건
 
 * HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
-* Eclipse IDE 런타임에 사용되는 Oracle Java Development 키트 버전 8입니다. [Oracle 웹 사이트](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 다운로드할 수 있습니다.
+* Eclipse IDE 런타임에 사용되는 Oracle Java Development 키트 버전 8입니다. [Oracle 웹 사이트](https://aka.ms/azure-jdks)에서 다운로드할 수 있습니다.
 * Eclipse IDE. 이 문서에서는 Eclipse Neon을 사용합니다. [Eclipse 웹 사이트](https://www.eclipse.org/downloads/)에서 설치할 수 있습니다.
 
 

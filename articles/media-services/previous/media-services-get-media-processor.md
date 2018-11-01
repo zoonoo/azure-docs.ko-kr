@@ -4,7 +4,7 @@ description: Azure Media Services용 미디어 콘텐츠를 인코딩하거나 �
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: dbf9496f-c6f0-42a7-aa36-70f89dcb8ea2
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 60da450c11a2e65d96c15798854adfef371a694f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 64e353bbb83c7696960fc1d2e478478afbc94241
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782752"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249240"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>방법: 미디어 프로세서 인스턴스 가져오기
 > [!div class="op_single_selector"]

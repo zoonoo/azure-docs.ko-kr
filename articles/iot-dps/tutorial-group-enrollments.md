@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 7f51ac0e1137bf09c220c892e2c21b154f2f2433
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3c7a1dd9ba688c5cc9776dbfba0841c9a06065dc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522648"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419693"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 장치 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
 
@@ -26,7 +26,7 @@ ms.locfileid: "39522648"
 
 ## <a name="prepare-the-environment"></a>환경 준비 
 
-1. 컴퓨터에 [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 설치되어 있는지 확인합니다.
+1. 컴퓨터에 [Java SE Development Kit 8](https://aka.ms/azure-jdks)이 설치되어 있는지 확인합니다.
 
 1. [Maven](https://maven.apache.org/install.html)을 다운로드하고 설치합니다.
 

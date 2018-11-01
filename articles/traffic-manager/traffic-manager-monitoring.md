@@ -4,9 +4,6 @@ description: 이 문서는 Traffic Manager가 엔드포인트 모니터링 및 �
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 15b609bbf4ab048722f2512371eeffece92b3245
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221097"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138143"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 엔드포인트 모니터링
 
@@ -140,7 +137,7 @@ Traffic Manager는 비정상 엔드포인트를 포함하는 모든 엔드포인
 * **성능**. 최종 사용자에게 가장 가까운 엔드포인트가 반환됩니다. 해당 엔드포인트를 사용할 수 없는 경우 Traffic Manager가 트래픽을 다음으로 가까운 Azure 지역의 엔드포인트로 이동합니다. [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region)을 사용하여 성능 트래픽 라우팅에 대한 대체 장애 조치 계획을 구성할 수 있습니다.
 * **지리적**. 쿼리 요청 IP에 따라 지리적 위치를 제공하도록 매핑된 엔드포인트가 반환됩니다. 해당 엔드포인트를 사용할 수 없는 경우 지리적 위치는 프로필의 한 엔드포인트에만 매핑할 수 있으므로 장애 조치(failover)할 다른 엔드포인트가 선택되지 않습니다(자세한 내용은 [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method) 참조). 모범 사례로, 지리적 라우팅을 사용하는 경우 고객이 둘 이상의 엔드포인트를 프로필 엔드포인트로 지정하여 중첩된 Traffic Manager 프로필을 사용하는 것이 좋습니다.
 * **다중값** IPv4/IPv6 주소에 매핑된 여러 엔드포인트가 반환됩니다. 쿼리가 이 프로필에 대해 수신되면 사용자가 지정한 **응답의 최대 레코드 수** 값을 기반으로 정상 엔드포인트가 반환됩니다. 응답의 기본 수는 두 개의 엔드포인트입니다.
-* **서브넷** IP 주소 범위 집합에 매핑된 엔드포인트가 반환됩니다. 해당 IP 주소에서 요청이 수신되면 해당 IP 주소에 대해 매핑된 엔드포인트가 반환됩니다. 
+* **서브넷** IP 주소 범위 집합에 매핑된 엔드포인트가 반환됩니다. 해당 IP 주소에서 요청이 수신되면 해당 IP 주소에 대해 매핑된 엔드포인트가 반환됩니다. 
 
 자세한 내용은 [Traffic Manager 트래픽 라우팅 방법](traffic-manager-routing-methods.md)을 참조하세요.
 

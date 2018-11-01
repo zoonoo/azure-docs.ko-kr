@@ -4,7 +4,7 @@ description: Azure Webhooks를 사용하여 Media Services 작업 알림을 모�
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 564fc25699c3ae627804d49bfdc40ae9dd559269
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33784492"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238661"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Azure Webhooks를 사용하여 .NET으로 Media Services 작업 알림 모니터링
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. Azure Webhooks 또는 [Azure Queue Storage](media-services-dotnet-check-job-progress-with-queues.md)를 사용하여 Media Services 작업 알림을 모니터링할 수 있습니다 이 문서에서는 웹후크를 사용하는 방법을 보여 줍니다.
@@ -57,10 +57,10 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 [응용 프로그램 설정](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) 섹션은 이 문서에 정의된 웹후크에서 사용되는 매개 변수를 정의합니다. 또한 다음 매개 변수를 앱 설정에 추가합니다. 
 
-|Name|정의|예| 
+|이름|정의|예| 
 |---|---|---|
 |SigningKey |서명 키입니다.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | 웹후크 끝점 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==|
+|WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==|
 
 ## <a name="create-a-function"></a>함수 만들기
 
@@ -123,7 +123,7 @@ project.json 파일은 종속성을 포함합니다.
 
 이 섹션의 코드는 웹후크인 Azure Function의 구현을 보여 줍니다. 이 샘플에서 함수는 Media Services 알림의 Webhook 호출을 수신 대기하고 작업이 완료되면 출력 자산을 게시합니다.
 
-Webhook은 알림 끝점을 구성하는 경우에 전달되는 것과 일치하는 서명 키(자격 증명)이 필요합니다. 서명 키는 Azure Media Services에서 Webhook 콜백을 보호하고 보안하는 데 사용되는 64바이트 Base64 인코딩 값입니다. 
+Webhook은 알림 엔드포인트를 구성하는 경우에 전달되는 것과 일치하는 서명 키(자격 증명)이 필요합니다. 서명 키는 Azure Media Services에서 Webhook 콜백을 보호하고 보안하는 데 사용되는 64바이트 Base64 인코딩 값입니다. 
 
 다음에 나오는 웹후크 정의 코드에서 **VerifyWebHookRequestSignature** 메서드는 알림 메시지에 대한 검증을 수행합니다. 이 유효성 검사는 메시지가 Azure Media Services에서 전송되었는지, 손상되지 않았는지를 확인하기 위해 수행됩니다. TLS(전송 계층 보안)에서 쿼리 매개 변수로 **코드** 값을 보유하는 것처럼 서명도 Azure Functions에 대해 선택적입니다. 
 

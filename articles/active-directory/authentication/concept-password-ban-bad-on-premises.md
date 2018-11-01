@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 286f8e560ec653ed4f4f1cad5a2ae27b940f8d15
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ca412e94f65c7e1ed9a547ec9dcabc62fac7d42f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781783"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741830"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>미리 보기: Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
 
@@ -33,16 +33,6 @@ Azure AD 암호 보호를 구성하는 소프트웨어 구성 요소는 세 가�
 * DC 에이전트 암호 필터 dll은 운영 체제에서 암호 유효성 검사 요청을 수신하고 이를 도메인 컨트롤러에서 로컬로 실행되는 Azure AD 암호 보호 DC 에이전트 서비스로 전달합니다.
 
 ![Azure AD 암호 보호 구성 요소가 함께 작동하는 방법](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
-
-## <a name="requirements"></a>요구 사항
-
-* 도메인 컨트롤러를 포함하여 Azure AD 암호 보호 구성 요소가 설치된 모든 컴퓨터에서는 Windows Server 2012 이상을 반드시 실행해야 합니다.
-* 도메인 컨트롤러를 포함하여 Azure AD 암호 보호 구성 요소가 설치된 모든 머신에는 Universal C 런타임이 설치되어야 합니다. 가급적 Windows Update를 통해 머신에 완벽하게 패치를 적용하여 완수합니다. 그렇지 않은 경우 적절한 OS 특정 업데이트 패키지가 설치될 수 있습니다 - [Windows의 Universal C 런타임 업데이트](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows) 참조
-* 각 도메인의 하나 이상의 도메인 컨트롤러와 Azure AD 암호 보호 프록시 서비스를 호스팅하는 하나 이상의 서버간에 네트워크 연결이 존재해야 합니다.
-* 암호 보호 기능을 활용 하는 모든 Active Directory 도메인 컨트롤러에는 DC 에이전트가 설치되어 있어야 합니다.
-* DC 에이전트 서비스 소프트웨어를 실행하는 모든 Active Directory 도메인은 sysvol 복제에 DFSR을 사용해야 합니다.
-* Azure AD 암호 보호 프록시 서비스를 Azure AD에 등록하기 위한 전역 관리자 계정
-* 포리스트 루트 도메인의 Active Directory 도메인 관리자 권한이 있는 계정
 
 ### <a name="license-requirements"></a>라이선스 요구 사항
 
@@ -70,7 +60,6 @@ Azure AD 암호 보호에 필요한 두 가지 설치 관리자가 있으며, [M
 * 암호 보호 기능이 적용되도록 모든 DC에서 DC 에이전트를 설치하는 것이 좋습니다. 
 * Azure AD 암호 보호는 실시간 정책 응용 프로그램 엔진이 아닙니다. 암호 정책 구성이 변경되는 시간과 이것이 모든 도메인 컨트롤러에 도달하여 강제 적용되는 시간 사이에는 지연이 있을 수 있습니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD 암호 보호 배포](howto-password-ban-bad-on-premises.md)
+[Azure AD 암호 보호 배포](howto-password-ban-bad-on-premises-deploy.md)

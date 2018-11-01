@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c4071da60ed1311d8dd75d6a369c48cf711778cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050749"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243217"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
 이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](https://azure.microsoft.com/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 응용 프로그램의 프로비전 및 배포하는 방법을 보여줍니다. 
@@ -148,7 +148,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-`config/appsettings`를 위한 `properties` 요소에서 `“<name>” : “<value>”` 형식에 두 개의 앱 설정이 있습니다.
+`config/appsettings`를 위한 `properties` 요소에서 `"<name>" : "<value>"` 형식에 두 개의 앱 설정이 있습니다.
 
 * `PROJECT` 은 다중 프로젝트 Visual Studio 솔루션에서 어떤 프로젝트를 사용할지를 Azure 배포를 지시하는 [KUDU 설정](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) 입니다. 소스 제어가 어떻게 구성되는지 나중에 설명하겠지만 ToDoApp 코드가 다중 프로젝트 Visual Studio 솔루션에 존재하므로 이 설정이 필요합니다.
 * `clientUrl` 은 응용 프로그램 코드가 사용할 단순한 앱 설정입니다.
@@ -158,7 +158,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-`config/connectionstrings`를 위한 `properties` 요소에서 각 연결 문자열은 `“<name>” : {“value”: “…”, “type”: “…”}`이라는 특정 형식을 가직 이름: 값 쌍으로 정의됩니다. `type` 요소에 대해 가능한 값은 `MySql`, `SQLServer`, `SQLAzure`, 및 `Custom`입니다.
+`config/connectionstrings`를 위한 `properties` 요소에서 각 연결 문자열은 `"<name>" : {"value": "…", "type": "…"}`이라는 특정 형식을 가직 이름: 값 쌍으로 정의됩니다. `type` 요소에 대해 가능한 값은 `MySql`, `SQLServer`, `SQLAzure`, 및 `Custom`입니다.
 
 > [!TIP]
 > 연결 문자열 형식의 선언적 목록에 대해 Azure PowerShell에서 다음 명령을 실행합니다. \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")

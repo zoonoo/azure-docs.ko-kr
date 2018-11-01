@@ -3,7 +3,7 @@ title: Azure AD Domain Services에서 보안 LDAP(LDAPS) 문제 해결 | Microso
 description: Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 문제 해결
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 445c60da-e115-447b-841d-96739975bdf6
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: maheshu
-ms.openlocfilehash: 9713a06bbf6a61b316e061cb851721a3554cd632
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 3925db10a490be3c6d572f6d107e556595be8237
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503675"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155783"
 ---
 # <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에 대해 보안 LDAP(LDAPS) 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "39503675"
 보안 LDAP를 사용하여 관리되는 도메인에 연결하는 데 문제가 있는 경우
 
 * 보안 LDAP 인증서의 발급자 체인을 클라이언트에서 신뢰할 수 있어야 합니다. 트러스트를 설정하려면 클라이언트의 신뢰할 수 있는 루트 인증서 저장소에 루트 인증 기관을 추가할 수 있습니다.
-* LDAP 클라이언트(예: ldp.exe)가 IP 주소가 아닌 DNS 이름을 사용하여 보안 LDAP 끝점에 연결되는지 확인합니다.
+* LDAP 클라이언트(예: ldp.exe)가 IP 주소가 아닌 DNS 이름을 사용하여 보안 LDAP 엔드포인트에 연결되는지 확인합니다.
 * LDAP 클라이언트가 연결할 DNS 이름을 확인합니다. 관리되는 도메인에서 보안 LDAP에 대한 공용 IP 주소를 확인해야 합니다.
 * 관리되는 도메인의 보안 LDAP 인증서의 주체 또는 주체 대체 이름 특성에 DNS 이름이 있는지 확인합니다.
 * 가상 네트워크에 대한 NSG 설정은 인터넷에서 포트 636에 대해 트래픽을 허용해야 합니다. 인터넷을 통한 보안 LDAP 액세스를 사용하도록 설정한 경우에만 이 단계가 적용됩니다.

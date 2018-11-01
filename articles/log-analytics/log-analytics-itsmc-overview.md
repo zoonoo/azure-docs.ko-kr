@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4f8261983feb8e655333f548b0b90f822eda30a6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407506"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421189"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
-![IT Service Management Connector 기호](./media/log-analytics-itsmc/itsmc-symbol.png)
+![IT Service Management Connector 기호](media/log-analytics-itsmc-overview/itsmc-symbol.png)
 
 ITSMC(IT 서비스 관리 커넥터)를 사용하면 Azure와 지원되는 ITSM(IT 서비스 관리) 제품/서비스를 연결할 수 있습니다.
 
@@ -56,18 +56,18 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 1.  Azure Portal에서 **+ 새로 만들기** 아이콘을 클릭합니다.
 
-    ![Azure 새 리소스](./media/log-analytics-itsmc/azure-add-new-resource.png)
+    ![Azure 새 리소스](media/log-analytics-itsmc-overview/azure-add-new-resource.png)
 
 2.  Marketplace의 **IT 서비스 관리 커넥터**를 검색하고 **만들기**를 클릭합니다.
 
-    ![ITSMC 솔루션 추가](./media/log-analytics-itsmc/add-itsmc-solution.png)
+    ![ITSMC 솔루션 추가](media/log-analytics-itsmc-overview/add-itsmc-solution.png)
 
 3.  **OMS 작업 영역** 섹션에서 솔루션을 설치하려는 Azure Log Analytics 작업 영역을 선택합니다.
    >[!NOTE]
    >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
 4.  **OMS 작업 영역 설정** 섹션에서 솔루션 리소스 만들려는 ResourceGroup을 선택합니다.
 
-    ![ITSMC 작업 영역](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    ![ITSMC 작업 영역](media/log-analytics-itsmc-overview/itsmc-solution-workspace.png)
     >[!NOTE]
     >Azure Monitor에 Microsoft OMS(Operations Management Suite)에서 진행 중인 전환의 일부로, OMS 작업 영역은 이제 Log Analytics 작업 영역이라고 합니다.
 
@@ -93,12 +93,12 @@ ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니�
 
 1.  **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
 2.  왼쪽 창의 **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
-    ![ITSM 연결](./media/log-analytics-itsmc/itsm-connections.png)
+    ![ITSM 연결](media/log-analytics-itsmc-overview/itsm-connections.png)
 
     이 페이지에는 연결 목록이 표시됩니다.
 3.  **연결 추가**를 클릭합니다.
 
-    ![ITSM 연결 추가](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![ITSM 연결 추가](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
 4.  [ITSM 제품/서비스 문서를 사용하여 ITSMC 연결 구성](log-analytics-itsmc-connections.md)에 설명된 대로 연결 설정을 지정합니다.
 
@@ -106,7 +106,7 @@ ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니�
 
     > 기본적으로 ITSMC는 24시간 마다 한 번씩 연결의 구성 데이터를 새로 고칩니다. 적용한 편집 내용 또는 템플릿 업데이트에 대해 연결 데이터를 즉시 새로 고치려면 연결 블레이드에서 **동기화** 단추를 클릭합니다.
 
-    ![연결 새로 고침](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
+    ![연결 새로 고침](media/log-analytics-itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>솔루션 사용
@@ -123,16 +123,16 @@ ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용
 1. Azure Portal에서 **모니터**를 클릭합니다.
 2. 왼쪽 창에서 **작업 그룹**을 클릭합니다. **작업 그룹 추가** 창이 나타납니다.
 
-    ![작업 그룹](media/log-analytics-itsmc/action-groups.png)
+    ![작업 그룹](media/log-analytics-itsmc-overview/action-groups.png)
 
 3. 작업 그룹에 대해 **이름** 및 **짧은 이름**을 제공합니다. 작업 그룹을 만들려는 **리소스 그룹** 및 **구독**을 선택합니다.
 
-    ![작업 그룹 세부 정보](media/log-analytics-itsmc/action-groups-details.png)
+    ![작업 그룹 세부 정보](media/log-analytics-itsmc-overview/action-groups-details.png)
 
 4. 작업 목록의 **작업 유형** 드롭다운 메뉴에서 **ITSM**을 선택합니다. 해당 작업에 대한 **이름**을 제공하고 **세부 정보 편집**을 클릭합니다.
 5. Log Analytics 작업 영역이 있는 **구독**을 선택합니다. 작업 영역 이름 앞에 나오는 **연결** 이름(ITSM Connector 이름)을 선택합니다. 예를 들어 "MyITSMMConnector(MyWorkspace)"와 같습니다.
 
-    ![ITSM 작업 세부 정보](./media/log-analytics-itsmc/itsm-action-details.png)
+    ![ITSM 작업 세부 정보](media/log-analytics-itsmc-overview/itsm-action-details.png)
 
 6. 드롭다운 메뉴에서 **작업 항목** 유형을 선택합니다.
    기존 템플릿을 사용하거나 ITSM 제품에 필요한 필드를 채우도록 선택합니다.
@@ -151,7 +151,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 솔루션의 ITSM 커넥터 대시보드를 사용하여 인시던트 및 변경 요청 데이터를 시각화할 수 있습니다.
 
-![Log Analytics 화면](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
+![Log Analytics 화면](media/log-analytics-itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 대시보드는 커넥터 상태에 대한 정보도 제공하며 연결 ​​상태와 관련된 모든 문제를 분석하는 출발점으로 사용할 수 있습니다.
 
@@ -161,7 +161,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 서비스 맵 솔루션을 사용하는 경우 다음 예와 같이 ITSM 솔루션에서 만들어진 서비스 데스크 항목을 볼 수 있습니다.
 
-![Log Analytics 화면](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
+![Log Analytics 화면](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
 추가 정보: [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bb0bc0aa7ad6bbbad502832ba8e0a96f36de428
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 25b4777be4257933b84d58d0f10cf12571de9590
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268308"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155323"
 ---
 # <a name="administer-your-iot-central-application"></a>IOT Central 응용 프로그램 관리
 
@@ -33,7 +33,7 @@ Microsoft Azure IoT Central 응용 프로그램을 만든 후에는 Azure IoT Ce
 
 **관리** 섹션의 보조 탐색 메뉴에는 다양한 관리 작업의 링크가 있습니다.
 
-**관리** 섹션에 액세스하여 사용하려면 Azure IoT Central 응용 프로그램에서 **관리자** 역할이어야 합니다. Azure IoT Central 응용 프로그램을 만드는 사용자에게는 자동으로 해당 응용 프로그램의 **관리자** 역할이 할당됩니다. 이 문서의 *사용자 관리* 섹션에서는 다른 사용자에게 **관리자** 역할을 할당하는 방법을 설명합니다.
+**관리** 섹션에 액세스하여 사용하려면 Azure IoT Central 응용 프로그램에서 **관리자** 역할이어야 합니다. Azure IoT Central 응용 프로그램을 만드는 사용자에게는 자동으로 해당 응용 프로그램의 **관리자** 역할이 할당됩니다. 이 문서의 [사용자 관리](#manage-users) 섹션에서는 다른 사용자에게 **관리자** 역할을 할당하는 방법을 설명합니다.
 
 ## <a name="change-application-name"></a>응용 프로그램 이름 변경
 

@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 1d1d593b7305e0cd9899f4ec388cb441ced90b10
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134340"
+---
 1. Mac에서 [Azure Portal]을 방문합니다. **모든 서비스** > **App Services** > 방금 만든 백 엔드를 클릭합니다. 모바일 앱 설정에서 기본 언어를 선택합니다.
 
     - Objective-C &ndash; **빠른 시작** > **iOS(Objective-C)**

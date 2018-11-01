@@ -3,7 +3,7 @@ title: Visual Studio에서 Azure Application Insights로 응용 프로그램 디
 description: 디버깅 및 프로덕션 중에 웹앱 성능 분석 및 진단입니다.
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
 ms.service: application-insights
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: mbullwin
-ms.openlocfilehash: 1b00c57ee0890319d70bd7634d301a6472b8416e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: 27fa1edd055d8d4f009db325b0d0c7fb5b6bfa8d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443918"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139994"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Visual Studio에서 Azure Application Insights로 응용 프로그램 디버그
 Visual Studio(2015 이상)에서 [Azure Application Insights](app-insights-overview.md)의 원격 분석을 사용하여 디버깅 및 프로덕션의 성능을 분석하고 ASP.NET 웹앱의 문제를 진단할 수 있습니다.
