@@ -1,14 +1,27 @@
-## <a name="configure-your-application-to-access-azure-storage"></a>Azure 저장소에 액세스하도록 응용 프로그램 구성
-저장소 서비스에 액세스하려면 응용 프로그램을 인증하는 두 가지 방법이 있습니다.
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164578"
+---
+## <a name="configure-your-application-to-access-azure-storage"></a>Azure Storage에 액세스하도록 응용 프로그램 구성
+Storage 서비스에 액세스하려면 응용 프로그램을 인증하는 두 가지 방법이 있습니다.
 
 * 공유 키: 테스트 목적으로만 공유 키 사용
 * 공유 액세스 서명(SAS): 프로덕션 응용 프로그램에 대해 SAS 사용
 
 ### <a name="shared-key"></a>공유 키
-공유 키 인증은 응용 프로그램이 계정 이름과 계정 키를 사용하여 저장소 서비스에 액세스하는 것을 의미합니다. 이 시작 설명서에서는 이 라이브러리를 사용하는 방법을 신속하게 표시하는 용도로 공유 키 인증을 사용합니다.
+공유 키 인증은 응용 프로그램이 계정 이름과 계정 키를 사용하여 Storage 서비스에 액세스하는 것을 의미합니다. 이 시작 설명서에서는 이 라이브러리를 사용하는 방법을 신속하게 표시하는 용도로 공유 키 인증을 사용합니다.
 
 > [!WARNING] 
-> **테스트 목적으로만 공유 키 인증을 사용합니다.** 연결된 저장소 계정에 대한 전체 읽기/쓰기 액세스를 부여하는 계정 이름 및 계정 키가 앱을 다운로드한 모든 사람에게 배포됩니다. 이 방법은 신뢰할 수 없는 클라이언트가 키를 손상시킬 수 있는 위험이 있으므로 좋은 방법은 **아닙니다** .
+> **테스트 목적으로만 공유 키 인증을 사용합니다.** 연결된 Storage 계정에 대한 전체 읽기/쓰기 액세스를 부여하는 계정 이름 및 계정 키가 앱을 다운로드한 모든 사람에게 배포됩니다. 이 방법은 신뢰할 수 없는 클라이언트가 키를 손상시킬 수 있는 위험이 있으므로 좋은 방법은 **아닙니다** .
 > 
 > 
 
@@ -17,7 +30,7 @@
 * **DefaultEndpointsProtocol** - HTTP 또는 HTTPS를 선택할 수 있습니다. 그러나 HTTPS를 사용하는 것이 좋습니다.
 * **계정 이름** - 저장소 계정의 이름입니다.
 * **계정 키** - [Azure Portal](https://portal.azure.com)에서 저장소 계정으로 이동하고 **키** 아이콘을 클릭하여 이 정보를 찾습니다.
-* (선택 사항) **EndpointSuffix** - Azure 중국 또는 Azure 거버넌스와 같이 다른 끝점 접미사가 붙은 지역의 저장소 서비스에 사용됩니다.
+* (선택 사항) **EndpointSuffix** - Azure 중국 또는 Azure 거버넌스와 같이 다른 엔드포인트 접미사가 붙은 지역의 저장소 서비스에 사용됩니다.
 
 공유 키 인증을 사용하는 연결 문자열의 예는 다음과 같습니다.
 
@@ -31,8 +44,8 @@
 
 1. 아직 설치하지 않은 경우 [Microsoft Azure Storage Explorer를 설치](http://storageexplorer.com)
 2. 구독에 연결합니다.
-3. 저장소 계정에 클릭하고 왼쪽 아래에서 "동작" 탭을 클릭합니다. "공유 액세스 서명 가져오기"를 클릭하여 SAS에 대한 "연결 문자열"을 생성합니다.
-4. 다음은 저장소 계정의 blob 서비스에 대한 서비스, 컨테이너 및 개체 수준에서 읽기 및 쓰기 권한을 부여하는 SAS 연결 문자열 예제입니다.
+3. Storage 계정에 클릭하고 왼쪽 아래에서 "동작" 탭을 클릭합니다. "공유 액세스 서명 가져오기"를 클릭하여 SAS에 대한 "연결 문자열"을 생성합니다.
+4. 다음은 Storage 계정의 Blob service에 대한 서비스, 컨테이너 및 개체 수준에서 읽기 및 쓰기 권한을 부여하는 SAS 연결 문자열 예제입니다.
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 

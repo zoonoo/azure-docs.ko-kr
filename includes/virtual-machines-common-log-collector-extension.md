@@ -1,4 +1,16 @@
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 52e1a7bf3e8f8770e4ba4f931c4d7427a7362f2f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227086"
+---
 Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다.
 
 > [!NOTE]
@@ -294,7 +306,7 @@ param (
 
 $publicConfig = New-Object PSObject
 
-if ($Instances -ne $null -and $Instances.Count -gt 0)  #Instances should be seperated by ,
+if ($Instances -ne $null -and $Instances.Count -gt 0)  #Instances should be separated by ,
 {
   $instanceText = $Instances[0]
   for ($i = 1;$i -lt $Instances.Count;$i++)
@@ -437,7 +449,7 @@ if ($AdditionDataLocationList -ne $null )
 #
 $publicConfigJSON = $publicConfig | ConvertTo-Json
 
-Write-Output "PublicConfiguration is: \r\n$publicConfigJSON"
+Write-Output "PublicConfigurtion is: \r\n$publicConfigJSON"
 
 #
 #we just provide a empty privateConfig object

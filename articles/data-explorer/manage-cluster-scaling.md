@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 59a6a94e2906413423a4ae03a7c1c115b2ec0cc0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd3be916587ab884ea5579234a6189af54b53797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046739"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209210"
 ---
 # <a name="manage-cluster-scaling-to-accommodate-changing-demand"></a>변화하는 요구를 수용하기 위해 클러스터 크기 조정 관리
 
@@ -63,4 +63,4 @@ ms.locfileid: "47046739"
 
 이제 Azure 데이터 탐색기 클러스터에 규모 확장 작업을 구성했습니다. 규모 감축 작업에 대한 다른 규칙을 추가합니다. 이렇게 하면 사용자가 지정한 사용률 메트릭에 따라 클러스의 규모가 동적으로 조정됩니다.
 
-클러스터 규모 조정 문제와 관련하여 지원이 필요한 경우에는 [Azure Portal](https://portal.azure.com)에서 지원 요청을 개설하세요.
+클러스터 규모 조정 문제와 관련하여 지원이 필요한 경우에는 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 지원 요청을 개설하세요.

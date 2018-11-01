@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40167013"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035330"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>포털에서 유지 관리를 위해 예약된 VM 보기
 
@@ -49,12 +49,12 @@ Azure Portal을 사용하여 유지 관리하도록 예약된 VM을 찾아볼 �
 
 ## <a name="notification-and-alerts-in-the-portal"></a>포털에서 알림 및 경고
 
-Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. Azure 활동 로그 경고를 만들어 이 통신에 받는 사람 및 채널을 더 추가할 수 있습니다. 자세한 내용은 [Azure 활동 로그로 구독 활동 모니터링] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)을 참조하세요.
+Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. Azure 활동 로그 경고를 만들어 이 통신에 받는 사람 및 채널을 더 추가할 수 있습니다. 자세한 내용은 [Azure 활동 로그로 구독 활동 모니터링](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **모니터**를 선택합니다. 
 3. **모니터 - 경고(클래식)** 창에서 **+ 활동 로그 경고 추가**를 클릭합니다.
-5. **활동 로그 경고 추가** 페이지의 정보를 완성하고 **조건**에서 다음을 설정합니다.
+5. **활동 로그 경고 추가** 페이지에 정보를 입력하고 **조건**에서 다음을 설정합니다.
    - **이벤트 범주**: 서비스 상태
    - **서비스**: Virtual Machine Scale Sets 및 Virtual Machines
    - **종류**: 계획된 유지 관리 

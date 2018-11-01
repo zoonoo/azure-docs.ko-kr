@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1d0240b8635230c0fc6a7e577914ccaace36407b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1e0c8069d5eff4ba6d26afb9f2edcd1507c9b8aa
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457255"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156394"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
 
@@ -475,7 +475,7 @@ AzureDemoVM  Protected       Normal
 가상 머신에 대한 복제가 보호된 상태가 되면 테스트 장애 조치(failover) 작업을 가상 머신에서(가상 머신의 복제 보호된 항목에서) 수행할 수 있습니다
 
 ```azurepowershell
-#Create a seperate network for test failover (not connected to my DR network)
+#Create a separate network for test failover (not connected to my DR network)
 $TFOVnet = New-AzureRmVirtualNetwork -Name "a2aTFOvnet" -ResourceGroupName "a2ademorecoveryrg" -Location 'West US 2' -AddressPrefix "10.3.0.0/16"
 
 Add-AzureRmVirtualNetworkSubnetConfig -Name "default" -VirtualNetwork $TFOVnet -AddressPrefix "10.3.0.0/20" | Set-AzureRmVirtualNetwork

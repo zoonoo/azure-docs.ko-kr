@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 516552111cc21cacf87fd8179ef49b939e2820d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9f6e5dab5059086efc1e00c78b85296ff2b7a48c
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985081"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139154"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 
@@ -77,7 +77,7 @@ VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니�
 VM으로 SSH 세션을 만들려면 다음 명령을 사용합니다. 해당 IP 주소를 VM의 `publicIpAddress` 값으로 바꿉니다.
 
 ```bash 
-ssh <publicIpAddress>
+ssh azureuser@<publicIpAddress>
 ```
 
 ## <a name="create-the-database"></a>데이터베이스 만들기

@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 31ef8577a2304091fc4df1b394555c4b30fcf96e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165622"
+---
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
 `Connect-AzureRmAccount` 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.

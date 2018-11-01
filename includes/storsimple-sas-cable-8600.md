@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 792589f4aa2a80c05378224ffe4e4d1dad2f935c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166374"
+---
 <!--author=alkohli last changed:02/22/16-->
 
 #### <a name="to-attach-the-sas-cables"></a>SAS 케이블을 연결하려면
@@ -33,7 +46,7 @@
       | 레이블 | 설명 |
       |:--- |:--- |
       | 문자열(UTF-8 형식) 또는 |기본 인클로저 |
-      | B |EBOD 인클로저 |
+      | b |EBOD 인클로저 |
       | 1 |컨트롤러 0 |
       | 2 |컨트롤러 1 |
       | 3 |EBOD 컨트롤러 0 |

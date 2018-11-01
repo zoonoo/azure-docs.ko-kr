@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: fbdb52b1b2dee682021fd822d584551f41f723ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778514"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251025"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
 ## <a name="general"></a>일반
@@ -114,7 +114,7 @@ PNS는 알림 배달에 대한 SLA를 보장하지 않습니다. 그러나 대�
 #### <a name="mobile-appenvironment"></a>모바일 앱/환경
 * 환경당 모바일 앱마다 알림 허브를 하나씩 사용합니다.
 * 다중 테넌트 시나리오에서는 각 테넌트에 별도의 허브가 있어야 합니다.
-* 프로덕션 및 테스트 환경에 대해 동일한 알림 허브를 공유하지 마세요. 이 경우 알림을 보낼 때 문제를 일으킬 수 있습니다. (Apple에서는 각기 별도의 자격 증명을 사용하는 샌드박스 및 프로덕션 푸시 끝점을 제공합니다.)
+* 프로덕션 및 테스트 환경에 대해 동일한 알림 허브를 공유하지 마세요. 이 경우 알림을 보낼 때 문제를 일으킬 수 있습니다. (Apple에서는 각기 별도의 자격 증명을 사용하는 샌드박스 및 프로덕션 푸시 엔드포인트를 제공합니다.)
 * 기본적으로 Azure Portal 또는 Visual Studio의 Azure 통합 구성 요소를 통해 등록된 장치에 테스트 알림을 보낼 수 있습니다. 임계값은 등록 풀에서 임의로 선택된 10개의 장치에 설정됩니다.
 
 > [!NOTE]
@@ -213,7 +213,7 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Notification Hubs 보안 모델]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Notification Hubs 보안 푸시 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Notification Hubs 문제 해결]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Notification Hubs 메트릭]: https://msdn.microsoft.com/library/dn458822.aspx
+[Notification Hubs 메트릭]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Notification Hubs 메트릭 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com

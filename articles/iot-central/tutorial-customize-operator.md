@@ -3,17 +3,17 @@ title: Azure IoT Central에서 연산자의 뷰 사용자 지정 | Microsoft Doc
 description: 작성기로서 Azure IoT Central 응용 프로그램에서 연산자의 뷰를 사용자 지정합니다.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 070a6ee4bc712b2dbec598cdb9be5c324895c033
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309463"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154984"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>자습서: Azure IoT Central 연산자의 뷰 사용자 지정
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/17/2018
-ms.openlocfilehash: 0c1b45d7db53bd2eb7c9f058eb1c44c762886b80
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f50e61f4acbdc33cee1786f68cf44252a8f29741
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049837"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417415"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>자습서: Apache Kafka Streams API
 
@@ -46,7 +46,7 @@ Kafka Streams API를 사용하는 응용 프로그램을 만들고 HDInsight의 
 
 개발 환경에 다음 구성 요소가 설치되어 있어야 합니다.
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 또는 이와 동등한 프로그램(예: OpenJDK)
+* [Java JDK 8](https://aka.ms/azure-jdks) 또는 이와 동등한 프로그램(예: OpenJDK)
 
 * [Apache Maven](http://maven.apache.org/)
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 1aeaff486ed9f7cb99ea0b95451fc765344847a1
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025640"
+ms.locfileid: "50086678"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -37,7 +37,7 @@ Azure Migrate의 기능:
 -  미국 지리에서는 Azure Migrate 프로젝트만 만들 수 있습니다. 그러나 대상 Azure 위치에 대한 마이그레이션을 계획할 수 있습니다.
     - 온-프레미스 환경에서 발견된 메타데이터만 마이그레이션 프로젝트 지역에 저장됩니다.
     - 메타데이터는 선택한 지역(미국 서중부/미국 동부)의 지역 중 하나에 저장됩니다.
-    - 종속성 시각화를 Log Analytics 작업 영역에 사용할 경우 프로젝트와 같은 지역에 생성됩니다. 
+    - 종속성 시각화를 Log Analytics 작업 영역에 사용할 경우 프로젝트와 같은 지역에 생성됩니다.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>어떤 요금이 발생하나요?

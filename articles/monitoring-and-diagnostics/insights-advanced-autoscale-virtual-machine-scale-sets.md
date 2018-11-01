@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 78e3bec0d00336ce7cedc1434bf6ad7c65435969
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978185"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420560"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Resource Manager 템플릿을 사용하여 VM Scale Sets에 대한 고급 자동 크기 조정 구성
 되풀이 일정 또는 특정 날짜에 성능 메트릭 임계값을 기반으로 Virtual Machine Scale Sets의 규모를 확장 및 감축할 수 있습니다. 또한 크기 조정 동작에 대한 전자 메일 및 웹후크 알림을 구성할 수 있습니다. 이 연습에서는 VM 확장 집합에서 Resource Manager 템플릿을 사용하여 이 모든 개체를 구성하는 예를 보여 줍니다.
@@ -29,7 +29,7 @@ ms.locfileid: "46978185"
 1. 기본 자동 크기 조정 설정으로 새 규모 집합을 배포합니다. 이 문서에서는 기본 자동 크기 조정 템플릿과 함께 Azure 빠른 시작 갤러리에 있는 Windows 규모 집합을 사용합니다. Linux 규모 집합도 동일한 방식으로 작동합니다.
 2. 규모 집합을 만든 후 Azure 리소스 탐색기에서 규모 집합 리소스로 이동합니다. Microsoft.Insights 노드 아래에 다음이 표시됩니다.
 
-    ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Azure Explorer](media/insights-advanced-autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
     템플릿 실행을 통해 **'autoscalewad'** 라는 기본 자동 크기 조정 설정이 생성되었습니다. 오른쪽에서 이 자동 크기 조정 설정의 전체 정의를 볼 수 있습니다. 이 예에서 기본 자동 크기 조정 설정은 CPU% 기반의 규모 확장 및 규모 축소 규칙과 함께 제공됩니다.  
 
@@ -58,11 +58,11 @@ ms.locfileid: "46978185"
 
 5. 리소스 탐색기에서 **읽기/쓰기** 모드에 있는지 확인합니다.
 
-    ![Autoscalewad, 기본 자동 크기 조정 설정](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+    ![Autoscalewad, 기본 자동 크기 조정 설정](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. 편집을 클릭합니다. 자동 크기 조정 설정의 '프로필' 요소를 다음 구성으로 **대체**합니다.
 
-    ![프로필](./media/insights-advanced-autoscale-vmss/profiles.png)
+    ![프로필](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

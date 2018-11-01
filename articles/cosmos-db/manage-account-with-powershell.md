@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: sngun
-ms.openlocfilehash: 82ab30ebab1b69d5ae636702b3b56d3792c09010
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b115058353d14a3bd7c774197e06de088030ffff
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394576"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741354"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB 계정 만들기
 
-이 문서에서는 Azure Powershell을 사용하여 Azure Cosmos DB 데이터베이스 계정 관리를 자동화하는 명령에 대해 설명합니다. [여러 지역 데이터베이스 계정][distribute-data-globally.md]에서 계정 키 및 장애 조치 우선 순위를 관리하는 명령도 포함되어 있습니다. 데이터베이스 계정을 업데이트하면 일관성 정책을 수정하고 하위 지역을 추가/제거할 수 있습니다. Azure Cosmos DB 계정의 플랫폼 간 관리를 위해 [Azure CLI](cli-samples.md), [리소스 공급자 REST API][rp-rest-api] 또는 [Azure Portal](create-sql-api-dotnet.md#create-account)을 사용할 수 있습니다.
+이 문서에서는 Azure Powershell을 사용하여 Azure Cosmos DB 데이터베이스 계정 관리를 자동화하는 명령에 대해 설명합니다. [다중 하위 지역 데이터베이스 계정][distribute-data-globally]에서 계정 키 및 장애 조치 우선 순위를 관리하는 명령도 포함되어 있습니다. 데이터베이스 계정을 업데이트하면 일관성 정책을 수정하고 하위 지역을 추가/제거할 수 있습니다. Azure Cosmos DB 계정의 플랫폼 간 관리를 위해 [Azure CLI](cli-samples.md), [리소스 공급자 REST API][rp-rest-api] 또는 [Azure Portal](create-sql-api-dotnet.md#create-account)을 사용할 수 있습니다.
 
 ## <a name="getting-started"></a>시작하기
 
@@ -33,7 +33,7 @@ ms.locfileid: "47394576"
 
 ## <a id="create-documentdb-account-powershell"></a> Azure Cosmos DB 계정 만들기
 
-이 명령을 사용하면 Azure Cosmos DB 데이터베이스 계정을 만들 수 있습니다. 특정 [일관성 정책](consistency-levels.md)을 사용하여 단일 지역 또는 [여러 지역][distribute-data-globally.md]으로 새 데이터베이스 계정을 구성합니다.
+이 명령을 사용하면 Azure Cosmos DB 데이터베이스 계정을 만들 수 있습니다. 새 데이터베이스 계정을 특정 [일관성 정책](consistency-levels.md)을 사용하여 단일 하위 지역 또는 [다중 하위 지역][distribute-data-globally]으로 구성합니다.
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $iprangefilter = "<ip-range-filter>"
@@ -60,7 +60,7 @@ ms.locfileid: "47394576"
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ### <a name="notes"></a>메모
-* 앞의 예제에서는 두 개의 하위 지역이 있는 데이터베이스 계정을 만듭니다. 하나의 하위 지역(쓰기 하위 지역으로 지정되고 장애 조치 우선 순위 값이 0임) 또는 세 개 이상의 하위 지역이 있는 데이터베이스 계정도 만들 수 있습니다. 자세한 내용은 [여러 지역 데이터베이스 계정][distribute-data-globally.md]을 참조하세요.
+* 앞의 예제에서는 두 개의 하위 지역이 있는 데이터베이스 계정을 만듭니다. 하나의 하위 지역(쓰기 하위 지역으로 지정되고 장애 조치 우선 순위 값이 0임) 또는 세 개 이상의 하위 지역이 있는 데이터베이스 계정도 만들 수 있습니다. 자세한 내용은 [다중 하위 지역 데이터베이스 계정][distribute-data-globally]을 참조하세요.
 * 위치는 Azure Cosmos DB를 일반적으로 사용할 수 있는 하위 지역이어야 합니다. 현재 하위 지역 목록은 [Azure 지역 페이지](https://azure.microsoft.com/regions/#services)에 제공됩니다.
 
 ## <a id="update-documentdb-account-powershell"></a> Azure Cosmos DB 데이터베이스 계정 업데이트
@@ -195,6 +195,7 @@ MongoDB 계정의 경우 MongoDB 앱을 데이터베이스 계정에 연결하�
 * Node.js를 사용하여 연결하려면 [Node.js 및 MongoDB 앱을 사용하여 연결 및 쿼리](create-mongodb-nodejs.md)를 참조하세요.
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
+
 [powershell-install-configure]: https://docs.microsoft.com/azure/powershell-install-configure
 [scaling-globally]: distribute-data-globally.md#EnableGlobalDistribution
 [distribute-data-globally]: distribute-data-globally.md

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4461b98c56bcf99fc11aa9d89e6c6dc5961c86ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405517"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419523"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure에서 서비스 맵 구성
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -146,7 +146,7 @@ Linux에서는 Linux용 Log Analytics 에이전트가 모니터링 데이터를 
 
 서비스 맵 에이전트는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 서비스 맵의 데이터는 항상 Log Analytics 에이전트에 의해 직접 또는 Log Analytics 게이트웨이를 통해 Log Analytics로 전송됩니다.
 
-![서비스 맵 에이전트](media/monitoring-service-map/agents.png)
+![서비스 맵 에이전트](media/monitoring-service-map-configure/agents.png)
 
 Log Analytics에 연결된 관리 그룹을 사용하는 System Center Operations Manager 고객인 경우:
 
@@ -172,7 +172,7 @@ Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 �
 
 ## <a name="installation"></a>설치
 
-## <a name="azure-vm-extension"></a>Azure VM 확장
+### <a name="azure-vm-extension"></a>Azure VM 확장
 Windows(DependencyAgentWindows)와 Linux(DependencyAgentLinux) 모두에 사용할 수 있는 확장이 있으며, [Azure VM 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features)을 사용하여 Azure VM에 Dependency Agent를 쉽게 배포할 수 있습니다.  Azure VM 확장을 사용하면 PowerShell 스크립트를 사용하거나 VM의 Azure Resource Manager 템플릿을 사용하여 직접 Dependency Agent를 Windows 및 Linux VM에 배포할 수 있습니다.  Azure VM 확장을 통해 에이전트를 배포하는 경우 에이전트가 자동으로 최신 버전으로 업데이트됩니다.
 
 PowerShell을 통해 Azure VM 확장을 배포하려면 다음 예제를 사용할 수 있습니다.

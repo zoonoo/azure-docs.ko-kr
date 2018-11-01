@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: dc5570b188bfdc0e1be78aa2bd5c5d92e884f377
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 414a52141aac05aac51bbb4fedf6ab67d98f2637
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638021"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092273"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>API에 연결 및 인증
 
@@ -54,7 +54,7 @@ Digital Twins API를 사용하여 가동하고 실행하기 위해 API 환경으
     |---------|---------|
     | 권한 부여 유형 | 암시적 |
     | 콜백 URL | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | 인증 URL | [https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0](https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0)
+    | 인증 URL | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
     | 클라이언트 ID | 1단계에서 생성되거나 다른 용도로 사용된 Azure AD 앱에 대해 응용 프로그램 ID를 사용합니다. |
     | 범위 | 비워 둡니다. |
     | 시스템 상태 | 비워 둡니다. |

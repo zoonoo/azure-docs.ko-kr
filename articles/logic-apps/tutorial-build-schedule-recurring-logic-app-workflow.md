@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042294"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231817"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Azure Logic Apps로 일정에 따른 트래픽 확인
 
@@ -331,7 +331,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: cfcb53b6e95250a1ccbebfdfcfbff5ec8479504b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 663363d05c1875d22a0ecc0478abcf7e0ec89c99
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886956"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230372"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Project Online 프로젝트, 작업 및 리소스 관리
 
@@ -62,12 +62,12 @@ Project Online을 사용하면 강력한 프로젝트 관리 기능을 제공하
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/projectonline/)를 참조하세요.
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/projectonline/)를 검토하세요.
 
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

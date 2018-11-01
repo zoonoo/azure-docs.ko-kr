@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/02/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1aa1c3a3c0dd4985662b5ceb4acd7250cf2d0186
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8b2605bb30d7a1442c471c8cf1483b106ca27581
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093229"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086763"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -270,8 +270,9 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
 
     ```cs
     using System;
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(TimerInfo myTimer, out String myQueue, TraceWriter log)
+    public static void Run(TimerInfo myTimer, out String myQueue, ILogger log)
     {
         String newUser =
         "{\"name\":\"User testing from C# timer function\",\"address\":\"XYZ\"}";
@@ -379,7 +380,7 @@ req.end(bodyString);
 콘솔 앱에서 이 코드를 테스트하려면 다음을 수행해야 합니다.
 
 * [app.config 파일에서 저장소 연결 문자열을 구성합니다](../storage/queues/storage-dotnet-how-to-use-queues.md).
-* 앱에 대한 매개 변수로 `name` 및 `address`를 전달합니다. 예: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"` 이 코드는 런타임 동안 새 사용자에 대한 이름 및 주소를 명령줄 인수로 허용합니다.
+* 앱에 대한 매개 변수로 `name` 및 `address`를 전달합니다. 예: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. 이 코드는 런타임 동안 새 사용자에 대한 이름 및 주소를 명령줄 인수로 허용합니다.
 
 C# 코드 예제:
 

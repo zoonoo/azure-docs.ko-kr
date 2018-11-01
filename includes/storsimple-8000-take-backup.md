@@ -1,12 +1,25 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 5ec3bff505d2c887269b20c5fa4d0363a3040c1a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164260"
+---
 <!--author=alkohli last changed: 01/12/17-->
 
 ### <a name="to-take-a-backup"></a>백업을 수행하려면
 
-1. StorSimple 장치 관리자 서비스로 이동합니다. 테이블 형식 장치 목록에서 장치를 선택하고 클릭한 후 **모든 설정**을 클릭합니다. **설정** 블레이드에서 **설정 > 관리 > 백업 정책**으로 이동합니다.
+1. StorSimple 장치 관리자 서비스로 이동합니다. 테이블 형식 장치 목록에서 장치를 선택하고 클릭한 후 **모든 설정**을 클릭합니다. **설정** 블레이드에서 **설정 > 관리 > Backup 정책**으로 이동합니다.
 
     ![Add-backup-policy](./media/storsimple-8000-take-backup/step8takebu1.png)
 
-2. **백업 정책** 블레이드에서 **+ 정책 추가**를 클릭합니다.
+2. **Backup 정책** 블레이드에서 **+ 정책 추가**를 클릭합니다.
 
     ![Add-backup-policy](./media/storsimple-8000-take-backup/step8takebu2.png)
 

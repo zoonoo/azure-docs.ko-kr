@@ -3,7 +3,7 @@ title: Elastic Database 작업 시작 | Microsoft Docs
 description: 여러 데이터베이스에 걸친 T-SQL 스크립트를 실행하려면 탄력적 데이터베이스 작업을 사용합니다.
 services: sql-database
 ms.service: sql-database
-subservice: sacoperations
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: e760aee960cf9d84cd5076c993b1a9583b045860
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159281"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241364"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Elastic Database 작업 시작
 

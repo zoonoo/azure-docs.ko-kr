@@ -10,12 +10,12 @@ ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
 ms.date: 10/05/2018
-ms.openlocfilehash: cb355d713ceadbd5cf205a378930bdd84685a913
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862727"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229620"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>빠른 시작: 자동화된 논리 앱 워크플로 만들기 및 관리 - Visual Studio Code
 
@@ -223,5 +223,5 @@ Azure에 이미 배포된 기존 논리 앱에서 작업하려면 Visual Studio 
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps 포럼</a>을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 <a href="http://aka.ms/logicapps-wish" target="_blank">Logic Apps 사용자 의견 사이트</a>를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps 사용자 의견 사이트</a>를 방문하세요.
 

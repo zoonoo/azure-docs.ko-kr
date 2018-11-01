@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 367829c269bd1d96e6aa5fab1be008483a4ab5ab
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: dc9c11e2c0d5642e31eace2a4dcb6065d990e25d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115503"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413658"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code용 Service Fabric
 
@@ -35,7 +35,7 @@ ms.locfileid: "37115503"
 다음 필수 구성 요소를 모든 환경에 설치해야 합니다.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Node.js](https://nodejs.org/)
+* [Node.JS](https://nodejs.org/)
 * [Git](https://git-scm.com/)
 * [Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
 * Yeoman 생성기 -- 응용 프로그램에 적절한 생성기 설치
@@ -50,7 +50,7 @@ ms.locfileid: "37115503"
 
 Java 개발을 위해서는 다음 필수 구성 요소를 설치해야 합니다.
 
-* [Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)(버전 1.8)
+* [Java SDK](https://aka.ms/azure-jdks)(버전 1.8)
 * [Gradle](https://gradle.org/install/)
 * [Java VS Code 확장용 디버거](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Java 서비스를 디버그하는 데 필요합니다. Java 서비스 디버깅은 Linux에서만 지원됩니다. VS Code의 **작업 막대**에서 확장 아이콘을 클릭하고 해당 확장을 검색하거나 VS Code Marketplace에서 설치할 수 있습니다.
 

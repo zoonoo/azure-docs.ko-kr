@@ -4,7 +4,7 @@ description: 이 기사는 Media Services 콘텐츠 보호에 대한 개요를 �
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2018
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 63cf7633a2280682b3a3da7e8939e71e83ee8f3b
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 89e28a9b70d078c3fe385225af305252ececefce
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342114"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249932"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요
  Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Microsoft Azure Media Services를 사용하면 Advanced Encryption Standard (AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 

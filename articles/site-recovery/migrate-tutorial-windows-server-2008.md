@@ -1,24 +1,20 @@
 ---
 title: Azure Site Recovery를 사용하여 온-프레미스 Windows Server 2008 서버에서 Azure로 마이그레이션 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 Windows Server 2008 머신을 Azure로 마이그레이션하는 방법을 설명합니다.
-services: site-recovery
-documentationcenter: ''
 author: bsiva
 manager: abhemraj
-editor: raynew
-ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 09/22/2018
 ms.author: bsiva
-ms.openlocfilehash: d15a5b62a148e971c0740f01744fce308e502340
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.custom: MVC
+ms.openlocfilehash: 68a1367eec5392036797612e631a438b076b2cfc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056039"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210468"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008을 실행하는 서버에서 Azure로 마이그레이션
 

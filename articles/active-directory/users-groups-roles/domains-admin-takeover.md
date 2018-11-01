@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 210526e105793820a2e8a80a11b356b1d7d764da
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143104"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250736"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 이 문서에서는 Azure Active Directory (Azure AD)에서 관리 되지 않는 디렉터리의 DNS 도메인 이름을 인수할 두 가지 방법을 설명합니다. 셀프 서비스 사용자가 Microsoft AD를 사용하는 클라우드 서비스에 등록할 때, 전자 메일 도메인에 기반하여 관리되지 않는 Microsoft Azure AD 디렉토리에 추가됩니다. 셀프 서비스 또는 서비스에 대한 "바이럴" 등록에 대한 자세한 내용은 [Microsoft Azure Active Directory의 셀프 서비스 등록이란?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)을 참조하세요.
@@ -128,7 +128,7 @@ Cmdlet | 사용 현황
 
 1. 셀프 서비스 제공 사항에 응답하는 데 사용된 자격 증명을 사용하여 Azure AD에 연결합니다.
   ````
-    import-module MSOnline
+    Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred

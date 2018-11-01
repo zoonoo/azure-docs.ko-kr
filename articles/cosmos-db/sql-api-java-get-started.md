@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 99accb8a822aedc387bbe137e8e80e298fe7cd1d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0cf42245981afb44415b9709be9d45c44255f295
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991184"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417517"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 자습서: SQL API Java 콘솔 응용 프로그램 빌드
 
@@ -25,7 +25,7 @@ ms.locfileid: "46991184"
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [비동기 Java](sql-api-async-java-get-started.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.JS](sql-api-nodejs-get-started.md)
 > 
 
 Azure Cosmos DB Java SDK용 SQL API에 대한 NoSQL 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
@@ -54,7 +54,7 @@ Azure Cosmos DB Java SDK용 SQL API에 대한 NoSQL 자습서를 시작합니다
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Git](https://git-scm.com/downloads)
-* [JDK(Java Development Kit) 7 이상](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)
 * [Maven](http://maven.apache.org/download.cgi)
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1단계: Azure Cosmos DB 계정 만들기

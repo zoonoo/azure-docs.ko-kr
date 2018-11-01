@@ -2,18 +2,18 @@
 title: Azure Storage에 대한 연결 문자열 구성 | Microsoft Docs
 description: Azure Storage 계정에 대한연결 문자열을 구성합니다. 연결 문자열에는 런타임 시 응용 프로그램에서 저장소 계정에 액세스 권한을 부여하는 데 필요한 정보가 포함되어 있습니다.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1c6ba727bf9c19b5da0d0d0313377d5d4ad1e2ac
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 75f8e5605b84b21abf92cd77a71793dbceb4a62b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530467"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139045"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage 연결 문자열 구성
 
@@ -59,8 +59,8 @@ Azure Storage는 연결 문자열에서 HTTP 및 HTTPS를 모두 지원하지만
 ## <a name="create-a-connection-string-using-a-shared-access-signature"></a>공유 액세스 서명을 사용하여 연결 문자열 만들기
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
-## <a name="create-a-connection-string-for-an-explicit-storage-endpoint"></a>명시적 저장소 끝점에 대한 연결 문자열 만들기
-기본 끝점을 사용하는 대신 연결 문자열에서 명시적 서비스 끝점을 지정할 수 있습니다. 명시적 Blob 끝점을 지정하는 연결 문자열을 만들려면 다음 형식으로 프로토콜 사양(HTTPS(권장) 또는 HTTP)을 포함하는 전체 서비스 끝점을 각 서비스에 대해 지정합니다.
+## <a name="create-a-connection-string-for-an-explicit-storage-endpoint"></a>명시적 저장소 엔드포인트에 대한 연결 문자열 만들기
+기본 엔드포인트를 사용하는 대신 연결 문자열에서 명시적 서비스 엔드포인트를 지정할 수 있습니다. 명시적 Blob 엔드포인트를 지정하는 연결 문자열을 만들려면 다음 형식으로 프로토콜 사양(HTTPS(권장) 또는 HTTP)을 포함하는 전체 서비스 엔드포인트를 각 서비스에 대해 지정합니다.
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -72,9 +72,9 @@ AccountName=myAccountName;
 AccountKey=myAccountKey
 ```
 
-명시적 끝점을 지정하고자 할 수 있는 하나의 시나리오로서 Blob Storage 끝점을 [사용자 지정 도메인](../blobs/storage-custom-domain-name.md)에 매핑한 경우가 있습니다. 이 경우 연결 문자열에 있는 Blob Storage에 대해 사용자 지정 끝점을 지정할 수 있습니다. 응용 프로그램에서 다른 서비스에 대한 기본 끝점을 사용하는 경우 선택적으로 지정할 수 있습니다.
+명시적 엔드포인트를 지정하고자 할 수 있는 하나의 시나리오로서 Blob Storage 엔드포인트를 [사용자 지정 도메인](../blobs/storage-custom-domain-name.md)에 매핑한 경우가 있습니다. 이 경우 연결 문자열에 있는 Blob Storage에 대해 사용자 지정 엔드포인트를 지정할 수 있습니다. 응용 프로그램에서 다른 서비스에 대한 기본 엔드포인트를 사용하는 경우 선택적으로 지정할 수 있습니다.
 
-다음은 Blob service에 대한 명시적 끝점을 지정하는 연결 문자열의 예제입니다.
+다음은 Blob service에 대한 명시적 엔드포인트를 지정하는 연결 문자열의 예제입니다.
 
 ```
 # Blob endpoint only
@@ -84,7 +84,7 @@ AccountName=storagesample;
 AccountKey=<account-key>
 ```
 
-이 예제에서는 Blob service에 대한 사용자 지정 도메인을 비롯하여 모든 서비스에 대해 명시적 끝점을 지정합니다.
+이 예제에서는 Blob service에 대한 사용자 지정 도메인을 비롯하여 모든 서비스에 대해 명시적 엔드포인트를 지정합니다.
 
 ```
 # All service endpoints
@@ -97,16 +97,16 @@ AccountName=storagesample;
 AccountKey=<account-key>
 ```
 
-연결 문자열에 있는 끝점 값은 저장소 서비스의 요청 URI를 생성하는 데 사용되며 코드로 반환되는 URI의 형식을 지정합니다.
+연결 문자열에 있는 엔드포인트 값은 저장소 서비스의 요청 URI를 생성하는 데 사용되며 코드로 반환되는 URI의 형식을 지정합니다.
 
-저장소 끝점을 사용자 지정 도메인에 매핑하고 연결 문자열에서 끝점을 생략하면 해당 연결 문자열을 사용할 수 없어서 코드로부터 해당 서비스의 데이터에 액세스할 수 없습니다.
+저장소 엔드포인트를 사용자 지정 도메인에 매핑하고 연결 문자열에서 엔드포인트를 생략하면 해당 연결 문자열을 사용할 수 없어서 코드로부터 해당 서비스의 데이터에 액세스할 수 없습니다.
 
 > [!IMPORTANT]
-> 연결 문자열의 서비스 끝점 값은 `https://`(권장) 또는 `http://`를 포함하는 올바른 형식의 URI여야 합니다. Azure Storage는 사용자 지정 도메인에 대해 HTTPS를 아직 지원하지 않으므로 사용자 지정 도메인을 가리키는 끝점 URI에 대해 `http://`를 *지정해야* 합니다.
+> 연결 문자열의 서비스 엔드포인트 값은 `https://`(권장) 또는 `http://`를 포함하는 올바른 형식의 URI여야 합니다. Azure Storage는 사용자 지정 도메인에 대해 HTTPS를 아직 지원하지 않으므로 사용자 지정 도메인을 가리키는 엔드포인트 URI에 대해 `http://`를 *지정해야* 합니다.
 >
 
-### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>끝점 접미사를 사용하여 연결 문자열 만들기
-Azure 중국 또는 Azure Government와 같이 다른 끝점 접미사를 사용하여 지역이나 인스턴스에 저장소 서비스에 대한 연결 문자열을 만들려면 다음 연결 문자열 형식을 사용합니다. HTTPS(권장) 또는 HTTP를 통해 저장소 계정에 연결할지 여부를 표시하며, `myAccountName`을 저장소 계정의 이름으로 바꾸고, `myAccountKey`를 계정 액세스 키로 바꾸고, `mySuffix`을 URI 접미사로 바꿉니다.
+### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>엔드포인트 접미사를 사용하여 연결 문자열 만들기
+Azure 중국 또는 Azure Government와 같이 다른 엔드포인트 접미사를 사용하여 지역이나 인스턴스에 저장소 서비스에 대한 연결 문자열을 만들려면 다음 연결 문자열 형식을 사용합니다. HTTPS(권장) 또는 HTTP를 통해 저장소 계정에 연결할지 여부를 표시하며, `myAccountName`을 저장소 계정의 이름으로 바꾸고, `myAccountKey`를 계정 액세스 키로 바꾸고, `mySuffix`을 URI 접미사로 바꿉니다.
 
 ```
 DefaultEndpointsProtocol=[http|https];

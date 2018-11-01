@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645834"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231035"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 작업, 프로세스 및 워크플로 만들기 및 자동화 - Visual Studio
 
@@ -184,7 +184,7 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps 포럼</a>을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 <a href="http://aka.ms/logicapps-wish" target="_blank">Logic Apps 사용자 의견 사이트</a>를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps 사용자 의견 사이트</a>를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

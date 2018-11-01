@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 511b05e6cae769a5b39ae81a3e67efd05d374511
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133776"
+---
 응용 프로그램에서 등록만 사용하려면 **등록** 정책을 사용합니다. 이 정책은 등록 시 고객이 경험하는 환경, 그리고 등록 성공 시 응용 프로그램에서 수신하는 토큰의 콘텐츠를 설명합니다.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]

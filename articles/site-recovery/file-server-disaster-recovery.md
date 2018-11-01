@@ -1,23 +1,19 @@
 ---
 title: Azure Site Recovery를 사용하여 파일 서버 보호
 description: 이 문서는 Azure Site Recovery를 사용하여 파일 서버를 보호하는 방법에 대해 설명합니다.
-services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 0b6d5dccbce30c55e259e4bb3f8ae4194a02b646
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 0eed8179396c80e4ea26ff90b53324b9a2891df0
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916886"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214905"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
 
@@ -49,7 +45,7 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
     * VM에 Site Recovery에서 지원되지 않는 구성이 있는 경우 이 방법을 사용할 수 있습니다. 예는 경우에 따라 일반적으로 파일 서버 환경에서 사용되는 공유 클러스터 디스크입니다. DFSR은 중간 변동률을 사용하여 대역폭이 낮은 환경에서도 잘 작동합니다. Azure VM을 사용하고 항상 실행하는 추가 비용을 고려해야 합니다. 
 
-* **Azure File Sync를 사용하여 파일 복제**: 클라우드를 사용하려는 경우 또는 Azure VM을 이미 사용하는 경우 Azure File Sync를 사용할 수 있습니다. Azure File Sync는 산업 표준 SMB([서버 메시지 블록](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유의 동기화를 제공합니다. Azure 파일 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 
+* **Azure 파일 동기화를 사용하여 파일 복제**: 클라우드를 사용하려는 경우 또는 Azure VM을 이미 사용하는 경우 Azure 파일 동기화를 사용할 수 있습니다. Azure 파일 동기화는 산업 표준 SMB([서버 메시지 블록](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유의 동기화를 제공합니다. Azure 파일 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 
 
 다음 다이어그램을 사용하여 파일 서버 환경에 사용할 전략을 결정할 수 있습니다.
 
@@ -69,10 +65,10 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 Site Recovery 복제는 응용 프로그램을 제한하지 않으므로 권장 사항은 다음 시나리오에서도 유지됩니다.
 | 원본    |보조 사이트 대상    |Azure 대상
 |---------|---------|---------|
-|Azure| -|예|
-|Hyper-V|   예 |예
-|VMware |예|   예
-|물리적 서버|   예 |예
+|Azure| -|yes|
+|Hyper-V|   yes |yes
+|VMware |yes|   yes
+|물리적 서버|   yes |yes
  
 
 > [!IMPORTANT]

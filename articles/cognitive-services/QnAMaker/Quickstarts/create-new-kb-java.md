@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 72a687d6a67ba8e4ccc49cf622cb368e7c8d0db2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8a32cbc726d50fc2e0e8ad0840525d9e505832bf
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649672"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412944"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>빠른 시작: Java를 사용하여 QnA Maker 기술 자료 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "49649672"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 자주 사용하는 Java IDE를 사용해도 되지만, 텍스트 편집기로도 충분합니다.
+이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 자주 사용하는 Java IDE를 사용해도 되지만, 텍스트 편집기로도 충분합니다.
 
 **QnA Maker**를 리소스로 선택한 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)의 새 API 계정에서 유료 구독 키가 필요합니다. 두 키 모두 이 빠른 시작에서 작동합니다.
 

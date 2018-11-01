@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7576c479b9e3e443b048a9295c0ff0f30d4b9423
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044657"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240327"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
 
-이 연습에 설명된 데이터 과학 작업은 [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)에 설명된 단계를 따릅니다. 이 프로세스는 데이터 과학자 팀이 지능적인 응용 프로그램을 빌드하는 전체 수명 주기를 효율적으로 공동 작업할 수 있도록 데이터 과학에 대한 체계적인 접근 방법을 제공합니다. 또한 데이터 과학 프로세스는 개별 사용자가 수행할 수 있는 데이터 과학을 위한 반복되는 프레임워크를 제공합니다.
+이 연습에 설명된 데이터 과학 작업은 [팀 데이터 과학 프로세스](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview)에 설명된 단계를 따릅니다. 이 프로세스는 데이터 과학자 팀이 지능적인 응용 프로그램을 빌드하는 전체 수명 주기를 효율적으로 공동 작업할 수 있도록 데이터 과학에 대한 체계적인 접근 방법을 제공합니다. 또한 데이터 과학 프로세스는 개별 사용자가 수행할 수 있는 데이터 과학을 위한 반복되는 프레임워크를 제공합니다.
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합을 분석합니다. 이는 스팸 또는 햄(스팸이 아니라는 의미)으로 표시되는 메일 집합이며 메일의 내용에 대한 일부 통계도 포함합니다. 포함되어 있는 통계는 다음 한 섹션에만 설명되어 있습니다.
 

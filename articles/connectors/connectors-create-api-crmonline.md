@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: b1ff93f1e03e047ad5ac00259c1aa53afda0c76d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818943"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231257"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Dynamics 365 레코드 관리
 
@@ -192,7 +192,7 @@ Dynamics 365 작업에서 데이터를 필터링하는 방법을 지정하려면
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

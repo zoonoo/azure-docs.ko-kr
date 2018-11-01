@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409206"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416463"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
@@ -57,7 +57,7 @@ System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 �
 
 2.  **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
 
-    ![새 연결](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![새 연결](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. 왼쪽 창의 맨 위에 있는 **추가**를 클릭합니다.
 
@@ -78,7 +78,7 @@ System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 �
 | **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일 |
 | **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 Log Analytics는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로(존재하지 않는 CI의 경우) 만듭니다. **기본**: 사용하지 않도록 설정됩니다. |
 
-![서비스 관리자 연결](./media/log-analytics-itsmc/service-manager-connection.png)
+![서비스 관리자 연결](media/log-analytics-itsmc-connections/service-manager-connection.png)
 
 **성공적으로 연결 및 동기화된 경우**:
 
@@ -128,14 +128,14 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 2. **설정** > **네트워킹**을 클릭합니다.
 3. **하이브리드 연결**에서 **하이브리드 연결 엔드포인트 구성**을 클릭합니다.
 
-    ![하이브리드 연결 네트워킹](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
+    ![하이브리드 연결 네트워킹](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
 4. **하이브리드 연결** 블레이드에서 **하이브리드 연결 추가**를 클릭합니다.
 
-    ![하이브리드 연결 추가](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
+    ![하이브리드 연결 추가](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
 5. **하이브리드 연결 추가** 블레이드에서 **새 하이브리드 연결 만들기**를 클릭합니다.
 
-    ![새 하이브리드 연결](./media/log-analytics-itsmc/itsmc-create-new-hybrid-connection.png)
+    ![새 하이브리드 연결](media/log-analytics-itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. 다음 값을 입력합니다.
 
@@ -146,14 +146,14 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
     - **위치**: 위치를 선택합니다.
     -  **이름**: servicebus를 만드는 경우 이름을 지정합니다.
 
-    ![하이브리드 연결 값](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
+    ![하이브리드 연결 값](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. **확인**을 클릭하여 **하이브리드 연결 만들기** 블레이드를 닫고 하이브리드 연결을 만듭니다.
 
     하이브리드 연결이 만들어지면 블레이드 아래에 표시됩니다.
 
 7. 하이브리드 연결을 만든 후 연결을 선택하고 **선택한 하이브리드 연결 추가**를 클릭합니다.
 
-    ![새 하이브리드 연결](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
+    ![새 하이브리드 연결](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
 #### <a name="configure-the-listener-setup"></a>수신기 설정 구성
 
@@ -171,14 +171,14 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 하이브리드 연결이 성공적으로 설정됩니다.
 
-![하이브리드 연결 성공](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
+![하이브리드 연결 성공](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
 > 하이브리드 연결이 만들어진 후 배포된 Service Manager 웹앱을 방문하여 연결을 확인한 후 테스트합니다. Azure에서 ITSMC에 연결을 시도하기 전에 연결이 성공적으로 설정되었는지 확인합니다.
 
 다음 샘플 이미지는 성공적으로 설정된 연결의 세부 정보를 보여줍니다.
 
-![하이브리드 연결 테스트](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
+![하이브리드 연결 테스트](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-test.png)
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>ServiceNow를 Azure의 IT 서비스 관리 커넥터에 연결
 
@@ -209,7 +209,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
 
 2.  **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
-    ![새 연결](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![새 연결](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. 왼쪽 창의 맨 위에 있는 **추가**를 클릭합니다.
 
@@ -232,7 +232,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일 |
 | **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본**: 사용하지 않도록 설정됩니다. |
 
-![ServiceNow 연결](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
+![ServiceNow 연결](media/log-analytics-itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
 **성공적으로 연결 및 동기화된 경우**:
 
@@ -304,7 +304,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
 
 2.  **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
-    ![새 연결](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![새 연결](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. 왼쪽 창의 맨 위에 있는 **추가**를 클릭합니다.
 
@@ -326,7 +326,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | **데이터 동기화** | 데이터를 원하는 이전 일 수를 입력합니다. **최대 제한**: 120일 |
 | **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본**: 사용하지 않도록 설정됩니다.|
 
-![Provance 연결](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
+![Provance 연결](media/log-analytics-itsmc-connections/itsm-connections-provance-latest.png)
 
 **성공적으로 연결 및 동기화된 경우**:
 
@@ -355,7 +355,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 1. Azure Portal에서 **모든 리소스**로 이동하여 **ServiceDesk(YourWorkspaceName)** 를 찾습니다.
 
 2.  **작업 영역 데이터 원본**에서 **ITSM 연결**을 클릭합니다.
-    ![새 연결](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![새 연결](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. 왼쪽 창의 맨 위에 있는 **추가**를 클릭합니다.
 
@@ -378,7 +378,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 | **ITSM 솔루션에서 새 구성 항목 만들기** | ITSM 제품에서 구성 항목을 만들려는 경우 이 옵션을 선택합니다. 이 옵션을 선택하면 ITSMC는 지원되는 ITSM 시스템에서 영향을 받는 CI를 구성 항목으로 만듭니다(존재하지 않는 CI의 경우). **기본**: 사용하지 않도록 설정됩니다. |
 
 
-![Provance 연결](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
+![Provance 연결](media/log-analytics-itsmc-connections/itsm-connections-cherwell-latest.png)
 
 **성공적으로 연결 및 동기화된 경우**:
 
@@ -396,7 +396,7 @@ Cherwell용 클라이언트 ID/키를 생성하려면 다음 절차를 수행합
 2. **보안** > **REST API 클라이언트 설정 편집**을 클릭합니다.
 3. **새 클라이언트 만들기** > **클라이언트 암호**를 선택합니다.
 
-    ![Cherwell 사용자 ID](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
+    ![Cherwell 사용자 ID](media/log-analytics-itsmc-connections/itsmc-cherwell-client-id.png)
 
 
 ## <a name="next-steps"></a>다음 단계

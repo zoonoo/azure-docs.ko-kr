@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: cc051e1ba0bbea68bb1e888168883351bf4f730f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: e440cca59bde1c845bc99ef137c18242e888ee06
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406214"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230100"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Log Analytics로 성능 모니터링
 
@@ -100,4 +100,4 @@ Log Analytics 에이전트를 추가했으니, Log Analytics 포털로 이동하
 
 * 관련 [성능 카운터](service-fabric-diagnostics-event-generation-perf.md)를 수집합니다. Log Analytics 에이전트를 구성하여 특정 성능 카운터를 수집하려면 [데이터 원본 구성](../log-analytics/log-analytics-data-sources.md#configuring-data-sources)을 검토합니다.
 * 검색 및 진단에 도움이 되는 [자동 경고](../log-analytics/log-analytics-alerts.md)를 설정하도록 Log Analytics를 구성합니다.
-* 또는 [Azure 진단 확장을 통해 성능 카운터를 수집하여 Application Insights로](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template) 보낼 수 있습니다.
+* 또는 [Azure 진단 확장을 통해 성능 카운터를 수집하여 Application Insights로](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) 보낼 수 있습니다.

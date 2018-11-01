@@ -1,5 +1,18 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: 5bde217601d27129e044b64d90184727ea717950
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132775"
+---
 Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함 된 매개 변수라는 섹션을 포함합니다.
-배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다. 
+배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마세요. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다. 
 
 매개 변수를 정의할 때는 **allowedValues** 필드를 사용하여 배포 중에 사용자가 제공할 수 있는 값을 지정합니다. 배포 중에 값이 제공되지 않으면 **defaultValue** 필드를 사용하여 매개 변수에 값을 할당합니다.
 
@@ -13,7 +26,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
     }
 
 ### <a name="hostingplanname"></a>hostingPlanName
-웹앱을 호스팅하는 데 사용하는 앱 서비스 계획의 이름입니다.
+웹앱을 호스팅하는 데 사용하는 App Service 계획의 이름입니다.
 
     "hostingPlanName":{
       "type":"string"

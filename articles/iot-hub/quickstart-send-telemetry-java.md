@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: a4840fee22086bf6716f5f83ba86c4ac464377f9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3b2e25df74d0667b52429a7b998157c4d9e3fe56
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364407"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421104"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석 데이터 보내기 및 백 엔드 응용 프로그램으로 허브에서 원격 분석 읽기(Java)
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 빠른 시작에서 실행하는 두 개의 샘플 응용 프로그램은 Java를 사용하여 작성되었습니다. 개발 컴퓨터에 Java SE 8 이상이 필요합니다.
 
-[Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html)에서 여러 플랫폼용 Java를 다운로드할 수 있습니다.
+[Oracle](https://aka.ms/azure-jdks)에서 여러 플랫폼용 Java를 다운로드할 수 있습니다.
 
 다음 명령을 사용하여 개발 컴퓨터에서 Java의 현재 버전을 확인할 수 있습니다.
 

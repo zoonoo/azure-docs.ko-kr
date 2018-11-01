@@ -3,7 +3,7 @@ title: Azure Application Insights에서 사용 현황 환경을 활성화하도�
 description: Application Insights에서 각각에 고유하고 영구적인 ID 문자열을 할당하여 사용자가 서비스를 통해 이동하는 방식을 추적합니다.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.reviewer: abgreg
-ms.author: mbullwin
-ms.openlocfilehash: 14322162d3f78f0cb90ecaf077d1d85f7cbba581
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.reviewer: abgreg;mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: bfb04f596a61ff79c75cd38473c9480a29b0e6c4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091535"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139893"
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 환경을 활성화하도록 사용자 컨텍스트 ID 보내기
 

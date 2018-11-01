@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/07/2018
+ms.date: 10/29/2018
 ms.author: piotrci
-ms.openlocfilehash: bed720cf47355887f3bf981f281d82738039270f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866579"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211794"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>그룹 기반 라이선스를 사용하여 제품 라이선스 간에 사용자를 안전하게 마이그레이션하는 방법
 
@@ -822,6 +822,8 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 다음 문서에서 그룹을 통한 라이선스 관리에 대한 기타 시나리오를 알아보세요.
 
-* [Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결](licensing-groups-resolve-problems.md)
-* [Azure Active Directory의 그룹 기반 라이선싱에 대한 PowerShell 예제](licensing-ps-examples.md)
-* [Azure Active Directory 그룹 기반 라이선스 추가 시나리오](licensing-group-advanced.md)
+* [Azure Active Directory에서 그룹에 라이선스 할당](../users-groups-roles/licensing-groups-assign.md)
+* [Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결](../users-groups-roles/licensing-groups-resolve-problems.md)
+* [Azure Active Directory에서 개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션하는 방법](../users-groups-roles/licensing-groups-migrate-users.md)
+* [Azure Active Directory 그룹 기반 라이선스 추가 시나리오](../users-groups-roles/licensing-group-advanced.md)
+* [Azure Active Directory의 그룹 기반 라이선싱에 대한 PowerShell 예제](../users-groups-roles/licensing-ps-examples.md)

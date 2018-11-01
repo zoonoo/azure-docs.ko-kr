@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5b52fd41fc3e37078bbddc721c0c54af2c430b43
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819417"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419234"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -38,7 +38,7 @@ ms.locfileid: "42819417"
 ## <a name="transaction-diagnostics-experience"></a>트랜잭션 진단 환경
 이 보기에는 네 가지 주요 부분, 즉 결과 목록, 구성 요소 간 트랜잭션 차트, 이 작업 관련된 모든 원격 분석의 시간 순서 목록 및 선택한 원격 분석 항목에 대한 세부 정보 창이 왼쪽에 있습니다.
 
-![주요 부분](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
+![주요 부분](media/app-insights-transaction-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>구성 요소 간 트랜잭션 차트
 
@@ -57,19 +57,19 @@ ms.locfileid: "42819417"
 
 이 섹션에서는 이 트랜잭션에 관련된 모든 원격 분석의 시간 시퀀스에서 기본 목록 보기를 보여줍니다. 또한 트랜잭션 차트에 표시되지 않는 추적 및 사용자 지정 이벤트도 보여줍니다. 특정 구성 요소/호출에서 생성된 원격 분석에 이 목록을 필터링할 수 있습니다. 이 목록에서 원격 분석 항목을 선택하면 해당 [세부 정보가 오른쪽](#details-of-the-selected-telemetry)에 표시됩니다.
 
-![모든 원격 분석에 대한 시간 순서](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
+![모든 원격 분석에 대한 시간 순서](media/app-insights-transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>선택한 원격 분석의 세부 정보
 
 이 접을 수 있는 창에는 트랜잭션 차트 또는 목록에서 선택한 모든 항목의 세부 정보가 표시됩니다. "모두 표시"는 수집된 표준 특성을 모두 나열합니다. 모든 사용자 지정 특성은 표준 집합 아래에 별도로 나열됩니다. 스택 추적 창 아래의 "..."를 클릭하여 추적을 복사하기 위한 옵션을 가져옵니다. "프로파일러 추적 열기" 또는 "디버그 스냅숏 열기"는 해당 세부 정보 창에서 코드 수준 진단을 보여줍니다.
 
-![예외 세부 정보](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+![예외 세부 정보](media/app-insights-transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>검색 결과
 
 이 접을 수 있는 창에는 필터 조건을 충족하는 다른 결과가 표시됩니다. 모든 결과를 클릭하여 위에 나열된 세 개의 섹션에 해당 세부 정보를 업데이트합니다. 샘플링이 모든 샘플에 적용되는 경우에도 모든 구성 요소에서 사용 가능한 세부 정보가 있을 가능성이 가장 큰 샘플을 찾으려 노력합니다. 이러한 샘플은 "제안된" 샘플로 표시됩니다.
 
-![검색 결과](media/app-insights-e2eTxn-diagnostics/searchResults.png)
+![검색 결과](media/app-insights-transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>프로파일러 및 스냅숏 디버거
 
@@ -79,7 +79,7 @@ Profiler를 작동시키지 못한 경우 **serviceprofilerhelp@microsoft.com**�
 
 스냅숏 디버거를 작동시키지 못한 경우 **snapshothelp@microsoft.com**에 문의하세요.
 
-![프로파일러 통합](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
+![프로파일러 통합](media/app-insights-transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>FAQ
 

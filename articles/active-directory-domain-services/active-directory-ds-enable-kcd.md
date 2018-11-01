@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Kerberos 제한 위임 활성화
 description: Azure Active Directory Domain Services 관리되는 도메인에서 Kerberos 제한 위임 활성화
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: f50422caab2577ba24e3a7bc48b75e32d15d8d44
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: da7909853d47f680726464d6d646ca87028fd311
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505936"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158785"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>관리되는 도메인에서 KCD(Kerberos 제한 위임) 구성
 대부분의 응용 프로그램은 사용자의 컨텍스트에서 리소스에 액세스해야 합니다. Active Directory는 이 사용 사례가 가능한 Kerberos 위임이라고 하는 메커니즘을 지원합니다. 또한 사용자의 컨텍스트에서 특정 리소스에만 액세스할 수 있도록 위임을 제한할 수 있습니다. Azure AD Domain Services 관리되는 도메인은 더 안전하게 잠겨 있으므로 기존의 Active Directory 도메인과는 다릅니다.

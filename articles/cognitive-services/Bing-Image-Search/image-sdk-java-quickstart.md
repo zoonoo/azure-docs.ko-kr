@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 36f59e1c405ef9e5cf69a19e49d69a3adfdc4636
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 42fc3dfb48c041ba187e2034eed81183dba02cb4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298186"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413880"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>빠른 시작: Bing Image Search SDK 및 Java를 사용하여 이미지 검색
 
@@ -25,7 +25,7 @@ ms.locfileid: "46298186"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[JDK(Java Development Kit)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)의 최신 버전
+[JDK(Java Development Kit)](https://aka.ms/azure-jdks)의 최신 버전
 
 Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Image Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
 

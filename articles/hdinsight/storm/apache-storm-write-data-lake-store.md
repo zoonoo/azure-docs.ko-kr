@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 670d465f1481592862f5e653a508460c19be07d8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e99ed88eb6a58308ecd972931ca877493504fea
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049694"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419839"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 HDFS에 쓰기
 
@@ -29,7 +29,7 @@ Storm을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 �
 
 이 프로젝트를 컴파일하기 위해 개발 환경에 필요한 구성 요소는 다음과 같습니다.
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
+* [Java JDK 1.8](https://aka.ms/azure-jdks) 이상 - HDInsight 3.5 이상에는 Java 8이 필요합니다.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -153,7 +153,7 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
 
 ## <a name="deploy-and-run-the-topology"></a>토폴로지 배포 및 실행
 
-1. 다음 명령을 사용하여 HDInsight 클러스터에 토폴로지를 복사합니다. **USER** 를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. **CLUSTERNAME**은 클러스터 이름으로 바꿉니다.
+1. 다음 명령을 사용하여 HDInsight 클러스터에 토폴로지를 복사합니다. **USER** 를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다.
    
         scp target\StormToHdfs-1.0-SNAPSHOT.jar USER@CLUSTERNAME-ssh.azurehdinsight.net:StormToHdfs-1.0-SNAPSHOT.jar
    
@@ -162,7 +162,7 @@ HDInsight에서 이 스크립트를 사용하는 방법에 대한 자세한 내�
    > [!NOTE]
    > HDInsight에서의 `scp` 사용에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. 업로드가 완료되면 SSH를 사용하여 HDInsight 클러스터에 연결하도록 다음을 사용합니다. **USER** 를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. **CLUSTERNAME**은 클러스터 이름으로 바꿉니다.
+2. 업로드가 완료되면 SSH를 사용하여 HDInsight 클러스터에 연결하도록 다음을 사용합니다. **USER** 를 클러스터를 만들 때 사용한 SSH 사용자 이름으로 대체합니다. **CLUSTERNAME** 을 클러스터 이름으로 바꿉니다.
    
         ssh USER@CLUSTERNAME-ssh.azurehdinsight.net
    

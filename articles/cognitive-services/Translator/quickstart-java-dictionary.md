@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 40eca25e7bb10a845db1ebbd0f8075cd5ec354f6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4d828161408a06175c917affb0eef9290b575051
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647071"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416667"
 ---
 # <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-java"></a>빠른 시작: Translator Text REST API(Java)로 대체 번역 찾기
 
@@ -23,7 +23,7 @@ ms.locfileid: "49647071"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 자주 사용하는 Java IDE를 사용해도 되지만, 텍스트 편집기로도 충분합니다.
+이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 자주 사용하는 Java IDE를 사용해도 되지만, 텍스트 편집기로도 충분합니다.
 
 Translator Text API를 사용하려면 구독 키도 필요합니다. [Translator Text API에 등록하는 방법](translator-text-how-to-signup.md)을 참조하세요.
 

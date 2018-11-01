@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: 8a9dd45a8d5ebf506899c733107ff2fd01b08a2c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3ff05640431f78d3f48942a6701bbc2b54da7c90
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964533"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250498"
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
 
@@ -189,8 +189,6 @@ Hive와 함께 Tez를 사용하는 경우 디버깅 정보에 대한 다음 문�
 * [Linux 기반 HDInsight에서 Ambari Tez 보기 사용](../hdinsight-debug-ambari-tez-view.md)
 
 이 문서에 사용된 REST API에 대한 자세한 내용은 [WebHCat 참조](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) 문서를 참조하세요.
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

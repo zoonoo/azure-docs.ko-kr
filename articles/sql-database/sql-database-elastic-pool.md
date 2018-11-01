@@ -3,7 +3,7 @@ title: 탄력적 풀을 사용하여 여러 SQL Database 관리 - Azure | Micros
 description: 탄력적 풀을 사용하여 수백 및 수천 개의 SQL Database를 관리하고 크기를 조정합니다. 필요한 경우 배포할 수는 리소스에 대한 단일 가격
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: c89fa6614afec6b67f4d6445db49efa1e2248cfb
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6721b260960cd38b68173a5d973a5716b99a26c0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430054"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241211"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
 

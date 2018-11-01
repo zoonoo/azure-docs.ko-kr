@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 6b31882ec3916e60ac7dc7b8117328176abef1b4
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818537"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233636"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps용 커넥터
 
@@ -158,7 +158,7 @@ Azure에서 모든 사용자가 사용할 수 있도록 사용자 지정 API 앱
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
 
-* Azure Logic Apps 및 커넥터에 대한 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* Azure Logic Apps 및 커넥터에 대한 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 * 문서에서 중요하다고 생각하는 기사 또는 세부 정보가 누락되었나요? 그렇다면 기존 기사에 추가하거나 직접 작성하여 도움을 줄 수 있습니다. 설명서는 오픈 소스이며 GitHub에서 호스팅됩니다. Azure 설명서의 [GitHub 리포지토리](https://github.com/Microsoft/azure-docs)에서 시작하세요. 
 

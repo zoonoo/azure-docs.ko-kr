@@ -3,18 +3,17 @@ title: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Firewall을 배포하고 구성하는 방법을 알아봅니다.
 services: firewall
 author: vhorne
-manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 10/30/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801882"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238831"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -31,7 +30,7 @@ Azure Firewall에는 아웃바운드 액세스를 제어하는 두 가지 규칙
 
 응용 프로그램 및 네트워크 규칙은 *규칙 컬렉션*에 저장됩니다. 규칙 컬렉션은 동일한 작업 및 우선 순위를 공유하는 규칙 목록입니다.  네트워크 규칙 컬렉션은 네트워크 규칙 목록이며, 응용 프로그램 규칙 컬렉션은 응용 프로그램 규칙 목록입니다.
 
-Azure Firewall에는 NAT 규칙, 네트워크 규칙 및 응용 프로그램 규칙이 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
+Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -42,8 +41,6 @@ Azure Firewall에는 NAT 규칙, 네트워크 규칙 및 응용 프로그램 규
 > * 응용 프로그램 규칙 구성
 > * 네트워크 규칙 구성
 > * 방화벽 테스트
-
-
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -56,32 +53,32 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 자습서에서는 간편한 배포를 위해 간소화 된 네트워크 구성을 사용합니다. 프로덕션 배포에서는 방화벽이 자체 VNet에 있으며 워크로드 서버가 하나 이상의 서브넷이 있는 동일한 지역의 피어링된 Vnet에 있는 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 좋습니다.
 
-
-
 ## <a name="set-up-the-network-environment"></a>네트워크 환경 설정
+
 먼저 방화벽 배포에 필요한 리소스를 포함하는 리소스 그룹을 만듭니다. 그런 다음, VNet, 서브넷 및 테스트 서버를 만듭니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
-1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
-1. Azure Portal 홈 페이지에서 **리소스 그룹** 및 **추가**를 차례로 클릭합니다.
-2. **리소스 그룹 이름**에 **Test-FW-RG**를 입력합니다.
-3. **구독**의 경우 사용자의 구독을 선택합니다.
-4. **리소스 그룹 위치**의 경우 위치를 선택합니다. 만든 모든 후속 리소스는 동일한 위치에 있어야 합니다.
-5. **만들기**를 클릭합니다.
 
+1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
+2. Azure Portal 홈 페이지에서 **리소스 그룹** 및 **추가**를 차례로 클릭합니다.
+3. **리소스 그룹 이름**에 **Test-FW-RG**를 입력합니다.
+4. **구독**의 경우 사용자의 구독을 선택합니다.
+5. **리소스 그룹 위치**의 경우 위치를 선택합니다. 만든 모든 후속 리소스는 동일한 위치에 있어야 합니다.
+6. **만들기**를 클릭합니다.
 
 ### <a name="create-a-vnet"></a>VNet 만들기
+
 1. Azure Portal 홈 페이지에서 **모든 서비스**를 클릭합니다.
 2. **네트워킹**아래에서 **가상 네트워크**를 클릭합니다.
 3. **추가**를 클릭합니다.
 4. **이름**에 **Test-FW-VN**을 입력합니다.
 5. **주소 공간**에 **10.0.0.0/16**을 입력합니다.
-7. **구독**의 경우 사용자의 구독을 선택합니다.
-8. **리소스 그룹**의 경우 **기존 항목 사용**을 선택한 후, **Test-FW-RG**를 선택합니다.
-9. **위치**의 경우 전에 사용한 동일한 위치를 선택합니다.
-10. **서브넷** 아래에서 **이름**에 **AzureFirewallSubnet**을 입력합니다. 방화벽은 이 서브넷에 있고 해당 서브넷 이름은 AzureFirewallSubnet이 **되어야** 합니다.
-11. **주소 범위**에 **10.0.1.0/24**를 입력합니다.
-12. 다른 기본 설정을 사용한 다음, **만들기**를 클릭합니다.
+6. **구독**의 경우 사용자의 구독을 선택합니다.
+7. **리소스 그룹**의 경우 **기존 항목 사용**을 선택한 후, **Test-FW-RG**를 선택합니다.
+8. **위치**의 경우 전에 사용한 동일한 위치를 선택합니다.
+9. **서브넷** 아래에서 **이름**에 **AzureFirewallSubnet**을 입력합니다. 방화벽은 이 서브넷에 있고 해당 서브넷 이름은 AzureFirewallSubnet이 **되어야** 합니다.
+10. **주소 범위**에 **10.0.1.0/24**를 입력합니다.
+11. 다른 기본 설정을 사용한 다음, **만들기**를 클릭합니다.
 
 > [!NOTE]
 > AzureFirewallSubnet 서브넷의 최소 크기는/25입니다.
@@ -138,13 +135,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 표의 정보를 사용하여 Srv-Work 가상 머신에 대한 **설정**을 구성합니다. 나머지 구성은 Srv-Jump 가상 머신과 동일합니다.
 
-
 |설정  |값  |
 |---------|---------|
 |서브넷|워크로드-SN|
 |공용 IP 주소|없음|
 |공용 인바운드 포트 선택|공용 인바운드 포트 없음|
-
 
 ## <a name="deploy-the-firewall"></a>방화벽 배포
 
@@ -168,7 +163,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    이 설정은 배포하는 데 몇 분 정도 걸립니다.
 4. 배포가 완료되면 **Test-FW-RG** 리소스 그룹으로 이동하고 **Test-FW01** 방화벽을 클릭합니다.
 6. 개인 IP 주소를 참고합니다. 기본 경로를 만들 때 나중에 사용할 수 있습니다.
-
 
 ## <a name="create-a-default-route"></a>기본 경로 만들기
 
@@ -200,9 +194,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 18. **다음 홉 주소**에 이전에 적어둔 방화벽에 대한 개인 IP 주소를 입력합니다.
 19. **확인**을 클릭합니다.
 
-
 ## <a name="configure-application-rules"></a>응용 프로그램 규칙 구성
-
 
 1. **Test-FW-RG**를 열고 **Test-FW01** 방화벽을 클릭합니다.
 2. **Test-FW01** 페이지의 **설정**에서 **규칙**을 클릭합니다.
@@ -244,7 +236,6 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 6. **저장**을 클릭합니다. 
 7. **Srv-Work** 가상 머신을 다시 시작합니다.
 
-
 ## <a name="test-the-firewall"></a>방화벽 테스트
 
 1. Azure portal에서 **Srv-Work** 가상 머신에 대한 네트워크 설정을 검토하고 개인 IP 주소를 참고합니다.
@@ -267,7 +258,6 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 ## <a name="clean-up-resources"></a>리소스 정리
 
 다음 자습서를 위해 방화벽 리소스를 그대로 두어도 되고, 더 이상 필요하지 않은 경우 **Test-FW-RG** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제해도 됩니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

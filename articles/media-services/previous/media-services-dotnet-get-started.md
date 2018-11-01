@@ -4,7 +4,7 @@ description: 이 자습서에서는 .NET을 사용한 Azure Media Services로 �
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/10/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 12a6f731dfb1c106c28d18caa95710751736629c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 40057f6d7ab792557f17c777276091e7c7c05c3c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434587"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233619"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK를 사용한 주문형 콘텐츠 제공 시작
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "39434587"
 
 이 자습서에는 다음 작업이 포함되어 있습니다.
 
-1. 스트리밍 끝점 시작(Azure Portal 사용)
+1. 스트리밍 엔드포인트 시작(Azure Portal 사용)
 2. Visual Studio 프로젝트 만들기 및 구성
 3. Media Services 계정에 연결합니다.
 2. 비디오 파일을 업로드합니다.
@@ -60,20 +60,20 @@ ms.locfileid: "39434587"
 
 전체 모델은 [여기](https://media.windows.net/API/$metadata?api-version=2.15)서 볼 수 있습니다 .  
 
-## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Azure Portal을 사용하여 스트리밍 끝점 시작
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Azure Portal을 사용하여 스트리밍 엔드포인트 시작
 
 Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 통해 비디오를 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 인코딩 콘텐츠를 Media Services에서 적시에 지원되는 각 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)의 사전 패키징된 버전을 저장하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 하는 동적 패키징을 제공합니다.
 
 >[!NOTE]
->AMS 계정이 만들어질 때 **기본** 스트리밍 끝점은 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 끝점은 **실행** 상태에 있어야 합니다.
+>AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다.
 
-스트리밍 끝점을 시작하려면 다음을 수행합니다.
+스트리밍 엔드포인트를 시작하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 설정 창에서 스트리밍 끝점을 클릭합니다.
-3. 기본 스트리밍 끝점을 클릭합니다.
+2. 설정 창에서 스트리밍 엔드포인트를 클릭합니다.
+3. 기본 스트리밍 엔드포인트를 클릭합니다.
 
-    기본 스트리밍 끝점 세부 정보 창이 나타납니다.
+    기본 스트리밍 엔드포인트 세부 정보 창이 나타납니다.
 
 4. 시작 아이콘을 클릭합니다.
 5. 저장 단추를 클릭하여 변경 내용을 저장합니다.

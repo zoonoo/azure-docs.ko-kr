@@ -11,12 +11,12 @@ ms.assetid: e4773ecf-3ad3-44b4-a1b5-ee5f58baeadd
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 7226b59504c7112c039061ab0c184fe14f6e59d0
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918674"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230170"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Wunderlist 모니터링 및 관리
 
@@ -27,7 +27,7 @@ Azure Logic Apps 및 Wunderlist 커넥터를 사용하면 다음과 같이 다�
 * 미리 알림을 설정합니다.
 * 목록, 작업, 하위 작업, 알림, 파일, 정보, 설명 등을 가져옵니다.
 
-[Wunderlist](https://www.wunderlist.com/)는 어디서든 장치에서 사용자 프로젝트, 할 일 목록 및 작업을 계획, 관리 및 완료하는 데 유용한 서비스입니다. 트리거를 사용하여 Wunderlist 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Wunderlist 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Wunderlist 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 작업이 만료되면 Slack 커넥터를 사용하여 메시지를 게시할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+[Wunderlist](https://www.wunderlist.com/)는 어디서든 장치에서 사용자 프로젝트, 할 일 목록 및 작업을 계획, 관리 및 완료하는 데 유용한 서비스입니다. 트리거를 사용하여 Wunderlist 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Wunderlist 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Wunderlist 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 작업이 만료되면 Slack 커넥터를 사용하여 메시지를 게시할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -77,7 +77,7 @@ Azure Logic Apps 및 Wunderlist 커넥터를 사용하면 다음과 같이 다�
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

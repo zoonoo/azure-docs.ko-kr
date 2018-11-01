@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068701"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158859"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -87,7 +87,7 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 ### <a name="multiple-forests-separate-topologies"></a>다중 포리스트, 별도의 토폴로지
 ![모든 디렉터리에서 사용자를 한 번만 표시하는 옵션](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![다중 포리스트 및 별도의 토폴로지에 대한 설명](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![다중 포리스트 및 별도의 토폴로지에 대한 설명](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 이 환경에서는 모든 온-프레미스 포리스트가 별도의 엔터티로 처리됩니다. 사용자가 다른 포리스트에 표시되지 않습니다. 각 포리스트에는 자체 Exchange 조직이 있으며 포리스트 사이에 GALSync가 없습니다. 이 토폴로지는 합병/인수 후 또는 각 사업부가 서로 독립적으로 운영되는 조직 내의 상황일 수 있습니다. 이러한 포리스트가 Azure AD의 동일한 조직 내에 있으며 통합된 GAL과 함께 표시됩니다. 앞의 그림에서 모든 포리스트에 있는 각 개체는 메타버스에 한 번만 표시되고 대상 Azure AD 테넌트에서 집계됩니다.
 

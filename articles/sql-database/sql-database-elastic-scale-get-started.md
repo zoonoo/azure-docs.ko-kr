@@ -2,19 +2,22 @@
 title: Elastic Database 도구 시작 - Azure | Microsoft Docs
 description: 쉽게 실행할 수 있는 샘플 앱을 포함하여 Azure SQL Database의 Elastic Database 도구 기능에 대해 기본적으로 설명합니다.
 services: sql-database
-manager: craigg
-author: anumjs
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/27/2018
+author: anumjs
 ms.author: anjangsh
-ms.openlocfilehash: 778d08f6154b999215f27b765560b7394c2cd59b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.reviewer: ''
+manager: craigg
+ms.date: 08/27/2018
+ms.openlocfilehash: 74bbaeeee390952bf42407a53684bc33a7cfc543
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123386"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242776"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Elastic Database 도구 시작하기
 이 문서는 샘플 앱을 실행하도록 도와서 [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)에 대한 개발자 환경을 소개합니다. 샘플 앱은 간단한 분할 응용 프로그램을 만들고 Azure SQL Database의 Elastic Database 도구의 핵심 기능을 살펴봅니다. [분할 맵 관리](sql-database-elastic-scale-shard-map-management.md), [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md) 및 [다중 분할 쿼리](sql-database-elastic-scale-multishard-querying.md)에 대한 사용 사례에 중점을 둡니다. 클라이언트 라이브러리는 .Net은 물론 Java에서도 사용할 수 있습니다. 

@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 45a6bd349169265ef411d01a3601a27551847633
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226778"
+---
 이 문서에서는 클래식 배포 모델을 사용하여 만든 Azure 가상 머신에 대한 사용자의 일부 일반적인 질문을 해결합니다.
 
 ## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>클래식 배포 모델에서 만든 내 VM을 새 Resource Manager 모델에 마이그레이션할 수 있나요?
@@ -59,7 +69,7 @@ Windows VM에 대한 추가 옵션은 다음과 같습니다.
 
 * Azure Portal에서 VM을 찾은 다음 명령 모음에서 **원격 액세스 다시 설정**을 클릭합니다.
 * [Windows 기반 Azure Virtual Machine에 대한 원격 데스크톱 연결 문제 해결](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 검토합니다.
-* Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [Virtual Machine에 끝점을 설정하는 방법](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+* Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 엔드포인트를 만듭니다. 자세한 내용은 [Virtual Machine에 엔드포인트를 설정하는 방법](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 
 Hyper-V에 친숙한 경우 VMConnect와 유사한 도구를 찾을 수 있습니다. 가상 머신에 대한 콘솔 액세스가 지원되지 않으므로 Azure는 유사한 도구를 제공하지 않습니다.
 

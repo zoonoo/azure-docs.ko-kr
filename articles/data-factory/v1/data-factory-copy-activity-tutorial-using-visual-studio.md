@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1152074f6dd45d9169f507aedf01541332d6f8f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ae8374dc8b3424f953e24ef74796602d34413bc8
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096846"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240837"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기
 > [!div class="op_single_selector"]

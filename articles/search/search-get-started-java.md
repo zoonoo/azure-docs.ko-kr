@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: 6fed5a8afe6030038752d540bfabbc446c57db2c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124154"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419302"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java에서 Azure Search 시작
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "43124154"
 이 샘플을 빌드 및 테스트하는 데 사용된 소프트웨어는 다음과 같습니다.
 
 * [Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). EE 버전을 다운로드해야 합니다. 확인 단계 중 하나에 이 버전에만 있는 기능이 필요합니다.
-* [JDK 8u181](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK 8u181](https://aka.ms/azure-jdks)
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>데이터 정보

@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 042aedf1a043cd89d74ff099554642d38a3c7dd3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164505"
+---
 ## <a name="what-is-table-storage"></a>테이블 저장소란?
 Azure 테이블 저장소는 많은 양의 구조화된 데이터를 저장합니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. 테이블 저장소의 일반적인 용도는 다음과 같습니다.
 
@@ -18,7 +31,7 @@ Azure 테이블 저장소는 많은 양의 구조화된 데이터를 저장합�
   Azure Cosmos DB Table API 계정은 이 형식을 사용합니다. `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
   OData 프로토콜과 함께 이 주소를 사용하여 Azure 테이블 주소를 직접 지정할 수 있습니다. 자세한 내용은 [OData.org][OData.org]를 참조하세요.
-* **계정:** Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. Storage 계정 용량에 대한 자세한 내용은 [Microsoft Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) (영문)를 참조하십시오. 
+* **계정:** Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. Storage 계정 용량에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) (영문)를 참조하십시오. 
 
     Azure Cosmos DB에 대한 모든 액세스는 Table API 계정을 통해 수행됩니다. Table API 계정 만들기에 관한 자세한 내용은 [Table API 계정 만들기](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account)를 참조하세요.
 * **테이블**: 테이블은 엔터티 컬렉션입니다. 테이블은 엔터티에 스키마를 적용하지 않으므로 단일 테이블에 각기 다른 속성 집합을 가진 엔터티가 포함될 수 있습니다.  

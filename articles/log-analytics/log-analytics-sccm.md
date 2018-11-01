@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 28ddfea0f4127f402b82388a10ee150b30a65736
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954235"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418078"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
 System Center Configuration Manager 환경을 Azure Log Analytics에 연결하여 장치 수집 데이터를 동기화하고 Log Analytics 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
@@ -49,7 +49,7 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 > Configuration Manager의 Log Analytics에 사용 권한을 지정해야 합니다. 그렇지 않고 Configuration Manager에서 구성 마법사를 사용하면 오류 메시지가 표시됩니다.
 >
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure Portal](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. Log Analytics 작업 영역 목록에서 수정할 작업 영역을 선택합니다.
 3. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
 4. [액세스 제어] 페이지에서 **추가**를 클릭하면 **권한 추가** 창이 나타납니다.
@@ -101,7 +101,7 @@ Configuration Manager를 Log Analytics에 연결한 후에는 컬렉션을 추�
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 작업 영역 목록에서 Configuration Manager를 등록할 작업 영역을 선택합니다.  
-3. **고급 설정**을 선택합니다.<br><br> ![Log Analytics 고급 설정](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. **고급 설정**을 선택합니다.<br><br> ![Log Analytics 고급 설정](media/log-analytics-sccm/log-analytics-advanced-settings-01.png)<br><br>  
 4. **컴퓨터 그룹**을 선택한 다음, **SCCM**을 선택합니다.  
 5. **구성 관리자 컬렉션 멤버 자격 가져오기**를 선택한 다음 **저장**을 클릭합니다.  
    ![컴퓨터 그룹 - SCCM 탭](./media/log-analytics-sccm/sccm-computer-groups01.png)

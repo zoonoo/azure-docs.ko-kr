@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 93aa77edaedbd3984e9e83ccfb7374422952e83a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226430"
+---
 가용성 그룹 수신기는 SQL Server 가용성 그룹에서 수신하는 IP 주소 및 네트워크 이름입니다. 가용성 그룹 수신기를 만들려면 다음을 수행합니다.
 
 1. <a name="getnet"></a>클러스터 네트워크 리소스의 이름을 가져옵니다.

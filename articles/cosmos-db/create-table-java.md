@@ -11,19 +11,19 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 349fe9eafc169d232c4434a2c536d2020d4ea76a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 68f8963464cd11711bcc7c380fd745875ad94d16
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702081"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419184"
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>빠른 시작: Java 및 Azure Cosmos DB를 사용하여 테이블 API 응용 프로그램 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
-> * [Node.js](create-table-nodejs.md)
+> * [Node.JS](create-table-nodejs.md)
 > * [Python](create-table-python.md)
 > 
 
@@ -38,7 +38,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 또한, 
 
-* [JDK(Java Development Kit) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK(Java Development Kit) 1.7+](https://aka.ms/azure-jdks)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
 * [Maven](http://maven.apache.org/) 이진 아카이브 [다운로드](http://maven.apache.org/download.cgi) 및 [설치](http://maven.apache.org/install.html)

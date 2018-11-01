@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985236"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085814"
 ---
 # <a name="assets"></a>자산
 
@@ -34,19 +34,19 @@ Media Services v3에서 작업 입력은 자산 또는 HTTP URL에서 만들 수
 
 다음 표에서는 자산의 속성을 표시하고 해당 정의를 제공합니다.
 
-|이름|type|설명|
-|---|---|---|
-|id|string|리소스에 대한 정규화된 리소스 ID입니다.|
-|이름|string|리소스의 이름입니다.|
-|properties.alternateId |string|자산의 대체 ID입니다.|
-|properties.assetId |string|자산 ID입니다.|
-|properties.container |string|자산 Blob 컨테이너의 이름입니다.|
-|properties.created |string|자산의 생성 날짜입니다.|
-|properties.description |string|자산 설명입니다.|
-|properties.lastModified |string|사잔을 마지막으로 수정한 날짜입니다.|
-|properties.storageAccountName |string|저장소 계정 이름입니다.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |자산 암호화 형식입니다. 없음 또는 MediaStorageEncryption 중 하나입니다.|
-|형식|string|리소스 형식입니다.|
+|이름|설명|
+|---|---|
+|id|리소스에 대한 정규화된 리소스 ID입니다.|
+|이름|리소스의 이름입니다.|
+|properties.alternateId |자산의 대체 ID입니다.|
+|properties.assetId |자산 ID입니다.|
+|properties.container |자산 Blob 컨테이너의 이름입니다.|
+|properties.created |자산의 생성 날짜입니다.|
+|properties.description|자산 설명입니다.|
+|properties.lastModified |사잔을 마지막으로 수정한 날짜입니다.|
+|properties.storageAccountName |저장소 계정 이름입니다.|
+|properties.storageEncryptionFormat |자산 암호화 형식입니다. 없음 또는 MediaStorageEncryption 중 하나입니다.|
+|형식|리소스 형식입니다.|
 
 전체 정의는 [자산](https://docs.microsoft.com/rest/api/media/assets)을 참조하세요.
 

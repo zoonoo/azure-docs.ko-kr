@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: aeca3550b5fc58694779e7e54ce6ca547ba30e17
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165921"
+---
 Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. 컨테이너는 Blob 이름의 일부를 형성합니다. 예를 들어 `mycontainer` 은(는) 이러한 샘플 Blob URI에서 컨테이너의 이름입니다.
 
     https://storagesample.blob.core.windows.net/mycontainer/blob1.txt

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0fd00672e53d0b0148b70b364df5959ced1e554a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 38ad6d8f3746d856d8c0a73520d55fad9d8344e6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442460"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157924"
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: .NET 웹앱에서 .NET 웹 API 호출
 
@@ -75,7 +75,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 ### <a name="specify-the-permissions"></a>사용 권한 지정
 
-웹 API에 대한 호출을 만들려면 사용자를 인증하고(등록/로그인 정책 사용) Azure AD B2C에서 [액세스 토큰을 받아야](active-directory-b2c-access-tokens.md) 합니다. 액세스 토큰을 받으려면 먼저 액세스 토큰을 부여하려는 권한을 지정해야 합니다. `/authorize` 끝점에 대한 요청을 만들 때 `scope` 매개 변수에서 권한이 지정됩니다. 예를 들어 `https://contoso.onmicrosoft.com/tasks`의 앱 ID URI를 가진 리소스 응용 프로그램에 대한 "읽기" 권한으로 액세스 토큰을 얻으려면 범위는 `https://contoso.onmicrosoft.com/tasks/read`가 됩니다.
+웹 API에 대한 호출을 만들려면 사용자를 인증하고(등록/로그인 정책 사용) Azure AD B2C에서 [액세스 토큰을 받아야](active-directory-b2c-access-tokens.md) 합니다. 액세스 토큰을 받으려면 먼저 액세스 토큰을 부여하려는 권한을 지정해야 합니다. ph x="2" /&gt; 엔드포인트에 대한 요청을 만들 때 `scope` 매개 변수에서 권한이 지정됩니다. 예를 들어 `https://contoso.onmicrosoft.com/tasks`의 앱 ID URI를 가진 리소스 응용 프로그램에 대한 "읽기" 권한으로 액세스 토큰을 얻으려면 범위는 `https://contoso.onmicrosoft.com/tasks/read`가 됩니다.
 
 이 샘플의 범위를 지정하려면 `App_Start\Startup.Auth.cs` 파일을 열고 OpenIdConnectAuthenticationOptions에서 `Scope` 변수를 정의합니다.
 
@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
         {
             ...
 
-            // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
+            // Specify the scope by appending all of the scopes requested into one string (separated by a blank space)
             Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
         }
     );

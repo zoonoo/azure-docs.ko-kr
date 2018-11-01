@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: 1c08b30c0e59aac21d24f75d88530ba51b67d6b4
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2e1a912f2d2aa8a6f9b165524351f2a16232537c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023936"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212202"
 ---
 # <a name="human-in-the-loop"></a>인간 참여형
 
@@ -31,3 +31,5 @@ ms.locfileid: "44023936"
 5. 간단하게 커넥터를 빌드하여 사용자 검토를 API 또는 비즈니스 프로세스에 추가합니다.
 6. 기본 커넥터를 사용하여 Microsoft PhotoDNA, Text Analytics 및 Face API의 결과를 검토합니다.
 7. 콘텐츠 수정 프로세스에 대한 주요 성능 메트릭을 가져옵니다.
+
+![Content Moderator 비디오 검토 도구](../images/video-review-default-view.png)

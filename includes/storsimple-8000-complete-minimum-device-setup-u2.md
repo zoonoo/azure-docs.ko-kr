@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 879241b56ddb3be76b1b54d7a3bb5429facf148a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165858"
+---
 <!--author=alkohli last changed: 09/28/17-->
 
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>최소 StorSimple 장치 설치를 완료하려면
@@ -11,8 +24,8 @@
 
 2. **장치 구성** 블레이드에서:
    
-   1. 장치의 **이름**을 제공합니다. 기본 장치 이름은 장치 모델 및 일련 번호와 같은 정보를 반영합니다. 최대 64자의 친숙한 이름을 할당하여 장치를 관리할 수 있습니다.
-   2. 장치가 배포되는 지리적 위치에 기반한 **표준 시간대**를 설정합니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
+   1. 장치의 **이름** 을 제공합니다. 기본 장치 이름은 장치 모델 및 일련 번호와 같은 정보를 반영합니다. 최대 64자의 친숙한 이름을 할당하여 장치를 관리할 수 있습니다.
+   2. 장치가 배포되는 지리적 위치에 기반한 **표준 시간대** 를 설정합니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
    3. **DATA 0 설정** 아래에서:
 
        1. 데이터 0 네트워크 인터페이스는 설치 마법사를 통해 구성된 네트워크 설정(IP, 서브넷, 게이트웨이)이 활성화된 대로 표시됩니다. 또한 데이터 0은 클라우드뿐만 아니라 iSCSI에 대해서도 자동으로 활성화됩니다.

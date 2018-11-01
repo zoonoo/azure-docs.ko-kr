@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122249"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233517"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기
 
@@ -36,12 +36,12 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는[100개 �
 > 
 > * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
-> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
+> * [Node.JS](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> 논리 앱용으로 빌드된 API 앱 샘플은 [Azure Logic Apps GitHub 리포지토리](http://github.com/logicappsio) 또는 [블로그](http://aka.ms/logicappsblog)를 방문하세요.
+> 논리 앱용으로 빌드된 API 앱 샘플은 [Azure Logic Apps GitHub 리포지토리](http://github.com/logicappsio) 또는 [블로그](https://aka.ms/logicappsblog)를 방문하세요.
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>사용자 지정 API는 사용자 지정 커넥터와 어떻게 다른가요?
 
@@ -230,7 +230,7 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
 
-* Logic Apps 개선에 도움을 주려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)에서 투표하고 아이디어를 제출하세요. 
+* Logic Apps 개선에 도움을 주려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)에서 투표하고 아이디어를 제출하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

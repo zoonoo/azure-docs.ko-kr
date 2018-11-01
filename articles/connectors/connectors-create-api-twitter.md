@@ -11,12 +11,12 @@ ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918648"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230662"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Twitter 모니터링 및 관리
 
@@ -25,7 +25,7 @@ Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 �
 * 트윗을 모니터링, 게시 및 검색합니다.
 * 팔로워, 팔로우하는 사용자, 타임라인 등과 같은 데이터를 가져옵니다.
 
-트리거를 사용하여 Twitter 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Twitter 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Twitter 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 특정 해시태그가 있는 새 트윗이 표시되면 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+트리거를 사용하여 Twitter 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Twitter 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Twitter 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 특정 해시태그가 있는 새 트윗이 표시되면 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -43,7 +43,7 @@ Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 �
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
 1. 경로를 선택합니다. 
 
@@ -89,7 +89,7 @@ Azure Logic Apps 및 Twitter 커넥터를 사용하면 다음과 같이 다른 �
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

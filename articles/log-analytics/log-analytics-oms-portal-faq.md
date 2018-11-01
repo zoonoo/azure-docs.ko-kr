@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404565"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419795"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS 포털에서 Azure Portal로 전환하는 Log Analytics 사용자를 위한 일반적인 질문
 Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구성을 관리하고 수집된 데이터를 분석했습니다.  이 포털의 모든 기능은 Azure Portal로 이동되었으며 계속 개발될 예정입니다.
@@ -32,7 +32,7 @@ Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Azure에서 Log Analytics를 어디서 찾을 수 있습니까?
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.  **모든 서비스**를 클릭하고 리소스 목록에서 **Log Analytics**를 입력합니다. **Log Analytics**를 선택한 다음, 사용자의 작업 영역을 선택합니다. 작업 영역에 대한 요약 페이지가 표시됩니다.
 
-![Log Analytics 작업 영역](media/log-analytics-new-portal/log-analytics.png)
+![Log Analytics 작업 영역](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>사용 권한을 관리하려면 어떻게 해야 하나요?
 Azure Portal에서 Log Analytics 작업 영역에 액세스할 없는 경우 [Azure 역할 기반 액세스](../active-directory/role-based-access-control-configure.md)를 사용하여 사용자의 사용 권한을 구성해야 합니다. 작업 영역 사용 권한 관리에 대한 자세한 내용은 [작업 영역 관리](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users)를 참조하세요. 경고에 대한 사용 권한 관리에 대한 자세한 내용은 [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md)을 참조하세요.
@@ -40,12 +40,12 @@ Azure Portal에서 Log Analytics 작업 영역에 액세스할 없는 경우 [Az
 ## <a name="how-do-i-create-a-new-workspace"></a>새 작업 영역을 만들려면 어떻게 해야 하나요? 
 Azure Portal의 작업 영역 목록에서 **추가**를 클릭합니다.  전체 세부 사항은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-create-workspace.md)를 참조하세요.
 
-![개요 페이지](media/log-analytics-new-portal/new-workspace.png)
+![개요 페이지](media/log-analytics-oms-portal-faq/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>개요 페이지는 어디에 있나요?
 OMS 포털의 메인 화면에는 사용자가 만든 모든 사용자 지정 보기 및 작업 영역에 설치된 모든 관리 솔루션에 대한 타일이 표시됩니다. 이 동일한 보기는 Azure Portal에서 사용할 수 있습니다. 작업 영역에서 **작업 영역 요약**을 선택합니다.
 
-![개요 페이지](media/log-analytics-new-portal/overview.png)
+![개요 페이지](media/log-analytics-oms-portal-faq/overview.png)
 
 ## <a name="how-do-i-open-log-search-and-view-designer"></a>로그 검색 및 뷰 디자이너를 열려면 어떻게 해야 하나요?
 **로그 검색** 및 **뷰 디자이너**는 모두 메인 페이지에서 사용할 수 있습니다. Azure Portal의 사용자 작업 영역의 왼쪽 메뉴에서 **개요** 바로 옆에 있습니다.
@@ -53,7 +53,7 @@ OMS 포털의 메인 화면에는 사용자가 만든 모든 사용자 지정 �
 ## <a name="where-do-i-find-settings"></a>설정은 어디에 있나요?
 OMS 포털의 **설정** 섹션에 있는 대부분의 설정은 작업 영역을 위한 Azure Portal의 **고급 설정** 메뉴에서 사용할 수 있습니다.
 
-![고급 설정](media/log-analytics-new-portal/advanced-settings.png)
+![고급 설정](media/log-analytics-oms-portal-faq/advanced-settings.png)
 
 다음 섹션에서는 이전에 OMS 포털의 **설정** 섹션에서 제공되었던 설정에 액세스할 수 있는 방법의 전체 목록을 제공합니다.
 
@@ -118,7 +118,7 @@ Log Analytics의 [내 대시보드](../log-analytics/log-analytics-dashboards.md
 ## <a name="how-do-i-check-my-usage"></a>내 사용량은 어떻게 확인할 수 있나요?
 이제 작업 영역의 **사용량 및 예상 비용**을 선택하면 Log Analytics의 내 사용량 및 비용을 쉽게 보고 관리할 수 있습니다.
 
-![사용량 및 예상 비용](media/log-analytics-new-portal/usage.png)
+![사용량 및 예상 비용](media/log-analytics-oms-portal-faq/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>클래식 포털을 계속 사용할 수 있나요?

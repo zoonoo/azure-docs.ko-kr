@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: 3495a923683d78446e61ff0545c7d86023c14bc0
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471478"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233857"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>개요: 활성 지역 복제 및 자동 장애 조치(failover) 그룹
 
@@ -281,18 +281,18 @@ ms.locfileid: "49471478"
 | --- | --- |
 | [데이터베이스 생성 또는 업데이트(createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |만들기 작업 동안 상태를 반환합니다. |
-| [보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |현재 주 복제본 데이터베이스에서 장애 조치(failover)를 통해 주 복제본 데이터베이스로 사용할 데이터베이스를 설정합니다. |
-| [보조 데이터베이스를 주 데이터베이스로 설정(계획되지 않은 장애 조치(failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |현재 주 복제본 데이터베이스에서 장애 조치(failover)를 통해 주 복제본 데이터베이스로 사용할 데이터베이스를 설정합니다. 이 작업으로 인해 데이터가 손실될 수 있습니다. |
-| [복제 링크 가져오기](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 특정 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |
-| [복제 링크 - 데이터베이스 기준 목록](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_listbydatabase) | 지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 모든 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |
-| [복제 링크 삭제](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_delete) | 데이터베이스 복제 링크를 삭제합니다. 장애 조치(failover) 중에 수행할 수 없습니다. |
-| [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
-| [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | 서버에서 장애 조치 그룹을 제거합니다. |
-| [장애 조치(failover)(계획됨)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | 현재 주 서버에서 이 서버로 장애 조치(failover)합니다. |
-| [장애 조치(failover)로 인한 데이터 손실 허용](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |현재 주 서버에서 이 서버로 장애 조치(failover)합니다. 이 작업으로 인해 데이터가 손실될 수 있습니다. |
-| [장애 조치 그룹 가져오기](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) | 장애 조치(failover) 그룹을 가져옵니다. |
-| [서버별 장애 조치(failover) 그룹 나열](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | 서버에 있는 장애 조치(failover) 그룹을 나열합니다. |
-| [장애 조치(failover) 그룹 업데이트](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | 장애 조치(failover) 그룹을 업데이트합니다. |
+| [보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |현재 주 복제본 데이터베이스에서 장애 조치(failover)를 통해 주 복제본 데이터베이스로 사용할 데이터베이스를 설정합니다. |
+| [보조 데이터베이스를 주 데이터베이스로 설정(계획되지 않은 장애 조치(failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |현재 주 복제본 데이터베이스에서 장애 조치(failover)를 통해 주 복제본 데이터베이스로 사용할 데이터베이스를 설정합니다. 이 작업으로 인해 데이터가 손실될 수 있습니다. |
+| [복제 링크 가져오기](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 특정 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |
+| [복제 링크 - 데이터베이스 기준 목록](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | 지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 모든 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |
+| [복제 링크 삭제](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | 데이터베이스 복제 링크를 삭제합니다. 장애 조치(failover) 중에 수행할 수 없습니다. |
+| [장애 조치(failover) 그룹 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | 장애 조치(failover) 그룹을 만들거나 업데이트합니다. |
+| [장애 조치(failover) 그룹 삭제](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | 서버에서 장애 조치 그룹을 제거합니다. |
+| [장애 조치(failover)(계획됨)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | 현재 주 서버에서 이 서버로 장애 조치(failover)합니다. |
+| [장애 조치(failover)로 인한 데이터 손실 허용](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |현재 주 서버에서 이 서버로 장애 조치(failover)합니다. 이 작업으로 인해 데이터가 손실될 수 있습니다. |
+| [장애 조치 그룹 가져오기](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | 장애 조치(failover) 그룹을 가져옵니다. |
+| [서버별 장애 조치(failover) 그룹 나열](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | 서버에 있는 장애 조치(failover) 그룹을 나열합니다. |
+| [장애 조치(failover) 그룹 업데이트](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | 장애 조치(failover) 그룹을 업데이트합니다. |
 |  | |
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,4 +1,21 @@
-Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다.
+---
+title: 포함 파일
+description: 포함 파일
+services: app-service
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 10/24/2018
+ms.author: cephalin
+ms.custom: include file
+ms.openlocfilehash: 1eb35ec5b26c86e227152f14d4d91c0a2f087082
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035160"
+---
+Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) 명령을 사용하여 리소스 그룹에 App Service 계획을 만듭니다.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 

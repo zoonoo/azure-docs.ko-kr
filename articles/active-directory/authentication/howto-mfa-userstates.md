@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 302cf047ee1ffea685a939bddee84551de7042ec
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 4726383d96b0bd17f346f7391ed968c5f96bef1e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166766"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239256"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>사용자에 대해 2단계 인증을 요구하는 방법
 2단계 인증이 필요한 두 가지 방법 중 하나를 수행할 수 있습니다. 두 방법 모두 글로벌 관리자 계정을 사용해야 합니다. 첫 번째 옵션은 각 사용자가 Azure MFA(Multi-Factor Authentication)를 사용하도록 설정하는 것입니다. 사용자가 개별적으로 설정되면 신뢰할 수 있는 IP 주소에서 로그인하거나 _기억된 장치_ 기능이 설정된 경우와 같이 몇 가지 예외를 제외하고는, 로그인할 때마다 2단계 인증을 수행합니다. 두 번째 옵션은 특정 조건에서 2단계 인증을 요구하는 조건부 액세스 정책을 설정하는 것입니다.
@@ -99,7 +99,7 @@ PowerShell을 사용하는 방법은 사용자를 대량으로 사용하도록 �
         Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
-        $st.State = “Enabled”
+        $st.State = "Enabled"
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
@@ -110,7 +110,7 @@ PowerShell을 사용하는 방법은 사용자를 대량으로 사용하도록 �
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
-        $st.State = “Enabled”
+        $st.State = "Enabled"
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
@@ -125,7 +125,7 @@ MFA를 비활성화하려면 이 스크립트를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자에게 MFA를 수행하라는 메시지가 표시되거나 표시되지 않는 이유는? [Azure Multi-factor Authentication 문서에서 보고서의 Azure AD 로그인 보고서](howto-mfa-reporting.md#azure-ad-sign-ins-report) 섹션을 참조하세요.
+사용자에게 MFA를 수행하라는 메시지가 표시되거나 표시되지 않는 이유는? [Azure Multi-Factor Authentication 문서에서 보고서의 Azure AD 로그인 보고서](howto-mfa-reporting.md#azure-ad-sign-ins-report) 섹션을 참조하세요.
 
 신뢰할 수 있는 IP, 사용자 지정 음성 메시지 및 사기 행위 경고와 같은 추가 설정을 구성하려면 [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md) 문서를 참조하세요.
 

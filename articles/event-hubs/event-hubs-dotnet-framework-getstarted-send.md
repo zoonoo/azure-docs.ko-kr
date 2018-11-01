@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: ae5d89aab4ce1bd599ed9a50dc46336f8a96a2f5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9d7792c8eb33e6ceca5ba794f56c5a4c99d59554
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456228"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084410"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>.NET Framework를 사용하여 Azure Event Hubs로 이벤트 전송
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 장치에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/저장소 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -53,16 +53,16 @@ Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사
 
 1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
    
-      ```csharp
-      using System.Threading;
-      using Microsoft.ServiceBus.Messaging;
-      ```
+    ```csharp
+    using System.Threading;
+    using Microsoft.ServiceBus.Messaging;
+    ```
 2. **Program** 클래스에 다음 필드를 추가하고, 이전 섹션에서 만든 Event Hub 이름과 이전에 저장한 네임스페이스 수준 연결 문자열로 위치 지정자 값을 대체합니다.
    
-        ```csharp
-        static string eventHubName = "Your Event Hub name";
-        static string connectionString = "namespace connection string";
-        ```
+    ```csharp
+    static string eventHubName = "Your Event Hub name";
+    static string connectionString = "namespace connection string";
+    ```
 3. **Program** 클래스에 다음 메서드를 추가합니다.
    
       ```csharp

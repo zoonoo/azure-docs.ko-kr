@@ -3,7 +3,7 @@ title: 여러 스키마를 사용하여 클라우드 데이터베이스에서 �
 description: 수직 분할을 통해 데이터베이스 간 쿼리를 설정하는 방법
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 3d94a52aaafca91d45d7f1a6406d3f998fbffe9f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 5dbf6fb1b59999481348d3b4ad4775a77295b70d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161763"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238900"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 ![다른 데이터베이스에서 테이블에 대한 쿼리][1]

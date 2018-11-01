@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0482a882b2dea47752eb38eadbaaa72e36ae2eae
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a759aad346e25fa42f16d9ccfdb42d9fd5b1cd38
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412443"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413488"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
 
@@ -89,7 +89,7 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 
 Windows 가상 머신에서 확장을 설치하려면 다음 지침을 따릅니다.
 
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
 2. 이 확장을 설치하려는 가상 컴퓨터를 선택합니다.
 
     ![가상 머신을 강조 표시한 Azure Portal의 스크린샷](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)

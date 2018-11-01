@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6882dd56ee96e1fcab5926b77f11ce928bf950b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442358"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139512"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
 
@@ -41,7 +41,7 @@ Azure AD B2C를 사용하면 사용자 지정 정책을 사용하여 Azure AD B2
 HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이지를 제공할 수 있습니다.
 
 > [!NOTE]
-> 보안상의 이유로 사용자 지정에 JavaScript의 사용이 현재 차단됩니다. JavaScript를 차단 해제하려면 Azure AD B2C 테넌트의 사용자 지정 도메인 이름을 사용해야 합니다.
+> 보안상의 이유로 사용자 지정에 JavaScript의 사용이 현재 차단됩니다. 
 
 각 HTML5/CSS 템플릿에서 HTML 또는 콘텐츠 페이지에서 필수 `<div id=”api”>` 요소에 해당하는 *anchor* 요소를 제공합니다(이 내용은 이후 설명됨). Azure AD B2C에서는 모든 콘텐츠 페이지에 이 특정 div가 있어야 합니다.
 
@@ -107,7 +107,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 1.  Windows 탐색기를 사용하여 이전 섹션에서 생성한 *UI-Customization-Pack* 폴더 아래에 있는 *B2C-AzureBlobStorage-Client-master* 폴더로 이동합니다.
 2.  *B2CAzureStorageClient.exe* 파일을 실행합니다. 이 프로그램은 저장소 계정에 사용자가 지정한 디렉터리의 모든 파일을 업로드하고 해당 파일에 대한 CORS 액세스가 가능하도록 합니다.
 3.  메시지가 표시되면 다음을 지정합니다. a.  저장소 계정의 이름 *storageAccountName*(예: *contoso369b2c*).
-    나.  Azure Blob Storage의 기본 액세스 키 *key1*(예: *contoso369b2c*).
+    b.  Azure Blob Storage의 기본 액세스 키 *key1*(예: *contoso369b2c*).
     다.  Storage Blob Storage 컨테이너의 이름 *containerName*(예: *b2c*).
     d.  *Starter-Pack* 샘플 파일의 경로(예: *..\B2CTemplates\wingtiptoys*).
 
@@ -119,7 +119,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 콘텐츠를 호스팅하는 저장소에 CORS를 사용할 수 있는지 확인하려면 다음 단계를 진행합니다.
 
-1. 브라우저 세션을 열고 저장소 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html
+1. 브라우저 세션을 열고 저장소 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. http://test-cors.org로 이동합니다. 이 사이트를 통해 사용 중인 페이지에 CORS가 사용하도록 설정되었는지 확인할 수 있습니다.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)

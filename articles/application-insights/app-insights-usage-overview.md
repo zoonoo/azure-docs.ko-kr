@@ -3,7 +3,7 @@ title: Azure Application Insights로 사용 분석 | Microsoft Docs
 description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: mbullwin
-ms.openlocfilehash: d5b580df531e2f0c61ac1d43cfd5ae353f314fce
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: eeaf46a9ce523ecd11689d0aa430fcc522732f70
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091904"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139859"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -82,7 +84,7 @@ ms.locfileid: "47091904"
 
 ## <a name="retention---how-many-users-come-back"></a>재방문 주기 - 다시 찾아온 사용자는 몇 명이나 되나요?
 
-재방문 주기는 특정 시간 버킷 동안 일부 비즈니스 작업을 수행한 사용자의 코호트를 기준으로 사용자가 해당 앱을 다시 사용하는 빈도를 이해하는 데 도움이 됩니다. 
+재방문 주기는 특정 시간 버킷 동안 일부 비즈니스 작업을 수행한 사용자의 코호트를 기준으로 사용자가 해당 앱을 다시 사용하는 빈도를 이해하는 데 도움이 됩니다. 
 
 - 사용자가 다시 찾아오게 만드는 특정 기능 이해 
 - 실제 사용자 데이터에 따라 가설 세우기 

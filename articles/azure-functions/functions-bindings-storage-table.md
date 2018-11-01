@@ -3,20 +3,20 @@ title: Azure Functions의 Azure Table Storage 바인딩
 description: Azure Functions에서 Azure Table Storage 바인딩을 사용하는 방법을 이해합니다.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
-ms.author: glenga
-ms.openlocfilehash: 306e9d1f1990ea6b0f1449a876096a637ccda62a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.author: cshoe
+ms.openlocfilehash: 56616ff01ff70230a591285014ed291a2fdc7b34
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093178"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250991"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
@@ -76,9 +76,9 @@ public class TableStorage
     public static void TableInput(
         [QueueTrigger("table-items")] string input, 
         [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+        log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
     }
 }
 ```
@@ -99,11 +99,11 @@ public class TableStorage
     public static void TableInput(
         [QueueTrigger("table-items")] string input, 
         [Table("MyTable", "MyPartition")] IQueryable<MyPoco> pocos, 
-        TraceWriter log)
+        ILogger log)
     {
         foreach (MyPoco poco in pocos)
         {
-            log.Info($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+            log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
         }
     }
 }
@@ -116,6 +116,7 @@ public class TableStorage
 ```csharp
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
@@ -132,9 +133,9 @@ namespace FunctionAppCloudTable2
         public static async Task Run(
             [TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, 
             [Table("AzureWebJobsHostLogscommon")] CloudTable cloudTable,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
             TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
                 TableQuery.CombineFilters(
@@ -148,7 +149,7 @@ namespace FunctionAppCloudTable2
             foreach (LogEntity entity in 
                 await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
             {
-                log.Info(
+                log.LogInformation(
                     $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
             }
         }
@@ -195,10 +196,10 @@ CloudTable을 사용하는 방법에 대한 자세한 내용은 [Azure Table Sto
 C# 스크립트 코드는 다음과 같습니다.
 
 ```csharp
-public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
+public static void Run(string myQueueItem, Person personEntity, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-    log.Info($"Name in Person entity: {personEntity.Name}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"Name in Person entity: {personEntity.Name}");
 }
 
 public class Person
@@ -244,13 +245,14 @@ C# 스크립트 코드는 엔터티 형식이 `TableEntity`에서 파생할 수 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Extensions.Logging;
 
-public static void Run(string myQueueItem, IQueryable<Person> tableBinding, TraceWriter log)
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
     {
-        log.Info($"Name: {person.Name}");
+        log.LogInformation($"Name: {person.Name}");
     }
 }
 
@@ -290,10 +292,11 @@ public class Person : TableEntity
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, TraceWriter log)
+public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, ILogger log)
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
     TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
     TableQuery.CombineFilters(
@@ -307,7 +310,7 @@ public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, TraceWrit
     foreach (LogEntity entity in 
     await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
     {
-        log.Info(
+        log.LogInformation(
             $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
     }
 }
@@ -365,8 +368,8 @@ type Person = {
 }
 
 let Run(myQueueItem: string, personEntity: Person) =
-    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-    log.Info(sprintf "Name in Person entity: %s" personEntity.Name)
+    log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    log.LogInformation(sprintf "Name in Person entity: %s" personEntity.Name)
 ```
 
 ### <a name="input---javascript-example"></a>입력 - JavaScript 예제
@@ -434,7 +437,7 @@ public int run(
  
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 다음 특성을 사용하여 테이블 입력 바인딩을 구성합니다.
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
 
   특성의 생성자는 테이블 이름, 파티션 키 및 행 키를 사용합니다. 다음 예제와 같이 out 매개 변수 또는 함수의 반환 값에서 사용할 수 있습니다.
 
@@ -443,7 +446,7 @@ public int run(
   public static void Run(
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
@@ -456,7 +459,7 @@ public int run(
   public static void Run(
       [QueueTrigger("table-items")] string input, 
       [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
-      TraceWriter log)
+      ILogger log)
   {
       ...
   }
@@ -561,9 +564,9 @@ public class TableStorage
 
     [FunctionName("TableOutput")]
     [return: Table("MyTable")]
-    public static MyPoco TableOutput([HttpTrigger] dynamic input, TraceWriter log)
+    public static MyPoco TableOutput([HttpTrigger] dynamic input, ILogger log)
     {
-        log.Info($"C# http trigger function processed: {input.Text}");
+        log.LogInformation($"C# http trigger function processed: {input.Text}");
         return new MyPoco { PartitionKey = "Http", RowKey = Guid.NewGuid().ToString(), Text = input.Text };
     }
 }
@@ -600,11 +603,11 @@ public class TableStorage
 C# 스크립트 코드는 다음과 같습니다.
 
 ```csharp
-public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
+public static void Run(string input, ICollector<Person> tableBinding, ILogger log)
 {
     for (int i = 1; i < 10; i++)
         {
-            log.Info($"Adding Person entity {i}");
+            log.LogInformation($"Adding Person entity {i}");
             tableBinding.Add(
                 new Person() { 
                     PartitionKey = "Test", 
@@ -662,9 +665,9 @@ type Person = {
   Name: string
 }
 
-let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
+let Run(input: string, tableBinding: ICollector<Person>, log: ILogger) =
     for i = 1 to 10 do
-        log.Info(sprintf "Adding Person entity %d" i)
+        log.LogInformation(sprintf "Adding Person entity %d" i)
         tableBinding.Add(
             { PartitionKey = "Test"
               RowKey = i.ToString()
@@ -720,7 +723,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>출력 - 특성
 
-[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)를 사용합니다.
+[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)를 사용합니다.
 
 특성의 생성자는 테이블 이름을 사용합니다. 다음 예제와 같이 `out` 매개 변수 또는 함수의 반환 값에서 사용할 수 있습니다.
 
@@ -729,7 +732,7 @@ module.exports = function (context) {
 [return: Table("MyTable")]
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
-    TraceWriter log)
+    ILogger log)
 {
     ...
 }
@@ -742,7 +745,7 @@ public static MyPoco TableOutput(
 [return: Table("MyTable", Connection = "StorageConnectionAppSetting")]
 public static MyPoco TableOutput(
     [HttpTrigger] dynamic input, 
-    TraceWriter log)
+    ILogger log)
 {
     ...
 }

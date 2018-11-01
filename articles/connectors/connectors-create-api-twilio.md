@@ -11,16 +11,16 @@ ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: db7677042737ea1377af54cc02ee1c82c05435c8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047577"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50228842"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Twilio에서 메시지 관리
 
-Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 메시지를 포함한 Twilio의 메시지를 가져오기, 전송 및 나열하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 이러한 작업을 사용하여 Twilio 계정으로 작업을 수행할 수 있습니다. 또한 다른 작업에서 Twilio 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 메시지가 도착하면 Slack 커넥터를 사용하여 메시지 콘텐츠를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 메시지를 포함한 Twilio의 메시지를 가져오기, 전송 및 나열하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 이러한 작업을 사용하여 Twilio 계정으로 작업을 수행할 수 있습니다. 또한 다른 작업에서 Twilio 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 새 메시지가 도착하면 Slack 커넥터를 사용하여 메시지 콘텐츠를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -74,7 +74,7 @@ Azure Logic Apps 및 Twilio 커넥터를 사용하면 글로벌 SMS, MMS 및 IP 
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

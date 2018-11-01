@@ -14,19 +14,19 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: fe2b02b2495b4f37cbc90e1ddbeaca43b41d008c
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0154aac14168c9d897698a15e31b3124b208db46
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843407"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50142888"
 ---
 ## <a name="add-the-applications-registration-to-your-code"></a>코드에 응용 프로그램 등록 추가
 
 이 단계에서는 프로젝트에 응용 프로그램/클라이언트 ID를 추가해야 합니다.
 
-1.  (`app` > `java` > *`{host}.{namespace}`* 에서) `MainActivity`를 엽니다.
-2.  `final static String CLIENT_ID`로 시작하는 줄을 다음으로 바꿉니다.
+1. (`app` > `java` > *`{host}.{namespace}`* 에서) `MainActivity`를 엽니다.
+2. `final static String CLIENT_ID`로 시작하는 줄을 다음으로 바꿉니다.
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
@@ -49,4 +49,3 @@ final static String CLIENT_ID = "[Enter the application Id here]";
     </intent-filter>
 </activity>
 ```
-

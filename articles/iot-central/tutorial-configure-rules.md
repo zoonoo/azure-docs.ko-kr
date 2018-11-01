@@ -3,18 +3,18 @@ title: Azure IoT Central에서 규칙 및 작업 구성 | Microsoft Docs
 description: 이 자습서에서는 Azure IoT Central 응용 프로그램에서 원격 분석 기반 규칙 및 작업을 구성하는 방법을 알려줍니다.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 20dcad571a32638488ce111b5af55623f2305c57
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: fbe9e1fbd0891f2f39b05fa7ba53653188ef8e03
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310439"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158077"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>자습서: Azure IoT Central에서 장치에 대한 규칙 및 작업 구성
 

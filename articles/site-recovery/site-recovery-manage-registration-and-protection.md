@@ -1,19 +1,18 @@
 ---
 title: 서버 제거 및 보호 사용 안 함 | Microsoft Docs
 description: 이 문서에서는 사이트 복구 자격 증명 모음에서 서버 등록을 취소하고 가상 머신 및 물리적 서버의 보호를 사용하지 않도록 설정하는 방법을 설명합니다.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 72b3bade83d1815c3902bd9159b5868dc7845cac
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078583"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214089"
 ---
 # <a name="remove-servers-and-disable-protection"></a>서버 제거 및 보호 사용 안 함
 

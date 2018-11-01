@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 038c273806188d04223f1e455c158249a3e17718
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164730"
+---
 | 리소스 | 표준 파일 공유 | 프리미엄 파일 공유(미리 보기) |
 |----------|---------------|------------------------------------------|
 | 파일 공유의 최소 크기 | (최솟값 없음, 종량제) | 100GiB |

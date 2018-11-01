@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: cefcad9c427770c083e6451c088ce5cfc10a68f2
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7a1e38ddc150dadb9d4f088eed92564c40d9078b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394469"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230474"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 머신에 대한 크기
 
@@ -49,9 +49,9 @@ ms.locfileid: "49394469"
 
 REST API를 사용하여 VM 크기에 대해 쿼리하는 방법은 다음을 참조하세요.
 
-- [크기 조정에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listavailablesizes)
-- [구독에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listall)
-- [가용성 집합에서 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/availabilitysets/availabilitysets_listavailablesizes)
+- [크기 조정에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
+- [구독에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)
+- [가용성 집합에서 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 

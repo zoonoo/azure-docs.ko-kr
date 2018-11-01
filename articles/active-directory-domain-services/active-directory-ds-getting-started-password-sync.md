@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: 암호 해시 동기화 활성�
 description: Azure Active Directory Domain Services 시작
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: maheshu
-ms.openlocfilehash: 0f7023b60ef3678c284fe05bff7be73674595512
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 332ad288230654eb70e7b6ead862ed57a1cf52f7
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504154"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155136"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 암호 해시 동기화 사용
 이전 작업에서 Azure AD(Azure Active Directory) 테넌트에 대해 Azure Active Directory Domain Services를 사용하도록 설정했습니다. 다음 작업은 NTLM(NT LAN Manager) 및 Kerberos 인증에 필요한 암호 해시를 Azure AD Domain Services로 동기화하도록 설정하는 것입니다. 암호 해시 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다.
