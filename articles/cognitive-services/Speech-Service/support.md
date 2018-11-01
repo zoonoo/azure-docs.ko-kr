@@ -1,38 +1,40 @@
 ---
 title: 지원 및 도움말 옵션
-description: Microsoft Cognitive Services Speech와 통합되는 응용 프로그램을 만드는 경우 질문 및 문제에 대한 지원 및 도움말을 얻는 방법을 알아봅니다.
+titlesuffix: Azure Cognitive Services
+description: Speech Service와 통합되는 응용 프로그램을 만들 때 질문 및 문제에 대한 도움과 지원을 얻는 방법입니다.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: e24008a2208d8dcfbb7f86c66bb7de39f3c75790
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 58fb5d4be2137eed7d62e702f08bdd66c80be347
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528190"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468061"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 
-Speech Service의 기능을 탐색하기 시작했나요? 응용 프로그램에 새로운 기능을 구현하고 있나요? 다음은 개발자를 위한 도움을 얻을 수 있는 힌트입니다.
+Speech Service의 기능을 탐색하기 시작했나요? 응용 프로그램에 새로운 기능을 구현하고 있나요? 개발자가 도움을 얻을 수 있는 방법에 대한 제안 사항은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * *Microsoft Cognitive Services*의 새로운 개발에 대한 최신 소식을 수신하거나 *Speech Service* 관련 최신 뉴스를 찾아봅니다.
-> * 검색을 통해 커뮤니티에서 문제 관련 질문에 대한 답변이 추가되었는지 또는 구현하려는 기능에 대한 설명서가 이미 존재하는지 확인합니다.
-> * 필요한 답변을 찾을 수 없으면 *Stack Overflow*에서 질문할 수 있습니다.
-> * GitHub에서 찾을 수 있는 샘플에서 문제가 발견되면 *GitHub*에 문제를 올려주세요.
-> * *사용자 의견 포럼*에서 솔루션을 검색합니다.
+> * *Azure Cognitive Services*의 새로운 개발에 대한 정보를 받거나 *Speech Service*와 관련된 최신 뉴스를 찾습니다.
+> * 커뮤니티에서 문제가 논의되었는지 또는 구현하려는 기능에 대한 기존 설명서가 이미 있는지 검색합니다.
+> * 만족스러운 대답을 찾을 수 없으면 *Stack Overflow*에 대한 질문을 합니다.
+> * GitHub의 샘플 중 하나에 문제가 있으면 *GitHub* 문제를 제기합니다.
+> * *UserVoice 포럼*에서 솔루션을 검색합니다.
 
 ## <a name="stay-informed"></a>최신 소식 수신
 
-Microsoft Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/)에서 수집됩니다. Speech Service에 대한 최신 정보는 [Speech Service 블로그](https://azure.microsoft.com/en-us/blog/tag/speech-service/)를 추적합니다.
+Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://azure.microsoft.com/blog/topics/cognitive-services/)에 수집됩니다. Speech Service에 대한 최신 정보는 [Speech Service 블로그](https://azure.microsoft.com/blog/tag/speech-service/)를 추적하세요.
 
 ## <a name="search"></a>검색
 
-설명서나 샘플 또는 [Stack Overflow](https://www.stackoverflow.com) 질문에 대한 답변에서 필요한 답을 찾을 수 있습니다.
+설명서, 샘플 또는 [Stack Overflow](https://www.stackoverflow.com) 질문에 대한 답변이나 샘플에서 필요한 대답을 찾을 수 있습니다.
 
 ### <a name="scoped-search"></a>범위 지정 검색
 
@@ -44,11 +46,18 @@ Microsoft Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](
 
 여기서 *{Your Search Terms}* 는 검색 키워드입니다.
 
+## <a name="create-an-azure-support-request"></a>Azure 지원 요청 만들기
+
+Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
+
+* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [미국 정부의 Azure Portal](https://portal.azure.us)
+
 ## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
 
-Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널이며, Microsoft 팀 멤버인 커뮤니티 구성원 모두가 직접 관련되어 있어 문제를 해결하는 데 도움이 됩니다.
+Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 여기서는 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
 
-검색을 통해 문제에 대한 답변을 찾을 수 없으면 Stack Overflow에 새로운 질문을 제출합니다. 질문을 구성할 때 다음 태그 중 하나를 사용합니다.
+검색을 통해 문제에 대한 답변을 찾을 수 없으면 새 질문을 Stack Overflow에 제출합니다. 질문을 작성할 때 다음 태그 중 하나를 사용합니다.
 
 |구성 요소/영역  |태그들  |
 |---------|---------|
@@ -59,18 +68,51 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널이며, Mic
 |일반 음성 SDK |[[microsoft-cognitive+microsoft-speech-api]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
-> 다음 Stack Overflow 게시물에는 질문을 작성하는 방법 및 소스 코드를 추가하는 방법에 대한 팁이 있습니다. 이러한 지침을 따르면 커뮤니티 구성원이 신속하게 질문을 평가하고 응답할 수 있는 기회를 늘릴 수 있습니다.  
+> Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  
 > * [좋은 질문을 하는 방법](https://stackoverflow.com/help/how-to-ask)
 > * [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>GitHub 문제 만들기
 
-샘플은 오픈 소스로 게시되는 경우가 많습니다. 질문이나 문제가 있으면 해당 GitHub 리포지토리에 *문제*를 제기하세요. 끌어오기 요청을 제출할 수도 있습니다. 다음 목록에는 샘플 리포지토리에 대한 링크가 포함되어 있습니다.
+샘플은 오픈 소스로 게시되는 경우가 많습니다. 질문이나 문제가 있으면 해당 GitHub 리포지토리에 *문제*를 제기합니다. 끌어오기 요청을 제출할 수도 있습니다. 다음 목록에는 샘플 리포지토리에 대한 링크가 포함되어 있습니다.
 
-* [Speech SDK](https://aka.ms/csspeech/samples)
-* [Device SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
+* [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [장치 SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-## <a name="user-voice-forum"></a>사용자 의견 포럼
+버그 보고서 또는 기능 요청을 만들거나 일반적인 질문을 하고 모범 사례를 공유할 수 있습니다. 버그 보고서의 경우 다음과 같이 제공되는 템플릿을 따릅니다.
+
+**버그 설명**
+
+버그에 대한 명확하고 간결한 설명입니다.
+
+**재현**
+
+동작을 재현하는 단계입니다.
+1. ...
+2. ...
+
+**예상 동작**
+
+예상한 동작에 대한 명확하고 간결한 설명입니다.
+
+**Cognitive Services 음성 SDK 버전**
+
+사용하고 있는 SDK 버전입니다.
+
+**플랫폼, 운영 체제 및 프로그래밍 언어**
+
+ - OS [예: Windows, Linux, Android, iOS, ...] - 구체적으로 작성해 주세요.
+ - 하드웨어 - x64, x86, ARM, ...
+ - 브라우저 [예: Chrome, Safari](있는 경우) - 구체적으로 작성해 주세요.
+
+**추가 컨텍스트**
+
+ - 오류 메시지, 로그 정보, 스택 추적, ...
+ - 특정 서비스 상호 작용에 대한 오류를 보고하는 경우 보고된 인시던트의 SessionId 및 시간(표준 시간대 포함)을 보고해 주세요. SessionId는 받은 모든 콜백/이벤트에 보고됩니다.
+ - 기타 추가 정보
+
+
+## <a name="uservoice-forum"></a>UserVoice 포럼
 
 Cognitive Services를 만드는 아이디어를 공유하세요. 함께 제공되는 API는 개발하는 응용 프로그램에서 더 잘 작동합니다. 증가하는 기술 자료를 사용하여 일반적인 질문에 대한 답변을 찾으세요.
 
