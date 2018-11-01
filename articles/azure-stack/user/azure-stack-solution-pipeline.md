@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/30/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952004"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419847"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure에 앱을 배포 스택
 
@@ -180,7 +180,7 @@ Azure DevOps 서비스를 실행 하려면 서비스 끝점 구성의 일부로 
 
 3. Visual Studio Enterprise에서 선택 **액세스 제어 (IAM)** 합니다.
 
-    ![액세스 제어 (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![액세스 제어(IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
 
 4. **추가**를 선택합니다.
 
@@ -253,7 +253,7 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 ![VSTO에서 NorthwindCloud 샘플 앱](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. VSTO에 로그인 하 고 앱 설정 페이지로 이동 합니다.
-2. 온 **설정을**를 선택 **보안**합니다.
+2. **설정**에서 **보안**을 선택합니다.
 3. **Azure DevOps 서비스 그룹**를 선택 **의해 끝점 작성자**합니다.
 
     ![NorthwindCloud 끝점 작성자](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
@@ -273,21 +273,57 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 10. **변경 내용 저장**을 선택합니다.
 
 끝점 정보가 했으므로 Azure DevOps 서비스가 Azure Stack 연결에 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트는 지침을 Azure DevOps 서비스에서 가져오고 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음 합니다.
+
 ## <a name="create-an-azure-stack-endpoint"></a>Azure Stack 끝점 만들기
+
+### <a name="create-an-endpoint-for-azure-ad-deployments"></a>Azure AD 배포에 대 한 끝점 만들기
 
 지침에 따르면 [Azure Resource Manager 서비스 연결을 기존 서비스 주체 만들기 ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) 문서에서는 서비스 연결을 사용 하 여 기존 서비스 주체 만들고 다음 매핑을 사용 합니다.
 
-- 환경: azurestack의 경우
-- 환경 URL 같이 `https://management.local.azurestack.external`
-- Azure Stack에서 구독 ID: 사용자 구독 ID
-- 구독 이름: Azure Stack에서 사용자 구독 이름
-- 서비스 주체 클라이언트 ID:에서 보안 주체 ID [이](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) 이 문서의 섹션입니다.
-- 서비스 주체 키: 동일한 문서 (또는 스크립트를 사용 하는 경우 암호)의 키입니다.
-- 테 넌 트 ID: 테 넌 트 ID를 검색할 있습니다 명령에 다음 [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다.
+다음 매핑을 사용 하 여 서비스 연결을 만들 수 있습니다.
 
-이제 끝점을 만들었으므로 VSTS Azure Stack 연결에 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트는 VSTS에서 지침을 가져옵니다. 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음을
+| 이름 | 예 | 설명 |
+| --- | --- | --- |
+| 연결 이름 | Azure Stack Azure AD | 연결의 이름입니다. |
+| Environment | Azurestack의 경우 | 환경의 이름입니다. |
+| 환경 URL | `https://management.local.azurestack.external` | 관리 끝점입니다. |
+| 범위 수준 | 구독 | 연결의 범위입니다. |
+| 구독 ID | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack에서 사용자 구독 ID |
+| 구독 이름 | name@contoso.com | Azure Stack에서 사용자 구독 이름입니다. |
+| 서비스 주체 클라이언트 ID | FF74AACF-XXXX-4776-93 FC-C63E6E021D59 | 보안 주체 ID [이](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) 이 문서의 섹션입니다. |
+| 서비스 주체 키 | THESCRETGOESHERE = | 동일한 문서 (또는 스크립트를 사용 하는 경우 암호) 키입니다. |
+| 테넌트 ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 명령에 테 넌 트를 가져오려면 다음을 검색 하는 테 넌 트 ID의 id입니다. 명령에 다음 검색 하는 테 넌 트 ID [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다.  |
+| 연결: | 확인되지 않음 | 서비스 주체에 연결 설정을 확인 합니다. |
 
-![빌드 에이전트](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+이제 끝점을 만들었으므로 DevOps Azure Stack 연결에 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트에서 DevOps 지침 가져오고 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음 합니다.
+
+![빌드 에이전트가 Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+### <a name="create-an-endpoint-for-ad-fs"></a>AD FS에 대 한 끝점을 만듭니다.
+
+Azure DevOps에 대 한 최신 업데이트는 인증용 인증서를 사용 하 여 서비스 주체를 사용 하 여 서비스 연결을 만들 수 있습니다. Id 공급자로 Adfs를 사용 하 여 Azure Stack을 배포 하는 경우 이것이 필요 합니다. 
+
+![빌드 에이전트 AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+
+다음 매핑을 사용 하 여 서비스 연결을 만들 수 있습니다.
+
+| 이름 | 예 | 설명 |
+| --- | --- | --- |
+| 연결 이름 | Azure Stack ADFS | 연결의 이름입니다. |
+| Environment | Azurestack의 경우 | 환경의 이름입니다. |
+| 환경 URL | `https://management.local.azurestack.external` | 관리 끝점입니다. |
+| 범위 수준 | 구독 | 연결의 범위입니다. |
+| 구독 ID | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack에서 사용자 구독 ID |
+| 구독 이름 | name@contoso.com | Azure Stack에서 사용자 구독 이름입니다. |
+| 서비스 주체 클라이언트 ID | FF74AACF-XXXX-4776-93 FC-C63E6E021D59 | AD FS에 대해 만든 서비스 주체에서 클라이언트 ID입니다. |
+| 인증서 | `<certificate>` |  PFX에서 PEM 인증서 파일을 변환 합니다. 이 필드에 인증서 PEM 파일 콘텐츠를 붙여 넣습니다. <br> PFX에서 PEM으로 변환:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
+| 테넌트 ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 명령에 테 넌 트를 가져오려면 다음을 검색 하는 테 넌 트 ID의 id입니다. 명령에 다음 검색 하는 테 넌 트 ID [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다. |
+| 연결: | 확인되지 않음 | 서비스 주체에 연결 설정을 확인 합니다. |
+
+이제 끝점을 만들었으므로 Azure DevOps Azure Stack 연결에 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트에서 Azure DevOps 지침 가져오고 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음 합니다.
+
+> [!Note]
+> Azure Stack 사용자 ARM 끝점을 인터넷에 노출 되지 않습니다, 연결 유효성 검사가 실패 합니다. 이 작업이 필요 하 고 간단한 작업을 사용 하 여 릴리스 파이프라인을 만들면 연결을 확인할 수 있습니다. 
 
 ## <a name="develop-your-application-build"></a>응용 프로그램 빌드를 개발 합니다.
 

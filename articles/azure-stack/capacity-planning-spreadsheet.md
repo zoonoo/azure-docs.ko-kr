@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 5ebddbf1fea49fbf868d15a544a18e5a8c6369fd
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec4d8ef43510c07e73ab18de227176d3c282b8e1
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078310"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740844"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner 스프레드시트 Azure Stack 리소스 용량 계획에 사용 되는 경우 Capacity planner 컴퓨팅 리소스의 다양 한 할당을 디자인 하 고 어떻게 이러한 적합 한 다양 한 하드웨어 제품에서 참조 하는 기능을 제공 합니다. Azure Stack 계산기의 사용에 대 한 자세한 지침은 아래 제공 됩니다.
@@ -56,7 +56,7 @@ Azure Stack planner 내에서 모델링 하는 리소스에 사용 되는 기본
 ## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint 지침
 다양 한 크기 및 Vm의 수량을 단일 컬렉션을 사용 하 여 모델을 만들려면 "DefineByVMFootprint" 탭을 선택 하 고이 일련의 단계를 수행 합니다.
 
-1. 이 워크시트의 오른쪽 위 모서리를 사용 하 여 제공 된 드롭다운 목록 상자 컨트롤 번호를 초기 선택 (4에서 12 사이의) 서버의 각 하드웨어 시스템 (SKU)에서 설치 하려는 합니다. 이 서버 수가 미치는 전반적인 참조 하는 모델링 프로세스 중 언제 든 지 수정할 수 있습니다 리소스 할당 모델에 대 한 리소스를 사용할 수 있습니다.
+1. 이 워크시트의 오른쪽 위 모서리를 사용 하 여 제공 된 드롭다운 목록 상자 컨트롤 번호를 초기 선택 (4 사이 16) 서버의 각 하드웨어 시스템 (SKU)에서 설치 하려는 합니다. 이 서버 수가 미치는 전반적인 참조 하는 모델링 프로세스 중 언제 든 지 수정할 수 있습니다 리소스 할당 모델에 대 한 리소스를 사용할 수 있습니다.
 2. 특정 하드웨어 구성에 대 한 다양 한 VM 리소스 할당을 모델링 하려는 경우 페이지의 오른쪽 상단 모서리에서 "현재 SKU" 레이블 바로 아래 파란색 드롭다운 목록 상자를 찾습니다. 이 목록 상자 풀다운합니다 하 고 원하는 하드웨어 SKU를 선택 합니다.
 3. 이제 모델에 다양 한 크기의 Vm을 추가 시작할 준비가 되었습니다. 특정 VM 유형을 포함 하려면 해당 VM 항목의 왼쪽에 파란색 윤곽선이 있는 상자에 수량 값을 입력 합니다.
 
@@ -73,7 +73,7 @@ Azure 스택 워크 로드의 컬렉션을 사용 하 여 모델을 만들려면
 > [!TIP]
 > Azure Stack VM에 대해 제공 된 저장소 크기를 변경 하려면 이전 섹션의 3 단계에서 메모를 참조 하세요.
 
-1. 이 페이지의 오른쪽 위 모서리로를 사용 하 여 제공 된 드롭다운 목록 상자 컨트롤 번호를 초기 선택 (4에서 12 사이의) 서버의 각 하드웨어 시스템 (SKU)에서 설치 하려는 합니다.
+1. 이 페이지의 오른쪽 위 모서리로를 사용 하 여 제공 된 드롭다운 목록 상자 컨트롤 번호를 초기 선택 (4 사이 16) 서버의 각 하드웨어 시스템 (SKU)에서 설치 하려는 합니다.
 2. 특정 하드웨어 구성에 대 한 다양 한 VM 리소스 할당을 모델링 하려는 경우 페이지의 오른쪽 상단 모서리에서 "현재 SKU" 레이블 바로 아래 파란색 드롭다운 목록 상자를 찾습니다. 이 목록 상자 풀다운합니다 하 고 원하는 하드웨어 SKU를 선택 합니다.
 3. DefineByVMFootprint 지침의 3 단계에서 설명한 것 처럼 각 DefineByVMFootprint 페이지에서 원하는 Azure Stack Vm에 대 한 적절 한 저장소 크기를 선택 합니다. VM 당 저장소 크기는 DefineByVMFootprint 시트에 정의 됩니다.
 4. DefineByWorkloadFootprint 페이지의 왼쪽 위에 starting, 작업 내에 포함 된 각 VM 유형에 대해 quantity를 입력 하 여 최대 6 개의 서로 다른 워크 로드 형식에 대 한 구성을 만듭니다. 이 작업의 이름 바로 아래 열에 숫자 값을 배치 하 여 이루어집니다. 이 특정 구성에서 지원 되는 워크 로드 유형에 맞게 워크 로드 이름을 수정할 수 있습니다.

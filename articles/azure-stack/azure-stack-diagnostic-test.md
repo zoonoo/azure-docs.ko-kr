@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 671818ca8f8fa07b506252d5d4d0c7a768577b19
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0720edeab7577f41ddbaa67e4643f1dfe57ebac0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087477"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740317"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure Stack에 대 한 유효성 검사 테스트를 실행 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "50087477"
     3. 관리자 권한으로 PowerShell을 엽니다.
     4. 실행: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. 실행: `Test-AzureStack`
-4. 모든 테스트에서 보고 하는 경우 **실패**실행: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdlet 테스트-azurestack의 경우에서 로그를 수집 합니다. 진단 로그에 대 한 자세한 내용은 참조 하세요. [진단 도구를 Azure Stack](azure-stack-diagnostics.md)합니다. 로그를 수집 하거나 하는 경우 Microsoft 고객 서비스 지원 (CSS)에 문의 해야 테스트에서 보고 **경고**합니다.
+4. 모든 테스트에서 보고 하는 경우 **실패**실행: `Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath “<path>” -OutputShareCredential $cred` cmdlet 테스트-azurestack의 경우에서 로그를 수집 합니다. 진단 로그에 대 한 자세한 내용은 참조 하세요. [진단 도구를 Azure Stack](azure-stack-diagnostics.md)합니다. 로그를 수집 하거나 하는 경우 Microsoft 고객 서비스 지원 (CSS)에 문의 해야 테스트에서 보고 **경고**합니다.
 5. 전송 합니다 **SeedRing** Microsoft 고객 서비스 지원에 로그 합니다. Microsoft 고객 서비스 지원 문제를 해결 하는 작동 합니다.
 
 ## <a name="reference-for-test-azurestack"></a>테스트-azurestack의 경우에 대 한 참조
