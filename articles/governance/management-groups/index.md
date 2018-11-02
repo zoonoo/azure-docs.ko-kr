@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: b5a99ff8cfc0a915b70c6d90b8aa04d020177d54
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017656"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748173"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
 
@@ -73,7 +73,7 @@ ms.locfileid: "48017656"
 
 ## <a name="trouble-seeing-all-subscriptions"></a>모든 구독 표시 관련 문제
 
-(2018년 6월 25일) 이전에 미리 보기 초기 단계의 관리 그룹을 사용하여 시작되는 몇몇 디렉터리는 모든 구독이 계층 구조에 적용되지 않은 경우에 문제가 발생할 수 있습니다.  계층 구조에 구독을 적용하는 프로세스가 디렉터리의 루트 관리 그룹에 대한 역할 또는 정책 할당이 완료된 후 구현되었기 때문입니다.
+(2018년 6월 25일) 이전에 미리 보기 초기 단계의 관리 그룹을 사용하여 시작된 몇몇 디렉터리는 모든 구독이 계층 구조에 적용되지 않은 경우에 문제가 발생할 수 있습니다.  계층 구조에 구독을 적용하는 프로세스가 디렉터리의 루트 관리 그룹에 대한 역할 또는 정책 할당이 완료된 후 구현되었기 때문입니다.
 
 ### <a name="how-to-resolve-the-issue"></a>문제 해결 방법
 

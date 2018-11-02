@@ -64,6 +64,7 @@
 
 ## 연속 통합 및 연속 배포
 ### [개요](data-lake-analytics-cicd-overview.md)
+### [어셈블리 등록](data-lake-analytics-cicd-manage-assemblies.md)
 ### [테스트 설정](data-lake-analytics-cicd-test.md)
 ### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 

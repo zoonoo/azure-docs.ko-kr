@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: f53efde38c4f37a6f92aa71d9ab7eb4976c048f4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 6581c389cb7b1aa9c6ce6b9e84b56017264822f4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365420"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232956"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Java 클라이언트 SDK를 사용하여 Azure Media Services 시작
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -55,7 +55,7 @@ Java용 Media Services SDK를 사용하려면 [Azure Media Services Java SDK](ht
 
 다음 코드에서는 자산을 만들고, 미디어 파일을 자산에 업로드하고, 자산 변환 태스크를 포함하는 작업을 실행하고, 동영상을 스트리밍하기 위해 로케이터를 만드는 방법을 보여 줍니다.
 
-이 코드를 사용하려면 먼저 Media Services 계정을 설정해야 합니다. 계정 설정에 대한 자세한 내용은 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
+이 코드를 사용하려면 먼저 Media Services 계정을 설정해야 합니다. 계정 설정에 대한 자세한 내용은 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)(영문)을 참조하세요.
 
 이 코드는 Azure AD 서비스 주체 인증을 사용하여 Azure Media Services API에 연결됩니다. Azure AD 응용 프로그램을 만들고 코드에서 다음 변수의 값을 지정합니다.
 * `tenant`: Azure AD 응용 프로그램이 있는 Azure AD 테넌트 도메인
@@ -118,7 +118,7 @@ Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값�
         // This is using the default Adaptive Streaming encoding preset. 
         // You can choose to use a custom preset, or any other sample defined preset. 
         // In addition you can use other processors, like Speech Analyzer, or Redactor if desired.
-        private static String preferedEncoder = "Media Encoder Standard";
+        private static String preferredEncoder = "Media Encoder Standard";
         private static String encodingPreset = "Adaptive Streaming";
 
         public static void main(String[] args)
@@ -216,7 +216,7 @@ Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값�
 
             // Retrieve the list of Media Processors that match the name
             ListResult<MediaProcessorInfo> mediaProcessors = mediaService
-                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferedEncoder)));
+                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferredEncoder)));
 
             // Use the latest version of the Media Processor
             MediaProcessorInfo mediaProcessor = null;
@@ -309,10 +309,10 @@ Azure AD 응용 프로그램을 만들고 Azure Portal에서 위의 구성 값�
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>추가 리소스
-Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center] 및 [Java 개발자용 Azure][Azure for Java developers]를 참조하세요.
+Azure에서 Java 응용 프로그램을 개발하는 방법에 대한 자세한 내용은 [Azure Java 개발자 센터][Azure Java Developer Center] 및 [Java 개발자용 Azure 를 참조하세요][Azure for Java developers].
 
 
-Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서][Java용 Azure 라이브러리 설명서]를 참조하세요.
+Media Services Javadoc 설명서는 [Java용 Azure 라이브러리 설명서]\(Java용 Azure 라이브러리 설명서)를 참조하세요.
 
 <!-- URLs. -->
 
