@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 3dd3e3391cc2536f56a5e42610c09c85b4068234
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 6e15fee02fd001bddd25a19b8a9420eb899d4f85
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740556"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978675"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack의 진단 도구
 
@@ -112,11 +112,11 @@ if($s)
 - 경우는 **FromDate** 하 고 **ToDate** 매개 변수는 지정 하지 않으면 로그는 기본적으로 지난 4 시간 동안 수집 됩니다.
 - 사용 된 **FilterByNode** 컴퓨터 이름으로 로그를 필터링 하려면 매개 변수입니다. 예: 
 ```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByNode azs-xrp01
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
 ```
 - 사용 된 **FilterByLogType** 매개 변수 형식으로 로그를 필터링 합니다. 파일, 공유 또는 WindowsEvent로 필터링 하도록 선택할 수 있습니다. 예: 
 ```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByLogType File
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
 ```
 - 사용할 수는 **TimeOutInMinutes** 매개 변수 로그 컬렉션에 대 한 제한 시간을 설정 합니다. 기본적으로 150 (2.5 시간)에 설정 됩니다.
 - 덤프 파일 로그 수집 1805 이상 버전에서는 기본적으로 비활성화 됩니다. 기능을 사용 하려면 사용 합니다 **IncludeDumpFile** 스위치 매개 변수입니다. 
@@ -124,30 +124,25 @@ Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -
 
  |   |   |   |    |
  | - | - | - | -  |   
- |ACS|컴퓨팅|InfraServiceController|QueryServiceCoordinator|
- |ACSBlob|CPI|인프라|QueryServiceWorker|
- |ACSDownloadService|CRP|KeyVaultAdminResourceProvider|SeedRing|
- |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
- |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
- |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
- |ACSMigrationService|도메인|KeyVaultInternalDataPlane|SQL|
- |ACSMonitoringService|ECE|KeyVaultNamingService|SRP|
- |ACSSettingsService|EventAdminRP|MDM|Storage|
- |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
- |ACSTableServer|ExternalDNS|MetricsRP|StorageController|
- |ACSWac|Fabric|MetricsServer|테넌트|
- |ADFS|FabricRing|MetricsStoreService|TraceCollector|
- |ApplicationController|FabricRingServices|MonAdminRP|URP|
- |ASAppGateway|FirstTierAggregationService|MonitoringAgent|사용 현황|
- |AzureBridge|FRP|MonRP|UsageBridge|
- |AzureMonitor|갤러리|NC|VirtualMachines|
- |AzureStackBitlocker|게이트웨이|네트워크|되었습니다.|
- |BareMetal|Healthmonitoring의|NonPrivilegedAppGateway|WASBootstrap|
- |BRP|HintingServiceV2|NRP|WASPUBLIC|
- |CA|HRP|OboService|WindowsDefender|
- |CacheService|IBC|OEM|     |
- |클라우드|IdentityProvider|OnboardRP|     |   
- |프로비전|Idn|PXE|     |
+ |ACS                   |CacheService                   |IBC                            |OEM|
+ |ACSDownloadService    |컴퓨팅                        |InfraServiceController         |OnboardRP|
+ |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
+ |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
+ |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker|
+ |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing|
+ |ACSMonitoringService  |도메인                         |KeyVaultInternalDataPlane      |SeedRingServices|
+ |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB|
+ |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL|
+ |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP   |
+ |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage|
+ |ADFS                  |FabricRing                     |MetricsServer                  |StorageController   |
+ |ApplicationController |FabricRingServices             |MetricsStoreService            |URP   |
+ |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |UsageBridge|
+ |AzureBridge           |FRP                            |MonRP                          |VirtualMachines   |
+ |AzureMonitor          |게이트웨이                        |NC                             |되었습니다.|
+ |BareMetal             |Healthmonitoring의               |NonPrivilegedAppGateway        |WASPUBLIC|
+ |BRP                   |HintingServiceV2               |NRP                            |   |
+ |CA                    |HRP                            |OboService                     |   |
  |   |   |   |    |
 
 ### <a name="additional-considerations"></a>추가 고려 사항

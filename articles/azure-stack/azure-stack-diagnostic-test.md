@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 0720edeab7577f41ddbaa67e4643f1dfe57ebac0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1726b7d1ac6a4c39e7a8dab733644d01e5f3381e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740317"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957510"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure Stack에 대 한 유효성 검사 테스트를 실행 합니다.
 
@@ -144,7 +144,7 @@ PEP 세션에서 다음을 실행 합니다.
 특정 테스트를 제외 합니다.
 
 ````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
     Test-AzureStack -Ignore AzsInfraPerformance
 ````
 
@@ -161,7 +161,7 @@ PEP 세션에서 다음을 실행 합니다.
 백업을 구성 후 실행할 수 있습니다 AzsBackupShareAccessibility 공유의 유효성을 검사 하는 실행 PEP 세션에서 ERCS에서 액세스할 수 있습니다.
 
 ````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
     Test-AzureStack -Include AzsBackupShareAccessibility
 ````
 
