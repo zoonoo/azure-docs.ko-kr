@@ -86,7 +86,18 @@
 ### [Azure 통한 SaaS 판매](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS API](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
 
-## [컨테이너](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
+
+## [컨테이너 제품](./cloud-partner-portal/containers/cpp-containers-offer.md)
+### [필수 구성 요소](./cloud-partner-portal/containers/cpp-prerequisites.md)
+### [컨테이너 제품 만들기](./cloud-partner-portal/containers/cpp-create-offer.md)
+#### [제품 설정 탭](./cloud-partner-portal/containers/cpp-offer-settings-tab.md)
+#### [SKU 탭](./cloud-partner-portal/containers/cpp-skus-tab.md)
+#### [Marketplace 탭](./cloud-partner-portal/containers/cpp-marketplace-tab.md)
+#### [지원 탭](./cloud-partner-portal/containers/cpp-support-tab.md)
+### [컨테이너 기술 자산 만들기](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
+### [컨테이너 제품 게시](./cloud-partner-portal/containers/cpp-publish-offer.md)
+### [기존 제품 업데이트](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
 
 ## [IoT Edge 모듈 제품](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [필수 구성 요소](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
