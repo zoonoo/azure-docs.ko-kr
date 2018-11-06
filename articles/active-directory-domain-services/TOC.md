@@ -2,6 +2,7 @@
 
 # 개요
 ## [Azure AD Domain Services란?](active-directory-ds-overview.md)
+## [FAQ](active-directory-ds-faqs.md)
 ## 사용자에게 적합한가요?
 ### [Windows Server AD와 비교](active-directory-ds-comparison.md)
 ### [Azure AD 조인과 비교](active-directory-ds-compare-with-azure-ad-join.md)
@@ -55,7 +56,6 @@
 ## [보안 LDAP 문제 해결](active-directory-ds-ldaps-troubleshoot.md)
 
 # 문제 해결
-## [FAQ](active-directory-ds-faqs.md)
 ## [문제 해결 가이드](active-directory-ds-troubleshooting.md)
 ## [경고 문제 해결](active-directory-ds-troubleshoot-alerts.md)
 ### [손상된 NSG 구성 수정](active-directory-ds-troubleshoot-nsg.md)
