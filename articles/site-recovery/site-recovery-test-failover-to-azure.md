@@ -1,21 +1,20 @@
 ---
-title: Azure Site Recovery에서 Azure로 테스트 장애 조치(failover) | Microsoft Docs
-description: Azure Site Recovery 서비스를 사용하여 온-프레미스에서 Azure로 테스트 장애 조치(failover)를 실행하는 방법에 대해 알아봅니다.
-services: site-recovery
+title: Azure Site Recovery를 사용하여 Azure로 재해 복구 훈련 실행 | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용하여 온-프레미스에서 Azure로 재해 복구 훈련을 실행하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 09/11/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 4c72a58cdc6082a40fe80b7a3cf8cf964199371e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 6eb1ee90b22b9e37dcae900cd80f80cb549090e9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391779"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213953"
 ---
-# <a name="test-failover-to-azure-in-site-recovery"></a>Site Recovery에서 Azure로 테스트 장애 조치(failover)
+# <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행 
 
 
 이 문서에서는 Site Recovery 테스트 장애 조치(Failover)를 사용하여 Azure에 대해 재해 복구 훈련을 실행하는 방법을 설명합니다.  

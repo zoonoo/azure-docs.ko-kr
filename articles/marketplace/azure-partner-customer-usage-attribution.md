@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365628"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157941"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -44,7 +44,7 @@ Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스
 
 GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 번만 수정하면 됩니다.
 
-1. [GUID](#create-guids)(예: eb7927c8-dd66-43e1-b0cf-c346a422063)를 만들고 [GUID를 등록](#register-guids-and-offers)합니다.
+1. 제안된 방법을 사용하여 [GUID를 만들고](#create-guids) [GUID를 등록](#register-guids-and-offers)합니다.
 
 1. Resource Manager 템플릿을 엽니다.
 
@@ -58,9 +58,26 @@ GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 
 
 1. [템플릿 배포에서 GUID 성공을 확인](#verify-the-guid-deployment)합니다.
 
-### <a name="sample-template-code"></a>샘플 템플릿 코드
+### <a name="sample-resource-manager-template-code"></a>샘플 Resource Manager 템플릿 코드
+아래 샘플 코드를 기본 템플릿 파일에 추가할 때 사용자 고유의 입력으로 수정해야 합니다.
+리소스는 **mainTemplate.json** 또는 **azuredeploy.json** 파일에만 추가해야 하며, 중첩되거나 연결된 템플릿에 있으면 안 됩니다.
+```
+// Make sure to modify this sample code with your own inputs where applicable
 
-![샘플 템플릿 코드](media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG)
+{ // add this resource to the mainTemplate.json (do not add the entire file)
+    "apiVersion": "2018-02-01",
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "resources": []
+        }
+    }
+} // remove all comments from the file when complete
+```
 
 ## <a name="use-the-resource-manager-apis"></a>Resource Manager API 사용
 
@@ -77,7 +94,7 @@ Resource Manager 템플릿을 사용하는 경우 앞에서 설명한 지침에 
 > [!Note]
 > 문자열의 형식이 중요합니다. **pid-** 접두사가 포함되지 않으면 데이터를 쿼리할 수 없습니다. SDK마다 다른 방법으로 추적합니다. 이 방법을 구현하려면 기본 설정 Azure SDK에 대한 지원 및 추적 방법을 검토하세요. 
 
-### <a name="example-the-python-sdk"></a>예제: Python SDK
+#### <a name="example-the-python-sdk"></a>예제: Python SDK
 
 Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent에만 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -104,7 +121,7 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
 ## <a name="create-guids"></a>GUID 만들기
 
-GUID는 32자리의 16진수가 있는 고유 참조 번호입니다. 추적을 위한 GUID를 만들려면 GUID 생성기를 사용해야 합니다. [Azure Storage의 GUID 생성기 양식](https://aka.ms/StoragePartners)을 활용하는 것이 좋습니다. 그러나 Azure Storage의 GUID 생성기를 사용하지 않으려는 경우 사용할 수 있는 [여러 온라인 GUID 생성기](https://www.bing.com/search?q=guid%20generator)가 있습니다.
+GUID는 32자리의 16진수가 있는 고유 참조 번호입니다. 추적을 위한 GUID를 만들려면 GUID 생성기를 사용해야 합니다. Azure Storage 팀은 [GUID 생성기 양식](https://aka.ms/StoragePartners)을 만든 후 이 양식을 통해 올바른 형식의 GUID를 이메일로 전달합니다. 이 GUID를 다른 추적 시스템에서 다시 사용할 수 있습니다. 
 
 > [!Note]
 > 그렇지만 [Azure Storage의 GUID 생성기 양식](https://aka.ms/StoragePartners)을 사용하여 GUID를 만드는 것이 좋습니다. 자세한 내용은 [FAQ](#faq)를 참조하세요.

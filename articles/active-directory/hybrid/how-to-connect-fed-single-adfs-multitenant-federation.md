@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a607591dd6b60b80c670bdd08b6f7c320aadc17f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5239788f06ed3e738d1f0b62ddcde77c2a13b5f2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301414"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241738"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
 
@@ -45,7 +45,7 @@ contoso.com의 AD FS가 fabrikam.com에서 사용자를 인증하려면 contoso.
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>2단계: contoso.com 페더레이션 설정 수정 
  
-AD FS에 페더레이션된 단일 도메인에 대해 설정되는 기본 발급자는 "http://ADFSServiceFQDN/adfs/services/trust"입니다(예: “http://fs.contoso.com/adfs/services/trust”). Azure Active Directory에는 각 페더레이션 도메인마다 고유한 발급자가 필요합니다. 동일한 AD FS에서 두 도메인을 페더레이션하므로 Azure Active Directory와 페더레이션하는 각 도메인 AD FS에 대해 고유하도록 발급자 값을 수정해야 합니다. 
+AD FS에 페더레이션된 단일 도메인에 대해 설정되는 기본 발급자는 "http://ADFSServiceFQDN/adfs/services/trust"입니다(예: "http://fs.contoso.com/adfs/services/trust"). Azure Active Directory에는 각 페더레이션 도메인마다 고유한 발급자가 필요합니다. 동일한 AD FS에서 두 도메인을 페더레이션하므로 Azure Active Directory와 페더레이션하는 각 도메인 AD FS에 대해 고유하도록 발급자 값을 수정해야 합니다. 
  
 AD FS 서버에서 Azure AD PowerShell을 열고 다음 단계를 수행합니다.
  

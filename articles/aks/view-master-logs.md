@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 10/25/2018
 ms.author: iainfou
-ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c3256b2b1e8be0e883d0f7b47e66ab1fee95b042
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406044"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138172"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토
 
@@ -42,7 +42,7 @@ Log Analytics는 Azure Portal에서 사용하도록 설정되고 관리됩니다
 ![AKS 클러스터의 Log Analytics에 대한 Log Analytics 작업 영역을 사용하도록 설정](media/view-master-logs/enable-oms-log-analytics.png)
 
 >[!NOTE]
->OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다. 
+>OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>AKS 클러스터의 테스트 Pod 예약
 
@@ -82,7 +82,7 @@ pod/nginx created
 
 ![AKS 클러스터의 Log Analytics 작업 영역 선택](media/view-master-logs/select-log-analytics-workspace.png)
 
-왼쪽에서 **로그 검색**을 선택합니다. *kube-apiserver*를 보려면 텍스트 상자에 다음 쿼리를 입력합니다.
+왼쪽에서 **로그**를 선택합니다. *kube-apiserver*를 보려면 텍스트 상자에 다음 쿼리를 입력합니다.
 
 ```
 AzureDiagnostics

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946940"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416888"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>자습서: IoT Hub로 메시지 라우팅 구성
 
@@ -268,7 +268,9 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 ### <a name="routing-to-a-storage-account"></a>저장소 계정으로 라우팅 
 
-이제 저장소 계정에 대한 라우팅을 설정합니다. 메시지 라우팅 창으로 이동한 다음, 경로를 추가합니다. 경로를 추가할 때 경로에 대한 새 엔드포인트를 정의합니다. 이렇게 설정되면 **수준** 속성이 **저장소**로 설정된 메시지가 저장소 계정에 자동으로 작성됩니다.
+이제 저장소 계정에 대한 라우팅을 설정합니다. 메시지 라우팅 창으로 이동한 다음, 경로를 추가합니다. 경로를 추가할 때 경로에 대한 새 엔드포인트를 정의합니다. 이렇게 설정되면 **수준** 속성이 **저장소**로 설정된 메시지가 저장소 계정에 자동으로 작성됩니다. 
+
+데이터가 Blob 저장소에 Avro 형식으로 기록됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 클릭한 다음, 사용자의 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 
 
@@ -286,9 +288,19 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 6. **컨테이너 선택** 클릭합니다. 이렇게 하면 저장소 계정 목록으로 이동합니다. 준비 단계에서 설정한 계정을 선택합니다. 이 자습서에서는 **contosostorage**를 사용합니다. 해당 저장소 계정의 컨테이너 목록을 보여줍니다. 준비 단계에서 설정한 컨테이너를 선택합니다. 이 자습서에서는 **contosoresults**를 사용합니다. **선택**을 클릭합니다. **엔드포인트 추가** 창으로 돌아갑니다. 
 
-7. 나머지 필드는 기본값을 사용합니다. **만들기**를 클릭하여 저장소 엔드포인트를 만들고 경로에 추가합니다. **경로 추가** 창으로 돌아갑니다.
+7. 이 자습서의 목적을 위해, 나머지 필드에는 기본값을 사용합니다. 
 
-8.  이제 나머지 라우팅 쿼리 정보를 입력합니다. 이 쿼리는 엔드포인트로 추가한 저장소 컨테이너에 메시지를 보내기 위한 조건을 지정합니다. 화면에 나온 필드를 채웁니다. 
+   > [!NOTE]
+   > **Blob 파일 이름 형식**을 사용하여 Blob 이름 형식을 설정할 수 있습니다. 기본값은 `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`입니다. 형식에 {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH} 및 {mm}이 포함되어야 하며, 순서는 관계 없습니다. 
+   > 
+   > 예를 들어 기본 Blob 파일 이름 형식을 사용하고 허브 이름이 ContosoTestHub, 날짜/시간이 2018년 10월 30일 오전 10시 56분인 경우 Blob 이름은 `ContosoTestHub/0/2018/10/30/10/56`과 비슷합니다.
+   > 
+   > Blob은 Avro 형식으로 기록됩니다.
+   >
+
+8. **만들기**를 클릭하여 저장소 엔드포인트를 만들고 경로에 추가합니다. **경로 추가** 창으로 돌아갑니다.
+
+9. 이제 나머지 라우팅 쿼리 정보를 입력합니다. 이 쿼리는 엔드포인트로 추가한 저장소 컨테이너에 메시지를 보내기 위한 조건을 지정합니다. 화면에 나온 필드를 채웁니다. 
 
    **이름**: 라우팅 쿼리에 사용할 이름을 입력합니다. 이 자습서에서는 **StorageRoute**를 사용합니다.
 
@@ -368,17 +380,17 @@ Service Bus 큐는 중요한 것으로 지정된 메시지를 받는 데 사용�
 
    **만들기**를 클릭합니다.
 
-1. 이제 Logic App으로 이동합니다. Logic App을 가져오는 가장 쉬운 방법은 **리소스 그룹**을 클릭하고, 사용자의 리소스 그룹을 선택(이 자습서에서는 **ContosoResources** 사용)한 다음, 리소스의 목록에서 Logic App을 선택합니다. Logic Apps 디자이너 페이지가 표시됩니다(전체 페이지를 표시하려면 오른쪽으로 스크롤해야 함). Logic Apps 디자이너 페이지에서 **빈 Logic App +** 이라는 타일이 표시될 때까지 아래로 스크롤한 후 클릭합니다. 
+2. 이제 Logic App으로 이동합니다. Logic App을 가져오는 가장 쉬운 방법은 **리소스 그룹**을 클릭하고, 사용자의 리소스 그룹을 선택(이 자습서에서는 **ContosoResources** 사용)한 다음, 리소스의 목록에서 Logic App을 선택합니다. Logic Apps 디자이너 페이지가 표시됩니다(전체 페이지를 표시하려면 오른쪽으로 스크롤해야 함). Logic Apps 디자이너 페이지에서 **빈 Logic App +** 이라는 타일이 표시될 때까지 아래로 스크롤한 후 클릭합니다. 
 
-1. 커넥터의 목록이 표시됩니다. **Service Bus**를 선택합니다. 
+3. 커넥터의 목록이 표시됩니다. **Service Bus**를 선택합니다. 
 
    ![커넥터의 목록을 보여주는 스크린샷.](./media/tutorial-routing/logic-app-connectors.png)
 
-1. 트리거의 목록이 표시됩니다. **Service Bus - 큐에 메시지가 수신될 때**(자동 완성)를 선택합니다. 
+4. 트리거의 목록이 표시됩니다. **Service Bus - 큐에 메시지가 수신될 때**(자동 완성)를 선택합니다. 
 
    ![Service Bus에 대한 트리거의 목록을 보여주는 스크린샷.](./media/tutorial-routing/logic-app-triggers.png)
 
-1. 다음 화면에서 연결 이름을 입력합니다. 이 자습서에서는 **ContosoConnection**을 사용합니다. 
+5. 다음 화면에서 연결 이름을 입력합니다. 이 자습서에서는 **ContosoConnection**을 사용합니다. 
 
    ![Service Bus 큐에 대한 연결 설정을 보여주는 스크린샷.](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -386,21 +398,21 @@ Service Bus 큐는 중요한 것으로 지정된 메시지를 받는 데 사용�
    
    ![연결 설정을 마치는 중인 스크린샷.](./media/tutorial-routing/logic-app-finish-connection.png)
 
-1. 다음 화면에서 큐의 이름을 드롭다운 목록에서 선택합니다(이 자습서에서는 **contososbqueue** 사용). 필드의 나머지 부분에 기본값을 사용할 수 있습니다. 
+6. 다음 화면에서 큐의 이름을 드롭다운 목록에서 선택합니다(이 자습서에서는 **contososbqueue** 사용). 필드의 나머지 부분에 기본값을 사용할 수 있습니다. 
 
    ![큐 옵션을 보여주는 스크린샷.](./media/tutorial-routing/logic-app-queue-options.png)
 
-1. 이제 메시지가 큐에 수신되면 이메일을 보내는 동작을 설정합니다. Logic Apps 디자이너에서 **+새 단계**를 클릭하여 단계를 추가한 다음, **작업 추가**를 클릭합니다. **동작 선택** 창에서 **Office 365 Outlook**을 찾아 클릭합니다. 트리거 화면에서 **Office 365 Outlook - 이메일 보내기**를 선택합니다.  
+7. 이제 메시지가 큐에 수신되면 이메일을 보내는 동작을 설정합니다. Logic Apps 디자이너에서 **+새 단계**를 클릭하여 단계를 추가한 다음, **작업 추가**를 클릭합니다. **동작 선택** 창에서 **Office 365 Outlook**을 찾아 클릭합니다. 트리거 화면에서 **Office 365 Outlook - 이메일 보내기**를 선택합니다.  
 
    ![Office365 옵션을 보여주는 스크린샷.](./media/tutorial-routing/logic-app-select-outlook.png)
 
-1. 다음으로 연결을 설정할 Office 365 계정에 로그인합니다. 이메일을 받는 사람에 대한 이메일 주소를 지정합니다. 또한 제목을 지정하고 본문에 받는 사람이 확인할 메시지를 입력합니다. 테스트를 위해 받는 사람으로 사용자의 이메일 주소를 입력합니다.
+8. 다음으로 연결을 설정할 Office 365 계정에 로그인합니다. 이메일을 받는 사람에 대한 이메일 주소를 지정합니다. 또한 제목을 지정하고 본문에 받는 사람이 확인할 메시지를 입력합니다. 테스트를 위해 받는 사람으로 사용자의 이메일 주소를 입력합니다.
 
    사용자가 포함시킬 수 있는 메시지의 콘텐츠를 표시하려면 **동적 콘텐츠 추가**를 클릭합니다. **콘텐츠**를 선택합니다. 이메일에 메시지가 포함됩니다. 
 
    ![논리 앱에 대한 이메일 옵션을 보여주는 스크린샷.](./media/tutorial-routing/logic-app-send-email.png)
 
-1. **저장**을 클릭합니다. 그런 다음, Logic Apps 디자이너를 닫습니다.
+9. **저장**을 클릭합니다. 그런 다음, Logic Apps 디자이너를 닫습니다.
 
 ## <a name="set-up-azure-stream-analytics"></a>Azure Stream Analytics 설정
 
@@ -410,7 +422,7 @@ Power BI 시각화에서 데이터를 보려면 먼저 데이터를 검색하는
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **사물 인터넷** > **Stream Analytics 작업**을 차례로 클릭합니다.
 
-1. 작업에 대한 다음 정보를 입력합니다.
+2. 작업에 대한 다음 정보를 입력합니다.
 
    **작업 이름**: 작업의 이름입니다. 이름은 전역적으로 고유해야 합니다. 이 자습서에서는 **contosoJob**을 사용합니다.
 
@@ -420,13 +432,13 @@ Power BI 시각화에서 데이터를 보려면 먼저 데이터를 검색하는
 
    ![스트림 분석 작업을 만드는 방법을 보여주는 스크린샷.](./media/tutorial-routing/stream-analytics-create-job.png)
 
-1. **만들기**를 클릭하여 작업을 만듭니다. 작업으로 돌아가려면 **리소스 그룹**을 클릭합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 리소스 그룹을 선택한 후 리소스 목록에 있는 Stream Analytics 작업을 클릭합니다. 
+3. **만들기**를 클릭하여 작업을 만듭니다. 작업으로 돌아가려면 **리소스 그룹**을 클릭합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 리소스 그룹을 선택한 후 리소스 목록에 있는 Stream Analytics 작업을 클릭합니다. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Stream Analytics 작업에 입력 추가
 
-1. **작업 토폴로지**에서 **입력**을 클릭합니다.
+4. **작업 토폴로지**에서 **입력**을 클릭합니다.
 
-1. **입력** 창에서 **스트림 입력 추가**를 클릭하고 IoT Hub를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
+5. **입력** 창에서 **스트림 입력 추가**를 클릭하고 IoT Hub를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
 
    **입력 별칭**: 이 자습서에서는 **contosoinputs**를 사용합니다.
 
@@ -444,13 +456,13 @@ Power BI 시각화에서 데이터를 보려면 먼저 데이터를 검색하는
 
    ![스트림 분석 작업을 위해 입력을 설정하는 방법을 보여주는 스크린샷.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-1. **저장**을 클릭합니다.
+6. **저장**을 클릭합니다.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics 작업에 출력 추가
 
 1. **작업 토폴로지**에서 **출력**을 클릭합니다.
 
-1. **출력** 창에서 **추가**를 클릭한 다음, **Power BI**를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
+2. **출력** 창에서 **추가**를 클릭한 다음, **Power BI**를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
 
    **출력 별칭**: 출력에 대한 고유 별칭입니다. 이 자습서에서는 **contosooutputs**를 사용합니다. 
 
@@ -460,25 +472,25 @@ Power BI 시각화에서 데이터를 보려면 먼저 데이터를 검색하는
 
    나머지 필드는 기본값을 그대로 사용합니다.
 
-1. **권한 부여**를 클릭하고 사용자의 Power BI 계정에 로그인합니다.
+3. **권한 부여**를 클릭하고 사용자의 Power BI 계정에 로그인합니다.
 
    ![스트림 분석 작업을 위해 출력을 설정하는 방법을 보여주는 스크린샷.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-1. **저장**을 클릭합니다.
+4. **저장**을 클릭합니다.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics 작업의 쿼리 구성
 
 1. **작업 토폴로지**에서 **쿼리**를 클릭합니다.
 
-1. `[YourInputAlias]`를 작업의 입력 별칭으로 바꿉니다. 이 자습서에서는 **contosoinputs**를 사용합니다.
+2. `[YourInputAlias]`를 작업의 입력 별칭으로 바꿉니다. 이 자습서에서는 **contosoinputs**를 사용합니다.
 
-1. `[YourOutputAlias]`를 작업의 출력 별칭으로 바꿉니다. 이 자습서에서는 **contosooutputs**를 사용합니다.
+3. `[YourOutputAlias]`를 작업의 출력 별칭으로 바꿉니다. 이 자습서에서는 **contosooutputs**를 사용합니다.
 
    ![스트림 분석 작업을 위해 쿼리를 설정하는 방법을 보여주는 스크린샷.](./media/tutorial-routing/stream-analytics-job-query.png)
 
-1. **저장**을 클릭합니다.
+4. **저장**을 클릭합니다.
 
-1. 쿼리 창을 닫습니다. 그러면 리소스 그룹의 리소스 보기로 돌아갑니다. Stream Analytics 작업을 클릭합니다. 이 자습서에서는 이를 **contosoJob**이라고 합니다.
+5. 쿼리 창을 닫습니다. 그러면 리소스 그룹의 리소스 보기로 돌아갑니다. Stream Analytics 작업을 클릭합니다. 이 자습서에서는 이를 **contosoJob**이라고 합니다.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
@@ -520,7 +532,7 @@ Power BI 보고서를 설정하려면 장치를 만들고 장치 시뮬레이션
    * Service Bus 큐의 메시지를 검색하는 Logic App이 제대로 작동합니다.
    * Outlook에 대한 Logic App 커넥터가 제대로 작동합니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 클릭하고 사용자의 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 저장소 계정을 선택하고 **Blob**을 클릭한 다음, 컨테이너를 선택합니다. 이 자습서에서는 **contosoresults**를 사용합니다. 폴더를 확인하고 하나 이상의 파일이 표시될 때까지 디렉터리를 드릴다운할 수 있습니다. 이러한 파일 중 하나를 열면 저장소 계정으로 라우팅된 항목이 포함되어 있습니다. 
+2. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 클릭하고 사용자의 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 저장소 계정을 선택하고 **Blob**을 클릭한 다음, 컨테이너를 선택합니다. 이 자습서에서는 **contosoresults**를 사용합니다. 폴더를 확인하고 하나 이상의 파일이 표시될 때까지 디렉터리를 드릴다운할 수 있습니다. 이러한 파일 중 하나를 열면 저장소 계정으로 라우팅된 항목이 포함되어 있습니다. 
 
    ![저장소의 결과 파일을 보여주는 스크린샷.](./media/tutorial-routing/results-in-storage.png)
 
@@ -534,35 +546,35 @@ Power BI 보고서를 설정하려면 장치를 만들고 장치 시뮬레이션
 
 1. [Power BI](https://powerbi.microsoft.com/) 계정에 로그인합니다.
 
-1. **작업 영역**으로 이동하고 Stream Analytics 작업에 대한 출력을 만들 때 설정한 작업 영역을 선택합니다. 이 자습서에서는 **My Workspace**를 사용합니다. 
+2. **작업 영역**으로 이동하고 Stream Analytics 작업에 대한 출력을 만들 때 설정한 작업 영역을 선택합니다. 이 자습서에서는 **My Workspace**를 사용합니다. 
 
-1. **데이터 집합**을 클릭합니다.
+3. **데이터 집합**을 클릭합니다.
 
    Stream Analytics 작업에 대한 출력을 만들 때 지정한 나열된 데이터 집합이 표시됩니다. 이 자습서에서는 **contosodataset**을 사용합니다. (데이터 집합을 처음 표시할 때는 5-10분이 걸릴 수 있습니다.)
 
-1. **작업**에서 첫 번째 아이콘을 클릭하여 보고서를 만듭니다.
+4. **작업**에서 첫 번째 아이콘을 클릭하여 보고서를 만듭니다.
 
    ![강조 표시된 작업 및 보고서 아이콘이 있는 Power BI 작업 영역을 보여주는 스크린샷.](./media/tutorial-routing/power-bi-actions.png)
 
-1. 시간이 지남에 따라 실시간 온도를 표시하는 꺾은선형 차트를 만듭니다.
+5. 시간이 지남에 따라 실시간 온도를 표시하는 꺾은선형 차트를 만듭니다.
 
-   a. 보고서 만들기 페이지에서 꺾은선형 차트를 클릭하여 꺾은선형 차트를 추가합니다.
+   * 보고서 만들기 페이지에서 꺾은선형 차트를 클릭하여 꺾은선형 차트를 추가합니다.
 
    ![시각화 및 필드를 보여주는 스크린샷.](./media/tutorial-routing/power-bi-visualizations-and-fields.png)
 
-   b. **필드** 창에서 Stream Analytics 작업의 출력을 만들 때 지정한 테이블을 확장합니다. 이 자습서에서는 **contosotable**을 사용합니다.
+   * **필드** 창에서 Stream Analytics 작업의 출력을 만들 때 지정한 테이블을 확장합니다. 이 자습서에서는 **contosotable**을 사용합니다.
 
-   다. **시각화** 창에서 **EventEnqueuedUtcTime**을 **축**으로 끌어갑니다.
+   * **시각화** 창에서 **EventEnqueuedUtcTime**을 **축**으로 끌어갑니다.
 
-   d. **온도**를 **값**으로 끌어갑니다.
+   * **온도**를 **값**으로 끌어갑니다.
 
    꺾은선형 차트가 만들어집니다. x축은 UTC 표준 시간대의 날짜와 시간을 표시하고, y축은 센서의 온도를 표시합니다.
 
-1. 시간이 지남에 따라 실시간 습도를 표시하는 꺾은선형 차트를 만듭니다. 두 번째 차트를 설정하려면 위와 동일한 단계를 수행하고 **EventEnqueuedUtcTime**을 x축에, **습도**를 y축에 배치합니다.
+6. 시간이 지남에 따라 실시간 습도를 표시하는 꺾은선형 차트를 만듭니다. 두 번째 차트를 설정하려면 위와 동일한 단계를 수행하고 **EventEnqueuedUtcTime**을 x축에, **습도**를 y축에 배치합니다.
 
    ![두 개의 차트가 있는 최종 Power BI 보고서를 보여주는 스크린샷.](./media/tutorial-routing/power-bi-report.png)
 
-1. **저장**을 클릭하여 보고서를 저장합니다.
+7. **저장**을 클릭하여 보고서를 저장합니다.
 
 두 차트 모두에서 데이터를 볼 수 있습니다. 이는 다음을 의미합니다.
 
@@ -595,7 +607,6 @@ az group delete --name $resourceGroup
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음 작업을 수행하여 여러 대상에 IoT Hub 메시지를 라우팅하는 메시지 라우팅을 사용하는 방법을 배웠습니다.  
@@ -615,5 +626,3 @@ IoT 장치의 상태를 관리하는 방법에 대해 알아보려면 다음 자
 
 > [!div class="nextstepaction"]
 [백 엔드 서비스에서 장치 구성](tutorial-device-twins.md)
-
- <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

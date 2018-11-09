@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 30a1f2be1917ba6ea404a2862daaf5f51f35ac3f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394887"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215483"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>모델을 교육하기 위한 계산 대상의 선택 및 사용
 
@@ -36,8 +36,13 @@ Azure Machine Learning 서비스에서 지원하는 계산 대상은 다음과 �
 |----|:----:|:----:|:----:|:----:|
 |[로컬 컴퓨터](#local)| 가능할 수도 있음 | &nbsp; | ✓ | &nbsp; |
 |[DSVM(Data Science Virtual Machine)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure 데이터 레이크 분석](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+> [!IMPORTANT]
+> <a id="pipeline-only"></a>* Azure Databricks 및 Azure Data Lake Analytics는 파이프라인에서__만__ 사용할 수 있습니다. 파이프라인에 대한 자세한 내용은 [Azure Machine Learning의 파이프라인](concept-ml-pipelines.md) 문서를 참조하세요.
 
 __[ACI(Azure Container Instances)](#aci)__ 를 사용하여 모델을 교육할 수도 있습니다. 비용이 저렴하고 쉽게 만들어서 사용할 수 있는 서버리스 클라우드 제품입니다. ACI는 GPU 가속, 자동화된 하이퍼 매개 변수 튜닝 또는 자동화된 모델 선택을 지원하지 않습니다. 또한 파이프라인에 사용할 수 없습니다.
 
@@ -52,7 +57,7 @@ Azure Machine Learning SDK, Azure CLI 또는 Azure Portal을 사용하여 계산
 > [!IMPORTANT]
 > 기존 Azure 컨테이너 인스턴스는 작업 영역에 연결할 수 없습니다. 그 대신 새 인스턴스를 만들어야 합니다.
 >
-> 작업 영역 내에 Azure HDInsight 클러스터를 만들 수 없습니다. 그 대신 기존 클러스터를 연결해야 합니다.
+> 작업 영역 내에서 Azure HDInsight, Azure Databricks 또는 Azure Data Lake Store를 만들 수 없습니다. 대신 리소스를 만든 후 작업 영역에 연결해야 합니다.
 
 ## <a name="workflow"></a>워크플로
 
@@ -178,6 +183,7 @@ run_config_system_managed.environment.python.conda_dependencies = CondaDependenc
     run_config.environment.docker.enabled = True
 
     # Use CPU base image
+    # If you want to use GPU in DSVM, you must also use GPU base Docker image azureml.core.runconfig.DEFAULT_GPU_IMAGE
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
@@ -295,7 +301,6 @@ run_config.environment.docker.enabled = True
 
 # set Docker base image to the default CPU-based image
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-#run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
 
 # use conda_dependencies.yml to create a conda environment in the Docker image
 run_config.environment.python.user_managed_dependencies = False
@@ -310,6 +315,106 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ACI 계산 대상을 만드는 데 몇 초에서 몇 분까지 걸릴 수 있습니다.
 
 Azure Container Instances에서 학습을 보여주는 Jupyter Notebook은 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb)을 참조하세요.
+
+## <a id="databricks"></a>Azure Databricks
+
+Azure Databricks는 Azure 클라우드의 Apache Spark 기반 환경입니다. 이 환경은 Azure Machine Learning 파이프라인을 사용하여 모델을 학습할 때 계산 대상으로 사용할 수 있습니다.
+
+> [!IMPORTANT]
+> Azure Databricks 계산 대상은 Machine Learning 파이프라인에서만 사용할 수 있습니다.
+>
+> 모델 학습에 사용하려면 먼저 Azure Databricks 작업 영역을 만들어야 합니다. 이러한 리소스를 만들려면 [Azure Databricks에서 Spark 작업 실행](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 문서를 참조하세요.
+
+Azure Databricks를 계산 대상으로 연결하려면 Azure Machine Learning SDK를 사용하고 다음 정보를 제공해야 합니다.
+
+* __계산 이름__: 이 계산 리소스에 할당하려는 이름입니다.
+* __리소스 ID__: Azure Databricks 작업 영역의 리소스 ID입니다. 다음 텍스트는 이 값의 형식 예제입니다.
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
+    ```
+
+    > [!TIP]
+    > 리소스 ID를 가져오려면 다음 Azure CLI 명령을 사용합니다. `<databricks-ws>`를 Databricks 작업 영역의 이름으로 바꿉니다.
+    > ```azurecli-interactive
+    > az resource list --name <databricks-ws> --query [].id
+    > ```
+
+* __액세스 토큰__: Azure Databricks에서 인증을 받는 데 사용하는 액세스 토큰입니다. 액세스 토큰을 생성하려면 [인증](https://docs.azuredatabricks.net/api/latest/authentication.html) 문서를 참조하세요.
+
+다음 코드는 계산 대상으로 Azure Databricks에 연결하는 방법을 보여 줍니다.
+
+```python
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_access_token {}'.format(databricks_access_token))
+    databricks_compute = DatabricksCompute.attach(
+             workspace=ws,
+             name=databricks_compute_name,
+             resource_id=databricks_resource_id,
+             access_token=databricks_access_token
+         )
+    
+    databricks_compute.wait_for_completion(True)
+```
+
+## <a id="adla"></a>Azure Data Lake Analytics
+
+Azure Data Lake Analytics는 Azure 클라우드의 빅 데이터 분석 플랫폼입니다. 이 환경은 Azure Machine Learning 파이프라인을 사용하여 모델을 학습할 때 계산 대상으로 사용할 수 있습니다.
+
+> [!IMPORTANT]
+> Azure Data Lake Analytics 계산 대상은 Machine Learning 파이프라인에서만 사용할 수 있습니다.
+>
+> 모델 학습에 사용하려면 먼저 Azure Data Lake Analytics 계정을 만들어야 합니다. 이 리소스를 만들려면 [Azure Data Lake Analytics 시작](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) 문서를 참조하세요.
+
+Data Lake Analytics를 계산 대상으로 연결하려면 Azure Machine Learning SDK를 사용하고 다음 정보를 제공해야 합니다.
+
+* __계산 이름__: 이 계산 리소스에 할당하려는 이름입니다.
+* __리소스 ID__: Data Lake Analytics 계정의 리소스 ID입니다. 다음 텍스트는 이 값의 형식 예제입니다.
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
+    ```
+
+    > [!TIP]
+    > 리소스 ID를 가져오려면 다음 Azure CLI 명령을 사용합니다. `<datalakeanalytics>`를 Data Lake Analytics 계정 이름으로 바꿉니다.
+    > ```azurecli-interactive
+    > az resource list --name <datalakeanalytics> --query [].id
+    > ```
+
+다음 코드는 계산 대상으로 Data Lake Analytics에 연결하는 방법을 보여 줍니다.
+
+```python
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_id))
+    adla_compute = AdlaCompute.attach(
+             workspace=ws,
+             name=adla_compute_name,
+             resource_id=adla_resource_id
+         )
+    
+    adla_compute.wait_for_completion(True)
+```
+
+> [!TIP]
+> Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 사용해야 하는 데이터가 기본이 아닌 저장소에 있으면 학습 전에 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py)을 사용하여 데이터를 복사할 수 있습니다.
 
 ## <a id="hdinsight"></a>HDInsight 클러스터 연결 
 
@@ -351,8 +456,19 @@ run_config.auto_prepare_environment = True
 ```
 
 ## <a name="submit-training-run"></a>교육 실행 제출
-    
-교육 실행을 제출하는 코드는 계산 대상에 관계 없이 동일합니다.
+
+학습 실행을 제출하는 두 가지 방법은 다음과 같습니다.
+
+* `ScriptRunConfig` 개체 제출
+* `Pipeline` 개체 제출
+
+> [!IMPORTANT]
+> Azure Databricks, Azure Datalake Analytics 및 Azure HDInsight 계산 대상은 파이프라인에서만 사용할 수 있습니다.
+> 로컬 계산 대상은 파이프라인에서 사용할 수 없습니다.
+
+### <a name="submit-using-scriptrunconfig"></a>`ScriptRunConfig`를 사용하여 제출
+
+`ScriptRunConfig`를 사용하여 학습 실행을 제출하기 위한 코드 패턴은 계산 대상에 관계 없이 동일합니다.
 
 * 계산 대상에 대한 실행 구성을 사용하여 `ScriptRunConfig` 개체를 만듭니다.
 * 실행을 제출합니다.
@@ -360,13 +476,46 @@ run_config.auto_prepare_environment = True
 
 다음 예제에서는 이 문서의 앞부분에서 만든 시스템 관리 로컬 계산 대상을 위한 구성을 사용합니다.
 
-```pyghon
+```python
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
 HDInsight의 Spark를 사용한 학습을 보여주는 Jupyter Notebook은 [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb)을 참조하세요.
+
+### <a name="submit-using-a-pipeline"></a>파이프라인을 사용하여 제출
+
+파이프라인을 사용하여 학습 실행을 제출하기 위한 코드 패턴은 계산 대상에 관계 없이 동일합니다.
+
+* 계산 리소스에 대한 파이프라인에 단계를 추가합니다.
+* 파이프라인을 사용하여 실행을 제출합니다.
+* 실행이 완료될 때까지 기다립니다.
+
+다음 예제에서는 이 문서의 앞부분에서 만든 Azure Databricks 계산 대상을 사용합니다.
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# list of steps to run
+steps = [dbStep]
+pipeline = Pipeline(workspace=ws, steps=steps)
+pipeline_run = Experiment(ws, 'Demo_experiment').submit(pipeline)
+pipeline_run.wait_for_completion()
+```
+
+Machine Learning 파이프라인에 대한 자세한 내용은 [파이프라인 및 Azure Machine Learning](concept-ml-pipelines.md) 문서를 참조하세요.
+
+파이프라인을 사용한 학습을 보여 주는 예제 Jupyter 노트를 보려면 [https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline)을 참조하세요.
 
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Azure Portal을 사용하여 계산을 살펴보고 설정
 
@@ -387,11 +536,18 @@ Azure Portal에서 작업 영역과 연결된 계산 대상을 살펴볼 수 있
 
 1. 계산 대상의 이름을 입력합니다.
 1. __교육__용으로 연결할 계산 유형을 선택합니다. 
+
+    > [!IMPORTANT]
+    > 모든 계산 유형을 Azure Portal에서 만들 수 있는 것은 아닙니다. 현재, 학습을 위해 만들 수 있는 유형은 다음과 같습니다.
+    > 
+    > * Virtual Machine
+    > * Batch AI
+
 1. __새로 만들기__를 선택하고 필수 양식을 작성합니다. 
 1. __만들기__
 1. 목록에서 계산 대상을 선택하여 만들기 작업의 상태를 볼 수 있습니다.
 
-    ![계산 목록 보기](./media/how-to-set-up-training-targets/View_list.png) 그 후 해당 계산의 세부 정보가 표시됩니다.
+    ![계산 목록 보기](./media/how-to-set-up-training-targets/View_list.png) 계산 대상의 세부 정보가 표시됩니다.
     ![세부 정보 보기](./media/how-to-set-up-training-targets/vm_view.PNG)
 1. 이제 위에서 설명한 것처럼 이러한 대상에 대한 실행을 제출할 수 있습니다.
 
@@ -401,8 +557,16 @@ Azure Portal에서 작업 영역과 연결된 계산 대상을 살펴볼 수 있
 
 1. **+** 기호를 클릭하여 계산 대상을 추가합니다.
 2. 계산 대상의 이름을 입력합니다.
-3. 교육용으로 연결할 계산 유형을 선택합니다. Batch AI 및 Virtual Machines는 현재 포털에서 교육용으로 지원됩니다.
-4. '기존 항목 사용'을 선택합니다.
+3. 교육용으로 연결할 계산 유형을 선택합니다.
+
+    > [!IMPORTANT]
+    > 모든 계산 유형을 포털에서 연결할 수 있는 것은 아닙니다.
+    > 현재, 학습을 위해 연결할 수 있는 유형은 다음과 같습니다.
+    > 
+    > * Virtual Machine
+    > * Batch AI
+
+1. '기존 항목 사용'을 선택합니다.
     - Batch AI 클러스터를 연결할 때 드롭다운에서 계산 대상을 선택하고, Batch AI 작업 영역 및 Batch AI 클러스터를 선택하고, **만들기**를 클릭합니다.
     - Virtual Machine을 연결할 때 IP 주소, 사용자 이름/암호 조합, 개인/공개 키 및 포트를 입력하고 [만들기]를 클릭합니다.
 
@@ -412,7 +576,7 @@ Azure Portal에서 작업 영역과 연결된 계산 대상을 살펴볼 수 있
     > * [Linux 또는 macOS에서 SSH 키를 만들고 사용]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Windows에서 SSH 키를 만들고 사용]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. 계산 목록에서 계산 대상을 선택하여 프로비전 상태를 볼 수 있습니다.
+5. 목록에서 계산 대상을 선택하여 프로비전 상태를 볼 수 있습니다.
 6. 이제 이러한 대상에 대한 실행을 제출할 수 있습니다.
 
 ## <a name="examples"></a>예

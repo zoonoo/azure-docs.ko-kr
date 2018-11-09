@@ -1,20 +1,18 @@
 ---
-title: 복제(VMware에서 Azure로)를 활성화하는 동안 모바일 서비스 푸시 설치 실패 문제 해결 | Microsoft Docs
-description: Azure 가상 머신을 복제하는 경우 모바일 서비스/푸시 설치 오류 문제를 해결합니다.
-services: site-recovery
+title: 재해 복구에 대한 복제를 사용하도록 설정할 때 Mobility Service 푸시 설치 오류 문제 해결 | Microsoft Docs
+description: 재해 복구에 대한 복제를 사용하도록 설정할 때 Mobility Service 설치 오류 문제 해결
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.author: ramamill
-ms.date: 09/19/2018
-ms.openlocfilehash: 4c57d048f4c3222ac180355a6a700562415f601c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/29/2018
+ms.openlocfilehash: c12683fee7022b84e097c2b71628776271611429
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390196"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210995"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 

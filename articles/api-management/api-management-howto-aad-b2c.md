@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: a6e7aad6c3d20a67ecba66c49be4efcdebdf718a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fbba1d9b4bdf1536ed596e9a78e53116fe824027
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153424"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232922"
 ---
 > [!WARNING]
 > Azure Active Directory B2C 통합은 [개발자, 표준 및 프리미엄](https://azure.microsoft.com/pricing/details/api-management/) 계층에서만 사용 가능합니다.
@@ -32,22 +32,22 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 
 ## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 개발자 계정에 권한 부여
 
-1. 시작하려면 Azure Portal에서 API Management 서비스에 대한 **게시자 포털**을 클릭합니다. API Management 게시자 포털로 이동됩니다.
-
-   ![게시자 포털][api-management-management-console]
+1. 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인하고 API Management 인스턴스를 찾습니다.
 
    > [!NOTE]
    > 아직 API Management 서비스 인스턴스를 만들지 않은 경우 [Azure API Management 시작 자습서][Get started with Azure API Management]의 [API Management 서비스 인스턴스 만들기][Create an API Management service instance]를 참조하세요.
 
-2. **API Management** 메뉴에서 **보안**을 클릭합니다. **ID** 탭에서 **Azure Active Directory B2C**를 선택합니다.
+2. **보안** 아래에서 **ID**를 선택합니다. 위쪽에서 **+추가**를 클릭합니다.
 
-  ![외부 ID 1][api-management-howto-aad-b2c-security-tab]
+   **ID 공급자 추가** 창이 오른쪽에 나타납니다. **Azure Active Directory B2C**를 선택합니다.
+    
+   ![AAD B2C를 ID 공급자로 추가][api-management-howto-add-b2c-identity-provider]
 
-3. **리디렉션 URL**을 기록해 두고 Azure Portal에서 Azure Active Directory B2C로 전환합니다.
+3. **리디렉션 URL**을 복사합니다.
 
-  ![외부 ID 2][api-management-howto-aad-b2c-security-tab-reply-url]
+  ![AAD B2C ID 공급자 리디렉션 URL][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
-4. **응용 프로그램** 단추를 클릭합니다.
+4. 새 탭에서 Azure Portal의 Azure Active Directory B2C 테넌트에 액세스하고 **응용 프로그램** 블레이드를 엽니다.
 
   ![새 응용 프로그램 1 등록][api-management-howto-aad-b2c-portal-menu]
 
@@ -55,7 +55,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 
   ![새 응용 프로그램 2 등록][api-management-howto-aad-b2c-add-button]
 
-6. **새 응용 프로그램** 블레이드에서 응용 프로그램의 이름을 입력합니다. **Web App/Web API**에서 **예**를 선택하고 **암시적 흐름 허용**에서 **예**를 선택합니다. 그런 다음, 게시자 포털의 **ID** 탭에 있는 **Azure Active Directory B2C** 섹션에서 **리디렉션 URL**을 복사하여 **회신 URL** 텍스트 상자에 붙여넣습니다.
+6. **새 응용 프로그램** 블레이드에서 응용 프로그램의 이름을 입력합니다. **Web App/Web API**에서 **예**를 선택하고 **암시적 흐름 허용**에서 **예**를 선택합니다. 그런 다음, 3단계에서 복사한 **리디렉션 URL**을 **회신 URL** 텍스트 상자에 붙여 넣습니다.
 
   ![새 응용 프로그램 3 등록][api-management-howto-aad-b2c-app-details]
 
@@ -67,15 +67,15 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 
   ![응용 프로그램 ID 1][api-management-howto-aad-b2c-app-id]
 
-9. 게시자 포털로 다시 전환하고 ID를 **클라이언트 ID** 텍스트 상자에 붙여넣습니다.
+9. API Management **ID 공급자 추가** 창으로 다시 전환하고 ID를 **클라이언트 ID** 텍스트 상자에 붙여 넣습니다.
 
   ![응용 프로그램 ID 2][api-management-howto-aad-b2c-client-id]
 
-10. Azure Portal로 다시 전환하고 **키** 단추를 클릭한 다음 **키 생성**을 클릭합니다. **저장**을 클릭하여 구성을 저장하고 **앱 키**를 표시합니다. 키를 클립보드에 복사합니다.
+10. B2C 앱 등록으로 다시 전환하고 **키** 단추를 클릭한 다음, **키 생성**을 클릭합니다. **저장**을 클릭하여 구성을 저장하고 **앱 키**를 표시합니다. 키를 클립보드에 복사합니다.
 
   ![앱 키 1][api-management-howto-aad-b2c-app-key]
 
-11. 게시자 포털로 다시 전환하고 키를 **클라이언트 암호** 텍스트 상자에 붙여 넣습니다.
+11. API Management **ID 공급자 추가** 창으로 다시 전환하고 키를 **클라이언트 비밀** 텍스트 상자에 붙여 넣습니다.
 
   ![앱 키 2][api-management-howto-aad-b2c-client-secret]
 
@@ -83,7 +83,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 
   ![허용된 테넌트][api-management-howto-aad-b2c-allowed-tenant]
 
-13. **등록 정책** 및 **로그인 정책**을 지정합니다. 선택적으로 **프로필 편집 정책** 및 **암호 재설정 정책**을 제공할 수도 있습니다.
+13. B2C 테넌트 정책에서 **등록 정책** 및 **로그인 정책**을 지정합니다. 선택적으로 **프로필 편집 정책** 및 **암호 재설정 정책**을 제공할 수도 있습니다.
 
   ![정책][api-management-howto-aad-b2c-policies]
 
@@ -126,9 +126,8 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 응용 프로�
 
 
 
-
-[api-management-howto-aad-b2c-security-tab]: ./media/api-management-howto-aad-b2c/api-management-b2c-security-tab.PNG
-[api-management-howto-aad-b2c-security-tab-reply-url]: ./media/api-management-howto-aad-b2c/api-management-b2c-security-tab-reply-url.PNG
+[api-management-howto-add-b2c-identity-provider]: ./media/api-management-howto-aad-b2c/api-management-add-b2c-identity-provider.PNG
+[api-management-howto-copy-b2c-identity-provider-redirect-url]: ./media/api-management-howto-aad-b2c/api-management-b2c-identity-provider-redirect-url.PNG
 [api-management-howto-aad-b2c-portal-menu]: ./media/api-management-howto-aad-b2c/api-management-b2c-portal-menu.PNG
 [api-management-howto-aad-b2c-add-button]: ./media/api-management-howto-aad-b2c/api-management-b2c-add-button.PNG
 [api-management-howto-aad-b2c-app-details]: ./media/api-management-howto-aad-b2c/api-management-b2c-app-details.PNG

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/11/2018
 ms.author: trinadhk
-ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012061"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412808"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
@@ -34,19 +34,29 @@ Azure Backup은 백업 관리 작업을 제어할 수 있는 기본 제공 역�
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Backup 기본 제공 역할을 관리 작업에 매핑
 다음 테이블은 Backup 관리 작업과 해당 작업을 수행하는 데 필요한 최소 RBAC 역할을 캡처한 것입니다.
 
-| 관리 작업 | 필요한 최소 RBAC 역할 |
-| --- | --- |
-| Recovery Services 자격 증명 모음 만들기 | 자격 증명 모음 리소스 그룹의 참여자 |
-| Azure VM의 백업 활성화 | 자격 증명 모음 및 VM에 대한 가상 머신 기여자를 포함하는 리소스 그룹 범위에 정의된 백업 연산자 |
-| VM의 주문형 백업 | Backup 운영자 |
-| VM 복원 | Backup 운영자, VM이 배포될 리소스 그룹 기여자, Vnet에서 읽기 및 선택된 서브넷에 조인 |
-| 디스크, VM 백업의 개별 파일 복원 | Backup 운영자, VM의 가상 머신 참여자 |
-| Azure VM 백업에 대한 백업 정책 만들기 | Backup 참여자 |
-| Azure VM 백업의 백업 정책 수정 | Backup 참여자 |
-| Azure VM 백업의 백업 정책 삭제 | Backup 참여자 |
-| VM 백업에서 백업 중지(데이터 보존 또는 데이터 삭제를 통해) | Backup 참여자 |
-| 온-프레미스 Windows 서버/클라이언트/SCDPM 또는 Azure Backup Server 등록 | Backup 운영자 |
-| 등록된 온-프레미스 Windows 서버/클라이언트/SCDPM 또는 Azure Backup Server 삭제 | Backup 참여자 |
+| 관리 작업 | 필요한 최소 RBAC 역할 | 필요한 범위 |
+| --- | --- | --- |
+| Recovery Services 자격 증명 모음 만들기 | 참가자 | 자격 증명 모음을 포함하는 리소스 그룹 |
+| Azure VM의 백업 활성화 | Backup 운영자 | 자격 증명 모음을 포함하는 리소스 그룹 |
+| | 가상 머신 참가자 | VM 리소스 |
+| VM의 주문형 백업 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
+| VM 복원 | Backup 운영자 | VM이 배포될 리소스 그룹 |
+| | 가상 머신 참가자 | VM이 배포될 리소스 그룹 |
+| 관리되지 않는 디스크 VM 백업 복원 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
+| | 가상 머신 참가자 | VM 리소스 |
+| | Storage 계정 참가자 | 저장소 계정 리소스 |
+| VM 백업에서 관리 디스크 복원 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
+| | 가상 머신 참가자 | VM 리소스 |
+| | Storage 계정 참가자 | 저장소 계정 리소스 |
+| | 참가자 | 관리 디스크가 복원될 리소스 그룹 |
+| VM 백업에서 개별 파일 복원 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
+| | 가상 머신 참가자 | VM 리소스 |
+| Azure VM 백업에 대한 백업 정책 만들기 | Backup 참가자 | 복구 자격 증명 모음 리소스 |
+| Azure VM 백업의 백업 정책 수정 | Backup 참가자 | 복구 자격 증명 모음 리소스 |
+| Azure VM 백업의 백업 정책 삭제 | Backup 참가자 | 복구 자격 증명 모음 리소스 |
+| VM 백업에서 백업 중지(데이터 보존 또는 데이터 삭제를 통해) | Backup 참가자 | 복구 자격 증명 모음 리소스 |
+| 온-프레미스 Windows 서버/클라이언트/SCDPM 또는 Azure Backup Server 등록 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
+| 등록된 온-프레미스 Windows 서버/클라이언트/SCDPM 또는 Azure Backup Server 삭제 | Backup 참가자 | 복구 자격 증명 모음 리소스 |
 
 ## <a name="next-steps"></a>다음 단계
 * [역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md): Azure Portal에서 RBAC를 통해 시작합니다.

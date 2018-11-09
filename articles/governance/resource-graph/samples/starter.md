@@ -4,17 +4,17 @@ description: Azure Resource Graph를 사용하여 일부 시작 쿼리를 실행
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ba3df8f0f7fa0443e64972647b6f146f756e62d6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646631"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084533"
 ---
 # <a name="starter-resource-graph-queries"></a>Resource Graph 시작 쿼리
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="language-support"></a>언어 지원
 
-Azure CLI(확장을 통해) 및 Azure PowerShell(모듈을 통해)은 Azure Resource Graph를 지원합니다. 다음 쿼리를 수행하기 전에 사용자 환경이 준비되었는지 확인합니다. 선택한 셸 환경의 설치 및 유효성 검사 단계에 대해서는 [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) 및 [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module)을 참조하세요.
+Azure CLI(확장을 통해) 및 Azure PowerShell(모듈을 통해)은 Azure Resource Graph를 지원합니다. 다음 쿼리를 실행하기 전에 사용자 환경이 준비되었는지 확인합니다. 선택한 셸 환경의 설치 및 유효성 검사 단계에 대해서는 [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) 및 [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module)을 참조하세요.
 
 ## <a name="count-resources"></a>Azure 리소스 개수 계산
 
@@ -58,7 +58,7 @@ Search-AzureRmGraph -Query "summarize count()"
 
 ## <a name="list-resources"></a>리소스를 이름별로 나열
 
-이 쿼리는 리소스 형식 또는 특정 일치 속성으로 제한하지 않고 Azure 리소스의 **이름**, **형식** 및 **위치**만 반환하지만 `order by`를 사용하여 **name** 속성의 오름차순(`asc`)으로 정렬합니다.
+이 쿼리는 모든 종류의 리소스를 반환하지만 **name**, **type** 및 **location** 속성만 반환합니다. `order by`를 사용하여 속성을 **name** 속성의 오름차순(`asc`)으로 정렬합니다.
 
 ```Query
 project name, type, location
@@ -75,8 +75,7 @@ Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 
 ## <a name="show-vms"></a>이름의 내림차순으로 모든 가상 머신 나열
 
-모든 Azure 리소스를 가져오는 대신, 가상 머신 목록(`Microsoft.Compute/virtualMachines` 형식)만 원하는 경우 결과에서 **type** 속성만 일치시킬 수 있습니다.
-이전 쿼리와 마찬가지로 `desc`는 `order by`를 내림차순으로 변경합니다. 형식 일치의 `=~`는 Resource Graph에 대/소문자를 구분하지 않도록 알립니다.
+가상 머신(type이 `Microsoft.Compute/virtualMachines`로 지정됨)만 나열하려면 결과에서 **type** 속성만 매칭하면 됩니다. 이전 쿼리와 마찬가지로 `desc`는 `order by`를 내림차순으로 변경합니다. 형식 일치의 `=~`는 Resource Graph에 대/소문자를 구분하지 않도록 알립니다.
 
 ```Query
 project name, location, type
@@ -112,7 +111,7 @@ Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | 
 
 ## <a name="count-os"></a>OS 유형별 가상 머신 개수 계산
 
-이전 쿼리를 토대로 작성되며 `Microsoft.Compute/virtualMachines` 형식의 Azure 리소스에 의해 제한되지만 반환되는 레코드 수가 더 이상 제한되지 않습니다.
+이전 쿼리를 토대로 작성되며 `Microsoft.Compute/virtualMachines` 종류의 Azure 리소스에 의해 제한되지만 반환되는 레코드 수가 더 이상 제한되지 않습니다.
 대신 `summarize` 및 `count()`를 사용하여 속성(이 예제에서 `properties.storageProfile.osDisk.osType`)별로 값을 그룹화하고 집계하는 방법을 정의했습니다. 전체 개체에서 이 문자열이 나타나는 방법에 대한 예제를 보려면 [리소스 탐색 - 가상 머신 검색](../concepts/explore-resources.md#virtual-machine-discovery)을 참조하세요.
 
 ```Query
@@ -165,7 +164,8 @@ Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 
 ## <a name="list-publicip"></a>모든 공용 IP 주소 나열
 
-이전 쿼리와 마찬가지로 **publicIPAddresses** 단어를 포함하는 형식에 해당하는 모든 항목을 찾습니다. 이 쿼리는 **properties.ipAddress**가 Null인 결과를 제외하고 **properties.ipAddress**만 반환하고 상위 100개로 결과를 `limit`하도록 해당 패턴을 확장합니다. 선택한 셸에 따라 따옴표를 이스케이프해야 할 수도 있습니다.
+이전 쿼리와 마찬가지로 **publicIPAddresses** 단어를 포함하는 형식에 해당하는 모든 항목을 찾습니다.
+이 쿼리는 **properties.ipAddress**가 Null인 결과를 제외하고 **properties.ipAddress**만 반환하고 상위 100개로 결과를 `limit`하도록 해당 패턴을 확장합니다. 선택한 셸에 따라 따옴표를 이스케이프해야 할 수도 있습니다.
 
 ```Query
 where type contains 'publicIPAddresses' and properties.ipAddress != ''
@@ -215,7 +215,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
-리소스가 갖는 태그 및 해당 값도 제공해야 할 경우 이 예제에서는 `project` 키워드에 속성 **tags**를 추가하여 이 예제를 확장할 수 있습니다.
+또한 리소스의 태그와 값을 지정하려면 `project` 키워드에 **tags** 속성을 추가합니다.
 
 ```Query
 where tags.environment=~'internal'
@@ -232,7 +232,7 @@ Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, t
 
 ## <a name="list-specific-tag"></a>특정 태그 값이 있는 모든 저장소 계정 나열
 
-이전 예제의 필터 기능과 **type** 속성에 따른 Azure 리소스 형식별 필터링을 함께 사용하여 특정 태그 이름 및 값으로 특정 Azure 리소스 형식에 대한 검색을 제한할 수 있습니다.
+이전 예제의 필터 기능을 결합하고 Azure 리소스 유형을 **type** 속성으로 필터링합니다. 이 쿼리는 또한 특정 태그 이름 및 값을 사용하여 특정한 종류의 Azure 리소스에 대한 검색을 제한합니다.
 
 ```Query
 where type =~ 'Microsoft.Storage/storageAccounts'

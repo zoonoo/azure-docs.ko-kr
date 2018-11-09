@@ -3,7 +3,7 @@ title: FAQ - Azure Active Directory Domain Services | Microsoft Docs
 description: Azure Active Directory Domain Services에 대해 자주 묻는 질문과 대답입니다.
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: maheshu
-ms.openlocfilehash: 8747e597883d96756e676061bde04b920b13cadd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.author: ergreenl
+ms.openlocfilehash: c2f10b1bf3b61577a2b0616be6fa50f7639559ba
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023208"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158920"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: 자주 묻는 질문과 대답(FAQ)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
@@ -51,7 +51,7 @@ Azure AD Domain Services 구성 또는 관리에서 발생하는 일반적인 �
 예. [PowerShell을 사용하여 Azure AD Domain Services를 사용하기 위한 방법](active-directory-ds-enable-using-powershell.md)을 참조하세요.
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure AD Domain Services를 사용할 수 있나요?
-예. [PowerShell을 사용하여 Azure AD Domain Services를 사용하기 위한 방법](active-directory-ds-enable-using-powershell.md)을 참조하세요.
+아니요, 지금은 템플릿을 통해 Azure AD Domain Services를 사용하도록 설정할 수 없습니다. 대신 PowerShell을 사용할 수 있습니다. [PowerShell을 통해 Azure AD Domain Services를 사용하도록 설정하는 방법](active-directory-ds-enable-using-powershell.md)을 참조하세요.
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Azure AD 도메인 서비스 관리되는 도메인에 도메인 컨트롤러를 추가할 수 있나요?
 아니요. Azure AD 도메인 서비스에서 제공하는 도메인은 관리되는 도메인입니다. 이 도메인에 대해 도메인 컨트롤러를 프로비전, 구성 또는 다른 방식으로 관리하지 않아도 됩니다. 이러한 관리 작업은 Microsoft에서 서비스로 제공합니다. 따라서 관리되는 도메인에 대해 추가 도메인 컨트롤러(읽기-쓰기 또는 읽기 전용)를 추가할 수 없습니다.

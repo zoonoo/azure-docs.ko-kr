@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 72d48bd1716e1b62ae92f8317f3f9611ac463453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434248"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211505"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Azure에 SQL Server 데이터베이스 백업
 
@@ -658,23 +658,23 @@ Azure Backup은 모든 백업 작업에 대해 SQL 네이티브 API를 사용합
 다음 예제는 **DB1**이라는 데이터베이스에 대한 모든 백업 작업을 페치하는 쿼리입니다. 고급 모니터링에 대한 쿼리를 사용자 지정합니다.
 
 ```
-select CAST (
+select CAST (
 Case type
-                when 'D' 
-                                 then 'Full'
-                when  'I'
-                               then 'Differential' 
-                ELSE 'Log'
-                END         
-                AS varchar ) AS 'BackupType',
-database_name, 
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
 server_name,
 machine_name,
 backup_start_date,
 backup_finish_date,
-DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
-backup_size AS BackupSizeInBytes
-  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
  
 ```
 
@@ -703,7 +703,7 @@ SQL Server 데이터베이스에 대한 보호를 중지하면 Azure Backup에 �
 * 미래의 모든 백업 작업을 중지하고 모든 복구 지점을 삭제
 * 미래의 모든 백업 작업을 중지하지만 복구 지점은 유지
 
-복구 지점을 유지하면 비용이 발생합니다. SQL에 대한 복구 지점에는 SQL 보호된 인스턴스 비용 및 소비된 저장소에 대한 비용이 발생하기 때문입니다. SQL의 Azure Backup 가격 책정에 대한 자세한 내용은 [Azure Backup 가격 책정 페이지](https://azure.microsoft.com/pricing/details/backup/)를 참조하세요. 
+데이터 보존 옵션을 사용하여 백업 중지를 선택하면 백업 정책에 따라 복구 지점이 정리됩니다. SQL 보호된 인스턴스 가격 책정 요금 및 모든 복구 지점이 정리되기까지 소비된 저장소 요금이 발생합니다. SQL의 Azure Backup 가격 책정에 대한 자세한 내용은 [Azure Backup 가격 책정 페이지](https://azure.microsoft.com/pricing/details/backup/)를 참조하세요. 
 
 데이터베이스에 대한 보호를 중지하려면:
 

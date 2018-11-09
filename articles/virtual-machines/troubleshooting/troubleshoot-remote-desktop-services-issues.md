@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 39b793e2722766f3f28829b4dc48534054abd97e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a9967aec61aaab5bc6b4517407f36e2a6c7342c8
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49989021"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238865"
 ---
-# <a name="remote-desktop-services-is-not-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
+# <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
 
 이 문서에서는 원격 데스크톱 서비스(TermService)가 시작되지 않거나 시작에 실패하는 경우 Azure VM(Virtual Machine) 연결 문제를 해결하는 방법을 설명합니다.
 
@@ -32,34 +32,50 @@ ms.locfileid: "49989021"
 VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
 - 이 VM 스크린샷은 운영 체제가 완전히 로드되어 자격 증명을 기다리고 있다는 것을 보여줍니다.
-- VM의 모든 응용 프로그램이 예상대로 작동 중이며 액세스 가능합니다.
-- VM이 Microsoft RDP(원격 데스크톱 프로토콜) 포트(기본 3389)의 TCP 연결에 응답합니다.
-- RDP 연결을 시도할 때 자격 증명을 요청하는 메시지가 표시되지 않습니다.
+
+    ![VM 상태의 스크린샷](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
+
+- 이벤트 뷰어를 사용하여 이벤트 로그를 원격으로 봅니다. 이때 원격 데스크톱 서비스(TermServ)가 시작되지 않거나 시작에 실패합니다. 다음은 샘플 로그입니다.
+
+    **로그 이름**: 시스템 </br>
+    **원본**: 서비스 제어 관리자 </br>
+    **날짜**: 2017년 12월 16일 오전 11:19:36</br>
+    **이벤트 ID**: 7022</br>
+    **작업 범주**: 없음</br>
+    **수준**: 오류</br>
+    **키워드**: 클래식</br>
+    **사용자**: 해당 없음</br>
+    **컴퓨터**: vm.contoso.com</br>
+    **설명**: 원격 데스크톱 서비스가 시작 시 멈춤. 
+
+    직렬 액세스 콘솔 기능을 사용하여 다음 쿼리를 사용한 이러한 오류에 대해 살펴볼 수 있습니다. 
+
+        wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
 
 ## <a name="cause"></a>원인
+ 
+이 문제는 원격 데스크톱 서비스가 VM에서 실행되지 않기 때문에 발생합니다. 원인은 다음 시나리오에 따라 달라질 수 있습니다. 
 
-원격 데스크톱 서비스가 Virtual Machine에서 실행되고 있지 않기 때문에 이 문제가 발생합니다. 원인은 다음 시나리오에 따라 달라질 수 있습니다.
-
-- TermService 서비스가 **사용 안 함**으로 설정되었습니다.
-- TermService 서비스가 충돌하거나 중단됩니다.
+- TermService 서비스가 **사용 안 함**으로 설정됩니다. 
+- TermService 서비스가 충돌하거나 중단됩니다. 
 
 ## <a name="solution"></a>해결 방법
 
-이 문제를 해결하려면 다음 솔루션 중 하나를 사용하거나 솔루션을 하나씩 시도합니다.
+이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 OS 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
 
-### <a name="solution-1-using-the-serial-console"></a>솔루션 1: 직렬 콘솔 사용
+### <a name="use-serial-console"></a>직렬 콘솔 사용
 
-1. **지원 및 문제 해결** > **직렬 콘솔(미리 보기)** 을 선택하여 [직렬 콘솔](serial-console-windows.md)에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
+1. **지원 및 문제 해결** > **직렬 콘솔**을 선택하여 [직렬 콘솔](serial-console-windows.md)에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
 
 2. CMD 인스턴스에 대한 새 채널을 만듭니다. **CMD**를 입력하여 채널을 시작하고 채널 이름을 가져옵니다.
 
-3. CMD 인스턴스를 실행하는 채널(이 예에서는 채널 1)로 전환합니다.
+3. CMD 인스턴스를 실행하는 채널로 전환합니다. 이 경우 채널 1이어야 합니다.
 
    ```
    ch -si 1
    ```
 
-4. **Enter** 키를 다시 누르고 VM의 유효한 사용자 이름 및 암호(로컬 또는 도메인 ID)를 입력합니다.
+4. **Enter** 키를 다시 누르고 VM에 대한 유효한 사용자 이름 및 암호(로컬 또는 도메인 ID)를 입력합니다.
 
 5. TermService 서비스의 상태를 쿼리합니다.
 
@@ -69,58 +85,87 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
 6. 서비스 상태가 **중지됨**으로 표시되면 서비스를 시작해 봅니다.
 
-   ```
-   sc start TermService
-   ```
+    ```
+    sc start TermService
+     ``` 
 
 7. 서비스를 다시 쿼리하여 서비스가 성공적으로 시작되었는지 확인합니다.
 
    ```
    sc query TermService
    ```
+    서비스가 시작에 실패하는 경우 수신한 오류에 따라 솔루션을 수행합니다.
 
-### <a name="solution-2-using-a-recovery-vm-to-enable-the-service"></a>솔루션 2: 복구 VM을 사용하여 서비스를 사용하도록 설정
+    |  오류 |  제안 |
+    |---|---|
+    |5- ACCESS DENIED |[액세스 거부 오류로 인해 TermService 서비스가 중지됨](#termService-service-is-stopped-because-of-access-denied-error) 참조 |
+    |1058 - ERROR_SERVICE_DISABLED  |[TermService 서비스 사용 안 함](#termService-service-is-disabled) 참조  |
+    |1059 - ERROR_CIRCULAR_DEPENDENCY |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.|
+    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.|
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.    |
+    |1070 - ERROR_SERVICE_START_HANG   | [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.  |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | [TermService 서비스 사용 안 함](#termService-service-is-disabled) 참조  |
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요. |
+    |1753   |[지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.   |
 
-[OS 디스크를 백업](../windows/snapshot-copy-managed-disk.md)하고 [OS 디스크를 복구 VM에 연결](../windows/troubleshoot-recovery-disks-portal.md)합니다. 그런 다음, 관리자 권한 CMD 인스턴스를 열고 복구 VM에서 다음 스크립트를 실행합니다.
+#### <a name="termservice-service-is-stopped-because-of-access-denied-error"></a>액세스 거부 오류로 인해 TermService 서비스가 중지됨
 
->[!NOTE]
->연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정하고 VM에서 적절한 값으로 바꿉니다. 여기까지 마쳤으면 복구 VM에서 디스크를 분리하고 [VM을 다시 만듭니다](../windows/create-vm-specialized.md). 직렬 콘솔을 사용하도록 설정되었기 때문에 추가적인 문제 해결에는 **솔루션 1**을 사용하면 됩니다.
+1. [직렬 콘솔](serial-console-windows.md#)에 연결하고 PowerShell 인스턴스를 엽니다.
+2. 다음 스크립트를 실행하여 프로세스 모니터 도구를 다운로드합니다.
 
-```
-reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
+        remove-module psreadline  
+        $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
+        $destination = "c:\temp\ProcessMonitor.zip" 
+        $wc = New-Object System.Net.WebClient 
+        $wc.DownloadFile($source,$destination) 
+3. 이제 procmon 추적을 시작합니다.
 
-REM Enable Serial Console
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} displaybootmenu yes
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} timeout 10
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} bootems yes
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /ems {<Boot Loader Identifier>} ON
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+        procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+4. 액세스를 거부하는 서비스를 시작하여 문제를 재현합니다. 
 
-REM Get the current ControlSet from where the OS is booting
-for /f "tokens=3" %x in ('REG QUERY HKLM\BROKENSYSTEM\Select /v Current') do set ControlSet=%x
-set ControlSet=%ControlSet:~2,1%
+        sc start TermService 
+        
+    실패했을 때 계속해서 프로세스 모니터 추적을 종료합니다.
 
-REM Suggested configuration to enable OS Dump
-set key=HKLM\BROKENSYSTEM\ControlSet00%ControlSet%\Control\CrashControl
-REG ADD %key% /v CrashDumpEnabled /t REG_DWORD /d 2 /f
-REG ADD %key% /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-REG ADD %key% /v NMICrashDump /t REG_DWORD /d 1 /f
+        procmon /Terminate 
+5.  **c:\temp\ProcMonTrace.PML** 파일을 수집하고, procmon을 사용하여 연 다음, 다음 스크린샷처럼  **결과가 액세스 거부**로 필터링합니다.
 
-REM Set default values back on the broken service
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v ImagePath /t REG_EXPAND_SZ /d "<Image Path>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v ObjectName /t REG_SZ /d "<Startup Account>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v type /t REG_DWORD /d 16 /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v ImagePath /t REG_EXPAND_SZ /d "<Startup Account>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v ObjectName /t REG_SZ /d "<Startup Account>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v type /t REG_DWORD /d 16 /f
+    ![프로세스 모니터의 결과로 필터링](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
-REM Enable default dependencies from the broken service
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Driver/Service Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Driver/Service Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg unload HKLM\BROKENSYSTEM
-```
+ 
+6. 출력에 있는 레지스트리 키, 폴더 또는 파일을 수정합니다. 일반적으로 이 문제는 서비스에 사용된 로그온 계정에 이러한 개체에 액세스할 수 있는 ACL 권한이 없기 때문에 발생합니다. 로그온 계정에 대한 올바른 ACL 권한을 알아보려면 정상 VM에서 확인할 수 있습니다. 
+
+#### <a name="termservice-service-is-disabled"></a>TermService 서비스 사용 안 함
+
+1.  기본 시작 값으로 서비스를 복원합니다.
+
+        sc config TermService start= demand 
+        
+2.  서비스를 시작합니다.
+
+        sc start TermService 
+3.  해당 상태를 다시 한 번 쿼리하여 서비스가 실행 중인지 확인합니다. sc query TermService 
+4.  원격 데스크톱을 사용하여 VM에 연결을 시도합니다.
+
+
+### <a name="repair-the-vm-offline"></a>오프라인으로 VM 복구
+
+#### <a name="attach-the-os-disk-to-a-recovery-vm"></a>복구 VM에 OS 디스크 연결
+
+1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
+2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다. 디스크 관리 콘솔에서 연결된 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
+3.  관리자 권한 명령 프롬프트 인스턴스(**관리자 권한으로 실행**)를 연 다음, 다음 스크립트를 실행합니다. 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정하고 VM에서 적절한 값으로 바꿉니다. 
+
+        reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+        
+        REM Set default values back on the broken service 
+        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v start /t REG_DWORD /d 3 /f
+        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService“ /f
+        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v type /t REG_DWORD /d 16 /f
+        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v start /t REG_DWORD /d 3 /f
+        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService" /f
+        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
+4. [OS 디스크를 분리하고 VM을 다시 만든](../windows/troubleshoot-recovery-disks-portal.md) 다음, 문제가 해결되었는지 확인합니다.
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

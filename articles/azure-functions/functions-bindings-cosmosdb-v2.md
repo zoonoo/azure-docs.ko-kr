@@ -3,20 +3,20 @@ title: Functions 2.x의 Azure Cosmos DB 바인딩
 description: Azure Functions에서 Azure Cosmos DB 트리거 및 바인딩을 사용하는 방법을 파악합니다.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
 ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: 0726bd3ded0618d7fb45a589c21325717da7a5cf
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: cshoe
+ms.openlocfilehash: 4a1f9552b9a578cd34f3482e793947e06bb24407
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319033"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249810"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
@@ -67,6 +67,7 @@ using Microsoft.Azure.Documents;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -79,12 +80,12 @@ namespace CosmosDBSamplesV2
             ConnectionStringSetting = "CosmosDBConnection",
             LeaseCollectionName = "leases",
             CreateLeaseCollectionIfNotExists = true)]IReadOnlyList<Document> documents, 
-            TraceWriter log)
+            ILogger log)
         {
             if (documents != null && documents.Count > 0)
             {
-                log.Info($"Documents modified: {documents.Count}");
-                log.Info($"First document Id: {documents[0].Id}");
+                log.LogInformation($"Documents modified: {documents.Count}");
+                log.LogInformation($"First document Id: {documents[0].Id}");
             }
         }
     }
@@ -120,12 +121,12 @@ C# 스크립트 코드는 다음과 같습니다.
     using System;
     using Microsoft.Azure.Documents;
     using System.Collections.Generic;
-    
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+    public static void Run(IReadOnlyList<Document> documents, ILogger log)
     {
-      log.Verbose("Documents modified " + documents.Count);
-      log.Verbose("First document Id " + documents[0].Id);
+      log.LogInformation("Documents modified " + documents.Count);
+      log.LogInformation("First document Id " + documents[0].Id);
     }
 ```
 
@@ -207,7 +208,7 @@ Java 코드는 다음과 같습니다.
     public static void Run(
         [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
     IReadOnlyList<Document> documents,
-        TraceWriter log)
+        ILogger log)
     {
         ...
     }
@@ -311,6 +312,7 @@ namespace CosmosDBSamplesV2
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -324,17 +326,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
                 Id = "{ToDoItemId}")]ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
+            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
         }
     }
@@ -353,6 +355,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -367,17 +370,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
                 Id = "{Query.id}")] ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
             return new OkResult();
         }
@@ -397,6 +400,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -411,17 +415,17 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection", 
                 Id = "{id}")] ToDoItem toDoItem,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             if (toDoItem == null)
             {
-                log.Info($"ToDo item not found");
+                log.LogInformation($"ToDo item not found");
             }
             else
             {
-                log.Info($"Found ToDo item, Description={toDoItem.Description}");
+                log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
             }
             return new OkResult();
         }
@@ -445,6 +449,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -458,13 +463,13 @@ namespace CosmosDBSamplesV2
                 ConnectionStringSetting = "CosmosDBConnection", 
                 SqlQuery = "select * from ToDoItems r where r.id = {id}")]
                 IEnumerable<ToDoItem> toDoItems,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             foreach (ToDoItem toDoItem in toDoItems)
             {
-                log.Info(toDoItem.Description);
+                log.LogInformation(toDoItem.Description);
             }
             return new OkResult();
         }
@@ -485,6 +490,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -500,12 +506,12 @@ namespace CosmosDBSamplesV2
                 ConnectionStringSetting = "CosmosDBConnection", 
                 SqlQuery = "SELECT top 2 * FROM c order by c._ts desc")]
                 IEnumerable<ToDoItem> toDoItems,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
             foreach (ToDoItem toDoItem in toDoItems)
             {
-                log.Info(toDoItem.Description);
+                log.LogInformation(toDoItem.Description);
             }
             return new OkResult();
         }
@@ -528,6 +534,7 @@ using Microsoft.Azure.Documents.Linq;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -544,9 +551,9 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")] DocumentClient client,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
+            log.LogInformation("C# HTTP trigger function processed a request.");
 
             var searchterm = req.Query["searchterm"];
             if (string.IsNullOrWhiteSpace(searchterm))
@@ -556,7 +563,7 @@ namespace CosmosDBSamplesV2
 
             Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
 
-            log.Info($"Searching for: {searchterm}");
+            log.LogInformation($"Searching for: {searchterm}");
 
             IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
                 .Where(p => p.Description.Contains(searchterm))
@@ -566,7 +573,7 @@ namespace CosmosDBSamplesV2
             {
                 foreach (ToDoItem result in await query.ExecuteNextAsync())
                 {
-                    log.Info(result.Description);
+                    log.LogInformation(result.Description);
                 }
             }
             return new OkResult();
@@ -712,7 +719,7 @@ C# 스크립트 코드는 다음과 같습니다.
       "Id": "{Query.id}"
     }
   ],
-  "disabled": true
+  "disabled": false
 }
 ```
 
@@ -720,18 +727,19 @@ C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     if (toDoItem == null)
     {
-         log.Info($"ToDo item not found");
+         log.LogInformation($"ToDo item not found");
     }
     else
     {
-        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+        log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
     }
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -782,18 +790,19 @@ C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     if (toDoItem == null)
     {
-         log.Info($"ToDo item not found");
+         log.LogInformation($"ToDo item not found");
     }
     else
     {
-        log.Info($"Found ToDo item, Description={toDoItem.Description}");
+        log.LogInformation($"Found ToDo item, Description={toDoItem.Description}");
     }
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -843,14 +852,15 @@ C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoItem> toDoItems, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     foreach (ToDoItem toDoItem in toDoItems)
     {
-        log.Info(toDoItem.Description);
+        log.LogInformation(toDoItem.Description);
     }
     return req.CreateResponse(HttpStatusCode.OK);
 }
@@ -903,10 +913,11 @@ C# 스크립트 코드는 다음과 같습니다.
 using System.Net;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
+using Microsoft.Extensions.Logging;
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, DocumentClient client, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     Uri collectionUri = UriFactory.CreateDocumentCollectionUri("ToDoItems", "Items");
     string searchterm = req.GetQueryNameValuePairs()
@@ -918,7 +929,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
         return req.CreateResponse(HttpStatusCode.NotFound);
     }
 
-    log.Info($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
+    log.LogInformation($"Searching for word: {searchterm} using Uri: {collectionUri.ToString()}");
     IDocumentQuery<ToDoItem> query = client.CreateDocumentQuery<ToDoItem>(collectionUri)
         .Where(p => p.Description.Contains(searchterm))
         .AsDocumentQuery();
@@ -927,7 +938,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
     {
         foreach (ToDoItem result in await query.ExecuteNextAsync())
         {
-            log.Info(result.Description);
+            log.LogInformation(result.Description);
         }
     }
     return req.CreateResponse(HttpStatusCode.OK);
@@ -1024,7 +1035,7 @@ JavaScript 코드는 다음과 같습니다.
       "Id": "{Query.id}"
     }
   ],
-  "disabled": true
+  "disabled": false
 }
 ```
 
@@ -1295,6 +1306,7 @@ namespace CosmosDBSamplesV2
 ```cs
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using System;
 
 namespace CosmosDBSamplesV2
@@ -1308,12 +1320,12 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]out dynamic document,
-            TraceWriter log)
+            ILogger log)
         {
             document = new { Description = queueMessage, id = Guid.NewGuid() };
 
-            log.Info($"C# Queue trigger function inserted one row");
-            log.Info($"Description={queueMessage}");
+            log.LogInformation($"C# Queue trigger function inserted one row");
+            log.LogInformation($"Description={queueMessage}");
         }
     }
 }
@@ -1329,6 +1341,7 @@ namespace CosmosDBSamplesV2
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace CosmosDBSamplesV2
 {
@@ -1342,13 +1355,13 @@ namespace CosmosDBSamplesV2
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]
                 IAsyncCollector<ToDoItem> toDoItemsOut,
-            TraceWriter log)
+            ILogger log)
         {
-            log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+            log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
 
             foreach (ToDoItem toDoItem in toDoItemsIn)
             {
-                log.Info($"Description={toDoItem.Description}");
+                log.LogInformation($"Description={toDoItem.Description}");
                 await toDoItemsOut.AddAsync(toDoItem);
             }
         }
@@ -1413,10 +1426,11 @@ C# 스크립트 코드는 다음과 같습니다.
 
     using Microsoft.Azure.WebJobs.Host;
     using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
-    public static void Run(string myQueueItem, out object employeeDocument, TraceWriter log)
+    public static void Run(string myQueueItem, out object employeeDocument, ILogger log)
     {
-      log.Info($"C# Queue trigger function processed: {myQueueItem}");
+      log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 
       dynamic employee = JObject.Parse(myQueueItem);
 
@@ -1475,14 +1489,15 @@ C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
 using System;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, TraceWriter log)
+public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+    log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
 
     foreach (ToDoItem toDoItem in toDoItemsIn)
     {
-        log.Info($"Description={toDoItem.Description}");
+        log.LogInformation($"Description={toDoItem.Description}");
         await toDoItemsOut.AddAsync(toDoItem);
     }
 }
@@ -1590,6 +1605,7 @@ F# 코드는 다음과 같습니다.
 ```fsharp
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
+    open Microsoft.Extensions.Logging
 
     type Employee = {
       id: string
@@ -1598,8 +1614,8 @@ F# 코드는 다음과 같습니다.
       address: string
     }
 
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
-      log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
+      log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
       let employee = JObject.Parse(myQueueItem)
       employeeDocument <-
         { id = sprintf "%s-%s" employee?name employee?employeeId
@@ -1691,6 +1707,33 @@ public String cosmosDbQueryById(
 | 바인딩 | 참고 자료 |
 |---|---|
 | CosmosDB | [CosmosDB 오류 코드](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>host.json 설정
+
+이 섹션에서는 버전 2.x에서 이 바인딩에 사용할 수 있는 글로벌 구성 설정을 설명합니다. 버전 2.x의 글로벌 구성 설정에 대한 자세한 내용은 [Azure Functions 버전 2.x에 대한 host.json 참조](functions-host-json.md)를 참조하세요.
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "cosmosDB": {
+            "connectionMode": "Gateway",
+            "protocol": "Https",
+            "leaseOptions": {
+                "leasePrefix": "prefix1"
+            }
+        }
+    }
+}
+```  
+
+|자산  |기본값 | 설명 |
+|---------|---------|---------| 
+|GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
+|프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.| 
+|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다.| 
 
 ## <a name="next-steps"></a>다음 단계
 

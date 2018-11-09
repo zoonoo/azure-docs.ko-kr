@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 7aa7cd2e5b1cf1346a5a7b1f82ec9c7933dd1112
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: bda1a9df8a58833a544dc065dee0110bccf3ec59
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542483"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138863"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 장치를 관리하는 방법
 
@@ -118,7 +118,14 @@ Azure Portal을 사용하여 장치를 관리하려면 해당 장치가 Azure AD
 
 ## <a name="device-management-tasks"></a>장치 관리 작업
 
-관리자는 등록 또는 조인된 장치를 관리할 수 있습니다. 이 섹션에서는 일반 장치 관리 작업에 대한 정보를 제공합니다.
+글로벌 관리자는 등록 또는 조인된 장치를 관리할 수 있습니다. Intune 서비스 관리자는 다음을 수행할 수 있습니다.
+ 
+- 장치 업데이트 - 예제는 장치를 사용/사용 안 함과 같은 일상적인 작업임
+
+- 장치 삭제 - 장치가 사용 중지되고 Azure AD에서 삭제돼야 하는 경우
+
+이 섹션에서는 일반 장치 관리 작업에 대한 정보를 제공합니다.
+
 
 
 ### <a name="manage-an-intune-device"></a>Intune 장치 관리

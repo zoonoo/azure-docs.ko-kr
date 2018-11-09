@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: b7561848ffd0158e22e97530774112dcee2a9864
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a45f82b142ee4f4c9c88ea755607b88323feaae5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323914"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210128"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>데이터 처리 및 사용자 정의 함수
 
@@ -25,7 +25,7 @@ Azure Digital Twins는 고급 계산 기능을 제공합니다. 개발자는 들
 
 ![Digital Twins 데이터 처리 흐름][1]
 
-1. ‘유효성 검사’ 단계는 들어오는 원격 분석 메시지를 일반적으로 이해되는 [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) 형식으로 변환합니다. 이 단계에서는 장치 및 센서 유효성 검사도 실행합니다.
+1. _유효성 검사_ 단계에서는 들어오는 원격 분석 메시지를 일반적으로 이해되는 [**데이터 전송 개체**](https://en.wikipedia.org/wiki/Data_transfer_object)형식으로 변환합니다. 이 단계에서는 장치 및 센서 유효성 검사도 실행합니다.
 1. ‘일치’ 단계는 실행할 적절한 사용자 정의 함수를 찾습니다. 미리 정의된 검사기가 들어오는 원격 분석 메시지의 장치, 센서 및 공간 정보를 기반으로 사용자 정의 함수를 찾습니다.
 1. ‘계산’ 단계는 이전 단계에서 일치한 사용자 정의 함수를 실행합니다. 이 함수는 공간 그래프 노드에서 계산된 값을 읽고 업데이트할 수 있으며 사용자 지정 알림을 내보낼 수 있습니다.
 1. ‘디스패치’ 단계는 계산 단계에서 그래프에 정의된 엔드포인트로 사용자 지정 알림을 라우팅합니다.
@@ -40,11 +40,11 @@ Azure Digital Twins의 데이터 처리는 ‘검사기’, ‘사용자 정의 
 
 ‘검사기’는 들어오는 센서 원격 분석을 기반으로 수행할 작업을 평가하는 조건 집합을 정의합니다. 일치를 판별하기 위한 이러한 조건에는 센서의 속성, 센서의 상위 장치, 센서의 상위 공간이 포함될 수 있습니다. 조건은 아래 예제에 설명된 대로 [JSON 경로](http://jsonpath.com/)에 대한 비교로 표현됩니다.
 
-- `Temperature` 데이터 형식의 모든 센서입니다.
+- **온도** 데이터 형식의 모든 센서입니다.
 - 포트에 `01`이 있습니다.
-- `GoodCorp` 값으로 설정된 확장 속성 키 `Manufacturer`를 가진 장치에 속합니다.
-- `Venue` 유형의 공간에 속합니다.
-- 상위 `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`의 하위 항목입니다.
+- `"GoodCorp"` 값으로 설정된 확장 속성 키 **제조업체**가 있는 장치에 속합니다.
+- `"Venue"` 유형의 공간에 속합니다.
+- 상위 **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`의 하위 항목입니다.
 
 ```JSON
 {

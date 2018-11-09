@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 38a972d39b845dca39bcc4dcf921c603301af582
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869655"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094247"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Spark에서 Azure Cosmos DB Cassandra API에 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "48869655"
 ## <a name="dependencies-for-connectivity"></a>연결에 대한 종속성
 * **Cassandra용 Spark 커넥터:** Spark 커넥터는 Azure Cosmos DB Cassandra API에 연결하는 데 사용됩니다.  Spark 및 Spark 환경의 Scala 버전과 호환되는 [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector)에 위치한 커넥터의 버전을 식별하고 사용합니다.
 
-* **Cassandra API에 대한 Azure Cosmos DB 도우미 라이브러리:** Spark 커넥터 외에 Azure Cosmos DB에서 [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar)라는 다른 라이브러리가 필요합니다. 이 라이브러리는 연결 팩터리 및 사용자 지정 다시 시도 정책 클래스를 포함합니다.
+* **Cassandra API에 대한 Azure Cosmos DB 도우미 라이브러리:** Spark 커넥터 외에 Azure Cosmos DB에서 [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar)라는 다른 라이브러리가 필요합니다. 이 라이브러리는 사용자 지정 연결 팩터리 및 다시 시도 정책 클래스를 포함합니다.
 
   Azure Cosmos DB의 재시도 정책은 HTTP 상태 코드 429("요청 빈도가 높음") 예외를 처리하도록 구성됩니다. Azure Cosmos DB Cassandra API는 Cassandra 네이티브 프로토콜에서 이러한 예외를 오버로드된 오류로 변환하고, back-off를 사용하여 다시 시도할 수 있습니다. Azure Cosmos DB는 프로비전된 처리량 모델을 사용하므로 수신/송신 요금이 증가하는 경우 요청 속도 제한 예외가 발생합니다. 재시도 정책은 일시적으로 컬렉션에 할당된 처리량을 초과하는 데이터 급증에 대해 spark 작업을 보호합니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 3675889e583fbe2bf949891c3d6b4d5f731e6ac1
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0d069490f2e5b495b417b5a4d511f02fa7891ea9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355846"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240106"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 응용 프로그램에 대해 암호 Single Sign-On 구성 문제
 
@@ -141,7 +141,7 @@ ms.locfileid: "44355846"
 
 -   빨간색 마커가 올바른 필드 위에 있는지 확인하고 수동 캡처 프로세스를 다시 시도합니다.
 
--   수동 캡처 프로세스가 중단되거나 로그인 페이지에서 아무 일도 일어나지 않는 경우(위 사례 3) 수동 캡처 프로세스를 다시 시도합니다. 그러나 이번에는 프로세스를 완료한 후 **F12** 단추를 눌러 브라우저의 개발자 콘솔을 엽니다. **콘솔**을 열고 **window.location=”&lt;앱을 구성할 때 지정한 로그인 URL 입력&gt;”** 을 입력하고 **Enter** 키를 누릅니다. 그러면 캡처 프로세스를 종료하는 페이지 리디렉션이 실행되고 캡처한 필드가 저장됩니다.
+-   수동 캡처 프로세스가 중단되거나 로그인 페이지에서 아무 일도 일어나지 않는 경우(위 사례 3) 수동 캡처 프로세스를 다시 시도합니다. 그러나 이번에는 프로세스를 완료한 후 **F12** 단추를 눌러 브라우저의 개발자 콘솔을 엽니다. **콘솔**을 열고 **window.location=“&lt;앱을 구성할 때 지정한 로그인 URL 입력&gt;”** 을 입력한 다음, **Enter** 키를 누릅니다. 그러면 캡처 프로세스를 종료하는 페이지 리디렉션이 실행되고 캡처한 필드가 저장됩니다.
 
 위 방법으로 해결되지 않는 경우 Microsoft에서 도와드릴 수 있습니다. [포털 알림의 세부 정보를 확인하는 방법](#i-cannot-manually-detect-sign-in-fields-for-my-application) 및 [지원 엔지니어에게 알림 세부 정보를 전송하여 도움을 얻는 방법](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) 섹션(해당하는 경우)에서 수집한 정보뿐만 아니라 시도한 내용의 세부 정보와 함께 지원 케이스를 여세요.
 

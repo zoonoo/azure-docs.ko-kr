@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883927"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139094"
 ---
 # <a name="integrate-speech-service"></a>Speech Service 통합
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다. 이 문서에서는 C# 프로젝트를 다운로드한 후 Visual Studio에서 사용하여 마이크에 말을 하고 LUIS 예측 정보를 수신합니다. 이 프로젝트에서는 이미 참조로 포함되어 있는 Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 패키지를 사용합니다. 
@@ -39,7 +39,7 @@ Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-h
 
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>KeyPhrase 사전 빌드 엔터티 추가
-앱을 가져온 후 **엔터티**를 선택하고 **사전 빌드 엔터티 관리**를 선택합니다. **KeyPhrase** 엔터티를 추가합니다. KeyPhrase 엔터티는 발언에서 핵심 주제를 추출합니다.
+앱을 가져온 후 **엔터티**를 선택한 다음, **사전 빌드 엔터티 추가**를 선택합니다. **KeyPhrase** 엔터티를 추가합니다. KeyPhrase 엔터티는 발언에서 핵심 주제를 추출합니다.
 
 ## <a name="train-and-publish-the-app"></a>앱 학습 및 게시
 1. 상단 오른쪽 탐색 모음에서 **학습** 단추를 선택하여 LUIS 앱을 학습합니다.

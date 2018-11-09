@@ -1,36 +1,29 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 계층 Citrix XenDesktop 및 XenApp 배포 복제 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 Citrix XenDesktop 및 XenApp 배포를 보호하고 복구하는 방법을 설명합니다.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery를 사용하여 다중 계층 Citrix XenDesktop 및 XenApp 배포에 대한 재해 복구 설정 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Citrix XenDesktop 및 XenApp 배포에 대한 재해 복구를 설정하는 방법을 설명합니다.
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213636"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210315"
 ---
-# <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 Citrix XenApp 및 XenDesktop 배포 복제
+# <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>다중 계층 Citrix XenApp 및 XenDesktop 배포에 대해 재해 복구 설정
 
-## <a name="overview"></a>개요
+
 
 Citrix XenDesktop은 어디서든 모든 사용자에게 데스크톱 및 응용 프로그램을 주문형으로 전달하는 데스크톱 가상화 솔루션입니다. FlexCast 전달 기술을 사용하여 XenDesktop은 응용 프로그램 및 데스크톱을 사용자에게 빠르고 안전하게 전달할 수 있습니다.
 현재 Citrix XenApp은 재해 복구 기능을 제공하지 않습니다.
 
 훌륭한 재해 복구 솔루션에서는 위의 복잡한 응용 프로그램 아키텍처에 기반하여 복구 계획을 모델링할 수 있어야 하며, 다양한 계층 간의 응용 프로그램 매핑을 처리하기 위한 사용자 지정 단계를 추가할 수 있어야 합니다. 이에 따라 재해 발생시 한 번의 클릭으로 RTO(복구 시간 목표)를 낮추는 확실한 솔루션을 제공할 수 있습니다.
 
-이 문서에서는 Hyper-V 및 VMware vSphere 플랫폼에서 온-프레미스 Citrix XenApp 배포용 재해 복구 솔루션을 구축하기 위한 단계별 지침을 제공합니다. 또한 복구 계획, 지원되는 구성 및 필수 구성 요소를 사용하여 Azure로의 테스트 장애 조치(재해 복구 드릴) 및 계획되지 않은 장애 조치를 수행하는 방법을 설명합니다.
+이 문서에서는 Hyper-V 및 VMware vSphere 플랫폼에서 온-프레미스 Citrix XenApp 배포용 재해 복구 솔루션을 빌드하기 위한 단계별 지침을 제공합니다. 또한 복구 계획, 지원되는 구성 및 필수 구성 요소를 사용하여 Azure로의 테스트 장애 조치(재해 복구 드릴) 및 계획되지 않은 장애 조치를 수행하는 방법을 설명합니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -75,7 +68,7 @@ Azure에서는 XenApp 7.7 이상이 지원되므로 이러한 버전을 사용�
 
 1. 서버 OS 컴퓨터를 사용하여 XenApp 게시 앱 및 XenApp 게시 데스크톱을 전달하는 온-프레미스 배포의 보호 및 복구는 지원됩니다.
 
-2. 데스크톱 OS 컴퓨터를 사용하여 클라이언트 가상 데스크톱용 Desktop VDI(Windows 10 포함)를 전달하는 온-프레미스 배포의 보호 및 복구는 지원되지 않습니다. 이는 ASR이 데스크톱 OS를 사용하는 컴퓨터의 복구를 지원하지 않기 때문입니다.  또한 일부 클라이언트 가상 데스크톱 운영 체제(예: Windows 7)는 Azure에서 아직 라이선스가 지원되지 않습니다. Azure의 클라이언트/서버 데스크톱용 라이선스에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/licensing-faq/).
+2. 데스크톱 OS 컴퓨터를 사용하여 클라이언트 가상 데스크톱용 Desktop VDI(Windows 10 포함)를 전달하는 온-프레미스 배포의 보호 및 복구는 지원되지 않습니다. 이는 Site Recovery가 데스크톱 OS를 사용하여 머신의 복구를 지원하지 않기 때문입니다.  또한 일부 클라이언트 가상 데스크톱 운영 체제(예: Windows 7)는 Azure에서 아직 라이선스가 지원되지 않습니다. Azure의 클라이언트/서버 데스크톱용 라이선스에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/licensing-faq/).
 
 3.  Azure Site Recovery는 기존 온-프레미스 MCS 또는 PVS 클론을 복제 및 보호할 수 없습니다.
 Azure RM 프로비전을 사용하여 Delivery Controller에서 이러한 클론을 다시 만들어야 합니다.
@@ -152,7 +145,7 @@ XenApp 구성 요소 VM에 대한 복제를 활성화한 후에는 복구 계획
 
 ### <a name="adding-scripts-to-the-recovery-plan"></a>복구 계획에 스크립트 추가
 
-복구 계획의 특정 그룹 이전 또는 이후에 스크립트를 실행할 수 있습니다. 또한 수동 작업을 포함하고 장애 조치 중에 수행할 수 있습니다.
+복구 계획의 특정 그룹 이전 또는 이후에 스크립트를 실행할 수 있습니다. 또한 수동 작업이 포함되고 장애 조치(failover) 중에 수행될 수도 있습니다.
 
 사용자 지정 복구 계획은 다음과 유사합니다.:
 
@@ -163,20 +156,20 @@ XenApp 구성 요소 VM에 대한 복제를 활성화한 후에는 복구 계획
    >[!NOTE]     
    >수동 또는 스크립트 작업을 포함하는 4, 6 및 7단계는 MCS/PVS 카탈로그가 있는 온-프레미스 XenApp 환경에만 적용됩니다.
 
-4. 그룹 3 수동 또는 스크립트 작업: 마스터 VDA VM 종료. Azure로 장애 조치된 경우 마스터 VDA VM은 실행 중인 상태가 됩니다. Azure ARM 호스팅을 사용하여 새 MCS 카탈로그를 만들려면 마스터 VDA VM이 중지됨(할당 취소됨) 상태에 있어야 합니다. Azure Portal에서 VM을 종료합니다.
+4. 그룹 3 수동 또는 스크립트 작업: 마스터 VDA VM을 종료합니다. Azure로 장애 조치된 경우 마스터 VDA VM은 실행 상태에 있게 됩니다. Azure 호스팅을 사용하여 새 MCS 카탈로그를 만들려면 마스터 VDA VM이 중지됨(할당 취소됨) 상태에 있어야 합니다. Azure Portal에서 VM을 종료합니다.
 
 5. 장애 조치 그룹 4: Delivery Controller 및 StoreFront 서버 VM
 6. 그룹 3 수동 또는 스크립트 작업 1:
 
     ***Azure RM 호스트 연결 추가***
 
-    Azure에서 새 MCS 카탈로그를 프로비전하기 위해 Delivery Controller 컴퓨터에서 Azure ARM 호스트 연결을 만듭니다. 이 [문서](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/)에 설명된 단계를 따릅니다.
+    Azure에서 새 MCS 카탈로그를 프로비전하려면 Delivery Controller 머신에서 Azure 호스트 연결을 만듭니다. 이 [문서](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/)에 설명된 단계를 따릅니다.
 
 7. 그룹 3 수동 또는 스크립트 작업 2:
 
     ***Azure에서 MCS 카탈로그 다시 만들기***
 
-    기본 사이트의 기존 MCS 또는 PVS 클론은 Azure에 복제되지 않습니다. Delivery Controller에서 복제된 마스터 VDA 및 Azure ARM 프로비전을 사용하여 이러한 클론을 다시 만들어야 합니다. 이 [문서](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/)에 설명된 단계에 따라 Azure에서 MCS 카탈로그를 만듭니다.
+    기본 사이트의 기존 MCS 또는 PVS 클론은 Azure에 복제되지 않습니다. 복제된 마스터 VDA 및 Azure 프로비전을 사용하여 Delivery Controller에서 이러한 클론을 다시 만들어야 합니다. 이 [문서](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/)에 설명된 대로 단계를 따라 Azure에서 MCS 카탈로그를 만듭니다.
 
 ![XenApp 구성 요소에 대한 복구 계획](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 

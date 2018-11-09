@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: 603e7c3a0c30eb42cb75d6a6ff87a96d847b7c9f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e1dc637d2f629b5002c2e8796fbd29a95478c392
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "40100944"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035435"
 ---
 Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 수 있는 여러 상태를 거칩니다. 이 아티클은 이러한 상태를 설명하고, 고객에게 인스턴스 사용량에 요금이 청구된 경우 특히 강조 표시하려고 합니다. 
 
@@ -287,7 +287,7 @@ Azure VM(Virtual Machines)은 *프로비전* 및 *전원* 상태로 분류될 �
 
 인스턴스 보기 API는 VM 실행 상태 정보를 제공합니다. 자세한 내용은 [Virtual Machines - 인스턴스 보기](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API 설명서를 참조하세요.
 
-Azure 리소스 탐색기는 VM 실행 상태를 보기 위해 간단한 UI를 제공합니다. [리소스 탐색기](https://resources.azure.com/).
+Azure 리소스 탐색기는 VM 실행 상태를 보기 위한 간단한 UI를 제공합니다. [리소스 탐색기](https://resources.azure.com/)
 
 프로비전 상태는 VM 속성 및 인스턴스 보기에 표시됩니다. 전원 상태는 VM의 인스턴스 보기에서 사용할 수 있습니다. 
 

@@ -1,21 +1,20 @@
 ---
-title: Azure Site Recovery를 사용하여 VMware VM 및 실제 서버 장애 복구에 대해 Azure의 프로세스 서버 설정 | Microsoft Docs
-description: 이 아티클에서는 Azure VM을 VMware에 장애 복구하도록 Azure에서 프로세스 서버를 설정하는 방법을 설명합니다.
-services: site-recovery
+title: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버의 재해 복구 중에 장애 복구(failback)하기 위해 Azure에서 프로세스 서버 설정 | Microsoft Docs
+description: 이 문서에서는 VMware VM 및 물리적 서버의 재해 복구 중에 Azure에서 온-프레미스로 장애 복구(failback)하기 위해 Azure에서 프로세스 서버를 설정하는 방법을 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 641f671f23dde0bcc32ad1ef8343a5a84227c67f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955385"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212236"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>확장성을 위해 추가 프로세스 서버 설정
+# <a name="scale-for-failback-with-additional-process-servers"></a>추가 프로세스 서버를 사용한 장애 복구(failback)를 위한 확장
 
 기본적으로 [사이트 복구](site-recovery-overview.md)를 사용하여 VMware VM 또는 물리적 서버를 Azure에 복제하는 경우 프로세스 서버가 구성 서버 컴퓨터에 설치되어 사이트 복구 및 온-프레미스 인프라 간의 데이터 전송을 조정하는 데 사용됩니다. 용량을 늘리고 복제 배포를 확장하려면 추가 독립 실행형 프로세스 서버를 추가할 수 있습니다. 이 문서에서는 이를 수행하는 방법을 설명합니다.
 

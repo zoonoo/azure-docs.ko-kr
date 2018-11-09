@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 1c2068af510cb3733ce99a6ae7b40487a8c1a015
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c1d66e0b58567244f8c1406ee258c9311994ff20
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323932"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215109"
 ---
 # <a name="understanding-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 
@@ -25,7 +25,7 @@ _Digital Twins 개체 모델_ 및 _온톨로지_가 작동하면 사용자가 _�
 
 ![Digital Twins 공간 그래프 작성][1]
 
-<a id="model" />
+<a id="model"></a>
 
 공간 그래프는 공간, 장치, 센서 및 사용자를 하나로 합칩니다. 각각은 실제 세계를 모델링하는 방식으로 서로 연결됩니다. 장소 43에는 4개 층이 있고, 각 층에는 여러 영역이 있습니다. 사용자는 자신의 워크스테이션과 연결되고, 그래프 일부에 대한 액세스 권한이 부여됩니다.  예를 들어 관리자에게는 공간 그래프를 변경하는 권한이 부여되고 방문자에게는 특정 건물 데이터를 보는 권한만 부여됩니다.
 
@@ -52,19 +52,19 @@ Digital Twins 개체 모델은 다음과 같은 주요 범주를 지원합니다
 - **선택기**는 지정된 원격 분석 메시지에 대해 어떤 UDF를 실행할 것인지 결정하는 개체입니다.
 - **엔드포인트**는 원격 분석 메시지 및 Digital Twins 이벤트를 라우팅할 수 있는 위치입니다(예: `Event Hub`, `Service Bus`, `Event Grid`).
 
-<a id="graph" />
+<a id="graph"></a>
 
 ## <a name="spatial-intelligence-graph"></a>공간 인텔리전스 그래프
 
 **공간 그래프**는 **Digital Twins 개체 모델**에 정의된 공간, 장치 및 사람으로 구성되는 계층 그래프입니다. 공간 그래프는 _상속_, _필터링_, _트래버스_, _확장성_ 및 _연장성_ 을 지원합니다. 사용자는 REST API 컬렉션을 사용하여 공간 그래프를 관리하고 상호 작용할 수 있습니다(아래 참조).
 
-자신의 구독에서 Digital Twins 서비스를 배포하는 사용자는 루트 노드의 글로벌 관리자가 되고, 자동으로 전체 구조에 대한 전체 액세스 권한이 부여됩니다. 그러면 해당 사용자는 `Space` API를 사용하여 그래프에 공간을 프로비전할 수 있습니다. 장치는 `Device` API를 사용하여 프로비전할 수 있고, 센서는 `Sensor` API 등을 사용하여 프로비전할 수 있습니다. 그래프를 대량으로 프로비전할 수 있는 [오픈 소스 도구](https://github.com/Azure-Samples/digital-twins-samples-csharp)로 제공됩니다.
+자신의 구독에서 Digital Twins 서비스를 배포하는 사용자는 루트 노드의 글로벌 관리자가 되고, 자동으로 전체 구조에 대한 전체 액세스 권한이 부여됩니다. 그러면 이 사용자는 Space API를 사용하여 그래프에 공간을 프로비전할 수 있습니다. 장치는 Device API를 사용하여 프로비전할 수 있고, 센서는 Sensor API 등을 사용하여 프로비전할 수 있습니다. 그래프를 대량으로 프로비전할 수 있는 [오픈 소스 도구](https://github.com/Azure-Samples/digital-twins-samples-csharp)로 제공됩니다.
 
 그래프 _상속_은 부모 노드에서 해당 부모 노드에 속한 모든 노드로 전달되는 권한 및 속성에 적용됩니다. 예를 들어 특정 노드의 사용자에게 역할이 할당되면 해당 사용자는 해당 노드 및 해당 노드에 속한 모든 노드에 대해 해당 역할이 갖고 있는 권한을 그대로 갖습니다. 뿐만 아니라, 특정 노드에 대해 정의된 각 속성 키 및 확장된 유형은 해당 노드 아래에 있는 모든 노드에 상속됩니다.
 
-그래프 _필터링_을 통해 사용자는 ID, 이름, 형식, 하위 형식, 부모 공간, 연결된 공간, 센서 데이터 형식, 속성 키 및 값, 트래버스, minLevel, maxLevel, 기타 OData 필터 매개 변수를 기준으로 요청 결과를 좁힐 수 있습니다.
+그래프 _필터링_을 사용하면 사용자는 ID, 이름, 형식, 하위 형식, 부모 공간, 연결된 공간, 센서 데이터 형식, 속성 키 및 값, *트래버스*, *minLevel*, *maxLevel* 및 기타 OData 필터 매개 변수를 기준으로 요청 결과를 좁힐 수 있습니다.
 
-그래프 _트래버스_를 통해 사용자는 깊이 및 너비를 통해 공간 그래프를 탐색할 수 있습니다. 깊이의 경우 탐색 매개 변수 `traverse`, `minLevel`, `maxLevel`을 사용하여 그래프를 하향식으로 또는 상향식으로 트래버스할 수 있습니다. 너비의 경우 그래프를 탐색하여 부모 공간 또는 해당 하위 항목 중 하나에 직접 연결되는 형제 노드를 가져올 수 있습니다. 개체를 쿼리할 때 GET API의 `includes` 매개 변수를 사용하여 해당 개체와 관계가 있는 모든 관련 개체를 가져올 수 있습니다.
+그래프 _트래버스_를 통해 사용자는 깊이 및 너비를 통해 공간 그래프를 탐색할 수 있습니다. 깊이의 경우 탐색 매개 변수인 *트래버스*, *minLevel* 및 *maxLevel*을 사용하여 그래프를 하향식 또는 상향식으로 트래버스할 수 있습니다. 너비의 경우 그래프를 탐색하여 부모 공간 또는 해당 하위 항목 중 하나에 직접 연결되는 형제 노드를 가져올 수 있습니다. 개체를 쿼리할 때 GET API의 *includes* 매개 변수를 사용하여 해당 개체와 관계가 있는 모든 관련 개체를 가져올 수 있습니다.
 
 Azure Digital Twins는 그래프 _확장성_을 보장하므로 실제 워크로드를 처리할 수 있습니다. Digital Twins를 사용하여 부동산, 인프라, 장치, 센서, 원격 분석 등의 대규모 포트폴리오를 나타낼 수 있습니다.
 
@@ -78,10 +78,10 @@ Azure Digital Twins는 그래프 _확장성_을 보장하므로 실제 워크로
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
-| 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+| 사용자 지정 특성 이름 | 바꿀 항목 |
 | --- | --- |
-| `yourInstanceName` | Azure Digital Twins 인스턴스의 이름 |
-| `yourLocation` | 인스턴스를 호스팅하는 서버 지역 |
+| *yourInstanceName* | Azure Digital Twins 인스턴스의 이름 |
+| *yourLocation* | 인스턴스를 호스팅하는 서버 지역 |
 
  전체 URL 형식은 아래 이미지에서 확인할 수 있습니다.
 

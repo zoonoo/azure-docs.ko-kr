@@ -1,6 +1,6 @@
 ---
 title: C를 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 장치 프로비전 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure IoT Hub Device Provisioning Service의 C# 장치 SDK를 사용하여 시뮬레이션된 TPM 장치를 만들고 프로비전합니다.
+description: 이 빠른 시작에서는 개별 등록을 사용합니다. 이 빠른 시작에서는 Azure IoT Hub Device Provisioning Service의 C# 장치 SDK를 사용하여 시뮬레이션된 TPM 장치를 만들고 프로비전합니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 07/13/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3f88da7e70ca62e14444fa742013c982daec3cc6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633276"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157856"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 시뮬레이션된 TPM 장치 프로비전
 
@@ -23,6 +23,12 @@ ms.locfileid: "45633276"
 이 빠른 시작에서는 Windows 개발 머신에서 TPM(신뢰할 수 있는 플랫폼 모듈) 장치 시뮬레이터를 만들고 실행하는 방법을 알아봅니다. Device Provisioning Service 인스턴스를 사용하여 이 시뮬레이션된 장치를 IoT Hub에 연결합니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플 코드를 사용하여 Device Provisioning Service 인스턴스에 장치를 등록하고 장치에 대한 부팅 시퀀스를 시뮬레이션할 수 있습니다.
 
 자동 프로비전 프로세스에 익숙하지 않은 경우 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요. 이 빠른 시작을 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 
+
+Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을 지원합니다.
+- [등록 그룹](concepts-service.md#enrollment-group): 여러 관련 장치를 등록하는 데 사용됩니다.
+- [개별 등록](concepts-service.md#individual-enrollment): 단일 장치를 등록하는 데 사용됩니다.
+
+이 문서에서는 개별 등록을 설명합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -9,16 +9,16 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1316dcaf32b709dbc7c07f7d82388082d8d6e6a9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ab09a46c70006d1ca7996767e38d99a9208efcb5
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319645"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157873"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>자습서: Python IoT Edge 모듈을 개발하여 시뮬레이션된 장치에 배포
 
-비즈니스 논리를 직접 Azure IoT Edge 장치에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows][lnk-quickstart-win] 또는 [Linux][lnk-quickstart-lin] 빠른 시작의 '시뮬레이션된 장치에 Azure IoT Edge 배포'에서 만든 시뮬레이션된 IoT Edge 장치를 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.    
+비즈니스 논리를 직접 Azure IoT Edge 장치에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 빠른 시작에서 만든 시뮬레이션된 IoT Edge 장치를 사용하겠습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.    
 
 > [!div class="checklist"]
 > * Visual Studio Code를 사용하여 IoT Edge Python 모듈 만들기
@@ -299,13 +299,3 @@ IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 장치
 > [!div class="nextstepaction"]
 > [Azure 함수를 모듈로 배포](tutorial-deploy-function.md)
 > [Azure Stream Analytics를 모듈로 배포](tutorial-deploy-stream-analytics.md)
-
-
-<!-- Links -->
-[lnk-quickstart-win]: quickstart.md
-[lnk-quickstart-lin]: quickstart-linux.md
-
-<!-- Images -->
-[1]: ./media/tutorial-csharp-module/programcs.png
-[2]: ./media/tutorial-csharp-module/build-module.png
-[3]: ./media/tutorial-csharp-module/docker-os.png

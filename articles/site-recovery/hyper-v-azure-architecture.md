@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery의 Hyper-V와 Azure 간 복제 아키텍처 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스 Hyper-V VM(VMM 없음)을 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처 개요를 제공합니다.
+title: Azure Site Recovery의 Hyper-V와 Azure 간 재해 복구 아키텍처 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery 서비스를 사용한 온-프레미스 Hyper-V VM(VMM 없음)과 Azure 간 재해 복구를 배포할 때 사용되는 구성 요소 및 아키텍처를 간략하게 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 49059415c5f96eeb4dd871e7d2c8ae4ab9b2c12e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 23b12f5b0423f717e96ec1f59480f0175648c75f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078361"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210655"
 ---
-# <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V와 Azure 간 복제 아키텍처
+# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
 
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 Hyper-V와 Azure 간에 Hyper-V 가상 머신을 복제, 장애 조치 및 복구할 때 사용되는 아키텍처와 프로세스에 대해 설명합니다.

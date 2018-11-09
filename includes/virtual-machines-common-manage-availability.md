@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: dc54c232b972c25e6b21dbbb8a91a0218f17d584
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670210"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035523"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -47,8 +47,7 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 
 장애 도메인은 공통 전원과 네트워크 스위치를 공유하는 가상 머신 그룹을 정의합니다. 기본적으로 가용성 집합 안에 구성된 가상 머신은 Resource Manager 배포의 경우 최대 3개의 장애 도메인(클래식의 경우 2개의 장애 도메인)으로 분리됩니다. 가상 머신을 가용성 집합에 배치한다고 해서 응용 프로그램이 운영 체제 또는 응용 프로그램 고유의 오류로부터 보호되는 것은 아닙니다. 잠재적인 물리적 하드웨어 오류, 네트워크 중단, 전력 차단의 영향이 제한될 뿐입니다.
 
-<!--Image reference-->
-   ![업데이트 도메인 및 장애 도메인 구성의 개념적 그림](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+<!--Image reference--> ![업데이트 도메인 및 장애 도메인 구성의 개념적 그림](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>가용성 집합에서 VM에 Managed Disks 사용
 현재 관리되지 않는 디스크에서 VM을 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)하는 것이 좋습니다.
@@ -72,8 +71,7 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 
 예를 들어 IIS, Apache, Nginx를 실행하는 응용 프로그램의 프런트 엔드에 있는 모든 가상 머신을 단일 가용성 집합에 배치할 수 있습니다. 프런트 엔드 가상 머신만 같은 가용성 집합에 배치해야 합니다. 마찬가지로 데이터 계층 가상 머신만 자체의 가용성 집합(예: 복제된 SQL Server 가상 머신 또는 MySQL 가상 머신)에 배치해야 합니다.
 
-<!--Image reference-->
-   ![응용 프로그램 계층](./media/virtual-machines-common-manage-availability/application-tiers.png)
+<!--Image reference--> ![응용 프로그램 계층](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-sets"></a>가용성 집합과 부하 분산 장치 결합
 [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md)를 가용성 집합과 결합하여 응용 프로그램 복원력을 극대화하십시오. Azure 부하 분산 장치는 트래픽을 여러 가상 머신에 분산시킵니다. 표준 계층 가상 머신의 경우 Azure 부하 분산 장치가 포함되어 있습니다. 모든 가상 머신 계층에 Azure Load Balancer가 포함되어 있는 것은 아닙니다. 가상 머신 부하 분산에 대한 자세한 내용은 [가상 머신 부하 분산](../articles/virtual-machines/virtual-machines-linux-load-balance.md)을 참조하세요.

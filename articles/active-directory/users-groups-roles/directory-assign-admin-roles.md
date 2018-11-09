@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: cae0b6a316839f10636ff3d81b9e18729d03298e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 28f06efdd990e46eaa84b1fe26ed5d8944971505
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987871"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156921"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -63,9 +63,13 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 * **[디렉터리 작성자](#directory-writers)**: [동의 프레임워크](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)를 지원하지 않는 응용 프로그램에 할당될 레거시 역할입니다. 이 역할은 어느 사용자에게나 할당되면 안 됩니다.
 
-* **[Dynamics 365 서비스 관리자/CRM 서비스 관리자](#dynamics-365-service-administrator)**: 서비스가 있는 경우 이 역할의 사용자는 Microsoft Dynamics 365 Online 내에서 글로벌 권한을 가지며, 지원 티켓을 관리하고 서비스 상태를 모니터링할 수 있습니다. 자세한 내용은 [서비스 관리자 역할을 사용하여 테넌트 관리](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant)를 참조하세요.
+* **[Dynamics 365 관리자/CRM 관리자](#dynamics-365-administrator)**: 서비스가 있는 경우 이 역할의 사용자는 Microsoft Dynamics 365 Online 내에서 전역 권한을 가지며, 지원 티켓을 관리하고 서비스 상태를 모니터링할 수 있습니다. 자세한 내용은 [서비스 관리자 역할을 사용하여 테넌트 관리](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant)를 참조하세요.
+  > [!NOTE] 
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Dynamics 365 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Dynamics 365 관리자”입니다.
 
-* **[Exchange 서비스 관리자](#exchange-service-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft Exchange Online 내에서 전역 사용 권한을 가집니다. 모든 Office 365 그룹 만들기 및 관리 기능뿐만 아니라 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능도 포함합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+* **[Exchange 관리자](#exchange-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft Exchange Online 내에서 전역 권한을 가집니다. 모든 Office 365 그룹 만들기 및 관리 기능뿐만 아니라 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능도 포함합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+  > [!NOTE]
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Exchange 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Exchange 관리자”입니다.
 
 * **[전역 관리자 / 회사 관리자](#company-administrator)**: 이 역할의 사용자는 Azure Active Directory의 모든 관리 기능 및 Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같은 Azure Active Directory에 페더레이션하는 서비스에 대한 액세스를 가집니다. Azure Active Directory 테넌트에 등록하는 사람이 전역 관리자가 됩니다. 전역 관리자만 다른 관리자 역할을 할당할 수 있습니다. 회사에 여러 전역 관리자가 있을 수 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다.
 
@@ -78,7 +82,9 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 * **[Information Protection 관리자](#information-protection-administrator)**: 이 역할의 사용자는 Azure Information Protection 서비스에 대한 모든 권한을 가집니다. 이 역할은 Azure Information Protection 정책에 대한 레이블을 구성하고, 보호 템플릿을 관리하고, 보호를 활성화하는 권한을 갖습니다. 이 역할은 ID 보호 센터, Privileged Identity Management, Office 365 Service Health 또는 Office 365 보안 및 준수 센터에서 어느 권한도 부여하지 않습니다.
 
-* **[Intune 서비스 관리자](#intune-service-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft Intune Online 내에서 전역 사용 권한을 가집니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 장치를 관리하는 기능을 포함합니다. 자세한 내용은 [Microsoft Intune에서 RBAC(역할 기반 관리 제어)](https://docs.microsoft.com/intune/role-based-access-control)를 참조하세요
+* **[Intune 관리자](#intune-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft Intune Online 내에서 전역 권한을 가집니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 장치를 관리하는 기능을 포함합니다. 자세한 내용은 [Microsoft Intune에서 RBAC(역할 기반 관리 제어)](https://docs.microsoft.com/intune/role-based-access-control)를 참조하세요
+  > [!NOTE]
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Intune 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Intune 관리자”입니다.
 
 * **[라이선스 관리자](#license-administrator)**: 이 역할의 사용자는 사용자 및 그룹의(그룹 기반 라이선스를 사용하여) 라이선스 할당을 추가, 제거 및 업데이트하고, 사용자의 사용 위치를 관리합니다. 이 역할은 사용 위치를 벗어나서 구독을 구매 또는 관리하고, 그룹을 만들거나 관리하고, 사용자를 만들거나 관리하는 기능을 부여하지 않습니다.
 
@@ -102,16 +108,17 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   * Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
   * 중요한 개인 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자
 
-  
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "기술 지원팀 관리자"로 식별됩니다. [Azure Portal](https://portal.azure.com/)에서 "암호 관리자"입니다.
   >
   
-* **[Power BI 서비스 관리자](#power-bi-service-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft Power BI 내에서 전역 사용 권한을 가지며 지원 티켓을 관리하고 서비스 상태를 모니터링할 수 있습니다. 자세한 내용은 [Power BI 관리자 역할 이해](https://docs.microsoft.com/power-bi/service-admin-role)를 참조하세요.
+* **[Power BI 관리자](#power-bi-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft Power BI 내에서 전역 권한을 가지며 지원 티켓을 관리하고 서비스 상태를 모니터링할 수 있습니다. 자세한 내용은 [Power BI 관리자 역할 이해](https://docs.microsoft.com/power-bi/service-admin-role)를 참조하세요.
+  > [!NOTE]
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Power BI 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Power BI 관리자”입니다.
 
 * **[권한 있는 역할 관리자](#privileged-role-administrator)**: 이 역할의 사용자는 Azure Active Directory 및 Azure AD Privileged Identity Management 내에서 역할 할당을 관리할 수 있습니다. 또한 이 역할을 통해 Privileged Identity Management의 모든 측면을 관리할 수 있습니다.
 
-  <b>중요</b>: 이 역할은 글로벌 관리자 역할을 포함하여 모든 Azure AD 역할의 멤버 자격을 관리하는 기능을 부여합니다. 이 역할은 사용자 생성 또는 업데이트와 같은 Azure AD의 다른 모든 권한 있는 기능을 포함하지는 않습니다. 그러나 이 역할에 할당된 사용자는 추가 역할을 할당하여 본인 또는 다른 사용자의 추가 권한을 부여할 수 있습니다.
+  <b>중요</b>: 이 역할은 글로벌 관리자 역할을 포함하여 모든 Azure AD 역할의 멤버 자격을 관리하는 기능을 부여합니다. 이 역할은 사용자 생성 또는 업데이트와 같은 Azure AD의 다른 모든 권한 있는 기능을 포함하지는 않습니다. 그러나 이 역할에 할당된 사용자는 추가 역할을 할당하여 본인 또는 다른 사용자에게 추가 권한을 부여할 수 있습니다.
 
 * **[보고서 읽기 권한자](#reports-reader)**: 이 역할의 사용자는 Office 365 관리 센터에서 사용량 보고 데이터 및 보고서 대시보드를, Power BI에서 채택 컨텍스트 팩을 볼 수 있습니다. 또한 역할은 Azure AD의 로그온 보고서 및 활동과 함께 Microsoft Graph Reporting API에서 반환되는 데이터에 대한 액세스를 제공합니다. 보고서 구독자 역할에 할당된 사용자는 관련된 사용량 및 채택 메트릭에만 액세스할 수 있습니다. 설정을 구성하거나 Exchange와 같은 제품 특정 관리 센터에 액세스할 수 있는 관리자 권한은 없습니다. 
 
@@ -133,14 +140,14 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 * **[서비스 지원 관리자](#service-support-administrator)**: 이 역할의 사용자는 Azure 및 Office 365 서비스에 대한 Microsoft로의 지원 요청 및 Azure Portal 및 Office 365 관리자 포털에서 서비스 대시보드 및 메시지 센터에 대한 뷰를 열 수 있습니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
 
-* **[SharePoint 서비스 관리자](#sharepoint-service-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft SharePoint Online 내에서 전역 사용 권한을 가지며 모든 Office 365 그룹을 생성 및 관리하고, 지원 티켓을 관리하고, 서비스 상태를 모니터링할 수 있습니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+* **[SharePoint 관리자](#sharepoint-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft SharePoint Online 내에서 전역 권한을 가지며 모든 Office 365 그룹을 생성 및 관리하고, 지원 티켓을 관리하고, 서비스 상태를 모니터링할 수 있습니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)를 참조하세요.
+  > [!NOTE]
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “SharePoint 서비스 관리자”로 식별됩니다. Azure Portal에서는 “SharePoint 관리자”입니다.
 
-* **[비즈니스용 Skype/Lync Service 관리자](#lync-service-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft 비즈니스용 Skype 내에서 전역 사용 권한을 가지며 Azure Active Directory에서 Skype 관련 사용자 특성을 관리합니다. 또한 이 역할은 지원 티켓을 관리하고 서비스 상태를 모니터링하고, Teams 및 Business용 Skype 관리 센터에 액세스하는 기능을 부여합니다. 계정에는 Teams에 대한 라이선스가 있어야 합니다. 그렇지 않으면 Teams PowerShell cmdlet을 실행할 수 없습니다. [비즈니스용 Skype 관리자 역할 정보](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5)의 자세한 내용 및 [비즈니스용 Skype 및 Microsoft Teams 추가 기능 라이선스](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)의 Teams 라이선스 정보
+* **[비즈니스용 Skype/Lync 관리자](#skype-for-business-administrator)**: 이 역할의 사용자는 해당 서비스가 있는 경우 Microsoft 비즈니스용 Skype 내에서 전역 권한을 가지며 Azure Active Directory에서 Skype 관련 사용자 특성을 관리합니다. 또한 이 역할은 지원 티켓을 관리하고 서비스 상태를 모니터링하고, Teams 및 Business용 Skype 관리 센터에 액세스하는 기능을 부여합니다. 계정에는 Teams에 대한 라이선스가 있어야 합니다. 그렇지 않으면 Teams PowerShell cmdlet을 실행할 수 없습니다. [비즈니스용 Skype 관리자 역할 정보](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5)의 자세한 내용 및 [비즈니스용 Skype 및 Microsoft Teams 추가 기능 라이선스](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)의 Teams 라이선스 정보
 
   > [!NOTE]
-  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "Lync Service 관리자"로 식별됩니다. [Azure Portal](https://portal.azure.com/)에서 "비즈니스용 Skype 서비스 관리자"입니다.
-  >
-  >
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 "Lync Service 관리자"로 식별됩니다. [Azure Portal](https://portal.azure.com/)에서는 “비즈니스용 Skype 관리자”입니다.
 
 * **[Teams 통신 관리자](#teams-communications-administrator)**: 이 역할의 사용자는 음성 및 전화 통신과 관련된 Microsoft Teams 워크로드의 측면을 관리할 수 있습니다. 여기에는 전화 번호 할당, 음성 및 회의 정책 및 호출 분석 도구 집합에 대한 전체 액세스를 위한 관리 도구가 포함됩니다.
 
@@ -148,7 +155,9 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 * **[Teams 통신 지원 전문가](#teams-communications-support-specialist)**: 이 역할의 사용자는 Microsoft Teams 및 비즈니스용 Skype 관리 센터에서 사용자 호출 문제 해결 도구를 사용하여 Microsoft Teams 및 비즈니스용 Skype 내에서 통신 문제를 해결할 수 있습니다. 이 역할의 사용자는 조회하는 특정 사용자에 대한 호출에서 사용자 세부 정보를 보기만 할 수 있습니다.
 
-* **[Teams 서비스 관리자](#teams-service-administrator)**: 이 역할의 사용자는 Microsoft Teams 및 비즈니스용 Skype 관리 센터와 해당하는 PowerShell 모듈을 통해 Microsoft Teams 워크로드의 모든 측면을 관리할 수 있습니다. 여기에는 다른 영역 중 전화 통신, 메시징, 회의 및 팀 자체와 관련된 모든 관리 도구가 포함됩니다. 이 역할은 추가적으로 모든 Office 365 그룹 만들기 및 관리 기능뿐만 아니라 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능도 부여합니다.
+* **[Teams 관리자](#teams-administrator)**: 이 역할의 사용자는 Microsoft Teams 및 비즈니스용 Skype 관리 센터와 해당하는 PowerShell 모듈을 통해 Microsoft Teams 워크로드의 모든 측면을 관리할 수 있습니다. 여기에는 다른 영역 중 전화 통신, 메시징, 회의 및 팀 자체와 관련된 모든 관리 도구가 포함됩니다. 이 역할은 추가적으로 모든 Office 365 그룹 만들기 및 관리 기능뿐만 아니라 지원 티켓을 관리하고 서비스 상태를 모니터링하는 기능도 부여합니다.
+  > [!NOTE]
+  > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Teams 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Teams 관리자”입니다.
 
 * **[사용자 계정 관리자](#user-account-administrator)**: 이 역할의 사용자는 사용자를 만들고, 사용자의 모든 측면을 제한적으로 관리할 수 있습니다(아래 참조). 또한 이 역할의 사용자는 모든 그룹을 만들고 관리할 수 있습니다. 이 역할은 사용자 보기를 만들고 관리하며, 지원 티켓을 관리하고, 서비스 상태를 모니터링하는 기능도 포함합니다.
 
@@ -439,28 +448,6 @@ Azure AD 및 Office 365에서 준수 구성 및 보고서를 읽고 관리할 �
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | Azure Active Directory에서 policies.conditionalAccess 속성을 업데이트합니다. |
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Azure Active Directory에서 policies.conditionalAccess 속성을 읽습니다. |
 
-### <a name="crm-service-administrator"></a>CRM 서비스 관리자
-Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
-  > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
-  >
-  >
-
-| **Actions** | **설명** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
-| microsoft.powerApps.dynamics365/allEntities/allTasks | Dynamics 365의 모든 측면을 관리합니다. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-
 ### <a name="customer-lockbox-access-approver"></a>고객 LockBox 액세스 승인자
 고객 조직 데이터에 액세스하려는 Microsoft 지원 요청을 승인할 수 있습니다.
 
@@ -617,8 +604,28 @@ Azure AD Connect에서만 사용됩니다.
 | microsoft.aad.directory/users/manager/update | Azure Active Directory에서 users.manager 속성을 업데이트합니다. |
 | microsoft.aad.directory/users/userPrincipalName/update | Azure Active Directory에서 users.userPrincipalName 속성을 업데이트합니다. |
 
-### <a name="exchange-service-administrator"></a>Exchange 서비스 관리자
-Exchange 제품의 모든 측면을 관리할 수 있습니다.
+### <a name="dynamics-365-administrator"></a>Dynamics 365 Administrator
+Dynamics 365 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Dynamics 365 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Dynamics 365 관리자”입니다.
+
+
+  > [!NOTE]
+  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
+  >
+  > 이 역할에는 Azure Active Directory 외부의 추가 권한도 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
+  >
+  >
+
+| **Actions** | **설명** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
+| microsoft.powerApps.dynamics365/allEntities/allTasks | Dynamics 365의 모든 측면을 관리합니다. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+
+### <a name="exchange-administrator"></a>Exchange 관리자
+Exchange 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Exchange 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Exchange 관리자”입니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -706,8 +713,8 @@ Azure Information Protection 제품의 모든 측면을 관리할 수 있습니�
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
-### <a name="intune-service-administrator"></a>Intune 서비스 관리자
-Intune 제품의 모든 측면을 관리할 수 있습니다.
+### <a name="intune-administrator"></a>Intune 관리자
+Intune 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Intune 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Intune 관리자”입니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -762,8 +769,8 @@ Intune 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 
-### <a name="lync-service-administrator"></a>Lync 서비스 관리자
-비즈니스용 Skype 제품의 모든 측면을 관리할 수 있습니다.
+### <a name="skype-for-business-administrator"></a>비즈니스용 Skype 관리자
+비즈니스용 Skype 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “비즈니스용 Skype 서비스 관리자”로 식별됩니다. Azure Portal에서는 “비즈니스용 Skype 관리자”입니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -879,8 +886,8 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
-### <a name="power-bi-service-administrator"></a>Power BI 서비스 관리자
-Power BI 제품의 모든 측면을 관리할 수 있습니다.
+### <a name="power-bi-administrator"></a>Power BI 관리자
+Power BI 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Power BI 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Power BI 관리자”입니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -1012,8 +1019,8 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽을 수 있습�
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
-### <a name="sharepoint-service-administrator"></a>SharePoint 서비스 관리자
-SharePoint 서비스의 모든 측면을 관리할 수 있습니다.
+### <a name="sharepoint-administrator"></a>SharePoint 관리자
+SharePoint 서비스의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “SharePoint 서비스 관리자”로 식별됩니다. Azure Portal에서는 “SharePoint 관리자”입니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -1101,8 +1108,8 @@ Microsoft Teams 서비스 내에서 호출 및 회의 기능을 관리할 수 �
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 
-### <a name="teams-service-administrator"></a>Teams 서비스 관리자
-Microsoft Teams 서비스를 관리할 수 있습니다.
+### <a name="teams-administrator"></a>Teams 관리자
+Microsoft Teams 서비스를 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Teams 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Teams 관리자”입니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -1170,7 +1177,6 @@ Microsoft Teams 서비스를 관리할 수 있습니다.
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-
 
 ## <a name="deprecated-roles"></a>사용되지 않는 역할
 

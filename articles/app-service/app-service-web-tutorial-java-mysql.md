@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: db1005bbce25b0fa3fec76e6f9428a4cdd6fa4aa
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: ec942d97e7671c0477d8d723afacb06b73565c1c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024378"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414560"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>자습서: Azure에서 Java 및 MySQL 웹앱 빌드
 
@@ -47,7 +47,7 @@ ms.locfileid: "50024378"
 ## <a name="prerequisites"></a>필수 조건
 
 1. [Git 다운로드 및 설치](https://git-scm.com/)
-1. [JDK Java 7 이상 다운로드 및 설치](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+1. [Java JDK 다운로드 및 설치](https://aka.ms/azure-jdks)
 1. [MySQL 다운로드, 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>로컬 MySQL 준비 
@@ -272,7 +272,7 @@ az webapp create --name <app_name> --resource-group myResourceGroup --plan myApp
 
 Cloud Shell에서 [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set) 명령으로 앱에 필요한 Java 런타임 구성을 설정합니다.
 
-다음 명령은 최근 Java 8 JDK 및 [Apache Tomcat](http://tomcat.apache.org/) 8.0에서 실행되도록 웹앱을 구성합니다.
+다음 명령은 최신 [Java 8 JDK](https://aka.ms/azure-jdks) 및 [Apache Tomcat](http://tomcat.apache.org/) 8.0에서 실행되도록 웹앱을 구성합니다.
 
 ```azurecli-interactive
 az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0

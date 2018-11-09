@@ -12,17 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2016
+ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 9b4c87bd0889718fcb8938a9e3bb9207b8fe727a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850157"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420459"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
-이 문서에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
+이 문서에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 Windows 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
+
+> [!NOTE] 
+> App Service의 [Linux 앱](containers/app-service-linux-intro.md)은 자체 컨테이너에서 실행됩니다. 호스트 운영 체제에 대한 액세스는 허용되지 않으며, 컨테이너에 대한 루트 액세스 권한이 제공되지 않습니다. 마찬가지로, [Windows 컨테이너에서 실행되는 앱](app-service-web-get-started-windows-container.md)의 경우 컨테이너에 대한 관리자 액세스 권한은 있지만 호스트 운영 체제에 대한 액세스 권한은 없습니다. 
+>
 
 <a id="tiers"></a>
 
@@ -86,7 +90,7 @@ App Service의 각 앱은 "응용 프로그램 풀 ID"라는 권한이 낮은 �
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>네트워크 액세스
-응용 프로그램 코드는 외부 서비스를 노출하는 인터넷 액세스 끝점에 아웃바운드 네트워크를 연결하는 데 TCP/IP 및 UDP 기반 프로토콜을 사용할 수 있습니다. 앱은 이 동일한 프로토콜을 사용하여 Azure 내의 서비스에 연결할 수 있습니다.&#151;예를 들어 SQL Database에 대한 HTTPS 연결을 설정하면 됩니다.
+응용 프로그램 코드는 외부 서비스를 노출하는 인터넷 액세스 엔드포인트에 아웃바운드 네트워크를 연결하는 데 TCP/IP 및 UDP 기반 프로토콜을 사용할 수 있습니다. 앱은 이 동일한 프로토콜을 사용하여 Azure 내의 서비스에 연결할 수 있습니다.&#151;예를 들어 SQL Database에 대한 HTTPS 연결을 설정하면 됩니다.
 
 앱이 하나의 로컬 루프백 연결을 설정하고 앱이 해당 로컬 루프백 소켓을 수신 대기하도록 만드는 제한된 기능도 있습니다. 이 기능은 주로 기능의 일부로 로컬 루프백 소켓을 수신 대기하는 앱을 사용하도록 설정하기 위한 것입니다. 각 앱에서 "비공개" 루프백 연결을 볼 수 있습니다 앱 "A"는 앱 "B"가 설정한 로컬 루프백 소켓을 수신할 수 없습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: VM용 Azure Monitor를 사용하여 앱 종속성을 보는 방법 | Microsoft Docs
+title: VM용 Azure Monitor(미리 보기)를 사용하여 앱 종속성을 보는 방법 | Microsoft Docs
 description: 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 VM용 Azure Monitor 기능입니다. 이 문서에서는 다양한 시나리오에서 이 기능을 사용하는 방법에 대해 자세하게 설명합니다.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 8641b6cfb14bceb248cc587095a9d3469ce2c9e0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402152"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095481"
 ---
-# <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>VM용 Azure Monitor 맵을 사용하여 응용 프로그램 구성 요소 이해
+# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>VM용 Azure Monitor(미리 보기) 맵을 사용하여 응용 프로그램 구성 요소 이해
 Azure에서 실행 중인 Windows 및 Linux 가상 머신에서 검색된 응용 프로그램 구성 요소를 보고 VM용 Azure Monitor를 사용하여 가상 머신에서 직접 또는 Azure Monitor에서 VM 그룹을 통해서와 같이 두 가지 방법으로 환경을 관찰할 수 있습니다. 
 
 이 문서는 이러한 두 관점에서 환경 및 맵 기능을 사용하는 방법을 이해하는 데 도움이 됩니다. VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용하도록 설정](monitoring-vminsights-onboard.md)을 참조하세요.

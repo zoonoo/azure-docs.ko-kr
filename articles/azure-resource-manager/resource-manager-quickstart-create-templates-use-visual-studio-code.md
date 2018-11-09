@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 092b6f2c3267a2c2cd2cc6304133134825bb7261
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458142"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230151"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
 
@@ -81,7 +81,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
     }
     ```
 
-    Visual Studio Code 내에서 코드를 복사하여 붙여넣은 경우 **value** 요소를 다시 입력하여 Resource Manager 도구 확장의 Intellisense 기능을 사용해 봅니다.
+    Visual Studio Code 내에서 코드를 복사하여 붙여넣은 경우 **value** 요소를 다시 입력하여 Resource Manager 도구 확장의 IntelliSense 기능을 사용해 봅니다.
 
     ![Resource Manager 템플릿 - Visual Studio Code IntelliSense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
@@ -89,7 +89,7 @@ Visual Studio Code를 사용하여 템플릿을 편집하는 방법을 알아보
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
-템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 빠른 시작에서는 Azure Cloud Shell을 사용합니다. Cloud Shell은 Azure CLI와 Azure PowerShell을 모두 지원합니다. 
+템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 빠른 시작에서는 Azure Cloud Shell을 사용합니다. Cloud Shell은 Azure CLI와 Azure PowerShell을 모두 지원합니다.
 
 1. [Azure Cloud Shell](https://shell.azure.com)에 로그인
 

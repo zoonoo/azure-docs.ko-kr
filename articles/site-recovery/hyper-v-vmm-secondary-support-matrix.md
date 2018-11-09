@@ -1,21 +1,21 @@
 ---
-title: Azure Site Recovery를 사용하여 보조 사이트에 VMM 클라우드의 Hyper-V VM 복제에 대한 지원 매트릭스 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 보조 사이트로 VMM 클라우드의 Hyper-V VM 재해 복구를 위한 지원 매트릭스 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 VMM 클라우드의 Hyper-V VM을 보조 사이트에 복제하는 기능 지원에 대해 요약합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: e1a0ee2a9ad958a5938569927a489785edd8ee1f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3203ae48163ba325c8dad2f29c9f566e330928b5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078841"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214293"
 ---
-# <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트에 복제하기 위한 지원 매트릭스
+# <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되는 Hyper-V VM을 보조 사이트에 복제할 때 지원되는 기능을 요약합니다. Hyper-V VM을 Azure에 복제하려면 [이 지원 매트릭스](hyper-v-azure-support-matrix.md)를 검토하세요.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801933"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086950"
 ---
 # <a name="how-to-configure-password-writeback"></a>방법: 비밀번호 쓰기 저장 구성
 
@@ -72,13 +72,14 @@ SSPR 범위 내에 있으려면 Azure AD Connect 유틸리티에 지정된 계�
 3. 왼쪽 패널에서, 도메인의 루트를 나타내는 개체를 마우스 오른쪽 단추로 클릭하고 **속성** > **보안** > **고급**을 선택합니다.
 4. **사용 권한** 탭에서 **추가**를 선택합니다.
 5. (Azure AD Connect 설정에서) 사용 권한이 적용되는 계정을 선택합니다.
-6. **적용 대상** 드롭다운 목록에서 **하위 사용자** 개체를 선택합니다.
+6. **적용 대상** 드롭다운 목록에서 **하위 사용자 개체**를 선택합니다.
 7. **권한** 아래에서 다음 옵션의 확인란을 선택합니다.
-    * **암호 다시 설정**
     * **암호 변경**
+    * **암호 다시 설정**
+8. **속성** 아래에서 다음 옵션의 확인란을 선택합니다.
     * **lockoutTime 쓰기**
     * **pwdLastSet 쓰기**
-8. **적용/확인**을 선택하여 변경 내용을 적용하고 열려 있는 대화 상자를 모두 끝냅니다.
+9. **적용/확인**을 선택하여 변경 내용을 적용하고 열려 있는 대화 상자를 모두 끝냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

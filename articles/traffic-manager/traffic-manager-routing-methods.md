@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955221"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139345"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager 라우팅 방법
 
 Azure Traffic Manager는 다양한 서비스 엔드포인트에 네트워크 트래픽을 라우팅하는 방법을 결정하는 6가지 트래픽 라우팅 방법을 지원합니다. 모든 프로필에 대해, Traffic Manager는 관련된 트래픽 라우팅 메서드를 수신한 각 DNS 쿼리에 적용합니다. 트래픽 라우팅 메서드는 DNS 응답에서 반환된 엔드포인트를 결정합니다.
 
-Traffic Manager에서 사용할 수 있는 네 가지 트래픽 라우팅 메서드가 있습니다.
+Traffic Manager에서 다음과 같은 트래픽 라우팅 방법을 사용할 수 있습니다.
 
 * **[우선 순위](#priority):** 모든 트래픽에 대해 기본 서비스 엔드포인트를 사용하고 기본 또는 백업 엔드포인트를 사용할 수 없을 때 백업을 제공하려면 **우선 순위**를 선택합니다.
 * **[가중](#weighted):** 여러 엔드포인트에 균일하게 또는 정의한 가중치에 따라 트래픽을 분산하려면 **가중**을 선택합니다.
 * **[성능](#performance):** 엔드포인트가 서로 다른 지역에 있고 최종 사용자가 가장 짧은 네트워크 대기 시간을 기준으로 "가장 가까운" 엔드포인트를 사용하게 하려는 경우 **성능**을 선택합니다.
 * **[지리적](#geographic):** 사용자가 해당 DNS 쿼리가 시작된 지리적 위치를 기준으로 특정 엔드포인트(Azure, 외부 또는 중첩)로 리디렉션되게 하려면 **지리적**을 선택합니다. 이렇게 하면 Traffic Manager 고객이 사용자의 지리적 위치를 파악하고 그에 따라 라우팅되는 중요한 시나리오를 사용할 수 있습니다. 데이터 독립성 지시 사항, 콘텐츠 및 사용자 환경의 지역화를 준수하고 다른 지역의 트래픽을 측정하는 작업을 예로 들 수 있습니다.
 * **[다중값](#multivalue):** 엔드포인트로 IPv4/IPv6 주소만 사용할 수 있는 Traffic Manager 프로필의 경우 **다중값**을 선택합니다. 이 프로필에 대해 쿼리가 수신되면 정상 상태의 모든 엔드포인트가 반환됩니다.
-* **[서브넷](#subnet):** 최종 사용자 IP 주소 범위 집합을 Traffic Manager 프로필 내의 특정 엔드포인트로 매핑하려면 **서브넷** 트래픽 라우팅 방법을 선택합니다. 요청이 수신되면 해당 요청의 원본 IP 주소에 대해 매핑될 엔드포인트가 반환됩니다. 
+* **[서브넷](#subnet):** 최종 사용자 IP 주소 범위 집합을 Traffic Manager 프로필 내의 특정 엔드포인트로 매핑하려면 **서브넷** 트래픽 라우팅 방법을 선택합니다. 요청이 수신되면 해당 요청의 원본 IP 주소에 대해 매핑될 엔드포인트가 반환됩니다. 
 
 
 모든 Traffic Manager 프로필에는 엔드포인트 상태 및 자동 엔드포인트 장애 조치(Failover)의 모니터링이 포함됩니다. 자세한 내용은 [Traffic Manager 엔드포인트 모니터링](traffic-manager-monitoring.md)을 참조하세요. 단일 Traffic Manager 프로필은 1가지 트래픽 라우팅 방법만 사용할 수 있습니다. 언제든지 프로필에 대해 다른 트래픽 라우팅 방법을 선택할 수 있습니다. 1분 안에 변경 내용이 적용되며 가동 중지는 발생하지 않습니다. 중첩 Traffic Manager 프로필을 사용하여 트래픽 라우팅 방법을 결합할 수 있습니다. 중첩을 통해 크고 복잡한 응용 프로그램의 요구 사항을 충족할 수 있는 정교하고 유연한 트래픽 라우팅 구성이 가능합니다. 자세한 내용은 [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md)을 참조하세요.

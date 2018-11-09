@@ -1,21 +1,21 @@
 ---
-title: 일반적인 질문 - Azure Site Recovery를 사용하여 Hyper-V에서 Azure로 복제 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 Hyper-V VM을 Azure로 복제하는 경우와 관련된 일반적인 질문을 요약해서 설명합니다.
+title: 일반적인 질문 - Azure Site Recovery를 사용한 Hyper-V와 Azure 간 재해 복구 | Microsoft Docs
+description: 이 문서에는 Azure Site Recovery 사이트를 사용하여 온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 설정하는 방법과 관련된 일반적인 질문이 요약되어 있습니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6345cf47d19f7990e776e0fe4ec2bafd005c9cf2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319730"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212491"
 ---
-# <a name="common-questions---hyper-v-to-azure-replication"></a>일반적인 질문 - Hyper-V에서 Azure로 복제
+# <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>일반적인 질문 - Hyper-V와 Azure 간 재해 복구
 
 이 문서에서는 온-프레미스 Hyper-V VM을 Azure로 복제할 때 표시되는 일반적인 질문에 대한 대답을 제공합니다. 
 

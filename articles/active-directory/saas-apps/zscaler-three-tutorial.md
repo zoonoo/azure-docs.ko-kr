@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 0ef8fc2ea8b006d49dd54d638183a58bf78a5797
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: b148967af0882993d8ab113bdf0fd3ad3835296f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312202"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092613"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>자습서: Azure Active Directory와 Zscaler Three 통합
 
@@ -119,10 +119,7 @@ Zscaler Three에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
 
-    회신 URL 텍스트 상자에 URL `https://login.zscalerthree.net/sfc_sso`를 입력합니다.
-
-    > [!NOTE]
-    > 이 값은 실제 로그온 URL로 업데이트해야 합니다. 이러한 값을 얻으려면 [Zscaler Three 클라이언트 지원 팀](https://www.zscaler.com/company/contact)에 문의하세요.
+    로그온 URL 텍스트 상자에 `https://login.zscalerthree.net/sfc_sso`를 입력합니다.
 
 6. **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 인증서 파일을 저장합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 컨테이너용 Azure Monitor 개요 | Microsoft Docs
+title: 컨테이너용 Azure Monitor 개요(미리 보기) | Microsoft Docs
 description: 이 문서에서는 AKS Container Insights 솔루션을 모니터링하는 컨테이너용 Azure Monitor 및 Azure Monitor가 Azure의 AKS 클러스터 및 Container Instances 상태를 모니터링하여 제공하는 가치에 대해 설명합니다.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 6819cf96eb968e8faad5441cf3f3dd672653f1cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 13fde8a4ec4ecf43b9997d5d4d181a232505626f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971436"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213001"
 ---
-# <a name="azure-monitor-for-containers-overview"></a>컨테이너용 Azure Monitor 개요
+# <a name="azure-monitor-for-containers-preview-overview"></a>컨테이너용 Azure Monitor(미리 보기)
 
 컨테이너용 Azure Monitor는 AKS(Azure Kubernetes Service)에 호스트된 관리되는 Kubernetes 클러스터에 배포된 컨테이너 워크로드의 성능을 모니터링하도록 설계된 기능입니다. 컨테이너 모니터링은 특히 여러 응용 프로그램을 사용하여 대규모의 프로덕션 클러스터를 실행하는 경우에 중요합니다.
 

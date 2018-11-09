@@ -1,18 +1,18 @@
 ---
-title: " Azure Site Recovery를 사용하여 물리적 서버 재해 복구를 위한 구성 서버 관리 | Microsoft Docs"
-description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 Azure에 대한 물리적 서버 재해 복구를 위해 기존 구성 서버를 관리하는 방법을 설명합니다.
+title: Azure Site Recovery를 사용한 온-프레미스 물리적 서버와 Azure 간 재해 복구를 위한 구성 서버 관리 | Microsoft Docs
+description: 이 문서에서는 물리적 서버와 Azure 간 재해 복구를 위한 Azure Site Recovery 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951179"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213256"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
 

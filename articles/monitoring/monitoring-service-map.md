@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269261"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215262"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스, 인바운드/아웃바운드 연결 대기 시간 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -72,11 +72,6 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 
 기본적으로 서비스 맵 맵은 최근 30분 간의 종속성 정보를 표시합니다. 왼쪽 상단의 시간 컨트롤을 사용하여 최대 1시간의 기록 시간 범위에 대한 맵을 쿼리하여 과거의 종속성(예: 인시던트 중 또는 변경되기 전)을 보여줍니다. 서비스 맵 데이터는 유료 작업 영역에서 30일 동안, 무료 작업 영역에서는 7일 동안 저장됩니다.
 
-
-
-
-
-
 ## <a name="status-badges-and-border-coloring"></a>상태 배지 및 경계 색 지정
 맵의 각 서버 하단에는 서버에 대한 상태 정보를 전달하는 상태 배지 목록이 있을 수 있습니다. 이러한 배지가 있으면 솔루션 통합 중 하나에서 제공된 서버 관련 정보가 있는 것입니다. 배지를 클릭하면 오른쪽 창의 상태 세부 정보로 직접 이동됩니다. 현재 사용 가능한 상태 배지에는 경고, 서비스 데스크, 변경 내용, 보안 및 업데이트가 포함됩니다.
 
@@ -104,7 +99,7 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 ![그룹 이름 지정](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->컴퓨터 그룹은 현재 10대의 서버로 제한되어 있지만 곧 한도를 늘릴 계획입니다.
+>머신 그룹은 10개 서버로 제한됩니다.
 
 ### <a name="viewing-a-group"></a>그룹 보기
 그룹을 만들고 나면 그룹 탭을 선택하여 해당 그룹을 볼 수 있습니다.

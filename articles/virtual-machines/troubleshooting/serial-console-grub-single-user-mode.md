@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 411c743421af79ea066df3a5fc07f71b8b6cb993
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855870"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211386"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
 GRUB는 GRand Unified Bootloader의 약어입니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
@@ -33,7 +33,7 @@ GRUB는 GRand Unified Bootloader의 약어입니다. GRUB에서는 단일 사용
 ## <a name="general-grub-access"></a>일반 GRUB 액세스
 GRUB에 액세스하려면 직렬 콘솔 블레이드를 열어 두고 VM을 다시 부팅해야 합니다. 키보드에서 특정 키를 입력해야 GRUB가 표시되는 배포도 있고, 몇 초가 지나면 GRUB가 자동으로 표시되어 사용자가 키보드 입력을 통해 시간 제한을 취소할 수 있는 배포도 있습니다. 
 
-단일 사용자 모드에 액세스할 수 있으려면 VM에서 GRUB을 사용하도록 설정되어 있는지 확인해야 합니다. 배포판에 따라 GRUB을 사용하도록 설정되어 있는지 확인하기 위한 몇 가지 설정 작업이 있을 수 있습니다. 배포별 정보는 아래에 나와 있습니다.
+단일 사용자 모드에 액세스할 수 있으려면 VM에서 GRUB을 사용하도록 설정되어 있는지 확인해야 합니다. 배포판에 따라 GRUB을 사용하도록 설정되어 있는지 확인하기 위한 몇 가지 설정 작업이 있을 수 있습니다. 배포별 정보는 아래 및 [이 링크](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)에 표시됩니다.
 
 ### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>VM을 다시 부팅하여 직렬 콘솔에서 GRUB 액세스
 [SysRq](./serial-console-nmi-sysrq.md)가 사용하도록 설정되어 있으면 SysRq `'b'` 명령을 통해 직렬 콘솔 블레이드를 열어 두고 VM을 다시 부팅할 수 있습니다. 개요 블레이드에서 다시 시작 단추를 클릭해도 됩니다. 그러면 VM이 새 브라우저 탭에서 열리므로 직렬 콘솔 블레이드를 닫지 않고도 VM을 다시 부팅할 수 있습니다. 다시 부팅할 때의 GRUB 상태에 대해 알아보려면 아래의 배포별 지침을 따르세요.
@@ -186,6 +186,7 @@ Oracle Linux에는 기본적으로 GRUB이 활성화되어 있습니다. GRUB으
 
 ## <a name="next-steps"></a>다음 단계
 * 주 직렬 콘솔 Linux 설명서 페이지는 [여기](serial-console-linux.md)에 있습니다.
+* 직렬 콘솔을 사용하여 [다양한 배포에서 GRUB을 사용하도록 설정](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)하는 방법 알아보기
 * [NMI 및 SysRq 호출](serial-console-nmi-sysrq.md)에 직렬 콘솔 사용
 * [Windows](serial-console-windows.md) VM에서도 직렬 콘솔 사용 가능
 * [부트 진단](boot-diagnostics.md)에 대해 자세히 알아보기

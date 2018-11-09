@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 2103c5c8c08a6aebfc1168c8fbdb4181dbe3a997
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7310d300c68399c31d9580f070602aa3adbc75e3
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046622"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>자습서: MyWorkDrive와 Azure Active Directory 통합
 
@@ -61,19 +61,19 @@ MyWorkDrive의 Azure AD 통합을 구성하려면 갤러리의 MyWorkDrive를 �
 
 1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
 
-    ![Azure Active Directory 단추][1]
+    ![이미지](./media/myworkdrive-tutorial/selectazuread.png)
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![엔터프라이즈 응용 프로그램 블레이드][2]
+    ![이미지](./media/myworkdrive-tutorial/a_select_app.png)
     
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![새 응용 프로그램 단추][3]
+    ![이미지](./media/myworkdrive-tutorial/a_new_app.png)
 
 4. 검색 상자에 **MyWorkDrive**를 입력하고 결과 패널에서 **MyWorkDrive**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
-    ![결과 목록의 MyWorkDrive](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
+     ![이미지](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
@@ -95,108 +95,110 @@ MyWorkDrive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 **MyWorkDrive에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **MyWorkDrive** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **MyWorkDrive** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
-    ![Single Sign-On 구성 링크][4]
+    ![이미지](./media/myworkdrive-tutorial/B1_B2_Select_SSO.png)
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
-    ![Single Sign-On 대화 상자](./media/myworkdrive-tutorial/tutorial_myworkdrive_samlbase.png)
+2. **Single Sign-On 방법 선택** 대화 상자에서 **SAML** 모드를 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
-3. **MyWorkDrive 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+    ![이미지](./media/myworkdrive-tutorial/b1_b2_saml_sso.png)
 
-    ![MyWorkDrive 도메인 및 URL Single Sign-On 정보](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
+3. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **기본 SAML 구성** 대화 상자를 엽니다.
+
+    ![이미지](./media/myworkdrive-tutorial/b1-domains_and_urlsedit.png)
+
+4. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+
+    ![이미지](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
 
     **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<SERVER.DOMAIN.COM>/SAML/AssertionConsumerService.aspx`
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+5. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
-    ![MyWorkDrive 도메인 및 URL Single Sign-On 정보](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
+    ![이미지](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
 
-    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<SERVER.DOMAIN.COM>/Account/Login-saml`
-     
-    > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [MyWorkDrive 클라이언트 지원 팀](mailto:support@myworkdrive.com)에 문의하세요. 
+    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<SERVER.DOMAIN.COM>/Account/Login-saml` 
 
-5. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다.  귀사의 MyWorkDrive 서버 호스트 이름을 입력합니다. 예를 들면 다음과 같습니다.
+    > 
+    > 회신 URL: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
+    > 
+    > 로그온 URL: `https://yourserver.yourdomain.com/Account/Login-saml`
+    > 
+    > 사용자 고유의 호스트 이름 및 이러한 값에 대한 SSL 인증서를 설정하는 방법을 잘 모르는 경우 MyWorkDrive 클라이언트 지원 팀에 문의합니다.
 
-    ![인증서 다운로드 링크](./media/myworkdrive-tutorial/tutorial_myworkdrive_certificate.png) 
+6. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **복사** 아이콘을 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 **다운로드**를 클릭하여 **인증서(Base64)** 를 다운로드하고 컴퓨터에 저장합니다.
 
-6. **저장** 단추를 클릭합니다.
+    ![이미지](./media/myworkdrive-tutorial/tutorial_myworkdrive_certficate.png) 
 
-    ![Single Sign-On 구성 저장 단추](./media/myworkdrive-tutorial/tutorial_general_400.png)
+7. **MyWorkDrive 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+
+    이 URL은 다음과 같을 수 있습니다.
+
+    a. 로그인 URL
+
+    b. Azure AD 식별자
+
+    다. 로그아웃 URL
+
+    ![이미지](./media/myworkdrive-tutorial/d1_samlsonfigure.png) 
+
+8. MyWorkDrive 쪽에서 Single Sign-On을 구성하려면 **인증서(base 64), 로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-on 서비스 URL**을 다운로드하고 MyWorkDrive 서버에서 수동으로 구성하거나 Azure **앱 페더레이션 메타데이터 URL**을 복사한 후 MyWorkDrive 서버 관리 패널 SAML Azure AD 구성 화면에 붙여 넣습니다. 자세한 내용은 [MyWorkDrive 지원 팀](mailto:support@myworkdrive.com)에 문의하세요.
+
     
-7. **MyWorkDrive 구성** 섹션에서 **MyWorkDrive 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
-
-    ![MyWorkDrive 구성](./media/myworkdrive-tutorial/tutorial_myworkdrive_configure.png) 
-
-8. **MyWorkDrive** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)**, **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 [MyWorkDrive 지원 팀](mailto:support@myworkdrive.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
 
-   ![Azure AD 테스트 사용자 만들기][100]
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
 
-**Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
+    ![이미지](./media/myworkdrive-tutorial/d_users_and_groups.png)
 
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory** 단추를 클릭합니다.
+2. 화면 위쪽에서 **새 사용자**를 선택합니다.
 
-    ![Azure Active Directory 단추](./media/myworkdrive-tutorial/create_aaduser_01.png)
+    ![이미지](./media/myworkdrive-tutorial/d_adduser.png)
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+3. 사용자 속성에서 다음 단계를 수행합니다.
 
-    !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/myworkdrive-tutorial/create_aaduser_02.png)
+    ![이미지](./media/myworkdrive-tutorial/d_userproperties.png)
 
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+    a. **이름** 필드에 **BrittaSimon**을 입력합니다.
+  
+    b. **사용자 이름** 필드에 **brittasimon@yourcompanydomain.extension**을 입력합니다.  
+    예를 들어 BrittaSimon@contoso.com
 
-    ![추가 단추](./media/myworkdrive-tutorial/create_aaduser_03.png)
+    다. **속성**을 선택하고 **암호 표시** 확인란을 선택한 다음, 암호 상자에 표시된 값을 적어 둡니다.
 
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
-
-    ![사용자 대화 상자](./media/myworkdrive-tutorial/create_aaduser_04.png)
-
-    a. **이름** 상자에 **BrittaSimon**을 입력합니다.
-
-    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
-
-    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
-
-    d. **만들기**를 클릭합니다.
+    d. **만들기**를 선택합니다.
  
 ### <a name="create-a-myworkdrive-test-user"></a>MyWorkDrive 테스트 사용자 만들기
 
-이 섹션에서는 MyWorkDrive에서 Britta Simon이라는 사용자를 만듭니다. MyWorkDrive 플랫폼에서 사용자를 추가하려면 [MyWorkDrive 지원 팀](mailto:support@myworkdrive.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 MyWorkDrive에서 Britta Simon이라는 사용자를 만듭니다. MyWorkDrive 플랫폼에서 사용자를 추가하려면 [MyWorkDrive 지원 팀](mailto:support@myworkdrive.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 MyWorkDrive에 대한 액세스 권한을 부여합니다.
 
-![사용자 역할 할당][200] 
+1. Azure Portal에서 **엔터프라이즈 응용 프로그램**을 선택한 다음, **모든 응용 프로그램**을 선택합니다.
 
-**Britta Simon을 MyWorkDrive에 할당하려면 다음 단계를 수행합니다.**
-
-1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
-
-    ![사용자 할당][201] 
+    ![이미지](./media/myworkdrive-tutorial/d_all_applications.png)
 
 2. 응용 프로그램 목록에서 **MyWorkDrive**를 선택합니다.
 
-    ![응용 프로그램 목록의 MyWorkDrive 링크](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png)  
+    ![이미지](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
-    !["사용자 및 그룹" 링크][202]
+    ![이미지](./media/myworkdrive-tutorial/d_leftpaneusers.png)
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+4. **추가** 단추를 선택하고 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    ![할당 추가 창][203]
+    ![이미지](./media/myworkdrive-tutorial/d_assign_user.png)
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+4. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택하고 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
-
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+5. **할당 추가** 대화 상자에서 **할당** 단추를 선택합니다.
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
@@ -209,20 +211,3 @@ MyWorkDrive에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/myworkdrive-tutorial/tutorial_general_01.png
-[2]: ./media/myworkdrive-tutorial/tutorial_general_02.png
-[3]: ./media/myworkdrive-tutorial/tutorial_general_03.png
-[4]: ./media/myworkdrive-tutorial/tutorial_general_04.png
-
-[100]: ./media/myworkdrive-tutorial/tutorial_general_100.png
-
-[200]: ./media/myworkdrive-tutorial/tutorial_general_200.png
-[201]: ./media/myworkdrive-tutorial/tutorial_general_201.png
-[202]: ./media/myworkdrive-tutorial/tutorial_general_202.png
-[203]: ./media/myworkdrive-tutorial/tutorial_general_203.png
-

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Python을 사용하여 텍스트 번역 - Translator Text API'
+title: '빠른 시작: 텍스트 번역, Python - Translator Text API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Python과 함께 Translator Text API를 사용하여 10분 이내에 텍스트를 한 언어에서 다른 언어로 번역합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: a9f848098f377a79ded07d3bbe41f212cb4a7e74
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945352"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085991"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>빠른 시작: Translator Text API를 사용하여 Python 사용 문자열 번역
 
@@ -102,7 +102,7 @@ body = [{
 }]
 ```
 
-다음으로, `requests` 모듈을 사용하는 게시 요청을 만듭니다. 세 가지 인수, 즉 잘려진 URL, 요청 헤더 및 요청 본문을 사용합니다.
+다음으로, `requests` 모듈을 사용하는 POST 요청을 만듭니다. 세 가지 인수, 즉 잘려진 URL, 요청 헤더 및 요청 본문을 사용합니다.
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -114,7 +114,7 @@ response = request.json()
 마지막 단계는 결과를 인쇄하는 것입니다. 이 코드 조각은 키를 정렬하고 들여쓰기를 설정하며 항목 및 키 구분 기호를 선언하여 결과를 꾸밉니다.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>모든 요소 결합

@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2018
+ms.date: 10/28/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e8fbc579d28f0aa3d5a19af66ecbe435156de6b1
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5284b31ddf2ace3c1b9ed587e8f09301c17a54a7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387657"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211768"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기
 이 문서에서는 Azure Data Factory에서 Azure-SSIS 통합 런타임을 프로비전하는 단계를 제공합니다. 그런 다음, SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포하고 실행할 수 있습니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "49387657"
 
 - 필요에 따라 데이터베이스 서버로 가상 네트워크 서비스 엔드포인트/Managed Instance를 통한 Azure SQL Database를 사용하여 SSIS 카탈로그(SSISDB 데이터베이스)를 호스팅합니다. SSISDB를 호스팅할 데이터베이스 서버의 유형을 선택하는 방법에 대한 지침은 [SQL Database 논리 서버 및 SQL Database Managed Instance 비교](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance)를 참조하세요. 필수 구성 요소로 Azure-SSIS IR을 가상 네트워크에 조인하고 필요에 따라 가상 네트워크 사용 권한 및 설정을 구성해야 합니다. [Azure-SSIS IR을 가상 네트워크에 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요. 
 
-- 필요에 따라 Azure-SSIS IR에서 데이터베이스 서버에 연결하기 위해 Azure 리소스에 대한 Azure Data Factory 관리 ID를 통한 AAD(Azure Active Directory) 인증을 사용합니다. 필수 구성 요소로 Data Factory MSI를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 AAD 인증 사용](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)을 참조하세요. 
+- 필요에 따라 Azure Data Factory에서 데이터베이스 서버에 연결되도록 관리 ID가 포함된 AAD(Azure Active Directory) 인증을 사용합니다. 필수 구성 요소로 ADF에 대한 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 대한 AAD 인증 활성화](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)를 참조하세요. 
 
 ## <a name="overview"></a>개요
 이 문서에서는 Azure-SSIS IR을 프로비전하는 다양한 방법을 보여 줍니다. 
@@ -36,7 +36,7 @@ ms.locfileid: "49387657"
 - [Azure PowerShell](#azure-powershell) 
 - [Azure Resource Manager 템플릿](#azure-resource-manager-template) 
 
-Azure-SSIS IR을 만들 때 Data Factory는 Azure SQL Database에 연결하여 SSISDB(SSIS 카탈로그 데이터베이스)를 준비합니다. 또한 이 스크립트는 가상 네트워크에 대한 권한 및 설정을 구성하고(지정된 경우) Azure-SSIS 통합 런타임의 새 인스턴스를 가상 네트워크에 조인합니다. 
+Azure-SSIS IR을 만들 때 Data Factory 서비스는 Azure SQL Database에 연결하여 SSISDB(SSIS 카탈로그 데이터베이스)를 준비합니다. 또한 이 서비스는 가상 네트워크에 대한 권한 및 설정을 구성하고(지정된 경우) Azure-SSIS 통합 런타임의 새 인스턴스를 가상 네트워크에 조인합니다. 
 
 Azure-SSIS IR의 인스턴스를 프로비전하는 경우 Azure Feature Pack for SSIS 및 Access 재배포 가능 패키지도 설치됩니다. 이러한 구성 요소는 기본 제공 구성 요소가 지원하는 데이터 원본 외에도 Excel 및 Access 파일 및 다양한 Azure 데이터 원본에 대한 연결을 제공합니다. 추가 구성 요소를 설치할 수도 있습니다. 자세한 내용은 [Azure-SSIS 통합 런타임 사용자 지정 설정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요. 
 
@@ -54,9 +54,7 @@ Azure-SSIS IR의 인스턴스를 프로비전하는 경우 Azure Feature Pack fo
 - **Azure PowerShell**. PowerShell을 사용하여 클라우드에서 SSIS 패키지를 실행하는 Azure-SSIS 통합 런타임을 프로비전하도록 스크립트를 실행하는 경우 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/install-azurerm-ps)의 지침을 따릅니다. 
 
 ### <a name="region-support"></a>지역 지원
-Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다.
-
-Azure-SSIS Integration Runtime을 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 원하는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Azure-SSIS Integration Runtime**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다.### SQL Database 및 Managed Instance 비교
+Data Factory 및 Azure-SSIS Integration Runtime이 현재 사용 가능한 Azure 지역의 목록은 [지역별 ADF + SSIS IR 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all)을 참조하세요. 
 
 ### <a name="compare-sql-database-logical-server-and-sql-database-managed-instance"></a>Azure SQL Database 논리 서버와 SQL Database Managed Instance 비교
 
@@ -64,11 +62,11 @@ Azure-SSIS Integration Runtime을 현재 사용할 수 있는 Azure 지역 목�
 
 | 기능 | SQL Database 논리 서버| SQL Database - Managed Instance |
 |---------|--------------|------------------|
-| **일정 계획** | SQL Server 에이전트를 사용할 수 없습니다.<br/><br/>[Azure Data Factory 파이프라인의 일부로 패키지 예약](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity)을 참조하세요.| SQL Server 에이전트를 사용할 수 있습니다. |
+| **일정 계획** | SQL Server 에이전트를 사용할 수 없습니다.<br/><br/>[Azure Data Factory 파이프라인의 일부로 패키지 예약](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)을 참조하세요.| Managed Instance 에이전트를 사용할 수 있습니다. |
 | **인증** | **dbmanager** 역할의 모든 Azure Active Directory 사용자를 나타내는 포함된 데이터베이스 사용자 계정을 사용하여 데이터베이스를 만들 수 있습니다.<br/><br/>[Azure SQL Database에서 Azure AD 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)를 참조하세요. | Azure AD 관리자가 아닌 모든 Azure Active Directory 사용자를 나타내는 포함된 데이터베이스 사용자 계정을 사용하여 데이터베이스를 만들 수 없습니다. <br/><br/>[Azure SQL Database Managed Instance에서 Azure AD 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)를 참조하세요. |
 | **서비스 계층** | SQL Database에서 Azure-SSIS IR을 만들 때 SSISDB의 서비스 계층을 선택할 수 있습니다. 여러 서비스 계층이 있습니다. | Managed Instance에서 Azure-SSIS IR을 만들 때 SSISDB의 서비스 계층을 선택할 수 없습니다. 동일한 Managed Instance의 모든 데이터베이스는 해당 인스턴스에 할당된 동일한 리소스를 공유합니다. |
-| **가상 네트워크** | Azure Resource Manager 및 클래식 가상 네트워크가 둘 다 지원됩니다. | Azure Resource Manager 가상 네트워크만 지원됩니다. 가상 네트워크가 필요합니다.<br/><br/>Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하는 경우에는 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크에서 가상 네트워크로 연결을 사용하는 것이 좋습니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요. |
-| **분산 트랜잭션** | MSDTC(Microsoft Distributed Transaction Coordinator) 트랜잭션은 지원되지 않습니다. 패키지에서 MSDTC를 사용하여 분산 트랜잭션을 조정하는 경우 SQL Database용 탄력적 트랜잭션을 사용하여 임시 솔루션을 구현할 수 있습니다. 현재 SSIS는 기본적으로 탄력적 트랜잭션을 지원하지 않습니다. SSIS 패키지에 탄력적 트랜잭션을 사용하려면 스크립트 작업에서 사용자 지정 ADO.NET 코드를 작성해야 합니다. 이 스크립트 작업에는 트랜잭션의 시작과 끝, 그리고 트랜잭션 내에서 발생해야 하는 모든 동작이 포함되어야 합니다.<br/><br/>탄력적 트랜잭션 코딩에 대한 자세한 내용은 [Azure SQL Database를 사용한 탄력적 트랜잭션](https://azure.microsoft.com/blog/elastic-database-transactions-with-azure-sql-database/)을 참조하세요. 탄력적 트랜잭션에 대한 일반적인 내용은 [클라우드 데이터베이스의 분산 트랜잭션](../sql-database/sql-database-elastic-transactions-overview.md)을 참조하세요. | 지원되지 않습니다. |
+| **가상 네트워크** | 가상 네트워크 서비스 엔드포인트가 포함된 Azure SQL Database를 사용하거나 온-프레미스 데이터에 액세스해야 하는 경우 Azure-SSIS IR에서 조인할 Azure Resource Manager 및 클래식 가상 네트워크 모두를 지원합니다. | Azure-SSIS IR에서 조인할 Azure Resource Manager 가상 네트워크만 지원됩니다. 가상 네트워크가 필요합니다.<br/><br/>Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하는 경우에는 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크에서 가상 네트워크로 연결을 사용하는 것이 좋습니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요. |
+| **분산 트랜잭션** | 탄력적 트랜잭션을 통해 지원됩니다. MSDTC(Microsoft Distributed Transaction Coordinator) 트랜잭션은 지원되지 않습니다. SSIS 패키지가 MSDTC를 사용하여 분산형 트랜잭션을 조정할 경우 SQL Database용 탄력적 트랜잭션으로 마이그레이션하는 것이 좋습니다. 자세한 내용은 [클라우드 데이터베이스의 분산 트랜잭션](../sql-database/sql-database-elastic-transactions-overview.md)을 참조하세요. | 지원되지 않습니다. |
 | | | |
 
 ## <a name="azure-portal"></a>Azure portal
@@ -146,7 +144,7 @@ Azure-SSIS Integration Runtime을 현재 사용할 수 있는 Azure 지역 목�
 
     다. **카탈로그 데이터베이스 서버 엔드포인트**로는 SSISDB를 호스트하는 데이터베이스 서버의 엔드포인트를 선택합니다. 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 Managed Instance에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. 
 
-    d. **AAD 인증 사용...** 확인란에서 Azure 리소스에 대한 Azure Data Factory 관리 ID를 사용하여 SSISDB를 호스팅할 데이터베이스 서버를 인증하는 방법으로 SQL 또는 AAD(Azure Active Directory)를 선택합니다. 선택한 경우 Data Factory MSI를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 AAD 인증 사용](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)을 참조하세요. 
+    d. **AAD 인증 사용...** 확인란에서 Azure Data Factory에 대한 관리 ID를 사용하여 데이터베이스 서버에서 SSISDB를 호스팅하기 위한 인증 방법으로 SQL 또는 AAD(Azure Active Directory)를 선택합니다. 선택할 경우 ADF의 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 대한 AAD 인증 활성화](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)를 참조하세요. 
 
     e. **관리 사용자 이름**으로는 SSISDB를 호스트하는 데이터베이스 서버의 SQL 인증 사용자 이름을 입력합니다. 
 
@@ -182,7 +180,7 @@ Azure-SSIS Integration Runtime을 현재 사용할 수 있는 Azure 지역 목�
 
     > [!IMPORTANT]
     > - 이 프로세스를 완료하는 데 약 20~30분이 걸립니다.
-    > - Data Factory 서비스는 Azure SQL Database에 연결하여 SSISDB(SSIS 카탈로그 데이터베이스)를 준비합니다. 또한 이 스크립트는 가상 네트워크에 대한 권한 및 설정을 구성하고(지정된 경우) Azure-SSIS 통합 런타임의 새 인스턴스를 가상 네트워크에 조인합니다. 
+    > - Data Factory 서비스는 Azure SQL Database에 연결하여 SSISDB(SSIS 카탈로그 데이터베이스)를 준비합니다. 또한 이 서비스는 가상 네트워크에 대한 권한 및 설정을 구성하고(지정된 경우) Azure-SSIS 통합 런타임의 새 인스턴스를 가상 네트워크에 조인합니다. 
 
 1. 필요한 경우 **연결** 창에서 **Integration Runtime**으로 전환합니다. **새로 고침**을 클릭하여 상태를 새로 고칩니다. 
 
@@ -216,31 +214,33 @@ Azure-SSIS Integration Runtime을 현재 사용할 수 있는 Azure 지역 목�
 
 ```powershell
 ### Azure Data Factory information 
-# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$".
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$"
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
+# For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
 $DataFactoryLocation = "EastUS" 
 
-### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
+### Azure-SSIS integration runtime information - This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
+# For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
 $AzureSSISLocation = "EastUS" 
-# Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeSize = "Standard_D4_v2"
-# Only 1-10 nodes are supported.
+# For supported node sizes, see https://azure.microsoft.com/pricing/details/data-factory/ssis/
+$AzureSSISNodeSize = "Standard_D8_v3"
+# 1-10 nodes are currently supported
 $AzureSSISNodeNumber = 2 
 # Azure-SSIS IR edition/license info: Standard or Enterprise 
-$AzureSSISEdition = "" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
+$AzureSSISEdition = "Standard" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
 # Azure-SSIS IR hybrid usage info: LicenseIncluded or BasePrice
-$AzureSSISLicenseType = "" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
-# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
+$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
+# For a Standard_D1_v2 node, up to 4 parallel executions per node are supported, but for other nodes, up to (2 x number of cores) are currently supported
 $AzureSSISMaxParallelExecutionsPerNode = 8 
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 # Virtual network info: Classic or Azure Resource Manager
 $VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon    
-$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use a different subnet than the one used for your Managed Instance
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the same subnet as the one used with your Azure SQL Database with virtual network service endpoints or a different subnet than the one used for your Managed Instance
 
 ### SSISDB info
 $SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
@@ -291,7 +291,7 @@ if([string]::IsNullOrEmpty($VnetId) -and [string]::IsNullOrEmpty($SubnetName))
 다음 스크립트를 추가하여 조인할 Azure-SSIS Integration Runtime에 대한 가상 네트워크 권한/설정을 자동으로 구성합니다.
 
 ```powershell
-# Make sure to run this script against the subscription to which the virtual network belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
@@ -333,26 +333,35 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 Managed Instance를 사용하여 SSISDB를 호스팅하는 경우 CatalogPricingTier 매개 변수를 생략하거나 해당 매개 변수에 빈 값을 전달할 수 있습니다. 그렇지 않으면 생략할 수 없으며 Azure SQL Database에 지원되는 가격 책정 계층 목록에서 유효한 값을 전달해야 합니다. [SQL Database 리소스 제한](../sql-database/sql-database-resource-limits.md)을 참조하세요. 
 
-Azure 리소스에 대한 Azure Data Factory 관리 ID를 통해 AAD(Azure Active Directory) 인증을 사용하여 데이터베이스 서버에 연결하는 경우, CatalogAdminCredential 매개 변수는 생략할 수 있지만 데이터베이스 서버에 대한 액세스 권한으로 Data Factory MSI를 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 대한 AAD 인증 활성화](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)를 참조하세요. 그렇지 않으면 생략할 수 없으며 SQL 인증을 위해 서버 관리 사용자 이름과 암호로 구성된 유효한 개체를 전달해야 합니다.
+관리 ID가 포함된 AAD(Azure Active Directory) 인증을 사용하여 Azure Data Factory에서 데이터베이스 서버에 연결하는 경우, CatalogAdminCredential 매개 변수는 생략할 수 있지만 데이터베이스 서버에 대한 액세스 권한을 사용하여 ADF의 관리 ID를 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 대한 AAD 인증 활성화](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)를 참조하세요. 그렇지 않으면 생략할 수 없으며 SQL 인증을 위해 서버 관리 사용자 이름과 암호로 구성된 유효한 개체를 전달해야 합니다.
 
 ```powershell               
 Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
-                                           -Type Managed `
                                            -Name $AzureSSISName `
                                            -Description $AzureSSISDescription `
+                                           -Type Managed `
                                            -Location $AzureSSISLocation `
                                            -NodeSize $AzureSSISNodeSize `
                                            -NodeCount $AzureSSISNodeNumber `
                                            -Edition $AzureSSISEdition `
                                            -LicenseType $AzureSSISLicenseType `
                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                           -SetupScriptContainerSasUri $SetupScriptContainerSasUri `
                                            -VnetId $VnetId `
                                            -Subnet $SubnetName `
                                            -CatalogServerEndpoint $SSISDBServerEndpoint `
                                            -CatalogPricingTier $SSISDBPricingTier
 
+# Add SetupScriptContainerSasUri parameter when you use custom setup
+if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
+{
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                               -DataFactoryName $DataFactoryName `
+                                               -Name $AzureSSISName `
+                                               -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+}
+
+# Add CatalogAdminCredential parameter when you do not use AAD authentication
 if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNullOrEmpty($SSISDBServerAdminPassword))
 {
     $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -386,31 +395,33 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 
 ```powershell
 ### Azure Data Factory information 
-# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$".
+# If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$"
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
+# For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
 $DataFactoryLocation = "EastUS" 
 
-### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
+### Azure-SSIS integration runtime information - This is a Data Factory compute resource for running SSIS packages
 $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
+# For supported regions, see https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all
 $AzureSSISLocation = "EastUS" 
-# Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
-$AzureSSISNodeSize = "Standard_D4_v2"
-# Only 1-10 nodes are supported.
+# For supported node sizes, see https://azure.microsoft.com/pricing/details/data-factory/ssis/
+$AzureSSISNodeSize = "Standard_D8_v3"
+# 1-10 nodes are currently supported
 $AzureSSISNodeNumber = 2 
 # Azure-SSIS IR edition/license info: Standard or Enterprise 
-$AzureSSISEdition = "" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
+$AzureSSISEdition = "Standard" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
 # Azure-SSIS IR hybrid usage info: LicenseIncluded or BasePrice
-$AzureSSISLicenseType = "" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
-# For a Standard_D1_v2 node, 1-4 parallel executions per node are supported. For other nodes, it's 1-8.
+$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
+# For a Standard_D1_v2 node, up to 4 parallel executions per node are supported, but for other nodes, up to (2 x number of cores) are currently supported
 $AzureSSISMaxParallelExecutionsPerNode = 8 
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 # Virtual network info: Classic or Azure Resource Manager
 $VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon    
-$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use a different subnet than the one used for your Managed Instance
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the same subnet as the one used with your Azure SQL Database with virtual network service endpoints or a different subnet than the one used for your Managed Instance
 
 ### SSISDB info
 $SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
@@ -449,7 +460,7 @@ if([string]::IsNullOrEmpty($VnetId) -and [string]::IsNullOrEmpty($SubnetName))
 }
 
 ### Configure virtual network
-# Make sure to run this script against the subscription to which the virtual network belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
@@ -475,21 +486,30 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ### Create an integration runtime
 Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
-                                           -Type Managed `
                                            -Name $AzureSSISName `
                                            -Description $AzureSSISDescription `
+                                           -Type Managed `
                                            -Location $AzureSSISLocation `
                                            -NodeSize $AzureSSISNodeSize `
                                            -NodeCount $AzureSSISNodeNumber `
                                            -Edition $AzureSSISEdition `
                                            -LicenseType $AzureSSISLicenseType `
                                            -MaxParallelExecutionsPerNode $AzureSSISMaxParallelExecutionsPerNode `
-                                           -SetupScriptContainerSasUri $SetupScriptContainerSasUri `
                                            -VnetId $VnetId `
                                            -Subnet $SubnetName `
                                            -CatalogServerEndpoint $SSISDBServerEndpoint `
                                            -CatalogPricingTier $SSISDBPricingTier
 
+# Add SetupScriptContainerSasUri parameter when you use custom setup
+if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
+{
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+                                               -DataFactoryName $DataFactoryName `
+                                               -Name $AzureSSISName `
+                                               -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+}
+
+# Add CatalogAdminCredential parameter when you do not use AAD authentication
 if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNullOrEmpty($SSISDBServerAdminPassword))
 {
     $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
@@ -539,7 +559,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
                     "typeProperties": {
                         "computeProperties": {
                             "location": "East US",
-                            "nodeSize": "Standard_D4_v2",
+                            "nodeSize": "Standard_D8_v3",
                             "numberOfNodes": 1,
                             "maxParallelExecutionsPerNode": 8
                         },

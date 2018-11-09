@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: b05e23019e7b0a03965e51052bf334d0cbff041d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 6ba3d8e4273d0f2ce2626d8876c386a3714d5355
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269346"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159097"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure Service Bus에서 AMQP 1.0: Microsoft Azure Service Bus 요청/응답 기반 작업
 
@@ -188,7 +188,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|yes|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 0xcc: 콘텐츠 없음 – 더 이상 메시지가 없음|  
+|statusCode|int|yes|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 204: 콘텐츠 없음 – 더 이상 메시지가 없음|  
 |statusDescription|string|아니요|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
@@ -308,7 +308,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|yes|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 0xcc: 콘텐츠 없음 – 더 이상 메시지가 없음|  
+|statusCode|int|yes|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 204: 콘텐츠 없음 – 더 이상 메시지가 없음|  
 |statusDescription|string|아니요|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 맵을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
@@ -344,7 +344,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|yes|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 0xcc: 콘텐츠 없음 – 더 이상 메시지가 없음|  
+|statusCode|int|yes|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 204: 콘텐츠 없음 – 더 이상 메시지가 없음|  
 |statusDescription|string|아니요|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 맵을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  
@@ -449,7 +449,7 @@ Service Bus 엔터티 주소는 다음과 같아야 합니다.
   
 |키|값 형식|필수|값 내용|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|yes|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 0xcc: 콘텐츠 없음 – 더 이상 메시지가 없음|  
+|statusCode|int|yes|HTTP 응답 코드 [RFC2616]<br /><br /> 200: OK – 더 많은 메시지가 있음<br /><br /> 204: 콘텐츠 없음 – 더 이상 메시지가 없음|  
 |statusDescription|string|아니요|상태에 대한 설명입니다.|  
   
 응답 메시지 본문은 다음 엔터티와 함께 **맵**을 포함하는 **amqp-value** 섹션으로 구성되어야 합니다.  

@@ -8,16 +8,16 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 7a52ee11e52367755d2a241a0bea2cfc053cff3d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039941"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155578"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Microsoft Flow에서 IoT Central 커넥터를 사용하여 워크플로 구축
 
-*이 항목의 내용은 빌더와 관리자에게 적용됩니다.*
+‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
 
 Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 응용 프로그램 및 서비스 전반에서 워크플로를 자동화합니다. Microsoft Flow에서 IoT Central 커넥터를 사용하면 IoT Central에서 규칙이 트리거될 때 워크플로를 트리거할 수 있습니다. IoT Central 또는 다른 응용 프로그램에 의해 트리거되는 워크플로에서 IoT Central 커넥터의 작업을 사용하여 장치를 만들고, 장치의 속성 및 설정을 업데이트하거나 장치를 삭제할 수 있습니다. IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스에 연결하는 [이러한 Microsoft Flow 템플릿](https://aka.ms/iotcentralflowtemplates)을 확인하세요.
 
@@ -96,6 +96,8 @@ Microsoft Flow에서 IoT Central 커넥터를 사용하여 항상 워크플로 �
     ![IoT Central 장치 탐색기 장치 ID](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
 1. 장치 이름을 업데이트할 수 있습니다. 장치의 속성 및 설정 중 하나를 업데이트하려면 **장치 템플릿** 드롭다운에서 업데이트하려는 장치의 장치 템플릿을 선택해야 합니다. 작업 타일은 업데이트할 수 있는 모든 속성 및 설정을 표시하도록 확장됩니다.
+
+    ![흐름 업데이트 장치 워크플로](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
 
 1. 업데이트하려는 각 속성 및 설정을 선택합니다. 동적 콘텐츠 창에서 트리거의 해당 입력을 선택합니다. 이 예제에서 위치 값은 장치의 위치 속성을 업데이트하도록 아래로 전파됩니다.
 

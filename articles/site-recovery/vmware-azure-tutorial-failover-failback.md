@@ -1,20 +1,19 @@
 ---
-title: Site Recovery를 사용하여 복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback) | Microsoft Docs
-description: Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover)고, 온-프레미스 사이트로 장애 복구(Failback)하는 방법 알아보기
-services: site-recovery
+title: Site Recovery를 사용하여 Azure로 재해 복구 중에 VMware VM 및 물리적 서버 장애 조치(Failover) 및 장애 복구(Failback) | Microsoft Docs
+description: Azure Site Recovery를 사용하여 Azure로 재해 복구 중에 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover)하고, 온-프레미스 사이트로 장애 복구(Failback)하는 방법 알아보기
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/11/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: a574c28cae449526ddc8fe0fbb9323fb14b7b6f1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457073"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215347"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 

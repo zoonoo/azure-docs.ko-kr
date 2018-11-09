@@ -1,6 +1,6 @@
 ---
-title: VM용 Azure Monitor 질문과 대답 | Microsoft Docs
-description: VM용 Azure Monitor는 Azure VM 운영 체제의 상태 및 성능 모니터링뿐만 아니라 응용 프로그램 구성 요소 및 종속성의 자동 검색도 다른 리소스와 결합하고, 이러한 항목 간의 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 일반적인 질문에 답변합니다.
+title: VM용 Azure Monitor(미리 보기) 질문과 대답 | Microsoft Docs
+description: VM용 Azure Monitor(미리 보기)는 Azure VM 운영 체제의 상태 및 성능 모니터링과 응용 프로그램 구성 요소 및 다른 리소스와의 종속성 자동 검색을 결합하고, 이러한 항목 간의 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 일반적인 질문에 답변합니다.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ff870f948acaae14ba772e14d48b27683f0bf07e
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388362"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091694"
 ---
-# <a name="azure-monitor-for-vms-frequently-asked-questions"></a>VM용 Azure Monitor 질문과 대답
-Microsoft FAQ는 Microsoft Azure의 VM용 Azure Monitor에 대해 자주 묻는 질문의 목록입니다. 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
+# <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>VM용 Azure Monitor(미리 보기) 질문과 대답
+Microsoft FAQ는 VM용 Azure Monitor에 대한 질문과 대답 목록입니다. 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>기존 작업 영역에 온보딩할 수 있나요?
 가상 머신이 Log Analytics 작업 영역에 이미 연결된 경우 VM용 Azure Monitor에 온보딩되면 해당 작업 영역을 계속 사용하도록 [여기](monitoring-vminsights-onboard.md#prerequisites)에서 나열된 지원되는 지역 중 하나에서 제공될 수 있습니다.

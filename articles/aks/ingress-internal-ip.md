@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: ffa6aa3b9e65577761343e2e09a44ce16a05631f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: bd3009a5abf6bd34be0e5dd45abfac628ae8a4c8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365597"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093584"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 내부 가상 네트워크에 대한 수신 컨트롤러 만들기
 
@@ -24,8 +24,8 @@ ms.locfileid: "49365597"
 
 - [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 응용 프로그램 라우팅 추가 기능 사용][aks-http-app-routing]
-- [동적 공용 IP를 사용하여 수신 컨트롤러를 만들고 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt 구성][aks-ingress-tls]
-- [고정 공용 IP 주소를 사용하여 수신 컨트롤러를 만들고 TLS 인증서를 자동으로 생성하도록 Let’s Encrypt 구성][aks-ingress-static-tls]
+- [사용자 고유의 TLS 인증서를 사용하는 수신 컨트롤러 만들기][aks-ingress-own-tls]
+- Let’s Encrypt를 사용하여 [동적 공용 IP 주소][aks-ingress-tls] 또는 [고정 공용 IP 주소][aks-ingress-static-tls]로 TLS 인증서를 자동으로 생성하는 수신 컨트롤러 만들기
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -180,7 +180,7 @@ $ curl -L -k http://10.240.0.42/hello-world-two
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서는 Helm을 사용하여 수신 구성 요소 및 샘플 앱을 설치합니다. Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 우선 `helm list` 명령으로 Helm 릴리스를 나열합니다. 다음 예제 출력과 같이 이름이 *nginx-ingress* 및 *aks-helloworld*인 차트를 찾습니다.
+이 문서에서는 Helm을 사용하여 수신 구성 요소 및 샘플 앱을 설치했습니다. Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 우선 `helm list` 명령으로 Helm 릴리스를 나열합니다. 다음 예제 출력과 같이 이름이 *nginx-ingress* 및 *aks-helloworld*인 차트를 찾습니다.
 
 ```
 $ helm list
@@ -191,7 +191,7 @@ intended-lemur      1           Tue Oct 16 17:20:59 2018    DEPLOYED    aks-hell
 pioneering-wombat   1           Tue Oct 16 17:21:05 2018    DEPLOYED    aks-helloworld-0.1.0                default
 ```
 
-`helm delete` 명령으로 해당 릴리스를 삭제합니다. 다음 예제는 NGINX 수신 배포와 두 가지 샘플 AKS Hello World 앱을 삭제합니다.
+`helm delete` 명령으로 해당 릴리스를 삭제합니다. 다음 예제는 NGINX 수신 배포와 두 개의 샘플 AKS Hello World 앱을 삭제합니다.
 
 ```
 $ helm delete kissing-ferret intended-lemur pioneering-wombat
@@ -207,7 +207,7 @@ release "pioneering-wombat" deleted
 helm repo remove azure-samples
 ```
 
-마지막으로 트래픽을 샘플 앱으로 유도한 수신 경로를 삭제합니다.
+마지막으로 트래픽을 샘플 앱으로 유도한 수신 경로를 제거합니다.
 
 ```console
 kubectl delete -f hello-world-ingress.yaml
@@ -238,3 +238,4 @@ kubectl delete -f hello-world-ingress.yaml
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f70cd5de29cc3050142dfff905acae2008dab115
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379125"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157363"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure Data Box Gateway 시스템 요구 사항(미리 보기)
 
@@ -56,7 +56,7 @@ Data Box Gateway 가상 장치의 시스템 요구 사항은 다음과 같습니
 
 ## <a name="supported-storage-accounts"></a>지원되는 저장소 계정
 
-Data Box Gateway에 대해 지원되는 저장소 형식의 목록은 다음과 같습니다.
+Data Box Gateway에 대해 지원되는 저장소 계정의 목록은 다음과 같습니다.
 
 | **Storage 계정** | **참고 사항** |
 | --- | --- |

@@ -4,16 +4,16 @@ description: Azure Blueprint에서 기존 할당을 업데이트하는 메커니
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ecac0fb21a6691874d5e8db49eadd7114d41845f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c9f660e54da50e32ce1d0dc43b0efeacd643c57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956203"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093788"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 
@@ -25,11 +25,11 @@ ms.locfileid: "46956203"
 
 ## <a name="updating-assignments"></a>할당 업데이트
 
-1. **모든 서비스**를 클릭한 후 왼쪽 창에서 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Blueprints 서비스를 시작합니다. **정책** 페이지에서 **청사진**을 클릭합니다.
+1. **모든 서비스**를 클릭하고 왼쪽 창에서 **정책**을 검색하여 선택합니다. **정책** 페이지에서 **청사진**을 클릭합니다.
 
 1. 왼쪽 페이지에서 **할당된 청사진**을 선택합니다.
 
-1. 청사진 목록에서 청사진 할당을 마우스 왼쪽 단추로 클릭한 다음, **할당 업데이트** 단추를 클릭하거나 청사진 할당을 마우스 오른쪽 단추로 클릭하고 **할당 업데이트**를 선택합니다.
+1. 청사진 목록에서 청사진 할당을 마우스 왼쪽 단추로 클릭하고 **할당 업데이트** 단추를 클릭하거나, 청사진 할당을 마우스 오른쪽 단추로 클릭하고 **할당 업데이트**를 선택합니다.
 
    ![할당 업데이트](../media/update-existing-assignments/update-assignment.png)
 
@@ -45,22 +45,26 @@ ms.locfileid: "46956203"
 
 ## <a name="rules-for-updating-assignments"></a>할당 업데이트에 대한 규칙
 
-업데이트된 할당의 배포는 몇 가지 중요한 규칙을 따릅니다. 이러한 규칙은 요청되는 변경 내용과 배포 또는 업데이트되는 아티팩트 리소스 유형에 따라 기존 리소스의 처리 방법을 결정합니다.
+업데이트된 할당의 배포는 몇 가지 중요한 규칙을 따릅니다. 이러한 규칙은 이미 배포된 리소스를 확인합니다. 요청된 변경 및 배포되거나 업데이트되는 아티팩트 리소스의 유형에 따라 수행되는 작업이 결정됩니다.
 
 - 역할 할당
   - 역할 또는 역할 담당자(사용자, 그룹 또는 앱)가 변경되면 새 역할 할당이 만들어집니다. 이전에 배포된 역할 할당은 그대로 남아 있습니다.
 - 정책 할당
   - 정책 할당의 매개 변수가 변경되면 기존 할당이 업데이트됩니다.
   - 정책 할당의 정의가 변경되면 새 정책 할당이 만들어집니다. 이전에 배포된 정책 할당은 그대로 남아 있습니다.
-  - 정책 할당 아티팩트가 청사진에서 제거되면 이전에 배포된 정책 할당을 그대로 남아 있습니다.
+  - 정책 할당 아티팩트를 청사진에서 제거해도 배포된 정책 할당은 그대로 남아 있습니다.
 - Azure 리소스 관리자 템플릿
-  - 템플릿은 Resource Manager를 통해 **PUT**으로 처리됩니다. 리소스 유형마다 이를 처리하는 방법이 다르므로, 포함된 각 리소스의 설명서를 검토하여 Blueprints에서 실행할 때 이 작업이 미치는 영향을 확인해야 합니다.
+  - 템플릿은 Resource Manager를 통해 **PUT**으로 처리됩니다. 리소스 유형마다 이 작업을 처리하는 방법이 다르므로, 포함된 각 리소스의 설명서를 검토하여 Blueprints에서 실행할 때 이 작업이 미치는 영향을 확인해야 합니다.
 
 ## <a name="possible-errors-on-updating-assignments"></a>할당 업데이트 시 발생 가능한 오류
 
-할당을 업데이트할 때 변경한 내용이 실행 시 오류가 발생할 수 있습니다. 이미 배포된 리소스 그룹의 위치를 변경하는 경우가 이에 해당합니다. [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md)에서 지원되는 변경 작업을 수행할 수 있지만, Azure Resource Manager를 통해 오류로 이어지는 변경 작업은 할당 시에도 오류가 발생합니다.
+할당을 업데이트할 때 변경한 내용으로 인해 실행 시 오류가 발생할 수 있습니다. 이미 배포된 리소스 그룹의 위치를 변경하는 경우를 예로 들 수 있습니다. [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md)에서 지원되는 변경 작업을 수행할 수 있지만, Azure Resource Manager를 통해 오류로 이어지는 변경 작업은 할당 시에도 오류가 발생합니다.
 
-할당을 업데이트할 수 있는 횟수에는 제한이 없습니다. 따라서 잘못된 매개 변수, 이미 존재하는 개체 또는 Azure Resource Manager에서 허용하지 않는 변경으로 인한 오류가 발생할 경우 오류를 확인하고 할당을 다른 방식으로 업데이트하세요.
+할당을 업데이트할 수 있는 횟수에는 제한이 없습니다. 오류가 발생할 경우 오류를 확인하고 할당에 대해 다른 업데이트를 수행합니다.  오류 시나리오 예제:
+
+- 잘못된 매개 변수
+- 기존 개체
+- Azure Resource Manager에서 지원되지 않는 변경 내용
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: 88265ee6f8a340909880ba70bd9f37a49ef85bf5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 60248da2bbdac751845a40720f8967203c562b4a
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857366"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085748"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>빠른 시작: Event Grid로 컨테이너 레지스트리 이벤트 전송
 
@@ -111,7 +111,7 @@ az eventgrid event-subscription create \
     --endpoint $APP_ENDPOINT
 ```
 
-구독이 완료되면 다음과 비슷한 내용이 출력되어야 합니다.
+구독이 완료되면 다음과 비슷한 출력이 표시되어야 합니다.
 
 ```JSON
 {

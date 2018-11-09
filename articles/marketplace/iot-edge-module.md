@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: 46740e925a5d4e94c314105aba4920caf01532e7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0468c41f0813277b6ba6d3be8ad89c3178dd1420
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985611"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094679"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -78,15 +78,11 @@ IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요
 
 **기술 요구 사항**
 
-IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위한 기본적인 기술 요구 사항은 [클라우드 게시 포털](https://cloudpartner.azure.com/)의 [IoT Edge Module 인증 프로세스](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process)에 자세히 나와 있습니다.  
+IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위한 기본적인 기술 요구 사항은 [IoT Edge 모듈 기술 자산 준비](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets)에 자세히 나와 있습니다.  
 
 ## <a name="documentation-and-resources"></a>설명서 및 리소스
 
-[클라우드 게시 포털](https://cloudpartner.azure.com/)에 로그인하면 다음 문서를 확인할 수 있습니다.
-
-- [IoT Edge 모듈 제품 만들기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) - 클라우드 게시 포털에서 새 IoT Edge 모듈 제품을 게시하는 단계가 나와 있습니다.
-- [IoT Edge 모듈 인증 프로세스](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) - IoT Edge 모듈 인증을 받기 위한 단계와 요구 사항이 요약되어 있습니다.
-- [IoT Edge 모듈 FAQ](https://cloudpartner.azure.com/#documentation/iot-edge-module-faq) – IoT Edge 모듈과 관련된 질문과 대답 목록을 확인할 수 있습니다.
+[IoT Edge 모듈 제품 만들기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) - 클라우드 게시 포털에서 새 IoT Edge 모듈 제품을 게시하는 단계가 나와 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

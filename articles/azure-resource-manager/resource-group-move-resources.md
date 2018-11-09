@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394415"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093831"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -28,8 +28,10 @@ ms.locfileid: "49394415"
 리소스의 위치는 변경할 수 없습니다. 리소스를 이동할 때는 새 리소스 그룹으로만 이동됩니다. 새 리소스 그룹은 다른 위치를 가질 수 있지만 리소스의 위치는 변경되지 않습니다.
 
 > [!NOTE]
-> 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 기존 리소스를 계속 사용하면서 실제로 Azure 계정 제안을 변경하려는 경우(예: 종량제 요금에서 선불로 업그레이드) [Azure 구독을 다른 제안으로 전환](../billing/billing-how-to-switch-azure-offer.md)을 참조하세요.
->
+> 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 실제로 Azure 계정 제안(예: 무료에서 종량제로 업그레이드)을 변경하려는 경우 구독을 변환해야 합니다. 
+> * 평가판을 업그레이드하려면 [평가판 또는 Microsoft Imagine Azure 구독을 종량제로 업그레이드](..//billing/billing-upgrade-azure-subscription.md)를 참조하세요.
+> * 종량제 계정을 변경하려면 [다른 제안으로 Azure 종량제 구독 변경](../billing/billing-how-to-switch-azure-offer.md)을 참조하세요.
+> * 구독을 변환할 수 없으면 [Azure 지원 요청을 만듭니다](../azure-supportability/how-to-create-azure-support-request.md). 문제 유형으로 **구독 관리**를 선택합니다.
 >
 
 ## <a name="checklist-before-moving-resources"></a>리소스를 이동하기 전의 검사 목록
@@ -269,7 +271,7 @@ Authorization: Bearer <access-token>
 
 Managed Disks는 2018년 9월 24일부터 이동 가능합니다. 
 
-1. 이 기능을 사용하려면 등록을 해야 합니다.
+1. 원본 구독에서 이 기능을 등록합니다.
 
   ```azurepowershell-interactive
   Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2018
+ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142853"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138662"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
 
@@ -77,14 +77,14 @@ PowerShell 사용
 **트래픽을 NVA로 라우팅할 수 있는지 확인**
 
 1. [Azure Portal](https://portal.azure.com)에서 **Network Watcher**를 열고 **다음 홉**을 선택합니다.
-2. 다음 홉으로 NVA가 될 VM을 지정하고, 다음 홉을 볼 대상 IP 주소를 지정합니다. 
+2. NVA로 트래픽을 리디렉션하도록 구성된 VM 및 다음 홉을 볼 대상 IP 주소를 지정합니다. 
 3. NVA가 **다음 홉**으로 나열되지 않는 경우 Azure 경로 테이블을 확인하고 업데이트합니다.
 
 **트래픽이 NVA에 도달할 수 있는지 확인**
 
 1.  [Azure Portal](https://portal.azure.com)에서 **Network Watcher**를 열고 **IP 흐름 확인**을 선택합니다. 
-2.  NVA의 VM 및 IP 주소를 지정하고, 트래픽이 NSG(네트워크 보안 그룹)에 의해 차단되는지 확인합니다.
-3.  트래픽을 차단하는 NSG 규칙이 있는 경우 **효과적인 보안** 규칙에서 NSG를 찾은 다음, 트래픽이 통과할 수 있도록 NSG를 업데이트합니다. 그 후 **IP 흐름 확인**을 다시 실행하고 **연결 확인**을 사용하여 VM에서 내부 또는 외부 IP 주소로의 TCP 통신을 테스트합니다.
+2.  NVA의 VM 및 IP 주소를 지정한 다음, 트래픽이 NSG(네트워크 보안 그룹)에 의해 차단되는지 확인합니다.
+3.  트래픽을 차단하는 NSG 규칙이 있는 경우 **효과적인 보안** 규칙에서 NSG를 찾은 다음, 트래픽이 통과할 수 있도록 NSG를 업데이트합니다. 그런 다음, **IP 흐름 확인**을 다시 실행하고 **연결 문제 해결**을 사용하여 VM에서 내부 또는 외부 IP 주소로의 TCP 통신을 테스트합니다.
 
 **NVA와 VM이 예상 트래픽을 수신 대기하는지 확인**
 

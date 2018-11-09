@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b2e0b65f210774f760ce2d0898c601115ab3a94d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960161"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092460"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 이 문서에서는 SSIS 패키지 실행 작업을 사용하여 Azure Data Factory 파이프라인에서 SSIS 패키지를 실행하는 방법에 대해 설명합니다. 
@@ -91,9 +91,11 @@ Azure-SSIS 통합 런타임이 없는 경우 [자습서: SSIS 패키지 배포](
 
 ### <a name="optionally-parameterize-the-activity"></a>필요에 따라 활동을 매개 변수화
 
-필요에 따라 SSIS 패키지 작업 실행 상자의 아래쪽에서 **소스 코드 보기** 단추 또는파이프라인 영역의 오른쪽 위 모서리에서 **코드** 단추를 사용하여 Data Factory 시스템 변수를 참조할 수 있는 값, 식 또는 함수를 JSON 형식으로 프로젝트 또는 패키지 매개 변수에 할당합니다. 예를 들어 다음 스크린샷에 표시된 것처럼 Data Factory 파이프라인 매개 변수를 SSIS 프로젝트 또는 패키지 매개 변수에 할당할 수 있습니다.
+필요에 따라 SSIS 패키지 작업 실행 상자의 아래쪽에서 “소스 코드 보기” 단추 또는 파이프라인 영역의 오른쪽 위 모서리에서 “코드” 단추를 사용하여 Data Factory 시스템 변수를 참조할 수 있는 값, 식 또는 함수를 JSON 형식으로 프로젝트 또는 패키지 매개 변수에 할당합니다. 예를 들어 다음 스크린샷에 표시된 것처럼 Data Factory 파이프라인 매개 변수를 SSIS 프로젝트 또는 패키지 매개 변수에 할당할 수 있습니다.
 
 ![SSIS 패키지 실행 작업의 JSON 스크립트 편집](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![SSIS 패키지 실행 작업에 매개 변수 추가](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ![SSIS 패키지 실행 작업에 매개 변수 추가](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
@@ -204,9 +206,9 @@ Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도�
                     "runtime": "x64",
                     "loggingLevel": "Basic",
                     "packageLocation": {
-                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
+                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
                     },
-                    "environmentPath":   "FolderName/EnvironmentName",
+                    "environmentPath":   "FolderName/EnvironmentName",
                     "projectParameters": {
                         "project_param_1": {
                             "value": "123"
@@ -244,7 +246,7 @@ Azure-SSIS IR이 있는 동일한 데이터 팩터리를 사용하거나 별도�
                         }
                     },
                     "propertyOverrides": {
-                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
+                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
                             "value": 8,
                             "isSensitive": false
                         }

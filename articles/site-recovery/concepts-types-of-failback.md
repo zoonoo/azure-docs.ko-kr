@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery의 장애 복구(failback) | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 온-프레미스로 장애 복구(failback)하는 동안 고려해야 할 주의 사항과 다양한 장애 복구(failback) 유형에 대해 간략하게 설명합니다.
+title: Azure Site Recovery를 사용하여 재해 복구 중 장애 복구(failback) | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 재해 복구 중 온-프레미스로 장애 복구(failback)하는 동안 고려해야 할 주의 사항과 다양한 장애 복구(failback) 유형에 대해 간략하게 설명합니다.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanki
-ms.openlocfilehash: 2a9ee380fc16c4088d98875dd465509c4023d037
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e97d736e7e117e0ccce6dc021a9de2ea15ac5484
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920392"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210145"
 ---
 # <a name="overview-of-failback"></a>장애 복구 개요
 
-Azure로 장애 조치(failover)한 후 온-프레미스 사이트로 장애 복구(failback)할 수 있습니다. Azure Site Recovery에서 가능한 두 가지 유형의 장애 복구(failback)가 있습니다. 
+재해 복구 프로세스의 일부로 Azure로 장애 조치(failover)한 후 온-프레미스 사이트로 장애 복구(failback)할 수 있습니다. Azure Site Recovery에서 가능한 두 가지 유형의 장애 복구(failback)가 있습니다. 
 
 - 원래 위치로 장애 복구(failback) 
 - 대체 위치로 장애 복구(failback)

@@ -1,19 +1,18 @@
 ---
-title: Azure Site Recovery를 사용하여 VMware VM 및 실제 서버를 복제하기 위한 복제 문제 해결 | Microsoft Docs
-description: 이 아티클에서는 Azure Site Recovery를 사용하여 VMware VM 및 실제 서버를 Azure에 복제하는 경우 일반적인 복제 문제를 해결하는 방법을 제공합니다.
-services: site-recovery
+title: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구에 대한 복제 문제 해결 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구 중에 일반적인 복제 문제를 해결하는 방법을 제공합니다.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126020"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214735"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 

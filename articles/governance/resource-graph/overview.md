@@ -4,17 +4,17 @@ description: Azure Resource Graph는 대규모의 복잡한 리소스 쿼리를 
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d68183f4d0a928ac72f3f73ea5225ad174820cb7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e78b525e1e08a05b8de6071f9ddba0dfb29ff672
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162103"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087280"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
@@ -31,7 +31,7 @@ Azure Resource Graph는 모든 구독 및 관리 그룹에서 대규모로 쿼�
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Resource Graph가 Azure Resource Manager를 보완하는 방법
 
-Azure Resource Manager는 현재 여러 리소스 필드, 특히 리소스 이름, ID, 유형, 리소스 그룹, 구독 및 위치를 표시하는 제한된 리소스 캐시로 데이터를 보냅니다. 현재, 더 많은 리소스 속성으로 작업하려는 경우 각 개별 리소스 공급자를 호출하고 각 리소스에 대한 요청 속성 세부 정보를 호출해야 합니다.
+Azure Resource Manager는 현재 여러 리소스 필드, 특히 리소스 이름, ID, 유형, 리소스 그룹, 구독 및 위치를 제공하는 제한된 리소스 캐시로 데이터를 보냅니다. 이전에는 다양한 리소스 속성으로 작업하려는 경우 각 개별 리소스 공급자를 호출하고 각 리소스에 대한 요청 속성 세부 정보를 호출해야 했습니다.
 
 Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다.
 
@@ -45,12 +45,11 @@ Azure Resource Graph의 쿼리 언어는 [Azure Data Explorer 쿼리 언어](../
 
 ## <a name="permissions-in-azure-resource-graph"></a>Azure Resource Graph의 권한
 
-Resource Graph를 사용하려면 쿼리하려는 리소스에 대해 적어도 읽기 액세스 권한이 있는 RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md))를 통해 권한이 부여되어야 합니다. 관리 그룹, 구독, 리소스 그룹 또는 개별 리소스에 대해 `read` 권한이 없는 경우 Resource Graph 쿼리의 결과에 반환되지 않습니다.
+Resource Graph를 사용하려면 쿼리하려는 리소스에 대해 적어도 읽기 액세스 권한이 있는 RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md))에 적절한 권한이 부여되어야 합니다. Azure 개체 또는 개체 그룹에 대한 `read` 이상의 권한이 없으면 결과가 반환되지 않습니다.
 
 ## <a name="running-your-first-query"></a>첫 번째 쿼리 실행
 
-Resource Graph는 Azure CLI와 Azure PowerShell을 모두 지원합니다. 쿼리 구성 요소는 사용되는 언어에 상관없이 구조화됩니다. 기본적으로 SDK에서는 Azure Resource Graph에 대한 지원을 아직 사용할 수 없으므로 확장 또는 모듈을 로드하여 필요한 명령을 제공해야 합니다.
-[Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) 및 [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)에서 Resource Graph를 사용하도록 설정하는 방법에 대해 알아봅니다.
+Resource Graph는 Azure CLI와 Azure PowerShell을 모두 지원합니다. 쿼리는 두 언어 모두에 동일하게 구조화됩니다. [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) 및 [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)에서 Resource Graph를 사용하도록 설정하는 방법에 대해 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

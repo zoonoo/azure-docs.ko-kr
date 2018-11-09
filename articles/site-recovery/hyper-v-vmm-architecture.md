@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery에서 보조 사이트 아키텍처로 Hyper-V 복제 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 Hyper-V VM을 보조 System Center VMM 사이트로 복제하기 위한 아키텍처 개요를 제공합니다.
+title: Azure Site Recovery를 사용한 Hyper-V와 보조 온-프레미스 사이트 간 재해 복구를 위한 아키텍처 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용한 온-프레미스 Hyper-V VM과 보조 System Center VMM 사이트 간 재해 복구를 위한 아키텍처를 간략하게 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 8f8b498164cc4a77cace470f7483aa572fefbaed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 98eb654468eb27b8100a0cc9b73994e5a7add167
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078922"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214599"
 ---
-# <a name="hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제
+# <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>아키텍처 - 보조 사이트로 Hyper-V 복제
 
 이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드의 온-프레미스 Hyper-V VM(가상 머신)을 보조 VMM 사이트로 복제할 때 사용되는 구성 요소 및 프로세스를 설명합니다.
 

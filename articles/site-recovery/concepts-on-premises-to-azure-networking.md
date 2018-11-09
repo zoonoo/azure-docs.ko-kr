@@ -1,22 +1,21 @@
 ---
-title: Azure Site Recovery를 통해 Azure에 장애 조치(Failover) 후 연결할 IP 주소 설정 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 온-프레미스에서 장애 조치(failover)한 후 Azure VM에 연결할 IP 주소를 설정하는 방법을 설명합니다.
+title: Azure Site Recovery를 사용하여 Azure로 재해 복구 및 장애 조치(Failover) 후 연결할 IP 주소 설정 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 온-프레미스에서 재해 복구 및 장애 조치(failover)한 후 Azure VM에 연결할 IP 주소 설정 방법 설명
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 9b7797ba58a44e64460f4dbc58d562b4c470c043
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ce7e5fde60503a969b88892be890173861fb15be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353090"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215228"
 ---
-# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Azure에 장애 조치(failover)한 후 연결할 IP 주소 설정
+# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>장애 조치(failover) 후 연결할 IP 주소 설정
 
 이 문서에서는 Azure로의 복제 및 장애 조치에 [Azure Site Recovery](site-recovery-overview.md)를 사용한 후 Azure VM에 연결하기 위한 네트워킹 요구 사항을 설명합니다.
 

@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 10/30/2018
 ms.author: barbkess
 ms.reviewer: arvinh
-ms.openlocfilehash: 820c6a5cb0bf5fb2d98d27c171c1276866082700
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 577be6669442befec0c14a275505e2eebed72611
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716188"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418095"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리
 
-Azure AD(Azure Active Directory)는 클라우드 및 온-프레미스 응용 프로그램에 안전하고 원활한 액세스를 제공합니다. 사용자는 한 번 로그인하여 Microsoft의 Office 365 및 기타 비즈니스 응용 프로그램, 수천 개의 SaaS(Software as a Service) 응용 프로그램, 온-프레미스 응용 프로그램 및 LOB(사업 부문) 앱에 액세스할 수 있습니다. 사용자 프로비저닝을 자동화하여 관리 비용을 절감합니다. 다단계 인증 및 조건부 액세스 정책을 사용하여 보안 응용 프로그램 액세스를 제공합니다.
+Azure AD(Azure Active Directory)는 클라우드 및 온-프레미스 응용 프로그램에 안전하고 원활한 액세스를 제공합니다. 사용자는 한 번 로그인하여 Microsoft의 Office 365 및 기타 비즈니스 응용 프로그램, SaaS(Software as a Service) 응용 프로그램, 온-프레미스 응용 프로그램 및 LOB(사업 부문) 앱에 액세스할 수 있습니다. 사용자 프로비저닝을 자동화하여 관리 비용을 절감합니다. 다단계 인증 및 조건부 액세스 정책을 사용하여 보안 응용 프로그램 액세스를 제공합니다.
 
-![Azure AD를 통해 페더레이션된 응용 프로그램](media/migrate-adfs-apps-to-azure/migrate2.png)
+![Azure AD를 통해 페더레이션된 응용 프로그램](media/what-is-application-management/app-management-overview.png)
 
 ## <a name="why-manage-applications-with-a-cloud-solution"></a>클라우드 솔루션을 사용하여 응용 프로그램을 관리하는 이유는 무엇인가요?
 
@@ -40,5 +40,5 @@ SSO는 보안을 개선합니다. ‘Single Sign-On을 사용하지 않으면’
 Azure AD를 사용하면 SIEM(보안 인시던트 및 이벤트 관리)을 사용하는 보고서를 통해 응용 프로그램 로그인을 모니터링할 수 있습니다. 포털 또는 API에서 보고서에 액세스할 수 있습니다. 응용 프로그램에 액세스할 수 있는 사용자를 프로그래밍 방식으로 감사하고 액세스 검토를 통해 비활성 사용자에 대한 액세스를 제거합니다.
 
 ## <a name="manage-costs"></a>비용 관리
-Azure AD로 마이그레이션하면 비용을 절약하고 온-프레미스 인프라를 관리하는 번거로움을 제거할 수 있습니다. 또한 Azure AD는 응용 프로그램에 대한 셀프 서비스 액세스를 제공하므로 관리자와 사용자의 시간이 절약됩니다. Single Sign-On을 사용하면 응용 프로그램별 암호를 사용할 필요가 없어 응용 프로그램의 암호 재설정 및 암호 검색 시 손실된 생산성에 관련된 비용이 절약됩니다.
+Azure AD로 마이그레이션하면 비용을 절약하고 온-프레미스 인프라를 관리하는 번거로움을 제거할 수 있습니다. 또한 Azure AD는 응용 프로그램에 대한 셀프 서비스 액세스를 제공하므로 관리자와 사용자의 시간이 절약됩니다. Single Sign-On을 사용하면 응용 프로그램별 암호가 필요 없습니다. 한 번 로그온하는 이 기능을 사용하면 응용 프로그램의 암호 재설정 및 암호 검색 시 손실된 생산성에 관련된 비용이 절약됩니다.
 

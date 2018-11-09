@@ -7,24 +7,24 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 50005e38214bf22aa664c2d2b0cc4f86da412818
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144497"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140860"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 시도
 
-이 빠른 시작에서는 Azure IoT 원격 모니터링 솔루션 가속기를 배포하여 클라우드 기반 원격 모니터링 시뮬레이션을 실행하는 방법을 보여줍니다. 솔루션 가속기를 배포한 후 솔루션 **대시보드** 페이지를 사용하여 시뮬레이션된 장치를 맵에서 시각화하면 **유지 관리** 페이지가 시뮬레이션된 냉각기 장치의 압력 경고에 응답합니다. 학습 도구로 또는 고유한 구현을 위한 시작점으로 이 솔루션 가속기를 사용할 수 있습니다.
+이 빠른 시작에서는 Azure IoT 원격 모니터링 솔루션 가속기를 배포하는 방법을 보여줍니다. 이 클라우드 기반 솔루션에서 **대시보드** 페이지를 사용하여 시뮬레이션된 장치를 맵에서 시각화하면 **유지 관리** 페이지가 시뮬레이션된 냉각기 장치의 압력 경고에 응답합니다. 학습 도구로 또는 고유한 구현을 위한 시작점으로 이 솔루션 가속기를 사용할 수 있습니다.
 
-초기 배포에서는 Contoso라는 회사의 원격 모니터링 솔루션 가속기를 구성합니다. Contoso는 다양한 물리적 환경에 배포된 냉각기와 같이 선별된 다양한 장치 유형을 관리합니다. 냉각기는 원격 모니터링 솔루션 가속기에 온도, 습도 및 압력 원격 분석 데이터를 보냅니다.
+초기 배포에서는 Contoso라는 회사의 솔루션 가속기를 구성합니다. Contoso의 운영자는 다양한 물리적 환경에 배포된 냉각기와 같이 선별된 다양한 장치 유형을 관리합니다. 냉각기는 원격 모니터링 솔루션 가속기에 온도, 습도 및 압력 원격 분석 데이터를 보냅니다.
 
 이 빠른 시작을 완료하려면 활성 Azure 구독이 필요합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
@@ -44,7 +44,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 이 빠른 시작에서는 **Visual Studio Enterprise** 및 **서유럽**을 사용하고 있습니다. 구독 내에서 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
 
-**솔루션 만들기**를 배포를 시작합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
+배포를 시작하려면 **솔루션 만들기**를 클릭합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
 
 ![원격 모니터링 솔루션 세부 정보](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -68,15 +68,15 @@ Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 
 
 솔루션 대시보드에 Contoso의 시뮬레이션된 장치에 대한 다음 정보가 표시됩니다.
 
-* **장치 통계**에는 경고에 대한 요약 및 총 장치 수가 표시됩니다. 기본 배포에서 Contoso에는 서로 다른 유형의 시뮬레이션된 장치가 10개 있습니다.
+* **장치 통계** 패널에는 경고에 대한 요약 및 총 장치 수가 표시됩니다. 기본 배포에서 Contoso에는 서로 다른 유형의 시뮬레이션된 장치가 10개 있습니다.
 
-* **장치 위치**에는 장치가 물리적으로 있는 위치가 표시됩니다. 장치에서 경고가 발생하면 핀에 색상이 나타납니다.
+* **장치 위치** 패널에는 장치의 물리적 위치가 표시됩니다. 장치에서 경고가 발생하면 핀에 색상이 나타납니다.
 
-* **경고**에는 장치에서 발생한 경고에 대한 세부 정보가 표시됩니다.
+* **경고** 패널에는 장치에서 발생한 경고에 대한 세부 정보가 표시됩니다.
 
-* **원격 분석**에는 장치의 원격 분석 데이터가 표시됩니다. 맨 위에 있는 원격 측정 유형을 클릭하면 다른 원격 측정 스트림을 볼 수 있습니다.
+* **원격 분석** 패널에는 장치의 원격 분석 데이터가 표시됩니다. 맨 위에 있는 원격 측정 유형을 클릭하면 다른 원격 측정 스트림을 볼 수 있습니다.
 
-* **분석**에는 장치에서 발생한 경고를 결합한 정보가 표시됩니다.
+* **분석** 패널에는 장치에서 발생한 경고를 결합한 정보가 표시됩니다.
 
 ## <a name="respond-to-an-alert"></a>경고에 응답
 
@@ -98,7 +98,7 @@ Contoso 운영자는 솔루션 대시보드에서 장치를 모니터링 할 수
 
 ### <a name="fix-the-issue"></a>문제 해결
 
-다른 운영자에게 현재 경고 관련 작업 중임을 나타내려면 **경고 상태**를 **확인됨**으로 변경합니다.
+다른 운영자에게 경고 관련 작업 중임을 나타내려면 **경고 상태**를 **확인됨**으로 변경합니다.
 
 [![경고 선택 및 확인](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceacknowledge-expanded.png#lightbox)
 
@@ -108,7 +108,7 @@ Contoso 운영자는 솔루션 대시보드에서 장치를 모니터링 할 수
 
 [![장치 선택 및 작업 예약](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-**작업** 패널에서 **메서드 실행**, **EmergencyValveRelease** 메서드를 차례로 합니다. 작업 이름**ChillerPressureRelease**을 추가하고 **적용**을 클릭합니다. 이 설정은 즉시 실행하는 작업을 만듭니다.
+**작업** 패널에서 **메서드 실행**, **EmergencyValveRelease** 메서드를 차례로 합니다. 작업 이름**ChillerPressureRelease**을 추가하고 **적용**을 클릭합니다. 이 설정은 즉시 실행되는 작업을 자동으로 만듭니다.
 
 작업 상태를 확인하려면 **유지 관리** 페이지로 돌아가서 **작업** 보기에서 작업 목록을 봅니다. 몇 초 정도 기다리면 냉각기에 대한 밸브 압력을 해제하기 위해 작업이 실행된 것을 확인할 수 있습니다.
 

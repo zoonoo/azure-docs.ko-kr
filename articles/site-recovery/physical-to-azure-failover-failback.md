@@ -1,18 +1,18 @@
 ---
-title: Site Recovery를 사용하여 복제된 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback) | Microsoft Docs
-description: Azure Site Recovery를 사용하여 물리적 서버를 Azure로 장애 조치(Failover)하고, 온-프레미스 사이트로 장애 복구(Failback)하는 방법 알아보기
+title: Site Recovery를 사용하여 Azure로 재해 복구하기 위한 물리적 서버 장애 조치(Failover) 및 장애 복구(Failback) | Microsoft Docs
+description: Azure Site Recovery를 사용한 재해 복구를 위해 물리적 서버를 Azure로 장애 조치(Failover)하고, 온-프레미스 사이트로 장애 복구(Failback)하는 방법에 대한 자세한 정보
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 1a818d37efd370ce0b3e27bff73a153544763ebb
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 309da6f7753d95bc6830d61ecca7d86e002ddedf
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456629"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214839"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>복제된 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 

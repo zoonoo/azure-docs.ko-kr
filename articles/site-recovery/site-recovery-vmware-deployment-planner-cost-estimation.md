@@ -1,21 +1,20 @@
 ---
-title: VMware에서 Azure로의 Azure Site Recovery Deployment Planner | Microsoft Docs
-description: Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
-services: site-recovery
+title: Azure Site Recovery Deployment Planner에서 비용 예측 보고서 검토 | Microsoft Docs
+description: 이 문서에서는 Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner에서 비용 예측 보고서를 검토하는 방법을 설명합니다.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7470dab537a8ab248228b9c445e1124e7ec9c444
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 7244aa2c0b665b47d597662b98ec291d6bfeeddd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387806"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215024"
 ---
-# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서  
+# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Site Recovery Deployment Planner에서 비용 예측 보고서 검토
 
 Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) 시트에 비용 예측 요약을 제공하고 비용 예측 시트에 자세한 비용 분석을 제공합니다. VM당 자세한 비용 분석이 있습니다. 
 

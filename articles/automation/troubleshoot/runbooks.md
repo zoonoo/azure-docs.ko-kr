@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955434"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094867"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -93,8 +93,9 @@ The subscription named <subscription name> cannot be found.
 
 Azure에 올바르게 인증되고 선택하려는 구독에 대한 액세스 권한이 있는지 확인하기 위해 다음 단계를 수행하세요  
 
-1. **Add-AzureAccount** cmdlet을 실행한 후에 **Select-AzureSubscription** cmdlet을 실행합니다.  
-2. 이 오류 메시지가 계속 나타나면 **Add-AzureAccount** cmdlet 뒤에 **-AzureRmContext** 매개 변수를 추가하여 코드를 수정한 다음, 해당 코드를 실행합니다.
+1. Azure Automation 외부에서 스크립트를 테스트하여 독립 실행형으로 작동하는지 확인합니다.
+2. **Add-AzureAccount** cmdlet을 실행한 후에 **Select-AzureSubscription** cmdlet을 실행합니다.  
+3. 이 오류 메시지가 계속 나타나면 **Add-AzureAccount** cmdlet 뒤에 **-AzureRmContext** 매개 변수를 추가하여 코드를 수정한 다음, 해당 코드를 실행합니다.
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -104,7 +105,7 @@ Azure에 올바르게 인증되고 선택하려는 구독에 대한 액세스 �
    $context = Get-AzureRmContext
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
-   ```
+    ```
 
 ### <a name="auth-failed-mfa"></a>시나리오: Multi-Factor Authentication이 활성화되어 Azure 인증에 실패
 
@@ -305,7 +306,7 @@ PowerShell 엔진을 통해 Runbook에서 사용하는 cmdlet을 찾을 수 없�
 * cmdlet 이름을 올바르게 입력했는지 확인합니다.  
 * Automation 계정에 Cmdlet이 있고 충돌이 없는지 확인합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 `Get-Command <CommandName>`를 실행합니다. 계정에서 cmdlet을 사용할 수 있는지와 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는지를 확인한 후, 캔버스에 해당 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.  
 * 이름이 충돌하고 cmdlet이 서로 다른 두 모듈에서 사용되는 경우 cmdlet에 대한 정규화된 이름을 사용하여 이 문제를 해결할 수 있습니다. 예를 들어 **ModuleName\CmdletName**을 사용할 수 있습니다.  
-* 온-프레미스의 Hybrid Worker 그룹에서 Runbook을 실행하는 경우 Hybrid Worker를 호스팅하는 머신에 모듈/cmdlet이 설치되어 있는지 확인합니다.
+* 온-프레미스의 Hybrid Worker 그룹에서 Runbook을 실행하는 경우 Hybrid Worker를 호스트하는 머신에 모듈 및 cmdlet이 설치되어 있는지 확인합니다.
 
 ### <a name="long-running-runbook"></a>시나리오: 장기 실행 Runbook이 완료되지 않음
 

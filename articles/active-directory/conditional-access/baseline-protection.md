@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958553"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158706"
 ---
 # <a name="what-is-baseline-protection-preview"></a>기준 보호(미리 보기)란?  
 
@@ -51,7 +51,7 @@ ms.locfileid: "49958553"
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-이 기준 정책은 사용자 및 그룹을 제외하는 옵션을 제공합니다. 테넌트에서 차단되지 않도록 한 *[응급 액세스 관리 계정](../users-groups-roles/directory-emergency-access.md)* 을 제외할 수 있습니다.
+이 기준 정책은 사용자를 제외하는 옵션을 제공합니다. 테넌트에서 차단되지 않도록 한 *[응급 액세스 관리 계정](../users-groups-roles/directory-emergency-access.md)* 을 제외할 수 있습니다.
 
 
 ## <a name="enable-a-baseline-policy"></a>기준 정책 사용 

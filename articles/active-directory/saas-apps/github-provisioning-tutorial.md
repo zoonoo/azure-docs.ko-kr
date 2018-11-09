@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: c645b0a99493c71a9fa1416c16876da30bcff891
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: bc82f0b71c6963c4f5a356180a1eabbca1b166c4
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367661"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156955"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "46367661"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 *   Azure Active Directory 테넌트
-*   [비즈니스 계획](https://help.github.com/articles/organization-billing-plans/#business-plan) 이상을 사용하는 Github 테넌트 
+*   [비즈니스 클라우드 플랜](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) 이상을 사용하는 GitHub 테넌트 
 *   관리자 권한이 있는 GitHub의 사용자 계정 
 
 > [!NOTE]

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: c2b86e79f0364ee84e01fee5e9837db5a6b618a2
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 66021fa8140da2faae4ecab07c98b0df4ea5297a
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843391"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50142758"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 응용 프로그램의 등록 정보 추가
 
@@ -29,12 +29,11 @@ ms.locfileid: "48843391"
 
 웹 서버에 따라 index.html 페이지에 대한 URL로 `Redirect URL` 필드를 구성하고 *업데이트*를 클릭합니다.
 
-
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>리디렉션 URL을 얻기 위한 Visual Studio 지침
 > 리디렉션 URL을 가져오려면 다음 단계를 수행하세요.
-> 1.    **솔루션 탐색기**에서 프로젝트를 선택하고 **속성** 창을 확인합니다. **속성** 창이 보이지 않으면 **F4** 키를 누릅니다.
-> 2.    **URL**의 값을 클립보드로 복사합니다.<br/> ![](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3.    이 페이지 맨 위에서 값을 **리디렉션 URL**로 붙여넣은 다음, **업데이트**를 클릭합니다.
+> 1. **솔루션 탐색기**에서 프로젝트를 선택하고 **속성** 창을 확인합니다. **속성** 창이 보이지 않으면 **F4** 키를 누릅니다.
+> 2. **URL**의 값을 클립보드로 복사합니다.<br/> ![](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3. 이 페이지 맨 위에서 값을 **리디렉션 URL**로 붙여넣은 다음, **업데이트**를 선택합니다.
 
 <p/>
 
@@ -44,7 +43,7 @@ ms.locfileid: "48843391"
 
 ### <a name="configure-your-javascript-spa-application"></a>JavaScript SPA 응용 프로그램 구성
 
-1.  프로젝트 설정 중에 생성된 `index.html` 파일에서 응용 프로그램 등록 정보를 추가합니다. 맨 위에 있는 다음 코드를 `index.html` 파일 본문의 `<script></script>` 태그 내에 추가합니다.
+1. 프로젝트 설정 중에 생성된 `index.html` 파일에서 응용 프로그램 등록 정보를 추가합니다. 맨 위에 있는 다음 코드를 `index.html` 파일 본문의 `<script></script>` 태그 내에 추가합니다.
 
 ```javascript
 var applicationConfig = {

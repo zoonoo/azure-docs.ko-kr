@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645800"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230559"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Text Analytics(미리 보기)에서 명명된 엔터티 인식을 사용하는 방법
 
@@ -95,7 +95,7 @@ id, text, language 형식의 JSON 문서가 있어야 합니다.
 
 + **POST** 요청을 만듭니다. 이 요청에 대한 API 문서인 [엔터티 링크 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)를 검토합니다.
 
-+ 핵심 구 추출에 대한 HTTP 엔드포인트를 설정합니다. `/entities` 리소스를 포함해야 합니다(예: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`).
++ 엔터티 추출에 대한 HTTP 엔드포인트를 설정합니다. `/entities` 리소스를 포함해야 합니다(예: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`).
 
 + Text Analytics 작업에 대한 액세스 키가 포함되도록 요청 헤더를 설정합니다. 자세한 내용은 [엔드포인트 및 액세스 키를 찾는 방법](text-analytics-how-to-access-key.md)을 참조하세요.
 

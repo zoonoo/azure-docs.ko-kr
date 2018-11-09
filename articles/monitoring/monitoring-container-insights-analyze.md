@@ -1,5 +1,5 @@
 ---
-title: 컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 모니터링 | Microsoft Docs
+title: 컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 모니터링(미리 보기) | Microsoft Docs
 description: 이 문서에서는 컨테이너용 Azure Monitor를 사용하여 성능 및 로그 데이터를 살펴보고 분석하는 방법을 설명합니다.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: daec3d6e6cd8e4df3fdfe45fbb8ee98966c8a38e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638001"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214157"
 ---
-# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers-preview"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 파악(미리 보기)
 AKS(Azure Kubernetes Service) 클러스터의 성능은 컨테이너용 Azure Monitor를 사용하여 두 가지 관점에서 관찰할 수 있습니다. 즉, AKS 클러스터에서 직접 볼 수도 있고 Azure Monitor에서 구독의 모든 AKS 클러스터를 볼 수도 있습니다. 
 
 이 문서는 이러한 두 관점을 이해하고 검색된 문제를 신속하게 평가, 조사 및 해결하는 데 도움이 됩니다.

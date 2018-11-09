@@ -1,17 +1,17 @@
 ---
-title: System Center Configuration Manager를 사용하여 Azure Site Recovery에 대한 모바일 서비스 설치 자동화 | Microsoft Docs
-description: 이 문서에서는 System Center Configuration Manager를 사용하여 모바일 서비스 설치를 자동화하는 방법을 안내합니다.
+title: System Center Configuration Manager를 사용하여 Azure로 VMware VM 및 물리적 서버의 재해 복구를 위한 Azure Site Recovery 모바일 서비스 설치 자동화 | Microsoft Docs
+description: 이 문서는 Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 재해 복구하기 위해 System Center Configuration Manager를 사용하여 모바일 서비스 설치를 자동화하는 데 도움이 됩니다.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 6aff17908d220557720776a2d7884adc28b5deee
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: f14c02404dae5a923aabcd2df8279a6150c42f57
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "37917172"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215296"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>System Center Configuration Manager를 사용하여 모바일 서비스 설치 자동화
 
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   | **매개 변수 이름** | **값** |
   |--|--|
-  | Name | Microsoft Azure Mobility Service(Windows) 설치 |
+  | 이름 | Microsoft Azure Mobility Service(Windows) 설치 |
   | 명령 줄 | install.bat |
   | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
 
@@ -397,7 +397,7 @@ cd /tmp
 
     | **매개 변수 이름** | **값** |
   |--|--|
-  | Name | Microsoft Azure Mobility Service(Linux) 설치 |
+  | 이름 | Microsoft Azure Mobility Service(Linux) 설치 |
   | 명령 줄 | ./install_linux.sh |
   | 프로그램을 실행할 수 있습니다. | 사용자 로그온 여부 |
 

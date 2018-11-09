@@ -1,19 +1,19 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure에서 VMware로 장애 복구 | Microsoft Docs
-description: 가상 머신을 Azure로 장애 조치(failover)한 후 장애 복구를 시작하여 가상 머신을 온-프레미스로 복구할 수 있습니다. 장애 복구 방법에 대해 알아보세요.
+title: Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구 중에 Azure에서 장애 복구(Failback) | Microsoft Docs
+description: Azure로 VMware VM 및 물리적 서버의 재해 복구 중에 Azure로 장애 조치(Failover)한 후 온-프레미스 사이트로 장애 복구(Failback)하는 방법을 알아봅니다.
 author: nsoneji
 ms.service: site-recovery
 ms.date: 10/11/2018
 ms.topic: conceptual
 ms.author: nisoneji
-ms.openlocfilehash: 841e036555723051dfeaf946f31eaf9eedaee798
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: becf0b8c9f14d81b0a25fb1727b69452c3ff690c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093513"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215177"
 ---
-# <a name="fail-back-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 장애 복구
+# <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 VMWare VM 및 물리적 서버 장애 복구(Failback)
 
 이 문서에서는 가상 머신을 Azure Virtual Machines에서 온-프레미스 VMware 환경으로 장애 복구하는 방법을 설명합니다. [Azure Site Recovery의 장애 조치](site-recovery-failover.md) 자습서를 사용하여 온-프레미스 사이트에서 Azure로 장애 조치(failover)한 후 VMware 가상 머신 또는 Windows/Linux 물리적 서버를 장애 복구(failback)하려면 이 문서의 지침을 따르세요.
 

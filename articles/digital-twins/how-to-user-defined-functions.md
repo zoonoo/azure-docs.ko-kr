@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 7fbaff5ed1b60a4434ba2eb0c78c6aa1f3fd6645
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 8094965da5fb0a5fad0313fd96e2878f86d78aa7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323976"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215500"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 사용하는 방법
 
@@ -25,10 +25,10 @@ ms.locfileid: "49323976"
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 ```
 
-| 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+| 사용자 지정 특성 이름 | 바꿀 항목 |
 | --- | --- |
-| `yourInstanceName` | Azure Digital Twins 인스턴스의 이름 |
-| `yourLocation` | 인스턴스를 호스팅하는 서버 지역 |
+| *yourInstanceName* | Azure Digital Twins 인스턴스의 이름 |
+| *yourLocation* | 인스턴스를 호스팅하는 서버 지역 |
 
 ## <a name="client-library-reference"></a>클라이언트 라이브러리 참조
 
@@ -50,9 +50,9 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 - `SensorDevice`
 - `SensorSpace`
 
-다음 예제 검사기에서는 `Temperature`를 해당 데이터 형식 값으로 사용하여 센서 원격 분석 이벤트에서 true로 평가합니다. 사용자 정의 함수에 여러 검사기를 만들 수 있습니다.
+다음 예제 검사기에서는 `"Temperature"`를 해당 데이터 형식 값으로 사용하여 센서 원격 분석 이벤트에서 true로 평가합니다. 사용자 정의 함수에 여러 검사기를 만들 수 있습니다.
 
-```text
+```plaintext
 POST https://yourManagementApiUrl/api/v1.0/matchers
 {
   "Name": "Temperature Matcher",
@@ -68,10 +68,10 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 }
 ```
 
-| 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+| 사용자 지정 특성 이름 | 바꿀 항목 |
 | --- | --- |
-| `yourManagementApiUrl` | 관리 API의 전체 URL 경로  |
-| `yourSpaceIdentifier` | 인스턴스를 호스팅하는 서버 지역 |
+| *yourManagementApiUrl* | 관리 API의 전체 URL 경로  |
+| *yourSpaceIdentifier* | 인스턴스를 호스팅하는 서버 지역 |
 
 ## <a name="create-a-user-defined-function-udf"></a>UDF(사용자 정의 함수) 만들기
 
@@ -88,9 +88,9 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
 ```
 
-| 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+| 사용자 지정 특성 이름 | 바꿀 항목 |
 | --- | --- |
-| `yourManagementApiUrl` | 관리 API의 전체 URL 경로  |
+| *yourManagementApiUrl* | 관리 API의 전체 URL 경로  |
 
 본문:
 
@@ -116,16 +116,16 @@ function process(telemetry, executionContext) {
 --userDefinedBoundary--
 ```
 
-| 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+| 사용자 지정 특성 이름 | 바꿀 항목 |
 | --- | --- |
-| `yourSpaceIdentifier` | 공간 식별자  |
-| `yourMatcherIdentifier` | 사용하려는 검사기의 ID |
+| *yourSpaceIdentifier* | 공간 식별자  |
+| *yourMatcherIdentifier* | 사용하려는 검사기의 ID |
 
 ### <a name="example-functions"></a>예제 함수
 
-`Temperature` 데이터 형식을 사용하여 센서에 대한 직접 센서 원격 분석 읽기를 설정합니다. 즉, sensor.DataType입니다.
+`sensor.DataType`에 해당하는 **Temperature** 데이터 형식을 사용하여 센서에 대한 직접 센서 원격 분석 읽기를 설정합니다.
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Get sensor metadata
@@ -139,9 +139,21 @@ function process(telemetry, executionContext) {
 }
 ```
 
-센서 원격 분석 읽기가 미리 정의된 임계값을 초과하는 경우 메시지를 기록합니다. Digital Twins 인스턴스에서 진단 설정을 사용하는 경우 사용자 정의 함수의 로그가 전달됩니다.
+*telemetry* 매개 변수는 **SensorId** 및 **Message** 특성(센서에서 보낸 메시지에 해당)을 노출합니다. *executionContext* 매개 변수는 다음 특성을 노출합니다.
 
-```javascript
+```csharp
+var executionContext = new UdfExecutionContext
+{
+    EnqueuedTime = request.HubEnqueuedTime,
+    ProcessorReceivedTime = request.ProcessorReceivedTime,
+    UserDefinedFunctionId = request.UserDefinedFunctionId,
+    CorrelationId = correlationId.ToString(),
+};
+```
+
+다음 예제에서는 센서 원격 분석 읽기가 미리 정의된 임계값을 초과하는 경우 메시지를 기록합니다. Digital Twins 인스턴스에서 진단 설정을 사용하는 경우 사용자 정의 함수의 로그도 전달됩니다.
+
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -156,7 +168,7 @@ function process(telemetry, executionContext) {
 
 다음 코드는 온도 수준이 미리 정의된 상수를 초과하는 경우 알림을 트리거합니다.
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -184,27 +196,30 @@ function process(telemetry, executionContext) {
 
 실행할 사용자 정의 함수에 대한 역할 할당을 만들어야 합니다. 그렇지 않으면 그래프 개체에서 작업을 수행할 관리 API와 상호 작용할 수 있는 적절한 사용 권한이 없게 됩니다. 사용자 정의 함수가 수행하는 작업은 Digital Twins 관리 API 내의 역할 기반 액세스 제어에서 제외됩니다. 특정 역할 또는 특정 액세스 제어 경로를 지정하여 범위를 제한할 수 있습니다. 자세한 내용은 [역할 기반 액세스 제어](./security-role-based-access-control.md) 설명서를 참조하세요.
 
-- 역할에 대해 쿼리하고 UDF에 할당할 역할의 ID를 가져와서 아래의 RoleId에 전달합니다.
+1. 역할에 대해 쿼리하고 UDF에 할당할 역할의 ID를 가져와서 아래의 **RoleId**에 전달합니다.
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/system/roles
 ```
 
-| 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+| 사용자 지정 특성 이름 | 바꿀 항목 |
 | --- | --- |
-| `yourManagementApiUrl` | 관리 API의 전체 URL 경로  |
+| *yourManagementApiUrl* | 관리 API의 전체 URL 경로  |
 
-- ObjectId는 앞서 만든 UDF ID입니다.
-- 전체 경로에서 공간을 쿼리하여 `Path`를 찾고 `spacePaths` 값을 복사합니다. UDF 역할 할당을 만들 때 아래의 경로에 붙여넣습니다
+2. **ObjectId**는 앞서 만든 UDF ID입니다.
+3. `fullpath`를 사용하여 공간을 쿼리하여 **Path** 값을 찾습니다.
+4. 반환된 `spacePaths` 값을 복사합니다. 이 값을 아래에서 사용합니다.
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
 ```
 
-| 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+| 사용자 지정 특성 이름 | 바꿀 항목 |
 | --- | --- |
-| `yourManagementApiUrl` | 관리 API의 전체 URL 경로  |
-| `yourSpaceName` | 사용할 공간의 이름 |
+| *yourManagementApiUrl* | 관리 API의 전체 URL 경로  |
+| *yourSpaceName* | 사용할 공간의 이름 |
+
+4. 이제, 반환된 `spacePaths` 값을 **Path**에 붙여 넣어 UDF 역할 할당을 만듭니다.
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/roleassignments
@@ -216,12 +231,12 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 }
 ```
 
-| 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+| 사용자 지정 특성 이름 | 바꿀 항목 |
 | --- | --- |
-| `yourManagementApiUrl` | 관리 API의 전체 URL 경로  |
-| `yourDesiredRoleIdentifier` | 원하는 역할의 식별자 |
-| `yourUserDefinedFunctionId` | 사용할 UDF의 ID |
-| `yourAccessControlPath` | 액세스 제어 경로 |
+| *yourManagementApiUrl* | 관리 API의 전체 URL 경로  |
+| *yourDesiredRoleIdentifier* | 원하는 역할의 식별자 |
+| *yourUserDefinedFunctionId* | 사용할 UDF의 ID |
+| *yourAccessControlPath* | 액세스 제어 경로 |
 
 ## <a name="send-telemetry-to-be-processed"></a>처리될 원격 분석 전송
 
@@ -241,7 +256,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | 공간 식별자 |
+| *id*  | `guid` | 공간 식별자 |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
 
@@ -251,7 +266,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | 센서 식별자 |
+| *id*  | `guid` | 센서 식별자 |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
 
@@ -261,7 +276,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | 장치 식별자 |
+| *id* | `guid` | 장치 식별자 |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue(sensorId, dataType) ⇒ `value`
 
@@ -271,8 +286,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | 센서 식별자 |
-| dataType  | `string` | 센서 데이터 형식 |
+| *sensorId*  | `guid` | 센서 식별자 |
+| *dataType*  | `string` | 센서 데이터 형식 |
 
 ### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue(spaceId, valueName) ⇒ `value`
 
@@ -282,8 +297,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 공간 식별자 |
-| valueName  | `string` | 공간 속성 이름 |
+| *spaceId*  | `guid` | 공간 식별자 |
+| *valueName* | `string` | 공간 속성 이름 |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
 
@@ -293,8 +308,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | 센서 식별자 |
-| dataType  | `string` | 센서 데이터 형식 |
+| *sensorId* | `guid` | 센서 식별자 |
+| *dataType* | `string` | 센서 데이터 형식 |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
 
@@ -304,8 +319,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 공간 식별자 |
-| valueName  | `string` | 공간 속성 이름 |
+| *spaceId* | `guid` | 공간 식별자 |
+| *valueName* | `string` | 공간 속성 이름 |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
@@ -315,7 +330,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 공간 식별자 |
+| *spaceId* | `guid` | 공간 식별자 |
 
 ### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
@@ -325,7 +340,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 공간 식별자 |
+| *spaceId* | `guid` | 공간 식별자 |
 
 ### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
 
@@ -335,7 +350,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 공간 식별자 |
+| *spaceId* | `guid` | 공간 식별자 |
 
 ### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
@@ -345,7 +360,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| deviceId  | `guid` | 장치 식별자 |
+| *deviceId* | `guid` | 장치 식별자 |
 
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
@@ -355,7 +370,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| childSpaceId  | `guid` | 공간 식별자 |
+| *childSpaceId* | `guid` | 공간 식별자 |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
@@ -365,7 +380,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| childSensorId  | `guid` | 센서 식별자 |
+| *childSensorId* | `guid` | 센서 식별자 |
 
 ### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
 
@@ -375,7 +390,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| childDeviceId  | `guid` | 장치 식별자 |
+| *childDeviceId* | `guid` | 장치 식별자 |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
@@ -385,7 +400,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| childSensorId  | `guid` | 센서 식별자 |
+| *childSensorId* | `guid` | 센서 식별자 |
 
 ### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
 
@@ -395,8 +410,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 공간 식별자 |
-| propertyName  | `string` | 공간 속성 이름 |
+| *spaceId* | `guid` | 공간 식별자 |
+| *propertyName* | `string` | 공간 속성 이름 |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
@@ -406,8 +421,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | 센서 식별자 |
-| propertyName  | `string` | 센서 속성 이름 |
+| *sensorId* | `guid` | 센서 식별자 |
+| *propertyName* | `string` | 센서 속성 이름 |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
 
@@ -417,8 +432,8 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| deviceId  | `guid` | 장치 식별자 |
-| propertyName  | `string` | 장치 속성 이름 |
+| *deviceId* | `guid` | 장치 식별자 |
+| *propertyName* | `string` | 장치 속성 이름 |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue(sensorId, dataType, value)
 
@@ -428,9 +443,9 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | 센서 식별자 |
-| dataType  | `string` | 센서 데이터 형식 |
-| 값  | `string` | 값 |
+| *sensorId* | `guid` | 센서 식별자 |
+| *dataType*  | `string` | 센서 데이터 형식 |
+| *값*  | `string` | 값 |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue(spaceId, dataType, value)
 
@@ -440,9 +455,9 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | 공간 식별자 |
-| dataType  | `string` | 데이터 형식 |
-| 값  | `string` | 값 |
+| *spaceId* | `guid` | 공간 식별자 |
+| *dataType* | `string` | 데이터 형식 |
+| *값* | `string` | 값 |
 
 ### <a name="logmessage"></a>log(message)
 
@@ -452,7 +467,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| Message  | `string` | 기록할 메시지 |
+| *message* | `string` | 기록할 메시지 |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification(topologyObjectId, topologyObjectType, payload)
 
@@ -462,9 +477,9 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| topologyObjectId  | `Guid` | 그래프 개체 식별자(예: 공간/센서/장치 ID)|
-| topologyObjectType  | `string` | 예: 공간/센서/장치)|
-| payload  | `string` | 알림을 사용하여 보낼 JSON 페이로드입니다. |
+| *topologyObjectId*  | `guid` | 그래프 개체 식별자(예: 공간/센서/장치 ID)|
+| *topologyObjectType*  | `string` | 예: 공간/센서/장치)|
+| *payload*  | `string` | 알림을 사용하여 보낼 JSON 페이로드입니다. |
 
 ## <a name="return-types"></a>반환 형식
 
@@ -503,7 +518,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | 확장 속성의 이름 |
+| *propertyName* | `string` | 확장 속성의 이름 |
 
 #### <a name="valuevaluename--value"></a>Value(valueName) ⇒ `value`
 
@@ -511,7 +526,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| valueName | `string` | 값의 이름 |
+| *valueName* | `string` | 값의 이름 |
 
 #### <a name="historyvaluename--value"></a>History(valueName) ⇒ `value[]`
 
@@ -519,7 +534,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| valueName | `string` | 값의 이름 |
+| *valueName* | `string` | 값의 이름 |
 
 #### <a name="notifypayload"></a>Notify(payload)
 
@@ -527,7 +542,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| payload | `string` | 알림에 포함할 JSON 페이로드입니다. |
+| *payload* | `string` | 알림에 포함할 JSON 페이로드입니다. |
 
 ### <a name="device"></a>장치
 
@@ -563,7 +578,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | 확장 속성의 이름 |
+| *propertyName* | `string` | 확장 속성의 이름 |
 
 #### <a name="notifypayload"></a>Notify(payload)
 
@@ -571,7 +586,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| payload | `string` | 알림에 포함할 JSON 페이로드입니다. |
+| *payload* | `string` | 알림에 포함할 JSON 페이로드입니다. |
 
 ### <a name="sensor"></a>센서
 
@@ -611,7 +626,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | 확장 속성의 이름 |
+| *propertyName* | `string` | 확장 속성의 이름 |
 
 #### <a name="value--value"></a>Value() ⇒ `value`
 
@@ -627,7 +642,7 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | 매개 변수  | type                | 설명  |
 | ------ | ------------------- | ------------ |
-| payload | `string` | 알림에 포함할 JSON 페이로드입니다. |
+| *payload* | `string` | 알림에 포함할 JSON 페이로드입니다. |
 
 ### <a name="value"></a>값
 

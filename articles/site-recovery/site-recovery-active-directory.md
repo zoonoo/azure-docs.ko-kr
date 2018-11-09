@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery로 Active Directory 및 DNS 보호 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 Active Directory에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다.
+title: Azure Site Recovery를 사용하여 Active Directory 및 DNS에 대한 재해 복구 설정 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Active Directory 및 DNS에 대한 재해 복구 솔루션을 구현하는 방법에 대해 설명합니다.
 services: site-recovery
 documentationcenter: ''
 author: mayurigupta13
@@ -9,14 +9,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1072c903e9bd9ccb3d63cae426283a677d10077e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354294"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211896"
 ---
-# <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery로 Active Directory 및 DNS 보호
+# <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
 SharePoint, Dynamics AX 및 SAP와 같은 엔터프라이즈 응용 프로그램이 올바르게 작동하려면 Active Directory 및 DNS 인프라가 필요합니다. 응용 프로그램에 대한 재해 복구 솔루션을 설정할 때 응용 프로그램이 제대로 작동하도록 하려면 다른 응용 프로그램 구성 요소를 복구하기 전에 Active Directory 및 DNS를 복구해야 합니다.
 

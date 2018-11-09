@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d264160fb3f1c14db3379a314e60efdadb6905b5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956509"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210417"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)란?
 
@@ -54,7 +54,7 @@ RBAC를 사용하여 리소스에 대한 액세스를 제어하는 방법은 역
 
 ![역할 할당에 대한 보안 주체](./media/overview/rbac-security-principal.png)
 
-- 사용자 - Azure Active Directory에 프로필이 있는 개인. 다른 테넌트의 사용자에게 역할을 할당할 수도 있습니다. 다른 조직의 사용자에 대한 내용은 [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요.
+- 사용자 - Azure Active Directory에 프로필이 있는 개인. 다른 테넌트의 사용자에게 역할을 할당할 수도 있습니다. 다른 조직의 사용자에 대한 내용은 [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md)를 참조하세요.
 - 그룹 - Azure Active Directory에서 만든 사용자 집합. 그룹에 역할을 할당하면 해당 그룹의 모든 사용자가 같은 역할을 갖습니다. 
 - 서비스 주체 - 응용 프로그램 또는 서비스에서 특정 Azure 리소스에 액세스하기 위해 사용하는 보안 ID. 응용 프로그램의 *사용자 ID*(사용자 이름과 암호 또는 인증서)로 생각하시면 됩니다.
 
@@ -130,3 +130,4 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 - [빠른 시작: RBAC 및 Azure Portal을 사용하여 사용자에게 액세스 권한 부여](quickstart-assign-role-user-portal.md)
 - [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)
 - [Azure의 다양한 역할 이해](rbac-and-directory-admin-roles.md)
+- [엔터프라이즈 클라우드 채택: Azure의 리소스 액세스 관리](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

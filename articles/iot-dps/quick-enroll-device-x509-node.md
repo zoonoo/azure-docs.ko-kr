@@ -1,6 +1,6 @@
 ---
 title: 이 빠른 시작에서는 Node.js를 사용하여 Azure Device Provisioning Service에 X.509 장치를 등록하는 방법을 설명 | Microsoft Docs
-description: 이 빠른 시작에서는 Node.js 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 장치를 등록합니다.
+description: 이 빠른 시작에서는 그룹 등록을 사용합니다. 이 빠른 시작에서는 Node.js 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 장치를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/21/2017
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 4c7e38f3180e8df260b29228e404a2160a17786a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 67ed6f2039bad90716edadb2ecdb5e9ac9faa172
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205309"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156241"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Device Provisioning Service에 X.509 장치 등록
 

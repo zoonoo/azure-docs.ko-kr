@@ -1,5 +1,6 @@
 ---
-title: LUIS 앱용 응용 프로그램 대시보드 | Microsoft Docs
+title: Language Understanding 앱용 응용 프로그램 대시보드
+titleSuffix: Azure Cognitive Services
 description: 한눈에 앱을 모니터링할 수 있는 시각화된 보고 도구인 응용 프로그램 대시보드에 대해 알아봅니다.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: cab07a994f2bdfb7ef8491adbb482c1902e4d4cb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031988"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212815"
 ---
 # <a name="application-dashboard"></a>응용 프로그램 대시보드
 앱 대시보드를 사용하면 한눈에 앱을 모니터링할 수 있습니다. **내 앱** 페이지에서 응용 프로그램 이름을 클릭하여 앱을 열고 맨 위 패널에서 **대시보드**를 선택하면 **대시보드**가 표시됩니다. 

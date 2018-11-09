@@ -4,17 +4,17 @@ description: Azure Resource Graph를 사용하여 일부 고급 쿼리를 실행
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 934dff93b9a7f5d6755f55ad1073e01e586b1ca7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647836"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085379"
 ---
 # <a name="advanced-resource-graph-queries"></a>고급 Resource Graph 쿼리
 
@@ -31,11 +31,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="language-support"></a>언어 지원
 
-Azure CLI(확장을 통해) 및 Azure PowerShell(모듈을 통해)은 Azure Resource Graph를 지원합니다. 다음 쿼리를 수행하기 전에 사용자 환경이 준비되었는지 확인합니다. 선택한 셸 환경의 설치 및 유효성 검사 단계에 대해서는 [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) 및 [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module)을 참조하세요.
+Azure CLI(확장을 통해) 및 Azure PowerShell(모듈을 통해)은 Azure Resource Graph를 지원합니다. 다음 쿼리를 실행하기 전에 사용자 환경이 준비되었는지 확인합니다. 선택한 셸 환경의 설치 및 유효성 검사 단계에 대해서는 [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) 및 [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module)을 참조하세요.
 
-## <a name="vmss-capacity"></a>VMSS 용량 및 크기 가져오기
+## <a name="vmss-capacity"></a>가상 머신 확장 집합 용량 및 크기 가져오기
 
-이 쿼리는 VMSS(가상 머신 확장 집합) 리소스를 찾고 가상 머신 크기 및 확장 집합의 용량을 포함하는 다양한 세부 정보를 가져옵니다. 이 정보는 `toint()` 함수를 사용하여 정렬할 수 있도록 용량을 숫자로 캐스팅합니다. 사용자 지정 명명 속성으로 반환되는 값의 이름도 바꿉니다.
+이 쿼리는 가상 머신 확장 집합 리소스를 찾고 가상 머신 크기 및 확장 집합의 용량을 포함하는 다양한 세부 정보를 가져옵니다. 이 쿼리는 `toint()` 함수를 사용하여 정렬할 수 있도록 용량을 숫자로 캐스팅합니다. 마지막으로, 열의 이름이 사용자 지정 명명 속성으로 바뀝니다.
 
 ```Query
 where type=~ 'microsoft.compute/virtualmachinescalesets'
@@ -75,7 +75,7 @@ Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
 **matches regex @** 는 **^Contoso(.*)[0-9]+$** 인 일치시킬 정규식을 정의하도록 합니다. 해당 regex 정의는 다음으로 설명되어 있습니다.
 
 - `^` - 일치는 문자열의 시작 부분에서 시작해야 합니다.
-- `Contoso` - 일치시키는 코어 문자열(대/소문자 구분)
+- `Contoso` - 대/소문자 구분 문자열입니다.
 - `(.*)` - 하위 식 일치:
   - `.` - 단일 문자를 일치시킵니다(새 줄 제외).
   - `*` - 이전 요소를 0번 이상 일치시킵니다.

@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 08/22/2018
+ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979200"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458872"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -24,8 +24,6 @@ ms.locfileid: "45979200"
 | 구독당 하위 지역별 [저장소 계정](../articles/storage/common/storage-quickstart-create-account.md) |200 |200<sup>2</sup> |
 | 구독당 [리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md) |980 |980 |
 | [가용성 집합](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)  |지역당 2,000개 |지역당 2,000개 |
-| 리소스 관리자 API 읽기 |시간당 15,000개 |시간당 15,000개 |
-| 리소스 관리자 API 쓰기 |시간당 1,200개 |시간당 1,200개 |
 | 리소스 관리자 API 요청 크기 |4,194,304바이트 |4,194,304바이트 |
 | 구독당 태그 수<sup>3</sup> |무제한 |무제한 |
 | 구독당 고유한 태그 계산<sup>3</sup> | 10000 | 10000 |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: d2ed07be829e48cc4fc0538c08fd498dea99e71e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985178"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157703"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 장치 연결 | Microsoft Docs
 
@@ -42,10 +42,10 @@ Azure IoT Central은 [Azure IoT Hub DPS(Device Provisioning service)](https://do
 ## <a name="connect-a-single-device"></a>단일 장치 연결
 SAS를 사용하여 IoT Central에 단일 장치 연결하기는 간단하며 몇 단계만 사용합니다. 
 1. Device Explorer에서 **실제 장치**를 추가하고 **+새로 만들기 > 실제 장치**를 클릭하여 실제 장치를 추가합니다.
-    * 장치 ID(**<span style="color:Red">소문자여야 함</span>**)를 입력하거나 제안된 장치 ID를 사용합니다.
+    * 장치 ID**<span style="color:Red">(소문자여야 함)</span>** 를 입력하거나 제안된 장치 ID를 사용합니다.
     * 장치 이름을 입력하거나 제안된 이름을 사용합니다.   
     ![장치 추가](media\concepts-connectivity\add-device.png)
-1. 장치 페이지에서 **연결**을 클릭하여 추가 장치에 대한 **범위 ID, 장치 ID 및 기본 키** 같은 연결 세부 정보를 가져옵니다.
+1. 장치 페이지에서 **연결**을 클릭하여 추가 장치의 **범위 ID, 장치 ID 및 기본 키** 같은 연결 정보를 가져옵니다.
     * **[범위 ID](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope)** 는 IoT Central 앱 단위이며, 앱 내에서 고유한 장치 ID를 확인하는 데 사용된 DPS에서 생성됩니다.
     * **장치 ID**는 앱당 고유한 장치 ID이며, 장치는 등록 호출의 일부로 장치 ID를 전송해야 합니다.   
     * **기본 키**는 이 특정 장치용 IoT Central에서 생성된 SAS 토큰입니다. 
@@ -102,7 +102,7 @@ CSV 파일에는 다음 열(및 헤더)가 있어야 합니다.
 1.  내보낼 장치를 선택한 다음, **내보내기** 동작을 클릭합니다.
 1.  내보내기가 완료되면 성공 메시지가 생성된 파일을 다운로드할 수 있는 링크와 함께 표시됩니다.
 1.  디스크의 로컬 폴더로 파일을 다운로드하려면 성공 메시지를 클릭합니다.
-1.  내보낸 CSV 파일에는 다음의 열 정보(**장치 ID, 장치 이름, 장치 기본/보조 키 및 기본/보조 인증서 지문**)가 있습니다.
+1.  내보낸 CSV 파일에는 다음의 열 정보(**장치 ID, 장치 이름, 장치 기본/보조 키, 및 기본/보조 인증서 지문**)가 있습니다.
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

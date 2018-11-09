@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: jeedes
-ms.openlocfilehash: c9134ceebca696ed2b3376a69e26c2ea06f4f0f6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: c33edf13a8bcafd4a6c3d4885553fc856ec941d8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507124"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158128"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>자습서: 4me와 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
     | 프로덕션 | `https://<SUBDOMAIN>.4me.com`|
     | QA| `https://<SUBDOMAIN>.4me.qa`|
   
-    나. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
     
     | Environment| URL|
     |---|---|
@@ -141,7 +141,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     ![Configure Single Sign-On](./media/4me-tutorial/tutorial_attribute_05.png)
     
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
@@ -173,11 +173,11 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 
     a. **사용** 옵션을 선택합니다.
 
-    나. Azure Portal에서 복사한 **로그아웃 URL** 값을 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **로그아웃 URL** 값을 **원격 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
     다. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SAML** 섹션 아래의 **SAML SSO URL** 텍스트 상자에 붙여넣습니다.
 
-    d. Azure Portal에서 복사한 이중 입자(duplet) 순서(AA:BB:CC:DD:EE:FF:GG:HH:II)의 콜론으로 구분된 **지문** 값을 **인증서 지문** 텍스트 상자에 붙여넣습니다.
+    d. Azure Portal에서 복사한, 이중 입자(duplet) 순서의 콜론으로 구분된 **지문** 값(AA:BB:CC:DD:EE:FF:GG:HH:II)을 **인증서 지문** 텍스트 상자에 붙여넣습니다.
 
     e. **저장**을 클릭합니다.
 
@@ -218,7 +218,7 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 이 섹션은 4me에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. 4me는 기본적으로 사용하도록 설정되는 JIT(Just-In-Time) 프로비전을 지원합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 없는 경우 4me에 액세스하는 동안 만들어집니다.
 
 >[!Note]
->사용자를 수동으로 만들어야 하는 경우 [4me 지원 팀](mailto:support@4me.com)에 문의하세요.
+>사용자를 수동으로 만들어야 하는 경우  [4me 지원 팀](mailto:support@4me.com)에 문의하세요.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

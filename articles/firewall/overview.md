@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 9/26/2018
 ms.author: victorh
-ms.openlocfilehash: 1527ed9c0a83577da9a231cb91a93ad7f182061c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 868c20e6f0244794299678214902adf3e6e95f14
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392700"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241415"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -65,7 +65,7 @@ Azure Firewall의 알려진 문제는 다음과 같습니다.
 |문제  |설명  |해결 방법  |
 |---------|---------|---------|
 |ASC(Azure Security Center) JIT(Just-in-Time) 기능과의 충돌|JIT를 사용하여 가상 머신에 액세스하는 경우, Azure Firewall을 기본 게이트웨이로 가리키는 사용자 정의 경로가 포함된 서브넷에 가상 머신이 있으면 ASC JIT가 작동하지 않습니다. 들어오는 패킷은 가상 머신 공용 IP(JIT가 액세스를 여는)를 통하지만 반환 경로는 방화벽을 경유하는 비대칭 라우팅 때문에 발생합니다. 이렇게 하면 방화벽에 세션이 설정되어 있지 않기 때문에 패킷이 손실됩니다.|이 문제를 해결하려면 JIT 가상 머신을 방화벽에 대한 사용자 정의 경로가 없는 별도의 서브넷에 배치합니다.|
-|글로벌 피어링을 통한 허브 및 스포크가 작동하지 않음|글로벌 VNet 피어링을 통해 허브에 연결되어 있고 하나의 Azure 지역에 허브와 방화벽이 배포되어 있고 또 다른 Azure 지역에 스포크가 있는 허브 및 스포크 모델은 지원되지 않습니다.|자세한 내용은 [가상 네트워크 피어링 만들기, 변경 또는 삭제](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)를 참조하세요.|
+|글로벌 피어링을 통한 허브 및 스포크가 지원되지 않음|한 Azure 지역에 허브와 방화벽이 배포되어 있고 또 다른 Azure 지역에 스포크가 있는 허브 및 스포크 모델을 사용합니다. 글로벌 VNet 피어링을 통해 허브에 연결할 수 없음|의도적인 작동입니다. 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#azure-firewall-limits)을 참조하세요.|
 TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 필터링 규칙은 인터넷 바운드 트래픽에 작동하지 않습니다.|TCP/UDP 프로토콜이 아닌 프로토콜에 대한 네트워크 필터링 규칙은 공용 IP 주소에 대한 SNAT에 작동하지 않습니다. TCP/UDP 프로토콜이 아닌 프로토콜은 스포크 서브넷과 VNet 간에 지원됩니다.|Azure Firewall은 표준 Load Balancer를 사용하기 때문에 [현재 IP 프로토콜을 위한 SNAT를 지원하지 않습니다](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). 향후 릴리스에서 이 시나리오를 지원할 수 있는 옵션을 모색하고 있습니다.|
 |포트 80과 22에서는 DNAT(Destination NAT)가 작동하지 않습니다.|NAT 규칙 컬렉션의 대상 포트 필드는 포트 80 또는 포트 22를 포함할 수 없습니다.|이 문제는 조만간 해결될 예정입니다. 일단은 NAT 규칙에서 다른 포트를 대상 포트로 사용하세요. 포트 80이나 22를 변환된 포트로 계속 사용할 수는 있습니다. 예를 들어 public ip:81을 private ip:80에 매핑할 수 있습니다.|
 |ICMP에 대한 PowerShell 및 CLI 지원 누락|Azure PowerShell 및 CLI는 네트워크 규칙에 유효한 프로토콜로 ICMP를 지원하지 않습니다.|여전히 포털 및 REST API를 통해 ICMP를 프로토콜로 사용할 수 있습니다. 조만간 PowerShell 및 CLI에 ICMP를 추가하기 위한 작업이 진행 중입니다.|

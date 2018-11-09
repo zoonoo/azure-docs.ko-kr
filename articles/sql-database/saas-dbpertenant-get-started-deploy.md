@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 77e3cdcbd18a4a5313160b947ce278a75f3e3de3
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 10/29/2018
+ms.openlocfilehash: 6a5ee991ca21e60e6c2b14d5e3be560183eae4fa
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056389"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232905"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 배포 및 탐색
 
@@ -43,16 +43,16 @@ ms.locfileid: "47056389"
 
 ## <a name="deploy-the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 응용 프로그램 배포
 
-#### <a name="plan-the-names"></a>이름 계획
+### <a name="plan-the-names"></a>이름 계획
 
 이 섹션의 단계에서 리소스 이름이 전역적으로 고유한지 확인하는 데 사용되는 사용자 값을 제공합니다. 또한 앱의 배포에 의해 생성된 모든 리소스를 포함하는 리소스 그룹에 대한 이름을 제공합니다. Ann Finley라는 사람의 경우 다음을 제안합니다.
 
 - **사용자**: *af1*은 Ann Finley의 이니셜에 숫자를 더한 값으로 이루어집니다. 앱을 두 번째로 배포하는 경우 다른 값을 사용합니다. 예는 af2입니다.
 - **리소스 그룹**: *wingtip-dpt-af1*은 테넌트당 데이터베이스 앱임을 나타냅니다. 사용자 이름 af1을 추가하여 리소스 그룹 이름과 해당 그룹에 포함된 리소스 이름이 연결됩니다.
 
-이제 이름을 선택하고, 기록합니다. 
+이제 이름을 선택하고, 기록합니다.
 
-#### <a name="steps"></a>단계
+### <a name="steps"></a>단계
 
 1. Azure Portal에서 Wingtip Tickets SaaS 테넌트당 데이터베이스 배포 템플릿을 열려면 **Azure에 배포**를 선택합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "47056389"
     > [!IMPORTANT]
     > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 새 리소스 그룹을 만드는 것이 좋습니다. 기존 리소스 그룹, 서버 또는 풀을 사용하지 마세요. 이 응용 프로그램, 스크립트 또는 배포된 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 응용 프로그램을 완료할 때 이 리소스 그룹을 삭제합니다.
 
-    - **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹에서 이전에 선택한 고유 이름을 입력합니다. 
+    - **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹에서 이전에 선택한 고유 이름을 입력합니다.
     - **위치**: 드롭다운 목록에서 위치를 선택합니다.
     - **사용자**: 앞에서 선택한 사용자 이름 값을 사용합니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "47056389"
 
 스크립트를 실행하기 전에 UserConfig 파일에서 리소스 그룹 및 사용자 값을 업데이트합니다. 이러한 변수를 배포 중에 사용한 값으로 설정합니다.
 
-1. PowerShell ISE에서 ...\\Learning Modules\\**UserConfig.psm1**을 엽니다. 
+1. PowerShell ISE에서 ...\\Learning Modules\\**UserConfig.psm1**을 엽니다.
 1. 배포에 대한 특정 값(줄 10 및 11에서만)으로 **ResourceGroupName** 및 **Name**을 업데이트합니다.
 1. 변경 내용을 저장합니다.
 
@@ -115,13 +115,13 @@ ms.locfileid: "47056389"
 
     ![이벤트 허브](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-1. 이벤트 허브에서 **Fabrikam Jazz Club**을 선택합니다.
+2. 이벤트 허브에서  **Fabrikam Jazz Club** 을 선택합니다.
 
     ![이벤트](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
-#### <a name="azure-traffic-manager"></a>Azure Traffic Manager
+### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
-Wingtip 응용 프로그램에서는 [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용하여 들어오는 요청의 분산을 제어할 수 있습니다. 특정 테넌트의 이벤트 페이지에 액세스하는 URL은 다음 형식을 사용합니다.
+Wingtip 응용 프로그램에서는  [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md)를 사용하여 들어오는 요청의 분산을 제어합니다. 특정 테넌트의 이벤트 페이지에 액세스하는 URL은 다음 형식을 사용합니다.
 
 - http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
@@ -135,13 +135,17 @@ Wingtip 응용 프로그램에서는 [*Azure Traffic Manager*](../traffic-manage
     | fabrikamjazzclub | Fabrikam Jazz Club이라는 테넌트를 식별합니다. |
     | &nbsp; | &nbsp; |
 
-* 테넌트 이름은 이벤트 앱에 의해 URL에서 구문 분석됩니다.
-* 테넌트 이름은 키를 만드는 데 사용됩니다.
-* 테넌트 데이터베이스의 위치를 가져오기 위해 카탈로그에 액세스하는 데 키를 사용합니다.
-    - 카탈로그는 *분할 맵 관리*를 사용하여 구현됩니다.
-* 이벤트 허브는 각 테넌트에 대한 이벤트 페이지 URL의 목록을 구성하기 위해 카탈로그의 확장 메타데이터를 사용합니다.
+- 테넌트 이름은 이벤트 앱에 의해 URL에서 구문 분석됩니다.
+- 테넌트 이름은 키를 만드는 데 사용됩니다.
+- 테넌트 데이터베이스의 위치를 가져오기 위해 카탈로그에 액세스하는 데 키를 사용합니다.
+  - 카탈로그는 *분할 맵 관리*를 사용하여 구현됩니다.
+- 이벤트 허브는 각 테넌트에 대한 이벤트 페이지 URL의 목록을 구성하기 위해 카탈로그의 확장 메타데이터를 사용합니다.
 
-프로덕션 환경에서는 일반적으로 CNAME DNS 레코드를 만들어 [*회사 인터넷 도메인이 Traffic Manager DNS 이름을 가리키도록*](../traffic-manager/traffic-manager-point-internet-domain.md) 합니다.
+프로덕션 환경에서는 일반적으로 CNAME DNS 레코드를 만들어  [*회사 인터넷 도메인*](../traffic-manager/traffic-manager-point-internet-domain.md) 이 Traffic Manager DNS 이름을 가리키도록 합니다.
+
+> [!NOTE]
+> 이 자습서에서는 Traffic Manager의 용도가 무엇인지 즉각 명백하지 않을 수 있습니다. 이 자습서 시리즈의 목적은 규모 있는 복잡한 프로덕션 환경을 처리할 수 있는 패턴을 소개하기 위함입니다. 예를 들어 이러한 경우 여러 웹앱이 데이터베이스와 함께 공동 배치되고 전 세계에 분산되며, 이러한 인스턴스 간에 라우팅하려면 Traffic Manager가 필요합니다.
+다른 자습서 시리즈에서는 [지역 복원](saas-dbpertenant-dr-geo-restore.md) 및 [지역 복제](saas-dbpertenant-dr-geo-replication.md) 자습서이기는 하지만 Traffic Manager의 용도를 보여 줍니다. 이러한 자습서에서 Traffic Manager는 지역 가동 중단 시 SaaS 앱의 복구 인스턴스로 전환하는 데 사용됩니다.
 
 ## <a name="start-generating-load-on-the-tenant-databases"></a>테넌트 데이터베이스에서 부하 생성 시작
 
@@ -150,12 +154,12 @@ Wingtip 응용 프로그램에서는 [*Azure Traffic Manager*](../traffic-manage
 *Demo-LoadGenerator* PowerShell 스크립트는 모든 테넌트 데이터베이스에서 실행되는 워크로드를 시작합니다. 많은 SaaS 앱상의 실제 부하는 간헐적이고 예측할 수 없습니다. 이 형식의 부하를 시뮬레이션하려면 생성기는 각 테넌트의 작업에 대해 임의의 스파이크 또는 버스트된 부하를 생성합니다. 버스트는 임의 간격으로 발생합니다. 부하 패턴이 나타나는 데는 몇 분 정도가 걸립니다. 부하를 모니터링하기 전에 생성기를 최소한 3~4분 실행하겠습니다.
 
 1. PowerShell ISE에서 ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* 스크립트를 엽니다.
-1. F5 키를 눌러 스크립트를 실행하고 부하 생성기를 시작합니다. 지금은 기본 매개 변수 값을 그대로 적용합니다.
-1. Azure 계정에 로그인하고, 필요한 경우 사용하려는 구독을 선택합니다.
+2. F5 키를 눌러 스크립트를 실행하고 부하 생성기를 시작합니다. 지금은 기본 매개 변수 값을 그대로 적용합니다.
+3. Azure 계정에 로그인하고, 필요한 경우 사용하려는 구독을 선택합니다.
 
 로드 생성기 스크립트는 카탈로그의 각 데이터베이스에 대한 백그라운드 작업을 시작한 다음, 중지됩니다. 로드 생성기 스크립트를 다시 실행하는 경우, 새로운 스크립트를 시작하기 전에 실행되고 있는 백그라운드 작업이 중지됩니다.
 
-#### <a name="monitor-the-background-jobs"></a>백그라운드 작업을 모니터링합니다.
+### <a name="monitor-the-background-jobs"></a>백그라운드 작업을 모니터링합니다.
 
 백그라운드 작업을 제어하고 모니터링하려면 다음과 같은 cmdlet을 사용합니다.
 
@@ -163,7 +167,7 @@ Wingtip 응용 프로그램에서는 [*Azure Traffic Manager*](../traffic-manage
 - `Receive-Job`
 - `Stop-Job`
 
-#### <a name="demo-loadgeneratorps1-actions"></a>Demo-LoadGenerator.ps1 작업
+### <a name="demo-loadgeneratorps1-actions"></a>Demo-LoadGenerator.ps1 작업
 
 *Demo-LoadGenerator.ps1*은 고객 트랜잭션의 활성 워크로드를 모방합니다. 다음 단계는 *Demo-LoadGenerator.ps1*이 시작하는 작업의 시퀀스를 설명합니다.
 
@@ -171,18 +175,18 @@ Wingtip 응용 프로그램에서는 [*Azure Traffic Manager*](../traffic-manage
 
     - .ps1 파일은 모두 Learning Modules\\Utilities\\ 폴더 아래에 저장됩니다.
 
-1. *LoadGenerator.ps1*은 카탈로그의 모든 테넌트 데이터베이스를 반복합니다.
+2. *LoadGenerator.ps1*은 카탈로그의 모든 테넌트 데이터베이스를 반복합니다.
 
-1. *LoadGenerator.ps1*은 각 테넌트 데이터베이스에 대한 백그라운드 PowerShell 작업을 시작합니다.
+3. *LoadGenerator.ps1*은 각 테넌트 데이터베이스에 대한 백그라운드 PowerShell 작업을 시작합니다.
 
     - 기본적으로 백그라운드 작업은 120분 동안 실행됩니다.
-    - 각 작업은 *sp_CpuLoadGenerator*를 실행하여 하나의 테넌트 데이터베이스에서 CPU 기반 로드를 발생시킵니다. 로드의 강도 및 지속 기간은 `$DemoScenario`에 따라 다릅니다. 
+    - 각 작업은 *sp_CpuLoadGenerator*를 실행하여 하나의 테넌트 데이터베이스에서 CPU 기반 로드를 발생시킵니다. 로드의 강도 및 지속 기간은 `$DemoScenario`에 따라 다릅니다.
     - *sp_CpuLoadGenerator*는 높은 CPU 로드를 초래하는 SQL SELECT 문 주위에서 반복합니다. SELECT 문제 간의 시간 간격은 제어 가능한 CPU 로드를 만들기 위한 매개 변수 값에 따라 다릅니다. 더 현실적인 로드를 시뮬레이트하기 위해 로드 수준 및 간격이 임의로 지정됩니다.
     - .sql 파일은 *WingtipTenantDB\\dbo\\StoredProcedures\\* 아래에 저장됩니다.
 
-1. `$OneTime = $false`의 경우 부하 생성기는 백그라운드 작업을 시작한 다음, 계속 실행합니다. 10초마다 프로비전되는 새 테넌트에 대해 모니터링합니다. `$OneTime = $true`를 설정하는 경우 LoadGenerator가 백그라운드 작업을 시작한 다음, 포그라운드에서 실행을 중지합니다. 이 자습서에서는 `$OneTime = $false`를 사용하지 않습니다.
+4. `$OneTime = $false`의 경우 부하 생성기는 백그라운드 작업을 시작한 다음, 계속 실행합니다. 10초마다 프로비전되는 새 테넌트에 대해 모니터링합니다. `$OneTime = $true`를 설정하는 경우 LoadGenerator가 백그라운드 작업을 시작한 다음, 포그라운드에서 실행을 중지합니다. 이 자습서에서는 `$OneTime = $false`를 사용하지 않습니다.
 
-  로드 생성기를 중지하거나 다시 시작하려면 Ctrl+C 또는 Ctrl+Break를 사용하세요. 
+  로드 생성기를 중지하거나 다시 시작하려면 Ctrl+C 또는 Ctrl+Break를 사용하세요.
 
   로드 생성기를 포그라운드에서 실행하는 경우 다른 PowerShell ISE 인스턴스를 사용하여 다른 PowerShell 스크립트를 실행합니다.
 
@@ -195,11 +199,11 @@ Wingtip 응용 프로그램에서는 [*Azure Traffic Manager*](../traffic-manage
 초기 배포는 세 가지 샘플 테넌트를 만듭니다. 이제 또 다른 테넌트를 만들어 배포된 응용 프로그램에 어떻게 영향을 미치는지 확인합니다. Wingtip 앱에서 새 테넌트를 프로비전하는 워크플로는 [프로비전 및 카탈로그 자습서](saas-dbpertenant-provision-and-catalog.md)에 설명됩니다. 이 단계에서는 새 테넌트를 만드는 데 1분이 걸리지 않습니다.
 
 1. 새 PowerShell ISE를 엽니다.
-1. ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*을 엽니다.
-1. 스크립트를 실행하려면 F5 키를 누릅니다. 지금은 기본값을 그대로 적용합니다.
+2. ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*을 엽니다.
+3. 스크립트를 실행하려면 F5 키를 누릅니다. 지금은 기본값을 그대로 적용합니다.
 
    > [!NOTE]
-   > 대부분의 Wingtip SaaS 스크립트에서는 *$PSScriptRoot*를 사용하여 다른 스크립트에 있는 함수를 호출하기 위해 폴더를 탐색합니다. 이 변수는 F5 키를 눌러 전체 스크립트를 실행할 경우에만 평가됩니다. F8 키를 사용하여 선택 영역을 강조 표시하고 실행하면 오류가 발생할 수 있습니다. 스크립트를 실행하려면 F5 키를 누릅니다.
+   > 대부분의 Wingtip SaaS 스크립트에서는 *$PSScriptRoot*를 사용하여 다른 스크립트에 있는 함수를 호출하기 위해 폴더를 탐색합니다. 이 변수는 F5 키를 눌러 전체 스크립트를 실행할 경우에만 평가됩니다. F8 키를 사용하여 선택 영역을 강조 표시하고 실행하면 오류가 발생할 수 있습니다. 스크립트를 실행하려면 F5 키를 누릅니다.
 
 새 테넌트 데이터베이스는 다음과 같습니다.
 
@@ -217,16 +221,16 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 
 테넌트 컬렉션에 대해 부하 실행을 시작했으므로 배포된 리소스 중 일부를 살펴보겠습니다.
 
-1. [Azure Portal](http://portal.azure.com)에서 SQL 서버 목록으로 이동합니다. 그런 다음, **catalog-dpt-&lt;USER&gt;** 서버를 엽니다.
+1.  [Azure Portal](http://portal.azure.com)에서 SQL 서버 목록으로 이동합니다. 그런 다음,  **catalog-dpt-&lt;USER&gt;**  서버를 엽니다.
     - 카탈로그 서버에는 두 가지 데이터베이스인 **tenantcatalog** 및 **basetenantdb**(새 테넌트를 만들기 위해 복사한 템플릿 데이터베이스)가 포함됩니다.
 
    ![데이터베이스](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
-1. SQL 서버 목록으로 이동합니다.
+2. SQL 서버 목록으로 이동합니다.
 
-1. 테넌트 데이터베이스가 있는 **tenants1-dpt-&lt;USER&gt;** 서버를 엽니다.
+3. 테넌트 데이터베이스를 보관하는 **tenants1-dpt-&lt;USER&gt;**  서버를 엽니다.
 
-1. 다음 항목을 확인합니다.
+4. 다음 항목을 확인합니다.
 
     - 각 테넌트 데이터베이스는 50-eDTU 표준 풀의 **탄력적 표준** 데이터베이스입니다.
     - 이전에 프로비전한 테넌트 데이터베이스인 Red Maple Racing 데이터베이스입니다.
@@ -237,7 +241,7 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 
 *LoadGenerator.ps1*을 몇 분 동안 실행한 후에 일부 모니터링 기능을 살펴보기에 충분한 데이터를 사용할 수 있어야 합니다. 이러한 기능은 풀 및 데이터베이스에 빌드됩니다.
 
-**tenants1-dpt-&lt;user&gt;** 서버로 이동하고, **Pool1**을 선택하여 풀의 리소스 사용률을 확인합니다. 다음 차트에서 부하 생성기를 1시간 동안 실행했습니다.
+**tenants1-dpt-&lt;user&gt;** 서버로 이동하고,  **Pool1** 을 선택하여 풀의 리소스 사용률을 확인합니다. 다음 차트에서 부하 생성기를 1시간 동안 실행했습니다.
 
    ![풀 모니터링](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
@@ -249,10 +253,9 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 ## <a name="additional-resources"></a>추가 리소스
 
 - 자세한 내용은 [Wingtip Tickets SaaS 테넌트당 데이터베이스 응용 프로그램을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)를 참조하세요.
-- 탄력적 풀에 대한 자세한 내용은 [Azure SQL 탄력적 풀이란?](sql-database-elastic-pool.md)을 참조하세요.
-- 탄력적 작업에 대해 알아보려면 [규모가 확장된 클라우드 데이터베이스 관리](sql-database-elastic-jobs-overview.md)를 참조하세요.
-- 다중 테넌트 SaaS 응용 프로그램에 대해 알아보려면 [다중 테넌트 SaaS 응용 프로그램을 위한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
-
+- 탄력적 풀에 대한 자세한 내용은  [Azure SQL 탄력적 풀이란?](sql-database-elastic-pool.md)을 참조하세요.
+- 탄력적 작업에 대한 자세한 내용은  [스케일 아웃된 클라우드 데이터베이스 관리](sql-database-elastic-jobs-overview.md)를 참조하세요.
+- 다중 테넌트 SaaS 응용 프로그램에 대한 자세한 내용은  [다중 테넌트 SaaS 응용 프로그램에 대한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -268,9 +271,6 @@ Events Hub를 새로 고치면 목록에 새 테넌트가 나타납니다.
 
 다음으로 [프로비전 및 카탈로그 자습서](saas-dbpertenant-provision-and-catalog.md)를 사용해 보세요.
 
-
-
 <!-- Link references. -->
 
-[github-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant 
-
+[github-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant

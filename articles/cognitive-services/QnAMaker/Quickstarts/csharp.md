@@ -1,7 +1,7 @@
 ---
 title: REST API(V4) - C# - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있는 REST 기반 정보와 코드 샘플을 가져옵니다.
+description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있는 C# REST 기반 정보와 코드 샘플을 가져옵니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 0b468556892bf85dac1fbdd09e7299a793e1e700
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: a93d6d939f1ccdaa7cbbe16de1e380227489ac45
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646352"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211488"
 ---
 # <a name="qna-maker-rest-api-with-c"></a>C#에서 QnA Maker REST API 사용 
 <a name="HOLTop"></a>
 
-이 아티클에서는 C#에서 [Microsoft QnA Maker API](../Overview/overview.md)를 사용하여 다음을 수행하는 방법을 보여줍니다.
+이 문서에서는 C#에서 [Microsoft QnA Maker API](../Overview/overview.md) 를 사용하여 다음을 수행하는 방법을 보여줍니다.
 
 - [새 기술 자료 만들기](#Create)
 - [기존 기술 자료 업데이트](#Update)

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure PowerShell에서 Azure Database Migration Service 모듈을 사용하여 SQL Server 온-프레미스를 Azure SQL DB MI로 마이그레이션 | Microsoft Docs
-description: Azure PowerShell을 사용하여 온-프레미스 SQL Server에서 Azure SQL DB MI로 마이그레이션하는 방법을 알아봅니다.
+title: Database Migration Service 및 PowerShell을 사용하여 SQL Server를 Azure SQL Database Managed Instance로 마이그레이션 | Microsoft Docs
+description: Azure PowerShell을 사용하여 온-프레미스 SQL Server에서 Azure SQL DB Managed Instance로 마이그레이션하는 방법을 알아봅니다.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364999"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247168"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Azure PowerShell을 사용하여 SQL Server 온-프레미스를 Azure SQL DB로 마이그레이션
-이 문서에서는 Microsoft Azure PowerShell을 사용하여 SQL Server 2005 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database로 마이그레이션합니다. Microsoft Azure PowerShell에서 `AzureRM.DataMigration` 모듈을 사용하여 온-프레미스 SQL Server 인스턴스의 데이터베이스를 Azure SQL Database로 마이그레이션할 수 있습니다.
+# <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure SQL Database Managed Instance로 SQL Server 온-프레미스 마이그레이션
+이 문서에서는 Microsoft Azure PowerShell을 사용하여 SQL Server 2005 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. Microsoft Azure PowerShell에서 `AzureRM.DataMigration` 모듈을 사용하여 온-프레미스 SQL Server 인스턴스의 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 > [!div class="checklist"]

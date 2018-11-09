@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: 9bd370e8070816d62b22c1e3d5ad4b6cdd2da30a
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144954"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239375"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files 볼륨 드라이버(미리 보기)
 Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공하는 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/)입니다. 이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 응용 프로그램으로 패키지됩니다. 용도는 클러스터에 배포되는 다른 Service Fabric 컨테이너 응용 프로그램에 대한 Azure Files 기반 볼륨을 제공하는 것입니다.
 
 > [!NOTE]
-> Azure Files 볼륨 플러그 인의 버전 6.255.389.9494는 이 문서와 함께 사용할 수 있는 미리 보기 릴리스입니다. 미리 보기 릴리스로 프로덕션 환경에서 사용할 수 있도록 지원하지 **않습니다**.
+> Azure Files 볼륨 플러그 인 버전 6.4.571.9494는 이 문서와 함께 제공되는 미리 보기 릴리스입니다. 미리 보기 릴리스로 프로덕션 환경에서 사용할 수 있도록 지원하지 **않습니다**.
 >
 
 ## <a name="prerequisites"></a>필수 조건
@@ -66,7 +66,7 @@ ARM 템플릿의 fabricSettings 섹션(Azure 배포) 또는 ClusterConfig.json(�
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Service Fabric Azure Files 응용 프로그램 배포
 
-컨테이너에 대한 볼륨을 제공하는 Service Fabric 응용 프로그램은 다음 [링크](https://aka.ms/sfvolume)에서 다운로드할 수 있습니다. 응용 프로그램은 [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) 또는 [FabricClient API](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient)를 통해 클러스터에 배포될 수 있습니다.
+컨테이너에 대한 볼륨을 제공하는 Service Fabric 응용 프로그램은 다음 [링크](https://aka.ms/sfvolume6.4)에서 다운로드할 수 있습니다. 응용 프로그램은 [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) 또는 [FabricClient API](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient)를 통해 클러스터에 배포될 수 있습니다.
 
 1. 명령줄을 사용하여 다운로드한 응용 프로그램 패키지의 루트 디렉터리로 디렉터리를 변경합니다.
 
@@ -102,11 +102,11 @@ ARM 템플릿의 fabricSettings 섹션(Azure 배포) 또는 ClusterConfig.json(�
 4. 응용 프로그램 만들기 명령에서 아래 응용 프로그램을 만들기 위해 **ListenPort** 응용 프로그램 매개 변수를 적어 둡니다. 이 응용 프로그램 매개 변수에 대해 지정된 이 값은 Azure Files 볼륨 플러그 인이 Docker 디먼의 요청을 수신하는 포트입니다. 응용 프로그램에 제공된 포트가 클러스터 또는 응용 프로그램에서 사용하는 다른 포트와 충돌하지 않는지 확인하는 것은 중요합니다.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.255.389.9494 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.255.389.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
@@ -118,11 +118,11 @@ ARM 템플릿의 fabricSettings 섹션(Azure 배포) 또는 ClusterConfig.json(�
 Azure Files 볼륨 플러그 인 응용 프로그램에 대한 기본 서비스 인스턴스 수는 -1로, 클러스터의 각 노드에 배포된 서비스의 인스턴스가 있다는 것을 의미합니다. 그러나 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 응용 프로그램을 배포할 때 서비스 인스턴스 수는 1로 지정되어야 합니다. **InstanceCount** 응용 프로그램 매개 변수를 통해 이를 수행할 수 있습니다. 따라서 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 응용 프로그램 배포에 대한 명령은 다음과 같습니다.
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.255.389.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.255.389.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 ## <a name="configure-your-applications-to-use-the-volume"></a>볼륨을 사용할 응용 프로그램 구성
 다음 코드 조각에서는 응용 프로그램의 응용 프로그램 매니페스트에서 Azure Files 기반 볼륨을 지정하는 방법을 보여줍니다. 관심 있는 특정 요소는 **볼륨** 태그입니다.
@@ -130,31 +130,32 @@ sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Description>Calculator Application</Description>
-    <Parameters>
-      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
-      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
-      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
-    </Parameters>
-    <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
-     <Policies>
+    <Description>Calculator Application</Description>
+    <Parameters>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
+     <Policies>
        <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
-            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
-            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
+            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
             <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
                 <DriverOption Name="shareName" Value="" />
                 <DriverOption Name="storageAccountName" Value="" />
                 <DriverOption Name="storageAccountKey" Value="" />
+                <DriverOption Name="storageAccountFQDN" Value="" />
             </Volume>
-       </ContainerHostPolicies>
-   </Policies>
-    </ServiceManifestImport>
-    <ServiceTemplates>
-        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
-            <SingletonPartition></SingletonPartition>
-        </StatelessService>
-    </ServiceTemplates>
+       </ContainerHostPolicies>
+   </Policies>
+    </ServiceManifestImport>
+    <ServiceTemplates>
+        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
+            <SingletonPartition></SingletonPartition>
+        </StatelessService>
+    </ServiceTemplates>
 </ApplicationManifest>
 ```
 
@@ -166,12 +167,23 @@ Azure Files 볼륨 플러그 인에 대한 드라이버 이름은 **sfazurefile*
 
 위의 코드 조각의 **DriverOption** 요소에 나와 있는 것처럼 Azure Files 볼륨 플러그 인은 다음 드라이버 옵션을 지원합니다.
 
+지원되는 드라이버 옵션:
 - **shareName** - 컨테이너에 대한 볼륨을 제공하는 Azure Files 파일 공유의 이름
 - **storageAccountName** - Azure Files 파일 공유를 포함하는 Azure 저장소 계정의 이름
 - **storageAccountKey** - Azure Files 파일 공유를 포함하는 Azure 저장소 계정에 대한 액세스 키
-
-위의 모든 드라이버 옵션이 필요합니다.
-
+- **storageAccountFQDN** - 저장소 계정과 연결된 도메인 이름입니다. storageAccountFQDN을 지정하지 않으면 storageAccountName과 함께 기본 접미사(file.core.windows.net)를 사용하여 도메인 이름이 생성됩니다. 
+    ```xml
+    - Example1: 
+        <DriverOption Name="shareName" Value="myshare1" />
+        <DriverOption Name="storageAccountName" Value="myaccount1" />
+        <DriverOption Name="storageAccountKey" Value="mykey1" />
+        <!-- storageAccountFQDN will be "myaccount1.file.core.windows.net" -->
+    - Example2: 
+        <DriverOption Name="shareName" Value="myshare2" />
+        <DriverOption Name="storageAccountName" Value="myaccount2" />
+        <DriverOption Name="storageAccountKey" Value="mykey2" />
+        <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
+    ```
 ## <a name="using-your-own-volume-or-logging-driver"></a>사용자 고유의 볼륨 또는 로깅 드라이버 사용
 Service Fabric은 사용자 고유의 사용자 지정 [볼륨](https://docs.docker.com/engine/extend/plugins_volume/) 또는 [로깅](https://docs.docker.com/engine/admin/logging/overview/) 드라이버 사용을 허용합니다. Docker 볼륨/로깅 드라이버가 클러스터에 설치되어 있지 않으면 RDP/SSH 프로토콜을 사용하여 수동으로 설치할 수 있습니다. [가상 머신 확장 집합 시작 스크립트](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) 또는 [SetupEntryPoint 스크립트](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service)를 통해 이러한 프로토콜을 사용하여 설치를 수행할 수 있습니다.
 

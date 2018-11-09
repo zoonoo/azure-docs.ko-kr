@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ae5218bae12b9489d67b0264f0e5fdb6d833cb9e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187770"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140403"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>연결된 팩터리 솔루션 가속기 연습
 
@@ -53,7 +53,7 @@ OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-
 
 시뮬레이션된 스테이션과 시뮬레이션된 MES(제조 실행 시스템)는 공장 생산 라인을 구성합니다. 시뮬레이션된 장치 및 OPC 게시자 모듈은 OPC Foundation에서 게시한 [OPC UA .NET 표준][lnk-OPC-UA-NET-Standard]을 기반으로 합니다.
 
-OPC 프록시 및 OPC 게시자는 [Azure IoT Edge][lnk-Azure-IoT-Gateway]를 기반으로 하는 모듈로 구현됩니다. 각 시뮬레이션된 생산 라인에는 지정된 게이트웨이가 연결되었습니다.
+OPC 프록시 및 OPC 게시자는 [Azure IoT Edge][lnk-Azure-IoT-Gateway]를 기반으로 하는 모듈로 구현됩니다. 각 시뮬레이션된 생산 라인에는 게이트웨이가 연결되었습니다.
 
 모든 시뮬레이션 구성 요소는 Azure Linux VM에서 호스팅되는 Docker 컨테이너에서 실행됩니다. 시뮬레이션은 기본적으로 8개의 시뮬레이션된 생산 라인을 실행하도록 구성됩니다.
 
@@ -61,7 +61,7 @@ OPC 프록시 및 OPC 게시자는 [Azure IoT Edge][lnk-Azure-IoT-Gateway]를 �
 
 생산 라인 제조 파트. 어셈블리 스테이션, 테스트 스테이션 및 패키징 스테이션과 같은 다른 스테이션으로 구성됩니다.
 
-시뮬레이션은 OPC UA 노드를 통해 노출되는 데이터를 실행 및 업데이트합니다. 모든 시뮬레이션된 생산 라인 스테이션은 OPC UA를 통해 MES에 의해 오케스트레이션됩니다.
+시뮬레이션은 OPC UA 노드를 통해 사용 가능한 데이터를 실행 및 업데이트합니다. 모든 시뮬레이션된 생산 라인 스테이션은 OPC UA를 통해 MES에 의해 오케스트레이션됩니다.
 
 ## <a name="simulated-manufacturing-execution-system"></a>시뮬레이션된 제조 실행 시스템
 
@@ -69,7 +69,11 @@ MES는 스테이션 상태 변경 내용을 검색하는 OPC UA를 통해 생산
 
 ## <a name="gateway-opc-publisher-module"></a>게이트웨이 OPC 게시자 모듈
 
-OPC 게시자 모듈은 스테이션 OPC UA 서버에 연결하고 게시될 OPC 노드를 구독합니다. 모듈은 노드 데이터를 JSON 형식으로 변환 및 암호화하고 OPC UA Pub/Sub 메시지로 IoT Hub에 보냅니다.
+OPC 게시자 모듈은 스테이션 OPC UA 서버에 연결하고 게시될 OPC 노드를 구독합니다. 이 모듈은 다음을 수행합니다.
+
+1. 노드 데이터를 JSON 형식으로 변환합니다.
+1. JSON을 암호화합니다.
+1. JSON을 IoT Hub에 OPC UA Pub/Sub 메시지로 보냅니다.
 
 OPC 게시자 모듈에는 아웃바운드 https 포트(443)만 필요하며 기존 엔터프라이즈 인프라로 작업할 수 있습니다.
 
@@ -77,7 +81,7 @@ OPC 게시자 모듈에는 아웃바운드 https 포트(443)만 필요하며 기
 
 게이트웨이 OPC UA 프록시 모듈은 이진 OPC UA 명령 및 제어 메시지를 터널링하고 아웃바운드 https 포트(443)만을 필요로 합니다. 웹 프록시를 포함하여 기존 엔터프라이즈 인프라로 작업할 수 있습니다.
 
-IoT Hub 장치 메서드를 사용하여 응용 프로그램 계층에서 패킷으로 나누어진 TCP/IP 데이터를 전송하므로 끝점 신뢰, 데이터 암호화 및 SSL/TLS를 사용하여 무결성을 보장합니다.
+IoT Hub 장치 메서드를 사용하여 응용 프로그램 계층에서 패킷으로 나누어진 TCP/IP 데이터를 전송하므로 엔드포인트 신뢰, 데이터 암호화 및 SSL/TLS를 사용하여 무결성을 보장합니다.
 
 프록시 자체를 통해 릴레이된 OPC UA 이진 프로토콜은 UA 인증 및 암호화를 사용합니다.
 
@@ -95,11 +99,11 @@ IoT Hub는 Azure TSI에 이벤트 원본을 제공합니다. TSI는 메시지에
 
 현재 TSI는 데이터를 유지하려는 기간에 대한 고객의 사용자 지정을 허용하지 않습니다.
 
-TSI는 **SearchSpan**(**Time.From**, **Time.To**)을 사용하여 노드 데이터에 대해 쿼리하고 **OPC UA ApplicationUri** 또는 **OPC UA NodeId** 또는 **OPC UA DisplayName**으로 집계합니다.
+TSI는 시간 기반 **SearchSpan**을 사용하여 노드 데이터에 대해 쿼리하고 **OPC UA ApplicationUri**, **OPC UA NodeId** 또는 **OPC UA DisplayName**으로 집계합니다.
 
-OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위해 데이터는 이벤트, Sum, Avg, Min 및 Max의 수로 집계됩니다.
+OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위해 이 솔루션은 이벤트, **Sum**, **Avg**, **Min** 및 **Max**의 개수로 데이터를 집계합니다.
 
-시계열은 다른 프로세스를 사용하여 빌드됩니다. OEE 및 KPI는 스테이션 기본 데이터에서 계산되며 응용 프로그램에서 토폴로지(생산 라인, 공장, 엔터프라이즈)에 대해 버블링됩니다.
+시계열은 다른 프로세스를 사용하여 빌드됩니다. 이 솔루션은 스테이션 기반 데이터의 OEE 및 KPI 값을 계산하고 프로덕션 라인, 공장 및 기업에 맞게 가치를 전달합니다.
 
 또한 OEE 및 KPI 토폴로지에 대한 시계열은 표시된 timespan이 준비될 때마다 앱에서 계산됩니다. 예를 들어 일 보기는 1시간마다 업데이트됩니다.
 
@@ -116,7 +120,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 솔루션은 VM에 대 한 디스크 저장소로 Azure Blob 저장소를 사용하여 배포 데이터를 저장합니다.
 
 ## <a name="web-app"></a>웹앱
-솔루션 가속기의 일부로 배포된 웹앱은 통합된 OPC UA 클라이언트, 경고 처리 및 원격 분석 시각화로 이루어집니다.
+솔루션 가속기의 일부로 배포된 웹앱은 통합된 OPC UA 클라이언트, 경고 처리 및 원격 분석 시각화를 포함합니다.
 
 ## <a name="telemetry-data-flow"></a>원격 분석 데이터 흐름
 
@@ -161,7 +165,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
     - 이 단계는 데이터 센터의 내부 절차입니다.
 
 11. 웹 브라우저는 연결된 팩터리 WebApp에 연결됩니다.
-    - 연결된 팩터리 대시보드를 렌더링합니다.
+    - 연결된 팩터리 대시보드를 표시합니다.
     - HTTPS를 통해 연결합니다.
     - 연결된 팩터리 앱에 액세스하려면 Azure Active Directory를 통한 사용자의 인증이 필요합니다.
     - 연결된 팩터리 앱에 대한 WebApi 호출은 위조 방지 토큰에 의해 보호됩니다.
@@ -182,9 +186,9 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
 
 2. OPC 프록시(서버 구성 요소)는 IoT Hub에 등록됩니다.
     - IoT Hub에서 알려진 장치를 모두 읽습니다.
-    - 소켓 또는 보안 Websocket을 통해 TLS에서 MQTT를 사용합니다.
+    - 소켓 또는 보안 WebSocket을 통해 TLS에서 MQTT를 사용합니다.
 
-3. 웹 브라우저는 연결된 팩터리 WebApp에 연결하고 연결된 팩터리 대시보드를 렌더링합니다.
+3. 웹 브라우저는 연결된 팩터리 WebApp에 연결하고 연결된 팩터리 대시보드를 표시합니다.
     - HTTPS를 사용합니다.
     - 사용자는 연결할 OPC UA 서버를 선택합니다.
 
@@ -212,7 +216,7 @@ OEE 및 KPI 계기 및 시간열 차트에 대한 데이터를 검색하기 위�
     - 이 데이터는 연결된 팩터리 앱에 있는 OPC UA 스택에 전달됩니다.
 
 11. 연결된 팩터리 WebApp은 OPC UA 서버에서 받은 OPC UA 관련 정보를 포함한 OPC 브라우저 UX를 렌더링할 웹 브라우저에 반환합니다.
-    - OPC 주소 공간을 검색하고 기능을 OPC 주소 공간의 노드에 적용하는 동안 OPC 브라우저 UX 클라이언트 부분에서는 위조 방지 토큰으로 보호된 HTTPS를 통한 AJAX 호출을 사용하여 연결된 팩터리 WebApp에서 데이터를 가져옵니다.
+    - 사용자가 OPC 주소 공간을 검색하고 기능을 OPC 주소 공간의 노드에 적용하는 동안 OPC 브라우저 UX 클라이언트에서는 위조 방지 토큰으로 보호된 HTTPS를 통한 AJAX 호출을 사용하여 연결된 팩터리 WebApp에서 데이터를 가져옵니다.
     - 필요한 경우 클라이언트는 4~10단계에서 설명한 통신을 사용하여 OPC UA 서버와 정보를 교환합니다.
 
 > [!NOTE]

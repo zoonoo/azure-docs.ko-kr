@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: 21ed7dd1120958576651703283a0732e3843546d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777460"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232515"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs 다양한 푸시
 ## <a name="overview"></a>개요
@@ -127,7 +127,7 @@ ms.locfileid: "33777460"
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 8. 이제 모든 장치에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 다시 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
-9. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점* 이라고 합니다. **게시**를 클릭합니다.
+9. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 엔드포인트* 라고 합니다. **게시**를 클릭합니다.
 
 ## <a name="modify-the-ios-project"></a>iOS 프로젝트 수정
 알림의 *id* 만 보내도록 앱 백 엔드를 수정했으므로 해당 ID를 처리하고 백 엔드에서 풍부한 메시지를 검색하도록 iOS 앱을 변경합니다.
@@ -219,7 +219,7 @@ ms.locfileid: "33777460"
        // Get home view controller from stack on navigation controller
        homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
        hvc.deviceToken = deviceToken;
-2. 그런 다음 **AppDelegate.m** 에 다음 메서드를 추가하여 끝점에서 이미지를 검색하고 검색이 완료되면 로컬 알림을 보냅니다. 자리 표시자 `{backend endpoint}` 를 해당 백 엔드 끝점으로 대체해야 합니다.
+2. 그런 다음 **AppDelegate.m** 에 다음 메서드를 추가하여 엔드포인트에서 이미지를 검색하고 검색이 완료되면 로컬 알림을 보냅니다. 자리 표시자 `{backend endpoint}` 를 해당 백 엔드 엔드포인트로 대체해야 합니다.
    
        NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
    

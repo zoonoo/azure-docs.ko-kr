@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: efaf551d134d339205d40966cb84f41b408559bd
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3350c222cced036af6319cee166c53da0b14f2a9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394181"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210451"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>빠른 시작: 이벤트 허브에서 Azure 데이터 탐색기로 데이터 수집
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 * [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md)
 
-* 데이터를 생성하는 [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)
+* 데이터를 생성하고 이벤트 허브로 전송하는 [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)
 
 * 샘플 앱을 실행할 [Visual Studio 2017 버전 15.3.2 이상](https://www.visualstudio.com/vs/)
 
@@ -37,9 +37,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
-이 빠른 시작에서는 샘플 데이터를 생성하여 이벤트 허브로 전송합니다. 첫 단계에서는 이벤트 허브를 만듭니다. 이렇게 하려면 Azure Portal에서 ARM(Azure Resource Manager) 템플릿을 사용합니다.
+이 빠른 시작에서는 샘플 데이터를 생성하여 이벤트 허브로 전송합니다. 첫 단계에서는 이벤트 허브를 만듭니다. 이렇게 하려면 Azure Portal에서 Azure Resource Manager 템플릿을 사용합니다.
 
-1. 다음 단추를 선택하여 배포를 시작합니다.
+1. 다음 단추를 사용하여 배포를 시작합니다. 이 문서의 나머지 단계를 수행할 수 있도록 다른 탭 또는 창에서 링크를 여는 것이 좋습니다.
 
     [![Azure에 배포](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -69,13 +69,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 1. **구매**를 선택하면 구독에서 리소스 만들기를 승인하게 됩니다.
 
-1. 프로비전 프로세스를 모니터링하려면 도구 모음에서 **알림**(종 모양 아이콘)을 선택합니다. 배포가 정상적으로 완료되려면 몇 분 정도 걸릴 수 있지만 이제 다음 단계를 진행해도 됩니다.
+1. 프로비전 프로세스를 모니터링하려면 도구 모음에서 **알림**을 선택합니다. 배포가 정상적으로 완료되려면 몇 분 정도 걸릴 수 있지만 이제 다음 단계를 진행해도 됩니다.
+
+    ![공지](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 대상 테이블 만들기
 
 이제 Azure 데이터 탐색기에서 테이블을 만듭니다. 이벤트 허브는 이 테이블로 데이터를 보냅니다. **필수 구성 요소**에서 프로비전했던 클러스터와 데이터베이스에서 테이블을 만듭니다.
 
-1. Azure Portal의 클러스터 아래에서 **쿼리**를 선택합니다.
+1. Azure Portal에서 클러스터로 이동한 후 **쿼리**를 선택합니다.
 
     ![쿼리 응용 프로그램 링크](media/ingest-data-event-hub/query-explorer-link.png)
 
@@ -92,11 +94,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    이 명령은 테이블을 만들 때 사용되는 데이터 형식과 열 이름에 들어오는 JSON 데이터를 매핑합니다.
+    이 명령은 테이블(TestTable)의 열 이름과 데이터 형식에 들어오는 JSON 데이터를 매핑합니다.
 
 ## <a name="connect-to-the-event-hub"></a>이벤트 허브에 연결
 
-이제 Azure 데이터 탐색기에서 이벤트 허브에 연결합니다. 그러이벤트 허브로 들어오는 데이터가 테스트 테이블로 스트리밍됩니다.
+이제 Azure Data Explorer에서 이벤트 허브에 연결합니다. 이 연결이 설정되면 이벤트 허브로 들어오는 데이터가 이 문서의 앞 부분에서 만든 테스트 테이블로 스트리밍됩니다.
 
 1. 도구 모음에서 **알림**을 선택하여 이벤트 허브 배포가 정상적으로 완료되었는지 확인합니다.
 
@@ -118,27 +120,27 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
     | 이벤트 허브 네임스페이스 | 고유한 네임스페이스 이름 | 앞에서 선택한 네임스페이스를 식별하는 이름입니다. |
     | 이벤트 허브 | *test-hub* | 앞에서 만든 이벤트 허브입니다. |
     | 소비자 그룹 | *test-group* | 앞에서 만든 이벤트 허브에 정의된 소비자 그룹입니다. |
+    | 대상 테이블 | **내 데이터에 라우팅 정보 포함**을 선택 취소합니다. | 라우팅 옵션으로는 *고정* 라우팅과 *동적* 라우팅이라는 두 가지 옵션이 있습니다. 이 빠른 시작에서는 고정 라우팅(기본값)을 사용합니다. 이 경우 테이블 이름, 파일 형식 및 매핑을 직접 지정합니다. 또한 데이터가 필요한 라우팅 정보가 포함되는 동적 라우팅을 사용할 수도 있습니다. |
     | 테이블 | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
     | 데이터 형식 | *JSON* | JSON 및 CSV 형식이 지원됩니다. |
-    | 열 매핑 | *TestMapping* | **TestDatabase**에 만든 매핑입니다. |
-
-    이 빠른 시작에서는 이벤트 허브에서 *정적 라우팅*을 사용합니다. 이 경우 테이블 이름, 파일 형식 및 매핑을 직접 지정합니다. 동적 라우팅을 사용할 수도 있는데, 이 경우에는 응용 프로그램에서 이러한 속성을 설정합니다.
+    | 열 매핑 | *TestMapping* | **TestDatabase**에서 생성된 것으로, 들어오는 JSON 데이터를 **TestTable**의 열 이름 및 데이터 형식에 매핑.|
+    | | |
 
 ## <a name="copy-the-connection-string"></a>연결 문자열 복사
 
-앱을 실행하여 샘플 데이터를 생성할 때는 이벤트 허브 네임스페이스의 연결 문자열이 필요합니다.
+필수 구성 요소에 나열된 [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)을 실행할 때는 이벤트 허브 네임스페이스의 연결 문자열이 필요합니다.
 
 1. 앞에서 만든 이벤트 허브 네임스페이스 아래에서 **공유 액세스 정책**, **RootManageSharedAccessKey**를 차례로 선택합니다.
 
     ![공유 액세스 정책](media/ingest-data-event-hub/shared-access-policies.png)
 
-1. **연결 문자열 - 기본 키**를 복사합니다.
+1. **연결 문자열 - 기본 키**를 복사합니다. 다음 섹션에 붙여넣습니다.
 
     ![연결 문자열](media/ingest-data-event-hub/connection-string.png)
 
 ## <a name="generate-sample-data"></a>샘플 데이터 생성
 
-Azure 데이터 탐색기와 이벤트 허브가 연결되었으므로 다운로드한 샘플 앱을 사용하여 데이터를 생성합니다.
+Azure 데이터 탐색기와 이벤트 허브가 연결되었으므로 다운로드한 [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)을 사용하여 데이터를 생성합니다.
 
 1. Visual Studio에서 샘플 앱 솔루션을 엽니다.
 
@@ -156,20 +158,22 @@ Azure 데이터 탐색기와 이벤트 허브가 연결되었으므로 다운로
 
 ## <a name="review-the-data-flow"></a>데이터 흐름 검토
 
+이제 앱 생성 데이터를 사용하여 이벤트 허브에서 클러스터의 테이블로의 데이터 흐름을 볼 수 있습니다.
+
 1. 앱이 실행되는 동안에는 Azure Portal의 이벤트 허브 아래에 활동량이 급증하는 것으로 표시됩니다.
 
     ![이벤트 허브 그래프](media/ingest-data-event-hub/event-hub-graph.png)
 
-1. 앱으로 돌아가서 메시지 수가 99개가 되면 앱을 중지합니다.
+1. 샘플 앱으로 돌아가서 메시지 수가 99개가 되면 앱을 중지합니다.
 
-1. 테스트 데이터베이스에서 다음 쿼리를 실행하여 현재까지 데이터베이스로 전송된 메시지의 수를 확인합니다.
+1. 현재까지 데이터베이스로 전송된 메시지의 수를 확인하려면 테스트 데이터베이스에서 다음 쿼리를 실행합니다.
 
     ```Kusto
     TestTable
     | count
     ```
 
-1. 다음 쿼리를 실행하여 메시지 내용을 확인합니다.
+1. 메시지 내용을 확인하려면 다음 쿼리를 실행합니다.
 
     ```Kusto
     TestTable

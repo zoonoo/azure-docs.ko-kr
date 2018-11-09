@@ -1,21 +1,21 @@
 ---
-title: VMware에서 Azure로의 Azure Site Recovery Deployment Planner | Microsoft Docs
-description: 이 문서는 VMware에서 Azure로 시나리오에 대해 생성된 Azure Site Recovery Deployment Planner 보고서에 대한 분석을 설명합니다.
-services: site-recovery
+title: Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 분석 | Microsoft Docs
+description: 이 문서에서는 Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner에서 생성된 보고서를 분석하는 방법을 설명합니다.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: e6aa3a8c788fe06a528a9c363a28faffa0a9ca88
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d709b13aaf6b6ee9a913484ed503da1e76982d17
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094091"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213919"
 ---
-# <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Deployment Planner 보고서
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner 보고서 분석
+
 생성된 Microsoft Excel 보고서에는 다음과 같은 시트가 포함되어 있습니다.
 ## <a name="on-premises-summary"></a>온-프레미스 요약
 온-프레미스 요약 워크시트에는 프로파일링된 VMware 환경에 대한 개요가 제공됩니다.

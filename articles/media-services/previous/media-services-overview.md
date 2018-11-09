@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: cc6cb768e9403a09ea09309e0ffd85ce9012cb41
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c3d9b0660ab7803fc0c2696ded7bbffa90e07a5a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352089"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211607"
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services 개요 
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [버전 2-GA](media-services-overview.md)
-> * [버전 3-미리 보기](../latest/media-services-overview.md)
+> * [버전 2](media-services-overview.md)
+> * [버전 3](../latest/media-services-overview.md)
 
 Microsoft AMS(Azure Media Services)는 개발자가 확장 가능한 미디어 관리 및 배달 응용 프로그램을 빌드할 수 있는 확장 가능한 클라우드 기반 플랫폼입니다. Media Services는 다양한 클라이언트(예: TV, PC 및 모바일 장치)로의 주문형 및 라이브 스트리밍 배달을 위해 비디오 또는 오디오 콘텐츠를 안전하게 업로드, 저장, 인코딩 및 패키지할 수 있는 REST API를 기반으로 합니다.
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309504"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140979"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
@@ -31,7 +31,8 @@ Azure Cosmos DB 및 Azure Functions를 사용하면 다음과 같은 방법으�
 * **출력 바인딩**을 사용하여 함수를 Azure Cosmos DB 컨테이너에 바인딩합니다. 출력 바인딩은 함수가 완료될 때 컨테이너에 데이터를 씁니다.
 
 > [!NOTE]
-> 이때 Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 SQL API 및 Gremlin API 계정에서만 작동합니다.
+> 현재, Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 SQL API에서만 사용할 수 있습니다. 다른 모든 Azure Cosmos DB API의 경우 MongoDB API, Cassandra API, Gremlin API 및 Table API를 비롯한 API에 정적 클라이언트를 사용하여 함수에서 데이터베이스에 액세스해야 합니다.
+
 
 다음 다이어그램은 다음 세 가지 통합을 각각 보여 줍니다. 
 

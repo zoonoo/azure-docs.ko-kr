@@ -1,21 +1,21 @@
 ---
-title: Azure Site Recovery를 사용하여 리소스 만들기 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 온-프레미스 컴퓨터를 복제하기 위해 Azure를 준비하는 방법을 알아봅니다.
+title: Azure Site Recovery를 사용하여 온-프레미스 머신 재해 복구용 Azure 준비 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 온-프레미스 머신 재해 복구용 Azure를 준비하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1d9f84a176d4c2483c83e8961bf426e70933aaa2
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: c00dd8cd412d79093e4ae1fd7ea30a3071c9b54f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457156"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210247"
 ---
-# <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>온-프레미스 컴퓨터 복제를 위한 Azure 리소스 준비
+# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 
  [Azure Site Recovery](site-recovery-overview.md)는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
 

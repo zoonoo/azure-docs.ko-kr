@@ -1,27 +1,23 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 SAP NetWeaver 응용 프로그램 배포 보호 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 SAP NetWeaver 응용 프로그램 배포를 보호하는 방법을 설명합니다.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery를 사용하여 다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 SAP NetWeaver 응용 프로그램 배포를 위한 재해 복구를 설정하는 방법에 대해 설명합니다.
 author: asgang
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c83cf9fb319c21881f0db8bd94dc9a94a3b811bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318693"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211726"
 ---
-# <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Site Recovery를 사용하여 다중 계층 SAP NetWeaver 응용 프로그램 배포 보호
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
 
 대부분의 중대형 SAP 배포에는 어떤 형태로든 재해 복구 솔루션이 사용됩니다. 점점 더 많은 핵심 비즈니스 프로세스가 SAP과 같은 응용 프로그램으로 옮겨가면서 강력하고 테스트 가능한 재해 복구 솔루션의 중요성이 높아지고 있습니다. Azure Site Recovery는 수많은 테스트를 거쳐 SAP 응용 프로그램과 통합되었습니다. Site Recovery는 대부분의 온-프레미스 재해 복구 솔루션의 역량을 확장하며, 경쟁 솔루션 대비 총 소유 비용(TCO)이 낮습니다.
 
@@ -62,7 +58,7 @@ Site Recovery를 배포하기 전에 위와 같은 인프라를 구현하는 것
 
 이 참조 아키텍처는 Azure의 Windows 환경에서 고가용성을 통해 SAP NetWeaver를 실행하는 것을 보여 줍니다.  이 아키텍처는 조직의 요구 사항에 맞게 변경할 수 있는 특정 VM(가상 머신) 크기로 배포됩니다.
 
-![일반적인 SAP 배포 패턴 다이어그램](./media/site-recovery-sap/reference_sap.png)
+![일반적인 SAP 배포 패턴 다이어그램](./media/site-recovery-sap/sap-netweaver_latest.png)
 
 ## <a name="disaster-recovery-considerations"></a>재해 복구 고려 사항
 

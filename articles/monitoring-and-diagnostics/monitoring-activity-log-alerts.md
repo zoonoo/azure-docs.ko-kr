@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5ddf510d50f38ed9aaf742bd06c330e53ffe1391
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6f007ca3aacb338c14bf481ee58407596c8290ad
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992799"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091626"
 ---
 # <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고 
 
@@ -50,7 +50,7 @@ ms.locfileid: "46992799"
 - **이벤트를 시작한 사람**: “호출자”로 알려져 있습니다. 작업을 수행한 사용자의 이메일 주소 또는 Active Directory 식별자입니다.
 
 > [!NOTE]
-> 한 구독에서, 단일 리소스, 리소스 그룹의 모든 리소스 (또는) 전체 구독 수준의 활동에 대해 최대 100개의 경고 규칙.
+> 한 구독에서, 단일 리소스, 리소스 그룹의 모든 리소스 또는 전체 구독 수준 범위의 활동에 대해 최대 100개의 경고 규칙을 만들 수 있습니다.
 
 활동 로그 경고가 활성화되면 작업 그룹을 사용하여 작업 또는 알림을 생성합니다. 작업 그룹은 이메일 주소, 웹후크 URL 또는 SMS 전화 번호와 같은 알림 수신자의 재사용 가능한 집합입니다. 수신자를 여러 경고에서 참조하여 알림 채널을 집중화하고 그룹화할 수 있습니다. 활동 로그 경고를 정의하는 경우 두 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
 

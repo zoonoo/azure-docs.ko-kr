@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6ad38d2dc1c5c41dc10685d680f70c59e7983cd2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400351"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035225"
 ---
 공유 이미지 갤러리는 사용자 지정 VM 이미지를 기준으로 구조와 조직을 구축하는 데 도움이 되는 서비스입니다. 공유 이미지 갤러리는 세 가지 주요 가치 제안을 제공합니다.
 - 간단한 관리

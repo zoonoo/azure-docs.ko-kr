@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 앱 기반 조건부 액세스 | Microsoft Docs
-description: Azure Active Directory 앱 기반 조건부 액세스가 작동하는 방식을 알아봅니다.
+title: Azure Active Directory에서 조건부 액세스를 사용하여 클라우드 앱 액세스에 대한 승인된 클라이언트 앱을 요청하는 방법 | Microsoft Docs
+description: Azure Active Directory에서 조건부 액세스를 사용하여 클라우드 앱 액세스에 대한 승인된 클라이언트 앱을 요청하는 방법을 알아봅니다.
 services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: f34fc4c41094292db9bed1294ee7b26ec04c96c6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630605"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415392"
 ---
-# <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory 앱 기반 조건부 액세스  
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 승인된 클라이언트 앱 필요 
 
-직원은 개인 및 회사 작업에 대해 모바일 장치를 사용합니다. 직원이 생산적이 될 수 있도록 하는 반면 데이터 손실을 방지하려고 합니다. Azure AD(Azure Active Directory) 앱 기반 조건부 액세스를 사용하여 클라우드 앱에 대한 액세스를 회사 데이터를 보호할 수 있는 클라이언트 앱으로 제한할 수 있습니다.  
+직원은 개인 및 회사 작업에 대해 모바일 장치를 사용합니다. 직원이 생산적이 될 수 있도록 하는 반면 데이터 손실을 방지하려고 합니다. Azure AD(Azure Active Directory) 조건부 액세스를 사용하여 클라우드 앱에 대한 액세스를 회사 데이터를 보호할 수 있는 승인된 클라이언트 앱으로 제한할 수 있습니다.  
 
-이 항목에서는 Azure AD 앱 기반 조건부 액세스를 구성하는 방법을 설명합니다.
+이 항목에서는 승인된 클라이언트 앱을 필요로 하는 조건부 액세스 정책을 구성하는 방법을 설명합니다.
 
 ## <a name="overview"></a>개요
 
@@ -36,7 +36,7 @@ ms.locfileid: "39630605"
 
 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 회사의 데이터를 보호할 수 있습니다. Intune 앱 보호 정책은 장치 관리 솔루션에 장치를 등록하거나 등록하지 않고 회사의 데이터를 보호할 수 있도록 하는 MDM(모바일 장치 관리) 솔루션이 필요하지 않습니다.
 
-Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱에 대한 액세스를 Intune 앱 보호 정책을 지원하는 클라이언트 앱으로 제한할 수 있습니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다.
+Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 액세스를 Intune 앱 보호 정책을 지원하는 클라이언트 앱으로 제한할 수 있습니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다.
 
 조건부 액세스 용어에서 이러한 클라이언트 앱을 **승인된 클라이언트 앱**이라고 합니다.  
 
@@ -120,9 +120,9 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/app-based-conditional-access/03.png)
 
-    b. **클라이언트 앱**으로 **모바일 앱 및 데스크톱 앱**을 선택합니다.
+    b. **클라이언트 앱(미리 보기)** 으로 **모바일 앱 및 데스크톱 앱** 및 **최신 인증 클라이언트**를 선택합니다.
 
-    ![조건부 액세스](./media/app-based-conditional-access/04.png)
+    ![조건부 액세스](./media/app-based-conditional-access/91.png)
 
 5. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)** 를 선택해야 합니다.
 
@@ -144,11 +144,11 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/app-based-conditional-access/07.png)
 
-4. **조건:** **조건**으로 **클라이언트 앱**을 구성해야 합니다. 
+4. **조건:** **조건**으로 **클라이언트 앱(미리 보기)** 을 구성해야 합니다. 
 
-    a. **클라이언트 앱**으로 **Exchange Active Sync**를 선택합니다.
+    a. **클라이언트 앱(미리 보기)** 으로 **모바일 앱 및 데스크톱 클라이언트** 및 **Exchange ActiveSync 클라이언트**를 선택합니다.
 
-    ![조건부 액세스](./media/app-based-conditional-access/08.png)
+    ![조건부 액세스](./media/app-based-conditional-access/92.png)
 
     b. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)** 를 선택해야 합니다.
 
@@ -201,9 +201,9 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/app-based-conditional-access/03.png)
 
-    b. **클라이언트 앱**으로 **모바일 앱 및 데스크톱 앱**을 선택합니다.
+    b. **클라이언트 앱(미리 보기)** 으로 **모바일 앱 및 데스크톱 클라이언트** 및 **최신 인증 클라이언트**를 선택합니다.
 
-    ![조건부 액세스](./media/app-based-conditional-access/04.png)
+    ![조건부 액세스](./media/app-based-conditional-access/91.png)
 
 5. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)** 를 선택해야 합니다.
 
@@ -228,9 +228,9 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
 4. **조건:** **조건**으로 **클라이언트 앱**을 구성해야 합니다.
 
-    a. **클라이언트 앱**으로 **Exchange Active Sync**를 선택합니다.
+    a. **클라이언트 앱(미리 보기)** 으로 **모바일 앱 및 데스크톱 클라이언트** 및 **Exchange ActiveSync 클라이언트**를 선택합니다.
 
-    ![조건부 액세스](./media/app-based-conditional-access/08.png)
+    ![조건부 액세스](./media/app-based-conditional-access/92.png)
 
     b. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)** 를 선택해야 합니다.
 
@@ -285,9 +285,9 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/app-based-conditional-access/03.png)
 
-    b. **클라이언트 앱**으로 **모바일 앱 및 데스크톱 앱**을 선택합니다.
+    b. **클라이언트 앱(미리 보기)** 으로 **모바일 앱 및 데스크톱 클라이언트** 및 **최신 인증 클라이언트**를 선택합니다.
 
-    ![조건부 액세스](./media/app-based-conditional-access/04.png)
+    ![조건부 액세스](./media/app-based-conditional-access/91.png)
 
 5. **액세스 제어**로 다음을 선택해야 합니다.
 
@@ -317,9 +317,9 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
 4. **조건:** **조건**으로 **클라이언트 앱**을 구성해야 합니다. 
 
-    **클라이언트 앱*으로 **Exchange Active Sync**를 선택합니다.
+    **클라이언트 앱(미리 보기)** 으로 **모바일 앱 및 데스크톱 클라이언트** 및 **Exchange ActiveSync 클라이언트**를 선택합니다.
 
-    ![조건부 액세스](./media/app-based-conditional-access/08.png)
+    ![조건부 액세스](./media/app-based-conditional-access/91.png)
 
 5. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)** 를 선택해야 합니다.
  
@@ -381,9 +381,9 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/app-based-conditional-access/03.png)
 
-    b. **클라이언트 앱**으로 **모바일 앱 및 데스크톱 앱**을 선택합니다.
+    b. **클라이언트 앱(미리 보기)** 으로 **모바일 앱 및 데스크톱 앱** 및 **최신 인증 클라이언트**를 선택합니다.
 
-    ![조건부 액세스](./media/app-based-conditional-access/04.png)
+    ![조건부 액세스](./media/app-based-conditional-access/91.png)
 
 5. **액세스 제어**로 다음을 선택해야 합니다.
 
@@ -411,11 +411,11 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/app-based-conditional-access/07.png)
 
-4. **조건:** **조건**으로 **클라이언트 앱**을 구성해야 합니다. 
+4. **조건:** **조건**으로 **클라이언트 앱(미리 보기)** 을 구성해야 합니다. 
 
-    **클라이언트 앱**으로 **Exchange Active Sync**를 선택합니다.
+    **클라이언트 앱(미리 보기)** 으로 **모바일 앱 및 데스크톱 클라이언트** 및 **Exchange ActiveSync 클라이언트**를 선택합니다.
 
-    ![조건부 액세스](./media/app-based-conditional-access/08.png)
+    ![조건부 액세스](./media/app-based-conditional-access/92.png)
 
 5. **액세스 제어**로 다음을 선택해야 합니다.
 

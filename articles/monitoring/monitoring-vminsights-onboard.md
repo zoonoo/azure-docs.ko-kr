@@ -1,5 +1,5 @@
 ---
-title: VM용 Azure Monitor 등록 | Microsoft Docs
+title: VM용 Azure Monitor(미리 보기) 등록 | Microsoft Docs
 description: 이 문서에서는 배포된 응용 프로그램의 수행 방식 및 확인된 상태 문제 이해를 시작할 수 있도록 VM용 Azure Monitor를 등록 및 구성하는 방법을 설명합니다.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390247"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092777"
 ---
-# <a name="how-to-onboard-the-azure-monitor-for-vms"></a>VM용 Azure Monitor를 등록하는 방법 
+# <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 등록하는 방법
 이 문서에서는 사용자의 Azure 가상 머신의 운영 체제 상태를 모니터링하고 해당 머신에서 호스트될 수 있는 응용 프로그램 종속성을 검색 및 매핑하도록 VM용 Azure Monitor를 설정하는 방법을 설명합니다.  
 
 다음 방법 중 하나를 사용하여 VM용 Azure Monitor를 사용하도록 설정할 수 있습니다. 각 방법 사용에 관한 자세한 내용은 문서의 뒷부분에 제공됩니다.  
@@ -31,7 +31,7 @@ ms.locfileid: "49390247"
 * PowerShell을 사용하여 지정된 구독 또는 리소스 그룹에 걸친 여러 Azure VM 또는 가상 머신 확장 집합.
 
 ## <a name="prerequisites"></a>필수 조건
-시작하기 전에 아래 하위 섹션에서 설명한 대로 다음 사항이 있는지 확인합니다.
+시작하기 전에 아래 하위 섹션에서 설명한 다음 사항을 이해합니다.
 
 ### <a name="log-analytics"></a>Log Analytics 
 

@@ -1,29 +1,29 @@
 ---
-title: Site Recovery를 사용하여 복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback) | Microsoft Docs
-description: Azure Site Recovery를 사용하여 VMware VM을 Azure로 장애 조치(failover)하고, 온-프레미스 사이트로 장애 복구(failback)하는 방법을 알아봅니다.
+title: Azure Site Recovery를 사용하여 Azure로 재해 복구 중에 Hyper-V VM 장애 조치(Failover) 및 장애 복구(Failback) | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용하여 Azure로 재해 복구 중에 Hyper-V VM 장애 조치(Failover) 및 장애 복구(Failback)를 수행하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6dde345e360dc304578b626ee2678dd51fe56dc6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076986"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210519"
 ---
-# <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback)
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback)
 
 이 자습서에서는 Hyper-V VM을 Azure로 장애 조치(failover)하는 방법을 설명합니다. 장애 조치(failover)한 후에 온-프레미스 사이트가 사용 가능해지면 장애 복구(failback)합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Hyper-V VM 속성을 확인하여 Azure 요구 사항을 준수하는지 검토
 > * Azure에 대한 장애 조치(Failover) 실행
-> * Azure에서 온-프레미스로 장애 복구
+> * Azure에서 온-프레미스로 장애 복구(failback)
 > * 온-프레미스 VM을 역방향 복제하고 Azure에 대한 복제 다시 시작
 
 이 자습서는 시리즈의 다섯 번째 자습서입니다. 여기에서는 이전 자습서의 작업을 이미 완료했다고 가정합니다.    

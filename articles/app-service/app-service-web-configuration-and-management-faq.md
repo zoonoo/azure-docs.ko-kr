@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 7aa5b00d1497e384377ba4423431eac57c1aa4c9
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8cc47fc7ec60027851525b98cdf95e7d534ea556
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630406"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241857"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -99,7 +99,7 @@ App Service Certificate는 Azure 리소스로 간주합니다. 이 인증서는 
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>다른 Azure Cloud Services에서 사용하도록 내 App Service Certificate를 내보낼 수 있나요?
 
-포털에서는 Azure Key Vault를 통해 App Service Certificate를 App Service 앱에 배포하기 위한 최고의 환경을 제공합니다. 하지만 이러한 인증서를 Azure Virtual Machines와 같은 App Service 플랫폼 외부에서 사용하려고 하는 고객의 요청이 있었습니다. 다른 Azure 리소스에서 인증서를 사용할 수 있도록 App Service Certificate의 로컬 PFX 복사본을 만드는 방법을 알아보려면 [Create a local PFX copy of an App Service certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)(App Service Certificate의 로컬 PFX 복사본 만들기)를 참조하세요.
+포털에서는 Azure Key Vault를 통해 App Service Certificate를 App Service 앱에 배포하기 위한 최고의 환경을 제공합니다. 하지만 이러한 인증서를 Azure Virtual Machines와 같은 App Service 플랫폼 외부에서 사용하려고 하는 고객의 요청이 있었습니다. 다른 Azure 리소스에서 인증서를 사용할 수 있도록 App Service 인증서의 로컬 PFX 복사본을 만드는 방법을 알아보려면 [App Service 인증서의 로컬 PFX 복사본 만들기](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/)를 참조하세요.
 
 자세한 내용은 [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)(App Service Certificate 및 사용자 지정 도메인에 대한 FAQ)를 참조하세요.
 
@@ -292,7 +292,7 @@ Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>App Service에 어떤 .NET 버전이 설치되어 있는지 확인하려면 어떻게 하나요?
 
-App Service에 설치된 Microsoft .NET 버전을 찾는 가장 빠른 방법은 Kudu 콘솔을 사용하는 것입니다. Kudu 콘솔에는 포털에서 액세스하거나 App Service 앱의 URL을 사용하여 액세스할 수 있습니다. 자세한 내용은 [Determine the installed .NET version in App Service](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/)(App Service에 설치된 .NET 버전 확인)를 참조하세요.
+App Service에 설치된 Microsoft .NET 버전을 찾는 가장 빠른 방법은 Kudu 콘솔을 사용하는 것입니다. Kudu 콘솔은 포털에서 액세스하거나 App Service 앱의 URL을 사용하여 액세스할 수 있습니다. 자세한 내용은 [Determine the installed .NET version in App Service](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/)(App Service에 설치된 .NET 버전 확인)를 참조하세요.
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>자동 크기 조정이 예상대로 작동하지 않는 이유는 무엇인가요?
 
@@ -302,7 +302,7 @@ Azure 자동 크기 조정이 웹앱 인스턴스의 크기를 예상대로 축�
 
 자동 크기 조정은 메트릭이 미리 구성된 경계를 초과할 경우 트리거됩니다. 경우에 따라 용량이 예상한 것에 비해 부분적으로만 채워지는 것을 확인할 수 있습니다. 이 문제는 원하는 인스턴스 수를 사용할 수 없는 경우 발생할 수 있습니다. 이 시나리오에서 자동 크기 조정은 사용 가능한 수의 인스턴스를 사용하여 부분적으로 채웁니다. 그다음에 자동 크기 조정은 리밸런스 논리를 실행하여 더 많은 용량을 확보합니다. 나머지 인스턴스를 할당합니다. 이 작업에는 몇 분이 걸릴 수 있습니다.
 
-몇 분 후 인스턴스 수가 예상대로 표시되지 않는다면 부분 다시 채우기로 충분히 경계 내에서 메트릭을 불러올 수 있었기 때문일 수 있습니다. 또는 자동 크기 조정이 메트릭 하한에 도달했기 때문에 규모가 축소되었을 수 있습니다.
+몇 분 후 인스턴스 수가 예상대로 표시되지 않는다면 부분 다시 채우기가 경계 내에서 메트릭을 불러오는 데 충분했기 때문일 수 있습니다. 또는 자동 크기 조정이 메트릭 하한에 도달했기 때문에 규모가 축소되었을 수 있습니다.
 
 이러한 조건에 해당하지 않고 문제가 지속되면 지원 요청을 제출하세요.
 

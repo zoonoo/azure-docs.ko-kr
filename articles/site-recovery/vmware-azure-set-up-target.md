@@ -1,21 +1,21 @@
 ---
-title: 대상 환경 준비(VMware/Azure로의 실제 서버 복제용) | Microsoft Docs
-description: 이 문서에서는 VMware VM 복제 및 Azure로의 실제 서버 복제를 위해 대상 Azure 환경을 준비하는 방법을 설명합니다.
+title: Azure에 대한 VMware 복제를 위한 대상 환경 준비 | Microsoft Docs
+description: 이 아티클에서는 Azure에 대한 VMware VM 복제를 위해 대상 Azure 환경을 준비하는 방법을 설명합니다.
 services: site-recovery
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
-ms.author: bsiva
-ms.openlocfilehash: 948812f05697362978ad041566d22977efec92a1
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434639"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233432"
 ---
-# <a name="prepare-the-target-environment-vmwarephysical-to-azure"></a>대상 환경 준비(VMware/Azure로의 실제 서버 복제용)
+# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Azure로 VMware VM 또는 물리적 서버를 재해 복구하기 위한 대상 환경 준비
 
 이 문서에서는 VMware 가상 머신 또는 실제 서버를 Azure로 복제하는 작업을 시작하기 위해 대상 Azure 환경을 준비하는 방법을 설명합니다.
 

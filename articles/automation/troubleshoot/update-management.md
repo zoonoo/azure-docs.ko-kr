@@ -4,20 +4,22 @@ description: 업데이트 관리 문제 해결 방법 살펴보기
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405230"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092630"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
 이 문서에서는 업데이트 관리 사용 중에 발생할 수 있는 문제 해결을 위한 솔루션을 살펴봅니다.
+
+기본 문제를 확인하기 위한 Hybrid Worker 에이전트용 에이전트 문제 해결사가 제공됩니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요. 다른 모든 문제의 경우 아래에서 가능한 문제에 대한 추가 정보를 참조하세요.
 
 ## <a name="general"></a>일반
 
@@ -110,6 +112,20 @@ Hybrid Runbook Worker가 자체 서명 인증서를 만들지 못함
 #### <a name="resolution"></a>해결 방법
 
 시스템 계정에 **C:\ProgramData\Microsoft\Crypto\RSA** 폴더에 대한 읽기 액세스 권한이 있는지 확인하고 다시 시도합니다.
+
+### <a name="nologs"></a>시나리오: 업데이트 관리 데이터가 컴퓨터에 대한 Log Analytics에서 표시되지 않음
+
+#### <a name="issue"></a>문제
+
+컴퓨터가 **준수** 아래에서 **평가되지 않음**으로 표시되지만 업데이트 관리가 아닌 Hybrid Runbook Worker용 Log Analytics에는 하트비트 데이터가 표시됩니다.
+
+#### <a name="cause"></a>원인
+
+Hybrid Runbook Worker를 다시 등록하고 다시 설치해야 할 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+[Windows Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md)의 단계에 따라 Hybrid Worker를 다시 설치합니다.
 
 ### <a name="hresult"></a>시나리오: 컴퓨터가 평가되지 않음으로 표시되고 HResult 예외를 나타냄
 

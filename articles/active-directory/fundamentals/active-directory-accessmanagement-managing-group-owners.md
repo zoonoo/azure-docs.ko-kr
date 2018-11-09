@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: f546ea5b5f9288849334d27cd1721f0c22fb8806
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297778"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139723"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>방법: Azure Active Directory를 사용하여 그룹 소유자 추가 또는 제거
 Azure AD(Azure Active Directory) 그룹은 그룹 소유자가 소유하고 관리합니다. 그룹 소유자는 그룹 및 해당 멤버를 관리하기 위해 리소스 소유자(관리자)에게 할당됩니다. 그룹 소유자는 그룹의 멤버일 필요가 없습니다. 그룹 소유자가 할당된 후에는 리소스 소유자만 소유자를 추가하거나 제거할 수 있습니다.
@@ -29,7 +29,7 @@ Azure AD를 사용하여 그룹에 추가 그룹 소유자를 추가합니다.
 ### <a name="to-add-a-group-owner"></a>그룹 소유자를 추가하려면
 1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택하고 **그룹**을 선택한 다음, 소유자를 추가하려는 그룹을 선택합니다(예: _MDM 정책 - 서부_).
+2. **Azure Active Directory**를 선택하고 **그룹**을 선택한 다음, 소유자를 추가하려는 그룹을 선택합니다(예: *MDM 정책 - 서부*).
 
 3. **MDM 정책 - 서부 개요** 페이지에서 **소유자**를 선택합니다.
 
@@ -45,9 +45,9 @@ Azure AD를 사용하여 그룹에 추가 그룹 소유자를 추가합니다.
 Azure AD를 사용하여 그룹에서 소유자를 제거합니다.
 
 ### <a name="to-remove-an-owner"></a>소유자를 제거하려면
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **Azure Active Directory**를 선택하고 **그룹**을 선택한 다음, 소유자를 추가하려는 그룹을 선택합니다(예: _MDM 정책 - 서부_).
+2. **Azure Active Directory**를 선택하고 **그룹**을 선택한 다음, 소유자를 제거하려는 그룹을 선택합니다(예: *MDM 정책 - 서부*).
 
 3. **MDM 정책 - 서부 개요** 페이지에서 **소유자**를 선택합니다.
 

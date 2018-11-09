@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ce57857ecc5b8e18aecdcc58754e5f9bf5b22a74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a197b3c7aa423323f984a793851a458733391e33
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306122"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243115"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -193,7 +193,7 @@ SAML 2.0 ID 공급자를 사용하여 페더레이션하려는 각 Azure Active 
 “Set-MsolDomainAuthentication”에 대한 자세한 내용은 [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx)를 참조하세요.
 
 >[!NOTE]
->“$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS“”는 ID 공급자에 대해 ECP 확장을 설정한 경우에만 실행해야 합니다. OWA(Outlook Web Application)를 제외한 Exchange Online 클라이언트는 POST 기반 활성 끝점에 의존합니다. SAML 2.0 STS가 Shibboleth의 ECP 활성 끝점 구현과 비슷한 활성 끝점을 구현하는 경우 이러한 리치 클라이언트가 Exchange Online 서비스와 상호 작용할 수 있습니다.
+>“$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS””는 ID 공급자에 대해 ECP 확장을 설정한 경우에만 실행해야 합니다. OWA(Outlook Web Application)를 제외한 Exchange Online 클라이언트는 POST 기반 활성 끝점에 의존합니다. SAML 2.0 STS가 Shibboleth의 ECP 활성 끝점 구현과 비슷한 활성 끝점을 구현하는 경우 이러한 리치 클라이언트가 Exchange Online 서비스와 상호 작용할 수 있습니다.
 
 페더레이션이 구성되면 "비페더레이션"(또는 "관리")으로 다시 전환할 수 있지만 이 변경을 완료하려면 최대 2시간이 걸릴 수 있으며 클라우드 기반 로그인을 위한 새 임의 암호를 각 사용자에게 배포해야 합니다. 일부 시나리오에서는 설정의 오류를 복구하기 위해 "관리"로 다시 전환해야 할 수 있습니다. 도메인 변환에 대한 자세한 내용은 [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx)를 참조하세요.
 

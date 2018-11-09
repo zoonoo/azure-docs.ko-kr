@@ -1,20 +1,20 @@
 ---
-title: Hyper-V에서 Azure로 Azure Site Recovery Deployment Planner | Microsoft Docs
-description: 이 문서에서는 Hyper-V에서 Azure로 복제하기 위한 Site Recovery 배포 계획을 실행하는 방법을 설명합니다.
+title: Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행 | Microsoft Docs
+description: 이 문서에서는 Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner를 실행하는 방법을 설명합니다.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9da79884973c620bbf8b6a191f3dd6db5bd19064
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1df8f7025787eb864b7e9ad6f41105df8fb2cc8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094193"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213341"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V에서 Azure로 Azure Site Recovery Deployment Planner 실행
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure로 Hyper-V 재해 복구를 위해 Azure Site Recovery Deployment Planner 실행
 
 다음 4가지 모드 중 원하는 모드에서 Site Recovery Deployment Planner 명령줄 도구(ASRDeploymentPlanner.exe)를 실행할 수 있습니다. 
 -   [VM(가상 머신) 목록 가져오기](#get-vm-list-for-profiling-hyper-v-vms)

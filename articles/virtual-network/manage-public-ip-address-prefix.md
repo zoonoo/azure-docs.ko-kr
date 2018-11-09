@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 32ad02583f84a84c494dc8300834cd9ff2f0d771
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405736"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094976"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기, 변경 또는 삭제
 
@@ -29,7 +29,7 @@ ms.locfileid: "47405736"
 ## <a name="before-you-begin"></a>시작하기 전에
 
 > [!IMPORTANT]
-> 공용 IP 접두사는 제한된 지역에서 공용 미리 보기 상태입니다. [미리 보기 상태의 의미](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)를 알아볼 수 있습니다. 공용 IP 접두사는 현재 미국 중서부, 미국 서부, 미국 서부 2, 미국 중부, 북유럽, 유럽 서부 및 동남 아시아에서 사용할 수 있습니다. 업데이트된 지역 목록은 [Azure 업데이트](https://azure.microsoft.com/updates/?product=virtual-network)에서 확인하세요.
+> 공용 IP 접두사는 제한된 지역에서 공개 미리 보기 상태입니다. [미리 보기 상태의 의미](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)를 알아볼 수 있습니다. 공용 IP 접두사는 현재 미국 중서부, 미국 서부, 미국 서부 2, 미국 중부, 북유럽, 유럽 서부 및 동남 아시아에서 사용할 수 있습니다. 업데이트된 지역 목록은 [Azure 업데이트](https://azure.microsoft.com/updates/?product=virtual-network)에서 확인하세요.
 
 이 문서에서 설명하는 모든 섹션의 단계를 수행하기 전에 다음 작업을 완료해야 합니다.
 
@@ -62,8 +62,8 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 |도구|명령|
 |---|---|
-|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
-|PowerShell|[New-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
+|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
+|PowerShell|[New-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>접두사로 고정 공용 IP 주소 만들기
 접두사를 만들었으면 접두사로 고정 IP 주소를 만들어야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
@@ -91,8 +91,8 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 |도구|명령|
 |---|---|
-|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-list): 공용 IP 주소를 나열함, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-show): 설정을 표시함, [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update): 업데이트함, [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-delete): 삭제함|
-|PowerShell|[Get-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/get-azurermpublicipaddressprefix): 공용 IP 주소 개체를 검색하고 해당 설정을 확인함, [Set-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/set-azurermpublicipaddressprefix): 설정을 업데이트함, [Remove-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/remove-azurermpublicipaddressprefix): 삭제함|
+|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list): 공용 IP 주소를 나열함, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show): 설정을 표시함, [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update): 업데이트함, [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete): 삭제함|
+|PowerShell|[Get-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/get-azurermpublicipprefix): 공용 IP 주소 개체를 검색하고 해당 설정을 확인함, [Set-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/set-azurermpublicipprefix): 설정을 업데이트함, [Remove-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/remove-azurermpublicipprefix): 삭제함|
 
 ## <a name="permissions"></a>권한
 

@@ -8,13 +8,13 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 03/28/2018
-ms.openlocfilehash: 58d0d028c920faa7e86884c85f8fb677ce67c390
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/24/2018
+ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389924"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158689"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
@@ -24,19 +24,19 @@ ms.locfileid: "49389924"
 
 ### <a name="azure-machine-learning-sdk-for-python-v0168"></a>Python용 Azure Machine Learning SDK v0.1.68
 
-#### <a name="new-features"></a>새로운 기능
- * 새 작업 영역을 만들 때 다중 테넌트를 지원합니다.
++ **새로운 기능**
+  * 새 작업 영역을 만들 때 다중 테넌트를 지원합니다.
 
-#### <a name="breaking-changes"></a>주요 변경 내용
- * **향후의 다음 릴리스에서** *Workspace.compute_targets, datastores, experiments, images, models* 및 *webservices*는 메서드가 아니라 속성이 됩니다. 예를 들어 *Workspace.compute_targets()* 를 *Workspace.compute_targets*로 바꿉니다.
++ **주요 변경 내용**
+  * **향후의 다음 릴리스에서** *Workspace.compute_targets, datastores, experiments, images, models* 및 *webservices*는 메서드가 아니라 속성이 됩니다. 예를 들어 *Workspace.compute_targets()* 를 *Workspace.compute_targets*로 바꿉니다.
 
-#### <a name="bugs-fixed"></a>수정된 버그
- * 웹 서비스를 배포할 때 pynacl 라이브러리 버전을 더 이상 고정할 필요가 없습니다.
++ **수정된 버그**
+  * 웹 서비스를 배포할 때 pynacl 라이브러리 버전을 더 이상 고정할 필요가 없습니다.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v030"></a>Azure Machine Learning 데이터 준비 SDK v0.3.0
 
-#### <a name="new-features"></a>새로운 기능:
-* 사용자가 실행할 Python 파일의 경로를 전달할 수 있는 transform_partition_with_file(script_path) 메서드가 추가되었습니다.
++ **새로운 기능**
+  * 사용자가 실행할 Python 파일의 경로를 전달할 수 있는 transform_partition_with_file(script_path) 메서드가 추가되었습니다.
 
 ## <a name="2018-10-01"></a>2018-10-01
 
@@ -45,56 +45,55 @@ ms.locfileid: "49389924"
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
-#### <a name="breaking-changes"></a>주요 변경 내용
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services에서 이전에 반환된 목록인 사전을 반환합니다. [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API 설명서를 참조하세요.
++ **주요 변경 내용**
+  * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services에서 이전에 반환된 목록인 사전을 반환합니다. [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API 설명서를 참조하세요.
 
- * 자동화된 Machine Learning에서 기본 메트릭의 정규화된 평균 제곱 오차가 제거되었습니다.
+  * 자동화된 Machine Learning에서 기본 메트릭의 정규화된 평균 제곱 오차가 제거되었습니다.
 
++ **HyperDrive**
+  * Bayesian에 대한 다양한 HyperDrive 버그가 수정되고, 메트릭 호출 가져오기 성능이 향상되었습니다. 
+  * Tensorflow 1.9에서 1.10으로 업그레이드 
+  * 콜드 부팅용 Docker 이미지 최적화 
+  * 0이 아닌 오류 코드로 인해 종료하는 경우에도 작업에서 올바른 상태를 보고합니다. 
+  * SDK에서 RunConfig 특성 유효성 검사 
+  * HyperDrive 실행 개체에서 일반 실행과 비슷한 방식으로 취소를 지원합니다(매개 변수를 전달할 필요가 없음). 
+  * 분산 실행 및 HyperDrive 실행에 대한 드롭다운 값의 상태를 유지하도록 위젯이 향상되었습니다. 
+  * TensorBoard 및 다른 로그 파일에서 매개 변수 서버에 대한 수정을 지원합니다. 
+  * 서비스 쪽에서 인텔(R) MPI 지원 
+  * BatchAI의 유효성 검사 중에 분산 실행 수정에 대한 매개 변수 튜닝 버그가 수정되었습니다. 
+  * 컨텍스트 관리자에서 기본 인스턴스를 식별합니다. 
 
-#### <a name="hyperdrive"></a>HyperDrive
- * Bayesian에 대한 다양한 HyperDrive 버그가 수정되고, 메트릭 호출 가져오기 성능이 향상되었습니다. 
- * Tensorflow 1.9에서 1.10으로 업그레이드 
- * 콜드 부팅용 Docker 이미지 최적화 
- * 0이 아닌 오류 코드로 인해 종료하는 경우에도 작업에서 올바른 상태를 보고합니다. 
- * SDK에서 RunConfig 특성 유효성 검사 
- * HyperDrive 실행 개체에서 일반 실행과 비슷한 방식으로 취소를 지원합니다(매개 변수를 전달할 필요가 없음). 
- * 분산 실행 및 HyperDrive 실행에 대한 드롭다운 값의 상태를 유지하도록 위젯이 향상되었습니다. 
- * TensorBoard 및 다른 로그 파일에서 매개 변수 서버에 대한 수정을 지원합니다. 
- * 서비스 쪽에서 인텔(R) MPI 지원 
- * BatchAI의 유효성 검사 중에 분산 실행 수정에 대한 매개 변수 튜닝 버그가 수정되었습니다. 
- * 컨텍스트 관리자에서 기본 인스턴스를 식별합니다. 
++ **Azure Portal 환경**
+  * log_table() 및 log_row()가 [실행] 세부 정보에서 지원됩니다. 
+  * 1, 2 또는 3개의 숫자 열과 선택적 범주별 열이 있는 테이블과 행에 대한 그래프를 자동으로 만듭니다.
 
-#### <a name="azure-portal-experience"></a>Azure Portal 환경
- * log_table() 및 log_row()가 [실행] 세부 정보에서 지원됩니다. 
- * 1, 2 또는 3개의 숫자 열과 선택적 범주별 열이 있는 테이블과 행에 대한 그래프를 자동으로 만듭니다.
++ **자동화된 Machine Learning**
+  * 오류 처리 및 설명서가 향상되었습니다. 
+  * 실행 속성 검색 성능 문제가 해결되었습니다. 
+  * 계속 실행 문제가 해결되었습니다. 
+  * ensembling 반복 문제가 해결되었습니다.
+  * MAC OS의 학습 중단 버그가 수정되었습니다.
+  * 사용자 지정 유효성 검사 시나리오에서 매크로 평균 PR/ROC 곡선의 저해상도가 처리되었습니다.
+  * 추가 인덱스 논리가 제거되었습니다.
+  * get_output API에서 필터가 제거되었습니다.
 
-#### <a name="automated-machine-learning"></a>자동화된 Machine Learning
- * 오류 처리 및 설명서가 향상되었습니다. 
- * 실행 속성 검색 성능 문제가 해결되었습니다. 
- * 계속 실행 문제가 해결되었습니다. 
- * ensembling 반복 문제가 해결되었습니다.
- * MAC OS의 학습 중단 버그가 수정되었습니다.
- * 사용자 지정 유효성 검사 시나리오에서 매크로 평균 PR/ROC 곡선의 저해상도가 처리되었습니다.
- * 추가 인덱스 논리가 제거되었습니다.
- * get_output API에서 필터가 제거되었습니다.
++ **파이프라인**
+  * 실행 작업을 먼저 실행할 필요 없이 파이프라인을 직접 게시하는 Pipeline.publish() 메서드가 추가되었습니다.   
+  * 게시된 파이프라인에서 생성된 파이프라인 실행을 가져오는 PipelineRun.get_pipeline_runs() 메서드가 추가되었습니다.
 
-#### <a name="pipelines"></a>파이프라인
- * 실행 작업을 먼저 실행할 필요 없이 파이프라인을 직접 게시하는 Pipeline.publish() 메서드가 추가되었습니다.   
- * 게시된 파이프라인에서 생성된 파이프라인 실행을 가져오는 PipelineRun.get_pipeline_runs() 메서드가 추가되었습니다.
-
-#### <a name="project-brainwave"></a>Project Brainwave
- * FPGA에서 사용할 수 있는 새 AI 모델에 대한 지원이 업데이트되었습니다.
++ **Project Brainwave**
+  * FPGA에서 사용할 수 있는 새 AI 모델에 대한 지원이 업데이트되었습니다.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v020"></a>Azure Machine Learning 데이터 준비 SDK v0.2.0
 [버전 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/)에 포함된 기능과 버그 수정은 다음과 같습니다.
 
-**새로운 기능:** 
- * One Hot 인코딩 지원
- * 변 위치 변환 지원
++ **새로운 기능**
+  * One Hot 인코딩 지원
+  * 변 위치 변환 지원
    
-**수정된 버그:**
- * 모든 Tornado 버전에서 작동하므로 Tornado 버전을 다운그레이드할 필요가 없습니다.
- * Value에서 상위 3개 외에도 모든 값의 개수를 계산합니다.
++ **수정된 버그:**
+  * 모든 Tornado 버전에서 작동하므로 Tornado 버전을 다운그레이드할 필요가 없습니다.
+  * Value에서 상위 3개 외에도 모든 값의 개수를 계산합니다.
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09(공개 미리 보기 새로 고침)
 

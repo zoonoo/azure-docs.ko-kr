@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874076"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035196"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>ExpressRoute Global Reach란?
 
@@ -21,7 +21,7 @@ ExpressRoute Global Reach는 Microsoft의 글로벌 네트워크를 통해 Expre
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>ExpressRoute Global Reach를 활성화 또는 비활성화하려면 어떻게 할까요?
 
-ExpressRoute 회로를 연결하여 ExpressRoute Global Reach를 활성화합니다. 회로 연결을 끊어 기능을 해제합니다. 구성을 참조하세요.
+ExpressRoute 회로를 연결하여 ExpressRoute Global Reach를 활성화합니다. 회로 연결을 끊어 기능을 해제합니다. [구성](../articles/expressroute/expressroute-howto-set-global-reach.md)을 참조하세요.
 
 ### <a name="do-i-need-expressroute-premium-for-expressroute-global-reach"></a>ExpressRoute Global Reach에 대해 ExpressRoute 프리미엄이 필요한가요?
 
@@ -36,6 +36,7 @@ ExpressRoute를 사용하면 온-프레미스 네트워크를 Microsoft 클라�
 ExpressRoute Global Reach는 다음 국가에서 지원됩니다. ExpressRoute 회로는 다음 국가에 있는 피어링 위치에서 만들어야 합니다.
 
 * 오스트레일리아
+* 프랑스
 * 홍콩
 * 아일랜드
 * 일본
@@ -58,3 +59,11 @@ ExpressRoute Global Reach는 다음 국가에서 지원됩니다. ExpressRoute �
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>ExpressRoute Global Reach를 활성화한 후 온-프레미스 네트워크 간에 기대할 수 있는 네트워크 처리량은 어느 정도인가요?
 
 ExpressRoute Global Reach로 설정된 온-프레미스 네트워크 간의 네트워크 처리량은 두 ExpressRoute 회로 중 작은 것으로 제한됩니다.
+
+### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>ExpressRoute Global Reach를 사용할 경우 보급할 수 있는 경로 수와 수신하는 경로 수는 몇 개로 제한되나요?
+
+Azure 개인 피어링에 대해 Microsoft로 보급할 수 있는 경로 수는 Standard 회로에서는 4000개, Premium 회로에서는 10,000개로 유지됩니다. Azure 개인 피어링에 대해 Microsoft로부터 수신하는 경로 수는 Azure Virtual Network의 경로와 ExpressRoute Global Reach를 통해 연결된 다른 온-프레미스 네트워크의 경로 수를 합한 것입니다. 온-프레미스 라우터에서 적절한 최대 접두사 제한을 설정해야 합니다. 
+
+### <a name="what-is-the-sla-for-expressroute-global-reach"></a>ExpressRoute Global Reach에 대한 SLA란 무엇인가요?
+
+ExpressRoute Global Reach에서는 동일한 [가용성 SLA](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/)를 일반 ExpressRoute 서비스로 제공합니다.

@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13d1353b0f8b3320972973d428f4aedb0fb68ac8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990691"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212763"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Azure Database for MariaDB 입력 데이터 복제를 구성하는 방법
 
@@ -62,7 +62,7 @@ ms.locfileid: "46990691"
 
    마스터 서버에서 복제 권한으로 구성된 사용자 계정을 만듭니다. 이 작업은 MySQL Workbench와 같은 도구 또는 SQL 명령을 통해 수행할 수 있습니다. 사용자를 만들 때 지정해야 하므로 SSL을 사용하여 복제할지 여부를 고려합니다. 마스터 서버에서 [사용자 계정을 추가](https://mariadb.com/kb/en/library/create-user/)하는 방법을 이해하려면 MariaDB 설명서를 참조하세요. 
 
-   아래 명령에서 새로 생성된 복제 역할은 마스터 서버 자체를 호스트하는 머신뿐 아니라 모든 머신에서 마스터 서버에 액세스할 수 있습니다. 이 작업은 create user 명령에 “syncuser@’%’”를 지정하여 수행합니다. [계정 이름 지정](https://mariadb.com/kb/en/library/create-user/#account-names)에 대한 자세한 내용은 MariaDB 설명서를 참조하세요.
+   아래 명령에서 새로 생성된 복제 역할은 마스터 서버 자체를 호스트하는 머신뿐 아니라 모든 머신에서 마스터 서버에 액세스할 수 있습니다. 이 작업은 create user 명령에 “syncuser\@’%’”를 지정하여 수행합니다. [계정 이름 지정](https://mariadb.com/kb/en/library/create-user/#account-names)에 대한 자세한 내용은 MariaDB 설명서를 참조하세요.
 
    **SQL 명령**
 

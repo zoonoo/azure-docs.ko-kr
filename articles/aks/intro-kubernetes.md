@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ac18b8099b14f29579b35eb8dd2124d2d63f80d7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 196c3cb58eb60922f4898b6919c8393853c6126a
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390077"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094287"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
@@ -101,7 +101,7 @@ AKS(Azure Kubernetes Service)는 Kubernetes 규칙을 따르는 CNCF로 인증�
 
 ## <a name="regulatory-compliance"></a>규정 준수
 
-AKS(Azure Kubernetes Service)는 SOC, ISO 및 PCI DSS와 호환됩니다.
+AKS(Azure Kubernetes Service)는 SOC, ISO, PCI DSS 및 HIPAA와 호환됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

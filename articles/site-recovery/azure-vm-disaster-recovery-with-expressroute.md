@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합 | Microsoft Docs
+title: Azure Site Recovery 서비스를 사용하여 Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합 | Microsoft Docs
 description: Azure Site Recovery 및 Azure ExpressRoute를 사용하여 Azure VM을 위한 재해 복구를 설정하는 방법 설명
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 03fac23ea17a6baa1b43e748a4390cf142661a19
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e7c63fba892f70ca0e18c1bffcda0782316b7ada
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353544"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211556"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합
 

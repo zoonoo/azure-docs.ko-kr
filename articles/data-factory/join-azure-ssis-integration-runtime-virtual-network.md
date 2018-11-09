@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 633717a9f5f74648f7418970dd8047079efe18b9
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649094"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094598"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 다음 시나리오에서 Azure-SSIS IR(통합 런타임)을 Azure 가상 네트워크에 조인합니다. 
@@ -28,6 +28,9 @@ ms.locfileid: "49649094"
 - 가상 네트워크 서비스 엔드포인트/Managed Instance를 사용하여 Azure SQL Database에서 SSIS(SQL Server Integration Services) 카탈로그 데이터베이스를 호스팅하고 있습니다. 
 
  Azure Data Factory를 사용하면 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 만들어진 가상 네트워크에 Azure SSIS 통합 런타임을 조인할 수 있습니다. 
+
+> [!IMPORTANT]
+> 클래식 가상 네트워크는 현재 사용되지 않으므로, 대신 Azure Resource Manager 가상 네트워크를 사용하세요.  이미 클래식 가상 네트워크를 사용하고 있다면, 가능한 한 빨리 Azure Resource Manager 가상 네트워크를 사용하도록 전환하시기 바랍니다.
 
 ## <a name="access-to-on-premises-data-stores"></a>온-프레미스 데이터 저장소 액세스
 SSIS 패키지가 공용 클라우드 데이터 저장소에만 액세스하는 경우 Azure-SSIS IR을 가상 네트워크에 조인할 필요가 없습니다. SSIS 패키지가 온-프레미스 데이터 저장소에 액세스하는 경우 Azure-SSIS IR을 온-프레미스 네트워크에 연결된 가상 네트워크에 조인해야 합니다. 
@@ -46,11 +49,13 @@ SSIS 패키지가 공용 클라우드 데이터 저장소에만 액세스하는 
 SSIS 카탈로그가 가상 네트워크 서비스 엔드포인트 또는 Managed Instance를 사용하여 Azure SQL Database에서 호스팅되는 경우 다음에 Azure-SSIS IR을 조인할 수 있습니다. 
 
 - 동일한 가상 네트워크 
-- 가상 네트워크 서비스 엔드포인트/Managed Instance를 사용하여 Azure SQL Database에서 사용되는 가상 네트워크와의 네트워크 간 연결이 설정된 다른 가상 네트워크 
+- Managed Instance에 사용되는 가상 네트워크와 네트워크 간 연결이 설정된 다른 가상 네트워크. 
 
-Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하는 경우에는 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크에서 가상 네트워크로 연결을 사용하는 것이 좋습니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
+가상 네트워크 서비스 엔드포인트가 있는 Azure SQL Database에서 SSIS 카탈로그를 호스트하는 경우 Azure-SSIS IR을 동일한 가상 네트워크 및 서브넷에 연결해야 합니다.
 
-가상 네트워크는 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 배포할 수 있습니다.
+Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 연결하는 경우 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 연결하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크 간 연결을 사용하는 것이 좋습니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요.
+
+모든 경우에서, 가상 네트워크는 Azure Resource Manager 배포 모델을 통해서만 배포할 수 있습니다.
 
 다음 섹션에 자세한 내용이 제공됩니다. 
 
@@ -73,13 +78,13 @@ Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하�
 
 Azure-SSIS 통합 런타임을 만드는 사용자에게는 다음 권한이 있어야 합니다.
 
-- 현재 버전의 Azure 가상 네트워크에 SSIS IR을 연결하는 경우 다음의 두 가지 옵션을 사용할 수 있습니다.
+- SSIS IR를 Azure Resource Manager 가상 네트워크에 연결하는 경우 다음 두 가지 옵션이 있습니다.
 
-  - 기본 제공 역할인 *네트워크 참가자*를 사용합니다. 그러나 이 역할을 사용하는 경우에는 범위가 훨씬 넓은 *Microsoft.Network/\** 권한이 필요합니다.
+  - 기본 제공 ‘네트워크 참가자’ 역할을 사용합니다. 이 역할에는 범위가 필요 이상으로 큰 *Microsoft.Network/\** 권한이 제공됩니다.
 
-  - *Microsoft.Network/virtualNetworks/\*/join/action* 권한을 포함하는 사용자 지정 역할을 만듭니다. 
+  - 필요한 *Microsoft.Network/virtualNetworks/\*/join/action* 권한만 포함하는 사용자 지정 역할을 만듭니다. 
 
-- 클래식 Azure 가상 네트워크에 SSIS IR을 연결하는 경우에는 기본 제공 역할 *클래식 가상 컴퓨터 참가자*를 사용하는 것이 좋습니다. 그렇지 않은 경우에는 가상 네트워크 연결 권한이 포함된 사용자 지정 역할을 정의해야 합니다.
+- SSIS IR을 클래식 가상 네트워크에 연결하는 경우에는 기본 제공 ‘클래식 가상 머신 참가자’ 역할을 사용하는 것이 좋습니다. 그렇지 않은 경우 가상 네트워크 연결 권한이 포함된 사용자 지정 역할을 정의해야 합니다.
 
 ### <a name="subnet"></a> 서브넷 선택
 -   GatewaySubnet은 가상 네트워크 게이트웨이 전용이므로 Azure SSIS Integration Runtime을 배포할 때는 선택하지 마세요. 

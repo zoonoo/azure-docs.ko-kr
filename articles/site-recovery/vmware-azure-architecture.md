@@ -1,25 +1,26 @@
 ---
-title: Azure Site Recovery의 VMware와 Azure 간 복제 아키텍처 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM을 Azure로 복제할 때 사용되는 구성 요소 및 아키텍처에 대한 개요를 제공합니다.
+title: Azure Site Recovery의 VMware와 Azure 간 재해 복구 아키텍처 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM과 Azure 간 재해 복구를 설정할 때 사용되는 구성 요소 및 아키텍처를 간략하게 설명합니다.
 author: rayne-wiselman
 ms.service: site-recovery
+ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 58129ece0fb1b7f446e5f8d738b5d1135aa0256e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715757"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212389"
 ---
-# <a name="vmware-to-azure-replication-architecture"></a>VMware에서 Azure로 복제 아키텍처
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware와 Azure 간 재해 복구 아키텍처
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware 사이트와 Azure 간에 VMware VM(가상 머신)을 복제, 장애 조치 및 복구할 때 사용되는 아키텍처와 프로세스에 대해 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 온-프레미스 VMware 사이트와 Azure 간에 VMware VM(가상 머신)의 재해 복구 복제, 장애 조치(failover) 및 복구를 배포할 때 사용되는 아키텍처와 프로세스에 대해 설명합니다.
 
 
 ## <a name="architectural-components"></a>아키텍처 구성 요소
 
-다음 표와 그림은 Azure로 VMware를 복제하는 데 사용되는 구성 요소를 개략적으로 보여 줍니다.
+다음 표와 그림은 VMware와 Azure 간 재해 복구에 사용되는 구성 요소를 개략적으로 보여 줍니다.
 
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---

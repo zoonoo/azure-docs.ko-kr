@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/10/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3a2edb898c8053627684818d7fe257fe3402df5f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 601d022917adc71ff3a3c728c7b674ae47a632c4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645476"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238481"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합
 
 Azure Key Vault에서 비밀 값을 검색하여 Resource Manager 배포 중에 비밀 값을 매개 변수로 전달하는 방법을 알아봅니다. 이 값은 해당 Key Vault ID만 참조되기 때문에 절대 노출되지 않습니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./resource-manager-keyvault-parameter.md)을 참조하세요.
 
-이 자습서에서는 [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)에 사용된 것과 동일한 템플릿을 사용하여 가상 머신과 종속 리소스를 만듭니다. 가상 머신 관리자 암호는 Azure Key Vault에서 검색됩니다.
+[리소스 배포 순서 설정](./resource-manager-tutorial-create-templates-with-dependent-resources.md) 자습서에서는 가상 머신, 가상 네트워크 및 기타 종속 리소스를 만듭니다. 이 자습서에서는 Azure Key Vault에서 가상 머신 관리자 암호를 검색하도록 템플릿을 사용자 지정합니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -43,12 +43,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 문서를 완료하려면 다음이 필요합니다.
 
 * [Visual Studio Code](https://code.visualstudio.com/) 및 [Resource Manager 도구 확장](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. 암호를 생성하는 방법에 대한 샘플은 다음과 같습니다.
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault는 암호화 키 및 기타 비밀을 보호하기 위한 것입니다. 자세한 내용은 [자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합](./resource-manager-tutorial-use-key-vault.md)을 참조하세요. 또한 3개월 마다 암호를 업데이트하는 것도 좋습니다.
 
 ## <a name="prepare-the-key-vault"></a>Key Vault 준비
 
 이 섹션에서는 Resource Manager 템플릿을 사용하여 Key Vault 및 비밀을 만듭니다. 이 템플릿은:
 
-* **enabledForTemplateDeployment** 속성이 활성화된 Key Vault를 생성합니다. 템플릿 배포 프로세스가 이 Key Vault에 정의된 비밀에 액세스할 수 있으려면 이 속성이 true여야 합니다.
+* `enabledForTemplateDeployment` 속성이 활성화된 Key Vault를 만듭니다. 템플릿 배포 프로세스가 이 Key Vault에 정의된 비밀에 액세스할 수 있으려면 이 속성이 true여야 합니다.
 * Key Vault에 비밀을 추가합니다.  비밀에는 가상 머신 관리자 암호가 저장됩니다.
 
 가상 머신 템플릿을 배포하는 사용자가 Key Vault의 소유자나 기여자가 아닌 경우에는, Key Vault의 소유자나 기여자가 Key Vault에 대한 Microsoft.KeyVault/vaults/deploy/action 권한에 대한 액세스를 해당 사용자에게 반드시 부여해야 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](./resource-manager-keyvault-parameter.md)을 참조하세요.
@@ -58,7 +64,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 1. 다음 Azure PowerShell 또는 Azure CLI 명령을 실행합니다.  
 
     ```azurecli-interactive
-    az ad user show --upn-or-object-id "<Your User Principle Name>" --query "objectId"
+    echo "Enter your email address that is associated with your Azure subscription):" &&
+    read upn &&
+    az ad user show --upn-or-object-id $upn --query "objectId" &&
     openssl rand -base64 32
     ```
     ```azurepowershell-interactive
@@ -95,21 +103,21 @@ Key Vault를 만들려면:
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment`는 Key Vault 속성입니다. 배포하는 동안 이 Key Vault에서 비밀을 검색할 수 있으려면 이 속성이 true여야 합니다. 
+    `enabledForTemplateDeployment`는 Key Vault 속성입니다. 배포하는 동안 이 Key Vault에서 비밀을 검색할 수 있으려면 이 속성이 true여야 합니다.
 6. 89번 줄로 이동합니다. Key Vault 비밀 정의입니다.
 7. 페이지 아래쪽에서 **삭제**를 선택합니다. 변경은 하지 않습니다.
 8. 이전 스크린샷과 같이 모든 값을 입력했는지 확인한 다음, 페이지 맨 아래에서 **구매**를 클릭합니다.
 9. 페이지 상단에서 벨 아이콘(알림)을 선택하여 **알림** 창을 엽니다. 리소스 배포가 완료될 때까지 기다립니다.
-8. **알림** 창에서 **리소스 그룹으로 이동**을 선택합니다. 
-9. Key Vault 이름을 선택하여 엽니다.
-10. 왼쪽 창에서 **액세스 정책**을 선택합니다. 내 이름(Active Directory)이 나열되어야 하며, 그렇지 않으면 키 저장소에 액세스할 수 있는 권한이 없습니다.
-11. **클릭하여 고급 액세스 정책 표시**를 선택합니다. **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**이 선택되어 있는지 확인합니다. 이것은 Key Vault 통합이 작동하기 위한 또 다른 조건입니다.
+10. **알림** 창에서 **리소스 그룹으로 이동**을 선택합니다. 
+11. Key Vault 이름을 선택하여 엽니다.
+12. 왼쪽 창에서 **액세스 정책**을 선택합니다. 내 이름(Active Directory)이 나열되어야 하며, 그렇지 않으면 키 저장소에 액세스할 수 있는 권한이 없습니다.
+13. **클릭하여 고급 액세스 정책 표시**를 선택합니다. **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**이 선택되어 있는지 확인합니다. 이것은 Key Vault 통합이 작동하기 위한 또 다른 조건입니다.
 
-    ![Resource Manager 템플릿 Key Vault 통합 액세스 정책](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)    
-12. 왼쪽 창에서 **속성**을 선택합니다.
-13. **리소스 ID**의 복사본을 만들어 둡니다. 이 ID는 가상 머신을 배포할 때 필요합니다.  리소스 ID 형식은 다음가 같습니다.
+    ![Resource Manager 템플릿 Key Vault 통합 액세스 정책](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
+14. 왼쪽 창에서 **속성**을 선택합니다.
+15. **리소스 ID**의 복사본을 만들어 둡니다. 이 ID는 가상 머신을 배포할 때 필요합니다.  리소스 ID 형식은 다음가 같습니다.
 
-    ```
+    ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
     ```
 
@@ -124,8 +132,17 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. **열기**를 선택하여 파일을 엽니다. [자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기](./resource-manager-tutorial-create-templates-with-dependent-resources.md)에 사용된 시나리오와 동일한 시나리오입니다.
-4. **파일**>**다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 **azuredeploy.json**이라는 이름으로 저장합니다.
-5. 1~4단계를 반복하여 다음 URL을 연 다음 파일을 **azuredeploy.parameters.json**으로 저장합니다.
+4. 템플릿에 5개 리소스가 정의되어 있습니다.
+
+    * `Microsoft.Storage/storageAccounts` [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)를 참조하세요.
+    * `Microsoft.Network/publicIPAddresses` [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)를 참조하세요.
+    * `Microsoft.Network/virtualNetworks` [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)를 참조하세요.
+    * `Microsoft.Network/networkInterfaces` [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)를 참조하세요.
+    * `Microsoft.Compute/virtualMachines` [템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
+
+    템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
+5. **파일**>**다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 **azuredeploy.json**이라는 이름으로 저장합니다.
+6. 1~4단계를 반복하여 다음 URL을 연 다음 파일을 **azuredeploy.parameters.json**으로 저장합니다.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
@@ -190,7 +207,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Key Vault에서 비밀을 검색하여 템플릿 배포에 사용했습니다.  연결된 템플릿을 만드는 방법을 알아보려면 다음을 참조하세요.
+이 자습서에서는 Azure Key Vault에서 비밀을 검색하여 템플릿 배포에 이 비밀을 사용했습니다.  연결된 템플릿을 만드는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [연결된 템플릿 만들기](./resource-manager-tutorial-create-linked-templates.md)

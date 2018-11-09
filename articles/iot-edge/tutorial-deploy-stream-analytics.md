@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2d22e995f489a6379a2f134b461b8bb17160919e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b85fe520bf29d10bb3dac1246349abbdadaf6df3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113838"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158740"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포(미리 보기)
 
-많은 IoT 솔루션에서는 분석 서비스를 사용하여 IoT 장치에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 얻습니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics][azure-stream] 논리를 가져와서 장치 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
+많은 IoT 솔루션에서는 분석 서비스를 사용하여 IoT 장치에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 얻습니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) 논리를 가져와서 장치 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
 
 Azure IoT Edge와 Azure Stream Analytics가 통합되어 Azure Portal에서 Azure Stream Analytics 작업을 만든 다음, 추가 코드 없이 IoT Edge 모듈로 배포할 수 있습니다.  
 
@@ -207,7 +207,7 @@ IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업�
 
     IoT Edge 에이전트 모듈 및 IoT Edge Hub와 함께 실행되는 새로운 Stream Analytics 모듈이 표시됩니다.
 
-    ![모듈 출력][7]
+    ![모듈 출력](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>데이터 보기
 
@@ -219,7 +219,7 @@ IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업�
    iotedge list  
    ```
 <!--
-   ![Docker output][8]
+   ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
 -->
 1. 모든 시스템 로그 및 메트릭 데이터를 봅니다. Stream Analytics 모듈 이름을 사용합니다.
 
@@ -229,7 +229,7 @@ IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업�
 
 30초 동안 70도에 도달할 때까지 컴퓨터의 온도가 점차 상승하는 것을 볼 수 있어야 합니다. 그러면 Stream Analytics 모듈이 재설정을 트리거하고 컴퓨터 온도가 21도로 떨어집니다. 
 
-   ![Docker 로그][9]
+   ![Docker 로그](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
@@ -247,29 +247,4 @@ IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업�
 이 자습서에서는 IoT Edge 장치의 데이터를 분석하도록 Azure Stream Analytics 작업을 구성했습니다. 그런 다음, 이 Azure Stream Analytics 모듈을 IoT Edge 장치에 로드하여 온도 상승을 로컬에서 처리하고, 이에 대응하며, 집계된 데이터 스트림을 클라우드로 보냈습니다. Azure IoT Edge에서 추가 업무용 솔루션을 만드는 방법을 확인하려는 경우 다른 자습서를 계속 진행할 수 있습니다.
 
 > [!div class="nextstepaction"] 
-> [Azure Machine Learning 모델을 모듈로 배포][lnk-ml-tutorial]
-
-<!-- Images. -->
-[4]: ./media/tutorial-deploy-stream-analytics/add_device.png
-[5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
-[6]: ./media/tutorial-deploy-stream-analytics/set_module.png
-[7]: ./media/tutorial-deploy-stream-analytics/module_output2.png
-[8]: ./media/tutorial-deploy-stream-analytics/docker_output.png
-[9]: ./media/tutorial-deploy-stream-analytics/docker_log.png
-[10]: ./media/tutorial-deploy-stream-analytics/storage_settings.png
-[11]: ./media/tutorial-deploy-stream-analytics/temp_module.png
-
-
-<!-- Links -->
-[lnk-what-is-iot-edge]: what-is-iot-edge.md
-[lnk-module-dev]: module-development.md
-[iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
-[azure-iot]: https://docs.microsoft.com/azure/iot-hub/
-[azure-storage]: https://docs.microsoft.com/azure/storage/
-[azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-quickstart-win]: quickstart.md
-[lnk-quickstart-lin]: quickstart-linux.md
-[lnk-module-tutorial]: tutorial-csharp-module.md
-[lnk-ml-tutorial]: tutorial-deploy-machine-learning.md
-
+> [Azure Machine Learning 모델을 모듈로 배포](tutorial-deploy-machine-learning.md)

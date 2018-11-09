@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 10/26/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1f9e5885e79e184b621ba2be7e2a8f329e31a6b1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 563c7a74d307a2c842680a031cf74b4a05ba800f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284492"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138561"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>자습서: IoT 장치 모니터링
 
@@ -31,7 +31,7 @@ ms.locfileid: "39284492"
 > * 장치에서 경고 보기
 > * 시스템 KPI 보기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [![대시보드의 트럭에 대한 필터](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-필터를 적용하면 필터 조건과 일치하는 장치만 **대시보드** 페이지의 맵 및 원격 분석 패널에 표시됩니다. truck-02를 포함한 트럭 두 대가 솔루션 가속기에 연결된 것을 볼 수 있습니다.
+필터를 적용하는 경우 필터 조건과 일치하는 장치만 맵과 원격 분석 패널에 대시보드 페이지의 맵에 표시됩니다. truck-02를 포함한 트럭 두 대가 솔루션 가속기에 연결된 것을 볼 수 있습니다.
 
 [![맵에 트럭만 표시됩니다.](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 

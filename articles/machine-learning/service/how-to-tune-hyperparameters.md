@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430022"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140809"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>모델에 대한 하이퍼 매개 변수 튜닝
 
@@ -238,16 +238,18 @@ early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, trun
 
 ### <a name="no-termination-policy"></a>종료 정책 없음
 
-모든 학습 실행을 완료될 때까지 실행하려는 경우 NoTerminationPolicy를 사용합니다. 초기 종료 정책이 적용되지 않습니다.
+모든 학습 실행을 완료될 때까지 실행하려는 경우 정책을 None으로 설정합니다. 초기 종료 정책이 적용되지 않습니다.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### <a name="default-policy"></a>기본 정책
 
-정책이 지정되지 않은 경우 하이퍼 매개 변수 튜닝 서비스는 기본적으로 `evaluation_interval` 1 및 `delay_evaluation` 5로 중앙값 중지 정책을 사용합니다. 이는 일반적인 설정이며, 기본 메트릭에서 손실 없이 약 25%-35% 절감을 제공할 수 있습니다(계산 데이터에 따라).
+정책을 지정하지 않은 하이퍼 매개 변수 조정 서비스는 모든 학습이 완료될 때까지 실행되도록 합니다.
+
+>[!NOTE] 
+>가능성이 높은 작업을 종료하지 않고 비용 절감을 제공하는 보수적인 정책을 원하는 경우 `evaluation_interval` 1 및 `delay_evaluation` 5의 중앙값 중지 정책을 사용할 수 있습니다. 이는 일반적인 설정이며, 기본 메트릭에서 손실 없이 약 25%-35% 절감을 제공할 수 있습니다(계산 데이터에 따라).
 
 ## <a name="allocate-resources"></a>리소스 할당
 

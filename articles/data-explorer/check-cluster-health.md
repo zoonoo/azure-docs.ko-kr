@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0746247d2c912ba66e81b95f45b168e32b522130
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d07873b34a41ff20b5007a88743f6b150d4d8a3d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988430"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212831"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Azure 데이터 탐색기 클러스터의 상태 확인
 
@@ -35,6 +35,8 @@ Azure 데이터 탐색기 클러스터의 상태에 영향을 주는 요인으�
 
     ![클러스터 연결 유지 메트릭](media/check-cluster-health/portal-metrics.png)
 
-1. CPU 및 메모리 캐싱 등의 다른 트릭을 추가하여 클러스터의 리소스 사용률을 측정합니다.
+1. 차트에 다른 메트릭을 추가할 수 있습니다. 차트를 선택하고 **메트릭을 추가**합니다. 다른 메트릭을 선택합니다(이 예제에서는 **CPU** 표시).
 
-1. 클러스터 상태 문제 진단과 관련하여 지원이 필요한 경우에는 [Azure Portal](https://portal.azure.com)에서 지원 요청을 개설하세요.
+    ![메트릭 추가](media/check-cluster-health/add-metric.png)
+
+1. 클러스터 상태 문제 진단과 관련하여 지원이 필요한 경우에는 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 지원 요청을 개설하세요.

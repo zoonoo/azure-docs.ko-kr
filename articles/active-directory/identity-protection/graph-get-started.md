@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3bdf44e0a1cf0ccda6d015fa3683964f3530d4af
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3cbded3224e7622d13e7af362cb3532a1813787e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003486"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242163"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
-Microsoft Graph는 Microsoft의 통합된 API 끝점이며 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) API의 시작점입니다. 첫 번째 API인 **identityRiskEvents**를 사용하면 [위험 이벤트](../reports-monitoring/concept-risk-events.md) 및 관련 정보의 목록에 대한 Microsoft Graph를 쿼리할 수 있습니다. 이 문서는 이 API를 쿼리하는 작업부터 시작합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/)를 참조하세요.
+Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) API의 시작점입니다. 첫 번째 API인 **identityRiskEvents**를 사용하면 [위험 이벤트](../reports-monitoring/concept-risk-events.md) 및 관련 정보의 목록에 대한 Microsoft Graph를 쿼리할 수 있습니다. 이 문서는 이 API를 쿼리하는 작업부터 시작합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/)를 참조하세요.
 
 
 Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 단계가 있습니다.
@@ -33,12 +33,15 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 1. 도메인 이름을 검색합니다.
 2. 새 앱 등록을 만듭니다. 
 2. 이 암호와 다른 몇 가지 정보를 사용하여 Microsoft Graph에 인증하면 인증 토큰을 받게됩니다. 
-3. 이 토큰을 사용하여 API 끝점에 요청을 수행하고 ID 보호 데이터를 다시 가져옵니다.
+3. 이 토큰을 사용하여 API 엔드포인트에 요청을 수행하고 ID 보호 데이터를 다시 가져옵니다.
 
 시작하기 전에 다음 항목이 필요합니다.
 
-* Azure AD에서 응용 프로그램을 만드는 관리자 권한
-* 테넌트의 도메인 이름(예: contoso.onmicrosoft.com)
+- Azure AD P2 테넌트
+
+- Azure AD에서 응용 프로그램을 만드는 관리자 권한
+
+- 테넌트의 도메인 이름(예: contoso.onmicrosoft.com)
 
 
 ## <a name="retrieve-your-domain-name"></a>도메인 이름 검색 
@@ -49,12 +52,14 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
    
     ![응용 프로그램 만들기](./media/graph-get-started/41.png)
 
+3. **사용자 지정 도메인 이름**을 클릭합니다.
 
-3. **관리** 섹션에서 **속성**을 클릭합니다.
+    ![사용자 지정 도메인 이름](./media/graph-get-started/71.png)
 
-    ![응용 프로그램 만들기](./media/graph-get-started/42.png)
+4. 도메인 이름의 목록에서 플래그가 기본으로 지정된 도메인 이름을 복사합니다.
 
-4. 도메인 이름을 복사합니다.
+    ![사용자 지정 도메인 이름](./media/graph-get-started/72.png)
+
 
 
 ## <a name="create-a-new-app-registration"></a>새 앱 등록 만들기
@@ -74,7 +79,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
     a. **이름** 텍스트 상자에 응용 프로그램의 이름으 입력합니다(예: AADIP 위험 이벤트 API 응용 프로그램).
    
-    b. **유형**으로 **웹 응용 프로그램 및/또는 Web API**를 선택합니다.
+    b. **응용 프로그램 유형**에 **웹 응용 프로그램 및/또는 Web API**를 선택합니다.
    
     다. **로그온 URL** 텍스트 상자에 `http://localhost`을(를) 입력합니다.
 
@@ -168,7 +173,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 성공하면 인증 토큰을 반환합니다.  
 API를 호출하려면 다음 매개 변수를 사용하여 헤더를 만듭니다.
 
-    `Authorization`=”<token_type> <access_token>"
+    `Authorization`="<token_type> <access_token>"
 
 
 인증할 경우 반환된 토큰에서 토큰 유형 및 액세스 토큰을 찾을 수 있습니다.

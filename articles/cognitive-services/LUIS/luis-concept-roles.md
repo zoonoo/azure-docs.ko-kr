@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: fea70e2b1912bde94e23dbd98fa933784d2a69ac
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638087"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140318"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>패턴의 엔터티 역할은 컨텍스트 하위 형식입니다.
 역할은 [패턴](luis-concept-patterns.md)에서만 사용되는 엔터티의 명명된 컨텍스트 하위 형식입니다.
@@ -42,13 +42,8 @@ ms.locfileid: "49638087"
 ## <a name="role-syntax-in-patterns"></a>패턴의 역할 구문
 엔터티 및 역할은 괄호(`{}`)로 묶습니다. 엔터티 및 역할은 콜론으로 구분됩니다. 
 
-## <a name="roles-versus-hierarchical-entities"></a>역할 및 계층 구조 엔터티
-계층 구조 엔터티는 역할과 동일한 컨텍스트 정보를 제공하지만 **의도**의 발화에 대한 컨텍스트 정보만 제공합니다. 마찬가지로 역할은 계층 구조 엔터티와 동일한 컨텍스트 정보를 제공하지만 **패턴**의 컨텍스트 정보만 제공합니다.
 
-|컨텍스트 학습|사용 위치|
-|--|--|
-|계층 구조 엔터티|의도|
-|roles|패턴|
+[!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## <a name="roles-with-prebuilt-entities"></a>미리 작성된 엔터티와 역할
 
@@ -60,4 +55,4 @@ ms.locfileid: "49638087"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [역할](luis-how-to-add-entities.md#add-role-to-pattern-based-entity)을 추가하는 방법 알아보기
+* [역할](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)을 추가하는 방법 알아보기

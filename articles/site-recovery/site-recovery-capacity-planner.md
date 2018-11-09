@@ -1,27 +1,20 @@
 ---
-title: Azure에서 복제 용량 추정 | Microsoft Docs
-description: 이 문서를 사용하여 Azure Site Recovery로 복제할 때 용량을 추정합니다.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery를 사용하여 Hyper-V 재해 복구에 대한 용량 계획 | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용하여 재해 복구를 설정하는 경우 이 문서를 사용하여 용량을 추정합니다.
 author: rayne-wiselman
-manager: jwhit
-editor: ''
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/11/2018
-ms.author: nisoneji
-ms.openlocfilehash: 3df7bd5ed44bdf514d48e451468329bd11fdf596
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: f600471e8a3602628a5040051f382e6e020f29d5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094040"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211420"
 ---
-# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Site Recovery를 사용하여 Hyper-V VM을 보호하기 위한 용량 계획
+# <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM에 재해 복구에 대한 용량 계획 
 
 이제 [Hyper-V에서 Azure 배포로 Azure Site Recovery Deployment Planner](site-recovery-hyper-v-deployment-planner.md)의 향상된 새 버전을 사용할 수 있습니다. 새 버전은 이전 도구를 대체합니다. 배포 계획에 새 도구를 사용합니다.
 이 도구는 다음과 같은 지침을 제공합니다.

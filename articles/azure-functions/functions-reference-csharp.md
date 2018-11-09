@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: d8f27063b68ed58b9ac34219d806c1cf8165ea8c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 2d68a1728e964395fbf0f9f7433e2c04b4f94f6b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026027"
+ms.locfileid: "50087582"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
 
@@ -81,12 +81,13 @@ Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인�
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
 
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Queue;
 using System;
 
-public static void Run(CloudQueueMessage myQueueItem, TraceWriter log)
+public static void Run(CloudQueueMessage myQueueItem, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem.AsString}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem.AsString}");
 }
 ```
 
@@ -128,9 +129,11 @@ POCO 클래스에는 각 속성에 대해 정의된 Getter 및 setter가 있어�
 ```csharp
 #load "mylogger.csx"
 
-public static void Run(TimerInfo myTimer, TraceWriter log)
+using Microsoft.Extensions.Logging;
+
+public static void Run(TimerInfo myTimer, ILogger log)
 {
-    log.Verbose($"Log by run.csx: {DateTime.Now}");
+    log.LogInformation($"Log by run.csx: {DateTime.Now}");
     MyLogger(log, $"Log by MyLogger: {DateTime.Now}");
 }
 ```
@@ -138,9 +141,9 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 예제 *mylogger.csx*:
 
 ```csharp
-public static void MyLogger(TraceWriter log, string logtext)
+public static void MyLogger(ILogger log, string logtext)
 {
-    log.Verbose(logtext);
+    log.LogInformation(logtext);
 }
 ```
 
@@ -152,12 +155,13 @@ HTTP 트리거를 위한 *run.csx* 예제:
 #load "..\shared\order.csx"
 
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Order> outputQueueItem, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Order> outputQueueItem, ILogger log)
 {
-    log.Info("C# HTTP trigger function received an order.");
-    log.Info(req.ToString());
-    log.Info("Submitting to processing queue.");
+    log.LogInformation("C# HTTP trigger function received an order.");
+    log.LogInformation(req.ToString());
+    log.LogInformation("Submitting to processing queue.");
 
     if (req.orderId == null)
     {
@@ -177,11 +181,12 @@ public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Ord
 #load "..\shared\order.csx"
 
 using System;
+using Microsoft.Extensions.Logging;
 
-public static void Run(Order myQueueItem, out Order outputQueueItem,TraceWriter log)
+public static void Run(Order myQueueItem, out Order outputQueueItem, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed order...");
-    log.Info(myQueueItem.ToString());
+    log.LogInformation($"C# Queue trigger function processed order...");
+    log.LogInformation(myQueueItem.ToString());
 
     outputQueueItem = myQueueItem;
 }
@@ -230,7 +235,7 @@ public class Order
 이 예제에서는 `ICollector`를 사용하여 동일한 큐에 여러 큐 메시지를 씁니다.
 
 ```csharp
-public static void Run(ICollector<string> myQueue, TraceWriter log)
+public static void Run(ICollector<string> myQueue, ILogger log)
 {
     myQueue.Add("Hello");
     myQueue.Add("World!");
@@ -239,14 +244,12 @@ public static void Run(ICollector<string> myQueue, TraceWriter log)
 
 ## <a name="logging"></a>로깅
 
-C#의 스트리밍 로그에 대한 출력을 기록하려면 `TraceWriter` 형식의 인수를 포함합니다. 이름을 `log`로 하는 것이 좋습니다. Azure Functions에서 `Console.Write`를 사용하지 마세요. 
-
-`TraceWriter`는 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs)에 정의되어 있습니다. `TraceWriter`에 대한 로그 수준은 [host.json](functions-host-json.md)에서 구성할 수 있습니다.
+C#의 스트리밍 로그에 대한 출력을 기록하려면 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 포함합니다. 이름을 `log`로 하는 것이 좋습니다. Azure Functions에서 `Console.Write`를 사용하지 마세요.
 
 ```csharp
-public static void Run(string myBlob, TraceWriter log)
+public static void Run(string myBlob, ILogger log)
 {
-    log.Info($"C# Blob trigger function processed: {myBlob}");
+    log.LogInformation($"C# Blob trigger function processed: {myBlob}");
 }
 ```
 
@@ -305,8 +308,9 @@ public static void Run(
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 ```
 
 다음 네임스페이스를 자동으로 가져오므로 다음은 선택적입니다.
@@ -330,8 +334,9 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 ```
 
 다음 어셈블리는 Azure Functions 호스팅 환경에 의해 자동으로 추가됩니다.
@@ -422,11 +427,11 @@ Azure Functions 1.x에서는 .NET Framework 4.6만 지원되므로 *project.json
 환경 변수 또는 앱 설정 값을 가져오려면 다음 코드 예제와 같이 `System.Environment.GetEnvironmentVariable`을 사용합니다.
 
 ```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+public static void Run(TimerInfo myTimer, ILogger log)
 {
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-    log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
-    log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation(GetEnvironmentVariable("AzureWebJobsStorage"));
+    log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
 }
 
 public static string GetEnvironmentVariable(string name)

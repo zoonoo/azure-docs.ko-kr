@@ -1,5 +1,5 @@
 ---
-title: VM용 Azure Monitor를 사용하여 가상 머신 상태 모니터링| Microsoft Docs
+title: VM용 Azure Monitor(미리 보기)를 사용하여 가상 머신 상태 모니터링| Microsoft Docs
 description: 이 문서에서는 VM용 Azure Monitor를 사용하여 가상 머신 및 기본 운영 체제의 상태를 이해하는 방법에 대해 설명합니다.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387824"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094230"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>VM용 Azure Monitor를 사용하여 Azure 가상 머신의 상태 이해하기
+# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 Azure 가상 머신의 상태 이해하기
 Azure에는 모니터링 공간에서 개별적으로 특정 역할이나 작업을 수행하는 여러 서비스가 포함되지만, Azure 가상 머신에서 호스팅되는 운영 체제에 대한 심층적인 상태 관점 뷰는 제공되지 않았습니다.  Log Analytics나 Azure Monitor를 사용하여 다양한 조건을 모니터링할 수 있지만 핵심 구성 요소 상태나 가상 머신의 전반적인 상태를 모델링하고 나타내도록 설계되지 않았습니다.  VM용 Azure Monitor 상태 기능을 사용하면 주요 구성 요소와 이들의 관계, 구성 요소의 상태를 측정하는 방법을 지정하는 기준이 되는 모델을 사용하여 Windows 또는 Linux 게스트 OS의 가용성 및 성능을 사전에 모니터링하고 비정상 상태가 감지되면 경고를 표시합니다.  
 
 Azure VM 및 기본 운영 체제의 전반적인 상태를 보려면 VM용 Azure Monitor 상태의 두 가지 관점 보기에서 관찰할 수 있습니다. 가상 머신에서 직접 관찰하거나 Azure Monitor의 리소스 그룹에 있는 모든 VM에서 관찰할 수 있습니다.
@@ -35,7 +35,7 @@ VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 
 
 ### <a name="windows-vms"></a>Windows VM
 
-- 메모리의 사용 가능 메가바이트 
+- 메모리의 사용 가능 메가바이트 
 - 쓰기(논리 디스크)당 평균 디스크 시간(초)
 - 쓰기(디스크)당 평균 디스크 시간(초)
 - 읽기당 평균 논리적 디스크 시간(초)

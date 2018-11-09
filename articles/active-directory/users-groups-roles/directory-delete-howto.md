@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142840"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139689"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Azure Active Directory 테넌트 삭제
 테넌트가 삭제되는 경우 테넌트에 포함된 모든 리소스도 삭제됩니다. 삭제하기 전에 연결된 리소스를 최소화하여 테넌트를 준비해야 합니다. Azure AD(Azure Active Directory) 전역 관리자만 포털에서 Azure AD 테넌트를 삭제할 수 있습니다.

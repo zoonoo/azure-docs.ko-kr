@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a17fe8ed47384ed248b339643be11269b8b9cdc0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364345"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092188"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -33,8 +33,9 @@ IoT 장치를 안전하게 보호하기 위한 몇 가지 주요 사례는 다�
 > [!div class="checklist"]
 > * 변조 방지 방식으로 IoT 영역에 연결된 각 장치를 보호합니다.
 > * IoT 영역 내에서 각 장치, 센서 및 개인의 역할을 제한합니다. 보안이 침해된 경우에는 영향을 최소화합니다.
-> * 필요에 따라 장치 IP 주소 필터링을 사용합니다.
+> * 장치 IP 주소 필터링 및 포트 제한을 사용할 수 있습니다.
 > * 성능 향상을 위해 I/O 및 장치 대역폭을 제한합니다. 속도 제한으로 서비스 거부 공격을 방지하여 보안을 향상시킬 수 있습니다.
+> * 장치 펌웨어를 최신 상태로 유지합니다.
 
 IoT 영역을 안전하게 보호하기 위한 몇 가지 주요 사례는 다음과 같습니다.
 
@@ -55,7 +56,7 @@ Azure Digital Twins는 Azure Active Directory를 사용하여 사용자를 인�
 
 > [!div class="checklist"]
 > * Azure Active Directory 앱 비밀 및 키를 [Key Vault](https://azure.microsoft.com/services/key-vault/)와 같은 보안 위치에 저장합니다.
-> * 인증을 위해 앱 비밀이 아닌 신뢰할 수 있는 [인증 기관](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started)이 발행한 인증서를 사용합니다.
+> * 인증을 위해 앱 비밀이 아닌 신뢰할 수 있는 [인증 기관](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started)에서 발행한 인증서를 사용합니다.
 > * 토큰의 OAuth 2.0 액세스 범위를 제한합니다.
 > * 토큰 유효 기간과 토큰이 유효한 상태인지 여부를 확인합니다.
 > * 토큰의 적절한 유효 기간을 설정합니다.

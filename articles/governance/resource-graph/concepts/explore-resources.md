@@ -4,16 +4,16 @@ description: Resource Graph 쿼리 언어를 사용하여 리소스를 탐색하
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f488dfad8a38bbfab3b5b74e5b504463af09c089
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bcd25b95d1369ef98662384945123126ebbbd70f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645935"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086899"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색
 
@@ -21,7 +21,7 @@ Azure Resource Graph에서는 원하는 범위에서 Azure 리소스를 빠르�
 
 ## <a name="explore-virtual-machines"></a>가상 머신 탐색
 
-Azure에서 흔히 사용되는 리소스 중 하나로 가상 머신이 있습니다. 리소스의 한 종류인 가상 머신에는 쿼리 가능한 여러 가지 속성이 있습니다. 각 속성은 원하는 리소스를 정확하게 찾거나 필터링하는 데 사용할 수 있는 옵션을 제공합니다.
+Azure에서 흔히 사용되는 리소스 중 하나로 가상 머신이 있습니다. 리소스 종류인 가상 머신에는 쿼리 가능한 여러 가지 속성이 있습니다. 각 속성은 원하는 리소스를 정확하게 찾거나 필터링하는 데 사용할 수 있는 옵션을 제공합니다.
 
 ### <a name="virtual-machine-discovery"></a>가상 머신 검색
 
@@ -240,7 +240,7 @@ Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' an
 
 ### <a name="managed-disk-discovery"></a>관리 디스크 검색
 
-이전 쿼리의 첫 번째 레코드에서 첫 번째 가상 머신에 연결되어 있었던 관리 디스크에 있는 속성을 살펴보겠습니다. 업데이트된 쿼리는 디스크 ID를 사용하며 유형을 변경합니다.
+이전 쿼리의 첫 번째 레코드를 사용하여 첫 번째 가상 머신에 연결된 관리 디스크에 있는 속성을 살펴보겠습니다. 업데이트된 쿼리는 디스크 ID를 사용하고 유형을 변경합니다.
 
 이전 쿼리의 예제 출력을 예로 살펴보겠습니다.
 
@@ -314,7 +314,7 @@ JSON 결과는 다음 예제와 비슷한 구조로 되어 있습니다.
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>가상 머신을 탐색하여 공용 IP 주소 찾기
 
-여러 단계로 구성된 이 Azure CLI 쿼리 집합은 먼저 가상 머신에 연결된 모든 NIC(네트워크 인터페이스) 리소스를 찾아서 저장하고, NIC 목록을 사용해 공용 IP 주소인 각 IP 주소 리소스를 찾아 해당 값을 저장한 다음, 마지막으로 실제 공용 IP 주소 목록을 제공합니다.
+이 Azure CLI 쿼리 집합은 먼저 가상 머신에 연결된 모든 NIC(네트워크 인터페이스) 리소스를 찾아 저장합니다. 그런 다음, NIC 목록을 사용하여 공용 IP 주소인 각 IP 주소 리소스를 찾아 해당 값을 저장합니다. 마지막으로, 공용 IP 주소 목록을 제공합니다.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nic' variable
@@ -324,7 +324,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 cat nics.txt
 ```
 
-`nics.txt` 파일이 생성되면 다음 쿼리에서 해당 파일을 사용하여 관련 네트워크 인터페이스 리소스 세부 정보를 가져옵니다. 이 세부 정보에 NIC에 연결된 공용 IP 주소가 포함되어 있습니다.
+다음 쿼리에서 `nics.txt` 파일을 사용하여 관련 네트워크 인터페이스 리소스 정보를 가져옵니다. 이 세부 정보에 NIC에 연결된 공용 IP 주소가 포함되어 있습니다.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file

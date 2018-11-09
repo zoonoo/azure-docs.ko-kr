@@ -1,22 +1,21 @@
 ---
-title: Site Recovery를 사용하여 공용 IP 주소 설정 | Microsoft Docs
-description: 재해 복구 및 마이그레이션용으로 Azure Site Recovery 및 Azure Traffic Manager를 사용하여 공용 IP 주소를 설정하는 방법을 설명합니다.
+title: Azure Site Recovery를 통해 장애 조치(failover) 후 공용 IP 주소 사용 | Microsoft Docs
+description: 재해 복구 및 마이그레이션을 위해 Azure Site Recovery 및 Azure Traffic Manager를 사용하여 공용 IP 주소를 설정하는 방법 설명
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mayg
-ms.openlocfilehash: fd17c786515a6db1f8aa5c1aff7c0dcd42ed7dc6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 80c38ecc766d60fba578e877998aeb216ea66012
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435830"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215279"
 ---
-# <a name="public-ip-address-with-site-recovery"></a>Site Recovery를 사용하여 공용 IP 주소 설정
+# <a name="set-up-public-ip-addresses-after-failover"></a>장애 조치(failover) 후 공용 IP 주소 설정
 
 공용 IP 주소를 통해 인터넷 리소스가 Azure 리소스에 대한 인바운드와 통신할 수 있습니다. 또한 공용 IP 주소를 사용하면 Azure 리소스가 리소스에 할당된 IP 주소에 인터넷 및 공용 Azure 서비스에 대한 아웃바운드와 통신할 수 있습니다.
 - Azure Virtual Machines (VM), Azure Application Gateways, Azure Load Balancer, Azure VPN Gateways 등 인터넷에서 리소스로 인바운드 통신. VM에 공용 IP 주소가 할당되어 있지 않은 경우라도 VM이 부하 분산 장치 백엔드 풀의 일부이고 부하 분산 장치에 공용 IP 주소가 할당되어 있는 한, 인터넷에서 VM 등의 일부 리소스와 계속 통신할 수 있습니다.

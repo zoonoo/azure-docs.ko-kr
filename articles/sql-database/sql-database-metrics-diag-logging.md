@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 775883d575a87758f563bd8dae8e5a726cd8ed36
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 8f66c95202e0ccdef86f9630f7a98c20023a8955
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959080"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087749"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 
@@ -29,12 +29,20 @@ Azure SQL Database, 탄력적 풀, Managed Instance 및 Managed Instance의 데�
 
     ![아키텍처](./media/sql-database-metrics-diag-logging/architecture.png)
 
-다양한 Azure 서비스에서 지원되는 메트릭 및 로그 범주를 이해하려면 다음 항목을 읽어보세요.
+다양한 Azure 서비스에서 지원되는 메트릭 및 로그 범주를 이해하기 위해 다음 항목을 읽어볼 수 있습니다.
 
 * [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Azure 진단 로그 개요](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
- 다음 방법 중 하나를 사용하여 데이터베이스에 대한 메트릭 및 진단 원격 분석 로깅을 사용하도록 설정하고 관리할 수 있습니다.
+## <a name="enable-logging-of-diagnostics-telemetry"></a>진단 원격 분석의 로깅 사용
+
+데이터베이스에 대해 진단 원격 분석을 사용하려면 이 문서의 첫 번째 섹션을 사용하고, 탄력적 풀 또는 Managed Instance에 대해 진단 원격 분석을 사용하려면 문서의 두 번째 부분을 사용합니다. Azure SQL Analytics를 스트리밍된 데이터베이스 진단 원격 분석을 볼 수 있는 모니터링 도구로 구성하려면 이 문서의 뒷부분에 나오는 섹션을 사용합니다.
+
+> [!NOTE]
+> 데이터베이스에 대해 진단 원격 분석을 사용하도록 설정하는 것 외에, 탄력적 풀 또는 Managed Instance를 사용하는 경우 이러한 리소스에 대해 진단 원격 분석을 사용하도록 설정하는 것이 좋습니다. 데이터베이스 컨테이너의 역할에서 탄력적 풀 및 Managed Instance는 개별 데이터베이스 진단 원격 분석과는 별개인 자체 진단 원격 분석을 제공하기 때문입니다. 
+>
+
+다음 방법 중 하나를 사용하여 메트릭 및 진단 원격 분석 로깅을 사용하도록 설정하고 관리할 수 있습니다.
 
 - Azure portal
 - PowerShell
@@ -44,59 +52,13 @@ Azure SQL Database, 탄력적 풀, Managed Instance 및 Managed Instance의 데�
 
 메트릭 및 진단 로깅을 사용하도록 설정하는 경우 선택한 데이터가 수집되는 Azure 리소스 대상을 지정해야 합니다. 사용 가능한 옵션은 다음과 같습니다.
 
-- SQL 분석
-- Event Hubs
-- Storage 
+- Azure SQL Analytics
+- Azure Event Hubs
+- Azure Storage
 
-새 Azure 리소스를 프로비전하거나 기존 리소스를 선택할 수 있습니다. 리소스를 선택한 후에는 진단 설정 옵션을 사용하여 수집할 데이터를 지정해야 합니다. 
+새 Azure 리소스를 프로비전하거나 기존 리소스를 선택할 수 있습니다. 리소스를 선택한 후에는 진단 설정 옵션을 사용하여 수집할 데이터를 지정해야 합니다.
 
-## <a name="enable-logging-for-elastic-pools-or-managed-instance"></a>탄력적 풀 또는 Managed Instance에 로깅 사용
-
-탄력적 풀 및 Managed Instance는 데이터베이스 컨테이너로써 기본적으로 활성화되는 고유의 진단 원격 분석을 갖고 있습니다. 이 원격 분석은 데이터베이스 진단 원격 분석과는 별개의 것입니다. 따라서 아래에 설명된 자세한 방법에 따라 데이터베이스 진단 원격 분석을 구성하는 것 외에도, 탄력적 풀 및 Managed Instance에 대한 진단 원격 분석 스트리밍을 구성해야 합니다. 
-
-### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>탄력적 풀에 대한 진단 원격 분석 스트리밍 구성
-
-다음 진단 원격 분석은 탄력적 풀 리소스 수집에 사용할 수 있습니다.
-
-| 리소스 | 모니터링 원격 분석 |
-| :------------------- | ------------------- |
-| **탄력적 풀** | [모든 메트릭](sql-database-metrics-diag-logging.md#all-metrics)은 eDTU/CPU 백분율, eDTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 제한 및 XTP 저장소 백분율을 포함합니다. |
-
-**탄력적 풀 리소스**에 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
-
-- Azure Portal에서 탄력적 풀 리소스로 이동합니다.
-- **진단 설정**을 선택합니다.
-- 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
-- 본인이 참조할 설정 이름을 입력합니다.
-- 탄력적 풀에서 진단 데이터를 스트리밍할 리소스를 선택합니다(**저장소 계정에 보관**, **이벤트 허브로 스트림**, **Log Analytics에 보내기**).
-- Log Analytics를 선택하는 경우 **+새 작업 영역 만들기**를 선택하여 **구성**을 선택하고 새 작업 영역을 만들거나 기존 작업 영역을 선택합니다
-- 탄력적 풀 진단 원격 분석 **AllMetrics**의 확인란을 선택합니다.
-- 페이지 맨 아래에 있는 **저장**
-
-모니터링하려는 각 탄력적 풀에 대해 위의 단계를 반복합니다.
-
-### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instance"></a>Managed Instance에 대한 진단 원격 분석 스트리밍 구성
-
-다음 진단 원격 분석은 Managed Instance 리소스 수집에 사용할 수 있습니다.
-
-| 리소스 | 모니터링 원격 분석 |
-| :------------------- | ------------------- |
-| **Managed Instance** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats)는 vCore 수, 평균 CPU 백분율, IO 요청 수, 읽은/쓴 바이트, 예약된 저장소 공간, 사용된 저장소 공간을 포함합니다. |
-
-**Managed Instance 리소스**에 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
-
-- Azure Portal에서 Managed Instance 리소스로 이동합니다.
-- **진단 설정**을 선택합니다.
-- 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
-- 본인이 참조할 설정 이름을 입력합니다.
-- 탄력적 풀에서 진단 데이터를 스트리밍할 리소스를 선택합니다(**저장소 계정에 보관**, **이벤트 허브로 스트림**, **Log Analytics에 보내기**).
-- Log Analytics를 선택하는 경우 작업 영역을 새로 만들거나 기존 작업 영역을 선택합니다.
-- 인스턴스 진단 원격 분석 **ResourceUsageStats**의 확인란을 선택합니다.
-- 페이지 맨 아래에 있는 **저장**
-
-모니터링하려는 각 Managed Instance에 대해 위의 단계를 반복합니다.
-
-## <a name="enable-logging-for-azure-sql-database-or-databases-in-managed-instance"></a>Azure SQL Database 또는 Managed Instance의 데이터베이스에 대한 로깅을 사용하도록 설정
+## <a name="enable-logging-for-azure-sql-database-or-databases-in-managed-instance"></a>Azure SQL Database 또는 Managed Instance의 데이터베이스에 대해 로깅 사용
 
 SQL Database 및 Managed Instance의 데이터베이스에 대한 메트릭과 진단 로깅은 기본적으로 사용되지 않습니다.
 
@@ -119,43 +81,120 @@ Azure SQL Database 및 Managed Instance의 데이터베이스에 대한 진단 �
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-azure-sql-database"></a>Azure SQL Database에 대한 진단 원격 분석 스트리밍 구성
 
+   ![SQL Database 아이콘](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
+
 **Azure SQL Database**에 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
-- Azure SQL Database 리소스로 이동
-- **진단 설정**을 선택합니다.
-- 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
+1. Azure SQL Database 리소스로 이동
+2. **진단 설정**을 선택합니다.
+3. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
 - 진단 원격 분석을 스트림하는 병렬 연결을 3개까지 만들 수 있습니다. 진단 데이터를 여러 리소스로 병렬 스트리밍하도록 구성하려면 **+진단 설정 추가**를 선택하여 추가 설정을 만듭니다.
 
-   ![Azure Portal에서 사용](./media/sql-database-metrics-diag-logging/enable-portal.png)
+   ![SQL Database에 대해 진단 사용](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 
-- 본인이 참조할 설정 이름을 입력합니다.
-- 데이터베이스에서 진단 데이터를 스트리밍할 리소스를 선택합니다(**저장소 계정에 보관**, **이벤트 허브로 스트림**, **Log Analytics에 보내기** 중에 선택).
-- 표준 모니터링 환경의 경우 데이터베이스 진단 로그 원격 분석의 확인란 선택: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **오류**, **DatabaseWaitStatistics**, **시간 제한**, **블록**, **교착 상태**. 이 원격 분석은 이벤트 기반이며 표준 모니터링 환경을 제공합니다.
-- 고급 모니터링 환경을 원하는 경우 **AllMetrics** 확인란을 선택합니다. 이것은 위의 설명처럼 데이터베이스 진단 원격 분석을 위한 1분 기준 원격 분석입니다. 
+4. 본인이 참조할 설정 이름을 입력합니다.
+5. 데이터베이스에서 진단 데이터를 스트리밍할 리소스를 선택합니다(**저장소 계정에 보관**, **이벤트 허브로 스트림**, **Log Analytics에 보내기** 중에 선택).
+6. 표준 모니터링 환경의 경우 데이터베이스 진단 로그 원격 분석의 확인란 선택: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **오류**, **DatabaseWaitStatistics**, **시간 제한**, **블록**, **교착 상태**. 이 원격 분석은 이벤트 기반이며 표준 모니터링 환경을 제공합니다.
+7. 고급 모니터링 환경을 원하는 경우 **AllMetrics** 확인란을 선택합니다. 이것은 위의 설명처럼 데이터베이스 진단 원격 분석을 위한 1분 기준 원격 분석입니다. 
+8. 설정 메뉴에서 **저장**
 
-   ![진단 설정](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
-
-모니터링하려는 각 Azure SQL Database에 대해 위의 단계를 반복.
+   ![SQL Database에 대해 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> 옵션이 표시되더라도 데이터베이스 진단 설정에서 감사 로그를 사용하도록 설정할 수 없습니다. 감사 로그 스트리밍을 사용하려면 [데이터베이스에 대한 감사 설정](sql-database-auditing.md#subheading-2)을 참조하세요.
+> 데이터베이스 진단 설정에서 감사 로그를 사용하도록 설정할 수 없습니다. 감사 로그 스트리밍을 사용하도록 설정하려면 [데이터베이스에 대해 감사 설정](sql-database-auditing.md#subheading-2) 및 [Azure Log Analytics 및 Azure Event Hubs의 SQL 감사 로그](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)를 참조하세요.
+>
+
+> [!TIP]
+> 모니터링하려는 각 Azure SQL Database에 대해 위의 단계를 반복. 
 >
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-databases-in-managed-instance"></a>Managed Instance의 데이터베이스에 대한 진단 원격 분석 스트리밍 구성
 
+   ![Managed Instance의 데이터베이스 아이콘](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
+
 **Managed Instance의 데이터베이스**에 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
-- Managed Instance의 데이터베이스로 이동합니다.
-- **진단 설정**을 선택합니다.
-- 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
+1. Managed Instance의 데이터베이스로 이동합니다.
+2. **진단 설정**을 선택합니다.
+3. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
 - 진단 원격 분석을 스트림하는 병렬 연결을 3개까지 만들 수 있습니다. 진단 데이터를 여러 리소스로 병렬 스트리밍하도록 구성하려면 **+진단 설정 추가**를 선택하여 추가 설정을 만듭니다.
-- 본인이 참조할 설정 이름을 입력합니다.
-- 데이터베이스에서 진단 데이터를 스트리밍할 리소스를 선택합니다(**저장소 계정에 보관**, **이벤트 허브로 스트림**, **Log Analytics에 보내기** 중에 선택).
-- 데이터베이스 진단 원격 분석 **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** 및 **오류**에 대한 확인란을 선택합니다.
 
-   ![진단 설정](./media/sql-database-metrics-diag-logging/diagnostics-portal-mi.png)
+   ![Managed Instance 데이터베이스에 대해 진단 사용](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-모니터링하려는 Managed Instance의 각 데이터베이스에 대해 위의 단계를 반복합니다.
+4. 본인이 참조할 설정 이름을 입력합니다.
+5. 데이터베이스에서 진단 데이터를 스트리밍할 리소스를 선택합니다(**저장소 계정에 보관**, **이벤트 허브로 스트림**, **Log Analytics에 보내기** 중에 선택).
+6. 데이터베이스 진단 원격 분석 **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** 및 **오류**에 대한 확인란을 선택합니다.
+7. 설정 메뉴에서 **저장**
+
+   ![Managed Instance 데이터베이스에 대해 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+
+> [!TIP]
+> 모니터링하려는 Managed Instance의 각 데이터베이스에 대해 위의 단계를 반복합니다.
+>
+
+## <a name="enable-logging-for-elastic-pools-or-managed-instance"></a>탄력적 풀 또는 Managed Instance에 대한 로깅 사용
+
+데이터베이스 컨테이너로 사용되는 탄력적 풀 및 Managed Instance는 데이터베이스와는 별개로 고유의 진단 원격 분석을 제공합니다. 이 진단 원격 분석은 기본적으로 사용하지 않도록 설정됩니다. 
+
+### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>탄력적 풀에 대한 진단 원격 분석 스트리밍 구성
+
+   ![탄력적 풀 아이콘](./media/sql-database-metrics-diag-logging/icon-elastic-pool-text.png)
+
+다음 진단 원격 분석은 탄력적 풀 리소스 수집에 사용할 수 있습니다.
+
+| 리소스 | 모니터링 원격 분석 |
+| :------------------- | ------------------- |
+| **탄력적 풀** | [모든 메트릭](sql-database-metrics-diag-logging.md#all-metrics)은 eDTU/CPU 백분율, eDTU/CPU 제한, 물리 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 제한 및 XTP 저장소 백분율을 포함합니다. |
+
+**탄력적 풀 리소스**에 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
+
+1. Azure Portal에서 탄력적 풀 리소스로 이동합니다.
+2. **진단 설정**을 선택합니다.
+3. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
+
+   ![탄력적 풀에 대해 진단 사용](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
+
+4. 본인이 참조할 설정 이름을 입력합니다.
+5. 탄력적 풀에서 진단 데이터를 스트리밍할 리소스를 선택합니다(**저장소 계정에 보관**, **이벤트 허브로 스트림**, **Log Analytics에 보내기**).
+6. Log Analytics를 선택하는 경우 **+새 작업 영역 만들기**를 선택하여 **구성**을 선택하고 새 작업 영역을 만들거나 기존 작업 영역을 선택합니다
+7. 탄력적 풀 진단 원격 분석 **AllMetrics**의 확인란을 선택합니다.
+8. 페이지 맨 아래에 있는 **저장**
+
+   ![탄력적 풀에 대해 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+
+> [!TIP]
+> 모니터링하려는 각 탄력적 풀에 대해 위의 단계를 반복합니다.
+>
+
+### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instance"></a>Managed Instance에 대한 진단 원격 분석 스트리밍 구성
+
+   ![Managed Instance 아이콘](./media/sql-database-metrics-diag-logging/icon-managed-instance-text.png)
+
+다음 진단 원격 분석은 Managed Instance 리소스 수집에 사용할 수 있습니다.
+
+| 리소스 | 모니터링 원격 분석 |
+| :------------------- | ------------------- |
+| **Managed Instance** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats)는 vCore 수, 평균 CPU 백분율, IO 요청 수, 읽은/쓴 바이트, 예약된 저장소 공간, 사용된 저장소 공간을 포함합니다. |
+
+**Managed Instance 리소스**에 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
+
+1. Azure Portal에서 Managed Instance 리소스로 이동합니다.
+2. **진단 설정**을 선택합니다.
+3. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
+
+   ![Managed Instance에 대해 진단 사용](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+
+4. 본인이 참조할 설정 이름을 입력합니다.
+5. 탄력적 풀에서 진단 데이터를 스트리밍할 리소스를 선택합니다(**저장소 계정에 보관**, **이벤트 허브로 스트림**, **Log Analytics에 보내기**).
+6. Log Analytics를 선택하는 경우 작업 영역을 새로 만들거나 기존 작업 영역을 선택합니다.
+7. 인스턴스 진단 원격 분석 **ResourceUsageStats**의 확인란을 선택합니다.
+8. 페이지 맨 아래에 있는 **저장**
+
+   ![Managed Instance에 대해 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+
+> [!TIP]
+> 모니터링하려는 각 Managed Instance에 대해 위의 단계를 반복합니다.
+>
 
 ### <a name="powershell"></a>PowerShell
 
@@ -195,7 +234,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
 이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
 
-### <a name="to-configure-multiple-azure-subscriptions"></a>Azure 구독을 여러 개 구성하려면
+### <a name="to-configure-multiple-azure-resources"></a>Azure 리소스를 여러 개 구성하려면
 
 여러 구독을 지원하려면 [PowerShell을 사용하여 Azure 리소스 메트릭 로깅 사용](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/)에서 PowerShell 스크립트를 사용합니다.
 
@@ -248,43 +287,43 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
 
 [Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 활성화하는 방법](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)을 참조하세요.  
 
-## <a name="stream-into-log-analytics"></a>Log Analytics에 스트림 
+## <a name="stream-into-azure-sql-analytics"></a>Azure SQL Analytics로 스트리밍 
 
-SQL Database 메트릭 및 진단 로그는 포털에서 기본 제공되는 **Log Analytics로 보내기** 옵션을 사용하여 Log Analytics로 스트림할 수 있습니다. 또한 PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용하여 Log Analytics를 사용하도록 설정할 수도 있습니다.
+Azure SQL 분석은 단일 창을 통해 여러 구독 간 규모에 맞게 Azure SQL Database, 탄력적 풀 및 Managed Instances의 성능을 모니터링하기 위한 클라우드 모니터링 솔루션입니다. 이 솔루션은 성능 문제 해결에 대한 기본 제공 인텔리전스를 사용하여 중요한 Azure SQL Database 성능 메트릭을 수집하고 시각화합니다.
+
+![Azure SQL 분석 개요](../log-analytics/media/log-analytics-azure-sql/azure-sql-sol-overview.png)
+
+SQL Database 메트릭 및 진단 로그는 포털의 진단 설정 블레이드에 기본 제공되는 **Log Analytics로 보내기** 옵션을 사용하여 Azure SQL 분석으로 스트리밍될 수 있습니다. 또한 PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용하여 Log Analytics를 사용하도록 설정할 수도 있습니다.
 
 ### <a name="installation-overview"></a>설치 개요
 
-Log Analytics를 사용하여 SQL Database 세트를 간편하게 모니터링할 수 있습니다. 세 단계를 수행해야 합니다.
+Azure SQL 문석을 사용하여 SQL Database를 간편하게 모니터링할 수 있습니다. 세 단계를 수행해야 합니다.
 
-1. Log Analytics 리소스를 만듭니다.
+1. Azure Marketplace에서 Azure SQL 분석 솔루션 만들기
+2. 솔루션에서 모니터링 작업 영역 만들기
+3. 사용자가 만든 작업 영역으로 진단 원격 분석을 스트리밍하도록 데이터베이스를 구성합니다.
 
-2. 생성된 Log Analytics 리소스에 메트릭 및 진단 로그를 기록하도록 데이터베이스를 구성합니다.
+데이터베이스 진단 원격 분석을 구성하는 것 외에, 탄력적 풀 또는 Managed Instance를 사용하는 경우 이러한 리소스에서 진단 원격 분석 스트리밍도 구성합니다.
 
-3. Azure Marketplace에서 **Azure SQL 분석** 솔루션을 설치합니다.
+### <a name="create-azure-sql-analytics-resource"></a>Azure SQL 분석 리소스 만들기
 
-### <a name="create-a-log-analytics-resource"></a>Log Analytics 리소스 만들기
+1. Azure Marketplace에서 Azure SQL 분석을 검색한 후 선택
 
-1. 왼쪽에 있는 메뉴에서 **리소스 만들기**를 선택합니다.
+   ![포털에서 Azure SQL 분석 검색](./media/sql-database-metrics-diag-logging/sql-analytics-in-marketplace.png)
+   
+2. 솔루션의 개요 화면에서 **만들기** 선택
 
-2. **모니터링 + 관리**를 선택합니다.
+3. 필요한 추가 정보(작업 영역 이름, 구독, 리소스 그룹, 위치 및 가격 책정 계층)를 Azure SQL 분석 양식에 입력합니다.
+ 
+   ![포털에서 Azure SQL 분석 구성](./media/sql-database-metrics-diag-logging/sql-analytics-configuration-blade.png)
 
-3. **Log Analytics**를 선택합니다.
-
-4. 필요한 추가 정보(작업 영역 이름, 구독, 리소스 그룹, 위치 및 가격 책정 계층)를 Log Analytics 양식에 입력합니다.
-
-   ![Log Analytics](./media/sql-database-metrics-diag-logging/log-analytics.png)
+4. **확인**을 선택하여 확인하고 **만들기**를 선택하여 완료
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>메트릭 및 진단 로그를 기록하도록 데이터베이스 구성
 
-데이터베이스에서 메트릭을 기록하는 위치를 구성하는 가장 쉬운 방법은 Azure Portal을 사용하는 것입니다. 포털에서 SQL Database 리소스로 이동하 고 **진단 설정**을 선택합니다. 
+데이터베이스에서 메트릭을 기록하는 위치를 구성하는 가장 쉬운 방법은 위에 설명된 것처럼 Azure Portal을 사용하는 것입니다. 포털에서 SQL Database 리소스로 이동하 고 **진단 설정**을 선택합니다.
 
-### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>갤러리에서 SQL Analytics 솔루션 설치
-
-1. Log Analytics 리소스를 만들고 데이터 흐름이 시작되면 SQL Analytics 솔루션을 설치합니다. 홈페이지의 사이드 메뉴에서 **솔루션 갤러리**를 선택합니다. 갤러리에서 **Azure SQL Analytics** 솔루션을 선택한 다음 **추가**를 클릭합니다.
-
-   ![모니터링 솔루션](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
-
-2. 홈페이지에**Azure SQL Analytics** 타일이 나타납니다. 이 타일을 선택하여 SQL Analytics 대시보드를 엽니다.
+탄력적 풀 또는 Managed Instance를 사용하는 경우, 사용자가 만든 작업 영역으로 고유한 진단 원격 분석을 스트리밍할 뿐만 아니라 이러한 리소스에서 진단 설정을 구성해야 합니다.
 
 ### <a name="use-the-sql-analytics-solution"></a>SQL Analytics 솔루션 사용
 
@@ -350,7 +389,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL 분석의 탐색 메뉴에�
 
 ## <a name="metrics-and-logs-available"></a>사용 가능한 메트릭 및 로그
 
-[SQL Analytics 언어](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)를 사용하여 **사용자 지정 분석** 및 **응용 프로그램 개발**을 위한 Azure SQL Database, 탄력적 풀, Managed Instance 및 Managed Instance의 데이터베이스에서 사용할 수 있는 메트릭 및 로그의 원격 분석 콘텐츠 모니터링에 대해 자세히 알아보세요.
+수집한 모니터링 원격 분석을 [SQL Analytics 언어](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)를 사용하여 사용자 고유의 **사용자 지정 분석** 및 **응용 프로그램 개발**에 사용할 수 있습니다. 수집된 데이터, 메트릭 및 로그의 구조는 아래에 나와 있습니다.
 
 ## <a name="all-metrics"></a>모든 메트릭
 

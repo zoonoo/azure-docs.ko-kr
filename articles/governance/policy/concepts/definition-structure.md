@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427402"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212780"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -228,8 +228,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 정책은 다음과 같은 형식의 결과 지원합니다.
 
-- **거부**는 감사 로그에 이벤트를 생성하고 요청을 실패합니다.
-- **감사**는 감사 로그에 경고 이벤트를 생성하지만 요청을 실패하지는 않습니다.
+- **거부**: 활동 로그에 이벤트를 생성하고 요청을 실패합니다.
+- **감사**: 활동 로그에 경고 이벤트를 생성하지만 요청을 실패하지는 않습니다.
 - **추가**는 정의된 필드 집합을 요청에 추가합니다.
 - **AuditIfNotExists** - 리소스가 없으면 감사를 사용하도록 설정합니다.
 - **DeployIfNotExists**: 리소스가 아직 없으면 배포합니다.

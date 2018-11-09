@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 36d65abb26435581f3e6c9c4a9fc46bb3dd538ce
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362782"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240344"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 설치 및 만들기
 
@@ -37,7 +37,7 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Windows Server용 Service Fabric 패키지 다운로드
 
-Service Fabric은 독립 실행형 Service Fabric 클러스터를 만드는 설치 패키지를 제공합니다.  로컬 컴퓨터에 [설치 패키지를 다운로드](http://go.microsoft.com/fwlink/?LinkId=730690)합니다.  성공적으로 다운로드되면 EC2 인스턴스에 대한 RDP 연결을 통해 복사하고, 바탕 화면에 붙여넣습니다.
+Service Fabric은 독립 실행형 Service Fabric 클러스터를 만드는 설치 패키지를 제공합니다.  로컬 컴퓨터에 [설치 패키지를 다운로드](https://go.microsoft.com/fwlink/?LinkId=730690)합니다.  성공적으로 다운로드되면 EC2 인스턴스에 대한 RDP 연결을 통해 복사하고, 바탕 화면에 붙여넣습니다.
 
 zip 파일을 선택하고 바로 가기 메뉴를 열고 **모두 추출** > **추출**을 선택합니다.  파일을 추출하면 바탕 화면에 zip 파일 이름과 동일한 폴더를 생성합니다.
 

@@ -1,20 +1,17 @@
 ---
-title: Azure Site Recovery에서 장애 조치 및 복구의 복구 계획 만들기 및 사용자 지정 | Microsoft Docs
-description: Azure Site Recovery에서 복구 계획을 만들고 및 사용자 지정하는 방법을 알아봅니다. 이 문서에서는 VM과 물리적 서버를 장애 조치(failover)하고 복구하는 방법을 설명합니다.
-services: site-recovery
-documentationcenter: ''
-author: rayne-wiselman
+title: Azure Site Recovery를 사용한 재해 복구를 위한 복구 계획 만들기 및 사용자 지정 | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용한 재해 복구를 위한 복구 계획을 만들고 사용자 지정하는 방법을 알아봅니다.
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 145b23aa7b8e48a0301676595c8d59a64bebdd0b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5253b5743216fdb7cea9e3d387f64fdba8f56d8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226671"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212338"
 ---
 # <a name="create-and-customize-recovery-plans"></a>복구 계획 만들기 및 사용자 지정
 

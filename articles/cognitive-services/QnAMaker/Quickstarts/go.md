@@ -1,7 +1,7 @@
 ---
 title: REST API(V4) - Go - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 신속하게 시작할 수 있는 REST 기반 정보와 코드 샘플을 가져옵니다.
+description: Azure의 Microsoft Cognitive Services에서 Microsoft Translator Text API를 사용하여 빠르게 시작하는 데 도움이 되는 G0 REST 기반 정보와 코드 샘플을 가져옵니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 1b4f4c50c8c3fbdc2cc556705bdd446cb360ef2c
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b9451d51bf0c0c684cebf89ad448b66fee59d9ea
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650233"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210706"
 ---
 # <a name="qna-maker-rest-api-with-go"></a>Go에서 QnA Maker REST API 사용 
 <a name="HOLTop"></a>
 
-이 문서에서는 Go에서 [Microsoft QnA Maker API](../Overview/overview.md)를 사용하여 다음을 수행하는 방법을 보여 줍니다.
+이 문서에서는 Go에서 [Microsoft QnA Maker API](../Overview/overview.md) 를 사용하여 다음을 수행하는 방법을 보여 줍니다.
 
 - [새 기술 자료 만들기](#Create)
 - [기존 기술 자료 업데이트](#Update)

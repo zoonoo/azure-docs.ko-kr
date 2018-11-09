@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 9d628f48f4958e4e763ed0064462a5fb2ed398bf
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 9cd8e21ede794fcb46683ea7cedd2bf9ed833204
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094335"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086984"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>지속성 함수의 버전 관리(Azure Functions)
 
@@ -123,11 +123,23 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```json
 {
-    "durableTask": {
-        "HubName": "MyTaskHubV2"
+    "extensions": {
+        "durableTask": {
+            "HubName": "MyTaskHubV2"
+        }
     }
 }
 ```
+
+> [!NOTE]
+> V1 Functions의 경우, *host.json*을 다음과 같이 구성해야 합니다.
+>```json
+>{
+>    "durableTask": {
+>        "HubName": "MyTaskHubV2"
+>    }
+>}
+>```
 
 기본값은 `DurableFunctionsHub`입니다.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648773"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155986"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -71,6 +71,27 @@ AKS는 전용 API 서버, 스케줄러 등을 사용하여 단일 테넌트 클�
 AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux를 기반으로 합니다. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수동으로 구성할 필요가 없습니다.
 
 다른 호스트 OS, 컨테이너 런타임을 사용하거나 사용자 지정 패키지를 포함해야 하는 경우 [acs-engine][acs-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. `acs-engine` 업스트림은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 해제하고 구성 옵션을 제공합니다. 예를 들어 Docker 이외의 Windows 컨테이너 또는 컨테이너 런타임을 사용하려는 경우 `acs-engine`을 사용하여 현재 요구 사항에 맞게 Kubernetes 클러스터를 구성하고 배포할 수 있습니다.
+
+### <a name="resource-reservations"></a>리소스 예약
+
+각 노드의 핵심 Kubernetes 구성 요소(예: *kubelet*, *kube-proxy* 및 *kube-dns*)를 관리할 필요는 없지만 이러한 구성 요소는 사용 가능한 컴퓨팅 리소스 중 일부를 사용합니다. 노드 성능 및 기능을 유지 관리하기 위해 각 노드에서 다음 컴퓨팅 리소스가 예약됩니다.
+
+- **CPU** - 60ms
+- **메모리** - 최대 4GiB까지 20%
+
+이러한 예약은 응용 프로그램에 사용 가능한 CPU 및 메모리 양이 노드 자체에 포함된 양보다 적게 표시될 수 있음을 의미합니다. 실행하는 응용 프로그램 수로 인해 리소스 제약 조건이 있는 경우 이러한 예약을 통해 핵심 Kubernetes 구성 요소에 사용 가능한 CPU 및 메모리를 유지할 수 있습니다. 리소스 예약은 변경할 수 없습니다.
+
+예: 
+
+- **표준 DS2 v2** 노드 크기에는 2개의 vCPU 및 7GiB 메모리가 포함됩니다.
+    - 7GiB 메모리의 20%는 1.4GiB입니다.
+    - 노드에 사용 가능한 총 메모리는 *(7 - 1.4) = 5.6GiB*입니다.
+    
+- **표준 E4s v3** 노드 크기에는 4개의 vCPU 및 32GiB 메모리가 포함됩니다.
+    - 32GiB 메모리의 20%는 6.4GiB이지만 AKS에서는 최대 4GiB만 예약합니다.
+    - 노드에 사용 가능한 총 메모리는 *(32 - 4) = 28GiB*입니다.
+    
+기본 노드 OS에는 자체 핵심 기능을 완료하는 데 필요한 소량의 CPU 및 메모리 리소스도 필요합니다.
 
 ### <a name="node-pools"></a>노드 풀
 

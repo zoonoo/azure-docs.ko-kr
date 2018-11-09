@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure CLI에 대한 Resource Graph 확장을 �
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: df01a57cda063e301efbc4d99f3bac8dbb4b2e66
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: a252dd6698a5e4f724fcbbf821b01f63ab4f529b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054169"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086814"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Azure CLI를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Azure CLI를 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 해당 확장을 추가해야 합니다. 이 확장은 [Windows 10의 bash](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com)(독립형 및 포털 내부형), [Azure CLI Docker 이미지](https://hub.docker.com/r/microsoft/azure-cli/)를 포함하여 Azure CLI가 사용되거나 로컬로 설치될 수 있는 모든 위치에서 작동됩니다.
 
-1. 최신 Azure CLI가 설치되어 있는지 확인(최소 **2.0.45**) 아직 설치되지 않은 경우 [다음 지침](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)을 따릅니다.
+1. 최신 Azure CLI(최소 **2.0.45**)가 설치되어 있는지 확인하세요. 아직 설치되지 않은 경우 [다음 지침](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)을 따릅니다.
 
 1. 선택한 Azure CLI 환경에서 다음 명령을 사용하여 가져옵니다.
 
@@ -49,7 +49,7 @@ Azure CLI를 사용하도록 설정하여 Azure Resource Graph를 쿼리하려�
 
 ## <a name="run-your-first-resource-graph-query"></a>첫 번째 Resource Graph 실행
 
-이제 Azure CLI 확장이 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식**와 함께 처음 5개 Azure 리소스를 반환합니다.
+Azure CLI 확장이 선택한 환경에 추가되었으므로 간단한 Resource Graph 쿼리를 시도해 볼 수 있습니다. 쿼리는 각 리소스의 **이름** 및 **리소스 형식**와 함께 처음 5개 Azure 리소스를 반환합니다.
 
 1. `graph` 확장 및 `query` 명령을 사용하여 첫 번째 Azure Resource Graph 쿼리를 실행합니다.
 

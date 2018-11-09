@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8240cf5beb50ef16aa2bd03415e6bbff9a2f4250
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628779"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158145"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,7 +25,7 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
-Microsoft Azure IoT Central은 실제 세계와 디지털 세계를 연결하는 제품을 쉽게 만들 수 있게 해주며, 완벽하게 관리되는 IoT SaaS(Software-as-a-Service) 솔루션입니다. 다음을 통해 연결된 제품 비전을 실현할 수 있습니다.
+Azure IoT Central은 실제 세계와 디지털 세계를 연결하는 제품을 쉽게 만들 수 있게 해주며, 완벽하게 관리되는 IoT SaaS(Software-as-a-Service) 솔루션입니다. 다음을 통해 연결된 제품 비전을 실현할 수 있습니다.
 
 - 고객에게 더 나은 제품과 경험을 제공할 수 있도록 연결된 장치에서 새로운 인사이트 유도.
 - 조직을 위한 새로운 비즈니스 기회 창출.
@@ -65,7 +65,7 @@ Azure IoT Central 문서는 Azure IoT Central 응용 프로그램과 상호 작�
 - 장치에서 원격 분석을 수신하고 해당 장치를 관리할 수 있게 해주는 클라우드 기반 응용 프로그램.
 - 클라우드 기반 응용 프로그램에 연결된 사용자 지정 코드를 실행하는 여러 장치.
 
-새로운 Azure IoT Central 응용 프로그램을 빠르게 배포한 다음, 브라우저에서 특정 요구 사항에 맞게 사용자 지정할 수 있습니다. Azure IoT Central 개발자는 웹 기반 도구를 사용하여 응용 프로그램에 연결하는 장치에 대한 _장치 템플릿_을 만들 수 있습니다. 장치 템플릿은 장치 템플릿으로 생성되는 모든 장치가 공유하는 장치 모델의 청사진입니다. 장치 템플릿은 다음과 같은 장치 유형의 특성 및 동작을 정의합니다.
+새로운 Azure IoT Central 응용 프로그램을 빠르게 배포한 다음, 브라우저에서 특정 요구 사항에 맞게 사용자 지정할 수 있습니다. Azure IoT Central 개발자는 웹 기반 도구를 사용하여 응용 프로그램에 연결하는 장치에 대한 _장치 템플릿_을 만들 수 있습니다. 장치 템플릿은 장치 모델의 청사진입니다. 동일한 장치 템플릿에서 만들어진 모든 장치는 템플릿을 공유합니다. 장치 템플릿은 다음과 같은 장치 유형의 특성 및 동작을 정의합니다.
 
 - 전송하는 원격 분석.
 - 운영자가 수정할 수 있는 비즈니스 속성.

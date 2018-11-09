@@ -1,5 +1,5 @@
 ---
-title: VM용 Azure Monitor의 알려진 문제 | Microsoft Docs
+title: VM용 Azure Monitor(미리 보기)의 알려진 문제 | Microsoft Docs
 description: VM용 Azure Monitor는 Azure VM 운영 체제의 상태 및 성능 모니터링뿐만 아니라 응용 프로그램 구성 요소 및 종속성의 자동 검색도 다른 리소스와 결합하고, 이러한 항목 간의 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 알려진 문제에 대해 설명합니다.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: eba9e26f12fd9e1862727adec4f8c8f594e8f659
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385094"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091677"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms"></a>VM용 Azure Monitor의 알려진 문제
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)의 알려진 문제
 
 VM용 Azure Monitor의 상태 기능과 관련하여 알려진 문제는 다음과 같습니다.
 

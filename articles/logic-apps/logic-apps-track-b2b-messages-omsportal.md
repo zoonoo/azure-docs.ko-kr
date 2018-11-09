@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics으로 B2B 메시지 추적 - Azure Logic Apps | Microsoft Docs
+title: Log Analytics를 사용하여 B2B 메시지 추적 - Azure Logic Apps | Microsoft Docs
 description: Azure Log Analytics를 사용하여 통합 계정 및 Azure Logic Apps에 대한 B2B 통신 추적
 services: logic-apps
 ms.service: logic-apps
@@ -8,18 +8,17 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 06/19/2018
-ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 10/19/2018
+ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405687"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233562"
 ---
-# <a name="track-b2b-communication-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 B2B 통신 추적
+# <a name="track-b2b-messages-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 B2B 메시지 추적
 
-통합 계정을 통해 실행 중인 두 비즈니스 프로세스 또는 응용 프로그램 간의 B2B 통신을 설정한 후 해당 엔터티는 서로 메시지를 교환할 수 있습니다. 이러한 메시지가 올바르게 처리되는지 여부를 확인하기 위해 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 AS2, X12 및 EDIFACT 메시지를 추적할 수 있습니다. 예를 들어 메시지 추적에 대해 이러한 웹 기반 추적 기능을 사용할 수 있습니다.
+통합 계정에서 거래 업체 간에 B2B 통신을 설정한 후 해당 업체는 AS2, X12 및 EDIFACT와 같은 프로토콜과 메시지를 교환할 수 있습니다. 이러한 메시지가 올바르게 처리되는지 여부를 확인하기 위해 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 이러한 메시지를 추적할 수 있습니다. 예를 들어 메시지 추적에 대해 이러한 웹 기반 추적 기능을 사용할 수 있습니다.
 
 * 메시지 수 및 상태
 * 승인 상태
@@ -27,7 +26,10 @@ ms.locfileid: "49405687"
 * 실패에 대한 자세한 오류 설명
 * 검색 기능
 
-## <a name="requirements"></a>요구 사항
+> [!NOTE]
+> 이 페이지에서는 [2019년 1월에 사용 중지](../log-analytics/log-analytics-oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
+
+## <a name="prerequisites"></a>필수 조건
 
 * 진단 로깅과 함께 설정된 논리 앱. [논리 앱을 만드는 방법](quickstart-create-first-logic-app-workflow.md) 및 [해당 논리 앱에 대한 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)을 알아봅니다.
 
@@ -35,51 +37,57 @@ ms.locfileid: "49405687"
 
 * 아직 없는 경우 [Log Analytics에 진단 데이터를 게시](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
 
-> [!NOTE]
-> 이전 요구 사항을 충족한 후에는 Log Analytics에 작업 영역이 있어야 합니다. Log Analytics에서 B2B 통신 추적에 대해 동일한 작업 영역을 사용해야 합니다. 
->  
-> Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다.
+* 이전 요구 사항이 충족되면 Log Analytics를 통해 B2B 통신을 추적하는 데 사용할 수 있는 Log Analytics 작업 영역도 필요합니다. Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다.
 
-## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>Azure에 Logic Apps B2B 솔루션 추가
+## <a name="install-logic-apps-b2b-solution"></a>Logic Apps B2B 솔루션 설치
 
-Log Analytics가 논리 앱에 대한 B2B 메시지를 추적하도록 하려면 Log Analytics에 **Logic Apps B2B** 솔루션을 추가해야 합니다. [Log Analytics에 솔루션 추가](../log-analytics/log-analytics-quick-create-workspace.md)에 대해 자세히 알아봅니다.
+Log Analytics가 논리 앱에 대한 B2B 메시지를 추적하도록 하려면 먼저 Log Analytics에 **Logic Apps B2B** 솔루션을 추가해야 합니다. [Log Analytics에 솔루션 추가](../log-analytics/log-analytics-quick-create-workspace.md)에 대해 자세히 알아봅니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. "로그 분석"에 대해 검색한 후 다음과 같이 **Log Analytics**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. 검색 상자에서 "로그 분석"을 찾고 **Log Analytics**를 선택합니다.
 
-   ![Log Analytics 찾기](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
+   ![Log Analytics 선택](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 
-2. **Log Analytics** 아래에서 Log Analytics 작업 영역을 찾고 선택합니다. 
+1. **Log Analytics** 아래에서 Log Analytics 작업 영역을 찾고 선택합니다. 
 
-   ![Log Analytics 작업 영역 선택](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Log Analytics 작업 영역 선택](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-3. **관리**에서 **작업 영역 요약**을 선택합니다.
+1. **Log Analytics 시작** > **솔루션 모니터링 구성** 아래에서 **솔루션 보기**를 선택합니다.
 
-   ![Log Analytics 포털 선택](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   !["솔루션 보기" 선택](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
-4. 홈 페이지가 열리면 **추가**를 선택하여 Logic Apps B2B 솔루션을 설치합니다.    
-   ![솔루션 갤러리 선택](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
+1. 개요 페이지에서 **관리 솔루션** 목록을 여는 **추가**를 선택합니다. 해당 목록에서 **Logic Apps B2B**를 선택합니다. 
 
-5. **관리 솔루션**에서 **Logic Apps B2B** 솔루션을 찾아서 만듭니다.     
-   ![Logic Apps B2B 선택](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+   ![Logic Apps B2B 솔루션 선택](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   홈페이지에 **Logic Apps B2B 메시지**에 대한 타일이 이제 나타납니다. 
-   이 타일은 B2B 메시지가 처리되는 경우 메시지 수를 업데이트합니다.
+   솔루션을 찾을 수 없는 경우 목록의 맨 아래에서 솔루션이 나타날 때까지 **추가 로드**를 선택합니다.
+
+1. **만들기**를 선택하고 솔루션을 설치하려는 Log Analytics 작업 영역을 확인한 후 **만들기**를 다시 선택합니다.   
+
+   ![Logic Apps B2B에 대해 “만들기” 선택](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+
+   기존 작업 영역을 사용하지 않으려는 경우 이번에 새 작업 영역을 만들 수도 있습니다.
+
+1. 완료되면 작업 영역의 **개요** 페이지로 돌아갑니다. 
+
+   이제 Logic Apps B2B 솔루션이 개요 페이지에 나타납니다. 
+   B2B 메시지가 처리되면 이 페이지의 메시지 수가 업데이트됩니다.
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-log-analytics"></a>Log Analytics에서 메시지 상태 및 세부 정보 추적
+## <a name="view-b2b-message-information"></a>B2B 메시지 정보 보기
 
-1. B2B 메시지가 처리된 후 해당 메시지에 대한 상태 및 세부 정보를 볼 수 있습니다. 개요 홈페이지에서 **Logic Apps B2B 메시지** 타일을 선택합니다.
+B2B 메시지가 처리된 후 **Logic Apps B2B** 타일에서 해당 메시지에 대한 상태 및 세부 정보를 볼 수 있습니다.
+
+1. Log Analytics 작업 영역으로 이동한 후 개요 페이지를 엽니다. **Logic Apps B2B**를 선택합니다.
 
    ![업데이트된 메시지 수](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
-   > 기본적으로 **Logic Apps B2B 메시지** 타일은 일별 데이터를 표시합니다. 데이터 범위를 다른 간격으로 변경하려면 페이지 맨 위에 있는 범위 컨트롤을 선택합니다.
+   > 기본적으로 **Logic Apps B2B** 타일은 일별 데이터를 표시합니다. 데이터 범위를 다른 간격으로 변경하려면 페이지 맨 위에 있는 범위 컨트롤을 선택합니다.
    > 
-   > ![데이터 범위 변경](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
-   >
+   > ![간격 변경](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
 
-2. 메시지 상태 대시보드가 나타난 후 일별 데이터를 표시하는 특정 메시지 유형에 대한 자세한 정보를 볼 수 있습니다. **AS2**, **X12** 또는 **EDIFACT**에 대한 타일을 선택합니다.
+1. 메시지 상태 대시보드가 나타난 후 일별 데이터를 표시하는 특정 메시지 유형에 대한 자세한 정보를 볼 수 있습니다. **AS2**, **X12** 또는 **EDIFACT**에 대한 타일을 선택합니다.
 
    ![메시지 상태 보기](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 

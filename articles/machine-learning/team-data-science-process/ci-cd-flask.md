@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304291"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094397"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>AI(인공 지능) 응용 프로그램에 대한 DevOps: Docker 및 Kubernetes를 사용하여 Azure에서 지속적인 통합 파이프라인 만들기
 AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 데이터 과학자와 응용 프로그램을 빌드하고 사용할 최종 사용자에게 노출하는 앱 개발자라는 두 가지 작업 스트림이 있습니다. 이 문서에서는 AI 응용 프로그램을 위한 CI(지속적인 통합)/CD(지속적인 배포) 파이프라인을 구현하는 방법을 설명합니다. AI 응용 프로그램은 미리 학습된 ML(Machine Learning) 모델이 포함된 응용 프로그램 코드의 조합입니다. 이 문서의 경우 개인 Azure blob 저장소 계정에서 미리 학습된 모델을 페치합니다. 이는 AWS S3 계정에도 적용될 수 있습니다. 문서에서는 간단한 python flask 웹 응용 프로그램을 사용합니다.
@@ -38,12 +38,12 @@ AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 
 * [Azure DevOps 조직](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Kubernetes를 실행하는 AKS(Azure Container Service) 클러스터](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [ACR(Azure Container Registy) 계정](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
+* [ACR(Azure Container Registry) 계정](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Kubernetes 클러스터에 대해 명령을 실행하는 Kubectl을 설치합니다.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 이는 ACS 클러스터에서 구성을 페치하기 위해 필요합니다. 
 * GitHub 계정으로 리포지토리를 포크합니다.
 
 ## <a name="description-of-the-cicd-pipeline"></a>CI/CD 파이프라인의 설명
-파이프라인은 각 새로운 커밋에 대해 시작하고, 테스트 도구 모음을 실행하며, 테스트 통과가 최신 빌드를 사용하는 경우 Docker 컨테이너에 해당 항목을 패키지합니다. 그런 다음, 컨테이너는 ACS(Azure Container Service)를 사용하여 배포되며, 이미지는 ACR(Azure Container Registry)에 안전하게 저장됩니다. ACS는 컨테이너 클러스터를 관리하기 위해 Kubernetes를 실행하지만 사용자가 Docker Swarm 또는 Mesos를 선택할 수도 있습니다.
+파이프라인은 각 새로운 커밋에 대해 시작하고, 테스트 도구 모음을 실행하며, 테스트 통과가 최신 빌드를 사용하는 경우 Docker 컨테이너에 해당 항목을 패키지합니다. 그런 다음, 컨테이너는 ACS(Azure Container Service)를 사용하여 배포되고 이미지는 ACR(Azure Container Registry)에 안전하게 저장됩니다. ACS는 컨테이너 클러스터를 관리하기 위해 Kubernetes를 실행하지만 사용자가 Docker Swarm 또는 Mesos를 선택할 수도 있습니다.
 
 응용 프로그램이 Azure Storage 계정에서 최신 모델을 안전하게 끌어오고 응용 프로그램의 일부로 패키지합니다. 배포된 응용 프로그램에는 앱 코드와 단일 컨테이너로 패키지된 ML 모델이 있습니다. 이는 프로덕션 앱이 항상 최신 ML 모델의 최신 코드를 실행할 수 있도록 앱 개발자와 데이터 과학자를 분리시킵니다.
 
@@ -70,5 +70,5 @@ AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 
 ## <a name="references"></a>참조
 * [TDSP(Team Data Science Process)](https://aka.ms/tdsp)
 * [AML(Azure Machine Learning)](https://docs.microsoft.com/azure/machine-learning/service/)
-* [VSTS(Visual Studio Team Services)](https://www.visualstudio.com/vso/)
+* [Azure DevOps](https://www.visualstudio.com/vso/)
 * [AKS(Azure Kubernetes Services)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

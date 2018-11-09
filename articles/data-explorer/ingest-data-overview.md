@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 94f96d949f2a05f71e9565fdcbc7b48ed2c2a5c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1df22c505bffdfaf60bf9c6eec3ad4e698fff02
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972662"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139529"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
 
@@ -60,9 +60,15 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 
 * [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
 
+* [Node SDK]
+
 * [REST API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **프로그래밍 방식 수집 기술**:
+
+* Azure 데이터 탐색기 데이터 관리 서비스를 통해 데이터 수집(높은 처리량 및 안정적인 수집)
+
+  * [**수집 일괄 처리**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample)(SDK에서 제공): 클라이언트는 Azure BLOB 저장소(Azure 데이터 탐색기 데이터 관리 서비스에서 지정)에 데이터를 업로드하고 Azure 큐에 알림을 게시합니다. 이 기술은 안정적이고 저렴한 대용량 데이터 수집을 위해 권장됩니다.
 
 * Azure 데이터 탐색기 엔진에 직접 데이터 수집(탐색 및 프로토타입에 가장 적합):
 
@@ -71,10 +77,6 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
   * **쿼리에서 수집**: 쿼리 결과를 가리키는 제어 명령(.set, .set-or-append, .set-or-replace)이 보고서 또는 작은 임시 테이블을 생성하는 데 사용됩니다.
 
   * **저장소에서 수집**: 데이터가 외부(예: Azure Blob Storage)에 저장되는 제어 명령(.ingest into)을 통해 효율적인 대량 데이터 수집이 가능합니다.
-
-* Azure 데이터 탐색기 데이터 관리 서비스를 통해 데이터 수집(높은 처리량 및 안정적인 수집)
-
-  * [**수집 일괄 처리**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample)(SDK에서 제공): 클라이언트는 Azure BLOB 저장소(Azure 데이터 탐색기 데이터 관리 서비스에서 지정)에 데이터를 업로드하고 Azure 큐에 알림을 게시합니다. 이 기술은 안정적이고 저렴한 대용량 데이터 수집을 위해 권장됩니다.
 
 **다양한 메서드의 대기 시간**:
 

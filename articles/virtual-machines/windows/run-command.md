@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 3ba1f9afda1b4f7f227c996615cc17a8c604d5fb
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267956"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138228"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>명령 실행을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -37,6 +37,9 @@ ms.locfileid: "48267956"
 * 실행 중인 스크립트는 취소할 수 없음
 * 스크립트를 실행할 수 있는 최대 시간은 90분으로 이후는 시간 초과
 * 스크립트의 결과를 반환하려면 VM에서의 아웃바운드 연결이 필요합니다.
+
+> [!NOTE]
+> 제대로 작동하려면 실행 명령이 Azure 공용 IP 주소에 연결(포트 443)되어야 합니다. 확장이 이러한 엔드포인트에 대해 액세스 권한이 없는 경우 스크립트는 성공적으로 실행되지만 결과를 반환하지는 않습니다. 가상 머신에서 트래픽을 차단하는 경우 `AzureCloud` 태그를 사용하여 Azure 공용 IP 주소로 트래픽을 허용하려면 [서비스 태그](../../virtual-network/security-overview.md#service-tags)를 사용할 수 있습니다.
 
 ## <a name="run-a-command"></a>명령 실행
 

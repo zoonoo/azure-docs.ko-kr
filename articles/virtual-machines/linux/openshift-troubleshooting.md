@@ -3,8 +3,8 @@ title: Azure에서 OpenShift 배포 문제 해결 | Microsoft Docs
 description: Azure에서 OpenShift 배포 문제를 해결합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
-manager: najoshi
+author: haroldwongms
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,34 +15,109 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 35e554d3a9c7e7d56546ae9723c33eb59e906472
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2017
-ms.locfileid: "24139453"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085836"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Azure에서 OpenShift 배포 문제 해결
 
-OpenShift 클러스터가 성공적으로 배포되지 않으면 다음과 같은 문제 해결 작업을 시도하여 문제의 범위를 좁히십시오. 배포 상태를 보고 다음 종료 코드 목록과 비교합니다.
+OpenShift 클러스터가 성공적으로 배포되지 않으면 Azure Portal에서 오류가 출력됩니다. 출력이 읽기 어려워 문제를 파악하기가 어려울 수도 있습니다. 이 출력에서 종료 코드 3, 4 또는 5를 빠르게 검사합니다. 다음은 이러한 세 개의 종료 코드에 대한 정보를 제공합니다.
 
 - 종료 코드 3: Red Hat 등록 사용자 이름 / 암호 또는 조직 ID / 활성화 키가 잘못되었습니다.
 - 종료 코드 4: Red Hat 풀 ID가 잘못되었거나 사용 가능한 자격이 없습니다.
 - 종료 코드 5: Docker 씬 풀 볼륨을 프로비전할 수 없습니다.
-- 종료 코드 6: OpenShift 클러스터 설치에 실패했습니다.
-- 종료 코드 7: OpenShift 클러스터 설치가 성공했지만 Azure 클라우드 솔루션 공급자 구성이 실패했습니다. - 마스터 노드의 마스터 구성 문제
-- 종료 코드 8: OpenShift 클러스터 설치가 성공했지만 Azure 클라우드 솔루션 공급자 구성이 실패했습니다. - 마스터 노드의 노드 구성 문제
-- 종료 코드 9: OpenShift 클러스터 설치가 성공했지만 Azure 클라우드 솔루션 공급자 구성이 실패했습니다. - 인프라 또는 앱 노드의 노드 구성 문제
-- 종료 코드 10: OpenShift 클러스터 설치가 성공했지만 Azure 클라우드 솔루션 공급자 구성이 실패했습니다. - 마스터 노드를 수정 중이거나 마스터를 예약 불가능으로 설정할 수 없습니다.
-- 종료 코드 11: 메트릭 배포에 실패했습니다.
-- 종료 코드 12: 로깅 배포에 실패했습니다.
 
-종료 코드 7~10의 경우 OpenShift 클러스터가 설치되었지만 Azure 클라우드 솔루션 공급자 구성이 실패했습니다. 마스터 노드(OpenShift 원점) 또는 요새 노드(OpenShift 컨테이너 플랫폼)로 SSH를 실행하고 거기에서 각 클러스터 노드에 SSH를 실행하여 문제를 해결할 수 있습니다.
+다른 모든 종료 코드의 경우, ssh를 통해 호스트에 연결하여 로그 파일을 봅니다.
 
-종료 코드 7~9의 일반적인 실패 원인은 서비스 주체가 구독 또는 리소스 그룹에 대한 적절한 권한이 없는 것입니다. 이것이 문제가 되는 경우 올바른 권한을 할당하고 모든 후속 스크립트에서 실패한 스크립트를 수동으로 다시 실행합니다.
+**OpenShift Container Platform**
 
-스크립트를 다시 실행하기 전에 실패한 서비스를 다시 시작해야 합니다(예: systemctl restart atomic-openshift-node.service).
+ansible 플레이북 호스트에 대해 SSH를 수행합니다. 템플릿 또는 Marketplace 제품의 경우 bastion 호스트를 사용합니다. bastion에서 클러스터의 다른 모든 노드(마스터, 인프라, CNS, 컴퓨팅)에 대해 SSH를 수행할 수 있습니다. 로그 파일을 보려면 루트여야 합니다. 기본적으로 SSH 액세스에는 루트를 사용할 수 없으므로, 다른 노드에 대해 SSH를 수행하는 데 루트를 사용하지 마세요.
 
-추가 문제 해결을 위해 포트 2200(원점)의 마스터 노드 또는 포트 22(컨테이너 플랫폼)의 요새 노드에 SSH를 실행합니다. root에 있어야 하고(sudo su -) 다음 디렉터리로 이동해야 합니다. /var/lib/waagent/custom-script/download
+**OKD**
 
-여기에서 "0" 및 "1"이라는 폴더를 볼 수 있습니다. 각 폴더에 "stderr" 및 "stdout"이라는 두 개의 파일이 있습니다. 이 파일을 살펴보고 오류가 발생한 위치를 확인합니다.
+ansible 플레이북 호스트에 대해 SSH를 수행합니다. OKD 템플릿(버전 3.9 이하)의 경우 master-0 호스트를 사용합니다. OKD 템플릿(버전 3.10 이상)의 경우 bastion 호스트를 사용합니다. ansible 플레이북 호스트에서 클러스터의 다른 모든 노드(마스터, 인프라, CNS, 컴퓨팅)에 대해 SSH를 수행할 수 있습니다. 로그 파일을 보려면 루트(sudo su -)여야 합니다. 기본적으로 SSH 액세스에는 루트를 사용할 수 없으므로, 다른 노드에 대해 SSH를 수행하는 데 루트를 사용하지 마세요.
+
+## <a name="log-files"></a>로그 파일
+
+호스트 준비 스크립트에 대한 로그 파일(stderr 및 stdout)은 모든 호스트의 /var/lib/waagent/custom-script/download/0에 있습니다. 호스트를 준비하는 동안 오류가 발생한 경우 이 로그 파일을 보고 오류를 확인합니다.
+
+준비 스크립트가 성공적으로 실행된 경우 ansible 플레이북 호스트의 /var/lib/waagent/custom-script/download/1 디렉터리에 있는 로그 파일을 조사해야 합니다. OpenShift를 실제로 설치하는 동안 오류가 발생한 경우 stdout 파일에 오류가 표시됩니다. 추가 지원을 받으려면 이 정보를 사용하여 고객 지원팀에 문의하세요.
+
+예제 출력
+
+```json
+TASK [openshift_storage_glusterfs : Load heketi topology] **********************
+fatal: [mycluster-master-0]: FAILED! => {"changed": true, "cmd": ["oc", "--config=/tmp/openshift-glusterfs-ansible-IbhnUM/admin.kubeconfig", "rsh", "--namespace=glusterfs", "deploy-heketi-storage-1-d9xl5", "heketi-cli", "-s", "http://localhost:8080", "--user", "admin", "--secret", "VuoJURT0/96E42Vv8+XHfsFpSS8R20rH1OiMs3OqARQ=", "topology", "load", "--json=/tmp/openshift-glusterfs-ansible-IbhnUM/topology.json", "2>&1"], "delta": "0:00:21.477831", "end": "2018-05-20 02:49:11.912899", "failed": true, "failed_when_result": true, "rc": 0, "start": "2018-05-20 02:48:50.435068", "stderr": "", "stderr_lines": [], "stdout": "Creating cluster ... ID: 794b285745b1c5d7089e1c5729ec7cd2\n\tAllowing file volumes on cluster.\n\tAllowing block volumes on cluster.\n\tCreating node mycluster-cns-0 ... ID: 45f1a3bfc20a4196e59ebb567e0e02b4\n\t\tAdding device /dev/sdd ... OK\n\t\tAdding device /dev/sde ... OK\n\t\tAdding device /dev/sdf ... OK\n\tCreating node mycluster-cns-1 ... ID: 596f80d7bbd78a1ea548930f23135131\n\t\tAdding device /dev/sdc ... Unable to add device: Unable to execute command on glusterfs-storage-4zc42:   Device /dev/sdc excluded by a filter.\n\t\tAdding device /dev/sde ... OK\n\t\tAdding device /dev/sdd ... OK\n\tCreating node mycluster-cns-2 ... ID: 42c0170aa2799559747622acceba2e3f\n\t\tAdding device /dev/sde ... OK\n\t\tAdding device /dev/sdf ... OK\n\t\tAdding device /dev/sdd ... OK", "stdout_lines": ["Creating cluster ... ID: 794b285745b1c5d7089e1c5729ec7cd2", "\tAllowing file volumes on cluster.", "\tAllowing block volumes on cluster.", "\tCreating node mycluster-cns-0 ... ID: 45f1a3bfc20a4196e59ebb567e0e02b4", "\t\tAdding device /dev/sdd ... OK", "\t\tAdding device /dev/sde ... OK", "\t\tAdding device /dev/sdf ... OK", "\tCreating node mycluster-cns-1 ... ID: 596f80d7bbd78a1ea548930f23135131", "\t\tAdding device /dev/sdc ... Unable to add device: Unable to execute command on glusterfs-storage-4zc42:   Device /dev/sdc excluded by a filter.", "\t\tAdding device /dev/sde ... OK", "\t\tAdding device /dev/sdd ... OK", "\tCreating node mycluster-cns-2 ... ID: 42c0170aa2799559747622acceba2e3f", "\t\tAdding device /dev/sde ... OK", "\t\tAdding device /dev/sdf ... OK", "\t\tAdding device /dev/sdd ... OK"]}
+
+PLAY RECAP *********************************************************************
+mycluster-cns-0       : ok=146  changed=57   unreachable=0    failed=0   
+mycluster-cns-1       : ok=146  changed=57   unreachable=0    failed=0   
+mycluster-cns-2       : ok=146  changed=57   unreachable=0    failed=0   
+mycluster-infra-0     : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-infra-1     : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-infra-2     : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-master-0    : ok=502  changed=198  unreachable=0    failed=1   
+mycluster-master-1    : ok=348  changed=140  unreachable=0    failed=0   
+mycluster-master-2    : ok=348  changed=140  unreachable=0    failed=0   
+mycluster-node-0      : ok=143  changed=55   unreachable=0    failed=0   
+mycluster-node-1      : ok=143  changed=55   unreachable=0    failed=0   
+localhost                  : ok=13   changed=0    unreachable=0    failed=0   
+
+INSTALLER STATUS ***************************************************************
+Initialization             : Complete (0:00:39)
+Health Check               : Complete (0:00:24)
+etcd Install               : Complete (0:01:24)
+Master Install             : Complete (0:14:59)
+Master Additional Install  : Complete (0:01:10)
+Node Install               : Complete (0:10:58)
+GlusterFS Install          : In Progress (0:03:33)
+    This phase can be restarted by running: playbooks/openshift-glusterfs/config.yml
+
+Failure summary:
+
+  1. Hosts:    mycluster-master-0
+     Play:     Configure GlusterFS
+     Task:     Load heketi topology
+     Message:  Failed without returning a message.
+```
+
+설치 중에 발생하는 가장 일반적인 오류는 다음과 같습니다.
+
+1. 개인 키에 암호가 있음
+2. 개인 키를 사용한 키 자격 증명 모음 비밀이 올바르게 생성되지 않음
+3. 서비스 주체 자격 증명이 잘못 입력됨
+4. 서비스 주체에는 리소스 그룹에 대한 contributor 권한이 없음
+
+### <a name="private-key-has-a-passphrase"></a>개인 키에 암호가 있음
+
+SSH에 대한 사용 권한이 거부되었다는 오류가 표시됩니다. ansible 플레이북 호스트에 대해 SSH를 수행하여 개인 키의 암호를 확인합니다.
+
+### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>개인 키를 사용한 키 자격 증명 모음 비밀이 올바르게 생성되지 않음
+
+개인 키가 ansible 플레이북 호스트 - ~/.ssh/id_rsa에 삽입되었습니다. 이 파일이 올바른지 확인합니다. ansible 플레이북 호스트에서 클러스터 노드 중 하나에 대한 SSH 세션을 열어 테스트합니다.
+
+### <a name="service-principal-credentials-were-entered-incorrectly"></a>서비스 주체 자격 증명이 잘못 입력됨
+
+템플릿 또는 Marketplace 제품에 입력을 제공할 때 잘못된 정보가 제공되었습니다. 서비스 주체에 대한 올바른 appId(clientId) 및 암호(clientSecret)를 사용합니다. 다음 azure cli 명령을 실행하여 확인합니다.
+
+```bash
+az login --service-principal -u <client id> -p <client secret> -t <tenant id>
+```
+
+### <a name="service-principal-doesnt-have-contributor-access-to-the-resource-group"></a>서비스 주체에는 리소스 그룹에 대한 contributor 권한이 없음
+
+Azure 클라우드 공급자를 사용하는 경우 사용되는 서비스 주체에 리소스 그룹에 대한 contributor 권한이 있어야 합니다. 다음 azure cli 명령을 실행하여 확인합니다.
+
+```bash
+az group update -g <openshift resource group> --set tags.sptest=test
+```
+
+## <a name="additional-tools"></a>추가 도구
+
+일부 오류의 경우 다음 명령을 사용하여 자세한 정보를 가져올 수도 있습니다.
+
+1. systemctl status <service>
+2. journalctl -xe

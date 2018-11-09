@@ -9,13 +9,13 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 8/6/2018
-ms.openlocfilehash: 657a762874f7c2fb40553552ef6c17d9b5b6da0f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 10/24/2018
+ms.openlocfilehash: 6c2d5a776f603161ef730028168b91844c120aec
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958621"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158995"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -120,12 +120,16 @@ Data Science Virtual Machine에 대한 자세한 내용은 [Data Science Virtual
     pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
     ```
 
-    > [!NOTE]
-    > `PyYAML`을 제거할 수 없다는 메시지를 받는 경우 다음 명령을 대신 사용합니다.
-    >
-    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+   다음 SDK에서 클래스 및 메서드에 대한 Python 참조 문서를 확인할 수 있습니다.
+   + [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk)
+   + [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
 
-    SDK를 설치하는 데 몇 분 정도 걸릴 수 있습니다.
+   > [!NOTE]
+   > `PyYAML`을 제거할 수 없다는 메시지를 받는 경우 다음 명령을 대신 사용합니다.
+   >
+   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+
+   SDK를 설치하는 데 몇 분 정도 걸릴 수 있습니다.
 
 1. 기계 학습 실험에 필요한 패키지를 설치합니다. 다음 명령을 사용하고 `<new package>`를 설치하려는 패키지로 바꿉니다.
 

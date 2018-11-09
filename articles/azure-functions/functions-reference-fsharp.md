@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: bd971b84b907d3fda1bea9922b2fd1881eb369e9
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025432"
+ms.locfileid: "50087239"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
 
@@ -79,7 +79,7 @@ type TestObject =
     { SenderName : string
       Greeting : string }
 
-let Run(req: TestObject, log: TraceWriter) =
+let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
@@ -96,11 +96,11 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>로깅
-출력을 F#의 [스트리밍 로그](../app-service/web-sites-enable-diagnostic-log.md)에 로그하려면 함수에 `TraceWriter` 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 예: 
+출력을 F#의 [스트리밍 로그](../app-service/web-sites-enable-diagnostic-log.md)에 기록하려면 함수에 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 예: 
 
 ```fsharp
-let Run(blob: string, output: byref<string>, log: TraceWriter) =
-    log.Verbose(sprintf "F# Azure Function processed a blob: %s" blob)
+let Run(blob: string, output: byref<string>, log: ILogger) =
+    log.LogInformation(sprintf "F# Azure Function processed a blob: %s" blob)
     output <- input
 ```
 
@@ -132,8 +132,9 @@ let Run(req: HttpRequestMessage, token: CancellationToken)
 ```fsharp
 open System.Net
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 
-let Run(req: HttpRequestMessage, log: TraceWriter) =
+let Run(req: HttpRequestMessage, log: ILogger) =
     ...
 ```
 
@@ -157,8 +158,9 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 open System.Net
 open System.Net.Http
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 
-let Run(req: HttpRequestMessage, log: TraceWriter) =
+let Run(req: HttpRequestMessage, log: ILogger) =
     ...
 ```
 
@@ -196,8 +198,9 @@ F# 컴파일러 서비스를 지원하는 편집기는 Azure Functions에 자동
 
 open System
 open Microsoft.Azure.WebJobs.Host
+open Microsoft.Extensions.Logging
 
-let Run(blob: string, output: byref<string>, log: TraceWriter) =
+let Run(blob: string, output: byref<string>, log: ILogger) =
     ...
 ```
 
@@ -253,10 +256,11 @@ F# 함수에서 NuGet 패키지를 사용하려면 `project.json` 파일을 함�
 
 ```fsharp
 open System.Environment
+open Microsoft.Extensions.Logging
 
-let Run(timer: TimerInfo, log: TraceWriter) =
-    log.Info("Storage = " + GetEnvironmentVariable("AzureWebJobsStorage"))
-    log.Info("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
+let Run(timer: TimerInfo, log: ILogger) =
+    log.LogInformation("Storage = " + GetEnvironmentVariable("AzureWebJobsStorage"))
+    log.LogInformation("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
 ```
 
 ## <a name="reusing-fsx-code"></a>.fsx 코드 다시 사용
@@ -267,15 +271,15 @@ let Run(timer: TimerInfo, log: TraceWriter) =
 ```fsharp
 #load "logger.fsx"
 
-let Run(timer: TimerInfo, log: TraceWriter) =
+let Run(timer: TimerInfo, log: ILogger) =
     mylog log (sprintf "Timer: %s" DateTime.Now.ToString())
 ```
 
 `logger.fsx`
 
 ```fsharp
-let mylog(log: TraceWriter, text: string) =
-    log.Verbose(text);
+let mylog(log: ILogger, text: string) =
+    log.LogInformation(text);
 ```
 
 `#load` 지시문에 제공하는 경로는 `.fsx` 파일의 위치에 상대적입니다.

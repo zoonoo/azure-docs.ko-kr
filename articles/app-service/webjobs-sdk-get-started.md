@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580441"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140352"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -182,7 +182,7 @@ WebJobs SDK 프로젝트에 로그인하기 위한 몇 가지 옵션이 있습�
 
 로컬로 실행되는 Azure Storage 에뮬레이터에는 WebJobs SDK에 필요한 모든 기능이 없습니다. 따라서 이 섹션에서는 Azure에서 Storage 계정을 만들고 이를 사용하도록 프로젝트를 구성합니다.
 
-1. **서버 탐색기**를 열고 Azure에 로그인합니다. **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음, **Microsoft Azure 구독에 연결**을 선택합니다.
+1. Visual Studio에서 **서버 탐색기**를 열고 Azure에 로그인합니다. **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음, **Microsoft Azure 구독에 연결**을 선택합니다.
 
    ![Azure에 로그인](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -245,7 +245,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 1. 콘솔 창을 닫습니다.
 
-1. **서버 탐색기**에서 새 저장소 계정에 대한 노드를 펼친 다음, **큐**를 마우스 오른쪽 단추로 클릭합니다. 
+1. Visual Studio의 **서버 탐색기**에서 새 저장소 계정에 대한 노드를 펼친 다음, **큐**를 마우스 오른쪽 단추로 클릭합니다. 
 
 1. **큐 만들기**를 선택합니다. 
 
@@ -310,7 +310,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 ### <a name="configure-app-settings"></a>앱 설정 구성 
 
-1. **서버 탐색기**의 **Azure** 아래에서 **App Service** 노드를 펼칩니다.
+1. Visual Studio의 **서버 탐색기**에서 **Azure** 아래의 **App Service** 노드를 펼칩니다.
 
 1. App Service 앱이 있는 리소스 그룹을 펼친 다음, App Service 앱을 마우스 오른쪽 단추로 클릭합니다.
 
@@ -396,7 +396,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 이 섹션에서는 로컬로 다시 실행하여 로깅 데이터가 이제 Application Insights 및 콘솔 모두로 이동하는지 확인합니다.
 
-1. *Hello App Insights!* 를 메시지 텍스트로 입력하는 것을 제외하고는 [이전](#trigger-the-function)과 동일한 방식으로 **서버 탐색기**를 사용하여 큐 메시지를 만듭니다.
+1. *Hello App Insights!* 를 메시지 텍스트로 입력하는 것을 제외하고는 [이전](#trigger-the-function)과 동일한 방식으로 Visual Studio의 **서버 탐색기**를 사용하여 큐 메시지를 만듭니다.
 
 1. 프로젝트를 실행합니다.
 
@@ -442,7 +442,6 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 1. 로컬로 실행하고 있지 않은지 확인합니다(아직 열려 있는 경우 콘솔 창을 닫음). 그렇지 않으면 만든 큐 메시지를 로컬 인스턴스에서 가장 먼저 처리할 수 있습니다.
 
-1. *Hello Azure!* 를 입력하는 것을 제외하고는 [이전](#trigger-the-function)과 동일한 방식으로 **서버 탐색기**를 사용하여 큐 메시지를 만듭니다.
 
 1. Visual Studio에서 **큐** 페이지를 새로 고치고, Azure App Service에서 실행되는 함수에서 이를 처리했으므로 새 메시지가 표시되지 않습니다.
 
@@ -485,7 +484,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 1. 저장소 계정에 Blob 컨테이너를 만듭니다.
 
-   a. **서버 탐색기**에서 저장소 계정에 대한 노드를 펼치고, **Blob**을 마우스 오른쪽 단추로 클릭한 다음, **Blob 컨테이너 만들기**를 선택합니다.
+   a. Visual Studio의 **서버 탐색기**에서 저장소 계정에 대한 노드를 펼치고, **Blob**을 마우스 오른쪽 단추로 클릭한 다음, **Blob 컨테이너 만들기**를 선택합니다.
 
    b. **Blob 컨테이너 만들기** 대화 상자에서 *container*를 컨테이너 이름으로 입력한 다음, **확인**을 클릭합니다.
 

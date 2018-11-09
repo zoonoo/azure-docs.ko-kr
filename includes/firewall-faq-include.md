@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e33871f35613fbd5cdc5bf3162855b942056807f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471533"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254519"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -111,10 +111,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### <a name="what-are-the-known-service-limits"></a>알려진 서비스 제한 사항은 무엇입니까?
 
-* Azure Firewall의 제한은 1000TB/방화벽/월입니다.
-* 중앙 가상 네트워크에서 실행되는 Azure Firewall 방화벽 인스턴스는 최대 50개스포크 가상 네트워크에 해당하는 가상 네트워크 피어링 제한이 적용됩니다.  
-* Azure Firewall은 글로벌 피어링으로 작동하지 않으므로 고객은 지역당 최소 하나의 방화벽 배포가 필요합니다.
-* Azure Firewall은 10,000개의 응용 프로그램 규칙과 10,000개의 네트워크 규칙을 지원합니다.
+Azure Firewall 서비스 제한 사항은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../articles/azure-subscription-service-limits.md#azure-firewall-limits)을 참조하세요.
 
 ### <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>허브 가상 네트워크의 Azure Firewall이 두 스포크 가상 네트워크 간의 네트워크 트래픽을 전달하고 필터링할 수 있나요?
 

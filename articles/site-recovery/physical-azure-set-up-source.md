@@ -1,20 +1,20 @@
 ---
-title: 원본 환경 설정(Azure에 대한 물리적 서버) | Microsoft Docs
-description: 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
+title: Azure Site Recovery를 사용하여 Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정 | Microsoft Docs
+description: 이 문서에서는 Azure에 온-프레미스 물리적 서버를 재해 복구하기 위해 온-프레미스 구성 서버를 설정하는 방법을 설명합니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/21/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 739129045fab72a9b535be25b853c902c7dbd251
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213489"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209550"
 ---
-# <a name="set-up-the-source-environment-physical-server-to-azure"></a>원본 환경 설정(Azure에 대한 물리적 서버)
+# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Azure에 물리적 서버를 재해 복구하기 위해 구성 서버 설정
 
 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 

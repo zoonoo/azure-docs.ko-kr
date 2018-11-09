@@ -13,20 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115113"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086780"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
-Azure AD(Azure Active Directory)와 통합되는 앱은 Azure AD 테넌트에 등록되어야 합니다. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 아래의 **앱 등록**을 선택하고 구성하려는 앱을 선택한 다음, **매니페스트**를 선택하여 앱을 구성할 수 있습니다.
+응용 프로그램 매니페스트는 Microsoft ID 플랫폼에 있는 응용 프로그램 개체의 모든 특성 정의를 포함합니다. 또한 응용 프로그램 개체를 업데이트하기 위한 메커니즘으로도 사용됩니다. 응용 프로그램 엔터티 및 해당 스키마에 대한 자세한 내용은 [Graph API 응용 프로그램 엔터티 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)를 참조하세요.
+
+Azure Portal을 통해 또는 프로그래밍 방식으로 Microsoft Graph를 사용하여 앱 특성을 구성할 수 있습니다. 그러나 앱 매니페스트를 편집하여 앱 특성을 구성해야 하는 경우도 있습니다. 이 시나리오에는 다음이 포함됩니다.
+
+* Azure AD 다중 테넌트 및 개인 Microsoft 계정으로 앱을 등록한 경우 UI에서 지원되는 Microsoft 계정을 변경할 수 없습니다. 대신 응용 프로그램 매니페스트 편집기를 사용하여 지원되는 계정 유형을 변경해야 합니다.
+* 앱이 지원하는 권한 및 역할을 정의해야 하는 경우 응용 프로그램 매니페스트를 수정해야 합니다.
+
+## <a name="configure-the-app-manifest"></a>앱 매니페스트 구성
+
+응용 프로그램 매니페스트를 구성하려면
+
+1. [Azure Portal](https://portal.azure.com)을 로그인합니다.
+1. **Azure Active Directory** 서비스, **앱 등록** 또는 **앱 등록(미리 보기)** 을 차례로 선택합니다.
+1. 구성하려는 앱을 선택합니다.
+1. 앱의 **개요** 페이지에서 **매니페스트** 섹션을 선택합니다. 웹 기반 매니페스트 편집기가 열리면 포털 내에서 매니페스트를 편집할 수 있습니다. 필요에 따라 **다운로드**를 선택하여 로컬로 매니페스트를 편집하고 **업로드**를 사용하여 응용 프로그램에 다시 적용할 수 있습니다.
 
 ## <a name="manifest-reference"></a>매니페스트 참조
 

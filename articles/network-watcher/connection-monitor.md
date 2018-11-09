@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639030"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093043"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 개의 가상 머신 간의 네트워크 통신 모니터링
 
@@ -30,9 +30,10 @@ VM(가상 머신)과 다른 VM과 같은 엔드포인트 간의 통신의 성공
 > [!div class="checklist"]
 > * 두 대의 VM 만들기
 > * Network Watcher의 연결 모니터 기능을 사용하여 VM 간의 통신 모니터링
+> * 연결 모니터 메트릭에 대한 경고 생성
 > * 두 VM 간의 통신 문제를 진단하고 해결 방법에 대해 알아봅니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -50,10 +51,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     |설정|값|
     |---|---|
-    |Name|myVm1|
+    |이름|myVm1|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |구독| 사용 중인 구독을 선택합니다.|
+    |구독| 구독을 선택합니다.|
     |리소스 그룹| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
 
@@ -73,7 +74,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 |단계|설정|값|
 |---|---|---|
 | 1 | **17.10 Ubuntu Server VM** 선택 |                                                                         |
-| 3 | Name                              | myVm2                                                                   |
+| 3 | 이름                              | myVm2                                                                   |
 | 3 | 인증 유형               | SSH 공개 키를 붙여넣거나 **암호**를 선택하고 암호를 입력합니다. |
 | 3 | 리소스 그룹                    | **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.                 |
 | 6 | 확장                        | **Linux용 네트워크 에이전트**                                             |
@@ -92,7 +93,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
 
     | 설정                  | 값               |
     | ---------                | ---------           |
-    | Name                     | myVm1-myVm2(22)     |
+    | 이름                     | myVm1-myVm2(22)     |
     | 원본                   |                     |
     | 가상 머신          | myVm1               |
     | 대상              |                     |
@@ -121,6 +122,19 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
     | Hops                     | 연결 모니터를 통해 두 개의 엔드포인트 간에 홉을 알 수 있습니다. 이 예제에서는 동일한 가상 네트워크의 두 VM 간이 연결됩니다. 따라서 10.0.0.5 IP 주소에 대한 하나의 홉만이 있습니다. 예를 들어 기존 시스템 또는 사용자 지정 경로, VPN Gateway를 통한 VM 간의 경로 트래픽 또는 가상 네트워크 어플라이언스의 경우 추가 홉이 나열됩니다.                                                                                                                         |
     | 상태                   | 각 엔트포인트에 대한 녹색 확인 표시는 각 엔드포인트의 상태가 정상인지를 알려줍니다.    ||
 
+## <a name="generate-alerts"></a>경고 생성
+
+경고는 Azure Monitor에서 경고 규칙에 의해 생성되고 정기적으로 저장된 쿼리 또는 사용자 지정 로그 검색을 자동으로 실행할 수 있습니다. 생성된 경고는 누군가에게 알려주거나 다른 프로세스를 시작하기 위해 하나 이상의 작업을 자동으로 실행할 수 있습니다. 경고 규칙을 설정하면 대상 리소스에 따라 경고를 생성하는 데 사용할 수 있는 메트릭 목록이 달라집니다.
+
+1. Azure Portal에서 **모니터** 서비스를 선택한 다음, **경고** > **새 경고 규칙**을 선택합니다.
+2. **대상 선택**을 클릭한 다음, 대상으로 지정하려는 리소스를 선택합니다. **구독**을 선택하고 **리소스 종류**를 설정하여 사용하려는 연결 모니터로 필터링합니다.
+
+    ![대상이 선택된 경고 화면](./media/connection-monitor/set-alert-rule.png)
+1. 대상으로 지정할 리소스를 선택했으면 **조건 추가**를 선택합니다. Network Watcher에는 [경고를 만들 때 사용할 수 있는 메트릭](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported)이 있습니다. **사용 가능한 신호**를 ProbesFailedPercent 및 AverageRoundtripMs 메트릭으로 설정합니다.
+
+    ![신호가 선택된 경고 페이지](./media/connection-monitor/set-alert-signals.png)
+1. 경고 규칙 이름, 설명, 심각도 등의 경고 세부 정보를 입력합니다. 또한 경고에 작업 그룹을 추가하여 경고 응답을 자동화하고 사용자 지정할 수도 있습니다.
+
 ## <a name="view-a-problem"></a>문제 보기
 
 기본적으로 Azure을 사용하면 동일한 가상 네트워크의 VM 간에 모든 포트를 통한 통신을 허용합니다. 시간에 따라 조직의 사용자는 통신 오류로 인해 발생한 Azure의 기본 규칙을 재정의할 수 있습니다. 통신 문제를 만든 다음, 연결 모니터를 다시 보려면 다음 단계를 완료합니다.
@@ -138,7 +152,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
     | 대상 포트 범위 | 22             |
     | 조치                  | 거부           |
     | 우선 순위                | 100            |
-    | Name                    | DenySshInbound |
+    | 이름                    | DenySshInbound |
 
 5. 연결 모니터가 60초 간격으로 조사하므로 몇 분 정도를 대기한 다음, 포털의 왼쪽에서 **Network Watcher** 및 **연결 모니터**를 선택한 다음, **myVm1-myVm2(22)** 모니터링을 다시 선택합니다. 다음 그림에 나와 있는 대로 결과가 이제 달라집니다.
 

@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5d8af50e3007342a5cd46e4862623f2cf7145172
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 388fd812185bc8bd2ef68a1dbcea6303d30dcdf3
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480424"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230797"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 원격 데스크톱 게시
 
@@ -36,8 +36,8 @@ ms.locfileid: "39480424"
 
 ![응용 프로그램 프록시는 RDS VM과 공용 인터넷 간에 놓입니다.](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
 
-RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결 컴퓨터에서 실행됩니다. 이러한 끝점은 다음 이유로 표시됩니다.
-- RD 웹에서는 사용자에게 액세스할 수 있는 다양한 온-프레미스 응용 프로그램 및 데스크톱에 로그인하고 이를 볼 수 있는 공용 끝점을 제공합니다. 리소스 선택 시 OS에서 네이티브 앱을 사용하여 RDP 연결이 생성됩니다.
+RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결 컴퓨터에서 실행됩니다. 이러한 엔드포인트는 다음 이유로 표시됩니다.
+- RD 웹에서는 사용자에게 액세스할 수 있는 다양한 온-프레미스 응용 프로그램 및 데스크톱에 로그인하고 이를 볼 수 있는 공용 엔드포인트를 제공합니다. 리소스 선택 시 OS에서 네이티브 앱을 사용하여 RDP 연결이 생성됩니다.
 - 사용자가 RDP 연결을 시작하면 RD 게이트웨이가 중요해집니다. RD 게이트웨이는 인터넷을 통해 나오는 암호화된 RDP 트래픽을 처리하고 사용자가 연결되어 있는 온-프레미스 서버로 전환합니다. 이 시나리오에서 RD 게이트웨이가 수신하는 트래픽은 Azure AD 응용 프로그램 프록시에서 나옵니다.
 
 >[!TIP]
@@ -47,7 +47,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
 - 웹 클라이언트가 응용 프로그램 프록시를 지원하지 않으므로 원격 데스크톱 웹 클라이언트 이외의 클라이언트를 사용합니다.
 
-- RD 웹 및 RD 게이트웨이 끝점은 둘 다 같은 컴퓨터에 있고 공통 루트를 사용해야 합니다. RD 웹 및 RD 게이트웨이는 응용 프로그램 프록시와 함께 단일 응용 프로그램으로 게시되므로 두 응용 프로그램 간에 Single Sign-On 환경이 있을 수 있습니다.
+- RD 웹 및 RD 게이트웨이 엔드포인트는 둘 다 같은 컴퓨터에 있고 공통 루트를 사용해야 합니다. RD 웹 및 RD 게이트웨이는 응용 프로그램 프록시와 함께 단일 응용 프로그램으로 게시되므로 두 응용 프로그램 간에 Single Sign-On 환경이 있을 수 있습니다.
 
 - 이미 [RDS를 배포](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure)하고 [응용 프로그램 프록시를 사용하도록 설정](application-proxy-enable.md)했어야 합니다.
 
@@ -59,9 +59,9 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>공동 RDS 및 응용 프로그램 프록시 시나리오 배포
 
-환경에 대해 RDS 및 Azure AD 응용 프로그램 프록시를 설정한 후 두 가지 솔루션을 결합하는 단계를 따릅니다. 이러한 단계에서는 두 개의 웹 연결 RDS 끝점(RD 웹 및 RD 게이트웨이)을 응용 프로그램으로 게시하고 나서 응용 프로그램 프록시를 통과하도록 RDS의 트래픽을 전달하는 작업을 안내합니다.
+환경에 대해 RDS 및 Azure AD 응용 프로그램 프록시를 설정한 후 두 가지 솔루션을 결합하는 단계를 따릅니다. 이러한 단계에서는 두 개의 웹 연결 RDS 엔드포인트(RD 웹 및 RD 게이트웨이)를 응용 프로그램으로 게시하고 나서 응용 프로그램 프록시를 통과하도록 RDS의 트래픽을 전달하는 작업을 안내합니다.
 
-### <a name="publish-the-rd-host-endpoint"></a>RD 호스트 끝점 게시
+### <a name="publish-the-rd-host-endpoint"></a>RD 호스트 엔드포인트 게시
 
 1. 다음 값을 사용하여 [새 응용 프로그램 프록시 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)합니다.
    - 내부 URL: `https://\<rdhost\>.com/`, 여기서 `\<rdhost\>`는 RD 웹과 RD 게이트웨이에서 공유하는 공통 루트입니다.
@@ -82,7 +82,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 3. 왼쪽 창에서 **원격 데스크톱 서비스**를 선택합니다.
 4. **개요**를 선택합니다.
 5. 배포 개요 섹션에서 드롭다운 메뉴를 선택하고 **배포 속성 편집**을 선택합니다.
-6. [RD 게이트웨이] 탭에서 **서버 이름** 필드를 응용 프로그램 프록시에서 RD 호스트 끝점에 대해 설정한 외부 URL로 변경합니다.
+6. [RD 게이트웨이] 탭에서 **서버 이름** 필드를 응용 프로그램 프록시에서 RD 호스트 엔드포인트에 대해 설정한 외부 URL로 변경합니다.
 7. **로그온 방법** 필드를 **암호 인증**으로 변경합니다.
 
   ![RDS의 배포 속성 화면](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
@@ -97,13 +97,15 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
+>[!NOTE]
+>위의 명령은 “`nrequire”에서 억음 악센트 기호를 사용합니다.
 
 9. 이 컬렉션의 RDWeb에서 다운로드할 RDP 파일 콘텐츠를 보고 사용자 지정 RDP 속성의 수정 내용을 확인하려면 다음 명령을 실행합니다.
     ```
     (get-wmiobject -Namespace root\cimv2\terminalservices -Class Win32_RDCentralPublishedRemoteDesktop).RDPFileContents
     ```
 
-이제 원격 데스크톱을 구성했으므로 Azure AD 응용 프로그램 프록시가 RDS의 인터넷 연결 구성 요소로 대체되었습니다. RD 웹 및 RD 게이트웨이 끝점에서 다른 공용 인터넷 연결 끝점을 제거할 수 있습니다.
+이제 원격 데스크톱을 구성했으므로 Azure AD 응용 프로그램 프록시가 RDS의 인터넷 연결 구성 요소로 대체되었습니다. RD 웹 및 RD 게이트웨이 엔드포인트에서 다른 공용 인터넷 연결 엔드포인트를 제거할 수 있습니다.
 
 ## <a name="test-the-scenario"></a>시나리오 테스트
 
@@ -126,7 +128,7 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 사전 인증 흐름은 통과 흐름보다 더 많은 보안 이점을 제공합니다. 사전 인증을 사용하면 온-프레미스 리소스에 대해 Single Sign-On, 조건부 액세스 및 2단계 인증과 같은 Azure AD 인증 기능을 사용할 수 있습니다. 또한 인증된 트래픽만 네트워크에 도달하도록합니다.
 
 통과 인증을 사용하려면 이 문서에 나열된 단계를 두 번만 수정하면 됩니다.
-1. [RD 호스트 끝점 게시](#publish-the-rd-host-endpoint)의 1단계에서 사전 인증 방법을 **통과**로 설정합니다.
+1. [RD 호스트 엔드포인트 게시](#publish-the-rd-host-endpoint)의 1단계에서 사전 인증 방법을 **통과**로 설정합니다.
 2. [응용 프로그램 프록시에 대한 직접 RDS 트래픽](#direct-rds-traffic-to-application-proxy)에서 8단계 전체를 건너뜁니다.
 
 ## <a name="next-steps"></a>다음 단계

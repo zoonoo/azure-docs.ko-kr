@@ -1,21 +1,20 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램 복제 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 응용 프로그램에 대한 재해 복구 설정 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 IIS 웹 팜 가상 머신을 복제하는 방법을 알아봅니다.
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920851"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211828"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 응용 프로그램 복제
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 응용 프로그램에 대한 재해 복구 설정
 
 응용 프로그램 소프트웨어는 조직에서 비즈니스 생산성의 엔진입니다. 다양한 웹 응용 프로그램은 조직 내 여러 용도로 사용될 수 있습니다. 급여 처리, 재무 및 고객 지향 웹 사이트에 사용되는 응용 프로그램과 같은 일부 응용 프로그램은 조직에 중요할 수 있습니다. 생산성 저하를 방지하려면 조직에서 이러한 응용 프로그램을 지속적으로 작동하고 실행해야 합니다. 더 중요한 것은 이러한 응용 프로그램을 일관되게 사용할 수 있게 되면 조직의 브랜드 또는 이미지가 손상되지 않도록 하는 데 도움이 될 수 있습니다.
 
@@ -61,10 +60,10 @@ ARR, IIS 서버, 응용 프로그램 서버 및 SQL Server가 있는 IIS 기반 
 
 시나리오 | 보조 사이트 대상 | Azure 대상
 --- | --- | ---
-Hyper-V | 예 | 예
-VMware | 예 | 예
-물리적 서버 | 아니오 | 예
-Azure|해당 없음|예
+Hyper-V | yes | yes
+VMware | yes | yes
+물리적 서버 | 아니요 | yes
+Azure|해당 없음|yes
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
 

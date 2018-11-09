@@ -1,21 +1,21 @@
 ---
-title: Azure로 Hyper-V 복제를 위한 지원 행렬 | Microsoft Docs
-description: Azure Site Recovery를 통한 Azure로의 Hyper-V 복제에 지원되는 구성 요소 및 요구 사항의 요약 정보를 제공합니다.
+title: 온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스 | Microsoft Docs
+description: Azure Site Recovery를 사용한 Hyper-V VM과 Azure 간 재해 복구를 위해 지원되는 구성 요소 및 요구 사항이 요약되어 있습니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e389f37448211afc35fb98572161be4fcaea7556
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079211"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210723"
 ---
-# <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Azure로의 Hyper-V 복제용 지원 행렬
+# <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 Hyper-V VM을 Azure로 재해 복구하는 데 지원되는 구성 요소와 설정의 요약 정보를 제공합니다.

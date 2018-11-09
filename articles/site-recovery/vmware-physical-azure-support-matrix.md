@@ -1,21 +1,20 @@
 ---
-title: Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure에 복제하기 위한 지원 매트릭스 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure에 복제하기 위해 지원되는 운영 체제 및 구성 요소를 요약하고 있습니다.
-services: site-recovery
+title: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스 | Microsoft Docs
+description: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구를 위해 지원되는 운영 체제 및 구성 요소가 요약되어 있습니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: f6f1ceb4f9afaaeb0a436879802144bdebc06280
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b472ed1c32e64b8f8ac881c09f22590c49f39c75
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378655"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215364"
 ---
-# <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
+# <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 VMware VM을 Azure로 재해 복구하는 데 지원되는 구성 요소와 설정의 요약 정보를 제공합니다.
 

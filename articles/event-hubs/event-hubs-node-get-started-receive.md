@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2f59b7f47acc8ce8e566b7f0e2bcfed379ea60d2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429187"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239087"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Node.js를 사용하여 Azure Event Hubs에서 이벤트 수신
 
@@ -37,7 +37,7 @@ Event Hubs에 대해 자세히 알아보려면 [Event Hubs 개요](event-hubs-ab
 - 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][]을 만듭니다.
 
 ## <a name="create-a-namespace-and-event-hub"></a>네임스페이스 및 이벤트 허브 만들기
-첫 단계에서는 Azure Portal을 사용하여 이벤트 허브가 포함된 Event Hubs 네임스페이스를 만듭니다. 기존 엔터티가 없으면 [Azure Portal을 사용하여 Events Hubs 네임스페이스 및 이벤트 허브 만들기](event-hubs-create.md)의 지침에 따라 해당 엔터티를 만들 수 있습니다.
+첫 단계에서는 Azure Portal을 사용하여 이벤트 허브가 포함된 Event Hubs 네임스페이스를 만듭니다. 기존 엔터티가 없으면 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](event-hubs-create.md)의 지침에 따라 해당 엔터티를 만들 수 있습니다.
 
 ## <a name="create-a-storage-account-and-container"></a>저장소 계정 및 컨테이너 만들기
 EventProcessorHost를 사용하려면 Azure Storage 계정이 있어야 합니다. 이벤트 스트림의 검사점 및 파티션 임대와 같은 상태 정보는 Azure Storage 컨테이너를 사용하여 수신기 간에 공유됩니다. [이 문서](../storage/common/storage-quickstart-create-account.md)의 지침에 따라 Azure Storage 계정을 만들 수 있습니다.
@@ -141,12 +141,7 @@ export EVENTHUB_NAME="<your-event-hub-name>"
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 페이지를 방문하여 Event Hubs에 대해 자세히 알아보세요.
-
-* [Node.js를 사용하여 이벤트 보내기](event-hubs-go-get-started-send.md)
-* [Event Hubs 샘플](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/)
-* [Azure Storage 또는 Data Lake Store로 이벤트 캡처](event-hubs-capture-overview.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Node.js 응용 프로그램을 만들었습니다. Node.js를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Node.js](event-hubs-node-get-started-send.md)를 참조하세요.
 
 <!-- Links -->
 [체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

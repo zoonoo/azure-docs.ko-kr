@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/26/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4984332e1a149ae838bc76a24abec90364f5699e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ba6d8250d70320b33822d73c9213e9005128633f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221981"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157210"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn에 대한 질문과 대답
 
-이 문서에서는 Cloudyn에 대한 몇 가지 일반적인 질문을 다룹니다. Cloudyn에 대한 질문이 있을 경우 [Cloudyn에 대 한 FAQ](https://social.msdn.microsoft.com/Forums/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn)로 문의할 수 있습니다.
+이 문서에서는 Cloudyn에 대한 몇 가지 일반적인 질문을 다룹니다. Cloudyn에 대한 질문이 있을 경우 [Cloudyn에 대 한 FAQ](https://social.msdn.microsoft.com/Forums/home?forum=faqs-for-azure-cost-management-by-cloudyn)로 문의할 수 있습니다.
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>간접 기업의 일반적인 설정 문제를 해결하는 방법은 무엇일까요?
 
@@ -35,7 +35,7 @@ Cloudyn 포털을 처음 사용할 때 기업 계약 또는 CSP(클라우드 솔
 
 1. 재판매인은 계정에 대해 _표시_를 사용하도록 설정해야 합니다. 지침은 [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide)(간접 고객 온보딩 가이드)를 참조하세요.
 
-2. Cloudyn에 사용할 기업 계약 키를 생성합니다. 지침은 [Azure EA 추가](https://support.cloudyn.com/hc/articles/210429585-Adding-Your-AZURE-EA) 또는 [EA 등록 ID 및 API 키를 찾는 방법](https://youtu.be/u_phLs_udig)을 참조하세요.
+2. Cloudyn에 사용할 기업 계약 키를 생성합니다. 지침은 [Azure EA 추가](quick-register-ea.md#register-with-cloudyn) 또는 [EA 등록 ID 및 API 키를 찾는 방법](https://youtu.be/u_phLs_udig)을 참조하세요.
 
 Azure 서비스 관리자만 Cloudyn을 사용하도록 설정할 수 있습니다. 공동 관리자 권한이 충분하지 않습니다.
 
@@ -100,7 +100,7 @@ Cloudyn 직접 URL https://app.cloudyn.com은 사용하지 마세요.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Azure 자격 증명으로 활성화되지 않은 계정을 활성화하는 방법
 
-Cloudyn에서 Azure 계정을 발견하면 즉시 비용 기반 보고서에 비용 데이터가 제공됩니다. 그러나 Cloudyn이 사용 및 성능 데이터를 제공하려면 Azure 자격 증명을 계정에 등록해야 합니다. 지침은 [Azure Resource Manager 추가](https://support.cloudyn.com/hc/articles/212784085-Adding-Azure-Resource-Manager)를 참조하세요.
+Cloudyn에서 Azure 계정을 발견하면 즉시 비용 기반 보고서에 비용 데이터가 제공됩니다. 그러나 Cloudyn이 사용 및 성능 데이터를 제공하려면 Azure 자격 증명을 계정에 등록해야 합니다. 자세한 내용은 [계정 추가 또는 구독 업데이트](activate-subs-accounts.md#add-an-account-or-update-a-subscription)를 참조하세요.
 
 계정에 Azure 자격 증명을 추가하려면 Cloudyn 포털에서 구독이 아닌 계정 이름 오른쪽에 있는 편집 기호를 선택합니다.
 
@@ -108,10 +108,7 @@ Azure 자격 증명이 Cloudyn에 추가될 때까지 계정은 _비활성화_�
 
 ## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>기존 구독에 여러 계정 및 엔터티를 추가하려면 어떻게 할까요?
 
-추가 엔터티는 Cloudyn 구독에 기업계약을 추가하는 데 사용됩니다. 다음 링크는 엔터티를 추가하는 방법을 설명합니다.
-
-- [Adding an Entity](https://support.cloudyn.com/hc/articles/212016145-Adding-an-Entity)(엔터티 추가) 문서
-- [Defining your hierarchy with Cost Entities](https://support.cloudyn.com/hc/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities)(비용 엔터티를 사용하여 계층 구조 정의) 비디오
+추가 엔터티는 Cloudyn 구독에 기업계약을 추가하는 데 사용됩니다. 자세한 내용은 [엔터티 만들기 및 관리](tutorial-user-access.md#create-and-manage-entities)를 참조하세요.
 
 CSP의 경우:
 

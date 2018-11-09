@@ -1,22 +1,19 @@
 ---
-title: Azure 가상 머신을 다른 Azure 지역으로 장애 조치(failover)하는 경우 IP 주소 유지 | Microsoft Docs
-description: Azure Site Recovery로 Azure 장애 조치(failover) 시나리오에 Azure의 IP 주소를 유지하는 방법을 설명합니다.
+title: Azure VM 장애 조치(failover)를 위해 IP 주소 보존 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 보조 지역으로 재해 복구를 수행하기 위해 Azure VM을 장애 조치(failover)할 때 IP 주소를 보존하는 방법을 설명합니다.
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4260a4487480c42b518374965d8deda1e7803e62
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 86adaa21a069c168b512231ba231940bfa2ef9e8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353325"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213035"
 ---
-# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Azure 가상 머신 장애 조치(failover)를 위한 IP 주소 보존
+# <a name="ip-address-retention-for-azure-vm-failover"></a>Azure VM 장애 조치(failover)를 위해 IP 주소 보존
 
 Azure Site Recovery를 통해 Azure VM에 대한 재해 복구가 가능합니다. 한 Azure 지역에서 다른 지역으로 장애 조치(failover)하는 경우 고객이 자체 IP 구성을 보존하도록 요구하는 경우가 많습니다. 기본적으로 Site Recovery는 대상 지역에 해당 리소스를 생성할 때 원본 가상 네트워크와 서브넷 구조를 모방합니다. 고정 개인 IP 주소로 구성된 Azure VM에 대해, Site Recovery는 해당 IP가 Azure 리소스 또는 복제된 VM에서 이미 차단되지 않은 경우, 대상 VM에 동일한 개인 IP를 프로비전하기 위해 최선의 노력을 기울입니다.
 

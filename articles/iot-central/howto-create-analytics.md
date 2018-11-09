@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bf86e769aff4a9b03d5df1b1aef702814c605fa4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c170f573a473d3fdfca5c916b4be594dc93d6b27
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368089"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156326"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>분석을 사용하여 장치 데이터를 분석하는 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "46368089"
 *이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
 
-Microsoft Azure IoT Central은 장치에서 오는 대량의 데이터를 이해하는 풍부한 분석 기능을 제공합니다. 시작하려면 왼쪽 탐색 메뉴에서 **분석**으로 이동합니다. 
+Azure IoT Central은 장치에서 들어오는 대량의 데이터를 이해하는 풍부한 분석 기능을 제공합니다. 시작하려면 왼쪽 탐색 메뉴에서 **분석**으로 이동합니다. 
 
   ![IoT Central에서 분석으로 이동](media\howto-create-analytics\analytics-navigation.png)
 
@@ -60,12 +60,12 @@ to-do: confirm if 10 is the max number of measurements
 
 시각화 요구 사항에 맞게 쿼리 결과를 추가로 변경할 수 있는 다양한 방법이 있습니다. 그래프 보기와 그리드 보기 사이를 교대로 전환하고, 확대/축소하고, 데이터 집합을 새로 고치고, 선이 표시되는 방식을 변경할 수 있습니다.
 
-* **그리드 표시:** 각 데이터 요소에 대한 특정 값을 볼 수 있도록 결과를 표 형식으로 사용할 수 있습니다. 이 보기는 내게 필요한 옵션 표준을 충족합니다. 
+* **그리드 표시:** 각 데이터 요소에 대한 특정 값을 볼 수 있도록 결과가 표 형식으로 제공됩니다. 이 보기는 내게 필요한 옵션 표준을 충족합니다. 
 * **차트 표시:** 상향/하향 추세 및 이상 현상을 쉽게 파악할 수 있도록 결과를 선 형식으로 표시합니다. 
 
  ![분석에 대한 그리드 보기 표시](media\howto-create-analytics\analytics-showgrid.png)
 
-확대/축소를 사용하면 데이터를 효과적으로 활용할 수 있습니다. 결과 집합 내에서 집중하려는 기간을 찾은 경우 커서를 사용하여 확대할 영역을 잡고, 사용 가능한 컨트롤을 사용하여 다음 작업 중 하나를 수행합니다.
+확대/축소를 사용하면 데이터를 효과적으로 활용할 수 있습니다. 결과 집합 내에서 집중하려는 기간을 찾는 경우 커서를 사용하여 확대할 영역을 잡고, 사용 가능한 컨트롤을 통해 다음 작업 중 하나를 수행합니다.
 * **확대:** 기간을 선택하면 확대/축소가 활성화되어 데이터를 확대할 수 있습니다.
 * **축소:** 이 컨트롤을 사용하면 마지막 확대/축소에서 한 수준을 축소할 수 있습니다. 예를 들어 데이터를 세 번 확대한 경우 축소는 한 번에 한 단계씩 뒤로 이동합니다.
 * **확대/축소 다시 설정:** 다양한 확대/축소 수준을 수행한 경우 확대/축소 다시 설정 컨트롤을 사용하여 원래 결과 집합으로 돌아갈 수 있습니다. 

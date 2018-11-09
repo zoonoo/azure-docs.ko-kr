@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650114"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085867"
 ---
 # <a name="entities-in-luis"></a>LUIS의 엔터티
 
@@ -96,8 +96,9 @@ LUIS는 미리 빌드된 엔터티, 사용자 지정 기계 학습 엔터티, �
 ## <a name="entity-limits"></a>엔터티 제한
 모델에 추가할 수 있는 각 엔터티 형식의 수를 파악하려면 [제한](luis-boundaries.md#model-boundaries)을 검토하세요.
 
-## <a name="entity-roles"></a>엔터티 역할
-엔터티 [역할](luis-concept-roles.md)은 사용자 지정 및 사전 빌드된 항목에 적용되며 패턴으로만 사용됩니다. 
+## <a name="roles-versus-hierarchical-entities"></a>역할 및 계층 구조 엔터티
+
+자세한 내용은 [역할 및 계층 구조 엔터티](luis-concept-roles.md#roles-versus-hierarchical-entities)를 참조하세요.
 
 ## <a name="composite-vs-hierarchical-entities"></a>복합 및 계층적 엔터티
 복합 엔터티 및 계층적 엔터티에는 둘 다 부모-자식 관계가 있으며 기계 학습됩니다. 기계 학습을 사용하면 LUIS는 다양한 컨텍스트(단어의 배열)를 기반으로 하여 엔터티를 이해할 수 있습니다. 복합 엔터티는 다양한 엔터티 형식을 자식으로 허용하므로 보다 유연합니다. 계층적 엔터티의 자식은 단순 엔터티뿐입니다. 
@@ -158,7 +159,7 @@ LUIS는 미리 빌드된 엔터티, 사용자 지정 기계 학습 엔터티, �
 ## <a name="data-matching-multiple-list-entities"></a>여러 목록 엔터티와 일치하는 데이터
 단어나 구가 둘 이상의 목록 엔터티와 일치하는 경우, 엔드포인트 쿼리는 각 목록 엔터티를 반환합니다.
 
-ph x="1" /&gt; 쿼리에서 앱이 둘 이상의 목록에 `red`라는 단어를 갖는 경우 LUIS는 모든 엔터티를 인식하고 엔터티의 배열을 JSON 엔드포인트 응답의 일부로 반환합니다. 
+`when is the best time to go to red rock?` 쿼리에서 앱이 둘 이상의 목록에 `red`라는 단어를 갖는 경우 LUIS는 모든 엔터티를 인식하고 엔터티의 배열을 JSON 엔드포인트 응답의 일부로 반환합니다. 
 
 ```JSON
 {

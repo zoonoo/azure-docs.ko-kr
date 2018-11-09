@@ -5,17 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/2/2018
+ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3c225e6fbfb13c04d650b8e6b72ee18d23139a8e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856074"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158961"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
-
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -49,6 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## <a name="declare-the-variables"></a>변수 선언
+
 다음 예제에서는 이 자습서에 대한 값을 사용하여 변수를 선언합니다. 대부분의 경우에 값을 고유한 값으로 바꿔야 합니다. 그러나 이 구성 유형에 익숙해지기 위해 단계를 차례로 실행하는 경우 이 변수를 사용할 수 있습니다. 필요한 경우 변수를 수정한 다음 복사하여 PowerShell 콘솔에 붙여 넣습니다.
 
 ```azurepowershell
@@ -91,6 +91,7 @@ $SNnameGW = "GatewaySubnet"
 ```
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
+
 이 자습서에서 필요한 모든 리소스를 포함할 리소스 그룹을 만듭니다.
 
 ```azurepowershell
@@ -112,12 +113,14 @@ $GWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $S
 $VNetHub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
+
 VNet용으로 만들 VPN 게이트웨이에 할당할 공용 IP 주소를 요청합니다. *AllocationMethod*가 **동적**인지 확인합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 VPN 게이트웨이에 동적으로 할당됩니다. 
 
   ```azurepowershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
 ```
+
 ## <a name="create-and-configure-the-spoke-vnet"></a>스포크 Vnet 만들기 및 구성
 
 스포크 VNet에 포함될 서브넷을 정의합니다.
@@ -149,6 +152,7 @@ $GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPre
 $VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
+
 VNet용으로 만들 게이트웨이에 할당할 공용 IP 주소를 요청합니다. *AllocationMethod*가 **동적**인지 확인합니다. 사용할 IP 주소를 지정할 수는 없습니다. IP 주소는 게이트웨이에 동적으로 할당됩니다. 
 
   ```azurepowershell
@@ -176,32 +180,20 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>네트워크 규칙 구성
 
-<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+<!--- $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
 
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
 
-$Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
+$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
 $NetRuleCollection = New-AzureRmFirewallNetworkRuleCollection -Name RCNet01 -Priority 100 `
-   -Rule $Rule1,$Rule2,$Rule3 -ActionType "Allow"
+   -Rule $Rule1,$Rule2 -ActionType "Allow"
 $Azfw.NetworkRuleCollections = $NetRuleCollection
 Set-AzureRmFirewall -AzureFirewall $Azfw
-```
-### <a name="configure-an-application-rule"></a>응용 프로그램 규칙 구성
-
-```azurepowershell
-$Rule4 = New-AzureRmFirewallApplicationRule -Name "AllowBing" -Protocol "Http:80","Https:443" `
-   -SourceAddress $SNOnpremPrefix -TargetFqdn "bing.com"
-
-$AppRuleCollection = New-AzureRmFirewallApplicationRuleCollection -Name RCApp01 -Priority 100 `
-   -Rule $Rule4 -ActionType "Allow"
-$Azfw.ApplicationRuleCollections = $AppRuleCollection
-Set-AzureRmFirewall -AzureFirewall $Azfw
-
 ```
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>VPN 게이트웨이 만들기 및 연결
@@ -245,10 +237,13 @@ New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
 -Location $Location1 -IpConfigurations $gwipconf2 -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku basic
 ```
+
 ### <a name="create-the-vpn-connections"></a>VPN 연결 만들기
+
 이제 허브와 OnPrem 게이트웨이 간의 VPN 연결을 만들 수 있습니다.
 
 #### <a name="get-the-vpn-gateways"></a>VPN 게이트웨이 가져오기
+
 ```azurepowershell
 $vnetHubgw = Get-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1
 $vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1
@@ -270,8 +265,9 @@ OnPrem에서 허브 VNet 연결을 만듭니다. 이 단계는 Vnet-Onprem에서
   -VirtualNetworkGateway1 $vnetOnpremgw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
+
 #### <a name="verify-the-connection"></a>연결 확인
- 
+
 *-Debug*를 포함하거나 포함하지 않은 상태에서 *Get-AzureRmVirtualNetworkGatewayConnection* cmdlet을 사용하여 연결 성공을 확인할 수 있습니다. 일치하는 값을 구성하는 데 다음 cmdlet 예제를 사용합니다. 메시지가 표시되면 **모두** 실행하기 위해 **A**를 선택합니다. 예제에서 *-Name*은 테스트하려는 연결의 이름을 나타냅니다.
 
 ```azurepowershell
@@ -286,8 +282,6 @@ cmdlet이 완료되면 값을 봅니다. 다음 예제에서는 연결 상태가
 "egressBytesTransferred": 4142431
 ```
 
-
-
 ## <a name="peer-the-hub-and-spoke-vnets"></a>허브 및 스포크 VNet 피어링
 
 이제 스포크와 허브 VNet을 피어링합니다.
@@ -299,9 +293,11 @@ Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -Remo
 # Peer spoke to hub
 Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
+
 ## <a name="create-routes"></a>경로 만들기
 
-다음으로 두 경로 만듭니다. 
+다음으로 두 경로 만듭니다.
+
 - 허브 게이트웨이 서브넷에서 방화벽 IP 주소를 통해 스포크 서브넷으로 가는 경로
 - 방화벽 IP 주소를 통해 스포크 서브넷으로부터의 기본 경로
 
@@ -364,16 +360,18 @@ Set-AzureRmVirtualNetworkSubnetConfig `
   -RouteTable $routeTableSpokeDG | `
 Set-AzureRmVirtualNetwork
 ```
+
 ## <a name="create-virtual-machines"></a>가상 머신 만들기
 
 이제 스포크 워크로드 및 OnPrem 가상 머신을 만들어 적절한 서브넷에 배치합니다.
 
 ### <a name="create-the-workload-virtual-machine"></a>워크로드 가상 머신 만들기
+
 스포크 VNet에서 IIS를 실행하고 공용 IP 주소가 없으며 Ping 유입을 허용하는 가상 머신을 만듭니다.
 메시지가 표시되면 가상 머신의 사용자 이름 및 암호를 입력합니다.
 
 ```azurepowershell
-# Create an inbound network security group rule for port 3389
+# Create an inbound network security group rule for ports 3389 and 80
 $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name Allow-RDP  -Protocol Tcp `
   -Direction Inbound -Priority 200 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix $SNSpokePrefix -DestinationPortRange 3389 -Access Allow
 $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name Allow-web  -Protocol Tcp `
@@ -417,9 +415,10 @@ Set-AzureRmVMExtension `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
     -Location $Location1--->
 
-
 ### <a name="create-the-onprem-virtual-machine"></a>OnPrem 가상 머신 만들기
+
 원격 데스크톱을 사용하여 공용 IP 주소에 연결할 수 있는 간단한 가상 머신입니다. 여기에서 방화벽을 통해 OnPrem 서버에 연결할 수 있습니다. 메시지가 표시되면 가상 머신의 사용자 이름 및 암호를 입력합니다.
+
 ```azurepowershell
 New-AzureRmVm `
     -ResourceGroupName $RG1 `
@@ -432,6 +431,7 @@ New-AzureRmVm `
 ```
 
 ## <a name="test-the-firewall"></a>방화벽 테스트
+
 먼저 **VM-spoke-01** 가상 머신의 개인 IP 주소를 가져와 기록합니다.
 
 ```azurepowershell
@@ -462,17 +462,14 @@ $NIC.IpConfigurations.privateipaddress
 $rcNet = $azfw.GetNetworkRuleCollectionByName("RCNet01")
 $rcNet.action.type = "Deny"
 
-$rcApp = $azfw.GetApplicationRuleCollectionByName("RCApp01")
-$rcApp.action.type = "Deny"
-
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
+
 이제 테스트를 다시 실행합니다. 이번에는 모두 실패해야 합니다. 변경된 규칙을 테스트하려면 먼저 기존 원격 데스크톱을 모두 닫습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 다음 자습서에서 사용하기 위해 방화벽 리소스를 그대로 유지하거나, 더 이상 필요하지 않은 경우 **FW-Hybrid-Test** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제할 수 있습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

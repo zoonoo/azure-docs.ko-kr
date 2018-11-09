@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
-ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237979"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210689"
 ---
-# <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>아키텍처 및 개념: Azure Machine Learning 서비스의 작동 원리 
+# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스의 작동 원리: 아키텍처 및 개념
 
 이 문서에서는 Azure Machine Learning 서비스에 대한 아키텍처 및 개념을 설명합니다. 다음 다이어그램은 서비스의 주요 구성 요소를 보여 주고, 서비스 사용 시 일반적인 일반 워크플로를 보여 줍니다. 
 
@@ -156,16 +156,28 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 
 실험을 사용하는 예제를 보려면 [빠른 시작: Azure Machine Learning 서비스 시작](quickstart-get-started.md) 문서를 참조하세요.
 
+## <a name="pipelines"></a>파이프라인
+
+파이프라인은 기계 학습 단계를 연결하는 워크플로를 만들고 관리하는 데 사용됩니다. 예를 들어, 파이프라인에는 데이터 준비, 모델 학습, 모델 배포 및 추론 단계가 포함될 수 있습니다. 각 단계(phase)는 각각 다양한 컴퓨팅 대상에서 자동으로 실행될 수 있는 여러 단계(step)를 포함할 수 있습니다.
+
+이 서비스를 사용한 기계 학습 파이프라인에 대한 자세한 내용은 [파이프라인 및 Azure Machine Learning](concept-ml-pipelines.md)을 참조하세요.
+
 ## <a name="compute-target"></a>계산 대상
 
-계산 대상은 학습 스크립트를 실행하거나 웹 서비스 배포를 호스트하는 데 사용되는 계산 리소스입니다. 지원되는 계산 대상은 다음과 같습니다. 
+컴퓨팅 대상은 학습 스크립트를 실행하거나 서비스 배포를 호스트하는 데 사용되는 컴퓨팅 리소스입니다. 지원되는 계산 대상은 다음과 같습니다. 
 
-* 로컬 컴퓨터
-* Azure의 Linux VM(예: Data Science Virtual Machine)
-* Azure Batch AI 클러스터
-* HDInsight용 Apache Spark
-* Azure Container Instance
-* Azure Kubernetes Service
+| 계산 대상 | 교육 | 배포 |
+| ---- |:----:|:----:|
+| 로컬 컴퓨터 | ✓ | &nbsp; |
+| Azure의 Linux VM</br>(예: Data Science Virtual Machine) | ✓ | &nbsp; |
+| Azure Batch AI 클러스터 | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure 데이터 레이크 분석 | ✓ | &nbsp; |
+| HDInsight용 Apache Spark | ✓ | &nbsp; |
+| Azure Container Instance | ✓ | ✓ |
+| Azure Kubernetes Service | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(Field-programmable Gate Array) | &nbsp; | ✓ |
 
 계산 대상은 작업 영역에 연결됩니다. 작업 영역의 사용자가 로컬 컴퓨터 이외의 계산 대상을 공유합니다.
 
@@ -187,7 +199,7 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 
 모델을 학습시키려면 학습 스크립트 및 연결된 파일을 포함하는 디렉터리를 지정합니다. 학습 중에 수집된 정보를 저장하는 데 사용되는 실험 이름도 지정합니다. 학습 중에 전체 디렉터리가 학습 환경(계산 대상)에 복사되고 실행 구성을 통해 지정된 스크립트가 시작됩니다. 또한 디렉터리의 스냅숏이 작업 영역의 실험 아래에 저장됩니다.
 
-스크립트를 사용하여 모델을 학습시키는 예제를 보려면 [Python을 사용하여 작업 영역 만들기](quickstart-get-started.md)를 참조하세요.
+예를 보려면 [Python을 사용하여 작업 영역 만들기](quickstart-get-started.md)를 참조하세요.
 
 ## <a name="logging"></a>로깅
 

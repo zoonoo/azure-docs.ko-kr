@@ -4,17 +4,17 @@ description: 업데이트 관리 에이전트의 문제를 해결하는 방법�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 1b258d115e7d9962ecab4b93dbcd98d13f5977c7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 20323afe79ad3de1e3dfccd4752c4f7e28d22266
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956683"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095374"
 ---
 # <a name="understand-the-agent-check-results-in-update-management"></a>업데이트 관리에서 에이전트 확인 결과 이해
 
@@ -46,15 +46,15 @@ OS 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나가 실�
 |운영 체제  |메모  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | 업데이트 평가만 지원합니다.         |
-|Windows Server 2008 R2 SP1 이상     |.NET Framework 4.5 이상이 필요합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 이상이 필요합니다. ([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1은 안정성 개선을 위해 필요합니다.  ([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 이상     |.NET Framework 4.5.1 이상이 필요합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 이상이 필요합니다. ([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1은 안정성 개선을 위해 필요합니다.  ([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치에는 CentOS에 기본 제공되지 않은 보안 데이터를 반환하기 위해 'yum'이 필요합니다.         |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
-|Ubuntu 14.04 LTS 및 16.04 LTS(x86/x64)      |Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.         |
+|Ubuntu 14.04 LTS, 16.04 LTS 및 18.04 LTS(x86/x64)      |Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.         |
 
-### <a name="net-45"></a>.NET 4.5
+### <a name="net-451"></a>.NET 4.5.1
 
-.NET framework 검사는 시스템에 최소한 [.NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)가 있는지 확인합니다.
+.NET framework 검사는 시스템에 최소한 [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653)이 있는지 확인합니다.
 
 ### <a name="wmf-51"></a>WMF 5.1
 

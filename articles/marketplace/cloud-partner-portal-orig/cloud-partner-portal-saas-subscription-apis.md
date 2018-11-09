@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c9ed3f3511def085f5e0658bbcbd7978e3a7ce20
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079319"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212967"
 ---
 <a name="saas-sell-through-azure---apis"></a>Azure 통한 SaaS 판매 - API
 ==============================
 
-이 문서에서는 API를 사용하여 SaaS 제안을 만드는 방법을 설명합니다. 이 API는 Azure를 통한 판매를 선택한 경우 SaaS 제안 구독을 허용하는 데 필요합니다. 상거래가 설정되지 않은 일반적인 SaaS 목록을 작성하려는 경우 [SaaS 응용 프로그램 기술 게시 가이드]./cloud-partner-portal-saas-offers-tech-publishing-guide.md)를 참조하세요.
+이 문서에서는 API를 사용하여 SaaS 제안을 만드는 방법을 설명합니다. 이 API는 Azure를 통한 판매를 선택한 경우 SaaS 제안 구독을 허용하는 데 필요합니다. 상거래가 설정되지 않은 일반적인 SaaS 목록을 작성하려는 경우 [SaaS 응용 프로그램 기술 게시 가이드](./cloud-partner-portal-saas-offers-tech-publishing-guide.md)를 참조하세요.
 
 이 문서는 다음 두 개의 섹션으로 구분됩니다.
 

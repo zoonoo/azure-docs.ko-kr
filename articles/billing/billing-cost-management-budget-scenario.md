@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 19d8fbf82410136fd6a50a2088dd9b774dd6cb27
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259214"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094816"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Azure 예산으로 비용 관리
 
@@ -139,7 +139,7 @@ Azure가 논리 앱을 배포하면 **Logic Apps 디자이너**가 열리고 소
 4.  **Logic Apps 디자이너** 검색창에서 "JSON 구문 분석"을 검색하여 **데이터 작업 - JSON 구문 분석** [작업](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts)을 찾아 선택합니다. 
     
     ![Azure - 논리 앱 - JSON 구문 분석 작업 추가](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png) 
-5.  JSON 구문 분석 페이로드에 대한 **콘텐츠** 이름으로 "페이로드"를 입력합니다.
+5.  JSON 구문 분석 페이로드에 대한 **콘텐츠** 이름으로 “Payload”를 입력하거나, 동적 콘텐츠의 “Body” 태그를 사용합니다.
 6.  **JSON 구분 분석** 상자에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
     
     ![Azure - 논리 앱 - 샘플 JSON 데이터를 사용하여 스키마 생성](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png) 

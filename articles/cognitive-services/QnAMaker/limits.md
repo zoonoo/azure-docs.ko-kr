@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53fadc0e3ea21b94ca656774baf077192c0394b4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384956"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137296"
 ---
 # <a name="qna-maker-limits"></a>QnA Maker 제한
 QnA Maker에 대한 포괄적인 제한 목록입니다.
@@ -26,7 +26,7 @@ QnA Maker에 대한 포괄적인 제한 목록입니다.
 
 |**Azure Search 계층** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|허용된 최대 게시 기술 자료 수(최대 인덱스 - 1(테스트용으로 예약됨))|2|14|49|199|199|2999|
+|허용된 최대 게시 기술 자료 수(최대 인덱스 - 1(테스트용으로 예약됨))|2|14|49|199|199|2,999|
 
 ## <a name="extraction-limits"></a>추출 제한
 * 추출할 수 있는 최대 파일 수 및 최대 파일 크기: [QnA Maker 가격](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/) 참조
@@ -37,12 +37,12 @@ QnA Maker에 대한 포괄적인 제한 목록입니다.
 
 |**Azure Search 계층** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|QnA Maker 서비스별 최대 메타데이터 필드 수(모든 기술 자료에서)|1000|100*|1000|1000|1000|1000|
+|QnA Maker 서비스별 최대 메타데이터 필드 수(모든 기술 자료에서)|1,000|100*|1,000|1,000|1,000|1,000|
 
 ## <a name="knowledge-base-content-limits"></a>기술 자료 콘텐츠 제한
 기술 자료에서 전반적인 콘텐츠 제한 사항은 아래와 같습니다.
-* 답변 텍스트 길이: 250000
-* 질문 텍스트 길이: 1000
+* 답변 텍스트 길이: 25,000
+* 질문 텍스트 길이: 1,000
 * 메타데이터 키/값 텍스트 길이: 100
 * 메타데이터 이름의 지원되는 문자: 영문자, 숫자 및 _  
 * 메타데이터 값의 지원되는 문자: 모든 문자(: 및 | 제외) 

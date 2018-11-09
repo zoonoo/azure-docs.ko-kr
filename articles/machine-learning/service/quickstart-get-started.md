@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456816"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159012"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>빠른 시작: Azure Portal을 사용하여 Azure Machine Learning 시작
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Machine Learning 작업 영역을 만듭니다. 이 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다. 
+이 빠른 시작에서는 Azure Portal을 사용하여 Azure Machine Learning 작업 영역을 만듭니다. 이 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다. 이 빠른 시작에서는 클라우드 리소스를 사용하며 설치 과정이 필요 없습니다. 자체 Jupyter 노트북 서버를 대신 구성하려면 [빠른 시작: Python을 사용하여 Azure Machine Learning 시작](quickstart-create-workspace-with-python.md)을 참조하세요.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -78,32 +78,9 @@ Azure Notebooks는 Jupyter Notebooks를 위한 무료 클라우드 플랫폼을 
 
 `01.run-experiment.ipynb`를 선택하여 노트북을 엽니다.
 
-`Shift`+`Enter`를 사용하여 셀을 한 번에 하나씩 실행할 수 있습니다. 또는 `Cells` > `Run All`을 선택하여 전체 노트북을 실행할 수 있습니다. 셀 옆에 별표 [*]가 보이면 실행 중이라는 의미입니다. 해당 셀에 대한 코드가 완료되면 숫자가 표시됩니다.
+`Shift`+`Enter`를 사용하여 셀을 한 번에 하나씩 실행할 수 있습니다. 또는 `Cells` > `Run All`을 선택하여 전체 노트북을 실행할 수 있습니다. 셀 옆에 별표 [*]가 보이면 실행 중이라는 의미입니다. 해당 셀에 대한 코드가 완료되면 숫자가 표시됩니다. 
 
-로그인하라는 메시지가 표시될 수 있습니다. 메시지의 코드를 복사합니다. 그런 다음, 링크를 선택하고 코드를 새 창에 붙여넣습니다. 코드 앞뒤에 있는 공백을 복사하지 않아야 합니다. Azure Portal에서 사용한 것과 동일한 계정으로 로그인합니다.
-
- ![로그인](./media/quickstart-get-started/login.png)
-
-노트북에서 두 번째 셀이 `config.json`에서 읽히고 작업 영역에 연결합니다.
-```
-ws = Workspace.from_config()
-```
-
-코드의 세 번째 셀은 "my-first-experiment"라는 이름으로 실험을 시작합니다. 이 이름은 작업 영역에서 다시 실행에 대한 정보를 찾을 때 사용합니다.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-노트북의 마지막 셀에서 로그 파일에 기록된 값을 확인합니다.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-코드가 실행된 후 작업 영역에서 이러한 값을 볼 수 있습니다.
+노트북에서 실행 중인 모든 셀을 완료하면 작업 영역에서 기록된 값을 볼 수 있습니다.
 
 ## <a name="view-logged-values"></a>기록된 값 보기
 
@@ -121,11 +98,11 @@ run.log("Final error: ",math.pi-pi_estimate)
 
  ![실행 기록 링크](./media/quickstart-get-started/report.png)
 
-자동으로 생성된 기록된 값에 대한 플롯이 표시됩니다.  
+자동으로 생성된 기록된 값에 대한 플롯이 표시됩니다. 동일한 이름 매개 변수를 사용하여 여러 값을 기록할 때마다 플롯이 자동으로 생성됩니다.
 
    ![기록 보기](./media/quickstart-get-started/plots.png)
 
-Pi를 추정하는 코드가 임의의 값을 사용하므로 플롯이 여러 값을 표시합니다.
+Pi를 추정하는 코드가 임의의 값을 사용하므로 플롯이 여러 값을 표시합니다.  
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 

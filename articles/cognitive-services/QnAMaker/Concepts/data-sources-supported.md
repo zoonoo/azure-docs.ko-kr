@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 36d74c7fba472956d57344977de79a4cbfd2cf02
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4c96eb5b49c72fe9bb5ab977c773407889c56805
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648516"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213307"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 콘텐츠의 데이터 원본
 
@@ -28,7 +28,7 @@ QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FA
 |URL|FAQ(플랫, 섹션 또는 토픽 홈페이지 포함)|[일반 FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [링크가 포함된 FAQ](https://www.microsoft.com/software-download/faq), [토픽 홈페이지가 포함된 FAQ](https://support.microsoft.com/products/windows?os=windows-10)|
 |PDF/DOC|FAQ, 제품 설명서, 브로슈어, 논문, 전단 정책, 지원 가이드, 구조화된 QnA 등|[구조화된 QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [샘플 제품 설명서.pdf](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [샘플 반 구조화.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [샘플 백서.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
 |Excel|구조화된 QnA 파일(RTF, HTML 지원 포함)|[샘플 QnA FAQ.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|구조화된 QnA 파일|[샘플 chit-chat.tsv](https://raw.githubusercontent.com/Microsoft/BotBuilder-PersonalityChat/master/CSharp/Datasets/Queries_Responses_Friendly_QnAMaker.tsv)|
+|TXT/TSV|구조화된 QnA 파일|[샘플 chit-chat.tsv](https://github.com/Microsoft/BotBuilder-PersonalityChat/blob/master/CSharp/Datasets/scenario_responses_the_friend.tsv)|
 
 ## <a name="faq-urls"></a>FAQ URL
 
@@ -121,7 +121,7 @@ Answer2
 
 ## <a name="structured-data-format-through-import"></a>가져오기를 통한 구조화된 데이터 형식
 
-기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 데이터 원본 정보를 포함하는 구조화된 .tsv 파일이 필요합니다. 이 정보는 QnA Maker가 질문-답변 쌍을 그룹화하고 특정 데이터 원본에 귀속하는 데 도움이 됩니다.
+기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 데이터 원본 정보를 포함하는 구조화된 .tsv 파일이 필요합니다. 이 정보는 QnA Maker가 질문-답변 쌍을 그룹화하고 특정 데이터 원본에 귀속시키는 데 도움이 됩니다.
 
 | 질문  | 응답  | 원본| Metadata                |
 |-----------|---------|----|---------------------|

@@ -1,22 +1,20 @@
 ---
-title: Azure Site Recovery를 통해 Azure VM을 온-프레미스 VMware로 장애 복구 시 발생하는 오류 문제 해결 | Microsoft Docs
-description: 이 아티클에서는 Azure Site Recovery를 사용하여 Azure에서 VMware로 장애 복구하는 동안 발생하는 일반적인 장애 복구 및 다시 보호 오류 문제를 해결하는 방법에 대해 설명합니다.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구 시 온-프레미스로 장애 복구(failback) 문제 해결 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구하는 동안 발생하는 장애 복구(failback) 및 다시 보호 문제를 해결하는 방법을 설명합니다.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: c5ba0f1d98f3e4023e767bf3eea7a0b497d47686
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 89484e14d69493c74ed1ff983cf88ec146e0313d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920974"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210366"
 ---
-# <a name="troubleshoot-failback-from-azure-to-vmware"></a>Azure에서 VMware로 장애 복구 문제 해결
+# <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
 
 이 아티클에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure로 장애 조치한 후 Azure VM을 온-프레미스 VMware 인프라로 장애 복구할 때 발생할 수 있는 문제를 해결하는 방법에 대해 설명합니다.
 

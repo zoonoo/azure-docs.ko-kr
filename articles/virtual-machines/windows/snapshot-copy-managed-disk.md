@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 87d78178c32aea3ae601983ec14e9df0732b59e2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 0f223660f8dc99b590f8aa80a03d60fcbf3aa5d3
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091303"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232582"
 ---
 # <a name="create-a-snapshot"></a>스냅숏 만들기
 
-스냅숏은 VHD(가상 하드 드라이브)의 전체 읽기 전용 복사본입니다. 백업으로 사용 또는 VM(가상 머신) 문제 해결을 위해 OS 또는 데이터 디스크 VHD의 스냅숏을 만들 수 있습니다. 
+스냅숏은 VHD(가상 하드 드라이브)의 전체 읽기 전용 복사본입니다. 백업으로 사용 또는 VM(가상 머신) 문제 해결을 위해 OS 또는 데이터 디스크 VHD의 스냅숏을 만들 수 있습니다.
+
+스냅숏을 사용하여 새 VM을 만들려는 경우 진행 중인 모든 프로세스를 제거하려면 스냅숏을 만들기 전에 완전히 VM을 종료하는 것이 좋습니다.
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용 
 
