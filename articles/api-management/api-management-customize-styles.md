@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 00e6f2ed866afd13343df37de625e2913f613dfa
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a874e37246a143a1ca9fa0ca64218df9aa5c9062
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092406"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420509"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>개발자 포털 페이지의 스타일 사용자 지정
 
@@ -39,6 +39,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 3가지 �
 
 ## <a name="prerequisites"></a>필수 조건
 
++ [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
 

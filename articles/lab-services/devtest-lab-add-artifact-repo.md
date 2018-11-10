@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: e6c6f36d877f220bcc8d83b75750f54f85dcc198
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c7b9921d7eacb9b40e39f8e68d13357ce6bcfd78
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299885"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241551"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>사용자 지정 아티팩트 및 Resource Manager 템플릿을 저장할 Git 리포지토리 추가
 
@@ -71,7 +71,7 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 10. [리포지토리에 랩 연결](#connect-your-lab-to-the-repository) 섹션을 계속 진행합니다.
 
 ## <a name="connect-your-lab-to-the-repository"></a>랩을 리포지토리에 연결
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **추가 서비스**를 선택한 후 서비스 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 랩을 선택합니다. 
 4. **구성 및 정책** > **리포지토리** > **+ 추가**를 선택합니다.

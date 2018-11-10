@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 2cd77ee6df52940a800733209b7e384d72d98103
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962133"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245361"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 응용 프로그램 제거
 
@@ -46,7 +46,7 @@ Azure AD(Azure Active Directory)에 응용 프로그램을 등록한 Enterprise 
 ### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>디렉터리에서 단일 테넌트 응용 프로그램을 제거하려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 계정을 통해 둘 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위 모서리에서 계정을 선택하고 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
+1. 계정이 둘 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 1. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 선택한 다음, 구성하려는 응용 프로그램을 찾아 선택합니다.
     그러면 응용 프로그램의 기본 등록 페이지로 이동되고, 응용 프로그램에 대한 **설정** 페이지가 열립니다.
 1. 응용 프로그램의 기본 등록 페이지에서 **삭제**를 선택합니다.
@@ -55,7 +55,7 @@ Azure AD(Azure Active Directory)에 응용 프로그램을 등록한 Enterprise 
 ### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>홈 디렉터리에서 다중 테넌트 응용 프로그램을 제거하려면
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 계정을 통해 둘 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위 모서리에서 계정을 선택하고 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
+1. 계정이 둘 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 1. 왼쪽의 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 선택한 다음, 구성하려는 응용 프로그램을 찾아 선택합니다.
     그러면 응용 프로그램의 기본 등록 페이지로 이동되고, 응용 프로그램에 대한 **설정** 페이지가 열립니다.
 1. **설정** 페이지에서 **속성**을 선택하고 **다중 테넌트** 스위치를 **아니요**로 변경하여 먼저 응용 프로그램을 단일 테넌트로 변경한 다음, **저장**을 선택합니다.
@@ -69,7 +69,7 @@ Azure AD(Azure Active Directory)에 응용 프로그램을 등록한 Enterprise 
 
 기술적인 측면에서 이러한 다중 테넌트 응용 프로그램은 다른 테넌트에서 비롯되어 동의 프로세스 중에 테넌트에 등록되었습니다. 구체적으로 말하면 해당하는 응용 프로그램 개체 없이 테넌트의 서비스 주체 개체에 의해서만 제공됩니다. 응용 프로그램 개체와 서비스 주체 개체의 차이점에 대한 자세한 내용은 [Azure AD의 응용 프로그램 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 
-(동의를 표시한 후에) 자사 디렉토리에 대한 다중 테넌트 응용 프로그램의 액세스 권한을 제거하려면 회사 관리자가 응용 프로그램의 서비스 주체를 제거해야 합니다. 관리자에게 전역 관리자 액세스 권한이 있어야 하고, Azure Portal 또는 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151)을 사용하여 해당 권한을 제거할 수 있습니다.
+(동의를 표시한 후에) 자사 디렉토리에 대한 다중 테넌트 응용 프로그램의 액세스 권한을 제거하려면 회사 관리자가 응용 프로그램의 서비스 주체를 제거해야 합니다. 관리자에게 전역 관리자 액세스 권한이 있어야 하고, Azure Portal 또는 [Azure AD PowerShell Cmdlet](https://go.microsoft.com/fwlink/?LinkId=294151)을 사용하여 해당 권한을 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: dca9d7900ce229b1cddbef8d0dee44bc0061dc42
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29a2335a3a4077866b71e4303c240ad8352371ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611309"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243780"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 Azure App Service Web Apps 배포
-이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
+이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 응용 프로그램을 배포 및 통합하는 방법을 설명합니다.
 
 Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 구성을 쉽게 자동화할 수 있습니다.  이 자습서에서는 웹 응용 프로그램을 배포하고 자동으로 Azure Cosmos DB 계정 연결 정보를 구성하는 방법을 보여 줍니다.
 
@@ -35,7 +35,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 > 
 > 
 
-이 자습서의 지침을 따르기 전에 Azure 구독이 있는지 확인하세요. Azure는 구독 기반 플랫폼입니다.  구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](https://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](https://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+이 자습서의 지침을 따르기 전에 Azure 구독이 있는지 확인하세요. Azure는 구독 기반 플랫폼입니다.  구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](https://azure.microsoft.com/pricing/purchase-options/), [구성원 제안](https://azure.microsoft.com/pricing/member-offers/) 또는 [평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## <a id="CreateDB"></a>1단계: 템플릿 파일 다운로드
 먼저 이 자습서에 필요한 템플릿 파일을 다운로드합니다.
@@ -83,7 +83,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 <a id="Build"></a> 
 
 ## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>3단계: 문서 계정 및 웹앱 샘플 배포
-이제 두 번째 템플릿을 배포합니다.  이 템플릿은 계정 끝점 및 마스터 키와 같은 Azure Cosmos DB 연결 정보를 응용 프로그램 설정 또는 사용자 지정 연결 문자열로 웹앱에 주입하는 방법을 보여 주는 데 유용합니다. 예를 들어 Azure Cosmos DB 계정을 사용하여 배포하는 웹 응용 프로그램이 있어서 배포하는 동안 연결 정보가 자동으로 채워졌을 수도 있습니다.
+이제 두 번째 템플릿을 배포합니다.  이 템플릿은 계정 엔드포인트 및 마스터 키와 같은 Azure Cosmos DB 연결 정보를 응용 프로그램 설정 또는 사용자 지정 연결 문자열로 웹앱에 주입하는 방법을 보여 주는 데 유용합니다. 예를 들어 Azure Cosmos DB 계정을 사용하여 배포하는 웹 응용 프로그램이 있어서 배포하는 동안 연결 정보가 자동으로 채워졌을 수도 있습니다.
 
 > [!TIP]
 > 템플릿은 아래에 입력된 웹앱 이름과 Azure Cosmos DB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다.  배포를 제출하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
@@ -111,10 +111,10 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 7. 배포가 완료되면 리소스 그룹 창이 열립니다.
    ![리소스 그룹 창 스크린샷](./media/create-website/TemplateDeployment7.png)  
 8. 리소스 목록에서 웹앱 리소스를 클릭한 다음 **응용 프로그램 설정** ![리소스 그룹의 스크린샷](./media/create-website/TemplateDeployment9.png)을 클릭합니다.  
-9. 응용 프로그램 설정이 Azure Cosmos DB 끝점 및 각 Azure Cosmos DB 마스터 키에 대해 어떻게 제시되어 있는지 확인합니다.
+9. 응용 프로그램 설정이 Azure Cosmos DB 엔드포인트 및 각 Azure Cosmos DB 마스터 키에 대해 어떻게 제시되어 있는지 확인합니다.
 
     ![응용 프로그램 설정의 스크린샷](./media/create-website/TemplateDeployment10.png)  
-10. 자유롭게 Azure Portal을 계속 탐색하거나 Azure Cosmos DB [샘플](http://go.microsoft.com/fwlink/?LinkID=402386) 중 하나에 따라 고유한 Azure Cosmos DB 응용 프로그램을 만듭니다.
+10. 자유롭게 Azure Portal을 계속 탐색하거나 Azure Cosmos DB [샘플](https://go.microsoft.com/fwlink/?LinkID=402386) 중 하나에 따라 고유한 Azure Cosmos DB 응용 프로그램을 만듭니다.
 
 <a name="NextSteps"></a>
 
@@ -122,14 +122,14 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
 축하합니다! Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB, App Service 웹앱 및 샘플 웹 응용 프로그램을 배포했습니다.
 
 * Azure Cosmos DB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
-* Azure App Service Web Apps에 대해 자세히 알아보려면 [여기](http://go.microsoft.com/fwlink/?LinkId=325362)를 클릭하세요.
+* Azure App Service Web Apps에 대해 자세히 알아보려면 [여기](https://go.microsoft.com/fwlink/?LinkId=325362)를 클릭하세요.
 * Azure 리소스 관리자 템플릿에 대해 자세히 알아보려면 [여기](https://msdn.microsoft.com/library/azure/dn790549.aspx)를 클릭하세요.
 
 ## <a name="whats-changed"></a>변경된 내용
-* Websites에서 App Service로의 변경에 대한 지침은 [Azure App Service와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Websites에서 App Service로의 변경에 대한 지침은 [Azure App Service와 이 서비스가 기존 Azure 서비스에 미치는 영향](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](http://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://go.microsoft.com/fwlink/?LinkId=523751)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 

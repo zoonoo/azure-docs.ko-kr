@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 7c5eb6190d4a4cdfa47779d2c4d7aadac5a2fb80
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ff79680c00a394790ba56db9ab4b237f06c677e5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
-ms.locfileid: "27868321"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240633"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service에 대한 모범 사례
-이 문서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)를 사용하는 모범 사례를 요약합니다. 
+이 문서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)를 사용하는 모범 사례를 요약합니다. 
 
 ## <a name="colocation"></a>공동 배치
 웹앱과 같은 솔루션을 작성하는 Azure 리소스와 데이터베이스가 다른 지역에 있는 경우 다음과 같은 영향을 미칠 수 있습니다.

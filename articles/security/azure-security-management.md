@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: efab734cc7d6facf82f622b95c12a1a27e99c5f7
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c2b7935cc110b2ad05f4af2773158c2e1b658d4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575935"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242010"
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
 Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 장치 등 여러 장치에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라, 관리 기능은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)과 같은 웹 기반 콘솔을 통해 수행됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 응용 프로그램 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 엔드포인트는 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
@@ -83,7 +83,7 @@ Azure는 Azure 클라우드 서비스 및 가상 머신을 관리하는 관리�
 
 온-프레미스 엔터프라이즈 환경 내에서 전용 관리 네트워크, 카드로 액세스할 수 있는 서버실, 네트워크의 보호된 영역에서 실행되는 워크스테이션을 통해 실제 인프라의 공격 노출 영역을 제한할 수 있습니다. 클라우드 또는 하이브리드 IT 모델에서 보안 관리 서비스를 정교하게 만들면 IT 리소스에 실제적인 액세스를 줄이기 때문에 보다 복잡하게 만들 수 있습니다. 보호 솔루션을 구현하면 세심한 소프트웨어 구성, 보안에 중점을 둔 프로세스, 포괄적인 정책이 필요합니다.
 
-클라우드 관리 및 응용 프로그램 개발을 위해 잠긴 워크스테이션에서 최소 권한의 소프트웨어의 사용 공간을 최소화하면 원격 관리 및 개발 환경을 표준화하면 보안 문제 발생의 위험성을 줄일 수 있습니다. 강화된 워크스테이션 구성은 맬웨어 및 악용 사례가 이용되는 여러 일반적인 수단을 차단하여 중요한 클라우드 리소스를 관리하는 데 사용되는 계정의 손상을 방지할 수 있습니다. 특히, [Windows AppLocker](http://technet.microsoft.com/library/dd759117.aspx) 및 Hyper-V 기술을 사용하여 클라이언트 시스템 동작을 통제 및 격리하고 전자 메일 또는 인터넷 검색 등의 위협을 완화할 수 있습니다.
+클라우드 관리 및 응용 프로그램 개발을 위해 잠긴 워크스테이션에서 최소 권한의 소프트웨어의 사용 공간을 최소화하면 원격 관리 및 개발 환경을 표준화하면 보안 문제 발생의 위험성을 줄일 수 있습니다. 강화된 워크스테이션 구성은 맬웨어 및 악용 사례가 이용되는 여러 일반적인 수단을 차단하여 중요한 클라우드 리소스를 관리하는 데 사용되는 계정의 손상을 방지할 수 있습니다. 특히, [Windows AppLocker](https://technet.microsoft.com/library/dd759117.aspx) 및 Hyper-V 기술을 사용하여 클라이언트 시스템 동작을 통제 및 격리하고 전자 메일 또는 인터넷 검색 등의 위협을 완화할 수 있습니다.
 
 강화된 워크스테이션에서 관리자는 표준 사용자 계정(관리자 수준의 실행을 차단)을 실행하고 관련된 응용 프로그램을 허용 목록에 따라 제어합니다. 강화된 워크스테이션의 기본 요소는 다음과 같습니다.
 
@@ -107,12 +107,12 @@ Virtual Machine–배포 응용 프로그램은 필요에 따라 MMC(Microsoft M
 
 원격 데스크톱 게이트웨이 는 보안 요구 사항을 적용하는 정책 기반 RDP 프록시 서비스입니다. Windows 서버 네트워크 액세스 보호(NAP)와 함께 RD 게이트웨이를 구현하면 Active Directory Domain Services(AD DS) 그룹 정책 개체(GPO)에 의해 설정된 특정 보안 상태 조건을 충족하는 클라이언트만 연결할 수 있는지 확인할 수 있습니다. 또한,
 
-* RD 게이트웨이에서 [Azure 관리 인증서](http://msdn.microsoft.com/library/azure/gg551722.aspx)를 프로비전하여 허용된 호스트만 Azure Portal에 액세스할 수 있도록 합니다.
-* RD 게이트웨이를 관리자 워크스테이션과 동일한 [관리 도메인](http://technet.microsoft.com/library/bb727085.aspx)에 조인합니다. 이는 사이트 간 IPsec VPN 또는 Azure AD에 단방향 트러스트 관계가 있는 도메인 내의 ExpressRoute를 사용하는 경우 또는 온-프레미스 AD DS 인스턴스와 Azure AD 간의 자격 증명을 페더레이션하는 경우 필요합니다.
-* [클라이언트 연결 권한 부여 정책](http://technet.microsoft.com/library/cc753324.aspx)을 구성하여 RD 게이트웨이가 클라이언트 컴퓨터 이름이 유효하고(도메인에 조인됨) Azure Portal에 액세스할 수 있도록 허용되었는지 확인하도록 합니다.
+* RD 게이트웨이에서 [Azure 관리 인증서](https://msdn.microsoft.com/library/azure/gg551722.aspx)를 프로비전하여 허용된 호스트만 Azure Portal에 액세스할 수 있도록 합니다.
+* RD 게이트웨이를 관리자 워크스테이션과 동일한 [관리 도메인](https://technet.microsoft.com/library/bb727085.aspx)에 조인합니다. 이는 사이트 간 IPsec VPN 또는 Azure AD에 단방향 트러스트 관계가 있는 도메인 내의 ExpressRoute를 사용하는 경우 또는 온-프레미스 AD DS 인스턴스와 Azure AD 간의 자격 증명을 페더레이션하는 경우 필요합니다.
+* [클라이언트 연결 권한 부여 정책](https://technet.microsoft.com/library/cc753324.aspx)을 구성하여 RD 게이트웨이가 클라이언트 컴퓨터 이름이 유효하고(도메인에 조인됨) Azure Portal에 액세스할 수 있도록 허용되었는지 확인하도록 합니다.
 * [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/)에 대한 IPsec을 사용하여 도청 및 토큰 도난으로부터 관리 트래픽을 보호하거나 [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)를 통해 격리된 인터넷 링크를 고려합니다.
 * Multi-Factor Authentication([Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)을 통해) 또는 RD 게이트웨이를 통해 로그인하는 관리자를 위한 스마트 카드 인증을 사용합니다.
-* Azure에서 원본 [IP 주소 제한](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) 또는 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 구성하여 허용된 관리 엔드포인트의 수를 최소화합니다.
+* Azure에서 원본 [IP 주소 제한](https://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) 또는 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 구성하여 허용된 관리 엔드포인트의 수를 최소화합니다.
 
 ## <a name="security-guidelines"></a>보안 지침
 일반적으로 클라우드와 함께 사용하기 위해 관리자 워크스테이션의 보안을 강화하는 작업은 모든 워크스테이션 온-프레미스에 적용되는 작업(예: 최소화된 빌드 및 제한적인 권한)과 유사합니다. 클라우드 관리의 몇 가지 고유한 측면은 원격 또는 대역 외 엔터프라이즈 관리와 비슷합니다. 여기에는 자격 증명의 사용 및 감사, 보안 향상된 원격 액세스, 위협 요소 탐지 및 대응이 있습니다.
@@ -194,7 +194,7 @@ Azure에서 응용 프로그램 및 데이터를 관리하는 경우 다음의 �
 | 관리자 간 계정 및 암호를 공유하거나, 여러 사용자 계정 또는 서비스, 특히 소셜 미디어 또는 기타 비 관리 작업에 암호를 다시 사용하지 마세요. |Azure 구독을 관리하는 전용 Microsoft 계정(개인 전자 메일에 사용하지 않는 계정)을 만듭니다. |
 | 구성 파일을 전자 메일로 보내지 마세요. |구성 파일 및 프로필은 전자 메일 등 쉽게 손상될 수 있는 메커니즘이 아닌 신뢰할 수 있는 소스(예: 암호화된 USB 플래시 드라이브)로부터 설치해야 합니다. |
 | 약하거나 단순한 로그온 암호를 사용하지 마세요. |강력한 암호 정책, 만료 주기(changeon-first-use), 콘솔 시간 제한, 자동 계정 잠금 등을 적용합니다. 암호 자격 증명 모음 액세스용 다단계 인증으로 클라이언트 암호 관리 시스템을 사용합니다. |
-| 관리 포트를 인터넷에 노출하지 마세요. |Azure 포트 및 IP 주소를 잠가 관리 액세스를 제한합니다. 자세한 내용은 [Azure 네트워크 보안](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) 백서를 참조하세요. |
+| 관리 포트를 인터넷에 노출하지 마세요. |Azure 포트 및 IP 주소를 잠가 관리 액세스를 제한합니다. 자세한 내용은 [Azure 네트워크 보안](https://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) 백서를 참조하세요. |
 | - | 모든 관리 연결에 대한 방화벽, VPN 및 NAP를 사용합니다. |
 
 ## <a name="azure-operations"></a>Azure 작업
@@ -209,8 +209,8 @@ Microsoft의 Azure 작업 내에서, Azure의 프로덕션 시스템에 액세�
 
 * IE 보안 강화. Internet Explorer 브라우저(또는 해당 사안에 대해 모든 웹 브라우저)는 외부 서버와의 광범위한 상호 작용으로 인한 유해한 코드의 주요 진입점입니다. 클라이언트 정책을 검토하고 보호 모드에서 실행, 추가 기능 사용 안 함, 파일 다운로드 사용 안 함, [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx) 필터링 사용 등을 적용합니다. 보안 경고가 표시되는지 확인 합니다. 인터넷 영역을 활용하고 적절한 강화를 구성한 신뢰할 수 있는 사이트의 목록을 만듭니다. 다른 모든 사이트 및 ActiveX 및 Java와 같은 브라우저 내 코드를 차단합니다.
 * 표준 사용자. 표준 사용자로서 실행하면 다양한 이점을 제공하는 데, 그 중 가장 큰 것은 맬웨어를 통해 관리자 자격 증명을 도용하기가 더욱 어려워진다는 점입니다. 또한 표준 사용자 계정은 루트 운영 체제에서 높은 권한을 가지 않으며, 많은 구성 옵션 및 API는 기본적으로 잠깁니다.
-* AppLocker. [AppLocker](http://technet.microsoft.com/library/ee619725.aspx)를 사용하여 사용자가 실행할 수 있는 프로그램 및 스크립트를 제한할 수 있습니다. 감사 또는 적용 모드에서 AppLocker를 실행할 수 있습니다. 기본적으로 AppLocker에는 관리 토큰을 가진 사용자가 클라이언트에서 모든 코드를 실행할 수 있도록 해주는 허용 규칙이 있습니다. 이 규칙은 관리자가 자신을 잠그지 않도록 하기 위해 존재하고 향상된 권한의 토큰에만 적용됩니다. 또한 Windows Server [핵심 보안](http://technet.microsoft.com/library/dd348705.aspx)의 일부인 코드 무결성도 참조하세요.
-* 코드 서명. 관리자가 사용하는 모든 도구와 스크립트를 코드 서명하면 응용 프로그램 잠금 정책을 배포하기 위한 관리 가능형 메커니즘을 제공합니다. 해시는 코드를 신속하게 변경하여 크기를 조정하지 않으며, 파일 경로는 높은 수준의 보안을 제공하지 않습니다. 특정 서명된 코드 및 스크립트만 [실행](http://technet.microsoft.com/library/hh849812.aspx)되도록 허용하는 PowerShell [실행 정책](http://technet.microsoft.com/library/ee176961.aspx)을 AppLocker 규칙과 결합해야 합니다.
+* AppLocker. [AppLocker](https://technet.microsoft.com/library/ee619725.aspx)를 사용하여 사용자가 실행할 수 있는 프로그램 및 스크립트를 제한할 수 있습니다. 감사 또는 적용 모드에서 AppLocker를 실행할 수 있습니다. 기본적으로 AppLocker에는 관리 토큰을 가진 사용자가 클라이언트에서 모든 코드를 실행할 수 있도록 해주는 허용 규칙이 있습니다. 이 규칙은 관리자가 자신을 잠그지 않도록 하기 위해 존재하고 향상된 권한의 토큰에만 적용됩니다. 또한 Windows Server [핵심 보안](https://technet.microsoft.com/library/dd348705.aspx)의 일부인 코드 무결성도 참조하세요.
+* 코드 서명. 관리자가 사용하는 모든 도구와 스크립트를 코드 서명하면 응용 프로그램 잠금 정책을 배포하기 위한 관리 가능형 메커니즘을 제공합니다. 해시는 코드를 신속하게 변경하여 크기를 조정하지 않으며, 파일 경로는 높은 수준의 보안을 제공하지 않습니다. 특정 서명된 코드 및 스크립트만 [실행](https://technet.microsoft.com/library/hh849812.aspx)되도록 허용하는 PowerShell [실행 정책](https://technet.microsoft.com/library/ee176961.aspx)을 AppLocker 규칙과 결합해야 합니다.
 * 그룹 정책. 관리(및 다른 모든 사용자로부터 액세스 차단)에 사용되는 모든 도메인 워크스테이션 및 해당 워크스테이션에서 인증된 사용자 계정 관리에 적용되는 전역 관리 정책을 만듭니다.
 * 보안이 강화된 프로비전. 무단 변경을 방지하기 위해 초기의 강화된 워크스테이션 이미지를 보호합니다. 암호화 및 격리와 같은 보안 조치를 사용하여 이미지, 가상 머신 및 스크립트를 저장하고 액세스를 제한합니다(감사 가능한 체크 인/체크 아웃 프로세스 사용).
 * 패치 일관성 있는 빌드(또는 개발, 작업 및 기타 관리 작업에 대한 별도 이미지)를 유지하고, 변경 내용 및 맬웨어를 정기적으로 검사하고, 빌드를 최신 상태로 유지 하며, 필요할 때만 컴퓨터를 활성화합니다.
@@ -226,7 +226,7 @@ Azure 클라우드 서비스, Virtual Machines 및 응용 프로그램을 관리
 * [권한 있는 액세스 보안](https://technet.microsoft.com/library/mt631194.aspx) - Azure 관리를 위한 보안 관리 워크스테이션의 설계 및 구축에 대한 기술 세부 정보를 가져옵니다.
 * [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/cloudservices/azure) - Azure 패브릭 및 Azure에서 실행되는 워크로드를 보호하는 Azure 플랫폼 기능에 대해 알아봅니다.
 * [Microsoft 보안 응답 센터](https://technet.microsoft.com/security/dn440717.aspx) - Azure와 관련된 문제를 비롯한 Microsoft 보안 취약점을 보고하거나 [secure@microsoft.com](mailto:secure@microsoft.com)로 전자 메일을 보낼 수 있습니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 버전을 최신 상태로 유지합니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) – Azure 보안 버전을 최신 상태로 유지합니다.
 
 <!--Image references-->
 [1]: ./media/azure-security-management/typical-management-network-topology.png

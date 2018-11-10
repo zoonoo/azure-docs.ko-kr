@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 31f61a1d6dee19ada60a1024a235f6329d7d5ca0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377817"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242163"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL 하이퍼스케일 데이터베이스에 대한 FAQ
 
@@ -253,7 +253,7 @@ SQL Server 2005입니다. 자세한 내용은 [단일 데이터베이스 또는 
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>하이퍼스케일 데이터베이스에 어떤 SLA가 지원되나요?
 
-일반적으로 공개 미리 보기 중에는 SLA가 제공되지 않습니다. 단 하이퍼스케일은 현재 SQL DB와 동일한 수준의 고 가용성을 제공합니다. [SLA](http://azure.microsoft.com/support/legal/sla/)를 참조하세요.
+일반적으로 공개 미리 보기 중에는 SLA가 제공되지 않습니다. 단 하이퍼스케일은 현재 SQL DB와 동일한 수준의 고 가용성을 제공합니다. [SLA](https://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Azure SQL Database 서비스에서 데이터베이스 백업이 관리되나요?
 

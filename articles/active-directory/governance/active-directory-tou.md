@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944146"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249833"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 사용 약관을 시작하는 방법을 설명합니다.
@@ -46,6 +46,7 @@ Azure AD 사용 약관으로 다음과 같은 일을 할 수 있습니다.
 - 개인 정보 보호 규정을 준수하도록 지원
 - 사용 약관에 동의한 또는 동의하지 않은 사용자 나열.
 - 준수 및 감사를 위해 사용 약관 활동 로그 표시
+- [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement)를 사용하여 사용 약관을 만들고 관리합니다(현재 미리 보기로 제공).
 
 ## <a name="prerequisites"></a>필수 조건
 Azure AD 사용 약관을 사용하고 구성하려면 다음이 필요합니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7565c536b5d24c859b164a960f74bd1e2ce97b63
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f044cf7e0b614d338ec9b294dfbf02c26c4351b1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960637"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413863"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -23,7 +23,7 @@ ms.locfileid: "46960637"
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고란?
 경고는 모니터링 데이터에서 중요한 조건이 발견되면 사전에 알려줍니다. 시스템 사용자가 문제를 알아채기 전에 경고를 통해 문제를 식별하여 해결할 수 있습니다. 
 
-이 문서에서는 이제 Log Analytics 및 Application Insights를 포함하고 있는 Azure Monitor의 통합 경고 환경에 대해 알아봅니다. [이전 경고 환경](monitoring-overview-alerts.md) 및 경고 유형을 **클래식 경고**라고 합니다. 경고 페이지의 맨 위에서 **클래식 경고 보기**를 클릭하면 이전 환경과 이전 경고 유형을 볼 수 있습니다. 
+이 문서에서는 이제 Log Analytics 및 Application Insights를 포함하고 있는 Azure Monitor의 통합 경고 환경에 대해 알아봅니다. [이전 경고 환경](monitoring-overview-alerts.md) 및 경고 유형을 **클래식 경고**라고 합니다. 경고 페이지의 맨 위에서 **클래식 경고 보기**를 클릭하면 이전 환경과 이전 경고 유형을 볼 수 있습니다.
 
 
 ## <a name="overview"></a>개요

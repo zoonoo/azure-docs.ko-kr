@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 54ca22d9a3e685f6ae1e1454569bab9d058ce4fe
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 08434007c7ef66349cae2a368d3be94ee522bab1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834494"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242351"
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 대회 검색
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "34834494"
 Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문에 대한 답변은 [Microsoft Cortana Intelligence 대회 관련 FAQ](competition-faq.md)를 참조하세요.
 
 ## <a name="discover"></a>검색
-**[대회](https://gallery.cortanaintelligence.com/competitions)** 페이지([aka.ms/CIComp](http://aka.ms/CIComp))에는 가장 인기 있는 대회 목록이 나와 있습니다.
+**[대회](https://gallery.cortanaintelligence.com/competitions)** 페이지([aka.ms/CIComp](https://aka.ms/CIComp))에는 가장 인기 있는 대회 목록이 나와 있습니다.
 
 ![갤러리 홈페이지에서 대회 선택](./media/gallery-competitions/select-competitions-in-gallery.png)
 

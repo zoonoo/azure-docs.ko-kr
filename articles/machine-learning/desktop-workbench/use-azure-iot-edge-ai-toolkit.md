@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9b2f4dbf1e87aa5aa035bfd9071fed7be74a9c07
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 023674f05dda6c2da8edddb843277dd07a513162
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978999"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244630"
 ---
 # <a name="use-the-ai-toolkit-for-azure-iot-edge"></a>Azure IoT Edge용 AI 도구 키트 사용
 
@@ -27,4 +27,4 @@ ms.locfileid: "46978999"
 
 Azure IoT Edge용 AI 도구 키트는 스크립트, 코드 및 배포 가능한 컨테이너의 모음입니다. 예를 들어 Azure Machine Learning 및 Azure IoT Hub를 통한 예측 유지 관리, 이미지 분류 및 음성 처리뿐만 아니라 사용자 지정 모델 배포도 포함되어 있습니다. 도구 키트에 포함된 모델은 있는 그대로 사용할 수 있지만, 개발자가 모든 소스 코드와 데이터를 필요에 따라 사용자 지정하는 데 사용할 수 있습니다.
 
-Azure IoT Edge용 AI 도구 키트 공용 GitHub 리포지토리는 [aka.ms/AI-toolkit](http://aka.ms/AI-toolkit)에 있습니다.
+Azure IoT Edge용 AI 도구 키트 공용 GitHub 리포지토리는 [aka.ms/AI-toolkit](https://aka.ms/AI-toolkit)에 있습니다.

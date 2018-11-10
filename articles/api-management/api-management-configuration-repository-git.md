@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 97ca4f69f4bf2aa814d51cc17970c1aead8399e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945817"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414406"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -190,7 +190,8 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -200,10 +201,11 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 
 | Id 설정 | 매핑 대상 |
 | --- | --- |
-| RegistrationEnabled |**로그인 페이지로 익명 사용자 리디렉션** 확인란 |
+| RegistrationEnabled |**사용자 이름 및 암호** ID 공급자의 현재 상태 |
 | UserRegistrationTerms |**사용자 등록 시 사용 약관** 텍스트 상자 |
 | UserRegistrationTermsEnabled |**등록 페이지에 사용 약관 표시** 확인란 |
 | UserRegistrationTermsConsentRequired |**동의 필요** 확인란 |
+| RequireUserSigninEnabled |**로그인 페이지로 익명 사용자 리디렉션** 확인란 |
 
 처음 네 설정(`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` 및 `DelegationValidationKey`)은 **보안** 섹션의 **위임** 탭에 있는 다음과 같은 설정에 매핑됩니다.
 

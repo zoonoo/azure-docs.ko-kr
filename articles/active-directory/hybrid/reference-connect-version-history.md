@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390315"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420249"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -37,6 +37,37 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="12650"></a>1.2.65.0 
+
+### <a name="release-status"></a>릴리스 상태 
+
+2018/10/25: 다운로드용으로 릴리스되었습니다.
+
+ 
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능 
+
+
+- 호스트된 음성 메일이 예상대로 작동하도록 특성 쓰기 저장 기능이 변경되었습니다.  특정 시나리오에서 Azure AD는 null 값을 사용하여 쓰기 저장하는 동안 msExchUcVoicemailSettings 특성을 덮어썼습니다.  이제 클라우드 값이 설정되지 않으면 Azure AD는 이 특성의 온-프레미스 값을 더 이상 지우지 않습니다.
+- 변경된 기본 규칙 처리가 향상되었습니다. 이제 기본 규칙을 변경하면 알림이 제공되고 기본 규칙을 복구하는 옵션이 제공됩니다. 
+- Azure AD 연결 문제를 조사하고 식별하는 진단 기능이 Azure AD Connect 마법사에 추가되었습니다. 이러한 진단 기능은 Test- AdSyncAzureServiceConnectivity Cmdlet을 사용하여 Powershell을 통해 직접 실행할 수도 있습니다. 
+- AD 연결 문제를 조사하고 식별하는 진단 기능이 Azure AD Connect 마법사에 추가되었습니다. 이러한 진단 기능은 ADConnectivityTools Powershell 모듈의 Start-ConnectivityValidation 함수를 사용하여 Powershell을 통해 직접 실행할 수도 있습니다.  자세한 내용은 [ADConnectivityTool PowerShell 모듈이란?](how-to-connect-adconnectivitytools.md)을 참조하세요.
+- 하이브리드 Azure Active Directory 조인 및 장치 쓰기 저장에 대한 AD 스키마 버전 사전 검사가 추가되었습니다. 
+- 디렉터리 확장 페이지 특성 검색이 대/소문자를 구분하지 않도록 변경되었습니다.
+-   TLS 1.2에 대한 전체 지원이 추가되었습니다. 이 릴리스는 사용되지 않는 다른 모든 프로토콜을 지원하며, Azure AD Connect가 설치된 머신에서 오직 TLS 1.2만 사용됩니다.  자세한 내용은 [Azure AD Connect에 대한 TLS 1.2 적용](reference-connect-tls-enforcement.md)을 참조하세요.
+
+ 
+
+### <a name="fixed-issues"></a>해결된 문제   
+
+- SQL Always On이 사용되는 경우 Azure AD Connect 업그레이드가 실패하는 버그가 수정되었습니다. 
+- 슬래시가 포함된 OU 이름을 올바르게 구문 분석하도록 버그가 수정되었습니다. 
+- 준비 모드에서 새로 설치할 때 통과 인증이 사용되지 않는 문제가 수정되었습니다. 
+- 문제 해결 도구를 실행할 때 PowerShell 모듈이 로드되지 않는 버그가 수정되었습니다. 
+- 고객이 호스트 이름의 첫 번째 문자에 숫자 값을 사용할 수 없는 버그가 수정되었습니다. 
+- Azure AD Connect가 잘못된 파티션 및 컨테이너 선택을 허용하는 버그가 수정되었습니다. 
+- 데스크톱 SSO를 사용할 때 "잘못된 암호" 오류 메시지가 표시되는 오류가 수정되었습니다. 
+- AD FS 신뢰 관리에 대한 다양한 버그 수정  
+- 장치 쓰기 저장을 구성할 때 - msDs-DeviceContainer 개체 클래스를 검색하도록 스키마 검사 수정(WS2012 R2에 도입)
 
  
 ## <a name="118820"></a>1.1.882.0  

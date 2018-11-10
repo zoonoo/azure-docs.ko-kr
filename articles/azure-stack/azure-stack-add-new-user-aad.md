@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fa8c8da34a687edd1bd92c1d516183ee5d3e1bd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038020"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240123"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Azure Active Directory에서 새 Azure Stack 테넌트 계정 추가
 
@@ -34,23 +34,23 @@ Azure 포털을 사용하려면 Azure 구독이 있어야 합니다.
 2. 왼쪽된 탐색 모음에서 선택 **Active Directory** 및 Azure Stack에 대해 사용 하려는 디렉터리로 전환 하거나 새로 만듭니다.
 3. 선택 **Azure Active Directory** > **사용자가** > **새 사용자**합니다.
 
-    ![사용자-강조 표시 하는 새 사용자를 사용 하 여 모든 사용자 페이지](media/azure-stack-add-new-user-aad/new-user-all-users.png)
+    ![사용자 - 새 사용자가 강조 표시된 모든 사용자 페이지](media/azure-stack-add-new-user-aad/new-user-all-users.png)
 
-4. 에 **사용자** 페이지에서 필요한 정보를 입력 합니다.
+4. **사용자** 페이지에서 필요한 정보를 입력합니다.
 
-    ![새 사용자, 사용자 정보를 사용 하 여 사용자 페이지 추가](media/azure-stack-add-new-user-aad/new-user-user.png)
+    ![새 사용자 추가, 사용자 정보가 있는 사용자 페이지](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-    - **이름 (필수)입니다.** 새 사용자의 첫 번째 및 마지막 이름입니다. 예를 들어 Mary Parker 합니다.
-    - **사용자 이름 (필수)입니다.** 새 사용자의 사용자 이름입니다. 예: mary@contoso.com
-        사용자 이름의 도메인 부분 중 하나는 초기 기본 도메인 이름 사용 해야 합니다 <_yourdomainname_>. onmicrosoft.com, 또는 contoso.com과 같은 사용자 지정 도메인 이름입니다. 사용자 지정 도메인 이름을 만드는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Active Directory에 사용자 지정 도메인 이름을 추가 하는 방법을](../active-directory/fundamentals/add-custom-domain.md)합니다.
-    - **프로필입니다.** 필요에 따라 사용자에 대 한 자세한 정보를 추가할 수 있습니다. 또한 나중에 사용자 정보를 추가할 수 있습니다. 사용자 정보를 추가 하는 방법에 대 한 자세한 내용은 참조 하세요. [사용자 프로필 정보 추가 또는 변경 하는 방법을](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)합니다.
-    - **디렉터리 역할입니다.**  선택할 **사용자**합니다.
+    - **이름(필수).** 새 사용자의 이름 및 성입니다. 예를 들어, Mary Parker입니다.
+    - **사용자 이름(필수).** 새 사용자의 사용자 이름입니다. 예: mary@contoso.com.
+        사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 <_yourdomainname_>.onmicrosoft.com이거나 contoso.com과 같은 사용자 지정 도메인 이름을 사용해야 합니다. 사용자 지정 도메인 이름 작성 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름을 추가하는 방법](../active-directory/fundamentals/add-custom-domain.md)을 참조하세요.
+    - **프로필.** 원할 경우 사용자에 대한 자세한 정보를 추가할 수 있습니다. 사용자 정보를 나중에 추가할 수도 있습니다. 사용자 정보 추가에 대한 자세한 내용은 [사용자 프로필 정보를 추가하거나 변경하는 방법](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)을 참조하세요.
+    - **디렉터리 역할.**  선택할 **사용자**합니다.
 
 5. 확인 **암호 표시** 에 제공 된 자동 생성 된 암호를 복사 합니다 **암호** 상자입니다. 초기 로그인 프로세스에 대 한이 암호가 필요 합니다.
 
 6. **만들기**를 선택합니다.
 
-    사용자가 생성 되어 Azure AD 테 넌 트에 추가 했습니다.
+    사용자가 만들어지고 Azure AD 테넌트에 추가됩니다.
 
 7. 새 계정으로 Microsoft Azure 포털에 로그인 합니다. 메시지가 표시되면 암호를 변경합니다.
 8. 에 로그인 `https://portal.local.azurestack.external` 테 넌 트 포털이 새 계정으로 합니다.
@@ -64,8 +64,8 @@ Azure 구독이 없으면 테 넌 트 사용자 계정을 추가 하려면 Azure
 > 
 > 
 
-1. 설치 합니다 [Microsoft Online Services 로그인 도우미 RTW IT 전문가 위한](https://www.microsoft.com/en-us/download/details.aspx?id=41950)합니다.
-2. 설치 합니다 [Azure Active Directory에 대 한 Windows PowerShell 모듈 (64 비트 버전)](http://go.microsoft.com/fwlink/p/?linkid=236297) 엽니다.
+1. [IT 전문가를 위한 Microsoft Online Services 로그인 도우미 RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950)를 설치합니다
+2. 설치 합니다 [Azure Active Directory에 대 한 Windows PowerShell 모듈 (64 비트 버전)](https://go.microsoft.com/fwlink/p/?linkid=236297) 엽니다.
 3. 다음 cmdlet을 실행합니다.
 
     ```powershell

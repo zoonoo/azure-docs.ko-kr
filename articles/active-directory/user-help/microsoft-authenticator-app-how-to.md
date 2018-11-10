@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: d5ea6f18fb288711bae67b6840ddb5b8bb9942c2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393255"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245446"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 시작
 
@@ -39,7 +39,7 @@ Microsoft Authenticator 앱은 계정에 대한 권한이 없는 액세스를 �
 
 ## <a name="install-the-app"></a>앱 설치
 
-Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다. 최상의 경험을 얻으려면 메시지가 표시될 때 앱이 알림을 받도록 해야 합니다. 
+Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다. 최상의 경험을 얻으려면 메시지가 표시될 때 앱이 알림을 받도록 해야 합니다. 
 
 ## <a name="add-accounts-to-the-app"></a>앱에 계정 추가
 
@@ -51,7 +51,7 @@ Microsoft Authenticator 앱에 회사 또는 학교 계정이나 개인 계정�
 
 ### <a name="add-a-work-or-school-account"></a>회사 또는 학교 계정 추가
 
-1. 가능한 경우 다른 PC 또는 장치에서 [추가 보안 인증](http://aka.ms/mfasetup) 화면으로 이동합니다. 이 화면으로 이동하는 방법에 대한 정보는 [보안 설정 변경](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)을 참조하거나 관리자에게 문의하세요.
+1. 가능한 경우 다른 PC 또는 장치에서 [추가 보안 인증](https://aka.ms/mfasetup) 화면으로 이동합니다. 이 화면으로 이동하는 방법에 대한 정보는 [보안 설정 변경](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)을 참조하거나 관리자에게 문의하세요.
 
     >[!Note]
     >관리자가 보안 정보 미리 보기 환경을 켠 경우 [인증자 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md) 섹션의 지침을 따를 수 있습니다.

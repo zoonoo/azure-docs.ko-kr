@@ -8,16 +8,15 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d2e09c837597dfd15e6258cbd0100762b098eedf
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b9a98cea8ee19846afc30b322c3fdacb21f2bf44
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242458"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files를 배포하는 방법
-
-  [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 조직 내에서 실제적으로 Azure Files를 배포하는 방법을 보여 줍니다.
+[Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 조직 내에서 실제적으로 Azure Files를 배포하는 방법을 보여 줍니다.
 
 이 문서의 단계를 수행하기 전에 [Azure Files 배포 계획](storage-files-planning.md)을 읽는 것이 좋습니다.
 
@@ -31,9 +30,9 @@ ms.locfileid: "39523488"
 온-프레미스에 저장된 파일 공유 같은 기존 파일 공유를 새 Azure 파일 공유로 마이그레이션하려고 할 수 있습니다. 이 섹션에서는 [계획 지침](storage-files-planning.md#data-transfer-method)에서 자세히 설명된 널리 사용되는 여러 메서드를 통해 데이터를 Azure 파일 공유로 이동하는 방법을 보여줍니다.
 
 ### <a name="azure-file-sync"></a>Azure 파일 동기화
-Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
+Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
 
-장기 사용의 경우 동기화 메커니즘이 필요하지 않지만 Azure File Sync를 사용하여 데이터를 Azure 파일 공유로 마이그레이션할 수 있습니다. Azure 파일 동기화를 사용하여 데이터를 Azure 파일 공유로 전송하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
+장기 사용의 경우 동기화 메커니즘이 필요하지 않지만 Azure 파일 동기화를 사용하여 데이터를 Azure 파일 공유로 마이그레이션할 수 있습니다. Azure 파일 동기화를 사용하여 데이터를 Azure 파일 공유로 전송하는 방법에 대한 자세한 내용은 [Azure 파일 동기화 배포 계획](storage-sync-files-planning.md) 및 [Azure 파일 동기화를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
 ### <a name="azure-importexport"></a>Azure Import/Export
 Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure 파일 공유로 전송할 수 있습니다. 서비스에 대한 자세한 내용은 [Microsoft Azure Import/Export 서비스를 사용하여 Azure Storage로 데이터 전송](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
@@ -109,7 +108,7 @@ Robocopy는 Windows 및 Windows Server와 함께 제공되는 잘 알려진 복�
 ### <a name="azcopy"></a>AzCopy
 AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files 및 Azure Blob Storage에서 복사하도록 디자인된 명령줄 유틸리티입니다. AzCopy 사용은 간단합니다.
 
-1. [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy) 또는 [Windows에서 최신 AzCopy 버전](http://aka.ms/downloadazcopy)을 다운로드합니다.
+1. [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy) 또는 [Windows에서 최신 AzCopy 버전](https://aka.ms/downloadazcopy)을 다운로드합니다.
 2. 명령줄에서 `azcopy`를 사용하여 데이터를 Azure 파일 공유로 이동합니다. Windows의 구문은 다음과 같습니다. 
 
     ```

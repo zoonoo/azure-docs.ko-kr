@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: b6d548183cfa548f9ad35f06922752c929e318ac
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9f602b08e94071a335d0c88377912ea9b53f37b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244443"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>2단계 인증에 내 계정 설정
 2단계 인증은 다른 사람이 침입하기 어렵게 만들어 계정을 보호하는 추가 보안 단계입니다. 이 문서를 읽고 있다면 아마도 회사 또는 학교 관리자로부터 Multi-Factor Authentication에 대한 전자 메일을 받았을 것입니다. 또는 로그인을 시도했고 추가 보안 검증을 설정하라는 메시지를 받았을 수도 있습니다. 해당되는 경우 **자동 등록 프로세스를 완료해야만 로그인할 수 있습니다**.
@@ -41,12 +41,12 @@ ms.locfileid: "47041958"
 
 | 연락 방법 | 설명 |
 | --- | --- |
-| [모바일 앱](#use-a-mobile-app-as-the-contact-method) |- **확인 시 알림 수신.** 이 옵션은 스마트폰이나 태블릿의 인증자 앱에 푸시 알림을 보냅니다. 알림을 확인한 후 올바르면 앱에서 **인증**을 선택합니다. 회사 또는 학교에서는 인증 전에 PIN을 입력해야 할 수 있습니다.<br>- **확인 코드 사용.** 이 모드에서 인증자 앱은 30초마다 업데이트되는 확인 코드를 생성합니다. 로그인 인터페이스에 가장 최근 확인 코드를 입력합니다.<br>Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다. |
+| [모바일 앱](#use-a-mobile-app-as-the-contact-method) |- **확인 시 알림 수신.** 이 옵션은 스마트폰이나 태블릿의 인증자 앱에 푸시 알림을 보냅니다. 알림을 확인한 후 올바르면 앱에서 **인증**을 선택합니다. 회사 또는 학교에서는 인증 전에 PIN을 입력해야 할 수 있습니다.<br>- **확인 코드 사용.** 이 모드에서 인증자 앱은 30초마다 업데이트되는 확인 코드를 생성합니다. 로그인 인터페이스에 가장 최근 확인 코드를 입력합니다.<br>Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다. |
 | [휴대폰 통화 또는 문자](#use-your-mobile-phone-as-the-contact-method) |- **전화 통화**는 제공한 전화 번호에 자동으로 음성 전화를 겁니다. 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다.<br>- **문자 메시지**는 확인 코드를 포함하는 문자 메시지를 보냅니다. 텍스트에 있는 프롬프트에 따라 문자 메시지에 회신하거나 로그인 인터페이스에 제공한 확인 코드를 입력합니다. |
 | [사무실 전화 통화](#use-your-office-phone-as-the-contact-method) |제공한 전화 번호에 자동으로 음성 전화를 겁니다. 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. |
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>연락 방법으로 모바일 앱 사용
-이 방법을 사용하려면 휴대폰이나 태블릿에 인증자 앱을 설치해야 합니다. 이 문서의 단계는 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)에서 사용할 수 있는 Microsoft Authenticator 앱을 기반으로 합니다.
+이 방법을 사용하려면 휴대폰이나 태블릿에 인증자 앱을 설치해야 합니다. 이 문서의 단계는 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)에서 사용할 수 있는 Microsoft Authenticator 앱을 기반으로 합니다.
 
 >[!NOTE]
 >Microsoft Authenticator 앱을 사용하지 않아도 되는 경우. 다른 authenticator 앱을 이미 사용 중인 경우 계속 사용할 수 있습니다.

@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: bryanr
+ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026163"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240174"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack의 다중 테 넌 트
 
@@ -26,9 +27,9 @@ ms.locfileid: "50026163"
 
 Azure Stack에서 서비스를 사용 하도록 여러 Azure Active Directory (Azure AD) 테 넌 트에서 사용자를 지 원하는 Azure Stack을 구성할 수 있습니다. 예를 들어, 다음 시나리오를 고려 합니다.
 
- - Azure Stack이 설치 되어 있는 contoso.onmicrosoft.com의 서비스 관리자가.
- - Mary가 게스트 사용자가 있는 fabrikam.onmicrosoft.com, 디렉터리 관리자입니다. 
- - Mary의 회사 회사에서 IaaS 및 PaaS 서비스를 받고 게스트 디렉터리 (fabrikam.onmicrosoft.com)에서 사용자가 로그인 하 고 contoso.onmicrosoft.com에서 Azure Stack 리소스를 사용할 수 있도록 해야 합니다.
+- Azure Stack이 설치 되어 있는 서비스 관리자 contoso.onmicrosoft.com 것입니다.
+- Mary가 게스트 사용자가 있는 fabrikam.onmicrosoft.com, 디렉터리 관리자입니다.
+- Mary의 회사 회사에서 IaaS 및 PaaS 서비스를 받고 게스트 디렉터리 (fabrikam.onmicrosoft.com)에서 사용자가 로그인 하 고 contoso.onmicrosoft.com에서 Azure Stack 리소스를 사용할 수 있도록 해야 합니다.
 
 이 가이드에서는 필요한이 시나리오의 컨텍스트에서 Azure Stack에서 다중 테 넌 트를 구성 하는 단계를 제공 합니다. 이 시나리오에서는 메리에 로그인 하 여 Contoso의 Azure Stack 배포에서 서비스를 사용 하는 Fabrikam의 사용자를 사용 하도록 설정 하는 단계를 완료 해야 합니다.  
 
@@ -50,6 +51,8 @@ Azure Stack에서 서비스를 사용 하도록 여러 Azure Active Directory (A
 이 섹션에서는 Azure Stack Fabrikam Azure AD 디렉터리 테 넌 트의 로그인을 허용 하도록 구성할 수 있습니다.
 
 온 보 딩 게스트 디렉터리 테 넌 트 (Fabrikam)에 사용자를 허용 하 고 서비스 주체 게스트 디렉터리 테 넌 트에서 Azure Resource Manager를 구성 하 여 Azure Stack에 있습니다.
+
+Contoso.onmicrosoft.com의 서비스 관리자는 다음 명령을 실행합니다.
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -76,11 +79,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>게스트 디렉터리를 구성 합니다.
 
-Azure Stack 디렉터리에 있는 단계를 완료 하면 Mary 게스트 디렉터리에 액세스 하는 Azure Stack에 동의 하 고 게스트 디렉터리를 사용 하 여 Azure Stack 등록 해야 합니다. 
+Azure Stack 관리자가 한 번 / 연산자가 Azure Stack과 함께 사용할 Fabrikam 디렉터리를 사용 하도록 설정, Mary Fabrikam의 디렉터리 테 넌 트를 사용 하 여 Azure Stack을 등록 해야 합니다.
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>게스트 디렉터리를 사용 하 여 Azure Stack 등록
 
-게스트 디렉터리 관리자가 Fabrikam의 디렉터리에 액세스 하는 Azure Stack에 대 한 동의 제공 하는 면 Mary는 Fabrikam의 디렉터리 테 넌 트를 사용 하 여 Azure Stack 등록 해야 합니다.
+Mary는 디렉터리 관리자에 게 Fabrikam의 게스트 디렉터리 fabrikam.onmicrosoft.com에서 다음 명령을 실행 합니다.
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -99,14 +102,14 @@ Register-AzSWithMyDirectoryTenant `
 > Azure Stack 관리자에 게 나중에 새 서비스 또는 업데이트 설치를 하는 경우이 스크립트를 다시 실행 해야 합니다.
 >
 > 언제 든 지 디렉터리에 Azure Stack 응용 프로그램의 상태를 확인 하려면 다시이 스크립트를 실행 합니다.
-> 
+>
 > 새 (1808 업데이트에서 도입 된) Managed Disks에 Vm을 만드는 문제가 나타난 경우 **디스크 리소스 공급자** 이 스크립트를 다시 실행할 수 필요한 추가 되었습니다.
 
 ### <a name="direct-users-to-sign-in"></a>직접 사용자가에 로그인
 
 과 메리 온 보 딩 Mary의 디렉터리에 단계를 완료 했으므로 Mary Fabrikam 사용자가 로그인을 보낼 수 있습니다.  Fabrikam 사용자 (즉, fabrikam.onmicrosoft.com 접미사를 사용 하 여 사용자)가 방문 하 여 로그인 https://portal.local.azurestack.external합니다.  
 
-Mary 모든 안내 [외래 주체](../role-based-access-control/rbac-and-directory-admin-roles.md) Fabrikam 디렉터리 (즉, fabrikam.onmicrosoft.com의 접미사를 붙이지 말고 Fabrikam 디렉터리의 사용자)에 사용 하 여 로그인 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.  이 URL을 사용 하지 않는 경우 해당 기본 디렉터리 (Fabrikam)에 게 보내집니다 하며 관리자가 동의 하지 않은 되었다는 오류가 발생 합니다.
+Mary 모든 안내 [외래 주체](../role-based-access-control/rbac-and-directory-admin-roles.md) Fabrikam 디렉터리 (즉, fabrikam.onmicrosoft.com의 접미사를 붙이지 말고 Fabrikam 디렉터리의 사용자)에 사용 하 여 로그인 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.  이 URL을 사용 하지 않는 경우 해당 기본 디렉터리 (Fabrikam)에 전송 되는 이러한 및 관리자 동의 하지 않은 되었다는 오류가 발생 합니다.
 
 ## <a name="disable-multi-tenancy"></a>다중 테 넌 트를 사용 하지 않도록 설정
 

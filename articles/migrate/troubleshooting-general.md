@@ -4,20 +4,30 @@ description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/31/2018
 ms.author: raynew
-ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945521"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413336"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
 ## <a name="troubleshoot-common-errors"></a>일반적인 오류 문제 해결
 
 [Azure Migrate](migrate-overview.md)는 Azure로 마이그레이션하는 온-프레미스 워크로드를 평가합니다. Azure Migrate 배포 및 사용과 관련하여 문제가 발생하면 이 문서를 사용하여 해결하세요.
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>연속 검색 OVA를 사용 중인데, 온-프레미스 환경에서 삭제된 VM이 포털에 계속 표시됩니다.
+
+응용 프로그램은 성능 데이터를 연속적으로 수집할 뿐이며 온-프레미스 환경의 구성 변경(예: VM 추가, 삭제, 디스크 추가 등)은 탐지하지 않습니다. 온-프레미스 환경에서 구성 변경이 있으면 다음을 통해 포털에 변경 내용을 반영할 수 있습니다.
+
+- 항목 추가(VM, 디스크, 코어 등): 이러한 변경을 Azure Portal에 반영하려면 어플라이언스의 검색을 멈추었다가 다시 시작하면 됩니다. 이렇게 하면 Azure Migrate 프로젝트에서 변경 내용이 업데이트됩니다.
+
+   ![검색 중지](./media/troubleshooting-general/stop-discovery.png)
+
+- VM삭제: 어플라이언스 설계 방식으로 인해 VM 삭제는 검색을 중지했다 시작해도 반영되지 않습니다. 이후 검색의 데이터는 기존 검색에 추가되는 것이지 기존 검색을 덮어쓰는 것이 아니기 때문입니다. 이 경우에는 그룹에서 VM을 제거하고 평가를 다시 계산하여 포털에서 VM을 간단히 무시하면 됩니다.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>*요청에 사용자 ID 헤더가 있어야 합니다* 오류 메시지와 함께 마이그레이션 프로젝트 만들기 실패
 
@@ -37,23 +47,22 @@ vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>마이그레이션 프로젝트를 만들 때 Azure 지역을 지정했습니다. 검색된 메타데이터가 저장되는 정확한 Azure 지역은 어떻게 확인할 수 있나요?
 
-프로젝트 **개요** 페이지의 **기본 정보** 섹션으로 이동하면 메타데이터가 저장되는 조정확한 위치를 확인할 수 있습니다. 위치는 Azure Migrate를 통해 지역 내에서 임의로 선택되며 수정할 수는 없습니다. 특정 지역에만 프로젝트를 만들려는 경우 REST API를 사용하여 마이그레이션 프로젝트를 만든 다음 원하는 지역을 전달하면 됩니다.
+프로젝트 **개요** 페이지의 **기본 정보** 섹션으로 이동하면 메타데이터가 저장되는 정확한 위치를 확인할 수 있습니다. 위치는 Azure Migrate를 통해 지역 내에서 임의로 선택되며 수정할 수는 없습니다. 특정 지역에만 프로젝트를 만들려는 경우 REST API를 사용하여 마이그레이션 프로젝트를 만든 다음 원하는 지역을 전달하면 됩니다.
 
    ![프로젝트 위치](./media/troubleshooting-general/geography-location.png)
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>연속 검색 OVA를 사용 중인데, 온-프레미스 환경에서 삭제된 VM이 포털에 계속 표시됩니다.
-
-응용 프로그램은 성능 데이터를 연속적으로 수집할 뿐이며 온-프레미스 환경의 구성 변경(예: VM 추가, 삭제, 디스크 추가 등)은 탐지하지 않습니다. 온-프레미스 환경에서 구성 변경이 있으면 다음을 통해 포털에 변경 내용을 반영할 수 있습니다.
-
-1. 항목 추가(VM, 디스크, 코어 등): 이러한 변경을 Azure Portal에 반영하려면 어플라이언스의 검색을 멈추었다가 다시 시작하면 됩니다. 이렇게 하면 Azure Migrate 프로젝트에서 변경 내용이 업데이트됩니다.
-
-2. VM삭제: 어플라이언스 설계 방식으로 인해 VM 삭제는 검색을 중지했다 시작해도 반영되지 않습니다. 이후 검색의 데이터는 기존 검색에 추가되는 것이지 기존 검색을 덮어쓰는 것이 아니기 때문입니다. 이 경우에는 그룹에서 VM을 제거하고 평가를 다시 계산하여 포털에서 VM을 간단히 무시하면 됩니다.
-
 ## <a name="collector-errors"></a>수집기 오류
 
-### <a name="deployment-of-collector-ova-failed"></a>수집기 OVA 배포 실패
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>제공된 매니페스트 파일이 잘못되었습니다: 잘못된 OVF 매니페스트 항목 오류로 Azure Migrate Collector 배포가 실패했습니다.
 
-OVA가 일부만 다운로드되었거나 vSphere 웹 클라이언트를 사용하여 OVA를 배포하는 경우 브라우저 때문에 이 문제가 발생할 수 있습니다. 다운로드가 완전한지 확인한 후 다른 브라우저로 OVA를 배포해 보세요.
+1. 해당 해시 값을 확인하여 Azure Migrate Collector OVA 파일이 올바르게 다운로드되는지 확인합니다. 해시 값을 확인하려면 [문서](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance)를 참조하세요. 해시 값이 일치하지 않는 경우 OVA 파일을 다시 다운로드하고 배포를 다시 시도합니다.
+2. 여전히 실패하고 VMware vSphere 클라이언트를 OVF 배포에 사용하는 경우 vSphere Web Client를 통해 배포를 시도합니다. 그래도 실패하는 경우 다른 웹 브라우저를 사용해 보세요.
+3. vSphere 웹 클라이언트를 사용하고 vCenter Server 6.5에서 배포하려고 하는 경우 다음 단계를 따라 ESXi 호스트에서 직접 OVA 배포를 시도합니다.
+  - 웹 클라이언트(https://<*host IP Address*>/ui)를 사용하여 ESXi 호스트에 직접 연결합니다(vCenter Server 대신).
+  - 홈 > 인벤토리로 이동합니다.
+  - 파일 > OVF 템플릿 배포 > OVA로 이동을 클릭하고 배포를 완료합니다.
+4. 배포가 여전히 실패하는 경우 Azure Migrate 지원에 문의합니다.
+
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>수집기가 인터넷에 연결할 수 없음
 
@@ -212,9 +221,8 @@ Windows용 이벤트 추적을 수집하려면 다음 단계를 수행합니다.
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>수집기 오류 코드 및 권장 작업
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| 오류 코드 | 오류 이름                      | Message                                                                       | 가능한 원인                                                                                        | 권장 작업                                                                                                                          |
+| 오류 코드 | 오류 이름   | Message   | 가능한 원인 | 권장 작업  |
+| --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | 수집기가 만료되었습니다.                                                        | 수집기가 만료되었습니다.                                                                                    | 새 버전의 수집기를 다운로드하고 다시 시도하세요.                                                                                      |
 | 751       | UnableToConnectToServer        | 오류로 인해 vCenter Server ‘%Name;’에 연결할 수 없습니다. %ErrorMessage;     | 자세한 내용은 오류 메시지를 확인하세요.                                                             | 문제를 해결하고 다시 시도하세요.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | 서버 ‘%Name;’이(가) vCenter Server가 아닙니다.                                  | vCenter Server 세부 정보를 제공하세요.                                                                       | 올바른 vCenter Server 세부 정보를 사용하여 작업을 다시 시도하세요.                                                                                   |

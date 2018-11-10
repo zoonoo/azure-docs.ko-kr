@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: bb1c59fa7df9cf466ce1fd7f32f08d255fe656bd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2af93d149948071f78d0c684b812e84fa68db341
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097066"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251127"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage 테이블 디자인 가이드: 확장성이 뛰어난 디자인 및 성능이 뛰어난 테이블
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -312,7 +312,7 @@ Table service는 **PartitionKey**를 기준으로 한 다음 **RowKey**를 기�
 
 수만 개의 부서 및 직원 엔터티가 있고, 모든 부서에 여러 직원이 있으며, 각 직원이 하나의 특정 부서에 연결된 대규모 다국적 기업을 예로 들어 보겠습니다. 별도의 부서 및 직원 엔터티를 저장하는 한 가지 접근 방식은 다음과 같습니다.  
 
-![][1]
+![부서 및 직원 엔터티][1]
 
 이 예는 **PartitionKey** 값을 기반으로 형식 간의 암시적 일대다의 관계를 보여 줍니다. 각 부서에는 여러 직원이 있을 수 있습니다.  
 
@@ -418,7 +418,7 @@ Table service에서 관계를 모델링하는 방법에는 여러 가지가 있�
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티를 자동으로 인덱싱합니다. 따라서 클라이언트 응용 프로그램이 이러한 값을 사용하여 엔터티를 효율적으로 검색할 수 있습니다. 예를 들어 아래에 표시된 테이블 구조를 사용할 경우 클라이언트 응용 프로그램은 지점 쿼리를 사용하여 부서 이름 및 직원 ID(**PartitionKey** 및 **RowKey** 값)로 개별 직원 엔터티를 검색할 수 있습니다. 또한 클라이언트는 각 부서 내에서 직원 ID별로 정렬된 엔터티를 검색할 수 있습니다.
 
-![][6]
+![직원 엔터티][6]
 
 전자 메일 주소와 같은 다른 속성 값으로 기반으로 직원 엔터티를 찾을 수 있도록 하려면 비효율적인 파티션 검색을 사용하여 일치하는 항목을 찾아야 합니다. 테이블 서비스에서는 보조 인덱스를 제공하지 않기 때문입니다. 또한 **RowKey** 와 다른 순서로 정렬된 직원 목록을 요청하는 옵션도 없습니다.  
 
@@ -437,7 +437,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 * Sales 부서에서 직원 ID 범위가 000100~000199인 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * Sales 부서에서 이메일 주소가 'a'로 시작하는 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](http://msdn.microsoft.com/library/azure/dd179421.aspx)참조).  
+  위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](http://msdn.microsoft.com/library/azure/dd179421.aspx) 참조).  
 
 #### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
@@ -754,7 +754,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 동시 삭제할 모든 엔터티를 고유한 별도의 테이블에 저장하여 대용량 엔터티 삭제를 지원합니다. 테이블을 삭제하면 엔터티가 삭제됩니다.  
 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
-대부분의 응용 프로그램은 클라이언트 응용 프로그램에서 더 이상 사용할 필요가 없거나 응용 프로그램이 다른 저장 매체에 보관한 경우 이전 데이터를 삭제합니다. 일반적으로 이러한 데이터는 날짜로 식별합니다. 예를 들어 60일이 지난 모든 로그인 요청에 대한 레코드를 삭제해야 할 수 있습니다.  
+대부분의 응용 프로그램은 클라이언트 응용 프로그램에서 더 이상 사용할 필요가 없거나 응용 프로그램이 다른 저장 매체에 보관한 경우 이전 데이터를 삭제합니다. 일반적으로 이러한 데이터는 날짜로 식별합니다. 예를 들어, 60일이 지난 모든 로그인 요청에 대한 레코드를 삭제해야 할 수 있습니다.  
 
 한 가지 가능한 디자인은 **RowKey**에서 로그인 요청 날짜 및 시간을 사용하는 것입니다.  
 
@@ -763,7 +763,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 이 접근 방식을 사용하면 응용 프로그램이 각 사용자에 대한 로그인 엔터티를 별도의 파티션에 삽입하고 삭제할 수 있기 때문에 파티션 핫스폿이 방지됩니다. 그러나 이 접근 방식은 엔터티 수가 많은 경우 삭제할 모든 엔터티를 식별하기 위해 먼저 테이블 검색을 수행한 다음 각 이전 엔터티를 삭제해야 하기 때문에 시간과 비용이 많이 들 수 있습니다. 여러 삭제 요청을 EGT로 일괄 처리하면 이전 엔터티를 삭제하는 데 필요한 서버 왕복 횟수를 줄일 수 있습니다.  
 
 #### <a name="solution"></a>해결 방법
-각 로그인 시도 날짜에 별도의 테이블을 사용합니다. 위의 엔터티 디자인을 사용하면 엔터티를 삽입할 때 핫스폿을 방지할 수 있으며, 매일 수십만 개의 개별 로그인 엔터티를 찾아서 삭제하는 대신 매일 하나의 테이블만 삭제하면 되므로(단일 저장소 작업) 이전 엔터티 삭제가 간편해집니다.  
+각 로그인 시도 날짜에 별도의 테이블을 사용합니다. 위의 엔터티 디자인을 사용하면 엔터티를 삽입할 때 핫스폿을 방지할 수 있으며, 매일 수많은 개별 로그인 엔터티를 찾아서 삭제하는 대신 매일 하나의 테이블만 삭제(단일 저장소 작업)하면 되므로 이전 엔터티 삭제가 간편해집니다.  
 
 #### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  

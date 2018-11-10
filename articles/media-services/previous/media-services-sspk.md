@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b4472f522571e0056ce6b28d67a69b0dcabba8a6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785822"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243899"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스
 ## <a name="overview"></a>개요
@@ -43,7 +43,7 @@ SSPK는 뛰어난 비즈니스 가치를 제공하는 조건으로 사용 허가
   * 하드웨어 A/V 디코더(디코딩, 렌더링)와 상호 작용을 위한 프로그래밍 인터페이스
 * DRM(디지털 권한 관리) 인터페이스 
   * DAL(DRM 추상화 계층)을 통해 DRM을 처리하기 위한 프로그래밍 인터페이스
-  * Microsoft PlayReady 이식 키트는 별도로 제공되지만 이 인터페이스를 통해 통합됩니다. Microsoft PlayReady 장치 라이선스에 대한 자세한 내용을 보려면 [여기](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl)를 클릭하세요.
+  * Microsoft PlayReady 이식 키트는 별도로 제공되지만 이 인터페이스를 통해 통합됩니다. Microsoft PlayReady 장치 라이선스에 대한 자세한 내용을 보려면 [여기](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl)를 클릭하세요.
 * 구현 샘플 
   * Linux용 샘플 PAL 구현
   * GStreamer용 샘플 HAL 구현

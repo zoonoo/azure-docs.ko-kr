@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 052ef249f3367a562e5598b90533c0e52ed75df4
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e23ff60a0a2ea10ace09130ba115e72b4e1c9ad7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171387"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249815"
 ---
 # <a name="demo-pizza-order"></a>데모: 피자 주문
 이 데모에서는 피자 주문 봇을 설명합니다. 이 기능으로 단일 피자의 주문을 지원합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "39171387"
 
 ## <a name="video"></a>비디오
 
-[![데모 피자 미리 보기](http://aka.ms/cl-demo-pizza-preview)](http://aka.ms/blis-demo-pizza)
+[![데모 피자 미리 보기](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 피자 주문 봇이 실행 중이어야 합니다.

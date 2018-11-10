@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 10/12/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 78b20b977685989c10ba61a48afee7808c46f227
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 693f9144d1cb454b0a9dd98b5ae63938abd7d26d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320631"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420407"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 
@@ -61,7 +61,7 @@ Cloud Shell을 사용하여 SSH 키 쌍을 만드는 경우 [Cloud Shell에서 �
 
 1. Azure Marketplace 리소스 목록 위에 있는 검색 상자에서 Canonical의 **Ubuntu Server 16.04 LTS**를 검색하고 선택한 다음, **만들기**를 선택합니다.
 
-1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, **리소스 그룹** 아래에서 **새로 만들기**를 선택합니다. 팝업에서 리소스 그룹의 이름에 *myResourceGroup*을 입력한 다음, **확인*을 선택합니다. 
+1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, **리소스 그룹** 아래에서 **새로 만들기**를 선택합니다. 팝업에서 리소스 그룹의 이름에 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. 
 
     ![VM에 대한 새 리소스 그룹 만들기](./media/quick-create-portal/project-details.png)
 

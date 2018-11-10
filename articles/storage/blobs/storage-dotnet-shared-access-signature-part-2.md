@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 6546553fa3537ac63d956dc5febfd77efe9fd34d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6e33f700e9f453f419bf431d772d3db27e806ac0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400126"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240701"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>공유 액세스 서명, 2부: Blob 저장소를 사용하여 SAS 만들기 및 사용
 
@@ -591,5 +591,5 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 * [공유 액세서 서명, 1부: SAS 모델 이해하기](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](storage-manage-access-to-resources.md)
-* [공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [공유 액세스 서명을 사용하여 액세스 위임(REST API)](https://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [테이블 및 큐 SAS 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

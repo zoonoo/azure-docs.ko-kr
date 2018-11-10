@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 77bccaeec1ad3f0d2df4ab567d294c77fc2358cb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2673a0ec1e9ed66c9a1bb6e369ad5300a570ba0a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954728"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240446"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스란?
 
@@ -110,4 +110,4 @@ Azure AD 조건부 액세스를 사용하여 권한 있는 사용자가 클라�
 
 - 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)를 참조하세요. 
 
-- 권장된 정책을 사용하여 단계별 배포 계획을 원하는 경우 [조건부 액세스 배포 계획](http://aka.ms/conditionalaccessdeploymentplan)을 참조하세요.
+- 권장된 정책을 사용하여 단계별 배포 계획을 원하는 경우 [조건부 액세스 배포 계획](https://aka.ms/conditionalaccessdeploymentplan)을 참조하세요.

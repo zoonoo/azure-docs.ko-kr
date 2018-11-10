@@ -10,12 +10,12 @@ ms.component: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 9/24/2018
-ms.openlocfilehash: f221d160685dd12fb18a611432911baa60ebc6f7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4d25e147044053aa76afe2da482b71c24efc2325
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888127"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242877"
 ---
 # <a name="development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 
 
@@ -59,7 +59,7 @@ Azure Machine Learning에서 작동하는 IDE와 코드 편집기는 많이 있�
 
 ## <a name="data-science-virtual-machine"></a>데이터 과학 Virtual Machine
 
-DSVM(Data Science Virtual Machine)은 이전 환경을 결합한 것입니다. Jupyter Notebooks, Visual Studio Code 및 Azure Machine Learning SDK가 미리 설치되어 있는 Azure 플랫폼의 VM입니다. VM을 만드는 것은 Azure Notebooks보다 복잡하지만 머신을 처음부터 설정하는 것보다는 덜 복잡합니다. 필요한 소프트웨어가 VM 이미지에 미리 설치되어 있어서, VM이 만들어지기만 하면 Azure Machine Learning으로 신속하게 실험을 시작할 수 있습니다.
+DSVM(Data Science Virtual Machine)은 이전 환경을 결합한 것입니다. Jupyter Notebooks, Visual Studio Code 및 Azure Machine Learning SDK가 미리 설치되어 있는 Azure 플랫폼의 VM입니다. 필요한 소프트웨어가 VM 이미지에 미리 설치되어 있어서, VM이 만들어지기만 하면 Azure Machine Learning으로 신속하게 실험을 시작할 수 있습니다.
 
 DSVM에서는 CPU, GPU 및 메모리와 같은 필요한 계산 리소스를 선택할 수 있습니다. 또한 PyCharm은 물론 TensorFlow, Keras 및 PyTorch와 같이 널리 사용되는 기계 학습 소프트웨어가 미리 설치되어 있습니다. 필요한 소프트웨어가 설치되어 있지 않으면 직접 설치할 수 있습니다.
 

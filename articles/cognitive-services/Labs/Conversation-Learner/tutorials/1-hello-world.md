@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 70b8f25bd699cbdb069892d65bf766ef3953f59d
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 271141f24ff729fc99210af67ad769a5ef83a65c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170874"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242724"
 ---
 # <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Conversation Learner에서 “Hello World” 모델을 만드는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "39170874"
 
 ## <a name="video"></a>비디오
 
-[![자습서 1 미리 보기](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+[![자습서 1 미리 보기](https://aka.ms/cl-tutorial-01-preview)](https://aka.ms/blis-tutorial-01)
 
 
 ## <a name="requirements"></a>요구 사항
@@ -40,7 +40,7 @@ Web UI의 홈페이지에서 시작합니다.
 ### <a name="create-the-model"></a>모델 만들기
 1. 새 모델을 클릭합니다.
 2. 이름 필드에 Hello World를 입력합니다.
-3. 만들기 클릭
+3. 만들기 클릭 
 
 ### <a name="create-an-action"></a>작업 만들기
 
@@ -49,7 +49,7 @@ Web UI의 홈페이지에서 시작합니다.
     - 작업은 Conversation Learner가 사용자에게 반환하는 텍스트 메시지, API 호출 또는 카드일 수 있습니다.
 3. 응답에 ‘Hello World!’를 입력합니다.
     - 봇이 반환할 응답입니다.
-4. 만들기 클릭
+4. 만들기 클릭 
 
 봇이 수행할 수 있는 첫 번째 작업인 텍스트 응답 반환을 만들었습니다.
 

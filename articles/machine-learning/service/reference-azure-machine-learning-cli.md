@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 53e737f35904a90bb56ec15c8a8282f8775e3c3a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 45ed1867d6d151250340bb21450b4b0d9b00e993
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393494"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243150"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>Azure Machine Learning CLI란?
 
@@ -25,7 +25,7 @@ Azure Machine Learning CLI(명령줄 인터페이스) 확장은 Azure Machine Le
 
 + Machine Learning 모델 패키징, 배포 및 수명 주기 추적
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)의 확장인 이 Machine Learning CLI는 Azure Machine Learning Service용 Python 기반 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>를 토대로 작성되었습니다.
+[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)의 확장인 이 Machine Learning CLI는 Azure Machine Learning Service용 Python 기반 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>를 토대로 작성되었습니다.
 
 > [!NOTE]
 > 이 CLI는 현재 미리 보기 상태이며 업데이트될 예정입니다.
