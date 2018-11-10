@@ -9,14 +9,14 @@ ms.reviewer: sngun
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c1fb4c27f897e3c0952ed6419e167613ac8204f7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a06e7e6159953bfeffa966759d29b91bbcbafd37
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223494"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739212"
 ---
-# <a name="query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>Azure Cosmos DB Cassandra API 계정에서 데이터 쿼리
+# <a name="tutorial-query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>자습서: Azure Cosmos DB Cassandra API 계정에서 데이터 쿼리
 
 이 자습서에서는 Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 계정에서 사용자 데이터를 쿼리하는 방법을 보여줍니다. Java 응용 프로그램은 [Java 드라이버](https://github.com/datastax/java-driver)를 사용하며 사용자 ID, 사용자 이름, 사용자 도시와 같은 사용자 데이터를 쿼리합니다. 
 
@@ -28,59 +28,65 @@ ms.locfileid: "47223494"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 이 문서는 여러 부분으로 구성된 자습서의 일부분입니다. 시작하기 전에 [Cassandra API 계정, 키스페이스, 테이블을 만들고](create-cassandra-api-account-java.md) [테이블에 샘플 데이터를 로드하는](cassandra-api-load-data.md) 이전 단계를 완료해야 합니다. 
+* 이 문서는 여러 부분으로 구성된 자습서의 일부분입니다. 시작하기 전에 [Cassandra API 계정, 키스페이스, 테이블을 만들고] [테이블에 샘플 데이터를 로드](cassandra-api-load-data.md)하는 이전 단계를 완료해야 합니다. 
 
 ## <a name="query-data"></a>쿼리 데이터
 
-`src\main\java\com\azure\cosmosdb\cassandra` 폴더에서 `UserRepository.java` 파일을 엽니다. 다음 코드 블록을 추가합니다. 이 코드는 데이터베이스에 있는 모든 사용자를 퀴리하는 함수, 사용자 ID를 기준으로 필터링된 특정 사용자를 쿼리하는 함수 및 테이블을 삭제하는 함수, 이렇게 세 함수를 제공합니다. 
+다음 단계에 따라 Cassandra API 계정에서 데이터를 쿼리합니다.
 
-```java
-/**
-* Select all rows from user table
-*/
-public void selectAllUsers() {
+1. `src\main\java\com\azure\cosmosdb\cassandra` 폴더에서 `UserRepository.java` 파일을 엽니다. 다음 코드 블록을 추가합니다. 이 코드는 다음 세 가지 방법을 제공합니다. 
 
-    final String query = "SELECT * FROM uprofile.user";
-    List<Row> rows = session.execute(query).all();
+   * 데이터베이스의 모든 사용자를 쿼리
+   * 사용자 ID로 필터링한 특정 사용자를 쿼리
+   * 테이블 삭제
 
-    for (Row row : rows) {
-       LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-    }
-}
+   ```java
+   /**
+   * Select all rows from user table
+   */
+   public void selectAllUsers() {
 
-/**
-* Select a row from user table
-*
-* @param id user_id
-*/
-public void selectUser(int id) {
-    final String query = "SELECT * FROM uprofile.user where user_id = 3";
-    Row row = session.execute(query).one();
+     final String query = "SELECT * FROM uprofile.user";
+     List<Row> rows = session.execute(query).all();
 
-    LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-}
+     for (Row row : rows) {
+        LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+     }
+   }
 
-/**
-* Delete user table.
-*/
-public void deleteTable() {
-   final String query = "DROP TABLE IF EXISTS uprofile.user";
-   session.execute(query);
-}
-```
+   /**
+   * Select a row from user table
+   *
+   * @param id user_id
+   */
+   public void selectUser(int id) {
+      final String query = "SELECT * FROM uprofile.user where user_id = 3";
+      Row row = session.execute(query).one();
 
-`src\main\java\com\azure\cosmosdb\cassandra` 폴더에서 `UserProfile.java` 파일을 엽니다. 이 클래스에는 이전에 정의한 데이터 삽입 메서드인 createKeyspace 및 createTable을 호출하는 main 메서드가 들어 있습니다. 이제 모든 사용자나 특정 사용자를 쿼리하는 다음 코드를 추가합니다.
+      LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+   }
 
-```java
-LOGGER.info("Select all users");
-repository.selectAllUsers();
+   /**
+   * Delete user table.
+   */
+   public void deleteTable() {
+     final String query = "DROP TABLE IF EXISTS uprofile.user";
+     session.execute(query);
+   }
+   ```
 
-LOGGER.info("Select a user by id (3)");
-repository.selectUser(3);
+2. `src\main\java\com\azure\cosmosdb\cassandra` 폴더에서 `UserProfile.java` 파일을 엽니다. 이 클래스에는 이전에 정의한 데이터 삽입 메서드인 createKeyspace 및 createTable을 호출하는 main 메서드가 들어 있습니다. 이제 모든 사용자나 특정 사용자를 쿼리하는 다음 코드를 추가합니다.
 
-LOGGER.info("Delete the users profile table");
-repository.deleteTable();
-```
+   ```java
+   LOGGER.info("Select all users");
+   repository.selectAllUsers();
+
+   LOGGER.info("Select a user by id (3)");
+   repository.selectUser(3);
+
+   LOGGER.info("Delete the users profile table");
+   repository.deleteTable();
+   ```
 
 ## <a name="run-the-java-app"></a>Java 앱 실행
 1. 명령 프롬프트 또는 터미널 창을 엽니다. 다음 코드 블록을 붙여넣습니다. 
