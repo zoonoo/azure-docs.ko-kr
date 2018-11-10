@@ -1,21 +1,20 @@
 ---
-title: Azure에서 온-프레미스 사이트로 VM 다시 보호 | Microsoft Docs
-description: VM을 Azure로 장애 조치(failover)한 후에 장애 복구를 시작하여 VM을 온-프레미스로 복구할 수 있습니다. 장애 복구(failback)하기 전에 다시 보호하는 방법을 알아봅니다.
-services: site-recovery
+title: VMware VM 및 물리적 서버의 재해 복구 중에 Azure에서 온-프레미스 사이트로 VM 다시 보호 | Microsoft Docs
+description: VMware VM 및 물리적 서버의 재해 복구 중에 Azure로 장애 조치(failover) 후 Azure에서 온-프레미스 사이트로 장애 복구(failback)하는 방법을 알아봅니다.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346682"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213290"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Azure에서 온-프레미스 사이트로 컴퓨터 다시 보호
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Azure로 장애 조치(failover) 후에 머신을 온-프레미스 사이트로 다시 보호 및 장애 복구(failback)
 
 Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site-recovery-failover.md)한 후에 온-프레미스 사이트를 장애 복구(Failback)하는 첫 번째 단계는 장애 조치(failover) 중에 생성된 Azure VM을 다시 보호하는 것입니다. 이 문서에서는 이를 수행하는 방법을 설명합니다. 
 

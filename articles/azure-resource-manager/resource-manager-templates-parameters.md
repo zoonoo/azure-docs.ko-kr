@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 10/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604338"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417772"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 매개 변수 섹션
 템플릿의 매개 변수 섹션에서는 리소스를 배포할 때 입력할 수 있는 값을 지정합니다. 이러한 매개 변수 값을 사용하여 개발, 테스트 및 프로덕션 등의 특정 환경에 맞게 조정되는 값을 제공함으로써 배포를 사용자 지정할 수 있습니다. 템플릿에서 매개 변수를 제공할 필요는 없지만 매개 변수가 없으면 템플릿이 항상 이름, 위치 및 속성이 같은 동일한 리소스를 배포합니다.
 
-템플릿에서 매개 변수는 255개로 제한됩니다. 이 문서에 표시된 것처럼 여러 속성이 포함된 개체를 사용하여 매개 변수 수를 줄일 수 있습니다.
+템플릿에서 매개 변수는 256개로 제한됩니다. 이 문서에 표시된 것처럼 여러 속성이 포함된 개체를 사용하여 매개 변수 수를 줄일 수 있습니다.
 
 ## <a name="define-and-use-a-parameter"></a>매개 변수 정의 및 사용
 
@@ -85,19 +85,19 @@ ms.locfileid: "34604338"
 
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| parameterName |예 |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
-| 형식 |예 |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
-| defaultValue |아니오 |매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다. |
-| allowedValues |아니오 |올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다. |
-| minValue |아니오 |Int 형식 매개 변수의 최소값이며, 이 값이 포함됩니다. |
-| maxValue |아니오 |Int 형식 매개 변수의 최대값이며, 이 값이 포함됩니다. |
-| minLength |아니오 |string, securestring 및 array 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다. |
-| maxLength |아니오 |string, securestring 및 array 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다. |
-| description |아니오 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. |
+| parameterName |yes |매개 변수의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
+| 형식 |yes |매개 변수 값의 유형입니다. 허용되는 유형 및 값은 **string**, **securestring**, **int**, **bool**, **object**, **secureObject** 및 **array**입니다. |
+| defaultValue |아니요 |매개 변수 값을 제공하지 않는 경우 매개 변수의 기본값입니다. |
+| allowedValues |아니요 |올바른 값을 제공하도록 매개 변수에 대해 허용되는 값의 배열입니다. |
+| minValue |아니요 |Int 형식 매개 변수의 최소값이며, 이 값이 포함됩니다. |
+| maxValue |아니요 |Int 형식 매개 변수의 최대값이며, 이 값이 포함됩니다. |
+| minLength |아니요 |string, securestring 및 array 형식 매개 변수의 최소 길이이며, 이 값이 포함됩니다. |
+| maxLength |아니요 |string, securestring 및 array 형식 매개 변수의 최대 길이이며, 이 값이 포함됩니다. |
+| description |아니요 |포털에서 사용자에게 표시되는 매개 변수의 설명입니다. |
 
 ## <a name="template-functions-with-parameters"></a>매개 변수가 있는 템플릿 함수
 
-매개 변수에 기본값을 제공하는 경우 대부분의 템플릿 함수를 사용할 수 있습니다. 다른 매개 변수 값을 사용하여 기본값을 빌드할 수 있습니다. 다음 템플릿은 기본값인 함수의 사용을 보여 줍니다.
+매개 변수에 기본값을 지정하는 경우 대부분의 템플릿 함수를 사용할 수 있습니다. 다른 매개 변수 값을 사용하여 기본값을 빌드할 수 있습니다. 다음 템플릿은 기본값인 함수의 사용을 보여 줍니다.
 
 ```json
 "parameters": {
@@ -212,7 +212,7 @@ ms.locfileid: "34604338"
    }
    ```
 
-* 매개 변수의 기본값을 정의합니다(암호 및 SSH 키 제외). 기본값을 제공하면 매개 변수가 배포 중에 선택 사항이 됩니다. 기본값은 빈 문자열일 수 있습니다. 
+* 매개 변수의 기본값을 정의합니다(암호 및 SSH 키 제외). 기본값을 지정하면 매개 변수가 배포 중에 선택 사항이 됩니다. 기본값은 빈 문자열일 수 있습니다. 
    
    ```json
    "parameters": {
@@ -239,7 +239,7 @@ ms.locfileid: "34604338"
    }
    ```
 
-* 매개 변수를 사용하여 위치를 지정하고, 동일한 위치에 있을 가능성이 있는 리소스와 가능한 많이 해당 매개 변수 값을 공유합니다. 이렇게 하면 사용자에게 위치 정보를 제공하라고 요청하는 횟수가 최소화됩니다. 리소스 종류가 제한된 수의 위치에서만 지원되는 경우 유효한 위치를 템플릿에 직접 지정하거나 다른 위치 매개 변수를 추가할 수 있습니다. 조직에서 사용자에 허용되는 지역을 제한하는 경우 **resourceGroup().location** 식으로 인해 사용자가 템플릿을 배포하지 못할 수 있습니다. 예를 들어 한 사용자가 한 지역에 리소스 그룹을 만듭니다. 두 번째 사용자는 해당 리소스 그룹에 배포해야 하지만 해당 지역에 대한 액세스 권한이 없습니다. 
+* 매개 변수를 사용하여 위치를 지정하고, 동일한 위치에 있을 가능성이 있는 리소스와 가능한 많이 해당 매개 변수 값을 공유합니다. 이렇게 하면 사용자에게 위치 정보를 제공하라고 요청하는 횟수가 최소화됩니다. 리소스 종류가 제한된 수의 위치에서만 지원되는 경우 유효한 위치를 템플릿에 직접 지정하거나 다른 위치 매개 변수를 추가할 수 있습니다. 조직에서 사용자에게 허용되는 지역을 제한하는 경우 **resourceGroup().location** 식으로 인해 사용자가 템플릿을 배포하지 못할 수 있습니다. 예를 들어 한 사용자가 한 지역에 리소스 그룹을 만듭니다. 두 번째 사용자는 해당 리소스 그룹에 배포해야 하지만 해당 지역에 대한 액세스 권한이 없습니다. 
    
    ```json
    "resources": [

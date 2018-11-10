@@ -8,18 +8,18 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 287b95b59b0ec2b308d3e455c4f6ffce4baf4ff7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868278"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212882"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Azure 데이터 탐색기 데이터베이스 권한 관리
 
 Azure 데이터 탐색기를 사용하면 *역할 기반 액세스 제어* 모델을 사용하여 데이터베이스 및 테이블에 대한 액세스를 제어할 수 있습니다. 이 모델에서 *주체*(사용자, 그룹 및 앱)는 *역할*에 매핑됩니다. 주체는 자신에게 할당된 역할에 따라 리소스에 액세스할 수 있습니다.
 
-이 문서에서는 사용 가능한 역할 및 해당 역할에 주체를 할당하는 방법에 대해 설명합니다.
+이 문서에서는 사용 가능한 역할에 대해 설명하고 Azure Portal 및 Azure Data Explorer 관리 명령을 사용하여 이러한 역할에 보안 주체를 할당하는 방법을 설명합니다.
 
 ## <a name="roles-and-permissions"></a>역할 및 권한
 

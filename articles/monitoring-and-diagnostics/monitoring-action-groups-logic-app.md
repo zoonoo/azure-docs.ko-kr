@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3c1bff98debf426fc02dbd4518c0bb798d7ba96d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74607f61482d4a96931e307e77b4a6d4c45e4c30
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576023"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420934"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -38,25 +38,25 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](monitoring-action-groups
 
 1.  Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
 
-2.  **논리 앱**을 검색하여 선택한 다음, **만들기**를 선택합니다.
+2.   **논리 앱**을 검색하여 선택한 다음,  **만들기**를 선택합니다.
 
 3.  논리 앱 **이름**을 지정하고 **리소스 그룹** 등을 선택합니다.
 
-    ![논리 앱 만들기](media/monitoring-action-groups/create-logic-app-dialog.png "논리 앱 만들기")
+    ![논리 앱 만들기](media/monitoring-action-groups-logic-app/create-logic-app-dialog.png "논리 앱 만들기")
 
 4.  **만들기**를 선택하여 논리 앱을 만듭니다. 팝업 메시지가 논리 앱을 만들었음을 나타냅니다. **리소스 시작**을 선택하여 **Logic Apps 디자이너**를 엽니다.
 
 5.  트리거 선택: **HTTP 요청을 받은 경우**.
 
-    ![논리 앱 트리거](media/monitoring-action-groups/logic-app-triggers.png "논리 앱 트리거")
+    ![논리 앱 트리거](media/monitoring-action-groups-logic-app/logic-app-triggers.png "논리 앱 트리거")
 
 6.  **편집**을 선택하여 HTTP 요청 트리거를 변경합니다.
 
-    ![HTTP 요청 트리거](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP 요청 트리거")
+    ![HTTP 요청 트리거](media/monitoring-action-groups-logic-app/http-request-trigger-shape.png "HTTP 요청 트리거")
 
 7.  **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.
 
-    ![샘플 페이로드를 사용](media/monitoring-action-groups/use-sample-payload-button.png "샘플 페이로드 사용")
+    ![샘플 페이로드를 사용](media/monitoring-action-groups-logic-app/use-sample-payload-button.png "샘플 페이로드 사용")
 
 8.  다음과 같은 샘플 스키마를 복사하여 대화 상자에 붙여넣습니다.
 
@@ -99,15 +99,15 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](monitoring-action-groups
 
 9. **Logic App 디자이너**는 논리 앱에 전송된 요청이 **Content-Type** 헤더를 **application/json**으로 설정해야 함을 사용자에게 알리는 팝업 창을 표시합니다. 팝업 창을 닫습니다. Azure Monitor 경고는 헤더를 설정합니다.
 
-    ![Content-Type 헤더 설정](media/monitoring-action-groups/content-type-header.png "Content-Type 헤더 설정")
+    ![Content-Type 헤더 설정](media/monitoring-action-groups-logic-app/content-type-header.png "Content-Type 헤더 설정")
 
 10. **+** **새 단계**를 선택한 다음, **작업 추가**를 선택합니다.
 
-    ![작업 추가](media/monitoring-action-groups/add-action.png "작업 추가")
+    ![작업 추가](media/monitoring-action-groups-logic-app/add-action.png "작업 추가")
 
 11. Microsoft Teams 커넥터를 검색하고 선택합니다. **Microsoft Teams – 메시지 게시** 작업을 선택합니다.
 
-    ![Microsoft Teams 작업](media/monitoring-action-groups/microsoft-teams-actions.png "Microsoft Teams 작업")
+    ![Microsoft Teams 작업](media/monitoring-action-groups-logic-app/microsoft-teams-actions.png "Microsoft Teams 작업")
 
 12. Microsoft Teams 작업을 구성합니다. **Logic Apps 디자이너**에서 Office 365 계정에 인증할 것을 요청합니다. 메시지를 전송할 **팀 ID** 및 **채널 ID**를 선택합니다.
 
@@ -125,13 +125,13 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](monitoring-action-groups
     > [!NOTE]
     > **상태**라는 두 개의 동적 필드가 있습니다. 메시지에 이러한 필드를 모두 추가합니다. **activityLog** 속성 모음에서 하나를 사용하고 다른 필드는 삭제합니다. **상태** 필드 위로 커서를 가져가면 다음 스크린샷에 표시된 것과 같이 정규화된 필드 참조가 나타납니다.
 
-    ![Microsoft Teams 작업: 메시지 게시](media/monitoring-action-groups/teams-action-post-message.png "Microsoft Teams 작업: 메시지 게시")
+    ![Microsoft Teams 작업: 메시지 게시](media/monitoring-action-groups-logic-app/teams-action-post-message.png "Microsoft Teams 작업: 메시지 게시")
 
 14. **Logic Apps 디자이너** 맨 위에서 **저장**을 선택하여 논리 앱을 저장합니다.
 
 15. 기존 작업 그룹을 열고 논리 앱을 참조하는 작업을 추가합니다. 기존 작업 그룹이 없으면 [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)를 참조합니다. 변경 내용은 반드시 저장해야 합니다.
 
-    ![작업 그룹 업데이트](media/monitoring-action-groups/update-action-group.png "작업 그룹 업데이트")
+    ![작업 그룹 업데이트](media/monitoring-action-groups-logic-app/update-action-group.png "작업 그룹 업데이트")
 
 다음에 경고가 사용자의 작업 그룹을 호출하면 논리 앱이 호출됩니다.
 
@@ -192,7 +192,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
 
-      ![“Service Health 페이로드 조건”](media/monitoring-action-groups/service-health-payload-condition.png "Service Health 페이로드 조건")
+      ![“Service Health 페이로드 조건”](media/monitoring-action-groups-logic-app/service-health-payload-condition.png "Service Health 페이로드 조건")
 
    1. **if true** 조건에서 [활동 로그 경고 만들기](#create-an-activity-log-alert-administrative)의 11-13 단계 지침에 따라 Microsoft Teams 작업을 추가합니다.
 
@@ -209,7 +209,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
        <p>[communication]</p>
        ```
 
-       ![“Service Health true 조건 게시 작업”](media/monitoring-action-groups/service-health-true-condition-post-action.png "Service Health true 조건 게시 작업")
+       ![“Service Health true 조건 게시 작업”](media/monitoring-action-groups-logic-app/service-health-true-condition-post-action.png "Service Health true 조건 게시 작업")
 
    1. **If false** 조건의 경우 유용한 메시지를 제공합니다.
 
@@ -219,7 +219,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
        <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
        ```
 
-       ![“Service Health false 조건 게시 작업”](media/monitoring-action-groups/service-health-false-condition-post-action.png "Service Health false 조건 게시 작업")
+       ![“Service Health false 조건 게시 작업”](media/monitoring-action-groups-logic-app/service-health-false-condition-post-action.png "Service Health false 조건 게시 작업")
 
 - 15단계는 동일합니다. 지침을 따라 논리 앱을 저장하고 작업 그룹을 업데이트합니다.
 
@@ -279,15 +279,15 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
        - `schemaId == AzureMonitorMetricAlert`
        - `version == "2.0"`
        
-       ![“메트릭 경고 페이로드 조건”](media/monitoring-action-groups/metric-alert-payload-condition.png "메트릭 경고 페이로드 조건")
+       ![“메트릭 경고 페이로드 조건”](media/monitoring-action-groups-logic-app/metric-alert-payload-condition.png "메트릭 경고 페이로드 조건")
 
    1. **if true** 조건에서 **For each** 루프 및 Microsoft Teams 작업을 추가합니다. HTML과 동적 콘텐츠의 조합을 사용하여 메시지를 정의합니다.
 
-       ![“메트릭 경고 true 조건 게시 작업”](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "메트릭 경고 true 조건 게시 작업")
+       ![“메트릭 경고 true 조건 게시 작업”](media/monitoring-action-groups-logic-app/metric-alert-true-condition-post-action.png "메트릭 경고 true 조건 게시 작업")
 
    1. **If false** 조건에서는 메트릭 경고가 논리 앱의 예상과 일치하지 않는다고 통신하는 Microsoft Teams 작업을 정의합니다. JSON 페이로드를 포함합니다. `json()` 식에서 `triggerBody` 동적 콘텐츠를 참조하는 방법을 확인합니다.
 
-       ![“메트릭 경고 false 조건 게시 작업”](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "메트릭 경고 false 조건 게시 작업")
+       ![“메트릭 경고 false 조건 게시 작업”](media/monitoring-action-groups-logic-app/metric-alert-false-condition-post-action.png "메트릭 경고 false 조건 게시 작업")
 
 - 15단계는 동일합니다. 지침을 따라 논리 앱을 저장하고 작업 그룹을 업데이트합니다.
 

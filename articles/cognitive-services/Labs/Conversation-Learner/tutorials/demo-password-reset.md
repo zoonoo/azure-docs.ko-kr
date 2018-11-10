@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: bd0bcd79bb21dc3973b34086f6dad21b47a95c2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170636"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240871"
 ---
 # <a name="demo-password-reset"></a>데모: 암호 재설정
 이 데모에서는 암호 재설정에 도움이 되는 간단한 기술 지원 봇을 보여 줍니다. 
@@ -24,7 +24,7 @@ Conversation Learner가 도메인 외부 클래스를 포함하여 특수한 대
 
 ## <a name="video"></a>비디오
 
-[![데모 암호 미리 보기](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
+[![데모 암호 미리 보기](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 암호 재설정 봇이 실행 중이어야 합니다.

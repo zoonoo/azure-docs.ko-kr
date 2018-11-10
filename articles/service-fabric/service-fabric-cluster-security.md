@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541907"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240599"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>서비스 패브릭 클러스터 보안 시나리오
 Azure 서비스 패브릭 클러스터는 사용자가 소유하는 리소스입니다. 사용자는 권한이 없는 사용자가 연결되는 것을 방지하기 위해 클러스터를 보호해야 합니다. 보안 클러스터는 클러스터에서 프로덕션 워크로드를 실행하는 경우에 특히 중요합니다. 보안이 되지 않은 클러스터를 만들 수 있지만 클러스터가 공용 인터넷에 관리 엔드포인트를 노출하는 경우 익명 사용자가 클러스터에 연결할 수 있게 됩니다. 보호되지 않은 클러스터는 프로덕션 워크로드에 지원되지 않습니다. 
@@ -85,7 +85,7 @@ Azure 클러스터의 경우 노드 간 보안에 대해 Azure AD 보안을 사�
 클러스터를 만들 때 관리자 및 사용자 클라이언트 역할을 설정합니다. 각 역할 유형에 대해 별도 ID를 제공하여 역할을 할당합니다(예: 인증서 또는 Azure AD 사용). 기본 액세스 제어 설정 및 기본 설정을 변경하는 방법에 대한 자세한 내용은 [Service Fabric 클라이언트에 대한 역할 기반 액세스 제어](service-fabric-cluster-security-roles.md)를 참조하세요.
 
 ## <a name="x509-certificates-and-service-fabric"></a>X.509 인증서 및 서비스 패브릭
-X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일반적으로 사용됩니다. 또한 암호화하고 디지털로 메시지를 서명하는 데 사용됩니다. 서비스 패브릭은 클러스터에 보안 적용을 하고 응용 프로그램 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. X.509 디지털 인증서에 대한 자세한 내용은 [인증서 사용](http://msdn.microsoft.com/library/ms731899.aspx)을 참조하세요. [Key Vault](../key-vault/key-vault-get-started.md)를 사용하여 Azure에서 Service Fabric 클러스터에 대한 인증서를 관리합니다.
+X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일반적으로 사용됩니다. 또한 암호화하고 디지털로 메시지를 서명하는 데 사용됩니다. 서비스 패브릭은 클러스터에 보안 적용을 하고 응용 프로그램 보안 기능을 제공하기 위해 X.509 인증서를 사용합니다. X.509 디지털 인증서에 대한 자세한 내용은 [인증서 사용](https://msdn.microsoft.com/library/ms731899.aspx)을 참조하세요. [Key Vault](../key-vault/key-vault-get-started.md)를 사용하여 Azure에서 Service Fabric 클러스터에 대한 인증서를 관리합니다.
 
 고려할 몇 가지 중요한 사항은 다음과 같습니다.
 
@@ -109,7 +109,7 @@ X.509 디지털 인증서는 클라이언트 및 서버를 인증하는 데 일�
 
 * **주체** 필드는 여러 값을 가질 수 있습니다. 각 값은 값 형식을 나태내는 이니셜로 접두사가 지정됩니다. 일반적으로 이니셜은 *일반 이름*의 경우 **CN**입니다(예: **CN = www.contoso.com**). 
 * **주체** 필드는 비워 둘 수 있습니다. 
-* 선택적 **주체 대체 이름** 필드가 채워진 경우 인증서의 일반 이름과 SAN당 하나의 항목을 모두 포함해야 합니다. 이러한 작업은 **DNS 이름** 값으로 입력됩니다. SAN을 포함하는 인증서를 생성하는 방법을 알아보려면 [보안 LDAP 인증서에 주체 대체 이름을 추가하는 방법](http://support.microsoft.com/kb/931351)을 참조하세요.
+* 선택적 **주체 대체 이름** 필드가 채워진 경우 인증서의 일반 이름과 SAN당 하나의 항목을 모두 포함해야 합니다. 이러한 작업은 **DNS 이름** 값으로 입력됩니다. SAN을 포함하는 인증서를 생성하는 방법을 알아보려면 [보안 LDAP 인증서에 주체 대체 이름을 추가하는 방법](https://support.microsoft.com/kb/931351)을 참조하세요.
 * 인증서의 **용도** 필드의 값은 **서버 인증** 또는 **클라이언트 인증**과 같은 적절한 값을 포함해야 합니다.
 
 ### <a name="application-certificates-optional"></a>응용 프로그램 인증서(선택 사항)

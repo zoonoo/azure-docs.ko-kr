@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: ee8057be98d18db5963a3e5f1ba1f8bd8d76fe05
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241595"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231375"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Hyperledger 패브릭 단일 멤버 네트워크
 
@@ -28,15 +28,15 @@ Hyperledger 패브릭 컨소시엄 솔루션 템플릿을 사용하여 단일 �
 
 ## <a name="about-blockchain"></a>블록체인 정보
 
-블록체인 커뮤니티를 처음 접하는 경우 이 자리는 Azure에서 이 기술을 쉽고 구성 가능한 방법으로 배울 수 있는 좋은 기회입니다. 블록체인은 비트코인의 근간이 되는 기술이지만, 단순히 가상 화폐를 구현하는 것보다 훨씬 많은 가능성을 갖고 있습니다. 블록체인은 기존 데이터베이스, 분산 시스템 그리고 공격에 대한 불변성, 안정성, 감사 및 복원력을 보장하는 보안 다자간 계산을 지원하는 암호화 기술의 복합체입니다. 여러 프로토콜이 여러 메커니즘을 사용하여 이러한 특성을 제공합니다. [Hyperledger 패브릭](https://github.com/hyperledger/fabric)은 이러한 프로토콜 중 하나입니다.
+블록체인 커뮤니티를 처음 접하는 경우 이 솔루션 템플릿은 Azure에서 이 기술을 쉽고 구성 가능한 방법으로 배울 수 있는 좋은 기회입니다. 블록체인은 비트코인의 근간이 되는 기술이지만, 단순히 가상 화폐를 구현하는 것보다 훨씬 많은 가능성을 갖고 있습니다. 블록체인은 기존 데이터베이스, 분산 시스템 그리고 공격에 대한 불변성, 안정성, 감사 및 복원력을 보장하는 보안 다자간 계산을 지원하는 암호화 기술의 복합체입니다. 여러 프로토콜이 여러 메커니즘을 사용하여 이러한 특성을 제공합니다. [Hyperledger 패브릭](https://github.com/hyperledger/fabric)은 이러한 프로토콜 중 하나입니다.
 
 ## <a name="consortium-architecture-on-azure"></a>Azure의 응용 프로그램 아키텍처
 
 이 템플릿은 단일 조직(단일 멤버) 내 사용자를 위한 프로덕션을 테스트 및 시뮬레이션할 수 있는 토폴로지를 배포합니다. 이 배포는 단일 지역의 다중 노드 네트워크로 구성되며, 조만간 여러 지역으로 확장할 예정입니다.
 
-네트워크 세 가지 형식의 노드로 구성됩니다.
+네트워크는 세 가지 형식의 노드로 구성됩니다.
 
-1. **멤버 노드**: 네트워크 멤버를 등록하고 관리하는 패브릭 멤버 자격을 실행하는 노드입니다. 이 노드를 클러스터링하면 확장성과 가용성을 높일 수 있지만, 이 랩에서는 단일 멤버 노드를 사용하겠습니다.
+1. **멤버 노드**: 네트워크 멤버를 등록하고 관리하는 패브릭 멤버 자격을 실행하는 노드입니다. 이 노드를 확장성 및 고가용성을 위해 클러스터링할 수 있지만, 이 랩에서는 단일 멤버 노드를 사용하겠습니다.
 2. **정렬자 노드**: 총 명령 브로드캐스트 또는 원자성 트랜잭션 같은 배달 보증을 구현하는 통신 서비스를 실행하는 노드입니다.
 3. **피어 노드**: 트랜잭션을 커밋하고 분산 원장의 상태와 복사본을 유지하는 노드입니다.
 
@@ -57,13 +57,13 @@ Hyperledger 패브릭 컨소시엄 솔루션 템플릿을 사용하여 단일 �
 
 ## <a name="deployment"></a>배포
 
-시작하려면 **Hyperledger 패브릭 단일 멤버 블록체인**을 선택하고 **만들기**를 클릭합니다. 그러면 마법사에서 **기본 사항** 블레이드가 열립니다.
+시작하려면 **Hyperledger 패브릭 단일 멤버 블록체인**을 선택하고 **만들기**를 클릭하여 마법사에서 **기본 사항** 블레이드를 엽니다.
 
 템플릿 배포에서 다중 노드 네트워크를 구성하는 과정을 안내합니다. 배포 흐름은 기본 사항, 네트워크 구성, 패브릭 구성의 세 단계로 나뉩니다.
 
 ### <a name="basics"></a>기본 사항
 
-**기본 사항** 블레이드 아래에서 구독, 리소스 그룹 등 배포에 대한 표준 매개 변수의 값 및 기본 가상 머신 속성을 지정합니다.
+**기본 사항** 블레이드에서 모든 배포에 대해 표준 매개 변수 값을 지정합니다. 예를 들어 구독, 리소스 그룹 및 기본 가상 머신 속성입니다.
 
 ![기본 사항](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
@@ -72,7 +72,7 @@ Hyperledger 패브릭 컨소시엄 솔루션 템플릿을 사용하여 단일 �
 **리소스 접두사**| 배포된 리소스의 이름 지정에 대한 기준으로 사용되는 문자열.|6자 이하|해당 없음
 **VM 사용자 이름**| 이 멤버에게 배포된 각 가상 머신의 관리자 사용자 이름.|1-64자|azureuser
 **인증 유형**| 가상 머신을 인증하는 방법.|암호 또는 SSH 공개 키|암호
-**암호(인증 형식 = 암호)**|배포된 각 가상 머신의 관리자 계정 암호. 암호에는 대문자 1자, 소문자 1자, 숫자 1개 및 특수 문자 1자 중 3가지가 포함되어야 합니다.<br /><br />처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|해당 없음
+**암호(인증 형식 = 암호)**|배포된 각 가상 머신의 관리자 계정 암호. 암호에는 대문자 1자, 소문자 1자, 숫자 1개 및 특수 문자 1자의 문자 유형 중 3가지가 포함돼야 합니다.<br /><br />처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|해당 없음
 **SSH 키(인증 형식 = 공개 키)**|원격 로그인에 사용하는 보안 셸 키.||해당 없음
 **IP 주소별 액세스 제한**|클라이언트 엔드포인트 액세스의 제한 여부를 결정하는 설정.|예/아니요| 아니요
 **IP 주소 또는 서브넷 허용(IP 주소별 액세스 제한 = 예)**|액세스 제어가 사용되면 클라이언트 엔드포인트에 액세스할 수 있는 IP 주소 또는 IP 주소 집합.||해당 없음
@@ -82,7 +82,7 @@ Hyperledger 패브릭 컨소시엄 솔루션 템플릿을 사용하여 단일 �
 
 ### <a name="network-size-and-performance"></a>네트워크 크기 및 성능
 
-다음으로, **네트워크 크기 및 성능** 아래에서 멤버 자격 수, 정렬자, 피어 노드 등 컨소시엄 네트워크의 크기에 대한 입력을 지정합니다. 인프라 옵션 및 가상 머신 크기를 선택합니다.
+다음으로, **네트워크 크기 및 성능**에서 컨소시엄 네트워크의 크기를 입력합니다. 예를 들어 멤버 자격, 정렬자 및 피어 노드의 수입니다. 인프라 옵션 및 가상 머신 크기를 선택합니다.
 
 ![네트워크 크기 및 성능](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
@@ -94,7 +94,7 @@ Hyperledger 패브릭 컨소시엄 솔루션 템플릿을 사용하여 단일 �
 **저장소 성능**|배포된 각 노드를 지원하는 저장소 형식. 저장소에 대한 자세한 내용은 [Microsoft Azure Storage 소개](https://docs.microsoft.com/azure/storage/common/storage-introduction) 및 [Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 참조하세요.|Standard 또는 Premium|Standard
 **가상 머신 크기** |네트워크의 모든 노드에 사용되는 가상 머신 크기|Standard A,<br />Standard D,<br />Standard D-v2,<br />Standard F 시리즈,<br />Standard DS,<br />및 Standard FS|Standard D1_v2
 
-### <a name="fabric-specific-settings"></a>패브릭 관련 설정
+### <a name="fabric-specific-settings"></a>Fabric별 설정
 
 마지막으로, **패브릭 설정** 아래에서 패브릭과 관련된 구성 설정을 지정합니다.
 

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 9978497f8bd3ebb11247f3bffe319866128e9f1d
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2a1d8a993f805c6ef814088af6fc4e3051519e37
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646510"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248798"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -32,7 +32,7 @@ SQL의 모든 버전에서 사용할 수 있는 보안 기능의 전체 개요�
 SQL Database는 이동 중인 데이터의 경우 [전송 계층 보안](https://support.microsoft.com/kb/3135244), 미사용 데이터의 경우 [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 및 사용 중인 데이터의 경우 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)를 제공하여 데이터를 보호합니다.
 
 > [!IMPORTANT]
-> Azure SQL Database는 항상 모든 연결에 암호화(SSL/TLS)를 적용하여 데이터베이스와 클라이언트 간에 "전송"되는 모든 데이터를 암호화합니다. 이 동작은 연결 문자열의 **암호화** 또는 **TrustServerCertificate** 설정에 관계없이 발생합니다.
+> Azure SQL Database는 항상 모든 연결에 암호화(SSL/TLS)를 적용하여 데이터베이스와 클라이언트 간에 “전송”되는 모든 데이터를 암호화합니다. 이 동작은 연결 문자열의 **암호화** 또는 **TrustServerCertificate** 설정에 관계없이 발생합니다.
 >
 > 응용 프로그램의 연결 문자열에서, 암호화된 연결을 사용하고 서비스 인증서를 신뢰하지 *않도록* 지정해야 합니다(ADO.NET 드라이버의 경우 **Encrypt=True** 및 **TrustServerCertificate=False**). 이렇게 하면 응용 프로그램이 서버를 확인하고 암호화를 적용하도록 강제하여 중간자 공격으로부터 응용 프로그램을 보호할 수 있습니다. Azure Portal에서 연결 문자열을 얻는 경우 올바른 설정이 사용됩니다.
 >

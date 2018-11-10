@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory(미리 보기)를 사용하여 QuickBooks에서 데이터 복사 | Microsoft Docs
-description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 QuickBooks에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
+title: Azure Data Factory(미리 보기)를 사용하여 QuickBooks Online에서 데이터 복사 | Microsoft Docs
+description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 QuickBooks Online에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,25 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 83e3007a7c3198c5ae37cf95d2b21cde88bd8210
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a3d079483ecf4ea8cf9a4c6bda050bfe8befcfd0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127148"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241687"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 QuickBooks에서 데이터 복사
+# <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 QuickBooks Online에서 데이터 복사
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 QuickBooks에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 QuickBooks Online에서 데이터를 복사하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 > [!IMPORTANT]
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-QuickBooks에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+QuickBooks Online에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
 
@@ -48,8 +48,8 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | type 속성은 **QuickBooks**로 설정해야 합니다. | yes |
-| endpoint | QuickBooks 서버의 엔드포인트입니다. 즉, quickbooks.api.intuit.com입니다.  | yes |
-| companyId | 권한 부여할 QuickBooks 회사의 회사 ID입니다.  | yes |
+| endpoint | QuickBooks Online 서버의 엔드포인트입니다. 즉, quickbooks.api.intuit.com입니다.  | yes |
+| companyId | 권한 부여할 QuickBooks 회사의 회사 ID입니다. 회사 ID를 찾는 방법에 대한 자세한 내용은 [회사 ID를 찾으려면 어떻게 하나요?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551)를 참조하세요. | yes |
 | consumerKey | OAuth 1.0 인증에 대한 소비자 키입니다. | yes |
 | consumerSecret | OAuth 1.0 인증에 대한 소비자 비밀입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | accessToken | OAuth 1.0 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
@@ -89,7 +89,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 QuickBooks 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
 
-QuickBooks에서 데이터를 복사하려면 데이터 집합의 type 속성을 **QuickBooksObject**로 설정합니다. 이 형식의 데이터 집합에는 추가적인 형식별 속성이 없습니다.
+QuickBooks Online에서 데이터를 복사하려면 데이터 집합의 type 속성을 **QuickBooksObject**로 설정합니다. 이 형식의 데이터 집합에는 추가적인 형식별 속성이 없습니다.
 
 **예제**
 
@@ -112,7 +112,7 @@ QuickBooks에서 데이터를 복사하려면 데이터 집합의 type 속성을
 
 ### <a name="quickbookssource-as-source"></a>QuickBooksSource를 원본으로 설정
 
-QuickBooks에서 데이터를 복사하려면 복사 작업의 원본 형식을 **QuickBooksSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
+QuickBooks Online에서 데이터를 복사하려면 복사 작업의 원본 형식을 **QuickBooksSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -150,6 +150,9 @@ QuickBooks에서 데이터를 복사하려면 복사 작업의 원본 형식을 
     }
 ]
 ```
+## <a name="copy-data-from-quickbooks-desktop"></a>QuickBooks Desktop에서 데이터 복사
+
+Azure Data Factory의 복사 작업은 Quickbooks Desktop에서 직접 데이터를 복사할 수 없습니다. Quickbooks Desktop에서 데이터를 복사하려면 Quickbooks 데이터를 CSV(쉼표로 구분된 값) 파일로 내보낸 다음 Azure Blob Storage에 파일을 업로드합니다. 여기서 Data Factory를 사용하여 데이터를 선택한 싱크로 복사할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

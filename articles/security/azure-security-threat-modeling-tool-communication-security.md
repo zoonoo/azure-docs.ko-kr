@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7e8afc02c738a2bba445b1d84b7cb899dfbb93a0
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301557"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247384"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 문서 |
@@ -113,7 +113,7 @@ ms.locfileid: "43301557"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | EnvironmentType - Azure |
 | **참조**              | [Azure App Service에서 HTTPS 적용](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
-| **단계** | <p>Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 Azure 앱 서비스에 대해 HTTPS를 이미 사용하도록 설정하지만 HTTPS를 적용하지는 않습니다. 방문자는 여전히 HTTP를 사용하여 앱에 액세스할 수 있습니다. 이 경우 앱 보안을 손상시킬 수 있으므로 HTTPS를 명시적으로 적용해야 합니다. ASP.NET MVC 응용 프로그램에서는 안전하지 않은 HTTP 요청을 HTTPS를 통해 다시 보내도록 하는 [RequireHttps 필터](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)를 사용해야 합니다.</p><p>또는 Azure App Service에 포함된 URL 다시 쓰기 모듈을 사용하여 HTTPS를 적용할 수 있습니다. URL 다시 쓰기 모듈을 사용하면 개발자가 요청을 응용 프로그램으로 전달하기 전에 들어오는 요청에 적용되는 규칙을 정의할 수 있습니다. URL 다시 쓰기 규칙은 응용 프로그램 루트에 저장된 web.config 파일에 정의되어 있습니다.</p>|
+| **단계** | <p>Azure는 *.azurewebsites.net 도메인에 대해 와일드카드 인증서를 사용하는 Azure 앱 서비스에 대해 HTTPS를 이미 사용하도록 설정하지만 HTTPS를 적용하지는 않습니다. 방문자는 여전히 HTTP를 사용하여 앱에 액세스할 수 있습니다. 이 경우 앱 보안을 손상시킬 수 있으므로 HTTPS를 명시적으로 적용해야 합니다. ASP.NET MVC 응용 프로그램에서는 안전하지 않은 HTTP 요청을 HTTPS를 통해 다시 보내도록 하는 [RequireHttps 필터](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)를 사용해야 합니다.</p><p>또는 Azure App Service에 포함된 URL 다시 쓰기 모듈을 사용하여 HTTPS를 적용할 수 있습니다. URL 다시 쓰기 모듈을 사용하면 개발자가 요청을 응용 프로그램으로 전달하기 전에 들어오는 요청에 적용되는 규칙을 정의할 수 있습니다. URL 다시 쓰기 규칙은 응용 프로그램 루트에 저장된 web.config 파일에 정의되어 있습니다.</p>|
 
 ### <a name="example"></a>예
 다음 예제에는 들어오는 모든 트래픽이 강제로 HTTPS를 사용하도록 하는 기본 URL 다시 쓰기 규칙이 포함되어 있습니다.
@@ -156,7 +156,7 @@ ms.locfileid: "43301557"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | SQL Azure  |
 | **특성**              | SQL 버전 - V12 |
-| **참조**              | [SQL Database의 보안 연결 문자열 작성에 대한 모범 사례](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
+| **참조**              | [SQL Database의 보안 연결 문자열 작성에 대한 모범 사례](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
 | **단계** | <p>SQL Database와 클라이언트 응용 프로그램 간의 모든 통신은 항상 SSL(Secure Sockets Layer)을 사용하여 암호화됩니다. SQL Database는 암호화되지 않은 연결을 지원하지 않습니다. 응용 프로그램 코드 또는 도구를 사용하여 인증서의 유효성을 검사하려면 명시적으로 암호화된 연결을 요청하고 서버 인증서를 신뢰하지 않습니다. 응용 프로그램 코드 또는 도구가 암호화된 연결을 요청하지 않더라도 암호화된 연결을 받습니다.</p><p>그러나 서버 인증서의 유효성을 검사하지 않고 따라서 "메시지 가로채기" 공격에 노출되기 쉽습니다. ADO.NET 응용 프로그램 코드를 사용하여 인증서의 유효성을 검사하려면 데이터베이스 연결 문자열에서 `Encrypt=True` 및 `TrustServerCertificate=False`를 설정합니다. SQL Server Management Studio를 통해 인증서의 유효성을 검사하려면 [서버에 연결] 대화 상자를 엽니다. [연결 속성] 탭에서 [연결 암호화]를 클릭합니다.</p>|
 
 ## <a id="encrypted-sqlserver"></a>SQL 서버에 암호화된 통신 강제 적용

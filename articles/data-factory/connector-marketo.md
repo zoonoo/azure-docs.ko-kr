@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: efbc020f482a46621eb5c3e3cd6137d1114da6de
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129610"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415834"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Marketo에서 데이터 복사(미리 보기)
 
@@ -32,6 +32,9 @@ ms.locfileid: "46129610"
 Marketo에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
+
+>[!NOTE]
+>이 Marketo 커넥터는 Marketo REST API를 기반으로 합니다. Marketo에는 서버 쪽에 [동시 요청 제한](http://developers.marketo.com/rest-api/)이 있습니다. "REST API를 사용하려고 시도하는 동안 오류가 발생했습니다: 최대 속도 제한 '100'이 '20'초로 초과되었습니다(606)" 또는 "REST API를 사용하려고 시도하는 동안 오류가 발생했습니다: 동시 액세스 제한 '10'에 도달했습니다(615)"라는 오류가 발생하는 경우 서비스에 대한 요청 수를 줄이도록 동시 복사 작업 실행을 줄입니다.
 
 ## <a name="getting-started"></a>시작
 

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: e0a4e069995c1e905834ff541b3562140b6ab01c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/30/2018
+ms.openlocfilehash: e89245a946848e46f3c7c502b6cd0e8017327e07
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379012"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419897"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>가상 네트워크 및 거의 100%의 호환성으로 SQL Database Managed Instance 사용
 
@@ -218,7 +218,7 @@ Managed Instance는 클라우드에서 항상 최신 상태로 유지되는 이�
 
 ### <a name="managed-instance-administration-features"></a>Managed Instance 관리 기능
 
-Managed Instance는 시스템 관리자가 비즈니스에 가장 중요한 문제에만 집중할 수 있게 해줍니다. 많은 시스템 관리자/DBA 활동을 수행할 필요가 없거나 아주 간단합니다. OS/RDBMS 설치 및 패치, 동적 인스턴스 크기 조정 및 구성, 백업, [데이터베이스 복제](replication-with-sql-database-managed-instance.md)(시스템 데이터베이스 포함), 고가용성 구성, 상태 및 성능 모니터링 데이터 스트림 구성 등을 예로 들 수 있습니다.
+Managed Instance는 시스템 관리자가 비즈니스에 가장 중요한 문제에만 집중할 수 있게 해줍니다. 많은 시스템 관리자/DBA 활동을 수행할 필요가 없거나 아주 간단합니다. OS/RDBMS 설치 및 패치, 동적 인스턴스 크기 조정 및 구성, 백업, [데이터베이스 복제](replication-with-sql-database-managed-instance.md)(시스템 데이터베이스 포함), 고가용성 구성, 상태 및 [성능 모니터링](../log-analytics/log-analytics-azure-sql.md) 데이터 스트림 구성 등을 예로 들 수 있습니다.
 
 > [!IMPORTANT]
 > 지원되는 기능, 부분적으로 지원되는 기능 및 지원되지 않는 기능 목록은 [SQL Database 기능](sql-database-features.md)을 참조하세요. Managed Instance와 SQL Server의 T-SQL 차이점 목록은 SQL Server의 [Managed Instance T-SQL 차이점](sql-database-managed-instance-transact-sql-information.md)을 참조하세요.
@@ -241,4 +241,5 @@ Managed Instance는 시스템 관리자가 비즈니스에 가장 중요한 문�
 - VNet 구성에 대한 자세한 내용은 [Managed Instance VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.
 - 백업 파일에서 Managed Instance를 만들고 데이터베이스를 복원하는 방법에 대한 빠른 시작은 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
 - Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자습서는 [DMS를 사용하여 Managed Instance 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
+- 기본 제공되는 문제 해결 인텔리전스를 사용한 Managed Instance 데이터베이스 성능 고급 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Database 모니터링](../log-analytics/log-analytics-azure-sql.md)을 참조하세요. 
 - 가격 정보는 [SQL Database Managed Instance 가격](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조하세요.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d8ece15e7e8fa3b74fbefc78aea65683229712ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38700903"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246772"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -31,7 +31,7 @@ Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없�
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 사용하려면 다음이 필요합니다.
 
-* <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 사이트</a>에서 다운로드할 수 있는 Android SDK(Android Studio를 사용한다고 가정)입니다.
+* <a href="https://go.microsoft.com/fwlink/?LinkId=389797">Android 사이트</a>에서 다운로드할 수 있는 Android SDK(Android Studio를 사용한다고 가정)입니다.
 * [Baidu 푸시 Android SDK]
 
 > [!NOTE]
@@ -475,7 +475,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 간단히 하기 위해 이 자습서는 .NET SDK로 알림을 전송하는 방법에 대한 데모로 콘솔 앱을 사용합니다. 그러나 ASP.NET 백 엔드에서 알림을 보내기 위한 다음 단계로 [Notification Hubs를 사용하여 사용자에게 알림을 푸시](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)하는 것이 좋습니다. 
 
 다음은 알림을 보내기 위한 다양한 접근 방법입니다.
-* **REST 인터페이스**: [REST 인터페이스](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)를 사용하여 백 엔드 플랫폼에서 알림을 지원할 수 있습니다.
+* **REST 인터페이스**: [REST 인터페이스](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx)를 사용하여 백 엔드 플랫폼에서 알림을 지원할 수 있습니다.
 * **Microsoft Azure Notification Hubs .NET SDK**: Visual Studio용 Nuget 패키지 관리자에서 [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 실행합니다.
 * **Node.js**: [Node.js에서 Notification Hubs 사용 방법](notification-hubs-nodejs-push-notification-tutorial.md)
 * **Mobile Apps**: Notification Hubs와 통합된 Azure App Service Mobile Apps 백 엔드에서 알림을 보내는 방법에 대한 예제는 [모바일 앱에 푸시 알림 추가](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)를 참조하세요.

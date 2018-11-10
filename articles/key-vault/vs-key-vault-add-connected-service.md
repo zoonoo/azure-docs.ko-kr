@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 9f2adfcbf2d6ca5de79cc787029f5139138b0e52
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958519"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230440"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 응용 프로그램에 Key Vault 추가
 
@@ -57,7 +57,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
    ![프로젝트에 연결된 서비스 추가 중](media/vs-key-vault-add-connected-service/KeyVaultConnectedService4.PNG)
 
-1. 이제 Azure의 Key Vault에 비밀을 추가합니다. 포털에서 올바른 위치로 이동하려면 이 Key Vault에 저장된 비밀 관리 링크를 클릭합니다. 페이지 또는 프로젝트를 닫은 후 **보안**에서 **모든 서비스**를 선택하여 [Azure Portal](https://portal.azure.com)에서 링크로 이동하고, **Key Vault**를 선택한 다음, 방금 만든 Key Vault를 선택할 수 있습니다.
+1. 이제 Azure의 Key Vault에 비밀을 추가합니다. 포털에서 올바른 위치로 이동하려면 이 Key Vault에 저장된 비밀 관리 링크를 클릭합니다. 페이지 또는 프로젝트를 닫은 후 [Azure Portal](https://portal.azure.com)에서 **보안** 아래의 **모든 서비스**를 선택하고, **Key Vault**를 선택한 후 만든 Key Vault를 선택하여 그것으로 이동합니다.
 
    ![포털로 이동](media/vs-key-vault-add-connected-service/manage-secrets-link.jpg)
 
@@ -65,7 +65,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
    ![비밀 생성/가져오기](media/vs-key-vault-add-connected-service/generate-secrets.jpg)
 
-1. “MySecret”과 같은 암호를 입력하고 테스트로 임의의 문자열 값을 입력한 다음, **만들기** 단추를 선택합니다.
+1. “MySecret”과 같은 비밀을 입력하고 임의의 문자열을 테스트로 제공한 다음 **만들기** 버튼을 선택합니다.
 
    ![비밀 만들기](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
 
@@ -73,94 +73,62 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
  
 이제 코드에서 비밀에 액세스할 수 있습니다. 다음 단계는 ASP.NET 4.7.1 또는 ASP.NET Core를 사용하는지에 따라 달라집니다.
 
-## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>코드에서 비밀에 액세스(ASP.NET Core 프로젝트)
+## <a name="access-your-secrets-in-code"></a>코드의 비밀에 액세스
 
-Key Vault에 대한 연결은 [IHostingStartup을 사용하여 ASP.NET Core에서 외부 어셈블리에서 앱 강화](/aspnet/core/fundamentals/host/platform-specific-configuration)에 설명된 시작 동작 확장 방법을 사용하여 [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1)을 구현하는 클래스에서 시작할 때 설정됩니다. 시작 클래스는 다음과 같은 Key Vault 연결 정보를 포함하는 두 개의 환경 변수 사용합니다. true로 설정된 ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED 및 Key Vault URL로 설정된 ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT. 이러한 항목은 **연결된 서비스 추가** 프로세스를 통해 실행할 때 launchsettings.json 파일에 추가됩니다.
+1. 이러한 두 NuGet 패키지 [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 라이브러리를 설치합니다.
 
-비밀에 액세스하려면:
+2. Program.cs 파일을 열고 해당 코드를 다음 코드로 업데이트합니다. 
+```
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            BuildWebHost(args).Run();
+        }
 
-1. Visual Studio의 ASP.NET Core 프로젝트에서 이제 코드에 다음 식을 사용하여 이러한 비밀을 참조할 수 있습니다.
- 
-   ```csharp
-      config["MySecret"] // Access a secret without a section
-      config["Secrets:MySecret"] // Access a secret in a section
-      config.GetSection("Secrets")["MySecret"] // Get the configuration section and access a secret in it.
-   ```
+        public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
 
-1. .cshtml 페이지에서 About.cshtml을 입력하고, 파일의 상단에 @inject 지시문을 추가하여 Key Vault 구성에 액세스하는 데 사용할 수 있는 변수를 설정합니다.
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+    }
+```
+3. 그런 후 About.cshtml.cs 파일을 열고 다음 코드 작성
+    1. 이 using 문을 사용하여 Microsoft.Extensions.Configuration에 대한 참조 포함    
+        ```
+        using Microsoft.Extensions.Configuration
+        ```
+    2. 이 생성자 추가
+        ```
+        public AboutModel(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+        ```
+    3. OnGet 메서드를 업데이트합니다. 위의 명령에서 만든 비밀 이름으로 여기에 표시된 자리 표시자 값을 업데이트합니다.
+        ```
+        public void OnGet()
+        {
+            //Message = "Your application description page.";
+            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+        }
+        ```
 
-   ```cshtml
-      @inject Microsoft.Extensions.Configuration.IConfiguration config
-   ```
-
-1. 테스트로 페이지 중 하나에 표시하여 비밀의 값을 사용할 수 있는지 확인할 수 있습니다. @config를 사용하여 구성 변수를 참조합니다.
- 
-   ```cshtml
-      <p> @config["MySecret"] </p>
-      <p> @config.GetSection("Secrets")["MySecret"] </p>
-      <p> @config["Secrets:MySecret"] </p>
-   ```
-
-1. 웹 응용 프로그램을 빌드 및 실행하고, 정보 페이지로 이동한 다음, “비밀” 값을 확인합니다.
-
-## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>코드에서 비밀에 액세스(ASP.NET 4.7.1 프로젝트)
-
-Key Vault에 대한 연결은 **연결된 서비스 추가** 프로세스를 통해 실행할 때 web.config 파일에 추가된 정보를 사용하여 ConfigurationBuilder 클래스에 의해 설정됩니다.
-
-비밀에 액세스하려면:
-
-1. web.config를 다음과 같이 수정합니다. 키는 Key Vault의 암호 값을 사용하여 AzureKeyVault ConfigurationBuilder로 바뀌는 자리 표시자입니다.
-
-   ```xml
-     <appSettings configBuilders="AzureKeyVault">
-       <add key="webpages:Version" value="3.0.0.0" />
-       <add key="webpages:Enabled" value="false" />
-       <add key="ClientValidationEnabled" value="true" />
-       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-       <add key="MySecret" value="dummy1"/>
-       <add key="Secrets--MySecret" value="dummy2"/>
-     </appSettings>
-   ```
-
-1. HomeController의 컨트롤러 메서드 정보에서 다음 줄을 추가하여 암호를 검색하고 ViewBag에 저장합니다.
- 
-   ```csharp
-            var secret = ConfigurationManager.AppSettings["MySecret"];
-            var secret2 = ConfigurationManager.AppSettings["Secrets--MySecret"];
-            ViewBag.Secret = $"Secret: {secret}";
-            ViewBag.Secret2 = $"Secret2: {secret2}";
-   ```
-
-1. About.cshtml 보기에서 다음을 추가하여 비밀 값을 표시합니다(테스트 전용).
-
-   ```csharp
-      <h3>@ViewBag.Secret</h3>
-      <h3>@ViewBag.Secret2</h3>
-   ```
-
-1. 앱을 로컬로 실행하여 구성 파일의 더미 값이 아닌 Azure Portal에서 입력한 비밀 값을 읽을 수 있는지 확인합니다.
-
-다음으로, 앱을 Azure에 게시합니다.
-
-## <a name="publish-to-azure-app-service"></a>Azure App Service에 게시
-
-1. 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **게시 대상 선택** 화면이 표시됩니다. 왼쪽에서 **App Service**, **새로 만들기**를 차례로 선택합니다.
-
-   ![앱 서비스에 게시](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
-
-1. **App Service 만들기** 화면에서, 구독 및 리소스 그룹이 Key Vault를 만든 바로 그 구독 및 리소스 그룹인지 확인하고 **만들기**를 선택합니다.
-
-   ![App Service 만들기](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
-
-1. 웹 응용 프로그램이 만들어지면 **게시** 화면이 나타납니다. 게시된 웹 응용 프로그램의 URL을 보면 Azure에 호스트됩니다. **Key Vault** 옆에 **없음**이 표시되면 어떤 Key Vault에 연결해야 하는지 App Service에 알려주어야 합니다. **Key Vault 추가**를 선택하고, 앞에서 만든 Key Vault를 선택합니다.
-
-   ![Key Vault 추가](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
-
-   **Key Vault 관리**가 보이면 Azure Portal에서 클릭하여 현재 설정을 살펴보고, 권한을 편집하고, 비밀을 변경할 수 있습니다.
-
-1. 이제 브라우저에서 사이트 URL 링크를 선택하여 웹 응용 프로그램을 방문합니다. Key Vault에서 올바른 값이 보이는지 확인합니다.
-
-Azure에서 웹앱을 실행할 때 웹앱이 Key Vault를 사용하여 저장된 비밀에 안전하게 액세스할 수 있다는 것을 확인했습니다.
+정보 페이지로 이동하여 앱을 로컬로 실행합니다. 비밀 값을 검색해야 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

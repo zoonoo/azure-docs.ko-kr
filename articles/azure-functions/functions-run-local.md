@@ -9,14 +9,14 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 15fb99270048d104dc392928c6932c6c2f7199a3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: cc3a835c0322aded4a92b15c1320259780ffb6d2
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430156"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249223"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -342,6 +342,9 @@ Host.Functions.MyHttpTrigger
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
+
+>[!IMPORTANT]
+>로컬로 실행할 때 인증은 HTTP 엔드포인트에 적용되지 않습니다. 즉, 모든 로컬 HTTP 요청은 `authLevel = "anonymous"`로 처리됩니다. 자세한 내용은 [HTTP 바인딩 문서](functions-bindings-http-webhook.md#authorization-keys)를 참조하세요. 
 
 ### <a name="passing-test-data-to-a-function"></a>테스트 데이터를 함수에 전달
 

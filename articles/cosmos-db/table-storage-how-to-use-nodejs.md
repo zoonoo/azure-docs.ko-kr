@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 2b88bd3c86d520b10c27746319f807d2f6208bfa
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 77d5d6fa9b9494c934f850d5b82a0328cead67b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048178"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245174"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -123,7 +123,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 * **PartitionKey** - 엔터티가 저장된 파티션을 확인합니다.
 * **RowKey** - 파티션에 있는 엔터티를 고유하게 식별합니다.
 
-**PartitionKey**와 **RowKey**는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.
+**PartitionKey**와 **RowKey**는 모두 문자열 값이어야 합니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.
 
 다음은 엔터티를 정의하는 경우의 예입니다. **dueDate**는 **Edm.DateTime** 형식으로 정의됩니다. 유형 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
 

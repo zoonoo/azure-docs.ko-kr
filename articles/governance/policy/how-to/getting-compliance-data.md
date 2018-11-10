@@ -4,17 +4,17 @@ description: Azure Policy 평가 및 효과는 준수를 결정합니다. 준수
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3fa185e741f1b14bf3f2e7413945b70b1ea1baaa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f88e68150aa2708557775df2719409228166520b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970858"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233415"
 ---
 # <a name="getting-compliance-data"></a>준수 데이터 가져오기
 
@@ -40,6 +40,44 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 - 범위에 새로 할당된 정책 또는 이니셔티브는 업데이트됩니다. 이 시나리오에 대한 평가 주기 및 타이밍은 범위에 대한 새 할당과 동일합니다.
 - 리소스는 Resource Manager, REST, Azure CLI 또는 Azure PowerShell을 통해 할당된 범위에 배포됩니다. 이 시나리오에서 효과 이벤트(추가, 감사, 거부, 배포) 및 개별 리소스에 대한 호환 상태 정보는 약 15분 후에 포털 및 SDK에서 사용할 수 있습니다. 이 이벤트는 다른 리소스에 대한 평가로 이어지지 않습니다.
 - 표준 준수 평가 주기입니다. 24시간마다 한 번씩 할당은 자동으로 다시 계산됩니다. 광범위한 리소스 범위에 대해 평가된 큰 정책 또는 이니셔티브는 시간이 걸릴 수 있습니다. 따라서 평가 주기가 완료되는 시기를 미리 정의하지 않습니다. 작업이 완료되면 업데이트된 준수 결과는 포털 및 SDK에서 지원됩니다.
+- 주문형 검사
+
+### <a name="on-demand-evaluation-scan"></a>주문형 평가 검사
+
+REST API 호출로 구독 또는 리소스 그룹에 대한 평가 검사를 시작할 수 있습니다. 이는 비동기 프로세스입니다. 따라서 검사를 시작하는 REST 엔드포인트는 검사가 응답을 완료할 때까지 기다리지 않습니다. 대신, URI를 제공하여 요청된 평가의 상태를 쿼리합니다.
+
+각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
+
+- `{YourRG}` - 사용자의 리소스 그룹 이름으로 대체
+- `{subscriptionId}` - 사용자의 구독 ID로 대체
+
+검사는 구독 또는 리소스 그룹에서 리소스의 평가를 지원합니다. 다음 URI 구조를 사용하여 REST API **POST** 명령으로 원하는 범위에 대한 검사를 시작합니다.
+
+- 구독
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- 리소스 그룹
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+호출이 **202 수락됨** 상태를 반환합니다. 응답 헤더에는 다음과 같은 형식의 **Location** 속성이 포함되어 있습니다.
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+`{ResourceContainerGUID}`는 요청한 범위에 대해 정적으로 생성됩니다. 범위가 이미 주문형 검사를 수행하고 있는 경우 새 검사는 시작되지 않습니다. 대신, 새 요청은 상태에 대해 동일한 `{ResourceContainerGUID}` **위치** URI가 제공됩니다. 평가가 진행되는 동안 **위치** URI에 대한 REST API **GET** 명령은 **202 수락됨**을 반환합니다. 평가 검사가 완료되면 **200 확인** 상태를 반환합니다. 완성된 검사의 본문은 다음 상태가 포함된 JSON 응답입니다.
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## <a name="how-compliance-works"></a>준수 작동 방식
 

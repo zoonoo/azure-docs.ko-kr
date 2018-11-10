@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.openlocfilehash: ae6f7646192b7bee8cbd836f1eff3814c26a6b46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ed35380e66e6d5d59058552d8e0504220c100b73
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427334"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231392"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Files용 SMB(Preview)를 통해 Azure Active Directory 인증 사용
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -88,7 +88,11 @@ Azure AD Domain Services를 Azure AD 테넌트에 정상적으로 배포해야 S
   
 ### <a name="powershell"></a>PowerShell  
 
-Azure PowerShell에서 SMB를 통한 Azure AD 인증을 사용하도록 설정하려면 먼저 `AzureRM.Storage 6.0.0-preview` 모듈을 설치합니다. PowerShell을 설치하는 방법에 대한 정보는 [PowerShellGet으로 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요.
+Azure PowerShell에서 SMB를 통한 Azure AD 인증을 사용하도록 설정하려면 다음과 같이 먼저 `AzureRM.Storage` 모듈, 버전 `6.0.0-preview`를 설치합니다. PowerShell을 설치하는 방법에 대한 자세한 내용은 [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)를 참조하세요.
+
+```powershell
+Install-Module -Name AzureRM.Storage -RequiredVersion 6.0.0-preview -AllowPrerelease
+```
 
 다음으로 새 저장소 계정을 만든 다음, [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount)를 호출하고 **EnableAzureFilesAadIntegrationForSMB** 매개 변수를 **true**로 설정합니다. 아래 예제의 자리 표시자 값은 실제 값으로 바꾸세요.
 
@@ -263,14 +267,14 @@ Azure Files는 NTFS 기본 및 고급 권한의 전체 집합을 지원합니다
 
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>명령 프롬프트에서 파일 공유 탑재
 
-Windows **net use** 명령을 사용하여 Azure 파일 공유를 탑재합니다. 예제의 자리 표시자 값은 실제 값으로 바꾸세요. 파일 공유 탑재에 대한 자세한 내용은 [Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스](storage-how-to-use-files-windows.md)를 참조하세요.
+Windows **net use** 명령을 사용하여 Azure 파일 공유를 탑재합니다. 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 파일 공유 탑재에 대한 자세한 내용은 [Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스](storage-how-to-use-files-windows.md)를 참조하세요.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
 ```
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>icacls를 사용하여 NTFS 권한 구성
-루트 디렉터리를 비롯하여 파일 공유에 있는 모든 디렉터리와 파일에 대한 모든 권한을 부여하려면 다음 Windows 명령을 사용합니다. 예제의 자리 표시자 값은 실제 값으로 바꾸세요.
+루트 디렉터리를 비롯하여 파일 공유에 있는 모든 디렉터리와 파일에 대한 모든 권한을 부여하려면 다음 Windows 명령을 사용합니다. 예제의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```
 icacls <mounted-drive-letter> /grant <user-email>:(f)
@@ -284,7 +288,7 @@ icacls를 사용하여 NTFS 권한을 설정하는 방법과 지원되는 여러
 
 ![사용자 인증용 Azure AD 로그인 화면이 표시된 스크린샷](media/storage-files-active-directory-enable/azure-active-directory-authentication-dialog.png)
 
-그런 후에 다음 명령을 사용하여 Azure 파일 공유를 탑재합니다. 예제의 자리 표시자 값은 실제 값으로 바꾸세요. 이미 인증이 되었기 때문에 저장소 계정 키 또는 Azure AD 사용자 이름과 암호는 입력하지 않아도 됩니다. SMB를 통한 Azure AD에서는 Azure AD 자격 증명을 사용하는 Single Sign-On 환경을 지원합니다.
+그런 후에 다음 명령을 사용하여 Azure 파일 공유를 탑재합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 이미 인증이 되었기 때문에 저장소 계정 키 또는 Azure AD 사용자 이름과 암호는 입력하지 않아도 됩니다. SMB를 통한 Azure AD에서는 Azure AD 자격 증명을 사용하는 Single Sign-On 환경을 지원합니다.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>

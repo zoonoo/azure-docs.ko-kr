@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815174"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418537"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java 개발자 가이드
 
@@ -147,6 +147,8 @@ Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인�
 >[!NOTE]
 > 응용 프로그램에서 Spring Framework 또는 Spring Boot를 사용하는 경우 Spring Data JPA에 대한 데이터베이스 연결 정보를 [응용 프로그램 속성 파일]에 환경 변수로 설정할 수 있습니다. 그런 다음, Azure Portal 또는 CLI에서 [앱 설정](/azure/app-service/web-sites-configure#app-settings)을 사용하여 응용 프로그램에 대한 이러한 값을 정의합니다.
 
+이 섹션의 예제 구성 코드 조각은 MySQL 데이터베이스를 사용합니다. 추가 정보는 [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html), [SQL Server JDBC](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) 및 [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html)에 대한 구성 문서를 참조하세요.
+
 관리되는 연결을 사용하여 JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 통해 데이터베이스에 연결하도록 Tomcat을 구성하려면 먼저 시작 시 Tomcat이 읽은 CATALINA_OPTS 환경 변수를 사용자 지정합니다. App Service Maven 플러그 인에서 앱 설정을 통해 이러한 값을 설정합니다.
 
 ```xml
@@ -233,7 +235,7 @@ Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인�
 
 ## <a name="docker-containers"></a>Docker 컨테이너
 
-컨테이너에서 Azure가 지원하는 Zulu JDK를 사용하려면 [Azul 다운로드 페이지](https://www.azul.com/downloads/azure-only/zulu/#docker)에 나와 있는 미리 작성된 이미지를 끌어와서 사용하거나 [Microsoft Java GitHub 리포지토리](https://github.com/Microsoft/java/tree/master/docker)의 `Dockerfile` 예제를 사용하세요.
+컨테이너에 Azure 지원 Zulu JDK를 사용하려면 [Azure에 지원되는 Azul Zulu Enterprise 다운로드 페이지](https://www.azul.com/downloads/azure-only/zulu/)에 나와 있는 미리 작성된 이미지를 끌어와서 사용하거나 [Microsoft Java GitHub 리포지토리](https://github.com/Microsoft/java/tree/master/docker)의 `Dockerfile` 예제를 사용하세요.
 
 ## <a name="runtime-availability-and-statement-of-support"></a>런타임 가용성 및 문 지원
 

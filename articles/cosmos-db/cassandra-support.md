@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: e3de78bdf38a326498b984dc2a9f8eaa42233d22
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5a12a65e03e7ac104eb7b09b116f7c463bbb5b98
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091286"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240718"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -159,7 +159,7 @@ Azure Cosmos DB Cassandra API에서는 읽기 작업을 일관되게 수행할�
 
 ## <a name="permission-and-role-management"></a>권한 및 역할 관리
 
-Azure Cosmos DB는 [Azure Portal](https://portal.azure.com을 통해 가져올 수 있는 RBAC(역할 기반 액세스 제어)와 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다. 데이터 평면 활동을 위한 사용자와 역할은 아직 지원되지 않습니다. 
+Azure Cosmos DB는 [Azure Portal](https://portal.azure.com)을 통해 가져올 수 있는 RBAC(역할 기반 액세스 제어)와 읽기-쓰기 및 읽기 전용 암호/키를 지원합니다. 데이터 평면 활동을 위한 사용자와 역할은 아직 지원되지 않습니다. 
 
 ## <a name="planned-support"></a>계획된 지원 
 * 타임스탬프와 TTL을 모두 사용합니다.  

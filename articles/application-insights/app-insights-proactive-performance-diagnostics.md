@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 8c34696f81e40b4db13e6868f6bdaa1b2a8e7a2a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095466"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419727"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -47,7 +47,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 알림에는 진단 정보가 포함되어 있습니다. 예를 들면 다음과 같습니다.
 
 
-![다음은 서버 응답 시간 성능 저하 검색의 예입니다.](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![다음은 서버 응답 시간 성능 저하 검색의 예입니다.](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **심사**. 이 알림은 영향을 받은 사용자 수 또는 작업의 수를 보여 줍니다. 문제에 우선 순위를 할당하는 데 도움이 될 수 있습니다.
 2. **범위**. 이 문제가 모든 트래픽에 영향을 주나요? 아니면 일부 페이지에만 영향을 주나요? 특정 브라우저 또는 위치로 제한되나요? 이 정보는 알림에서 얻을 수 있습니다.
@@ -61,7 +61,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 
 스마트 검색 알림은 기본적으로 사용되도록 설정되며 [Application Insights 리소스에 대해 액세스 권한이 있는 소유자, 기고자 및 읽기 권한자](app-insights-resources-roles-access-control.md)에게 전송됩니다. 이를 변경하려면 전자 메일 알림에서 **구성**을 클릭하거나 Application Insights에서 스마트 검색 설정을 엽니다. 
   
-  ![스마트 검색 설정](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![스마트 검색 설정](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * 스마트 검색 전자 메일에서 **구독 취소** 링크를 사용하여 전자 메일 알림 수신을 중지할 수 있습니다.
 
@@ -143,7 +143,7 @@ Application Insights가 응용 프로그램 성능이 다음과 같은 방식 �
 
 예제 종속성 성능 저하 알림:
 
-![다음은 종속성 기간 저하 검색 예제입니다.](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![다음은 종속성 기간 저하 검색 예제입니다.](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 여기서 알 수 있는 정보:
 

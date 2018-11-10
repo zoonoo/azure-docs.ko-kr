@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/01/2018
+ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855428"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420101"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -60,11 +60,13 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
 * 로컬 컴퓨터에 대한 요구 사항은 다음과 같습니다.
 
   **최소 요구 사항**
+
   * .NET Framework 4.5.2
   * 64비트 버전의 Windows 7 또는 Windows Server 2008 R2 이상
 
   **권장 요구 사항**
-  * 8 코어 CPU
+
+  * 8코어 CPU
   * 8GB 메모리
   * 64비트 버전의 Windows Server 2008 R2 이상
 
@@ -75,11 +77,11 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
     > [!TIP]
     > 대기 시간을 최소화하려면 권한이 있다고 가정하여 가능하면 데이터 원본과 가깝게 또는 동일한 컴퓨터에 게이트웨이를 설치하면 됩니다.
 
-  * 항상 켜져 있는 인터넷에 연결된 컴퓨터에 게이트웨이를 설치하고 절전 모드로 전환하지 *마세요*. 그렇지 않은 경우 게이트웨이를 실행할 수 없습니다. 또한 무선 네트워크에서는 성능이 저하될 수 있습니다.
+  * 항상 켜져 있는 인터넷에 연결된 컴퓨터에 게이트웨이를 설치하고 절전 모드로 전환하지 *마세요*. 그렇지 않은 경우 게이트웨이를 실행할 수 없습니다. 
+  또한 무선 네트워크에서는 성능이 저하될 수 있습니다.
 
-  * 설치하는 동안 Microsoft 계정이 아니라 Azure Active Directory(Azure AD)에서 관리하는 [회사 또는 학교 계정](../active-directory/sign-up-organization.md)으로만 로그인할 수 있습니다. 
-  또한 이 계정이 Azure B2B(게스트) 계정이 아닌지 확인합니다. 
-  게이트웨이에 대해 Azure 리소스를 만들어 게이트웨이 설치를 등록할 때도 Azure Portal에서 동일한 로그인 계정을 사용해야 합니다. 
+  * 설치하는 동안 @hotmail.com 또는 @outlook.com 같은 Azure B2B(게스트) 계정이나 개인 Microsoft 계정이 아닌 Azure AD(Azure Active Directory)에서 관리하는 [회사 또는 학교 계정](../active-directory/sign-up-organization.md)(예: @contoso.onmicrosoft.com)으로만 로그인할 수 있습니다. 
+  Azure Portal에서 게이트웨이 리소스를 만들어서 게이트웨이 설치를 등록할 때 동일한 로그인 계정을 사용해야 합니다. 
   그런 다음, 논리 앱에서 온-프레미스 데이터 원본으로의 연결을 만들 때 이 게이트웨이 리소스를 선택할 수 있습니다. 
   [Azure AD 회사 또는 학교 계정을 사용해야 하는 이유는 무엇인가요?](#why-azure-work-school-account)
 
@@ -96,6 +98,19 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
   * 14.16.6317.4보다 이전 버전인 설치 관리자를 사용하여 설정한 게이트웨이가 이미 있는 경우 최신 설치 관리자를 실행하여 게이트웨이 위치를 변경할 수 없습니다. 그러나 최신 설치 관리자를 사용하여 새 게이트웨이를 원하는 위치로 설정할 수 있습니다.
   
     14.16.6317.4보다 이전 버전인 게이트웨이 설치 관리자가 있지만 게이트웨이를 아직 설치하지 않은 경우 대신, 최신 설치 관리자를 다운로드하여 사용할 수 있습니다.
+
+## <a name="high-availability-support"></a>고가용성 지원
+
+둘 이상의 게이트웨이 설치를 사용하며 이러한 게이트웨이를 클러스터로 설정하면 온-프레미스 데이터 게이트웨이는 고가용성을 지원합니다. 다른 게이트웨이 만들려고 할 때 기존 게이트웨이가 있는 경우 필요에 따라 고가용성 클러스터를 만들 수 있습니다. 이러한 클러스터는 게이트웨이를 단일 실패 지점을 방지하는 데 도움이 되는 그룹으로 구성합니다. 또한 모든 온-프레미스 데이터 게이트웨이 커넥터는 이제 고가용성을 지원합니다.
+
+온-프레미스 데이터 게이트웨이를 사용하려면 다음 요구 사항 및 고려 사항을 검토합니다.
+
+* 해당 설치에 대한 기본 게이트웨이 및 복구 키가 있는 동일한 Azure 구독 내에 하나 이상의 게이트웨이 설치가 이미 있어야 합니다. 
+
+* 기본 게이트웨이에서는 2017년 11월 또는 이후의 게이트웨이 업데이트가 실행되고 있어야 합니다.
+
+이러한 요구 사항을 충족한 후, 다음 게이트웨이 만들 때 **기존 게이트웨이 클러스터에 추가**를 선택하고 클러스터에 대한 기본 게이트웨이를 선택한 후 해당 기본 게이트웨이에 대한 복구 키를 제공합니다.
+자세한 내용은 참조 [온-프레미스 데이터 게이트웨이에 대한 고가용성 클러스터](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)를 참조하세요.
 
 <a name="install-gateway"></a>
 
@@ -160,19 +175,6 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
    ![완료된 게이트웨이](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 10. 이제 [게이트웨이 설치에 대한 Azure 리소스를 만들어](../logic-apps/logic-apps-gateway-connection.md) Azure에서 게이트웨이를 등록합니다. 
-
-## <a name="enable-high-availability"></a>고가용성 사용
-
-둘 이상의 게이트웨이 설치를 사용하며 이러한 게이트웨이를 클러스터로 설정하면 온-프레미스 데이터 게이트웨이는 고가용성을 지원합니다. 다른 게이트웨이 만들려고 할 때 기존 게이트웨이가 있는 경우 필요에 따라 고가용성 클러스터를 만들 수 있습니다. 이러한 클러스터는 게이트웨이를 단일 실패 지점을 방지하는 데 도움이 되는 그룹으로 구성합니다. 이 기능을 사용하려면 다음 요구 사항 및 고려 사항을 검토합니다.
-
-* 일부 커넥터만 파일 시스템 커넥터 등과 같은 고가용성 시나리오를 지원합니다. 
-     
-* 해당 설치에 대한 기본 게이트웨이 및 복구 키가 있는 동일한 Azure 구독 내에 하나 이상의 게이트웨이 설치가 이미 있어야 합니다. 
-
-* 기본 게이트웨이에서는 2017년 11월 또는 이후의 게이트웨이 업데이트가 실행되고 있어야 합니다.
-
-이러한 요구 사항을 충족한 후, 다음 게이트웨이 만들 때 **기존 게이트웨이 클러스터에 추가**를 선택하고 클러스터에 대한 기본 게이트웨이를 선택한 후 해당 기본 게이트웨이에 대한 복구 키를 제공합니다.
-자세한 내용은 참조 [온-프레미스 데이터 게이트웨이에 대한 고가용성 클러스터](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters)를 참조하세요.
 
 <a name="update-gateway-installation"></a>
 
@@ -253,7 +255,7 @@ TcpTestSucceeded       : True
 
 ### <a name="force-https-communication-with-azure-service-bus"></a>Azure Service Bus와의 HTTPS 통신 강제 적용
 
-일부 프록시는 포트 80 및 443으로의 트래픽만 허용합니다. 기본적으로 Azure Service Bus와의 통신은 443 이외의 포트에서 발생합니다.
+일부 프록시는 포트 80 및 443으로만 트래픽을 허용합니다. 기본적으로 Azure Service Bus와의 통신은 443 이외의 포트에서 발생합니다.
 강제로 게이트웨이가 직접 TCP 대신 HTTPS를 통해 Azure Service Bus와 통신하도록 할 수 있지만 이렇게 하면 성능이 크게 저하될 수 있습니다. 이 작업을 수행하려면 다음 단계를 따릅니다.
 
 1. 일반적으로 ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```에서 찾을 수 있는 온-프레미스 데이터 게이트웨이 클라이언트에 대한 위치로 이동합니다.
@@ -283,7 +285,7 @@ TcpTestSucceeded       : True
 
 ## <a name="restart-gateway"></a>게이트웨이 다시 시작
 
-데이터 게이트웨이는 Windows 서비스로 실행되므로 다른 Windows 서비스와 마찬가지로 게이트웨이를 여러 가지 방법으로 시작하고 중지할 수 있습니다. 예를 들어, 게이트웨이가 실행 중인 컴퓨터에서 관리자 권한으로 명령 프롬프트를 열고, 다음 명령 중 하나를 실행할 수 있습니다.
+데이터 게이트웨이는 Windows 서비스로 실행되므로 다른 Windows 서비스와 마찬가지로 게이트웨이를 다양한 방법으로 시작하고 중지할 수 있습니다. 예를 들어, 게이트웨이가 실행 중인 컴퓨터에서 관리자 권한으로 명령 프롬프트를 열고, 다음 명령 중 하나를 실행할 수 있습니다.
 
 * 서비스를 중지하려면 다음 명령을 실행합니다.
   

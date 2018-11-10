@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345891"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140826"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services의 랩 계정 관리 
 Azure Lab Services에서 랩 계정은 강의실 랩과 같은 관리되는 랩의 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 이 문서는 랩 계정을 만들거나, 모든 랩 계정을 보거나, 랩 계정을 삭제하는 방법을 설명합니다.
@@ -90,6 +90,28 @@ Azure Lab Services에서 랩 계정은 강의실 랩과 같은 관리되는 랩�
 2. 도구 모음에서 **삭제**를 선택합니다. 
 3. 확인을 위해 **예**를 입력합니다.
 4. **삭제**를 선택합니다. 
+
+## <a name="view-and-manage-labs-in-the-lab-account"></a>랩 계정의 랩 보기 및 관리
+
+1. **랩 계정** 페이지의 왼쪽 메뉴에서 **랩**을 선택합니다.
+
+    ![계정의 랩](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. 계정에는 다음 정보가 있는 **랩** 목록이 표시됩니다. 
+    1. 랩의 이름
+    2. 랩을 만든 날짜 
+    3. 랩을 만든 사용자의 메일 주소 
+    4. 랩에 허용되는 최대 사용자 수 
+    5. 랩 상태 
+
+## <a name="delete-a-lab-in-the-lab-account"></a>랩 계정에서 랩 삭제
+이전 섹션의 지침에 따라 랩 계정의 랩 목록을 표시합니다.
+
+1. **...(줄임표)** 를 선택하고 **삭제**를 선택합니다. 
+
+    ![랩 삭제 - 단추](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. 경고 메시지에서 **예**를 선택합니다. 
+
+
 
 ## <a name="next-steps"></a>다음 단계
 Azure Lab Services를 사용하여 랩 설정 시작합니다.

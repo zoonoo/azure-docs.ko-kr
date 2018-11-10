@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
-ms.openlocfilehash: b0f1ba7f0799fb9f8f58370a39758416eab43dc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2dffc178a017d8b16ea7a36407d8bbf62c6d642
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195807"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242146"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 
@@ -150,7 +150,7 @@ ms.locfileid: "32195807"
     }
     ```
 
-1. **솔루션 탐색기**에서 **web.config**를 두 번 클릭하여 엽니다.
+1. **솔루션 탐색기**에서 **Web.config**를 두 번 클릭하여 엽니다.
 
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 
@@ -634,7 +634,7 @@ Azure Redis Cache를 사용하려는 경우 여러 형식의 팀 통계를 캐�
 
 1. **F6** 을 눌러 프로젝트를 빌드합니다.
 
-## <a name="run-the-app-locally"></a>로컬에서 앱 실행
+## <a name="run-the-app-locally"></a>로컬에서 앱 실행하기
 
 팀을 지원하기 위해 추가된 기능을 확인하려면 사용자 컴퓨터에 응용 프로그램을 로컬로 실행합니다.
 
@@ -663,7 +663,7 @@ Azure Redis Cache를 사용하려는 경우 여러 형식의 팀 통계를 캐�
    | 설정       | 제안 값 | 설명 |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **데이터베이스 이름** | *ContosoTeamsDatabase* | 유효한 데이터베이스 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
-   | **구독** | *사용자의 구독*  | 캐시를 만들고 App Service를 호스팅하는 데 사용한 것과 동일한 구독을 선택합니다. |
+   | **구독** | *구독*  | 캐시를 만들고 App Service를 호스팅하는 데 사용한 것과 동일한 구독을 선택합니다. |
    | **리소스 그룹**  | *TestResourceGroup* | **기존 항목 사용**을 클릭하고 캐시와 App Service를 배치한 위치와 동일한 리소스 그룹을 사용합니다. |
    | **원본 선택** | **빈 데이터베이스** | 빈 데이터베이스에서 시작합니다. |
 

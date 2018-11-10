@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 79b126fc33175b7cd6df96ab07cd7b726d6065a7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 39995ca44573fe50bf0c2a2510c2c19fb227ff1d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389941"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241126"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Web Language Model API란? (미리 보기)
 
@@ -50,6 +50,6 @@ Web Language Model API는 다음과 같은 네 가지 조회 작업을 지원합
 
 다음 문서는 이러한 언어 모델의 개발에 대한 세부 정보를 제공하며, 이 서비스를 사용하는 연구 간행물에 인용됩니다.
 
-- [Microsoft Web N-gram 자료 및 응용 프로그램 개요](http://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL HLT 2010
+- [Microsoft Web N-gram 자료 및 응용 프로그램 개요](https://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL HLT 2010
 
 이 연구를 인용하는 현재 논문 목록을 보려면 [여기](https://academic.microsoft.com/#/search?iq=And%28Ty%3D'0'%2CRId%3D2145833060%29&q=papers%20citing%20an%20overview%20of%20microsoft%20web%20n%20gram%20corpus%20and%20applications&filters=&from=0&sort=0)를 클릭하세요.

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391473"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413998"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 응용 프로그램 배포
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 응용 프로그램을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 응용 프로그램을 배포하는 방법을 보여줍니다.  
@@ -23,7 +23,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **가상 머신 확장 집합** - 가상 머신 확장 집합이 아직 없는 경우 [Ansible을 사용하여 가상 머신 확장 집합을 만들](ansible-create-configure-vmss.md) 수 있습니다. 
 - **git** - [git](https://git-scm.com)는 이 자습서에 사용되는 Java 샘플을 다운로드하는 데 사용됩니다.
-- **JDK(Java SE Development Kit)** - JDK는 샘플 Java 프로젝트를 빌드하는 데 사용됩니다.
+- **JDK(Java SE Development Kit)** - [JDK](https://aka.ms/azure-jdks)는 샘플 Java 프로젝트를 빌드하는 데 사용됩니다.
 - **Apache Maven 빌드 도구** - [Apache Maven 빌드 도구](https://maven.apache.org/download.cgi)는 샘플 Java 프로젝트를 빌드하는 데 사용됩니다.
 
 > [!Note]

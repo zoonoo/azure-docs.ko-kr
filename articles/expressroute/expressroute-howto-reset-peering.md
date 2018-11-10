@@ -7,49 +7,50 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: b8c9bc1944e9ed0281616062a84958c953d08694
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 1bb2bb61ccd06d5774b811203e86d609a01250a4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180667"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415817"
 ---
 # <a name="reset-expressroute-peerings"></a>ExpressRoute 피어링 다시 설정
 
-이 문서에서는 PowerShell을 사용하여 ExpressRoute 회로의 피어링을 사용하거나 사용하지 않도록 설정하는 방법을 설명합니다. 피어링을 사용하지 않도록 설정하는 경우 ExpressRoute 회로의 기본 연결 및 보조 연결 둘 다에서 BGP 세션이 종료됩니다. 이 피어링을 통한 Microsoft와의 연결이 손실됩니다. 피어링을 사용하도록 설정하는 경우 ExpressRoute 회로의 기본 연결 및 보조 연결 둘 다에서 BGP 세션이 설정됩니다. 이 피어링을 통한 Microsoft와의 연결이 다시 설정됩니다. ExpressRoute 회로에서 Microsoft 피어링 및 Azure 개인 피어링을 별도로 사용 및 사용하지 않도록 설정할 수 있습니다. ExpressRoute 회로에서 피어링을 처음 구성할 때는 피어링이 기본적으로 사용되도록 설정됩니다. 
+이 문서에서는 PowerShell을 사용하여 ExpressRoute 회로의 피어링을 사용하거나 사용하지 않도록 설정하는 방법을 설명합니다. 피어링을 사용하지 않도록 설정하는 경우 ExpressRoute 회로의 기본 연결 및 보조 연결 둘 다에서 BGP 세션이 종료됩니다. 이 피어링을 통한 Microsoft와의 연결이 손실됩니다. 피어링을 사용하도록 설정하는 경우 ExpressRoute 회로의 기본 연결 및 보조 연결 둘 다에서 BGP 세션이 설정됩니다. 이 피어링을 통한 Microsoft와의 연결이 다시 설정됩니다. ExpressRoute 회로에서 Microsoft 피어링 및 Azure 개인 피어링을 별도로 사용 및 사용하지 않도록 설정할 수 있습니다. ExpressRoute 회로에서 피어링을 처음 구성할 때는 피어링이 기본적으로 사용되도록 설정됩니다.
 
 ExpressRoute 피어링을 다시 설정하는 것이 도움이 되는 몇 가지 시나리오가 있습니다.
 * 재해 복구 디자인 및 구현을 테스트합니다. 예를 들어 두 개의 ExpressRoute 회로가 있습니다. 한 회로의 피어링은 사용하지 않도록 설정하고 네트워크 트래픽을 다른 회로로 강제로 장애 조치(Failover)할 수 있습니다.
 * ExpressRoute 회로의 Azure 개인 피어링에서 BFD(양방향 전달 검색)를 사용하도록 설정합니다. BFD는 ExpressRoute 회로가 2018년 8월 1일 이후에 만들어진 경우 기본적으로 사용되도록 설정됩니다. 그 이전에 회로를 만들었으면 BFD가 사용되도록 설정되지 않습니다. 피어링을 사용하지 않도록 설정했다가 다시 사용하도록 설정하여 BFD를 사용하도록 설정할 수 있습니다. BFD는 Azure 개인 피어링에서만 지원됩니다.
 
+### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
+
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="reset-a-peering"></a>피어링 다시 설정
 
-1. 최신 버전의 Azure Resource Manager PowerShell cmdlet을 설치합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps)을 참조하세요.
+1. PowerShell을 로컬로 실행하는 경우 상승된 권한으로 PowerShell 콘솔을 열고, 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
 
-2. 상승된 권한으로 PowerShell 콘솔을 열고 계정에 연결합니다. 연결에 도움이 되도록 다음 예제를 사용합니다.
-
-  ```powershell
+  ```azurepowershell
   Connect-AzureRmAccount
   ```
-3. Azure 구독이 여러 개인 경우 계정의 구독을 확인합니다.
+2. Azure 구독이 여러 개인 경우 계정의 구독을 확인합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmSubscription
   ```
-4. 사용할 구독을 지정합니다.
+3. 사용할 구독을 지정합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
-5. ExpressRoute 회로를 검색하려면 다음 명령을 실행합니다.
+4. ExpressRoute 회로를 검색하려면 다음 명령을 실행합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
-6. 사용하거나 사용하지 않도록 설정하려는 피어링을 식별합니다. *피어링*은 배열입니다. 다음 예제에서 피어링[0]은 Azure 개인 피어링이고 피어링[1]은 Microsoft 피어 링입니다.
+5. 사용하거나 사용하지 않도록 설정하려는 피어링을 식별합니다. *피어링*은 배열입니다. 다음 예제에서 피어링[0]은 Azure 개인 피어링이고 피어링[1]은 Microsoft 피어 링입니다.
 
-  ```powershell
+  ```azurepowershell-interactive
 Name                             : ExpressRouteARMCircuit
 ResourceGroupName                : ExpressRouteResourceGroup
 Location                         : westus
@@ -130,9 +131,9 @@ Authorizations                   : []
 AllowClassicOperations           : False
 GatewayManagerEtag               :
   ```
-7. 피어링의 상태를 변경하려면 다음 명령을 실행합니다.
+6. 피어링의 상태를 변경하려면 다음 명령을 실행합니다.
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt.Peerings[0].State = "Disabled"
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```

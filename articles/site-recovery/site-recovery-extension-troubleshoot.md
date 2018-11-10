@@ -1,22 +1,20 @@
 ---
-title: 'Azure Site Recovery 에이전트 오류 문제 해결: 게스트 에이전트 상태 사용할 수 없음 | Microsoft Docs'
-description: 에이전트 및 확장과 관련된 Azure Site Recovery 오류의 증상, 원인 및 해결 방법
-services: site-recovery
+title: Azure Site Recovery 에이전트를 사용하여 문제 해결 | Microsoft Docs
+description: Azure Site Recovery 에이전트 오류의 증상, 원인 및 해결 방법에 대한 정보를 제공합니다.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: troubleshooting
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c0429e87f6c58ef2b9c7a268bee596d769e95910
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919807"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215041"
 ---
-# <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>Azure Site Recovery 확장 오류 문제 해결: 에이전트 또는 확장 관련 문제
+# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Azure Site Recovery 에이전트를 사용하여 문제 해결
 
 이 문서에서는 VM 에이전트 및 확장과 관련된 Azure Site Recovery 오류를 해결하는 데 도움이 될 수 있는 문제 해결 단계를 제공합니다.
 

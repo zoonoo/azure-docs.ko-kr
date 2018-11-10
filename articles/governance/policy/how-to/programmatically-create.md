@@ -4,16 +4,16 @@ description: 이 문서는 Azure Policy에 대해 프로그래밍 방식으로 �
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dd7ec4f1d0c018a3c7eed19bea523f7c09bfea3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985319"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242639"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>프로그래밍 방식으로 정책 및 보기 규정 준수 데이터 만들기
 
@@ -74,7 +74,13 @@ ms.locfileid: "46985319"
    New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   이 명령은 _공용 네트워크에 대해 열린 저장소 계정 감사_라는 정책 정의를 작성합니다. 사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)을 참조하세요.
+   이 명령은 _공용 네트워크에 대해 열린 저장소 계정 감사_라는 정책 정의를 작성합니다.
+   사용할 수 있는 다른 매개 변수에 대한 자세한 내용은 [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition)을 참조하세요.
+
+   위치 매개 변수 없이 호출할 경우 `New-AzureRmPolicyDefinition`은 기본적으로 선택한 세션 컨텍스트 구독에 정책 정의를 저장하도록 지정됩니다. 정의를 다른 위치에 저장하려면 다음 매개 변수를 사용합니다.
+
+   - **SubscriptionId** - 다른 구독에 저장합니다. _GUID_ 값이 필요합니다.
+   - **ManagementGroupName** - 관리 그룹에 저장합니다. _문자열_ 값이 필요합니다.
 
 1. 정책 정의를 만든 후 다음 명령을 실행하여 정책 할당을 만들 수 있습니다.
 
@@ -85,6 +91,13 @@ ms.locfileid: "46985319"
    ```
 
    _ContosoRG_를 원하는 리소스 그룹의 이름으로 바꿉니다.
+
+   `New-AzureRmPolicyAssignment`의 **Scope** 매개 변수는 구독 및 관리 그룹에서도 작동합니다. 이 매개 변수는 `Get-AzureRmResourceGroup`의 **ResourceId** 속성이 반환하는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **Scope** 패턴은 다음과 같습니다.
+   `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다.
+
+   - 리소스 그룹 - `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - 구독 - `/subscriptions/{subId}/`
+   - 관리 그룹 - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책 관리에 대한 자세한 내용은 [AzureRM.Resources](/powershell/module/azurerm.resources/#policies)를 참조하세요.
 

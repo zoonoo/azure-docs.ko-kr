@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 36db41308678f3f1bd713561f9a844288f5db401
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bbf8dc4ccbd16f2157e65773b01fb42587fbfe9d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306302"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417483"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치
 Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD Connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 버전 SQL을 사용할 수 있습니다. 이전에 Azure AD Connect를 설치할 때 ADSync라는 새 데이터베이스가 항상 만들어졌습니다. Azure AD Connect 버전 1.1.613.0(이상)을 사용하면 기존 ADSync 데이터베이스에 연결하여 Azure AD Connect를 설치하는 옵션도 있습니다.
@@ -86,6 +86,17 @@ Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이�
  
 11. 설치가 완료되면 Azure AD Connect 서버가 자동으로 준비 모드에 사용할 수 있게 설정됩니다. 준비 모드를 해제하기 전에 예기치 않은 변경 내용에 대한 서버 구성 및 보류 중인 내보내기를 검토하는 것이 좋습니다. 
 
+## <a name="post-installation-tasks"></a>설치 후 작업
+Azure AD Connect 1.2.65.0 미만 버전으로 데이터베이스 백업을 복원하는 경우 준비 서버가 자동으로 **구성하지 않음**을 로그인 방법으로 선택합니다. 암호 해시 동기화 및 비밀번호 쓰기 저장 기본 설정이 복원되는 동안 활성 동기화 서버에 적용되는 다른 정책과 일치하도록 로그인 방법을 변경해야 합니다.  이 단계를 완료하지 않으면 이 서버가 활성화될 때 사용자가 로그인하지 못할 수 있습니다.  
+
+아래 표를 사용하여 필요한 추가 단계를 확인하세요.
+
+|기능|단계|
+|-----|-----|
+|암호 해시 동기화| 암호 해시 동기화 및 비밀번호 쓰기 저장 설정은 Azure AD Connect 버전 1.2.65.0부터 완전히 복원됩니다.  이전 버전의 Azure AD Connect를 사용하여 복원하는 경우 이러한 기능의 동기화 옵션 설정을 검토하여 활성 동기화 서버와 일치하는지 확인해야 합니다.  다른 구성 단계는 필요 없습니다.|
+|AD FS로 페더레이션|Azure 인증은 활성 동기화 서버에 대해 구성된 AD FS 정책을 계속 사용합니다.  Azure AD Connect를 사용하여 AD FS 팜을 관리하는 경우 필요에 따라 대기 서버를 활성 동기화 인스턴스로 만들기 위한 준비 과정에서 로그인 방법을 AD FS 페더레이션으로 변경할 수 있습니다.   활성 동기화 서버에서 장치 옵션이 사용되는 경우 "장치 옵션 구성" 작업을 실행하여 이 서버에서 해당 옵션을 구성합니다.|
+|통과 인증 및 데스크톱 Single Sign-On|활성 동기화 서버의 구성과 일치하도록 로그인 방법을 업데이트합니다.  서버를 주 서버로 승격하기 전에 이 작업을 수행하지 않으면 백업 로그인 옵션으로 암호 해시 동기화를 사용하지 않을 경우 원활한 Single Sign-On과 함께 통과 인증이 해제되고 테넌트가 잠깁니다. 뿐만 아니라 준비 모드에서 통과 인증을 사용하도록 설정하면 새 인증 에이전트가 설치 및 등록되고 로그인 요청을 수락하는 고가용성 에이전트로 실행됩니다.|
+|PingFederate을 사용한 페더레이션|Azure 인증은 활성 동기화 서버에 대해 구성된 PingFederate 정책을 계속 사용합니다.  필요에 따라 대기 서버를 활성 동기화 인스턴스로 만들기 위한 준비 과정에서 로그인 방법을 PingFederate로 변경할 수 있습니다.  이 단계는 PingFederate를 사용하여 추가 도메인을 페더레이션해야 할 때까지 지연될 수 있습니다.|
 ## <a name="next-steps"></a>다음 단계
 
 - Azure AD Connect를 설치했으므로 [설치를 확인하고 라이선스를 할당](how-to-connect-post-installation.md)할 수 있습니다.

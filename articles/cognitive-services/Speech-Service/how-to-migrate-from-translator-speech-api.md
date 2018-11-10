@@ -1,7 +1,7 @@
 ---
 title: Translator Speech API에서 Speech Service로 마이그레이션
 titleSuffix: Azure Cognitive Services
-description: 이 항목을 사용하여 Translator Speech API에서 Speech Service로 응용 프로그램을 마이그레이션합니다.
+description: Translator Speech API에서 Speech Service로 응용 프로그램을 마이그레이션하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: a35c4a7f2d2b64bd3650df1f18d08da4ea191e3a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 81513819fd60dc088c2ed4a781562684c84e803a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466395"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415477"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Translator Speech API에서 Speech Service로 마이그레이션
 
@@ -49,13 +49,13 @@ ms.locfileid: "49466395"
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
 
-사용자 또는 조직의 개발 또는 프로덕션 환경에 Translator Speech API를 사용하는 응용 프로그램이 있는 경우 Speech Service를 사용하도록 업데이트해야 합니다. 사용 가능한 SDK, 코드 샘플 및 자습서에 대해서는 [Speech Service](index.yml) 설명서를 참조하세요. 마이그레이션 시 고려할 사항은 다음과 같습니다.
+사용자 또는 조직의 개발 또는 프로덕션 환경에 Translator Speech API를 사용하는 응용 프로그램이 있는 경우 Speech Service를 사용하도록 업데이트해야 합니다. 사용 가능한 SDK, 코드 샘플 및 자습서에 대해서는 [Speech Service](index.yml) 설명서를 참조하세요. 마이그레이션하는 경우 다음을 고려합니다.
 
-* Speech Service는 현재 전역 엔드포인트를 제공하지 않습니다. 응용 프로그램모든 트래픽에 대해 단일 지역별 엔드포인트를 사용하여 효율적으로 작동하는지를 확인해야 합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인해야 합니다.
+* Speech Service는 현재 전역 엔드포인트를 제공하지 않습니다. 응용 프로그램이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다.
 
-* 응용 프로그램 수명이 긴 연결을 사용하며 사용 가능한 SDK를 사용할 수 없는 경우 WebSocket 연결을 사용하고, 적절한 시간에 다시 연결하여 10분 간의 시간 제한을 관리할 수 있습니다.
+* 응용 프로그램이 수명이 긴 연결을 사용하고 사용 가능한 SDK를 사용할 수 없는 경우 WebSocket 연결을 사용할 수 있습니다. 적절한 시간에 다시 연결하여 10분 시간 제한을 관리합니다.
 
-* 응용 프로그램이 Translator Text API 및 Translator Speech API를 사용하여 사용자 지정 번역 모델을 사용하도록 설정하는 경우 Speech Service를 사용하여 ‘범주’ ID를 직접 추가할 수 있습니다.
+* 응용 프로그램이 Translator Text API 및 Translator Speech API를 사용하여 사용자 지정 번역 모델을 사용하도록 설정하는 경우 Speech Service를 사용하여 범주 ID를 직접 추가할 수 있습니다.
 
 * Speech Service는 Translator Speech API와 달리 단일 요청을 통해 여러 언어로 완전히 번역할 수 있습니다.
 
@@ -66,5 +66,5 @@ ms.locfileid: "49466395"
 
 ## <a name="see-also"></a>참고 항목
 
-* [Speech Service란?](overview.md)
+* [Speech Service란](overview.md)
 * [Speech Service 및 SDK 설명서](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

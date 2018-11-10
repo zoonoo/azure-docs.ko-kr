@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1cfccdf644b1748a96f7638e574c66eace8d113a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 14dd76e60f615bce4e5b5aa52e6237615071779c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456663"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241926"
 ---
-# <a name="tutorial-create-multiple-resource-instances-using-resource-manager-templates"></a>자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기
 
-Azure Resource Manager 템플릿을 반복하여 Azure 리소스의 여러 인스턴스를 만드는 방법을 알아봅니다. 마지막 자습서에서는 암호화된 Azure Storage 계정을 만들도록 기존 템플릿을 수정했습니다. 이 자습서에서는 세 개의 저장소 계정 인스턴스를 만들도록 동일한 템플릿을 수정합니다.
+Azure Resource Manager 템플릿을 반복하여 Azure 리소스의 여러 인스턴스를 만드는 방법을 알아봅니다. 이 자습서에서는 3개의 저장소 계정 인스턴스를 만들도록 템플릿을 수정합니다.
 
 > [!div class="checklist"]
 > * 빠른 시작 템플릿 열기
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
-이 빠른 시작에서 사용되는 템플릿은 [표준 저장소 계정 만들기](https://azure.microsoft.com/resources/templates/101-storage-account-create/)라고 합니다. 이 템플릿은 Azure Storage 계정 리소스를 정의합니다.
+[Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)은 Resource Manager 템플릿용 저장소입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 빠른 시작에서 사용되는 템플릿은 [표준 저장소 계정 만들기](https://azure.microsoft.com/resources/templates/101-storage-account-create/)라고 합니다. 이 템플릿은 Azure Storage 계정 리소스를 정의합니다.
 
 1. Visual Studio Code에서 **파일**>**파일 열기**를 차례로 선택합니다.
 2. **파일 이름**에서 다음 URL을 붙여넣습니다.
@@ -48,20 +48,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. **열기**를 선택하여 파일을 엽니다.
-4. **파일**>**이름으로 저장**을 차례로 선택하여 파일을 **azuredeploy.json**으로 저장합니다.
+4. 템플릿에 'Microsoft.Storage/storageAccounts' 리소스가 정의되어 있습니다. 이 템플릿을 [템플릿 참조](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)와 비교합니다. 템플릿을 사용자 지정하기 전에 템플릿의 몇 가지 기본적인 내용을 이해하면 유용합니다.
+5. **파일**>**이름으로 저장**을 차례로 선택하여 파일을 **azuredeploy.json**으로 저장합니다.
 
 ## <a name="edit-the-template"></a>템플릿 편집
 
-이 자습서의 목표는 세 개의 저장소 계정을 만들도록 리소스 반복을 사용하는 것입니다.  샘플 템플릿은 하나의 저장소 계정만 만듭니다. 
+기존 템플릿은 저장소 계정 1개를 만듭니다. 저장소 계정 3개를 만들도록 템플릿을 사용자 지정합니다.  
 
 Visual Studio Code에서 다음 4개의 변경 내용을 만듭니다.
 
-![Azure Resource Manager에서 여러 인스턴스 만들기](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
+![Azure Resource Manager가 여러 인스턴스 생성](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
-1. 저장소 계정 리소스 정의에 `copy` 요소를 추가합니다. copy 요소에서 이 루프의 반복 횟수와 이름을 지정합니다. count 값은 양의 정수여야 하며 800을 초과할 수 없습니다.
-2. `copyIndex()` 함수는 루프에서 현재 반복을 반환합니다. `copyIndex()`는 0부터 시작합니다. 인덱스 값을 오프셋하려면 copyIndex() 함수에 값을 전달하면 됩니다. 예를 들어 *copyIndex(1)* 입니다.
+1. 저장소 계정 리소스 정의에 `copy` 요소를 추가합니다. copy 요소에서 이 루프의 반복 횟수와 변수를 지정합니다. count 값은 양의 정수여야 하며 800을 초과할 수 없습니다.
+2. `copyIndex()` 함수는 루프에서 현재 반복을 반환합니다. 인덱스를 이름 접두사로 사용합니다. `copyIndex()`는 0부터 시작합니다. 인덱스 값을 오프셋하려면 copyIndex() 함수에 값을 전달하면 됩니다. 예를 들어 *copyIndex(1)* 입니다.
 3. 더 이상 사용되지 않으므로 **변수** 요소를 삭제합니다.
-4. **출력** 요소를 삭제합니다.
+4. **출력** 요소를 삭제합니다. 더 이상 필요 없습니다.
 
 완성된 템플릿은 다음과 같습니다.
 

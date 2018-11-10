@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/15/2018
+ms.date: 10/29/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f4de10c29364ab96f54e5d07e9c416a2beb038f6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8e764bfc4481343a1e1fb710df7d09f7a38f4f78
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380185"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420373"
 ---
 # <a name="start-monitoring-your-website"></a>웹 사이트 모니터링 시작
 
@@ -74,7 +74,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
 1. **개요** > **기본 정보**를 차례로 선택하고, 응용 프로그램의 **계측 키**를 복사합니다.
 
-   ![새로운 App Insights 리소스 형식](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
+   ![새로운 App Insights 리소스 형식](media/app-insights-website-monitoring/instrumentation-key-001.png)
 
 2. 다음 스크립트를 ``hello_world.html``에 추가하고 ``</head>`` 태그를 닫습니다.
 
@@ -98,7 +98,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되고 
 
 1. 이제 계측 키를 검색한 Azure Portal에서 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 응용 프로그램에 대한 세부 정보를 볼 수 있습니다. 개요 페이지의 기본 차트 4개는 그 범위가 서버 쪽 응용 프로그램 데이터로 지정됩니다. 우리가 계측하려는 것은 JavaScript SDK와의 클라이언트/브라우저 쪽 상호 작용이므로 서버 쪽 SDK가 설치되지 않은 이상, 이 보기가 적용되지 않습니다.
 
-2. ![응용 프로그램 맵 아이콘](./media/app-insights-nodejs-quick-start/006.png) **분석**을 클릭합니다.  그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Analytics**가 열립니다. 클라이언트 쪽 브라우저 요청과 관련된 데이터를 보려면 다음 쿼리를 실행합니다.
+2. ![응용 프로그램 맵 아이콘](media/app-insights-website-monitoring/006.png) **분석**을 클릭합니다.  그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Analytics**가 열립니다. 클라이언트 쪽 브라우저 요청과 관련된 데이터를 보려면 다음 쿼리를 실행합니다.
 
     ```kusto
     // average pageView duration by name

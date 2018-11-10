@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9ba60f770c094f65ee5a4ed6dc21a5e07bac3d27
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267752"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158808"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>명령 실행을 사용하여 Linux VM에서 셸 스크립트 실행
 
@@ -38,6 +38,9 @@ ms.locfileid: "48267752"
 * 스크립트를 실행할 수 있는 최대 시간은 90분으로 이후는 시간 초과
 * 스크립트의 결과를 반환하려면 VM에서의 아웃바운드 연결이 필요합니다.
 
+> [!NOTE]
+> 제대로 작동하려면 실행 명령이 Azure 공용 IP 주소에 연결(포트 443)되어야 합니다. 확장이 이러한 엔드포인트에 대해 액세스 권한이 없는 경우 스크립트는 성공적으로 실행되지만 결과를 반환하지는 않습니다. 가상 머신에서 트래픽을 차단하는 경우 `AzureCloud` 태그를 사용하여 Azure 공용 IP 주소로 트래픽을 허용하려면 [서비스 태그](../../virtual-network/security-overview.md#service-tags)를 사용할 수 있습니다.
+
 ## <a name="azure-cli"></a>Azure CLI
 
 Azure Linux VM에서 셸 스크립트를 실행하기 위해 [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 명령을 사용하는 예제는 다음과 같습니다.
@@ -55,7 +58,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ![명령 실행 목록](./media/run-command/run-command-list.png)
 
-실행할 명령을 선택하세요. 명령 중 일부에는 선택 또는 필수 입력 매개 변수가 있을 수 있습니다. 이러한 명령의 경우 매개 변수는 입력 값을 제공하기 위한 텍스트 필드로 표시됩니다. 각 명령의 경우 **스크립트 보기**를 확장하여 실행되는 스크립트를 볼 수 있습니다. **RunShellScript**는 사용자 고유의 사용자 지정 스크립트를 제공할 수 있으므로 다른 명령과 다릅니다. 
+실행할 명령을 선택하세요. 명령 중 일부에는 선택 또는 필수 입력 매개 변수가 있을 수 있습니다. 이러한 명령의 경우 매개 변수는 입력 값을 제공하기 위한 텍스트 필드로 표시됩니다. 각 명령의 경우 **스크립트 보기**를 확장하여 실행되는 스크립트를 볼 수 있습니다. **RunShellScript**는 사용자 고유의 사용자 지정 스크립트를 제공할 수 있으므로 다른 명령과 다릅니다.
 
 > [!NOTE]
 > 기본 제공된 명령은 편집할 수 없습니다.

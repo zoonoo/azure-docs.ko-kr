@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 06/04/2018
+ms.date: 10/24/2018
 ms.author: danlep
-ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090965"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155623"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 응용 프로그램 실행
 
@@ -225,11 +225,15 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ## <a name="container-settings-for-the-task"></a>작업(task)에 대한 컨테이너 설정
 
-계산 노드에서 컨테이너 작업을 실행하려면 작업 실행 옵션, 사용할 이미지 및 레지스트리와 같은 컨테이너별 설정을 지정해야 합니다.
+컴퓨팅 노드에서 컨테이너 작업을 실행하려면 컨테이너 실행 옵션, 사용할 이미지 및 레지스트리와 같은 컨테이너 특정 설정을 지정해야 합니다.
 
 작업 클래스의 `ContainerSettings` 속성을 사용하여 컨테이너별 설정을 구성합니다. 이러한 설정은 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 클래스에 의해 정의됩니다.
 
 컨테이너 이미지에 대해 작업(task)를 실행하는 경우 [클라우드 작업(task)](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)에 컨테이너 설정이 필요합니다. 그러나 [시작 태스크](/dotnet/api/microsoft.azure.batch.starttask), [작업(Job) 준비 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)에는 컨테이너 설정이 필요하지 않습니다(즉, 컨테이너 컨텍스트 내에서 또는 노드에서 직접 실행될 수 있음).
+
+선택적 [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions)는 작업이 컨테이너를 만들기 위해 실행하는 `docker create` 명령에 대한 추가 인수입니다.
+
+### <a name="container-task-working-directory"></a>컨테이너 작업의 작업 디렉터리
 
 Azure Batch 컨테이너 작업의 명령줄은 Batch가 일반(컨테이너 아님) 작업에 대해 설정하는 환경과 매우 유사한 컨테이너의 작업 디렉터리에서 실행됩니다.
 
@@ -237,9 +241,13 @@ Azure Batch 컨테이너 작업의 명령줄은 Batch가 일반(컨테이너 아
 * 모든 작업 환경 변수는 컨테이너에 매핑됩니다.
 * 응용 프로그램 작업 디렉터리는 일반 작업과 동일하게 설정되므로 응용 프로그램 패키지 및 리소스 파일과 같은 기능을 사용할 수 있습니다.
 
-Batch는 컨테이너의 기본 작업 디렉터리를 변경하기 때문에 작업은 일반적인 컨테이너 진입점(예: Windows 컨테이너의 경우 기본적으로 `c:\`, Linux의 경우 `/`)과 다른 위치에서 실행됩니다. 작업 명령줄 또는 컨테이너 진입점이 아직 절대 경로로 지정되지 않은 경우 절대 경로로 지정해야 합니다.
+Batch는 컨테이너의 기본 작업 디렉터리를 변경하기 때문에 작업은 일반적인 컨테이너 작업 디렉터리(예: Windows 컨테이너의 경우 기본적으로 `c:\`, Linux의 경우 `/`, 컨테이너 이미지에 구성된 경우 다른 디렉터리)와 다른 위치에서 실행됩니다. 컨테이너 응용 프로그램이 Batch 컨텍스트에서 올바르게 실행되도록 하려면 다음 중 하나를 수행합니다. 
 
-다음 Python 코드 조각에서는 Docker 허브에서 가져온 Ubuntu 컨테이너에서 실행되는 기본 명령줄을 보여 줍니다. 컨테이너 실행 옵션은 작업이 실행하는 `docker create` 명령에 대한 추가 인수입니다. 여기서 `--rm`은 작업 완료 후 컨테이너를 제거하는 옵션입니다.
+* 작업 명령줄 또는 컨테이너 작업 디렉터리가 아직 절대 경로로 구성되지 않은 경우 절대 경로를 지정하는지 확인합니다.
+
+* 작업의 ContainerSettings에서 컨테이너 실행 옵션에 작업 디렉터리를 설정합니다. 예: `--workdir /app`.
+
+다음 Python 코드 조각에서는 Docker 허브에서 가져온 Ubuntu 컨테이너에서 실행되는 기본 명령줄을 보여 줍니다. 여기서 `--rm` 컨테이너 실행 옵션은 작업 완료 후 컨테이너를 제거합니다.
 
 ```python
 task_id = 'sampletask'

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: d99c9732bb1bf494b87d2073ba002264c7a51634
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221250"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421359"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js를 사용하여 Azure의 Linux에서 Cassandra 클러스터 실행
 
@@ -118,13 +118,13 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 
 <table>
 <tr><th>소프트웨어</th><th>원본</th><th>버전</th></tr>
-<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](https://aka.ms/azure-jdks) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-JRE를 다운로드할 때 Oracle 라이선스를 수동으로 승인해야 합니다. 따라서 배포를 간소화하려면 필요한 모든 소프트웨어를 데스크톱에 다운로드합니다. 그런 다음, 해당 소프트웨어를 클러스터 배포 전에 만들려는 Ubuntu 템플릿 이미지에 업로드합니다.
+배포를 간소화하려면 필요한 모든 소프트웨어를 데스크톱에 다운로드합니다. 그런 다음, 해당 소프트웨어를 클러스터 배포 전에 만들려는 Ubuntu 템플릿 이미지에 업로드합니다.
 
 로컬 컴퓨터의 잘 알려진 download 디렉터리(예: Windows의 %TEMP%/downloads 또는 대부분의 Linux 배포나 Mac의 ~/downloads)에 위 소프트웨어를 다운로드합니다.
 

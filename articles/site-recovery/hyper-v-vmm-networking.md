@@ -1,19 +1,19 @@
 ---
 title: Azure Site Recovery로 장애 조치(failover) 후 보조 온-프레미스 사이트에 연결하도록 IP 주소 지정 설정 | Microsoft Docs
-description: Azure Site Recovery로 장애 조치(failover) 후 보조 온-프레미스 사이트의 VM에 연결하도록 IP 주소 지정을 설정하는 방법을 설명합니다.
+description: Azure Site Recovery를 통해 재해 복구 및 장애 조치(failover) 후 보조 온-프레미스 사이트의 VM에 연결하도록 IP 주소 지정을 설정하는 방법을 설명합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rayne
-ms.openlocfilehash: dc28611f4b27d263e19f76ce4313f8d531a8cba2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1a9a89138dc71f7a0255b8ab4084182848d6e994
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077006"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211743"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>장애 조치(failover) 후 보조 온-프레미스 사이트에 연결하도록 IP 주소 지정 설정
 

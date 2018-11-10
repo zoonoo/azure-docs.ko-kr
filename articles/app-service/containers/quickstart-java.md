@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 92dde19e42c1adb6d83e1708106f844f228e8989
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239353"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247558"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 웹앱 만들기
 
@@ -77,26 +77,7 @@ code pom.xml
 
 
 > [!NOTE] 
-> 이 문서에서는 WAR 파일에 패키지된 Java 앱만 사용합니다. 플러그 인은 JAR 웹 응용 프로그램도 지원합니다. 이러한 응용 프로그램에 대해 다음 대체 플러그 인 정의를 사용합니다. 이 구성은 Maven에서 빌드한 JAR을 로컬 파일 시스템의 `${project.build.directory}/${project.build.finalName}.jar`에 배포합니다.
->
->```xml
-><plugin>
->            <groupId>com.microsoft.azure</groupId>
->            <artifactId>azure-webapp-maven-plugin</artifactId>
->            <version>1.4.0</version>
->            <configuration>
->                <deploymentType>jar</deploymentType>
->
->           <!-- Web App information -->
->            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
->            <appName>${WEBAPP_NAME}</appName>
->            <region>${REGION}</region>  
->
->                <!-- Java Runtime Stack for Web App on Linux-->
->                <linuxRuntime>jre8</linuxRuntime>
->            </configuration>
->         </plugin>
->```    
+> 이 문서에서는 WAR 파일에 패키지된 Java 앱만 사용합니다. 플러그 인에서 JAR 웹 응용 프로그램도 지원됩니다. [Linux 기반 App Service에 Java SE JAR 파일 배포](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 방문하여 직접 확인해 보세요.
 
 
 플러그인 구성에서 다음 자리 표시자를 업데이트합니다.
@@ -127,8 +108,8 @@ mvn package azure-webapp:deploy
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Maven을 사용하여 Java 웹앱을 만들고, [Azure Web Apps용 Maven 플러그 인(미리 보기)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)을 구성한 다음, 웹 보관용으로 패키지된 Java 웹앱을 Linux의 App Service에 배포했습니다. Azure와 함께 Java를 사용하는 방법에 대해 자세히 알아보려면 아래 링크로 이동하세요.
+이 빠른 시작에서는 Maven을 사용하여 Java 웹앱을 만들고, [Azure Web Apps용 Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)을 구성한 다음, 웹 보관용으로 패키지된 Java 앱을 Linux의 App Service에 배포했습니다. 데이터베이스를 연결하고, 로깅 및 모니터링을 설정하고, 보안을 구성하고, 런타임 옵션을 설정하는 방법을 알아보려면 Linux 기반의 App Service에 대한 Java 개발자 가이드를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Java 개발자용 Azure](https://docs.microsoft.com/java/azure/)
+> [Linux 기반의 App Service에 대한 Java 개발자 가이드](app-service-linux-java.md)
 

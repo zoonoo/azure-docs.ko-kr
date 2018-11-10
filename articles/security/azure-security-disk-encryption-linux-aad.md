@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 81a9f84a925fc424fc6371fcbe02a141d4ee8ec1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b0b67121e172bb29d1f95e56d3b31f509552bf2e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498354"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211233"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Linux IaaS VM용 Azure Disk Encryption 사용(이전 릴리스)
 
@@ -192,8 +192,11 @@ key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://
 - 루트/OS/부팅 파티션이 아닙니다.
 - 아직 암호화되지 않았습니다.
 - BEK 볼륨이 아닙니다.
+- RAID 볼륨이 아닙니다.
+- LVM 볼륨이 아닙니다.
 - 탑재되어 있습니다.
 
+RAID 볼륨 또는 LVM 볼륨이 아닌, RAID 볼륨 또는 LVM 볼륨을 구성하는 디스크를 암호화합니다.
 
 ### <a name="bkmk_EFATemplate"> </a> 템플릿에서 EncryptFormatAll 매개변수 사용
 EncryptFormatAll 옵션을 사용하려면 Linux VM을 암호화하고 AzureDiskEncryption 리소스에 대한 **EncryptionOperation** 필드를 변경하는 기존 Azure Resource Manager 템플릿을 모두 사용합니다.

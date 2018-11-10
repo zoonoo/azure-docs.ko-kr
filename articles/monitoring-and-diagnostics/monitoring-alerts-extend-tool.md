@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990249"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415704"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Log Analytics에서 Azure Alerts로 경고 확장
 Azure Log Analytics에서 경고 기능은 Azure Alerts로 바뀝니다. 이 전환의 일부로 Log Analytics에서 원래 구성된 경고를 Azure로 확장합니다. 해당 경고가 Azure로 자동으로 이동하는 것을 기다리지 않으려면 다음 프로세스를 시작하면 됩니다.
@@ -22,31 +22,31 @@ Azure Log Analytics에서 경고 기능은 Azure Alerts로 바뀝니다. 이 전
 - AlertsVersion API를 사용하여 프로그래밍 방식으로  
 
 > [!NOTE]
-> Microsoft는 완료될 때까지 시리즈를 반복하면서 2018년 5월 14일부터 Log Analytics의 퍼블릭 클라우드 인스턴스에서 만든 경고를 자동으로 Azure Alerts로 확장합니다. [작업 그룹](monitoring-action-groups.md)을 만드는 데 문제가 있는 경우 [이러한 재구성 단계](monitoring-alerts-extend-tool.md#troubleshooting)를 사용하여 만든 작업 그룹을 자동으로 가져옵니다. 2018년 7월 5일까지는 이러한 단계를 사용할 수 있습니다. *Log Analytics의 Azure Goverment 및 Soveriegn 클라우드 사용자에게는 적용할 수 없습니다*. 
+> Microsoft는 완료될 때까지 시리즈를 반복하면서 2018년 5월 14일부터 Log Analytics의 퍼블릭 클라우드 인스턴스에서 만든 경고를 자동으로 Azure Alerts로 확장합니다. [작업 그룹](monitoring-action-groups.md)을 만드는 데 문제가 있는 경우 [이러한 재구성 단계](monitoring-alerts-extend-tool.md#troubleshooting)를 사용하여 만든 작업 그룹을 자동으로 가져옵니다. 2018년 7월 5일까지는 이러한 단계를 사용할 수 있습니다. *Log Analytics의 Azure Goverment 및 Soveriegn 클라우드 사용자에 대해서는 적용할 수 없습니다*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>옵션 1: Operations Management Suite 포털에서 시작
 다음 단계에서는 Operations Management Suite 포털에서 작업 영역에 대한 경고를 확장하는 방법을 설명합니다.  
 
 1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
 2. Log Analytics 구독 창에서 작업 영역을 선택한 다음, **OMS 포털** 타일을 선택합니다.
-![OMS 포털 타일이 강조 표시된 Log Analytics 구독 창의 스크린샷](./media/monitor-alerts-extend/azure-portal-01.png) 
+![OMS 포털 타일이 강조 표시된 Log Analytics 구독 창의 스크린샷](media/monitoring-alerts-extend-tool/azure-portal-01.png) 
 3. Operations Management Suite 포털로 리디렉션된 후에 **설정** 아이콘을 선택합니다.
-![설정 아이콘이 강조 표시된 Operations Management Suite 포털의 스크린샷](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+![설정 아이콘이 강조 표시된 Operations Management Suite 포털의 스크린샷](media/monitoring-alerts-extend-tool/oms-portal-settings-option.png) 
 4. **설정** 페이지에서 **경고**를 선택합니다.  
 5. **Azure로 확장**을 선택합니다.
-![Azure로 확장이 강조 표시된 Operations Management Suite 포털 경고 설정 페이지의 스크린샷](./media/monitor-alerts-extend/ExtendInto.png)
+![Azure로 확장이 강조 표시된 Operations Management Suite 포털 경고 설정 페이지의 스크린샷](media/monitoring-alerts-extend-tool/ExtendInto.png)
 6. 3단계 마법사는 **경고** 창에 표시됩니다. 개요를 읽고 **다음**을 선택합니다.
-![마법사의 1단계 스크린샷](./media/monitor-alerts-extend/ExtendStep1.png)  
+![마법사의 1단계 스크린샷](media/monitoring-alerts-extend-tool/ExtendStep1.png)  
 7. 두 번째 단계에서 제안된 변경 사항의 요약을 표시하여 경고에 대해 적당한 [작업 그룹](monitoring-action-groups.md)을 나열합니다. 둘 이상의 경고에 유사한 작업이 표시되면 마법사에서는 모든 작업을 단일 작업 그룹으로 연결하도록 제안합니다.  명명 규칙은 *WorkspaceName_AG_#Number*와 같습니다. 계속하려면 **다음**을 선택합니다.
-![마법사의 2단계 스크린샷](./media/monitor-alerts-extend/ExtendStep2.png)  
+![마법사의 2단계 스크린샷](media/monitoring-alerts-extend-tool/ExtendStep2.png)  
 8. 마법사의 마지막 단계에서 **마침**을 선택하고 프로세스를 시작하라는 메시지가 나타나면 확인합니다. 필요에 따라 프로세스를 완료하고 모든 경고를 Azure 경고로 성공적으로 이동되면 알 수 있도록 이메일 주소를 제공할 수 있습니다.
-![마법사의 3단계 스크린샷](./media/monitor-alerts-extend/ExtendStep3.png)
+![마법사의 3단계 스크린샷](media/monitoring-alerts-extend-tool/ExtendStep3.png)
 
 마법사가 완료되면 **경고 설정** 페이지에서 Azure에 경고를 확장하는 옵션이 제거됩니다. 백그라운드에서 경고를 Azure로 이동하는 데 다소 시간이 걸릴 수 있습니다. 작업 중에 Operations Management Suite 포털에서 경고를 변경할 수 없습니다. 포털의 위쪽에 있는 배너에서 현재 상태를 볼 수 있습니다. 이전에 이메일 주소를 제공했다면 프로세스가 성공적으로 완료되는 경우 이메일을 수신합니다.  
 
 
 경고가 Azure에 성공적으로 이동된 후에도 계속 Operations Management Suite 포털에 나열됩니다.
-![Operations Management Suite 포털 경고 설정 페이지의 스크린샷](./media/monitor-alerts-extend/PostExtendList.png)
+![Operations Management Suite 포털 경고 설정 페이지의 스크린샷](media/monitoring-alerts-extend-tool/PostExtendList.png)
 
 
 ## <a name="option-2-use-the-alertsversion-api"></a>옵션 2: AlertsVersion API 사용
@@ -460,7 +460,7 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 > Azure 퍼블릭 클라우드 기반 Log Analytics 사용자가 2018년 7월 5일 전에 다음과 같은 재구성 단계를 취하지 않는 경우 경고는 Azure에서 실행되지만 작업 또는 알림이 발생하지 않습니다. 경고에 대한 알림을 가져오려면 [작업 그룹](monitoring-action-groups.md)을 수동으로 편집하고 추가하거나 앞의 [사용자 지정 PowerShell 스크립트](#option-3---using-custom-powershell-script)를 사용해야 합니다.
 
 각 오류에 대한 재구성 단계는 다음과 같습니다.
-- **오류: 쓰기 작업에 대한 구독/리소스 그룹 수준에 범위 잠금이 있습니다**. ![범위 잠금 오류 메시지가 강조 표시된 Operations Management Suite 포털 경고 설정 페이지 스크린샷](./media/monitor-alerts-extend/ErrorScopeLock.png)
+- **오류: 쓰기 작업에 대한 구독/리소스 그룹 수준에 범위 잠금이 있습니다**. ![범위 잠금 오류 메시지가 강조 표시된 Operations Management Suite 포털 경고 설정 페이지 스크린샷](media/monitoring-alerts-extend-tool/ErrorScopeLock.png)
 
     범위 잠금이 설정되면 기능은 Log Analytics(Operations Management Suite) 작업 영역을 포함하는 구독 또는 리소스 그룹의 새로운 변경 내용을 제한합니다. 시스템은 Azure에 경고를 확장하고 필요한 작업 그룹을 만들 수 없습니다.
     
@@ -468,7 +468,7 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
     
     아티클에 표시된 단계를 사용하여 오류를 해결하는 경우 Operations Management Suite는 다음 날 예약된 실행 내에서 경고를 Azure로 확장합니다. 추가 작업을 수행하거나 어떤 작업도 시작할 필요가 없습니다.
 
-- **오류: 정책이 구독/리소스 그룹 수준에 표시됩니다**. ![정책 오류 메시지가 강조 표시된 Operations Management Suite 포털 경고 설정 페이지 스크린샷](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **오류: 정책이 구독/리소스 그룹 수준에 표시됩니다**. ![정책 오류 메시지가 강조 표시된 Operations Management Suite 포털 경고 설정 페이지 스크린샷](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
     [Azure Policy](../azure-policy/azure-policy-introduction.md)가 적용되면 Log Analytics(Operations Management Suite) 작업 영역을 포함하는 구독 또는 리소스 그룹의 새로운 리소스를 제한합니다. 시스템은 Azure에 경고를 확장하고 필요한 작업 그룹을 만들 수 없습니다.
     

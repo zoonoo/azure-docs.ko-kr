@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f03083367de4e818bdc953ab76c28ff687f0a48
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1244076efe1c920a23f29de9d25ab6845747fe4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294339"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245854"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Application Insights의 추가 원격 분석
 [ASP.NET 코드에 Application Insights를 추가](app-insights-asp-net.md)한 후 추가 원격 분석을 위해 수행할 수 있는 몇 가지 작업이 있습니다. 
 
 | 동작 | 결과|
 |---|---|
-|(IIS 서버) 각 서버 컴퓨터에 [상태 모니터를 설치](http://go.microsoft.com/fwlink/?LinkId=506648)합니다.<br/>(Azure 웹앱) 웹앱의 Azure 제어판에서 Application Insights 블레이드를 엽니다.| [**성능 카운터**](app-insights-performance-counters.md)<br/>[**예외** ](app-insights-asp-net-exceptions.md) - 자세한 스택 추적<br/>[**종속성**](app-insights-asp-net-dependencies.md)|
-|[웹 페이지에 JavaScript 코드 조각 추가](app-insights-javascript.md)|[성능 페이지](app-insights-web-track-usage.md), 브라우저 예외, AJAX 성능. 클라이언트쪽 사용자 지정 원격 분석.|
+|(IIS 서버) 각 서버 컴퓨터에 [상태 모니터를 설치](https://go.microsoft.com/fwlink/?LinkId=506648)합니다.<br/>(Azure 웹앱) 웹앱의 Azure 제어판에서 Application Insights 블레이드를 엽니다.| [**성능 카운터**](app-insights-performance-counters.md)<br/>[**예외** ](app-insights-asp-net-exceptions.md) - 자세한 스택 추적<br/>[**종속성**](app-insights-asp-net-dependencies.md)|
+|[웹 페이지에 JavaScript 코드 조각 추가](app-insights-javascript.md)|[성능 페이지](app-insights-usage-overview.md), 브라우저 예외, AJAX 성능. 클라이언트쪽 사용자 지정 원격 분석.|
 |[가용성 웹 테스트 만들기](app-insights-monitor-web-app-availability.md)|사이트를 사용할 수 없게 되면 알림 수신|
 |MSBuild에서 [Ensure buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) 생성|[메트릭 차트의 빌드 주석](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
 |[사용자 지정 이벤트 및 메트릭 작성](app-insights-api-custom-events-metrics.md)|비즈니스 이벤트 및 메트릭의 수를 계산하고, 자세한 사용 현황을 추적하는 등의 작업을 수행합니다.|

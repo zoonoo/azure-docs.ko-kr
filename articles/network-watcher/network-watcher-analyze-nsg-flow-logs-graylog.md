@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: db3b08ae8092661e6ffa0f2dd7e460f341a8d013
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666062"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414780"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -38,7 +38,7 @@ ms.locfileid: "43666062"
 
 ### <a name="enable-network-security-group-flow-logging"></a>네트워크 보안 그룹 흐름 로그 사용
 
-이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
+이 시나리오에서는 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 그룹 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은  [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 
 ### <a name="setting-up-graylog"></a>Graylog 설정
 
@@ -51,7 +51,7 @@ ms.locfileid: "43666062"
 
 Graylog는 플랫폼 및 기본 설정에 따라 다양한 방법으로 설치할 수 있습니다. 설치 가능한 방법에 대한 전체 목록은 Graylog의 공식 [설명서](http://docs.graylog.org/en/2.2/pages/installation.html)를 참조하세요. Graylog 서버 응용 프로그램은 Linux 배포판에서 실행되며, 다음과 같은 필수 구성 요소를 포함합니다.
 
--  Oracle Java SE 8 이상 - [Oracle 설치 설명서](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Java SE 8 이상 - [Azul Azure JDK 설명서](https://aka.ms/azure-jdks)
 -  Elastic Search 2.x(2.1.0 이상) - [Elasticsearch 설치 설명서](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2.4 이상 - [MongoDB 설치 설명서](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -244,4 +244,4 @@ Network Watcher와 Graylog를 통합함으로써 이제는 네트워크 보안 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI를 사용하여 네트워크 보안 그룹 흐름 로그를 시각화하는 방법을 알아봅니다.
+ [Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI를 사용하여 네트워크 보안 그룹 흐름 로그를 시각화하는 방법을 알아봅니다.

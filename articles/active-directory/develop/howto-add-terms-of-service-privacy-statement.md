@@ -65,7 +65,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2.  **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
+2.  **앱 등록** 섹션으로 이동하여 앱을 선택합니다.  
 3. 앱의  **속성** 섹션을 엽니다.
 4. 서 **비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
 5. 변경 내용을 저장합니다.

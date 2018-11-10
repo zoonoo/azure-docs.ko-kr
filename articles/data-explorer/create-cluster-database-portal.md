@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394224"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214820"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>빠른 시작: Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기
 
@@ -31,11 +31,11 @@ Azure 리소스 그룹에 계산 및 저장소 리소스 집합이 정의된 Azu
 
 1. 포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다.
 
-1. *Azure 데이터 탐색기*를 검색한 다음, **Azure 데이터 탐색기**를 선택합니다.
+1. *Azure 데이터 탐색기*를 검색합니다.
 
    ![리소스 검색](media/create-cluster-database-portal/search-resources.png)
 
-1. 오른쪽 아래 모서리에서 **만들기**를 선택합니다.
+1. 화면 하단의 **Azure 데이터 탐색기**에서 **만들기**를 선택합니다.
 
 1. 클러스터의 고유 이름을 입력하고 구독을 선택하고 *test-resource-group*라는 이름의 리소스 그룹을 만듭니다.
 
@@ -51,10 +51,12 @@ Azure 리소스 그룹에 계산 및 저장소 리소스 집합이 정의된 Azu
     | 구독 | 사용자의 구독 | 클러스터에 사용할 Azure 구독을 선택합니다.|
     | 리소스 그룹 | *test-resource-group* | 새 리소스 그룹을 만듭니다. |
     | 위치 | *미국 서부* | 이 빠른 시작에서는 *미국 서부*를 선택합니다. 프로덕션 시스템의 경우 요구에 가장 적합한 지역을 선택합니다.
-    | 계산 사양 | *D13_v2* | 이 빠른 시작에 가장 낮은 가격 사양을 선택합니다. 프로덕션 시스템의 경우 요구에 가장 적합한 사양을 선택합니다.
+    | 컴퓨팅 사양 | *D13_v2* | 이 빠른 시작에 가장 낮은 가격 사양을 선택합니다. 프로덕션 시스템의 경우 요구에 가장 적합한 사양을 선택합니다.
     | | |
 
-1. **만들기**를 선택하여 클러스터를 프로비전합니다. 프로비전에는 일반적으로 약 10분이 소요됩니다. 프로비전 프로세스를 모니터링하려면 도구 모음에서 **알림**(종 모양 아이콘)을 선택합니다.
+1. **만들기**를 선택하여 클러스터를 프로비전합니다. 프로비전에는 일반적으로 약 10분이 소요됩니다. 프로비전 프로세스를 모니터링하려면 도구 모음에서 **알림**을 선택합니다.
+
+    ![공지](media/create-cluster-database-portal/notifications.png)
 
 1. 프로세스가 완료되면 **알림**, **리소스로 이동**을 차례로 선택합니다.
 

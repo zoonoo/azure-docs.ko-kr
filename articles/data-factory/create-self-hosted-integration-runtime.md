@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 251d1a187c2a6742c361349274fd1e0bb1e41525
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817153"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248933"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -146,6 +146,8 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>여러 데이터 팩터리와 자체 호스팅 통합 런타임 공유
 
 데이터 팩터리에 이미 설치한 기존의 자체 호스팅 통합 런타임 인프라를 재사용할 수 있습니다. 이렇게 하면 기존 자체 호스팅 IR(공유됨)을 참조하여 다른 데이터 팩터리에서 *연결된 자체 호스팅 통합 런타임*을 만들 수 있습니다.
+
+PowerShell을 사용하여 자체 호스팅 통합 런타임을 공유하려면 [PowerShell을 사용하여 Azure Data Factory에서 자체 호스팅 통합 런타임 공유 만들기](create-shared-self-hosted-integration-runtime-powershell.md)를 참조하세요.
 
 ### <a name="terminology"></a>용어
 

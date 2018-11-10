@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: eb3489c24bd5aa328620c5a6c14ee71882a6a6f2
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249573"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414619"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Log Analytics 경고를 Azure Alerts로 확장
 최근까지 Azure Log Analytics에는 Log Analytics 데이터에 기반한 조건을 사전에 알려줄 수 있는 자체 경고 기능이 포함됩니다. Microsoft Operations Management Suite 포털에서 경고 규칙을 관리했습니다. 새 경고 환경은 이제 Microsoft Azure의 다양한 서비스에서 경고를 통합했습니다. 이 환경은 Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능하며 Log Analytics 및 Azure Application Insights에서 활동 로그, 메트릭 및 로그의 경고를 지원합니다. 
@@ -30,12 +30,12 @@ ms.locfileid: "48249573"
 Log Analytics에서 Azure Alerts로 경고를 이동하는 프로세스는 어떠한 방법으로도 경고 정의, 쿼리 또는 구성의 변경을 포함하지 않습니다. 필요한 유일한 변경은 Azure에서 작업 그룹을 사용하여 모든 작업을 수행하는 것입니다. 작업 그룹이 이미 경고와 연결되어 있는 경우 작업 그룹은 Azure로 확장될 때 포함됩니다.
 
 > [!NOTE]
-> Microsoft는 완료될 때까지 시리즈를 반복하면서 2018년 5월 14일부터 Log Analytics의 퍼블릭 클라우드 인스턴스에서 만든 경고를 자동으로 Azure Alerts로 확장합니다. [작업 그룹](monitoring-action-groups.md)을 만드는 데 문제가 있는 경우 [이러한 재구성 단계](monitoring-alerts-extend-tool.md#troubleshooting)를 사용하여 만든 작업 그룹을 자동으로 가져옵니다. 2018년 7월 5일까지는 이러한 단계를 사용할 수 있습니다. *Log Analytics의 Azure Goverment 및 Soveriegn 클라우드 사용자에게는 적용할 수 없습니다*. 
+> Microsoft는 완료될 때까지 시리즈를 반복하면서 2018년 5월 14일부터 Log Analytics의 퍼블릭 클라우드 인스턴스에서 만든 경고를 자동으로 Azure Alerts로 확장합니다. [작업 그룹](monitoring-action-groups.md)을 만드는 데 문제가 있는 경우 [이러한 재구성 단계](monitoring-alerts-extend-tool.md#troubleshooting)를 사용하여 만든 작업 그룹을 자동으로 가져옵니다. 2018년 7월 5일까지는 이러한 단계를 사용할 수 있습니다. *Log Analytics의 Azure Government 및 소버린 클라우드 사용자에 대해서는 적용할 수 없습니다*. 
 > 
 
 Log Analytics 작업 영역의 경고가 Azure로 확장되도록 일정을 예약하면 계속해서 작동하고 어떤 방식으로든 구성을 손상하지 않습니다. 예약된 경우 경고는 일시적으로 수정이 가능하지 않을 수 있지만 이 시간 동안 새 Azure 경고를 계속 만들 수는 있습니다. Operations Management Suite 포털에서 경고를 만들거나 편집하려는 경우 Log Analytics 작업 영역에서 경고를 계속 만들 수 있는 옵션이 있습니다. 또한 Azure Portal의 Azure Alerts에서 경고 만들기를 선택할 수 있습니다.
 
- ![Log Analytics 또는 Azure Alerts에서 경고를 만들 수 있는 옵션 스크린샷](./media/monitor-alerts-extend/ScheduledDirection.png)
+ ![Log Analytics 또는 Azure Alerts에서 경고를 만들 수 있는 옵션 스크린샷](media/monitoring-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
 > Log Analytics에서 Azure로 경고를 확장하면 계정에 요금을 발생하지 않습니다. 쿼리 기반 Log Analytics 경고에 대한 Azure Alerts 사용은 [Azure Monitor 가격 책정 정책](https://azure.microsoft.com/pricing/details/monitor/)에 명시된 제한 및 조건 내에서 사용되는 경우 청구되지 않습니다.  
@@ -47,7 +47,7 @@ Azure Alerts에 경고를 확장하려면 Operations Management Suite 포털에�
 ## <a name="experience-after-extending-your-alerts"></a>경고 확장 후의 환경
 경고가 Azure Alerts로 확장된 후 이전과 다르지 않게 Operations Management Suite 포털에서 관리를 위해 경고를 계속 사용할 수 있습니다.
 
-![경고가 나열되어 있는 Operations Management Suite 포털의 스크린샷](./media/monitor-alerts-extend/PostExtendList.png)
+![경고가 나열되어 있는 Operations Management Suite 포털의 스크린샷](media/monitoring-alerts-extend/PostExtendList.png)
 
 Operations Management Suite 포털에서 새 경고를 만들거나 기존 경고를 편집하려고 하면 자동으로 Azure Alerts로 리디렉션됩니다.  
 

@@ -1,17 +1,17 @@
 ---
-title: Azure Site Recovery에서 프로세스 서버 관리 | Microsoft Docs
-description: 이 아티클에서는 Azure Site Recovery에서 VMware VM 및 실제 서버를 복제하기 위한 프로세스 서버 설정을 관리하는 방법에 대해 설명합니다.
+title: Azure Site Recovery를 사용한 Azure로의 VMware VM 및 물리적 서버 재해 복구를 위한 프로세스 서버 관리 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하는 Azure로의 VMware VM 및 물리적 서버 재해 복구를 위해 프로세스 서버 설정을 관리하는 방법을 설명합니다.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/21/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: b3c6f1d130a6f5427fe8377bd70de743f0700052
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8a9342a2354cd4c92fa0230965b4eef6284ee826
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434843"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209125"
 ---
 # <a name="manage-process-servers"></a>프로세스 서버 관리
 

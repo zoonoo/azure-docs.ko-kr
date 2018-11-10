@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298208"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240888"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 Microsoft DSVM(Data Science Virtual Machine)은 Microsoft Azure VM(가상 머신) 이미지입니다. 사전 설치되고 데이터 분석 및 기계 학습에 사용되는 여러 가지 도구로 구성됩니다. 포함된 도구는 다음과 같습니다.
@@ -186,7 +186,7 @@ SQL Machine Learning Services를 사용하여 데이터베이스 내 분석을 �
 * **Microsoft Azure PowerShell**은 Azure 리소스를 PowerShell 스크립팅 언어로 관리하는 데 사용하는 도구입니다. VM에도 설치됩니다. 
 
 ### <a name="power-bi"></a>Power BI
-**Power BI Desktop**은 대시보드 및 시각화를 작성하는 데 도움을 주기 위해 설치됩니다. 이 도구를 사용하여 여러 원본에서 데이터를 추출하고, 대시보드 및 보고서를 작성하며, 클라우드에 게시합니다. 자세한 내용은 [Power BI](http://powerbi.microsoft.com) 사이트를 참조하세요. **시작** 메뉴에서 Power BI Desktop을 찾을 수 있습니다. 
+**Power BI Desktop**은 대시보드 및 시각화를 작성하는 데 도움을 주기 위해 설치됩니다. 이 도구를 사용하여 여러 원본에서 데이터를 추출하고, 대시보드 및 보고서를 작성하며, 클라우드에 게시합니다. 자세한 내용은 [Power BI](https://powerbi.microsoft.com) 사이트를 참조하세요. **시작** 메뉴에서 Power BI Desktop을 찾을 수 있습니다. 
 
 > [!NOTE]
 > Power BI에 액세스하려면 Microsoft Office 365 계정이 필요합니다. 
@@ -228,7 +228,7 @@ Workbench의 각 사용자는 일회성 작업을 수행해야 합니다. ```Azu
 * **시작** 메뉴를 선택하여 데이터 과학 VM의 도구를 탐색합니다.
 * Azure Machine Learning Services 및 Workbench에 대해 자세히 알아보려면 [빠른 시작 및 자습서 페이지](../service/index.yml)를 참조하세요. 
 * 엔터프라이즈 규모의 데이터 분석을 지원하는 R에서 RevoScaleR 라이브러리를 사용하는 샘플을 보려면 **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts**로 이동합니다.  
-* [Data Science Virtual Machine으로 할 수 있는 10가지 작업](http://aka.ms/dsvmtenthings) 문서를 참조합니다.
+* [Data Science Virtual Machine으로 할 수 있는 10가지 작업](https://aka.ms/dsvmtenthings) 문서를 참조합니다.
 * [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
 * Azure에서 Azure Machine Learning 및 관련 데이터 서비스를 사용하는 기계 학습 및 데이터 분석 샘플을 보려면 [Azure AI Gallery](http://gallery.cortanaintelligence.com)를 방문합니다. 또한 가상 머신의 **시작** 메뉴 및 바탕 화면에는 이 갤러리에 대한 아이콘도 제공됩니다.
 

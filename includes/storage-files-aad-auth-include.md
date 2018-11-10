@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/22/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b7682b83ca415ebff2be1c9dbb5581e8da1bb7fb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 64751e0fcbf9a2255964d0de673e2cc2020ceb9a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49805063"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254616"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md)는 [Azure AD(Azure Active Directory) Domain Services](../articles/active-directory-domain-services/active-directory-ds-overview.md)를 사용하여 SMB(서버 메시지 블록)를 통한 ID 기반 인증(미리 보기)을 지원합니다. 도메인 가입 Windows VM(가상 머신)은 [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) 자격 증명을 사용하여 Azure 파일 공유에 액세스할 수 있습니다. 
 
@@ -25,3 +25,4 @@ Azure Files는 미리 보기의 일부로서, 파일 공유의 모든 파일 및
 > - SMB를 통한 Azure AD 인증은 미리 보기 릴리스의 Linux VM에서 지원되지 않습니다. Windows Server VM만 지원됩니다.
 > - SMB를 통한 Azure AD 인증은 Azure Files에 액세스하는 온-프레미스 머신에 지원되지 않습니다.
 > - Azure AD 인증은 2018년 9월 24일 이후에 만든 저장소 계정에만 사용할 수 있습니다.
+> - SMB를 통한 Azure AD 인증 및 NTFS ACL 영구는 Azure 파일 동기화 서비스에서 관리하는 Azure 파일 공유에서 지원되지 않습니다. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: e2dc9b7e7cf5964c36b21418a0162c1c2ef92dc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b5f240091cf5ce9331ada818c218db04f508dbc8
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430184"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>자습서: Sprinklr와 Azure Active Directory 통합
 
@@ -114,7 +114,7 @@ Sprinklr에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<subdomain>.sprinklr.com`
 
-    나. **식별자** 텍스트 상자에서 `https://<subdomain>.sprinklr.com` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://<subdomain>.sprinklr.com` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Sprinklr 클라이언트 지원 팀](https://www.sprinklr.com/contact-us/)에 문의하세요. 
@@ -149,7 +149,7 @@ Sprinklr에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 구성의 이름을 입력합니다(예: *WAADSSOTest*).
 
-    나. **사용**을 선택합니다.
+    b. **사용**을 선택합니다.
 
     다. **새 SSO 인증서 사용**을 선택합니다.
              
@@ -161,7 +161,7 @@ Sprinklr에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     h. Azure Portal에서 복사한 **로그아웃 URL** 값을 **ID 공급자 로그아웃 URL** 텍스트 상자에 붙여넣습니다.
      
-    i. **SAML 사용자 형식**에서 **어설션에 사용자의 sprinklr.com 사용자 이름 포함**을 선택합니다.
+    i. **SAML 사용자 ID 형식**에서 **어설션에 사용자의 sprinklr.com 사용자 이름 포함**을 선택합니다.
 
     j. **SAML 사용자 ID 위치**로 **Subject 문의 NameIdentifier 요소에 사용자 ID 포함**을 선택합니다.
 
@@ -170,7 +170,7 @@ Sprinklr에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -197,7 +197,7 @@ Sprinklr에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -225,7 +225,7 @@ Sprinklr에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **메일**, **이름** 및 **성** 텍스트 상자에 프로비전하려는 Azure AD 사용자 계정 정보를 입력합니다.
 
-    나. **암호 사용 안 함**을 선택합니다.
+    b. **암호 사용 안 함**을 선택합니다.
 
     다. **언어**를 선택합니다.
 
@@ -242,7 +242,7 @@ Sprinklr에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **전역** 목록에서 **ALL\_Permissions**를 선택합니다.  
 
-    나. **업데이트**를 클릭합니다.
+    b. **업데이트**를 클릭합니다.
 
 >[!NOTE]
 >다른 Sprinklr 사용자 계정 생성 도구 또는 Sprinklr가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비전할 수 있습니다. 

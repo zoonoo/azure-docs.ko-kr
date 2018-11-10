@@ -1,23 +1,22 @@
 ---
-title: Azure Site Recovery를 사용하여 보조 VMware 사이트에 VMware VM 또는 물리적 서버를 복제하기 위한 지원 매트릭스 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 VMware/물리적 서버를 보조 사이트에 복제하는 기능 지원에 대해 요약합니다.
-services: site-recovery
+title: Azure Site Recovery를 사용하여 VMware VM 또는 물리적 서버에서 보조 VMware 사이트로 재해 복구하기 위한 지원 매트릭스 | Microsoft Docs
+description: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 보조 사이트 간의 재해 복구 지원이 요약되어 있습니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8406cf2b31b87cdb4f6c9b6ba3d06559cf1d4d41
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021996"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209805"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 및 물리적 서버를 보조 사이트에 복제하기 위한 지원 매트릭스
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 또는 물리적 서버에서 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 VMware VM 또는 Windows/Linux 물리적 서버를 보조 VMware 사이트에 복제하는 경우 지원되는 사항을 요약하여 설명합니다.
+이 문서에는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 VMware VM 또는 Windows/Linux 물리적 서버에서 보조 VMware 사이트로 재해 복구하는 경우 지원되는 사항이 요약되어 있습니다.
 
 - VMware VM 또는 물리적 서버를 Azure에 복제하려면 [이 지원 매트릭스](vmware-physical-azure-support-matrix.md)를 검토하세요.
 - Hyper-V VM을 보조 사이트에 복제하려면 [이 지원 매트릭스](hyper-v-azure-support-matrix.md)를 검토하세요.

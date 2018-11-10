@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery를 사용하여 Hyper-V와 Azure 간 복제 문제 해결 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 Hyper-V와 Azure 간 복제 문제를 해결하는 방법을 설명합니다.
+title: Azure Site Recovery를 사용하여 Hyper-V와 Azure 간 재해 복구 문제 해결 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 Hyper-V와 Azure 간 복제의 재해 복구 문제를 해결하는 방법을 설명합니다.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: ramamill
-ms.openlocfilehash: 027107cca1872ddd504567b74c798fc00e9af214
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067393"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212950"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 

@@ -1,21 +1,20 @@
 ---
-title: Azure Site Recovery를 사용하여 VMware를 복제하기 위한 복제 정책 구성 및 관리 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 Azure에 VMware를 복제하기 위한 복제 설정을 구성하는 방법에 대해 설명합니다.
-services: site-recovery
+title: Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구의 복제 정책 구성 및 관리 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구의 복제 설정을 구성하는 방법에 대해 설명합니다.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 03197d1f42a17d6fc99b85d3fbc3635468b1e6ae
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fd987097c2ca7b1e7509a1a0e63905c36ec8fec8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423609"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212899"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>VMware를 복제하기 위한 복제 정책 구성 및 관리
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Azure에 대한 VMware 재해 복구의 복제 정책 구성 및 관리
 이 아티클에서는 VMware VM을 Azure에 복제할 때 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 복제 정책을 구성하는 방법을 설명합니다.
 
 
@@ -47,5 +46,5 @@ ms.locfileid: "39423609"
 ## <a name="disassociate-or-delete-a-replication-policy"></a>복제 정책 분리 또는 삭제
 1. 복제 정책을 선택합니다.
     a. 정책 구성 서버에서 연결을 분리하려면 복제된 컴퓨터가 정책을 사용하지 않도록 합니다. 그런 다음, **분리**를 클릭합니다.
-    나. 정책을 삭제하려면 해당 정책이 구성 서버와 연결되지 않도록 합니다. 그런 다음, **삭제**를 클릭합니다. 삭제하는 데 30~60초가 걸립니다.
+    b. 정책을 삭제하려면 해당 정책이 구성 서버와 연결되지 않도록 합니다. 그런 다음, **삭제**를 클릭합니다. 삭제하는 데 30~60초가 걸립니다.
 1. **확인**을 클릭합니다.

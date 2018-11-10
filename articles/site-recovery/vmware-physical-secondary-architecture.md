@@ -1,21 +1,22 @@
 ---
-title: Azure Site Recovery의 VMware/물리적 서버 복제 아키텍처 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM 또는 실제 Windows/Linux 서버를 보조 VMware 사이트로 복제할 때 사용되는 구성 요소 및 아키텍처 개요를 설명합니다.
+title: Azure Site Recovery의 VMware/물리적 서버 재해 복구 아키텍처 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM 또는 실제 Windows/Linux 서버를 보조 VMware 사이트로 재해 복구하는 동안 사용되는 구성 요소 및 아키텍처 개요를 설명합니다.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 16e8a9719280b55e86d1d4622a32470b37287dd4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922701"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215126"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>VMware VM/물리적 서버-VMware 복제 아키텍처
+# <a name="vmware-vmphysical-server-to-vmware-disaster-recovery-architecture"></a>VMware VM/물리적 서버를 VMware로 재해 복구 아키텍처
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware 사이트와 Azure 간에 VMware VM(가상 머신) 또는 실제 Windows/Linux 서버를 보조 VMware 사이트로 복제, 장애 조치(failover) 및 복구할 때 사용되는 아키텍처와 프로세스에 대해 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM(가상 머신) 또는 실제 Windows/Linux 서버를 보조 VMware 사이트로 재해 복구 복제, 장애 조치(failover) 및 복구를 설정할 때 사용되는 아키텍처와 프로세스에 대해 설명합니다.
 
 
 ## <a name="architectural-components"></a>아키텍처 구성 요소

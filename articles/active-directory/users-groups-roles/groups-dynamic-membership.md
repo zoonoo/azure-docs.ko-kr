@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 13d6ed9feab4654d3574a5aced72efa0345365a6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855275"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215330"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -316,7 +316,7 @@ user.objectid -ne null
 device.objectid -ne null
 ```
 
-### <a name="extension-properties-and-custom-extension-properties"></a>확장 속성 및 사용자 지정 확장 속성
+## <a name="extension-properties-and-custom-extension-properties"></a>확장 속성 및 사용자 지정 확장 속성
 
 확장 특성 및 사용자 지정 확장 속성은 동적 멤버 자격 규칙에서 문자열 속성으로 지원됩니다. 확장 특성은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
 
@@ -335,7 +335,7 @@ device.objectid -ne null
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-사용자 지정 속성 이름은 [Graph 탐색기]를 사용하여 사용자 속성을 쿼리하고 속성 이름을 검색하여 디렉터리에서 찾을 수 있습니다.
+사용자 지정 속성 이름은 [Graph 탐색기]를 사용하여 사용자 속성을 쿼리하고 속성 이름을 검색하여 디렉터리에서 찾을 수 있습니다. 또한 동적 사용자 그룹 규칙 작성기에서 **사용자 지정 확장 속성 가져오기**를 선택하여 고유한 앱 ID를 입력하고 동적 구성원 규칙을 만들 때 사용할 사용자 지정 확장 속성 전체 목록을 받을 수 있습니다. 이 목록을 새로 고침하여 해당 앱에 대한 새로운 사용자 지정 확장 속성을 가져올 수도 있습니다.
 
 ## <a name="rules-for-devices"></a>장치에 대한 규칙
 

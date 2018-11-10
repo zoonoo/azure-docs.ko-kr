@@ -1,19 +1,19 @@
 ---
-title: 모바일 서비스(VMware/Azure 물리적 서버) 설치 | Microsoft Docs
-description: 모바일 서비스 에이전트를 설치하여 Azure Site Recovery를 사용하여 온-프레미스 VMware VM 및 실제 서버를 보호하는 방법에 대해 알아봅니다.
+title: VMware VM 및 물리적 서버와 Azure 간 재해 복구를 위한 모바일 서비스 설치 | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구를 위해 모바일 서비스 에이전트를 설치하는 방법을 알아봅니다.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 145affbcff128e0ec599ad1f97c79260b0dcae5a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527000"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212695"
 ---
-# <a name="install-the-mobility-service"></a>모바일 서비스 설치 
+# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 모바일 서비스 설치
 
 Site Recovery 모바일 서비스는 Azure에 복제하려는 VMware VM 및 실제 서버에 설치됩니다. 서비스는 컴퓨터에서 데이터 쓰기를 캡처하여 프로세스 서버로 전달합니다. Azure에 복제하려는 모든 컴퓨터에 모바일 서비스(VMware VM 또는 물리적 서버)를 배포합니다. 다음 방법을 사용하여 보호하려는 서버 및 VMware VM에 모바일 서비스를 배포할 수 있습니다.
 

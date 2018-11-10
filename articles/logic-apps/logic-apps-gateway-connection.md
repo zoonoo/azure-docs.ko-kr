@@ -3,19 +3,18 @@ title: Azure Logic Apps용 온-프레미스 데이터 원본에 액세스 | Micr
 description: 논리 앱에서 온-프레미스 데이터 원본에 액세스할 수 있도록 온-프레미스 데이터 게이트웨이를 만들고 설정합니다.
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 65c7e03b349314ad61fa5f1ea8322f4d1352b8e6
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.date: 10/01/2018
+ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145692"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413709"
 ---
 # <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용하여 Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -34,17 +33,16 @@ ms.locfileid: "39145692"
 
 * 게이트웨이 설치가 Azure의 게이트웨이 리소스에 아직 연결되어 있지 않아야 합니다. 게이트웨이 설치는 하나의 게이트웨이 리소스에만 연결할 수 있으며 이러한 연결은 게이트웨이 리소스를 만들고 게이트웨이 설치를 선택한 경우에만 수행됩니다. 이렇게 연결되면 다른 리소스에서는 해당 게이트웨이 설치를 사용할 수 없습니다.
 
-* Azure Portal에 로그인하고 게이트웨이 리소스를 만들 때는 이전에 [온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md#requirements)할 때 사용한 것과 동일한 로그인 계정을 사용해야 합니다.
-또한 게이트웨이를 설치하는 데 사용한 것과 동일한 [Azure 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)을 사용해야 합니다. 아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
+* Azure Portal에 로그인하고 게이트웨이 리소스를 만들 때는 게이트웨이를 설치하는 데 사용한 것과 동일한 [Auzre 구독](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer)과 함께 이전에 [온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md#requirements)할 때 사용한 것과 동일한 로그인 계정을 사용해야 합니다. 아직 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
-* Azure Portal에서 게이트웨이 리소스를 만들고 유지 관리하려면 [Windows 서비스 계정](../logic-apps/logic-apps-gateway-install.md#windows-service-account)에 적어도 **참가자** 권한이 있어야 합니다. 온-프레미스 데이터 게이트웨이는 Windows 서비스로 실행되고 Windows 서비스 로그인 자격 증명에 `NT SERVICE\PBIEgwService`를 사용하도록 설정됩니다. 
+* Azure Portal에서 게이트웨이 리소스를 만들고 유지 관리하려면 [Windows 서비스 계정](../logic-apps/logic-apps-gateway-install.md#windows-service-account)에 적어도 **기여자** 권한이 있어야 합니다. 온-프레미스 데이터 게이트웨이는 Windows 서비스로 실행되고 Windows 서비스 로그인 자격 증명에 `NT SERVICE\PBIEgwService`를 사용하도록 설정됩니다. 
 
   > [!NOTE]
   > Windows 서비스 계정은 온-프레미스 데이터 원본에 연결하는 데 사용되는 동일한 계정 및 클라우드 서비스에 로그인하는 데 사용되는 Azure 회사 또는 학교 계정과 다릅니다.
 
 ## <a name="download-and-install-gateway"></a>게이트웨이 다운로드 및 설치
 
-이 문서의 단계를 계속 진행하려면 로컬 컴퓨터에 게이트웨이가 이미 설치되어 있어야 합니다.
+이 문서의 단계를 계속 진행하려면 로컬 컴퓨터에 게이트웨이가 이미 설치되어 있는지 확인합니다.
 아직 수행하지 않은 경우 [온-프레미스 데이터 게이트웨이를 다운로드하고 설치하는 단계](../logic-apps/logic-apps-gateway-install.md)에 따르세요. 
 
 <a name="create-gateway-resource"></a>
@@ -155,7 +153,7 @@ ms.locfileid: "39145692"
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

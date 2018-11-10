@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 1cebb3dae8fbfd4188487a6ff7fca42ac0505cf0
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 3561c2959283cd1c589414b96724cf0341af5e0a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498490"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215381"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Linux IaaS VM용 Azure Disk Encryption 사용 
 
@@ -252,7 +252,11 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 - 루트/OS/부팅 파티션이 아닙니다.
 - 아직 암호화되지 않았습니다.
 - BEK 볼륨이 아닙니다.
+- RAID 볼륨이 아닙니다.
+- LVM 볼륨이 아닙니다.
 - 탑재되어 있습니다.
+
+RAID 볼륨 또는 LVM 볼륨이 아닌, RAID 볼륨 또는 LVM 볼륨을 구성하는 디스크를 암호화합니다.
 
 ### <a name="bkmk_EFAPSH"> </a> Azure CLI에서 EncryptFormatAll 매개변수 사용
 Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) 명령을 사용하여 실행 중인 IaaS 가상 머신에서 암호화를 사용하도록 설정합니다.

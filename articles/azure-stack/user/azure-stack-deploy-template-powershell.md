@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4b254f9a4446a1b0ff400e0d63effe68fc4f82b4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: cf39ba6b1754a5e809e7295f2783846e95636ce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363669"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241739"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>PowerShell을 사용 하 여 Azure Stack에 템플릿 배포
 
@@ -35,7 +35,7 @@ Azure Stack에 Azure Resource Manager 템플릿을 배포 하려면 PowerShell�
 >[!NOTE]
 >이 예제를 시도 하기 전에 확인 되었는지 [PowerShell 구성](azure-stack-powershell-configure-user.md) Azure Stack 사용자에 대 한 합니다.
 
-1. 로 이동 [ http://aka.ms/AzureStackGitHub ](http://aka.ms/AzureStackGitHub) 찾고 합니다 **101-간단한-windows-vm** 템플릿. 이 위치에 템플릿을 저장할: c:\\템플릿\\azuredeploy-101-간단한-windows-vm.json 합니다.
+1. 로 이동 [ http://aka.ms/AzureStackGitHub ](https://aka.ms/AzureStackGitHub) 찾고 합니다 **101-간단한-windows-vm** 템플릿. 이 위치에 템플릿을 저장할: c:\\템플릿\\azuredeploy-101-간단한-windows-vm.json 합니다.
 2. 관리자 권한 PowerShell 명령 프롬프트를 엽니다.
 3. 대체 *사용자 이름* 및 *암호* 다음 스크립트와 사용자 이름 및 암호를 한 다음 스크립트를 실행 합니다.
 

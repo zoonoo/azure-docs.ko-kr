@@ -10,20 +10,20 @@ ms.component: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 6f79416c28631a47209558fd0c415ae79cff93bc
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c19fa95bd5529f18a65ad466e9c6352b1be80657
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831401"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421121"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Bing Autosuggest API 및 Java에 대한 빠른 시작
 
-이 문서에서는 Java와 함께 [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/)를 사용하는 방법을 보여 줍니다. Bing Autosuggest API는 사용자가 검색 상자에 입력하는 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 일반적으로, 사용자가 검색 상자에 새 문자를 입력할 때마다 이 API를 호출한 후 검색 상자의 드롭다운 목록에 제안을 표시합니다. 이 문서에서는 *sail*에 대해 제안된 쿼리 문자열을 반환하는 요청을 보내는 방법을 보여 줍니다.
+이 문서에서는 Java와 함께 [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) 를 사용하는 방법을 보여줍니다. Bing Autosuggest API는 사용자가 검색 상자에 입력하는 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 일반적으로, 사용자가 검색 상자에 새 문자를 입력할 때마다 이 API를 호출한 후 검색 상자의 드롭다운 목록에 제안을 표시합니다. 이 문서에서는 *sail*에 대해 제안된 쿼리 문자열을 반환하는 요청을 보내는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 즐겨 찾는 Java IDE를 사용할 수도 있지만 텍스트 편집기로도 충분합니다.
+이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 즐겨 찾는 Java IDE를 사용할 수도 있지만 텍스트 편집기로도 충분합니다.
 
 **Bing Autosuggest API v7**을 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/#search)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
 

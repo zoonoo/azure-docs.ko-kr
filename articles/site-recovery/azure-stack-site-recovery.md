@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/09/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902827"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215211"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
-이 문서에서는 [Azure Site Recovery 서비스](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 Azure에 Azure Stack VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
+이 문서에서는 [Azure Site Recovery 서비스](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 Azure에 재해 복구 Azure Stack VM을 설정하는 방법을 알아봅니다.
 
 Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에 기여하는 서비스입니다. 이 서비스는 예상된 및 예기치 않은 중단이 발생할 때 VM 워크로드를 계속 사용할 수 있도록 합니다.
 
@@ -189,7 +189,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> 명령줄을 통해 구성 서버를 설치할 수도 있습니다. [자세히 알아보기](http://aka.ms/installconfigsrv).
+> 명령줄을 통해 구성 서버를 설치할 수도 있습니다. [자세히 알아보기](physical-manage-configuration-server.md#install-from-the-command-line).
 
 > 포털에 계정 이름이 표시되는 데 15분 이상 걸릴 수 있습니다. 즉시 업데이트하려면 **구성 서버** > ***서버 이름*** > **서버 새로 고침**을 선택합니다.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/05/2018
-ms.openlocfilehash: 82d2316b3f72fbb0c5c3ee1ea9424afcc7661361
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fc19c77e90ffd2d300497fc496da02b2d2234d3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833974"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244392"
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Machine Learning 작업 영역 배포
 ## <a name="introduction"></a>소개
@@ -138,7 +138,7 @@ $rgd.Outputs.mlWorkspaceToken.Value
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
 ```
-작업 영역이 프로비전되면 [Azure Machine Learning에 대한 PowerShell 모듈](http://aka.ms/amlps)을 사용하여 많은 Azure Machine Learning Studio 작업을 자동화할 수도 있습니다.
+작업 영역이 프로비전되면 [Azure Machine Learning에 대한 PowerShell 모듈](https://aka.ms/amlps)을 사용하여 많은 Azure Machine Learning Studio 작업을 자동화할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)에 대해 자세히 알아봅니다. 

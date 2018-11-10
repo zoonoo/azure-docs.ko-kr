@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389958"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412862"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
-ADSyncConfig.psm1이라는 새 PowerShell 모듈은 Azure AD Connect 배포에 대한 올바른 Active Directory 권한을 구성하는 데 도움이 되는 cmdlet 컬렉션이 포함된 빌드 1.1.880.0(2018년 8월에 릴리스됨)에서 소개되었습니다. 
+[ADSyncConfig.psm1](reference-connect-adsyncconfig.md)이라는 새 PowerShell 모듈은 Azure AD Connect 배포에 대한 올바른 Active Directory 권한을 구성하는 데 도움이 되는 cmdlet 컬렉션이 포함된 빌드 1.1.880.0(2018년 8월에 릴리스됨)에서 소개되었습니다. 
 
 ## <a name="overview"></a>개요 
 다음 PowerShell cmdlet을 사용하여 Azure AD Connect에서 사용하도록 설정한 것처럼 가장한 각 기능에 대해 AD DS 커넥터 계정의 Active Directory 권한을 설정할 수 있습니다. 문제를 방지하려면 사용자 지정 도메인 계정으로 Azure AD Connect를 설치하여 포리스트에 연결할 때마다 Active Directory 권한을 미리 준비해야 합니다. 이 ADSyncConfig 모듈은 Azure AD Connect가 배포된 후 권한을 구성하는 데도 사용할 수 있습니다.
@@ -49,7 +49,8 @@ Install-WindowsFeature RSAT-AD-Tools
 ```
 ![구성](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
->![참고] 이미 AD DS용 RSAT가 설치된 도메인 컨트롤러에 **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** 파일을 복사하고, 여기에서 이 PowerShell 모듈을 사용할 수도 있습니다.
+>[!NOTE]
+>이미 AD DS용 RSAT가 설치된 도메인 컨트롤러에 **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** 파일을 복사하고, 여기에서 이 PowerShell 모듈을 사용할 수도 있습니다.
 
 ADSyncConfig 사용을 시작하려면 Windows PowerShell 창에서 모듈을 로드해야 합니다. 
 
@@ -269,10 +270,10 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 - 지정된 개체에서 상속을 사용하지 않도록 설정합니다. 
 - SELF와 관련된 기본 권한을 그대로 유지하려면 SELF와 관련된 ACE를 제외하고는 특정 개체의 ACE를 모두 제거합니다. 
  
- -ObjectDN 매개 변수는 권한을 강화해야 하는 AD 계정입니다. 이는 일반적으로 AD DS 커넥터에서 구성된 MSOL_nnnnnnnnnnnn 도메인 계정입니다('AD DS 커넥터 계정 확인' 참조). -Credential 매개 변수는 대상 AD 개체에 대한 Active Directory 권한을 제한하는 데 필요한 권한이 있는 관리자 계정을 지정하는 데 필요합니다. 이는 일반적으로 엔터프라이즈 또는 도메인 관리자입니다.  
+ -ADConnectorAccountDN 매개 변수는 권한을 강화해야 하는 AD 계정입니다. 이는 일반적으로 AD DS 커넥터에서 구성된 MSOL_nnnnnnnnnnnn 도메인 계정입니다('AD DS 커넥터 계정 확인' 참조). -Credential 매개 변수는 대상 AD 개체에 대한 Active Directory 권한을 제한하는 데 필요한 권한이 있는 관리자 계정을 지정하는 데 필요합니다. 이는 일반적으로 엔터프라이즈 또는 도메인 관리자입니다.  
 
 ``` powershell
-Set-ADSyncRestrictedPermissions [-ObjectDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
 예: 
@@ -301,3 +302,5 @@ Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Con
 - [Azure AD Connect: 계정 및 사용 권한](reference-connect-accounts-permissions.md)
 - [기본 설치](how-to-connect-install-express.md)
 - [사용자 지정 설치](how-to-connect-install-custom.md)
+- [ADSyncConfig 참조](reference-connect-adsyncconfig.md)
+

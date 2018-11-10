@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 2cde7d2af4dee9e2bd241f0856b8f2d29ccad6ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024422"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210740"
 ---
 # <a name="virtual-machine-serial-console"></a>Virtual Machine 직렬 콘솔
 
@@ -54,20 +54,26 @@ Linux VM에 대한 직렬 콘솔 설명서를 보려면 [여기를 클릭](seria
   4. 지원 및 문제 해결 섹션까지 아래로 스크롤하여 "직렬 콘솔" 옵션을 클릭합니다. 직렬 콘솔이 있는 새 창이 열리고 연결이 시작됩니다.
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>사용자 지정 또는 이전 이미지에서 직렬 콘솔 사용
-Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx))가 사용되도록 설정되어 있습니다. SAC는 서버 버전의 Windows에서 지원되지만, 클라이언트 버전(예: Windows 10, Windows 8 또는 Windows 7)에서는 사용할 수 없습니다. 2018년 2월 이전에 만든 Windows 가상 머신용 직렬 콘솔을 사용하도록 설정하려면 다음 단계를 사용하세요. 
+Azure의 최신 Windows Server 이미지에는 기본적으로 SAC([Special Administrative Console](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx))가 사용되도록 설정되어 있습니다. SAC는 서버 버전의 Windows에서 지원되지만, 클라이언트 버전(예: Windows 10, Windows 8 또는 Windows 7)에서는 사용할 수 없습니다. 
+
+2018년 2월 전에 만든 이전 Windows Server 이미지의 경우 Azure Portal의 실행 명령 기능을 통해 직렬 콘솔을 자동으로 사용하도록 설정할 수 있습니다. Azure Portal에서 “EnableEMS”라는 실행 명령을 찾습니다.
+
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
+
+또는 2018년 2월 이전에 만든 Windows 가상 머신에 대해 직렬 콘솔을 수동으로 사용하도록 설정하려면 다음 단계를 사용하세요. 
 
 1. 원격 데스크톱을 통해 Windows 가상 머신에 연결
-2. 관리자 명령 프롬프트에서 다음 명령 실행 
-* `bcdedit /ems {current} on`
-* `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
-3. 시스템을 다시 부팅하여 SAC 콘솔을 사용하도록 설정
+1. 관리자 명령 프롬프트에서 다음 명령 실행 
+    * `bcdedit /ems {current} on`
+    * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+1. 시스템을 다시 부팅하여 SAC 콘솔을 사용하도록 설정
 
-![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 필요한 경우 오프라인에서도 SAC를 사용하도록 설정할 수 있습니다.
 
 1. SAC를 데이터 디스크용으로 구성하려는 Windows 디스크를 기존 VM에 연결 
-2. 관리자 명령 프롬프트에서 다음 명령 실행 
+1. 관리자 명령 프롬프트에서 다음 명령 실행 
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 

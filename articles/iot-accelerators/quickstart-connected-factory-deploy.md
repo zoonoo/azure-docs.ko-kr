@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144516"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139017"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>빠른 시작: 클라우드 기반 솔루션으로 산업용 IoT 장치 관리해 보기
 
@@ -26,19 +26,19 @@ ms.locfileid: "39144516"
 
 이 빠른 시작을 완료하려면 활성 Azure 구독이 필요합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
 Azure 구독에 솔루션 가속기를 배포할 때 일부 구성 옵션을 설정해야 합니다.
 
-Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators)에 로그인합니다.
+[Microsoft Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com)로 이동하고 Azure 계정 자격 증명을 사용하여 로그인합니다.
 
-**연결된 팩터리** 타일에서 **지금 사용해 보기**를 클릭합니다.
+**연결된 팩터리** 타일을 클릭합니다. **연결된 팩터리** 페이지에서 **지금 사용해 보기**를 클릭합니다.
 
-![연결된 팩터리 선택](./media/quickstart-connected-factory-deploy/connectedfactory.png)
+![지금 사용해보기](./media/quickstart-connected-factory-deploy/connectedfactory.png)
 
-**Create Connected Factory solution**(연결된 팩터리 솔루션 만들기) 페이지에서 연결된 펙터리 솔루션 가속기에 대한 고유 **솔루션 이름**을 입력합니다. 이 이름은 솔루션 가속기 리소스를 모두 포함하는 Azure 리소스 그룹의 이름입니다. 이 빠른 시작에서는 **MyDemoConnectedFactory**를 호출합니다.
+**Create Connected Factory solution**(연결된 팩터리 솔루션 만들기) 페이지에서 연결된 펙터리 솔루션 가속기에 대한 고유 **솔루션 이름**을 입력합니다. 이 이름은 솔루션 가속기 리소스를 모두 포함하는 Azure 리소스 그룹의 이름입니다. 이 빠른 시작에서는 **MyDemoConnectedFactory**라는 이름을 사용합니다.
 
 솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 이 빠른 시작에서는 **Visual Studio Enterprise** 및 **미국 동부**를 사용합니다. 구독 내에서 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
 
@@ -66,7 +66,7 @@ Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 
 
 [![솔루션 대시보드](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
-대시보드를 사용하여 산업용 IoT 장치를 관리합니다. 연결된 팩터리는 계층 구조를 사용하여 전역 팩터리 구성을 표시합니다. 계층 구조의 최상위 수준에는 하나 이상의 팩터리를 포함하는 엔터프라이즈가 있으며 각 팩터리마다 생산 라인이 포함되어 있고 생산 라인은 스테이션으로 구성됩니다. 각 수준마다 OEE와 KPI를 볼 수 있고, 원격 분석을 위한 새 노드를 게시할 수 있고, 알람에 응답할 수 있습니다.
+대시보드를 사용하여 산업용 IoT 장치를 관리합니다. 연결된 팩터리는 계층 구조를 사용하여 전역 팩터리 구성을 표시합니다. 계층 구조의 최상위 수준은 하나 이상의 팩터리가 포함된 엔터프라이즈입니다. 각 팩터리에는 생산 라인이 포함되어 있고, 각 생산 라인은 스테이션으로 구성됩니다. 각 수준마다 OEE와 KPI를 볼 수 있고, 원격 분석을 위한 새 노드를 게시할 수 있고, 알람에 응답할 수 있습니다.
 
 대시보드에서는 다음을 확인할 수 있습니다.
 
@@ -137,7 +137,7 @@ OEE는 생산 관련 운영 매개 변수를 사용하여 제조 프로세스의
 
 알람 데이터를 상세히 분석하려면 알람 패널에서 그래프를 클릭합니다.
 
-이러한 알람은 솔루션 가속기의 구성 파일에 지정된 규칙에 의해 생성됩니다. OEE 또는 KPI 수치나 OPC UA 노드 값이 구성된 임계값을 초과하면 이러한 규칙이 알람을 생성할 수 있습니다.
+이러한 알람은 솔루션 가속기의 구성 파일에 지정된 규칙에 의해 생성됩니다. OEE 또는 KPI 수치나 OPC UA 노드 값이 임계값을 초과하면 이러한 규칙이 알람을 생성할 수 있습니다. 이 임계값을 설정할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

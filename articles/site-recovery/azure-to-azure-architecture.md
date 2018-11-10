@@ -1,24 +1,24 @@
 ---
 title: Azure Site Recovery의 Azure 간 복제 아키텍처 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 Azure 지역 간에 Azure VM을 복제하는 경우 사용되는 구성 요소와 아키텍처에 대해 간략히 설명합니다.
+description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 Azure VM의 Azure 지역 간에 재해 복구를 설정할 때 사용되는 구성 요소와 아키텍처에 대해 간략히 설명합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 20387c325497934ccb2e02188b24a0125f937e00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 0069ece5d02ad52b6fea9add7817e63fa3c412b6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078260"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212735"
 ---
-# <a name="azure-to-azure-replication-architecture"></a>Azure 간 복제 아키텍처
+# <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure 지역 간에 Azure VM(가상 머신)을 복제, 장애 조치(Failover) 및 복구할 때 사용되는 아키텍처에 대해 설명합니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure 지역 간에 Azure VM(Virtual Machines)의 복제, 장애 조치(Failover) 및 복구를 포함하는 재해 복구를 배포할 때 사용되는 아키텍처에 대해 설명합니다.
 
 
 

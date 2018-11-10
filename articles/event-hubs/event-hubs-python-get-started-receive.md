@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: sethm
-ms.openlocfilehash: f5388f2de599d94f68a1d24a7d701a2cb4795915
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9707f0cf5a76c0ac4006b53ca8166d3b42fc9af4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703468"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240565"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>Python을 사용하여 Event Hubs에서 이벤트 수신
 
@@ -108,14 +108,7 @@ start python recv.py
 ```
  
 ## <a name="next-steps"></a>다음 단계
-
-이벤트를 전송하려면 [해당 보내기 문서](event-hubs-python-get-started-send.md)를 참조하세요.
-
-다음 페이지를 방문하여 Event Hubs에 대해 자세히 알아보세요.
-
-* [Event Hubs 개요][Event Hubs overview]
-* [이벤트 허브 만들기](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Python 응용 프로그램을 만들었습니다. Python을 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Python](event-hubs-python-get-started-send.md)을 참조하세요.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

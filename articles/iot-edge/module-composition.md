@@ -8,16 +8,16 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a65eb029dbf10b194bd28bf7ad82f5aa839338a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990623"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248406"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기
+# <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기
 
-각 IoT Edge 장치는 $edgeAgent 및 $edgeHub라는 두 개 이상의 모듈을 실행합니다. 그러면 IoT Edge 런타임을 구성합니다. 해당하는 두 개의 표준 외에도 IoT Edge 장치는 여러 모듈을 실행하여 개수에 관계 없이 프로세스를 수행할 수 있습니다. 장치에 이러한 모든 모듈을 한 번에 배포하는 경우 포함되는 모듈 및 서로 상호 작용하는 방법을 선언하는 방법이 필요합니다. 
+각 IoT Edge 장치는 $edgeAgent 및 $edgeHub라는 두 개 이상의 모듈을 실행합니다. 그러면 IoT Edge 런타임을 구성합니다. 또한 IoT Edge 장치는 여러 모듈을 실행하여 개수에 관계 없이 프로세스를 수행할 수 있습니다. 장치에 이러한 모든 모듈을 한 번에 배포하는 경우 포함되는 모듈 및 서로 상호 작용하는 방법을 선언하는 방법이 필요합니다. 
 
 *배포 매니페스트*는 다음 항목을 설명하는 JSON 문서입니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "46990623"
 
 모든 IoT Edge 장치는 배포 매니페스트로 구성해야 합니다. 새로 설치된 IoT Edge 런타임은 유효한 매니페스트로 구성될 때까지 오류 코드를 보고합니다. 
 
-Azure IoT Edge 자습서에서는 Azure IoT Edge 포털의 마법사를 통해 배포 매니페스트를 빌드합니다. REST 또는 IoT Hub 서비스 SDK를 사용하여 프로그래밍 방식으로 배포 매니페스트를 적용할 수도 있습니다. 자세한 내용은 [IoT Edge 배포에 대한 이해][lnk-deploy]를 참조하세요.
+Azure IoT Edge 자습서에서는 Azure IoT Edge 포털의 마법사를 통해 배포 매니페스트를 빌드합니다. REST 또는 IoT Hub 서비스 SDK를 사용하여 프로그래밍 방식으로 배포 매니페스트를 적용할 수도 있습니다. 자세한 내용은 [IoT Edge 배포 이해](module-deployment-monitoring.md)를 참조하세요.
 
 ## <a name="create-a-deployment-manifest"></a>배포 매니페스트 만들기
 
@@ -138,7 +138,7 @@ Edge 허브는 모듈 간 및 모듈과 IoT Hub 간에 메시지를 선언적으
 | `/messages/modules/{moduleId}/outputs/{output}` | {output}을 사용하여 {moduleId}에서 보낸 모든 장치-클라우드 메시지 |
 
 ### <a name="condition"></a>조건
-조건은 경로 선언의 선택 사항입니다. 싱크에서 원본으로 모든 메시지를 전달하려는 경우 전체 **WHERE** 절을 그대로 둡니다. 또는 [IoT Hub 쿼리 언어][lnk-iothub-query]를 사용하여 조건을 만족하는 특정 메시지 또는 메시지 유형에 대해 필터링할 수 있습니다.
+조건은 경로 선언의 선택 사항입니다. 싱크에서 원본으로 모든 메시지를 전달하려는 경우 전체 **WHERE** 절을 그대로 둡니다. 또는 [IoT Hub 쿼리 언어](../iot-hub/iot-hub-devguide-routing-query-syntax.md)를 사용하여 조건을 만족하는 특정 메시지 또는 메시지 유형에 대해 필터링할 수 있습니다.
 
 IoT Edge의 모듈 간에 전달되는 메시지는 장치와 Azure IoT Hub 간에 전달되는 메시지와 동일한 서식이 지정됩니다. 모든 메시지는 JSON으로 서식이 지정되고 **systemProperties**, **appProperties** 및 **body** 매개 변수를 포함합니다. 
 
@@ -262,10 +262,4 @@ Edge 허브는 [Edge 허브 원하는 속성](module-edgeagent-edgehub.md)의 `s
 
 * $edgeAgent 및 $edgeHub에 포함될 수 있거나 포함되어야 하는 속성의 전체 목록은 [Edge 에이전트 및 Edge 허브의 속성](module-edgeagent-edgehub.md)을 참조하세요.
 
-* 이제 IoT Edge 모듈을 사용하는 방법을 알았으므로 [IoT Edge 모듈 개발을 위한 요구 사항 및 도구에 대해 알아봅니다][lnk-module-dev].
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md
+* 이제 IoT Edge 모듈을 사용하는 방법을 알았으므로 [IoT Edge 모듈 개발을 위한 요구 사항 및 도구에 대해 알아봅니다](module-development.md).

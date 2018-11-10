@@ -2,18 +2,18 @@
 title: Azure Storage에서 SAS(공유 액세스 서명) 사용 | Microsoft 문서
 description: SAS(공유 액세스 서명)를 사용하여 Blob, 큐, 테이블 및 파일을 비롯한 Azure Storage 리소스에 대한 액세스 권한을 위임하는 방법을 알아봅니다.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 315c5a88d16206414b6b81a83963cbb1f8b4424a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c7d2c16ef135644c1ff23d7a71c66bec27ac930d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524757"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241048"
 ---
 # <a name="using-shared-access-signatures-sas"></a>SAS(공유 액세스 서명) 사용
 
@@ -108,7 +108,7 @@ SAS 토큰은 *클라이언트* 쪽에서 생성된 문자열입니다. 코드 �
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Name | SAS 부분 | 설명 |
+| 이름 | SAS 부분 | 설명 |
 | --- | --- | --- |
 | Blob URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Blob의 주소입니다. HTTPS를 사용하는 것이 좋습니다. |
 | Storage 서비스 버전 |`sv=2015-04-05` |2012-02-12 이후의 저장소 서비스 버전의 경우 이 매개 변수는 사용할 버전을 나타냅니다. |
@@ -128,9 +128,9 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Name | SAS 부분 | 설명 |
+| 이름 | SAS 부분 | 설명 |
 | --- | --- | --- |
-| 리소스 URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |서비스 속성을 가져오거나(GET으로 호출할 경우) 서비스 속성을 설정하기 위한(SET으로 호출하는 경우) 매개 변수를 사용하는 Blob service 끝점입니다. |
+| 리소스 URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |서비스 속성을 가져오거나(GET으로 호출할 경우) 서비스 속성을 설정하기 위한(SET으로 호출하는 경우) 매개 변수를 사용하는 Blob service 엔드포인트입니다. |
 | Services |`ss=bf` |SAS는 Blob 및 파일 서비스에 적용됩니다. |
 | 리소스 유형 |`srt=s` |SAS는 서비스 수준 작업에 적용됩니다. |
 | 권한 |`sp=rw` |사용 권한으로 읽기 및 쓰기 작업에 대한 액세스 권한을 부여합니다. |
@@ -260,7 +260,7 @@ static string GetAccountSASToken()
 }
 ```
 
-계정 SAS를 사용하여 Blob service에 대한 서비스 수준 API에 액세스하려면 SAS를 사용하는 Blob 클라이언트 개체와 저장소 계정의 Blob 저장소 끝점을 구성합니다.
+계정 SAS를 사용하여 Blob service에 대한 서비스 수준 API에 액세스하려면 SAS를 사용하는 Blob 클라이언트 개체와 저장소 계정의 Blob 저장소 엔드포인트를 구성합니다.
 
 ```csharp
 static void UseAccountSAS(string sasToken)

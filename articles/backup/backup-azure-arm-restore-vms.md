@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 450314dddd49825bae689701b694f9a26758835e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377642"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420526"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Azure Portal을 사용하여 가상 머신 복원
 정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 Recovery Services 자격 증명 모음에 저장됩니다. VM(가상 머신)을 복구하거나 다시 빌드해야 하는 경우 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원할 때 다음을 수행할 수 있습니다.
@@ -151,7 +151,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 **위치 복원**이 **기존 항목 바꾸기** 탭을 통해 수행됩니다.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>복원 지점에서 기존 디스크를 교체합니다.
-**기존 항목 바꾸기** 옵션을 사용하면 현재 VM의 기존 디스크를 선택한 복원 지점으로 교체할 수 있습니다. 이 작업은 현재 VM이 존재하는 경우에게만 수행할 수 있습니다. 어떤 이유로든 삭제되면 이 작업은 수행할 수 없습니다. 대안으로 VM 또는 디스크를 **새로 만들어서** 복원 작업을 계속하는 것이 좋습니다. 예방 수단으로 기존 디스크 교체 작업을 수행하는 동안 디스크 교체 작업을 시작하기 전에 데이터를 백업합니다. 복원 지점에 현재 VM보다 많거나 적은 디스크가 있으면 복원 지점의 디스크 수가 VM에만 반영됩니다. 기존 옵션 바꾸기는 현재 Managed Disks 및 암호화되지 않은 VM에만 지원됩니다.  
+**기존 항목 바꾸기** 옵션을 사용하면 현재 VM의 기존 디스크를 선택한 복원 지점으로 교체할 수 있습니다. 이 작업은 현재 VM이 존재하는 경우에게만 수행할 수 있습니다. 어떤 이유로든 삭제되면 이 작업은 수행할 수 없습니다. 대안으로 VM 또는 디스크를 **새로 만들어서** 복원 작업을 계속하는 것이 좋습니다. 예방 수단으로 기존 디스크 교체 작업을 수행하는 동안 디스크 교체 작업을 시작하기 전에 데이터를 백업합니다. 복원 지점에 현재 VM보다 많거나 적은 디스크가 있으면 복원 지점의 디스크 수가 VM에만 반영됩니다. 현재 비관리 디스크 및 암호화 디스크에는 **기존 옵션 바꾸기**가 지원되지 않습니다. [일반화된 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 및 [사용자 지정 이미지](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/)를 사용하여 만들어진 VM에도 지원되지 않습니다.  
 
  **복원 구성** 블레이드에서 선택해야 하는 유일한 입력은 **준비 위치**입니다.
 
@@ -170,7 +170,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 
 **백업 작업** 블레이드가 열리고 작업 목록이 표시됩니다.
 
-![자격 증명 모음의 VM 목록](./media/backup-azure-arm-restore-vms/restore-job-completed.png)
+![자격 증명 모음의 VM 목록](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
 ## <a name="use-templates-to-customize-a-restored-vm"></a>템플릿을 사용하여 복원된 VM 사용자 지정
 [디스크 복원 작업을 마친 후](#Track-the-restore-operation) 복원 작업의 일환으로 생성된 템플릿을 사용하여 백업 구성과는 다른 구성이 있는 새 VM을 만듭니다. 복원 지점에서 새 VM을 만드는 프로세스 중에 생성된 리소스의 이름도 사용자 지정할 수 있습니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 6695e17ec3dd9bf9ebeeb44b34e9688d3e5a1625
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c02d3483a98c358e53964d3932944b5d2dad9c53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249750"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240276"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 및 비교
 ## <a name="encoding-overview"></a>Encoding 개요
@@ -51,7 +51,7 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 [형식 및 코덱](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>기본 설정
-미디어 인코더 표준은 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
+미디어 인코더 표준은 [여기](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
 
 ### <a name="input-and-output-metadata"></a>입력 및 출력 메타데이터
 인코더 입력 메타데이터는 [여기](media-services-input-metadata-schema.md)에서 설명합니다.

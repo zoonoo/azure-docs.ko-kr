@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 4ed4e73348db8cfffb6e79afaa9d196e242d7488
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 759de1c62cb9cb4aa642fa564378b1ed551d7dae
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142964"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239358"
 ---
 # <a name="azure-storage-security-overview"></a>Azure Storage 보안 개요
 
@@ -33,6 +33,7 @@ Azure Storage는 내구성, 가용성, 확장성을 활용하여 고객의 요�
 * 분석을 사용하여 사용자가 Storage에 액세스할 때 사용하는 인증 방법을 추적할 수 있습니다.
 
 Azure Storage의 보안에 대해 보다 자세히 알아보려면 [Azure Storage 보안 가이드](../storage/common/storage-security-guide.md)를 참조하세요. 이 가이드에서는 Azure Storage의 보안 기능에 대해 자세히 설명합니다. 이러한 기능에는 저장소 계정 키, 전송 중인 데이터 및 미사용 데이터 암호화, 저장소 분석 등이 포함됩니다.
+
 
 이 문서에서는 Azure Storage에서 사용할 수 있는 Azure 보안 기능의 개요를 제공합니다. 문서 링크는 각 기능에 대해 자세히 알아볼 수 있도록 세부 정보를 제공합니다.
 
@@ -91,13 +92,35 @@ VM에 대한 디스크 암호화는 Linux 및 Windows 운영 체제에 적합합
 
 * [Windows 및 Linux IaaS Virtual Machines에 대한 Azure 디스크 암호화(영문)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크
+## <a name="firewalls-and-virtual-networks"></a>방화벽 및 가상 네트워크
 
 Azure 저장소를 사용하면 저장소 계정에 대한 방화벽 규칙을 활성화할 수 있습니다. 활성화되면 다른 Azure 서비스의 요청을 포함하여 데이터에 대한 들어오는 요청을 차단합니다. 트래픽을 허용하는 예외를 구성할 수 있습니다. 기존 저장소 계정에서 또는 생성 중에 방화벽 규칙을 활성화할 수 있습니다.
 
 이 기능을 사용하여 허용된 네트워크의 특정 집합으로 저장소 계정을 보호해야 합니다.
 
 Azure 저장소 방화벽 및 가상 네트워크에 대한 자세한 내용은 문서 [Azure Storage 방화벽 및 Virtual Network 구성](../storage/common/storage-network-security.md)을 검토하세요.
+
+## <a name="azure-data-box"></a>Azure Data Box
+
+네트워크를 사용할 수 없는 경우 Data Box, Data Box Disk 및 Data Box Heavy 장치를 통해 많은 양의 데이터를 Azure로 전송할 수 있습니다. 이러한 오프라인 데이터 전송 장치는 조직과 Azure 데이터 센터 간에 제공됩니다. 이러한 장치는 AES 암호화를 사용하여 전송 중인 데이터를 보호할 수 있고, 철저한 업로드 후 삭제 프로세스를 진행하여 장치에서 데이터를 삭제합니다.
+
+Data Box Edge 및 Data Box Gateway는 사이트와 Azure 간에 데이터를 관리하는 네트워크 저장소 게이트웨이로 작동하는 온라인 데이터 전송 제품입니다. 온-프레미스 네트워크 장치인 Data Box Edge는 Azure와 데이터를 주고받으며 AI(인공 지능) 지원 에지 컴퓨팅을 사용하여 데이터를 처리합니다. Data Box Gateway는 저장소 게이트웨이 기능이 포함된 가상 어플라이언스입니다.
+
+자세한 정보:
+
+* [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
+* [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
+* [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
+
+## <a name="advanced-threat-protection"></a>고급 위협 보호
+
+Azure Storage는 저장소 계정에 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 탐지하는 추가 보안 인텔리전스 계층을 위해 Advanced Threat Protection을 제공합니다. Advanced Threat Protection은 Azure Storage 진단 로그에서 Blob Storage에 대한 의심스러운 읽기, 쓰기 또는 삭제 요청을 모니터링합니다. 
+
+Advanced Threat Protection 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 확인할 수 있습니다. Azure Security Center에서는 탐지된 의심스러운 활동에 대한 세부 정보를 제공하고 잠재적인 위협을 조사하고 수정하는 작업을 권장합니다. 
+
+자세한 정보:
+
+* [Azure Storage Advanced Threat Protection 개요](../storage/common/storage-advanced-threat-protection.md)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 

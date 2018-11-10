@@ -6,20 +6,20 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: c917fab84448684cf29af162ec0781d764605f71
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c09ee84cda5f0a9747d3ee1f8f1b37d1323f2cc2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323968"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212253"
 ---
 # <a name="egress-and-endpoints"></a>송신 및 엔드포인트
 
 Azure Digital Twins는 각 엔드포인트가 사용자의 Azure 구독의 메시지/이벤트 브로커를 나타내는 ‘엔드포인트’ 개념을 지원합니다. 이벤트 및 메시지는 **이벤트 허브**, **Event Grid** 및 **Service Bus 항목**에 전송할 수 있습니다.
 
-사전 정의된 라우팅 기본 설정에 따라 이벤트가 엔드포인트로 전송됩니다. 사용자는 `TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange`, `DeviceMessage` 이벤트 중 하나를 수신해야 하는 엔드포인트를 지정할 수 있습니다.
+사전 정의된 라우팅 기본 설정에 따라 이벤트가 엔드포인트로 전송됩니다. 사용자는 **TopologyOperation**, **UdfCustom**, **SensorChange**, **SpaceChange** 또는 **DeviceMessage** 이벤트 중 하나를 수신해야 하는 엔드포인트를 지정할 수 있습니다.
 
 이벤트 라우팅 및 이벤트 유형에 대해 기본적으로 이해하려면 [이벤트 라우팅 및 메시지](concepts-events-routing.md)를 참조하세요.
 
@@ -27,9 +27,9 @@ Azure Digital Twins는 각 엔드포인트가 사용자의 Azure 구독의 메�
 
 다음은 각 이벤트 유형의 이벤트 형식입니다.
 
-- `TopologyOperation`
+- **TopologyOperation**
 
-  그래프 변경 내용에 적용됩니다. `subject` 속성은 영향받는 개체의 유형을 지정합니다. 이 이벤트를 트리거할 수 있는 개체의 유형은 `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space`, `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`입니다.
+  그래프 변경 내용에 적용됩니다. *subject* 속성은 영향받는 개체의 유형을 지정합니다. 이 이벤트를 트리거할 수 있는 개체의 유형은 **Device**, **DeviceBlobMetadata**, **DeviceExtendedProperty**, **ExtendedPropertyKey**, **ExtendedType**, **KeyStore**, **Report**, **RoleDefinition**, **Sensor**, **SensorBlobMetadata**, **SensorExtendedProperty**, **Space**,  **SpaceBlobMetadata**, **SpaceExtendedProperty**, **SpaceResource**, **SpaceRoleAssignment**, **System**, **User**, **UserBlobMetadata**, **UserExtendedProperty**입니다.
 
   예제:
 
@@ -53,13 +53,16 @@ Azure Digital Twins는 각 엔드포인트가 사용자의 Azure 구독의 메�
   }
   ```
 
-    | 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+    | 사용자 지정 특성 이름 | 바꿀 항목 |
     | --- | --- |
-    | `yourTopicName` | 사용자 지정 항목의 이름 |
+    | *yourTopicName* | 사용자 지정 항목의 이름 |
 
-- `UdfCustom`
+- **UdfCustom**
 
-  UDF(사용자 정의 함수)에서 전송하는 이벤트입니다. 이 이벤트는 명시적으로 UDF 자체에서 전송해야 합니다.
+  UDF(사용자 정의 함수)에서 전송하는 이벤트입니다. 
+  
+  > [!IMPORTANT]
+  > 이 이벤트는 명시적으로 UDF 자체에서 전송해야 합니다.
 
   예제:
 
@@ -81,11 +84,11 @@ Azure Digital Twins는 각 엔드포인트가 사용자의 Azure 구독의 메�
   }
   ```
 
-    | 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+    | 사용자 지정 특성 이름 | 바꿀 항목 |
     | --- | --- |
-    | `yourTopicName` | 사용자 지정 항목의 이름 |
+    | *yourTopicName* | 사용자 지정 항목의 이름 |
 
-- `SensorChange`
+- **SensorChange**
 
   원격 분석 변경 내용을 기반으로 한 센서의 상태 업데이트입니다.
 
@@ -116,11 +119,11 @@ Azure Digital Twins는 각 엔드포인트가 사용자의 Azure 구독의 메�
   }
   ```
 
-    | 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+    | 사용자 지정 특성 이름 | 바꿀 항목 |
     | --- | --- |
-    | `yourTopicName` | 사용자 지정 항목의 이름 |
+    | *yourTopicName* | 사용자 지정 항목의 이름 |
 
-- `SpaceChange`
+- **SpaceChange**
 
   원격 분석 변경 내용을 기반으로 한 공간의 상태 업데이트입니다.
 
@@ -151,17 +154,17 @@ Azure Digital Twins는 각 엔드포인트가 사용자의 Azure 구독의 메�
   }
   ```
 
-    | 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+    | 사용자 지정 특성 이름 | 바꿀 항목 |
     | --- | --- |
-    | `yourTopicName` | 사용자 지정 항목의 이름 |
+    | *yourTopicName* | 사용자 지정 항목의 이름 |
 
-- `DeviceMessage`
+- **DeviceMessage**
 
-  Azure Digital Twins에서 원시 원격 분석 이벤트를 라우팅할 수 있는 `EventHub` 연결을 지정할 수 있습니다.
+  Azure Digital Twins에서 원시 원격 분석 이벤트를 라우팅할 수 있는 **EventHub** 연결을 지정할 수 있습니다.
 
 > [!NOTE]
-> - `DeviceMessage`는 `EventHub`와 조합할 수만 있으며, `DeviceMessage`를 다른 이벤트 유형과 조합할 수 없습니다.
-> - `EventHub`/`DeviceMessage` 유형의 조합에 대해 하나의 엔드포인트만 지정할 수 있습니다.
+> - **DeviceMessage**는 **EventHub**와만 조합할 수 있으며, **DeviceMessage**를 다른 이벤트 유형과 조합할 수 없습니다.
+> - **EventHub** 또는 **DeviceMessage** 유형의 조합에 대해 하나의 엔드포인트만 지정할 수 있습니다.
 
 ## <a name="configuring-endpoints"></a>엔드포인트 구성
 
@@ -171,7 +174,7 @@ Azure Digital Twins는 각 엔드포인트가 사용자의 Azure 구독의 메�
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- **Service Bus** 이벤트 유형 `SensorChange`, `SpaceChange`, `TopologyOperation`으로 라우팅
+- **Service Bus** 이벤트 유형 **SensorChange**, **SpaceChange**, **TopologyOperation**으로 라우팅합니다.
 
   ```JSON
   {
@@ -187,14 +190,14 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+    | 사용자 지정 특성 이름 | 바꿀 항목 |
     | --- | --- |
-    | `yourNamespace` | 엔드포인트의 네임스페이스 |
-    | `yourPrimaryKey` | 인증에 사용되는 기본 연결 문자열 |
-    | `yourSecondaryKey` | 인증에 사용되는 보조 연결 문자열 |
-    | `yourTopicName` | 사용자 지정 항목의 이름 |
+    | *yourNamespace* | 엔드포인트의 네임스페이스 |
+    | *yourPrimaryKey* | 인증에 사용되는 기본 연결 문자열 |
+    | *yourSecondaryKey* | 인증에 사용되는 보조 연결 문자열 |
+    | *yourTopicName* | 사용자 지정 항목의 이름 |
 
-- **Event Grid** 이벤트 유형`SensorChange`, `SpaceChange`, `TopologyOperation`으로 라우팅
+- **Event Grid** 이벤트 유형 **SensorChange**, **SpaceChange**, **TopologyOperation**으로 라우팅합니다.
 
   ```JSON
   {
@@ -210,13 +213,13 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+    | 사용자 지정 특성 이름 | 바꿀 항목 |
     | --- | --- |
-    | `yourPrimaryKey` | 인증에 사용되는 기본 연결 문자열|
-    | `yourSecondaryKey` | 인증에 사용되는 보조 연결 문자열 |
-    | `yourTopicName` | 사용자 지정 항목의 이름 |
+    | *yourPrimaryKey* | 인증에 사용되는 기본 연결 문자열|
+    | *yourSecondaryKey* | 인증에 사용되는 보조 연결 문자열 |
+    | *yourTopicName* | 사용자 지정 항목의 이름 |
 
-- **이벤트 허브** 이벤트 유형 `SensorChange`, `SpaceChange`, `TopologyOperation`으로 라우팅
+- **이벤트 허브** 이벤트 유형 **SensorChange**, **SpaceChange**, **TopologyOperation**으로 라우팅합니다.
 
   ```JSON
   {
@@ -232,14 +235,14 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+    | 사용자 지정 특성 이름 | 바꿀 항목 |
     | --- | --- |
-    | `yourNamespace` | 엔드포인트의 네임스페이스 |
-    | `yourPrimaryKey` | 인증에 사용되는 기본 연결 문자열 |
-    | `yourSecondaryKey` | 인증에 사용되는 보조 연결 문자열 |
-    | `yourEventHubName` | 이벤트 허브의 이름 |
+    | *yourNamespace* | 엔드포인트의 네임스페이스 |
+    | *yourPrimaryKey* | 인증에 사용되는 기본 연결 문자열 |
+    | *yourSecondaryKey* | 인증에 사용되는 보조 연결 문자열 |
+    | *yourEventHubName* | **이벤트 허브**의 이름 |
 
-- **이벤트 허브** 이벤트 유형 `DeviceMessage`로 라우팅합니다. `connectionString`에 _EntityPath_를 포함하는 것은 필수입니다.
+- **이벤트 허브** 이벤트 유형 **DeviceMessage**로 라우팅합니다. `EntityPath`를 **connectionString**에 반드시 포함해야 합니다.
 
   ```JSON
   {
@@ -253,12 +256,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | 사용자 지정 특성 이름 | 다음 항목으로 교체 |
+    | 사용자 지정 특성 이름 | 바꿀 항목 |
     | --- | --- |
-    | `yourNamespace` | 엔드포인트의 네임스페이스 |
-    | `yourPrimaryKey` | 인증에 사용되는 기본 연결 문자열 |
-    | `yourSecondaryKey` | 인증에 사용되는 보조 연결 문자열 |
-    | `yourEventHubName` | 이벤트 허브의 이름 |
+    | *yourNamespace* | 엔드포인트의 네임스페이스 |
+    | *yourPrimaryKey* | 인증에 사용되는 기본 연결 문자열 |
+    | *yourSecondaryKey* | 인증에 사용되는 보조 연결 문자열 |
+    | *yourEventHubName* | **이벤트 허브**의 이름 |
 
 > [!NOTE]
 > 새 엔드포인트를 만들면 이 엔드포인트에서 이벤트 수신을 시작하는 데 최대 5~10분이 걸릴 수 있습니다.

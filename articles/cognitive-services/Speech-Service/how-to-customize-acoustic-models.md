@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466089"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215245"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>자습서: 사용자 지정 어쿠스틱 모델 만들기
 
@@ -53,7 +53,7 @@ Azure Portal에서 음성 서비스 구독 만들기에 대한 자세한 내용�
 * 데이터 집합의 모든 오디오 파일은 WAV(RIFF) 오디오 형식으로 저장되어야 합니다.
 * 오디오는 샘플링 속도가 8 KHz 또는 16 KHz이어야 하며 샘플 값은 압축되지 않은 PCM(펄스 코드 변조) 16비트 부호 있는 정수(짧은)로 저장되어야 합니다.
 * 단일 채널(모노) 오디오 파일만 지원됩니다.
-* 오디오 파일 길이는 100밀리초 ~ 1분 범위여야 합니다. 각 오디오 파일은 최소 100ms의 휴지가 있도록 시작 및 종료하는 것이 이상적이며, 500ms ~ 1초 범위가 일반적입니다.
+* 오디오 파일의 길이는 100마이크로초에서 1분 사이가 될 수 있지만 10~12초 정도가 적당합니다. 각 오디오 파일은 최소 100ms의 휴지가 있도록 시작 및 종료하는 것이 이상적이며, 500ms ~ 1초 범위가 일반적입니다.
 * 데이터에 배경 소음이 있는 경우 데이터에 더 긴 휴지 세그먼트(음성 콘텐츠 앞 및/또는 뒤에 &mdash;예를 들어 몇 초&mdash;)를 포함하는 몇몇 예제를 갖는 것이 좋습니다.
 * 각 오디오 파일은 단일 발언&mdash;(예: 단일 받아쓰기 문장, 단일 쿼리 또는 대화 시스템의 단일 회차)으로 구성되어야 합니다.
 * 데이터 집합의 각 오디오 파일에는 고유한 파일 이름 및 .wav 확장명이 있어야 합니다.
@@ -69,7 +69,7 @@ Azure Portal에서 음성 서비스 구독 만들기에 대한 자세한 내용�
 | 샘플링 레이트 | 8,000헤르츠(Hz) 또는 16,000 Hz |
 | 채널 | 1(mono) |
 | 샘플 형식 | PCM, 16비트 정수 |
-| 파일 지속 기간 | 0.1초 < 기간 < 60초 |
+| 파일 지속 기간 | 0.1초 < 기간 < 12초 | 
 | 무음 목걸이 | 0.1초 초과 |
 | 보관 형식 | .zip |
 | 최대 보관 크기 | 2GB |

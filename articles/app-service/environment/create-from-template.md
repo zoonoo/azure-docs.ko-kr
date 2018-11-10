@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 92422a254bcfd5b31731dda6d1790cc85f467860
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 62eecaba261ac2478ab6d1c7d47067f43a58d976
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094983"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231358"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 ASE 만들기
 
@@ -30,7 +30,7 @@ Azure Portal 또는 Azure Resource Manager 템플릿을 사용하여 ASE를 만�
 Azure Portal에서 ASE를 만들 때는 동시에 VNet를 만들거나 ASE를 배포할 기존 VNet를 선택할 수 있습니다. 템플릿에서 ASE를 만들 경우 다음 항목을 미리 준비해야 합니다. 
 
 * Resource Manager VNet
-* 해당 VNet의 서브넷 향후 성장 및 확장 요구 사항을 충족할 수 있도록 256개의 주소를 포함할 수 있는 `/24` 크기의 ASE 서브넷을 사용하는 것이 좋습니다. ASE를 만든 후에는 크기를 변경할 수 없습니다.
+* 해당 VNet의 서브넷 향후 성장 및 크기 조정 요구 사항을 충족할 수 있도록 256개의 주소가 포함된 `/24` 크기의 ASE 서브넷을 사용하는 것이 좋습니다. ASE를 만든 후에는 크기를 변경할 수 없습니다.
 * VNet의 리소스 ID. Azure Portal의 가상 네트워크 속성에서 이 정보를 가져올 수 있습니다.
 * ASE를 배포할 구독
 * ASE를 배포할 위치

@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190159"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249614"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>PIM에서 Azure AD 디렉터리 역할 할당
 
@@ -112,6 +112,39 @@ Azure AD PIM(Privileged Identity Management) 서비스를 사용하여 권한 �
     ![역할 제거](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     역할 할당이 제거됩니다.
+
+## <a name="authorization-error-when-assigning-roles"></a>역할을 할당할 때 권한 부여 오류
+
+최근에 구독에 대해 PIM을 활성화하고 사용자를 디렉터리 역할에 대해 적격 상태로 설정하려고 할 때 권한 부여 오류가 발생하는 경우 MS-PIM 서비스 주체에 아직 적절한 권한이 없기 때문일 수 있습니다. MS-PIM 서비스 주체에는 다른 사용자에게 역할을 할당하는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할이 있어야 합니다. MS-PIM에 사용자 액세스 관리자 역할이 할당될 때까지 대기하는 대신 수동으로 할당할 수 있습니다.
+
+다음의 단계를 따라 구독의 MS-PIM 서비스 주체에 사용자 액세스 관리자 역할을 할당합니다.
+
+1. 글로벌 관리자 권한으로 Azure Portal에 로그인합니다.
+
+1. **모든 서비스**, **구독**을 차례로 선택합니다.
+
+1. 구독을 선택합니다.
+
+1. **액세스 제어(IAM)** 를 선택하면 구독 범위의 현재 역할 할당 목록을 볼 수 있습니다.
+
+   ![구독의 액세스 제어(IAM) 블레이드](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. **MS-PIM** 서비스 주체가 **사용자 액세스 관리자** 역할로 할당되었는지 여부를 확인합니다.
+
+1. 그렇지 않은 경우 **추가**를 선택하여 **권한 추가** 창을 엽니다.
+
+1. **역할** 드롭다운 목록에서 **사용자 액세스 관리자** 역할을 선택합니다.
+
+1. **선택** 목록에서 **MS-PIM** 서비스 주체를 찾고 선택합니다.
+
+   ![MS-PIM에 대한 권한 추가](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. **저장**을 선택하여 역할을 할당합니다.
+
+   몇 분 후 MS-PIM 서비스 주체가 구독 범위에서 사용자 액세스 관리자 역할로 할당됩니다.
+
+   ![MS-PIM에 대한 사용자 액세스 관리자 역할](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 

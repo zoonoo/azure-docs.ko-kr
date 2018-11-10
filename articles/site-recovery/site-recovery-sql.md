@@ -1,20 +1,21 @@
 ---
-title: SQL Server 및 Azure Site Recovery를 사용한 응용 프로그램 복제 | Microsoft Docs
-description: 이 문서에서는 SQL Server 재해 기능의 Azure Site Recovery를 사용하여 SQL Server를 복제하는 방법을 설명합니다.
+title: SQL Server 및 Azure Site Recovery를 사용하여 SQL Server에 대한 재해 복구 설정 | Microsoft Docs
+description: 이 문서에서는 SQL Server 및 Azure Site Recovery를 사용하여 SQL Server에 대한 재해 복구를 설정하는 방법을 설명합니다.
 services: site-recovery
-author: rayne-wiselman
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
-ms.author: raynew
-ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.author: sutalasi
+ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188776"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210264"
 ---
-# <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호
+# <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정 
 
 이 문서에서는 SQL Server BCDR(비즈니스 연속성 및 재해 복구) 기술 및 [Azure Site Recovery](site-recovery-overview.md)를 조합하여 응용 프로그램의 SQL Server 백 엔드를 보호하는 방법을 설명합니다.
 

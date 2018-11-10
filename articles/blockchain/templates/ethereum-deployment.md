@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 823bea9bac8ff270d5b5c02e3b76a2f7236c9c99
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241690"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231800"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum 작업 증명 컨소시엄 솔루션 템플릿
 
@@ -119,7 +119,7 @@ OMS(Operations Management Suite) 블레이드를 사용하면 네트워크에 �
 
 ### <a name="network-size-and-performance"></a>네트워크 크기 및 성능
 
-그런 다음, **네트워크 크기 및 성능** 아래에서 컨소시엄 네트워크의 크기에 대한 입력(예: 마이닝 노드 및 트랜잭션 노드의 수와 크기)을 지정합니다.
+다음으로, **네트워크 크기 및 성능** 아래에 컨소시엄 네트워크의 크기를 입력합니다. 예를 들어, 마이닝 노드 및 트랜잭션 노드의 개수와 크기입니다.
 
 ![네트워크 크기 및 성능](./media/ethereum-deployment/network-size-performance.png)
 
@@ -261,10 +261,10 @@ PowerShell 모듈을 다운로드하여 로컬로 저장합니다. PowerShell �
 
 끝으로, 적절한 입력을 사용하여 함수를 실행합니다.
 
-- **MyGatewayResourceId** : 게이트웨이의 리소스 경로입니다. 이는 **CONSORTIUM_MEMBER_GATEWAY_I**라는 템플릿 배포 출력 매개 변수입니다.
-- **OtherGatewayResourceId** : 조인 멤버의 게이트웨이의 리소스 경로입니다. 이는 조인 멤버가 제공하며 **CONSORTIUM_MEMBER_GATEWAY_ID**라는 템플릿 배포 출력 매개 변수이기도 합니다.
-- **ConnectionName** : 이 게이트웨이 연결을 식별하는 이름입니다.
-- **공유 키**: 연결을 설정하는 컨소시엄 네트워크의 두 멤버 간에 미리 설정한 암호입니다.
+- **MyGatewayResourceId**: 게이트웨이의 리소스 경로입니다. 이는 **CONSORTIUM_MEMBER_GATEWAY_I**라는 템플릿 배포 출력 매개 변수입니다.
+- **OtherGatewayResourceId**: 조인 멤버 게이트웨이의 리소스 경로입니다. 이는 조인 멤버가 제공하며 **CONSORTIUM_MEMBER_GATEWAY_ID**라는 템플릿 배포 출력 매개 변수이기도 합니다.
+- **ConnectionName**: 이 게이트웨이 연결을 식별하는 이름입니다.
+- **공유 키**: 연결을 설정하는 컨소시엄 네트워크의 두 멤버 간에 미리 설정된 비밀입니다.
 
 **CreateConnection** - MyGatewayResourceId <resource path of your Gateway> -OtherGatewayResourceId <조인 멤버의 게이트웨이의 리소스 경로> -ConnectionName myConnection -SharedKey "MySharedKeyAbc123"
 
@@ -274,10 +274,10 @@ Azure CLI 스크립트를 다운로드하여 로컬로 저장합니다. Azure CL
 
 적절한 입력을 포함한 스크립트를 실행합니다.
 
-- **MyGatewayResourceId** : 게이트웨이의 리소스 경로입니다. 이는 **CONSORTIUM_MEMBER_GATEWAY_I**라는 템플릿 배포 출력 매개 변수입니다.
-- **OtherGatewayResourceId** : 조인 멤버의 게이트웨이의 리소스 경로입니다. 이는 조인 멤버가 제공하며 해당 멤버의 **CONSORTIUM_MEMBER_GATEWAY_ID**라는 템플릿 배포 매개 변수이기도 합니다.
-- **ConnectionName** : 이 게이트웨이 연결을 식별하는 이름입니다.
-- **공유 키**: 연결을 설정하는 컨소시엄 네트워크의 두 멤버 간에 미리 설정한 암호입니다.
+- **MyGatewayResourceId**: 게이트웨이의 리소스 경로입니다. 이는 **CONSORTIUM_MEMBER_GATEWAY_I**라는 템플릿 배포 출력 매개 변수입니다.
+- **OtherGatewayResourceId**: 조인 멤버 게이트웨이의 리소스 경로입니다. 이는 조인 멤버가 제공하며 해당 멤버의 **CONSORTIUM_MEMBER_GATEWAY_ID**라는 템플릿 배포 매개 변수이기도 합니다.
+- **ConnectionName**: 이 게이트웨이 연결을 식별하는 이름입니다.
+- **공유 키**: 연결을 설정하는 컨소시엄 네트워크의 두 멤버 간에 미리 설정된 비밀입니다.
 - **위치**: 게이트웨이 리소스가 배포된 Azure 지역입니다.
 
 ``` powershell
@@ -316,7 +316,7 @@ Chrome에 확장을 설치하려면 사용자 지정으로 이동한 후 Google 
 
 ![MetaMask 확장](./media/ethereum-deployment/metamask-extension.png)
 
-설치된 후 MetaMask를 열고 새 자격 증명 모음을 만듭니다. 기본적으로 자격 증명 모음은 Morden Test Network에 연결됩니다. 배포된 개인 컨소시엄 네트워크, 구체적으로 트랜잭션 노드 앞의 부하 분산 장치에 연결하려면 연결 대상을 변경해야 합니다. 템플릿 출력에서 포트 8545에 표시된 Ethereum RPC 엔드포인트를 검색하여 `ETHEREUM-RPC-ENDPOINT`로 명명되고, 아래와 같이 사용자 지정 RPC에 입력합니다.
+설치된 후 MetaMask를 열고 새 자격 증명 모음을 만듭니다. 기본적으로 자격 증명 모음은 Morden Test Network에 연결됩니다. 배포된 개인 컨소시엄 네트워크, 구체적으로 트랜잭션 노드 앞의 부하 분산 장치에 연결하도록 변경합니다. 템플릿 출력에서 포트 8545에 표시된 Ethereum RPC 엔드포인트를 검색하여 `ETHEREUM-RPC-ENDPOINT`로 명명되고, 아래와 같이 사용자 지정 RPC에 입력합니다.
 
 ![MetaMask 설정](./media/ethereum-deployment/metamask-settings.png)
 

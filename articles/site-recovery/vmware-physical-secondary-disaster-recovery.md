@@ -1,21 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 보조 사이트에 VMware VM 또는 물리적 서버의 재해 복구 설정 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 보조 사이트에 VMware VM 또는 Windows 및 Linux 물리적 서버의 재해 복구를 설정하는 방법을 알아봅니다.
-services: site-recovery
-author: nsoneji
-manager: gauarvd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618991"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215466"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -176,7 +173,7 @@ Scout 업데이트 5는 누적 업데이트입니다. 여기에는 업데이트 
 > [!NOTE]
 > * P2V 클러스터 수정은 Site Recovery Scout 업데이트 5로 새로 보호되는 물리적 MSCS 클러스터에만 적용할 수 있습니다. 이전 업데이트를 사용하여 보호된 P2V MSCS 클러스터에 클러스터 수정 프로그램을 설치하려면 [Site Recovery Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes)의 12섹션에서 설명하는 업그레이드 단계를 수행합니다.
 > * 다시 보호할 때 초기에 보호된 경우와 같이 동일한 디스크 집합이 각 클러스터 노드에서 활성 상태인 경우 물리적 MSCS 클러스터를 다시 보호하는 데 기존 대상 디스크만 다시 사용할 수 있습니다. 그렇지 않은 경우 [Site Recovery Scout 릴리스 정보](https://aka.ms/asr-scout-release-notes) 12섹션의 수동 단계에 따라 대상쪽 디스크를 올바른 데이터 저장소 경로로 이동하여 다시 보호 중에 다시 사용할 수 있습니다. 업그레이드 단계를 수행하지 않고 P2V 모드에서 MSCS 클러스터를 다시 보호하는 경우 대상 ESXi 서버에 새 디스크를 만듭니다. 데이터 저장소에서 이전 디스크를 수동으로 삭제해야 합니다.
-> * 원본 SLES11 서버 또는 SLES11(모든 서비스 팩 포함) 서버가 정상적으로 다시 부팅되는 경우 다시 동기화에 대한 **루트** 디스크 복제 쌍을 수동으로 표시합니다. CX 인터페이스에는 알림이 없습니다. 다시 동기화에 대한 루트 디스크를 표시하지 않으면 데이터 무결성 문제가 발생할 수 있습니다.
+> * 원본 SLES11 서버 또는 SLES11(모든 서비스 팩 포함) 서버가 정상적으로 다시 부팅되는 경우 다시 동기화에 대한 **루트** 디스크 복제 쌍을 수동으로 표시합니다. CX 인터페이스에는 알림이 없습니다. 다시 동기화에 대한 루트 디스크를 표시하지 않으면 데이터 무결성 문제가 발생할 수 있습니다.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery 서비스 Scout 8.0.1 업데이트 4

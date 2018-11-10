@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094431"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413675"
 ---
 # <a name="transform-and-protect-your-api"></a>API 변환 및 보호 
 
@@ -39,9 +39,11 @@ ms.locfileid: "47094431"
 
 ## <a name="prerequisites"></a>필수 조건
 
++ [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
++ [Azure API Management의 정책 개념](api-management-howto-policies.md)을 이해합니다.
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
- 
+
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="transform-an-api-to-strip-response-headers"></a>API를 변환하여 응답 헤더 제거
@@ -57,21 +59,22 @@ ms.locfileid: "47094431"
 
 1. APIM 서비스 인스턴스에서 **API**(**API MANAGEMENT** 아래)를 선택합니다.
 2. API 목록에서 **Demo Conference API**를 선택합니다.
-3. **GetSpeakers** 작업을 선택합니다.
-4. 화면 위쪽에 있는 **테스트** 탭을 클릭합니다.
-5. 화면 아래쪽에 있는 **보내기** 단추를 누릅니다. 
+3. 화면 위쪽에 있는 **테스트** 탭을 클릭합니다.
+4. **GetSpeakers** 작업을 선택합니다.
+5. 화면 아래쪽에 있는 **보내기** 단추를 누릅니다.
 
-    원래 응답은 다음과 같습니다.
+원래 응답은 다음과 비슷합니다.
 
-    ![정책](./media/transform-api/original-response.png)
+![정책](./media/transform-api/original-response.png)
 
 ### <a name="set-the-transformation-policy"></a>변환 정책 설정
+
+![아웃바운드 정책 설정](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
 
 1. **데모 회의 API**를 선택합니다.
 2. 화면 맨 위에서 **디자인** 탭을 선택합니다.
 3. **모든 작업**을 선택합니다.
-4. **아웃바운드 처리** 창에서 삼각형(연필 옆에 있음)을 클릭하고 **코드 편집기**를 선택합니다.
-     ![정책 편집](./media/set-edit-policies/set-edit-policies01.png)
+4. **아웃바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
 5. **&lt;아웃바운드&gt;** 요소 내부에 커서를 놓습니다.
 6. 오른쪽 창에서 **변환 정책** 아래에 있는 **+ HTTP 헤더 설정**을 두 번 클릭합니다(2개의 정책 조각 삽입).
 
@@ -82,8 +85,8 @@ ms.locfileid: "47094431"
         <set-header name="X-AspNet-Version" exists-action="delete" />
 
     ![정책](./media/transform-api/set-policy.png)
-8. **저장** 단추를 클릭합니다.
 
+8. **저장** 단추를 클릭합니다.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>API 응답 본문에 있는 원래 URL을 APIM 게이트웨이 URL로 바꾸기
 
@@ -94,8 +97,8 @@ ms.locfileid: "47094431"
 원래 응답을 확인하려면 다음을 수행합니다.
 
 1. **데모 회의 API**를 선택합니다.
-2. **GetSpeakers** 작업을 선택합니다.
-3. 화면 위쪽에 있는 **테스트** 탭을 클릭합니다.
+2. 화면 위쪽에 있는 **테스트** 탭을 클릭합니다.
+3. **GetSpeakers** 작업을 선택합니다.
 4. 화면 아래쪽에 있는 **보내기** 단추를 누릅니다. 
 
     원래 응답은 다음과 같습니다.
@@ -107,7 +110,7 @@ ms.locfileid: "47094431"
 1. **데모 회의 API**를 선택합니다.
 2. **모든 작업**을 선택합니다.
 3. 화면 맨 위에서 **디자인** 탭을 선택합니다.
-4. **아웃바운드 처리** 창에서 삼각형(연필 옆에 있음)을 클릭하고 **코드 편집기**를 선택합니다.
+4. **아웃바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
 5. **&lt;아웃바운드&gt;** 요소 내부에 커서를 놓습니다.
 6. 오른쪽 창의 **변환 정책** 아래에서 **+ 본문에서 문자열 찾기 및 바꾸기**를 클릭합니다.
 7. **find-and-replace** 코드(**\<아웃바운드\>** 요소에서)를 수정하여 APIM 게이트웨이와 일치하도록 URL을 바꿉니다. 예: 
@@ -118,13 +121,14 @@ ms.locfileid: "47094431"
 
 이 섹션에서는 속도 제한을 구성하여 백 엔드 API에 대한 보호를 추가하는 방법을 보여 줍니다. 예를 들어 개발자가 과도하게 사용하지 않도록 API 호출 횟수를 제한하려고 할 수 있습니다. 이 예제에서 제한은 각 구독 ID에 대해 15초당 3회 호출로 설정됩니다. 개발자는 15초 후에 API 호출을 다시 시도할 수 있습니다.
 
+![인바운드 정책 설정](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
+
 1. **데모 회의 API**를 선택합니다.
 2. **모든 작업**을 선택합니다.
 3. 화면 맨 위에서 **디자인** 탭을 선택합니다.
-4. **인바운드 처리** 창에서 삼각형(연필 옆에 있음)을 클릭하고 **코드 편집기**를 선택합니다.
-5. **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
-6. 오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 클릭합니다.
-7. **rate-limit-by-key** 코드(**\<인바운드\>** 요소에서)를 다음 코드로 수정합니다.
+4. **인바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.5. **&lt;인바운드&gt;** 요소 내부에 커서를 놓습니다.
+5. 오른쪽 창의 **액세스 제한 정책**에서 **+ 키당 호출 속도 제한**을 클릭합니다.
+6. **rate-limit-by-key** 코드(**\<인바운드\>** 요소에서)를 다음 코드로 수정합니다.
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
@@ -156,8 +160,8 @@ ms.locfileid: "47094431"
 ### <a name="test-the-stripped-response-headers"></a>삭제된 응답 헤더 테스트
 
 1. **데모 회의 API**를 선택합니다.
-2. **GetSpeakers** 작업을 클릭합니다.
-3. **테스트** 탭을 선택합니다.
+2. **테스트** 탭을 선택합니다.
+3. **GetSpeakers** 작업을 클릭합니다.
 4. **보내기**를 누릅니다.
 
     다음에 보이는 것처럼 헤더가 삭제되었습니다.
@@ -167,8 +171,8 @@ ms.locfileid: "47094431"
 ### <a name="test-the-replaced-url"></a>대체된 URL 테스트
 
 1. **데모 회의 API**를 선택합니다.
-2. **GetSpeakers** 작업을 클릭합니다.
-3. **테스트** 탭을 선택합니다.
+2. **테스트** 탭을 선택합니다.
+3. **GetSpeakers** 작업을 클릭합니다.
 4. **보내기**를 누릅니다.
 
     보이는 것처럼 URL이 대체되었습니다.
@@ -178,11 +182,12 @@ ms.locfileid: "47094431"
 ### <a name="test-the-rate-limit-throttling"></a>속도 제한 테스트
 
 1. **데모 회의 API**를 선택합니다.
-2. **GetSpeakers** 작업을 클릭합니다.
-3. **테스트** 탭을 선택합니다.
+2. **테스트** 탭을 선택합니다.
+3. **GetSpeakers** 작업을 클릭합니다.
 4. **보내기**를 계속해서 3번 누릅니다.
 
     요청을 3번 보낸 후에 **429 요청이 너무 많음** 응답이 표시됩니다.
+
 5. 15초 정도 기다렸다가 **보내기**를 다시 누릅니다. 이번에는 **200 정상** 응답이 표시됩니다.
 
     ![제한](./media/transform-api/test-throttling.png)
@@ -190,8 +195,6 @@ ms.locfileid: "47094431"
 ## <a name="video"></a>비디오
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
-> 
-> 
 
 ## <a name="next-steps"></a>다음 단계
 

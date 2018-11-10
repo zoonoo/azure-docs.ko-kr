@@ -4,8 +4,6 @@ description: 이 문서에서는 Azure CLI를 사용하여 표준 Load Balancer�
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: a6d442452fe5ffc61648b3c004c03f1756f8f57e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0759b6a8e3deb9bc1d04e41598e4eef9304ecd83
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160658"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416412"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Azure CLI를 사용하여 표준 Load Balancer에서 부하 분산 및 아웃바운드 규칙 구성
 
@@ -63,7 +61,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ## <a name="create-outbound-public-ip-address"></a>아웃바운드 공용 IP 주소 만들기 
 
-[az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) 명령을 사용하여 *myresourcegroupoutbound*에 *mypublicipoutbound*라는 Load Balancer 프런트 엔드 아웃바운드 구성의 표준 IP 주소를 만듭니다.
+[az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) 명령을 사용하여 Load Balancer 프런트 엔드 아웃바운드 구성의 표준 IP 주소를 만듭니다.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -81,7 +79,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) 명령을 사용하여 *myfrontendinbound*라는 인바운드 프런트 엔드 IP 구성, 이전 단계에서 만든 공용 IP 주소 *mypublicipinbound*와 연결된 *bepool*이라는 백 엔드 풀을 포함하는 *lb*라는 인바운드 IP 주소가 포함된 Load Balancer를 만듭니다.
+[az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) 명령을 사용하여 인바운드 프런트 엔드 IP 구성 및 이전 단계에서 만든 공용 IP 주소 *mypublicipinbound*와 연결된 백 엔드 풀을 포함하는 *lb*라는 인바운드 IP 주소가 포함된 Load Balancer를 만듭니다.
 
 ```azurecli-interactive
   az network lb create \

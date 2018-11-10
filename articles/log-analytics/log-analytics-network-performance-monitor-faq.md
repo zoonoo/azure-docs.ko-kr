@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408883"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415188"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
-![네트워크 성능 모니터 기호](media/log-analytics-network-performance-monitor/npm-symbol.png)
+![네트워크 성능 모니터 기호](media/log-analytics-network-performance-monitor-faq/npm-symbol.png)
 
 이 문서에서는 NPM(네트워크 성능 모니터)에 대한 FAQ(질문과 대답)를 캡처합니다.
 
@@ -44,7 +44,7 @@ NPM의 다양한 기능에 대한 플랫폼 요구 사항은 아래와 같습니
 Linux 기반 노드를 사용하여 네트워크를 모니터링하는 기능은 현재 비공개 미리 보기 중입니다. 더 자세한 내용은 계정 관리자에 문의하세요. 작업 영역 ID를 제공하면 당사에서 계속 진행하여 해당 기능을 사용하도록 설정합니다. Linux 에이전트는 NPM의 성능 모니터 기능에 대해서만 모니터링 기능을 제공하고 서비스 연결 모니터 및 ExpressRoute 모니터 기능에 대해서는 사용할 수 없습니다.
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>NPM에서 모니터링에 사용할 노드에 대한 크기 요구 사항은 얼마인가요?
-네트워크를 모니터링하기 위해 노드 VM에서 NPM 솔루션을 실행하려면 노드에 최소 메모리 500 MB 및 코어 한 개가 있어야 합니다. NPM을 실행하기 위해 별도 노드를 사용할 필요는 없습니다. 다른 워크로드가 실행 중인 노드에서 이 솔루션을 실행할 수 있습니다. 이 솔루션에는 CPU를 5%를 초과하여 이용하는 경우 모니터링 프로세스를 중지하는 기능이 있습니다.
+네트워크를 모니터링하기 위해 노드 VM에서 NPM 솔루션을 실행하려면 노드에 최소 메모리 500MB 및 코어 한 개가 있어야 합니다. NPM을 실행하기 위해 별도 노드를 사용할 필요는 없습니다. 다른 워크로드가 실행 중인 노드에서 이 솔루션을 실행할 수 있습니다. 이 솔루션에는 CPU를 5%를 초과하여 이용하는 경우 모니터링 프로세스를 중지하는 기능이 있습니다.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>NPM을 사용하려면 내 노드를 직접 에이전트로 또는 System Center Operations Manager를 통해 연결해야 하나요?
 성능 모니터 및 서비스 연결 모니터 기능 모두 [직접 에이전트로 연결된](log-analytics-agent-windows.md) 노드뿐만 아니라 [Operations Manager를 통해 연결된 노드도 지원합니다](log-analytics-om-agents.md).
@@ -54,7 +54,7 @@ ExpressRoute 모니터 기능의 경우 Azure 노드를 직접 에이전트로�
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>모니터링을 위해 TCP와 ICMP 중 어느 프로토콜을 선택해야 하나요?
 Windows 서버 기반 노드를 사용하여 네트워크를 모니터링하는 경우 더 나은 정확도 제공하는 TCP를 모니터링 프로토콜로 사용하는 것이 좋습니다. 
 
-Windows 데스크톱/클라이언트 운영 체제 기반 노드의 경우 ICMP는 원시 소켓 상에서 TCP 데이터를 전송할 수 없는 플랫폼이므로 사용하지 않는 것이 좋습니다(NPM에서 네트워크 토폴로지를 검색하려면 이 전송 기능이 필요함).
+Windows 데스크톱/클라이언트 운영 체제 기반 노드에 ICMP를 사용하는 것이 좋습니다. 이 플랫폼은 NPM이 네트워크 토폴로지를 검색하는 원시 소켓을 통해 TCP 데이터를 전송하는 것을 허용하지 않습니다.
 
 각 프로토콜의 상대적 이점에 대한 세부 정보는 [여기](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol)에서 얻을 수 있습니다.
 

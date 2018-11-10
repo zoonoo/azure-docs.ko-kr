@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cd7b475dc2bd4dade822a82f285c2e96c8d532d2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138191"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243797"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -479,7 +479,7 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
 * [MSDN의 Azure Storage 서비스에 대한 CORS(크로스-원본 자원 공유) 지원(영문)](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Azure Storage 서비스의 CORS 지원에 대한 참조 설명서입니다. 여기에는 각 저장소 서비스에 적용되는 문서에 대한 링크와 예제가 포함되어 있고 CORS 파일의 각 요소에 대한 설명도 수록되어 있습니다.
-* [Microsoft Azure Storage: CORS 소개(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure Storage: CORS 소개(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   CORS를 소개하고 사용 방법을 보여 주는 초기 블로그 문서로 연결되는 링크입니다.
 
@@ -490,7 +490,7 @@ CORS 및 이를 사용하도록 설정하는 방법에 대한 자세한 내용�
 
    전송 수준 보안을 제공하는 HTTPS를 사용할 수 있는 경우 MD5 확인을 사용하는 것은 중복된 작업으로 불필요합니다.
 
-   자세한 내용은 [Azure Blob MD5 개요](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)를 참조하세요.
+   자세한 내용은 [Azure Blob MD5 개요](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)를 참조하세요.
 2. **미국 정부의 FIPS 준수**
 
    미국에서 FIPS(Federal Information Processing Standard)는 중요한 데이터의 보호를 위해 미국 연방 정부 컴퓨터 시스템에서 사용하도록 승인되는 암호화 알고리즘을 정의합니다. Windows 서버 또는 데스크톱에서 FIPS 모드를 사용하도록 설정하면 FIPS에서 유효하다고 확인된 암호화 알고리즘만 사용하도록 OS에 지시됩니다. 비규격 알고리즘을 사용하는 응용 프로그램은 중단됩니다. .NET Framework 버전 4.5.2 이상을 사용할 경우 응용 프로그램은 컴퓨터가 FIPS 모드일 때 FIPS 준수 알고리즘을 사용하도록 암호화 알고리즘을 자동으로 전환합니다.

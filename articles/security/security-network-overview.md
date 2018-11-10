@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498507"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233806"
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 
@@ -29,12 +29,15 @@ ms.locfileid: "46498507"
 
 * Azure 네트워킹
 * 네트워크 액세스 제어
+* Azure Firewall
 * 안전한 원격 액세스 및 크로스-프레미스 연결
 * 가용성
 * 이름 확인
 * 경계 네트워크(DMZ) 아키텍처
-* 감사 및 위협 검색
 * Azure DDoS 보호
+* Azure Front Door
+* 트래픽 관리자
+* 감사 및 위협 검색
 
 ## <a name="azure-networking"></a>Azure 네트워킹
 
@@ -126,6 +129,19 @@ NSG, UDR 및 강제 터널링이 [OSI 모델](https://en.wikipedia.org/wiki/OSI_
 
 Azure 파트너 솔루션을 사용하여 이러한 향상된 네트워크 보안 기능에 액세스할 수 있습니다. 가장 최신의 Azure 파트너 네트워크 보안 솔루션은 [Azure Marketplace](https://azure.microsoft.com/marketplace/)를 방문하여 "보안" 및 "네트워크 보안"을 검색하면 찾을 수 있습니다.
 
+## <a name="azure-firewall"></a>Azure Firewall
+
+Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 내장되어 있는 서비스 형태의 완전한 상태 저장 방화벽입니다. 일부 기능은 다음과 같습니다.
+
+* 고가용성
+* 클라우드 확장성
+* 응용 프로그램 FQDN 필터링 규칙
+* 네트워크 트래픽 필터링 규칙
+
+자세한 정보:
+
+* [Azure Firewall 개요](../firewall/overview.md)
+
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>안전한 원격 액세스 및 크로스-프레미스 연결
 
 Azure 리소스의 설정, 구성 및 관리는 원격으로 수행해야 합니다. 또한, 온-프레미스와 Azure 공용 클라우드에 구성 요소가 있는 [하이브리드 IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) 솔루션을 배포할 수 있습니다. 이러한 시나리오에는 보안 원격 액세스가 필요합니다.
@@ -139,9 +155,15 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 
 ### <a name="connect-individual-workstations-to-a-virtual-network"></a>가상 네트워크에 개별 워크스테이션 연결
 
-개별 개발자 또는 작업 담당자가 Azure에서 가상 머신 및 서비스를 관리하도록 하려는 경우가 있을 수 있습니다. 예를 들어, 가상 네트워크의 가상 머신에 액세스해야 하지만 보안 정책에서 개별 가상 머신에 대한 RDP 또는 SSH 원격 액세스를 허용하지 않는 경우가 있습니다. 이 경우에는 지점 및 사이트 간 VPN 연결을 사용할 수 있습니다.
+개별 개발자 또는 작업 담당자가 Azure에서 가상 머신 및 서비스를 관리하도록 하려는 경우가 있을 수 있습니다. 예를 들어, 가상 네트워크의 가상 머신에 액세스해야 하지만 보안 정책에서 개별 가상 머신에 대한 RDP 또는 SSH 원격 액세스를 허용하지 않는 경우가 있습니다. 이 경우에는 [지점 및 사이트 간 VPN](../vpn-gateway/point-to-site-about.md) 연결을 사용할 수 있습니다.
 
-지점 및 사이트 간 VPN 연결에서는 [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) 프로토콜을 사용하여 사용자와 가상 네트워크 간 비공개 및 보안 연결을 설정할 수 있습니다. VPN 연결이 설정되면 사용자는 VPN 링크를 통해 RDP 또는 SSH를 가상 네트워크의 가상 머신에 연결할 수 있습니다(사용자가 인증할 수 있고 권한이 부여되었다고 가정).
+지점 및 사이트 간 VPN 연결에서는 사용자와 가상 네트워크 간 비공개 및 보안 연결을 설정할 수 있습니다. VPN 연결이 설정되면 사용자는 VPN 링크를 통해 RDP 또는 SSH를 가상 네트워크의 가상 머신에 연결할 수 있습니다(사용자가 인증할 수 있고 권한이 부여되었다고 가정). 지점 및 사이트 간 VPN은 다음을 지원합니다.
+
+* SSTP(Secure Socket Tunneling Protocol) - 독점적인 SSL 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 SSL이 사용되는 443 TCP 포트를 열기 때문에 SSL VPN 솔루션이 방화벽을 통과할 수 있습니다. SSTP는 Windows 장치에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다.
+
+* IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 장치(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
+
+* [OpenVPN](https://azure.microsoft.com/updates/openvpn-support-for-azure-vpn-gateways/)
 
 자세한 정보:
 
@@ -165,11 +187,13 @@ Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합�
 * VPN 연결은 인터넷을 통해 데이터를 이동합니다. 따라서 이러한 연결은 공용 네트워크를 통한 데이터 이동과 관련된 잠재적인 보안 문제에 노출됩니다. 또한, 인터넷 연결의 안정성 및 가용성을 보장할 수 없습니다.
 * 가상 네트워크에 VPN 연결 시 일부 응용 프로그램 및 용도에 사용할 수 있는 대역폭(최대 약 200Mbps)이 없을 수도 있습니다.
 
-크로스-프레미스 연결에 대해 가장 높은 수준의 보안 및 가용성이 필요한 조직은 일반적으로 원격 사이트에 연결하기 위해 전용 WAN 링크를 사용합니다. Azure에서는 가상 네트워크에 온-프레미스 네트워크를 연결하기 위해 사용할 수 있는 전용 WAN 링크를 사용할 수 있습니다. 이 작업은 Azure ExpressRoute를 통해 구현됩니다.
+크로스-프레미스 연결에 대해 가장 높은 수준의 보안 및 가용성이 필요한 조직은 일반적으로 원격 사이트에 연결하기 위해 전용 WAN 링크를 사용합니다. Azure에서는 가상 네트워크에 온-프레미스 네트워크를 연결하기 위해 사용할 수 있는 전용 WAN 링크를 사용할 수 있습니다. Azure ExpressRoute, ExpressRoute Direct 및 ExpressRoute Global Reach에서 이 링크를 사용할 수 있습니다.
 
 자세한 정보:
 
 * [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md)
+* [ExpressRoute Direct](../expressroute/expressroute-erdirect-about.md)
+* [ExpressRoute Global Reach](..//expressroute/expressroute-global-reach.md)
 
 ### <a name="connect-virtual-networks-to-each-other"></a>가상 네트워크 간 연결
 
@@ -287,6 +311,46 @@ Azure는 Azure DNS의 형태로 가용성과 성능이 뛰어난 외부 DNS 솔�
 
 * [Microsoft Cloud Services 및 네트워크 보안](../best-practices-network-security.md)
 
+## <a name="azure-ddos-protection"></a>Azure DDoS 보호
+
+DDoS(배포된 서비스 거부) 공격은 고객이 응용 프로그램을 클라우드로 전환하게 만드는 가장 큰 가용성 및 보안 문제 중 일부입니다. DDoS 공격은 응용 프로그램의 리소스를 소진시켜서 정상적인 사용자가 응용 프로그램을 사용할 수 없게 만듭니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다.
+Microsoft에서는 Azure 플랫폼의 일부로 **기본**으로 알려진 DDoS 보호를 제공합니다. 이는 무료로 제공되며, 일반적인 네트워크 수준 공격에 대한 Always On 모니터링 및 실시간 완화를 포함합니다. **기본** DDoS 보호에 포함된 보호 외에도 **표준** 옵션을 사용하도록 설정할 수 있습니다. DDoS Protection 표준 기능에는 다음이 포함됩니다.
+
+* **네이티브 플랫폼 통합:** 기본적으로 Azure에 통합됩니다. Azure Portal을 통해 구성을 포함합니다. DDoS Protection 표준은 사용자의 리소스 및 리소스 구성을 인식합니다.
+* **턴키 보호:** 간소화된 구성으로 DDoS Protection 표준이 사용되는 즉시 가상 네트워크의 모든 리소스를 바로 보호할 수 있습니다. 작업 또는 사용자 정의가 필요하지 않습니다. DDoS Protection 표준은 공격이 감지되는 즉시 자동으로 공격을 완화시킵니다.
+* **트래픽 항시 모니터링:** DDoS 공격의 징후를 찾기 위해 응용 프로그램 트래픽 패턴이 24시간 매일 모니터링됩니다. 보호 정책이 초과되면 완화가 수행됩니다.
+* **공격 완화 보고서** 공격 완화 보고서는 집계된 네트워크 데이터 흐름 데이터를 사용하여 리소스를 목표로 하는 공격에 대한 자세한 정보를 제공합니다.
+* **공격 완화 흐름 로그** 공격 완화 흐름 로그를 사용하면 활성 DDoS 공격 중에 삭제된 트래픽, 전달된 트래픽 및 기타 공격 데이터를 거의 실시간으로 검토할 수 있습니다.
+* **적응형 튜닝:** 지능형 트래픽 프로파일링으로 시간별 응용 프로그램 트래픽을 학습하고, 사용자의 서비스에 가장 적합한 프로필을 업데이트합니다. 트래픽이 시간이 지남에 따라 변경되면서 프로필이 조정됩니다. 계층 3~계층 7 보호: 웹 응용 프로그램 방화벽과 함께 사용될 경우 전체 스택 DDoS 보호를 제공합니다.
+* **광범위한 완화 규모:** 가장 큰 규모로 알려진 DDoS 공격으로부터 시스템을 보호할 수 있는 글로벌 역량으로 60가지 공격을 완화할 수 있습니다.
+* **공격 메트릭:** Azure Monitor를 통해 각 공격으로부터 요약된 메트릭에 액세스할 수 있습니다.
+* **공격 경고:** 기본 제공되는 공격 메트릭을 사용하여 공격 시작 및 중지 시, 그리고 공격이 진행되는 동안 경고를 구성할 수 있습니다. 경고는 Microsoft Azure Log Analytics, Splunk, Azure Storage, 이메일 및 Azure Portal과 같은 운영 소프트웨어에 통합됩니다.
+* **비용 보장:** 문서화된 DDoS 공격에 대한 데이터 전송 및 응용 프로그램 확장 서비스 크레딧이 제공됩니다.
+* **DDoS 빠른 응답** DDoS Protection 표준 고객은 이제 활성 공격 중에 빠른 응답 팀에 액세스할 수 있습니다. DRR은 공격 조사, 공격 중 사용자 지정 완화 및 공격 후 분석에 도움이 될 수 있습니다.
+
+
+자세한 정보:
+
+* [DDOS 보호 개요](../virtual-network/ddos-protection-overview.md)
+
+## <a name="azure-front-door"></a>Azure Front Door
+
+Azure Front Door 서비스를 사용하여 웹 트래픽에 대한 전역 라우팅을 정의, 관리 및 모니터링할 수 있습니다. 최상의 성능 및 고가용성을 위해 트래픽 라우팅을 최적화합니다. Azure Front Door를 사용하면 액세스 제어에 대한 사용자 지정 웹 응용 프로그램 방화벽(WAF) 규칙을 작성하여 클라이언트 IP 주소, 국가 코드 및 http 매개 변수를 기준으로 HTTP/HTTPS 워크로드 만료를 방지할 수 있습니다. 또한 Front Door는 악의적인 봇 트래픽에 대해 속도 제한 규칙을 만들 수 있도록 하며, SSL 오프로딩 및 HTTP/HTTPS 기준 요청, 응용 프로그램 계층 처리를 포함합니다.
+
+Front Door 플랫폼 자체는 Azure DDoS Protection Basic으로 보호됩니다. 추가 보호를 위해 VNET에서 Azure DDoS Protection Standard를 활성화하고, 자동 튜닝 및 완화를 통해 네트워크 계층(TCP/UDP) 공격으로부터 리소스를 보호할 수 있습니다. Front Door는 계층 7 역방향 프록시이며, 웹 트래픽만 백 엔드 서버를 통과하도록 허용하고 기본적으로 다른 종류의 트래픽은 차단합니다.
+
+자세한 정보:
+
+* 전체 Azure Front Door 기능 집합에 대한 자세한 내용을 보려면 [Azure Front Door 개요](../frontdoor/front-door-overview.md)를 검토할 수 있습니다.
+
+## <a name="azure-traffic-manager"></a>Azure Traffic Manager
+
+Azure Traffic Manager는 트래픽을 전 세계 Azure 지역의 서비스에 적절하게 분산하는 한편, 고가용성과 빠른 응답성을 제공하는 DNS 기반 트래픽 부하 분산 장치입니다. Traffic Manager는 DNS를 사용하여 클라이언트 요청을 트래픽 라우팅 메서드 및 엔드포인트의 상태를 기반으로 가장 적절한 서비스 엔드포인트로 리디렉션합니다. 엔드포인트는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다. Traffic Manager는 엔드포인트를 모니터링하고 사용할 수 없는 엔드포인트로 트래픽을 전송하지 않습니다.
+
+자세한 정보:
+
+* [Azure Traffic Manager 개요](../traffic-manager/traffic-manager-overview.md)
+
 ## <a name="monitoring-and-threat-detection"></a>감사 및 위협 검색
 
 Azure에서는 초기 검색, 모니터링, 네트워크 트래픽 수집 및 검토 기능으로 이 주요 영역에서 사용자를 지원합니다.
@@ -318,6 +382,14 @@ Security Center는 다음과 같은 방법을 통해 네트워크 보안을 최�
 
 * [Azure Security Center 소개](../security-center/security-center-intro.md)
 
+### <a name="virtual-network-tap"></a>가상 네트워크 TAP
+
+Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트워크 패킷 수집기 또는 분석 도구로 가상 머신 네트워크 트래픽을 지속적으로 스트리밍할 수 있습니다. 수집기 또는 분석 도구는 네트워크 가상 어플라이언스 파트너를 통해 제공됩니다. 동일한 가상 네트워크 TAP 리소스를 사용하여 동일하거나 다른 구독의 여러 네트워크 인터페이스에서 트래픽을 집계할 수 있습니다.
+
+자세한 정보:
+
+* [가상 네트워크 TAP](../virtual-network/virtual-network-tap-overview.md)
+
 ### <a name="logging"></a>로깅
 
 네트워크 수준에서 로깅은 네트워크 보안 시나리오의 핵심 기능입니다. Azure에서는 NSG에 대해 획득한 정보를 기록하여 네트워크 수준 로깅 정보를 얻을 수 있습니다. NSG 로깅을 사용하여 다음에서 정보를 얻습니다.
@@ -330,21 +402,3 @@ Security Center는 다음과 같은 방법을 통해 네트워크 보안을 최�
 자세한 정보:
 
 * [NSG(네트워크 보안 그룹)에 대한 Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md)
-
-## <a name="azure-ddos-protection"></a>Azure DDoS 보호
-
-DDoS(배포된 서비스 거부) 공격은 고객이 응용 프로그램을 클라우드로 전환하게 만드는 가장 큰 가용성 및 보안 문제 중 일부입니다. DDoS 공격은 응용 프로그램의 리소스를 소진시켜서 정상적인 사용자가 응용 프로그램을 사용할 수 없게 만듭니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다.
-Microsoft에서는 Azure 플랫폼의 일부로 **기본**으로 알려진 DDoS 보호를 제공합니다. 이는 무료로 제공되며, 일반적인 네트워크 수준 공격에 대한 Always On 모니터링 및 실시간 완화를 포함합니다. **기본** DDoS 보호에 포함된 보호 외에도 **표준** 옵션을 사용하도록 설정할 수 있습니다. DDoS Protection 표준 기능에는 다음이 포함됩니다.
-
-* **네이티브 플랫폼 통합:** 기본적으로 Azure에 통합됩니다. Azure Portal을 통해 구성을 포함합니다. DDoS Protection 표준은 사용자의 리소스 및 리소스 구성을 인식합니다.
-* **턴키 보호:** 간소화된 구성으로 DDoS Protection 표준이 사용되는 즉시 가상 네트워크의 모든 리소스를 바로 보호할 수 있습니다. 작업 또는 사용자 정의가 필요하지 않습니다. DDoS Protection 표준은 공격이 감지되는 즉시 자동으로 공격을 완화시킵니다.
-* **트래픽 항시 모니터링:** DDoS 공격의 징후를 찾기 위해 응용 프로그램 트래픽 패턴이 24시간 매일 모니터링됩니다. 보호 정책이 초과되면 완화가 수행됩니다.
-* **적응형 튜닝:** 지능형 트래픽 프로파일링으로 시간별 응용 프로그램 트래픽을 학습하고, 사용자의 서비스에 가장 적합한 프로필을 업데이트합니다. 트래픽이 시간이 지남에 따라 변경되면서 프로필이 조정됩니다. 계층 3~계층 7 보호: 웹 응용 프로그램 방화벽과 함께 사용될 경우 전체 스택 DDoS 보호를 제공합니다.
-* **광범위한 완화 규모:** 가장 큰 규모로 알려진 DDoS 공격으로부터 시스템을 보호할 수 있는 글로벌 역량으로 60가지 공격을 완화할 수 있습니다.
-* **공격 메트릭:** Azure Monitor를 통해 각 공격으로부터 요약된 메트릭에 액세스할 수 있습니다.
-* **공격 경고:** 기본 제공되는 공격 메트릭을 사용하여 공격 시작 및 중지 시, 그리고 공격이 진행되는 동안 경고를 구성할 수 있습니다. 경고는 Microsoft Azure Log Analytics, Splunk, Azure Storage, 이메일 및 Azure Portal과 같은 운영 소프트웨어에 통합됩니다.
-* **비용 보장:** 문서화된 DDoS 공격에 대한 데이터 전송 및 응용 프로그램 확장 서비스 크레딧이 제공됩니다.
-
-자세한 정보:
-
-* [DDOS 보호 개요](../virtual-network/ddos-protection-overview.md)

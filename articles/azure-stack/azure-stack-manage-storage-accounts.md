@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452278"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240718"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure Stack의 storage 계정 관리
 찾기, 복구 및 비즈니스 요구에 따라 저장소 용량을 회수 하는 Azure Stack에서 저장소 계정을 관리 하는 방법에 알아봅니다.
@@ -136,8 +136,8 @@ Azure Stack에서 작업을 수행 하는 간단한 방법이 있습니다.
 **용량을 회수 하기 위해 PowerShell을 사용 하 여:**   
 
 1. Azure PowerShell 설치 및 구성 했는지 확인 합니다. 그렇지 않은 경우 다음 지침을 따르십시오. 
-   * 최신 Azure PowerShell 버전을 설치 하 고 Azure 구독에 연결, 참조 [Azure PowerShell 설치 및 구성 하는 방법을](http://azure.microsoft.com/documentation/articles/powershell-install-configure/)합니다.
-   Azure Resource Manager cmdlet에 대 한 자세한 내용은 참조 하세요. [Azure PowerShell를 사용 하 여 Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+   * 최신 Azure PowerShell 버전을 설치 하 고 Azure 구독에 연결, 참조 [Azure PowerShell 설치 및 구성 하는 방법을](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)합니다.
+   Azure Resource Manager cmdlet에 대 한 자세한 내용은 참조 하세요. [Azure PowerShell를 사용 하 여 Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767)
 2. 다음 cmdlet을 실행합니다.
 
 > [!NOTE]  

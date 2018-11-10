@@ -1,21 +1,20 @@
 ---
 title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 배포 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버를 관리하는 방법을 설명합니다.
-services: site-recovery
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware 재해 복구를 위해 구성 서버를 배포하는 방법 설명
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025279"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233160"
 ---
-# <a name="deploy-a-configuration-server"></a>구성 서버 배포
+# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 구성 서버 배포
 
 Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Site Recovery](site-recovery-overview.md)를 사용할 경우 온-프레미스 구성 서버를 배포합니다. 구성 서버는 온-프레미스 VMware와 Azure 간의 통신을 조정합니다. 또한 데이터 복제를 관리합니다. 이 문서에서는 VMware VM을 Azure로 복제할 때 구성 서버를 배포하는 데 필요한 단계를 안내합니다. 물리적 서버 복제를 위해 구성 서버를 설정해야 하는 경우 [이 문서에 따릅니다](physical-azure-set-up-source.md).
 
@@ -117,6 +116,14 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 8. **구성 완료**를 선택하여 등록을 완료합니다.
 9. 등록이 완료되면 Azure Portal을 열고, **Recovery Services 자격 증명 모음** > **관리** > **Site Recovery 인프라** > **구성 서버**에서 구성 서버와 VMware 서버가 나열되어 있는지 확인합니다.
 
+## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
+
+구성 서버를 최신 버전으로 업그레이드하려면 다음 [단계](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 따르세요.
+
+## <a name="manage-the-configuration-server"></a>구성 서버 관리
+
+진행 중인 복제가 중단되지 않도록 하려면 구성 서버가 자격 증명 모음에 등록된 후 구성 서버의 IP 주소가 변경되지 않아야 합니다. [여기](vmware-azure-manage-configuration-server.md)에서 일반 구성 서버 관리 작업에 대해 자세히 알아볼 수 있습니다.
+
 ## <a name="faq"></a>FAQ
 
 1. 구성 서버가 설치된 VM을 다른 용도로 사용할 수 있나요?
@@ -140,14 +147,6 @@ OVA 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평
 7. 자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
 
     **Recovery Services 자격 증명 모음**에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 통해 다운로드합니다. 서버에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 파일을 다운로드합니다.
-
-## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
-
-구성 서버를 최신 버전으로 업그레이드하려면 다음 [단계](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 따르세요.
-
-## <a name="manage-the-configuration-server"></a>구성 서버 관리
-
-진행 중인 복제가 중단되지 않도록 하려면 구성 서버가 자격 증명 모음에 등록된 후 구성 서버의 IP 주소가 변경되지 않아야 합니다. [여기](vmware-azure-manage-configuration-server.md)에서 일반 구성 서버 관리 작업에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="troubleshoot-deployment-issues"></a>배포 문제 해결
 

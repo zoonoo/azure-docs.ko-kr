@@ -1,6 +1,6 @@
 ---
-title: Log Analytics를 사용하여 논리 앱 실행 모니터링 - Azure Logic Apps | Microsoft Docs
-description: 문제 해결 및 진단용 Log Analytics를 사용하여 논리 앱 실행에 대한 인사이트 및 디버깅 데이터를 얻을 수 있습니다.
+title: Log Analytics를 사용하여 논리 앱 모니터링 - Azure Logic Apps | Microsoft Docs
+description: Azure Log Analytics를 사용하여 논리 앱 문제 해결 및 진단에 대한 인사이트 및 디버깅 데이터 가져오기
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,24 +8,24 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: 177c361734a88acab5fc10d6b460645be82bf437
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 10/19/2018
+ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457143"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232379"
 ---
-# <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Log Analytics를 사용한 논리 앱 실행에 관한 모니터링 및 유용한 정보 얻기
+# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 논리 앱 모니터링
 
-모니터링 및 더 다양한 디버깅 정보를 위해 논리 앱을 만들 때 동시에 Log Analytics를 켤 수 있습니다. Log Analytics는 Azure Portal을 통해 논리 앱 실행에 대한 진단 로깅 및 모니터링을 제공합니다. Logic Apps 관리 솔루션을 추가하면 논리 앱 실행 및 상태, 실행 시간, 다시 제출 상태 및 상관 관계 ID와 같은 특정 세부 사항에 관한 집계된 상태를 얻을 수 있습니다.
+논리 앱을 모니터링하고 논리 앱에 대한 다양한 디버깅 세부 정보를 가져오려면 논리 앱을 만들 때 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 켭니다. Log Analytics는 Azure Portal에 Logic Apps 관리 솔루션을 설치할 때 논리 앱에 대한 진단 로깅 및 모니터링을 제공합니다. 이 솔루션은 상태, 실행 시간, 다시 제출 상태 및 상관 관계 ID와 같은 특정 세부 정보를 사용하여 논리 앱 실행에 대한 집계 정보를 제공합니다. 이 문서에서는 논리 앱 실행에 대한 런타임 이벤트 및 데이터를 볼 수 있도록 Log Analytics를 켜는 방법을 보여 줍니다.
 
-이 문서에서는 논리 앱 실행에 관한 런타임 이벤트 및 데이터를 볼 수 있도록 Log Analytics를 켜는 방법을 보여줍니다.
+기존 논리 앱에 대한 Azure Log Analytics를 켜려면 다음 단계에 따라 [진단 로깅을 켜서 논리 앱 런타임 데이터를 Log Analytics에 보냅니다](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
- > [!TIP]
- > 기존 논리 앱을 모니터링하려면 다음 단계에 따라 [진단 로깅을 켜서 논리 앱 런타임 데이터를 Log Analytics에 보냅니다](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+> [!NOTE]
+> 이 페이지에서는 [2019년 1월에 사용 중지](../log-analytics/log-analytics-oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
 
-## <a name="requirements"></a>요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 Log Analytics 작업 영역이 필요합니다. [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다. 
 
@@ -54,11 +54,11 @@ ms.locfileid: "49457143"
 
 1. 논리 앱 실행을 보려면 [다음 단계로 계속 진행합니다](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution"></a>Logic Apps 관리 솔루션 설치
+## <a name="install-logic-apps-management-solution"></a>Logic Apps 관리 솔루션 설치
 
 사용자의 논리 앱을 만들 때 이미 Log Analytics를 켰으면 이 단계를 건너뜁니다. Logic Apps 관리 솔루션이 이미 설치되어 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. 검색 상자에 필터로 "로그 분석"을 입력하고 **Log Analytics**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. 검색 상자에서 "로그 분석"을 찾고 **Log Analytics**를 선택합니다.
 
    !["Log Analytics" 선택](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "49457143"
 
    ![Log Analytics 작업 영역 선택](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. **모니터링 솔루션 구성** 아래에서 **솔루션 보기**를 선택합니다.
+1. **Log Analytics 시작** > **솔루션 모니터링 구성** 아래에서 **솔루션 보기**를 선택합니다.
 
    !["솔루션 보기" 선택](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
@@ -76,19 +76,23 @@ ms.locfileid: "49457143"
 
    솔루션을 찾을 수 없는 경우 목록의 맨 아래에서 솔루션이 나타날 때까지 **추가 로드**를 선택합니다.
 
-1. 솔루션을 설치하는 **만들기**를 선택합니다.
+1. **만들기**를 선택하고 솔루션을 설치하려는 Log Analytics 작업 영역을 확인한 다음, **만들기**를 다시 선택합니다.   
 
-   ![“Logic Apps 관리”에 “추가” 선택](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+   ![“Logic Apps 관리”에 대한 “만들기” 선택](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+
+   기존 작업 영역을 사용하지 않으려는 경우 이번에 새 작업 영역을 만들 수도 있습니다.
+
+   완료되면 Logic Apps 관리 솔루션이 개요 페이지에 표시됩니다. 
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-logic-app-runs-in-log-analytics-workspace"></a>Log Analytics 작업 영역에서 논리 앱 실행 보기
+## <a name="view-logic-app-run-information"></a>논리 앱 실행 정보 보기
 
-1. 논리 앱 실행에 대한 횟수 및 상태를 확인하려면 Log Analytics 작업 영역으로 이동하고, 개요 페이지를 엽니다. 
+논리 앱 실행 후 **Logic Apps 관리** 타일에서 해당 논리 앱 실행의 상태 및 수를 확인할 수 있습니다. 
 
-   논리 앱 실행에 대한 세부 정보가 **Logic Apps 관리** 타일에 표시됩니다. 논리 앱 실행에 관한 더 많은 정보를 포함한 요약을 보려면 **Logic Apps 관리** 타일을 선택합니다. 
+1. Log Analytics 작업 영역으로 이동한 후 개요 페이지를 엽니다. **Logic Apps 관리**를 선택합니다. 
 
-   ![논리 앱 실행 횟수 및 상태를 보여 주는 개요 타일](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+   ![논리 앱 실행 상태 및 수](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
    여기에서 논리 앱 실행은 이름이나 실행 상태로 그룹화됩니다. 
    이 페이지는 논리 앱 실행에 대한 작업 또는 트리거의 오류에 대한 세부 정보도 표시합니다.

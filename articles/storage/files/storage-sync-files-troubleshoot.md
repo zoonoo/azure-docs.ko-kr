@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389278"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231885"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -74,9 +74,9 @@ Azure 파일 공유가 다른 클라우드 엔드포인트에서 이미 사용�
 이 메시지가 표시되고 Azure 파일 공유가 현재 클라우드 엔드포인트에서 사용되고 있지 않으면 다음 단계를 수행하여 Azure 파일 공유에서 Azure 파일 동기화 메타데이터를 지웁니다.
 
 > [!Warning]  
-> 클라우드 엔드포인트에서 현재 사용 중인 Azure 파일 공유에서 메타데이터를 삭제하면 Azure 파일 동기화 작업이 실패합니다. 
+> 클라우드 엔드포인트에서 현재 사용 중인 Azure 파일 공유에서 메타데이터를 삭제하면 Azure 파일 동기화 작업이 실패합니다. 
 
-1. Azure Portal에서 Azure 파일 공유로 이동합니다.  
+1. Azure Portal에서 Azure 파일 공유로 이동합니다.  
 2. Azure 파일 공유를 마우스 오른쪽 단추로 클릭하고 **메타데이터 편집**을 선택합니다.
 3. **SyncService**를 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다.
 
@@ -258,9 +258,9 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 문자 집합 | 문자 수 |
 |---------------|-----------------|
 | <ul><li>0x0000009D(osc operating system command)</li><li>0x00000090(dcs device control string)</li><li>0x0000008F(ss3 single shift three)</li><li>0x00000081(high octet preset)</li><li>0x0000007F(del delete)</li><li>0x0000008D(ri reverse line feed)</li></ul> | 6 |
-| 0x0000FDD0 - 0x0000FDEF(Arabic presentation forms-a) | 32 |
+| 0x0000FDD0 - 0x0000FDEF(아라비아식 표현꼴-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF(specials) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2(noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2(noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2(noncharacter)</li><li>0x0004FFFE - 0x0004FFFF = 2(noncharacter)</li><li>0x0005FFFE - 0x0005FFFF = 2(noncharacter)</li><li>0x0006FFFE - 0x0006FFFF = 2(noncharacter)</li><li>0x0007FFFE - 0x0007FFFF = 2(noncharacter)</li><li>0x0008FFFE - 0x0008FFFF = 2(noncharacter)</li><li>0x0009FFFE - 0x0009FFFF = 2(noncharacter)</li><li>0x000AFFFE - 0x000AFFFF = 2(noncharacter)</li><li>0x000BFFFE - 0x000BFFFF = 2(noncharacter)</li><li>0x000CFFFE - 0x000CFFFF = 2(noncharacter)</li><li>0x000DFFFE - 0x000DFFFF = 2(noncharacter)</li><li>0x000EFFFE - 0x000EFFFF = 2(undefined)</li><li>0x000FFFFE - 0x000FFFFF = 2(supplementary private use area)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2(noncharacter)</li><li>0x0002FFFE - 0x0002FFFF = 2(noncharacter)</li><li>0x0003FFFE - 0x0003FFFF = 2(비문자)</li><li>0x0004FFFE - 0x0004FFFF = 2(비문자)</li><li>0x0005FFFE - 0x0005FFFF = 2(비문자)</li><li>0x0006FFFE - 0x0006FFFF = 2(비문자)</li><li>0x0007FFFE - 0x0007FFFF = 2(비문자)</li><li>0x0008FFFE - 0x0008FFFF = 2(비문자)</li><li>0x0009FFFE - 0x0009FFFF = 2(비문자)</li><li>0x000AFFFE - 0x000AFFFF = 2(비문자)</li><li>0x000BFFFE - 0x000BFFFF = 2(비문자)</li><li>0x000CFFFE - 0x000CFFFF = 2(비문자)</li><li>0x000DFFFE - 0x000DFFFF = 2(비문자)</li><li>0x000EFFFE - 0x000EFFFF = 2(정의되지 않음)</li><li>0x000FFFFE - 0x000FFFFF = 2(보조 개인 사용 영역)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>일반적인 동기화 오류
@@ -519,7 +519,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT(10진)** | -2134375908 |
-| **오류 문자열** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **오류 문자열** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **재구성 필요** | yes |
 | | |
 | **HRESULT** | 0x80c80253 |

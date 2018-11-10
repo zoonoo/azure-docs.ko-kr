@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 10/29/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190275"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238800"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>하이브리드 Azure Active Directory 조인 구현을 계획하는 방법
 
@@ -95,13 +95,13 @@ Windows 데스크톱 운영 체제를 실행하는 장치의 경우 지원되는
 
 VM(Virtual Machine) 스냅숏을 사용하여 추가 VM을 만드는 경우 하이브리드 Azure AD 조인에 대해 구성되지 않은 VM 스냅숏을 사용해야 합니다.
 
-사용자 프로필 로밍 또는 자격 증명 로밍에 대해 구성된 장치에는 Windows 하위 수준 장치의 등록이 지원되지 않습니다. 프로필 또는 설정 로밍을 사용하는 경우 Windows 10을 사용하세요.
+Windows 하위 수준 장치의 하이브리드 Azure AD 조인:
 
-- Windows 하위 수준 장치 등록은 원활한 Single Sign-On([Azure Active Directory 원활한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start))을 통해 페더레이션되지 않은 환경에서 **지원됩니다**. 
- 
-- Seamless Single Sign On이 설정되지 않은 Azure AD 통과 인증을 사용할 경우 Windows 하위 수준 장치 등록이 지원되지 **않습니다**.
+- [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)을 통해 페더레이션되지 않은 환경에서 **지원됩니다**. 
 
-- 로밍 프로필을 사용하는 장치에 대해서는 Windows 하위 수준 장치 등록이 지원되지 **않습니다**. 프로필 또는 설정 로밍을 사용하는 경우 Windows 10을 사용하세요.
+- Seamless Single Sign On이 설정되지 않은 Azure AD 통과 인증을 사용할 경우 지원되지 **않습니다**.
+
+- 자격 증명 로밍 또는 사용자 프로필 로밍을 사용하는 경우나 VDI(가상 데스크톱 인프라)를 사용하는 경우에 지원되지 **않습니다**.
 
 
 DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 지원되지 않습니다.

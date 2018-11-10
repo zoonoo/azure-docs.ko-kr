@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 11/1/2018
 ms.author: victorh
-ms.openlocfilehash: 6dc7d20d31d9399355b2b3de90ea90f2f3e07af5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 897ea3856516b5429ffb770164f863d71e7ae0dd
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224650"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419013"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 태그 개요
 
@@ -31,7 +31,7 @@ FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 
 |Windows 업데이트     |[소프트웨어 업데이트에 대한 방화벽 구성 방법](https://technet.microsoft.com/library/bb693717.aspx)에 설명된 대로 Microsoft 업데이트에 대한 아웃바운드 액세스를 허용합니다.|
 |Windows 진단|모든 [Windows 진단 끝점](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints)에 대한 아웃바운드 액세스를 허용합니다.|
 |MAPS(Microsoft 활성 보호 서비스)|[MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/)에 대한 아웃바운드 액세스를 허용합니다.|
-|ASE(App Service Environment)|ASE 플랫폼 트래픽에 대한 아웃바운드 액세스를 허용합니다. 이 태그는 ASE에서 만든 고객별 Storage 및 SQL 끝점을 다루지 않습니다. [서비스 끝점](../virtual-network/tutorial-restrict-network-access-to-resources.md)을 통해 사용하도록 설정되거나 수동으로 추가되어야 합니다.|
+|ASE(App Service Environment)|ASE 플랫폼 트래픽에 대한 아웃바운드 액세스를 허용합니다. 이 태그는 ASE에서 만든 고객별 Storage 및 SQL 끝점을 다루지 않습니다. [서비스 끝점](../virtual-network/tutorial-restrict-network-access-to-resources.md)을 통해 사용하도록 설정되거나 수동으로 추가되어야 합니다.<br><br>Azure Firewall을 ASE와 통합하는 방법에 대한 자세한 내용은 [App Service Environment 잠금](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase)을 참조하세요.|
 |Azure Backup|Azure Backup 서비스에 대한 아웃바운드 액세스를 허용합니다.
 
 > [!NOTE]

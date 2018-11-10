@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a3329c7f08dfabdf1bb8a010ad5bc865fc509f4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964704"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241653"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>TB 단위의 데이터에 대한 서버 작업 예측
 
@@ -100,7 +100,7 @@ DSVM IP 주소 | xxx|
 
 ## <a name="data-description"></a>데이터 설명
 
-이 예제에서 사용된 데이터는 합성된 서버 작업 데이터입니다. 미국 동부 지역에서 공개적으로 액세스할 수 있는 Azure Blob Storage 계정에 호스팅됩니다. 특정 저장소 계정 정보는 [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json)의 `dataFile` 필드에서 "wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>" 형식으로 찾을 수 있습니다. Blob 저장소에서 직접 데이터를 사용할 수 있습니다. 여러 사용자가 저장소를 동시에 사용하는 경우 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)를 사용하여 고유한 저장소로 데이터를 다운로드하면 보다 나은 실험 환경을 조성할 수 있습니다. 
+이 예제에서 사용된 데이터는 합성된 서버 작업 데이터입니다. 미국 동부 지역에서 공개적으로 액세스할 수 있는 Azure Blob Storage 계정에 호스트됩니다. 특정 저장소 계정 정보는 [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json)의 `dataFile` 필드에서 "wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>" 형식으로 찾을 수 있습니다. Blob 저장소에서 직접 데이터를 사용할 수 있습니다. 여러 사용자가 저장소를 동시에 사용하는 경우 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)를 사용하여 고유한 저장소로 데이터를 다운로드하면 보다 나은 실험 환경을 조성할 수 있습니다. 
 
 총 데이터 크기는 약 1TB입니다. 각 파일은 약 1-3GB이며 헤더가 없는 CSV 파일 형식입니다. 각 데이터 행은 특정 서버에서의 트랜잭션 로드를 나타냅니다. 데이터 스키마의 자세한 정보는 다음과 같습니다.
 

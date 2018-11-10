@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498286"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242962"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션 
 
@@ -29,15 +29,21 @@ StorSimple 5000-7000 시리즈에 대한 지원은 2019년 7월에 [중단](http
 
 ## <a name="migration-options"></a>마이그레이션 옵션
 
-StorSimple 5000-7000 시리즈를 사용하는 고객에게는 다음 두 가지 주요 옵션이 있습니다.
+StorSimple 5000-7000 시리즈를 사용하는 고객에게는 다음 옵션이 있습니다.
 
-- **StorSimple 8000 시리즈로 업그레이드** – StorSimple 8000 시리즈로 업그레이드하여 StorSimple 플랫폼에서 계속 사용합니다.  이 업그레이드 경로를 사용하려면 고객이 5000-7000 시리즈 장치를 8000 시리즈로 교체해야 합니다. 데이터는 마이그레이션 도구를 사용하여 5000-7000 시리즈 장치에서 마이그레이션됩니다. 마이그레이션이 성공적으로 완료되면 StorSimple 8000 시리즈 장치에서 데이터를 Azure Blob Storage에 계속 계층화합니다. 
+- **Azure 옵션**:
+
+    - **StorSimple 8000 시리즈로 업그레이드** – StorSimple 8000 시리즈로 업그레이드하여 StorSimple 플랫폼에서 계속 사용합니다.  이 업그레이드 경로를 사용하려면 고객이 5000-7000 시리즈 장치를 8000 시리즈로 교체해야 합니다. 데이터는 마이그레이션 도구를 사용하여 5000-7000 시리즈 장치에서 마이그레이션됩니다. 마이그레이션이 성공적으로 완료되면 StorSimple 8000 시리즈 장치에서 데이터를 Azure Blob Storage에 계속 계층화합니다. 
 
     StorSimple 8000 시리즈를 사용하여 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [StorSimple 5000-7000 시리즈에서 8000 시리즈 장치로 데이터 마이그레이션](storsimple-8000-migrate-from-5000-7000.md)을 참조하세요.
 
-- **Azure 파일 동기화로 마이그레이션** - 이 새 마이그레이션 옵션을 사용하면 고객이 조직의 파일 공유를 Azure Files에 저장할 수 있습니다. 그러면 이러한 파일 공유에서 AFS(Azure 파일 동기화)를 사용하여 온-프레미스 액세스를 위해 중앙 집중화됩니다. AFS는 Windows Server 호스트에 배포할 수 있습니다. 그러면 실제 데이터 마이그레이션이 호스트 복사본으로 수행되거나 마이그레이션 도구를 사용하여 수행됩니다.
+    - **Azure 파일 동기화로 마이그레이션** - 이 새 마이그레이션 옵션을 사용하면 고객이 조직의 파일 공유를 Azure Files에 저장할 수 있습니다. 그러면 이러한 파일 공유에서 AFS(Azure 파일 동기화)를 사용하여 온-프레미스 액세스를 위해 중앙 집중화됩니다. AFS는 Windows Server 호스트에 배포할 수 있습니다. 그러면 실제 데이터 마이그레이션이 호스트 복사본으로 수행되거나 마이그레이션 도구를 사용하여 수행됩니다.
 
     데이터를 Azure 파일 동기화로 마이그레이션하는 방법에 대한 자세한 내용은 [StorSimple 5000-7000 시리즈에서 Azure 파일 동기화로 데이터 마이그레이션](https://aka.ms/StorSimpleMigrationAFS)을 참조하세요.
+
+- **타사 옵션**:
+
+    - **Panzura Freedom NAS로 마이그레이션** - StorSimple 5000-7000 고객은 Azure에서 데이터를 유지하기 위해 Panzura Freedom NAS로 마이그레이션하도록 선택할 수 있습니다. Panzura Freedom 솔루션은 데이터 센터, 사무실, 공용 및 사설 클라우드를 포괄한 NAS 솔루션을 제공합니다. 솔루션을 통해 NFS, SMB 및 모바일 클라이언트에 대한 로컬, 하이브리드 및 클라우드 내 데이터 워크플로를 활성화할 수 있습니다. 이 마이그레이션은 Panzura에서 지원하며, 고객은 [Panzura 웹 사이트](https://panzura.com/storsimple-migration/)에서 마이그레이션 지원을 요청하여 시작할 수 있습니다.
 
 ## <a name="migration---frequently-asked-questions"></a>마이그레이션 - 질문과 대답
 
@@ -50,11 +56,11 @@ a. StorSimple 5000-7000 시리즈에 대한 서비스는 2019년 7월에 [종료
 a. 새 서비스로 마이그레이션한 후에도 Azure에서 데이터를 계속 사용할 수 있습니다. 
 
 
-### <a name="q--what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>Q.  StorSimple 장치에 로컬로 저장된 데이터는 어떻게 되나요? 
+### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>Q. StorSimple 장치에 로컬로 저장된 데이터는 어떻게 되나요? 
 
 a. 마이그레이션 문서에서 설명한 대로 로컬 장치에 있는 데이터는 새 서비스에 복사할 수 있습니다.
 
-### <a name="what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>StorSimple 5000/7000 시리즈 어플라이언스를 유지하려면 어떻게 되나요? 
+### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>Q. StorSimple 5000/7000 시리즈 어플라이언스를 유지하려면 어떻게 되나요? 
 
 a. 서비스는 계속 작동하지만 Microsoft는 더 이상 하드웨어 및 소프트웨어 지원을 제공하지 않습니다. 비즈니스 연속성을 위해 마이그레이션을 사용하는 것이 좋습니다.
 

@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: shvija
-ms.openlocfilehash: eaea6adbaef7baf9bb1e617ba0a709cf14edf781
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005581"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239494"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>Go를 사용하여 Event Hubs에서 이벤트 수신
 
@@ -33,7 +33,7 @@ Event Hubs에 대한 자세한 내용은 [Event Hubs 개요][Event Hubs overview
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 * 로컬로 설치된 Go. 필요한 경우 [다음 지침](https://golang.org/doc/install)을 따릅니다.
-* 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만듭니다.
+* 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][]을 만듭니다.
 * 메시지를 수신하려면 대상 이벤트 허브에 메시지가 있어야 합니다. [보내기 자습서](event-hubs-go-get-started-send.md)에서 메시지를 보내는 방법을 알아보세요.
 * 기존 이벤트 허브(다음 섹션 참조).
 * 기존 저장소 계정 및 컨테이너(다다음 섹션 참조).
@@ -80,7 +80,7 @@ import (
 
 ## <a name="create-service-principal"></a>서비스 주체 만들기
 
-[Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)의 지침에 따라 새 서비스 주체를 만듭니다. 제공된 자격 증명을 다른 이름으로 현재 환경에 저장합니다. Go용 Azure SDK 및 Event Hubs 패키지는 다음 변수 이름을 찾도록 미리 구성됩니다.
+[Azure CLI 2.0을 사용하여 Azure 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli)의 지침에 따라 새 서비스 주체를 만듭니다. 제공된 자격 증명을 사용자 환경에 다음 이름으로 저장합니다. Go용 Azure SDK 및 Event Hubs 패키지는 이러한 변수 이름을 찾도록 미리 구성되어 있습니다.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -197,14 +197,8 @@ if err != nil {
 이 자습서에서는 **EventProcessorHost**의 단일 인스턴스를 사용합니다. 처리량과 안정성을 높이려면 여러 시스템에서 여러 **EventProcessorHost** 인스턴스를 실행해야 합니다. Leaser 시스템은 하나의 수신기만 연결하고, 지정된 시간에 지정된 파티션에서 메시지를 수신합니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-다음 페이지를 방문하여 Event Hubs에 대해 자세히 알아보세요.
-
-* [Go를 사용하여 이벤트 보내기](event-hubs-go-get-started-send.md)
-* [Event Hubs 개요](event-hubs-about.md)
-* [이벤트 허브 만들기](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+이 빠른 시작에서는 이벤트 허브에서 메시지를 받는 Go 응용 프로그램을 만들었습니다. Go를 사용하여 이벤트 허브에 이벤트를 보내는 방법을 알아보려면 [이벤트 허브에서 이벤트 보내기 - Go](event-hubs-go-get-started-send.md)를 참조하세요.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

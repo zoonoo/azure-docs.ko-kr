@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c1c884e05d357db7e23574dbd31f206d6c3fe23c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 757c710ddca72ec6a1383b51a8b536d196e6cb8c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41919164"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414486"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>수정 버전을 사용하여 작업을 중단하지 않는 변경을 안전하게 수행
 개발자들이 API를 사용할 수 있도록 모든 준비가 완료되면, API 호출자의 작업을 중단하지 않으면서 해당 API를 변경해야 합니다. 이렇게 하면 개발자에게 변경 내용을 알릴 때도 유용합니다. Azure API Management에서 **수정 버전**을 사용하면 이러한 작업을 수행할 수 있습니다. 자세한 내용은 [버전 및 수정 버전](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) 및 [Azure API Management를 사용한 API 버전 관리](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/)를 참조하세요.
@@ -36,10 +36,13 @@ ms.locfileid: "41919164"
 
 ## <a name="prerequisites"></a>필수 조건
 
++ [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 + 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
 
 ## <a name="add-a-new-revision"></a>새 수정 버전 추가
+
+![API 수정 버전 추가](media/api-management-getstarted-revise-api/07-AddRevisions-01-AddNewRevision.png)
 
 1. **API** 페이지를 선택합니다.
 2. API 목록에서 **데모 회의 API**(또는 수정 버전을 추가하려는 다른 API)를 선택합니다.
@@ -48,8 +51,6 @@ ms.locfileid: "41919164"
 
     > [!TIP]
     > API의 상황에 맞는 메뉴(**...**)에서 **수정 버전 추가**를 선택할 수도 있습니다.
-    
-    ![화면 상단 근처의 수정 버전 메뉴](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 5. 새 수정 버전의 용도를 쉽게 기억할 수 있도록 해당 버전의 설명을 입력합니다.
 6. **만들기**
@@ -59,6 +60,8 @@ ms.locfileid: "41919164"
     > 원본 API는 **수정 버전 1**로 유지됩니다. 다른 수정 버전을 현재 항목으로 설정할 때까지는 사용자가 이 수정 버전을 계속 호출합니다.
 
 ## <a name="make-non-breaking-changes-to-your-revision"></a>작업을 중단하지 않는 방식으로 수정 버전 변경
+
+![수정 버전 수정](media/api-management-getstarted-revise-api/07-AddRevisions-02-MakeChanges.png)
 
 1. API 목록에서 **데모 회의 API**를 선택합니다.
 2. 화면 상단 근처에서 **디자인** 탭을 선택합니다.
@@ -78,6 +81,7 @@ ms.locfileid: "41919164"
 1. 페이지 상단 근처의 메뉴에서 **수정 버전** 탭을 선택합니다.
 
     ![수정 버전 화면의 수정 버전 메뉴](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
+
 2. **수정 버전 2**의 상황에 맞는 메뉴(**...**)를 엽니다.
 3. **현재로 설정**을 선택합니다.
 4. 이 변경 내용에 대한 정보를 게시하려는 경우 **이 API에 대한 공용 변경 로그에 게시**를 선택합니다. **수정 버전을 테스트하는 중입니다. 세 “테스트” 작업을 추가했습니다.** 와 같이 개발자에게 표시할 변경 내용에 대한 설명을 입력합니다.

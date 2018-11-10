@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: c0bb27dccdaf25da818d5d54a8634556a95da737
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2d62e2688c6c17cc96798cb1a560808f6da9c6a9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238680"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242707"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Azure Machine Learning Service 작업 영역 만들기 및 관리
 
-이 문서에서는 Azure Portal에서 [Azure Machine Learning Service](overview-what-is-azure-ml.md)용 [**Azure Machine Learning Service 작업 영역**](concept-azure-machine-learning-architecture.md#workspace)을 만들고 확인하고 삭제해 봅니다.  [CLI를 사용하여](reference-azure-machine-learning-cli.md) 또는 [Python 코드를 사용하여](http://aka.ms/aml-sdk) 작업 영역을 만들고 삭제할 수도 있습니다.
+이 문서에서는 Azure Portal에서 [Azure Machine Learning Service](overview-what-is-azure-ml.md)용 [**Azure Machine Learning Service 작업 영역**](concept-azure-machine-learning-architecture.md#workspace)을 만들고 확인하고 삭제해 봅니다.  [CLI를 사용하여](reference-azure-machine-learning-cli.md) 또는 [Python 코드를 사용하여](https://aka.ms/aml-sdk) 작업 영역을 만들고 삭제할 수도 있습니다.
 
 작업 영역을 만들려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

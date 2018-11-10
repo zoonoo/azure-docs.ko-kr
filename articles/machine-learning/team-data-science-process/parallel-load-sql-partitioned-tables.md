@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: f87bc1d8140bea9ebb09e45d42b27e201b474026
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214345"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243423"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
 이 문서에서는 분할된 테이블을 만들어서 SQL Server 데이터베이스로 대량의 데이터를 병렬로 더 빨리 가져오는 방법을 설명합니다. SQL Database로 빅 데이터를 로드/전송할 때 *분할된 테이블 및 뷰*를 사용하여 SQL DB로 데이터를 가져오는 작업과 후속 쿼리의 성능을 개선할 수 있습니다. 
@@ -102,7 +102,7 @@ ms.locfileid: "39214345"
 * 로깅 오버헤드를 최소화하기 위해 [데이터베이스를 변경](https://msdn.microsoft.com/library/bb522682.aspx)하여 트랜잭션 로깅 스키마를 BULK_LOGGED로 변경합니다. 아래는 그 예입니다.
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* 신속한 데이터 로드를 위해 대량 가져오기 작업을 병렬로 실행합니다. 빅 데이터를 SQL Server 데이터베이스로 신속하게 대량으로 가져오는 방법에 대한 팁은 [1시간 이내에 1TB 로드하기](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)를 참조하세요.
+* 신속한 데이터 로드를 위해 대량 가져오기 작업을 병렬로 실행합니다. 빅 데이터를 SQL Server 데이터베이스로 신속하게 대량으로 가져오는 방법에 대한 팁은 [1시간 이내에 1TB 로드하기](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)를 참조하세요.
 
 다음 PowerShell 스크립트는 BCP를 사용하여 병렬로 데이터를 로드하는 예입니다.
 

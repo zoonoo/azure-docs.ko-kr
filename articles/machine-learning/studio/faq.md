@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 87695e6e7e1f1abce7204ebbbbed2b492297f177
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393301"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247775"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 질문과 대답: 대금 청구, 기능, 제한 사항 및 지원
 Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문(FAQ)과 해당하는 대답입니다. 이 FAQ는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대한 질문을 제공합니다.
 
 **여기에서 찾을 수 없는 질문이 있나요?**
 
-Azure Machine Learning은 데이터 과학 커뮤니티의 멤버가 Azure Machine Learning에 대한 질문을 할 수 있는 MSDN 포럼을 운영합니다. Azure Machine Learning 팀에서 포럼을 모니터링합니다. 답변을 검색하거나 새로운 질문을 게시하려면 [Azure Machine Learning 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)으로 이동하세요.
+Azure Machine Learning은 데이터 과학 커뮤니티의 멤버가 Azure Machine Learning에 대한 질문을 할 수 있는 MSDN 포럼을 운영합니다. Azure Machine Learning 팀에서 포럼을 모니터링합니다. 답변을 검색하거나 새로운 질문을 게시하려면 [Azure Machine Learning 포럼](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)으로 이동하세요.
 
 ## <a name="general-questions"></a>일반적인 질문
 **Azure Machine Learning이란 무엇인가요?**
@@ -123,7 +123,7 @@ Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대
 ### <a name="modules"></a>모듈
 **원하는 알고리즘, 데이터 원본, 데이터 형식, 데이터 변환 작업이 Azure Machine Learning Studio에 없습니다. 어떻게 해야 하나요?**
 
-[사용자 피드백 포럼](http://go.microsoft.com/fwlink/?LinkId=404231)으로 이동하여 Microsoft에서 추적 중인 기능 요청을 확인할 수 있습니다. 원하는 기능이 이미 요청된 경우 해당 요청에 투표할 수 있습니다. 원하는 기능이 없는 경우 새로운 요청을 만드세요. 이 포럼에서 요청의 상태를 확인할 수도 있습니다. Microsoft는 이 목록을 긴밀하게 추적하여 기능의 사용 가능성 상태를 자주 업데이트합니다. R 및 Python에 대한 기본적인 지원 외에 필요에 따라 사용자 지정 변환을 만들 수 있습니다.
+[사용자 피드백 포럼](https://go.microsoft.com/fwlink/?LinkId=404231)으로 이동하여 Microsoft에서 추적 중인 기능 요청을 확인할 수 있습니다. 원하는 기능이 이미 요청된 경우 해당 요청에 투표할 수 있습니다. 원하는 기능이 없는 경우 새로운 요청을 만드세요. 이 포럼에서 요청의 상태를 확인할 수도 있습니다. Microsoft는 이 목록을 긴밀하게 추적하여 기능의 사용 가능성 상태를 자주 업데이트합니다. R 및 Python에 대한 기본적인 지원 외에 필요에 따라 사용자 지정 변환을 만들 수 있습니다.
 
 **기존 코드를 Machine Learning Studio로 가져올 수 있나요?**
 
@@ -182,7 +182,7 @@ Machine Learning Studio는 Microsoft Research에서 개발된 확장 가능한 �
 ### <a name="r-module"></a>R 모듈
 **Machine Learning Studio에서 사용 가능한 R 패키지는 무엇인가요?**
 
-Machine Learning Studio는 현재 400개가 넘는 CRAN R 패키지를 지원하며 다음은 모든 포함된 패키지의 [현재 목록](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) 입니다. 이 목록을 직접 검색하는 방법에 대해 알아보려면 [R을 사용하여 실험 확장](extend-your-experiment-with-r.md) 을 참조하세요. 원하는 패키지가 이 목록에 없는 경우 [사용자 피드백 포럼](http://go.microsoft.com/fwlink/?LinkId=404231)에서 패키지 이름을 제공해 주세요.
+Machine Learning Studio는 현재 400개가 넘는 CRAN R 패키지를 지원하며 다음은 모든 포함된 패키지의 [현재 목록](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) 입니다. 이 목록을 직접 검색하는 방법에 대해 알아보려면 [R을 사용하여 실험 확장](extend-your-experiment-with-r.md) 을 참조하세요. 원하는 패키지가 이 목록에 없는 경우 [사용자 피드백 포럼](https://go.microsoft.com/fwlink/?LinkId=404231)에서 패키지 이름을 제공해 주세요.
 
 **사용자 지정 R 모듈을 빌드할 수 있나요?**
 
@@ -312,7 +312,7 @@ Microsoft는 Machine Learning Center에 새로운 자료를 추가하고 있습�
 
 Azure Machine Learning에 대한 기술 지원을 받으려면 [Azure 지원](https://azure.microsoft.com/support/options/) 으로 이동하여 **기계 학습**을 선택합니다.
 
-또한 Azure Machine Learning은 MSDN에 커뮤니티 포럼을 갖고 있으며, 여기에서 Azure 기계 학습 관련 질문을 할 수 있습니다. Azure Machine Learning 팀에서 포럼을 모니터링합니다. [Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)으로 이동하세요.
+또한 Azure Machine Learning은 MSDN에 커뮤니티 포럼을 갖고 있으며, 여기에서 Azure 기계 학습 관련 질문을 할 수 있습니다. Azure Machine Learning 팀에서 포럼을 모니터링합니다. [Azure 포럼](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)으로 이동하세요.
 
 ## <a name="billing-questions"></a>대금 청구 관련 질문
 **Machine Learning 결제는 어떤 방식으로 이루어지나요?**

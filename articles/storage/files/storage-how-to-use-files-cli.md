@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: aab248ac7c9adf7d996406ec35e0317594ce0b68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945021"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158978"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 파일 공유 만들기 및 관리
 이 가이드에서는 Azure CLI를 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 응용 프로그램 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
@@ -185,6 +185,80 @@ az storage file list \
 ```
 
 `az storage file copy start` 명령은 Azure 파일 공유와 Azure Blob 저장소 컨테이너 간에 파일 이동에 편리하지만 대규모 이동에 AzCopy를 사용하는 것이 좋습니다. (이동되는 파일의 수 또는 크기 측면에서) [Linux용 AzCopy](../common/storage-use-azcopy-linux.md) 및 [Windows용 AzCopy](../common/storage-use-azcopy.md)에 대해 자세히 알아봅니다. AzCopy는 로컬로 설치해야 합니다. AzCopy는 Cloud Shell에서 사용할 수 없습니다. 
+
+## <a name="create-and-manage-share-snapshots"></a>공유 스냅숏 만들기 및 관리
+Azure 파일 공유를 사용하여 수행할 수 있는 유용한 다른 작업은 공유 스냅숏을 만드는 것입니다. 스냅숏은 Azure 파일 공유의 지정 시간 복사본을 유지합니다. 공유 스냅숏은 이미 익숙한 다음과 같은 일부 운영 체제 기술과 비슷합니다.
+
+- Linux 시스템용 [LVM(논리 볼륨 관리자)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 스냅숏
+- macOS용 [APFS(Apple 파일 시스템)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 스냅숏
+- NTFS 및 ReFS와 같은 Windows 파일 시스템용 [VSS(볼륨 섀도 복사본 서비스)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal). [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) 명령을 사용하여 공유 스냅숏을 만들 수 있습니다.
+
+```azurecli-interactive
+SNAPSHOT=$(az storage share snapshot \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --query "snapshot" | tr -d '"')
+```
+
+### <a name="browse-share-snapshot-contents"></a>공유 스냅숏 콘텐츠 찾아보기
+`az storage file list` 명령에 대한 `$SNAPSHOT` 변수에서 캡처한 공유 스냅숏의 타임스탬프를 전달하여 공유 스냅숏의 콘텐츠를 찾아볼 수 있습니다.
+
+```azurecli-interactive
+az storage file list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --snapshot $SNAPSHOT \
+    --output table
+```
+
+### <a name="list-share-snapshots"></a>공유 스냅숏 나열
+공유에 만든 스냅숏의 목록을 보려면 다음 명령을 사용합니다.
+
+```azurecli-interactive
+az storage share list \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --include-snapshot \
+    --query "[? name=='myshare' && snapshot!=null]" | tr -d '"'
+```
+
+### <a name="restore-from-a-share-snapshot"></a>공유 스냅숏에서 복원
+이전에 사용한 `az storage file copy start` 명령을 사용하여 파일을 복원할 수 있습니다. 먼저 스냅숏에서 복원할 수 있도록 업로드한 SampleUpload.txt 파일을 삭제합니다.
+
+```azurecli-interactive
+# Delete SampleUpload.txt
+az storage file delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --share-name "myshare" \
+    --path "myDirectory/SampleUpload.txt"
+ # Build the source URI for a snapshot restore
+URI=$(az storage account show \
+    --resource-group "myResourceGroup" \
+    --name $STORAGEACCT \
+    --query "primaryEndpoints.file" | tr -d '"')
+ URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
+ # Restore SampleUpload.txt from the share snapshot
+az storage file copy start \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --source-uri $URI \
+    --destination-share "myshare" \
+    --destination-path "myDirectory/SampleUpload.txt"
+```
+
+### <a name="delete-a-share-snapshot"></a>공유 스냅숏 삭제
+[`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete) 명령을 사용하여 공유 스냅숏을 삭제할 수 있습니다. `--snapshot` 매개 변수에 대한 `$SNAPSHOT` 참조를 포함하는 변수를 사용합니다.
+
+```azurecli-interactive
+az storage share delete \
+    --account-name $STORAGEACCT \
+    --account-key $STORAGEKEY \
+    --name "myshare" \
+    --snapshot $SNAPSHOT
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 작업을 완료하면 [`az group delete`](/cli/azure/group#delete) 명령을 사용하여 리소스 그룹 및 모든 관련된 리소스를 제거할 수 있습니다. 
