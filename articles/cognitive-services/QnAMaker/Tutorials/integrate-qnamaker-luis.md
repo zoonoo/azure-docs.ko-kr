@@ -3,19 +3,19 @@ title: LUIS 및 QnAMaker - 봇 통합
 titleSuffix: Azure Cognitive Services
 description: QnA Maker와 LUIS를 봇에 통합하는 방법에 대한 단계별 자습서입니다.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
-ms.author: tulasim
-ms.openlocfilehash: 4cf9f114fe5cb52c71db5725470d6f875c52c1f2
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.author: diberry
+ms.openlocfilehash: e0f3703d50f20b766b2ac43b96be7e001ff9bc7f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017215"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957733"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker와 LUIS를 통합하여 기술 자료 배포
 QnA Maker 기술 자료가 확장되면 단일 모놀리식 집합으로 유지 관리하기가 어려워지며, 기술 자료를 보다 작은 논리적 청크로 분할해야 합니다.

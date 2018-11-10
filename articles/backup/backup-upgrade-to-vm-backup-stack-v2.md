@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406537"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962540"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM 백업 스택 V2로 업그레이드
 
@@ -28,8 +28,8 @@ VM(가상 머신) 백업 스택 업그레이드를 위한 Resource Manager 배�
 
 * 복원할 때 관리되지 않는 VM의 원래 저장소 계정을 사용할 수 있습니다. 이 기능은 VM의 디스크가 저장소 계정에 분산된 경우에도 지원됩니다. 이는 다양한 VM 구성에 대한 복원 작업을 가속화합니다.
     > [!NOTE]
-    > 이 기능은 VM의 디스크를 복구 지점의 데이터로 바꾸는 것과 다릅니다. 
-    
+    > 이 기능은 VM의 디스크를 복구 지점의 데이터로 바꾸는 것과 다릅니다.
+
 
 ## <a name="whats-changing-in-the-new-stack"></a>새 스택의 변경 사항
 현재 백업 작업은 다음과 같은 두 단계로 구성됩니다.
@@ -55,7 +55,7 @@ VM(가상 머신) 백업 스택 업그레이드를 위한 Resource Manager 배�
 * 프리미엄 저장소 계정의 경우, 빠른 복구 지점에 대해 만든 스냅숏이 10TB의 할당된 공간 한도에 포함됩니다.
 
 > [!NOTE]
-> Azure VM Backup 스택 V2로 업그레이드하면 Azure Backup에서 [표준 SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/) 및 최대 32개의 데이터 디스크가 포함된 가상 머신에 대한 지원을 받을 수 있습니다.
+> Azure VM Backup 스택 V2로 업그레이드하면 Azure Backup에서 [표준 SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)에 대한 지원을 받을 수 있습니다.
 
 ## <a name="upgrade"></a>업그레이드
 ### <a name="the-azure-portal"></a>Azure 포털
@@ -119,4 +119,4 @@ V2로 업그레이드하는 경우, 현재 백업에는 영향을 주지 않으�
 증분 스냅숏은 비관리형 디스크에 사용됩니다. 관리되는 디스크의 경우 Azure Backup에서 만든 복원 지점 컬렉션에서는 Blob 스냅숏을 사용하므로 증분됩니다.
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>가상 머신에 대해 표준 SSD Managed Disks 지원을 받는 방법
-Azure VM Backup 스택 V2로 업그레이드하면 Azure Backup에서 [표준 SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)에 대한 지원을 받을 수 있습니다. 업그레이드 후에는 최대 32개의 데이터 디스크를 포함하는 가상 머신을 백업할 수도 있습니다.
+Azure VM Backup 스택 V2로 업그레이드하면 Azure Backup에서 [표준 SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)에 대한 지원을 받을 수 있습니다.
