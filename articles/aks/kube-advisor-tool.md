@@ -5,14 +5,14 @@ services: container-service
 author: seanmck
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 09/13/2018
+ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: e29308b7b1c17377cf1d627f2a32a2ba6ea4d077
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 01095ac4ed8e362f1a89a53b10b5da6a547feb57
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310092"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218640"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>클러스터에서 Kubernetes 모범 사례 확인
 
@@ -30,7 +30,7 @@ ms.locfileid: "46310092"
 [RBAC(역할 기반 액세스 제어)](aad-integration.md)용으로 구성된 클러스터에서 도구를 실행하려면 다음 명령을 사용합니다. 첫 번째 명령은 Kubernetes 서비스 계정을 만듭니다. 두 번째 명령은 이 서비스 계정을 사용하여 Pod에서 도구를 실행하고 종료 후 Pod를 삭제하도록 구성합니다. 
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
+kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
 ```
@@ -60,7 +60,7 @@ Kubernetes는 [Pod 사양에 대한 리소스 요청 및 제한][kube-cpumem]을
 클러스터에 RBAC를 사용하도록 설정된 경우 다음 명령을 사용하여 도구를 실행한 후에 `ClusterRoleBinding`을 정리할 수 있습니다.
 
 ```bash
-kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
+kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
 RBAC를 사용할 수 없는 클러스터에 대해 도구를 실행하는 경우 정리가 필요하지 않습니다.

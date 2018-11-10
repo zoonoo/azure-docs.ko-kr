@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 49ee6b7fabe78c2328a2a772347c612ad38cfe7a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8e4c97a710cc9e6d3af4ebdd7dc97bda9f8d02ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091733"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228439"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs 및 Node.js를 사용하여 푸시 알림 보내기
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "44091733"
 알림 허브에 대한 자세한 내용은 [다음 단계](#next) 섹션을 참조하십시오.
 
 ## <a name="what-are-notification-hubs"></a>Notification Hubs 정의
-Azure Notification Hubs는 모바일 장치에 푸시 알림을 보내는 사용하기 쉽고 확장성 있는 다중 플랫폼 인프라를 제공합니다. 서비스 인프라에 대한 세부 정보는 [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 페이지를 참조하세요.
+Azure Notification Hubs는 모바일 장치에 푸시 알림을 보내는 사용하기 쉽고 확장성 있는 다중 플랫폼 인프라를 제공합니다. 서비스 인프라에 대한 세부 정보는 [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) 페이지를 참조하세요.
 
 ## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
 이 자습서의 첫 번째 단계는 새로운 빈 Node.js 응용 프로그램을 만드는 것입니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포][nodejswebsite], Windows PowerShell을 사용한 [Node.js Cloud Service][Node.js Cloud Service] 또는 [WebMatrix를 사용하는 웹 사이트][webmatrix]를 참조하세요.
@@ -141,11 +141,11 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 * **Tags** - 태그 식별자. 태그를 제공하지 않은 경우 모든 클라이언트에게 알림이 전송됩니다.
 * **Payload** - 메시지의 XML 페이로드
 * **TargetName** - `toast` - 알림 메시지인 경우. `token` - 타일 알림 메시지인 경우.
-* **NotificationClass** - 알림 우선 순위. 유효한 값은 **서버에서 푸시 알림** 문서의 [HTTP 헤더 요소](http://msdn.microsoft.com/library/hh221551.aspx) 섹션을 참조하세요.
+* **NotificationClass** - 알림 우선 순위. 유효한 값은 **서버에서 푸시 알림** 문서의 [HTTP 헤더 요소](https://msdn.microsoft.com/library/hh221551.aspx) 섹션을 참조하세요.
 * **Options** - 선택적 요청 헤더
 * **Callback** - 콜백 함수.
 
-유효한 **TargetName**, **NotificationClass** 및 헤더 옵션 목록은 [서버의 푸시 알림](http://msdn.microsoft.com/library/hh221551.aspx) 페이지를 확인하세요.
+유효한 **TargetName**, **NotificationClass** 및 헤더 옵션 목록은 [서버의 푸시 알림](https://msdn.microsoft.com/library/hh221551.aspx) 페이지를 확인하세요.
 
 다음 샘플 코드는 **NotificationHubService**에 의해 노출되는 **MpnsService** 인스턴스를 사용하여 알림 푸시 알림을 보냅니다.
 
@@ -165,7 +165,7 @@ Azure Notification Hubs를 사용하려면 푸시 알림 REST 라이브러리와
 * **Options** - 선택적 요청 헤더
 * **Callback** - 콜백 함수.
 
-유효한 유형 및 요청 헤더 목록은 [푸시 알림 서비스 요청 및 응답 헤더](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx)를 참조하세요.
+유효한 유형 및 요청 헤더 목록은 [푸시 알림 서비스 요청 및 응답 헤더](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx)를 참조하세요.
 
 다음 코드는 **NotificationHubService**에 의해 노출되는 **WnsService** 인스턴스를 사용하여 UWP 앱에 알림 푸시 알림을 보냅니다.
 

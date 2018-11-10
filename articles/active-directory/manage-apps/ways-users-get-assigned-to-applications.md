@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 2301c2eee2853617251053713b50f9915962027b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d34671d4197735ea2c30aafc8fd01a5893427ff3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355447"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226850"
 ---
 # <a name="how-to-assign-users-to-applications"></a>응용 프로그램에 사용자를 할당하는 방법
 
@@ -51,9 +51,9 @@ ms.locfileid: "44355447"
 
 6.  관리자가 [셀프 서비스 그룹 관리](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)를 통해 사용자가 **선택된 비즈니스 승인자 집합의 사전 승인이 있는 경우에만** 응용 프로그램이 할당된 그룹에 가입하도록 허용
 
-7.  관리자가 [Microsoft Office 365](http://products.office.com/)와 같은 자사 응용 프로그램에 대해 직접, 사용자에게 라이선스 할당
+7.  관리자가 [Microsoft Office 365](https://products.office.com/)와 같은 자사 응용 프로그램에 대해 직접, 사용자에게 라이선스 할당
 
-8.  관리자가 해당 [Microsoft Office 365](http://products.office.com/)와 같은 자사 응용 프로그램의 구성원인 그룹에 라이선스 할당
+8.  관리자가 해당 [Microsoft Office 365](https://products.office.com/)와 같은 자사 응용 프로그램의 구성원인 그룹에 라이선스 할당
 
 9.  [관리자가 모든 사용자가 사용할 수 있게 응용 프로그램에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)한 후 사용자가 응용 프로그램에 로그인
 

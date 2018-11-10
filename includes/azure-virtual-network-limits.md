@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006508"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219910"
 ---
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "47006508"
 | --- | --- | --- |
 | 가상 네트워크 |50 |100 |
 | 로컬 네트워크 사이트 수 |20 |지원에 문의 |
-| 가상 네트워크당 DNS 서버 |20 |100 |
+| 가상 네트워크당 DNS 서버 |20 |20 |
 | 가상 네트워크당 개인 IP 주소 |4096 |4096 |
 | 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |500K |500K |
 | 네트워크 보안 그룹(NSG) |100 |200 |

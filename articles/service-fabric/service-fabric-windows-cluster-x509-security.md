@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721843"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228575"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 인증서를 사용하여 Windows에서 독립 실행형 클러스터 보호
 이 문서에서는 독립 실행형 Windows 클러스터의 다양한 노드 간 통신을 보호하는 방법에 대해 설명합니다. 또한 X.509 인증서를 사용하여 이 클러스터에 연결하는 클라이언트를 인증하는 방법에 대해서도 설명합니다. 인증을 통해 권한 있는 사용자만 클러스터 및 배포된 응용 프로그램에 액세스하고 관리 작업을 수행할 수 있습니다. 인증서 보안은 클러스터가 만들어지기 전에 클러스터에서 사용되어야 합니다.  
@@ -257,7 +257,7 @@ ms.locfileid: "44721843"
 ## <a name="acquire-the-x509-certificates"></a>X.509 인증서를 획득합니다.
 클러스터 내 통신을 보호하려면 먼저 클러스터 노드에 대한 X.509 인증서를 가져와야 합니다. 또한 이 클러스터에 대한 연결을 권한 있는 컴퓨터/사용자로 제한하려면 클라이언트 컴퓨터에 대한 인증서를 가져와서 설치해야 합니다.
 
-프로덕션 워크로드를 실행하는 클러스터의 경우 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority)로 서명된 X.509 인증서를 사용하여 클러스터를 보호합니다. 이러한 인증서를 가져오는 방법에 대한 자세한 내용은 [인증서를 가져오는 방법](http://msdn.microsoft.com/library/aa702761.aspx)을 참조하세요.
+프로덕션 워크로드를 실행하는 클러스터의 경우 [CA(인증 기관)](https://en.wikipedia.org/wiki/Certificate_authority)로 서명된 X.509 인증서를 사용하여 클러스터를 보호합니다. 이러한 인증서를 가져오는 방법에 대한 자세한 내용은 [인증서를 가져오는 방법](https://msdn.microsoft.com/library/aa702761.aspx)을 참조하세요.
 
 테스트 목적으로 사용하는 클러스터의 경우 자체 서명된 인증서를 사용하도록 선택할 수 있습니다.
 

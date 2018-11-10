@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 617f60345fb2a349eddb0db697604ba383794591
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3e660dbcbfecd57c43ecec6006581364660adb44
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060383"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50737244"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure Managed Disks 개요
 
@@ -69,7 +69,7 @@ Managed Disks를 사용하는 경우 다음과 같은 청구 고려 사항이 �
 
 프리미엄 관리 디스크에 사용 가능한 디스크 크기는 다음과 같습니다.
 
-| **프리미엄 HDD 관리 <br>디스크 유형** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+| **프리미엄 SDD 관리 <br>디스크 형식** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | 디스크 크기        | 32GiB  | 64GiB  | 128GiB | 256GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB) | 16,384GiB(16TiB) | 32,767GiB(TiB) |
 

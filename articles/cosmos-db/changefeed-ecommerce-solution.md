@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144896"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740980"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Azure Cosmos DB 변경 피드를 사용하여 실시간 데이터 분석 시각화
 
@@ -104,7 +104,7 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
    * **저장소 용량**에 대해 **무제한**을 선택합니다.  
    * **파티션 키** 필드에 대해 **/Item**을 입력합니다. 대/소문자를 구분하므로 정확하게 입력해야 합니다.  
    * **처리량** 필드에 대해 **10000**을 입력합니다.  
-   * **확인** 단추를 클릭합니다.  
+   * **확인** 단추를 선택합니다.  
 
 3. 다음으로, 변경 피드 처리를 위해 **leases**(임대)라는 또 다른 컬렉션을 만듭니다. leases 컬렉션은 여러 작업자 간의 변경 피드 처리를 조정합니다. 임대는 개별 컬렉션을 사용하여 저장됩니다(각 파티션마다 하나의 임대).  
 
@@ -114,7 +114,7 @@ Azure Cosmos DB 변경 피드는 레코드가 만들어지거나 수정될 때 A
    * **컬렉션 ID** 필드에 대해 **leases**를 입력합니다.  
    * **저장소 용량**에 대해 **고정**을 선택합니다.  
    * **처리량** 필드는 기본값으로 설정된 채로 둡니다.  
-   * **확인** 단추를 클릭합니다.
+   * **확인** 단추를 선택합니다.
 
 ## <a name="get-the-connection-string-and-keys"></a>연결 문자열 및 키 가져오기
 
@@ -207,7 +207,7 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
    * **이벤트 serialization 형식**을 **JSON**으로 둡니다.  
    * **인코딩 필드**는 **UTF-8**로 설정된 채로 둡니다.  
    * **이벤트 압축 유형** 필드는 **없음**으로 설정된 채로 둡니다.  
-   * **저장** 단추를 클릭합니다.
+   * **저장** 단추를 선택합니다.
 
 5. 스트림 분석 작업 페이지로 돌아가서 **출력**을 선택합니다.  
 
@@ -219,10 +219,10 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
    * **그룹 작업 영역** 필드를 **작업 영역을 로드하도록 연결에 권한 부여**로 설정된 채로 둡니다.  
    * **데이터 집합 이름** 필드에서 **averagePrice**를 입력합니다.  
    * **테이블 이름** 필드에서 **averagePrice**를 입력합니다.  
-   * **권한 부여** 단추를 클릭한 다음, 지침에 따라 Power BI에 대한 연결 권한을 부여합니다.  
-   * **저장** 단추를 클릭합니다.  
+   * **권한 부여** 단추를 선택한 다음, 지침에 따라 Power BI에 대한 연결 권한을 부여합니다.  
+   * **저장** 단추를 선택합니다.  
 
-8. 그런 다음, **streamjob1**로 돌아가서 **쿼리 편집**을 클릭합니다.
+8. 그런 다음, **streamjob1**로 돌아가서 **쿼리 편집**을 선택합니다.
 
    ![쿼리 편집](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -235,9 +235,9 @@ Azure Stream Analytics는 스트리밍 데이터를 실시간으로 처리할 �
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. 그런 다음, 왼쪽 위 모서리에서 **저장**을 클릭합니다.  
+10. 그런 다음, 왼쪽 위 모서리에서 **저장**을 선택합니다.  
 
-11. 이제 **streamjob1**로 돌아가서 페이지 위쪽의 **시작** 단추를 클릭합니다. Azure Stream Analytics에서 시작하는 데 몇 분이 걸릴 수 있지만 결국에는 "시작 중"에서 "실행 중"으로 변경됩니다.
+11. 이제 **streamjob1**로 돌아가서 페이지 위쪽의 **시작** 단추를 선택합니다. Azure Stream Analytics에서 시작하는 데 몇 분이 걸릴 수 있지만 결국에는 "시작 중"에서 "실행 중"으로 변경됩니다.
 
 ## <a name="connect-to-power-bi"></a>Power BI에 연결
 
@@ -249,9 +249,9 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
 3. 오른쪽 위에서 **+ 타일 추가**를 선택합니다.  
 
-4. **사용자 지정 스트리밍 데이터**를 선택하고, **다음** 단추를 클릭합니다.  
+4. **사용자 지정 스트리밍 데이터**를 선택한 다음, **다음** 단추를 선택합니다.  
  
-5. **데이터 집합**에서 **averagePrice**를 선택하고, **다음**을 클릭합니다.  
+5. **데이터 집합**에서 **averagePrice**를 선택한 다음, **다음**을 선택합니다.  
 
 6. **시각화 형식** 필드의 드롭다운 메뉴에서 **묶은 가로 막대형 차트**를 선택합니다. **축** 아래에서 작업을 추가합니다. **범례**는 아무 것도 추가하지 않고 건너뜁니다. 그런 다음, **값**이라는 다음 섹션 아래에서 **avg**를 추가합니다. **다음**을 선택하고, 차트 제목을 지정한 다음, **적용**을 선택합니다. 대시보드에 새 차트가 표시됩니다!  
 
@@ -261,7 +261,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
    b. **출력 별칭:** top5Output, 데이터 집합 이름: top5, 테이블 이름: top5  
    다. **출력 별칭:** uniqueVisitorCountOutput, 데이터 집합 이름: uniqueVisitorCount, 테이블 이름: uniqueVisitorCount
 
-   그런 다음, **쿼리 편집**을 클릭하고 이미 작성한 쿼리 **위에** 다음 쿼리를 붙여넣습니다.
+   그런 다음, **쿼리 편집**을 선택하고 이미 작성한 쿼리 **위에** 다음 쿼리를 붙여넣습니다.
 
    ```sql
     /*TOP 5*/
@@ -329,7 +329,7 @@ Power BI는 데이터를 분석하고 인사이트를 공유하는 비즈니스 
 
    **changefeedlabdatabase** 아래에 **무제한** 저장소 용량이 있는 또 다른 **topItems** 컬렉션을 추가합니다. **/Item**을 파티션 키로 작성합니다.
 
-2. **topItems** 컬렉션을 클릭하고 **배율 및 설정** 아래에서 topItems가 매 30초마다 업데이트되도록 **TTL(Time to live)** 을 **30초**로 설정합니다.
+2. **topItems** 컬렉션을 선택하고 **배율 및 설정** 아래에서 topItems가 매 30초마다 업데이트되도록 **TTL(Time to live)** 을 **30초**로 설정합니다.
 
    ![TTL(Time to live)](./media/changefeed-ecommerce-solution/time-to-live.png)
 

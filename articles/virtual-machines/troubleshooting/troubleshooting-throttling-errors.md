@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: b951d0b8d91729340cf382e70f72511fb009053e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 15a4ff73476ce54f0617a88e040ac64d7288e9a8
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386555"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741116"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API 제한 오류 문제 해결 
 
@@ -76,6 +76,18 @@ Content-Type: application/json; charset=utf-8
 나머지 호출 수가 0인 정책은 제한 오류가 반환되기 때문에 발생합니다. 이 경우에 해당 정책은 `HighCostGet30Min`입니다. 응답 본문의 전체 형식은 Azure Resource Manager API 일반 오류 형식(OData 준수)입니다. `OperationNotAllowed` 기본 오류 코드는 Compute 리소스 공급자가 다른 유형의 클라이언트 오류 중 제한 오류를 보고하기 위해 사용하는 코드입니다. 내부 오류의 `message` 속성에는 제한 위반에 대한 세부 정보가 있는 직렬화된 JSON 구조가 포함되어 있습니다.
 
 위에 표시된 것과 같이 모든 제한 오류에는 요청을 다시 시도하기 전에 클라이언트가 대기해야 하는 최소 시간(초)을 지정하는 `Retry-After` 헤더가 포함됩니다. 
+
+## <a name="api-call-rate-and-throttling-error-analyzer"></a>API 호출 속도 및 제한 오류 분석기
+문제 해결 기능의 미리 보기 버전은 Compute 리소스 공급자의 API에 대해 사용 가능합니다. 이러한 PowerShell cmdlet은 작업당 시간 간격당 API 요청률 및 작업 그룹(정책)당 제한 위반에 대한 통계를 제공합니다.
+-   [Export-AzureRmLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
+-   [Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+
+API 호출 통계는 구독의 클라이언트 동작에 대한 유용한 인사이트를 제공하고 제한을 발생시키는 호출 패턴을 쉽게 식별할 수 있습니다.
+
+당분간 분석기 제한 사항은 관리 디스크의 지원에서 디스크 및 스냅숏 리소스 형식에 대한 요청을 계산하지 않는 것입니다. CRP의 원격 분석에서 데이터를 수집하므로 ARM에서 제한 오류를 식별하도록 도울 수 없습니다. 하지만 이러한 항목은 앞에서 설명한 대로 고유한 ARM 응답 헤더에 따라 쉽게 식별할 수 있습니다.
+
+PowerShell cmdlet은 클라이언트에서 직접 쉽게 호출될 수 있는 REST 서비스 API를 사용합니다. 하지만 정식 지원은 아직입니다. HTTP 요청 서식을 보려면 -Debug 스위치를 포함한 cmdlet을 실행하거나 Fiddler의 해당 실행을 참조합니다.
+
 
 ## <a name="best-practices"></a>모범 사례 
 

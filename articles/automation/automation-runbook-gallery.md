@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 988f77dd0f8f31f6e31e5371ed263d4c4195c105
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ca19ce2cca314950adc40bbf065dec80e7fa3e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984876"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227929"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation용 Runbook 및 모듈 갤러리
 Azure Automation에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 구성한 다양한 시나리오에 액세스할 수 있습니다.  이러한 시나리오는 수정 없이 그대로 사용하거나, 이를 기초로 특정 요구 사항에 맞게 편집하여 사용할 수 있습니다.
@@ -22,7 +22,7 @@ Azure Automation에서 사용자 고유의 Runbook 및 모듈을 만드는 대�
 Runbook은 [Runbook 갤러리](#runbooks-in-runbook-gallery)에서, 모듈은 [PowerShell 갤러리](#modules-in-powerShell-gallery)에서 가져올 수 있습니다.  또한 자신이 개발한 시나리오를 공유하여 커뮤니티에 기여할 수 있습니다. [갤러리에 Runbook 추가](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)를 참조하세요.
 
 ## <a name="runbooks-in-runbook-gallery"></a>Runbook 갤러리의 Runbook
-[Runbook 갤러리](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation)는 Azure Automation으로 가져올 수 있는 Microsoft 및 커뮤니티에서 제작한 다양한 Runbook을 제공합니다. [TechNet 스크립트 센터](https://gallery.technet.microsoft.com/scriptcenter/site/upload)에서 호스트되는 갤러리에서 Runbook을 다운로드하거나, Azure Portal의 갤러리에서 Runbook을 직접 가져올 수 있습니다.
+[Runbook 갤러리](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=RootCategory&f\[0\].Value=WindowsAzure&f\[1\].Type=SubCategory&f\[1\].Value=WindowsAzure_automation&f\[1\].Text=Automation)는 Azure Automation으로 가져올 수 있는 Microsoft 및 커뮤니티에서 제작한 다양한 Runbook을 제공합니다. [TechNet 스크립트 센터](https://gallery.technet.microsoft.com/scriptcenter/site/upload)에서 호스트되는 갤러리에서 Runbook을 다운로드하거나, Azure Portal의 갤러리에서 Runbook을 직접 가져올 수 있습니다.
 
 Azure Portal을 사용하는 Runbook 갤러리에서만 직접 가져올 수 있습니다. Windows PowerShell을 사용하여 이 함수를 수행할 수 없습니다.
 
@@ -37,7 +37,7 @@ Azure Portal을 사용하는 Runbook 갤러리에서만 직접 가져올 수 있
 3. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다. 왼쪽에서 게시자 및 형식에 대한 추가 검색 매개 변수를 입력할 수 있습니다.
    
     ![갤러리 찾아보기](media/automation-runbook-gallery/browse-gallery.png)
-5. **TechNet 스크립트 센터** 의 항목을 확인하려면 [소스 프로젝트 보기](http://gallery.technet.microsoft.com/)를 클릭합니다.
+5. **TechNet 스크립트 센터** 의 항목을 확인하려면 [소스 프로젝트 보기](https://gallery.technet.microsoft.com/)를 클릭합니다.
 6. 항목을 가져오려면 해당 항목을 클릭하여 세부 정보를 확인한 다음 **가져오기** 단추를 클릭합니다.
    
     ![가져오기 단추](media/automation-runbook-gallery/gallery-item-detail.png)
@@ -45,7 +45,7 @@ Azure Portal을 사용하는 Runbook 갤러리에서만 직접 가져올 수 있
 8. 이 Runbook은 Automation 계정의 **Runbook** 탭에 표시됩니다.
 
 ### <a name="adding-a-runbook-to-the-runbook-gallery"></a>Runbook 갤러리에 Runbook 추가
-Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 Runbook 갤러리에 추가하도록 장려하고 있습니다.  다음 세부 정보를 고려하여 [스크립트 센터에 업로드](http://gallery.technet.microsoft.com/site/upload) 를 선택하면 Runbook을 추가할 수 있습니다.
+Microsoft에서는 다른 고객에게 유용하다고 생각하는 Runbook을 Runbook 갤러리에 추가하도록 장려하고 있습니다.  다음 세부 정보를 고려하여 [스크립트 센터에 업로드](https://gallery.technet.microsoft.com/site/upload) 를 선택하면 Runbook을 추가할 수 있습니다.
 
 * *범주*에 **Windows Azure**를 지정하고 *하위 범주*에 **Automation**를 지정해야 Runbook이 마법사에 표시됩니다.  
 * 단일.ps1 또는 .graphrunbook 파일을 업로드해야 합니다.  Runbook에 필요한 모듈, 자식 Runbook 또는 자산이 있는 경우 Runbook의 제출 설명과 내용 섹션에 해당 항목을 나열해야 합니다.  여러 Runbook이 필요한 시나리오인 경우 각 Runbook을 개별적으로 업로드하고 설명마다 관련 Runbook의 이름을 나열합니다. 동일한 태그를 사용하여 동일한 범주에 표시되는지 확인합니다. 시나리오가 작동하기 위해 다른 Runbook이 필요하다는 설명을 사용자가 읽고 알 수 있어야 합니다.
@@ -100,7 +100,7 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 Python Runbooks는 [스크립트 센터 갤러리](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=)에서 사용할 수 있습니다. 스크립트 센터 갤러리에 Python Runbooks를 제공할 수 있습니다. 이를 제공할 경우 제공 업로드 시 태그 **Python**을 추가해야 합니다.
 
 ## <a name="requesting-a-runbook-or-module"></a>Runbook 또는 모듈 요청 중
-[사용자 음성](https://feedback.azure.com/forums/246290-azure-automation/)에 요청을 보낼 수 있습니다.  Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 게시하세요.
+[사용자 음성](https://feedback.azure.com/forums/246290-azure-automation/)에 요청을 보낼 수 있습니다.  Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](https://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 게시하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * Runbook 작성을 시작하려면 [Azure Automation에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)

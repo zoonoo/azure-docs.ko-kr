@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
 ms.date: 04/09/2018
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985814"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978003"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -196,6 +196,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    이 명령은 지정된 키에 대해 값을 인쇄합니다.
 
    ![Azure Redis Cache 출력의 스크린샷](./media/stream-analytics-with-azure-functions/image5.png)
+   
+## <a name="error-handling-and-retries"></a>오류 처리 및 재시도
+Azure Functions로 이벤트를 전송하는 동안 오류가 발생하면 Stream Analytics는 작업을 완료하기 위해 다시 시도합니다. 그러나 다시 시도하지 않는 몇 가지 오류가 있으며, 다음은 그 예입니다.
+
+ 1. HttpRequestExceptions
+ 2. 요청 엔터티가 너무 큼(Http 오류 코드 413)
+ 3. ApplicationExceptions
 
 ## <a name="known-issues"></a>알려진 문제
 

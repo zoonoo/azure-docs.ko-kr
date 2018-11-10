@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 36c42830738f160b24f65e86576ba93aac1ea737
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412740"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005601"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure에서 중첩된 가상화를 사용하여 문제 Azure VM 해결
 
@@ -101,7 +101,7 @@ ms.locfileid: "47412740"
 
 11. **나중에 가상 하드 디스크 연결**을 선택합니다.
 
-    ![나중에 가상 하드 디스크 연결 옵션에 대한 이미지](/media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![나중에 가상 하드 디스크 연결 옵션에 대한 이미지](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. VM이 만들어진 경우 **마침**을 선택합니다.
 
@@ -109,11 +109,11 @@ ms.locfileid: "47412740"
 
 14. **IDE 컨트롤러 0**을 선택하고, **하드 드라이브**를 선택한 다음 **추가**를 클릭합니다.
 
-    ![새 하드 드라이브 추가에 대한 이미지](/media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![새 하드 드라이브 추가에 대한 이미지](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. **실제 하드 디스크**에서 Azure VM에 연결한 문제 VM의 디스크를 선택합니다. 디스크가 나열되지 않으면 디스크 관리를 사용하여 디스크가 오프라인으로 설정되어 있는지 확인합니다.
 
-    ![이미지 탑재에 대한 이미지](/media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![이미지 탑재에 대한 이미지](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. **적용**을 선택한 다음 **확인**을 선택합니다.
@@ -130,11 +130,11 @@ ms.locfileid: "47412740"
 
 3.  **모든 리소스**로 이동하고, 디스크 이름을 검색한 다음 디스크를 선택합니다.
 
-     ![이미지 검색에 대한 이미지](/media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![이미지 검색에 대한 이미지](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. **VM 만들기**를 클릭합니다.
 
-     ![디스크에서 VM 만들기에 대한 이미지](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![디스크에서 VM 만들기에 대한 이미지](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 Azure PowerShell를 사용하여 디스크에서 VM을 만들 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 기존 디스크에서 새 VM 만들기](../windows/create-vm-specialized.md#create-the-new-vm)를 참조하세요. 
 

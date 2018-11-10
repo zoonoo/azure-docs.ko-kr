@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5fe85d74b247e890790ec577d813d42f15290cde
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140911"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228405"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform을 사용하여 Azure Virtual Machine Scale Set 만들기
 
@@ -569,6 +569,6 @@ terraform destroy
 이 문서에서는 Terraform을 사용하여 Azure Virtual Machine Scale Set를 만드는 방법을 배웠습니다. Azure의 Terraform에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다. 
 
  [Microsoft.com의 Terraform 허브](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure 공급자 설명서](http://aka.ms/terraform)  
- [Terraform Azure 공급자 원본](http://aka.ms/tfgit)  
- [Terraform Azure 모듈](http://aka.ms/tfmodules)
+ [Terraform Azure 공급자 설명서](https://aka.ms/terraform)  
+ [Terraform Azure 공급자 원본](https://aka.ms/tfgit)  
+ [Terraform Azure 모듈](https://aka.ms/tfmodules)

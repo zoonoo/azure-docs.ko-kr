@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 82580fbab68eab28a2027cd277213f1fb2a76e07
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 3556384d71649391d094172a136b863ed26fd2ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716004"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227402"
 ---
 > [!NOTE]
 > 이 설명서는 최신 정보가 아니며 정확하지 않습니다. Azure Marketplace에 제품을 게시하는 방법에 대한 지침을 보려면 Azure Marketplace [판매자 가이드](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide)로 이동하세요.
@@ -28,7 +28,7 @@ ms.locfileid: "39716004"
 다른 Azure 고객 및 파트너가 구매하여 사용하도록 개발자가 Azure Marketplace에 나열된 솔루션을 만들고, 배포하고, 관리하는 데 도움을 주기 위해 이 문서를 제공합니다.
 
 ## <a name="marketplace-publishing"></a>Marketplace 게시
-Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT 전문가에게 혁신적인 솔루션 또는 서비스를 배포하고 판매할 수 있습니다. Marketplace를 통해 클라우드 기반 응용 프로그램 및 모바일 솔루션을 신속하게 개발하려는 고객에게 접근할 수 있습니다. 솔루션이 비즈니스 사용자를 대상으로 하는 경우 [AppSource](http://appsource.microsoft.com) Marketplace를 고려할 수 있습니다.
+Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT 전문가에게 혁신적인 솔루션 또는 서비스를 배포하고 판매할 수 있습니다. Marketplace를 통해 클라우드 기반 응용 프로그램 및 모바일 솔루션을 신속하게 개발하려는 고객에게 접근할 수 있습니다. 솔루션이 비즈니스 사용자를 대상으로 하는 경우 [AppSource](https://appsource.microsoft.com) Marketplace를 고려할 수 있습니다.
 
 
 ## <a name="supported-types-of-solutions"></a>지원되는 솔루션 형식
@@ -51,7 +51,7 @@ Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT �
 >[!NOTE]
 > 파트너 계정 관리자나 DX 파트너 관리자와 함께 작업하는 경우에는 Azure Certified 프로그램에 솔루션을 추천해달라고 요청하세요. 또는 [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) 웹 페이지로 이동하여 응용 프로그램 양식을 작성하면 됩니다. **Microsoft 스폰서 연락처** 상자에서 파트너 계정 관리자 또는 DX 파트너 관리자의 이메일을 입력합니다.
 
-[Azure Marketplace 참여 정책](http://go.microsoft.com/fwlink/?LinkID=526833)의 자격 조건을 충족하고 응용 프로그램이 승인되면 Marketplace에 솔루션을 등록하기 위한 작업을 시작합니다.
+[Azure Marketplace 참여 정책](https://go.microsoft.com/fwlink/?LinkID=526833)의 자격 조건을 충족하고 응용 프로그램이 승인되면 Marketplace에 솔루션을 등록하기 위한 작업을 시작합니다.
 
 ### <a name="register-your-account-as-a-microsoft-seller"></a>Microsoft 판매자로 계정 등록
 [Microsoft 개발자 계정](marketplace-publishing-accounts-creation-registration.md)으로 Microsoft 계정을 등록합니다.
@@ -68,24 +68,19 @@ Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT �
 
 2. 제품 만들기
 
-    a. 
-  [가상 머신](marketplace-publishing-vm-image-creation.md) 제품 만들기
+    a. [가상 머신](marketplace-publishing-vm-image-creation.md) 제품 만들기
 
-    b. 
-  [솔루션 템플릿](marketplace-publishing-solution-template-creation.md) 제품 만들기
+    b. [솔루션 템플릿](marketplace-publishing-solution-template-creation.md) 제품 만들기
 
 3. 제품 [마케팅 콘텐츠](marketplace-publishing-push-to-staging.md) 만들기
 
 4. 준비 단계에서 제품 테스트
 
-    a. 
-  [준비 단계](marketplace-publishing-vm-image-test-in-staging.md)에서 VM 제품 테스트
+    a. [준비 단계](marketplace-publishing-vm-image-test-in-staging.md)에서 VM 제품 테스트
 
-    b. 
-  [준비 단계](marketplace-publishing-solution-template-test-in-staging.md)에서 솔루션 템플릿 제품 테스트
+    b. [준비 단계](marketplace-publishing-solution-template-test-in-staging.md)에서 솔루션 템플릿 제품 테스트
 
-5. 
-  [Marketplace](marketplace-publishing-push-to-production.md)로 제품 배포
+5. [Marketplace](marketplace-publishing-push-to-production.md)로 제품 배포
 
 
 ### <a name="create-and-manage-a-virtual-machine-image"></a>가상 머신 이미지 만들기 및 관리
@@ -97,17 +92,12 @@ Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT �
 
 ## <a name="manage-your-solution"></a>솔루션 관리
 다음 리소스에서 도움말을 사용하여 솔루션을 관리합니다.
-* 
-  [가상 머신 제품에 대한 사후 생성 가이드 참고](marketplace-publishing-vm-image-post-publishing.md)
-* 
-  [제품 또는 SKU의 비기술적인 세부 정보 업데이트](marketplace-publishing-vm-image-post-publishing.md#update-the-nontechnical-details-of-an-offer-or-a-sku)
-* 
-  [제품 또는 SKU의 기술적인 세부 정보 업데이트](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
-* 
-  [나열된 제품에 새 SKU 추가](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
+* [가상 머신 제품에 대한 사후 생성 가이드 참고](marketplace-publishing-vm-image-post-publishing.md)
+* [제품 또는 SKU의 비기술적인 세부 정보 업데이트](marketplace-publishing-vm-image-post-publishing.md#update-the-nontechnical-details-of-an-offer-or-a-sku)
+* [제품 또는 SKU의 기술적인 세부 정보 업데이트](marketplace-publishing-vm-image-post-publishing.md#update-the-technical-details-of-a-sku)
+* [나열된 제품에 새 SKU 추가](marketplace-publishing-vm-image-post-publishing.md#add-a-new-sku-under-a-listed-offer)
 * [나열된 SKU에 대한 데이터 디스크 수 변경](marketplace-publishing-vm-image-post-publishing.md#change-the-data-disk-count-for-a-listed-sku)
-* 
-  [Marketplace에서 나열된 제품 삭제](marketplace-publishing-vm-image-post-publishing.md)
+* [Marketplace에서 나열된 제품 삭제](marketplace-publishing-vm-image-post-publishing.md)
 * [Marketplace에서 나열된 SKU 삭제](marketplace-publishing-vm-image-post-publishing.md#delete-a-listed-sku-from-the-marketplace)
 * [Marketplace에서 나열된 현재 버전의 SKU 삭제](marketplace-publishing-vm-image-post-publishing.md#delete-the-current-version-of-a-listed-sku-from-the-marketplace)
 * [나열 가격을 프로덕션 값으로 되돌리기](marketplace-publishing-vm-image-post-publishing.md#revert-the-listing-price-to-production-values)

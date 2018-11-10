@@ -3,7 +3,7 @@ title: Azure Security Center 빠른 시작 - 보안 솔루션 연결 | Microsoft
 description: Azure Security Center 빠른 시작 - 보안 솔루션 연결
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3263bb3d-befc-428c-9f80-53de65761697
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
-ms.author: yurid
-ms.openlocfilehash: afc72f5b18460578b0cfcd085fe601184a2f898b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: rkarlin
+ms.openlocfilehash: d02c71865f900c2b75da60bd2e989e04a6823d11
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561300"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005243"
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>빠른 시작: Security Center에 보안 솔루션 연결
 
@@ -31,7 +31,7 @@ ms.locfileid: "38561300"
 - 보안 솔루션과의 연결 유효성 검사
 
 ## <a name="prerequisites"></a>필수 조건
-Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다.
+Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야 합니다. 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다.
 
 이 빠른 시작을 단계별로 실행하려면 Security Center의 표준 가격 책정 계층에 있어야 합니다. 처음 60일 동안 추가 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
 
@@ -39,7 +39,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
 ## <a name="connect-solution-using-cef"></a>CEF를 사용하여 솔루션 연결
 
-1. [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
+1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
 2. **Microsoft Azure** 메뉴에서 **Security Center**를 선택합니다. **Security Center - 개요**가 열립니다.
 
     ![Security Center 선택](./media/quick-security-solutions/quick-security-solutions-fig1.png)  

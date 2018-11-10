@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 9b49d21dad9bb1e48194cc31940c5cd53c909dc0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 583a84fd943f6dab63f94e2811e21853e6e5f6a1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263102"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959174"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 작업 그룹 만들기
 이 문서에서는 [Azure 리소스 관리자 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)을 사용하여 작업 그룹을 구성하는 방법을 설명합니다. 템플릿을 사용하면 특정 유형의 경고에서 다시 사용할 수 있는 작업 그룹을 자동으로 설정할 수 있습니다. 이러한 작업 그룹은 경고가 트리거될 때 올바른 당사자가 모두 알림을 받을 수 있도록 합니다.
@@ -166,4 +166,4 @@ Resource Manager 템플릿을 사용하여 작업 그룹을 만들려면 `Micros
 ## <a name="next-steps"></a>다음 단계
 * [작업 그룹](monitoring-action-groups.md)에 대해 자세히 알아보세요.
 * [경고](monitoring-overview-alerts.md)에 대해 자세히 알아보세요.
-* [리소스 관리자 템플릿을 사용하여 경고](monitoring-create-activity-log-alerts-with-resource-manager-template.md)를 추가하는 방법을 알아보세요.
+* [리소스 관리자 템플릿을 사용하여 경고](alert-activity-log.md)를 추가하는 방법을 알아보세요.

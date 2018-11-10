@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 2ff7c3482100545c476040ba556d464b9f44e434
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c389f904fb3ea21c9bcc538a62c7a866ef3b254d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031121"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739263"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Linux 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
 
@@ -36,9 +36,9 @@ Azure IoT Edge는 Linux 컨테이너를 사용할 때 Windows의 다음 버전�
 
 ## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치 
 
-Azure IoT Edge는 [OCI 호환][lnk-oci] 컨테이너 런타임(예: Docker)을 사용합니다. 
+Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 런타임(예: Docker)을 사용합니다. 
 
-개발 및 테스트에는 [Windows용 Docker][lnk-docker-for-windows]를 사용할 수 있습니다. Windows용 Docker가 [Linux 컨테이너를 사용하도록][lnk-docker-config] 구성합니다.
+개발 및 테스트에는 [Windows용 Docker](https://www.docker.com/docker-windows)를 사용할 수 있습니다. Windows용 Docker가 [Linux 컨테이너를 사용하도록](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) 구성합니다.
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 설치
 
@@ -49,7 +49,7 @@ IoT Hub에서 제공하는 장치 연결 문자열을 사용하여 단일 IoT Ed
 
 ### <a name="option-1-install-and-manually-provision"></a>옵션 1: 설치 및 수동으로 프로비전
 
-1. [새 Azure IoT Edge 장치 등록][lnk-dcs]의 단계를 따라 장치를 등록하고 장치 연결 문자열을 검색합니다. 
+1. [새 Azure IoT Edge 장치 등록](how-to-register-device-portal.md)의 단계를 따라 장치를 등록하고 장치 연결 문자열을 검색합니다. 
 
 2. IoT Edge 장치에서 관리자 권한으로 PowerShell을 실행합니다. 
 
@@ -64,7 +64,7 @@ IoT Hub에서 제공하는 장치 연결 문자열을 사용하여 단일 IoT Ed
 
 ### <a name="option-2-install-and-automatically-provision"></a>옵션 2: 설치 및 자동으로 프로비전
 
-1. [Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전][lnk-dps]의 단계를 따라 Device Provisioning Service를 설정하고 해당 **범위 ID**를 검색하고, TPM 장치를 시뮬레이션하고 해당 **등록 ID**를 검색한 다음, 개별 등록을 만듭니다. 장치가 IoT Hub에 등록되면 설치를 계속합니다.  
+1. [Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전](how-to-auto-provision-simulated-device-windows.md)의 단계를 따라 Device Provisioning Service를 설정하고 해당 **범위 ID**를 검색하고, TPM 장치를 시뮬레이션하고 해당 **등록 ID**를 검색한 다음, 개별 등록을 만듭니다. 장치가 IoT Hub에 등록되면 설치를 계속합니다.  
 
    >[!TIP]
    >설치 및 테스트를 수행하는 동안 TPM 시뮬레이터를 실행하는 창을 열린 상태로 유지합니다. 
@@ -114,20 +114,6 @@ iotedge list
 
 ## <a name="next-steps"></a>다음 단계
 
-설치된 런타임을 사용하여 IoT Edge 장치를 프로비전했으므로 [IoT Edge 모듈을 배포][lnk-modules]할 수 있습니다.
+런타임을 설치하여 IoT Edge 장치를 프로비전했으므로 [IoT Edge 모듈을 배포](how-to-deploy-modules-portal.md)할 수 있습니다.
 
-Edge 런타임을 제대로 설치하는 데 문제가 있는 경우, [문제 해결][lnk-trouble] 페이지를 확인하세요.
-
-
-<!-- Images -->
-[img-docker-nat]: ./media/how-to-install-iot-edge-windows-with-linux/dockernat.png
-
-<!-- Links -->
-[lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md
-[lnk-docker-for-windows]: https://www.docker.com/docker-windows
-[lnk-modules]: how-to-deploy-modules-portal.md
+Edge 런타임을 제대로 설치하는 데 문제가 있는 경우 [문제 해결](troubleshoot.md) 페이지를 체크 아웃하세요.

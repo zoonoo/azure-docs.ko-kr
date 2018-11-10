@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 01b8ccc9fe6b5469408131bce68a903f15382998
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 04ee2daaf7b06f8e7bdd8de144a039474551ea11
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222531"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227045"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Azure SDK for .NET 2.9 릴리스 정보
 
@@ -36,8 +36,8 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 
 ### <a name="azure-diagnostics"></a>Azure 진단
 
-- Cloud Services 진단 저장소 연결 문자열의 토큰으로 대체된 키를 통해 부분 연결 문자열만 저장하도록 동작이 변경되었습니다. 이제 실제 저장소 키가 액세스를 제어할 수 있도록 사용자 프로필 폴더에 저장됩니다. Visual Studio는 로컬 디버깅 및 게시 프로세스에 대한 사용자 프로필 폴더에서 저장소 키를 읽습니다. 
-- 위에 설명된 변경에 대한 응답으로, Visual Studio Online 팀은 사용자가 연속 통합 및 배포 단계에서 진단 확장의 설정에 필요한 저장소 키를 따로 지정하여 Azure에 게시할 수 있도록 Azure Cloud Services 배포 작업 템플릿을 개선했습니다.
+- 이 동작은 키가 Cloud Services 진단 저장소 연결 문자열에 대한 토큰으로 교체되어 부분 연결 문자열만 저장하는 방식으로 변경되었습니다. 이제 실제 저장소 키가 액세스를 제어할 수 있도록 사용자 프로필 폴더에 저장됩니다. Visual Studio는 로컬 디버깅 및 게시 프로세스에 대한 사용자 프로필 폴더에서 저장소 키를 읽습니다. 
+- 위에 설명된 변경에 대한 응답으로, Visual Studio Online 팀은 사용자가 연속 통합 및 배포에서 Azure에 게시할 때 진단 확장을 설정하기 위한 저장소 키를 지정할 수 있도록 Azure Cloud Services 배포 작업 템플릿을 개선했습니다.
 - 작업 환경 간 구성 문제를 해결하는 데 도움을 주기 위해 Azure 진단(WAD)에 대한 보안 연결 문자열 및 토큰화를 저장할 수 있게 했습니다.
  
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 가상 머신
@@ -80,7 +80,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 
 * **Azure Data Lake 도구** 가 Azure SDK for .NET 릴리스에 병합됩니다. 이 도구는 Azure SDK를 설치할 때 자동으로 설치됩니다. 
   
-    이 도구는 자주 업데이트되며 업데이트를 받으려면 [여기](http://aka.ms/datalaketool) 로 이동하세요.
+    이 도구는 자주 업데이트되며 업데이트를 받으려면 [여기](https://aka.ms/datalaketool) 로 이동하세요.
 * **서버 탐색기** 를 통해 모든 항목을 보고 일부 U-SQL 메타데이터 엔터티를 만들 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/documentation/services/data-lake-analytics/) 를 참조하세요.
 
 ## <a name="hdinsight-tools"></a>HDInsight 도구

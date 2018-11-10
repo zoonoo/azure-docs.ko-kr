@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0fd843b150148057399a4e05f5e25a728cd4ae56
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7cf3db5020d6a100ca6afdd5a1dccd522189720d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298513"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978505"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Windows 가상 머신 모니터링
 
@@ -133,7 +133,7 @@ Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 
 > * 구성 상태 문제 보기 및 수정
 > * 검색된 위협 검토
 
-Azure DevOps Services 및 IIS를 실행하는 Windows VM을 사용하여 CI/CD 파이프라인을 만드는 방법에 대해 알아보려면 다음 자습서로 진행합니다.
+한 쌍의 Windows VM에 SQL&#92;IIS&#92;.NET 스택을 설치하는 방법을 알아보려면 다음 자습서로 이동하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)
+> [SQL&#92;IIS&#92;.NET 스택](tutorial-iis-sql.md)

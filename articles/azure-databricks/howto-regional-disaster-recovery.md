@@ -2,18 +2,18 @@
 title: Azure Databricks의 지역 재해 복구
 description: 이 문서에서는 Azure Databricks에서 재해 복구를 수행하는 방법을 설명합니다.
 services: azure-databricks
-author: jasonwhowell
-ms.author: jasonh
+author: mamccrea
+ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: 671e18346651a40d7f286e984117ce0c9ae62364
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125972"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748326"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 클러스터의 지역 재해 복구
 

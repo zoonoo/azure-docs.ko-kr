@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 332ad288230654eb70e7b6ead862ed57a1cf52f7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9c37eb064fb12ff548763a9c70a2e79219113b67
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155136"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227368"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 암호 해시 동기화 사용
 이전 작업에서 Azure AD(Azure Active Directory) 테넌트에 대해 Azure Active Directory Domain Services를 사용하도록 설정했습니다. 다음 작업은 NTLM(NT LAN Manager) 및 Kerberos 인증에 필요한 암호 해시를 Azure AD Domain Services로 동기화하도록 설정하는 것입니다. 암호 해시 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다.
@@ -53,7 +53,7 @@ ms.locfileid: "50155136"
 ### <a name="enable-ntlm-and-kerberos-password-hash-generation-for-a-cloud-only-user-account"></a>클라우드 전용 사용자 계정에 대해 NTLM 및 Kerberos 암호 해시 생성 사용
 암호를 변경할 수 있도록 사용자에게 제공되는 지침은 다음과 같습니다.
 
-1. 사용자의 조직에 대한 [Azure AD 액세스 패널](http://myapps.microsoft.com) 페이지로 이동합니다.
+1. 사용자의 조직에 대한 [Azure AD 액세스 패널](https://myapps.microsoft.com) 페이지로 이동합니다.
 
     ![Azure AD 액세스 패널 시작](./media/active-directory-domain-services-getting-started/access-panel.png)
 

@@ -2,19 +2,19 @@
 title: HDInsight 클러스터를 삭제하는 방법 - Azure
 description: HDInsight 클러스터를 삭제할 수 있는 다양한 방법에 대한 정보입니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 39404ff74552b11e982cf5968c0eb131ea642e27
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dff9420eb0f91652cc134a37d1b248e2e5b2b681
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979457"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004538"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-classic-cli"></a>브라우저, PowerShell 또는 Azure 클래식 CLI를 사용하여 HDInsight 클러스터 삭제
 

@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 1eea6380d4276644db0c7681f23a4b0c5e79ff09
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187352"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741184"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>미리 보기: Azure AD 암호 보호 모니터링, 보고 및 문제 해결
 
 |     |
 | --- |
-| Azure AD 암호 보호 및 사용자 지정 금지된 암호 목록은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 참조|
+| Azure AD 암호 보호는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 Azure AD 배포 후 암호 보호 모니터링 및 보고는 필수 작업입니다. 이 문서에서는 각 서비스에서 정보를 기록하는 위치 및 Azure AD 암호 보호 사용에 대한 보고 방법을 파악하도록 자세히 도와줍니다.
@@ -88,7 +88,7 @@ Azure AD 배포 후 암호 보호 모니터링 및 보고는 필수 작업입니
 
 지정된 사용자에 대한 암호는 Azure 암호 정책을 아직 사용할 수 없으므로 수락되었습니다.
 
-사용자 이름: <user> FullName: <user>
+사용자 이름: SomeUser 전체 이름: Some User
 
 이 조건은 다음 이유(%n) 중 하나 이상에 의해 발생될 수 있습니다.
 
@@ -195,8 +195,8 @@ DC 에이전트 서비스 소프트웨어는 **Azure AD 암호 보호**라는 �
 2. 모든 도메인 컨트롤러에서 DC 에이전트 소프트웨어를 제거합니다. 이 단계는 재부팅이 **필요합니다**.
 3. 각 도메인 명명 컨텍스트에서 모든 프록시 서비스 연결점을 수동으로 제거합니다. 다음 Active Directory Powershell 명령을 사용하여 이러한 개체의 위치를 검색할 수 있습니다.
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -207,8 +207,8 @@ DC 에이전트 서비스 소프트웨어는 **Azure AD 암호 보호**라는 �
 4. 각 도메인 명명 컨텍스트에서 모든 DC 에이전트 연결점을 수동으로 제거합니다. 공개 미리 보기 소프트웨어가 얼마나 넓게 배포됐는가에 따라 포리스트에 도메인 컨트롤러당 이러한 개체 중 하나가 있을 수 있습니다. 다음 Active Directory Powershell 명령을 사용하여 해당 개체의 위치를 검색할 수 있습니다.
 
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 

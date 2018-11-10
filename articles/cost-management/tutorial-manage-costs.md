@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e1c85b345acdce6f50cfa169977c513ba0ae2a3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989638"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740436"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>자습서: Cloudyn을 사용하여 비용 관리
 
@@ -61,7 +61,7 @@ Cloudyn은 Azure에서 리소스 그룹 태그 데이터를 가져오고 리소�
 
 
 
-예제에 분류되지 않은 $14,444가 있습니다(태그 없음).
+예제에 분류되지 않은 $19,680가 있습니다(태그 없음).
 
 다음으로, **분류되지 않은 리소스**를 선택하고 할당되지 않은 비용이 있는 서비스를 선택합니다. 그런 다음 비용을 할당하는 규칙을 정의합니다.
 

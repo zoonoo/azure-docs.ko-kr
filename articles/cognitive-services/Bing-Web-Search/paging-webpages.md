@@ -11,12 +11,12 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 4aa3509fcdfc6fd1bccb4db95a8c916a42ce23d2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e98407dface348dfdbc99a1146d50c46f3bb03a7
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125275"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739246"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Bing Web Search API의 결과를 통해 페이징하는 방법
 
@@ -61,4 +61,7 @@ Host: api.cognitive.microsoft.com
 
 Web Search API는 웹 페이지를 포함하는 결과를 반환하며 이미지, 비디오 및 뉴스를 포함할 수 있습니다. 검색 결과를 페이징하는 것은 이미지나 뉴스 같은 다른 응답이 아닌 [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) 응답을 페이징하는 것입니다. 예를 들어 `count`를 50으로 설정한 경우 50개 웹 페이지가 표시되지만, 응답에 다른 답변에 대한 결과도 포함될 수 있습니다. 예를 들어 응답에 이미지 15개와 뉴스 기사 4개가 포함될 수 있습니다. 또한 결과의 첫 번째 페이지에는 뉴스가 있지만 두 번째 페이지에는 뉴스가 없는 경우 또는 그 반대의 경우가 발생할 수 있습니다.   
 
-`responseFilter` 쿼리 매개 변수를 지정하고 필터 목록에 웹 페이지를 포함하지 않는 경우 `count` 및 `offset` 매개 변수를 사용하지 마세요.  
+`responseFilter` 쿼리 매개 변수를 지정하고 필터 목록에 웹 페이지를 포함하지 않는 경우 `count` 및 `offset` 매개 변수를 사용하지 마세요. 
+
+> [!NOTE]
+> `TotalEstimatedAnswers` 필드는 현재 쿼리에 대한 검색할 수 있는 검색 결과의 총 예측치입니다.  `count` 및 `offset` 매개 변수를 설정한 경우 `TotalEstimatedAnswers` 번호가 변경될 수 있습니다. 

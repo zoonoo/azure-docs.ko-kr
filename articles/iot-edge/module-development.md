@@ -8,12 +8,12 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dbbd07e93602855afb0c9755e8872e0b46557611
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030022"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741439"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해
 
@@ -28,27 +28,25 @@ IoT Edge 허브는 IoT Hub에 프록시 및 로컬 통신이라는 두 가지 �
 ### <a name="iot-hub-primitives"></a>IoT Hub 기본 형식
 IoT Hub는 다음과 같은 점에서 장치와 비슷하게 모듈 인스턴스를 표시합니다.
 
-* [장치 쌍][lnk-devicetwin] 및 해당 장치의 다른 모듈 쌍과 별개이며 격리된 모듈 쌍이 있습니다.
-* [장치-클라우드 메시지][lnk-iothub-messaging]을 보낼 수 있습니다.
-* 특별히 해당 ID에서 대상으로 지정된 [직접 메서드][lnk-methods]를 받을 수 있습니다.
+* [장치 쌍](../iot-hub/iot-hub-devguide-device-twins.md) 및 해당 장치의 다른 모듈 쌍과 별개이며 격리된 모듈 쌍이 있습니다.
+* [장치-클라우드 메시지](../iot-hub/iot-hub-devguide-messaging.md)를 보낼 수 있습니다.
+* 특별히 해당 ID에서 대상으로 지정된 [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)를 받을 수 있습니다.
 
 현재 모듈은 클라우드-장치 메시지를 받거나 파일 업로드 기능을 사용할 수 없습니다.
 
-모듈을 작성할 때 [Azure IoT 장치 SDK][lnk-devicesdk]를 사용하여 IoT Edge 허브에 연결하고, 장치 응용 프로그램과 함께 IoT Hub를 사용할 때와 동일한 방식으로 위의 기능을 사용하기만 하면 됩니다. 유일한 차이점은 응용 프로그램 백 엔드에서 장치 ID 대신 모듈 ID를 참조해야 한다는 것입니다.
+모듈을 작성할 때 [Azure IoT 장치 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 IoT Edge 허브에 연결하고, 장치 응용 프로그램과 함께 IoT Hub를 사용할 때와 동일한 방식으로 위의 기능을 사용할 수 있습니다. 유일한 차이점은 응용 프로그램 백 엔드에서 장치 ID 대신 모듈 ID를 참조해야 한다는 것입니다.
 
-장치-클라우드 메시지를 보내고 모듈 쌍을 사용하는 모듈 응용 프로그램의 예제는 [시뮬레이션된 장치에 IoT Edge 모듈 개발 및 배포][lnk-tutorial2]를 참조하세요.
+장치-클라우드 메시지를 보내고 모듈 쌍을 사용하는 모듈 응용 프로그램의 예제는 [시뮬레이션된 장치에 IoT Edge 모듈 개발 및 배포](tutorial-csharp-module.md)를 참조하세요.
 
 ### <a name="device-to-cloud-messages"></a>장치-클라우드 메시지
-IoT Edge 허브는 장치-클라우드 메시지의 복잡한 처리를 사용할 수 있게 하기 위해 모듈 간 메시지 및 모듈과 IoT Hub 간 메시지의 선언적 라우팅을 제공합니다.
-이렇게 하면 모듈은 다른 모듈에서 보낸 메시지를 가로채고, 처리하고, 복잡한 파이프라인에 전파할 수 있습니다.
-[모듈 구성][lnk-module-comp] 문서에서는 경로를 사용하여 복잡한 파이프라인으로 모듈을 구성하는 방법을 설명합니다.
+IoT Edge 허브는 장치-클라우드 메시지의 복잡한 처리를 사용할 수 있게 하기 위해 모듈 간 메시지 및 모듈과 IoT Hub 간 메시지의 선언적 라우팅을 제공합니다. 선언적 라우팅을 사용하면 모듈은 다른 모듈에서 보낸 메시지를 가로채고, 처리하고, 복잡한 파이프라인에 전파할 수 있습니다. [모듈 구성](module-composition.md) 문서에서는 경로를 사용하여 복잡한 파이프라인으로 모듈을 구성하는 방법을 설명합니다.
 
 IoT Edge 모듈은 일반적인 IoT Hub 장치 응용 프로그램과 달리 처리를 위해 로컬 IoT Edge 허브에서 프록시하는 장치-클라우드 메시지를 받을 수 있습니다.
 
-IoT Edge 허브는 [모듈 구성][lnk-module-comp] 문서에서 설명하는 선언적 경로에 따라 메시지를 모듈에 전파합니다. IoT Edge 모듈을 개발할 때 [시뮬레이션된 장치에 IoT Edge 모듈 개발 및 배포][lnk-tutorial2] 자습서에 나와 있는 것처럼 메시지 핸들러를 설정하여 이러한 메시지를 받을 수 있습니다.
+IoT Edge 허브는 [모듈 구성](module-composition.md) 문서에서 설명하는 선언적 경로에 따라 메시지를 모듈에 전파합니다. IoT Edge 모듈을 개발할 경우 메시지 처리기를 설정하여 이러한 메시지를 받을 수 있습니다.
 
-IoT Edge는 경로 만들기를 간소화하기 위해 모듈 '입력' 및 '출력' 끝점의 개념을 추가합니다. 모듈은 입력을 지정하지 않고 라우팅되는 모든 장치-클라우드 메시지를 받을 수 있으며, 출력을 지정하지 않고 장치-클라우드 메시지를 보낼 수 있습니다.
-그러나 명시적 입력 및 출력을 사용하면 라우팅 규칙을 더 쉽게 이해할 수 있습니다. 모듈에 대한 라우팅 규칙 및 입력/출력 끝점에 대한 자세한 내용은 [모듈 구성][lnk-module-comp]을 참조하세요.
+IoT Edge는 경로 만들기를 간소화하기 위해 모듈 '입력' 및 '출력' 엔드포인트의 개념을 추가합니다. 모듈은 입력을 지정하지 않고 라우팅되는 모든 장치-클라우드 메시지를 받을 수 있으며, 출력을 지정하지 않고 장치-클라우드 메시지를 보낼 수 있습니다.
+그러나 명시적 입력 및 출력을 사용하면 라우팅 규칙을 더 쉽게 이해할 수 있습니다. 모듈에 대한 회람 규칙 및 입력/출력 엔드포인트에 대한 자세한 내용은 [모듈 컴퍼지션](module-composition.md)을 참조하세요.
 
 마지막으로 Edge 허브에서 처리하는 장치-클라우드 메시지는 다음 시스템 속성으로 스탬프 처리됩니다.
 
@@ -66,20 +64,7 @@ IoT Edge는 경로 만들기를 간소화하기 위해 모듈 '입력' 및 '출�
 
 마찬가지로 IoT Edge 허브 연결의 유효성을 검사하는 데 사용할 인증서는 IoT Edge 런타임에서 `EdgeModuleCACertificateFile` 환경 변수에 사용할 수 있는 경로의 파일에 삽입됩니다.
 
-[시뮬레이션된 장치에 IoT Edge 모듈 개발 및 배포][lnk-tutorial2] 자습서에서는 인증서가 모듈 응용 프로그램의 컴퓨터 저장소에 있는지 확인하는 방법을 보여 줍니다. 확실히 해당 인증서를 사용하는 연결을 신뢰하는 다른 메서드가 효과적입니다.
-
-## <a name="packaging-as-an-image"></a>이미지로 패키징
-IoT Edge 모듈은 Docker 이미지로 패키지됩니다.
-[시뮬레이션된 장치에 IoT Edge 모듈 개발 및 배포][lnk-tutorial2] 자습서에서 설명한 대로 Docker 도구 체인을 직접적으로 또는 Visual Studio Code로 사용할 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-모듈을 개발한 후에 [대규모 IoT Edge 모듈 배포 및 모니터링][lnk-howto-deploy]을 수행하는 방법을 알아봅니다.
+모듈을 개발한 후에 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 수행하는 방법을 알아봅니다.
 
-[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-devicetwin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-iothub-messaging]: ../iot-hub/iot-hub-devguide-messaging.md
-[lnk-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-tutorial2]: tutorial-csharp-module.md
-[lnk-module-comp]: module-composition.md
-[lnk-howto-deploy]: how-to-deploy-monitor.md

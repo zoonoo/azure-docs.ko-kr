@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404038"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914161"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Azure의 에이전트 상태 솔루션
 Azure의 에이전트 상태 솔루션은 응답이 없고 운영 데이터를 제출하는 Log Analytic 작업 영역에 직접 보고하는 모든 에이전트 또는 Log Analytic에 연결된 System Center Operations Manager 관리 그룹을 이해하는 데 도움이 됩니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
@@ -39,7 +39,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../log-analytics/log-analytics-om-agents.md)을 참조하세요.
 
 ## <a name="configuration"></a>구성
-[솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 에이전트 상태 솔루션을 Log Analytics 작업 영역에 추가합니다. 추가 구성은 필요 없습니다.
+[솔루션 추가](monitoring-solutions.md)에 설명된 프로세스를 사용하여 에이전트 상태 솔루션을 Log Analytics 작업 영역에 추가합니다. 추가 구성은 필요 없습니다.
 
 
 ## <a name="data-collection"></a>데이터 수집
@@ -118,4 +118,4 @@ Operations Manager 관리 서버에 보고하는 각 에이전트는 두 개의 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](../log-analytics/log-analytics-alerts.md) 에 관하여 알아보세요.
+* Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) 에 관하여 알아보세요.

@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: b4e022d6237712d8281c6f4f9332a68821dfd5b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fea0e4d640f42909b33ae418315c460946544256
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470084"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739586"
 ---
 # <a name="paging-webpages"></a>웹 페이지 페이징 
 
@@ -57,4 +57,7 @@ GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=sailing+d
 Ocp-Apim-Subscription-Key: <subscription ID>  
 Host: api.cognitive.microsoft.com  
 ```  
+
+> [!NOTE]
+> `TotalEstimatedAnswers` 필드는 현재 쿼리에 대한 검색할 수 있는 검색 결과의 총 예측치입니다.  `count` 및 `offset` 매개 변수를 설정한 경우 `TotalEstimatedAnswers` 번호가 변경될 수 있습니다. 
 

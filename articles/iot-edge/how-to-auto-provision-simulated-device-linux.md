@@ -4,16 +4,16 @@ description: Linux VM에서 시뮬레이션된 TPM을 사용하여 Azure IoT Edg
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9609aab6c70bc0c2755de142023bd26e7417987a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347859"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739671"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Linux 가상 머신에서 가상 TPM을 사용하여 Edge 장치 만들기 및 프로비전
 
@@ -53,7 +53,7 @@ Edge를 사용하지 않는 장치와 마찬가지로 [Device Provisioning Servi
 
 새 가상 스위치를 만드는 동안 오류가 표시되는 경우 다른 스위치가 이더넷 어댑터를 사용하고 있지 않은지 그리고 동일한 이름을 사용하지 않는지 확인합니다. 
 
-### <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+### <a name="create-virtual-machine"></a>가상 머신 만들기
 
 1. 가상 머신에 사용하기 위해 디스크 이미지 파일을 다운로드하고 로컬로 저장합니다. 예를 들어 [Ubuntu server](https://www.ubuntu.com/download/server). 
 
@@ -180,7 +180,7 @@ TPM 액세스 권한을 부여하려면 다음 단계를 사용합니다. 또는
    출력이 성공하면 다음과 같이 표시됩니다.
 
    ```output
-   crw------- 1 root root 10, 224 Jun 28 22:34 /dev/tpm0
+   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
 8. 파일을 재정의하는 IoT Edge 런타임을 엽니다. 

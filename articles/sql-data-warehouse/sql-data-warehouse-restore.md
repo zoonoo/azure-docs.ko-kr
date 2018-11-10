@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6eba50fbe7c2a7a40b08e37a96adac66583b8251
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 112b9bac5d99556201b2038cf150293c9f2ed86d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781863"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005804"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 복원 
 이 문서에서는 Azure Portal 및 PowerShell에서 다음을 수행하는 방법에 대해 알아봅니다.
@@ -25,10 +25,6 @@ ms.locfileid: "43781863"
 - 삭제된 데이터베이스에서 복원
 - 지역 백업에서 복원
 - 사용자 정의 복원 지점에서 데이터 웨어하우스 복사본 만들기
-
-> [!NOTE]
-> 8/27을 기준으로 서버 간 복원이 알려진 회귀로 인해 비활성화되었습니다. 이를 가장 먼저 수정하고자 적극적으로 노력하고 있습니다. 불편을 끼쳐드려 죄송합니다. 그동안 서버 간 복원에 [지역 백업](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region)을 활용할 수 있습니다.  
->
 
 ## <a name="before-you-begin"></a>시작하기 전에
 **DTU 용량을 확인합니다.** 각 SQL Data Warehouse는 기본 DTU 할당량이 있는 SQL server (예: myserver.database.windows.net)에 의해 호스팅됩니다.  SQL Data Warehouse를 복원하기 전에 SQL 서버에 복원 중인 데이터베이스에 대한 DTU 할당량이 충분히 남아 있는지 확인합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청][Request a DTU quota change]을 참조합니다.

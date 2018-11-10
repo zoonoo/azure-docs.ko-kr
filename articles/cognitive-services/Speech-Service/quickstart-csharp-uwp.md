@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 1c6e0521f37e85bcb3395de0ad1e9d463125e17f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469801"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218902"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식
 
@@ -70,7 +70,7 @@ ms.locfileid: "49469801"
 1. 패키지 관리자 콘솔에 다음 출력 줄이 표시됩니다.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
    ```
 
 1. 응용 프로그램은 음성 입력에 마이크를 사용하므로 **마이크** 기능을 프로젝트에 추가합니다. 솔루션 탐색기에서 **Package.appxmanifest**를 두 번 클릭하여 응용 프로그램 매니페스트를 편집합니다. 그런 다음, **기능** 탭으로 전환하고 **마이크** 기능에 대한 확인란을 선택한 후 변경 내용을 저장합니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b7a68f545f60829e5da83f0734c57a4d210cb843
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 47699925f057aab25fe6f7c1c7d0b0620e7e4dbe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001484"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227997"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs 수식 관리
 
@@ -38,7 +38,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 ### <a name="create-a-formula-from-a-base"></a>기준에서 수식 만들기
 다음 단계에서는 사용자 지정 이미지, Marketplace 이미지 또는 다른 수식에서 수식을 만드는 과정을 안내합니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 
@@ -86,7 +86,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 > 
 > 
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 **개요** 블레이드에서 수식을 만들 VM을 선택합니다.
@@ -103,7 +103,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 ## <a name="modify-a-formula"></a>수식 수정
 수식을 수정하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 블레이드에서 **수식(재사용 가능 기준)** 을 선택합니다.
@@ -115,7 +115,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
 ## <a name="delete-a-formula"></a>수식 삭제
 수식을 삭제하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.  
 4. 랩의 **설정** 블레이드에서 **수식**을 선택합니다.

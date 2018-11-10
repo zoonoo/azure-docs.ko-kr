@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: f515ddc58a9f9b434e40f44ca7cc50d738ed69f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6d6d29d9bce68f22a83f2b4de228968b00b8bba0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993121"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739603"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Linux(x64)에서 Azure IoT Edge 런타임 설치
 
@@ -60,7 +60,7 @@ sudo apt-get upgrade
 
 ## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치 
 
-Azure IoT Edge는 [OCI 호환][lnk-oci] 컨테이너 런타임을 사용합니다. 프로덕션 시나리오의 경우 아래에서 제공된 [Moby-based][lnk-moby] 엔진을 사용하는 것이 좋습니다. Azure IoT Edge에서 공식적으로 지원되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 런타임과 호환 가능합니다.
+Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 런타임을 사용합니다. 프로덕션 시나리오의 경우 아래에 제공된 [Moby 기반](https://mobyproject.org/) 엔진을 사용하는 것이 좋습니다. Azure IoT Edge에서 공식적으로 지원되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 런타임과 호환 가능합니다.
 
 apt-get을 업데이트합니다.
 
@@ -108,7 +108,7 @@ IoT Hub에서 제공하는 장치 연결 문자열을 사용하여 단일 IoT Ed
 
 ### <a name="option-1-manual-provisioning"></a>옵션 1: 수동 프로비전
 
-수동으로 장치를 프로비전하려면 IoT Hub에 새 장치를 등록하여 만들 수 있는 [장치 연결 문자열][lnk-dcs]을 장치에 프로비전해야 합니다.
+장치를 수동으로 프로비전하려면 IoT Hub에 새 장치를 등록하여 만들 수 있는 [장치 연결 문자열](how-to-register-device-portal.md)을 장치에 프로비전해야 합니다.
 
 
 구성 파일을 엽니다. 
@@ -143,7 +143,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>옵션 2: 자동 프로비전
 
-장치를 자동으로 프로비전하려면 [DPS(장치 프로비전 서비스)를 설정하고 장치 등록 ID를 검색][lnk-dps]합니다. 자동 프로비전은 TPM(신뢰할 수 있는 플랫폼 모듈) 칩이 있는 장치에서만 작동합니다. 예를 들어 Raspberry Pi 장치는 기본적으로 TPM을 제공하지 않습니다. 
+장치를 자동으로 프로비전하려면 [Device Provisioning Service를 설정하고 장치 등록 ID를 검색](how-to-auto-provision-simulated-device-linux.md)합니다. 자동 프로비전은 TPM(신뢰할 수 있는 플랫폼 모듈) 칩이 있는 장치에서만 작동합니다. 예를 들어 Raspberry Pi 장치는 기본적으로 TPM을 제공하지 않습니다. 
 
 구성 파일을 엽니다. 
 
@@ -201,17 +201,11 @@ sudo iotedge list
 
 `iotedge` 명령을 실행하려면 상승된 권한이 필요합니다. 런타임을 설치한 후 머신에서 로그아웃했다가 다시 로그인하면 권한이 자동으로 업데이트됩니다. 그 전까지는 `iotedge` 명령 앞에 **sudo**를 사용합니다.
 
-리소스 제한이 있는 장치에서는 [문제 해결 가이드][lnk-trouble]의 지침에 따라 *OptimizeForPerformance* 환경 변수를 *false*로 설정하는 것이 좋습니다.
+리소스가 제한된 장치에서는 [문제 해결 가이드](troubleshoot.md)의 지침에 따라 *OptimizeForPerformance* 환경 변수를 *false*로 설정하는 것이 좋습니다.
 
 프록시 서버가 있는 네트워크의 경우 [프록시 서버를 통해 통신하도록 IoT Edge 장치 구성](how-to-configure-proxy-support.md)의 단계를 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Edge 런타임을 제대로 설치하는 데 문제가 있는 경우, [문제 해결][lnk-trouble] 페이지를 확인하세요.
+Edge 런타임을 제대로 설치하는 데 문제가 있는 경우 [문제 해결](troubleshoot.md) 페이지를 체크 아웃하세요.
 
-<!-- Links -->
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md

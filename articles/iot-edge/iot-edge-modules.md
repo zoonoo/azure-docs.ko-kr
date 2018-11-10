@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 80679d6efd44598fbe403707ad2e757010eb8d91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423394"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741677"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
@@ -31,7 +31,7 @@ IoT Edge 모듈 이미지에는 IoT Edge 런타임의 관리, 보안 및 통신 
 
 모듈 이미지가 장치에 배포되고 IoT Edge 런타임에서 시작될 때마다 해당 모듈의 새 인스턴스가 만들어집니다. 전 세계의 다른 지역에 있는 두 장치가 동일한 모듈 이미지를 사용할 수 있습니다. 그러나 각 모듈이 장치에서 시작될 때 고유한 모듈 인스턴스를 사용하게 됩니다. 
 
-![클라우드의 모듈 이미지 - 장치의 모듈 인스턴스][1]
+![클라우드의 모듈 이미지 - 장치의 모듈 인스턴스](./media/iot-edge-modules/image_instance.png)
 
 구현 시 모듈 이미지는 컨테이너 이미지로 리포지토리에 존재하며 모듈 인스턴스는 장치의 컨테이너입니다. 
 
@@ -46,23 +46,23 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 
 동일한 장치에 하나의 모듈 이미지를 여러 번 배포해야 하는 경우 동일한 이미지를 다른 이름으로 여러 번 배포할 수 있습니다.
 
-![모듈 ID가 고유한 경우][2]
+![모듈 ID가 고유한 경우](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>모듈 쌍
 
 각 모듈 인스턴스에는 모듈 인스턴스를 구성하는 데 사용할 수 있는 해당 모듈 쌍이 있습니다. 인스턴스와 쌍은 모듈 ID를 통해 서로 연결됩니다. 
 
-모듈 쌍은 모듈 정보와 구성 속성을 저장하는 JSON 문서입니다. 이 개념은 IoT Hub의 [장치 쌍][lnk-device-twin] 개념과 유사합니다. 모듈 쌍의 구조는 장치 쌍과 정확하게 같습니다. 두 유형의 쌍과 상호 작용하는 데 사용되는 API도 같습니다. 이 둘의 유일한 차이점은 클라이언트 SDK를 인스턴스화하는 데 사용되는 ID입니다. 
+모듈 쌍은 모듈 정보와 구성 속성을 저장하는 JSON 문서입니다. 이 개념은 IoT Hub의 [장치 쌍](../iot-hub/iot-hub-devguide-device-twins.md) 개념과 유사합니다. 모듈 쌍의 구조는 장치 쌍과 정확하게 같습니다. 두 유형의 쌍과 상호 작용하는 데 사용되는 API도 같습니다. 이 둘의 유일한 차이점은 클라이언트 SDK를 인스턴스화하는 데 사용되는 ID입니다. 
 
 ```csharp
-// Create a ModuleClient object. This ModuleClient will act on behalf of a 
-// module since it is created with a module’s connection string instead 
-// of a device connection string. 
-ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
-await client.OpenAsync(); 
- 
-// Get the module twin 
-Twin twin = await client.GetTwinAsync(); 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
+// module since it is created with a module’s connection string instead 
+// of a device connection string. 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
+await client.OpenAsync(); 
+ 
+// Get the module twin 
+Twin twin = await client.GetTwinAsync(); 
 ```
 
 ## <a name="offline-capabilities"></a>오프라인 기능
@@ -79,15 +79,8 @@ IoT Edge 모듈은 다음 요구 사항이 충족되는 한 확장된 기간 동
 추가 오프라인 기능은 공개 미리 보기로 제공됩니다. 자세한 내용은 [IoT Edge 장치, 모듈 및 하위 장치용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
- - [IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해][lnk-mod-dev]
- - [Azure IoT Edge 런타임 및 해당 아키텍처 이해][lnk-runtime]
+ - [IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해](module-development.md)
+ - [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)
 
 <!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
 [2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

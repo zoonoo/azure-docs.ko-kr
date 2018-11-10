@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: 75b1edf80f1dad5f0db48c11329effe080760820
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 533fbfc42939299f99699a13513cd3b55c89cabc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413148"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957287"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana에서 Azure 서비스 모니터링
 이제 [Azure Monitor 데이터 원본 플러그 인](https://grafana.com/plugins/grafana-azure-monitor-datasource)을 사용하여 [Grafana](https://grafana.com/)에서 Azure 서비스 및 응용 프로그램을 모니터링할 수 있습니다. 플러그 인은 Azure Monitor에서 제공하는 인프라 데이터뿐만 아니라 Application Insights SDK에서 수집한 응용 프로그램 성능 데이터도 수집합니다. 그런 다음 Grafana 대시보드에 이 데이터를 표시할 수 있습니다.
@@ -128,4 +128,4 @@ VM 사용 여부에 관계없이 VM이 실행되는 경우 요금이 청구됩�
 2. 리소스 그룹 페이지에서 **삭제**를 클릭하고, 텍스트 상자에서 **Grafana**를 입력한 다음, **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Monitor 메트릭 개요](monitoring-overview-metrics.md)
+* [Azure Monitor 메트릭 개요](../monitoring/monitoring-data-collection.md)

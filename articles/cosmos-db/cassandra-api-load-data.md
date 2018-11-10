@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 662d4b8812ca4b92c1130b9c2c38771e7ec30a06
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e116dbf1d49fed1a47b830f9a57cd77a33b7ea9c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394000"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740723"
 ---
-# <a name="load-sample-data-into-an-azure-cosmos-db-cassandra-api-table"></a>Azure Cosmos DB Cassandra API 테이블에 샘플 데이터 로드
+# <a name="tutorial-load-sample-data-into-an-azure-cosmos-db-cassandra-api-table"></a>자습서: Azure Cosmos DB Cassandra API 테이블에 샘플 데이터 로드
 
 이 자습서에서는 Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 계정의 테이블로 샘플 사용자 데이터를 로드하는 방법을 보여줍니다. Java 응용 프로그램은 [Java 드라이버](https://github.com/datastax/java-driver)를 사용하며 사용자 ID, 사용자 이름, 사용자 도시와 같은 사용자 데이터를 로드합니다. 
 
@@ -28,47 +28,49 @@ ms.locfileid: "47394000"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 이 문서는 여러 부분으로 구성된 자습서의 일부분입니다. 이 문서를 시작하기 전에 [Cassandra API 계정, 키스페이스 및 테이블을 만들어야](create-cassandra-api-account-java.md) 합니다.   
+* 이 문서는 여러 부분으로 구성된 자습서의 일부분입니다. 이 문서를 시작하기 전에 [Cassandra API 계정, 키스페이스 및 테이블을 만들어야 합니다](create-cassandra-api-account-java.md).   
 
 ## <a name="load-data-into-the-table"></a>테이블에 데이터 로드
 
-“src\main\java\com\azure\cosmosdb\cassandra” 폴더의 “UserRepository.java” 파일을 열고 코드를 추가하여 user_id, user_name 및 user_bcity 필드를 테이블에 삽입합니다.
+다음 단계에 따라 Cassandra API 테이블에 데이터를 로드합니다.
 
-```java
-/**
-* Insert a row into user table
-*
-* @param id   user_id
-* @param name user_name
-* @param city user_bcity
-*/
-public void insertUser(PreparedStatement statement, int id, String name, String city) {
+1. “src\main\java\com\azure\cosmosdb\cassandra” 폴더의 “UserRepository.java” 파일을 열고 코드를 추가하여 user_id, user_name 및 user_bcity 필드를 테이블에 삽입합니다.
+
+   ```java
+   /**
+   * Insert a row into user table
+   *
+   * @param id   user_id
+   * @param name user_name
+   * @param city user_bcity
+   */
+   public void insertUser(PreparedStatement statement, int id, String name, String city) {
         BoundStatement boundStatement = new BoundStatement(statement);
         session.execute(boundStatement.bind(id, name, city));
-}
+   }
 
-/**
-* Create a PrepareStatement to insert a row to user table
-*
-* @return PreparedStatement
-*/
-public PreparedStatement prepareInsertStatement() {
-    final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (?,?,?)";
-    return session.prepare(insertStatement);
-}
-```
+   /**
+   * Create a PrepareStatement to insert a row to user table
+   *
+   * @return PreparedStatement
+   */
+   public PreparedStatement prepareInsertStatement() {
+      final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (?,?,?)";
+   return session.prepare(insertStatement);
+   }
+   ```
  
-“src\main\java\com\azure\cosmosdb\cassandra” 폴더의 “UserProfile.java” 파일을 엽니다. 이 클래스에는 이전에 정의한 createKeyspace 및 createTable 메서드를 호출하는 main 메서드가 들어 있습니다. 이제 다음 코드를 추가하여 일부 샘플 데이터를 Cassandra API 테이블에 삽입합니다.
+2. “src\main\java\com\azure\cosmosdb\cassandra” 폴더의 “UserProfile.java” 파일을 엽니다. 이 클래스에는 이전에 정의한 createKeyspace 및 createTable 메서드를 호출하는 main 메서드가 들어 있습니다. 이제 다음 코드를 추가하여 일부 샘플 데이터를 Cassandra API 테이블에 삽입합니다.
 
-```java
-//Insert rows into user table
-PreparedStatement preparedStatement = repository.prepareInsertStatement();
-    repository.insertUser(preparedStatement, 1, "JohnH", "Seattle");
-    repository.insertUser(preparedStatement, 2, "EricK", "Spokane");
-    repository.insertUser(preparedStatement, 3, "MatthewP", "Tacoma");
-    repository.insertUser(preparedStatement, 4, "DavidA", "Renton");
-    repository.insertUser(preparedStatement, 5, "PeterS", "Everett");
-```
+   ```java
+   //Insert rows into user table
+   PreparedStatement preparedStatement = repository.prepareInsertStatement();
+     repository.insertUser(preparedStatement, 1, "JohnH", "Seattle");
+     repository.insertUser(preparedStatement, 2, "EricK", "Spokane");
+     repository.insertUser(preparedStatement, 3, "MatthewP", "Tacoma");
+     repository.insertUser(preparedStatement, 4, "DavidA", "Renton");
+     repository.insertUser(preparedStatement, 5, "PeterS", "Everett");
+   ```
 
 ## <a name="run-the-app"></a>앱 실행
 

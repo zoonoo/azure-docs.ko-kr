@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: df48e0dbf5a6c010f659e1019e56b7670c264234
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319696"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228184"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>예약된 IP 주소(클래식 배포)
 
@@ -43,7 +43,7 @@ Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [IP 주소](vir
 - 예약된 IP를 몇 개까지 사용할 수 있나요?
     자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md#networking-limits) 문서를 참조하세요.
 - 예약된 IP는 사용 요금이 있나요?
-    때때로 그렇습니다. 가격 책정 정보는 [예약된 IP 주소 가격 책정 정보](http://go.microsoft.com/fwlink/?LinkID=398482)를 참조하세요.
+    때때로 그렇습니다. 가격 책정 정보는 [예약된 IP 주소 가격 책정 정보](https://go.microsoft.com/fwlink/?LinkID=398482)를 참조하세요.
 - IP 주소를 어떻게 예약하나요?
     PowerShell, [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 지역에서 IP 주소를 예약할 수 있습니다. 예약된 IP 주소는 구독에 연결됩니다.
 - 선호도 그룹 기반 VNet에서 예약된 IP를 사용할 수 있나요?
@@ -83,7 +83,7 @@ Get-AzureReservedIP
     OperationStatus      : Succeeded
 
 >[!NOTE]
->PowerShell을 사용하여 예약된 IP 주소를 만들 때 예약된 IP를 만들 리소스 그룹을 지정할 수 없습니다. Azure에서 *Default-Networking*이라는 리소스 그룹에 자동으로 추가합니다. [Azure Portal](http://portal.azure.com)을 사용하여 예약된 IP를 만드는 경우 원하는 어떤 리소스 그룹도 지정할 수 있습니다. 그러나 *Default-Networking* 이외의 리소스 그룹에서 예약된 IP를 만드는 경우 `Get-AzureReservedIP` 및 `Remove-AzureReservedIP`와 같은 명령으로 예약된 IP를 참조할 때마다 이름 *Group resource-group-name reserved-ip-name*을 참조해야 합니다.  예를 들어 *myResourceGroup* 리소스 그룹에 *myReservedIP*라는 예약된 IP를 만드는 경우 예약된 IP의 이름을 *Group myResourceGroup myReservedIP*로 참조해야 합니다.   
+>PowerShell을 사용하여 예약된 IP 주소를 만들 때 예약된 IP를 만들 리소스 그룹을 지정할 수 없습니다. Azure에서 *Default-Networking*이라는 리소스 그룹에 자동으로 추가합니다. [Azure Portal](http://portal.azure.com)을 사용하여 예약된 IP를 만드는 경우 원하는 어떤 리소스 그룹도 지정할 수 있습니다. 그러나 *Default-Networking* 이외의 리소스 그룹에서 예약된 IP를 만드는 경우 `Get-AzureReservedIP` 및 `Remove-AzureReservedIP`와 같은 명령으로 예약된 IP를 참조할 때마다 이름 *Group resource-group-name reserved-ip-name*을 참조해야 합니다.  예를 들어 *myResourceGroup* 리소스 그룹에 *myReservedIP*라는 예약된 IP를 만드는 경우 예약된 IP의 이름을 *Group myResourceGroup myReservedIP*로 참조해야 합니다.   
 
 
 IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결됩니다. 다음과 같이 예약된 IP를 삭제합니다.

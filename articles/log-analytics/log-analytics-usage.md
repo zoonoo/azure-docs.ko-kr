@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415265"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006501"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
 
@@ -58,7 +58,7 @@ Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다
 3. Log Analytics 작업 영역 목록에서 작업 영역을 선택합니다.
 4. 왼쪽 창의 목록에서 **사용량 및 예상 비용**을 선택합니다.
 5. **사용량 및 예상 비용** 대시보드에서 **시간: 마지막 24시간**을 선택하고 시간 간격을 변경하여 시간 범위를 수정할 수 있습니다.<br><br> ![시간 간격](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. 관심이 있는 영역을 표시하는 사용량 범주 블레이드를 확인합니다. [로그 검색](log-analytics-log-searches.md)에서 블레이드를 선택하고 더 자세히 보려는 항목을 클릭합니다.<br><br> ![예제 데이터 사용량 kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. 관심이 있는 영역을 표시하는 사용량 범주 블레이드를 확인합니다. [로그 검색](log-analytics-queries.md)에서 블레이드를 선택하고 더 자세히 보려는 항목을 클릭합니다.<br><br> ![예제 데이터 사용량 kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. 로그 검색 대시보드에서 검색에서 반환되는 결과를 검토합니다.<br><br> ![예제 사용량 로그 검색](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>데이터 컬렉션이 예상보다 높은 경우 경고를 만듭니다.
@@ -78,7 +78,7 @@ Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다
 
 다른 크기의 데이터 볼륨에 대해 경고하려면 쿼리의 100GB를 원하는 수로 변경합니다.
 
-[새 로그 경고 만들기](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)에 설명한 단계를 사용하여 데이터 컬렉션이 예상보다 높은 경우 알림을 받을 수 있습니다.
+[새 로그 경고 만들기](../monitoring-and-diagnostics/alert-metric.md)에 설명한 단계를 사용하여 데이터 컬렉션이 예상보다 높은 경우 알림을 받을 수 있습니다.
 
 첫 번째 쿼리에 대한 경고를 만들 때 즉, 24시간 내에 데이터가 100GB를 초과하는 경우 다음을 설정합니다.  
 
@@ -163,19 +163,19 @@ Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다
 | 이벤트 로그                 | [이벤트 로그 구성](log-analytics-data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
 | syslog                     | [syslog 구성](log-analytics-data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
 | AzureDiagnostics           | 다음 작업을 수행하도록 리소스 로그 컬렉션을 변경합니다. <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
-| 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
+| 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../monitoring/monitoring-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>예상보다 더 많은 노드가 있는지 확인합니다.
 *노드당(Log Analytics)* 가격 책정 계층에 있는 경우 사용한 노드 및 솔루션의 수에 따라 요금이 청구됩니다. 사용 대시보드의 *제품* 섹션에서 사용 중인 각 제품의 노드 수를 볼 수 있습니다.<br><br> ![사용량 대시보드](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 **모두 표시...** 를 클릭하여 선택한 제품에 데이터를 전송하는 컴퓨터의 전체 목록을 볼 수 있습니다.
 
-[솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
+[솔루션 대상](../monitoring/monitoring-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 참조하여 검색 언어를 사용하는 방법을 배울 수 있습니다. 사용 데이터에 대한 추가 분석을 수행하려면 검색 쿼리를 사용할 수 있습니다.
-* [새 로그 경고 만들기](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)에 설명한 단계를 사용하여 검색 기준이 충족되는 경우 알림을 받을 수 있습니다.
-* [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
+* [Log Analytics에서 로그 검색](log-analytics-queries.md)을 참조하여 검색 언어를 사용하는 방법을 배울 수 있습니다. 사용 데이터에 대한 추가 분석을 수행하려면 검색 쿼리를 사용할 수 있습니다.
+* [새 로그 경고 만들기](../monitoring-and-diagnostics/alert-metric.md)에 설명한 단계를 사용하여 검색 기준이 충족되는 경우 알림을 받을 수 있습니다.
+* [솔루션 대상](../monitoring/monitoring-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
 * 효과적인 보안 이벤트 컬렉션 정책을 구성하려면 [Azure Security Center 필터링 정책](../security-center/security-center-enable-data-collection.md)을 검토합니다.
 * [성능 카운터 구성](log-analytics-data-sources-performance-counters.md)을 변경합니다.
 * 이벤트 컬렉션 설정을 수정하려면 [이벤트 로그 구성](log-analytics-data-sources-windows-events.md)을 검토합니다.

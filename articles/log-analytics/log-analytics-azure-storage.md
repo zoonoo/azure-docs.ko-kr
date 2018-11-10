@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 297b3f4c9ef110f8adc9dcb5cd9eac9e30729a5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180128"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006535"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집
 
@@ -51,7 +51,7 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 | 복구 자격 증명         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services 분석(미리 보기)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Search 서비스         | Microsoft.Search/searchServices         | 진단 | 진단 | |
 | Service Bus 네임스페이스   | Microsoft.ServiceBus/namespaces         | 진단 | 진단 | [Service Bus 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Storage     |             | [Service Fabric 분석(미리 보기)](log-analytics-service-fabric.md) |
+| Service Fabric          |                                         | Storage     |             | [Service Fabric 분석(미리 보기)](../service-fabric/service-fabric-diagnostics-oms-setup.md) |
 | SQL(v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | 진단 | [Azure SQL Analytics(미리 보기)](log-analytics-azure-sql.md) |
 | Storage                 |                                         |             | 스크립트      | [Azure Storage 분석(미리 보기)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | 내선 번호   | 내선 번호 <br> 진단  | |
@@ -61,14 +61,14 @@ Azure 서비스에 대한 로그 및 메트릭을 수집하는 방법에는 다�
 
 
 > [!NOTE]
-> Azure 가상 머신(Linux 및 Windows 모두)를 모니터링하려면 [Log Analytics VM 확장](log-analytics-azure-vm-extension.md)을 설치하는 것이 좋습니다. 이 에이전트는 가상 머신 내에서 수집된 통찰력을 제공합니다. 또한 가상 머신 확장 집합에 대한 확장을 사용할 수도 있습니다.
+> Azure 가상 머신(Linux 및 Windows 모두)를 모니터링하려면 [Log Analytics VM 확장](log-analytics-quick-collect-azurevm.md)을 설치하는 것이 좋습니다. 이 에이전트는 가상 머신 내에서 수집된 통찰력을 제공합니다. 또한 가상 머신 확장 집합에 대한 확장을 사용할 수도 있습니다.
 >
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure 진단에서 Log Analytics로 직접
 많은 Azure 리소스는 Log Analytics에 직접 진단 로그 및 메트릭을 쓸 수 있으며, 이러한 방식은 분석을 위해 데이터를 수집할 때 선호되는 방식입니다. Azure 진단을 사용하면 데이터가 Log Analytics에 직접 써지며, 먼저 데이터를 저장소에 쓸 필요가 없습니다.
 
-[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)를 지원하는 Azure 리소스는 해당 로그 및 메트릭을 Log Analytics으로 직접 보낼 수 있습니다.
+[Azure Monitor](../azure-monitor/overview.md)를 지원하는 Azure 리소스는 해당 로그 및 메트릭을 Log Analytics으로 직접 보낼 수 있습니다.
 
 > [!NOTE]
 > 진단 설정을 통한 Log Analytics에 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
@@ -158,5 +158,5 @@ Azure 템플릿 갤러리에는 [Azure Automation을 사용하여](https://azure
 ## <a name="next-steps"></a>다음 단계
 
 * [이벤트에 대해 IIS 및 테이블 저장소에 Blob Storage를 사용하여](log-analytics-azure-storage-iis-table.md) Table Storage에 진단을 기록하는 Azure 서비스나 Blob Storage에 기록된 IIS 로그에 대해 로그를 읽을 수 있습니다.
-* [솔루션을 사용하도록 설정](log-analytics-add-solutions.md) 하여 데이터에 대한 정보를 제공합니다.
-* [검색 쿼리를 사용](log-analytics-log-searches.md) 하여 데이터를 분석합니다.
+* [솔루션을 사용하도록 설정](../monitoring/monitoring-solutions.md) 하여 데이터에 대한 정보를 제공합니다.
+* [검색 쿼리를 사용](log-analytics-queries.md) 하여 데이터를 분석합니다.

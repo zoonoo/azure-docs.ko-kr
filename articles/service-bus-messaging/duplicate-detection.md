@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: fb42f9920ce173b25cbc16725cf1f9dfd96fcc9e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5241020b1db3797891ae13da54cc9225bbd4619b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853456"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741270"
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
@@ -41,6 +41,9 @@ ms.locfileid: "48853456"
 포털에서 **중복 검색 사용** 확인란을 사용하여 엔터티를 만드는 동안 이 기능은 켜져 있으며 기본적으로 해제되어 있습니다. 새 토픽을 만드는 설정은 동일합니다.
 
 ![][1]
+
+> [!IMPORTANT]
+> 큐를 만든 후에 중복 검색을 사용하도록/사용하지 않도록 설정할 수 없습니다. 큐를 만들 때에만 수행할 수 있습니다. 
 
 프로그래밍 방식으로 전체 프레임 워크 .NET API에서 [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) 속성으로 플래그를 설정합니다. Azure Resource Manager API를 사용하면 값이 [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 속성으로 설정됩니다.
 

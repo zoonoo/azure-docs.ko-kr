@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5638b71147592ae71c741ca86da68ddfec668af5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: acb010b0169fd876bf540f7a4115dbabfeda923a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299069"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227198"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Azure Security Center에 Microsoft Azure Application Gateway 연결
 이 문서는 Application Gateway WAF(웹 응용 프로그램 방화벽)와 Security Center의 통합을 구성하는 데 도움을 줍니다.
@@ -35,7 +35,7 @@ Security Center는 구독에서 이전에 배포된 WAF 인스턴스를 검색�
 >
 >
 
-1. [Azure 포털](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
+1. [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에 로그인합니다.
 
 2. **Microsoft Azure 메뉴**에서 **Security Center**를 선택합니다.
 
@@ -61,4 +61,4 @@ Security Center는 구독에서 이전에 배포된 WAF 인스턴스를 검색�
 * [Security Center에서 보안 상태 모니터링](security-center-monitoring.md)
 * [Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md)
 * [Azure Security Center FAQ](security-center-faq.md)
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/)

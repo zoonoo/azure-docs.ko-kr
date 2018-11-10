@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 019d91f6a86bab5c4f446085e0244f9b5323f1fb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294410"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739369"
 ---
 # <a name="paging-results"></a>페이징 결과
 
@@ -61,3 +61,6 @@ Host: api.cognitive.microsoft.com
 
 > [!NOTE]
 > 페이징은 이미지 검색(/images/search)에만 적용되며 이미지 인사이트 또는 최신 이미지(/images/trending)에는 적용되지 않습니다.
+
+> [!NOTE]
+> `TotalEstimatedAnswers` 필드는 현재 쿼리에 대한 검색할 수 있는 검색 결과의 총 예측치입니다.  `count` 및 `offset` 매개 변수를 설정한 경우 `TotalEstimatedAnswers` 번호가 변경될 수 있습니다. 

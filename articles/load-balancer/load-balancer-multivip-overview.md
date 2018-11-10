@@ -4,9 +4,6 @@ description: Azure Load Balancer의 다중 프런트 엔드에 대한 개요
 services: load-balancer
 documentationcenter: na
 author: chkuhtz
-manager: narayan
-editor: ''
-ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: chkuhtz
-ms.openlocfilehash: cf8fa396e0518e1c847225dfc1d8f91c3421bd11
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d435d2c491cf17356e96f7bbb05b1e22c8e04aca
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181492"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219361"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer의 다중 프런트 엔드
 
@@ -82,7 +79,7 @@ Azure Load Balancer에서 전체 매핑은 이제 다음과 같습니다.
 
 ## <a name="rule-type-2-backend-port-reuse-by-using-floating-ip"></a>규칙 유형 #2: 부동 IP를 사용하여 백엔드 포트 재사용
 
-Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 엔드 전반에 걸쳐 프런트 엔드 포트를 재사용할 수 있는 유연성을 제공합니다. 또한 일부 응용 프로그램 시나리오는 백 엔드 풀의 단일 VM에서 여러 응용 프로그램 인스턴스가 동일한 포트를 사용하는 것을 선호하거나 필요로 합니다. 포트 재사용의 일반적인 예에는 고가용성을 위한 클러스터링, 네트워크 가상 어플라이언스 및 재암호화 없이 다중 TLS 끝점 노출이 포함됩니다.
+Azure Load Balancer는 사용된 규칙 유형에 관계없이 여러 프런트 엔드 전반에 걸쳐 프런트 엔드 포트를 재사용할 수 있는 유연성을 제공합니다. 또한 일부 응용 프로그램 시나리오는 백 엔드 풀의 단일 VM에서 여러 응용 프로그램 인스턴스가 동일한 포트를 사용하는 것을 선호하거나 필요로 합니다. 포트 재사용의 일반적인 예에는 고가용성을 위한 클러스터링, 네트워크 가상 어플라이언스 및 재암호화 없이 다중 TLS 엔드포인트 노출이 포함됩니다.
 
 여러 규칙 전반에 백 엔드 포트를 재사용하려면 규칙 정의에 부동 IP를 사용하도록 설정해야 합니다.
 

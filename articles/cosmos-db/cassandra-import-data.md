@@ -9,14 +9,14 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 56fc07c6d775ee8015ce244acb7782607bda802a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247853"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739790"
 ---
-# <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>자습서: Azure Cosmos DB Cassandra API 계정으로 데이터 마이그레이션
 
 이 자습서는 Apache Cassandra 데이터를 Azure Cosmos DB Cassandra API로 마이그레이션하는 방법에 대한 지침을 제공합니다. 
 
@@ -101,7 +101,7 @@ ms.locfileid: "48247853"
 
 - [테이블 복사 작업](cassandra-spark-table-copy-ops.md)을 사용하여 데이터를 Cassandra API 엔드포인트로 이동합니다. 
 
-Azure 가상 머신이나 다른 클라우드의 기존 클러스터에 데이터가 있는 경우 Spark 작업을 사용하여 데이터를 마이그레이션하는 것이 좋습니다. 이렇게 하려면 Spark를 한 번 또는 정기적으로 중개자로 설정해야 합니다. 온-프레미스와 Azure 사이에 Express 경로 연결을 사용하면 마이그레이션 속도를 높일 수 있습니다. 
+Azure 가상 머신이나 다른 클라우드의 기존 클러스터에 데이터가 있는 경우 Spark 작업을 사용하여 데이터를 마이그레이션하는 것이 좋습니다. 이 옵션을 사용하려면 Spark를 한 번 또는 정기적으로 중개자로 설정해야 합니다. 온-프레미스와 Azure 사이에 Express 경로 연결을 사용하면 마이그레이션 속도를 높일 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

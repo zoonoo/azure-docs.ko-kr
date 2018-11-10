@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 555bf95367ab0d3e6c4afe09edb6777899400dd8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 66a2871e0c4b36959ccd8f08df5b6b7edd09f624
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344671"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227827"
 ---
 # <a name="asdk-administration-basics"></a>ASDK 관리 기본 사항 
 Azure Stack 개발 키트 (ASDK) 관리 접하는 경우 알아야 할 몇 가지 있습니다. 이 설명서는 평가 환경에 Azure Stack 운영자 역할의 개요를 제공 하 고 테스트 사용자를 확인 하는 방법을 신속 하 게 생산성 될 수 있습니다.
@@ -29,7 +29,7 @@ Azure Stack 개발 키트 (ASDK) 관리 접하는 경우 알아야 할 몇 가�
 
 Azure와 같은 Azure Stack 빠르게 혁신이 하므로 새 빌드의 ASDK 정기적으로 출시할 예정입니다. 그러나 Azure Stack 통합 시스템 배포와 같이 ASDK 업그레이드할 수 없습니다. 따라서 최신 빌드를 이동 하려는 경우 해야 완전히 [재배포는 ASDK](asdk-redeploy.md)합니다. 업데이트 패키지를 적용할 수 없습니다. 이 프로세스 시간은 걸리지만 장점은 가능 하 게 하는 즉시 최신 기능을 사용해 보십시오 수 있습니다. 
 
-## <a name="what-account-should-i-use"></a>어떤 계정을 사용 해야 합니까?
+## <a name="what-account-should-i-use"></a>사용할 계정은?
 Azure Stack을 관리할 때 고려해 야 하는 몇 가지 계정 고려 사항이 있습니다. 배포에서 특히 Windows Server Active Directory Federation Services (AD FS)를 id 공급자로 Azure Active Directory (Azure AD) 대신 사용합니다. 다음 계정 고려 사항 ASDK 배포와 Azure Stack 통합 시스템에 적용 됩니다.
 
 |계좌|Azure AD|AD FS|
@@ -43,7 +43,7 @@ Azure Stack을 관리할 때 고려해 야 하는 몇 가지 계정 고려 사�
 ## <a name="what-tools-do-i-use-to-manage"></a>관리 하려면 어떤 도구를 사용 합니까?
 사용할 수는 [Azure Stack 관리자 포털](https://adminportal.local.azurestack.external) 또는 PowerShell을 Azure Stack을 관리 합니다. 기본 개념을 알아보고 하는 가장 쉬운 방법은 포털을 통해 됩니다. 설치 해야 하는 PowerShell을 사용 하려는 경우 [PowerShell for Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) 하 고 [GitHub에서 Azure Stack 도구를 다운로드](asdk-post-deploy.md#download-the-azure-stack-tools)합니다.
 
-Azure Stack의 기본 배포, 관리 및 조직 메커니즘으로 Azure Resource Manager를 사용합니다. Azure Stack을 관리 하 여 사용자를 지원할 수 있도록 하려는 경우 Azure Resource Manager에 대 한 배워야 합니다. 읽어 자세히 알아볼 수 있습니다 합니다 [Getting Started with Azure Resource Manager 백서](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)합니다.
+Azure Stack의 기본 배포, 관리 및 조직 메커니즘으로 Azure Resource Manager를 사용합니다. Azure Stack을 관리 하 여 사용자를 지원할 수 있도록 하려는 경우 Azure Resource Manager에 대 한 배워야 합니다. 읽어 자세히 알아볼 수 있습니다 합니다 [Getting Started with Azure Resource Manager 백서](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)합니다.
 
 ## <a name="your-typical-responsibilities"></a>일반적인 사용자의 책임
 사용자가 서비스를 사용 하려고 합니다. 자신의 관점에서 이러한 서비스를 사용할 수 있도록 주 역할을 맡고 합니다. 제공 서비스를 알아볼 수 있습니다 하 고 해당 하는 방법에 따라 사용 가능한 서비스는 ASDK 사용 [계획, 제품 및 할당량 만들기](asdk-offer-services.md)합니다. 가상 머신 이미지와 같은 marketplace에 항목을 추가 해야 합니다. 가장 쉬운 방법은 [마켓플레이스 항목 다운로드](asdk-marketplace-item.md) Azure Stack에는 Azure에서.

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: eb50673b4f618caadfa1abfb654d7e3f15e51713
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023954"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740963"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ ms.locfileid: "50023954"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* 임대 컬렉션이 분할된 경우 분할을 처리하는 동안 발생할 수 있는 문제가 해결되었습니다. 이 문제롷 인해 사라진 파티션에 대한 임대가 임대 컬렉션에서 삭제되지 않을 수 있습니다. 이 문제는 이 릴리스에서 해결되었습니다.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * 다중 마스터 계정 및 새 세션 토큰 형식에 대한 고정 추정기 계산입니다.

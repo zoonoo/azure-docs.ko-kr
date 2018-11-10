@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a197b3c7aa423323f984a793851a458733391e33
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 08d9566c3ce8f486465f0ed7fb5aab4419e592d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243115"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228592"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -167,7 +167,7 @@ SAML 2.0 ID 공급자와 Azure AD 간의 통신을 사용하도록 설정해야 
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>SAML 2.0 ID 공급자로 로그온하기 위해 Windows PowerShell 설치
 Azure AD 로그온에 사용하기 위해 SAML 2.0 ID 공급자를 구성하고 다음에 수행할 단계는 Windows PowerShell용 Azure Active Directory 모듈을 다운로드하고 설치하는 것입니다. 일단 설치되면 이러한 cmdlet을 사용하여 Azure AD 도메인을 페더레이션된 도메인으로 구성합니다.
 
-Windows PowerShell용 Azure Active Directory 모듈은 Azure AD에서 조직 데이터를 관리하기 위한 다운로드입니다. 이 모듈은 Windows PowerShell에 cmdlet 집합을 설치합니다. 이러한 cmdlet을 사용하여 Azure AD 및 구독된 모든 클라우드 서비스에 대한 Single Sign-On 액세스를 설정합니다. cmdlet을 다운로드하고 설치하는 방법에 대한 지침을 [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)를 참조하세요.
+Windows PowerShell용 Azure Active Directory 모듈은 Azure AD에서 조직 데이터를 관리하기 위한 다운로드입니다. 이 모듈은 Windows PowerShell에 cmdlet 집합을 설치합니다. 이러한 cmdlet을 사용하여 Azure AD 및 구독된 모든 클라우드 서비스에 대한 Single Sign-On 액세스를 설정합니다. cmdlet을 다운로드하고 설치하는 방법에 대한 지침을 [http://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)를 참조하세요.
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>SAML ID 공급자 및 Azure AD 간에 트러스트 설정
 Azure AD 도메인에서 페더레이션을 구성하기 전에 사용자 지정 도메인을 먼저 구성해야 합니다. Microsoft에서 제공하는 기본 도메인은 페더레이션할 수 없습니다. Microsoft의 기본 도메인은 "onmicrosoft.com"으로 끝납니다.
@@ -190,12 +190,12 @@ SAML 2.0 ID 공급자를 사용하여 페더레이션하려는 각 Azure Active 
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-“Set-MsolDomainAuthentication”에 대한 자세한 내용은 [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx)를 참조하세요.
+“Set-MsolDomainAuthentication”에 대한 자세한 내용은 [http://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx)를 참조하세요.
 
 >[!NOTE]
 >“$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS””는 ID 공급자에 대해 ECP 확장을 설정한 경우에만 실행해야 합니다. OWA(Outlook Web Application)를 제외한 Exchange Online 클라이언트는 POST 기반 활성 끝점에 의존합니다. SAML 2.0 STS가 Shibboleth의 ECP 활성 끝점 구현과 비슷한 활성 끝점을 구현하는 경우 이러한 리치 클라이언트가 Exchange Online 서비스와 상호 작용할 수 있습니다.
 
-페더레이션이 구성되면 "비페더레이션"(또는 "관리")으로 다시 전환할 수 있지만 이 변경을 완료하려면 최대 2시간이 걸릴 수 있으며 클라우드 기반 로그인을 위한 새 임의 암호를 각 사용자에게 배포해야 합니다. 일부 시나리오에서는 설정의 오류를 복구하기 위해 "관리"로 다시 전환해야 할 수 있습니다. 도메인 변환에 대한 자세한 내용은 [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx)를 참조하세요.
+페더레이션이 구성되면 "비페더레이션"(또는 "관리")으로 다시 전환할 수 있지만 이 변경을 완료하려면 최대 2시간이 걸릴 수 있으며 클라우드 기반 로그인을 위한 새 임의 암호를 각 사용자에게 배포해야 합니다. 일부 시나리오에서는 설정의 오류를 복구하기 위해 "관리"로 다시 전환해야 할 수 있습니다. 도메인 변환에 대한 자세한 내용은 [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx)를 참조하세요.
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Azure AD/Office 365로 사용자 계정 프로비전
 Office 365에서 사용자를 인증하려면 먼저 SAML 2.0 클레임의 어설션에 해당하는 사용자 계정으로 Azure AD를 프로비전해야 합니다. 이러한 사용자 계정이 사전에 Azure AD에 알려져 있지 않으면 페더레이션 로그인에 사용할 수 없습니다. Azure AD Connect 또는 Windows PowerShell을 사용하여 사용자 계정을 프로비전할 수 있습니다.
@@ -218,7 +218,7 @@ Azure AD에 새 사용자 추가를 자동화하고 온-프레미스 디렉터�
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-“New-MsolUser” 체크 아웃에 대한 자세한 내용은 [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)을 참조하세요.
+“New-MsolUser” 체크 아웃에 대한 자세한 내용은 [http://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)을 참조하세요.
 
 >[!NOTE]
 >"UserPrinciplName" 값은 SAML 2.0 클레임의 "IDPEmail"에 대해 전송하는 값과 일치해야 하고 "ImmutableID" 값은 "NameID" 어설션에 전송된 값과 일치해야 합니다.
