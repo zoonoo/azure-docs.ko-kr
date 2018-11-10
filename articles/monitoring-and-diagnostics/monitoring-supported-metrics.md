@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962950"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964189"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세스, PowerShell이나 CLI를 통한 쿼리 등, 메트릭과 상호 작용하는 몇 가지 방법을 제공합니다. 다음은 현재 Azure Monitor의 메트릭 파이프라인을 통해 사용할 수 있는 모든 메트릭의 전체 목록입니다.  레거시 API를 통해서 또는 포털에서 다른 메트릭을 제공할 수 있습니다. 아래 목록에는 통합 Azure Monitor 메트릭 파이프라인을 통해 사용할 수 있는 메트릭만 포함됩니다. 이러한 메트릭을 쿼리하고 액세스하려면 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)을 사용하세요.
@@ -533,7 +533,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |serverlog_storage_percent|서버 로그 저장소 비율|백분율|평균|서버 로그 저장소 비율|차원 없음|
 |serverlog_storage_percent|사용된 서버 로그 저장소|바이트|평균|사용된 서버 로그 저장소|차원 없음|
 |serverlog_storage_limit|서버 로그 저장소 제한|바이트|평균|서버 로그 저장소 제한|차원 없음|
-|active_connections|활성 연결|개수|평균|활성 연결|차원 없음|
+|active_connections|활성 연결 수|개수|평균|활성 연결 수|차원 없음|
 |connections_failed|실패한 연결|개수|합계|실패한 연결|차원 없음|
 |network_bytes_egress|네트워크 아웃|바이트|합계|활성 연결에서 네트워크 출력|차원 없음|
 |network_bytes_ingress|네트워크 인|바이트|합계|활성 연결에서 네트워크 입력|차원 없음|
@@ -551,7 +551,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |serverlog_storage_percent|서버 로그 저장소 비율|백분율|평균|서버 로그 저장소 비율|차원 없음|
 |serverlog_storage_percent|사용된 서버 로그 저장소|바이트|평균|사용된 서버 로그 저장소|차원 없음|
 |serverlog_storage_limit|서버 로그 저장소 제한|바이트|평균|서버 로그 저장소 제한|차원 없음|
-|active_connections|활성 연결|개수|평균|활성 연결|차원 없음|
+|active_connections|활성 연결 수|개수|평균|활성 연결 수|차원 없음|
 |connections_failed|실패한 연결|개수|합계|실패한 연결|차원 없음|
 |seconds_behind_master|복제 지연 시간(초)|개수|평균|복제 지연 시간(초)|차원 없음|
 |network_bytes_egress|네트워크 아웃|바이트|합계|활성 연결에서 네트워크 출력|차원 없음|
@@ -570,7 +570,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |serverlog_storage_percent|서버 로그 저장소 비율|백분율|평균|서버 로그 저장소 비율|차원 없음|
 |serverlog_storage_percent|사용된 서버 로그 저장소|바이트|평균|사용된 서버 로그 저장소|차원 없음|
 |serverlog_storage_limit|서버 로그 저장소 제한|바이트|평균|서버 로그 저장소 제한|차원 없음|
-|active_connections|활성 연결|개수|평균|활성 연결|차원 없음|
+|active_connections|활성 연결 수|개수|평균|활성 연결 수|차원 없음|
 |connections_failed|실패한 연결|개수|합계|실패한 연결|차원 없음|
 |network_bytes_egress|네트워크 아웃|바이트|합계|활성 연결에서 네트워크 출력|차원 없음|
 |network_bytes_ingress|네트워크 인|바이트|합계|활성 연결에서 네트워크 입력|차원 없음|
@@ -587,8 +587,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |devices.totalDevices|총 장치(사용되지 않음)|개수|합계|IoT 허브에 등록된 장치 수|차원 없음|
 |devices.connectedDevices.allProtocol|연결된 장치(사용되지 않음) |개수|합계|IoT 허브에 연결된 장치 수|차원 없음|
 |d2c.telemetry.egress.success|라우팅: 배달된 원격 분석 메시지|개수|합계|IoT Hub 라우팅을 사용하여 모든 엔드포인트에 메시지가 성공적으로 배달된 횟수입니다. 메시지가 여러 엔드포인트로 라우팅되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다. 메시지가 동일한 엔드포인트로 여러 번 배달되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다.|차원 없음|
-|d2c.telemetry.egress.dropped|라우팅: 삭제된 원격 분석 메시지 |개수|합계|데드 엔드포인트로 인해 IoT Hub 라우팅에서 메시지가 삭제된 횟수입니다. 삭제된 메시지는 배달되지 않으므로 이 값은 대체 경로에 배달된 메시지를 계산에 넣지 않습니다.|차원 없음|
-|d2c.telemetry.egress.orphaned|라우팅: 분리된 원격 분석 메시지 |개수|합계|메시지가 라우팅 규칙(대체 규칙 포함)과 일치하지 않았으므로 IoT Hub 라우팅에 의해 분리된 횟수입니다. |차원 없음|
+|d2c.telemetry.egress.dropped|라우팅: 삭제된 원격 분석 메시지 |개수|합계|데드 엔드포인트로 인해 IoT Hub 라우팅에서 메시지가 삭제된 횟수입니다. 삭제된 메시지는 배달되지 않으므로 이 값은 대체 경로에 배달된 메시지를 계산에 넣지 않습니다.|차원 없음|
+|d2c.telemetry.egress.orphaned|라우팅: 분리된 원격 분석 메시지 |개수|합계|메시지가 라우팅 규칙(대체 규칙 포함)과 일치하지 않았으므로 IoT Hub 라우팅에 의해 분리된 횟수입니다. |차원 없음|
 |d2c.telemetry.egress.invalid|라우팅: 원격 분석 메시지 호환되지 않음|개수|합계|IoT Hub 라우팅에서 엔드포인트와의 비호환성으로 인해 메시지를 배달하지 못한 횟수입니다. 이 값은 재시도를 포함하지 않습니다.|차원 없음|
 |d2c.telemetry.egress.fallback|라우팅: 대체에 배달된 메시지|개수|합계|IoT Hub 라우팅에서 대체 경로와 연결된 엔드포인트에 메시지를 배달한 횟수입니다.|차원 없음|
 |d2c.endpoints.egress.eventHubs|라우팅: 이벤트 허브에 배달된 메시지|개수|합계|IoT Hub 라우팅에서 이벤트 허브 엔드포인트에 메시지를 성공적으로 배달한 횟수입니다.|차원 없음|
@@ -1570,6 +1570,6 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |MemoryPercentage|메모리 비율|백분율|평균|메모리 비율|인스턴스|
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Monitor의 메트릭에 대해 읽기](monitoring-overview-metrics.md)
-* [메트릭에 대한 경고 만들기](insights-receive-alert-notifications.md)
+* [Azure Monitor의 메트릭에 대해 읽기](../monitoring/monitoring-data-collection.md)
+* [메트릭에 대한 경고 만들기](monitoring-overview-alerts.md)
 * [저장소, 이벤트 허브 또는 Log Analytics에 메트릭 내보내기](monitoring-overview-of-diagnostic-logs.md)

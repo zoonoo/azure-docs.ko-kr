@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 799593758bf24924d91d38bd6a626b945247183b
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 41c8fd0092af035153b3161c4a6c3eb5c5ef3f1d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050241"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958902"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps용 Application Insights 개요
 
@@ -231,6 +231,6 @@ Application Insights는 사용자가 앱으로 수행할 작업에 대해 알아
 * [ASP.NET 웹 응용 프로그램](app-insights-asp-net.md)
 * [Java 웹 응용 프로그램](app-insights-java-get-started.md)
 * [Node.js 웹 응용 프로그램](app-insights-nodejs.md)
-* [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) 또는 [Azure](app-insights-azure.md)에서 호스트되는 이미 배포된 앱
+* [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) 또는 [Azure](app-insights-overview.md)에서 호스트되는 이미 배포된 앱
 * [웹 페이지](app-insights-javascript.md) - 단일 페이지 앱 또는 일반 웹 페이지 - 독립적으로 또는 다른 서버 옵션과 함께 사용
 * [가용성 테스트](app-insights-monitor-web-app-availability.md) - 공용 인터넷에서 앱 테스트

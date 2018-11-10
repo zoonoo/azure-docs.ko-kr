@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a46564c324edb1999a2e1b1d482817685df2893
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205989"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228541"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -141,7 +141,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * [Microsoft Azure 홈 대시보드](https://portal.azure.com)에서 서비스 상태 맵을 살펴봅니다. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 응용 프로그램 블레이드를 닫고 다시 엽니다.
-* 또한 [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 확인합니다.
+* 또한 [상태 블로그](https://blogs.msdn.com/b/applicationinsights-status/)를 확인합니다.
 * `TelemetryClient`인스턴스 또는 `TelemetryContext`의 계측 키가 변경될 수 있는 코드를 [서버 쪽 SDK](app-insights-api-custom-events-metrics.md)에 작성했습니까? 또는 너무 촘촘하게 걸러내는 [필터 또는 샘플링 구성](app-insights-api-filtering-sampling.md)을 작성했습니까?
 * ApplicationInsights.config를 편집한 경우 [TelemetryInitializers 및 TelemetryProcessors](app-insights-api-filtering-sampling.md)의 구성을 신중하게 확인합니다. 형식 또는 매개 변수를 잘못 명명하면 SDK에서 빈 데이터를 보내게 될 수 있습니다.
 
@@ -158,7 +158,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 [종속성 원격 분석](app-insights-asp-net-dependencies.md) 및 [예외 원격 분석](app-insights-asp-net-exceptions.md)을 참조하세요.
 
 ## <a name="no-performance-data"></a>성능 데이터 없음
-성능 데이터(CPU, IO 속도 등)는 [Java 웹 서비스](app-insights-java-collectd.md), [Windows 데스크톱 앱](app-insights-windows-desktop.md), [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](app-insights-monitor-performance-live-website-now.md) 및 [Azure Cloud Services](app-insights-azure.md)에 사용할 수 있습니다. 이 내용은 설정, 서버 아래에 있습니다.
+성능 데이터(CPU, IO 속도 등)는 [Java 웹 서비스](app-insights-java-collectd.md), [Windows 데스크톱 앱](app-insights-windows-desktop.md), [IIS Web Apps 및 서비스(상태 모니터를 설치한 경우)](app-insights-monitor-performance-live-website-now.md) 및 [Azure Cloud Services](app-insights-overview.md)에 사용할 수 있습니다. 이 내용은 설정, 서버 아래에 있습니다.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>내 서버에 앱을 게시한 이후로 (서버) 데이터가 없음
 * 실제로 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll을 포함하여 모든 Microsoft ApplicationInsights DLL을 서버로 복사했는지 확인합니다.
@@ -167,7 +167,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 * Windows Server 2008: 다음 업데이트를 설치했는지 확인하십시오. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>데이터를 보는 데 중지되었습니다.
-* [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
+* [상태 블로그](https://blogs.msdn.com/b/applicationinsights-status/)를 참조하세요.
 * 데이터 요소의 월간 할당량에 도달했습니까? 설정/할당량 및 가격을 열어 찾아봅니다. 그렇다면 계획을 업그레이드하거나 추가 용량에 대한 비용을 지불할 수 있습니다. [가격 체계](https://azure.microsoft.com/pricing/details/application-insights/)를 참조하세요.
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>기대한 모든 데이터가 표시되지 않는 경우

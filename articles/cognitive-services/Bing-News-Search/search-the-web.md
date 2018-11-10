@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 4ed816b117d11dd38e6a8ea5191171b812db0f1c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 7a5df20358198e7ccb44ccc60be3ab7716f71ba6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023205"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227861"
 ---
 # <a name="what-is-bing-news-search"></a>Bing News Search란?
 
@@ -45,7 +45,7 @@ Host: api.cognitive.microsoft.com
 
 Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 전에 Bing API를 호출하고 Bing이 사용자 및 장치 조합에 대한 클라이언트 ID를 반환한 경우만 클라이언트 ID를 포함합니다.
 
-특정 도메인에서 뉴스를 가져오려면 [site:](http://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 사용합니다.
+특정 도메인에서 뉴스를 가져오려면 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 사용합니다.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1

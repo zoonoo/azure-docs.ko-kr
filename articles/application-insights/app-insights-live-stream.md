@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a7953781776fa4d7c9ae47901bb5f0c28a87ff2b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9105b7f44a9677b2b843305c30fec30c74dd8be5
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091194"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958494"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -203,7 +203,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.A
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Application Insights를 사용하여 사용량 모니터링](app-insights-web-track-usage.md)
+* [Application Insights를 사용하여 사용량 모니터링](app-insights-usage-overview.md)
 * [진단 검색 사용](app-insights-diagnostic-search.md)
 * [프로파일러](app-insights-profiler.md)
 * [스냅숏 디버거](app-insights-snapshot-debugger.md)

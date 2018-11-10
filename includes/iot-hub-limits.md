@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: 1807dc67d09b521e66314fb98535fb2c1225d34f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964583"
+---
 다음 표는 다양한 서비스 계층(S1, S2, S3, F1)과 관련한 한도를 나타냅니다. 각 계층에서 각각의 *단위* 에 대한 비용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
 | 리소스 | S1 표준 | S2 표준 | S3 표준 | F1 무료 |

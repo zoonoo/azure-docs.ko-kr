@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 46939e15100468eab0d5575546eb6bd58df4aacd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167055"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961078"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 웹 페이지 또는 앱의 성능 및 사용 현황에 대해 알아봅니다. 페이지 스크립트에 [Application Insights](app-insights-overview.md)를 추가하면 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 실패의 개수 및 세부 정보뿐만 아니라 사용자 및 세션 개수를 얻을 수 있습니다. 이러한 모든 요소를 페이지, 클라이언트 OS 및 브라우저 버전, 지리적 위치 및 기타 차원으로 분할할 수 있습니다. 실패 횟수 또는 느린 페이지 로딩에 대한 경고를 설정할 수도 있습니다. 또한 JavaScript 코드에 추적 호출을 삽입하여 웹 페이지 응용 프로그램의 다양한 기능 사용 방법을 추적할 수 있습니다.
@@ -230,7 +230,7 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호�
 ## <a name="usage-tracking"></a>사용 추적
 사용자가 앱으로 어떤 작업을 수행하려고 하는지 확인하고 싶나요?
 
-* [사용자 동작 분석 도구에 대해 알아보기](app-insights-web-track-usage.md)
+* [사용자 동작 분석 도구에 대해 알아보기](app-insights-usage-overview.md)
 * [사용자 지정 이벤트 및 메트릭 API에 대해 자세히 알아보세요](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a>동영상
@@ -241,7 +241,7 @@ Ajax 호출은 웹 페이지의 스크립트에서 이루어진 HTTP/HTTPS 호�
 
 
 ## <a name="next"></a> 다음 단계
-* [사용 현황 추적](app-insights-web-track-usage.md)
+* [사용 현황 추적](app-insights-usage-overview.md)
 * [사용자 지정 이벤트 및 메트릭](app-insights-api-custom-events-metrics.md)
-* [빌드 - 측정 - 학습](app-insights-web-track-usage.md)
+* [빌드 - 측정 - 학습](app-insights-usage-overview.md)
 

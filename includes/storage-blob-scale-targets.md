@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 6c23e29238d393dc8d27128cfd6d785c0ac9f4c3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964595"
+---
 | 리소스 | 대상 |
 |----------|---------------|
 | 단일 Blob 컨테이너의 최대 크기 | 최대 저장소 계정 용량과 동일 |

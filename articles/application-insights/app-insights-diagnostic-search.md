@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bf722756ed04349a06cbcb7b9686e6340e8d4b6c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038775"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958409"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 Search는 페이지 보기, 예외 사항 또는 웹 요청과 같은 개별 원격 분석 항목을 찾고 검색하는 데 사용하는 [Application Insights](app-insights-overview.md)의 기능입니다. 또한 코딩한 로그 추적 및 이벤트를 볼 수 있습니다.
 
-(사용자 데이터에 비해 좀 더 복잡한 쿼리를 위해서는 [Analytics](app-insights-analytics-tour.md)를 사용합니다.)
+(사용자 데이터에 비해 좀 더 복잡한 쿼리를 위해서는 [Analytics](../log-analytics/query-language/get-started-analytics-portal.md)를 사용합니다.)
 
 ## <a name="where-do-you-see-search"></a>Search 기능은 어디에 있나요?
 
@@ -102,7 +102,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 ## <a name="search-the-data"></a>데이터 검색
 
 > [!NOTE]
-> 더 복잡 한 쿼리를 작성하려면 검색 블레이드 위쪽에서 [**분석**](app-insights-analytics-tour.md)을 엽니다.
+> 더 복잡 한 쿼리를 작성하려면 검색 블레이드 위쪽에서 [**분석**](../log-analytics/query-language/get-started-analytics-portal.md)을 엽니다.
 > 
 
 속성 값 중 하나에서 용어를 검색할 수 있습니다. 속성 값을 포함하는 [사용자 지정 이벤트](app-insights-api-custom-events-metrics.md)를 작성한 경우에 특히 유용합니다. 
@@ -164,7 +164,7 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>다음 단계
-* [분석에서 복잡한 쿼리 작성](app-insights-analytics-tour.md)
+* [분석에서 복잡한 쿼리 작성](../log-analytics/query-language/get-started-analytics-portal.md)
 * [Application Insights에 로그 및 사용자 지정 원격 분석 전송](app-insights-asp-net-trace-logs.md)
 * [가용성 및 응답성 테스트 설정](app-insights-monitor-web-app-availability.md)
 * [문제 해결](app-insights-troubleshoot-faq.md)

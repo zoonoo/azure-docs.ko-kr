@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421087"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958155"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 이 문서에서는 [Azure Alerts](monitoring-overview-unified-alerts.md) 내에서 지원되는 경고 형식 중 하나이며 사용자가 Azure의 분석 플랫폼을 경고의 기준으로 사용하게 하는 로그 경고의 세부 정보를 제공합니다.
@@ -122,4 +122,4 @@ ms.locfileid: "50421087"
 * [Azure의 로그 경고에서 웹후크](monitor-alerts-unified-log-webhook.md)를 이해합니다.
 * [Azure Alerts](monitoring-overview-unified-alerts.md)에 대해 알아봅니다.
 * [Application Insights](../application-insights/app-insights-analytics.md)에 대해 자세히 알아봅니다.
-* [Log Analytics](../log-analytics/log-analytics-overview.md)에 대해 자세히 알아보기    
+* [Log Analytics](../log-analytics/log-analytics-queries.md)에 대해 자세히 알아보기    

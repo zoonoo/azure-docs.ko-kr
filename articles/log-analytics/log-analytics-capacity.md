@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0244673d50e22124e8a0678e202004f06b0bca00
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182623"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961945"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>용량 및 성능 솔루션으로 Hyper-V 가상 머신 용량 계획(미리 보기)
 
@@ -50,8 +50,8 @@ Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 �
 
 | 연결된 소스 | 지원 | 설명 |
 |---|---|---|
-| [Windows 에이전트](log-analytics-windows-agent.md) | yes | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
-| [Linux 에이전트](log-analytics-linux-agents.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
+| [Windows 에이전트](log-analytics-agent-windows.md) | yes | 솔루션에서 Windows 에이전트의 용량 및 성능 데이터 정보를 수집합니다. |
+| [Linux 에이전트](log-analytics-quick-collect-linux-computer.md) | 아니요    | 솔루션에서 Linux 에이전트의 용량 및 성능 데이터 정보를 직접 수집하지 않습니다.|
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | yes |솔루션에서 연결된 SCOM 관리 그룹에 있는 에이전트의 용량 및 성능 데이터를 수집합니다. SCOM에서 Log Analytics로 직접 연결은 필요하지 않습니다.|
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Azure 저장소는 용량 및 성능 데이터를 포함하지 않습니다.|
 
@@ -64,7 +64,7 @@ Log Analytics의 용량 및 성능 솔루션을 사용하면 Hyper-V 서버의 �
 
 다음 단계를 수행하여 용량 및 성능 솔루션을 작업 영역에 추가합니다.
 
-- [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 Log Analytics 작업 영역에 용량 및 성능 솔루션을 추가합니다.
+- [솔루션 갤러리에서 Log Analytics 솔루션 추가](../monitoring/monitoring-solutions.md)에서 설명하는 프로세스를 사용하여 Log Analytics 작업 영역에 용량 및 성능 솔루션을 추가합니다.
 
 ## <a name="management-packs"></a>관리 팩
 
@@ -138,4 +138,4 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics의 로그 검색](log-analytics-log-search.md)을 사용하여 자세한 용량 및 성능 데이터를 확인합니다.
+* [Log Analytics의 로그 검색](log-analytics-queries.md)을 사용하여 자세한 용량 및 성능 데이터를 확인합니다.

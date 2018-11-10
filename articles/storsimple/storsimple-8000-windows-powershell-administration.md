@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 9408531a9e24af93359b562ed022b3d8253851e8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665687"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228388"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 장치 관리
 
@@ -159,7 +159,7 @@ StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 �
 
 StorSimple용 Windows PowerShell에서 cmdlet 도움말을 사용할 수 있습니다. 시스템의 도움말을 업데이트하는 데 사용할 수 있는 이 도움말의 온라인 최신 버전도 제공됩니다.
 
-이 인터페이스에서 도움을 받는 방법은 Windows PowerShell과 유사하며 대부분의 도움말 관련 cmdlet이 작동합니다. TechNet 라이브러리: [Windows PowerShell을 사용한 스크립팅](http://go.microsoft.com/fwlink/?LinkID=108518)에서 온라인으로 Windows PowerShell에 대한 도움말을 확인할 수 있습니다.
+이 인터페이스에서 도움을 받는 방법은 Windows PowerShell과 유사하며 대부분의 도움말 관련 cmdlet이 작동합니다. TechNet 라이브러리: [Windows PowerShell을 사용한 스크립팅](https://go.microsoft.com/fwlink/?LinkID=108518)에서 온라인으로 Windows PowerShell에 대한 도움말을 확인할 수 있습니다.
 
 다음은 도움말을 업데이트하는 방법을 포함하여 이 Windows PowerShell 인터페이스의 도움말 형식에 대한 간략한 설명입니다.
 

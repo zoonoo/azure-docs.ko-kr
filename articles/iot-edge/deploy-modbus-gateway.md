@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 031524f4ef00b57f598c1114d594fb70eeedd15b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e9db20a1458c398913387e40d247400ee933578b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394003"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912308"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>IoT Edge 장치 게이트웨이를 통해 Modbus TCP 장치 연결
 
@@ -99,5 +99,5 @@ docker logs -f modbus
 
 ## <a name="next-steps"></a>다음 단계
 
-- IoT Edge 장치가 게이트웨이로 작동하는 방법에 대한 자세한 내용은 [투명한 게이트웨이 역할을 하는 IoT Edge 장치 만들기](./how-to-create-transparent-gateway-linux.md)를 참조하세요.
+- IoT Edge 장치가 게이트웨이로 작동하는 방법에 대한 자세한 내용은 [투명한 게이트웨이 역할을 하는 IoT Edge 장치 만들기](./how-to-create-transparent-gateway.md)를 참조하세요.
 - IoT Edge 모듈이 작동하는 방법에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](iot-edge-modules.md)를 참조하세요.

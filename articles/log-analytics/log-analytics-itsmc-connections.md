@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e504f8c4fb34084d613e7ab1e506187a856defef
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416463"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961843"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
@@ -293,7 +293,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 
 - ITSMC가 설치되어 있습니다. 자세한 내용은 [IT Service Management Connector 솔루션 추가](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)를 참조하세요.
-- Provance 앱을 Azure AD에 등록해야 합니다. 그래야 클라이언트 ID를 사용할 수 있게 됩니다. 자세한 내용은 [Active Directory 인증을 구성하는 방법](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요.
+- Provance 앱을 Azure AD에 등록해야 합니다. 그래야 클라이언트 ID를 사용할 수 있게 됩니다. 자세한 내용은 [Active Directory 인증을 구성하는 방법](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)을 참조하세요.
 
 - 사용자 역할: 관리자
 

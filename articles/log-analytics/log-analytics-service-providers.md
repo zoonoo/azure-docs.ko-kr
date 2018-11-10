@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: ''
-ms.openlocfilehash: ef3cc76c0188cb2a0d3236d462d0645e3e45040b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: ef1956f5283105548ba8790b87e82c35d6c9e1cd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044283"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960942"
 ---
 # <a name="log-analytics-for-service-providers"></a>서비스 공급자의 Log Analytics
 Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다. 
@@ -82,6 +82,6 @@ Log Analytics에서 중앙 위치를 구현하는 두 가지 옵션이 있습니
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 템플릿](log-analytics-template-workspace-configuration.md)을 사용하여 작업 영역 생성 및 구성 자동화
 * [PowerShell](log-analytics-powershell-workspace-configuration.md)을 사용하여 작업 영역 생성 자동화 
-* [경고](log-analytics-alerts.md)를 사용하여 기존 시스템과 통합
+* [경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)를 사용하여 기존 시스템과 통합
 * [Power BI](log-analytics-powerbi.md)를 사용하여 요약 보고서 생성
 * [여러 CSP 고객을 모니터링하도록 Log Analytics 및 Power BI를 구성](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)하는 프로세스 검토

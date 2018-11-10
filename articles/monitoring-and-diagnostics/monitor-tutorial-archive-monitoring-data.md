@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ac8be998a70b31af9829eeeab24902c62fd2fe37
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409493"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961515"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Azure Storage를 사용하여 Azure 메트릭 보관 및 데이터 기록
 
@@ -38,11 +38,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-먼저 모니터링 데이터를 보관할 저장소 계정을 설정해야 합니다. 이렇게 하려면 [여기 있는 단계를 수행하세요.](../storage/common/storage-create-storage-account.md)
+먼저 모니터링 데이터를 보관할 저장소 계정을 설정해야 합니다. 이렇게 하려면 [여기 있는 단계를 수행하세요.](../storage/common/storage-quickstart-create-account.md)
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>저장소 계정에 구독 로그 라우팅
 
@@ -198,4 +198,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 데이터를 좀 더 잘 활용하고 추가 정보를 얻기 위해 Log Analytics로 데이터를 보낼 수도 있습니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics 시작](../log-analytics/log-analytics-get-started.md)
+> [Log Analytics 시작](../log-analytics/log-analytics-queries.md)

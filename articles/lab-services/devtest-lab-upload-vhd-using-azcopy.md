@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: e35686e7ba7c2e88d62930082d39856673a661b6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 482bfe41ebfec7353466f7e243e9e767caee7828
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782452"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228286"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>AzCopy를 사용하여 랩의 저장소 계정에 VHD 파일 업로드
 
@@ -33,11 +33,11 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
 
 ## <a name="step-by-step-instructions"></a>단계별 지침
 
-다음 단계는 [AzCopy](http://aka.ms/downloadazcopy)를 사용하여 Azure DevTest Labs로 VHD 파일을 업로드하는 과정을 안내합니다. 
+다음 단계는 [AzCopy](https://aka.ms/downloadazcopy)를 사용하여 Azure DevTest Labs로 VHD 파일을 업로드하는 과정을 안내합니다. 
 
 1. Azure Portal을 사용하여 랩의 저장소 계정 이름을 가져옵니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. **모든 서비스**를 선택한 다음 목록에서 **DevTest Labs**를 선택합니다.
 
@@ -65,7 +65,7 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
 
 1. AzCopy를 사용하여 VHD 파일 업로드:
  
-1. [최신 버전의 AzCopy를 다운로드하여 설치](http://aka.ms/downloadazcopy)합니다.
+1. [최신 버전의 AzCopy를 다운로드하여 설치](https://aka.ms/downloadazcopy)합니다.
 
 1. 명령 창을 열고 AzCopy 설치 디렉터리로 이동합니다. 선택 사항으로, 시스템 경로에 AzCopy 설치 위치를 추가할 수 있습니다. 기본적으로 AzCopy는 다음 디렉터리에 설치됩니다.
 

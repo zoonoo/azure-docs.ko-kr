@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: 65585e6c09def23101d9735c8b9c719d213938ac
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 1aaa753c91a324621dc66fab23e5fed3a9d11d01
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887403"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912768"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Azure에서 관리 솔루션 대상 지정(미리 보기)
 관리 솔루션을 구독에 추가하면 기본적으로 Log Analytics 작업 영역에 연결된 모든 Windows 및 Linux 에이전트에 의해 배포됩니다.  특정 에이전트 집합으로 제한하여 비용을 관리하고 솔루션에 대해 수집되는 데이터 양을 제한할 수 있습니다.  이 문서에서는 솔루션에 범위를 적용할 수 있는 기능인 **솔루션 대상 지정**을 사용하는 방법을 설명합니다.
@@ -74,5 +74,5 @@ Log Analytics에서 [컴퓨터 그룹](../log-analytics/log-analytics-computer-g
 - 에이전트 상태 평가
 
 ## <a name="next-steps"></a>다음 단계
-- [작업 영역에 Azure Log Analytics 관리 솔루션 추가](../log-analytics/log-analytics-add-solutions.md)에서 사용 주인 환경에 설치할 수 있는 솔루션을 비롯한 관리 솔루션에 대해 자세히 알아보세요.
+- [작업 영역에 Azure Log Analytics 관리 솔루션 추가](monitoring-solutions.md)에서 사용 주인 환경에 설치할 수 있는 솔루션을 비롯한 관리 솔루션에 대해 자세히 알아보세요.
 - [Log Analytics 로그 검색의 컴퓨터 그룹](../log-analytics/log-analytics-computer-groups.md)에서 컴퓨터 그룹 생성에 대해 자세히 알아보세요.

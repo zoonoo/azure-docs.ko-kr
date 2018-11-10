@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 48c53b1b0c037e6bcfea3be49fdd2110e1e694b3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c2a231de3eaa67a656fb90d6498d36a226ff8622
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970705"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963067"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
 Azure Monitor 자동 크기 조정을 사용하여 원격 분석 데이터(메트릭)에 따라 실행 중인 인스턴트 수를 늘리거나 줄일 수 있습니다. 이 문서에서는 사용하고자 하는 공용 메트릭에 대해 설명합니다. Azure Portal에서 크기를 조정할 리소스의 메트릭을 선택할 수 있습니다. 그러나 크기를 조정하기 위해 여러 리소스에서 임의 메트릭을 선택할 수도 있습니다.
@@ -29,7 +29,7 @@ VM 규모 집합을 사용 중인데 특정 메트릭이 목록에 표시되지 
 
 특정 메트릭이 원하는 빈도로 샘플링 또는 전송되고 있지 않은 경우 진단 구성을 업데이트할 수 있습니다.
 
-위 경우 중 하나가 해당되면 PowerShell에 대한 [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure 진단을 사용하도록 설정](../virtual-machines/windows/ps-extensions-diagnostics.md)을 검토하여 메트릭을 사용하도록 Azure VM 진단 확장을 구성 및 업데이트합니다. 이 문서에는 샘플 진단 구성 파일도 포함되어 있습니다.
+위 경우 중 하나가 해당되면 PowerShell에 대한 [PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure 진단을 사용하도록 설정](../virtual-machines/extensions/diagnostics-windows.md)을 검토하여 메트릭을 사용하도록 Azure VM 진단 확장을 구성 및 업데이트합니다. 이 문서에는 샘플 진단 구성 파일도 포함되어 있습니다.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Resource Manager 기반 Windows 및 Linux VM용 호스트 메트릭
 기본적으로 Windows 및 Linux 인스턴스 모두 Azure VM 및 VMSS용으로 다음 호스트 수준 메트릭을 내보냅니다. 이러한 메트릭은 Azure VM을 설명하지만 게스트 VM에 설치된 에이전트를 통하는 대신 Azure VM 호스트에서 수집됩니다. 자동 크기 조정 규칙에서 이러한 메트릭을 사용할 수 있습니다.

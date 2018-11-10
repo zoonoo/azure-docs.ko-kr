@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 2c3b2ecc1467a09ae490d23c45e7a000f4afe49a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 603ed12bf74f2d75543fd7e60834e695138c991d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976910"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963804"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 진단 확장 구성 스키마 버전 및 기록
 이 페이지는 Microsoft Azure SDK의 일부로 제공되는 Azure 진단 확장 스키마 버전을 인덱스합니다.  
@@ -29,7 +29,7 @@ ms.locfileid: "46976910"
 >
 > 이 페이지는 이러한 서비스 중 하나를 사용하는 경우에만 해당됩니다.
 
-Azure 진단 확장은 Azure Monitor, Application Insights 및 Log Analytics와 같은 다른 Microsoft 진단 제품과 함께 사용됩니다. 자세한 내용은 [Microsoft 모니터링 도구 개요](monitoring-overview.md)를 참조하세요.
+Azure 진단 확장은 Azure Monitor, Application Insights 및 Log Analytics와 같은 다른 Microsoft 진단 제품과 함께 사용됩니다. 자세한 내용은 [Microsoft 모니터링 도구 개요](../azure-monitor/overview.md)를 참조하세요.
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK 및 진단 버전 전달 차트  
 

@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9b030312c562d1c0a6cbacfc7f424289dee2e8de
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: cd5d6ef6a75088d02bc34558f66ed520c230e06b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225568"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741898"
 ---
 # <a name="paging-videos"></a>비디오 페이징
 
@@ -65,3 +65,6 @@ Host: api.cognitive.microsoft.com
 
 > [!NOTE]
 > 페이징은 비디오 검색(/videos/search)에만 적용되고 비디오 인사이트(/videos/details) 또는 추세 비디오(/videos/trending)에는 적용되지 않습니다.
+
+> [!NOTE]
+> `TotalEstimatedAnswers` 필드는 현재 쿼리에 대한 검색할 수 있는 검색 결과의 총 예측치입니다.  `count` 및 `offset` 매개 변수를 설정한 경우 `TotalEstimatedAnswers` 번호가 변경될 수 있습니다. 

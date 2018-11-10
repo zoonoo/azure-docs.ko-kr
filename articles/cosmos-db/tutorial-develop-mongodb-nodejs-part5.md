@@ -12,27 +12,29 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 5bb1aeadeb31728dcc2d9ac5fa0aeade31857169
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e9a1b7951d111606d84e235864e3649a742e874e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41919461"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741507"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 5부: Mongoose를 사용하여 Azure Cosmos DB에 연결
 
-이 다중 파트 자습서에서는 Express, Angular Azure Cosmos DB 데이터베이스를 포함한 Node.js로 작성된 새 [MongoDB API](mongodb-introduction.md) 앱을 만드는 방법을 보여줍니다.
+여러 부로 구성된 이 자습서에서는 Express 및 Angular를 사용하여 Node.js 앱을 만들고 [Azure Cosmos DB MongoDB API](mongodb-introduction.md) 계정에 연결하는 방법을 보여줍니다.
 
 자습서의 5부는 [4부](tutorial-develop-mongodb-nodejs-part4.md)를 기반으로 하고 다음과 같은 작업을 다룹니다.
 
 > [!div class="checklist"]
 > * Mongoose를 사용하여 Azure Cosmos DB에 연결
-> * Azure Cosmos DB에서 연결 문자열 정보 가져오기
+> * Cosmos DB 연결 문자열 정보 가져오기
 > * Hero 모델 만들기
 > * Hero 데이터를 가져올 Hero 서비스 만들기
-> * 로컬에서 앱 실행
+> * 로컬에서 앱 실행하기
 
 ## <a name="video-walkthrough"></a>연습 동영상
+
+다음 비디오를 통해 이 문서에 설명된 단계를 신속하게 살펴볼 수 있습니다. 
 
 > [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
 
@@ -46,19 +48,24 @@ ms.locfileid: "41919461"
 
 ## <a name="use-mongoose-to-connect-to-azure-cosmos-db"></a>Mongoose를 사용하여 Azure Cosmos DB에 연결
 
-1. MongoDB에서 일반적으로 사용되는 API인 mongoose npm 모듈을 설치합니다.
+1. MongoDB와 통신하는 데 사용되는 API인 mongoose npm 모듈을 설치합니다.
 
     ```bash
     npm i mongoose --save
     ```
 
-2. 이제 **mongo.js**라는 **서버** 폴더에서 새 파일을 만듭니다. 이 파일에서 Azure Cosmos DB 데이터베이스에 대한 연결 정보를 모두 추가합니다.
+2. 이제 **server** 폴더에 **mongo.js**라는 새 파일을 만듭니다. 이 파일에 Cosmos DB 계정의 연결 세부 정보를 추가할 것입니다.
 
 3. 다음 코드를 **mongo.js**에 복사합니다. 이 코드에서는 다음을 수행합니다.
+
     * Mongoose가 필요합니다.
-    * ES6/ES2015 이상에 빌드된 기본 프라미스를 사용하도록 Mongo 프라미스를 재정의합니다.
-    * 스테이징, 프로덕션 또는 개발 중인지에 따라 특정 작업을 설정할 수 있는 env 파일을 호출합니다. 해당 파일을 곧 만듭니다.
-    * env 파일에서 설정할 수 있는 MongoDB 연결 문자열을 포함합니다.
+
+    * ES6/ES2015 이상 버전에 빌드된 기본 프라미스를 사용하도록 Mongo 프라미스를 재정의합니다.
+
+    * 스테이징, 프로덕션 또는 개발 중인지에 따라 특정 작업을 설정할 수 있는 env 파일을 호출합니다. 다음 섹션에서 해당 파일을 만들 것입니다.
+
+    * env 파일에서 설정되는 MongoDB 연결 문자열을 포함합니다.
+
     * Mongoose를 호출하는 연결 함수를 만듭니다.
 
     ```javascript
@@ -101,7 +108,7 @@ ms.locfileid: "41919461"
 
 ## <a name="get-the-connection-string-information"></a>연결 문자열 정보 가져오기
 
-1. **environment.js**에서 `port` 값을 10255로 변경합니다. (Azure Portal에서 Cosmos DB 포트를 찾을 수 있습니다.)
+1. **environment.js**에서 `port` 값을 10255로 변경합니다. (Azure Portal에서 Cosmos DB 포트 검색 가능)
 
     ```javascript
     const port = 10255;
@@ -123,9 +130,10 @@ ms.locfileid: "41919461"
 
 ## <a name="create-a-hero-model"></a>Hero 모델 만들기
 
-1.  탐색기 창의 **server** 폴더 아래에 **hero.model.js** 파일을 만듭니다.
+1. 탐색기 창의 **server** 폴더 아래에 **hero.model.js** 파일을 만듭니다.
 
-2. 다음 코드를 **hero.model.js**에 복사합니다. 이 코드에서는 다음을 수행합니다.
+2. 다음 코드를 **hero.model.js**에 복사합니다. 이 코드는 다음과 같은 기능을 제공합니다.
+
    * Mongoose가 필요합니다.
    * ID, 이름 및 설명을 포함한 새 스키마를 만듭니다.
    * 스키마를 사용하여 모델을 만듭니다.
@@ -155,15 +163,16 @@ ms.locfileid: "41919461"
 
 ## <a name="create-a-hero-service"></a>Hero 서비스 만들기
 
-1.  탐색기 창의 **server** 폴더 아래에서 **hero.service.js** 파일을 만듭니다.
+1. 탐색기 창의 **server** 폴더 아래에서 **hero.service.js** 파일을 만듭니다.
 
 2. 다음 코드를 **hero.service.js**에 복사합니다. 이 코드에서는 다음을 수행합니다.
+
    * 방금 만든 모델을 가져옵니다.
    * 데이터베이스에 연결
    * hero.find 메서드를 사용하여 모든 Heroes를 반환하는 쿼리를 정의하는 docquery 변수를 만듭니다.
    * 모든 Heroes 목록을 가져오려면 프라미스에서 docquery.exec로 쿼리를 실행합니다. 여기서 응답 상태는 200입니다. 
    * 상태가 500인 경우 오류 메시지를 다시 보냅니다.
-   * 모듈을 사용하기 때문에 Heroes를 가져옵니다. 
+   * 모듈을 사용 중이므로 Heroes를 가져옵니다. 
 
    ```javascript
    const Hero = require('./hero.model');
@@ -213,13 +222,13 @@ ms.locfileid: "41919461"
     function getHeroes(req, res) {
     ```
 
-    여기에서 호출 체인을 검토하고 설명하겠습니다. 먼저 노드 서버를 설정하는 `index.js`의 경우, 경로를 설정하고 정의합니다. Hero 서비스에서 routes.js 파일을 사용하여 getHeroes와 같은 기능을 가져오고 요청 및 응답을 전달하도록 지시합니다. 여기에서 hero.service.js는 모델을 Mongo에 연결할 것이며, 호출하는 경우 getHeroes를 실행하고 200이라는 응답을 반환하게 됩니다. 그런 다음 체인을 통해 다시 돌아옵니다. 
+    여기에서 호출 체인을 검토하고 설명하겠습니다. 먼저 노드 서버를 설정하는 `index.js`의 경우 경로를 설정하고 정의합니다. Hero 서비스에서 routes.js 파일을 사용하여 getHeroes와 같은 기능을 가져오고 요청 및 응답을 전달하도록 지시합니다. 여기에서 hero.service.js는 모델을 Mongo에 연결할 것이며, 호출하는 경우 getHeroes를 실행하고 200이라는 응답을 반환하게 됩니다. 그런 다음 체인을 통해 다시 돌아옵니다. 
 
 ## <a name="run-the-app"></a>앱 실행
 
 1. 이제 앱을 다시 실행하겠습니다. Visual Studio Code에서 모든 변경 내용을 저장하고, 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)을 클릭하고 **디버깅 시작** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png)을 클릭합니다.
 
-3. 이제 브라우저로 돌아가서 개발자 도구 및 네트워크 탭을 연 다음 http://localhost:3000로 이동하면 응용 프로그램이 있습니다.
+3. 이제 브라우저로 전환하여 개발자 도구 및 네트워크 탭을 열고 http://localhost:3000로 이동하면 응용 프로그램이 있습니다.
 
     ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
@@ -227,7 +236,7 @@ ms.locfileid: "41919461"
 
 ## <a name="next-steps"></a>다음 단계
 
-자습서의 이 부분에서는 다음을 수행했습니다.
+자습서의 이 부분에서는 다음 작업을 수행했습니다.
 
 > [!div class="checklist"]
 > * Mongoose API를 사용하여 Azure Cosmos DB에 Heroes 앱 연결 

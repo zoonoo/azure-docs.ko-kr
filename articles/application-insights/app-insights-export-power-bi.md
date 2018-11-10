@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246620"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963118"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](http://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 장치에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -41,7 +41,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)을 설치합니다.
 
 ### <a name="export-an-analytics-query"></a>Analytics 쿼리 내보내기
-1. [Analytics 열기 및 쿼리 작성](app-insights-analytics-tour.md).
+1. [Analytics 열기 및 쿼리 작성](../log-analytics/query-language/get-started-analytics-portal.md).
 2. 결과에 만족할 때까지 쿼리를 테스트하고 수정합니다. 내보내기 전에 Analytics에서 쿼리가 제대로 실행되는지 확인합니다.
 3. **내보내기** 메뉴에서 **Power BI(M)** 를 선택합니다. 텍스트 파일을 저장합니다.
    
@@ -109,7 +109,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
    * **https://management.azure.com/subscriptions/...** 을
    * **https://api.applicationinsights.io/beta/apps/...** 으로 바꿉니다.
 3. 마지막으로 자격 증명을 기본으로 업데이트하고 API 키를 사용합니다.
-  
+ �
 
 **기존 스크립트**
  ```
@@ -155,5 +155,5 @@ Application Insights 차트를 다른 원본의 차트 및 Analytics 쿼리와 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Power BI - 알아보기](http://www.powerbi.com/learning/)
-* [Analytics 자습서](app-insights-analytics-tour.md)
+* [Analytics 자습서](../log-analytics/query-language/get-started-analytics-portal.md)
 

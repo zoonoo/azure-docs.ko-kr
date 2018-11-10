@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 88537c8579a3acb2fd89a43bfcfa50be89cac5cc
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e10c80f658a7297a6642e34d8f5d0abe13b0881d
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114093"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748190"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -356,4 +356,4 @@ SQL 명령 도구 내에서 다음 명령을 실행하여 형식이 지정된 �
 Azure IoT Edge에서 데이터를 통해 비즈니스 통찰력을 얻는 데 도움이 되는 다른 방법을 알아보려면 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Stream Analytics에서 부동 창을 사용하여 평균 찾기](tutorial-deploy-stream-analytics.md)
+> [C# 코드를 사용하여 센서 데이터 필터링](tutorial-csharp-module.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Async Java SDK를 사용하여 Java 응용 프로그램 빌드 | Microsoft Docs
+title: Async Java SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Java 앱 빌드 | Microsoft Docs
 description: 이 자습서에서는 Azure Cosmos DB SQL API 계정을 사용하여 Async Java 응용 프로그램을 통해 데이터를 저장 및 액세스하는 방법을 보여줍니다.
 keywords: NoSQL 자습서, 온라인 데이터베이스, Java 콘솔 응용 프로그램
 services: cosmos-db
@@ -11,44 +11,44 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: aa2613f7cb73c2c338189aaaa48587c49a3093f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 66e937e92528e2f0a1fca9d9aac78f7265eef4f7
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962210"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741235"
 ---
-# <a name="build-a-java-application-by-using-azure-cosmos-db-async-java-sdk"></a>Azure Cosmos DB Async Java SDK를 사용하여 Java 응용 프로그램 빌드 
+# <a name="tutorial-build-a-java-app-with-async-java-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>자습서: Async Java SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Java 앱 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [비동기 Java](sql-api-async-java-get-started.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.JS](sql-api-nodejs-get-started.md)
 > 
 
-Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스입니다. 이 자습서에서는 Azure Cosmos DB SQL API 계정을 사용하여 Async Java 응용 프로그램을 통해 데이터를 저장 및 액세스하는 방법을 보여줍니다. 
+이 자습서에서는 Async Java SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 저장하고 액세스하는 Java 응용 프로그램을 빌드하는 방법을 보여줍니다.
 
-다음 항목에 대해서 다룹니다.
+이 자습서에서 다루는 작업은 다음과 같습니다.
 
-* Azure Cosmos DB 계정 만들기 및 연결
-* 솔루션 구성
-* 컬렉션 만들기
-* JSON 문서 만들기
-* 컬렉션 쿼리
-
-이제 시작하겠습니다.
+> [!div class="checklist"]
+> * Azure Cosmos DB 계정 만들기 및 연결
+> * 솔루션 구성
+> * 컬렉션 만들기
+> * JSON 문서 만들기
+> * 컬렉션 쿼리
 
 ## <a name="prerequisites"></a>필수 조건
-다음 항목이 있는지 확인합니다.
+
+다음 리소스가 있는지 확인합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Git](https://git-scm.com/downloads)
-* [JDK(Java Development Kit) 8 이상](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [JDK(Java Development Kit) 8 이상](https://aka.ms/azure-jdks).
 * [Maven](http://maven.apache.org/download.cgi)
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1단계: Azure Cosmos DB 계정 만들기
@@ -56,7 +56,8 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="GitClone"></a>2단계: GitHub 프로젝트 복제
+## <a id="GitClone"></a>2단계: GitHub 리포지토리 복제
+
 [Azure Cosmos DB 및 Java 시작](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started)의 경우 GitHub 리포지토리를 복제하여 시작할 수 있습니다. 예를 들어 로컬 디렉터리에서 다음을 실행하여 샘플 프로젝트를 로컬로 검색합니다.
 
 ```bash
@@ -64,9 +65,9 @@ git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-ge
 
 cd azure-cosmos-db-sql-api-async-java-getting-started
 cd azure-cosmosdb-get-started
-
 ```
-디렉터리에는 프로젝트의 `pom.xml` 및 `Main.java`을 비롯한 Java 소스 코드를 포함하는 `src/main/java/com/microsoft/azure/cosmosdb/sample` 폴더를 포함합니다. 여기서는 Azure Cosmos DB를 사용하여 문서 만들기 및 컬렉션 내에서 데이터 쿼리와 같은 단순한 작업을 수행하는 방법을 보여 줍니다. `pom.xml`에는 [Maven의 Azure Cosmos DB Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)에 대한 종속성이 포함되어 있습니다.
+
+디렉터리에는 `Main.java`를 비롯한 Java 소스 코드가 들어 있는 `pom.xml` 및 `src/main/java/com/microsoft/azure/cosmosdb/sample` 폴더가 포함됩니다. 프로젝트에는 문서 만들기, 컬렉션 내 데이터 쿼리 등과 같은 Azure Cosmos DB 작업을 수행하는 데 필요한 코드가 포함됩니다. `pom.xml`에는 [Maven의 Azure Cosmos DB Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)에 대한 종속성이 포함되어 있습니다.
 
 ```xml
 <dependency>
@@ -77,7 +78,8 @@ cd azure-cosmosdb-get-started
 ```
 
 ## <a id="Connect"></a>3단계: Azure Cosmos DB 계정에 연결
-다음으로 [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트와 기본 마스터 키를 검색합니다. Azure Cosmos DB 엔드포인트와 기본 키는 응용 프로그램에서 연결할 위치를 식별하고 Azure Cosmos DB에서 응용 프로그램의 연결을 신뢰하는 데 필요합니다. `AccountSettings.java` 파일은 기본 키 및 URI 값을 포함하고 있습니다. 
+
+다음으로, [Azure Portal](https://portal.azure.com)로 다시 이동하여 엔드포인트와 기본 마스터 키를 검색합니다. Azure Cosmos DB 엔드포인트와 기본 키는 응용 프로그램에서 연결할 위치를 식별하고 Azure Cosmos DB에서 응용 프로그램의 연결을 신뢰하는 데 필요합니다. `AccountSettings.java` 파일은 기본 키 및 URI 값을 포함하고 있습니다. 
 
 Azure Portal에서 Azure Cosmos DB 계정으로 이동한 다음 **키**를 클릭합니다. 포털에서 URI 및 기본 키를 복사하여 `AccountSettings.java` 파일에 붙여넣습니다. 
 
@@ -97,9 +99,10 @@ public class AccountSettings
 }
 ```
 
-![Java 콘솔 응용 프로그램을 만들기 위해 NoSQL 자습서에서 사용하는 Azure Portal의 스크린샷입니다. 액티브 허브, Azure Cosmos DB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조 키 값이 강조 표시된 Azure Cosmos DB 계정을 보여 줌][keys]
+![포털에서 키 가져오기 스크린샷][keys]
 
 ## <a name="step-4-initialize-the-client-object"></a>4단계: 클라이언트 개체 초기화
+
 호스트 URI와 “AccountSettings.java” 파일에 정의된 기본 키 값을 사용하여 클라이언트 개체를 초기화합니다.
 
 ```java
@@ -252,7 +255,8 @@ private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch 
 }
 ```
 
-## <a id="Run"></a>9단계: Java 콘솔 응용 프로그램을 모두 함께 실행
+## <a id="Run"></a>9단계: Java 콘솔 응용 프로그램 실행
+
 콘솔에서 응용 프로그램을 실행하려면 프로젝트 폴더로 이동하고 Maven을 사용하여 컴파일합니다.
 
 ```bash
@@ -264,11 +268,14 @@ mvn package
 ```bash
 mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSMOS_DB_MASTER_KEY>
 ```
+
 축하합니다! 이 NoSQL 자습서를 완료했으며 실행되는 Java 콘솔 응용 프로그램이 생겼습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* Java 웹앱 자습서가 필요한가요? [Azure Cosmos DB를 사용하여 Java로 웹 응용 프로그램 빌드](sql-api-java-application.md)를 참조하세요.
-* [Azure Cosmos DB 계정 모니터링](monitor-accounts.md) 방법에 대해 알아보세요.
-* [쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
+
+이 자습서에서는 Async Java SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Java 앱을 빌드하는 방법을 알아보았습니다. 이제 다음 문서로 진행할 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [JavaScript SDK 및 Azure Cosmos DB를 사용하여 Node.js 콘솔 앱 빌드](sql-api-nodejs-get-started.md)
 
 [keys]: media/sql-api-get-started/nosql-tutorial-keys.png
