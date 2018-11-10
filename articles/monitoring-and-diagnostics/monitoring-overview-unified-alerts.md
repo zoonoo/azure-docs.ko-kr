@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: mamit
 ms.component: alerts
-ms.openlocfilehash: c4c8279a1d4638a1c5d889b53e2d9e89e458cc37
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 30b2d60868702c6113612668b8e4cf9975aa2c40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117173"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962200"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Azure Monitor의 통합 경고
 
@@ -82,9 +82,9 @@ ms.locfileid: "39117173"
  
 이 간소화된 작성 프로세스에서는 Azure 리소스를 선택하기 전에 지원되는 모니터링 원본 또는 신호를 더 이상 알 필요가 없습니다. 사용 가능한 신호 목록은 선택한 대상 리소스를 기준으로 자동 필터링되며, 경고 규칙의 논리를 정의하는 과정을 안내합니다.
 
-경고 규칙을 만드는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 경고 만들기, 보기 및 관리](monitor-alerts-unified-usage.md)를 참조하세요.
+경고 규칙을 만드는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 경고 만들기, 보기 및 관리](alert-metric.md)를 참조하세요.
 
-경고는 여러 Azure 모니터링 서비스 전체에서 제공됩니다. 각 서비스를 사용하는 방법 및 시기에 대한 자세한 내용은 [Azure 응용 프로그램 및 리소스 모니터링](./monitoring-overview.md)을 참조하세요. 다음 표에서는 Azure 전체에서 사용할 수 있는 경고 규칙 유형 목록을 제공합니다. 또한 통합 경고 환경에서 현재 지원되는 항목을 나열합니다.
+경고는 여러 Azure 모니터링 서비스 전체에서 제공됩니다. 각 서비스를 사용하는 방법 및 시기에 대한 자세한 내용은 [Azure 응용 프로그램 및 리소스 모니터링](../azure-monitor/overview.md)을 참조하세요. 다음 표에서는 Azure 전체에서 사용할 수 있는 경고 규칙 유형 목록을 제공합니다. 또한 통합 경고 환경에서 현재 지원되는 항목을 나열합니다.
 
 | **모니터 원본** | **신호 유형**  | **설명** | 
 |-------------|----------------|-------------|
@@ -224,7 +224,7 @@ ms.locfileid: "39117173"
 | 기록 | 스마트 그룹에서 수행한 각 작업과 스마트 그룹의 변경 내용을 나열합니다. 현재는 상태 변경 및 경고 멤버 자격 변경으로 제한되어 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
-- [새로운 경고 환경을 사용하여 경고를 만들고, 보고, 관리하는 방법에 대한 자세한 정보](monitor-alerts-unified-usage.md)
+- [새로운 경고 환경을 사용하여 경고를 만들고, 보고, 관리하는 방법에 대한 자세한 정보](alert-metric.md)
 - [경고 환경의 로그 경고에 대한 자세한 정보](monitor-alerts-unified-log.md)
 - [경고 환경의 메트릭 경고에 대한 자세한 정보](monitoring-near-real-time-metric-alerts.md)
-- [경고 환경의 활동 로그 경고에 대한 자세한 정보](monitoring-activity-log-alerts-new-experience.md)
+- [경고 환경의 활동 로그 경고에 대한 자세한 정보](alert-activity-log.md)

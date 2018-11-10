@@ -12,14 +12,15 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: hectorl
+ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985799"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038368"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>관리 포털에서 Azure Stack에 대 한 백업을 사용 하도록 설정
 Azure Stack 백업을 생성할 수 있도록 관리 포털을 통해 인프라 Backup 서비스를 사용 합니다. 경우 클라우드 복구를 사용 하 여 환경을 복원 하려면 이러한 백업에 사용할 수 있습니다 [치명적인 오류](.\azure-stack-backup-recover-data.md)합니다. 클라우드 복구의 목적은 운영자와 사용자 수에 다시 로그인 포털 복구가 완료 된 후 확인 합니다. 사용자 구독 역할 기반 액세스 권한 및 역할, 원래 계획, 제품 및 이전에 정의 된 계산, 저장소 및 네트워크 할당량을 비롯 하 여 복원 해야 합니다.
@@ -42,7 +43,7 @@ Azure Stack 백업을 생성할 수 있도록 관리 포털을 통해 인프라 
     > [!Note]  
     > 사용자 환경에서 엔터프라이즈 환경에 Azure Stack 인프라 네트워크에서 이름 확인을 지 원하는 경우에 IP 대신 FQDN을 사용할 수 있습니다.
     
-4. 형식 합니다 **Username** 파일 읽기 및 쓰기를 충분 한 액세스를 사용 하 여 도메인 및 사용자를 사용 하 여 합니다. 예: `Contoso\backupshareuser`
+4. 형식 합니다 **Username** 파일 읽기 및 쓰기를 충분 한 액세스를 사용 하 여 도메인 및 사용자를 사용 하 여 합니다. 예: `Contoso\backupshareuser`.
 5. 형식 합니다 **암호** 사용자에 대 한 합니다.
 6. 암호를 다시 입력 **암호 확인**합니다.
 7. 합니다 **시간 빈도** 빈도 결정 백업은 만들어집니다. 기본값은 12입니다. Scheduler는 최대 12 및 4 개를 지원합니다. 
