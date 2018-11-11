@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 8591e723cad1c44e9cc8d00008485e6b304fc4d3
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283372"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092777"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 등록하는 방법
 이 문서에서는 사용자의 Azure 가상 머신의 운영 체제 상태를 모니터링하고 해당 머신에서 호스트될 수 있는 응용 프로그램 종속성을 검색 및 매핑하도록 VM용 Azure Monitor를 설정하는 방법을 설명합니다.  
@@ -337,7 +337,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     ```
 
 ### <a name="enable-using-azure-policy"></a>Azure Policy를 사용하여 설정
-프로비전된 새 VM에 대해 일관된 규정 준수 및 자동 사용을 보장하는 규모의 VMs용 Azure Monitor를 사용하도록 설정하려면 [Azure Policy](../governance/policy/overview.md)를 사용하는 것이 좋습니다. 이러한 정책에서 수행하는 작업은 다음과 같습니다.
+프로비전된 새 VM에 대해 일관된 규정 준수 및 자동 사용을 보장하는 규모의 VMs용 Azure Monitor를 사용하도록 설정하려면 [Azure Policy](../azure-policy/azure-policy-introduction.md)를 사용하는 것이 좋습니다. 이러한 정책에서 수행하는 작업은 다음과 같습니다.
 
 * Log Analytics 에이전트 및 종속성 에이전트 배포 
 * 준수 결과 보고 
