@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 05/11/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 59415d792ae02bc39d218eeead25dbd409482b6f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c21ee4d1d69145a442ad0af05da830548cded237
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412717"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748055"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Linux VM 장치 이름 변경 문제 해결
 
@@ -64,7 +64,7 @@ Azure Linux 에이전트는 VM에 설치될 때 Udev 규칙을 사용하여 /dev
         ├── lun1-part1 -> ../../../sdd1
         ├── lun1-part2 -> ../../../sdd2
         └── lun1-part3 -> ../../../sdd3                                    
-                                 
+                                 
 Linux 게스트 계정의 LUN 정보는 `lsscsi` 또는 유사한 도구를 사용하여 검색합니다.
 
        $ sudo lsscsi

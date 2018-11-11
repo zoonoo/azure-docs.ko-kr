@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a715c300cc5490eef9dbe7971dabe1733fd47f49
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 833bb6838733395d83468be3d2960c7c237aa3fc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402220"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957678"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용한 Log Analytics 관리
 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Log Analytics 작업 영역 만들고 구성할 수 있습니다. 템플릿을 사용하여 수행할 수 있는 작업의 예:
@@ -521,6 +521,6 @@ Azure 빠른 시작 템플릿 갤러리에는 다음과 같이 Log Analytics를 
 * [기존 저장소 계정을 Log Analytics에 추가](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>다음 단계
-* [Resource Manager 템플릿을 사용하여 Azure VM에 Windows 에이전트 배포](../virtual-machines/windows/extensions-oms.md).
-* [Resource Manager 템플릿을 사용하여 Azure VM에 Linux 에이전트 배포](../virtual-machines/linux/extensions-oms.md).
+* [Resource Manager 템플릿을 사용하여 Azure VM에 Windows 에이전트 배포](../virtual-machines/extensions/oms-windows.md).
+* [Resource Manager 템플릿을 사용하여 Azure VM에 Linux 에이전트 배포](../virtual-machines/extensions/oms-linux.md).
 
