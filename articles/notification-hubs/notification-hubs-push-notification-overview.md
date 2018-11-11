@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: ccf27748699a49c569a43f041cbc5e3625055852
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a39eebda5abb41e02ce7254e2084541e86ecee30
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503420"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229512"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Azure Notification Hubs란 무엇인가요?
 Azure Notification Hubs는 모든 백 엔드(클라우드 또는 온-프레미스)에서 모든 플랫폼(iOS, Android, Windows, Kindle, Baidu 등)에 알림을 보낼 수 있도록 하는 사용하기 쉬운 스케일 아웃 푸시 엔진을 제공합니다. Notification Hubs는 엔터프라이즈 시나리오 및 소비자 시나리오 모두에 적합합니다. 다음은 몇 가지 샘플 시나리오입니다.
@@ -40,7 +40,7 @@ Azure Notification Hubs는 모든 백 엔드(클라우드 또는 온-프레미�
 인기 있는 몇 가지 플랫폼의 푸시 알림에 대한 자세한 내용은 다음 항목을 참조하세요. 
 * [iOS](https://developer.apple.com/notifications/)
 * [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
-* [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
+* [Windows](https://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>푸시 알림은 어떻게 작동하나요?
 푸시 알림은 *PNS(플랫폼 알림 시스템)* 라는 플랫폼별 인프라를 통해 전달됩니다. 메시지를 배달하는 베어본 푸시 기능을 제공되는 핸들이 있는 장치에 제공하며 공통 인터페이스가 없습니다. iOS, Android 및 Windows 버전의 앱에서 모든 고객에게 알림을 보내려면 개발자는 APNS(Apple Push Notification Service), FCM(Firebase Cloud Messaging) 및 WNS(Windows 알림 서비스)를 사용해야 합니다.
@@ -101,8 +101,7 @@ Notification Hubs는 다음과 같은 장점으로 즉시 사용할 수 있는 �
     - SAS(Shared Access Secret) 또는 페더레이션 인증입니다.
 
 ## <a name="integration-with-app-service-mobile-apps"></a>App Service Mobile Apps와 통합
-Azure 서비스 전반에서 원활하고 일관적인 사용 환경을 조성하기 위하여 Notification Hubs를 사용한 푸시 알림이 [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md)에 기본적으로 지원됩니다. 
-  [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md)는 엔터프라이즈 개발자 및 시스템 통합자를 위해 확장성이 크고 전 세계에서 사용 가능한 모바일 응용 프로그램 개발 플랫폼을 제공합니다. 이 플랫폼은 모바일 개발자에게 풍부한 기능 집합을 제공합니다.
+Azure 서비스 전반에서 원활하고 일관적인 사용 환경을 조성하기 위하여 Notification Hubs를 사용한 푸시 알림이 [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md)에 기본적으로 지원됩니다. [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md)는 엔터프라이즈 개발자 및 시스템 통합자를 위해 확장성이 크고 전 세계에서 사용 가능한 모바일 응용 프로그램 개발 플랫폼을 제공합니다. 이 플랫폼은 모바일 개발자에게 풍부한 기능 집합을 제공합니다.
 
 Mobile Apps 개발자는 다음 워크플로에서 Notification Hubs를 활용할 수 있습니다.
 

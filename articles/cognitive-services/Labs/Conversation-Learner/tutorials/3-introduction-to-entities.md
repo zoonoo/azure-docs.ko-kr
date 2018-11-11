@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f851d43d69999a848dea01c9457a379adb63353b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4b1c2d9390890618a9aa61eb425fbd132917f414
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172384"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229051"
 ---
 # <a name="introduction-to-entities"></a>엔터티 소개
 
@@ -23,7 +23,7 @@ ms.locfileid: "39172384"
 
 ## <a name="video"></a>비디오
 
-[![자습서 3 미리 보기](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
+[![자습서 3 미리 보기](https://aka.ms/cl-tutorial-03-preview)](https://aka.ms/blis-tutorial-03)
 
 ## <a name="requirements"></a>요구 사항
 
@@ -50,7 +50,7 @@ ms.locfileid: "39172384"
 
 1. 엔터티, 새 엔터티를 차례로 클릭합니다.
 2. 엔터티 이름에 도시를 입력합니다.
-3. 만들기 클릭
+3. 만들기 클릭 
 
 > [!NOTE]
 > 엔터티 형식은 '사용자 지정'으로, 엔터티를 학습할 수 있음을 의미합니다.  동작을 조정할 수 없는 미리 빌드된 엔터티도 있습니다. 이러한 엔터티는 다른 자습서에서 설명합니다.

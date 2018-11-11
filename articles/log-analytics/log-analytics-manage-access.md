@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 75faceb641382df29a93c44803af48dcfed142d4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421172"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964155"
 ---
 # <a name="manage-workspaces"></a>작업 영역 관리
 
@@ -52,7 +52,7 @@ Azure 구독당 여러 작업 영역을 포함할 수 있으며 이들 간의 �
 * 관리되는 서비스 공급자이며 자신이 관리하는 각 고객에 대한 Log Analytics 데이터를 다른 고객의 데이터와 격리되게 유지해야 합니다.
 * 여러 고객을 관리하며 각 고객/부서/비즈니스 그룹의 고유 데이터를 보지만 다른 고객/부서/비즈니스 그룹의 데이터를 보지 않기를 원합니다.
 
-Windows 에이전트를 사용하여 데이터를 수집하는 경우 [각 에이전트를 구성하여 하나 이상의 작업 영역에 보고](log-analytics-windows-agents.md)할 수 있습니다.
+Windows 에이전트를 사용하여 데이터를 수집하는 경우 [각 에이전트를 구성하여 하나 이상의 작업 영역에 보고](log-analytics-agent-windows.md)할 수 있습니다.
 
 System Center Operations Manager를 사용하는 경우 각 Operations Manager 관리 그룹을 한 작업 영역에만 연결할 수 있습니다. Operations Manager에서 관리하는 컴퓨터에 Microsoft 모니터링 에이전트를 설치하고 에이전트가 Operations Manager와 서로 다른 Log Analytics 작업 영역에 모두 보고하게 할 수 있습니다.
 
@@ -73,7 +73,7 @@ Azure Portal에서 작업 영역에 대한 세부 정보를 볼 수 있습니다
     ![작업 영역 정보](./media/log-analytics-manage-access/workspace-overview-page.png)  
 
 ## <a name="manage-accounts-and-users"></a>계정 및 사용자 관리
-각 작업 영역에는 여러 계정이 연결될 수 있으며, 각 계정이 여러 개의 작업 영역에 액세스할 수 있습니다. 액세스는 [Azure 역할 기반 액세스](../active-directory/role-based-access-control-configure.md)를 통해 관리됩니다. 이러한 액세스 권한은 Azure Portal 및 API 액세스 모두에 적용됩니다.
+각 작업 영역에는 여러 계정이 연결될 수 있으며, 각 계정이 여러 개의 작업 영역에 액세스할 수 있습니다. 액세스는 [Azure 역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 통해 관리됩니다. 이러한 액세스 권한은 Azure Portal 및 API 액세스 모두에 적용됩니다.
 
 
 다음 활동에도 Azure 권한이 필요합니다.
@@ -87,7 +87,7 @@ Azure Portal에서 작업 영역에 대한 세부 정보를 볼 수 있습니다
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Azure 권한을 사용하여 Log Analytics에 대한 액세스 관리
-Azure 권한을 사용하여 Log Analytics 작업 영역에 대한 액세스 권한을 부여하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../active-directory/role-based-access-control-configure.md)의 단계를 따릅니다.
+Azure 권한을 사용하여 Log Analytics 작업 영역에 대한 액세스 권한을 부여하려면 [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)의 단계를 따릅니다.
 
 Azure의 Log Analytics에는 기본 제공되는 2개의 사용자 역할이 있습니다.
 - Log Analytics 독자
@@ -146,7 +146,7 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 - 리소스 그룹 - 리소스 그룹에서 모든 작업 영역에 대한 액세스
 - 리소스 - 지정된 작업 영역에만 액세스
 
-정확한 액세스 제어를 보장하기 위해 리소스 수준(작업 영역)에서 할당을 수행하는 것이 좋습니다.  [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md)을 사용하여 필요한 특정 권한이 있는 역할을 만듭니다.
+정확한 액세스 제어를 보장하기 위해 리소스 수준(작업 영역)에서 할당을 수행하는 것이 좋습니다.  [사용자 지정 역할](../role-based-access-control/custom-roles.md)을 사용하여 필요한 특정 권한이 있는 역할을 만듭니다.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Azure 구독에 기존 작업 영역 연결
 2016년 9월 26일 이후에 만들어진 모든 작업 영역은 만들 때 Azure 구독에 연결되어야 합니다. 이 날짜 이전에 만들어진 작업 영역은 로그인할 때 작업 영역에 연결되어야 합니다. Azure Portal에서 작업 영역을 만들거나 작업 영역을 Azure 구독에 연결하면 Azure Active Directory가 조직 계정으로 연결됩니다.
@@ -241,5 +241,5 @@ OMS 포털을 사용하여 가격 책정 계층을 변경하려면 Azure 구독�
 ## <a name="next-steps"></a>다음 단계
 * 데이터 센터 또는 다른 클라우드 환경에 있는 컴퓨터에서 데이터를 수집하려면 [Log Analytics를 사용하여 환경의 컴퓨터에서 데이터 수집](log-analytics-concept-hybrid.md)을 참조하세요.
 * Azure VM에서 데이터 수집을 구성하려면 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하세요.  
-* [솔루션 갤러리에서 Log Analytics 솔루션을 추가](log-analytics-add-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
+* [솔루션 갤러리에서 Log Analytics 솔루션을 추가](../monitoring/monitoring-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
 

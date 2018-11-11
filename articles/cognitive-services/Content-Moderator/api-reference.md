@@ -10,19 +10,19 @@ ms.component: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: f065310e3afeaf95af602e513421da6770c9583f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ecc22b097c14fc7597d8ee0e31f9691098a2211d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222407"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229750"
 ---
 # <a name="content-moderator-api-reference"></a>Content Moderator API 참조
 
 다음과 같은 방법으로 Azure Content Moderator API를 시작합니다([자격 증명 관리](review-tool-user-guide/credentials.md)도 참조).
 
 - Azure Portal에서 [Content Moderator API를 구독](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)합니다.
-- [Content Moderator 검토 도구](http://contentmoderator.cognitive.microsoft.com/)를 등록합니다. [빠른 시작](quick-start.md)을 참조하세요.
+- [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/)를 등록합니다. [빠른 시작](quick-start.md)을 참조하세요.
 
 ## <a name="moderation-apis"></a>중재 API
 

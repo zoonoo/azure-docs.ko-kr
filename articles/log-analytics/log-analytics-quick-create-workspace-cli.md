@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e3201562bd532084e528dddbee667bbafc39ede6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2d3d48db5a1eb329d854d1c062d23dfaf63ad9fa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416544"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963135"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Azure CLI 2.0으로 Log Analytics 작업 영역 만들기
 
@@ -131,4 +131,4 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 * Azure 진단 또는 Azure Storage를 사용하여 Azure 리소스의 데이터 수집을 사용하려면 [Log Analytics에서 사용할 Azure 서비스 로그 및 메트릭 수집](log-analytics-azure-storage.md)을 참조하세요.  
 * [System Center Operations Manager를 데이터 원본으로 추가](log-analytics-om-agents.md)하여 Operations Manager 관리 그룹을 보고하는 에이전트에서 데이터를 수집하고 Log Analytics 작업 영역에 저장합니다.  
 * [Configuration Manager](log-analytics-sccm.md)를 연결하여 계층에서 컬렉션의 멤버인 컴퓨터를 가져옵니다.  
-* [관리 솔루션](log-analytics-add-solutions.md)을 사용할 수 있는지 및 작업 영역에서 솔루션을 추가하거나 제거하는 방법을 검토합니다.
+* [관리 솔루션](../monitoring/monitoring-solutions.md)을 사용할 수 있는지 및 작업 영역에서 솔루션을 추가하거나 제거하는 방법을 검토합니다.

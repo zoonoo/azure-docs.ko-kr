@@ -3,7 +3,7 @@ title: Azure Security Center를 사용하여 Endpoint Protection 문제 관리 |
 description: Azure Security Center에서 Endpoint Protection 문제를 관리하는 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
-ms.author: terrylan
-ms.openlocfilehash: a3ac23f3874b85da9c0641264ca6f9c55a7b0515
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 834e6f2519fe745004894f3791591a3d0aa5757c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300006"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229444"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Azure Security Center를 사용하여 Endpoint Protection 문제 관리
 Azure Security Center는 맬웨어 방지 보호의 상태를 모니터링하여 Endpoint Protection 문제 블레이드 아래에서 해당 내용을 보고합니다. Security Center에서는 VM(가상 머신) 및 컴퓨터를 맬웨어 방지 위협에 취약하게 만들 수 있는 검색된 위협, 불충분한 보호 수준 등의 문제가 강조 표시됩니다. **Endpoint Protection 문제** 아래의 정보를 사용하면 확인된 문제를 해결하기 위한 계획을 파악할 수 있습니다.
@@ -110,7 +110,7 @@ Security Center에 대해 알아보려면 다음을 참조하세요.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) -- Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) -- Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
 <!--Image references-->
 [1]:./media/security-center-install-endpoint-protection/compute.png

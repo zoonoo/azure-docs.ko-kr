@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 99c474978d4da1d80669505330b2dc6220d7ca5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170575"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226637"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>카드 사용 방법(2부 중 1부)
 이 자습서는 채우기 가능 양식 카드를 봇에 추가하는 방법을 보여 줍니다. 양식 필드가 어떻게 엔터티로 이동하는지를 보여 줍니다.
@@ -24,7 +24,7 @@ Conversation Learner는 봇이 시작된 디렉터리에 있는 “cards” 디�
 
 ## <a name="video"></a>비디오
 
-[![자습서 14 미리 보기](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
+[![자습서 14 미리 보기](https://aka.ms/cl-tutorial-14-preview)](https://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.

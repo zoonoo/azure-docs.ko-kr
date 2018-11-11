@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dde2983c57d0f3ec9c58537809f2d2d952b4a00e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388301"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741949"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
@@ -27,13 +27,110 @@ ms.locfileid: "49388301"
 
 [Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
 
+## <a name="version-150"></a>버전 1.5.0
+2018/10/29
+
+### <a name="download-azure-storage-explorer-150"></a>Azure Storage 탐색기 1.5.0 다운로드
+- [Windows용 Azure Storage 탐색기 1.5.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac용 Azure Storage 탐색기 1.5.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux용 Azure Storage 탐색기 1.5.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>새로 만들기
+
+* 이제 [AzCopy v10(미리 보기)](https://github.com/Azure/azure-storage-azcopy)를 사용하여 Blob을 업로드하고 다운로드할 수 있습니다. 이 기능을 사용하도록 설정하려면 "실험적" 메뉴로 이동한 다음, "향상된 Blob 업로드 및 다운로드를 위해 AzCopy 사용"을 클릭합니다. 사용하도록 설정하면 AzCopy는 다음 시나리오에서 사용됩니다.
+   * 도구 모음 또는 끌어서 놓기를 통해 폴더 및 파일을 Blob 컨테이너에 업로드합니다.
+   * 도구 모음 또는 팝업 메뉴를 통해 폴더 및 파일을 다운로드합니다.
+
+* 또한 AzCopy를 사용하는 경우:
+   * 클립보드에 대한 전송을 실행하는 데 사용된 AzCopy 명령을 복사할 수 있습니다. 활동 로그에서 "AzCopy 명령을 클립보드로 복사"를 클릭하면 됩니다.
+   * 업로드한 후에 Blob 편집기를 수동으로 새로 고쳐야 합니다.
+   * blob을 추가하기 위해 파일을 업로드하도록 지원되지 않습니다. .vhd는 페이지 Blob으로 업로드되고 다른 모든 파일은 블록 Blob으로 업로드됩니다.
+   * 업로드 또는 다운로드하는 동안 발생하는 오류 및 충돌은 업로드 또는 다운로드가 완료될 때까지 표시되지 않습니다.
+
+마지막으로, 파일 공유에서 AzCopy를 사용하는 지원은 향후 제공될 예정입니다.
+* 이제 Storage 탐색기는 Electron 2.0.11 버전을 사용합니다.
+* 임대를 해제하는 작업은 이제 한 번에 하나의 Blob에서만 수행될 수 있습니다. 또한 중단한 임대의 Blob 이름을 입력해야 합니다. 특히 VM에 대한 .vhd의 경우 실수로 임대를 중단할 가능성을 줄이기 위해 이렇게 변경했습니다. #394
+* 로그인 문제가 발생하면 이제 인증을 다시 설정하도록 시도할 수 있습니다. "도움말" 메뉴로 이동하고 "다시 설정"을 클릭하여 이 기능에 액세스합니다. #419
+
+### <a name="fix"></a>해결
+
+* 사용자 피드백을 통해 기본 에뮬레이터 노드가 다시 사용하도록 설정되었습니다. 연결 대화 상자를 통해 추가 에뮬레이터 연결을 계속 추가할 수 있습니다. 하지만 에뮬레이터가 기본 포트를 사용하도록 구성된 경우 "로컬 및 연결된/저장소 계정"에서 "에뮬레이터 * 기본 포트" 노드를 사용할 수도 있습니다. #669
+* Storage 탐색기를 통해 더 이상 선행 또는 후행 공백이 있는 Blob 메타데이터 값을 설정할 수 없습니다. #760
+* 연결 대화 상자의 동일한 페이지에서 언제든지 "로그인" 단추를 사용하도록 설정했습니다. 이제 적절한 경우 사용하지 않도록 설정합니다. #761
+* 빠른 액세스 항목이 추가되지 않으면 빠른 액세스는 더 이상 콘솔에서 오류를 발생시키지 않습니다.
+
+### <a name="known-issues"></a>알려진 문제
+
+* Blob 컨테이너와 같은 SAS URI를 통해 연결된 리소스에서 분리하면 다른 첨부 파일이 올바르게 표시되지 않도록 하는 오류가 발생할 수 있습니다. 이 문제를 해결하려면 그룹 노드를 새로 고칩니다. 자세한 내용은 #537을 참조하세요.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 이 문제에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다. Blob 컨테이너 간에 업로드하거나 다운로드하는 경우 이 문제를 해결하기 위해 경우 실험적 AzCopy 기능을 사용할 수 있습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack에서는 다음과 같은 기능을 지원하지 않습니다. Azure Stack 리소스를 사용하는 동안 이러한 기능을 사용하려고 시도하면 예기치 않은 오류가 발생할 수 있습니다.
+   * 파일 공유
+   * 액세스 계층
+   * 일시 삭제
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>이전 릴리스
+
+* [버전 1.4.4](#version-144)
+* [버전 1.4.3](#version-143)
+* [버전 1.4.2](#version-142)
+* [버전 1.4.1](#version-141)
+* [버전 1.3.0](#version-130)
+* [버전 1.2.0](#version-120)
+* [버전 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [버전 0.9.6](#version-096)
+* [버전 0.9.5](#version-095)
+* [버전 0.9.4 및 0.9.3](#version-094-and-093)
+* [버전 0.9.2](#version-092)
+* [버전 0.9.1 및 0.9.0](#version-091-and-090)
+* [버전 0.8.16](#version-0816)
+* [버전 0.8.14](#version-0814)
+* [버전 0.8.13](#version-0813)
+* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
+* [버전 0.8.9 및 0.8.8](#version-089-and-088)
+* [버전 0.8.7](#version-087)
+* [버전 0.8.6](#version-086)
+* [버전 0.8.5](#version-085)
+* [버전 0.8.4](#version-084)
+* [버전 0.8.3](#version-083)
+* [버전 0.8.2](#version-082)
+* [버전 0.8.0](#version-080)
+* [버전 0.7.20160509.0](#version-07201605090)
+* [버전 0.7.20160325.0](#version-07201603250)
+* [버전 0.7.20160129.1](#version-07201601291)
+* [버전 0.7.20160105.0](#version-07201601050)
+* [버전 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-144"></a>버전 1.4.4
 2018년 10월 15일
-
-### <a name="download-azure-storage-explorer-144"></a>Azure Storage 탐색기 1.4.4 다운로드
-- [Windows용 Azure Storage 탐색기 1.4.4](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 1.4.4](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 1.4.4](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>핫픽스
 * Azure US Government 사용자의 차단을 해제하기 위해 Azure Resource Management API 버전이 롤백되었습니다. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
@@ -87,38 +184,6 @@ ms.locfileid: "49388301"
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>이전 릴리스
-
-* [버전 1.4.3](#version-143)
-* [버전 1.4.2](#version-142)
-* [버전 1.4.1](#version-141)
-* [버전 1.3.0](#version-130)
-* [버전 1.2.0](#version-120)
-* [버전 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [버전 0.9.6](#version-096)
-* [버전 0.9.5](#version-095)
-* [버전 0.9.4 및 0.9.3](#version-094-and-093)
-* [버전 0.9.2](#version-092)
-* [버전 0.9.1 및 0.9.0](#version-091-and-090)
-* [버전 0.8.16](#version-0816)
-* [버전 0.8.14](#version-0814)
-* [버전 0.8.13](#version-0813)
-* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
-* [버전 0.8.9 및 0.8.8](#version-089-and-088)
-* [버전 0.8.7](#version-087)
-* [버전 0.8.6](#version-086)
-* [버전 0.8.5](#version-085)
-* [버전 0.8.4](#version-084)
-* [버전 0.8.3](#version-083)
-* [버전 0.8.2](#version-082)
-* [버전 0.8.0](#version-080)
-* [버전 0.7.20160509.0](#version-07201605090)
-* [버전 0.7.20160325.0](#version-07201603250)
-* [버전 0.7.20160129.1](#version-07201601291)
-* [버전 0.7.20160105.0](#version-07201601050)
-* [버전 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-143"></a>버전 1.4.3
 2018년 10월 11일

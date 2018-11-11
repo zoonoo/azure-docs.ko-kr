@@ -3,18 +3,18 @@ title: Azure HDInsight에 대한 보관 릴리스 정보
 description: Azure HDInsight에 대한 보관 릴리스 정보 및 버전입니다.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
-ms.author: jasonh
-ms.openlocfilehash: 35fd64f75617fdaa3aaded5f1f7bdcb847733f05
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.author: hrasheed
+ms.openlocfilehash: 5e70a92b4a0de633f88012d756276cef07226c82
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025653"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037705"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Azure HDInsight에 대한 보관 릴리스 정보
 
@@ -43,7 +43,7 @@ HDInsight의 2018년 6월 릴리스는 고객을 위한 많은 새로운 업데�
 | 제목 | 설명 | 영향을 받는 영역  | 클러스터 유형  | 
 | --- | --- | --- | --- | --- |
 | HDInsight의 Microsoft R Server 9.1 릴리스 |HDInsight는 이제 HDInsight에서 R Server 9.1 클러스터 프로비저닝을 지원합니다. Microsoft R Server 9.1 릴리스에 대한 자세한 내용은 [이 블로그](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/)를 참조하세요. |서비스 |R 서버 |
-| HDInsight 3.6에는 이제 Hadoop 스택의 더 새로운 버전이 포함됨|<ul><li>업데이트된 버전의 세부적인 목록은 [HDInsight에서 사용할 수 있는 Hadoop 구성 요소 버전](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions)을 참조하세요.</li><li>Hadoop 스택 최신 버전의 버그 수정 목록은 [Apache 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html)를 참조하세요.</li><li>HDP 2.6.1(이제 HDInsight 3.6에서 제공됨) 간의 주요 변경 사항 목록은 [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html)을 참조하세요.</li><li>HDP 2.6.1의 알려진 문제 목록은 [알려진 문제](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html)를 참조하세요.</li></ul> |서비스 |모두 |해당 없음 |
+| HDInsight 3.6에는 이제 Hadoop 스택의 더 새로운 버전이 포함됨|<ul><li>업데이트된 버전의 세부적인 목록은 [HDInsight에서 사용할 수 있는 Hadoop 구성 요소 버전](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)을 참조하세요.</li><li>Hadoop 스택 최신 버전의 버그 수정 목록은 [Apache 패치 정보](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html)를 참조하세요.</li><li>HDP 2.6.1(이제 HDInsight 3.6에서 제공됨) 간의 주요 변경 사항 목록은 [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html)을 참조하세요.</li><li>HDP 2.6.1의 알려진 문제 목록은 [알려진 문제](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html)를 참조하세요.</li></ul> |서비스 |모두 |해당 없음 |
 | Interactive Hive(미리 보기) 클러스터 업데이트 |<ul><li><b>기능 개선.</b> 메타데이터를 캐시하여 백엔드 SQL의 부하를 줄이고 모든 메타데이터 작업의 성능을 개선하는 캐시된 metastore 구현.  이 개선은 현재 모든 Interactive Hive 클러스터의 기본값입니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520)을 참조하세요.</li><li><b>기능 개선.</b> 동적 파티션 로딩이 최적화됩니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204)을 참조하세요.</li><li><b>기능 개선.</b> Linux의 HDInsight 구성 최적화.</li><li><b>버그 수정.</b> `CredentialProviderFactory$getProviders`은(는) 스레드로부터 안전하지 않습니다. 이제 이 문제는 해결되었습니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195)을 참조하세요.</li><li><b>버그 수정.</b> WASB 드라이버 `liststatus` API에서 높은 CPU 사용률과 그로 인한 ATS 성능 저하. 이제 이 문제는 해결되었습니다. 자세한 내용은 [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154)을 참조하세요.</li></ul> |서비스 |대화형 Hive(미리 보기) |
 | Hadoop 클러스터 업데이트 |Templeton 작업 안정성이 개선되었습니다. 자세한 내용은 [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947)을 참조하세요. |서비스 |Hadoop은 |
 | YARN 업데이트 | 이제 HDInsight는 250GB Ambari 데이터베이스(비용 증가 없음)를 만들며 그 결과 고객의 환경이 개선됩니다. 이 변경은 ATS가 꽉 차지 않도록 하며, 대부분의 경우 더 높은 성능을 제공합니다. |서비스 |모두 |

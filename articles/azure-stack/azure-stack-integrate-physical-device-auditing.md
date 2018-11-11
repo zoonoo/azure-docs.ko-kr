@@ -6,24 +6,25 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 459cdf4e1a70ee02d818dd6abe101e4fc3475b68
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 83177363803c8f5c505c083614000dfa8f0df60d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40034842"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036906"
 ---
 # <a name="azure-stack-datacenter-integration---physical-device-auditing"></a>Azure Stack 데이터 센터 통합-물리적 장치 감사
 
-베이스 보드 관리 컨트롤러 (Bmc) 및 네트워크 스위치와 같은 Azure Stack에서 모든 물리적 장치에서 감사 로그를 내보내고 전체 감사 솔루션에 통합 되어야 합니다. 장치는 다른 Azure Stack OEM 하드웨어 공급 업체 간에 달라 집니다, 공급 업체 통합 감사에 대 한 설명서에 대 한 연락 합니다. 아래 섹션에서는 Azure Stack에 감사를 물리적 장치에 대 한 몇 가지 일반적인 정보를 제공 합니다.  
+베이스 보드 관리 컨트롤러 (Bmc) 및 네트워크 스위치와 같은 Azure Stack에서 모든 물리적 장치는 감사 로그를 내보냅니다. 전체 감사 솔루션에 감사 로그를 통합할 수 있습니다. 장치는 다른 Azure Stack OEM 하드웨어 공급 업체 간에 달라 집니다, 공급 업체 통합 감사에 대 한 설명서에 대 한 연락 합니다.
+아래 섹션에서는 Azure Stack에 감사를 물리적 장치에 대 한 몇 가지 일반적인 정보를 제공 합니다.  
 
 ## <a name="physical-device-access-auditing"></a>물리적 장치 액세스 감사
 
-Azure Stack에서 모든 물리적 장치 TACACS 또는 RADIUS 사용을 지원 합니다. 베이스 보드 관리 컨트롤러 (BMC) 및 네트워크 스위치에 대 한 액세스를 포함 합니다.
+Azure Stack에서 모든 물리적 장치 TACACS 또는 RADIUS 사용을 지원 합니다. 지원은 베이스 보드 관리 컨트롤러 (BMC) 및 네트워크 스위치에 대 한 액세스를 포함합니다.
 
 Azure Stack 솔루션 RADIUS 또는 기본 제공 TACACS 제공 되지 않습니다. 그러나 솔루션 유효성이 확인 된 시장에서 기존 RADIUS 또는 TACACS 솔루션의 사용 가능한 사용을 지원 하도록 합니다.
 

@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: 3fc9677d72dacd06bde2fcfa4812cf4613efef01
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e1c327051982ce36e94cd1fe0f824db5ec424da1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394287"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226994"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 응용 프로그램 방화벽(WAF) 구성
 ## <a name="overview"></a>개요
 
-WAF(웹 응용 프로그램 방화벽)를 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 응용 프로그램 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램을 보호할 수 있습니다. DLP(데이터 손실 방지)를 위해 백 엔드 웹 서버로부터의 응답도 검사합니다. App Service Environment는 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다. Azure에서는 [Application Gateway](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 WAF 기능을 제공합니다.  Application Gateway와 App Service 환경을 통합하는 방법을 보려면 [Application Gateway와 ILB ASE 통합](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) 문서를 참고하세요.
+WAF(웹 응용 프로그램 방화벽)를 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 응용 프로그램 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램을 보호할 수 있습니다. DLP(데이터 손실 방지)를 위해 백 엔드 웹 서버로부터의 응답도 검사합니다. App Service Environment는 격리와 추가 확장의 조합을 제공합니다. 이 조합은 악의적인 요청과 고용량 트래픽을 견뎌야 하는 호스트 비즈니스 중요한 웹 응용 프로그램에 이상적인 환경을 제공합니다. Azure에서는 [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction)를 사용하여 WAF 기능을 제공합니다.  Application Gateway와 App Service 환경을 통합하는 방법을 보려면 [Application Gateway와 ILB ASE 통합](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) 문서를 참고하세요.
 
 Azure Application Gateway 외에도 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)에서 사용할 수 있는 [Azure용 Barracuda WAF](https://www.barracuda.com/programs/azure)와 같은 여러 마켓플레이스 옵션이 있습니다. 이 문서의 나머지 부분에서는 Barracuda WAF 장치와 App Service 환경을 통합하는 방법에 중점을 둡니다.
 

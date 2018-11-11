@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4f063299a0bb454c8eaf3d38a0cb0a5fb20abcc8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094086"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959310"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: 질문과 대답
 
@@ -27,7 +27,7 @@ ms.locfileid: "47094086"
 
 * [.NET 앱](app-insights-asp-net-troubleshoot-no-data.md)
 * [이미 실행 중인 앱 모니터링](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure 진단](app-insights-azure-diagnostics.md)
+* [Azure 진단](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Java 웹앱](app-insights-java-troubleshoot.md)
 
 *내 서버에서 데이터를 가져오지 않습니다.*
@@ -111,7 +111,7 @@ ms.locfileid: "47094086"
 
 [클라이언트 웹 페이지](app-insights-javascript.md):
 
-* [페이지 보기 수](app-insights-web-track-usage.md)
+* [페이지 보기 수](app-insights-usage-overview.md)
 * 실행되는 스크립트의 [AJAX 호출](app-insights-asp-net-dependencies.md) 요청.
 * 페이지 보기 로드 데이터
 * 사용자 및 세션 수
@@ -119,7 +119,7 @@ ms.locfileid: "47094086"
 
 다른 원본(구성한 경우):
 
-* [Azure 진단](app-insights-azure-diagnostics.md)
+* [Azure 진단](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Docker 컨테이너](app-insights-docker.md)
 * [분석으로 테이블 가져오기](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)

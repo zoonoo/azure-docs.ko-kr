@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: b5e3d87e026b65a602b7bdf2e52365d13b21f62f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1220bcc8445f13a4573f1a6d3181c172799638fb
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166834"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741789"
 ---
-# <a name="create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 계정, 데이터베이스 및 테이블 만들기
+# <a name="tutorial-create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>자습서: Java 응용 프로그램을 사용하여 Azure Cosmos DB Cassandra API 계정, 데이터베이스 및 테이블 만들기
 
 이 자습서에서는 Java 응용 프로그램을 사용하여 Azure Cosmos DB에서 Cassandra API 계정을 만들고, 데이터베이스(키스페이스라고도 함)를 추가하고, 테이블을 추가하는 방법을 설명합니다. Java 응용 프로그램은 [Java 드라이버](https://github.com/datastax/java-driver)를 사용하여 사용자 ID, 사용자 이름, 사용자 도시 등의 세부 정보를 포함하는 사용자 데이터베이스를 만듭니다.  
 
@@ -33,7 +33,7 @@ ms.locfileid: "49166834"
 
 * Azure 구독이 아직 없는 경우 시작하기 전에  [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다. 또는 Azure 구독, 요금 및 약정 없이  [Azure Cosmos DB 평가판을 사용](https://azure.microsoft.com/try/cosmosdb/) 할 수 있습니다. 
 
-* [JDK(Java Development Kit)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)의 최신 버전 살펴보기 
+* [JDK(Java Development Kit)](https://aka.ms/azure-jdks)의 최신 버전 살펴보기 
 
 * [Maven](http://maven.apache.org/) 이진 보관 파일을 [다운로드](http://maven.apache.org/download.cgi)하여 [설치](http://maven.apache.org/install.html) 
   - Ubuntu에서  `apt-get install maven` 을 실행하여 Maven을 실행할 수 있습니다. 
@@ -60,7 +60,7 @@ ms.locfileid: "49166834"
 
 ## <a name="get-the-connection-details-of-your-account"></a>계정의 연결 세부 정보 가져오기  
 
-Azure Portal에서 연결 문자열 정보를 가져오고 이를 Java 구성 파일에 복사합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다. 
+Azure Portal에서 연결 문자열 정보를 가져오고 이를 Java 구성 파일에 복사합니다. 연결 문자열을 통해 앱이 호스트된 데이터베이스와 통신할 수 있습니다. 
 
 1.  [Azure Portal](http://portal.azure.com/)에서 Cosmos DB 계정으로 이동합니다. 
 

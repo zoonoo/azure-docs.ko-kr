@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: fa8c4b07f79564a1e9aa4e78b2323789283d4e73
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 668ccc581e457e2ed3ad72c08bf5e65dd86c4b52
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054624"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228609"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Azure WCF 릴레이를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
 
@@ -52,7 +52,7 @@ ms.locfileid: "44054624"
 Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로드하고 개발 환경을 설정해야 합니다.
 
 1. SDK [다운로드 페이지](https://azure.microsoft.com/downloads/)에서 .NET용 Azure SDK를 설치합니다.
-2. **.NET** 열에서 사용 중인 [Visual Studio](http://www.visualstudio.com) 버전을 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2017을 사용합니다.
+2. **.NET** 열에서 사용 중인 [Visual Studio](https://www.visualstudio.com) 버전을 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2017을 사용합니다.
 3. 설치 관리자를 실행할지 또는 저장할지를 묻는 메시지가 표시되면 **실행**을 클릭합니다.
 4. **웹 플랫폼 설치 관리자**에서 **설치**를 클릭하여 설치를 계속합니다.
 5. 설치가 완료되면 앱을 개발하기 시작하는 데 필요한 내용이 모두 준비된 것입니다. SDK에는 Visual Studio에서 Azure 응용 프로그램을 쉽게 개발할 수 있는 도구가 포함되어 있습니다.
@@ -75,7 +75,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 
    ![][11]
 4. **확인**을 클릭하여 **ProductsServer** 프로젝트를 만듭니다.
-5. Visual Studio용 NuGet 패키지 관리자를 이미 설치한 경우 다음 단계로 건너뜁니다. 그렇지 않으면 [NuGet][NuGet]을 방문하여 [NuGet 설치](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)를 클릭합니다. 나타나는 메시지에 따라 NuGet 패키지 관리자를 설치한 후 Visual Studio를 다시 시작합니다.
+5. Visual Studio용 NuGet 패키지 관리자를 이미 설치한 경우 다음 단계로 건너뜁니다. 그렇지 않으면 [NuGet][NuGet]을 방문하여 [NuGet 설치](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)를 클릭합니다. 나타나는 메시지에 따라 NuGet 패키지 관리자를 설치한 후 Visual Studio를 다시 시작합니다.
 6. 솔루션 탐색기에서 **ProductsServer** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 클릭합니다.
 7. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. **WindowsAzure.ServiceBus** 패키지를 선택합니다.
 8. **설치**를 클릭하고 사용 약관에 동의합니다.
