@@ -1,6 +1,6 @@
 
 # Azure 복원력
-## [Azure 복원력 기능 페이지](http://azure.microsoft.com/features/resiliency)
+## [Azure 복원력 기능 페이지](https://azure.microsoft.com/features/resiliency)
 ## [Azure용 복원 응용 프로그램 디자인](https://docs.microsoft.com/azure/architecture/resiliency/)
 
 # 고가용성

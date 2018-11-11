@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b8263c399f287be79590860cce7036207ef2e3f7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239265"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243746"
 ---
 # <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Azure Machine Learning Workbench(미리 보기)는 어떻게 되나요?
 
-[아키텍처](concept-azure-machine-learning-architecture.md)를 개선하기 위해 Workbench 응용 프로그램 및 일부 초기 기능이 2018년 9월 릴리스에서 대체되었습니다. 환경을 개선하기 위해 고객 피드백을 반영한 중요 업데이트가 릴리스에 포함될 수 있습니다. 실험 실행부터 배포 모델링에 이르는 핵심 기능은 변경되지 않았지만, 이제는 강력한 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> 및 [CLI](reference-azure-machine-learning-cli.md)를 사용하여 기계 학습 작업 및 파이프라인을 수행할 수 있습니다.  
+[아키텍처](concept-azure-machine-learning-architecture.md)를 개선하기 위해 Workbench 응용 프로그램 및 일부 초기 기능이 2018년 9월 릴리스에서 대체되었습니다. 환경을 개선하기 위해 고객 피드백을 반영한 중요 업데이트가 릴리스에 포함될 수 있습니다. 실험 실행부터 배포 모델링에 이르는 핵심 기능은 변경되지 않았지만, 이제는 강력한 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 및 [CLI](reference-azure-machine-learning-cli.md)를 사용하여 기계 학습 작업 및 파이프라인을 수행할 수 있습니다.  
 
 이 문서에서는 무엇이 변경되었는지, 이러한 변화가 Azure Machine Learning 서비스를 사용하는 기존 작업에 어떤 영향을 미치는지 알아볼 것입니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "48239265"
 Azure Machine Learning Service 최신 릴리스에는 다음이 포함되어 있습니다.
 + [간소화된 Azure 리소스 모델](concept-azure-machine-learning-architecture.md)
 + 실험 및 계산 대상을 관리할 수 있는 [새로운 포털 UI](how-to-track-experiments.md)
-+ 좀 더 포괄적인 새로운 Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>
++ 좀 더 포괄적인 새로운 Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>
 + 기계 학습을 위한 확장된 새 [Azure CLI 확장](reference-azure-machine-learning-cli.md)
 
 [아키텍처](concept-azure-machine-learning-architecture.md)는 사용 편의성을 염두에 두고 다시 설계되었습니다. 여러 Azure 리소스 및 계정 대신 [Azure Machine Learning Service 작업 영역](concept-azure-machine-learning-architecture.md#workspace)만 있으면 됩니다.  [Azure Portal](quickstart-get-started.md)에서 신속하게 작업 영역을 만들 수 있습니다.  여러 사용자가 작업 영역을 사용하여 교육 및 배포 계산 대상, 모델 실험, Docker 이미지, 배포된 모델 등을 저장할 수 있습니다.
@@ -46,11 +46,10 @@ Azure Machine Learning Service 최신 릴리스에는 다음이 포함되어 있
 
 |단계|이전 기능의 지원 정보|
 |:---:|----------------|
-|1|Azure Portal 및 CLI에서 _Azure Machine Learning 실험 계정_ 및 _모델 관리 계정_을 만드는 기능. CLI에서 ML 계산 환경을 만드는 기능도 종료됩니다. 기존 계정이 있는 경우 CLI 및 데스크톱 Workbench는 계속해서 이 단계에서 작동합니다.|
-|2|데스크톱 Workbench 및 CLI를 사용하여 이전 작업 영역 및 프로젝트를 만드는 기본 API는 수명이 종료됩니다. 계속해서 이 단계에서 기존 프로젝트를 열고, 추가 스크립트를 추가하고, 기존 프로젝트에서 스크립트를 실행하고, 기존 ML 계산 환경에 웹 서비스를 배포할 수 있습니다.|
-|3|나머지 API 및 데스크톱 Workbench를 포함한 그 외의 모든 기능에 대한 지원은 이 단계에서 종료됩니다.|
+|1|Azure Portal 및 CLI 끝에서 _Azure Machine Learning 실험 계정_ 및 _모델 관리 계정_을 만드는 기능. CLI에서 ML 계산 환경을 만드는 기능도 종료됩니다. 기존 계정이 있는 경우 CLI 및 데스크톱 Workbench는 계속해서 이 단계에서 작동합니다.|
+|2|나머지 API 및 데스크톱 Workbench를 포함한 그 외의 모든 기능에 대한 지원은 이 단계에서 종료됩니다.|
 
-지금 [마이그레이션을 시작](how-to-migrate.md)하세요. 새로운 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md) 및 [포털](quickstart-get-started.md)을 사용하는 모든 최신 기능이 제공됩니다.
+지금 [마이그레이션을 시작](how-to-migrate.md)하세요. 새로운 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, [CLI](reference-azure-machine-learning-cli.md) 및 [포털](quickstart-get-started.md)을 사용하는 모든 최신 기능이 제공됩니다.
 
 ## <a name="what-about-run-histories"></a>실행 기록은 어떻게 되나요?
 
@@ -67,9 +66,9 @@ Portal의 작업 영역 대시보드는 Edge, Chrome 및 Firefox 브라우저에
 
 더 이상 Workbench를 사용할 수 없으므로 기존 데이터 준비 파일을 최신 릴리스로 이식할 수 없습니다. 그러나 여전히 모델링에 사용할 데이터를 준비할 수 있습니다.  
 
-데이터 집합이 작은 경우 <a href="http://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Data Prep SDK</a>를 사용하여 모델링 전에 신속하게 데이터를 준비할 수 있습니다. 
+데이터 집합이 작은 경우 <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Data Prep SDK</a>를 사용하여 모델링 전에 신속하게 데이터를 준비할 수 있습니다. 
 
-큰 데이터 집합에는 동일한 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>를 사용할 수 있으며, Azure Databricks를 사용하여 빅 데이터 집합을 준비할 수 있습니다. 
+큰 데이터 집합에는 동일한 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>를 사용할 수 있으며, Azure Databricks를 사용하여 빅 데이터 집합을 준비할 수 있습니다. 
 
 ## <a name="will-projects-persist"></a>프로젝트는 유지되나요?
 
@@ -95,7 +94,7 @@ Portal의 작업 영역 대시보드는 Edge, Chrome 및 Firefox 브라우저에
 
 당분간은 계속 작동합니다(위의 [타임라인](#timeline) 참조). 최신 SDK 및/또는 CLI를 사용하여 새로운 실험 및 모델을 만드는 것이 좋습니다.
 
-최신 릴리스에서는 새 Python SDK를 사용하여 모든 Python 환경에서 Azure Machine Learning 서비스와 상호 작용할 수 있습니다. 최신 <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>를 설치하는 방법을 알아보세요.  다양한 `az ml` 명령을 제공하는 [업데이트된 Azure CLI 기계 학습 확장](reference-azure-machine-learning-cli.md)을 사용하여 Azure Portal Cloud Shell을 비롯한 모든 명령줄 환경에서 서비스와 상호 작용할 수 있습니다.
+최신 릴리스에서는 새 Python SDK를 사용하여 모든 Python 환경에서 Azure Machine Learning 서비스와 상호 작용할 수 있습니다. 최신 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>를 설치하는 방법을 알아보세요.  다양한 `az ml` 명령을 제공하는 [업데이트된 Azure CLI 기계 학습 확장](reference-azure-machine-learning-cli.md)을 사용하여 Azure Portal Cloud Shell을 비롯한 모든 명령줄 환경에서 서비스와 상호 작용할 수 있습니다.
 
 ## <a name="what-about-vs-code-tools-for-ai"></a>VS Code Tools for AI는 어떻게 되나요?
 
@@ -105,7 +104,7 @@ Portal의 작업 영역 대시보드는 Edge, Chrome 및 Firefox 브라우저에
 
 ## <a name="what-about-domain-packages"></a>도메인 패키지는 어떻게 되나요?
 
-[Computer Vision, Text Analytics 및 예측](../desktop-workbench/reference-python-package-overview.md)용 도메인 패키지는 최신 버전의 Azure Machine Learning에 사용할 수 없습니다. 그러나 여전히 최신 Azure Machine Learning Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>를 사용하여 컴퓨터 비전, 텍스트 및 예측 모델을 빌드하고 학습할 수 있습니다. Computer Vision, Text Analytics 및 예측 패키지를 사용하여 빌드된 기존 모델을 마이그레이션하는 방법을 알아보려면 [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com)에 문의하세요.
+[Computer Vision, Text Analytics 및 예측](../desktop-workbench/reference-python-package-overview.md)용 도메인 패키지는 최신 버전의 Azure Machine Learning에 사용할 수 없습니다. 그러나 여전히 최신 Azure Machine Learning Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>를 사용하여 컴퓨터 비전, 텍스트 및 예측 모델을 빌드하고 학습할 수 있습니다. Computer Vision, Text Analytics 및 예측 패키지를 사용하여 빌드된 기존 모델을 마이그레이션하는 방법을 알아보려면 [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com)에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

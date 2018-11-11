@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 216cebe74b7661e0ca336480774a56ea953ddc75
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 1079b83411fd76b4b9115ee80e385f1f2c63ba85
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069474"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247095"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작하기
 
@@ -342,7 +342,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 * Windows 서버에 다음을 설치합니다.
 
-  * [Microsoft Visual C++ 재배포 가능 패키지](http://www.microsoft.com/download/details.aspx?id=40784)
+  * [Microsoft Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
 
     (이 구성 요소를 통해 성능 카운터를 사용할 수 있게 됩니다.)
 

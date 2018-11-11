@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7470416ab5e5d71cc569db19e47d34c5a29bc063
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1cd9e99d9f530abb34ff072a740d89bc511c64ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807715"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241517"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>클라우드 파트너 포털 GDPR 규정 준수
 ====================================
@@ -48,6 +48,6 @@ ms.locfileid: "48807715"
 
 -   [Microsoft에서 고객에게 데이터를 보내는 방법과 위치\'(지리적 위치 포함)](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 -   [고객 데이터에 액세스할 수 있는\' 하도급업자](https://aka.ms/Online_Serv_Subcontractor_List)
--   [Microsoft에서 관리하는 Azure 보안 조치 관련 세부 정보](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+-   [Microsoft에서 관리하는 Azure 보안 조치 관련 세부 정보](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 -   [모든 Azure 서비스를 비롯한 모든 제품에 대해 진행되는 Microsoft의 개인정보 검토 프로세스 관련 세부 정보](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards)
 -   [Microsoft가 고객 시스템 및 최종 사용자로부터 수집하여 처리하는 데이터](https://www.microsoft.com/trustcenter/privacy/you-own-your-data)

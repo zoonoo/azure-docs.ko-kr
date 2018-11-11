@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: erhopf
-ms.openlocfilehash: a08a3a5f2c4e17406863ab203c5af1781b4223d3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e7ba72c95959a0c31ca724f91f519ac705d669fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648338"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245786"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Translator Text API에 등록하는 방법
 
@@ -47,7 +47,7 @@ Translator Text에 등록하면 구독에 고유한 개인 설정 액세스 키�
 ## <a name="learn-test-and-get-support"></a>학습, 테스트 및 지원 받기
 
 - [GitHub의 코드 예제](https://github.com/MicrosoftTranslator)
-- [Microsoft Translator 지원 포럼](http://www.aka.ms/TranslatorForum)
+- [Microsoft Translator 지원 포럼](https://www.aka.ms/TranslatorForum)
 
 ## <a name="pricing-options"></a>가격 책정 옵션
 

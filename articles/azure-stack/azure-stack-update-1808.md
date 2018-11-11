@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1414fd7b559a1bf12cc26d218f4577bbdc986916
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a28168291c79dc54feb5ff572c609cdfb09a187f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964121"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515593"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -64,12 +64,13 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 - **Kubernetes 마켓플레이스 항목**합니다. 이제 사용 하 여 Kubernetes 클러스터를 배포할 수 있습니다 합니다 [Kubernetes 마켓플레이스 항목](azure-stack-solution-template-kubernetes-cluster-add.md)합니다. 사용자는 Kubernetes 항목을 선택 하 고 Azure Stack에 Kubernetes 클러스터를 배포 하는 몇 가지 매개 변수를 채울 수 있습니다. 템플릿의 목적은 간단 하 게 몇 가지 단계에서 개발/테스트 Kubernetes 배포를 설정 하는 사용자에 게입니다.
 
 <!-- | IS ASDK--> 
-- **블록 체인 템플릿**합니다. 이제 실행할 수 있습니다 [Ethereum 컨소시엄 배포](azure-stack-ethereum.md) Azure Stack에서. 세 개의 새로운 템플릿이 있습니다 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다. 사용자가 배포를 한 지식이 별로 없더라도 Azure 및 Ethereum 다중 멤버 컨소시엄 Ethereum 네트워크를 구성할 수 있습니다. 템플릿의 목적은 간단 하 게 몇 가지 단계에서 개발/테스트 Blockchain 배포를 설정 하는 사용자에 게입니다.
+- **블록 체인 템플릿**합니다. 이제 실행할 수 있습니다 [Ethereum 컨소시엄 배포](user/azure-stack-ethereum.md) Azure Stack에서. 세 개의 새로운 템플릿이 있습니다 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다. 사용자가 배포를 한 지식이 별로 없더라도 Azure 및 Ethereum 다중 멤버 컨소시엄 Ethereum 네트워크를 구성할 수 있습니다. 템플릿의 목적은 간단 하 게 몇 가지 단계에서 개발/테스트 Blockchain 배포를 설정 하는 사용자에 게입니다.
 
 <!-- | IS ASDK--> 
 - **API 버전 프로필 2017-03-09-프로필 2018-03-01-하이브리드로 업데이트 되었습니다**합니다. 프로필 API는 Azure 리소스 공급자 및 Azure REST 끝점에 대 한 API 버전을 지정합니다. 프로필에 대 한 자세한 내용은 참조 하세요. [Azure Stack에서 관리 하는 API 버전 프로필](/azure/azure-stack/user/azure-stack-version-profiles)합니다.
 
- ### <a name="fixed-issues"></a>해결된 문제
+### <a name="fixed-issues"></a>해결된 문제
+
 <!-- IS ASDK--> 
 - 장애 도메인 및 업데이트 도메인 1의 집합에서 발생 하는 포털에서 가용성 집합을 만드는 문제를 해결 했습니다. 
 
@@ -162,7 +163,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 > Azure Stack 배포를 확장 호스트에 대 한 준비 가져옵니다. 다음 지침을 사용 하 여 시스템을 준비 [Azure Stack에 대 한 확장 호스트에 대 한 준비](azure-stack-extension-host-prepare.md)합니다.
 
 이 업데이트의 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 볼 뿐만 아니라 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다. 
-- [KB 4468920 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.5.110](https://support.microsoft.com/help/4468920/)
+- [KB 4468920 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## <a name="known-issues-post-installation"></a>알려진된 문제 (사후 설치)
@@ -253,8 +254,11 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 
 ### <a name="compute"></a>컴퓨팅
 
+<!-- 3164607 – IS, ASDK -->
+- 와 같은 오류로 인해 실패 때도 동일한 이름 및 LUN을 사용 하 여 동일한 가상 컴퓨터 (VM) 디스크를 분리 **datadisk' 데이터 디스크' 'vm1' VM에 연결할 수 없습니다**합니다. 디스크가 현재 분리 됨 또는 마지막 분리 작업 실패 오류가 발생 합니다. 하세요 디스크가 완전히 분리 될 때까지 대기 하 고 다시 시도 하거나 삭제/분리 디스크 명시적으로 다시 합니다. 이를 해결 하려면 다른 이름으로 또는 다른 LUN에 다시 연결 합니다. 
+
 <!-- 3099544 – IS, ASDK --> 
-- Azure Stack 포털을 사용 하 여 새 가상 컴퓨터 (VM)를 만든 경우 VM 크기를 선택 하면 u s D/월 열이 사용 하 여 표시 됩니다는 **사용할 수 없습니다** 메시지입니다. 이 열이 나타나지 않아야 합니다. 표시 된 VM 가격 책정 열에서에서 지원 되지 않습니다 Azure Stack.
+- Azure Stack 포털을 사용 하 여 새 VM을 만들고 VM 크기를 선택 하는 경우 u s D/월 열이 함께 표시 됩니다는 **사용할 수 없습니다** 메시지입니다. 이 열이 나타나지 않아야 합니다. 표시 된 VM 가격 책정 열에서에서 지원 되지 않습니다 Azure Stack.
 
 <!-- 3090289 – IS, ASDK --> 
 - 업데이트 된 1808를 적용 한 후, Managed Disks를 사용 하 여 Vm을 배포 하는 경우 다음과 같은 문제가 발생할 수 있습니다.
@@ -263,7 +267,7 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
       1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
       2. 로 동일한 구독에 따라 **액세스 제어 (IAM)**, 되어 있는지 확인 하 고 **Azure Stack – Managed Disk** 나열 됩니다.
    2. 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 이 오류를 해결 하려면 다음이 단계를 수행 합니다.
-      1. 적용 된 [1808 Azure Stack 핫픽스](https://support.microsoft.com/help/4468920/)합니다.
+      1. 적용 된 [1808 Azure Stack 핫픽스](https://support.microsoft.com/help/4471992/)합니다.
       2. 단계를 따릅니다 [이 문서에서는](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
       
 <!-- 3179561 - IS --> 

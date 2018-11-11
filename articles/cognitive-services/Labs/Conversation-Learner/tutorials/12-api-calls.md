@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1d4013d736d8cfcb75874bc0c86d20b86ab4dd62
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 815d1e9f6d1e4b9937647d55b67665e1b27f501e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215842"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240769"
 ---
 # <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Conversation Learner 모델에 API 호출을 추가하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "39215842"
 
 ## <a name="video"></a>비디오
 
-[![자습서 12 미리 보기](http://aka.ms/cl-tutorial-12-preview)](http://aka.ms/blis-tutorial-12)
+[![자습서 12 미리 보기](https://aka.ms/cl-tutorial-12-preview)](https://aka.ms/blis-tutorial-12)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 “tutorialAPICalls.ts” 봇이 실행 중이어야 합니다.

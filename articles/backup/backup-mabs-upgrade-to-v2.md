@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: a458a46f3775a593f369d5acb967fc90d61efde8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4f1e0c14d3a835b9f6d739511186bdcc19917a7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628344"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230995"
 ---
 # <a name="install-azure-backup-server-v2"></a>Azure Backup Server v2 설치
 
@@ -103,7 +103,7 @@ Windows Server 2016에서 Backup Server v2를 실행할 경우 볼륨을 사용�
 
   디스크를 추가하려면 레거시 저장소가 있는 보호 그룹에 디스크가 속해야 합니다. 이러한 디스크는 이러한 보호 그룹에만 사용할 수 있습니다. Backup Server에 레거시 보호가 있는 원본이 없다면 디스크가 나열되지 않습니다.
 
-  디스크 추가에 대한 자세한 내용은 [디스크를 추가하여 레거시 저장소 늘리기](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage)를 참조하세요. 디스크에는 이름을 지정할 수 없습니다.
+  디스크 추가에 대한 자세한 내용은 [디스크를 추가하여 레거시 저장소 늘리기](https://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage)를 참조하세요. 디스크에는 이름을 지정할 수 없습니다.
 
 
 ### <a name="assign-workloads-to-volumes"></a>볼륨에 워크로드 할당
@@ -175,13 +175,13 @@ Modern Backup Storage를 사용하도록 보호 그룹을 업데이트하는 것
 
 1. System Center 2016 DPM 관리자 콘솔에서 **보호** 기능을 선택합니다. **보호 그룹 구성원** 목록에서 구성원을 마우스 오른쪽 단추로 클릭하고 **구성원 보호 중지**를 선택합니다.
 
-  ![구성원 보호 중지](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+  ![구성원 보호 중지](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. **그룹에서 제거** 대화 상자에서 저장소 풀의 사용된 디스크 공간 및 사용 가능한 공간을 검토합니다. 기본값은 디스크에서 복구 지점을 유지하고 관련 보존 정책에 따라 만료되도록 허용하는 것입니다. **확인**을 선택합니다.
 
   사용된 디스크 공간을 사용 가능한 저장소 풀로 즉시 반환하려면 **디스크의 복제본 삭제** 확인란을 선택하여 해당 구성원과 연결된 백업 데이터(및 복구 지점)를 삭제합니다.
 
-  ![그룹에서 제거 대화 상자](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![그룹에서 제거 대화 상자](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Modern Backup Storage를 사용하는 보호 그룹을 만듭니다. 보호되지 않는 데이터 원본을 포함합니다.
 
@@ -194,7 +194,7 @@ Backup Server에서 레거시 저장소를 사용하려면 디스크를 추가�
 
 1. System Center 2016 DPM 관리자 콘솔에서 **관리** > **디스크 저장소** > **추가**를 선택합니다.
 
-  ![디스크 저장소 추가 대화 상자](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+  ![디스크 저장소 추가 대화 상자](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. **디스크 저장소 추가** 대화 상자에서 **디스크 추가**를 선택합니다.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 00ce57dbff749d4ee906e0e7dae1d828ef85326f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f44b267a28abd64acdd6bc74a43f1c5be8daf0ab
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962064"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515610"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -39,7 +39,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 
 이 업데이트는 Azure Stack에 대 한 다음과 같은 향상 된 기능을 포함합니다.
 
-- 이 릴리스에서 Azure Stack 통합 4-16 노드의 시스템 지원 구성 합니다. 사용할 수 있습니다는 [Azure Stack Capacity Planner](http://aka.ms/azstackcapacityplanner) Azure Stack 용량 및 구성에 대 한 계획 수립에 있도록 합니다.
+- 이 릴리스에서 Azure Stack 통합 4-16 노드의 시스템 지원 구성 합니다. 사용할 수 있습니다는 [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) Azure Stack 용량 및 구성에 대 한 계획 수립에 있도록 합니다.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog 클라이언트 (일반 공급)** 이 클라이언트에는 감사, 경고 및 Azure Stack 인프라를 syslog 서버 또는 보안 정보 및 이벤트 관리 (SIEM) 소프트웨어와 관련 된 보안 로그를 전달할 수 있도록 Azure Stack에 외부입니다. Syslog 클라이언트는 이제 syslog 서버 수신 대기 하는 포트 지정을 지원 합니다.
 
@@ -70,6 +70,17 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 - <!-- 2702741 -  IS, ASDK --> 동적 할당을 사용 하 여 배포 된 공용 Ip는 메서드가 없습니다. 문제 해결된 실행 중지-할당 취소 후에 유지 되도록 보장 합니다. 이제 보존 됩니다.
 
 - <!-- 3078022 - IS, ASDK --> VM 중지-할당 해제 하기 전에 되었던 1808 경우 수 없는 다시 할당 1808 업데이트 후 합니다.  이 문제는 1809에서 해결 됩니다. 이 문제가 해결 1809에서이 상태에 있으며 시작할 수 없습니다. 인스턴스를 시작할 수 있습니다. 또한 수정 반복에서이 문제를 방지합니다.
+
+<!-- 3090289 – IS, ASDK --> 
+- 여기서 1808 업데이트를 적용 한 후 문제가 발생할 수 있습니다는 다음 Managed Disks를 사용 하 여 Vm을 배포 하는 경우 문제를 해결 했습니다.
+
+   1. Managed Disks를 사용 하 여 VM 배포 1808 업데이트 하기 전에 구독을 만든 경우 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면 각 구독에 대해 다음이 단계를 수행 합니다.
+      1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
+      2. 로 동일한 구독에 따라 **액세스 제어 (IAM)**, 되어 있는지 확인 하 고 **Azure Stack – Managed Disk** 나열 됩니다.
+   2. 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 이 오류를 해결 하려면 다음이 단계를 수행 합니다.
+      1. 적용 된 [1808 Azure Stack 핫픽스](https://support.microsoft.com/help/4471992)합니다.
+      2. 단계를 따릅니다 [이 문서에서는](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
+
 
 ### <a name="changes"></a>변경 내용
 
@@ -128,7 +139,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
-- 1809 적용 하기 전에 1808에 대 한 최신 Azure Stack 핫픽스를 설치 합니다. 자세한 내용은 [KB 4468920 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920)합니다.
+- 1809 적용 하기 전에 1808에 대 한 최신 Azure Stack 핫픽스를 설치 합니다. 자세한 내용은 [KB 4471992 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.7.113](https://support.microsoft.com/help/4471992/)합니다.
 
   > [!TIP]  
   > 다음을 구독할 *RRS* 또는 *Atom* Azure Stack 핫픽스를 피드 합니다.
@@ -157,9 +168,8 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 > [!Important]  
 > 다음 업데이트 패키지에서 사용할 수 있는 확장 호스트에 대 한 준비 된 Azure Stack 배포를 가져옵니다. 다음 지침을 사용 하 여 시스템을 준비 [Azure Stack에 대 한 확장 호스트에 대 한 준비](azure-stack-extension-host-prepare.md)합니다.
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+이 업데이트의 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 볼 뿐만 아니라 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.  
+- [KB 4471993 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
 
 ## <a name="known-issues-post-installation"></a>알려진된 문제 (사후 설치)
 

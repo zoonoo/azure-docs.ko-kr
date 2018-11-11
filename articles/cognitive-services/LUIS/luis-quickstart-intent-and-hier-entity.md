@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831027"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282274"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>자습서 5: 컨텍스트 관련 데이터 추출
 이 자습서에서는 컨텍스트를 기반으로 관련 데이터 조각을 찾습니다. 예를 들어 한 건물과 사무실에서 다른 건물과 사무실로 이사할 경우 출발지 및 목적지 위치는 서로 관련이 있습니다. 작업 순서를 생성하려면 두 데이터 조각이 모두 필요하며, 서로 관련이 있습니다.  
@@ -57,7 +57,7 @@ ms.locfileid: "48831027"
 ## <a name="remove-prebuilt-number-entity-from-app"></a>앱에서 미리 작성된 숫자 엔터티를 제거합니다.
 전체 발언을 살펴보고 계층적 자식을 표시하려면 미리 작성된 숫자 엔터티를 일시적으로 제거해야 합니다.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 왼쪽 메뉴에서 **엔터티**를 선택합니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "48831027"
 
     [엔터티 목록](luis-quickstart-intent-and-list-entity.md) 자습서에서 직원 이름, 이메일 주소, 내선 번호, 휴대폰 번호 또는 미국 사회 보장 번호를 사용하여 직원을 지정합니다. 이러한 직원 번호는 발언에 사용됩니다. 이전 예제 발언에는 원래 위치와 대상 위치를 알려주는 여러 방법이 포함되어 있으며, 볼드로 표시되어 있습니다. 일부 발언에는 대상 위치만 있으며, 이는 의도된 것입니다. 이렇게 하면 원래 위치가 지정되지 않았을 때 이러한 위치를 발언에 배치하는 방법을 LUIS가 쉽게 이해할 수 있습니다.     
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>위치 엔터티 만들기
 LUIS는 발언의 원래 위치와 대상 위치에 레이블을 지정하여 위치를 이해해야 합니다. 토큰(원시) 보기의 발언을 살펴보아야 하는 경우 **엔터티 보기**라는 레이블이 붙은 발언 위에 있는 표시줄에서 토글을 선택합니다. 스위치를 토글하면 컨트롤에 **토큰 보기**라는 레이블이 지정됩니다.
@@ -119,7 +119,7 @@ mv Jill Jones from a-2349 to b-1298
 
 1. 왼쪽 탐색 메뉴에서 **엔터티**를 선택합니다.
 
-2. **미리 빌드된 엔터티 관리** 단추를 선택합니다.
+2. **미리 빌드된 엔터티 추가** 단추를 선택합니다.
 
 3. 미리 작성된 엔터티 목록에서 **번호**를 선택하고 **완료**를 선택합니다.
 
@@ -248,6 +248,10 @@ mv Jill Jones from a-2349 to b-1298
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="hierarchical-entities-versus-roles"></a>계층 구조 엔터티와 역할의 비교
+
+자세한 내용은 [역할 및 계층 구조 엔터티](luis-concept-roles.md#roles-versus-hierarchical-entities)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 새 의도를 만들고, 컨텍스트에 따라 학습된 원본 및 대상 위치 데이터에 대한 발언 예시를 추가했습니다. 앱이 학습되고 게시되면 클라이언트 응용 프로그램이 해당 정보를 사용하여 관련 정보가 포함된 이동 티켓을 만들 수 있습니다.

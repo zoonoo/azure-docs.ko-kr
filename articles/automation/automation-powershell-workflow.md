@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4b48400920176055e7eb166c7502c06e67b29185
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436364"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239426"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Automation runbook에 대한 주요 Windows PowerShell 워크플로 개념 학습
 
@@ -22,7 +22,7 @@ Azure Automation의 Runbook은 Windows PowerShell 워크플로로 구현됩니�
 
 워크플로는 장기 실행 작업을 수행하거나 여러 장치 또는 관리 노드에서 여러 단계를 조정해야 하는 프로그래밍 방식으로 연결된 일련의 단계입니다. 워크플로는 일반적인 스크립트에 비해 여러 장치에서 작업을 동시에 수행하고 오류로부터 자동으로 복구할 수 있다는 장점이 있습니다. Windows PowerShell 워크플로는 Windows Workflow Foundation을 활용하는 Windows PowerShell 스크립트입니다. 워크플로는 Windows PowerShell 구문으로 작성되고 Windows PowerShell에서 시작되지만 Windows Workflow Foundation에서 처리됩니다.
 
-이 기사의 항목에 대한 자세한 내용은 [Windows PowerShell 워크플로 시작](http://technet.microsoft.com/library/jj134242.aspx)을 참조하세요.
+이 기사의 항목에 대한 자세한 내용은 [Windows PowerShell 워크플로 시작](https://technet.microsoft.com/library/jj134242.aspx)을 참조하세요.
 
 ## <a name="basic-structure-of-a-workflow"></a>워크플로의 기본 구조
 
@@ -45,9 +45,9 @@ PowerShell 워크플로 코드는 몇 가지 중요한 변경 내용을 제외�
 
 ### <a name="activities"></a>활동
 
-활동은 워크플로의 특정 작업입니다. 하나 이상의 명령으로 구성된 스크립트와 마찬가지로 워크플로는 시퀀스로 수행되는 하나 이상의 활동으로 구성됩니다. Windows PowerShell 워크플로는 워크플로를 실행할 때 많은 Windows PowerShell cmdlet을 활동으로 자동으로 변환합니다. Runbook에서 이러한 cmdlet 중 하나를 지정한 경우 해당 활동은 Windows Workflow Foundation에 의해 실행됩니다. 해당 활동이 없는 cmdlet의 경우 Windows PowerShell 워크플로는 [InlineScript](#inlinescript) 활동 내에서 cmdlet을 자동으로 실행합니다. InlineScript 블록에 명시적으로 포함하지 않으면 워크플로에서 제외되고 사용할 수 없는 cmdlet 집합이 있습니다. 이러한 개념에 자세한 내용은 [스크립트 워크플로에서 활동 사용](http://technet.microsoft.com/library/jj574194.aspx)을 참조하세요.
+활동은 워크플로의 특정 작업입니다. 하나 이상의 명령으로 구성된 스크립트와 마찬가지로 워크플로는 시퀀스로 수행되는 하나 이상의 활동으로 구성됩니다. Windows PowerShell 워크플로는 워크플로를 실행할 때 많은 Windows PowerShell cmdlet을 활동으로 자동으로 변환합니다. Runbook에서 이러한 cmdlet 중 하나를 지정한 경우 해당 활동은 Windows Workflow Foundation에 의해 실행됩니다. 해당 활동이 없는 cmdlet의 경우 Windows PowerShell 워크플로는 [InlineScript](#inlinescript) 활동 내에서 cmdlet을 자동으로 실행합니다. InlineScript 블록에 명시적으로 포함하지 않으면 워크플로에서 제외되고 사용할 수 없는 cmdlet 집합이 있습니다. 이러한 개념에 자세한 내용은 [스크립트 워크플로에서 활동 사용](https://technet.microsoft.com/library/jj574194.aspx)을 참조하세요.
 
-워크플로 활동은 해당 작업을 구성하기 위해 일반 매개 변수 집합을 공유합니다. 워크플로 일반 매개 변수에 대한 자세한 내용은 [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx)를 참조하세요.
+워크플로 활동은 해당 작업을 구성하기 위해 일반 매개 변수 집합을 공유합니다. 워크플로 일반 매개 변수에 대한 자세한 내용은 [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx)를 참조하세요.
 
 ### <a name="positional-parameters"></a>위치 매개 변수
 
@@ -152,7 +152,7 @@ InlineScript 활동은 특정 워크플로에서 중요할 수 있지만 워크�
 * InlineScriptBlock 내부에서는 [병렬 실행](#parallel-processing)을 사용할 수 없습니다.
 * InlineScript는 InlineScript 블록의 전체 길이 동안 Windows PowerShell 세션을 유지하므로 워크플로의 확장성에 영향을 줍니다.
 
-InlineScript 사용에 대한 자세한 내용은 [워크플로에서 Windows PowerShell 명령 실행](http://technet.microsoft.com/library/jj574197.aspx) 및 [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx)를 참조하세요.
+InlineScript 사용에 대한 자세한 내용은 [워크플로에서 Windows PowerShell 명령 실행](https://technet.microsoft.com/library/jj574197.aspx) 및 [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx)를 참조하세요.
 
 ## <a name="parallel-processing"></a>병렬 처리
 
@@ -291,7 +291,7 @@ workflow CreateTestVms
 
 서비스 주체로 구성된 실행 계정을 사용하여 인증하는 경우에는 필요하지 않습니다.
 
-검사점에 대한 자세한 내용은 [스크립트 워크플로에 검사점 추가](http://technet.microsoft.com/library/jj574114.aspx)를 참조하세요.
+검사점에 대한 자세한 내용은 [스크립트 워크플로에 검사점 추가](https://technet.microsoft.com/library/jj574114.aspx)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

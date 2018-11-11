@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 8a40acda189507c1589373a48166ed1668e30650
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308332"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247707"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 액세스 제어 요구 사항 확인
 또한 조직이 해당 하이브리드 ID 솔루션을 설계하는 경우 사용자는 이 기회를 사용하여 사용자가 사용할 수 있게 하려는 리소스에 대한 액세스 요구 사항을 검토할 수 있습니다. ID의 네 가지 기본 요소에 대한 데이터 액세스는 다음과 같습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "46308332"
 다음 섹션에서는 인증 및 권한 부여를 자세히 살펴봅니다. 관리 및 감사는 하이브리드 ID 수명 주기의 일부입니다. 이러한 기능에 대한 자세한 내용은 [하이브리드 ID 관리 작업 결정](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)을 읽습니다.
 
 > [!NOTE]
-> 이러한 기본 요소 각각에 대한 자세한 내용은 [ID의 네 가지 기본 요소 - 하이브리드 IT 시대에서 ID 관리](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) 를 읽습니다.
+> 이러한 기본 요소 각각에 대한 자세한 내용은 [ID의 네 가지 기본 요소 - 하이브리드 IT 시대에서 ID 관리](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) 를 읽습니다.
 > 
 > 
 

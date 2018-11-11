@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f349dab23b9156d3a5656e8275533ebe6a82cdf9
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: b09279e61ad60abcbda8b5bf576f5145ea8b9602
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45540921"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239256"
 ---
 # <a name="wait-and-non-wait-actions"></a>대기 및 비대기 작업
 
@@ -23,7 +23,7 @@ ms.locfileid: "45540921"
 
 ## <a name="video"></a>비디오
 
-[![자습서 2 미리 보기](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
+[![자습서 2 미리 보기](https://aka.ms/cl-tutorial-02-preview)](https://aka.ms/blis-tutorial-02)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 554c575f338ebaa415ed21be8dc8b27eb79c3c0c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634407"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244528"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -150,9 +150,9 @@ AWS DSC 도구 키트를 사용하여 Azure Automation 상태 구성에 의한 �
 
 온-프레미스 Windows 머신과 비 Azure 클라우드(예: Amazon Web Services)의 Windows 머신도 인터넷에 대한 아웃바운드 액세스 권한이 있다면 Azure Automation 상태 구성에 간단한 절차를 통해 온보드할 수 있습니다.
 
-1. 최신 버전의 [WMF 5](http://aka.ms/wmf5latest)가 Azure Automation 상태 구성에 온보드하려는 머신에 설치되었는지 확인합니다.
+1. 최신 버전의 [WMF 5](https://aka.ms/wmf5latest)가 Azure Automation 상태 구성에 온보드하려는 머신에 설치되었는지 확인합니다.
 1. 뒤에 나오는 [**DSC 메타 구성 생성**](#generating-dsc-metaconfigurations) 섹션의 지침에 따라 필요한 DSC 메타 구성이 포함된 폴더를 생성합니다.
-1. 등록할 컴퓨터에 PowerShell DSC 메타 구성을 원격으로 적용합니다. **이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](http://aka.ms/wmf5latest) 가 설치되어 있어야 합니다.**
+1. 등록할 컴퓨터에 PowerShell DSC 메타 구성을 원격으로 적용합니다. **이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](https://aka.ms/wmf5latest) 가 설치되어 있어야 합니다.**
 
    ```powershell
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
@@ -190,7 +190,7 @@ AWS DSC 도구 키트를 사용하여 Azure Automation 상태 구성에 의한 �
     Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
     ```
 
-이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](http://aka.ms/wmf5latest) 가 설치되어 있어야 합니다.
+이 명령이 실행되는 컴퓨터에는 최신 버전의 [WMF 5](https://aka.ms/wmf5latest) 가 설치되어 있어야 합니다.
 
 1. PowerShell DSC 메타 구성을 원격으로 적용할 수 없는 경우 온보드할 각 Linux 컴퓨터에 대해 5단계의 폴더에서 해당 컴퓨터에 대한 메타 구성을 Linux 컴퓨터에 복사합니다. 그런 다음, Azure Automation 상태 구성에 온보드하려는 각 Linux 머신에서 로컬로 `SetDscLocalConfigurationManager.py`를 호출합니다.
 
@@ -207,7 +207,7 @@ AWS DSC 도구 키트를 사용하여 Azure Automation 상태 구성에 의한 �
 
 ### <a name="using-a-dsc-configuration"></a>DSC 구성 사용
 
-1. 로컬 환경의 머신에서 관리자 권한으로 VSCode(또는 선호하는 편집기)를 엽니다. 이 컴퓨터에는 최신 버전의 [WMF 5](http://aka.ms/wmf5latest) 가 설치되어 있어야 합니다.
+1. 로컬 환경의 머신에서 관리자 권한으로 VSCode(또는 선호하는 편집기)를 엽니다. 이 컴퓨터에는 최신 버전의 [WMF 5](https://aka.ms/wmf5latest) 가 설치되어 있어야 합니다.
 1. 다음 스크립트를 로컬로 복사합니다. 이 스크립트는 메타 구성을 만들기 위한 PowerShell DSC 구성 및 메타 구성 생성을 시작하는 명령을 포함합니다.
 
 > [!NOTE]

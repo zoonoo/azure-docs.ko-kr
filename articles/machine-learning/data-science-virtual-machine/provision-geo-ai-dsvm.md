@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408611"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239800"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure에서 지역 인공 지능 Virtual Machine 프로비전 
 
-지역 AI 데이터 과학 Virtual Machine(Geo-DSVM)은 널리 사용되는 [Azure 데이터 과학 Virtual Machine](http://aka.ms/dsvm)의 확장으로써 AI와 지리 공간적 분석을 결합하도록 특별하게 구성됩니다. VM의 지리 공간적 분석은 [ArcGIS Pro](https://www.arcgis.com/features/index.html)에 기반합니다. 데이터 과학 VM을 사용하면 기계 학습 모델을 신속하게 학습하고, 지리적 정보를 제공하는 데이터에 대해 심층적으로 학습할 수 있습니다. Windows 2016 DSVM에서만 지원됩니다. 
+지역 AI 데이터 과학 Virtual Machine(Geo-DSVM)은 널리 사용되는 [Azure 데이터 과학 Virtual Machine](https://aka.ms/dsvm)의 확장으로써 AI와 지리 공간적 분석을 결합하도록 특별하게 구성됩니다. VM의 지리 공간적 분석은 [ArcGIS Pro](https://www.arcgis.com/features/index.html)에 기반합니다. 데이터 과학 VM을 사용하면 기계 학습 모델을 신속하게 학습하고, 지리적 정보를 제공하는 데이터에 대해 심층적으로 학습할 수 있습니다. Windows 2016 DSVM에서만 지원됩니다. 
 
 Geo-DSVM에는 다음을 비롯하여 AI에 대한 몇 가지 도구가 포함됩니다.
 

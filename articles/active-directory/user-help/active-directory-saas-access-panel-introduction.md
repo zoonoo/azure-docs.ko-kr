@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 1caf69ee822ec11e8797ca23c9c163d36344edc7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d0d07e235c33877ede7f47a6095482b2acec18d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719990"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239844"
 ---
 # <a name="what-is-the-myapps-portal"></a>MyApps 포털이란 무엇입니까?
 
@@ -137,7 +137,7 @@ Azure 관리자이고 디렉터리에 있는 계정을 사용하여 Azure Portal
 *다른* 사용자 계정으로 테스트하려면 다음을 수행합니다.
 
 1. Azure Portal 또는 MyApps 포털의 오른쪽 위에서 **로그아웃**을 선택합니다. 
-2. [MyApps 포털](http://myapps.microsoft.com)로 이동합니다.
+2. [MyApps 포털](https://myapps.microsoft.com)로 이동합니다.
 3. 로그인 페이지에서 테스트할 디렉터리의 계정에 대한 사용자 이름과 암호를 입력합니다.
 
 

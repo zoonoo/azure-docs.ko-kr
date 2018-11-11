@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 7f4e0d2feff59add3cec29846399eec5fc710a74
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8690ffdca606bf45f306f9273441aaac52b385c8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139309"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241364"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Azure Traffic Manager의 성능 저하 상태 문제 해결
 
@@ -84,11 +84,11 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Traffic Manager란?](traffic-manager-overview.md)
 
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Azure Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Traffic Manager 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
+[Traffic Manager 작업(REST API 참조)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure Traffic Manager cmdlet][1]
 

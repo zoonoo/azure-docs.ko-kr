@@ -3,17 +3,17 @@ title: 이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작�
 description: 이벤트를 오직 한 번만 처리하도록 Spark 스트리밍을 설정하는 방법.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: ae170e90cede26bd6a43fcc10b93fcd7490d838f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618824"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241320"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기
 
@@ -61,13 +61,21 @@ Spark 스트리밍은 Write-Ahead Log의 사용을 지원하는데 받은 이벤
 
 1. StreamingContext 개체에서 검사점에 대한 저장소 경로를 구성합니다.
 
-    val ssc = new StreamingContext(spark, Seconds(1))  ssc.checkpoint("/path/to/checkpoints")
+    ```Scala
+    val ssc = new StreamingContext(spark, Seconds(1))
+    ssc.checkpoint("/path/to/checkpoints")
+    ```
 
     HDInsight에서 이러한 검사점은 클러스터에 연결된 기본 저장소인 Azure Storage 또는 Azure Data Lake Store에 저장해야 합니다.
 
 2. 그런 다음 DStream에서 검사점 간격(초)을 지정합니다. 각 간격에서 입력 이벤트에서 파생된 상태 데이터는 저장소에 유지합니다. 지속된 상태 데이터는 소스 이벤트에서 상태를 다시 빌드할 때 필요한 계산을 줄일 수 있습니다.
 
-    val lines = ssc.socketTextStream("hostname", 9999)  lines.checkpoint(30)  ssc.start()  ssc.awaitTermination()
+    ```Scala
+    val lines = ssc.socketTextStream("hostname", 9999)
+    lines.checkpoint(30)
+    ssc.start()
+    ssc.awaitTermination()
+    ```
 
 ### <a name="use-idempotent-sinks"></a>Idempotent 싱크 사용
 

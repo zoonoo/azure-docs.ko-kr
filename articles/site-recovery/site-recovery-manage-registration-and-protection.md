@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214089"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244341"
 ---
 # <a name="remove-servers-and-disable-protection"></a>서버 제거 및 보호 사용 안 함
 
@@ -34,7 +34,7 @@ VMware VM 또는 Windows/Linux 물리적 서버를 Azure에 복제하는 경우 
 3. VMM 서버의 ID를 메모해 둡니다.
 4. 제거할 VMM 서버의 클라우드에서 복제 정책을 연결 해제합니다.  **사이트 복구 인프라** > **System Center VMM** >  **복제 정책**에서 연결된 정책을 두 번 클릭합니다. 클라우드를 마우스 오른쪽 단추로 클릭하고 > **연결 해제**를 클릭합니다.
 5. VMM 서버 또는 활성 노드를 삭제합니다. **사이트 복구 인프라** > **System Center VMM** > **VMM 서버**에서 서버를 마우스 오른쪽 단추로 클릭하고 > **삭제**를 클릭합니다.
-6. VMM 서버가 연결 분리 상태인 경우 VMM 서버에서 [정리 스크립트](http://aka.ms/asr-cleanup-script-vmm)를 다운로드하여 실행합니다. 기본(LocalMachine) 범위에 대한 실행 정책을 변경하려면 **관리자 권한으로 실행** 옵션으로 PowerShell을 엽니다. 스크립트에서 제거할 VMM 서버의 ID를 지정합니다. 이 스크립트는 서버에서 등록 및 클라우드 페어링을 제거합니다.
+6. VMM 서버가 연결 분리 상태인 경우 VMM 서버에서 [정리 스크립트](https://aka.ms/asr-cleanup-script-vmm)를 다운로드하여 실행합니다. 기본(LocalMachine) 범위에 대한 실행 정책을 변경하려면 **관리자 권한으로 실행** 옵션으로 PowerShell을 엽니다. 스크립트에서 제거할 VMM 서버의 ID를 지정합니다. 이 스크립트는 서버에서 등록 및 클라우드 페어링을 제거합니다.
 5. 모든 보조 VMM 서버에서 정리 스크립트를 실행합니다.
 6. 공급자가 설치된 다른 모든 수동 VMM 클러스터 노드에서 정리 스크립트를 실행합니다.
 7. VMM 서버에서 공급자를 수동으로 제거합니다. 클러스터가 있는 경우 모든 노드에서 제거합니다.

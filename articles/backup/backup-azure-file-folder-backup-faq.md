@@ -9,19 +9,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: saurse;trinadhk
-ms.openlocfilehash: 177e44bce7d8f159892d78c7003945ba55ef4b84
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577884"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239845"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup 에이전트에 대한 질문
 이 문서에서는 Azure Backup 에이전트 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
 
 ## <a name="configure-backup"></a>백업 구성
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>최신 Azure Backup 에이전트를 어디서 다운로드할 수 있나요? <br/>
-Windows Server, System Center DPM 또는 Windows 클라이언트를 백업하기 위한 최신 에이전트를 [여기](http://aka.ms/azurebackup_agent)에서 다운로드할 수 있습니다. 가상 머신을 백업하려는 경우 VM 에이전트(적절한 확장을 자동으로 설치)를 사용합니다. Azure 갤러리에서 만든 가상 머신에는 VM 에이전트가 이미 있습니다.
+Windows Server, System Center DPM 또는 Windows 클라이언트를 백업하기 위한 최신 에이전트를 [여기](https://aka.ms/azurebackup_agent)에서 다운로드할 수 있습니다. 가상 머신을 백업하려는 경우 VM 에이전트(적절한 확장을 자동으로 설치)를 사용합니다. Azure 갤러리에서 만든 가상 머신에는 VM 에이전트가 이미 있습니다.
 
 ### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>Azure Backup 에이전트를 구성할 때 저장소 자격 증명을 입력하라는 메시지가 표시됩니다. 저장소 자격 증명은 만료되나요?
 예, 저장소 자격 증명은 48시간이 지나면 만료됩니다. 파일이 만료되면 Azure Portal에 로그인하고 해당 자격 증명 모음에서 저장소 자격 증명 파일을 다운로드하세요.

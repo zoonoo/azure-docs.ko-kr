@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577233"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241500"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>응용 프로그램을 Azure AD에 추가하는 방법 및 이유
 
@@ -69,7 +69,7 @@ Azure Portal에서 [엔터프라이즈 응용 프로그램](https://portal.azure
 
 * 사용자가 Azure AD와 통합된 타사 응용 프로그램에 로그인하는 경우
   * 로그인하는 동안 사용자는 자신의 프로필 및 다른 권한에 액세스할 수 있는 권한을 응용 프로그램에 부여하도록 요청받습니다. 처음으로 동의하는 사람이 응용 프로그램을 나타내는 서비스 주체를 디렉터리에 추가하게 됩니다.
-* 사용자가 [Office 365](http://products.office.com/)와 같은 Microsoft 온라인 서비스에 로그인하는 경우
+* 사용자가 [Office 365](https://products.office.com/)와 같은 Microsoft 온라인 서비스에 로그인하는 경우
   * Office 365를 구독하거나 평가판을 시작하면 Office 365와 관련된 모든 기능을 전달하는 데 사용되는 다양한 서비스를 나타내는 디렉터리에 하나 이상의 서비스 주체가 만들어집니다.
   * SharePoint와 같은 일부 Office 365 서비스는 워크플로 등 구성 요소 간의 보안 통신을 허용하도록 지속적으로 서비스 주체를 만듭니다.
 * 관리자가 앱 갤러리에서 응용 프로그램을 추가하는 경우(이때 기본 앱 개체도 만듦)

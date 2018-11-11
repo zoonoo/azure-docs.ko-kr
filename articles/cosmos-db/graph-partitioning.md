@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: bf91ec77f8d7248c6fa2047636f295c187f626c8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7e9de68866b5e5849d0e48ad5073fc7b89fbb1ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078225"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239307"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할된 그래프 사용
 
-Azure Cosmos DB에서 Gremlin API의 주요 기능 중 하나는 수평 확장을 통해 대규모 그래프를 처리하는 기능입니다. 이 프로세스는 저장소 및 처리량 측면에서 독립적으로 확장될 수 있는 컨테이너를 활용하는 [Azure Cosmos DB의 분할 기능](partition-data.md#how-does-partitioning-work)을 통해 진행됩니다. Azure Cosmos DB는 모든 API에서 다음 유형의 컨테이너를 지원합니다.
+Azure Cosmos DB에서 Gremlin API의 주요 기능 중 하나는 수평 확장을 통해 대규모 그래프를 처리하는 기능입니다. 이 프로세스는 저장소 및 처리량 측면에서 독립적으로 확장될 수 있는 컨테이너를 활용하는 [Azure Cosmos DB의 분할 기능](partition-data.md)을 통해 진행됩니다. Azure Cosmos DB는 모든 API에서 다음 유형의 컨테이너를 지원합니다.
 
 - **고정 컨테이너**: 이러한 컨테이너는 초당 최대 10,000개 요청 단위를 갖는 최대 10GB 크기의 그래프 데이터베이스를 저장할 수 있습니다. 고정 컨테이너를 만들기 위해 데이터에 파티션 키 속성을 지정할 필요가 없습니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: fe63ce931da9fbe94b47d00805820affddfb1bc1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8491f3f61746374b67e174ca5efff2fbf2fe5fbe
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946989"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281900"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure Microsoft Azure Virtual Machines, Cloud Services 및 Web Apps에서 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
@@ -96,7 +96,7 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 ## <a name="methods-of-access"></a>액세스 방법
 자동 크기 조정은 다음을 통해 설정할 수 있습니다.
 
-* [Azure Portal](insights-how-to-scale.md)
+* [Azure Portal](monitoring-autoscale-get-started.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
 * [플랫폼 간 CLI(명령줄 인터페이스)](insights-cli-samples.md#autoscale)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
@@ -104,11 +104,11 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 ## <a name="supported-services-for-autoscale"></a>자동 크기 조정이 지원되는 서비스
 | 서비스 | 스키마 및 문서 |
 | --- | --- |
-| Web Apps |[Web Apps 크기 조정](insights-how-to-scale.md) |
+| Web Apps |[Web Apps 크기 조정](monitoring-autoscale-get-started.md) |
 | Cloud Services |[클라우드 서비스 자동 크기 조정](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: 클래식 |[클래식 Virtual Machine 가용성 집합 크기 조정](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines: Windows 확장 집합 |[Windows에서 가상 머신 확장 집합 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtual Machines: Linux 확장 집합 |[Linux에서 가상 머신 확장 집합 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Virtual Machines: Windows 확장 집합 |[Windows에서 가상 머신 확장 집합 크기 조정](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Virtual Machines: Linux 확장 집합 |[Linux에서 가상 머신 확장 집합 크기 조정](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtual Machines: Windows 예제 |[Resource Manager 템플릿을 사용하여 VM 확장 집합에 대한 고급 자동 크기 조정 구성](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 | API Management 서비스|[Azure API Management 인스턴스 자동 크기 조정](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 

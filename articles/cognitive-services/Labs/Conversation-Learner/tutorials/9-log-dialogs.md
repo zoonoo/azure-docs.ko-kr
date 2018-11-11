@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 5369e16e0f1adc48eb019f3790dc900577c144af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248384"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243662"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Conversation Learner 모델에서 대화를 기록하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "48248384"
 
 ## <a name="video"></a>비디오
 
-[![자습서 9 미리 보기](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
+[![자습서 9 미리 보기](https://aka.ms/cl-tutorial-09-preview)](https://aka.ms/blis-tutorial-09)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.

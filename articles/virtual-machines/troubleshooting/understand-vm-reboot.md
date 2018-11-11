@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f50be01d067032b1143a80e56ccb5d49d899d4d6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1f48e3273ac0a237c72565acf25049b763dba8a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415970"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246670"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
 
@@ -108,7 +108,7 @@ Azure의 VM은 Azure Storage 인프라에서 호스팅되는 운영 체제 및 �
 
 **IO 제한 초과**
 
-초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (표준 디스크 저장소는 500IOPS로 제한됩니다.) 이 문제를 완화하려면 워크로드에 따라 디스크 스트라이프를 사용하거나 게스트 VM 내에서 저장소 공간을 구성합니다. 자세한 내용은 [Storage 성능이 최적화되도록 Azure VM 구성](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
+초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (표준 디스크 저장소는 500IOPS로 제한됩니다.) 이 문제를 완화하려면 워크로드에 따라 디스크 스트라이프를 사용하거나 게스트 VM 내에서 저장소 공간을 구성합니다. 자세한 내용은 [Storage 성능이 최적화되도록 Azure VM 구성](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
 
 최대 80,000IOPS의 Azure Premium Storage를 통해 더 높은 IOPS 제한을 사용할 수 있습니다. 자세한 내용은 [고성능 Premium Storage](../windows/premium-storage.md)를 참조하세요.
 

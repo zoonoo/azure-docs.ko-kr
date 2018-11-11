@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 9f88e71df7697156e0745aeaf6b989548bcc223f
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a4a9fefa98d30d0f9815a935f000c8a663dffd21
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945114"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514199"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 인증서 서명 요청 만들기
 
@@ -29,7 +29,7 @@ Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker) 다음 인증�
  - **표준 인증서 요청**  
     요청에 따라 [Azure Stack 배포를 위한 PKI 인증서를 생성할](azure-stack-get-pki-certs.md)합니다.
  - **플랫폼-as a Service**  
-    필요에 따라 플랫폼-as a service (PaaS) 이름에 지정 된 대로 인증서를 요청 [Azure Stack 공개 키 인프라 인증서 요구 사항-선택적 PaaS 인증서](azure-stack-pki-certs.md#optional-paas-certificates)합니다.
+    플랫폼-as a service (PaaS) 이름에 지정 된 대로 인증서를 요청할 수 있습니다 [Azure Stack 공개 키 인프라 인증서 요구 사항-선택적 PaaS 인증서](azure-stack-pki-certs.md#optional-paas-certificates)합니다.
 
 
 
@@ -102,7 +102,7 @@ Azure Stack 준비 상태 검사기 도구 (AzsReadinessChecker) 다음 인증�
 
     PaaS 서비스를 포함 하려면 스위치를 지정 합니다. ```-IncludePaaS```
 
-7. 또는 개발/테스트 환경에 대 한 생성 하는 단일 인증서 요청을 여러 주체 대체 이름 추가 **-RequestType SingleCSR** 매개 변수 및 값 (**하지** 프로덕션 환경에 권장):
+7. 또는 개발/테스트 환경을 생성 하는 단일 인증서 요청을 여러 주체 대체 이름 추가 **-RequestType SingleCSR** 매개 변수 및 값 (**하지** 권장 프로덕션 환경):
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem

@@ -15,18 +15,18 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 64fdb6dceb1ca10e68411f95c310fdd9a2e25202
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 08cbff7bc58f5925dee9b77ff195d362af4379d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444134"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245742"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
 ## <a name="overview"></a>개요
 
-이 항목에서는 Visual Studio를 사용하여 콘솔 응용 프로그램 프로젝트를 [App Service](app-service-web-overview.md)의 웹앱에 [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226)으로 배포하는 방법을 설명합니다. [Azure Portal](https://portal.azure.com)을 사용하여 WebJobs를 배포하는 방법에 대한 내용은 [WebJobs로 백그라운드 작업 실행](web-sites-create-web-jobs.md)을 참조하세요.
+이 항목에서는 Visual Studio를 사용하여 콘솔 응용 프로그램 프로젝트를 [App Service](app-service-web-overview.md)의 웹앱에 [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226)으로 배포하는 방법을 설명합니다. [Azure Portal](https://portal.azure.com)을 사용하여 WebJobs를 배포하는 방법에 대한 내용은 [WebJobs로 백그라운드 작업 실행](web-sites-create-web-jobs.md)을 참조하세요.
 
 Visual Studio는 WebJob 지원 콘솔 응용 프로그램 프로젝트를 배포할 때 다음 두 가지 작업을 수행합니다.
 

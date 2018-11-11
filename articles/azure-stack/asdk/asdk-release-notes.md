@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 284a964162a2374287b42698b9a2021be36590dd
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: MT
+ms.openlocfilehash: 8e8518cdf95e1b97bd4b641322c1b2a3fdc3bf9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158162"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282461"
 ---
 # <a name="asdk-release-notes"></a>ASDK 릴리스 정보  
 이 문서에서는 향상 된 기능, 수정 및 알려진된 문제에 Azure Stack 개발 키트 ASDK ()에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
@@ -99,6 +99,9 @@ ms.locfileid: "50158162"
 
 
 #### <a name="compute"></a>컴퓨팅 
+
+<!-- TBD – IS, ASDK -->
+- 와 같은 오류로 인해 실패 때도 동일한 이름 및 LUN을 사용 하 여 동일한 가상 컴퓨터 (VM) 디스크를 분리 **datadisk' 데이터 디스크' 'vm1' VM에 연결할 수 없습니다**합니다. 디스크가 현재 분리 됨 또는 마지막 분리 작업 실패 오류가 발생 합니다. 하세요 디스크가 완전히 분리 될 때까지 대기 하 고 다시 시도 하거나 삭제/분리 디스크 명시적으로 다시 합니다. 이를 해결 하려면 다른 이름으로 또는 다른 LUN에 다시 연결 합니다. 
 
 <!-- 3235634 – IS, ASDK -->
 - 포함 된 크기를 사용 하 여 Vm을 배포 하는 **v2** 접미사; 예를 들어 **Standard_A2_v2**,으로 접미사를 지정 하세요 **Standard_A2_v2** (소문자 v). 사용 하지 마세요 **Standard_A2_V2** (V 대문자). 이 글로벌 Azure에서 작동 하며 Azure Stack에서 일치 하지 않습니다.

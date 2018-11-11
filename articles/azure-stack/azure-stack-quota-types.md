@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/30/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3c0ab236dd6fce10be0a50c435f04517e14c1387
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077598"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299422"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack에서 할당량 유형
 
@@ -31,15 +31,15 @@ ms.locfileid: "49077598"
 ## <a name="compute-quota-types"></a>계산 할당량 형식 
 | **형식** | **기본값** | **설명** |
 | --- | --- | --- |
-| 가상 컴퓨터의 최대 수 | 20 | 이 위치에서 구독을 만들 수 있는 가상 머신의 최대 수입니다. |
-| 가상 컴퓨터 코어의 최대 수 | 50 | 이 위치에 구독을 만들 수 있는 코어의 최대 수 (예를 들어는 A3 VM에 4 개 코어). |
+| 가상 컴퓨터의 최대 수 | 50 | 이 위치에서 구독을 만들 수 있는 가상 머신의 최대 수입니다. |
+| 가상 컴퓨터 코어의 최대 수 | 100 | 이 위치에 구독을 만들 수 있는 코어의 최대 수 (예를 들어는 A3 VM에 4 개 코어). |
 | 가용성 집합의 최대 | 10 | 이 위치에 만든 가용성 집합의 최대 수입니다. |
-| 가상 머신 확장의 최대 수 설정 | 20 | 이 위치에 만들 수 있는 가상 머신 확장 집합의 최대 수입니다. |
+| 가상 머신 확장의 최대 수 설정 | 100 | 이 위치에 만들 수 있는 가상 머신 확장 집합의 최대 수입니다. |
 
 ## <a name="storage-quota-types"></a>저장소 할당량 유형 
 | **항목** | **기본값** | **설명** |
 | --- | --- | --- |
-| 최대 용량 (GB) |500 |이 위치에 구독에서 사용할 수 있는 총 저장소 용량입니다. |
+| 최대 용량 (GB) |2048 |이 위치에 구독에서 사용할 수 있는 총 저장소 용량입니다. |
 | 저장소 계정의 총 수 |20 |이 위치에서 구독을 만들 수 있는 저장소 계정의 최대 수입니다. |
 
 > [!NOTE]  

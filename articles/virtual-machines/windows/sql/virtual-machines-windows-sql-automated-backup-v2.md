@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 4619c26e34c90f58702ad286f76a999f83f49cc4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894512"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246823"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 
@@ -151,7 +151,7 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 
 PowerShell을 사용하여 자동화된 Backup v2를 구성할 수도 있습니다. 시작하기 전에 다음을 수행해야 합니다.
 
-- [최신 Azure PowerShell을 다운로드하여 설치합니다](http://aka.ms/webpi-azps).
+- [최신 Azure PowerShell을 다운로드하여 설치합니다](https://aka.ms/webpi-azps).
 - Windows PowerShell을 열고 **Connect-AzureRmAccount** 명령을 사용하여 계정에 연결합니다.
 
 ### <a name="install-the-sql-iaas-extension"></a>SQL IaaS 확장 설치

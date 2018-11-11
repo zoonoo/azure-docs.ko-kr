@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 75d630b91a1380102fd285edfb11effa22f47859
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 29af7ad8b582682189320185c460597af53cf6d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413234"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243916"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
-[PerfInsights](http://aka.ms/perfinsightsdownload)는 자체 진단 도구로서 진단 데이터를 수집 및 분석하고, Azure에서 Windows 가상 머신 성능 문제를 해결하는 데 도움이 되는 보고서를 제공합니다. PerfInsights는 독립 실행형 도구로서 [Azure 가상 머신에 대한 성능 진단](performance-diagnostics.md)을 사용하거나 [Azure Performance Diagnostics VM 확장](performance-diagnostics-vm-extension.md)을 설치하여 포털에서 직접 가상 머신에서 실행될 수 있습니다.
+[PerfInsights](https://aka.ms/perfinsightsdownload)는 자체 진단 도구로서 진단 데이터를 수집 및 분석하고, Azure에서 Windows 가상 머신 성능 문제를 해결하는 데 도움이 되는 보고서를 제공합니다. PerfInsights는 독립 실행형 도구로서 [Azure 가상 머신에 대한 성능 진단](performance-diagnostics.md)을 사용하거나 [Azure Performance Diagnostics VM 확장](performance-diagnostics-vm-extension.md)을 설치하여 포털에서 직접 가상 머신에서 실행될 수 있습니다.
 
 가상 머신 성능 문제가 있는 경우 기술 지원에 문의하기 전에 이 도구를 실행합니다.
 
@@ -190,7 +190,7 @@ PerfInsights는 [Azure Performance Diagnostics VM 확장](performance-diagnostic
 PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 
 
-1. [PerfInsights.zip](http://aka.ms/perfinsightsdownload)을 다운로드합니다.
+1. [PerfInsights.zip](https://aka.ms/perfinsightsdownload)을 다운로드합니다.
 
 2. PerfInsights.zip 파일의 차단을 해제합니다. 이렇게 하려면 PerfInsights.zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. **일반** 탭에서 **차단 해제**를 선택한 다음 **확인**을 선택합니다. 이렇게 하면 추가 보안을 요구하는 메시지가 표시되지 않고 이 도구가 실행됩니다.  
 

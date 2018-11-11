@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 5d2f4fc77d5849dc2be80ada9610098c9a381f92
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466157"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244103"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack에서 암호를 회전 합니다.
 
@@ -92,7 +92,7 @@ Azure Stack 다음 경우에 새 인증 기관 (CA)에서 외부 인증서를 �
 5.  백업 회전 안전한 백업 위치에 사용 된 인증서를 저장 합니다. 회전에 실행 되 고 실패 하면 다음을 하는 경우는 회전을 다시 실행 하기 전에 백업 복사본을 사용 하 여 파일 공유에 인증서를 대체 합니다. 참고, 안전한 백업 위치에 백업 복사본을 보관 합니다.
 6.  ERCS Vm에서 액세스할 수 있습니다 하는 파일 공유를 만듭니다. 파일 공유를 읽을 수 있는 고에 대 한 쓰기 가능 해야 합니다 **CloudAdmin** identity입니다.
 7.  파일 공유에 액세스할 수 있는 컴퓨터에서 PowerShell ISE 콘솔을 엽니다. 에 파일 공유로 이동 합니다. 
-8.  실행할 **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** 외부 인증서에 대 한 필수 디렉터리를 만들려고 합니다.
+8.  실행할 **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** 외부 인증서에 대 한 필수 디렉터리를 만들려고 합니다.
 
 ## <a name="rotating-external-and-internal-secrets"></a>외부 및 내부 비밀 회전
 

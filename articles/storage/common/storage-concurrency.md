@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.component: common
-ms.openlocfilehash: 91eb9c12a8913c0a96ee7c3133dc5f982c42cad7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 25de4f28d7516f5c7830b24e4c999ceb855a7759
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025311"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242979"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Storage에서 동시성 관리
 ## <a name="overview"></a>개요
@@ -45,7 +45,7 @@ Storage 서비스는 저장되는 모든 개체에 식별자를 할당합니다.
 4. Blob의 현재 ETag 값이 요청의 **If-Match** 조건부 헤더에 포함된 ETag와 다른 버전이면 서비스는 클라이언트에 412 오류를 반환합니다. 클라이언트는 이 오류를 통해 Blob를 검색한 후 다른 프로세스에서 Blob를 업데이트했음을 확인할 수 있습니다.
 5. Blob의 현재 ETag 값이 요청의 **If-Match** 조건부 헤더에 포함된 ETag와 같은 버전이면 서비스는 요청된 작업을 수행하며 Blob의 현재 ETag 값을 업데이트하여 새 버전을 만들었음을 표시합니다.  
 
-클라이언트 저장소 라이브러리 4.2.0을 사용하는 다음 C# 코드 조각은 이전에 검색했거나 삽입한 Blob의 속성에서 액세스할 수 있는 ETag 값을 기준으로 **If-Match AccessCondition** 을 생성하는 방법의 간단한 예제를 보여 줍니다. 그런 다음 Blob을 업데이트할 때 **AccessCondition** 개체를 사용합니다: **AccessCondition** 개체는 요청에 **If-Match** 헤더를 추가합니다. 다른 프로세스가 Blob을 업데이트한 경우 Blob 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다. [Azure Storage를 사용하여 동시성 관리](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)에서 전체 샘플을 다운로드할 수 있습니다.  
+클라이언트 저장소 라이브러리 4.2.0을 사용하는 다음 C# 코드 조각은 이전에 검색했거나 삽입한 Blob의 속성에서 액세스할 수 있는 ETag 값을 기준으로 **If-Match AccessCondition** 을 생성하는 방법의 간단한 예제를 보여 줍니다. 그런 다음 Blob을 업데이트할 때 **AccessCondition** 개체를 사용합니다: **AccessCondition** 개체는 요청에 **If-Match** 헤더를 추가합니다. 다른 프로세스가 Blob을 업데이트한 경우 Blob 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다. [Azure Storage를 사용하여 동시성 관리](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)에서 전체 샘플을 다운로드할 수 있습니다.  
 
 ```csharp
 // Retrieve the ETag from the newly created blob
@@ -80,7 +80,7 @@ catch (StorageException ex)
 }  
 ```
 
-Storage 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-None-Match**와 같은 추가 조건부 헤더 및 이러한 헤더의 조합도 지원합니다. 자세한 내용은 MSDN의 [Blob 서비스 작업의 조건부 헤더 지정](http://msdn.microsoft.com/library/azure/dd179371.aspx)을 참조하세요.  
+Storage 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-None-Match**와 같은 추가 조건부 헤더 및 이러한 헤더의 조합도 지원합니다. 자세한 내용은 MSDN의 [Blob 서비스 작업의 조건부 헤더 지정](https://msdn.microsoft.com/library/azure/dd179371.aspx)을 참조하세요.  
 
 아래 표에는 요청에서 **If-Match** 와 같은 조건부 헤더를 수락하며 응답에서 ETag 값을 반환하는 컨테이너 작업이 요약되어 있습니다.  
 
@@ -122,11 +122,11 @@ Storage 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-Non
 (*) Blob 임대에서는 Blob의 ETag가 변경되지 않습니다.  
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Blob에 대한 비관적 동시성
-단독 사용을 위해 Blob를 잠그려는 경우 Blob에 대한 [임대](http://msdn.microsoft.com/library/azure/ee691972.aspx)를 획득할 수 있습니다. 임대를 획득하는 경우 임대에 필요한 기간을 지정합니다. 이 기간은 15초에서 60초 사이이거나 배타적 잠금 상태가 되는 무한일 수 있습니다. 유한 임대는 갱신하여 연장할 수 있으며 완료된 임대는 해제할 수 있습니다. Blob 서비스는 만료된 유한 임대를 자동으로 해제합니다.  
+단독 사용을 위해 Blob를 잠그려는 경우 Blob에 대한 [임대](https://msdn.microsoft.com/library/azure/ee691972.aspx)를 획득할 수 있습니다. 임대를 획득하는 경우 임대에 필요한 기간을 지정합니다. 이 기간은 15초에서 60초 사이이거나 배타적 잠금 상태가 되는 무한일 수 있습니다. 유한 임대는 갱신하여 연장할 수 있으며 완료된 임대는 해제할 수 있습니다. Blob 서비스는 만료된 유한 임대를 자동으로 해제합니다.  
 
 임대를 사용하면 배타적 쓰기/공유 읽기, 배타적 쓰기/배타적 읽기, 공유 쓰기/배타적 읽기 등의 다양한 동기화 전략을 지원할 수 있습니다. 임대가 있는 상태에서 저장소 서비스가 배타적 쓰기(배치, 설정 및 삭제 작업)를 강제로 수행하지만 읽기 작업에 대해 독점성을 보장하는 경우 개발자는 모든 클라이언트 응용 프로그램에서 임대 ID를 사용하고 한 번에 한 클라이언트만 유효한 임대 ID를 사용하도록 해야 합니다. 임대 ID를 포함하지 않는 읽기 작업에서는 공유 읽기가 수행됩니다.  
 
-다음 C# 코드 조각은 Blob에 대해 30초 동안 배타적 임대를 획득하고 Blob의 내용을 업데이트한 후에 임대를 해제하는 예제를 보여 줍니다. 새 임대를 획득하려 할 때 Blob에 대해 유효한 임대가 이미 있으면 Blob service는 “HTTP(409) 충돌” 상태 결과를 반환합니다. 다음 코드 조각은 저장소 서비스에서 Blob를 업데이트하기 위한 요청을 할 때 **AccessCondition** 개체를 사용하여 임대 정보를 캡슐화합니다.  [Azure Storage를 사용하여 동시성 관리](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)에서 전체 샘플을 다운로드할 수 있습니다.
+다음 C# 코드 조각은 Blob에 대해 30초 동안 배타적 임대를 획득하고 Blob의 내용을 업데이트한 후에 임대를 해제하는 예제를 보여 줍니다. 새 임대를 획득하려 할 때 Blob에 대해 유효한 임대가 이미 있으면 Blob service는 “HTTP(409) 충돌” 상태 결과를 반환합니다. 다음 코드 조각은 저장소 서비스에서 Blob를 업데이트하기 위한 요청을 할 때 **AccessCondition** 개체를 사용하여 임대 정보를 캡슐화합니다.  [Azure Storage를 사용하여 동시성 관리](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)에서 전체 샘플을 다운로드할 수 있습니다.
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -155,7 +155,7 @@ catch (StorageException ex)
 }  
 ```
 
-임대 ID를 전달하지 않고 임대한 Blob에 대해 쓰기 작업을 시도하면 요청이 실패하고 412 오류가 발생합니다. **UploadText** 메서드를 호출하기 전에 임대가 만료되었는데 임대 ID를 전달하는 경우에도 요청이 실패하고 **412** 오류가 발생합니다. 임대 만료 시간 및 임대 ID를 관리하는 방법에 대한 자세한 내용은 [Blob 임대](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST 문서를 참조하세요.  
+임대 ID를 전달하지 않고 임대한 Blob에 대해 쓰기 작업을 시도하면 요청이 실패하고 412 오류가 발생합니다. **UploadText** 메서드를 호출하기 전에 임대가 만료되었는데 임대 ID를 전달하는 경우에도 요청이 실패하고 **412** 오류가 발생합니다. 임대 만료 시간 및 임대 ID를 관리하는 방법에 대한 자세한 내용은 [Blob 임대](https://msdn.microsoft.com/library/azure/ee691972.aspx) REST 문서를 참조하세요.  
 
 다음 Blob 작업에서는 임대를 사용하여 비관적 동시성을 관리할 수 있습니다.  
 
@@ -191,9 +191,9 @@ catch (StorageException ex)
 
 자세한 내용은 다음을 참조하세요.  
 
-* [Blob 서비스 작업의 조건부 헤더 지정](http://msdn.microsoft.com/library/azure/dd179371.aspx)
-* [컨테이너 임대](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Blob 임대 ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Blob 서비스 작업의 조건부 헤더 지정](https://msdn.microsoft.com/library/azure/dd179371.aspx)
+* [컨테이너 임대](https://msdn.microsoft.com/library/azure/jj159103.aspx)
+* [Blob 임대 ](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>테이블 서비스에서 동시성 관리
 낙관적 동시성 검사를 수행하도록 명시적으로 선택해야 하는 Blob 서비스에서와는 달리 테이블 서비스에서는 엔터티로 작업할 때 낙관적 동시성 검사를 기본 동작으로 사용합니다. 테이블 서비스와 Blob 서비스의 또 다른 차이점은, 테이블 서비스에서는 엔터티의 동시성 동작만 관리할 수 있는 반면 Blob 서비스에서는 컨테이너와 Blob의 동시성을 모두 관리할 수 있다는 것입니다.  
@@ -208,7 +208,7 @@ catch (StorageException ex)
 
 Blob 서비스와 달리 테이블 서비스에서는 클라이언트가 업데이트 요청에 **If-Match** 헤더를 포함해야 합니다. 그러나 클라이언트가 요청에서 **If-Match** 헤더를 와일드카드 문자(*)로 설정하는 경우에는 무조건 업데이트(마지막 작성자의 업데이트 적용 전략)를 강제 지정하고 동시성 검사를 무시할 수 있습니다.  
 
-다음 C# 코드 조각은 이전에 만들거나 검색한 customer 엔터티의 메일 주소를 업데이트하는 작업을 보여 줍니다. 초기 삽입 또는 검색 작업에서는 ETag 값을 customer 개체에 저장합니다. 이 샘플은 바꾸기 작업을 실행할 때 같은 개체 인스턴스를 사용하므로 ETag 값을 테이블 서비스에 자동으로 다시 보내기 때문에 서비스가 동시성 위반을 검사할 수 있습니다. 다른 프로세스가 테이블 저장소에서 엔터티를 업데이트한 경우 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다.  [Azure Storage를 사용하여 동시성 관리](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)에서 전체 샘플을 다운로드할 수 있습니다.
+다음 C# 코드 조각은 이전에 만들거나 검색한 customer 엔터티의 메일 주소를 업데이트하는 작업을 보여 줍니다. 초기 삽입 또는 검색 작업에서는 ETag 값을 customer 개체에 저장합니다. 이 샘플은 바꾸기 작업을 실행할 때 같은 개체 인스턴스를 사용하므로 ETag 값을 테이블 서비스에 자동으로 다시 보내기 때문에 서비스가 동시성 위반을 검사할 수 있습니다. 다른 프로세스가 테이블 저장소에서 엔터티를 업데이트한 경우 서비스는 HTTP 412(전재 조건 실패) 상태 메시지를 반환합니다.  [Azure Storage를 사용하여 동시성 관리](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)에서 전체 샘플을 다운로드할 수 있습니다.
 
 ```csharp
 try
@@ -251,7 +251,7 @@ customer.ETag = "*";
 
 자세한 내용은 다음을 참조하세요.  
 
-* [엔터티에 대한 작업](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
+* [엔터티에 대한 작업](https://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
 ## <a name="managing-concurrency-in-the-queue-service"></a>큐 서비스에서 동시성 관리
 큐 서비스에서 동시성이 중요한 시나리오 중 하나는 여러 클라이언트가 큐에서 메시지를 검색할 때입니다. 큐에서 메시지를 검색할 때 응답에는 메시지와 PopReceipt 값(메시지를 삭제할 때 필요함)이 포함됩니다. 메시지는 큐에서 자동으로 삭제되지 않으며 검색된 후 visibilitytimeout 매개 변수로 지정된 시간 간격 동안 다른 클라이언트에는 표시되지 않습니다. 메시지를 검색하는 클라이언트는 메시지가 처리된 후 응답의 TimeNextVisible 요소로 지정된 시간 전에 메시지를 삭제해야 합니다. 이 시간은 visibilitytimeout 매개 변수의 값을 기준으로 계산됩니다. visibilitytimeout의 값을 메시지가 검색된 시간에 합하여 TimeNextVisible의 값을 결정합니다.  
@@ -260,8 +260,8 @@ customer.ETag = "*";
 
 자세한 내용은 다음을 참조하세요.  
 
-* [큐 서비스 REST API](http://msdn.microsoft.com/library/azure/dd179363.aspx)
-* [메시지 가져오기](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
+* [큐 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179363.aspx)
+* [메시지 가져오기](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
 ## <a name="managing-concurrency-in-the-file-service"></a>파일 서비스에서 동시성 관리
 서로 다른 두 프로토콜 엔드포인트인 SMB와 REST를 사용하여 파일 서비스에 액세스할 수 있습니다. REST 서비스는 낙관적 잠금이나 비관적 잠금을 지원하지 않으며 모든 업데이트는 마지막 작성자의 업데이트 적용 전략을 따릅니다. 파일 공유를 탑재하는 SMB 클라이언트는 파일 시스템 잠금 메커니즘을 활용하여 공유 파일에 대한 액세스를 관리할 수 있습니다. 여기에는 비관적 잠금을 수행하는 기능이 포함됩니다. SMB 클라이언트는 파일을 열 때 파일 액세스 및 공유 모드를 모두 지정합니다. 파일 공유 모드를 "없음"으로 지정하는 동시에 파일 액세스 옵션을 "쓰기" 또는 "읽기/쓰기"로 설정하면 파일을 닫을 때까지 SMB 클라이언트가 파일을 잠급니다. SMB 클라이언트가 파일을 잠근 경우 해당 파일에 대해 REST 작업을 시도하면 REST 서비스가 상태 코드 409(충돌) 및 오류 코드 SharingViolation을 반환합니다.  
@@ -270,19 +270,19 @@ SMB 클라이언트는 삭제를 위해 파일을 열 때 해당 파일에 대�
 
 자세한 내용은 다음을 참조하세요.  
 
-* [파일 잠금 관리](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
+* [파일 잠금 관리](https://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 ## <a name="summary-and-next-steps"></a>요약 및 다음 단계
 Microsoft Azure Storage 서비스는 개발자가 기본적으로 제공하려는 동시성 및 데이터 일관성과 같은 주요 디자인 가정 사항을 다시 고려하거나 절충하지 않고도 매우 복잡한 온라인 응용 프로그램의 요구 사항을 충족할 수 있도록 디자인되었습니다.  
 
 이 블로그에서 참조하는 전체 샘플 응용 프로그램은 다음 문서를 참조하세요.  
 
-* [Azure Storage를 사용하여 동시성 관리 - 샘플 응용 프로그램](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
+* [Azure Storage를 사용하여 동시성 관리 - 샘플 응용 프로그램](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
 Azure Storage에 대한 자세한 내용은 다음을 참조하세요.  
 
 * [Microsoft Azure Storage 홈페이지](https://azure.microsoft.com/services/storage/)
 * [Azure Storage 소개](storage-introduction.md)
 * [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [테이블](../../cosmos-db/table-storage-how-to-use-dotnet.md), [큐](../storage-dotnet-how-to-use-queues.md) 및 [파일](../storage-dotnet-how-to-use-files.md)에 대한 저장소 시작
-* 저장소 아키텍처 – [Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* 저장소 아키텍처 – [Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 저장소 서비스](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

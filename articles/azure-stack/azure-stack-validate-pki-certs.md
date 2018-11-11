@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 51c76c552ef3a79f48637598a12f7a7be1823996
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961129"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515831"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI 인증서의 유효성 검사
 
@@ -244,6 +244,22 @@ SQL/MySQL 또는 App Services 배포 계획 된 경우 준비 하 고 플랫폼�
         Key Usage: OK
         Key Size: OK
     ```
+
+## <a name="certificates"></a>인증서
+
+| 디렉터리 | 인증서 |
+| ---    | ----        |
+| acsBlob | wildcard_blob_\< 지역 >\< externalFQDN > |
+| ACSQueue  |  wildcard_queue\< 지역 >\< externalFQDN > |
+| ACSTable  |  wildcard_table\< 지역 >\< externalFQDN > |
+| 관리 확장 호스트  |  wildcard_adminhosting\< 지역 >\< externalFQDN > |
+| 관리 포털  |  adminportal\< 지역 >\< externalFQDN > |
+| ARM 관리  |  adminmanagement\< 지역 >\< externalFQDN > |
+| ARM 공용  |  관리\< 지역 >\< externalFQDN > |
+| KeyVault  |  wildcard_vault\< 지역 >\< externalFQDN > |
+| KeyVaultInternal  |  wildcard_adminvault\< 지역 >\< externalFQDN > |
+| 공용 확장 호스트  |  wildcard_hosting\< 지역 >\< externalFQDN > |
+| 공용 포털  |  포털\< 지역 > _\< externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>유효성이 검사 된 인증서를 사용 하 여
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1dac11b8ad71a936b33742b52c95ac998176baf7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945963"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244947"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Azure Machine Learning 서비스(미리 보기)란?
 
@@ -48,7 +48,7 @@ Azure Machine Learning 서비스를 사용하면 로컬 머신 학습을 시작�
 Azure Machine Learning 서비스는 모델을 자동으로 생성하여 사용자에 맞게 조정할 수 있습니다.
 예제는 [자습서: Azure 자동화된 Machine Learning을 사용하여 자동으로 분류 모델 학습시키기](tutorial-auto-train-models.md)를 참조하세요.
 
-또는 Python용 Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>와 오픈 소스 Python 패키지를 함께 사용하여 Azure Machine Learning 서비스 작업 영역에서 매우 정확한 기계 학습 및 딥 러닝 모델을 직접 빌드 및 교육할 수 있습니다.
+또는 Python용 Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>와 오픈 소스 Python 패키지를 함께 사용하여 Azure Machine Learning 서비스 작업 영역에서 매우 정확한 기계 학습 및 딥 러닝 모델을 직접 빌드 및 교육할 수 있습니다.
 오픈 소스 Python 패키지에서 다음과 같이 다양한 기계 학습 구성 요소를 선택할 수 있습니다.
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -59,7 +59,7 @@ Azure Machine Learning 서비스는 모델을 자동으로 생성하여 사용�
 
 모델이 있으면 모델을 사용하여 테스트를 위해 로컬로 배포한 다음, [Azure Container Instances](how-to-deploy-to-aci.md) 또는 [Azure Kubernetes Service](how-to-deploy-to-aks.md)의 프로덕션 웹 서비스로 배포할 수 있는 할 수 있는 컨테이너(예: Docker)를 만듭니다.
 
-그런 다음, [Azure Portal](https://portal.azure.com/) 또는 [Azure Machine Learning CLI 확장](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)을 사용하여 배포된 모델을 관리할 수 있습니다.
+그런 다음, [Azure Portal](https://portal.azure.com/) 또는 [Azure Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)을 사용하여 배포된 모델을 관리할 수 있습니다.
 모델 테스트를 추적하는 동안 모델 메트릭을 평가하고, 새 모델 버전을 다시 학습하고, 다시 배포할 수 있습니다.
 
 Azure Machine Learning 서비스를 사용하기 시작하려면 아래 [다음 단계](#next-steps)를 참조하세요.
@@ -85,6 +85,8 @@ Python 환경에서 작업하거나, 기계 학습 알고리즘에 대한 제어
 - 전체 자습서 [Azure Machine Learning으로 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)의 단계에 따라 작업 영역을 사용하여 Azure Machine Learning 서비스로 모델을 빌드, 교육 및 배포하는 방법을 알아보세요.
 
 - Azure Machine Learning의 모델 자동 생성 및 자동 조정 허용에 대한 자세한 내용은 [자습서: Azure 자동화된 Machine Learning을 사용하여 자동으로 분류 모델 학습시키기](tutorial-auto-train-models.md)를 참조하세요.
+
+- 기계 학습 시나리오를 작성, 최적화 및 관리하는 [기계 학습 파이프라인](/azure/machine-learning/service/concept-ml-pipelines)에 대해 알아보세요.
 
 - 서비스에 대한 상세 기술 정보는[Azure Machine Learning 서비스 아키텍처 및 개념](concept-azure-machine-learning-architecture.md)을 참조하세요.
 

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343829"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242095"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Marketplace 이미지를 사용하여 관리 ID가 있는 Azure 리소스용 Terraform Linux 가상 머신 만들기
 
@@ -97,9 +97,9 @@ SSH를 사용하여 가상 머신에 연결한 후 가상 머신에서 전체 �
 이 문서에서는 Azure에서 Terraform Linux 가상 머신을 설정하는 방법을 알아보았습니다. Azure의 Terraform에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다. 
 
  [Microsoft.com의 Terraform 허브](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure 공급자 설명서](http://aka.ms/terraform)  
- [Terraform Azure 공급자 원본](http://aka.ms/tfgit)  
- [Terraform Azure 모듈](http://aka.ms/tfmodules)
+ [Terraform Azure 공급자 설명서](https://aka.ms/terraform)  
+ [Terraform Azure 공급자 원본](https://aka.ms/tfgit)  
+ [Terraform Azure 모듈](https://aka.ms/tfmodules)
  
 
 

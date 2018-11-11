@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 35c3027f2b592f6b24075005829ae9376a7fca82
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 28ea626adf87ad9f115b5acc5452dfc91ad833c5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987038"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245010"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>엔드포인트 추가, 사용 안 함, 사용 또는 삭제
 
@@ -80,5 +80,5 @@ Traffic Manager 프로필의 일부인 개별 엔드포인트를 사용하지 �
 * [라우팅 방법 구성](traffic-manager-configure-routing-method.md)
 * [Traffic Manager 성능 저하 상태 문제 해결](traffic-manager-troubleshooting-degraded.md)
 * [Traffic Manager 성능 고려 사항](traffic-manager-performance-considerations.md)
-* [Traffic Manager 작업(REST API 참조)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+* [Traffic Manager 작업(REST API 참조)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
 

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8852fc75658298a2c6887d8fef154d5a0b59affd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 482faaea7089e095da13a2bae5f5937e20d50616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159911"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246755"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database의 확장 이벤트
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -32,15 +32,15 @@ ms.locfileid: "47159911"
 
 Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가 정보는 다음에 제공됩니다.
 
-- [빠른 시작: SQL Server의 확장 이벤트](http://msdn.microsoft.com/library/mt733217.aspx)
-- [확장 이벤트](http://msdn.microsoft.com/library/bb630282.aspx)
+- [빠른 시작: SQL Server의 확장 이벤트](https://msdn.microsoft.com/library/mt733217.aspx)
+- [확장 이벤트](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 항목은 다음에 대한 어느 정도의 지식이 있는 것으로 가정합니다.
 
 - [Azure SQL Database 서비스](https://azure.microsoft.com/services/sql-database/).
-- Microsoft SQL Server의 [Extended events](http://msdn.microsoft.com/library/bb630282.aspx).
+- Microsoft SQL Server의 [Extended events](https://msdn.microsoft.com/library/bb630282.aspx).
 
 - 이 설명서에서 확장 이벤트에 대한 내용의 많은 부분이 SQL Server와 SQL Database에 모두 적용됩니다.
 
@@ -69,10 +69,10 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 ## <a name="transact-sql-differences"></a>Transact-SQL 차이점
 
 
-- SQL Server에서 [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) 명령을 사용하는 경우 **ON SERVER** 절을 사용합니다. 하지만 SQL Database에서는 대신 **ON DATABASE** 절을 사용합니다.
+- SQL Server에서 [CREATE EVENT SESSION](https://msdn.microsoft.com/library/bb677289.aspx) 명령을 사용하는 경우 **ON SERVER** 절을 사용합니다. 하지만 SQL Database에서는 대신 **ON DATABASE** 절을 사용합니다.
 
 
-- **ON DATABASE** 절은 [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) 및 [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL 명령에도 적용됩니다.
+- **ON DATABASE** 절은 [ALTER EVENT SESSION](https://msdn.microsoft.com/library/bb630368.aspx) 및 [DROP EVENT SESSION](https://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL 명령에도 적용됩니다.
 
 
 - **CREATE EVENT SESSION** 또는 **ALTER EVENT SESSION** 문에 **STARTUP_STATE = ON**의 이벤트 세션 옵션을 포함하는 것이 가장 좋습니다.
@@ -80,7 +80,7 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 
 ## <a name="new-catalog-views"></a>새 카탈로그 뷰
 
-확장 이벤트 기능은 여러 [카탈로그 뷰](http://msdn.microsoft.com/library/ms174365.aspx)에서 지원합니다. 카탈로그 뷰를 통해 현재 데이터베이스에서 사용자가 만든 이벤트 세션의 *메타데이터 또는 정의* 를 확인할 수 있습니다. 뷰는 활성 이벤트 세션의 인스턴스에 대한 정보를 반환하지 않습니다.
+확장 이벤트 기능은 여러 [카탈로그 뷰](https://msdn.microsoft.com/library/ms174365.aspx)에서 지원합니다. 카탈로그 뷰를 통해 현재 데이터베이스에서 사용자가 만든 이벤트 세션의 *메타데이터 또는 정의* 를 확인할 수 있습니다. 뷰는 활성 이벤트 세션의 인스턴스에 대한 정보를 반환하지 않습니다.
 
 | 카탈로그 뷰의<br/>이름 | 설명 |
 |:--- |:--- |
@@ -92,9 +92,9 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 
 Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database\_* 가 아닌 *.server\_* 가 포함됩니다. 이름 패턴은 **sys.server_event_%** 와 같습니다.
 
-## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>새로운 [DMV](http://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>새로운 [DMV](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](http://msdn.microsoft.com/library/bb677293.aspx) 가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
+Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰)](https://msdn.microsoft.com/library/bb677293.aspx) 가 있습니다. DMV를 통해 *활성* 이벤트 세션을 확인할 수 있습니다.
 
 | DMV의 이름 | 설명 |
 |:--- |:--- |
@@ -149,11 +149,11 @@ SELECT
 
 SQL Database에서 이벤트 세션의 결과를 캡처할 수 있는 대상은 다음과 같습니다.
 
-- [링 버퍼 대상](http://msdn.microsoft.com/library/ff878182.aspx) - 이벤트 데이터를 메모리에 잠시 보관합니다.
-- [이벤트 카운터 대상](http://msdn.microsoft.com/library/ff878025.aspx) - 확장 이벤트 세션 동안 발생하는 모든 이벤트의 수를 계산합니다.
-- [이벤트 파일 대상](http://msdn.microsoft.com/library/ff878115.aspx) - Azure Storage 컨테이너에 전체 버퍼를 기록합니다.
+- [링 버퍼 대상](https://msdn.microsoft.com/library/ff878182.aspx) - 이벤트 데이터를 메모리에 잠시 보관합니다.
+- [이벤트 카운터 대상](https://msdn.microsoft.com/library/ff878025.aspx) - 확장 이벤트 세션 동안 발생하는 모든 이벤트의 수를 계산합니다.
+- [이벤트 파일 대상](https://msdn.microsoft.com/library/ff878115.aspx) - Azure Storage 컨테이너에 전체 버퍼를 기록합니다.
 
-[ETW(Windows 이벤트 추적)](http://msdn.microsoft.com/library/ms751538.aspx) API는 SQL Database의 확장 이벤트에서 사용할 수 없습니다.
+[ETW(Windows 이벤트 추적)](https://msdn.microsoft.com/library/ms751538.aspx) API는 SQL Database의 확장 이벤트에서 사용할 수 없습니다.
 
 ## <a name="restrictions"></a>제한
 
@@ -195,8 +195,8 @@ Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대�
 - [Azure Storage Cmdlet](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
 - [.NET에서 Blob 저장소를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [CREATE CREDENTIAL(Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION(Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL(Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE EVENT SESSION(Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Microsoft SQL Server의 확장 이벤트에 대한 Jonathan Kehayias의 블로그](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
@@ -209,6 +209,6 @@ Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대�
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

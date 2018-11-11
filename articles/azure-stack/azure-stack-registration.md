@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 4128f5e389ac6e35f863f02ff5b09ff96fadc527
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: be88e84c48ba31ce564c31eca1f54f164aeb9f93
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962489"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288240"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
 Azure를 사용 하 여 Azure Stack 등록 하면 Azure에서 마켓플레이스 항목을 다운로드 하 고 Microsoft에 다시 보고 하는 전자 상거래 데이터를 설정 합니다. Azure Stack 등록 한 후에 사용량 Azure 상거래에 보고 되 고 등록에 사용 되는 구독에서 볼 수 있습니다.
 
-이 문서에서 설명 Azure 사용 하 여 Azure Stack 통합 시스템을 등록 합니다. ASDK Azure를 사용 하 여 등록 하는 방법에 대 한 내용은 [Azure Stack 등록](.\asdk\asdk-register.md) ASDK 설명서에서.
+이 문서에서 설명 Azure 사용 하 여 Azure Stack 통합 시스템을 등록 합니다. ASDK Azure를 사용 하 여 등록 하는 방법에 대 한 내용은 [Azure Stack 등록](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register) ASDK 설명서에서.
 
 > [!IMPORTANT]  
 > Marketplace에서 항목을 제공 하는 포함 하 여 전체 Azure Stack 기능을 지원 하려면 등록이 필요 합니다. 또한 Azure Stack-수-종 청구 모델을 사용 하는 경우 등록 하지 않은 경우 사용 조건에 위반에서 됩니다. Azure Stack 라이선스 모델에 대 한 자세한 내용은 참조 하십시오 합니다 [구입 방법 페이지](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 등록 하기 전에 다음 진행에서 해야 합니다.
 
@@ -423,7 +423,7 @@ Cmdlet을 실행 하려면 다음을 수행 해야 합니다.
     <String>] [<CommonParameters>]
    ```
 
-| 매개 변수 | type | 설명 |
+| 매개 변수 | 종류 | 설명 |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | 에 사용 된 자격 증명 [끝점에 권한 있는 액세스](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)합니다. 형식의 사용자 이름이 **AzureStackDomain\CloudAdmin**합니다. |
 | PrivilegedEndpoint | 문자열 | 미리 구성 된 원격 PowerShell 콘솔을 제공 하는 로그 수집 및 기타 post와 같은 기능을 사용 하 여 배포 작업입니다. 자세한 내용은 참조는 [권한 있는 끝점을 사용 하 여](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) 문서. |
@@ -445,7 +445,7 @@ Get-AzsRegistrationToken 입력된 매개 변수에서 등록 토큰을 생성 �
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| 매개 변수 | type | 설명 |
+| 매개 변수 | 종류 | 설명 |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | 에 사용 된 자격 증명 [끝점에 권한 있는 액세스](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)합니다. 형식의 사용자 이름이 **AzureStackDomain\CloudAdmin**합니다. |
 | PrivilegedEndpoint | 문자열 |  미리 구성 된 원격 PowerShell 콘솔을 제공 하는 로그 수집 및 기타 post와 같은 기능을 사용 하 여 배포 작업입니다. 자세한 내용은 참조는 [권한 있는 끝점을 사용 하 여](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) 문서. |
