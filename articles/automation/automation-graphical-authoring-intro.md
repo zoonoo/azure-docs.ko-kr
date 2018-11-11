@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140149"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233680"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 
@@ -48,7 +48,7 @@ Azure Automation의 모든 Runbook은 Windows PowerShell 워크플로입니다. 
 |:--- |:--- |
 | Cmdlet |Runbook에서 사용할 수 있는 모든 cmdlet을 포함합니다. 이러한 cmdlet은 모듈별로 구성됩니다. 자동화 계정에 설치한 모든 모듈을 사용할 수 있습니다. |
 | Runbook |자동화 계정의 Runbook을 포함합니다. 이러한 runbook을 자식 runbook으로 사용될 캔버스에 추가할 수 있습니다. 편집 중인 runbook인 동일한 코어 유형의 runbook만 표시됩니다. 그래픽 runbook의 경우 PowerShell 기반 runbook만 표시되는 반면 그래픽 PowerShell 워크플로 runbook의 경우 PowerShell 워크플로 기반 runbook만 표시됩니다. |
-| 자산 |Runbook에서 사용할 수 있는 자동화 계정의 [자동화 자산](http://msdn.microsoft.com/library/dn939988.aspx) 을 포함합니다. 자산을 Runbook에 추가하면 선택한 자산을 가져오는 워크플로 활동이 추가됩니다. 변수 자산의 경우 변수를 가져오는 활동을 추가할지 또는 변수를 설정하는 활동을 추가할지 선택할 수 있습니다. |
+| 자산 |Runbook에서 사용할 수 있는 자동화 계정의 [자동화 자산](https://msdn.microsoft.com/library/dn939988.aspx) 을 포함합니다. 자산을 Runbook에 추가하면 선택한 자산을 가져오는 워크플로 활동이 추가됩니다. 변수 자산의 경우 변수를 가져오는 활동을 추가할지 또는 변수를 설정하는 활동을 추가할지 선택할 수 있습니다. |
 | Runbook 컨트롤 |현재 Runbook에서 사용할 수 있는 Runbook 컨트롤 활동을 포함합니다. *분기 동기화* 는 여러 입력을 사용하며 모두 완료될 때까지 기다렸다가 워크플로를 계속합니다. *코드* 작업은 그래픽 runbook 종류에 따라 하나 이상의 PowerShell 또는 PowerShell 워크플로 코드 줄을 실행합니다. 사용자 지정 코드 또는 다른 작업으로 수행하기 어려운 기능에 이 작업을 사용할 수 있습니다. |
 
 ### <a name="configuration-control"></a>구성 컨트롤
@@ -324,7 +324,7 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 
 | 자산 | 설명 |
 |:--- |:--- |
-| Name |매개 변수의 고유한 이름입니다. 영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
+| 이름 |매개 변수의 고유한 이름입니다. 영숫자 문자만 포함할 수 있으며, 공백을 포함할 수 없습니다. |
 | 설명 |입력 매개 변수에 대한 선택적 설명입니다. |
 | type |매개 변수 값에 필요한 데이터 형식입니다. Azure Portal에서는 입력 메시지를 표시할 때 각 매개 변수의 데이터 형식에 대한 적절한 컨트롤을 제공합니다. |
 | 필수 |매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 기본값이 정의되지 않은 각 필수 매개 변수의 값을 제공하지 않으면 Runbook을 시작할 수 없습니다. |
@@ -336,7 +336,7 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 
 ## <a name="powershell-expressions"></a>PowerShell 식
 
-그래픽 제작의 이점 중 하나는 PowerShell에 대한 최소한의 지식만으로 runbook을 작성하는 기능을 제공한다는 점입니다. 그러나 현재 특정 [매개 변수 값](#activities)을 채우고 [연결 조건](#links-and-workflow)을 설정하기 위해 PowerShell을 조금은 알아야 합니다. 이 섹션에서는 PowerShell 식에 대해 친숙하지 못한 사용자에게 이를 간략히 소개합니다. PowerShell의 세부 사항 전체는 [Windows PowerShell을 사용하는 스크립트](http://technet.microsoft.com/library/bb978526.aspx)에서 사용 가능합니다.
+그래픽 제작의 이점 중 하나는 PowerShell에 대한 최소한의 지식만으로 runbook을 작성하는 기능을 제공한다는 점입니다. 그러나 현재 특정 [매개 변수 값](#activities)을 채우고 [연결 조건](#links-and-workflow)을 설정하기 위해 PowerShell을 조금은 알아야 합니다. 이 섹션에서는 PowerShell 식에 대해 친숙하지 못한 사용자에게 이를 간략히 소개합니다. PowerShell의 세부 사항 전체는 [Windows PowerShell을 사용하는 스크립트](https://technet.microsoft.com/library/bb978526.aspx)에서 사용 가능합니다.
 
 ### <a name="powershell-expression-data-source"></a>PowerShell 식 데이터 원본
 PowerShell 식을 데이터 원본으로 사용하여 [동작 매개 변수](#activities) 의 값을 일부 PowerShell 코드의 결과로 채울 수 있습니다. 간단한 함수를 수행하는 코드 한 줄이거나 또는 복잡한 함수를 수행하는 여러 줄의 코드일 수 있습니다. 변수에 할당되지 않은 명령의 출력은 매개 변수 값에 대한 출력입니다.
@@ -414,7 +414,7 @@ $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 
 ### <a name="hashtables"></a>해시 테이블
 
-[해시 테이블](http://technet.microsoft.com/library/hh847780.aspx) 은 값 집합을 반환하는 데 유용한 이름/값 쌍입니다. 특정 활동에 대한 속성은 단순 값 대신 해시 테이블을 필요로 할 수 있습니다. 또한 해시 테이블은 사전이라고 표시될 수 있습니다.
+[해시 테이블](https://technet.microsoft.com/library/hh847780.aspx) 은 값 집합을 반환하는 데 유용한 이름/값 쌍입니다. 특정 활동에 대한 속성은 단순 값 대신 해시 테이블을 필요로 할 수 있습니다. 또한 해시 테이블은 사전이라고 표시될 수 있습니다.
 
 다음 구문을 사용하여 해시 테이블을 만듭니다. 해시 테이블은 항목을 몇 개이든 포함할 수 있지만 각각은 이름 및 값으로 정의됩니다.
 

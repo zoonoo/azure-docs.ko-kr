@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: e2388c887f4a96883aa64a0a6fec3a5a9df5b8cc
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 71cb39465bd6c180861325ab451aa11be14a80e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818197"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231672"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Xamarin.Android 앱에 푸시 알림 추가
 
@@ -35,7 +35,7 @@ ms.locfileid: "42818197"
 
 이 자습서를 사용하려면 설정이 필요합니다.
 
-* 활성 Google 계정. [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302)에서 Google 계정을 등록할 수 있습니다.
+* 활성 Google 계정. [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302)에서 Google 계정을 등록할 수 있습니다.
 * [Google Cloud Messaging 클라이언트 구성 요소](http://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>알림 허브 구성

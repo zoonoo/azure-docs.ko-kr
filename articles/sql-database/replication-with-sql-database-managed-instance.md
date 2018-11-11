@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869315"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240395"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>SQL Database Managed Instance를 사용한 복제
 
@@ -77,7 +77,7 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 ## <a name="configure-publishing-and-distribution-example"></a>게시 및 배포 예제 구성
 
 1. 포털에서 [Azure SQL Database Managed Instance를 만듭니다](sql-database-managed-instance-create-tutorial-portal.md).
-2. 작업 디렉터리에 대한 [Azure Storage 계정을 만듭니다](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account).
+2. 작업 디렉터리에 대한 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account).
 
    저장소 키를 복사해야 합니다. [저장소 액세스 키 보기 및 복사](../storage/common/storage-account-manage.md#access-keys
 )를 참조하세요.
@@ -85,11 +85,11 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 
    아래 예제 스크립트에서 `<Publishing_DB>`를 이 데이터베이스의 이름으로 바꿉니다.
 
-4. 배포자에 대한 SQL 인증을 사용하여 데이터베이스 사용자를 만듭니다. [데이터베이스 사용자 만들기](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users)를 참조하세요. 보안 암호를 사용합니다.
+4. 배포자에 대한 SQL 인증을 사용하여 데이터베이스 사용자를 만듭니다. [데이터베이스 사용자 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users)를 참조하세요. 보안 암호를 사용합니다.
 
    아래 예제 스크립트에서 이 SQL Server 계정 데이터베이스 사용자 및 암호로 `<SQL_USER>` 및 `<PASSWORD>`를 사용합니다.
 
-5. [SQL Database Managed Instance에 연결합니다](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [SQL Database Managed Instance에 연결합니다](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
 6. 다음 쿼리를 실행하여 배포자 및 배포 데이터베이스를 추가합니다.
 
@@ -197,4 +197,4 @@ Azure SQL Database에서 게시자 및 배포자는 다음이 필요합니다.
 
 ## <a name="see-also"></a>참고 항목
 
-- [Managed Instance란?](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Managed Instance란?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093973"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299863"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 공개 키 인프라 인증서 요구 사항
 
@@ -42,7 +42,7 @@ Azure Stack에는 소수의 Azure Stack 서비스 및 테 넌 트 Vm에 할당 �
 - 배포 및 회전 하거나 인증서의 주체 이름과 주체 대체 이름 (SAN) 필드에서 모든 네임 스페이스를 포함 하는 단일 인증서를 사용 하거나 사용할 수에 대 한 개인 인증서 아래에 네임 스페이스의 각 Azure Stack 서비스를 활용 하려면 필요 합니다. 두 방법 모두는와 같은 필요한 끝점에 대 한 와일드 카드를 사용 해야 **KeyVault** 하 고 **KeyVaultInternal**합니다. 
 - 인증서의 PFX 암호화에 3DES 이어야 합니다. 
 - 인증서 서명 알고리즘에는 SHA1 아니어야 합니다. 
-- 인증서 형식 공개 및 개인 키는 모두 Azure Stack 설치에 필요한으로 PFX 여야 합니다. 
+- 인증서 형식 공개 및 개인 키는 모두 Azure Stack 설치에 필요한으로 PFX 여야 합니다. 개인 키 설정 하는 로컬 컴퓨터 키 특성이 있어야 합니다.
 - PFX 암호화에 3DES (이 기본 Windows 10 클라이언트 또는 Windows Server 2016 인증서 저장소로 내보낼 때) 해야 합니다.
 - 인증서 pfx 파일에는 해당 "Key Usage" 필드에 "KeyEncipherment" 및 "디지털 시그니처" 값을 있어야 합니다.
 - 인증서 pfx 파일에는 "확장 된 키 사용" 필드에 "서버 인증 (1.3.6.1.5.5.7.3.1)" 및 "클라이언트 인증 (1.3.6.1.5.5.7.3.2)" 값 있어야 합니다.
@@ -71,8 +71,8 @@ Azure Stack에는 소수의 Azure Stack 서비스 및 테 넌 트 Vm에 할당 �
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
 | 공용 포털 | portal.&lt;region>.&lt;fqdn> | 포털 | &lt;region>.&lt;fqdn> |
 | 관리 포털 | adminportal.&lt;region>.&lt;fqdn> | 포털 | &lt;region>.&lt;fqdn> |
-| Azure Resource Manager 공용 | management.&lt;region>.&lt;fqdn> | Azure 리소스 관리자 | &lt;region>.&lt;fqdn> |
-| Azure 리소스 관리자 관리 | adminmanagement.&lt;region>.&lt;fqdn> | Azure 리소스 관리자 | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager 공용 | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure 리소스 관리자 관리 | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | *.table.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서) | Table Storage | table.&lt;region>.&lt;fqdn> |
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
@@ -103,16 +103,16 @@ Azure AD 배포 모드를 사용 하 여 Azure Stack을 배포 하는 경우 이
 |범위 (지역당)|인증서|필요한 인증서 주체 및 주체 대체 이름 (San)|하위 네임 스페이스|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL 및 MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(와일드 카드 SSL 인증서)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service|웹 트래픽이 기본 SSL 인증서|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(다중 도메인 와일드 카드 SSL 인증서<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 인증서<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 인증서<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 인증서<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|앱 서비스|웹 트래픽이 기본 SSL 인증서|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(다중 도메인 와일드 카드 SSL 인증서<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|앱 서비스|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 인증서<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|앱 서비스|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 인증서<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|앱 서비스|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 인증서<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> 여러 와일드 카드 주체 대체 이름을 사용 하 여 하나의 인증서가 필요 합니다. 단일 인증서에 San 여러 와일드 카드 모든 공용 인증 기관에서 지원 되지 않는 경우 
 
 <sup>2</sup> 는 &#42;.appservice. *&lt;지역 >. &lt;fqdn >* 이러한 세 가지 인증서 대신 와일드 카드 인증서를 사용할 수 없습니다 (api.appservice. *&lt;지역 >. &lt;fqdn >*, ftp.appservice. *&lt;지역 >. &lt;fqdn >*, 및 sso.appservice. *&lt;지역 >. &lt;fqdn >* 합니다. App Service는 이러한 끝점에 대 한 별도 인증서를 사용 하도록 명시적으로 필요합니다. 
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세한 내용
 설명 하는 방법 [Azure Stack 배포를 위한 PKI 인증서를 생성할](azure-stack-get-pki-certs.md)합니다. 
 
 ## <a name="next-steps"></a>다음 단계

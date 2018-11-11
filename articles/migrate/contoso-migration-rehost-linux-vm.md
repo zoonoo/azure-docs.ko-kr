@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 54daea1108b98b316e1ead3b9035c1b65745dd19
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4845fdbbfa4dfabf53b1f7e747668cf7f5108eb7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114127"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232711"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso 마이그레이션: 온-프레미스 Linux 앱을 Azure VM에 다시 호스트
 
@@ -196,7 +196,7 @@ Azure로 장애 조치되면 Contoso는 Azure에서 복제된 VM에 연결하려
 
 - 인터넷을 통해 Azure VM에 액세스하려면 마이그레이션 전에 온-프레미스 Linux VM에서 SSH를 사용하도록 설정합니다.  Ubuntu의 경우 **Sudo apt-get ssh install -y** 명령을 사용하여 이 작업을 완료할 수 있습니다.
 - 마이그레이션(장애 조치(failover))을 실행한 후, **부트 진단**을 검사하여 VM 스크린샷을 확인할 수 있습니다.
-- 그래도 작동하지 않으면 VM이 실행 중인지 확인하고, [문제 해결 팁](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토해야 합니다.
+- 그래도 작동하지 않으면 VM이 실행 중인지 확인하고, [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토해야 합니다.
 
 
 **도움이 더 필요하세요?**

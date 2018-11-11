@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/08/2018
-ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960246"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232327"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service 및 Terraform을 사용하여 Kubernetes 클러스터 만들기
 [AKS(Azure Kubernetes Service)](/azure/aks/)는 호스팅된 Kubernetes 환경을 관리하므로 컨테이너 오케스트레이션에 대한 전문 지식 없이 컨테이너화된 응용 프로그램을 빠르고 쉽게 배포하고 관리할 수 있습니다. 또한 응용 프로그램을 오프라인으로 변경하지 않고 주문형 리소스를 프로비전하고, 업그레이드하고, 크기 조정하여 진행 중인 작업 및 유지 관리 부담을 제거합니다.
@@ -372,6 +372,6 @@ Cloud Shell 세션의 시간이 초과되면 다음 단계를 수행하여 복�
 이 문서에서는 Terraform 및 AKS를 사용하여 Kubernetes 클러스터를 만드는 방법을 알아봤습니다. Azure의 Terraform에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다. 
 
  [Microsoft.com의 Terraform 허브](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure 공급자 설명서](http://aka.ms/terraform)  
- [Terraform Azure 공급자 원본](http://aka.ms/tfgit)  
- [Terraform Azure 모듈](http://aka.ms/tfmodules)
+ [Terraform Azure 공급자 설명서](https://aka.ms/terraform)  
+ [Terraform Azure 공급자 원본](https://aka.ms/tfgit)  
+ [Terraform Azure 모듈](https://aka.ms/tfmodules)

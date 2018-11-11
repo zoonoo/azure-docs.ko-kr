@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
-ms.author: bwren, vinagara
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 427ac67b812da449333e4868e54ca36d2c6f54af
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024777"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282336"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -27,13 +27,13 @@ ms.locfileid: "50024777"
 > 현재 Preview로 제공되는 관리 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.   
 
 
-[관리 솔루션](monitoring-solutions.md)은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 [저장된 검색](../log-analytics/log-analytics-log-searches.md)을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 [경고](../log-analytics/log-analytics-alerts.md)를 정의합니다.  이 문서에서는 [관리 솔루션](monitoring-solutions-creating.md)에 포함되도록 [리소스 관리 템플릿](../resource-manager-template-walkthrough.md)에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다.
+[관리 솔루션](monitoring-solutions.md)은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 [저장된 검색](../log-analytics/log-analytics-queries.md)을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 [경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)를 정의합니다.  이 문서에서는 [관리 솔루션](monitoring-solutions-creating.md)에 포함되도록 [리소스 관리 템플릿](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다.
 
 > [!NOTE]
 > 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [Azure의 관리 솔루션 디자인 및 빌드](monitoring-solutions-creating.md)에서 설명한 매개 변수와 변수가 사용  
 
 ## <a name="prerequisites"></a>필수 조건
-이 문서에서는 여러분이 [관리 솔루션을 만드는 방법](monitoring-solutions-creating.md)과 [Resource Manager 템플릿](../resource-group-authoring-templates.md) 및 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
+이 문서에서는 여러분이 [관리 솔루션을 만드는 방법](monitoring-solutions-creating.md)과 [Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md) 및 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
@@ -54,9 +54,9 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 
 ## <a name="saved-searches"></a>저장된 검색
-솔루션에서 수집한 데이터를 사용자가 쿼리할 수 있도록 솔루션에 [저장된 검색](../log-analytics/log-analytics-log-searches.md)을 포함합니다.  저장된 검색은 Azure Portal의 **저장된 검색**에 표시됩니다.  각 경고에도 저장된 검색이 필요합니다.   
+솔루션에서 수집한 데이터를 사용자가 쿼리할 수 있도록 솔루션에 [저장된 검색](../log-analytics/log-analytics-queries.md)을 포함합니다.  저장된 검색은 Azure Portal의 **저장된 검색**에 표시됩니다.  각 경고에도 저장된 검색이 필요합니다.   
 
-[Log Analytics 및 저장된 검색](../log-analytics/log-analytics-log-searches.md) 리소스는 `Microsoft.OperationalInsights/workspaces/savedSearches` 형식을 가지며 구조는 다음과 같습니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다. 
+[Log Analytics 및 저장된 검색](../log-analytics/log-analytics-queries.md) 리소스는 `Microsoft.OperationalInsights/workspaces/savedSearches` 형식을 가지며 구조는 다음과 같습니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",

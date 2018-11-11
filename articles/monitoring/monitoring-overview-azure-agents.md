@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: magoedte
-ms.openlocfilehash: a399c3968e5ee1e2d1f6d623a68dbb1e15cef212
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 81db6720422de111cc5b390c58e9020d7c19f90a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088453"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282036"
 ---
 # <a name="overview-of-the-azure-agents-to-monitor-azure-virtual-machines"></a>Azure Virtual Machines를 모니터링하는 Azure 에이전트 개요
 Microsoft Azure에서는 Microsoft Windows 및 Linux를 실행하는 Azure 또는 다른 클라우드 공급자에서 호스팅되는 Virtual Machines에서 다양한 형식의 데이터를 수집하는 여러 방법을 제공합니다.  이 아티클에서는 서비스 관리 또는 일반 모니터링 요구 사항을 지원할 에이전트를 결정하기 위해 각 에이전트의 차이점 및 지원되는 기능을 설명합니다.  
@@ -27,7 +27,7 @@ Microsoft Azure에서는 Microsoft Windows 및 Linux를 실행하는 Azure 또�
 ## <a name="comparing-azure-diagnostic-and-log-analytics-agent"></a>Azure 진단 및 Log Analytics 에이전트 비교
 현재 Azure에는 Azure VM을 모니터링할 수 있는 Linux 및 Windows용 Azure 진단 확장 및 Log Analytics 에이전트라는 두 가지 형식의 에이전트가 있습니다.  근본적으로 이러한 에이전트는 메트릭 및 로그를 수집하고 리포지토리에 전달하도록 설계되었습니다. 그러나 이를 제외하면 두 서비스는 유사하지 않습니다.  
 
-2010년에 지원된 이후로 Azure Cloud Services에 대해 제공되는 [Azure 진단 확장](../monitoring-and-diagnostics/azure-diagnostics.md)은 VM과 같은 Azure IaaS 리소스에서 진단 데이터의 간단한 컬렉션을 제공하고 Azure Storage에 저장하는 에이전트입니다.  저장소에 저장되면 [Visual Studio의 서버 탐색기](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md) 및 [Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같이 지원되는 여러 도구 중 하나를 사용하여 볼 수 있습니다.
+2010년에 지원된 이후로 Azure Cloud Services에 대해 제공되는 [Azure 진단 확장](../monitoring-and-diagnostics/azure-diagnostics.md)은 VM과 같은 Azure IaaS 리소스에서 진단 데이터의 간단한 컬렉션을 제공하고 Azure Storage에 저장하는 에이전트입니다.  저장소에 저장되면 [Visual Studio의 서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 및 [Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같이 지원되는 여러 도구 중 하나를 사용하여 볼 수 있습니다.
 
 다음을 수집하도록 선택할 수 있습니다.
 
@@ -38,7 +38,7 @@ Microsoft Azure에서는 Microsoft Windows 및 Linux를 실행하는 Azure 또�
 * syslog에서 로그 이벤트 수집  
 * 크래시 덤프 
 
-또는 [Application Insights](../application-insights/app-insights-cloudservices.md)를 [Log Analytics](../log-analytics/log-analytics-overview.md) 또는 [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)를 사용하는 비 Azure 서비스에 데이터를 전달할 수 있습니다. 
+또는 [Application Insights](../application-insights/app-insights-cloudservices.md)를 [Log Analytics](../log-analytics/log-analytics-queries.md) 또는 [Event Hub](../event-hubs/event-hubs-about.md)를 사용하는 비 Azure 서비스에 데이터를 전달할 수 있습니다. 
 
 메트릭 및 로그의 하위 집합을 수집하는 것 이외의 기능이 필요한 고급 모니터링의 경우 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.  이 에이전트에서는 제공되는 전체 기능을 비롯해 Automation 및 Log Analytics와 같은 Azure 서비스를 사용하여 수명 주기 동안 Azure VM의 포괄적인 관리를 제공할 수 있습니다. 다음 내용이 포함됩니다.
 
