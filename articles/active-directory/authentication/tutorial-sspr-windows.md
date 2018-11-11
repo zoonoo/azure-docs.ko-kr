@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430224"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277769"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -113,7 +113,7 @@ Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 
 
 레지스트리 키 또는 그룹 정책을 사용하여 Windows 잠금 화면을 사용하지 않도록 설정하면 **암호 재설정**을 사용할 수 없습니다.
 
-정책에서 Ctrl+Alt+Del을 요구하거나 잠금 화면 알림이 꺼진 경우 **암호 재설정**이 작동하지 않습니다. Windows 10 19H1에서 이 요구 사항을 해결합니다.
+정책에서 Ctrl+Alt+Del을 요구하거나 잠금 화면 알림이 꺼진 경우 **암호 재설정**이 작동하지 않습니다.
 
 Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 ClientType에 대한 정보가 포함됩니다.
 

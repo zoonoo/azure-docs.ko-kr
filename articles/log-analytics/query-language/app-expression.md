@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: d91e148320c4c59bb888975499aa1de16ffbf134
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dda137ecba91e3ac59be635eed22d18e5bcadcce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955064"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277310"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>Log Analytics 쿼리의 app() 식
 
@@ -80,4 +80,4 @@ union
 ## <a name="next-steps"></a>다음 단계
 
 - Log Analytics 작업 영역을 가리키는 [작업 영역 식](workspace-expression.md)을 참조하세요.
-- [Log Analytics 데이터](../../log-analytics/log-analytics-log-search.md)의 저장 방법을 알아보세요.
+- [Log Analytics 데이터](../../log-analytics/log-analytics-queries.md)의 저장 방법을 알아보세요.

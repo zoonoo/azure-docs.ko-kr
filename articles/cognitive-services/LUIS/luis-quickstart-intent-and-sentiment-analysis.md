@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ff5a47f977f34535c5ad1fde7e6cac5995e7f7dd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031461"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277480"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>자습서 9: 전체 발화의 감정 추출
 이 자습서에서는 긍정, 부정 및 중립 감정을 발언에서 추출하는 방법을 보여주는 앱을 만듭니다. 감정은 전체 발화에서 판별됩니다.
@@ -60,7 +60,7 @@ ms.locfileid: "47031461"
 ## <a name="employeefeedback-intent"></a>EmployeeFeedback 의도 
 회사의 구성원에게서 직원 피드백을 캡처하기 위한 새 의도를 추가합니다. 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **새 의도 만들기**를 선택합니다.
 

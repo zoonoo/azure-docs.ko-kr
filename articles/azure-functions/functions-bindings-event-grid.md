@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 9430a2b72e2599f4a64103016fcae940cbc0a417
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ac15b95c19fb0184e902ebb43146a76b6ba2faaf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249206"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283736"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -358,6 +358,14 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 ### <a name="get-the-system-key"></a>시스템 키 가져오기
 
 다음 API(HTTP GET)를 사용하여 시스템 키를 가져올 수 있습니다.
+
+#### <a name="version-2x-runtime"></a>버전 2.x 런타임
+
+```
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
+```
+
+#### <a name="version-1x-runtime"></a>버전 1.x 런타임
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}

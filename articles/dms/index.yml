@@ -1,0 +1,75 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: a314401883d0325029ce50502f85c335458e3959
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285053"
+documentType: LandingData
+title: Azure Database Migration Service 설명서
+metadata:
+  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
+  title: Azure Database Migration Service 설명서 - 자습서 | Microsoft Docs
+  meta.description: Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service.
+  services: functions
+  author: pochiraju
+  manager: craigg
+  ms.service: dms
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2018
+  ms.author: rajpo
+abstract:
+  description: Azure Database Migration Service를 사용하면 최소한의 가동 중지 시간으로 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있습니다. 서비스는 Data Migration Assistant를 사용하여 마이그레이션을 수행하기 전에 필요한 변경 사항을 설명하는 권장 사항을 제공하는 평가 보고서를 생성합니다. 마이그레이션 프로세스를 시작할 준비가 되면 Azure Database Migration Service는 필요한 단계를 모두 수행합니다.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/video-thumb-intro2dms.png
+      width: 250
+    title: Azure DMS 소개(1:30)
+    href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
+    width: 250
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: Database Migration Service를 사용하여 온-프레미스 SQL Server를 Azure SQL Database로 마이그레이션하는 방법에 대해 알아봅니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure Portal
+      href: /azure/dms/quickstart-create-data-migration-service-portal
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: Database Migration Service를 사용하여 데이터베이스를 마이그레이션하는 방법을 알아봅니다.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">DMS를 사용하여 오프라인에서 SQL Server를 Azure SQL Database로 마이그레이션</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">DMS를 사용하여 온라인에서 SQL Server를 Azure SQL Database로 마이그레이션</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">DMS를 사용하여 오프라인에서 SQL Server를 Azure SQL Database Managed Instance로 마이그레이션</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">DMS를 사용하여 온라인에서 SQL Server를 Azure SQL Database Managed Instance로 마이그레이션</a>
+    - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">DMS를 사용하여 온라인에서 MySQL을 Azure Database for MySQL로 마이그레이션</a>
+    - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">DMS를 사용하여 온라인에서 PostgreSQL을 Azure Database for PostgreSQL로 마이그레이션</a>
+- title: 샘플
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">Azure PowerShell을 사용하여 SQL Server 온-프레미스를 Azure SQL DB로 마이그레이션</a>
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">Azure PowerShell을 사용하여 SQL Server 온-프레미스를 Azure SQL DB Managed Instance로 마이그레이션</a>
+- title: 참고 자료
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/pre-reqs">Azure Database Migration Service 사용을 위한 필수 구성 요소 개요</a>
+    - html: <a href="/azure/dms/faq">Azure Database Migration Service 사용에 대한 FAQ</a>
+    - html: <a href="/azure/dms/known-issues-azure-sql-online">Azure SQL DB로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항</a>

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6efcb7bccfdfab18a57e709d9fdfa8492b159b34
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983687"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278092"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure 진단 로그 보관
 
@@ -26,7 +26,7 @@ ms.locfileid: "46983687"
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 진단 로그를 보관할 수 있는 [저장소 계정을 만들어야](../storage/storage-create-storage-account.md) 합니다. 모니터링 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 저장소 계정을 사용하지 않는 것이 좋습니다. 그러나 저장소 계정에 대한 활동 로그 및 진단 메트릭을 보관하는 경우 중앙 위치에서 모든 모니터링 데이터를 유지하도록 진단 로그에 대해 해당 저장소 계정을 사용하는 것이 합리적일 수 있습니다.
+시작하기 전에 진단 로그를 보관할 수 있는 [저장소 계정을 만들어야](../storage/common/storage-quickstart-create-account.md) 합니다. 모니터링 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 저장소 계정을 사용하지 않는 것이 좋습니다. 그러나 저장소 계정에 대한 활동 로그 및 진단 메트릭을 보관하는 경우 중앙 위치에서 모든 모니터링 데이터를 유지하도록 진단 로그에 대해 해당 저장소 계정을 사용하는 것이 합리적일 수 있습니다.
 
 > [!NOTE]
 >  현재는 보안 가상 네트워크 뒤에 있는 저장소 계정에 데이터를 보관할 수 없습니다.
@@ -161,7 +161,7 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 
 ## <a name="next-steps"></a>다음 단계
 
-* [분석을 위한 Blob 다운로드](../storage/storage-dotnet-how-to-use-blobs.md)
+* [분석을 위한 Blob 다운로드](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Event Hubs 네임스페이스로 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Azure Monitor를 사용하여 Azure Active Directory 로그 보관](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)

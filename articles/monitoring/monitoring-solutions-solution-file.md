@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46e6ea791752045b0f1afbf1e83e43f498415e54
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 21e280740d5d7f467ee70952febf858e0dc0b89d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887463"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278211"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure에서 관리 솔루션 파일 만들기(Preview)
 > [!NOTE]
 > 현재 미리 보기 상태로 제공되는 Azure에서 관리 솔루션을 만드는 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.  
 
-Azure의 관리 솔루션은 [Resource Manager 템플릿](../azure-resource-manager/resource-manager-template-walkthrough.md)으로 구현됩니다.  관리 솔루션을 작성하는 방법에서 주요 작업은 [템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)입니다.  이 문서에서는 솔루션에 사용되는 템플릿의 고유한 세부 정보와 일반적인 솔루션 리소스를 구성하는 방법을 설명합니다.
+Azure의 관리 솔루션은 [Resource Manager 템플릿](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)으로 구현됩니다.  관리 솔루션을 작성하는 방법에서 주요 작업은 [템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)입니다.  이 문서에서는 솔루션에 사용되는 템플릿의 고유한 세부 정보와 일반적인 솔루션 리소스를 구성하는 방법을 설명합니다.
 
 
 ## <a name="tools"></a>도구
@@ -34,7 +34,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../azure-resource-mana
 아무 텍스트 편집기나 사용하여 솔루션 파일로 작업할 수 있지만 다음 문서에 설명된 대로 Visual Studio 또는 Visual Studio 코드에서 제공되는 기능을 활용하는 것이 좋습니다.
 
 - [Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Visual Studio 코드에서 Azure Resource Manager 템플릿으로 작업](../azure-resource-manager/resource-manager-vs-code.md)
+- [Visual Studio 코드에서 Azure Resource Manager 템플릿으로 작업](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 
 
 

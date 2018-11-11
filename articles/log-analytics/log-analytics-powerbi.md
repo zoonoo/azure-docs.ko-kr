@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7610fcfc144e4337f8556c8824dc7d104265bcc4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7cf4613f2fdceca3e869473ed3ec7f47fb417fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044555"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277651"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure Log Analytics 데이터를 Power BI로 가져오기
 
@@ -33,7 +33,7 @@ Log Analytics 작업 영역에서 Power BI로 데이터를 가져오려면 Log A
 ![Log Analytics에서 Power BI로](media/log-analytics-powerbi/overview.png)
 
 ## <a name="export-query"></a>내보내기 쿼리
-Log Analytics에서 Power BI 데이터 집합을 채우고 싶은 데이터를 반환하는 [로그 검색](log-analytics-log-search-new.md)부터 만듭니다.  그런 다음 해당 쿼리를 [파워 쿼리(M) 언어](https://msdn.microsoft.com/library/mt807488.aspx)로 내보내면 Power BI Desktop에서 사용할 수 있습니다.
+Log Analytics에서 Power BI 데이터 집합을 채우고 싶은 데이터를 반환하는 [로그 검색](log-analytics-queries.md)부터 만듭니다.  그런 다음 해당 쿼리를 [파워 쿼리(M) 언어](https://msdn.microsoft.com/library/mt807488.aspx)로 내보내면 Power BI Desktop에서 사용할 수 있습니다.
 
 1. Log Analytics에서 데이터 집합에 대한 데이터를 추출하는 로그 검색을 만듭니다.
 2. 로그 검색 포털을 사용하는 경우 **Power BI**를 클릭합니다.  Analytics 포털을 사용하는 경우 **내보내기** > **Power BI 쿼리(M)** 를 선택합니다.  두 옵션 모두 **PowerBIQuery.txt**라고 하는 텍스트 파일로 쿼리를 내보냅니다. 
@@ -81,5 +81,5 @@ Power BI에서 생성된 데이터 집합은 이전에 Power BI Desktop에서 �
 
 
 ## <a name="next-steps"></a>다음 단계
-* Power BI로 내보낼 수 있는 쿼리를 작성하려면 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다.
-* Log Analytics 내보내기를 기준으로 시각화를 작성하려면 [Power BI](http://powerbi.microsoft.com) 에 대해 자세히 알아보세요.
+* Power BI로 내보낼 수 있는 쿼리를 작성하려면 [로그 검색](log-analytics-queries.md) 에 대해 알아봅니다.
+* Log Analytics 내보내기를 기준으로 시각화를 작성하려면 [Power BI](https://powerbi.microsoft.com) 에 대해 자세히 알아보세요.

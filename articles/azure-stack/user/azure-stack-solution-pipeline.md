@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419847"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280744"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure에 앱을 배포 스택
 
@@ -292,7 +292,7 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 | 구독 이름 | name@contoso.com | Azure Stack에서 사용자 구독 이름입니다. |
 | 서비스 주체 클라이언트 ID | FF74AACF-XXXX-4776-93 FC-C63E6E021D59 | 보안 주체 ID [이](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) 이 문서의 섹션입니다. |
 | 서비스 주체 키 | THESCRETGOESHERE = | 동일한 문서 (또는 스크립트를 사용 하는 경우 암호) 키입니다. |
-| 테넌트 ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 명령에 테 넌 트를 가져오려면 다음을 검색 하는 테 넌 트 ID의 id입니다. 명령에 다음 검색 하는 테 넌 트 ID [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다.  |
+| 테넌트 ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 명령에 다음 검색 하는 테 넌 트 ID [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다.  |
 | 연결: | 확인되지 않음 | 서비스 주체에 연결 설정을 확인 합니다. |
 
 이제 끝점을 만들었으므로 DevOps Azure Stack 연결에 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트에서 DevOps 지침 가져오고 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음 합니다.
@@ -317,7 +317,7 @@ Azure DevOps에 대 한 최신 업데이트는 인증용 인증서를 사용 하
 | 구독 이름 | name@contoso.com | Azure Stack에서 사용자 구독 이름입니다. |
 | 서비스 주체 클라이언트 ID | FF74AACF-XXXX-4776-93 FC-C63E6E021D59 | AD FS에 대해 만든 서비스 주체에서 클라이언트 ID입니다. |
 | 인증서 | `<certificate>` |  PFX에서 PEM 인증서 파일을 변환 합니다. 이 필드에 인증서 PEM 파일 콘텐츠를 붙여 넣습니다. <br> PFX에서 PEM으로 변환:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
-| 테넌트 ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 명령에 테 넌 트를 가져오려면 다음을 검색 하는 테 넌 트 ID의 id입니다. 명령에 다음 검색 하는 테 넌 트 ID [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다. |
+| 테넌트 ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 명령에 다음 검색 하는 테 넌 트 ID [테 넌 트 ID 가져오기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)합니다. |
 | 연결: | 확인되지 않음 | 서비스 주체에 연결 설정을 확인 합니다. |
 
 이제 끝점을 만들었으므로 Azure DevOps Azure Stack 연결에 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트에서 Azure DevOps 지침 가져오고 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음 합니다.

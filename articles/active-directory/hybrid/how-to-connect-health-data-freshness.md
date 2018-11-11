@@ -3,7 +3,7 @@ title: Azure AD Connect Health - 상태 서비스 데이터가 최신 경고가 
 description: 이 문서에서는 "상태 서비스 데이터가 최신이 아닙니다" 경고의 원인과 문제를 해결하는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: maheshu
 editor: ''
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: zhiweiw
-ms.openlocfilehash: ca9f23703315424fcf08350ae3111a20dd94c160
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 93f0d31f5daa13d0598367e2a4ddab67ff3dbc66
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233228"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279721"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>상태 서비스 데이터가 최신 경고가 아닙니다
 
@@ -39,7 +39,7 @@ ms.locfileid: "50233228"
 
 | 데이터 요소 | 문제 해결 단계 |
 | --- | --- | 
-| PerfCounter | - [Azure 서비스 엔드포인트에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [아웃바운드 트래픽에 대한 SSL 조사가 필터링 또는 해제됨](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [에이전트를 실행하는 서버의 방화벽 포트](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE 보안 강화를 사용하는 경우 지정된 웹 사이트 허용](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+| PerfCounter | - [Azure 서비스 엔드포인트에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [아웃바운드 트래픽에 대한 SSL 조사가 필터링 또는 해제됨](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [에이전트를 실행하는 서버의 방화벽 포트](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE 보안 강화를 사용하는 경우 지정된 웹 사이트 허용](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
 | AadSyncService-SynchronizationRules, <br /> AadSyncService-Connectors, <br /> AadSyncService-GlobalConfigurations, <br /> AadSyncService-RunProfileResults, <br /> AadSyncService-ServiceConfigurations, <br /> AadSyncService-ServiceStatus | - IP 주소를 기반으로 하는 아웃바운드 연결. [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 참조 <br /> - [Azure 서비스 엔드포인트에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [에이전트를 실행하는 서버의 방화벽 포트](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
 
 ### <a name="connect-health-for-adfs"></a>ADFS용 Connect Health
@@ -48,14 +48,14 @@ AD FS에 대한 유효성 검사를 수행하고 [AD FS 도움말](https://adfsh
 
 | 데이터 요소 | 문제 해결 단계 |
 | --- | --- | 
-| PerfCounter, TestResult | - [Azure 서비스 엔드포인트에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [아웃바운드 트래픽에 대한 SSL 조사가 필터링 또는 해제됨](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [에이전트를 실행하는 서버의 방화벽 포트](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE 보안 강화를 사용하는 경우 지정된 웹 사이트 허용](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+| PerfCounter, TestResult | - [Azure 서비스 엔드포인트에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [아웃바운드 트래픽에 대한 SSL 조사가 필터링 또는 해제됨](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [에이전트를 실행하는 서버의 방화벽 포트](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE 보안 강화를 사용하는 경우 지정된 웹 사이트 허용](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
 |  Adfs-UsageMetrics | IP 주소를 기반으로 하는 아웃바운드 연결. [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 참조 | 
 
 ### <a name="connect-health-for-adds"></a>ADDS용 Connect Health
 
 | 데이터 요소 | 문제 해결 단계 |
 | --- | --- | 
-| PerfCounter, Adds-TopologyInfo-Json, Common-TestData-Json | - [Azure 서비스 엔드포인트에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [아웃바운드 트래픽에 대한 SSL 조사가 필터링 또는 해제됨](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [에이전트를 실행하는 서버의 방화벽 포트](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE 보안 강화를 사용하는 경우 지정된 웹 사이트 허용](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) <br />  - IP 주소를 기반으로 하는 아웃바운드 연결. [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 참조  |
+| PerfCounter, Adds-TopologyInfo-Json, Common-TestData-Json | - [Azure 서비스 엔드포인트에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [아웃바운드 트래픽에 대한 SSL 조사가 필터링 또는 해제됨](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [에이전트를 실행하는 서버의 방화벽 포트](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE 보안 강화를 사용하는 경우 지정된 웹 사이트 허용](https://technet.microsoft.com/windows/ms537180(v=vs.60)) <br />  - IP 주소를 기반으로 하는 아웃바운드 연결. [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 참조  |
 
 
 ## <a name="next-steps"></a>다음 단계

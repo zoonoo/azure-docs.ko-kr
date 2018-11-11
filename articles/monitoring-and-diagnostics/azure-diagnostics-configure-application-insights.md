@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2b27b8605e23a4c4333f6f1a9c9dd12444fd43fb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416693"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277123"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
 클라우드 서비스, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric은 모두 Azure 진단 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure 진단 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 집합이나 전체를 파이핑할 수 있습니다.
@@ -217,4 +217,4 @@ Application Insights에 대한 싱크 예제 구성:
 ## <a name="next-steps"></a>다음 단계
 * Application Insights에서 [Azure 진단 정보를 보는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events)에 대해 알아봅니다.
 * [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)을 사용하여 응용 프로그램에 대한 Azure 진단 확장을 사용하도록 설정합니다.
-* [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) 를 사용하여 응용 프로그램에 대한 Azure 진단 확장을 사용하도록 설정합니다.
+* [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) 를 사용하여 응용 프로그램에 대한 Azure 진단 확장을 사용하도록 설정합니다.

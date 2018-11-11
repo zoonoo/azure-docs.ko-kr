@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419370"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279108"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리  
 
@@ -57,7 +57,7 @@ ms.locfileid: "50419370"
 
    > [!NOTE]
 
-   > 경고 목록은 위 그림과 같이 분석 쿼리를 신호 유형 - **로그(저장된 쿼리)** 로 가져올 수 있습니다. 따라서 사용자는 Analytics에서 쿼리를 완료한 후 경고에서 나중에 사용할 수 있게 저장합니다. 쿼리 저장 방법에 대한 자세한 내용은 [Log Analytics에서 로그 검색 사용](../log-analytics/log-analytics-log-searches.md) 또는 [Application Insights 분석의 공유 쿼리](../log-analytics/log-analytics-overview.md)를 참조하세요. 
+   > 경고 목록은 위 그림과 같이 분석 쿼리를 신호 유형 - **로그(저장된 쿼리)** 로 가져올 수 있습니다. 따라서 사용자는 Analytics에서 쿼리를 완료한 후 경고에서 나중에 사용할 수 있게 저장합니다. 쿼리 저장 방법에 대한 자세한 내용은 [Log Analytics에서 로그 검색 사용](../log-analytics/log-analytics-queries.md) 또는 [Application Insights 분석의 공유 쿼리](../log-analytics/log-analytics-queries.md)를 참조하세요. 
 
 1.  *로그 경고*: 선택한 후에 경고에 대한 쿼리를 **검색 쿼리** 필드에서 정의할 수 있습니다. 쿼리 구문이 올바르지 않을 경우 필드는 빨간색으로 오류를 표시합니다. 쿼리 구문이 올바른 경우 참조를 위해 정의된 쿼리의 기록 데이터가 마지막 6시간에서 지난 주까지 시간 창을 조정하는 옵션과 함께 그래프로 표시됩니다.
 
@@ -132,7 +132,7 @@ ms.locfileid: "50419370"
 ### <a name="azure-resource-template-for-log-analytics"></a>Log Analytics에 대한 Azure 리소스 템플릿
 Log Analytics에 대한 로그 경고는 일정한 간격으로 저장된 검색을 실행하는 경고 규칙에 의해 만들어집니다. 쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 실행됩니다. 
 
-Log Analytics 저장된 검색 및 Log Analytics 경고에 대한 리소스 템플릿은 설명서의 Log Analytics 섹션에서 사용할 수 있습니다. 자세한 정보는 설명 목적의 샘플 및 스키마 세부 내용을 포함하는 [Log Analytics 저장된 검색 및 경고 추가](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)를 참조하세요.
+Log Analytics 저장된 검색 및 Log Analytics 경고에 대한 리소스 템플릿은 설명서의 Log Analytics 섹션에서 사용할 수 있습니다. 자세한 정보는 설명 목적의 샘플 및 스키마 세부 내용을 포함하는 [Log Analytics 저장된 검색 및 경고 추가](../monitoring/monitoring-solutions-resources-searches-alerts.md)를 참조하세요.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Application Insights에 대한 Azure 리소스 템플릿
 Application Insights 리소스에 대한 로그 경고는 `Microsoft.Insights/scheduledQueryRules/`의 종류입니다. 이 리소스 종류에 대한 자세한 내용은 [Azure Monitor - 예약된 쿼리 규칙 API 참조](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)를 참조하세요.
@@ -246,5 +246,5 @@ az group deployment create --resource-group myRG --template-file sampleScheduled
 * [Azure Alerts의 로그 경고](monitor-alerts-unified-log.md)에 대해 알아보기
 * [로그 경고에 대한 웹후크 작업](monitor-alerts-unified-log-webhook.md) 이해
 * [Application Insights](../application-insights/app-insights-analytics.md)에 대해 자세히 알아보기
-* [Log Analytics](../log-analytics/log-analytics-overview.md)에 대해 자세히 알아보기 
+* [Log Analytics](../log-analytics/log-analytics-queries.md)에 대해 자세히 알아보기 
 

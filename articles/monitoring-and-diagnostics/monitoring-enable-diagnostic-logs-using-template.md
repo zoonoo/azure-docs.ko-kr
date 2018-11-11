@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e8af84467c008f5c576142fa094b2757cfd30387
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 774c313086883bedf4f8e06a46715a438fc02e69
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248081"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281203"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정 자동 활성화
 이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 리소스 생성 시 리소스에서 진단 설정을 구성하는 방법을 보여 줍니다. 그러면 Event Hubs로 진단 로그 및 메트릭의 스트리밍을 자동으로 시작하거나, 리소스 생성 시 Log Analytics에 보낼 수 있습니다.
@@ -26,7 +26,7 @@ ms.locfileid: "39248081"
 Resource Manager 템플릿을 사용하여 진단 로그를 활성화하는 방법은 리소스 형식에 따라 다릅니다.
 
 * **비-Compute** 리소스(예를 들어, 네트워크 보안 그룹, Logic Apps, Automation)는 [이 문서에 설명된 진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)을 사용합니다.
-* **Compute** 리소스(WAD/LAD 기반)는 [이 문서에 설명된 WAD/LAD 구성 파일](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)을 사용합니다.
+* **Compute** 리소스(WAD/LAD 기반)는 [이 문서에 설명된 WAD/LAD 구성 파일](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)을 사용합니다.
 
 이 문서에서는 두 방법 중 하나를 사용하여 진단을 구성하는 방법을 설명합니다.
 
@@ -263,7 +263,7 @@ Compute 리소스(예: Virtual Machine 또는 서비스 패브릭 클러스터)�
 > 
 > 
 
-샘플을 포함한 전체 과정은 [이 문서](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 설명되어 있습니다.
+샘플을 포함한 전체 과정은 [이 문서](../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 설명되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)

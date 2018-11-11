@@ -9,24 +9,24 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 965a35eb4cf33abe78ca802e8d59f13a649dec0a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982864"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279231"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>메트릭 값이 조건을 충족할 경우 알림 받기
 
 Azure Monitor를 통해 많은 Azure 리소스에 대한 메트릭을 사용할 수 있습니다. 이러한 메트릭은 해당 리소스의 성능 및 상태를 전달합니다. 대부분의 경우 메트릭 값은 리소스에 문제가 있음을 가리킬 수 있습니다. 비정상적인 동작을 모니터링하고 문제가 발생할 경우 이를 알리는 메트릭 공고를 만들 수 있습니다. 이 빠른 시작에서는 논리 앱을 만들고 작업을 만들며 논리 앱에 대한 메트릭을 시각화하는 과정을 안내합니다. 그런 다음 경고를 만들고 논리 앱 리소스에 대한 메트릭의 알림을 수신하는 과정을 거칩니다.
 
-메트릭 및 메트릭 경고에 대한 자세한 내용은 [Azure Monitor 메트릭 개요](./monitoring-overview-metrics.md) 및 [Azure Monitor 경고 개요](./monitoring-overview-alerts.md)를 참조하세요. 
+메트릭 및 메트릭 경고에 대한 자세한 내용은 [Azure Monitor 메트릭 개요](../monitoring/monitoring-data-collection.md) 및 [Azure Monitor 경고 개요](./monitoring-overview-alerts.md)를 참조하세요. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-logic-app"></a>논리 앱 만들기
 

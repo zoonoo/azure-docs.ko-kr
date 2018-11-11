@@ -10,12 +10,12 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 83373f5d6e4a2227bcafdbc4b25b686b0b8d651d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a315394ab394e7f4dfe528cf765c9ac5a65c80c4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867190"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277004"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델링을 위한 데이터 준비
  
@@ -34,4 +34,4 @@ ms.locfileid: "48867190"
 ![데이터 준비 프로세스](./media/concept-data-preparation/data-prep-process.png)
 
 ## <a name="next-steps"></a>다음 단계
-Azure Machine Learning Data Prep SDK를 사용하여 데이터 준비의 [예제 노트북](https://github.com/Microsoft/MSDataPrepDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb)을 검토합니다.
+Azure Machine Learning Data Prep SDK를 사용하여 데이터 준비의 [예제 노트북](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb)을 검토합니다.

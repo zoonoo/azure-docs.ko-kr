@@ -2,19 +2,19 @@
 title: Ambari 웹 UI를 사용하여 Azure HDInsight 모니터링 및 관리
 description: Ambari를 사용하여 Linux 기반 HDInsight 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari 웹 UI를 사용하는 방법을 배웁니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 3f2c9a246a7252241ffb65a4fa8545ba84e81df8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 1e17412636a904508352370bc7292a7d64bac6bc
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096470"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280439"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리
 
@@ -75,7 +75,7 @@ Ambari 웹 UI를 연결할 때 페이지에 인증하라는 메시지가 나옵�
 
 ## <a name="monitoring"></a>모니터링
 
-### <a name="alerts"></a>Alerts
+### <a name="alerts"></a>경고
 
 다음 목록은 Ambari에서 사용하는 일반적인 경고 상태를 포함합니다.
 

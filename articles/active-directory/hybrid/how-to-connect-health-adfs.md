@@ -3,7 +3,7 @@ title: AD FS와 함께 Azure AD Connect Health 사용 | Microsoft Docs
 description: 온-프레미스 AD FS 인프라를 모니터링하는 방법에 대한 Azure AD Connect Health 페이지입니다.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66dd3edefb44a0394216eeff58c6cccb5828c98b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 7d93207e6a5f0acabcf348981e799e801c39f48b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46302060"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278840"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](how-to-connect-health-sync.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조하세요.
@@ -128,7 +128,7 @@ AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최�
 
 > [!NOTE]
 > 이 보고서를 사용하려면 AD FS 감사를 사용하도록 설정해야 합니다. 자세한 내용은 [AD FS 감사 사용](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs)을 참조하십시오. <br />
-> 미리 보기에 액세스하려면 전역 관리자 또는 [보안 읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) 권한이 필요합니다.  
+> 미리 보기에 액세스하려면 전역 관리자 또는 [보안 읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) 권한이 필요합니다.  
 > 
 
 ### <a name="what-is-in-the-report"></a>보고서에 포함된 내용

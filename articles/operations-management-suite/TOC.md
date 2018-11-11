@@ -3,7 +3,7 @@
 
 # 시작하기
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
-## [Automation](../automation/automation-offering-get-started.md)
+## [Automation](/azure/automation/)
 ## [Backup](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
@@ -11,7 +11,7 @@
 # 방법
 
 ## 분석
-### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Log Analytics](../log-analytics/log-analytics-queries.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## 자동화
 ### [Azure Automation 개요](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 

@@ -14,12 +14,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: eeaf46a9ce523ecd11689d0aa430fcc522732f70
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 968c5fb093f3ebdb6ce7eb239f79573f19b89e0f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139859"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278636"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -29,7 +29,7 @@ ms.locfileid: "50139859"
 
 앱 서버 코드와 웹 페이지에 모두 Application Insights를 설치하여 최상의 환경을 얻습니다. 앱의 클라이언트 및 서버 구성 요소는 분석을 위해 Azure Portal로 원격 분석을 다시 보냅니다.
 
-1. **서버 코드:** [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-azure.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md) 또는 [기타](app-insights-platforms.md) 앱에 적합한 모듈을 설치합니다.
+1. **서버 코드:** [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-overview.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md) 또는 [기타](app-insights-platforms.md) 앱에 적합한 모듈을 설치합니다.
 
     * *서버 코드를 설치하지 않으려면 [Azure Application Insights 리소스를 만들기만](app-insights-create-new-resource.md) 하면 됩니다.*
 

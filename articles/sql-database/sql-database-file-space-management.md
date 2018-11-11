@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 306e541ad67d6b44d2d3cc4cd2f73aa09d629d0c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2de57a4ade91293fb1164815f83e87517068544e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954762"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277894"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL Database에서 파일 공간 관리리
 이 문서에서는 Azure SQL Database의 다양한 종류의 저장소 공간을 설명하고 데이터베이스 및 탄력적 풀에 할당된 파일 공간을 명시적으로 관리해야 하는 경우 취할 수 있는 단계를 설명합니다.
@@ -123,7 +123,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```sql
 -- Connect to master
 -- Elastic pool data space used in MB  
-SELECT TOP 1 avg_storage_percent * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
+SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC

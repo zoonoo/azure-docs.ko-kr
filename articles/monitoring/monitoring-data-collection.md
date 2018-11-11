@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248713"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282833"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure Monitor에서 수집된 데이터 모니터링
 [Azure Monitor](../azure-monitor/overview.md)는 사용하는 응용 프로그램 및 리소스를 모니터링하는 데 도움이 되는 서비스입니다. 이 기능의 중심은 원격 분석의 저장소 및 모니터링된 리소스의 기타 데이터입니다. 이 문서에서는 이 데이터가 저장되고 Azure Monitor에서 사용되는 방법에 대한 전체 설명을 제공합니다.
@@ -98,7 +98,7 @@ Azure Monitor에서 수집되는 메트릭의 세 가지 기본 원본이 있습
 메트릭을 사용하여 수행할 수 있는 작업은 다음과 같습니다.
 
 - [메트릭 탐색기](../monitoring-and-diagnostics/monitoring-metric-charts.md)를 사용하여 수집된 메트릭을 분석하고 차트에 그립니다. 차트를 [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 고정하여 리소스(예: VM, 웹 사이트 또는 논리 앱)의 성능을 추적합니다.
-- 메트릭이 임계값을 초과하면 알림을 보내거나 [자동화된 작업](../monitoring-and-diagnostics/monitoring-action-groups.md)을 수행하는 [메트릭 경고 규칙](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)을 구성합니다.
+- 메트릭이 임계값을 초과하면 알림을 보내거나 [자동화된 작업](../monitoring-and-diagnostics/monitoring-action-groups.md)을 수행하는 [메트릭 경고 규칙](../monitoring-and-diagnostics/alert-metric.md)을 구성합니다.
 - [자동 크기 조정](../monitoring-and-diagnostics/monitoring-overview-autoscale.md)을 사용하여 임계값을 초과하는 메트릭을 기준으로 리소스를 늘리거나 줄입니다.
 - 메트릭을 Log Analytics에 라우팅하여 로그 데이터와 함께 메트릭 데이터를 분석하고 93일 이상 메트릭 값을 저장합니다. 
 - 메트릭을 [이벤트 허브](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)로 스트리밍하여 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 또는 외부 시스템에 라우팅합니다.
@@ -138,7 +138,7 @@ Azure Monitor에서 수집된 로그는 다양한 원본의 원격 분석 및 �
 Log Analytics는 Azure 내와 온-프레미스 리소스의 다양한 원본에서 데이터를 수집할 수 있습니다. Log Analytics에 기록된 데이터 원본은 다음을 포함합니다.
 
 - 해당 작업에 대한 정보를 제공하는 해당 구성 및 상태에 대한 정보와 [진단 로그](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md)를 포함하는 Azure 리소스의 [활동 로그](../log-analytics/log-analytics-activity.md)
-- 구성하는 [데이터 원본](../log-analytics/log-analytics-data-sources.md)에 따라 게스트 운영 체제 및 응용 프로그램에서 Log Analytics로 원격 분석을 전송하는 [Windows](../log-analytics/log-analytics-windows-agent.md) 및 [Linux](../log-analytics/log-analytics-linux-agents.md) 가상 머신에 대한 에이전트
+- 구성하는 [데이터 원본](../log-analytics/log-analytics-data-sources.md)에 따라 게스트 운영 체제 및 응용 프로그램에서 Log Analytics로 원격 분석을 전송하는 [Windows](../log-analytics/log-analytics-windows-agent.md) 및 [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md) 가상 머신에 대한 에이전트
 - [Application Insights](https://docs.microsoft.com/azure/application-insights/)에서 수집된 응용 프로그램 데이터
 - 특정 응용 프로그램 또는 [모니터링 솔루션](../monitoring/monitoring-solutions.md)의 서비스 또는 Container Insights, VM Insights 또는 Resource Group Insights와 같은 기능에 대한 정보를 제공하는 데이터
 - [Azure Security Center](https://docs.microsoft.com/azure/security-center/)에서 수집된 보안 데이터

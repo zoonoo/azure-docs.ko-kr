@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5284b31ddf2ace3c1b9ed587e8f09301c17a54a7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 75b5246b83106b7d331ad3d467de2005e8d1f854
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211768"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279103"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기
 이 문서에서는 Azure Data Factory에서 Azure-SSIS 통합 런타임을 프로비전하는 단계를 제공합니다. 그런 다음, SSDT(SQL Server Data Tools) 또는 SSMS(SQL Server Management Studio)를 사용하여 Azure에서 이 런타임에 SSIS(SQL Server Integration Services) 패키지를 배포하고 실행할 수 있습니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "50211768"
 
 - 필요에 따라 데이터베이스 서버로 가상 네트워크 서비스 엔드포인트/Managed Instance를 통한 Azure SQL Database를 사용하여 SSIS 카탈로그(SSISDB 데이터베이스)를 호스팅합니다. SSISDB를 호스팅할 데이터베이스 서버의 유형을 선택하는 방법에 대한 지침은 [SQL Database 논리 서버 및 SQL Database Managed Instance 비교](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance)를 참조하세요. 필수 구성 요소로 Azure-SSIS IR을 가상 네트워크에 조인하고 필요에 따라 가상 네트워크 사용 권한 및 설정을 구성해야 합니다. [Azure-SSIS IR을 가상 네트워크에 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요. 
 
-- 필요에 따라 Azure Data Factory에서 데이터베이스 서버에 연결되도록 관리 ID가 포함된 AAD(Azure Active Directory) 인증을 사용합니다. 필수 구성 요소로 ADF에 대한 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 대한 AAD 인증 활성화](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)를 참조하세요. 
+- 필요에 따라 Azure Data Factory에서 데이터베이스 서버에 연결되도록 관리 ID가 포함된 AAD(Azure Active Directory) 인증을 사용합니다. 필수 구성 요소로 ADF에 대한 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 대한 AAD 인증 활성화](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)를 참조하세요. 
 
 ## <a name="overview"></a>개요
 이 문서에서는 Azure-SSIS IR을 프로비전하는 다양한 방법을 보여 줍니다. 
@@ -41,7 +41,7 @@ Azure-SSIS IR을 만들 때 Data Factory 서비스는 Azure SQL Database에 연�
 Azure-SSIS IR의 인스턴스를 프로비전하는 경우 Azure Feature Pack for SSIS 및 Access 재배포 가능 패키지도 설치됩니다. 이러한 구성 요소는 기본 제공 구성 요소가 지원하는 데이터 원본 외에도 Excel 및 Access 파일 및 다양한 Azure 데이터 원본에 대한 연결을 제공합니다. 추가 구성 요소를 설치할 수도 있습니다. 자세한 내용은 [Azure-SSIS 통합 런타임 사용자 지정 설정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건 
-- **Azure 구독**. 구독이 없는 경우 [평가판](http://azure.microsoft.com/pricing/free-trial/) 계정을 만들 수 있습니다. 
+- **Azure 구독**. 구독이 없는 경우 [평가판](https://azure.microsoft.com/pricing/free-trial/) 계정을 만들 수 있습니다. 
 
 - **Azure SQL Database 논리 서버 또는 Managed Instance**. 데이터베이스 서버가 아직 없는 경우 시작하기 전에 Azure Portal에서 이 서버를 만듭니다. 이 서버는 SSISDB(SSIS 카탈로그 데이터베이스)를 호스팅합니다. Integration Runtime과 동일한 Azure 지역에 데이터베이스 서버를 만드는 것이 좋습니다. 이 구성을 사용하면 Integration Runtime에서 Azure 지역을 벗어나지 않고 SSISDB에 실행 로그를 쓸 수 있습니다. 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 Managed Instance에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. Azure SQL Database에 지원되는 가격 책정 계층의 목록은 [SQL Database 리소스 제한](../sql-database/sql-database-resource-limits.md)을 참조하세요. 
 
@@ -62,7 +62,7 @@ Data Factory 및 Azure-SSIS Integration Runtime이 현재 사용 가능한 Azure
 
 | 기능 | SQL Database 논리 서버| SQL Database - Managed Instance |
 |---------|--------------|------------------|
-| **일정 계획** | SQL Server 에이전트를 사용할 수 없습니다.<br/><br/>[Azure Data Factory 파이프라인의 일부로 패키지 예약](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)을 참조하세요.| Managed Instance 에이전트를 사용할 수 있습니다. |
+| **일정 계획** | SQL Server 에이전트를 사용할 수 없습니다.<br/><br/>[Azure Data Factory 파이프라인의 일부로 패키지 예약](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)을 참조하세요.| Managed Instance 에이전트를 사용할 수 있습니다. |
 | **인증** | **dbmanager** 역할의 모든 Azure Active Directory 사용자를 나타내는 포함된 데이터베이스 사용자 계정을 사용하여 데이터베이스를 만들 수 있습니다.<br/><br/>[Azure SQL Database에서 Azure AD 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database)를 참조하세요. | Azure AD 관리자가 아닌 모든 Azure Active Directory 사용자를 나타내는 포함된 데이터베이스 사용자 계정을 사용하여 데이터베이스를 만들 수 없습니다. <br/><br/>[Azure SQL Database Managed Instance에서 Azure AD 활성화](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance)를 참조하세요. |
 | **서비스 계층** | SQL Database에서 Azure-SSIS IR을 만들 때 SSISDB의 서비스 계층을 선택할 수 있습니다. 여러 서비스 계층이 있습니다. | Managed Instance에서 Azure-SSIS IR을 만들 때 SSISDB의 서비스 계층을 선택할 수 없습니다. 동일한 Managed Instance의 모든 데이터베이스는 해당 인스턴스에 할당된 동일한 리소스를 공유합니다. |
 | **가상 네트워크** | 가상 네트워크 서비스 엔드포인트가 포함된 Azure SQL Database를 사용하거나 온-프레미스 데이터에 액세스해야 하는 경우 Azure-SSIS IR에서 조인할 Azure Resource Manager 및 클래식 가상 네트워크 모두를 지원합니다. | Azure-SSIS IR에서 조인할 Azure Resource Manager 가상 네트워크만 지원됩니다. 가상 네트워크가 필요합니다.<br/><br/>Azure-SSIS IR을 Managed Instance와 동일한 가상 네트워크에 조인하는 경우에는 Azure-SSIS IR이 Managed Instance와 다른 서브넷에 있어야 합니다. Azure-SSIS IR을 Managed Instance와 다른 가상 네트워크에 조인하는 경우에는 가상 네트워크 피어링(동일한 지역으로 제한됨) 또는 가상 네트워크에서 가상 네트워크로 연결을 사용하는 것이 좋습니다. [응용 프로그램을 Azure SQL Database Managed Instance에 연결](../sql-database/sql-database-managed-instance-connect-app.md)을 참조하세요. |
@@ -144,7 +144,7 @@ Data Factory 및 Azure-SSIS Integration Runtime이 현재 사용 가능한 Azure
 
     다. **카탈로그 데이터베이스 서버 엔드포인트**로는 SSISDB를 호스트하는 데이터베이스 서버의 엔드포인트를 선택합니다. 선택한 데이터베이스 서버에 따라 사용자를 대신하여 단일 데이터베이스로, 탄력적 풀의 일부분으로, 또는 Managed Instance에서 SSISDB를 만들 수 있습니다. 이러한 SSISDB는 공용 네트워크에서 액세스하거나 가상 네트워크에 조인하여 액세스할 수 있습니다. 
 
-    d. **AAD 인증 사용...** 확인란에서 Azure Data Factory에 대한 관리 ID를 사용하여 데이터베이스 서버에서 SSISDB를 호스팅하기 위한 인증 방법으로 SQL 또는 AAD(Azure Active Directory)를 선택합니다. 선택할 경우 ADF의 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 대한 AAD 인증 활성화](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)를 참조하세요. 
+    d. **AAD 인증 사용...** 확인란에서 Azure Data Factory에 대한 관리 ID를 사용하여 데이터베이스 서버에서 SSISDB를 호스팅하기 위한 인증 방법으로 SQL 또는 AAD(Azure Active Directory)를 선택합니다. 선택할 경우 ADF의 관리 ID를 데이터베이스 서버에 대한 액세스 권한이 있는 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 대한 AAD 인증 활성화](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)를 참조하세요. 
 
     e. **관리 사용자 이름**으로는 SSISDB를 호스트하는 데이터베이스 서버의 SQL 인증 사용자 이름을 입력합니다. 
 
@@ -333,7 +333,7 @@ Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 Managed Instance를 사용하여 SSISDB를 호스팅하는 경우 CatalogPricingTier 매개 변수를 생략하거나 해당 매개 변수에 빈 값을 전달할 수 있습니다. 그렇지 않으면 생략할 수 없으며 Azure SQL Database에 지원되는 가격 책정 계층 목록에서 유효한 값을 전달해야 합니다. [SQL Database 리소스 제한](../sql-database/sql-database-resource-limits.md)을 참조하세요. 
 
-관리 ID가 포함된 AAD(Azure Active Directory) 인증을 사용하여 Azure Data Factory에서 데이터베이스 서버에 연결하는 경우, CatalogAdminCredential 매개 변수는 생략할 수 있지만 데이터베이스 서버에 대한 액세스 권한을 사용하여 ADF의 관리 ID를 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 대한 AAD 인증 활성화](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir)를 참조하세요. 그렇지 않으면 생략할 수 없으며 SQL 인증을 위해 서버 관리 사용자 이름과 암호로 구성된 유효한 개체를 전달해야 합니다.
+관리 ID가 포함된 AAD(Azure Active Directory) 인증을 사용하여 Azure Data Factory에서 데이터베이스 서버에 연결하는 경우, CatalogAdminCredential 매개 변수는 생략할 수 있지만 데이터베이스 서버에 대한 액세스 권한을 사용하여 ADF의 관리 ID를 AAD 그룹에 추가해야 합니다. [Azure-SSIS IR에 대한 AAD 인증 활성화](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)를 참조하세요. 그렇지 않으면 생략할 수 없으며 SQL 인증을 위해 서버 관리 사용자 이름과 암호로 구성된 유효한 개체를 전달해야 합니다.
 
 ```powershell               
 Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
