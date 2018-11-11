@@ -11,18 +11,18 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 86fc1c3542bea1be840041bb73df15631c066c7e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a91daf08a56470e4d1e112e37b51150c2c5f00ef
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294975"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230321"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Azure Event Hubs 및 Azure Logic Apps를 사용하여 이벤트 모니터링, 수신 및 전송 
 
 이 아티클에서는 Azure Event Hubs 커넥터를 사용하여 논리 앱 내에서 [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)로 전송된 이벤트를 모니터링하고 관리하는 방법을 보여줍니다. 이런 방식으로 Event Hubs에서 이벤트를 검사하고, 전송하고, 수신하는 작업 및 워크플로를 자동화하는 논리 앱을 만들 수 있습니다. 
 
-Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">무료 Azure 계정에 등록</a>합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
+Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
 커넥터 관련 기술 정보는 <a href="https://docs.microsoft.com/connectors/eventhubs/" target="blank">Azure Event Hubs 커넥터 참조</a>를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -52,7 +52,7 @@ Event Hub에 액세스하는 논리 앱의 경우 Event Hubs 네임스페이스�
       ![Event Hubs 네임스페이스 연결 문자열 복사](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
       > [!TIP]
-      > 연결 문자열이 Event Hubs 네임스페이스 또는 특정 Event Hub와 연결되어 있는지 확인하려면 연결 문자열에 `EntityPath` 매개 변수가 있는지 확인합니다. 이 매개 변수를 찾으면 연결 문자열은 특정 Event Hub "엔터티"에 대한 것이고 논리 앱에 사용할 올바른 문자열이 아닙니다.
+      > 연결 문자열이 Event Hubs 네임스페이스 또는 특정 이벤트 허브와 연결되어 있는지 확인하려면 연결 문자열에 `EntityPath` 매개 변수가 있는지 확인합니다. 이 매개 변수를 찾으면 연결 문자열은 특정 Event Hub "엔터티"에 대한 것이고 논리 앱에 사용할 올바른 문자열이 아닙니다.
 
 4. 이제 [Event Hubs 트리거 추가](#add-trigger) 또는 [Event Hubs 작업 추가](#add-action)를 계속합니다.
 
@@ -68,7 +68,8 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
 2. 검색 상자에 필터로 “event hubs”를 입력합니다. 트리거 목록에서 원하는 트리거를 선택합니다. 
 
-   이 예제에서는 **Event Hubs - Event Hub에서 이벤트를 사용할 수 있는 경우** 트리거를 사용합니다.
+   이 예제에서는  
+   **Event Hubs - Event Hub에서 이벤트를 사용할 수 있는 경우** 트리거를 사용합니다.
 
    ![트리거 선택](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
@@ -111,7 +112,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. Azure Portal 또는 Visual Studio에서 논리 앱 디자이너에서 논리 앱을 엽니다. 이 예에서는 Azure Portal을 사용합니다.
 
-2. 트리거 또는 작업에서 **새 단계** > **작업 추가**를 선택합니다.
+2. 트리거 또는 작업에서 **새 단계** > **작업 추가**를 선택합니다.
 
    기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 
    표시되는 더하기 기호(**+**)를 선택한 다음, **작업 추가**를 선택합니다.
@@ -127,9 +128,9 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    | 자산 | 필수 | 설명 | 
    |----------|----------|-------------|
-   | 이벤트 허브 이름 | 예 | 이벤트를 보내려는 Event Hub를 선택합니다. | 
-   | 이벤트 콘텐츠 | 아니오 | 전송하려는 이벤트의 콘텐츠 | 
-   | properties | 아니오 | 보낼 앱 속성 및 값 | 
+   | 이벤트 허브 이름 | yes | 이벤트를 보내려는 Event Hub를 선택합니다. | 
+   | 이벤트 콘텐츠 | 아니요 | 전송하려는 이벤트의 콘텐츠 | 
+   | properties | 아니요 | 보낼 앱 속성 및 값 | 
    |||| 
 
    예:  
@@ -148,8 +149,8 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    | 자산 | 필수 | 값 | 설명 | 
    |----------|----------|-------|-------------|
-   | 연결 이름 | 예 | <*connection-name*> | 연결에 만들 이름 |
-   | Event Hubs 네임스페이스 | 예 | <*event-hubs-namespace*> | 사용하려는 Event Hubs 네임스페이스를 선택합니다. | 
+   | 연결 이름 | yes | <*connection-name*> | 연결에 만들 이름 |
+   | Event Hubs 네임스페이스 | yes | <*event-hubs-namespace*> | 사용하려는 Event Hubs 네임스페이스를 선택합니다. | 
    |||||  
 
    예: 
@@ -172,7 +173,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 ## <a name="get-support"></a>지원 받기
 
 * 질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)을 방문해 보세요.
-* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](http://aka.ms/logicapps-wish)를 방문하세요.
+* 기능 아이디어를 제출하거나 투표하려면 [Logic Apps 사용자 의견 사이트](https://aka.ms/logicapps-wish)를 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

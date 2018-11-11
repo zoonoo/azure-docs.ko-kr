@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395732"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250920"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -64,9 +64,9 @@ Visual Studio에서 사용자 지정 환경 설정이 다음과 같이 표시됩
 
 ![PTVS 설치](./media/vm-do-ten-things/PTVSSetup.png)
 
-Python 환경을 만드는 방법에 대한 자세한 내용은 [PTVS 설명서](http://aka.ms/ptvsdocs) 를 참조하세요.
+Python 환경을 만드는 방법에 대한 자세한 내용은 [PTVS 설명서](https://aka.ms/ptvsdocs) 를 참조하세요.
 
-이제 새 Python 프로젝트를 만들 수 있도록 설정되어 있습니다. **파일** -> **새로 만들기** -> **프로젝트** -> **Python**으로 이동하고 작성하는 Python 응용 프로그램의 종류를 선택합니다. 현재 프로젝트에 대한 Python 환경을 원하는 버전(Python 2.7 또는 3.6)으로 설정할 수 있습니다. **Python 환경**을 마우스 오른쪽 단추로 클릭하고 **Python 환경 추가/제거**를 선택한 다음, 원하는 환경을 선택합니다. 제품 [설명서](http://aka.ms/ptvsdocs)에서 PTVS 작업에 대한 자세한 정보를 찾을 수 있습니다.
+이제 새 Python 프로젝트를 만들 수 있도록 설정되어 있습니다. **파일** -> **새로 만들기** -> **프로젝트** -> **Python**으로 이동하고 작성하는 Python 응용 프로그램의 종류를 선택합니다. 현재 프로젝트에 대한 Python 환경을 원하는 버전(Python 2.7 또는 3.6)으로 설정할 수 있습니다. **Python 환경**을 마우스 오른쪽 단추로 클릭하고 **Python 환경 추가/제거**를 선택한 다음, 원하는 환경을 선택합니다. 제품 [설명서](https://aka.ms/ptvsdocs)에서 PTVS 작업에 대한 자세한 정보를 찾을 수 있습니다.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Jupyter Notebook에서 Python 또는 R을 사용하여 데이터 탐색 및 모델링
 Jupyter Notebook은 데이터 탐색 및 모델링을 위한 브라우저 기반 "IDE"를 제공하는 강력한 환경입니다. Jupyter Notebook에서 Python 2, Python 3 또는 R(오픈 소스 및 Microsoft R 서버 모두)을 사용할 수 있습니다.
@@ -806,7 +806,7 @@ DSVM에서 Azure Cosmos DB에 액세스하기 위한 다음과 같은 필수 조
 
 1. Azure Cosmos DB Python SDK는 DSVM에 이미 설치되어 있습니다(업데이트하려면 명령 프롬프트에서 ```pip install pydocumentdb --upgrade``` 실행).
 2. [Azure Portal](https://portal.azure.com)에서 Azure Cosmos DB 계정과 데이터베이스를 만듭니다.
-3. [여기](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)서 "Azure Cosmos DB 마이그레이션 도구"를 다운로드하여 원하는 디렉터리에 추출합니다.
+3. [여기](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d)서 "Azure Cosmos DB 마이그레이션 도구"를 다운로드하여 원하는 디렉터리에 추출합니다.
 4. 마이그레이션 도구(Cosmos DB 마이그레이션 도구를 설치한 디렉터리 dtui.exe)에 다음 명령 매개 변수를 사용하여 [공용 Blob](https://cahandson.blob.core.windows.net/samples/volcano.json)에 저장된 JSON 데이터(화산 데이터)를 Cosmos DB로 가져옵니다. 아래의 원본 및 대상 위치를 다음 매개 변수와 함께 입력합니다.
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

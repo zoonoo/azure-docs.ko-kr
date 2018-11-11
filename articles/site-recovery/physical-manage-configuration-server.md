@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 0e8dbf47c40339c90a0e28c3ef497a8da963e481
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231025"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213256"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>물리적 서버 재해 복구용 구성 서버 관리
 
@@ -42,7 +42,7 @@ Azure에 대한 물리적 서버 재해 복구를 위해 [Azure Site Recovery](s
 
 ## <a name="download-the-latest-installation-file"></a>최신 설치 파일 다운로드
 
-구성 서버 설치 파일의 최신 버전은 Site Recovery 포털에서 사용할 수 있습니다. 또한 [Microsoft 다운로드 센터](https://aka.ms/unifiedsetup)에서 직접 다운로드할 수 있습니다.
+구성 서버 설치 파일의 최신 버전은 Site Recovery 포털에서 사용할 수 있습니다. 또한 [Microsoft 다운로드 센터](http://aka.ms/unifiedsetup)에서 직접 다운로드할 수 있습니다.
 
 1. Azure Portal에 로그온하고 Recovery Services 자격 증명 모음으로 이동합니다.
 2. **Site Recovery 인프라** > **구성 서버**(VMware 및 물리적 컴퓨터용 아래)로 이동합니다.

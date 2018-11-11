@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: f68dadab96e27cc7b90f44681d87ffa7cce8126b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e5571a0933284a52d5567db0505ecaced6c6c336
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390060"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253502"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace를 위해 온-프레미스 가상 컴퓨터 이미지 개발
 원격 데스크톱 프로토콜을 사용하여 Azure VHD(가상 하드 디스크)를 클라우드에서 직접 개발하는 것이 좋습니다. 그러나 꼭 필요한 경우 VHD를 다운로드하고 온-프레미스 인프라를 사용하여 개발할 수 있습니다.  
@@ -71,7 +71,7 @@ Blob URL을 알고 있는 경우 [Azure 포털](http://manage.windowsazure.com/)
    ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### <a name="download-a-vhd-by-using-powershell"></a>PowerShell을 사용하여 VHD 다운로드
-Azure 포털 사용 외에도 [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) cmdlet을 사용하여 운영 체제 VHD를 다운로드할 수 있습니다.
+Azure 포털 사용 외에도 [Save-AzureVhd](https://msdn.microsoft.com/library/dn495297.aspx) cmdlet을 사용하여 운영 체제 VHD를 다운로드할 수 있습니다.
 
         Save-AzureVhd –Source <storageURIOfVhd> `
         -LocalFilePath <diskLocationOnWorkstation> `
@@ -139,7 +139,7 @@ PowerShell을 사용하여 [New-AzureStorageAccount](https://docs.microsoft.com/
 저장소 계정 및 컨테이너를 만든 후에는 준비된 VHD를 업로드할 수 있습니다. PowerShell, Linux 명령줄 도구 또는 기타 Azure Storage 관리 도구를 사용할 수 있습니다.
 
 ### <a name="upload-a-vhd-via-powershell"></a>PowerShell 통해 VHD 업로드
-[Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx) cmdlet를 사용합니다.
+[Add-AzureVhd](https://msdn.microsoft.com/library/dn495173.aspx) cmdlet를 사용합니다.
 
         Add-AzureVhd –Destination “http://mystorageaccount.blob.core.windows.net/containername/vmsku.vhd” -LocalFilePath “C:\Users\Administrator\Desktop\vmsku.vhd”
 

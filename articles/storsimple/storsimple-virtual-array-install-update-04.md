@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 3fb246b1515e7a637e6cff6499bf324c3f80dd45
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd3fdec0e50d64af28306034e6e1086e67526b7d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232192"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251056"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 0.4 설치
 
@@ -48,7 +48,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 다운로드하려면
 
-1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com)으로 이동합니다.
+1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)으로 이동합니다.
 
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치** 를 클릭합니다.
 
@@ -97,7 +97,7 @@ GA 또는 업데이트 0.1 소프트웨어 버전을 실행하는 장치에 업�
    
     ![장치 업데이트](./media/storsimple-virtual-array-install-update/update6m.png)
 
-## <a name="use-the-azure-portal"></a>Azure 포털 사용
+## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 업데이트 0.2 이상을 실행하는 경우 Azure Portal을 통해 업데이트를 설치하는 것이 좋습니다. 포털 절차를 사용하려면 사용자가 업데이트를 스캔, 다운로드한 다음 설치해야 합니다. 이 절차를 완료하는 데 약 7분이 걸립니다. 다음 단계를 수행하여 업데이트 또는 핫픽스를 설치합니다.
 

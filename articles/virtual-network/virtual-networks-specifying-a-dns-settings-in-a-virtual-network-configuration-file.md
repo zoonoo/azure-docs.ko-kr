@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
-ms.openlocfilehash: ed7f02d3e389db3bc772c4fcb00a7b3877d60173
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 36f7ed9b02b66718327c1a05a6cf29eedf39e7a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794527"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248388"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>가상 네트워크 구성 파일에서 DNS 설정 지정
 네트워크 구성 파일에는 도메인 이름 시스템(DNS) 설정 지정에 사용할 수 있는 두 요소 **DnsServers** 및 **DnsServerRef**가 있습니다. **DnsServers** 요소에 해당 IP 주소 및 참조 이름를 지정하여 DNS 서버 목록을 추가할 수 있습니다. 그런 다음 **DnsServerRef** 요소를 사용하여 가상 네트워크 내의 다른 네트워크 사이트에 대해 사용될 DnsServers 요소의 DNS 서버 항목을 지정할 수 있습니다.
@@ -36,7 +36,7 @@ ms.locfileid: "31794527"
 > 
 > 
 
-[Dns 요소](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Dns 요소](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -51,7 +51,7 @@ ms.locfileid: "31794527"
 > 
 > 
 
-[Virtual Network 사이트 요소](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Virtual Network 사이트 요소](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <DnsServersRef>
       <DnsServerRef name="ID1" />
@@ -65,7 +65,7 @@ ms.locfileid: "31794527"
 > 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Virtual Network 구성 스키마](http://go.microsoft.com/fwlink/?LinkId=248093)이해
+* [Azure Virtual Network 구성 스키마](https://go.microsoft.com/fwlink/?LinkId=248093)이해
 * [Azure 서비스 구성 스키마](https://msdn.microsoft.com/library/windowsazure/ee758710)이해
 * [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215262"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252924"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스, 인바운드/아웃바운드 연결 대기 시간 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -277,7 +277,7 @@ Linux:
 ![컴퓨터 변경 내용 추적 창](media/monitoring-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드
-서비스 맵 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../log-analytics/log-analytics-log-searches.md)할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
+서비스 맵 컴퓨터 및 프로세스 인벤토리 데이터는 Log Analytics에서 [검색](../log-analytics/log-analytics-queries.md)할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
 
 프로세스 또는 컴퓨터가 시작되거나 서비스 맵에 등록된 경우 생성되는 레코드 외에도 고유한 각 컴퓨터 및 프로세스에 대해 시간당 하나의 레코드가 생성됩니다. 이러한 레코드는 다음 표의 속성을 가집니다. ServiceMapComputer_CL 이벤트의 필드 및 값은 ServiceMap Azure Resource Manager API의 컴퓨터 리소스 필드에 매핑됩니다. ServiceMapProcess_CL 이벤트의 필드 및 값은 ServiceMap Azure Resource Manager API의 프로세스 리소스 필드에 매핑됩니다. ResourceName_s 필드는 해당하는 Resource Manager 리소스의 이름 필드와 일치합니다. 
 
@@ -504,7 +504,7 @@ Microsoft는 서비스 맵 서비스를 사용하여 사용 현황 및 성능 �
 
 
 ## <a name="next-steps"></a>다음 단계
-Log Analytics의 [로그 검색](../log-analytics/log-analytics-log-searches.md)에 대해 자세히 알아보고 서비스 맵이 수집한 데이터를 검색합니다.
+Log Analytics의 [로그 검색](../log-analytics/log-analytics-queries.md)에 대해 자세히 알아보고 서비스 맵이 수집한 데이터를 검색합니다.
 
 
 ## <a name="troubleshooting"></a>문제 해결

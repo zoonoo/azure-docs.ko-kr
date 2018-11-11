@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f2f96faf6bd8132422aeb3484547e4b6a1195a7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380293"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255543"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>웹후크를 사용하여 비 Azure 시스템을 알리도록 클래식 메트릭 경고 설정
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 
 
-이 아티클에서는 Azure 메트릭 경고에 웹후크를 설정하는 방법을 설명합니다. 웹후크에 대한 HTTP POST의 페이로드 형태도 보여 줍니다. Azure 활동 로그 경고(이벤트에 대한 경고)에 대한 설정과 스키마에 대한 자세한 내용은 [Azure 활동 로그 경고에서 웹후크 호출](insights-auditlog-to-webhook-email.md)을 참조하세요.
+이 아티클에서는 Azure 메트릭 경고에 웹후크를 설정하는 방법을 설명합니다. 웹후크에 대한 HTTP POST의 페이로드 형태도 보여 줍니다. Azure 활동 로그 경고(이벤트에 대한 경고)에 대한 설정과 스키마에 대한 자세한 내용은 [Azure 활동 로그 경고에서 웹후크 호출](monitor-alerts-unified-log-webhook.md)을 참조하세요.
 
 Azure 경고는 HTTP POST를 사용하여 JSON 형식의 경고 콘텐츠를 이 경고를 만들 때 입력한 웹후크 URI로 보냅니다. 이 스키마는 이 아티클의 뒷부분에 정의되어 있습니다. 이 URI의 HTTP 또는 HTTPS 엔드포인트는 유효해야 합니다. 경고가 활성화되면 Azure에서 요청당 항목 하나만 게시합니다.
 
@@ -101,8 +101,8 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 >
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 경고와 PagerDuty의 통합](http://go.microsoft.com/fwlink/?LinkId=627080) 비디오에서 Azure 경고와 웹후크에 대해 자세히 알아봅니다.
-* [Azure 경고에 대한 Azure Automation 스크립트(Runbook) 실행](http://go.microsoft.com/fwlink/?LinkId=627081) 방법을 알아봅니다.
+* [Azure 경고와 PagerDuty의 통합](https://go.microsoft.com/fwlink/?LinkId=627080) 비디오에서 Azure 경고와 웹후크에 대해 자세히 알아봅니다.
+* [Azure 경고에 대한 Azure Automation 스크립트(Runbook) 실행](https://go.microsoft.com/fwlink/?LinkId=627081) 방법을 알아봅니다.
 * [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app) 방법을 알아봅니다.
 * [논리 앱을 사용하여 Azure 경고에서 Slack 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app) 방법을 알아봅니다.
 * [논리 앱을 사용하여 Azure 경고에서 Azure 큐에 메시지 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app) 방법을 알아봅니다.

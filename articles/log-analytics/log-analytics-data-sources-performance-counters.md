@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5822d32906419e8b0615dd8686ec47de28deb38f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 15991faa61dc5f543b1b9db491bc1669daf219cc
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182225"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014213"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics의 Windows 및 Linux 성능 데이터 원본
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 응용 프로그램의 성능에 대한 정보를 자세히 제공합니다.  Log Analytics는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
@@ -227,5 +227,5 @@ Log Analytics는 카운터가 설치된 모든 에이전트에서 지정된 모�
 
 ## <a name="next-steps"></a>다음 단계
 * MySQL 및 Apache HTTP 서버를 포함하여 [Linux 응용 프로그램에서 성능 카운터를 수집](log-analytics-data-sources-linux-applications.md)합니다.
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다.  
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-queries.md)에 대해 알아봅니다.  
 * 추가적인 시각화 및 분석을 위해, 수집된 데이터를 [Power BI](log-analytics-powerbi.md) 로 내보냅니다.

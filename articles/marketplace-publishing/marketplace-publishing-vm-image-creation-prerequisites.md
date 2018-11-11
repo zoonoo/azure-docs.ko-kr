@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714335"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255271"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace용 가상 컴퓨터 이미지를 만들기 위한 기술 필수 조건
 시작하기 전에 프로세스를 자세히 읽고 각 단계를 어디에서, 왜 수행하는지를 이해해야 합니다. 제품 만들기 프로세스를 시작하기 전에 회사 정보와 기타 데이터를 최대한 많이 준비하고 필요한 도구를 다운로드하고 기술 구성 요소를 만들어야 합니다. 이 문서를 검토하여 이러한 항목에 대해 명확히 알아야 합니다.  
@@ -30,7 +30,7 @@ ms.locfileid: "39714335"
 * 대상으로 하는 운영 체제에 따라 [Azure 다운로드](https://azure.microsoft.com/downloads/) 페이지에서 [Azure PowerShell cmdlet](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) 또는 [Linux 명령줄 인터페이스 도구](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409)를 설치합니다.
 * CodePlex에서 Azure Storage 탐색기를 설치합니다.
 * Azure Certified용 인증 테스트 도구를 다운로드하여 설치합니다.
-  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). 인증 도구를 실행하려면 Windows 기반 컴퓨터가 필요합니다. Windows 기반 컴퓨터를 사용할 수 없는 경우 Azure의 Windows 기반 VM을 사용하여 도구를 실행할 수 있습니다.
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](https://go.microsoft.com/fwlink/?LinkID=526913). 인증 도구를 실행하려면 Windows 기반 컴퓨터가 필요합니다. Windows 기반 컴퓨터를 사용할 수 없는 경우 Azure의 Windows 기반 VM을 사용하여 도구를 실행할 수 있습니다.
 
 ## <a name="platforms-supported"></a>지원되는 플랫폼
 Windows 또는 Linux에서 Azure 기반 VM을 개발할 수 있습니다. Azure 호환 VHD(가상 하드 디스크) 만들기와 같은 게시 프로세스의 일부 요소에서는 사용 중인 운영 체제에 따라 다른 도구와 단계를 사용합니다.  

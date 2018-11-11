@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 2ab2ac34132eff65e1d6c77794486bc8d9858b40
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 62dc796de430e7c5926f3231db29ef554f210142
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408183"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016780"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성(미리 보기)
 
@@ -365,7 +365,7 @@ Active Directory 포리스트로 사용자 프로비전을 구성하기 전에 �
 | **UserID**    |  cn    |   |   만들기 작업 시에만 기록 |
 | **조인(“@”, [UserID], “contoso.com”)**   | userPrincipalName     |     | 만들기 작업 시에만 기록 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         만들기 작업 시에만 기록 |
-| **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | 만들기 + 업데이트 |
+| **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | 만들기 + 업데이트 |
 | **FirstName**   | givenName       |     |    만들기 + 업데이트 |
 | **LastName**   |   sn   |     |  만들기 + 업데이트 |
 | **PreferredNameData**  |  displayName |     |   만들기 + 업데이트 |
@@ -611,7 +611,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 3. 그러면 초기 동기화가 시작되며, Workday에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다.
 
-4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../manage-apps/check-status-user-account-provisioning.md)**
+4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. 감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
@@ -669,7 +669,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 3. 그러면 초기 동기화가 시작되며, Workday에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다.
 
-4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../manage-apps/check-status-user-account-provisioning.md)**
+4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. 감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 

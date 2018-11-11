@@ -4,7 +4,7 @@ description: 이 문서는 Azure Security Center가 역할 기반 액세스 제�
 services: security-center
 cloud: na
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 ms.assetid: ''
 ms.service: security-center
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2017
-ms.author: terrylan
-ms.openlocfilehash: b93b57d50ccf5d5dfb092bdb71820da77f345878
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295465"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007861"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure Security Center의 권한
 
@@ -44,7 +44,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 | 역할 | 보안 정책 편집 | 리소스에 보안 권장 사항 적용 | 경고 및 권장 사항 해제 | 경고 및 권장 사항 보기 |
 |:--- |:---:|:---:|:---:|:---:|
 | 구독 소유자 | X | X | X | X |
-| 구독 참가자 | X | X | X | X |
+| 구독 참가자 | -- | X | X | X |
 | 리소스 그룹 소유자 | -- | X | -- | X |
 | 리소스 그룹 참가자 | -- | X | -- | X |
 | 판독기 | -- | -- | -- | X |

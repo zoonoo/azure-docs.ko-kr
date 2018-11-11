@@ -3,17 +3,17 @@ title: Apache Kafka 시작 - Azure HDInsight 빠른 시작
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Kafka 토픽, 구독자 및 소비자에 대해서도 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: e8f8ad9b7cc14d6a3d28832e4d14ef55e8c530c6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: dea69e9cfcd3cff24c77698ee4a8ed729a18f087
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618112"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011930"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Kafka 만들기
 

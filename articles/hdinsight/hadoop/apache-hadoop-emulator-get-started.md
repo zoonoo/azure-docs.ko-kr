@@ -4,18 +4,18 @@ description: 'Hadoop 에코 시스템을 사용하는 방법에 대해 알아보
 keywords: Hadoop 에뮬레이터, Hadoop 샌드박스
 ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: jasonh
-ms.openlocfilehash: 66450077de4748bcd8703080d33f37169671ebe3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: add1833671b995e747af6a447c65114d1add76e9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048702"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013108"
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>가상 머신의 에뮬레이터인 Hadoop 샌드박스 시작
 

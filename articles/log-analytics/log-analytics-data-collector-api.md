@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 497b5b9d33ab2dea37e1017fa2d5bf2d0db66a5f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319713"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007674"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Log Analytics에 데이터 전송(공개 미리 보기)
 이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 응용 프로그램에서 수집하는 데이터를 포맷하고 요청에 포함하며 해당 요청을 Log Analytics에서 승인하게 하는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
@@ -201,7 +201,7 @@ HTTP 상태 코드 200는 처리를 위한 요청을 받았다는 것을 의미�
 Log Analytics HTTP 데이터 수집기 API에서 제출한 데이터를 쿼리하려면 지정한 **LogType** 값에 **_CL**을 첨부한 것과 같은 **형식**의 레코드를 검색하십시오. 예를 들어, **MyCustomLog**를 사용한 경우**Type=MyCustomLog_CL**을 갖는 모든 레코드를 반환합니다.
 
 >[!NOTE]
-> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-log-search-upgrade.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
+> 작업 영역을 [새 Log Analytics 쿼리 언어](log-analytics-queries.md)로 업그레이드한 경우에는 위 쿼리가 다음과 같이 변경됩니다.
 
 > `MyCustomLog_CL`
 
@@ -470,6 +470,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- Log Analytics 저장소에서 데이터를 검색하려면 [Log Search API](log-analytics-log-search-api.md)를 사용합니다.
+- Log Analytics 저장소에서 데이터를 검색하려면 [Log Search API](log-analytics-queries.md)를 사용합니다.
 
 - Log Analytics에 대한 Logic Apps 워크플로를 사용하여 [데이터 수집기 API로 데이터 파이프라인을 만드는 방법](log-analytics-create-pipeline-datacollector-api.md)을 알아봅니다.

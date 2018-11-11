@@ -10,24 +10,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: ef2b5fe6c9b70eaea5ab4db2d4a0ca59ff82dbb9
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 2c7e624344605b24e78962ac2b6d23278c06c0cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391898"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255151"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1을 사용하는 모범 사례
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-이 문서에서는 Azure Data Lake Storage Gen1 작업에 대한 모범 사례와 고려 사항에 대해 알아 봅니다. 여기서는 Data Lake Storage Gen1의 보안, 성능, 복원력 및 모니터링에 대해 설명합니다. Data Lake Storage Gen1 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob Storage 계정에서 데이터를 분할하여 페타바이트 저장소와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Storage Gen1을 사용하면 크기와 성능에 대한 대부분의 엄격한 한도가 제거됩니다. 그러나 이 문서에서 다루는 몇 가지 고려 사항은 Data Lake Storage Gen1에서 최상의 성능을 얻을 수 있도록 하기 위한 것입니다. 
+이 문서에서는 Azure Data Lake Storage Gen1 작업에 대한 모범 사례와 고려 사항에 대해 알아 봅니다. 여기서는 Data Lake Storage Gen1의 보안, 성능, 복원력 및 모니터링에 대해 설명합니다. Data Lake Storage Gen1 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob 저장소 계정에서 데이터를 분할하여 페타바이트 저장소와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Storage Gen1을 사용하면 크기와 성능에 대한 대부분의 엄격한 한도가 제거됩니다. 그러나 이 문서에서 다루는 몇 가지 고려 사항은 Data Lake Storage Gen1에서 최상의 성능을 얻을 수 있도록 하기 위한 것입니다. 
 
 ## <a name="security-considerations"></a>보안 고려 사항
 
 Azure Data Lake Storage Gen1은 Azure AD(Azure Active Directory) 사용자, 그룹 및 서비스 사용자에 대한 POSIX 액세스 제어 및 자세한 감사 기능을 제공합니다. 이러한 액세스 제어는 기존 파일 및 폴더에 설정할 수 있습니다. 액세스 제어를 사용하여 새 파일이나 폴더에 적용할 수 있는 기본값을 만들 수도 있습니다. 권한이 기존 폴더 및 자식 개체에 설정되면 권한을 각 개체에 재귀적으로 전파해야 합니다. 파일 수가 많은 경우 권한을 전파하는 데 오랜 시간이 걸릴 수 있습니다. 소요 시간은 초당 처리되는 30-50개 개체 사이의 범위일 수 있습니다. 따라서 폴더 구조와 사용자 그룹을 적절하게 계획합니다. 그렇지 않으면 데이터를 사용할 때 예기치 않은 지연과 문제가 발생할 수 있습니다. 
 
-100,000개의 자식 개체가 있는 폴더가 있다고 가정합니다. 초당 처리되는 30개 개체의 하한 값을 사용하면 전체 폴더에 대한 권한을 업데이트하는 데 1시간이 걸릴 수 있습니다. Data Lake Storage Gen1 ACL에 대한 자세한 내용은 [Azure Data Lake Storage Gen1의 액세스 제어](data-lake-store-access-control.md)에서 확인할 수 있습니다. ACL을 재귀적으로 할당할 때 성능을 향상시키기 위해 Azure Data Lake 명령줄 도구를 사용할 수 있습니다. 이 도구는 다중 스레드와 재귀 탐색 논리를 만들어 수백만 개의 파일에 ACL을 빠르게 적용합니다. 이 도구는 Linux 및 Windows에서 사용할 수 있으며, 이 도구에 대한 [설명서](https://github.com/Azure/data-lake-adlstool) 및 [다운로드](http://aka.ms/adlstool-download)는 GitHub에서 찾을 수 있습니다. Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) 및 [Java](data-lake-store-get-started-java-sdk.md) SDK로 작성된 고유한 도구에서 이러한 동일한 성능 개선을 설정할 수 있습니다.
+100,000개의 자식 개체가 있는 폴더가 있다고 가정합니다. 초당 처리되는 30개 개체의 하한 값을 사용하면 전체 폴더에 대한 권한을 업데이트하는 데 1시간이 걸릴 수 있습니다. Data Lake Storage Gen1 ACL에 대한 자세한 내용은 [Azure Data Lake Storage Gen1의 액세스 제어](data-lake-store-access-control.md)에서 확인할 수 있습니다. ACL을 재귀적으로 할당할 때 성능을 향상시키기 위해 Azure Data Lake 명령줄 도구를 사용할 수 있습니다. 이 도구는 다중 스레드와 재귀 탐색 논리를 만들어 수백만 개의 파일에 ACL을 빠르게 적용합니다. 이 도구는 Linux 및 Windows에서 사용할 수 있으며, 이 도구에 대한 [설명서](https://github.com/Azure/data-lake-adlstool) 및 [다운로드](https://aka.ms/adlstool-download)는 GitHub에서 찾을 수 있습니다. Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) 및 [Java](data-lake-store-get-started-java-sdk.md) SDK로 작성된 고유한 도구에서 이러한 동일한 성능 개선을 설정할 수 있습니다.
 
 ### <a name="use-security-groups-versus-individual-users"></a>보안 그룹 및 개별 사용자 사용 
 

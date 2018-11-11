@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: db976fb61c5659fbdcb7ba30aa4f619d52d441c4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402510"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252397"
 ---
 # <a name="azure-database-security-checklist"></a>Azure 데이터베이스 보안 검사 목록
 
@@ -47,7 +47,7 @@ Azure 데이터베이스에는 보안을 향상시키기 위해 액세스를 제
 | ------------ | -------- |
 |**데이터 보호**||
 | <br> 진행 중/전송 중 암호화| <ul><li>[전송 계층 보안](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol) - 데이터가 네트워크로 이동할 때의 데이터 암호화용</li><li>데이터베이스에는 TLS(전송 계층 보안)를 통한 [TDS(Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) 프로토콜에 기반한 클라이언트로부터의 보안 통신이 필요합니다.</li></ul> |
-|<br>휴지 상태의 암호화| <ul><li>[투명한 데이터 암호화](http://go.microsoft.com/fwlink/?LinkId=526242) - 비활성 데이터가 디지털 형식으로 물리적으로 저장되는 경우</li></ul>|
+|<br>휴지 상태의 암호화| <ul><li>[투명한 데이터 암호화](https://go.microsoft.com/fwlink/?LinkId=526242) - 비활성 데이터가 디지털 형식으로 물리적으로 저장되는 경우</li></ul>|
 |**액세스 제어**||  
 |<br> 데이터베이스 액세스 | <ul><li>[인증](https://docs.microsoft.com/azure/sql-database/sql-database-control-access)(Azure Active Directory 인증) - AD 인증은 Azure Active Directory에서 관리되는 ID를 사용합니다.</li><li>[권한 부여](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) - 사용자에게 필요한 최소 권한을 부여합니다.</li></ul> |
 |<br>응용 프로그램 액세스| <ul><li>[행 수준 보안](https://msdn.microsoft.com/library/dn765131) - 보안 정책을 사용하는 동시에 사용자의 ID, 역할 또는 실행 컨텍스트에 따라 행 수준 액세스를 제한합니다.</li><li>[동적 데이터 마스킹](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) - 권한 및 정책을 사용하여 권한이 없는 사용자에게 중요한 데이터를 마스킹함으로써 이러한 데이터의 노출을 제한합니다.</li></ul>|

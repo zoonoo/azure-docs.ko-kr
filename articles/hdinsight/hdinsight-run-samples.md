@@ -2,19 +2,19 @@
 title: HDInsight에서 Hadoop 샘플 실행 - Azure
 description: 제공된 샘플을 사용하여 Azure HDInsight 서비스 사용을 시작합니다. 또한 데이터 클러스터에 대해 MapReduce 프로그램을 실행하는 PowerShell 스크립트를 사용합니다.
 services: hdinsight
-author: hrasheed-msft
+author: jasonwhowell
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: hrasheed
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: d1da4d10b6346d774c657b0263c9da6278116b61
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 84c28eebc2bcf1bfdfcb0995f1caa05ed19629e2
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006416"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250838"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Hadoop MapReduce 샘플 실행
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]

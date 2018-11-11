@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 6de1f6dfac028255a1cb49931e959c79b5fc4f40
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: e0fe2ade2e50ff549cb18f84a3c15830255ca0fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022778"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249594"
 ---
 # <a name="microsoft-authenticator-app"></a>Microsoft Authenticator 앱
 
@@ -27,6 +27,6 @@ Microsoft Authenticator 앱은 암호 입력 후 2단계 인증을 통해 계정
 
 |문서 |설명 |
 |------|------------|
-|[Microsoft Authenticator 앱 시작](microsoft-authenticator-app-how-to.md)|[Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)용 Microsoft Authenticator 앱을 다운로드하여 설치할 수 있는 위치 및 방법을 설명합니다.|
+|[Microsoft Authenticator 앱 시작](microsoft-authenticator-app-how-to.md)|[Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)용 Microsoft Authenticator 앱을 다운로드하여 설치할 수 있는 위치 및 방법을 설명합니다.|
 |[Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구](microsoft-authenticator-app-backup-and-recovery.md)| Microsoft Authenticator 앱을 사용하여 계정 자격 증명을 백업 및 복구하는 방법에 대한 정보를 제공합니다.|
 |[Microsoft Authenticator 앱 FAQ](microsoft-authenticator-app-faq.md)|앱에 대한 질문과 대답입니다.|

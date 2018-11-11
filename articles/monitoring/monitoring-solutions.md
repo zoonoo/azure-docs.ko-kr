@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 53020eeb96927143b2fb7394aee64f9b7ea55df9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752924"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248965"
 ---
 # <a name="management-solutions-in-azure"></a>Azure의 관리 솔루션
 관리 솔루션은 Azure의 서비스를 활용하여 특정 응용 프로그램이나 서비스의 작업에 대한 추가 인사이트를 제공합니다. 이 문서에서는 Azure 관리 솔루션에 대해 간략하게 설명하고 관리 솔루션을 설치 및 사용하는 방법을 자세히 알아봅니다.
@@ -104,5 +104,5 @@ Log Analytics 작업 영역 및 Automation 계정을 지정하는 방법은 솔�
 
 ## <a name="next-steps"></a>다음 단계
 * [Microsoft에서 관리 솔루션 목록](monitoring-solutions-inventory.md)을 가져옵니다.
-* 관리 솔루션에서 수집한 데이터를 분석하는 [쿼리 만들기](../log-analytics/log-analytics-log-searches.md) 방법을 알아봅니다.
+* 관리 솔루션에서 수집한 데이터를 분석하는 [쿼리 만들기](../log-analytics/log-analytics-queries.md) 방법을 알아봅니다.
 

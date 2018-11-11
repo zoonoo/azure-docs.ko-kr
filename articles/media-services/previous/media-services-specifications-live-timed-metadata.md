@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: 2e736872dc3e471af7c5b3f758516910a02067fe
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 827153300b9cab4ea805689b1e103bea1b334ec9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786082"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249577"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>라이브 스트리밍의 신호 타이밍 메타데이터
 
@@ -404,7 +404,7 @@ DASHEventMessageBox의 필드는 아래와 같이 정의됩니다.
 
 **[HLS]** ["HTTP 라이브 스트리밍", draft-pantos-http-live-streaming-14, 2014년 10월 14일](http://tools.ietf.org/html/draft-pantos-http-live-streaming-14)
 
-**[MS-SSTR]** ["Microsoft 부드러운 스트리밍 프로토콜", 2014년 5월 15일](http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+**[MS-SSTR]** ["Microsoft 부드러운 스트리밍 프로토콜", 2014년 5월 15일](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
 **[AMF0]** ["동작 메시지 형식 AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 

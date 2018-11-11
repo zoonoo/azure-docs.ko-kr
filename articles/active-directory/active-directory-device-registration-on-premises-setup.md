@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: ccb3c6b1349576c0fa91066f4e98f0a53f5bef45
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b1711b86042c74eba47fe1cfa41bbbd36ceaf127
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319600"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248761"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정
 
@@ -51,7 +51,7 @@ ms.locfileid: "49319600"
 * Azure Active Directory Premium에 대한 라이선스
 * Azure AD에 대해 SSO로 구성된 Windows Server 2012 R2 페더레이션 서비스
 * Windows Server 2012 R2 웹 응용 프로그램 프록시 
-* Azure AD Connect(Microsoft Azure Active Directory Connect)[(Azure AD Connect 다운로드)](http://www.microsoft.com/download/details.aspx?id=47594)
+* Azure AD Connect(Microsoft Azure Active Directory Connect)[(Azure AD Connect 다운로드)](https://www.microsoft.com/download/details.aspx?id=47594)
 * 확인된 도메인
 
 ## <a name="known-issues-in-this-release"></a>이 릴리스의 알려진 문제

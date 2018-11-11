@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: spelluru
-ms.openlocfilehash: e66a1651a46cfaeb7fb8b232eeb7cf6a2fb8044d
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 55e97ff95245ce222ccbc2a99f6ae2882cef3715
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451225"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248778"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>.NET에서 Relay 하이브리드 연결 HTTP 요청 시작
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "47451225"
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* [Visual Studio 2015 이상](http://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
+* [Visual Studio 2015 이상](https://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
 * Azure 구독.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]

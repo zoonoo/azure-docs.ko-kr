@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: e22a2431ecae68278276b069bc199cfea60cd413
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 5d2edd3b4d8655133ef2835f0d0e579280123ae7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347361"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249424"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 지원 옵션
 
@@ -27,7 +27,7 @@ ms.locfileid: "44347361"
 
 ## <a name="report-production-issues-or-request-paid-support-for-azure"></a>프로덕션 문제 보고 또는 Azure에 대한 유료 지원 요청
 
-Azure에 배포된 Service Fabric 클러스터의 문제를 보고하여 [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) 또는 [Microsoft 지원 포털](http://support.microsoft.com/oas/default.aspx?prid=16146)에서 지원에 대한 티켓을 엽니다.
+Azure에 배포된 Service Fabric 클러스터의 문제를 보고하여 [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) 또는 [Microsoft 지원 포털](https://support.microsoft.com/oas/default.aspx?prid=16146)에서 지원에 대한 티켓을 엽니다.
 
 다음에 대해 자세히 알아봅니다.
  
@@ -38,7 +38,7 @@ Azure에 배포된 Service Fabric 클러스터의 문제를 보고하여 [Azure 
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>프로덕션 문제 보고 또는 독립 실행형 Service Fabric 클러스터에 대한 유료 지원 요청
 
-프리미어 또는 기타 클라우드에 배포된 Service Fabric 클러스터의 문제를 보고하려면 [Microsoft 지원 포털](http://support.microsoft.com/oas/default.aspx?prid=16146)에서 전문 지원에 대한 티켓을 여세요.
+프리미어 또는 기타 클라우드에 배포된 Service Fabric 클러스터의 문제를 보고하려면 [Microsoft 지원 포털](https://support.microsoft.com/oas/default.aspx?prid=16146)에서 전문 지원에 대한 티켓을 여세요.
 
 다음에 대해 자세히 알아봅니다.
 

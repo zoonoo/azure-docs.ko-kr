@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 6220a794c10f43d562155adbad910694a233ec88
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: fa31397e0ecffbd245557a824bdd770724bbc91c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166024"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249883"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>자습서: Azure Data Box Gateway를 사용하여 데이터 전송(미리 보기)
 
@@ -146,6 +146,6 @@ Data Box 에지에 연결된 Linux 클라이언트에서 다음 단계를 수행
 Data Box Gateway를 관리하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [로컬 웹 UI를 사용하여 Data Box Gateway 관리](http://aka.ms/dbg-docs)
+> [로컬 웹 UI를 사용하여 Data Box Gateway 관리](https://aka.ms/dbg-docs)
 
 

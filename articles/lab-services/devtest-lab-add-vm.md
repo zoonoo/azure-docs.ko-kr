@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ce95a2177260e97113fd5e639671075eb6ad40cd
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e86568da7f3d607c90e42e09a61ced9993c4d744
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215019"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254046"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 VM 추가
 [첫 번째 VM을 이미 만든 경우](devtest-lab-create-first-vm.md) 미리 로드된 [Marketplace 이미지](devtest-lab-configure-marketplace-images.md)에서 만들었을 것입니다. 이제 이후의 VM을 랩에 추가하려면 [사용자 지정 이미지](devtest-lab-create-template.md) 또는 [수식](devtest-lab-manage-formulas.md)인 *기본*을 선택하면 됩니다. 이 자습서에서는 DevTest Labs에서 랩에 VM을 추가하기 위해 Azure Portal을 사용하는 방법을 설명합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "39215019"
 또한 이 문서에서는 랩에서 VM의 아티팩트를 만드는 방법을 보여 줍니다.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 VM을 추가하는 단계
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 VM을 만들려는 랩을 선택합니다.  
 1. 랩의 **개요** 창에서 **+ 추가**를 선택합니다.  
@@ -69,7 +69,7 @@ VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 �
 
 아티팩트를 만드는 방법을 알아보려면 [DevTest Labs와 함께 사용할 사용자 고유의 아티팩트를 저작하는 방법 알아보기](devtest-lab-artifact-author.md)문서를 참조하세요.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 사용하려는 VM을 포함하는 랩을 선택합니다.  
 1. **내 가상 머신**를 선택합니다.

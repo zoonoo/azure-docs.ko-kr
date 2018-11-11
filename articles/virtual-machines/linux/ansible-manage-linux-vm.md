@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: d9ff0387a1d02eb5f4684048aeed8ad0079b28ef
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 06a0f2416ecff9e2f9a21877e26487b56452d0a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434418"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251324"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Azure에서 Ansible을 사용하여 Linux 가상 머신 관리
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 다른 리소스와 동일한 방식으로 Azure 가상 머신을 관리할 수 있습니다. 이 문서에서는 Ansible 플레이북을 사용하여 Linux 가상 머신을 시작 및 중지하는 방법을 보여줍니다. 
@@ -27,7 +27,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 ## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Ansible을 사용하여 Azure 가상 머신의 할당 취소(중지)
 이 섹션에서는 Ansible을 사용하여 Azure 가상 머신의 할당을 취소(중지)하는 방법을 보여줍니다.
 
-1.  [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1.  [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1.  [Cloud Shell](/azure/cloud-shell/overview)을 엽니다.
 
@@ -85,7 +85,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 ## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>할당 취소된(중지된) Azure 가상 머신을 Ansible로 시작
 이 섹션에서는 할당 취소된(중지된) Azure 가상 머신을 Ansible로 시작하는 방법을 보여줍니다.
 
-1.  [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1.  [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1.  [Cloud Shell](/azure/cloud-shell/overview)을 엽니다.
 

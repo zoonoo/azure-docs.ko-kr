@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 8f45535b0e75c3f95a56148ea92a343bb0d8a9f5
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079262"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300152"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure Stack에 대 한 VPN gateway 정보
 
@@ -33,12 +33,12 @@ VPN Gateway는 공용 연결을 통해 암호화된 트래픽을 전송하는 �
 
 가상 네트워크마다 두 개의 가상 네트워크 게이트웨이를 포함할 수 있으며 각 유형은 하나씩만 포함할 수 있습니다. 선택한 설정에 따라 단일 VPN Gateway에 대한 여러 연결을 만들 수 있습니다. 예로 다중 사이트 연결 구성은입니다.
 
-만들고 Azure Stack에 대 한 VPN Gateway를 구성 하기 전에 검토 합니다 [Azure Stack 네트워킹에 대 한 고려 사항](/articles/azure-stack/user/azure-stack-network-differences.md) Azure Stack에 대 한 구성을 Azure에서 어떻게 다른 지에 대해 알아보려면 합니다.
+만들고 Azure Stack에 대 한 VPN Gateway를 구성 하기 전에 검토 합니다 [Azure Stack 네트워킹에 대 한 고려 사항](user/azure-stack-network-differences.md) Azure Stack에 대 한 구성을 Azure에서 어떻게 다른 지에 대해 알아보려면 합니다.
 
 >[!NOTE]
 >Azure에서 VPN gateway 선택한 SKU에 대 한 대역폭 처리량을 게이트웨이에 연결 된 모든 연결을 통해 나눌 수 있어야 합니다. 하지만 Azure Stack에 VPN 게이트웨이 SKU에 대 한 대역폭 값을 게이트웨이에 연결 된 각 연결 리소스에 적용 됩니다.
 >
-> 예: 
+> 예:
 > * Azure에서 기본 VPN Gateway SKU는 약 100mbps 집계 처리량을 수용할 수 있습니다. 두 개의 연결이 해당 VPN Gateway를 만들고 연결 50mbps 대역폭을 사용 하는 다음 50mbps는 다른 연결에 사용할 수 있습니다.
 > * Azure stack에서 *각* 100mbps 처리량의 할당 된 기본 VPN 게이트웨이 SKU로 연결 합니다.
 
@@ -87,7 +87,7 @@ S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터�
 
 Azure Stack에 대 한 가상 네트워크 게이트웨이 만들 때 게이트웨이 사용 하려는 SKU를 지정 합니다. 다음 VPN gateway Sku가 지원 됩니다.
 
-* Basic
+* 기본
 * Standard
 * HighPerformance
 

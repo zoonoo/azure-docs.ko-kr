@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 40ecb474b4faa4031cb364dfc1151c6fe6f09dd6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c07e1282a755962b6fe6bc980207a510bd3287a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856453"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253774"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace 항목 만들기 및 게시
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 ## <a name="create-a-marketplace-item"></a>Marketplace 항목 만들기
-1. [다운로드](http://www.aka.ms/azurestackmarketplaceitem) Azure 갤러리 Packager 도구 및 샘플 Azure Stack Marketplace 항목.
+1. [다운로드](https://www.aka.ms/azurestackmarketplaceitem) Azure 갤러리 Packager 도구 및 샘플 Azure Stack Marketplace 항목.
 2. 샘플 마켓플레이스 항목을 열고 이름을 변경 합니다 **SimpleVMTemplate** 폴더입니다. (Marketplace 항목과-예를 들어, 동일한 이름을 사용 **Contoso.TodoList**.) 이 폴더에는 다음이 포함 됩니다.
    
    ```shell

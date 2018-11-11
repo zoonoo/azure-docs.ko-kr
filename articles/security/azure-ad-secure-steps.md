@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 94d96cab28f738984b3d05d5eee0754e8c5e75b6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: d52431b50e37101b0272e3ce4bbf91011a477775
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341582"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252090"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -182,4 +182,4 @@ Azure AD는 보안 그룹 및 Office 365 그룹을 사용하여 리소스에 대
 ID 보안에 대해 진지하게 고려해 주신 것에 감사를 드리며, 이 문서가 여러분 조직의 더 안전한 태세를 위한 유용한 로드맵이 되길 바랍니다.
 
 ## <a name="next-steps"></a>다음 단계
-권장 사항의 계획 및 배포에 대한 도움이 필요한 경우 [Azure AD 프로젝트 배포 계획](http://aka.ms/deploymentplans)을 참조하세요.
+권장 사항의 계획 및 배포에 대한 도움이 필요한 경우 [Azure AD 프로젝트 배포 계획](https://aka.ms/deploymentplans)을 참조하세요.

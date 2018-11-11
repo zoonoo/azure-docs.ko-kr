@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171020"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252550"
 ---
 # <a name="how-to-use-alternative-inputs"></a>대체 입력을 사용하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "39171020"
 
 ## <a name="video"></a>비디오
 
-[![자습서 8 미리 보기](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+[![자습서 8 미리 보기](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "39171020"
 1. 작업, 새 작업을 차례로 클릭합니다.
 2. 응답에 'Which city do you want?'를 입력합니다.
 3. 실격 엔터티에 $city를 입력합니다.
-3. 만들기 클릭
+3. 만들기 클릭 
 
 그런 다음, 두 번째 작업을 만듭니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "39171020"
 3. 응답에 ‘Try asking for the weather’를 입력합니다.
     - ‘what can the system do?’와 같은 사용자 질문에 대한 응답에 포함됩니다.
 4. 실격 엔터티에 $city를 입력합니다.
-4. 만들기 클릭
+4. 만들기 클릭 
 
 이제 세 가지 작업이 있습니다.
 

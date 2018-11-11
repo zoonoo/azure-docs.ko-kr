@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301486"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228983"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure Portal에서 함수 앱을 관리하는 방법 
 
@@ -50,7 +50,7 @@ Azure Functions에서 함수 앱은 개별 함수에 대한 실행 컨텍스트�
 
 **설정** 탭에서는 함수 앱에서 사용되는 Functions 런타임 버전을 업데이트할 수 있습니다. 이 탭에서는 또한 함수 앱에서 호스트하는 모든 함수에 대한 HTTP 액세스를 제한하는 데 사용되는 호스트 키를 관리합니다.
 
-Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원합니다. 자세한 내용은 [Azure Functions에 대한 올바른 서비스 계획 선택](functions-scale.md)을 참조하세요. 소비 계획에서 더 나은 예측 가능성을 얻기 위해 Functions는 일일 사용 할당량(기가바이트 초)을 설정하여 플랫폼 사용을 제한할 수 있도록 합니다. 일일 사용 할당량에 도달하면 함수 앱이 중지됩니다. 사용 할당량에 도달하여 중지한 함수 앱은 일일 사용 할당량을 설정할 때와 같은 컨텍스트에서 다시 활성화할 수 있습니다. 대금 청구에 대한 자세한 내용은 [Azure Functions 가격 책정 페이지](http://azure.microsoft.com/pricing/details/functions/)를 참조하세요.   
+Functions는 소비 호스팅 및 App Service 호스팅 계획을 모두 지원합니다. 자세한 내용은 [Azure Functions에 대한 올바른 서비스 계획 선택](functions-scale.md)을 참조하세요. 소비 계획에서 더 나은 예측 가능성을 얻기 위해 Functions는 일일 사용 할당량(기가바이트 초)을 설정하여 플랫폼 사용을 제한할 수 있도록 합니다. 일일 사용 할당량에 도달하면 함수 앱이 중지됩니다. 사용 할당량에 도달하여 중지한 함수 앱은 일일 사용 할당량을 설정할 때와 같은 컨텍스트에서 다시 활성화할 수 있습니다. 대금 청구에 대한 자세한 내용은 [Azure Functions 가격 책정 페이지](https://azure.microsoft.com/pricing/details/functions/)를 참조하세요.   
 
 ## <a name="platform-features-tab"></a>플랫폼 기능 탭
 

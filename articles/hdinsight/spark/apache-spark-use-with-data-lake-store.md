@@ -3,18 +3,18 @@ title: Apache Spark를 사용하여 Azure Data Lake Store의 데이터 분석
 description: Spark 작업을 실행하여 Azure Data Lake 저장소에 저장된 데이터 분석
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: aae63b06999c0b8eafa0d42608d32a4d467a900c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9fe4b3e49f8e3270f58929a5708a83ab02e2486c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041064"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255253"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Store의 데이터 분석
 
@@ -34,7 +34,7 @@ ms.locfileid: "43041064"
 >
 >
 
-Data Lake Store를 추가 저장소로, Azure Storage Blob을 기본 저장소로 사용하여 HDInsight 클러스터를 만든 경우 먼저 몇 가지 샘플 데이터를 Data Lake Store 계정으로 복사해야 합니다. HDInsight 클러스터와 연결된 Azure Storage Blob의 샘플 데이터를 사용할 수 있습니다. 이 작업에는 [ADLCopy 도구](http://aka.ms/downloadadlcopy) 를 사용할 수 있습니다. 링크에서 도구를 다운로드하여 설치합니다.
+Data Lake Store를 추가 저장소로, Azure Storage Blob을 기본 저장소로 사용하여 HDInsight 클러스터를 만든 경우 먼저 몇 가지 샘플 데이터를 Data Lake Store 계정으로 복사해야 합니다. HDInsight 클러스터와 연결된 Azure Storage Blob의 샘플 데이터를 사용할 수 있습니다. 이 작업에는 [ADLCopy 도구](https://aka.ms/downloadadlcopy) 를 사용할 수 있습니다. 링크에서 도구를 다운로드하여 설치합니다.
 
 1. 명령 프롬프트를 열고 AdlCopy가 설치된 디렉터리로 이동합니다(일반적으로 `%HOMEPATH%\Documents\adlcopy`).
 
