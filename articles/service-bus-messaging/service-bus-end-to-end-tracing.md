@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854884"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283838"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
@@ -181,7 +181,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 #### <a name="logging-additional-properties"></a>추가 속성 기록
 
-`Activty.Current`는 현재 작업과 해당 부모의 자세한 컨텍스트를 제공합니다. 자세한 내용은 [활동 설명서](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)를 참조하세요.
+`Activity.Current`는 현재 작업과 해당 부모의 자세한 컨텍스트를 제공합니다. 자세한 내용은 [활동 설명서](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)를 참조하세요.
 Service Bus 계측은 `Activity.Current.Tags`에 추가 정보를 제공하며, 사용 가능한 경우 `MessageId` 및 `SessionId`가 포함됩니다.
 
 ‘Receive’, ‘Peek’ 및 ‘ReceiveDeferred’ 이벤트를 추적하는 활동에는 `RelatedTo` 태그도 포함될 수 있습니다. 이 태그는 결과로 수신된 메시지의 `Diagnostic-Id` 목록을 포함합니다.

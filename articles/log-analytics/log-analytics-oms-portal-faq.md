@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419795"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283447"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS 포털에서 Azure Portal로 전환하는 Log Analytics 사용자를 위한 일반적인 질문
 Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구성을 관리하고 수집된 데이터를 분석했습니다.  이 포털의 모든 기능은 Azure Portal로 이동되었으며 계속 개발될 예정입니다.
@@ -35,7 +35,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 ![Log Analytics 작업 영역](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>사용 권한을 관리하려면 어떻게 해야 하나요?
-Azure Portal에서 Log Analytics 작업 영역에 액세스할 없는 경우 [Azure 역할 기반 액세스](../active-directory/role-based-access-control-configure.md)를 사용하여 사용자의 사용 권한을 구성해야 합니다. 작업 영역 사용 권한 관리에 대한 자세한 내용은 [작업 영역 관리](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users)를 참조하세요. 경고에 대한 사용 권한 관리에 대한 자세한 내용은 [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md)을 참조하세요.
+Azure Portal에서 Log Analytics 작업 영역에 액세스할 없는 경우 [Azure 역할 기반 액세스](../role-based-access-control/role-assignments-portal.md)를 사용하여 사용자의 사용 권한을 구성해야 합니다. 작업 영역 사용 권한 관리에 대한 자세한 내용은 [작업 영역 관리](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users)를 참조하세요. 경고에 대한 사용 권한 관리에 대한 자세한 내용은 [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md)을 참조하세요.
 
 ## <a name="how-do-i-create-a-new-workspace"></a>새 작업 영역을 만들려면 어떻게 해야 하나요? 
 Azure Portal의 작업 영역 목록에서 **추가**를 클릭합니다.  전체 세부 사항은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-create-workspace.md)를 참조하세요.
@@ -82,7 +82,7 @@ Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 �
 | Linux 서버   | 작업 영역에 대한 **고급 설정** 메뉴입니다. |
 | Azure Storage     | 작업 영역에 대한 **고급 설정** 메뉴입니다. |
 | System Center     | 작업 영역에 대한 **고급 설정** 메뉴입니다. |
-| Office 365        | 구성 세부 정보는 [Office 365 관리 솔루션에 대한 설명서](../operations-management-suite/oms-solution-office-365.md)를 참조하세요. |
+| Office 365        | 구성 세부 정보는 [Office 365 관리 솔루션에 대한 설명서](../monitoring/monitoring-solution-office-365.md)를 참조하세요. |
 | Windows 원격 분석 | 솔루션에 대한 설정 메뉴입니다. 구성 세부 정보는 [Azure Portal의 Windows Analytics](/windows/deployment/update/windows-analytics-azure-portal)를 참조하세요. |
 | ITSM 커넥터    | Log Analytics를 사용하여 ITSM 서비스에 연결하기 위한 지침은 [ITSM 제품/서비스를 IT 서비스 관리 커넥터에 연결](../log-analytics/log-analytics-itsmc-connections.md)을 참조하세요. |
 
@@ -110,7 +110,7 @@ Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 �
 OMS 포털에서는 솔루션 갤러리에서 관리 솔루션을 설치하고 **설정**에서 제거합니다. Azure Portal에서는 Azure Marketplace에서 [관리 솔루션을 설치](../monitoring/monitoring-solutions.md#install-a-management-solution)합니다. 설치된 솔루션의 목록에서 [솔루션을 제거](../monitoring/monitoring-solutions.md#remove-a-management-solution)합니다.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>경고를 만들고 관리하려면 어떻게 해야 합니까?
-Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 경고 환경](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)에서 관리됩니다. Azure Portal에서 경고 구성 및 사용에 대한 자세한 내용은 [Log Analytics에서 Azure Alerts로 경고를 확장하는 방법](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md)을 참조하세요.
+Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 경고 환경](../monitoring-and-diagnostics/alert-metric.md)에서 관리됩니다. Azure Portal에서 경고 구성 및 사용에 대한 자세한 내용은 [Log Analytics에서 Azure Alerts로 경고를 확장하는 방법](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md)을 참조하세요.
 
 ## <a name="how-do-i-access-my-dashboards"></a>내 대시보드에 액세스하려면 어떻게 해야 하나요?
 Log Analytics의 [내 대시보드](../log-analytics/log-analytics-dashboards.md) 기능이 더 이상 사용되지 않습니다. 이 기능은 뷰 디자이너 부분의 개인 컬렉션을 사용할 수 있으며 기본 제공 Azure 대시보드 기능으로 대체 됩니다. 공유 보기에 대해 [뷰 디자이너](../log-analytics/log-analytics-view-designer.md)를 사용하면 Log Analytics에서 계속 데이터 시각화를 할 수 있습니다. 또한 이러한 보기에서 시각화를 고정하거나 [개별 쿼리](../log-analytics/log-analytics-tutorial-dashboards.md)의 경우 Azure 대시보드에 고정할 수 있습니다.
