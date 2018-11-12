@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 7357577ea7aff467288578673110b1a6dda7ccef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391050"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259091"
 ---
 <a id="preparemachines"></a>
 
@@ -74,7 +74,7 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 클러스터를 배포하고 구성하는 클러스터 관리자는 각 컴퓨터에서 [관리자 권한](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 이 있어야 합니다. 도메인 컨트롤러에 Service Fabric을 설치할 수 없습니다.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Windows Server용 Service Fabric 독립 실행형 패키지 다운로드
-[다운로드 링크 - Service Fabric 독립 실행형 패키지 -Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690), 클러스터의 일부가 아닌 배포 컴퓨터 또는 클러스터의 일부인 컴퓨터 중 하나에 패키지의 압축을 풉니다.
+[다운로드 링크 - Service Fabric 독립 실행형 패키지 -Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690), 클러스터의 일부가 아닌 배포 컴퓨터 또는 클러스터의 일부인 컴퓨터 중 하나에 패키지의 압축을 풉니다.
 
 ## <a name="modify-cluster-configuration"></a>클러스터 구성 수정
 독립 실행형 클러스터를 만들려면 클러스터의 사양을 설명하는 독립 실행형 클러스터 구성 ClusterConfig.json 파일을 만들어야 합니다. 아래 링크에서 찾을 수 있는 템플릿의 구성 파일을 기반으로 할 수 있습니다. <br>

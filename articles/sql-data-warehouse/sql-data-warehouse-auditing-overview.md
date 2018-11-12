@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318540"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260383"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 감사
 
@@ -150,7 +150,7 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 ### <a name="database-level-policy-audit-logs"></a>데이터베이스 수준 정책 감사 로그
 데이터베이스 수준 감사 로그는 설치 중에 선택한 Azure 저장소 계정의 **SQLDBAuditLogs** 접두사가 포함된 저장소 테이블의 컬렉션에 집계됩니다. [Azure Storage 탐색기](http://azurestorageexplorer.codeplex.com)와 같은 도구를 사용하여 로그 파일을 볼 수 있습니다.
 
-미리 구성된 대시보드 보고서 템플릿은 로그 데이터를 빠르게 분석하는 데 도움이 되는 [다운로드 가능 Excel 스프레드시트](http://go.microsoft.com/fwlink/?LinkId=403540)로 사용할 수 있습니다. 감사 로그의 템플릿을 사용하려면 Excel 2013 이상과 파워 쿼리가 필요하며 이러한 프로그램은 [여기](http://www.microsoft.com/download/details.aspx?id=39379)에서 다운로드할 수 있습니다.
+미리 구성된 대시보드 보고서 템플릿은 로그 데이터를 빠르게 분석하는 데 도움이 되는 [다운로드 가능 Excel 스프레드시트](https://go.microsoft.com/fwlink/?LinkId=403540)로 사용할 수 있습니다. 감사 로그의 템플릿을 사용하려면 Excel 2013 이상과 파워 쿼리가 필요하며 이러한 프로그램은 [여기](https://www.microsoft.com/download/details.aspx?id=39379)에서 다운로드할 수 있습니다.
 
 템플릿에는 가상의 샘플 데이터가 포함되어 있으며 Azure 저장소 계정에서 직접 감사 로그를 가져오도록 파워 쿼리를 설정할 수 있습니다.
 

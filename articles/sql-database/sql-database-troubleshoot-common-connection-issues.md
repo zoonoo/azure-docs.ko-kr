@@ -12,12 +12,12 @@ ms.author: daleche
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a34745c5586fa90d3e167bb3be22e93dfa83b7af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 99c7e73bb133349ef1c14295a49f278d64a15226
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041733"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257962"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL Database에 대한 연결 문제 해결
 Azure SQL Database에 대한 연결이 실패하면 [오류 메시지](sql-database-develop-error-messages.md)가 표시됩니다. 이 문서는 Azure SQL Database 연결 문제를 해결하는 데 도움이 되는 중앙 집중식 항목입니다. 여기서는 연결 문제의 [일반적인 원인](#cause)을 소개하고, 문제 식별에 도움이 되는 [문제 해결 도구](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)를 추천하며, [일시적인 오류](#troubleshoot-transient-errors) 및 [영구적이거나 일시적이지 않은 오류](#troubleshoot-persistent-errors)를 해결하는 문제 해결 단계를 제공합니다. 
@@ -79,8 +79,8 @@ Azure 데이터베이스를 이동하거나 다시 구성하는 중이어서 SQL
 4. 대시보드에서 서비스 상태를 확인합니다. 지역별 가동 중단이 있다고 생각되는 경우 [가동 중단에서 복구](sql-database-disaster-recovery.md) 를 참조하여 새 지역으로 복구하는 단계를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Microsoft Azure 설명서 검색](http://azure.microsoft.com/search/documentation/)
-* [Azure SQL Database 서비스에 대한 최신 업데이트 보기](http://azure.microsoft.com/updates/?service=sql-database)
+* [Microsoft Azure 설명서 검색](https://azure.microsoft.com/search/documentation/)
+* [Azure SQL Database 서비스에 대한 최신 업데이트 보기](https://azure.microsoft.com/updates/?service=sql-database)
 
 ## <a name="additional-resources"></a>추가 리소스
 * [SQL Database 개발 개요](sql-database-develop-overview.md)

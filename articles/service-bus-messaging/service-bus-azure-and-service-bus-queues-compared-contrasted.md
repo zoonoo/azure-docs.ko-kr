@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f48e9a5600dca1e13d6ee94a675d5bc824915118
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393964"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261063"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 사용하여 각각의 기술을 비교 및 대조하고 요구에 가장 적합한 솔루션이 어떤 것인지 더 합리적으로 결정할 수 있습니다.
@@ -70,7 +70,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 | 순서 보장 |**아니요** <br/><br>자세한 내용은 “추가 정보” 섹션의 첫 번째 참고를 참조하세요.</br> |**예 - 선입선출(FIFO)**<br/><br>(메시징 세션의 사용을 통해) |
 | 전달 보장 |**최소 1회(At-Least-Once)** |**최소 1회(At-Least-Once)**<br/><br/>**최대 1회(At-Most-Once)** |
 | 원자성 작업 지원 |**아니요** |**예**<br/><br/> |
-| 수신 동작 |**비중단**<br/><br/>(새 메시지가 없을 경우 즉시 완료) |**시간 제한 있는/없는 차단**<br/><br/>(장기 폴링 또는 ["Comet 기술"](http://go.microsoft.com/fwlink/?LinkId=613759) 제공)<br/><br/>**비중단**<br/><br/>(.NET 관리 API만을 사용하여) |
+| 수신 동작 |**비중단**<br/><br/>(새 메시지가 없을 경우 즉시 완료) |**시간 제한 있는/없는 차단**<br/><br/>(장기 폴링 또는 ["Comet 기술"](https://go.microsoft.com/fwlink/?LinkId=613759) 제공)<br/><br/>**비중단**<br/><br/>(.NET 관리 API만을 사용하여) |
 | 푸시 스타일 API |**아니요** |**예**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) 및 **OnMessage** 세션 .NET API |
 | 수신 모드 |**보기 및 임대** |**보기 및 잠금**<br/><br/>**수신 및 삭제** |
 | 단독 액세스 모드 |**임대 기반** |**잠금 기반** |

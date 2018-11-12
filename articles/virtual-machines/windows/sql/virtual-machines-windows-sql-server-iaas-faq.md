@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 906cec35c30c277ac1e8bc641d12fe37c29413dd
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: edddc40b17adde685f875dfaa6b20879c6e61b15
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427181"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259159"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -79,7 +79,7 @@ ms.locfileid: "49427181"
 
 1. **대기/장애 조치(failover)에만 사용되는 경우 Azure VM에서 SQL Server 라이선스 비용을 지불해야 하나요?**
 
-   [Virtual Machine 라이선스 FAQ](http://azure.microsoft.com/pricing/licensing-faq/)에 설명된 대로 Software Assurance가 있고 License Mobility를 사용할 경우 HA 배포에서 수동 보조 복제본으로 참여하는 하나의 SQL Server 라이선스에 대해 비용을 지불할 필요가 없습니다. 그렇지 않으면 그에 대한 라이선스 비용을 지불해야 합니다.
+   [Virtual Machine 라이선스 FAQ](https://azure.microsoft.com/pricing/licensing-faq/)에 설명된 대로 Software Assurance가 있고 License Mobility를 사용할 경우 HA 배포에서 수동 보조 복제본으로 참여하는 하나의 SQL Server 라이선스에 대해 비용을 지불할 필요가 없습니다. 그렇지 않으면 그에 대한 라이선스 비용을 지불해야 합니다.
 
 
 ## <a name="administration"></a>관리

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: b180acfb74f503447212044f0b6be5589e2dd452
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 454cfc97aa203d5de7b00f47e1f87fd0aed0d28a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158792"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255952"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
 이 가이드는 Azure Security Center의 사용을 계획 중인 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 대상으로 합니다.
@@ -126,7 +126,7 @@ Security Center의 RBAC을 사용하여 액세스 제어를 계획하는 경우,
 
 Security Center 정책에는 다음 구성 요소가 포함되어 있습니다.
 - [데이터 컬렉션](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): 에이전트 프로비전 및 데이터 컬렉션 설정입니다.
-- [보안 정책](https://docs.microsoft.com/azure/security-center/security-center-policies): [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)에서는 Security Center에서 모니터링하고 권장하는 컨트롤을 결정하고, Azure Policy를 사용하여 새로운 정의를 만들고, 추가 정책을 정의하고, 관리 그룹에 정책을 할당합니다.
+- [보안 정책](https://docs.microsoft.com/azure/security-center/security-center-policies): [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)에서는 Security Center에서 모니터링하고 권장하는 컨트롤을 결정하고, Azure Policy를 사용하여 새로운 정의를 만들고, 추가 정책을 정의하고, 관리 그룹에 정책을 할당합니다.
 - [전자 메일 알림](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): 보안 연락처 및 알림 설정입니다.
 - [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing): 무료 또는 표준 가격 책정 선택 영역입니다. 여기서 범위 내의 리소스에 사용할 수 있는 Security Center 기능을 결정합니다(구독, 리소스 그룹 및 작업 영역에 대해 지정할 수 있음).
 
@@ -262,5 +262,5 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
