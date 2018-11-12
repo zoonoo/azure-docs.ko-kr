@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f12a15a0d739ae6e98be3871fa8bb4104f49565c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808551"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257210"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>클라우드 파트너 포털을 사용하여 Cortana Intelligence 제품 게시
 
@@ -29,7 +29,7 @@ ms.locfileid: "48808551"
 
 클라우드 파트너 포털에서는 역할 기반 포털 액세스를 지원하므로 여러 참가자들이 제품 게시 작업을 공동으로 수행할 수 있습니다. 자세한 내용은 [클라우드 포털 사용자 관리](./cloud-partner-portal-manage-users.md)를 참조하세요.
 
-게시자 계정을 대신하여 제품을 게시하려면 \"소유자\" 역할의 사용자 중 한 명이 [사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft 개인정보처리방침](http://www.microsoft.com/privacystatement/default.aspx) 및 [Microsoft Azure 인증 프로그램 계약](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/) 준수에 동의해야 합니다.
+게시자 계정을 대신하여 제품을 게시하려면 \"소유자\" 역할의 사용자 중 한 명이 [사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft 개인정보처리방침](https://www.microsoft.com/privacystatement/default.aspx) 및 [Microsoft Azure 인증 프로그램 계약](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/) 준수에 동의해야 합니다.
 
 ## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Cortana Intelligence 제품 만들기를 시작하려면
 
@@ -183,7 +183,7 @@ ms.locfileid: "48808551"
 
 ### <a name="industries"></a>산업
 
-앱에 가장 잘 부합되는 산업을 선택합니다. 여러 산업과 관련이 있는 앱의 경우 이 필드를 비워 둡니다.
+앱에 가장 부합되는 산업을 선택합니다. 여러 산업과 관련이 있는 앱의 경우 이 필드를 비워 둡니다.
 
 ### <a name="categories"></a>범주
 
@@ -216,7 +216,7 @@ ms.locfileid: "48808551"
 
         - [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome)(Neal Analytics Inventory 최적화)
 
-- **평가판 요청**(**파트너 진행 평가판/PLT**) 옵션을 선택하는 경우 파트너가 추가 작업을 진행할 수 있도록 고객이 연락처 정보 양식을 작성해야 합니다. 그러면 파트너가 추가 작업을 통해 앱 평가판이나 데모를 제공합니다. 자세한 내용을 확인하려면 [AppSource 평가판 환경 연습](http://aka.ms/trialexperienceforwebapps) 비디오에서 대략적인 개요를 확인하세요.
+- **평가판 요청**(**파트너 진행 평가판/PLT**) 옵션을 선택하는 경우 파트너가 추가 작업을 진행할 수 있도록 고객이 연락처 정보 양식을 작성해야 합니다. 그러면 파트너가 추가 작업을 통해 앱 평가판이나 데모를 제공합니다. 자세한 내용을 확인하려면 [AppSource 평가판 환경 연습](https://aka.ms/trialexperienceforwebapps) 비디오에서 대략적인 개요를 확인하세요.
 
 >[!Note]
 >데이터에 따르면 **파트너 진행 평가판**보다 **고객 진행 평가판**의 잠재 고객 생성 가능성이 더 높은 것으로 나타났습니다.
@@ -258,7 +258,7 @@ ms.locfileid: "48808551"
 
 ### <a name="video"></a>비디오
 
-비디오는 4개까지 업로드할 수 있습니다. 업로드하려는 각 비디오에 대해 다음 정보를 입력합니다.
+최대 4개의 동영상을 업로드할 수 있습니다. 업로드하려는 각 비디오에 대해 다음 정보를 입력합니다.
 - 비디오 이름
 - URL(YouTube 또는 Vimeo URL만 입력 가능)
 - 비디오와 연결할 썸네일. 썸네일은 png 이미지 형식을 사용해야 하며 크기는 1280x720픽셀이어야 합니다. 
@@ -296,7 +296,7 @@ ms.locfileid: "48808551"
 
 사용하려는 CRM 시스템에 대한 추가 정보를 확인하려면 지원되는 시스템에 해당하는 다음 링크 중 하나를 선택합니다.
 
--   [Azure 테이블](./cloud-partner-portal-lead-management-instructions-azure-table.md)
+-   [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
 -   [Microsoft Dynamics CRM](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 -   [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)

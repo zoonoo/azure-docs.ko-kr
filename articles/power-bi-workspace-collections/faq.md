@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: e6e2c0b82f306e399454c1672c56e2933e3f1158
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: eed970d46c8a895001ce0a6d7d7f37acf6c02a55
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040868"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249203"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 작업 영역 컬렉션 FAQ
 
@@ -61,7 +61,7 @@ Power BI 작업 영역 컬렉션 서비스를 사용하는 방법에 대한 자�
 예. 기존 Azure 구독을 사용하여 Microsoft Power BI 작업 영역 컬렉션 서비스를 프로비전하고 사용할 수 있습니다.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>응용 프로그램 최종 사용자에게 Power BI 라이선스가 필요한가요?
-아니요. 응용 프로그램의 최종 사용자는 앱 내 데이터 시각화에 액세스하기 위해 별도로 Power BI 구독을 구매할 필요가 없습니다. Power BI 작업 영역 컬렉션 모델에서는 응용 프로그램 공급자에게 Azure 소비 측정기를 통해 서비스에 대한 요금이 청구됩니다. [가격 책정 및 라이선스 페이지](http://go.microsoft.com/fwlink/?LinkId=760527)를 참조하세요.
+아니요. 응용 프로그램의 최종 사용자는 앱 내 데이터 시각화에 액세스하기 위해 별도로 Power BI 구독을 구매할 필요가 없습니다. Power BI 작업 영역 컬렉션 모델에서는 응용 프로그램 공급자에게 Azure 소비 측정기를 통해 서비스에 대한 요금이 청구됩니다. [가격 책정 및 라이선스 페이지](https://go.microsoft.com/fwlink/?LinkId=760527)를 참조하세요.
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>사용자 인증은 Power BI 작업 영역 컬렉션에 어떻게 작동하나요?
 Power BI 작업 영역 컬렉션 서비스는 명시적인 최종 사용자 인증 대신 인증 및 권한 부여에 대한 앱 토큰을 사용합니다. 앱 토큰 모델에서 응용 프로그램이 최종 사용자에 대한 인증 및 권한 부여를 관리합니다. 그런 다음 필요한 경우
@@ -80,7 +80,7 @@ Power BI 작업 영역 컬렉션 모델에는 Azure AD 테넌트의 고객이 �
 [Power BI 작업 영역 컬렉션 설명서 페이지](get-started.md)를 방문하여 참조하세요. [Power BI 블로그](https://powerbi.microsoft.com/blog/) 또는 dev.powerbi.com의 Power BI 개발자 센터를 방문하여 이 서비스에 대한 최신 정보를 언제든지 확인할 수 있습니다. [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi)에 질문할 수도 있습니다.
 
 ## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
-지금 무료로 시작할 수 있습니다. Azure 구독이 있는 경우 이제 Azure Portal에서 직접 Power BI 작업 영역 컬렉션을 프로비전할 수 있습니다. [무료 Azure 계정](https://azure.microsoft.com/free/)을 만들 수도 있습니다. Power BI 작업 영역 컬렉션 서비스를 프로비전하면 직접 Power BI REST API를 쉽게 사용하거나 [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472)에서 사용할 수 있는 개발자 SDK를 사용할 수 있습니다. 개발자 SDK를 활용하는 방법에 대한 샘플을 제공합니다.
+지금 무료로 시작할 수 있습니다. Azure 구독이 있는 경우 이제 Azure Portal에서 직접 Power BI 작업 영역 컬렉션을 프로비전할 수 있습니다. [무료 Azure 계정](https://azure.microsoft.com/free/)을 만들 수도 있습니다. Power BI 작업 영역 컬렉션 서비스를 프로비전하면 직접 Power BI REST API를 쉽게 사용하거나 [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472)에서 사용할 수 있는 개발자 SDK를 사용할 수 있습니다. 개발자 SDK를 활용하는 방법에 대한 샘플을 제공합니다.
 
 ## <a name="see-also"></a>참고 항목
 

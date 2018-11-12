@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c84470936dfc9610f23dacb55d8d8643a2651f71
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f60fde6f0066cf88bd1bd942e475fe410ff16581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948403"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256531"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>빠른 시작: Linux 컨테이너를 Service Fabric에 배포
 
@@ -30,7 +30,7 @@ Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서
 
 ![Voting 앱 웹 페이지][quickstartpic]
 
-이 빠른 시작에서는 Azure Cloud Shell의 Bash 환경을 사용하여 Service Fabric CLI 명령을 실행합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
+이 빠른 시작에서는 Azure Cloud Shell의 Bash 환경을 사용하여 Service Fabric CLI 명령을 실행합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -52,7 +52,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 응용 프로그램을 Azure에 배포하려면 응용 프로그램을 실행하는 Service Fabric 클러스터가 필요합니다. 파티 클러스터는 Service Fabric 클러스터를 빠르게 만들 수 있는 방법을 제공합니다. 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 파티 클러스터를 사용하여 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
 
-[Linux 클러스터](http://aka.ms/tryservicefabric)에 로그인하고 조인합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. **추가 정보** 링크를 클릭하여 인증서 암호 및 다양한 환경에서 인증서를 사용하도록 구성하는 방법에 대한 지침을 찾습니다. **시작** 페이지와 **추가 정보** 페이지를 모두 열어두고 다음 단계에서 일부 지침을 사용합니다.
+[Linux 클러스터](https://aka.ms/tryservicefabric)에 로그인하고 조인합니다. **PFX** 링크를 클릭하여 PFX 인증서를 컴퓨터에 다운로드합니다. **추가 정보** 링크를 클릭하여 인증서 암호 및 다양한 환경에서 인증서를 사용하도록 구성하는 방법에 대한 지침을 찾습니다. **시작** 페이지와 **추가 정보** 페이지를 모두 열어두고 다음 단계에서 일부 지침을 사용합니다.
 
 > [!Note]
 > 시간당 사용 가능한 파티 클러스터의 수는 제한되어 있습니다. 파티 클러스터에 등록하려고 할 때 오류가 발생하면, 일정 기간 동안 기다린 후 다시 시도하거나, [Azure에서 Service Fabric 클러스터 만들기](service-fabric-tutorial-create-vnet-and-linux-cluster.md)의 단계에 따라 구독에 클러스터를 만들 수 있습니다.

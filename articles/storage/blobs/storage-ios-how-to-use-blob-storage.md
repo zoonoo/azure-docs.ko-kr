@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 35cfa36aba8042bcc753c1005c8fd8dbcdb70e79
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397675"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261998"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>iOS에서 Blob 저장소를 사용하는 방법
 
@@ -164,8 +164,7 @@ Azure Storage의 모든 Blob는 컨테이너에 있어야 합니다. 다음 예�
 ```
 
 ## <a name="upload-a-blob-into-a-container"></a>컨테이너에 Blob 업로드
-
-  [Blob service 개념](#blob-service-concepts) 섹션에서 설명한 것처럼 Blob Storage는 블록 Blob, 추가 Blob, 페이지 Blob의 서로 다른 Blob 유형을 제공합니다. Azure Storage iOS 라이브러리는 세 가지 형식의 Blob을 모두 지원합니다. 대부분의 경우에는 블록 Blob을 사용하는 것이 좋습니다.
+[Blob service 개념](#blob-service-concepts) 섹션에서 설명한 것처럼 Blob Storage는 블록 Blob, 추가 Blob, 페이지 Blob의 서로 다른 Blob 유형을 제공합니다. Azure Storage iOS 라이브러리는 세 가지 형식의 Blob을 모두 지원합니다. 대부분의 경우에는 블록 Blob을 사용하는 것이 좋습니다.
 
 다음 예제에서는 NSString에서 블록 Blob를 업로드하는 방법을 보여줍니다. 같은 이름의 Blob가 이 컨테이너에 이미 있는 경우 이 Blob의 내용을 덮어씁니다.
 
@@ -383,8 +382,8 @@ NSString에서 블록 Blob을 업로드하는 것 외에도 이와 유사한 메
 * [iOS용 Azure Storage 클라이언트 라이브러리](https://github.com/azure/azure-storage-ios)
 * [Azure Storage iOS 참조 설명서](http://azure.github.io/azure-storage-ios/)
 * [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage)
+* [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage)
 
-이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요.
+이 라이브러리에 대한 문의 사항이 있는 경우 [MSDN Azure 포럼](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) 또는 [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files)에 자유롭게 게시해 주세요.
 Azure Storage에 대한 기능 제안 사항이 있는 경우 [Azure Storage 피드백](https://feedback.azure.com/forums/217298-storage/)에 게시해 주세요.
 

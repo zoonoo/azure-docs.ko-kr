@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2018
 ms.author: spelluru
-ms.openlocfilehash: bde5629fdd500896e557f89ce6b819169366df97
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 33dda074bd1aeb6b6187ca01347f31219ac86e91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407686"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250206"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
@@ -67,7 +67,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 
 Service Bus 메시지에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 
-* [Azure Service Bus 프리미엄 메시징 소개(블로그 게시물)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Azure Service Bus 프리미엄 메시징 소개(블로그 게시물)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure Service Bus 프리미엄 메시징 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Service Bus 메시징 개요](service-bus-messaging-overview.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)

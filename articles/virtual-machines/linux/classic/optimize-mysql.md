@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 447532452a848c88fd927f42e4263cef4742dd89
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0ba85e82824bc257869d9801f342bd6dbb0402d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841506"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247452"
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Azure Linux VM에서 MySQL 성능 최적화
 가상 하드웨어 선택과 소프트웨어 구성 모두에서 Azure의 MySQL 성능에 영향을 주는 많은 요소가 있습니다. 이 문서에서는 저장소, 시스템 및 데이터베이스 구성을 통해 성능을 최적화하는 방법에 중점을 둡니다.
@@ -38,7 +38,7 @@ Azure의 디스크 I/O 처리량 및 I/O 응답 시간은 RAID를 통해 향상�
 
 또한 청크 크기를 고려할 수도 있습니다. 일반적으로 청크 크기가 크면 특히 대량 쓰기에서 오버헤드가 낮아집니다(특히 대량 쓰기의 경우). 그러나 청크 크기가 너무 크면 추가 오버헤드가 발생할 수 있으므로 RAID를 활용할 수 없습니다. 현재 기본 크기는 512KB이며, 대부분의 일반 프로덕션 환경에 가장 적합한 것으로 증명되었습니다. 자세한 내용은 [부록 C](#AppendixC)를 참조하세요.   
 
-여러 유형의 가상 머신에 추가할 수 있는 디스크 수에는 제한이 있습니다. 이러한 제한은 [Azure의 가상 머신 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)에서 자세히 설명하고 있습니다. 더 적은 수의 디스크로 RAID를 설정하도록 선택할 수 있지만 이 문서의 RAID 예제를 따르려면 연결된 데이터 디스크 4개가 필요합니다.  
+여러 유형의 가상 머신에 추가할 수 있는 디스크 수에는 제한이 있습니다. 이러한 제한은 [Azure의 가상 머신 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)에서 자세히 설명하고 있습니다. 더 적은 수의 디스크로 RAID를 설정하도록 선택할 수 있지만 이 문서의 RAID 예제를 따르려면 연결된 데이터 디스크 4개가 필요합니다.  
 
 이 문서에서는 Linux 가상 컴퓨터를 이미 만들고 MYSQL을 설치 및 구성하는 것으로 가정합니다. 시작하는 방법에 대한 자세한 내용은 Azure에서 MySQL을 설치하는 방법을 참조하세요.  
 

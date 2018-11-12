@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345274"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260587"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 업데이트
 
@@ -94,7 +94,7 @@ Azure Stack 1807 업데이트 빌드 번호는 **1.1807.0.76**합니다.
 - **VM을 만들 때 향상 된** Azure marketplace에서 다운로드 하는 이미지를 사용 하 여 만든 Vm에 대 한 합니다.
 
 <!-- TBD | IS, ASDK -->  
-- **Azure Stack Capacity Planner 유용성 개선 사항**합니다. Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) S2D 캐시 및 S2D 용량 솔루션 Sku를 정의 하는 경우 입력에 대 한 간소화 된 환경을 제공 합니다. 1000 VM 한계로 제한이 제거 되었습니다.
+- **Azure Stack Capacity Planner 유용성 개선 사항**합니다. Azure Stack [Capacity Planner](https://aka.ms/azstackcapacityplanner) S2D 캐시 및 S2D 용량 솔루션 Sku를 정의 하는 경우 입력에 대 한 간소화 된 환경을 제공 합니다. 1000 VM 한계로 제한이 제거 되었습니다.
 
 
 ### <a name="fixed-issues"></a>해결된 문제
@@ -317,7 +317,7 @@ Azure Stack 호스트 키 인프라를 Windows Server 2016의 Server Core 설치
 ### <a name="networking"></a>네트워킹  
 
 <!-- 1766332 - IS ASDK --> 
-- 아래 **네트워킹**를 클릭 하면 **VPN 게이트웨이 만들기** VPN 연결을 설정 하려면 **정책 기반** VPN 형식으로 나열 됩니다. 이 옵션을 선택 하지 마십시오. 만 **경로 기반** 옵션은 Azure Stack에서 지원 됩니다.
+- 아래 **네트워킹**를 클릭 하면 **VPN 게이트웨이 만들기** VPN 연결을 설정 하려면 **정책 기반** VPN 형식으로 나열 됩니다. 이 옵션을 선택하지 마세요. 만 **경로 기반** 옵션은 Azure Stack에서 지원 됩니다.
 
 <!-- 1902460 - IS ASDK --> 
 - Azure Stack 지원 단일 *로컬 네트워크 게이트웨이* IP 주소당 합니다. 모든 테 넌 트 구독에서 그렇습니다. 첫 번째 로컬 네트워크 게이트웨이 연결의 후속 만드는 동일한 IP 주소를 사용 하 여 로컬 네트워크 게이트웨이 리소스를 만들려는 시도가 차단 됩니다.

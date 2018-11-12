@@ -61,6 +61,7 @@
 
 ## 개요
 ### [솔루션이란?](storsimple-overview.md)
+### [데이터 전송 옵션 비교](storsimple-8000-choose-storage-solution.md)
 ### [StorSimple 학습 맵](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [보안 고려 사항](storsimple-8000-security.md)
 ### [지역 가용성](storsimple-regions.md)
@@ -183,7 +184,7 @@
 #### [5000/7000 시리즈 장치에서](storsimple-8000-migration-options.md)
 ##### [StorSimple 8000 시리즈 장치 대상](storsimple-8000-migrate-from-5000-7000.md)
 ##### [Azure 파일 동기화 대상](storsimple-5000-7000-afs-migration.md)
-#### [다른 저장 장치에서](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [다른 저장 장치에서](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### 주 지역에서
 #### [업데이트 5 설치 - 현재](storsimple-8000-install-update-5.md)
@@ -248,8 +249,8 @@
 ## [가격](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=storsimple)
-## [지원 블로그](http://blogs.msdn.com/b/storsimple/)
-## [타사 알림](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [지원 블로그](https://blogs.msdn.com/b/storsimple/)
+## [타사 알림](https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 

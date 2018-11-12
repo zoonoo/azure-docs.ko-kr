@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5eab09d5dffe16517e8c18eb0281716618ca0286
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 5e7a2150757afeecb6b0b100f3259f1628f42074
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166230"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262083"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
-이 문서는 Azure App Service 가상 네트워크 통합 미리 보기 기능을 설명하고 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 앱에 해당 기능을 설정하는 방법을 보여줍니다. Azure Virtual Network(VNet)는 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있도록 하는 기능입니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요][VNETOverview]부터 참조하세요. 
+이 문서는 Azure App Service 가상 네트워크 통합 미리 보기 기능을 설명하고 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱에 해당 기능을 설정하는 방법을 보여줍니다. Azure Virtual Network(VNet)는 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있도록 하는 기능입니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요][VNETOverview]부터 참조하세요. 
 
 Azure App Service에는 두 가지 형태가 있습니다. 
 

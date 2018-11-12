@@ -3,7 +3,7 @@ title: Azure Security Center에서 저장소 계정에 암호화 사용 | Micros
 description: 이 문서에서는 Azure Security Center 권장 사항 **Azure Storage 계정에 암호화 사용**을 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
-ms.author: terrylan
-ms.openlocfilehash: 3765d150c63515337be13d821dce51944eae4655
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 69fbbe13c2c6c8a2bb193054a9b8e613832005e2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298271"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257319"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Azure Security Center에서 Azure Storage 계정에 암호화 사용
 Azure Security Center에서는 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하도록 권장합니다.
@@ -63,7 +63,7 @@ Storage 서비스 암호화는 Resource Manager 저장소 계정에만 지원됩
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md) - 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png

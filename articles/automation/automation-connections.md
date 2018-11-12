@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9dbf816d4fd0d9f6044ebeea9a23a60adcc5bc8
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 1e9ca18d2075d40f6f55bc84723f79ae7e10850b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044606"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261216"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
 Automation 연결 자산은 외부 서비스 또는 runbook의 응용 프로그램이나 DSC 구성 연결에 필요한 정보를 포함합니다. 여기에는 URL 또는 포트와 같은 연결 정보 외에 사용자 이름 및 암호와 같은 인증에 필요한 정보가 포함될 수 있습니다. 연결 값은 여러 변수를 만드는 대신, 특정 응용 프로그램에 연결하기 위한 모든 속성을 하나의 자산에 유지합니다. 사용자는 한 위치의 연결에 대한 값을 편집할 수 있고 단일 매개 변수에서 연결 이름을 runbook 이나 DSC구성에 전달할 수 있습니다. 연결에 대한 속성은 **Get-AutomationConnection** 활동을 사용하여 runbook 또는 DSC 구성에 액세스할 수 있습니다. 
 
-연결을 만들 때 *연결 형식*을 지정해야 합니다. 연결 형식은 속성 집합을 정의하는 템플릿입니다. 연결은 해당 연결 형식에 정의된 각 속성의 값을 정의합니다. 연결 형식은 통합 모듈의 Azure Automation에 추가되어 있거나 통합 모듈에 연결 형식이 포함되어 있고 이 유형을 Automation 계정으로 가져올 경우 [Azure Automation API](http://msdn.microsoft.com/library/azure/mt163818.aspx)를 사용하여 만들어집니다. 그렇지 않으면 Automation 연결 형식을 지정하기 위해 메타데이터 파일을 만들어야 합니다.  이와 관련된 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.  
+연결을 만들 때 *연결 형식*을 지정해야 합니다. 연결 형식은 속성 집합을 정의하는 템플릿입니다. 연결은 해당 연결 형식에 정의된 각 속성의 값을 정의합니다. 연결 형식은 통합 모듈의 Azure Automation에 추가되어 있거나 통합 모듈에 연결 형식이 포함되어 있고 이 유형을 Automation 계정으로 가져올 경우 [Azure Automation API](https://msdn.microsoft.com/library/azure/mt163818.aspx)를 사용하여 만들어집니다. 그렇지 않으면 Automation 연결 형식을 지정하기 위해 메타데이터 파일을 만들어야 합니다.  이와 관련된 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.  
 
 >[!NOTE]
 >Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. 이 키는 Key Vault에 저장됩니다. 보안 자산을 저장하기 전에 Key Vault에서 키가 로드된 다음, 자산을 암호화하는 데 사용됩니다.
@@ -70,7 +70,7 @@ Automation 연결 자산은 외부 서비스 또는 runbook의 응용 프로그�
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Windows PowerShell을 사용하여 새 연결을 만들려면
 
-[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet을 사용하여 Windows PowerShell과의 새 연결을 만듭니다. 이 cmdlet에는 연결 형식에 정의된 각 특성의 값을 정의하는 **해시 테이블** 이 필요한 [ConnectionFieldValues](http://technet.microsoft.com/library/hh847780.aspx) 라는 매개 변수가 있습니다.
+[New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet을 사용하여 Windows PowerShell과의 새 연결을 만듭니다. 이 cmdlet에는 연결 형식에 정의된 각 특성의 값을 정의하는 **해시 테이블** 이 필요한 [ConnectionFieldValues](https://technet.microsoft.com/library/hh847780.aspx) 라는 매개 변수가 있습니다.
 
 Automation [실행 계정](automation-sec-configure-azure-runas-account.md)에 익숙하여 서비스 주체를 통해 Runbook을 인증하는 경우 포털에서 실행 계정을 만드는 대신 제공되는 PowerShell 스크립트에서 다음 샘플 명령을 사용하여 새 연결 자산을 만듭니다.  
 
@@ -84,7 +84,7 @@ Automation 계정을 만들 때 기본적으로 **AzureServicePrincipal** 연결
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>runbook 또는 DSC 구성에서 연결 사용하기
 
-**Get-AutomationConnection** cmdlet를 사용하여 runbook 또는 DSC 구성의 연결을 검색합니다.  [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) 활동은 사용할 수 없습니다.  이 활동은 연결의 여러 필드값을 검색하고 runbook 또는 DSC 구성의 적절한 명령과 함께 사용될 수 있는 [해시 테이블](http://go.microsoft.com/fwlink/?LinkID=324844) 로 반환합니다.
+**Get-AutomationConnection** cmdlet를 사용하여 runbook 또는 DSC 구성의 연결을 검색합니다.  [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) 활동은 사용할 수 없습니다.  이 활동은 연결의 여러 필드값을 검색하고 runbook 또는 DSC 구성의 적절한 명령과 함께 사용될 수 있는 [해시 테이블](https://go.microsoft.com/fwlink/?LinkID=324844) 로 반환합니다.
 
 ### <a name="textual-runbook-sample"></a>텍스트 Runbook 샘플
 

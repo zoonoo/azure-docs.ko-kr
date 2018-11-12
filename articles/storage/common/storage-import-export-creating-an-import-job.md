@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d7a9da4ac3560e67a6f7bc8b79a7c2dd37995d4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021849"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258013"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure Import/Export 서비스에 대한 가져오기 작업 만들기
 
@@ -35,7 +35,7 @@ REST API를 사용하여 Microsoft Azure Import/Export 서비스에 대해 가�
 
 가져오기 작업을 위해 드라이브를 준비하는 단계는 포털을 통해 작업을 만들거나 REST API를 통해 작업을 만들 경우 둘 다 동일합니다.
 
-다음은 드라이브 준비에 대한 간단한 설명입니다. 자세한 지침은 [Azure Import-Export 도구 참조](storage-import-export-tool-how-to-v1.md)를 참조하세요. [여기](http://go.microsoft.com/fwlink/?LinkID=301900)에서 Azure Import/Export 도구를 다운로드할 수 있습니다.
+다음은 드라이브 준비에 대한 간단한 설명입니다. 자세한 지침은 [Azure Import-Export 도구 참조](storage-import-export-tool-how-to-v1.md)를 참조하세요. [여기](https://go.microsoft.com/fwlink/?LinkID=301900)에서 Azure Import/Export 도구를 다운로드할 수 있습니다.
 
 드라이브를 준비하는 과정은 다음과 같습니다.
 

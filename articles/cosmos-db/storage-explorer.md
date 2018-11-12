@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345110"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261163"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Storage 탐색기에서 Azure Cosmos DB 관리
 
@@ -130,7 +130,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
 2. 파티션 키를 지정할 수 있으려면 **무제한**을 선택한 다음, **확인**을 클릭하여 완료합니다.
 
-    컬렉션을 만들 때 파티션 키가 사용된 경우, 컬렉션을 만들고 나면 컬렉션에 대해 파티션 키 값을 변경할 수 없습니다. 파티션 키 설정에 대한 자세한 내용은 [Design for partitioning](partition-data.md#designing-for-partitioning)(분할 설계)을 참조하세요.
+    컬렉션을 만들 때 파티션 키가 사용된 경우, 컬렉션을 만들고 나면 컬렉션에 대해 파티션 키 값을 변경할 수 없습니다.
 
     ![파티션 키](./media/storage-explorer/partitionkey.png)
 

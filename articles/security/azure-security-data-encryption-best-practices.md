@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: barclayn
-ms.openlocfilehash: 263c04fd15240f365f2325c69d5cb25aa1a539f0
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 86724ca49884f1072297ffcf4fc6498db5ae8ac3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465880"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254641"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 데이터 보안 및 암호화 모범 사례
 클라우드에서 데이터를 보호하려면 데이터에서 발생 가능한 상태 및 해당 상태에 사용 가능한 컨트롤을 고려해야 합니다. Azure 데이터 보안 및 암호화의 모범 사례는 다음과 같은 데이터 상태와 관련이 있습니다.
@@ -132,10 +132,10 @@ Azure VPN Gateway, SSL/TLS 및 HTTPS를 사용하는 데 관련된 모범 사례
 - 비즈니스 요구 사항을 반영하는 레이블 적용 예를 들어, 이 데이터를 분류하고 보호하기 위해 일급 비밀 데이터가 포함된 모든 문서 및 이메일에 이름이 "극비"로 지정된 레이블을 적용합니다. 그런 다음, 지정한 제한 사항으로 인해 권한이 있는 사용자만 이 데이터를 액세스할 수 있습니다.
 - 조직이 보호 서비스를 사용하는 방법을 모니터링할 수 있도록 [Azure RMS에 대한 사용 현황 로깅](https://docs.microsoft.com/azure/information-protection/log-analyze-usage)을 구성합니다.
 
-[데이터 분류](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) 및 파일 보호에 약한 조직은 데이터 유출 및 데이터 남용에 더 취약할 수 있습니다. 적절한 파일 보호를 사용하여 비즈니스에 대한 인사이트를 얻고, 위험한 동작을 검색하고, 수정 조치를 수행하고, 문서에 대한 액세스를 추적하는 등 데이터 흐름을 분석할 수 있습니다.
+[데이터 분류](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) 및 파일 보호에 약한 조직은 데이터 유출 및 데이터 남용에 더 취약할 수 있습니다. 적절한 파일 보호를 사용하여 비즈니스에 대한 인사이트를 얻고, 위험한 동작을 검색하고, 수정 조치를 수행하고, 문서에 대한 액세스를 추적하는 등 데이터 흐름을 분석할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 확인합니다.
+[Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.
 
 Azure 보안 및 관련 Microsoft 서비스에 대한 보다 일반적인 정보를 제공하는 다음 리소스도 확인할 수 있습니다.
 * [Azure 보안 팀 블로그](https://blogs.msdn.microsoft.com/azuresecurity/) – Azure Security 관련 최신 정보를 확인할 수 있습니다.

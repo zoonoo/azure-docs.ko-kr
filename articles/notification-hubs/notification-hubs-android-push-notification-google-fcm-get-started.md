@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ec429407324210fca824ebd0734ddb39bce56ac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232799"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256564"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>자습서: Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 장치에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "38232799"
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/free/)을 참조하세요.
 
-* 이 자습서에서는 위에서 언급한 활성 Azure 계정 외에도 [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797)최신 버전이 필요합니다.
+* 이 자습서에서는 위에서 언급한 활성 Azure 계정 외에도 [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)최신 버전이 필요합니다.
 * Firebase Cloud Messaging에 Android 2.3 이상이 필요합니다.
 * Firebase Cloud Messaging에 Google 리포지토리 수정 27 이상이 필요합니다.
 * Firebase Cloud Messaging에 Google Play Services 9.0.2 이상이 필요합니다.

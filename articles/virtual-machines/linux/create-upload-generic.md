@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 67796cc3cbb925bb18a917d17b8abb7c085de370
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638207"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235975"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -76,7 +76,7 @@ Azure의 VHD 이미지에는 1MB로 조정된 가상 크기가 있어야 합니�
 
 * http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd VHD의 21,475,270,656바이트는 지원되지 않는 가상 크기입니다. 크기는 정수(MB 단위)여야 합니다.
 
-이 경우 Hyper-V 관리자 콘솔 또는 [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet을 사용하여 VM 크기를 조정합니다.  Windows 환경에서 실행하지 않는 경우 `qemu-img`를 사용하여 VHD를 변환하고(필요한 경우) 크기를 조정하는 것이 좋습니다.
+이 경우 Hyper-V 관리자 콘솔 또는 [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet을 사용하여 VM 크기를 조정합니다.  Windows 환경에서 실행하지 않는 경우 `qemu-img`를 사용하여 VHD를 변환하고(필요한 경우) 크기를 조정하는 것이 좋습니다.
 
 > [!NOTE]
 > [2.2.1 이상의 qemu-img 버전](https://bugs.launchpad.net/qemu/+bug/1490611)에는 VHD 형식이 잘못 지정되는 알려진 버그가 있습니다. 이 문제는 QEMU 2.6에서 해결되었습니다. 2.2.0 이하 또는 2.6 이상의 `qemu-img`를 사용하는 것이 좋습니다.
@@ -125,7 +125,7 @@ Azure의 VHD 이미지에는 1MB로 조정된 가상 크기가 있어야 합니�
 
 Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 업스트림 Linux 커널로 직접 제공됩니다. 최신 Linux 커널 버전(예: 3.x)이 포함된 많은 배포판에서 이러한 드라이버를 이미 사용할 수 있으며, 그렇지 않은 경우 이러한 드라이버의 백 포트 버전이 커널에 제공됩니다.  이러한 드라이버는 업스트림 커널에서 새로운 수정과 기능으로 지속적으로 업데이트되므로, 가능한 경우 이러한 수정과 업데이트가 포함된 [보증 배포판](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 실행하는 것이 좋습니다.
 
-Red Hat Enterprise Linux 버전 6.0-6.3의 변형을 실행하는 경우 [Hyper-V용 최신 LIS 드라이버](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)를 설치해야 합니다. RHEL 6.4 이상(및 파생 버전)부터 LIS 드라이버는 이미 커널에 포함되어 있으므로 추가 설치 패키지는 필요하지 않습니다.
+Red Hat Enterprise Linux 버전 6.0-6.3의 변형을 실행하는 경우 [Hyper-V용 최신 LIS 드라이버](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)를 설치해야 합니다. RHEL 6.4 이상(및 파생 버전)부터 LIS 드라이버는 이미 커널에 포함되어 있으므로 추가 설치 패키지는 필요하지 않습니다.
 
 사용자 지정 커널이 필요한 경우 최신 커널 버전(예: 3.8 이상)을 사용하는 것이 좋습니다. 자체 커널을 유지 관리하는 배포업체 또는 공급업체의 경우 LIS 드라이버를 업스트림 커널에서 사용자 지정 커널로 정기적으로 백 포팅해야 합니다.  비교적 최신의 커널 버전을 이미 실행하고 있는 경우에도 LIS 드라이버의 모든 업스트림 수정을 추적하고 필요에 따라 백 포팅하는 것이 좋습니다. LIS 드라이버 원본 파일의 위치는 Linux 커널 원본 트리의 [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) 파일에 지정됩니다.
 ```

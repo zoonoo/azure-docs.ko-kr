@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: a80895db8a89b8d9392d0ed067b95daa23474d8b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 0f4bb3f32b264bd894341a8776d48eb9f8b061a2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113872"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258734"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
 기존 실행 파일을 [게스트 실행 파일](service-fabric-guest-executables-introduction.md)로 패키징할 경우 Visual Studio 프로젝트 템플릿을 사용하거나 [응용 프로그램 패키지를 수동으로 만들도록](#manually) 선택할 수 있습니다. Visual Studio를 사용하면 새 프로젝트 템플릿에 의해 응용 프로그램 패키지 구조 및 매니페스트 파일이 생성됩니다.
@@ -69,7 +69,7 @@ Yeoman은 설치 및 제거 스크립트와 함께 해당 응용 프로그램과
 4. 응용 프로그램 매니페스트 파일을 편집합니다.
 
 <!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
 -->
 
 ### <a name="create-the-package-directory-structure"></a>패키지 디렉터리 구조 만들기
@@ -170,7 +170,7 @@ SetupEntryPoint가 하나밖에 없으므로 응용 프로그램의 설치에 �
 
 서비스 매니페스트 파일의 `EntryPoint` 요소는 서비스를 시작하는 방법을 지정하는 데 사용됩니다.
 
-`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. 예: `<ExeHost IsExternalExecutable="true">`.
+`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. 예: `<ExeHost IsExternalExecutable="true">`
 
 * `Program`은 서비스를 시작해야 하는 실행 파일의 이름을 지정합니다.
 * `Arguments` 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.

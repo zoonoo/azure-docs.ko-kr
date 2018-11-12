@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: ba84d297420ca5a9b75b4cfa432373d3070e0d01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2028de68b3c50f24c46bfafd804b00e84301a9d7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125247"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256598"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 웹앱 문제 해결
 ## <a name="overview"></a>개요
-이 자습서에서는 원격으로 [디버그 모드](https://docs.microsoft.com/visualstudio/debugger/)를 실행하거나 응용 프로그램 로그 및 웹 서버 로그를 확인하여 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
+이 자습서에서는 원격으로 [디버그 모드](https://docs.microsoft.com/visualstudio/debugger/)를 실행하거나 응용 프로그램 로그 및 웹 서버 로그를 확인하여 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -36,7 +36,7 @@ ms.locfileid: "43125247"
 * 자세한 오류 메시지 및 실패한 요청 추적을 포함하여 웹 서버 로그를 보는 방법
 * 진단 로그를 Azure Storage 계정으로 보내고 해당 위치에서 로그를 보는 방법
 
-Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
+Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](https://msdn.microsoft.com/library/vstudio/dd264915.aspx) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서에서는 [Azure 및 ASP.NET 시작](app-service-web-get-started-dotnet-framework.md)에서 설정한 개발 환경, 웹 프로젝트 및 Azure 웹앱에 적용됩니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
@@ -48,7 +48,7 @@ Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.micr
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 응용 프로그램에서만 작동합니다.
 
 ## <a name="sitemanagement"></a>웹 앱 구성 및 관리
-Visual Studio를 사용하면 [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 웹앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 **서버 탐색기**를 사용하여 사용할 수 있는 기능에 대해 알아봅니다. 최신 Azure 통합 기능을 확인하려면 **클라우드 탐색기** 도 사용해 보십시오. **보기** 메뉴에서 두 창을 모두 열 수 있습니다.
+Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 웹앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 **서버 탐색기**를 사용하여 사용할 수 있는 기능에 대해 알아봅니다. 최신 Azure 통합 기능을 확인하려면 **클라우드 탐색기** 도 사용해 보십시오. **보기** 메뉴에서 두 창을 모두 열 수 있습니다.
 
 1. Visual Studio에서 Azure에 아직 로그인하지 않은 경우 **Azure**를 마우스 오른쪽 단추로 클릭하고 **서버 탐색기**에서 **Microsoft Azure 구독에 연결**을 선택합니다.
 
@@ -59,7 +59,7 @@ Visual Studio를 사용하면 [Azure Portal](http://go.microsoft.com/fwlink/?Lin
    >
    >
 
-    Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)를 참조하세요.
+    Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)를 참조하세요.
 2. **서버 탐색기**에서 **Azure**를 확장한 후 **App Service**를 확장합니다.
 3. [Azure에서 ASP.NET 웹앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 만든 웹앱을 포함하는 리소스 그룹을 확장한 후 웹앱 노드를 마우스 오른쪽 단추로 클릭하고 **설정 보기**를 클릭합니다.
 
@@ -253,13 +253,13 @@ public ActionResult About()
 ```
 * 디버거에서 디버그하려는 코드가 단계별로 실행되지 않는 경우 "내 코드만" 설정을 변경해야 할 수 있습니다.  자세한 내용은 [Visual Studio에서 Just My Code를 사용하여 사용자 코드만 디버그할지 지정](https://docs.microsoft.com/visualstudio/debugger/just-my-code)을 참조하세요.
 * 원격 디버깅 기능을 사용하도록 설정하면 서버의 타이머가 시작되고 48시간 후 기능이 자동으로 꺼집니다. 이 48시간 제한은 보안 및 성능상의 이유로 제한됩니다. 원하는 횟수만큼 기능을 쉽게 다시 켤 수 있습니다. 디버깅을 활발히 사용하지 않는 경우 이를 사용하지 않는 상태로 두는 것이 좋습니다.
-* 웹 앱 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)을 참조하십시오.
+* 웹 앱 프로세스(w3wp.exe)뿐만 아니라 모든 프로세스에 디버거를 수동으로 연결할 수 있습니다. Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)을 참조하십시오.
 
 ## <a name="logsoverview"></a>진단 로그 개요
 Azure 웹 앱에서 실행하는 ASP.NET 응용 프로그램은 다음과 같은 종류의 로그를 생성할 수 있습니다.
 
 * **응용 프로그램 추적 로그**<br/>
-  응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) 클래스의 메서드를 호출하여 추적 로그를 생성합니다.
+  응용 프로그램은 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) 클래스의 메서드를 호출하여 추적 로그를 생성합니다.
 * **웹 서버 로그**<br/>
   웹 서버는 웹 앱에 대한 모든 HTTP 요청에 대해 로그 항목을 생성합니다.
 * **자세한 오류 메시지 로그**<br/>
@@ -340,7 +340,7 @@ public ActionResult Contact()
 ```
 
 `WebPageTraceListener`를 사용하면 `/trace.axd`로 이동하여 추적 출력을 확인할 수 있습니다.
-3. Web.config 파일의 `<system.web>` 아래에 <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace 요소</a>를 다음 예와 같이 추가합니다.
+3. Web.config 파일의 `<system.web>` 아래에 <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace 요소</a>를 다음 예와 같이 추가합니다.
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -475,7 +475,7 @@ public ActionResult Contact()
     ![다운로드한 파일](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
    * 응용 프로그램 추적 로그는 *LogFiles\Application* 폴더에 *.txt* 파일로 기록됩니다.
-   * 웹 서버 로그는 *LogFiles\http\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
+   * 웹 서버 로그는 *LogFiles\http\RawLogs* 폴더에 *.log* 파일로 기록됩니다. [Log Parser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) 같은 도구를 사용하여 이들 파일을 보고 조작할 수 있습니다.
    * 자세한 오류 메시지 로그는 *LogFiles\DetailedErrors* 폴더에 *.html* 파일로 기록됩니다.
 
     참고로, *deployments* 폴더는 소스 제어 게시로 인해 생성되는 것이며 Visual Studio 게시와는 전혀 관계가 없습니다. *Git* 폴더는 소스 제어 게시 및 로그 파일 스트리밍 서비스와 관련된 추적 로그용입니다.  
@@ -554,7 +554,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
      ![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-     This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/ff683677.aspx).
+     This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](https://msdn.microsoft.com/library/ff683677.aspx).
 14. To look at the details for a single row, double-click one of the rows.
 
      ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
@@ -624,17 +624,17 @@ Visual Studio를 사용하여 Azure 웹 앱에서 생성된 로그를 쉽게 보
 Azure App Service에서 웹앱 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 * [웹 앱을 모니터링하는 방법](web-sites-monitor.md)
-* [Visual Studio 2013을 사용하여 Azure Web Apps에서 메모리 누수 검사](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
+* [Visual Studio 2013을 사용하여 Azure Web Apps에서 메모리 누수 검사](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx) 관리되는 메모리 문제를 분석하는 데 사용되는 Visual Studio 기능에 대한 Microsoft ALM 블로그 게시물입니다.
 * [알아 두면 도움이 되는 Azure Web Apps 온라인 도구](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/) Amit Apple의 블로그 게시물입니다.
 
 특정 문제 해결 질문과 관련하여 도움이 필요한 경우 다음 포럼 중 하나에서 게시물을 작성하십시오.
 
 * [ASP.NET 사이트의 Azure 포럼](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET)(영문)
-* [MSDN의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/)(영문)
+* [MSDN의 Azure 포럼](https://social.msdn.microsoft.com/Forums/windowsazure/)(영문)
 * [StackOverflow.com](http://www.stackoverflow.com)(영문)
 
 ### <a name="debugging-in-visual-studio"></a>Visual Studio의 디버깅
-Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)과 [Visual Studio 2010을 사용한 디버깅 팁](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx)을 참조하세요.
+Visual Studio에서 디버그 모드를 사용하는 방법에 대한 자세한 내용은 [Visual Studio의 디버깅](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)과 [Visual Studio 2010을 사용한 디버깅 팁](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx)을 참조하세요.
 
 ### <a name="remote-debugging-in-azure"></a>Azure의 원격 디버깅
 Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다음 리소스를 참조하세요.
@@ -644,21 +644,21 @@ Azure 웹 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다�
 * [Azure App Service Web Apps의 원격 디버깅 소개 3부 - 다중 인스턴스 환경 및 GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Webjob 디버깅(비디오)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-웹 앱에 Azure 웹 API 또는 Mobile Services 백 엔드가 사용되는 경우 이들을 디버그해야 하면 [Visual Studio에서 .NET 백 엔드 디버깅](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)을 참조하세요.
+웹 앱에 Azure 웹 API 또는 Mobile Services 백 엔드가 사용되는 경우 이들을 디버그해야 하면 [Visual Studio에서 .NET 백 엔드 디버깅](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)을 참조하세요.
 
 ### <a name="tracing-in-aspnet-applications"></a>ASP.NET 응용 프로그램의 추적
 현재 인터넷에서 ASP.NET 추적과 관련하여 완벽한 최신 소개 정보를 제공하는 곳이 없습니다. 최상의 방법은 MVC가 아직 출시되지 않은 시점에 Web Forms용으로 작성된 기존 소개 자료를 먼저 참조한 후, 특정 문제에 주력하는 최신 블로그 게시물의 정보로 보충하는 것입니다. 시작하기에 유용한 리소스 위치는 다음과 같습니다.
 
 * [모니터링 및 원격 분석(Azure에서 실제 클라우드 앱 빌드)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)<br>
   Azure 클라우드 응용 프로그램에서 추적을 권장하는 전자책의 한 챕터
-* [ASP.NET 추적](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
+* [ASP.NET 추적](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
   오래된 자료이지만 추적의 기초를 소개하는 여전히 유용한 리소스입니다.
-* [추적 수신기](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
-  추적 수신기에 대한 정보를 제공하지만 [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)를 언급하지 않습니다.
-* [연습: ASP.NET 추적을 System.Diagnostics 추적과 통합](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [추적 수신기](https://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
+  추적 수신기에 대한 정보를 제공하지만 [WebPageTraceListener](https://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)를 언급하지 않습니다.
+* [연습: ASP.NET 추적을 System.Diagnostics 추적과 통합](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   이 문서도 오래되었지만 소개 자료에서 다루지 않은 일부 추가 정보가 포함되어 있습니다.
-* [ASP.NET MVC Razor 뷰에서 추적](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Razor 뷰의 추적 정보와 더불어, MVC 응용 프로그램의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 응용 프로그램의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](http://msdn.microsoft.com/library/bb397417.aspx) 에서 Global.asax를 참조하십시오. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
+* [ASP.NET MVC Razor 뷰에서 추적](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+  Razor 뷰의 추적 정보와 더불어, MVC 응용 프로그램의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 응용 프로그램의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](https://msdn.microsoft.com/library/bb397417.aspx) 에서 Global.asax를 참조하십시오. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
 
 ``` c#
 try
@@ -684,12 +684,12 @@ catch (Exception ex)
 ### <a name="analyzing-web-server-logs"></a>웹 서버 로그 분석
 웹 서버 로그 분석에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
+* [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
 * [LogParser를 사용하여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
-* [Robert McMurray의 LogParser 사용 관련 블로그 게시물](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
-* [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](http://support.microsoft.com/kb/943891)
+* [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>실패한 요청 로그 분석
 Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) 섹션은 이러한 로그 사용 방법을 이해하는 데 유용할 수 있습니다. 하지만 이 설명서에서는 IIS에서 실패한 요청 추적을 구성하는 방법을 중점적으로 다루며, 이는 Azure Web Apps에서 수행할 수 없습니다.

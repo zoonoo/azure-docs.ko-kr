@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 79b2aa22307e4742d00d9422535d52c80485e2db
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249037"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257387"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>고급 미디어 인코더 Premium 워크플로 자습서
 ## <a name="overview"></a>개요
@@ -939,9 +939,9 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 ```
 
 ## <a name="also-see"></a>참고 항목
-[Azure Media Services의 프리미엄 Encoding 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[Azure Media Services의 프리미엄 Encoding 소개](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
-[Azure Media Services의 프리미엄 Encoding 사용 방법](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[Azure Media Services의 프리미엄 Encoding 사용 방법](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 [Azure Media Services로 주문형 콘텐츠 인코딩](media-services-encode-asset.md#media-encoder-premium-workflow)
 
@@ -949,7 +949,7 @@ xml을 더 자세히 알아보려면 다음과 같습니다.
 
 [샘플 워크플로 파일](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Azure Media Services 탐색기 도구](http://aka.ms/amse)
+[Azure Media Services 탐색기 도구](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388171"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258462"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 온-프레미스에서 Microsoft Azure로 Windows VM(가상 머신)을 업로드하려면 먼저 VHD(가상 하드 디스크) 또는 VHDX를 준비해야 합니다. Azure는 VHD 파일 형식이고 크기가 고정된 디스크를 갖춘 **1세대 VM만** 지원합니다. VHD에 허용되는 최대 크기는 1,023GB입니다. 1세대 VM을 VHDX 파일 시스템에서 VHD로, 동적 확장 디스크에서 고정 크기로 변환할 수 있습니다. 하지만 VM의 세대는 변경할 수 없습니다. 자세한 내용은 [Hyper-V에 1 또는 2세대 가상 컴퓨터를 만들어야 합니까?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조하세요.
@@ -48,7 +48,7 @@ Azure VM을 위한 지원 정책에 대한 자세한 내용은 [Microsoft Azure 
 >이 문서의 명령은 상승된 PowerShell 세션에서 실행되어야 합니다.
 
 ### <a name="convert-disk-by-using-powershell"></a>PowerShell을 사용한 디스크 변환
-Windows PowerShell의 [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) 명령을 사용하여 가상 디스크를 변환할 수 있습니다. PowerShell을 시작할 때 **관리자 권한으로 실행**을 선택합니다. 
+Windows PowerShell의 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) 명령을 사용하여 가상 디스크를 변환할 수 있습니다. PowerShell을 시작할 때 **관리자 권한으로 실행**을 선택합니다. 
 
 다음 예제 명령은 VHDX에서 VHD로, 동적 확장 디스크에서 고정된 크기로 변환합니다.
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 이 명령에서 “-Path” 값을 변환하려는 가상 하드 디스크에 대한 경로로 바꾸고 “-DestinationPath” 값을 변환된 디스크에 대한 새 경로 및 이름으로 바꿉니다.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>VMware VMDK 디스크 형식에서 변환
-[VMDK 파일 형식](https://en.wikipedia.org/wiki/VMDK)의 Windows VM 이미지가 있는 경우 [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497)를 사용하여 VHD로 변환합니다. 자세한 내용은 블로그 문서 [VMware VMDK를 Hyper-V VHD로 변환하는 방법](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx)을 참조하세요.
+[VMDK 파일 형식](https://en.wikipedia.org/wiki/VMDK)의 Windows VM 이미지가 있는 경우 [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497)를 사용하여 VHD로 변환합니다. 자세한 내용은 블로그 문서 [VMware VMDK를 Hyper-V VHD로 변환하는 방법](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx)을 참조하세요.
 
 ## <a name="set-windows-configurations-for-azure"></a>Azure에 대한 Windows 구성 설정
 
@@ -377,7 +377,7 @@ Sysprep는 모든 개인 데이터를 제거하고 여러 구성 요소를 다�
 - [특수화된 디스크에서 VM 만들기](create-vm-specialized.md)
 - [특수화된 VHD 디스크에서 VM 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-일반화된 이미지를 만들려는 경우 Sysprep를 실행해야 합니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](http://technet.microsoft.com/library/bb457073.aspx)를 참조하세요. 
+일반화된 이미지를 만들려는 경우 Sysprep를 실행해야 합니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](https://technet.microsoft.com/library/bb457073.aspx)를 참조하세요. 
 
 Windows 기반 컴퓨터에 설치된 모든 역할 또는 응용 프로그램이 이 일반화를 지원하는 것은 아닙니다. 따라서 이 절차를 실행하기 전, 다음 문서를 참조하여 해당 컴퓨터의 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
@@ -401,7 +401,7 @@ Windows 기반 컴퓨터에 설치된 모든 역할 또는 응용 프로그램�
 ## <a name="complete-recommended-configurations"></a>권장된 구성 완료
 다음 설정은 VHD 업로드에 영향을 주지 않습니다. 단, 반드시 구성하는 것이 좋습니다.
 
-* [Azure VM 에이전트](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 설치합니다. 그런 다음 VM 확장을 사용하도록 설정할 수 있습니다. VM 확장은 암호 재설정, RDP 구성 등 VM에서 사용하려는 대부분의 중요 기능을 구현합니다. 자세한 내용은 다음을 참조하세요.
+* [Azure VM 에이전트](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 설치합니다. 그런 다음 VM 확장을 사용하도록 설정할 수 있습니다. VM 확장은 암호 재설정, RDP 구성 등 VM에서 사용하려는 대부분의 중요 기능을 구현합니다. 자세한 내용은 다음을 참조하세요.
 
     - [VM 에이전트 및 확장 - 1부](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [VM 에이전트 및 확장 - 2부](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: c55e67e24c8f5ff6e243c67b614592874b2cc459
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 6cf2aa31e8a7207b041b9789ddde23b616f47150
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870658"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258449"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Service Fabric에 대해 궁금하신가요?
 Azure Service Fabric은 손쉽게 패키지하고 배포하며 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다.  그러나 Service Fabric은 노출 영역이 대규모이므로 학습할 내용이 많습니다.  이 문서에서는 Service Fabric의 개요를 제공하고 핵심 개념, 프로그래밍 모델, 응용 프로그램 수명 주기, 테스트, 클러스터 및 상태 모니터링에 대해 설명합니다. 내용 소개 및 Service Fabric을 사용하여 마이크로 서비스를 만드는 방법은 [개요](service-fabric-overview.md) 및 [마이크로 서비스란?](service-fabric-overview-microservices.md)을 읽어보세요. 이 문서에는 포괄적인 콘텐츠 목록이 포함되어 있지 않지만 Service Fabric의 모든 영역에 대한 개요 및 시작 문서에 대한 링크가 있습니다. 
@@ -218,7 +218,7 @@ Service Fabric은 여러 가지 다음 방법으로 상태 저장소에 집계�
 * [서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)에 대해 알아봅니다. 
 * [앱 및 서비스 테스트](service-fabric-testability-overview.md)에 대해 알아봅니다.
 * [클러스터 리소스 관리 및 오케스트레이션](service-fabric-cluster-resource-manager-introduction.md)을 참조하세요.
-* [Service Fabric 샘플](http://aka.ms/servicefabricsamples)을 살펴봅니다.
+* [Service Fabric 샘플](https://aka.ms/servicefabricsamples)을 살펴봅니다.
 * [Service Fabric 지원 옵션](service-fabric-support.md)에 대해 알아봅니다.
 * 문서 및 공지 사항에 대한 [팀 블로그](https://blogs.msdn.microsoft.com/azureservicefabric/)를 읽습니다.
 

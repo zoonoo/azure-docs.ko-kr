@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339953"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254522"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 관리 기본 사항
 Azure Stack 관리 접하는 경우 알아야 할 몇 가지 있습니다. 이 지침은 Azure Stack 운영자 역할의 개요 및 생산성을 높이려는 신속 하 게 사용자에 게 필요한를 제공 합니다.
@@ -65,7 +65,7 @@ Azure와 같은에서는 빠른 혁신. 정기적으로 새 빌드 출시할 예
 
 Azure Stack은 Azure 서비스에 대 한 지원을 추가할 계속 됩니다. 예상된 로드맵 상에 대 한 참조를 [Azure Stack: Azure의 확장](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) 백서입니다. 모니터링할 수도 있습니다는 [Azure Stack 블로그 게시물](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) 새 공지 사항에 대 한 합니다.
 
-## <a name="what-account-should-i-use"></a>어떤 계정을 사용 해야 합니까?
+## <a name="what-account-should-i-use"></a>사용할 계정은?
 Azure Stack을 관리할 때 고려해 야 하는 몇 가지 계정 고려 사항이 있습니다. 배포에서 특히 Windows Server Active Directory Federation Services (AD FS)를 id 공급자로 Azure Active Directory (Azure AD) 대신 사용합니다. 다음 계정 고려 사항 ASDK 배포와 Azure Stack 통합 시스템에 적용 됩니다.
 
 
@@ -81,7 +81,7 @@ Azure Stack을 관리할 때 고려해 야 하는 몇 가지 계정 고려 사�
  
 사용할 수는 [관리자 포털](azure-stack-manage-portals.md) 또는 PowerShell을 Azure Stack을 관리 합니다. 기본 개념을 알아보고 하는 가장 쉬운 방법은 포털을 통해 됩니다. PowerShell을 사용 하려는 경우에 준비 단계가 있습니다. 수행 해야 합니다 [설치](azure-stack-powershell-install.md) PowerShell [다운로드](azure-stack-powershell-download.md) 추가 모듈 및 [구성](azure-stack-powershell-configure-admin.md) PowerShell.
 
-Azure Stack의 기본 배포, 관리 및 조직 메커니즘으로 Azure Resource Manager를 사용합니다. Azure Stack을 관리 하 여 사용자를 지원할 수 있도록 하려는 경우 Resource Manager에 대 한 배워야 합니다. 참조 된 [Azure Resource Manager를 사용 하 여 시작](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) 백서입니다.
+Azure Stack의 기본 배포, 관리 및 조직 메커니즘으로 Azure Resource Manager를 사용합니다. Azure Stack을 관리 하 여 사용자를 지원할 수 있도록 하려는 경우 Resource Manager에 대 한 배워야 합니다. 참조 된 [Azure Resource Manager를 사용 하 여 시작](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) 백서입니다.
 
 ## <a name="your-typical-responsibilities"></a>일반적인 사용자의 책임
 

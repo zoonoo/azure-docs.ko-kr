@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: ef19380372354b8f34343f9f94ebf6b384996f14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714192"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261558"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Azure Marketplace용 제품을 만들기 위한 일반적인 필수 조건
 제품 만들기 프로세스를 진행하는 데 필요한 일반적인 비즈니스 프로세스 중심 필수 조건을 이해합니다.
@@ -27,10 +27,8 @@ ms.locfileid: "39714192"
 ## <a name="ensure-that-you-are-registered-as-a-seller-with-microsoft"></a>Microsoft에 판매자로 등록되어 있는지 확인
 Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침은 [계정 만들기 및 등록](marketplace-publishing-accounts-creation-registration.md)을 참조하세요.
 
-* 
-  **회사가 이미 개발자 센터에 판매자도 등록되어 있으며 새 제품을 만들려는 경우** 개발자 센터 등록을 수행할 때 사용한 동일한 이메일 ID를 사용하여 게시 포털에 로그인합니다. 개발자 센터 및 게시 포털이 상호 연결될 수 있도록 하기 위해 이 단계가 필요합니다.
-* 
-  **회사가 이미 개발자 센터에 판매자로 등록되어 있으며 기존 제품을 편집하려는 경우** 관리자 계정 또는 게시 포털에서 공동 관리자로 추가한 계정을 사용하여 게시 포털에 로그인합니다. 공동 관리자 계정을 추가하는 단계는 아래에 나와 있습니다.
+* **회사가 이미 개발자 센터에 판매자도 등록되어 있으며 새 제품을 만들려는 경우** 개발자 센터 등록을 수행할 때 사용한 동일한 이메일 ID를 사용하여 게시 포털에 로그인합니다. 개발자 센터 및 게시 포털이 상호 연결될 수 있도록 하기 위해 이 단계가 필요합니다.
+* **회사가 이미 개발자 센터에 판매자로 등록되어 있으며 기존 제품을 편집하려는 경우** 관리자 계정 또는 게시 포털에서 공동 관리자로 추가한 계정을 사용하여 게시 포털에 로그인합니다. 공동 관리자 계정을 추가하는 단계는 아래에 나와 있습니다.
 
 ## <a name="steps-to-add-a-co-admin-in-the-publishing-portal"></a>게시 포털에 공동 관리자를 추가하는 단계
 게시 포털의 관리자는 응용 프로그램에 대해 작업 중인 회사의 다른 멤버를 게시 포털에 공동 관리자로 추가할 수 있습니다. **관리자인 경우** 아래에서 공동 관리자 추가 단계를 참조하세요.
@@ -72,7 +70,7 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 
 ## <a name="sell-from-countries"></a>"판매" 국가
 > [!WARNING]
-> Microsoft Azure Marketplace에서 서비스를 판매하려면, 승인된 “판매" 국가 중 한 곳에 사용자의 등록 법인이 속해 있는지 확인해야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [Azure Marketplace 참가 정책](http://go.microsoft.com/fwlink/?LinkID=526833)의 섹션 1b를 참조하세요.
+> Microsoft Azure Marketplace에서 서비스를 판매하려면, 승인된 “판매" 국가 중 한 곳에 사용자의 등록 법인이 속해 있는지 확인해야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 전체 목록은 [Azure Marketplace 참가 정책](https://go.microsoft.com/fwlink/?LinkID=526833)의 섹션 1b를 참조하세요.
 > 
 > 
 
@@ -83,6 +81,5 @@ Microsoft에 판매자 계정을 등록하는 방법에 대한 자세한 지침�
 * [솔루션 템플릿 기술 필수 구성 요소](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ## <a name="see-also"></a>참고 항목
-* 
-  [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
+* [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)
 

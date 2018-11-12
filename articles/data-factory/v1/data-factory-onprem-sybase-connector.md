@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 75fbfe1e682f0022385bb5c406d772bb217180fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0832d5a3f5b529a815046bb6f12755ad733ff03c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045272"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260570"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Sybase에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ ms.locfileid: "37045272"
 > 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.
 
 ## <a name="supported-versions-and-installation"></a>지원되는 버전 및 설치
-Sybase 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [data provider for Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 이상을 설치해야 합니다. 
+Sybase 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [data provider for Sybase iAnywhere.Data.SQLAnywhere](https://go.microsoft.com/fwlink/?linkid=324846) 16 이상을 설치해야 합니다. 
 
 Sybase SQL ASA(Anywhere) 버전 16 이상이 지원됩니다. IQ 및 ASE는 지원되지 않습니다.
 
@@ -67,14 +67,14 @@ Sybase SQL ASA(Anywhere) 버전 16 이상이 지원됩니다. IQ 및 ASE는 지�
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **OnPremisesSybase** |예 |
-| 서버 |Sybase 서버의 이름입니다. |예 |
-| 데이터베이스 |Sybase 데이터베이스의 이름입니다. |예 |
-| schema |데이터베이스에서 스키마의 이름입니다. |아니오 |
-| authenticationType |Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
-| 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니오 |
-| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니오 |
-| gatewayName |데이터 팩터리 서비스가 온-프레미스 Sybase 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
+| 형식 |형식 속성은 **OnPremisesSybase** |yes |
+| 서버 |Sybase 서버의 이름입니다. |yes |
+| 데이터베이스 |Sybase 데이터베이스의 이름입니다. |yes |
+| schema |데이터베이스에서 스키마의 이름입니다. |아니요 |
+| authenticationType |Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |yes |
+| 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니요 |
+| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
+| gatewayName |데이터 팩터리 서비스가 온-프레미스 Sybase 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |yes |
 
 ## <a name="dataset-properties"></a>데이터 집합 속성
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).

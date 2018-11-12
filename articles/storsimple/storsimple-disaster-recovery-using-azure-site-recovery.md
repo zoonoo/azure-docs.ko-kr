@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: d6b8341f16cca29fe5bedca34749f47053a14ebb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666941"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249271"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 자동화된 재해 복구 솔루션
 ## <a name="overview"></a>개요
@@ -43,7 +43,7 @@ StorSimple 저장소에서 호스트되는 파일 공유에 Azure Site Recovery�
    - StorSimple 저장소 장치에 구성된 볼륨에서 호스트되는 파일 공유
    - [Azure Site Recovery 서비스 자격 증명 모음](../site-recovery/site-recovery-vmm-to-vmm.md) 
 
-또한 Azure가 복구 사이트인 경우 VM에서 [Azure Virtual Machine 준비 평가 도구](http://azure.microsoft.com/downloads/vm-readiness-assessment/)를 실행하여 Azure VM 및 Azure Site Recovery 서비스와 호환되는지 확인합니다.
+또한 Azure가 복구 사이트인 경우 VM에서 [Azure Virtual Machine 준비 평가 도구](https://azure.microsoft.com/downloads/vm-readiness-assessment/)를 실행하여 Azure VM 및 Azure Site Recovery 서비스와 호환되는지 확인합니다.
 
 대기 시간 문제(많은 비용을 유발할 수 있음)를 방지하려면 StorSimple Cloud Appliance, 자동화 계정 및 저장소 계정을 같은 지역에서 만들도록 합니다.
 
@@ -81,7 +81,7 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
 
 1. 각 파일 서버 VM에 VM 에이전트를 설치합니다. 장애 조치(failover)된 VM에 대해 Azure 자동화 스크립트를 실행할 수 있도록 이 작업이 필요합니다.
    
-   1. `C:\\Users\\<username>\\Downloads`에 [에이전트를 다운로드](http://aka.ms/vmagentwin)합니다.
+   1. `C:\\Users\\<username>\\Downloads`에 [에이전트를 다운로드](https://aka.ms/vmagentwin)합니다.
    1. 관리자 모드(관리자 권한으로 실행)에서 Windows PowerShell을 열고 다음 명령을 입력하여 다운로드 위치로 이동합니다.  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -321,10 +321,10 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
 ## <a name="best-practices"></a>모범 사례
 ### <a name="capacity-planning-and-readiness-assessment"></a>용량 계획 및 준비 평가
 #### <a name="hyper-v-site"></a>Hyper-V 사이트
-[User Capacity planner tool(사용자 Capacity Planner 도구)](http://www.microsoft.com/download/details.aspx?id=39057) 을 사용하여 Hyper-V 복제본 환경에 대한 서버, 저장소 및 네트워크 인프라를 디자인합니다.
+[User Capacity planner tool(사용자 Capacity Planner 도구)](https://www.microsoft.com/download/details.aspx?id=39057) 을 사용하여 Hyper-V 복제본 환경에 대한 서버, 저장소 및 네트워크 인프라를 디자인합니다.
 
 #### <a name="azure"></a>Azure
-VM에서 [Azure Virtual Machine 준비 평가 도구](http://azure.microsoft.com/downloads/vm-readiness-assessment/)를 실행하여 VM이 Azure VM 및 Azure Site Recovery Services와 호환되는지 확인할 수 있습니다. 준비 평가 도구는 VM 구성을 확인하고 구성이 Azure와 호환되지 않는 경우 경고합니다. 예를 들어 C: 드라이브가 127GB 보다 큰 경우 경고가 발생합니다.
+VM에서 [Azure Virtual Machine 준비 평가 도구](https://azure.microsoft.com/downloads/vm-readiness-assessment/)를 실행하여 VM이 Azure VM 및 Azure Site Recovery Services와 호환되는지 확인할 수 있습니다. 준비 평가 도구는 VM 구성을 확인하고 구성이 Azure와 호환되지 않는 경우 경고합니다. 예를 들어 C: 드라이브가 127GB 보다 큰 경우 경고가 발생합니다.
 
 용량 계획은 다음과 같은 두 개 이상의 중요 프로세스로 구성됩니다.
 

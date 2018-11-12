@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: ramamill
-ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c7626c6edceddcfbd4d95ff6efc4678836a4502c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212950"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247996"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -167,6 +167,6 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 다음 도구는 고급 문제 해결에 유용할 수 있습니다.
 
--   VMM의 경우 [SDP(Support Diagnostics Platform) 도구](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)를 사용하여 Site Recovery 로그 수집을 수행합니다.
+-   VMM의 경우 [SDP(Support Diagnostics Platform) 도구](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)를 사용하여 Site Recovery 로그 수집을 수행합니다.
 -   VMM이 없는 Hyper-V의 경우 [이 도구를 다운로드](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)하고 Hyper-V 호스트에서 실행하여 로그를 수집합니다.
 

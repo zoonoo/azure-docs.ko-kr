@@ -12,12 +12,12 @@ services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e71de2d543c8f29b7195e74d574855bcbe739162
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967611"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260553"
 ---
 # <a name="aerial-image-classification"></a>항공 이미지 분류
 
@@ -154,7 +154,7 @@ ms.locfileid: "46967611"
     az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. 원하는 텍스트 편집기에서 Azure Machine Learning Workbench 프로젝트의 하위 디렉터리 "Code"로부터 `settings.cfg` 파일을 로드하고 표시된 대로 저장소 계정 이름과 키를 삽입합니다. `settings.cfg` 파일을 저장하고 닫습니다.
-1. [AzCopy](http://aka.ms/downloadazcopy) 유틸리티가 없으면 다운로드하여 설치합니다. "AzCopy" 입력 후 Enter 키를 눌러 설명을 표시하여 시스템 경로에 AzCopy 실행 파일이 있는지 확인합니다.
+1. [AzCopy](https://aka.ms/downloadazcopy) 유틸리티가 없으면 다운로드하여 설치합니다. "AzCopy" 입력 후 Enter 키를 눌러 설명을 표시하여 시스템 경로에 AzCopy 실행 파일이 있는지 확인합니다.
 1. 다음 명령을 실행하여 예제 데이터, 미리 학습된 모델 및 모델 학습 스크립트를 모두 저장소 계정의 적절한 위치에 복사합니다.
 
     ```

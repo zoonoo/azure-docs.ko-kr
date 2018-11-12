@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638429"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255765"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
@@ -107,7 +107,7 @@ Azure Storage는 사용 패턴에 따라 블록 Blob 데이터 액세스를 위�
 사용 가능한 액세스 계층은 다음과 같습니다.
 
 > [!NOTE]
-> [프리미엄 액세스 계층](../blobs/storage-blob-storage-tiers.md#premium-access-tier)은 유럽 북부, 미국 동부 2, 미국 중부 및 미국 서부에서 LRS(로컬 중복 구성 저장소) 계정으로 제공되며 제한적인 미리 보기 상태입니다. 미리 보기에 등록하는 방법을 알아보려면 [Azure Premium Blob Storage 소개](http://aka.ms/premiumblob)를 참조하세요.
+> [프리미엄 액세스 계층](../blobs/storage-blob-storage-tiers.md#premium-access-tier)은 유럽 북부, 미국 동부 2, 미국 중부 및 미국 서부에서 LRS(로컬 중복 구성 저장소) 계정으로 제공되며 제한적인 미리 보기 상태입니다. 미리 보기에 등록하는 방법을 알아보려면 [Azure Premium Blob Storage 소개](https://aka.ms/premiumblob)를 참조하세요.
 
 * **핫** 액세스 계층은 저장소 계층의 개체에 자주 액세스하는 데 최적화되어 있습니다. 핫 계층의 데이터 액세스는 가장 비용 효율적이지만, 저장소 비용이 다소 높습니다. 새 저장소 계정은 기본적으로 핫 계층에 만들어집니다.
 * **쿨** 액세스 계층은 자주 액세스하지 않고 최소 30일 동안 저장된 많은 양의 데이터를 저장하는 데 최적화되어 있습니다. 쿨 계층에 데이터를 저장하는 것은 상당히 비용 효율적이지만, 데이터 액세스 비용이 핫 계층의 데이터에 액세스하는 것보다 다소 높을 수 있습니다.

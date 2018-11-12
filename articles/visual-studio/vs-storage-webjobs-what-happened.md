@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: cf8b7849a603d5c1304846ab243478bb6afd5c18
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 673143c2bfb23bda45c4e435c3048ae61fa16902
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146997"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256904"
 ---
 # <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>내 WebJob 프로젝트(Visual Studio Azure Storage 연결 서비스)의 변경 내용
 ## <a name="references-added"></a>참조 추가됨
@@ -36,5 +36,5 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가 또는 업
 ## <a name="connection-string-for-azure-storage-added"></a>추가된 Azure Storage에 대한 연결 문자열
 프로젝트의 App.config 파일에서 **AzureWebJobsStorage** 및 **AzureWebJobsDashboard** 항목이 선택한 저장소 계정의 연결 문자열과 키로 업데이트되었습니다.
 
-자세한 내용은 [Azure WebJob 설명서 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
+자세한 내용은 [Azure WebJob 설명서 리소스](https://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 370700f8d146dd626e6e13deceb09dcaea34a9f3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983953"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262032"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -100,7 +100,7 @@ Azure DevOps를 사용하는 경우 [DevTest Labs 작업 확장](https://marketp
 * [Azure DevOps Services에서 기존 DevTest Labs 랩에 새 VM 배포](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 * [DevTest Labs에 대한 연속 배포에 대해 Azure DevOps Services 릴리스 관리 사용](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-다른 CI(연속 통합)/CD(지속적인 업데이트) 도구 체인의 경우 [Azure Resource Manager 템플릿](https://aka.ms/dtlquickstarttemplate)을 배포하거나 [Azure PowerShell cmdlet](../azure-resource-manager/resource-group-template-deploy.md) 및 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/)를 사용하여 동일한 시나리오를 얻을 수 있습니다. 또한 [DevTest Labs용 REST API](http://aka.ms/dtlrestapis)를 사용하여 도구 체인과 통합할 수 있습니다.  
+다른 CI(연속 통합)/CD(지속적인 업데이트) 도구 체인의 경우 [Azure Resource Manager 템플릿](https://aka.ms/dtlquickstarttemplate)을 배포하거나 [Azure PowerShell cmdlet](../azure-resource-manager/resource-group-template-deploy.md) 및 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/)를 사용하여 동일한 시나리오를 얻을 수 있습니다. 또한 [DevTest Labs용 REST API](https://aka.ms/dtlrestapis)를 사용하여 도구 체인과 통합할 수 있습니다.  
 
 
 **가상 머신**
@@ -141,7 +141,7 @@ Azure에서 개발이나 테스트를 위해 Windows 클라이언트 OS 이미�
 
 랩과 연결된 대상 저장소 계정을 찾으려면:
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 3. 랩과 연결된 리소스 그룹을 찾고 선택합니다.
 4. **개요** 아래에서 저장소 계정 중 하나를 선택합니다.

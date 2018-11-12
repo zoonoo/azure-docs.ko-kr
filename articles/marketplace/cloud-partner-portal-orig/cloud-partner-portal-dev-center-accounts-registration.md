@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bdcd1d0cc9f9979d898410180d364716b344d641
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807845"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254471"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
 ====================================
@@ -133,7 +133,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 
    ![결제 등록](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
 
-10. 계정 정보를 검토하고 모든 정보가 올바른지 확인합니다. [Microsoft Azure Marketplace 게시자 계약](http://go.microsoft.com/fwlink/?LinkID=699560)의 사용 약관을 읽고 동의합니다. 확인란을 선택하여 이러한 약관을 읽고 동의했음을 나타냅니다.
+10. 계정 정보를 검토하고 모든 정보가 올바른지 확인합니다. [Microsoft Azure Marketplace 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)의 사용 약관을 읽고 동의합니다. 확인란을 선택하여 이러한 약관을 읽고 동의했음을 나타냅니다.
 
 11. **마침** 을 클릭하여 등록을 확인합니다. 확인 메시지가 해당 메일 주소로 전송됩니다.
 

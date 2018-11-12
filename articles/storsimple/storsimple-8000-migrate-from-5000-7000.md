@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 23fde5fab8f223ff1d958a8fac6a31818f1fdd7c
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: a638487fb0a622f899095989ca5341013299e181
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818919"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234411"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>StorSimple 5000-7000 시리즈에서 8000 시리즈 장치로 데이터 마이그레이션
 
@@ -57,7 +57,7 @@ ms.locfileid: "42818919"
 | 3.   | 마이그레이션이 성공하면 모든 데이터가 로컬 어플라이언스에 있습니다. 데이터에 액세스할 때 대기 시간이 없습니다. | 5000/7000 장치에서 데이터가 삭제될 때까지 Azure 저장소 사용량이 증가합니다.                                                                                                        |
 | 4.   |                                                                                                                           | 7000/5000 시리즈 장치에 대량의 데이터가 있는 경우 마이그레이션하는 동안 이 데이터를 azure에서 다운로드해야 하며, Azure에서 데이터를 다운로드하는 것과 관련된 비용과 대기 시간이 발생합니다. |
 
-이 문서는 5000/7000 시리즈 장치에서 8000 시리즈 장치로 마이그레이션하는 기능만 집중적으로 다룹니다. 호스트 측 마이그레이션에 대한 자세한 내용은 [다른 저장 장치에서 마이그레이션](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf)을 참조하세요.
+이 문서는 5000/7000 시리즈 장치에서 8000 시리즈 장치로 마이그레이션하는 기능만 집중적으로 다룹니다. 호스트 측 마이그레이션에 대한 자세한 내용은 [다른 저장 장치에서 마이그레이션](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf)을 참조하세요.
 
 ## <a name="migration-prerequisites"></a>마이그레이션 필수 구성 요소
 

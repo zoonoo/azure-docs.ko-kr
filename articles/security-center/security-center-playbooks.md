@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: yurid
-ms.openlocfilehash: b9040158679b99ca71a6b973dec9804869351938
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 05245b2a7a4f7bf61052b13da5ee2a98be721f7c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158299"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259958"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Security Center의 보안 플레이북(미리 보기)
 이 문서를 통해 Azure Security Center에서 보안 플레이북을 사용하여 보안 관련 문제에 응답할 수 있습니다.
@@ -65,7 +65,7 @@ ms.locfileid: "44158299"
 1.  **Security Center** 대시보드를 엽니다.
 2.  왼쪽 창의 **위협 감지** 아래에서 **보안 인시던트 및 경고**를 클릭합니다.
 
-    ![Alerts](./media/security-center-playbooks/security-center-playbooks-fig6.png)
+    ![경고](./media/security-center-playbooks/security-center-playbooks-fig6.png)
 
 3.  조사하려는 경고를 클릭합니다.
 4.  경고 페이지 맨 위에서 **플레이북 실행** 단추를 클릭합니다.
@@ -104,5 +104,5 @@ Security Center에서 기존 플레이북을 변경하여 작업이나 조건을
 * [Azure Security Center에서 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). 다양한 유형의 보안 경고에 대해 알아봅니다.
 * [Azure Security Center 문제 해결 가이드](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Security Center의 일반적인 문제를 해결하는 방법에 대해 알아봅니다. 
 * [Azure Security Center FAQ](security-center-faq.md)로 설정합니다. 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242571"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242911"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램
 
@@ -41,7 +41,7 @@ ms.locfileid: "50242571"
 
 - Visual Studio 2012 이상 사용
 - Azure SQL 데이터베이스 3개 만들기
-- 샘플 프로젝트 다운로드: [Azure SQL을 위한 탄력적 DB 도구 - 다중 테넌트 분할된 데이터베이스](http://go.microsoft.com/?linkid=9888163)
+- 샘플 프로젝트 다운로드: [Azure SQL을 위한 탄력적 DB 도구 - 다중 테넌트 분할된 데이터베이스](https://go.microsoft.com/?linkid=9888163)
   - **Program.cs** 
 
 이 프로젝트는 [Azure SQL을 위한 탄력적 DB 도구 - Entity Framework 통합](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 에서 설명한 프로젝트에 다중 테넌트 분할된 데이터베이스에 대한 지원을 추가하는 확장 프로젝트입니다. 이 프로젝트는 블로그 및 게시물을 만들기 위한 간단한 콘솔 응용 프로그램을 작성합니다. 프로젝트에는 4명의 테넌트와 두 개의 다중 테넌트 분할 데이터베이스가 포함됩니다. 이 구성은 이전 다이어그램에 설명되어 있습니다. 
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> 복잡한 프로젝트에서 수백 개의 테이블에 조건자를 추가하는 것은 지루한 작업이 될 수 있습니다. 자동으로 보안 정책을 생성하고 스키마의 모든 테이블에는 조건자를 추가하는 도우미 저장 프로시저가 있습니다. 자세한 내용은 [모든 테이블에 행 수준 보안 적용 – 도우미 스크립트(블로그)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script)에서 블로그 게시물을 참조하세요.
+> 복잡한 프로젝트에서 수백 개의 테이블에 조건자를 추가하는 것은 지루한 작업이 될 수 있습니다. 자동으로 보안 정책을 생성하고 스키마의 모든 테이블에는 조건자를 추가하는 도우미 저장 프로시저가 있습니다. 자세한 내용은 [모든 테이블에 행 수준 보안 적용 – 도우미 스크립트(블로그)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script)에서 블로그 게시물을 참조하세요.
 
 이제 샘플 응용 프로그램을 다시 실행하면 각 테넌트는 자신에게 속한 행만 보게 됩니다. 또한 응용 프로그램에서는 현재 분할된 데이터베이스에 연결된 테넌트 이외의 다른 테넌트에 속한 행을 삽입할 수 없습니다. 또한 앱은 표시되는 행의 TenantId를 업데이트할 수 없습니다. 앱에서 두 작업을 시도하면 DbUpdateException이 발생합니다.
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>유지 관리
 
 - **새로운 분할된 데이터베이스 추가**: T-SQL 스크립트를 실행하여 모든 새로운 분할된 데이터베이스에서 RLS를 설정합니다. 그렇지 않으면 분할된 데이터베이스에 대한 쿼리가 필터링되지 않습니다.
-- **새 테이블 추가**: 새 테이블을 만들 때마다 모든 분할된 데이터베이스의 보안 정책에 FILTER 및 BLOCK 조건자를 추가합니다. 그렇지 않으면 새 테이블에 대한 쿼리가 필터링되지 않습니다. [새로 만든 테이블에 자동으로 행 수준 보안 적용(블로그)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx)에 설명된 것처럼 DDL 트리거를 사용하여 이 추가 작업을 자동화할 수 있습니다.
+- **새 테이블 추가**: 새 테이블을 만들 때마다 모든 분할된 데이터베이스의 보안 정책에 FILTER 및 BLOCK 조건자를 추가합니다. 그렇지 않으면 새 테이블에 대한 쿼리가 필터링되지 않습니다. [새로 만든 테이블에 자동으로 행 수준 보안 적용(블로그)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx)에 설명된 것처럼 DDL 트리거를 사용하여 이 추가 작업을 자동화할 수 있습니다.
 
 ## <a name="summary"></a>요약
 
@@ -358,7 +358,7 @@ GO
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
 
-궁금한 사항이 있는 경우 [SQL Database 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에 문의하세요. 또한 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에서 기능 요청을 추가하세요.
+궁금한 사항이 있는 경우 [SQL Database 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)에 문의하세요. 또한 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에서 기능 요청을 추가하세요.
 
 
 <!--Image references-->

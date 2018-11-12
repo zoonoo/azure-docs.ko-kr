@@ -9,19 +9,19 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 5910961ee54c953ea241baf9bce78b79b0dfeaea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309658"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260094"
 ---
 # <a name="manage-credentials"></a>자격 증명 관리
 
 Content Moderator 자격 증명은 다음 위치에 만들어집니다.
 
 - [Azure 포털](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-- [Content Moderator 검토 도구](http://contentmoderator.cognitive.microsoft.com/)
+- [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/)
 
 이 문서에서는 자격 증명을 찾는 위치 및 상관 관계를 설명합니다.
 

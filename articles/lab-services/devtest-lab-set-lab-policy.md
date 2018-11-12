@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 212afbd605e3a16da7be2c04492ec41875ff5b75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666842"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255182"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 모든 정책 관리
 
@@ -27,7 +27,7 @@ Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 
 ## <a name="set-allowed-virtual-machine-sizes"></a>허용된 가상 머신 크기를 설정합니다.
 허용 VM 크기를 설정하는 정책은 랩에서 허용되는 VM 크기를 지정함으로써 랩의 낭비가 최소화되도록 돕습니다. 이 정책이 활성화되면 이 목록의 VM 크기만 사용하여 VM을 만들 수 있습니다.
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩을 선택한 다음 **구성 및 정책**을 선택합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩을 선택한 다음 **구성 및 정책**을 선택합니다.
 
     ![랩의 구성 및 정책에 액세스](./media/devtest-lab-set-lab-policy/policies-menu.png)
 
