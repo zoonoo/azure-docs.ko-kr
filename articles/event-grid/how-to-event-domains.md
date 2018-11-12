@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 48a5356b03e38e864ba76f048febdb0b040893f5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d6da1ee603c85556693b145ba17d1e0cd0dfabd7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669300"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034543"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법
 
@@ -84,7 +84,7 @@ az eventgrid event-subscription create \
 
 ## <a name="manage-access-to-topics"></a>토픽에 대한 액세스 관리
 
-토픽에 대한 액세스 관리는 [역할 할당](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-cli)을 통해 수행됩니다. 역할 할당은 역할 기반 액세스 확인을 사용하여 Azure 리소스에 대한 작업을 특정 범위에서 권한이 부여된 사용자로 제한합니다.
+토픽에 대한 액세스 관리는 [역할 할당](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)을 통해 수행됩니다. 역할 할당은 역할 기반 액세스 확인을 사용하여 Azure 리소스에 대한 작업을 특정 범위에서 권한이 부여된 사용자로 제한합니다.
 
 Event Grid는 도메인 내 다양한 토픽에 대한 특정 사용자 액세스를 할당하는 데 사용할 수 있는 두 가지 기본 제공 역할을 제공합니다. 이러한 역할은 구독을 만들고 삭제할 수 있는 `EventGrid EventSubscription Contributor (Preview)` 및 이벤트 구독을 나열하는 것만 가능한 `EventGrid EventSubscription Reader (Preview)`입니다.
 

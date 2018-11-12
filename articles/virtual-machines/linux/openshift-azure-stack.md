@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: a2a61015f82cc27dcadf96fbd608e2d3420218ee
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 2b111967548dd90a8795af617a80a23d763861fe
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088294"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037697"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Azure Stack에서 OKD 또는 OpenShift Container Platform 배포
 
@@ -52,9 +52,9 @@ Resource Manager 템플릿을 사용하는 경우 적절한 분기(azurestack-re
 
 OpenShift 클러스터를 배포하려면 RHEL 이미지(OpenShift Container Platform) 또는 CentOS 이미지(OKD)를 Azure Stack 환경에 추가해야 합니다. 이러한 이미지를 추가하려면 Azure Stack 관리자에게 문의하세요. 지침은 다음에서 찾을 수 있습니다.
 
-- https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-add-vm-image
-- https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-marketplace-azure-items
-- https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-redhat-create-upload-vhd
+- https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image
+- https://docs.microsoft.com/azure/azure-stack/azure-stack-marketplace-azure-items
+- https://docs.microsoft.com/azure/azure-stack/azure-stack-redhat-create-upload-vhd
 
 ## <a name="deploy-by-using-the-openshift-container-platform-or-okd-resource-manager-template"></a>OpenShift Container Platform 또는 OKD Resource Manager 템플릿을 사용하여 배포
 
