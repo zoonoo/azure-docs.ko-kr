@@ -121,31 +121,34 @@ items:
       href: plan-your-environment.md
   - name: 데이터 획득 및 이해
     items:
-    - name: 데이터 물류 관리
+    - name: 데이터 수집
+      displayName: move data, manage data logistics
       items:
       - name: 개요
         href: ingest-data.md
-      - name: Blob 저장소
-        href: move-azure-blob.md
-      - name: Storage 탐색기 사용
-        href: move-data-to-azure-blob-using-azure-storage-explorer.md
-      - name: AzCopy 사용
-        href: move-data-to-azure-blob-using-azcopy.md
-      - name: Python 사용
-        href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
-        maintainContext: true
-      - name: SSIS 사용
-        href: move-data-to-azure-blob-using-ssis.md
-      - name: VM으로 이동
+      - name: Blob Storage 간 이동
+        items:
+        - name: 개요
+          href: move-azure-blob.md
+        - name: Storage 탐색기 사용
+          href: move-data-to-azure-blob-using-azure-storage-explorer.md
+        - name: AzCopy 사용
+          href: move-data-to-azure-blob-using-azcopy.md
+        - name: Python 사용
+          href: ../../storage/blobs/storage-python-how-to-use-blob-storage.md
+          maintainContext: true
+        - name: SSIS 사용
+          href: move-data-to-azure-blob-using-ssis.md
+      - name: VM의 SQL로 이동
         href: move-sql-server-virtual-machine.md
-      - name: SQL Database로 이동
+      - name: Azure SQL Database로 이동
         href: move-sql-azure.md
-      - name: Hive 테이블로 로드
+      - name: Hive 테이블로 이동
         href: move-hive-tables.md
-      - name: 온-프레미스 SQL에서 로드
-        href: move-sql-azure-adf.md
-      - name: SQL 파티션 테이블 로드
+      - name: SQL 분할된 테이블로 이동
         href: parallel-load-sql-partitioned-tables.md
+      - name: 온-프레미스 SQL로부터 이동
+        href: move-sql-azure-adf.md
     - name: 데이터를 살펴보고 시각화
       items:
       - name: 데이터 준비
@@ -154,11 +157,11 @@ items:
         items:
         - name: 개요
           href: explore-data.md
-        - name: Pandas 사용
+        - name: Azure Blob Storage 탐색
           href: explore-data-blob.md
-        - name: SQL VM 사용
+        - name: VM의 SQL 탐색
           href: explore-data-sql-server.md
-        - name: Hive 테이블 사용
+        - name: Hive 테이블 탐색
           href: explore-data-hive-tables.md
       - name: 샘플 데이터
         items:
@@ -235,9 +238,9 @@ items:
       items:
       - name: 개요
         href: cortana-analytics-playbook-vehicle-telemetry.md
-      - name: 플레이 북
+      - name: 플레이북 심층 분석
         href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-      - name: 설정
+      - name: Power BI 설정
         href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: 리소스
   items:
@@ -269,9 +272,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: 동영상
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-ms.openlocfilehash: 7a0e7527b62fec7e3c0d65ad59f53709a13039eb
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 64047bdb6dc25a2e31c2c5e282e7706194ff0733
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092477"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344674"

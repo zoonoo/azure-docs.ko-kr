@@ -4,7 +4,7 @@ items:
 - name: 개요
   items:
   - name: Azure Machine Learning 서비스란?
-    displayName: AML, services
+    displayName: AML, services, overview
     href: overview-what-is-azure-ml.md
   - name: 서비스의 작동 방식
     displayName: architecture
@@ -17,6 +17,7 @@ items:
   - name: 시작 - Portal
     href: quickstart-get-started.md
   - name: 시작 - Python
+    displayName: create workspace
     href: quickstart-create-workspace-with-python.md
 - name: 자습서
   items:
@@ -25,6 +26,7 @@ items:
   - name: '모델 배포: 2부'
     href: tutorial-deploy-models-with-aml.md
   - name: 자동 ML 모델 학습
+    displayName: automl
     href: tutorial-auto-train-models.md
 - name: 샘플
   items:
@@ -34,6 +36,7 @@ items:
 - name: 개념
   items:
   - name: 모델 관리
+    displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
   - name: FPGA를 사용하여 가속화
     href: concept-accelerate-with-fpgas.md
@@ -51,13 +54,14 @@ items:
     - name: 환경 구성
       href: how-to-configure-environment.md
     - name: AI용 VS Code Tools
+      displayName: Visual Studio Code, vscode
       items:
       - name: 시작하기
         href: how-to-vscode-tools.md
       - name: 학습 및 배포
         href: how-to-vscode-train-deploy.md
   - name: 데이터 준비
-    displayName: data prep, etl, elt
+    displayName: data prep, etl, elt, data preparation
     href: how-to-data-prep.md
     items:
     - name: 데이터 로드
@@ -69,6 +73,7 @@ items:
   - name: 모델 학습
     items:
     - name: 학습 환경 설정
+      displayName: compute target, train
       href: how-to-set-up-training-targets.md
     - name: 학습에서 데이터에 액세스
       href: how-to-access-data.md
@@ -79,13 +84,12 @@ items:
         href: how-to-train-pytorch.md
       - name: TensorFlow
         href: how-to-train-tensorflow.md
-  - name: 모델 조정
-    items:
     - name: hyperparameters 조정
       href: how-to-tune-hyperparameters.md
     - name: 실험 및 메트릭 추적
       href: how-to-track-experiments.md
   - name: 기계 학습 자동화
+    displayName: automl
     href: how-to-automated-ml.md
     items:
     - name: 자동 학습 구성
@@ -101,8 +105,10 @@ items:
     - name: 모델 배포 위치
       href: how-to-deploy-and-where.md
     - name: ACI에 배포
+      displayName: Azure Container Instances
       href: how-to-deploy-to-aci.md
     - name: AKS에 배포
+      displayName: Azure Kubernetes
       href: how-to-deploy-to-aks.md
     - name: FPGA에 배포
       href: how-to-deploy-fpga-web-service.md
@@ -112,6 +118,9 @@ items:
       href: how-to-troubleshoot-deployment.md
     - name: SSL을 통한 보안
       href: how-to-secure-web-service.md
+    - name: 배포된 모델 사용
+      displayName: create client, client, consume
+      href: how-to-consume-web-service.md
   - name: 모델 모니터링
     items:
     - name: 프로덕션에서 데이터 수집
@@ -126,6 +135,8 @@ items:
     href: http://aka.ms/aml-sdk
   - name: 데이터 준비 SDK
     href: http://aka.ms/data-prep-sdk
+  - name: 모니터링 SDK
+    href: https://aka.ms/aml-monitoring-sdk
   - name: Machine Learning CLI
     href: reference-azure-machine-learning-cli.md
 - name: 리소스
@@ -347,9 +358,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 이전 문제
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 23e715064db714765a11771182248978f9493bd2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8519a04730105537d5bd8639da54afafdf76590b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095078"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345016"
