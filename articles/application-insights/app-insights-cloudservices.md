@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 2b43e3487493f8568903ee0799fdd3d86e9a6542
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783546"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279673"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
 [Application Insights][start]에서 Application Insights SDK의 데이터와 Cloud Services의 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 데이터를 결합하여 [Microsoft Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)에 대한 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
@@ -96,7 +96,7 @@ Application Insights를 사용하여 앱을 모니터링하려면 이 옵션을 
 
 그러면 Application Insights 계측 키가 `ServiceConfiguration.*.cscfg` 파일에 삽입됩니다. ([샘플 코드](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-Application Insights로 전송되는 진단 정보의 수준을 변경하려는 경우 [`.cscfg` 파일을 직접 편집](app-insights-azure-diagnostics.md)할 수 있습니다.
+Application Insights로 전송되는 진단 정보의 수준을 변경하려는 경우 [`.cscfg` 파일을 직접 편집](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)할 수 있습니다.
 
 ## <a name="sdk"></a>각 프로젝트에 SDK 설치
 이 옵션은 응용 프로그램의 사용 방식 및 성능에 대한 보다 세밀한 분석을 위해 사용자 지정 비즈니스 원격 분석을 역할에 추가하는 기능을 추가합니다.
@@ -151,7 +151,7 @@ Visual Studio에서 각 클라우드 앱 프로젝트에 Application Insights SD
 
 ![Azure 진단 데이터](./media/app-insights-cloudservices/23-wad.png)
 
-[Search](app-insights-diagnostic-search.md) 또는 [분석 쿼리](app-insights-analytics-tour.md)를 사용하여 Azure Diagnostics에서 보낸 다양한 추적 로그를 검색합니다. 예를 들어 역할이 충돌하게 만들고 따라서 역할을 재활용하게 만드는 처리되지 않은 예외가 있다고 가정해 봅시다. 해당 정보는 Windows 이벤트 로그의 응용 프로그램 채널에 표시됩니다. Search를 사용하여 Windows 이벤트 로그 오류를 살펴보고 예외에 대한 전체 스택 추적을 가져올 수 있습니다. 이 정보는 문제의 근본 원인을 찾는 데 도움이 됩니다.
+[Search](app-insights-diagnostic-search.md) 또는 [분석 쿼리](../log-analytics/query-language/get-started-analytics-portal.md)를 사용하여 Azure Diagnostics에서 보낸 다양한 추적 로그를 검색합니다. 예를 들어 역할이 충돌하게 만들고 따라서 역할을 재활용하게 만드는 처리되지 않은 예외가 있다고 가정해 봅시다. 해당 정보는 Windows 이벤트 로그의 응용 프로그램 채널에 표시됩니다. Search를 사용하여 Windows 이벤트 로그 오류를 살펴보고 예외에 대한 전체 스택 추적을 가져올 수 있습니다. 이 정보는 문제의 근본 원인을 찾는 데 도움이 됩니다.
 
 ![Azure 진단 검색](./media/app-insights-cloudservices/25-wad.png)
 
@@ -231,14 +231,14 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>다음 단계
-* [Application Insights에 Azure 진단을 보내도록 구성](app-insights-azure-diagnostics.md)
+* [Application Insights에 Azure 진단을 보내도록 구성](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Application Insights 리소스 만들기 자동화](app-insights-powershell.md)
 * [Azure 진단 자동화](app-insights-powershell-azure-diagnostics.md)
 * [Azure 기능](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
-[azure]: app-insights-azure.md
+[azure]: app-insights-overview.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md

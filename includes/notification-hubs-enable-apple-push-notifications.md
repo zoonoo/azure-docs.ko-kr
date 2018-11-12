@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bf73f64cc1e1789b770d7fae5f62e0ec27425263
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915163"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264040"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>인증서 서명 요청 파일 생성
 
@@ -41,7 +41,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 푸시 알림
 
 iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등록하고 푸시 알림도 등록해야 합니다.  
 
-1. 아직 앱을 등록하지 않은 경우 Apple Developer Center의 [iOS Provisioning Portal](http://go.microsoft.com/fwlink/p/?LinkId=272456)로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App ID**를 클릭한 다음, **+** 기호를 클릭하여 새 앱을 등록합니다.
+1. 아직 앱을 등록하지 않은 경우 Apple Developer Center의 [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App ID**를 클릭한 다음, **+** 기호를 클릭하여 새 앱을 등록합니다.
 
     ![iOS Provisioning Portal 앱 ID 페이지](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
@@ -111,7 +111,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>앱용 프로비저닝 프로필 만들기
 
-1. [iOS Provisioning Portal](http://go.microsoft.com/fwlink/p/?LinkId=272456)로 돌아가서 **Provisioning Profiles**과 **All**을 차례로 선택하고 **+**(더하기) 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 표시됩니다.
+1. [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456)로 돌아가서 **Provisioning Profiles**과 **All**을 차례로 선택하고 **+**(더하기) 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 표시됩니다.
 
     ![프로비전 프로필 목록](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 

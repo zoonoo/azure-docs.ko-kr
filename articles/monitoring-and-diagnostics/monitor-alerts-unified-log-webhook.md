@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ee38eb32886c050eb87b2d6ed91252ee7bcfea0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989297"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280707"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 로그 경고를 생성](alert-log.md)할 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](monitoring-action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
@@ -79,7 +79,7 @@ ms.locfileid: "46989297"
 이 섹션에서는 페이로드가 표준인 경우와 사용자 지정인 경우를 포함하여 로그 경고에 대한 웹후크의 샘플 페이로드를 보여 줍니다.
 
 > [!NOTE]
-> 이전 버전과의 호환성을 보장하기 위해 Azure Log Analytics를 사용하는 경고에 대한 표준 웹후크 페이로드는 [Log Analytics 경고 관리](../log-analytics/log-analytics-alerts-creating.md)와 같습니다. 그러나 [Application Insights](../application-insights/app-insights-analytics.md)를 사용하는 로그 경고에 대한 표준 웹후크 페이로드는 작업 그룹 스키마를 기반으로 합니다.
+> 이전 버전과의 호환성을 보장하기 위해 Azure Log Analytics를 사용하는 경고에 대한 표준 웹후크 페이로드는 [Log Analytics 경고 관리](../monitoring-and-diagnostics/alert-metric.md)와 같습니다. 그러나 [Application Insights](../application-insights/app-insights-analytics.md)를 사용하는 로그 경고에 대한 표준 웹후크 페이로드는 작업 그룹 스키마를 기반으로 합니다.
 
 ### <a name="standard-webhook-for-log-alerts"></a>로그 경고에 대한 표준 웹후크 
 이 두 가지 예제에서 모두, 열과 행이 각각 두 개만 포함된 더미 페이로드를 언급했습니다.
@@ -201,4 +201,4 @@ ms.locfileid: "46989297"
 - [Azure에서 로그 경고 관리](alert-log.md)를 이해합니다.
 - [Azure에서 작업 그룹](monitoring-action-groups.md) 만들기 및 관리
 - [Application Insights](../application-insights/app-insights-analytics.md)에 대해 자세히 알아보기
-- [Log Analytics](../log-analytics/log-analytics-overview.md)에 대해 자세히 알아보기 
+- [Log Analytics](../log-analytics/log-analytics-queries.md)에 대해 자세히 알아보기 

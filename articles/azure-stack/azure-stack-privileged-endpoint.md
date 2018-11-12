@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f064521929bdaf0565a2993e12be62a3959ad567
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945300"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300441"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack에서 권한 있는 끝점을 사용 하 여
 
@@ -55,7 +55,7 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - 개발 키트 호스트에는 ADSK를 실행 하는 경우에 로그인 합니다.
+    - ASDK를 실행 하는 경우 개발 키트 호스트에 로그인 합니다.
 
 2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 확정 된 가상 컴퓨터에서 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
@@ -67,7 +67,7 @@ PEP를 호스팅하는 가상 컴퓨터에서 원격 PowerShell 세션을 통해
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       `ComputerName` 매개 변수는 PEP를 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름 또는 IP 주소 수 있습니다. 
-    - ADSK 실행 하는 경우:
+    - ASDK 실행 하는 경우:
      
       ````PowerShell
         $cred = Get-Credential
@@ -127,7 +127,7 @@ PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/po
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - 개발 키트 호스트에는 ADSK를 실행 하는 경우에 로그인 합니다.
+    - ASDK를 실행 하는 경우 개발 키트 호스트에 로그인 합니다.
 
 2. 하드웨어 수명 주기 호스트 또는 권한 있는 액세스 워크스테이션에서 실행 되는 확정 된 가상 컴퓨터에서 Windows PowerShell 세션을 엽니다. PEP를 호스팅하는 가상 컴퓨터에서 원격 세션을 설정 하려면 다음 명령을 실행 합니다.
  
@@ -139,7 +139,7 @@ PEP는 위에서 설명한 대로 [PowerShell JEA](https://docs.microsoft.com/po
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       `ComputerName` 매개 변수는 PEP를 호스팅하는 가상 컴퓨터 중 하나의 DNS 이름 또는 IP 주소 수 있습니다. 
-    - ADSK 실행 하는 경우:
+    - ASDK 실행 하는 경우:
      
       ````PowerShell
        $cred = Get-Credential

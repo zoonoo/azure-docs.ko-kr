@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 3ad1f0638284ad1d9b65a5bb6f2d2b03e9c51e04
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1983e7560c986df241e9c592aaaa6b646a99840f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226619"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264356"
 ---
 ## <a name="planning-and-implementation"></a>계획 및 구현
 제목: Azure Virtual Machines에서 SAP NetWeaver - 계획 및 구현 가이드
@@ -18,7 +18,7 @@ ms.locfileid: "50226619"
 
 업데이트 날짜: 2015년 8월
 
-[지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkId=397963)
+[지금 이 가이드 다운로드](https://go.microsoft.com/fwlink/?LinkId=397963)
 
 ## <a name="deployment"></a>배포
 제목: Azure Virtual Machines에서 SAP NetWeaver - 배포 가이드
@@ -27,7 +27,7 @@ ms.locfileid: "50226619"
 
 업데이트 날짜: 2015년 9월
 
-[지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkId=397964)
+[지금 이 가이드 다운로드](https://go.microsoft.com/fwlink/?LinkId=397964)
 
 ## <a name="sap-dbms-on-azure"></a>Azure에서 SAP DBMS
 제목: Azure 배포 가이드의 SAP DBMS
@@ -36,7 +36,7 @@ ms.locfileid: "50226619"
 
 업데이트한 날짜: 2015년 12월
 
-[지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkId=397965)
+[지금 이 가이드 다운로드](https://go.microsoft.com/fwlink/?LinkId=397965)
 
 ## <a name="sap-netweaver-on-azure"></a>Azure에서 SAP NetWeaver
 제목: SAP NetWeaver - Azure 기반 재해 복구 솔루션 빌드
@@ -45,5 +45,5 @@ ms.locfileid: "50226619"
 
 업데이트 날짜: 2015년 9월
 
-[지금 이 가이드 다운로드](http://go.microsoft.com/fwlink/?LinkID=521971)
+[지금 이 가이드 다운로드](https://go.microsoft.com/fwlink/?LinkID=521971)
 

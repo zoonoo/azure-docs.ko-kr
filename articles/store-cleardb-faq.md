@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665725"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230634"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
 이 FAQ는 Azure Web Apps용 ClearDB MySQL 데이터베이스의 사용 및 구매에 대한 일반적인 질문에 답변합니다.
@@ -106,7 +106,7 @@ Indirect EA 고객은 엔터프라이즈 포털의 **구독 관리** 페이지�
 EA Azure 등록 관리자가 관리할 수 있는 타사 서비스용 Azure Marketplace에 액세스합니다. 엔터프라이즈 포털의 계정 및 구독 관리에 있는 계정 섹션에서 스토어에서 구매한 타사 제품에 대한 액세스를 사용하지 않도록 설정하거나 다시 사용하도록 설정할 수 있습니다.
 
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>EA 구독의 ClearDB 서비스의 요금에 대한 질문이 있는 경우 누구에게 문의해야 하나요?
-EA 등록에서 요금 청구와 관련된 사항은 [엔터프라이즈 고객 지원](http://aka.ms/AzureEntSupport) 에 문의하세요. EA 포털 지원 팀이 질문에 대답하거나 문제를 해결하는데 도움을 줄 것입니다.
+EA 등록에서 요금 청구와 관련된 사항은 [엔터프라이즈 고객 지원](https://aka.ms/AzureEntSupport) 에 문의하세요. EA 포털 지원 팀이 질문에 대답하거나 문제를 해결하는데 도움을 줄 것입니다.
 
 ## <a name="more-information"></a>자세한 정보
 [Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/)

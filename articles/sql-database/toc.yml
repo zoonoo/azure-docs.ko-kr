@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: SQL Database 서비스
   items:
-  - name: SQL DB 정보
+  - name: SQL DB란?
     href: sql-database-technical-overview.md
   - name: Azure SQL 버전 선택
     href: sql-database-paas-vs-sql-server-iaas.md
@@ -58,6 +58,8 @@ items:
       href: sql-database-connect-query-python.md
     - name: Ruby
       href: sql-database-connect-query-ruby.md
+    - name: R
+      href: sql-database-connect-query-r.md
   expanded: true
 - name: 자습서
   items:
@@ -475,6 +477,8 @@ items:
       items:
       - name: SQL 데이터 동기화
         href: sql-database-sync-data.md
+      - name: 데이터 동기화 에이전트
+        href: sql-database-data-sync-agent.md
       - name: 스키마 변경 내용 복제
         href: sql-database-update-sync-schema.md
       - name: OMS로 모니터링
@@ -638,9 +642,9 @@ items:
     href: /azure/architecture/
   - name: 고객 사례
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 6bb5612edc4a51af16a861cdaf2a339671775b10
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4b68124c28a6854bfcdb5a4c5cd9cad557e7d1c4
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037246"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289039"

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696934"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230872"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 쿼리 참고 자료
 
@@ -25,7 +25,7 @@ Letter 크기 또는 A3 크기 다운로드 중에서 선택합니다.
 
 ## <a name="letter-sized-cheat-sheets"></a>Letter 크기 참고 자료
 
-Letter 크기 용지(8.5" x 11")에 인쇄하려면 [Azure Cosmos DB Letter 크기 쿼리 참고 자료](http://go.microsoft.com/fwlink/?LinkId=623215)를 다운로드합니다.
+Letter 크기 용지(8.5" x 11")에 인쇄하려면 [Azure Cosmos DB Letter 크기 쿼리 참고 자료](https://go.microsoft.com/fwlink/?LinkId=623215)를 다운로드합니다.
 
 ![Azure Cosmos DB 쿼리 참고 자료 - Letter 크기, SQL API, JavaScript, MongoDB API, Gremlin API 및 Table API 쿼리 및 함수 포함](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: f00b175fed36fbe2b28f1d11843bb17c54ac3873
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086967"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277939"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 서비스 정책
 이 문서에서는 Azure Stack 통합 시스템 및 지원 되는 상태 시스템을 유지 하기 위해 해야 할 항목에 대 한 서비스 정책을 설명 합니다. 
@@ -55,7 +55,7 @@ Microsoft는 매월 주기로 소프트웨어 업데이트 패키지를 해제 �
 
 예를 들어 최신 업데이트 버전이 1805를 이전 두 업데이트 패키지 된 버전 1804 및 1803을 1803와 1804 유지 지원 합니다. 그러나 1802 지원 되지 않습니다. 정책 두 개 또는 한 달에 대 한 릴리스 없음 경우에 마찬가지입니다. 예를 들어, 현재 릴리스는 1805 했는데 1804 릴리스 없음, 1803 및 1802 이전 두 업데이트 패키지 유지 지원 합니다.
 
-Microsoft 소프트웨어 업데이트 패키지는 누적 되지 않은 및 필수 구성 요소로 이전 업데이트 패키지가 필요 합니다. 하나 이상의 업데이트를 지연 하려는 경우 최신 버전으로 이동 하려는 경우 전체 런타임을 것이 좋습니다. 
+Microsoft 소프트웨어 업데이트 패키지 비 누적 되며 이전 업데이트 패키지 또는 핫픽스 필수 구성 요소로 필요 합니다. 하나 이상의 업데이트를 지연 하려는 경우 최신 버전으로 이동 하려는 경우 전체 런타임을 것이 좋습니다. 
 
 ## <a name="get-support"></a>지원 받기
 Azure Stack Azure와 같은 지원 프로세스를 따릅니다. 기업 고객에서 설명한 프로세스를 따르면 [Azure 지원 요청을 만드는 방법](/azure/azure-supportability/how-to-create-azure-support-request)합니다. 고객의 서비스 공급자 (CSP (클라우드) 인 경우 지원에 대 한 CSP가 사용자에 게 문의 합니다.  자세한 내용은 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요. 

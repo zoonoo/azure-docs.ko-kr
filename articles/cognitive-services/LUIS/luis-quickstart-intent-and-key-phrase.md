@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8fa183c22b9b6830c57b0a16b7f5d20ca38e3ef3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166523"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281815"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>자습서 8: 발화의 핵심 구 추출
 이 자습서에서는 미리 빌드된 keyPhrase 엔터티를 사용하여 발화에서 핵심 주제를 추출합니다. 미리 빌드된 엔터티를 사용하여 발화에 레이블을 지정할 필요가 없습니다. 엔터티는 자동으로 검색됩니다.
@@ -56,11 +56,11 @@ ms.locfileid: "47166523"
 ## <a name="add-keyphrase-entity"></a>keyPhrase 엔터티 추가 
 keyPhrase 미리 빌드된 엔터티를 추가하여 발언에서 주제 문제를 추출합니다.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 왼쪽 메뉴에서 **엔터티**를 선택합니다.
 
-3. **미리 빌드된 엔터티 관리**를 선택합니다.
+3. **미리 빌드된 엔터티 추가**를 선택합니다.
 
 4. 팝업 대화 상자에서 **keyPhrase**를 선택한 다음, **완료**를 선택합니다. 
 

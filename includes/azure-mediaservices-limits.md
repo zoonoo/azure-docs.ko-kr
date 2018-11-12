@@ -14,8 +14,8 @@
 | AMS 계정당 라이브 채널  |5|
 | 채널당 중지 상태인 프로그램  |50|
 | 채널당 실행 상태인 프로그램  |3|
-| AMS 계정당 실행 상태인 스트리밍 끝점 |2|
-| 스트리밍 끝점당 스트리밍 단위  |10 |
+| AMS 계정당 실행 상태인 스트리밍 엔드포인트|2|
+| 스트리밍 엔드포인트당 스트리밍 단위 |10 |
 | Storage 계정 | 1,000<sup>(5)</sup>(고정) |
 | 정책 | 1,000,000<sup>(6)</sup> |
 | 파일 크기| 일부 시나리오에서는 Media Services에서 처리를 위해 지원되는 최대 파일 크기에 제한이 있습니다. <sup>7</sup> |
@@ -26,7 +26,7 @@
 
 2017년 4월 1일부로, 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일이 지난 작업 레코드는 연결된 태스크 레코드와 함께 자동으로 삭제됩니다. 작업/태스크 정보를 보관해야 하는 경우에는 [여기](../articles/media-services/previous/media-services-dotnet-manage-entities.md)에 설명된 코드를 사용할 수 있습니다.
 
-<sup>3</sup> 작업 엔터티 목록을 요청할 때 요청당 최대 1,000개 작업이 반환됩니다. 제출된 모든 작업을 추적하는 경우 [OData 시스템 쿼리 옵션](http://msdn.microsoft.com/library/gg309461.aspx)에서 설명한 대로 위쪽/건너뛰기를 사용할 수 있습니다.
+<sup>3</sup> 작업 엔터티 목록을 요청할 때 요청당 최대 1,000개 작업이 반환됩니다. 제출된 모든 작업을 추적하는 경우 [OData 시스템 쿼리 옵션](https://msdn.microsoft.com/library/gg309461.aspx)에서 설명한 대로 위쪽/건너뛰기를 사용할 수 있습니다.
 
 <sup>4</sup> 로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. 개별 사용자에게 서로 다른 액세스 권한을 부여하려면 DRM(Digital Rights Management)솔루션을 사용 합니다. 자세한 내용은 [이](../articles/media-services/previous/media-services-content-protection-overview.md) 섹션을 참조하세요.
 
