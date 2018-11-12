@@ -9,19 +9,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 0187bf51d36f16001f0f7f67f4f72f5f3df2e05d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a41ffdb31cb54e1488c0f114632c605b92d4c444
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974139"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255288"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Xamarin 및 Azure Cosmos DB를 사용하여 모바일 응용 프로그램 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.JS](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
@@ -85,7 +85,7 @@ Xamarin 프로젝트에서 스키마 없는 데이터에 언어가 통합된 쿼
 
   4. 앱을 수정하여 Facebook을 통해 리소스 토큰 broker에 인증하고, 로그인한 Facebook 사용자에게 리소스 토큰을 요청합니다. 그런 다음 UserItems 컬렉션에서 사용자 데이터에 액세스할 수 있습니다.  
 
-[GitHub의 리소스 토큰 broker](http://aka.ms/documentdb-xamarin-todouser)에서 이 패턴의 전체 코드 샘플을 찾을 수 있습니다. 이 다이어그램에서는 솔루션을 보여 줍니다.
+[GitHub의 리소스 토큰 broker](https://aka.ms/documentdb-xamarin-todouser)에서 이 패턴의 전체 코드 샘플을 찾을 수 있습니다. 이 다이어그램에서는 솔루션을 보여 줍니다.
 
 ![Azure Cosmos DB 사용자 및 사용 권한 브로커](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 

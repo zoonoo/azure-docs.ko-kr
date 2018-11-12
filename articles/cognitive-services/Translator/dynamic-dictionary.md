@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 0b96325b2d29abd230e4c389b176e97542a70282
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e1a80de1e6d0deebaff81207717886a4a8bbcc63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648249"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259482"
 ---
 # <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Translator Text API의 동적 사전 기능을 사용하는 방법
 
@@ -33,4 +33,4 @@ ms.locfileid: "49648249"
 
 이 기능은 HTML 모드를 사용할 때와 그렇지 않을 때 같은 결과를 가져옵니다.
 
-이 기능은 자주 사용하지 않는 것이 좋습니다. 번역을 사용자 지정하는 보다 적절하고 훨씬 더 나은 방법은 Custom Translator를 사용하는 것입니다. Custom Translator는 컨텍스트 및 통계적 확률을 최대한 활용합니다. 컨텍스트에 따라 사용자 작업 또는 구를 보여 주는 학습 데이터를 보유하고 있거나 이러한 데이터를 만들 수 있으면 훨씬 더 나은 결과를 얻을 수 있습니다. 사용자 지정 변환기에 대한 자세한 내용은 [http://aka.ms/CustomTranslator](http://aka.ms/CustomTranslator)에서 찾을 수 있습니다.
+이 기능은 자주 사용하지 않는 것이 좋습니다. 번역을 사용자 지정하는 보다 적절하고 훨씬 더 나은 방법은 Custom Translator를 사용하는 것입니다. Custom Translator는 컨텍스트 및 통계적 확률을 최대한 활용합니다. 컨텍스트에 따라 사용자 작업 또는 구를 보여 주는 학습 데이터를 보유하고 있거나 이러한 데이터를 만들 수 있으면 훨씬 더 나은 결과를 얻을 수 있습니다. 사용자 지정 변환기에 대한 자세한 내용은 [http://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator)에서 찾을 수 있습니다.

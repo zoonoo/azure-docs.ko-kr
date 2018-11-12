@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: 1922bc25eb7072341848dd7081c31ba6b1f07a3c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6129c83e33d046c2fc9ce1724a27efce5efdfa0e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298831"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258802"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Azure Security Center에 Microsoft Advanced Threat Analytics 연결
 이 문서는 Microsoft Advanced Threat Analytics와 Azure Security Center 간에 통합을 구성하는 데 도움이 됩니다.
@@ -75,6 +75,6 @@ ATA을 이미 설치했으며 온-프레미스에서 제대로 작동된다고 �
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 - [Azure Security Center 데이터 보안](security-center-data-security.md) - Security Center에서 데이터를 관리하고 보호하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 

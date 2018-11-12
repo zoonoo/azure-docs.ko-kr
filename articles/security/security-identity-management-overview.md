@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
-ms.openlocfilehash: f15846f3de7162c61edce8aaf5c493bb1444df36
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 84ab35c269af66f58f3886a5dd0606ce69a11be9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498558"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255884"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
@@ -178,7 +178,7 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 
 
 자세한 정보:
 
-* [하이브리드 ID 백서](http://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
+* [하이브리드 ID 백서](https://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
 * [Azure AD 팀 블로그](https://blogs.technet.microsoft.com/ad/)
 

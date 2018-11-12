@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 82cfa9e62dcc6b3a72dcb1ccf97f1f52a88a75c4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9adc285ecdc7a88d03aef9abf0132c51f60b445a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404106"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247435"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure의 관리 솔루션에 대한 데이터 수집 상세 정보
 이 문서에는 Microsoft에서 제공하는 [관리 솔루션](monitoring-solutions.md) 목록과 자세한 설명서 링크가 포함되어 있습니다.  메서드 및 Log Analytics로 데이터를 수집하는 빈도에 대한 정보도 제공합니다.  이 문서의 정보를 사용하여 제공되는 여러 솔루션을 식별하고 여러 관리 솔루션의 데이터 흐름 및 연결 요구 사항을 이해할 수 있습니다. 
@@ -44,7 +44,7 @@ ms.locfileid: "49404106"
 | [활동 로그 분석](../log-analytics/log-analytics-activity.md) | Azure | | | | | | 알림 시 |
 | [AD 평가](../log-analytics/log-analytics-ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 일 |
 | [AD 복제 상태](../log-analytics/log-analytics-ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5일 |
-| [에이전트 상태](../operations-management-suite/oms-solution-agenthealth.md) | Windows 및 Linux | &#8226; | &#8226; | | | &#8226; | 1분 |
+| [에이전트 상태](monitoring-solution-agenthealth.md) | Windows 및 Linux | &#8226; | &#8226; | | | &#8226; | 1분 |
 | [경고 관리](../log-analytics/log-analytics-solution-alert-management.md)(Nagios) |Linux |&#8226; | | | | |도착 시 |
 | [경고 관리](../log-analytics/log-analytics-solution-alert-management.md)(Zabbix) |Linux |&#8226; | | | | |1분 |
 | [경고 관리](../log-analytics/log-analytics-solution-alert-management.md)(Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3분 |
@@ -57,20 +57,20 @@ ms.locfileid: "49404106"
 | [Azure SQL Analytics(미리 보기)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1분 |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 알림 시 |
 | [용량 및 성능(미리 보기)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |도착 시 |
-| [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |매시간 |
-| [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md) |Linux |&#8226; | | | | |매시간 |
+| [변경 내용 추적](../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |매시간 |
+| [변경 내용 추적](../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |매시간 |
 | [컨테이너](../log-analytics/log-analytics-containers.md) | Windows 및 Linux | &#8226; | &#8226; |  |  |  | 3분 |
 | [Key Vault 분석](../log-analytics/log-analytics-azure-key-vault.md) |Windows | | | | | |알림 시 |
-| [맬웨어 평가](../log-analytics/log-analytics-malware.md) |Windows |&#8226; |&#8226; | | |&#8226; |매시간 |
+| [맬웨어 평가](../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |매시간 |
 | [네트워크 성능 모니터](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | TCP는 5초마다 핸드셰이크를 수행하며 3분마다 데이터가 전송됩니다. |
-| [Office 365 분석(미리 보기)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |알림 시 |
+| [Office 365 분석(미리 보기)](monitoring-solution-office-365.md) |Windows | | | | | |알림 시 |
 | **관리 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure 저장소** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
 | [Service Fabric Analytics](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5분 |
-| [서비스 맵](../operations-management-suite/operations-management-suite-service-map.md) | Windows 및 Linux | &#8226; | &#8226; |  |  |  | 15초 |
+| [서비스 맵](monitoring-service-map.md) | Windows 및 Linux | &#8226; | &#8226; |  |  |  | 15초 |
 | [SQL 평가](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 일 |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |도착 시 |
 | [System Center Operations Manager 평가(미리 보기)](../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | 7일 |
-| [업데이트 관리](../operations-management-suite/oms-solution-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |하루에 최소 2회 및 업데이트를 설치하고 15분 후 |
+| [업데이트 관리](../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |하루에 최소 2회 및 업데이트를 설치하고 15분 후 |
 | [업그레이드 준비](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2일 |
 | [VMware 모니터링(사용되지 않음)](../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3분 |
 | [Wire Data 2.0(미리 보기)](../log-analytics/log-analytics-wire-data.md) |Windows(2012 R2/8.1 이상) |&#8226; |&#8226; | | | | 1분 |
@@ -79,4 +79,4 @@ ms.locfileid: "49404106"
 
 
 ## <a name="next-steps"></a>다음 단계
-* 관리 솔루션에서 수집한 데이터를 분석하는 [쿼리 만들기](../log-analytics/log-analytics-log-searches.md) 방법을 알아봅니다.
+* 관리 솔루션에서 수집한 데이터를 분석하는 [쿼리 만들기](../log-analytics/log-analytics-queries.md) 방법을 알아봅니다.

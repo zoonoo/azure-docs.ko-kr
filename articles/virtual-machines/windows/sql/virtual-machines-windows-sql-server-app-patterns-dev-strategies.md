@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 18de5b3d71922effa72414a6a52b126a34076cf3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9ccf7d85b52759a3f2cd64facc6ee8d7255f0fac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722132"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253179"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -236,7 +236,7 @@ Azure에서는 Active Directory를 조직의 독립 실행형 클라우드 디�
 
 n계층 하이브리드 응용 프로그램 패턴에서는 다음 워크플로를 지정된 순서대로 구현할 수 있습니다.
 
-1. [MAP(Microsoft Assessment and Planning) Toolkit](http://microsoft.com/map)를 사용하여 클라우드로 이동해야 하는 엔터프라이즈 데이터베이스 응용 프로그램을 파악합니다. MAP Toolkit는 가상화를 고려 중인 컴퓨터에서 인벤토리 및 성능 데이터를 수집하여 용량 및 평가 계획에 대한 권장 사항을 제공합니다.
+1. [MAP(Microsoft Assessment and Planning) Toolkit](https://microsoft.com/map)를 사용하여 클라우드로 이동해야 하는 엔터프라이즈 데이터베이스 응용 프로그램을 파악합니다. MAP Toolkit는 가상화를 고려 중인 컴퓨터에서 인벤토리 및 성능 데이터를 수집하여 용량 및 평가 계획에 대한 권장 사항을 제공합니다.
 2. 리소스 및 저장소 계정과 가상 머신 등과 같이, Azure 플랫폼에 필요한 리소스와 구성을 계획합니다.
 3. 온-프레미스의 회사 네트워크와 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md)간의 네트워크 연결을 설정합니다. 온-프레미스 회사 네트워크와 Azure의 가상 머신 간에 연결을 설정하려면 다음 두 방법 중 하나를 사용합니다.
    

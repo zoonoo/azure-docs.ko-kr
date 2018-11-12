@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 90cf2d0ddbba47a856bf1299a101c5185873b5d8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214415"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230294"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Backup 및 복원
 
@@ -132,18 +132,18 @@ BizTalk 서비스는 항상 **일시 중단** 상태로 복원됩니다. 이 상
 </table>
 
 ## <a name="next"></a>다음
-Azure BizTalk Services를 만들려면 [BizTalk Services: 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동합니다. 응용 프로그램을 만들려면 [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
+Azure BizTalk Services를 만들려면 [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)으로 이동합니다. 응용 프로그램을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
 
 ## <a name="see-also"></a>참고 항목
-* [BizTalk 서비스 Backup](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Backup에서 BizTalk 서비스 복원](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: 프로비저닝 상태 차트](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Azure BizTalk Services SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [BizTalk 서비스 Backup](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Backup에서 BizTalk 서비스 복원](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: 프로비저닝 상태 차트](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: 제한](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: 발급자 이름 및 발급자 키](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743581"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254369"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>StorSimple 8000 시리즈용 지원 패키지 만들기 및 관리
 
@@ -93,7 +93,7 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
 #### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell에서 지원 패키지를 편집하려면
 
 1. 이전에 [StorSimple용 Windows PowerShell에서 지원 패키지 만들기](#to-create-a-support-package-in-windows-powershell-for-storsimple)에서 설명한 대로 지원 패키지를 생성합니다.
-2. [스크립트](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) 를 로컬로 클라이언트에 다운로드합니다.
+2. [스크립트](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) 를 로컬로 클라이언트에 다운로드합니다.
 3. Windows PowerShell 모듈을 가져옵니다. 스크립트를 다운로드한 로컬 폴더로 경로를 지정합니다. 모듈을 가져오려면 다음을 입력합니다.
    
     `Import-module <Path to the folder that contains the Windows PowerShell script>`

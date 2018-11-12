@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: adigan
-ms.openlocfilehash: 8559532f873e8073e736f881374fec1c080d08c3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aa2796ab8e4cd9b8ab5e7fc3b4804f5535ac3518
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604406"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254454"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Azure Backup Server에서 데이터 복구
 Azure Backup Server를 사용하여 Recovery Services 자격 증명 모음으로 백업한 데이터를 복구할 수 있습니다. 이 과정이 Azure Backup Server 관리 콘솔에 통합되며 다른 Azure Backup 구성 요소의 복구 워크플로와 유사합니다.
 
 > [!NOTE]
-> 이 문서는 [최신 Azure Backup 에이전트](http://aka.ms/azurebackup_agent)와 결합된 [System Center Data Protection Manager 2012 R2 UR7 이상](https://support.microsoft.com/en-us/kb/3065246)에도 적용됩니다.
+> 이 문서는 [최신 Azure Backup 에이전트](https://aka.ms/azurebackup_agent)와 결합된 [System Center Data Protection Manager 2012 R2 UR7 이상](https://support.microsoft.com/en-us/kb/3065246)에도 적용됩니다.
 >
 >
 
@@ -80,7 +80,7 @@ Azure Backup Server에서 데이터를 복구하려면
     ![외부 DPM 지우기](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## <a name="troubleshooting-error-messages"></a>오류 메시지 문제 해결
-| 번호 | 오류 메시지 | 문제 해결 단계 |
+| 아니요. | 오류 메시지 | 문제 해결 단계 |
 |:---:|:--- |:--- |
 | 1. |이 서버는 저장소 자격 증명을 통해 지정된 저장소에 등록되지 않았습니다. |**원인:** 이 오류는 선택한 보관 자격 증명 파일이 복구를 시도하려는 Azure Backup Server와 연결된 Recovery Services 자격 증명 모음에 속해 있지 않을 때 나타납니다. <br> **해결 방법:** Azure Backup Server가 등록된 Recovery Services 자격 증명 모음에서 보관 자격 증명 파일을 다운로드합니다. |
 | 2. |복구 가능한 데이터가 없거나 선택한 서버가 DPM 서버가 아닙니다. |**원인:** Recovery Services 자격 증명 모음에 다른 Azure Backup Server가 등록되지 않았거나, 서버에서 아직 메타데이터를 업로드하지 않았거나, 선택한 서버가 Azure Backup Server가 아닙니다(즉, Windows Server 또는 Windows 클라이언트). <br> **해결 방법:** Recovery Services 자격 증명 모음에 다른 Azure Backup Server가 등록된 경우 최신 Azure Backup 에이전트가 설치되어 있는지 확인합니다. <br>다른 Azure Backup Server가 Recovery Services 자격 증명 모음에 등록된 경우, 설치하고 하루 동안 기다린 다음 복구 프로세스를 시작하세요. 야간 작업을 통해 보호된 모든 백업에 대한 메타데이터가 클라우드로 업로드됩니다. 이제 데이터를 복구할 수 있습니다. |

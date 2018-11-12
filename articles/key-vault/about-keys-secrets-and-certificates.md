@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c5677dc07326fa16960e0d748f88e26f259c0485
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139000"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262279"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 
@@ -398,7 +398,7 @@ Key Vault에 인증서 발급자를 만들려면 먼저 다음 필수 조건 1 �
 
     -   공급자의 발급자 개체를 만드는 데 사용할 구성을 키 자격 증명 모음에 제공합니다.  
 
-인증서 포털에서 발급자 개체를 만드는 방법에 대한 자세한 내용은 [Key Vault 인증서 블로그](http://aka.ms/kvcertsblog)를 참조하세요.  
+인증서 포털에서 발급자 개체를 만드는 방법에 대한 자세한 내용은 [Key Vault 인증서 블로그](https://aka.ms/kvcertsblog)를 참조하세요.  
 
 Key Vault를 사용하면 서로 다른 발급자 구성으로 여러 발급자 개체를 만들 수 있습니다. 발급자 개체가 만들어지면 하나 또는 여러 개의 증명서 정책에서 해당 이름을 참조할 수 있습니다. 발행자 개체를 참조하면 인증서를 만들고 갱신하는 동안 CA 공급자로부터 x509 인증서를 요청할 때 발행자 개체에서 지정한 대로 구성을 사용하도록 Key Vault에 지시합니다.  
 

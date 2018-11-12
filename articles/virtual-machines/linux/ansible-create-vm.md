@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: a5b9d711b1d53d56f31a8b32e6d86722ac02c905
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 99822fc1d99d914327a64cfb9fe8e18189f30a4f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393539"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251241"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Azure에서 Ansible을 사용하여 Linux 가상 머신 만들기
 선언적 언어인 Ansible을 사용하면 Ansible *플레이북*을 통해 자동으로 Azure 리소스를 만들고, 구성하고, 배포할 수 있습니다. 이 문서의 각 섹션에서는 Ansible 플레이북의 각 섹션이 Linux 가상 머신의 여러 측면을 만들고 구성하기 위해 어떻게 사용되는지 보여줍니다. [전체 Ansible 플레이북](#complete-sample-ansible-playbook)은 이 문서의 마지막 부분에 나열되어 있습니다.
@@ -205,7 +205,7 @@ Azure 가상 머신을 만들 때 [가상 네트워크](/azure/virtual-network/v
 
 이 섹션에서는 이 문서에 제공된 샘플 Ansible 플레이북을 실행하는 방법을 안내합니다.
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. [Cloud Shell](/azure/cloud-shell/overview)을 엽니다.
 

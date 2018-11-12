@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 353caf2bca68513a1153fe7b569c85606f72e753
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 55c8d3ff394fcf2df92bc80886bc86d29441e547
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631041"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254692"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -220,7 +220,7 @@ Azure Resource Manager에서는 모든 Azure 리소스를 Azure 리소스 그룹
 
 Azure Resource Manager에서 하나의 클러스터에 여러 SAP SID(시스템 식별자) ASCS/SCS 인스턴스를 설치할 수 있습니다. 각 Azure 내부 부하 분산 장치의 여러 IP 주소에 대한 지원으로 인해 다중 SID 인스턴스가 가능합니다.
 
-Azure 클래식 배포 모델을 사용하려면 [Azure의 SAP NetWeaver: SIOS Datakeeper를 통해 Azure에서 Windows Server 장애 조치 클러스터를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링](http://go.microsoft.com/fwlink/?LinkId=613056)에 설명된 절차를 따라야 합니다.
+Azure 클래식 배포 모델을 사용하려면 [Azure의 SAP NetWeaver: SIOS Datakeeper를 통해 Azure에서 Windows Server 장애 조치 클러스터를 사용하여 SAP ASCS/SCS 인스턴스 클러스터링](https://go.microsoft.com/fwlink/?LinkId=613056)에 설명된 절차를 따라야 합니다.
 
 > [!IMPORTANT]
 > SAP 설치를 위해서는 Azure Resource Manager 배포 모델을 사용하는 것이 좋습니다. 이 모델은 클래식 배포 모델에서 사용할 수 없는 다양한 이점을 제공합니다. Azure [배포 모델][virtual-machines-azure-resource-manager-architecture-benefits-arm]에 대해 자세히 알아봅니다.   

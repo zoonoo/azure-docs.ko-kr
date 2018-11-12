@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 759de1c62cb9cb4aa642fa564378b1ed551d7dae
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 63967face89c12f6769d397bd5be78c23bc9f851
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239358"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259142"
 ---
 # <a name="azure-storage-security-overview"></a>Azure Storage 보안 개요
 
@@ -67,7 +67,7 @@ SAS는 저장소 리소스에 인증된 액세스를 수행하는 데 필요한 
 클라이언트 쪽 암호화에 대해 자세히 알아봅니다.
 
 * [Microsoft Azure Storage용 클라이언트 쪽 암호화](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [클라우드 보안 컨트롤 시리즈: 전송 중인 데이터 암호화](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [클라우드 보안 컨트롤 시리즈: 전송 중인 데이터 암호화](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>휴지 상태의 암호화
 

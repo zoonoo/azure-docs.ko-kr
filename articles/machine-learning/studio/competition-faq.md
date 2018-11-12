@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 693fd7b80d69c20971315d8636f27daeb0cacaee
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 28be219c35d382cbd141bb050b35893da02ab775
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240888"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256454"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 대회 관련 FAQ
 **Cortana Intelligence 대회는 무엇입니까?**
 
-Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커뮤니티가 한 자리에 모여서 가장 복잡한 데이터 과학 문제를 집단적으로 해결하는 대회입니다. 전 세계의 데이터 전문가들이 Cortana Intelligence 대회를 통해 서로 실력을 겨루고, 매우 정확하고 지능적인 데이터 과학 모델을 만들 수 있습니다. Microsoft가 주최하는 이러한 대회는 대중에게 최초로 공개된 고유한 데이터 집합을 기반으로 합니다. 상위 10위에 이름을 올린 참가자는 보상을 받거나 이름을 널리 알릴 수 있습니다. [aka.ms/CIComp](http://aka.ms/CIComp)에서 대회 홈페이지에 액세스할 수 있습니다.
+Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커뮤니티가 한 자리에 모여서 가장 복잡한 데이터 과학 문제를 집단적으로 해결하는 대회입니다. 전 세계의 데이터 전문가들이 Cortana Intelligence 대회를 통해 서로 실력을 겨루고, 매우 정확하고 지능적인 데이터 과학 모델을 만들 수 있습니다. Microsoft가 주최하는 이러한 대회는 대중에게 최초로 공개된 고유한 데이터 집합을 기반으로 합니다. 상위 10위에 이름을 올린 참가자는 보상을 받거나 이름을 널리 알릴 수 있습니다. [aka.ms/CIComp](https://aka.ms/CIComp)에서 대회 홈페이지에 액세스할 수 있습니다.
 
 **Microsoft는 새 대회를 얼마나 자주 여나요?**
 
@@ -37,7 +37,7 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 **경쟁에 참가하려면 어떻게 해야 하나요?**
 
-[Azure AI Gallery](https://gallery.cortanaintelligence.com/)에서 [대회](https://gallery.cortanaintelligence.com/competitions) 홈페이지에 액세스하거나 [http://aka.ms/CIComp](http://aka.ms/CIComp)로 이동합니다. 홈페이지에는 현재 실행 중인 모든 대회가 나열됩니다. 각 대회의 로그인 페이지에 구체적인 지침과 참가 규칙, 상품 및 대회 기간이 나와 있을 것입니다.
+[Azure AI Gallery](https://gallery.cortanaintelligence.com/)에서 [대회](https://gallery.cortanaintelligence.com/competitions) 홈페이지에 액세스하거나 [http://aka.ms/CIComp](https://aka.ms/CIComp)로 이동합니다. 홈페이지에는 현재 실행 중인 모든 대회가 나열됩니다. 각 대회의 로그인 페이지에 구체적인 지침과 참가 규칙, 상품 및 대회 기간이 나와 있을 것입니다.
 
 1. 참가하려는 대회를 찾아서 모든 지침을 읽고 자습서 비디오를 시청하세요. 그런 다음 **대회 참가** 단추를 클릭하고 기존 Azure Machine Learning 작업 영역에 시작 실험을 복사합니다. 아직 작업 영역에 액세스할 수 없는 경우 작업 영역부터 만들어야 합니다. 시작 실험을 실행하고, 성능 메트릭을 관찰한 다음, 창의력을 발휘하여 모델의 성능을 개선합니다. 아마도 대부분의 시간을 이 단계에서 보내게 될 것입니다.   
 
@@ -98,7 +98,7 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 
 **대회에서 우승하면 상금은 어떻게 받나요?**
 
-경쟁 우승자인 경우 자격 상태, 라이선스 및 릴리스의 선언에 서명해야 합니다. 이 양식에서는 경쟁 규칙을 반복합니다. 우승자는 미국 세금 양식 W-9를 작성하거나 미국 납세자가 아닌 경우 양식 W-8BEN을 작성해야 합니다. 보상 지급 프로세스에 따라 모든 수상자가 등록한 전자 메일로 연락이 갈 것입니다. 자세한 내용은 [약관](http://aka.ms/comptermsandconditions) 을 참조하세요.
+경쟁 우승자인 경우 자격 상태, 라이선스 및 릴리스의 선언에 서명해야 합니다. 이 양식에서는 경쟁 규칙을 반복합니다. 우승자는 미국 세금 양식 W-9를 작성하거나 미국 납세자가 아닌 경우 양식 W-8BEN을 작성해야 합니다. 보상 지급 프로세스에 따라 모든 수상자가 등록한 전자 메일로 연락이 갈 것입니다. 자세한 내용은 [약관](https://aka.ms/comptermsandconditions) 을 참조하세요.
 
 **같은 점수를 받은 응모작이 여러 개 있으면 어떻게 되나요?**
 
@@ -114,5 +114,5 @@ Microsoft에서 개인 순위표의 결과를 확인한 다음 연락드립니�
 
 **Microsoft가 사용자의 대회 솔루션 및 응모작을 보관하나요?**
 
-사용자의 응모작은 우승 솔루션을 선발하기 위한 평가 용도로만 보관됩니다. 자세한 내용은 [약관](http://aka.ms/comptermsandconditions) 을 참조하세요.
+사용자의 응모작은 우승 솔루션을 선발하기 위한 평가 용도로만 보관됩니다. 자세한 내용은 [약관](https://aka.ms/comptermsandconditions) 을 참조하세요.
 

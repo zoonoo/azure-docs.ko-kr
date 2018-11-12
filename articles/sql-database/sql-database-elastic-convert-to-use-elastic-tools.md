@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5039e299df30df4d49f24430af4b44837d65c44
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166377"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251596"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 Azure SQL Database 데이터베이스 도구(예: [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md))를 사용하여 기존의 확장된 분할된 데이터베이스를 쉽게 관리합니다. 기존의 데이터베이스 집합을 먼저 변환하여 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)를 사용합니다. 
@@ -162,7 +162,7 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 다중 테넌트 SaaS(software-as-a-service) 데이터베이스 응용 프로그램의 일반적인 데이터 아키텍처 패턴에 대한 정보는 [Azure SQL Database를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
-의문 사항이 있으면 [SQL Database 포럼](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)을 사용하고, 기능에 대한 요청이 있는 경우 해당 기능을 [SQL Database 사용자 의견 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가하세요.
+의문 사항이 있으면 [SQL Database 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)을 사용하고, 기능에 대한 요청이 있는 경우 해당 기능을 [SQL Database 사용자 의견 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가하세요.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

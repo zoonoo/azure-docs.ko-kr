@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2126ff7ffd503e1d7b30997f3f32f30429cffefb
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 2d87642b93d58d92660a2df71f2561ffe502315a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143610"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257268"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal 준비
 
@@ -52,8 +52,8 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 
 구성 검사 목록에서는 StorSimple 가상 배열에 소프트웨어를 구성하기 전에 수집해야 하는 정보를 설명합니다. 이 정보를 미리 준비하면 사용자 환경에서 StorSimple 장치를 배포하는 과정을 간소화하는 데 도움이 됩니다. StorSimple 가상 배열을 파일 서버로 배포할지 iSCSI 서버로 배포할지에 따라서 다음 검사 목록 중 하나가 필요합니다.
 
-* [StorSimple 가상 배열 파일 서버 구성 검사 목록](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)을 다운로드합니다.
-* [StorSimple 가상 배열 iSCSI 서버 구성 검사 목록](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)을 다운로드합니다.
+* [StorSimple 가상 배열 파일 서버 구성 검사 목록](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf)을 다운로드합니다.
+* [StorSimple 가상 배열 iSCSI 서버 구성 검사 목록](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf)을 다운로드합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -130,7 +130,7 @@ StorSimple 장치 관리자 서비스를 실행한 후에는 서비스 등록 �
 
 #### <a name="to-get-the-virtual-array-image"></a>가상 배열 이미지를 가져오려면
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 2. Azure Portal에서 **찾아보기 > StorSimple 장치 관리자**를 클릭합니다.
 3. 기존 StorSimple 장치 관리자 서비스를 선택합니다. **StorSimple 장치 관리자** 블레이드에서 **빠른 시작**을 클릭합니다. 
 4. Microsoft 다운로드 센터에서 다운로드하려는 이미지에 해당하는 링크를 클릭합니다. 이미지 파일은 약 4.8GB입니다.

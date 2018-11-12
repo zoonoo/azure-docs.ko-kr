@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 6a5d01ed1b3d60ce138fe5c4c5a60812961d9dfd
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f2a4b98404139abead411c20648b82d9081481f9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953732"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230192"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Java 앱을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -376,6 +376,6 @@ public static String GetJobStatus(UUID jobId) throws IOException, CloudException
 
 ## <a name="next-steps"></a>다음 단계
 
-* U-SQL에 대해 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](http://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
+* U-SQL에 대해 알아보려면 [Azure Data Lake Analytics U-SQL 언어 시작](data-lake-analytics-u-sql-get-started.md) 및 [U-SQL 언어 참조](https://go.microsoft.com/fwlink/?LinkId=691348)를 참조하세요.
 * 관리 작업을 보려면 [Azure Portal을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-portal.md)를 참조하세요.
 * 데이터 레이크 분석에 대한 개요를 보려면 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
