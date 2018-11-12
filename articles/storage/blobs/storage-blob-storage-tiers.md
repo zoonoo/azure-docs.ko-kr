@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3aad10c398aa4f009ab29f4684cc500b6fb428e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427589"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253723"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 저장소: 프리미엄(미리 보기), 핫, 쿨 및 보관 저장소 계층
 
@@ -65,7 +65,7 @@ Blob 저장소 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특�
 - 미국 동부 2, 미국 중부 및 미국 서부 지역에서만 사용 가능
 - 자동 계층화 및 데이터 수명 주기 관리를 지원하지 않음
 
-프리미엄 액세스 계층 미리 보기에 등록하는 방법을 알아보려면 [Azure Premium Blob Storage 소개](http://aka.ms/premiumblob)를 참조하세요.
+프리미엄 액세스 계층 미리 보기에 등록하는 방법을 알아보려면 [Azure Premium Blob Storage 소개](https://aka.ms/premiumblob)를 참조하세요.
 
 ## <a name="hot-access-tier"></a>핫 액세스 계층
 
