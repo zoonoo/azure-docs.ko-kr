@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90a5be07b6939df1850bb1574c71254bb896f004
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6d981d9dc7433d957819d0beb6aa6265882f1890
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093834"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037399"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -35,7 +35,7 @@ Azure Automation 계정에서 직접 가상 머신에 업데이트 관리를 사
 
 ![업데이트 관리 프로세스 흐름](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-업데이트 관리는 동일한 테넌트의 여러 구독에 있는 머신을 기본적으로 등록하는 데 사용할 수 있습니다. 다른 테넌트의 머신을 관리하려면 해당 머신을 [비Azure 머신](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine)으로 등록해야 합니다.
+업데이트 관리는 동일한 테넌트의 여러 구독에 있는 머신을 기본적으로 등록하는 데 사용할 수 있습니다.
 
 CVE가 릴리스되면 평가할 Linux 머신에 대한 패치가 나타날 때까지 2~3시간이 걸립니다.  Windows 머신의 경우 릴리스된 후 평가할 패치가 나타날 때까지 12-15시간이 걸립니다.
 

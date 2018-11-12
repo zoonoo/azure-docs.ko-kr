@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638208"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011054"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -103,7 +103,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ### <a name="configure-the-solution"></a>솔루션 구성 
 
-1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명한 프로세스를 사용할 수도 있습니다. 
+1. [Azure 마켓플레이스](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview)에서 작업 영역에 네트워크 성능 모니터 솔루션을 추가합니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](../monitoring/monitoring-solutions.md)에서 설명한 프로세스를 사용할 수도 있습니다. 
 2. Log Analytics 작업 영역을 열고 **개요** 타일을 선택합니다. 
 3.  *솔루션에 추가 구성이 필요합니다.* 라는 메시지가 있는 **네트워크 성능 모니터** 타일을 선택합니다.
 
@@ -251,7 +251,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
 
 ## <a name="log-analytics-search"></a>Log Analytics 검색 
 
-네트워크 성능 모니터 대시보드 및 드릴다운 페이지를 통해 그래픽으로 노출되는 모든 데이터는 [Log Analytics 검색](log-analytics-log-search-new.md)에서도 기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의  **일반 쿼리**  영역에는 자신의 쿼리와 보고서를 만드는 데 사용할 수 있는 유용한 쿼리가 몇 가지 있습니다. 
+네트워크 성능 모니터 대시보드 및 드릴다운 페이지를 통해 그래픽으로 노출되는 모든 데이터는 [Log Analytics 검색](log-analytics-queries.md)에서도 기본적으로 사용할 수 있습니다. 리포지토리의 데이터를 대화형으로 분석하고 여러 원본의 데이터를 상호 연결할 수 있습니다. 사용자 지정 경고 및 보기를 만들 수 있고 Excel, Power BI 또는 공유할 수 있는 링크로 데이터를 내보낼 수도 있습니다. 대시보드의  **일반 쿼리**  영역에는 자신의 쿼리와 보고서를 만드는 데 사용할 수 있는 유용한 쿼리가 몇 가지 있습니다. 
 
 ## <a name="alerts"></a>경고
 

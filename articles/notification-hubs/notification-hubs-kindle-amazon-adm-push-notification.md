@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 41319ba446994da1669e58e33008a943e74ab417
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bf5cb2851acdcf1f9353e88fc2f2caa3c356804e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331393"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230371"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kindle 앱에 대한 Notification Hubs 시작
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "36331393"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 사이트</a>에서 Android SDK(Eclipse를 사용한다고 가정)를 가져옵니다.
+* <a href="https://go.microsoft.com/fwlink/?LinkId=389797">Android 사이트</a>에서 Android SDK(Eclipse를 사용한다고 가정)를 가져옵니다.
 * <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">개발 환경 설정</a>의 단계에 따라 Kindle에 대한 개발 환경을 설정합니다.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>개발자 포털에 새 앱 추가

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: d01a5a8a9a60bef315327721b9f55345bc3d1361
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645062"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229682"
 ---
 # <a name="customize-your-text-translations"></a>텍스트 번역 사용자 지정
 
@@ -37,7 +37,7 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 
 적절한 형식 및 양의 학습 데이터가 제공될 경우, 5~10 사이의 향상을 기대하는 것도 드문 일은 아니며, Custom Translator를 사용하여 번역 품질에 더 많은 BLUE 포인트가 추가될 수도 있습니다.
 
-사용 가능한 데이터를 기준으로 하는 다양한 수준의 사용자 지정에 대한 자세한 내용은 [Custom Translator 사용자 가이드](http://aka.ms/CustomTranslatorDocs)를 참조하세요.
+사용 가능한 데이터를 기준으로 하는 다양한 수준의 사용자 지정에 대한 자세한 내용은 [Custom Translator 사용자 가이드](https://aka.ms/CustomTranslatorDocs)를 참조하세요.
 
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
@@ -53,7 +53,7 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 | SMT 사용자 지정 | yes   | 아니요 |
 | NMT 사용자 지정 | 아니요    | yes |
 | 새로운 통합 Speech Service 사용자 지정 | 아니요    | yes |
-| [추적 없음](http://www.aka.ms/notrace) | yes   | yes |
+| [추적 없음](https://www.aka.ms/notrace) | yes  | yes |
 
 ## <a name="collaborative-translations-framework"></a>공동 작업 번역 프레임워크
 
@@ -65,4 +65,4 @@ Custom Translator를 사용하면 고유한 비즈니스 및 산업 분야에 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Custom Translator를 사용하여 사용자 지정된 언어 시스템 설정](http://aka.ms/CustomTranslatorDocs)
+> [Custom Translator를 사용하여 사용자 지정된 언어 시스템 설정](https://aka.ms/CustomTranslatorDocs)

@@ -1,5 +1,5 @@
 ---
-title: Log Analytcis에서 Azure로 경고 확장
+title: Log Analytics에서 Azure로 경고 확장
 description: 이 아티클에서는 Log Analytics에서 Azure Alerts로 경고를 확장할 수 있는 도구 및 API를 설명합니다.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415704"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957424"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Log Analytics에서 Azure Alerts로 경고 확장
 Azure Log Analytics에서 경고 기능은 Azure Alerts로 바뀝니다. 이 전환의 일부로 Log Analytics에서 원래 구성된 경고를 Azure로 확장합니다. 해당 경고가 Azure로 자동으로 이동하는 것을 기다리지 않으려면 다음 프로세스를 시작하면 됩니다.
@@ -22,7 +22,7 @@ Azure Log Analytics에서 경고 기능은 Azure Alerts로 바뀝니다. 이 전
 - AlertsVersion API를 사용하여 프로그래밍 방식으로  
 
 > [!NOTE]
-> Microsoft는 완료될 때까지 시리즈를 반복하면서 2018년 5월 14일부터 Log Analytics의 퍼블릭 클라우드 인스턴스에서 만든 경고를 자동으로 Azure Alerts로 확장합니다. [작업 그룹](monitoring-action-groups.md)을 만드는 데 문제가 있는 경우 [이러한 재구성 단계](monitoring-alerts-extend-tool.md#troubleshooting)를 사용하여 만든 작업 그룹을 자동으로 가져옵니다. 2018년 7월 5일까지는 이러한 단계를 사용할 수 있습니다. *Log Analytics의 Azure Goverment 및 Soveriegn 클라우드 사용자에 대해서는 적용할 수 없습니다*. 
+> Microsoft는 완료될 때까지 시리즈를 반복하면서 2018년 5월 14일부터 Log Analytics의 퍼블릭 클라우드 인스턴스에서 만든 경고를 자동으로 Azure Alerts로 확장합니다. [작업 그룹](monitoring-action-groups.md)을 만드는 데 문제가 있는 경우 [이러한 재구성 단계](monitoring-alerts-extend-tool.md#troubleshooting)를 사용하여 만든 작업 그룹을 자동으로 가져옵니다. 2018년 7월 5일까지는 이러한 단계를 사용할 수 있습니다. *Log Analytics의 Azure Government 및 소버린 클라우드 사용자에 대해서는 적용할 수 없습니다*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>옵션 1: Operations Management Suite 포털에서 시작
 다음 단계에서는 Operations Management Suite 포털에서 작업 영역에 대한 경고를 확장하는 방법을 설명합니다.  
@@ -470,7 +470,7 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 
 - **오류: 정책이 구독/리소스 그룹 수준에 표시됩니다**. ![정책 오류 메시지가 강조 표시된 Operations Management Suite 포털 경고 설정 페이지 스크린샷](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    [Azure Policy](../azure-policy/azure-policy-introduction.md)가 적용되면 Log Analytics(Operations Management Suite) 작업 영역을 포함하는 구독 또는 리소스 그룹의 새로운 리소스를 제한합니다. 시스템은 Azure에 경고를 확장하고 필요한 작업 그룹을 만들 수 없습니다.
+    [Azure Policy](../governance/policy/overview.md)가 적용되면 Log Analytics(Operations Management Suite) 작업 영역을 포함하는 구독 또는 리소스 그룹의 새로운 리소스를 제한합니다. 시스템은 Azure에 경고를 확장하고 필요한 작업 그룹을 만들 수 없습니다.
     
     이를 해결하려면 *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* 오류가 발생하는 정책을 편집합니다. 그러면 작업 영역이 포함된 구독 또는 리소스 그룹에 새 리소스를 만들 수 없도록 방지합니다. 이 작업은 Azure Portal, PowerShell, Azure CLI 또는 API를 사용하여 수행할 수 있습니다. 오류를 발생시키는 적절한 정책을 찾기 위해 작업을 감사할 수 있습니다. 자세한 내용은 [작업을 감사하기 위해 활동 로그 보기](../azure-resource-manager/resource-group-audit.md)를 참조하세요. 
     

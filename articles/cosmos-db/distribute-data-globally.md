@@ -7,45 +7,46 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 227c243d82665dc533e3bfa6a1fe3e9bb775a262
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 68ac603964593892dfcbc3488b4e6f2c91a0eb92
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408898"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238277"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용한 글로벌 데이터 분산
 
-Azure는 어디에나 존재합니다. 전 세계 50개 이상의 지역에서 사용되며 계속해서 확장 중입니다. 이처럼 글로벌로 사용되며 다중 마스터 지원 덕분에 Azure가 개발자에게 제공하는 차별화된 기능 중 하나는 글로벌 분산형 응용 프로그램을 간편하게 빌드, 배포 및 관리하는 능력입니다.
+오늘날의 많은 응용 프로그램은 전 세계적인 규모로 실행되거나 전 세계 시장에 도달하려는 목표가 있습니다. 이러한 응용 프로그램은 항상 사용 가능하며 전 세계 사용자가 쉽게 접근할 수 있습니다. 고성능 및 고가용성을 제공하는 동시에 이러한 응용 프로그램에서 사용하는 데이터의 전역 분산을 관리하는 것은 힘든 작업입니다. Cosmos DB는 이러한 과제를 충족하기 위해 완벽하게 설계된 전역 분산형 데이터베이스 서비스입니다.
 
-[Azure Cosmos DB](../cosmos-db/introduction.md)는 업무에 중요한 응용 프로그램에 대한 Microsoft의 전역 분산 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB는 [업계 최고의 포괄적인 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)로 지원되는 턴키 글로벌 분산, 전 세계적인 [처리량 및 저장소의 탄력적인 확장](../cosmos-db/partition-data.md), 99번째 백분위수의 밀리초 대기 시간 1자리 수 읽고 쓰기, [잘 정의된 일관성 모델](consistency-levels.md) 및 보장된 고가용성을 제공합니다. Azure Cosmos DB는 사용자가 스키마 또는 인덱스 관리를 처리하지 않아도 되도록 [모든 데이터를 자동으로 인덱싱](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)합니다.
+Cosmos DB는 기본 Azure 서비스이며, 기본적으로 모든 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 사용할 수 있습니다. Microsoft는 전 세계 50개 이상의 지역에서 Azure 데이터 센터를 운영하고 있으며, 고객의 증가하는 요구 사항을 충족하기 위해 계속해서 확장하고 있습니다. Microsoft에서 Cosmos DB 서비스를 연중무휴로 운영하므로, 사용자는 응용 프로그램에 집중할 수 있습니다. Cosmos DB 계정을 만들 때 계정을 배포할 지역을 결정합니다.
 
-## <a name="global-distribution-with-multi-master"></a>다중 마스터를 사용한 글로벌 분산
+Cosmos DB 고객은 1개부터 50개 이상의 Azure 지역의 어디에서나 사용 가능한 전역 분산형 데이터베이스를 구성할 수 있습니다. 대기 시간을 줄이려면 사용자와 가까운 곳에 데이터를 배치해야 하므로, 얼마나 많은 지역에서 실행할지와 어떤 지역에서 실행할지는 응용 프로그램의 전 세계적 도달 범위 및 사용자 위치에 따라 결정됩니다. Cosmos DB는 Cosmos 계정 내의 모든 데이터를 구성된 모든 지역에 투명하게 복제합니다. Cosmos DB는 응용 프로그램이 로컬에서 읽고 쓸 수 있도록 Cosmos 데이터베이스 및 컨테이너의 단일 시스템 이미지를 제공합니다. Cosmos DB를 사용하면 언제든지 계정과 연결된 지역을 추가하거나 제거할 수 있습니다. 응용 프로그램을 일시 중지하거나 다시 배포할 필요가 없으며, 서비스에서 제공하는 멀티 호밍(multi-homing) 기능 덕분에 응용 프로그램이 항상 데이터를 제공하고 고가용성을 유지할 수 있습니다.
 
-클라우드 서비스인 Azure Cosmos DB는 문서, 키 값, 그래프 및 열 패밀리 데이터 모델에 대한 다중 테넌트, 글로벌 분산 및 다중 마스터를 지원하도록 신중하게 설계되었습니다.
+## <a name="key-benefits-of-global-distribution"></a>전역 분산의 주요 혜택
 
-![Azure Cosmos DB 컨테이터를 분할하여 세 하위 지역에 분산](./media/distribute-data-globally/global-apps.png)
+**전역 활성 - 활성 앱을 쉽게 빌드**: 다중 마스터 기능을 사용하면 모든 지역이 쓰기 가능(읽기 가능 포함)하므로 무제한 탄력적 쓰기 확장성, 전 세계에서 99.999% 읽기 및 쓰기 가용성, 99번째 백분위수로 10밀리초 미만에 제공되는 보장된 빠른 읽기 및 쓰기가 가능합니다.  
 
-**단일 Azure Cosmos DB 컨테이너를 분할하여 여러 Azure 하위 지역에 분산**
+Azure Cosmos DB의 멀티 호밍(multi-homing) API를 사용하면 응용 프로그램이 항상 가장 가까운 지역을 인식하고 해당 지역으로 요청을 보냅니다. 가장 가까운 지역은 구성 변경 없이 식별됩니다. Cosmos DB 계정에서 지역을 추가하거나 제거할 때 응용 프로그램을 다시 배포할 필요가 없으며 고가용성을 계속 유지할 수 있습니다.
 
-우리가 Azure Cosmos DB를 개발하면서 알게 된 사실은 전역 분산을 나중에 추가할 수 없다는 것입니다. 전역 분산은 "단일 사이트" 데이터베이스 시스템 위에 "추가"할 수 없습니다. 글로벌 분산형 데이터베이스가 제공하는 기능은 "단일 사이트" 데이터베이스가 제공하는 기존의 Geo-DR(지역 재해 복구) 기능보다 훨씬 우수합니다. 지역 재해 복구를 제공하는 단일 사이트 데이터베이스는 전역에 분산되는 데이터베이스의 엄격한 하위 집합입니다.
+**응답성이 우수한 앱 빌드**: 데이터베이스에 대해 선택한 모든 지역에서 한 자리 밀리초 대기 시간으로 거의 실시간 읽기 및 쓰기를 수행하도록 응용 프로그램을 쉽게 설계할 수 있습니다.  Azure Cosmos DB는 Cosmos 계정에 대해 선택한 일관성 수준을 보장하는 방식으로 지역 간의 데이터 복제를 내부적으로 처리합니다.
 
-Azure Cosmos DB 턴키 글로벌 분산을 사용하면 개발자는 데이터베이스 로그에서 람다 패턴을 사용하거나 여러 지역에 걸쳐 "이중 쓰기"를 수행하여 개발자 고유의 복제 스캐폴딩을 빌드할 필요가 없습니다. 이러한 접근 방식은 정확성을 유지하고 우수한 SLA를 제공하는 것이 불가능하기 때문에 권장하지 *않습니다*.
+많은 응용 프로그램은 다중 지역(로컬) 쓰기를 수행하는 기능에 수반되는 성능 향상 혜택을 얻게 됩니다. 강력한 일관성이 필요한 응용 프로그램과 같은 일부 응용 프로그램은 모든 쓰기를 단일 지역으로 유입하려고 합니다. Cosmos DB는 단일 지역 및 다중 지역의 두 구성을 모두 지원합니다.
+
+**고가용성 앱 빌드**: 여러 지역에서 데이터베이스를 실행하면 데이터베이스 가용성이 향상됩니다. 한 지역을 사용할 수 없게 되면 다른 지역에서 응용 프로그램 요청을 자동으로 처리합니다. Azure Cosmos DB는 다중 지역 데이터베이스에 대해 99.999% 읽기 및 쓰기 가용성을 제공합니다.
+
+**지역 가동 중단 시 비즈니스 연속성**: Azure Cosmos DB는 지역 가동 중단 시 [자동 장애 조치(failover)](how-to-manage-database-account.md#enable-automatic-failover-for-your-cosmos-account)를 지원합니다. 또한 지역 가동 중단 시 Cosmos DB는 해당 대기 시간, 가용성, 일관성 및 처리량 SLA를 계속 유지합니다. 전체 앱의 고가용성을 유지할 수 있도록 Azure Cosmos DB는 지역 가동 중단을 시뮬레이션하는 수동 장애 조치(failover) API를 제공합니다. 이 API를 사용하여 정기적인 비즈니스 연속성 훈련을 수행하고 준비를 갖출 수 있습니다.
+
+**글로벌 읽기 및 쓰기 확장성**: 다중 마스터 기능을 사용하면 전 세계의 읽기 및 쓰기 처리량을 탄력적으로 조정할 수 있습니다. 다중 마스터 기능은 응용 프로그램이 Azure Cosmos DB 데이터베이스 또는 컨테이너에 구성하는 처리량이 모든 지역에 제공되고 [재정적 지원을 받는 SLA](https://aka.ms/acdbsla)로 보호되도록 합니다.
+
+**여러 개의 잘 정의된 일관성 모델**: Azure Cosmos DB의 복제 프로토콜은 각각 일관성과 성능이 절충된 5가지 잘 정의된, 실용적이고 직관적인 일관성 모델을 제공하도록 설계되었습니다. 이러한 일관성 모델을 사용하면 전역 분산형 응용 프로그램을 쉽게 빌드할 수 있습니다.
 
 ## <a id="Next Steps"></a>다음 단계
 
-* [Azure Cosmos DB에서 턴키 글로벌 분산을 사용하도록 설정하는 방법](distribute-data-globally-turnkey.md)
+다음 문서에서 전역 분산에 대해 자세히 알아보세요.
 
-* [Azure Cosmos DB 글로벌 분산의 주요 이점](distribute-data-globally-benefits.md)
-
-* [Azure Cosmos DB 글로벌 데이터베이스 복제를 구성하는 방법](tutorial-global-distribution-sql-api.md)
-
-* [Azure Cosmos DB 계정에 대해 다중 마스터를 사용하도록 설정하는 방법](enable-multi-master.md)
-
-* [Azure Cosmos DB에서 자동 및 수동 장애 조치(failover)가 작동하는 방법](regional-failover.md)
-
-* [Azure Cosmos DB의 충돌 해결 이해](multi-master-conflict-resolution.md)
-
-* [오픈 소스 NoSQL 데이터베이스로 다중 마스터 사용](multi-master-oss-nosql.md)
+* [전역 분산 - 내부 살펴보기](global-dist-under-the-hood.md)
+* [클라이언트에서 멀티 호밍(multi-homing)을 구성하는 방법](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [데이터베이스에서 지역을 추가/제거하는 방법](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [SQL API 계정에 대한 사용자 지정 충돌 해결 정책을 만드는 방법](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

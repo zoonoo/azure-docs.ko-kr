@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 13ce074f8ec22bc80ee5c56f2127b3a5b4d788bf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4f4a61ad0c1b1fcab4773dcc16c5e22053c4158d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215398"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230889"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -51,7 +51,7 @@ ms.locfileid: "50215398"
 
 ### <a name="set-up-an-azure-account"></a>Azure 계정 설정
 
-Microsoft [Azure 계정](http://azure.microsoft.com/)을 얻습니다.
+Microsoft [Azure 계정](https://azure.microsoft.com/)을 얻습니다.
 
 - [평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다.
 - [Site Recovery 가격 책정](site-recovery-faq.md#pricing)에 대해 알아보고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/site-recovery/)를 가져옵니다.

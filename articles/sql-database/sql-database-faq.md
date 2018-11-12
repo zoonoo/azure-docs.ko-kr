@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7bb692735cb3541fb05b2c39dd7325fa74a00034
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242826"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232208"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL Database FAQ(질문과 대답)
 
@@ -27,7 +27,7 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL Database에 대한 SLA는 무엇인가요?
 
-99.99% 이상의 시간을 보장하며, 서비스 계층에 관계없이 Microsoft Azure SQL Database와 인터넷 게이트웨이를 연결할 수 있습니다. 0.01%는 패치, 업그레이드 및 장애 조치(Failover)용으로 예약되어 있습니다. 자세한 내용은 [SLA](https://azure.microsoft.com/support/legal/sla/)를 참조하세요. Azure SQL Database의 가용성 아키텍처에 대한 내용은 [고가용성 및 Azure SQL Database](sql-database-high-availability.md)를 참조하세요.
+99.99% 이상의 시간을 보장하며, 서비스 계층에 관계없이 Microsoft Azure SQL Database와 인터넷 게이트웨이를 연결할 수 있습니다. 0.01%는 패치, 업그레이드 및 장애 조치(Failover)용으로 예약되어 있습니다. 자세한 내용은 [SLA](http://azure.microsoft.com/support/legal/sla/)를 참조하세요. Azure SQL Database의 가용성 아키텍처에 대한 내용은 [고가용성 및 Azure SQL Database](sql-database-high-availability.md)를 참조하세요.
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>패치 가동 중지 시간이 발생하는 경우를 제어할 수 있나요?
 

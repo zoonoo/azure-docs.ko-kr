@@ -2,19 +2,19 @@
 title: 스크립트 작업을 사용하여 Hadoop 클러스터에 Solr 설치- Azure
 description: 스크립트 작업을 사용하여 Solr로 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e0c1f2ecbe86eda5161324bfe84c7cf8f7d31d60
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 6a3f9928fa685c36a0495ba5d423c3be7bff2bea
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110757"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009170"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Solr 설치 및 사용
 
@@ -48,7 +48,7 @@ ms.locfileid: "43110757"
 
     <table border='1'>
         <tr><th>자산</th><th>값</th></tr>
-        <tr><td>Name</td>
+        <tr><td>이름</td>
             <td>스크립트 작업의 이름을 지정합니다. 예를 들면 <b>Install Solr</b>과 같습니다.</td></tr>
         <tr><td>스크립트 URI</td>
             <td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다. 예: <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>

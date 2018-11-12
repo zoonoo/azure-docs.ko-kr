@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a70bb09edb5ccaf4e216785933af80e2fcb2153a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 924fea7a8a8e6fb1ab25584a49f38b25156d1ec6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363609"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230515"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용
 확장 집합을 만들 때 VM 인스턴스 배포 시 사용할 이미지를 지정합니다. VM 인스턴스가 배포된 후 작업의 수를 줄이려면 사용자 지정 VM 이미지를 사용할 수 있습니다. 이 사용자 지정 VM 이미지에는 필요한 모든 응용 프로그램 설치 또는 구성이 포함됩니다. 확장 집합에서 만들어진 모든 VM 인스턴스는 사용자 지정 VM 이미지를 사용하며, 응용 프로그램 트래픽을 처리할 준비가 되어 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -76,7 +76,7 @@ VM을 사용자 지정하기 위해 기본 웹 서버를 설치해 보겠습니�
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-사용자 지정 이미지로 사용할 VM을 준비하는 마지막 단계는 VM을 일반화하는 것입니다. Sysprep은 모든 개인 계정 정보 및 구성을 제거하고, 이후의 배포를 위해 VM을 빈 상태로 다시 설정합니다. 자세한 내용은 [Sysprep 사용 방법: 소개](http://technet.microsoft.com/library/bb457073.aspx)를 참조하세요.
+사용자 지정 이미지로 사용할 VM을 준비하는 마지막 단계는 VM을 일반화하는 것입니다. Sysprep은 모든 개인 계정 정보 및 구성을 제거하고, 이후의 배포를 위해 VM을 빈 상태로 다시 설정합니다. 자세한 내용은 [Sysprep 사용 방법: 소개](https://technet.microsoft.com/library/bb457073.aspx)를 참조하세요.
 
 VM을 일반화하려면 Sysprep을 실행하고, VM을 즉시 사용할 수 있는 환경으로 설정합니다. 완료되면 Sysprep에 VM을 종료하도록 지시합니다.
 

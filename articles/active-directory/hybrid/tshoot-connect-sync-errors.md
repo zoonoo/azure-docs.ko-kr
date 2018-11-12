@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406860"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250474"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -219,6 +219,29 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 
 ### <a name="how-to-fix"></a>해결 방법
 1. 오류를 초래하는 특성이 허용 범위 안에 있는지 확인합니다.
+
+## <a name="existing-admin-role-conflict"></a>기존 관리자 역할 충돌
+
+### <a name="description"></a>설명
+**기존 관리자 역할 충돌**은 해당 사용자 개체에 다음이 있는 경우 동기화하는 동안 사용자 개체에서 발생합니다.
+
+- 관리자 권한 및
+- 기존 Azure AD 개체와 동일한 UserPrincipalName
+
+Azure AD Connect는 온-프레미스 AD의 사용자 개체를 관리자 역할이 할당된 Azure AD의 사용자 개체와 소프트 매치할 수 없습니다.  자세한 내용은 [Azure AD UserPrincipalName 채우기](plan-connect-userprincipalname.md)를 참조하세요.
+
+![기존 관리자](media/tshoot-connect-sync-errors/existingadmin.png)
+
+
+### <a name="how-to-fix"></a>해결 방법
+이 문제를 해결하려면 다음 중 하나를 수행합니다.
+
+
+- UserPrincipalName을 Azure AD의 관리 사용자의 것과 일치하지 않는 값으로 변경합니다. Azure AD에서 UserPrincipalName과 일치하는 새 사용자를 만듭니다.
+- Azure AD의 관리 사용자에서 관리자 역할을 제거합니다. 온-프레미스 사용자 개체와 기존 Azure AD 사용자 개체 간의 소프트 일치를 활성화합니다.
+
+>[!NOTE]
+>온-프레미스 사용자 개체와 Azure AD 사용자 개체 간의 소프트 일치가 완료된 후 기존 사용자 개체에 관리자 역할을 다시 할당할 수 있습니다.
 
 ## <a name="related-links"></a>관련 링크
 * [Active Directory 관리 센터에서 Active Directory 개체 찾기](https://technet.microsoft.com/library/dd560661.aspx)

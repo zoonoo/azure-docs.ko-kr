@@ -3,19 +3,19 @@ title: Azure HDInsight에서 Power BI를 사용하여 빅 데이터 시각화
 description: Microsoft Power BI를 사용하여 Azure HDInsight에서 처리한 Hive 데이터를 시각화하는 방법에 대해 알아봅니다.
 keywords: hdinsight,hadoop,hive,대화형 쿼리,대화형 hive,LLAP,odbc
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: c24818f6b746754111540bae5fbf7f21d22c3a61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: b094df367d4396533d368b9fdbcb4b78ec1673de
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041907"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008898"
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Azure HDInsight의 ODBC를 사용하여 Microsoft Power BI로 Hive 데이터 시각화
 

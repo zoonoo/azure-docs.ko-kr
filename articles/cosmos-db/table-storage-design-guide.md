@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 6ac0895ac31a815f00ca6c5fa1dfd325be2e3963
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2af93d149948071f78d0c684b812e84fa68db341
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245820"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251127"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage 테이블 디자인 가이드: 확장성이 뛰어난 디자인 및 성능이 뛰어난 테이블
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -122,7 +122,7 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 </table>
 
 
-지금까지는 이 디자인은 필수 열이 있고 여러 엔터티 형식을 동일한 테이블에 저장할 수 있다는 점을 제외하고는 관계형 데이터베이스의 테이블과 비슷하게 보입니다. 또한 **FirstName** 또는 **Age**와 같은 각 사용자 정의 속성에 관계형 데이터베이스의 열과 마찬가지로 정수 또는 문자열과 같은 데이터 형식이 있습니다. 관계형 데이터베이스와 달리 Table service는 스키마 없음 속성을 갖추고 있기 때문에 각 엔터티의 데이터 유형이 동일하지 않아도 됩니다. 복잡한 데이터 형식을 단일 속성에 저장하려면 JSON 또는 XML과 같은 직렬화된 형식을 사용해야 합니다. 지원되는 데이터 형식, 지원되는 날짜 범위, 명명 규칙, 크기 제약 조건 등 테이블 서비스에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.
+지금까지는 이 디자인은 필수 열이 있고 여러 엔터티 형식을 동일한 테이블에 저장할 수 있다는 점을 제외하고는 관계형 데이터베이스의 테이블과 비슷하게 보입니다. 또한 **FirstName** 또는 **Age**와 같은 각 사용자 정의 속성에 관계형 데이터베이스의 열과 마찬가지로 정수 또는 문자열과 같은 데이터 형식이 있습니다. 관계형 데이터베이스와 달리 Table service는 스키마 없음 속성을 갖추고 있기 때문에 각 엔터티의 데이터 유형이 동일하지 않아도 됩니다. 복잡한 데이터 형식을 단일 속성에 저장하려면 JSON 또는 XML과 같은 직렬화된 형식을 사용해야 합니다. 지원되는 데이터 형식, 지원되는 날짜 범위, 명명 규칙, 크기 제약 조건 등 테이블 서비스에 대한 자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.
 
 **PartitionKey** 및 **RowKey** 선택은 적절한 테이블 디자인의 기본 사항입니다. 테이블에 저장된 모든 엔터티에는 고유하게 조합된 **PartitionKey**와 **RowKey**가 있어야 합니다. 관계형 데이터베이스의 키와 마찬가지로 **PartitionKey** 및 **RowKey** 값은 빠른 조회를 지원하는 클러스터형 인덱스를 생성하기 위해 인덱싱됩니다. 그러나 Table service에서는 보조 인덱스를 만들지 않으므로 인덱싱된 속성은 이 두 개뿐입니다(이 명확한 제한 사항을 해결하는 방법은 뒷부분에 설명된 일부 패턴 참조).  
 
@@ -133,7 +133,7 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 
 Table service에서 개별 노드는 하나 이상의 전체 파티션을 지원하며, 서비스는 노드 간에 파티션 부하를 동적으로 분산하여 크기가 조정됩니다. 하나의 노드에 부하가 걸려 있는 경우 Table service는 해당 노드가 지원하는 파티션 범위를 여러 노드로 *분할*할 수 있습니다. 트래픽이 진정되면 서비스는 안정된 노드의 파티션 범위를 단일 노드로 다시*병합*할 수 있습니다.  
 
-Table service의 내부 세부 정보, 특히 서비스에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 Storage 서비스](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.  
+Table service의 내부 세부 정보, 특히 서비스에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 Storage 서비스](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.  
 
 ### <a name="entity-group-transactions"></a>EGT(엔터티 그룹 트랜잭션)
 Table service에서 EGT(엔터티 그룹 트랜잭션)는 여러 엔터티 간에 원자성 업데이트를 수행하기 위한 유일한 기본 제공 메커니즘입니다. EGT를 일부 문서에서는 *일괄 처리 트랜잭션* 이라고도 합니다. EGT는 동일한 파티션(지정된 테이블에서 동일한 파티션 키 공유)에 저장된 엔터티에서만 작동할 수 있으므로 여러 엔터티에서 원자성 트랜잭션 동작이 필요한 경우 해당 엔터티가 동일한 파티션에 있는지 확인해야 합니다. 따라서 서로 다른 엔터티 유형에 여러 테이블을 사용하지 말고 여러 엔터티 유형을 동일한 테이블(및 파티션)에 유지하는 것이 좋습니다. 단일 EGT는 최대 100개의 엔터티에서 작동할 수 있습니다.  처리를 위해 여러 개의 동시에 발생하는 EGT를 제출하는 경우에 이러한 EGT가 EGT 간에 공통된 엔터티에서 작동되면 처리가 지연될 수 있으므로 그렇지 않도록 주의해야 합니다.
@@ -153,7 +153,7 @@ EGT는 디자인에서 평가할 잠재적 장단점이 있습니다. 사용하�
 | **RowKey** |최대 1KB의 크기 문자열 |
 | 엔터티 그룹 트랜잭션의 크기 |한 개 트랜잭션에는 최대 100개의 엔터티가 포함될 수 있고, 페이로드 크기는 4MB 미만이어야 합니다. EGT는 한 번에 하나의 엔터티만 업데이트할 수 있음 |
 
-자세한 내용은 [테이블 서비스 데이터 모델 이해](https://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.  
+자세한 내용은 [테이블 서비스 데이터 모델 이해](http://msdn.microsoft.com/library/azure/dd179338.aspx)를 참조하세요.  
 
 ### <a name="cost-considerations"></a>비용 고려 사항
 테이블 저장소는 비교적 저렴하지만 Table service를 사용하는 솔루션을 평가할 때 용량 사용과 트랜잭션 양 둘 다에 대한 예상 비용을 포함해야 합니다. 그러나 대부분의 시나리오에서는 비정규화되거나 중복된 데이터를 저장하여 솔루션의 성능 또는 확장성을 개선하는 것이 유효한 접근 방식입니다. 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.  
@@ -208,7 +208,7 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 | **Age** |정수  |
 | **EmailAddress** |문자열 |
 
-이전 섹션 [Azure Table service 개요](#overview) 에서는 쿼리를 위한 디자인에 직접적인 영향을 미치는 Azure Table service의 주요 기능에 대해 설명했습니다. 이 섹션의 내용은 Table service 쿼리 디자인에 대한 다음과 같은 일반적인 지침으로 요약됩니다. 아래 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://msdn.microsoft.com/library/azure/dd179421.aspx)참조).  
+이전 섹션 [Azure Table service 개요](#overview) 에서는 쿼리를 위한 디자인에 직접적인 영향을 미치는 Azure Table service의 주요 기능에 대해 설명했습니다. 이 섹션의 내용은 Table service 쿼리 디자인에 대한 다음과 같은 일반적인 지침으로 요약됩니다. 아래 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](http://msdn.microsoft.com/library/azure/dd179421.aspx)참조).  
 
 * ***지점 쿼리***는 가장 효율적인 조회 방법이며, 대용량 조회 또는 가장 낮은 대기 시간이 필요한 조회에 사용하는 것이 좋습니다. 이러한 쿼리에서는 인덱스를 사용해 **PartitionKey** 및 **RowKey** 값을 지정하여 개별 엔터티를 효율적으로 찾을 수 있습니다. 예: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
 * 두 번째로 좋은 방법은 **PartitionKey**를 사용하고 **RowKey** 값 범위를 필터링하여 둘 이상의 엔터티를 반환하는 ***Range Query***입니다. **PartitionKey** 값은 특정 파티션을 식별하고, **RowKey** 값은 해당 파티션에 있는 엔터티의 하위 집합을 식별합니다. 예: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
@@ -437,7 +437,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 * Sales 부서에서 직원 ID 범위가 000100~000199인 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * Sales 부서에서 이메일 주소가 'a'로 시작하는 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://msdn.microsoft.com/library/azure/dd179421.aspx) 참조).  
+  위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](http://msdn.microsoft.com/library/azure/dd179421.aspx) 참조).  
 
 #### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
@@ -491,7 +491,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 * Sales 부서에서 직원 ID 순으로 정렬하여 직원 ID 범위가 **000100**~**000199**인 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
 * Sales 부서에서 직원 이메일 주소순으로 정렬하여 이메일 주소가 'a'로 시작하는 모든 직원을 찾으려면 다음을 사용합니다. $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://msdn.microsoft.com/library/azure/dd179421.aspx)참조).  
+위 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](http://msdn.microsoft.com/library/azure/dd179421.aspx)참조).  
 
 #### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
@@ -1002,7 +1002,7 @@ var employees = employeeTable.ExecuteQuery(employeeQuery);
 
 이러한 시나리오에서는 항상 응용 프로그램의 성능을 철저히 테스트해야 합니다.  
 
-테이블 서비스에 대한 쿼리는 한 번에 최대 1,000개의 엔터티를 반환할 수 있으며, 최대 5초 동안 실행할 수 있습니다. 결과 집합에 1,000개가 넘는 엔터티가 포함되거나, 쿼리가 5초 이내에 완료되지 않거나, 쿼리가 파티션 경계를 넘은 경우 Table service는 클라이언트 응용 프로그램이 다음 엔터티 집합을 요청할 수 있도록 연속 토큰을 반환합니다. 연속 토큰의 작동 방식에 대한 자세한 내용은 [쿼리 제한 시간 및 페이지 번호 매김](https://msdn.microsoft.com/library/azure/dd135718.aspx)을 참조하세요.  
+테이블 서비스에 대한 쿼리는 한 번에 최대 1,000개의 엔터티를 반환할 수 있으며, 최대 5초 동안 실행할 수 있습니다. 결과 집합에 1,000개가 넘는 엔터티가 포함되거나, 쿼리가 5초 이내에 완료되지 않거나, 쿼리가 파티션 경계를 넘은 경우 Table service는 클라이언트 응용 프로그램이 다음 엔터티 집합을 요청할 수 있도록 연속 토큰을 반환합니다. 연속 토큰의 작동 방식에 대한 자세한 내용은 [쿼리 제한 시간 및 페이지 번호 매김](http://msdn.microsoft.com/library/azure/dd135718.aspx)을 참조하세요.  
 
 Storage 클라이언트 라이브러리를 사용하는 경우 Table service에서 엔터티를 반환할 때 연속 토큰을 자동으로 처리할 수 있습니다. Storage 클라이언트 라이브러리를 사용하는 다음 C# 코드 예제는 테이블 서비스가 응답으로 반환하는 연속 토큰을 자동으로 처리합니다.  
 

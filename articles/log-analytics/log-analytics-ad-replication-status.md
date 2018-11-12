@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7c850eee67224d09ea2715a58c3cd8eca4ab07af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041904"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009745"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Log Analytics를 사용하여 Active Directory 복제 상태 모니터링
 
@@ -34,7 +34,7 @@ AD 복제 상태 솔루션 팩은 Active Directory 환경에서 복제 실패가
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
 * 평가할 도메인의 구성원인 도메인 컨트롤러에 에이전트를 설치해야 합니다. 또는 구성원 서버에 에이전트를 설치하고 Log Analytics에 AD 복제 데이터를 보내도록 에이전트를 구성해야 합니다. Windows 컴퓨터를 Log Analytics에 연결하는 방법을 알아보려면 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agent.md)을 참조하세요. 도메인 컨트롤러가 Log Analytics에 연결하려는 기존 System Center Operations Manager 환경에 이미 속하는 경우 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)을 참조하세요.
-* [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에 설명된 프로세스를 사용하여 Log Analytics 작업 영역에 Active Directory 복제 상태 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
+* [솔루션 갤러리에서 Log Analytics 솔루션 추가](../monitoring/monitoring-solutions.md)에 설명된 프로세스를 사용하여 Log Analytics 작업 영역에 Active Directory 복제 상태 솔루션을 추가합니다.  추가 구성은 필요 없습니다.
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD 복제 상태 데이터 컬렉션 세부 정보
 다음 표에서는 데이터 수집 방법 및 AD 복제 상태에 대해 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
@@ -110,7 +110,7 @@ AD 복제 상태 데이터를 Log Analytics에 전송하면 Log Analytics 대시
 
 ![검색 결과에서 AD 복제 상태 오류](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-여기에서 추가로 필터링하고 검색 쿼리 등을 수정할 수 있습니다. 로그 검색 사용에 대한 자세한 내용은 [로그 검색](log-analytics-log-searches.md)을 참조하세요.
+여기에서 추가로 필터링하고 검색 쿼리 등을 수정할 수 있습니다. 로그 검색 사용에 대한 자세한 내용은 [로그 검색](log-analytics-queries.md)을 참조하세요.
 
 **HelpLink** 필드는 해당 특정 오류에 대한 추가 세부 정보로 TechNet 페이지의 URL을 표시합니다. 이 링크를 브라우저 창에 복사하여 붙여넣고 문제 해결 및 오류 해결에 대한 정보를 볼 수 있습니다.
 
@@ -154,4 +154,4 @@ A: Active Directory에 대한 일반 사용자 권한으로 충분합니다.
 Log Analytics나 System Center Operations Manager에 도메인 컨트롤러를 직접 연결하지 않으려면 [비 도메인 컨트롤러가 AD 데이터를 Log Analytics에 보내도록 하려면](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics의 로그 검색](log-analytics-log-searches.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
+* [Log Analytics의 로그 검색](log-analytics-queries.md) 을 사용하여 자세한 Active Directory 복제 상태 데이터를 봅니다.
