@@ -2,19 +2,19 @@
 title: HDInsight에서 REST와 Hadoop Pig 사용 - Azure
 description: Azure HDInsight의 Hadoop 클러스터에서 REST를 사용하여 Pig Latin 작업을 실행하는 방법에 대해 배웁니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
-ms.openlocfilehash: e97dcd5a15fa1a58782fb8225e8b3381d7061bb6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: bd729d0d2cd095339a82b8a7f38a17a20b709c15
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051726"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013091"
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>REST를 사용하여 HDInsight에서 Hadoop과 Pig 작업 실행
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b50e6de9de6498f57fd9b599c45a35f2367b84ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406877"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012142"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Azure Log Analytics 에이전트를 사용하여 하이브리드 환경에서 데이터 수집
 
@@ -127,6 +127,6 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](log-analytics
 
 * [데이터 원본](log-analytics-data-sources.md)을 검토하여 Windows 또는 Linux 시스템에서 데이터를 수집할 수 있는 데이터 원본을 이해하세요. 
 
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다. 
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-queries.md)에 대해 알아봅니다. 
 
-* Log Analytics에 기능을 추가하고 Log Analytics 작업 영역으로 데이터를 수집하는 [솔루션](log-analytics-add-solutions.md)에 대해 알아봅니다.
+* Log Analytics에 기능을 추가하고 Log Analytics 작업 영역으로 데이터를 수집하는 [솔루션](../monitoring/monitoring-solutions.md)에 대해 알아봅니다.

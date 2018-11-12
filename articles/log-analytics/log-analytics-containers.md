@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d8f2701ca62eee261beaa49fe2a0719be7423a5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 087e11f906fe7f5c2fe67c43a597de8551dfc951
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408492"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013057"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -36,7 +36,7 @@ ms.locfileid: "49408492"
 - Service Fabric
 - Red Hat OpenShift
 
-AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워크로드의 성능을 모니터링하려는 경우 [Azure Kubernetes Service 모니터링](../monitoring/monitoring-container-health.md)을 참조하세요. 컨테이너 모니터링 솔루션은 해당 플랫폼을 모니터링하도록 지원하지 않습니다.  
+AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워크로드의 성능을 모니터링하려는 경우 [Azure Kubernetes Service 모니터링](../monitoring/monitoring-container-insights-overview.md)을 참조하세요. 컨테이너 모니터링 솔루션은 해당 플랫폼을 모니터링하도록 지원하지 않습니다.  
 
 다음 다이어그램에서는 Log Analytics에서 다양한 컨테이너 호스트와 에이전트 간의 관계를 보여줍니다.
 
@@ -97,11 +97,11 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 Log Analytics 작업 영역에 컨테이너 모니터링 솔루션을 추가합니다.
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../monitoring/monitoring-solutions.md)에서 설명하는 프로세스를 사용하여 Log Analytics 작업 영역에 컨테이너 모니터링 솔루션을 추가합니다.
 
 2. Log Analytics 에이전트를 사용하여 Docker를 설치하고 사용합니다. 운영 체제 및 Docker 조정자에 따라 에이전트를 구성하는 데 다음 메서드를 사용할 수 있습니다.
   - 독립 실행형 호스트의 경우:
-    - 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음, [Linux용 Log Analytics 에이전트](log-analytics-agent-linux.md)를 설치하고 구성합니다.  
+    - 지원되는 Linux 운영 체제에서 Docker를 설치 및 실행한 다음, [Linux용 Log Analytics 에이전트](log-analytics-quick-collect-linux-computer.md)를 설치하고 구성합니다.  
     - CoreOS에서는 Linux용 Log Analytics 에이전트를 실행할 수 없습니다. 대신 Linux용 Log Analytics 에이전트의 컨테이너화된 버전을 실행합니다. Azure Government 클라우드에서 컨테이너를 사용하는 경우 [CoreOS를 포함한 Linux 컨테이너 호스트](#for-all-linux-container-hosts-including-coreos) 또는 [CoreOS을 포함한 Azure Government Linux 컨테이너 호스트](#for-all-azure-government-linux-container-hosts-including-coreos)를 검토하세요.
     - Windows Server 2016 및 Windows 10에서 Docker 엔진 및 클라이언트를 설치한 후 에이전트를 연결하여 정보를 수집하고 Log Analytics에 보냅니다. Windows 환경을 사용하는 경우 [Windows 컨테이너 호스트 설치 및 구성](#install-and-configure-windows-container-hosts)을 검토하세요.
   - Docker 다중 호스트 오케스트레이션의 경우:
@@ -117,7 +117,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 [Windows에서 Docker 엔진](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) 문서에서 Windows를 실행하는 컴퓨터에서 Docker 엔진을 설치하고 구성하는 방법에 대한 추가 정보를 확인합니다.
 
 > [!IMPORTANT]
-> Docker는 컨테이너 호스트에 [Linux용 Log Analytics 에이전트](log-analytics-agent-linux.md)를 설치하기 **전에** 실행해야 합니다. Docker 설치에 앞서 에이전트를 이미 설치한 경우 Linux용 Log Analytics 에이전트를 다시 설치해야 합니다. Docker에 대한 자세한 내용은 [Docker 웹 사이트](https://www.docker.com)를 참조하세요.
+> Docker는 컨테이너 호스트에 [Linux용 Log Analytics 에이전트](log-analytics-quick-collect-linux-computer.md)를 설치하기 **전에** 실행해야 합니다. Docker 설치에 앞서 에이전트를 이미 설치한 경우 Linux용 Log Analytics 에이전트를 다시 설치해야 합니다. Docker에 대한 자세한 내용은 [Docker 웹 사이트](https://www.docker.com)를 참조하세요.
 
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Linux 컨테이너 호스트 설치 및 구성
@@ -146,7 +146,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **설치된 Linux 에이전트에서 컨테이너의 다른 에이전트로 전환**
 
-이전에 직접 설치한 에이전트를 사용하였고 이제 컨테이너에서 실행 중인 에이전트를 사용하려는 경우 먼저 Linux용 Log Analytics 에이전트를 제거해야 합니다. 성공적으로 에이전트를 제거하는 방법은 [Linux용 Log Analytics 에이전트 제거](log-analytics-agent-linux.md)를 참조하세요.  
+이전에 직접 설치한 에이전트를 사용하였고 이제 컨테이너에서 실행 중인 에이전트를 사용하려는 경우 먼저 Linux용 Log Analytics 에이전트를 제거해야 합니다. 성공적으로 에이전트를 제거하는 방법은 [Linux용 Log Analytics 에이전트 제거](log-analytics-quick-collect-linux-computer.md)를 참조하세요.  
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Docker Swarm용 Log Analytics 에이전트 구성
 
@@ -190,8 +190,8 @@ Docker Swarm의 경우 작업 영역 ID와 기본 키에 대한 비밀을 만들
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Red Hat OpenShift용 Log Analytics 에이전트 구성
 컨테이너 모니터링 데이터 수집을 시작하기 위해 Red Hat OpenShift에 Log Analytics 에이전트를 추가하는 방법에는 세 가지가 있습니다.
 
-* 각 OpenShift 노드에서 직접 [Linux용 Log Analytics 에이전트를 설치](log-analytics-agent-linux.md)  
-* Azure에 있는 각 OpenShift 노드에서 [Log Analytics VM 확장을 사용하도록 설정](log-analytics-azure-vm-extension.md)  
+* 각 OpenShift 노드에서 직접 [Linux용 Log Analytics 에이전트를 설치](log-analytics-quick-collect-linux-computer.md)  
+* Azure에 있는 각 OpenShift 노드에서 [Log Analytics VM 확장을 사용하도록 설정](log-analytics-quick-collect-azurevm.md)  
 * OpenShift 디먼 집합으로 Log Analytics 에이전트 설치  
 
 이 섹션에서는 OpenShift 디먼 집합으로 Log Analytics 에이전트를 설치하는 데 필요한 단계를 다룹니다.  
@@ -476,15 +476,15 @@ Helm을 사용하여 Linux Kubernetes 환경에 Log Analytics 에이전트를 �
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
- 
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
+ 
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
 자세한 내용을 보려면 [컨테이너 솔루션 Helm 차트](https://aka.ms/omscontainerhelm)를 방문하세요.
 
@@ -524,9 +524,9 @@ Windows 컨테이너에서 사용하는 Docker 데몬 구성에 대한 자세한
 
 #### <a name="install-windows-agents"></a>Windows 에이전트 설치
 
-Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면 컨테이너 호스트인 Windows 컴퓨터에 MMA(Microsoft Monitoring Agent)를 설치합니다. 온-프레미스 환경에서 Windows를 실행하는 컴퓨터는 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-windows-agent.md)을 참조하세요. Azure에서 실행되는 가상 머신의 경우 [가상 머신 확장](log-analytics-azure-vm-extension.md)을 사용하여 Log Analytics에 연결합니다.
+Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면 컨테이너 호스트인 Windows 컴퓨터에 MMA(Microsoft Monitoring Agent)를 설치합니다. 온-프레미스 환경에서 Windows를 실행하는 컴퓨터는 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-agent-windows.md)을 참조하세요. Azure에서 실행되는 가상 머신의 경우 [가상 머신 확장](log-analytics-quick-collect-azurevm.md)을 사용하여 Log Analytics에 연결합니다.
 
-Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 머신](log-analytics-azure-vm-extension.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](log-analytics-windows-agent.md)만 현재 Service Fabric에 대해 지원됩니다.
+Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 머신](log-analytics-quick-collect-azurevm.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](log-analytics-agent-windows.md)만 현재 Service Fabric에 대해 지원됩니다.
 
 컨테이너 모니터링 솔루션이 Windows에 대해 올바르게 설정되어 있는지 확인할 수 있습니다. 관리 팩이 제대로 다운로드되었는지 확인하려면 *ContainerManagement.xxx*를 찾습니다. 파일은 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 폴더에 있어야 합니다.
 
@@ -542,9 +542,9 @@ Azure Portal에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니�
 
 데이터는 다음 에이전트 형식으로 3분마다 수집됩니다.
 
-- [Linux용 Log Analytics 에이전트](log-analytics-linux-agents.md)
-- [Windows 에이전트](log-analytics-windows-agent.md)
-- [Log Analytics VM 확장](log-analytics-azure-vm-extension.md)
+- [Linux용 Log Analytics 에이전트](log-analytics-quick-collect-linux-computer.md)
+- [Windows 에이전트](log-analytics-agent-windows.md)
+- [Log Analytics VM 확장](log-analytics-quick-collect-azurevm.md)
 
 
 ### <a name="container-records"></a>컨테이너 레코드
@@ -604,7 +604,7 @@ Log Analytics 포털에서 솔루션을 사용하도록 설정한 후에는 **�
 
 ![컨테이너에 대한 로그 검색](./media/log-analytics-containers/containers-log-search.png)
 
-여기에서 검색 쿼리를 편집 수정하여 관심 있는 특정 정보를 찾을 수 있습니다. 로그 검색에 대한 자세한 내용은 [Log Analytics의 로그 검색](log-analytics-log-searches.md)을 참조하세요.
+여기에서 검색 쿼리를 편집 수정하여 관심 있는 특정 정보를 찾을 수 있습니다. 로그 검색에 대한 자세한 내용은 [Log Analytics의 로그 검색](log-analytics-queries.md)을 참조하세요.
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>실패한 컨테이너를 검색하여 문제 해결
 
@@ -672,4 +672,4 @@ Perf <containerName>
 만든 쿼리가 유용하다고 생각되면 로그 검색 페이지 위쪽의 **즐겨찾기**를 클릭하여 저장합니다. 그러면 나중에 **내 대시보드** 페이지에서 간편하게 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [로그를 검색](log-analytics-log-searches.md) 하여 자세한 컨테이너 데이터 레코드를 볼 수 있습니다.
+* [로그를 검색](log-analytics-queries.md) 하여 자세한 컨테이너 데이터 레코드를 볼 수 있습니다.

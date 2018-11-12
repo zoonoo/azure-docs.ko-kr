@@ -1,6 +1,6 @@
 ---
-title: Azure Functions에 대한 host.json 참조
-description: Azure Functions host.json 파일에 대한 참조 설명서입니다.
+title: Azure Functions 2.x에 대한 host.json 참조
+description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -10,19 +10,23 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 704a41ec840e2a252a1bbb5c20688f722bd0cdfd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d794648d3af086263ccffc782f3f3fdf6456eacc
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887039"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013380"
 ---
-# <a name="hostjson-reference-for-azure-functions"></a>Azure Functions에 대한 host.json 참조
+# <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
-*host.json* 메타데이터 파일에는 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 이 문서에는 사용 가능한 설정이 나열되어 있습니다. JSON 스키마는 http://json.schemastore.org/host 에 있습니다.
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> * [버전 1](functions-host-json-v1.md)
+> * [버전 2](functions-host-json.md)
+
+*host.json* 메타데이터 파일에는 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 이 문서에는 v2 런타임에 사용 가능한 설정이 나열되어 있습니다.  
 
 > [!NOTE]
-> Azure Functions 런타임의 v1 버전과 v2 버전 *host.json* 간에는 중요한 차이점이 있습니다. v2 런타임을 대상으로 하는 함수 앱에서는 `"version": "2.0"`이 필수 항목입니다.
+> 이 문서는 Azure Functions 2.x에 대한 것입니다.  Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md)를 참조하세요.
 
 기타 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md)에서 관리합니다.
 
@@ -32,7 +36,6 @@ ms.locfileid: "48887039"
 
 다음 샘플 *host.json* 파일에는 가능한 모든 옵션이 지정되어 있습니다.
 
-### <a name="version-2x"></a>버전 2.x
 
 ```json
 {
@@ -42,28 +45,13 @@ ms.locfileid: "48887039"
         "flushTimeout": "00:00:30"
     },
     "extensions": {
-        "eventHubs": {
-          "maxBatchSize": 64,
-          "prefetchCount": 256,
-          "batchCheckpointFrequency": 1
-        },
-        "http": {
-            "routePrefix": "api",
-            "maxConcurrentRequests": 100,
-            "maxOutstandingRequests": 30
-        },
-        "queues": {
-            "visibilityTimeout": "00:00:10",
-            "maxDequeueCount": 3
-        },
-        "sendGrid": {
-            "from": "Azure Functions <samples@functions.com>"
-        },
-        "serviceBus": {
-          "maxConcurrentCalls": 16,
-          "prefetchCount": 100,
-          "autoRenewTimeout": "00:05:00"
-        }
+        "cosmosDb": {},
+        "durableTask": {},
+        "eventHubs": {},
+        "http": {},
+        "queues": {},
+        "sendGrid": {},
+        "serviceBus": {}
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
@@ -74,7 +62,6 @@ ms.locfileid: "48887039"
         "healthCheckThreshold": 6,
         "counterThreshold": 0.80
     },
-    "id": "9f4ea53c5136457d883d685e57164f08",
     "logging": {
         "fileLoggingMode": "debugOnly",
         "logLevel": {
@@ -99,175 +86,31 @@ ms.locfileid: "48887039"
 }
 ```
 
-### <a name="version-1x"></a>버전 1.x
-
-```json
-{
-    "aggregator": {
-        "batchSize": 1000,
-        "flushTimeout": "00:00:30"
-    },
-    "applicationInsights": {
-        "sampling": {
-          "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 5
-        }
-    },
-    "eventHub": {
-      "maxBatchSize": 64,
-      "prefetchCount": 256,
-      "batchCheckpointFrequency": 1
-    },
-    "functions": [ "QueueProcessor", "GitHubWebHook" ],
-    "functionTimeout": "00:05:00",
-    "healthMonitor": {
-        "enabled": true,
-        "healthCheckInterval": "00:00:10",
-        "healthCheckWindow": "00:02:00",
-        "healthCheckThreshold": 6,
-        "counterThreshold": 0.80
-    },
-    "http": {
-        "routePrefix": "api",
-        "maxOutstandingRequests": 20,
-        "maxConcurrentRequests": 10,
-        "dynamicThrottlesEnabled": false
-    },
-    "id": "9f4ea53c5136457d883d685e57164f08",
-    "logger": {
-        "categoryFilter": {
-            "defaultLevel": "Information",
-            "categoryLevels": {
-                "Host": "Error",
-                "Function": "Error",
-                "Host.Aggregator": "Information"
-            }
-        }
-    },
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    },
-    "serviceBus": {
-      "maxConcurrentCalls": 16,
-      "prefetchCount": 100,
-      "autoRenewTimeout": "00:05:00"
-    },
-    "singleton": {
-      "lockPeriod": "00:00:15",
-      "listenerLockPeriod": "00:01:00",
-      "listenerLockRecoveryPollingInterval": "00:01:00",
-      "lockAcquisitionTimeout": "00:01:00",
-      "lockAcquisitionPollingInterval": "00:00:03"
-    },
-    "tracing": {
-      "consoleLevel": "verbose",
-      "fileLoggingMode": "debugOnly"
-    },
-    "watchDirectories": [ "Shared" ],
-}
-```
-
 이 문서의 다음 섹션에서는 각 최상위 속성에 대해 설명합니다. 달리 명시되지 않을 경우 모두 선택 사항입니다.
 
 ## <a name="aggregator"></a>aggregator
 
-[Application Insights에 대한 메트릭을 계산](functions-monitoring.md#configure-the-aggregator)할 때 집계되는 함수 호출 수를 지정합니다. 
-
-```json
-{
-    "aggregator": {
-        "batchSize": 1000,
-        "flushTimeout": "00:00:30"
-    }
-}
-```
-
-|자산 |기본값  | 설명 |
-|---------|---------|---------| 
-|batchSize|1000|집계할 최대 요청 수입니다.| 
-|flushTimeout|00:00:30|집계할 최대 기간입니다.| 
-
-함수 호출은 두 개의 한도 중 첫 번째 한에 도달할 때 집계됩니다.
+[!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
 ## <a name="applicationinsights"></a>applicationInsights
 
-[Application Insights에서 샘플링 기능](functions-monitoring.md#configure-sampling)을 제어합니다. 버전 2.x에서 이 설정은 [logging](#log)의 자식입니다.
+이 설정은 [logging](#logging)의 자식입니다.
 
-```json
-{
-    "applicationInsights": {
-        "sampling": {
-          "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 5
-        }
-    }
-}
-```
+[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
 
-|자산  |기본값 | 설명 |
-|---------|---------|---------| 
-|isEnabled|true|샘플링을 사용 여부를 설정합니다.| 
-|maxTelemetryItemsPerSecond|5|샘플링이 시작되는 임계값입니다.| 
+## <a name="cosmosdb"></a>cosmosDb
+
+구성 설정은 [Cosmos DB 트리거 및 바인딩](functions-bindings-cosmosdb-v2.md#host-json)에서 찾을 수 있습니다.
 
 ## <a name="durabletask"></a>durableTask
 
-[지속형 함수](durable-functions-overview.md)에 대한 구성 설정입니다.
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub",
-    "ControlQueueBatchSize": 32,
-    "PartitionCount": 4,
-    "ControlQueueVisibilityTimeout": "00:05:00",
-    "WorkItemQueueVisibilityTimeout": "00:05:00",
-    "MaxConcurrentActivityFunctions": 10,
-    "MaxConcurrentOrchestratorFunctions": 10,
-    "AzureStorageConnectionStringName": "AzureWebJobsStorage",
-    "TraceInputsAndOutputs": false,
-    "LogReplayEvents": false,
-    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "EventGridKeySettingName":  "EventGridKey",
-    "EventGridPublishRetryCount": 3,
-    "EventGridPublishRetryInterval": "00:00:30"
-  }
-}
-```
-
-작업 허브 이름은 문자로 시작하고 문자와 숫자로만 구성되어야 합니다. 지정되지 않은 경우 함수 앱의 기본 작업 허브 이름은 **DurableFunctionsHub**입니다. 자세한 내용은 [작업 허브](durable-functions-task-hubs.md)를 참조하세요.
-
-|자산  |기본값 | 설명 |
-|---------|---------|---------|
-|HubName|DurableFunctionsHub|여러 Durable Functions 응용 프로그램이 동일한 저장소 백 엔드를 사용하더라도 대체 [작업 허브](durable-functions-task-hubs.md) 이름을 사용하면 이러한 응용 프로그램을 서로 구분할 수 있습니다.|
-|ControlQueueBatchSize|32|제어 큐에서 한 번에 끌어올 메시지의 수입니다.|
-|PartitionCount |4|제어 큐에 대한 파티션 수입니다. 1에서 16 사이의 양의 정수일 수 있습니다.|
-|ControlQueueVisibilityTimeout |5분|큐에서 제거된 제어 큐 메시지의 표시 여부 시간 제한입니다.|
-|WorkItemQueueVisibilityTimeout |5분|큐에서 제거된 작업 항목 큐 메시지의 표시 여부 시간 제한입니다.|
-|MaxConcurrentActivityFunctions |현재 컴퓨터에 있는 프로세서 수의 10배입니다.|단일 호스트 인스턴스에서 동시에 처리할 수 있는 작업 함수는 최대 수입니다.|
-|MaxConcurrentOrchestratorFunctions |현재 컴퓨터에 있는 프로세서 수의 10배입니다.|단일 호스트 인스턴스에서 동시에 처리할 수 있는 작업 함수는 최대 수입니다.|
-|AzureStorageConnectionStringName |AzureWebJobsStorage|기본 Azure Storage 리소스를 관리하는 데 사용되는 Azure Storage 연결 문자열이 있는 앱 설정의 이름입니다.|
-|TraceInputsAndOutputs |false|함수 호출의 입출력을 추적할지 여부를 나타내는 값입니다. 함수 실행 이벤트를 추적할 때의 기본 동작은 함수 호출에 대한 직렬화된 입출력에 바이트 수를 포함하는 것입니다. 이를 통해 로그를 블로트하거나 실수로 로그에 중요한 정보를 노출하지 않고도, 표시될 입출력에 대한 최소한의 정보를 제공할 수 있습니다. 이 속성을 true로 설정하면 기본 함수 로깅이 함수 입출력의 전체 내용을 기록하게 됩니다.|
-|LogReplayEvents|false|Application Insights에 이벤트를 재생하는 오케스트레이션을 작성할 것인지 여부를 나타내는 값입니다.|
-|EventGridTopicEndpoint ||Azure Event Grid 사용자 지정 항목 엔드포인트의 URL입니다. 이 속성이 설정되면 오케스트레이션 수명 주기 알림 이벤트가 이 엔드포인트에 게시됩니다. 이 속성은 앱 설정 해결을 지원합니다.|
-|EventGridKeySettingName ||`EventGridTopicEndpoint`에서 Azure Event Grid 사용자 지정 항목으로 인증하는 데 사용되는 키를 포함하는 앱 설정의 이름입니다.|
-|EventGridPublishRetryCount|0|Event Grid 항목에 게시가 실패하는 경우 다시 시도 횟수입니다.|
-|EventGridPublishRetryInterval|5분|*hh:mm:ss* 형식의 Event Grid 게시 재시도 간격입니다.|
-
-이중 대부분은 성능 최적화를 위한 것입니다. 자세한 내용은 [성능 및 크기 조정](durable-functions-perf-and-scale.md)을 참조하세요.
+구성 설정은 [지속형 함수에 대한 바인딩](durable-functions-bindings.md#host-json)에서 찾을 수 있습니다.
 
 ## <a name="eventhub"></a>eventHub
 
-[Event Hub 트리거 및 바인딩](functions-bindings-event-hubs.md)에 대한 구성 설정입니다. 버전 2.x에서 이 설정은 [extensions](#extensions)의 자식입니다.
-
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+구성 설정은 [이벤트 허브 트리거 및 바인딩](functions-bindings-event-hubs.md#host-json)에서 찾을 수 있습니다. 
 
 ## <a name="extensions"></a>확장
-
-*버전 2.x 전용*입니다.
 
 [http](#http), [eventHub](#eventhub) 등의 모든 바인딩 관련 설정이 포함된 개체를 반환하는 속성입니다.
 
@@ -317,54 +160,11 @@ ms.locfileid: "48887039"
 
 ## <a name="http"></a>http
 
-[http 트리거 및 바인딩](functions-bindings-http-webhook.md)에 대한 구성 설정입니다. 버전 2.x에서 이 설정은 [extensions](#extensions)의 자식입니다.
+구성 설정은 [http 트리거 및 바인딩](functions-bindings-http-webhook.md)에서 찾을 수 있습니다.
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="id"></a>id
-
-*버전 1.x 전용*입니다.
-
-작업 호스트의 고유 ID입니다. 대시가 제거된 소문자 GUID일 수 있습니다. 로컬에서 실행될 때 필요합니다. Azure에서 실행할 때는 ID 값을 설정하지 않는 것이 좋습니다. `id`를 생략하면 ID가 Azure에서 자동으로 생성됩니다. 버전 2.x 런타임을 사용할 때는 사용자 지정 함수 앱 ID를 설정할 수 없습니다.
-
-여러 함수 앱에서 Storage 계정을 공유하는 경우 각 함수 앱의 `id`가 다른지 확인합니다. `id` 속성을 생략하거나 수동으로 각 함수 앱의 `id`를 다른 값으로 설정할 수 있습니다. 타이머 트리거는 함수 앱이 여러 인스턴스로 확장되는 경우 저장소 잠금을 사용하여 하나의 타이머 인스턴스만이 존재하도록 합니다. 두 개의 함수 앱이 동일한 `id`를 공유하고 각각 타이머 트리거를 사용하는 경우 하나의 타이머만이 실행됩니다.
-
-```json
-{
-    "id": "9f4ea53c5136457d883d685e57164f08"
-}
-```
-
-## <a name="logger"></a>logger
-
-*버전 1.x 전용입니다. 버전 2.x에서는 [logging](#logging)을 사용합니다.*
-
-[ILogger 개체](functions-monitoring.md#write-logs-in-c-functions) 또는 [context.log](functions-monitoring.md#write-logs-in-javascript-functions)에 의해 기록된 로그 필터링을 제어합니다.
-
-```json
-{
-    "logger": {
-        "categoryFilter": {
-            "defaultLevel": "Information",
-            "categoryLevels": {
-                "Host": "Error",
-                "Function": "Error",
-                "Host.Aggregator": "Information"
-            }
-        }
-    }
-}
-```
-
-|자산  |기본값 | 설명 |
-|---------|---------|---------| 
-|categoryFilter|해당 없음|범주별 필터링을 지정합니다.| 
-|defaultLevel|정보|`categoryLevels` 배열에 지정되지 않은 범주가 있으면 이 수준 이상의 로그를 Application Insights로 보내십시오.| 
-|categoryLevels|해당 없음|각 범주에 대해 Application Insight에 보낼 최소 로그 수준을 지정하는 범주 배열입니다. 여기에 지정된 범주는 동일한 값으로 시작하는 모든 범주를 제어하며 긴 값이 우선합니다. 앞의 샘플 *host.json* 파일에서 "Host.Aggregator"로 시작하는 모든 범주는 `Information` 수준으로 기록됩니다. "Host.Executor"와 같이 "Host"로 시작하는 다른 모든 범주는 `Error` 수준으로 기록됩니다.| 
-
 ## <a name="logging"></a>logging
-
-*버전 2.x 전용입니다. 버전 1.x에서는 [logger](#logger)를 사용합니다.*
 
 Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다.
 
@@ -383,21 +183,21 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 
 |자산  |기본값 | 설명 |
 |---------|---------|---------|
-|fileLoggingMode|정보|이 수준 이상의 로그를 Application Insights로 보냅니다. |
+|fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
 |applicationInsights|해당 없음| [applicationInsights](#applicationinsights) 설정입니다. |
 
 ## <a name="queues"></a>queues
 
-[저장소 큐 트리거 및 바인딩](functions-bindings-storage-queue.md)에 대한 구성 설정입니다. 버전 2.x에서 이 설정은 [extensions](#extensions)의 자식입니다.
+구성 설정은 [저장소 큐 트리거 및 바인딩](functions-bindings-storage-queue.md#host-json)에서 찾을 수 있습니다.  
 
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+## <a name="sendgrid"></a>sendGrid
+
+구성 설정은 [SendGrid 트리거 및 바인딩](functions-bindings-sendgrid.md#host-json)에서 찾을 수 있습니다.
 
 ## <a name="servicebus"></a>serviceBus
 
-[Service Bus 트리거 및 바인딩](functions-bindings-service-bus.md)에 대한 구성 설정입니다. 버전 2.x에서 이 설정은 [extensions](#extensions)의 자식입니다.
-
-[!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
+구성 설정은 [Service Bus 트리거 및 바인딩](functions-bindings-service-bus.md#host-json)에서 찾을 수 있습니다.
 
 ## <a name="singleton"></a>singleton
 
@@ -423,29 +223,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 |lockAcquisitionTimeout|00:01:00|런타임이 잠금을 확보하려고 시도하는 최대 시간입니다.| 
 |lockAcquisitionPollingInterval|해당 없음|잠금 확보 시도 사이의 간격입니다.| 
 
-## <a name="tracing"></a>tracing
-
-*버전 1.x*
-
-`TraceWriter` 개체를 사용하여 만드는 로그에 대한 구성 설정입니다. [C# 로깅](functions-reference-csharp.md#logging) 및 [Node.js 로깅](functions-reference-node.md#writing-trace-output-to-the-console)을 참조하세요. 버전 2.x에서는 [logging](#logging)을 통해 모든 로그 동작을 제어합니다.
-
-```json
-{
-    "tracing": {
-      "consoleLevel": "verbose",
-      "fileLoggingMode": "debugOnly"
-    }
-}
-```
-
-|자산  |기본값 | 설명 |
-|---------|---------|---------| 
-|consoleLevel|info|콘솔 로깅의 추적 수준입니다. 옵션은 `off`, `error`, `warning`, `info` 및 `verbose`입니다.|
-|fileLoggingMode|debugOnly|파일 로깅에 대한 추적 수준입니다. 옵션은 `never`, `always`, `debugOnly`입니다.| 
-
 ## <a name="version"></a>버전
-
-*버전 2.x*
 
 v2 런타임을 대상으로 하는 함수 앱에서는 버전 문자열 `"version": "2.0"`이 필수 항목입니다.
 

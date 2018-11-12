@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c078320ce31e0c51c7aef0bc0a2aa14e68ac2fc3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 41e627d895f0276d372ee42df3e0a43fdadc4051
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042864"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016066"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>구독 전체의 Azure 활동 로그를 Log Analytics에 수집
 
@@ -29,7 +29,7 @@ Log Analytics 작업 영역이 동일한 Azure 구독에 있거나 동일한 Azu
 
 ## <a name="overview"></a>개요
 
-이 시나리오에서 사용된 전략은 Azure 활동 로그가 [이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)에 이벤트를 보내게 하고, 여기서 [Logic App](../logic-apps/logic-apps-overview.md)이 이벤트를 Log Analytics 작업 영역으로 보내는 것입니다. 
+이 시나리오에서 사용된 전략은 Azure 활동 로그가 [이벤트 허브](../event-hubs/event-hubs-about.md)에 이벤트를 보내게 하고, 여기서 [Logic App](../logic-apps/logic-apps-overview.md)이 이벤트를 Log Analytics 작업 영역으로 보내는 것입니다. 
 
 ![활동 로그에서 Log Analytics로의 데이터 흐름 이미지](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 

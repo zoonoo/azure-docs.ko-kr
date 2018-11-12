@@ -2,19 +2,19 @@
 title: HDInsight에서 Hadoop Pig 사용
 description: HDInsight에서 Hadoop와 함께 Pig를 사용하는 방법에 대해 알아봅니다.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: e97763adbe7998ed93e3ba8b87d89ffe8d8de6aa
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 921f4747dcaf9ad302c37930ca09903e345bfdb0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045448"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016423"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>HDInsight에서 Hadoop과 Pig 사용
 

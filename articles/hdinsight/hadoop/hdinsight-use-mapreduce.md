@@ -2,19 +2,19 @@
 title: HDInsight에서 Hadoop과 MapReduce
 description: HDInsight 클러스터의 Hadoop에서 MapReduce 작업을 실행하는 방법을 알아봅니다.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 3b9cc70a1adc55850923f2313f17be435257117d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f9dea4c965f64576f839a39b813e4361b166ffe6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044872"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015165"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>HDInsight에서 Hadoop과 MapReduce 사용
 
@@ -23,7 +23,7 @@ HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 �
 | **사용 기능**... | **...다음을 수행합니다** | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux |Linux, Unix, Mac OS X, 또는 Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |**REST**를 사용하여 작업 원격 제출(예제 용도 cURL) |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
+| [REST (영문)](apache-hadoop-use-mapreduce-curl.md) |**REST**를 사용하여 작업 원격 제출(예제 용도 cURL) |Linux 또는or Windows |Linux, Unix, Mac OS X, 또는 Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |**Windows PowerShell** |Linux 또는or Windows |Windows |
 
 > [!IMPORTANT]

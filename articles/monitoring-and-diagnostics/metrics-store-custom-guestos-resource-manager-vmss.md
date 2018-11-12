@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
+title: Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 description: Windows 가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 author: anirudhcavale
 services: azure-monitor
@@ -8,33 +8,33 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 7b600bd699ce7f9e4a6c7cba1a41b6bdece16bf0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: b7ffb5487eceb83e8961af8dfddf2416ee11dd64
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343728"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417670"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
-Azure Monitor WAD([Windows Azure 진단 확장](azure-diagnostics.md))를 사용하면 Virtual Machine, Cloud Service 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다.  이 확장은 이전에 연결된 문서에 나열된 여러 다른 위치에 원격 분석을 보낼 수 있습니다.  
+Azure Monitor [WAD(Microsoft Azure 진단) 확장](azure-diagnostics.md)을 사용하여 가상 머신, 클라우드 서비스 또는 Azure Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 이전에 연결된 문서에 나열된 여러 다른 위치에 원격 분석을 보낼 수 있습니다.  
 
-이 문서에서는 Windows 가상 머신 확장 집합에 대한 게스트 OS 성능 메트릭을 Azure Monitor 데이터 저장소에 보내는 프로세스에 대해 설명합니다. WAD 버전 1.11부터 표준 플랫폼 메트릭을 이미 수집한 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 이 위치에 메트릭을 저장하면 플랫폼 메트릭에 사용할 수 있는 동일한 작업에 액세스할 수 있습니다.  작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다.  과거에는 WAD 확장을 Azure Monitor 데이터 저장소가 아니라 Azure 저장소에 기록했습니다.  
+이 문서에서는 Windows 가상 머신 확장 집합에 대한 게스트 OS 성능 메트릭을 Azure Monitor 데이터 저장소에 보내는 프로세스에 대해 설명합니다. Microsoft Azure 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 이 위치에 메트릭을 저장하면 플랫폼 메트릭에 사용할 수 있는 것과 동일한 작업에 액세스할 수 있습니다. 작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다. 과거에는 Microsoft Azure 진단 확장이 Azure Monitor 데이터 저장소가 아니라 Azure Storage에 기록했습니다.  
 
 Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../azure-resource-manager/resource-group-overview.md)와 해당 구조 및 구문에 대해 알아보세요.  
 
-## <a name="pre-requisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 조건
 
-- 구독은 [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)에 등록해야 합니다. 
+- 구독이 [Microsoft.Insights](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#portal)에 등록되어야 합니다. 
 
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)이 설치되어 있거나 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview.md)을 사용할 수 있습니다. 
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)이 설치되어 있어야 하거나, [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다. 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor를 데이터 싱크로 설정 
-Azure 진단 확장은 "데이터 싱크"라는 기능을 사용하여 메트릭과 로그를 다른 위치로 라우팅합니다.  다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 "Azure Monitor" 데이터 싱크를 통해 VM을 배포하는 방법을 보여줍니다. 
+Azure 진단 확장은 **데이터 싱크**라는 기능을 사용하여 메트릭과 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 Azure Monitor 데이터 싱크를 통해 VM을 배포하는 방법을 보여 줍니다. 
 
-## <a name="author-resource-manager-template"></a>Resource Manager 템플릿 작성 
-이 예제에서는 공개적으로 사용할 수 있는 템플릿 샘플을 사용할 수 있습니다. 시작 템플릿은 https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale에 있습니다.  
+## <a name="author-a-resource-manager-template"></a>Resource Manager 템플릿 작성 
+이 예제에서는 공개적으로 사용 가능한 [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale)을 사용할 수 있습니다.  
 
 - **Azuredeploy.json**은 가상 머신 확장 집합을 배포하기 위해 미리 구성된 Resource Manager 템플릿입니다.
 
@@ -43,30 +43,30 @@ Azure 진단 확장은 "데이터 싱크"라는 기능을 사용하여 메트릭
 두 파일을 다운로드하고 로컬로 저장합니다. 
 
 ###  <a name="modify-azuredeployparametersjson"></a>azuredeploy.parameters.json을 수정합니다.
-*azuredeploy.parameters.json* 파일을 엽니다. 
-
-- 배포할 **vmSKU**를 제공합니다(Standard_D2_v3 권장). 
-- 가상 머신 확장 집합에 사용하려는 **windowsOSVersion**을 지정합니다(2016-Datacenter 권장). 
-- **vmssName** 속성을 사용하여 배포되도록 가상 머신 확장 집합 리소스의 이름을 지정합니다. 예: *VMSS-WAD-TEST*    
-- **instanceCount** 속성을 사용하여 가상 머신 확장 집합에서 실행할 VM의 수를 지정합니다.
-- 가상 머신 확장 집합에 대한 **adminUsername** 및 **adminPassword**의 값을 입력합니다. 이러한 매개 변수는 확장 집합에서 VM에 원격으로 액세스하는 데 사용됩니다. 이러한 매개 변수는 VM에 원격으로 액세스하는 데 사용됩니다. VM이 하이재킹되지 않도록 방지하려면 이 템플릿에서 사용하지 마세요. 봇은 공용 Github 리포지토리에서 사용자 이름 및 암호에 대한 인터넷을 검색합니다. 이러한 기본값을 사용하여 VM을 테스트할 수 있습니다. 
+**azuredeploy.parameters.json** 파일을 엽니다.  
+ 
+- 배포할 **vmSKU**를 제공합니다. Standard_D2_v3을 사용하는 것이 좋습니다. 
+- 가상 머신 확장 집합에 사용하려는 **windowsOSVersion**을 지정합니다. 2016-Datacenter를 사용하는 것이 좋습니다. 
+- **vmssName** 속성을 사용하여 배포할 가상 머신 확장 집합 리소스의 이름을 지정합니다. 예를 들어, **VMSS-WAD-TEST**입니다.    
+- **instanceCount** 속성을 사용하여 가상 머신 확장 집합에서 실행하려는 VM 수를 지정합니다.
+- 가상 머신 확장 집합에 대한 **adminUsername** 및 **adminPassword**의 값을 입력합니다. 이러한 매개 변수는 확장 집합에서 VM에 원격으로 액세스하는 데 사용됩니다. VM이 하이재킹되지 않도록 방지하려면 이 템플릿에 있는 이름은 **사용하지 마세요**. 봇이 인터넷에서 공용 Github 리포지토리의 사용자 이름 및 암호를 검사합니다. 이러한 기본값을 사용하여 VM을 테스트할 가능성이 큽니다. 
 
 
 ###  <a name="modify-azuredeployjson"></a>Azuredeploy.json을 수정합니다.
-*azuredeploy.json* 파일을 엽니다. 
+**azuredeploy.json** 파일을 엽니다. 
 
-Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수를 추가합니다. 진단 확장 설치의 일부로 여전히 저장소 계정을 제공해야 합니다. 진단 구성 파일에 지정된 모든 로그 및/또는 성능 카운터는 Azure Monitor 메트릭 저장소에 전송되는 것 외에도 지정된 저장소 계정에 기록됩니다. 
+Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수를 추가합니다. 진단 구성 파일에 지정된 모든 로그 또는 성능 카운터는 Azure Monitor 메트릭 저장소와 여기서 지정한 저장소 계정 둘 다에 기록됩니다. 
 
 ```json
 "variables": { 
 //add this line       
 "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
- ```
+```
  
-리소스 섹션에서 Virtual Machine Scale Set 정의를 찾고 구성에 "identity" 섹션을 추가합니다. 이렇게 하여 Azure에서 시스템 ID를 할당했는지 확인합니다. 이 단계를 수행하면 확장 집합의 VM은 Azure Monitor로 자체 게스트 메트릭을 내보낼 수 있습니다.  
+리소스 섹션에서 가상 머신 확장 집합 정의를 찾아 구성에 **identity** 섹션을 추가합니다. 이 섹션을 추가하면 Azure에서 시스템 ID를 할당합니다. 이 단계를 수행하면 확장 집합의 VM이 자체 게스트 메트릭을 Azure Monitor로 내보낼 수도 있습니다.  
 
 ```json
-  { 
+    { 
       "type": "Microsoft.Compute/virtualMachineScaleSets", 
       "name": "[variables('namingInfix')]", 
       "location": "[resourceGroup().location]", 
@@ -76,14 +76,14 @@ Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수�
            "type": "systemAssigned" 
        }, 
        //end of lines to add
- ```
+```
 
 가상 머신 확장 집합 리소스에서 **virtualMachineProfile** 섹션을 찾습니다. **extensionsProfile**이라는 새 프로필을 추가하여 확장을 관리합니다.  
 
 
 **VMSS WAD 확장 섹션**에 표시된 대로 **extensionProfile**에서 템플릿에 새 확장을 추가합니다.  이 섹션은 내보내는 메트릭을 Azure Monitor에서 수용했는지 확인하는 Azure 리소스 확장의 관리 ID입니다. **이름** 필드에는 어떤 이름이든지 포함될 수 있습니다. 
 
-또한 MSI 확장의 아래 코드는 추가 진단 확장 및 구성을 확장 리소스로 가상 머신 확장 집합 리소스에 추가합니다. 필요에 따라 성능 카운터를 자유롭게 추가/제거합니다. 
+또한 MSI 확장의 다음 코드는 진단 확장 및 구성을 가상 머신 확장 집합 리소스에 확장 리소스로 추가합니다. 필요에 따라 성능 카운터를 자유롭게 추가 또는 제거합니다. 
 
 ```json
           "extensionProfile": { 
@@ -195,30 +195,32 @@ Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수�
 ```
 
 
-저장소 계정에 대한 dependsOn을 추가하여 올바른 순서로 만들어졌는지 확인합니다. 
+저장소 계정에 대한 **dependsOn**을 추가하여 올바른 순서로 생성되도록 합니다. 
+
 ```json
 "dependsOn": [ 
 "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]", 
 "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]" 
 //add this line below
 "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]" 
- ```
+```
 
-템플릿에서 저장소 계정을 아직 만들지 않은 경우 만듭니다.  
+템플릿에서 저장소 계정을 아직 만들지 않은 경우 만듭니다. 
+
 ```json
 "resources": [
-  // add this code    
-  {
-     "type": "Microsoft.Storage/storageAccounts",
-     "name": "[variables('storageAccountName')]",
-     "apiVersion": "2015-05-01-preview",
-     "location": "[resourceGroup().location]",
-     "properties": {
-       "accountType": "Standard_LRS"
-      }
-  },
-  // end added code
-  { 
+// add this code    
+{
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2015-05-01-preview",
+    "location": "[resourceGroup().location]",
+    "properties": {
+    "accountType": "Standard_LRS"
+    }
+},
+// end added code
+{ 
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[variables('virtualNetworkName')]",
 ```
@@ -227,62 +229,63 @@ Resource Manager 템플릿에서 저장소 계정 정보를 보유하는 변수�
 
 ## <a name="deploy-the-resource-manager-template"></a>Resource Manager 템플릿 배포 
 
-> [!NOTE]
-> Azure 진단 확장 버전 1.5 이상을 실행하고 Resource Manager 템플릿에서 "autoUpgradeMinorVersion": 속성을 *true*로 설정해야 합니다.  그러면 Azure에서 VM을 시작할 때 적절한 확장을 로드합니다. 템플릿에 이러한 설정이 없는 경우 해당 설정을 변경하고 템플릿을 다시 배포합니다. 
+> [!NOTE]  
+> Azure 진단 확장 버전 1.5 이상을 실행하고 Resource Manager 템플릿에서 **autoUpgradeMinorVersion:** 속성을 **true**로 설정해야 합니다 **.** 그러면 Azure에서 VM을 시작할 때 적절한 확장을 로드합니다. 템플릿에 이러한 설정이 없는 경우 해당 설정을 변경하고 템플릿을 다시 배포합니다. 
 
 
-Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용하겠습니다.  
+Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니다.  
 
-1. PowerShell 시작 
+1. PowerShell을 시작합니다. 
 1. `Login-AzureRmAccount`를 사용하여 Azure에 로그인합니다.
-1. `Get-AzureRmSubscription`을 사용하여 구독 목록 가져옵니다.
-1. 가상 머신을 만들/업데이트할 구독을 설정합니다. 
+1. `Get-AzureRmSubscription`을 사용하여 구독 목록을 가져옵니다.
+1. 만들려는 구독을 설정하거나 가상 머신을 업데이트합니다. 
 
    ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. 배포된 VM에 대한 새 리소스 그룹을 만들고 아래 명령을 실행합니다. 
+1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령 실행: 
 
    ```PowerShell
     New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
-   > 사용자 지정 메트릭을 사용하도록 설정된 Azure 지역을 사용해야 합니다. 자세한 내용은 다음을 참조하세요. 
+   > 사용자 지정 메트릭을 사용할 수 있는 Azure 지역을 사용해야 합니다. [사용자 지정 메트릭을 사용할 수 있는 Azure 지역](https://github.com/MicrosoftDocs/azure-docs-pr/pull/metrics-custom-overview.md#supported-regions)을 사용해야 합니다.
  
-1. 다음 명령을 실행하여 다음에서 VM을 배포합니다.  
-   > [!NOTE] 
-   > 기존 확장 집합을 업데이트하려면 다음 명령의 끝에 *-Mode Incremental*을 추가하기만 하면 됩니다. 
+1. 다음 명령을 실행하여 VM을 배포합니다.  
+
+   > [!NOTE]  
+   > 기존 확장 집합을 업데이트하려면 명령의 끝에 **-Mode Incremental**을 추가합니다. 
  
    ```PowerShell
    New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
-1. 배포에 성공하면 Azure Portal에서 해당 가상 머신 확장 집합을 찾을 수 있어야 하며 메트릭을 Azure Monitor에 내보내야 합니다. 
+1. 배포에 성공하면 Azure Portal에서 가상 머신 확장 집합을 확인할 수 있습니다. 메트릭을 Azure Monitor로 내보내야 합니다. 
 
-   > [!NOTE] 
-   > 선택한 vmSkuSize 관련 오류가 발생할 수 있습니다. 그렇다면 azuredeploy.json 파일로 돌아가서 vmSkuSize 매개 변수의 기본값을 업데이트하세요. 이 경우에 "Standard_DS1_v2"를 사용하는 것이 좋습니다. 
+   > [!NOTE]  
+   > 선택한 **vmSkuSize** 관련 오류가 발생할 수 있습니다. 이 경우 **azuredeploy.json** 파일로 돌아가서 **vmSkuSize** 매개 변수의 기본값을 업데이트합니다. **Standard_DS1_v2**를 사용해 보시기 바랍니다. 
 
 
 ## <a name="chart-your-metrics"></a>메트릭 차트 작성 
 
-1. Azure Portal에 로그인 
+1. Azure 포털에 로그인합니다. 
 
-1. 왼쪽 메뉴에서 **모니터**를 클릭합니다. 
+1. 왼쪽 메뉴에서 **모니터**를 선택합니다. 
 
-1. 모니터 페이지에서 **메트릭**을 클릭합니다. 
+1. **모니터** 페이지에서 **메트릭**을 선택합니다. 
 
-   ![메트릭 페이지](./media/metrics-store-custom-rest-api/metrics.png) 
+   ![모니터 - 메트릭 페이지](media/metrics-store-custom-guestos-resource-manager-vmss/metrics.png) 
 
-1. 집계 기간을 **최근 30분**으로 변경합니다.  
+1. 집계 기간을 **지난 30분**으로 변경합니다.  
 
-1. 리소스 드롭다운 목록에서 방금 만든 가상 머신 확장 집합을 선택합니다.  
+1. 리소스 드롭다운 메뉴에서 직접 만든 가상 머신 확장 집합을 선택합니다.  
 
-1. 네임스페이스 드롭다운에서 **azure.vm.windows.guest**를 선택합니다. 
+1. 네임스페이스 드롭다운 메뉴에서 **azure.vm.windows.guest**를 선택합니다. 
 
-1. 메트릭 드롭다운에서 **메모리\%사용 중인 커밋된 바이트**를 선택합니다.  
+1. 메트릭 드롭다운 메뉴에서 **메모리\%사용 중인 커밋된 바이트**를 선택합니다.  
 
-그런 다음, 이 메트릭에 대한 차원을 사용하여 이 확장 집합의 특정 VM에 대한 해당 메트릭의 차트를 작성하거나 확장 집합의 각 VM을 그릴 수 있습니다. 
+그런 다음, 이 메트릭의 차원을 사용하여 특정 VM에 대한 차트를 작성하거나 확장 집합의 각 VM을 그림으로 나타낼 수도 있습니다. 
 
 
 
