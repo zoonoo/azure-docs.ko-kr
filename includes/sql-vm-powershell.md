@@ -1,9 +1,9 @@
 
 ## <a name="start-your-powershell-session"></a>PowerShell 세션 시작
-우선 최신 [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) 을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
+우선 최신 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) 을 설치하고 실행해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azureps-cmdlets-docs)을 참조하세요.
 
 > [!NOTE]
-> 이 항목의 예제에서는 [Azure Resource Manager 배포 모델](../articles/azure-resource-manager/resource-group-overview.md)을 사용하므로 예제에 [Azure Resource Manager cmdlet](http://msdn.microsoft.com/library/azure/mt125356.aspx)이 사용됩니다. 
+> 이 항목의 예제에서는 [Azure Resource Manager 배포 모델](../articles/azure-resource-manager/resource-group-overview.md)을 사용하므로 예제에 [Azure Resource Manager cmdlet](https://msdn.microsoft.com/library/azure/mt125356.aspx)이 사용됩니다. 
 > 
 > 
 

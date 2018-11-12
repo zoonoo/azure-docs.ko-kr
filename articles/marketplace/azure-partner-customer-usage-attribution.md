@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157941"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280676"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -66,7 +66,7 @@ GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 
 
 { // add this resource to the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
-    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
         "mode": "Incremental",
@@ -145,7 +145,7 @@ SKU는 제품의 변형인 SKU와 같이 더 세부적인 수준에서 GUID를 �
 
 GUID가 템플릿이나 사용자 에이전트에 추가되고 해당 GUID가 CPP에 등록되면 모든 배포가 추적됩니다. 
 
-1. [Azure Marketplace](http://aka.ms/listonazuremarketplace)에 신청하여 CPP에 액세스합니다.
+1. [Azure Marketplace](https://aka.ms/listonazuremarketplace)에 신청하여 CPP에 액세스합니다.
 
    * 파트너는 [CPP에 프로필을 가지고 있어야 합니다](https://docs.microsoft.com/azure/marketplace/become-publisher). Azure Marketplace 또는 AppSource에 제품을 나열하는 것이 좋습니다.
    * 파트너는 여러 GUID를 등록할 수 있습니다.

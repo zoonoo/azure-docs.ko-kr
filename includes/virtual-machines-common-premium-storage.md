@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437132"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263290"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM의 고성능 Premium Storage 및 관리 디스크
 
@@ -97,7 +97,7 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
     동일한 Premium Storage VM에 프리미엄 및 표준 디스크를 모두 사용할 수 있습니다. Premium Storage를 사용하면 VM을 프로비전하고 VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑할 수 있습니다.
 
     > [!NOTE]
-    > [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 저장소 공간은 사용하는 각 디스크에 대해 하나의 열로 설정해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. 기본적으로 서버 관리자에서는 최대 8개의 디스크를 열로 설정할 수 있습니다. 8개 이상의 디스크가 있는 경우 PowerShell을 사용하여 볼륨을 만듭니다. 열 수를 수동으로 지정합니다. 그렇지 않은 경우 서버 관리자 UI는 더 많은 디스크가 있더라도 8개의 열을 계속 사용합니다. 예를 들어 단일 스트라이프 세트에 32개의 디스크가 있다면 32개의 열을 지정합니다. 가상 디스크에서 사용하는 열 수를 지정하려면 [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet에서 *NumberOfColumns* 매개 변수를 사용합니다. 자세한 내용은 [저장소 공간 개요](http://technet.microsoft.com/library/hh831739.aspx) 및 [저장소 공간 FAQ](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)를 참조하세요.
+    > [저장소 공간](https://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 저장소 공간은 사용하는 각 디스크에 대해 하나의 열로 설정해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. 기본적으로 서버 관리자에서는 최대 8개의 디스크를 열로 설정할 수 있습니다. 8개 이상의 디스크가 있는 경우 PowerShell을 사용하여 볼륨을 만듭니다. 열 수를 수동으로 지정합니다. 그렇지 않은 경우 서버 관리자 UI는 더 많은 디스크가 있더라도 8개의 열을 계속 사용합니다. 예를 들어 단일 스트라이프 세트에 32개의 디스크가 있다면 32개의 열을 지정합니다. 가상 디스크에서 사용하는 열 수를 지정하려면 [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet에서 *NumberOfColumns* 매개 변수를 사용합니다. 자세한 내용은 [저장소 공간 개요](https://technet.microsoft.com/library/hh831739.aspx) 및 [저장소 공간 FAQ](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)를 참조하세요.
     >
     > 
 
@@ -151,7 +151,9 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 ### <a name="premium-storage-disk-limits"></a>Premium Storage 디스크 한도
 프리미엄 저장소 디스크를 프로비전할 때 디스크의 크기가 최대 IOPS 및 처리량(대역폭)을 결정합니다. Azure에서는 P4(Managed Disks 전용), P6(Managed Disks 전용), P10, P15(Managed Disks 전용), P20, P30, P40 및 P50과 같은 여덟 가지 GA 형식의 프리미엄 저장소 디스크를 제공합니다. 뿐만 아니라 P60, P70 및 P80이라는 세 가지 미리 보기 디스크 크기를 제공합니다. 각 프리미엄 저장소 디스크 유형에는 특정 IOPS 및 처리량 한도가 있습니다. 디스크 유형에 대한 한도는 다음 표에 설명되어 있습니다.
 
-| 프리미엄 디스크 유형  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+별표로 표시되는 크기는 현재 미리 보기로 제공됩니다.
+
+| 프리미엄 디스크 유형  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | 디스크 크기           | 32GiB| 64GiB| 128GiB| 256GiB| 512GiB| 1024GiB(1TiB) | 2048GiB(2TiB)| 4095GiB(4TiB)| 8192GiB(8TiB)| 16,384GiB(16TiB)| 32,767GiB(32TiB)|
 | 디스크당 IOPS       | 120   | 240   | 500    | 1100   | 2,300   | 5,000             | 7,500            | 7,500            | 12,500          | 15,000             | 20,000             |
@@ -237,7 +239,7 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 
 스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 프리미엄 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티로 데이터 전송](../articles/storage/common/storage-use-azcopy.md) 및 [Blob 복사](/rest/api/storageservices/Copy-Blob)를 참조하세요.
 
-프리미엄 저장소 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Premium Storage로 Blob service 작업](http://go.microsoft.com/fwlink/?LinkId=521969)을 참조하세요.
+프리미엄 저장소 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Premium Storage로 Blob service 작업](https://go.microsoft.com/fwlink/?LinkId=521969)을 참조하세요.
 
 ### <a name="managed-disks"></a>관리 디스크
 
@@ -267,12 +269,12 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 필요](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 권장](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 필요](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 권장](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
 | RHEL(Red Hat Enterprise Linux) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 또는 RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS용 LIS 드라이버

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400327"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263892"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -292,7 +292,7 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 
 **운영 체제 및 데이터 디스크에 지원되는 가장 큰 관리 디스크 크기는 어떻게 되나요?**
 
-Azure에서 운영 체제 디스크에 지원하는 파티션 형식은 MBR(마스터 부트 레코드)입니다. MBR 형식은 최대 2TiB의 디스크 크기를 지원합니다. Azure에서 운영 체제 디스크에 지원하는 최대 크기는 2TiB입니다. Azure는 관리 데이터 디스크에 최대 32TiB를 지원합니다. 4TiB 보다 큰 관리 디스크 크기는 미리 보기로 제공됩니다. 자세한 내용은 [블로그 게시물](http://aka.ms/azure-large-disk-32TB-preview-blog)을 참조하세요.
+Azure에서 운영 체제 디스크에 지원하는 파티션 형식은 MBR(마스터 부트 레코드)입니다. MBR 형식은 최대 2TiB의 디스크 크기를 지원합니다. Azure에서 운영 체제 디스크에 지원하는 최대 크기는 2TiB입니다. Azure는 관리 데이터 디스크에 최대 32TiB를 지원합니다. 4TiB 보다 큰 관리 디스크 크기는 미리 보기로 제공됩니다. 자세한 내용은 [블로그 게시물](https://aka.ms/azure-large-disk-32TB-preview-blog)을 참조하세요.
 
 **운영 체제 및 데이터 디스크에 지원되는 가장 큰 관리되지 않는 디스크 크기는 어떻게 되나요?**
 
@@ -309,7 +309,7 @@ Azure에서 지원하는 페이지 Blob 크기는 8TiB(8,191GiB)입니다. VM에
 |Azure 도구      | 지원되는 버전                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | 버전 번호 4.1.0: 2017년 6월 릴리스 이상|
-|Azure CLI v1     | 버전 번호 0.10.13: 2017년 5월 릴리스 이상|
+|Azure CLI v1     | 버전 번호 0.10.13: 2017년 5월 릴리스 이상|
 |Azure CLI v2     | 버전 번호 2.0.12: 2017년 7월 릴리스 이상|
 |AzCopy           | 버전 번호 6.1.0: 2017년 6월 릴리스 이상|
 

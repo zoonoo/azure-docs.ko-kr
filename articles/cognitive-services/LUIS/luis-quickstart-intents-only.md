@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b229dbc90f3f6ecc226c88ee393114f233bcf1a2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc631f139e7f11d82f2caac83770754060353d07
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035411"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277718"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>자습서 1: 사용자 지정 앱을 빌드하여 사용자 의도 확인
 
@@ -25,7 +25,7 @@ ms.locfileid: "47035411"
 
 LUIS가 JSON 응답은 반환한 후에 이 요청에서 LUIS가 완료됩니다. LUIS는 사용자 발화에 대답을 제공하지 않고, 자연어에 요청되는 정보의 형식만 식별합니다. 
 
-**이 자습서에서는 다음 방법에 대해 알아봅니다.**
+**이 자습서에서 학습할 내용은 다음과 같습니다.**
 
 > [!div class="checklist"]
 > * 새 앱 만들기 
@@ -71,7 +71,7 @@ LUIS가 JSON 응답은 반환한 후에 이 요청에서 LUIS가 완료됩니다
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "MyStore 의도에 대한 새 발화 입력 스크린샷")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
 ## <a name="none-intent"></a>None 의도 
@@ -156,11 +156,11 @@ LUIS 웹 사이트로 돌아가서 새 의도를 만들고 사용자 발화를 �
 
 ## <a name="train-again"></a>다시 학습
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-again"></a>다시 게시
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="get-intent-again"></a>다시 의도 알기
 

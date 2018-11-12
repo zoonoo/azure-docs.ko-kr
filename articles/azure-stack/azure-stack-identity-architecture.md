@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/01/2018
+ms.date: 11/07/2018
 ms.author: patricka
-ms.reviewer: ''
-ms.openlocfilehash: f2d843b343fa830adf41352ae692ea98bed52ecc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: fiseraci
+ms.openlocfilehash: a16a6596d6bc33200f87a1dfd3b2ea5b02628e10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713649"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277820"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack에 대 한 id 아키텍처
 Azure Stack을 사용 하는 id 공급자를 선택 하기 전에 Azure Active Directory (Azure AD)의 옵션 및 Active Directory Federation Services (AD FS)의 중요 한 차이점을 이해 합니다. 
@@ -44,7 +44,7 @@ Azure Stack을 사용 하는 id 공급자를 선택 하기 전에 Azure Active D
 |응용 프로그램 로그인에 대 한 id 공급자를 사용할 수 있습니다. |예 |예. 응용 프로그램을 온-프레미스와 페더레이션 해야 AD FS 인스턴스. |
 
 ## <a name="topologies"></a>토폴로지
-다음 섹션에서는 절 사용할 수 있는 여러 가지 identity 토폴로지입니다.
+다음 섹션에서는 사용할 수 있는 여러 가지 identity 토폴로지를 설명 합니다.
 
 ### <a name="azure-ad-single-tenant-topology"></a>Azure AD: 단일 테 넌 트 토폴로지 
 기본적으로 Azure Stack을 설치 하 고 Azure AD를 사용 하는 경우 Azure Stack에는 단일 테 넌 트 토폴로지를 사용 합니다. 

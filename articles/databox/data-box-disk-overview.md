@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/04/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 322c398bd6384821697e2b672825cc0805eb43ad
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092901"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229614"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk란? (미리 보기)
 
@@ -25,7 +25,7 @@ Azure Portal에서 Data Box 서비스를 통해 디스크를 빠르게 구성, �
 
 > [!IMPORTANT]
 > - Data Box Disk는 미리 보기로 있습니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
-> - 이 서비스에 등록해야 합니다. 등록하려면 [미리 보기 포털](http://aka.ms/azuredataboxfromdiskdocs)로 이동하세요.
+> - 이 서비스에 등록해야 합니다. 등록하려면 [미리 보기 포털](https://aka.ms/azuredataboxfromdiskdocs)로 이동하세요.
 > - 미리 보기 동안 Data Box Disk는 미국 및 유럽 연합의 고객에게 배송될 수 있습니다. 자세한 내용은 [지역 가용성](#region-availability)을 참조하세요.
 
 ## <a name="use-cases"></a>사용 사례
@@ -112,7 +112,7 @@ Data Box Disk는 네트워크에 아무런 영향을 주지 않고 대량의 데
 
 ## <a name="pricing"></a>가격
 
-미리 보기 동안에는 Data Box Disk를 추가 비용 없이 사용할 수 있습니다. Data Box Disk가 일반 공급될 때에는 이 가격이 변경될 예정입니다.
+가격 책정에 대한 자세한 내용은 [미리 보기 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/databox/disk/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

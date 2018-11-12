@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 6a4ae0697e59eb00e216fc29b154408e4d7a99b8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1664dc16e93fa825962690ec3ed5681478005d59
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785922"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229631"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법
 ## <a name="overview"></a>개요
@@ -47,7 +47,7 @@ SS for OSMF에는 두 가지 버전의 플러그 인이 포함됩니다.
 * 이 버전은 OSMF 2.0만 지원함
 
 ## <a name="supported-features-and-known-issues"></a>지원되는 기능 및 알려진 문제
-지원되는 기능, 지원되지 않는 기능 및 알려진 문제의 전체 목록은 [이 문서](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf)를 참조하세요.
+지원되는 기능, 지원되지 않는 기능 및 알려진 문제의 전체 목록은 [이 문서](https://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf)를 참조하세요.
 
 ## <a name="loading-the-plugin"></a>플러그 인 로드
 OSMF 플러그 인은 정적으로(컴파일 시간에) 또는 동적으로(런타임에) 로드할 수 있습니다. OSMF용 부드러운 스트리밍 플러그 인 다운로드에는 동적 버전과 정적 버전이 모두 있습니다.

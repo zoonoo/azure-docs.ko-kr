@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9f4aae578606e14711deaac87e232bad0158bfe9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 83c7862e8a9e3ce069765f81607bfbbeee272be2
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041492"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278653"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Log Analytics에서 이벤트에 대해 IIS와 Azure Table Storage에 Azure Blob Storage 사용
 
@@ -53,7 +53,7 @@ Log Analytics가 이러한 Azure Diagnostics 로그를 수집하려면 로그가
 >
 >
 
-가상 머신의 경우 [Log Analytics 에이전트](log-analytics-azure-vm-extension.md)를 가상 머신에 설치하여 추가 정보를 얻을 수 있습니다. IIS 로그 및 이벤트 로그를 분석할 수 있을 뿐만 아니라 구성 변경 추적, SQL 평가, 업데이트 평가 등 추가 분석을 수행할 수 있습니다.
+가상 머신의 경우 [Log Analytics 에이전트](log-analytics-quick-collect-azurevm.md)를 가상 머신에 설치하여 추가 정보를 얻을 수 있습니다. IIS 로그 및 이벤트 로그를 분석할 수 있을 뿐만 아니라 구성 변경 추적, SQL 평가, 업데이트 평가 등 추가 분석을 수행할 수 있습니다.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>이벤트 로그 및 IIS 로그 컬렉션에 대한 Azure 진단을 가상 머신에서 사용
 다음 절차를 사용하여 Microsoft Azure Portal에서 이벤트 로그 및 IIS 로그를 수집할 수 있도록 가상 컴퓨터에서 Azure 진단을 사용하도록 설정합니다.
@@ -151,7 +151,7 @@ Log Analytics가 수집할 다른 저장소 계정과 데이터 형식에 대해
 [Azure 진단을 인덱싱하도록 Log Analytics 구성](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) 단계를 사용하여 PowerShell을 통해 Table Storage에 기록된 Azure 진단을 읽을 수 있습니다.
 
 Azure PowerShell을 사용하여 Azure Storage에 기록된 이벤트를 보다 정확하게 지정할 수 있습니다.
-자세한 내용은 [Azure Virtual Machines에서 진단 사용](../virtual-machines-dotnet-diagnostics.md)을 참조하세요.
+자세한 내용은 [Azure Virtual Machines에서 진단 사용](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)을 참조하세요.
 
 다음 PowerShell 스크립트를 사용하여 Azure 진단을 사용하도록 설정하고 업데이트할 수 있습니다.
 또한 사용자 지정 로깅 구성을 사용하여 이 스크립트를 사용할 수 있습니다.
@@ -194,5 +194,5 @@ Azure PowerShell을 사용하여 Azure Storage에 기록된 이벤트를 보다 
 
 ## <a name="next-steps"></a>다음 단계
 * 지원되는 Azure 서비스에 대해 [Azure 서비스에 대한 로그 및 메트릭 수집](log-analytics-azure-storage.md)
-* [솔루션을 사용하도록 설정](log-analytics-add-solutions.md) 하여 데이터에 대한 정보를 제공합니다.
-* [검색 쿼리를 사용](log-analytics-log-searches.md) 하여 데이터를 분석합니다.
+* [솔루션을 사용하도록 설정](../monitoring/monitoring-solutions.md) 하여 데이터에 대한 정보를 제공합니다.
+* [검색 쿼리를 사용](log-analytics-queries.md) 하여 데이터를 분석합니다.

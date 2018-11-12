@@ -4,16 +4,16 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d656d756759c997972eb034e194355185be93e1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28aab15dc67e051190e8d4e35e92240a56fe54a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226545"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262938"
 ---
-다음으로, 클러스터에서 Windows Server 2008 R2 또는 Windows Server 2012를 실행하는 서버가 있는 경우 각각의 온-프레미스 서버 또는 해당 클러스터에 속하는 Azure VM에 핫픽스 [KB2854082](http://support.microsoft.com/kb/2854082) 가 설치되어 있는지 확인해야 합니다. 클러스터에 있지만 가용성 그룹에 없는 서버 또는 VM에도 이 핫픽스를 설치해야 합니다.
+다음으로, 클러스터에서 Windows Server 2008 R2 또는 Windows Server 2012를 실행하는 서버가 있는 경우 각각의 온-프레미스 서버 또는 해당 클러스터에 속하는 Azure VM에 핫픽스 [KB2854082](https://support.microsoft.com/kb/2854082) 가 설치되어 있는지 확인해야 합니다. 클러스터에 있지만 가용성 그룹에 없는 서버 또는 VM에도 이 핫픽스를 설치해야 합니다.
 
-각 클러스터 노드에 대한 원격 데스크톱 세션에서 로컬 디렉터리에 [KB2854082](http://support.microsoft.com/kb/2854082) 를 다운로드합니다. 그런 다음 각 클러스터 노드에 핫픽스를 순차적으로 설치합니다. 클러스터 서비스가 클러스터 노드에서 현재 실행 중인 경우 핫픽스 설치가 끝나면 서버가 다시 시작됩니다.
+각 클러스터 노드에 대한 원격 데스크톱 세션에서 로컬 디렉터리에 [KB2854082](https://support.microsoft.com/kb/2854082) 를 다운로드합니다. 그런 다음 각 클러스터 노드에 핫픽스를 순차적으로 설치합니다. 클러스터 서비스가 클러스터 노드에서 현재 실행 중인 경우 핫픽스 설치가 끝나면 서버가 다시 시작됩니다.
 
 > [!WARNING]
 > 클러스터 서비스를 중지하거나 서버를 다시 시작하면 클러스터 및 가용성 그룹의 쿼럼 상태에 영향을 미치고 클러스터가 오프라인 상태가 될 수 있습니다. 설치하는 동안 클러스터의 고가용성을 유지하려면 다음을 확인하세요.

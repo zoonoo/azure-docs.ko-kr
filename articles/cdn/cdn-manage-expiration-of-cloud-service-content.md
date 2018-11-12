@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: d4ae0c4d5924fab8fcdaf1b4da5c8183a3a5fd0f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 19f928d854618a5e29841dc45d7846faf7fb83b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092476"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253128"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure CDN에서 웹 콘텐츠의 만료 관리
 > [!div class="op_single_selector"]
@@ -109,7 +109,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 **cacheControlMaxAge** 특성을 사용하려면 **cacheControlMode** 특성의 값을 `UseMaxAge`로 설정해야 합니다. 이 설정으로 인해 HTTP 헤더 및 지시문, `Cache-Control: max-age=<nnn>`이 응답에 추가됩니다. **cacheControlMaxAge** 특성에 대한 시간 범위 값의 형식은 `<days>.<hours>:<min>:<sec>`입니다. 해당 값은 초로 변환되고 `Cache-Control` `max-age` 지시문의 값으로 사용됩니다. `<clientCache>` 요소에 대한 자세한 내용은 [클라이언트 캐시 <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)를 참조하세요.  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>프로그래밍 방식으로 Cache-Control 헤더 설정
-ASP.NET 응용 프로그램의 경우 .NET API의 **HttpResponse.Cache** 속성을 설정하면 CDN 캐싱 동작을 프로그래밍 방식으로 제어합니다. **HttpResponse.Cache** 속성에 대한 자세한 내용은 [HttpResponse.Cache 속성](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 및 [HttpCachePolicy 클래스](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)를 참조하세요.  
+ASP.NET 응용 프로그램의 경우 .NET API의 **HttpResponse.Cache** 속성을 설정하면 CDN 캐싱 동작을 프로그래밍 방식으로 제어합니다. **HttpResponse.Cache** 속성에 대한 자세한 내용은 [HttpResponse.Cache 속성](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 및 [HttpCachePolicy 클래스](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)를 참조하세요.  
 
 ASP.NET에서 프로그래밍 방식으로 콘텐츠를 캐시하려면 다음 단계를 따릅니다.
    1. `HttpCacheability`를 `Public`으로 설정하여 콘텐츠를 캐시 가능하게 표시합니다. 
@@ -132,6 +132,6 @@ Response.Cache.SetLastModified(DateTime.Now);
 
 ## <a name="next-steps"></a>다음 단계
 * [**clientCache** 요소에 대한 자세한 내용](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [**HttpResponse.Cache** 속성에 대한 자세한 내용](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [**HttpCachePolicy 클래스**에 대한 자세한 내용](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [**HttpResponse.Cache** 속성에 대한 자세한 내용](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
+* [**HttpCachePolicy 클래스**에 대한 자세한 내용](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
 * [캐싱 개념에 대해 알아보기](cdn-how-caching-works.md)

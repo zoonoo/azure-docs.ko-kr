@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 75fae7a1de6cd9ec2416b11c79c6e8634b92846f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297931"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230821"
 ---
 # <a name="manage-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트 관리
 
@@ -51,7 +51,7 @@ Azure AD와 온-프레미스 디렉터리 통합에 대한 자세한 내용은 [
 아직 Microsoft 클라우드 서비스에 대한 구독이 없는 경우 다음 링크 중 하나를 사용하여 등록하면 됩니다. 첫 번째 서비스에 등록하면 Azure AD 디렉터리가 자동으로 만들어집니다.
 
 * [Microsoft Azure](https://account.azure.com/organization)
-* [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
+* [Office 365](https://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>구독의 기본 디렉터리를 변경하는 방법
