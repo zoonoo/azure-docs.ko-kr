@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 10/31/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: e6d097749dae49cf6f1d710bcf01cf99dcd98a4c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 65f3388074ff7a84c6e0516a64665019d5883ab1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243898"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913175"
 ---
 # <a name="log-analytics-query-language-differences"></a>Log Analytics 쿼리 언어 차이점
 
@@ -63,11 +63,5 @@ ms.locfileid: "50243898"
 
 ## <a name="next-steps"></a>다음 단계
 
-<<<<<<< HEAD:articles/log-analytics/query-language/data-explorer-difference.md
-- [Log Analytics 쿼리 작성을 위한 다른 리소스](kusto.md)에 대한 참조를 가져옵니다.
+- [Log Analytics 쿼리 작성을 위한 다른 리소스](query-language.md)에 대한 참조를 가져옵니다.
 - [Data Explorer 쿼리 언어에 대한 전체 참조 설명서](/azure/kusto/query/)에 액세스합니다.
-=======
-- [Log Analytics](../log-analytics-queries.md)의 쿼리에 대해 알아봅니다.
-- [Log Analytics 쿼리](/log-analytics/query-language/get-started-queries.md) 작성에 대한 단원을 살펴봅니다.
-- [Kusto에 대한 전체 참조 설명서](/azure/kusto/query/)에 액세스합니다.
->>>>>>> 4bccab5ecb17c887658a4d2ed1bab6b22bf29ffd:articles/log-analytics/query-language/kusto.md

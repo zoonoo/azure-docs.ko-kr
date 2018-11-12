@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor의 Log Analytics 데이터 분석 | Microsoft Docs
+title: Azure Monitor에서 Log Analytics 데이터 분석 | Microsoft Docs
 description: 로그 검색을 통해 Log Analytics의 모든 데이터를 검색해야 합니다.  이 문서는 Log Analytics에서 새 로그 검색이 어떻게 사용되는지를 설명하고 새로 만들기 전에 이해해야 하는 개념을 제공합니다.
 services: log-analytics
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6e587f79f0f77446ea5a61cbb989f3f1c3655e0a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005056"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741762"
 ---
-# <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure Monitor의 Log Analytics 데이터 분석
+# <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 데이터 분석
 
 Azure Monitor에서 수집된 로그 데이터는 [Azure Data Explorer](/data-explorer)를 기반으로 하는 Log Analytics 작업 영역에 저장됩니다. 다양한 원본에서 원격 분석을 수집하고 [데이터 탐색기의 쿼리 언어](/kusto)를 사용하여 데이터를 검색하고 분석합니다.
 
@@ -32,7 +32,7 @@ Azure Monitor에서 수집된 로그 데이터는 [Azure Data Explorer](/data-ex
 
 ## <a name="log-queries"></a>로그 쿼리
 
-Log Analytics에서 데이터를 검색하려면 로그 쿼리가 필요합니다.  [포털에서 데이터를 분석](log-analytics-log-search-portals.md)하든, 특정 조건에 대해 알리도록 [경고 규칙을 구성](../monitoring-and-diagnostics/alert-metric.md)하든, [Log Analytics API](https://dev.loganalytics.io/)를 사용하여 데이터를 검색하든 관계없이 쿼리를 사용하여 원하는 데이터를 지정합니다.  이 문서에서는 Log Analytics에서 쿼리를 사용하는 방법을 설명하고 쿼리를 만들기 전에 이해해야 하는 개념을 제공합니다.
+Log Analytics에서 데이터를 검색하려면 로그 쿼리가 필요합니다.  [포털에서 데이터를 분석](log-analytics-log-search-portals.md)하든, 특정 조건에 대해 알리도록 [경고 규칙을 구성](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)하든, [Log Analytics API](https://dev.loganalytics.io/)를 사용하여 데이터를 검색하든 관계없이 쿼리를 사용하여 원하는 데이터를 지정합니다.  이 문서에서는 Log Analytics에서 쿼리를 사용하는 방법을 설명하고 쿼리를 만들기 전에 이해해야 하는 개념을 제공합니다.
 
 
 
@@ -41,12 +41,12 @@ Log Analytics에서 데이터를 검색하려면 로그 쿼리가 필요합니�
 Log Analytics에서 쿼리를 사용하는 방법은 다음과 같습니다.
 
 - **포털.** [Azure Portal](log-analytics-log-search-portals.md)에서 로그 데이터에 대한 대화형 분석을 수행할 수 있습니다.  그러면 다양한 형식 및 시각화로 쿼리를 편집하고 결과를 분석할 수 있습니다.  
-- **경고 규칙.** [경고 규칙](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)은 작업 영역에서 데이터의 문제를 사전에 식별합니다.  각 경고 규칙은 일정한 간격으로 자동으로 실행되는 로그 검색을 기반으로 합니다.  경고를 만들어야 하는지 여부를 결정하도록 결과를 검사합니다.
+- **경고 규칙.** [경고 규칙](log-analytics-alerts.md)은 작업 영역에서 데이터의 문제를 사전에 식별합니다.  각 경고 규칙은 일정한 간격으로 자동으로 실행되는 로그 검색을 기반으로 합니다.  경고를 만들어야 하는지 여부를 결정하도록 결과를 검사합니다.
 - **대시보드.** 쿼리 결과를 [Azure 대시보드]()에 고정하여 로그 및 메트릭 데이터를 함께 시각화하고 다른 Azure 사용자와 선택적으로 공유할 수 있습니다. 
 - **뷰.**  [뷰 디자이너](log-analytics-view-designer.md)를 통해 사용자 대시보드에 포함될 데이터의 시각화를 만들 수 있습니다.  로그 쿼리는 각 뷰의 [타일](log-analytics-view-designer-tiles.md) 및 [시각화 파트](log-analytics-view-designer-parts.md)에서 사용되는 데이터를 제공합니다.  
 - **내보내기.**  Log Analytics 작업 영역에서 Excel 또는 [Power BI](log-analytics-powerbi.md)로 데이터를 가져오는 경우 로그 쿼리를 만들어 내보낼 데이터를 정의합니다.
 - **PowerShell.** [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0)를 사용하는 명령줄 또는 Azure Automation Runbook에서 PowerShell 스크립트를 실행하여 Log Analytics에서 데이터를 검색합니다.  이 cmdlet에는 검색할 데이터를 결정하는 쿼리가 필요합니다.
-- **Log Analytics API.**  REST API 클라이언트는 [Log Analytics 로그 검색 API](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)를 통해 작업 영역에서 로그 데이터를 검색할 수 있습니다.  API 요청에는 검색할 데이터를 확인하기 위해 Log Analytics에 대해 실행되는 쿼리가 포함됩니다.
+- **Log Analytics API.**  REST API 클라이언트는 [Log Analytics 로그 검색 API](log-analytics-log-search-api.md)를 통해 작업 영역에서 로그 데이터를 검색할 수 있습니다.  API 요청에는 검색할 데이터를 확인하기 위해 Log Analytics에 대해 실행되는 쿼리가 포함됩니다.
 
 ![로그 검색](media/log-analytics-queries/queries-overview.png)
 

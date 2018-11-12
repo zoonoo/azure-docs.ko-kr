@@ -1,5 +1,5 @@
-# [Azure Marketplace 및 AppSource 설명서](index.md)  
-
+# [Azure Marketplace 및 AppSource 설명서](index.md)
+## [등급 및 검토 정책](./rating-review-policies.md)   
 ## [Azure Marketplace 및 AppSource 개요 및 이점](./marketplace-publishers-guide.md)  
 
 ### [마켓플레이스에서 게시자 되기](./become-publisher.md)  
@@ -34,6 +34,14 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [클라우드 파트너 포털](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## 포털 관리
+### [개발자 센터 계정 등록](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+### [개인 SKU](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
+### [SEO 지침](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [게시자 프로필 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
+### [사용자 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+### [GDPR 규정 준수](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## [가상 머신 제품](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 ### [필수 구성 요소](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
@@ -70,8 +78,7 @@
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
 
-## Azure 응용 프로그램
-### [개발자 센터 계정 등록](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
+## [Azure 응용 프로그램 제품](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
 ### [관리되는 응용 프로그램 작성](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
 ### [솔루션 템플릿 작성](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
 ### [P관리 솔루션 게시](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
@@ -79,14 +86,12 @@
 ### [제품 라이브 제공](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
 ### [기존 제품 업데이트](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
 ### [제품 삭제](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-### [제품 마이그레이션](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
+<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
 
-## SaaS 응용 프로그램
+## [SaaS 응용 프로그램 제품](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
 ### [SaaS 앱 게시 가이드](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
 ### [Azure 통한 SaaS 판매](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS API](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
-
-<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
 
 ## [컨테이너 제품](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [필수 구성 요소](./cloud-partner-portal/containers/cpp-prerequisites.md)
@@ -98,6 +103,7 @@
 ### [컨테이너 기술 자산 만들기](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
 ### [컨테이너 제품 게시](./cloud-partner-portal/containers/cpp-publish-offer.md)
 ### [기존 제품 업데이트](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
 
 ## [IoT Edge 모듈 제품](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [필수 구성 요소](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
@@ -118,24 +124,16 @@
 ### [IoT Edge module FAQ](./cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-faq.md)
 -->
 
-## 잠재 고객 관리
-### [잠재 고객 가져오기](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
-### [Azure 테이블](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
-### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
-### [HTTPS 엔드포인트](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
-### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
-### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
-
 <!-- ## [Cortana Intelligence](./cloud-partner-portal-orig/cloud-partner-portal-publish-cortana-intelligence-app.md)  -->
 
-## Dynamics 365 for Customer Engagement
+## [Dynamics 365 for Customer Engagement 제품](./cloud-partner-portal-orig/cpp-customer-engagement-offer.md)
 ### [솔루션 만들기](./cloud-partner-portal-orig/dynamics-365-solution-preparation.md)
 ### [패키지 만들기](./cloud-partner-portal-orig/appSource-package-preparation.md)
 ### [SAS 키 생성](./cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md)
 ### [제품 만들기](./cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md)
 ### [제품 게시](./cloud-partner-portal-orig/request-to-publish-the-app.md)
 
-## Dynamics 365 for Business Central
+## [Dynamics 365 Business Central 제품](./cloud-partner-portal-orig/cpp-business-central-offer.md)
 ### [개요 게시](./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md)
 ### [새 제품 만들기](./cloud-partner-portal-orig/d365-finance-create-new-offer.md)
 ### [제품 설정](./cloud-partner-portal-orig/d365-finance-create-offer-settings.md)
@@ -143,7 +141,7 @@
 ### [상점 세부 정보](./cloud-partner-portal-orig/d365-finance-create-storefront-details.md)
 ### [프로세스 게시](./cloud-partner-portal-orig/d365-finance-app-publishing-process.md)
 
-## Dynamics 365 for Operations
+## [Dynamics 365 for Operations 제품](./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md)
 ### [필수 구성 요소](./cloud-partner-portal-orig/pre-requisites.md)
 ### [게시 방법](./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md)
 ### [LCS 구독](./cloud-partner-portal-orig/lcs-subscription.md)
@@ -151,6 +149,11 @@
 ### [데이터 엔터티](./cloud-partner-portal-orig/data-entities.md)
 ### [BPM 및 방법론](./cloud-partner-portal-orig/bpm-and-methodologies.md)
 ### [도움말 wiki](./cloud-partner-portal-orig/help-wiki.md)
+
+## [컨설팅 서비스](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+## [게시자 프로필 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
+## [사용자 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
+## [GDPR 규정 준수](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
 
 ## 시험 사용
 ### [시험 사용이란?](./cloud-partner-portal-orig/what-is-test-drive.md)
@@ -160,12 +163,15 @@
 ### [시험 사용에 대한 변환 예제](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
 ### [마케팅 및 모범 사례](./cloud-partner-portal-orig/marketing-and-best-practices.md)
 
-## [컨설팅 서비스](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
-## [게시자 프로필 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [사용자 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [GDPR 규정 준수](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
+## 잠재 고객 관리
+### [잠재 고객 가져오기](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md)
+### [Azure 테이블](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table.md)
+### [Dynamics](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics.md)
+### [HTTPS 엔드포인트](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https.md)
+### [Marketo](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo.md)
+### [Salesforce](./cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce.md)
 
-## 자세한 정보
+## Seller Insights
 ### [시작](./cloud-partner-portal-orig/si-getting-started.md)
 ### [새로운 기능](./cloud-partner-portal-orig/si-changes.md)
 ### [웹 분석](./cloud-partner-portal-orig/web-analytics.md)

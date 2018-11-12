@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3baa48113022bed1bdc7caa5854a231334c975af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f239b3ef6881f9ea1be043b7d27f061e015ae3be
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224633"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037364"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>Azure Active Directory에서 장치 관리란?
 
@@ -45,7 +45,7 @@ Azure AD에서 제어하는 장치를 얻으려면 두 가지 옵션이 있습�
 
 Azure AD에 장치를 **등록**하면 장치의 ID를 관리할 수 있습니다. 장치가 등록되면 Azure AD 장치 등록은 사용자가 Azure AD에 로그인할 때 장치를 인증하는 데 사용되는 ID와 함께 장치를 제공합니다. ID를 사용하여 장치를 사용하도록 설정하거나 설정 해제할 수 있습니다.
 
-Microsoft Intune과 같은 MDM(모바일 장치 관리) 솔루션과 함께 사용할 경우 Azure AD의 장치 특성이 장치에 대한 추가 정보로 업데이트됩니다. 이렇게 하면 장치의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다. Microsoft Intune에서 장치를 등록하는 방법에 대한 자세한 내용은 Intune에서 관리를 위한 장치 등록을 참조하세요.
+Microsoft Intune과 같은 MDM(모바일 장치 관리) 솔루션과 함께 사용할 경우 Azure AD의 장치 특성이 장치에 대한 추가 정보로 업데이트됩니다. 이렇게 하면 장치의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다. Microsoft Intune에서 장치를 등록하는 방법에 대한 자세한 내용은 [Intune에서 관리를 위한 장치 등록](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms)을 참조하세요.
 
 장치 **가입**은 장치를 등록하는 것에 대한 확장입니다. 즉, 장치 등록 혜택을 모두 제공하면서, 추가로 장치의 로컬 상태를 변경합니다. 로컬 상태를 변경하면 사용자가 개인 계정 대신 조직 회사 또는 학교 계정을 사용하여 장치에 로그인할 수 있습니다.
 

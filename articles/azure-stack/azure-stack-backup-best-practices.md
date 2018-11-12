@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139497"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035104"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>인프라 Backup 서비스에 대 한 유용한 정보
 
@@ -52,7 +52,6 @@ ms.locfileid: "42139497"
 
 ### <a name="backups"></a>Backup
 
- - 인프라 백업 컨트롤러 주문형 트리거될 수 해야 합니다. 하루에 두 번 이상 백업 하는 것이 좋습니다.
  - 백업 작업에는 관리 환경 또는 사용자 응용 프로그램에 가동 중지 시간 없이 이므로 시스템이 실행 되는 동안 실행 합니다. 20-40 분는 적절 한 부하가 있는 솔루션에 대 한 백업 작업을 예상 합니다.
  - 지침을 제공 하는 OEM을 사용 하 여 수동으로 백업 네트워크 스위치와 하드웨어 수명 주기 호스트 (HLH) 저장 되어야 합니다는 인프라 백업 컨트롤러 저장소 제어 평면 백업 데이터 같은 백업 공유에. 스위치 및 HLH 구성 영역 폴더에 저장 하는 것이 좋습니다. Azure Stack의 여러 인스턴스를 동일한 지역에 있는 경우에 배율 단위에 속하는 각 구성에 대 한 식별자를 사용 하는 것이 좋습니다.
 
@@ -95,5 +94,6 @@ Oem 지역 폴더 아래에 있는 해당 구성 요소에 대 한 백업 데이
 
 ## <a name="next-steps"></a>다음 단계
 
- - 에 대 한 참조 자료를 검토 합니다 [인프라 Backup 서비스](azure-stack-backup-reference.md)합니다.  
- - 사용 하도록 설정 합니다 [인프라 백업 서비스](azure-stack-backup-enable-backup-console.md)합니다.
+에 대 한 참조 자료를 검토 합니다 [인프라 Backup 서비스](azure-stack-backup-reference.md)합니다.
+
+사용 하도록 설정 합니다 [인프라 백업 서비스](azure-stack-backup-enable-backup-console.md)합니다.
