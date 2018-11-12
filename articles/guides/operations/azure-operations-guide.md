@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423496"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250784"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -227,7 +227,7 @@ Azure의 중요한 구성 요소 중 하나가 청구 정보를 볼 수 있는 �
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>가격 계산기로 비용 예측
 
-Azure의 각 서비스 가격은 다릅니다. 많은 Azure 서비스는 기본, 표준 및 프리미엄 계층을 제공합니다. 일반적으로 각 계층에는 여러 가지 가격 및 성능 수준이 있습니다. [온라인 가격 계산기](http://azure.microsoft.com/pricing/calculator)를 사용하여 가격을 예측할 수 있습니다. 계산기는 단일 리소스 또는 리소스 그룹에 대한 비용을 예측할 수 있는 유연성을 제공합니다.
+Azure의 각 서비스 가격은 다릅니다. 많은 Azure 서비스는 기본, 표준 및 프리미엄 계층을 제공합니다. 일반적으로 각 계층에는 여러 가지 가격 및 성능 수준이 있습니다. [온라인 가격 계산기](https://azure.microsoft.com/pricing/calculator)를 사용하여 가격을 예측할 수 있습니다. 계산기는 단일 리소스 또는 리소스 그룹에 대한 비용을 예측할 수 있는 유연성을 제공합니다.
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 

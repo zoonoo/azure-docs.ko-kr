@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69680331bdad0faa36cb3df6117baf8b358da132
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212547"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251022"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server가 실행되는 독립 실행형 서비스 패브릭 클러스터에 노드 추가 또는 제거 | Microsoft Azure
 [Windows Server 컴퓨터에 독립 실행형 Service Fabric 클러스터를 만든](service-fabric-cluster-creation-for-windows-server.md) 후 비즈니스 요구는 변경될 수 있으며 클러스터에 노드를 추가 또는 제거해야 할 수 있습니다. 이 문서에서는 이 목표를 달성하는 자세한 단계를 제공합니다. 노드 추가/제거 기능은 로컬 개발 클러스터에서 지원되지 않습니다.
@@ -29,9 +29,9 @@ ms.locfileid: "34212547"
 1. [Service Fabric 클러스터 배포 계획 및 준비](service-fabric-cluster-creation-for-windows-server.md)에 설명된 단계에 따라 클러스터에 추가하려는 VM/컴퓨터를 준비합니다.
 2. 이 VM/컴퓨터를 추가하려는 장애 도메인 및 업그레이드 도메인을 식별합니다.
 3. 클러스터에서 추가하려는 VM/컴퓨터로 RDP(원격 데스크톱)를 수행합니다.
-4. VM/컴퓨터에 [Windows Server용 Service Fabric에 대한 독립 실행형 패키지를 복사 또는 다운로드](http://go.microsoft.com/fwlink/?LinkId=730690)하고 패키지 압축을 풉니다.
+4. VM/컴퓨터에 [Windows Server용 Service Fabric에 대한 독립 실행형 패키지를 복사 또는 다운로드](https://go.microsoft.com/fwlink/?LinkId=730690)하고 패키지 압축을 풉니다.
 5. 상승된 권한으로 Powershell을 실행하고 압축을 푼 패키지의 위치로 이동합니다.
-6. 추가할 새 노드를 설명하는 매개 변수를 사용하여 *AddNode.ps1* 스크립트를 실행합니다. 아래 예제에서는 NodeType0 유형 및 IP 주소 182.17.34.52를 사용하여 VM5라는 새 노드를 UD1 및 fd:/dc1/r0에 추가합니다. *ExistingClusterConnectionEndPoint* 는 기존 클러스터에 이미 있는 노드에 대한 연결 끝점입니다. 이는 클러스터에 있는 *모든* 노드의 IP 주소가 될 수 있습니다.
+6. 추가할 새 노드를 설명하는 매개 변수를 사용하여 *AddNode.ps1* 스크립트를 실행합니다. 아래 예제에서는 NodeType0 유형 및 IP 주소 182.17.34.52를 사용하여 VM5라는 새 노드를 UD1 및 fd:/dc1/r0에 추가합니다. *ExistingClusterConnectionEndPoint* 는 기존 클러스터에 이미 있는 노드에 대한 연결 엔드포인트입니다. 이는 클러스터에 있는 *모든* 노드의 IP 주소가 될 수 있습니다.
 
     ```
     .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA

@@ -10,19 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a80577bb226cbec080edf5e06dbd0f31c80a5890
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 9ef86ea728e197540180d486dc1cb171f78a2590
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321430"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229461"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Conversation Learner 모델에서 다중값 엔터티를 사용하는 방법
 이 자습서는 엔터티의 “다중값” 속성을 보여 줍니다.
 
 ## <a name="video"></a>비디오
 
-[![자습서 6 미리 보기](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
+[![자습서 6 미리 보기](https://aka.ms/cl-tutorial-06-preview)](https://aka.ms/blis-tutorial-06)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.

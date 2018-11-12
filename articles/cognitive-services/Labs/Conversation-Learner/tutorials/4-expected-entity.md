@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 9e685d2281330457e83abde0a8ac26e086da7479
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268024"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229648"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>작업의 "예상 엔터티" 속성을 사용하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "48268024"
 
 ## <a name="video"></a>비디오
 
-[![자습서 4 미리 보기](http://aka.ms/cl-tutorial-04-preview)](http://aka.ms/blis-tutorial-04)
+[![자습서 4 미리 보기](https://aka.ms/cl-tutorial-04-preview)](https://aka.ms/blis-tutorial-04)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
