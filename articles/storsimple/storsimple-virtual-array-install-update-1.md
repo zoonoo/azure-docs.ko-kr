@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: a85290f3f56eb1e1bf57524c43c6d4fea36129f7
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 34439268163b4da6ac45af09101f4f609de7e9ee
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24010826"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248166"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 1.0 설치
 
@@ -36,7 +36,7 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 >
 > - 업데이트 1은 가상 배열에서 업데이트 0.6을 실행하는 경우에만 Azure Portal에서 사용할 수 있습니다. 사전 업데이트 0.6 버전을 실행 중인 가상 배열의 경우 업데이트 0.6을 먼저 설치하고 업데이트 1을 설치해야 합니다.
 
-## <a name="use-the-azure-portal"></a>Azure 포털 사용
+## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 업데이트 0.2 이상을 실행하는 경우 Azure Portal을 통해 업데이트를 설치하는 것이 좋습니다. 포털 절차를 사용하려면 사용자가 업데이트를 스캔, 다운로드한 다음 설치해야 합니다. 가상 배열이 실행 중인 소프트웨어 버전에 따라, Azure Portal을 통한 업데이트 적용이 다릅니다.
 
@@ -66,7 +66,7 @@ StorSimple 가상 배열을 최신 상태로 유지하려면 소프트웨어 업
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>업데이트 또는 핫픽스를 다운로드하려면
 
-1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com)으로 이동합니다.
+1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)으로 이동합니다.
 
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치**를 클릭합니다.
 

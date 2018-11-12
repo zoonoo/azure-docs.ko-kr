@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: f03872a125e4e4d2f1e0b458a31d67a07802f2c8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1fb9be6c05edbd85a709632a001fe1c1b8b4c6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387450"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247792"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -201,7 +201,7 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 ### <a name="tools-and-utilities"></a>도구 및 유틸리티
 * [Storage용 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Storage용 Azure CLI Cmdlet](https://docs.microsoft.com/cli/azure/storage)
-* [AzCopy 명령줄 유틸리티](http://aka.ms/downloadazcopy)
+* [AzCopy 명령줄 유틸리티](https://aka.ms/downloadazcopy)
 * [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [Azure Storage 클라이언트 도구](../storage-explorers.md)
 * [Azure 개발자 도구](https://azure.microsoft.com/tools/)
