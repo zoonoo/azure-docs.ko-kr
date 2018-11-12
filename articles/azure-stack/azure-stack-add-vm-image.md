@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575816"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036600"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 머신 이미지를 Azure Stack에서 사용할 수 있도록
 
@@ -30,7 +30,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
 ## <a name="add-a-vm-image-through-the-portal"></a>포털을 통해 VM 이미지 추가
 
-> [!NOTE]
+> [!NOTE]  
 > 이 메서드를 사용 하 여 별도로 마켓플레이스 항목을 만들어야 합니다.
 
 이미지는 blob 저장소 URI에 의해 참조 될 수 있어야 합니다. Windows 또는 Linux 운영 체제 이미지를 VHD 형식 (VHDX 아님)를 준비 하 고 Azure 또는 Azure Stack 저장소 계정에 이미지를 업로드 합니다. 이미지는 이미 Azure 또는 Azure Stack에서 blob storage에 업로드 됩니다, 경우에 1 단계를 건너뛸 수 있습니다.
@@ -39,7 +39,7 @@ Azure Stack에서 사용할 수 있습니다 가상 머신 이미지를 사용�
 
    - Azure Stack 지원 세대만 고정된 디스크 VHD에서에서 VM 한 개 (1) 형식입니다. 고정 형식은 디스크 오프셋 X가 blob 오프셋 X에 저장 되도록 파일 내에 선형적으로 논리적 디스크를 구조입니다. Blob 끝의 작은 바닥글에서는 VHD의 속성을 설명합니다. 디스크는 고정 하는 경우를 확인 하려면 사용 합니다 [GET-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell 명령입니다.  
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     >  Azure Stack에서 동적 디스크 Vhd를 지원 하지 않습니다. VM에 연결 된 동적 디스크 크기 조정 실패 상태의 VM 종료 됩니다. 이 문제를 완화 하려면 VM의 디스크를 저장소 계정에 VHD blob을 삭제 하지 않고 VM을 삭제 합니다. 동적 디스크에서 VHD 고정된 디스크와 가상 컴퓨터를 다시 만들를 변환 합니다.
 
    * Azure Stack 이미지 리포지토리에 이미지를 푸시 하려면 적은 시간이 걸리기 때문에 blob storage에서 Azure로 보다 Azure Stack blob storage에 이미지를 업로드 하는 것이 효율적 이며

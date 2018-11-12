@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f3c24dbc0f5bb4d5b595799da4f1212b26f8c02a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419778"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016763"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log Analytics의 뷰 디자이너 시각화 요소에 대한 참조 가이드
 Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 다양한 데이터 시각화를 나타내는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 시각화 요소 설정에 대한 참조 가이드입니다.
@@ -363,4 +363,4 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 | 색 |임계값을 나타내는 색입니다. |
 
 ## <a name="next-steps"></a>다음 단계
-* 시각화 요소에서 쿼리를 지원하는 [로그 검색](log-analytics-log-searches.md)에 대한 자세한 정보
+* 시각화 요소에서 쿼리를 지원하는 [로그 검색](log-analytics-queries.md)에 대한 자세한 정보

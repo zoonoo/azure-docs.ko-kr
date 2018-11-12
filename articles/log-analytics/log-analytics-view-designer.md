@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 9a981b80921b8fea60941a994595b19933b61a21
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5e736992b16782b87c62ccb59f88798cbce925a6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042379"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015114"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Log Analytics에서 뷰 디자이너를 사용하여 사용자 지정 보기 만들기
-[Azure Log Analytics](log-analytics-overview.md)에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 데이터를 시각화하는 데 도움이 되는 다양한 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 제공됩니다.
+[Azure Log Analytics](log-analytics-queries.md)에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 데이터를 시각화하는 데 도움이 되는 다양한 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 제공됩니다.
 
 뷰 디자이너에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -42,7 +42,7 @@ ms.locfileid: "48042379"
 |:--- |:--- |
 | 타일 | Log Analytics 작업 영역 **개요** 페이지에 표시됩니다. 각 타일에는 해당 타일이 나타내는 사용자 지정 보기의 시각적 요약이 표시됩니다. 각 타일 유형은 레코드의 다른 시각화를 제공합니다. 사용자 지정 보기를 표시하려면 타일을 선택합니다. |
 | 사용자 지정 보기 | 타일을 선택하면 표시됩니다. 각 보기는 시각화 요소를 하나 이상 포함합니다. |
-| 시각화 요소 | 하나 이상의 [로그 검색](log-analytics-log-searches.md)을 기반으로 Log Analytics 작업 영역에 데이터의 시각화를 나타냅니다. 대부분의 요소는 대략적인 시각화를 제공하는 헤더와 상위 결과를 표시하는 목록을 포함합니다. 각 요소 유형은 Log Analytics 작업 영역에 레코드의 다른 시각화를 제공합니다. 요소의 항목을 선택하면 자세한 레코드를 제공하는 로그 검색이 수행됩니다. |
+| 시각화 요소 | 하나 이상의 [로그 검색](log-analytics-queries.md)을 기반으로 Log Analytics 작업 영역에 데이터의 시각화를 나타냅니다. 대부분의 요소는 대략적인 시각화를 제공하는 헤더와 상위 결과를 표시하는 목록을 포함합니다. 각 요소 유형은 Log Analytics 작업 영역에 레코드의 다른 시각화를 제공합니다. 요소의 항목을 선택하면 자세한 레코드를 제공하는 로그 검색이 수행됩니다. |
 
 
 ## <a name="work-with-an-existing-view"></a>기존 보기로 작업

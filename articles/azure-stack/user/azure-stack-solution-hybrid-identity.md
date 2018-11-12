@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 7cea11f448f20ace2dd50454834e60ce3a3c3b70
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: e1ace09ba293cf80b2dbbe8f746eb7fd5bc8d7cb
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584271"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036396"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>자습서: Azure 및 Azure Stack 응용 프로그램에 대 한 하이브리드 클라우드 id 구성
 
@@ -74,7 +74,7 @@ AD FS 사용 하 여 Azure Stack을 배포한 경우에 서비스 주체 만들�
 코드를 사용 하 여 Azure Stack에 연결 하려면 Azure Resource Manager 끝점 API를 사용 하 여 Azure Stack 설치를 위한 인증 및 graph 끝점 가져오고 다음 REST 요청을 사용 하 여 인증 합니다. 샘플 클라이언트 응용 프로그램을 찾을 수 있습니다 [GitHub](https://github.com/shriramnat/HybridARMApplication)합니다.
 
 >[!Note]
->선택한 언어에 대 한 Azure SDK에서 Azure API 프로필을 지 원하는 경우가 아니면 SDK는 Azure Stack과 함께 작동 하지 않습니다. Azure API 프로필에 대 한 자세한 내용은 참조는 [API 버전 프로필 관리](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles) 문서.
+>선택한 언어에 대 한 Azure SDK에서 Azure API 프로필을 지 원하는 경우가 아니면 SDK는 Azure Stack과 함께 작동 하지 않습니다. Azure API 프로필에 대 한 자세한 내용은 참조는 [API 버전 프로필 관리](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles) 문서.
 
 ## <a name="next-steps"></a>다음 단계
 

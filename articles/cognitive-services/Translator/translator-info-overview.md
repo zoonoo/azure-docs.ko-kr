@@ -10,26 +10,28 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: erhopf
-ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9d1c5fac9e305e397e0184653e6d8965f9098ee3
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645052"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037450"
 ---
 # <a name="what-is-translator-text-api"></a>Translator Text API란?
 
-Translator Text API는 응용 프로그램, 웹 사이트, 도구 또는 기타 솔루션에 원활하게 통합되어 [60개 언어가 넘는](languages.md) 다국어 사용자 환경을 제공할 수 있습니다. 모든 하드웨어 플랫폼 및 모든 운영 체제에서 텍스트-텍스트 언어 번역을 수행하는 데 사용할 수 있습니다.
+Translator Text API는 응용 프로그램, 웹 사이트, 도구 및 솔루션에 쉽게 통합할 수 있습니다. [60개국 초과 언어](languages.md)로 제공되는 다국어 사용자 환경을 추가할 수 있게 해주며, 텍스트-텍스트 언어 번역에 사용되는 모든 운영 체제가 설치된 모든 하드웨어 플랫폼에서 사용할 수 있습니다.
 
-Translator Text API는 사용자 개발 프로젝트에서 쉽게 사용할 수 있는 클라우드의 AI 알고리즘 및 기계 학습의 Azure [Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 컬렉션에 포함됩니다.
+Translator Text API는 클라우드의 AI 알고리즘 및 기계 학습의 Azure [Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 컬렉션에 포함되며, 사용자 개발 프로젝트에서 쉽게 사용할 수 있습니다.
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator 정보
 
-Microsoft Translator는 클라우드 기반 기계 번역 서비스입니다. 이 서비스의 핵심에는 다양한 Microsoft 제품 및 서비스를 제공하고 전세계 수천 개 비즈니스가 해당 응용 프로그램 및 워크플로에서 사용하면서 해당 콘텐츠가 전세계 고객에게 도달하게 하는 Translator Text API 및 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation)가 있습니다.
+Microsoft Translator는 클라우드 기반 기계 번역 서비스입니다. 핵심 서비스는 다양한 Microsoft 제품 및 서비스를 제공하는 Translator Speech API이며, 전 세계 수천 개 기업에서 전 세계 잠재 고객에게 콘텐츠가 도달할 수 있도록 응용 프로그램 및 워크플로에 사용하고 있습니다.
 
-음성 번역은 기존 Translator Speech API, Bing Speech API 및 Custom Speech Service(미리 보기)를 완전히 사용자 지정 가능한 통합 서비스에 결합한 [Cognitive Services Speech 미리 보기](https://docs.microsoft.com/azure/cognitive-services/speech-service/)를 통해 사용할 수도 있습니다.  
+Translator Text API에서 제공하는 음성 번역도 [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/)를 통해 사용할 수 있습니다. 이는 Translator Speech API, Bing Speech API 및 Custom Speech Service(미리 보기)의 기능을 완전히 사용자 지정 가능한 통합 서비스에 결합합니다. Speech Service가 Translator Speech API를 대체함에 따라, Translator Speech API는 2019년 10월 15일부로 사용이 중단됩니다.
 
-[Microsoft Translator 서비스](https://www.microsoft.com/en-us/translator/home.aspx)를 자세히 알아보기
+## <a name="language-support"></a>언어 지원
+
+Microsoft Translator는 번역, 음차, 언어 감지 및 사전에 다국어 지원을 제공합니다. [언어 지원](language-support.md)에서 전체 목록을 참조하거나 [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages)를 사용하여 목록에 프로그래매틱 방식으로 액세스하세요.  
 
 ## <a name="language-customization"></a>언어 사용자 지정
 

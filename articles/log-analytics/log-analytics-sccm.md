@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a5deccbe87bc8de6f6438259c2a43cc4618c24ab
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418078"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016712"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
 System Center Configuration Manager 환경을 Azure Log Analytics에 연결하여 장치 수집 데이터를 동기화하고 Log Analytics 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
@@ -69,7 +69,7 @@ Log Analytics 연결을 추가하려면 구성 관리자 환경에 온라인 모
    
 2. **일반** 화면에서 아래의 작업을 완료했는지와 각 항목에 대한 상세 정보가 있는지 확인하고 **다음**을 선택합니다.
 
-   1. Azure Portal에서 Configuration Manager를 웹 응용 프로그램 및/또는 웹 API 앱으로 등록했는지 여부 및 [등록 시 지정한 클라이언트 ID](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)가 있는지 여부
+   1. Azure Portal에서 Configuration Manager를 웹 응용 프로그램 및/또는 웹 API 앱으로 등록했는지 여부 및 [등록 시 지정한 클라이언트 ID](../active-directory/develop/quickstart-v1-add-azure-ad-app.md)가 있는지 여부
    2. Azure Portal에서 Azure Active Directory에 등록된 앱의 앱 비밀 키를 만들었는지 여부  
    3. Azure Portal에서 등록된 웹앱에 Log Analytics에 대한 액세스 권한을 제공했는지 여부  
       ![Log Analytics 마법사 일반 페이지에 연결](./media/log-analytics-sccm/sccm-console-general01.png)
@@ -113,7 +113,7 @@ Configuration Manager를 Log Analytics에 연결한 후에는 컬렉션을 추�
 
 ![컴퓨터 그룹 - SCCM 탭](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-각 항목을 클릭하면 가져온 그룹 전체 또는 각 그룹에 속하는 전체 컴퓨터가 표시된 검색이 열립니다. [로그 검색](log-analytics-log-searches.md)을 사용하여 구성 관리자 데이터의 자세한 분석을 시작할 수 있습니다.
+각 항목을 클릭하면 가져온 그룹 전체 또는 각 그룹에 속하는 전체 컴퓨터가 표시된 검색이 열립니다. [로그 검색](log-analytics-queries.md)을 사용하여 구성 관리자 데이터의 자세한 분석을 시작할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [로그 검색](log-analytics-log-searches.md)을 사용하여 구성 관리자 데이터에 대한 자세한 정보를 볼 수 있습니다.
+* [로그 검색](log-analytics-queries.md)을 사용하여 구성 관리자 데이터에 대한 자세한 정보를 볼 수 있습니다.
