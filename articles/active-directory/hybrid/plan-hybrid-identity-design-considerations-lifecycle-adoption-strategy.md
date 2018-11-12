@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 43aaddc224403f69f90452c024f24eab8c5bdcd2
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5590f1fc3716582da090b8429f8bcf4fc7911dbe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304702"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251766"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>하이브리드 ID 수명 주기 채택 전략 결정
 이 작업에서 하이브리드 ID 솔루션에 대한 ID 관리 전략을 정의하여 [하이브리드 ID 관리 작업 확인](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)에 정의된 비즈니스 요구 사항을 충족합니다.
@@ -94,7 +94,7 @@ ID 동기화 프로세스
 | 동기화 관리 옵션 | 장점 | 단점 |
 | --- | --- | --- |
 | 동기화 기반(DirSync 또는 AADConnect를 통해) |온-프레미스 및 클라우드에서 동기화된 사용자 및 그룹 <br>  **정책 제어**: 계정 정책이 Active Directory를 통해 설정될 수 있으며 이는 관리자가 클라우드에서 추가 작업을 수행하지 않고 관리자 암호 정책, 워크스테이션, 제한, 잠금 컨트롤을 관리하는 기능을 줍니다.  <br>  **액세스 제어**: 클라우드 서비스에 액세스를 제한하므로 기업 환경 및 서비스 온라인 서버 각각 또는 모두를 통해 서비스에 액세스될 수 있습니다. <br>  감소된 지원 호출: 사용자가 기억할 암호 수가 줄면 분실할 가능성이 줄어듭니다. <br>  보안: Single Sign-On에 사용되는 모든 서버 및 서비스가 온-프레미스에서 마스터되고 제어되기 때문에 사용자 ID 및 정보는 보호됩니다. <br>  강력한 인증에 대한 지원: 클라우드 서비스를 사용하여 강력한 인증(2단계 인증이라고도 함)을 사용할 수 있습니다. 그러나 강력한 인증을 사용하는 경우 Single Sign-On을 사용해야 합니다. | |
-| 페더레이션 기반(AD FS를 통해) |보안 토큰 서비스(STS)에서 사용 가능. Microsoft 클라우드 서비스를 사용하여 Single Sign-On 액세스를 제공하도록 STS를 구성하면 Azure AD 테넌트에 지정한 온-프레미스 STS과 페더레이션된 도메인 간에 페더레이션된 트러스트를 만듭니다. <br> 최종 사용자가 여러 리소스에 액세스하기 위해 동일한 자격 증명의 집합을 사용하도록 허용합니다. <br>최종 사용자가 여러 자격 증명 집합을 유지 관리할 필요가 없습니다. 사용자는 지원되는 참여하는 리소스, B2B 및 B2C 시나리오 각각에 자격 증명을 제공해야 합니다. |전용 온-프레미스 AD FS 서버의 배포 및 유지 관리에 대한 전문 직원이 필요합니다. STS에 AD FS를 사용하려는 경우 강력한 인증의 사용에 제한 사항이 있습니다. 자세한 내용은 [AD FS 2.0에 대한 고급 옵션 구성](http://go.microsoft.com/fwlink/?linkid=235649)을 참조하세요. |
+| 페더레이션 기반(AD FS를 통해) |보안 토큰 서비스(STS)에서 사용 가능. Microsoft 클라우드 서비스를 사용하여 Single Sign-On 액세스를 제공하도록 STS를 구성하면 Azure AD 테넌트에 지정한 온-프레미스 STS과 페더레이션된 도메인 간에 페더레이션된 트러스트를 만듭니다. <br> 최종 사용자가 여러 리소스에 액세스하기 위해 동일한 자격 증명의 집합을 사용하도록 허용합니다. <br>최종 사용자가 여러 자격 증명 집합을 유지 관리할 필요가 없습니다. 사용자는 지원되는 참여하는 리소스, B2B 및 B2C 시나리오 각각에 자격 증명을 제공해야 합니다. |전용 온-프레미스 AD FS 서버의 배포 및 유지 관리에 대한 전문 직원이 필요합니다. STS에 AD FS를 사용하려는 경우 강력한 인증의 사용에 제한 사항이 있습니다. 자세한 내용은 [AD FS 2.0에 대한 고급 옵션 구성](https://go.microsoft.com/fwlink/?linkid=235649)을 참조하세요. |
 
 > [!NOTE]
 > 자세한 내용은 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)을 참조하세요.

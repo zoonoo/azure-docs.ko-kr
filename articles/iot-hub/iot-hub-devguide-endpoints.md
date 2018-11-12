@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 12dd93edce365509488631e4ca27462256abfca8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452669"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251443"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 
@@ -57,7 +57,7 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
 
 * **서비스 엔드포인트**. 각 IoT Hub는 솔루션 백 엔드에서 장치와 통신하기 위한 엔드포인트 집합을 노출합니다. 한 가지를 제외하고 이러한 엔드포인트는 [AMQP](https://www.amqp.org/) 프로토콜을 사용해서만 노출됩니다. 메서드 호출 엔드포인트는 HTTPS 프로토콜을 통해 노출됩니다.
   
-  * *장치-클라우드 메시지 받기*. 이 엔드포인트는 [Azure Event Hubs](http://azure.microsoft.com/documentation/services/event-hubs/)와 호환됩니다. 백 엔드 서비스는 이 엔드포인트를 사용하여 장치에서 보낸 모든 [장치-클라우드 메시지](iot-hub-devguide-messages-d2c.md)를 읽을 수 있습니다. 이 기본 제공 엔드포인트 외에도 IoT Hub에 사용자 지정 엔드포인트를 만들 수 있습니다.
+  * *장치-클라우드 메시지 받기*. 이 엔드포인트는 [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)와 호환됩니다. 백 엔드 서비스는 이 엔드포인트를 사용하여 장치에서 보낸 모든 [장치-클라우드 메시지](iot-hub-devguide-messages-d2c.md)를 읽을 수 있습니다. 이 기본 제공 엔드포인트 외에도 IoT Hub에 사용자 지정 엔드포인트를 만들 수 있습니다.
   
   * *클라우드-장치 메시지를 보내고 배달 승인 받기*. 이러한 엔드포인트를 사용하면 솔루션 백 엔드에서 신뢰할 수 있는 [클라우드-장치 메시지](iot-hub-devguide-messages-c2d.md)를 전송하고 해당 전달 또는 만료 승인을 수신할 수 있습니다.
   

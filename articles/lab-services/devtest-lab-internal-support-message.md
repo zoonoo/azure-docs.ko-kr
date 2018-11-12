@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d12ca26fb2aa5abddcf44b2e634b2f08b1fb01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: deb98c2c633200ab4be1d763a94fd2a04979a3b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696253"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235703"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에 내부 지원 정책 추가
 
@@ -31,7 +31,7 @@ Azure DevTest Labs에서는 사용자에게 랩에 대한 지원 정보를 제�
 
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>기존 랩에 지원 정책을 추가하는 단계
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. 필요한 경우 **모든 서비스**를 선택하고 목록에서 **DevTest Labs**를 선택합니다. 대시보드의 **모든 리소스** 아래에 랩이 이미 표시되어 있을 수 있습니다.
 1. 랩 목록에서 지원 정책을 추가하려는 랩을 선택합니다.  
 1. 랩의 **개요** 영역에서 **구성 및 정책**을 선택합니다.  
@@ -55,7 +55,7 @@ Azure DevTest Labs에서는 사용자에게 랩에 대한 지원 정보를 제�
 
 ## <a name="steps-for-users-to-view-the-support-message"></a>사용자가 지원 메시지를 보는 단계
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩을 선택합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩을 선택합니다.
 
 1. 랩의 **개요** 영역에서 **내부 지원**을 선택합니다.  
 

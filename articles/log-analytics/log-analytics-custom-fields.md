@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: e86b79cb57b9d4a590d69a98eca591679ee10334
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042940"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010590"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics의 사용자 지정 필드
 Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으로 검색 가능한 필드를 추가하여 Log Analytics의 기존 레코드를 확장할 수 있습니다.  사용자 지정 필드는 동일한 레코드의 다른 속성에서 추출한 데이터로 자동으로 채워집니다.
@@ -46,9 +46,9 @@ Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>1단계 – 사용자 지정 필드를 갖게 될 레코드를 식별합니다.
-첫 번째 단계는 사용자 지정 필드를 갖게 될 레코드를 식별하는 것입니다.  [표준 로그 검색](log-analytics-log-searches.md) 부터 시작한 다음 Log Analytics가 학습하는 모델 역할을 할 레코드를 선택합니다.  사용자 지정 필드에 데이터를 추출할 것이라고 지정하면, **Field Extraction Wizard** (필드 추출 마법사)가 열리고 여기서 조건의 유효성을 검사하고 구체화합니다.
+첫 번째 단계는 사용자 지정 필드를 갖게 될 레코드를 식별하는 것입니다.  [표준 로그 검색](log-analytics-queries.md) 부터 시작한 다음 Log Analytics가 학습하는 모델 역할을 할 레코드를 선택합니다.  사용자 지정 필드에 데이터를 추출할 것이라고 지정하면, **Field Extraction Wizard** (필드 추출 마법사)가 열리고 여기서 조건의 유효성을 검사하고 구체화합니다.
 
-1. **로그 검색** 으로 이동하고 사용자 지정 필드를 갖게 될 [레코드를 검색할 쿼리](log-analytics-log-searches.md) 를 사용합니다.
+1. **로그 검색** 으로 이동하고 사용자 지정 필드를 갖게 될 [레코드를 검색할 쿼리](log-analytics-queries.md) 를 사용합니다.
 2. Log Analytics가 사용자 지정 필드를 채울 데이터 추출을 위한 모델 역할을 하기 위해서 사용할 레코드를 선택합니다.  사용자는 이 레코드로부터 추출할 데이터를 식별하고, Log Analytics는 이 정보를 사용하여 유사한 모든 레코드의 사용자 지정 필드를 채울 논리를 결정합니다.
 3. 레코드 텍스트 속성 왼쪽의 단추를 클릭하고 **Extract fields from**(다음에서 필드 추출)을 선택합니다.
 4. **Field Extraction Wizard(필드 추출 마법사)가 열리고**, 선택한 레코드가 **Main Example**(기본 예제) 열에 표시됩니다.  사용자 지정 필드가, 선택한 속성에 동일한 값을 포함하는 레코드에 대해 정의됩니다.  
@@ -140,6 +140,6 @@ DPMRA 서비스를 포함하는 레코드로 스크롤하고 동일한 프로세
 ![쿼리로 그룹화](media/log-analytics-custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 조건에 대한 사용자 지정 필드를 사용하여 쿼리를 빌드하기 위해 [검색 로그](log-analytics-log-searches.md) 에 대해 알아봅니다.
+* 조건에 대한 사용자 지정 필드를 사용하여 쿼리를 빌드하기 위해 [검색 로그](log-analytics-queries.md) 에 대해 알아봅니다.
 * 사용자 지정 필드를 사용하여 구문 분석하는 [사용자 지정 로그 파일](log-analytics-data-sources-custom-logs.md)을 모니터링합니다.
 

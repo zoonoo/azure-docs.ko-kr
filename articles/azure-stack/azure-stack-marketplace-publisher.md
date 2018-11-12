@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 98a7ae31aeeae29b81a1053b38992d3bc4e0e03f
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 4758c29d1cdb7e09c397524574ba1ab6701efeeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085312"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238030"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Marketplace 항목 게시 도구를 사용 하 여 추가
 
@@ -32,7 +32,7 @@ ms.locfileid: "50085312"
 
  - 다운로드 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) 압축을 풉니다.
 
- - 다운로드 합니다 [Azure 갤러리 패키징 도구](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
+ - 다운로드 합니다 [Azure 갤러리 패키징 도구](https://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
  - Marketplace 게시 아이콘 및 미리 보기 파일에 필요합니다. 직접 사용 하거나 저장 합니다 [샘플](azure-stack-marketplace-publisher.md#support-files) 이 예제에 대 한 로컬 파일입니다.
 

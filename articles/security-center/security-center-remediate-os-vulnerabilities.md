@@ -3,7 +3,7 @@ title: Azure Security Center에서 보안 구성 수정 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center 권장 사항 "보안 구성 수정"을 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 74bfc3435ad6d247dabd3a7cbf2910ede5f8c8ca
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296247"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238780"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Security Center에서 보안 구성 수정
 Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 체제)를 매일 분석하여 이러한 VM과 컴퓨터를 공격에 보다 취약하게 만들 수 있는 구성을 확인합니다. Security Center에서는 OS 구성이 권장 보안 구성 규칙과 일치하지 않을 경우 취약성을 해결하도록 권장하며, 이러한 취약성 해결을 위해 구성을 변경하는 것이 좋습니다.
@@ -107,7 +107,7 @@ Security Center에 대해 알아보려면 다음 리소스를 참조하세요.
 * 보안 경고를 관리하고 대응하는 방법을 알아보려면 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
 * 파트너 솔루션의 상태를 모니터링하는 방법을 알아보려면 [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md)을 참조하세요.
 * 서비스 사용에 관한 질문과 대답은 [Azure Security Center FAQ](security-center-faq.md)를 참조하세요.
-* Azure 보안 및 규정 준수에 관한 블로그 게시물은 [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/)를 참조하세요.
+* Azure 보안 및 규정 준수에 관한 블로그 게시물은 [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/)를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

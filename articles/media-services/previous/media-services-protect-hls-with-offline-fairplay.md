@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: dc38772097dddb7c7135d55598373d7ab544f9ea
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785892"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251835"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>iOS용 오프라인 FairPlay 스트리밍 
  Azure Media Services는 다음을 대상으로 하는 적절히 디자인된 [콘텐츠 보호 서비스](https://azure.microsoft.com/services/media-services/content-protection/) 집합을 제공합니다.
@@ -190,7 +190,7 @@ Media Services의 세 가지 테스트 샘플은 다음 세 시나리오를 다�
 * 보호된 FPS – 동영상 및 오디오 사용, 대체 오디오 트랙 없음
 * 보호된 FPS – 동영상만 사용, 오디오 없음
 
-이러한 샘플은 Azure 웹앱에 호스트되는 해당 응용 프로그램 인증서를 사용하여 [이 데모 사이트](http://aka.ms/poc#22)에서 찾을 수 있습니다.
+이러한 샘플은 Azure 웹앱에 호스트되는 해당 응용 프로그램 인증서를 사용하여 [이 데모 사이트](https://aka.ms/poc#22)에서 찾을 수 있습니다.
 FPS Server SDK의 버전 3 또는 버전 4 샘플을 사용하여 마스터 재생 목록에 대체 오디오가 들어 있다면 오프라인 모드 동안에 오디오만을 재생합니다. 따라서 대체 오디오를 제거해야 합니다. 즉, 이전에 나열된 두 번째 및 세 번째 샘플은 온라인 및 오프라인 모드에서 작동합니다. 온라인 스트리밍이 제대로 작동하지만, 첫 번째로 나열된 샘플은 오프라인 모드 동안에는 오디오만 재생합니다.
 
 ## <a name="faq"></a>FAQ

@@ -2,19 +2,19 @@
 title: Hadoop에서 웹 사이트 로그 분석에 Hive 사용 - Azure HDInsight
 description: HDInsight와 함께 Hive를 사용하여 웹 사이트 로그를 분석하는 방법에 대해 알아봅니다. 로그 파일을 HDInsight 테이블에 대한 입력으로 사용하고 HiveQL을 사용해 데이터를 쿼리합니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47175ed4bc01a43d1f21cbfc84b8a788f11b7338
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048027"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233601"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Windows 기반 HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석
 HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하는 방법에 대해 알아봅니다. 웹 사이트 로그 분석을 통해 비슷한 활동을 기준으로 대상을 구분하고, 인구 통계별로 사이트 방문자를 분류하고, 방문자가 보는 콘텐츠와 이전에 방문했던 웹 사이트 등을 확인할 수 있습니다.
@@ -34,7 +34,7 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 ## <a name="prerequisites"></a>필수 조건
 * Azure HDInsight에서 Hadoop 클러스터를 프로비전해야 합니다. 관련 지침은 [HDInsight 클러스터 프로비전](../hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 * Microsoft Excel 2013 또는 Excel 2010을 설치해야 합니다.
-* Hive에서 Excel로 데이터를 가져오려면 [Microsoft Hive ODBC 드라이버](http://www.microsoft.com/download/details.aspx?id=40886) 가 필요합니다.
+* Hive에서 Excel로 데이터를 가져오려면 [Microsoft Hive ODBC 드라이버](https://www.microsoft.com/download/details.aspx?id=40886) 가 필요합니다.
 
 ## <a name="to-run-the-sample"></a>샘플을 실행하려면
 1. [Azure Portal](https://portal.azure.com/)의 시작 보드(클러스터를 여기에 고정한 경우)에서 샘플을 실행할 클러스터 타일을 클릭합니다.

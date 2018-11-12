@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737416"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238525"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 집합 처리
 > [!NOTE]
@@ -61,9 +61,9 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 ## <a name="architecture-of-a-sample-solution"></a>샘플 솔루션 아키텍처
   이 문서에 설명된 아키텍처는 간단한 솔루션에 사용됩니다. 금융 서비스, 이미지 처리와 렌더링 및 유전자 분석에 의한 위험 모델링과 같은 복잡한 시나리오와도 관련됩니다.
 
-다이어그램은 Data Factory에서 데이터 이동 및 처리를 조정하는 방법을 보여줍니다. Batch에서 병렬 방식으로 데이터를 처리하는 방법도 보여줍니다. 쉽게 참조할 수 있도록 다이어그램을 다운로드하고 인쇄합니다(11x17인치 또는 A3 크기). 다이어그램을 인쇄할 수 있도록 액세스하려면 [Batch 및 Data Factory를 사용하여 HPC 및 데이터 오케스트레이션](http://go.microsoft.com/fwlink/?LinkId=717686)을 참조하세요.
+다이어그램은 Data Factory에서 데이터 이동 및 처리를 조정하는 방법을 보여줍니다. Batch에서 병렬 방식으로 데이터를 처리하는 방법도 보여줍니다. 쉽게 참조할 수 있도록 다이어그램을 다운로드하고 인쇄합니다(11x17인치 또는 A3 크기). 다이어그램을 인쇄할 수 있도록 액세스하려면 [Batch 및 Data Factory를 사용하여 HPC 및 데이터 오케스트레이션](https://go.microsoft.com/fwlink/?LinkId=717686)을 참조하세요.
 
-[![대규모 데이터 처리 다이어그램](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![대규모 데이터 처리 다이어그램](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 다음 목록은 프로세스의 기본 단계를 제공합니다. 솔루션에는 종단 간 솔루션을 구축하는 코드와 설명이 포함되어 있습니다.
 

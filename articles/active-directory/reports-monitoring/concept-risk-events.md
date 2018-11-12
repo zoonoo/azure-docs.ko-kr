@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/14/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fe5bcce06ef02bae75bf9fdaf5702a99f485885c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: e4aa4a87bec8f737405c90bb42bdb5fc60cb379a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146413"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233000"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
@@ -155,7 +155,7 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 
 사용자에게 연락하고 모든 사용자 장치를 검사하는 것이 좋습니다. 사용자의 개인 장치가 감염되었거나 이전에 언급했듯이 사용자 이외의 다른 사람이 사용자와 동일한 IP 주소에서 감염된 장치를 사용했을 가능성이 있습니다. 감염된 장치는 종종 바이러스 백신 소프트웨어로 아직 식별되지 않는 맬웨어로 감염됩니다. 또한 장치에 감염을 일으킬 수 있는 잘못된 사용자 습관을 나타낼 수 있습니다.
 
-맬웨어 감염을 해결하는 방법에 대한 자세한 내용은 [맬웨어 보호 센터](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409)(영문)를 참조하세요.
+맬웨어 감염을 해결하는 방법에 대한 자세한 내용은 [맬웨어 보호 센터](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409)(영문)를 참조하세요.
 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>의심스러운 작업이 있는 IP 주소에서 로그인

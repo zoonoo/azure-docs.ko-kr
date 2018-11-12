@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579849"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239052"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -111,7 +111,7 @@ Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)는 수억 개의 ID로 확장하는 소비자 지향 응용 프로그램에 항상 사용 가능한 전역적인 ID 관리 서비스를 제공합니다. 이 서비스는 모바일 및 웹 플랫폼에 통합될 수 있습니다. 소비자는 기존 소셜 계정을 사용하거나 자격 증명을 만들어 사용자 지정할 수 있는 환경을 통해 모든 응용 프로그램에 로그인할 수 있습니다.
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Microsoft 관리자로부터 격리 및 데이터 삭제
-권한이 없는 사람이 부적절하게 액세스하거나 사용하지 않도록 데이터를 보호하기 위해 Microsoft에서 강력한 조치를 취합니다. 이러한 운영 프로세스 및 제어는 사용자의 데이터에 대한 액세스를 제어하는 계약상의 약정을 제공하는 [Online Services 약관](http://aka.ms/Online-Services-Terms)으로 지지됩니다.
+권한이 없는 사람이 부적절하게 액세스하거나 사용하지 않도록 데이터를 보호하기 위해 Microsoft에서 강력한 조치를 취합니다. 이러한 운영 프로세스 및 제어는 사용자의 데이터에 대한 액세스를 제어하는 계약상의 약정을 제공하는 [Online Services 약관](https://aka.ms/Online-Services-Terms)으로 지지됩니다.
 
 -   Microsoft 엔지니어는 클라우드에서 데이터에 대한 기본 액세스 권한을 갖지 없습니다. 대신 필요할 때만 관리 감독하에 액세스 권한이 부여됩니다. 이러한 액세스 권한은 신중하게 제어되고 로깅되며, 더 이상 필요하지 않게 되면 해지됩니다.
 
@@ -119,7 +119,7 @@ Azure Active Directory의 몇 가지 다른 기능은 다음과 같습니다.
 
 ISO/IEC 27001과 같은 감사된 인증을 갖춘 비즈니스 서비스는 합법적인 비즈니스 목적으로만 해당 액세스를 입증하기 위해 샘플 감사를 수행하는 Microsoft 및 공인 감사 기관에서 정기적으로 확인됩니다. 언제든지 어떤 이유로든 자신의 고객 데이터에 액세스할 수 있습니다.
 
-데이터를 삭제하면 Microsoft Azure는 캐시된 복사본 또는 백업 복사본을 모두 포함하여 데이터를 삭제합니다. 범위 내 서비스의 경우 삭제는 보존 기간 종료 후 90일 이내에 발생합니다. (범위 내 서비스는 [Online Services 약관](http://aka.ms/Online-Services-Terms)의 데이터 처리 조항 섹션에 정의되어 있습니다.)
+데이터를 삭제하면 Microsoft Azure는 캐시된 복사본 또는 백업 복사본을 모두 포함하여 데이터를 삭제합니다. 범위 내 서비스의 경우 삭제는 보존 기간 종료 후 90일 이내에 발생합니다. (범위 내 서비스는 [Online Services 약관](https://aka.ms/Online-Services-Terms)의 데이터 처리 조항 섹션에 정의되어 있습니다.)
 
 저장소로 사용되는 디스크 드라이브에 하드웨어 장애가 발생하면 Microsoft에서 교체하거나 복구하기 위해 제조업체에 반환하기 전에 안전하게 [지워지거나 제거됩니다](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data). 어떤 방법으로도 데이터를 복구할 수 없도록 드라이브의 데이터를 덮어씁니다.
 

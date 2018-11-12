@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d520a33fd6729f4a9d4778cfdb8d3380c9ac09b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161768"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237845"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Stack에서 Azure Resource Manager 템플릿 사용
 
@@ -30,7 +30,7 @@ Azure Resource Manager 템플릿을 배포 하 고 조정 된 단일 작업에�
 
 이러한 템플릿은 Microsoft Azure Stack 포털, PowerShell, 명령줄 및 Visual Studio에서 배포할 수 있습니다.
 
-다음 빠른 시작 템플릿은 [GitHub](http://aka.ms/azurestackgithub):
+다음 빠른 시작 템플릿은 [GitHub](https://aka.ms/azurestackgithub):
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>SharePoint Server (비-고가용성 배포) 배포
 
@@ -81,4 +81,4 @@ PowerShell DSC 확장을 사용하여 기존 가상 머신 로컬 구성 관리�
 ## <a name="next-steps"></a>다음 단계
 
 * [포털을 사용하여 템플릿 배포](azure-stack-deploy-template-portal.md)
-* [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)
+* [Azure 리소스 관리자 개요](../../azure-resource-manager/resource-group-overview.md)

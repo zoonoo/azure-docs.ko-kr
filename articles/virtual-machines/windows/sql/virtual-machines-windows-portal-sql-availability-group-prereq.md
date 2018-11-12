@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253077"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines에 Always On 가용성 그룹을 만들기 위한 필수 구성 요소 완료
 
@@ -35,14 +35,14 @@ ms.locfileid: "43371488"
 
 ## <a name="review-availability-group-documentation"></a>가용성 그룹 설명서 검토
 
-이 자습서는 사용자가 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 이 기술에 익숙하지 않은 경우 [Always On 가용성 그룹 개요(SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx)를 참조하세요.
+이 자습서는 사용자가 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 이 기술에 익숙하지 않은 경우 [Always On 가용성 그룹 개요(SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)를 참조하세요.
 
 
 ## <a name="create-an-azure-account"></a>Azure 계정 만들기
 Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) 또는 [Visual Studio 구독자 혜택을 활성화](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits)할 수 있습니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
 2. **+** 를 클릭하여 포털에서 새 개체를 만듭니다.
 
    ![새 개체](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -180,7 +180,7 @@ Azure 계정이 필요합니다. [무료 Azure 계정을 열거나](https://sign
 | **VM 디스크 유형** |SSD |
 | **사용자 이름** |DomainAdmin |
 | **암호** |Contoso!0000 |
-| **구독** |*사용자의 구독* |
+| **구독** |*구독* |
 | **리소스 그룹** |SQL-HA-RG |
 | **위치**: |*사용자의 위치* |
 | **크기** |DS1_V2 |
@@ -349,7 +349,7 @@ Active Directory 및 사용자 개체 구성을 완료했으므로 2개의 SQL S
 
 ## <a name="create-sql-server-vms"></a>SQL Server VM 만들기
 
-3개의 가상 머신을 추가로 만듭니다. 이 경우 SQL Server 인스턴스가 있는 2개의 가상 머신이 필요합니다. 세 번째 가상 머신은 미러링 모니터 서버로 작동됩니다. Windows Server 2016에서는 [미러링 모니터 서버](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)를 사용할 수 있지만, 이전 운영 체제와의 일관성을 위해 이 문서에서는 미러링 모니터 서버로 가상 머신을 사용합니다.  
+3개의 가상 머신을 추가로 만듭니다. 이 경우 SQL Server 인스턴스가 있는 2개의 가상 머신이 필요합니다. 세 번째 가상 머신은 미러링 모니터 서버로 작동됩니다. Windows Server 2016에서는 [미러링 모니터 서버](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)를 사용할 수 있지만, 이전 운영 체제와의 일관성을 위해 이 문서에서는 미러링 모니터 서버로 가상 머신을 사용합니다.  
 
 계속 진행하기 전에 다음 디자인 결정 사항을 고려해야 합니다.
 

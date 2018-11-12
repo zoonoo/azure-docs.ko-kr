@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 54eefc9c488718dae25e35ef0c5f0f5c50dea16c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041744"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236933"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 인증 및 권한 부여
 
@@ -142,7 +142,7 @@ Body
 
 ### <a name="operations-and-scopes"></a>작업 및 범위
 
-|작업|대상 리소스|토큰 사용 권한|
+|작업(Operation)|대상 리소스|토큰 사용 권한|
 |---|---|---|
 |데이터 집합을 기반으로 새 메모리 내 보고서를 만듭니다.|데이터 집합|Dataset.Read|
 |데이터 집합을 기반으로 새 메모리 내 보고서를 만들고 보고서를 저장합니다.|데이터 집합|* Dataset.Read<br>* Workspace.Report.Create|
@@ -170,7 +170,7 @@ Body
    
    ![앱 토큰 흐름 - 서비스가 사용자에게 보고서를 보냄](media/get-started-sample/token-6.png)
 
-**Power BI 작업 영역 컬렉션**에서 사용자에게 보고서를 보낸 후 사용자는 사용자 지정 앱에서 보고서를 볼 수 있습니다. 예를 들어 [판매 데이터 PBIX 분석 샘플](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix)을 가져온 경우 샘플 웹앱이 다음과 같이 보입니다.
+**Power BI 작업 영역 컬렉션**에서 사용자에게 보고서를 보낸 후 사용자는 사용자 지정 앱에서 보고서를 볼 수 있습니다. 예를 들어 [판매 데이터 PBIX 분석 샘플](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix)을 가져온 경우 샘플 웹앱이 다음과 같이 보입니다.
 
 ![응용 프로그램에 포함된 보고서 샘플](media/get-started-sample/sample-web-app.png)
 

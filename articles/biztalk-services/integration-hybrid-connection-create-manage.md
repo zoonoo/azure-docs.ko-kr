@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26628849"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232983"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>하이브리드 연결 만들기 및 관리
 
@@ -37,7 +37,7 @@ ms.locfileid: "26628849"
 이 항목에서는 이러한 단계를 나열합니다. 
 
 > [!IMPORTANT]
-> 하이브리드 연결 끝점을 IP 주소로 설정할 수 있습니다. IP 주소를 사용하는 경우 클라이언트에 따라 온-프레미스 리소스에 도달하지 못할 수 있습니다. 하이브리드 연결은 DNS 조회를 수행하는 클라이언트에 따라 달라집니다. 대부분의 경우에는 **클라이언트** 는 응용 프로그램 코드입니다. 클라이언트가 DNS 조회를 수행하지 않는 경우(도메인 이름(x.x.x.x)인 것처럼 보이면 IP 주소를 확인하지 않음), 하이브리드 연결을 통해 트래픽을 보내지 않습니다.
+> 하이브리드 연결 엔드포인트를 IP 주소로 설정할 수 있습니다. IP 주소를 사용하는 경우 클라이언트에 따라 온-프레미스 리소스에 도달하지 못할 수 있습니다. 하이브리드 연결은 DNS 조회를 수행하는 클라이언트에 따라 달라집니다. 대부분의 경우에는 **클라이언트** 는 응용 프로그램 코드입니다. 클라이언트가 DNS 조회를 수행하지 않는 경우(도메인 이름(x.x.x.x)인 것처럼 보이면 IP 주소를 확인하지 않음), 하이브리드 연결을 통해 트래픽을 보내지 않습니다.
 > 
 > 예를 들어, **10.4.5.6** (의사 코드)을 온-프레미스 호스트로 정의합니다.
 > 
@@ -105,7 +105,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [Azure App Service 하이브리드 연결](../app-service/app-service-hybrid-connections.md)도 좋은 리소스입니다.
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>그룹 정책을 사용하여 하이브리드 연결에 사용되는 온-프레미스 리소스를 제어합니다.
-1. [하이브리드 연결 관리자 관리 템플릿](http://www.microsoft.com/download/details.aspx?id=42963)을 다운로드합니다.
+1. [하이브리드 연결 관리자 관리 템플릿](https://www.microsoft.com/download/details.aspx?id=42963)을 다운로드합니다.
 2. 파일의 압축을 풉니다.
 3. 그룹 정책을 수정하는 컴퓨터에서 다음을 수행합니다.  
    
@@ -118,7 +118,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [하이브리드 연결 개요](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>참고 항목
-[Microsoft Azure의 BizTalk Services를 관리하기 위한 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[Microsoft Azure의 BizTalk Services를 관리하기 위한 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk Services: Editions 차트](biztalk-editions-feature-chart.md)  
 [BizTalk Service 만들기](biztalk-provision-services.md)  
 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)

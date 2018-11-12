@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 3f7b216be79be1307a5668d6686fd73a27ae5574
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421359"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237862"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js를 사용하여 Azure의 Linux에서 Cassandra 클러스터 실행
 
@@ -49,7 +49,7 @@ Cassandra는 작업의 분산 특성에 따라 단일 Azure 지역이나 여러 
 ### <a name="single-region-deployment"></a>단일 지역 배포
 단일 지역 배포로 시작하여 다중 지역 모델을 만드는 방법을 알아보겠습니다. Azure 가상 네트워킹은 위에서 언급한 네트워크 보안 요구 사항을 충족할 수 있도록 격리된 서브넷을 만드는 데 사용됩니다.  단일 지역 배포를 만드는 방법에서 설명된 프로세스는 Ubuntu 14.04 LTS 및 Cassandra 2.08을 사용합니다. 하지만 다른 Linux 변형에도 쉽게 이 프로세스를 채택할 수 있습니다. 다음은 단일 지역 배포의 몇 가지 시스템 특성입니다.  
 
-**고가용성:** 노드가 고가용성을 위해 여러 오류 도메인 간에 분산되도록 Cassandra 노드는 그림 1에서처럼 두 가용성 집합에 배포됩니다. 각 가용성 집합은 주석이 추가된 VM이 2개의 오류 도메인에 매핑됩니다. Azure는 계획되지 않은 작동 중지 시간(예: 하드웨어 또는 소프트웨어 오류)을 관리하는 데 장애 도메인의 개념을 사용합니다. 예정된 작동 중지 시간 관리에는 업그레이드 도메인(예: 호스트 또는 게스트 OS 패치/업그레이드, 응용 프로그램 업그레이드)의 개념을 사용합니다. 높은 가용성 확보에 있어 오류 및 업그레이드 도메인의 역할은 [Azure 응용 프로그램에 대한 고가용성 및 재해 복구](http://msdn.microsoft.com/library/dn251004.aspx) 를 참조하세요.
+**고가용성:** 노드가 고가용성을 위해 여러 오류 도메인 간에 분산되도록 Cassandra 노드는 그림 1에서처럼 두 가용성 집합에 배포됩니다. 각 가용성 집합은 주석이 추가된 VM이 2개의 오류 도메인에 매핑됩니다. Azure는 계획되지 않은 작동 중지 시간(예: 하드웨어 또는 소프트웨어 오류)을 관리하는 데 장애 도메인의 개념을 사용합니다. 예정된 작동 중지 시간 관리에는 업그레이드 도메인(예: 호스트 또는 게스트 OS 패치/업그레이드, 응용 프로그램 업그레이드)의 개념을 사용합니다. 높은 가용성 확보에 있어 오류 및 업그레이드 도메인의 역할은 [Azure 응용 프로그램에 대한 고가용성 및 재해 복구](https://msdn.microsoft.com/library/dn251004.aspx) 를 참조하세요.
 
 ![단일 지역 배포](./media/cassandra-nodejs/cassandra-linux1.png)
 

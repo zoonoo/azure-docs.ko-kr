@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: markgal
-ms.openlocfilehash: d35f8667cb1ca9a0b3abd08450ebc647d6d12276
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7cb87847d6a1e191fb20dfa9cdf263066704eb6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607211"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238814"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Azure Backup Server로 시스템 상태 백업 및 완전 복구로 복원
 
@@ -34,7 +34,7 @@ Azure Backup Server는 시스템 상태를 백업하고 BMR(완전 복구) 보�
 |**파일 데이터**<br /><br />정기적인 데이터 백업<br /><br />BMR/시스템 상태 백업|손실된 파일 데이터|Y|N|N|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|Y|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 그대로 유지)|N|N|Y|
-|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|아니오|예(BMR, 이후 백업된 파일 데이터의 정기적인 복구 수행)|
+|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|아니요|예(BMR, 이후 백업된 파일 데이터의 정기적인 복구 수행)|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 사이트, 목록, 목록 항목, 문서|Y|N|N|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|Y|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|재해 복구|N|N|N|
@@ -97,15 +97,15 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 ## <a name="before-you-begin"></a>시작하기 전에
 
 1.  **Azure Backup Server 배포**. Backup Server가 제대로 배포되어 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
-    * [System requirements for Azure Backup Server](http://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)(Azure Backup Server 시스템 요구 사항)
+    * [System requirements for Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)(Azure Backup Server 시스템 요구 사항)
     * [Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)
 
 2.  **저장소 설정**. 백업 데이터를 디스크 및 테이프에 저장하고 Azure를 통해 클라우드에 저장할 수 있습니다. 자세한 내용은 [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage)(데이터 저장소 준비)를 참조하세요.
 
-3.  **보호 에이전트 설치**. 백업할 컴퓨터에 보호 에이전트를 설치합니다. 자세한 내용은 [Deploy the DPM protection agent](http://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent)(DPM 보호 에이전트 배포)를 참조하세요.
+3.  **보호 에이전트 설치**. 백업할 컴퓨터에 보호 에이전트를 설치합니다. 자세한 내용은 [Deploy the DPM protection agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent)(DPM 보호 에이전트 배포)를 참조하세요.
 
 ## <a name="back-up-system-state-and-bare-metal"></a>시스템 상태 백업 및 완전 복구 백업
-[Deploy protection groups](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)(보호 그룹 배포)의 설명대로 보호 그룹을 설정합니다. 서로 다른 그룹에 있는 동일한 컴퓨터에 대한 BMR 및 시스템 상태를 보호할 수는 없습니다. 또한 BMR을 선택하면 시스템 상태가 자동으로 사용하도록 설정됩니다.
+[Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)(보호 그룹 배포)의 설명대로 보호 그룹을 설정합니다. 서로 다른 그룹에 있는 동일한 컴퓨터에 대한 BMR 및 시스템 상태를 보호할 수는 없습니다. 또한 BMR을 선택하면 시스템 상태가 자동으로 사용하도록 설정됩니다.
 
 
 1.  Backup Server 관리자 콘솔에서 [새 보호 그룹 만들기] 마법사를 열려면 **보호** > **작업** > **보호 그룹 만들기**를 선택합니다.
@@ -114,7 +114,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 3.  **그룹 구성원 선택** 페이지에서 컴퓨터를 확장하고 **BMR** 또는 **시스템 상태**를 선택합니다.
 
-    서로 다른 그룹에 있는 동일한 컴퓨터에 대한 BMR 및 시스템 상태를 둘 다 보호할 수는 없다는 것을 기억하세요. 또한 BMR을 선택하면 시스템 상태가 자동으로 사용하도록 설정됩니다. 자세한 내용은 [Deploy protection groups](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)(보호 그룹 배포)를 참조하세요.
+    서로 다른 그룹에 있는 동일한 컴퓨터에 대한 BMR 및 시스템 상태를 둘 다 보호할 수는 없다는 것을 기억하세요. 또한 BMR을 선택하면 시스템 상태가 자동으로 사용하도록 설정됩니다. 자세한 내용은 [Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)(보호 그룹 배포)를 참조하세요.
 
 4.  **데이터 보호 방법 선택** 페이지에서 단기 및 장기 백업을 처리할 방법을 선택합니다. 단기 백업은 항상 디스크에 먼저 기록되고 Azure Backup을 사용하여 디스크에서 Azure 클라우드로 백업하는 옵션이 있습니다(단기 또는 장기). 클라우드에 대한 장기 백업 대신 Backup Server에 연결되지 않은 독립 실행형 테이프 장치 또는 테이프 라이브러리에 대한 장기 백업을 설정할 수도 있습니다.
 

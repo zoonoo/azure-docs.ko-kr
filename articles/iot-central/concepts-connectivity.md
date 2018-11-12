@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7b2dd4e97d23f37c8261e51f3f65e78436493ddc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157703"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238739"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 장치 연결 | Microsoft Docs
 
@@ -144,13 +144,13 @@ X509 인증서를 사용하여 IoT Central에 장치를 연결하려면 다음�
         *  서명된 확인 인증서를 업로드하고 확인을 클릭합니다.
 
         ![연결 설정](media\concepts-connectivity\verify-cert.png)
-    *   **보조 인증서:** IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인증서를 배포하는 주된 이유 두 가지는 보안 위반 및 인증서 만료가 될 것입니다. 보조 인증서는 기본 인증서를 업데이트하는 동안 프로비전하려는 장치의 가동 중지 시간을 줄이는 데 사용됩니다.
+    *   **보조 인증서:** IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인증서를 배포하는 주된 이유 두 가지는 보안 위반 및 인증서 만료입니다. 보조 인증서는 기본 인증서를 업데이트하는 동안 프로비전하려는 장치의 가동 중지 시간을 줄이는 데 사용됩니다.
 
     **테스트 전용** 
     
     다음은 CA 인증서 및 장치 인증서를 생성하는 데 사용할 수 있는 몇몇 유틸리티 명령줄 도구입니다.
 
-    * MxChip를 사용하는 경우 CA를 생성하여 IoT Central 앱에 추가하고 인증서를 확인하기 위한 [명령줄 도구](http://aka.ms/iotcentral-docs-dicetool)가 있습니다. 
+    * MxChip를 사용하는 경우 CA를 생성하여 IoT Central 앱에 추가하고 인증서를 확인하기 위한 [명령줄 도구](https://aka.ms/iotcentral-docs-dicetool)가 있습니다. 
 
     *   이 [명령줄 도구](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md )를 사용하여
         * 인증서 체인(GitHub 문서의 2단계에 따라)을 만듭니다. 
@@ -165,7 +165,7 @@ X509 인증서를 사용하여 IoT Central에 장치를 연결하려면 다음�
     서비스 정보를 프로비전하여 장치를 프로그래밍하면 장치가 켜질 때 해당 연결 세부 정보 및 IoT Central 앱 할당을 가져올 수 있습니다.    
 
     **추가 참조** 
-    *   [RaspberryPi](http://aka.ms/iotcentral-docs-Raspi-releases)에 대한 샘플 구현.  
+    *   [RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)에 대한 샘플 구현.  
 
     *   [C의 샘플 장치 클라이언트.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 

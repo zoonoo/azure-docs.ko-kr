@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 8ecef86841bcf13a469f9c0dc81f114bd54acdba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a5b7f93f9ac6cc5b1076881727a42fd5b95ff4b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946519"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235159"
 ---
 # <a name="what-is-azure-data-box-heavy-preview"></a>Azure Data Box Heavy란? (미리 보기)
 
@@ -31,7 +31,7 @@ Data Box Heavy는 현재 미리 보기로 제공되며 Azure Portal을 통해 �
 
 > [!IMPORTANT]
 > - Data Box Heavy는 미리 보기로 제공됩니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
-> - 장치를 요청하려면 [미리 보기 포털](http://aka.ms/)에서 등록합니다.
+> - 장치를 요청하려면 [미리 보기 포털](https://aka.ms/)에서 등록합니다.
 > - 미리 보기 동안 Data Box Heavy는 미국 및 유럽 연합의 고객에게 배송될 수 있습니다. 자세한 내용은 [지역 가용성](#region-availability)을 참조하세요.
 
 ## <a name="use-cases"></a>사용 사례

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b1d0a7476cff2be00aa44bb8b859261099298d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579618"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236693"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
 이 문서에서는 Azure Marketplace에서 승인된 Microsoft 개발자가 되기 위해 필요한 계정 만들기 및 등록 과정을 안내합니다.
@@ -98,7 +98,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **"판매" 국가:** Azure Marketplace에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 위의 “판매” 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 자세한 내용은 [Marketplace 참가 정책](http://go.microsoft.com/fwlink/?LinkID=526833)을 참조하세요.
+   > **"판매" 국가:** Azure Marketplace에서 서비스를 판매하기 위해서는 등록된 법인이 승인된 위의 “판매” 국가 중 하나에 속해 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. Microsoft는 가까운 장래에 이 국가 목록을 확장하기 위해 적극 노력하고 있으니 기대해 주세요. 자세한 내용은 [Marketplace 참가 정책](https://go.microsoft.com/fwlink/?LinkID=526833)을 참조하세요.
    >
    >
 5. "계정 형식"으로 **회사**를 선택하고 **다음** 단추를 클릭합니다.
@@ -127,7 +127,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
 9. 결제 정보를 입력하여 해당 계정에 대한 비용을 지불합니다. 등록 비용을 부담하는 프로모션 코드를 가지고 있는 경우 여기에 프로모션 코드를 입력할 수 있습니다. 그렇지 않은 경우 신용 카드 정보(또는 지원되는 시장에서 PayPal)를 제공합니다. 작업을 마쳤으면 **다음**을 클릭하여 **"검토 화면"** 으로 이동합니다.
 
     ![drawing](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. 계정 정보를 검토하고 모든 정보가 올바른지 확인합니다. 그런 다음 [Microsoft Azure Marketplace 판매자 계약](http://go.microsoft.com/fwlink/?LinkID=699560)의 약관을 읽고 동의합니다. 확인란을 선택하여 이러한 약관을 읽고 동의했음을 나타냅니다.
+10. 계정 정보를 검토하고 모든 정보가 올바른지 확인합니다. 그런 다음 [Microsoft Azure Marketplace 판매자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)의 약관을 읽고 동의합니다. 확인란을 선택하여 이러한 약관을 읽고 동의했음을 나타냅니다.
 11. **마침** 을 클릭하여 등록을 확인합니다. 메일 주소로 확인 메시지를 보냅니다.
 12. 무료 제안만 게시할 계획인 경우 **Azure Marketplace 게시 포털로 이동**을 클릭하여 이 문서의 섹션 3, [게시 포털에서 계정 등록](#3-register-your-account-in-the-publishing-portal)을 건너뛰어도 됩니다.
 

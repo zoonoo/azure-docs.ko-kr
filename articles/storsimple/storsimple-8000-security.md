@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fb8c3fe9dd5ca207e4ae37faf9a5a1c4edfffc63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906389"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233816"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 보안 및 데이터 보호
 
@@ -121,7 +121,7 @@ StorSimple 스냅숏 관리자에 대한 자세한 내용을 보려면 [StorSimp
 StorSimple 암호를 강력하고 잘 보호되도록 만들기 위해서 다음 지침을 사용하는 것이 좋습니다.
 
 * 3개월 마다 암호를 변경합니다. 매년 암호 변경이 강제로 적용됩니다.
-* 강력한 암호를 사용합니다. 자세한 내용을 보려면 [보다 강력한 암호 만들기 및 보호](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/)로 이동하세요.
+* 강력한 암호를 사용합니다. 자세한 내용을 보려면 [보다 강력한 암호 만들기 및 보호](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/)로 이동하세요.
 * 서로 다른 액세스 메커니즘에 대해 항상 다른 암호를 사용합니다. 지정한 각 암호는 고유해야 합니다.
 * StorSimple 장치에 액세스할 권한이 없는 사용자와 암호를 공유하지 않습니다.
 * 다른 사람 앞에서 암호에 대해 얘기하거나 암호 형식에 대한 힌트를 제공하지 마세요.

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0fe3116934ac4ab9b1e3fd3b5efcd6627df0ed3d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 072fa8978bd4f08494191708d9a71c6c112a0629
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046932"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252056"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션의 새로운 기능
 
@@ -72,5 +72,5 @@ ms.locfileid: "43046932"
 * 모든 **v1.0** API 호출에 사용할 수 있도록 샘플 응용 프로그램이 업데이트되었습니다.
 * Power BI 작업 영역 컬렉션은 Azure SDK, PowerShell 및 CLI에 대해 지원됩니다.
 * 사용자가 시각화 데이터를 **.csv**로 내보낼 수 있습니다.
-* 이제 동일한 모든 언어/로캘에서 Microsoft Azure로 Power BI 작업 영역 컬렉션이 지원됩니다. 자세한 내용은 [Azure - 언어](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)를 참조하세요.
+* 이제 동일한 모든 언어/로캘에서 Microsoft Azure로 Power BI 작업 영역 컬렉션이 지원됩니다. 자세한 내용은 [Azure - 언어](https://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)를 참조하세요.
 

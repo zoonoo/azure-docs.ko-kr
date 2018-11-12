@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: d24902b894a632e9fe8c57f2fb2b652b44ab128c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 932b4c80912fa516a08c18cd581f96b5ea91e1dc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42139549"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232310"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack에 대 한 Red Hat 기반 가상 머신 준비
 
@@ -30,7 +30,7 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 Red Hat 기반 가상 머신 준비
 
-이 섹션에서는 가정 이미 Red Hat 웹 사이트에서 ISO 파일이 가상 하드 디스크 (VHD)에 RHEL 이미지를 설치 합니다. Hyper-v 관리자를 사용 하 여 운영 체제 이미지를 설치 하는 방법에 대 한 자세한 내용은 참조 하세요. [Hyper-v 역할 설치 및 가상 머신 구성](http://technet.microsoft.com/library/hh846766.aspx)합니다.
+이 섹션에서는 가정 이미 Red Hat 웹 사이트에서 ISO 파일이 가상 하드 디스크 (VHD)에 RHEL 이미지를 설치 합니다. Hyper-v 관리자를 사용 하 여 운영 체제 이미지를 설치 하는 방법에 대 한 자세한 내용은 참조 하세요. [Hyper-v 역할 설치 및 가상 머신 구성](https://technet.microsoft.com/library/hh846766.aspx)합니다.
 
 ### <a name="rhel-installation-notes"></a>RHEL 설치 참고 사항
 
@@ -40,7 +40,7 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 * Linux 운영 체제를 설치하는 경우 설치 기본값인 경우가 많은 LVM(논리 볼륨 관리자)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이 방법은 특히 문제 해결에 대 한 다른 동일한 가상 컴퓨터에 운영 체제 디스크를 연결 해야 하는 경우 복제 된 가상 머신과 LVM 이름이 충돌을 방지 합니다.
 * UDF(범용 디스크 형식) 파일 시스템을 탑재하기 위한 커널 지원이 필요합니다. 게스트에 연결 된 UDF 형식의 미디어 처음 부팅 시 Linux 가상 머신을 프로 비전 구성을 전달 합니다. Azure Linux 에이전트는 해당 구성을 읽고 가상 머신을 프로 비전을 위해 UDF 파일 시스템을 탑재 해야 합니다.
 * 운영 체제 디스크에서는 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다. 다음 단계에서에 대 한 자세한 정보를 찾을 수 있습니다.
-* Azure의 모든 Vhd는 가상 크기가 1MB로 정렬 있어야 합니다. 으로 변환할 때 원시 디스크를 VHD로 변환 하기 전에 1MB의 배수 원시 디스크 크기는 확인 해야 합니다. 자세한 내용은 아래 단계에서 찾을 수 있습니다.
+* Azure의 모든 VHD에는 1MB로 정렬된 가상 크기가 있어야 합니다. 으로 변환할 때 원시 디스크를 VHD로 변환 하기 전에 1MB의 배수 원시 디스크 크기는 확인 해야 합니다. 자세한 내용은 아래 단계에서 찾을 수 있습니다.
 * Azure Stack에서 cloud-init를 지원 하지 않습니다. 지원 되는 Windows Azure Linux 에이전트 (WALA)의 버전을 사용 하 여 VM은 구성 해야 합니다.
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Hyper-V 관리자에서 RHEL 7 가상 머신 준비

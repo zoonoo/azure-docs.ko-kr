@@ -9,12 +9,12 @@ ms.date: 04/27/2018
 ms.author: mbullwin
 ms.reviewer: antonfr
 ms.component: alerts
-ms.openlocfilehash: 01f924e0b3a2976a3f537cb5acac842eeeaccb4b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1b47e3804d8be36e3c6c8c570fec06f542e8dbf2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263316"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233969"
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Azure Monitor의 동적 임계값을 사용한 경고(제한된 공개 미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "35263316"
 
 ## <a name="sign-up-to-access-the-preview"></a>미리 보기에 액세스하려면 등록하세요.
 
-이 기능을 테스트해보려면 [미리 보기에 등록](http://aka.ms/DynamicThresholdMetricAlerts)하세요. 언제나 여러분의 의견을 환영합니다. [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)으로 의견을 보내주세요.
+이 기능을 테스트해보려면 [미리 보기에 등록](https://aka.ms/DynamicThresholdMetricAlerts)하세요. 언제나 여러분의 의견을 환영합니다. [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)으로 의견을 보내주세요.
 
 ## <a name="how-to-configure-alerts-with-dynamic-thresholds"></a>동적 임계값을 사용한 경고를 구성하는 방법
 

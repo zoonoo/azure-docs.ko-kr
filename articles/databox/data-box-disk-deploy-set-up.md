@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b3b686815b86e28c0473668825b89736b9af5bf1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740487"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232891"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>자습서: Azure Data Box Disk 압축 풀기, 연결 및 잠금 해제
 
@@ -75,7 +75,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
     이 절차에서는 Data Box 디스크 잠금 해제 도구만 사용합니다. 다른 두 가지 도구는 나중에 사용됩니다.
 
     > [!div class="nextstepaction"]
-    > [Windows용 Data Box Disk 도구 집합 다운로드](http://aka.ms/databoxdisktoolswin)         
+    > [Windows용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolswin)         
 
 3. 데이터를 복사하는 데 사용할 동일한 컴퓨터에서 도구 집합을 추출합니다. 
 4. 명령 프롬프트 창을 열거나 동일한 컴퓨터에서 관리자 권한으로 Windows PowerShell을 실행합니다.
@@ -131,7 +131,7 @@ Windows 또는 Linux 클라이언트에 연결되는지에 따라 디스크의 �
 2. Linux 클라이언트에 해당하는 Data Box Disk 도구 집합을 다운로드합니다.  
 
     > [!div class="nextstepaction"]
-    > [Linux용 Data Box Disk 도구 집합 다운로드](http://aka.ms/databoxdisktoolslinux) 
+    > [Linux용 Data Box Disk 도구 집합 다운로드](https://aka.ms/databoxdisktoolslinux) 
 
 3. Linux 클라이언트에서 터미널을 엽니다. 소프트웨어를 다운로드한 폴더로 이동합니다. 이러한 파일을 실행할 수 있도록 파일 사용 권한을 변경합니다. 다음 명령을 입력합니다. 
 

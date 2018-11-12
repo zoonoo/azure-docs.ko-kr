@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: fc4b2d0beef1c91cd937ba901974796441657441
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055709"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234768"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>차량 원격 분석 솔루션 플레이 북: 솔루션에 대한 심층 분석
 이 메뉴는 다음 플레이 북의 섹션에 연결됩니다. 
@@ -123,7 +123,7 @@ Stream Analytics 작업:
 
 
 ### <a name="batch-analysis"></a>Batch 분석
-또한 더욱 충분한 일괄 분석을 위해 시뮬레이션된 차량 신호와 진단 데이터 집합의 추가 볼륨이 생성됩니다. 이러한 추가 볼륨은 일괄 처리에 적합한 대표 데이터 볼륨을 보장하는 데 필요합니다. 이 작업을 위해 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터 집합을 생성하기 위해 Data Factory 워크플로에서 PrepareSampleDataPipeline을 사용합니다. 요구 사항에 따라 사용자 지정할 Data Factory 사용자 지정 .NET 작업 Visual Studio 솔루션을 다운로드하려면 [Data Factory 사용자 지정 작업](http://go.microsoft.com/fwlink/?LinkId=717077) 웹 페이지로 이동합니다. 
+또한 더욱 충분한 일괄 분석을 위해 시뮬레이션된 차량 신호와 진단 데이터 집합의 추가 볼륨이 생성됩니다. 이러한 추가 볼륨은 일괄 처리에 적합한 대표 데이터 볼륨을 보장하는 데 필요합니다. 이 작업을 위해 1년 분량의 시뮬레이션된 차량 신호 및 진단 데이터 집합을 생성하기 위해 Data Factory 워크플로에서 PrepareSampleDataPipeline을 사용합니다. 요구 사항에 따라 사용자 지정할 Data Factory 사용자 지정 .NET 작업 Visual Studio 솔루션을 다운로드하려면 [Data Factory 사용자 지정 작업](https://go.microsoft.com/fwlink/?LinkId=717077) 웹 페이지로 이동합니다. 
 
 이 워크플로는 일괄 처리를 위해 준비된 샘플 데이터를 보여 줍니다.
 
@@ -358,7 +358,7 @@ Stream Analytics의 기간 이동 기능에 대해 자세히 알아보려면 [�
 
 * 이벤트를 수신합니다. 이 응용 프로그램이 수신하는 모든 이벤트에 대해 다음을 수행합니다. 
    
-   * 데이터는 Machine Learning RRS(요청-응답 채점) 끝점을 사용하여 처리됩니다. RRS 끝점이 배포의 일부로 자동으로 게시됩니다.
+   * 데이터는 Machine Learning RRS(요청-응답 채점) 엔드포인트를 사용하여 처리됩니다. RRS 엔드포인트가 배포의 일부로 자동으로 게시됩니다.
    * RRS 출력이 푸시 API를 사용하여 Power BI 데이터 집합에 게시됩니다.
 
 이 패턴은 LOB(기간 업무) 응용 프로그램을 실시간 분석 흐름과 통합하려는 시나리오에도 적용할 수 있습니다. 이러한 시나리오에는 경고, 알림 및 메시징이 포함됩니다.
@@ -551,9 +551,9 @@ Hive 스크립트 fuelefficientdriving.hql은 연료 효율이 좋은 주행 상
 
 **회수 모델 예측**
 
-기계 학습 실험은 솔루션 배포의 일부인 웹 서비스로 프로비전 및 게시됩니다. 일괄 처리 점수 매기기 끝점이 이 워크플로에서 사용됩니다. 이 끝점은 Data Factory 연결 서비스로 등록되며, Data Factory 일괄 처리 점수 매기기 활동을 사용하여 운용됩니다.
+기계 학습 실험은 솔루션 배포의 일부인 웹 서비스로 프로비전 및 게시됩니다. 일괄 처리 점수 매기기 엔드포인트가 이 워크플로에서 사용됩니다. 이 끝점은 Data Factory 연결 서비스로 등록되며, Data Factory 일괄 처리 점수 매기기 활동을 사용하여 운용됩니다.
 
-![Machine Learning 끝점](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig21-vehicle-telematics-machine-learning-endpoint.png) 
+![Machine Learning 엔드포인트](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig21-vehicle-telematics-machine-learning-endpoint.png) 
 
 등록된 연결된 서비스가 DetectAnomalyPipeline에 사용되며 이상 감지 모델을 사용하여 데이터 점수를 매깁니다. 
 
@@ -674,4 +674,4 @@ Power BI는 실시간 데이터 및 예측 분석 시각화를 위해 이 솔루
 * [스트림 수집을 위한 Azure Event Hubs SDK](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Azure Data Factory 데이터 이동 기능](../../data-factory/copy-activity-overview.md)
 * [Azure Data Factory .NET 작업](../../data-factory/transform-data-using-dotnet-custom-activity.md)
-* [샘플 데이터 준비에 사용되는 Azure Data Factory .NET 작업 Visual Studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717077) 
+* [샘플 데이터 준비에 사용되는 Azure Data Factory .NET 작업 Visual Studio 솔루션](https://go.microsoft.com/fwlink/?LinkId=717077) 

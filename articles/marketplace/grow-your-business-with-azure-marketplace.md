@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577335"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233017"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>마켓플레이스에서 비즈니스 성장 
 AppSource 또는 Azure Marketplace에 제품을 게시한 후 Microsoft와 함께 GTM(출시) 활동을 수행하기 위한 실행 패드로 목록을 사용할 수 있습니다. 예를 들어 트래픽을 Marketplace 제품으로 안내하고 Marketplace 잠재 고객을 육성하는 것은 비즈니스 성장을 가속화하는 좋은 방법입니다. 
@@ -229,7 +229,7 @@ MPN에서 제공하는 지침은 다음과 같습니다.
 
 | 이점 | 리소스 |
 |:--- |:--- |
-| 핵심적인 혜택 활용 | Microsoft 파트너 네트워크의 일환으로 시간과 비용을 절약하는 데 도움이 되는 일단의 핵심적 혜택을 받게 됩니다. 또한 이러한 혜택은 역량을 강화하고, 고객에게 더 나은 제공하며, 잠재적인 비즈니스 성과를 최대한 달성하기 위한 연결을 구축하는 데 도움이 될 수 있습니다.<br>핵심 혜택에 대한 자세한 내용은 [핵심 혜택 및 요구 사항](http://partner.microsoft.com/membership/core-benefits)을 참조하세요. |
+| 핵심적인 혜택 활용 | Microsoft 파트너 네트워크의 일환으로 시간과 비용을 절약하는 데 도움이 되는 일단의 핵심적 혜택을 받게 됩니다. 또한 이러한 혜택은 역량을 강화하고, 고객에게 더 나은 제공하며, 잠재적인 비즈니스 성과를 최대한 달성하기 위한 연결을 구축하는 데 도움이 될 수 있습니다.<br>핵심 혜택에 대한 자세한 내용은 [핵심 혜택 및 요구 사항](https://partner.microsoft.com/membership/core-benefits)을 참조하세요. |
 | 클라우드 플랫폼 역량 확보 | 역량을 확보하면 다른 Microsoft 파트너들 가운데 자신을 차별화하는 데 도움이 됩니다. 역량을 확보하면 시장에서 기술적인 전문성과 고객 성공을 시연하는 경우에도 도움이 됩니다. 역량은 Co-Sell과 같은 많은 핵심 파트너 프로그램의 필수 조건입니다.<br> 클라우드 플랫폼 역량에 대한 자세한 내용은 [클라우드 플랫폼 역량](https://partner.microsoft.com/membership/cloud-platform-competency)을 참조하세요. |
 | IP Co-Sell 준비 완료 | 대상 고객 기회 및 계정 계획에 대해 Microsoft 판매자 및 다른 파트너와 직접 공동으로 작업할 수 있는 IP Co-Sell 준비 프로그램에 참여할 수 있습니다. 여러분의 솔루션은 판매자 솔루션 카탈로그를 통해 Microsoft 판매자에게 표시됩니다. 여러분과 협력하고 우세한 Microsoft 판매자에게는 보상이 제공됩니다.<br> 자격 요구 사항을 포함하여 Co-Sell 준비 프로그램에 대한 자세한 내용은 [비즈니스 홍보](https://partner.microsoft.com/reach-customers/promote-your-business)를 참조하세요. |
 

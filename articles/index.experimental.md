@@ -3,19 +3,19 @@ layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
 description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
-ms.openlocfilehash: e1f01a63de4d9b2eaf45fa2b83875db6b1770418
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a2c778f38c4a211f9a2ba1b73317478202adfcd5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388262"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232681"
 ---
 <div id="main" class="v2">
     <div class="container">
         <h1 class="screenReader">Microsoft Azure 설명서</h1>
         <ul class="cardsY panelContent featuredContent">
             <li>
-                <a href="http://aka.ms/azuredevgetstarted/">
+                <a href="https://aka.ms/azuredevgetstarted/">
                     <div class="cardSize">
                         <div class="cardPadding">
                             <div class="card">
@@ -3343,13 +3343,13 @@ ms.locfileid: "49388262"
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/linux-azure-cli">Linux용 Azure CLI 다운로드</a>
+                                                    <a href="https://aka.ms/linux-azure-cli">Linux용 Azure CLI 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/mac-azure-cli">Mac용 Azure CLI 다운로드</a>
+                                                    <a href="https://aka.ms/mac-azure-cli">Mac용 Azure CLI 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://aka.ms/webpi-azure-cli">Windows용 Azure CLI 다운로드</a>
+                                                    <a href="https://aka.ms/webpi-azure-cli">Windows용 Azure CLI 다운로드</a>
                                                 </p>
                                                 <p>
                                                     <a href="/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">참조</a>
@@ -3453,13 +3453,13 @@ ms.locfileid: "49388262"
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">시작</a>
                                                 </p>
                                                 <p>
-                                                     <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Linux용 다운로드</a>
+                                                     <a  href="https://go.microsoft.com/fwlink/?LinkId=722418">Linux용 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Mac용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">Mac용 다운로드</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Windows용 다운로드</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Windows용 다운로드</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3477,10 +3477,10 @@ ms.locfileid: "49388262"
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://aka.ms/ptvs">Python 도구</a>
+                                                    <a href="https://aka.ms/ptvs">Python 도구</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://aka.ms/ptvsdocs">Visual Studio 시작</a>
+                                                    <a href="https://aka.ms/ptvsdocs">Visual Studio 시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://code.visualstudio.com/docs/python/python-tutorial">Visual Studio Code 시작</a>

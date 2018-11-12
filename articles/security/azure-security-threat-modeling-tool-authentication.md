@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307423"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251562"
 ---
 # <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화 
 | 제품/서비스 | 문서 |
@@ -156,7 +156,7 @@ ms.locfileid: "43307423"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | OnPrem, SQL Azure |
 | **특성**              | SQL 버전 - MSSQL2012, SQL 버전 - V12 |
-| **참조**              | [포함된 데이터베이스의 보안 모범 사례](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **참조**              | [포함된 데이터베이스의 보안 모범 사례](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **단계** | 적용된 암호 정책이 없는 경우 포함된 데이터베이스에 취약한 자격 증명이 설정될 가능성이 높아질 수 있습니다. Windows 인증을 활용합니다. |
 
 ## <a id="authn-sas-tokens"></a>SaS 토큰을 사용하여 장치당 인증 자격 증명 사용

@@ -10,18 +10,18 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: dcf31bd6b128115962e30dd6653364c4cd65047d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241585"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235992"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 메시지 통합 개요
 
 Azure Blockchain Workbench는 REST API를 제공할 뿐만 아니라 메시징 기반 통합도 제공합니다. 이 Workbench는 Azure Event Grid를 통해 원장 중심 이벤트를 게시하여 다운스트림 소비자가 데이터를 수집하거나 이러한 이벤트를 기준으로 작업을 수행할 수 있도록 합니다. 신뢰할 수 있는 메시징을 필요로 하는 클라이언트를 위해, Azure Blockchain Workbench는 Azure Service Bus 엔드포인트에 메시지를 배달합니다.
 
-또한 개발자는 외부 시스템이 사용자를 만들고, 계약을 만들고, 원장의 계약을 업데이트하기 위한 트랜잭션을 시작할 것을 알리는 기능도 필요할 것입니다. 이 기능은 현재 공개 미리 보기에 제공되지 않지만, 해당 기능을 제공하는 샘플을 [http://aka.ms/blockchain-workbench-integration-sample](http://aka.ms/blockchain-workbench-integration-sample)에서 찾을 수 있습니다.
+또한 개발자는 외부 시스템이 사용자를 만들고, 계약을 만들고, 원장의 계약을 업데이트하기 위한 트랜잭션을 시작할 것을 알리는 기능도 필요할 것입니다. 이 기능은 현재 공개 미리 보기에 제공되지 않지만, 해당 기능을 제공하는 샘플을 [http://aka.ms/blockchain-workbench-integration-sample](https://aka.ms/blockchain-workbench-integration-sample)에서 찾을 수 있습니다.
 
 ## <a name="event-notifications"></a>이벤트 알림
 

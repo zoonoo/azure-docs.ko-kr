@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 32be46fb0c41909ce8a8014b13843970555d366f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146857"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233085"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 > [!IMPORTANT] 
@@ -90,7 +90,7 @@ ms.locfileid: "42146857"
 
 VM에서 HTTPS를 사용하려면 신뢰할 수 있는 SSL 인증서가 필요합니다. 시나리오에 따라 다음 두 방법 중 하나를 사용할 수 있습니다.
 
-* CA(인증 기관)에서 발급하고 Microsoft에서 신뢰하는 유효한 SSL 인증서. CA 루트 인증서는 Microsoft 루트 인증서 프로그램을 통해 배포되어야 합니다. 이 프로그램에 대한 자세한 내용은 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(구성원 CA)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) 및 [Microsoft 루트 인증서 프로그램 소개](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx)를 참조하세요.
+* CA(인증 기관)에서 발급하고 Microsoft에서 신뢰하는 유효한 SSL 인증서. CA 루트 인증서는 Microsoft 루트 인증서 프로그램을 통해 배포되어야 합니다. 이 프로그램에 대한 자세한 내용은 [Windows 및 Windows Phone 8 SSL 루트 인증서 프로그램(구성원 CA)](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) 및 [Microsoft 루트 인증서 프로그램 소개](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx)를 참조하세요.
 * 자체 서명된 인증서. 자체 서명된 인증서는 프로덕션 환경에 권장되지 않습니다.
 
 ### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>신뢰할 수 있는 CA(인증 기관)에서 만든 인증서를 사용하려면

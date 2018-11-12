@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211896"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232174"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory 및 DNS에 대한 재해 복구 설정
 
@@ -44,7 +44,7 @@ Site Recovery를 사용하여 도메인 컨트롤러 또는 DNS를 호스트하�
 Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장애 조치(failover)](#test-failover-considerations)에 사용됩니다. 다음 요구 사항을 충족하는지 확인합니다.
 
 1. 도메인 컨트롤러가 글로벌 카탈로그 서버입니다.
-2. 도메인 컨트롤러는 테스트 장애 조치(failover)하는 동안 필요한 역할에 대한 FSMO 역할 소유자여야 합니다. 그렇지 않으면 이러한 역할은 장애 조치(failover) 후 [점유](http://aka.ms/ad_seize_fsmo)되어야 합니다.
+2. 도메인 컨트롤러는 테스트 장애 조치(failover)하는 동안 필요한 역할에 대한 FSMO 역할 소유자여야 합니다. 그렇지 않으면 이러한 역할은 장애 조치(failover) 후 [점유](https://aka.ms/ad_seize_fsmo)되어야 합니다.
 
 ### <a name="configure-vm-network-settings"></a>VM 네트워크 설정 구성
 도메인 컨트롤러 또는 DNS를 호스트하는 가상 머신의 경우 Site Recovery에서 복제된 가상 머신의 **계산 및 네트워크** 설정 아래에서 네트워크 설정을 구성합니다. 이렇게 하면 장애 조치(failover) 후 가상 머신이 올바른 네트워크에 연결됩니다.
@@ -93,7 +93,7 @@ Site Recovery를 사용하여 복제된 도메인 컨트롤러는 [테스트 장
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>다른 도메인 컨트롤러에 대한 참조 제거
-테스트 장애 조치(failover)를 시작하는 경우 테스트 네트워크에 있는 모든 도메인 컨트롤러를 포함하지 않습니다. 프로덕션 환경에 존재하는 다른 도메인 컨트롤러에 대한 참조를 제거하려면 누락된 도메인 컨트롤러에 대해 [FSMO Active Directory 역할을 점유](http://aka.ms/ad_seize_fsmo)하고 [메타데이터 정리](https://technet.microsoft.com/library/cc816907.aspx)를 수행해야 할 수도 있습니다.
+테스트 장애 조치(failover)를 시작하는 경우 테스트 네트워크에 있는 모든 도메인 컨트롤러를 포함하지 않습니다. 프로덕션 환경에 존재하는 다른 도메인 컨트롤러에 대한 참조를 제거하려면 누락된 도메인 컨트롤러에 대해 [FSMO Active Directory 역할을 점유](https://aka.ms/ad_seize_fsmo)하고 [메타데이터 정리](https://technet.microsoft.com/library/cc816907.aspx)를 수행해야 할 수도 있습니다.
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>가상화 세이프가드로 인한 문제
@@ -180,7 +180,7 @@ Azure로 장애 조치(failover)를 수행하면 **VM-GenerationID**가 다시 �
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    자세한 내용은 [글로벌 카탈로그 서버를 사용하여 사용자 로그온을 확인해야 한다는 요구 사항을 해제하는 방법](http://support.microsoft.com/kb/241789)을 참조하세요.
+    자세한 내용은 [글로벌 카탈로그 서버를 사용하여 사용자 로그온을 확인해야 한다는 요구 사항을 해제하는 방법](https://support.microsoft.com/kb/241789)을 참조하세요.
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>다른 컴퓨터에서 DNS 및 도메인 컨트롤러
 

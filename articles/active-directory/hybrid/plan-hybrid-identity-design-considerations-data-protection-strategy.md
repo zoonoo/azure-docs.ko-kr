@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434758"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238151"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 다음에서 정의된 비즈니스 요구 사항을 충족합니다.
@@ -74,7 +74,7 @@ ms.locfileid: "47434758"
 * 라이선스 추가 또는 제거
 
 > [!NOTE]
-> [Microsoft Azure 보안 및 감사 로그 관리](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) 를 읽고 Azure에서 로깅 기능에 대해 자세히 알아봅니다.
+> [Microsoft Azure 보안 및 감사 로그 관리](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) 를 읽고 Azure에서 로깅 기능에 대해 자세히 알아봅니다.
 > [콘텐츠 관리 요구 사항 확인](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)에서 질문에 답변하는 방법에 따라 하이브리드 ID 솔루션에서 콘텐츠를 관리하는 방법을 확인할 수 있어야 합니다. 테이블 6에 노출된 모든 옵션은 Azure AD와 통합할 수 있는 반면 비즈니스 요구에 적합한 것을 정의하는 데 중요합니다.
 >
 >

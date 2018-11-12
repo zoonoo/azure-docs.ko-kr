@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f093251ce3c711cc060369abb27770157024d91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681539"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238695"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Government 포털에서 온-프레미스 StorSimple 장치 배포
 
@@ -67,7 +67,7 @@ StorSimple 장치를 구성하여 StorSimple 장치 관리자 서비스에 연�
 ## <a name="deployment-configuration-checklist"></a>배포 구성 검사 목록
 StorSimple 장치를 배포하기 전에 정보를 수집하여 장치에 소프트웨어를 구성해야 합니다. 이 정보의 일부를 미리 준비하면 사용자 환경에서 StorSimple 장치를 배포하는 과정을 간소화하는데 도움이 됩니다. 또한 이 검사 목록을 다운로드 및 사용하여 장치를 배포하는 동안 구성 세부 정보를 기록합니다.
 
-[StorSimple 배포 구성 검사 목록 다운로드](http://www.microsoft.com/download/details.aspx?id=49159)
+[StorSimple 배포 구성 검사 목록 다운로드](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## <a name="deployment-prerequisites"></a>배포 필수 조건
 다음 섹션에서는 StorSimple 장치 관리자 서비스 및 StorSimple 장치에 대한 필수 조건에 대해 설명합니다.

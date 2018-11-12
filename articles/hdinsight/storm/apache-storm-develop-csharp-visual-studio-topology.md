@@ -3,18 +3,18 @@ title: Visual Studio 및 C#을 사용하는 Apache Storm 토폴로지 - Azure HD
 description: C#으로 Storm 토폴로지를 만드는 방법을 알아봅니다. Visual Studio 용 Hadoop 도구를 사용하여 Visual Studio에서 간단한 단어 카운트 토폴로지를 만듭니다.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2765021d80701826644f095d22c650160001e907
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5dcc9dcada981a6a4174ce34748356d49582f598
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414899"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237573"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Data Lake tools for Visual Studio를 사용하여 Apache Storm의 C# 토폴로지 개발
 
@@ -43,7 +43,7 @@ Linux 기반 클러스터에 C# 토폴로지를 사용하려면 프로젝트에 
 
 * Visual Studio 2012 업데이트 4
 
-* Visual Studio 2013 업데이트 4 또는 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+* Visual Studio 2013 업데이트 4 또는 [Visual Studio 2013 Community](https://go.microsoft.com/fwlink/?LinkId=517284)
 
 * Visual Studio 2015 또는 [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 

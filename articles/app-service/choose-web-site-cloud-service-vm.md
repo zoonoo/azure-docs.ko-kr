@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 56d5f3b480ddb000f9118fbcc36e39817cb0bce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42022565"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238508"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Virtual Machines, Service Fabric 및 Cloud Services 비교
 
@@ -47,7 +47,7 @@ App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그�
 | WebMatrix 지원 |X | |X | | |
 | Service Bus, 저장소, SQL Database 등의 서비스에 대한 액세스 |X |X |X |X | |
 | 다중 계층 아키텍처의 웹 또는 웹 서비스 계층 호스트 |X |X |X |X | |
-| 다중 계층 아키텍처의 중간 계층 호스트 |X |X |X |X |App Service 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. |
+| 다중 계층 아키텍처의 중간 계층 호스트 |X |X |X |X |App Service 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, [WebJobs](https://go.microsoft.com/fwlink/?linkid=390226) 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. |
 | 통합된 MySQL-as-a-Service 지원 |X |X | | | |
 | ASP.NET, 클래식 ASP, Node.js, PHP, Python 지원 |X |X |X |X |Service Fabric에서는 [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md)를 사용하여 웹 프런트 엔드를 만들거나 모든 유형의 응용 프로그램(Node.js, Java 등)을 [게스트 실행 파일](../service-fabric/service-fabric-guest-executables-introduction.md)로 배포할 수 있습니다. |
 | 다시 배포하지 않고 여러 인스턴스로 규모 확장 |X |X |X |X |Virtual Machines는 여러 인스턴스로 규모 확장될 수 있지만 이러한 컴퓨터에서 실행되는 서비스가 이 규모 확장을 처리하도록 작성되어야 합니다. 부하 분산 장치에서 머신의 요청을 라우팅하도록 구성해야 하며, [가용성 집합](../virtual-machines/windows/manage-availability.md)에 둘 이상의 VM 인스턴스가 있는지 확인합니다. |
@@ -67,8 +67,7 @@ App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그�
 아래에는 몇 가지 일반적인 응용 프로그램 시나리오와 권장 사항 및 각 시나리오에 가장 적합한 Azure 웹 호스팅 옵션이 나와 있습니다.
 
 * [온-프레미스 자산과 통합된 비즈니스 응용 프로그램을 실행하기 위한 데이터베이스 백 엔드 및 백그라운드 처리 기능이 있는 웹 프런트 엔드가 필요한 경우](#onprem)
-* 
-  [효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우](#corp)
+* [효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우](#corp)
 * [IIS6 응용 프로그램을 Windows Server 2003에서 실행 중인 경우](#iis6)
 * [작은 비즈니스 소유자가 사이트를 저렴하게 호스트할 방법을 찾고 있지만 미래 성장도 염두에 두고 있는 경우](#smallbusiness)
 * [웹 또는 그래픽 디자이너가 고객을 위해 웹 사이트를 디자인 및 구축하려는 경우](#designer)
@@ -87,9 +86,7 @@ Azure App Service는 복잡한 비즈니스 응용 프로그램에 적합한 솔
 * ISO, SOC2 및 PCI 호환성을 제공할 수 있습니다.
 * Active Directory와 통합할 수 있습니다.
 
-### 
-  <a id="corp">
-  </a> 효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우
+### <a id="corp"></a> 효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우
 Azure App Service는 회사 웹 사이트를 호스트하는 데 적합한 솔루션입니다. 전 세계 데이터 센터 네트워크의 요구를 충족하도록 웹앱을 빠르고 쉽게 확장할 수 있습니다. Azure 웹 사이트는 로컬 연결, 내결함성 및 지능형 트래픽 관리 기능을 제공합니다. 이러한 모든 기능이 최고 수준의 관리 도구가 포함된 플랫폼에서 제공되므로 사이트 상태와 사이트 트래픽을 빠르고 쉽게 파악할 수 있습니다. Azure App Service는 웹앱에 대해 999의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
 
 * 자동 복구 및 패치되는 클라우드 플랫폼에서 웹 사이트를 안정적으로 실행할 수 있습니다.
@@ -122,8 +119,7 @@ Azure App Service는 처음에 무료로 사용한 후 필요할 때 기능을 �
 * [자동화된 작업][scripting](영문)을 위해 명령줄 도구를 사용할 수 있습니다.
 * [.Net][dotnet], [PHP][PHP], [Node.js][nodejs] 및 [Python][Python] 등의 인기 있는 언어로 작업할 수 있습니다.
 * 매우 높은 기능까지 확장하기 위해 세 가지 확장 수준을 선택할 수 있습니다.
-* 
-  [SQL Database][sqldatabase], [Service Bus][servicebus], [저장소][Storage] 등의 다른 Azure 서비스 및 MySQL, MongoDB 등 [Azure 스토어][azurestore]의 파트너 제공 항목과 통합할 수 있습니다.
+* [SQL Database][sqldatabase], [Service Bus][servicebus], [저장소][Storage] 등의 다른 Azure 서비스 및 MySQL, MongoDB 등 [Azure 스토어][azurestore]의 파트너 제공 항목과 통합할 수 있습니다.
 * Visual Studio, Git, WebMatrix, WebDeploy, TFS, FTP 등의 도구와 통합할 수 있습니다.
 
 ### <a id="multitier"></a>웹 프런트 엔드가 있는 다중 계층 응용 프로그램을 클라우드로 마이그레이션하는 경우

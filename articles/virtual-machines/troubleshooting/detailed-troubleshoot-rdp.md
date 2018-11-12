@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3b6b505be4a0084059d8c37a21099a784cacbed1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: af36f033dbca6c9f594b3568bfe7567a959e2d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414134"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237155"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 원격 데스크톱 연결 문제의 자세한 문제 해결 단계
 이 문서에서는 Windows 기반 Azure 가상 머신에 대한 복잡한 원격 데스크톱 오류를 진단 및 해결하는 자세한 문제 해결 단계를 제공합니다.
@@ -130,7 +130,7 @@ ms.locfileid: "50414134"
 * Windows 방화벽 또는 다른 로컬 방화벽에 원격 데스크톱 트래픽을 방지하는 아웃바운드 규칙이 있습니다.
 * Azure 가상 머신에서 실행 중인 침입 탐지 또는 네트워크 모니터링 소프트웨어가 원격 데스크톱 연결을 방지하고 있습니다.
 
-클래식 배포 모델을 사용하여 만든 VM의 경우 Azure 가상 머신에 대해 원격 Azure PowerShell 세션을 사용할 수 있습니다. 먼저 가상 머신의 호스팅 클라우드 서비스에 대 인증서를 설치해야 합니다. [Azure Virtual Machines에 대한 보안 원격 PowerShell 액세스 구성](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) 으로 이동하고 **InstallWinRMCertAzureVM.ps1** 스크립트 파일을 로컬 컴퓨터에 다운로드합니다.
+클래식 배포 모델을 사용하여 만든 VM의 경우 Azure 가상 머신에 대해 원격 Azure PowerShell 세션을 사용할 수 있습니다. 먼저 가상 머신의 호스팅 클라우드 서비스에 대 인증서를 설치해야 합니다. [Azure Virtual Machines에 대한 보안 원격 PowerShell 액세스 구성](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) 으로 이동하고 **InstallWinRMCertAzureVM.ps1** 스크립트 파일을 로컬 컴퓨터에 다운로드합니다.
 
 다음으로, 아직 없는 경우 Azure PowerShell을 설치합니다. [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.component: files
-ms.openlocfilehash: 698b2ca177535709d13c531d3ca2a82a8a970131
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: f2b6a03ce4e2c03f148fda67cfad1c4d51636b7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024588"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234972"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -351,5 +351,5 @@ Azure Storage에 대한 자세한 내용은 다음 리소스를 살펴보세요.
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
 * [C++ 형식의 Azure Storage 파일 서비스 샘플](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Azure Storage 탐색기](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure Storage 탐색기](https://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)

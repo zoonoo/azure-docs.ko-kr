@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 7bb49e48f3777304aa6f40cee40e0b7147994201
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 52338cc21e46b544c2abb79cd7094615c837a2e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345240"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233782"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>MPI 응용 프로그램을 실행하기 위해 HPC Pack을 사용하여 Windows RDMA 클러스터 설정
 Azure에서 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 및 [RDMA 가능 HPC VM 크기](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances)를 사용하여 MPI(Message Passing Interface) 응용 프로그램을 병렬로 실행하도록 Windows RDMA 클러스터를 설정합니다. HPC 팩 클러스터에서 RDMA 지원, Windows Server 기반 노드를 설정하는 경우 MPI 응용 프로그램은 Azure에서 RDMA(원격 직접 메모리 액세스) 기술을 기반으로 하는 낮은 대기 시간 및 높은 처리량의 네트워크에서 효율적으로 통신합니다.
@@ -51,19 +51,19 @@ Microsoft HPC Pack은 Windows 또는 Linux HPC 응용 프로그램을 실행하�
     [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=49922)에서 HPC 팩 설치 패키지를 다운로드합니다. Azure 버스트 배포를 준비하기 위한 요구 사항 및 지침은 [Microsoft HPC Pack을 사용하여 Azure 작업자 인스턴스로 버스트](https://technet.microsoft.com/library/gg481749.aspx)를 참조하세요.
 2. **Azure 구독에서 관리 인증서 구성**
    
-    헤드 노드와 Azure 간 연결을 보호하기 위한 인증서를 구성합니다. 옵션 및 절차에 대한 자세한 내용은 [HPC 팩용 Azure 관리 인증서 구성 시나리오](http://technet.microsoft.com/library/gg481759.aspx)를 참조하세요. 테스트 배포의 경우 HPC 팩은 Azure 구독에 신속하게 업로드할 수 있는 기본 Microsoft HPC Azure 관리 인증서를 설치합니다.
+    헤드 노드와 Azure 간 연결을 보호하기 위한 인증서를 구성합니다. 옵션 및 절차에 대한 자세한 내용은 [HPC 팩용 Azure 관리 인증서 구성 시나리오](https://technet.microsoft.com/library/gg481759.aspx)를 참조하세요. 테스트 배포의 경우 HPC 팩은 Azure 구독에 신속하게 업로드할 수 있는 기본 Microsoft HPC Azure 관리 인증서를 설치합니다.
 3. **새 클라우드 서비스 및 저장소 계정 만들기**
    
     Azure Portal을 사용하여 배포를 위한 클라우드 서비스(클래식) 및 저장소 계정(클래식)을 만듭니다. 사용하려는 H 시리즈, A8 또는 A9 크기를 사용할 수 있는 지역에서 이러한 리소스를 만듭니다. [지역별 Azure 제품](https://azure.microsoft.com/regions/services/)을 참조하세요.
 
 4. **Azure 노드 템플릿 만들기**
    
-    HPC 클러스터 관리자에서 노드 템플릿 마법사를 사용합니다. 단계를 보려면 "Microsoft HPC 팩을 사용하여 Azure 노드를 배포하는 단계"에서 [Azure 노드 템플릿 만들기](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) 를 참조하세요.
+    HPC 클러스터 관리자에서 노드 템플릿 마법사를 사용합니다. 단계를 보려면 "Microsoft HPC 팩을 사용하여 Azure 노드를 배포하는 단계"에서 [Azure 노드 템플릿 만들기](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) 를 참조하세요.
    
     초기 테스트에서 템플릿에 수동 가용성 정책을 구성하는 것이 좋습니다.
 5. **클러스터에 노드 추가**
    
-    HPC 클러스터 관리자에서 노드 추가 마법사를 사용합니다. 자세한 내용은 참조 [Windows HPC 클러스터에 Azure 노드 추가](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add)를 참조하세요.
+    HPC 클러스터 관리자에서 노드 추가 마법사를 사용합니다. 자세한 내용은 참조 [Windows HPC 클러스터에 Azure 노드 추가](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Add)를 참조하세요.
    
     노드 크기를 지정하는 경우 RDMA 지원 인스턴스 크기 중 하나를 선택합니다.
    
@@ -76,7 +76,7 @@ Microsoft HPC Pack은 Windows 또는 Linux HPC 응용 프로그램을 실행하�
     노드를 선택하고 HPC 클러스터 관리자에서 **시작** 작업을 사용합니다. 프로비전 이 완료되면 노드를 선택하고 HPC 클러스터 관리자에서 **온라인 상태로 전환** 작업을 사용합니다. 노드에서 작업을 실행할 준비가 되었습니다.
 7. **클러스터에 작업 제출**
    
-   HPC 팩 작업 제출 도구를 사용하여 클러스터 작업을 실행합니다. [Microsoft HPC 팩: 작업 관리](http://technet.microsoft.com/library/jj899585.aspx)를 참조하세요.
+   HPC 팩 작업 제출 도구를 사용하여 클러스터 작업을 실행합니다. [Microsoft HPC 팩: 작업 관리](https://technet.microsoft.com/library/jj899585.aspx)를 참조하세요.
 8. **노드 중지(프로 비전 해제)**
    
    작업 실행을 마쳤으면 노드를 오프라인으로 전환하고 HPC 클러스터 관리자에서 **중지** 작업을 사용합니다.

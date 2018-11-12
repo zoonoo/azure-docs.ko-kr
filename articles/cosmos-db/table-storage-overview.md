@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 495fc0fff39a04dee4fc707bd0d2f6b3571cc46a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 204d0032516886c2d954965c7c4561d967bae705
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582067"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232191"
 ---
 # <a name="azure-table-storage-overview"></a>Azure 테이블 저장소 개요
 
@@ -35,6 +35,6 @@ Table Storage를 사용하여 웹 응용 프로그램의 사용자 데이터, �
 
 * 사용 가능한 API에 대한 자세한 내용은 Table service 참조 설명서를 참조하세요.
 
-    * [Storage Client Library for .NET 참조](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    * [Storage Client Library for .NET 참조](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
-    * [REST API 참조](http://msdn.microsoft.com/library/azure/dd179355)
+    * [REST API 참조](https://msdn.microsoft.com/library/azure/dd179355)

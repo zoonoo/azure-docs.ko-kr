@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 90d810916599db50249a3e2ec677046c5af42a09
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7e43a32a415e58925bda5195b3943afca315f9be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005852"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238185"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>클라우드 서비스 모델 정의 및 패키지 방법
 클라우드 서비스는 서비스 정의 *(.csdef)*, 서비스 구성 *(.cscfg)*, 서비스 패키지 *(.cspkg)* 의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg**는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg**와 **ServiceConfig.cscfg**에서 모두 클라우드 서비스를 만듭니다.
@@ -96,10 +96,10 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 IIS7에서 호스트되는 웹 사이트 또는 웹 응용 프로그램에 대한 정의를 포함합니다.
 
 **InputEndpoints**  
-클라우드 서비스에 연결하는 데 사용되는 끝점에 대한 정의를 포함합니다.
+클라우드 서비스에 연결하는 데 사용되는 엔드포인트에 대한 정의를 포함합니다.
 
 **InternalEndpoints**  
-서로 통신하기 위해 역할 인스턴스에서 사용되는 끝점에 대한 정의를 포함합니다.
+서로 통신하기 위해 역할 인스턴스에서 사용되는 엔드포인트에 대한 정의를 포함합니다.
 
 **ConfigurationSettings**  
 특정 역할의 기능에 대한 설정 정의를 포함합니다.
@@ -144,7 +144,7 @@ IIS7에서 호스트되는 웹 사이트 또는 웹 응용 프로그램에 대�
 여기에 사용되는 XML 스키마를 더 잘 이해하려면 [서비스 구성 스키마](https://msdn.microsoft.com/library/azure/ee758710.aspx)를 참조하면 됩니다. 그러나 여기서 간략하게 요소를 설명합니다.
 
 **인스턴스**  
-역할에 대해 실행 중인 인스턴스 수를 구성합니다. 업그레이드하는 동안 잠재적으로 클라우드 서비스를 사용할 수 없게 되는 것을 방지하려면 웹과 관련된 역할의 인스턴스를 두 개 이상 배포하는 것이 좋습니다. 둘 이상의 인스턴스를 배포하면 [Azure Compute SLA(서비스 수준 계약)](http://azure.microsoft.com/support/legal/sla/)의 지침을 준수하게 되므로 서비스를 위해 둘 이상의 역할 인스턴스가 배포될 때 인터넷 연결 역할에 대한 99.95%의 외부 연결을 보증합니다.
+역할에 대해 실행 중인 인스턴스 수를 구성합니다. 업그레이드하는 동안 잠재적으로 클라우드 서비스를 사용할 수 없게 되는 것을 방지하려면 웹과 관련된 역할의 인스턴스를 두 개 이상 배포하는 것이 좋습니다. 둘 이상의 인스턴스를 배포하면 [Azure Compute SLA(서비스 수준 계약)](https://azure.microsoft.com/support/legal/sla/)의 지침을 준수하게 되므로 서비스를 위해 둘 이상의 역할 인스턴스가 배포될 때 인터넷 연결 역할에 대한 99.95%의 외부 연결을 보증합니다.
 
 **ConfigurationSettings**  
 역할에 대해 실행 중인 인스턴스의 설정을 구성합니다. `<Setting>` 요소의 이름은 서비스 정의 파일에 있는 설정 정의와 일치해야 합니다.

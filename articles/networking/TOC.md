@@ -72,7 +72,7 @@
 ## [작성자 템플릿](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=networking)
 ## [커뮤니티 템플릿](https://azure.microsoft.com/resources/templates/)
-## [네트워킹 블로그](http://azure.microsoft.com/blog/topics/networking)
+## [네트워킹 블로그](https://azure.microsoft.com/blog/topics/networking)
 ## [가격](https://azure.microsoft.com/pricing)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services/)

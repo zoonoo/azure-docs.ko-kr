@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: ae02a1bcbf00a022cfd884b02141ce084f1fffa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286655"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232463"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure에서 VM 백업 인프라 계획
 이 문서에서는 성능 및 리소스를 제안하여 VM 백업 인프라를 계획할 수 있도록 합니다. 또한 Backup 서비스의 핵심 요소를 정의합니다. 이러한 측면은 아키텍처, 용량 계획 및 예약을 결정하는 데 중요한 요인이 될 수 있습니다. [환경을 준비](backup-azure-arm-vms-prepare.md)했다면 계획은 [VM 백업](backup-azure-arm-vms.md)을 시작하기 전의 다음 단계입니다. Azure Virtual Machines에 대한 자세한 내용은 [Virtual Machines 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요. 
@@ -146,7 +146,7 @@ VM 백업에 대한 가격 책정은 가상 머신에 연결된 각 데이터 �
 지정된 가상 머신에 대한 요금 청구는 보호가 중지되고 모든 백업 데이터가 삭제된 경우에만 중단됩니다. 보호가 중지되고 활성 백업 작업이 없으면 마지막으로 성공한 VM 백업이 월별 청구에 사용되는 보호된 인스턴스 크기가 됩니다.
 
 ## <a name="questions"></a>질문이 있으십니까?
-질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
+질문이 있거나 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>다음 단계
 * [가상 머신 설정](backup-azure-arm-vms.md)

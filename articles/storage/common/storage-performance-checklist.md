@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530462"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231791"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Storage 성능 및 확장성 검사 목록
 ## <a name="overview"></a>개요
@@ -90,7 +90,7 @@ Azure Storage를 사용하는 모든 응용 프로그램 개발자는 시간을 
 * [초당 큐 메시지 수](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>모든 서비스에 대한 대역폭 확장성 목표
-이 문서를 작성할 당시 미국의 GRS(지역 중복 저장소) 계정에 대한 대역폭 목표는 수신(저장소 계정으로 전송되는 데이터)의 경우 10Gbps(초당 기가비트)이고 송신(저장소 계정에서 전송하는 데이터)의 경우 20Gbps입니다. LRS(로컬 중복 저장소) 계정의 경우에는 수신의 경우 20Gbps, 송신의 경우 30Gbps로 제한이 좀 더 높습니다.  기타 국가의 대역폭 제한은 이보다 더 낮을 수 있습니다. 관련 정보는 [확장성 목표 페이지](http://msdn.microsoft.com/library/azure/dn249410.aspx)에서 확인할 수 있습니다.  저장소 중복 옵션에 대한 자세한 내용은 아래 [유용한 리소스](#sub1useful)의 링크를 참조하세요.  
+이 문서를 작성할 당시 미국의 GRS(지역 중복 저장소) 계정에 대한 대역폭 목표는 수신(저장소 계정으로 전송되는 데이터)의 경우 10Gbps(초당 기가비트)이고 송신(저장소 계정에서 전송하는 데이터)의 경우 20Gbps입니다. LRS(로컬 중복 저장소) 계정의 경우에는 수신의 경우 20Gbps, 송신의 경우 30Gbps로 제한이 좀 더 높습니다.  기타 국가의 대역폭 제한은 이보다 더 낮을 수 있습니다. 관련 정보는 [확장성 목표 페이지](https://msdn.microsoft.com/library/azure/dn249410.aspx)에서 확인할 수 있습니다.  저장소 중복 옵션에 대한 자세한 내용은 아래 [유용한 리소스](#sub1useful)의 링크를 참조하세요.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>확장성 목표에 도달했을 때 수행할 작업
 응용 프로그램이 특정 저장소 계정의 확장성 목표에 도달한 경우 다음 방법 중 하나를 사용할 수 있습니다.  
@@ -104,7 +104,7 @@ Azure Storage를 사용하는 모든 응용 프로그램 개발자는 시간을 
 다음 링크에서는 확장성 목표에 대한 추가 정보를 제공합니다.
 
 * 확장성 목표에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage-scalability-targets.md) 를 참조하세요.
-* 저장소 중복 옵션에 대한 내용은 [Azure Storage 복제](storage-redundancy.md) 및 블로그 게시물 [Azure Storage 중복 옵션 및 읽기 액세스 지역 중복 저장소](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)를 참조하세요.
+* 저장소 중복 옵션에 대한 내용은 [Azure Storage 복제](storage-redundancy.md) 및 블로그 게시물 [Azure Storage 중복 옵션 및 읽기 액세스 지역 중복 저장소](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)를 참조하세요.
 * Azure 서비스 가격에 대한 최신 정보는 [Azure 가격 책정](https://azure.microsoft.com/pricing/overview/)을 참조하세요.  
 
 ### <a name="subheading47"></a>파티션 명명 규칙
@@ -149,7 +149,7 @@ Azure CDN에 대한 자세한 내용은 [Azure CDN](https://azure.microsoft.com/
 #### <a name="useful-resources"></a>유용한 리소스
 SAS에 대한 자세한 내용은 [공유 액세스 서명, 1부: SAS 모델 이해](../storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.  
 
-CORS에 대한 자세한 내용은 [Azure Storage 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원](http://msdn.microsoft.com/library/azure/dn535601.aspx)을 참조하세요.  
+CORS에 대한 자세한 내용은 [Azure Storage 서비스에 대한 CORS(Cross-Origin Resource Sharing) 지원](https://msdn.microsoft.com/library/azure/dn535601.aspx)을 참조하세요.  
 
 ### <a name="caching"></a>구성
 #### <a name="subheading7"></a>데이터 가져오기
@@ -159,7 +159,7 @@ Blob이 검색 후 잠시 동안 유효한 상태로 유지된다고 가정하�
 
 응용 프로그램에서 항상 사용하는 구성, 조회 및 기타 데이터는 캐시하면 매우 효율적입니다.  
 
-.NET을 사용하여 Blob 속성을 가져와 마지막으로 수정한 날짜를 확인하는 방법의 예는 [속성과 메타데이터 설정 및 검색](../blobs/storage-properties-metadata.md)을 참조하세요. 조건부 다운로드에 대한 자세한 내용은 [Blob의 로컬 복사본을 조건부로 새로 고침](http://msdn.microsoft.com/library/azure/dd179371.aspx)을 참조하세요.  
+.NET을 사용하여 Blob 속성을 가져와 마지막으로 수정한 날짜를 확인하는 방법의 예는 [속성과 메타데이터 설정 및 검색](../blobs/storage-properties-metadata.md)을 참조하세요. 조건부 다운로드에 대한 자세한 내용은 [Blob의 로컬 복사본을 조건부로 새로 고침](https://msdn.microsoft.com/library/azure/dd179371.aspx)을 참조하세요.  
 
 #### <a name="subheading8"></a>데이터 일괄 업로드
 데이터를 로컬로 집계한 다음 각 데이터 부분을 즉시 업로드하는 대신 주기적으로 일괄 업로드할 수 있는 응용 프로그램 시나리오가 있습니다. 예를 들어 웹 응용 프로그램이 작업의 로그 파일을 유지할 수 있습니다. 모든 작업이 수행될 때 해당 세부 정보를 테이블 엔터티로 업로드할 수도 있고(저장소 작업을 여러 번 수행해야 함), 로컬 로그 파일에 작업 세부 정보를 저장한 다음 모든 작업 세부 정보를 구분된 파일로 Blob에 주기적으로 업로드할 수도 있습니다. 각 로그 항목의 크기가 1KB이면 단일 “Put Blob” 트랜잭션에서 수천 개의 항목을 업로드할 수 있습니다. 단일 트랜잭션에서 크기가 최대 64MB인 Blob을 업로드할 수 있습니다. 물론, 업로드 전에 로컬 컴퓨터가 크래시할 경우 일부 로그 데이터가 손실될 수 있습니다. 따라서 응용 프로그램 개발자는 클라이언트 장치 또는 업로드 실패의 가능성을 고려하여 디자인해야 합니다.  단일 작업이 아닌 시간 범위에 대해 작업 데이터를 다운로드해야 하는 경우에는 테이블보다 Blob를 사용하는 것이 좋습니다.
@@ -178,7 +178,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 기타 프로그래밍 언어의 경우 해당 언어의 설명서에서 연결 제한을 설정하는 방법을 확인하세요.  
 
-자세한 내용은 블로그 게시물 [웹 서비스: 동시 연결](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx)을 참조하세요.  
+자세한 내용은 블로그 게시물 [웹 서비스: 동시 연결](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx)을 참조하세요.  
 
 #### <a name="subheading10"></a>비동기 작업에서 동기 코드를 사용하는 경우 스레드 풀의 최소 스레드 수 늘리기
 다음 코드를 사용하면 스레드 풀의 최소 스레드 수를 늘릴 수 있습니다.  
@@ -187,12 +187,12 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-자세한 내용은 [ThreadPool.SetMinThreads 메서드](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx)를 참조하세요.  
+자세한 내용은 [ThreadPool.SetMinThreads 메서드](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx)를 참조하세요.  
 
 #### <a name="subheading11"></a>.NET 4.5 가비지 수집 기능 활용
 클라이언트 응용 프로그램에 .NET 4.5를 사용하면 서버 가비지 수집 시 성능을 개선할 수 있습니다.
 
-자세한 내용은 [.NET 4.5의 성능 개선 사항 개요](http://msdn.microsoft.com/magazine/hh882452.aspx)를 참조하세요.  
+자세한 내용은 [.NET 4.5의 성능 개선 사항 개요](https://msdn.microsoft.com/magazine/hh882452.aspx)를 참조하세요.  
 
 ### <a name="subheading12"></a>제한 없는 병렬 처리
 병렬 처리가 성능을 개선하는 데 매우 효율적이기는 하지만, 제한 없는 병렬 처리(스레드 및/또는 병렬 요청 수에 제한이 없음)를 사용하여 데이터를 업로드 또는 다운로드하거나 여러 작업자를 사용하여 같은 저장소 계정의 여러 파티션(컨테이너, 큐 또는 테이블 파티션)에 액세스하거나 같은 파티션의 여러 항목에 액세스할 때는 주의해야 합니다. 병렬 처리에 제한이 없는 경우 응용 프로그램에서 클라이언트 장치의 기능 또는 저장소 계정의 확장성 목표를 초과하여 대기 시간이 길어지고 제한이 증가할 수 있습니다.  
@@ -210,7 +210,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 클라이언트 라이브러리는 다시 시도할 수 있는 오류와 그렇지 않은 오류를 인식할 수 있습니다. 그러나 저장소 REST API에 대해 사용자 고유의 코드를 작성하는 경우 다시 시도해서는 안 되는 오류도 있다는 사실을 기억하세요. 예를 들어 400(잘못된 요청) 응답은 클라이언트 응용 프로그램이 형식이 잘못되어 처리할 수 없는 요청을 보냈음을 나타냅니다. 이 요청을 다시 보내면 매번 같은 응답이 반환되므로 다시 시도해도 아무런 의미가 없습니다. 저장소 REST API를 기준으로 코드를 직접 작성하는 경우에는 오류 코드의 의미와 각 오류 코드에 대해 작업을 적절하게 다시 시도하거나 시도하지 않는 방법을 파악해야 합니다.  
 
 #### <a name="useful-resources"></a>유용한 리소스
-저장소 오류 코드에 대한 자세한 내용은 Microsoft Azure 웹 사이트의 [상태 및 오류 코드](http://msdn.microsoft.com/library/azure/dd179382.aspx) 를 참조하세요.  
+저장소 오류 코드에 대한 자세한 내용은 Microsoft Azure 웹 사이트의 [상태 및 오류 코드](https://msdn.microsoft.com/library/azure/dd179382.aspx) 를 참조하세요.  
 
 ## <a name="blobs"></a>Blob
 위에서 설명한 [모든 서비스](#allservices) 에 대한 검증된 작업 방식 외에 Blob 서비스에만 적용되는 다음과 같은 검증된 작업 방식도 있습니다.  
@@ -236,7 +236,7 @@ Blob의 목표 처리량에 대한 자세한 내용은 [Azure Storage 확장성 
 
 같은 저장소 계정 자체 내의 복사는 보통 빠르게 완료됩니다.  
 
-자세한 내용은 [Blob 복사](http://msdn.microsoft.com/library/azure/dd894037.aspx)를 참조하세요.  
+자세한 내용은 [Blob 복사](https://msdn.microsoft.com/library/azure/dd894037.aspx)를 참조하세요.  
 
 #### <a name="subheading18"></a>AzCopy 사용
 Azure Storage 팀은 여러 저장소 계정으로/계정에서/계정 간에 많은 Blob을 대량으로 전송하는 데 사용할 수 있는 명령줄 도구인 "AzCopy"를 공개했습니다.  이 도구는 이러한 시나리오용으로 최적화되어 있으며 높은 전송 속도를 제공할 수 있습니다.  대량 업로드, 다운로드 및 복사 시나리오에는 이 도구를 사용하는 것이 좋습니다. 이 도구에 대해 자세히 알아보고 도구를 다운로드하려면 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.  
@@ -266,7 +266,7 @@ Blob 여러 개를 빠르게 업로드하려면 Blob을 병렬로 업로드합�
 ### <a name="subheading23"></a>적절한 Blob 유형 선택
 Azure Storage는 두 가지 형식의 Blob 즉, *페이지* Blob과 *블록* Blob을 지원합니다. 지정된 사용 시나리오에 대해 선택하는 Blob 유형은 솔루션의 성능과 확장성에 영향을 줍니다. 블록 Blob은 많은 양의 데이터를 효율적으로 업로드하려는 경우 적절합니다. 예를 들어 클라이언트 응용 프로그램이 사진이나 동영상을 Blob Storage에 업로드해야 할 수 있습니다. 페이지 Blob은 응용 프로그램이 데이터에 대해 임의 쓰기를 수행해야 하는 경우 적절합니다. 예를 들어 Azure VHD는 페이지 Blob으로 저장됩니다.  
 
-자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.  
+자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.  
 
 ## <a name="tables"></a>테이블
 위에서 설명한 [모든 서비스](#allservices) 에 대한 검증된 작업 방식 외에 테이블 서비스에만 적용되는 다음과 같은 검증된 작업 방식도 있습니다.  
@@ -286,12 +286,12 @@ Azure Storage는 두 가지 형식의 Blob 즉, *페이지* Blob과 *블록* Blo
 #### <a name="subheading25"></a>JSON 사용
 저장소 서비스 버전 2013-08-15부터 테이블 서비스에서는 테이블 데이터를 전송하는 데 XML 기반 AtomPub가 아닌 JSON을 사용할 수 있게 되었습니다. 이로 인해 페이로드 크기를 최대 75%까지 줄일 수 있으며 응용 프로그램의 성능을 크게 개선할 수 있습니다.
 
-자세한 내용은 [Microsoft Azure 테이블: JSON 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) 및 [Table Service 작업의 페이로드 형식](http://msdn.microsoft.com/library/azure/dn535600.aspx)을 참조하세요.
+자세한 내용은 [Microsoft Azure 테이블: JSON 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) 및 [Table Service 작업의 페이로드 형식](https://msdn.microsoft.com/library/azure/dn535600.aspx)을 참조하세요.
 
 #### <a name="subheading26"></a>Nagle 해제
 Nagle 알고리즘은 네트워크 성능을 개선하기 위한 수단으로 TCP/IP 네트워크에서 광범위하게 구현됩니다. 그러나 대화형 작업을 많이 수행하는 환경 등 일부 상황에서는 이 알고리즘이 적합하지 않습니다. Azure Storage의 경우 Nagle 알고리즘은 테이블 및 큐 서비스에 대한 요청 성능을 떨어뜨릴 수 있으므로 가능한 경우에는 해제해야 합니다.  
 
-자세한 내용은 [소규모 요청에는 적합하지 않은 Nagle 알고리즘](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) 블로그 게시물을 참조하세요. 이 게시물에서는 테이블 및 큐 요청에서 Nagle 알고리즘이 부적절하게 상호 작용하는 이유와 클라이언트 응용 프로그램에서 Nagle 알고리즘을 사용하지 않도록 설정하는 방법에 대해 설명합니다.  
+자세한 내용은 [소규모 요청에는 적합하지 않은 Nagle 알고리즘](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) 블로그 게시물을 참조하세요. 이 게시물에서는 테이블 및 큐 요청에서 Nagle 알고리즘이 부적절하게 상호 작용하는 이유와 클라이언트 응용 프로그램에서 Nagle 알고리즘을 사용하지 않도록 설정하는 방법에 대해 설명합니다.  
 
 ### <a name="schema"></a>스키마
 테이블 서비스의 성능에 영향을 주는 가장 큰 단일 요인은 데이터를 표시 및 쿼리하는 방법입니다. 각 응용 프로그램별로 다르기는 하지만 이 섹션에서는 다음 항목과 관련된 일반적인 검증된 작업 방식 중 몇 가지에 대해 간략하게 설명합니다.  

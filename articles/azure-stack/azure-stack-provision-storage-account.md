@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: ae6539900e201f0559d998ad2d9be24c39d42e3b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 608525a1f06a396c7df7d764f236f33af77dccc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713496"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235346"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack의 Storage 계정
 Storage 계정에는 Blob 및 Table service, 그리고 저장소 데이터 개체에 대한 고유한 네임스페이스가 있습니다. 기본적으로 계정에 대한 데이터는 저장소 계정 소유자에만 사용할 수 있습니다.
@@ -36,6 +36,6 @@ Storage 계정에는 Blob 및 Table service, 그리고 저장소 데이터 개�
 ### <a name="next-steps"></a>다음 단계
 [Azure 리소스 관리자 템플릿 사용](user/azure-stack-arm-templates.md)
 
-[Azure storage 계정에 알아봅니다](../storage/common/storage-create-storage-account.md)
+[Azure 저장소 계정에 대해 알아보기](../storage/common/storage-create-storage-account.md)
 
-[Azure Stack Azure consistent Storage 유효성 검사 가이드 다운로드](http://aka.ms/azurestacktp1doc)
+[Azure Stack Azure consistent Storage 유효성 검사 가이드 다운로드](https://aka.ms/azurestacktp1doc)

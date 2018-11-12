@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f11012c90ab2b82e945fdb67e224783c3f05c6dd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405211"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237556"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -62,7 +62,7 @@ Azure의 인프라는 수백만 명의 고객을 동시에 호스팅하기 위�
 | [필수 보안 교육, 백그라운드 검사](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)(영문) |  [데이터 위치에서 제어](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [일반 컨트롤 허브](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub)(영문) |[Microsoft Azure 서비스에서 데이터 위치를 관리하는 방법](http://azuredatacentermap.azurewebsites.net/)(영문)|
 | [침투 테스트](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [침입 검색, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [감사 및 로깅](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [조건부 데이터 액세스 제공](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Cloud Services 실사 검사 목록](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist)(영문) |[데이터에 누가 그리고 어떤 조건으로 액세스할 수 있는가](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [세계 첨단의 데이터 센터](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), 물리적 보안, [네트워크 보안](https://docs.microsoft.com/azure/security/security-network-overview) | [사법 기관에 대한 응답](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data)(영문) |  [서비스별, 지역별 및 산업별 규정 준수](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Microsoft Azure 서비스에서 고객 데이터를 보호하는 방법](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)(영문)|
-|  [보안 사고 대응](http://aka.ms/SecurityResponsepaper)(영문), [공동 책임](http://aka.ms/sharedresponsibility)(영문) |[엄격한 개인 정보 보호 표준](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure 서비스, 투명성 허브에 대한 인증 검토](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)(영문)|
+|  [보안 사고 대응](https://aka.ms/SecurityResponsepaper)(영문), [공동 책임](https://aka.ms/sharedresponsibility)(영문) |[엄격한 개인 정보 보호 표준](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure 서비스, 투명성 허브에 대한 인증 검토](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)(영문)|
 
 
 

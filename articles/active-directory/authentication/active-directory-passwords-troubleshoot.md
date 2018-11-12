@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 044a3bae75cb385e7a3542b920e0cb3b5bcedcd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321801"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233629"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결
 
@@ -99,7 +99,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 | 코드 | 이름 또는 메시지 | 설명 |
 | --- | --- | --- |
 | 6329 | 재귀 한도 초과: MMS(4924) 0x80230619: "제한은 암호가 지정된 현재 공급자로 변경되지 않도록 방지합니다." | 이 이벤트는 비밀번호 쓰기 저장 서비스가 암호 사용 기간, 기록, 복잡성 또는 도메인의 필터링 요구 사항에 맞지 않는 로컬 디렉터리에 암호를 설정하려고 할 때 발생합니다. <br> <br> 최소 암호 사용 기간을 사용하고 최근 시간의 해당 창 내에서 암호를 변경하는 경우 사용자 도메인에 지정된 보존 기간에 도달할 때까지 다시 암호를 변경할 수 없습니다. 테스트를 위해 최소 보존 기간을 0으로 설정해야 합니다. <br> <br> 암호 기록 요구 사항을 활성화하는 경우 마지막 *N*번에서 사용되지 않은 암호를 선택해야 합니다. 여기서 *N*은 암호 기록 설정입니다. 마지막 *N*번에서 사용된 암호를 선택하는 경우 오류가 나타납니다. 테스트를 위해서는 암호 기록을 0으로 설정해야 합니다. <br> <br> 암호 복잡성 요구 사항이 있는 경우 사용자가 암호를 변경하거나 재설정하려고 할 때 이들 모두를 강제제합니다. <br> <br> 암호 필터를 사용하고 사용자가 필터링 조건을 충족하지 않는 암호를 선택한 경우 재설정 또는 변경 작업이 실패합니다. |
-| 6329 | MMS(3040): admaexport.cpp(2837): 서버에 LDAP 암호 정책 제어가 없습니다. | 이 문제는 DC에서 LDAP_SERVER_POLICY_HINTS_OID 제어(1.2.840.113556.1.4.2066)를 사용하도록 설정하지 않는 경우에 발생합니다. 비밀번호 쓰기 저장 기능을 사용하려면 제어 기능을 사용하도록 설정해야 합니다. 이렇게 하려면 DC가 Windows Server 2008(최신 SP 포함) 이상이어야 합니다. 또한 DC가 Windows Server 2008(R2 이전 버전)에 있는 경우 핫픽스 [KB2386717](http://support.microsoft.com/kb/2386717)을 적용해야 합니다. |
+| 6329 | MMS(3040): admaexport.cpp(2837): 서버에 LDAP 암호 정책 제어가 없습니다. | 이 문제는 DC에서 LDAP_SERVER_POLICY_HINTS_OID 제어(1.2.840.113556.1.4.2066)를 사용하도록 설정하지 않는 경우에 발생합니다. 비밀번호 쓰기 저장 기능을 사용하려면 제어 기능을 사용하도록 설정해야 합니다. 이렇게 하려면 DC가 Windows Server 2008(최신 SP 포함) 이상이어야 합니다. 또한 DC가 Windows Server 2008(R2 이전 버전)에 있는 경우 핫픽스 [KB2386717](https://support.microsoft.com/kb/2386717)을 적용해야 합니다. |
 | HR 8023042 | 동기화 엔진이 오류 hr=80230402를 반환했습니다. 메시지= 동일한 앵커를 가진 중복된 항목이 있기 때문에 개체를 가져오려는 시도가 실패했습니다. | 이 오류는 여러 도메인에 동일한 사용자 ID가 설정된 경우에 발생합니다. 계정 및 리소스 포리스트를 동기화하고 각 포리스트에서 동일한 사용자 ID가 존재하고 사용되도록 설정된 경우를 예로 들 수 있습니다. <br> <br> 사용자가 고유하지 않은 앵커 특성(예: 별칭 또는 UPN)을 사용하고 두 명의 사용자가 해당하는 동일한 앵커 특성을 공유하는 경우 이 오류가 발생할 수 있습니다. <br> <br> 이 문제를 해결하려면 도메인 내에서 중복된 사용자가 없도록 하고 각 사용자에 고유한 앵커 특성을 사용하고 있는지를 확인합니다. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>이벤트의 원본이 PasswordResetService인 경우
@@ -215,7 +215,7 @@ Azure AD Connect를 다시 설치하면 클라우드 서비스와 로컬 Active 
 > 상자 동기화 규칙을 사용자 지정하면 *업그레이드를 계속하기 전에 이를 백업하고 완료된 이후 수동으로 다시 배포합니다*.
 >
 
-1. [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=615771)에서 최신 버전의 Azure AD Connect를 다운로드합니다.
+1. [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?LinkId=615771)에서 최신 버전의 Azure AD Connect를 다운로드합니다.
 1. Azure AD Connect를 이미 설치했기 때문에 Azure AD Connect 설치를 최신 버전으로 업데이트하려면 바로 업그레이드를 수행해야 합니다.
 1. 다운로드한 패키지를 실행하고 화면에 나타나는 지침을 따라 Azure AD Connect 컴퓨터를 업데이트하십시오.
 

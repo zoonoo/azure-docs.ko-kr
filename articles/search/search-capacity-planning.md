@@ -8,17 +8,17 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: b6c2c8283d5a60013c525db296bf84cc50d76617
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fa1a13c5c786867f6e92a678c40a491e0a226076
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203096"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238740"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Azure Search에서 쿼리 및 인덱싱 작업을 위한 파티션 및 복제본 할당
 [가격 책정 계층을 선택](search-sku-tier.md)하고 [검색 서비스를 프로비전](search-create-service-portal.md)한 후에는 필요에 따라 서비스에 사용되는 복제본 또는 파티션 수를 늘립니다. 각 계층은 고정된 개수의 청구 단위를 제공합니다. 이 문서에서는 쿼리 실행, 인덱싱 및 저장소 요구 사항의 균형을 유지하는 최적의 구성을 달성하기 위해 이러한 단위를 할당하는 방법을 설명합니다.
 
-리소스 구성은 [기본 계층](http://aka.ms/azuresearchbasic) 또는 [표준 계층](search-limits-quotas-capacity.md) 중 하나에서 서비스를 설정할 때 사용할 수 있습니다. 이러한 계층에서 서비스의 경우 각 파티션 및 복제본이 하나의 SU로 계산되는 SU(*검색 단위*)로 용량을 증분하여 구매합니다. 
+리소스 구성은 [기본 계층](https://aka.ms/azuresearchbasic) 또는 [표준 계층](search-limits-quotas-capacity.md) 중 하나에서 서비스를 설정할 때 사용할 수 있습니다. 이러한 계층에서 서비스의 경우 각 파티션 및 복제본이 하나의 SU로 계산되는 SU(*검색 단위*)로 용량을 증분하여 구매합니다. 
 
 더 적은 SU를 사용하면 비례적으로 청구 금액이 줄어듭니다. 대금 청구는 서비스가 설정되는 동안 적용됩니다. 서비스를 일시적으로 사용하지 않는 경우 대금 청구를 피하는 유일한 방법은 서비스를 삭제한 다음 필요할 때 다시 만드는 것입니다.
 

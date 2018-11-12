@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: fdeb58d72e15f563fd70ae94804de0773dd603c7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f71a7ad538e22359a2a0dd9c2e3f6c4448ee5a2d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387353"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232396"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB 소개: SQL API
 
@@ -67,8 +67,8 @@ Azure Cosmos DB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로
 
 | 다운로드 | 문서화 |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET 참조 문서](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 참조 문서](/java/api/com.microsoft.azure.documentdb) |
+| [.NET SDK](https://go.microsoft.com/fwlink/?LinkID=402989) |[.NET 참조 문서](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
+| [Java SDK](https://go.microsoft.com/fwlink/?LinkID=402380) |[Java 참조 문서](/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) |[JavaScript 참조 문서](https://docs.microsoft.com/javascript/api/@azure/cosmos/?view=azure-node-latest) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 참조 문서](https://github.com/Azure/azure-cosmos-python) |
 

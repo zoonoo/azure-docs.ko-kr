@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841816"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232745"
 ---
 # <a name="security-frame-session-management"></a>보안 프레임: 세션 관리
 | 제품/서비스 | 문서 |
@@ -157,7 +157,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | EnvironmentType - OnPrem |
-| **참조**              | [httpCookies 요소(ASP.NET 설정 스키마)](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure 속성](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **참조**              | [httpCookies 요소(ASP.NET 설정 스키마)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure 속성](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
 | **단계** | 쿠키는 일반적으로 범위가 지정된 도메인에만 액세스할 수 있습니다. 아쉽게도 HTTPS를 통해 만들어진 쿠키가 HTTP를 통해 액세스할 수 있도록 "도메인"의 정의는 프로토콜을 포함하지 않습니다. "보안" 특성은 쿠키가 HTTPS를 통해서만 사용될 수 있음을 브라우저에 나타냅니다. HTTPS를 통해 설정된 모든 쿠키는 **보안** 특성을 사용해야 합니다. 이 요구 사항은 requireSSL 특성을 true로 설정하여 web.config 파일에 적용할 수 있습니다. 그러면 추가 코드를 변경할 필요 없이 모든 현재 및 미래의 쿠키에 **보안** 특성을 적용하기 때문에 가장 좋은 방법이라고 할 수 있습니다.|
 
 ### <a name="example"></a>예

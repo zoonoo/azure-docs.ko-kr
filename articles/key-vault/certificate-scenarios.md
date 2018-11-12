@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4b7192b0c406d2c5df42e3bb3e604f26c56c7bd4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385637"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235193"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -56,7 +56,7 @@ ms.locfileid: "49385637"
         -   공급자  
         -   자격 증명 - CA 계정 자격 증명입니다. 각 CA에는 자체 특정 데이터가 있습니다.  
 
-     CA 공급자로 계정을 만드는 방법에 대한 자세한 내용은 [Key Vault 블로그](http://aka.ms/kvcertsblog)에서 관련된 게시물을 참조하세요.  
+     CA 공급자로 계정을 만드는 방법에 대한 자세한 내용은 [Key Vault 블로그](https://aka.ms/kvcertsblog)에서 관련된 게시물을 참조하세요.  
 
 **3.1단계** - 알림에 대한 [인증서 연락처](/rest/api/keyvault/setcertificatecontacts)를 설정합니다. Key Vault 사용자에 대한 연락처입니다. Key Vault는 이 단계를 적용하지 않습니다.  
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5b8d3aa69d6a141394395f012e5cc57873cafaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421215"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235941"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Azure의 HPC Pack 클러스터에서 Excel 및 SOA 작업 실행 시작
 이 문서에서는 Azure 빠른 시작 템플릿 또는 Azure PowerShell 배포 스크립트(선택 사항)를 사용하여 Azure 가상 머신에 Microsoft HPC Pack 2012 R2 클러스터를 배포하는 방법을 설명합니다. 이 클러스터는 HPC Pack을 사용하여 Microsoft Excel 또는 SOA(서비스 지향 아키텍처) 작업을 실행하도록 설계된 Azure Marketplace VM 이미지를 사용합니다. 클러스터를 사용하여 온-프레미스 클라이언트 컴퓨터에서 Excel HPC 및 SOA 서비스를 실행할 수 있습니다. Excel HPC 서비스에는 Excel 통합 문서 오프로딩 및 Excel 사용자 정의 함수, 즉 UDF가 포함됩니다.
@@ -69,7 +69,7 @@ Azure 빠른 시작 템플릿을 사용하여 Azure 포털에서 HPC Pack 클러
    > 
    > 
    
-   나. 구독을 선택합니다.
+   b. 구독을 선택합니다.
    
    다. *hpc01RG*와 같은 클러스터용 리소스 그룹을 만듭니다.
    
@@ -82,7 +82,7 @@ Azure 빠른 시작 템플릿을 사용하여 Azure 포털에서 HPC Pack 클러
    
     <!-- ![Connect to the head node][connect] -->
    
-   나. 인증서 관리자의 표준 절차에 따라 개인 키 없이 Cert:\LocalMachine\My 아래에 있는 헤드 노드 인증서를 내보냅니다. 이 예제에서는 *CN = hpc01.eastus.cloudapp.azure.com*을 내보냅니다.
+   b. 인증서 관리자의 표준 절차에 따라 개인 키 없이 Cert:\LocalMachine\My 아래에 있는 헤드 노드 인증서를 내보냅니다. 이 예제에서는 *CN = hpc01.eastus.cloudapp.azure.com*을 내보냅니다.
    
    ![인증서 내보내기][cert]
 
@@ -225,7 +225,7 @@ Azure의 HPC Pack 클러스터에서 실행되도록 다음 단계에 따라 Exc
         </startup>
     </configuration>
     ```
-1. HPC Pack 클러스터에 작업을 제출하도록 클라이언트를 설정합니다. 이렇게 설정하는 옵션 중 하나는 전체 [HPC Pack 2012 R2 업데이트 3 설치](http://www.microsoft.com/download/details.aspx?id=49922) 파일을 다운로드한 다음 HPC Pack 클라이언트를 설치하는 것입니다. [HPC 팩 2012 R2 업데이트 3 클라이언트 유틸리티](https://www.microsoft.com/download/details.aspx?id=49923) 및 사용 중인 컴퓨터에 적합한 Visual C++ 2010 재배포 가능 패키지([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555))를 다운로드하여 설치할 수도 있습니다.
+1. HPC Pack 클러스터에 작업을 제출하도록 클라이언트를 설정합니다. 이렇게 설정하는 옵션 중 하나는 전체 [HPC Pack 2012 R2 업데이트 3 설치](https://www.microsoft.com/download/details.aspx?id=49922) 파일을 다운로드한 다음 HPC Pack 클라이언트를 설치하는 것입니다. [HPC 팩 2012 R2 업데이트 3 클라이언트 유틸리티](https://www.microsoft.com/download/details.aspx?id=49923) 및 사용 중인 컴퓨터에 적합한 Visual C++ 2010 재배포 가능 패키지([x64](https://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555))를 다운로드하여 설치할 수도 있습니다.
 1. 이 예제에서는 ConvertiblePricing_Complete.xlsb라는 샘플 Excel 통합 문서를 사용합니다. [여기](https://www.microsoft.com/en-us/download/details.aspx?id=2939)에서 다운로드할 수 있습니다.
 1. D:\Excel\Run과 같은 작업 폴더에 Excel 통합 문서를 복사합니다.
 1. Excel 통합 문서를 엽니다. **개발** 리본에서 **COM 추가 기능**을 클릭하고 HPC 팩 Excel COM 추가 기능이 로드되었는지 확인합니다.
@@ -262,7 +262,7 @@ Excel UDF를 실행하려면 앞의 1-3단계에 따라 클라이언트 컴퓨�
 > 
 > 
 
-클러스터가 배포된 후 다음 단계를 계속 진행하여 샘플 기본 제공 Excel UDF를 실행합니다. 사용자 지정 Excel UDF의 경우 다음 [리소스](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) 를 참조하여 XLL을 빌드하고 IaaS 클러스터에 배포하세요.
+클러스터가 배포된 후 다음 단계를 계속 진행하여 샘플 기본 제공 Excel UDF를 실행합니다. 사용자 지정 Excel UDF의 경우 다음 [리소스](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) 를 참조하여 XLL을 빌드하고 IaaS 클러스터에 배포하세요.
 
 1. 새 Excel 통합 문서를 엽니다. **개발** 리본 메뉴에서 **추가 기능**을 클릭합니다. 그런 다음 대화 상자에서 **찾아보기**를 클릭하고 %CCP_HOME%Bin\XLL32 폴더로 이동한 다음 샘플 ClusterUDF32.xll을 선택합니다. 클라이언트 컴퓨터에 ClusterUDF32가 없는 경우 헤드 노드의 %CCP_HOME%Bin\XLL32폴더에서 복사합니다.
    
@@ -280,7 +280,7 @@ Excel UDF를 실행하려면 앞의 1-3단계에 따라 클라이언트 컴퓨�
 HPC Pack IaaS 클러스터에서 일반 SOA 응용 프로그램을 실행하려면 먼저 1단계에서 설명한 방법 중 하나를 사용하여 클러스터를 배포합니다. 컴퓨터 노드에는 Excel이 필요하지 않으므로 이 경우에는 일반 컴퓨터 노드 이미지를 지정합니다. 이어서 다음 단계를 수행합니다.
 
 1. 클러스터 인증서를 검색한 후 클라이언트 컴퓨터의 Cert:\CurrentUser\Root 아래로 가져옵니다.
-1. [HPC 팩 2012 R2 업데이트 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) 및 [HPC 팩 2012 R2 업데이트 3 클라이언트 유틸리티](https://www.microsoft.com/download/details.aspx?id=49923)를 설치합니다. 이러한 도구를 사용하면 SOA 클라이언트 응용 프로그램을 개발하고 실행할 수 있습니다.
+1. [HPC 팩 2012 R2 업데이트 3 SDK](https://www.microsoft.com/download/details.aspx?id=49921) 및 [HPC 팩 2012 R2 업데이트 3 클라이언트 유틸리티](https://www.microsoft.com/download/details.aspx?id=49923)를 설치합니다. 이러한 도구를 사용하면 SOA 클라이언트 응용 프로그램을 개발하고 실행할 수 있습니다.
 1. HelloWorldR2 [샘플 코드](https://www.microsoft.com/download/details.aspx?id=41633)를 다운로드합니다. Visual Studio 2010 또는 2012에서 HelloWorldR2.sln을 엽니다. (이 샘플은 보다 최신 버전의 Visual Studio와는 현재 호환되지 않습니다.)
 1. 먼저 EchoService 프로젝트를 빌드합니다. 그런 다음 온-프레미스 클러스터에 배포하는 것과 같은 방식으로 서비스를 IaaS 클러스터에 배포합니다. 자세한 단계는 HelloWordR2의 Readme.doc를 참조하세요. 다음 섹션의 설명에 따라 HelloWorldR2 및 기타 프로젝트를 수정하고 빌드하여 Azure IaaS 클러스터에서 실행되는 SOA 클라이언트 응용 프로그램을 생성합니다.
 
@@ -332,18 +332,18 @@ Azure Storage 큐 없이 HTTP 바인딩을 사용하려면 SessionStartInfo에�
 ```
 
 ### <a name="use-nettcp-binding"></a>NetTcp 바인딩 사용
-NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 연결하는 것과 유사합니다. 헤드 노드 VM에서 몇 개의 끝점을 열어야 합니다. 예를 들어 HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 만든 경우 다음과 같이 Azure Portal에서 끝점을 설정합니다.
+NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 연결하는 것과 유사합니다. 헤드 노드 VM에서 몇 개의 엔드포인트를 열어야 합니다. 예를 들어 HPC Pack IaaS 배포 스크립트를 사용하여 클러스터를 만든 경우 다음과 같이 Azure Portal에서 엔드포인트를 설정합니다.
 
 1. VM을 중지합니다.
 1. 세션, 브로커, 브로커 작업자 및 데이터 서비스에 대해 각각 TCP 포트 9090, 9087, 9091, 9094를 추가합니다.
    
-    ![끝점 구성][endpoint-new-portal]
+    ![엔드포인트 구성][endpoint-new-portal]
 1. VM을 시작합니다.
 
 헤드 이름을 IaaS 클러스터 전체 이름으로 변경하는 것을 제외하고 SOA 클라이언트 응용 프로그램에 필요한 변경 내용은 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* HPC 팩을 사용하여 Excel 작업을 실행하는 방법에 대한 자세한 내용은 [이러한 리소스](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) 를 참조하세요.
+* HPC 팩을 사용하여 Excel 작업을 실행하는 방법에 대한 자세한 내용은 [이러한 리소스](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) 를 참조하세요.
 * HPC 팩을 사용하여 SOA 서비스를 배포 및 관리하는 방법에 대한 자세한 내용은 [Microsoft HPC 팩에서 SOA 서비스 관리](https://technet.microsoft.com/library/ff919412.aspx) 를 참조하세요.
 
 <!--Image references-->

@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
-ms.openlocfilehash: 6c8d0c9f5471395d1552b896b4d411dcad0a280f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2a59d5788898fae23345d179fb037f11599f912e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421138"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230396"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Excel, Python 또는 R에서 Azure Databricks에 연결
 
@@ -102,7 +102,7 @@ Excel 통합 문서에 데이터가 있으면 분석 작업을 수행할 수 있
 이 섹션에서는 R 언어 IDE를 사용하여 Azure Databricks에서 사용할 수 있는 데이터를 참조합니다. 시작하기 전에 컴퓨터에 다음을 설치해야 합니다.
 
 * R 언어에 대한 IDE입니다. 이 문서에서는 데스크톱용 RStudio를 사용합니다. [R Studio 다운로드](https://www.rstudio.com/products/rstudio/download/)에서 설치할 수 있습니다.
-* 데스크톱용 RStudio를 IDE로 사용하는 경우 [http://aka.ms/rclient/](http://aka.ms/rclient/)에서 Microsoft R Client도 설치합니다. 
+* 데스크톱용 RStudio를 IDE로 사용하는 경우 [http://aka.ms/rclient/](https://aka.ms/rclient/)에서 Microsoft R Client도 설치합니다. 
 
 RStudio를 열고 다음 단계를 수행합니다.
 

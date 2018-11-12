@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452329"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249900"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack에 대 한 저장소 용량 관리 
 
@@ -138,7 +138,7 @@ VM 디스크는 테 넌 트에서 컨테이너에 추가 됩니다 및 운영 �
 > Blob 컨테이너에 대 한 마이그레이션의 powershell을 사용 해야 하는 오프 라인 작업입니다. 마이그레이션 완료 될 때까지 마이그레이션하는 컨테이너에 대 한 모든 blob 오프 라인 상태로 유지 하 고 사용할 수 없습니다. 모든 진행 중인 마이그레이션 완료 될 때까지 Azure Stack 업그레이드 피해 야 합니다.
 
 #### <a name="to-migrate-containers-using-powershell"></a>PowerShell을 사용 하 여 컨테이너를 마이그레이션하려면
-1. 했는지 확인 [Azure PowerShell 설치 및 구성](http://azure.microsoft.com/documentation/articles/powershell-install-configure/)합니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](http://go.microsoft.com/fwlink/?LinkId=394767)을 참조하세요.
+1. 했는지 확인 [Azure PowerShell 설치 및 구성](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)합니다. 자세한 내용은 [Azure 리소스 관리자에서 Azure PowerShell 사용](https://go.microsoft.com/fwlink/?LinkId=394767)을 참조하세요.
 2.  마이그레이션하려는 공유에 데이터를 이해 하려면 컨테이너를 검사 합니다. 볼륨의 마이그레이션에 대 한 최상의 후보 컨테이너를 식별 하려면 사용 합니다 **Get AzsStorageContainer** cmdlet:
 
     ````PowerShell  

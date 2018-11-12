@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 0b9f55d69c824e86245738a082f95fc529583f58
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6aa2684a900dffecd481d51b8876b0e674c1a6ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "22985958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235533"
 ---
 # <a name="azure-sdk-for-net-28-281-and-282"></a>Azure SDK for .NET 2.8, 2.8.1, 2.8.2
 ## <a name="overview"></a>개요
@@ -28,9 +28,9 @@ ms.locfileid: "22985958"
 
 ## <a name="azure-sdk-for-net-28"></a>Azure SDK for .NET 2.8
 ### <a name="download-azure-sdk-for-net-28"></a>Azure SDK for .NET 2.8 다운로드
-[Visual Studio 2015용 Azure SDK for .NET 2.8](http://go.microsoft.com/fwlink/?LinkId=699285) 
+[Visual Studio 2015용 Azure SDK for .NET 2.8](https://go.microsoft.com/fwlink/?LinkId=699285) 
 
-[Visual Studio 2013용 Azure SDK for .NET 2.8](http://go.microsoft.com/fwlink/?LinkId=699287)
+[Visual Studio 2013용 Azure SDK for .NET 2.8](https://go.microsoft.com/fwlink/?LinkId=699287)
 
 ### <a name="net-452-support"></a>.NET 4.5.2 지원
 #### <a name="known-issues"></a>알려진 문제
@@ -48,7 +48,7 @@ Azure 리소스 그룹 프로젝트에서 제공한 PowerShell 스크립트가 �
 
 이전 버전의 SDK에서 만든 프로젝트의 스크립트는 SDK 2.8을 사용하면 Visual Studio 내에서 실행되지 않습니다.  모든 스크립트는 Azure PowerShell cmdlet의 적절한 버전을 사용하여 Visual Studio 외부에서 계속 작동합니다.  
 
-SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다.  다른 모든 버전의 SDK를 사용하려면 Azure PowerShell cmdlet 버전 0.9.8이 필요합니다.  자세한 내용은 [이 블로그](http://go.microsoft.com/fwlink/?LinkID=623011)를 참조하세요.
+SDK 2.8을 사용하려면 Azure PowerShell cmdlet 버전 1.0이 필요합니다.  다른 모든 버전의 SDK를 사용하려면 Azure PowerShell cmdlet 버전 0.9.8이 필요합니다.  자세한 내용은 [이 블로그](https://go.microsoft.com/fwlink/?LinkID=623011)를 참조하세요.
 
 ### <a name="web-tools-extensions"></a>웹 도구 확장
 #### <a name="known-issues"></a>알려진 문제

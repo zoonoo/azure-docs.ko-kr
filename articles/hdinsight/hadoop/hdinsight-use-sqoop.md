@@ -3,18 +3,18 @@ title: Azure HDInsight(Hadoop)를 사용하여 Apache Sqoop 작업 실행
 description: 워크스테이션에서 Azure PowerShell을 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 간에 Sqoop 가져오기 및 내보내기를 실행하는 방법에 대해 알아봅니다.
 ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 7834c6365753e290c7d9e232f716e4b1d39f3db5
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 85753376e33f5392be06f7d3ea89a04367e3c9ab
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042577"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009864"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Sqoop 사용
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -88,7 +88,7 @@ Azure PowerShell을 사용하여 클러스터 및 SQL Database를 만들려면 [
      
         다음 값은 변수 섹션에서 하드 코드합니다.
         
-        |Name|값|
+        |이름|값|
         |----|-----|
         | 기본 저장소 계정 이름 | &lt;CluterName>store |
         | Azure SQL 데이터베이스 서버 이름 | &lt;ClusterName>dbserver |
