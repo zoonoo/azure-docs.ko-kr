@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/19/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: ba77fc4596d9bb245b3cea2538804b1816e9ad14
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e970f7cc0d4c4620f2da69286be36d0c22e0d747
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466973"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260366"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>자습서: Azure Data Box Edge를 사용하여 데이터 변환(미리 보기)
 
@@ -223,6 +223,6 @@ Edge 계산 역할이 Edge 장치에 설정되면 두 가지 장치, 즉 IoT 장
 Data Box Edge를 관리하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [로컬 웹 UI를 사용하여 Data Box Edge 관리](http://aka.ms/dbg-docs)
+> [로컬 웹 UI를 사용하여 Data Box Edge 관리](https://aka.ms/dbg-docs)
 
 

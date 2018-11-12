@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: cf37db9bffa8b2a54a6327c29ec806e0eefc8c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225415"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261862"
 ---
 # <a name="what-is-bing-video-search"></a>Bing Video Search란?
 
@@ -27,7 +27,7 @@ Bing Video Search API는 유사한(단, 정확하지는 않음) 경험을 [Bing 
 
 사용자가 자신의 검색 용어를 입력할 수 있는 검색 상자를 제공하는 경우 [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md)를 사용하여 환경을 개선합니다. API는 부분 검색 용어 기반의 제안된 쿼리 문자열을 사용자 형식으로 반환합니다.
 
-사용자가 검색어를 입력하면 URL에서 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 인코드합니다. 예를 들어 사용자가 입력 *소형 범선*을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
+사용자가 검색어를 입력하면 URL에서 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query) 쿼리 매개 변수를 설정하기 전에 해당 용어를 인코딩합니다. 예를 들어 사용자가 입력 *소형 범선*을 입력한 경우 `q`를 `sailing+dinghies` 또는 `sailing%20dinghies`로 설정합니다.
 
 ## <a name="getting-videos"></a>비디오 가져오기
 
@@ -47,7 +47,7 @@ Host: api.cognitive.microsoft.com
 
 Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 전에 Bing API를 호출하고 Bing이 사용자 및 장치 조합에 대한 클라이언트 ID를 반환한 경우만 클라이언트 ID를 포함합니다.
 
-특정 도메인에서 비디오를 가져오려면 [site:](http://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 사용합니다.
+특정 도메인에서 비디오를 가져오려면 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 사용합니다.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -131,7 +131,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghi
 - [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;비디오 길이별 비디오 필터링(예: 길이가 5분 이내인 비디오)
 - [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;기간별 비디오 필터링(예: 지난 주에 Bing에서 검색된 비디오)
 
-특정 도메인에서 비디오를 가져오려면 쿼리 문자열에 [site:](http://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 포함합니다.
+특정 도메인에서 비디오를 가져오려면 쿼리 문자열에 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 포함합니다.
 
 > [!NOTE]
 > `site:` 연산자를 사용하는 경우 쿼리에 따라 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch) 설정에 관계 없이 응답에 성인 콘텐츠가 포함될 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 콘텐츠를 지원하는 경우에만 `site:`를 사용해야 합니다.

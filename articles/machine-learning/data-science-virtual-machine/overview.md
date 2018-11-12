@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 8b2180b09267a10479bf5b16be9b43d6cb6310a2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 10a63768550182309f3193b39c2d00992398d190
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428847"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244562"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개
 
@@ -76,7 +76,7 @@ Data Science VM은 GPU(그래픽 처리 장치) 기반 하드웨어에서 딥 �
 | JupyterHub(다중 사용자 노트북 서버)| N | Y |
 | JupyterLab(다중 사용자 노트북 서버) | N | Y (Ubuntu에만 해당) |
 | **개발 도구, IDE 및 코드 편집기**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017(Community Edition)](https://www.visualstudio.com/community/) Git 플러그 인, Azure HDInsight(Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) 및 [RTVS(Visual Studio용 R 도구)](http://microsoft.github.io/RTVS-docs/) 포함 | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017(Community Edition)](https://www.visualstudio.com/community/) Git 플러그 인, Azure HDInsight(Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) 및 [RTVS(Visual Studio용 R 도구)](http://microsoft.github.io/RTVS-docs/) 포함 | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio Code](https://code.visualstudio.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | Y |

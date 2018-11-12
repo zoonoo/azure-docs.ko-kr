@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 8ff5c52b324c95bb48de0f9bbb1011ede737efb0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387670"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238865"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 기술 가이드
 ## <a name="overview"></a>**개요**
@@ -47,7 +47,7 @@ ms.locfileid: "49387670"
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 서비스는 [Azure Event Hub](#azure-event-hub) 서비스의 입력 스트림에서 거의 실시간으로 분석을 제공하는 데 사용되며 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스에서 나중에 처리할 들어오는 모든 원시 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/) 서비스에 보관할 뿐만 아니라 [Power BI](https://powerbi.microsoft.com) 대시보드에 결과를 게시합니다.
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight 사용자 지정 집계
-Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 집계를 제공하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트(Azure Data Factory에서 오케스트레이션됨)를 실행하는 데 사용됩니다.
+Azure HDInsight 서비스는 Azure Stream Analytics 서비스를 사용하여 보관된 원시 이벤트에 집계를 제공하도록 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트(Azure Data Factory에서 오케스트레이션됨)를 실행하는 데 사용됩니다.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 서비스는 수신된 입력이 제공된 특정 하위 지역의 향후 전력 소비량을 예측하는 데 사용됩니다(Azure 데이터 팩터리에서 오케스트레이션된).
@@ -102,14 +102,14 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
-이 팩터리의 5개 파이프라인은 데이터를 분할하고 집계하는 데 사용되는 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 포함합니다. 언급했듯이 스크립트는 설치하는 동안 만든 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정에 있습니다. 해당 위치는 demandforecasting\\\\script\\\\hive\\\\(또는 https://[솔루션 이름].blob.core.windows.net/demandforecasting)입니다.
+이 팩터리의 5개 파이프라인은 데이터를 분할하고 집계하는 데 사용되는 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 포함합니다. 언급했듯이 스크립트는 설치하는 동안 만든 [Azure Storage](https://azure.microsoft.com/services/storage/) 계정에 있습니다. 해당 위치는 demandforecasting\\\\script\\\\hive\\\\(또는 https://[솔루션 이름].blob.core.windows.net/demandforecasting)입니다.
 
-[Azure Stream Analytics](#azure-stream-analytics-1) 쿼리와 유사하게 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 들어오는 데이터 형식에 대한 암시적 지식을 가지며 이러한 쿼리는 데이터 형식 및 [기능 엔지니어링](machine-learning/team-data-science-process/create-features.md) 요구 사항에 따라 변경해야 합니다.
+[Azure Stream Analytics](#azure-stream-analytics-1) 쿼리와 유사하게 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 들어오는 데이터 형식에 대한 암시적 지식을 가지며 이러한 쿼리는 데이터 형식 및 [기능 엔지니어링](machine-learning/team-data-science-process/create-features.md) 요구 사항에 따라 변경해야 합니다.
 
 #### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업이라는 단일 작업으로 이루어져 있습니다. 이는 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하여 스트리밍된 수요 데이터를 변전소 수준에서 10초 간격으로 시간별 하위 지역 수준으로 집계하고, Azure Stream Analytics 작업을 통해 [Azure Storage](https://azure.microsoft.com/services/storage/)에 배치하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용합니다.
+이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업이라는 단일 작업으로 이루어져 있습니다. 이는 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하여 스트리밍된 수요 데이터를 변전소 수준에서 10초 간격으로 시간별 하위 지역 수준으로 집계하고, Azure Stream Analytics 작업을 통해 [Azure Storage](https://azure.microsoft.com/services/storage/)에 배치하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용합니다.
 
-이 분할 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateDemandRegion1Hr.hql***입니다.
+이 분할 작업에 대한 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateDemandRegion1Hr.hql***입니다.
 
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 이 [파이프라인](data-factory/concepts-pipelines-activities.md)은 다음 두 작업을 포함합니다.
@@ -117,7 +117,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 * Hive 스크립트를 실행하여 시간별 과거 수요 데이터를 변전소 수준, 시간별 하위 지역 수준으로 집계하고 Azure Stream Analytics 작업 중에 Azure Storage에 입력하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용하는 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 작업
 * [복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업.
 
-이 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateDemandHistoryRegion.hql***입니다.
+이 작업에 대한 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateDemandHistoryRegion.hql***입니다.
 
 #### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
 이 [파이프라인](data-factory/concepts-pipelines-activities.md) 은 여러 작업을 포함하고 해당 최종 결과는 이 솔루션 템플릿과 연결된 Azure Machine Learning 실험의 점수가 매겨진 예측입니다. 각각 ADF 파이프라인에 전달된 다양한 RegionID로 수행되는 서로 다른 하위 지역과 각 하위 지역에 대한 hive 스크립트를 처리한다는 점만 제외하고 거의 동일합니다.  
@@ -231,7 +231,7 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 다음 두 가지 도구는 구독에서 에너지 솔루션 템플릿에 대한 수요 예측을 실행하는 데 필요한 총 비용을 더 이해하는 데 사용할 수 있습니다.
 
 * [Microsoft Azure 비용 추정 도구(온라인)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure 비용 추정 도구(데스크톱)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure 비용 추정 도구(데스크톱)](https://www.microsoft.com/download/details.aspx?id=43376)
 
 ## <a name="acknowledgements"></a>**승인**
 이 문서는 Microsoft 소속 데이터 과학자 Yijing Chen과 소프트웨어 엔지니어 Qiu Min이 작성하였습니다.

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6721b260960cd38b68173a5d973a5716b99a26c0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241211"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283566"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -113,10 +113,10 @@ S3 데이터베이스의 최고 사용률이 100 DTU이며 평균 사용률이 6
 
 1. 다음 수식에 따라 풀에 필요한 eDTU 또는 vCore를 예측합니다.
 
-   DTU 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 DTU 사용률* >,<br>
+   DTU 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 DTU 사용률* >,<br>  
    < *동시 최고 DB의 수* X *DB당 최고 DTU 사용률* )
 
-   vCore 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 vCore 사용률* >,<br>
+   vCore 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 vCore 사용률* >,<br>  
    < *동시 최고 DB의 수* X *DB당 최고 vCore 사용률* )
 
 2. 풀에서 모든 데이터베이스에 필요한 바이트 수를 추가하여 풀에 필요한 저장소 공간을 예측합니다. 그런 다음 이 저장소의 양을 제공하는 eDTU 풀 크기를 결정합니다.

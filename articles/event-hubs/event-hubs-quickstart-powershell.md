@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 25c64b3ac2d051aac5998d23f07e149a1dd57bc9
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9f0a6a910ab9b9589e09b6c8e1e7b16f7e63c5c8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456235"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258972"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 이벤트 허브 만들기
 
@@ -29,7 +29,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
 - 동작합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요][].
-- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](http://www.visualstudio.com/vs) 이상
+- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -66,7 +66,7 @@ New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Event Hubs 네임스페이스를 만들었으며, 이벤트 허브에서 이벤트를 보내고 받기 위해 예제 응용 프로그램을 사용했습니다. 이벤트 허브로 이벤트를 보내고 받는 단계별 지침은 다음 자습서를 참조하세요. 
+이 문서에서는 Event Hubs 네임스페이스를 만들었으며, 이벤트 허브에서 이벤트를 보내고 받기 위해 응용 프로그램 예제를 사용했습니다. 이벤트 허브에서 이벤트를 보내고 받는 단계별 지침은 다음 자습서를 참조하세요. 
 
 - **이벤트 허브로 이벤트 전송**: [.NET 표준](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
 - **이벤트 허브에서 이벤트 수신**: [.NET 표준](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 63cc8a698c9e383c4b5908286d28b51d89842bdc
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585699"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258955"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Azure Event Hubs 이벤트 프로세서 호스트 개요
 
 Azure Event Hubs는 저렴한 비용으로 수백만 개의 이벤트를 스트리밍하는 데 사용할 수 있는 강력한 원격 분석 수집 서비스입니다. 이 아티클에서는 검사점, 임대 및 병렬 이벤트 판독기의 관리를 간소화하는 지능형 소비자 에이전트인 EPH(*이벤트 프로세서 호스트*)를 사용하여 수집된 이벤트를 사용하는 방법을 설명합니다.  
 
-Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념입니다. [경쟁하는 소비자](http://msdn.microsoft.com/library/dn568101.aspx) 패턴과 달리 분할된 소비자 패턴을 사용하면 경합 병목 상태를 제거하고 종단 간 병렬 처리를 용이하게 하여 대규모 크기 조정이 가능해집니다.
+Event Hubs의 크기를 조정하는 핵심은 분할된 소비자라는 개념입니다. [경쟁하는 소비자](https://msdn.microsoft.com/library/dn568101.aspx) 패턴과 달리 분할된 소비자 패턴을 사용하면 경합 병목 상태를 제거하고 종단 간 병렬 처리를 용이하게 하여 대규모 크기 조정이 가능해집니다.
 
 ## <a name="home-security-scenario"></a>홈 보안 시나리오
 

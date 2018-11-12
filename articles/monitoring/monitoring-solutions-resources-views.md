@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: b4f54358f4bc1db973d6fe7163411e3a313c3cf4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a0d543ebe435b616306690bfb5e3de63ecc1ff6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887433"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259125"
 ---
 # <a name="views-in-management-solutions-preview"></a>관리 솔루션 보기(미리 보기)
 > [!NOTE]
@@ -90,7 +90,7 @@ ms.locfileid: "33887433"
 * 변수는 솔루션에서 정의되고 적절한 속성에서 사용되어야 합니다.
 
 ### <a name="log-analytics-api-version"></a>Log Analytics API 버전
-Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리소스가 사용해야 하는 API의 버전을 정의하는 **apiVersion** 속성이 있습니다.  이 버전은 [레거시 및 업그레이드된 쿼리 언어](../log-analytics/log-analytics-log-search-upgrade.md)를 사용하는 쿼리가 있는 보기와는 다릅니다.  
+Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리소스가 사용해야 하는 API의 버전을 정의하는 **apiVersion** 속성이 있습니다.  이 버전은 [레거시 및 업그레이드된 쿼리 언어](../log-analytics/log-analytics-queries.md)를 사용하는 쿼리가 있는 보기와는 다릅니다.  
 
  다음 표에서는 레거시 및 업그레이드된 작업 영역에서 보기의 Log Analytics API 버전을 지정합니다. 
 

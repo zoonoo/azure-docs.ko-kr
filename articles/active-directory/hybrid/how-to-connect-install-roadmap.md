@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318642"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253196"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 및 Azure AD Connect Health 설치 로드맵
 
@@ -26,7 +26,7 @@ ms.locfileid: "49318642"
 > [!IMPORTANT]
 > Microsoft는 공식적으로 문서화된 작업 외의 Azure AD Connect 동기화에 대한 수정 또는 작업을 지원하지 않습니다. 이러한 동작 중 하나는 Azure AD Connect 동기화의 불일치하거나 지원되지 않는 상태가 될 수 있습니다. 결과적으로, Microsoft는 해당 배포에 대해 기술 지원을 제공할 수 없습니다.
 
-[Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=615771)에서 Azure AD Connect를 다운로드할 수 있습니다 .
+[Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?LinkId=615771)에서 Azure AD Connect를 다운로드할 수 있습니다 .
 
 | 해결 방법 | 시나리오 |
 | --- | --- |
@@ -41,7 +41,7 @@ ms.locfileid: "49318642"
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Azure AD Connect를 설치하기 위한 다음 단계
 |항목 |링크|  
 | --- | --- |
-|Azure AD Connect 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Azure AD Connect 다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Express 설정을 사용하여 설치 | [Azure AD Connect의 빠른 설치](./how-to-connect-install-express.md)|
 |사용자 지정 설정을 사용하여 설치 | [Azure AD Connect의 사용자 지정 설치](./how-to-connect-install-custom.md)|
 |DirSync에서 업그레이드 | [Azure AD Sync 도구(DirSync)에서 업그레이드](./how-to-dirsync-upgrade-get-started.md)|
@@ -141,12 +141,12 @@ Azure AD Connect Health를 시작하려면 다음 단계를 수행하세요.
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Azure AD Connect Health 에이전트 다운로드 및 설치
 * Azure AD Connect Health에 대한 [요구 사항을 충족](how-to-connect-health-agent-install.md#requirements)해야 합니다.
 * AD FS용 Azure AD Connect Health 사용 시작
-    * [AD FS용 Azure AD Connect Health Agent 다운로드.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [AD FS용 Azure AD Connect Health Agent 다운로드.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [설치 지침 참조](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * 동기화용 Azure AD Connect Health 사용 시작
-    * [최신 버전의 Azure AD Connect 다운로드 및 설치](http://go.microsoft.com/fwlink/?linkid=615771). 동기화용 Health 에이전트는 Azure AD Connect의 일부로 설치됩니다(버전 1.0.9125.0 이상).
+    * [최신 버전의 Azure AD Connect 다운로드 및 설치](https://go.microsoft.com/fwlink/?linkid=615771). 동기화용 Health 에이전트는 Azure AD Connect의 일부로 설치됩니다(버전 1.0.9125.0 이상).
 * AD DS용 Azure AD Connect Health 사용 시작
-    * [AD DS용 Azure AD Connect Health 에이전트 다운로드](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [AD DS용 Azure AD Connect Health 에이전트 다운로드](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [설치 지침 참조](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 

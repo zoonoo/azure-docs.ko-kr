@@ -2,19 +2,19 @@
 title: Ambari 보기를 사용하여 HDInsight(Hadoop)에서 Hive 작업 - Azure
 description: 웹 브라우저에서 Hive 뷰를 사용하여 Hive 쿼리를 제출하는 방법을 알아봅니다. Hive 뷰는 Linux 기반 HDInsight 클러스터와 함께 제공되는 Ambari 웹 UI의 일부입니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 43b82070ced57c0654d646fbea5a12aeab7c2a31
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: c481889eda53ff46a8899676da2529fe4165dfd5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048524"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233159"
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop과 Ambari Hive 보기 사용
 
@@ -166,7 +166,7 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 HDInsight에서 Hive를 통해 UDF를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Hive 및 Pig와 함께 Python 사용](python-udf-hdinsight.md)
-* [HDInsight에 사용자 지정 하이브 UDF를 추가 하는 방법](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [HDInsight에 사용자 지정 하이브 UDF를 추가 하는 방법](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Hive 설정
 

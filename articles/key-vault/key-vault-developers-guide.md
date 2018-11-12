@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9ab399ae50f9b04acad411b225797f89547a2824
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603994"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237539"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -48,8 +48,8 @@ Azure Key Vault에 대한 일반적인 내용은 [키 자격 증명 모음이란
 
 위 비디오에 언급된 리소스:
 
-- [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure Key Vault 샘플 코드](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+- [Azure Key Vault 샘플 코드](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>주요 자격 증명 모음 만들기 및 관리
 
@@ -151,8 +151,8 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 ## <a name="social"></a>사회적
 
-- [키 자격 증명 모음 블로그](http://aka.ms/kvblog)
-- [키 자격 증명 모음 포럼](http://aka.ms/kvforum)
+- [키 자격 증명 모음 블로그](https://aka.ms/kvblog)
+- [키 자격 증명 모음 포럼](https://aka.ms/kvforum)
 
 ## <a name="supporting-libraries"></a>라이브러리 지원
 

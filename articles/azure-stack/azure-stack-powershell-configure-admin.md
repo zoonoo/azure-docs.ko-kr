@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/08/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: bbd20df7f002d6072110e3b94887bac24ce13cd2
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f5df27df5901d6568b30e1ae4f40cae8b3de4c86
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087443"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298822"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Operator 자격으로 PowerShell 사용 하 여 Azure Stack에 연결
 
@@ -27,7 +27,7 @@ ms.locfileid: "50087443"
 
 Azure Stack PowerShell을 사용 하 여 제안, 계획, 할당량 및 경고 만들기와 같은 리소스 관리를 구성할 수 있습니다. 이 항목에서는 운영자 환경을 구성할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 다음 필수 구성 요소를 실행 합니다 [개발 키트](.\asdk\asdk-connect.md#connect-with-rdp) 또는 Windows 기반 외부 클라이언트의 경우 [VPN 통해 ASDK 연결할](.\asdk\asdk-connect.md#connect-with-vpn)합니다. 
 
@@ -44,11 +44,12 @@ PowerShell을 사용 하 여 Azure Stack 운영자 환경을 구성 합니다. �
     $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
 
     # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRmEnvironment -Name "AzureStackAdmin" -ARMEndpoint $ArmEndpoint -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
+
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $tenantId
 ````
 
 ## <a name="test-the-connectivity"></a>연결 테스트

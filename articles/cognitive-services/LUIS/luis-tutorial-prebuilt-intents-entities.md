@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d42aed76ecdbc2bd840e17517db2ca0b6ba11aa0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d73284ecf40b2dfcd4954c1ddee82bf92a8931b9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034436"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281798"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>자습서 2: 일반적인 의도 및 엔터티 식별
 이 자습서에서는 인사 관리 앱을 수정합니다. 미리 빌드된 의도 및 엔터티를 인사 관리 자습서 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 엔터티를 자동으로 검색하기 때문에 미리 빌드된 엔터티를 사용하여 발화의 레이블을 지정할 필요가 없습니다.
@@ -48,7 +48,7 @@ ms.locfileid: "47034436"
 ## <a name="add-prebuilt-intents"></a>미리 빌드된 의도 추가
 LUIS는 일반적인 사용자 의도에 도움이 되도록 여러 가지 미리 빌드된 의도를 제공합니다.  
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **미리 빌드된 의도 추가**를 선택합니다. 
 

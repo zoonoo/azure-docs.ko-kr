@@ -2,19 +2,19 @@
 title: HDInsight에서 PowerShell과 Hadoop Hive 사용 - Azure
 description: PowerShell을 사용하여 HDInsight의 Hadoop에서 Hive 쿼리 실행
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 16caee1b04b8fb3ae2e83b8105b802e121092f60
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: e02f6b17dff93ce2df1f06ad9681e3086c35300c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051779"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257870"
 ---
 # <a name="run-hive-queries-using-powershell"></a>PowerShell을 사용하여 Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -83,7 +83,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > **Here-Strings**에 대한 자세한 내용은 <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Windows PowerShell Here-Strings 사용</a>을 참조하세요.
+   > **Here-Strings**에 대한 자세한 내용은 <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">Windows PowerShell Here-Strings 사용</a>을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

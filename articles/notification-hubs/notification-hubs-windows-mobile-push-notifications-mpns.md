@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 14b9a4ed66995a73f00234f4b25f52fccbcbe556
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e055b51af19ad3958c0c9155490c598ed0f4a80e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38562607"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235210"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -61,7 +61,7 @@ ms.locfileid: "38562607"
     이제 Windows Phone의 인증되지 않은 알림을 보낼 수 있는 허브가 생성 및 구성되었습니다.
 
     > [!NOTE]
-    > 이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. Notification Hubs는 인증서를 업로드할 수 있도록 하여 [MPNS 인증 모드](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)를 지원합니다.
+    > 이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. MPNS 인증되지 않은 모드에는 각 채널로 보낼 수 있는 알림에 대한 제한이 있습니다. Notification Hubs는 인증서를 업로드할 수 있도록 하여 [MPNS 인증 모드](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)를 지원합니다.
 
 ## <a name="create-a-windows-phone-application"></a>Windows Phone 응용 프로그램 만들기
 이 섹션에서는 알림 허브에 자신을 등록하는 Windows Phone 응용 프로그램을 만듭니다. 

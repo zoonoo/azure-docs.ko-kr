@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 91a2b112000e970b73420abaa26efc7de1caa626
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145619"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261458"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Azure Redis Cache 크기를 조정하는 방법
 Azure Redis Cache에는 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
@@ -81,7 +81,7 @@ Azure CLI를 사용하여 Azure Redis Cache 인스턴스 크기를 조정하려�
 Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Cache의 설정 변경](cache-manage-cli.md#scale)을 참조하세요.
 
 ### <a name="scale-using-maml"></a>MAML을 사용하여 크기 조정
-[MAML(Microsoft Azure Management Libraries)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)를 사용하여 Azure Redis Cache 인스턴스의 크기를 조정하려면 `IRedisOperations.CreateOrUpdate` 메서드를 호출하고 `RedisProperties.SKU.Capacity`에 대한 새 크기를 전달합니다.
+[MAML(Microsoft Azure Management Libraries)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/)를 사용하여 Azure Redis Cache 인스턴스의 크기를 조정하려면 `IRedisOperations.CreateOrUpdate` 메서드를 호출하고 `RedisProperties.SKU.Capacity`에 대한 새 크기를 전달합니다.
 
     static void Main(string[] args)
     {

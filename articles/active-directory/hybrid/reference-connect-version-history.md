@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 1f74538deab38db536bfcdc6d0f703d455039d51
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420249"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235907"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](how-to-upgrade-previous-version.md) 하는 다른 방법입니다.
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
 
-다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
+다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="12650"></a>1.2.65.0 
 
@@ -48,7 +48,6 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 
 - 호스트된 음성 메일이 예상대로 작동하도록 특성 쓰기 저장 기능이 변경되었습니다.  특정 시나리오에서 Azure AD는 null 값을 사용하여 쓰기 저장하는 동안 msExchUcVoicemailSettings 특성을 덮어썼습니다.  이제 클라우드 값이 설정되지 않으면 Azure AD는 이 특성의 온-프레미스 값을 더 이상 지우지 않습니다.
-- 변경된 기본 규칙 처리가 향상되었습니다. 이제 기본 규칙을 변경하면 알림이 제공되고 기본 규칙을 복구하는 옵션이 제공됩니다. 
 - Azure AD 연결 문제를 조사하고 식별하는 진단 기능이 Azure AD Connect 마법사에 추가되었습니다. 이러한 진단 기능은 Test- AdSyncAzureServiceConnectivity Cmdlet을 사용하여 Powershell을 통해 직접 실행할 수도 있습니다. 
 - AD 연결 문제를 조사하고 식별하는 진단 기능이 Azure AD Connect 마법사에 추가되었습니다. 이러한 진단 기능은 ADConnectivityTools Powershell 모듈의 Start-ConnectivityValidation 함수를 사용하여 Powershell을 통해 직접 실행할 수도 있습니다.  자세한 내용은 [ADConnectivityTool PowerShell 모듈이란?](how-to-connect-adconnectivitytools.md)을 참조하세요.
 - 하이브리드 Azure Active Directory 조인 및 장치 쓰기 저장에 대한 AD 스키마 버전 사전 검사가 추가되었습니다. 

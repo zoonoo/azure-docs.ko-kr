@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 9a5be85b917682afeaecd67a4176edb7040d5b4b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215432"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261709"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>StorSimple 장치 컨트롤러 관리
 
@@ -117,7 +117,7 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
    
     `Reset-HcsFactoryDefault`
    
-    대신 단일 컨트롤러를 재설정하려면 `-scope` 매개 변수가 있는 [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet을 사용합니다.
+    대신 단일 컨트롤러를 재설정하려면 `-scope` 매개 변수가 있는 [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) cmdlet을 사용합니다.
    
     시스템을 여러 번 다시 부팅합니다. 재설정이 성공적으로 완료되면 알림이 표시됩니다. 시스템 모델에 따라 이 프로세스를 완료 하는 데 8100 장치로 45-60분이 걸리고 8600 장치로 60-90분이 걸릴 수 있습니다.
    

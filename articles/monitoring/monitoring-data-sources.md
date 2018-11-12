@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: b10236a1e0307c9464d58e50eb0c7b4e6a60b5e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5e9dc207d84a9a66d83f01f49c3aefe2d77a64fa
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987786"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281441"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure 모니터의 데이터 원본
 이 문서에서는 Azure Monitor에서 수집한 데이터 원본에 대해 설명하여 리소스 및 해당 리소스에서 실행 중인 응용 프로그램의 상태와 성능을 모니터링합니다. 이러한 리소스는 Azure, 다른 클라우드 또는 온-프레미스에 있을 수 있습니다.  이 데이터를 저장한 방법 및 이 데이터를 볼 수 있는 방법에 대한 자세한 내용은 [Azure Monitor에서 수집한 데이터](monitoring-data-collection.md)를 참조하세요.
@@ -63,10 +63,10 @@ Azure Portal의 해당 페이지에서 특정 리소스에 대한 활동 로그�
 ### <a name="resource-diagnostic-logs"></a>리소스 진단 로그
 활동 로그가 Azure 리소스에서 수행된 작업에 대한 정보를 제공하는 반면 리소스 수준 [진단 로그](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)는 리소스 자체 작업에 대한 인사이트를 제공합니다.   구성 요구 사항 및 이러한 로그의 콘텐츠는 [리소스 유형에 따라 다릅니다](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
-Azure Portal에서 진단 로그를 직접 볼 수는 없지만 [보관을 위해 Azure 저장소로 보내고](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md), 다른 서비스로 리디렉션하기 위해 [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md)로 내보내거나 분석을 위해 [Log Analytics로](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) 내보낼 수 있습니다. 일부 리소스는 Log Analytics에 직접 쓸 수 있는 반면 다른 리소스는 [Log Analytics로 가져오기](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage) 전에 저장소 계정에 쓸 수 있습니다.
+Azure Portal에서 진단 로그를 직접 볼 수는 없지만 [보관을 위해 Azure 저장소로 보내고](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md), 다른 서비스로 리디렉션하기 위해 [Event Hub](../event-hubs/event-hubs-about.md)로 내보내거나 분석을 위해 [Log Analytics로](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) 내보낼 수 있습니다. 일부 리소스는 Log Analytics에 직접 쓸 수 있는 반면 다른 리소스는 [Log Analytics로 가져오기](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage) 전에 저장소 계정에 쓸 수 있습니다.
 
 ### <a name="monitoring-solutions"></a>모니터링 솔루션
- [모니터링 솔루션](../monitoring/monitoring-solutions.md)은 특정 서비스 또는 애플리케이션의 작업에 대한 추가 인사이트를 제공하는 데이터를 수집합니다. 솔루션에 일반적으로 포함되는 [보기](../log-analytics/log-analytics-view-designer.md) 또는 [쿼리 언어](../log-analytics/log-analytics-log-search.md)를 사용하여 분석될 수 있는 경우 Log Analytics에 데이터를 수집합니다.
+ [모니터링 솔루션](monitoring-solutions.md)은 특정 서비스 또는 애플리케이션의 작업에 대한 추가 인사이트를 제공하는 데이터를 수집합니다. 솔루션에 일반적으로 포함되는 [보기](../log-analytics/log-analytics-view-designer.md) 또는 [쿼리 언어](../log-analytics/log-analytics-queries.md)를 사용하여 분석될 수 있는 경우 Log Analytics에 데이터를 수집합니다.
 
 ## <a name="guest-operating-system"></a>게스트 운영 체제
 Azure, 다른 클라우드 및 온-프레미스의 계산 리소스에는 모니터링할 게스트 운영 체제가 있습니다. 하나 이상의 에이전트를 설치하여 게스트에서 Azure 서비스와 동일한 모니터링 도구에 원격 분석을 수집할 수 있습니다.
@@ -78,10 +78,10 @@ Azure, 다른 클라우드 및 온-프레미스의 계산 리소스에는 모니
 
 
 ### <a name="log-analytics-agent"></a>Log Analytics 에이전트
-[Windows](../log-analytics/log-analytics-agent-windows.md) 또는 [Linux]() 가상 머신이나 실제 컴퓨터에 Log Analytics 에이전트를 설치할 수 있습니다. 가상 머신은 Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다.  에이전트는 직접 또는 [연결된 System Center Operations Manager 관리 그룹](../log-analytics/log-analytics-om-agents.md)을 통해 Log Analytics에 연결되고, 구성하는 [데이터 원본](../log-analytics/log-analytics-data-sources.md)에서 또는 가상 머신에서 실행되는 응용 프로그램에 대한 추가 인사이트를 제공하는 [관리 솔루션](../monitoring/monitoring-solutions.md)에서 데이터를 수집할 수 있습니다.
+[Windows](../log-analytics/log-analytics-agent-windows.md) 또는 [Linux]() 가상 머신이나 실제 컴퓨터에 Log Analytics 에이전트를 설치할 수 있습니다. 가상 머신은 Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다.  에이전트는 직접 또는 [연결된 System Center Operations Manager 관리 그룹](../log-analytics/log-analytics-om-agents.md)을 통해 Log Analytics에 연결되고, 구성하는 [데이터 원본](../log-analytics/log-analytics-data-sources.md)에서 또는 가상 머신에서 실행되는 응용 프로그램에 대한 추가 인사이트를 제공하는 [관리 솔루션](monitoring-solutions.md)에서 데이터를 수집할 수 있습니다.
 
 ### <a name="service-map"></a>서비스 맵
-[서비스 맵](../operations-management-suite/operations-management-suite-service-map.md)은 Windows 및 Linux 가상 머신에서 Dependency Agent가 필요합니다. Log Analytics와 함께 작업하여 가상 머신에서 실행되는 프로세스에 대한 데이터 및 외부 프로세스에 대한 종속성을 수집합니다. 이 데이터를 Log Analytics에 저장하고, Log Analytics에 저장된 다른 데이터 외에도 수집하는 데이터를 시각적으로 표시하는 콘솔을 포함합니다.
+[서비스 맵](../monitoring/monitoring-service-map.md)은 Windows 및 Linux 가상 머신에서 Dependency Agent가 필요합니다. Log Analytics와 함께 작업하여 가상 머신에서 실행되는 프로세스에 대한 데이터 및 외부 프로세스에 대한 종속성을 수집합니다. 이 데이터를 Log Analytics에 저장하고, Log Analytics에 저장된 다른 데이터 외에도 수집하는 데이터를 시각적으로 표시하는 콘솔을 포함합니다.
 
 ## <a name="applications"></a>응용 프로그램
 응용 프로그램이 게스트 운영 체제에 쓸 수 있는 원격 분석 외에도 자세한 응용 프로그램 모니터링은 [Application Insights](https://docs.microsoft.com/azure/application-insights/)를 사용하여 완료됩니다. Application Insights는 다양한 플랫폼에서 실행되는 응용 프로그램에서 데이터를 수집할 수 있습니다. 응용 프로그램은 Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다.
@@ -106,7 +106,7 @@ Application Insights의 [가용성 테스트](../application-insights/app-insigh
 ![사용자 지정 데이터 컬렉션](media/monitoring-data-sources/custom-collection.png)
 
 ### <a name="data-collector-api"></a>데이터 수집기 API
-Azure Monitor에서는 [데이터 수집기 API](../log-analytics/log-analytics-data-collector-api.md)를 사용하여 REST 클라이언트에서 로그 데이터를 수집할 수 있습니다. 그러면 사용자 정의 모니터링 시나리오를 작성하고 다른 소스를 통해 원격 분석을 표시하지 않는 리소스까지 모니터링을 확장할 수 있습니다.
+Azure Monitor는 [데이터 수집기 API](../log-analytics/log-analytics-data-collector-api.md)를 사용하여 REST 클라이언트에서 로그 데이터를 수집할 수 있습니다. 그러면 사용자 정의 모니터링 시나리오를 작성하고 다른 소스를 통해 원격 분석을 표시하지 않는 리소스까지 모니터링을 확장할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

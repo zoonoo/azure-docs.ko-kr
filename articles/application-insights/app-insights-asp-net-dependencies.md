@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c54d8b870d6d8c187dcf145b56e3cbae257889a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999704"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259295"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights 설정: 종속성 추적
 *종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](app-insights-overview.md)는 응용 프로그램이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 측정합니다. 특정 호출을 조사하여 요청 및 예외와 연관지을 수 있습니다.
@@ -44,7 +44,7 @@ ms.locfileid: "46999704"
 
 | 플랫폼 | 설치 |
 | --- | --- |
-| IIS 서버 |[상태 모니터를 서버에 설치](app-insights-monitor-performance-live-website-now.md) 또는 [응용 프로그램을 .NET Framework 4.6 이상으로 업그레이드](http://go.microsoft.com/fwlink/?LinkId=528259)하고 앱에 [Application Insights SDK](app-insights-asp-net.md)를 설치합니다. |
+| IIS 서버 |[상태 모니터를 서버에 설치](app-insights-monitor-performance-live-website-now.md) 또는 [응용 프로그램을 .NET Framework 4.6 이상으로 업그레이드](https://go.microsoft.com/fwlink/?LinkId=528259)하고 앱에 [Application Insights SDK](app-insights-asp-net.md)를 설치합니다. |
 | Azure 웹앱 |웹앱 제어판에서 [Application Insights 블레이드를 열고](app-insights-azure-web-apps.md) 메시지가 표시되면 설치를 선택합니다. |
 | Azure 클라우드 서비스 |[시작 작업 사용](app-insights-cloudservices.md) 또는 [.NET Framework 4.6+ 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
@@ -207,7 +207,7 @@ ms.locfileid: "46999704"
 
 | 플랫폼 | 설치 |
 | --- | --- |
-| IIS 서버 |[서버에 상태 모니터 설치](app-insights-monitor-performance-live-website-now.md)하거나 [응용 프로그램을 .NET Framework 4.6 이상으로 업그레이드](http://go.microsoft.com/fwlink/?LinkId=528259)하고 앱에 [Application Insights SDK](app-insights-asp-net.md)를 설치합니다. |
+| IIS 서버 |[서버에 상태 모니터 설치](app-insights-monitor-performance-live-website-now.md)하거나 [응용 프로그램을 .NET Framework 4.6 이상으로 업그레이드](https://go.microsoft.com/fwlink/?LinkId=528259)하고 앱에 [Application Insights SDK](app-insights-asp-net.md)를 설치합니다. |
 | Azure 웹앱 |웹앱 제어판에서 [Application Insights 블레이드를 열고](app-insights-azure-web-apps.md) 메시지가 표시되면 설치를 선택합니다. |
 | Azure 클라우드 서비스 |[시작 작업 사용](app-insights-cloudservices.md) 또는 [.NET Framework 4.6+ 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 

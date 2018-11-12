@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421052"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262282"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>차량 원격 분석 솔루션 템플릿 Power BI 대시보드 설정 지침
 이 메뉴는 이 플레이북 장에 연결됩니다. 
@@ -30,7 +30,7 @@ ms.locfileid: "39421052"
 
 ## <a name="prerequisites"></a>필수 조건
 * [차량 원격 분석](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) 솔루션을 배포합니다. 
-* [Power BI Desktop을 설치](http://www.microsoft.com/download/details.aspx?id=45331)합니다.
+* [Power BI Desktop을 설치](https://www.microsoft.com/download/details.aspx?id=45331)합니다.
 * [Azure 구독](https://azure.microsoft.com/pricing/free-trial/)을 구매합니다. Azure 구독이 없으면 Azure 무료 구독을 시작합니다.
 * Power BI 계정을 엽니다.
 
@@ -181,7 +181,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
   
       ![페이지 수준 필터](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n1.png)
 
-    나. **페이지 수준 필터 MaintenanceLabel** 아래쪽에 있는 **기본 필터링**을 선택합니다.
+    b. **페이지 수준 필터 MaintenanceLabel** 아래쪽에 있는 **기본 필터링**을 선택합니다.
 
       ![기본 필터링](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4n2.png) 
 
@@ -207,7 +207,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
     a. **최소** 색을 **F2C812**로 변경합니다.
 
-    나. **최대** 색을 **FF6300**으로 변경합니다.
+    b. **최대** 색을 **FF6300**으로 변경합니다.
 
     ![새 데이터 색](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png)
 
@@ -348,7 +348,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
 ### <a name="configure-power-bi-reports"></a>Power BI 보고서 구성
 
-1. Power BI Desktop을 사용하여 디자이너 파일 **ConnectedCarsPbiReport.pbix**를 엽니다. 아직 없는 경우 [Power BI Desktop 설치](http://www.microsoft.com/download/details.aspx?id=45331) 웹 사이트에서 Power BI Desktop을 설치합니다.
+1. Power BI Desktop을 사용하여 디자이너 파일 **ConnectedCarsPbiReport.pbix**를 엽니다. 아직 없는 경우 [Power BI Desktop 설치](https://www.microsoft.com/download/details.aspx?id=45331) 웹 사이트에서 Power BI Desktop을 설치합니다.
 
 1. **쿼리 편집**을 선택합니다.
 
@@ -423,7 +423,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
    ![3페이지 vin 개수](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png)
 
-    나. **모델별 적극적으로 운전한 차량 - 폭포 차트** 
+    b. **모델별 적극적으로 운전한 차량 - 폭포 차트** 
 
    ![3페이지 차트 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
@@ -433,7 +433,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
    ![5페이지 차트 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)
 
-    나. **모델별 연료 효율이 좋은 차량: 묶은 세로 막대형 차트**
+    b. **모델별 연료 효율이 좋은 차량: 묶은 세로 막대형 차트**
 
    ![5페이지 차트 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
@@ -443,7 +443,7 @@ Power BI 대시보드를 구성할 준비가 되었습니다.
 
    ![4페이지 차트 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png) 
 
-    나. **시/군/구, 모델별 리콜된 차량: 트리맵**
+    b. **시/군/구, 모델별 리콜된 차량: 트리맵**
 
    ![4페이지 차트 8](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard8.png)  
 

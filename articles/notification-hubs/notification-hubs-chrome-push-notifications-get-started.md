@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 0ec2e31ae3127d27e0f494222385e7f6d456aa65
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 248fd094a8655af2a21035267a6b8f69f268683d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231868"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262168"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Chrome 앱에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -362,7 +362,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
    * **registerWithGCM**은 GCM에 대한 `chrome.gcm.register` 호출을 수행하여 현재 Chrome 앱 인스턴스를 등록하는 첫 번째 단추 클릭 처리기입니다.
    * **registerCallback** 은 GCM 등록 호출이 반환될 때 호출되는 콜백 함수입니다.
    * **registerWithNH** 는 Notification Hubs로 등록하는 두 번째 단추 클릭 처리기입니다. 사용자가 지정한 `hubName` 및 `connectionString`을 가져와 Notification Hubs 등록 REST API 호출을 만듭니다.
-   * **splitConnectionString** 및 **generateSaSToken**은 모든 REST API 호출에서 사용되어야 하는 SaS 토큰 만들기 프로세스의 JavaScript 구현을 나타내는 도우미입니다. 자세한 내용은 [일반적인 개념](http://msdn.microsoft.com/library/dn495627.aspx)을 참조하세요.
+   * **splitConnectionString** 및 **generateSaSToken**은 모든 REST API 호출에서 사용되어야 하는 SaS 토큰 만들기 프로세스의 JavaScript 구현을 나타내는 도우미입니다. 자세한 내용은 [일반적인 개념](https://msdn.microsoft.com/library/dn495627.aspx)을 참조하세요.
    * **sendNHRegistrationRequest**는 Azure Notification Hubs에 대한 HTTP REST 호출을 수행하는 함수입니다.
    * **registrationPayload** 는 등록 XML 페이로드를 정의합니다. 자세한 내용은 [등록 NH REST API 만들기]를 참조하세요. GCM에서 받은 값을 사용하여 등록 ID를 업데이트합니다.
    * **client**는 응용 프로그램에서 HTTP POST 요청을 수행하는 데 사용하는 **XMLHttpRequest** 인스턴스입니다. `sasToken`을 사용하여 `Authorization` 헤더를 업데이트합니다. 이 호출이 성공적으로 완료되면 이 Chrome 앱 인스턴스가 Azure Notification Hubs에 등록됩니다.
@@ -390,7 +390,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 테스트를 위해 .NET 콘솔 응용 프로그램을 사용하여 Chrome 푸시 알림을 보냅니다. 
 
 > [!NOTE]
-> 공용 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 통해 모든 백 엔드에서 Notification Hubs를 사용하여 푸시 알림을 보낼 수 있습니다. 더 많은 플랫폼 간 예제는 [설명서 포털](https://azure.microsoft.com/documentation/services/notification-hubs/)을 확인하세요.
+> 공용 <a href="https://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 통해 모든 백 엔드에서 Notification Hubs를 사용하여 푸시 알림을 보낼 수 있습니다. 더 많은 플랫폼 간 예제는 [설명서 포털](https://azure.microsoft.com/documentation/services/notification-hubs/)을 확인하세요.
 > 
 > 
 

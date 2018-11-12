@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857978"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262015"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 릴레이 자습서
 
@@ -35,7 +35,7 @@ ms.locfileid: "48857978"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Microsoft Visual Studio 2015 이상](http://visualstudio.com). 이 자습서에서는 Visual Studio 2017을 사용합니다.
+* [Microsoft Visual Studio 2015 이상](https://visualstudio.com). 이 자습서에서는 Visual Studio 2017을 사용합니다.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/free/)을 참조하세요.
 
 ## <a name="create-a-service-namespace"></a>서비스 네임스페이스 만들기
@@ -81,7 +81,7 @@ ms.locfileid: "48857978"
     ```
 
    > [!NOTE]
-   > 일반적으로 서비스 계약 네임스페이스는 버전 정보가 들어있는 명명 체계를 포함합니다. 서비스 계약 네임 스페이스에 버전 정보를 포함하면 서비스에서 새로운 네임스페이스로 새 서비스 계약을 정의하고 새 엔드포인트에 노출함으로써 주요 변경 내용을 분리할 수 있습니다. 이렇게 하면 클라이언트가 업데이트 없이도 기존의 서비스 계약을 지속적으로 사용할 수 있습니다. 버전 정보는 날짜 또는 빌드 번호로 구성될 수 있습니다. 자세한 내용은 [서비스 버전 관리](http://go.microsoft.com/fwlink/?LinkID=180498)를 참조하세요. 이 자습서에서는 서비스 계약 네임 스페이스의 명명 체계에 버전 정보가 포함되지 않았습니다.
+   > 일반적으로 서비스 계약 네임스페이스는 버전 정보가 들어있는 명명 체계를 포함합니다. 서비스 계약 네임 스페이스에 버전 정보를 포함하면 서비스에서 새로운 네임스페이스로 새 서비스 계약을 정의하고 새 엔드포인트에 노출함으로써 주요 변경 내용을 분리할 수 있습니다. 이렇게 하면 클라이언트가 업데이트 없이도 기존의 서비스 계약을 지속적으로 사용할 수 있습니다. 버전 정보는 날짜 또는 빌드 번호로 구성될 수 있습니다. 자세한 내용은 [서비스 버전 관리](https://go.microsoft.com/fwlink/?LinkID=180498)를 참조하세요. 이 자습서에서는 서비스 계약 네임 스페이스의 명명 체계에 버전 정보가 포함되지 않았습니다.
    >
    >
 8. `IEchoContract` 인터페이스 내에서 다음과 같이 `IEchoContract` 계약이 인터페이스에 노출하는 단일 작업에 대한 메서드를 선언하고 공개 WCF 릴레이 계약의 일부로 노출하려는 메서드에 `OperationContractAttribute` 특성을 적용합니다.

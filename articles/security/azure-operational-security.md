@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2ae2ea14bc712563867f32b83eddbd9d4129ac1d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409495"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256224"
 ---
 # <a name="azure-operational-security"></a>Azure 운영 보안
 ## <a name="introduction"></a>소개
@@ -74,7 +74,7 @@ Log Analytics의 핵심 기능은 Azure에서 실행되는 서비스 집합을 �
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics)는 관리되는 리소스의 데이터를 중앙 리포지토리로 수집하여 모니터링 서비스를 제공합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics)는 관리되는 리소스의 데이터를 중앙 리포지토리로 수집하여 모니터링 서비스를 제공합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 수집된 데이터는 경고, 분석 및 내보내기에 사용할 수 있습니다.
 
 
 이 방법을 사용하면 다양한 원본의 데이터를 통합할 수 있으므로 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 모든 종류의 데이터에 모든 작업을 제공할 수 있도록 데이터 컬렉션을 해당 데이터에서 수행된 작업과 명확하게 구분합니다.
@@ -92,7 +92,7 @@ Log Analytics 서비스는 다음 방법을 사용하여 클라우드 기반 데
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[Azure Backup](http://azure.microsoft.com/documentation/services/backup)은 데이터 백업 및 복원 서비스를 제공하며 Log Analytics 제품 및 서비스 계열의 일부입니다.
+[Azure Backup](https://azure.microsoft.com/documentation/services/backup)은 데이터 백업 및 복원 서비스를 제공하며 Log Analytics 제품 및 서비스 계열의 일부입니다.
 자본 투자 없이 최소한의 운영 비용으로 응용 프로그램 데이터를 보호하고 수년 간 보관합니다. SQL Server, SharePoint와 같은 응용 프로그램 워크로드 외에도 물리적 및 가상 Windows 서버의 데이터를 백업할 수 있습니다. 또한 중복 및 장기 저장을 위해 [System Center DPM(Data Protection Manager)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager)에서 보호된 데이터를 Azure로 복제하는 데 사용할 수 있습니다.
 
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8b7d2620b5b972c9476332f2b662a891a0b3765
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 9edbb9d916840f348a7df589c6e7cb2110419cb3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430343"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262406"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -1259,7 +1259,7 @@ sudo service waagent restart
 >
 > * [Linux에서 소프트웨어 RAID 구성][virtual-machines-linux-configure-raid]
 > * [Azure에서 Linux VM에 LVM 구성][virtual-machines-linux-configure-lvm]
-> * [Azure Storage 비밀 및 Linux I/O 최적화](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+> * [Azure Storage 비밀 및 Linux I/O 최적화](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 >
 >
 
@@ -1316,7 +1316,7 @@ Azure 지역에서 복제 기능은 VM의 각 VHD에서 로컬로 작동하며, 
 > 자동 탑재를 설정하려면 다음 항목에서 명령줄 실행 파일인 diskpart.exe의 설명서를 참조하세요.
 >
 > * [DiskPart 명령줄 옵션](https://technet.microsoft.com/library/bb490893.aspx)
-> * [Automount](http://technet.microsoft.com/library/cc753703.aspx)
+> * [Automount](https://technet.microsoft.com/library/cc753703.aspx)
 >
 > Windows 명령줄 창은 관리자 권한으로 열어야 합니다.
 >

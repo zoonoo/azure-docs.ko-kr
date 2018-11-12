@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409289"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261811"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>자습서: Azure Virtual WAN을 사용하여 지점 및 사이트 간 연결 만들기(미리 보기)
 
@@ -79,7 +79,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. 가상 WAN 만들기
 
-브라우저에서 [Azure Portal(미리 보기)](http://aka.ms/azurevirtualwanpreviewfeatures)로 이동하고 Azure 계정으로 로그인합니다.
+브라우저에서 [Azure Portal(미리 보기)](https://aka.ms/azurevirtualwanpreviewfeatures)로 이동하고 Azure 계정으로 로그인합니다.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -111,12 +111,13 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 
 ## <a name="hub"></a>5. 허브 할당 편집
 
-1. 가상 WAN에 대한 페이지에서 **지점 및 사이트 간 구성**을 클릭합니다.
-2. **허브** 아래에 아직 허브에 연결되지 않은 구성 목록이 표시됩니다.
-3. 연결하려는 구성을 선택하고 **허브 할당 편집**을 클릭합니다.
-4. 드롭다운에서 구성을 연결하려는 허브를 선택합니다.
-5. **할당**을 클릭합니다. 
-6. 이 작업을 완료하려면 최대 30분이 걸릴 수 있습니다.
+1. 가상 WAN에 대한 페이지에서 **허브**를 클릭합니다.
+2. 지점 및 사이트 간 구성을 할당하려는 허브를 선택합니다.
+3. **"..."** 을 클릭하고 **가상 허브 편집**을 선택합니다.
+4. **지점 및 사이트 간 게이트웨이 포함**을 선택합니다.
+5. **게이트웨이 배율 단위**, **지점 및 사이트 간 구성**과 클라이언트의 **주소 풀**을 선택합니다.
+6. **확인**을 클릭합니다. 
+7. 이 작업을 완료하려면 최대 30분이 걸릴 수 있습니다.
 
 ## <a name="vnet"></a>6. 허브에 VNet 연결
 
@@ -135,9 +136,10 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 
 VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
-1. 가상 WAN에 대한 페이지에서 **지점 및 사이트 간 구성**을 클릭합니다.
-2. 페이지의 맨 위에서 **지점 및 사이트 간 프로필 다운로드**를 클릭합니다. 
-3. 파일 만들기가 끝나면 링크를 클릭하여 다운로드할 수 있습니다.
+1. 가상 WAN에 대한 페이지에서 **허브**를 클릭합니다.
+2. 프로필을 다운로드하려는 허브를 선택합니다.
+3. **"..."** 을 클릭하고 **프로필 다운로드**를 선택합니다. 
+4. 파일 만들기가 끝나면 링크를 클릭하여 다운로드할 수 있습니다.
 4. 프로필 파일을 사용하여 지점 및 사이트 간 클라이언트를 구성합니다.
 
 ## <a name="device"></a>8. 지점 및 사이트 간 클라이언트 구성

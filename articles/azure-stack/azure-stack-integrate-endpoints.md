@@ -10,12 +10,12 @@ ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 721816d9b9da7ff5225e9c74ef7bb89207dd150a
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979185"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298758"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -54,7 +54,7 @@ Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 |저장소 Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |SQL 리소스 공급자|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
 |MySQL 리소스 공급자|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|앱 서비스|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
 |  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
 |  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (azure Resource Manager)|
 |  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
@@ -74,11 +74,11 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 |마켓플레이스 배포|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |패치 및 업데이트|https://&#42;.azureedge.net|HTTPS|443|
 |등록|https://management.azure.com|HTTPS|443|
-|사용 현황|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
+|사용법|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
 |Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
-|NTP|     |UDP|123|
-|DNS|     |TCP<br>UDP|53|
-|CRL|     |HTTP|80|
+|NTP|(IP의 NTP 서버 배포에 대 한 제공)|UDP|123|
+|DNS|(배포에 대해 제공 된 IP의 DNS 서버)|TCP<br>UDP|53|
+|CRL|(인증서에 CRL 배포 지점 URL)|HTTP|80|
 |     |     |     |     |
 
 > [!Note]  

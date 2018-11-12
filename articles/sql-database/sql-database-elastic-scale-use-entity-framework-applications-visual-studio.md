@@ -12,15 +12,15 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 695da176d2bc86fd67608cc28d14cf15a7728980
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161491"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261930"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>엔터티 프레임 작업과 함께 Elastic Database 클라이언트 라이브러리
-이 문서에서는 [Elastic Database 도구](sql-database-elastic-scale-introduction.md)의 기능을 통합하는 데 필요한 Entity Framework 응용 프로그램의 변경 내용을 보여줍니다. 여기서는 Entity Framework **Code First** 접근 방식으로 [공유된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md) 및 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 작성하는 데 집중합니다. 이 문서 전체에서는 EF용 [Code First – New Database](http://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적 데이터베이스 도구의 샘플 세트 일부입니다.
+이 문서에서는 [Elastic Database 도구](sql-database-elastic-scale-introduction.md)의 기능을 통합하는 데 필요한 Entity Framework 응용 프로그램의 변경 내용을 보여줍니다. 여기서는 Entity Framework **Code First** 접근 방식으로 [공유된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md) 및 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 작성하는 데 집중합니다. 이 문서 전체에서는 EF용 [Code First – New Database](https://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적 데이터베이스 도구의 샘플 세트 일부입니다.
 
 ## <a name="downloading-and-running-the-sample-code"></a>샘플 코드 다운로드 및 실행
 이 기사의 코드를 다운로드하려면:
@@ -169,9 +169,9 @@ Microsoft Patterns & Practices 팀은 [일시적인 오류 처리 응용 프로�
             } 
         }); 
 
-위 코드의 **SqlDatabaseUtils.SqlRetryPolicy**는 다시 시도 횟수가 10이고 다시 시도 간의 대기 시간이 5초인 **SqlDatabaseTransientErrorDetectionStrategy**로 정의됩니다. 이 방식은 EF 및 사용자가 시작한 트랜잭션에 대한 지침과 비슷합니다. 자세한 내용은 [다시 시도 실행 전략 제한 사항(EF6 이상)](http://msdn.microsoft.com/data/dn307226)을 참조하세요. 두 가지 경우 모두 응용 프로그램은 일시적인 예외 발생 시 다시 돌아갈 범위를 제어해야 합니다. 즉, 트랜잭션을 다시 열거나 위에 나와 있는 대로 탄력적 데이터베이스 클라이언트 라이브러리를 사용하는 적합한 생성자에서 컨텍스트를 다시 만들어야 합니다.
+위 코드의 **SqlDatabaseUtils.SqlRetryPolicy**는 다시 시도 횟수가 10이고 다시 시도 간의 대기 시간이 5초인 **SqlDatabaseTransientErrorDetectionStrategy**로 정의됩니다. 이 방식은 EF 및 사용자가 시작한 트랜잭션에 대한 지침과 비슷합니다. 자세한 내용은 [다시 시도 실행 전략 제한 사항(EF6 이상)](https://msdn.microsoft.com/data/dn307226)을 참조하세요. 두 가지 경우 모두 응용 프로그램은 일시적인 예외 발생 시 다시 돌아갈 범위를 제어해야 합니다. 즉, 트랜잭션을 다시 열거나 위에 나와 있는 대로 탄력적 데이터베이스 클라이언트 라이브러리를 사용하는 적합한 생성자에서 컨텍스트를 다시 만들어야 합니다.
 
-이처럼 일시적인 예외 발생 시 돌아갈 범위를 제어해야 하므로 EF에 포함된 기본 제공 **SqlAzureExecutionStrategy**를 사용할 필요가 없습니다. **SqlAzureExecutionStrategy**는 연결을 다시 열지만 **OpenConnectionForKey**는 사용하지 않으므로 **OpenConnectionForKey** 호출의 일부분으로 수행되는 모든 유효성 검사를 무시합니다. 대신 코드 샘플에서는 역시 EF에 포함된 기본 제공 **DefaultExecutionStrategy**를 사용합니다. **SqlAzureExecutionStrategy**와는 달리 DefaultExecutionStrategy는 일시적인 오류 처리의 다시 시도 정책과 정상적으로 연동됩니다. 실행 정책은 **ElasticScaleDbConfiguration** 클래스에서 설정됩니다. 여기서는 일시적인 예외 발생 시 **SqlAzureExecutionStrategy**를 사용하게 되므로 앞에서 설명한 것처럼 잘못된 동작이 수행됩니다. 따라서 **DefaultSqlExecutionStrategy**는 사용하지 않습니다. 각 다시 시도 정책 및 EF에 대한 자세한 내용은 [EF의 연결 복원력](http://msdn.microsoft.com/data/dn456835.aspx)을 참조하세요.     
+이처럼 일시적인 예외 발생 시 돌아갈 범위를 제어해야 하므로 EF에 포함된 기본 제공 **SqlAzureExecutionStrategy**를 사용할 필요가 없습니다. **SqlAzureExecutionStrategy**는 연결을 다시 열지만 **OpenConnectionForKey**는 사용하지 않으므로 **OpenConnectionForKey** 호출의 일부분으로 수행되는 모든 유효성 검사를 무시합니다. 대신 코드 샘플에서는 역시 EF에 포함된 기본 제공 **DefaultExecutionStrategy**를 사용합니다. **SqlAzureExecutionStrategy**와는 달리 DefaultExecutionStrategy는 일시적인 오류 처리의 다시 시도 정책과 정상적으로 연동됩니다. 실행 정책은 **ElasticScaleDbConfiguration** 클래스에서 설정됩니다. 여기서는 일시적인 예외 발생 시 **SqlAzureExecutionStrategy**를 사용하게 되므로 앞에서 설명한 것처럼 잘못된 동작이 수행됩니다. 따라서 **DefaultSqlExecutionStrategy**는 사용하지 않습니다. 각 다시 시도 정책 및 EF에 대한 자세한 내용은 [EF의 연결 복원력](https://msdn.microsoft.com/data/dn456835.aspx)을 참조하세요.     
 
 #### <a name="constructor-rewrites"></a>생성자 다시 작성
 위의 코드 예제는 응용 프로그램에서 Entity Framework와 함께 데이터 종속 라우팅을 사용하는 데 필요한 기본 생성자 다시 작성 방법을 보여 줍니다. 다음 표에서는 다른 생성자에 대한 이 접근 방식을 일반화합니다. 

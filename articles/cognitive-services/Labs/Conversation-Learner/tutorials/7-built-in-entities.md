@@ -10,19 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171370"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260060"
 ---
 # <a name="how-to-add-pre-built-entities"></a>미리 빌드된 엔터티를 추가하는 방법
 이 자습서에서는 미리 빌드된 엔터티를 Conversation Learner 모델에 추가하는 방법을 보여 줍니다.
 
 ## <a name="video"></a>비디오
 
-[![자습서 7 미리 보기](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
+[![자습서 7 미리 보기](https://aka.ms/cl-tutorial-07-preview)](https://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "39171370"
 1. 작업, 새 작업을 차례로 클릭하여 두 번째 작업을 만듭니다.
 3. 응답에 'What's the date?'를 입력합니다.
 4. 실격 엔터티에 'luis-datetimev2'를 입력합니다.
-4. 만들기 클릭
+4. 만들기 클릭 
 
 ![](../media/tutorial7_actions2.PNG)
 

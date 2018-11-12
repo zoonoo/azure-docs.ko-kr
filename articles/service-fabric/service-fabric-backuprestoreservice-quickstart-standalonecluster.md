@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기) | Microsoft Docs
+title: Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기) | Microsoft Docs
 description: Service Fabric의 주기적 백업 및 복원 기능을 사용하여 응용 프로그램 데이터의 주기적인 데이터 백업을 사용하도록 설정합니다.
 services: service-fabric
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 5666ed4226104104b91b6f964abeb0490ef80866
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: bcbb8e60d14615d4bddb4a1efa5ecf1487aab093
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990747"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234683"
 ---
-# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>빠른 시작: Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기)
 > [!div class="op_single_selector"]
 > * [Azure의 클러스터](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [독립 실행형 클러스터](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)

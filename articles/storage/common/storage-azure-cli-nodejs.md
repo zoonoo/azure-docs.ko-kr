@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979331"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258717"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Azure Storage에서 Azure 클래식 CLI 사용
 
@@ -122,7 +122,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 ```
 
 ## <a name="create-and-manage-blobs"></a>Blob 만들기 및 관리
-Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob 저장소 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 및 [Blob Service 개념](http://msdn.microsoft.com/library/azure/dd179376.aspx)을 참조하세요.
+Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있는 다량의 구조화되지 않은 데이터(예: 텍스트 또는 이진 데이터)를 저장할 수 있는 서비스입니다. 이 섹션에서는 Azure Blob 저장소 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [.NET을 사용하여 Azure Blob Storage 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 및 [Blob Service 개념](https://msdn.microsoft.com/library/azure/dd179376.aspx)을 참조하세요.
 
 ### <a name="create-a-container"></a>컨테이너 만들기
 Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. `azure storage container create` 명령을 사용하여 개인 컨테이너를 만들 수 있습니다.
@@ -137,7 +137,7 @@ azure storage container create mycontainer
 >
 
 ### <a name="upload-a-blob-into-a-container"></a>컨테이너에 Blob 업로드
-Azure Blob Storage는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
+Azure Blob Storage는 블록 Blob 및 페이지 Blob을 지원합니다. 자세한 내용은 [블록 Blob, 추가 Blob 및 페이지 Blob 이해](https://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요.
 
 컨테이너의 blob를 업로드하도록 `azure storage blob upload`을 사용할 수 있습니다. 기본적으로 이 명령은 로컬 파일을 블록 Blob에 업로드합니다. Blob의 종류를 지정하기 위해 `--blobtype` 매개 변수를 사용할 수 있습니다.
 

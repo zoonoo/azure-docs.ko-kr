@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954348"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256457"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 * Azure 명령줄 인터페이스 버전 2.0 이상. 최신 버전을 설치하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-* 이 문서에서 만드는 키 또는 암호를 사용하도록 구성되는 응용 프로그램. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/download/details.aspx?id=45343)에서 사용할 수 있습니다. 지침은 포함된 추가 정보 파일을 참조하세요.
+* 이 문서에서 만드는 키 또는 암호를 사용하도록 구성되는 응용 프로그램. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=45343)에서 사용할 수 있습니다. 지침은 포함된 추가 정보 파일을 참조하세요.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Azure 플랫폼 간 명령줄 인터페이스 도움말 보기
 

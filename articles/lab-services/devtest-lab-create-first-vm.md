@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0240bbdf2055ac44f8836adfaad3bf6c44893b77
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 93ce9feaf52282b9477d49eaf270d6d89dca7811
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781822"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232531"
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 첫 번째 VM 만들기
 
@@ -28,7 +28,7 @@ DevTest Labs에 처음에 액세스하고 첫 번째 VM을 만드는 경우 미�
 이 자습서에서는 DevTest Labs에서 랩에 첫 번째 VM을 추가하기 위해 Azure Portal을 사용하는 방법을 설명합니다.
 
 ## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 첫 번째 VM을 추가하는 단계
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, 목록에서 **DevTest Labs**를 선택합니다.
 1. 랩 목록에서 VM을 만들려는 랩을 선택합니다.  
 1. 랩의 **개요** 블레이드에서 **+ 추가**를 선택합니다.  

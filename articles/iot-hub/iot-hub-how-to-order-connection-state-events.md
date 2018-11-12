@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 02fc47200157b813da4d0031effa39633719855d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df680469541885ab6413800ee3b9806975e34dba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340208"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258666"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 장치 연결 이벤트 정렬
 
@@ -22,7 +22,7 @@ Azure Event Grid를 사용하면 이벤트 기반 응용 프로그램을 빌드�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 활성 Azure 계정. 계정이 없는 경우 [무료 계정](http://azure.microsoft.com/pricing/free-trial/)에 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 만들 수 있습니다.
 
 * 활성 Azure Cosmos DB SQL API 계정입니다. 아직 만들지 않았다면, [데이터베이스 계정 만들기](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account)를 연습으로 참조하세요.
 

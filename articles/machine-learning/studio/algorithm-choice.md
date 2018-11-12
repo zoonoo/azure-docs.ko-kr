@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959209"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262304"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 위한 알고리즘 선택 방법
 
@@ -121,7 +121,7 @@ ms.locfileid: "46959209"
 | [의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [의사 결정 정글](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |적은 메모리 공간 |
 | [향상된 의사 결정 트리](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |큰 메모리 공간 |
-| [신경망](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [신경망](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[추가 사용자 지정 가능](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [평균 퍼셉트론](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |큰 기능 집합의 적합 |
 | [로컬 심층 지원 벡터 컴퓨터](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |큰 기능 집합의 적합 |
@@ -130,7 +130,7 @@ ms.locfileid: "46959209"
 | [로지스틱 회귀](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [의사 결정 정글 ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |적은 메모리 공간 |
-| [신경망](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [신경망](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[추가 사용자 지정 가능](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |선택된 2클래스 메서드의 속성을 참조하세요. |
 | **회귀** | | | | | |
 | [선형](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -138,7 +138,7 @@ ms.locfileid: "46959209"
 | [의사 결정 포리스트](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [향상된 의사 결정 트리](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |큰 메모리 공간 |
 | [빠른 포리스트 분위수](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |지점 예측이 아닌 배포 |
-| [신경망](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[추가 사용자 지정 가능](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [신경망](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[추가 사용자 지정 가능](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [포아송 ](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |기술적으로 로그 선형입니다. 개수를 예측하는 경우 |
 | [서수](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |순위 순서를 예측하는 경우 |
 | **이상 감지** | | | | | |
@@ -190,7 +190,7 @@ ms.locfileid: "46959209"
 신경망은 [다중 클래스](https://msdn.microsoft.com/library/azure/dn906030.aspx), [2클래스](https://msdn.microsoft.com/library/azure/dn905947.aspx) 및 [회귀](https://msdn.microsoft.com/library/azure/dn905924.aspx)를 반영한 두뇌 영감 학습 알고리즘입니다. 무제한의 다양성을 포함하지만 Azure Machine Learning 내의 신경망은 모두 방향성 비순환 그래프 형태입니다. 따라서 입력 기능은 출력으로 전환되기 전에 계층 시퀀스를 통해 앞으로(뒤로는 불가능) 전달됩니다. 각 계층에서 입력은 다양한 조합으로 가중치가 부여되고 합계를 구한 후 다음 계층으로 전달됩니다. 이러한 단순한 조합의 계산으로 정교한 클래스 경계 및 데이터 추세를 겉보기에는 마법처럼 간단하게 학습할 수 있습니다. 이러한 종류의 다계층화된 네트워크는 수많은 기술 보고 및 공상 과학을 뒷받침하는 "심층 학습"을 수행합니다.
 
 하지만 이러한 높은 성능을 위해서는 대가가 따릅니다. 신경망은 학습 시간이 길며 특히 많은 기능을 포함하는 큰 데이터 집합인 경우 시간이 오래 걸릴 수 있습니다. 또한 대부분의 알고리즘보다 더 많은 매개 변수를 포함하므로 매개 변수 스위핑으로 학습 시간은 엄청나게 길어집니다.
-[자신의 고유한 네트워크 구조를 지정](http://go.microsoft.com/fwlink/?LinkId=402867)하고 싶어하는 과잉 성취자에게 가능성은 무궁무진합니다.
+[자신의 고유한 네트워크 구조를 지정](https://go.microsoft.com/fwlink/?LinkId=402867)하고 싶어하는 과잉 성취자에게 가능성은 무궁무진합니다.
 
 ![신경망으로 학습된 경계][6]
 ***신경망으로 학습하는 경계는 복잡하고 불규칙할 수 있습니다.***

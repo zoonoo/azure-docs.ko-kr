@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 302607df2292fe7a67a8b6860dab19eef7f391a9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8577b6a1d0f57820cbdd4096b0e8412096ff3af3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160369"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232079"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 
@@ -25,7 +25,7 @@ ms.locfileid: "47160369"
 
 확장 이벤트에 대한 정보를 캡처하고 보고하는 확실한 방법을 위한 전체 코드 샘플이 필요할 수 있습니다.
 
-Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/library/ff878115.aspx) 을 사용하여 이벤트 출력을 로컬 하드 드라이브 파일에 저장합니다. 하지만 이러한 파일은 Azure SQL Database에서 사용할 수 없습니다. 대신 Azure Storage 서비스를 사용하여 이벤트 파일 대상을 지원합니다.
+Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/library/ff878115.aspx) 을 사용하여 이벤트 출력을 로컬 하드 드라이브 파일에 저장합니다. 하지만 이러한 파일은 Azure SQL Database에서 사용할 수 없습니다. 대신 Azure Storage 서비스를 사용하여 이벤트 파일 대상을 지원합니다.
 
 이 항목에서는 2단계 코드 샘플을 제공합니다.
 
@@ -44,9 +44,9 @@ Microsoft SQL Server의 [이벤트 파일 대상](http://msdn.microsoft.com/libr
 * SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전). 
   다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
   
-  * [SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx)항목
-  * [직접 다운로드 링크](http://go.microsoft.com/fwlink/?linkid=616025)
-* [Azure PowerShell 모듈](http://go.microsoft.com/?linkid=9811175) 이 설치되어 있어야 합니다.
+  * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)항목
+  * [직접 다운로드 링크](https://go.microsoft.com/fwlink/?linkid=616025)
+* [Azure PowerShell 모듈](https://go.microsoft.com/?linkid=9811175) 이 설치되어 있어야 합니다.
   
   * 이 모듈은 **New-AzureStorageAccount**등의 명령을 제공합니다.
 
@@ -506,11 +506,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 앞에 나오는 Transact-SQL 스크립트는 다음 시스템 함수를 사용해서 event_file을 읽었습니다.
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 확장된 이벤트에서 데이터를 보기 위한 고급 옵션에 대한 설명은 다음에서 사용할 수 있습니다.
 
-* [확장된 이벤트의 대상 데이터에 대한 고급 보기](http://msdn.microsoft.com/library/mt752502.aspx)
+* [확장된 이벤트의 대상 데이터에 대한 고급 보기](https://msdn.microsoft.com/library/mt752502.aspx)
 
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>SQL Server 실행을 위해 코드 샘플 변환
@@ -528,10 +528,10 @@ Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 
 Azure Storage 서비스에서 계정 및 컨테이너에 대한 자세한 내용은 다음을 참조하세요.
 
 * [.NET에서 Blob 저장소를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](http://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [루트 컨테이너 사용](http://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [단원 1: Azure 컨테이너에 저장된 액세스 정책 및 공유 액세스 서명 만들기](http://msdn.microsoft.com/library/dn466430.aspx)
-  * [단원 2: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](http://msdn.microsoft.com/library/dn466435.aspx)
+* [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [루트 컨테이너 사용](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [단원 1: Azure 컨테이너에 저장된 액세스 정책 및 공유 액세스 서명 만들기](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [단원 2: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Microsoft SQL Server의 확장 이벤트](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
 
 <!--

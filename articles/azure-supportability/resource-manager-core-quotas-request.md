@@ -7,18 +7,18 @@ ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1be05ac7216a65922927b94d1cc4ba2a893433b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037237"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250988"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Resource Manager vCPU 할당량 증가 요청
 
 Resource Manager vCPU 할당량은 지역 수준 및 SKU 제품군 수준에 적용됩니다.
-[Azure 구독 및 서비스 제한](http://aka.ms/quotalimits) 페이지에서 할당량이 적용되는 방식에 대해 자세히 알아보세요.
-SKU 제품군에 대해 알아보려면 [Virtual Machines 가격 책정](http://aka.ms/pricingcompute) 페이지에서 비용과 성능을 비교할 수 있습니다.
+[Azure 구독 및 서비스 제한](https://aka.ms/quotalimits) 페이지에서 할당량이 적용되는 방식에 대해 자세히 알아보세요.
+SKU 제품군에 대해 알아보려면 [Virtual Machines 가격 책정](https://aka.ms/pricingcompute) 페이지에서 비용과 성능을 비교할 수 있습니다.
 
 증가를 요청하려면 Azure Portal에서 사용할 수 있는 Azure의 '사용량+할당량' 블레이드를 통해 지원 요청을 만들기 위해 사용하는 아래 지침에 따릅니다. 
 

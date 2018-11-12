@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 6422482a31ad8022b795cb357c37ad8560781767
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: e99a3a7db7a934a8a72695c38ab952786579a640
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166596"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232209"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>Azure Data Box Edge(미리 보기)란? 
 
@@ -60,7 +60,7 @@ Data Box Edge의 기능은 다음과 같습니다.
 |기능 |설명  |
 |---------|---------|
 |고성능     | 고도로 최적화된 완전 자동 데이터 전송 기능과 대역폭이 제공됩니다.|
-|지원되는 프로토콜     | 데이터 수집을 위한 표준 SMB 및 NFS 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용을 확인하려면 [Data Box Edge 시스템 요구 사항](http://aka.ms/dbe-docs)을 방문하세요.|
+|지원되는 프로토콜     | 데이터 수집을 위한 표준 SMB 및 NFS 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용을 확인하려면 [Data Box Edge 시스템 요구 사항](https://aka.ms/dbe-docs)을 방문하세요.|
 |컴퓨팅       |데이터를 분석, 처리, 필터링할 수 있습니다.|
 |데이터 액세스     | 클라우드 API를 사용하여 Azure Storage Blob 및 Azure Files에서 데이터에 직접 액세스해 클라우드에서 데이터를 추가로 처리할 수 있습니다.|
 |빠른 액세스     | 가장 최근에 사용한 파일에 빠르게 액세스할 수 있도록 장치에 로컬 캐시가 생성됩니다.|
@@ -96,13 +96,13 @@ Data Box Edge 솔루션은 Data Box Edge 리소스, Data Box Edge 물리적 장�
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    자세한 내용은 [Data Box Edge 서비스를 사용하여 Data Box Edge 장치 관리](http://aka.ms/dbe-docs)로 이동하세요.
+    자세한 내용은 [Data Box Edge 서비스를 사용하여 Data Box Edge 장치 관리](https://aka.ms/dbe-docs)로 이동하세요.
 
 * **Data Box 로컬 웹 UI** - 로컬 웹 UI를 사용하여 진단을 실행하고, Data Box Edge 장치를 종료 및 다시 시작하고, 복사 로그를 보고, 서비스 요청을 위해 Microsoft 지원에 연락을 합니다.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    웹 기반 UI 사용에 대한 자세한 내용은 [웹 기반 UI를 사용하여 Data Box 관리](http://aka.ms/dbe-docs)로 이동하세요.
+    웹 기반 UI 사용에 대한 자세한 내용은 [웹 기반 UI를 사용하여 Data Box 관리](https://aka.ms/dbe-docs)로 이동하세요.
 
 
 ## <a name="region-availability"></a>지역 가용성
@@ -137,9 +137,9 @@ Data Box Edge는 미리 보기 상태이며 등록이 필요합니다. Data Box 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Data Box Edge 시스템 요구 사항](http://aka.ms/dbe-docs)을 검토합니다.
-- [Data Box Edge 제한](http://aka.ms/dbe-docs)을 알아봅니다.
-- Azure Portal에서 [Azure Data Box Edge](http://aka.ms/dbe-docs)를 배포합니다.
+- [Data Box Edge 시스템 요구 사항](https://aka.ms/dbe-docs)을 검토합니다.
+- [Data Box Edge 제한](https://aka.ms/dbe-docs)을 알아봅니다.
+- Azure Portal에서 [Azure Data Box Edge](https://aka.ms/dbe-docs)를 배포합니다.
 
 
 

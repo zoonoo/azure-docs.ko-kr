@@ -14,12 +14,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720126"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236009"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
@@ -102,7 +102,7 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 변
 다음은 이들이 지원하는 기능별 앱 찾기에 대한 몇 가지 팁입니다.
 
 * Azure AD는 [Azure Active Directory 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에서 모든 "기능을 갖춘" 앱에 대한 자동 프로비저닝 및 프로비저닝 해제를 지원합니다.
-* SAML, WS-Federation 또는 OpenID Connect와 같은 프로토콜을 사용하여 페더레이션된 Single Sign-On을 지원하는 페더레이션된 응용 프로그램 목록은 [여기](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)서 확인할 수 있습니다.
+* SAML, WS-Federation 또는 OpenID Connect와 같은 프로토콜을 사용하여 페더레이션된 Single Sign-On을 지원하는 페더레이션된 응용 프로그램 목록은 [여기](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)서 확인할 수 있습니다.
 
 응용 프로그램을 찾으면 Single Sign-On을 사용하는 앱 갤러리 및 Azure Portal의 단계별 지침을 따라 시작할 수 있습니다.
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: ff30afdcfebe51d914d2f7504ab3bf530309c222
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d201d8848891038355fad01f610070259ad1e42a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142823"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259193"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 응용 프로그램 수명 주기 관리
 Azure Machine Learning 스튜디오는 Machine Learning 실험을 개발하기 위한 도구로, Azure 클라우드 플랫폼에서 작동합니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양한 자산 버전 관리에서 자동화된 실행 및 배포에 이르는 표준 ALM(응용 프로그램 수명 주기 관리) 사례를 Azure Machine Learning 스튜디오에 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.
@@ -43,7 +43,7 @@ Azure Machine Learning Studio 학습 실험의 실행 모델에서 실험 편집
 또한 실험을 삭제하면 해당 실험의 모든 스냅숏이 삭제됩니다.
 
 ### <a name="exportimport-experiment-in-json-format"></a>JSON 형식으로 실험 내보내기/가져오기
-실행 기록 스냅숏은 실행을 위해 제출될 때마다 Azure Machine Learning Studio에서 변경할 수 없는 실험 버전을 유지합니다. 실험의 로컬 복사본을 저장한 후 Team Foundation Server와 같은 즐겨 찾는 소스 제어 시스템에 체크 인하거나 나중에 해당 로컬 파일에서 실험을 다시 만들 수도 있습니다. 이를 위해 [Azure Machine Learning PowerShell](http://aka.ms/amlps) commandlet인 [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 및 [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph)를 사용할 수 있습니다.
+실행 기록 스냅숏은 실행을 위해 제출될 때마다 Azure Machine Learning Studio에서 변경할 수 없는 실험 버전을 유지합니다. 실험의 로컬 복사본을 저장한 후 Team Foundation Server와 같은 즐겨 찾는 소스 제어 시스템에 체크 인하거나 나중에 해당 로컬 파일에서 실험을 다시 만들 수도 있습니다. 이를 위해 [Azure Machine Learning PowerShell](https://aka.ms/amlps) commandlet인 [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 및 [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph)를 사용할 수 있습니다.
 
 JSON 파일이 실험 그래프를 텍스트로 표현하지만 작업 영역에서 데이터 집합 또는 학습된 모델과 같은 자산에 대한 참조를 포함할 수 있습니다. 직렬화된 자산 버전은 포함되지 않습니다. JSON 문서를 작업 영역에 다시 가져오려는 경우 참조된 자산은 실험에서 참조된 것과 동일한 자산 ID로 이미 존재해야 합니다. 그렇지 않으면 가져온 실험에 액세스할 수 없습니다.
 
@@ -85,7 +85,7 @@ Azure Machine Learning 실험에서 두 종류의 웹 서비스를 배포할 수
 내보낸 WSD 파일이 있고 버전을 제어한 다음 다른 Azure 하위 지역의 다른 웹 서비스 계획에서 WSD를 새 웹 서비스로 배포할 수 있습니다. 적절한 저장소 계정 구성뿐만 아니라 새 웹 서비스 계획 ID를 제공해야 합니다. 다른 iLearner 파일에서 패치하려면 WSD 파일을 수정하고 학습된 모델의 위치 참조를 업데이트하고 새 웹 서비스로 배포할 수 있습니다.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>실험 실행 및 배포 자동화
-ALM의 중요한 부분은 응용 프로그램의 실행 및 배포 프로세스를 자동화할 수 있다는 것입니다. 이 작업은 Azure Machine Learning에서 [PowerShell 모듈](http://aka.ms/amlps)을 사용하여 수행할 수 있습니다. [Azure Machine Learning Studio PowerShell 모듈](http://aka.ms/amlps)을 사용하여 표준 ALM 자동 실행/배포 프로세스에 관련된 종단 간 단계의 예는 다음과 같습니다. 각 단계는 해당 단계를 수행하는 데 사용할 수 있는 하나 이상의 PowerShell commandlet에 연결됩니다.
+ALM의 중요한 부분은 응용 프로그램의 실행 및 배포 프로세스를 자동화할 수 있다는 것입니다. 이 작업은 Azure Machine Learning에서 [PowerShell 모듈](https://aka.ms/amlps)을 사용하여 수행할 수 있습니다. [Azure Machine Learning Studio PowerShell 모듈](https://aka.ms/amlps)을 사용하여 표준 ALM 자동 실행/배포 프로세스에 관련된 종단 간 단계의 예는 다음과 같습니다. 각 단계는 해당 단계를 수행하는 데 사용할 수 있는 하나 이상의 PowerShell commandlet에 연결됩니다.
 
 1. [데이터 집합을 업로드](https://github.com/hning86/azuremlps#upload-amldataset)합니다.
 2. [작업 영역](https://github.com/hning86/azuremlps#copy-amlexperiment) 또는 [갤러리](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery)에서 작업 영역에 학습 실험을 복사하거나 로컬 디스크에서 [내보낸](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 실험을 [가져옵니다](https://github.com/hning86/azuremlps#import-amlexperimentgraph).
@@ -99,6 +99,6 @@ ALM의 중요한 부분은 응용 프로그램의 실행 및 배포 프로세스
 10. [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) 또는 [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) 엔드포인트 웹 서비스를 테스트합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) 모듈을 다운로드하고 ALM 태스크를 자동화하기 시작합니다.
+* [Azure Machine Learning Studio PowerShell](https://aka.ms/amlps) 모듈을 다운로드하고 ALM 태스크를 자동화하기 시작합니다.
 * PowerShell 및 재학습 API를 통해 [단일 실험을 사용하여 여러 ML 모델을 만들고 관리](create-models-and-endpoints-with-powershell.md)하는 방법에 대해 알아봅니다.
 * [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)에 대해 자세히 알아봅니다.

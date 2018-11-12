@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 547943b04fdfb03a3eccf12a66772992f7fa6212
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 478228ccb12fbfe3ca527bf4d16af05735b7ba92
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249376"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238542"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -51,7 +51,7 @@ Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운�
 
 ### <a name="site-recovery"></a>Site Recovery
 
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery)는 온-프레미스 가상 컴퓨터 및 실제 컴퓨터를 Azure 또는 보조 사이트로 복제하는 작업을 오케스트레이션하여 비즈니스 연속성을 제공합니다. 기본 사이트를 사용할 수 없는 경우 사용자가 계속 작업할 수 있도록 보조 위치에 장애 조치(Failover)하고, 시스템이 다시 정상 상태가 되면 장애 복구합니다. Azure Security Center를 사용하여 좀 더 지능적이고 효과적인 위협 검색을 수행할 수 있습니다.
+[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery)는 온-프레미스 가상 컴퓨터 및 실제 컴퓨터를 Azure 또는 보조 사이트로 복제하는 작업을 오케스트레이션하여 비즈니스 연속성을 제공합니다. 기본 사이트를 사용할 수 없는 경우 사용자가 계속 작업할 수 있도록 보조 위치에 장애 조치(Failover)하고, 시스템이 다시 정상 상태가 되면 장애 복구합니다. Azure Security Center를 사용하여 좀 더 지능적이고 효과적인 위협 검색을 수행할 수 있습니다.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 

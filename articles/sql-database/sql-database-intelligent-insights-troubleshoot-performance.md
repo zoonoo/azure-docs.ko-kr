@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353869"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230039"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
@@ -73,7 +73,7 @@ SQL Database의 리소스는 일반적으로 [DTU](https://docs.microsoft.com/az
 
 사용 가능한 세션 제한에 도달한 경우 데이터베이스에 대한 로그인 수를 줄여 응용 프로그램을 최적화할 수 있습니다. 응용 프로그램에서 데이터베이스에 접속하는 로그인 수를 줄일 수 없는 경우 데이터베이스의 가격 계층을 높이는 것이 좋습니다. 또는 데이터베이스를 여러 데이터베이스로 나누고 이동해 워크로드를 더욱 균형 있게 배분할 수 있습니다.
 
-세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 서버 및 구독 수준의 제한에 관한 정보는 [논리 서버에 대한 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
+세션 제한 해결에 대한 자세한 제안 사항은 [SQL Database 최대 로그인 수 제한을 처리하는 방법(영문)](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)을 참조하세요. 서버 및 구독 수준의 한도에 관한 정보는 [논리 서버의 리소스 한도 개요](sql-database-resource-limits-logical-server.md)를 참조하세요.
 
 ## <a name="workload-increase"></a>워크로드 증가
 
@@ -167,7 +167,7 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 래치 경합을 처리하는 한 가지 방법은 순차적 인덱스 키를 순차적이지 않은 키로 바꿔 인덱스 범위에서 삽입을 균등하게 분산하는 것입니다. 일반적으로 인덱스의 선행 열이 워크로드를 비례적으로 배포합니다. 고려해야 할 다른 방법은 테이블 분할입니다. 과도한 래치 경합을 완화하기 위한 일반적인 방법은 분할된 테이블에 계산 열이 있는 해시 분할 스키마를 만드는 것입니다. 페이지 래치 IO 경합이 발생하는 경우 인덱스를 사용하면 이 성능 문제를 완화할 수 있습니다. 
 
-자세한 내용은 [SQL Server에서 래치 경합 진단 및 해결](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf)(PDF 다운로드)을 참조하세요.
+자세한 내용은 [SQL Server에서 래치 경합 진단 및 해결](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf)(PDF 다운로드)을 참조하세요.
 
 ## <a name="missing-index"></a>누락된 인덱스
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 1b8c1ba80b4c69f36e8304cbe978452a359ac911
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1f19d5918d81acb76936edf8989a556335a3c0df
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698081"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261267"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Ansible을 사용하여 Azure 동적 인벤토리 관리
 Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *동적 인벤토리*로 인벤토리 정보를 가져오는 데 사용할 수 있습니다. 이 문서에서는 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md)을 사용하여 두 개의 가상 머신을 만들고, 해당 가상 머신 각각에 태그를 지정하고, 태그가 지정된 가상 머신에 Nginx를 설치하는 Ansible Azure 동적 인벤토리를 구성합니다.
@@ -26,7 +26,7 @@ Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *�
 
 ## <a name="create-the-test-virtual-machines"></a>테스트 가상 머신 만들기
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 
 1. [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 엽니다.
 

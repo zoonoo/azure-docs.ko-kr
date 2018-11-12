@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: ffb7af5cd772f663d71f8641ed79839c3ff9ac6a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: be08be43269dfb332dca1d5f62ce661940d311cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407793"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259380"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>빠른 시작: Azure Portal 및 .NET을 사용하여 메시지 보내기 및 받기
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
 
-- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](http://www.visualstudio.com/vs) 이상
+- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 
 ## <a name="log-on-to-the-azure-portal"></a>Azure Portal에 로그인

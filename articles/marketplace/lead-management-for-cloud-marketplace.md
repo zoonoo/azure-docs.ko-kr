@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362656"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258547"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>클라우드 마켓플레이스의 리드 관리
 
@@ -97,7 +97,7 @@ ms.locfileid: "49362656"
 
 **리드란 무엇이며 이러한 리드가 Marketplace에서 게시자로 중요한 이유는 무엇인가요?** 
 
-리드란 Marketplace에서 여러분의 제품을 배포하는 고객입니다. 제품이 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us)에 표시되든 [AppSource](http://appsource.microsoft.com/)에 표시되든, 제품에 리드 대상으로 설정한 경우 제품에 관심을 보이는 고객 리드를 받을 수 있습니다.  
+리드란 Marketplace에서 여러분의 제품을 배포하는 고객입니다. 제품이 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us)에 표시되든 [AppSource](https://appsource.microsoft.com/)에 표시되든, 제품에 리드 대상으로 설정한 경우 제품에 관심을 보이는 고객 리드를 받을 수 있습니다.  
 
 
 **리드 대상을 설정하는 데 필요한 도움은 어디에서 받을 수 있나요?** 

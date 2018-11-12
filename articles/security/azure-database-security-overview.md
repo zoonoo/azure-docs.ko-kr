@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249054"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262202"
 ---
 # <a name="azure-database-security-overview"></a>Azure 데이터베이스 보안 개요
 
@@ -35,7 +35,7 @@ Microsoft는 엔터프라이즈 데이터를 암호화하는 추가적인 방법
 
 Azure SQL Database 감사를 사용하면 기업에서 로그인 Azure Storage에 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL Database 감사 기능을 Microsoft Power BI와 통합합니다.
 
-Azure SQL Database는 HIPAA, ISO 27001/27002, PCI DSS Level 1 등을 비롯한 대부분의 규제 또는 보안 요구 사항을 만족할 수 있게 강력히 보호될 수 있습니다. 보안 규정 준수 인증의 최신 목록은 [Microsoft Azure Trust Center 사이트](http://azure.microsoft.com/support/trust-center/services/)에서 제공합니다.
+Azure SQL Database는 HIPAA, ISO 27001/27002, PCI DSS Level 1 등을 비롯한 대부분의 규제 또는 보안 요구 사항을 만족할 수 있게 강력히 보호될 수 있습니다. 보안 규정 준수 인증의 최신 목록은 [Microsoft Azure Trust Center 사이트](https://azure.microsoft.com/support/trust-center/services/)에서 제공합니다.
 
 이 문서에서는 구조적, 테이블 형식 및 관계형 데이터에 대한 Microsoft Azure SQL Database 보호의 기본 사항을 안내합니다. 특히 이 문서에서는 데이터 보호, 액세스 제어 및 사전 모니터링을 위한 리소스로 시작합니다.
 
@@ -44,7 +44,7 @@ Azure SQL Database는 HIPAA, ISO 27001/27002, PCI DSS Level 1 등을 비롯한 �
 SQL Database는 암호화를 제공하여 데이터를 보호하도록 도와줍니다.
 
 - 이동 중인 데이터 - [TLS(전송 계층 보안)](https://support.microsoft.com/kb/3135244)를 통해
-- 미사용 데이터 - [투명한 데이터 암호화](http://go.microsoft.com/fwlink/?LinkId=526242)를 통해
+- 미사용 데이터 - [투명한 데이터 암호화](https://go.microsoft.com/fwlink/?LinkId=526242)를 통해
 - 사용 중인 데이터 - [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)를 통해
 
 데이터를 암호화하는 다른 방법으로 다음을 고려해 보세요.

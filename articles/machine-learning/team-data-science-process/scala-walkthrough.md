@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 16e4af4dd7f5c2bd14d70cc28225dfc750ce3bea
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b90603490af851d9b7ca735b00ee7d6ca5d53951
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838513"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233527"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure에서 Scala 및 Spark를 사용하는 데이터 과학
-이 문서에서는 Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다. 또한 [데이터 과학 프로세스](http://aka.ms/datascienceprocess): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링 및 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 이 문서의 모델에는 두 가지 일반적인 감독 기계 학습 작업 외에 로지스틱 및 선형 회귀, 임의 포리스트 및 GBT(그라데이션 향상 트리)가 포함됩니다.
+이 문서에서는 Azure HDInsight Spark 클러스터에서 Spark 확장형 MLlib 및 SparkML 패키지를 사용하여 감독 기계 학습 작업에 대해 Scala를 사용하는 방법을 설명합니다. 또한 [데이터 과학 프로세스](https://aka.ms/datascienceprocess): 데이터 수집 및 탐색, 시각화, 기능 엔지니어링, 모델링 및 모델 사용으로 이루어진 작업을 단계별로 안내합니다. 이 문서의 모델에는 두 가지 일반적인 감독 기계 학습 작업 외에 로지스틱 및 선형 회귀, 임의 포리스트 및 GBT(그라데이션 향상 트리)가 포함됩니다.
 
 * 회귀 문제: 택시 여정에 대한 팁 금액 예측($)
 * 이진 분류: 택시 여정에 대한 팁 또는 노팁(1/0) 예측
@@ -34,7 +34,7 @@ Java 가상 머신 기반 언어인 [Scala](http://www.scala-lang.org/)는 개�
 
 [Spark](http://spark.apache.org/) 는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다. [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) 패키지는 DataFrames 맨 위에 빌드된 균일한 상위 수준 API 집합을 제공하여 사용자가 실제 기계 학습 파이프라인을 만들고 조정할 수 있도록 합니다. [MLlib](http://spark.apache.org/mllib/) 는 Spark의 확장형 기계 학습 라이브러리로, 분산형 환경에서 모델링 기능을 사용할 수 있습니다.
 
-[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) 는 Azure에서 호스트하는 오픈 소스 Spark의 제품입니다. 또한 Azure Blob 저장소에 저장된 데이터를 변환, 필터링 및 시각화하기 위해 Spark SQL 대화형 쿼리를 실행할 수 있는 Spark 클러스터 상의 Jupyter Scala Notebook에 대한 지원도 포함하고 있습니다. 이 문서에서 솔루션을 제공하고 데이터 시각화를 위해 관련 플롯을 보여 주는 Scala 코드 조각은 Spark 클러스터에 설치된 Jupyter Notebook에서 실행됩니다. 이러한 항목의 모델링 단계는 각 모델 형식을 학습, 평가, 저장 및 사용하는 방법을 보여 주는 코드를 포함하고 있습니다.
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md)는 Azure에서 호스트하는 오픈 소스 Spark의 제품입니다. 또한 Azure Blob 저장소에 저장된 데이터를 변환, 필터링 및 시각화하기 위해 Spark SQL 대화형 쿼리를 실행할 수 있는 Spark 클러스터 상의 Jupyter Scala Notebook에 대한 지원도 포함하고 있습니다. 이 문서에서 솔루션을 제공하고 데이터 시각화를 위해 관련 플롯을 보여 주는 Scala 코드 조각은 Spark 클러스터에 설치된 Jupyter Notebook에서 실행됩니다. 이러한 항목의 모델링 단계는 각 모델 형식을 학습, 평가, 저장 및 사용하는 방법을 보여 주는 코드를 포함하고 있습니다.
 
 이 문서의 설정 단계 및 코드는 Azure HDInsight 3.4 Spark 1.6용입니다. 그러나 이 문서에 나오는 코드와 [Scala Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) 에 포함된 코드는 일반적이므로 모든 Spark 클러스터에서 작동해야 합니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 이 문서에 나오는 내용과 약간 다를 수 있습니다.
 
@@ -1104,7 +1104,7 @@ Test R-sqr is: 0.6226484708501209
 셀 실행 시간: 61초
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Scala를 사용하여 Spark에서 빌드한 기계 학습 모델을 자동으로 사용
-Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](http://aka.ms/datascienceprocess)를 참조하세요.
+Azure에서 데이터 과학 프로세스를 구성하는 작업을 안내하는 항목에 대한 개요는 [팀 데이터 과학 프로세스](https://aka.ms/datascienceprocess)를 참조하세요.
 
 [팀 데이터 과학 프로세스 연습](walkthroughs.md) 에서는 특정 시나리오에 대한 팀 데이터 과학 프로세스의 단계를 보여 주는 다른 종단 간 연습에 대해 설명합니다. 또한 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 설명합니다.
 

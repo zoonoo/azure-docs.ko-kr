@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 1aff2ecdec83886d40d12b76e64a14a81451e89e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 79aa9cd3e634238702419d01650c7ef29c4dbb95
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386691"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242028"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
 
@@ -357,7 +357,7 @@ azcopy \
     --dest-key <key>
 ```
 
---sync-copy 옵션 없이 Blob을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
+--sync-copy 옵션 없이 Blob을 복사할 때는 [서버 쪽 복사](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="copy-single-blob-across-storage-accounts"></a>Storage 계정 간 단일 Blob 복사
 
@@ -369,7 +369,7 @@ azcopy \
     --dest-key <key2>
 ```
 
---sync-copy 옵션 없이 Blob을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
+--sync-copy 옵션 없이 Blob을 복사할 때는 [서버 쪽 복사](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>보조 지역에서 주 지역으로 단일 Blob 복사
 
@@ -488,7 +488,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-파일 공유에 파일을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
+파일 공유에 파일을 복사할 때는 [서버 쪽 복사](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="copy-from-file-share-to-blob"></a>파일 공유에서 Blob으로 복사
 
@@ -500,7 +500,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-파일 공유에서 Blob으로 파일을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
+파일 공유에서 Blob으로 파일을 복사할 때는 [서버 쪽 복사](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="copy-from-blob-to-file-share"></a>Blob에서 파일 공유로 복사
 
@@ -512,7 +512,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Blob에서 파일 공유로 파일을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
+Blob에서 파일 공유로 파일을 복사할 때는 [서버 쪽 복사](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
 ### <a name="synchronously-copy-files"></a>동기적으로 파일 복사
 `--sync-copy` 옵션을 지정하여 File Storage 간에, File Storage에서 Blob Storage로, Blob Storage에서 File Storage로 동기적으로 데이터를 복사할 수 있습니다. AzCopy는 로컬 메모리에 원본 데이터를 다운로드한 후 대상에 다시 업로드하여 이 작업을 수행합니다. 이 경우 표준 송신 비용이 적용됩니다.
@@ -715,10 +715,10 @@ Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참�
 ### <a name="azure-storage-blog-posts"></a>Azure Storage 블로그 게시물:
 * [Linux 미리 보기에서 AzCopy 발표](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Azure Storage 데이터 이동 라이브러리 미리 보기 소개](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: 동기 복사본 및 사용자 지정 콘텐츠 형식 소개(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: 대량 복사 시나리오에 맞게 최적화(영문)](http://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: 읽기 액세스 지역 중복 저장소 지원(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: 동기 복사본 및 사용자 지정 콘텐츠 형식 소개(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: AzCopy 3.0의 일반 공급 및 테이블 및 파일을 지원하는 AzCopy 4.0의 미리 보기 릴리스 발표(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: 대량 복사 시나리오에 맞게 최적화(영문)](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: 읽기 액세스 지역 중복 저장소 지원(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: 크로스 계정 Blob 복사 사용(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

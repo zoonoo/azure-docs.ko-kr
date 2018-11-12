@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116145"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231824"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso 마이그레이션: Azure VM 및 SQL Database Managed Instance에서 온-프레미스 앱 다시 호스트
 
@@ -366,7 +366,7 @@ Azure로 장애 조치되면 Contoso는 Azure에서 복제된 VM에 연결하려
 또한 Contoso 관리자는 장애 조치를 실행할 때 다음 항목을 확인해야 합니다.
 
 - 장애 조치가 트리거될 때 VM에 보류 중인 Windows 업데이트가 없어야 합니다. Windows 업데이트가 보류 중인 경우 업데이트가 완료될 때까지 Contoso 사용자는 가상 머신에 로그인할 수 없습니다.
-- 장애 조치 후 관리자는 **부트 진단**을 확인하여 VM에 대한 스크린샷을 확인해야 합니다. 부트 진단을 확인할 수 없는 경우 VM이 실행되는지 확인한 다음, [문제 해결 팁](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토해야 합니다.
+- 장애 조치 후 관리자는 **부트 진단**을 확인하여 VM에 대한 스크린샷을 확인해야 합니다. 부트 진단을 확인할 수 없는 경우 VM이 실행되는지 확인한 다음, [문제 해결 팁](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)을 검토해야 합니다.
 
 ## <a name="step-5-replicate-the-on-premises-vms-to-azure"></a>5단계: 온-프레미스 VM을 Azure로 복제
 

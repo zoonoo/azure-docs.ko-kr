@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3f23464776036a8c91b180d46341782fddb9d5e8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 2720ecece86133bf551ab42c415b2e9a87420e93
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140962"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237828"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -32,7 +32,7 @@ ms.locfileid: "50140962"
 * Azure 지원 계약을 맺은 고객은 [Azure Portal](https://manage.windowsazure.com/?getsupport=true)에서 지원 요청을 열 수 있습니다.
 * [OMI 문제 해결 가이드](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md)를 사용하여 OMI 문제를 진단합니다.
 * [GitHub 문제](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)를 제출합니다.
-* 제출된 아이디어와 버그를 검토하거나 새로운 아이디어를 제출하려면 Log Analytics 피드백 페이지([http://aka.ms/opinsightsfeedback](http://aka.ms/opinsightsfeedback))를 방문하세요.  
+* 제출된 아이디어와 버그를 검토하거나 새로운 아이디어를 제출하려면 Log Analytics 피드백 페이지([http://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback))를 방문하세요.  
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>중요한 로그 위치 및 로그 수집기 도구
 

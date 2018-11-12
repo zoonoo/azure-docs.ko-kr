@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: dobett
-ms.openlocfilehash: 0e0c398311c5826f8b6c72bf0f39ad2bfde306b2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d97fe45d728b156d72e22a5b255d149f7a02c7f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223052"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261046"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>작업 예약 및 브로드캐스트(.NET/.NET)
 
@@ -50,7 +50,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Visual Studio 2017.
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](http://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634255"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259176"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>사용 예: Automation State Configuration 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
 
@@ -87,7 +87,7 @@ Azure Portal에 최근에 추가된 또 다른 방법을 사용하면 새 모듈
 여기에는 약간의 사용자 조정 작업이 필요합니다. 어려운 작업도 아니고 리소스당 한 번만 수행합니다(향후 업그레이드하지 않으려는 경우). PowerShell 통합 모듈 제작에 대한 자세한 내용은 다음 문서를 참조하세요. [Azure Automation에 대한 통합 모듈 제작](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - 다음과 같이 사용자 워크스테이션에 필요한 모듈을 설치합니다.
-  - [Windows Management Framework, v5](http://aka.ms/wmf5latest) 설치(Windows 10에는 필요 없음)
+  - [Windows Management Framework, v5](https://aka.ms/wmf5latest) 설치(Windows 10에는 필요 없음)
   - `Install-Module –Name MODULE-NAME` <- PowerShell 갤러리에서 모듈 가져오기
 - `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` 의 모듈 폴더를 임시 폴더에 복사
 - 주 폴더에서 샘플 및 설명서 삭제

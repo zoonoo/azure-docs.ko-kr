@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 43ce94653197933a13830003dd07e5b21be2a585
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0a1ad6d50c624115bab7ad09ff0e30a36e7df500
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895009"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256615"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 Virtual Machines의 자동화된 Backup(Resource Manager)
 
@@ -101,7 +101,7 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 
 PowerShell을 사용하여 자동화된 Backup을 구성할 수도 있습니다. 시작하기 전에 다음을 수행해야 합니다.
 
-- [최신 Azure PowerShell을 다운로드하여 설치합니다](http://aka.ms/webpi-azps).
+- [최신 Azure PowerShell을 다운로드하여 설치합니다](https://aka.ms/webpi-azps).
 - Windows PowerShell을 열고 **Connect-AzureRmAccount** 명령을 사용하여 계정에 연결합니다.
 
 ### <a name="install-the-sql-iaas-extension"></a>SQL IaaS 확장 설치

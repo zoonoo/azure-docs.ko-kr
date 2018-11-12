@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee2440171b54e1279571ec4fcb0c5be7bec207a1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 901b44b829398ef92e63f94e0b35549e63cdd3db
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045741"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262253"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ ms.locfileid: "37045741"
 > 연결/게이트웨이 관련 문제 해결에 대한 팁은 [게이트웨이 문제 해결](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 을 참조하세요.
 
 ## <a name="supported-versions-and-installation"></a>지원되는 버전 및 설치
-Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [.NET Data Provider for Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) 버전 14 이상을 설치해야 합니다. Teradata 버전 12 이상이 지원됩니다.
+Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경우 데이터 관리 게이트웨이와 동일한 시스템에 [.NET Data Provider for Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) 버전 14 이상을 설치해야 합니다. Teradata 버전 12 이상이 지원됩니다.
 
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 온-프레미스 Cassandra 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다. 
@@ -65,12 +65,12 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| 형식 |형식 속성은 **OnPremisesTeradata** |예 |
-| 서버 |Teradata 서버의 이름입니다. |예 |
-| authenticationType |Teradata 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |예 |
-| 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니오 |
-| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니오 |
-| gatewayName |데이터 팩터리 서비스가 온-프레미스 Teradata 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
+| 형식 |형식 속성은 **OnPremisesTeradata** |yes |
+| 서버 |Teradata 서버의 이름입니다. |yes |
+| authenticationType |Teradata 데이터베이스에 연결하는 데 사용되는 인증 형식입니다. 가능한 값은 익명, 기본 및 Windows입니다. |yes |
+| 사용자 이름 |기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. |아니요 |
+| 암호 |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. |아니요 |
+| gatewayName |데이터 팩터리 서비스가 온-프레미스 Teradata 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |yes |
 
 ## <a name="dataset-properties"></a>데이터 집합 속성
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -86,7 +86,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 | 자산 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |예 |
+| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: select * from MyTable. |yes |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON 예: Teradata에서 Azure Blob으로 데이터 복사
 다음 예제에서는 [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 Teradata에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.   

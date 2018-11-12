@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 35650eec65fa9181d035c52e6b466985b483500c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036510"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262185"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -151,7 +151,7 @@ App Service 사용 시의 모범 사례는 다음과 같습니다.
 ## <a name="monitor-the-performance-of-your-applications"></a>응용 프로그램 성능 모니터링
 모니터링은 응용 프로그램의 성능, 상태 및 가용성을 확인하기 위해 데이터를 수집 및 분석하는 작업입니다. 효과적인 모니터링 전략은 응용 프로그램 구성 요소의 세부 작업을 이해하는 데 도움이 됩니다. 또한 중요한 문제의 알림이 제공되므로 문제가 커지기 전에 해결하여 작동 시간을 늘릴 수 있습니다. 그리고 보안과 관련이 있을 수 있는 변칙적인 상황도 검색할 수 있습니다.
 
-[Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights)를 사용하여 클라우드 또는 온-프레미스에서 호스트되는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링합니다. Application Insights를 사용하면 사용자가 보고할 때까지 기다리지 않고 응용 프로그램의 오류를 빠르게 식별하고 진단할 수 있습니다. 수집한 정보를 사용하여, 응용 프로그램의 유지 관리 및 개선에 대해 현명한 결정을 내릴 수 있습니다.
+[Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights)를 사용하여 클라우드 또는 온-프레미스에서 호스트되는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링합니다. Application Insights를 사용하면 사용자가 보고할 때까지 기다리지 않고 응용 프로그램의 오류를 빠르게 식별하고 진단할 수 있습니다. 수집한 정보를 사용하여, 응용 프로그램의 유지 관리 및 개선에 대해 현명한 결정을 내릴 수 있습니다.
 
 Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 광범위한 도구가 있습니다. Application Insights는 공용 저장소에 데이터를 저장합니다. Log Analytics 쿼리 언어를 사용하여 경고, 대시보드 및 심층 분석과 같은 공유된 기능을 활용할 수 있습니다.
 
@@ -167,11 +167,11 @@ Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 
 - Azure Service Bus
 - 웹 응용 프로그램 방화벽
 
-[Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인/배포/관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 확인합니다.
+[Azure 보안 모범 사례 및 패턴](security-best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.
 
 Azure 보안 및 관련 Microsoft 서비스에 대한 보다 일반적인 정보를 제공하는 다음 리소스도 확인할 수 있습니다.
 * [Azure 보안 팀 블로그](https://blogs.msdn.microsoft.com/azuresecurity/) – Azure Security 관련 최신 정보를 확인할 수 있습니다.
-* [Microsoft 보안 응답 센터](https://technet.microsoft.com/library/dn440717.aspx) - Azure와 관련된 문제를 비롯한 Microsoft 보안 취약점을 보고하거나 secure@microsoft.com으로 전자 메일을 보낼 수 있습니다.
+* [Microsoft 보안 응답 센터](https://technet.microsoft.com/library/dn440717.aspx) - Azure와 관련된 문제를 비롯한 Microsoft 보안 취약점을 보고하거나 secure@microsoft.com으로 이메일을 보낼 수 있습니다.
 
 <!--Image references-->
 [1]: ./media/security-paas-deployments/advantages-of-cloud.png

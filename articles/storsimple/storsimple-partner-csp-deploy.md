@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109581"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238933"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램용 StorSimple 가상 배열 배포
 
@@ -34,13 +34,13 @@ ms.locfileid: "23109581"
 시작하기 전에 다음 사항을 확인합니다.
 
 - CSP 프로그램에서 등록됩니다.
-- 올바른 [파트너 센터](http://partnercenter.microsoft.com/) 로그인 자격 증명입니다. 자격 증명을 사용하여 파트너 포털에 로그인하여 새 고객을 추가하고 고객을 검색하거나 파트너 대시보드에서 고객 계정으로 이동할 수 있습니다. CSP는 Azure Portal에서 고객을 대신하여 StorSimple 관리자로 작동할 수 있습니다.
+- 올바른 [파트너 센터](https://partnercenter.microsoft.com/) 로그인 자격 증명입니다. 자격 증명을 사용하여 파트너 포털에 로그인하여 새 고객을 추가하고 고객을 검색하거나 파트너 대시보드에서 고객 계정으로 이동할 수 있습니다. CSP는 Azure Portal에서 고객을 대신하여 StorSimple 관리자로 작동할 수 있습니다.
                              
 ## <a name="add-a-customer"></a>고객 추가
 
 고객을 추가하는 경우 구독이 자동으로 만들어집니다. 고객을 추가하려면(및 구독을 자동으로 만들려면) 파트너 포털에서 다음 단계를 수행합니다.
 
-1. [파트너 센터](http://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드**를 클릭합니다.
+1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드**를 클릭합니다.
 
      ![파트너 센터의 대시보드](./media/storsimple-partner-csp-deploy/image1.png)
                               
@@ -77,7 +77,7 @@ ms.locfileid: "23109581"
 
 일부 경우에는 기존 고객이 있을 수 있으며 구독을 추가해야 합니다. 기존 고객에 구독을 추가하려면 파트너 포털에서 다음 단계를 수행합니다.
 
-1. [파트너 센터](http://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드**를 클릭합니다.
+1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드**를 클릭합니다.
 
      ![파트너 센터의 대시보드](./media/storsimple-partner-csp-deploy/image1.png)
                               

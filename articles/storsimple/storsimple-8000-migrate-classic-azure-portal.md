@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a0da47b854e625f2f4a2fcf4c95ec566ba63093
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3a76063b05327e0dcb3ce5c8c9a46113a4c63ef8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095681"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255134"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>StorSimple 장치 관리자 서비스와 연결된 구독 및 저장소 계정 마이그레이션
 
@@ -29,8 +29,8 @@ ms.locfileid: "47095681"
 
 | 이동할 수...| 지원됨| 가동 중지 시간| Azure 지원 프로세스| 접근 방식|
 |-----|-----|-----|-----|-----|
-| 다른 등록에 대한 전체 구독(StorSimple 서비스 및 저장소 계정 포함) | yes       | 아니요       | **등록 이전**<br>다음 항목을 사용합니다.<li>새 규약에 따라 새 Azure 약정을 구입할 수 있습니다.</li><li>이전 등록에서 새 등록으로 모든 계정 및 구독을 마이그레이션하려고 합니다. 여기에는 이전 구독에서 사용한 Azure 서비스가 모두 포함됩니다.</li> | **1단계: Azure 엔터프라이즈 작업 지원 티켓 열기**<li>[http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport)로 이동합니다.</li><li> **등록 관리**를 선택한 후 **한 등록에서 새 등록으로 이전**을 선택합니다.<br>**2단계: 요청한 정보 제공**<br>다음 항목을 포함합니다.<li>원본 등록 번호</li><li> 대상 등록 번호</li><li>이전 개시 날짜|
-| 기존 계정에서 새 등록으로 StorSimple 서비스 이동    | yes       | 아니요       | **계정 이전**<br>사용:<li>전체 등록 이전을 원하지 않는 경우</li><li>특정 계정을 새 등록으로 이동하려고 합니다.</li>| **1단계: Azure 엔터프라이즈 작업 지원 티켓 열기**<li>[http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport)로 이동합니다.</li><li>**등록 관리**를 선택한 후 **EA 계정에서 새 등록으로 이전**을 선택합니다.<br>**2단계: 요청한 정보 제공**<br>다음 항목을 포함합니다.<li>원본 등록 번호</li><li> 대상 등록 번호</li><li>이전 개시 날짜|
+| 다른 등록에 대한 전체 구독(StorSimple 서비스 및 저장소 계정 포함) | yes       | 아니요       | **등록 이전**<br>다음 항목을 사용합니다.<li>새 규약에 따라 새 Azure 약정을 구입할 수 있습니다.</li><li>이전 등록에서 새 등록으로 모든 계정 및 구독을 마이그레이션하려고 합니다. 여기에는 이전 구독에서 사용한 Azure 서비스가 모두 포함됩니다.</li> | **1단계: Azure 엔터프라이즈 작업 지원 티켓 열기**<li>[http://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport)로 이동합니다.</li><li> **등록 관리**를 선택한 후 **한 등록에서 새 등록으로 이전**을 선택합니다.<br>**2단계: 요청한 정보 제공**<br>다음 항목을 포함합니다.<li>원본 등록 번호</li><li> 대상 등록 번호</li><li>이전 개시 날짜|
+| 기존 계정에서 새 등록으로 StorSimple 서비스 이동    | yes       | 아니요       | **계정 이전**<br>사용:<li>전체 등록 이전을 원하지 않는 경우</li><li>특정 계정을 새 등록으로 이동하려고 합니다.</li>| **1단계: Azure 엔터프라이즈 작업 지원 티켓 열기**<li>[http://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport)로 이동합니다.</li><li>**등록 관리**를 선택한 후 **EA 계정에서 새 등록으로 이전**을 선택합니다.<br>**2단계: 요청한 정보 제공**<br>다음 항목을 포함합니다.<li>원본 등록 번호</li><li> 대상 등록 번호</li><li>이전 개시 날짜|
 | 한 구독에서 다른 구독으로 StorSimple 서비스 이동      | 아니요        |    yes         | 없음, 수동 프로세스|<li>StorSimple 장치에서 데이터를 마이그레이션합니다.</li><li>장치에서 장치 공장 재설정을 수행합니다. 그러면 모든 로컬 데이터가 삭제됩니다.</li><li>새 구독을 사용하여 StorSimple 장치 관리자 서비스로 장치를 등록합니다.</li><li>장치에 데이터를 다시 마이그레이션합니다.|
   |Azure 구독의 소유권을 다른 디렉터리로 이전할 수 있나요? | yes       | 아니요       | 기존 구독을 Azure AD 디렉터리에 연결 | [Azure AD 디렉터리에 기존 구독을 연결하려면](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) 문서를 참조하세요. 모든 항목이 제대로 표시되는 데 최대 10분이 걸릴 수 있습니다.|
 | StorSimple 장치 관리자 서비스에서 다른 지역에 있는 다른 서비스로 StorSimple 장치 이동      | 아니요        | yes            | 없음, 수동 프로세스 |위와 동일합니다.|
