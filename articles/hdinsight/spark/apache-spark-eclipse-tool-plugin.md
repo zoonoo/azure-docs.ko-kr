@@ -2,19 +2,19 @@
 title: 'Eclipse용 Azure 도구 키트: HDInsight Spark용 Scala 응용 프로그램 만들기 '
 description: Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 Scala로 작성된 Spark 응용 프로그램을 개발한 후 Eclipse IDE에서 직접 HDInsight Spark 클러스터로 제출합니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.author: jasonh
-ms.openlocfilehash: ab3f4dcdc5a5ad8528080c90fa6c17f9493d19ac
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: hrasheed
+ms.openlocfilehash: 50380f5168ebc97270aa5eca2291e43f018806c6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420305"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009575"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 

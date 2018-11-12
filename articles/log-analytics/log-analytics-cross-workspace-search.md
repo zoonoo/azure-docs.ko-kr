@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e06b9ff2134c0bd1fb1ee8515827e9e8c06a3108
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025806"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008473"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics에서 리소스 간 로그 검색 수행  
 
@@ -38,7 +38,7 @@ ms.locfileid: "50025806"
 
 * 리소스 이름 - 사람이 읽을 수 있는 작업 영역 이름이며 *구성 요소 이름*이라고도 합니다. 
 
-    `workspace("contosoretail").Update | count`
+    `workspace("contosoretail-it").Update | count`
  
     >[!NOTE]
     >작업 영역을 이름으로 식별하면 액세스 가능한 모든 구독에서 고유한 것으로 가정합니다. 지정된 이름의 응용 프로그램이 여러 개 있으면 모호성으로 인해 쿼리가 실패합니다. 이런 경우 다른 식별자 중 하나를 사용해야 합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "50025806"
 
     예: 
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>응용 프로그램 식별

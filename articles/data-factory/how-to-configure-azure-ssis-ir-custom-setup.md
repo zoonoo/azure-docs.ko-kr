@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2edaea1cfb02b250b27c47d58b6c1d1ef6501480
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420271"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037042"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임을 위한 사용자 지정 설치
 
@@ -141,7 +141,7 @@ Azure SSIS IR을 사용자 지정하려면 다음 항목이 필요합니다.
 
        1. `.NET FRAMEWORK 3.5` 폴더: Azure SSIS IR의 각 노드에서 사용자 지정 구성 요소에 필요할 수 있는 이전 버전의 .NET Framework를 설치하기 위한 사용자 지정 설치를 포함합니다.
 
-       1. `AAS` 폴더: Azure-SSIS IR의 각 노드에 클라이언트 라이브러리를 설치하는 사용자 지정 설치 프로그램을 포함하고 있으며, 이 라이브러리는 Analysis Services 작업이 서비스 주체 인증을 사용하여 AAS(Azure Analysis Services) 인스턴스에 연결할 수 있게 해줍니다. 먼저, [여기](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers)서 최신 **MSOLAP(amd64)** 및 **AMO** 클라이언트 라이브러리/Windows 설치 관리자(예: `x64_15.0.900.108_SQL_AS_OLEDB.msi` 및 `x64_15.0.900.108_SQL_AS_AMO.msi`)를 다운로드한 다음, `main.cmd`를 사용하여 모두 컨테이너에 업로드합니다.  
+       1. `AAS` 폴더: Azure-SSIS IR의 각 노드에 클라이언트 라이브러리를 설치하는 사용자 지정 설치 프로그램을 포함하고 있으며, 이 라이브러리는 Analysis Services 작업이 서비스 주체 인증을 사용하여 AAS(Azure Analysis Services) 인스턴스에 연결할 수 있게 해줍니다. 먼저, [여기](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers)서 최신 **MSOLAP(amd64)** 및 **AMO** 클라이언트 라이브러리/Windows 설치 관리자(예: `x64_15.0.900.108_SQL_AS_OLEDB.msi` 및 `x64_15.0.900.108_SQL_AS_AMO.msi`)를 다운로드한 다음, `main.cmd`를 사용하여 모두 컨테이너에 업로드합니다.  
 
        1. `BCP` 폴더: 대량 복사 프로그램(`bcp`) 등, Azure-SSIS IR의 각 노드에 SQL Server 명령줄 유틸리티를 설치하기 위한 사용자 지정 설정을 포함합니다(`MsSqlCmdLnUtils.msi`).
 

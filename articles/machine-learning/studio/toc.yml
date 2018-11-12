@@ -4,12 +4,16 @@ items:
 - name: 개요
   items:
   - name: Machine Learning Studio
+    displayName: overview
     href: what-is-ml-studio.md
   - name: ML Studio 기능
+    displayName: overview
     href: studio-overview-diagram.md
   - name: ML Studio 기본 사항(인포그래픽)
+    displayName: algorithm, algorithms
     href: basics-infographic-with-algorithm-examples.md
   - name: 질문과 대답
+    displayName: FAQ
     href: faq.md
   - name: 새로운 기능
     href: whats-new.md
@@ -17,6 +21,7 @@ items:
 - name: 시작
   items:
   - name: 첫 번째 실험 만들기
+    displayName: quickstart
     href: create-experiment.md
   - name: 연습 예
     items:
@@ -31,8 +36,10 @@ items:
     - name: 4 - 학습 및 평가
       href: walkthrough-4-train-and-evaluate-models.md
     - name: 5 - 웹 서비스 배포
+      displayName: publish
       href: walkthrough-5-publish-web-service.md
     - name: 6 -웹 서비스 액세스
+      displayName: consume
       href: walkthrough-6-access-web-service.md
   - name: 초급자를 위한 데이터 과학
     items:
@@ -63,6 +70,7 @@ items:
       - name: ARM을 사용하여 배포
         href: deploy-with-resource-manager-template.md
       - name: Studio 계정 데이터 보기 및 삭제
+        displayName: export
         href: export-delete-personal-data-dsr.md
   - name: 데이터 획득 및 이해
     items:
@@ -77,6 +85,7 @@ items:
       - name: 실험에서
         href: import-data-from-an-experiment.md
       - name: 온-프레미스 SQL 사용
+        displayName: on-premises
         href: use-data-from-an-on-premises-sql-server.md
   - name: 모델 개발
     items:
@@ -87,6 +96,7 @@ items:
       - name: 실험 반복 관리
         href: manage-experiment-iterations.md
       - name: PowerShell을 사용하여 모델 만들기
+        displayName: endpoint, endpoints
         href: create-models-and-endpoints-with-powershell.md
       - name: 알고리즘 선택
         items:
@@ -103,6 +113,7 @@ items:
         - name: 성능 평가
           href: evaluate-model-performance.md
         - name: 매개 변수 최적화
+          displayName: optimization
           href: algorithm-parameters-optimize.md
         - name: 결과 해석
           href: interpret-model-results.md
@@ -117,20 +128,25 @@ items:
         - name: Python 스크립트 실행
           href: execute-python-scripts.md
   - name: 모델 운영
+    displayName: deploy
     items:
     - name: 개요
+      displayName: deploy, consume, web service
       href: deploy-consume-web-service-guide.md
     - name: 모델 배포
       items:
       - name: 웹 서비스 배포
+        displayName: publish
         href: publish-a-machine-learning-web-service.md
       - name: 작동 방법
         href: model-progression-experiment-to-web-service.md
       - name: 배포 준비
         href: convert-training-experiment-to-scoring-experiment.md
       - name: 외부 데이터 사용
+        displayName: import, export
         href: web-services-that-use-import-export-modules.md
       - name: 다중 지역 배포
+        displayName: multiple regions
         href: how-to-deploy-to-multiple-regions.md
       - name: 웹 서비스 매개 변수 사용
         href: web-service-parameters.md
@@ -141,6 +157,7 @@ items:
       - name: 웹 서비스 포털 사용
         href: manage-new-webservice.md
       - name: API를 사용하여 관리
+        displayName: endpoint, endpoints
         href: manage-web-service-endpoints-using-api-management.md
       - name: 엔드포인트 만들기
         href: create-endpoint.md
@@ -238,9 +255,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-ms.openlocfilehash: b7c5cea35e8b1441bc8a08e8d8582141cd430868
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 77caf4b0144b8c7d7a7a48053d55864bfa9ae286
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431528"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287594"

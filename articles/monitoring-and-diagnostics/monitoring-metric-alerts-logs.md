@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 461c6e3cbdfcc5ef8207277b08ad4a8cf492f796
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388314"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282801"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기  
 
 ## <a name="overview"></a>개요
-Azure Monitor는 [클래식 경고](insights-alerts-portal.md)보다 이점이 있는 [메트릭 경고 유형](monitoring-near-real-time-metric-alerts.md)을 지원합니다. [다양한 Azure 서비스](monitoring-supported-metrics.md)에 대해 메트릭을 사용할 수 있습니다. 이 문서에서는 리소스(`Microsoft.OperationalInsights/workspaces`)의 하위 집합을 사용하는 방법에 대해 설명합니다. 
+Azure Monitor는 [클래식 경고](alert-metric-classic.md)보다 이점이 있는 [메트릭 경고 유형](monitoring-near-real-time-metric-alerts.md)을 지원합니다. [다양한 Azure 서비스](monitoring-supported-metrics.md)에 대해 메트릭을 사용할 수 있습니다. 이 문서에서는 리소스(`Microsoft.OperationalInsights/workspaces`)의 하위 집합을 사용하는 방법에 대해 설명합니다. 
 
 Azure 또는 온-프레미스의 리소스를 포함하여 [로그]에서 [메트릭]의 일부인 메트릭으로 추출된 메트릭 경고를 인기 있는 Log Analytics 로그에서 사용할 수 있습니다. 지원되는 Log Analytics 솔루션은 다음과 같습니다.
 - Windows 및 Linux 컴퓨터에 대한 [성능 카운터](../log-analytics/log-analytics-data-sources-performance-counters.md)
-- [에이전트 상태에 대한 하트비트 레코드](../operations-management-suite/oms-solution-agenthealth.md)
-- [업데이트 관리](../operations-management-suite/oms-solution-update-management.md) 레코드
+- [에이전트 상태에 대한 하트비트 레코드](../monitoring/monitoring-solution-agenthealth.md)
+- [업데이트 관리](../automation/automation-update-management.md) 레코드
 - [이벤트 데이터](../log-analytics/log-analytics-data-sources-windows-events.md) 로그
  
 Azure에서 **로그 메트릭 경고**를 사용하면 쿼리 기반 [로그 경고](alert-log.md)에 비해 많은 이점이 있습니다. 그 중 일부는 다음과 같습니다.
@@ -47,7 +47,7 @@ Azure에서 **로그 메트릭 경고**를 사용하면 쿼리 기반 [로그 �
 Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하려면 다음을 설정하여 사용할 수 있어야 합니다.
 1. **활성 Log Analytics 작업 영역**: 유효한 활성 Log Analytics 작업 영역이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-create-workspace.md)를 참조하세요.
 2. **Log Analytics 작업 영역에 대한 에이전트 구성**: Azure VM 및/또는 온-프레미스 VM에서 이전 단계에서 사용된 Log Analytics 작업 영역으로 데이터를 보내도록 에이전트를 구성해야 합니다. 자세한 내용은 [Log Analytics - 에이전트 개요](../monitoring/monitoring-overview-azure-agents.md)를 참조하세요.
-3. **지원되는 Log Analytics 솔루션 설치**: Log Analytics 솔루션에서 Log Analytics 작업 영역으로 데이터를 보내도록 구성해야 합니다. 지원되는 솔루션은 [Windows 및 Linux에 대한 성능 카운터](../log-analytics/log-analytics-data-sources-performance-counters.md), [에이전트 상태에 대한 하트비트 레코드](../operations-management-suite/oms-solution-agenthealth.md), 업데이트 관리 및 [이벤트 데이터](../log-analytics/log-analytics-data-sources-windows-events.md)입니다.
+3. **지원되는 Log Analytics 솔루션 설치**: Log Analytics 솔루션에서 Log Analytics 작업 영역으로 데이터를 보내도록 구성해야 합니다. 지원되는 솔루션은 [Windows 및 Linux에 대한 성능 카운터](../log-analytics/log-analytics-data-sources-performance-counters.md), [에이전트 상태에 대한 하트비트 레코드](../monitoring/monitoring-solution-agenthealth.md), 업데이트 관리 및 [이벤트 데이터](../log-analytics/log-analytics-data-sources-windows-events.md)입니다.
 4. **로그를 보내도록 Log Analytics 솔루션 구성**: Log Analytis 솔루션은 [Log Analytics 작업 영역에 지원되는 메트릭](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)에 해당하는 필수 로그/데이터를 사용하도록 설정해야 합니다. 예를 들어 *% 사용 가능한 메모리* 카운터는 먼저 [성능 카운터](../log-analytics/log-analytics-data-sources-performance-counters.md) 솔루션에 구성해야 합니다.
 
 ## <a name="configuring-metric-alert-for-logs"></a>로그 메트릭 경고 구성

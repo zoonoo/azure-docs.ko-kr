@@ -3,18 +3,18 @@ title: HDInsight에서 ML Services에 대한 Azure Storage 솔루션 - Azure
 description: HDInsight의 ML Services에서 사용할 수 있는 다양한 저장소 옵션에 대해 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 4c3b36891030ae97f382d5e1d0623fa7c698dbf6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 466cb9ea116030d3f6ee6b41809011dae9acc00b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395091"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011207"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML Services에 대한 Azure Storage 솔루션
 

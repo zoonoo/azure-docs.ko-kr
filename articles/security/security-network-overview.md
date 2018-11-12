@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244596"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233806"
 ---
 # <a name="azure-network-security-overview"></a>Azure 네트워크 보안 개요
 
@@ -144,7 +144,7 @@ Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 �
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>안전한 원격 액세스 및 크로스-프레미스 연결
 
-Azure 리소스의 설정, 구성 및 관리는 원격으로 수행해야 합니다. 또한, 온-프레미스와 Azure 공용 클라우드에 구성 요소가 있는 [하이브리드 IT](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) 솔루션을 배포할 수 있습니다. 이러한 시나리오에는 보안 원격 액세스가 필요합니다.
+Azure 리소스의 설정, 구성 및 관리는 원격으로 수행해야 합니다. 또한, 온-프레미스와 Azure 공용 클라우드에 구성 요소가 있는 [하이브리드 IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) 솔루션을 배포할 수 있습니다. 이러한 시나리오에는 보안 원격 액세스가 필요합니다.
 
 Azure 네트워킹은 다음 보안 원격 액세스 시나리오를 지원합니다.
 

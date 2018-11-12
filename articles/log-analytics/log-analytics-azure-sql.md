@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b20a142007b3422d071de47410f4c9cdd1ff62a7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025672"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006739"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -46,8 +46,8 @@ Azure SQL 분석은 Azure SQL Database, Managed Instance 데이터베이스 및 
 | --- | --- | --- |
 | **[Azure 진단](log-analytics-azure-storage.md)** | **예** | Azure 메트릭 및 로그 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Log Analytics는 저장소 계정에서 데이터를 읽지 않습니다. |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 아니요 | 직접 Windows 에이전트는 솔루션에서 사용되지 않습니다. |
-| [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 직접 Linux 에이전트는 솔루션에서 사용되지 않습니다. |
+| [Windows 에이전트](log-analytics-agent-windows.md) | 아니요 | 직접 Windows 에이전트는 솔루션에서 사용되지 않습니다. |
+| [Linux 에이전트](log-analytics-quick-collect-linux-computer.md) | 아니요 | 직접 Linux 에이전트는 솔루션에서 사용되지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | SCOM 에이전트에서 Log Analytics로 직접 연결은 솔루션에 사용되지 않습니다. |
 
 ## <a name="configuration"></a>구성
@@ -192,7 +192,7 @@ Azure SQL Analytics의 데이터 분석은 사용자 지정 쿼리 및 보고를
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Azure SQL Database에 대한 경고 만들기
 
-Azure SQL Database 리소스에서 가져온 데이터와 [경고를 쉽게 만들](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) 수 있습니다. 다음은 로그 경고와 함께 사용할 수 있는 몇 가지 유용한 [로그 검색](log-analytics-log-searches.md) 쿼리입니다.
+Azure SQL Database 리소스에서 가져온 데이터와 [경고를 쉽게 만들](../monitoring-and-diagnostics/alert-metric.md) 수 있습니다. 다음은 로그 경고와 함께 사용할 수 있는 몇 가지 유용한 [로그 검색](log-analytics-queries.md) 쿼리입니다.
 
 *Azure SQL Database의 높은 CPU*
 
@@ -289,6 +289,6 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>다음 단계
 
-- Log Analytics의 [로그 검색](log-analytics-log-searches.md)을 사용하여 자세한 Azure SQL 데이터를 확인합니다.
+- Log Analytics의 [로그 검색](log-analytics-queries.md)을 사용하여 자세한 Azure SQL 데이터를 확인합니다.
 - Azure SQL 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](log-analytics-dashboards.md).
-- 특정 Azure SQL 이벤트가 발생하는 경우의 [경고 만들기](log-analytics-alerts.md).
+- 특정 Azure SQL 이벤트가 발생하는 경우의 [경고 만들기](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).

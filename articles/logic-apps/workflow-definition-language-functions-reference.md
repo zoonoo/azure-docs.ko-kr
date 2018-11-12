@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 704f6341573fd49cba57a319956ccc5f502bae77
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269567"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038555"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로 정의 언어에 대한 함수 참조
 
@@ -535,7 +535,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*hours*> | yes | 정수  | 더할 양수 또는 음수 시간 수 | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -577,7 +577,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*minutes*> | yes | 정수  | 더할 양수 또는 음수 분 수 | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -649,7 +649,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*seconds*> | yes | 정수  | 더할 양수 또는 음수 초 수 | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -692,7 +692,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*interval*> | yes | 정수  | 더할 지정한 시간 단위 수 | 
 | <*timeUnit*> | yes | 문자열 | *interval*과 함께 사용할 시간 단위: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -1129,7 +1129,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*destinationTimeZone*> | yes | 문자열 | 대상 표준 시간대의 이름입니다. 자세한 내용은 [표준 시간대 ID](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80))를 참조하세요. | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -1172,7 +1172,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*sourceTimeZone*> | yes | 문자열 | 원본 표준 시간대의 이름입니다. 자세한 내용은 [표준 시간대 ID](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80))를 참조하세요. | 
 | <*destinationTimeZone*> | yes | 문자열 | 대상 표준 시간대의 이름입니다. 자세한 내용은 [표준 시간대 ID](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80))를 참조하세요. | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -1214,7 +1214,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*sourceTimeZone*> | yes | 문자열 | 원본 표준 시간대의 이름입니다. 자세한 내용은 [표준 시간대 ID](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80))를 참조하세요. | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -1751,7 +1751,7 @@ first([<collection>])
 
 ```
 first('hello')
-first([0, 1, 2])
+first(createArray(0, 1, 2))
 ```
 
 그리고 다음 결과를 반환합니다. 
@@ -1802,7 +1802,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | 매개 변수 | 필수 | 형식 | 설명 | 
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -1896,7 +1896,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- | 
 | <*interval*> | yes | 정수  | 뺄 지정한 시간 단위 수 | 
 | <*timeUnit*> | yes | 문자열 | *interval*과 함께 사용할 시간 단위: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. | 
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. | 
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -1938,7 +1938,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- | 
 | <*interval*> | yes | 정수  | 뺄 지정한 시간 단위 수 | 
 | <*timeUnit*> | yes | 문자열 | *interval*과 함께 사용할 시간 단위: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. | 
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. | 
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -2312,7 +2312,7 @@ intersection('<collection1>', '<collection2>', ...)
 이 예제는 이러한 배열에 대한 공통 항목을 찾습니다.  
 
 ```
-intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
+intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
 그리고 다음 항목*만* 가진 배열을 반환합니다. `[1, 2]`
@@ -2343,7 +2343,7 @@ join([<collection>], '<delimiter>')
 이 예제는 지정한 문자를 구분 기호로 하여 이 배열의 모든 항목에서 문자열을 만듭니다.
 
 ```
-join([a, b, c], '.')
+join(createArray('a', 'b', 'c'), '.')
 ```
 
 그리고 다음 결과를 반환합니다. `"a.b.c"`
@@ -2375,7 +2375,7 @@ last([<collection>])
 
 ```
 last('abcd')
-last([0, 1, 2, 3])
+last(createArray(0, 1, 2, 3))
 ```
 
 그리고 다음 결과를 반환합니다. 
@@ -2441,7 +2441,7 @@ length([<collection>])
 
 ```
 length('abcd')
-length([0, 1, 2, 3])
+length(createArray(0, 1, 2, 3))
 ```
 
 그리고 다음 결과를 반환합니다. `4`
@@ -2569,7 +2569,7 @@ max([<number1>, <number2>, ...])
 
 ```
 max(1, 2, 3)
-max([1, 2, 3])
+max(createArray(1, 2, 3))
 ```
 
 그리고 다음 결과를 반환합니다. `3`
@@ -2602,7 +2602,7 @@ min([<number1>, <number2>, ...])
 
 ```
 min(1, 2, 3)
-min([1, 2, 3])
+min(createArray(1, 2, 3))
 ```
 
 그리고 다음 결과를 반환합니다. `1`
@@ -3007,7 +3007,7 @@ skip([<collection>], <count>)
 이 예제는 지정한 배열 앞에서 항목 한 개, 숫자 0을 제거합니다. 
 
 ```
-skip([0, 1, 2, 3], 1)
+skip(createArray(0, 1, 2, 3), 1)
 ```
 
 그리고 남은 항목을 포함하는 다음 배열을 반환합니다. `[1,2,3]`
@@ -3056,7 +3056,7 @@ startOfDay('<timestamp>', '<format>'?)
 | 매개 변수 | 필수 | 형식 | 설명 | 
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -3087,7 +3087,7 @@ startOfHour('<timestamp>', '<format>'?)
 | 매개 변수 | 필수 | 형식 | 설명 | 
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -3118,7 +3118,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | 매개 변수 | 필수 | 형식 | 설명 | 
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. |
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -3295,7 +3295,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | yes | 문자열 | 타임스탬프를 포함하는 문자열 | 
 | <*interval*> | yes | 정수  | 뺄 지정한 시간 단위 수 | 
 | <*timeUnit*> | yes | 문자열 | *interval*과 함께 사용할 시간 단위: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. | 
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. | 
 ||||| 
 
 | 반환 값 | type | 설명 | 
@@ -3351,7 +3351,7 @@ take([<collection>], <count>)
 
 ```
 take('abcde`, 3)
-take([0, 1, 2, 3, 4], 3)
+take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
 그리고 다음 결과를 반환합니다.
@@ -3626,7 +3626,7 @@ union([<collection1>], [<collection2>], ...)
 이 예제는 다음 컬렉션에서 *모든* 항목을 가져옵니다. 
 
 ```
-union([1, 2, 3], [1, 2, 10, 101])
+union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
 그리고 다음 결과를 반환합니다. `[1, 2, 3, 10, 101]`
@@ -3921,7 +3921,7 @@ utcNow('<format>')
 
 | 매개 변수 | 필수 | 형식 | 설명 | 
 | --------- | -------- | ---- | ----------- | 
-| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프에 대한 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)이며, 이는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하고 표준 시간대 정보를 보존합니다. | 
+| <*format*> | 아니요 | 문자열 | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. | 
 ||||| 
 
 | 반환 값 | type | 설명 | 

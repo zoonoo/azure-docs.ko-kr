@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244018"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211114"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 이 문서에서는 Azure Site Recovery를 Azure Automation에 통합하여 복구 계획을 확장하는 방법을 설명합니다. 복구 계획으로 Site Recovery로 보호되는 VM의 복구를 오케스트레이션할 수 있습니다. 복구 계획은 보조 클라우드로 복제 및 Azure로의 복제 모두에서 작동합니다. 복구 계획을 통해 복구를 **일관적으로 정확**하고, **반복 가능**하며, **자동화**되도록 할 수도 있습니다. VM을 Azure로 장애 조치(failover)하는 경우 Azure Automation과 통합하면 복구 계획이 확장됩니다. 이를 통해 강력한 자동화 작업을 제공하는 Runbook을 실행할 수 있습니다.
@@ -252,8 +252,8 @@ Automation 계정에 샘플 스크립트를 배포하려면 **Azure에 배포** 
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure Automation 서비스 실행 계정](../automation/automation-create-runas-account.md)
-* [Azure Automation 개요](https://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation 개요")
-* [Azure Automation 샘플 스크립트](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation 샘플 스크립트")
+* [Azure Automation 개요](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation 개요")
+* [Azure Automation 샘플 스크립트](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Azure Automation 샘플 스크립트")
 
 ## <a name="next-steps"></a>다음 단계
 장애 조치를 실행하는 방법에 대해 [자세히 알아보세요](site-recovery-failover.md).

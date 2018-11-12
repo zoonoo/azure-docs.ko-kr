@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 69338e438ced8871de1e994ee8b816f9dc40b13a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9e54a586ac20835078ae3a3734122b0db34ea69e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402355"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006756"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-log-analytics"></a>Log Analytics에서 Linux용 Log Analytics 에이전트를 사용하여 사용자 지정 JSON 데이터 원본 수집
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
@@ -106,5 +106,5 @@ Log Analytics에서 JSON 데이터를 수집하려면 `oms.api.`를 입력 플�
 
 
 ## <a name="next-steps"></a>다음 단계
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다. 
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-queries.md)에 대해 알아봅니다. 
  

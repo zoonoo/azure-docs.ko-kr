@@ -3,18 +3,18 @@ title: HDInsight .NET SDK를 사용하여 MapReduce 작업 제출 - Azure
 description: HDInsight .NET SDK를 사용하여 Azure HDInsight Hadoop에 MapReduce 작업을 제출하는 방법에 대해 알아봅니다.
 ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: b2a79b73015419dc48a1a731e01ac9c8e1fc27f8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: a978ce7fdfdf7d4c42ab5f512590da96b0c7fcae
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041503"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009330"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 MapReduce 작업 실행
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

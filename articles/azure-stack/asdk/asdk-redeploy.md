@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d166916ca54f3b8c26a418ff83093e53dcdbe515
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413758"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037382"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK를 다시 배포
 이 문서는 Azure Stack 개발 키트 ASDK () 비-프로덕션 환경에서 다시 배포 하는 방법을 알아봅니다. 에서는 지원 되지 않습니다는 ASDK 업그레이드 때문에 완전히 최신 버전으로 이동 하 고 다시 배포 해야 합니다. 또한는 ASDK 처음부터 다시 시작 하려는 언제 든 다시 배포할 수 있습니다.
@@ -60,7 +60,10 @@ Azure를 사용 하 여 이전에 ASDK 설치를 등록 하는 경우 등록 리
 3. 스크립트를 실행 하면 로컬 ASDK 설치와 Azure 구독에 로그인 하 라는 메시지가 표시 됩니다.
 4. 스크립트가 완료 되 면 다음 예제와 유사한 메시지가 표시 됩니다.
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.` ` Remove registration resource from Azure...` ` "Deleting the resource..." on target "/subscriptions/<subscription information>"` ` ********** End Log: Remove-AzsRegistration ********* `
+    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    ` Remove registration resource from Azure...`
+    ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    ` ********** End Log: Remove-AzsRegistration ********* `
 
 
 
@@ -95,7 +98,7 @@ Asdk installer.ps1 스크립트는 ASDK 설치를 사용 하지 않은 경우 �
 
 
 ## <a name="next-steps"></a>다음 단계
-[ASDK 설치 후 구성 작업](asdk-post-deploy.md)
+[ASDK 배포 후 작업](asdk-post-deploy.md)
 
 
 

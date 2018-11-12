@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 11/08/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 8a33d4edb4107b936c36a744bb082c02b7830868
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024446"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300713"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -26,7 +26,7 @@ Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federa
 |---------|---------|---------|
 |결제|용량 이어야 합니다.<br> EA (기업 계약)만|용량 또는 지불으로-사용<br>EA 또는 CSP (클라우드 솔루션 공급자)|
 |ID|AD FS 여야 합니다.|Azure AD 또는 AD FS|
-|Marketplace |지원됨<br>BYOL 라이선싱|지원됨<br>BYOL 라이선싱|
+|마켓플레이스 |지원됨<br>BYOL 라이선싱|지원됨<br>BYOL 라이선싱|
 |등록|권장 되는, 이동식 미디어 필요<br> 와 별도 연결 된 장치입니다.|자동화|
 |패치 및 업데이트|필수, 이동식 미디어에 필요<br> 와 별도 연결 된 장치입니다.|업데이트 패키지를 직접 다운로드할 수 있습니다.<br> 인터넷에서 Azure Stack에.|
 
@@ -118,7 +118,7 @@ Azure Stack에서 그래프 서비스 키 배포 센터 (KDC) Active Directory �
 
 Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 다음 프로토콜 및 포트를 사용 합니다.
 
-|type|포트|프로토콜|
+|종류|포트|프로토콜|
 |---------|---------|---------|
 |LDAP|389|TCP 및 UDP|
 |LDAP SSL|636|TCP|
@@ -173,8 +173,6 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 |CustomAdfsName|클레임 공급자의 이름입니다. 이런 방식으로 AD FS 방문 페이지에 표시 됩니다.|Contoso|
 |CustomADFSFederationMetadataFileContent|메타 데이터 콘텐츠|$using: federationMetadataFileContent|
 
-
-
 ### <a name="create-federation-metadata-file"></a>페더레이션 메타 데이터 파일 만들기
 
 다음 절차에 대 한 계정이 STS는 기존 AD FS 배포에 대 한 네트워크 연결 된 컴퓨터를 사용 해야 합니다. 또한 필요한 인증서를 설치 해야 합니다.
@@ -182,9 +180,11 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 1. 관리자 권한 Windows PowerShell 세션을 열고 환경에 적합 한 매개 변수를 사용 하 여 다음 명령을 실행 합니다.
 
    ```PowerShell  
-    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
-    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
-
+    $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
+    $webclient = New-Object System.Net.WebClient
+    $webclient.Encoding = [System.Text.Encoding]::UTF8
+    $metadataAsString = $webclient.DownloadString($url)
+    Set-Content -Path c:\metadata.xml -Encoding UTF8 -Value $metadataAsString
    ```
 
 2. 권한 있는 끝점과 통신할 수 있는 컴퓨터에 메타 데이터 파일을 복사 합니다.

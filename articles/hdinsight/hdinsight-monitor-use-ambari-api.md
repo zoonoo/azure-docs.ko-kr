@@ -2,19 +2,19 @@
 title: Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링 - Azure
 description: Hadoop 클러스터를 생성, 관리 및 모니터링하는 데 Apache Ambari API를 사용합니다. 직관적 운영자 도구와 API를 사용하면 Hadoop의 복잡한 작업을 간편하게 수행할 수 있습니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 23da477fc24eaea4a6f987f13ad055022d2ba032
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4be14cd1804c27eedc49cc17e33298c6134f6a37
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108640"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008745"
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
 Ambari API를 사용하여 HDInsight 클러스터를 모니터링하는 방법을 알아봅니다.

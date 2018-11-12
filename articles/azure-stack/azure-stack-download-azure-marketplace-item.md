@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: b5c2c51429e37eea2473ae5966b1f41295875cb6
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ec73083d1bb66e7c7735a2bee8e89eeb56cf7620
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638174"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282501"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure에서 Azure Stack marketplace 항목 다운로드
 
@@ -168,8 +168,10 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
 
    가져올 수 있습니다 합니다 *게시자*를 *제공*, 및 *sku* AZPKG 파일을 다운로드 하는 텍스트 파일에서 이미지의 값입니다. 텍스트 파일의 대상 위치에 저장 됩니다. 합니다 *버전* 값은 Azure에서 이전 절차에서 항목을 다운로드 하는 경우 명시 버전입니다. 
  
-   다음 예제 스크립트에서는 서버 코어 가상 머신에서 Windows Server 2016 Datacenter-에 대 한 값이 사용 됩니다. 에 대 한 값 *-Osuri* 항목에 대 한 blob 저장소 위치를 예제 경로입니다.
+   다음 예제 스크립트에서는 서버 코어 가상 머신에서 Windows Server 2016 Datacenter-에 대 한 값이 사용 됩니다. 에 대 한 값 *-Osuri* 항목에 대 한 blob 저장소 위치를 예제 경로입니다. 
 
+   이 스크립트를 대신 사용할 수 있습니다 합니다 [이 문서에 설명 된 절차](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) 가져오려는 합니다. Azure portal을 사용 하 여 VHD 이미지입니다.
+ 
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -179,6 +181,7 @@ PowerShell을 사용 하 여 Azure Stack 인터넷에 연결 하지 않고 오�
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
+   
    **솔루션 템플릿에 대 한:** 일부 템플릿에서 작은 3MB를 포함할 수 있습니다. VHD 파일 이름의 **fixed3.vhd**합니다. Azure Stack에 해당 파일을 가져올 필요가 없습니다. Fixed3.vhd 합니다.  이 파일은 Azure Marketplace에 대 한 게시 요구 사항에 맞게 일부 솔루션 템플릿을 사용 하 여 포함 합니다.
 
    템플릿 설명을 검토 하 고 다운로드 가져와서 솔루션 템플릿을 사용 하 여 작동 하는 데 필요한 Vhd와 같은 추가 요구 사항입니다.  

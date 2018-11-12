@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2570e779f258e702f04166dffc3087195d01a983
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420560"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283640"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Resource Manager 템플릿을 사용하여 VM Scale Sets에 대한 고급 자동 크기 조정 구성
 되풀이 일정 또는 특정 날짜에 성능 메트릭 임계값을 기반으로 Virtual Machine Scale Sets의 규모를 확장 및 감축할 수 있습니다. 또한 크기 조정 동작에 대한 전자 메일 및 웹후크 알림을 구성할 수 있습니다. 이 연습에서는 VM 확장 집합에서 Resource Manager 템플릿을 사용하여 이 모든 개체를 구성하는 예를 보여 줍니다.
 
 > [!NOTE]
-> 이 연습에서는 VM Scale Sets에 대한 단계를 설명하지만 [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)의 자동 크기 조정에도 동일한 정보가 적용됩니다. CPU 등의 단순한 성능 메트릭에 따른 VM 확장 집합의 간단한 규모 감축/확장 설정은 [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) 및 [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) 문서를 참조하세요.
+> 이 연습에서는 VM Scale Sets에 대한 단계를 설명하지만 [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)의 자동 크기 조정에도 동일한 정보가 적용됩니다. CPU 등의 단순한 성능 메트릭에 따른 VM 확장 집합의 간단한 규모 감축/확장 설정은 [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) 및 [Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) 문서를 참조하세요.
 >
 >
 

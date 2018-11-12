@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 29/10/2018
+ms.date: 10/29/2018
 ms.author: anilmur;juliako;
-ms.openlocfilehash: f6c853648b138763675e016d8de6eaff6377f166
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3a8888148e1f58cdf2b1893c624b74ec6d6c93da
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229603"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282546"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>미디어 인코더 표준으로 비디오 자르기
 미디어 인코더 표준(MES)을 사용하여 입력 비디오를 자를 수 있습니다. 자르기는 비디오 프레임 내에서 사각형 창을 선택하는 과정이며 해당 창 내의 픽셀을 인코딩합니다. 다음 다이어그램은 프로세스를 설명하는 데 도움이 됩니다.

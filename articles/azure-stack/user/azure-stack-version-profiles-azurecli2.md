@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067706"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277276"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -44,7 +44,7 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
     python -c "import certifi; print(certifi.where())"
   ```
 
-  인증서 위치를 기록해 둡니다. 예: `~/lib/python3.5/site-packages/certifi/cacert.pem`. 특정 경로 설치 된 Python의 버전 및 OS에 따라 달라 집니다.
+  인증서 위치를 기록해 둡니다. 예: `~/lib/python3.5/site-packages/certifi/cacert.pem` 특정 경로 설치 된 Python의 버전 및 OS에 따라 달라 집니다.
 
 ### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>클라우드 내에서 개발 컴퓨터에 대 한 경로 설정 합니다.
 
@@ -139,6 +139,18 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
+    다. 등록 하는 *사용자* 다중 테 넌 트 환경에서 사용 하 여:
+
+      ```azurecli
+      az cloud register \ 
+        -n AzureStackUser \ 
+        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
+        --suffix-storage-endpoint "local.azurestack.external" \ 
+        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
+        --profile 2018-03-01-hybrid
+      ```
 
 1. 다음 명령을 사용 하 여 활성 환경을 설정 합니다.
 
@@ -223,7 +235,7 @@ az group create \
 Azure Stack에서 CLI를 사용 하는 경우 주의 해야 하는 몇 가지 알려진된 문제는
 
  - CLI 대화형 모드 즉 `az interactive` 명령은 Azure Stack에서 아직 지원 되지 않습니다.
- - Azure Stack에서 사용할 수 있는 가상 머신 이미지 목록을 사용 합니다 `az vm images list --all` 대신 명령을 `az vm image list` 명령입니다. 지정 된 `--all` 옵션을 선택 하면 Azure Stack 환경에서 사용할 수 있는 이미지만 응답 반환 하는지 확인 합니다.
+ - Azure Stack에서 사용할 수 있는 가상 머신 이미지 목록을 사용 합니다 `az vm image list --all` 대신 명령을 `az vm image list` 명령입니다. 지정 된 `--all` 옵션을 선택 하면 Azure Stack 환경에서 사용할 수 있는 이미지만 응답 반환 하는지 확인 합니다.
  - Azure에서 사용할 수 있는 가상 머신 이미지 별칭 Azure Stack에 적용할 수 없습니다. 가상 머신 이미지를 사용 하는 경우에 전체 URN 매개 변수를 사용 해야 합니다 (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) 이미지 별칭 대신 합니다. 이 URN에서 파생 된 이미지 사양과 일치 해야 합니다는 `az vm images list` 명령입니다.
 
 ## <a name="next-steps"></a>다음 단계
