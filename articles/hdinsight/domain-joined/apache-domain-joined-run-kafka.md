@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 1a8f04f39568816252175fc9e0893f1ab3e2cdc6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 48cfba6f62d75470efd27e3a4cdcb995e716798b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224820"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037144"
 ---
 # <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Kafka 정책 구성(미리 보기)
 
@@ -31,9 +31,9 @@ ESP(Enterprise Security Package) Kafka 클러스터용 Apache Ranger 정책을 �
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-* [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+* [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-* [Enterprise Security Package를 사용하여 HDInsight Kafka 클러스터](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-run-hive)를 만듭니다.
+* [Enterprise Security Package를 사용하여 HDInsight Kafka 클러스터](apache-domain-joined-configure-using-azure-adds.md)를 만듭니다.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Apache Ranger 관리 UI에 연결
 
@@ -117,15 +117,18 @@ ESP(Enterprise Security Package) Kafka 클러스터용 Apache Ranger 정책을 �
 
    ```bash
    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-   
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
+> [!Note]
+> 아직 개발 환경을 설정하지 않은 경우 계속 진행하려면 개발 환경을 설정해야 합니다. Java JDK, Apache Maven, scp가 포함된 SSH 클라이언트 등의 구성 요소가 필요합니다. 자세한 내용은 [설치 지침](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)을 참조하세요.
+1. [Apache Kafka 도메인 조인 생산자 소비자 예제](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)를 다운로드합니다.
 
-4. 다음 명령을 실행합니다. 
+1. [자습서: Apache Kafka 생산자 및 소비자 API 사용](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)의 **빌드 및 배포 예제**에서 2단계 및 3단계를 따릅니다.
+
+1. 다음 명령을 실행합니다.
 
    ```bash
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create salesevents $KAFKABROKERS
-   
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
