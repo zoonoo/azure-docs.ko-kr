@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 2fabe1671e9cc2aeed3b0dcd08ad5b5f09da3f11
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1bf2222e09644520bbfc6c5424c7f29d05b3c799
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140843"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257700"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사항
 
@@ -80,7 +80,7 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
 [Traffic Manager 설정 테스트](traffic-manager-testing-settings.md)
 
-[Traffic Manager 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
+[Traffic Manager 작업(REST API 참조)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure Traffic Manager cmdlet](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
 

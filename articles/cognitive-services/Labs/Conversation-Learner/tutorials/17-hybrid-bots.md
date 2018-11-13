@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a03596ff8383a085314508d4a25d0ba89bcc3094
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 82b0d1494e983d033889d588bcb73d0364fcfc89
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174482"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256292"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>다른 봇 빌드 기술과 함께 Conversation Learner를 사용하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "39174482"
 
 ## <a name="video"></a>비디오
 
-[![자습서 15 미리 보기](http://aka.ms/cl-tutorial-15-preview)](http://aka.ms/blis-tutorial-15)
+[![자습서 15 미리 보기](https://aka.ms/cl-tutorial-15-preview)](https://aka.ms/blis-tutorial-15)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 로그 대화 Web UI가 아니라 봇 에뮬레이터를 사용하여 로그 대화를 만들어야 합니다.  

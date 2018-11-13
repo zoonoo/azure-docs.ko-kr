@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 1a0d8106c6a48494a938ee7a9da6f43f467516f6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2fe57480f7d8e22cfffafec6845372718587958e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394020"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258428"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동
 [Azure용 SQL Server Integration Services 기능 팩](https://msdn.microsoft.com/library/mt146770.aspx) 에서는 Azure에 연결하고, Azure와 온-프레미스 데이터 원본 간에 데이터를 전송하며, Azure에 저장된 데이터를 처리하는 구성 요소를 제공합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "49394020"
 
 이는 일반적으로 [SQL](sql-walkthrough.md) 및 [HDInsight](hive-walkthrough.md) 연습의 첫 번째 단계입니다.
 
-SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반적인 비즈니스 요구 사항을 충족하는 정식 시나리오에 대한 자세한 내용은 [Azure용 SQL Server Integration Services 통합 팩으로 더 많은 작업 수행](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) 블로그를 참조하세요.
+SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반적인 비즈니스 요구 사항을 충족하는 정식 시나리오에 대한 자세한 내용은 [Azure용 SQL Server Integration Services 통합 팩으로 더 많은 작업 수행](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) 블로그를 참조하세요.
 
 > [!NOTE]
 > Azure Blob Storage에 대한 전체 소개 내용은 [Azure Blob 기본 사항](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
@@ -47,10 +47,10 @@ SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반�
 **SSIS 커넥터**를 사용하려면 다음을 다운로드해야 합니다.
 
 * **SQL Server 2014 또는 2016 Standard 이상**: 설치 파일에 SQL Server Integration Services가 포함되어 있습니다.
-* **Azure용 Microsoft SQL Server 2014 또는 2016 Integration Services 기능 팩**: [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) 및 [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) 페이지에서 다운로드할 수 있습니다.
+* **Azure용 Microsoft SQL Server 2014 또는 2016 Integration Services 기능 팩**: [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) 및 [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) 페이지에서 다운로드할 수 있습니다.
 
 > [!NOTE]
-> SSIS는 SQL Server와 함께 설치되지만 Express 버전에는 포함되어 있지 않습니다. 다양한 버전의 SQL Server에 포함된 응용 프로그램에 대한 자세한 내용은 [SQL Server 버전](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)을 참조하세요.
+> SSIS는 SQL Server와 함께 설치되지만 Express 버전에는 포함되어 있지 않습니다. 다양한 버전의 SQL Server에 포함된 응용 프로그램에 대한 자세한 내용은 [SQL Server 버전](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)을 참조하세요.
 > 
 > 
 

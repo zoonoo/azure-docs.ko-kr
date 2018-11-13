@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 443d37f5b45db9495c09d68300c9ea4978466eb9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: fe6df20d294a3b1802d396085c36a6587dc45730
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388231"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249084"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 응용 프로그램 배포
 
@@ -87,7 +87,7 @@ Azure 구독의 경우 [PowerShell 스크립트](./scripts/service-fabric-powers
 
 파티 클러스터는 Azure에서 호스팅되는 시간이 제한된 체험용 Service Fabric 클러스터이며 Service Fabric 팀에서 운영합니다. 누구든지 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다. 클러스터는 노드-노드 및 클라이언트-노드 보안에 단일 자체 서명 인증서를 사용합니다.
 
-[Windows 클러스터에 로그인하고 조인](http://aka.ms/tryservicefabric)합니다. PFX 인증서를 머신에 다운로드하려면 **PFX** 링크를 선택합니다. **보안 파티 클러스터에 연결하는 방법** 링크를 선택하고 인증서 암호를 복사합니다. 인증서, 인증서 암호 및 **연결 엔드포인트** 값은 다음 단계에서 사용됩니다.
+[Windows 클러스터에 로그인하고 조인](https://aka.ms/tryservicefabric)합니다. PFX 인증서를 머신에 다운로드하려면 **PFX** 링크를 선택합니다. **보안 파티 클러스터에 연결하는 방법** 링크를 선택하고 인증서 암호를 복사합니다. 인증서, 인증서 암호 및 **연결 엔드포인트** 값은 다음 단계에서 사용됩니다.
 
 ![PFX 및 연결 엔드포인트](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 

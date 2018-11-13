@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576473"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253434"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Services에 대한 릴리스 정보
 
@@ -188,7 +188,7 @@ BizTalk 서비스 프로젝트에서 이름 기반 동작을 사용하여 인증
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>SQL 데이터베이스가 오프라인 상태인 경우에도 브리지가 계속해서 메시지를 처리함
 Microsoft Azure SQL Database(배포된 아티팩트 및 파이프라인과 같은 실행 중인 정보 저장)가 오프라인 상태인 경우에도 BizTalk Services 브리지가 잠시 동안 계속해서 메시지를 처리합니다. BizTalk Services가 캐시된 아티팩트 및 브리지 구성을 사용하기 때문입니다.
-SQL Database가 오프라인 상태일 때 브리지가 메시지를 처리하지 않도록 하려면 BizTalk Services PowerShell cmdlet을 사용하여 BizTalk Services를 중지하거나 일시 중단할 수 있습니다. 작업을 관리하는 Windows PowerShell cmdlet에 대한 [Azure BizTalk 서비스 관리 샘플](http://go.microsoft.com/fwlink/p/?LinkID=329019) 을 참조하세요.  
+SQL Database가 오프라인 상태일 때 브리지가 메시지를 처리하지 않도록 하려면 BizTalk Services PowerShell cmdlet을 사용하여 BizTalk Services를 중지하거나 일시 중단할 수 있습니다. 작업을 관리하는 Windows PowerShell cmdlet에 대한 [Azure BizTalk 서비스 관리 샘플](https://go.microsoft.com/fwlink/p/?LinkID=329019) 을 참조하세요.  
 
 ### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>브리지의 사용자 지정 코드 구성 요소 내에서 XML 메시지를 읽을 때 추가 BOM 문자가 포함됨
 브리지의 사용자 지정 코드 내에서 XML 메시지를 읽고자 하는 시나리오를 고려해 보세요. .NET API System.Text.Encoding.UTF8.GetString(bytes)을 사용하는 경우 메시지의 시작 부분에 있는 출력에 추가 BOM 문자가 포함됩니다. 따라서 추가 BOM 문자를 포함하여 출력하지 않으려면 ```System.IO.StreamReader().ReadToEnd()```를 사용해야 합니다.

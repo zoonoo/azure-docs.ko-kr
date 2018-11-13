@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 1ae68e8eac3baca53cda603769a89bc6a84fd468
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405930"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256938"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL Database 서비스
 
@@ -101,7 +101,7 @@ SQL Database는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) �
 
 ## <a name="availability-capabilities"></a>가용성 기능
 
-Azure의 업계 선도적인 99.99% 가용성 [SLA](http://azure.microsoft.com/support/legal/sla/)(서비스 수준 계약)를 Microsoft에서 관리되는 전 세계 데이터 센터 네트워크의 지원을 받아 앱을 연중 무휴(24/7)로 실행할 수 있습니다. Azure 플랫폼은 모든 Azure SQL Database를 완벽하게 관리하고 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 계산 계층과 저장소 계층을 분리하여 달성합니다. 프리미엄 가용성은 계산 및 저장소를 단일 고성능 노드에 통합한 후 내부적으로 AlwaysOn 가용성 그룹과 유사한 기술을 구현하여 달성됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
+Azure의 업계 선도적인 99.99% 가용성 [SLA](https://azure.microsoft.com/support/legal/sla/)(서비스 수준 계약)를 Microsoft에서 관리되는 전 세계 데이터 센터 네트워크의 지원을 받아 앱을 연중 무휴(24/7)로 실행할 수 있습니다. Azure 플랫폼은 모든 Azure SQL Database를 완벽하게 관리하고 데이터 무손실 및 높은 데이터 가용성을 보장합니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 계산 계층과 저장소 계층을 분리하여 달성합니다. 프리미엄 가용성은 계산 및 저장소를 단일 고성능 노드에 통합한 후 내부적으로 AlwaysOn 가용성 그룹과 유사한 기술을 구현하여 달성됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 또한 SQL Database는 다음을 포함하여 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공합니다.
 
 - **[자동 백업](sql-database-automated-backups.md)**:
 
@@ -200,7 +200,7 @@ SQL Database는 MacOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 
 - [DBA 스택 교환(영문)](https://dba.stackexchange.com/questions/tagged/sql-server): 데이터베이스 관리 관련 질문
 - [Stack Overflow(영문)](http://stackoverflow.com/questions/tagged/sql-server): 개발 관련 질문
 - [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): 기술 관련 질문
-- [피드백](http://aka.ms/sqlfeedback): 버그 및 요청 기능 보고
+- [피드백](https://aka.ms/sqlfeedback): 버그 및 요청 기능 보고
 - [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server 관련 토론
 
 ## <a name="next-steps"></a>다음 단계

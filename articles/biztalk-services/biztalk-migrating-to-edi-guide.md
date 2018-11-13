@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856533"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253825"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Services에 BizTalk Server EDI 솔루션 마이그레이션: 기술 가이드
 
@@ -77,10 +77,10 @@ BizTalk Server EDI에서 파이프라인은 응용 프로그램에서 필요에 
 ## <a name="agreements"></a>규약
 EDI 처리에 사용되는 BizTalk Server 2010 거래 파트너 규약에 익숙한 경우 BizTalk Services 거래 파트너 규약이 친숙해 보일 것입니다. 대부분의 규약 설정은 동일하고 동일한 용어를 사용합니다. 일부 경우, 계약 설정은 BizTalk Server에서 동일한 설정에 비해 훨씬 간단합니다. Microsoft Azure BizTalk Services는 x12, EDIFACT 및 AS2 전송을 지원합니다.
 
-또한 Microsoft Azure BizTalk Services는 BizTalk Server 거래 파트너 모듈에서 BizTalk Services 포털로 거래 파트너 규약을 마이그레이션하는 **TPM 데이터 마이그레이션** 도구를 제공합니다. TPM 데이터 마이그레이션 도구는 도구 패키지의 일부로 사용 가능하며, [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057)에서 다운로드할 수 있습니다. 패키지에는 도구를 사용하는 방법을 제공하는 추가 정보와 도구에 대한 문제해결 정보가 포함됩니다.
+또한 Microsoft Azure BizTalk Services는 BizTalk Server 거래 파트너 모듈에서 BizTalk Services 포털로 거래 파트너 규약을 마이그레이션하는 **TPM 데이터 마이그레이션** 도구를 제공합니다. TPM 데이터 마이그레이션 도구는 도구 패키지의 일부로 사용 가능하며, [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057)에서 다운로드할 수 있습니다. 패키지에는 도구를 사용하는 방법을 제공하는 추가 정보와 도구에 대한 문제해결 정보가 포함됩니다.
 
 ## <a name="schemas"></a>스키마
-BizTalk Services는 BizTalk Services 솔루션에서 사용할 수 있는 EDI 스키마를 제공합니다.  또한 EDI 스키마의 루트 노드는 BizTalk 서버와 BizTalk Services에서 동일하기 때문에 BizTalk Server EDI 스키마는 BizTalk Services와 함께 사용할 수 있습니다. 따라서 BizTalk Server EDI 스키마를 직접 가져와서 BizTalk Services를 사용하여 개발하는 EDI 솔루션에서 사용할 수 있습니다. [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057)에서 스키마를 다운로드할 수 있습니다.
+BizTalk Services는 BizTalk Services 솔루션에서 사용할 수 있는 EDI 스키마를 제공합니다.  또한 EDI 스키마의 루트 노드는 BizTalk 서버와 BizTalk Services에서 동일하기 때문에 BizTalk Server EDI 스키마는 BizTalk Services와 함께 사용할 수 있습니다. 따라서 BizTalk Server EDI 스키마를 직접 가져와서 BizTalk Services를 사용하여 개발하는 EDI 솔루션에서 사용할 수 있습니다. [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057)에서 스키마를 다운로드할 수 있습니다.
 
 ## <a name="maps-transforms"></a>매핑(변환)
 BizTalk Server의 매핑은 BizTalk Services의 변환이라고 합니다. BizTalk Server에서 BizTalk Services로 매핑을 마이그레이션하는 것은 (맵 복잡성에 따라) 달성하기 위해 더 복잡한 작업 중 하나일 수 있습니다. BizTalk Services에 사용되는 매핑 도구는 BizTalk 매퍼와 다릅니다. 매퍼는 대부분 유사해 보이지만 기본 매핑 형식에는 차이가 있습니다. 사용자에 대해 가능한 펑토이드 (BizTalk Services에서는 **매핑 작업** 이라고 함)도 다릅니다.  실제로 BizTalk Services에서 직접 BizTalk 매핑을 사용할 수 없습니다. 또한 BizTalk Server에서 사용할 수 있는 모든 펑토이드를 BizTalk Services에 대한 매핑 작업으로 사용할 수 있는 것은 아닙니다.
@@ -93,23 +93,23 @@ BizTalk Services 변환의 새로운 기능의 다른 예로는 **루프 작업*
 또 다른 예는 **If Then Else** 식 매핑 작업입니다.  if then else 작업은 BizTalk 매퍼에서 수행할 수 있지만 간단해 보이는 작업을 수행 하는 데 여러 펑토이드가 필요합니다.
 
 ### <a name="migrating-biztalk-server-maps"></a>BizTalk Server 맵 마이그레이션
-Microsoft Azure BizTalk Services는 BizTalk Services 변환 BizTalk Server 맵을 마이그레이션하는 도구를 제공합니다. **BTMMigrationTool**은 [BizTalk Services SDK 다운로드](http://go.microsoft.com/fwlink/p/?LinkId=235057)와 함께 제공되는 **도구** 패키지의 일부로 사용할 수 있습니다. 이 도구에 대한 자세한 내용은 [BizTalk 맵을 BizTalk Services 변환으로 변환](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx)을 참조하세요.
+Microsoft Azure BizTalk Services는 BizTalk Services 변환 BizTalk Server 맵을 마이그레이션하는 도구를 제공합니다. **BTMMigrationTool**은 [BizTalk Services SDK 다운로드](https://go.microsoft.com/fwlink/p/?LinkId=235057)와 함께 제공되는 **도구** 패키지의 일부로 사용할 수 있습니다. 이 도구에 대한 자세한 내용은 [BizTalk 맵을 BizTalk Services 변환으로 변환](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx)을 참조하세요.
 
-[BizTalk Server 맵을 BizTalk Services 변환으로 마이그레이션](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx)하는 방법에 대해서는 BizTalk MVP인 Sandro Pereira가 제공한 샘플을 살펴볼 수도 있습니다.
+[BizTalk Server 맵을 BizTalk Services 변환으로 마이그레이션](https://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx)하는 방법에 대해서는 BizTalk MVP인 Sandro Pereira가 제공한 샘플을 살펴볼 수도 있습니다.
 
 ## <a name="orchestrations"></a>오케스트레이션
 BizTalk Server 오케스트레이션 처리를 Microsoft Azure에 마이그레이션해야 하는 경우 Microsoft Azure는 BizTalk Server 오케스트레이션 실행을 지원하지 않으므로 오케스트레이션은 다시 작성해야 합니다.  오케스트레이션 기능은 Windows Workflow Foundation 4.0 (WF4) 서비스에서 다시 작성할 수 있습니다.  현재 BizTalk Server 오케스트레이션에서 WF4로 마이그레이션이 없으므로, 오케스트레이션 기능은 완전히 다시 작성해야 합니다. 다음은 Windows 워크플로에 대한 몇가지 리소스입니다.
 
 * [*WCF 워크플로 서비스를 Service Bus 큐 및 항목과 통합하는 방법*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) Paolo salvatori 작성. 
-* 빌드 2011 컨퍼런스의 [*Windows Workflow Foundation 및 Azure로 앱을 빌드하기* 세션](http://go.microsoft.com/fwlink/p/?LinkId=237314).
-* MSDN의 [*Windows Workflow Foundation 개발자 센터*](http://go.microsoft.com/fwlink/p/?LinkId=237315).
+* 빌드 2011 컨퍼런스의 [*Windows Workflow Foundation 및 Azure로 앱을 빌드하기* 세션](https://go.microsoft.com/fwlink/p/?LinkId=237314).
+* MSDN의 [*Windows Workflow Foundation 개발자 센터*](https://go.microsoft.com/fwlink/p/?LinkId=237315).
 * MSDN의 [*WF4(Windows Workflow Foundation 4) 설명서*](https://msdn.microsoft.com/library/dd489441.aspx).
 
 ## <a name="other-considerations"></a>기타 고려 사항
 BizTalk Services를 사용하는 동안 확인 해야 하는 몇가지 고려 사항은 다음과 같습니다.
 
 ### <a name="fallback-agreements"></a>대체(fallback) 계약
-BizTalk Server EDI 처리에는 "대체 계약"의 개념이 있습니다.  BizTalk Services에는 지금까지 대체 규약 개념이 **없습니다** .  BizTalk Server에서 대체 계약을 사용하는 방법에 대한 자세한 내용은 BizTalk 설명서 항목인 [EDI 처리에서 계약의 역할](http://go.microsoft.com/fwlink/p/?LinkId=237317) 및 [전역 구성 또는 대체 규약 속성](https://msdn.microsoft.com/library/bb245981.aspx)을 참조하세요.
+BizTalk Server EDI 처리에는 "대체 계약"의 개념이 있습니다.  BizTalk Services에는 지금까지 대체 규약 개념이 **없습니다** .  BizTalk Server에서 대체 계약을 사용하는 방법에 대한 자세한 내용은 BizTalk 설명서 항목인 [EDI 처리에서 계약의 역할](https://go.microsoft.com/fwlink/p/?LinkId=237317) 및 [전역 구성 또는 대체 규약 속성](https://msdn.microsoft.com/library/bb245981.aspx)을 참조하세요.
 
 ### <a name="routing-to-multiple-destinations"></a>여러 대상으로 라우팅
 현재 상태에서 BizTalk Services 브리지는 게시-구동 모델을 사용하여 여러 대상에 메시지 라우팅을 지원하지 않습니다. 대신 BizTalk Services 브리지에서 둘 이상의 엔드포인트에서 메시지를 수신하는 여러 구독을 가질 수 있는 Service Bus 토픽에 메시지를 라우팅할 수 있습니다.

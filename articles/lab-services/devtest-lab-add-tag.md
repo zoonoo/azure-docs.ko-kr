@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3d9a5b3c0ae0b6058d3e8ccf8cdb340bd1200edc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299114"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247044"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 태그 추가
 
@@ -40,7 +40,7 @@ ms.locfileid: "38299114"
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>기존 랩에서 태그를 관리하는 단계
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. 필요한 경우 **모든 서비스**를 선택하고 목록에서 **DevTest Labs**를 선택합니다. 대시보드의 **모든 리소스** 아래에 랩이 이미 표시되어 있을 수 있습니다.
 1. 랩 목록에서 태그를 추가하거나 관리하려는 랩을 선택합니다.  
 1. 랩의 **개요** 영역에서 **구성 및 정책**을 선택합니다.  

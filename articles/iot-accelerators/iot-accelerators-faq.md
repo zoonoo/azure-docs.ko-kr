@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 154d82ab5e309631df0bfa40df7fe14902327f46
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884278"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253346"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
@@ -80,7 +80,7 @@ DevKit 장치를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microso
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>AAD 테넌트를 어떻게 삭제하나요?
 
-Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx)을 참조하세요.
+Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx)을 참조하세요.
 
 ### <a name="next-steps"></a>다음 단계
 

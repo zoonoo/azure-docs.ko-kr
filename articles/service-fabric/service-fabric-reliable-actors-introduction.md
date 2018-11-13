@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: d0de7e7596fb7fabbc4061709816111a7a4ad827
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 363cba145ed4d5bcf138cf3f7130763891c51e8b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213047"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258064"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors 알아보기
-Reliable Actors는 [가상의 행위자](http://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 응용 프로그램 프레임워크입니다. Reliable Actors API는 Service Fabric에서 보장하는 확장성과 안정성을 바탕으로 단일 스레드 프로그래밍 모델을 제공합니다.
+Reliable Actors는 [가상의 행위자](https://research.microsoft.com/en-us/projects/orleans/) 패턴을 기반으로 한 Service Fabric 응용 프로그램 프레임워크입니다. Reliable Actors API는 Service Fabric에서 보장하는 확장성과 안정성을 바탕으로 단일 스레드 프로그래밍 모델을 제공합니다.
 
 ## <a name="what-are-actors"></a>행위자(Actor)란?
 하나의 행위자(actor)는 독립적이며 격리된 연산의 단위이며 단일 스레드로 실행되는 상태를 가리킵니다. 많은 수의 행위자가 모여 동시에 상호독립적으로 실행할 수 있게 되는 동시 또는 분산 시스템을 위한 컴퓨팅 모델을 [행위자 패턴](https://en.wikipedia.org/wiki/Actor_model)이라고 합니다. 행위자 간에는 통신이 가능할 뿐 아니라 더 많은 행위자를 만들어 낼 수도 있습니다.

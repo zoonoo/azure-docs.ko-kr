@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a17260770f0b2e0a73585ce4108bd5625ac22229
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 79841887ce8413970cb7dff0ca0099d4e0745a68
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436151"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259312"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](app-service-deploy-local-git.md) 및 [FTP/S 배포](app-service-deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이들은 Azure Active Directory 자격 증명과 동일하지 않습니다.
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](app-service-deploy-local-git.md) 및 [FTP/S 배포](app-service-deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이들은 Azure Active Directory 자격 증명과 동일하지 않습니다.
 
 * **사용자 수준 자격 증명** - 전체 Azure 계정에 대한 자격 증명 집합입니다. 모든 구독에서 Azure 계정에 액세스할 수 있는 권한이 있는 모든 앱의 App Service에 배포하는 데 사용할 수 있습니다. 이는 **App Services** > **&lt;app_name>** > **배포 자격 증명**에서 구성하는 기본 자격 증명 집합이며, 포털 GUI에서 볼 수 있는 기본 집합이기도 입니다(예: **개요** 및 **속성**의 [리소스 페이지](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 

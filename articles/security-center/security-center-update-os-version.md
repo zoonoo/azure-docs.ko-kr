@@ -3,7 +3,7 @@ title: Azure Security Center에서 OS 버전 업데이트 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center 권장 사항 **OS 버전 업데이트**를 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
-ms.author: terrylan
-ms.openlocfilehash: cab773412005093f8acabe9bd6e93e8740b14ece
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1898926e0488722d18a105697bead18e29e6a35d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298409"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254896"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Azure Security Center에서 OS 버전 업데이트
 클라우드 서비스의 가상 머신(VM)의 경우 Azure Security Center는 사용 가능한 최신 버전이 있는 경우 운영 체제(OS) 업데이트를 권장합니다.  프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다.
@@ -49,7 +49,7 @@ ms.locfileid: "44298409"
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) -- 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) -- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
+* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) -- 최신 Azure 보안 뉴스 및 정보를 가져옵니다.
 
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 90816061766a423f7dbc7d277433a95c5bcf6115
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6558a888ded1c8657bef6aba886a6f7d14cb554a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095425"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254539"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)에서 로그를 쿼리하는 방법
-VM용 Azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토리 데이터 및 상태 정보를 수집하여 Azure Monitor의 Log Analytics 데이터 저장소에 전달합니다.  이 데이터는 Log Analytics에서 [검색](../log-analytics/log-analytics-log-searches.md)에 사용할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
+VM용 Azure Monitor는 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인벤토리 데이터 및 상태 정보를 수집하여 Azure Monitor의 Log Analytics 데이터 저장소에 전달합니다.  이 데이터는 Log Analytics에서 [검색](../log-analytics/log-analytics-queries.md)에 사용할 수 있습니다. 마이그레이션 계획, 용량 분석, 검색 및 주문형 성능 문제 해결을 포함하는 시나리오에 이 데이터를 적용할 수 있습니다.
 
 ## <a name="map-records"></a>레코드 매핑
 프로세스 또는 컴퓨터가 시작되거나 VM용 Azure Monitor 맵 기능에 등록된 경우 생성되는 레코드 외에도 고유한 각 컴퓨터 및 프로세스에 대해 시간당 하나의 레코드가 생성됩니다. 이러한 레코드는 다음 표의 속성을 가집니다. ServiceMapComputer_CL 이벤트의 필드 및 값은 ServiceMap Azure Resource Manager API의 컴퓨터 리소스 필드에 매핑됩니다. ServiceMapProcess_CL 이벤트의 필드 및 값은 ServiceMap Azure Resource Manager API의 프로세스 리소스 필드에 매핑됩니다. ResourceName_s 필드는 해당하는 Resource Manager 리소스의 이름 필드와 일치합니다. 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: bea59f0d1ce1d1f3813c0b39a57b1f4e726fe2a5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50129113"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247299"
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
 이 문서에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "50129113"
 * *접근성 기능*- 고대비 테마, 내레이터, 돋보기 등
 * 마우스 설정과 같은 *기타 Windows 설정*입니다.
 
-**응용 프로그램 데이터**- 범용 Windows 앱은 “로밍” 폴더에 설정 데이터를 쓸 수 있으며, 이 폴더에 쓰여진 모든 데이터는 자동으로 동기화됩니다. 이 기능을 활용하는 앱 디자인 여부는 개별 앱 개발자의 결정에 달렸습니다. 로밍을 사용하는 범용 Windows 앱을 개발하는 방법에 대한 자세한 내용은 [앱 데이터 저장소 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 및 [Windows 8 앱 데이터 로밍 개발자 블로그](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)를 참조하세요.
+**응용 프로그램 데이터**- 범용 Windows 앱은 “로밍” 폴더에 설정 데이터를 쓸 수 있으며, 이 폴더에 쓰여진 모든 데이터는 자동으로 동기화됩니다. 이 기능을 활용하는 앱 디자인 여부는 개별 앱 개발자의 결정에 달렸습니다. 로밍을 사용하는 범용 Windows 앱을 개발하는 방법에 대한 자세한 내용은 [앱 데이터 저장소 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 및 [Windows 8 앱 데이터 로밍 개발자 블로그](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)를 참조하세요.
 
 ## <a name="what-account-is-used-for-settings-sync"></a>설정 동기화에 어떤 계정이 사용됩니까?
 Windows 8.1에서는 설정 동기화에 항상 소비자 Microsoft 계정이 사용되었습니다. 엔터프라이즈 사용자가 Microsoft 계정을 Active Directory 도메인 계정에 연결하여 설정 동기화에 대한 액세스 권한을 얻을 수 있었습니다. Windows 10에서는 이 연결된 Microsoft 계정 기능이 기본/보조 계정 프레임워크로 대체됩니다.
