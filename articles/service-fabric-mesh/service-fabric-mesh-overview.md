@@ -9,12 +9,12 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 361e742b3d9b7a5d2d12aafd15233077c967b825
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f753d7273c685a7ec3e4e0877e171df04e69e5b4
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888200"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978318"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Service Fabric Mesh란?
 
@@ -66,6 +66,8 @@ Service Fabric Mesh를 사용하여 다음을 수행할 수 있습니다.
 ## <a name="next-steps"></a>다음 단계
 
 Visual Studio를 사용하여 샘플 프로젝트를 배포하는 데 몇 가지 단계가 걸립니다. 자세한 내용은 [ASP.NET Core 웹 사이트 만들기](service-fabric-mesh-quickstart-dotnet-core.md)를 참조하세요. 
+
+[일반적인 질문](service-fabric-mesh-faq.md)에 대한 답변을 찾습니다.
 
 
 <!-- Links -->

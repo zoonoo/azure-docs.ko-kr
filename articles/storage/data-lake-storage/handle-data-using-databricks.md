@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5c1684f7367aec2d283cd6ad310657def49dd3cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024360"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282563"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
-이 자습서에서는 Azure DataBraicks를 사용하여 Azure Data Lake Storage Gen2 미리 보기에서 Azure SQL Data Warehouse로 데이터를 이동하는 ETL(추출, 변환 및 데이터 로드) 작업을 수행합니다.
+이 자습서에서는 Azure Databricks를 사용하여 Azure Data Lake Storage Gen2가 설정된 Azure Storage 계정에서 Azure SQL Data Warehouse로 데이터를 이동하는 ETL(추출, 변환 및 데이터 로드) 작업을 수행합니다.
 
 다음 그림에서는 응용 프로그램 흐름을 보여줍니다.
 
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
-이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다. 
+이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다.
 
 1. Azure Portal에서 **리소스 만들기** > **분석** > **Azure Databricks**를 차례로 선택합니다.
 
@@ -138,7 +138,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. 다음으로 저장소 계정에 샘플 데이터를 업로드합니다. 저장소 계정에 데이터를 업로드하는 방법은 계층 구조 네임스페이스를 사용할 수 있는지 여부에 따라 달라집니다.
 
-    Gen2 계정에서 만든 Azure Storage 계정에서 계층 구조 네임스페이스를 사용하도록 설정한 경우 Azure Data Factory, distp 또는 AzCopy(버전 10)를 사용하여 업로드를 처리할 수 있습니다. AzCopy 버전 10은 고객을 미리 볼 수만 있습니다. 다음 코드의 AzCopy pase를 명령 창에서 사용하려면:
+    Azure Storage 계정에서 계층 구조 네임스페이스를 사용하도록 설정한 경우 Azure Data Factory, distp 또는 AzCopy(버전 10)를 사용하여 업로드를 처리할 수 있습니다. AzCopy 버전 10은 현재 미리 보기로만 사용할 수 있습니다. AzCopy를 사용하려면 다음 코드를 명령 창에 붙여넣습니다.
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>

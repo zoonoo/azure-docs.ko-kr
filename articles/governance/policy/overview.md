@@ -4,17 +4,17 @@ description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: dbdffc7a6f77f3f34ce7937c60eb7a53e5f72590
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c016e21ff59d5f68afee79b2159218d10e90a7ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961283"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252822"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -35,12 +35,14 @@ Azure Policy는 정책을 만들고, 할당하고, 관리하는 데 사용하는
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Azure Policy의 RBAC 사용 권한
 
-Azure Policy에는 두 개의 다른 리소스 공급자에서 작업으로 표시된 사용 권한이 있습니다.
+Azure Policy에는 여러 권한이 있는데, 다음 두 리소스 공급자에서는 작업으로 알려져 있습니다.
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-몇몇 기본 제공 역할에는 Azure Policy 리소스에 대한 다양한 수준의 사용 권한이 포함됩니다. 즉, 정책 할당 및 정의 관리할 수는 있지만 호환성 정보를 볼 수 없는 **보안 관리자** 및 정책 할당 및 정의에 관한 세부 정보를 읽지만 준수 정보를 변경하거나 볼 수 없는 **Reader**가 이에 해당합니다. **소유자**에게 전체 권한이 있는 반면 **기여자**에게는 Azure Policy 권한이 없습니다. 정책 준수 세부 정보를 볼 권한을 부여하려면 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만듭니다.
+여러 기본 제공 역할은 Azure Policy 리소스에 대한 권한을 부여합니다. **리소스 정책 기여자(미리 보기)** 역할은 대부분의 정책 작업을 포함하고 **소유자**는 전체 권한을 보유합니다. **기여자**와 **읽기 권한자**는 정책에 대한 모든 세부 정보를 읽을 수 있고, **기여자**는 재구성을 트리거할 수 있습니다.
+
+기본 제공 역할에 필수 권한이 없는 경우 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만듭니다.
 
 ## <a name="policy-definition"></a>정책 정의 
 

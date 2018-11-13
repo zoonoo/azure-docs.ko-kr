@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: 5493819efb32fa594cf27695b2ab5d1273225756
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f3f9abfb8373e7257237b39d16dfb3f36259ddd5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429898"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281917"
 ---
 # <a name="what-is-azure-event-hubs"></a>Azure Event Hubs 정의
 
@@ -60,7 +60,7 @@ Event Hubs를 사용하여 메가바이트 단위로 데이터 스트림을 시�
 
 [Apache Kafka 에코시스템을 위한 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)를 사용하면 클러스터를 관리할 필요 없이 [Apache Kafka(1.0 이상)](https://kafka.apache.org/) 클라이언트 및 응용 프로그램이 Event Hubs와 통신합니다.
  
-방대한 에코시스템이 다양한 [언어(.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs)로 제공되므로 Event Hubs에서 간편하게 스트림 처리를 시작할 수 있습니다. 지원되는 모든 클라이언트 언어는 하위 수준 통합을 제공합니다.
+방대한 에코시스템이 다양한 [언어(.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs)로 제공되므로 Event Hubs에서 간편하게 스트림 처리를 시작할 수 있습니다. 지원되는 모든 클라이언트 언어는 하위 수준 통합을 제공합니다. 또한 에코시스템은 Stream Analytics 및 Azure Functions 같은 Azure 서비스와 중단 없이 결합되어 서버리스 아키텍처를 빌드할 수 있습니다.
 
 ## <a name="key-architecture-components"></a>주요 아키텍처 구성 요소
 

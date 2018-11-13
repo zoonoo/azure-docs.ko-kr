@@ -1,22 +1,22 @@
 ---
-title: '자습서: HDInsight Storm의 Apache Kafka - Azure '
+title: '자습서: HDInsight에서 Apache Storm 및 Apache Kafka - Azure '
 description: HDInsight에서 Apache Storm 및 Apache Kafka를 사용하여 스트리밍 파이프라인을 만드는 방법을 알아봅니다. 이 자습서에서는 KafkaBolt 및 KafkaSpout 구성 요소를 사용하여 Kafka에서 데이터를 스트리밍합니다.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/21/2018
-ms.openlocfilehash: 7aa8f0b62459c376113bca5a0c58cc7dd3b5280c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1f8537408325aff0ba3ec198ed0e2bb697134845
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094892"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036345"
 ---
-# <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>자습서: HDInsight의 Kafka에서 Apache Storm 사용
+# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Storm 및 Apache Kafka 사용
 
 이 자습서에서는 HDInsight의 Apache Kafka를 사용하여 Apache Storm 토폴로지를 통해 데이터를 읽고 쓰는 방법을 보여줍니다. 또한 이 자습서에서는 데이터를 Storm 클러스터의 HDFS 호환 저장소에 유지하는 방법을 보여줍니다.
 

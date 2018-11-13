@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6d08a36d7a464ccc1904839d6631be0553aacb17
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815378"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279214"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>자습서: Custom Search 웹 페이지 작성
 
@@ -79,7 +79,7 @@ Bing Custom Search 인스턴스를 만들려면
 
 ## <a name="add-pinned-entries"></a>고정된 항목 추가
 
-특정 웹 페이지를 검색 결과의 맨 위에 고정하려면 웹 페이지와 쿼리 용어를 **고정됨** 탭에 추가합니다. **고정됨** 탭에는 특정 쿼리의 맨 위 결과로 표시되는 웹 페이지를 지정하는 웹 페이지 및 쿼리 용어 쌍 목록이 포함됩니다. 사용자의 쿼리 문자열이 고정의 일치 조건을 기준으로 하는 고정의 쿼리 문자열과 일치하는 경우에만 웹 페이지가 고정됩니다. [자세히 알아보기](../define-your-custom-view.md#pin-to-top).
+특정 웹 페이지를 검색 결과의 맨 위에 고정하려면 웹 페이지와 쿼리 용어를 **고정됨** 탭에 추가합니다. **고정됨** 탭에는 특정 쿼리의 맨 위 결과로 표시되는 웹 페이지를 지정하는 웹 페이지 및 쿼리 용어 쌍 목록이 포함됩니다. 사용자의 쿼리 문자열이 고정의 일치 조건을 기준으로 하는 고정의 쿼리 문자열과 일치하는 경우에만 웹 페이지가 고정됩니다. 인덱싱된 웹 페이지만 검색에 표시됩니다. 자세한 내용은 [사용자 지정 보기 정의](../define-your-custom-view.md#pin-to-top)를 참조하세요.
 
 1. **구성** 페이지에서 **고정됨** 탭을 클릭하고 맨 위 결과로 반환되도록 할 웹 페이지 및 웹 페이지의 쿼리 용어를 입력합니다.  
   

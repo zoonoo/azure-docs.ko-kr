@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 59696245dc33302c65aee5a39dc856926347b8fb
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353719"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569117"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 솔루션을 학습 하는 edge 컴퓨터 만들기
 
@@ -144,7 +144,7 @@ Azure 및 Azure Stack에 대 한 사전 지식이 필요합니다. 계속 하기
 
 2.  Azure portal에서 서비스의 메뉴를 열고 왼쪽의 메뉴 확장 **모든 서비스**합니다. 아래로 스크롤하여 **저장소** 선택한 **저장소 계정**합니다. 에 * * 저장소 계정 * * 창 **추가**합니다.
 
-3.  저장소 계정의 이름을 입력 합니다.
+3.  저장소 계정의 이름을 입력합니다.
 
     > [!Note]  
     > Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 저장소 계정 이름은 Azure 내에서 고유 해야 합니다. Azure portal는 선택한 저장소 계정 이름은 이미 사용 중인지 여부를 나타냅니다.
@@ -1175,7 +1175,7 @@ Linux 세션에 대 한 Windows 하위 시스템 내에서 명령을 사용 하 
 
 ### <a name="create-a-service-principal-in-azure-ad"></a>Azure AD에서 서비스 주체 만들기
 
-1.  전역에 로그인 [ *Azure portal*](http://www.poartal.azure.com/)합니다.
+1.  전역에 로그인 [ *Azure portal*](http://portal.azure.com/)합니다.
 
 2.  Azure Stack 인스턴스와 연결 된 Azure AD 테 넌 트를 사용 하 여 로그인 합니다.
 
@@ -2098,7 +2098,7 @@ Kbernetes 및 함수를 설정한 후 확인 올바르게 사용할 수 있습�
 
 2.  Azure Stack 사용자 포털에서 서비스의 메뉴를 열고 왼쪽의 메뉴 확장 **모든 서비스**합니다. 아래로 스크롤하여 **저장소** 선택한 **저장소 계정**합니다. 에 **Storage 계정** 창 **추가**합니다.
 
-3.  저장소 계정의 이름을 입력 합니다.
+3.  저장소 계정의 이름을 입력합니다.
 
 4.  저장소 계정의 복제 옵션을 선택 합니다. **LRS**합니다.
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 33fc8a3822def68cc0baad4670233f57044d1985
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a3c35057af883eb790c44b3547072031eaf4ad2f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408410"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962013"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 장치를 수동으로 구성 
 
@@ -504,6 +504,9 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
  
 - 장치를 인증할 때 인증서 프롬프트가 나타나지 않도록 로컬 인트라넷 영역에 Azure AD 장치 인증 끝점을 추가합니다.
 
+- Windows 하위 수준 장치 제어 
+
+
 ### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>사용자가 장치를 등록할 수 있도록 Azure AD에 정책 설정
 
 Windows 하위 수준 장치를 등록하려면 사용자가 Azure AD에서 장치를 등록할 수 있도록 허용하는 설정을 선택해야 합니다. Azure Portal의 다음 위치에서 이러한 값을 확인할 수 있습니다.
@@ -551,6 +554,12 @@ AD FS에서 인증 메서드를 통과하는 발급 변환 규칙을 추가해�
 등록 장치의 사용자가 Azure AD에 인증할 때 인증서 프롬프트를 표시하지 않으려는 경우 Internet Explorer의 로컬 인트라넷 영역에 다음 URL을 추가하도록 도메인에 가입된 장치에 정책을 푸시하면 됩니다.
 
 `https://device.login.microsoftonline.com`
+
+
+### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 장치 제어 
+
+Windows 하위 수준 장치를 등록하려면 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다. 자세한 내용은 [여기](hybrid-azuread-join-control.md#control-windows-down-level-devices)를 클릭하세요. 
+
 
 
 ## <a name="verify-joined-devices"></a>가입 장치 확인

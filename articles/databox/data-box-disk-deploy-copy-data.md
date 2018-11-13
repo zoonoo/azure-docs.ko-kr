@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7bc8b3ba415f8fe701098a9fa7e51d60ffb9df4e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092459"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913823"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>자습서: Azure Data Box Disk에 데이터 복사 및 확인
 
@@ -31,14 +31,15 @@ ms.locfileid: "49092459"
 시작하기 전에 다음 사항을 확인합니다.
 - [자습서: Azure Data Box Disk 설치 및 구성](data-box-disk-deploy-set-up.md)을 완료했습니다.
 - 디스크를 잠금 해제하고 클라이언트 컴퓨터에 연결합니다.
-- 데이터를 디스크에 복사하는 데 사용되는 클라이언트 컴퓨터에서 [지원되는 운영 체제](data-box-disk-system-requirements.md)를 실행해야 합니다.
+- 데이터를 디스크에 복사하는 데 사용되는 클라이언트 컴퓨터에서 [지원되는 운영 체제](data-box-disk-system-requirements.md##supported-operating-systems-for-clients)를 실행해야 합니다.
+- 데이터의 의도된 저장소 유형이 [지원되는 저장소 유형](data-box-disk-system-requirements.md#supported-storage-types)과 일치하는지 확인합니다.
 
 
 ## <a name="copy-data-to-disks"></a>디스크에 데이터 복사
 
 다음 단계를 수행하여 컴퓨터에서 Data Box Disk로 데이터를 연결하고 복사합니다.
 
-1. 잠금 해제된 드라이브의 콘텐츠를 봅니다. 
+1. 잠금 해제된 드라이브의 콘텐츠를 봅니다.
 
     ![드라이브 콘텐츠 보기](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
@@ -229,7 +230,7 @@ ms.locfileid: "49092459"
 
 데이터의 유효성을 검사하려면 다음 단계를 수행합니다.
 
-1. 드라이브의 *AzureImportExport* 폴더에서 체크섬 유효성 검사를 위해 `DataBoxDiskValidation.cmd`를 실행합니다. 
+1. 드라이브의 *DataBoxDiskImport* 폴더에서 체크섬 유효성 검사를 위해 `DataBoxDiskValidation.cmd`를 실행합니다. 
     
     ![Data Box Disk 유효성 검사 도구 출력](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

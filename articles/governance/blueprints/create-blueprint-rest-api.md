@@ -4,21 +4,21 @@ description: Azure Blueprint를 사용하여 아티팩트를 만들고 정의하
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b873ee869b2044977ebefcfd65331567c24e7ec8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974207"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283549"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API로 Azure Blueprint 정의 및 할당
 
-Azure에서 청사진을 만들고 할당하는 방법을 이해하면, 조직에서 일관성의 일반적인 패턴을 정의하고 Resource Manager 템플릿, 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
+청사진을 만들고 할당하는 방법을 알면 공통 패턴 정의를 통해 Resource Manager 템플릿, 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > - 새 청사진을 만들고 지원되는 다양한 아티팩트 추가
@@ -28,11 +28,13 @@ Azure에서 청사진을 만들고 할당하는 방법을 이해하면, 조직�
 > - 할당된 청사진의 상태 및 진행률 확인
 > - 구독에 할당된 청사진 제거
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
 ## <a name="getting-started-with-rest-api"></a>REST API 사용 시작
 
 REST API에 대해 잘 모르는 경우에는 REST API에 대한 일반적인 이해, 특히 요청 URI 및 요청 본문에 대한 일반적인 이해가 가능하도록 [Azure REST API 참조](/rest/api/azure/)를 검토하는 단계부터 시작합니다. 이 문서에서는 이러한 개념을 사용하여 Azure Blueprints를 사용하는 작업에 대한 지침을 제공하며 이에 대한 실무 지식이 있다가 가정합니다. [ARMClient](https://github.com/projectkudu/ARMClient) 등과 같은 도구는 인증을 자동으로 처리할 수 있으며 초보자가 사용하면 좋습니다.
+
+Blueprints 사양은 [Azure Blueprints REST API](/rest/api/blueprints/)를 참조하세요.
 
 ### <a name="rest-api-and-powershell"></a>REST API 및 PowerShell
 
@@ -59,7 +61,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 ## <a name="create-a-blueprint"></a>청사진 만들기
 
-규정 준수를 위한 표준 패턴을 정의하는 첫 단계는 사용 가능한 리소스로 청사진을 작성하는 것입니다. 이 예제에서는 ‘MyBlueprint’라는 청사진을 만들어 구독용 역할 및 정책 할당을 구성하고, 리소스 그룹을 추가한 다음, 리소스 그룹에서 Resource Manager 템플릿 및 역할 할당을 만듭니다.
+규정 준수를 위한 표준 패턴을 정의하는 첫 단계는 사용 가능한 리소스로 청사진을 작성하는 것입니다. 'MyBlueprint'라는 청사진을 만들어 구독의 역할 및 정책 할당을 구성하겠습니다. 그런 다음, 리소스 그룹, Resource Manager 템플릿 및 리소스 그룹에 대한 역할 할당을 추가하겠습니다.
 
 > [!NOTE]
 > REST API를 사용하는 경우 _청사진_ 개체가 먼저 생성됩니다. 매개 변수가 있는 추가할 _아티팩트_ 각각에 대해, 초기 _청사진_에 매개 변수를 미리 정의해야 합니다.
@@ -69,7 +71,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 - `{YourMG}` - 사용자의 관리 그룹 이름으로 대체
 - `{subscriptionId}` - 사용자의구독 ID로 대체
 
-1. 초기 _청사진_ 개체를 만듭니다. **요청 본문**에는 청사진에 대한 속성, 생성할 리소스 그룹 및 할당 중에 설정되고 나중 단계에서 추가되는 아티팩트에 사용될 청사진 수준 매개 변수가 모두 포함됩니다.
+1. 초기 _청사진_ 개체를 만듭니다. **요청 본문**에는 청사진에 대한 속성, 생성할 리소스 그룹 및 모든 청사진 수준의 매개 변수가 포함됩니다. 매개 변수는 할당 중에 설정되고 이후 단계에서 추가되는 아티팩트에서 사용합니다.
 
    - REST API URI
 
@@ -148,7 +150,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 구독 시 정책 할당을 추가합니다. **요청 본문**은 아티팩트의 종류, 정책 또는 이니셔티브 정의에 부합하는 속성을 정의하고, 청사진 할당 중에 구성될 정의된 청사진 매개 변수를 사용하도록 정책 할당을 구성합니다.
+1. 구독 시 정책 할당을 추가합니다. **요청 본문**은 아티팩트의 _종류_, 정책 또는 이니셔티브 정의에 부합하는 속성을 정의하고, 청사진 할당 중에 구성될 정의된 청사진 매개 변수를 사용하도록 정책 할당을 구성합니다.
 
    - REST API URI
 
@@ -176,7 +178,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 구독 시 Storage 태그(_storageAccountType_ 매개 변수 재사용)에 대해 또 다른 정책 할당을 추가합니다. 이렇게 추가된 정책 할당 아티팩트는 청사진에 정의된 매개 변수가 둘 이상의 아티팩트에서 사용될 수 있다는 것을 보여줍니다. 예제에서 **storageAccountType**은 다음 단계에서 생성되는 저장소 계정에 대한 정보를 제공하는 리소스 그룹에서 태그를 설정하는 데 사용됩니다.
+1. 구독 시 Storage 태그(_storageAccountType_ 매개 변수 재사용)에 대해 또 다른 정책 할당을 추가합니다. 이렇게 추가된 정책 할당 아티팩트는 청사진에 정의된 매개 변수가 둘 이상의 아티팩트에서 사용될 수 있다는 것을 보여줍니다. 이 예에서 **storageAccountType**은 리소스 그룹에 태그를 설정하는 데 사용됩니다. 이 값은 다음 단계에서 생성되는 저장소 계정에 대한 정보를 제공합니다.
 
    - REST API URI
 
@@ -204,7 +206,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 리소스 그룹에서 템플릿을 추가합니다. Resource Manager 템플릿의 **요청 본문**에는 템플릿의 일반 JSON 구성 요소가 포함되며, **properties.resourceGroup**을 사용하여 대상 리소스 그룹을 정의하고 **storageAccountType**, **tagName** 및 **tagValue** 청사진 매개 변수 각각을 템플릿에 제공하여 해당 매개 변수를 재사용합니다. 청사진 매개 변수는 **properties.parameters**를 정의하여 템플릿에서 사용할 수 있고 템플릿 JSON 내에 포함된 키/값은 값을 삽입하는 데 사용됩니다. 청사진과 템플릿 매개 변수 이름은 동일할 수 있지만 각 항목이 청사진에서 템플릿 아티팩트로 전달되는 방식을 설명하기 위해 서로 다른 이름이 사용되었습니다.
+1. 리소스 그룹에서 템플릿을 추가합니다. Resource Manager 템플릿의 **요청 본문**은 템플릿의 일반 JSON 구성 요소를 포함하며, **properties.resourceGroup**을 사용하여 대상 리소스 그룹을 정의합니다. 이 템플릿은 또한 **storageAccountType**, **tagName** 및 **tagValue** 청사진 매개 변수를 각각 템플릿에 전달하는 방식으로 재사용합니다. 청사진 매개 변수는 **properties.parameters**를 정의하여 템플릿에서 사용할 수 있고 템플릿 JSON 내에 포함된 키-값 쌍은 값을 삽입하는 데 사용됩니다. 청사진과 템플릿 매개 변수 이름은 동일할 수 있지만 각 항목이 청사진에서 템플릿 아티팩트로 전달되는 방식을 설명하기 위해 서로 다른 이름이 사용되었습니다.
 
    - REST API URI
 
@@ -388,7 +390,7 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
 
 ## <a name="unassign-a-blueprint"></a>청사진 할당 취소
 
-청사진이 더 이상 필요하지 않거나 업데이트된 패턴, 정책 및 디자인이 포함된 새로운 청사진으로 대체된 경우에는 구독에서 청사진을 제거할 수 있습니다. 청사진을 제거해도 해당 청사진의 일부분으로 할당된 아티팩트는 남아 있습니다. 청사진 할당을 제거하려면 다음 REST API 작업을 사용합니다.
+구독에서 청사진을 제거할 수 있습니다. 아티팩트 리소스가 더 이상 필요 없는 경우에 청사진을 제거하는 경우가 많습니다. 청사진을 제거해도 해당 청사진의 일부분으로 할당된 아티팩트는 남아 있습니다. 청사진 할당을 제거하려면 다음 REST API 작업을 사용합니다.
 
 - REST API URI
 
@@ -411,6 +413,6 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
 - [청사진 수명 주기](./concepts/lifecycle.md)에 대해 알아보기
 - [정적 및 동적 매개 변수](./concepts/parameters.md) 사용 방법 이해
 - [청사진 시퀀싱 순서](./concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
-- [청사진 리소스 잠금](./concepts/resource-locking.md)을 활용하는 방법 확인
+- [청사진 리소스 잠금](./concepts/resource-locking.md)을 활용하는 방법 알아보기
 - [기존 할당을 업데이트](./how-to/update-existing-assignments.md)하는 방법 알아보기
 - [일반 문제 해결 방법](./troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결

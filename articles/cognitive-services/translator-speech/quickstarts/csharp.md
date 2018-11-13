@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 224a0ab83720bb9605f2dad9c2612630e90fea2a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a05ab716c8aea958e13ebba0dc9ceb09bf3d7cce
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341738"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913532"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>빠른 시작: C#을 사용한 Translator Speech API 
 <a name="HOLTop"></a>
@@ -26,7 +26,7 @@ ms.locfileid: "49341738"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. (Community Edition 평가판이 작동합니다.)
+Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. 체험 Community Edition을 사용해도 됩니다. Mac OS 또는 Linux를 사용하는 경우 텍스트 편집기[Visual Studio Code]도 사용할 수 있습니다(대체로 https://code.visualstudio.com/Download).
 
 아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다.
 

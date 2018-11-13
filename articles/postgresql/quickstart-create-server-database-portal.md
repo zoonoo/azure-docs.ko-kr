@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/20/2018
-ms.openlocfilehash: 4e14cde99aaf74b5058e4f9d55c386151036594e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/01/2018
+ms.openlocfilehash: 5cb51a412738c2361bbe30ecd1415f81c3f85c9c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987803"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959038"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL 서버 만들기
 
@@ -97,21 +97,13 @@ PostgreSQL 서버용 Azure Database를 만들 때 **postgres**라는 기본 데�
 
  ![서버 [개요] 페이지](./media/quickstart-create-database-portal/6-server-name.png)
 
-## <a name="connect-to-the-postgresql-database-by-using-psql-in-cloud-shell"></a>Cloud Shell에서 psql을 사용하여 PostgreSQL 데이터베이스에 연결
+## <a name="connect-to-the-postgresql-database-using-psql"></a>psql을 사용하여 PostgreSQL 데이터베이스에 연결
 
-Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 여러 응용 프로그램이 있습니다. 이제 psql 명령줄 유틸리티를 사용하여 서버에 연결하는 방법을 자세히 설명해 보겠습니다. 추가 소프트웨어를 설치할 필요 없이 여기에 설명된 대로 웹 브라우저 및 Azure Cloud Shell을 사용할 수 있습니다. 사용자의 컴퓨터에 로컬로 psql 유틸리티가 설치되어 있는 경우 여기에서 연결할 수도 있습니다.
+Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 여러 응용 프로그램이 있습니다. 클라이언트 컴퓨터에 PostgreSQL이 설치되어 있는 경우 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 로컬 인스턴스를 사용하여 Azure PostgreSQL 서버에 연결할 수 있습니다. 이제 psql 명령줄 유틸리티를 사용하여 Azure PostgreSQL 서버에 연결해 보겠습니다.
 
-1. 위쪽 탐색 창에서 터미널 기호를 선택하여 Cloud Shell을 엽니다.
+1. 셸에서 psql 명령줄을 입력하여 Azure Database for PostgreSQL 서버의 데이터베이스에 연결합니다.
 
-   ![Azure Cloud Shell 터미널 기호](./media/quickstart-create-database-portal/7-cloud-console.png)
-
-2. Cloud Shell이 브라우저에서 열리며 여기서 Bash 셸 명령을 입력할 수 있습니다.
-
-   ![Cloud Shell Bash 프롬프트](./media/quickstart-create-database-portal/8-bash.png)
-
-3. Cloud Shell 프롬프트에 psql 명령줄을 입력하여 PostgreSQL 서버용 Azure Database의 데이터베이스에 연결합니다.
-
-    [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 유틸리티를 사용하여 PostgreSQL 서버용 Azure Database에 연결하려면 다음 형식을 사용합니다.
+    [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 유틸리티를 사용하여 PostgreSQL 서버용 Azure Database에 연결하려면 다음 형식을 사용합니다.
     ```bash
     psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
     ```
@@ -124,7 +116,7 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
 
     psql parameter |값|설명
     ---|---|---
-    --host | 서버 이름 | 이전에 PostgreSQL 서버용 Azure Database를 만들 때 사용한 서버 이름 값입니다. 표시된 예제 서버는 **mydemoserver.postgres.database.azure.com**입니다. 예제에서 표시된 것과 같은 정규화된 도메인 이름(**\*.postgres.database.azure.com)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 
+    --host | 서버 이름 | 이전에 PostgreSQL 서버용 Azure Database를 만들 때 사용한 서버 이름 값입니다. 표시된 예제 서버는 **mydemoserver.postgres.database.azure.com**입니다. 예제에서 표시된 것과 같은 정규화된 도메인 이름(**\*.postgres.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 
     --port | 5432 | PostgreSQL 서버용 Azure Database에 연결할 때 사용할 포트입니다. 
     --username | 서버 관리자 로그인 이름 |이전에 PostgreSQL 서버용 Azure Database를 만들 때 제공한 서버 관리자 로그인 사용자 이름입니다. 사용자 이름을 기억하지 못하는 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username@servername*입니다.
     --dbname | *postgres* | 첫 연결을 위해 만들어진 기본 시스템에서 생성한 데이터베이스 이름입니다. 나중에 사용자 고유의 데이터베이스를 만듭니다.
@@ -135,7 +127,7 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
     ---|---|---
     암호 | 관리자 암호 | 입력한 암호 문자는 Bash 프롬프트에 표시되지 않습니다. 모든 문자가 입력되면 Enter 키를 눌러 인증하고 연결합니다.
 
-    연결되면 psql 유틸리티에 sql 명령을 입력할 수 있는 postgres 프롬프트가 표시됩니다. 초기 연결 출력에서는 Cloud Shell의 psql이 Azure Database for PostgreSQL 서버와 다른 버전일 수 있으므로 경고가 표시될 수 있습니다. 
+    연결되면 psql 유틸리티에 sql 명령을 입력할 수 있는 postgres 프롬프트가 표시됩니다. 초기 연결 출력에서는 사용하는 psql이 Azure Database for PostgreSQL 서버와 다른 버전일 수 있으므로 경고가 표시될 수 있습니다. 
     
     psql 출력의 예:
     ```bash
@@ -149,26 +141,26 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
     ```
 
     > [!TIP]
-    > 방화벽이 Cloud Shell의 IP 주소를 허용하도록 구성되지 않은 경우 다음 오류가 발생합니다.
+    > 방화벽이 클라이언트의 IP 주소를 허용하도록 구성되지 않은 경우 다음 오류가 발생합니다.
     > 
-    > "psql: FATAL: "0.0.0.0" 호스트, user "myadmin" 사용자, database "postgres" 데이터베이스에 대한 pg_hba.conf 항목이 없습니다. SSL on FATAL: SSL 연결이 필요합니다. SSL 옵션을 지정하고 다시 시도하세요.
+    > "psql: FATAL: "<IP address>" 호스트, user "myadmin", database "postgres"에 대한 pg_hba.conf 항목이 없습니다. SSL on FATAL: SSL 연결이 필요합니다. SSL 옵션을 지정하고 다시 시도하세요.
     > 
     > 이 오류를 해결하려면 서버 구성이 문서의 “서버 수준 방화벽 규칙 구성” 섹션에 있는 단계와 일치하는지 확인합니다.
 
-4. 프롬프트에서 다음 명령을 입력하여 "mypgsqldb"라는 빈 데이터베이스를 만듭니다.
+2. 프롬프트에서 다음 명령을 입력하여 "mypgsqldb"라는 빈 데이터베이스를 만듭니다.
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
     이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 
 
-5. 프롬프트에서 다음 명령을 실행하여 새로 만든 **mypgsqldb** 데이터베이스에 대한 연결로 전환합니다.
+3. 프롬프트에서 다음 명령을 실행하여 새로 만든 **mypgsqldb** 데이터베이스에 대한 연결로 전환합니다.
     ```bash
     \c mypgsqldb
     ```
 
-6. `\q`를 입력한 다음, Enter 키를 선택하여 psql을 종료합니다. 완료되면 Cloud Shell을 닫을 수 있습니다.
+4. `\q`를 입력한 다음, Enter 키를 선택하여 psql을 종료합니다. 
 
-Cloud Shell에서 psql을 통해 Azure Database for PostgreSQL 서버에 연결하고, 빈 사용자 데이터베이스를 만들었습니다. 다른 일반적인 도구인 pgAdmin을 사용하여 연결하려면 다음 섹션으로 진행합니다.
+psql을 통해 Azure Database for PostgreSQL 서버에 연결하고, 빈 사용자 데이터베이스를 만들었습니다. 다른 일반적인 도구인 pgAdmin을 사용하여 연결하려면 다음 섹션으로 진행합니다.
 
 ## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>pgAdmin을 사용하여 PostgreSQL 서버에 연결
 
@@ -188,7 +180,7 @@ pgAdmin은 PostgreSQL에서 사용되는 오픈 소스 도구입니다. [pgAdmin
 
     pgAdmin 매개 변수 |값|설명
     ---|---|---
-    호스트 이름/주소 | 서버 이름 | 이전에 PostgreSQL 서버용 Azure Database를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.postgres.database.azure.com**입니다. 예제에서 표시된 것과 같은 정규화된 도메인 이름(**\*.postgres.database.azure.com)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 
+    호스트 이름/주소 | 서버 이름 | 이전에 PostgreSQL 서버용 Azure Database를 만들 때 사용한 서버 이름 값입니다. 예제 서버는 **mydemoserver.postgres.database.azure.com**입니다. 예제에서 표시된 것과 같은 정규화된 도메인 이름(**\*.postgres.database.azure.com**)을 사용합니다. 서버 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 
     포트 | 5432 | PostgreSQL 서버용 Azure Database에 연결할 때 사용할 포트입니다. 
     데이터베이스 유지 관리 | *postgres* | 기본 시스템에서 생성된 데이터베이스 이름입니다.
     사용자 이름 | 서버 관리자 로그인 이름 | 이전에 PostgreSQL 서버용 Azure Database를 만들 때 제공한 서버 관리자 로그인 사용자 이름입니다. 사용자 이름을 잊어버린 경우 이전 섹션의 단계에 따라 연결 정보를 가져옵니다. 형식은 *username@servername*입니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Database Migration Service를 사용하여 SQL Server를 Azure SQL Database로 온라인 마이그레이션 수행 | Microsoft Docs
+title: '자습서: Azure Database Migration Service를 사용하여 SQL Server를 Azure SQL Database로 온라인 마이그레이션 수행 | Microsoft Docs'
 description: Azure Database Migration Service를 사용하여 온라인 마이그레이션을 SQL Server 온-프레미스에서 Azure SQL Database로 수행하는 방법을 알아봅니다.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: adf9f40e351ca642ca3e8eabe1e5eb7850f1f00d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: be6a5c444444c9482b921ea7fd68bf26ac10a2a2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945538"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958936"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-online-using-dms"></a>DMS를 사용하여 SQL Server를 Azure SQL Database로 온라인 마이그레이션
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>자습서: DMS를 사용하여 온라인에서 SQL Server를 Azure SQL Database로 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)로 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database로 마이그레이션합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.

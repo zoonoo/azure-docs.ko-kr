@@ -1,239 +1,112 @@
 ---
-title: '자습서: C#용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기 - Custom Vision Service'
+title: '빠른 시작: C#용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기'
 titlesuffix: Azure Cognitive Services
-description: 기본 엔드포인트를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 예측을 수행합니다.
+description: C#과 함께 .NET SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 교육하고, 개체를 검색합니다.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 05/07/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: 222a17f1d39bc52d1e5ff34e421d0203d80dd1bd
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 926e9feaa5061c84ce8de6d828da820e133700ce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958504"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278863"
 ---
-# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-c"></a>C#용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기 
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>빠른 시작: Custom Vision .NET SDK를 사용하여 개체 검색 프로젝트 만들기
 
-Computer Vision API를 사용하여 개체 검색 프로젝트를 만드는 기본 Windows 응용 프로그램을 사용하는 방법을 알아봅니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. 이 오픈 소스 예제를 Custom Vision API를 사용하여 사용자 고유의 Windows용 앱을 빌드하기 위한 템플릿으로 사용합니다.
+이 문서에서는 C#과 함께 Custom Vision SDK를 사용하여 개체 검색 모델 빌드를 시작할 수 있도록 도와주는 정보와 샘플 코드를 제공합니다. 프로젝트를 만든 후에는 태그가 지정된 지역을 추가하고, 이미지를 업로드하고, 프로젝트를 학습하고, 프로젝트의 기본 예측 엔드포인트 URL를 획득하고, 해당 엔드포인트를 사용하여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다. .NET 응용 프로그램을 빌드하기 위한 템플릿으로 이 예제를 사용하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-### <a name="get-the-custom-vision-sdk-and-samples"></a>Custom Vision SDK 및 샘플 다운로드
-이 예제를 빌드하려면 다음 Custom Vision SDK NuGet 패키지가 필요합니다.
+- [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
+
+## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Custom Vision SDK 및 샘플 코드 다운로드
+Custom Vision을 사용하는 .NET 앱을 작성하려면 Custom Vision NuGet 패키지가 필요합니다. 이러한 요소는 여러분이 다운로드할 샘플 프로젝트에 포함되어 있지만, 여기서 개별적으로 액세스할 수도 있습니다.
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-[C# 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision)과 함께 이미지를 다운로드할 수 있습니다.
+[Cognitive Services .NET 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples) 프로젝트를 복제 또는 다운로드합니다. **CustomVision/ObjectDetection** 폴더로 이동하여 Visual Studio에서 ObjectDetection.csproj_를 엽니다.
 
-## <a name="get-the-training-and-prediction-keys"></a>학습 및 예측 키 가져오기
+이 Visual Studio 프로젝트는 [Custom Vision 웹 사이트](https://customvision.ai/)를 통해 액세스할 수 있는 __My New Project__라는 새로운 Custom Vision 프로젝트를 만듭니다. 그런 다음, 이미지를 업로드하여 개체 검색 모델을 교육하고 테스트합니다. 이 프로젝트의 모델은 이미지에서 포트와 가위를 검색하는 교육을 받습니다.
 
-이 예제에서 사용된 키를 가져오려면 [Custom Vision 웹 페이지](https://customvision.ai)로 가서 오른쪽 위에 있는 __기어 아이콘__을 선택합니다. __계정__ 섹션에서 __학습 키__ 및 __예측 키__ 필드의 값을 복사합니다.
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-![키 UI의 이미지](./media/csharp-tutorial/training-prediction-keys.png)
+## <a name="understand-the-code"></a>코드 이해
 
-## <a name="step-1-create-a-console-application"></a>1단계: 콘솔 응용 프로그램 만들기
+_Program.cs_ 파일을 열고 코드를 검사합니다. **Main** 메서드의 적절한 정의에 구독 키를 삽입합니다.
 
-이 단계에서는 콘솔 응용 프로그램을 만들고 예제에 필요한 학습 키 및 이미지를 준비합니다.
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=18-27)]
 
-1. Visual Studio 2015, Community Edition을 시작합니다. 
-2. 새 콘솔 응용 프로그램을 만듭니다.
-3. 두 개의 Nuget 패키지에 대한 참조를 추가합니다.
-    * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training
-    * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction
+### <a name="create-a-new-custom-vision-service-project"></a>새 Custom Vision Service 프로젝트 만들기
 
-4. **Program.cs**의 내용을 다음 코드로 바꿉니다.
+다음 코드는 개체 검색 프로젝트를 만듭니다. 생성된 프로젝트는 앞에서 방문한 [Custom Vision 웹 사이트](https://customvision.ai/)에 표시됩니다. 
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction;
-using Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training;
-using Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training.Models;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading;
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=29-35)]
 
-namespace SampleObjectDetection
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            // Add your training key from the settings page of the portal
-            string trainingKey = "<your key here>";
+### <a name="add-tags-to-the-project"></a>프로젝트에 태그 추가
 
-            // Create the Api, passing in the training key
-            TrainingApi trainingApi = new TrainingApi() { ApiKey = trainingKey };
-        }        
-    }
-}
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=37-39)]
+
+### <a name="upload-and-tag-images"></a>이미지 업로드 및 태그 지정
+
+개체 검색 프로젝트의 이미지에 태그를 지정할 때 정규화된 좌표를 사용하여 태그가 지정된 각 개체의 지역을 지정해야 합니다. 다음 코드는 각 샘플 이미지를 태그가 지정된 지역과 연결합니다.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=41-84)]
+
+그런 다음, 이 연결 맵을 사용하여 해당 지역 좌표로 각 샘플 이미지를 업로드합니다.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=86-104)]
+
+이제 모든 샘플 이미지가 업로드되었으며, 각 이미지에는 태그(**포크** 또는 **가위**) 및 해당 태그와 연결된 픽셀 사각형이 있습니다.
+
+### <a name="train-the-project"></a>프로젝트 학습
+
+이 코드는 프로젝트의 첫 번째 교육 반복을 만듭니다.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=106-117)]
+
+### <a name="set-the-current-iteration-as-default"></a>현재 반복을 기본값으로 설정
+
+이 코드는 현재 반복을 기본 반복으로 표시합니다. 기본 반복은 예측 요청에 응답할 모델의 버전을 반영합니다. 모델을 다시 교육할 때마다 업데이트해야 합니다.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=119-124)]
+
+### <a name="create-a-prediction-endpoint"></a>예측 엔드포인트 만들기
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=126-131)]
+
+### <a name="use-the-prediction-endpoint"></a>예측 엔드포인트 사용
+
+이 스크립트 부분은 테스트 이미지를 로드하고, 모델 엔드포인트를 쿼리하고, 예측 데이터를 콘솔에 출력합니다.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=133-145)]
+
+## <a name="run-the-application"></a>응용 프로그램 실행
+
+응용 프로그램이 실행되면 콘솔 창이 열리고 다음 출력이 기록됩니다.
+
 ```
+Creating new project:
+        Training
+Done!
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>2단계: Custom Vision Service 프로젝트 만들기
-
-새 Custom Vision Service 프로젝트를 만들려면 다음 코드를 **main ()** 메서드 끝에 추가합니다.
-
-```csharp
-    // Find the object detection domain
-    var domains = trainingApi.GetDomains();
-    var objDetectionDomain = domains.FirstOrDefault(d => d.Type == "ObjectDetection");
-
-    // Create a new project
-    Console.WriteLine("Creating new project:");
-    var project = trainingApi.CreateProject("My New Project", null, objDetectionDomain.Id);
+Making a prediction:
+        fork: 98.2% [ 0.111609578, 0.184719115, 0.6607002, 0.6637112 ]
+        scissors: 1.2% [ 0.112389535, 0.119195729, 0.658031344, 0.7023591 ]
 ```
+그런 다음, 테스트 이미지(**Images/Test/** 에 있음)에 태그가 적절하게 지정되는지, 검색 지역이 올바른지 확인할 수 있습니다. 이제 아무 키를 눌러 응용 프로그램을 종료할 수 있습니다.
 
-## <a name="step-3-add-tags-to-your-project"></a>3단계: 프로젝트에 태그 추가
+[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
 
-프로젝트에 태그를 추가하려면 **CreateProject()** 호출 뒤에 다음 코드를 삽입합니다.
+## <a name="next-steps"></a>다음 단계
 
-```csharp
-    // Make two tags in the new project
-    var forkTag = trainingApi.CreateTag(project.Id, "fork");
-    var scissorsTag = trainingApi.CreateTag(project.Id, "scissors");
-```
+개체 검색 프로세스의 모든 단계를 코드로 수행하는 방법을 살펴보았습니다. 이 샘플은 교육을 한 번만 반복하지만, 정확도를 높이기 위해 모델을 여러 차례 교육하고 테스트해야 하는 경우가 많습니다. 다음 가이드에서는 이미지 분류를 다루지만, 원칙은 개체 검색과 비슷합니다.
 
-## <a name="step-4-upload-images-to-the-project"></a>4단계: 프로젝트에 이미지 업로드
-
-개체 검색 프로젝트의 경우, 정규화된 좌표와 태그를 사용하여 개체의 지역을 식별해야 합니다. 이미지 및 태그가 지정된 지역을 추가하려면 **Main()** 메서드 끝에 다음 코드를 삽입합니다.
-
-```csharp
-    Dictionary<string, double[]> fileToRegionMap = new Dictionary<string, double[]>()
-    {
-        // The bounding box is specified in normalized coordinates.
-        //  Normalized Left = Left / Width (in Pixels)
-        //  Normalized Top = Top / Height (in Pixels)
-        //  Normalized Bounding Box Width = (Right - Left) / Width (in Pixels)
-        //  Normalized Bounding Box Height = (Bottom - Top) / Height (in Pixels)
-        // FileName, Left, Top, Width, Height of the bounding box.
-        {"scissors_1", new double[] { 0.4007353, 0.194068655, 0.259803921, 0.6617647 } },
-        {"scissors_2", new double[] { 0.426470578, 0.185898721, 0.172794119, 0.5539216 } },
-        {"scissors_3", new double[] { 0.289215684, 0.259428144, 0.403186262, 0.421568632 } },
-        {"scissors_4", new double[] { 0.343137264, 0.105833367, 0.332107842, 0.8055556 } },
-        {"scissors_5", new double[] { 0.3125, 0.09766343, 0.435049027, 0.71405226 } },
-        {"scissors_6", new double[] { 0.379901975, 0.24308826, 0.32107842, 0.5718954 } },
-        {"scissors_7", new double[] { 0.341911763, 0.20714055, 0.3137255, 0.6356209 } },
-        {"scissors_8", new double[] { 0.231617644, 0.08459154, 0.504901946, 0.8480392 } },
-        {"scissors_9", new double[] { 0.170343131, 0.332957536, 0.767156839, 0.403594762 } },
-        {"scissors_10", new double[] { 0.204656869, 0.120539248, 0.5245098, 0.743464053 } },
-        {"scissors_11", new double[] { 0.05514706, 0.159754932, 0.799019635, 0.730392158 } },
-        {"scissors_12", new double[] { 0.265931368, 0.169558853, 0.5061275, 0.606209159 } },
-        {"scissors_13", new double[] { 0.241421565, 0.184264734, 0.448529422, 0.6830065 } },
-        {"scissors_14", new double[] { 0.05759804, 0.05027781, 0.75, 0.882352948 } },
-        {"scissors_15", new double[] { 0.191176474, 0.169558853, 0.6936275, 0.6748366 } },
-        {"scissors_16", new double[] { 0.1004902, 0.279036, 0.6911765, 0.477124184 } },
-        {"scissors_17", new double[] { 0.2720588, 0.131977156, 0.4987745, 0.6911765 } },
-        {"scissors_18", new double[] { 0.180147052, 0.112369314, 0.6262255, 0.6666667 } },
-        {"scissors_19", new double[] { 0.333333343, 0.0274019931, 0.443627447, 0.852941155 } },
-        {"scissors_20", new double[] { 0.158088237, 0.04047389, 0.6691176, 0.843137264 } },
-        {"fork_1", new double[] { 0.145833328, 0.3509314, 0.5894608, 0.238562092 } },
-        {"fork_2", new double[] { 0.294117659, 0.216944471, 0.534313738, 0.5980392 } },
-        {"fork_3", new double[] { 0.09191177, 0.0682516545, 0.757352948, 0.6143791 } },
-        {"fork_4", new double[] { 0.254901975, 0.185898721, 0.5232843, 0.594771266 } },
-        {"fork_5", new double[] { 0.2365196, 0.128709182, 0.5845588, 0.71405226 } },
-        {"fork_6", new double[] { 0.115196079, 0.133611143, 0.676470637, 0.6993464 } },
-        {"fork_7", new double[] { 0.164215669, 0.31008172, 0.767156839, 0.410130739 } },
-        {"fork_8", new double[] { 0.118872553, 0.318251669, 0.817401946, 0.225490168 } },
-        {"fork_9", new double[] { 0.18259804, 0.2136765, 0.6335784, 0.643790841 } },
-        {"fork_10", new double[] { 0.05269608, 0.282303959, 0.8088235, 0.452614367 } },
-        {"fork_11", new double[] { 0.05759804, 0.0894935, 0.9007353, 0.3251634 } },
-        {"fork_12", new double[] { 0.3345588, 0.07315363, 0.375, 0.9150327 } },
-        {"fork_13", new double[] { 0.269607842, 0.194068655, 0.4093137, 0.6732026 } },
-        {"fork_14", new double[] { 0.143382356, 0.218578458, 0.7977941, 0.295751631 } },
-        {"fork_15", new double[] { 0.19240196, 0.0633497, 0.5710784, 0.8398692 } },
-        {"fork_16", new double[] { 0.140931368, 0.480016381, 0.6838235, 0.240196079 } },
-        {"fork_17", new double[] { 0.305147052, 0.2512582, 0.4791667, 0.5408496 } },
-        {"fork_18", new double[] { 0.234068632, 0.445702642, 0.6127451, 0.344771236 } },
-        {"fork_19", new double[] { 0.219362751, 0.141781077, 0.5919118, 0.6683006 } },
-        {"fork_20", new double[] { 0.180147052, 0.239820287, 0.6887255, 0.235294119 } }
-    };
-
-    // Add all images for fork
-    var imagePath = Path.Combine("Images", "fork");
-    var imageFileEntries = new List<ImageFileCreateEntry>();
-    foreach (var fileName in Directory.EnumerateFiles(imagePath))
-    {
-        var region = fileToRegionMap[Path.GetFileNameWithoutExtension(fileName)];
-        imageFileEntries.Add(new ImageFileCreateEntry(fileName, File.ReadAllBytes(fileName), null, new List<Region>(new Region[] { new Region(forkTag.Id, region[0], region[1], region[2], region[3]) })));
-    }
-    trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFileEntries));
-
-    // Add all images for scissors
-    imagePath = Path.Combine("Images", "scissors");
-    imageFileEntries = new List<ImageFileCreateEntry>();
-    foreach (var fileName in Directory.EnumerateFiles(imagePath))
-    {
-        var region = fileToRegionMap[Path.GetFileNameWithoutExtension(fileName)];
-        imageFileEntries.Add(new ImageFileCreateEntry(fileName, File.ReadAllBytes(fileName), null, new List<Region>(new Region[] { new Region(scissorsTag.Id, region[0], region[1], region[2], region[3]) })));
-    }
-    trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFileEntries));
-```
-
-## <a name="step-5-train-the-project"></a>5단계: 프로젝트 학습
-
-프로젝트에 태그 및 이미지를 추가했으므로 다음과 같이 학습할 수 있습니다. 
-
-1. **Main()** 의 끝에 다음 코드를 삽입합니다. 이렇게 하면 프로젝트에 첫 번째 반복이 생성됩니다.
-2. 이 반복을 기본 반복으로 표시합니다.
-
-```csharp
-    // Now there are images with tags start training the project
-    Console.WriteLine("\tTraining");
-    var iteration = trainingApi.TrainProject(project.Id);
-
-    // The returned iteration will be in progress, and can be queried periodically to see when it has completed
-    while (iteration.Status != "Completed")
-    {
-        Thread.Sleep(1000);
-
-        // Re-query the iteration to get its updated status
-        iteration = trainingApi.GetIteration(project.Id, iteration.Id);
-    }
-
-    // The iteration is now trained. Make it the default project endpoint
-    iteration.IsDefault = true;
-    trainingApi.UpdateIteration(project.Id, iteration.Id, iteration);
-    Console.WriteLine("Done!\n");
-```
-
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>6단계: 기본 예측 엔드포인트 가져오기 및 사용
-
-이제 예측을 위해 모델을 사용할 준비가 되었습니다. 
-
-1. **Main()** 끝에 다음 코드를 삽입하여 기본 반복과 연결된 엔드포인트를 획득합니다. 
-2. 해당 엔드포인트를 사용하여 프로젝트에 테스트 이미지를 보냅니다.
-
-```csharp
-    // Now there is a trained endpoint, it can be used to make a prediction
-
-    // Add your prediction key from the settings page of the portal
-    // The prediction key is used in place of the training key when making predictions
-    string predictionKey = "<your key here>";
-
-    // Create a prediction endpoint, passing in the obtained prediction key
-    PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
-
-    // Make a prediction against the new project
-    Console.WriteLine("Making a prediction:");
-    var imageFile = Path.Combine("Images", "test", "test_image.jpg");
-    using (var stream = File.OpenRead(imageFile))
-    {
-        var result = endpoint.PredictImage(project.Id, File.OpenRead(imageFile));
-
-        // Loop over each prediction and write out the results
-        foreach (var c in result.Predictions)
-        {
-            Console.WriteLine($"\t{c.TagName}: {c.Probability:P1} [ {c.BoundingBox.Left}, {c.BoundingBox.Top}, {c.BoundingBox.Width}, {c.BoundingBox.Height} ]");
-        }
-    }
-```
-
-## <a name="step-7-run-the-example"></a>7단계: 예제 실행
-
-솔루션을 빌드하고 실행합니다. 예측 결과가 콘솔에 나타납니다.
+> [!div class="nextstepaction"]
+> [모델 테스트 및 재교육](test-your-model.md)

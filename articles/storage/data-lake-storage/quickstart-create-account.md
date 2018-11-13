@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2dae7938c63ee141ea6705ab4c324882f575e298
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 41f25496d089a5c6487176afee01f7cb06330794
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426875"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281560"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 미리 보기 저장소 계정 만들기
+# <a name="quickstart-create-a-storage-account-for-analytics"></a>빠른 시작: 분석에 사용할 저장소 계정 만들기
 
-Azure Data Lake Storage Gen2 미리 보기 계정은 HDFS(Hadoop 분산 파일 시스템)에서 작동하도록 조정된 네이티브 디렉터리 기반 파일 시스템을 제공하는 [Hierarchical Namespace Service를 지원](introduction.md)합니다. HDFS에서 Data Lake Storage Gen2 데이터에 액세스하려면 [ABFS 드라이버](abfs-driver.md)를 통해 액세스할 수 있습니다.
+Data Lake Storage Gen2 미리 보기가 사용되는 저장소 계정은 HDFS(Hadoop 분산 파일 시스템)에서 작동하도록 조정된 네이티브 디렉터리 기반 파일 시스템을 제공하는 [계층 구조 네임스페이스 서비스를 지원](introduction.md)합니다. HDFS에서 Data Lake Storage Gen2 데이터에 액세스하려면 [ABFS 드라이버](abfs-driver.md)를 통해 액세스할 수 있습니다.
 
-저장소 계정에서 Data Lake Storage Gen2 기능을 사용하도록 설정하려면 [미리 보기 설문 조사를 작성하여 액세스를 요청](https://aka.ms/adlsgen2signup)합니다. 일단 승인되면 새 Data Lake Storage Gen2 계정을 만들 수 있습니다. 이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 통해 계정을 만드는 방법을 보여 줍니다.
+저장소 계정에서 Data Lake Storage Gen2 기능을 사용하도록 설정하려면 [미리 보기 설문 조사를 작성하여 액세스를 요청](https://aka.ms/adlsgen2signup)합니다. 일단 승인되면 Data Lake Storage Gen2가 사용되는 저장소 계정을 만들 수 있습니다. 이 빠른 시작에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)를 통해 계정을 만드는 방법을 보여 줍니다.
 
 > [!NOTE]
 > Data Lake Storage Gen2 계정을 만들도록 승인되면 Azure Portal에서 계정 만들기 UI가 업데이트됩니다. 마찬가지로, Data Lake Storage Gen2 관련 PowerShell 및 CLI 인수도 미리 보기에 대해 승인을 받은 후에만 작동합니다.
@@ -51,7 +51,7 @@ Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Ba
 
 Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른 시작에서는 Azure CLI 버전 2.0.38 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 계정 만들기에 대한 개요
+## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Data Lake Storage Gen2가 사용되는 저장소 계정 만들기
 
 계정을 만들기 전에 먼저 만드는 저장소 계정 또는 다른 Azure 리소스에 대한 논리 컨테이너 역할을 하는 리소스 그룹을 만듭니다. 이 빠른 시작에서 만든 리소스를 정리하려면 간단히 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 연결된 저장소 계정과 기타 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. 리소스 그룹에 대한 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
@@ -135,7 +135,7 @@ PowerShell을 통해 Data Lake Storage Gen2와 상호 작용하려면 모듈을 
 PowerShell에서 새 리소스 그룹을 만들려면 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령을 사용합니다. 
 
 > [!NOTE]
-> > 계층 구조 네임스페이스는 현재 개인 영역을 제외한 모든 공용 영역에서 사용 가능하며 현재 소버린 클라우드에서는 사용할 수 없습니다.
+> > 계층 구조 네임스페이스는 현재 모든 공용 영역에서 사용할 수 있습니다. 현재 소버린 클라우드에서는 사용할 수 없습니다.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -222,6 +222,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Data Lake Storage Gen2 저장소 계정을 만들었습니다. 저장소 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 계속해서 Blob 저장소 빠른 시작을 진행합니다.
+이 빠른 시작에서는 Data Lake Storage Gen2 기능이 포함된 저장소 계정을 만들었습니다. 저장소 계정에서 Blob을 업로드 및 다운로드하는 방법을 알아보려면 계속해서 Blob 저장소 빠른 시작을 진행합니다.
 
 * [AzCopy를 사용하여 Azure Blob Storage 간 데이터 이동](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

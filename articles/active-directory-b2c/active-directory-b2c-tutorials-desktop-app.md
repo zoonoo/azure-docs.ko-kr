@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 40adcc7280a279e066c9e22f3252972cf07d070d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a7a861ccff168655d866d8c9205160bface79c9e
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604079"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913413"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱으로 계정을 인증하도록 설정
 
@@ -127,7 +127,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
 
 데스크톱 앱을 등록하고 정책을 만들었으니, 이제 앱에서 Azure AD B2C 테넌트를 사용하도록 구성해야 합니다. 이 자습서에서는 샘플 데스크톱 앱을 구성합니다. 
 
-GitHub에서 [zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)하거나 샘플을 복제합니다.
+GitHub에서 [zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)하고, [리포지토리를 찾거나](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) 샘플을 복제합니다.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git

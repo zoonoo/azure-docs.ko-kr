@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 66ee4ac8fe946696d6760891a086a672fa9fc412
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165010"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914604"
 ---
-# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database 만들기
+# <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL 데이터베이스 만들기
 
 이 빠른 시작은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하여 Azure에서 SQL Database를 만드는 방법을 설명합니다. Azure SQL Database는 클라우드에서 항상 사용 가능한 SQL Server Database를 실행하고 크기를 조정할 수 있는 “Database-as-a-Service” 제품입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 SQL 데이터베이스를 만들고 쿼리하여 시작하는 방법을 보여 줍니다.
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-sql-database"></a>SQL 데이터베이스 만들기
 

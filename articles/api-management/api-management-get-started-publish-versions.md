@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7e5051248a579b0943fa69620215b060bd1e235
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6820b44309ac2b3dbeb5ad6f0beb460c8712e9af
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092696"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912123"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>여러 버전의 API 게시 
 
@@ -37,8 +37,9 @@ ms.locfileid: "47092696"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-* 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
++ [Azure API Management 용어](api-management-terminology.md)를 익힙니다.
++ 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
++ 또한, 다음 자습서 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 완료합니다.
 
 ## <a name="add-a-new-version"></a>새 버전 추가
 
@@ -48,8 +49,8 @@ ms.locfileid: "47092696"
 2. 옆에 있는 상황에 맞는 메뉴(**...**)를 선택합니다.
 3. **+ 버전 추가**를 선택합니다.
 
-    > [!TIP]
-    > 새 API를 처음 만들 때 버전을 사용하도록 설정할 수도 있습니다. 이렇게 하려면 **API 추가** 화면에서 **이 API를 버전 관리하시겠습니까?** 를 선택합니다.
+> [!TIP]
+> 새 API를 처음 만들 때 버전을 사용하도록 설정할 수도 있습니다. 이렇게 하려면 **API 추가** 화면에서 **이 API를 버전 관리하시겠습니까?** 를 선택합니다.
 
 ## <a name="choose-a-versioning-scheme"></a>버전 관리 체계 선택
 
@@ -58,34 +59,38 @@ Azure API Management에서는 호출자가 원하는 API 버전을 지정하도�
 ![버전 추가 화면](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. **버전 관리 체계**에서 선택된 **경로**를 그대로 유지합니다.
-2. **이름** 및 **버전 식별자**로 **v1**을 추가합니다.
+2. **이름** 필드에 **demo-conference-api-v1**을 입력합니다.
+
+    > [!NOTE]
+    > 버전은 실제로 API의 수정 버전을 기반으로 하는 새 API입니다. **이름**은 새 API의 이름이며 API Management 인스턴스에서 고유해야 합니다.
+
+3. **버전 식별자** 필드에 **v1**을 입력합니다.
 
     > [!TIP]
     > 버전 관리 체계로 **헤더** 또는 **쿼리 문자열**을 선택하는 경우에는 추가 값(헤더의 이름 또는 쿼리 문자열 매개 변수)을 제공해야 합니다.
 
-3. **만들기**를 선택하여 새 버전을 설정합니다.
-4. 이제 API 목록의 **데모 회의 API** 아래에 고유 API 두 개(**원본** 및 **v1**)가 표시됩니다.
+4. **만들기**를 선택하여 새 버전을 설정합니다.
+5. 이제 API 목록의 **데모 회의 API** 아래에 고유 API 두 개(**원본** 및 **v1**)가 표시됩니다.
 
     ![Azure Portal에서 API 아래에 나열된 버전](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > 버전이 없는 API에 버전을 추가하는 경우에는 기본 URL에서 응답하는 **원본**이 자동으로 만들어집니다. 따라서 버전 추가 프로세스로 인해 기존 호출자의 호출이 중단되지 않습니다. 시작 시 버전을 사용하도록 설정하여 새 API를 만들면 원본이 작성되지 않습니다.
 
-5. 이제 **원본**과는 별개의 API로 **v1**을 편집하고 구성할 수 있습니다. 즉, 버전 하나를 변경해도 다른 버전에는 영향을 주지 않습니다.
+6. 이제 **원본**과는 별개의 API로 **v1**을 편집하고 구성할 수 있습니다. 즉, 버전 하나를 변경해도 다른 버전에는 영향을 주지 않습니다.
 
 ## <a name="add-the-version-to-a-product"></a>제품에 버전 추가
 
 호출자가 새 버전을 보게 하려면 **제품**에 추가해야 합니다.
 
+![API Management 제품](media/api-management-getstarted-publish-versions/08-AddMultipleVersions-03-AddVersionToProduct.png)
+
 1. 클래식 배포 모델 페이지에서 **제품**을 선택합니다.
-
-    ![API Management 제품](media/api-management-getstarted-publish-versions/Products.png)
-
 2. **무제한**을 선택합니다.
 3. **API**를 선택합니다.
 4. **추가**를 선택합니다.
 5. **데모 회의 API, 버전 v1**을 선택합니다.
-6. 서비스 관리 페이지로 이동하여 **API**를 선택합니다.
+6. **선택**을 클릭합니다.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>개발자 포털을 검색하여 버전 확인
 

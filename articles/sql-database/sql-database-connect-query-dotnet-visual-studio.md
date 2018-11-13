@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: e6eaaa67914579edd5c3b53362835aa1ad168eca
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 5b458c881496a887d1415e115bf2b94c674be029
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064036"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50911764"
 ---
-# <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Visual Studio에서 .NET(C#)을 사용하여 Azure SQL Database 연결 및 쿼리
+# <a name="quickstart-use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: Visual Studio에서 .NET(C#)을 사용하여 Azure SQL 데이터베이스 연결 및 쿼리
 
 이 빠른 시작에서는 [.NET Framework](https://www.microsoft.com/net/)를 사용하여 Visual Studio에서 C# 프로그램을 만들어 Azure SQL Database에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다.
 

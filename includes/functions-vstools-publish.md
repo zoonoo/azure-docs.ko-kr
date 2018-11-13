@@ -5,15 +5,15 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 08/26/2018
+ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b290cada86401d91313939a7673998810cb82551
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650695"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51028145"
 ---
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
@@ -22,6 +22,9 @@ ms.locfileid: "49650695"
     ![게시 대상 선택](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     **Zip에서 실행**을 사용하도록 설정하면 Azure의 함수 앱이 배포 패키지에서 직접 실행됩니다. 자세한 내용은 [패키지 파일에서 Azure Functions 실행](../articles/azure-functions/run-functions-from-deployment-package.md)을 참조하세요.
+     
+    >[!CAUTION]
+    >**기존 항목 선택**을 선택하면 Azure에 있는 기존 함수 앱의 모든 파일을 로컬 프로젝트의 파일로 덮어씁니다. 기존 함수 앱에 업데이트를 다시 게시하는 경우에만 이 옵션을 사용합니다.
 
 3. Visual Studio를 Azure 계정에 아직 연결하지 않았으면 **계정 추가...** 를 선택합니다.
 

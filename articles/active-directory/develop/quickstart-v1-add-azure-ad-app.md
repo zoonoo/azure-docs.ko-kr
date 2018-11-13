@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 7e2225a173562be28840cb0a66913b9f8c9657ff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4608e9ec0cd67b6c0f7ac23e27761b0355a5d738
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962048"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50911867"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>빠른 시작: Azure Active Directory v1.0 엔드포인트에 앱 등록
 
@@ -31,7 +31,10 @@ ms.locfileid: "46962048"
 
 Azure AD의 기능을 사용하려는 모든 응용프로그램이 먼저 Azure AD 테넌트에 등록되어야 합니다. 이 등록 프로세스는 응용 프로그램이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 응용 프로그램에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
 
-이 빠른 시작에서는 Azure AD에 응용 프로그램을 추가하고 등록하는 방법을 보여 줍니다.
+이 빠른 시작은 Azure Portal에서 기존 **앱 등록** 환경을 사용하여 Azure AD에서 응용 프로그램을 추가하고 등록하는 방법을 보여줍니다.
+
+> [!NOTE]
+> 새 앱 등록? Azure Portal에서 새 **앱 등록(미리 보기)** 환경을 사용해 보세요. 시작하려면 [앱 등록(미리 보기)](quickstart-register-app.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -40,7 +43,7 @@ Azure AD의 기능을 사용하려는 모든 응용프로그램이 먼저 Azure 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Azure Portal을 사용하여 새 응용 프로그램 등록
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 계정을 통해 둘 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위 모서리에서 계정을 선택하고 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
+1. 계정이 둘 이상의 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **앱 등록**을 선택하고 **새 응용 프로그램 등록**을 선택합니다.
 

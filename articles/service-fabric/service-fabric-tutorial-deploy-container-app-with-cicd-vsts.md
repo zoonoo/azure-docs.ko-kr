@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: ryanwi,v-steg
 ms.custom: mvc
-ms.openlocfilehash: 5ec898465b550a136db71ee731be5943c7441dcd
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: db0abf2c70ac79356496c78275dc658d1ee29a23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382031"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035921"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 컨테이너 응용 프로그램 배포
 
@@ -76,6 +76,9 @@ Team Services 릴리스 정의에서는 응용 프로그램 패키지를 클러�
 웹 브라우저를 열고 [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting)에서 새 팀 프로젝트로 이동합니다.
 
 **빌드 및 릴리스** 탭을 선택하고 **빌드**를 선택한 다음, **새 파이프라인**을 클릭합니다.
+
+>[!NOTE]
+>빌드 정의 템플릿이 표시되지 않으면 **새 YAML 파이프라인 생성 환경**이 해제되어 있는지 확인합니다. 이 기능은 DevOps 계정의 **미리 보기 기능** 섹션 내에서 구성됩니다.
 
 ![새 파이프라인][new-pipeline]
 

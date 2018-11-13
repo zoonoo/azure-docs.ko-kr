@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f44b267a28abd64acdd6bc74a43f1c5be8daf0ab
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515610"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567913"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -221,6 +221,8 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
    - *확장 단위 노드에 오프 라인 상태입니다.*
    
   실행 합니다 [테스트 AzureStack](azure-stack-diagnostic-test.md) 인프라 역할 인스턴스의 상태를 확인 하 고 단위 노드의 크기를 조정 하는 cmdlet입니다. 문제가 감지 되 면 [테스트 AzureStack](azure-stack-diagnostic-test.md), 이러한 경고를 무시할 수 있습니다. 문제가 감지 될 경우에 인프라 역할 인스턴스 또는 관리 포털 또는 PowerShell을 사용 하 여 노드를 시작 하려면 시작할 수 있습니다.
+
+  최신에서이 문제를 해결할 [1809 핫픽스 릴리스](https://support.microsoft.com/help/4471993/), 문제가 발생 하면이 핫픽스를 설치 해야 합니다. 
 
 <!-- 1264761 - IS ASDK -->  
 - 에 대 한 경고를 표시 될 수 있습니다 합니다 **상태 컨트롤러** 다음 세부 정보는 구성 요소:  

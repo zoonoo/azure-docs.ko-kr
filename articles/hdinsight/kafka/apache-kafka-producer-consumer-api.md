@@ -2,19 +2,19 @@
 title: '자습서: Apache Kafka 생산자 및 소비자 API 사용 - Azure HDInsight '
 description: HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다. 이 자습서에서는 Java 응용 프로그램에서 HDInsight의 Kafka와 함께 이러한 API를 사용하는 방법을 알아봅니다.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: dhgoelmsft
+ms.author: dhgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/16/2018
-ms.openlocfilehash: f757db47ff91537405b04dbc949797f5855b7952
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/06/2018
+ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416174"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277735"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>자습서: Apache Kafka 생산자 및 소비자 API 사용
 
@@ -56,14 +56,14 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 ## <a name="set-up-your-deployment-environment"></a>배포 환경 설정
 
-이 자습서에서는 HDInsight 3.6의 Kafka가 필요합니다. HDInsight 클러스터에서 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Kafka 시작](apache-kafka-get-started.md) 설명서를 참조하세요.
+이 자습서에서는 HDInsight 3.6 기반의 Apache Kafka가 필요합니다. HDInsight 클러스터에서 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Kafka 시작](apache-kafka-get-started.md) 설명서를 참조하세요.
 
 ## <a name="understand-the-code"></a>코드 이해
 
 예제 응용 프로그램은 `Producer-Consumer` 하위 디렉터리의 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에 있습니다. 응용 프로그램은 주로 4개의 파일로 구성됩니다.
 
 * `pom.xml`: 이 파일은 프로젝트 종속성, Java 버전 및 패키징 메서드를 정의합니다.
-* `Producer.java`: 이 파일은 생산자 API를 사용하여 Kafka에 1백만(1,000,000)개의 임의 문장을 보냅니다.
+* `Producer.java`: 이 파일은 생산자 API를 사용하여 Kafka에 임의의 문장을 보냅니다.
 * `Consumer.java`: 이 파일은 소비자 API를 사용하여 Kafka에서 데이터를 읽고 STDOUT에 내보냅니다.
 * `Run.java`: 생산자 및 소비자 코드를 실행하는 데 사용되는 명령줄 인터페이스입니다.
 
@@ -92,160 +92,45 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 ### <a name="producerjava"></a>Producer.java
 
-생산자는 Kafka broker 호스트(작업자 노드)와 통신하여 Kafka 토픽에 데이터를 저장합니다. 다음 코드 조각은 `Producer.java` 파일에서 제공됩니다.
+생산자는 Kafka broker 호스트(작업자 노드)와 통신하고 Kafka 토픽에 데이터를 보냅니다. 다음 코드 조각은 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 파일 및 [github 리포지토리](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에서 가져온 것이며 프로시저 속성을 설정하는 방법을 보여줍니다.
 
 ```java
-package com.microsoft.example;
-
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import java.util.Properties;
-import java.util.Random;
-import java.io.IOException;
-
-public class Producer
-{
-    public static void produce(String brokers) throws IOException
-    {
-
-        // Set properties used to configure the producer
-        Properties properties = new Properties();
-        // Set the brokers (bootstrap servers)
-        properties.setProperty("bootstrap.servers", brokers);
-        // Set how to serialize key/value pairs
-        properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
-        properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
-        KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
-
-        // So we can generate random sentences
-        Random random = new Random();
-        String[] sentences = new String[] {
-                "the cow jumped over the moon",
-                "an apple a day keeps the doctor away",
-                "four score and seven years ago",
-                "snow white and the seven dwarfs",
-                "i am at two with nature"
-        };
-
-        String progressAnimation = "|/-\\";
-        // Produce a bunch of records
-        for(int i = 0; i < 1000000; i++) {
-            // Pick a sentence at random
-            String sentence = sentences[random.nextInt(sentences.length)];
-            // Send the sentence to the test topic
-            producer.send(new ProducerRecord<String, String>("test", sentence));
-            String progressBar = "\r" + progressAnimation.charAt(i % progressAnimation.length()) + " " + i;
-            System.out.write(progressBar.getBytes());
-        }
-    }
-}
+Properties properties = new Properties();
+// Set the brokers (bootstrap servers)
+properties.setProperty("bootstrap.servers", brokers);
+// Set how to serialize key/value pairs
+properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
+properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
+KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 ```
-
-이 코드는 Kafka broker 호스트(작업자 노드)와 연결한 다음, 생산자 API를 사용하여 Kafka에 1,000,000개의 문장을 보냅니다.
 
 ### <a name="consumerjava"></a>Consumer.java
 
-소비자는 Kafka broker 호스트(작업자 노드)와 통신하고, 루프에서 레코드를 읽습니다. 다음 코드 조각은 `Consumer.java` 파일에서 제공됩니다.
+소비자는 Kafka broker 호스트(작업자 노드)와 통신하고, 루프에서 레코드를 읽습니다. [Consumer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) 파일의 다음 코드 조각은 소비자 속성을 설정합니다.
 
 ```java
-package com.microsoft.example;
+KafkaConsumer<String, String> consumer;
+// Configure the consumer
+Properties properties = new Properties();
+// Point it to the brokers
+properties.setProperty("bootstrap.servers", brokers);
+// Set the consumer group (all consumers must belong to a group).
+properties.setProperty("group.id", groupId);
+// Set how to serialize key/value pairs
+properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
+// When a group is first created, it has no offset stored to start reading from. This tells it to start
+// with the earliest record in the stream.
+properties.setProperty("auto.offset.reset","earliest");
 
-import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import java.util.Properties;
-import java.util.Arrays;
-
-public class Consumer {
-    public static void consume(String brokers, String groupId) {
-        // Create a consumer
-        KafkaConsumer<String, String> consumer;
-        // Configure the consumer
-        Properties properties = new Properties();
-        // Point it to the brokers
-        properties.setProperty("bootstrap.servers", brokers);
-        // Set the consumer group (all consumers must belong to a group).
-        properties.setProperty("group.id", groupId);
-        // Set how to serialize key/value pairs
-        properties.setProperty("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
-        properties.setProperty("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");
-        // When a group is first created, it has no offset stored to start reading from. This tells it to start
-        // with the earliest record in the stream.
-        properties.setProperty("auto.offset.reset","earliest");
-        consumer = new KafkaConsumer<>(properties);
-
-        // Subscribe to the 'test' topic
-        consumer.subscribe(Arrays.asList("test"));
-
-        // Loop until ctrl + c
-        int count = 0;
-        while(true) {
-            // Poll for records
-            ConsumerRecords<String, String> records = consumer.poll(200);
-            // Did we get any?
-            if (records.count() == 0) {
-                // timeout/nothing to read
-            } else {
-                // Yes, loop over records
-                for(ConsumerRecord<String, String> record: records) {
-                    // Display record and count
-                    count += 1;
-                    System.out.println( count + ": " + record.value());
-                }
-            }
-        }
-    }
-}
+consumer = new KafkaConsumer<>(properties);
 ```
 
 이 코드에서 소비자는 토픽의 시작에서 읽도록 구성됩니다(`auto.offset.reset`이 `earliest`로 설정됨.)
 
 ### <a name="runjava"></a>Run.java
 
-`Run.java` 파일은 생산자 또는 소비자 코드를 실행하는 명령줄 인터페이스를 제공합니다. 매개 변수로 Kafka broker 호스트 정보를 제공해야 합니다. 필요에 따라 소비자 프로세스에서 사용되는 그룹 ID 값을 포함할 수 있습니다. 동일한 그룹 ID를 사용하여 여러 소비자 인스턴스를 만드는 경우 토픽에서 읽는 부하를 분산합니다.
-
-```java
-package com.microsoft.example;
-
-import java.io.IOException;
-import java.util.UUID;
-
-// Handle starting producer or consumer
-public class Run {
-    public static void main(String[] args) throws IOException {
-        if(args.length < 2) {
-            usage();
-        }
-
-        // Get the brokers
-        String brokers = args[1];
-        switch(args[0].toLowerCase()) {
-            case "producer":
-                Producer.produce(brokers);
-                break;
-            case "consumer":
-                // Either a groupId was passed in, or we need a random one
-                String groupId;
-                if(args.length == 3) {
-                    groupId = args[2];
-                } else {
-                    groupId = UUID.randomUUID().toString();
-                }
-                Consumer.consume(brokers, groupId);
-                break;
-            default:
-                usage();
-        }
-        System.exit(0);
-    }
-    // Display usage
-    public static void usage() {
-        System.out.println("Usage:");
-        System.out.println("kafka-example.jar <producer|consumer> brokerhosts [groupid]");
-        System.exit(1);
-    }
-}
-```
+[Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) 파일은 생산자 또는 소비자 코드를 실행하는 명령줄 인터페이스를 제공합니다. 매개 변수로 Kafka broker 호스트 정보를 제공해야 합니다. 필요에 따라 소비자 프로세스에서 사용되는 그룹 ID 값을 포함할 수 있습니다. 동일한 그룹 ID를 사용하여 여러 소비자 인스턴스를 만드는 경우 토픽에서 읽는 부하를 분산합니다.
 
 ## <a name="build-and-deploy-the-example"></a>예제 빌드 및 배포
 
@@ -289,19 +174,13 @@ public class Run {
     2. Kafka broker 호스트와 Zookeeper 호스트를 가져오려면 다음 명령을 사용합니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다.
     
         ```bash
-        export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
         ```
 
     3. `test` 토픽을 만들려면 다음 명령을 사용합니다.
 
         ```bash
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-        ```
-    4. jar 파일을 사용하여 토픽을 만들 수도 있습니다. 예를 들어 `test2` 토픽을 만들려면 다음 명령을 사용합니다.
-
-        ```bash
-        java -jar kafka-producer-consumer.jar create test2 $KAFKABROKERS
+        java -jar kafka-producer-consumer.jar create test $KAFKABROKERS
         ```
 
 3. 생산자를 실행하고 토픽에 데이터를 쓰려면 다음 명령을 사용합니다.
@@ -339,7 +218,7 @@ indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygr
 
 이 명령은 `tmux`를 사용하여 터미널을 두 개의 열로 분할합니다. 소비자는 동일한 그룹 ID 값으로 각 열에서 시작됩니다. 소비자가 읽기를 완료하면 각 읽기는 레코드의 일부입니다. __Ctrl + C __를 두 번 사용하여 `tmux`를 종료합니다.
 
-동일한 그룹 내에서 클라이언트에 의한 소비는 토픽에 대한 파티션을 통해 처리됩니다. 앞에서 만든 `test` 토픽에는 8개의 파티션이 있습니다. 8명의 소비자를 시작하는 경우 각 소비자는 토픽에 대한 단일 파티션에서 레코드를 읽습니다.
+동일한 그룹 내에서 클라이언트에 의한 소비는 토픽에 대한 파티션을 통해 처리됩니다. 이 코드 샘플에서, 앞에서 만든 `test` 토픽에는 8개의 파티션이 있습니다. 8명의 소비자를 시작하는 경우 각 소비자는 토픽에 대한 단일 파티션에서 레코드를 읽습니다.
 
 > [!IMPORTANT]
 > 소비자 그룹에는 파티션보다 더 많은 소비자 인스턴스가 있을 수 없습니다. 이 예제에서 하나의 소비자 그룹은 토픽의 파티션 수이기 때문에 최대 8개 소비자를 포함할 수 있습니다. 또는 소비자가 8개 이하인 소비자 그룹이 여러 개 있을 수 있습니다.

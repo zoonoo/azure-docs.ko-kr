@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 09/23/2018
-ms.openlocfilehash: c0c249ffe426e86049024122d9cbf786bb677220
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 3eadc2d233fd1716716c323f4c7087ee8363c67c
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160641"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912325"
 ---
-# <a name="create-an-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance 만들기
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance 만들기
 
 이 빠른 시작에서는 Azure Portal에서 Azure SQL Database [Managed Instance](sql-database-managed-instance.md)를 만드는 방법을 안내합니다. 
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-managed-instance"></a>Managed Instance 만들기
 
@@ -89,3 +89,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
   - Azure 가상 머신에서 Managed Instance에 연결하는 방법을 보여주는 빠른 시작은 [Azure 가상 머신 연결 구성](sql-database-managed-instance-configure-vm.md)을 참조하세요.
   - 온-프레미스 클라이언트 컴퓨터에서 지점 및 사이트 간 연결을 사용하여 Managed Instance에 연결하는 방법을 보여주는 빠른 시작은 [지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 - 온-프레미스의 기존 SQL Server 데이터베이스를 Managed Instance로 복원하려면 [마이그레이션용 Azure DMS(Database Migration Service)](../dms/tutorial-sql-server-to-managed-instance.md)를 사용하여 데이터베이스 백업 파일에서 복원하거나 [T-SQL RESTORE 명령](sql-database-managed-instance-get-started-restore.md)을 사용하여 데이터베이스 백업 파일에서 복원하면 됩니다.
+- 기본 제공되는 문제 해결 인텔리전스를 사용한 Managed Instance 데이터베이스 성능 고급 모니터링에 대해 자세히 알아보려면 [Azure SQL 분석을 사용하여 Azure SQL Database 모니터링](../log-analytics/log-analytics-azure-sql.md)을 참조하세요.

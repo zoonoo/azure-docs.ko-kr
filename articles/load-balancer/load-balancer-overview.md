@@ -4,24 +4,20 @@ description: Azure Load Balancer 기능, 아키텍처 및 구현에 대한 개�
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 618b00906a799e1b8cfcfac5ee6bcc3a714c2f87
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918745"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219582"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -70,14 +66,14 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
 
 * **포트 전달**
 
-    Load Balancer를 사용하여 특정 프런트 엔드 IP 주소의 특정 포트에서 가상 네트워크 내에 있는 특정 백 엔드 인스턴스의 특정 포트로 트래픽을 전달하기 위한 인바운드 NAT 규칙을 만들 수 있습니다. 또한 이러한 작업은 부하 분산과 동일한 해시 기반 배포에 의해서도 수행됩니다. 이 기능에 대한 일반적인 시나리오는 Azure Virtual Network 내의 개별 VM 인스턴스에 대한 RDP(원격 데스크톱 프로토콜) 또는 SSH(보안 셸) 세션입니다. 여러 개의 내부 엔드포인트를 동일한 프런트 엔드 IP 주소의 서로 다른 포트에 매핑할 수 있습니다. 이러한 기능을 사용하여 추가 프로그램 없이도 인터넷을 통해 VM을 원격으로 관리를 사용할 수 있습니다.
+    Load Balancer를 사용하여 특정 프런트 엔드 IP 주소의 특정 포트에서 가상 네트워크 내에 있는 특정 백 엔드 인스턴스의 특정 포트로 트래픽을 전달하기 위한 인바운드 NAT 규칙을 만들 수 있습니다. 또한 이러한 작업은 부하 분산과 동일한 해시 기반 배포에 의해서도 수행됩니다. 이 기능에 대한 일반적인 시나리오는 Azure Virtual Network 내의 개별 VM 인스턴스에 대한 RDP(원격 데스크톱 프로토콜) 또는 SSH(보안 셸) 세션입니다. 여러 개의 내부 엔드포인트를 동일한 프런트 엔드 IP 주소의 서로 다른 포트에 매핑할 수 있습니다. 프런트 엔드 IP 주소를 사용하여 추가 프로그램 없이 인터넷을 통해 VM을 원격으로 관리할 수 있습니다.
 
 * **응용 프로그램 모호성 및 투명성**
 
     Load Balancer는 TCP/UDP 또는 응용 프로그램 계층과 직접 상호 작용하지 않으며, 모든 TCP 또는 UDP 응용 프로그램이 지원될 수 있습니다.  Load Balancer는 흐름을 종료하거나 시작하지 않고 흐름의 페이로드와 상호 작용하지 않으며, 응용 프로그램 계층 게이트웨이 기능을 제공하고, 프로토콜 핸드셰이크는 항상 클라이언트와 백 엔드 풀 인스턴스 간에 직접 발생합니다.  인바운드 흐름에 대한 응답은 항상 가상 머신의 응답입니다.  흐름이 가상 머신에 도착하면 원래 원본 IP 주소도 유지됩니다.  투명도를 더 자세히 설명하기 위한 몇 가지 예입니다.
     - 모든 엔드포인트는 VM에서만 응답합니다.  예를 들어, TCP 핸드셰이크는 항상 클라이언트와 선택한 백 엔드 VM 사이에서 발행합니다.  프런트 엔드에 요청에 대한 응답은 백 엔드 VM에서 생성한 응답입니다. 프런트 엔드에 대한 연결의 유효성을 성공적으로 확인하는 경우 최소 하나 이상의 백 엔드 가상 머신에 통합형 연결의 유효성을 검사하는 것입니다.
     - 응용 프로그램 페이로드는 Load Balancer에 대해 투명하며 모든 UDP 또는 TCP 응용 프로그램을 지원할 수 있습니다. HTTP당 요청 처리 또는 응용 프로그램 계층 페이로드 조작을 요청하는 워크로드의 경우(예를 들어, HTTP URL의 구문 분석) [Application Gateway](https://azure.microsoft.com/services/application-gateway) 같은 계층 7 부하 분산 장치를 사용해야 합니다.
-    - Load Balancer는 TCP 페이로드에 독립적이며 TLS 오프 로드("SSL")은 제공되지 않기 때문에 Load Balancer를 사용하여 통합형 암호화 시나리오를 빌드하고 VM 자체에서 TLS 연결을 종료하여 TLS 응용 프로그램에 대한 대규모 확장을 얻을 수 있습니다.  예를 들어 TLS 세션 키 용량은 백 엔드 풀에 추가하는 VM의 수와 유형으로만 제한됩니다.  응용 프로그램 계층 처리인 "SSL 오프 로딩"를 요구하거나 Azure에 인증서 관리를 위임하려는 경우 대신 Azure의 계층 7 부하 분산 장치 [Application Gateway](https://azure.microsoft.com/services/application-gateway)를 사용해야 합니다.
+    - Load Balancer는 TCP 페이로드에 독립적이며 TLS 오프 로드("SSL")은 제공되지 않기 때문에 Load Balancer를 사용하여 통합형 암호화 시나리오를 빌드하고 VM 자체에서 TLS 연결을 종료하여 TLS 응용 프로그램에 대한 대규모 스케일 아웃을 얻을 수 있습니다.  예를 들어 TLS 세션 키 용량은 백 엔드 풀에 추가하는 VM의 수와 유형으로만 제한됩니다.  응용 프로그램 계층 처리인 "SSL 오프 로딩"를 요구하거나 Azure에 인증서 관리를 위임하려는 경우 대신 Azure의 계층 7 부하 분산 장치 [Application Gateway](https://azure.microsoft.com/services/application-gateway)를 사용해야 합니다.
         
 
 * **자동 재구성**
@@ -90,7 +86,7 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
      
     Load Balancer는 TCP, HTTP 및 HTTPS 엔드포인트에 대한 [다양한 상태 프로브 유형](load-balancer-custom-probe-overview.md#types)을 제공합니다.
 
-    또한 클래식 클라우드 서비스를 사용하는 경우 추가 형식이 허용됩니다. [게스트 에이전트](load-balancer-custom-probe-overview.md#guestagent)  이는 최후 수단의 상태 프로브로 간주되어야 하며 다른 옵션이 실행 가능한 경우 권장되지 않습니다.
+    또한 클래식 클라우드 서비스를 사용하는 경우 추가 형식이 허용됩니다. [게스트 에이전트](load-balancer-custom-probe-overview.md#guestagent)  이는 상태 프로브의 마지막 수단으로 간주되어야 하며 다른 옵션이 실행 가능한 경우 권장되지 않습니다.
     
 * **아웃바운드 연결(SNAT)**
 

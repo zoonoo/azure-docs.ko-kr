@@ -1,22 +1,21 @@
 ---
 title: 클라우드에서 Kubernetes 개발 환경 만들기 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: iainfoulds
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: ghogen
+ms.author: iainfou
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-manager: douge
-ms.openlocfilehash: 851a60ec3e3a26dde2bdf2fe039a9607d7081b79
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: fb33eb2ce1d494191f589e78637d886339e595be
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310099"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978947"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>빠른 시작: Azure Dev Spaces(Node.js)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -34,7 +33,7 @@ ms.locfileid: "49310099"
 - Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 버전 2.0.43 이상.
-- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
+- 미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 서유럽, 동남 아시아, 캐나다 중부 또는 캐나다 동부 지역에서 **Http 응용 프로그램 라우팅**이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>

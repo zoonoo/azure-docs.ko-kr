@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/03/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 7676360d71dab4da58693221645517c69b56dff8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090691"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036058"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>자습서: Azure Data Box 반송 및 Azure에 대한 데이터 업로드 확인
 
@@ -51,11 +51,16 @@ Microsoft에서 장치를 수신하고 검사하면 주문 상태가 **수신됨
 
 복사가 완료되면 주문 상태는 **완료됨**으로 업데이트됩니다.
 
-원본에서 데이터를 삭제하기 전에 데이터 저장소 계정에 있는지 확인합니다. 
+원본에서 데이터를 삭제하기 전에 데이터 저장소 계정에 있는지 확인합니다. Data Box에 데이터를 복사할 때, 데이터 형식에 따라 Azure Storage 계정에서 다음 경로 중 하나에 업로드됩니다.
+
+- 블록 Blob 및 페이지 Blob의 경우: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+- Azure Files의 경우: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+또는 Azure Portal에서 Azure storage 계정으로 이동하여 찾아볼 수도 있습니다.
 
 ## <a name="erasure-of-data-from-data-box"></a>Data Box에서 데이터 지우기
  
- Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NIST SP800-88 개정 1 지침](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)에 따라 지워집니다. 
+Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NIST SP800-88 개정 1 지침](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)에 따라 지워집니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

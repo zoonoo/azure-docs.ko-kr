@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/02/2018
-ms.openlocfilehash: b5b0c1dd6f241d9b76ff766adc221c3fcb36ee1a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 2ab5b7a5b17daef00cb62f69a7d2a798c18456bb
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062707"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912954"
 ---
-# <a name="use-python-to-query-an-azure-sql-database"></a>Python을 사용하여 Azure SQL Database 쿼리
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>빠른 시작: Python을 사용하여 Azure SQL 데이터베이스 쿼리
 
  이 빠른 시작에서는 [Python](https://python.org)을 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다. sdk에 대한 자세한 내용은 [참조](https://docs.microsoft.com/python/api/overview/azure/sql) 설명서, pyodbc [샘플](https://github.com/mkleehammer/pyodbc/wiki/Getting-started), [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub 리포지토리에서 확인하세요.
 

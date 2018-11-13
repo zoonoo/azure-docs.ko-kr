@@ -13,33 +13,50 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2018
-ms.author: andret
+ms.date: 11/01/2018
+ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 28c5f025b59b4adbb33a59edd225a839e11dad97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7e7e5e16b6f7de1cee8312fd31801c202c3e16ef
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965095"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962914"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-이 빠른 시작에서는 Windows 데스크톱 .NET(WPF) 응용 프로그램이 개인, 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 알아봅니다.
+이 빠른 시작에서는 개인, 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 Windows 데스크톱 .NET(WPF) 응용 프로그램을 작성하는 방법을 알아봅니다.
 
 ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-windows-desktop/windesktop-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download"></a>등록 및 다운로드
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>응용 프로그램 및 코드 샘플 등록 및 구성
+> ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
+> [!div renderon="docs" class="sxs-lookup"]
+> 빠른 시작 응용 프로그램을 시작하는 옵션은 두 가지가 있습니다.
+> * [기본] [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [수동] [옵션 2: 응용 프로그램 및 코드 샘플을 등록하고 수동으로 구성](#option-2-register-and-manually-configure-your-application-and-code-sample)
+>
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
+>
+> 1. [Azure Portal - 응용 프로그램 등록](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps)으로 이동합니다.
+> 1. 응용 프로그램 이름을 입력하고 **등록**을 선택합니다.
+> 1. 지침에 따라 클릭 한 번으로 새 응용 프로그램을 다운로드하고 자동으로 구성합니다.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 응용 프로그램 및 코드 샘플을 등록하고 수동으로 구성
+> [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>1단계: 응용 프로그램 등록
-> 응용 프로그램을 등록하고 응용 프로그램 등록 정보를 솔루션에 추가하려면 다음을 수행합니다.
-> 1. [Microsoft 응용 프로그램 등록 포털](https://apps.dev.microsoft.com/portal/register-app)로 이동하여 응용 프로그램을 등록합니다.
-> 1. **응용 프로그램 이름** 상자에서 응용 프로그램의 이름을 입력합니다.
-> 1. **단계별 설치** 확인란의 선택을 취소한 다음 **만들기**를 선택하도록 합니다.
-> 1. **플랫폼 추가**를 선택하고, **네이티브 응용 프로그램**을 선택한 다음 **저장**을 선택합니다.
+> 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+> 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
+> 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록(미리 보기)** > **새 등록**을 차례로 선택합니다.
+> 1. **응용 프로그램 등록** 페이지가 표시되면 응용 프로그램의 등록 정보를 입력합니다.
+>      - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 응용 프로그램 이름(예: `Win-App-calling-MsGraph`)을 입력합니다.
+>      - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)** 을 선택합니다.
+>      - **등록**을 선택하여 응용 프로그램을 만듭니다.
+> 1. 앱의 페이지 목록에서 **인증**을 선택합니다.
+> 1. **리디렉션 URI** 섹션에서 **공용 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션을 찾고 **"urn:ietf:wg:oauth:2.0:oob**를 선택합니다.
+> 1. **저장**을 선택합니다.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>1단계: 응용 프로그램 구성
@@ -56,19 +73,31 @@ ms.locfileid: "46965095"
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 구성
 
-1. zip 파일을 로컬 폴더(예: **C:\Azure-Samples**)에 추출합니다.
+1. zip 파일을 디스크 루트에 가까운 로컬 폴더(예: **C:\Azure-Samples**)로 추출합니다.
 1. Visual Studio에서 프로젝트를 엽니다.
-1. **App.Xaml.cs**를 편집하고 `private static string ClientId`로 시작하는 줄을 방금 등록한 응용 프로그램의 응용 프로그램 ID로 바꿉니다.
+1. **App.Xaml.cs**를 편집하고 `ClientId` 및 `Tenant` 필드의 값을 다음 코드로 바꿉니다.
 
-```csharp
-private static string ClientId = "Enter_the_Application_Id_here";
-```
+    ```csharp
+    private static string ClientId = "Enter_the_Application_Id_here";
+    private static string Tenant = "Enter_the_Tenant_Info_Here";
+    ```
+
+> [!div renderon="docs"]
+> 위치:
+> - `Enter_the_Application_Id_here` - 등록한 응용 프로그램의 **응용 프로그램(클라이언트) ID**입니다.
+> - `Enter_the_Tenant_Info_Here` - 다음 옵션 중 하나로 설정됩니다.
+>   - 응용 프로그램이 **이 조직 디렉터리의 계정**을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
+>   - 응용 프로그램이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
+>   - 응용 프로그램이 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 지원하는 경우 이 값을 `common`으로 바꿉니다.
+>
+> > [!TIP]
+> > **응용 프로그램(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
 
 ## <a name="more-information"></a>자세한 정보
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client))은 사용자가 로그인하고 Microsoft Azure AD(Azure Active Directory)에 의해 보호되는 API에 액세스하기 위해 사용하는 토큰을 요청하는 데 사용되는 라이브러리입니다. Visual Studio의 **패키지 관리자 콘솔**에서 다음 명령을 실행하여 설치할 수 있습니다.
+MSAL([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client))은 사용자가 로그인하고 Microsoft Azure AD(Azure Active Directory)에 의해 보호되는 API에 액세스하기 위해 사용하는 토큰을 요청하는 데 사용되는 라이브러리입니다. Visual Studio의 **패키지 관리자 콘솔**에서 다음 명령을 실행하여 MSAL을 설치할 수 있습니다.
 
 ```powershell
 Install-Package Microsoft.Identity.Client -Pre
@@ -90,7 +119,7 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 > |위치: ||
 > |---------|---------|
-> | `ClientId` | *portal.microsoft.com*에 등록된 응용 프로그램의 응용 프로그램 ID |
+> | `ClientId` | Azure Portal에 등록된 응용 프로그램의 **응용 프로그램(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
 
 ### <a name="requesting-tokens"></a>토큰 요청
 
@@ -111,7 +140,7 @@ authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
 
 > |위치:||
 > |---------|---------|
-> | `_scopes` | 요청된 범위(즉, Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 Web API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
+> | `_scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 Web API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
 
 #### <a name="get-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 
@@ -124,16 +153,15 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 
 > |위치: ||
 > |---------|---------|
-> |범위 | 요청된 범위(즉, Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 Web API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
-> |accounts.FirstOrDefault() | 캐시의 첫 번째 사용자입니다(MSAL은 단일 앱에서 여러 사용자를 지원함). |
+> | `scopes` | 요청된 범위(예: Microsoft Graph의 경우 `{ "user.read" }`, 사용자 지정 Web API의 경우 `{ "api://<Application ID>/access_as_user" }`)를 포함합니다. |
+> | `accounts.FirstOrDefault()` | 캐시의 첫 번째 사용자를 지정합니다(MSAL은 단일 앱에서 여러 사용자를 지원함). |
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작의 전체 설명을 포함하여 응용 프로그램 및 새로운 기능 빌드에 대한 완전한 단계별 가이드를 제공하는 Windows 데스크톱 자습서를 사용해 보세요.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>이 빠른 시작에 사용되는 응용 프로그램을 만드는 단계 알아보기
-
 > [!div class="nextstepaction"]
 > [Graph API 호출 자습서](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-windesktop)
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

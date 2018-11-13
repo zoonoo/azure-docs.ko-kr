@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c46a9f827bdeeaf7a2b9897b262484f64f83b9a8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466033"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283464"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>자습서: Azure Databricks에서 Spark를 사용하여 Azure Data Lake Storage Gen2 미리 보기 데이터에 액세스
 
-이 자습서에서는 Azure Databricks 클러스터에서 Spark 쿼리를 실행하여 Azure Data Lake Storage Gen2 미리 보기 지원 계정의 데이터를 쿼리하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Databricks 클러스터에서 Spark 쿼리를 실행하여 Azure Data Lake Storage Gen2 미리 보기가 설정된 Azure 저장소 계정의 데이터를 쿼리하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Databricks 클러스터 만들기
@@ -31,9 +31,9 @@ ms.locfileid: "46466033"
 > [!NOTE]
 > **미리 압축된 파일** 확인란을 클릭하여 모든 데이터 필드를 선택합니다. 다운로드는 상당한 크기의 기가바이트 분량이지만, 분석에는 이 정도의 데이터가 필요합니다.
 
-## <a name="create-an-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 계정 만들기
+## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>분석 기능이 있는 Azure 저장소 계정 만들기
 
-시작하려면 새 [Azure Data Lake Storage Gen2 계정](quickstart-create-account.md)을 만들고 고유한 이름을 지정합니다. 그런 다음, 저장소 계정으로 이동하여 구성 설정을 검색합니다.
+먼저 [분석 기능이 있는 새 저장소 계정](quickstart-create-account.md)을 만들고 고유한 이름을 지정합니다. 그런 다음, 저장소 계정으로 이동하여 구성 설정을 검색합니다.
 
 1. **설정** 아래에서 **액세스 키**를 클릭합니다.
 2. **key1** 옆의 **복사** 단추를 클릭하여 키 값을 복사합니다.
@@ -137,11 +137,12 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-이러한 코드 샘플을 통해 Azure Data Lake Storage Gen2 지원 계정에 저장된 데이터를 사용하여 HDFS의 계층적 특성을 살펴보았습니다.
+
+이러한 코드 샘플을 통해 Data Lake Storage Gen2가 사용되는 저장소 계정에 저장된 데이터를 사용하여 HDFS의 계층적 특성을 살펴보았습니다.
 
 ## <a name="query-the-data"></a>데이터 쿼리
 
-다음으로, Azure Data Lake Storage에 업로드한 데이터를 쿼리할 수 있습니다. 다음 코드 블록을 각각 **Cmd 1**에 입력하고, **Cmd+Enter**를 눌러 Python 스크립트를 실행합니다.
+다음으로, 저장소 계정에 업로드한 데이터를 쿼리할 수 있습니다. 다음 코드 블록을 각각 **Cmd 1**에 입력하고, **Cmd+Enter**를 눌러 Python 스크립트를 실행합니다.
 
 ### <a name="simple-queries"></a>단순 쿼리
 

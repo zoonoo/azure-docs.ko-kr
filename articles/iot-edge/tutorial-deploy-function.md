@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f2b1c394f561b87baf2be261728a1ac39b1f7835
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 67540a02aab0880ea1a5c52e42036029b95c4f43
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116055"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006263"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>자습서: IoT Edge 모듈로 Azure 함수 배포(미리 보기)
 
-비즈니스 논리를 직접 Azure IoT Edge 장치에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 IoT Edge 장치에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows][lnk-tutorial1-win] 또는 [Linux][lnk-tutorial1-lin] 빠른 시작의 시뮬레이션된 장치에 Azure IoT Edge 배포에서 만든 시뮬레이션된 IoT Edge 장치를 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.     
+비즈니스 논리를 직접 Azure IoT Edge 장치에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 IoT Edge 장치에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md) 빠른 시작의 시뮬레이션된 장치에 Azure IoT Edge 배포에서 만든 시뮬레이션된 IoT Edge 장치를 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.     
 
 > [!div class="checklist"]
 > * Visual Studio Code를 사용하여 Azure 함수를 만듭니다.
@@ -98,67 +98,81 @@ Azure IoT Edge 장치:
    2. 솔루션에 대한 이름을 제공하거나 기본 **EdgeSolution**을 그대로 적용합니다.
    3. **Azure Functions - C#** 을 모듈 템플릿으로 선택합니다. 
    4. 모듈의 이름을 **CSharpFunction**으로 지정합니다. 
-   5. 이전 섹션에서 만든 Azure Container Registry를 첫 번째 모듈에 대한 이미지 리포지토리로 지정합니다. **localhost:5000**을 복사한 로그인 서버 값으로 바꿉니다. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/csharpfunction과 같습니다.
+   5. 이전 섹션에서 만든 Azure Container Registry를 첫 번째 모듈에 대한 이미지 리포지토리로 지정합니다. **localhost:5000**을 복사한 로그인 서버 값으로 바꿉니다. 모듈 이름(예: /csharpfunction)이 문자열의 일부로 그대로 유지되는지 확인합니다. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/csharpfunction과 같습니다.
 
    ![Docker 이미지 리포지토리 제공](./media/tutorial-deploy-function/repository.png)
 
-4. VS Code 창은 \.vscode 폴더, 모듈 폴더, 배포 매니페스트 템플릿 파일 등 IoT Edge 솔루션 작업 영역을 로드합니다. \.env 파일입니다. VS Code 탐색기에서 **모듈** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**를 엽니다.
+4. VS Code 창은 \.vscode 폴더, 모듈 폴더, 배포 매니페스트 템플릿 파일 등 IoT Edge 솔루션 작업 영역을 로드합니다. \.env 파일입니다. VS Code 탐색기에서 **모듈** > **CSharpFunction** > **CSharpFunction.cs**를 엽니다.
 
-5. **run.csx** 파일 내용을 다음 코드로 바꿉니다.
+5. **CSharpFunction.cs** 파일 내용을 다음 코드로 바꿉니다.
 
    ```csharp
-   #r "Microsoft.Azure.Devices.Client"
-   #r "Newtonsoft.Json"
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Devices.Client;
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Extensions.EdgeHub;
+    using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Extensions.Logging;
+    using Newtonsoft.Json;
 
-   using System.IO;
-   using Microsoft.Azure.Devices.Client;
-   using Newtonsoft.Json;
-
-   // Filter messages based on the temperature value in the body of the message and the temperature threshold value.
-   public static async Task Run(Message messageReceived, IAsyncCollector<Message> output, TraceWriter log)
-   {
-        const int temperatureThreshold = 25;
-        byte[] messageBytes = messageReceived.GetBytes();
-        var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
-
-        if (!string.IsNullOrEmpty(messageString))
+    namespace Functions.Samples
+    {
+        public static class CSharpFunction
         {
-            // Get the body of the message and deserialize it.
-            var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
-
-            if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+            [FunctionName("CSharpFunction")]
+            public static async Task FilterMessageAndSendMessage(
+                        [EdgeHubTrigger("input1")] Message messageReceived,
+                        [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,
+                        ILogger logger)
             {
-                // Send the message to the output as the temperature value is greater than the threashold.
-                var filteredMessage = new Message(messageBytes);
-                // Copy the properties of the original message into the new Message object.
-                foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                const int temperatureThreshold = 20;
+                byte[] messageBytes = messageReceived.GetBytes();
+                var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
+
+                if (!string.IsNullOrEmpty(messageString))
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);                }
-                // Add a new property to the message to indicate it is an alert.
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                // Send the message.       
-                await output.AddAsync(filteredMessage);
-                log.Info("Received and transferred a message with temperature above the threshold");
+                    logger.LogInformation("Info: Received one non-empty message");
+                    // Get the body of the message and deserialize it.
+                    var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
+
+                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+                    {
+                        // Send the message to the output as the temperature value is greater than the threashold.
+                        var filteredMessage = new Message(messageBytes);
+                        // Copy the properties of the original message into the new Message object.
+                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                        {
+                            filteredMessage.Properties.Add(prop.Key, prop.Value);                }
+                        // Add a new property to the message to indicate it is an alert.
+                        filteredMessage.Properties.Add("MessageType", "Alert");
+                        // Send the message.       
+                        await output.AddAsync(filteredMessage);
+                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                    }
+                }
             }
         }
-    }
-
-    //Define the expected schema for the body of incoming messages.
-    class MessageBody
-    {
-        public Machine machine {get; set;}
-        public Ambient ambient {get; set;}
-        public string timeCreated {get; set;}
-    }
-    class Machine
-    {
-       public double temperature {get; set;}
-       public double pressure {get; set;}         
-    }
-    class Ambient
-    {
-       public double temperature {get; set;}
-       public int humidity {get; set;}         
+        //Define the expected schema for the body of incoming messages.
+        class MessageBody
+        {
+            public Machine machine {get; set;}
+            public Ambient ambient {get; set;}
+            public string timeCreated {get; set;}
+        }
+        class Machine
+        {
+            public double temperature {get; set;}
+            public double pressure {get; set;}         
+        }
+        class Ambient
+        {
+            public double temperature {get; set;}
+            public int humidity {get; set;}         
+        }
     }
    ```
 
@@ -256,6 +270,3 @@ Azure IoT Edge에서 데이터를 통해 비즈니스 통찰력을 얻는 데 �
 > [!div class="nextstepaction"]
 > [Azure Stream Analytics에서 부동 창을 사용하여 평균 찾기](tutorial-deploy-stream-analytics.md)
 
-<!--Links-->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md

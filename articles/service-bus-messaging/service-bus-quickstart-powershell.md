@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: ce357fcff3313ae0216d5a7a00b3d845f83bba91
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2669b3ad9abc2370b4ecb66596d6edde17c82ddd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405889"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242435"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>빠른 시작: Azure PowerShell 및 .NET을 사용하여 메시지 보내기 및 받기
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 �
 
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
 
-- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](http://www.visualstudio.com/vs) 이상
+- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 
 이 빠른 시작에서는 최신 버전의 Azure PowerShell을 실행해야 합니다. 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성][]을 참조하세요.
@@ -91,10 +91,10 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 
 3. 다음 샘플 폴더로 이동합니다. `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`
 
-4. 아직 수행하지 않은 경우 다음 PowerShell cmdlet을 사용하여 연결 문자열을 가져옵니다. `my-resourcegroup` 및 `namespace-name`을 사용자의 특정 값으로 바꿔야 합니다. 
+4. 아직 연결 문자열을 가져오지 않은 경우 다음 PowerShell cmdlet을 사용하여 연결 문자열을 가져옵니다. `my-resourcegroup`  및  `namespace-name`을 각자 해당하는 값으로 바꿔야 합니다. 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
 5.  PowerShell 프롬프트에서 다음 명령을 입력합니다.

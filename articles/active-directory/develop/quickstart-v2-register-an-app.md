@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: b2dea11b6573be8f574bd18fa69ee76658d6d698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bf5bbdf496a23a5ed66a149933f25a059984a9
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975813"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913281"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>빠른 시작: Azure Active Directory v2.0 엔드포인트에 앱 등록
 
@@ -30,8 +30,10 @@ ms.locfileid: "46975813"
 
 개인 MSA(Microsoft 계정) 및 회사 또는 학교 계정(Azure AD) 로그인을 모두 허용하는 앱을 빌드하려면 먼저 앱을 Azure AD(Azure Active Directory) v2.0 엔드포인트에 등록해야 합니다. 지금은 Azure AD나 MSA를 사용하여 가지고 있는 기존의 앱은 사용할 수 없습니다. - 새 앱을 만들어야 합니다.
 
+v2.0 엔드포인트에서는 일부 Azure AD 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+
 > [!NOTE]
-> v2.0 엔드포인트에서는 일부 Azure AD 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+> 새 앱 등록? Azure Portal에서 새 **앱 등록(미리 보기)** 환경을 사용해 보세요. 시작하려면 [앱 등록(미리 보기)](quickstart-register-app.md)을 참조하세요.
 
 ## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>1단계: Microsoft 응용 프로그램 등록 포털에 로그인
 

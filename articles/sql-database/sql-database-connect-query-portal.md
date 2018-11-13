@@ -12,15 +12,15 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/10/2018
-ms.openlocfilehash: bd956348a26d32687e1ff76f0ffcc58cc9dcf932
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.date: 11/01/2018
+ms.openlocfilehash: d7b5c6b95cd11cd90f9d326e03e787a7196dcfd0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241721"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913158"
 ---
-# <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure Portal: SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
+# <a name="quickstart-azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>빠른 시작: Azure Portal: SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 
 SQL 쿼리 편집기는 Azure Portal에서 Azure SQL Database 또는 Azure SQL Data Warehouse에 대한 SQL 쿼리를 실행하는 효율적이고 간단한 방법을 제공하는 브라우저 쿼리 도구입니다. 이 빠른 시작에서는 쿼리 편집기를 사용하여 SQL 데이터베이스에 연결한 다음, Transact-SQL 문을 사용하여 데이터베이스에서 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다.
 

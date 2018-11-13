@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030849"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913566"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터를 만들고 관리
 
@@ -46,7 +46,7 @@ Azure Storage 계정의 경우:
 
 ## <a name="create-a-daily-export"></a>일일 내보내기 만들기
 
-비용 관리 + 청구 &gt; 구독 &gt; 내보내기 &gt; **추가**에서 구독 또는 리소스 그룹을 선택합니다.
+Cost Management + 청구 &gt; Cost Management &gt; 구독 &gt; 내보내기 &gt; **추가**에서 구독 또는 리소스 그룹을 선택합니다.
 
 내보내기의 이름을 입력하고 구독, Azure 저장소 계정, 컨테이너 및 파일 저장소 디렉터리 또는 BLOB 컨테이너를 지정한 다음, **만들기**를 클릭합니다.
 

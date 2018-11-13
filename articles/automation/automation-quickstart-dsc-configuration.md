@@ -7,16 +7,16 @@ ms.component: dsc
 keywords: DSC, 구성, 자동화
 author: KrisBash
 ms.author: krbash
-ms.date: 12/17/2017
+ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053718"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243695"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>DSC를 사용하여 Linux 가상 머신 구성
 
@@ -30,7 +30,7 @@ DSC(Desired State Configuration)를 사용하면 Windows 및 Linux 서버의 구
 * Azure Automation 계정. Azure Automation 실행 계정 만들기에 대한 지침은 [Azure 실행 계정](automation-sec-configure-azure-runas-account.md)을 참조하세요.
 * Red Hat Enterprise Linux, CentOS 또는 Oracle Linux를 실행하는 Azure Resource Manager VM(클래식이 아님). VM 만들기에 대한 지침은 [Azure Portal에서 첫 번째 Linux 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md)를 참조하세요.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 https://portal.azure.com에서 Azure에 로그인
 
 ## <a name="onboard-a-virtual-machine"></a>가상 머신 등록
@@ -38,12 +38,12 @@ https://portal.azure.com에서 Azure에 로그인
 
 1. Azure Portal의 왼쪽 창에서 **Automation 계정**을 선택합니다. 왼쪽 창에 표시되지 않으면 **모든 서비스**를 클릭하고 결과 보기에서 검색합니다.
 1. 목록에서 Automation 계정을 선택합니다.
-1. Automation 계정의 왼쪽 창에서 **DSC 노드**를 선택합니다.
-1. **Azure VM 추가** 메뉴 옵션을 클릭합니다.
-1. DSC를 사용하도록 설정하려는 가상 머신을 찾습니다. 검색 필드와 필터 옵션을 사용하여 특정 가상 머신을 찾을 수 있습니다.
-1. 가상 머신을 클릭한 다음 **연결**을 선택합니다.
-1. 가상 머신에 적합한 DSC 설정을 선택합니다. 이미 구성을 준비한 경우 해당 구성을 *노드 구성 이름*으로 지정할 수 있습니다. [구성 모드](https://docs.microsoft.com/powershell/dsc/metaconfig)를 설정하여 컴퓨터의 구성 동작을 제어할 수 있습니다.
-1. **확인**
+1. Automation 계정의 왼쪽 창에서 **상태 구성(DSC)** 을 선택합니다.
+2. **추가**를 클릭하여 [VM 선택] 페이지를 엽니다.
+3. DSC를 사용하도록 설정하려는 가상 머신을 찾습니다. 검색 필드와 필터 옵션을 사용하여 특정 가상 머신을 찾을 수 있습니다.
+4. 가상 머신을 클릭한 다음 **연결**을 선택합니다.
+5. 가상 머신에 적합한 DSC 설정을 선택합니다. 이미 구성을 준비한 경우 해당 구성을 *노드 구성 이름*으로 지정할 수 있습니다. [구성 모드](https://docs.microsoft.com/powershell/dsc/metaconfig)를 설정하여 컴퓨터의 구성 동작을 제어할 수 있습니다.
+6. **확인**
 
 ![DSC에 Azure VM 등록](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -101,10 +101,10 @@ configuration LAMPServer {
 
 구성을 가져오려면:
 
-1. Automation 계정의 왼쪽 창에서 **DSC 구성**을 선택합니다.
-1. **구성 추가** 메뉴 옵션을 클릭합니다.
-1. 이전 단계에서 저장한 *구성 파일*을 선택합니다.
-1. **확인**
+1. Automation 계정의 왼쪽 창에서 **상태 구성(DSC)** 을 선택하고 **구성** 탭을 클릭합니다.
+2. **+ 추가**를 클릭합니다.
+3. 이전 단계에서 저장한 *구성 파일*을 선택합니다.
+4. **확인**
 
 ## <a name="compile-a-configuration"></a>구성 컴파일
 
@@ -112,18 +112,16 @@ DSC 구성은 노드에 할당하기 전에 먼저 노드 구성(MOF 문서)으�
 
 구성을 컴파일하려면:
 
-1. Automation 계정의 왼쪽 창에서 **DSC 구성**을 선택합니다.
+1. Automation 계정의 왼쪽 창에서 **상태 구성(DSC)** 을 선택하고 **구성** 탭을 클릭합니다.
 1. 이전 단계에서 가져온 구성("LAMPServer")을 선택합니다.
 1. 메뉴 옵션에서 **컴파일**, **예**를 차례로 클릭합니다.
 1. 구성 보기에서 새 *컴파일 작업*이 큐에서 대기 중인지 확인합니다. 작업이 성공적으로 완료되면 다음 단계로 이동할 수 있습니다. 오류가 있으면 컴파일 작업을 클릭하여 세부 정보를 확인할 수 있습니다.
-
-![컴파일 작업 상태](./media/automation-quickstart-dsc-configuration/dsc-compilationjob.png)
 
 ## <a name="assign-a-node-configuration"></a>노드 구성 할당
 
 컴파일된 *노드 구성*은 DSC 노드에 할당할 수 있습니다. 할당은 컴퓨터에 구성을 적용하고, 해당 구성에서 이탈하는 구성을 모니터링하거나 자동으로 수정합니다.
 
-1. Automation 계정의 왼쪽 창에서 **DSC 노드**를 선택합니다.
+1. Automation 계정의 왼쪽 창에서 **상태 구성(DSC)을 선택하고 **노드** 탭을 클릭합니다.
 1. 구성을 할당하려는 노드를 선택합니다.
 1. **노드 구성 할당**을 클릭합니다.
 1. 할당할 *노드 구성* - **LAMPServer.localhost**을 선택하고 **확인**을 클릭합니다.
@@ -133,7 +131,7 @@ DSC 구성은 노드에 할당하기 전에 먼저 노드 구성(MOF 문서)으�
 
 ## <a name="viewing-node-status"></a>노드 상태 보기
 
-모든 관리 노드의 상태는 Automation 계정의 **DSC 노드** 보기에서 확인할 수 있습니다. 표시 항목은 상태, 노드 구성 또는 이름 검색을 기준으로 필터링할 수 있습니다. 
+모든 관리 노드의 상태는 Automation 계정의 **상태 구성(DSC)** 에서 그리고 **노드** 탭에서 확인할 수 있습니다. 표시 항목은 상태, 노드 구성 또는 이름 검색을 기준으로 필터링할 수 있습니다.
 
 ![DSC 노드 상태](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 

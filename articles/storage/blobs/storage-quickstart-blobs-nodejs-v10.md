@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: 10b54d20f73a16bdc723f60019b1184b01812508
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4aa78fe91d5813e9b1fa8abd30c8b8720ea510e4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138126"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278404"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>빠른 시작: JavaScript용 Azure Storage v10 SDK(미리 보기)를 사용하여 blob 업로드, 다운로드, 나열 및 삭제
 
@@ -349,3 +349,4 @@ console.log(`Container "${containerName}" is deleted`);
 
 > [!div class="nextstepaction"]
 > [JavaScript 리포지토리용 Azure Storage v10 SDK](https://github.com/Azure/azure-storage-js)
+> [JavaScript API 참조](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage/client?view=azure-node-preview)

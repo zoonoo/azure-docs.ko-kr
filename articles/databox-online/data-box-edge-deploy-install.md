@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 21ac3de793f5ce559c3a03de2a09f11ccb86b12a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6bd3c1b2cdbd83673a181ee7e088adb39749036e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167361"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963849"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>자습서: Azure Data Box Edge 설치(미리 보기)
 
@@ -111,8 +111,14 @@ ms.locfileid: "49167361"
 
 - 포장을 풀고 랙에 탑재된 Edge 물리적 장치
 - 전원 케이블 2개 
-- 1-GbE RJ-45 네트워크 케이블 2개 및 25-GbE SFP + 동 케이블 4개
+- 관리 인터페이스에 연결하는 하나 이상의 1-GbE RJ-45 네트워크 케이블 두 개의 1-GbE 네트워크 인터페이스가 있습니다. 데이터에서 하나의 관리 및 하나의 데이터
+- 구성할 각 데이터 네트워크 인터페이스에 대한 25-GbE SFP+ 동 케이블 1개 하나 이상의 데이터 네트워크 인터페이스 - PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 인터넷에 연결해야 합니다(Azure에 연결).
 - 2개 전원 분배 장치에 대한 액세스(권장)
+
+> [!NOTE]
+> - 하나의 데이터 네트워크 인터페이스를 연결하는 경우 PORT 3, PORT 4, PORT 5 또는 PORT 6과 같은 25-GbE 네트워크 인터페이스를 사용하여 데이터를 Azure에 보내는 것이 좋습니다. 
+> - 최상의 성능을 얻고 많은 양의 데이터를 처리하려면 모든 데이터 포트를 연결하는 것이 좋습니다.
+> - Edge 장치는 데이터 원본 서버의 데이터를 수집할 수 있도록 데이터 센터 네트워크에 연결해야 합니다. 
 
 Edge 장치에는 8개의 NVMe SSD가 있습니다. 전면 패널에는 상태 LED 및 전원 단추도 있습니다. 장치의 후면에는 중복 PSU(전원 공급 장치)가 있습니다. 장치에는 6개의 네트워크 인터페이스(2개의 1-Gbps 인터페이스 및 4개의 25-Gbps 인터페이스)가 있습니다. 장치에는 BMC(베이스보드 관리 컨트롤러)가 있습니다. 장치의 백플레인에서 다양한 포트가 식별됩니다.
  
@@ -123,13 +129,7 @@ Edge 장치에는 8개의 NVMe SSD가 있습니다. 전면 패널에는 상태 L
 1. 인클로저의 각 PSU에 전원 코드를 연결합니다. 고가용성을 보장하려면 두 PSU를 모두 설치하고 서로 다른 전원에 연결합니다.
 2. 전원 코드를 랙 PDU(전원 분배 장치)에 연결합니다. 두 PSU에서 별도의 전원을 사용하는지 확인합니다.
 3. 1-GbE 네트워크 인터페이스 PORT 1을 물리적 장치 구성에 사용되는 컴퓨터에 연결합니다. PORT 1은 전용 관리 인터페이스입니다.
-4. RJ-45 네트워크 케이블을 통해 1-GbE 네트워크 인터페이스 PORT 2를 데이터 센터 네트워크/인터넷에 연결합니다. 
-5. SFP + 동 케이블을 사용하여 4개의 25-GbE 네트워크 인터페이스 PORT 3, PORT 4, PORT 5 및 PORT 6을 데이터 센터 네트워크/인터넷에 연결합니다. 
-
-> [!NOTE]
-> - 하나 이상의 데이터 네트워크 인터페이스(PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6)를 인터넷에 연결해야 합니다(Azure에 연결). 
-> - PORT 3, PORT 4, PORT 5 또는 PORT 6과 같은 25-GbE 네트워크 인터페이스를 사용하여 데이터를 Azure에 보내는 것이 좋습니다. 
-> - Edge 장치는 데이터 원본 서버의 데이터를 수집할 수 있도록 데이터 센터 네트워크에 연결해야 합니다.  
+4. 하나 이상의 PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 데이터 센터 네트워크/인터넷에 연결합니다. PORT 2를 연결하는 경우 RJ-45 네트워크 케이블을 사용합니다. 25-GbE 네트워크 인터페이스의 경우 SFP+ 동 케이블을 사용합니다.  
 
 
 ## <a name="next-steps"></a>다음 단계

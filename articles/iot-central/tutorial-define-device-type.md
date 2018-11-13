@@ -3,24 +3,24 @@ title: Azure IoT Central에서 새 장치 유형 정의 | Microsoft Docs
 description: 이 자습서에서는 작성기로서 Azure IoT Central 응용 프로그램에서 새 장치 유형을 정의하는 방법을 알려줍니다. 유형에 대한 원격 분석, 상태, 속성 및 설정을 정의합니다.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 10/12/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8c69a863d8719a0e4eba30a6d5a619210e7f95b8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156037"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963601"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 응용 프로그램에서 새 장치 유형 정의
 
 이 자습서에서는 작성기로서 Microsoft Azure IoT Central 응용 프로그램에서 새 장치 유형을 정의하기 위해 장치 템플릿을 사용하는 방법을 알려줍니다. 장치 템플릿은 장치 유형에 대해 원격 분석, 상태, 속성 및 설정을 정의합니다.
 
-실제 장치를 연결하기 전에 응용 프로그램을 테스트할 수 있으려면 장치를 만들 경우 Azure IoT Central이 장치 템플릿에서 시뮬레이션된 장치를 생성합니다.
+실제 장치를 연결하기 전에 응용 프로그램을 테스트할 수 있으려면 장치를 만들 경우 IoT Central이 장치 템플릿에서 시뮬레이션된 장치를 생성합니다.
 
 이 자습서에서는 **연결된 공조 장치** 템플릿을 만듭니다. 연결된 공조 장치:
 
@@ -59,9 +59,9 @@ ms.locfileid: "50156037"
 
 4. 새로운 Azure IoT Central 응용 프로그램을 만들려면:
     
-    * **무료**를 선택합니다. 7일 평가판에는 구독 요구 사항이 없습니다.
+    * **평가판**을 선택합니다. 평가판 응용 프로그램을 만드는 데 Azure 구독이 필요하지 않습니다.
     
-       디렉터리 및 구독에 대한 자세한 내용은 [Azure IoT Central 응용 프로그램 만들기](howto-create-application.md)를 참조합니다.
+       디렉터리 및 구독에 대한 자세한 내용은 [응용 프로그램 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
     
     * **사용자 지정 응용 프로그램**을 선택합니다.
     
@@ -69,9 +69,9 @@ ms.locfileid: "50156037"
     
     * **만들기**를 선택합니다.
 
-    ![Azure IoT Central 응용 프로그램 페이지](./media/tutorial-define-device-type/iotcentralcreatenew.png)
+    ![Azure IoT Central 응용 프로그램 페이지](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    자세한 내용은 [Azure IoT Central 응용 프로그램 만드는 방법](howto-create-application.md)을 참조하세요.
+    자세한 내용은 [응용 프로그램 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 
 ## <a name="create-a-new-custom-device-template"></a>새 사용자 지정 장치 템플릿 만들기
 

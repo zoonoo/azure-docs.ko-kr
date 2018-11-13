@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/01/2018
+ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407624"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959225"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -98,20 +98,9 @@ Azure Database for MySQL 서비스는 서버 수준에서 방화벽을 만듭니
 이 예에서 서버 이름은 **mydemoserver.mysql.database.azure.com**이고, 서버 관리자 로그인은 **myadmin@mydemoserver**입니다.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>mysql 명령줄 도구를 사용하여 MySQL에 연결
-Azure Database for MySQL 서버 연결하기 위해 사용할 수 있는 여러 응용 프로그램이 있습니다. 
+**mysql.exe** 명령줄 도구를 사용하여 서버에 연결. [여기](https://dev.mysql.com/downloads/)에서 MySQL을 다운로드하여 컴퓨터에 설치하면 됩니다. 
 
-이제 [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 명령줄 도구를 사용하여 서버에 연결하는 방법을 자세히 설명해 보겠습니다. 또한 추가 소프트웨어를 설치하지 않고 여기서 설명하는 대로 웹 브라우저 및 Azure Cloud Shell을 사용할 수도 있습니다. mysql 유틸리티를 로컬로 설치한 경우 여기서도 연결할 수 있습니다.
-
-1. Azure Portal의 오른쪽 위에 있는 터미널 아이콘(**>_**)을 통해 Azure Cloud Shell을 시작합니다.
-![Azure Cloud Shell 터미널 기호](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  Azure Cloud Shell이 브라우저에서 열리며. 여기서 bash 셸 명령을 입력할 수 있습니다.
-
-   ![명령 프롬프트 - mysql 명령줄 예](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. Cloud Shell 프롬프트에서 mysql 명령줄을 입력하여 Azure Database for MySQL 서버에 연결합니다.
-
-    mysql 유틸리티를 사용하여 Azure Database for MySQL 서버에 연결하려면 다음 형식을 사용합니다.
+1. mysql 유틸리티를 사용하여 Azure Database for MySQL 서버에 연결하려면 다음 형식을 사용합니다.
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -119,7 +108,7 @@ Azure Database for MySQL 서버 연결하기 위해 사용할 수 있는 여러 
 
     예를 들어 다음 명령은 예제 서버에 연결합니다.
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -149,7 +138,7 @@ Azure Database for MySQL 서버 연결하기 위해 사용할 수 있는 여러 
     mysql>
     ```
     > [!TIP]
-    > 방화벽이 Azure Cloud Shell의 IP 주소를 허용하도록 구성되지 않은 경우 다음 오류가 발생합니다.
+    > 방화벽이 클라이언트의 IP 주소를 허용하도록 구성되지 않은 경우 다음 오류가 발생합니다.
     >
     > 오류 2003(28000): IP 주소가 123.456.789.0인 클라이언트는 서버에 액세스할 수 없습니다.
     >
@@ -178,7 +167,7 @@ Azure Database for MySQL 서버 연결하기 위해 사용할 수 있는 여러 
     SHOW DATABASES;
     ```
 
-7.  `\q`를 입력한 다음, **Enter** 키를 선택하여 mysql 도구를 종료합니다. 완료되면 Azure Cloud Shell을 닫을 수 있습니다.
+7.  `\q`를 입력한 다음, **Enter** 키를 선택하여 mysql 도구를 종료합니다. 
 
 이제 Azure Database for MySQL 서버에 연결되어 빈 사용자 데이터베이스를 만들었습니다. 다음 섹션에서 계속해서 비슷한 연습을 해봅니다. 다음 연습에서는 다른 일반적인 도구인 MySQL Workbench를 사용하여 동일한 서버에 연결합니다.
 

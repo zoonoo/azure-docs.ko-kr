@@ -11,15 +11,15 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 94da0ad79b0e01f3baa7f20661e45f873c742fd6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: c270fef40b732f170add32ef52eeadc790d8cd83
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063373"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913510"
 ---
-# <a name="use-go-to-query-an-azure-sql-database"></a>Go를 사용하여 Azure SQL Database 쿼리
+# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>빠른 시작: Go를 사용하여 Azure SQL 데이터베이스 쿼리
 
 이 빠른 시작에서는 [Go](https://godoc.org/github.com/denisenkom/go-mssqldb)를 사용하여 Azure SQL에 연결하는 방법을 보여 줍니다. 데이터 쿼리 및 수정을 위한 Transact SQL 문도 보여 줍니다.
 

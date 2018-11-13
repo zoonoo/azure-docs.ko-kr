@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: mmontwil
-ms.openlocfilehash: 88d113dad72ec637e65424c4c5f6f48e793c691d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: f07c5a3e28abc3600b13da2320e55860ede2f7c5
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586039"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978283"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Azure Dev Spaces에서 Java를 사용하여 시작
 
@@ -62,7 +62,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
 
-명령 프롬프트에서 리소스 그룹을 만듭니다. 현재 지원되는 지역(미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부) 중 하나를 사용합니다.
+명령 프롬프트에서 리소스 그룹을 만듭니다. 현재 지원되는 지역(미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 서유럽, 동남 아시아, 캐나다 중부 또는 캐나다 동부) 중 하나를 사용합니다.
 
 ```cmd
 az group create --name MyResourceGroup --location <region>

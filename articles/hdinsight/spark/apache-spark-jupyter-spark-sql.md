@@ -2,19 +2,19 @@
 title: '빠른 시작: 템플릿을 사용하여 HDInsight에서 Spark 클러스터 만들기'
 description: 이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 Azure HDInsight에서 Apache Spark 클러스터를 만들고 간단한 Spark SQL 쿼리를 실행하는 방법을 보여줍니다.
 services: azure-hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/07/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: eccef79b53a78abc577ff40d84b615968be3dd0f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8ad8f04b3afa7ed020eaba64d639fb4dbfbeee37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046116"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257523"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>빠른 시작: 템플릿을 사용하여 HDInsight에서 Spark 클러스터 만들기
 
@@ -67,7 +67,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
     ![Azure Portal에서 HDInsight 클러스터 열기](./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png)
 
-3. 포털에서 **클러스터 대시보드**를 선택한 다음, **Jupyter Notebook**을 선택합니다. 메시지가 표시되면 클러스터에 대한 클러스터 로그인 자격 증명을 입력합니다.
+3. 포털의 **클러스터 대시보드** 섹션에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 클러스터 로그인 자격 증명을 입력합니다.
 
    ![Jupyter Notebook을 열어서 대화형 Spark SQL 쿼리 실행](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter Notebook을 열어서 대화형 Spark SQL 쿼리 실행")
 
@@ -80,7 +80,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
 ## <a name="run-spark-sql-statements"></a>Spark SQL 문 실행
 
-SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적이며 널리 사용되는 언어입니다. Spark SQL은 익숙한 SQL 구문을 사용하여 구조화된 데이터를 처리하기 위한 Apache Spark에 대한 확장으로 작동합니다.
+SQL(구조적 쿼리 언어)은 데이터 쿼리 및 변환에 가장 일반적이며 널리 사용되는 언어입니다. Spark SQL은 익숙한 SQL 구문을 사용하여 구조화된 데이터를 처리하기 위한 Apache Spark에 대한 확장으로 작동합니다.
 
 1. 커널이 준비되었는지 확인합니다. Notebook의 커널 이름 옆에 속이 빈 원이 보이면 커널이 준비된 것입니다. 속이 찬 원은 커널이 사용 중이라는 뜻입니다.
 
@@ -89,11 +89,11 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
     Notebook을 처음으로 시작하면 커널이 백그라운드에서 몇 가지 작업을 수행합니다. 커널이 준비될 때까지 기다립니다. 
 2. 빈 셀에 다음 코드를 붙여 넣은 다음, **SHIFT + ENTER**를 눌러 코드를 실행합니다. 이 명령은 클러스터의 Hive 테이블을 나열합니다.
 
-    ```PySpark
+    ```sql
     %%sql
     SHOW TABLES
     ```
-    Jupyter Notebook을 HDInsight Spark 클러스터와 함께 사용하는 경우 Spark SQL을 사용하여 Hive 쿼리를 실행하는 데 사용할 수 있는 미리 설정된 `sqlContext`를 얻게 됩니다. `%%sql`은 Jupyter Notebook에 미리 설정된 `sqlContext`를 사용하여 Hive 쿼리를 실행하도록 지시합니다. 쿼리는 기본적으로 모든 HDInsight 클러스터와 함께 제공되는 Hive 테이블(**hivesampletable**)에서 상위 10개의 행을 검색합니다. 결과를 얻는데 약 30초가 걸립니다. 출력은 다음과 같이 표시됩니다. 
+    Jupyter Notebook을 HDInsight Spark 클러스터와 함께 사용하는 경우 Spark SQL을 사용하여 Hive 쿼리를 실행하는 데 사용할 수 있는 미리 설정된 `spark` 세션을 얻게 됩니다. `%%sql`은 Jupyter Notebook에 미리 설정된 `spark` 세션을 사용하여 Hive 쿼리를 실행하도록 지시합니다. 쿼리는 기본적으로 모든 HDInsight 클러스터와 함께 제공되는 Hive 테이블(**hivesampletable**)에서 상위 10개의 행을 검색합니다. 쿼리 Jupyter를 처음으로 제출하면 Notebook에 대한 Spark 응용 프로그램이 만들어집니다. 완료하는 데 약 30초가 걸립니다. Spark 응용 프로그램이 준비되면 약 1초 후 쿼리가 실행되어 결과를 생성합니다. 출력은 다음과 같이 표시됩니다. 
 
     ![HDInsight Spark의 Hive 쿼리](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "HDInsight Spark의 Hive 쿼리")
 
@@ -101,7 +101,7 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
     
 2. 또 다른 쿼리를 실행하여 `hivesampletable`의 데이터를 봅니다.
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT * FROM hivesampletable LIMIT 10
     ```
@@ -110,10 +110,10 @@ SQL(구조적 쿼리 언어)은 데이터 쿼리 및 정의에 가장 일반적�
 
     ![HDInsight Spark의 Hive 쿼리 출력](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "HDInsight Spark의 Hive 쿼리 출력")
 
-2. Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. Notebook을 종료하면 클러스터 리소스가 릴리스됩니다.
+2. Notebook의 **파일** 메뉴에서 **닫기 및 중지**를 선택합니다. Notebook을 종료하면 Spark 응용 프로그램을 비롯한 클러스터 리소스가 릴리스됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-HDInsight는 Azure Storage 또는 Azure Data Lake Store에 데이터를 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.
+HDInsight는 Azure Storage 또는 Azure Data Lake Store에 데이터와 Jupyter Notebook을 저장하므로 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. [다음 단계](#next-steps)에 나열된 자습서를 즉시 수행하려는 경우 클러스터를 유지할 수 있습니다.
 
 Azure Portal로 다시 전환하고, **삭제**를 선택합니다.
 

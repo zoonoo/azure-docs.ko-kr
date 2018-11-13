@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1cc1115612e8ffbe383f563e30ed5c36055df50a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 59ce51ba4b015c7236df9e20416832e877dd26c6
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158111"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748377"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
@@ -208,5 +208,5 @@ Linux 장치에서 이러한 명령을 수행하는 경우 승격된 권한에 �
 이 자습서에서는 Azure Machine Learning에서 제공하는 IoT Edge 모듈을 배포했습니다. Azure IoT Edge에서 데이터를 통해 비즈니스 통찰력을 얻는 데 도움이 되는 다른 방법을 알아보려면 다른 자습서 중 하나를 계속 진행할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [C# 코드를 사용하여 센서 데이터 필터링](tutorial-csharp-module.md)
+> [Custom Vision 서비스를 사용하여 이미지 분류](tutorial-deploy-custom-vision.md)
 

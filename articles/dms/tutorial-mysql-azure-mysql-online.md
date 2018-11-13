@@ -1,5 +1,5 @@
 ---
-title: Azure Database Migration Service를 사용하여 Azure Database for MySQL로 MySQL 온라인 마이그레이션 수행 | Microsoft Docs
+title: '자습서: Azure Database Migration Service를 사용하여 Azure Database for MySQL로 MySQL 온라인 마이그레이션 수행 | Microsoft Docs'
 description: Azure Database Migration Service를 사용하여 온라인 마이그레이션을 MySQL 온-프레미스에서 Azure Database for MySQL로 수행하는 방법을 알아봅니다.
 services: dms
 author: HJToland3
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/06/2018
-ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 8b0e15ac6cd59a77e283d9256ab5fa4542dfc9a9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829854"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960517"
 ---
-# <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
+# <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 MySQL 인스턴스에서 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)로 마이그레이션할 수 있습니다. 즉 응용 프로그램의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **Employees** 샘플 데이터베이스를 MySQL 5.7의 온-프레미스 인스턴스에서 Azure Database for MySQL로 마이그레이션합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.

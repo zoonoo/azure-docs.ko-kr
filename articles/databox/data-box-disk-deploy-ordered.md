@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: bd90d3c4c9207374d6a6085df6a3962ef42b68a9
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091436"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037960"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>자습서: Azure Data Box Disk 주문(미리 보기)
 
-Azure Data Box Disk는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레미스 데이터를 Azure로 가져올 수 있는 하이브리드 클라우드 솔루션입니다. 데이터를 Microsoft에서 제공하는 SSD(반도체 디스크)로 전송하고 이 디스크를 반송합니다. 그런 다음, 이 데이터는 Azure에 업로드됩니다. 
+Azure Data Box Disk는 빠르고 쉽게 신뢰할 수 있는 방식으로 온-프레미스 데이터를 Azure로 가져올 수 있는 하이브리드 클라우드 솔루션입니다. 데이터를 Microsoft에서 제공하는 SSD(반도체 디스크)로 전송하고 이 디스크를 반송합니다. 그런 다음, 이 데이터는 Azure에 업로드됩니다.
 
 이 자습서에서는 Azure Data Box Disk를 주문하는 방법에 대해 설명합니다. 이 자습서에서는 다음에 대해 알아봅니다.
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > - Data Box Disk는 미리 보기로 제공됩니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
 > - Data Box Disk는 미리 보기 상태로 제공되며 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아의 고객에게 제공될 수 있습니다. 자세한 내용은 [지역 가용성](data-box-disk-overview.md#region-availability)을 참조하세요.
 
-## <a name="sign-up"></a>등록 
+## <a name="sign-up"></a>등록
 
 Data Box Disk가 미리 보기로 있으며 서비스에 등록해야 합니다. Data Box 서비스에 등록하려면 다음 단계를 수행합니다.
 
@@ -64,7 +64,7 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
     |대상 Azure 지역|데이터를 전송하려는 Azure 지역을 선택합니다.|
 
   
-5.  **Data Box Disk**를 선택합니다. 단일 5개 디스크 주문에 대한 솔루션의 최대 용량은 35TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다. 
+5.  **Data Box Disk**를 선택합니다. 단일 5개 디스크 주문에 대한 솔루션의 최대 용량은 35TB입니다. 더 큰 데이터 크기에 대해 여러 개의 주문을 만들 수 있습니다.
 
      ![Data Box Disk 선택 옵션](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
@@ -77,6 +77,7 @@ Data Box Disk를 주문하려면 [Azure Portal](https://aka.ms/azuredataboxfromd
     |대상 Azure 지역| 저장소 계정에 대한 지역을 선택합니다.<br> 현재 미국, 서유럽, 북유럽, 캐나다 및 오스트레일리아 모든 지역의 저장소 계정이 지원됩니다. |
     |저장소 계정|지정한 Azure 지역에 따라 필터링된 기존 저장소 계정 목록에서 선택합니다. <br>새 범용 v1 또는 범용 v2 계정도 만들 수 있습니다. |
     |TB 단위의 데이터 크기 추정됨| 추정값을 TB 단위로 입력합니다. <br>데이터 크기에 따라 Microsoft에서 적절한 개수의 8TB SSD(사용 가능한 용량: 7TB)를 보냅니다. <br>5개 디스크에서 사용 가능한 최대 용량은 최대 35TB입니다. |
+    |디스크 암호| **Azure에서 생성한 암호가 아닌 사용자 지정 키 사용**을 선택하는 경우 디스크 암호를 제공합니다. <br> 적어도 하나의 숫자 및 하나의 특수 문자를 포함한 12~32개 영숫자 키를 제공합니다. 허용되는 특수 문자는 `@?_+`입니다. <br> 이 옵션을 건너뛰고 Azure에서 생성된 암호를 사용하여 디스크의 잠금을 해제하도록 선택할 수 있습니다.|
 
 13. **다음**을 클릭합니다. 
 

@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 07a079e00963f1f5aff96369649e2e4fb248aae0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: fdee336298212f2536c2408e49f40e25e2c24161
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986001"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227691"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>명령줄에서 첫 번째 함수 만들기
 
@@ -108,17 +108,19 @@ _consumption-plan-location_ 매개 변수를 설정하는 것은 해당 함수 �
 }
 ```
 
-## <a name="configure-the-function-app"></a>함수 앱 구성
+### <a name="configure-the-function-app-nodejs"></a>함수 앱 구성(Node.js)
 
-Core Tools 버전 2.x는 템플릿을 사용하여 Azure Functions 2.x 런타임에 대한 프로젝트를 만듭니다. 이로 인해 버전 2.x 런타임이 Azure에서 사용되는지 확인해야 합니다. `FUNCTIONS_WORKER_RUNTIME` 응용 프로그램 설정을 `~2`로 설정하면 함수 앱이 최신 2.x 버전에 고정됩니다. [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) 명령을 사용하여 응용 프로그램 설정을 설정합니다.
+JavaScript 함수 앱을 만들 때 올바른 Node.js 버전을 대상으로 해야 합니다. Functions 런타임 2.x 버전은 Node.js 8.x 버전이 필요합니다. 응용 프로그램 설정 `WEBSITE_NODE_DEFAULT_VERSION`은 Azure의 함수 앱에서 사용되는 Node.js 버전을 제어합니다. [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) 명령을 사용하여 Node.js 버전을 `8.11.1`로 설정합니다.
 
 다음 Azure CLI 명령에서 `<app_name>은 함수 앱의 이름입니다.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings FUNCTIONS_WORKER_RUNTIME=~2
+--settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
+
+출력에서 새 설정을 확인합니다.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
@@ -127,3 +129,4 @@ az functionapp config appsettings set --name <app_name> \
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 [!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+

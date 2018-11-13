@@ -11,15 +11,15 @@ author: ajlam
 ms.author: andrela
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 89afeb53c6928f2907e22ff740a5d83fddb7781c
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 2e8e47e8f2b61105a720c36d5b91a04df094c5d6
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062812"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912359"
 ---
-# <a name="use-java-to-query-an-azure-sql-database"></a>Java를 사용하여 Azure SQL Database 쿼리
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>빠른 시작: Java를 사용하여 Azure SQL 데이터베이스 쿼리
 
 이 빠른 시작에서는 [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다.
 

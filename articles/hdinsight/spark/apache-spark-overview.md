@@ -2,19 +2,19 @@
 title: Azure HDInsight에서 Apache Spark란
 description: 이 문서에서는 HDInsight의 Spark를 소개하고 HDInsight에서 Spark 클러스터를 사용할 수 있는 다양한 시나리오를 제공합니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 7bc7c95c0d15e0c33f7f9a705fb47d27f9daacec
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.author: hrasheed
+ms.openlocfilehash: 20d44e05725b034326398c967efbd997433d5200
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378719"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230549"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark란
 
@@ -55,7 +55,7 @@ HDInsight의 Spark 클러스터에는 기본적으로 클러스터에서 사용�
 * [Jupyter Notebook](https://jupyter.org)
 * [Zeppelin Notebook](http://zeppelin-project.org/)
 
-또한 HDInsight의 Spark 클러스터는 Microsoft Power BI와 같은 BI 도구에서 HDInsight의 Spark 클러스터에 연결하기 위한 [ODBC 드라이버](http://go.microsoft.com/fwlink/?LinkId=616229)도 제공합니다.
+또한 HDInsight의 Spark 클러스터는 Microsoft Power BI와 같은 BI 도구에서 HDInsight의 Spark 클러스터에 연결하기 위한 [ODBC 드라이버](https://go.microsoft.com/fwlink/?LinkId=616229)도 제공합니다.
 
 ## <a name="spark-cluster-architecture"></a>Spark 클러스터 아키텍처
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 23478a1f72a4b74bcacf27d3b18116250eb6bfff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4e7b6d5c2f84f7d385709dc780507c262081757a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984656"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280594"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
 
@@ -67,7 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>HDInsight 클러스터에 데이터 업로드
 
-HDInsight 클러스터와 연결된 저장소로 데이터를 업로드하는 여러 가지 방법이 있습니다. 이 섹션에서는 `scp`를 사용하여 데이터를 업로드합니다. 데이터를 업로드하는 다른 방법을 알아보려면 [Distcp를 사용하여 Azure Storage Blob과 Data Lake Storage Gen2 미리 보기 간에 데이터 복사](use-distcp.md)를 참조하세요.
+HDInsight 클러스터와 연결된 저장소로 데이터를 업로드하는 여러 가지 방법이 있습니다. 이 섹션에서는 `scp`를 사용하여 데이터를 업로드합니다. 데이터를 업로드하는 다른 방법을 알아보려면 [Distcp를 사용하여 기존 저장소 계정과 Data Lake Storage Gen2가 사용되는 새 저장소 계정 간에 데이터 복사](use-distcp.md)를 참조하세요.
 
 1. 명령 프롬프트를 열고 다음 명령을 사용하여 HDInsight 클러스터 헤드 노드에 .zip 파일을 업로드합니다.
 

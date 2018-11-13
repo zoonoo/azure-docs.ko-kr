@@ -1,44 +1,37 @@
 ---
-title: Azure CLI 스크립트 - Azure Cosmos DB SQL API 계정, 데이터베이스 및 컬렉션 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Azure Cosmos DB SQL API 계정, 데이터베이스 및 컬렉션 만들기
-services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
+title: Azure CLI 스크립트 - Azure Cosmos DB SQL API 계정, 데이터베이스 및 컨테이너 만들기 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - Azure Cosmos DB SQL API 계정, 데이터베이스 및 컨테이너 만들기
+author: markjbrown
 ms.service: cosmos-db
-ms.custom: mvc
-ms.devlang: azurecli
+ms.component: cosmosdb-sql
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
-ms.date: 06/06/2017
-ms.author: sngun
-ms.openlocfilehash: 9fc3989a7c84e029fb51591e4a8ed44a55b2d86c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/26/2018
+ms.author: mjbrown
+ms.openlocfilehash: b38c836efce9f0bd2e29dcfa8c88f6894cf29b38
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968954"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016372"
 ---
-# <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB: CLI를 사용하여 SQL API 계정 만들기
+# <a name="azure-cosmos-db-create-a-sql-api-account-using-cli"></a>Azure Cosmos DB: CLI를 사용하여 SQL API 계정 만들기
 
-이 샘플 CLI 스크립트는 Azure Cosmos DB SQL API 계정, 데이터베이스 및 컬렉션을 만듭니다.  
+이 샘플 CLI 스크립트는 Azure Cosmos DB SQL API 계정, 데이터베이스 및 컨테이너를 만듭니다.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh?highlight=15-35 "Create an Azure Cosmos DB SQL API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-account-database/create-cosmosdb-account-database.sh "Create an Azure Cosmos DB SQL API account, database, and container.")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 
 스크립트 샘플을 실행한 후에 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>스크립트 설명
@@ -49,10 +42,12 @@ az group delete --name myResourceGroup
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Azure Cosmos DB 계정을 만듭니다. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Azure Cosmos DB 데이터베이스를 만듭니다. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Azure Cosmos DB 컨테이너를 만듭니다. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
+Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
 추가 Azure Cosmos DB CLI 스크립트 샘플은 [Azure Cosmos DB CLI 설명서](../cli-samples.md)에서 확인할 수 있습니다.

@@ -11,15 +11,15 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 06/07/2018
-ms.openlocfilehash: 504fae03e06632f5960bfe0761cc0167b9e1d3fb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 11/01/2018
+ms.openlocfilehash: 82cf0303019d2cbb620c442fd6f750f733930f84
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465220"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912342"
 ---
-# <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Azure SQL Database 설계 및 C#과 ADO.NET에 연결
+# <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>자습서: Azure SQL Database 설계 및 C&#x23;과 ADO.NET에 연결
 
 Azure SQL Database는 Microsoft Cloud(Azure)의 관계형 DBaaS(Database-As-A-Service)입니다. 이 자습서에서는 Visual Studio에서 Azure Portal 및 ADO.NET을 사용하여 다음과 같은 작업을 수행하는 방법에 대해 알아봅니다.
 

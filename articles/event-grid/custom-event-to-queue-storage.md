@@ -5,21 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/09/2018
+ms.date: 10/30/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 7ca8311c97faed980555c46d977a5df85c20353d
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 87c0ab7ea0bbc5a98bcb6c0d993e3f7f997f3627
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067462"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747272"
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Azure CLI 및 Event Grid를 사용하여 Azure Queue 저장소로 사용자 지정 이벤트 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure Queue 저장소는 지원되는 이벤트 처리기 중 하나입니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 항목을 만들고 사용자 지정 항목을 구독하며 이벤트를 트리거하여 결과를 확인합니다. Queue 저장소에 이벤트를 보냅니다.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -72,16 +74,17 @@ az storage queue create --name $queuename --account-name $storagename
 ```azurecli-interactive
 storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
 queueid="$storageid/queueservices/default/queues/$queuename"
+topicid=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
-  --topic-name <topic_name> \
-  -g gridResourceGroup \
+  --source-resource-id $topicid \
   --name <event_subscription_name> \
   --endpoint-type storagequeue \
-  --endpoint $queueid
+  --endpoint $queueid \
+  --expiration-date "<yyyy-mm-dd>"
 ```
 
-이벤트 구독을 만드는 계정에는 Queue Storage에 대한 쓰기 권한이 있어야 합니다.
+이벤트 구독을 만드는 계정에는 Queue Storage에 대한 쓰기 권한이 있어야 합니다. 구독의 [만료 날짜](concepts.md#event-subscription-expiration)가 설정되었습니다.
 
 REST API를 사용하여 구독을 만들 경우 저장소 계정의 ID와 큐의 이름을 별도 매개 변수로 전달 합니다.
 

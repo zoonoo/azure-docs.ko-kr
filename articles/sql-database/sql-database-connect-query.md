@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/24/2018
-ms.openlocfilehash: 576e0adca21f5cd3313893035ff66bd83a0a0164
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/01/2018
+ms.openlocfilehash: 01f1ac19cbab5ec60034b75fb15ccdb45df8541e
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063526"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913311"
 ---
-# <a name="azure-sql-database-connect-and-query-quickstarts"></a>Azure SQL 데이터베이스 연결 및 쿼리 빠른 시작
+# <a name="quickstarts-azure-sql-database-connect-and-query"></a>빠른 시작: Azure SQL Database 연결 및 쿼리
 
 다음 문서는 Azure SQL 데이터베이스에 연결하고 쿼리하는 방법을 보여주는 Azure 예제에 대한 링크를 포함합니다. 또한 전송 수준 보안에 대한 몇 가지 권장 사항을 제공합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "47063526"
 |[.NET Core](sql-database-connect-query-dotnet-core.md)|이 빠른 시작에서는 Windows/Linux/macOS에서 .NET Core를 통해 Azure SQL Database에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 C# 프로그램을 만드는 방법을 보여 줍니다.|
 |[Go](sql-database-connect-query-go.md)|이 빠른 시작에서는 Go를 사용하여 Azure SQL에 연결하는 방법을 보여 줍니다. 데이터 쿼리 및 수정을 위한 Transact SQL 문도 보여 줍니다.|
 |[Java](sql-database-connect-query-java.md)|이 빠른 시작에서는 Java를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다.|
-|[Node.js](sql-database-connect-query-nodejs.md)|이 빠른 시작에서는 Node.js를 사용하여 Azure SQL Database에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.|
+|[Node.JS](sql-database-connect-query-nodejs.md)|이 빠른 시작에서는 Node.js를 사용하여 Azure SQL Database에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.|
 |[PHP](sql-database-connect-query-php.md)|이 빠른 시작에서는 PHP를 사용하여 Azure SQL Database에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.|
 |[Python](sql-database-connect-query-python.md)|이 빠른 시작에서는 Python을 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여 줍니다. |
 |[Ruby](sql-database-connect-query-ruby.md)|이 빠른 시작에서는 Ruby를 사용하여 Azure SQL Database에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.|

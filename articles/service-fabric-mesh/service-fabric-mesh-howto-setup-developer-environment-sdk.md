@@ -9,12 +9,12 @@ ms.date: 08/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 094cab324c7a7c66f5fcb57d488661109fcdabea
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 0531985cbab9c10b4df8ea3f27ac6c7903790da5
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362673"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978233"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Service Fabric Mesh 앱을 빌드하기 위한 Windows 개발 환경 설정
 
@@ -100,6 +100,8 @@ Docker는 클러스터를 빌드하기 전에 실행**해야** 합니다. 터미
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Service Fabric 앱 만들기](service-fabric-mesh-tutorial-create-dotnetcore.md) 자습서를 읽습니다.
+
+[일반적인 질문](service-fabric-mesh-faq.md)에 대한 답변을 찾습니다.
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows

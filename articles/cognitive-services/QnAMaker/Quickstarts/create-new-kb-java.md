@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: 기술 자료 만들기 - REST, Java - QnA Maker'
 titlesuffix: Azure Cognitive Services
-description: 이 REST 기반 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만드는 방법을 안내합니다.
+description: 이 Java REST 기반 빠른 시작에서는 Cognitive Services API 계정의 Azure 대시보드에 표시될 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만드는 방법을 안내합니다.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: 8a32cbc726d50fc2e0e8ad0840525d9e505832bf
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 47a900f6877355fb45481d7b04052387ab3619cf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412944"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229597"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>빠른 시작: Java를 사용하여 QnA Maker 기술 자료 만들기
 
@@ -23,299 +23,105 @@ ms.locfileid: "50412944"
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
-콘텐츠를 제공할 두 개의 샘플 FAQ URL이 아래에(**getKB()** 의 'kb.urls'에) 있습니다. [데이터 원본](../Concepts/data-sources-supported.md) 문서에 설명된 대로, QnA Maker는 FAQ처럼 반구조화된 컨텐츠에서 질문과 답변을 자동으로 추출합니다. 이 빠른 시작에서는 자신의 FAQ URL도 사용할 수 있습니다.
+## <a name="create-a-knowledge-base-file"></a>기술 자료 파일 만들기 
 
-## <a name="prerequisites"></a>필수 조건
+`CreateKB.java` 파일 만들기
 
-이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 자주 사용하는 Java IDE를 사용해도 되지만, 텍스트 편집기로도 충분합니다.
+## <a name="add-the-required-dependencies"></a>필수 종속성 추가
 
-**QnA Maker**를 리소스로 선택한 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)의 새 API 계정에서 유료 구독 키가 필요합니다. 두 키 모두 이 빠른 시작에서 작동합니다.
+`CreateKB.java`의 맨 위에 프로젝트에 필요한 종속성을 추가하는 다음 줄을 추가합니다.
 
-![Azure 대시보드 서비스 키](../media/sub-key.png)
+[!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
-## <a name="create-knowledge-base"></a>기술 자료 만들기
+## <a name="add-the-required-constants"></a>필요한 상수 추가
+앞부분의 필수 종속성 뒤에서, QnA Maker에 액세스하는 데 필요한 `CreateKB` 클래스에 필수 상수를 추가합니다. `subscriptionKey` 변수의 값을 사용자 고유의 QnA Maker 키로 바꿉니다. 클래스를 종료하기 위해 마지막 중괄호를 추가할 필요가 없습니다. 이 빠른 시작의 마지막에 나오는 최종 코드 조각입니다. 
 
-다음 코드에서는 [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) 메서드를 사용하여 새 기술 자료를 만듭니다.
-
-1. 즐겨 찾는 IDE에서 새 Java 프로젝트를 만듭니다.
-1. .jar 파일을 수동으로 [만들어서](https://stackoverflow.com/questions/5258159/how-to-make-an-executable-jar-file) 가져오거나 원하는 프로젝트 관리 도구(예: Maven)에 종속성을 추가하여 Java 프로젝트에 [Google GSON 라이브러리](https://github.com/google/gson)를 추가합니다.
-1. 아래 제공된 코드를 복사/붙여넣습니다.
-1. `subscriptionKey` 값을 유효한 구독 키로 바꿉니다.
-1. 프로그램을 실행합니다.
-
-```java
-import java.io.*;
-import java.lang.reflect.Type;
-import java.net.*;
-import java.util.*;
-import javax.net.ssl.HttpsURLConnection;
-
-/**
- * Gson: https://github.com/google/gson
- * Maven info:
- *    <dependency>
- *      <groupId>com.google.code.gson</groupId>
- *      <artifactId>gson</artifactId>
- *      <version>2.8.5</version>
- *    </dependency>
- */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
-
-/** NOTE: To compile and run this code without an IDE:
- * 1. Save this file as CreateKB.java
- * 2. Run *:
- *    javac CreateKB.java -cp .;<GSON> -encoding UTF-8
- * 3. Run *:
- *    java -cp .;<GSON> CreateKB
- * *replace <GSON> with the name of the current Google GSON library .jar file,
- * for example: gson-2.8.5.jar
-*/
-
-public class CreateKB {
-
-    // **********************************************
-    // *** Update or verify the following values. ***
-    // **********************************************
-
-    // Replace this with a valid subscription key.
-    static String subscriptionKey = "ADD YOUR SUBSCRIPTION KEY HERE";
-
-    // Components used to create HTTP request URIs for QnA Maker operations.
-    static String host = "https://westus.api.cognitive.microsoft.com";
-    static String service = "/qnamaker/v4.0";
-    static String method = "/knowledgebases/create";
-
-    // Serializing classes into JSON for our request to the server.
-    // For the JSON request schema, see <a href="https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff">QnA Maker V4.0</a>
-    public static class KB {
-        String name;
-        Question[] qnaList;
-        String[] urls;
-        File[] files;
-    }
-
-    public static class Question {
-        Integer id;
-        String answer;
-        String source;
-        String[] questions;
-        Metadata[] metadata;
-    }
-
-    public static class Metadata {
-        String name;
-        String value;
-    }
-
-    public static class File {
-        String fileName;
-        String fileUri;
-    }
-
-    // This class has the HTTP response headers and body that is returned
-    // by the HTTP request.
-    public static class Response {
-        Map<String, List<String>> Headers;
-        String Response;
-
-        /**
-         * Constructor that specifies header and body response
-         * @param headers List of headers
-         * @param response Response returned from your HTTP request
-         */
-        public Response(Map<String, List<String>> headers, String response) {
-            this.Headers = headers;
-            this.Response = response;
-        }
-    }
-
-    /**
-     * Formats and indents JSON for display.
-     * @param json_text The JSON string to format and indent.
-     * @return The formatted, indented JSON string.
-     */
-    public static String PrettyPrint (String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-
-    /**
-     * Sends an HTTP GET request.
-     * @param url The URL of the HTTP request.
-     * @return The object that represents the HTTP response.
-     */
-    public static Response Get (URL url) throws Exception{
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-            connection.setDoOutput(true);
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
-        return new Response (connection.getHeaderFields(), response.toString());
-    }
-
-    /**
-     * Builds and sends an HTTP POST request.
-     * @param url The URL of the HTTP request.
-     * @param content The contents of your POST.
-     * @return The object that represents the HTTP response.
-     */
-    public static Response Post (URL url, String content) throws Exception{
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/json");
-        connection.setRequestProperty("Content-Length", content.length() + "");
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-        connection.setDoOutput(true);
-
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-        byte[] encoded_content = content.getBytes("UTF-8");
-        wr.write(encoded_content, 0, encoded_content.length);
-        wr.flush();
-        wr.close();
-
-        StringBuilder response = new StringBuilder ();
-        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-        String line;
-        while ((line = in.readLine()) != null) {
-            response.append(line);
-        }
-        in.close();
-        return new Response (connection.getHeaderFields(), response.toString());
-    }
-
-    /**
-      * Sends the request to create the knowledge base.
-      * @param kb Your knowledge base object.
-      * @return Sends POST request.
-      * @throws Exception If POST request fails.
-      */
-    public static Response CreateKB (KB kb) throws Exception {
-        URL url = new URL (host + service + method);
-        System.out.println ("Calling " + url.toString() + ".");
-        String content = new Gson().toJson(kb);
-        return Post(url, content);
-    }
-
-    /**
-     * Checks the status of the request to create the knowledge base.
-     * @param operation The operation ID.
-     * @return The specific URL being called.
-     * @throws Exception If the GET request fails.
-     */
-    public static Response GetStatus (String operation) throws Exception {
-        URL url = new URL (host + service + operation);
-        System.out.println ("Calling " + url.toString() + ".");
-        return Get(url);
-    }
-
-    /**
-     * Sends a sample request to create a knowledge base. To understand
-     * this 'kb' object, refer to the <a href="https://docs.microsoft.com/azure/cognitive-services/QnAMaker/concepts/knowledge-base">Knowledge base</a> concept page.
-     * @return A new knowledge base.
-     */
-    public static KB GetKB () {
-        KB kb = new KB ();
-        kb.name = "Example Knowledge Base";
-
-        Question q = new Question();
-        q.id = 0;
-        q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa";
-        q.source = "Custom Editorial";
-        q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
-
-        Metadata md = new Metadata();
-        md.name = "category";
-        md.value = "api";
-        q.metadata = new Metadata[]{md};
-
-        kb.qnaList = new Question[]{q};
-        kb.urls = new String[]{"https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"};
+[!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=26-34 "Add the required constants")]
 
 
-        return kb;
-    }
+## <a name="add-the-kb-model-definition-classes"></a>KB 모델 정의 클래스 추가
+상수 뒤에서, 모델 정의 개체를 JSON으로 직렬화하는 다음 클래스 및 함수를 `CreateKB` 클래스 내부에 추가합니다.
 
-    public static void main(String[] args) {
-        try {
-            // Send the request to create the knowledge base.
-            Response response = CreateKB (GetKB ());
-            String operation = response.Headers.get("Location").get(0);
-            System.out.println (PrettyPrint (response.Response));
-            // Loop until the request is completed.
-            Boolean done = false;
-            while (!done) {
-                // Check on the status of the request.
-                response = GetStatus (operation);
-                System.out.println (PrettyPrint (response.Response));
-                Type type = new TypeToken<Map<String, String>>(){}.getType();
-                Map<String, String> fields = new Gson().fromJson(response.Response, type);
-                String state = fields.get ("operationState");
-                // If the request is still running, the server tells us how
-                // long to wait before checking the status again.
-                if (state.equals("Running") || state.equals("NotStarted")) {
-                    String wait = response.Headers.get ("Retry-After").get(0);
-                    System.out.println ("Waiting " + wait + " seconds...");
-                    Thread.sleep (Integer.parseInt(wait) * 1000);
-                }
-                else {
-                    done = true;
-                }
-            }
-        } catch (Exception e) {
-            System.out.println (e.getCause().getMessage());
-        }
-    }
-}
-```
+[!code-java[Add the KB model definition classes](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=36-80 "Add the KB model definition classes")]
 
-## <a name="understanding-what-qna-maker-returns"></a>QnA Maker에서 반환되는 내용 이해하기
+## <a name="add-supporting-functions"></a>지원하는 함수 추가
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 결과가 약간 다를 수도 있습니다. 최종 호출이 "성공" 상태를 반환하면 기술 자료가 생성된 것입니다. 문제를 해결하려면 QnA Maker API의 [작업 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)를 참조하세요.
+`CreateKB` 함수 내부에 다음 지원 함수를 추가합니다.
 
-```json
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
+1. JSON을 읽을 수 있는 형식으로 출력하는 다음 함수를 추가합니다.    
+
+    [!code-java[Add the PrettyPrint function](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=82-87 "Add the KB model definition classes")]
+
+2. HTTP 응답을 관리하는 다음 클래스를 추가합니다.
+
+    [!code-java[Add class to manage the HTTP response](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=89-97 "Add class to manage the HTTP response")]
+
+3. QnA Maker API에 대한 POST 요청을 만드는 다음 메서드를 추가합니다. `Ocp-Apim-Subscription-Key`는 인증에 사용되는 QnA Maker 서비스 키입니다. 
+
+    [!code-java[Add POST method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=99-121 "Add POST method")]
+
+4. QnA Maker API에 대한 GET 요청을 만드는 다음 메서드를 추가합니다.
+
+    [!code-java[Add GET method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=123-137 "Add GET method")]
+
+## <a name="add-a-method-to-create-the-kb"></a>KB를 만드는 메서드 추가
+Post 메서드를 호출하여 KB를 만드는 다음 메서드를 추가합니다. 
+
+[!code-java[Add CreateKB method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=139-144 "Add CreateKB method")]
+
+다음 API 호출은 작업 ID를 포함한 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 성공적으로 만들어졌는지 결정합니다. 
+
+```JSON
 {
   "operationState": "NotStarted",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:19:01Z",
+  "lastActionTimestamp": "2018-09-26T05:19:01Z",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "8dfb6a82-ae58-4bcb-95b7-d1239ae25681"
 }
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
-{
-  "operationState": "Running",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
-}
-Waiting 30 seconds...
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
+```
+
+## <a name="add-a-method-to-get-status"></a>상태를 가져오는 메서드 추가
+만들기 상태를 확인하는 다음 메서드를 추가합니다. 
+
+[!code-java[Add GetStatus method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=146-150 "Add GetStatus method")]
+
+성공하거나 실패할 때까지 호출을 반복합니다. 
+
+```JSON
 {
   "operationState": "Succeeded",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:46Z",
-  "resourceLocation": "/knowledgebases/b0288f33-27b9-4258-a304-8b9f63427dad",
-  "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:23:08Z",
+  "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
-Press any key to continue.
 ```
-   
+
+## <a name="add-a-main-method"></a>main 메서드 추가
+main 메서드는 KB를 만든 후 상태를 폴링합니다. _create_ **Operation ID**는 POST 응답 헤더 필드 **Location**에 반환된 후 GET 요청의 경로로 사용됩니다. **`while` 루프는 완료되지 않으면 상태를 재시도합니다. 
+
+[!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
+ 
+## <a name="compile-and-run-the-program"></a>프로그램 컴파일 및 실행
+
+1. gson 라이브러리가 `./libs` 디렉터리에 있는지 확인합니다. 명령줄에서 `CreateKB.java` 파일을 컴파일합니다.
+
+    ```bash
+    javac -cp ".;libs/*" CreateKB.java
+    ```
+
+2. 프로그램을 실행하려면 명령줄에 다음 명령을 입력합니다. 그러면 KB를 만들기 위한 요청을 QnA Maker API에 보낸 다음, 30초마다 결과를 폴링합니다. 각 응답이 콘솔 창에 출력됩니다.
+
+    ```base
+    java -cp ",;libs/*" CreateKB
+    ```
+
+기술 자료가 생성되면 QnA Maker 포털의 [내 기술 자료](https://www.qnamaker.ai/Home/MyServices) 페이지에서 볼 수 있습니다.    
+
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]

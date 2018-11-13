@@ -1,22 +1,21 @@
 ---
 title: 클라우드에서 Kubernetes 개발 환경 만들기 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: iainfoulds
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: ghogen
+ms.author: iainfou
 ms.date: 07/09/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-manager: douge
-ms.openlocfilehash: 0e58fb23aded66a44deb0d520151c98903cffe18
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: de30cc01dedbba9177c2a67fe1147b9ae767280e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433330"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978164"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 Visual Studio)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -31,7 +30,7 @@ ms.locfileid: "47433330"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 Http 응용 프로그램 라우팅이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
+- 미국 동부, 미국 동부 2, 미국 중부, 미국 서부 2, 서유럽, 동남 아시아, 캐나다 중부 또는 캐나다 동부 지역에서 Http 응용 프로그램 라우팅이 활성화된 상태로 Kubernetes 1.9.6 이상을 실행하는 Kubernetes 클러스터.
 
   ![Http 응용 프로그램 라우팅을 활성화해야 합니다.](media/common/Kubernetes-Create-Cluster-3.PNG)
 

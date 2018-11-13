@@ -11,15 +11,15 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: fa9686e7f9ca7f14a51ea2b9c313dd69a2e40cec
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 11/01/2018
+ms.openlocfilehash: bc27ece2eddc842a81698aaa685cbe6d63c6a1df
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362257"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912257"
 ---
-# <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에 데이터베이스 백업 복원
+# <a name="quickstart-restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance에 데이터베이스 백업 복원
 
 이 빠른 시작에서는 Wide World Importers - 표준 백업 파일을 사용하여 Azure Blob 저장소에 저장된 데이터베이스의 백업을 Managed Instance로 복원하는 방법을 설명합니다. 이 메서드는 가동 중지 시간이 필요합니다. 
 

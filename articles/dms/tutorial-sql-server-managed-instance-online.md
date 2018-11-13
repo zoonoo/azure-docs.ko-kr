@@ -1,5 +1,5 @@
 ---
-title: Azure Database Migration Service를 사용하여 SQL Server를 Azure SQL Database Managed Instance로 온라인 마이그레이션 수행 | Microsoft Docs
+title: '자습서: Azure Database Migration Service를 사용하여 SQL Server를 Azure SQL Database Managed Instance로 온라인 마이그레이션 수행 | Microsoft Docs'
 description: Azure Database Migration Service를 사용하여 SQL Server 온-프레미스에서Azure SQL Database Managed Instance로 온라인 마이그레이션을 수행하는 방법을 알아봅니다.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 4d46a438708e2e72d625f5104293b4605f7b096d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ab869e53810f049593803d58b3df75d0c083bbd2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946082"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962897"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>DMS를 사용하여 SQL Server를 Azure SQL Database Managed Instance 온라인으로 마이그레이션
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 온라인에서 SQL Server를 Azure SQL Database Managed Instance로 마이그레이션
 Azure Database Migration Service를 사용하면 최소의 중단 시간으로 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md)로 마이그레이션할 수 있습니다. 수동 작업이 필요한 추가적인 방법은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](../sql-database/sql-database-managed-instance-migrate.md) 문서를 참조하세요.
 
 >[!IMPORTANT]
@@ -145,7 +145,7 @@ Azure Database Migration Service를 사용하면 최소의 중단 시간으로 �
 
 3. **SQL 사용자**와 **암호**를 입력하여 Azure SQL Database Managed Instance의 대상 인스턴스에 연결합니다.
 
-       ![Select Target](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![대상 선택](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
 
 2.  **저장**을 선택합니다.
 

@@ -8,20 +8,24 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/02/2018
+ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e0b47b1322a520ad8b09fd2fe2967e628b5e4e03
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322876"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281221"
 ---
 # <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>빠른 시작: Azure Digital Twins로 사용 가능한 회의실 찾기
 
 Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이미지를 다시 만들 수 있습니다. 그 후 환경 내 이벤트를 통해 알림을 받고 그에 대한 응답을 사용자 지정할 수 있습니다. 
 
 이 빠른 시작에서는 [.NET 샘플 쌍](https://github.com/Azure-Samples/digital-twins-samples-csharp)을 사용하여 가상의 사무실 건물을 디지털화하고, 해당 건물에서 사용 가능한 회의실을 찾는 방법을 보여줍니다. Digital Twins를 사용하면 환경에 여러 센서를 연결할 수 있습니다. 회의실 가용성과 함께, 이산화탄소를 측정하는 시뮬레이션된 센서를 통해 사용 가능한 회의실의 공기질이 최적 상태인지 확인할 수 있습니다. 샘플 응용 프로그램 중 하나는 이 시나리오를 시각화하는 데 도움이 되는 임의의 센서 데이터를 생성합니다.
+
+다음 비디오는 빠른 시작 설정을 요약하여 보여줍니다.
+
+> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,7 +40,7 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 
 이 섹션의 단계에 따라 [포털](https://portal.azure.com)에서 Digital Twins의 새 인스턴스를 만듭니다.
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>앱에 대한 권한 설정
 

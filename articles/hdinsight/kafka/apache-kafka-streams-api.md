@@ -3,18 +3,18 @@ title: '자습서: Apache Kafka Streams API 사용 - Azure HDInsight '
 description: HDInsight의 Kafka에서 Apache Kafka Streams API를 사용하는 방법에 대해 알아봅니다. 이 API를 사용하면 Kafka에서 토픽 간 스트림 처리를 수행할 수 있습니다.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/17/2018
-ms.openlocfilehash: f50e61f4acbdc33cee1786f68cf44252a8f29741
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/06/2018
+ms.openlocfilehash: b22a701d9e876ca011381810e330fed60b7177d4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417415"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278704"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>자습서: Apache Kafka Streams API
 
@@ -84,7 +84,7 @@ Kafka Streams API를 사용하는 응용 프로그램을 만들고 HDInsight의 
 
 ### <a name="streamjava"></a>Stream.java
 
-`Stream.java` 파일은 스트림 API를 사용하여 워드 카운트 응용 프로그램을 구현합니다. 이 파일은 `test`라는 Kafka 토픽에서 데이터를 읽고, `wordcounts`라는 토픽에 워드 카운트를 씁니다.
+[Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) 파일은 스트림 API를 사용하여 워드 카운트 응용 프로그램을 구현합니다. 이 파일은 `test`라는 Kafka 토픽에서 데이터를 읽고, `wordcounts`라는 토픽에 워드 카운트를 씁니다.
 
 다음 코드는 워드 카운트 응용 프로그램을 정의합니다.
 

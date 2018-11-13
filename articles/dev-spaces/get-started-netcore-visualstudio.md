@@ -6,19 +6,18 @@ ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-manager: douge
-ms.openlocfilehash: 43cf75d875b2f5fbfea46fb2c8fbae809668057d
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 83f38d6a04b90cfd8e056686f1a1539fd15e98b3
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405175"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978300"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Azure Dev Spaces에서 .NET Core 및 Visual Studio를 사용하여 시작
 
@@ -41,7 +40,7 @@ ms.locfileid: "47405175"
    AKS 클러스터 만들기 양식의 각 머리글 아래에 있는 다음 단계를 완료합니다.
 
     - **프로젝트 세부 정보**: Azure 구독과 새로운 또는 기존 Azure 리소스 그룹을 선택합니다.
-    - **클러스터 세부 정보**: 이름, 영역(현재는 EastUS, Central US, WestEurope, WestUS2, CanadaCentral 또는 CanadaEast를 선택해야 함), 버전 및 AKS 클러스터의 DNS 이름 접두사를 입력합니다.
+    - **클러스터 세부 정보**: 이름, 지역(현재는 미국 동부, 미국 동부 2, 미국 중부, 서유럽, 미국 서부 2, 동남 아시아, 캐나다 중부 또는 캐나다 동부를 선택해야 함), 버전 및 AKS 클러스터의 DNS 이름 접두사를 입력합니다.
     - **규모**: AKS 에이전트 노드의 VM 크기 및 노드 수를 선택합니다. Azure Dev Spaces를 시작하는 경우 노드 하나만 있으면 모든 기능을 탐색할 수 있습니다. 노드 수는 클러스터 배포 후 언제든지 쉽게 조정할 수 있습니다. AKS 클러스터를 만든 후에는 VM 크기를 변경할 수 없습니다. 하지만 규모를 확장해야 하는 경우 AKS 클러스터를 배포한 후 간단하게 더 큰 VM이 있는 새 AKS 클러스터를 만들고 Dev Spaces를 사용하여 해당 클러스터를 다시 배포하면 됩니다.
 
    Kubernetes 버전 1.9.6 이상을 선택해야 합니다.

@@ -1,5 +1,5 @@
 ---
-title: DMS를 사용하여 Azure SQL Database Managed Instance로 마이그레이션 | Microsoft Docs
+title: '자습서: DMS를 사용하여 Azure SQL Database Managed Instance로 마이그레이션 | Microsoft Docs'
 description: Azure Database Migration Service를 사용하여 SQL Server 온-프레미스에서 Azure SQL Database Managed Instance로 마이그레이션하는 방법에 대해 알아봅니다.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 445d4a50cdb0780e7aff5331f0ba9e70aae44e25
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: f6b77f3a2b78d037e74bbca9a3624c9fa62c5d8b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945164"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961877"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>DMS를 사용하여 SQL Server를 Azure SQL Database Managed Instance로 오프라인으로 마이그레이션
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 SQL Server를 Azure SQL Database Managed Instance로 마이그레이션
 Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md)로 마이그레이션할 수 있습니다. 수동 작업이 필요한 추가적인 방법은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](../sql-database/sql-database-managed-instance-migrate.md) 문서를 참조하세요.
 
 이 자습서에서는 Azure Database Migration Service를 사용하여 **Adventureworks2012** 데이터베이스를 SQL Server의 온-프레미스 인스턴스에서 Azure SQL Database Managed Instance로 마이그레이션합니다.

@@ -11,15 +11,15 @@ author: DRediske
 ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: b81e76201f7f751ee01e903d83f316811abaf483
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 11/01/2018
+ms.openlocfilehash: 827b3b6776656619314af3053cb05f8cfc3754c0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955478"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914399"
 ---
-# <a name="secure-your-azure-sql-database"></a>Azure SQL Database 보안
+# <a name="tutorial-secure-your-azure-sql-database"></a>자습서: Azure SQL Database 보안
 
 SQL Database는 다음을 통해 데이터를 보호합니다. 
 - 방화벽 규칙을 사용하여 데이터베이스에 대한 액세스 제한 

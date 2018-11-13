@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: e4e667c9a9490d164b9fb1c90580ceb30989a7dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988873"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912995"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>빠른 시작: Microsoft ID 플랫폼을 사용하여 응용 프로그램 등록(미리 보기)
 
 엔터프라이즈 개발자 및 소프트웨어 SaaS(software-as-a-service) 공급자는 Microsoft ID 플랫폼에 통합되어 해당 서비스에 대한 보안 로그인 및 권한 부여를 제공하는 상용 클라우드 서비스 또는 업무용 응용 프로그램 제품군을 개발할 수 있습니다.
 
-이 빠른 시작에서는 Microsoft ID 플랫폼에 통합할 수 있게 응용 프로그램을 Azure Portal에 추가 및 등록하는 방법을 살펴봅니다.
+이 빠른 시작에서는 Microsoft ID 플랫폼에 통합할 수 있도록 Azure Portal에서 **앱 등록(미리 보기)** 환경을 사용하여 응용 프로그램을 추가 및 등록하는 방법을 살펴봅니다.
 
 ## <a name="prerequisite"></a>필수 요소
 
@@ -59,7 +59,7 @@ ms.locfileid: "49988873"
 
     [![Azure Portal에서 새 응용 프로그램 등록](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
-Azure AD가 앱에 고유한 응용 프로그램 ID를 할당하면 응용 프로그램의 **개요** 페이지로 이동합니다. 응용 프로그램에 다른 기능을 추가하려면 브랜드, 인증서, 비밀, API 권한 등을 비롯한 다른 구성 옵션을 선택할 수 있습니다.
+Azure AD가 앱에 고유한 응용 프로그램(클라이언트) ID를 할당하면 응용 프로그램의 **개요** 페이지로 이동합니다. 응용 프로그램에 다른 기능을 추가하려면 브랜드, 인증서, 비밀, API 권한 등을 비롯한 다른 구성 옵션을 선택할 수 있습니다.
 
 [![새로 등록된 앱의 개요 페이지](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352613"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963934"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -140,6 +140,9 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
  
 - 장치 등록에 대한 로컬 인트라넷 설정 구성
 
+- Windows 하위 수준 장치 제어 
+
+
 ### <a name="update-device-settings"></a>장치 설정 업데이트 
 
 Windows 하위 수준 장치를 등록하려면 사용자가 Azure AD에서 장치를 등록할 수 있도록 허용하는 장치 설정을 선택해야 합니다. Azure Portal의 다음 위치에서 이러한 값을 확인할 수 있습니다.
@@ -163,6 +166,12 @@ Windows 하위 수준 장치의 하이브리드 Azure AD 조인을 성공적으�
 - `https://autologon.microsoftazuread-sso.com`
 
 또한, 사용자의 로컬 인트라넷 영역에서 **Allow updates to status bar via script**(스크립트를 통해 상태 표시줄 업데이트 허용)을 사용하도록 설정해야 합니다.
+
+
+### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 장치 제어 
+
+Windows 하위 수준 장치를 등록하려면 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다. 자세한 내용은 [여기](hybrid-azuread-join-control.md#control-windows-down-level-devices)를 클릭하세요. 
+
 
 ## <a name="verify-the-registration"></a>등록 확인
 
