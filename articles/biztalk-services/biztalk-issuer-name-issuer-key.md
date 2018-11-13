@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628650"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238712"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: 발급자 이름 및 발급자 키
 
@@ -77,24 +77,24 @@ Access Control 발급자 이름 및 발급자 키는 다음에 사용됩니다.
 Service Bus 발급자 이름 및 발급자 키는 BizTalk 어댑터 서비스에 사용됩니다. Visual Studio의 BizTalk Services 프로젝트에서 BizTalk 어댑터 서비스를 사용하여 온-프레미스 LOB(기간 업무) 시스템에 연결합니다. 연결하려면 LOB 릴레이를 만들고 LOB 시스템 세부 정보를 입력합니다. 이 작업을 수행할 때에도 Service Bus 발급자 이름 및 발급자 키를 입력합니다.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Service Bus 발급자 이름 및 발급자 키를 검색하려면
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
 2. **Service Bus**를 검색하고 네임스페이스를 선택합니다. 
 3. **공유 액세스 정책** 속성을 열고, 정책을 선택하고, 이름과 키 값에 대한 **연결 문자열**을 봅니다.  
 
 ## <a name="next"></a>다음
 추가 Azure BizTalk Services 항목:
 
-* [Azure BizTalk Services SDK 설치](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [자습서: Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [Azure BizTalk Services SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [Azure BizTalk Services SDK 설치](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [자습서: Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Azure BizTalk Services SDK로 시작하는 방법](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>참고 항목
-* [방법: ACS 관리 서비스를 사용하여 서비스 ID 구성](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: 프로비전](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [BizTalk Services: 프로비저닝 상태 차트](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [BizTalk Services: Backup 및 복원](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk Services: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [방법: ACS 관리 서비스를 사용하여 서비스 ID 구성](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [BizTalk Services: Developer, Basic, Standard 및 Premium Editions 차트](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services: 프로비전](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: 프로비저닝 상태 차트](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: Backup 및 복원](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk Services: 제한](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

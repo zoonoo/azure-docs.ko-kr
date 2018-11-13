@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fe16ecb2725cf306b5b57c9d45d8601581a3ece
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 13d81e655b98771d985277974bd3081437e2a3e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578903"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255782"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
 
@@ -61,9 +61,9 @@ Azure AD(Active Directory)에서 관련된 [보고서](https://portal.azure.com/
 
 다음 작업을 수행하면 영향을 받는 계정을 수정하고 환경을 보호할 수 있습니다.
 
-1.  다단계 인증 및 셀프 서비스 암호 재설정에 대한 올바른 정보를 [확인](http://aka.ms/MFAValid)합니다. 
-2.  모든 사용자에 대해 다단계 인증을 [사용하도록 설정합니다](http://aka.ms/MFAuth). 
-3.  이 [수정 스크립트](http://aka.ms/remediate)를 사용하여 영향을 받는 모든 계정에 대해 다음 단계를 자동으로 수행할 수 있습니다. 
+1.  다단계 인증 및 셀프 서비스 암호 재설정에 대한 올바른 정보를 [확인](https://aka.ms/MFAValid)합니다. 
+2.  모든 사용자에 대해 다단계 인증을 [사용하도록 설정합니다](https://aka.ms/MFAuth). 
+3.  이 [수정 스크립트](https://aka.ms/remediate)를 사용하여 영향을 받는 모든 계정에 대해 다음 단계를 자동으로 수행할 수 있습니다. 
 
     a. 암호를 다시 설정하여 계정을 보호하고 활성 세션을 종료합니다.
 
@@ -87,10 +87,10 @@ Azure AD(Active Directory)에서 관련된 [보고서](https://portal.azure.com/
 
 또한 다음을 수행해야 합니다.
 
-- 비정상적인 활동을 해결할 때 이 [지침](http://aka.ms/fixaccount)을 참조하고 구현합니다. 
-- [감사 파이프라인을 사용하도록 설정](http://aka.ms/improvesecurity)하여 테넌트 활동을 분석할 수 있습니다. 완료되면 감사 저장소가 모든 활동 로그로 채워지기 시작합니다. 이 시점에서 [보안 및 규정 준수 센터의 검색 및 조사](http://aka.ms/sccsearch)를 활용할 수도 있습니다. 
-- 이 [스크립트](http://aka.ms/mailboxaudit1)를 사용하여 모든 계정에 대해 사서함 감사를 사용하도록 설정합니다. 
-- 모든 사서함에 대한 대리자 권한 및 메일 전달 규칙을 검토합니다. 이 [PowerShell 스크립트](http://aka.ms/delegateforwardrules)를 사용하여 이 작업을 수행할 수 있습니다. 
+- 비정상적인 활동을 해결할 때 이 [지침](https://aka.ms/fixaccount)을 참조하고 구현합니다. 
+- [감사 파이프라인을 사용하도록 설정](https://aka.ms/improvesecurity)하여 테넌트 활동을 분석할 수 있습니다. 완료되면 감사 저장소가 모든 활동 로그로 채워지기 시작합니다. 이 시점에서 [보안 및 규정 준수 센터의 검색 및 조사](https://aka.ms/sccsearch)를 활용할 수도 있습니다. 
+- 이 [스크립트](https://aka.ms/mailboxaudit1)를 사용하여 모든 계정에 대해 사서함 감사를 사용하도록 설정합니다. 
+- 모든 사서함에 대한 대리자 권한 및 메일 전달 규칙을 검토합니다. 이 [PowerShell 스크립트](https://aka.ms/delegateforwardrules)를 사용하여 이 작업을 수행할 수 있습니다. 
 
 
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: markgal
-ms.openlocfilehash: 9fad5876ce177129d6178052916843b94b33ccf1
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445470"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250699"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
@@ -79,7 +79,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 ![Backup 경고](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
-### <a name="alerts"></a>Alerts
+### <a name="alerts"></a>경고
 
 [백업 경고] 목록에는 필터링된 알림에 대해 선택된 정보가 표시됩니다. [백업 경고] 메뉴에서 중요한 알림 또는 경고 알림을 필터링할 수 있습니다.
 
@@ -216,7 +216,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 * Azure Storage
 * Azure 워크로드
 
-#### <a name="operation"></a>작업
+#### <a name="operation"></a>작업(Operation)
 
 하나 또는 모든 작업을 볼 수 있습니다. 둘 또는 세 개의 작업은 선택할 수 없습니다. 사용 가능한 작업은 다음과 같습니다.
 
@@ -296,4 +296,4 @@ A3. 예. 알림이 전송되지 않는 경우는 다음과 같습니다.
 ## <a name="next-steps"></a>다음 단계
 * [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 * Azure Backup에 대한 자세한 내용은 [Azure Backup 개요](backup-introduction-to-azure-backup.md)
-* [Azure Backup 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* [Azure Backup 포럼](https://go.microsoft.com/fwlink/p/?LinkId=290933)

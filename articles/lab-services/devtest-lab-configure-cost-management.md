@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 13535dae82ef2c8896dad7d6221553d15e4e6a95
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573814"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259754"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Azure DevTest Labs에서 월간 예상 랩 비용 추세 보기
 DevTest Labs의 비용 관리 기능은 랩의 비용을 추적하는 데 도움이 됩니다. 이 문서는 **월간 예상 비용 추세** 차트를 사용하여 이번 달의 현재 예상 비용 합계 뿐만 아니라 이번 달의 월말 추정 비용을 보는 방법을 보여줍니다. 또한 이 문서에서는 설정된 값에 도달하면 결과를 보고하도록 DevTest Labs를 트리거하여 랩 비용을 효율적으로 관리하는 방법을 보여줍니다.
@@ -27,7 +27,7 @@ DevTest Labs의 비용 관리 기능은 랩의 비용을 추적하는 데 도움
 ## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>Monthly Estimated Cost Trend(월간 예상 비용 추세) 차트 보기
 월간 예상 비용 추세 차트를 보려면 다음 단계를 수행합니다. 
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. 필요한 경우 **모든 서비스**를 선택하고 목록에서 **DevTest Labs**를 선택합니다. 대시보드의 **모든 리소스** 아래에 랩이 이미 표시되어 있을 수 있습니다.
 1. 랩 목록에서 원하는 랩을 탭합니다.  
 1. 랩의 **개요** 영역에서 **구성 및 정책**을 선택합니다.   

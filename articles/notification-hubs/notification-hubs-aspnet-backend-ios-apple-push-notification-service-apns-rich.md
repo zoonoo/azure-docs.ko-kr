@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8aad769da4d1c831dc0222c39daf86801a4f850b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232515"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244290"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs 다양한 푸시
 ## <a name="overview"></a>개요
@@ -94,7 +94,7 @@ ms.locfileid: "50232515"
         }
    
    > [!NOTE]
-   > (선택 사항) 프로젝트 리소스를 추가하고 얻는 방법에 대한 자세한 내용은 [Visual C#을 사용하여 리소스를 포함 및 액세스하는 방법](http://support.microsoft.com/kb/319292)을 참조하세요.
+   > (선택 사항) 프로젝트 리소스를 추가하고 얻는 방법에 대한 자세한 내용은 [Visual C#을 사용하여 리소스를 포함 및 액세스하는 방법](https://support.microsoft.com/kb/319292)을 참조하세요.
    > 
    > 
 7. **NotificationsController.cs**에서 **NotificationsController**를 다음 조각으로 다시 정의합니다. 그러면 초기 자동 풍부한 알림 ID가 장치에 전송되고 클라이언트 쪽에서 이미지를 검색할 수 있습니다.

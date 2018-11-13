@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 555672df5b0b86858d460ff7606bc6ca23f4f103
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834358"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261113"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Azure Machine Learning에서 사용자 지정 R 모듈 작성
 이 항목에서는 Azure Machine Learning에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
@@ -41,7 +41,7 @@ ms.locfileid: "34834358"
 사용자 지정 모듈에서 액세스할 수 있는 기능을 제공하는 추가 보조 파일을 .zip 파일에 포함할 수도 있습니다. 이 옵션은 빠른 시작 예제에 이어지는 참조 섹션 **XML 정의 파일의 요소**의 **인수** 부분에서 설명됩니다.
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>빠른 시작 예: 사용자 지정 R 모듈 정의, 패키지 및 등록
-이 예제에서는 사용자 지정 R 모듈에 필요한 파일을 생성하고 이를 zip 파일에 패키지한 다음 Machine Learning 작업 영역에 모듈을 등록하는 방법을 보여 줍니다. 예제 zip 패키지 및 샘플 파일은 [CustomAddRows.zip 파일 다운로드](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409)에서 다운로드할 수 있습니다.
+이 예제에서는 사용자 지정 R 모듈에 필요한 파일을 생성하고 이를 zip 파일에 패키지한 다음 Machine Learning 작업 영역에 모듈을 등록하는 방법을 보여 줍니다. 예제 zip 패키지 및 샘플 파일은 [CustomAddRows.zip 파일 다운로드](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409)에서 다운로드할 수 있습니다.
 
 ## <a name="the-source-file"></a>원본 파일
 두 데이터 집합(데이터 프레임)의 행(관찰)을 연결하는 데 사용되는 **행 추가** 모듈의 표준 구현을 수정하는 **사용자 지정 행 추가** 모듈의 예제를 고려해 보겠습니다. 표준 **행 추가** 모듈은 `rbind` 알고리즘을 사용하여 두 번째 입력 데이터 집합의 행을 첫 번째 입력 데이터 집합의 끝에 추가합니다. 사용자 지정 `CustomAddRows` 함수는 두 데이터 집합을 허용할 뿐만 아니라 부울 스왑 매개 변수도 추가 입력으로 허용합니다. 스왑 매개 변수가 **FALSE**로 설정된 경우 표준 구현과 동일한 데이터 집합을 반환합니다. 그러나 스왑 매개 변수가 **TRUE**인 경우에는 함수는 대신 첫 번째 입력 데이터 집합의 행을 두 번째 데이터 집합의 끝에 추가합니다. **사용자 지정 행 추가** 모듈에 의해 노출되는 R `CustomAddRows` 함수의 구현을 포함하는 CustomAddRows.R 파일은 다음 R 코드를 포함합니다.

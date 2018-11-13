@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: cd688ec1f5b7b46138a3b601f52b54dd6f3615e3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046493"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261152"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop 로그 분석
 
@@ -59,7 +59,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장�
 * Excel용 파워 쿼리
 
 #### <a name="use-power-query-for-excel"></a>Excel용 파워 쿼리 사용
-파워 쿼리는 [Microsoft Excel용 파워 쿼리](http://www.microsoft.com/en-us/download/details.aspx?id=39379)에서 설치할 수 있습니다. 시스템 요구 사항은 다운로드 페이지를 참조하세요.
+파워 쿼리는 [Microsoft Excel용 파워 쿼리](https://www.microsoft.com/en-us/download/details.aspx?id=39379)에서 설치할 수 있습니다. 시스템 요구 사항은 다운로드 페이지를 참조하세요.
 
 **파워 쿼리를 사용하여 서비스 로그 열기 및 분석**
 

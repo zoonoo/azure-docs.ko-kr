@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ecfaf24d1122b711a93e1335b79acbbc4235bdae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049952"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259924"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 공지 게시
 
@@ -35,7 +35,7 @@ ms.locfileid: "39049952"
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>기존 랩에 공지를 게시하는 단계
 
-1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. 필요한 경우 **모든 서비스**를 선택하고 목록에서 **DevTest Labs**를 선택합니다. 대시보드의 **모든 리소스** 아래에 랩이 이미 표시되어 있을 수 있습니다.
 1. 랩 목록에서 공지를 게시하려는 랩을 선택합니다.  
 1. 랩의 **개요** 영역에서 **구성 및 정책**을 선택합니다.  
@@ -70,7 +70,7 @@ ms.locfileid: "39049952"
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>알림을 보기 위한 단계
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩을 선택합니다.
+1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에서 랩을 선택합니다.
 
 1. 랩에 게시된 공지가 있으면 랩 개요 페이지 위쪽에 정보 알림이 표시됩니다. 이 정보 공지는 공지를 만들었을 때 지정된 공지 제목입니다.
 
@@ -160,7 +160,7 @@ ms.locfileid: "39049952"
 
 다음 방법 중 하나를 사용하여 Azure Resource Manager 템플릿을 배포할 수 있습니다.
 
-- [Azure 포털](../azure-resource-manager/resource-group-template-deploy-portal.md)
+- [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 - [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)

@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 08/01/2018
-ms.openlocfilehash: f381eaad61c98228ea9be2665ebed5878b666317
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ee5542c72991a2aa8de94f5dc2e819eb5d311a27
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064240"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246806"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>SQL 연결 오류와 일시적 SQL Database 오류의 문제 해결, 진단 및 예방
 이 문서에서는 클라이언트 응용 프로그램이 Azure SQL Database와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.
@@ -63,7 +63,7 @@ ms.locfileid: "47064240"
 ### <a name="interval-increase-between-retries"></a>재시도 간격 증가
 첫 번째 재시도 전에 5초간 대기하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
-ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQL Server 연결 풀링(ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)을 참조하세요.
+ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQL Server 연결 풀링(ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx)을 참조하세요.
 
 또한 프로그램이 자체적으로 종료하기 전까지 최대 재시도 횟수를 설정할 수 있습니다.
 
@@ -115,13 +115,13 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>연결 다시 시도에 대한 .NET SqlConnection 매개 변수
-클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection**을 사용하여 SQL Database에 연결되면 .NET 4.6.1 이상(또는 .NET Core)을 사용하므로 해당 연결 다시 시도 기능을 사용할 수 있습니다. 기능에 대한 자세한 내용은 [이 웹 페이지](http://go.microsoft.com/fwlink/?linkid=393996)를 참조하세요.
+클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection**을 사용하여 SQL Database에 연결되면 .NET 4.6.1 이상(또는 .NET Core)을 사용하므로 해당 연결 다시 시도 기능을 사용할 수 있습니다. 기능에 대한 자세한 내용은 [이 웹 페이지](https://go.microsoft.com/fwlink/?linkid=393996)를 참조하세요.
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-**SqlConnection** 개체에 대한 [연결 문자열](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
+**SqlConnection** 개체에 대한 [연결 문자열](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
 
 * **ConnectRetryCount**:&nbsp;&nbsp;기본값은 1입니다. 범위는 0에서 255입니다.
 * **ConnectRetryInterval**:&nbsp;&nbsp;기본값은 1초입니다. 범위는 1에서 60입니다.
@@ -211,7 +211,7 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 모든 Windows 컴퓨터에서 이러한 유틸리티를 시도할 수 있습니다.
 
 * ADO.NET을 사용하여 연결하는 SQL Server Management Studio(ssms.exe)
-* [ODBC](http://msdn.microsoft.com/library/jj730308.aspx)를 사용하여 연결하는 sqlcmd.exe
+* [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)를 사용하여 연결하는 sqlcmd.exe
 
 프로그램이 연결된 후에는 짧은 SQL SELECT 쿼리가 작동하는지 테스트합니다.
 
@@ -226,7 +226,7 @@ Linux에서 다음 유틸리티는 도움이 될 수 있습니다.
 * `nmap -sS -O 127.0.0.1`
   * IP 주소가 되도록 예제 값을 변경합니다.
 
-Windows에서는 [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) 유틸리티가 도움이 됩니다. 다음은 SQL Database 서버에서 포트 상황에 대해 쿼리하기 위해 노트북 컴퓨터에서 실행한 실행 프로그램 예제입니다.
+Windows에서는 [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) 유틸리티가 도움이 됩니다. 다음은 SQL Database 서버에서 포트 상황에 대해 쿼리하기 위해 노트북 컴퓨터에서 실행한 실행 프로그램 예제입니다.
 
 ```
 [C:\Users\johndoe\]
@@ -253,7 +253,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 클라이언트에서 발생한 모든 오류를 기록하면 진단에 도움이 될 수 있습니다. 로그 항목과 SQL Database에서 내부적으로 기록하는 오류 데이터의 상관 관계를 분석할 수 있습니다.
 
-Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. 자세한 내용은 [5 - 간단한 응용 프로그램 블록 로깅 사용](http://msdn.microsoft.com/library/dn440731.aspx)을 참조하세요.
+Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클래스를 제공합니다. 자세한 내용은 [5 - 간단한 응용 프로그램 블록 로깅 사용](https://msdn.microsoft.com/library/dn440731.aspx)을 참조하세요.
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -262,8 +262,8 @@ Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클�
 
 | 로그 쿼리 | 설명 |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) 보기는 일시적인 오류 또는 연결 실패를 일으킬 수 있는 일부를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>이상적으로 **start_time** 또는 **end_time** 값을 클라이언트 프로그램에 문제가 발생하는 방법에 대한 정보와 함께 상호 연결할 수 있습니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) 보기는 추가 진단을 위해 이벤트 유형별로 집계된 개수를 제공합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) 보기는 일시적인 오류 또는 연결 실패를 일으킬 수 있는 일부를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>이상적으로 **start_time** 또는 **end_time** 값을 클라이언트 프로그램에 문제가 발생하는 방법에 대한 정보와 함께 상호 연결할 수 있습니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 보기는 추가 진단을 위해 이벤트 유형별로 집계된 개수를 제공합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -309,12 +309,12 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
-Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾으려면 [Enterprise Library 6 – 2013년 4월](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)을 참조하세요.
+Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾으려면 [Enterprise Library 6 – 2013년 4월](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)을 참조하세요.
 
-일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. 자세한 내용은 [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 응용 프로그램 블록 사용](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)을 참조하세요.
+일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. 자세한 내용은 [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 응용 프로그램 블록 사용](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)을 참조하세요.
 
 > [!NOTE]
-> EntLib60에 대한 소스 코드는 [다운로드 센터](http://go.microsoft.com/fwlink/p/?LinkID=290898)의 공용 다운로드에서 사용할 수 있습니다. Microsoft는 EntLib에 추가 기능 또는 유지 관리를 업데이트할 계획이 없습니다.
+> EntLib60에 대한 소스 코드는 [다운로드 센터](https://go.microsoft.com/fwlink/p/?LinkID=290898)의 공용 다운로드에서 사용할 수 있습니다. Microsoft는 EntLib에 추가 기능 또는 유지 관리를 업데이트할 계획이 없습니다.
 >
 >
 
@@ -341,7 +341,7 @@ Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우�
 
 다음은 EntLib60에 대한 정보의 일부 링크입니다.
 
-* 무료 책 다운로드: [Microsoft Enterprise Library에 대한 개발자 가이드, 2판](http://www.microsoft.com/download/details.aspx?id=41145)
+* 무료 책 다운로드: [Microsoft Enterprise Library에 대한 개발자 가이드, 2판](https://www.microsoft.com/download/details.aspx?id=41145)
 * 모범 사례: [재시도 일반 지침](../best-practices-retry-general.md) 에서 재시도 논리에 대해 깊이 있게 다룹니다.
 * NuGet 다운로드: [Enterprise Library - 일시적 오류 처리 응용 프로그램 블록 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 

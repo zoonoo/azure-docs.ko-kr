@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f09e523b70e541c724ea53d0bd47215ad44d623
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77d47b1f4946a8539b58b9335b967321b6bbf2e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041989"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259873"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Log Analytics 프로세스 자동화
 [Microsoft Flow](https://ms.flow.microsoft.com)를 사용하면 다양한 서비스에 수백 가지 작업을 통해 자동화된 워크플로를 만들 수 있습니다. 한 작업의 출력을 서로 다른 서비스 간의 통합을 만들 수 있는 다른 작업에 대한 입력으로 사용할 수 있습니다.  Microsoft Flow에 대한 Azure Log Analytics 커넥터를 사용하면 Log Analytics의 로그 검색으로 검색한 데이터를 포함하는 워크플로를 빌드할 수 있습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "48041989"
 
 
 ## <a name="step-1-create-a-flow"></a>1단계: 흐름 만들기
-1. [Microsoft Flow](http://flow.microsoft.com)에 로그인하고 **내 흐름**을 선택합니다.
+1. [Microsoft Flow](https://flow.microsoft.com)에 로그인하고 **내 흐름**을 선택합니다.
 2. **+빈 페이지에서 만들기**를 클릭합니다.
 
 ## <a name="step-2-create-a-trigger-for-your-flow"></a>2단계: 흐름에 대한 트리거 만들기
@@ -79,7 +79,7 @@ ms.locfileid: "48041989"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics의 로그 검색](log-analytics-log-search-new.md)에 대해 자세히 알아보세요.
+- [Log Analytics의 로그 검색](log-analytics-queries.md)에 대해 자세히 알아보세요.
 - [Microsoft Flow](https://ms.flow.microsoft.com)에 대해 자세히 알아봅니다.
 
 
