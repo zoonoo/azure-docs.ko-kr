@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/13/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 6e15fee02fd001bddd25a19b8a9420eb899d4f85
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978675"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623981"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack의 진단 도구
 
@@ -70,12 +70,10 @@ if($s)
     Remove-PSSession $s
 }
 ```
+- 매개 변수 **OutputSharePath** 하 고 **OutputShareCredential** 사용자 지정 로그를 저장 하는 데 사용 된 위치.
+- 합니다 **FromDate** 하 고 **ToDate** 특정 기간에 대 한 로그를 수집 하려면 매개 변수를 사용할 수 있습니다. 이러한 매개 변수를 지정 하지 않으면 로그는 기본적으로 지난 4 시간 동안 수집 됩니다.
 
-- 매개 변수 **OutputSharePath** 하 고 **OutputShareCredential** 외부 공유 폴더에 로그를 업로드 하는 데 사용 됩니다.
-- 이전 예에서 같이 합니다 **FromDate** 하 고 **ToDate** 특정 기간에 대 한 로그를 수집 하려면 매개 변수를 사용할 수 있습니다. 이 수 유용 하 게 통합된 된 시스템에 업데이트 패키지를 적용 한 후 로그를 수집 하는 등의 시나리오에 대 한 합니다.
 
-
- 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Azure Stack 개발 키트 ASDK () 시스템에서 Get-AzureStackLog를 실행 하려면
 1. 으로 로그인 **AzureStack\CloudAdmin** 호스트 합니다.
 2. 관리자 권한으로 PowerShell 창을 엽니다.
@@ -111,15 +109,17 @@ if($s)
 
 - 경우는 **FromDate** 하 고 **ToDate** 매개 변수는 지정 하지 않으면 로그는 기본적으로 지난 4 시간 동안 수집 됩니다.
 - 사용 된 **FilterByNode** 컴퓨터 이름으로 로그를 필터링 하려면 매개 변수입니다. 예: 
-```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
-```
+
+    ```powershell
+    Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
+    ```
 - 사용 된 **FilterByLogType** 매개 변수 형식으로 로그를 필터링 합니다. 파일, 공유 또는 WindowsEvent로 필터링 하도록 선택할 수 있습니다. 예: 
-```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
-```
+
+    ```powershell
+    Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
+    ```
 - 사용할 수는 **TimeOutInMinutes** 매개 변수 로그 컬렉션에 대 한 제한 시간을 설정 합니다. 기본적으로 150 (2.5 시간)에 설정 됩니다.
-- 덤프 파일 로그 수집 1805 이상 버전에서는 기본적으로 비활성화 됩니다. 기능을 사용 하려면 사용 합니다 **IncludeDumpFile** 스위치 매개 변수입니다. 
+- 덤프 파일 로그 컬렉션은 기본적으로 비활성화 됩니다. 기능을 사용 하려면 사용 합니다 **IncludeDumpFile** 스위치 매개 변수입니다. 
 - 현재 사용할 수는 **FilterByRole** 다음 역할에 의해 필터 로그 컬렉션에 대 한 매개 변수:
 
  |   |   |   |    |

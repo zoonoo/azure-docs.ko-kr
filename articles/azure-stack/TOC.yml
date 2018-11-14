@@ -299,6 +299,8 @@ items:
         href: azure-stack-app-service-release-notes-update-two.md
       - name: App Service에서 Azure Stack 업데이트 3 릴리스 정보
         href: azure-stack-app-service-release-notes-update-three.md
+      - name: App Service에서 Azure Stack 업데이트 4 릴리스 정보
+        href: azure-stack-app-service-release-notes-update-four.md
   - name: 계획, 제안 및 할당량 만들기
     items:
     - name: 계획, 제안, 할당량 및 구독 개요
@@ -388,9 +390,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: 교육 및 인증
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 60487f16002df5a55d2859a14ec34559acd5cd5f
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b68cebd2d6e2a7965eef61bf35c50824f7102c8e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578155"
+ms.locfileid: "51614755"

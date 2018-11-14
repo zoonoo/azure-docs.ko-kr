@@ -11,21 +11,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: fcbc924675a97a17b4fcfdf0e1ac39ad5aae9ffd
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e8a75afe2c7dbe91c7c98d0d35c319088f40748f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218511"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612681"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Azure Stack의 Azure App Service를 업데이트 합니다.
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!IMPORTANT]  
-> Azure Stack 통합 시스템 1807 업데이트를 적용 하거나 Azure 앱 서비스 1.3을 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다.
+> Azure Stack 통합 시스템 1809 업데이트를 적용 하거나 Azure 앱 서비스 1.4를 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다.
 >
 >
 
@@ -33,7 +33,6 @@ ms.locfileid: "51218511"
 
 > [!IMPORTANT]  
 > 업그레이드를 실행 하기 전에 이미 완료 되었는지 확인 합니다 [Azure Stack 리소스 공급자에서 Azure App Service 배포](azure-stack-app-service-deploy.md)
-
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>App Service 리소스 공급자 설치 관리자를 실행 합니다.
 
@@ -53,7 +52,7 @@ ms.locfileid: "51218511"
 
 Azure Stack에서 App Service의 배포를 업그레이드 하려면 다음이 단계를 수행 합니다.
 
-1. 다운로드는 [App Service 설치 관리자](https://aka.ms/appsvcupdate3installer)
+1. 다운로드는 [App Service 설치 관리자](https://aka.ms/appsvcupdate4installer)
 
 2. Appservice.exe 관리자 권한으로 실행
 
@@ -65,7 +64,7 @@ Azure Stack에서 App Service의 배포를 업그레이드 하려면 다음이 �
 
 5. 검토 및 제 3 자 사용 조건에 동의 하 고, 클릭 **다음**합니다.
 
-6. 확인 된 Azure Stack Azure Resource Manager 끝점 및 Active Directory 테 넌 트 정보가 올바른지 합니다. 기본 설정을 사용 하는 Azure Stack 개발 키트 배포 하는 동안 경우 여기에서 기본 값을 수락 수 있습니다. 그러나 옵션을 사용자 지정 된 Azure Stack을 배포 하는 경우를 반영 하도록이 창에서 값을 편집 해야 합니다. 예를 들어, 도메인 접미사를 사용 하는 경우 *mycloud.com*, Azure Stack Azure Resource Manager 끝점을 변경 해야 *management.region.mycloud.com*합니다. 귀하의 정보를 확인 한 후 클릭 **다음**합니다.
+6. 확인 된 Azure Stack Azure Resource Manager 끝점 및 Active Directory 테 넌 트 정보가 올바른지 합니다. 기본 설정을 사용 하는 Azure Stack 개발 키트 배포 하는 동안 경우 여기에서 기본 값을 수락 수 있습니다. 그러나 Azure Stack을 배포한 경우 옵션을 사용자 지정한 경우이 창에서 값을 편집 해야 합니다. 예를 들어, 도메인 접미사를 사용 하는 경우 *mycloud.com*, Azure Stack Azure Resource Manager 끝점을 변경 해야 *management.region.mycloud.com*합니다. 귀하의 정보를 확인 한 후 클릭 **다음**합니다.
 
     ![Azure Stack 클라우드 정보][2]
 
@@ -76,7 +75,7 @@ Azure Stack에서 App Service의 배포를 업그레이드 하려면 다음이 �
         * Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예를 들어 *cloudadmin@azurestack.local*입니다. 암호를 입력 하 고 클릭 **로그인**합니다.
    2. 에 **Azure Stack 구독** 상자를 선택 합니다 **공급자 구독 기본**.
    3. 에 **Azure Stack 위치** 상자에서 배포 하는 지역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure Stack 개발 키트를 배포 합니다.
-   4. 기존 App Service 배포를 검색 하는 경우 다음 리소스 그룹 및 저장소 계정은 채울 되며 회색으로 표시 합니다.
+   4. 기존 App Service 배포 감지 되 면 다음 리소스 그룹 및 저장소 계정은 채울 되며 회색으로 표시 합니다.
    5. 클릭 **다음** 업그레이드 요약을 검토 합니다.
 
     ![검색 하는 app Service 설치][3]

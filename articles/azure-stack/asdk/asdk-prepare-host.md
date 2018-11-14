@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: dd02dfe37a1566a3121b3571f72d964621330cd0
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b5314ce874c253151b88882b086257f96612c019
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647309"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615401"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>ASDK 호스트 컴퓨터를 준비 합니다.
 호스트 컴퓨터에는 ASDK를 설치할 수 있습니다, 전에 ASDK 환경 설치에 대 한 준비 되어야 합니다. 개발 키트 호스트 컴퓨터 준비 되었으므로 ASDK 배포를 시작 하려면 CloudBuilder.vhdx 가상 컴퓨터 하드 드라이브에서 부팅 됩니다.
@@ -53,7 +53,7 @@ ms.locfileid: "49647309"
 
 6. 에 **선택적 설정을** 페이지에서 로컬 관리자에 게 제공 개발 키트 호스트 컴퓨터에 대 한 정보를 고려 하 고 클릭 **다음**합니다. 또한 다음 선택적 설정에 대 한 값을 제공할 수 있습니다.
   - **Computername**:이 옵션에는 개발 키트 호스트에 대 한 이름을 설정 합니다. 이름은은 FQDN 요구 사항을 준수 해야 하며 길이가 또는 15 자 여야 합니다. 기본값은 Windows에서 생성 된 임의의 컴퓨터 이름입니다.
-  - **고정 IP 구성을**: 고정 IP 주소를 사용 하도록 배포를 설정 합니다. 그렇지 않으면 설치 관리자는 cloudbuilder.vhx를 다시 부팅, 네트워크 인터페이스 DHCP를 사용 하 여 구성 됩니다.
+  - **고정 IP 구성을**: 고정 IP 주소를 사용 하도록 배포를 설정 합니다. 그렇지 않으면 설치 관리자는 cloudbuilder.vhdx를 다시 부팅, 네트워크 인터페이스 DHCP를 사용 하 여 구성 됩니다.
 
     ![](media/asdk-prepare-host/3.PNG)
 

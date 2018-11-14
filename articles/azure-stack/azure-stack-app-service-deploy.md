@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166885"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614058"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack에 App Service 리소스 공급자 추가
 
@@ -28,7 +28,7 @@ ms.locfileid: "49166885"
 Azure Stack에서 App Service를 배포 하려면이 문서의 지침을 사용 합니다.
 
 > [!IMPORTANT]  
-> Azure Stack 통합 시스템 1807 업데이트를 적용 하거나 Azure 앱 서비스 1.3을 배포 하기 전에 최신 Azure Stack 개발 키트 ASDK ()를 배포 합니다.
+> Azure Stack 통합 시스템 1809 업데이트를 적용 하거나 Azure 앱 서비스 1.4를 배포 하기 전에 최신 Azure Stack 개발 키트 ASDK ()를 배포 합니다.
 
 웹 및 API 응용 프로그램을 만드는 기능에 사용자를 제공할 수 있습니다. 를 사용자가 이러한 응용 프로그램을 만들 수 있도록 해야 합니다.
 
@@ -70,12 +70,12 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
     a. 선택 **Connect** 옆에 **Azure Stack 구독**합니다.
 
      - Azure Active Directory (Azure AD)를 사용 하는 경우 Azure AD 관리자 계정 및 Azure Stack을 배포할 때 제공한 암호를 입력 합니다. 선택 **로그인**합니다.
-     - Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local. 암호를 입력 한 다음 선택 **로그인**합니다.
+     - Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예: cloudadmin@azurestack.local 암호를 입력 한 다음 선택 **로그인**합니다.
 
    b. **Azure Stack 구독**를 선택 합니다 **공급자 구독 기본**입니다.
 
-     >[!NOTE]
-     >현재 App Service만에 배포할 수는 **기본 공급자 구독**합니다.
+     > [!IMPORTANT]  
+     > App Service **해야 합니다** 에 배포 합니다 **공급자 구독 기본**합니다.
 
    다. 에 **Azure Stack 위치**를 배포 하는 지역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure Stack 개발 키트를 배포 합니다.
 

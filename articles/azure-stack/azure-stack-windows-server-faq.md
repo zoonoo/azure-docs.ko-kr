@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 91404f01a1a675ac59898336ef8aa81e1d2638b6
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579234"
+ms.locfileid: "51613098"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace FAQ의에서 Windows Server
 
@@ -38,7 +38,7 @@ ms.locfileid: "51579234"
 Microsoft는 두 가지 버전의 Azure Stack Marketplace를 통해 Windows Server 이미지를 제공합니다.
 
 - **사용 하 여 비용을 지불**: 이러한 이미지 정 Windows 미터를 실행 합니다. 
-   사용자: 사용 하는 EA 고객은 *소비 청구 모델*; Csp에 게 SPLA 라이선스를 사용 하지 않으려는 합니다.
+   사용자: 사용 하는 EA (기업 계약) 고객은 *소비 청구 모델*; Csp에 게 SPLA 라이선스를 사용 하지 않으려는 합니다.
 - **Bring Your 자체 라이선스 (BYOL)**: 이러한 이미지는 기본 미터를 실행 합니다.
    사용자: EA 고객은 Windows Server 라이선스로; SPLA 라이선스를 사용 하는 Csp 합니다.
 
@@ -52,7 +52,7 @@ Marketplace 관리를 통해 잘못 된 버전을 먼저 삭제 합니다. 완�
 
 참조 [종 량 제도 혜택을 사용 하 여 Windows Server Vm으로 변환](../virtual-machines/windows/hybrid-use-benefit-licensing.md#powershell-1)합니다.
 
-### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-ea-entitlement"></a>그렇다면 이전 이미지 있고 시키거나 "있는데 라이선스" 상자에서 고유한 이미지를 사용 하 고 EA 자격 것을 확인 하려면 내 사용자를 잊으셨나요?
+### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>그렇다면 이전 이미지 있고 시키거나 "있는데 라이선스" 상자에서 고유한 이미지를 사용 하 고 기업 계약 자격 것을 확인 하려면 내 사용자를 잊으셨나요?
 
 참조 [Windows Server 용 Azure Hybrid Benefit을 사용 하 여 기존 VM 변환](../virtual-machines/windows/hybrid-use-benefit-licensing.md#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server)합니다. Azure 하이브리드 혜택은 Azure Stack이이 설정의 효과를 적용 되지 않습니다 적용 됩니다.
 
@@ -60,7 +60,7 @@ Marketplace 관리를 통해 잘못 된 버전을 먼저 삭제 합니다. 완�
 
 이러한 이미지 적용을 **licenseType** 매개 변수를 사용 하 여 요금이 부과 되기 때문입니다. 이 매개 변수를 설정할 수 있습니다 (이전 FAQ 참조 응답). 이 사용자 고유의 라이선스를 가져오도록 요구 하는 SQL, 등의 계층화 된 제품 필요가 Windows Server 소프트웨어에 적용 됩니다. 지불 라이선스 사용에 적용 되지 않습니다 계층화 된 소프트웨어 제품.
 
-### <a name="i-have-an-ea-and-i-create-my-own-images-how-do-i-make-sure-they-are-billed-correctly"></a>EA 있고 내 이미지를 만드나요 올바르게 요금이 청구 됩니다 되었는지 확인 하려면 어떻게 해야 합니까?
+### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>엔터프라이즈 규약 (EA) 했 고 내 EA Windows Server 라이선스 사용 이미지 올바르게 요금이 청구 됩니다 되었는지 확인 하려면 어떻게 해야 합니까?
 
 추가할 수 있습니다 **licenseType: Windows_Server** Azure Resource Manager 템플릿에서 합니다. 이 설정은 각 가상 머신 리소스 블록에 추가 되어야 합니다.
 

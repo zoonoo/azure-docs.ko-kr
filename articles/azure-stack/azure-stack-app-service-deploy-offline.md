@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718732"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614041"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS에서 보안이 유지 되는 연결이 끊긴된 Azure Stack 환경에는 App Service 리소스 공급자 추가
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
 > [!IMPORTANT]
-> Azure Stack 통합 시스템 1807 업데이트를 적용 하거나 Azure 앱 서비스 1.3을 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다.
+> Azure Stack 통합 시스템 1809 업데이트를 적용 하거나 Azure 앱 서비스 1.4를 배포 하기 전에 최신 Azure Stack 개발 키트를 배포 합니다.
 >
 >
 
@@ -84,8 +84,7 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
     2. 에 **Azure Stack 구독** 상자를 선택 합니다 **공급자 구독 기본**.
     
     > [!NOTE]
-    > App Service에 배포할 수 있습니다 합니다 **기본 공급자 구독** 지금은 합니다.  향후 업데이트에서 App Service는 Azure Stack 1804에 도입 된 새 계량 구독에 배포 하 고 기존의 모든 배포로 곧 마이그레이션될이 새 구독도 합니다.
-    >
+    > App Service에 배포할 수 있습니다 합니다 **기본 공급자 구독**합니다.
     >
     
     3. 에 **Azure Stack 위치** 상자에서 배포 하는 지역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure Stack 개발 키트를 배포 합니다.
@@ -170,7 +169,7 @@ App Service 리소스 공급자에 오프 라인 Azure Stack 배포를 추가 �
     ![App Service 설치 관리자][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core 지원 되는 플랫폼 이미지를 사용 하 여 Azure App Service on Azure Stack을 사용 하 여 아닙니다.  프로덕션 배포에 대 한 평가판 이미지를 사용 하지 마세요.  Azure Stack의 azure App Service 배포에 사용 되는 이미지에 microsoft.net 3.5.1 SP1 활성화 되는 필요 합니다.   Marketplace는 이미지에는이 기능을 사용할 수 없는 Windows Server 2016 게시 합니다.**
+    > **Windows Server 2016 Core 지원 되는 플랫폼 이미지를 사용 하 여 Azure App Service on Azure Stack을 사용 하 여 아닙니다.  프로덕션 배포에 대 한 평가판 이미지를 사용 하지 마세요.  Azure Stack의 azure App Service 배포에 사용 되는 이미지에 microsoft.net 3.5.1 SP1 활성화 되는 필요 합니다.   Marketplace 이미지에는이 기능을 사용할 수 없는 Windows Server 2016 신디케이티드를 만들고이 미리 활성화를 사용 하 여 Windows Server 2016 이미지를 사용 해야 하므로 합니다.**
 
 14. 에 **플랫폼 이미지 선택** 에서 App Service 클라우드를 위한 계산 리소스 공급자에서 사용할 수 있는 배포 Windows Server 2016 가상 머신 이미지를 선택 합니다. **다음**을 클릭합니다.
 
