@@ -70,6 +70,38 @@ items:
   expanded: true
 - name: 개념
   items:
+  - name: Azure Cosmos 계정 작업
+    href: account-overview.md
+  - name: 컨테이너 및 항목
+    items:
+    - name: 데이터베이스, 컨테이너 및 항목 작업
+      href: databases-containers-items.md
+    - name: 인덱싱
+      items:
+      - name: 개요
+        href: index-overview.md
+      - name: 인덱싱 정책
+        href: index-policy.md
+      - name: 인덱스 형식
+        href: index-types.md
+      - name: 인덱스 경로
+        href: index-paths.md
+    - name: 변경 피드
+      items:
+      - name: 개요
+        href: change-feed.md
+      - name: 변경 피드 읽기
+        href: read-change-feed.md
+      - name: 변경 피드 프로세서
+        href: change-feed-processor.md
+      - name: Azure Functions를 사용한 변경 피드
+        href: change-feed-functions.md
+    - name: TTL(Time to live)
+      href: time-to-live.md
+    - name: 고유 키 제약 조건
+      href: unique-keys.md
+    - name: 트랜잭션 및 낙관적 동시성
+      href: database-transactions-optimistic-concurrency.md
   - name: 리소스 모델
     href: sql-api-resources.md
   - name: 글로벌 분포
@@ -86,7 +118,7 @@ items:
       href: consistency-levels-tradeoffs.md
     - name: 고가용성
       href: high-availability.md
-    - name: 전역적으로 처리량 확장
+    - name: 전역적으로 프로비전된 처리량 크기 조정
       href: scaling-throughput.md
     - name: 충돌 해결 정책
       href: conflict-resolution-policies.md
@@ -106,14 +138,6 @@ items:
       href: request-units.md
     - name: 컨테이너 및 데이터베이스에 대한 처리량 프로비전
       href: set-throughput.md
-  - name: 인덱싱
-    href: indexing-policies.md
-  - name: 변경 피드
-    href: change-feed.md
-  - name: TTL(Time to live)
-    href: time-to-live.md
-  - name: 고유 키
-    href: unique-keys.md
   - name: 보안
     items:
     - name: 개요
@@ -122,9 +146,9 @@ items:
       href: database-encryption-at-rest.md
     - name: 데이터에 안전하게 액세스
       href: secure-access-to-data.md
-    - name: 방화벽 지원
+    - name: IP 방화벽
       href: firewall-support.md
-    - name: VNet 엔드포인트 설정
+    - name: 가상 네트워크에서 액세스
       href: vnet-service-endpoint.md
     - name: 키 자격 증명 모음 지원
       href: access-secrets-from-keyvault.md
@@ -393,6 +417,38 @@ items:
   expanded: true
 - name: 방법 가이드
   items:
+  - name: 데이터베이스 계정 관리
+    href: how-to-manage-database-account.md
+  - name: TTL(Time to Live) 구성
+    href: how-to-time-to-live.md
+  - name: 글로벌 분포
+    items:
+    - name: 일관성 관리
+      href: how-to-manage-consistency.md
+    - name: 충돌 관리
+      href: how-to-manage-conflicts.md
+  - name: 프로비전된 처리량
+    items:
+    - name: 컨테이너 처리량 프로비전
+      href: how-to-provision-container-throughput.md
+    - name: 데이터베이스 처리량 프로비전
+      href: how-to-provision-database-throughput.md
+  - name: 컨테이너 및 항목 작업
+    items:
+    - name: 컨테이너 만들기
+      href: how-to-create-container.md
+    - name: 컨테이너 쿼리
+      href: how-to-query-container.md
+  - name: 인덱싱
+    items:
+    - name: 인덱싱 구성
+      href: how-to-manage-indexing-policy.md
+  - name: 보안
+    items:
+    - name: IP 방화벽 구성
+      href: how-to-configure-firewall.md
+    - name: 가상 네트워크에서 액세스 구성
+      href: how-to-configure-vnet-service-endpoint.md
   - name: 관리
     items:
     - name: Powershell을 사용하여 관리
@@ -403,8 +459,6 @@ items:
       href: storage-explorer.md
     - name: 데이터 탐색기를 사용하여 관리
       href: data-explorer.md
-    - name: 계정 관리
-      href: manage-account.md
   - name: 로깅
     items:
     - name: 진단 로깅
@@ -427,26 +481,6 @@ items:
       href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Azure DevOps CI/CD 파이프라인 설정
     href: tutorial-setup-ci-cd.md
-  - name: 글로벌 분포
-    items:
-    - name: 데이터베이스 계정 관리
-      href: how-to-manage-database-account.md
-    - name: 일관성 관리
-      href: how-to-manage-consistency.md
-    - name: 충돌 관리
-      href: how-to-manage-conflicts.md
-  - name: 프로비전된 처리량
-    items:
-    - name: 컨테이너 처리량 프로비전
-      href: how-to-provision-container-throughput.md
-    - name: 데이터베이스 처리량 프로비전
-      href: how-to-provision-database-throughput.md
-  - name: 컨테이너 및 항목 작업
-    items:
-    - name: 컨테이너 만들기
-      href: how-to-create-container.md
-    - name: 컨테이너 쿼리
-      href: how-to-query-container.md
   - name: 모범 사례
     items:
     - name: 성능 팁
@@ -535,9 +569,9 @@ items:
       href: use-cases.md
     - name: 소셜 미디어 앱
       href: social-media-apps.md
-ms.openlocfilehash: 139bf5c5edfb808e912f2da07ea1bcab57636c55
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5301ed8dad542a03ddd7be617668db9b25417de6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244273"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622468"
