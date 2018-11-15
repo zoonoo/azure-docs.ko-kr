@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957424"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614954"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Log Analytics에서 Azure Alerts로 경고 확장
 Azure Log Analytics에서 경고 기능은 Azure Alerts로 바뀝니다. 이 전환의 일부로 Log Analytics에서 원래 구성된 경고를 Azure로 확장합니다. 해당 경고가 Azure로 자동으로 이동하는 것을 기다리지 않으려면 다음 프로세스를 시작하면 됩니다.
@@ -479,5 +479,5 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 
 ## <a name="next-steps"></a>다음 단계
 
-* 새 [Azure Alerts 환경](monitoring-overview-unified-alerts.md)에 대해 자세히 알아봅니다.
+* 새 [Azure Alerts 환경](monitoring-overview-alerts.md)에 대해 자세히 알아봅니다.
 * [Azure Alerts의 로그 경고](monitor-alerts-unified-log.md)에 대해 알아봅니다.

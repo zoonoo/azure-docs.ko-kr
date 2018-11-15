@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6599d634ec1e13715bdd34b6e8ab6fbd9f4f3e61
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742918"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011496"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>미리 보기: Azure AD 암호 보호 배포
 
@@ -53,6 +53,13 @@ ms.locfileid: "50742918"
 * 도메인 컨트롤러를 포함하여 Azure AD 암호 보호 구성 요소가 설치된 모든 머신에는 Universal C 런타임이 설치되어야 합니다.
 가급적 Windows Update를 통해 머신에 완벽하게 패치를 적용하여 완수합니다. 그렇지 않은 경우 적절한 OS 특정 업데이트 패키지가 설치될 수 있습니다 - [Windows의 Universal C 런타임 업데이트](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows) 참조
 * 각 도메인의 하나 이상의 도메인 컨트롤러와 Azure AD 암호 보호 프록시 서비스를 호스팅하는 하나 이상의 서버간에 네트워크 연결이 존재해야 합니다. 이 연결을 통해 도메인 컨트롤러가 프록시 서비스의 RPC 엔드포인트 매퍼 포트(135) 및 RPC 서버 포트에 액세스할 수 있어야 합니다.  RPC 서버 포트는 기본적으로 동적 RPC 포트이지만 정적 포트를 사용하도록 구성될 수 있습니다(아래 참조).
+* Azure AD 암호 보호 프록시 서비스를 호스팅하는 모든 머신은 다음 엔드포인트에 대한 네트워크 액세스 권한이 있어야 합니다.
+
+    |엔드포인트 |목적|
+    | --- | --- |
+    |`https://login.microsoftonline.com`|인증 요청|
+    |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
+
 * Azure AD 암호 보호 프록시 서비스 및 포리스트를 Azure AD에 등록하기 위한 글로벌 관리자 계정
 * Windows Server Active Directory 포리스트를 Azure AD에 등록하기 위한 포리스트 루트 도메인의 Active Directory 도메인 관리자 권한이 있는 계정
 * DC 에이전트 서비스 소프트웨어를 실행하는 모든 Active Directory 도메인은 sysvol 복제에 DFSR을 사용해야 합니다.

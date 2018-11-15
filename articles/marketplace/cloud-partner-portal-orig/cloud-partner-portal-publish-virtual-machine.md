@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387364"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247078"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Azure Marketplace에 가상 머신 게시
 
@@ -37,7 +37,7 @@ Azure Marketplace에 가상 머신을 게시하는 데 적용되는 기술 및 �
 
 -   [이미지에서 Linux VM 만들기 및 시험](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Windows VHD 만들기 및 업로드](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Windows VHD 만들기 및 업로드 ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [이미지에서 Windows VM 만들기 및 시험](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -60,7 +60,7 @@ Azure Marketplace에 가상 머신을 게시하는 데 적용되는 기술 및 �
 
 -   Azure Marketplace 참가 정책 및 게시자 계약의 조건에 동의합니다.
 
--   [사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft 개인정보처리방침](http://www.microsoft.com/privacystatement/default.aspx) 및 [Microsoft Azure Certified 프로그램 계약](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)을 준수한다는 데 동의합니다.
+-   [사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft 개인정보처리방침](https://www.microsoft.com/privacystatement/default.aspx) 및 [Microsoft Azure Certified 프로그램 계약](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)을 준수한다는 데 동의합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -72,7 +72,7 @@ Azure 응용 프로그램 제안은 게시자가 제공하는 제품의 유형�
 
 **SKU**
 
-SKU는 제품의 가장 작은 구매 가능 단위입니다. SKU를 사용하면 동일한 제품 유형(제안) 내에서 지원되는 다양한 기능을 구분할 수 있습니다. 예를 들어 제안은 관리되거나 관리되지 않으며 다른 청구 모델이 지원됩니다.
+SKU는 제품의 가장 작은 구매 가능 단위입니다. SKU를 사용하면 동일한 제품 클래스(제안) 내에서 지원되는 다양한 기능을 구분할 수 있습니다. 예를 들어 제안은 관리되거나 관리되지 않으며 다른 청구 모델이 지원됩니다.
 
 여러 SKU를 추가하는 시나리오는 다음과 같습니다.
 - BYOL(사용자 라이선스 필요) 또는 PAYG(종량제)와 같은 다양한 청구 모델을 지원하려고 합니다.
@@ -96,11 +96,11 @@ SKU는 Azure Marketplace의 부모 제안 아래에 표시되고 Azure Portal에
     - 제품 설정
     - SKU
     - Marketplace
-    - [각 지원] 보기에는 사용자가 입력할 수 있는 일단의 필드가 있습니다. 필수 필드는 빨간색 별표(\*)로 표시됩니다.
+    - 각 지원 보기에는 사용자가 입력할 수 있는 여러 필드가 있습니다. 필수 필드는 빨간색 별표(\*)로 표시됩니다.
 
 ## <a name="to-configure-offer-settings"></a>제안 설정 구성
 
-1. [제안 설정]에서 다음 **제안 ID** 필드를 구성합니다.
+1. 제안 설정에서 다음 **제안 ID** 필드를 구성합니다.
 
     **제안 ID**
 
@@ -112,11 +112,11 @@ SKU는 Azure Marketplace의 부모 제안 아래에 표시되고 Azure Portal에
 
     게시자 프로필에 대한 드롭다운 목록입니다. 제안을 게시하려는 프로필을 선택합니다. 
     >[!Note]
-    >제안이 라이브 상태가 되면 이 필드가 잠깁니다.
+    >제품이 라이브 상태가 되면 이 필드가 잠깁니다.
 
     **Name**
 
-    제안에 대한 표시 이름입니다. 이 이름은 Azure Marketplace 및 Azure Portal에 표시됩니다. 최대 50문자를 포함할 수 있습니다. 제안 이름에 대해 다음 지침을 사용합니다.
+    제품의 표시 이름입니다. 이 이름은 Azure Marketplace 및 Azure Portal에 표시됩니다. 최대 50문자를 포함할 수 있습니다. 제안 이름에 대해 다음 지침을 사용합니다.
     -  제품의 인식 가능한 브랜드 이름을 포함합니다. 
     - 마케팅 방식의 제안인 경우에만 여기에 회사 이름을 포함합니다.
     - 자신의 웹 사이트에서 이 제안을 마케팅하는 경우 이름이 웹 사이트의 이름과 동일한지 확인합니다.
@@ -211,7 +211,7 @@ SKU에 대해 코어당 가격을 설정할 수 있습니다. 이를 위해 고�
 
 >[!IMPORTANT]
 >-   제안이 라이브 상태가 되면 가격을 변경할 수 없습니다. 그러나 지원되는 지역은 여전히 추가하거나 제거할 수 있습니다.
->-   이 가격은 [Azure\'의 가상 머신 가격](http://aka.ms/vmpricingdetails)에 더하여 사용자에게 청구됩니다.
+>-   이 가격은  [Azure\'의 가상 머신 가격](https://aka.ms/vmpricingdetails)에 더하여 사용자에게 청구됩니다.
 >-   가격은 가격 설정 당시의 사용 가능한 환율을 사용하여 모든 지역에 대해 현지 통화로 설정됩니다.
 >-   각 지역의 가격을 개별적으로 설정하거나 확인하려면 가격 책정 스프레드시트를 내보내고 사용자 지정 가격으로 가져옵니다.
 
@@ -225,7 +225,7 @@ SKU에 대해 코어당 가격을 설정할 수 있습니다. 이를 위해 고�
 
 -   [이미지에서 Linux VM 만들기 및 시험](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Windows VHD 만들기 및 업로드](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Windows VHD 만들기 및 업로드 ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [이미지에서 Windows VM 만들기 및 시험](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -284,7 +284,7 @@ VM 이미지 버전은 [의미 체계 버전](http://semver.org/) 형식을 따�
 | 이미지 복사 중 오류 – SAS URL 권한 부여 오류               | 오류: 이미지 복사 권한 부여 오류로 인해 Blob을 다운로드할 수 없습니다.     | SAS URL 다시 생성                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
 
 
-## <a name="to-configure-the-marketplace"></a>Marketplace 구성
+## <a name="to-configure-the-marketplace"></a>Marketplace를 구성하려면
 
 Marketplace 보기를 사용하여 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Azure Portal](https://portal.azure.com/)에서 제안에 대해 표시되는 필드를 구성합니다.
 
@@ -326,7 +326,7 @@ Cloud 파트너 포털에 업로드되는 로고에 대해 다음 지침을 따�
 
 -   Azure 디자인은 단순한 색 팔레트를 사용합니다. 로고의 기본 색상과 보조 색상 수는 적게 유지합니다.
 
--   Azure 포털의 테마 색은 흰색과 검은색입니다. 이러한 색은 로고의 배경색으로 사용하지 않습니다. Azure Portal에서 로고가 돋보이도록 하는 색을 사용합니다. 간단한 기본 색을 사용하는 것이 좋습니다.
+-   Azure 포털의 테마 색은 흰색과 검은색입니다. 로고의 배경색으로는 이러한 색을 사용하지 마세요. Azure Portal에서 로고가 돋보이도록 하는 색을 사용합니다. 간단한 기본 색을 사용하는 것이 좋습니다.
 
     >[!Note] 
     >투명한 배경을 사용하는 경우 로고/텍스트가 흰색, 검은색 또는 파란색이 아닌지 확인합니다.
@@ -343,7 +343,7 @@ Cloud 파트너 포털에 업로드되는 로고에 대해 다음 지침을 따�
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>대표 로고 아이콘에 대한 지침
 
--   게시자 표시 이름, 계획 제목 및 자세한 제안 요약은 흰색 글꼴로 표시됩니다. 밝은 색 배경은 사용하지 않습니다. 대표 아이콘에는 검은색, 흰색 및 투명한 배경이 허용되지 않습니다.
+-   게시자 표시 이름, 계획 제목 및 자세한 제안 요약은 흰색 글꼴로 표시됩니다. 밝은색 배경은 사용하지 않습니다. 대표 아이콘에는 검은색, 흰색 및 투명한 배경이 허용되지 않습니다.
 
 -   제안이 나열되면 게시자 표시 이름, 계획 제목, 자세한 제안 요약 및 [만들기] 단추가 대표 로고 내에 프로그래밍 방식으로 포함됩니다. 대표 로고를 디자인할 때 텍스트는 입력하지 않습니다. 로고의 오른쪽에 빈 공간을 남겨 둡니다. 이 공간은 415 x 100픽셀이어야 하며 왼쪽에서 370픽셀만큼 오프셋됩니다.
 
@@ -355,11 +355,11 @@ Cloud 파트너 포털에 업로드되는 로고에 대해 다음 지침을 따�
 
 ## <a name="to-configure-support"></a>지원 구성
 
-[지원] 보기를 사용하여 다음 정보를 제공합니다.
+지원 보기를 사용하여 다음 정보를 제공합니다.
 
 - 엔지니어링과 같은 회사의 기술 지원 담당자
 - 고객 지원 담당자
 
-## <a name="to-publish-the-offer"></a>제안 게시
+## <a name="to-publish-the-offer"></a>제안을 게시하려면
 
 마지막 단계는 제안을 게시하는 것입니다. [여기의 지침에 따라 제안을 라이브로 전환](./cloud-partner-portal-make-offer-live-on-azure-marketplace.md)하세요.

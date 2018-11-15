@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987616"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228134"
 ---
 # <a name="analyzing-video-and-audio-files"></a>비디오 및 오디오 파일 분석
 
@@ -27,18 +27,27 @@ Media Services v3 사전 설정을 사용하여 콘텐츠를 분석하려면 **T
 > [!NOTE]
 > 비디오 또는 오디오 분석기 사전 설정을 사용할 때는 Azure Portal을 통해 S3 미디어 예약 10단위를 갖도록 계정을 설정합니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요.
 
-## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+## <a name="built-in-presets"></a>기본 제공 미리 설정
 
-**AudioAnalyzerPreset**를 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 대본의 VTT 파일과 JSON 파일(모든 인사이트 포함)이 포함됩니다. 이 사전 설정은 입력 파일의 언어를 [BCP47](https://tools.ietf.org/html/bcp47) 문자열의 형태로 지정하는 속성을 허용합니다. 오디오 인사이트는 다음 정보를 포함합니다.
+Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정은 다음과 같습니다.  
+
+|**미리 설정 이름**|**시나리오**|**세부 정보**|
+|---|---|---|
+|**AudioAnalyzerPreset**|오디오 분석|미리 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 집합을 적용합니다. 현재 미리 설정은 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다.<br/>BCP-47 형식의 'language tag-region'(예: 'en-US')을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원되는 언어 목록은 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'입니다.|
+|**VideoAnalyzerPreset**|오디오 및 비디오 분석|오디오 및 비디오 모두에서 통찰력(풍부한 메타데이터)을 추출하고 JSON 형식 파일을 출력합니다. 비디오 파일을 처리할 때 오디오 통찰력만 추출할지 여부를 지정할 수 있습니다. 자세한 내용은 [비디오 분석](analyze-videos-tutorial-with-api.md)을 참조하세요.|
+
+### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+
+미리 설정을 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 대본의 VTT 파일과 JSON 파일(모든 인사이트 포함)이 포함됩니다. 이 사전 설정은 입력 파일의 언어를 [BCP47](https://tools.ietf.org/html/bcp47) 문자열의 형태로 지정하는 속성을 허용합니다. 오디오 인사이트는 다음 정보를 포함합니다.
 
 * 오디오 전사 – 타임 스탬프가 있는 음성의 대본입니다. 여러 언어 지원
 * 화자 인덱싱 – 화자와 해당 음성의 매핑입니다.
 * 음성 감정 분석 - 오디오 전사에 대해 수행한 감정 분석 결과입니다.
 * 키워드 – 오디오 전사에서 추출한 키워드입니다.
 
-## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
+### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset**을 사용하면 비디오 파일에서 여러 개의 오디오 및 비디오 인사이트를 추출할 수 있습니다. 출력에는 JSON 파일(모든 인사이트 포함), 비디오 대본의 VTT 파일 및 썸네일 컬렉션이 포함됩니다. 이 사전 설정은 [BCP47](https://tools.ietf.org/html/bcp47) 문자열(비디오의 언어를 나타냄)을 속성으로 수락합니다. 비디오 인사이트에는 앞서 언급한 모든 오디오 인사이트와 다음과 같은 추가 항목이 포함됩니다.
+미리 설정을 사용하면 비디오 파일에서 여러 오디오 및 비디오 인사이트를 추출할 수 있습니다. 출력에는 JSON 파일(모든 인사이트 포함), 비디오 대본의 VTT 파일 및 썸네일 컬렉션이 포함됩니다. 이 사전 설정은 [BCP47](https://tools.ietf.org/html/bcp47) 문자열(비디오의 언어를 나타냄)을 속성으로 수락합니다. 비디오 인사이트에는 앞서 언급한 모든 오디오 인사이트와 다음과 같은 추가 항목이 포함됩니다.
 
 * 얼굴 추적 - 비디오에 얼굴이 있는 시간입니다. 얼굴마다 얼굴 ID와 해당 썸네일 컬렉션이 있습니다.
 * 시각적 텍스트 - 광학 문자 인식을 통해 감지된 텍스트입니다. 텍스트에는 타임스탬프가 지정되며 키워드(오디오 대본과 함께)를 추출하는 데 사용되기도 합니다.

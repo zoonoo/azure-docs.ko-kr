@@ -95,12 +95,11 @@
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # 리소스
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
+## [Azure 로드맵](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Data Lake Store 블로그](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [UserVoice에서 사용자 의견 제공](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [가격](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
-## [서비스 업데이트](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [스택 오버플로 포럼](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

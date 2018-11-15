@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 923a2a137bb4510e9490ce4077f744a43619a2c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165027"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010323"
 ---
 # <a name="dependency-visualization"></a>종속성 시각화
 
@@ -38,6 +38,12 @@ Azure Migrate는 종속성 시각화에 [Log Analytics](../log-analytics/log-ana
     ![Log Analytics 작업 영역 탐색](./media/concepts-dependency-visualization/oms-workspace.png)
 
 종속성 시각화를 사용하려면 분석할 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다.  
+
+- [MMA(Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)는 각 머신에 설치해야 합니다.
+- [종속성 에이전트](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)는 각 머신에 설치 해야 합니다.
+- 또한 인터넷에 연결되지 않은 머신이 있으면 Log Analytics 게이트웨이를 다운로드하여 설치해야 합니다.
+
+종속성 시각화를 사용하는 경우가 아니라면 평가하려는 머신에 이러한 에이전트가 필요하지는 않습니다.
 
 ## <a name="do-i-need-to-pay-for-it"></a>요금이 발생하나요?
 

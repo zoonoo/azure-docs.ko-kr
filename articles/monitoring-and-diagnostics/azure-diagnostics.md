@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: a40917ec24ede1107f7d8ae7f5fb2f0f03d1094c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7da75e052aaf36d0f59a5f23c28e42c0e4661b0a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278330"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615250"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure 진단 확장이란?
 Azure 진단 확장은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내의 에이전트입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. Azure Cloud Service(클래식) 웹 및 작업자 역할, Virtual Machines, 가상 머신 확장 집합 및 Service Fabric에서 현재 지원되고 있습니다. 다른 Azure 서비스에는 여러 진단 메서드가 있습니다. [Azure의 모니터링 개요](../azure-monitor/overview.md)를 참조하세요.
@@ -47,7 +47,7 @@ Azure 진단 확장은 다음과 같은 유형의 데이터를 수집할 수 있
 ### <a name="azure-monitor"></a>Azure Monitor
 Azure Monitor에 데이터를 보낼 수도 있습니다. 지금은 성능 카운터에만 이 싱크가 적용됩니다. 이 싱크를 통해 VM, VMSS 또는 클라우드 서비스에 수집된 성능 카운터를 Azure Monitor에 사용자 지정 메트릭으로 보낼 수 있습니다. Azure Monitor 싱크는 다음을 지원합니다.
 * [Azure Monitor 메트릭 API](https://docs.microsoft.com/rest/api/monitor/)를 통해 Azure Monitor로 보낸 모든 성능 카운터 검색
-* Azure Monitor의 새로운 [통합 경고 환경](monitoring-overview-unified-alerts.md)을 통해 Azure Monitor로 보낸 모든 성능 카운터에 대해 경고
+* Azure Monitor의 새로운 [통합 경고 환경](monitoring-overview-alerts.md)을 통해 Azure Monitor로 보낸 모든 성능 카운터에 대해 경고
 * 성능 카운터의 와일드카드 연산자를 메트릭에 대한 “인스턴스” 차원으로 처리.  예를 들어 “LogicalDisk(\*)/DiskWrites/sec” 카운터를 수집한 경우 “인스턴스” 차원을 기준으로 필터링 및 분할하여 VM의 각 논리 디스크(C:, D: 등)에 대해 Disk Writes/sec를 그리거나 경고할 수 있습니다.
 
 이 싱크를 구성하는 방법을 자세히 알아보려면 [Azure 진단 스키마 설명서](azure-diagnostics-schema-1dot3-and-later.md)를 참조하세요.

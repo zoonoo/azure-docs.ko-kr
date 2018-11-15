@@ -2,18 +2,18 @@
 title: Azure Storage Blob에 대한 변경 불가능한 저장소 | Microsoft Docs
 description: Azure Storage는 사용자가 지정한 간격 동안 지울 수 없고 수정할 수 없는 상태로 데이터를 저장할 수 있게 하는 Blob(개체) 저장소에 대한 WORM(Write Once, Read Many) 지원을 제공합니다.
 services: storage
-author: MichaelHauss
+author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: mihauss
+ms.date: 11/05/2018
+ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 38e34391294e1a070d506583fbc30dcdb703bea0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156904"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037003"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Azure Blob Storage에 중요 비즈니스용 데이터 저장
 
@@ -194,7 +194,7 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소를 지원하는 클
 
 **기능을 경험해 볼 수 있는 평가판 또는 유예 기간이 제공되나요?**
 
-예. 시간 기준 보존 정책을 처음으로 만들면 해당 정책은 *잠금* 상태가 됩니다. 이 상태에서는 필요에 따라 보존 간격을 변경할 수 있습니다. 즉 해당 정책을 늘리거나 줄이고, 심지어 삭제할 수도 있습니다. 정책이 잠긴 후에는 삭제되지 않도록 잠금 상태를 영구적으로 유지합니다. 또한 정책이 잠기면 더 이상 보존 기간을 줄일 수 있습니다. *잠금 해제* 상태는 기능 평가 목적으로만 사용하고, 24 시간 내에 해당 정책을 잠그는 것이 좋습니다. 이러한 사례는 SEC 17a-4(f) 및 기타 규정을 준수하는 데 도움이 됩니다.
+예. 시간 기준 보존 정책을 처음으로 만들면 해당 정책은 *잠금* 상태가 됩니다. 이 상태에서는 필요에 따라 보존 간격을 변경할 수 있습니다. 즉 해당 정책을 늘리거나 줄이고, 심지어 삭제할 수도 있습니다. 정책을 잠근 후에는 보존 간격이 만료될 때까지 잠금 상태가 유지됩니다. 이렇게 하면 보존 간격의 삭제 및 수정을 방지할 수 있습니다. *잠금 해제* 상태는 기능 평가 목적으로만 사용하고, 24 시간 내에 해당 정책을 잠그는 것이 좋습니다. 이러한 사례는 SEC 17a-4(f) 및 기타 규정을 준수하는 데 도움이 됩니다.
 
 **국가 및 정부 클라우드에서 이 기능을 사용할 수 있나요?**
 

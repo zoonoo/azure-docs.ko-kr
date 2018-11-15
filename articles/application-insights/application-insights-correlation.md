@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341126"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280166"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -66,7 +66,7 @@ STOCKS API라는 외부 API를 사용하여 주식의 현재 시가를 보여 �
 
 ## <a name="correlation-headers"></a>상관 관계 헤더
 
-현재 [correlation HTTP protocol](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md)(상관 관계 HTTP 프로토콜)에 대한 RFC 제안 작업을 진행하고 있습니다. 이 제안은 다음 두 가지 헤더를 정의합니다.
+현재 [correlation HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)(상관 관계 HTTP 프로토콜)에 대한 RFC 제안 작업을 진행하고 있습니다. 이 제안은 다음 두 가지 헤더를 정의합니다.
 
 - `Request-Id`는 호출의 전체적으로 고유한 ID를 전달합니다.
 - `Correlation-Context` - 분산 추적 속성의 이름-값 쌍 컬렉션을 전달합니다.
@@ -77,7 +77,7 @@ Application Insights에서는 상관 관계 HTTP 프로토콜에 대한 [extensi
 
 ### <a name="w3c-distributed-tracing"></a>W3C 분산 추적
 
-(W3C 분산 추적 형식)[https://w3c.github.io/distributed-tracing/report-trace-context.html]으로 전환하고 있습니다. 정의:
+[W3C 분산 추적 서식](https://w3c.github.io/trace-context/)으로 전환하고 있습니다. 정의:
 - `traceparent` - 전역적으로 고유한 작업 ID와 호출의 고유 식별자를 전달합니다.
 - `tracestate` - 추적 시스템에 대한 특정 컨텍스트를 전달합니다.
 
@@ -156,7 +156,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-[장치 컨텍스트 클래스](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context)를 통해(이 원격 분석 항목에만 태그 지정)
+[장치 컨텍스트 클래스](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context)를 통해(이 원격 분석 항목에만 태그 지정)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7eacc475145dac61db1717f1860e22cedd022262
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215483"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231450"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>모델을 교육하기 위한 계산 대상의 선택 및 사용
 
@@ -463,7 +463,7 @@ run_config.auto_prepare_environment = True
 * `Pipeline` 개체 제출
 
 > [!IMPORTANT]
-> Azure Databricks, Azure Datalake Analytics 및 Azure HDInsight 계산 대상은 파이프라인에서만 사용할 수 있습니다.
+> Azure Databricks 및 Azure Datalake Analytics 계산 대상은 파이프라인에서만 사용할 수 있습니다.
 > 로컬 계산 대상은 파이프라인에서 사용할 수 없습니다.
 
 ### <a name="submit-using-scriptrunconfig"></a>`ScriptRunConfig`를 사용하여 제출
@@ -591,7 +591,7 @@ Azure Portal에서 작업 영역과 연결된 계산 대상을 살펴볼 수 있
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Machine Learning SDK 참조](http://aka.ms/aml-sdk)
+* [Azure Machine Learning SDK 참조](https://aka.ms/aml-sdk)
 * [자습서: 모델 교육](tutorial-train-models-with-aml.md)
 * [모델 배포 위치](how-to-deploy-and-where.md)
 * [Azure Machine Learning 서비스를 사용하여 기계 학습 파이프라인 빌드](concept-ml-pipelines.md)

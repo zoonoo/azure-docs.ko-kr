@@ -2,19 +2,19 @@
 title: Windows 컨테이너를 사용하여 Windows에 Azure IoT Edge를 설치하는 방법 | Microsoft Docs
 description: Windows 컨테이너를 사용하여 Windows에 Azure IoT Edge 설치 지침
 author: kgremban
-manager: timlt
+manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: d85355b50bad9f05acc7da92d763d011e6f807b6
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: e6edc9d6e98c03b1a5847dc08bbaa3ad029aa673
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741082"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565040"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
 

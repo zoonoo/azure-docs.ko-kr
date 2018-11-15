@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299103"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256428"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Application Insights 프로세스 자동화
 
@@ -34,7 +34,7 @@ ms.locfileid: "44299103"
 이 자습서에서는 Analytics autocluster 알고리즘을 사용하여 웹 응용 프로그램에 대한 데이터에서 특성을 그룹화하는 흐름을 만드는 방법을 알아봅니다. 흐름은 자동으로 메일을 통해 결과를 보내며, 이는 Microsoft Flow 및 Application Insights Analytics를 함께 사용하는 방법의 한 가지 예일 뿐입니다. 
 
 ### <a name="step-1-create-a-flow"></a>1단계: 흐름 만들기
-1. [Microsoft Flow](http://flow.microsoft.com)에 로그인한 다음 **My Flows**(내 흐름)를 선택합니다.
+1. [Microsoft Flow](https://flow.microsoft.com)에 로그인한 다음 **My Flows**(내 흐름)를 선택합니다.
 1. **빈 곳에서 흐름 만들기**를 클릭합니다.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>2단계: 흐름에 대한 트리거 만들기
@@ -85,7 +85,7 @@ ms.locfileid: "44299103"
 
 1. **새 단계**를 클릭한 다음 **작업 추가**를 클릭합니다.
 1. **Office 365 Outlook**을 검색합니다.
-1. **Office 365 Outlook – 메일 보내기**를 클릭합니다.
+1. **Office 365 Outlook - 이메일 보내기**를 클릭합니다.
 
     ![Office 365 Outlook 선택 창](./media/app-insights-automate-with-flow/flow2b.png)
 
@@ -125,7 +125,7 @@ ms.locfileid: "44299103"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Analytics 쿼리](app-insights-analytics-using.md) 만들기에 대해 자세히 알아봅니다.
+- [Analytics 쿼리](../log-analytics/query-language/get-started-queries.md) 만들기에 대해 자세히 알아봅니다.
 - [Microsoft Flow](https://ms.flow.microsoft.com)에 대해 자세히 알아봅니다.
 
 

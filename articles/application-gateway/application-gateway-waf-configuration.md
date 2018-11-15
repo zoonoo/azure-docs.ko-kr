@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: 12115770959c3869184f0af78c4feba2fd6f2be4
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f89841c7712737d2d55601c6525e975274b4a103
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984896"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036720"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록(공개 미리 보기)
 
@@ -30,25 +30,34 @@ Azure Application Gateway WAF(웹 응용 프로그램 방화벽)는 웹 응용 �
 - KB 단위로 지정되는 최대 요청 본문 크기 필드는 파일 업로드를 제외한 전체 요청 크기 제한을 제어합니다. 이 필드에는 1KB~128KB 사이의 값을 지정할 수 있습니다. 요청 본문 크기의 기본값은 128KB입니다.
 - MB 단위로 지정되는 파일 업로드 제한 필드는 허용되는 최대 파일 업로드 크기를 제어합니다. 이 필드에는 1MB~500MB 사이의 값을 지정할 수 있습니다. 파일 업로드 제한의 기본값은 100MB입니다.
 
-WAF는 요청 본문 검사를 설정하거나 해제할 수 있는 구성 가능한 노브도 제공합니다. 요청 본문 검사는 기본적으로 사용됩니다. 요청 본문 검사를 해제하면 WAF는 HTTP 메시지 본문의 내용을 평가하지 않습니다. 이러한 경우에도 헤더, 쿠키 및 URI에는 WAF 규칙이 계속 적용됩니다. 요청 본문 검사를 해제하는 경우에는 최대 요청 본문 크기 필드가 적용되지 않으며 설정할 수 없습니다. 요청 본문 검사를 해제하면 128KB보다 큰 메시지를 WAF로 전송할 수 있습니다. 그러나 메시지 본문에서 취약성을 검사하지는 않습니다.
+WAF는 요청 본문 검사를 설정하거나 해제할 수 있는 구성 가능한 노브도 제공합니다. 요청 본문 검사는 기본적으로 사용됩니다. 요청 본문 검사를 해제하면 WAF는 HTTP 메시지 본문의 내용을 평가하지 않습니다. 이러한 경우에도 헤더, 쿠키 및 URI에는 WAF 규칙이 계속 적용됩니다. 요청 본문 검사를 해제하는 경우에는 최대 요청 본문 크기 필드가 적용되지 않으며 설정할 수 없습니다. 요청 본문 검사를 해제하면 128KB보다 큰 메시지를 WAF로 전송할 수 있지만 메시지 본문에서 취약성을 검사하지는 않습니다.
 
 ## <a name="waf-exclusion-lists"></a>WAF 제외 목록
 
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
 사용자는 WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다. 이러한 특성은 WAF 규칙에서 가양성을 트리거할 수 있는 특수 문자를 포함하는 경우가 많습니다. WAF 제외 목록에 추가된 특성은 구성된 활성 WAF 규칙에서 고려되지 않습니다. 제외 목록의 범위는 전역입니다.
-요청 헤더, 요청 본문, 요청 쿠키 또는 요청 쿼리 문자열 인수를 WAF 제외 목록에 추가할 수 있습니다. 본문에 양식 데이터 또는 XML/JSON(키 값 쌍)이 있으면 요청 특성 제외 유형을 사용할 수 있습니다.
+
+제외 목록에 다음 특성을 추가할 수 있습니다.
+
+* 요청 헤더
+* 요청 쿠키
+* 요청 본문
+
+   * 다중 파트 데이터 양식
+   * XML
+   * JSON
 
 정확히 일치하는 요청 헤더, 본문, 쿠키 또는 쿼리 문자열 특성을 지정할 수도 있고 필요한 경우 부분 일치를 지정할 수도 있습니다.
 
 지원되는 일치 기준 연산자는 다음과 같습니다.
 
-- **equals**: 정확한 일치에 사용됩니다. 예를 들어 **bearerToken**라는 헤더를 선택하려면 선택기가 **bearerToken**로 설정된 equals 연산자를 사용합니다.
-- **starts with**: 지정된 선택기 값으로 시작하는 모든 필드를 일치 항목으로 반환합니다. 
-- **ends with**: 지정된 선택기 값으로 끝나는 모든 요청 필드를 일치 항목으로 반환합니다. 
-- **contains**: 지정된 선택기 값을 포함하는 모든 요청 필드를 일치 항목으로 반환합니다.
+- **equals**: 정확한 일치에 사용됩니다. 예를 들어 **bearerToken**이라는 헤더를 선택하는 경우 선택기가 **bearerToken**으로 설정된 equals 연산자를 사용합니다.
+- **starts with**: 이 연산자는 지정된 선택기 값으로 시작하는 모든 필드와 일치합니다.
+- **ends with**: 이 연산자는 지정된 선택기 값으로 끝나는 모든 요청 필드와 일치합니다.
+- **contains**: 이 연산자는 지정된 선택기 값을 포함하는 모든 요청 필드와 일치합니다.
 
-어떤 경우든 일치에서는 대/소문자를 구분하지 않으며, 정규식은 선택기로 사용할 수 없습니다.
+어떤 경우에서든 일치는 대/소문자를 구분하지 않으며, 정규식은 선택기로 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

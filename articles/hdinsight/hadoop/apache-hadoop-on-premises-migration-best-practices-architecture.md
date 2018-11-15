@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 02db6b4691beb4bfefa3815c87cf54f350219d81
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 62e15b5845ed9faa605f978f0d2fd427c9c3ee9b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418010"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008184"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 아키텍처 모범 사례
 
@@ -104,7 +104,7 @@ HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. 
 - 사용자 지정 metastore를 정기적으로 백업합니다.
 - metastore와 HDInsight 클러스터를 동일한 영역에 유지합니다.
 - Azure Portal 또는 Azure Log Analytics와 같은 Azure SQL Database 모니터링 도구를 사용하여 성능 및 가용성 확인을 위해 metastore를 모니터링합니다.
-- 필요에 따라 **ANALYZE TABLE** 명령을 실행하여 테이블 및 열에 대한 통계를 생성합니다. 예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- 필요에 따라 **ANALYZE TABLE** 명령을 실행하여 테이블 및 열에 대한 통계를 생성합니다. 예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
 
 ## <a name="best-practices-for-different-types-of-workloads"></a>다양한 워크로드 유형의 모범 사례
 

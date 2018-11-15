@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 07/09/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: d32e05e99543b30ee92ea455ae2f800b09d83661
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: dbc72e040f3d68ca77c036c41612f57616d1e74e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012111"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016831"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>CSP로서 고객을 대신하여 Azure IoT Central 응용 프로그램 만들기 및 관리 
 
@@ -29,19 +29,19 @@ Azure IoT Central은 관리할 수 있는 서비스로 나열됩니다. 새 응�
 
 ![관리할 수 있는 Azure IoT Central](media\howto-create-application-asCSP\image2.png)
 
-Azure IoT Central 응용 프로그램 관리자 페이지로 이동합니다. Azure IoT Central은 Microsoft 파트너 센터에서 제공하고 해당 특정 고객을 관리하기 위해 제공된 컨텍스트를 유지합니다. 응용 프로그램 관리자 페이지의 헤더에 승인이 표시됩니다. 여기에서 이 고객을 위해 전에 만든 기존 응용 프로그램으로 이동하거나 고객을 위한 새 응용 프로그램을 만들 수 있습니다.
+Azure IoT Central 응용 프로그램 관리자 페이지로 이동합니다. Azure IoT Central은 Microsoft 파트너 센터에서 제공하고 해당 특정 고객을 관리하기 위해 제공된 컨텍스트를 유지합니다. 응용 프로그램 관리자 페이지의 헤더에 승인이 표시됩니다. 여기에서 이 고객을 위해 전에 만든 기존 애플리케이션으로 이동하거나 고객을 위한 새 애플리케이션을 만들 수 있습니다.
 
 ![CSP를 위한 관리자 만들기](media\howto-create-application-asCSP\image3.png)
 
 Azure IoT Central 응용 프로그램을 만들려면 **새 응용 프로그램** 타일을 클릭합니다. 그러면 응용 프로그램 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
 
-![CSP에 대한 응용 프로그램 페이지 만들기](media\howto-create-application-asCSP\image4-1.png)
+![CSP에 대한 응용 프로그램 페이지 만들기](media\howto-create-application-asCSP\image4.png)
 
-![CSP에 대한 응용 프로그램 페이지 만들기](media\howto-create-application-asCSP\image4-2.png)
+![CSP에 대한 응용 프로그램 페이지 만들기](media\howto-create-application-asCSP\image4-1.png)
 
 ## <a name="payment-plan"></a>결제 계획
 
-CSP로서 유료 응용 프로그램만 만들 수 있습니다. 고객에게 Azure IoT Central을 소개하려면 평가판 응용 프로그램을 별도로 만들 수 있습니다. [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 평가판 및 유료 응용 프로그램에 대해 자세히 알아보세요.
+CSP로서 종량제 애플리케이션만 만들 수 있습니다. 고객에게 Azure IoT Central을 소개하려면 평가판 응용 프로그램을 별도로 만들 수 있습니다. [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 평가판 및 종량제 애플리케이션에 대해 자세히 알아보세요.
 
 ## <a name="application-name"></a>응용 프로그램 이름
 
@@ -51,7 +51,7 @@ CSP로서 유료 응용 프로그램만 만들 수 있습니다. 고객에게 Az
 
 응용 프로그램 URL은 응용 프로그램의 링크입니다. 브라우저에서 URL의 책갈피를 저장하거나 다른 사람들과 공유할 수 있습니다.
 
-응용 프로그램의 이름을 입력하면 응용 프로그램 URL이 자동으로 생성됩니다. 원한다면 응용 프로그램의 다른 URL을 선택해도 됩니다. 각 Azure IoT Central URL은 Azure IoT Central 내에서 고유해야 합니다. 선택한 URL이 이미 사용 중인 경우 오류 메시지가 표시됩니다.
+애플리케이션의 이름을 입력하면 애플리케이션 URL이 자동으로 생성됩니다. 원한다면 응용 프로그램의 다른 URL을 선택해도 됩니다. 각 Azure IoT Central URL은 Azure IoT Central 내에서 고유해야 합니다. 선택한 URL이 이미 사용 중인 경우 오류 메시지가 표시됩니다.
 
 ## <a name="directory"></a>디렉터리
 

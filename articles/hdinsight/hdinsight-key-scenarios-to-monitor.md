@@ -7,26 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.author: maxluk
-ms.openlocfilehash: 434b3ecf65aaa5ecea81f5a9773f1bc6e8f6f2be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: arindamc
+ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092330"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255305"
 ---
 # <a name="monitor-cluster-performance"></a>클러스터 성능 모니터링
 
-성능과 리소스 사용률을 최대로 유지하려면 HDInsight 클러스터의 상태 및 성능을 모니터링해야 합니다. 또한 모니터링을 통해 코딩 또는 클러스터 구성 오류를 해결할 수 있습니다.
+성능과 리소스 사용률을 최적으로 유지하려면 HDInsight 클러스터의 상태 및 성능을 모니터링해야 합니다. 모니터링도 클러스터 구성 오류 및 사용자 코드 문제를 검색하고 해결하는 데 도움이 될 수 있습니다.
 
-다음 섹션에서는 클러스터 로드, YARN 큐 효율성 및 저장소 접근성을 최적화하는 방법을 설명합니다.
+다음 섹션에서는 클러스터의 부하 및 YARN 큐의 로드를 모니터링 및 최적화하고 스토리지 제한 문제를 검색하는 방법을 설명합니다.
 
-## <a name="cluster-loading"></a>클러스터 로드
+## <a name="monitor-cluster-load"></a>클러스터 부하 모니터링
 
-Hadoop 클러스터는 클러스터의 노드 간에 로드 균형을 유지해야 합니다. 이렇게 균형을 유지하면 프로세싱 작업이 RAM, CPU 또는 디스크 리소스의 제약을 받지 않습니다.
+Hadoop 클러스터는 클러스터의 부하가 모든 노드에 균등하게 분산될 때 최적의 성능을 제공할 수 있습니다. 이렇게 하면 처리 작업이 RAM, CPU 또는 개별 노드의 디스크 리소스에 제약되지 않고 실행됩니다.
 
-클러스터의 노드와 노드의 로드를 대략적인 수준에서 살펴보려면 [Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에 로그인한 다음 **호스트** 탭을 선택합니다. 호스트는 정규화된 도메인 이름으로 나열됩니다. 각 호스트의 운영 상태는 색이 지정된 상태 표시기로 표시됩니다.
+클러스터의 노드와 노드의 로드를 대략적인 수준에서 살펴보려면 [Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에 로그인한 다음, **호스트** 탭을 선택합니다. 호스트는 정규화된 도메인 이름으로 나열됩니다. 각 호스트의 운영 상태는 색이 지정된 상태 표시기로 표시됩니다.
 
 | 색 | 설명 |
 | --- | --- |
@@ -47,15 +47,15 @@ Hadoop 클러스터는 클러스터의 노드 간에 로드 균형을 유지해�
 
 ## <a name="yarn-queue-configuration"></a>YARN 큐 구성
 
-Hadoop은 분산 플랫폼에서 실행되는 다양한 서비스를 갖고 있습니다. YARN(Yet Another Resource Negotiator)은 이러한 서비스를 조정하고 클러스터 리소스를 할당하고 공통 데이터 집합에 대한 액세스를 관리합니다.
+Hadoop은 분산 플랫폼에서 실행되는 다양한 서비스를 갖고 있습니다. YARN(Yet Another Resource Negotiator)은 모든 부하가 클러스터 전체에 균등하게 분산되도록 이러한 서비스를 조정하고 클러스터 리소스를 할당합니다.
 
-YARN은 JobTracker가 하는 두 가지 작업, 즉 리소스 관리 및 일정 예약/모니터링 작업을 두 개의 디먼, 즉 전역 ResourceManager와 응용 프로그램별 ApplicationMaster(AM)에 나눠줍니다.
+YARN은 JobTracker가 하는 두 가지 작업인 리소스 관리 및 일정 예약/모니터링 작업을 두 개의 디먼, 즉 글로벌 Resource Manager와 애플리케이션별 ApplicationMaster(AM)에 나눠줍니다.
 
-ResourceManager는 *순수 스케줄러*로써 모든 경합 응용 프로그램 간에 가용 리소스를 중재하는 일만 합니다. ResourceManager는 항상 모든 리소스를 사용하도록 보장하여 SLA, 용량 보장 등의 다양한 상수에 맞게 최적화합니다. ApplicationMaster는 ResourceManager의 리소스를 협상하고, NodeManager와 함께 작동하여 컨테이너와 컨테이너의 리소스 사용을 실행하고 모니터링합니다.
+Resource Manager는 *순수 스케줄러*로써 모든 경합 애플리케이션 간에 가용 리소스를 중재하는 일만 합니다. Resource Manager는 항상 모든 리소스를 사용하도록 보장하여 SLA, 용량 보장 등의 다양한 상수에 맞게 최적화합니다. ApplicationMaster는 Resource Manager의 리소스를 협상하고, NodeManager와 함께 작동하여 컨테이너와 컨테이너의 리소스 사용을 실행하고 모니터링합니다.
 
 여러 테넌트가 대규모 클러스터를 공유하는 경우 클러스터의 리소스를 두고 경합이 발생합니다. CapacityScheduler는 요청을 큐에 추가하여 리소스 공유를 도와주는 플러그형 스케줄러입니다. CapacityScheduler 역시 다른 응용 프로그램의 큐가 무료 리소스를 사용하도록 허용하기 전에 리소스 조직의 하위 큐 간에 리소스를 공유하도록 *계층적 큐*를 지원합니다.
 
-YARN은 이러한 큐에 리소스를 할당할 수 있도록 허용하며 모든 가용 리소스의 할당 여부를 보여줍니다. 큐에 대한 정보를 보려면 Ambari 웹 UI에 로그인한 다음 상단의 메뉴에서 **YARN 큐 관리자**를 선택합니다.
+YARN은 이러한 큐에 리소스를 할당할 수 있도록 허용하며 모든 가용 리소스의 할당 여부를 보여줍니다. 큐에 대한 정보를 보려면 Ambari 웹 UI에 로그인한 다음, 상단의 메뉴에서 **YARN 큐 관리자**를 선택합니다.
 
 ![YARN 큐 관리자](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
 
@@ -63,13 +63,13 @@ YARN 큐 관리자 페이지의 왼쪽에는 큐 목록과 각 큐에 할당된 
 
 ![YARN 큐 관리자 세부 정보 페이지](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-큐에 대한 세부 정보를 보려면 Ambari 대시보드의 왼쪽에 있는 목록에서 **YARN** 서비스를 선택합니다. 그런 다음 **빠른 연결** 드롭다운 메뉴에서, 활성 노드 아래에서 **ResourceManager UI**를 선택합니다.
+큐에 대한 세부 정보를 보려면 Ambari 대시보드의 왼쪽에 있는 목록에서 **YARN** 서비스를 선택합니다. 그런 다음, **빠른 연결** 드롭다운 메뉴에서 활성 노드 아래의 **Resource Manager UI**를 선택합니다.
 
-![ResourceManager UI 메뉴 연결](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Resource Manager UI 메뉴 연결](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-ResourceManager UI의 왼쪽 메뉴에서 **스케줄러**를 선택합니다. *응용 프로그램 큐* 아래에 큐 목록이 보입니다. 여기서 각 큐에 사용되는 용량, 작업이 큐 간에 얼마나 잘 분산되었는지 여부, 리소스가 제한된 작업이 있는지 여부를 볼 수 있습니다.
+Resource Manager UI의 왼쪽 메뉴에서 **스케줄러**를 선택합니다. *응용 프로그램 큐* 아래에 큐 목록이 보입니다. 여기서 각 큐에 사용되는 용량, 작업이 큐 간에 얼마나 잘 분산되었는지 여부, 리소스가 제한된 작업이 있는지 여부를 볼 수 있습니다.
 
-![ResourceManager UI 메뉴 연결](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Resource Manager UI 메뉴 연결](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>저장소 제한
 

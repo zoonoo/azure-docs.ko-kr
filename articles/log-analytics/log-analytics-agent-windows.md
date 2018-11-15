@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2018
+ms.date: 11/06/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2b9e7615fc0c2262c33ab5d7be39bdb99bc752bd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a16230b6f51f0ce93f4a9bf53591abbcd6b4bd3b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412961"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283685"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -98,7 +98,7 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Azure Automation에서 DSC를 사용하여 에이전트 설치
 
-다음 스크립트 예제를 사용하여 Azure Automation DSC를 사용하여 에이전트를 설치합니다.   Automation 계정이 없는 경우 자동화 DSC를 사용하기 전에 필요한 Automation 계정을 만드는 데 필요한 요구 사항과 단계를 이해하기 위해 [Azure Automation 시작](../automation/automation-offering-get-started.md)을 참조하세요.  자동화 DSC에 익숙하지 않은 경우 [자동화 DSC 시작](../automation/automation-dsc-getting-started.md)을 참조하세요.
+다음 스크립트 예제를 사용하여 Azure Automation DSC를 사용하여 에이전트를 설치합니다.   Automation 계정이 없는 경우 자동화 DSC를 사용하기 전에 필요한 Automation 계정을 만드는 데 필요한 요구 사항과 단계를 이해하기 위해 [Azure Automation 시작](/azure/automation/)을 참조하세요.  자동화 DSC에 익숙하지 않은 경우 [자동화 DSC 시작](../automation/automation-dsc-getting-started.md)을 참조하세요.
 
 다음 예제에서는 `URI` 값으로 식별되는 64비트 에이전트를 설치합니다. 또한 URI 값을 바꿔 32비트 버전을 사용할 수 있습니다. 두 버전에 대한 URL
 
@@ -109,13 +109,13 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
 >[!NOTE]
 >이 절차 및 스크립트 예제는 Windows 컴퓨터에 이미 배포된 에이전트의 업그레이드를 지원하지 않습니다.
 
-32비트 및 64비트 버전의 에이전트 패키지에는 서로 다른 제품 코드가 있으며 릴리스된 새 버전에도 고유한 값이 있습니다.  제품 코드는 응용 프로그램 또는 제품의 보안 주체 ID이며 Windows Installer **ProductCode** 속성으로 표시되는 GUID입니다.  **MMAgent.ps1** 스크립트의 `ProductId value`는 32비트 또는 64비트 에이전트 설치 관리자 패키지의 제품 코드와 일치해야 합니다.
+32비트 및 64비트 버전의 에이전트 패키지에는 서로 다른 제품 코드가 있으며 릴리스된 새 버전에도 고유한 값이 있습니다.  제품 코드는 응용 프로그램 또는 제품의 보안 주체 ID이며 Windows Installer **ProductCode** 속성으로 표시되는 GUID입니다.  **MMAgent.ps1** 스크립트의 `ProductId` 값은 32비트 또는 64비트 에이전트 설치 관리자 패키지의 제품 코드와 일치해야 합니다.
 
 에이전트 설치 패키지에서 제품 코드를 직접 검색하려면 Windows 소프트웨어 개발 키트의 구성 요소인 [Windows Installer 개발자용 Windows SDK 구성 요소](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx)에서 Orca.exe를 사용하거나 MVP(Microsoft Valuable Professional)에서 작성된 [예제 스크립트](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/)에 따라 PowerShell을 사용할 수 있습니다.  두 가지 방법에서 먼저 **MOMagent.msi** 파일을 MMASetup 설치 패키지에서 추출해야 합니다.  이는 앞서 첫 번째 단계의 [명령줄을 사용하여 에이전트 설치](#install-the-agent-using-the-command-line) 섹션에 나와 있습니다.  
 
 1. [http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration)에서 xPSDesiredStateConfiguration DSC 모듈을 Azure Automation으로 가져옵니다.  
 2.  *OPSINSIGHTS_WS_ID* 및 *OPSINSIGHTS_WS_KEY*의 Azure Automation 변수 자산을 만듭니다. *OPSINSIGHTS_WS_ID*를 Log Analytics 작업 영역 ID에 설정하고 *OPSINSIGHTS_WS_KEY*를 작업 영역의 기본 키에 설정합니다.
-3.  스크립트를 복사하여 MMAgent.ps1로 저장
+3.  스크립트를 복사하여 MMAgent.ps1로 저장합니다.
 
     ```PowerShell
     Configuration MMAgent
@@ -153,7 +153,8 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
 
     ```
 
-4. Automation 계정으로 [MMAgent.ps1 구성 스크립트를 가져옵니다](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation). 
+4. 앞에서 권장된 메서드를 사용하여 스크립트의 `ProductId` 값을 최신 버전의 에이전트 설치 패키지에서 추출한 제품 코드로 업데이트합니다. 
+5. Automation 계정으로 [MMAgent.ps1 구성 스크립트를 가져옵니다](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation). 
 5. 구성에 [Windows 컴퓨터 또는 노드를 할당](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration)합니다. 15분 이내에 노드가 구성을 점검하고 에이전트가 노드로 푸시됩니다.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Log Analytics에 대한 에이전트 연결 확인

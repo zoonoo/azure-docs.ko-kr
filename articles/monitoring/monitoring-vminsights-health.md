@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f149d09b310553ecd5b03e94601408f279d9c0c
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1b9afa89e5d355668defac30afe4c012b684c71e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914314"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614399"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 Azure 가상 머신의 상태 이해하기
 Azure에는 모니터링 공간에서 개별적으로 특정 역할이나 작업을 수행하는 여러 서비스가 포함되지만, Azure 가상 머신에서 호스팅되는 운영 체제에 대한 심층적인 상태 관점 뷰는 제공되지 않았습니다.  Log Analytics나 Azure Monitor를 사용하여 다양한 조건을 모니터링할 수 있지만 핵심 구성 요소 상태나 가상 머신의 전반적인 상태를 모델링하고 나타내도록 설계되지 않았습니다.  VM용 Azure Monitor 상태 기능을 사용하면 주요 구성 요소와 이들의 관계, 구성 요소의 상태를 측정하는 방법을 지정하는 기준이 되는 모델을 사용하여 Windows 또는 Linux 게스트 OS의 가용성 및 성능을 사전에 모니터링하고 비정상 상태가 감지되면 경고를 표시합니다.  
@@ -119,7 +119,7 @@ Windows 운영 체제를 실행하는 Azure VM에서 상태에 액세스하면 �
 * 성능 상태로 분류된 프로세서, 디스크, 메모리 또는 네트워크 어댑터를 통해 감지된 문제로 인해 비정상인 VM의 수  
 * 성능 상태로 분류된 핵심 운영 체제 서비스를 통해 감지된 문제로 인해 비정상인 VM의 수
 
-여기에서는 VM을 사전에 모니터링하는 상태 조건에 의해 검색된 상위의 위험한 문제를 신속하게 파악할 수 있고, VM 상태 경고 세부 정보 및 문제 진단 및 수정에 도움을 주기 위해 작성된 관련 기술 항목을 검토할 수 있습니다.  아무 심각도나 선택하면 해당 심각도를 기준으로 필터링된 [모든 경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md#all-alerts-page) 페이지가 열립니다.
+여기에서는 VM을 사전에 모니터링하는 상태 조건에 의해 검색된 상위의 위험한 문제를 신속하게 파악할 수 있고, VM 상태 경고 세부 정보 및 문제 진단 및 수정에 도움을 주기 위해 작성된 관련 기술 항목을 검토할 수 있습니다.  아무 심각도나 선택하면 해당 심각도를 기준으로 필터링된 [모든 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) 페이지가 열립니다.
 
 **운영 체제별 VM 배포** 목록에는 Windows 버전 또는 Linux 배포판에 나열된 VM이 해당 버전과 함께 표시됩니다. 운영 체제 범주마다 VM의 상태를 기반으로 VM이 세분화되어 있습니다. 
 
@@ -247,7 +247,7 @@ VM 목록 보기에서 VM의 이름을 클릭하면 선택한 VM에 해당하는
 업데이트된 성능 상태를 보려면 **새로 고침** 링크를 클릭하여 상태 진단 페이지를 새로 고치면 됩니다.  미리 정의된 폴링 간격을 기반으로 상태 조건의 성능 상태에 대한 업데이트가 있는 경우, 이 작업을 통해 대기하지 않고 최신 성능 상태를 반영할 수 있습니다.  **상태 조건 상태**는 선택한 성능 상태(정상, 경고, 위험, 알 수 없음 및 모두)를 기반으로 결과의 범위를 지정할 수 있는 필터입니다.  오른쪽 상단의 **마지막 업데이트**는 상태 진단 페이지가 마지막으로 새로 고쳐진 시간을 나타냅니다.  
 
 ## <a name="alerting-and-alert-management"></a>경고 및 경고 관리 
-VM용 Azure Monitor 상태 기능은 [Azure 경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)와 통합되어 조건이 감지될 때 미리 정의된 상태 조건이 정상에서 비정상 상태로 바뀌면 경고를 발생시킵니다. 경고는 심각도별로 0에서 4까지 분류됩니다. 심각도 0은 심각도 수준이 가장 높은 것을 나타냅니다.  
+VM용 Azure Monitor 상태 기능은 [Azure 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)와 통합되어 조건이 감지될 때 미리 정의된 상태 조건이 정상에서 비정상 상태로 바뀌면 경고를 발생시킵니다. 경고는 심각도별로 0에서 4까지 분류됩니다. 심각도 0은 심각도 수준이 가장 높은 것을 나타냅니다.  
 
 심각도별로 분류된 VM 상태 경고의 총 수는 **경고** 섹션의 **상태** 대시보드에 제공됩니다. 총 경고 수 또는 심각도 수준에 해당하는 숫자를 선택하면, **경고** 페이지가 열리고 선택 항목과 일치하는 모든 경고가 나열됩니다.  예를 들어 **심각도 수준 1**에 해당하는 행을 선택하면 다음 보기가 표시됩니다.
 

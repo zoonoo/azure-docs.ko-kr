@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 04211a00bcdce3baf8060e00a9ce81831a39acb9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22e22a2eb6eefb84c6745de9b19e7710913b4ee7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257666"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616285"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 
@@ -711,4 +711,4 @@ Office 365 솔루션이 Log Analytics 작업 영역에서 생성하는 모든 �
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics](../log-analytics/log-analytics-queries.md)의 로그 검색을 사용하여 자세한 업데이트 데이터 보기
 * [고유한 대시보드 만들기](../log-analytics/log-analytics-dashboards.md)를 수행하여 자주 사용하는 Office 365 검색 쿼리를 표시합니다.
-* 중요한 Office 365 활동에 대해 미리 알림을 받을 수 있도록 [경고 만들기](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)를 수행합니다.  
+* 중요한 Office 365 활동에 대해 미리 알림을 받을 수 있도록 [경고 만들기](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 수행합니다.  

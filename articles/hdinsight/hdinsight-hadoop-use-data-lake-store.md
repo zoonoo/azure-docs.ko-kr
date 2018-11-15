@@ -2,19 +2,19 @@
 title: Azure HDInsight에서 Hadoop과 함께 Data Lake Store 사용
 description: Azure Data Lake Store에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법을 알아봅니다.
 services: hdinsight,storage
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.openlocfilehash: d205a46c672523e029816b573742d991de79b2ae
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 11/06/2018
+ms.openlocfilehash: 0859e480df0111e26d5b64bf835f94b3852b3414
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956734"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277361"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Store 사용
 
@@ -40,16 +40,17 @@ HDInsight 클러스터는 Data Lake Store를 두 가지 방식으로 사용할 �
 
 | HDInsight 클러스터 유형 | 기본 저장소로 Data Lake Store | 추가 저장소로 Data Lake Store| 메모 |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight 버전 3.6 | yes | yes | |
+| HDInsight 버전 3.6 | yes | yes | HBase 제외|
 | HDInsight 버전 3.5 | yes | yes | HBase 제외|
 | HDInsight 버전 3.4 | 아니요 | yes | |
 | HDInsight 버전 3.3 | 아니요 | 아니요 | |
 | HDInsight 버전 3.2 | 아니요 | yes | |
 | Storm | | |Data Lake Store를 사용하여 Storm 토폴로지에서 데이터를 쓸 수 있습니다. Storm 토폴로지에서 읽을 수 있는 참조 데이터에 Data Lake Store를 사용할 수도 있습니다.|
 
+[!WARNING]
+> HDInsight HBase는 Azure Data Lake Storage Gen 1에서 지원되지 않습니다.
+
 Data Lake Store를 추가 저장소 계정으로 사용하면 클러스터에서 Azure Storage로 읽거나 쓰는 성능 또는 기능에 영향을 주지 않습니다.
-
-
 ## <a name="use-data-lake-store-as-default-storage"></a>Data Lake Store를 기본 저장소로 사용
 
 HDInsight가 Data Lake Store를 기본 저장소로 하여 배포되는 경우 클러스터 관련 파일은 Data Lake Store의 다음 위치에 저장됩니다.

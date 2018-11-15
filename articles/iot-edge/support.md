@@ -2,18 +2,18 @@
 title: Azure IoT Edge 플랫폼 지원 | Microsoft Docs
 description: Azure IoT Edge에서 지원되는 플랫폼
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: adf017c57cf7c895a0da8fec70e89dda0a314693
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 45c5c7245a2af3b0d0e328bfcc43112eaee406ee
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277922"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565006"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IoT Edge 지원
 Azure IoT Edge 제품에 대한 지원을 찾는 다양한 방법이 있습니다.

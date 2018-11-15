@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717678"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016049"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -24,8 +24,8 @@ ms.locfileid: "44717678"
 각 작업은 다음과 같은 속성으로 구성됩니다.
 
 * **이름**: 작업 그룹 내의 고유 식별자입니다.  
-* **동작 유형**: 음성 통화 또는 SMS 보내기, 이메일 보내기, 웹후크 호출, ITSM 도구에 데이터 보내기, 논리 앱 호출, Azure 앱에 푸시 알림 보내기 또는 Automation Runbook 실행.
-* **세부 정보**: 해당 전화 번호, 이메일 주소, 웹후크 URI 또는 ITSM 연결 세부 정보입니다.
+* **작업 유형**: 수행할 작업입니다. 음성 통화, SMS, 이메일 보내기나, 여러 자동화된 작업 유형 트리거를 예로 들 수 있습니다. 이 문서 뒷부분에 나오는 유형을 참조하세요. 
+* **세부 정보**: *작업 유형*에 따라 달라지는 해당 세부 정보입니다. 
 
 Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하는 방법에 대한 자세한 내용은 [작업 그룹 리소스 관리자 템플릿](monitoring-create-action-group-with-resource-manager-template.md)을 참조하세요.
 
@@ -57,64 +57,45 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
 1. **확인**을 선택하여 작업 그룹을 만듭니다.
 
-## <a name="action-specific-information"></a>작업별 정보
-<dl>
-<dt>Azure 앱 푸시</dt>
-<dd>하나의 작업 그룹에 최대 10개의 Azure 앱 작업이 포함될 수 있습니다.</dd>
-<dd>현재, Azure 앱 작업은 ServiceHealth 알림만 지원합니다. 다른 경고 시간은 무시됩니다. [서비스 상태 알림이 게시될 때마다 경고 구성](monitoring-activity-log-alerts-on-service-notifications.md)을 참조하세요.</dd>
-
-<dt>전자 메일</dt>
-<dd>다음 이메일 주소에서 이메일이 전송됩니다. 이메일 필터링이 적절하게 구성되었는지 확인합니다.
-<ul>
-    <li>azure-noreply@microsoft.com</li>
-    <li>azureemail-noreply@microsoft.com</li>
-    <li>alerts-noreply@mail.windowsazure.com</li>
-</ul>
-</dd>
-<dd>한 작업 그룹에 최대 1000개의 이메일 작업이 허용됩니다.</dd>
-<dd>[속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요.</dd>
-
-<dt>ITSM</dt>
-<dd>하나의 작업 그룹에 최대 10개의 ITSM 작업이 포함될 수 있습니다.</dd>
-<dd>ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../log-analytics/log-analytics-itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.</dd>
-
-<dt>논리 앱</dt>
-<dd>하나의 작업 그룹에 최대 10개의 논리 앱 작업이 포함될 수 있습니다.</dd>
-
-<dt>Runbook</dt>
-<dd>하나의 작업 그룹에 최대 10개의 Runbook 작업이 포함될 수 있습니다.</dd>
-<dd>Runbook 페이로드에 대한 제한 사항은 [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)을 참조하세요.</dd>
-
-<dt>SMS</dt>
-<dd>하나의 작업 그룹에 최대 10개의 SMS 작업이 포함될 수 있습니다.</dd>
-<dd>[속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요.</dd>
-<dd>[SMS 경고 동작](monitoring-sms-alert-behavior.md) 문서를 참조하세요.</dd>
-
-<dt>음성</dt>
-<dd>하나의 작업 그룹에 최대 10개의 음성 작업이 포함될 수 있습니다.</dd>
-<dd>[속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요.</dd>
-
-<dt>웹후크</dt>
-<dd>하나의 작업 그룹에 최대 10개의 웹후크 작업이 포함될 수 있습니다.
-<dd>다시 시도 논리 - 응답에 대한 제한 시간은 10초입니다. webhook 호출은 HTTP 상태 코드 408, 429, 503, 504가 반환되거나 HTTP 엔드포인트가 응답하지 않으면 최대 2번 다시 시도됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 100초 후에 두 번째 및 마지막 다시 시도가 발생합니다.</dd>
-<dd>원본 IP 주소 범위
-<ul>
-    <li>13.106.57.181</li>
-    <li>13.106.54.3</li>
-    <li>13.106.54.19</li>
-    <li>13.106.38.142</li>
-    <li>13.106.38.148</li>
-    <li>13.106.57.196</li>
-</ul>
-이러한 IP 주소에 대한 변경 내용에 대한 업데이트를 받으려면 작업 그룹 서비스에 대한 정보 알림을 모니터링하는 [서비스 상태 경고](./monitoring-service-notifications.md)를 구성하는 것이 좋습니다.
-</dd>
-</dl>
-
 ## <a name="manage-your-action-groups"></a>작업 그룹 관리 ##
 작업 그룹을 만들면 **모니터** 블레이드의 **작업 그룹** 섹션에 표시됩니다. 관리하려는 작업 그룹을 선택합니다.
 
 * 작업을 추가, 편집 또는 제거합니다.
 * 작업 그룹을 삭제합니다.
+
+## <a name="action-specific-information"></a>작업별 정보
+**Azure 앱 푸시** - 하나의 작업 그룹에 최대 10개의 Azure 앱 작업이 포함될 수 있습니다. 현재, Azure 앱 작업은 ServiceHealth 알림만 지원합니다. 다른 경고 시간은 무시됩니다. [서비스 상태 알림이 게시될 때마다 경고 구성](monitoring-activity-log-alerts-on-service-notifications.md)을 참조하세요.
+
+**이메일** - 다음 이메일 주소에서 이메일이 전송됩니다. 이메일 필터링이 적절하게 구성되었는지 확인합니다.
+   - azure-noreply@microsoft.com
+   - azureemail-noreply@microsoft.com
+   - alerts-noreply@mail.windowsazure.com
+
+한 작업 그룹에 최대 1000개의 이메일 작업이 허용됩니다. [속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요.
+
+**ITSM** - ITSM 작업이 ITSM 연결을 요구하는 한 작업 그룹에 최대 10개의 ITSM 작업이 있을 수 있습니다. [ITSM 연결](../log-analytics/log-analytics-itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.
+
+**논리 앱** - 한 작업 그룹에 최대 10개의 논리 앱 작업이 포함될 수 있습니다.
+
+**Runbook** - 한 작업 그룹에 최대 10개의 Runbook이 작업이 있을 수 있습니다. Runbook 페이로드 제한은 [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)을 참조하세요.
+
+**SMS** - 한 작업 그룹에 최대 10개의 SMS 작업이 있을 수 있습니다. [속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요. [SMS 경고 동작](monitoring-sms-alert-behavior.md) 문서를 참조하세요.
+
+**음성** - 하나의 작업 그룹에 최대 10개의 음성 작업이 포함될 수 있습니다.</dd>
+[속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요.</dd>
+
+**웹후크** - 하나의 작업 그룹에 최대 10개의 웹후크 작업이 포함될 수 있습니다. 다시 시도 논리 - 응답에 대한 제한 시간은 10초입니다. webhook 호출은 HTTP 상태 코드 408, 429, 503, 504가 반환되거나 HTTP 엔드포인트가 응답하지 않으면 최대 2번 다시 시도됩니다. 10초 후에 첫 번째 다시 시도가 발생합니다. 100초 후에 두 번째 및 마지막 다시 시도가 발생합니다.
+
+원본 IP 주소 범위
+    - 13.106.57.181
+    - 13.106.54.3
+    - 13.106.54.19
+    - 13.106.38.142
+    - 13.106.38.148
+    - 13.106.57.196
+
+이러한 IP 주소에 대한 변경 내용에 대한 업데이트를 받으려면 작업 그룹 서비스에 대한 정보 알림을 모니터링하는 [서비스 상태 경고](./monitoring-service-notifications.md)를 구성하는 것이 좋습니다.
+
 
 ## <a name="next-steps"></a>다음 단계 ##
 * [SMS 경고 동작](monitoring-sms-alert-behavior.md)에 대해 자세히 알아보세요.  

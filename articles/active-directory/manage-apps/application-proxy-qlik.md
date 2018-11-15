@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5f103e9fe410374a551eb43d456d5993bdd36627
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056875"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962557"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>응용 프로그램 프록시 및 Qlik Sense 
 Azure Active Directory 응용 프로그램 프록시 및 Qlik Sense를 함께 사용하여 Qlik Sense 배포에 대한 원격 액세스를 제공하기 위해 응용 프로그램 프록시를 쉽게 사용할 수 있도록 합니다.  
@@ -57,7 +57,11 @@ QlikSense를 게시하려면 Azure에서 두 개의 응용 프로그램을 게�
 ## <a name="testing"></a>테스트 
 응용 프로그램을 테스트할 준비가 되었습니다. 응용 프로그램 #1에 QlikSense를 게시하는 데 사용되는 외부 URL에 액세스하고 두 응용 프로그램에 할당된 사용자 권한으로 로그인합니다.  
 
+## <a name="additional-references"></a>추가 참조
+애플리케이션 프록시를 사용하여 Qlik Sense 게시에 대한 자세한 내용은 Qlik 커뮤니티 문서: [Qlik Sense와 함께 Kerberos 제한된 위임을 사용하여 통합 Windows 인증으로 Azure AD](https://community.qlik.com/docs/DOC-20183)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 - [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)
-- [응용 프로그램 프록시 커넥터 작업](application-proxy-connector-groups.md)
+- [애플리케이션 프록시 커넥터 작업](application-proxy-connector-groups.md)
+

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10cd05bd40262815e3b27c861982debc18e5b4f3
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 152632c55fc21d2b49f6dfd8ae734833ea870898
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142909"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978369"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Application Insights Profiler를 사용하여 Azure Virtual Machine 또는 가상 머신 확장 집합에서 실행되는 웹앱 프로파일링
 또한 다음과 같은 서비스에서 Application Insights Profiler를 배포할 수도 있습니다.
@@ -63,11 +63,8 @@ ms.locfileid: "50142909"
 
 1. 응용 프로그램을 배포합니다.
 
-## <a name="enable-profiler-on-on-premises-servers"></a>온-프레미스 서버에서 Profiler를 사용하도록 설정
-
-온-프레미스 서버에서 Profiler를 사용하도록 설정하는 것은 독립 실행형 모드에서 Application Insights Profiler를 실행하는 것으로 알려져 있습니다. Azure 진단 확장명 수정과 연결되어 있지 않습니다.
-
-온-프레미스 서버에서 Profiler를 공식 지원할 계획은 없습니다. 이 시나리오를 실험하려는 경우 [지원 코드를 다운로드](https://github.com/ramach-msft/AIProfiler-Standalone)할 수 있습니다. 해당 코드를 유지 관리하거나 코드와 관련된 문제 및 기능 요청에 응답할 책임은 *없습니다*.
+## <a name="can-profiler-run-on-on-premises-servers"></a>온-프레미스 서버에서 프로파일러를 실행할 수 있나요?
+온-프레미스 서버에 대한 Application Insights Profiler를 지원하는 계획이 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

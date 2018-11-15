@@ -10,16 +10,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 5cf3a18dc01ba5670e73aa93cb6c9aab2d5de660
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f8bd1f1181cbd592782ce1126d5d61b5f257ca08
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378622"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234751"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight Tools for Visual Studio Code 사용
 
-Azure HDInsight Tools for Visual Studio Code(VS Code)를 사용하여 Hive 배치, 대화형 Hive 쿼리 및 PySpark 스크립트를 만들고 제출하는 방법에 대해 알아봅니다. Azure HDInsight Tools는 VS Code에서 지원하는 플랫폼에 설치할 수 있습니다. 여기에는 Windows, Linux, macOS가 포함됩니다. 다양한 플랫폼에 대한 필수 조건을 찾을 수 있습니다.
+Azure HDInsight Tools for VS Code(Visual Studio Code)를 사용하여 Apache Hive 배치 작업, 대화형 Apache Hive 쿼리 및 PySpark 스크립트를 만들고 제출하는 방법에 대해 알아봅니다. Azure HDInsight Tools는 VS Code에서 지원하는 플랫폼에 설치할 수 있습니다. 여기에는 Windows, Linux, macOS가 포함됩니다. 다양한 플랫폼에 대한 필수 조건을 찾을 수 있습니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -83,7 +83,7 @@ VS Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 A
 
         ![기타 환경에 대한 로그인 지침](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
-    일단 연결되면 Azure 계정 이름이 VS Code 창 왼쪽 하단 상태 표시줄에 표시됩니다. 
+    일단 연결되면 Azure 계정 이름이 VS Code 창 왼쪽 하단 상태 표시줄에 표시됩니다. 
 
     > [!NOTE]
     > 알려진 Azure 인증 문제 때문에 개인 모드 또는 incognito 모드에서 브라우저를 열어야 합니다. Azure 계정에서 두 가지 요소를 사용하도록 설정한 경우 PIN 인증 대신 전화 인증을 사용하는 것이 좋습니다.
@@ -102,7 +102,7 @@ VS Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 A
 
 <h3 id="linkcluster">클러스터를 연결하려면</h3>
 
-Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다.
+Apache Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결하거나, 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 Enterprise Security Pack 보안 Hadoop 클러스터를 연결할 수 있습니다.
 1. **CTRL+SHIFT+P**를 선택하여 명령 팔레트를 연 다음, **HDInsight: Link a Cluster**를 입력합니다.
 
    ![클러스터 연결 명령](./media/hdinsight-for-vscode/link-cluster-command.png)
@@ -121,7 +121,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 4. 명령 팔레트에서 **HDInsight: Unlink a Cluster**를 입력하여 클러스터 연결을 끊을 수도 있습니다.
 
 
-### <a name="to-link-a-generic-livy-endpoint"></a>일반 Livy 엔드포인트를 연결하려면
+### <a name="to-link-a-generic-apache-livy-endpoint"></a>일반 Apache Livy 엔드포인트를 연결하려면
 
 1. **CTRL+SHIFT+P**를 선택하여 명령 팔레트를 연 다음, **HDInsight: Link a Cluster**를 입력합니다.
 2. **일반 Livy 엔드포인트**를 선택합니다.
@@ -142,7 +142,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 
 2. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 상황에 맞는 메뉴에서 **HDInsight: List Cluster**를 선택합니다. 
 
-3. **출력** 창에 Hive 및 Spark 클러스터가 나타납니다.
+3. **출력** 창에 HDInsight 클러스터가 표시됩니다.
 
     ![기본 클러스터 구성 설정](./media/hdinsight-for-vscode/list-cluster-result.png)
 
@@ -160,7 +160,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 
 2. **HDInsight: Set Azure Environment**를 입력합니다.
 
-3. 기본 로그인 항목으로 Azure와 AzureChina 중 하나를 선택합니다.
+3. "Azure" 또는 "AzureChina"와 같은 환경을 기본 로그인 항목으로 선택합니다.
 
 4. 그렇지만 사용자의 기본 로그인 항목은 **.VSCode\settings.json**이미 저장되어 있습니다. 이 구성 파일에서 기본 로그인 항목을 직접 업데이트할 수도 있습니다. 
 
@@ -181,7 +181,7 @@ HDInsight Tools for VS Code를 사용하면 대화형 HDInsight 쿼리, Hive 배
     ```
 4. 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **HDInsight: Hive Interactive**을 선택하여 쿼리를 제출하거나, 바로 가기 **Ctrl + Alt + I**를 사용합니다. **HDInsight: Hive Batch**를 선택하여 스크립트를 제출하거나, 바로 가기 **Ctrl+Alt+H**를 사용합니다. 
 
-5. 필요할 때 클러스터를 선택합니다. 이 도구에서는 상황에 맞는 메뉴를 사용하여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다. 잠시 후 다음과 같이 새 탭에 쿼리 결과가 표시됩니다.
+5. 기본 클러스터를 지정하지 않은 경우 클러스터를 선택합니다. 이 도구에서는 상황에 맞는 메뉴를 사용하여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다. 잠시 후 새 탭에 쿼리 결과가 표시됩니다.
 
    ![대화형 Hive 결과](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -191,7 +191,7 @@ HDInsight Tools for VS Code를 사용하면 대화형 HDInsight 쿼리, Hive 배
 
 ## <a name="submit-interactive-pyspark-queries"></a>대화형 PySpark 쿼리 제출
 
-### <a name="to-submit-interactive-pyspark-queries-to-spark-clusters"></a>대화형 PySpark 쿼리를 Spark 클러스터에 제출하려면 다음을 수행합니다.
+### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>대화형 PySpark 쿼리를 HDInsight Spark 클러스터에 제출하려면 다음을 수행합니다.
 
 1. 새 작업 폴더 및 확장명이 .py인 새 스크립트 파일을 만듭니다(아직 없는 경우).
 
@@ -211,7 +211,7 @@ HDInsight Tools for VS Code를 사용하면 대화형 HDInsight 쿼리, Hive 배
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. 이러한 스크립트를 강조 표시합니다. 그런 후 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **HDInsight: PySpark Interactive**를 선택하거나, 바로 가기 **Ctrl+Alt+I**를 사용합니다.
+4. 이 스크립트를 강조 표시합니다. 그런 후 스크립트 편집기를 마우스 오른쪽 단추로 클릭하고 **HDInsight: PySpark Interactive**를 선택하거나, 바로 가기 **Ctrl+Alt+I**를 사용합니다.
 
 5. VS Code에서 **Python** 확장을 아직 설치하지 않은 경우 다음 그림과 같이 **설치** 단추를 선택합니다.
 

@@ -13,19 +13,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378139"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962387"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
 Azure Media Services를 사용하여 라이브 스트리밍 이벤트를 제공할 때 다음 구성 요소가 일반적으로 포함됩니다.
 
 * 이벤트를 브로드캐스트하는 데 사용되는 카메라
-* 카메라(또는 노트북과 같은 다른 장치)의 신호를 라이브 스트리밍 서비스로 보내는 스트림으로 변환하는 라이브 비디오 인코더입니다. 신호에는 SCTE-35 및 Ad-cues 광고가 포함될 수도 있습니다. 
+* 카메라(또는 노트북과 같은 다른 디바이스)의 신호를 라이브 스트리밍 서비스로 보내는 스트림으로 변환하는 라이브 비디오 인코더입니다. 신호에는 SCTE-35 및 Ad-cues 광고가 포함될 수도 있습니다. 
 * Media Services 라이브 스트리밍 서비스를 사용하면 콘텐츠를 수집, 미리 보기, 패키지화, 기록, 암호화할 수 있으며 고객 또는 CDN(추가 배포를 위해)에 브로드캐스트할 수 있습니다.
 
 이 문서에서는 Media Services의 라이브 스트리밍과 관련된 주요 구성 요소의 다이어그램과 자세한 개요를 제공합니다.

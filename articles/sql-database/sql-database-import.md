@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 053dbc27908b14e70fa2c7502ec7c4e3ae652bf5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 11/01/2018
+ms.openlocfilehash: 913e374e51b968650b14d3f6563f64c217b76ad0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469761"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913812"
 ---
-# <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>새 Azure SQL Database로 BACPAC 파일 가져오기
+# <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>빠른 시작: 새 Azure SQL Database로 BACPAC 파일 가져오기
 
 아카이브에서 데이터베이스를 가져오거나 다른 플랫폼에서 마이그레이션하는 경우 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 파일에서 데이터베이스 스키마 및 데이터를 가져올 수 있습니다. BACPAC 파일은 메타데이터 및 SQL Server 데이터베이스의 데이터를 포함하는 BACPAC의 확장명을 가진 ZIP 파일입니다. BACPAC 파일은 Azure Blob Storage(표준 저장소만 해당)에서 또는 온-프레미스 위치의 로컬 저장소에서 가져올 수 있습니다. 가져오기 속도를 최대화하려면 P6처럼 더 높은 서비스 계층과 계산 크기를 지정한 다음, 가져오기가 성공하면 적절하게 규모 감축하는 것이 좋습니다. 또한 가져오기 후의 데이터베이스 호환성 수준은 원본 데이터베이스의 호환성 수준에 따라 결정됩니다.
 

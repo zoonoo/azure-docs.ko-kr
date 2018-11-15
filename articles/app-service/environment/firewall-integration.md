@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5f2dd31488ae61bec061a81986a208bd328bf39b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ce0123528b3fb2454d8b83d59b5916363ae0e944
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093623"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251579"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
@@ -28,7 +28,7 @@ ASE에는 여러 가지 인바운드 종속성이 있습니다. 인바운드 관
 
 ASE 아웃바운드 종속성은 거의 전적으로 뒤에 고정 주소가 없는 FQDN을 사용하여 정의됩니다. 고정 주소가 없으면 NSG(네트워크 보안 그룹)를 사용하여 ASE의 아웃바운드 트래픽을 잠글 수 없습니다. 주소는 현재 확인에 기반한 규칙을 설정하고 NSG를 만드는 데 사용할 수 없을 만큼 자주 변경됩니다. 
 
-아웃바운드 주소를 보호하는 솔루션은 도메인 이름에 따라 아웃바운드 트래픽을 제어할 수 있는 방화벽 장치를 사용하는 것입니다. Azure 네트워킹 팀은 Azure Firewall이라는 새 네트워크 어플라이언스를 미리 보기에 추가했습니다. Azure Firewall은 대상의 DNS 이름에 따라 송신 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다.  
+아웃바운드 주소를 보호하는 솔루션은 도메인 이름에 따라 아웃바운드 트래픽을 제어할 수 있는 방화벽 장치를 사용하는 것입니다. Azure Firewall은 대상의 FQDN을 기반으로 아웃바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다.  
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>ASE를 사용하여 Azure Firewall 구성 
 
@@ -36,11 +36,11 @@ Azure Firewall을 사용하여 ASE의 송신을 잠그는 단계는 다음과 �
 
 1. ASE가 있거나 배치될 VNet에 Azure Firewall을 만듭니다. [Azure Firewall 설명서](https://docs.microsoft.com/azure/firewall/)
 2. Azure Firewall UI에서 App Service Environment FQDN 태그를 선택합니다.
-3. 인터넷의 다음 홉을 사용하여 [App Service Environment 관리 주소]( https://docs.microsoft.com/azure/app-service/environment/management-addresses)의 관리 주소가 있는 경로 테이블을 만듭니다. 경로 테이블 항목은 비대칭 라우팅 문제를 방지하는 데 필요합니다. 
-4. 인터넷의 다음 홉을 사용하여 IP 주소 종속성 아래에 명시된 IP 주소 종속성에 대한 경로를 추가합니다. 
-5. Azure Firewall 네트워크 어플라이언스인 다음 홉을 사용하여 0.0.0.0/0에 대한 경로 테이블에 경로를 추가합니다
-6. ASE 서브넷에 대한 서비스 엔드포인트를 Azure SQL 및 Azure Storage에 만듭니다
-7. 만든 경로 테이블을 ASE 서브넷에 할당합니다.  
+3. 인터넷의 다음 홉을 사용하여 [App Service Environment 관리 주소]( https://docs.microsoft.com/azure/app-service/environment/management-addresses)의 관리 주소가 있는 경로 테이블을 만듭니다. 경로 테이블 항목은 비대칭 라우팅 문제를 방지하는 데 필요합니다.
+4. 인터넷의 다음 홉을 사용하여 IP 주소 종속성 아래에 명시된 IP 주소 종속성에 대한 경로를 추가합니다.
+5. Azure Firewall인 다음 홉을 사용하여 0.0.0.0/0에 대한 경로 테이블에 경로를 추가합니다.
+6. ASE 서브넷에 대한 서비스 엔드포인트를 Azure SQL 및 Azure Storage에 만듭니다.
+7. 만든 경로 테이블을 ASE 서브넷에 할당합니다.
 
 ## <a name="application-traffic"></a>응용 프로그램 트래픽 
 

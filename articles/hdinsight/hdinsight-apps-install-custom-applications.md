@@ -1,24 +1,24 @@
 ---
-title: Azure HDInsight에 사용자 지정 Hadoop 응용 프로그램 설치
+title: Azure HDInsight에 사용자 지정 Apache Hadoop 애플리케이션 설치
 description: HDInsight 응용 프로그램에서 HDInsight 응용 프로그램을 설치하는 방법을 알아봅니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 5e3194b856766502e4cc8c68ffa4bb936634adfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: b5870d53053511cb56f668943678aeb91bf23b3b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983143"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035359"
 ---
-# <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Hadoop 응용 프로그램 설치
+# <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 사용자 지정 Apache Hadoop 애플리케이션 설치
 
-이 문서에서는 Azure Portal에 게시되지 않은 Hadoop 응용 프로그램을 Azure HDInsight에 설치하는 방법에 대해 알아봅니다. 이 문서에서 설치할 응용 프로그램은 [Hue](http://gethue.com/)입니다.
+이 문서에서는 Azure Portal에 게시되지 않은 Apache Hadoop 애플리케이션을 Azure HDInsight에 설치하는 방법에 대해 알아봅니다. 이 문서에서 설치할 응용 프로그램은 [Hue](http://gethue.com/)입니다.
 
 HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다.  Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 응용 프로그램을 개발할 수 있습니다.  
 

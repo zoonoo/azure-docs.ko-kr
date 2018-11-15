@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6a61fdeaf1a751ab4001257335abdcbd6fac9cbf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739467"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007589"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>미리 보기: Azure AD 암호 보호 운영 프로시저
 
@@ -67,7 +67,7 @@ ms.locfileid: "50739467"
 
 `Get-AzureADPasswordProtectionSummaryReport` cmdlet을 사용하여 작업의 요약 보기를 생성할 수 있습니다. 이 cmdlet의 출력 예는 다음과 같습니다.
 
-```
+```PowerShell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -87,6 +87,22 @@ PasswordSetErrors               : 1
 
 > [!NOTE]
 > 이 cmdlet은 각 DC 에이전트 서비스의 관리 이벤트 로그를 원격으로 쿼리하는 방식으로 작동합니다. 이벤트 로그에 대량의 이벤트가 포함되어 있으면 cmdlet이 완료될 때까지 오래 걸릴 수 있습니다. 또한 대량 데이터 집합의 대량 네트워크 쿼리는 도메인 컨트롤러 성능에 영향을 줄 수 있습니다. 따라서 이 cmdlet은 프로덕션 환경에서 신중하게 사용해야 합니다.
+
+## <a name="dc-agent-discovery"></a>DC 에이전트 검색
+
+`Get-AzureADPasswordProtectionDCAgent` cmdlet은 도메인이나 포리스트에서 실행되는 다양한 DC 에이전트에 대한 기본 정보를 표시하는 데 사용될 수 있습니다. 이 정보는 DC 에이전트 서비스를 실행하여 등록된 serviceConnectionPoint 개체에서 검색됩니다. 이 cmdlet의 출력 예는 다음과 같습니다.
+
+```PowerShell
+Get-AzureADPasswordProtectionDCAgent
+ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
+Domain                : bplchild.bplRootDomain.com
+Forest                : bplRootDomain.com
+Heartbeat             : 2/16/2018 8:35:01 AM
+```
+
+다양한 속성이 대략적인 시간 단위로 각 DC 에이전트 서비스에 의해 업데이트됩니다. 데이터는 여전히 Active Directory 복제 대기 시간의 적용을 받습니다.
+
+Cmdlet의 쿼리 범위는 포리스트 또는 도메인 매개 변수 중 하나를 사용하여 영향을 받을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

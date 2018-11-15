@@ -15,12 +15,12 @@ ms.date: 10/17/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406280"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036040"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터 이해
 
@@ -32,7 +32,7 @@ ms.locfileid: "49406280"
 
 ## <a name="requirements-and-deployment"></a>요구 사항 및 배포
 
-응용 프로그램 프록시를 성공적으로 배포하려면 커넥터가 하나 이상 필요하지만, 복원력을 높이기 위해 두 개 이상을 사용하는 것이 좋습니다. Windows Server 2012 R2 또는 2016 컴퓨터에 커넥터를 설치합니다. 커넥터는 응용 프로그램 프록시 서비스 및 게시하는 온-프레미스 응용 프로그램과 통신할 수 있어야 합니다. 
+응용 프로그램 프록시를 성공적으로 배포하려면 커넥터가 하나 이상 필요하지만, 복원력을 높이기 위해 두 개 이상을 사용하는 것이 좋습니다. Windows Server 2012 R2 또는 2016 컴퓨터에 커넥터를 설치합니다. 커넥터는 응용 프로그램 프록시 서비스 및 게시하는 온-프레미스 응용 프로그램과 통신할 수 있어야 합니다. 애플리케이션 프록시에는 기본 운영 체제에서 실행되는 TLS 1.2도 필요합니다. TLS 1.2로 변경하려면 [TLS 1.2 사용](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect)의 단계를 따릅니다. 해당 콘텐츠가 Azure AD Connect에 대한 것인 반면 이 프로시저는 모든.NET 클라이언트에 대해 동일합니다.
 
 커넥터 서버의 네트워크 요구 사항에 대한 자세한 내용은 [응용 프로그램 프록시를 시작하고 커넥터 설치](application-proxy-enable.md)를 참조하세요.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 086acdd74932836627c600b5545bc4353052ad6f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215449"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012108"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -59,6 +59,8 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 ### <a name="where-do-on-premises-vms-replicate-to"></a>온-프레미스 VM은 어디에 복제되는가요?
 데이터는 Azure 저장소에 복제됩니다. 장애 조치를 실행하면 Site Recovery에서 저장소 계정으로부터 Azure VM을 자동으로 만듭니다.
 
+## <a name="replication"></a>복제
+
 ### <a name="what-apps-can-i-replicate"></a>복제할 수 있는 앱은 무엇인가요?
 [복제 요구 사항](vmware-physical-azure-support-matrix.md##replicated-machines)을 준수하는 VMware VM에서 실행되는 모든 응용 프로그램 또는 작업을 복제할 수 있습니다. Site Recovery는 응용 프로그램 인식 복제를 지원하므로 앱을 지능형 상태로 장애 조치 및 장애 복구할 수 있습니다. SharePoint, Exchange, Dynamics, SQL Server, Active Directory와 같은 Microsoft 응용 프로그램과 통합되고, Oracle, SAP, IBM, Red Hat과 같은 선도적인 공급 업체와 긴밀하게 협력합니다. [자세히 알아봅니다](site-recovery-workload.md) .
 
@@ -74,18 +76,17 @@ Site Recovery는 공용 엔드포인트를 통하거나 ExpressRoute 공용 피�
 Azure에 복제하는 경우 복제 트래픽이 Azure Storage 계정의 공용 엔드포인트에 도달하므로, ExpressRoute(공용 피어링)를 사용하여 공용 인터넷을 통해서만 복제할 수 있으며 VPN은 작동하지 않습니다.
 
 
-
-## <a name="what-are-the-replicated-vm-requirements"></a>복제된 VM에 대한 요구 사항은 무엇인가요?
+### <a name="what-are-the-replicated-vm-requirements"></a>복제된 VM에 대한 요구 사항은 무엇인가요?
 
 복제의 경우 VMware VM에서 지원되는 운영 체제를 실행해야 합니다. 또한 VM에서 Azure VM에 대한 요구 사항을 충족해야 합니다. 지원 매트릭스에서 [자세히 알아보세요](vmware-physical-azure-support-matrix.md##replicated-machines).
 
-## <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
+### <a name="how-often-can-i-replicate-to-azure"></a>Azure에 얼마나 자주 복제할 수 있나요?
 VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 
-## <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
+### <a name="can-i-extend-replication"></a>복제를 확장할 수 있나요?
 확장 복제 또는 체인으로 연결된 복제는 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)을 통해 이 기능에 대한 의견을 보내 주세요.
 
-## <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
+### <a name="can-i-do-an-offline-initial-replication"></a>오프라인 초기 복제를 수행할 수 있나요?
 지원되지 않습니다. [사용자 의견 포럼](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 이 기능에 대한 의견을 보내 주세요.
 
 ### <a name="can-i-exclude-disks"></a>디스크를 제외할 수 있나요?
@@ -141,7 +142,7 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 설치 관리자는 구성 서버의 **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** 폴더에 보관됩니다.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>모바일 서비스를 설치하려면 어떻게 할까요?
-복제하려는 각 VM에 [푸시 설치](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)를 사용하여 설치하거나, [UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui) 또는 [PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt)을 사용하여 수동으로 설치합니다. 또는 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) 또는 [Azure Automation 및 DSC](vmware-azure-mobility-deploy-automation-dsc.md)와 같은 배포 도구를 사용하여 배포할 수 있습니다.
+복제하려는 각 VM에 [푸시 설치](vmware-azure-install-mobility-service.md)를 사용하여 설치하거나, UI 또는 PowerShell을 사용하여 [수동으로 설치](vmware-physical-mobility-service-install-manual.md)합니다. 또는 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)와 같은 배포 도구를 사용하여 배포할 수 있습니다.
 
 
 

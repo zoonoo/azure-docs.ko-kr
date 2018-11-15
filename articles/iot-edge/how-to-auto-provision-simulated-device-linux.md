@@ -2,18 +2,18 @@
 title: DPS를 사용하여 Azure IoT Edge 장치 자동 프로비전 - Linux | Microsoft Docs
 description: Linux VM에서 시뮬레이션된 TPM을 사용하여 Azure IoT Edge에 대한 장치 프로 비전 테스트
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 703dedc69e491377ce0890610a2882ab95ae6e5a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739671"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565074"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Linux 가상 머신에서 가상 TPM을 사용하여 Edge 장치 만들기 및 프로비전
 

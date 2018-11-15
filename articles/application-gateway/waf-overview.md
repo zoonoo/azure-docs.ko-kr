@@ -2,16 +2,16 @@
 title: Azure Application Gateway용 WAF(웹 응용 프로그램 방화벽) 소개
 description: 이 문서에서는 Application Gateway용 WAF(웹 응용 프로그램 방화벽)의 개요를 제공합니다.
 services: application-gateway
-author: amsriva
+author: vhorne
 ms.service: application-gateway
-ms.date: 10/11/2018
+ms.date: 11/7/2018
 ms.author: amsriva
-ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068454"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219531"
 ---
 # <a name="web-application-firewall-waf"></a>WAF(웹 응용 프로그램 방화벽)
 
@@ -39,7 +39,7 @@ Application Gateway는 ADC(응용 프로그램 배달 컨트롤러)로 작동하
 
 * 실시간 WAF 로그를 사용하여 공격으로부터 웹 응용 프로그램을 모니터링합니다. 이 로그는 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)와 통합되어 WAF 경고 및 로그를 추적하고 추세를 쉽게 모니터링합니다.
 
-* WAF는 곧 Azure Security Center와 통합됩니다. Azure Security Center를 통해 모든 Azure 리소스의 보안 상태를 중앙에서 살펴볼 수 있습니다.
+* WAF는 Azure Security Center와 통합됩니다. Azure Security Center를 통해 모든 Azure 리소스의 보안 상태를 중앙에서 살펴볼 수 있습니다.
 
 ### <a name="customization"></a>사용자 지정
 
@@ -51,9 +51,9 @@ Application Gateway는 ADC(응용 프로그램 배달 컨트롤러)로 작동하
 - 교차 사이트 스크립팅 공격 보호
 - 명령 삽입, HTTP 요청 밀반입, HTTP 응답 분할, 원격 파일 포함 공격 등의 일반 웹 공격 보호
 - HTTP 프로토콜 위반 보호
-- 누락된 호스트 사용자-에이전트 및 수락 헤더 같은 HTTP 프로토콜 이상 보호
-- 보트, 크롤러 및 스캐너 방지
-- 일반적인 응용 프로그램 구성 오류(즉 Apache, IIS 등) 검색
+- 누락된 호스트 사용자-에이전트 헤더 및 수락 헤더 같은 HTTP 프로토콜 이상 보호
+- 봇, 크롤러 및 스캐너에 대한 방지
+- 일반적인 애플리케이션 구성 오류(즉 Apache, IIS 등) 검색
 
 ### <a name="public-preview-features"></a>공개 미리 보기 기능
 
@@ -78,9 +78,9 @@ Application Gateway는 CRS 3.0 및 CRS 2.2.9라는 두 개의 규칙 집합을 �
 - 교차 사이트 스크립팅 공격 보호
 - 명령 삽입, HTTP 요청 밀반입, HTTP 응답 분할, 원격 파일 포함 공격 등의 일반 웹 공격 보호
 - HTTP 프로토콜 위반 보호
-- 누락된 호스트 사용자-에이전트 및 수락 헤더 같은 HTTP 프로토콜 이상 보호
-- 보트, 크롤러 및 스캐너 방지
-- 일반적인 응용 프로그램 구성 오류(예: Apache, IIS 등) 검색
+- 누락된 호스트 사용자-에이전트 헤더 및 수락 헤더 같은 HTTP 프로토콜 이상 보호
+- 봇, 크롤러 및 스캐너에 대한 방지
+- 일반적인 애플리케이션 구성 오류(예: Apache, IIS 등) 검색
 
 더 자세한 규칙 목록 및 해당 보호는 [핵심 규칙 집합](#core-rule-sets)을 참조하세요.
 

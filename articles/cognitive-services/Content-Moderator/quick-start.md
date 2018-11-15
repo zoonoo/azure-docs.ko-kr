@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: f25434814a7fb3d0f49cab539b394970c9bcfb3b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023443"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260009"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>빠른 시작: Content Moderator 익히기
 
@@ -26,7 +26,7 @@ ms.locfileid: "50023443"
 - 웹 브라우저
 
 ## <a name="set-up-the-review-tool"></a>검토 도구 설정
-Content Moderator 검토 도구는 사람 검토자가 의사를 결정할 때 인식 서비스를 지원할 수 있는 웹 기반 도구입니다. 이 가이드에서는 검토 도구를 설정하는 간단한 프로세스를 통해 Content Moderator 서비스의 작동 원리를 알아보겠습니다. [Content Moderator 검토 도구](http://contentmoderator.cognitive.microsoft.com/) 사이트로 이동하여 등록합니다.
+Content Moderator 검토 도구는 사람 검토자가 의사를 결정할 때 인식 서비스를 지원할 수 있는 웹 기반 도구입니다. 이 가이드에서는 검토 도구를 설정하는 간단한 프로세스를 통해 Content Moderator 서비스의 작동 원리를 알아보겠습니다. [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트로 이동하여 등록합니다.
 
 ![Content Moderator 홈페이지](images/homepage.PNG)
 
@@ -48,7 +48,7 @@ Content Moderator 검토 도구는 사람 검토자가 의사를 결정할 때 �
 
 ## <a name="review-moderation-tags"></a>조정 태그 검토
 
-적용된 조정 태그를 검토합니다. 콘텐츠에 적용된 태그와 각 범주의 점수를 볼 수 있습니다.
+적용된 조정 태그를 검토합니다. 콘텐츠에 적용된 태그와 각 범주의 점수를 볼 수 있습니다. [이미지](image-moderation-api.md), [텍스트](text-moderation-api.md) 및 [비디오](video-moderation-api.md) 조정 토픽을 참조하여 다른 콘텐츠 태그가 무엇을 나타내는지 자세히 알아보세요.
 
 ![결과 검토](images/reviewresults_text.png)
 
@@ -70,4 +70,4 @@ Content Moderator 검토 도구를 사용하는 방법에 대해 자세히 알�
 앱에서 Moderation API 자체를 사용하는 방법을 알아봅니다.
 - 이미지 조정을 구현합니다. [API 콘솔](try-image-api.md) 또는 [C# 빠른 시작](image-moderation-quickstart-dotnet.md)을 사용하여 이미지를 검사하고 태그, 신뢰도 점수, 기타 추출된 정보를 사용하여 성인/외설 콘텐츠를 검색합니다.
 - 텍스트 조정을 구현합니다. [API 콘솔](try-text-api.md) 또는 [C# 빠른 시작](text-moderation-quickstart-dotnet.md)을 사용하여 텍스트 콘텐츠에 욕설, 원치 않는 기계 지원 텍스트 분류(미리 보기) 및 PII(개인 식별 정보)가 있는지 검사합니다. 
-- 비디오 조정을 구현합니다. [C# 빠른 시작](video-moderation-api.md)을 사용하여 비디오를 검사하고 성인/외설 콘텐츠를 검색합니다. 
+- 비디오 조정을 구현합니다. [C#의 비디오 조정 방법 가이드](video-moderation-api.md)에 따라 비디오를 검사하고 성인/외설 콘텐츠를 검색합니다. 

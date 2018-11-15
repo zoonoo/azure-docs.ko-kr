@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 29aea0171c767b2188e3eac23b1d61ffbda8e284
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986853"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231637"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: 모범 사례 및 참조 아키텍처
 
@@ -75,7 +75,7 @@ Azure 고객은 Microsoft 모범 사례를 검토하고 오류에 대한 설계 
 Microsoft Azure에서 실행되는 서비스를 보호하기 위해 응용 프로그램 아키텍처를 정확하게 이해하고 [소프트웨어 품질의 5가지 핵심 요소](https://docs.microsoft.com/azure/architecture/guide/pillars)에 집중해야 합니다.
 일반적인 트래픽 볼륨, 응용 프로그램과 다른 응용 프로그램 간의 연결 모델, 공용 인터넷에 노출되는 서비스 엔드포인트를 알아야 합니다.
 
-응용 프로그램 자체를 대상으로 하는 서비스 거부 공격을 처리할 수 있도록 응용 프로그램의 복원력을 높이는 것이 가장 중요합니다. [SDL(Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)부터 보안 및 개인 정보 보호 기능이 Azure 플랫폼에 기본 제공됩니다. SDL은 모든 개발 단계에서 보안 문제를 해결하고 Azure를 지속적으로 업데이트하여 더욱 안전하게 보호합니다.
+응용 프로그램 자체를 대상으로 하는 서비스 거부 공격을 처리할 수 있도록 응용 프로그램의 복원력을 높이는 것이 가장 중요합니다.  [SDL(Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx)부터 보안 및 개인 정보 보호 기능이 Azure 플랫폼에 기본 제공됩니다. SDL은 모든 개발 단계에서 보안 문제를 해결하고 Azure를 지속적으로 업데이트하여 더욱 안전하게 보호합니다.
 
 ### <a name="design-for-scalability"></a>확장성을 위한 디자인
 
@@ -265,8 +265,8 @@ N 계층 아키텍처를 구현하는 방법은 여러 가지가 있습니다. �
 
 #### <a name="paas-web-application"></a>PaaS 웹 응용 프로그램
 
-이 참조 아키텍처는 단일 지역에서 Azure App Service 응용 프로그램을 실행하는 방법을 보여줍니다. 이 아키텍처는 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) 및 [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)를 사용하는 웹 응용 프로그램에 관한 일련의 검증된 사례를 보여줍니다.
-대기 지역은 장애 조치(failover) 시나리오에 대해 설정되어 있습니다.
+이 참조 아키텍처는 단일 지역에서 Azure App Service 응용 프로그램을 실행하는 방법을 보여줍니다. 이 아키텍처는  [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/)  및  [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)를 사용하는 웹 애플리케이션에 대한 일련의 검증된 사례를 보여줍니다.
+장애 조치(failover) 시나리오에 대해 대기 지역을 설정합니다.
 
 ![PaaS 웹 응용 프로그램에 대한 참조 아키텍처 다이어그램](media/azure-ddos-best-practices/image11.png)
 
@@ -300,6 +300,6 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 
 * [Azure DDoS Protection 제품 페이지](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS Protection 블로그](http://aka.ms/ddosblog)
+* [Azure DDoS Protection 블로그](https://aka.ms/ddosblog)
 
 * [Azure DDoS Protection 설명서](../virtual-network/ddos-protection-overview.md)

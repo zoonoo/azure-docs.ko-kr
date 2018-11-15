@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b7aaf57def84feec95cc6a157ac6dd33a17b2fc0
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: c384807a55f04419bb26e0ab5f295b8c9685acf8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645858"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614721"
 ---
 # <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-java"></a>빠른 시작: Java를 사용하여 QnA Maker 기술 자료 업데이트
 
@@ -276,7 +276,7 @@ public class UpdateKB {
      * Sends the request to update the knowledge base.
      * @param kb The ID for the existing knowledge base
      * @param req The data source for the updated knowledge base
-     * @return Reponse Returns the response from a PATCH request
+     * @return Response Returns the response from a PATCH request
      */
     public static Response UpdateKB (String kb, Request req) throws Exception {
         URL url = new URL(host + service + method + kb);

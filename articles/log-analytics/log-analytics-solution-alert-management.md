@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fa76ccf7019097c5f27aa126b0a5a7dc81ffbd41
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bba008bc6d1214aa4b2ca7cc609586a3d18159fd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008150"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613616"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics의 경고 관리 솔루션
 
 ![경고 관리 아이콘](media/log-analytics-solution-alert-management/icon.png)
 
-경고 관리 솔루션을 통해 Log Analytics 리포지토리에서 모든 경고를 분석할 수 있습니다.  [Log Analytics에서 만든](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) 또는 [Nagios 또는 Zabbix에서 가져온](log-analytics-quick-collect-linux-computer.md) 원본을 포함하여 다양한 원본에서 이러한 경고가 발생할 수 있습니다. 또한 솔루션은 [연결된 System Center Operations Manager 관리 그룹](log-analytics-om-agents.md)에서도 경고를 가져옵니다.
+경고 관리 솔루션을 통해 Log Analytics 리포지토리에서 모든 경고를 분석할 수 있습니다.  [Log Analytics에서 만든](../monitoring-and-diagnostics/monitoring-overview-alerts.md) 또는 [Nagios 또는 Zabbix에서 가져온](log-analytics-quick-collect-linux-computer.md) 원본을 포함하여 다양한 원본에서 이러한 경고가 발생할 수 있습니다. 또한 솔루션은 [연결된 System Center Operations Manager 관리 그룹](log-analytics-om-agents.md)에서도 경고를 가져옵니다.
 
 ## <a name="prerequisites"></a>필수 조건
 솔루션은 Log Analytics 리포지토리에서 **경고** 유형의 모든 레코드를 사용하므로 이러한 레코드를 수집하는 데 필요한 구성을 모두 수행해야 합니다.
 
-- Log Analytics 경고의 경우 [경고 규칙을 만들어서](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) 리포지토리에서 직접 경고 레코드를 만듭니다.
+- Log Analytics 경고의 경우 [경고 규칙을 만들어서](../monitoring-and-diagnostics/monitoring-overview-alerts.md) 리포지토리에서 직접 경고 레코드를 만듭니다.
 - Nagios 및 Zabbix 경고의 경우 [해당 서버를 구성하여](log-analytics-quick-collect-linux-computer.md) Log Analytics에 경고를 보냅니다.
 - System Center Operations Manager 경고의 경우 [Log Analytics 작업 영역에 Operations Manager 관리 그룹을 연결](log-analytics-om-agents.md)합니다.  그러면 System Center Operations Manager에서 생성된 모든 경고를 Log Analytics로 가져옵니다.  
 
@@ -123,4 +123,4 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 
 ## <a name="next-steps"></a>다음 단계
-* Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) 에 관하여 알아보세요.
+* Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md) 에 관하여 알아보세요.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295584"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913991"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -60,7 +60,7 @@ Azure Instance Metadata Service에 대한 자세한 내용은 [IMDS 설명서](h
 
 Azure IaaS에서 지원되는 모든 Linux 배포를 IMDS 엔드포인트를 통해 Azure 리소스에 대한 관리 ID에 사용할 수 있습니다. 
 
-참고: Azure 리소스에 대한 관리 ID VM 확장(2019년 1월에 사용 중단 예정)은 다음 Linux 배포만 지원합니다.
+Azure 리소스에 대한 관리 ID VM 확장(2019년 1월에 사용 중단 예정)은 다음 Linux 배포만 지원합니다.
 - CoreOS Stable
 - CentOS 7.1
 - Red Hat 7.2
@@ -124,16 +124,23 @@ VM이 시작되면 다음 명령을 사용하여 태그를 제거할 수 있습�
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>사용자 할당 ID의 알려진 문제
+### <a name="vm-extension-provisioning-fails"></a>VM 확장 프로비전 실패
 
-- 사용자 할당 ID 할당은 VM 및 VMSS에서만 사용할 수 있습니다. 중요: 사용자 할당 ID 할당은 향후 몇 달 안에 변경될 예정입니다.
-- 동일한 VM/VMSS에 중복된 사용자 할당 ID가 있으면 VM/VMSS에 장애가 발생합니다. 여기에는 다른 대/소문자로 추가된 ID도 포함됩니다. 예: MyUserAssignedIdentity와 myuserassignedidentity. 
-- DNS 조회 오류로 인해 VM으로의 VM 확장(2019년 1월에 사용 중단 예정) 프로비전이 실패할 수 있습니다. VM을 다시 시작한 후에 다시 시도하세요. 
-- ‘존재하지 않는’ 사용자 할당 ID를 추가하면 VM에 장애가 발생합니다. 
-- 이름에 특수 문자(예: 밑줄)가 있는 사용자 할당 ID를 만드는 기능은 지원되지 않습니다.
-- 사용자 할당 ID 이름은 종단 간 시나리오에 대해 24자로 제한됩니다. 이름이 24자를 초과하는 사용자 할당 ID는 할당되지 않습니다.
+DNS 조회 오류로 인해 VM 확장의 프로비저닝이 실패할 수 있습니다. VM을 다시 시작한 후에 다시 시도하세요.
+ 
+> [!NOTE]
+> VM 확장은 2019년 1월에 사용 중단될 예정입니다. IMDS 엔드포인트를 사용하여 이동하는 것이 좋습니다.
+
+### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Azure AD 디렉터리 간에 구독 전송
+
+구독이 다른 디렉터리로 이동/전송되면 관리 ID는 업데이트되지 않습니다. 결과적으로, 존재하는 시스템에서 할당하거나 사용자가 할당한 관리 ID가 모두 손상됩니다. 
+
+해결 방법으로 구독이 이동되면 시스템에서 할당한 관리 ID를 사용하지 않도록 설정한 후 다시 사용하도록 설정합니다. 마찬가지로, 사용자가 할당한 관리 ID도 삭제한 후 다시 만들 수 있습니다. 
+
+## <a name="known-issues-with-user-assigned-managed-identities"></a>사용자가 할당한 관리 ID의 알려진 문제
+
+- 이름에 특수 문자(예: 밑줄)가 있는 사용자가 할당한 관리 ID를 만드는 기능은 지원되지 않습니다.
+- 사용자가 할당한 ID 이름은 24자로 제한됩니다. 이름이 24자보다 긴 경우 ID가 리소스(예: Virtual Machine)에 할당되지 않습니다.
 - 관리 ID 가상 머신 확장(2019년 1월에 사용 중단 예정)을 사용하는 경우 사용자 할당 관리 ID는 32개까지 지원됩니다. 관리 ID 가상 머신 확장을 사용하지 않는 경우, 512개까지 지원됩니다.  
-- 두 번째 사용자 할당 ID를 추가할 때는 VM 확장용 토큰을 요청하는 데 clientID를 사용하지 못할 수 있습니다. 이 문제를 완화하려면 다음의 두 bash 명령을 사용하여 Azure 리소스에 대한 관리 ID VM 확장을 다시 시작합니다.
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- VM에 사용자 할당 ID는 있는데 시스템 할당 ID는 없으면 포털 UI에는 Azure 리소스에 대한 관리 ID를 사용하지 않도록 설정된 것으로 표시됩니다. 시스템 할당 ID를 사용하도록 설정하려면 Azure Resource Manager 템플릿, Azure CLI 또는 SDK를 사용하세요.
+- 사용자가 할당한 관리 ID를 다른 리소스 그룹으로 이동하면 ID가 손상됩니다. 결과적으로, 해당 ID에 대한 토큰을 요청할 수 없습니다. 
+- 다른 디렉터리로 구독을 전송하면 기존에 사용자가 할당한 관리 ID가 모두 손상됩니다. 

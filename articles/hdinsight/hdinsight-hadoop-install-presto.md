@@ -2,23 +2,25 @@
 title: Azure HDInsight Linux 클러스터에 Presto 설치
 description: 스크립트 작업을 사용하여 Linux 기반 HDInsight Hadoop 클러스터에 Presto 및 Airpal을 설치하는 방법에 대해 알아봅니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: jasonh
-ms.openlocfilehash: b9ac9c49e633906e47244eedcb18a4cda4a6228d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: ce1e82971f10541bf3a67d46b48c5fc93b5432b4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978956"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687081"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에 Presto 설치 및 사용
 
 이 문서에서는 스크립트 작업을 사용하여 HDInsight Hadoop 클러스터에 Presto를 설치하는 방법에 대해 알아봅니다. 또한 기존 Presto HDInsight 클러스터에 Airpal을 설치하는 방법에 대해 알아봅니다.
+
+HDInsight는 또한 Apache Hadoop 클러스터에 대한 Starburst Presto 애플리케이션을 제공합니다. 자세한 내용은 [Azure HDInsight에 타사 애플리케이션 설치](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)를 참조하세요.
 
 > [!IMPORTANT]
 > 이 문서의 단계에는 Linux를 사용하는 **HDInsight 3.5 Hadoop 클러스터**가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전](hdinsight-component-versioning.md)을 참조하세요.
@@ -42,17 +44,17 @@ ms.locfileid: "46978956"
 
     * HDInsight 버전 3.6을 사용하는 Hadoop 클러스터여야 합니다.
 
-    * 데이터 저장소로 Azure Storage를 사용해야 합니다. 저장소 옵션으로 Azure Data Lake Store를 사용하는 클러스터에서 Presto 사용은 아직 지원되지 않습니다. 
+    * 데이터 저장소로 Azure Storage를 사용해야 합니다. 스토리지 옵션으로 Azure Data Lake Store를 사용하는 클러스터에서 Presto 사용은 아직 옵션이 아닙니다.
 
     ![사용자 지정 옵션을 사용하여 HDInsight 클러스터 만들기](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
-2. **고급 설정** 영역에서 **스크립트 작업**을 선택하고 아래 정보를 제공합니다.
+2. **고급 설정** 영역에서 **스크립트 작업**을 선택하고 아래 정보를 제공합니다. 또한 스크립트 유형에 대한 "Presto 설치" 옵션을 선택할 수 있습니다.
    
    * **이름**: 스크립트 동작의 이름을 입력합니다.
    * **Bash 스크립트 URI**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
    * **HEAD**: 이 옵션 선택
    * **WORKER**: 이 옵션을 선택합니다.
-   * **ZOOKEEPER**: 이 확인란의 선택 취소
+   * **ZOOKEEPER**: 이 확인란은 공백으로 둡니다.
    * **PARAMETERS**: 이 필드는 공백으로 둡니다.
 
 

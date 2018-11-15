@@ -4,16 +4,16 @@ description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212780"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283294"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -123,12 +123,12 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ## <a name="definition-location"></a>정의 위치
 
-이니셔티브 또는 정책 정의를 만드는 동안 정의 위치를 지정하는 것이 중요합니다.
+이니셔티브 또는 정책을 만드는 동안 정의 위치를 지정해야 합니다. 정의 위치는 관리 그룹 또는 구독이어야 하며, 이니셔티브 또는 정책을 할당할 수 있는 범위를 결정합니다. 리소스는 할당 대상으로 지정할 정의 위치의 계층 구조 내의 직접 멤버 또는 자식 멤버여야 합니다.
 
-정의 위치는 이니셔티브 또는 정책 정의를 할당할 수 있는 범위를 결정합니다. 관리 그룹이나 구독으로 위치를 지정할 수 있습니다.
+정의 위치는 다음과 같습니다.
 
-> [!NOTE]
-> 이 정책 정의를 여러 구독에 적용하려는 경우 위치는 이니셔티브 또는 정책을 할당할 구독이 포함된 관리 그룹이어야 합니다.
+- **구독** - 해당 구독 내의 리소스만 정책에 할당할 수 있습니다.
+- **관리 그룹**  - 하위 관리 그룹과 자식 구독 내의 리소스만 정책에 할당할 수 있습니다. 정책 정의를 여러 구독에 적용하려는 경우 위치는 이러한 구독이 포함된 관리 그룹이어야 합니다.
 
 ## <a name="display-name-and-description"></a>표시 이름 및 설명
 
@@ -146,7 +146,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -232,7 +232,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - **감사**: 활동 로그에 경고 이벤트를 생성하지만 요청을 실패하지는 않습니다.
 - **추가**는 정의된 필드 집합을 요청에 추가합니다.
 - **AuditIfNotExists** - 리소스가 없으면 감사를 사용하도록 설정합니다.
-- **DeployIfNotExists**: 리소스가 아직 없으면 배포합니다.
+- **DeployIfNotExists**: 아직 존재하지 않는 리소스를 배포합니다.
+- **Disabled**: 정책 규칙 준수에 대해 리소스를 평가하지 않습니다.
 
 **append**의 경우 아래와 같이 details(세부 정보)를 제공해야 합니다.
 
@@ -247,6 +248,18 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 값은 문자열 또는 JSON 형식의 개체일 수 있습니다.
 
 **AuditIfNotExists** 및 **DeployIfNotExists**를 사용하면 관련 리소스의 존재 여부를 평가하고, 해당 리소스가 없을 경우 규칙과 그 결과를 적용할 수 있습니다. 예를 들어 모든 가상 네트워크에 대해 네트워크 감시자를 배포하도록 요구할 수 있습니다. 가상 머신 확장이 배포되지 않은 경우의 감사 예제는 [확장이 존재하지 않을 경우 감사](../samples/audit-ext-not-exist.md)를 참조하세요.
+
+**DeployIfNotExists** 효과에는 정책 규칙의 **details** 부분에 **roleDefinitionId** 속성이 필요합니다. 자세한 내용은 [수정 - 정책 정의 구성](../how-to/remediate-resources.md#configure-policy-definition)을 참조하세요.
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 각 효과, 평가 순서, 속성 및 예제에 대한 자세한 내용은 [정책 효과 이해](effects.md)를 참조하세요.
 

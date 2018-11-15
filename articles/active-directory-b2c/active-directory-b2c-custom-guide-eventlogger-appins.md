@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ced100f0bdd20841648ca84dfcab1847bdcd3096
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: d7097886b746c225bb420f9a96e2b7ef5c95c913
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362486"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684742"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
 
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory) B2C를 Azure Application Insights와 함께 사
 
 ## <a name="how-it-works"></a>작동 방법
 
-Azure AD B2C에서 ID 경험 프레임워크는 공급자 `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`을 포함합니다. 이 공급자는 Azure AD B2C에 제공된 계측 키를 사용하여 Application Insights에 직접 이벤트 데이터를 보냅니다.
+Azure AD B2C에서 ID 경험 프레임워크는 공급자 `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`을 포함합니다. 이 공급자는 Azure AD B2C에 제공된 계측 키를 사용하여 Application Insights에 직접 이벤트 데이터를 보냅니다.
 
 기술 프로필은 이 공급자를 사용하여 Azure AD B2C에서 이벤트를 정의합니다. 이 프로필은 이벤트의 이름, 기록될 클레임 및 계측 키를 지정합니다. 이벤트를 게시하기 위해 기술 프로필이 `orchestration step` 또는 `validation technical profile`로 사용자 지정 사용자 경험에 추가됩니다.
 

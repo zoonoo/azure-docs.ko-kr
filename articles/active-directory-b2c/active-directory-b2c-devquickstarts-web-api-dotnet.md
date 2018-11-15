@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C에서 보호된 ASP.NET 웹 API 호출 | Microsoft Docs
+title: Azure Active Directory B2C의 .NET 웹앱에서 .NET 웹 API 호출 | Microsoft Docs
 description: Azure Active Directory B2C 및 OAuth 2.0 액세스 토큰을 사용하여 .NET 웹앱을 빌드하고 웹 API를 호출하는 방법입니다.
 services: active-directory-b2c
 author: davidmu1
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 38ad6d8f3746d856d8c0a73520d55fad9d8344e6
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7296954a17b21183eb8be2744b42289522cf7f57
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157924"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012499"
 ---
-# <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: .NET 웹앱에서 .NET 웹 API 호출
+# <a name="call-a-net-web-api-from-a-net-web-app-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 .NET 웹앱에서 .NET 웹 API 호출
 
 Azure AD B2C를 사용하여 강력한 ID 관리 기능을 웹앱 및 웹 API에 추가할 수 있습니다. 이 문서에서는 액세스 토큰을 요청하고 .NET "할 일 모음" 웹앱에서 .NET 웹 API로 호출하는 방법을 설명합니다.
 
@@ -31,10 +31,10 @@ Azure AD B2C를 사용하여 강력한 ID 관리 기능을 웹앱 및 웹 API에
 웹 API를 호출하는 웹 응용 프로그램을 빌드하려면 다음을 수행해야 합니다.
 
 1. [Azure AD B2C 테넌트를 만듭니다](active-directory-b2c-get-started.md).
-2. [웹 API를 등록합니다](active-directory-b2c-app-registration.md#register-a-web-api).
-3. [웹앱을 등록합니다](active-directory-b2c-app-registration.md#register-a-web-app).
+2. [웹 API를 등록합니다](active-directory-b2c-app-registration.md).
+3. [웹앱을 등록합니다](active-directory-b2c-app-registration.md).
 4. [정책을 설정합니다](active-directory-b2c-reference-policies.md).
-5. [웹 API를 사용하도록 웹앱 권한을 부여합니다](active-directory-b2c-access-tokens.md#publishing-permissions).
+5. [웹 API를 사용하도록 웹앱 권한을 부여합니다](active-directory-b2c-access-tokens.md).
 
 > [!IMPORTANT]
 > 클라이언트 응용 프로그램 및 웹 API는 동일한 Azure AD B2C 디렉터리를 사용해야 합니다.
@@ -75,7 +75,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 ### <a name="specify-the-permissions"></a>사용 권한 지정
 
-웹 API에 대한 호출을 만들려면 사용자를 인증하고(등록/로그인 정책 사용) Azure AD B2C에서 [액세스 토큰을 받아야](active-directory-b2c-access-tokens.md) 합니다. 액세스 토큰을 받으려면 먼저 액세스 토큰을 부여하려는 권한을 지정해야 합니다. ph x="2" /&gt; 엔드포인트에 대한 요청을 만들 때 `scope` 매개 변수에서 권한이 지정됩니다. 예를 들어 `https://contoso.onmicrosoft.com/tasks`의 앱 ID URI를 가진 리소스 응용 프로그램에 대한 "읽기" 권한으로 액세스 토큰을 얻으려면 범위는 `https://contoso.onmicrosoft.com/tasks/read`가 됩니다.
+웹 API에 대한 호출을 만들려면 사용자를 인증하고(등록/로그인 정책 사용) Azure AD B2C에서 [액세스 토큰을 받아야](active-directory-b2c-access-tokens.md) 합니다. 액세스 토큰을 받으려면 먼저 액세스 토큰을 부여하려는 권한을 지정해야 합니다. `/authorize` 엔드포인트에 대한 요청을 만들 때 `scope` 매개 변수에서 권한이 지정됩니다. 예를 들어 `https://contoso.onmicrosoft.com/tasks`의 앱 ID URI를 가진 리소스 응용 프로그램에 대한 "읽기" 권한으로 액세스 토큰을 얻으려면 범위는 `https://contoso.onmicrosoft.com/tasks/read`가 됩니다.
 
 이 샘플의 범위를 지정하려면 `App_Start\Startup.Auth.cs` 파일을 열고 OpenIdConnectAuthenticationOptions에서 `Scope` 변수를 정의합니다.
 

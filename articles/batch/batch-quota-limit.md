@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887567"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282784"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -45,17 +45,27 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 
 풀 할당 모드가 **사용자 구독**으로 설정된 Batch 계정을 만든 경우 할당량이 다르게 적용됩니다. 이 모드에서 Batch VM 및 기타 리소스는 풀이 만들어질 때 구독에서 직접 만들어집니다. Azure Batch 코어 할당량은 이 모드에서 생성된 계정에는 적용되지 않습니다. 대신, 지역별 계산 코어 및 기타 리소스에 대한 구독의 할당량이 적용됩니다. [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에서 이러한 할당량에 대해 자세히 알아보세요.
 
+## <a name="pool-size-limits"></a>풀 크기 제한
+
+| **리소스** | **최대 제한** |
+| --- | --- |
+| **[노드 간 통신 사용 풀](batch-mpi.md)의 계산 노드 수**  ||
+| Batch 서비스 풀 할당 모드 | 100 |
+| Batch 구독 풀 할당 모드 | 80 |
+| **[사용자 지정 VM 이미지를 사용하여 만든 풀](batch-custom-images.md)<sup>1</sup>의 계산 노드 수** ||
+| 전용 노드 | 2000 |
+| 우선 순위가 낮은 노드 | 1000 |
+
+<sup>1</sup> 노드 간 통신을 사용하도록 설정된 풀입니다.
+
 ## <a name="other-limits"></a>기타 제한
 
 | **리소스** | **최대 제한** |
 | --- | --- |
-| [동시 작업](batch-parallel-node-tasks.md)  |4 x 노드 코어 수 |
-| [응용 프로그램](batch-application-packages.md)  |20 |
-| 응용 프로그램당 응용 프로그램 패키지 |40 |
+| [동시 작업](batch-parallel-node-tasks.md)  | 4 x 노드 코어 수 |
+| [응용 프로그램](batch-application-packages.md)  | 20 |
+| 응용 프로그램당 응용 프로그램 패키지 | 40 |
 | 최대 작업 수명 | 7일<sup>1</sup> |
-| [노드 간 통신 사용 풀](batch-mpi.md)의 계산 노드 | 100 |
-| [사용자 지정 VM 이미지로 만든 풀](batch-custom-images.md)의 전용 계산 노드 | 2500 |
-| [사용자 지정 VM 이미지로 만든 풀](batch-custom-images.md)의 우선 순위가 낮은 계산 노드 | 1000 |
 
 <sup>1</sup> 태스크가 작업에 추가될 때부터 완료될 때까지 태스크의 최대 수명은 7일입니다. 완료된 태스크무한 지속됩니다. 최대 수명 이내에 완료되지 않은 태스크에 대한 데이터에는 액세스할 수 없습니다.
 

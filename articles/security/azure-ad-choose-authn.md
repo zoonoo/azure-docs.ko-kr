@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a322edbc6825261dde0fd926a362ca037739e06e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1fd60774f5790a514e540984812fc1aaf6e38e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388061"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238916"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
@@ -68,6 +68,18 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 ## <a name="decision-tree"></a>의사 결정 트리
 
 ![Azure AD 인증 의사 결정 트리](media/azure-ad/azure-ad-authn-image1.png)
+
+의사 결정 질문에 대한 세부 정보:
+
+1. Azure AD는 암호를 확인하기 위해 온-프레미스 구성 요소에 의존하지 않고도 사용자 로그인을 처리할 수 있습니다.
+2. Azure AD는 Microsoft의 AD FS처럼 신뢰할 수 있는 인증 공급자에게 사용자 로그인을 넘겨줄 수 있습니다.
+3. 계정 만료, 계정 사용 중지, 암호 만료, 계정 잠김, 각 사용자 로그인의 로그인 시간 등의 사용자 수준 Active Directory 보안 정책을 적용해야 하는 경우 Azure AD에 몇 가지 온-프레미스 구성 요소가 필요합니다.
+4. 다음은 Azure AD에서 기본적으로 지원되지 않는 로그인 기능입니다.
+   * 스마트 카드 또는 인증서를 사용하여 로그인.
+   * 온-프레미스 MFA 서버를 사용하여 로그인.
+   * 타사 인증 솔루션을 사용하여 로그인.
+   * 다중 사이트 온-프레미스 인증 솔루션.
+5. Azure AD ID 보호는 "자격 증명이 유출된 보고서를 사용자에게 제공"해야 하므로 선택하는 로그인 방법에 관계 없이 암호 해시 동기화가 필요합니다. 조직에서는 기본 로그인 방법이 실패하고 해당 방법이 오류 이벤트 전에 구성된 경우 암호 해시 동기화로 장애 조치(failover)할 수 있습니다.
 
 ## <a name="detailed-considerations"></a>세부 고려 사항
 
@@ -207,4 +219,4 @@ ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도
 
 Azure AD로 [시작](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad)하여 조직에 맞는 올바른 인증 솔루션을 배포하세요.
 
-페더레이션 인증에서 클라우드 인증으로 마이그레이션을 고려하는 경우 [로그인 방법 변경](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method)에 대해 자세히 알아보세요. 마이그레이션을 계획하고 구현하는 데 도움이 되도록 [이러한 프로젝트 배포 계획](http://aka.ms/deploymentplans)을 사용할 수 있습니다.
+페더레이션 인증에서 클라우드 인증으로 마이그레이션을 고려하는 경우 [로그인 방법 변경](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method)에 대해 자세히 알아보세요. 마이그레이션을 계획하고 구현하는 데 도움이 되도록 [이러한 프로젝트 배포 계획](https://aka.ms/deploymentplans)을 사용할 수 있습니다.

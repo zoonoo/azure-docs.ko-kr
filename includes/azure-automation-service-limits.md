@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 34cae9172d9b024bd6866742d39d82ad496bfc52
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45570423"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964568"
 ---
 | 리소스 | 최대 제한 |메모|
 | --- | --- |---|
@@ -31,5 +31,6 @@ ms.locfileid: "45570423"
 | 최대 Runbook 작업 매개 변수의 최대 크기   | 512KB||
 | Runbook 매개 변수의 최대 수   | 50|JSON 또는 XML 문자열을 매개 변수에 전달하고 50개의 매개 변수 제한에 도달하면 Runbook을 사용하여 구문 분석할 수 있습니다|
 | 웹후크 페이로드의 최대 크기 |  512KB|
+| 작업 데이터가 보존되는 최대 일 수|30일|
 
 **<sup>1</sup>** 샌드박스는 여러 작업에서 사용할 수 있는 공유 환경으로, 동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다.

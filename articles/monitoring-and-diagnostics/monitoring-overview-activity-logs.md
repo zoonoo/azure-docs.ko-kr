@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094366"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006025"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 
@@ -33,10 +33,7 @@ ms.locfileid: "50094366"
 Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 활동 로그에서 이벤트를 검색할 수 있습니다.
 
 > [!NOTE]
->  [최신 경고](monitoring-overview-unified-alerts.md)는 활동 로그 경고 규칙을 만들고 관리할 때 향상된 환경을 제공합니다.  [자세히 알아보기](monitoring-activity-log-alerts-new-experience.md).
-
-활동 로그를 소개하는 다음 동영상을 봅니다.
-> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+>  [최신 경고](monitoring-overview-unified-alerts.md)는 활동 로그 경고 규칙을 만들고 관리할 때 향상된 환경을 제공합니다.  [자세히 알아보기](alert-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>활동 로그의 범주
@@ -70,7 +67,7 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 Azure Portal 내에서는 다음과 같은 여러 위치에서 활동 로그를 볼 수 있습니다.
 * **활동 로그**는 왼쪽 탐색 창의 **모든 서비스** 아래에서 에서 활동 로그를 검색하여 액세스할 수 있습니다.
 * **모니터**는 왼쪽 탐색 창에 기본으로 표시됩니다. 활동 로그는 Azure Monitor의 한 섹션입니다.
-* 모든 리소스의 **리소스**, 예를 들어 Virtual Machine에 대한 구성 블레이드에서 볼 수 있습니다. 활동 로그는 대부분의 이러한 리소스 블레이드에서 섹션 중 하나이며, 클릭하면 해당 특정 리소스와 관련된 이벤트를 자동으로 필터링합니다.
+* 대부분의 **리소스**, 예를 들어 Virtual Machine에 대한 구성 블레이드에서 볼 수 있습니다. 활동 로그는 대부분의 리소스 블레이드에서 섹션이며, 클릭하면 해당 특정 리소스와 관련된 이벤트를 자동으로 필터링합니다.
 
 Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 있습니다.
 * Timespan - 이벤트에 대한 시작 및 종료 시간입니다.
@@ -84,11 +81,9 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
 * 이벤트를 시작한 사람 - ‘호출자’ 또는 작업을 수행한 사용자입니다.
 * 검색 열기 - 모든 이벤트의 모든 필드에서 해당 문자열을 검색하는 열려 있는 텍스트 검색 상자입니다.
 
-필터 집합을 정의하면, 나중에 적용된 해당 필터를 사용하여 동일한 쿼리를 다시 수행해야 하는 경우 세션 간에 유지되는 쿼리로 저장할 수 있습니다. 또한 쿼리를 항상 특정 이벤트를 주시하도록 Azure 대시보드에 고정할 수 있습니다.
+필터 집합을 정의한 후에는 항상 특정 이벤트를 주시하도록 Azure 대시보드에 쿼리를 고정할 수 있습니다.
 
-“적용”을 클릭하면 쿼리가 실행되고 일치하는 모든 이벤트를 표시합니다. 목록에서 이벤트를 클릭하면 해당 이벤트에 대한 요약 및 해당 이벤트의 전체 원시 JSON이 표시됩니다.
-
-[Log Analytics 활동 로그 분석 솔루션](../log-analytics/log-analytics-activity.md)의 활동 로그 데이터를 표시하는 **로그 검색** 아이콘을 클릭하면 더 많은 기능에 대해 확인할 수 있습니다. 활동 로그 블레이드는 로그에 대한 기본 필터/찾아보기 경험을 제공하지만, Log Analytics를 사용하면 더 효과적으로 데이터를 피벗, 쿼리 및 시각화할 수 있습니다.
+[Log Analytics 활동 로그 분석 솔루션](../log-analytics/log-analytics-activity.md)의 활동 로그 데이터를 표시하는 **로그** 아이콘을 클릭하면 더 많은 기능에 대해 확인할 수 있습니다. 활동 로그 블레이드는 로그에 대한 기본 필터/찾아보기 경험을 제공하지만, Log Analytics를 사용하면 더 효과적으로 데이터를 피벗, 쿼리 및 시각화할 수 있습니다.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>로그 프로필을 사용하여 활동 로그 내보내기
 **로그 프로필**은 활동 로그를 내보내는 방식을 제어합니다. 로그 프로필을 사용하여 다음을 구성할 수 있습니다.
@@ -114,14 +109,14 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
 이러한 설정은 포털의 활동 로그 블레이드에서 "내보내기" 옵션을 통해 구성할 수 있습니다. [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet 또는 CLI를 사용하여 프로그래밍 방식으로 구성할 수도 있습니다. 하나의 구독에는 하나의 로그 프로필만 포함할 수 있습니다.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Azure Portal을 사용하여 로그 프로필 구성
-활동 로그를 Event Hub로 스트림하거나 Azure Portal의 "내보내기" 옵션을 사용하여 Storage 계정에 저장할 수 있습니다.
+활동 로그를 Event Hub로 스트림하거나 Azure Portal의 "이벤트 허브로 내보내기" 옵션을 사용하여 Storage 계정에 저장할 수 있습니다.
 
 1. 포털 왼쪽에 있는 메뉴를 사용하여 **활동 로그**로 이동합니다.
 
-    ![포털에서 활동 로그로 이동](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. 블레이드 맨 위에서 **내보내기** 단추를 클릭합니다.
+    ![포털에서 활동 로그로 이동](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+2. 블레이드 맨 위에서 **이벤트 허브로 내보내기** 단추를 클릭합니다.
 
-    ![포털에서 내보내기 단추](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![포털에서 내보내기 단추](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
 3. 표시되는 블레이드에서 다음을 선택할 수 있습니다.  
   * 이벤트를 내보내려는 지역
   * 이벤트를 저장하려는 Storage 계정

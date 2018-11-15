@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993564"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007144"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
 
@@ -147,6 +147,20 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
 브라우저 창을 닫고, SSH 프롬프트를 돌아가서, **Enter** 키를 누릅니다. 이제 할당된 대로 *VM 사용자* 또는 *VM 관리자*와 같은 역할 권한이 있는 Azure Linux 가상 머신에 로그인했습니다. 사용자 계정에 *가상 머신 관리자 로그인* 역할이 할당된 경우 `sudo`을 사용하여 루트 권한이 필요한 명령을 실행할 수 있습니다.
+
+## <a name="sudo-and-aad-login"></a>Sudo 및 AAD 로그인
+
+sudo를 처음 실행하면 두 번째에는 인증이 요청됩니다. sudo를 실행하기 위해 다시 인증하고 싶지 않다면 sudoer 파일(`/aad/etc/sudoers.d/aad_admins`)을 편집하고 다음 줄로 교체할 수 있습니다.
+
+```bash
+%aad_admins ALL=(ALL) ALL
+```
+다음 줄로 바꿉니다.
+
+```bash
+%aad_admins ALL=(ALL) NOPASSWD:ALL
+```
+
 
 ## <a name="troubleshoot-sign-in-issues"></a>로그인 문제 해결
 

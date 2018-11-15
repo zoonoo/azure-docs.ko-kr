@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2720ecece86133bf551ab42c415b2e9a87420e93
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55a3f3d7ac08554273464ed7c6f665e27661c6f8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237828"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625524"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트의 문제를 해결하는 방법 
 
@@ -85,7 +85,7 @@ ms.locfileid: "51237828"
 | --- | --- |
 | 2 | omsadmin 스크립트에 잘못된 옵션이 제공되었습니다. `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` 명령을 실행하여 사용 방법을 확인하세요. |
 | 3 | omsadmin 스크립트에 잘못된 구성이 제공되었습니다. `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` 명령을 실행하여 사용 방법을 확인하세요. |
-| 4 | omsadmin 스크립트에 잘못된 프록시가 제공되었습니다. 프록시를 확인하고 [HTTP 프록시 사용에 대한 설명서](log-analytics-concept-hybrid.md#network-firewall-requirements)를 읽어보세요. |
+| 4 | omsadmin 스크립트에 잘못된 프록시가 제공되었습니다. 프록시를 확인하고 [HTTP 프록시 사용에 대한 설명서](log-analytics-agent-overview.md#network-firewall-requirements)를 읽어보세요. |
 | 5 | Log Analytics 서비스에서 403 HTTP 오류가 수신되었습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
 | 6 | Log Analytics 서비스에서 200 HTTP 오류가 아닌 다른 오류가 수신되었습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |
 | 7 | Log Analytics 서비스에 연결할 수 없습니다. omsadmin 스크립트의 전체 출력에서 자세한 내용을 확인하세요. |

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/12/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: b1f7120b3758e35d818aedbcc3b85feca44f8c33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129661"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006161"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Security Center에서 네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
@@ -126,6 +126,20 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 세 번째 수준은 이전에 설명한 것과 유사한 가상 머신을 표시합니다. 리소스를 클릭하여 필요한 보안 제어 또는 구성을 자세히 알아보거나 적용할 수 있습니다.
 
+## <a name="network-recommendations"></a>네트워크 권장 사항
+
+|리소스 종류|보안 점수|권장 사항|설명|
+|----|----|----|----|
+|컴퓨터|40|가상 머신에서 네트워크 보안 그룹 활성화|가상 머신의 네트워크 액세스를 제어하기 위해 네트워크 보안 그룹을 활성화합니다.|
+|서브넷|35|서브넷에서 네트워크 보안 그룹 활성화 |서브넷에 배포된 리소스의 네트워크 액세스를 제어하기 위해 네트워크 보안 그룹을 활성화합니다.|
+|컴퓨터|30|Just-In-Time 네트워크 액세스 제어 적용|선택한 포트에 대한 액세스를 영구적으로 잠그기 위해 Just-In-Time VM 액세스 제어를 적용하고 권한 있는 사용자가 제한된 시간 동안 동일한 메커니즘을 통해 열 수 있도록 활성화합니다.|
+|컴퓨터|20|인터넷 엔드포인트를 통한 액세스 제한|기존 허용 규칙의 액세스를 제안하여 인터넷 연결 VM의 네트워크 보안 그룹을 강화합니다.|
+|컴퓨터|10|차세대 방화벽 추가|NGFW(차세대 방화벽) 솔루션을 추가하여 인터넷 연결 VM의 보호를 강화합니다.|
+|컴퓨터|5|네트워크 게이트웨이 방화벽을 통해서만 트래픽 라우팅|차세대 방화벽 솔루션 배포를 완료하려면 사용자의 보호된 인터넷 연결 VM으로 가는 트래픽을 차세대 방화벽 솔루션을 통해서만 라우팅해야 합니다.|
+|VNet|5|DDoS Protection 표준 사용|이러한 가상 네트워크에서 공용 IP가 있는 애플리케이션은 DDOS 보호 서비스 표준으로 보호되어 있지 않으므로, 대규모 네트워크 및 프로토콜 공격을 완화하기 위해 이 표준을 사용하는 것이 좋습니다.|
+|컴퓨터|10|차세대 방화벽 추가|NGFW(차세대 방화벽) 솔루션을 추가하여 인터넷 연결 VM의 보호를 강화합니다.|
+|컴퓨터|5|네트워크 게이트웨이 방화벽을 통해서만 트래픽 라우팅|차세대 방화벽 솔루션 배포를 완료하려면 사용자의 보호된 인터넷 연결 VM으로 가는 트래픽을 차세대 방화벽 솔루션을 통해서만 라우팅해야 합니다.|
+VNet|5|DDoS Protection 표준 사용|이러한 가상 네트워크에서 공용 IP 주소가 있는 애플리케이션은 DDOS 보호 서비스 표준으로 보호되어 있지 않으므로, 대규모 네트워크 및 프로토콜 공격을 완화하기 위해 이 표준을 사용하는 것이 좋습니다.|
 ## <a name="see-also"></a>참고 항목
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079360"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978181"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
@@ -102,7 +102,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image microsoft/windowsservercore:ltsc2016
  --command-line "ping -t localhost"
 ```
 
@@ -187,7 +187,7 @@ Windows 컨테이너 시작 시간을 단축하려면 다음과 같은 **두 개
 
 ### <a name="windows-containers-slow-network-readiness"></a>Windows 컨테이너 느린 네트워크 준비
 
-Windows 컨테이너를 처음 만들면 최대 5초 동안 인바운드 또는 아웃바운드 연결이 설정되지 않을 수 있습니다. 초기 설치 후에 컨테이너 네트워킹은 적절하게 다시 시작해야 합니다.
+Windows 컨테이너를 처음 만들면 최대 30초(또는 이상, 드문 경우에서) 동안 인바운드 또는 아웃바운드 연결이 설정되지 않을 수 있습니다. 컨테이너 애플리케이션에 인터넷 연결이 필요한 경우 인터넷 연결을 설정하는 데 30초를 허용하도록 지연 및 다시 시도 논리를 추가합니다. 초기 설치 후에 컨테이너 네트워킹은 적절하게 다시 시작해야 합니다.
 
 ## <a name="resource-not-available-error"></a>리소스 사용할 수 없음 오류
 

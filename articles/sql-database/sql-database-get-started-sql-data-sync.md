@@ -11,15 +11,15 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 98d30d2987d42a2c4893e00c3ba2ea6acd471bef
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 11/07/2018
+ms.openlocfilehash: 0a248ec5137a6de43910b1d11184dfeda18601f5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318812"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280350"
 ---
-# <a name="set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정
+# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정
 
 이 자습서에서는 Azure SQL Database와 SQL Server 인스턴스를 모두 포함하는 하이브리드 동기화 그룹을 만들어 Azure SQL 데이터 동기화를 설정하는 방법에 대해 설명합니다. 새 동기화 그룹을 완벽하게 구성하고 설정한 일정에 동기화합니다.
 
@@ -129,7 +129,7 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
 
     **새 에이전트 만들기**를 선택한 경우 다음을 수행합니다.
 
-   1. 제공된 링크에서 클라이언트 동기화 에이전트 소프트웨어를 다운로드하고 SQL Server가 있는 컴퓨터에 설치합니다.
+   1. 제공된 링크에서 클라이언트 동기화 에이전트 소프트웨어를 다운로드하고 SQL Server가 있는 컴퓨터에 설치합니다. [SQL Azure 데이터 동기화 에이전트](https://www.microsoft.com/download/details.aspx?id=27693)에서 데이터 동기화 에이전트를 직접 다운로드할 수도 있습니다.
 
         > [!IMPORTANT]
         > 클라이언트 에이전트가 서버와 통신할 수 있도록 방화벽에서 아웃바운드 TCP 포트 1433을 열어야 합니다.
@@ -253,35 +253,7 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
 
 ## <a name="faq-about-the-client-agent"></a>클라이언트 에이전트에 대한 질문과 대답
 
-### <a name="why-do-i-need-a-client-agent"></a>클라이언트 에이전트가 왜 필요한가요?
-
-SQL 데이터 동기화 서비스는 클라이언트 에이전트를 통해 SQL Server 데이터베이스와 통신합니다. 이 보안 기능은 방화벽 뒤에 있는 데이터베이스와의 직접 통신을 방지합니다. SQL 데이터 동기화 서비스가 에이전트와 통신할 때는 암호화된 연결과 고유 토큰 또는 *에이전트 키*를 사용합니다. SQL Server 데이터베이스는 연결 문자열과 에이전트 키를 사용하여 에이전트를 인증합니다. 이러한 설계는 데이터에 높은 수준의 보안을 제공합니다.
-
-### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>실행할 수 있는 로컬 에이전트의 UI의 인스턴스는 얼마나 되나요?
-
-UI 인스턴스는 하나만 실행할 수 있습니다.
-
-### <a name="how-can-i-change-my-service-account"></a>내 서비스 계정은 어떻게 변경하나요?
-
-클라이언트 에이전트를 설치한 후 서비스 계정을 변경하는 유일한 방법은 제거한 후 새 서비스 계정으로 새 클라이언트 에이전트를 설치하는 것뿐입니다.
-
-### <a name="how-do-i-change-my-agent-key"></a>내 에이전트 키는 어떻게 변경하나요?
-
-에이전트 키는 에이전트에서 한 번만 사용할 수 있습니다. 제거 후 새 에이전트를 설치하면 재사용할 수 없고 여러 에이전트에서 사용할 수도 없습니다. 기존 에이전트에 대해 새 키를 만들어야 할 경우, 클라이언트 에이전트와 SQL 데이터 동기화 서비스에 같은 키가 기록되도록 해야 합니다.
-
-### <a name="how-do-i-retire-a-client-agent"></a>클라이언트 에이전트는 어떻게 사용 중지하나요?
-
-에이전트를 즉시 무효화하거나 사용 중지하려면 포털에서 키를 다시 생성하고 에이전트 UI에는 제출하지 않습니다. 키를 다시 생성하면 해당 에이전트가 온라인이던 오프라인이던 관계없이 이전 키가 무효화됩니다.
-
-### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>클라이언트 에이전트를 어떻게 다른 컴퓨터로 이동하나요?
-
-현재 실행 중인 컴퓨터가 아닌 다른 컴퓨터에서 로컬 에이전트를 실행하려면 다음을 수행합니다.
-
-1. 원하는 컴퓨터에 에이전트를 설치합니다.
-2. SQL 데이터 동기화 포털에 로그인하고 새 에이전트에 대해 에이전트 키를 다시 생성합니다.
-3. 새 에이전트의 UI를 사용하여 새 에이전트 키를 제출합니다.
-4. 클라이언트 에이전트가 앞서 등록된 온-프레미스 데이터베이스 목록을 다운로드하는 동안 기다립니다.
-5. 연결할 수 없다고 표시된 모든 데이터베이스에 대해 데이터베이스 자격 증명을 제공합니다. 이러한 데이터베이스는 에이전트가 설치된 새 컴퓨터에서 연결할 수 있어야 합니다.
+클라이언트 에이전트에 대한 질문과 대답은 [에이전트 FAQ](sql-database-data-sync-agent.md#agent-faq)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

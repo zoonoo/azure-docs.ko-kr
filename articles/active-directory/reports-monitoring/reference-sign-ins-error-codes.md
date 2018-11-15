@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 85df34445622a13488df590f5cb53bedb7b6ea93
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ce06c72c9974b4887cc441344fd755bfd156a1ca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141733"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914722"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 활동 보고서 오류 코드
 
@@ -117,10 +117,10 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |50135|계정이 위험하므로 암호를 변경해야 합니다.|
 |50136|msa 세션을 응용 프로그램으로 리디렉션했습니다. 단일 MSA 세션이 검색되었습니다. |
 |50140|사용자가 로그인할 때 "로그인 유지" 인터럽트로 인해 이 오류가 발생했습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
-|50143|세션이 일치하지 않습니다. 사용자 테넌트가 다른 리소스로 인해 도메인 힌트와 일치하지 않기 때문에 세션이 유효하지 않습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+|50143|세션 불일치 - 사용자 테넌트가 다른 리소스로 인해 도메인 힌트와 일치하지 않기 때문에 세션이 유효하지 않습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는  [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 |50144|사용자의 Active Directory 암호가 만료되었습니다. 사용자에 대한 새 암호를 생성하거나 셀프 서비스 재설정 도구를 사용하여 최종 사용자에게 제공합니다.|
 |50146|이 응용 프로그램은 응용 프로그램별 서명 키로 구성해야 합니다. 응용 프로그램이 키로 구성되지 않았거나, 키가 만료되었거나 아직 유효하지 않습니다. 응용 프로그램 소유자에게 문의하세요.|
-|50148|code_verifier가 PKCE에 대한 권한 부여 요청에 제공된 code_challenge와 일치하지 않습니다. 응용 프로그램 개발자에게 문의하세요. |
+|50148|code_verifier가 PKCE에 대한 권한 부여 요청에 제공된 code_challenge와 일치하지 않습니다. 응용 프로그램 개발자에게 문의하세요. |
 |50155|이 사용자에 대한 장치 인증에 실패했습니다.|
 |50158|외부 보안 과제가 충족되지 않았습니다.|
 |50161|외부 공급자가 보낸 클레임이 충분하지 않거나 외부 공급자에게 요청된 클레임이 누락되었습니다.|
@@ -152,7 +152,7 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |70007|응용 프로그램에서 토큰을 요청할 때 지원되지 않는 'response_mode' 값을 반환했습니다. 응용 프로그램 소유자에게 문의하세요.|
 |70008|제공된 인증 코드 또는 새로 고침 토큰이 만료되었거나 철회되었습니다. 사용자가 로그인을 다시 시도해야 합니다.|
 |70011|응용 프로그램에서 요청한 범위가 잘못되었습니다. 응용 프로그램 소유자에게 문의하세요.|
-|70012|MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 오류가 계속되면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
+|70012|MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 오류가 계속되면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
 |70018|사용자가 장치 코드 흐름에 대해 잘못된 사용자 코드를 입력했기 때문에 확인 코드가 잘못되었습니다. 권한 부여가 승인되지 않았습니다.|
 |70019|확인 코드가 만료되었습니다. 사용자가 로그인을 다시 시도해야 합니다.|
 |70037|잘못된 시도 응답이 제공되었습니다. 원격 인증 세션이 거부되었습니다.|
@@ -180,6 +180,7 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |90014| 프로토콜 메시지에 대한 필수 필드가 누락되었습니다. 응용 프로그램 소유자에게 문의하세요. 응용 프로그램 소유자인 경우 로그인 요청에 대한 모든 필요한 매개 변수가 있는지 확인합니다. |
 |90072| 먼저 계정을 테넌트에서 외부 사용자로 추가해야 합니다. 다른 Azure AD 계정으로 로그아웃했다가 다시 로그인합니다.|
 |90094| 권한 부여를 위해서는 관리자 권한이 필요합니다. 테넌트 관리자에게 이 응용 프로그램에 대한 동의를 제공하도록 요청하세요.|
+|500133| 어설션이 유효한 시간 범위 내에 있지 않습니다. 사용자 어설션에 대해 사용하기 전에 액세스 토큰이 만료되지 않았는지 확인하거나 새 토큰을 요청합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

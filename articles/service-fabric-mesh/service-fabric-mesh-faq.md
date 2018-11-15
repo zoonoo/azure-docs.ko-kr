@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501970"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278313"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh에 대한 일반적인 질문
 Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트워킹을 관리하지 않고 마이크로 서비스 응용 프로그램을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에는 일반적인 질문에 대한 답변이 있습니다.
@@ -27,24 +27,54 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트
 
 **미리 보기에 참여하는 비용은 얼마인가요?**
 
-Mesh 미리 보기에 응용 프로그램 또는 컨테이너를 배포하기 위한 요금은 없습니다. 그러나 적극적으로 테스트하지 않는 경우, 배포하는 리소스를 삭제하고 계속 실행하지 않는 것이 좋습니다.
+현재 Mesh 미리 보기에 애플리케이션 또는 컨테이너를 배포하기 위한 요금은 없습니다. 하지만 테스트를 적극적으로 진행하지 않는 경우 배포된 리소스를 삭제하고 더 이상 실행하지 않는 것이 좋습니다.
 
 **코어 수와 RAM의 할당량 제한이 있나요?**
 
-예, 각 구독에 대한 할당량은 다음과 같습니다.
+예, 각 구독의 할당량은 다음과 같이 설정됩니다.
 
-- 응용 프로그램 수 - 5 
-- 응용 프로그램당 코어 수 - 12 
+- 애플리케이션 수 - 5 
+- 애플리케이션당 코어 수 - 12 
 - 응용 프로그램당 총 RAM - 48GB 
-- 네트워크 및 수신 끝점 수 - 5  
-- 연결할 수 있는 Azure 볼륨 수 - 10 
+- 네트워크 및 수신 엔드포인트 수 - 5  
+- 연결할 수 있는 Azure 볼륨 - 10 
 - 서비스 복제본 수 - 3 
-- 배포할 수 있는 최대 컨테이너는 코어 4개(16GB RAM)로 제한됩니다.
+- 배포할 수 있는 최대 컨테이너는 4코어, 16GB RAM으로 제한됩니다.
 - 최대 6개 코어까지 코어 0.5개 증분으로 부분 코어를 컨테이너에 할당할 수 있습니다.
 
-**야간에 내 응용 프로그램을 계속 실행할 수 있나요?**
+**애플리케이션을 배포한 후 얼마나 오래 두어도 되나요?**
 
-예, 실행할 수 있습니다. 그러나 적극적으로 테스트하지 않는 경우, 배포하는 리소스를 삭제하고 계속 실행하지 않는 것이 좋습니다. 이 정책은 나중에 변경될 수 있으며, 잘못 사용되는 경우, 리소스가 삭제될 수 있습니다.
+현재 애플리케이션 수명은 2일로 제한되어 있습니다. 미리 보기에 할당된 체험용 코어의 사용률을 최대화하기 위한 조치입니다. 결과적으로, 주어진 배포를 연속 48시간 동안 실행할 수 있으며, 이 시간이 지나면 시스템에서 배포를 종료합니다. 이 경우 Azure CLI에서 `az mesh app show` 명령을 실행하고 `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 메시지가 반환되는지 확인하여 시스템에서 배포를 종료한 것인지 확인할 수 있습니다. 
+
+예:  
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
+
+동일한 애플리케이션을 메시에 계속 배포하려면 애플리케이션에 연결된 리소스 그룹을 삭제하거나, 애플리케이션 및 모든 관련 메시 리소스(네트워크 포함)를 개별적으로 제거해야 합니다. 
+
+리소스 그룹을 삭제하려면 `az group delete <nameOfResourceGroup>` 명령을 사용합니다. 
 
 ## <a name="supported-container-os-images"></a>지원되는 컨테이너 OS 이미지
 서비스를 배포할 때 다음 컨테이너 OS 이미지를 사용할 수 있습니다.

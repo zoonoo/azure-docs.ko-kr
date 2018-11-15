@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub 쿼리 언어 | Microsoft Docs
 description: 개발자 가이드 - IoT Hub에서 장치/모듈 쌍 및 작업에 대한 정보를 검색하는 데 사용되는 SQL 유형의 IoT Hub 쿼리 언어에 대한 설명
-author: fsautomata
+author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2018
-ms.author: elioda
-ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 10/29/2018
+ms.author: rezas
+ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318251"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747918"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>장치 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -389,6 +389,11 @@ GROUP BY <group_by_element>
 **Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다.
 
 현재 GROUP BY 절은 장치 쌍을 쿼리하는 경우에만 지원됩니다.
+
+> [!IMPORTANT]
+> 용어 `group`은 현재 쿼리에서 특수 키워드로 취급됩니다. 이 경우 속성 이름으로 `group`을 사용하고 오류를 방지하기 위해 이중 괄호를 사용하여 묶는 것이 좋습니다. 예를 들면 `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`입니다.
+>
+>
 
 ## <a name="expressions-and-conditions"></a>식 및 조건
 높은 수준에서 *식*은:

@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6050771ee1d129edd4370079c07da721f60d2065
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008337"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613548"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Linux용 Log Analytics 에이전트에서 Log Analytics에 Nagios 및 Zabbix의 경고 수집 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) 및 [Zabbix](http://www.zabbix.com/)는 오픈 소스 모니터링 도구입니다. [다른 원본의 경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)와 함께 분석하기 위해 이러한 도구에서 Log Analytics로 경고를 수집할 수 있습니다.  이 문서에서는 이러한 시스템에서 경고를 수집하도록 Linux용 Log Analytics 에이전트를 구성하는 방법을 설명합니다.
+[Nagios](https://www.nagios.org/) 및 [Zabbix](http://www.zabbix.com/)는 오픈 소스 모니터링 도구입니다. [다른 원본의 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)와 함께 분석하기 위해 이러한 도구에서 Log Analytics로 경고를 수집할 수 있습니다.  이 문서에서는 이러한 시스템에서 경고를 수집하도록 Linux용 Log Analytics 에이전트를 구성하는 방법을 설명합니다.
  
 ## <a name="prerequisites"></a>필수 조건
 Linux용 Log Analytics 에이전트는 최대 버전 4.2.x의 Nagios, 최대 버전 2.x의 Zabbix에서 경고를 수집하도록 지원합니다.
@@ -118,5 +118,5 @@ Zabbix에서 수집된 경고는 **경고**의 **형식** 및 **Zabbix**의 **So
 
 
 ## <a name="next-steps"></a>다음 단계
-* Log Analytics에서 [경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)에 대해 알아봅니다.
+* Log Analytics에서 [경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)에 대해 알아봅니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-queries.md)에 대해 알아봅니다. 

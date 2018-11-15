@@ -5,22 +5,23 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/29/2018
+ms.date: 11/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 03af5efcd4a37203a82db503f8bc602b33de734d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b698dd03473dd3cb708c47c6554869eebba48bf9
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226660"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597630"
 ---
-|**SKU**   | **S2S/VNet 간<br>터널** | **P2S<br> SSTP 연결** | **P2S<br> IKEv2 연결** | **집계<br>처리량 벤치마크** |
-|---       | ---        | ---       | ---            | ---       |
-|**VpnGw1**| 최대 30*   | 최대 128  | 최대 250       | 650Mbps  |
-|**VpnGw2**| 최대 30*   | 최대 128  | 최대 500       | 1Gbps    |
-|**VpnGw3**| 최대 30*   | 최대 128  | 최대 1000      | 1.25Gbps |
-|**Basic** | 최대 10    | 최대 128  | 지원되지 않음  | 100Mbps  | 
+|**SKU**   | **S2S/VNet 간<br>터널** | **P2S<br> SSTP 연결** | **P2S<br> IKEv2 연결** | **집계<br>처리량 벤치마크** | **BGP** |
+|---       | ---        | ---       | ---            | ---       | --- |
+|**Basic** | 최대 10    | 최대 128  | 지원되지 않음  | 100Mbps  | 지원되지 않음|
+|**VpnGw1**| 최대 30*   | 최대 128  | 최대 250       | 650Mbps  | 지원됨 |
+|**VpnGw2**| 최대 30*   | 최대 128  | 최대 500       | 1Gbps    | 지원됨 |
+|**VpnGw3**| 최대 30*   | 최대 128  | 최대 1000      | 1.25Gbps | 지원됨 |
+
 
 (*) S2S VPN 터널이 30개 넘게 필요한 경우 [가상 WAN](../articles/virtual-wan/virtual-wan-about.md)을 사용해야 합니다.
 

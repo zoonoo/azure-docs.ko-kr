@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 11/7/2018
 ms.author: shlo
-ms.openlocfilehash: 3db32dfe2d7b65535f7d30f76241b33ecca96c15
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957958"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281696"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 Azure Data Factory UX(사용자 인터페이스 환경)을 사용하면 코드를 작성할 필요 없이 데이터 팩터리에 대한 리소스를 시각적으로 작성하고 배포할 수 있습니다. 파이프라인 캔버스에 작업을 끌어다 놓고, 테스트 실행을 수행하고, 반복적으로 디버그하고, 파이프라인 실행을 배포 및 모니터링할 수 있습니다. 시각적 작성을 수행하기 위해 UX를 사용하는 두 가지 방법이 있습니다.
@@ -142,7 +142,9 @@ Data Factory는 팩터리를 로드할 때만 `publish_config.json` 파일을 �
 
 ## <a name="author-with-github-integration"></a>GitHub 통합을 통한 작성
 
-GitHub 통합을 통한 시각적 작성은 데이터 팩터리 파이프라인에서 작업하기 위한 원본 제어 및 공동 작업을 지원합니다. 사용자는 원본 제어, 공동 작업 및 버전 관리를 위해 GitHub 계정 리포지토리에 데이터 팩터리를 연결할 수 있습니다. 단일 GitHub 계정은 여러 리포지토리를 가질 수 있지만 GitHub 리포지토리는 단 하나의 데이터 팩터리와 연결할 수 있습니다. GitHub 계정 또는 리포지토리가 없는 경우 [이러한 지침](https://github.com/join)에 따라 리소스를 만듭니다. Data Factory를 사용한 GitHub 통합은 공용 GitHub 및 GitHub Enterprise 모두를 지원합니다.
+GitHub 통합을 통한 시각적 작성은 데이터 팩터리 파이프라인에서 작업하기 위한 원본 제어 및 공동 작업을 지원합니다. 사용자는 원본 제어, 공동 작업 및 버전 관리를 위해 GitHub 계정 리포지토리에 데이터 팩터리를 연결할 수 있습니다. 단일 GitHub 계정은 여러 리포지토리를 가질 수 있지만 GitHub 리포지토리는 단 하나의 데이터 팩터리와 연결할 수 있습니다. GitHub 계정 또는 리포지토리가 없는 경우  [이러한 지침](https://github.com/join) 에 따라 리소스를 만듭니다.
+
+Data Factory를 사용한 GitHub 통합은 공용 GitHub(즉, [https://github.com](https://github.com)) 및 GitHub Enterprise 모두를 지원합니다. GitHub의 리포지토리에 대한 읽기 및 쓰기 권한이 있다면 Data Factory를 사용하여 공용 및 개인 GitHub 리포지토리를 모두 사용할 수 있습니다.
 
 GitHub 리포지토리를 지정하려면 사용하고 있는 Azure 구독에 대한 관리자 권한이 있어야 합니다.
 
@@ -164,11 +166,11 @@ GitHub 리포지토리를 지정하려면 사용하고 있는 Azure 구독에 �
 
 **구성 방법 1(공용 리포지토리): 시작하기 페이지**
 
-Azure Data Factory에서 **시작하기** 페이지로 이동합니다. **코드 리포지토리 구성**을 선택합니다.
+Azure Data Factory에서  **시작하기**  페이지로 이동합니다.  **코드 리포지토리 구성**을 선택합니다.
 
 ![Data Factory 시작 페이지](media/author-visually/github-integration-image1.png)
 
-**리포지토리 설정** 구성 창이 나타납니다.
+ **리포지토리 설정**  구성 창이 나타납니다.
 
 ![GitHub 리포지토리 설정](media/author-visually/github-integration-image2.png)
 
@@ -181,14 +183,14 @@ Azure Data Factory에서 **시작하기** 페이지로 이동합니다. **코드
 | **RepositoryName**                                       | GitHub 코드 리포지토리 이름입니다. GitHub 계정은 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 계정에 이미 있는 기존 리포지토리를 사용할 수 있습니다.                                                                                                                                                                                                                              |                    |
 | **공동 작업 분기**                                 | 게시에 사용되는 GitHub 공동 작업 분기입니다. 기본값은 master입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다.                                                                                                                                                                                                                                                               |                    |
 | **루트 폴더**                                          | GitHub 공동 작업 분기의 루트 폴더입니다.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **리포지토리로 기존 Data Factory 리소스 가져오기** | UX **제작 캔버스**에서 기존 데이터 팩터리 리소스를 GitHub 리포지토리로 가져올지 여부를 지정합니다. JSON 형식의 연결된 Git 리포지토리로 데이터 팩터리 리소스를 가져오려면 상자를 선택합니다. 이 작업은 각 리소스를 개별적으로 내보냅니다(즉, 연결된 서비스 및 데이터 집합을 별도 JSON으로 내보냄). 이 상자를 선택하지 않으면 기존 리소스를 가져오지 않습니다. | 선택됨(기본값) |
+| **리포지토리로 기존 Data Factory 리소스 가져오기** | 기존 데이터 팩터리 리소스를 UX  **제작 캔버스** 에서 GitHub 리포지토리로 가져올지 여부를 지정합니다. JSON 형식의 연결된 Git 리포지토리로 데이터 팩터리 리소스를 가져오려면 상자를 선택합니다. 이 작업은 각 리소스를 개별적으로 내보냅니다(즉, 연결된 서비스 및 데이터 집합을 별도 JSON으로 내보냄). 이 상자를 선택하지 않으면 기존 리소스를 가져오지 않습니다. | 선택됨(기본값) |
 | **리소스를 가져올 분기**                       | 데이터 팩터리 리소스(파이프라인, 데이터 집합, 연결된 서비스 등)를 가져올 분기를 지정합니다. 다음 분기 중 하나로 리소스를 가져올 수 있습니다. a. 공동 작업 b. 새로 만들기 c. 기존 리소스 사용                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>구성 방법 2(공용 리포지토리): UX 제작 캔버스
 
-Azure Data Factory UX **제작 캔버스**에서 사용자의 데이터 팩터리를 찾습니다. **Data Factory** 드롭다운 메뉴를 선택한 다음, **코드 리포지토리 구성**을 선택합니다.
+Azure Data Factory UX  **제작 캔버스**에서 사용자의 데이터 팩터리를 찾습니다.  **Data Factory**  드롭다운 메뉴를 선택한 다음,  **코드 리포지토리 구성**을 선택합니다.
 
-구성 창이 나타납니다. 구성 설정에 대한 자세한 내용은 위의 *구성 방법 1*에 있는 설명을 참조하세요.
+구성 창이 나타납니다. 구성 설정에 대한 자세한 내용은 위의  *구성 방법 1*에 있는 설명을 참조하세요.
 
 ### <a name="configure-a-github-enterprise-repository-with-azure-data-factory"></a>Azure Data Factory를 통한 GitHub Enterprise 리포지토리 구성
 
@@ -196,11 +198,11 @@ Azure Data Factory UX **제작 캔버스**에서 사용자의 데이터 팩터�
 
  #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>구성 방법 1(Enterprise 리포지토리): 시작하기 페이지
 
-Azure Data Factory에서 **시작하기** 페이지로 이동합니다. **코드 리포지토리 구성**을 선택합니다.
+Azure Data Factory에서  **시작하기**  페이지로 이동합니다.  **코드 리포지토리 구성**을 선택합니다.
 
 ![Data Factory 시작 페이지](media/author-visually/github-integration-image1.png)
 
-**리포지토리 설정** 구성 창이 나타납니다.
+ **리포지토리 설정**  구성 창이 나타납니다.
 
 ![GitHub 리포지토리 설정](media/author-visually/github-integration-image3.png)
 
@@ -215,14 +217,14 @@ Azure Data Factory에서 **시작하기** 페이지로 이동합니다. **코드
 | **RepositoryName**                                       | GitHub 코드 리포지토리 이름입니다. GitHub 계정은 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 계정에 이미 있는 기존 리포지토리를 사용할 수 있습니다.                                                                                                                                                                                                                              |                    |
 | **공동 작업 분기**                                 | 게시에 사용되는 GitHub 공동 작업 분기입니다. 기본값은 master입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다.                                                                                                                                                                                                                                                               |                    |
 | **루트 폴더**                                          | GitHub 공동 작업 분기의 루트 폴더입니다.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **리포지토리로 기존 Data Factory 리소스 가져오기** | UX **제작 캔버스**에서 기존 데이터 팩터리 리소스를 GitHub 리포지토리로 가져올지 여부를 지정합니다. JSON 형식의 연결된 Git 리포지토리로 데이터 팩터리 리소스를 가져오려면 상자를 선택합니다. 이 작업은 각 리소스를 개별적으로 내보냅니다(즉, 연결된 서비스 및 데이터 집합을 별도 JSON으로 내보냄). 이 상자를 선택하지 않으면 기존 리소스를 가져오지 않습니다. | 선택됨(기본값) |
+| **리포지토리로 기존 Data Factory 리소스 가져오기** | 기존 데이터 팩터리 리소스를 UX  **제작 캔버스** 에서 GitHub 리포지토리로 가져올지 여부를 지정합니다. JSON 형식의 연결된 Git 리포지토리로 데이터 팩터리 리소스를 가져오려면 상자를 선택합니다. 이 작업은 각 리소스를 개별적으로 내보냅니다(즉, 연결된 서비스 및 데이터 집합을 별도 JSON으로 내보냄). 이 상자를 선택하지 않으면 기존 리소스를 가져오지 않습니다. | 선택됨(기본값) |
 | **리소스를 가져올 분기**                       | 데이터 팩터리 리소스(파이프라인, 데이터 집합, 연결된 서비스 등)를 가져올 분기를 지정합니다. 다음 분기 중 하나로 리소스를 가져올 수 있습니다. a. 공동 작업 b. 새로 만들기 c. 기존 리소스 사용                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>구성 방법 2(Enterprise 리포지토리): UX 제작 캔버스
 
-Azure Data Factory UX **제작 캔버스**에서 사용자의 데이터 팩터리를 찾습니다. **Data Factory** 드롭다운 메뉴를 선택한 다음, **코드 리포지토리 구성**을 선택합니다.
+Azure Data Factory UX  **제작 캔버스**에서 사용자의 데이터 팩터리를 찾습니다.  **Data Factory**  드롭다운 메뉴를 선택한 다음,  **코드 리포지토리 구성**을 선택합니다.
 
-구성 창이 나타납니다. 구성 설정에 대한 자세한 내용은 위의 *구성 방법 1*에 있는 설명을 참조하세요.
+구성 창이 나타납니다. 구성 설정에 대한 자세한 내용은 위의  *구성 방법 1*에 있는 설명을 참조하세요.
 
 ## <a name="use-the-expression-language"></a>식 언어 사용
 Azure Data Factory에서 지원하는 식 언어를 사용하여 속성 값에 대한 식을 지정할 수 있습니다.

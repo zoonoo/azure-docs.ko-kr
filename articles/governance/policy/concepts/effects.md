@@ -4,40 +4,46 @@ description: Azure Policy 정의는 준수가 관리되고 보고되는 방법�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 54562401c830232d0a4bf90405cc5a2dbedcd8bc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4668b1fe6e59898d81fc71558e21acd1a89be767
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055971"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279501"
 ---
 # <a name="understand-policy-effects"></a>Policy 효과 이해
 
 Azure Policy에서 각 정책 정의는 정책 규칙의 **if** 세그먼트가 검사되는 리소스와 일치하도록 평가되는 경우 검사 중 발생하는 작업을 결정하는 단일 효과를 갖습니다. 효과는 새 리소스, 업데이트된 리소스 또는 기존 리소스인 경우 서로 다르게 동작할 수도 있습니다.
 
-현재 정책 정의에서 지원되는 5개의 효과가 있습니다.
+현재 정책 정의에서 지원되는 6가지 효과가 있습니다.
 
 - 추가
 - 감사
 - AuditIfNotExists
 - 거부
 - DeployIfNotExists
+- 사용 안 함
 
 ## <a name="order-of-evaluation"></a>평가 순서
 
 Azure Resource Manager를 통해 리소스를 만들거나 업데이트하는 요청이 실행되는 경우 Policy는 적절한 리소스 공급자로 요청을 처리하기 전에 여러 효과를 처리합니다.
 이렇게 하면 리소스가 Policy의 디자인된 거버넌스 컨트롤을 충족하지 않을 때 리소스 공급자의 불필요한 처리를 방지합니다. Policy는 범위별로(제외 빼기) 리소스에 적용되는 정책 또는 이니셔티브 할당에 의해 할당된 모든 정책 정의의 목록을 만들고 각 정의에 대해 리소스를 평하도록 준비합니다.
 
-- **추가**가 먼저 평가됩니다. 추가는 요청을 변경할 수 있으므로 추가에서 만들어진 변경은 감사를 방지하거나 트리거되는 효과를 거부할 수 있습니다.
+- **사용 안 함**을 먼저 선택하여 정책 규칙을 평가할지 여부를 확인합니다.
+- 그런 다음, **추가**를 평가합니다. 추가는 요청을 변경할 수 있으므로 추가에서 만들어진 변경은 감사를 방지하거나 트리거되는 효과를 거부할 수 있습니다.
 - 그런 다음, **거부**가 평가됩니다. 감사 전에 거부를 평가하여 원치 않는 리소스의 이중 로깅이 방지됩니다.
 - 그런 다음, 리소스 공급자로 가는 요청 전에 **감사**가 평가됩니다.
 
 요청이 리소스 공급자에게 제공되고 리소스 공급자가 성공 상태 코드를 반환하면 추가 작업 규정 준수 로깅 또는 작업이 필요한지 확인하는 **AuditIfNotExists** 및 **DeployIfNotExists**가 평가됩니다.
+
+## <a name="disabled"></a>사용 안 함
+
+이 효과는 테스트 상황 및 정책 정의가 영향을 매개 변수화한 경우에 유용합니다. 정책의 모든 할당을 사용하지 않도록 설정하는 대신 효과의 할당 매개 변수를 변경하여 해당 정책의 단일 할당을 사용하지 않도록 설정하는 것이 가능해졌습니다.
 
 ## <a name="append"></a>추가
 

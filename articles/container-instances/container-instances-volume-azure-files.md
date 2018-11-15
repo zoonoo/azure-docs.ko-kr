@@ -2,23 +2,23 @@
 title: Azure Container Instances에서 Azure Files 볼륨 탑재
 description: Azure Container Instances를 사용하여 상태가 유지되도록 Azure Files 볼륨을 탑재하는 방법에 대해 알아봅니다.
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: seanmck
+ms.date: 11/05/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 83c86d8310aff80f148e878261ba33b01846006b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f3d4bfa7d8ffda1ab2789927d03a777fab0ed89c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441326"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281584"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
 
-Azure Container Instances는 기본적으로 상태 비저장 방식으로 작동합니다. 컨테이너의 작동이 중단되거나 중지되면 모든 상태가 손실됩니다. 컨테이너 수명이 지난 후에도 상태를 유지하려면 외부 저장소에서 볼륨을 탑재해야 합니다. 이 문서에서는 Azure Container Instances에서 사용할 수 있도록 Azure 파일 공유를 탑재하는 방법을 설명합니다.
+Azure Container Instances는 기본적으로 상태 비저장 방식으로 작동합니다. 컨테이너의 작동이 중단되거나 중지되면 모든 상태가 손실됩니다. 컨테이너 수명이 지난 후에도 상태를 유지하려면 외부 저장소에서 볼륨을 탑재해야 합니다. 이 문서에서는 Azure Container Instances에서 사용하기 위해 [Azure Files](../storage/files/storage-files-introduction.md)를 사용하여 만든 Azure 파일 공유를 탑재하는 방법을 보여줍니다. Azure Files는 산업 표준 SMB(서버 메시지 블록) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure Container Instances에서 Azure 파일 공유를 사용하면 Azure Virtual Machines에서 Azure 파일 공유를 사용하는 것과 유사한 파일 공유 기능을 제공합니다.
 
 > [!NOTE]
 > 현재 Azure 파일 공유를 탑재하는 작업은 Linux 컨테이너로만 제한되어 있습니다. 모든 기능을 Windows 컨테이너에서 제공하려고 합니다. 그 동안 [Azure Container Instances에 대한 할당량 및 지역 가용성](container-instances-quotas.md)에서 현재 플랫폼의 차이점을 찾을 수 있습니다.
@@ -41,29 +41,24 @@ az storage account create \
     --location $ACI_PERS_LOCATION \
     --sku Standard_LRS
 
-# Export the connection string as an environment variable. The following 'az storage share create' command
-# references this environment variable when creating the Azure file share.
-export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string --resource-group $ACI_PERS_RESOURCE_GROUP --name $ACI_PERS_STORAGE_ACCOUNT_NAME --output tsv`
-
 # Create the file share
-az storage share create -n $ACI_PERS_SHARE_NAME
+az storage share create --name $ACI_PERS_SHARE_NAME --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME
 ```
 
 ## <a name="get-storage-credentials"></a>저장소 자격 증명 가져오기
 
 Azure Container Instances의 볼륨으로 Azure 파일 공유를 탑재하려면 Storage 계정 이름, 공유 이름, Storage 액세스 키의 세 가지 값이 필요합니다.
 
-위의 스크립트를 사용한 경우 끝에 임의 값이 붙은 Storage 계정 이름이 생성되었을 것입니다. 임의 값 부분을 포함한 최종 문자열을 쿼리하려면 다음 명령을 사용합니다.
+위의 스크립트를 사용한 경우 스토리지 계정 이름은 $ACI_PERS_STORAGE_ACCOUNT_NAME 변수에 저장되었습니다. 계정 이름을 확인하려면 다음을 입력하세요.
 
-```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" --output tsv)
-echo $STORAGE_ACCOUNT
+```console
+echo $ACI_PERS_STORAGE_ACCOUNT_NAME
 ```
 
 공유 이름은 이미 알려져 있으므로(위 스크립트에서 *acishare*로 정의됨) 저장소 계정 키만 확인하면 됩니다. 이 키는 다음 명령을 사용하여 확인할 수 있습니다.
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" --output tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $ACI_PERS_STORAGE_ACCOUNT_NAME --query "[0].value" --output tsv)
 echo $STORAGE_KEY
 ```
 
@@ -88,7 +83,7 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>탑재된 볼륨의 파일 관리
 
-컨테이너가 시작되면 [microsoft/aci-hellofiles][aci-hellofiles] 이미지를 통해 배포된 간단한 웹앱을 사용하여 사용자가 지정한 탑재 경로에서 Azure 파일 공유의 파일을 관리할 수 있습니다. 아래와 같이 [az container show][az-container-show] 명령을 사용하여 웹앱의 FQDN(정규화된 도메인 이름)을 확인합니다.
+컨테이너가 시작되면 [microsoft/aci-hellofiles][aci-hellofiles] 이미지를 통해 배포된 간단한 웹앱을 사용하여 사용자가 지정한 탑재 경로에서 Azure 파일 공유의 작은 텍스트 파일을 만들 수 있습니다. 아래와 같이 [az container show][az-container-show] 명령을 사용하여 웹앱의 FQDN(정규화된 도메인 이름)을 확인합니다.
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
@@ -98,11 +93,11 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 
 ## <a name="mount-multiple-volumes"></a>여러 볼륨 탑재
 
-컨테이너 인스턴스에서 여러 볼륨을 탑재하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups)을 사용하여 배포해야 합니다.
+컨테이너 인스턴스에서 여러 볼륨을 탑재하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups) 또는 YAML 파일을 사용하여 배포해야 합니다.
 
-먼저 공유 세부 정보를 제공하고 템플릿의 `properties` 섹션에서 `volumes` 배열을 채워서 볼륨을 정의합니다. 예를 들어, 저장소 계정 *myStorageAccount*에 *share1* 및 *share2*라는 두 개의 Azure 파일 공유를 만든 경우 `volumes` 배열이 다음과 비슷하게 표시됩니다.
+템플릿을 사용하려면 먼저 공유 세부 정보를 제공하고 템플릿의 `properties` 섹션에서 `volumes` 배열을 채워서 볼륨을 정의합니다. 예를 들어, 저장소 계정 *myStorageAccount*에 *share1* 및 *share2*라는 두 개의 Azure 파일 공유를 만든 경우 `volumes` 배열이 다음과 비슷하게 표시됩니다.
 
-```json
+```JSON
 "volumes": [{
   "name": "myvolume1",
   "azureFile": {
@@ -123,7 +118,7 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 
 다음으로 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다. 예를 들어 다음은 이전에 정의한 *myvolume1* 및 *myvolume2*라는 두 개의 볼륨을 탑재합니다.
 
-```json
+```JSON
 "volumeMounts": [{
   "name": "myvolume1",
   "mountPath": "/mnt/share1/"
@@ -134,7 +129,7 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 }]
 ```
 
-Azure Resource Manager 템플릿을 사용하는 컨테이너 인스턴스 배포의 예제를 보려면 [Azure Container Instances에서 다중 컨테이너 그룹 배포](container-instances-multi-container-group.md)를 참조하세요.
+Azure Resource Manager 템플릿을 사용하는 컨테이너 인스턴스 배포의 예제를 보려면 [컨테이너 그룹 배포](container-instances-multi-container-group.md)를 참조하세요. YAML 파일을 사용하는 예제는 [YAML을 사용하여 다중 컨테이너 그룹 배포](container-instances-multi-container-yaml.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

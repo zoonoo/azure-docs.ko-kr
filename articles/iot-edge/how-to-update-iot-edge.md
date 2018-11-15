@@ -3,18 +3,18 @@ title: 최신 버전의 Azure IoT Edge로 장치 업데이트 | Microsoft Docs
 description: 최신 버전의 보안 디먼 및 IoT Edge 런타임을 실행하도록 IoT Edge 장치를 업데이트하는 방법
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b04f909d58e1555cad9f34b682f9062bbd96cd0e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1522d9c9bc4fda178d8571fb57cb9c94ed1044ae
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394734"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567794"
 ---
 # <a name="update-the-iot-edge-runtime"></a>IoT Edge 런타임 업데이트
 

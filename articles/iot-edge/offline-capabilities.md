@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c4ab33f4d706eb677b2b790ff871c1fb900846ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340174"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235635"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IoT Edge 장치, 모듈 및 자식 장치용 확장 오프라인 기능(미리 보기)을 이해합니다.
 
@@ -46,7 +46,7 @@ IoT Edge 장치가 오프라인으로 전환되면 Edge 허브는 세 가지 역
 
 ## <a name="restrictions-and-limits"></a>제한 사항 및 제한
 
-이 문서에서 설명한 확장된 오프라인 기능은 [IoT Edge 버전 1.0.2 이상](https://github.com/Azure/azure-iotedge/releases)에서 사용할 수 있습니다. 이보다 낮은 버전은 오프라인 기능 집합을 갖고 있습니다. 확장된 오프라인 기능이 없는 기존 IoT Edge 장치는 런타임 버전을 변경하여 업그레이드할 수 없지만, 새 IoT Edge 장치 ID를 사용하여 이러한 기능을 획득하도록 다시 구성해야 합니다. 
+이 문서에서 설명한 확장된 오프라인 기능은 [IoT Edge 버전 1.0.4 이상](https://github.com/Azure/azure-iotedge/releases)에서 사용할 수 있습니다. 이보다 낮은 버전은 오프라인 기능 집합을 갖고 있습니다. 확장된 오프라인 기능이 없는 기존 IoT Edge 장치는 런타임 버전을 변경하여 업그레이드할 수 없지만, 새 IoT Edge 장치 ID를 사용하여 이러한 기능을 획득하도록 다시 구성해야 합니다. 
 
 확장된 오프라인 지원은 미국 동부 및 유럽 서부를 제외하고 IoT Hub가 제공되는 모든 지역에서 사용할 수 있습니다. 
 
@@ -56,34 +56,7 @@ IoT Edge 장치 및 할당된 자식 장치는 초기 일회성 동기화 후 �
 
 ## <a name="set-up-an-edge-device"></a>Edge 장치 설정
 
-확장된 오프라인 기간 동안 수행하려는 모든 IoT Edge 장치에서, MQTT를 통해 통신하도록 IoT Edge 런타임을 구성해야 합니다. 
-
 IoT Edge 장치의 확장된 오프라인 기능을 자식 IoT 장치로 확장하려면 Azure Portal에서 부모-자식 관계를 선언해야 합니다.
-
-### <a name="set-the-upstream-protocol-to-mqtt"></a>업스트림 프로토콜을 MQTT로 설정
-
-업스트림 프로토콜로 MQTT를 사용하여 통신하도록 Edge 허브 및 Edge 에이전트를 구성합니다. 이 프로토콜은 배포 매니페스트의 환경 변수를 사용하여 선언됩니다. 
-
-Azure Portal에서, 배포 모듈을 설정할 때 **고급 Edge 런타임 설정 구성** 단추를 선택하여 Edge 허브 및 Edge 에이전트 모듈 정의에 액세스할 수 있습니다. 두 모듈에 대해 **UpstreamProtocol**이라는 환경 변수를 만들고 값을 **MQTT**로 설정합니다. 
-
-배포 템플릿 JSON에서, 환경 변수는 다음 예제처럼 선언됩니다. 
-
-```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
-    },
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
-}
-```
 
 ### <a name="assign-child-devices"></a>자식 장치 할당
 
@@ -142,4 +115,4 @@ Azure Portal의 **고급 Edge 런타임 설정 구성** 섹션에서 Edge 허브
 
 ## <a name="next-steps"></a>다음 단계
 
-[Linux](how-to-create-transparent-gateway-linux.md) 또는 [Windows](how-to-create-transparent-gateway-windows.md) 장치용 투명한 게이트웨이 시나리오에서 확장된 오프라인 작업을 사용하도록 설정합니다.
+[투명한 게이트웨이](how-to-create-transparent-gateway.md) 시나리오에서 확장된 오프라인 작업을 사용하도록 설정합니다.

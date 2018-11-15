@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 589aae8321d2c081f09ed46d9def2229d3973ffd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418427"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613211"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
@@ -72,4 +72,4 @@ Azure Portal의 [경고(클래식) 섹션](monitoring-overview-alerts-classic.md
 ## <a name="next-steps"></a>다음 단계
 
 * [새로운 통합 Azure Monitor](../azure-monitor/overview.md)에 대해 자세히 알아봅니다.
-* [새로운 Azure 경고](monitoring-overview-unified-alerts.md)에 대해 자세히 알아봅니다.
+* [새로운 Azure 경고](monitoring-overview-alerts.md)에 대해 자세히 알아봅니다.

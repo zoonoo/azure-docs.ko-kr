@@ -3,18 +3,18 @@ title: Azure IoT Edge 모듈 배포 및 모니터링(CLI) | Microsoft Docs
 description: Edge 장치에서 실행되는 모듈을 관리합니다.
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a3d073e9fd7c535ea84d6e4dbbf8003a6c55725b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3f2e7de6b32b4cca6320933050775f843e2cdf39
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394615"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567936"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -144,7 +144,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
 * **--labels** - 배포를 추적하는 데 도움이 되는 레이블을 추가합니다. 레이블은 배포를 설명하는 이름, 값 쌍입니다. 예를 들어 `HostPlatform, Linux` 또는 `Version, 3.0.1`와 같습니다.
 * **--content** - 배포 매니페스트 JSON에 대한 파일 경로입니다. 
 * **--hub-name** - 배포를 만들 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
-* **--target-condition** - 대상 조건을 입력하여 이 배포의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 보고되는 장치 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.reported.devicemodel='4000x'`과 같습니다. 
+* **--target-condition** - 대상 조건을 입력하여 이 배포의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 보고되는 장치 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.reported.devicemodel='4000x'`과 같습니다. 
 * **--priority** - 양의 정수입니다. 둘 이상의 배포가 동일한 장치를 대상으로 하는 경우, Priority의 숫자 값이 가장 큰 배포가 적용됩니다.
 
 ## <a name="monitor-a-deployment"></a>배포 모니터링
@@ -157,7 +157,7 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 * **--deployment-id** - IoT Hub에 있는 배포의 이름입니다.
 * **--hub-name** - 배포가 있는 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
 
-명령 창에서 배포를 검사합니다. **metrics** 속성은 각 허브에서 평가되는 각 메트릭의 개수를 나열합니다.
+명령 창에서 배포를 검사합니다. **metrics** 속성은 각 허브에서 평가되는 각 메트릭의 개수를 나열합니다.
 * **targetedCount** - 대상 지정 조건과 일치하는 IoT Hub의 장치 쌍의 수를 지정하는 시스템 메트릭입니다.
 * **appliedCount** - 시스템 메트릭은 IoT Hub에서 해당 모듈 쌍에 배포 콘텐츠를 적용한 장치 수를 지정합니다.
 * **reportedSuccessfulCount** - 장치 메트릭은 IoT Edge 클라이언트 런타임의 성공을 보고하는 배포에서 에지 장치의 수를 지정합니다.

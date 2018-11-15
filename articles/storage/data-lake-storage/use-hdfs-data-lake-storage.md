@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: c59331c772e140fccfefb89eef086a35837171e1
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c5f11cbb12b727f5f308d7a71c51706fa8ec373f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576978"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277089"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Data Lake Storage Gen2에서 HDFS CLI 사용
 
-Azure Data Lake Storage Gen2 미리 보기를 사용하면 [HDFS(Hadoop 분산 파일 시스템)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용하는 것처럼 데이터를 관리하고 액세스할 수 있습니다. HDInsight 클러스터가 연결되어 있거나 Azure Databricks를 사용하는 Apache Spark 작업을 실행하여 Azure Data Lake Storage Gen2에 저장된 데이터에 대한 분석을 수행하는지에 관계없이 CLI(명령줄 인터페이스)를 사용하여 로드된 데이터를 검색 및 조작할 수 있습니다. 나머지 문서에서는 [Azure Storage 팀이 Azure Storage 탐색기 및 Azure Portal에 대한 지원을 추가하는 작업을 수행](https://azure.microsoft.com/roadmap/)하는 동안 제공되는 옵션에 대해 설명합니다.
+Azure Data Lake Storage Gen2 미리 보기를 사용하면 [HDFS(Hadoop 분산 파일 시스템)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용하는 것처럼 데이터를 관리하고 액세스할 수 있습니다. HDInsight 클러스터가 연결되어 있든, Azure Databricks를 사용하는 Apache Spark 작업을 실행하여 Azure Storage 계정에 저장된 데이터를 분석하든, CLI(명령줄 인터페이스)를 사용하여 로드된 데이터를 검색 및 조작할 수 있습니다.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>HDInsight를 사용한 HDFS CLI
 
 HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 이 파일 시스템은 Hadoop이 지원하는 HDFS 및 기타 파일 시스템과 직접 상호 작용하는 셸을 사용하여 액세스할 수 있습니다. 다음은 일반적으로 사용되는 명령 및 유용한 리소스 링크입니다.
 
 >[!IMPORTANT]
->클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다([클러스터를 삭제](../../hdinsight/hdinsight-delete-cluster.md)하는 방법 알아보기). 그러나 Azure Data Lake Storage Gen2에 저장된 데이터는 HDInsight 클러스터가 삭제된 후에도 유지됩니다.
+>클러스터가 만들어지면 HDInsight 클러스터 요금 청구가 시작되고 클러스터가 삭제되면 요금 청구가 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다. 클러스터를 삭제하는 방법은 [토픽에 대한 문서](../../hdinsight/hdinsight-delete-cluster.md)를 참조하세요. 그러나 Data Lake Storage Gen2가 사용되는 스토리지 계정에 저장된 데이터는 HDInsight 클러스터가 삭제된 후에도 유지됩니다.
 
 파일 또는 디렉터리 목록을 가져오려면:
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: afba39d1af700650cfbf7226dff36729a76a0bda
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 65e764d843f9e87adee4cf94c1d22b02db80eda0
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669790"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958843"
 ---
 # <a name="additional-documentation"></a>추가 설명서
 
@@ -33,4 +33,4 @@ ms.locfileid: "50669790"
 
 ## <a name="vfxt-creation-and-management-documentation"></a>vFXT 만들기 및 관리 설명서
 
-클라우드 클러스터 만들기 및 관리 유틸리티인 vfxt.py를 사용하는 방법에 대한 전체 가이드는 <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>에서 제공됩니다.  
+클라우드 클러스터 만들기 및 관리 유틸리티인 vfxt.py를 사용하는 방법에 대한 전체 가이드는 GitHub: [vfxt.py를 사용한 클라우드 클러스터 관리](https://github.com/Azure/AvereSDK/blob/master/docs/README.md)에서 제공됩니다.  

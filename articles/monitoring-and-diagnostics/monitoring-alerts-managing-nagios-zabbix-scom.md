@@ -1,5 +1,5 @@
 ---
-title: 다른 모니터링 서비스의 경고 관리
+title: Azure Monitor에서 다른 모니터링 서비스의 경고 관리
 description: Azure Monitor에서 Nagios, Zabbix 및 SCOM 경고 관리
 author: anantr
 services: monitoring
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d9d0cb326fb063e0a6bbfaab6a85961ab2b35416
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: bc597d42fe89c0e03c4af1db3a935031b9043a98
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389391"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748275"
 ---
 # <a name="manage-alerts-from-other-monitoring-services"></a>다른 모니터링 서비스의 경고 관리
 

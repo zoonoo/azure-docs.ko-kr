@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2018
 ms.author: shvija
-ms.openlocfilehash: ed337689360428d66657e5391ee52bb0ae39dc14
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3db77a31dfe92e16d2ec145cc0be595082d0d927
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365648"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279384"
 ---
 # <a name="event-hubs-samples"></a>Event Hubs 샘플 
 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)에 대한 Event Hubs 샘플을 찾을 수 있습니다. 이러한 샘플은 [Azure Event Hubs](/azure/event-hubs/)의 주요 기능을 보여줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
@@ -60,7 +60,8 @@ ms.locfileid: "49365648"
 ## <a name="azure-powershell-samples"></a>Azure PowerShell 샘플
 [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub 리포지토리에서 Azure Event Hubs에 대한 Azure PowerShell 샘플을 찾을 수 있습니다.
  
-
+## <a name="apache-kafka-samples"></a>Apache Kafka 샘플
+[azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) GitHub 리포지토리에서 Apache Kafka용 Event Hubs 기능에 대한 샘플을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs에 대한 자세한 내용은 다음 문서를 참조하세요.

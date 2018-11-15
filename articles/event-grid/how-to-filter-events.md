@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8bf7ac9daf928c35a3d6efcac528d3372fa87c8a
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fd0b2bda91ecb9b717f4cfe366c45bc95b21fd8e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252045"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277565"
 ---
 # <a name="filter-events-for-event-grid"></a>Event Grid에 대한 이벤트 필터링
 
@@ -181,30 +181,17 @@ az eventgrid event-subscription create \
 
 ## <a name="filter-by-operators-and-data"></a>연산자 및 데이터별 필터링
 
-고급 필터링을 사용하려면 Azure CLI에 대한 미리 보기 확장을 설치해야 합니다. [CloudShell](/azure/cloud-shell/quickstart)을 사용하거나 Azure CLI를 로컬로 설치할 수 있습니다.
+보다 유연한 필터링을 원한다면 연산자 및 데이터 속성을 사용하여 이벤트를 필터링하면 됩니다.
 
-### <a name="install-extension"></a>확장 설치
-
-CloudShell에서:
-
-* 이전에 확장을 설치한 경우 `az extension update -n eventgrid`로 업데이트합니다.
-* 이전에 확장을 설치하지 않은 경우 `az extension add -n eventgrid`로 업데이트합니다.
-
-로컬 설치의 경우:
-
-1. Azure CLI를 로컬로 제거합니다.
-1. Azure CLI의 [최신 버전](/cli/azure/install-azure-cli)을 설치합니다.
-1. 명령 창을 시작합니다.
-1. 이전 버전의 확장 `az extension remove -n eventgrid`를 제거합니다.
-1. 확장 `az extension add -n eventgrid` 설치
-
-이제 고급 필터링을 사용할 준비가 되었습니다.
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ### <a name="subscribe-with-advanced-filters"></a>고급 필터가 포함된 구독
 
 고급 필터링에 사용할 수 있는 연산자 및 키에 대해 알아보려면 [고급 필터링](event-filtering.md#advanced-filtering)을 참조하세요.
 
-다음 예제는 사용자 지정 토픽을 만듭니다. 사용자 지정 토픽을 구독하고 데이터 개체에서 값별로 필터링합니다. 색 속성이 파란색, 빨간색 또는 녹색으로 설정된 이벤트가 구독에 전송됩니다.
+다음은 사용자 지정 토픽을 만드는 예제입니다. 사용자 지정 토픽을 구독하고 데이터 개체의 값으로 필터링합니다. 색 속성이 파란색, 빨간색 또는 녹색으로 설정된 이벤트가 구독에 전송됩니다.
+
+Azure CLI의 경우 
 
 ```azurecli-interactive
 topicName=<your-topic-name>
@@ -220,14 +207,38 @@ az eventgrid event-subscription create \
   -n demoAdvancedSub \
   --advanced-filter data.color stringin blue red green \
   --endpoint $endpointURL \
-  --expiration-date "2018-11-30"
+  --expiration-date "<yyyy-mm-dd>"
 ```
 
-구독의 만료 날짜가 설정되었습니다. 해당 날짜 이후 이벤트 구독이 자동으로 만료됩니다. 제한된 시간에만 필요한 이벤트 구독의 만료 날짜를 설정합니다.
+구독의 [만료 날짜](concepts.md#event-subscription-expiration)가 설정되었습니다.
+
+PowerShell의 경우 다음을 사용합니다.
+
+```azurepowershell-interactive
+$topicName = <your-topic-name>
+$endpointURL = <endpoint-URL>
+
+New-AzureRmResourceGroup -Name gridResourceGroup -Location eastus2
+New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Name $topicName
+
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
+
+$expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
+$AdvFilter1=@{operator="StringIn"; key="Data.color"; Values=@('blue', 'red', 'green')}
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint $endpointURL `
+  -ExpirationDate $expDate `
+  -AdvancedFilter @($AdvFilter1)
+```
 
 ### <a name="test-filter"></a>필터 테스트
 
-필터를 테스트하려면 색 필드가 녹색으로 설정된 이벤트를 보냅니다.
+필터를 테스트하려면 색 필드가 녹색으로 설정된 이벤트를 보냅니다. 녹색은 필터의 값 중 하나이므로 이벤트가 엔드포인트로 전달됩니다.
+
+Azure CLI의 경우 
 
 ```azurecli-interactive
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
@@ -238,17 +249,60 @@ event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 
-이벤트가 엔드포인트로 전송됩니다.
+PowerShell의 경우 다음을 사용합니다.
 
-이벤트가 전송되지 않은 시나리오를 테스트하려면 색 필드가 노란색으로 설정된 이벤트를 보냅니다.
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
+
+$eventID = Get-Random 99999
+$eventDate = Get-Date -Format s
+
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="green"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
+
+이벤트가 전송되지 않은 시나리오를 테스트하려면 색 필드가 노란색으로 설정된 이벤트를 보냅니다. 노란색은 구독에서 지정된 값 중 하나가 아니므로 이벤트는 구독에 배달되지 않습니다.
+
+Azure CLI의 경우 
 
 ```azurecli-interactive
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
 
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
+PowerShell의 경우 다음을 사용합니다.
 
-노란색은 구독에서 지정된 값 중 하나가 아니므로 이벤트는 구독에 배달되지 않습니다.
+```azurepowershell-interactive
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="yellow"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

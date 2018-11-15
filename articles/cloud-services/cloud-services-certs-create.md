@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c16f06d0cc031cd9b51a3c6cf0beb149a19aeb4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001442"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282206"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services 인증서 개요
 인증서는 Azure에서 클라우드 서비스([서비스 인증서](#what-are-service-certificates))와 관리 API([관리 인증서](#what-are-management-certificates))를 통한 인증에 사용됩니다. 이 항목에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 [배포하는](#deploy) 방법을 살펴봅니다.
@@ -28,8 +28,11 @@ Azure에서 사용되는 인증서는 x.509 v3 인증서이며 다른 신뢰할 
 
 Azure에서 사용하는 인증서에는 개인 또는 공개 키가 포함될 수 있습니다. 인증서에는 지문이 포함되어 있어 모호하지 않은 방식의 식별 수단을 제공합니다. 이 지문은 Azure [구성 파일](cloud-services-configure-ssl-certificate-portal.md) 에서 클라우드 서비스가 사용할 인증서를 식별하는 데 사용됩니다. 
 
+>[!Note]
+>Azure Cloud Services는 AES256-SHA256 암호화 인증서를 수락하지 않습니다.
+
 ## <a name="what-are-service-certificates"></a>서비스 인증서란 무엇인가요?
-서비스 인증서는 클라우드 서비스에 첨부되며 서비스와 보안 통신을 사용할 수 있도록 해줍니다. 예를 들어 웹 역할을 배포한 경우 노출된 HTTPS 끝점을 인증할 수 있는 인증서를 제공하려고 할 것입니다. 서비스 정의에 있는 서비스 인증서는 자동으로 해당 역할 인스턴스를 실행하는 가상 머신에 배포됩니다. 
+서비스 인증서는 클라우드 서비스에 첨부되며 서비스와 보안 통신을 사용할 수 있도록 해줍니다. 예를 들어 웹 역할을 배포한 경우 노출된 HTTPS 엔드포인트를 인증할 수 있는 인증서를 제공하려고 할 것입니다. 서비스 정의에 있는 서비스 인증서는 자동으로 해당 역할 인스턴스를 실행하는 가상 머신에 배포됩니다. 
 
 Azure Portal을 사용하거나 클래식 배포 모델을 사용하여 서비스 인증서를 Azure Portal에 업로드할 수 있습니다. 서비스 인증서는 특정 클라우드 서비스와 연관됩니다. 서비스 정의 파일에서 배포에 할당됩니다.
 

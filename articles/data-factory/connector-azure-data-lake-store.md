@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: aed1ab14072da3e3d3e49060b7117a24eeecdb56
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817027"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010255"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,9 +44,6 @@ ms.locfileid: "48817027"
 > Azure Data Lake Store 커넥터를 사용하는 연습을 보려면 [Azure Data Lake Store에 데이터 로드](load-azure-data-lake-store.md)를 참조하세요.
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
-
->[!NOTE]
->데이터 복사 도구를 사용하여 복사 파이프라인을 작성하거나 ADF UI를 사용하여 작성 중에 연결 테스트/폴더 탐색을 수행하는 경우 서비스 보안 주체 또는 MSI의 권한이 루트 수준에서 부여되어야 합니다. 반면 복사할 데이터에 대한 권한이 부여되는 한 복사 작업 실행은 계속 작동할 수 있습니다. 권한을 제한해야 하는 경우 작성 작업을 건너뛸 수 있습니다.
 
 다음 섹션에서는 Azure Data Lake Store에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -79,6 +76,9 @@ Azure Data Lake Store 연결된 서비스에 다음 속성이 지원됩니다.
 > Azure Data Lake Store에서 서비스 주체에게 적절한 권한을 부여해야 합니다.
 >- **원본의 경우**, 데이터 탐색기 -> 액세스에서 폴더/하위 폴더의 파일을 나열하고 복사할 수 있도록 **읽기 + 실행** 권한 이상을 부여하거나 단일 파일을 복수할 수 있도록 **읽기** 권한을 부여하고, **이 폴더 및 모든 자식 폴더**에 재귀적으로 추가하도록 선택하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
 >- **싱크의 경우**, 데이터 탐색기 -> 액세스에서 폴더에 자식 항목을 만들 수 있도록 **쓰기 + 실행** 권한 이상을 부여하고, **이 폴더 및 모든 자식 폴더**에 재귀적으로 추가하도록 선택하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. Azure IR을 사용하여 복사하는 경우(원본과 싱크가 모두 클라우드에 있음) Data Factory가 Data Lake Store의 지역을 감지할 수 있도록 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
+
+>[!NOTE]
+>**데이터 복사 도구**를 사용하여 복사 파이프라인을 작성하거나 **ADF UI**를 사용하여 작성 중에 연결 테스트/폴더 탐색을 수행하는 경우 루트부터 폴더를 표시하려면 **"실행" 권한과 함께 루트 수준에서** 서비스 주체의 권한이 부여되어야 합니다. 반면 복사할 데이터에 대한 권한이 부여되는 한 복사 작업 실행은 계속 작동할 수 있습니다. 권한을 제한해야 하는 경우 작성 작업을 건너뛸 수 있습니다.
 
 다음과 같은 속성이 지원됩니다.
 
@@ -127,6 +127,9 @@ Azure 리소스 인증에 관리 ID를 사용하려면
 > Azure Data Lake Store에서 데이터 팩터리 서비스 ID에 적절한 사용 권한을 부여해야 합니다.
 >- **원본의 경우**, 데이터 탐색기 -> 액세스에서 폴더/하위 폴더의 파일을 나열하고 복사할 수 있도록 **읽기 + 실행** 권한 이상을 부여하거나 단일 파일을 복수할 수 있도록 **읽기** 권한을 부여하고, **이 폴더 및 모든 자식 폴더**에 재귀적으로 추가하도록 선택하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. 계정 수준 액세스 제어(IAM)가 필요하지 않습니다.
 >- **싱크의 경우**, 데이터 탐색기 -> 액세스에서 폴더에 자식 항목을 만들 수 있도록 **쓰기 + 실행** 권한 이상을 부여하고, **이 폴더 및 모든 자식 폴더**에 재귀적으로 추가하도록 선택하고 **액세스 권한 및 기본 권한 항목**으로 추가합니다. Azure IR을 사용하여 복사하는 경우(원본과 싱크가 모두 클라우드에 있음) Data Factory가 Data Lake Store의 지역을 감지할 수 있도록 계정 액세스 제어(IAM)에서 적어도 **읽기 권한자** 역할을 부여합니다. 이 IAM 역할을 방지하려면 Data Lake Store의 위치에서 명시적으로 [Azure IR을 만들고](create-azure-integration-runtime.md#create-azure-ir), 다음 예제와 같이 Data Lake Store 연결된 서비스에서 연결합니다.
+
+>[!NOTE]
+>**데이터 복사 도구**를 사용하여 복사 파이프라인을 작성하거나 **ADF UI**를 사용하여 작성 중에 연결 테스트/폴더 탐색을 수행하는 경우 루트부터 폴더를 표시하려면 **"실행" 권한과 함께 루트 수준에서** 서비스 주체의 권한이 부여되어야 합니다. 반면 복사할 데이터에 대한 권한이 부여되는 한 복사 작업 실행은 계속 작동할 수 있습니다. 권한을 제한해야 하는 경우 작성 작업을 건너뛸 수 있습니다.
 
 Azure Data Factory에서 연결된 서비스의 일반 Data Lake Store 정보 이외의 속성을 지정할 필요가 없습니다.
 

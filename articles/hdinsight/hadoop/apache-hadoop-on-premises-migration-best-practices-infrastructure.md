@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: a1dbc04a83e80281fb6cd516c546c1dddff6db37
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 614fdae1865f008bdbc2cb8d5e8b96c0addcc112
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413807"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036932"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
 
@@ -70,7 +70,7 @@ HDInsight 클러스터 용량 계획을 만들기 위한 주요 선택 항목은
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-자세한 내용은 문서 [각 HDInsight 버전에서 제공되는 Hadoop 구성 요소](../hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions)를 참조하세요.
+자세한 내용은 [각 HDInsight 버전에서 제공되는 Apache Hadoop 구성 요소](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions) 문서 참조
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정
 

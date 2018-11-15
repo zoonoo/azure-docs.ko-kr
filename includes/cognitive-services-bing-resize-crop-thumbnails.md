@@ -1,3 +1,16 @@
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+ms.openlocfilehash: b1cf3dc24482da70372f775d0ba63a203df1b285
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572464"
+---
 일부 Bing 응답에는 Bing에서 제공하는 썸네일 이미지가 포함됩니다. 썸네일 이미지 크기를 조정하고 자를 수 있습니다. 
 
 > [!NOTE]

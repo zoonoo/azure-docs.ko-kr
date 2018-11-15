@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f0ed4b20f9dbfef4824f66eab3ab953a5dbcfaae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060576"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50746557"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -30,6 +30,10 @@ ms.locfileid: "47060576"
 * IOPS, 대역폭 및 대기 시간을 최적화하는 방법은 무엇입니까?  
 
 Premium Storage에서 실행되는 작업은 성능이 매우 중요하므로 특별히 Premium Storage에 대한 지침을 제공합니다. 적절한 예제를 제공합니다. Standard Storage 디스크가 있는 IaaS VM에서 실행되는 응용 프로그램에 이러한 지침 중 일부를 적용할 수도 있습니다.
+
+> [!NOTE]
+> 경우에 따라 성능 문제로 보이는 것은 실제로 네트워크 병목 현상입니다. 이러한 상황에서 [네트워크 성능](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md)을 최적화해야 합니다.
+> 또한 VM에서 가속화된 네트워킹을 지원하는지도 확인해야 합니다. 이 경우 [windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 및 [linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) vm 둘 다에서 배포 후에 사용하도록 설정할 수 있습니다.
 
 시작하기 전에 Premium Storage를 처음 사용하는 경우 먼저 [Premium Storage: Azure Virtual Machine 워크로드를 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md) 및 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) 문서를 읽어 보세요.
 
@@ -221,11 +225,11 @@ Premium Storage를 사용하여 Linux를 실행할 때 높은 성능을 보장�
 
 Azure Premium Storage는 현재 미리 보기로 3개의 디스크 크기 및 8개의 GA 디스크 크기를 제공합니다. 각 디스크 크기는 IOPS, 대역폭 및 저장소에 대한 다른 규모 한도를 가집니다. 응용 프로그램 요구 사항 및 높은 확장성의 VM 크기에 따라 올바른 Premium Storage 디스크 크기를 선택합니다. 아래 표에서 11가지 디스크 크기와 해당 기능을 보여 줍니다. P4, P6, P15, P60, P70 및 P80 크기는 현재 Managed Disks에만 지원됩니다.
 
-| 프리미엄 디스크 유형  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
+| 프리미엄 디스크 유형  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| 디스크 크기           | 32GiB | 64GiB | 128GiB| 256GiB| 512 GB            | 1,024GiB(1TiB)    | 2,048GiB(2TiB)    | 4,095GiB(4TiB)    | 8,192GiB(8TiB)    | 16,384GiB(16TiB)    | 32,767GiB(32GiB)    |
-| 디스크당 IOPS       | 120   | 240   | 500   | 1100 | 2,300              | 5,000              | 7,500              | 7,500              | 12,500              | 15,000              | 20,000              |
-| 디스크당 처리량 | 초당 25MiB  | 초당 50MiB  | 초당 100MiB |초당 125MiB | 초당 150MiB | 초당 200MiB | 초당 250MiB | 초당 250MiB | 초당 480MiB | 초당 750MiB | 초당 750MiB |
+| 디스크 크기           | 32GiB | 64GiB | 128GiB| 256GiB| 512 GB            | 1,024GiB(1TiB)    | 2,048GiB(2TiB)    | 4,095GiB(4TiB)    | 8,192GiB(8TiB)    | 16,384GiB(16TiB)    | 32,767GiB(32GiB)    |
+| 디스크당 IOPS       | 120   | 240   | 500   | 1100 | 2,300              | 5,000              | 7,500              | 7,500              | 12,500              | 15,000              | 20,000              |
+| 디스크당 처리량 | 초당 25MiB  | 초당 50MiB  | 초당 100MiB |초당 125MiB | 초당 150MiB | 초당 200MiB | 초당 250MiB | 초당 250MiB | 초당 480MiB | 초당 750MiB | 초당 750MiB |
 
 선택하는 디스크의 수는 선택한 디스크 크기에 따라 달라집니다. 응용 프로그램 요구 사항에 맞게 하나의 P50 디스크 또는 여러 P10 디스크를 사용할 수 있습니다. 선택할 때 다음에 나열된 고려 사항을 고려합니다.
 

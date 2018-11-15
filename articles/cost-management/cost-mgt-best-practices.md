@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: f52a849fee4005628fb6a8ad567d89f5046d4765
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968074"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515355"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -186,10 +186,6 @@ Azure Reservations을 통해 1년 또는 3년에 해당하는 가상 머신 비�
 온-프레미스 배포에 Windows Server 또는 SQL Server 라이선스가 이미 포함되어 있으면, Azure 하이브리드 혜택 프로그램을 사용하여 Azure에 저장할 수 있습니다. Windows Server 혜택을 활용하면 각 라이선스에 OS(최대 두 대의 가상 머신) 비용이 포함되므로 기본적인 계산 비용만 지불하면 됩니다. 기존 SQL Server 라이선스를 사용하면 vCore 기반 SQL Database 옵션을 최대 55%까지 절약할 수 있습니다. 옵션에는 Azure Virtual Machines의 SQL Server와 SQL Server Integration Services가 포함됩니다.
 
 자세한 내용은 [Azure 하이브리드 혜택 절감액 계산기](https://azure.microsoft.com/pricing/hybrid-benefit/)를 참조하세요.
-
-#### <a name="monetary-commitment"></a>금액 약정
-
-기업 계약(Enterprise Agreement) 고객은 Microsoft에 선불 금액 약정을 생성할 수 있습니다. 금액 약정을 활용하면 클라우드 리소스에 손쉽게 예산을 할당할 수 있고 Azure 요금을 할인 받을 수 있습니다. 요금을 할인 받으면 조직의 비용을 상당히 절감시킬 수 있습니다.
 
 ### <a name="other-resources"></a>기타 리소스
 

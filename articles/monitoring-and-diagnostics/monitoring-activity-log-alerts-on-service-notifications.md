@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 221434a391f963a764ef36b9533cc8cfd0e16c01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123451"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961894"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
@@ -36,7 +36,7 @@ Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 �
 
 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](monitoring-action-groups.md)를 참조하세요.
 
-Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경고를 구성하는 방법에 대한 자세한 내용은 [ 템플릿](monitoring-create-activity-log-alerts-with-resource-manager-template.md)을 참조하세요.
+Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경고를 구성하는 방법에 대한 자세한 내용은 [ 템플릿](alert-activity-log.md)을 참조하세요.
 
 ## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Azure Portal을 사용하여 새 작업 그룹에 대한 서비스 상태 알림의 경고 만들기
 1. [포털](https://portal.azure.com)에서 **서비스 상태**를 선택합니다.

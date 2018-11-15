@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 4438cff0dcf5e896f39729d9871d4deb3207b4b8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107998"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230430"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -38,7 +38,7 @@ HDInsight는 여러 Azure 지역에서 사용할 수 있습니다. 가장 가까
 
 ### <a name="location-of-default-storage"></a>기본 저장소의 위치
 
-Azure Storage 계정 또는 Azure Data Lake Store에 해당하는 기본 저장소는 클러스터와 동일한 위치에 있어야 합니다. Azure Storage는 모든 위치에서 사용할 수 있습니다. Data Lake Store는 일부 지역에서 사용할 수 있습니다. [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/regions/services/)의 *저장소*에서 현재 Data Lake Store 가용성을 참조하세요.
+Azure Storage 계정 또는 Azure Data Lake Store에 해당하는 기본 저장소는 클러스터와 동일한 위치에 있어야 합니다. Azure Storage는 모든 위치에서 사용할 수 있습니다. Data Lake Store Gen1은 일부 지역에서 사용할 수 있습니다. [지역별로 사용 가능한 Azure 제품](https://azure.microsoft.com/regions/services/)의 *Storage*에서 현재 Data Lake Store 가용성을 참조하세요.
 
 ### <a name="location-of-existing-data"></a>기존 데이터의 위치
 
@@ -48,7 +48,7 @@ Azure Storage 계정 또는 Azure Data Lake Store에 해당하는 기본 저장�
 
 HDInsight 클러스터를 배포한 후에 추가 Azure Storage 계정을 연결하거나 다른 Data Lake Store에 액세스할 수 있습니다. 모든 저장소 계정은 클러스터와 동일한 위치에 있어야 합니다. Data Lake Store는 다른 위치에 있을 수 있으며 이 경우 데이터 읽기/쓰기 대기 시간이 발생할 수 있습니다.
 
-Azure Storage에는 [용량 제한](../azure-subscription-service-limits.md#storage-limits)이 있지만 Data Lake Store는 거의 제한이 없습니다.
+Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.md#storage-limits)이 있지만 Data Lake Store Gen1은 사실상 제한이 없습니다.
 
 클러스터는 다른 저장소 계정 조합에 액세스할 수 있습니다. 일반적인 예제:
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: c12683fee7022b84e097c2b71628776271611429
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2051f37656b6717c879a24f6e06c31a0ade0b950
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210995"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012329"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 
@@ -73,7 +73,7 @@ ms.locfileid: "50210995"
   * 탐색 창에서 로컬 컴퓨터 정책, 사용자 구성, 관리 템플릿, Windows 구성 요소 및 네트워크 공유 폴더를 엽니다.
   * 세부 정보 창에서 **사용자 프로필 내의 파일 공유 안 함**을 두 번 클릭합니다. 그룹 정책 설정을 사용하지 않도록 설정하고 사용자가 파일을 공유할 수 있도록 하려면 사용 안 함을 클릭합니다. 확인을 클릭하여 변경 내용을 저장합니다. 자세히 알아보려면 [여기](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))를 클릭하세요.
 
-**이후 버전**의 경우, [여기](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)에 제공된 지침에 따라 파일 및 프린터 공유가 가능하도록 설정합니다.
+**이후 버전**의 경우, [여기](vmware-azure-install-mobility-service.md)에 제공된 지침에 따라 파일 및 프린터 공유가 가능하도록 설정합니다.
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check"></a>WMI(Windows Management Instrumentation) 구성 확인
 

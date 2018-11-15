@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5b91329f5287c1d8f76c98f27d9bc2fd464a11a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670150"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958919"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Avere vFXT 클러스터 관리
 
@@ -83,7 +83,7 @@ Avere 제어판과 마찬가지로, vfxt.py 작업은 클러스터 또는 노드
 
 vfxt.py는 클러스터 컨트롤러 VM에 사전 설치됩니다. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-전체 vfxt.py 사용 가이드는 GitHub(<https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>)에서 사용할 수 있습니다. 
+전체 vfxt.py 사용 가이드는 GitHub: [vfxt.py를 사용한 클라우드 클러스터 관리](https://github.com/azure/averesdk/blob/master/docs/README.md)에서 제공됩니다.
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>vfxt.py를 사용하여 클러스터 노드 추가
 
@@ -115,7 +115,7 @@ vfxt.py는 클러스터 컨트롤러 VM에 사전 설치됩니다. <!-- (If you 
    --log ~/vfxt.log
 ```
 
-자세한 내용은 vfxt.py 사용 가이드의 [클러스터에 노드 추가](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster)를 참조하세요.
+자세한 내용은 vfxt.py 사용 가이드의 [클러스터에 노드 추가](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster)를 참조하세요.
 
 ### <a name="stop-a-cluster-with-vfxtpy"></a>vfxt.py를 사용하여 클러스터 중지
 
@@ -129,7 +129,7 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
 ```    
 
-클러스터가 중지되었으므로 인스턴스 식별자를 전달하여 클러스터 노드를 지정해야 합니다. 자세한 내용은 vfxt.py 사용 가이드의 [수정할 클러스터 지정](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify)을 참조하세요.
+클러스터가 중지되었으므로 인스턴스 식별자를 전달하여 클러스터 노드를 지정해야 합니다. 자세한 내용은 vfxt.py 사용 가이드의 [수정할 클러스터 지정](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify)을 참조하세요.
 
 ### <a name="destroy-a-cluster-with-vfxtpy"></a>vfxt.py를 사용하여 클러스터 삭제
 
@@ -139,8 +139,7 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 클러스터 캐시에서 변경된 데이터를 쓰지 않으려는 경우 ``--quick-destroy`` 옵션을 사용할 수 있습니다.
 
-자세한 내용은 [vfxt.py 사용 가이드](<https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>)를 참조하세요.  
-<!-- change to final location when available -->
+자세한 내용은 [vfxt.py 사용 가이드](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>)를 참조하세요.  
 
 ## <a name="manage-cluster-vms-from-the-azure-portal"></a>Azure Portal에서 클러스터 VM 관리 
 

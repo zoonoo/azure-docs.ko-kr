@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bcdd5b6d28a6c08b7b36e170fcb7d184fcf65eb0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d215af253471258e487dadcfae0cfd7edafd1c26
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024463"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634654"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack VPN을 사용 하 여 Azure에 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "50024463"
 연결 구성을 완료 하려면 시작 하기 전에 다음 항목이 있는지 확인 합니다.
 
 * Azure Stack 인터넷에 직접 연결 된 시스템 (다중 노드) 배포를 통합 합니다. 외부 공용 IP 주소 범위에 공용 인터넷에서 직접 연결할 수 있어야 합니다.
-* 유효한 Azure 구독입니다. Azure 구독이 없는, 하는 경우 만들 수 있습니다는 [무료 Azure 계정에 여기서](https://azure.microsoft.com/free/?b=17.06)합니다.
+* 유효한 Azure 구독. Azure 구독이 없는, 하는 경우 만들 수 있습니다는 [무료 Azure 계정에 여기서](https://azure.microsoft.com/free/?b=17.06)합니다.
 
 ### <a name="vpn-connection-diagram"></a>VPN 연결 다이어그램
 
@@ -89,7 +89,7 @@ ms.locfileid: "50024463"
 3. 네트워크 리소스의 목록에서 선택 **가상 네트워크 게이트웨이**합니다.
 4. **이름을**, 형식 **Azure-GW**합니다.
 5. 가상 네트워크를 선택 하려면 **가상 네트워크**합니다. 선택한 **AzureVnet** 목록에서.
-6. 선택 **공용 IP 주소**합니다. 경우는 **공용 IP 주소 선택** 선택 섹션 열립니다 **새로 만들기**합니다.
+6. **공용 IP 주소**를 선택합니다. 경우는 **공용 IP 주소 선택** 선택 섹션 열립니다 **새로 만들기**합니다.
 7. **이름을**, 형식 **Azure-GW-PiP**를 선택한 후 **확인**합니다.
 8. 기본적으로 대 한 **VPN 유형**를 **route-based** 을 선택 합니다. 유지 된 **route-based** VPN 유형입니다.
 9. **구독** 및 **위치**가 올바른지 확인합니다. 리소스를 대시보드에 고정할 수 있습니다. **만들기**를 선택합니다.
@@ -127,7 +127,7 @@ ms.locfileid: "50024463"
 
 1. Azure portal에서 선택 **+ 리소스 만들기**합니다.
 2. 로 이동 **Marketplace**를 선택한 후 **계산**합니다.
-3. 가상 머신 이미지 목록에서 선택 합니다 **Windows Server 2016 Datacenter Oval** 이미지입니다.
+3. 가상 머신 이미지 목록에서 선택 합니다 **Windows Server 2016 Datacenter 평가판** 이미지입니다.
 4. 에 **기본 사항** 섹션에 대 한 **이름**, 유형 **AzureVM**합니다.
 5. 유효한 사용자 이름과 암호를 입력 합니다. 이 계정을 사용 하 여이 만든 후 가상 머신에 로그인 합니다.
 6. 제공을 **구독**를 **리소스 그룹**, 및 **위치**를 선택한 후 **확인**합니다.
@@ -227,7 +227,7 @@ VPN 연결을 확인 하려면 두 개의 Vm 만들기: Azure에서 사용 하 �
 
 1. Azure portal에서 선택 **+ 리소스 만들기**합니다.
 2. 로 이동 **Marketplace**를 선택한 후 **계산**합니다.
-3. 가상 머신 이미지 목록에서 선택 합니다 **Windows Server 2016 Datacenter Oval** 이미지입니다.
+3. 가상 머신 이미지 목록에서 선택 합니다 **Windows Server 2016 Datacenter 평가판** 이미지입니다.
 4. 에 **기본 사항을** 섹션 **이름**, 형식 **Azs VM**합니다.
 5. 유효한 사용자 이름과 암호를 입력 합니다. 이 계정을 사용 하 여이 만들어진 후 VM에 로그인 합니다.
 6. 제공을 **구독**를 **리소스 그룹**, 및 **위치**를 선택한 후 **확인**합니다.

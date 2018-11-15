@@ -11,30 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/28/2018
+ms.date: 11/12/2018
 ms.author: raiye
-ms.openlocfilehash: 0430eefb55893420cf7ea603998f14465fb2cc60
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215517"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578776"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
 ## <a name="october-2018-guest-os"></a>2018년 10월 게스트 OS
->[!NOTE]
->10월 게스트 OS는 자동 업데이트용으로 구성된 클라우드 서비스 VM으로 롤아웃 중입니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 10월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다.
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Windows 10 보안 | 5.24 | 2018년 10월 9일 |
-| Rel 18-10 | [4464330] | Windows 10 보안 | 6.0 | 2018년 10월 9일 |
 | Rel 18-10 | [4462915] | Windows 보안 | 2.79 | 2018년 10월 9일 |
 | Rel 18-10 | [4462931] | Windows 보안 | 3.66 | 2018년 10월 9일 |
 | Rel 18-10 | [4462941] | Windows 보안 | 4.59 | 2018년 10월 9일 |
-| Rel 18-10 | [4462930] | 깜박임 | 3.66, 4.59, 5.24, 6.0 | 2018년 10월 9일 |
+| Rel 18-10 | [4462930] | 깜박임 | 3.66, 4.59, 5.24 | 2018년 10월 9일 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 2018년 10월 9일 |
 | 해당 없음 | [4339284] | 표준 시간대 업데이트 | 2.79, 3.66, 4.59 | 2018년 7월 24일 |
 | 해당 없음 | [4457144] | 9월 비보안 롤업 | 2.79 | 2018년 9월 11일 |
@@ -48,7 +45,6 @@ ms.locfileid: "50215517"
 | 해당 없음 | [4457036] | 9월 비보안 .NET 4.5.2 롤업 | 4.59 | 2018년 9월 11일 |
 
 [4462917]: http://support.microsoft.com/kb/4462917
-[4464330]: http://support.microsoft.com/kb/4464330
 [4462915]: http://support.microsoft.com/kb/4462915
 [4462931]: http://support.microsoft.com/kb/4462931
 [4462941]: http://support.microsoft.com/kb/4462941

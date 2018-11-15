@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407064"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256378"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
-이 문서는 Azure Migrate에 대한 질문과 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure Migrate 포럼](http://aka.ms/AzureMigrateForum)에 게시해 주세요.
+이 문서는 Azure Migrate에 대한 질문과 대답을 제공합니다. 이 문서를 읽은 후 질문이 있다면 [Azure Migrate 포럼](https://aka.ms/AzureMigrateForum)에 게시해 주세요.
 
 ## <a name="general"></a>일반
 
@@ -54,9 +54,9 @@ Azure Migrate는 현재 마이그레이션 프로젝트 위치로 미국 동부 
 
 이 연결은 인터넷을 통해 진행되거나 공용 피어링을 통해 ExpressRoute를 사용할 수 있습니다.
 
-### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>.OVA 템플릿으로 VM 설정을 강화할 수 있나요?
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>OVA 템플릿으로 VM 설정을 강화할 수 있나요?
 
-Azure Migrate 어플라이언스가 작동하는 데 필요한 통신 및 방화벽 규칙이 그대로 유지되기만 하면, 추가 구성 요소(예: 바이러스 백신)를 .OVA 템플릿에 추가할 수 있습니다.   
+Azure Migrate 어플라이언스가 작동하는 데 필요한 통신 및 방화벽 규칙이 그대로 유지되기만 하면 추가 구성 요소(예: 바이러스 백신)를 OVA 템플릿에 추가할 수 있습니다.   
 
 ## <a name="discovery"></a>검색
 
@@ -98,7 +98,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 수집기 어플라이언스에서 수집한 데이터는 마이그레이션 프로젝트를 만들면서 사용자가 지정한 Azure 위치에 저장됩니다. 데이터는 Microsoft 구독에 안전하게 저장되며, 사용자가 Azure Migrate 프로젝트를 삭제하는 경우 삭제됩니다.
 
-종속성 시각화의 경우 VM에 에이전트를 설치하는 경우 종속성 에이전트에서 수집된 데이터는 사용자의 구독에서 만든 Log Analytics 작업 영역 내 미국에 저장됩니다. 구독에서 Log Analytics 작업 영역을 삭제하면 이 데이터가 삭제됩니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+종속성 시각화의 경우 VM에 에이전트를 설치하면 종속성 에이전트에서 수집된 데이터는 사용자의 구독에서 만든 Log Analytics 작업 영역 내 미국에 저장됩니다. 구독에서 Log Analytics 작업 영역을 삭제하면 이 데이터가 삭제됩니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>데이터는 미사용 및 전송 중에 암호화되나요?
 
@@ -114,7 +114,7 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 예. 여러 vCenter 서버를 검색하는 데 단일 수집기 어플라이언스를 사용할 수 있지만 동시 검색은 가능하지 않습니다. 검색을 차례대로 실행해야 합니다.
 
-### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Site Recovery에서 사용되는 .OVA 템플릿이 Azure Migrate에서 사용되는 .OVA와 통합되나요?
+### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Site Recovery에서 사용되는 OVA 템플릿이 Azure Migrate에서 사용되는 OVA와 통합되나요?
 
 현재는 통합이 없습니다. Site Recovery의 .OVA 템플릿은 VMware VM/물리적 서버 복제를 위해 Site Recovery 구성 서버를 설정하는 데 사용됩니다. Azure Migrate에서 사용되는 .OVA는 마이그레이션 평가를 위해 vCenter 서버에서 관리되는 VMware VM을 검색하는 데 사용됩니다.
 
@@ -141,9 +141,23 @@ Azure Migrate는 현재 [기업 계약 제품](https://azure.microsoft.com/offer
 
 ## <a name="dependency-visualization"></a>종속성 시각화
 
+### <a name="what-is-dependency-visualization"></a>종속성 시각화란?
+
+종속성 시각화를 사용하면 평가를 실행하기 전에 머신 종속성을 교차 확인하여 마이그레이션할 VM 그룹을 보다 확실하게 평가할 수 있습니다. 종속성 시각화를 사용하면 하나도 놓치지 않고 모두 처리하여 Azure로 마이그레이션할 때 예기치 않은 작동 중단이 발생하지 않도록 도와줍니다. Azure Migrate는 Log Analytics의 서비스 맵 솔루션을 활용하여 종속성 시각화를 지원합니다.
+
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>종속성 시각화 기능을 사용하면 비용을 지불해야 하나요?
 
-Azure Migrate는 추가 요금 없이 사용할 수 있습니다. [여기](https://azure.microsoft.com/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요.
+아니요. [여기](https://azure.microsoft.com/pricing/details/azure-migrate/)에서 Azure Migrate 가격 책정에 대해 자세히 알아보세요.
+
+### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>종속성 시각화를 사용하려면 무엇을 설치해야 하나요?
+
+종속성 시각화를 사용하려면 평가할 각 온-프레미스 머신에 에이전트를 다운로드하여 설치해야 합니다. 
+
+- 각 머신에 [MMA(Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)를 설치해야 합니다.
+- 각 머신에 [종속성 에이전트](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)를 설치해야 합니다.
+- 또한 인터넷에 연결되지 않은 머신이 있으면 해당 머신에 Log Analytics 게이트웨이를 다운로드하여 설치해야 합니다.
+
+종속성 시각화를 사용하지 않는다면 평가하려는 머신에 이러한 에이전트가 필요하지 않습니다.
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>종속성 시각화에 기존 작업 영역을 사용할 수 있나요?
 

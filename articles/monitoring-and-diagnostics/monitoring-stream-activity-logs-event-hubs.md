@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258001"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011836"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure 활동 로그를 Event Hubs로 스트림
 다음을 수행하여 모든 응용 프로그램에 거의 실시간으로 [Azure 활동 로그](monitoring-overview-activity-logs.md)를 스트리밍할 수 있습니다.
@@ -39,10 +39,10 @@ Event Hubs 네임스페이스가 없는 경우 먼저 만들어야 합니다. �
 ### <a name="via-the-azure-portal"></a>Azure Portal을 통해
 1. 포털 왼쪽에 있는 **모든 서비스** 검색을 사용하여 **활동 로그** 섹션으로 이동합니다.
    
-   ![포털의 서비스의 목록에서 활동 로그 선택](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. 로그 맨 위에서 **내보내기** 단추를 선택합니다.
+   ![포털의 서비스의 목록에서 활동 로그 선택](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+2. 로그 맨 위에서 **이벤트 허브로 내보내기** 단추를 선택합니다.
    
-   ![포털의 내보내기 단추](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![포털의 내보내기 단추](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
 
    이전 보기에서 활동 로그를 볼 때 적용한 필터 설정은 내보내기 설정에 영향을 주지 않습니다. 포털에서 활동 로그를 찾아보는 동안 표시되는 내용만 필터링됩니다.
 3. 표시되는 섹션에서 **모든 지역**을 선택합니다. 특정 지역을 선택하지 마세요.
@@ -101,5 +101,5 @@ Event Hubs 네임스페이스가 없는 경우 먼저 만들어야 합니다. �
 ## <a name="next-steps"></a>다음 단계
 * [저장소 계정에 활동 로그 보관](monitoring-archive-activity-log.md)
 * [Azure 활동 로그 개요 알아보기](monitoring-overview-activity-logs.md)
-* [활동 로그 이벤트를 기반으로 경고 설정](insights-auditlog-to-webhook-email.md)
+* [활동 로그 이벤트를 기반으로 경고 설정](monitor-alerts-unified-log-webhook.md)
 

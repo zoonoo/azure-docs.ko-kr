@@ -1,6 +1,6 @@
 ---
 title: 게시된 응용 프로그램 설치 - StreamSets 데이터 수집기 - Azure HDInsight
-description: StreamSets 데이터 수집기 타사 Hadoop 응용 프로그램을 설치하고 사용합니다.
+description: StreamSets 데이터 수집기 타사 Apache Hadoop 애플리케이션을 설치하고 사용합니다.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 72ace99a8124b0a288e8facf630e947151169d0b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f963ae53e1396b1ef6279f2bd6502e5ab0cd23a1
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106885"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034560"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>게시된 응용 프로그램 설치 - StreamSets 데이터 수집기
 
-이 문서에서는 Azure HDInsight에 게시된 [HDInsight용 StreamSets 데이터 수집기](https://streamsets.com/) Hadoop 응용 프로그램을 설치하고 실행하는 방법에 대해 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 Azure HDInsight에 게시된 [HDInsight용 StreamSets 데이터 수집기](https://streamsets.com/) Apache Hadoop 애플리케이션을 설치하고 실행하는 방법에 대해 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-streamsets-data-collector"></a>StreamSets 데이터 수집기 정보
 

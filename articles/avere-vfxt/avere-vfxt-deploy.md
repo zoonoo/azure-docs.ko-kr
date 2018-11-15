@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 47773f9375927e4d8dfbfec922e4cf11e42ade04
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670050"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958611"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
@@ -30,7 +30,7 @@ vFXT 클러스터를 만들려면 vFXT 클러스터를 만들고 관리하는 �
 
 이 문서의 지침을 따르면 다음 다이어그램과 같이 가상 네트워크, 서브넷, 컨트롤러 및 vFXT 클러스터가 갖추어집니다.
 
-![선택적 Blob 저장소가 포함된 vnet 및 vFXT 노드/vFXT 클러스터라는 레이블이 지정되어 그룹화된 세 개의 VM과 클러스터 컨트롤러라는 레이블이 지정된 하나의 VM이 포함된 서브넷을 보여 주는 다이어그램](media/avere-vfxt-deployment-500px.png)
+![선택적 Blob 저장소가 포함된 vnet 및 vFXT 노드/vFXT 클러스터라는 레이블이 지정되어 그룹화된 세 개의 VM과 클러스터 컨트롤러라는 레이블이 지정된 하나의 VM이 포함된 서브넷을 보여 주는 다이어그램](media/avere-vfxt-deployment.png)
 
 시작하기 전에 먼저 다음 필수 조건이 처리되었는지 확인합니다.  
 
@@ -198,9 +198,7 @@ Resource Manager 템플릿을 사용하여 컨트롤러 노드를 만든 경우 
 
 Resource Manager 템플릿 출력에서 이 정보를 찾으려면 다음 절차를 수행합니다.
 
-1. Azure Portal의 위쪽 표시줄에 있는 알림 아이콘에서 **리소스 그룹으로 이동**을 클릭합니다. 여기서는 컨트롤러와 vnet이 포함된 새 리소스 그룹을 보여 줍니다.
-
-   !["배포 성공" 메시지, "리소스 그룹으로 이동" 및 "대시보드에 고정" 단추가 있는 포털의 알림 섹션](media/avere-vfxt-browse-to-rg.png)
+1. 클러스터 컨트롤러에 대한 리소스 그룹으로 이동합니다.
 
 1. 왼쪽에서 **배포**를 클릭한 다음, **Microsoft.Template**을 클릭합니다.
 

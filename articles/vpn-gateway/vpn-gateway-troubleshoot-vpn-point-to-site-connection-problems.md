@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 8d1415e996f65f0791b3e449a61fb30053add523
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240208"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238326"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -221,7 +221,7 @@ VPN 클라이언트 구성 패키지를 다운로드하려고 할 때 다음과 
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>한 번에 너무 많은 VPN 클라이언트 연결
 
-각 VPN Gateway의 최대 허용 연결 수는 128개입니다. Azure Portal에서 연결된 클라이언트의 총 수를 볼 수 있습니다.
+허용되는 최대 연결 수에 도달했습니다. Azure Portal에서 연결된 클라이언트의 총 수를 볼 수 있습니다.
 
 ## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>지점 및 사이트 간 VPN은 10.0.0.0/8의 경로를 경로 테이블에 올바르게 않게 추가했습니다.
 

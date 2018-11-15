@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f408d24a5957061bf03d340a555b87bdc6b2aacc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304138"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614024"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
@@ -111,7 +111,7 @@ ms.locfileid: "44304138"
 
 1. 컨테이너 목록에서 **adftutorial**을 선택합니다.
 
-    ![컨테이너 선택](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![컨테이너 선택](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. **adftutorial**의 **컨테이너** 창을 열어 둡니다. 이 자습서의 끝부분에서 출력을 확인하는 데 사용합니다. 데이터 팩터리는 이 컨테이너에서 출력 폴더를 자동으로 만듭니다. 따라서 새로 만들 필요가 없습니다.
 
@@ -197,7 +197,7 @@ ms.locfileid: "44304138"
 
 1. **옵션 1: 빠른 설치** 섹션 아래에서 **이 컴퓨터에 대한 빠른 설치를 시작하려면 여기를 클릭하십시오**를 선택합니다. 
 
-    ![빠른 설치 링크](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![빠른 설치 링크](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. **Integration Runtime(자체 호스팅) 빠른 설치** 창에서 **닫기**를 선택합니다. 
 
@@ -237,7 +237,7 @@ ms.locfileid: "44304138"
 
 1. **SQLServerToBlobPipeline**이 있는 탭으로 이동하거나 트리 뷰에서 **SQLServerToBlobPipeline**을 선택합니다. 
 
-    ![파이프라인 탭](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![파이프라인 탭](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. **속성** 창의 아래쪽에 있는 **싱크** 탭으로 이동하고 **+ 새로 만들기**를 선택합니다. 
 

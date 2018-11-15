@@ -2,19 +2,19 @@
 title: Apache Spark를 사용하여 Azure SQL Database에서 데이터 읽기 및 쓰기
 description: HDInsight Spark 클러스터와 Azure SQL Database 간에 연결을 설정하여 SQL Database에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 2aec894da6b4e5ffd59fee12bc8476b25955c991
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b8494150a060e02145eab3674bdd2dd62cdda225
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045799"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277293"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용하여 Azure SQL Database에서 데이터 읽기 및 쓰기
 
@@ -234,7 +234,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
         
          var streamingQuery = WriteToSQLQuery.start()
 
-1. 다음 쿼리를 SSMS(SQL Server Management Studio)에서 실행하여 데이터가 **hvactable**로 스트리밍되고 있는지 확인합니다. 쿼리를 실행할 때마다 테이블의 행 수가 증가하는 것이 나타납니다.
+1. 다음 쿼리를 SSMS(SQL Server Management Studio)에서 실행하여 데이터가 **hvactable**로 스트리밍되고 있는지 확인합니다. 쿼리를 실행할 때마다 테이블의 행 수가 증가합니다.
 
         SELECT COUNT(*) FROM hvactable
 

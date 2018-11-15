@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 071e4694bc3e2a8dc70a199fe7d6021332693b88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014026"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613871"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics의 데이터 원본
 Log Analytics는 연결된 원본에서 데이터를 수집하여 Log Analytics 작업 영역에 저장합니다.  각 원본에서 수집되는 데이터는 구성한 데이터 원본에 의해 정의됩니다.  Log Analytics의 데이터는 레코드 집합으로 저장됩니다.  각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
@@ -69,4 +69,4 @@ Log Analytics에서 수집된 모든 데이터는 작업 영역에 레코드로 
 ## <a name="next-steps"></a>다음 단계
 * Log Analytics에 기능을 추가하고 작업 영역으로 데이터를 수집하는 [솔루션](../monitoring/monitoring-solutions.md)에 대해 알아봅니다.
 * 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-queries.md)에 대해 알아봅니다.  
-* 데이터 원본 및 솔루션에서 수집된 중요한 데이터를 사전에 알리도록 [경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)를 구성합니다.
+* 데이터 원본 및 솔루션에서 수집된 중요한 데이터를 사전에 알리도록 [경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 구성합니다.

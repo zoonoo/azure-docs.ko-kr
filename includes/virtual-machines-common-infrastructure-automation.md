@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bc273b8979b29057163e02dc9605e631aef173f1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226589"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981609"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
@@ -129,9 +129,9 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/)는 코드 공유 및 추적, 자동화된 빌드 사용 및 완전한 CI/CD(연속 통합 및 연속 개발) 파이프라인 만들기를 지원하는 도구 모음입니다. Azure DevOps Services는 Visual Studio 및 다른 편집기와 통합되어 사용을 간소화합니다. 또한 Azure DevOps Services로 Azure VM을 만들고 구성한 다음, Azure VM에 코드를 배포할 수도 있습니다.
 
-방법 배우기:
+다음에 대해 자세히 알아봅니다.
 
-- [Azure DevOps Services를 사용하여 연속 통합 파이프라인 만들기](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md)
+- [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins

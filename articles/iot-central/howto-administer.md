@@ -1,110 +1,67 @@
 ---
 title: Azure IoT Central 응용 프로그램 관리 | Microsoft Docs
 description: 관리자로서 Azure IoT Central 응용 프로그램을 관리하는 방법을 알아봅니다.
-author: tbhagwat3
-ms.author: tanmayb
+author: viv-liu
+ms.author: viviali
 ms.date: 04/16/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 25b4777be4257933b84d58d0f10cf12571de9590
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4bfb7dc2b65dc479189ac7920509e1fd8a23ce4f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155323"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961350"
 ---
-# <a name="administer-your-iot-central-application"></a>IOT Central 응용 프로그램 관리
+# <a name="administer-your-iot-central-application"></a>IoT Central 애플리케이션 관리
 
-Microsoft Azure IoT Central 응용 프로그램을 만든 후에는 Azure IoT Central 사용자 인터페이스의 **관리** 섹션을 사용하여 응용 프로그램을 관리할 수 있습니다. **관리** 섹션으로 이동하려면 왼쪽 탐색 메뉴에서 **관리**를 선택합니다.
-
-**관리** 섹션에서 다음과 같은 일을 할 수 있습니다.
-
-- 사용자 관리
-
-- 역할 관리
-
-- 대금 청구 정보 보기
+IoT Central 애플리케이션을 만든 후 **관리** 섹션으로 이동할 수 있습니다.
 
 - 응용 프로그램 설정 관리
+- 사용자 관리
+- 역할 관리
+- 청구서 보기
+- 평가판을 종량제로 변환
+- 데이터 내보내기
+- 디바이스 연결 관리
+- 액세스 토큰 사용
 
-- 평가판 제공
+**관리** 섹션에 액세스하여 사용하려면 Azure IoT Central 응용 프로그램에서 **관리자** 역할이어야 합니다. Azure IoT Central 응용 프로그램을 만드는 사용자에게는 자동으로 해당 응용 프로그램의 **관리자** 역할이 할당됩니다. 이 문서의 [사용자 관리](#manage-users) 섹션에서는 다른 사용자에게 **관리자** 역할을 할당하는 방법을 자세히 설명합니다.
 
-**관리** 섹션의 보조 탐색 메뉴에는 다양한 관리 작업의 링크가 있습니다.
+## <a name="manage-application-settings"></a>응용 프로그램 설정 관리
 
-**관리** 섹션에 액세스하여 사용하려면 Azure IoT Central 응용 프로그램에서 **관리자** 역할이어야 합니다. Azure IoT Central 응용 프로그램을 만드는 사용자에게는 자동으로 해당 응용 프로그램의 **관리자** 역할이 할당됩니다. 이 문서의 [사용자 관리](#manage-users) 섹션에서는 다른 사용자에게 **관리자** 역할을 할당하는 방법을 설명합니다.
-
-## <a name="change-application-name"></a>응용 프로그램 이름 변경
-
-응용 프로그램 이름을 변경하려면 보조 탐색 메뉴를 사용하여 **관리** 섹션의 **응용 프로그램 설정** 페이지로 이동합니다.
-
-**응용 프로그램 설정** 페이지에서 **응용 프로그램 이름** 필드에 원하는 이름을 입력합니다. 그런 다음 **저장**을 선택합니다.
-
-## <a name="change-the-application-url"></a>응용 프로그램 URL 변경
-
-응용 프로그램 URL을 변경하려면 보조 탐색 메뉴를 사용하여 **관리** 섹션의 **응용 프로그램 설정** 페이지로 이동합니다.
+### <a name="change-application-name-and-url"></a>애플리케이션 이름 및 URL 변경
+**애플리케이션 설정** 페이지에서 애플리케이션의 이름 및 URL을 변경한 다음, **저장**을 선택합니다.
 
 ![응용 프로그램 설정 페이지](media\howto-administer\image0-a.png)
-
-**응용 프로그램 설정** 페이지에서 **URL** 필드에 원하는 URL을 입력한 다음, **저장**을 선택합니다. URL은 200자 이하여야 합니다. 사용할 수 없는 URL인 경우 유효성 검사 오류가 발생합니다.
 
 > [!Note]
 > URL을 변경하면 이전 URL을 다른 Azure IoT Central 고객이 사용할 수 있습니다. 이 경우 해당 URL을 더 이상 사용할 수 없습니다. URL을 변경하면 이전 URL이 더 이상 작동하지 않으며 사용자에게 새 URL을 사용하라고 알려야 합니다.
 
-## <a name="change-the-application-image"></a>응용 프로그램 이미지 변경
+### <a name="prepare-and-upload-image"></a>이미지 준비 및 업로드
+애플리케이션 이미지를 변경하려면 [이미지를 준비하여 Azure IoT Central 애플리케이션에 업로드](howto-prepare-images.md)를 참조하세요.
 
-Azure IoT Central 응용 프로그램에서 이미지를 사용하는 방법에 대한 자세한 내용은 [이미지를 준비하여 Azure IoT Central 응용 프로그램에 업로드](howto-prepare-images.md)를 참조하세요.
+### <a name="copy-an-application"></a>응용 프로그램 복사
+모든 장치 인스턴스, 장치 데이터 기록 및 사용자 데이터를 제외한 모든 응용 프로그램의 복사본을 만들 수 있습니다. 복사본은 요금이 청구되는 종량제 애플리케이션입니다. 이 방식으로는 평가판 애플리케이션을 만들 수 없습니다.
 
-## <a name="copy-an-application"></a>응용 프로그램 복사
-
-모든 장치 인스턴스, 장치 데이터 기록 및 사용자 데이터를 제외한 모든 응용 프로그램의 복사본을 만들 수 있습니다. 복사본은 요금이 청구되는 유료 응용 프로그램입니다. 다른 응용 프로그램을 복사하여 평가판 응용 프로그램을 만들 수 없습니다.
-
-응용 프로그램을 복사하려면 **응용 프로그램 설정** 페이지로 이동합니다. 그런 다음, **복사** 단추를 선택합니다.
-
-![응용 프로그램 설정 페이지](media\howto-administer\appCopy1.png)
-
-**복사** 단추를 선택하면 복사하여 생성될 새 응용 프로그램에 대한 이름, URL, Azure AD 디렉터리, 구독 및 Azure 지역을 선택할 수 있는 대화 상자가 열립니다. 이러한 각 필드의 값을 선택합니다. 그런 다음, **복사** 단추를 클릭하여 진행 여부를 확인합니다. [응용 프로그램 만드는 방법](howto-create-application.md)에 대한 이 문서에서 해당 값의 입력 내용을 자세히 알아볼 수 있습니다.
+**복사** 단추를 클릭합니다. 대화 상자에서 새 종량제 애플리케이션에 대한 세부 정보를 입력합니다. 그런 다음, **복사** 단추를 클릭하여 진행 여부를 확인합니다. [애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작에서 이 형식의 필드에 대해 자세히 알아보세요.
 
 ![응용 프로그램 설정 페이지](media\howto-administer\appCopy2.png)
 
-앱 복사 작업이 성공하면 응용 프로그램을 복사하여 만들어진 새 응용 프로그램으로 이동할 수 있습니다. 앱으로 이동하려면 **응용 프로그램 설정** 페이지에 나타나는 링크를 선택합니다.
+앱 복사 작업이 성공한 후, 표시되는 링크를 사용하여 애플리케이션을 복사하여 만든 새 애플리케이션으로 이동할 수 있습니다.
 
 ![응용 프로그램 설정 페이지](media\howto-administer\appCopy3.png)
 
 > [!Note]
-> 응용 프로그램을 복사하면 규칙 또는 작업의 정의도 복사됩니다. 그러나 원래 앱에 대한 액세스 권한이 있는 사용자는 복사한 앱에 복사되지 않으므로 사용자가 필수 구성 요소인 메일 등의 작업에 사용자를 수동으로 추가해야 합니다.
+> 애플리케이션을 복사하면 규칙 및 작업의 정의도 복사됩니다. 그러나 원래 앱에 대한 액세스 권한이 있는 사용자는 복사한 앱에 복사되지 않으므로 사용자가 필수 구성 요소인 이메일 등의 작업에 사용자를 수동으로 추가해야 합니다. 일반적으로 새 앱에서 규칙 및 작업이 최신 상태인지 확인하는 것이 좋습니다.
 
-## <a name="delete-an-application"></a>응용 프로그램 삭제
+### <a name="delete-an-application"></a>응용 프로그램 삭제
 
-응용 프로그램을 삭제하려면 보조 탐색 메뉴를 사용하여 **관리** 섹션의 **응용 프로그램 설정** 페이지로 이동합니다.
-
-**삭제**를 선택합니다.
-
-> [!Note]
-> 응용 프로그램을 삭제하면 해당 응용 프로그램과 연결된 모든 데이터가 영구적으로 삭제됩니다.  응용 프로그램을 삭제하려면 응용 프로그램을 만들 때 선택한 Azure 구독의 리소스를 삭제할 수 있는 권한도 필요합니다. 자세한 내용은 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 참조하세요.
-
-## <a name="roles-in-azure-iot-central"></a>Azure IoT Central의 역할
-
-역할을 통해 조직 내에서 다양한 Azure IoT Central 작업을 수행할 수 있는 사용자를 제어할 수 있습니다. Azure IoT Central에서는 응용 프로그램 사용자에게 세 가지 역할을 할당할 수 있습니다. 역할은 각 응용 프로그램을 통해 할당됩니다. 동일한 사용자가 서로 다른 응용 프로그램에서 여러 역할을 가질 수 있습니다. 동일한 사용자를 응용 프로그램 내의 여러 역할에 할당할 수 있습니다.
-
-### <a name="administrator"></a>관리자
-
-**관리자** 역할의 사용자는 Azure IoT Central 응용 프로그램의 모든 기능에 액세스할 수 있습니다.
-
-응용 프로그램을 만드는 사용자에게는 자동으로 **관리자** 역할이 할당됩니다. **관리자** 역할의 사용자가 항상 1명 이상 있어야 합니다.
-
-### <a name="application-builder"></a>응용 프로그램 작성자
-
-**응용 프로그램 작성자** 역할의 사용자는 Azure IoT Central 응용 프로그램에서 응용 프로그램 관리를 제외한 모든 일을 할 수 있습니다.
-
-### <a name="application-operator"></a>응용 프로그램 운영자
-
-**응용 프로그램 운영자** 역할의 사용자는 **응용 프로그램 작성자** 페이지에 액세스할 수 없습니다. 이들은 응용 프로그램을 관리할 수 없습니다.
+IoT Central 애플리케이션을 영구적으로 삭제하려면 **삭제** 단추를 사용합니다. 그러면 해당 애플리케이션과 연결된 모든 데이터가 영구적으로 삭제됩니다. 응용 프로그램을 삭제하려면 응용 프로그램을 만들 때 선택한 Azure 구독의 리소스를 삭제할 수 있는 권한도 필요합니다. 자세한 내용은 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)를 참조하세요.
 
 ## <a name="manage-users"></a>사용자 관리
-
-응용 프로그램 관리자는 응용 프로그램의 역할에 사용자를 할당할 수 있습니다.
 
 ### <a name="add-users"></a>사용자 추가
 
@@ -112,24 +69,18 @@ Azure IoT Central 응용 프로그램에서 이미지를 사용하는 방법에 
 
 자세한 내용은 [Microsoft 계정 도움말](https://support.microsoft.com/products/microsoft-account?category=manage-account) 및 [빠른 시작: Azure Active Directory에 새 사용자 추가](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)를 참조하세요.
 
-1. Azure IoT Central 응용 프로그램에 사용자 계정을 추가하려면 보조 탐색 메뉴를 사용하여 **관리** 섹션의 **사용자** 페이지로 이동합니다.
+1. IoT Central 애플리케이션에 사용자를 추가하려면 **관리** 섹션에 있는 **사용자** 페이지로 이동합니다.
 
     ![사용자 목록](media\howto-administer\image1.png)
 
 1. 사용자를 추가하려면 **사용자** 페이지에서 **+ 사용자 추가**를 선택합니다.
 
-    ![사용자 추가](media\howto-administer\image2.png)
-
-1. **역할** 드롭다운 메뉴에서 사용자의 역할을 선택합니다. 역할에 대한 자세한 정보는 이 문서의 *Azure IoT Central의 역할* 섹션을 참조하세요.
+1. **역할** 드롭다운 메뉴에서 사용자의 역할을 선택합니다. 이 문서의 [역할 관리](#manage-roles) 섹션에서 역할에 대해 자세히 알아보세요.
 
     ![역할 선택](media\howto-administer\image3.png)
 
     > [!NOTE]
     >  사용자를 대량으로 추가하려면 세미콜론을 구분 기호로 사용하여 추가할 모든 사용자의 사용자 ID를 입력합니다. **역할** 드롭다운 메뉴에서 역할을 선택합니다. 그런 다음 **저장**을 선택합니다.
-
-1. 사용자를 추가하면 **사용자** 페이지에 해당 사용자에 대한 항목이 표시됩니다.
-
-    ![사용자 목록](media\howto-administer\image4.png)
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>사용자에게 지정된 역할 편집
 
@@ -139,35 +90,63 @@ Azure IoT Central 응용 프로그램에서 이미지를 사용하는 방법에 
 
 사용자를 삭제하려면 **사용자** 페이지에서 하나 이상의 확인란을 선택합니다. 그런 다음, **삭제**를 선택합니다.
 
+## <a name="manage-roles"></a>역할 관리
+
+역할을 통해 조직 내에서 다양한 IoT Central 작업을 수행할 수 있는 사용자를 제어할 수 있습니다. 애플리케이션 사용자에게 세 가지 역할을 할당할 수 있습니다. 
+
+### <a name="administrator"></a>관리자
+
+**관리자** 역할의 사용자는 애플리케이션의 모든 기능에 액세스할 수 있습니다.
+
+응용 프로그램을 만드는 사용자에게는 자동으로 **관리자** 역할이 할당됩니다. **관리자** 역할의 사용자가 항상 1명 이상 있어야 합니다.
+
+### <a name="application-builder"></a>응용 프로그램 작성자
+
+**애플리케이션 작성자** 역할의 사용자는 애플리케이션에서 애플리케이션 관리를 제외한 모든 일을 할 수 있습니다. 즉, 작성자는 디바이스 템플릿 및 디바이스의 만들기, 편집 및 삭제, 디바이스 집합 관리 및 분석과 작업 실행을 수행할 수 있습니다. 작성자는 애플리케이션의 **관리** 섹션에 액세스할 수 없습니다.
+
+### <a name="application-operator"></a>응용 프로그램 운영자
+
+**애플리케이션 운영자** 역할의 사용자는 디바이스 템플릿을 변경할 수 없으며 애플리케이션을 관리할 수 없습니다. 즉, 운영자는 디바이스를 추가 및 삭제하고, 디바이스 집합을 관리하고, 분석 및 작업을 실행할 수 있습니다. 운영자는 **애플리케이션 작성자** 및 **관리** 페이지에 액세스할 수 없습니다.
+
+
 ## <a name="view-your-bill"></a>청구서 보기
 
-청구서를 보려면 **관리** 섹션의 **청구** 페이지로 이동합니다. 그런 다음, **청구**를 선택합니다. 새 탭에서 Azure 청구 페이지가 열리고, 여기서 각 Azure IoT Central 응용 프로그램에 대한 청구서를 볼 수 있습니다.
+청구서를 보려면 **관리** 섹션의 **청구** 페이지로 이동합니다. 새 탭에서 Azure 청구 페이지가 열리고, 여기서 각 Azure IoT Central 응용 프로그램에 대한 청구서를 볼 수 있습니다.
 
-## <a name="convert-your-trial-to-a-paid-application"></a>평가판을 유료 응용 프로그램으로 변환
+### <a name="convert-your-trial-to-pay-as-you-go"></a>평가판을 종량제로 변환
 
-IoT Central을 평가한 후 평가판을 유료 응용 프로그램으로 변환할 수 있습니다. 이 셀프 서비스 프로세스를 완료하려면 다음 단계를 수행합니다.
+평가판 애플리케이션을 종량제 애플리케이션으로 변환할 수 있습니다. 이러한 유형의 애플리케이션 간의 차이는 다음과 같습니다.
 
-1. 보조 탐색 메뉴를 사용하여 **관리** 섹션의 **청구** 페이지로 이동합니다. 평가판을 연장하지 않은 경우 다음 스크린샷과 같은 페이지가 표시됩니다.
+- **평가판** 애플리케이션은 7일 동안 무료이며 이후에는 만료됩니다. 만료되기 전에 언제든지 종량제로 변환할 수 있습니다.
+- **종량제** 애플리케이션은 처음 5개의 디바이스는 무료로 사용하며, 디바이스별로 요금이 청구됩니다.
 
-    ![평가판 상태](media/howto-administer/freetrial.png)
+[Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 가격 책정에 대해 자세히 알아보세요.
+    
+이 셀프 서비스 프로세스를 완료하려면 다음 단계를 수행합니다.
 
-2. **유료 응용 프로그램으로 변환**을 선택합니다. 평가판을 연장하지 않은 경우 다음 스크린샷과 같은 팝업 창이 표시됩니다.
+1. **관리** 섹션의 **청구** 페이지로 이동합니다. 
 
-    ![평가판 연장](media/howto-administer/extend.png)
+    ![평가판 상태](media/howto-administer/freetrialbilling.png)
 
-3. 팝업 창에서 적절한 Azure Active Directory 테넌트를 선택한 다음, IoT Central 응용 프로그램에 사용할 Azure 구독을 선택합니다.
+1. **종량제로 변환**을 클릭합니다. 
 
-3. **변환**을 선택하면 평가판이 유료 응용 프로그램으로 변환되고 대금 청구가 시작됩니다.
+    ![평가판 변환](media/howto-administer/convert.png)
 
-## <a name="extend-your-free-trial"></a>평가판 연장
+1. 적절한 Azure Active Directory를 선택한 다음, 종량제 애플리케이션에 사용할 Azure 구독을 선택합니다.
 
-기본적으로 모든 평가판은 7일 동안 사용할 수 있습니다. 평가판 기간을 30일로 연장하려면 다음 단계를 수행합니다.
+1. **변환**을 클릭하면 애플리케이션이 종량제 애플리케이션으로 변환되고 대금 청구가 시작됩니다.
 
-1. 보조 탐색 메뉴를 사용하여 **관리** 섹션의 **청구** 페이지로 이동합니다.
+## <a name="export-data"></a>데이터 내보내기
 
-1. **평가판 연장**을 선택합니다. 팝업 창에서 적절한 Azure Active Directory 테넌트를 선택한 다음, IoT Central 응용 프로그램에 사용할 Azure 구독을 선택합니다.
+**연속 데이터 내보내기**를 사용하도록 설정하여 측정, 디바이스 및 디바이스 템플릿 데이터를 Azure Blob 스토리지 계정에 내보낼 수 있습니다. [데이터를 내보내는 방법](#howto-export-data)에 대해 자세히 알아보세요.
 
-1. 그런 다음, **연장**을 선택합니다. 이제 평가판이 30일 동안 유효합니다.
+## <a name="manage-device-connection"></a>디바이스 연결 관리
+
+다음 키 및 인증서를 사용하여 애플리케이션에서 규모에 맞게 디바이스를 연결합니다. [디바이스 연결](#concepts-connectivity)에 대해 자세히 알아보세요.
+
+## <a name="use-access-tokens"></a>액세스 토큰 사용
+
+개발자 도구에서 사용하기 위한 액세스 토큰을 생성합니다. 현재 한 가지 개발자 도구를 사용할 수 있습니다. 디바이스 메시지와 속성 및 설정의 변경 사항을 모니터링할 수 있는 IoT Central 탐색기입니다. [IoT Central 탐색기](#howto-use-iotc-explorer)에 대해 자세히 알아보세요. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>제어 평면 작업에 Azure SDK 사용
 

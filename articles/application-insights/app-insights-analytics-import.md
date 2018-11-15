@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140547"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960007"
 ---
 # <a name="import-data-into-analytics"></a>Analytics로 데이터 가져오기
 
@@ -123,7 +123,7 @@ JSON 형식
 * 위치 – 구분된 파일 형식인 경우 매핑된 값의 위치입니다. JSON 형식인 경우 매핑된 키의 jpath입니다.
 * 이름 - 열의 표시 이름입니다.
 * 유형 – 해당 열의 데이터 형식입니다.
- 
+
 > [!NOTE]
 > 샘플 데이터가 사용되었고 파일 형식이 구분된 경우 스키마 정의에서 모든 열을 매핑하고 마지막에 새 열을 추가해야 합니다.
 > 
@@ -137,7 +137,7 @@ JSON 형식
 
 다음 프로세스를 수동으로 수행하거나 정기적으로 수행하도록 자동화 시스템을 설정할 수 있습니다. 가져올 데이터의 각 블록에 대해 이러한 단계를 수행해야 합니다.
 
-1. [Azure Blob Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md)에 데이터를 업로드합니다. 
+1. [Azure Blob Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md)에 데이터를 업로드합니다. 
 
  * Blob은 압축하지 않은 상태로 최대 1GB 크기일 수 있습니다. 성능 측면에서는 수백 MB 단위의 큰 blob이 이상적입니다.
  * 데이터를 쿼리에 사용하기 위해 Gzip으로 압축하여 업로드 시간 및 대기 시간을 향상시킬 수 있습니다. `.gz` 파일 이름 확장명을 사용합니다.
@@ -369,5 +369,5 @@ namespace IngestionClient
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Log Analytics 쿼리 언어 둘러보기](app-insights-analytics-tour.md)
+* [Log Analytics 쿼리 언어 둘러보기](../log-analytics/query-language/get-started-analytics-portal.md)
 * Logstash를 사용 중인 경우 [Logstash 플러그 인을 사용하여 Application Insights로 데이터를 보냅니다](https://github.com/Microsoft/logstash-output-application-insights).

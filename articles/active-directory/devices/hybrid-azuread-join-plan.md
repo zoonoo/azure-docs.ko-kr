@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238800"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959990"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>하이브리드 Azure Active Directory 조인 구현을 계획하는 방법
 
@@ -49,6 +49,7 @@ Azure AD에 장치를 가져오면 클라우드와 온-프레미스 리소스에
 |---|---|
 |![확인][1]|지원되는 장치 검토|
 |![확인][1]|알아야 할 사항 검토|
+|![확인][1]|디바이스의 하이브리드 Azure AD 조인을 제어하는 방법 검토|
 |![확인][1]|시나리오 선택|
 
 
@@ -112,6 +113,11 @@ DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 �
 하이브리드 Azure AD 조인은 Azure AD를 사용하여 온-프레미스 도메인 가입 장치를 자동으로 등록하는 프로세스입니다. 모든 장치가 자동으로 등록되지 않도록 하려는 경우가 있습니다. 이 경우 [장치의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)을 참조하세요.
 
 
+## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>디바이스의 하이브리드 Azure AD 조인을 제어하는 방법 검토
+
+하이브리드 Azure AD 조인은 Azure AD를 사용하여 온-프레미스 도메인 가입 장치를 자동으로 등록하는 프로세스입니다. 모든 장치가 자동으로 등록되지 않도록 하려는 경우가 있습니다. 예를 들어, 초기 롤아웃 동안 모든 항목이 예상대로 작동하는지 확인하려는 경우가 여기에 해당합니다.
+
+자세한 내용은 [디바이스의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)을 참조하세요.
 
 ## <a name="select-your-scenario"></a>시나리오 선택
 

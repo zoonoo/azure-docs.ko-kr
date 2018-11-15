@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 035b12c85720817501da9f4ad580aa8e7da8fdc4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116196"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280524"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -47,7 +47,7 @@ ms.locfileid: "49116196"
 
 | 서비스 | 스키마 및 문서 |
 | --- | --- |
-| Azure Active Directory | [개요](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md), [감사 로그 스키마](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) 및 [로그인 스키마](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [개요](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [감사 로그 스키마](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) 및 [로그인 스키마](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API 관리 진단 로그](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateway |[Application Gateway에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
@@ -92,9 +92,11 @@ ms.locfileid: "49116196"
 |Microsoft.Batch/batchAccounts|ServiceLog|서비스 로그|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|엔드포인트의 메트릭(예: 대역폭, 송신 등)을 가져옵니다.|
 |Microsoft.ClassicNetwork/networksecuritygroups|네트워크 보안 그룹 규칙 흐름 이벤트|네트워크 보안 그룹 규칙 흐름 이벤트|
-|Microsoft.CognitiveServices/accounts|감사|감사|
+|Microsoft.CognitiveServices/accounts|감사|감사 로그|
+|Microsoft.CognitiveServices/accounts|RequestResponse|요청 및 응답 로그|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API 서버|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes 컨트롤러 관리자|
+|Microsoft.ContainerService/managedClusters|cluster-autoscaler|Kubernetes 클러스터 자동 크기 조정기|
 |Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes 스케줄러|
 |Microsoft.ContainerService/managedClusters|가드|인증 Webhook|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
@@ -105,7 +107,7 @@ ms.locfileid: "49116196"
 |Microsoft.DataLakeAnalytics/accounts|요청|요청 로그|
 |Microsoft.DataLakeStore/accounts|감사|감사 로그|
 |Microsoft.DataLakeStore/accounts|요청|요청 로그|
-|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL 느린 쿼리 로그|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL Server 로그|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 서버 로그|
 |Microsoft.Devices/IotHubs|연결|연결|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|장치 원격 분석|
@@ -128,6 +130,14 @@ ms.locfileid: "49116196"
 |Microsoft.EventHub/namespaces|ArchiveLogs|보관 로그|
 |Microsoft.EventHub/namespaces|OperationalLogs|작업 로그|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|자동 크기 조정 로그|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|자동 크기 조정 평가|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|자동 크기 조정 크기 조정 작업|
+|Microsoft.IoTSpaces/Graph|추적|추적|
+|Microsoft.IoTSpaces/Graph|작동|작동|
+|Microsoft.IoTSpaces/Graph|감사|감사|
+|Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
+|Microsoft.IoTSpaces/Graph|수신|수신|
+|Microsoft.IoTSpaces/Graph|송신|송신|
 |Microsoft.KeyVault/vaults|AuditEvent|감사 로그|
 |Microsoft.Logic/workflows|WorkflowRuntime|워크플로 런타임 진단 이벤트|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|통합 계정 이벤트 추적|
@@ -136,6 +146,8 @@ ms.locfileid: "49116196"
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|부하 분산 장치 경고 이벤트|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|부하 분산 장치 프로브 상태|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS 보호 알림|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|DDoS 완화 결정의 흐름 로그|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationReports|DDoS 완화의 보고서|
 |Microsoft.Network/virtualNetworks|VMProtectionAlerts|VM 보호 경고|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway 액세스 로그|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway 성능 로그|
@@ -151,6 +163,8 @@ ms.locfileid: "49116196"
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2P 진단 로그|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager 프로브 상태 결과 이벤트|
 |Microsoft.Network/expressRouteCircuits|PeeringRouteLog|피어링 경로 테이블 로그|
+|Microsoft.Network/frontdoors|FrontdoorAccessLog|Frontdoor 액세스 로그|
+|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Frontdoor 웹 애플리케이션 방화벽 로그|
 |Microsoft.PowerBIDedicated/capacities|엔진|엔진|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup 보고 데이터|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 작업|
@@ -173,10 +187,21 @@ ms.locfileid: "49116196"
 |Microsoft.Sql/servers/databases|교착 상태|교착 상태|
 |Microsoft.Sql/servers/databases|감사|감사 로그|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL 보안 감사 이벤트|
-|Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW 요청|
-|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW 요청 단계|
+|Microsoft.Sql/servers/databases|DmsWorkers|DMS 작업자|
+|Microsoft.Sql/servers/databases|ExecRequests|실행 요청|
+|Microsoft.Sql/servers/databases|RequestSteps|요청 단계|
+|Microsoft.Sql/servers/databases|SqlRequests|SQL 요청|
+|Microsoft.Sql/servers/databases|Waits|대기|
+|Microsoft.Sql/managedInstances|ResourceUsageStats|리소스 사용량 통계|
+|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|SQL 보안 감사 이벤트|
+|Microsoft.Sql/managedInstances/databases|SQLInsights|SQL 정보|
+|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|쿼리 저장소 런타임 통계|
+|Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|쿼리 저장소 대기 통계|
+|Microsoft.Sql/managedInstances/databases|오류|오류|
 |Microsoft.StreamAnalytics/streamingjobs|실행|실행|
 |Microsoft.StreamAnalytics/streamingjobs|작성|작성|
+|microsoft.web/sites|FunctionExecutionLogs|함수 실행 로그|
+|microsoft.web/sites/slots|FunctionExecutionLogs|함수 실행 로그|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 6d31e6a4d424b8e3c634c9d5075b1f02c512187b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651209"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578674"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -38,7 +38,7 @@ ms.locfileid: "49651209"
 
 ### <a name="enable-a-managed-identity"></a>관리 ID 사용
 
- Azure Container Instances에서 Azure 리소스의 관리 ID는 REST API 버전 2018-10-01, 해당 SDK 및 도구에서 지원됩니다. 컨테이너 그룹을 만들 때 [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity) 속성을 설정하여 하나 이상의 관리 ID를 사용하도록 설정합니다. 컨테이너 그룹을 실행한 후에 관리 ID를 사용하도록 설정하거나 업데이트할 수도 있습니다. 두 경우 모두 컨테이너 그룹이 다시 시작됩니다. 새 또는 기존 컨테이너 그룹에 대해 ID를 설정하려면 Azure CLI, Resource Manager 템플릿 또는 YAML 파일을 사용합니다. 
+ Azure Container Instances에서 Azure 리소스의 관리 ID는 REST API 버전 2018-10-01, 해당 SDK 및 도구에서 지원됩니다. 컨테이너 그룹을 만들 때 [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity) 속성을 설정하여 하나 이상의 관리 ID를 사용하도록 설정합니다. 컨테이너 그룹을 실행한 후에 관리 ID를 사용하도록 설정하거나 업데이트할 수도 있습니다. 두 경우 모두 컨테이너 그룹이 다시 시작됩니다. 새 또는 기존 컨테이너 그룹에 대해 ID를 설정하려면 Azure CLI, Resource Manager 템플릿 또는 YAML 파일을 사용합니다. 
 
 Azure Container Instances는 두 가지 유형의 Azure 관리 ID인 사용자 할당 및 시스템 할당 ID를 지원합니다. 컨테이너 그룹에서 시스템 할당 ID 또는 하나 이상의 사용자 할당 ID를 사용하도록 설정하거나 두 가지 유형의 ID를 모두 사용할 수 있습니다. 
 

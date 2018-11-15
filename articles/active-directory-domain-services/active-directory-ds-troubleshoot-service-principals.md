@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579547"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035038"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 서비스 주체 구성 문제 해결
 
@@ -45,7 +45,7 @@ ms.locfileid: "39579547"
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [PowerShell을 사용하여 누락된 서비스 주체 다시 만들기](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Microsoft.AAD 네임스페이스에 다시 등록](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Microsoft.AAD 네임스페이스에 다시 등록](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [자체를 수정하는 서비스 주체](#service-principals-that-self-correct) |
+| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Microsoft.AAD 네임스페이스에 다시 등록](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>PowerShell 사용하여 누락된 서비스 주체 다시 만들기
 ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36```가 있는 서비스 주체가 Azure AD 디렉터리에서 누락된 경우 다음 단계를 수행합니다.
@@ -76,7 +76,7 @@ ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36```가 있는 서비스 주체가 Azur
 
 
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Azure Portal을 사용하여 Microsoft AAD 네임스페이스에 다시 등록
-ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` 또는 ```abba844e-bc0e-44b0-947a-dc74e5d09022```가 있는 서비스 주체가 Azure AD 디렉터리에서 누락된 경우 다음 단계를 수행합니다.
+ID ```443155a6-77f3-45e3-882b-22b3a8d431fb```, ```abba844e-bc0e-44b0-947a-dc74e5d09022``` 또는 ```d87dcbc6-a371-462e-88e3-28ad15ec4e64```가 있는 서비스 주체가 Azure AD 디렉터리에서 누락된 경우 이러한 단계를 따릅니다.
 
 **해결:** 다음 단계를 사용하여 디렉터리에서 Domain Services를 복원합니다.
 
@@ -85,12 +85,6 @@ ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` 또는 ```abba844e-bc0e-44b0-947a-
 3. 왼쪽 탐색 영역에서 **리소스 공급자**를 선택합니다.
 4. 테이블에서 "Microsoft.AAD"를 검색하고 **다시 등록**을 클릭합니다.
 5. 경고가 해결되었는지 확인하려면 2시간 내에 관리되는 도메인에 대한 상태 페이지를 봅니다.
-
-
-## <a name="service-principals-that-self-correct"></a>자체를 수정하는 서비스 주체
-ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64```가 있는 서비스 주체가 Azure AD 디렉터리에서 누락된 경우 다음 단계를 수행합니다.
-
-**해결:** Azure AD Domain Services는 특정 서비스 주체가 누락되고, 잘못 구성되었거나 삭제되는 경우를 검색할 수 있습니다. 서비스는 자동으로 이 서비스 주체를 다시 만듭니다. 하지만 인증이 롤오버되면 새로운 서비스 주체가 더 이상 응용 프로그램과 개체를 수정할 수 없으므로 삭제된 응용 프로그램으로 작업한 응용 프로그램과 개체를 삭제해야 합니다. 그러면 도메인에서 새 오류가 발생합니다. 이 문제를 방지하려면 [AADDS105에 대한 섹션](#alert-aadds105-password-synchronization-application-is-out-of-date)에 설명된 단계를 따르세요. 그런 다음, 관리되는 도메인 상태를 확인하여 새 서비스 주체가 다시 만들어졌는지 확인합니다.
 
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>경고 AADDS105: 암호 동기화 응용 프로그램이 만료됨
@@ -110,8 +104,8 @@ ID ```d87dcbc6-a371-462e-88e3-28ad15ec4e64```가 있는 서비스 주체가 Azur
 2. 다음 PowerShell 명령을 사용하여 이전 응용 프로그램 및 개체 삭제
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```

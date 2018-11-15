@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 82ffcc6f891a64650375121b9418daad33dc2628
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4532e0c6e8095c9d64897410e0492e2135d8a478
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301698"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747935"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Azure Data Lake Analytics 코드 테스트
 
@@ -117,7 +117,7 @@ UDO 함수를 호출한 후 C# 어설션 함수를 사용하여 스키마 및 �
 
 ### <a name="run-u-sql-test-cases-in-azure-devops"></a>Azure DevOps에서 U-SQL 테스트 사례 실행
 
-U-SQL 테스트의 경우 빌드 컴퓨터에 `CPPSDK`를 로드하고 USqlScriptTestRunner에 대한 `CPPSDK` 경로(cppSdkFolderFullPath: \@"")를 제공해야 합니다.
+U-SQL 테스트의 경우 빌드 머신에 `CPPSDK`를 로드하고 USqlScriptTestRunner에 대한 `CPPSDK` 경로(cppSdkFolderFullPath: \@"")를 제공해야 합니다.
 
 **CPPSDK란?**
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 28de0f8bdcaa730c5beea0c630d4e86e15642809
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142966"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978845"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -46,16 +46,16 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 
 1. Profiler가 실행되는 기간 동안 요청이 있는 경우 Profiler가 사용하도록 설정된 응용 프로그램의 부분에서 요청이 처리되는지 확인합니다. 경우에 따라 응용 프로그램이 여러 구성 요소로 이루어져 있지만 Profiler가 전체가 아닌 일부 구성 요소에 대해서만 사용하도록 설정되어 있을 수 있습니다. Application Insights Profiler 구성 페이지에 추적이 업로드된 구성 요소가 표시됩니다.
 
-### <a name="net-core-21-bug"></a>**.NET Core 2.1 버그** 
+### <a name="net-core-21-bug"></a>.Net Core 2.1 버그
 프로파일러 에이전트에 ASP.NET Core 2.1에서 실행되는 응용 프로그램에서 수행된 추적을 업로드하지 못하도록 하는 버그가 있습니다. 수정하려고 노력하고 있으며 곧 준비될 예정입니다. 이 버그의 수정 사항은 10월 말에 배포될 것입니다.
 
-### <a name="other-things-to-check"></a>**기타 확인해야 할 사항:**
+### <a name="other-things-to-check"></a>기타 확인해야 할 사항:
 * 앱이 .NET Framework 4.6에서 실행되고 있는지 확인합니다.
 * 웹앱이 ASP.NET Core 응용 프로그램인 경우 ASP.NET Core 2.0 이상을 실행해야 합니다.
 * 보려고 하는 데이터가 몇 주보다 오래된 경우 시간 필터를 제한하고 다시 시도합니다. 추적은 7일 후에 삭제됩니다.
 * 프록시 또는 방화벽이 https://gateway.azureserviceprofiler.net에 대한 액세스를 차단하지 않도록 합니다.
 
-### <a id="double-counting"></a>**병렬 스레드에서 이중 계산**
+### <a id="double-counting"></a>병렬 스레드에서 이중 계산
 
 경우에 따라 스택 뷰어의 총 시간 메트릭은 요청 기간 이상입니다.
 
@@ -63,11 +63,11 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 
 추적에 병렬 스레드가 표시되면 요청에 중요 경로를 결정할 수 있도록 대기 중인 스레드를 결정합니다. 대부분의 경우 대기 상태로 빠르게 전환하는 스레드는 단순히 다른 스레드를 기다리고 있습니다. 다른 스레드에 집중하고 대기 중인 스레드 대기 시간을 무시합니다.
 
-### <a name="error-report-in-the-profiling-viewer"></a>**프로파일링 뷰어의 오류 보고서**
+### <a name="error-report-in-the-profile-viewer"></a>프로파일링 뷰어의 오류 보고서
 포털에서 지원 티켓을 제출합니다. 오류 메시지의 상관 관계 ID를 포함해야 합니다.
 
 ## <a name="troubleshooting-profiler-on-app-services"></a>App Service에서 Profiler 문제 해결
-### <a name="for-the-profiler-to-work-properly"></a>**Profiler가 제대로 작동하려면**
+### <a name="for-the-profiler-to-work-properly"></a>프로파일러가 제대로 작동하려면:
 * 웹앱 서비스 계획이 기본 계층 이상이어야 합니다.
 * 웹앱에 App Services용 Application Insights 확장(2.6.5)이 설치되어 있어야 합니다.
 * 웹앱에 Application Insights SDK에서 사용하는 동일한 계측 키를 사용하여 구성된 **APPINSIGHTS_INSTRUMENTATIONKEY** 설정이 있어야 합니다.
@@ -82,7 +82,7 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
     
     ![profiler-webjob-log]
 
-### <a name="manual-installation"></a>**수동 설치**
+### <a name="manual-installation"></a>수동 설치
 
 Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다. 사용자 환경에 필요한 경우 수동으로 업데이트를 적용할 수 있습니다. 예제에서 응용 프로그램이 PowerApps의 Web Apps 환경에서 실행될 수 있습니다.
 
@@ -97,9 +97,9 @@ Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다.
 1. Azure Web Apps 갤러리에서 **Application Insights**를 설치합니다.
 1. 웹 앱을 다시 시작합니다.
 
-### <a name="too-many-active-profiling-sessions"></a>**너무 많은 활성 프로파일링 세션**
+### <a name="too-many-active-profiling-sessions"></a>너무 많은 활성 프로파일링 세션
 
-현재 동일한 서비스 계획으로 실행 중인 최대 4개의 Azure 웹앱 및 배포 슬롯에서 Profiler를 사용하도록 설정할 수 있습니다. Profiler 웹 작업이 너무 많은 활성 프로파일링 세션을 보고하는 경우 일부 웹앱을 다른 서비스 계획으로 이동합니다.
+현재 동일한 서비스 계획으로 실행 중인 최대 4개의 Azure 웹앱 및 배포 슬롯에서 Profiler를 사용하도록 설정할 수 있습니다. 하나의 앱 서비스 계획에서 실행되는 것보다 더 많은 웹앱이 있는 경우 프로파일러에 의해 throw되는 Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException이 표시될 수 있습니다. 프로파일러는 각 웹앱에 대해 개별적으로 실행되고 각 앱에 대한 ETW 세션을 시작하려고 합니다. 그러나 한 번에 활성화될 수 있는 ETW 세션 수에 제한이 있습니다. Profiler 웹 작업이 너무 많은 활성 프로파일링 세션을 보고하는 경우 일부 웹앱을 다른 서비스 계획으로 이동합니다.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>배포 오류: 디렉터리가 비어 있지 않음 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 

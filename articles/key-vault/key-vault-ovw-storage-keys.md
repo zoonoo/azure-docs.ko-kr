@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f3f310c247aea3842b5ec7a9a1409032d5bdc0bf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232225"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912920"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault Storage 계정 키
 
@@ -34,9 +34,12 @@ ms.locfileid: "50232225"
     - 이 [문서](https://docs.microsoft.com/azure/storage/)의 단계에 따라 저장소 계정을 만듭니다.  
     - **명명 지침:** Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.        
       
-<a name="step-by-step-instructions"></a>단계별 지침
--------------------------
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Key Vault를 사용하여 스토리지 계정 키를 관리하는 방법에 대한 단계별 지침
+--------------------------------------------------------------------------------
 아래 지침에서는 저장소 계정에 대한 운영자 권한이 있는 서비스로 Key Vault를 할당합니다.
+
+> [!NOTE]
+> Azure Key Vault 관리 스토리지 계정 키를 설정했으면 Key Vault를 통하는 경우를 제외하고 더 이상 변경하지 **않아야 합니다**. 관리 스토리지 계정 키는 Key Vault가 스토리지 계정 키 회전을 관리한다는 것을 의미합니다.
 
 1. 저장소 계정을 만든 후 다음 명령을 실행하여 관리하려는 저장소 계정의 리소스 ID를 가져옵니다.
 
@@ -71,6 +74,8 @@ ms.locfileid: "50232225"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+### <a name="relavant-azure-cli-cmdlets"></a>관련 Azure CLI cmdlet
+- [Azure CLI 스토리지 Cmdlet](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ### <a name="relevant-powershell-cmdlets"></a>관련 PowerShell cmdlet
 

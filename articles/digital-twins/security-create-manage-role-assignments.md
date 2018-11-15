@@ -1,6 +1,6 @@
 ---
-title: Azure Digital Twins 장치 연결 및 인증 이해 | Microsoft Docs
-description: Azure Digital Twins를 사용하여 장치 연결 및 인증
+title: Azure Digital Twins 디바이스 연결 및 인증 이해 | Microsoft Docs
+description: Azure Digital Twins를 사용하여 디바이스 연결 및 인증
 author: lyrana
 manager: alinast
 ms.service: digital-twins
@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: adfb4c369ea1b324da8562a5b0b245ebdecff602
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323920"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012465"
 ---
 # <a name="create-and-manage-role-assignments"></a>역할 할당 만들기 및 관리
 
@@ -21,15 +21,15 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 
 각 역할 할당에는 다음이 포함됩니다.
 
-* **개체 식별자**(Azure Active Directory ID, 서비스 사용자 개체 ID 또는 도메인 이름).
-* **개체 식별자 유형**.
-* **역할 정의 ID**.
-* **공간 경로**.
-* (대부분의 경우) Azure Active Directory **테넌트 ID**.
+* **개체 식별자**: Azure Active Directory ID, 서비스 사용자 개체 ID 또는 도메인 이름
+* **개체 식별자 유형**
+* **역할 정의 ID**
+* **공간 경로**
+* **테넌트 ID**: 대부분의 경우 Azure Active Directory 테넌트 ID
 
 ## <a name="role-definition-identifiers"></a>역할 정의 식별자
 
-아래 표는 시스템/역할 API를 쿼리하여 얻을 수 있는 항목을 보여줍니다.
+다음 표는 시스템/역할 API를 쿼리하여 얻을 수 있는 항목을 보여줍니다.
 
 | **역할** | **식별자** |
 | --- | --- |
@@ -41,7 +41,7 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 | 사용자 | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
 | 지원 전문가 | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | 장치 설치 관리자 | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| GatewayDevice | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
+| 게이트웨이 디바이스 | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
 
 ## <a name="supported-objectidtypes"></a>지원되는 ObjectIdTypes
 
@@ -62,15 +62,15 @@ HTTP POST /api/v1.0/roleassignments
 
 | **Name** | **필수** | **형식** | **설명** |
 | --- | --- | --- | --- |
-| roleId| yes |string | 역할 정의 식별자입니다. 역할 정의 및 식별자는 시스템 API를 쿼리하여 찾을 수 있습니다. |
-| objectId | yes |string | 연결된 형식에 따라 포맷해야 하는 역할 할당의 개체 ID입니다. `DomainName` ObjectIdType의 경우 ObjectId가 `“@”` 문자로 시작해야 합니다. |
-| objectIdType | yes |string | 역할 할당의 형식입니다. 이 표의 행 중 하나여야 합니다. |
-| tenantId | 다름 | string |테넌트 식별자입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
-| path* | yes | string |`Space` 개체의 전체 액세스 경로입니다. 예: `/{Guid}/{Guid}` 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정하세요(루트를 지정). 그러나 되도록 사용하지 않는 것이 좋으며 **항상 최소 권한 원칙을 따라야 합니다**. |
+| roleId| yes |문자열 | 역할 정의 식별자입니다. 시스템 API를 쿼리하여 역할 정의와 해당 식별자를 찾습니다. |
+| objectId | yes |문자열 | 연결된 형식에 따라 포맷해야 하는 역할 할당의 개체 ID입니다. `DomainName` ObjectIdType의 경우 ObjectId가 `“@”` 문자로 시작해야 합니다. |
+| objectIdType | yes |문자열 | 역할 할당의 형식입니다. 이 표의 행 중 하나여야 합니다. |
+| tenantId | 다름 | 문자열 |테넌트 식별자입니다. `DeviceId` 및 `TenantId` ObjectIdTypes에 허용되지 않습니다. `UserId` 및 `ServicePrincipalId` ObjectIdTypes에는 필수입니다. DomainName ObjectIdType에는 선택 사항입니다. |
+| path* | yes | 문자열 |`Space` 개체의 전체 액세스 경로입니다. 예는 `/{Guid}/{Guid}`입니다. 식별자에 전체 그래프에 대한 역할 할당이 필요한 경우 `"/"`를 지정합니다. 이 문자는 루트를 지정하지만 사용하지 않는 것이 좋습니다. 항상 최소 권한 원칙을 준수합니다. |
 
 ## <a name="sample-configuration"></a>샘플 구성
 
-사용자가 테넌트 공간의 층에 대한 관리자 액세스가 필요합니다.
+이 예제에서는 사용자가 테넌트 공간의 층에 대한 관리자 액세스가 필요합니다.
 
   ```JSON
     {
@@ -82,7 +82,7 @@ HTTP POST /api/v1.0/roleassignments
     }
   ```
 
-장치 및 센서를 모의 실험하는 테스트 시나리오를 실행하는 응용 프로그램:
+이 예제에서는 애플리케이션이 디바이스 및 센서를 모의 실험하는 테스트 시나리오를 실행합니다.
 
   ```JSON
     {
@@ -94,7 +94,7 @@ HTTP POST /api/v1.0/roleassignments
     }
   ```
 
-도메인의 모든 사용자 파트는 자신과 관련된 개체를 포함하여 공백, 센서 및 사용자에 대한 읽기 액세스를 받게 됩니다.
+도메인의 일부인 모든 사용자는 공간, 센서, 사용자에 대한 읽기 액세스 권한을 받습니다. 이 액세스는 해당 관련 개체를 포함합니다.
 
   ```JSON
     {
@@ -105,7 +105,7 @@ HTTP POST /api/v1.0/roleassignments
     }
   ```
 
-역할 할당을 가져오려면:
+GET을 사용하여 역할 할당을 가져옵니다.
 
 ```plaintext
 HTTP GET /api/v1/roleassignments?path={path}
@@ -115,7 +115,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 | --- | --- | --- | --- | --- |
 | path | path | True | 문자열 | 공간의 전체 경로 |
 
-역할 할당을 삭제하려면:
+DELETE를 사용하여 역할 할당을 삭제합니다.
 
 ```plaintext
 HTTP DELETE /api/v1/roleassignments/{id}

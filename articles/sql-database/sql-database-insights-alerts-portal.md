@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159315"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978998"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
 
@@ -44,19 +44,15 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Azure 포털에서 메트릭에 대한 경고 규칙 만들기
 1. [포털](https://portal.azure.com/)에서 모니터링하려는 리소스를 찾아 선택합니다.
-2. 이 단계는 SQL DB와 탄력적 풀을 사용할 경우와 SQL DW를 사용할 경우에 다릅니다. 
-
-   - **SQL DB 및 탄력적 풀만**: 모니터링 섹션에서 **경고** 또는 **경고 규칙**을 선택합니다. 텍스트와 아이콘은 리소스마다 약간씩 다를 수 있습니다.  
+2. 모니터링 섹션에서 **경고(클래식)** 를 선택합니다. 텍스트와 아이콘은 리소스마다 약간씩 다를 수 있습니다.  
    
-     ![모니터링](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
+     ![모니터링](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW만**: 일반 작업 섹션에서 **모니터링**을 선택합니다. **DWU 사용** 그래프를 클릭합니다.
+   - **SQL DW만 해당**: **DWU 사용량** 그래프를 클릭합니다. **클래식 경고 보기** 선택
 
-     ![일반 작업](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
-
-3. **Add alert** 명령을 선택하고 필드에 입력합니다.
+3. **메트릭 경고 추가(클래식)** 단추를 선택하고 필드에 입력합니다.
    
-    ![Add alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Add alert](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. 경고 규칙의 **이름**을 지정하고 **설명**을 선택합니다. 알림 이메일에도 표시되는 항목입니다.
 5. 모니터링할 **메트릭**을 선택하고 해당 메트릭에 대한 **조건** 및 **임계값**을 선택합니다. 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**도 선택합니다. 예를 들어, "PT5M" 기간을 사용하고 경고가 80% 이상인 CPU를 찾는 경우 **평균** CPU가 5분 동안 80%를 넘으면 이 경고가 트리거됩니다. 첫 번째 트리거가 발생한 후 평균 CPU가 5분 동안 80% 미만을 유지하면 다시 트리거됩니다. CPU 측정은 1 분마다 발생합니다. 지원되는 시간 창 그리고 모든 경고가 아닌 각각의 경고가 평균 값을 사용하는 집계 유형에 대해서는 아래의 테이블을 확인합니다.   
 6. 경고가 발생했을 때 관리자 및 공동 관리자에게 이메일을 보내려면 **소유자에게 이메일 보내기...** 를 선택합니다.

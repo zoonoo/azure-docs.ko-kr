@@ -10,23 +10,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bc31c7ebec7c1f7a02be65b15805fb48b1ef275d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239885"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260315"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
 광범위하게 상호 연결된 사회에서 살고 있다는 것은 삶의 어느 시점에서 **소셜 네트워크**의 일부가 된다는 것을 의미합니다. 소셜 네트워크를 사용하여 친구, 동료, 가족 등과 연락하거나, 때로는 공통의 관심사를 가진 사람들과 열정을 공유합니다.
 
 엔지니어 또는 개발자는 이러한 네트워크가 데이터를 저장하고 상호 연결하는 방법 또는 특정 틈새 시장을 위한 새로운 소셜 네트워크를 만들거나 설계하는 데 활용되었을 수 있는 방법이 궁금할 수 있습니다. 특히 이 모든 데이터가 어떻게 저장되는지가 매우 궁금할 때 더욱 그렇습니다.
 
-사용자가 사진, 동영상 또는 음악과 같은 관련 미디어와 함께 문서를 게시할 수 있는 새롭고 참신한 소셜 네트워크를 만든다고 가정해 보겠습니다. 사용자는 게시물에 의견을 달고 평점을 매길 수 있습니다. 기본 웹 사이트 방문 페이지에는 사용자가 보고 상호 작용할 수 있는 게시물 피드가 있을 것입니다. 처음에는 복잡하게 들리지 않겠지만 간단한 설명을 위해 이에 대한 내용은 생략하겠습니다(관계별 영향을 받는 사용자 지정 사용자 피드를 자세히 살펴볼 수 있지만 이는 이 문서의 목표를 벗어남).
+사용자가 사진, 동영상 또는 음악과 같은 관련 미디어와 함께 문서를 게시할 수 있는 새롭고 참신한 소셜 네트워크를 만든다고 가정해 보겠습니다. 사용자는 게시물에 의견을 달고 평점을 매길 수 있습니다. 기본 웹 사이트 방문 페이지에는 사용자가 보고 상호 작용할 수 있는 게시물 피드가 있을 것입니다. 이 방법이 처음에는 복잡하게 들리지 않겠지만 간단한 설명을 위해 이에 대한 내용은 생략하겠습니다(관계별 영향을 받는 사용자 지정 사용자 피드를 자세히 살펴볼 수 있지만 이는 이 문서의 목표를 벗어남).
 
 그렇다면 데이터는 어디에 어떻게 저장될까요?
 
-여러분 대다수는 SQL 데이터베이스에 대한 경험이 있거나 적어도 [데이터의 관계형 모델링](https://en.wikipedia.org/wiki/Relational_model) 에 대한 개념을 알고 있을 것이므로 다음과 같은 다이어그램을 그리기 시작할 수 있을 것입니다.
+아마도 여러분은 SQL 데이터베이스에 대한 경험이 있거나 [데이터의 관계형 모델링](https://en.wikipedia.org/wiki/Relational_model)에 대한 개념을 알고 있을 것이므로 다음과 같은 그림을 그릴 수 있을 것입니다.
 
 ![상대 관계형 모델을 보여 주는 다이어그램](./media/social-media-apps/social-media-apps-sql.png) 
 
@@ -36,7 +36,7 @@ ms.locfileid: "50239885"
 
 이 시나리오에서 SQL이 최선의 선택이 아닌 이유는 무엇일까요? 단일 게시물의 구조를 살펴봅시다. 웹사이트나 응용 프로그램에 이 게시물을 나타내려면 테이블 조인 8개(!)로 쿼리를 수행해야 합니다. 단지 게시물 하나를 나타내기 위해서 말입니다. 이제 동적으로 로드되어 화면에 나타나는 게시물 스트림을 그려보면 어디를 향하고 있는지 볼 수 있습니다.
 
-물론 이 많은 조인으로 수천 개의 쿼리를 해결할 정도의 엄청난 SQL 인스턴스를 사용하여 콘텐츠를 제공할 수 있지만 보다 간단한 솔루션이 있는 데 그래야 하는 이유가 있을까요?
+이 많은 조인으로 수천 개의 쿼리를 해결할 정도의 엄청난 SQL 인스턴스를 사용하여 콘텐츠를 제공할 수 있지만, 보다 간단한 솔루션이 있는데 그래야 하는 이유가 있을까요?
 
 ## <a name="the-nosql-road"></a>NoSQL
 이 문서에서는 Azure의 NoSQL 데이터베이스 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)를 사용하여 비용 효율적인 방법으로 소셜 플랫폼의 데이터를 모델링하고 [Gremlin API](../cosmos-db/graph-introduction.md) 같은 다른 Azure Cosmos DB 기능을 활용하는 방법을 안내합니다. [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 접근 방식을 사용하여 데이터를 JSON 형식으로 저장하고 [역정규화](https://en.wikipedia.org/wiki/Denormalization)를 적용하면 이전의 복잡한 게시물을 단일 [문서](https://en.wikipedia.org/wiki/Document-oriented_database)로 변환할 수 있습니다.
@@ -59,7 +59,7 @@ ms.locfileid: "50239885"
         ]
     }
 
-또한 조인 없이 단일 쿼리로 이를 실현할 수 있습니다. 이는 훨씬 간단하고 저렴하며, 보다 적은 리소스로 더 나은 결과를 얻을 수 있는 방법입니다.
+또한 조인 없이 단일 쿼리로 이를 실현할 수 있습니다. 이 쿼리는 훨씬 간단하고 쉽고 저렴하며, 보다 적은 리소스로 더 나은 결과를 얻을 수 있는 방법입니다.
 
 Azure Cosmos DB는 모든 속성이 자체 자동 인덱싱을 통해 인덱싱되도록 하며, 이를 [사용자 지정](indexing-policies.md)할 수도 있습니다. 스키마 없는 접근 방식을 통해 다양한 동적 구조로 문서를 저장할 수 있으며, 향후에는 게시물과 관련된 해시 태그 또는 범주 목록을 함께 유지할 수 있을 것입니다. Cosmos DB는 추가 작업 없이 새 문서를 추가된 특성과 함께 처리합니다.
 
@@ -216,12 +216,12 @@ Azure Search에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 
 이러한 Machine Learning 시나리오를 달성하려면 [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/)를 사용하여 다양 한 원본에서 정보를 수집하고 [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/)을 사용하여 정보를 처리하고 Azure Machine Learning에서 처리할 수 있는 출력을 생성할 수 있습니다.
 
-또 다른 사용 가능한 옵션은 [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services)를 사용하여 사용자의 콘텐츠를 분석하는 것입니다. 이를 통해 보다 잘 이해할 수 있을 뿐만 아니라([Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)로 작성한 것을 분석하여) 원치 않거나 성숙한 콘텐츠를 검색하고 [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api)를 사용하여 그에 따라 동작할 수 있습니다. Cognitive Services는 사용하기 위해 Machine Learning의 지식이 필요하지 않은 많은 기본 제공 솔루션을 포함합니다.
+또 다른 옵션은 [Azure Cognitive Services](https://www.microsoft.com/cognitive-services)를 사용하여 사용자의 콘텐츠를 분석하는 것입니다. [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)로 무엇을 작성하는지 분석하여 콘텐츠를 보다 정확하게 이해할 수 있을 뿐만 아니라, 원치 않는 콘텐츠 또는 성인물 콘텐츠를 검색하고 [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api)를 사용하여 그에 따라 동작할 수 있습니다. Cognitive Services는 사용하기 위해 Machine Learning의 지식이 필요하지 않은 많은 기본 제공 솔루션을 포함합니다.
 
 ## <a name="a-planet-scale-social-experience"></a>전 세계적인 규모의 소셜 환경
 마지막으로 해결해야 하는 중요한 사항은 **확장성**입니다. 아키텍처를 디자인하는 경우 더 많은 데이터를 처리해야 하거나 더 큰 지역 적용 범위가 필요하기 때문에(또는 두 가지 이유 모두로 인해) 각 구성 요소를 자체적으로 확장할 수 하는지가 중요합니다. 다행스럽게도 Cosmos DB를 사용하여 **턴키 환경**에서 이러한 복잡한 작업을 수행할 수 있습니다.
 
-Cosmos DB는 지정된 **파티션 키**(문서의 특성 중 하나로 정의됨)를 기반으로 해서 파티션을 자동으로 만들어 기본적으로 [동적 분할](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/)을 지원합니다. 디자인 과정에서 올바른 파티션 키를 정의해야 합니다. 또한 [모범 사례](../cosmos-db/partition-data.md#designing-for-partitioning) 사용할 수 있다는 점을 기억하세요. 소셜 환경의 경우에 쿼리(동일한 파티션 내의 읽기는 바람직함) 및 작성(여러 파티션에 쓰기를 분산하여 "핫 스폿" 방지)하는 방법으로 분할 전략을 정렬해야 합니다. 일부 옵션은 다음과 같습니다. 콘텐츠 범주별, 지리적 지역별, 사용자별 임시 키(일/월/주)에 기반한 파티션은 데이터를 쿼리하는 방법에 따라 다르고 소셜 환경에서 표시됩니다. 
+Cosmos DB는 지정된 **파티션 키**(문서의 특성 중 하나로 정의됨)를 기반으로 해서 파티션을 자동으로 만들어 기본적으로 [동적 분할](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/)을 지원합니다. 디자인 단계에서 올바른 파티션 키를 정의해야 합니다. 자세한 내용은 [올바른 파티션 키 선택](partitioning-overview.md#choose-partitionkey) 문서를 참조하세요. 소셜 환경의 경우 분할 전략이 쿼리(동일한 파티션 내의 읽기는 바람직함) 및 쓰기(여러 파티션에 쓰기를 분산하여 "핫 스폿" 방지) 방법과 일치해야 합니다. 일부 옵션은 다음과 같습니다. 콘텐츠 범주별, 지리적 지역별, 사용자별 임시 키(일/월/주)에 기반한 파티션은 데이터를 쿼리하는 방법에 따라 다르고 소셜 환경에서 표시됩니다. 
 
 한 가지 흥미로운 점은 Cosmos DB가 모든 파티션에 투명하게 쿼리([집계](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/) 포함)를 실행한다는 것입니다. 데이터의 증가에 따라 논리를 추가할 필요가 없습니다.
 

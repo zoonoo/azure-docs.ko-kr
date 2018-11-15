@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c52c84a1311c30c19356bb8a1287b203faf476fc
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742908"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913639"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>미리 보기: Azure AD 암호 보호 에이전트 버전 기록
 
@@ -23,6 +23,23 @@ ms.locfileid: "50742908"
 | --- |
 | Azure AD 암호 보호는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
+
+## <a name="12250"></a>1.2.25.0
+
+릴리스 날짜: 2018/11/01
+
+수정 사항:
+
+* DC 에이전트 및 프록시 서비스가 인증서 트러스트 오류로 인해 더 이상 실패하지 않아야 합니다.
+* DC 에이전트 및 프록시 서비스에는 FIPS 규격 머신에 대한 추가 수정 프로그램이 있습니다.
+* 프록시 서비스는 이제 TLS 1.2 전용 네트워킹 환경에서 제대로 작동합니다.
+* 사소한 성능 및 견고성 수정
+* 향상된 로깅
+
+변경 내용:
+
+* 이제 프록시 서비스의 최소 필수 OS 수준은 Windows Server 2012 R2입니다. DC 에이전트 서비스의 최소 필수 OS 수준은 Windows Server 2012에서 유지됩니다.
+* 암호 유효성 검사 알고리즘은 확장된 문자 정규화 테이블을 사용합니다. 이로 인해 이전 버전에서 허용되었던 암호가 거부될 수 있습니다.
 
 ## <a name="12100"></a>1.2.10.0
 
@@ -45,8 +62,8 @@ ms.locfileid: "50742908"
 > DC 에이전트 소프트웨어의 현재 위치 업그레이드에는 다시 부팅이 필요합니다.
 
 * 이제 DC 에이전트 및 프록시 서비스는 FIPS 규격 알고리즘만 사용하도록 구성된 서버에서 실행되도록 지원합니다.
-* 향상된 로깅
 * 사소한 성능 및 견고성 수정
+* 향상된 로깅
 
 ## <a name="11103"></a>1.1.10.3
 

@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954843"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961826"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -27,8 +27,8 @@ Azure 환경에서 모니터링 데이터에는 여러 '계층'이 있으며, �
 
 - **응용 프로그램 모니터링 데이터:** Azure에서 작성하고 실행되는 코드의 성능 및 기능에 대한 데이터입니다. 응용 프로그램 모니터링 데이터의 예로 성능 추적, 응용 프로그램 로그 및 사용자 원격 분석이 있습니다. 응용 프로그램 모니터링 데이터는 일반적으로 다음 방법 중 하나로 수집됩니다.
   - [Application Insights SDK](../application-insights/app-insights-overview.md)와 같은 SDK를 사용하여 코드를 계측합니다.
-  - 응용 프로그램이 실행되고 있는 컴퓨터에서 새 응용 프로그램 로그를 수신 대기하는 모니터링 에이전트(예: [Windows Azure 진단 에이전트](./azure-diagnostics.md) 또는 [Linux Azure 진단 에이전트](../virtual-machines/linux/diagnostic-extension.md))를 실행합니다.
-- **게스트 OS 모니터링 데이터:** 응용 프로그램이 실행되고 있는 운영 체제에 대한 데이터입니다. 게스트 OS 모니터링 데이터의 예로 Linux syslog 또는 Windows 시스템 이벤트가 있습니다. 이러한 유형의 데이터를 수집하려면 [Windows Azure 진단 에이전트](./azure-diagnostics.md) 또는 [Linux Azure 진단 에이전트](../virtual-machines/linux/diagnostic-extension.md)와 같은 에이전트를 설치해야 합니다.
+  - 응용 프로그램이 실행되고 있는 컴퓨터에서 새 응용 프로그램 로그를 수신 대기하는 모니터링 에이전트(예: [Windows Azure 진단 에이전트](./azure-diagnostics.md) 또는 [Linux Azure 진단 에이전트](../virtual-machines/extensions/diagnostics-linux.md))를 실행합니다.
+- **게스트 OS 모니터링 데이터:** 응용 프로그램이 실행되고 있는 운영 체제에 대한 데이터입니다. 게스트 OS 모니터링 데이터의 예로 Linux syslog 또는 Windows 시스템 이벤트가 있습니다. 이러한 유형의 데이터를 수집하려면 [Windows Azure 진단 에이전트](./azure-diagnostics.md) 또는 [Linux Azure 진단 에이전트](../virtual-machines/extensions/diagnostics-linux.md)와 같은 에이전트를 설치해야 합니다.
 - **Azure 리소스 모니터링 데이터:** Azure 리소스의 작업에 대한 데이터입니다. 가상 머신과 같은 일부 Azure 리소스 종류의 경우, Azure 서비스 내부에서 모니터링할 게스트 OS 및 응용 프로그램이 있습니다. 네트워크 보안 그룹과 같은 다른 Azure 리소스의 경우, 해당 리소스에서 실행되는 게스트 OS 또는 해당 응용 프로그램이 없으므로 리소스 모니터링 데이터가 사용할 수 있는 가장 높은 수준의 데이터입니다. 이 데이터는 [리소스 진단 설정](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)을 사용하여 수집할 수 있습니다.
 - **Azure 구독 모니터링 데이터:** Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. [활동 로그](./monitoring-overview-activity-logs.md)에는 서비스 상태 문제 및 Azure Resource Manager 감사 등, 대부분의 구독 모니터링 데이터를 포함합니다. 로그 프로필을 사용하여 이 데이터를 수집할 수 있습니다.
 - **Azure 테넌트 모니터링 데이터:** Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다. Azure Active Directory 감사 및 로그인은 테넌트 모니터링 데이터의 예입니다. 이 데이터는 테넌트 진단 설정을 사용하여 수집할 수 있습니다.
@@ -54,7 +54,7 @@ Azure 테넌트 모니터링 데이터는 현재 Azure Active Directory에만 �
 
 ### <a name="azure-active-directory-data"></a>Azure Active Directory 데이터
 
-Azure Active Directory 로그에서 Event Hubs 네임스페이스로 데이터를 보내려면 AAD 테넌트에서 테넌트 진단 설정을 설정할 수 있습니다. [이 가이드에 따라](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) 테넌트 진단 설정을 설정합니다.
+Azure Active Directory 로그에서 Event Hubs 네임스페이스로 데이터를 보내려면 AAD 테넌트에서 테넌트 진단 설정을 설정할 수 있습니다. [이 가이드에 따라](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) 테넌트 진단 설정을 설정합니다.
 
 ## <a name="azure-subscription-monitoring-data"></a>Azure 구독 모니터링 데이터
 
@@ -71,7 +71,7 @@ Azure 활동 로그에서 Event Hubs 네임스페이스로 데이터를 보내�
 
 Azure 리소스는 두 가지 유형의 모니터링 데이터를 내보냅니다.
 1. [리소스 진단 로그](./monitoring-overview-of-diagnostic-logs.md)
-2. [metrics](monitoring-overview-metrics.md)
+2. [Metrics](../monitoring/monitoring-data-collection.md)(메트릭)
 
 두 가지 유형의 데이터는 리소스 진단 설정을 사용하여 이벤트 허브로 전송됩니다. [이 가이드에 따라](./monitoring-stream-diagnostic-logs-to-event-hubs.md) 특정 리소스에 대한 리소스 진단 설정을 지정합니다. 로그를 수집하려는 각 리소스에 대한 리소스 진단 설정을 지정합니다.
 
@@ -113,10 +113,11 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
     1. [Splunk용 Azure Monitor 추가 기능](https://splunkbase.splunk.com/app/3534/)은 Splunkbase와 오픈 소스 프로젝트에서 사용할 수 있습니다. [해당 설명서는 여기에 있습니다](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우(예: 프록시를 사용 중이거나 Splunk Cloud에서 실행 중인 경우), [이벤트 허브의 새 메시지로 트리거되는 이 함수](https://github.com/Microsoft/AzureFunctionforSplunkVS)를 사용하여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다.
 * **SumoLogic** - 이벤트 허브에서 데이터를 사용하도록 SumoLogic을 설정하기 위한 지침은 [여기서 사용할 수 있습니다](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub).
+* **ArcSight** - ArcSight Azure Event Hub 스마트 커넥터는 [여기 ArcSight 스마트 커넥터 컬렉션](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)의 일부로 제공됩니다.
 * **Syslog 서버** - Azure Monitor 데이터를 syslog 서버로 직접 스트리밍하려는 경우 [이 GitHub 리포지토리](https://github.com/miguelangelopereira/azuremonitor2syslog/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [저장소 계정에 활동 로그 보관](monitoring-archive-activity-log.md)
 * [Azure 활동 로그 개요 알아보기](monitoring-overview-activity-logs.md)
-* [활동 로그 이벤트를 기반으로 경고 설정](insights-auditlog-to-webhook-email.md)
+* [활동 로그 이벤트를 기반으로 경고 설정](monitor-alerts-unified-log-webhook.md)
 

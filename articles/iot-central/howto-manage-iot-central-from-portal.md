@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 08/30/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ff6978ddbf8718ad45a4265898109b7ac799d70c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 2977c3d1656bacf8ba8d34080641ea6c5cdf5bbe
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46468620"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957128"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리 
 IoT Central 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리할 수 있을 뿐만 아니라 Azure Portal에서도 IoT Central을 관리할 수 있습니다. 이 문서에서는 가능한 작업과 그 수행 방법을 설명합니다.
@@ -35,14 +35,14 @@ IoT Central 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관
 
 ![관리 포털: IoT Central 리소스](media\howto-manage-iot-central-from-portal\image0c.png)
 
-양식에 있는 모든 필드를 작성합니다. 이 양식은 IoT Central 웹 사이트에서 응용 프로그램을 만들기 위해 채워야 하는 양식과 비슷합니다. 각 필드를 작성하는 방법에 대해 알기 위해 [IoT Central 응용 프로그램 만들기](https://docs.microsoft.com/ azure/iot-central/howto-create-application) 문서를 참조하세요. 
+양식에 있는 모든 필드를 작성합니다. 이 양식은 IoT Central 웹 사이트에서 응용 프로그램을 만들기 위해 채워야 하는 양식과 비슷합니다. 각 필드를 작성하는 방법을 자세히 알아보려면 [IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작을 확인하세요. 
 
 ![관리 포털: IoT Central 리소스 만들기](media\howto-manage-iot-central-from-portal\image1.png)  
 
 모든 필드를 작성한 후 “만들기” 단추를 클릭합니다.
 
 ## <a name="manage-existing-iot-central-applications"></a>기존 IoT Central 응용 프로그램 관리
-Azure IoT Central 응용 프로그램이 이미 있는 경우 해당 응용 프로그램을 삭제하거나 Azure Portal에 있는 다른 구독 또는 리소스 그룹으로 이동할 수 있습니다. 7일 평가판 응용 프로그램을 지원하는 구독은 없으므로 Azure Portal 포털에는 이러한 7일 평가판 응용 프로그램이 표시되지 않습니다.
+Azure IoT Central 응용 프로그램이 이미 있는 경우 해당 응용 프로그램을 삭제하거나 Azure Portal에 있는 다른 구독 또는 리소스 그룹으로 이동할 수 있습니다. 평가판 애플리케이션을 지원하는 구독이 없으므로 Azure Portal에서 이러한 평가판 애플리케이션이 표시되지 않습니다.
 
 시작하려면 왼쪽의 주 탐색 메뉴에서 “모든 리소스”를 클릭하세요. 검색 상자를 사용하여 응용 프로그램 이름을 입력하고 리소스 목록에서 찾습니다. 그런 다음 관리하려는 IoT Central 응용 프로그램을 클릭합니다.
 

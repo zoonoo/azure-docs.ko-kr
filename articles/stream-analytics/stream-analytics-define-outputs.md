@@ -3,18 +3,18 @@ title: Azure Stream Analytics의 출력 이해
 description: 이 문서에서는 분석 결과에 대한 Power BI를 포함하여 Azure Stream Analytics에서 사용할 수 있는 데이터 출력 옵션을 설명합니다.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 92fcf1138a5a7d364c884128d3fc82559ffb15aa
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2ef599fe704b184e82de2d704753e3fb4a274a2a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987888"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257802"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 다양한 유형의 출력을 설명합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용하여 추가 비즈니스 분석 및 데이터의 데이터 웨어하우징을 수행할 수 있습니다. 
@@ -89,7 +89,7 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 | Storage 계정     | 출력을 보내는 저장소 계정의 이름               |
 | Storage 계정 키 | 저장소 계정과 연결된 비밀 키입니다.                              |
 | 저장소 컨테이너   | 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. |
-| 경로 패턴 | 선택 사항입니다. 지정된 컨테이너 내에서 Blob를 작성하는 데 사용되는 파일 경로 패턴입니다. <br /><br /> 경로 패턴에서 Blob가 작성된 빈도를 지정하기 위해 날짜 시간 변수 인스턴스 중 하나 이상을 사용하도록 선택할 수도 있습니다. <br /> {date}, {time} <br /><br />[미리 보기](https://aka.ms/ASApreview1)에 등록한 경우 이벤트 데이터에서 파티션 Blob까지 하나의 사용자 지정 {field} 이름을 지정할 수 있습니다. 필드 이름은 영숫자이며 공백, 하이픈 및 밑줄을 포함할 수 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>대/소문자 구문 없음(열 "ID"와 열 "id"를 구분할 수 없음)</li><li>중첩된 필드는 허용되지 않음(대신 "평면화" 필드에 대한 작업 쿼리에서 별칭 사용)</li><li>식은 필드 이름으로 사용할 수 없음</li></ul> <br /><br /> 이 미리 보기에서 경로에 사용자 지정 날짜/시간 형식 지정자 구성을 사용할 수도 있습니다. 사용자 지정 날짜 및 시간 형식은 {datetime:\<specifier>} 키워드로 묶어 한 번에 하나씩만 지정해야 합니다. 허용되는 입력 \<specifier>는 yyyy, MM, M, dd, d, HH, H, mm, m, ss 또는 s입니다. {datetime:\<specifier>} 키워드를 경로에 여러 번 사용하여 사용자 지정 날짜/시간 구성을 구성할 수 있습니다. <br /><br />예제: <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3(미리 보기): cluster1/{client_id}/{date}/{time}</li><li>예제 4(미리 보기): cluster1/{datetime:ss}/{myField} 여기서 쿼리는 SELECT data.myField AS myField FROM 입력</li><li>예제 5(미리 보기): cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />생성된 폴더 구조의 타임스탬프는 현지 시간이 아닌 UTC를 따릅니다.<br /><br/>파일 명명은 다음 규칙을 따릅니다. <br /><br />{경로 접두사 패턴}/schemaHashcode_Guid_Number.extension<br /><br />예제 출력 파일:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> |
+| 경로 패턴 | 선택 사항입니다. 지정된 컨테이너 내에서 Blob를 작성하는 데 사용되는 파일 경로 패턴입니다. <br /><br /> 경로 패턴에서 Blob가 작성된 빈도를 지정하기 위해 날짜 시간 변수 인스턴스 중 하나 이상을 사용하도록 선택할 수도 있습니다. <br /> {date}, {time} <br /><br />이 [Azure Portal 링크](https://portal.azure.com/?microsoft_azure_streamanalytics_bloboutputpathpartitioning=true&Microsoft_Azure_StreamAnalytics_bloboutputcontainerpartitioning=true)를 사용하여 사용자 지정 Blob 분할 미리 보기에 액세스하는 경우 이벤트 데이터에서 파티션 Blob으로 사용자 지정 {필드} 이름을 지정해야 할 수도 있습니다. 필드 이름은 영숫자이며 공백, 하이픈 및 밑줄을 포함할 수 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>대/소문자 구문 없음(열 "ID"와 열 "id"를 구분할 수 없음)</li><li>중첩된 필드는 허용되지 않음(대신 "평면화" 필드에 대한 작업 쿼리에서 별칭 사용)</li><li>식은 필드 이름으로 사용할 수 없음</li></ul> <br /><br /> 이 미리 보기에서 경로에 사용자 지정 날짜/시간 형식 지정자 구성을 사용할 수도 있습니다. 사용자 지정 날짜 및 시간 형식은 {datetime:\<specifier>} 키워드로 묶어 한 번에 하나씩만 지정해야 합니다. 허용되는 입력 \<specifier>는 yyyy, MM, M, dd, d, HH, H, mm, m, ss 또는 s입니다. {datetime:\<specifier>} 키워드를 경로에 여러 번 사용하여 사용자 지정 날짜/시간 구성을 구성할 수 있습니다. <br /><br />예제: <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3(미리 보기): cluster1/{client_id}/{date}/{time}</li><li>예제 4(미리 보기): cluster1/{datetime:ss}/{myField} 여기서 쿼리는 SELECT data.myField AS myField FROM 입력</li><li>예제 5(미리 보기): cluster1/year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}</ul><br /><br />생성된 폴더 구조의 타임스탬프는 현지 시간이 아닌 UTC를 따릅니다.<br /><br/>파일 명명은 다음 규칙을 따릅니다. <br /><br />{경로 접두사 패턴}/schemaHashcode_Guid_Number.extension<br /><br />예제 출력 파일:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br /><br /> 이 미리 보기에 대한 자세한 내용은 [Azure Stream Analytics Blob 스토리지 출력(미리 보기)에 대한 사용자 지정 날짜/시간 경로 패턴](stream-analytics-custom-path-patterns-blob-storage-output.md)을 참조하세요. |
 | 날짜 형식 | 선택 사항입니다. 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예: YYYY/MM/DD |
 | 시간 형식 | 선택 사항입니다. 접두사 경로에 시간 토큰을 사용하는 경우 파일을 구성하는 시간 형식을 지정합니다. 현재 지원되는 유일한 값은 HH입니다. |
 | 이벤트 직렬화 형식 | 출력 데이터에 대한 직렬화 형식입니다.  JSON, CSV 및 Avro를 지원합니다. |
@@ -297,7 +297,7 @@ Azure Stream Analytics는 Azure 함수에서 413(http 요청 엔터티가 너무
 | 출력 형식 | 분할 지원 | 파티션 키  | 출력 기록기 수 | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | yes | 경로 접두사 패턴에 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. | 
-| Azure SQL Database | yes | 쿼리의 PARTITION BY 절에 기반합니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. | 
+| Azure SQL Database | yes | 쿼리의 PARTITION BY 절에 기반합니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. SQL Azure Database에 데이터를 로드할 때 쓰기 처리량 성능을 높이는 방법에 대한 자세한 내용은 [Azure SQL Database에 Azure Stream Analytics 출력](stream-analytics-sql-output-perf.md)을 참조하세요. | 
 | Azure Blob 저장소 | yes | 경로 패턴의 사용자 이벤트 필드에서 {date} 및 {time} 토큰을 사용합니다. YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY 등과 같은 날짜 형식을 선택합니다. HH는 시간 형식에 사용됩니다. [미리 보기](https://aka.ms/ASApreview1)의 일부로 단일 사용자 지정 이벤트 특성 {fieldname} 또는 {datetime:\<specifier>}로 Blob 출력을 분할할 수 있습니다. | [완전히 병렬 처리 가능한 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. | 
 | Azure Event Hub | yes | yes | 파티션 맞춤에 따라 달라집니다.</br> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 동일하게 맞춰질 때 작성기의 수는 출력 이벤트 허브 파티션의 수와 동일합니다. 각 작성기는 이벤트 허브의 [EventHubSender 클래스](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)를 사용하여 특정 파티션에 이벤트를 전송합니다. </br> 출력 이벤트 허브 파티션 키가 업스트림(이전의) 쿼리 단계로 맞춰지지 않는 경우 작성기의 수는 이전 단계의 파티션 수와 동일합니다. 각 작성기는 EventHubClient [SendBatchAsync 클래스](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)를 사용하여 모든 출력 파티션에 이벤트를 전송합니다. |
 | Power BI | 아니요 | 없음 | 사용할 수 없습니다. | 
@@ -306,6 +306,8 @@ Azure Stream Analytics는 Azure 함수에서 413(http 요청 엔터티가 너무
 | Azure Service Bus 큐 | yes | 자동으로 선택됩니다. 파티션 수는 [Service Bus SKU 및 크기](../service-bus-messaging/service-bus-partitioning.md)에 따라 달라집니다. 파티션 키는 각 파티션에 대한 고유 정수 값입니다.| 출력 큐의 파티션 수와 동일합니다. |
 | Azure Cosmos DB | yes | 컬렉션 이름 패턴에서 {partition} 토큰을 사용합니다. {partition} 값은 쿼리의 PARTITION BY 절에 기반합니다. | [완전히 병렬 처리된 쿼리](stream-analytics-scale-jobs.md)에 대한 입력 분할을 따릅니다. |
 | Azure 기능 | 아니요 | 없음 | 사용할 수 없습니다. | 
+
+출력 어댑터가 분할되지 않은 경우 한 입력 파티션에 데이터가 없으면 지연 도착 시간까지 지연될 수 있습니다.  이 경우 출력이 단일 작성기에 병합되어 파이프라인에서 병목 현상이 발생할 수 있습니다. 지연 도착 정책에 대한 자세한 내용은 [Azure Stream Analytics 이벤트 순서 고려 사항](stream-analytics-out-of-order-and-late-events.md)을 참조하세요.
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 Azure Stream Analytics는 변수 크기 일괄 처리를 사용하여 이벤트를 처리하고 출력에 기록합니다. 일반적으로 Stream Analytics 엔진은 한 번에 하나의 메시지를 기록하지 않고 효율성을 위해 일괄 처리를 사용합니다. 들어오고 나가는 이벤트 비율이 높을 때 더 큰 일괄 처리를 사용합니다. 송신 속도가 낮은 경우 대기 시간을 낮게 유지하기 위해 더 작은 일괄 처리를 사용합니다. 
@@ -323,10 +325,11 @@ Azure Stream Analytics는 변수 크기 일괄 처리를 사용하여 이벤트�
 | Azure Service Bus 큐   | 메시지당 256KB</br> 참고 항목 [Service Bus 한도](../service-bus-messaging/service-bus-quotas.md) | 메시지당 단일 이벤트 |
 | Azure Service Bus 항목 | 메시지당 256KB</br> 참고 항목 [Service Bus 한도](../service-bus-messaging/service-bus-quotas.md) | 메시지당 단일 이벤트 |
 | Azure Cosmos DB   | [Azure Cosmos DB 제한](../azure-subscription-service-limits.md#azure-cosmos-db-limits) 참조 | 일괄 처리 크기 및 쓰기 빈도는 CosmosDB 응답에 따라 동적으로 조정됩니다. </br> Stream Analytics에서 미리 결정된 제한이 없습니다. |
-| Azure 기능   | | 기본 일괄 처리 크기는 246KB입니다. </br> 일괄 처리당 기본 이벤트 수는 100입니다. </br> 일괄 처리 크기는 구성 가능하며 Stream Analytics [출력 옵션](#azure-functions)에서 증가 또는 감소될 수 있습니다. 
+| Azure 기능   | | 기본 일괄 처리 크기는 256KB입니다. </br> 일괄 처리당 기본 이벤트 수는 100입니다. </br> 일괄 처리 크기는 구성 가능하며 Stream Analytics [출력 옵션](#azure-functions)에서 증가 또는 감소될 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
+
 > [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

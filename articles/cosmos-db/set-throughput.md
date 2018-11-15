@@ -1,260 +1,85 @@
 ---
-title: Azure Cosmos DB에 대한 처리량 프로비전 | Microsoft Docs
-description: Azure Cosmos DB 컨테이너, 컬렉션, 그래프 및 테이블에 대해 프로비전된 처리량을 설정하는 방법을 알아봅니다.
-services: cosmos-db
+title: Azure Cosmos DB에 대한 처리량 프로비전
+description: Azure Cosmos DB 컨테이너 및 데이터베이스에 프로비전되는 처리량을 설정하는 방법을 알아봅니다.
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 2280a3f6b2a67d392a109a5294e1509bcc804bc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869927"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278891"
 ---
-# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB 컨테이너 및 데이터베이스에 대한 처리량 설정 및 가져오기
+# <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>Cosmos DB 컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
-Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos DB 컨테이너 또는 컨테이너 집합에 대한 처리량을 설정할 수 있습니다. 이 문서에서는 Azure Cosmos DB 계정에 대해 여러 세분화 수준에서 처리량을 구성하는 데 필요한 단계를 안내합니다.
+Cosmos 데이터베이스는 컨테이너 집합의 관리 단위입니다. 데이터베이스는 스키마 제약 없는 컨테이너의 집합으로 구성됩니다. Cosmos 컨테이너는 처리량과 스토리지의 확장성 단위입니다. 컨테이너는 Azure 지역 내에 있는 머신 집합에 수평적으로 분할된 후 Cosmos 계정과 연결된 모든 Azure 지역에 분산됩니다.
 
-## <a name="provision-throughput-by-using-azure-portal"></a>Azure Portal을 사용하여 처리량 프로비전
+Azure Cosmos DB를 사용하면 두 가지 세분성, 즉 **Cosmos 컨테이너**와 **Cosmos 데이터베이스**에서 처리량을 구성할 수 있습니다.
 
-### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>컨테이너(컬렉션/그래프/테이블)에 대한 처리량 프로비전
+# <a name="setting-throughput-on-a-cosmos-container"></a>Cosmos 컨테이너에서 처리량 설정  
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
-2. 왼쪽 탐색 창에서 **모든 리소스**를 선택하고 Azure Cosmos DB 계정을 찾습니다.  
-3. 컨테이너(컬렉션, 그래프, 테이블)을 만드는 동안 처리량을 구성하거나 기존 컨테이너의 처리량을 업데이트할 수 있습니다.  
-4. 컨테이너를 만드는 동안 처리량을 지정하려면 **Data Explorer** 블레이드를 열고 **New Collection**(다른 API에 대한 New Graph, New Table)을 선택합니다.  
-5. **Add Collection** 블레이드에서 폼을 입력합니다. 이 블레이드의 필드는 다음 표에 설명되어 있습니다.  
+Cosmos 컨테이너에 프로비전된 처리량은 컨테이너에 독점적으로 예약됩니다. 컨테이너는 항상 프로비전된 처리량을 받습니다. 컨테이너에 프로비전된 처리량은 재정적으로 SLA의 지원을 받습니다. 컨테이너의 처리량을 구성하려면 [Cosmos 컨테이너의 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md)을 참조하세요.
 
-   |**설정**  |**설명**  |
-   |---------|---------|
-   |데이터베이스 ID  |  데이터베이스를 식별하는 고유한 이름을 제공합니다. 데이터베이스는 하나 이상 콜렉션의 논리 컨테이너입니다. 데이터베이스 이름은 1-255자여야 하며, /, \\, #,? 또는 후행 공백은 포함할 수 없습니다. |
-   |컬렉션 ID  | 컬렉션을 식별하는 고유한 이름을 제공합니다. 컬렉션 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다. |
-   |Storage 용량   | 이 값은 데이터베이스의 저장소 용량을 나타냅니다. 개별 컬렉션의 처리량을 프로비전할 때 저장 용량은 **Fixed(10 GB)** 또는 **Unlimited**일 수 있습니다. 무제한 저장 용량을 사용하려면 데이터에 대한 파티션 키를 설정해야 합니다.  |
-   |처리량   | 각 콜렉션 및 데이터베이스는 초당 요청 단위로 처리량을 가질 수 있습니다.  또한 컬렉션에는 고정 또는 무제한 저장소 용량이 지정될 수 있습니다. |
+컨테이너에 프로비전된 처리량을 설정하는 방법은 널리 사용되는 옵션입니다. 원하는 만큼 처리량(RU)을 프로비전하여 컨테이너의 처리량을 탄력적으로 확장할 수 있지만, 논리 파티션의 처리량을 선별적으로 지정할 수는 없습니다. 논리 파티션에서 실행되는 워크로드가 특정 논리 파티션에 할당된 처리량보다 많은 양을 사용하는 경우 작업 속도가 제한됩니다. 속도 제한이 발생하면 전체 컨테이너의 처리량을 높이거나 작업을 다시 시도할 수 있습니다. 분할에 대한 자세한 내용은 [논리 파티션](partition-data.md)을 참조하세요.
 
-6. 이 필드의 값을 입력한 후 **확인**을 선택하여 설정을 저장합니다.  
+컨테이너에 보장된 성능을 원한다면 컨테이너 세분성에서 처리량을 구성하는 것이 좋습니다.
 
-   ![컬렉션의 처리량 설정](./media/set-throughput/set-throughput-for-container.png)
+Cosmos 컨테이너에 프로비전된 처리량은 컨테이너의 모든 논리 파티션에 균일하게 분산됩니다. 컨테이너에 있는 하나 이상의 논리 파티션은 리소스 파티션에 호스트되므로, 실제 파티션은 컨테이너에 배타적으로 소속되고 컨테이너에 프로비전된 처리량을 지원합니다. 다음 이미지는 리소스 파티션이 컨테이너의 논리 파티션을 하나 이상 호스트하는 방법을 보여줍니다.
 
-7. 기존 컨테이너의 처리량을 업데이트하려면 데이터베이스와 컨테이너를 확장한 다음, **Settings**를 클릭합니다. 새 창에서 새 처리량 값을 입력한 다음, **저장**을 선택합니다.  
+![리소스 파티션](./media/set-throughput/resource-partition.png)
 
-   ![컬렉션에 대한 처리량 업데이트](./media/set-throughput/update-throughput-for-container.png)
+# <a name="setting-throughput-on-a-cosmos-database"></a>Cosmos 컨테이너의 처리량 설정
 
-### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>컨테이너 집합에 대한 또는 데이터베이스 수준에서 처리량 프로비전
+Cosmos 데이터베이스의 처리량을 프로비전할 때 특정 컨테이너에 프로비전되는 처리량을 지정하지 않는 이상, 데이터베이스의 모든 컨테이너 간에 처리량이 공유됩니다. 컨테이너 간에 데이터베이스 처리량을 공유하는 것은 머신 클러스터에 데이터베이스를 호스트하는 것과 비슷합니다. 데이터베이스 내의 모든 컨테이너가 머신에 제공되는 리소스를 공유하므로 당연히 특정 컨테이너에 대한 예상 성능이 제공되지 않습니다. 데이터베이스의 처리량을 구성하려면 [Cosmos 데이터베이스에 프로비전된 처리량을 구성하는 방법](how-to-provision-database-throughput.md)을 참조하세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
-2. 왼쪽 탐색 창에서 **모든 리소스**를 선택하고 Azure Cosmos DB 계정을 찾습니다.  
-3. 데이터베이스를 만드는 동안 처리량을 구성하거나 기존 데이터베이스 처리량을 업데이트할 수 있습니다.  
-4. 데이터베이스 만드는 동안 처리량을 지정하려면 **Data Explorer** 블레이드를 열고 **New Database**를 선택합니다.  
-5. **Database ID** 값을 입력하고, **프로비전 처리량** 옵션을 확인한 다음, 처리량 값을 구성합니다.  
+Cosmos 데이터베이스에 처리량을 설정하면 항상 프로비전된 처리량이 보장됩니다. 데이터베이스 내 모든 컨테이너가 프로비전된 처리량을 공유하므로, Cosmos DB는 해당 데이터베이스의 특정 컨테이너에 대해 예측 가능한 처리량을 보장하지 않습니다. 특정 컨테이너가 받을 수 있는 처리량은 다음 조건에 따라 다릅니다.
 
-   ![새 데이터베이스 옵션으로 처리량 설정](./media/set-throughput/set-throughput-with-new-database-option.png)
+* 컨테이너 수
+* 다양한 컨테이너에 선택하는 파티션 키
+* 컨테이너의 다양한 논리 파티션에 분산되는 워크로드 
 
-6. 기존 데이터베이스 처리량을 업데이트하려면 데이터베이스와 컨테이너를 확장한 다음, **Scale**을 클릭합니다. 새 창에서 새 처리량 값을 입력한 다음, **저장**을 선택합니다.  
+여러 컨테이너 간에 처리량을 공유하고 싶지만 특정 컨테이너의 전용 처리량으로 사용하고 싶지는 않은 경우 데이터베이스에서 처리량을 구성하는 것이 좋습니다. 다음은 데이터베이스 수준에서 처리량을 프로비전하는 것이 좋은 몇 가지 예입니다.
 
-   ![데이터베이스에 대한 처리량 업데이트](./media/set-throughput/update-throughput-for-database.png)
+* 데이터베이스에 프로비전된 처리량을 컨테이너 집합 간에 공유하는 방법은 다중 테넌트 애플리케이션에 유용합니다. 각 사용자를 고유한 Cosmos 컨테이너로 나타낼 수 있습니다.
 
-### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>데이터베이스에서 개별 컨테이너는 물론 컨테이너 집합에 대한 처리량 프로비전
+* 데이터베이스에 프로비전된 처리량을 컨테이너 집합 간에 공유하는 방법은 MongoDB, Cassandra 같은 NoSQL 데이터베이스를 VM 클러스터 또는 온-프레미스 실제 서버에서 Cosmos DB로 마이그레이션할 때 유용합니다. Cosmos 데이터베이스에 구성된 프로비전 처리량을 MongoDB 또는 Cassandra 클러스터의 계산 용량과 같은(하지만 보다 비용 효율적이고 탄력적인) 것으로 생각하시면 됩니다.  
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.  
-2. 왼쪽 탐색 창에서 **모든 리소스**를 선택하고 Azure Cosmos DB 계정을 찾습니다.  
-3. 데이터베이스를 만들고 처리량을 할당합니다. **Data Explorer** 블레이드를 열고 **New Database**를 선택합니다.  
-4. **Database ID** 값을 입력하고, **프로비전 처리량** 옵션을 확인한 다음, 처리량 값을 구성합니다.  
+데이터베이스 내 컨테이너에 할당된 처리량은 지정된 시간에 해당 컨테이너의 모든 논리 파티션 간에 분산됩니다. 데이터베이스에 프로비전된 처리량을 공유하는 컨테이너가 있는 경우 처리량을 특정 컨테이너 또는 논리 파티션에 선별적으로 적용할 수 없습니다. 논리 파티션의 워크로드가 특정 논리 파티션에 할당된 처리량보다 많은 양을 사용하는 경우 작업 속도가 제한됩니다. 속도 제한이 발생하면 전체 컨테이너의 처리량을 높이거나 작업을 다시 시도할 수 있습니다. 분할에 대한 자세한 내용은 [논리 파티션](partition-data.md)을 참조하세요.
 
-   ![새 데이터베이스 옵션으로 처리량 설정](./media/set-throughput/set-throughput-with-new-database-option.png)
+데이터베이스에 프로비전된 처리량을 공유하는 여러 논리 파티션을 단일 리소스 파티션에 호스트할 수 있습니다. 컨테이너의 단일 논리 파티션은 그 범위가 항상 리소스 파티션 내로 지정되지만, 데이터베이스에 프로비전된 처리량을 공유하는 'C' 컨테이너에 분산된 'L' 논리 파티션은 'R' 실제 파티션에 매핑 및 호스트할 수 있습니다. 다음 이미지는 데이터베이스 내 여러 컨테이너에 속하는 하나 이상의 논리 파티션을 리소스 파티션에 호스트할 수 있다는 것을 보여줍니다.
 
-5. 그런 다음, 위 단계에서 만든 데이터베이스 내에 컬렉션을 만듭니다. 컬렉션을 만들려면 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **New Collection**을 선택합니다.  
+![리소스 파티션](./media/set-throughput/resource-partition2.png)
 
-6. **Add Collection** 블레이드에 컬렉션에 대한 이름과 파티션 키를 입력합니다. 선택적으로 처리량 값을 지정하지 않을 경우 해당 특정 컨테이너에 대한 처리량을 프로비전할 수 있으며, 데이터베이스에 할당된 처리량은 컬렉션에 공유됩니다.  
+## <a name="setting-throughput-on-a-cosmos-database-and-a-container"></a>Cosmos 데이터베이스 및 컨테이너의 처리량 설정
 
-   ![선택적으로 컨테이너의 처리량을 설정합니다.](./media/set-throughput/optionally-set-throughput-for-the-container.png)
+두 모델을 결합하여 데이터베이스와 컨테이너의 처리량을 모두 프로비전할 수 있습니다. 다음 예제는 Cosmos 데이터베이스 및 컨테이너의 처리량을 프로비전하는 방법을 보여줍니다.
 
-## <a name="considerations-when-provisioning-throughput"></a>처리량을 프로비전할 때 고려 사항
+* 이름은 'Z'이고 프로비전된 처리량은 'K' RU인 Cosmos 데이터베이스를 만들 수 있습니다. 
+* 다음으로, 데이터베이스 내에서 5개 컨테이너 A, B, C, D, E를 만듭니다.
+* 컨테이너 'B'에 프로비전된 처리량의 'P' RU를 명시적으로 구성할 수 있습니다.
+* 'K' RU 처리량은 A, C, D, E 4개 컨테이너 간에 공유됩니다. A, C, D 또는 E에서 사용할 수 있는 정확한 처리량은 상황에 따라 다르며 개별 컨테이너의 처리량에 대한 SLA는 없습니다.
+* 컨테이너 'B'는 항상 'P' RU 처리량을 보장받을 수 있으며 SLA가 지원됩니다.
 
-다음은 처리량 예약 전략을 결정하는 데 도움이 되는 몇 가지 고려 사항입니다.
+## <a name="comparison-of-models"></a>모델 비교
 
-### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>데이터베이스 수준에서 처리량을 프로비전할 때 고려 사항
-
-다음과 같은 경우 데이터베이스 수준(즉, 컨테이너 집합인 경우)에서 처리량을 프로비전하는 것이 좋습니다.
-
-* 일부 또는 전체 컨테이너에 걸쳐 처리량을 공유할 수 있는 컨테이너 수가 12개 이상인 경우.  
-
-* IaaS 호스팅된 VM 또는 온-프레미스(예를 들어, NoSQL 또는 관계형 데이터베이스)에서 실행되도록 설계된 단일 테넌트 데이터베이스에서 Azure Cosmos DB로 마이그레이션하고 컨테이너가 많은 경우.  
-
-* 데이터베이스 수준에서 풀링된 처리량을 사용함으로써 작업 부하에 예기치 않은 스파이크를 고려하려는 경우.  
-
-* 개별 컨테이너에서 처리량을 설정하는 대신 데이터베이스 내의 컨테이너 집합에서 집계된 처리량을 얻는 데 관심이 있습니다.
-
-### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>컨테이너 수준에서 처리량을 프로비전할 때 고려 사항
-
-다음과 같은 경우에는 개별 컨테이너에서 처리량을 프로비전하는 것이 좋습니다.
-
-* Azure Cosmos DB 컨테이너 수가 적은 경우.  
-
-* SLA가 뒷받침하는 주어진 컨테이너에서 보장된 처리량을 얻고자 할 경우.
-
-<a id="set-throughput-sdk"></a>
-
-## <a name="set-throughput-by-using-sql-api-for-net"></a>SQL API for .NET를 사용하여 처리량 설정
-
-### <a name="set-throughput-at-the-container-level"></a>컨테이너 수준에서 처리량 설정
-다음은 SQL API의 .NET SDK를 사용하여 개별 컨테이너에 대해 초당 3,000개 요청 단위로 컨테이너를 만들기 위한 코드 조각입니다.
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>데이터베이스 수준에서 컨테이너 집합에 대한 처리량 설정
-
-다음은 SQL API의 .NET SDK를 사용하여 컨테이너 집합에서 초당 100,000개 요청 단위를 프로비저닝하기 위한 코드 조각입니다.
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = await client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 });
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-Azure Cosmos DB는 처리량의 예약 모델에서 작동합니다. 즉, 활발하게 *사용된* 처리량에 관계없이 *예약된* 처리량에 따라 요금이 청구됩니다. 응용 프로그램의 부하, 데이터 및 사용 패턴이 변하면 그에 따라 SDK를 통해 또는 [Azure Portal](https://portal.azure.com)을 사용하여 예약된 RU 수를 간단하게 늘리거나 줄일 수 있습니다.
-
-각 컨테이너 또는 컨테이너 집합은 프로비전된 처리량에 대한 메타데이터가 있는 Azure Cosmos DB의 `Offer` 리소스에 매핑됩니다. 컨테이너에 해당하는 제품 리소스를 조회한 다음, 새 처리량 값으로 업데이트하여 할당된 처리량을 변경할 수 있습니다. 다음 코드 조각에서는 .NET SDK를 사용하여 컨테이너 처리량을 5,000RU/s로 변경합니다. 처리량을 변경한 후 기존 Azure Portal 창을 새로 고침해야만 변경된 처리량이 표시됩니다. 
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-처리량을 변경할 때 컨테이너 또는 컨테이너 집합의 가용성에는 영향을 주지 않습니다. 일반적으로 새로 예약된 처리량은 새 처리량의 응용 프로그램에서 몇 초 이내에 유효합니다.
-
-<a id="set-throughput-java"></a>
-
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>SQL API for Java를 사용하여 처리량을 설정하려면
-
-다음 코드 조각은 현재 처리량을 검색하고 500RU/s로 변경합니다. 전체 코드 샘플은 GitHub의 [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) 파일을 참조하세요. 
-
-```Java
-// find offer associated with this collection
-// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
-Iterator < Offer > it = client.queryOffers(
-    String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
-assertThat(it.hasNext(), equalTo(true));
-
-Offer offer = it.next();
-assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
-assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
-
-// update the offer
-int newThroughput = 500;
-offer.getContent().put("offerThroughput", newThroughput);
-client.replaceOffer(offer);
-```
-
-## <a name="get-the-request-charge-using-cassandra-api"></a>Cassandra API를 사용하여 요청 요금 가져오기 
-
-Cassandra API는 지정된 작업의 요청 단위 요금에 대한 추가 정보를 제공하는 방법을 지원합니다. 예를 들어, 삽입 작업의 RU/s 요금을 다음과 같이 검색할 수 있습니다.
-
-```csharp
-var insertResult = await tableInsertStatement.ExecuteAsync();
- foreach (string key in insertResult.Info.IncomingPayload)
-        {
-            byte[] valueInBytes = customPayload[key];
-            string value = Encoding.UTF8.GetString(valueInBytes);
-            Console.WriteLine($“CustomPayload:  {key}: {value}”);
-        }
-```
-
-
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>MongoDB API 포털 메트릭을 사용하여 처리량 가져오기
-
-MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추정하는 가장 간단한 방법은 [Azure Portal](https://portal.azure.com) 메트릭을 사용하는 것입니다. *요청 수* 및 *요청 요금* 차트에서 각 작업에서 사용하는 요청 단위 수와 서로 상대적으로 사용하는 요청 단위 수를 추정할 수 있습니다.
-
-![MongoDB API 포털 메트릭][1]
-
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API에서 예약된 처리량 제한 초과
-컨테이너 또는 컨테이너 집합에 대한 프로비전된 처리량을 초과하는 응용 프로그램의 경우 사용률이 프로비전된 처리량 비율 아래로 떨어질 때까지 비율이 제한됩니다. 비율 제한이 발생하면 백 엔드는 `16500` 오류 코드 - `Too Many Requests`으로 요청을 종료합니다. 기본적으로 MongoDB API는 `Too Many Requests` 오류 코드를 반환하기 전에 재시도를 최대 10번까지 자동으로 수행합니다. `Too Many Requests` 오류 코드가 자주 발생하면 응용 프로그램의 오류 처리 루틴에서 재시도 논리를 추가하거나 [컨테이너에 대해 프로비전된 처리량을 늘리는 방법](set-throughput.md)을 고려해 볼 수 있습니다.
-
-## <a id="GetLastRequestStatistics"></a>MongoDB API의 GetLastRequestStatistics 명령을 사용하여 요청 비용 가져오기
-
-MongoDB API는 지정된 작업에 대한 요청 비용을 검색하는 데 사용자 지정 명령인 *getLastRequestStatistics*를 지원합니다.
-
-예를 들어 Mongo Shell에서 요청 요금을 확인하고자 하는 작업을 실행합니다.
-```
-> db.sample.find()
-```
-
-다음으로 *getLastRequestStatistics* 명령을 실행합니다.
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-응용 프로그램에 필요한 예약된 처리량을 예측하는 한 가지 방법은 응용 프로그램에서 사용하는 대표적인 항목에 대해 실행되는 일반 작업과 연결된 요청 단위 요금을 기록한 다음, 예상되는 초당 수행되는 작업 수를 추정하는 것입니다.
-
-> [!NOTE]
-> 인덱싱된 속성과 크기 및 개수가 완전히 다른 항목 유형이 있는 경우에는 일반 항목의 각 *유형*과 연결된 적용 가능한 작업 요청 단위 요금을 기록합니다.
-> 
-> 
-
-## <a name="throughput-faq"></a>처리량 FAQ
-
-**내 처리량을 400RU/s 미만으로 설정할 수 있나요?**
-
-Cosmos DB 단일 파티션 컨테이너에서 사용할 수 있는 최소 처리량은 400RU/s이고 분할된 컨테이너에 대한 최소값은 1000RU/s입니다. 요청 단위는 100RU/s 간격으로 설정되어 있지만 처리량은 100RU/s 또는 400RU/s 미만인 값으로 설정할 수 없습니다. Cosmos DB를 개발하고 테스트하는 비용 효과적인 방법을 찾으려는 경우 비용 없이 로컬에 배포할 수 있는 [Azure Cosmos DB 에뮬레이터](local-emulator.md)를 사용할 수 있습니다. 
-
-**MongoDB API를 사용하여 처리량을 설정하려면 어떻게 해야 하나요?**
-
-처리량을 설정할 수 있는 MongoDB API 확장은 없습니다. [SQL API for .NET을 사용하여 처리량을 설정하려면](#set-throughput-sdk)에 나와 있는 대로 SQL API를 사용하는 것이 좋습니다.
+|**할당량**  |**데이터베이스에 프로비전된 처리량**  |**컨테이너에 프로비전된 처리량**|
+|---------|---------|---------|
+|확장성 단위|컨테이너|컨테이너|
+|최소 RU |400 |400|
+|컨테이너당 최소 RU|100|400|
+|스토리지 1GB를 사용하는 데 필요한 최소 RU|40|40|
+|최대 RU|데이터베이스에서 무제한|컨테이너에서 무제한|
+|특정 컨테이너에 할당/제공되는 RU|보장되지 않습니다. 특정 컨테이너에 할당되는 RU는 처리량을 공유하는 컨테이너 파티션 키 선택, 워크로드 분산, 컨테이너 수 등의 속성에 따라 달라집니다. |컨테이너에 구성된 모든 RU는 컨테이너에만 배타적으로 예약됩니다.|
+|컨테이너의 최대 스토리지|Unlimited|Unlimited|
+|컨테이너의 논리 파티션당 최대 처리량|10K RU|10K RU|
+|컨테이너의 논리 파티션당 최대 스토리지(데이터 + 인덱스)|10 GB|10 GB|
 
 ## <a name="next-steps"></a>다음 단계
 
-* 처리량 및 요청 단위를 계산하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 요청 단위 및 처리량 추정 ](request-units.md)을 참조하세요.
+* [논리 파티션](partition-data.md)에 대한 자세한 정보
+* [Cosmos 컨테이너의 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md) 알아보기
+* [Cosmos 데이터베이스의 처리량을 프로비전하는 방법](how-to-provision-database-throughput.md) 알아보기
 
-* Cosmos DB를 사용하여 프로비전을 수행하고 대규모로 크기를 조정하려면 [Cosmos DB로 분할 및 크기 조정](partition-data.md)을 참조하세요.
-
-[1]: ./media/set-throughput/api-for-mongodb-metrics.png

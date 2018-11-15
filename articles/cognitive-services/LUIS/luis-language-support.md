@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: diberry
-ms.openlocfilehash: ce0a2f36ca11c704062deb28bf47c45a91a32222
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a26fa1f64f1ef8ecef8140b1feab89fdd57875fe
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435666"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569202"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -32,10 +32,10 @@ LUIS는 발화를 다음 언어로 이해합니다.
 | 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구문 제안 | \**[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)|
 |--|--|:--:|:--:|:--:|:--:|
 | 미국 영어 |`en-US` | ✔ | ✔  |✔|✔|
-| 캐나다 프랑스어 |`fr-CA` |-|   -   |-|✔|
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | 네덜란드어 |`nl-NL` |-|  -   |-|✔|
 | 프랑스어(프랑스) |`fr-FR` |-| ✔ |✔ |✔|
+| 프랑스어(캐나다) |`fr-CA` |-|   -   |-|✔|
 | 독일어 |`de-DE` |-| ✔ |✔ |✔|
 | 이탈리아어 |`it-IT` |-| ✔ |✔|✔|
 | *[일본어](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|주요 구문만|

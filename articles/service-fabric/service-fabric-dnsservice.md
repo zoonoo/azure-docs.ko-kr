@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387941"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035929"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
 DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다. 
@@ -43,6 +43,9 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 동적 포트는 DNS 서비스에서 지원되지 않습니다. 동적 포트에서 노출되는 서비스를 확인하려면 [역방향 프록시 서비스](./service-fabric-reverseproxy.md)를 사용합니다.
 
 ## <a name="enabling-the-dns-service"></a>DNS 서비스 사용
+> [!NOTE]
+> Service Fabric 서비스에 대한 DNS 서비스는 아직 Linux에서 지원되지 않습니다.
+
 포털을 사용하여 클러스터를 만들 때 DNS 서비스는 **클러스터 구성** 메뉴의 **DNS 서비스 포함** 확인란에서 기본적으로 활성화됩니다.
 
 ![포털을 통해 DNS 서비스를 사용하도록 설정](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -251,6 +254,8 @@ public class ValuesController : Controller
 
 ## <a name="known-issues"></a>알려진 문제
 * Service Fabric 버전 6.3 이상에서는 DNS 이름에 하이픈이 포함된 서비스 이름에 대한 DNS 조회에 문제가 있습니다. 자세한 내용은 이 [GitHub 문제](https://github.com/Azure/service-fabric-issues/issues/1197)를 추적하세요. 이 문제에 대한 수정은 다음 6.3 업데이트에서 제공될 예정입니다. 
+
+* Service Fabric 서비스에 대한 DNS 서비스는 아직 Linux에서 지원되지 않습니다. DNS 서비스는 Linux의 컨테이너에 대해 지원되지 않습니다. Fabric Client/ServicePartitionResolver를 사용한 수동 해결은 대체 수단으로 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [서비스와 연결 및 통신](service-fabric-connect-and-communicate-with-services.md)에서 클러스터 내의 서비스 통신에 대해 자세히 알아봅니다.

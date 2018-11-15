@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8fddcdbb8aa523cf3a98a8f2b203440ceedbdf06
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249833"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015212"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 사용 약관을 시작하는 방법을 설명합니다.
@@ -218,7 +218,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 **Q: 사용자가 사용 약관에 동의했는지 어떻게 볼 수 있나요?**</br>
 A: 사용 약관 블레이드에서 **수락** 아래에 있는 숫자를 클릭합니다. Azure AD 감사 로그에서 동의 작업을 보거나 검색할 수도 있습니다. 자세한 내용은 [사용 약관에 동의/거부한 사람에 대한 보고서 보기](#view-who-has-accepted-and-declined) 및 [Azure AD 감사 로그 보기](#view-azure-ad-audit-logs)를 참조하세요.
- 
+
 **Q: 정보가 얼마나 오래 저장되나요?**</br>
 A: 사용 약관 보고서에 있는, 사용 약관에 동의/거부한 사용자 수는 사용 약관의 수명 기간 동안 저장됩니다. Azure AD 감사 로그는 30일 동안 저장됩니다.
 
@@ -245,12 +245,15 @@ A: 최신 인증을 사용하는 엔터프라이즈 응용 프로그램에 조�
 
 **Q: 특정 사용자 또는 앱에 여러 사용 약관을 추가할 수 있나요?**</br>
 A: 예, 해당 그룹 또는 응용 프로그램을 대상으로 하는 조건부 액세스 정책을 여러 개 작성하면 가능합니다. 사용자가 여러 사용 약관 범위에 속하는 경우 한 번에 하나의 사용 약관에 동의합니다.
- 
+
 **Q: 사용자가 사용 약관을 거부하는 경우 어떻게 되나요?**</br>
 A: 사용자는 응용 프로그램에 액세스할 수 없습니다. 액세스할 수 있으려면 다시 로그인하여 약관에 동의해야 합니다.
- 
+
 **Q: 이전에 동의한 사용 약관의 수락을 취소할 수 있나요?**</br>
 A: [이전에 수락한 사용 약관을 검토](#how-users-can-review-their-terms-of-use)할 수 있지만 현재 수락을 취소할 방법이 없습니다.
+
+**Q: Intune 사용 약관도 사용하면 어떻게 되나요?**</br>
+A: Azure AD 사용 약관과 [Intune 약관](/intune/terms-and-conditions-create)을 모두 구성한 경우 사용자는 두 약관에 모두 동의해야 합니다. 자세한 내용은 [조직에 적합한 약관 솔루션 선택 블로그 게시물](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

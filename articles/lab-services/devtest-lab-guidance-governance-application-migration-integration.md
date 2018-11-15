@@ -1,5 +1,5 @@
 ---
-title: DevTest Labs 인프라의 거버넌스
+title: Azure DevTest Labs 인프라의 거버넌스
 description: 이 문서에서는 Azure DevTest Labs 인프라 거버넌스를 위한 지침을 제공합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8653056c5c4b0e5b6831d3cc2b0006e89ac01bdd
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250878"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978618"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs 인프라의 거버넌스 - 응용 프로그램 마이그레이션 및 통합
-개발/테스트 랩 환경을 설정한 후에는 다음 사항을 고려해야 합니다. 
+개발/테스트 랩 환경을 설정한 후에는 다음 사항을 고려해야 합니다.
 
-- 프로젝트 팀 내에서 환경을 활용하는 방법 
+- 프로젝트 팀 내에서 환경을 활용하는 방법
 - 조직의 필수 정책을 준수하면서 지속적으로 응용 프로그램에 유용한 기능을 신속하게 추가할 방법
 
 ## <a name="azure-marketplace-images-vs-custom-images"></a>Azure Marketplace 이미지와 사용자 지정 이미지 비교
@@ -60,10 +60,10 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 ### <a name="answer"></a>응답
 [이 비디오에서 Immage Factory 패턴](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)을 확인해 보세요. 이 시나리오는 고급 방식이며 샘플 스크립트만 제공합니다. 스크립트를 변경해야 하는 경우 환경에서 사용되는 스크립트를 직접 유지하고 관리해야 합니다.
 
-DevTest Labs를 사용하여 VSTS(Visual Studio Team Services)에서 사용자 지정 이미지 파이프라인만을 드는 방법은 다음 문서를 참조하세요.
+DevTest Labs를 사용하여 Azure Pipelines에서 사용자 지정 이미지 파이프라인 만들기:
 
 - [소개: Azure DevTest Labs에서 이미지 팩터리를 설정하여 몇 분 내에 VM 준비](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Image Factory – 2부: VSTS 및 Factory Lab을 설정하여 VM 만들기](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [Image Factory – 2부: Azure Pipelines 및 Factory Lab을 설정하여 VM 만들기](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Image Factory – 3부: 사용자 지정 이미지 저장 및 여러 랩에 배포](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
 - [비디오: Azure DevTest Labs를 통해 사용자 지정 Image Factory 만들기](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
@@ -79,7 +79,7 @@ DevTest Labs를 사용하여 VSTS(Visual Studio Team Services)에서 사용자 �
 
 **아웃바운드 트래픽** - 가상 머신이 공용 인터넷에 직접 연결하지 못하도록 차단하고 트래픽이 회사 방화벽을 통과하도록 강제 지정하려는 경우 강제 라우팅을 사용하여 Express 경로나 VPN을 통해 온-프레미스에서 트래픽을 라우팅할 수 있습니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 프록시 설정을 사용하지 않고 트래픽을 차단하는 프록시 서버가 있다면 랩의 아티팩트 저장소 계정에 예외를 추가해야 합니다.
 
 가상 머신이나 서브넷용 네트워크 보안 그룹을 사용할 수도 있습니다. 이 단계를 수행하면 트래픽 허용/차단을 위한 보호 계층이 추가됩니다.
@@ -100,9 +100,9 @@ VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs �
 공유 IP, 공용 IP, 개인 IP는 각각 어떠한 경우에 사용해야 하나요?
 
 ### <a name="answer"></a>응답
-사이트 간 VPN 또는 Express 경로를 사용하는 경우에는 내부 네트워크에서만 컴퓨터에 액세스할 수 있고 공용 인터넷을 통해서는 액세스할 수 없도록 개인 IP 사용을 고려합니다. 
+사이트 간 VPN 또는 Express 경로를 사용하는 경우에는 내부 네트워크에서만 컴퓨터에 액세스할 수 있고 공용 인터넷을 통해서는 액세스할 수 없도록 개인 IP 사용을 고려합니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 랩 소유자는 사용자가 자신의 VM에 대해 공용 IP 주소를 실수로 만들지 못하도록 이 서브넷 정책을 변경할 수 있습니다. 구독 소유자는 공용 IP 만들기를 금지하는 구독 정책을 만들어야 합니다.
 
 공유 공용 IP 사용 시에는 랩의 가상 머신이 공용 IP 주소를 공유합니다. 지정된 구독의 공용 IP 주소 제한 위반을 방지해야 하는 경우 이 방식을 사용하면 유용할 수 있습니다.
@@ -125,7 +125,7 @@ VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs �
 DevTest Labs 환경 내에서 Resource Manager 템플릿을 사용하려면 어떻게 해야 하나요?
 
 ### <a name="answer"></a>응답
-[DevTest 랩의 환경 기능](devtest-lab-test-env.md) 문서에서 설명하는 단계에 따라 Resource Manager 템플릿을 DevTest 랩 환경에 배포합니다. 기본적으로는 Git 리포지토리(Visual Studio Team Services 또는 GitHub)에 Resource Manager 템플릿을 체크 인하고 랩에 [서식 파일용 개인 리포지토리](devtest-lab-test-env.md)를 추가합니다.
+[DevTest 랩의 환경 기능](devtest-lab-test-env.md) 문서에서 설명하는 단계에 따라 Resource Manager 템플릿을 DevTest 랩 환경에 배포합니다. 기본적으로는 Git 리포지토리(Azure Repos 또는 GitHub)에 Resource Manager 템플릿을 체크 인하고 랩에 [템플릿용 개인 리포지토리](devtest-lab-test-env.md)를 추가합니다.
 
 이 시나리오는 DevTest Labs를 사용하여 개발 컴퓨터를 호스트하는 경우에는 유용하지 않을 수 있지만, 프로덕션 환경을 대표하는 스테이징 환경을 구축하는 경우에는 유용할 수 있습니다.
 

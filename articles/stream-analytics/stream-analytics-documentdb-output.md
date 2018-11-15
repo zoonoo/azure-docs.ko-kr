@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8dc85c55dd67d8acd394d7922e947c91234ef23b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143604"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957151"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
 비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 사용하기 위해 Stream Analytics에서 JSON 출력의 대상을 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)로 지정할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다.
@@ -37,6 +37,13 @@ Azure Cosmos DB를 사용하면 응용 프로그램 요구 사항에 맞게 데�
 Stream Analytics를 Azure Cosmos DB와 통합하면 지정된 문서 ID 열에 따라 컬렉션에 레코드를 삽입하거나 업데이트할 수 있습니다. 이를 *Upsert*라고도 합니다.
 
 Stream Analytics에서는 문서 ID 충돌로 인해 삽입에 실패한 경우에만 업데이트가 수행되는 낙관적 Upsert 방식을 사용합니다. 이 업데이트는 패치로 수행되므로 문서의 부분 업데이트가 가능합니다. 즉, 새 속성 추가 또는 기존 속성 바꾸기가 증분식으로 수행됩니다. 그렇지만 JSON 문서에서 배열 속성 값을 변경하면 전체 배열을 덮어씁니다. 즉, 배열이 병합되지 않습니다.
+
+들어오는 JSON 문서에 기존 ID 필드가 있는 경우 해당 필드는 자동으로 Cosmos DB에서 문서 ID 열로 사용되고 이후 쓰기가 이와 같이 처리되어 다음 상황 중 하나가 발생합니다.
+- 삽입으로 이어지는 고유한 ID
+- upsert로 이어지는 중복 ID 및 ‘ID’로 설정된 ‘문서 ID’
+- 첫 문서 이후 오류로 이어지는 중복 ID 및 설정되지 않은 ‘문서 ID’
+
+중복 ID가 있는 문서를 포함한 <i>모든</i> 문서를 저장하려는 경우 쿼리에서 ID 필드의 이름을 바꾸고(AS 키보드 사용) Cosmos DB에서 ID 필드를 만들거나 ID를 다른 열의 값으로 바꾸도록 합니다(AS 키보드 사용 또는 ‘문서 ID’ 설정 사용).
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB의 데이터 분할
 Azure Cosmos DB는 워크로드에 따라 파티션 크기를 자동으로 조정하므로 Azure Cosmos DB [무제한](../cosmos-db/partition-data.md)은 데이터 분할을 위해 권장되는 방법입니다. 무제한 컨테이너에 쓸 때 Stream Analytics는 이전 쿼리 단계 또는 입력 분할 구성표 수만큼의 병렬 기록기를 사용합니다.

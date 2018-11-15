@@ -8,22 +8,22 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: seguler
-ms.openlocfilehash: 065c4c4315bda209484cc1b2449980e55d4ac798
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 09703e203370a524b24f552c93161e4cb64d803d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522699"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281679"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-storage-gen2-preview"></a>Distcp를 사용하여 Azure Storage Blob과 Data Lake Storage Gen2 미리 보기 간에 데이터 복사
 
-Azure Data Lake Storage Gen2 미리 보기에 액세스할 수 있는 HDInsight 클러스터를 갖고 있다면 [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html)와 같은 Hadoop 에코시스템 도구를 사용하여 HDInsight 클러스터 저장소(WASB)와 **주고 받는** 데이터를 Data Lake Storage Gen2 지원 계정에 복사할 수 있습니다. 이 문서에서는 Distcp 도구 사용 방법에 대한 지침을 제공합니다.
+HDInsight 클러스터가 있고 Azure Data Lake Storage Gen2 미리 보기에 등록된 경우 [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html)와 같은 Hadoop 에코시스템 도구를 사용하여 HDInsight 클러스터 스토리지(WASB)와 **주고 받는** 데이터를 Data Lake Storage Gen2 사용 스토리지 계정에 복사할 수 있습니다. 이 문서에서는 Distcp 도구 사용 방법에 대한 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure Data Lake Storage(미리 보기) 기능을 사용하는 Azure Storage 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen2 미리 보기 저장소 계정 만들기](quickstart-create-account.md)를 참조하세요.
-* Data Lake Storage 계정에 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](use-hdi-cluster.md)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
+* **Data Lake Storage Gen2(미리 보기) 기능을 사용하는 Azure Storage 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen2 미리 보기 저장소 계정 만들기](quickstart-create-account.md)를 참조하세요.
+* Data Lake Storage Gen2를 사용하는 스토리지 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](use-hdi-cluster.md)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>HDInsight Linux 클러스터에서 Distcp 사용
 
@@ -97,4 +97,4 @@ DistCp의 가장 낮은 세분성은 단일 파일이므로 최대 동시 복사
 
 * DistCp는 파일당 하나의 매퍼로 제한됩니다. 따라서 파일 개수보다 매퍼가 더 많지 않아야 합니다. DistCp는 파일에 하나의 매퍼를 할당하므로 큰 파일을 복사하는 데 사용할 수 있는 동시성 크기가 제한됩니다.
 
-* 적은 수의 큰 파일이 있는 경우 이러한 파일을 256MB 파일 청크로 나누면 동시성이 높아질 수 있습니다. 
+* 적은 수의 큰 파일이 있는 경우 이러한 파일을 256MB 파일 청크로 나누면 동시성이 높아질 수 있습니다.

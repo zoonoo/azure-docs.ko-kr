@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: bfbb72d6fd101932f00e12ad18ab079ec30a0d3a
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: c137f6cfdff9d043a656783f38ec9b894e644338
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818823"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913022"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Windows 앱에 푸시 알림 추가
 
@@ -37,21 +37,23 @@ ms.locfileid: "42818823"
 
 ## <a name="register-your-app-for-push-notifications"></a>푸시 알림에 대해 앱 등록
 
-Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 WNS(Windows Notification Services)를 통합하도록 서버 프로젝트를 구성해야 합니다.
+Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 [WNS(Windows Notification Services)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview)를 통합하도록 서버 프로젝트를 구성해야 합니다.
 
 1. Visual Studio 솔루션 탐색기에서 UWP 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어** > **스토어와 앱을 연결...** 을 클릭합니다.
 
     ![Microsoft Store와 앱 연결](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+
 2. 마법사에서 **다음**을 클릭하고, Microsoft 계정으로 로그인하고, **새로운 앱 이름 예약**에서 앱 이름을 입력한 후 **예약**을 클릭합니다.
 3. 앱을 성공적으로 등록한 후에 새로운 앱 이름을 선택하고 **다음** 및 **연결**을 차례로 클릭합니다. 이렇게 하면 필요한 Microsoft Store 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
-4. [Windows 개발자 센터](https://dev.windows.com/en-us/overview)로 이동하여 Microsoft 계정을 사용해 로그인하고 **내 앱**에서 새 앱 등록을 클릭한 후 **서비스** > **푸시 알림**을 확장합니다.
-5. **푸시 알림** 페이지에서 **Microsoft Azure Mobile Services** 아래의 **Live Services 사이트**를 클릭합니다.
-6. 등록 페이지에서 **응용 프로그램 암호** 및 **패키지 SID**에 있는 값을 기록합니다. 이 값은 모바일 앱 백 엔드를 구성하는 데 사용합니다.
+4. [애플리케이션 등록 포털](https://apps.dev.microsoft.com/)로 이동하고 Microsoft 계정으로 로그인합니다. 이전 단계에서 연결된 Windows 스토어 앱을 클릭합니다.
+5. 등록 페이지에서 **응용 프로그램 암호** 및 **패키지 SID**에 있는 값을 기록합니다. 이 값은 모바일 앱 백 엔드를 구성하는 데 사용합니다.
 
     ![Microsoft Store와 앱 연결](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > 클라이언트 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요. **응용 프로그램 ID** 는 Microsoft 계정 인증을 구성하는 암호와 함게 사용됩니다.
+
+[App Center](https://docs.microsoft.com/appcenter/sdk/push/uwp#prerequisite---register-your-app-for-windows-notification-services-wns)에는 푸시 알림용 UWP 앱 구성에 대한 지침도 포함되어 있습니다.
 
 ## <a name="configure-the-backend-to-send-push-notifications"></a>푸시 알림을 전송하도록 백 엔드 구성
 

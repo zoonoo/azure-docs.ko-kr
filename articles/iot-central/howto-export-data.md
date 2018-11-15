@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 86128abd82ee41459a84fc7d9169042179807793
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3231a956648b80d88059b7b0fc8f790e0e58be99
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034912"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962795"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IoT Central에서 데이터 내보내기
 
@@ -26,10 +26,10 @@ ms.locfileid: "47034912"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 연장된 30일 평가판 IoT Central 응용 프로그램 또는 유료 응용 프로그램.
-- Azure 구독이 있는 Azure 계정.
-- 동일한 Azure 계정이 IoT Central 응용 프로그램에서 관리자입니다.
-- 동일한 Azure 계정에 저장소 계정을 만들거나 동일한 Azure 구독에서 기존 저장소 계정에 액세스하는 권한이 있습니다.
+- 종량제 애플리케이션
+- IoT Central 애플리케이션에서 다음 권한이 있는 관리자
+    - Azure 구독에서 Azure 계정 IoT Central 애플리케이션은
+    - 스토리지 계정을 만들거나 이 Azure 구독에서 기존 스토리지 계정에 액세스하는 권한이 있습니다.
 
 ## <a name="types-of-data-to-export"></a>내보낼 데이터 형식
 

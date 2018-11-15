@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 VMware 및 물리적 서버 재해 복구를 위한 구성 서버 관리 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure에 대한 VMware VM 및 물리적 서버 재해 복구를 위해 기존 구성 서버를 관리하는 방법에 대해 설명합니다.
+description: 이 문서에서는 Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 재해 복구하기 위해 기존 구성 서버를 관리하는 방법에 대해 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4ac3871893e7e8161dc087f285eb3d802cd4a355
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f76a55778a5d4c00060192bfaa704724d5fe1045
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215143"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219490"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware VM에 대해 구성 서버 관리
 
@@ -137,7 +137,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 - 9.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
 - 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
 
-모든 버전의 구성 서버로 업그레이드할 수 있는 업데이트 롤업 링크가 [wiki 업데이트 페이지](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)에 제공됩니다.
+모든 버전의 구성 서버로 업그레이드하기 위한 업데이트 롤업 링크가 [Azure 업데이트 페이지](https://azure.microsoft.com/updates/?product=site-recovery)에서 사용 가능합니다.
 
 > [!IMPORTANT]
 > 릴리스된 Azure Site Recovery 구성 요소의 모든 새 버전 ‘N’을 사용하면 ‘N-4’ 이전의 모든 버전은 지원되지 않는 것으로 간주됩니다. 항상 사용 가능한 최신 버전으로 업그레이드하는 것이 좋습니다.

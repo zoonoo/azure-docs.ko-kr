@@ -9,16 +9,53 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158689"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261585"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다. 
+
+## <a name="2018-11-05"></a>2018-11-05
+
+### <a name="azure-portal"></a>Azure portal 
+Azure Machine Learning 서비스에 대한 Azure Portal은 다음과 같이 업데이트되었습니다.
+  * 게시된 파이프라인에 대한 새 **파이프라인** 탭.
+  * 기존 HDInsight 클러스터를 컴퓨팅 대상으로 연결할 수 있도록 지원이 추가되었습니다.
+
+### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Python용 Azure Machine Learning SDK v0.1.74
+
++ **주요 변경 내용** 
+  * *Workspace.compute_targets, datastores, experiments, images, models* 및 *webservices*는 메서드가 아니라 속성입니다. 예를 들어 *Workspace.compute_targets()* 를 *Workspace.compute_targets*로 바꿉니다.
+  * *Run.get_context*는 더 이상 *Run.get_submitted_run*을 사용하지 않습니다. 두 번째 메서드는 후속 릴리스에서 제거될 예정입니다.
+  * *PipelineData* 클래스는 이제 데이터 저장소 개체를 datastore_name이 아닌 매개 변수로 예상합니다. 마찬가지로, *파이프라인*은 default_datastore_name 대신 default_datastore를 수락합니다.
+
++ **새로운 기능**
+  * Azure Machine Learning 파이프라인 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb)은 이제 MPI 단계를 사용합니다.
+  * Jupyter Notebook용 RunDetails 위젯은 파이프라인의 시각화를 표시하도록 업데이트되었습니다.
+
+### <a name="azure-machine-learning-data-prep-sdk-v040"></a>Azure Machine Learning 데이터 준비 SDK v0.4.0 
+ 
++ **새로운 기능**
+  * 데이터 프로필에 유형 개수 추가 
+  * 이제 값 개수 및 히스토그램 사용 가능
+  * 데이터 프로필의 백분위수 추가
+  * 요약에서 중앙값 사용 가능
+  * 이제 Python 3.7 지원
+  * 데이터 저장소를 포함하는 데이터 흐름을 DataPrep 패키지에 저장하면 데이터 저장소 정보가 DataPrep 패키지의 일부로 유지됩니다.
+  * 데이터 저장소에 쓰기 지원 
+        
++ **버그 수정**
+  * 이제 64비트 부호 없는 정수 오버플로가 Linux에서 올바르게 처리됨
+  * smart_read에서 일반 텍스트 파일의 잘못된 텍스트 레이블 수정
+  * 이제 문자열 열 형식을 메트릭 보기로 표시
+  * ValueKinds를 개별 항목이 아닌 단일 FieldType에 매핑된 것으로 표시하도록 유형 개수 수정
+  * 이제는 경로를 문자열로 입력해도 Write_to_csv가 실패하지 않음
+  * 바꾸기를 사용할 때 “찾기”를 비워 두어도 더 이상 실패하지 않음 
 
 ## <a name="2018-10-12"></a>2018-10-12
 
@@ -26,9 +63,6 @@ ms.locfileid: "50158689"
 
 + **새로운 기능**
   * 새 작업 영역을 만들 때 다중 테넌트를 지원합니다.
-
-+ **주요 변경 내용**
-  * **향후의 다음 릴리스에서** *Workspace.compute_targets, datastores, experiments, images, models* 및 *webservices*는 메서드가 아니라 속성이 됩니다. 예를 들어 *Workspace.compute_targets()* 를 *Workspace.compute_targets*로 바꿉니다.
 
 + **수정된 버그**
   * 웹 서비스를 배포할 때 pynacl 라이브러리 버전을 더 이상 고정할 필요가 없습니다.
@@ -217,7 +251,7 @@ QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 �
 **주목할 만한 새로운 기능**
 - [데이터 원본으로서 SQL Server 및 Azure SQL DB 지원](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [MMLSpark를 사용하여 GPU 지원이 포함된 Spark에 대한 딥 러닝](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [배포 시 모든 AML 컨테이너는 Azure IoT Edge 장치와 호환됨(추가 단계 필요 없음)](http://aka.ms/aml-iot-edge-blog)
+- [배포 시 모든 AML 컨테이너는 Azure IoT Edge 장치와 호환됨(추가 단계 필요 없음)](https://aka.ms/aml-iot-edge-blog)
 - Azure Portal에서 사용 가능한 등록된 모델 목록 및 세부 정보 보기
 - 사용자 이름/암호 기반 액세스 이외에 SSH 키 기반 인증을 사용하여 계산 대상 액세스 
 - 데이터 준비 환경의 새 패턴 빈도 검사기 
@@ -282,7 +316,7 @@ QFE(Quick Fix Engineering) 릴리스로, 사소한 릴리스입니다. 여러 �
 - 추가된 `az ml datasource create` 명령을 사용하면 명령줄에서 데이터 원본 파일을 만들 수 있습니다.
 
 #### <a name="model-management-and-operationalization"></a>모델 관리 및 운영화
-- [운영화 시 모든 AML 컨테이너는 Azure IoT Edge 장치와 호환됨(추가 단계 필요 없음)](http://aka.ms/aml-iot-edge-blog) 
+- [운영화 시 모든 AML 컨테이너는 Azure IoT Edge 장치와 호환됨(추가 단계 필요 없음)](https://aka.ms/aml-iot-edge-blog) 
 - o16n CLI의 오류 메시지 개선 사항
 - 모델 관리 포털 UX에서 버그 수정  
 - 세부 정보 페이지에서 모델 관리 특성에 대한 일관된 대/소문자 구분

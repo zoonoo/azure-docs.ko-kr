@@ -2,19 +2,18 @@
 title: Azure Functions에서 연결을 관리하는 방법
 description: 정적 연결 클라이언트를 사용하여 Azure Functions에서 성능 문제를 방지하는 방법을 알아봅니다.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/02/2018
 ms.author: glenga
-ms.openlocfilehash: 6a877bb7f21b129522b9ffeab22eb77d7a556d53
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: eb5c302c807f85f24f53fa1ba32ef4cd7b52274a
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094802"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036464"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Azure Functions에서 연결을 관리하는 방법
 
@@ -37,9 +36,13 @@ Azure Functions 응용 프로그램에서 서비스 특정 클라이언트를 �
 - **허용**: 모든 함수 호출에서 사용할 수 있는 단일 정적 클라이언트를 만듭니다.
 - **권장**: 다른 함수에서 동일한 서비스를 사용하는 경우 공유 도우미 클래스에 단일 정적 클라이언트를 만듭니다.
 
-## <a name="httpclient-code-example"></a>HttpClient 코드 예제
+## <a name="client-code-examples"></a>클라이언트 코드 예제
 
-정적 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)를 만드는 함수 코드 예제는 다음과 같습니다.
+이 섹션에서는 함수 코드에서 클라이언트를 만들고 사용하기 위한 모범 사례를 보여줍니다.
+
+### <a name="httpclient-example-c"></a>HttpClient 예제(C#)
+
+정적 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)를 만드는 C# 함수 코드 예제는 다음과 같습니다.
 
 ```cs
 // Create a single, static HttpClient
@@ -54,7 +57,27 @@ public static async Task Run(string input)
 
 .NET [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)에 대한 일반적인 질문은 “내 클라이언트를 삭제해야 할까요?”입니다. 일반적으로 `IDisposable`을 구현하는 개체의 사용이 완료되면 해당 개체를 삭제합니다. 하지만 함수가 종료될 때 정적 클라이언트를 사용하지 않을 경우 이 클라이언트는 삭제하지 않습니다. 정적 클라이언트가 응용 프로그램 기간 동안 지속되도록 합니다.
 
-## <a name="documentclient-code-example"></a>DocumentClient 코드 예제
+### <a name="http-agent-examples-nodejs"></a>HTTP 에이전트 예제(Node.js)
+
+개선된 연결 관리 옵션을 제공하므로 비네이티브 메서드 대신 `node-fetch` 모듈과 같이 네이티브 [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) 클래스를 사용해야 합니다. `http.agent` 클래스의 옵션을 사용하여 연결 매개 변수를 구성합니다. HTTP 에이전트에서 사용할 수 있는 자세한 옵션 내용은 [새 에이전트(\[옵션\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options)를 참조하세요.
+
+`http.request()`에서 사용하는 글로벌 `http.globalAgent`는 이러한 모든 값을 해당 기본값으로 설정합니다. 함수에서 연결 제한을 구성하는 방법은 최대 수를 전역적으로 설정하는 것이 좋습니다. 다음 예제에서는 함수 앱에 대한 소켓의 최대 수를 설정합니다.
+
+```js
+http.globalAgent.maxSockets = 200;
+```
+
+ 다음 예제에서는 해당 요청에 대해서만 사용자 지정 HTTP 에이전트를 사용하여 새 HTTP 요청을 만듭니다.
+
+```js
+var http = require('http');
+var httpAgent = new http.Agent();
+httpAgent.maxSockets = 200;
+options.agent = httpAgent;
+http.request(options, onResponseCallback);
+```
+
+### <a name="documentclient-code-example-c"></a>DocumentClient 코드 예제(C#)
 
 [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 )는 Azure Cosmos DB 인스턴스에 연결합니다. Azure Cosmos DB 문서에서는 [응용 프로그램 수명 동안 싱글톤 Azure Cosmos DB 클라이언트를 사용](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage)하도록 권장하고 있습니다. 다음 예제에서는 함수에서 이 작업을 수행하는 하나의 패턴을 보여 줍니다.

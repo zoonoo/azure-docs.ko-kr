@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6a197cf5667e1668b2007a5f552b813cb8ed68d3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: caa1b4b3bf1f9b8fb1a34bd58dde04f13fbc6c88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957831"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614569"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
 많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
@@ -25,7 +25,7 @@ Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세
 Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터링 데이터를 볼 수 있지만 리소스를 수정하거나 모니터링 리소스와 관련한 설정은 편집할 수 없습니다. 이 역할은 다음이 필요한 지원과 같은 조직의 사용자나 운영 엔지니어에게 적합합니다.
 
 * 포털의 모니터링 대시보드를 확인하고 자체 개별 모니터링 대시보드를 만듭니다.
-* [Azure 경고](monitoring-overview-unified-alerts.md)에 정의된 경고 규칙 보기
+* [Azure 경고](monitoring-overview-alerts.md)에 정의된 경고 규칙 보기
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](insights-powershell-samples.md) 또는 [플랫폼 간 CLI](insights-cli-samples.md)를 사용하여 메트릭을 쿼리합니다.
 * 포털, Azure Monitor REST API, PowerShell cmdlet 또는 플랫폼 간 CLI를 사용하여 작업 로그를 쿼리합니다.
 * 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 을 확인합니다.
@@ -51,7 +51,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 * 공유 대시보드로 모니터링 대시보드를 게시합니다.
 * 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 을 구성합니다.*
 * 구독에 대한 [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 을 설정합니다.*
-* [Azure 경고](monitoring-overview-unified-alerts.md)를 통해 경고 규칙 활동 및 설정을 지정합니다.
+* [Azure 경고](monitoring-overview-alerts.md)를 통해 경고 규칙 활동 및 설정을 지정합니다.
 * Application Insights 웹 테스트 및 구성 요소를 만듭니다.
 * Log Analytics 작업 영역 공유 키를 나열합니다.
 * Log Analytics 인텔리전스 팩을 사용하거나 사용하지 않도록 설정합니다.

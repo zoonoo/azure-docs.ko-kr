@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093988"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960925"
 ---
 # <a name="smart-detection---failure-anomalies"></a>스마트 감지 - 실패
 [Application Insights](app-insights-overview.md)는 웹앱에서 실패한 요청이 비정상적으로 증가하는 경우 거의 실시간으로 자동으로 알립니다. 실패했다고 보고된 HTTP 요청 또는 종속성 호출의 비율이 비정상적으로 증가하는 것을 감지합니다. 요청의 경우 실패한 요청은 일반적으로 응답 코드 400 이상입니다. 문제를 심사하고 진단할 수 있도록 실패 및 관련된 원격 분석의 특성에 대한 분석이 알림 영역에서 제공됩니다. 또한 추가 진단을 위해 Application Insights 포털에 링크가 제공됩니다. 기능이 Machine Learning 알고리즘을 사용하여 일반 실패율을 예측하려면 설정 또는 구성이 필요하지 않습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "47093988"
 여기서 알 수 있는 정보:
 
 * 일반 앱 동작과 비교한 실패율
-* 영향을 받는 사용자 수 - 고려해야 할 양을 알 수 있습니다.
+* 영향을 받는 사용자 수 - 얼마나 고려해야 할지 알 수 있습니다.
 * 오류와 관련된 특성 패턴. 이 예제에는 특정 응답 코드, 요청 이름(작업) 및 앱 버전이 있습니다. 코드의 어디부터 살펴보아야 하는지 즉시 알려 줍니다. 다른 가능성으로 특정 브라우저 또는 클라이언트 운영 체제가 있을 수 있습니다.
 * 특징지어진 실패와 관련된 것으로 보이는 예외, 로그 추적 및 종속성 오류(데이터베이스 또는 다른 외부 구성 요소).
 * Application Insights에서 원격 분석에 대한 관련 검색 직접 링크
@@ -147,7 +147,7 @@ ms.locfileid: "47093988"
 
 * [메트릭 탐색기](app-insights-metrics-explorer.md)
 * [검색 탐색기](app-insights-diagnostic-search.md)
-* [분석 - 강력한 쿼리 언어](app-insights-analytics-tour.md)
+* [분석 - 강력한 쿼리 언어](../log-analytics/query-language/get-started-analytics-portal.md)
 
 스마트 감지는 완전히 자동으로 수행됩니다. 하지만 보다 많은 경고를 설정하고 싶을 수 있습니다.
 

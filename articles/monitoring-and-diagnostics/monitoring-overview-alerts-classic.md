@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7046a0c6ac84ad5f156098a26dcef2b8accd50af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987648"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015777"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
@@ -29,7 +29,7 @@ ms.locfileid: "46987648"
 
 Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 볼 수 있습니다. 경고 화면의 **클래식 경고 보기** 단추를 누르면 이 화면을 표시할 수 있습니다. 
 
- ![Azure Portal의 경고 선택 사항](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Azure Portal의 경고 선택 사항](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)
 
 새로운 경고 사용자 환경에서는 클래식 경고 환경에 비해 다음과 같은 이점이 있습니다.
 -   **향상된 알림 시스템** - 모든 최신 경고는 여러 경고에서 다시 사용할 수 있는 알림 및 작업으로 명명된 그룹인 작업 그룹을 사용합니다. 클래식 메트릭 경고 및 이전 Log Analytics 경고는 작업 그룹을 사용하지 않습니다.
@@ -40,7 +40,7 @@ Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 �
 -   **스마트 경고 통합** 및 **경고 상태 설정** -최신 경고에는 사용자 인터페이스의 오버로드를 줄이기 위해 비슷한 경고를 함께 표시하는 자동 그룹화 기능을 포함합니다. 
 
 새로운 메트릭 경고는 클래식 메트릭 경고에 비해 다음과 같은 이점이 있습니다.
--   **개선된 대기 시간**: 최신 메트릭 경고는 1분 간격으로 자주 실행할 수 있습니다. 이전 메트릭 경고는 항상 5분 주기로 실행됩니다. 새로운 경고에서는 문제 발생부터 알림 또는 작업까지의 지연 시간이 줄어들었습니다(3 ~ 5분). 이전 경고는 유형에 따라 5 ~ 15분입니다.  정보를 수집하는 데 걸리는 시간 때문에 로그 경고에서는 10 ~ 15분이 지연되지만, 새로운 처리 방법에서는 이 시간이 줄어듭니다. 
+-   **개선된 대기 시간**: 최신 메트릭 경고는 1분 간격으로 자주 실행할 수 있습니다. 이전 메트릭 경고는 항상 5분 주기로 실행됩니다. 새로운 경고에서는 문제 발생부터 알림 또는 작업까지의 지연 시간이 줄어들었습니다(3~5분). 이전 경고는 유형에 따라 5 ~ 15분입니다.  정보를 수집하는 데 걸리는 시간 때문에 로그 경고에서는 10 ~ 15분이 지연되지만, 새로운 처리 방법에서는 이 시간이 줄어듭니다. 
 -   **다차원 메트릭에 대한 지원**: 메트릭의 흥미로운 세그먼트를 모니터링할 수 있도록 차원이 포함된 메트릭에서 경고를 수행할 수 있습니다.
 -   **메트릭 조건 세부 제어**: 경고 규칙을 다양하게 정의할 수 있습니다. 최신 경고는 메트릭의 최대, 최소, 평균 및 전체 값을 모니터링하도록 지원합니다.
 -   **여러 가지 메트릭의 결합 모니터링**: 단일 규칙을 사용하여 다중 메트릭(현재 최대 2개)을 모니터링할 수 있습니다. 두 메트릭이 지정된 기간 동안 해당 임계값을 위반하면 경고가 트리거됩니다.
@@ -89,14 +89,14 @@ Webhook는 다음 예시 항목을 사용하여 자동화 및 조치를 활성�
 ## <a name="next-steps"></a>다음 단계
 다음을 사용하여 경고 규칙에 대한 정보를 확인하고 구성할 수 있습니다.
 
-* [메트릭](monitoring-overview-metrics.md)에 대해 자세히 알아보기
-* [Azure Portal을 통해 클래식 메트릭 경고](insights-alerts-portal.md) 구성
-* [클래식 메트릭 경고 PowerShell](insights-alerts-powershell.md) 구성
-* [클래식 메트릭 경고 CLI(명령줄 인터페이스)](insights-alerts-command-line-interface.md) 구성
+* [메트릭](../monitoring/monitoring-data-collection.md)에 대해 자세히 알아보기
+* [Azure Portal을 통해 클래식 메트릭 경고](alert-metric-classic.md) 구성
+* [클래식 메트릭 경고 PowerShell](alert-metric-classic.md) 구성
+* [클래식 메트릭 경고 CLI(명령줄 인터페이스)](alert-metric-classic.md) 구성
 * [클래식 메트릭 경고 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx) 구성
 * [활동 로그](monitoring-overview-activity-logs.md)에 대해 자세히 알아보기
 * [Azure Portal을 통해 활동 로그 경고](monitoring-activity-log-alerts.md) 구성
-* [Resource Manager를 통해 활동 로그 경고](monitoring-create-activity-log-alerts-with-resource-manager-template.md) 구성
+* [Resource Manager를 통해 활동 로그 경고](alert-activity-log.md) 구성
 * [활동 로그 경고 웹후크 스키마](monitoring-activity-log-alerts-webhook.md) 검토
 * [작업 그룹](monitoring-action-groups.md)에 대해 자세히 알아보세요.
-* [최신 경고](monitor-alerts-unified-usage.md) 구성
+* [최신 경고](alert-metric.md) 구성

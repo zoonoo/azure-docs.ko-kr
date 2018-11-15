@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060774"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263931"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Azure 가상 머신 워크로드용 표준 SSD Managed Disks
 
@@ -22,7 +22,7 @@ Azure 표준 SSD(Solid State Drives) Managed Disks는 더 낮은 IOPS 수준에�
 ## <a name="standard-ssd-features"></a>표준 SSD 기능
 
 **Managed Disks**: 표준 SSD 디스크는 Managed Disks로만 사용할 수 있습니다. Unmanaged Disks 및 페이지 Blob은 표준 SSD에서 지원되지 않습니다. Managed Disks를 만들 때 디스크 유형을 표준 SSD로 지정하고, 필요한 디스크 크기를 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.
-표준 SSD는 Managed Disks에서 제공하는 모든 서비스 관리 작업을 지원합니다. 예를 들어 표준 SSD Managed Disks 생성, 복사, 스냅샷 생성 방법은 Managed Disks와 동일합니다.
+표준 SSD는 Managed Disks에서 제공하는 모든 클래식 배포 모델 작업을 지원합니다. 예를 들어 표준 SSD Managed Disks 생성, 복사, 스냅샷 생성 방법은 Managed Disks와 동일합니다.
 
 **Virtual Machines**: 표준 SSD는 Premium Disks를 지원하지 않는 VM 유형을 비롯한 모든 Azure VM과 함께 사용할 수 있습니다. 예를 들어 A 시리즈 VM , N 시리즈 VM, DS 시리즈 또는 다른 Azure VM 시리즈를 사용 중인 경우 표준 SSD를 해당 VM과 함께 사용할 수 있습니다. 표준 SSD가 도입됨에 따라 이전에 HDD 기반 디스크를 사용했던 광범위한 워크로드가 SSD 기반 디스크로 전환되어 SSD가 제공하는 일관적인 성능, 더 높은 가용성, 더 짧은 대기 시간, 전반적으로 개선된 환경을 경험할 수 있습니다.
 
@@ -32,7 +32,7 @@ Azure 표준 SSD(Solid State Drives) Managed Disks는 더 낮은 IOPS 수준에�
 
 ## <a name="scalability-and-performance-targets"></a>확장성 및 성능 대상
 
-다음 표에는 현재 표준 SSD에 제공되는 디스크 크기가 나와 있습니다.
+다음 표에는 현재 표준 SSD에 제공되는 디스크 크기가 나와 있습니다. 별표로 표시되는 크기는 현재 미리 보기로 제공됩니다.
 
 |표준 SSD 디스크 유형  |디스크 크기  |디스크당 IOPS  |디스크당 처리량  |
 |---------|---------|---------|---------|
@@ -42,9 +42,9 @@ Azure 표준 SSD(Solid State Drives) Managed Disks는 더 낮은 IOPS 수준에�
 |E30     |1,024GiB       |최대 500         |초당 최대 60MiB         |
 |E40     |2,048GiB       |최대 500         |초당 최대 60MiB         |
 |E50     |4,095GiB       |최대 500         |초당 최대 60MiB         |
-|E60     |8,192GiB       |최대 1,300       |초당 최대 300MiB        |
-|E70     |16,384GiB      |최대 2,000       |초당 최대 500MiB        |
-|E80     |32,767GiB      |최대 2,000       |초당 최대 500MiB        |
+|E60 *     |8,192GiB       |최대 1,300       |초당 최대 300MiB        |
+|E70 *    |16,384GiB      |최대 2,000       |초당 최대 500MiB        |
+|E80 *    |32,767GiB      |최대 2,000       |초당 최대 500MiB        |
 
 표준 SSD는 대부분의 IO 작업에 수 밀리초의 대기 시간을 제공하고, 위의 표에 나와 있는 한도까지 IOPS와 처리량을 제공하도록 설계되었습니다. 트래픽 패턴에 따라 실제 IOPS 및 처리량은 달라질 수 있습니다. 표준 SSD는 HDD 디스크보다 더 일관적인 성능과 더 짧은 대기 시간을 제공합니다.
 

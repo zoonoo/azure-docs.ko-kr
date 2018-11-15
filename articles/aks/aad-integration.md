@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: bd7f8748dc5260ed6574a1b48632318e9399bca0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0dc0421baf1e5cb19be925072b5fffb989e23a3b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042124"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979253"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -68,7 +68,9 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 
   ![응용 프로그램 그래프 사용 권한 설정](media/aad-integration/delegated-permissions.png)
 
-7. **완료**를 선택하고 API 목록에서 *Microsoft Graph*를 선택 한 후 **권한 부여**를 선택합니다. 현재 계정이 테넌트 관리자가 아닌 경우 이 단계가 실패합니다.
+  **완료**를 선택합니다.
+
+7. API 목록에서 *Microsoft Graph*를 선택한 다음, **권한 부여**를 선택합니다. 현재 계정이 테넌트 관리자가 아닌 경우 이 단계가 실패합니다.
 
   ![응용 프로그램 그래프 사용 권한 설정](media/aad-integration/grant-permissions.png)
 
@@ -98,7 +100,9 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 
   ![AKS AAD 서버 응용 프로그램 엔드포인트 선택](media/aad-integration/select-server-app.png)
 
-4. **완료** 및 **사용 권한 부여**를 선택하여 이 단계를 완료합니다.
+  **완료**를 선택합니다.
+
+4. 목록에서 서버 API를 선택한 다음, **권한 부여**를 선택합니다.
 
   ![권한 부여](media/aad-integration/grant-permissions-client.png)
 

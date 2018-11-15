@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 609dc8aa1305833fb3677de6fbe95cf490237a4a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8e79d05147cae5bf9c46fc1f7c0e7e98574383d5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731124"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007623"
 ---
 ## <a name="configuring-homepage"></a>홈 페이지 구성
 
-홈 페이지는 액세스 권한이 있는 사용자가 응용 프로그램의 URL로 이동할 때 로드되는 페이지입니다. 응용 프로그램을 만드는 동안 “샘플 Contoso” 또는 “샘플 Devkits” 응용 프로그램 템플릿 중 하나를 선택한 경우 응용 프로그램에 미리 정의된 홈 페이지가 있습니다. 반면 “사용자 지정 응용 프로그램” 응용 프로그램 템플릿을 선택한 경우 홈 페이지는 비어 있게 됩니다.
+홈 페이지는 애플리케이션에 대한 액세스 권한이 있는 사용자가 애플리케이션의 URL로 이동할 때 로드되는 페이지입니다. 응용 프로그램을 만드는 동안 “샘플 Contoso” 또는 “샘플 Devkits” 응용 프로그램 템플릿 중 하나를 선택한 경우 응용 프로그램에 미리 정의된 홈 페이지가 있습니다. 반면 “사용자 지정 응용 프로그램” 응용 프로그램 템플릿을 선택한 경우 홈 페이지는 비어 있게 됩니다.
 
 예를 들어 다음은 “샘플 Contoso” 템플릿을 기반으로 하는 응용 프로그램에 대한 홈 페이지입니다. 응용 프로그램에 대한 홈페이지를 사용자 지정하려면 먼저 오른쪽 위에 있는 **편집**을 선택합니다. 
 

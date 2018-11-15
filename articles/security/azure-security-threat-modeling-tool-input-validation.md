@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: f49692a97053482f6522fed7bec91db6cac4e15e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: da2e742f0dde0cb4b98bfb107d18eca779d10021
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306327"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234598"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>보안 프레임: 입력 유효성 검사 | 완화 
 | 제품/서비스 | 문서 |
@@ -38,7 +38,7 @@ ms.locfileid: "43306327"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [XSLT 보안](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript 속성](http://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
+| **참조**              | [XSLT 보안](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript 속성](https://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
 | **단계** | XSLT는 `<msxml:script>` 요소를 사용하여 스타일시트 내에서 스크립팅을 지원합니다. 이렇게 하면 사용자 지정 함수를 XSLT 변환에 사용할 수 있습니다. 스크립트는 변환을 수행하는 프로세스의 컨텍스트에서 실행됩니다. 신뢰할 수 없는 코드가 신뢰할 수 없는 환경에서 실행되지 않도록 하려면 XSLT 스크립트를 사용하지 않도록 설정해야 합니다. *.NET을 사용하는 경우:* XSLT 스크립팅은 기본적으로 비활성화됩니다. 그러나 `XsltSettings.EnableScript` 속성을 통해 명시적으로 사용하지 않도록 설정되지 않았는지 확인해야 합니다.|
 
 ### <a name="example"></a>예 
@@ -70,7 +70,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [IE8 보안 5부 - 포괄적 보호](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)(영문)  |
+| **참조**              | [IE8 보안 5부 - 포괄적 보호](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)(영문)  |
 | **단계** | <p>사용자가 제어할 수 있는 콘텐츠를 포함할 수 있는 각 페이지에 대해 `X-Content-Type-Options:nosniff` HTTP 헤더를 사용해야 합니다. 이 요구 사항을 준수하려면 사용자가 제어할 수 있는 콘텐츠를 포함할 수 있는 페이지에 대해서만 페이지별로 필수 헤더를 설정하거나 응용 프로그램의 모든 페이지에 대해 전역으로 필수 헤더를 설정할 수 있습니다.</p><p>웹 서버에서 제공되는 파일의 각 형식에는 콘텐츠의 특성(즉 이미지, 텍스트, 응용 프로그램 등)을 설명하는 [MIME 형식](http://en.wikipedia.org/wiki/Mime_type)(*콘텐츠 형식*이라고도 함)이 연결되어 있습니다.</p><p>X-Content-Type-Options 헤더는 개발자가 콘텐츠를 MIME 스니핑하지 않아야 한다고 지정할 수 있는 HTTP 헤더입니다. 이 헤더는 MIME 스니핑 공격을 완화하도록 설계되었습니다. IE8(Internet Explorer 8)에는 이 헤더에 대한 지원이 추가되었습니다.</p><p>IE8 사용자만 X-Content-Type-Options의 이점을 얻을 수 있습니다. 이전 버전의 Internet Explorer에서는 현재 X-Content-Type-Options 헤더를 사용하지 않습니다.</p><p>Internet Explorer 8 이상은 MIME 스니핑 옵트아웃 기능을 구현하는 유일한 주요 브라우저입니다. 다른 주요 브라우저(Firefox, Safari, Chrome)에서 비슷한 기능을 구현하는 경우 이 권장 사항은 해당 브라우저의 구문도 포함하도록 업데이트됩니다.</p>|
 
 ### <a name="example"></a>예
@@ -139,7 +139,7 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [XML 엔터티 확장](http://capec.mitre.org/data/definitions/197.html)(영문), [XML DoS(서비스 거부) 공격 및 방어](http://msdn.microsoft.com/magazine/ee335713.aspx)(영문), [MSXML 보안 개요](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [MSXML 코드 보안에 대한 모범 사례](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [NSXMLParserDelegate 프로토콜 참조](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html)(영문), [외부 참조 확인](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
+| **참조**              | [XML 엔터티 확장](http://capec.mitre.org/data/definitions/197.html)(영문), [XML DoS(서비스 거부) 공격 및 방어](https://msdn.microsoft.com/magazine/ee335713.aspx)(영문), [MSXML 보안 개요](https://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [MSXML 코드 보안에 대한 모범 사례](https://msdn.microsoft.com/library/ms759188(VS.85).aspx), [NSXMLParserDelegate 프로토콜 참조](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html)(영문), [외부 참조 확인](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
 | **단계**| <p>널리 사용되지는 않지만 XML 파서가 문서 자체 또는 외부 원본에서 정의된 값을 사용하여 매크로 엔터티를 확장할 수 있도록 하는 XML 기능이 있습니다. 예를 들어 문서에서 "Microsoft" 값이 있는 "companyname" 엔터티를 정의하여 "&companyname;" 텍스트가 문서에 나타날 때마다 자동으로 Microsoft 텍스트로 바꿀 수 있습니다. 또는 문서에서 외부 웹 서비스를 참조하는 "MSFTStock" 엔터티를 정의하여 Microsoft 주식의 현재 가치를 가져올 수 있습니다.</p><p>그러면 언제든지 "&MSFTStock;"이 문서에 나타나면 자동으로 현재 주가로 바뀝니다. 그러나 이 기능을 악용하여 DoS(서비스 거부) 조건을 만들 수 있습니다. 공격자가 여러 엔터티를 중첩하여 시스템에서 사용 가능한 모든 메모리를 소비하는 지수 확장 XML 폭탄을 만들 수 있습니다. </p><p>또는 무한한 양의 데이터를 다시 스트림하거나 단순히 스레드를 중단하는 외부 참조를 만들 수 있습니다. 결과적으로 응용 프로그램에서 내부 및/또는 외부 XML 엔터티 확인을 사용하지 않는 경우 모든 팀이 해당 확인을 완전히 사용하지 않도록 설정하거나, 이 기능이 절대적으로 필요한 경우 응용 프로그램에서 엔터티 분석을 위해 소비할 수 있는 메모리와 시간의 양을 수동으로 제한해야 합니다. 응용 프로그램에서 엔터티 확인이 필요하지 않은 경우 엔터티 확인을 사용하지 않도록 설정합니다. </p>|
 
 ### <a name="example"></a>예
@@ -358,7 +358,7 @@ myCommand.Fill(userDataset);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | MVC5, MVC6 |
 | **특성**              | 해당 없음  |
-| **참조**              | [메타데이터 특성](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [공개 키 보안 취약성 및 완화](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation)(영문), [ASP.NET MVC의 대량 할당에 대한 완벽한 가이드](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx)(영문), [MVC를 사용하여 EF 시작](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)(영문) |
+| **참조**              | [메타데이터 특성](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [공개 키 보안 취약성 및 완화](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation)(영문), [ASP.NET MVC의 대량 할당에 대한 완벽한 가이드](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx)(영문), [MVC를 사용하여 EF 시작](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)(영문) |
 | **단계** | <ul><li>**과도한 게시 취약성은 언제 찾아야 합니까? -** 사용자 입력에서 모델 클래스를 바인딩하는 모든 위치에서 과도한 게시 취약성이 발생할 수 있습니다. MVC와 같은 프레임워크는 POCO(Plain Old CLR Object)를 포함하여 사용자 지정 .NET 클래스의 사용자 데이터를 나타낼 수 있습니다. MVC는 자동으로 이러한 모델 클래스를 요청의 데이터로 채우고, 사용자 입력을 처리하는 데 편리한 표현을 제공합니다. 사용자가 설정하지 않아야 하는 속성이 이러한 클래스에 포함되어 있으면, 사용자가 응용 프로그램에서 전혀 의도하지 않은 데이터를 제어할 수 있는 과도한 게시 공격으로 인해 응용 프로그램이 취약하게 될 수 있습니다. MVC 모델 바인딩과 마찬가지로 개체/관계형 매퍼(예: Entity Framework)와 같은 데이터베이스 액세스 기술도 종종 POCO 개체를 사용하여 데이터베이스 데이터를 나타낼 수 있습니다. 이러한 데이터 모델 클래스는 MVC에서 사용자 입력을 처리할 때와 마찬가지로 데이터베이스 데이터를 처리할 때도 동일한 편리성을 제공합니다. MVC와 데이터베이스는 모두 POCO 개체와 같은 유사한 모델을 지원하기 때문에 두 가지 용도로 동일한 클래스를 쉽게 다시 사용할 수 있습니다. 이러한 사례는 중요한 부분의 분리를 유지하는 데 실패하며, 의도하지 않은 속성이 모델 바인딩에 노출되어 과도한 게시 공격을 허용하는 일반적인 영역 중 하나입니다.</li><li>**필터링되지 않은 데이터베이스 모델 클래스를 MVC 작업에 대한 매개 변수로 사용하지 않아야 하는 이유는 무엇입니까? -** MVC 모델 바인딩은 해당 클래스의 모든 항목을 바인딩하기 때문입니다. 데이터가 보기에 표시되지 않더라도 악의적인 사용자는 이 데이터를 포함한 HTTP 요청을 보낼 수 있으며, 작업에서 사용자 입력을 위해 허용해야 하는 데이터의 셰이프가 데이터베이스 클래스라고 지시하므로 MVC에서 해당 데이터를 기꺼이 바인딩합니다.</li><li>**모델 바인딩에 사용되는 셰이프에 주의해야 하는 이유는 무엇입니까? -** 지나치게 광범위한 모델로 ASP.NET MVC 모델 바인딩을 사용하면 응용 프로그램이 과도한 게시 공격에 노출됩니다. 과도한 게시로 인해 공격자는 항목에 대한 가격이나 계정의 보안 권한을 무시하는 등 개발자가 의도한 것 이상으로 응용 프로그램 데이터를 변경할 수 있습니다. 응용 프로그램은 작업별 바인딩 모델(또는 특정의 허용되는 속성 필터 목록)을 사용하여 신뢰할 수 없는 입력에서 모델 바인딩을 통해 허용할 수 있는 명시적 계약을 제공해야 합니다.</li><li>**코드를 복제하는 별도의 바인딩 모델이 있습니까? -** 아니요, 이는 중요한 부분의 분리 문제입니다. 작업 메서드에서 데이터베이스 모델을 다시 사용하는 경우 사용자가 HTTP 요청에 해당 클래스의 모든 속성(또는 하위 속성)을 설정할 수 있습니다. 이 작업이 MVC에서 수행하려는 작업이 아닌 경우 사용자 입력에서 가져올 수 있는 데이터를 MVC에 대신 표시하려면 필터 목록이나 별도의 클래스 셰이프가 필요합니다.</li><li>**사용자 입력에 대한 별도의 바인딩 모델이 있는 경우 모든 데이터 주석 특성을 복제해야 합니까? -** 반드시 그렇지는 않습니다. 데이터베이스 모델 클래스의 MetadataTypeAttribute를 사용하여 모델 바인딩 클래스의 메타데이터에 연결할 수 있습니다. MetadataTypeAttribute에서 참조하는 형식은 참조하는 형식의 하위 집합이어야 합니다(더 적은 속성이 있을 수 있지만, 더 많지는 않음).</li><li>**사용자 입력 모델과 데이터베이스 모델 간에 데이터를 앞뒤로 이동하는 것은 지루한 작업입니다. 리플렉션을 사용하여 모든 속성을 복사할 수 있습니까? -** 예. 바인딩 모델에 표시되는 유일한 속성은 사용자 입력에 대해 안전하다고 확인한 속성입니다. 리플렉션을 사용하여 이 두 모델 간에 공통으로 존재하는 모든 속성을 복사하지 못하게 할 보안상의 이유는 없습니다.</li><li>**[Bind(Exclude ="â€¦")]는 어떤가요? 별도의 바인딩 모델을 사용하는 대신 이 특성을 사용할 수 있습니까? -** 이 방법은 권장되지 않습니다. [Bind(Exclude ="â€¦")]를 사용하면 기본적으로 새 속성을 바인딩할 수 있습니다. 새 속성이 추가되면 기본적으로 디자인을 안전하게 유지하는 것보다 작업들을 안전하게 유지하도록 기억하는 추가 단계가 있습니다. 속성이 추가될 때마다 개발자에 따라 이 목록을 확인하는 것은 위험합니다.</li><li>**편집 작업에 [Bind(Include ="â€¦")]가 유용한가요? -** 아니요. [Bind(Include ="â€¦")]는 삽입 스타일 작업(새 데이터 추가)에 적합합니다. 업데이트 방식 작업(기존 데이터 수정)의 경우 별도의 바인딩 모델을 사용하거나 허용되는 명시적 속성 목록을 UpdateModel 또는 TryUpdateModel에 전달하는 등의 다른 방법을 사용합니다. 편집 작업에 [Bind(Include ="â€¦")] 특성을 추가하면 MVC가 개체 인스턴스를 만들고 나열된 속성만을 설정하여 다른 속성을 기본값으로 유지합니다. 지속형 데이터인 경우 생략된 모든 속성의 값을 기본값으로 다시 설정하여 기존 엔터티를 완전히 대체합니다. 예를 들어 IsAdmin이 편집 작업의 [Bind(Include ="â€¦")] 특성에서 누락된 경우 이 작업을 통해 이름이 편집된 사용자는 IsAdmin = false으로 재설정됩니다(편집된 사용자는 관리자 상태를 상실함). 특정 속성에 대한 업데이트를 방지하려면 위에서 설명한 다른 방법 중 하나를 사용합니다. 일부 버전의 MVC 도구는 편집 작업에서 [Bind(Include ="â€¦")]를 사용하여 컨트롤러 클래스를 생성하고 해당 목록에서 속성을 제거하면 과도한 게시 공격을 방지합니다. 그러나 위에서 설명한 대로 이 방법은 의도한 대로 작동하지 않는 대신 생략된 속성의 모든 데이터를 기본값으로 다시 설정합니다.</li><li>**만들기 작업의 경우 별도 바인딩 모델보다 [Bind(Include ="â€¦")]를 사용하는 경우 주의할 것이 있나요? -** 예. 첫째, 이 방법은 편집 시나리오에서 작동하지 않으므로 모든 과도한 게시 취약성을 완화하기 위해서는 별도의 두 가지 방법을 유지해야 합니다. 두 번째로 [Bind(Include ="â€¦")]와 달리 별도 바인딩 모델은 사용자 입력에 사용된 셰이프와 지속성에 사용된 셰이프 간에 문제를 분리합니다. 세 번째로 [Bind(Include ="â€¦")]는 최상위 속성만을 처리할 수 있습니다. 특성에서 하위 속성(예: "Details.Name")의 일부만을 허용할 수 없습니다. 마지막으로 가장 중요한 점은 [Bind(Include ="â€¦")]를 사용하면 클래스가 모델 바인딩에 사용될 때 항상 수행해야 하는 추가 단계를 추가한다는 것입니다. 새 동작 메서드가 데이터 클래스에 직접 바인딩하고 [Bind(Include ="â€¦")] 특성을 포함하지 않는 경우 과도한 게시 공격에 취약할 수 있으므로 기본적으로 [Bind(Include ="â€¦")] 접근법은 상대적으로 안전하지 않습니다. [Bind(Include ="â€¦")]를 사용하는 경우 데이터 클래스가 동작 메서드 매개 변수로 나타날 때마다 지정해야 합니다.</li><li>**만들기 작업의 경우 모델 클래스 자체에 [Bind(Include ="â€¦")] 특성을 배치하면 어떨까요 여기서는 모든 작업 메서드에 이 특성을 배치하는 것을 기억할 필요가 없습니까? -** 이 방법은 경우에 따라 작동합니다. (이 클래스를 사용하는 작업 매개 변수가 아닌) 모델 형식 자체에 [Bind(Include ="â€¦")]를 사용하면 모든 동작 메서드에서 [Bind(Include ="â€¦")] 특성을 포함하지 않아도 됩니다. 클래스에서 특성을 직접 사용하면 모델 바인딩을 위해 이 클래스의 별도 노출 영역을 효과적으로 만듭니다. 그러나 이 방법은 모델 클래스마다 모델 바인딩 셰이프 하나만 허용합니다. 한 작업(예: 사용자 역할을 업데이트하는 관리자 전용 작업) 메서드에서 필드의 모델 바인딩을 허용해야 하고, 다른 작업에서는 이 필드의 모델 바인딩을 방지해야 하는 경우 이 방법은 작동하지 않습니다. 각 클래스에는 하나의 모델 바인딩 셰이프가 있을 수 있습니다. 다른 작업에 다른 모델 바인딩 셰이프가 필요한 경우 작업 메서드에서 별도 모델 바인딩 클래스 또는 별도 [Bind(Include ="â€¦")] 특성 중 하나를 사용하여 이러한 별도 셰이프를 나타내야 합니다.</li><li>**바인딩 모델이란 무엇입니까? 보기 모델과 동일한 것입니까? -** 여기에는 관련된 두 가지 개념이 있습니다. 바인딩 모델이라는 용어는 작업의 매개 변수 목록(MVC 모델 바인딩에서 작업 메서드로 전달된 셰이프)에 사용되는 모델 클래스를 가리킵니다. 보기 모델이라는 용어는 작업 메서드에서 보기로 전달된 모델 클래스를 가리킵니다. 보기 특정 모델을 사용하는 것은 작업 메서드에서 보기로 데이터를 전달하는 일반적인 방법입니다. 종종 이 셰이프는 모델 바인딩에도 적합하며, 보기 모델이라는 용어는 두 위치에서 사용되는 동일한 모델을 참조하는 데 사용할 수 있습니다. 정확하게 이 절차는 바인딩 모델에 대해 구체적으로 설명하며, 작업에 전달되는 셰이프에 초점을 맞추고 있습니다. 이는 대량 할당을 위해 중요한 것입니다.</li></ul>| 
 
 ## <a id="rendering"></a>렌더링하기 전에 신뢰할 수 없는 웹 출력 인코딩
@@ -369,7 +369,7 @@ myCommand.Fill(userDataset);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, Web Forms, MVC5, MVC6 |
 | **특성**              | 해당 없음  |
-| **참조**              | [ASP.NET에서 XSS(사이트 간 스크립팅)를 방지하는 방법](http://msdn.microsoft.com/library/ms998274.aspx)(영문), [XSS(사이트 간 스크립팅)](http://cwe.mitre.org/data/definitions/79.html)(영문), [XSS(사이트 간 스크립팅) 방지 참고 자료](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet)(영문) |
+| **참조**              | [ASP.NET에서 XSS(사이트 간 스크립팅)를 방지하는 방법](https://msdn.microsoft.com/library/ms998274.aspx)(영문), [XSS(사이트 간 스크립팅)](http://cwe.mitre.org/data/definitions/79.html)(영문), [XSS(사이트 간 스크립팅) 방지 참고 자료](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet)(영문) |
 | **단계** | 사이트 간 스크립팅(약어로 XSS)은 온라인 서비스 또는 웹에서 입력을 사용하는 응용 프로그램/구성 요소에 대한 공격 벡터입니다. XSS 취약성으로 인해 공격자가 취약한 웹 응용 프로그램을 통해 다른 사용자의 컴퓨터에서 스크립트를 실행할 수 있습니다. 악성 스크립트는 쿠키를 도용하거나 그렇지 않으면 JavaScript를 통해 공격 대상의 컴퓨터에 손상을 입히는 데 사용할 수 있습니다. XSS는 사용자 입력의 유효성을 검사하고 웹 페이지에 렌더링하기 전에 형식과 인코딩이 올바른지 확인함으로써 방지됩니다. 입력 유효성 검사 및 출력 인코딩은 Web Protection Library를 사용하여 수행할 수 있습니다. 관리 코드(C\#, VB.net 등)의 경우 사용자 입력이 매니페스트되는 컨텍스트에 따라 Web Protection (Anti-XSS) Library에서 적절한 인코딩 메서드를 하나 이상 사용합니다.| 
 
 ### <a name="example"></a>예
@@ -394,7 +394,7 @@ myCommand.Fill(userDataset);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, MVC5, MVC6 |
 | **특성**              | 해당 없음  |
-| **참조**              | [유효성 검사 추가](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [MVC 응용 프로그램에서 모델 데이터 유효성 검사](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx)(영문), [ASP.NET MVC 응용 프로그램을 위한 기본 원칙](http://msdn.microsoft.com/magazine/dd942822.aspx)(영문) |
+| **참조**              | [유효성 검사 추가](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [MVC 응용 프로그램에서 모델 데이터 유효성 검사](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx)(영문), [ASP.NET MVC 응용 프로그램을 위한 기본 원칙](https://msdn.microsoft.com/magazine/dd942822.aspx)(영문) |
 | **단계** | <p>악의적인 사용자 입력으로부터 응용 프로그램을 보호하려면 응용 프로그램에서 사용하기 전에 모든 입력 매개 변수의 유효성을 검사해야 합니다. 허용 목록 유효성 검사 전략으로 서버 쪽에서 정규식 유효성 검사를 사용하여 입력 값의 유효성을 검사합니다. 삭제되지 않은 사용자 입력/매개 변수가 메서드에 전달되면 코드 삽입 취약성이 발생할 수 있습니다.</p><p>웹 응용 프로그램의 경우 양식 필드, QueryStrings, 쿠키, HTTP 헤더 및 웹 서비스 매개 변수가 진입점에 포함될 수도 있습니다.</p><p>모델 바인딩 시 다음과 같이 입력 유효성 검사를 수행해야 합니다.</p><ul><li>모델 속성에는 허용되는 문자 및 최대 허용 길이를 받아들이기 위해 RegularExpression 주석으로 주석을 추가해야 합니다.</li><li>컨트롤러 메서드에서 ModelState 유효성 검사를 수행해야 합니다.</li></ul>|
 
 ## <a id="richtext"></a>모든 문자를 허용하는 양식 필드(예: 서식 있는 텍스트 편집기)에서 삭제 적용
@@ -449,7 +449,7 @@ $('body').append(resHTML);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, MVC5, MVC6 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MVC 응용 프로그램에서 모델 데이터 유효성 검사](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx)(영문), [ASP.NET MVC 응용 프로그램을 위한 기본 원칙](http://msdn.microsoft.com/magazine/dd942822.aspx)(영문) |
+| **참조**              | [MVC 응용 프로그램에서 모델 데이터 유효성 검사](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx)(영문), [ASP.NET MVC 응용 프로그램을 위한 기본 원칙](https://msdn.microsoft.com/magazine/dd942822.aspx)(영문) |
 | **단계** | 인수로 모델이 아니라 기본 데이터 형식만 허용하는 메서드의 경우 정규식을 사용하여 입력 유효성 검사를 수행해야 합니다. 여기서는 Regex.IsMatch를 유효한 정규식 패턴과 함께 사용해야 합니다. 입력이 지정된 정규식과 일치하지 않으면 제어를 더 이상 진행하지 않아야 하며 유효성 검사 실패와 관련된 적절한 경고를 표시해야 합니다.| 
 
 ## <a id="dos-expression"></a>정규식 처리에 대한 시간 제한 상한값을 설정하여 잘못된 정규식으로 인한 DoS 방지
@@ -620,7 +620,7 @@ namespace MyApi.Controllers
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, MVC 5, MVC 6 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MVC 응용 프로그램에서 모델 데이터 유효성 검사](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx)(영문), [ASP.NET MVC 응용 프로그램을 위한 기본 원칙](http://msdn.microsoft.com/magazine/dd942822.aspx)(영문) |
+| **참조**              | [MVC 응용 프로그램에서 모델 데이터 유효성 검사](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx)(영문), [ASP.NET MVC 응용 프로그램을 위한 기본 원칙](https://msdn.microsoft.com/magazine/dd942822.aspx)(영문) |
 | **단계** | 인수로 모델이 아니라 기본 데이터 형식만 허용하는 메서드의 경우 정규식을 사용하여 입력 유효성 검사를 수행해야 합니다. 여기서는 Regex.IsMatch를 유효한 정규식 패턴과 함께 사용해야 합니다. 입력이 지정된 정규식과 일치하지 않으면 제어를 더 이상 진행하지 않아야 하며 유효성 검사 실패와 관련된 적절한 경고를 표시해야 합니다.|
 
 ## <a id="typesafe-api"></a>Web API에서 데이터 액세스를 위해 형식이 안전한 매개 변수를 사용하는지 확인

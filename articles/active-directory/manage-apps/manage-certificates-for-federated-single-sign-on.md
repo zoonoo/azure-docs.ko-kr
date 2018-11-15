@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: d7a5bf23f2855b43c4a2e4022568028d852c094b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0f6e690bc80ae8004fba4faf53c0403b0cb7edd9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719582"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035339"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 이 문서에서는 Azure AD(Azure Active Directory)에서 SaaS 응용 프로그램에 페더레이션된 SSO(Single Sign-On)를 설정하기 위해 만드는 인증서와 관련된 일반적인 질문과 정보를 다룹니다. Azure AD 앱 갤러리에서 또는 비갤러리 응용 프로그램 템플릿을 사용하여 응용 프로그램을 추가하고, 페더레이션된 SSO 옵션을 사용하여 응용 프로그램을 구성합니다.
@@ -76,11 +76,15 @@ aadnotification@microsoft.com으로부터 알림 이메일을 받습니다. 이�
 
     ![새 인증서 생성](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
 
-2. 새 인증서에 대해 원하는 만료 날짜와 시간을 선택하고 **저장**을 클릭합니다.
+2. 새 인증서에 대해 원하는 만료 날짜와 시간을 선택하고 **저장**을 클릭합니다. 기존 인증서와 겹치는 날짜를 선택하면 인증서 만료로 인한 가동 중지 시간이 제한되어야 합니다. 
 
-3. **SAML 서명 인증서** 옵션에서 인증서를 다운로드합니다. 새 인증서를 SaaS 응용 프로그램의 Single Sign-On 구성 화면에 업로드합니다. 특정 SaaS 응용 프로그램에 대해 이 작업을 수행하는 방법을 알아보려면 **응용 프로그램 구성 자습서 보기** 링크를 클릭합니다.
+3. 앱이 인증서를 자동으로 롤오버할 수 있는 경우 새 인증서를 활성으로 설정합니다.  앱에 로그인하여 앱이 작동하는지 확인합니다.
+
+4. 앱이 자동으로 새 인증서를 선택하지 않지만 하나를 초과하는 서명 인증서를 처리할 수 있는 경우 기존 인증서가 만료되기 전에 새 인증서를 앱에 업로드한 다음, 포털로 다시 이동하여 새 인증서를 활성화합니다. 
+
+5. 앱이 한 번에 하나의 인증서만 처리할 수 있는 경우 가동 중지 시간 창을 선택하고 새 인증서를 다운로드하여 애플리케이션에 업로드하고 Azure Portal로 돌아와 새 인증서를 활성으로 설정합니다. 
    
-4. Azure AD에서 새 인증서를 활성화하려면 **Make new certificate active**(새 인증서 활성화) 확인란을 선택하고 페이지 위쪽에서 **저장** 단추를 클릭합니다. 그러면 Azure AD 쪽에서 새 인증서를 롤오버합니다. 인증서의 상태가 **신규**에서 **활성**으로 변경됩니다. 이 시점부터 Azure AD에서 새 인증서를 사용하여 응답에 서명하기 시작합니다. 
+6. Azure AD에서 새 인증서를 활성화하려면 **Make new certificate active**(새 인증서 활성화) 확인란을 선택하고 페이지 위쪽에서 **저장** 단추를 클릭합니다. 그러면 Azure AD 쪽에서 새 인증서를 롤오버합니다. 인증서의 상태가 **신규**에서 **활성**으로 변경됩니다. 이 시점부터 Azure AD에서 새 인증서를 사용하여 응답에 서명하기 시작합니다. 
    
     ![새 인증서 생성](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 

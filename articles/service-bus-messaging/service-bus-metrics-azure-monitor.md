@@ -7,14 +7,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f02fa8ff80915c23f70db09a1dee393010795132
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166336"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277446"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor에서 Azure Service Bus 메트릭(미리 보기)
 
@@ -29,7 +29,7 @@ Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합�
 
 Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합니다. [Azure Portal](https://portal.azure.com)을 통해 메트릭에 액세스하거나 Azure Monitor API(REST 및 .NET) 및 Log Analytics 및 Event Hubs 같은 분석 솔루션을 사용할 수 있습니다. 자세한 내용은 [Azure Monitor에서 수집된 데이터 모니터링](../monitoring/monitoring-data-collection.md)을 참조하세요.
 
-메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. Azure Monitor의 [진단 설정](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)에서 이렇게 구성합니다.
+메트릭은 기본적으로 활성화되며 최근 30일분 데이터에 액세스할 수 있습니다. 더 오랜 기간에 대한 데이터를 보존해야 하는 경우 메트릭 데이터를 Azure Storage 계정에 보관할 수 있습니다. 이 값은 Azure Monitor의 [진단 설정](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)에서 구성합니다.
 
 ## <a name="access-metrics-in-the-portal"></a>포털에서 메트릭에 액세스
 
@@ -80,6 +80,8 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 | ------------------- | ----------------- |
 |들어오는 메시지 (미리 보기)|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |보내는 메시지(미리 보기)|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+| 메시지(미리 보기) | 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
+| ActiveMessages(미리 보기) | 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
@@ -106,6 +108,54 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
 |차원 이름|설명|
 | ------------------- | ----------------- |
 |EntityName| Service Bus는 네임스페이스에서 메시징 엔터티를 지원합니다.|
+
+## <a name="set-up-alerts-on-metrics"></a>메트릭에 대한 경고 설정
+
+1. **Service Bus 네임스페이스** 페이지의 **메트릭** 탭에서 **경고 구성**을 선택합니다. 
+
+    ![메트릭 페이지 - 경고 메뉴 구성](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
+2. **대상 선택**을 선택하고, **리소스 선택** 페이지에서 다음 작업을 수행합니다. 
+    1. **리소스 종류별로 필터링** 필드에서 **Service Bus 네임스페이스**를 선택합니다. 
+    2. **구독별로 필터링** 필드에서 구독을 선택합니다.
+    3. 목록에서 **Service Bus 네임스페이스**를 선택합니다. 
+    4. **완료**를 선택합니다. 
+    
+        ![네임스페이스 선택](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+1. **조건 추가**를 선택하고, **신호 논리 구성** 페이지에서 다음 작업을 수행합니다.
+    1. **신호 형식**으로 **메트릭**을 선택합니다. 
+    2. 신호를 선택합니다. 예: **서비스 오류(미리 보기)**. 
+
+        ![서버 오류 선택](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
+    1. **조건**으로 **다음보다 큼**을 선택합니다.
+    2. **시간 집계**로 **전체**를 선택합니다. 
+    3. **임계값**으로 **5**를 입력합니다. 
+    4. **완료**를 선택합니다.    
+
+        ![조건 지정](./media/service-bus-metrics-azure-monitor/specify-condition.png)    
+1. **규칙 만들기** 페이지에서 **경고 세부 정보 정의**를 확장하고 다음 작업을 수행합니다.
+    1. 경고의 **이름**을 입력합니다. 
+    2. 경고에 대한 **설명** 을 입력합니다.
+    3. 경고의 **심각도**를 선택합니다. 
+
+        ![경고 세부 정보](./media/service-bus-metrics-azure-monitor/alert-details.png)
+1. **규칙 만들기** 페이지에서 **작업 그룹 정의**를 선택하고, **새 작업 그룹**을 선택하고, **작업 그룹 추가 페이지**에서 다음 작업을 수행합니다. 
+    1. 작업 그룹의 이름을 입력합니다.
+    2. 작업 그룹의 짧은 이름을 입력합니다. 
+    3. 구독을 선택합니다. 
+    4. 리소스 그룹을 선택합니다. 
+    5. 이 연습에서는 **작업 이름**으로 **이메일 보내기**를 입력합니다.
+    6. **작업 형식**으로 **이메일/SMS/푸시/음성**을 선택합니다. 
+    7. **세부 정보 편집**을 선택합니다. 
+    8. **이메일/SMS/푸시/음성** 페이지에서 다음 작업을 수행합니다.
+        1. **이메일**을 선택합니다. 
+        2. **이메일 주소**를 입력합니다. 
+        3. **확인**을 선택합니다.
+
+            ![경고 세부 정보](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+        4. **작업 그룹 추가** 페이지에서 **확인**을 선택합니다. 
+1. **규칙 만들기** 페이지에서 **경고 규칙 만들기**를 선택합니다. 
+
+    ![경고 규칙 만들기 단추](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
 ## <a name="next-steps"></a>다음 단계
 

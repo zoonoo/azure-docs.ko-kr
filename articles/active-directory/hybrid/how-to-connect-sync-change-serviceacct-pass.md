@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b0b88622069801124aff5b44dc4b813838f41c73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310482"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747255"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Azure AD Connect 동기화 서비스 계정 암호 변경
 Azure AD Connect 동기화 서비스 계정 암호를 변경하면 암호화 키를 제거하고 Azure AD Connect 동기화 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 
@@ -59,6 +59,8 @@ Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용�
 
 암호화 키를 제거해야 하는 경우 다음 절차를 사용하여 작업을 수행하십시오.
 
+1. [동기화 서비스 중지](#stop-the-synchronization-service)
+
 1. [기존 암호화 키 제거](#abandon-the-existing-encryption-key)
 
 2. [AD DS 계정의 암호 제공](#provide-the-password-of-the-ad-ds-account)
@@ -66,6 +68,13 @@ Azure AD Connect는 동기화 서비스의 일환으로 암호화 키를 사용�
 3. [Azure AD 동기화 계정의 암호를 다시 초기화](#reinitialize-the-password-of-the-azure-ad-sync-account)
 
 4. [동기화 서비스 시작](#start-the-synchronization-service)
+
+#### <a name="stop-the-synchronization-service"></a>동기화 서비스 중지
+먼저 Windows 서비스 제어 관리자에서 서비스를 중지할 수 있습니다.  서비스 중지를 시도할 때 서비스가 실행 중이지 않은지 확인합니다.  실행 중인 경우 완료될 때까지 기다렸다가 중지합니다.
+
+
+1. Windows 서비스 제어 관리자로 이동합니다(시작 → 서비스).
+2. **Microsoft Azure AD Sync**를 선택하고 [중지]를 클릭합니다.
 
 #### <a name="abandon-the-existing-encryption-key"></a>기존 암호화 키 제거
 새 암호화 키를 만들 수 있도록 기존 암호화 키를 제거합니다.

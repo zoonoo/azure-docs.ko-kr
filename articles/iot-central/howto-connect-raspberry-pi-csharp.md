@@ -1,19 +1,19 @@
 ---
 title: Raspberry Pi를 Azure IoT Central 응용 프로그램에 연결(C#) | Microsoft Docs
 description: 장치 개발자로서 C#을 사용하여 Raspberry Pi를 Azure IoT Central 응용 프로그램에 연결하는 방법을 알아봅니다.
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/22/2018
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+manager: peterpr
+ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734238"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956726"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Azure IoT Central 응용 프로그램에 Raspberry Pi 연결(C#)
 
@@ -23,10 +23,10 @@ ms.locfileid: "45734238"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서의 단계를 완료하려면 다음이 필요합니다.
+이 문서의 단계를 완료하려면 다음 구성 요소가 필요합니다.
 
 * 개발 컴퓨터에 [.NET Core 2](https://www.microsoft.com/net)가 설치되어 있어야 합니다. 또한 [Visual Studio Code](https://code.visualstudio.com/) 같은 적절한 코드 편집기가 있어야 합니다.
-* **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 [Azure IoT Central 응용 프로그램 만들기](howto-create-application.md)를 참조하세요.
+* **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 * Raspbian 운영 체제를 실행하는 Raspberry Pi 장치.
 
 
@@ -34,10 +34,21 @@ ms.locfileid: "45734238"
 
 **샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Raspberry Pi** 장치가 포함됩니다. 
 
-- 장치에 대한 측정값 **습도**, **온도**, **압력**, **Magnometer**(X, Y, Z 축을 따라 측정됨), **Accelorometer**(X, Y, Z 축을 따라 측정됨) 및 **Gyroscope**(X, Y, Z 축을 따라 측정됨)를 포함하는 원격 분석입니다.
-- **전압**, **현재**, **팬 속도** 및 **IR** 토글을 보여주는 설정입니다.
-- 장치 속성 **다이 번호** 및 **위치** 클라우드 속성을 포함하는 속성입니다.
-
+- 원격 분석으로 디바이스가 수집하는 다음 측정값을 포함합니다.
+    - 습도
+    - 온도
+    - 압력
+    - 지자기 센터(X, Y, Z)
+    - 가속도계(X, Y, Z)
+    - 자이로스코프(X, Y, Z)
+- 설정
+    - 전압
+    - Current
+    - 팬 속도
+    - IR 토글
+- properties
+    - 다이 번호 디바이스 속성
+    - 위치 클라우드 속성
 
 장치 템플릿 구성에 대한 자세한 내용은 [Raspberry PI 장치 템플릿 세부 정보](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details) 참조
 

@@ -2,18 +2,18 @@
 title: Azure IoT Edge 인증서 이해 | Microsoft Docs
 description: Azure IoT Edge 인증서 및 사용 방법에 대해 알아봅니다.
 author: stevebus
-manager: timlt
+manager: philmea
 ms.author: stevebus
 ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a782a7341e53420dbc31fefc86007951df967a9e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5ff85f2c9ef708c7cbac9be4933541f063a6c95b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307982"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568593"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge 인증서 사용 현황 세부 정보
 
@@ -78,9 +78,9 @@ Edge Hub 서버 인증서는 IoT Edge에 요구되는 TLS 연결을 설정하는
 
 ## <a name="devtest-implications"></a>개발/테스트 영향
 
-개발 및 테스트 시나리오를 간소화하기 위해 Microsoft는 투명 게이트웨이 시나리오의 IoT Edge에 적합한 비-프로덕션 인증서를 생성하기 위한 [편리한 스크립트](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) 집합을 제공합니다.
+개발 및 테스트 시나리오를 간소화하기 위해 Microsoft는 투명 게이트웨이 시나리오의 IoT Edge에 적합한 비-프로덕션 인증서를 생성하기 위한 [편리한 스크립트](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) 집합을 제공합니다. 스크립트 작동 방식의 예제는 [IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성](how-to-create-transparent-gateway.md)을 참조하세요.
 
-이러한 스크립트는 이 문서에서 설명한 인증서 체인 구조체를 따르는 인증서를 생성합니다. [Linux](how-to-create-transparent-gateway-linux.md#certificate-creation) 또는 [Windows](how-to-create-transparent-gateway-windows.md#certificate-creation)의 경우 다음 명령은 “루트 CA 인증서” 및 단일 “중간 CA 인증서”를 생성합니다.
+이러한 스크립트는 이 문서에서 설명한 인증서 체인 구조체를 따르는 인증서를 생성합니다. 다음 명령은 “루트 CA 인증서” 및 단일 “중간 CA 인증서”를 생성합니다.
 
 ```bash
 ./certGen.sh create_root_and_intermediate 
@@ -124,6 +124,4 @@ New-CACertsEdgeDevice "<gateway device name>"
 
 [Azure IoT Edge 모듈 이해](iot-edge-modules.md)
 
-[IoT Edge 장치를 투명 게이트웨이로 사용(Linux)](how-to-create-transparent-gateway-linux.md)
-
-[IoT Edge 장치를 투명 게이트웨이로 사용(Windows)](how-to-create-transparent-gateway-windows.md)
+[IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성](how-to-create-transparent-gateway.md)

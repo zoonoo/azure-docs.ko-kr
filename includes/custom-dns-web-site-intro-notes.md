@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+ms.openlocfilehash: 4ab12a4ccb3aa4acecabd076c774558f904297a1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572407"
+---
 이 문서는 Azure App Service(Web Apps, API Apps, Mobile Apps, Logic Apps)용입니다. Cloud Services의 경우 [Azure Cloud Services에서 사용자 지정 도메인 이름 구성](../articles/cloud-services/cloud-services-custom-domain-name.md)을 참조하세요.
 
 > [!NOTE]

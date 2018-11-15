@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 70372f30ffaea1fafda3f76d4754489ae89a0a7c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390179"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016701"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -48,13 +48,9 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 노드에서 OS 업데이트를 자동으로 수신하나요?
 
-당장은 아니지만, 이것 역시 Azure에서 제공하고자 하는 일반적인 요청입니다.
+일반적으로 요즘 제공되는 기능인 [Virtual Machine Scale Set 자동 OS 이미지 업데이트](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)를 사용할 수 있습니다.
 
-일단 Service Fabric 노드 아래의 운영 체제를 패치하고 최신 상태로 유지하는 [응용 프로그램을 제공](service-fabric-patch-orchestration-application.md)하고 있습니다.
-
-OS 업데이트 문제는 일반적으로 컴퓨터를 재부팅해야 하며 이로 인해 일시적인 가용성 손실이 발생합니다. Service Fabric에서 해당 서비스에 대한 트래픽을 다른 노드로 리디렉션하므로 이것 자체는 문제가 아닙니다. 하지만 OS 업데이트가 클러스터 간에 조정되지 않는다면 많은 노드가 한 번에 다운될 가능성이 있습니다. 이러한 동시 재부팅은 서비스 또는 적어도 특정 파티션(상태 저장 서비스)에 대한 총체적인 가용성 손실을 유도할 수 있습니다.
-
-향후에는 완전 자동화되고 업데이트 도메인 간에 조정되는 OS 업데이트 정책을 지원하여 재부팅하거나 다른 예기치 않은 오류가 발생해도 가용성이 유지되도록 할 것입니다.
+Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아래의 운영 체제를 패치하기 위한 [을 제공](service-fabric-patch-orchestration-application.md)하고 있습니다.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>SF 클러스터에서 큰 가상 머신 확장 집합을 사용할 수 있나요? 
 

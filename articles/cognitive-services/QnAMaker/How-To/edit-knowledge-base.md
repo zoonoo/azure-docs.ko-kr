@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/06/2018
 ms.author: tulasim
-ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451887"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279764"
 ---
 # <a name="edit-a-knowledge-base"></a>기술 자료 편집
 
@@ -89,6 +89,12 @@ QnA를 삭제하려면 QnA 행의 맨 오른쪽에 있는 **삭제** 아이콘�
 3. **페이지 매김**을 사용하면 큰 기술 자료를 관리할 수 있습니다.
 
     ![검색, 페이지 매김, 그룹화](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+## <a name="delete-knowledge-bases"></a>기술 자료 삭제
+
+KB(기술 자료)를 삭제하는 것은 영구 작업입니다. 실행을 취소할 수 없습니다. 기술 자료를 삭제하기 전에 QnA Maker 포털의 **설정** 페이지에서 기술 자료를 내보내야 합니다. 
+
+[협력자](collaborate-knowledge-base.md)와 KB를 공유한 다음, 삭제하는 경우 모든 사용자가 KB에 액세스할 수 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

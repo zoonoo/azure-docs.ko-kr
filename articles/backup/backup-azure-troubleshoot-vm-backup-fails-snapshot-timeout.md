@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420968"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260502"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -48,7 +48,6 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 **오류 코드**: UserErrorRpCollectionLimitReached <br>
 **오류 메시지**: 복원 지점 컬렉션이 최대 한도에 도달했습니다. <br>
-설명:  
 * 이 문제는 복구 지점 리소스 그룹에 대한 잠금으로 인해 복구 지점을 자동으로 정리할 수 없는 경우에 발생할 수 있습니다.
 * 하루에 여러 개의 백업이 트리거되는 경우에도 이 문제가 발생할 수 있습니다. 현재, 인스턴트 RP가 7일간 보존되고 항상 18개의 인스턴트 RP만 VM에 연결될 수 있으므로 하루에 하나의 백업만 사용하는 것이 좋습니다. <br>
 
@@ -96,6 +95,21 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **원인 5: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
 **원인 6: [리소스 그룹이 잠겨 있으므로 Backup 서비스에 이전 복원 지점을 삭제할 수 있는 권한이 없습니다.](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
 
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - 현재 Azure Backup은 1,023GB보다 큰 디스크 크기를 지원하지 않습니다.
+
+**오류 코드**: UserErrorUnsupportedDiskSize <br>
+**오류 메시지**: 현재 Azure Backup은 1023GB보다 큰 디스크 크기를 지원하지 않습니다. <br>
+
+자격 증명 모음이 Azure VM Backup 스택 V2로 업그레이드되지 않아 디스크 크기가 1023GB를 초과하는 VM을 백업할 때 백업 작업이 실패할 수 있습니다. Azure VM Backup 스택 V2로 업그레이드하면 최대 4TB까지 지원됩니다. 이러한 [혜택](backup-upgrade-to-vm-backup-stack-v2.md) 및 [고려 사항](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)을 검토한 후 다음 [지침](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)에 따라 업그레이드를 계속 진행하세요.  
+
+## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - 현재 Azure Backup은 표준 SSD 디스크를 지원하지 않습니다.
+
+**오류 코드**: UserErrorStandardSSDNotSupported <br>
+**오류 메시지**: 현재 Azure Backup은 표준 SSD 디스크를 지원하지 않습니다. <br>
+
+현재 Azure Backup은 Azure VM Backup 스택 V2로 업그레이드된 자격 증명 모음에만 표준 SSD 디스크를 지원합니다. 이러한 [혜택](backup-upgrade-to-vm-backup-stack-v2.md) 및 [고려 사항](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)을 검토한 후 다음 [지침](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)에 따라 업그레이드를 계속 진행하세요.
+
+
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법
 
 ### <a name="the-vm-has-no-internet-access"></a>VM이 인터넷에 액세스할 수 없습니다.
@@ -139,7 +153,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 1. VM 서비스(services.msc)에서 Windows 게스트 에이전트 서비스가 실행 중인지 확인합니다. Windows 게스트 에이전트 서비스를 다시 시작하고 백업을 시작해 보세요.    
 2. 서비스에서 Windows 게스트 에이전트 서비스가 표시되지 않으면 제어판에서 **프로그램 및 기능**으로 이동한 후 Windows 게스트 에이전트 서비스가 설치되어 있는지 확인합니다.
 4. Windows 게스트 에이전트에 **프로그램 및 기능**에 표시되면 Windows 게스트 에이전트를 제거합니다.
-5. [최신 버전의 에이전트 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하고 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다.
+5. [최신 버전의 에이전트 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)를 다운로드하고 설치합니다. 설치를 완료하려면 관리자 권한이 있어야 합니다.
 6. Windows 게스트 에이전트 서비스가 서비스에 표시되는지 확인합니다.
 7. 다음과 같이 주문형 백업을 실행합니다.
     * 포털에서 **지금 백업**을 선택합니다.
@@ -208,7 +222,7 @@ Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>복구 지점 리소스 그룹에서 잠금 제거
 1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
-2. **모든 리소스 옵션**으로 이동한 다음, AzureBackupRG_<Geo>_<number> 형식의 복원 지점 컬렉션 리소스 그룹을 선택합니다.
+2. **모든 리소스 옵션**으로 이동한 다음, AzureBackupRG_`<Geo>`_`<number>` 형식의 복원 지점 컬렉션 리소스 그룹을 선택합니다.
 3. **설정** 섹션에서 **잠금**을 선택하여 잠금을 표시합니다.
 4. 잠금을 제거하려면 줄임표를 선택하고 **삭제**를 클릭합니다.
 
@@ -217,15 +231,15 @@ Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [
 ### <a name="clean_up_restore_point_collection"></a> 복원 지점 컬렉션 정리
 잠금을 제거한 후 복원 지점을 정리해야 합니다. 복원 지점을 정리하려면 다음 방법 중 하나를 따르세요.<br>
 * [임시 백업을 실행하여 복원 지점 컬렉션 정리](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [백업 서비스에서 만든 복원 지점 컬렉션을 포털에서 정리](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
+* [Azure Portal에서 복원 지점 컬렉션 정리](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>임시 백업을 실행하여 복원 지점 컬렉션 정리
 잠금을 제거한 후 임시/수동 백업을 트리거합니다. 그러면 복원 지점이 자동으로 정리됩니다. 처음에는 이 임시/수동 작업이 실패하지만, 복원 지점을 수동으로 삭제하는 대신 자동 정리되도록 합니다. 정리 후에 예약된 다음 백업은 성공합니다.
 
 > [!NOTE]
-    > 임시/수동 백업을 트리거하고 몇 시간 후에 자동 정리가 수행됩니다. 예약된 백업이 여전히 실패하는 경우 [여기](#clean-up-restore-point-collection-from-portal-created-by-backup-service)에 나열된 단계를 따라 복원 지점 컬렉션을 수동으로 삭제해 보세요.
+    > 임시/수동 백업을 트리거하고 몇 시간 후에 자동 정리가 수행됩니다. 예약된 백업이 여전히 실패하는 경우 [여기](#clean-up-restore-point-collection-from-azure-portal)에 나열된 단계를 따라 복원 지점 컬렉션을 수동으로 삭제해 보세요.
 
-#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>백업 서비스에서 만든 복원 지점 컬렉션을 포털에서 정리<br>
+#### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Azure Portal에서 복원 지점 컬렉션 정리 <br>
 
 리소스 그룹에 대한 잠금으로 인해 지워지지 않은 복원 지점 컬렉션을 수동으로 지우려면 다음 단계를 따르세요.
 1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.

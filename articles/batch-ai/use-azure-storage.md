@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731805"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615606"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Azure Storage를 사용하여 Batch AI 작업 입출력 저장
 
@@ -98,7 +98,7 @@ Azure CLI를 사용하여 만든 클러스터에 Azure Storage 볼륨을 탑재�
 
 ### <a name="abbreviate-input-paths"></a>입력 경로 단축
 
-환경 변수로 입력 경로를 단축하려면 `job.json` 파일의 `inputDirectories` 속성(또는 Batch AI SDK를 사용한다면 `models.JobCreateParamters.input_directories`)을 사용합니다. `inputDirectories`의 스키마는 다음과 같습니다.
+환경 변수로 입력 경로를 단축하려면 `job.json` 파일의 `inputDirectories` 속성(또는 Batch AI SDK를 사용한다면 `models.JobCreateParameters.input_directories`)을 사용합니다. `inputDirectories`의 스키마는 다음과 같습니다.
 
 ```json
 {
@@ -115,7 +115,7 @@ Azure CLI를 사용하여 만든 클러스터에 Azure Storage 볼륨을 탑재�
 
 ### <a name="abbreviate-output-paths"></a>출력 경로 단축
 
-출력 경로를 환경 변수로 단축하려면 `job.json` 파일의 `outputDirectories` 속성(또는 Batch AI SDK를 사용한다면 `models.JobCreateParamters.output_directories`)을 사용합니다. 이 방법을 사용하면 출력 파일의 경로를 단순화할 수 있습니다. `outputDirectories`의 스키마는 다음과 같습니다.
+출력 경로를 환경 변수로 단축하려면 `job.json` 파일의 `outputDirectories` 속성(또는 Batch AI SDK를 사용한다면 `models.JobCreateParameters.output_directories`)을 사용합니다. 이 방법을 사용하면 출력 파일의 경로를 단순화할 수 있습니다. `outputDirectories`의 스키마는 다음과 같습니다.
 
 ```json
 {

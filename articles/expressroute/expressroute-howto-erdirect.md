@@ -1,18 +1,18 @@
 ---
 title: Azure ExpressRoute Direct 구성 방법 | Microsoft Docs
-description: 이 페이지는 ExpressRoute Direct(미리 보기) 구성에 도움이 됩니다.
+description: 이 페이지를 참조하여 ExpressRoute Direct(미리 보기)를 구성할 수 있습니다.
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: cherylmc
-ms.openlocfilehash: e0009791263c45e0172abcb4836aaadde26f3ace
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 11/02/2018
+ms.author: jaredro
+ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887192"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959676"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>ExpressRoute Direct(미리 보기) 구성 방법
 
@@ -23,7 +23,7 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
 >
 > 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="resources"></a>1. 리소스 만들기
+## <a name="resources"></a>리소스 만들기
 
 1. Azure에 로그인하고 구독을 선택합니다. ExpressRoute Direct 리소스와 ExpressRoute 회로가 동일한 구독에 있어야 합니다.
 
@@ -89,12 +89,12 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
   ```
 4. 위에서 선택한 위치를 기준으로 ExpressRoute Direct 리소스 만들기
 
-  ExpressRoute Direct는 QinQ 및 Dot1Q VLAN 캡슐화를 둘 다 지원합니다. QinQ가 선택된 경우 각 ExpressRoute 회로에 S-Tag가 동적으로 할당되며 ExpressRoute Direct 리소스 전체에서 고유합니다. 회로의 각 C-Tag는 회로에서 고유해야 하지만 ExpressRoute Direct 전체에서 고유할 필요는 없습니다.  
+  ExpressRoute Direct는 QinQ 및 Dot1Q VLAN 캡슐화를 둘 다 지원합니다. QinQ를 선택한 경우 ExpressRoute Direct 리소스 전체에서 고유하게 식별되는 S-Tag가 각 ExpressRoute 회로에 동적으로 할당됩니다. 회로의 각 C-Tag는 회로에서 고유해야 하지만 ExpressRoute Direct 전체에서 고유할 필요는 없습니다.  
 
   Dot1Q 캡슐화가 선택된 경우 전체 ExpressRoute Direct 리소스에서 C-Tag(VLAN)의 고유성을 관리해야 합니다.  
 
   > [!IMPORTANT]
-  > ExpressRoute Direct는 하나의 캡슐화 유형일 수만 있습니다. ExpressRoute Direct를 만든 후에는 캡슐화를 변경할 수 없습니다.
+  > ExpressRoute Direct에는 한 가지 유형으로만 캡슐화할 수 있습니다. ExpressRoute Direct를 만든 후에는 캡슐화를 변경할 수 없습니다.
   > 
  
   ```powershell 
@@ -154,10 +154,9 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
   Circuits                   : []
   ```
 
-## <a name="state"></a>2. 링크의 관리 상태 변경
+## <a name="state"></a>링크의 관리 상태 변경
 
-이 프로세스를 사용하여 계층 1 테스트를 수행하고 각 교차 연결이 1차 및 2차 포트에 대한 각 라우터에 제대로 패치되도록 합니다.
-
+  이 프로세스를 사용하여 계층 1 테스트를 수행하고 각 교차 연결이 1차 및 2차 포트에 대한 각 라우터에 제대로 패치되도록 합니다.
 1. ExpressRoute Direct 세부 정보를 가져옵니다.
 
   ```powershell
@@ -223,55 +222,55 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
   Circuits                   : []
   ```
 
-`AdminState = “Disabled”`로 동일한 절차를 사용하여 포트 작동을 중단합니다.
+  `AdminState = “Disabled”`로 동일한 절차를 사용하여 포트 작동을 중단합니다.
 
-## <a name="circuit"></a>3. 회로 만들기
+## <a name="circuit"></a>회로 만들기
 
 기본적으로 ExpressRoute Direct 리소스가 있는 구독에서 10개의 회로를 만들 수 있습니다. 이 제한은 지원 서비스에서 늘릴 수 있습니다. 사용자는 프로비전된 대역폭과 사용된 대역폭을 둘 다 추적할 책임이 있습니다. 프로비전된 대역폭은 ExpressRoute Direct 리소스에 있는 모든 회로의 대역폭 합계이고, 사용된 대역폭은 기본 물리적 인터페이스의 물리적 사용량입니다.
 
-위에 설명된 시나리오를 지원하기 위해서만 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 40Gbps 및 100Gbps입니다.
+위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 40Gbps 및 100Gbps입니다.
 
 표준 또는 프리미엄 회로를 만들 수 있습니다. 표준 회로는 비용에 포함되지만, 프리미엄 회로는 선택한 대역폭을 기준으로 비용이 부과됩니다. ExpressRoute Direct에서는 무제한이 지원되지 않으므로 데이터 통신 연결로만 회로를 만들 수 있습니다.
 
 ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
-```powershell
-New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 1.0 | 2.0 | 5.0 | 10.0 | 40.0 | 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
-```
+  ```powershell
+  New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
+  ```
 
-기타 대역폭에는 1.0, 2.0, 5.0, 10.0 및 40.0이 있습니다.
+  기타 대역폭에는 5.0, 10.0 및 40.0이 있습니다.
 
-**예제 출력:**
+  **예제 출력:**
 
-```powershell
-Name                             : ExpressRoute-Direct-ckt
-ResourceGroupName                : Contoso-Direct-rg
-Location                         : westcentralus
-Id                               : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Netwo
+  ```powershell
+  Name                             : ExpressRoute-Direct-ckt
+  ResourceGroupName                : Contoso-Direct-rg
+  Location                         : westcentralus
+  Id                               : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Netwo
                                    rk/expressRouteCircuits/ExpressRoute-Direct-ckt
-Etag                             : W/"<etagnumber>"
-ProvisioningState                : Succeeded
-Sku                              : {
+  Etag                             : W/"<etagnumber>"
+  ProvisioningState                : Succeeded
+  Sku                              : {
                                      "Name": "Premium_MeteredData",
                                      "Tier": "Premium",
                                      "Family": "MeteredData"
                                    }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             : 
-ServiceProviderProperties        : null
-ExpressRoutePort                 : {
+  CircuitProvisioningState         : Enabled
+  ServiceProviderProvisioningState : Provisioned
+  ServiceProviderNotes             : 
+    ServiceProviderProperties        : null
+  ExpressRoutePort                 : {
                                      "Id": "/subscriptions/<subscriptionID>n/resourceGroups/Contoso-Direct-rg/providers/Micros
                                    oft.Network/expressRoutePorts/Contoso-Direct"
                                    }
-BandwidthInGbps                  : 10
-Stag                             : 2
-ServiceKey                       : <number>
-Peerings                         : []
-Authorizations                   : []
-AllowClassicOperations           : False
-GatewayManagerEtag     
-```
+  BandwidthInGbps                  : 10
+  Stag                             : 2
+  ServiceKey                       : <number>
+  Peerings                         : []
+  Authorizations                   : []
+  AllowClassicOperations           : False
+  GatewayManagerEtag     
+  ```
 
 ## <a name="next-steps"></a>다음 단계
 

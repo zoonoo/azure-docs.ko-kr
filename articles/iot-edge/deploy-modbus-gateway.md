@@ -2,18 +2,18 @@
 title: Azure IoT Edge에 Modbus 배포 | Microsoft Docs
 description: Modbus TCP를 사용하는 장치에서 IoT Edge 게이트웨이 장치를 만들어 Azure IoT Hub와 통신할 수 있도록 합니다.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: e9db20a1458c398913387e40d247400ee933578b
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: d8675042874ffaa824ccd1bf3b0017f0219268b8
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912308"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566400"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>IoT Edge 장치 게이트웨이를 통해 Modbus TCP 장치 연결
 

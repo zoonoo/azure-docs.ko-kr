@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 07/26/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 7c6445624b2c03497c881b0c34bac8256fa28a98
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302046"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686605"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse 용량 제한
 Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최댓값입니다.
@@ -35,7 +35,7 @@ Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최�
 |:--- |:--- |:--- |
 | 데이터베이스 |최대 크기 | Gen1: 디스크에서 압축된 240TB 이 공간은 tempdb 또는 로그 공간과 독립적이므로 영구 테이블에만 사용됩니다.  클러스터형 columnstore의 압축에 따른 예상 크기 증가 비율은 5배입니다.  즉, 모든 테이블이 클러스터형 columnstore(기본 테이블 유형)일 때 이러한 압축을 통해 데이터베이스를 약 1PB로 확장할 수 있습니다. <br/><br/> Gen2: rowstore에 240TB 및 columnstore 테이블에 무제한 저장소 |
 | 테이블 |최대 크기 |디스크에서 압축된 60TB |
-| 테이블 |데이터베이스 당 테이블 |10000 |
+| 테이블 |데이터베이스 당 테이블 | 100,000 |
 | 테이블 |테이블 당 열 |1024열 |
 | 테이블 |열 당 바이트 |열 [데이터 형식](sql-data-warehouse-tables-data-types.md)에 따라 다릅니다. char 데이터 형식의 경우 8,000자, nvarchar의 경우 4,000자, MAX 데이터 형식의 경우 2GB로 제한됩니다. |
 | 테이블 |행 당 바이트, 정의된 크기 |8,060바이트<br/><br/>행당 바이트 수는 페이지 압축이 설정된 SQL Server에 대한 방법과 동일하게 계산됩니다. SQL Server와 마찬가지로, SQL Data Warehouse는 **가변 길이 열**을 행 외부로 밀수 있게 하는 행 오버플로 저장소를 지원합니다. 가변 길이 행을 행 외부로 밀어 넣으면 주 레코드에는 24바이트 루트만 저장됩니다. 자세한 내용은 [8KB를 초과하는 행 오버플로 데이터](https://msdn.microsoft.com/library/ms186981.aspx)를 참조하세요. |
@@ -69,7 +69,7 @@ Azure SQL Data Warehouse의 다양한 구성 요소에 대해 허용되는 최�
 | SELECT |조인 당 열 |1024열<br/><br/>조인에는 1024개 이상의 열이 있어서는 안 됩니다. 항상 1024가 있다고 보장할 수 없습니다. 조인 계획에 조인 결과보다 많은 열을 가진 임시 테이블이 필요한 경우 1024 제한은 임시 테이블에 적용됩니다. |
 | SELECT |그룹화 기준 열 당 바이트. |8060<br/><br/>GROUP BY 절의 열은 최대 8060바이트를 포함할 수 있습니다. |
 | SELECT |정렬 기준 열 당 바이트 |8,060바이트<br/><br/>ORDER BY 절의 열은 최대 8060바이트를 포함할 수 있습니다. |
-| 명령문당 식별자 |참조된 식별자의 수 |65,535<br/><br/>SQL Data Warehouse는 쿼리의 단일 수식에 포함될 수 있는 식별자의 수를 제한합니다. 이 숫자를 초과하면 SQL Server 오류 8632가 발생합니다. 자세한 내용은 [내부 오류: 식 서비스 제한에 도달했습니다][내부 오류: 식 서비스 제한에 도달했습니다]를 참조하세요. |
+| 명령문당 식별자 |참조된 식별자의 수 |65,535<br/><br/>SQL Data Warehouse는 쿼리의 단일 수식에 포함될 수 있는 식별자의 수를 제한합니다. 이 숫자를 초과하면 SQL Server 오류 8632가 발생합니다. 자세한 내용은 [내부 오류: 식 서비스 제한에 도달했습니다.](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a)를 참조하세요. |
 | 문자열 리터럴 | 명령문의 문자열 리터럴 수 | 20,000 <br/><br/>SQL Data Warehouse는 쿼리의 단일 수식에서 문자열 상수의 수를 제한합니다. 이 숫자를 초과하면 SQL Server 오류 8632가 발생합니다.|
 
 ## <a name="metadata"></a>Metadata

@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b4f9bd1c7390d64a0db08b55bfb777498a10cb0
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 343264f90ecf067786db9c0096625b87b2dbd319
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382708"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004411"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 Azure Functions 개발 및 배포
 
@@ -74,7 +74,7 @@ VS Code는 입력한 정보를 사용하고, Azure Functions 프로젝트로 IoT
 
 ## <a name="develop-your-module"></a>모듈 개발
 
-솔루션과 함께 제공되는 기본 Azure Function 코드는 **모듈** > [모듈 이름] > **EdgeHubTrigger-Csharp** > **run.csx**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
+솔루션과 함께 제공되는 기본 Azure Function 코드는 **모듈** > [모듈 이름] > **modulename.cs**에 위치합니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
 고유한 코드를 사용하여 Azure Function 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
 
@@ -93,7 +93,7 @@ VS Code Docker 탐색기를 사용하거나 터미널에서 `docker ps` 명령�
 
    ![디버그 구성 선택](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
-2. `run.csx`로 이동합니다. 함수에 중단점을 추가합니다.
+2. `modulename.cs`로 이동합니다. 함수에 중단점을 추가합니다.
 3. **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다. 연결할 프로세스를 선택합니다.
 4. VS Code 디버그 보기의 왼쪽 패널에서 변수가 표시됩니다. 
 

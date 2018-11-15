@@ -7,22 +7,22 @@ author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 11/07/2018
 ms.author: bahariri
-ms.openlocfilehash: b1a046fdb62926d32c05bab5a1616b250911865b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 7f452fe9797e688dc05b644c003117461b4f8bb9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352576"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277497"
 ---
-# <a name="azure-event-hubs-for-apache-kafka-preview"></a>Apache Kafka용 Azure Event Hubs(미리 보기)
+# <a name="azure-event-hubs-for-apache-kafka"></a>Apache Kafka용 Azure Event Hubs 
 
 Event Hubs는 기존 Kafka 기반 응용 프로그램이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 끝점을 제공합니다. Event Hubs는 [Apache Kafka 프로토콜 1.0 이상](https://kafka.apache.org/documentation/)을 지원하고 MirrorMaker를 포함하여 기존 Kafka 응용 프로그램과 작동합니다. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Kafka용 Event Hubs는 무엇을 제공하나요?
 
-Kafka용 Event Hubs 기능은 Kafka 버전 1.0과 호환가능한 이진이며 나중에 Kafka 토픽에서 읽기 및 쓰기를 위한 Azure Event Hubs에 프로토콜 헤드를 제공합니다. 코드 변경 없이 최소한의 구성 변경으로 응용 프로그램에서 Kafka 엔드포인트를 사용하여 시작할 수 있습니다. Kafka 클러스터를 가리키는 대신 이벤트 허브에서 노출된 Kafka 엔드포인트를 가리키도록 구성에서 연결 문자열을 업데이트합니다. 그런 다음, Kafka 프로토콜을 사용하는 응용 프로그램에서 Event Hubs로 이벤트 스트리밍을 시작할 수 있습니다. 
+Kafka용 Event Hubs 기능은 Kafka 버전 1.0과 호환가능한 이진이며 나중에 Kafka 토픽에서 읽기 및 쓰기를 위한 Azure Event Hubs에 프로토콜 헤드를 제공합니다. 코드 변경 없이 최소한의 구성 변경으로 응용 프로그램에서 Kafka 엔드포인트를 사용하여 시작할 수 있습니다. Kafka 클러스터를 가리키는 대신 이벤트 허브에서 노출된 Kafka 엔드포인트를 가리키도록 구성에서 연결 문자열을 업데이트합니다. 그런 다음, Kafka 프로토콜을 사용하는 응용 프로그램에서 Event Hubs로 이벤트 스트리밍을 시작할 수 있습니다. 또한 이 통합은 현재 미리 보기로 제공되는 [Kafka Connect](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect) 같은 프레임워크를 지원합니다. 
 
 개념적으로 Kafka와 Event Hubs는 거의 동일합니다. 둘 다 스트리밍 데이터를 위해 빌드한 분할된 로그입니다. 다음 표에서 Kafka 및 Event Hubs 간 개념을 매핑합니다.
 
@@ -50,9 +50,9 @@ Azure Event Hubs는 모든 통신에 SSL 또는 TLS를 필요로 하며 인증�
 
 Kafka용 Event Hubs 기능을 사용하면 한 프로토콜로 읽고 다른 프로토콜로 쓸 수 있으므로 현재 Kafka 생산자는 Kafka를 통해 게시를 계속할 수 있으며 Azure Stream Analytics 또는 Azure Functions 같은 Event Hubs를 사용하여 판독기를 추가할 수도 있습니다. 또한 [캡처](event-hubs-capture-overview.md) 및 [지역 재해 복구](event-hubs-geo-dr.md) 같은 Event Hubs 기능은 Kafka용 Event Hubs 기능과 함께 작동합니다.
 
-## <a name="features-that-are-not-supported-in-the-preview"></a>미리 보기에서 지원되지 않는 기능
+## <a name="features-that-are-not-yet-supported"></a>아직 지원되지 않는 기능 
 
-Kafka용 Event Hubs 통합의 공개 미리 보기의 경우 다음과 같은 Kafka 기능이 지원되지 않습니다.
+다음은 아직 지원되지 않는 Kafka 기능 목록입니다.
 
 *   Idempotent 생산자
 *   트랜잭션
@@ -61,18 +61,20 @@ Kafka용 Event Hubs 통합의 공개 미리 보기의 경우 다음과 같은 Ka
 *   로그 압축
 *   파티션을 기존 항목에 추가
 *   HTTP Kafka API 지원
-*   Kafka 연결
 *   Kafka 스트림
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서는 Kafka용 Event Hubs에 대한 소개를 제공합니다. 자세한 알아보려면 다음 링크를 참조하세요.
 
-* [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create-kafka-enabled.md)
-* [Kafka 응용 프로그램에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
-* [Event Hubs 자습서](event-hubs-dotnet-standard-getstarted-send.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+- [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create-kafka-enabled.md)
+- [Kafka 응용 프로그램에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Kafka 지원 이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Kafka 지원 이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
+- [Kafka 지원 이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
+- [Kafka 지원 이벤트 허브에 Kafka Connect 통합](event-hubs-kafka-connect-tutorial.md)
+- [Kafka 지원 이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
+- [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
 
  
  

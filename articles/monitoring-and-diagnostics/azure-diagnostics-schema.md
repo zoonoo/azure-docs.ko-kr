@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 603ed12bf74f2d75543fd7e60834e695138c991d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dbe2619b99fdc5281375e2c6c1300432d9a4cbb9
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963804"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616132"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 진단 확장 구성 스키마 버전 및 기록
 이 페이지는 Microsoft Azure SDK의 일부로 제공되는 Azure 진단 확장 스키마 버전을 인덱스합니다.  
@@ -67,7 +67,7 @@ Azure 진단 확장은 Azure Monitor, Application Insights 및 Log Analytics와 
 ### <a name="diagnostics-extension-111"></a>진단 확장 1.11
 Azure Monitor 싱크에 대한 지원이 추가되었습니다. 이 싱크는 성능 카운터에만 적용됩니다. VM, VMSS 또는 클라우드 서비스에 수집된 성능 카운터를 Azure Monitor에 사용자 지정 메트릭으로 보낼 수 있습니다. Azure Monitor 싱크는 다음을 지원합니다.
 * [Azure Monitor 메트릭 API](https://docs.microsoft.com/rest/api/monitor/metrics/list)를 통해 Azure Monitor로 보낸 모든 성능 카운터 검색
-* Azure Monitor의 새로운 [통합 경고 환경](monitoring-overview-unified-alerts.md)을 통해 Azure Monitor로 보낸 모든 성능 카운터에 대해 경고
+* Azure Monitor의 새로운 [통합 경고 환경](monitoring-overview-alerts.md)을 통해 Azure Monitor로 보낸 모든 성능 카운터에 대해 경고
 * 성능 카운터의 와일드카드 연산자를 메트릭에 대한 “인스턴스” 차원으로 처리. 예를 들어 “LogicalDisk(\*)/DiskWrites/sec” 카운터를 수집한 경우 “인스턴스” 차원을 기준으로 필터링 및 분할하여 각 논리 디스크(C:, D: 등)에 대해 Disk Writes/sec를 그리거나 경고할 수 있습니다.
 
 진단 확장 구성에서 Azure Monitor를 새 싱크로 정의

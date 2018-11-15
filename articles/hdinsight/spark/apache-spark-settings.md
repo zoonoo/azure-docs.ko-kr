@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: 926ce58872b06b41a0c7942b7090dcb4d5c8df03
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.openlocfilehash: 9533992b939983ceda37a7c98d0bc2426168a0ac
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956492"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279360"
 ---
 # <a name="configure-spark-settings"></a>Spark 설정 구성
 
@@ -30,11 +30,8 @@ HDInsight 클러스터 노드의 VM 수 및 VM 크기는 Spark 구성에 영향�
 
 클러스터에 최적의 Spark 버전을 사용합니다.  HDInsight 서비스에는 여러 버전의 Spark 및 HDInsight가 포함되어 있습니다.  Spark의 각 버전에는 기본 클러스터 설정 집합이 포함됩니다.  
 
-새 클러스터를 만들 때 다음과 같은 최신 Spark 버전 중에서 선택합니다.
+새 클러스터를 만들 때 여러 Spark 버전 중에서 선택할 수 있습니다. 전체 목록을 보려면 [HDInsight 구성 요소 및 버전](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning)을 참조하세요.
 
-![Spark 버전](./media/apache-spark-settings/spark-version.png)
-
-Spark 2.x는 Spark 1.x보다 훨씬 더 잘 실행될 수 있습니다. Spark 2.x에는 Tungsten, Catalyst Query Optimization 등과 같은 다양한 성능 최적화 기능이 포함되어 있습니다.  
 
 > [!NOTE]
 > HDInsight 서비스에서 Apache Spark의 기본 버전은 예고 없이 변경될 수 있습니다. 버전 종속성이 있는 경우 .NET SDK/Azure PowerShell 및 Azure 클래식 CLI를 사용하여 클러스터를 만들 때 특정 버전을 지정하는 것이 좋습니다.

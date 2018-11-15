@@ -4,8 +4,6 @@ description: 아웃바운드 규칙을 사용하여 아웃바운드 네트워크
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637565"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219378"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
 
@@ -67,11 +65,11 @@ Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 �
 
 ### <a name="scale"></a> 여러 IP 주소를 사용하여 아웃바운드 NAT 확장
 
-하나의 아웃바운드 규칙은 하나의 공용 IP 주소에만 사용할 수 있지만, 아웃바운드 규칙은 아웃바운드 NAT를 확장하기 위한 구성에 대한 부담을 덜어줍니다. 여러 IP 주소를 사용하여 대규모 시나리오를 계획하고, 아웃바운드 규칙을 사용하여 [SNAT를 고갈](load-balancer-outbound-connections.md#snatexhaust)시키는 경향의 패턴을 완화할 수 있습니다.  
+하나의 아웃바운드 규칙은 하나의 공용 IP 주소에만 사용할 수 있지만, 아웃바운드 규칙은 아웃바운드 NAT를 확장하기 위한 구성에 대한 부담을 덜어줍니다. 여러 IP 주소를 사용하여 대규모 시나리오를 계획하고, 아웃바운드 규칙을 사용하여 [SNAT 고갈](load-balancer-outbound-connections.md#snatexhaust) 가능성이 높은 경향의 패턴을 완화할 수 있습니다.  
 
-프런트 엔드에서 제공하는 추가 IP 주소 각각은 SNAT 포트로 사용할 Load Balancer에 대해 64,000개의 사용 후 삭제 포트를 제공합니다. 부하 분산 또는 인바운드 NAT 규칙에는 단일 프런트 엔드가 있지만, 아웃바운드 규칙에는 프런트 엔드 개념이 확장되고 규칙마다 여러 개의 프런트 엔드가 허용됩니다.  규칙당 여러 개의 프런트 엔드를 사용하는 경우 사용 가능한 SNAT 포트의 수에 각 공용 IP 주소를 곱하여 매우 큰 시나리오를 지원할 수 있습니다.
+프런트 엔드에서 제공하는 추가 IP 주소 각각은 SNAT 포트로 사용할 Load Balancer에 대해 64,000개의 사용 후 삭제 포트를 제공합니다. 부하 분산 또는 인바운드 NAT 규칙에는 단일 프런트 엔드가 있지만, 아웃바운드 규칙에는 프런트 엔드 개념이 확장되고 규칙마다 여러 개의 프런트 엔드가 허용됩니다.  규칙당 여러 개의 프런트 엔드를 사용하면 사용 가능한 SNAT 포트의 수에 각 공용 IP 주소를 곱하여 큰 시나리오를 지원할 수 있습니다.
 
-또한 아웃바운드 규칙에 [공용 IP 접두사](https://aka.ms/lbpublicipprefix)를 직접 사용할 수 있습니다.  이렇게 하면 Azure 배포에서 시작되는 흐름을 더 쉽게 확장하고 허용 목록 작성을 간소화할 수 있습니다. 공용 IP 주소 접두사를 직접 참조하도록 Load Balancer 리소스 내에 프런트 엔드 IP 구성을 구성할 수 있습니다.  이렇게 하면 Load Balancer에서 공용 IP 접두사를 독점적으로 제어하고, 아웃바운드 연결에 대한 공용 IP 접두사에 포함된 모든 공용 IP 주소가 아웃바운드 규칙에 자동으로 사용될 수 있습니다.  공용 IP 접두사 범위 내의 각 IP 주소는 Load Balancer에서 SNAT 포트로 사용할 IP 주소당 64,000개 사용 후 삭제 포트를 제공합니다.   
+또한 아웃바운드 규칙에 [공용 IP 접두사](https://aka.ms/lbpublicipprefix)를 직접 사용할 수 있습니다.  공용 IP 접두사를 사용하면 Azure 배포에서 시작되는 흐름을 더 쉽게 크기 조정하고 허용 목록에 추가를 간소화할 수 있습니다. 공용 IP 주소 접두사를 직접 참조하도록 Load Balancer 리소스 내에 프런트 엔드 IP 구성을 구성할 수 있습니다.  이렇게 하면 Load Balancer에서 공용 IP 접두사를 독점적으로 제어하고, 아웃바운드 연결에 대한 공용 IP 접두사에 포함된 모든 공용 IP 주소가 아웃바운드 규칙에 자동으로 사용될 수 있습니다.  공용 IP 접두사 범위 내의 각 IP 주소는 Load Balancer에서 SNAT 포트로 사용할 IP 주소당 64,000개 사용 후 삭제 포트를 제공합니다.   
 
 아웃바운드 규칙에서 공용 IP 접두사를 완전히 제어해야 하므로, 이 옵션을 사용하는 경우 공용 IP 접두사에서 만든 개별 공용 IP 주소 리소스는 사용할 수 없습니다.  더 세분화된 제어가 필요한 경우, 공용 IP 접두사에서 개별 공용 IP 주소 리소스를 만들고 여러 공용 IP 주소를 개별적으로 아웃바운드 규칙의 프런트 엔드에 할당할 수 있습니다.
 

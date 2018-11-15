@@ -1,134 +1,84 @@
 ---
-title: Azure Active Directory B2C에서 응용 프로그램 등록 | Microsoft Docs
-description: Azure Active Directory B2C로 응용 프로그램 등록하는 방법
+title: Azure Active Directory B2C에서 애플리케이션 등록 | Microsoft Docs
+description: Azure Active Directory B2C에 애플리케이션을 등록하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/13/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4f8a5b1ceda77ef254ad0c2afb7d2316581d778e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8068c4a8f38cd33a1a0547f5db5079bc75c76ec1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376399"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013414"
 ---
-# <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: 응용 프로그램 등록
+# <a name="register-an-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션 등록
 
-이 Quickstart를 통해 몇 분 이내에 Microsoft Azure Active Directory(Azure AD) B2C 테넌트에서 응용 프로그램을 등록할 수 있습니다. 완료되면 Azure AD B2C 테넌트에서 사용할 수 있도록 응용 프로그램이 등록됩니다.
+소비자 등록 및 로그인을 수락하는 [애플리케이션](active-directory-b2c-apps.md)을 만들려면 먼저 Azure AD B2C 테넌트를 사용하여 해당 애플리케이션을 등록해야 합니다. 이 문서를 통해 몇 분 이내에 Azure Active Directory(Azure AD) B2C 테넌트에서 애플리케이션을 등록할 수 있습니다. 완료되면 Azure AD B2C 테넌트에서 사용할 수 있도록 응용 프로그램이 등록됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-소비자 등록 및 로그인을 수락하는 응용 프로그램을 만들려면 먼저 Azure Active Directory B2C 테넌트를 사용하여 해당 응용 프로그램을 등록해야 합니다. [Azure AD B2C 테넌트 만들기](active-directory-b2c-get-started.md)에 요약한 단계를 사용하여 자신의 테넌트를 가져옵니다.
+[Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)의 단계를 사용하여 자신의 테넌트를 가져옵니다.
 
-Azure Portal에서 만든 응용 프로그램은 동일한 위치에서 관리되어야 합니다. PowerShell 또는 다른 포털을 사용하여 Azure AD B2C 응용 프로그램을 편집할 경우 해당 응용 프로그램이 지원되지 않으며 Azure AD B2C에서 작동하지 않습니다. [오류가 발생한 앱](#faulted-apps) 섹션에서 자세한 내용을 참조하세요. 
+애플리케이션 유형에 따라 다음 단계 선택
 
-이 문서에서는 샘플을 시작하는 데 도움이 되는 예제를 사용합니다. 후속 문서에서는 이러한 샘플에 대해 자세히 알아볼 수 있습니다.
+- [웹 응용 프로그램 등록](#register-a-web-application)
+- [웹 API 등록](#register-a-web-api)
+- [모바일 또는 네이티브 앱 등록](#register-a-mobile-or-native-application)
 
-## <a name="navigate-to-b2c-settings"></a>B2C 설정으로 이동
+## <a name="register-a-web-application"></a>웹 응용 프로그램 등록
 
-B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
+1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
+4. 응용 프로그램의 이름을 입력합니다. 예: *testapp1*
+5. **웹앱/웹 API 포함** 및 **암시적 흐름 허용**에 **예**를 선택합니다.
+6. **회신 URL**에는 Azure AD B2C에서 앱이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 예를 들어, `https://localhost:44316`에서 로컬로 수신 대기하도록 설정할 수 있습니다. 포트 번호를 아직 모르는 경우 자리 표시자 값을 입력한 후 나중에 변경할 수 있습니다.
+7. **만들기**를 클릭합니다.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+### <a name="create-a-client-secret"></a>클라이언트 비밀 만들기
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
+애플리케이션에서 Azure AD B2C로 보호되는 웹 API를 호출할 경우 애플리케이션 비밀을 만들어야 합니다.
 
-## <a name="choose-next-steps-based-on-your-application-type"></a>응용 프로그램 유형에 따라 다음 단계 선택
+1. **키**를 선택한 다음, **키 생성**을 클릭합니다. 
+2. **저장**을 선택하여 키를 확인합니다. **앱 키** 값을 기록해 둡니다. 이 값을 응용 프로그램의 코드에서 응용 프로그램 비밀로 사용합니다.
+3. **API 액세스**를 선택하고 **추가**를 클릭한 다음, 웹 API와 범위(사용 권한)를 선택합니다.
 
-* [웹 응용 프로그램 등록](#register-a-web-app)
-* [웹 API 등록](#register-a-web-api)
-* [모바일 또는 네이티브 앱 등록](#register-a-mobile-or-native-app)
- 
-### <a name="register-a-web-app"></a>웹앱 등록
+## <a name="register-a-web-api"></a>웹 API 등록
 
-[!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
+4. 응용 프로그램의 이름을 입력합니다. 예: *testapp2*.
+5. **웹앱/웹 API 포함** 및 **암시적 흐름 허용**에 **예**를 선택합니다.
+6. **회신 URL**에는 Azure AD B2C에서 앱이 요청한 토큰을 반환하는 엔드포인트를 입력합니다. 예를 들어, `https://localhost:44316`에서 로컬로 수신 대기하도록 설정할 수 있습니다. 포트 번호를 아직 모르는 경우 자리 표시자 값을 입력한 후 나중에 변경할 수 있습니다.
+7. **앱 ID URI**에 웹 API에 사용하는 식별자를 입력합니다. 도메인을 포함하는 전체 식별자 URI가 생성됩니다. 예: `https://contosotenant.onmicrosoft.com/api`
+8. **만들기**를 클릭합니다.
+9. **게시된 범위**를 선택하여 필요에 따라 범위를 더 추가합니다. 기본적으로 `user_impersonation` 범위가 정의됩니다. `user_impersonation` 범위는 로그인한 사용자를 대신하여 다른 애플리케이션에게 이 API에 액세스할 수 있는 기능을 부여합니다. 필요하면 `user_impersonation` 범위를 제거할 수 있습니다.
 
-### <a name="create-a-web-app-client-secret"></a>웹앱 클라이언트 암호 만들기
+## <a name="register-a-mobile-or-native-application"></a>모바일 또는 원시 앱 등록
 
-웹 응용 프로그램이 Azure AD B2C에서 보호하는 웹 API를 호출하는 경우 다음 단계를 수행하세요.
-   1. **키** 블레이드로 이동하여 **키 생성** 단추를 클릭하여 응용 프로그램 비밀을 만듭니다. **앱 키** 값을 기록해 둡니다. 이 값을 응용 프로그램의 코드에서 응용 프로그램 비밀로 사용합니다.
-   2. **API 액세스**를 클릭하고 **추가**를 클릭한 다음 웹 API와 범위(사용 권한)를 선택합니다.
+1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 및 구독 필터**를 클릭하고 테넌트가 포함된 디렉터리를 선택합니다.
+2. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. **응용 프로그램**을 선택하고 **추가**를 선택합니다.
+4. 응용 프로그램의 이름을 입력합니다. 예: *testapp3*.
+5. **웹앱/웹 API 포함**에 **아니요**를 선택합니다.
+6. **원시 클라이언트 포함**에 **예**를 선택합니다.
+7. **리디렉션 URI**에 [사용자 지정 체계로 리디렉션 URI](active-directory-b2c-apps.md)를 입력합니다. 적절한 리디렉션 URI를 선택하고 밑줄 등의 특수 문자를 포함하지 않습니다.
+8. **만들기**를 클릭합니다.
 
-> [!NOTE]
-> **응용 프로그램 비밀**은 중요한 보안 자격 증명이며 적절하게 보호해야 합니다.
-> 
+### <a name="create-a-client-secret"></a>클라이언트 비밀 만들기
 
-[**다음 단계**로 이동](#next-steps)
+애플리케이션에서 Azure AD B2C로 보호되는 웹 API를 호출할 경우 애플리케이션 비밀을 만들어야 합니다.
 
-### <a name="register-a-web-api"></a>웹 API 등록
-
-[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
-
-**게시된 범위**를 클릭하여 필요에 따라 범위를 더 추가합니다. 기본적으로 "user_impersonation" 범위가 정의됩니다. user_impersonation 범위가 로그인한 사용자를 대신하여 다른 응용 프로그램이 이 API에 액세스할 수 있는 기능을 부여합니다. 원하는 경우에 user_impersonation 범위를 제거할 수 있습니다.
-
-[**다음 단계**로 이동](#next-steps)
-
-### <a name="register-a-mobile-or-native-app"></a>모바일 또는 네이티브 응용 프로그램 등록
-
-[!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
-
-[**다음 단계**로 이동](#next-steps)
-
-## <a name="limitations"></a>제한 사항
-
-### <a name="choosing-a-web-app-or-api-reply-url"></a>웹앱 또는 API 회신 URL 선택
-
-현재, Azure AD B2C에 등록된 앱은 제한된 회신 URL 값 집합으로 제한됩니다. 웹앱 및 서비스에 대한 회산 URL은 스키마 `https`로 시작해야 하고 모든 회신 URL 값은 단일 DNS 도메인을 공유해야 합니다. 예를 들어 다음 회신 URL 중 하나가 있는 웹앱은 등록할 수 없습니다.
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-등록 시스템은 기존 회신 URL의 전체 DNS 이름을 편집하려는 회신 URL의 DNS 이름과 비교합니다. 다음 조건 중 하나라도 충족되는 경우 DNS 이름을 추가하는 요청이 실패하게 됩니다.
-
-* 새 회신 URL의 전체 DNS 이름이 기존 회신 URL의 DNS 이름과 일치하지 않는 경우
-* 새 회신 URL의 전체 DNS 이름이 기존 회신 URL의 하위 도메인이 아닌 경우
-
-예를 들어 앱에 다음 회신 URL이 있는 경우
-
-`https://login.contoso.com`
-
-다음과 같이 추가할 수 있습니다.
-
-`https://login.contoso.com/new`
-
-이 경우 DNS 이름이 정확히 일치합니다. 또는 다음을 수행할 수 있습니다.
-
-`https://new.login.contoso.com`
-
-이 경우 login.contoso.com의 DNS 하위 도메인을 참조합니다. 회신 URL로 login-east.contoso.com 및 login-west.contoso.com을 사용하는 앱을 원하는 경우 다음 회신 URL을 순서대로 추가해야 합니다.
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-뒤의 두 개는 첫 번째 회신 URL의 하위 도메인이므로 추가할 수 있습니다.
-
-### <a name="choosing-a-native-app-redirect-uri"></a>네이티브 앱 리디렉션 URI 선택
-
-모바일/네이티브 응용 프로그램에 대한 리디렉션 URI를 선택하는 경우 두 가지 중요한 고려 사항이 있습니다.
-
-* **고유**: 리디렉션 URI의 체계는 모든 응용 프로그램에 대해 고유해야 합니다. 예제(com.onmicrosoft.contoso.appname://redirect/path)에서는 com.onmicrosoft.contoso.appname이 체계입니다. 이 패턴을 따르는 것이 좋습니다. 두 개의 응용 프로그램이 동일한 체계를 공유하는 경우 "앱 선택" 대화 상자가 나타납니다. 사용자가 잘못 선택하는 경우 로그인이 실패합니다.
-* **전체**: 리디렉션 URI에는 체계 및 경로가 있어야 합니다. 경로는 도메인 뒤에 하나 이상의 슬래시를 포함해야 합니다(예: //contoso/는 작동, //contoso는 실패).
-
-리디렉션 uri에 밑줄과 같은 특수 문자가 없는지 확인합니다.
-
-### <a name="faulted-apps"></a>오류가 발생한 앱
-
-B2C 응용 프로그램은 다음에서 편집할 수 없습니다.
-
-* [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/)과 같은 다른 응용 프로그램 관리 포털.
-* Graph API 또는 PowerShell 사용
-
-설명한 대로 Azure AD B2C 응용 프로그램을 편집하고 Azure Portal의 Azure AD B2C 기능에서 다시 편집하려는 경우 오류가 발생한 앱이 되어 Azure AD B2C에서 응용 프로그램을 더 이상 사용할 수 없습니다. 응용 프로그램을 삭제하고 다시 만들어야 합니다.
-
-앱을 삭제하려면 [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/)로 이동하고 거기에서 응용 프로그램을 삭제합니다. 응용 프로그램을 표시하려면 응용 프로그램의 소유자여야 합니다(테넌트의 관리자가 아님).
+1. **키**를 선택한 다음, **키 생성**을 클릭합니다. 
+2. **저장**을 선택하여 키를 확인합니다. **앱 키** 값을 기록해 둡니다. 이 값을 응용 프로그램의 코드에서 응용 프로그램 비밀로 사용합니다.
+3. **API 액세스**를 선택하고 **추가**를 클릭한 다음, 웹 API와 범위(사용 권한)를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

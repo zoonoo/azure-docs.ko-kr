@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 0047ed4f0a172451bd50af3f62e2fecb8e147bf2
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944446"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979134"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 용어
 
@@ -84,5 +84,6 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Fabric Mesh에 대한 자세한 내용은 다음 개요를 참조하세요.
-- [Service Fabric Mesh 개요](service-fabric-mesh-overview.md)
+Service Fabric Mesh에 대한 자세한 내용은 [Service Fabric Mesh 개요](service-fabric-mesh-overview.md)를 참조하세요.
+
+[일반적인 질문](service-fabric-mesh-faq.md)에 대한 답변을 찾습니다.

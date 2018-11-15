@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144525"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958664"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Virtual Machines 제품 게시 가이드
 
@@ -40,7 +40,7 @@ BYOL(사용자 라이선스 필요) 청구 모델을 사용할 때 한정된 기
 
 ## <a name="test-drive"></a>시험 사용
 
-솔루션이 IaaS(Infrastructure-as-a-Service) 또는 SaaS 앱을 통해 하나 이상의 가상 머신을 배포합니다. 시험 사용 게시 옵션의 이점은 파트너가 호스트하는 둘러보기를 통해 이루어지는 가상 머신 또는 전체 솔루션의 자동화된 프로비전이 가능하다는 것입니다. 시험 사용은 추가 비용 없이 고객에게 평가를 제공합니다. 고객은 평가판 환경을 사용하기 위해 기존 Azure 고객일 필요가 없습니다. 
+IaaS(Infrastructure-as-a-Service) 또는 SaaS(Software-as-a-Service) 앱을 통해 하나 이상의 가상 머신을 배포합니다. 시험 사용 게시 옵션의 이점은 파트너가 호스트하는 둘러보기를 통해 이루어지는 가상 머신 또는 전체 솔루션의 자동화된 프로비전이 가능하다는 것입니다. 시험 사용은 추가 비용 없이 고객에게 평가를 제공합니다. 고객은 평가판 환경을 사용하기 위해 기존 Azure 고객일 필요가 없습니다. 
 
 시작하려면 [amp-testdrive](mailto:amp-testdrive@microsoft.com)를 통해 문의하세요. 
 

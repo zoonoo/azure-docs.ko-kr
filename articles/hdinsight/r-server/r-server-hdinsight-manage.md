@@ -3,18 +3,18 @@ title: HDInsight에서 ML 서비스 클러스터 관리 - Azure
 description: Azure HDInsight에서 ML 서비스 클러스터를 관리하는 방법을 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 38a8366a586b032c3b11cbef8ee5f01ad2b822a5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 11/06/2018
+ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702404"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255407"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 관리
 
@@ -80,7 +80,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/에서 RStudio에 액세스합니
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Microsoft ML 서비스에 원격으로 연결
 
-데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Hadoop Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript와 같은 옵션을 지정해야 합니다.
+데스크톱에서 실행되는 ML 클라이언트의 원격 인스턴스에서 HDInsight Spark 계산 컨텍스트에 대한 액세스를 설정할 수 있습니다. 이렇게 하려면 데스크톱 컴퓨터에서 RxSpark 계산 컨텍스트를 정의할 때 hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches 및 sshProfileScript와 같은 옵션을 지정해야 합니다.
 
     myNameNode <- "default"
     myPort <- 0
@@ -226,16 +226,13 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/에서 RStudio에 액세스합니
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > MapReduce를 사용하여 클러스터 노드 간에 계산을 분산시킬 수도 있습니다. 계산 컨텍스트에 대한 자세한 내용은 [HDInsight의 ML 서비스 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)을 참조하세요.
-
 ## <a name="distribute-r-code-to-multiple-nodes"></a>여러 노드에 R 코드 분산
 
 HDInsight에서 ML 서비스를 사용하면 기존 R 코드를 가져와 `rxExec`을 통해 클러스터의 여러 노드에서 실행할 수 있습니다. 이 함수는 매개 변수 비우기 또는 시뮬레이션을 수행할 때 유용합니다. 다음 코드는 `rxExec`를 사용하는 방법에 대한 예제입니다.
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Spark 또는 MapReduce 컨텍스트를 계속 사용하는 경우 이 명령에서는 `(Sys.info()["nodename"])` 코드가 실행되는 작업자 노드의 nodename(노드 이름) 값을 반환합니다. 예를 들어 4개 노드 클러스터에는 다음 코드 조각과 비슷한 출력이 표시됩니다.
+Spark 컨텍스트를 계속 사용하는 경우 이 명령에서는 `(Sys.info()["nodename"])` 코드가 실행되는 작업자 노드의 nodename(노드 이름) 값을 반환합니다. 예를 들어 4개 노드 클러스터에는 다음 코드 조각과 비슷한 출력이 표시됩니다.
 
     $rxElem1
         nodename

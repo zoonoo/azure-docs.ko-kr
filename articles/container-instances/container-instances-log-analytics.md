@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 5d3ba4ac4a86b6051ea5dafbff8c038c9198108c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279554"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614007"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Azure Log Analytics를 사용한 컨테이너 인스턴스 로깅
 
@@ -134,8 +134,9 @@ ContainerInstanceLog_CL
 
 Azure Log Analytics에서 로그를 쿼리하고 경고를 구성하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Log Analytics의 로그 검색 이해](../log-analytics/log-analytics-queries.md)
-* [Azure Monitor의 통합 경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+* [Log Analytics의 로그 검색 이해](../log-analytics/log-analytics-log-search.md)
+* [Azure Monitor의 통합 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 
 ### <a name="monitor-container-cpu-and-memory"></a>컨테이너 CPU 및 메모리 모니터링
 

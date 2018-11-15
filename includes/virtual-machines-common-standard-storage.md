@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49312396"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264181"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>비용 효율적인 Standard Storage와 관리되지 않는 Azure VM 디스크 및 관리 Azure VM 디스크
 
@@ -61,10 +61,10 @@ Standard Storage의 기능 중 일부를 살펴보겠습니다. 자세한 내용
 | **리소스** | **기본 제한** |
 |--------------|-------------------|
 | 저장소 계정당 TB  | 500TB |
-| 저장소 계정당<sup>1</sup> 최대 수신(미국 지역) | GRS/ZRS를 사용하는 경우 10Gbps, LRS의 경우 20Gbps |
-| 저장소 계정당<sup>1</sup> 최대 송신(미국 지역) | RA-GRS/GRS/ZRS를 사용하는 경우 20Gbps, LRS의 경우 30Gbps |
-| 저장소 계정당<sup>1</sup> 최대 수신(유럽 및 아시아 지역) | GRS/ZRS를 사용하는 경우 5Gbps, LRS의 경우 10Gbps |
-| 저장소 계정당<sup>1</sup> 최대 송신(유럽 및 아시아 지역) | RA-GRS/GRS/ZRS를 사용하는 경우 10Gbps, LRS의 경우 15Gbps |
+| 스토리지 계정당<sup>1</sup> 최대 수신(미국 지역) | GRS/ZRS를 사용하는 경우 10Gbps, LRS의 경우 20Gbps |
+| 스토리지 계정당<sup>1</sup> 최대 송신(미국 지역) | RA-GRS/GRS/ZRS를 사용하는 경우 20Gbps, LRS의 경우 30Gbps |
+| 스토리지 계정당<sup>1</sup> 최대 수신(유럽 및 아시아 지역) | GRS/ZRS를 사용하는 경우 5Gbps, LRS의 경우 10Gbps |
+| 스토리지 계정당<sup>1</sup> 최대 송신(유럽 및 아시아 지역) | RA-GRS/GRS/ZRS를 사용하는 경우 10Gbps, LRS의 경우 15Gbps |
 | 저장소 계정당 총 요청 빈도(개체 크기는 1KB로 가정함) | 최대 20,000 개의 IOPS, 초 당 엔터티 또는 초 당 메시지 |
 
 <sup>1</sup> 수신은 저장소 계정으로 전송되는 모든 데이터(요청)를 가리킵니다. 송신은 저장소 계정에서 수신되는 모든 데이터(응답)를 가리킵니다.
@@ -111,7 +111,7 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 
 Standard Storage를 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
 
-* 표준 저장소 관리되지 않는 디스크/데이터 크기 
+* 표준 저장소 관리되지 않는 디스크/데이터 크기
 * 표준 관리 디스크
 * 표준 저장소 스냅숏
 * 아웃바운드 데이터 전송
@@ -121,16 +121,18 @@ Standard Storage를 사용하는 경우 다음과 같은 청구 고려 사항이
 
 **관리 디스크**: 표준 관리 디스크에 대한 요금 청구는 프로비전된 디스크 크기에 따라 달라집니다. Azure는 프로비전된 크기(올림)를 아래 테이블에 지정된 대로 가장 가까운 Managed Disks 옵션에 매핑합니다. 각각의 관리 디스크는 지원되는 프로비전된 크기 중 하나에 매핑되고 그에 따라 요금이 청구됩니다. 예를 들어 표준 관리 디스크를 만들고 프로비전된 크기를 200GiB로 지정하면 S15 디스크 유형의 가격에 따라 요금이 청구됩니다.
 
-| **표준 HDD 관리 <br>디스크 유형** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+별표로 표시되는 크기는 현재 미리 보기로 제공됩니다.
+
+| **표준 HDD 관리 <br>디스크 유형** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | 디스크 크기        | 32GiB  | 64GiB  | 128GiB | 256GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB) | 16,385GiB(16TiB) | 32,767GiB(32TiB) |
 
 
 **스냅숏**: 표준 디스크의 스냅숏은 스냅숏에 사용된 추가 용량에 대해 요금이 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)를 참조하세요.
 
-**아웃바운드 데이터 전송**: [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용에 대해 청구가 발생합니다.
+**아웃바운드 데이터 전송**:  [아웃바운드 데이터 전송](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용량에 대한 요금이 청구됩니다.
 
-**트랜잭션**: Azure에서는 표준 저장소의 트랜잭션 100,000개당 0.0036달러의 요금이 청구됩니다. 트랜잭션에는 저장소에 대한 읽기 및 쓰기 작업이 모두 포함됩니다.
+**트랜잭션**: Azure에서는 표준 스토리지의 트랜잭션 100,000개당 0.0036달러의 요금이 청구됩니다. 트랜잭션에는 저장소에 대한 읽기 및 쓰기 작업이 모두 포함됩니다.
 
 Standard Storage, Virtual Machines 및 Managed Disks 가격 책정에 대한 자세한 내용은 다음을 참조하세요.
 

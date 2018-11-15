@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470323"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281781"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -59,6 +59,9 @@ Storage 탐색기가 자체 서명된 또는 신뢰할 수 없는 인증서를 �
 1. 모든 계정을 제거한 다음, Storage 탐색기를 닫습니다
 2. 컴퓨터에서 .IdentityService 폴더를 삭제합니다. Windows에서 폴더는 `C:\users\<username>\AppData\Local`에 있습니다. Mac 및 Linux의 경우 사용자 디렉토리의 루트에서 폴더를 찾을 수 있습니다.
 3. Mac 또는 Linux를 사용하는 경우 OS의 키 저장소에서 Microsoft.Developer.IdentityService 항목을 삭제해야 합니다. Mac의 경우 키 저장소가 "Gnome 키 집합" 응용 프로그램입니다. Linux의 경우 일반적으로 응용 프로그램은 "키링"으로 불리는데 이름은 배포에 따라 다를 수 있습니다.
+
+### <a name="conditional-access"></a>조건부 액세스
+Windows 10, Linux 또는 macOS에서 Storage 탐색기를 사용하는 경우 조건부 액세스가 지원되지 않습니다. Storage 탐색기에서 사용되는 AAD 라이브러리의 제한 사항 때문입니다.
 
 ## <a name="mac-keychain-errors"></a>Mac 키 집합 오류
 macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 유발하는 상태가 될 수 있습니다. 키 집합의 이러한 상태를 해제하려면 다음 조치를 시도해 보세요.
@@ -143,6 +146,12 @@ Windows용 Fiddler와 같은 네트워킹 도구가 있으면 다음과 같은 �
 ## <a name="unable-to-retrieve-children-error-message"></a>"하위 항목을 검색할 수 없음" 오류 메시지
 
 프록시를 통해 Azure에 연결된 경우 프록시 설정이 올바른지 확인합니다. 구독 또는 계정 소유자로부터 리소스에 대한 액세스가 부여된 경우 해당 리소스에 대한 읽기 또는 목록 권한이 있는지 확인합니다.
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>연결 문자열에는 전체 구성 설정이 없음
+
+이 오류 메시지를 수신하는 경우 Storage 계정의 키를 가져올 필요한 사용 권한이 없을 수 있습니다. 이 경우인지 확인하려면 포털로 이동하고 Storage 계정을 찾습니다. Storage 계정의 노드를 마우스 오른쪽 단추로 클릭하고 "포털에서 열기"를 클릭하여 신속하게 수행할 수 있습니다. 이렇게 하면 "액세스 키" 블레이드로 이동합니다. 키를 볼 수 있는 사용 권한이 없으면 "액세스 권한이 없습니다."라는 메시지와 함께 페이지가 표시됩니다. 이 문제를 해결하려면 다른 사용자의 계정 키를 확보하고 이름 및 키에 연결하거나 Storage 계정에 대한 SAS를 요청하고 사용하여 해당 Storage 계정에 연결할 수 있습니다.
+
+계정 키가 표시되는 경우 GitHub에 대한 문제를 저장하세요. 그러면 해당 문제를 해결하도록 지원합니다.
 
 ## <a name="issues-with-sas-url"></a>SAS URL 문제
 SAS URL을 사용하여 서비스에 연결하고 이 오류가 발생하는 경우:

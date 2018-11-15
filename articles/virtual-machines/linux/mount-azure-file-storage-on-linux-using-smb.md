@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fde8892f7a32d7b5405eef6661bbf29098325178
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982208"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958681"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB를 사용하여 Linux VM에 Azure File Storage 탑재
 
@@ -100,6 +100,7 @@ Azure 파일 공유를 로컬 디렉터리에 탑재합니다.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
+위의 명령은 [mount](https://linux.die.net/man/8/mount) 명령을 사용하여 Azure 파일 공유 및 [cifs](https://linux.die.net/man/8/mount.cifs) 전용 옵션을 탑재합니다. 특별히 file_mode 및 dir_mode 옵션은 파일 및 디렉터리를 `0777` 사용 권한에 설정합니다. `0777` 사용 권한은 읽기, 쓰기 및 실행 권한을 모든 사용자에게 부여합니다. 값을 다른 [chmod 사용 권한](https://en.wikipedia.org/wiki/Chmod)으로 바꾸면 이러한 권한을 변경할 수 있습니다. 또한 gid 또는 uid와 같은 다른 [cifs](https://linux.die.net/man/8/mount.cifs) 옵션을 사용할 수도 있습니다. 
 
 
 ## <a name="persist-the-mount"></a>탑재 유지

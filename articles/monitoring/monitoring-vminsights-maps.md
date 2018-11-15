@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ac96de2669a75a5966650afc0b49cc2f926537fa
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095481"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614211"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>VM용 Azure Monitor(미리 보기) 맵을 사용하여 응용 프로그램 구성 요소 이해
 Azure에서 실행 중인 Windows 및 Linux 가상 머신에서 검색된 응용 프로그램 구성 요소를 보고 VM용 Azure Monitor를 사용하여 가상 머신에서 직접 또는 Azure Monitor에서 VM 그룹을 통해서와 같이 두 가지 방법으로 환경을 관찰할 수 있습니다. 
@@ -52,7 +52,7 @@ VM에서 직접 또는 Azure Monitor에서 맵 기능을 선택하는 경우 일
 - 컴퓨터별로 그룹화할 절(예, **by Computer interval 1 minute**)을 포함합니다.
 - 미터법을 기준으로 경고하도록 선택
 
-Azure 경고 및 경고 규칙 만들기에 대한 자세한 내용은 [Azure Monitor의 통합 경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)를 참조하세요.
+Azure 경고 및 경고 규칙 만들기에 대한 자세한 내용은 [Azure Monitor의 통합 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 참조하세요.
 
 오른쪽 위 모서리에서 **범례** 옵션은 맵의 기호 및 역할을 설명합니다.  맵을 좀 더 자세히 살펴보고 사용해 보기 위해 페이지의 오른쪽 아래에 있는 확대/축소 컨트롤에서는 확대/축소 수준을 설정하고 현재 페이지 크기로 페이지를 맞춥니다.  
 

@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 05bdc841108bf1fb909375b6f2c6399f8121ceeb
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344654"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958103"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 사용자 만들기 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 사용자를 만드는 방법을 설명합니다.
@@ -36,7 +36,7 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
    데이터베이스 서버에 연결하려면 전체 서버 이름 및 관리자 로그인 자격 증명이 필요합니다. Azure Portal의 서버 **개요** 페이지 또는 **속성** 페이지에서 서버 이름과 로그인 정보를 쉽게 찾을 수 있습니다. 
 
 2. 관리자 계정 및 암호를 사용하여 데이터베이스 서버에 연결합니다. 원하는 클라이언트 도구(예: pgAdmin 또는 psql)를 사용합니다.
-   연결 방법이 확실하지 않으면 [Cloud Shell에서 psql을 사용하여 PostgreSQL 데이터베이스에 연결](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)을 참조하세요.
+   연결하는 방법을 잘 모르는 경우 [빠른 시작](./quickstart-create-server-database-portal.md)을 참조하세요.
 
 3. 다음 SQL 코드를 편집하고 실행합니다. 자리 표시자 값 <new_user>의 새 사용자 이름을 바꾸고, 자리 표시자 암호를 자신만의 강력한 암호로 바꿉니다. 
 

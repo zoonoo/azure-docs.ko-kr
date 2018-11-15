@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: e45b09a62f33fd9811714febd63a74149784980d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 428bc3504416f3a99518572f9f5bcb39423295b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108661"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261605"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>StorSimple 장치의 안전한 설치 및 작동
 ![경고 아이콘](./media/storsimple-safety/IC740879.png)
 ![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png) **안전성 및 상태 정보 읽기**
 
-이 문서에서 Microsoft Azure StorSimple 장치에 적용되는 모든 안전성 및 상태 정보를 읽으십시오 나중에 참조할 수 있도록 StorSimple 장치와 함께 제공되는 모든 인쇄된 가이드를 보관하십시오. 지침을 따르지 않고 이 제품을 적절하게 설정, 사용 및 관리하지 않으면 심각한 부상 또는 사망 위험이 증가하거나 장치가 손상될 수 있습니다. [이 가이드의 다운로드할 수 있는 버전](http://www.microsoft.com/download/details.aspx?id=44233)도 제공됩니다.
+이 문서에서 Microsoft Azure StorSimple 장치에 적용되는 모든 안전성 및 상태 정보를 읽으십시오 나중에 참조할 수 있도록 StorSimple 장치와 함께 제공되는 모든 인쇄된 가이드를 보관하십시오. 지침을 따르지 않고 이 제품을 적절하게 설정, 사용 및 관리하지 않으면 심각한 부상 또는 사망 위험이 증가하거나 장치가 손상될 수 있습니다. [이 가이드의 다운로드할 수 있는 버전](https://www.microsoft.com/download/details.aspx?id=44233)도 제공됩니다.
 
 ## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음은 Microsoft Azure StorSimple 장치를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
@@ -52,7 +52,7 @@ ms.locfileid: "23108661"
 * 장치의 뒷면에 있는 전원 및 냉각 모듈(PCM)의 핸들로 인클로저를 들지 마십시오. 무게를 지탱하도록 설계되지 않았습니다.
 
 ## <a name="connection-precautions"></a>연결 주의 사항
-![경고 아이콘](./media/storsimple-safety/IC740879.png) ![감전 아이콘](./media/storsimple-safety/IC740882.png) **경고!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **경고!**
 
 부상, 감전 또는 사망 가능성을 줄이려면:
 
@@ -62,7 +62,7 @@ ms.locfileid: "23108661"
 * 인클로저에서 PCM을 제거하기 전에 항상 전원 연결을 해제해야 합니다.
 * 전원 공급 장치 코드의 플러그가 기본 차단 장치라면, 소켓 콘센트가 장비 근처에 있고 쉽게 액세스할 수 있는지 확인하십시오.
 
-![경고 아이콘](./media/storsimple-safety/IC740879.png) ![감전 아이콘](./media/storsimple-safety/IC740882.png) **경고!**
+![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **경고!**
 
 전기 연결에서 과열 또는 화재 가능성을 줄이려면:
 
@@ -145,7 +145,7 @@ ms.locfileid: "23108661"
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
-배터리를 선적하거나 항공편으로 달리 운송하는 경우 IATA 리튬 배터리 지침 문서( [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+배터리를 선적하거나 항공편으로 운송하는 경우 [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)의 IATA 리튬 배터리 지침 문서를 따르세요.
 
 이 보안 공지를 검토한 후 다음 단계에서는 장치를 개봉하고 랙 및 케이블을 연결합니다.
 

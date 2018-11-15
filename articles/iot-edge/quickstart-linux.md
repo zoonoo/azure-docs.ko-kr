@@ -2,19 +2,19 @@
 title: Azure IoT Edge + Linux 빠른 시작 | Microsoft Docs
 description: 이 빠른 시작에서는 미리 작성된 코드를 IoT Edge 장치에 원격으로 배포하는 방법을 알아봅니다.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 08/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a774873872d4b41c4ef5c005946db6b2a1b4e39e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a392c4c20e54081ae5e4876b7c718759b8200ce5
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955278"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566434"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 장치에 첫 번째 IoT Edge 모듈 배포
 

@@ -1,22 +1,22 @@
 ---
-title: HDInsight에서 Hadoop 서비스에 힙 덤프 사용 - Azure
-description: 디버깅 및 분석을 위해 Linux 기반 HDInsight 클러스터에서 Hadoop 서비스에 힙 덤프를 사용하도록 설정합니다.
+title: HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용 - Azure
+description: 디버깅 및 분석을 위해 Linux 기반 HDInsight 클러스터에서 Apache Hadoop 서비스에 힙 덤프를 사용하도록 설정합니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 7fa0ebb1946a856d02296b4ec752113ff8fecbd5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095585"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037714"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Hadoop 서비스에 힙 덤프 사용
+# <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
@@ -29,11 +29,11 @@ ms.locfileid: "43095585"
 
 다음 서비스에 힙 덤프를 사용할 수 있습니다.
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2, metastore, derbyserver
+* **Apache hcatalog** - tempelton
+* **Apache hive** - hiveserver2, metastore, derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager, nodemanager, timelineserver
-* **hdfs** - datanode, secondarynamenode, namenode
+* **Apache yarn** - resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** - datanode, secondarynamenode, namenode
 
 HDInsight에서 실행하는 map 및 reduce프로세스에 힙 덤프를 사용할 수도 있습니다.
 
@@ -49,7 +49,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> Ambari는 클러스터의 노드 간에 변경 내용 복제를 처리하므로 Ambari를 사용하여 스크립트 및 mapred-site.xml 설정을 모두 수정하는 것이 좋습니다. 구체적인 단계는 [Ambari 사용](#using-ambari) 섹션을 참조하세요.
+> Ambari는 클러스터의 노드 간에 변경 내용 복제를 처리하므로 Apache Ambari를 사용하여 스크립트 및 mapred-site.xml 설정을 모두 수정하는 것이 좋습니다. 구체적인 단계는 [Ambari 사용](#using-ambari) 섹션을 참조하세요.
 
 ### <a name="enable-heap-dumps"></a>힙 덤프 사용
 

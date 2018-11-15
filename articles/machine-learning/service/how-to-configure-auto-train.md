@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1aeb1315cfafbcdf3507a6e49d71e1f1e69b537c
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5a539aebc9b1ccb5f52f89d511fc992ee6a24c81
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430190"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008949"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>자동화된 기계 학습 실험 구성
 
@@ -192,7 +192,7 @@ get_data()를 통하거나 `AutoMLConfig` 메서드에서 직접 별도의 학�
 `max_time_sec` |    특정 반복에 걸리는 시간(초)을 제한합니다. 반복에서 지정된 시간을 초과하면 해당 반복이 취소됩니다. 설정되지 않으면 반복이 완료될 때까지 계속 실행됩니다. |   없음
 `n_cross_validations`   |교차 유효성 검사 분할의 수입니다.| 없음
 `validation_size`   |유효성 검사의 크기는 모든 학습 샘플에 대한 백분율로 설정됩니다.|  없음
-`preprocess` | True/False <br/>True를 사용하면 실험에서 입력에 대한 전처리를 수행할 수 있습니다. 전처리의 하위 집합은 다음과 같습니다.<li>누락된 데이터: 누락된 데이터를 평균 숫자, 가장 많이 발생하는 텍스트로 대치합니다. </li><li>범주별 값: 데이터 형식이 숫자이고 고유 값 수가 5% 미만인 경우 단일 핫 인코딩으로 변환합니다. </li><li>기타: 전체 목록은 [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 확인하세요.</li><br/>참고: 데이터가 매우 적으면 preprocess = true를 사용할 수 없습니다. |  False | 
+`preprocess` | True/False <br/>True를 사용하면 실험에서 입력에 대한 전처리를 수행할 수 있습니다. 전처리의 하위 집합은 다음과 같습니다.<li>누락된 데이터: 누락된 데이터를 평균 숫자, 가장 많이 발생하는 텍스트로 대치합니다. </li><li>범주별 값: 데이터 형식이 숫자이고 고유 값 수가 5% 미만인 경우 단일 핫 인코딩으로 변환합니다. </li><li>기타: 전체 목록은 [GitHub 리포지토리](https://aka.ms/aml-notebooks)를 확인하세요.</li><br/>참고: 데이터가 매우 적으면 preprocess = true를 사용할 수 없습니다. | False | 
 `blacklist_algos`   | 자동화된 ML 실험에는 사용해 볼 수 있는 다양한 알고리즘이 있습니다. 실험에서 특정 알고리즘을 제외하도록 자동화된 ML을 구성합니다. 데이터 집합에서 제대로 작동하지 않는 알고리즘을 알고 있으면 유용합니다. 알고리즘을 제외하면 계산 리소스와 학습 시간을 절약할 수 있습니다.<br/>분류에 허용되는 값은 다음과 같습니다.<br/><li>logistic regression</li><li>SGD classifier</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>extra trees</li><li>gradient boosting</li><li>lgbm_classifier</li><br/>회귀에 허용되는 값은 다음과 같습니다.<br/><li>Elastic net</li><li>Gradient boosting regressor</li><li>DT regressor</li><li>kNN regressor</li><li>Lasso lars</li><li>SGD regressor</li><li>RF regressor</li><li>extra trees regressor</li>|   없음
 `verbosity` |가장 자세한 정보의 경우 INFO, 가장 적은 정보의 경우 CRITICAL인 로깅 수준을 제어합니다.<br/>허용되는 값은 다음과 같습니다.<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
 `X` | 학습할 모든 기능입니다. |  없음

@@ -1,6 +1,6 @@
 ---
-title: 컨설팅 서비스 | Microsoft Docs
-description: 컨설팅 서비스 제품을 정의 및 게시할 때 참조할 가이드입니다.
+title: Azure 및 Dynamcis 365 컨설팅 서비스 제품 | Microsoft Docs
+description: Cloud 파트너 포털에서 Azure 또는 Dynamcis 365 컨설팅 서비스 제품의 정의 및 게시에 대한 지침.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: dan-wesley
@@ -12,19 +12,29 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b3f6b9166afce9ca0cdeaa1c9dd6e10a5a976453
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807965"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037773"
 ---
-<a name="defining-and-publishing-your-consulting-services-offer"></a>컨설팅 서비스 제품 정의 및 게시
-======================================================
+# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure 및 Dynamics 365 컨설팅 서비스 제품
 
-이 가이드에서는 클라우드 파트너 포털에서 컨설팅 서비스 제품을 정의하고 게시할 때 참조할 수 있는 정보를 제공합니다.
+<table> <tr> <td>이 섹션에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> 또는 <a href="https://appsource.microsoft.com">AppSource Marketplace</a>에 컨설팅 서비스를 게시하는 방법을 설명합니다. Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> 및 <a href="https://powerapps.microsoft.com">PowerApps</a> 기반의 솔루션은 AppSource에 나열할 수 있습니다. 다른 Microsoft <a href="https://azure.microsoft.com/services">Azure 서비스</a> 기반의 다른 제품은 Azure Marketplace에 나열하는 데 적합합니다. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
+
+
+# <a name="publishing-benefits"></a>게시 이점
+
+Microsoft 마켓플레이스 중 하나에 게시하면 상당한 이점이 있습니다.
+
+- Microsoft 브랜드를 활용하여 회사의 수준을 올립니다.
+- 잠재적으로 AppSource의 Office 365 및 Dynamics 365 사용자는 1억 명 이상이며, Azure Marketplace를 사용하는 조직은 20만 개에 이릅니다.
+- 이러한 마켓플레이스에서 고품격의 잠재 고객을 확보합니다.
+- Microsoft 필드 팀 및 통신 판매 팀에 의해 수준이 올라간 서비스를 확보합니다.
+
 
 <a name="define-your-consulting-services-offer"></a>컨설팅 서비스 제품 정의
 -------------------------------------
@@ -52,30 +62,23 @@ ms.locfileid: "48807965"
 
 ### <a name="define-offer-settings"></a>제품 설정 정의
 
-새 제품 화면에서 처음으로 수행하는 단계는 제품 ID 만들기입니다.
-제품 ID는 다음의 세 부분으로 구성됩니다.
-
-1.  제품 ID
-2.  게시자 ID
-3.  이름
-
-다음 섹션에서 이러한 각 부분에 대해 설명합니다.
+새 제품 화면에서 처음으로 수행하는 단계는 제품 ID 만들기입니다.  **제품 ID**, **게시자 ID** 및 **이름**의 세 부분으로 구성된 제품 ID입니다.  다음 섹션에서 이러한 각 부분에 대해 설명합니다.
 
 #### <a name="offer-id"></a>제품 ID
 
-제품을 처음 제출할 때 만드는 고유한 이름입니다. 제품 ID에는 소문자 영숫자 문자, 대시 또는 밑줄만 사용해야 합니다. 이 ID는 URL에 표시되며 검색 엔진 결과에 영향을 줍니다. 예를 들어 *yourcompanyname\_exampleservice*와 같은 ID를 지정할 수 있습니다.
+이 식별자는 제품을 처음 제출할 때 만드는 고유한 이름입니다. 제품 ID에는 소문자 영숫자 문자, 대시 또는 밑줄만 사용해야 합니다. 이 제품 ID는 URL에 표시되며 검색 엔진 결과에 영향을 줍니다. 예를 들어 *yourcompanyname\_exampleservice*와 같은 ID를 지정할 수 있습니다.
 
-예제에 나와 있는 것처럼 제품 ID가 게시자 ID에 추가되는 방식으로 고유한 식별자가 생성됩니다. 이 식별자는 검색 엔진에서 인덱싱하며 예약 가능한 고유 링크로 표시됩니다.
+예제에 표시된 것처럼 제품 ID가 게시자 ID에 추가되는 방식으로 고유한 식별자를 만듭니다. 이 식별자는 검색 엔진에서 인덱싱하며 예약 가능한 고유 링크로 표시됩니다. 
 
-**제품이 라이브로 전환된 후에는 제품 ID를 업데이트할 수 없습니다.**
+*제품이 라이브되면 해당 식별자를 업데이트할 수 없음*
 
 #### <a name="publisher-id"></a>게시자 ID
 
-계정과 관련된 ID입니다. 조직 계정으로 로그인하는 경우 게시자 ID가 드롭다운 메뉴에 표시됩니다.
+이 식별자는 계정과 관련이 있습니다. 조직 계정으로 로그인하는 경우 게시자 ID가 드롭다운 메뉴에 표시됩니다.
 
 #### <a name="name"></a>이름
 
-AppSource 또는 Azure Marketplace에서 제품 이름으로 표시되는 이름입니다.
+이 문자열은 AppSource 또는 Azure Marketplace에서 제품 이름으로 표시되는 이름입니다.
 
 **중요:** 여기에는 실제 서비스 이름만 입력해야 하며 서비스의 유형과 제공 기간은 포함하면 안 됩니다.
 
@@ -85,10 +88,10 @@ Edgewater Fullscope의 다음 예제는 제품 이름이 조합되는 방식을 
 
 제품 이름은 다음의 네 부분으로 구성됩니다.
 
--   **기간:** 편집기의 상점 정보 탭에서 정의합니다. 기간은 시간, 일 또는 주 단위로 표시할 수 있습니다.
--   **서비스 유형:** 편집기의 상점 정보 탭에서 정의합니다. 서비스 유형에는 평가, 브리핑, 구현, 개념 증명 및 워크샵이 있습니다.
--   **전치사:** 검토자가 삽입합니다.
--   **이름:** 제품 설정 페이지에서 정의한 이름입니다.
+-   **기간:** - 편집기의 **상점 정보** 탭에서 정의합니다. 기간은 시간, 일 또는 주 단위로 표시할 수 있습니다.
+-   **서비스 유형:** - 편집기의 **상점 정보 탭에서** 정의합니다. 서비스의 유형은 `Assessment`, `Briefing`, `Implementation`, `Proof of concept` 및 `Workshop`입니다.
+-   **전치사:** - 검토자가 삽입합니다.
+-   **이름:** - **제품 설정** 페이지에서 정의합니다.
 
 다음 목록에 적절하게 지정된 몇 가지 제품 이름이 나와 있습니다.
 
@@ -124,7 +127,7 @@ Edgewater Fullscope의 다음 예제는 제품 이름이 조합되는 방식을 
 
 ##### <a name="offer-summary"></a>제품 요약
 
-제품 요약은 제품 이름 바로 아래에 표시되는 제품의 간략한 설명입니다. 제품 요약 입력 시에는 일반 텍스트를 사용해야 하며 줄 바꿈을 포함하면 안 됩니다. 아래에는 해당 제품 이름에 적합한 제품 요약의 예제가 나와 있습니다.
+제품 요약은 제품 이름 바로 아래에 표시되는 제품의 간략한 설명입니다. 제품 요약 입력 시에는 일반 텍스트를 사용하며 해당 텍스트에 줄 바꿈이 들어가면 안 됩니다. 아래에는 해당 제품 이름에 적합한 제품 요약의 예제가 나와 있습니다.
 
 *예 1*
 
@@ -161,7 +164,7 @@ Edgewater Fullscope의 다음 예제는 제품 이름이 조합되는 방식을 
 
 이러한 형식을 사용하면 고객이 가장 쉽게 확인할 수 있는 제품을 만들 수 있습니다.
 
-사용자는 텍스트 양이 많으면 모두 읽지 않을 가능성이 높으므로, 제품 설명은 문자 제한 범위 내에서 간략하게 작성합니다. 제품에 대해 자세히 설명하는 마케팅 브로슈어, 팩트 시트 및 기타 문서를 업로드하는 옵션도 제공됩니다.
+사용자는 긴 텍스트를 읽지 않을 가능성이 높으므로 제품 설명은 문자 제한을 준수하고 간략하게 작성합니다. 제품에 대해 자세히 설명하는 마케팅 브로슈어, 팩트 시트 및 기타 문서를 업로드하는 옵션도 제공됩니다.
 
 다음 예제에는 적절하게 작성된 제품 설명과 관련 이름 및 요약이 나와 있습니다.
 
@@ -223,7 +226,7 @@ Edgewater Fullscope의 다음 예제는 제품 이름이 조합되는 방식을 
 **MPN ID**
 
 제품을 라이브로 전환하기 전에 AppSource에서 미리 보는 데 사용할 비밀 키를 입력합니다.
-이 ID는 암호가 아닙니다.
+이 식별자는 암호가 아닙니다.
 
 #### <a name="listing-details"></a>목록 세부 정보
 
@@ -287,4 +290,4 @@ AppSource에 게시하려면 기본 제품으로 **Dynamics 365**, **Power BI** 
 
 제품 설정, 상점 정보 및 연락처를 모두 입력한 후에 **게시**를 선택하고 전자 메일 주소를 입력합니다. Microsoft에서 제품을 게시할 준비가 되면 제품이 라이브로 전환되기 전에 미리 볼 수 있도록 이메일이 수신됩니다. 언제든지 포털로 돌아와서 제품 상태를 확인할 수 있습니다.
 
-게시 프로세스 중에는 제품이 “게시 취소됨” 또는 “게시 실패” 상태로 표시될 수 있습니다. 이러한 상태는 게시 프로세스에서 Microsoft가 제품을 편집하기 위해 설정하는 정상적인 현상입니다. 따라서 제품이 “게시 취소됨”으로 표시되더라도 그대로 두면 됩니다.
+게시 프로세스 중에는 제품이 “게시 취소됨” 또는 “게시 실패” 상태로 표시될 수 있습니다. 이 상태는 정상적인 게시 프로세스의 일부로서 Microsoft에서 사용자 제품을 편집할 수 있습니다. 따라서 제품이 “게시 취소됨”으로 표시되더라도 그대로 두면 됩니다.

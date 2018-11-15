@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 50ec49c22c64780c8f887b12eef1dd0e75c379ed
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269448"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010607"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -75,6 +75,9 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 
 **Q: 순수한 IPv6 환경이 지원되나요?**  
 아니요. Azure AD Connect는 순수한 IPv6 환경을 지원하지 않습니다.
+
+**Q: 다중 포리스트 환경으로, 두 포리스트 간 네트워크에서 NAT(Network Address Translation)를 사용하고 있습니다. 이러한 두 포리스트 간에 Azure AD Connect를 사용하는 것이 지원되나요?**</br>
+ 아니요. NAT를 통한 Azure AD Connect 사용은 지원되지 않습니다. 
 
 ## <a name="federation"></a>페더레이션
 **Q: 내 Office 365 인증서를 갱신하도록 요청하는 메일을 받으면 어떻게 해야 하나요?**  

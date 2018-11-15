@@ -1,26 +1,26 @@
 ---
-title: Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리
+title: Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 description: Azure Portal을 사용하여 HDInsight 클러스터를 만들고 관리하는 방법에 대해 알아봅니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: jasonh
-ms.openlocfilehash: b00c88e526bf72f51df0d2a3d6a87fbd5bc1f991
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: b96712c3a920a70e121f0a72954680ced2ba96ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991983"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252295"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-[Azure Portal][azure-portal]을 사용하여 Azure HDInsight에서 Hadoop 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
+[Azure Portal][azure-portal]을 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
 
 **필수 구성 요소**
 
@@ -81,29 +81,32 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
     * **이동**: 클러스터를 다른 리소스 그룹 또는 다른 구독으로 이동시킵니다.
     * **삭제**: 클러스터를 삭제합니다.
 
-    **왼쪽 메뉴:**
+**왼쪽 메뉴:**
     * **활동 로그**: 활동 로그를 표시하고 쿼리합니다.
     * **Access Control(IAM)**: 역할 할당을 사용합니다.  [역할 할당을 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
     * **태그**: 태그를 사용하면 Cloud Services의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 **project**라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
-    * **문제 진단 및 해결**: 문제 해결 정보를 표시합니다.
-    * **잠금**: 클러스터가 수정되거나 삭제되지 않도록 잠금을 추가합니다.
-    * **Automation 스크립트**: 클러스터에 대한 Azure Resource Manager 템플릿을 표시하고 내보냅니다. 현재는 Azure Storage 계정만 내보낼 수 있습니다. [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
+* **문제 진단 및 해결**: 문제 해결 정보를 표시합니다.
     * **빠른 시작**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
     * **HDInsight용 도구**: HDInsight 관련 도구에 대한 도움말 정보입니다.
-    * **구독 코어 사용량**: 구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.
-    * **클러스터 크기 조정**: 클러스터 작업자 노드의 수를 늘리거나 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-management-portal.md#scale-clusters)을 참조하세요.
+**설정**
+* **클러스터 크기**: 클러스터 작업자 노드의 수를 확인하고, 늘리고, 줄입니다. [클러스터 크기 조정](hdinsight-administer-use-management-portal.md#scale-clusters)을 참조하세요.
+    * **할당량 한도**: 구독에 사용된 코어 및 사용 가능한 코어를 표시합니다.
     * **SSH + 클러스터 로그인**: SSH(Secure Shell) 연결을 사용하여 클러스터에 연결하기 위한 지침을 표시합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-    * **HDInsight 파트너**: 현재 HDInsight 파트너를 추가/제거합니다.
-    * **외부 Metastore**: Hive 및 Oozie Metastore를 표시합니다. Metastore는 클러스터 생성 과정 중에만 구성될 수 있습니다. [Hive/Oozie metastore 사용](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore)을 참조하세요.
-    * **스크립트 작업**: 클러스터에서 Bash 스크립트를 실행합니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
-    * **응용 프로그램**: HDInsight 응용 프로그램을 추가/제거합니다.  [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
-    * **모니터링**: Azure Log Analytics에서 클러스터를 모니터링합니다.
-    * **속성**: 클러스터 속성을 표시합니다.
+* **Data Lake Store Gen1**: Data Lake Store Gen1에 대한 액세스를 구성합니다.  [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
     * **Storage 계정**: Storage 계정 및 키를 봅니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.
-    * **Data Lake Store 액세스**: Data Lake Stores에 대한 액세스를 구성합니다.  [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+    * **응용 프로그램**: HDInsight 응용 프로그램을 추가/제거합니다.  [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+    * **스크립트 작업**: 클러스터에서 Bash 스크립트를 실행합니다. [스크립트 작업을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+    * **HDInsight 파트너**: 현재 HDInsight 파트너를 추가/제거합니다.
+    * **속성**: 클러스터 속성을 표시합니다.
+* **잠금**: 클러스터가 수정되거나 삭제되지 않도록 잠금을 추가합니다.
+    * **Automation 스크립트**: 클러스터에 대한 Azure Resource Manager 템플릿을 표시하고 내보냅니다. 현재는 Azure Storage 계정만 내보낼 수 있습니다. [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
+**모니터링**
+* **변경**: 경고와 작업을 관리합니다.
+    * **메트릭**: Azure Log Analytics에서 클러스터 메트릭을 모니터링합니다.
+* **진단 설정**: 진단 메트릭 **지원 + 문제 해결**을 저장하는 위치에 대한 설정
     * **리소스 상태**: [Azure Resource Health 개요](../service-health/resource-health-overview.md)를 참조하세요.
     * **새 지원 요청**: Microsoft 지원에 지원 티켓을 만들 수 있습니다.
-    
+
 6. **속성**을 클릭합니다.
 
     속성은 다음과 같습니다.
@@ -144,6 +147,15 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
 > HDInsight 버전 3.1.3 이상을 사용하는 클러스터만 지원됩니다. 클러스터 버전을 알 수 없는 경우 속성 페이지를 확인할 수 있습니다.  [클러스터 나열 및 표시](#list-and-show-clusters)를 참조하세요.
 >
 >
+**클러스터 크기를 조정하려면**
+
+1. [포털][azure-portal]에 로그인합니다.
+2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭합니다.
+3. 크기 조정하려는 클러스터를 클릭합니다.
+3. **클러스터 크기 조정**을 클릭합니다.
+4. **작업자 노드 수**를 입력합니다. 클러스터 노드 수에 대한 제한은 Azure 구독 간에 다릅니다. 제한을 늘리려면 청구 지원 팀에 문의할 수 있습니다.  비용 정보는 노드 수에 대한 변경 내용을 반영합니다.
+
+    ![HDinsight Hadoop Hbase Storm Spark 크기 조정](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 데이터 노드 수 변경에 따른 영향은 다음과 같이 HDInsight에서 지원하는 각 클러스터 유형에 따라 다릅니다.
 
@@ -188,15 +200,6 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-**클러스터 크기를 조정하려면**
-
-1. [포털][azure-portal]에 로그인합니다.
-2. 왼쪽 메뉴에서 **HDInsight 클러스터** 를 클릭합니다.
-3. 크기 조정하려는 클러스터를 클릭합니다.
-3. **클러스터 크기 조정**을 클릭합니다.
-4. **작업자 노드 수**를 입력합니다. 클러스터 노드 수에 대한 제한은 Azure 구독 간에 다릅니다. 제한을 늘리려면 청구 지원 팀에 문의할 수 있습니다.  비용 정보는 노드 수에 대한 변경 내용을 반영합니다.
-
-    ![HDinsight Hadoop Hbase Storm Spark 크기 조정](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>클러스터 일시 중지/종료
 
@@ -207,7 +210,7 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 
 * 사용자 Azure 데이터 팩터리. 주문형 HDInsight 연결된 서비스 만들기는 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md) 를 참조하세요.
 * Azure PowerShell 사용  [비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)을 참조하세요.
-* Azure 클래식 CLI 사용. [Azure 클래식 CLI를 사용하여 HDInsight 클러스터 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
+* Azure 클래식 CLI 사용 [Azure 클래식 CLI를 사용하여 HDInsight 클러스터 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
 * HDInsight .NET SDK 사용 [Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 
 가격 정보는 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요. 포털에서 클러스터를 삭제하려면 [클러스터 삭제](#delete-clusters)

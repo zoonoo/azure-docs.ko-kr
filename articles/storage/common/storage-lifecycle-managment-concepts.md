@@ -5,32 +5,32 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 11/01/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6647ff97b078ca5afa5c66833a1617f6b3ec0f1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429561"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978811"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
 
-데이터 집합에는 고유한 수명 주기가 있습니다. 어떤 데이터는 수명 주기의 초기 단계에서 자주 액세스되다가 데이터가 오래될수록 액세스 빈도가 떨어집니다. 어떤 데이터는 클라우드에서 유휴 상태로 유지되고 저장된 후에는 어쩌다가 한 번씩 액세스됩니다. 어떤 데이터는 생성 며칠 후 또는 몇 달 후 만료되고, 또 어떤 데이터 집합은 수명 주기 전체에 걸쳐 적극적으로 읽히고 수정됩니다. Azure Blob Storage 수명 주기 관리(미리 보기)는 데이터를 최적의 액세스 계층으로 전환하고 수명 주기가 끝나면 데이터를 만료할 수 있는 풍부한 규칙 기반 정책을 제공합니다.
+데이터 집합에는 고유한 수명 주기가 있습니다. 어떤 데이터는 수명 주기의 초기 단계에서 자주 액세스되다가 데이터가 오래될수록 액세스 빈도가 떨어집니다. 어떤 데이터는 클라우드에서 유휴 상태로 유지되고 저장된 후에는 어쩌다가 한 번씩 액세스됩니다. 어떤 데이터는 생성 며칠 후 또는 몇 달 후 만료되고, 또 어떤 데이터 집합은 수명 주기 전체에 걸쳐 적극적으로 읽히고 수정됩니다. Azure Blob Storage 수명 주기 관리(미리 보기)는 GPv2 및 Blob 스토리지 계층에서 사용하여 데이터를 적절한 액세스 계층으로 전환하거나 수명 주기가 끝나면 만료할 수 있는 풍부한 규칙 기반 정책을 제공합니다.
 
 수명 주기 관리 정책으로 다음과 같은 일을 할 수 있습니다.
 
 - BLOB을 쿨 저장소 계층으로 전환하여(핫 저장소 계층에서 쿨 저장소 계층으로, 핫 저장소 계층에서 보관 저장소 계층으로 또는 쿨 저장소 계층에서 보관 저장소 계층으로) 성능 및 비용 최적화
 - 수명 주기가 끝나면 BLOB 삭제
-- 저장소 계정 수준에서 하루에 한 번 실행할 규칙 정의(GPv2 및 Blob 저장소 계정을 모두 지원)
+- 스토리지 계정 수준에서 하루에 한 번 실행할 규칙 정의
 - 컨테이너 또는 BLOB 하위 집합에 규칙 적용(접두사를 필터로 사용)
 
-수명 주기의 초기 단계에 자주 액세스되고, 2주 후에는 가끔 필요하고, 1개월 이후부터는 거의 액세스되지 않는 데이터 집합이 있다고 가정해 봅시다. 이 시나리오의 초기 단계에는 핫 저장소 계층이 가장 적합하고, 가끔 액세스되는 기간에는 쿨 저장소 계층이 가장 적합하고, 1개월 이후부터는 보관 저장소 계층이 가장 적합한 옵션입니다. 데이터의 보존 기간에 따라 저장소 계층을 조정하면 요구 사항에 맞는 가장 저렴한 저장소 옵션을 디자인할 수 있습니다. 이와 같이 전환하려면 수명 주기 관리 정책을 사용하여 오래된 데이터를 쿨 저장소 계층으로 이동하면 됩니다.
+수명 주기의 초기 단계에 자주 액세스되고, 2주 후에는 가끔 필요하고, 1개월 이후부터는 거의 액세스되지 않는 데이터 집합이 있다고 가정해 봅시다. 이 시나리오의 초기 단계에는 핫 저장소 계층이 가장 적합하고, 가끔 액세스되는 기간에는 쿨 저장소 계층이 가장 적합하고, 1개월 이후부터는 보관 저장소 계층이 가장 적합한 옵션입니다. 데이터의 보존 기간에 따라 저장소 계층을 조정하면 요구 사항에 맞는 가장 저렴한 저장소 옵션을 디자인할 수 있습니다. 이와 같이 전환하려면 수명 주기 관리 정책 규칙을 사용하여 오래된 데이터를 쿨 계층으로 이동하면 됩니다.
 
 ## <a name="storage-account-support"></a>저장소 계정 지원
 
-수명 주기 관리 정책은 범용 v2(GPv2) 계정과 Blob Storage 계정에 모두 사용할 수 있습니다. Azure Portal에서 간단한 원클릭 프로세스를 이용하여 기존의 범용(GPv1) 계정을 GPv2 계정으로 변환할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
+수명 주기 관리 정책은 범용 v2(GPv2) 계정과 Blob Storage 계정에 모두 사용할 수 있습니다. Azure Portal에서 가동 중지 시간 없이 간단한 원클릭 프로세스를 이용하여 기존의 범용(GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
 
 ## <a name="pricing"></a>가격 
 
@@ -67,9 +67,9 @@ az feature show --namespace Microsoft.Storage --name DLM
 기능이 승인되고 적절하게 등록되면 "등록됨" 상태가 반환됩니다. 
 
 
-## <a name="add-or-remove-policies"></a>정책 추가 또는 제거 
+## <a name="add-or-remove-a-policy"></a>정책 추가 또는 제거 
 
-Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate) 또는 클라이언트 도구를 사용하여 [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2) 언어로 정책을 추가, 편집 또는 제거할 수 있습니다. 
+Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) 또는 클라이언트 도구를 사용하여 [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](  https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2) 언어로 정책을 추가, 편집 또는 제거할 수 있습니다. 
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -77,7 +77,7 @@ Azure Portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.St
 
 2. 저장소 계정으로 이동하려면 모든 리소스를 선택하고 저장소 계정을 선택합니다.
 
-3. [설정] 블레이드의 Blob Service 아래에서 그룹화된 **수명 주기 관리**를 클릭하여 정책을 보거나 변경합니다.
+3. 설정 블레이드의 Blob Service 아래에서 그룹화된 **수명 주기 관리**를 클릭하여 정책을 보거나 변경합니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -92,7 +92,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 > [!NOTE]
 저장소 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 예외를 제공하여 차단을 해제할 수 있습니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
 
-## <a name="policies"></a>정책
+## <a name="policy"></a>정책
 
 수명 주기 관리 정책은 JSON 문서의 규칙 컬렉션입니다.
 
@@ -122,7 +122,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 | 버전        | `x.x`로 표현되는 문자열 | 미리 보기 버전 번호는 0.5 |
 | 규칙          | 규칙 개체의 배열 | 정책마다 하나 이상의 규칙이 필요합니다. 미리 보기 기간에는 정책당 최대 4개의 규칙을 지정할 수 있습니다. |
 
-규칙에서 필요한 매개 변수는 다음과 같습니다.
+각 규칙 내에서 세 개의 매개 변수가 필요합니다.
 
 | 매개 변수 이름 | 매개 변수 형식 | 메모 |
 |----------------|----------------|-------|
@@ -132,10 +132,13 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 
 ## <a name="rules"></a>규칙
 
-각 규칙 정의는 필터 집합과 작업 집합을 포함합니다. 다음 샘플 규칙은 `container1/foo` 접두사가 붙은 기본 블록 Blob의 계층을 수정합니다. 정책에서 이러한 규칙은 다음과 같이 정의됩니다.
+각 규칙 정의는 필터 집합과 작업 집합을 포함합니다. [필터 집합](#rule-filters)은 컨테이너 또는 개체 이름 내에서 개체의 특정 집합으로 규칙 작업을 제한하는 데 사용됩니다. [작업 집합](#rule-actions)은 계층을 적용하거나 필터링된 개체 집합에 대한 작업을 삭제합니다.
 
-- 마지막으로 수정한 시점으로부터 30일 후 BLOB을 쿨 저장소 계층으로 이동
-- 마지막으로 수정한 시점으로부터 90일 후 BLOB을 보관 저장소 계층으로 이동
+### <a name="sample-rule"></a>샘플 규칙
+다음 샘플 규칙은 `container1/foo`에서만 작업을 실행하도록 계정을 필터링합니다. `container1` 내에 있는 모든 개체의 경우 **AND**는 `foo`로 시작되고, 다음 작업이 실행됩니다. 
+
+- 마지막으로 수정한 시점으로부터 30일 후 Blob을 쿨 계층으로 이동
+- 마지막으로 수정한 시점으로부터 90일 후 Blob을 보관 계층으로 이동
 - 마지막으로 수정한 시점으로부터 2,555일(7년) 후 BLOB 삭제
 - 스냅숏을 생성한 시점으로부터 90일 후 BLOB 스냅숏 삭제
 
@@ -177,7 +180,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 | 필터 이름 | 필터 형식 | 메모 | 필수 여부 |
 |-------------|-------------|-------|-------------|
 | blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 미리 보기 릴리스의 경우 `blockBlob`만 지원됩니다. | yes |
-| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어 "https://myaccount.blob.core.windows.net/mycontainer/mydir/.." 아래 모든 Blob은 규칙과 일치해야 하며, 해당 접두사는 "mycontainer/mydir"입니다. | 정의하지 않을 경우 계정 내 모든 BLOB에 이 규칙이 적용됩니다. | 아니요 |
+| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어 "https://myaccount.blob.core.windows.net/container1/foo/.." 아래 모든 Blob이 규칙과 일치해야 하는 경우 prefixMatch는 "container1/foo"입니다. | prefixMatch가 정의되어 있지 않은 경우 규칙은 계정 내의 모든 Blob에 적용됩니다. | 아니요 |
 
 ### <a name="rule-actions"></a>규칙 작업
 

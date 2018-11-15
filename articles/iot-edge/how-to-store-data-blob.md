@@ -2,19 +2,19 @@
 title: Azure IoT Edge 장치의 Azure Blob Storage | Microsoft Docs
 description: 에지에 데이터를 저장하도록 IoT Edge 장치에 Azure Blob Storage 모듈을 배포합니다.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
 ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b86f73302d9f5d07cd1e6e8c7801de56a988cc7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955289"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567284"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -95,7 +95,7 @@ IoT Edge 장치에 모듈을 배포하는 여러 가지 방법이 있는데, 모
    }
    ```   
    
-    * `<your storage account name>`을 업데이트합니다. 계정 이름은 3~24자 사이여야 하고 소문자와 숫자만 사용해야 합니다.
+    * `<your storage account name>`를 업데이트합니다. 계정 이름은 3~24자 사이여야 하고 소문자와 숫자만 사용해야 합니다.
     * `<your storage account key>`를 64바이트 base64 키로 업데이트합니다. [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) 같은 도구를 사용하여 키를 생성할 수 있습니다. 다른 모듈에서 Blob 저장소에 액세스하려면 이러한 자격 증명을 사용합니다.
     * `<storage directory bind>`를 업데이트합니다. 컨테이너 운영 체제에 따라 다릅니다. IoT Edge 장치에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다.  
 

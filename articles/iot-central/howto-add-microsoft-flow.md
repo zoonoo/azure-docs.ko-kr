@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c06939ccb920954c08ef02f38e6d12471ac267db
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155578"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959293"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Microsoft Flow에서 IoT Central 커넥터를 사용하여 워크플로 구축
 
@@ -21,8 +21,10 @@ ms.locfileid: "50155578"
 
 Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 응용 프로그램 및 서비스 전반에서 워크플로를 자동화합니다. Microsoft Flow에서 IoT Central 커넥터를 사용하면 IoT Central에서 규칙이 트리거될 때 워크플로를 트리거할 수 있습니다. IoT Central 또는 다른 응용 프로그램에 의해 트리거되는 워크플로에서 IoT Central 커넥터의 작업을 사용하여 장치를 만들고, 장치의 속성 및 설정을 업데이트하거나 장치를 삭제할 수 있습니다. IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스에 연결하는 [이러한 Microsoft Flow 템플릿](https://aka.ms/iotcentralflowtemplates)을 확인하세요.
 
-> [!NOTE] 
-> Microsoft 개인 또는 회사 또는 학교 계정을 사용하여 Microsoft Flow에 로그인해야 합니다. [여기](https://aka.ms/microsoftflowplans)에서 Microsoft Flow 계획에 대해 자세히 알아봅니다.
+## <a name="prerequisites"></a>필수 조건
+
+- 종량제 애플리케이션
+- Microsoft 개인 또는 회사나 학교 계정을 사용하여 Flow에 로그인합니다([Microsoft Flow에 대한 자세한 정보](https://aka.ms/microsoftflowplans)).
 
 ## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>규칙이 트리거될 때 워크플로 트리거
 

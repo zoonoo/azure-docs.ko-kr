@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: yushwang
-ms.openlocfilehash: 94183b639c02f6a7d74e87e8f8335da67db113d6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a232ac111974444848aec82f3c7ab6236f82ac03
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468180"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037102"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -65,7 +65,7 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 경로 기반 게이트웨이는 경로 기반 VPN을 구현합니다. 경로 기반 VPN은 IP 전달 또는 라우팅 테이블에서 “경로"를 사용하여 패킷을 해당 터널 인터페이스에 전달합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책 또는 트래픽 선택기는 임의 또는 와일드카드로 구성됩니다.
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>정책 기반 VPN Gateway를 경로 기반으로 업데이트할 수 있나요?
-아니요. Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
+아니요. Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
 1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
 2. 게이트웨이를 삭제합니다.
 * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -122,11 +122,11 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 예, Azure Marketplace에서 또는 사용자 VPN 라우터를 만들어서 Azure에 사용자 VPN 게이트웨이 또는 서버를 배포할 수 있습니다. 온-프레미스 네트워크와 가상 네트워크 서브넷 간에 트래픽이 적절하게 라우팅되도록 하려면 가상 네트워크에서 사용자 정의 경로를 구성해야 합니다.
 
-### <a name="why-are-certain-ports-opened-on-my-vpn-gateway"></a>내 VPN 게이트웨이에서 특정 포트가 열리는 이유는 무엇인가요?
+### <a name="gatewayports"></a>내 가상 네트워크 게이트웨이에서 특정 포트가 열리는 이유는?
 
 Azure 인프라 통신을 위해 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 엔드포인트에 어떤 영향도 미칠 수 없습니다.
 
-VPN 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하는 하나의 NIC와 공용 네트워크를 연결하는 하나의 NIC를 갖춘 멀티홈 장치입니다. Azure 인프라 엔터티는 준수 이유로 고객 개인 네트워크에 연결할 수 없으므로 인프라 통신용 공용 엔드포인트를 이용해야 합니다. 공용 엔드포인트는 Azure 보안 감사에서 정기적으로 검색됩니다.
+가상 네트워크 게이트웨이는 기본적으로 고객 개인 네트워크에 연결하는 하나의 NIC와 공용 네트워크를 연결하는 하나의 NIC를 갖춘 멀티홈 디바이스입니다. Azure 인프라 엔터티는 준수 이유로 고객 개인 네트워크에 연결할 수 없으므로 인프라 통신용 공용 엔드포인트를 이용해야 합니다. 공용 엔드포인트는 Azure 보안 감사에서 정기적으로 검색됩니다.
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>게이트웨이 유형, 요구 사항 및 처리량에 대한 자세한 내용
 

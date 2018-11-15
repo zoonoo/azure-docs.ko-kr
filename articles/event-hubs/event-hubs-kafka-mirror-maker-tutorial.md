@@ -10,12 +10,12 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 08/07/2018
 ms.author: bahariri
-ms.openlocfilehash: e9ae6349d149c90fddc29d5cc1fb3c15f20b8e17
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b79d62175c29dfc1671f0cb59c36f4bd2a8857e1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420577"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282826"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Kafka MirrorMaker 사용
 
@@ -132,7 +132,12 @@ MirrorMaker를 실행하면, Kafka 클러스터 및 미러된 Kafka 지원 이�
 
 Event Hubs 및 Kafka용 Event Hubs에 대해 자세히 알아보려면 다음 항목을 참조하세요.  
 
-* [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
-* [Kafka용 Event Hubs에 대해 알아보기](event-hubs-for-kafka-ecosystem-overview.md)
-* [Kafka GitHub용 Event Hubs에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
-* [네이티브 Kafka 응용 프로그램](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md) 또는 [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)를 사용하여 Kafka 지원 Event Hubs에 스트림하는 방법을 알아봅니다.
+- [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
+- [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)
+- [Kafka 사용 Event Hubs 만드는 방법](event-hubs-create-kafka-enabled.md)
+- [Kafka 응용 프로그램에서 이벤트 허브로 스트리밍](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Kafka 사용 이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
+- [Kafka 사용 이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
+- [Kafka 사용 이벤트 허브와 Kafka Connect 통합](event-hubs-kafka-connect-tutorial.md)
+- [Kafka 사용 이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
+- [GitHub에서 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)

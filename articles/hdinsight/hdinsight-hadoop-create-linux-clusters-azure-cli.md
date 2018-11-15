@@ -1,20 +1,20 @@
 ---
-title: Azure 클래식 CLI를 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight
+title: Azure 클래식 CLI를 사용하여 Apache Hadoop 클러스터 만들기 - Azure HDInsight
 description: 플랫폼 간 Azure 클래식 CLI를 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 84b352fea0c5b9c98cd3b4e814e448cf8b706402
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 93ee51c8a00e5cfcbffd56f96b627b68dd124aea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992816"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034696"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 HDInsight 클러스터 만들기
 
@@ -122,7 +122,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 ### <a name="hadoop-clusters"></a>Hadoop 클러스터
 
-* [HDInsight에서 하이브 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 

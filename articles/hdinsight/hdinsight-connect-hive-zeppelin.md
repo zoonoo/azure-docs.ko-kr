@@ -1,32 +1,32 @@
 ---
-title: Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리 실행
-description: Zeppelin을 사용하여 Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
+title: Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행
+description: Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
 keywords: hdinsight,hadoop,hive,대화형 쿼리,LLAP
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 3064c9cd141458307891f666bd5af9aa738cc021
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/05/2018
+ms.author: hrasheed
+ms.openlocfilehash: 75ec0e17e9866d2cd3420ff6ecf648bf22a8ae8e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093171"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277956"
 ---
-# <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리 실행 
+# <a name="use-apache-zeppelin-to-run-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행 
 
-HDInsight 대화형 쿼리 클러스터에는 대화형 Hive 쿼리를 실행하는 데 사용할 수 있는 Zeppelin 노트북이 포함되어 있습니다. 이 문서에서는 Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리를 실행하는 방법에 대해 알아봅니다. 
+HDInsight 대화형 쿼리 클러스터에는 대화형 Hive 쿼리를 실행하는 데 사용할 수 있는 Apache Zeppelin 노트북이 포함되어 있습니다. 이 문서에서는 Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **HDInsight 대화형 쿼리 클러스터**. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.  대화형 쿼리 형식을 선택해야 합니다. 
 
-## <a name="create-a-zeppelin-note"></a>Zeppelin 노트 만들기
+## <a name="create-a-apache-zeppelin-note"></a>Apache Zeppelin 노트 만들기
 
 1. 다음 URL로 이동합니다.
 

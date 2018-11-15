@@ -2,19 +2,19 @@
 title: Azure IoT Edge 모듈 배포(CLI) | Microsoft Docs
 description: Azure CLI용 IoT 확장을 사용하여 IoT Edge 장치에 모듈 배포
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c882321af38b21f4820345b8ce5448227cb121c6
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: a8f39befbe1a329091da19eeba14a8dcc749fa93
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977637"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564989"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Azure CLI를 사용하여 Azure IoT Edge 모듈 배포
 

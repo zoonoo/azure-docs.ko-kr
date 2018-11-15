@@ -9,14 +9,14 @@ tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 05/01/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2ec5caab32e12411f5ccab4a9a6b98d3c4e57c0b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412530"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748037"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>저장소 리소스 삭제 오류 문제 해결
 
@@ -69,10 +69,7 @@ Azure는 손상 방지를 위해 VM에 연결된 디스크 삭제를 차단합�
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>시나리오 3: 저장소 계정 삭제 - VM에 연결된 저장소 계정 내 모든 Blob 식별
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 허브 메뉴에서 **모든 리소스**를 선택합니다. 저장소 계정으로 이동하고 **Blob 서비스**에서 **컨테이너**를 선택합니다.
-
-    ![저장소 계정 컨테이너 및 "임대 상태"가 "임대"로 강조 표시된 포털의 스크린샷](./media/troubleshoot-vhds/utd-containers-sm.png)
-
+2. 허브 메뉴에서 **모든 리소스**를 선택합니다. 스토리지 계정으로 이동하고 **Blob 서비스**에서 **Blob**을 선택합니다.
 3. **컨테이너** 창에서 **임대 상태**가 **임대됨**인 모든 컨테이너를 식별하고 **임대된** 컨테이너에 대해 [시나리오 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms)를 수행합니다.
 4. [2단계](#step-2-delete-vm-to-detach-os-disk) 및 [3단계](#step-3-detach-data-disk-from-the-vm)에 따라**OSDisk**가 있는 VM을 삭제하고**DataDisk**를 분리합니다. 
 

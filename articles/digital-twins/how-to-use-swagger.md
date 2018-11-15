@@ -1,6 +1,6 @@
 ---
 title: Azure Digital Twins Swagger를 사용하는 방법 이해 | Microsoft Docs
-description: Azure Digital Twins Swagger를 사용하는 방법
+description: Azure Digital Twins Swagger 사용
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
@@ -8,33 +8,33 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 3bc365c204ab75a2f136c3e26c4b598b25f66114
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093492"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960205"
 ---
-# <a name="how-to-use-azure-digital-twins-swagger"></a>Azure Digital Twins Swagger를 사용하는 방법
+# <a name="use-azure-digital-twins-swagger"></a>Azure Digital Twins Swagger 사용
 
 프로비전된 Azure Digital Twins 인스턴스에는 각각 자동으로 생성된 고유한 Swagger 참조 설명서가 포함됩니다.
 
-[Swagger](https://swagger.io/)(또는 [OpenAPI](https://www.openapis.org/))는 복잡한 API 정보를 대화형 및 언어 중립적 참조 리소스로 통합합니다. 특히, Swagger는 API에 대한 작업을 수행하는 데 사용할 JSON 페이로드, HTTP 메서드 및 특정 엔드포인트에 대한 중요 참고 자료를 제공합니다.
+[Swagger](https://swagger.io/) 또는 [OpenAPI](https://www.openapis.org/)는 복잡한 API 정보를 대화형 및 언어 중립적 참조 리소스로 통합합니다. Swagger는 API에 대한 작업을 수행하는 데 사용할 JSON 페이로드, HTTP 메서드 및 특정 엔드포인트에 대한 중요 참고 자료를 제공합니다.
 
 ## <a name="swagger-summary"></a>Swagger 요약
 
 Swagger는 다음을 비롯한 API의 대화형 요약을 제공합니다.
 
-* API 및 개체 모델 정보
-* 필수 요청 페이로드, 헤더, 매개 변수, 컨텍스트 경로 및 HTTP 메서드를 지정하는 REST API 엔드포인트
+* API 및 개체 모델 정보.
+* 필수 요청 페이로드, 헤더, 매개 변수, 컨텍스트 경로 및 HTTP 메서드를 지정하는 REST API 엔드포인트.
 * API 기능 테스트
-* HTTP 응답의 유효성을 검사하고 확인하는 예제 응답 정보
+* HTTP 응답의 유효성을 검사하고 확인하는 예제 응답 정보.
 * 오류 코드 정보
 
-따라서 Swagger는 관리 API에 대해 수행된 개발 및 테스트 호출을 보조하는 편리한 도구입니다.
+Swagger는 관리 API에 대해 수행된 개발 및 테스트 호출을 보조하는 편리한 도구입니다.
 
 > [!TIP]
-> 참조로 Swagger 미리 보기는 API 기능 집합을 설명하기 위해 제공됩니다.
+> Swagger 미리 보기는 API 기능 집합을 설명하기 위해 제공됩니다.
 > [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger)에서 호스팅됩니다.
 
 다음에서 생성된 고유한 관리 API Swagger 설명서에 액세스할 수 있습니다.
@@ -43,7 +43,7 @@ Swagger는 다음을 비롯한 API의 대화형 요약을 제공합니다.
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
-| 사용자 지정 특성 이름 | 바꿀 항목 |
+| 사용자 지정 특성 이름 | 다음 항목으로 교체 |
 | --- | --- |
 | *yourInstanceName* | Azure Digital Twins 인스턴스의 이름 |
 | *yourLocation* | 인스턴스를 호스팅하는 서버 지역 |
@@ -60,11 +60,11 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 ![Swagger 모델][2]
 
-키 특성의 자세한 요약은 각 나열된 개체 모델을 클릭하면 됩니다.
+키 특성의 더 자세한 요약은 각 나열된 개체 모델을 선택하면 됩니다.
 
 ![Swagger 모델][3]
 
-생성된 Swagger 개체 모델은 사용 가능한 모든 Azure Digital Twins [개체 및 API](./concepts-objectmodel-spatialgraph.md)를 보는 데 편리합니다. 개발자가 Azure Digital Twins에서 솔루션을 빌드할 때 사용할 훌륭한 리소스입니다.
+생성된 Swagger 개체 모델은 사용 가능한 모든 Azure Digital Twins [개체 및 API](./concepts-objectmodel-spatialgraph.md)를 보는 데 편리합니다. 개발자는 Azure Digital Twins에서 솔루션을 빌드할 때 이 리소스를 활용합니다.
 
 ## <a name="endpoint-summary"></a>엔드포인트 요약
 
@@ -74,29 +74,29 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 * 필수 매개 변수
 * 필수 매개 변수 데이터 형식
-* 리소스에 액세스하는 HTTP 메서드
+* 리소스에 액세스하는 HTTP 메서드.
 
 ![Swagger 엔드포인트][4]
 
-자세한 개요를 보려면 각 리소스를 클릭하면 됩니다.
+더 자세한 개요를 보려면 각 리소스를 선택합니다.
 
-## <a name="using-swagger-to-test-endpoints"></a>Swagger를 사용하여 엔드포인트 테스트
+## <a name="use-swagger-to-test-endpoints"></a>Swagger를 사용하여 엔드포인트 테스트
 
-Swagger의 강력한 기능 중 하나는 문서 UI 통해 직접 API 엔드포인트를 **사용** 또는 테스트할 수 있는 기능입니다.
+Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드포인트를 테스트할 수 있는 기능입니다.
 
-특정 엔드포인트를 클릭하면 **사용해 보기** 단추가 표시됩니다.
+특정 엔드포인트를 선택하면 **사용해보기**가 표시됩니다.
 
 ![Swagger 사용][5]
 
-해당 섹션을 확장하면 각 필수 및 선택적 매개 변수에 대한 입력 필드가 표시됩니다. 값을 적절하게 입력하고 **실행**을 클릭합니다.
+해당 섹션을 확장하면 각 필수 및 선택적 매개 변수에 대한 입력 필드가 표시됩니다. 값을 적절하게 입력하고 **실행**을 선택합니다.
 
 ![Swagger 사용됨][6]
 
-테스트를 실행하면 응답 데이터의 유효성을 검사할 수 있습니다.
+테스트를 실행한 후 응답 데이터의 유효성을 검사할 수 있습니다.
 
 ## <a name="swagger-response-data"></a>Swagger 응답 데이터
 
-나열된 각 엔드포인트에는 개발 및 테스트의 유효성을 검사하는 응답 본문 데이터도 포함됩니다. 이러한 예제에는 성공적인 HTTP 요청에 대한 원하는 상태 코드 및 JSON이 포함됩니다.
+나열된 각 엔드포인트에는 개발 및 테스트의 유효성을 검사하는 응답 본문 데이터도 포함됩니다. 이러한 예제에는 성공적인 HTTP 요청에 대해 원하는 상태 코드 및 JSON이 포함됩니다.
 
 ![Swagger 응답][7]
 
@@ -108,9 +108,9 @@ OAuth 2.0으로 보호되는 API 리소스에 대한 요청을 대화형으로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 Azure Digital Twins 개체 모델 및 공간 인텔리전스 그래프에 대해 알아보려면 [이 문서](./concepts-objectmodel-spatialgraph.md)를 참고하세요.
+Azure Digital Twins 개체 모델 및 공간 인텔리전스 그래프에 대해 자세히 알아보려면 [Azure Digital Twins 개체 모델 이해](./concepts-objectmodel-spatialgraph.md)를 읽어보세요.
 
-관리 API를 사용하여 인증하는 방법을 알아보려면 [API를 사용하여 인증](./security-authenticating-apis.md)을 참고하세요.
+관리 API를 사용하여 인증하는 방법을 알아보려면 [API를 사용하여 인증](./security-authenticating-apis.md)을 읽어보세요.
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

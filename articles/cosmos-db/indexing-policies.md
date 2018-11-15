@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cd3b5f49788282b535f07c6f84bf7e4002132ab9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054675"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237590"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?
 
@@ -140,18 +140,18 @@ Azure Cosmos DB는 JSON 문서 및 인덱스를 트리로 모델링합니다. �
 
 인덱스 경로는 루트(/)로 시작하고 일반적으로 ? 와일드카드 연산자로 끝나, 접두사로 사용 가능한 값이 여러 개 있음을 나타냅니다. 예를 들어 SELECT * FROM Families F WHERE F.familyName = "Andersen"을 처리하려면 컬렉션의 인덱스 정책에 /familyName/?의 인덱스 경로를 포함해야 합니다.
 
-또한 인덱스 경로에 \* 와일드카드 연산자를 사용하여 접두사 아래에 재귀적으로 경로에 대한 동작을 지정할 수 있습니다. 예를 들어 /payload/*를 사용하여 페이로드 속성의 모든 항목을 인덱싱에서 제외할 수 있습니다.
+또한 인덱스 경로에 \*와일드카드 연산자를 사용하여 접두사 아래에 재귀적으로 경로에 대한 동작을 지정할 수 있습니다. 예를 들어 /payload/*를 사용하여 페이로드 속성의 모든 항목을 인덱싱에서 제외할 수 있습니다.
 
 인덱스 경로를 지정하는 일반적인 패턴은 다음과 같습니다.
 
 | path                | 설명/사용 사례                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | 컬렉션의 기본 경로입니다. 재귀적이며 전체 문서 트리에 적용됩니다.                                                                                                                                                                                                                                   |
-| /prop/?             | 인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시, 범위 유형이 포함되어 있음).<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
-| /prop/*             | 지정된 레이블 아래의 모든 경로의 인덱스 경로입니다. 다음 쿼리로 작동<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /prop/?             | 인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시, 범위 유형이 포함되어 있음).<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/*             | 지정된 레이블 아래의 모든 경로의 인덱스 경로입니다. 다음 쿼리로 작동<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
 | /props/[]/?         | ["a", "b", "c"]와 같은 스칼라의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다.<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
 | /props/[]/subprop/? | [{subprop: "a"}, {subprop: "b"}]와 같은 개체의 배열에 대한 반복 및 JOIN 쿼리를 제공하는 데 필요한 인덱스 경로입니다.<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
-| /prop/subprop/?     | 인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시 또는 범위 유형이 포함되어 있음).<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
+| /prop/subprop/?     | 인덱스 경로는 다음과 같은 쿼리를 처리하는 데 필요합니다(각각 해시 또는 범위 유형이 포함되어 있음).<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > 사용자 지정 인덱스 경로를 설정하는 경우 특수 경로 “/*”로 지정된 전체 문서 트리에 대한 기본 인덱싱 규칙을 지정해야 합니다. 
@@ -276,9 +276,9 @@ Azure Cosmos DB는 모든 경로에 대해 점, 다각형 또는 LineString 데�
 
 | 인덱스 종류 | 설명/사용 사례                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 해시       | Hash over/prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (또는 /나 /props/)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
-| 범위      | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
-| 공간     | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled              |
+| 해시       | Hash over/prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (또는 /나 /props/)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| 범위      | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
+| 공간     | /prop/? (또는 /)는 다음 쿼리를 효율적으로 처리하는 데 사용할 수 있습니다.<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled              |
 
 기본적으로, 쿼리를 처리하는 데 검색이 필요할 수 있음을 알리기 위한 범위 인덱스(임의의 전체 자릿수)가 없는 경우 >=와 같은 범위 연산자를 사용하는 쿼리에 대해 오류가 반환됩니다. REST API의 **x-ms-documentdb-enable-scan** 헤더를 사용하거나 .NET SDK의 **EnableScanInQuery** 요청 옵션을 사용하여 범위 인덱스 없이 범위 쿼리를 수행할 수 있습니다. 쿼리에 다른 필터가 있어서 Azure Cosmos DB가 인덱스를 사용하여 필터링할 수 있는 경우 오류가 반환되지 않습니다.
 
@@ -323,7 +323,7 @@ Azure Cosmos DB는 모든 경로에 대해 점, 다각형 또는 LineString 데�
 
 자동 인덱싱이 해제된 상태에서도 특정 문서만 선택적으로 인덱스에 추가할 수 있습니다. 반대로, 자동 인덱싱을 설정된 상태로 두고 특정 문서를 선택적으로 제외할 수도 있습니다. 인덱싱 설정/해제 구성은 문서의 하위 집합만 쿼리해야 할 경우에 유용합니다.
 
-다음 샘플은 [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) 및 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 속성을 사용하여 문서를 명시적으로 포함하는 방법을 보여 줍니다.
+다음 샘플은 [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) 및 [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 속성을 사용하여 문서를 명시적으로 포함하는 방법을 보여 줍니다.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -413,7 +413,7 @@ Azure Cosmos DB에서는 즉석에서 컬렉션의 인덱싱 정책을 변경할
 ## <a name="performance-tuning"></a>성능 튜닝
 SQL API는 사용된 인덱스 저장소와 같은 성능 메트릭에 대한 정보와 모든 작업에 대한 처리량 비용(요청 단위)을 제공합니다. 이 정보를 활용하여 다양한 인덱싱 정책을 비교하거나 성능을 조정할 수 있습니다.
 
-컬렉션의 저장소 할당량 및 사용량을 확인하려면 컬렉션 리소스에 대해 **HEAD** 또는 **GET** 요청을 실행하고 **x-ms-request-quota** 및 **x-ms-request-usage** 헤더를 검사합니다. .NET SDK에서는 [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx)의 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 및 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 속성은 이에 해당하는 값을 포함합니다.
+컬렉션의 저장소 할당량 및 사용량을 확인하려면 컬렉션 리소스에 대해 **HEAD** 또는 **GET** 요청을 실행하고 **x-ms-request-quota** 및 **x-ms-request-usage** 헤더를 검사합니다. .NET SDK에서는 [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx)의 [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) 및 [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) 속성은 이에 해당하는 값을 포함합니다.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -421,7 +421,7 @@ SQL API는 사용된 인덱스 저장소와 같은 성능 메트릭에 대한 �
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-각 쓰기 작업(만들기, 업데이트 또는 삭제)에 대한 인덱싱 오버헤드를 측정하려면 **x-ms-request-charge** 헤더(또는 .NET SDK의 [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx)에 있는 동등한 [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) 속성)를 검사하여 이 작업에 사용된 요청 단위 수를 측정합니다.
+각 쓰기 작업(만들기, 업데이트 또는 삭제)에 대한 인덱싱 오버헤드를 측정하려면 **x-ms-request-charge** 헤더(또는 .NET SDK의 [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx)에 있는 동등한 [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) 속성)를 검사하여 이 작업에 사용된 요청 단위 수를 측정합니다.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

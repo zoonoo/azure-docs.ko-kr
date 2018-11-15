@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035330"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981608"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>포털에서 유지 관리를 위해 예약된 VM 보기
 
@@ -38,7 +38,7 @@ Azure Portal을 사용하여 유지 관리하도록 예약된 VM을 찾아볼 �
       | 이미 업데이트됨 | VM은 이미 업데이트되었으며 지금은 필요한 추가 작업이 없습니다. | 
       | 나중에 다시 시도 | 유지 관리를 시작했으나 실패했습니다. 나중에 셀프 서비스 유지 관리 옵션을 사용할 수 있습니다. | 
       | 지금 다시 시도 | 이전에 실패한 셀프 시작 유지 관리를 다시 시도할 수 있습니다. | 
-      | - | 가상 머신이 계획된 유지 관리 웨이브에 속하지 않습니다. |
+      | - | VM이 계획된 유지 관리 웨이브에 속하지 않습니다. |
       
 
    **유지 관리 - 셀프 서비스 기간**: VM에서 유지 관리를 직접 시작할 수 있는 기간을 보여 줍니다.
@@ -49,17 +49,9 @@ Azure Portal을 사용하여 유지 관리하도록 예약된 VM을 찾아볼 �
 
 ## <a name="notification-and-alerts-in-the-portal"></a>포털에서 알림 및 경고
 
-Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. Azure 활동 로그 경고를 만들어 이 통신에 받는 사람 및 채널을 더 추가할 수 있습니다. 자세한 내용은 [Azure 활동 로그로 구독 활동 모니터링](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)을 참조하세요.
+Azure에서는 구독 소유자 및 공동 소유자 그룹에 이메일을 보내 계획된 유지 관리를 위한 일정을 알립니다. Azure 활동 로그 경고를 만들어 이 통신에 받는 사람 및 채널을 더 추가할 수 있습니다. 자세한 내용은 [서비스 알림에 대한 활동 로그 경고 만들기](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)를 참조하세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **모니터**를 선택합니다. 
-3. **모니터 - 경고(클래식)** 창에서 **+ 활동 로그 경고 추가**를 클릭합니다.
-5. **활동 로그 경고 추가** 페이지에 정보를 입력하고 **조건**에서 다음을 설정합니다.
-   - **이벤트 범주**: 서비스 상태
-   - **서비스**: Virtual Machine Scale Sets 및 Virtual Machines
-   - **종류**: 계획된 유지 관리 
-    
-활동 로그 경고를 구성하는 방법에 대한 자세한 내용은 [활동 로그 경고 만들기](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)를 참조하세요.
+**이벤트 유형**을 **계획된 유지 관리**로, **서비스**를 **Virtual Machine Scale Sets** 및/또는 **Virtual Machines**로 설정했는지 확인합니다.
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>포털에서 VM에 대한 유지 관리 시작

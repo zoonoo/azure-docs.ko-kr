@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d906515214e042a09d434f02be1778c275f214a8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8afefa95e0a7b4f10f4a2bf6c7f099ba9eb4a957
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958137"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613222"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Log Analytics에서 사용할 사용자 지정 대시보드 만들기
 
@@ -88,4 +88,4 @@ OMS 포털에서 만든 모든 사용자 지정 대시보드는 OMS 모바일 �
 ![타일 제거](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 알림을 생성하고 문제를 해결하기 위해 Log Analytics에서 [경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)를 만듭니다.
+* 알림을 생성하고 문제를 해결하기 위해 Log Analytics에서 [경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 만듭니다.

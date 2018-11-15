@@ -1,6 +1,6 @@
 ---
 title: 게시된 응용 프로그램 설치 - Dataiku DDS - Azure HDInsight
-description: Dataiku DDS 타사 Hadoop 응용 프로그램을 설치하여 사용합니다.
+description: 타사 Apache Hadoop 애플리케이션 Dataiku DDS를 설치하여 사용합니다.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 64a6f393498ca90675712747afc8f9befc4b932f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: feb94f450621e999da01f77f0b5550258377d6c9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105172"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038266"
 ---
 # <a name="install-published-application---dataiku-dds"></a>게시된 응용 프로그램 설치 - Dataiku DDS
 
-이 문서에서는 게시된 Hadoop 응용 프로그램 [Dataiku DDS](https://www.dataiku.com/)를 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 게시된 Apache Hadoop 애플리케이션 [Dataiku DDS](https://www.dataiku.com/)를 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-dataiku-dss"></a>Dataiku DSS 정보
 

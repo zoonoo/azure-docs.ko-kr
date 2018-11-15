@@ -2,24 +2,20 @@
 title: 비-갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성하는 방법 | Microsoft Docs
 description: Azure AD 응용 프로그램 갤러리에 없는 경우 보안 암호 기반 Single Sign-On에 대한 사용자 지정 비 갤러리 응용 프로그램을 구성하는 방법
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 37ac3b5fb680a9966f5b8f3da43a2b3013554557
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d880a142b54d253cc1522b3dcc521c86119e0997
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355442"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578402"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비-갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성하는 방법
 
@@ -115,7 +111,6 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 11. 또한 사용자의 행을 선택하고 **자격 증명 업데이트**를 클릭하고 사용자를 대신하여 사용자 이름 및 암호를 입력하여 사용자를 대신하여 자격 증명을 제공할 수도 있습니다. 그렇지 않으면 사용자는 시작할 때 자격 증명을 입력하라는 메시지를 받게 됩니다.
 
-12. **선택 사항:** Facebook 및 Twitter와 같은 특정 소셜 미디어 응용 프로그램의 경우 선택한 주기에 따라 응용 프로그램의 암호를 자동으로 롤오버하게 설정하는 옵션도 있습니다. 이를 사용하도록 설정하려면 사용자나 그룹을 위해 자격 증명을 입력할 때 **Azure AD에서 이 사용자 또는 그룹의 암호를 자동으로 관리하기를 원함**을 선택합니다. 그런 다음, **롤오버 빈도(주 단위)** 를 선택합니다.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>응용 프로그램에 사용자를 직접 할당
 

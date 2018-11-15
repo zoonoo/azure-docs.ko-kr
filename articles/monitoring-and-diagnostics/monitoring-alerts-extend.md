@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414619"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612576"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Log Analytics 경고를 Azure Alerts로 확장
 최근까지 Azure Log Analytics에는 Log Analytics 데이터에 기반한 조건을 사전에 알려줄 수 있는 자체 경고 기능이 포함됩니다. Microsoft Operations Management Suite 포털에서 경고 규칙을 관리했습니다. 새 경고 환경은 이제 Microsoft Azure의 다양한 서비스에서 경고를 통합했습니다. 이 환경은 Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능하며 Log Analytics 및 Azure Application Insights에서 활동 로그, 메트릭 및 로그의 경고를 지원합니다. 
@@ -60,5 +60,5 @@ Operations Management Suite 포털에서 새 경고를 만들거나 기존 경�
 ## <a name="next-steps"></a>다음 단계
 
 * [Log Analytics에서 Azure로 경고 확장을 시작](monitoring-alerts-extend-tool.md)하는 도구를 알아봅니다.
-* [Azure Alerts 환경](monitoring-overview-unified-alerts.md)에 대해 자세히 알아봅니다.
+* [Azure Alerts 환경](monitoring-overview-alerts.md)에 대해 자세히 알아봅니다.
 * [Azure Alerts에서 로그 경고](monitor-alerts-unified-log.md)를 만드는 방법을 알아봅니다.
