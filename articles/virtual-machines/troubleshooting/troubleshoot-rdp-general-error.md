@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/30/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7f5e1f2141a58f666367d253d5fc313499e64c9f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239393"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960160"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Azure VM의 RDP 일반 오류 문제 해결
 
@@ -65,7 +65,7 @@ RDP 수신기가 잘못 구성되었습니다.
 
 ### <a name="serial-console"></a>직렬 콘솔
 
-#### <a name="step-1-turn-on-remote-deskop"></a>1단계: 원격 데스크톱 켜기
+#### <a name="step-1-turn-on-remote-desktop"></a>1단계: 원격 데스크톱 켜기
 
 1. **지원 및 문제 해결** > **직렬 콘솔(미리 보기)** 을 선택하여 [직렬 콘솔](serial-console-windows.md)에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
 
@@ -76,94 +76,91 @@ RDP 수신기가 잘못 구성되었습니다.
    ```
    ch -si 1
    ```
-4. 다음과 같이 레지스트리 키의 값을 확인합니다.
 
-   1. RDP 구성 요소가 사용하도록 설정되었는지 확인합니다.
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>2단계: RDP 레지스트리 키를 값 확인하기:
+
+1. RDP가 정책에서 비활성화되어 있는지 확인합니다.
 
       ```
-      REM Get the local policy
+      REM Get the local policy 
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server " /v fDenyTSConnections
 
       REM Get the domain policy if any
       reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
       ```
 
-      도메인 정책이 있는 경우 로컬 정책의 설정을 덮어씁니다.
+      - 도메인 정책이 있는 경우 로컬 정책의 설정을 덮어씁니다.
+      - 도메인 정책에서 RDP를 사용하지 않도록 설정(1)하는 경우 도메인 컨트롤러에서 AD 정책을 업데이트합니다.
+      - 도메인 정책에서 RDP를 사용하도록 설정(0)하는 경우에는 업데이트가 필요하지 않습니다.
+      - 도메인 정책이 없고 로컬 정책에서 RDP를 사용하지 않도록 설정(1)하는 경우 다음 명령을 사용하여 RDP를 사용하도록 설정합니다. 
+      
+            reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+                  
 
-         - 도메인 정책에서 RDP를 사용하지 않도록 설정(1)하는 경우 도메인 컨트롤러에서 AD 정책을 업데이트합니다.
-         - 도메인 정책에서 RDP를 사용하도록 설정(0)하는 경우에는 업데이트가 필요하지 않습니다.
-
-      도메인 정책이 없고 로컬 정책에서 RDP를 사용하지 않도록 설정(1)하는 경우 다음 명령을 사용하여 RDP를 사용하도록 설정합니다.
-
-         ```
-         reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-         ```
-
-   2. 터미널 서버의 현재 구성을 확인합니다.
+2. 터미널 서버의 현재 구성을 확인합니다.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled
       ```
 
-   3. 명령이 0을 반환하면 터미널 서버를 사용할 수 없습니다. 이 경우 다음과 같이 터미널 서버를 사용하도록 설정합니다.
+      명령이 0을 반환하면 터미널 서버를 사용할 수 없습니다. 이 경우 다음과 같이 터미널 서버를 사용하도록 설정합니다.
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
       ```
 
-   4. 서버가 터미널 서버 팜(RDS 또는 Citrix)에 있는 경우 터미널 서버 모듈이 드레이닝 모드로 설정됩니다. 터미널 서버 모듈의 현재 모드를 확인합니다.
+3. 서버가 터미널 서버 팜(RDS 또는 Citrix)에 있는 경우 터미널 서버 모듈이 드레이닝 모드로 설정됩니다. 터미널 서버 모듈의 현재 모드를 확인합니다.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode
       ```
 
-   5. 명령이 1을 반환하면 터미널 서버 모듈이 드레이닝 모드로 설정되었습니다. 이 경우 다음과 같이 모듈을 작업 모드로 설정합니다.
+      명령이 1을 반환하면 터미널 서버 모듈이 드레이닝 모드로 설정되었습니다. 이 경우 다음과 같이 모듈을 작업 모드로 설정합니다.
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
       ```
 
-   6. 터미널 서버에 연결할 수 있는지 확인합니다.
+4. 터미널 서버에 연결할 수 있는지 확인합니다.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled
       ```
 
-   7. 명령이 1을 반환하면 터미널 서버에 연결할 수 없습니다. 이 경우 다음과 같이 연결을 사용하도록 설정합니다.
+      명령이 1을 반환하면 터미널 서버에 연결할 수 없습니다. 이 경우 다음과 같이 연결을 사용하도록 설정합니다.
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
       ```
-
-   8. RDP 수신기의 현재 구성을 확인합니다.
+5. RDP 수신기의 현재 구성을 확인합니다.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation
       ```
 
-   9. 명령이 0을 반환하면 RDP 수신기를 사용할 수 없습니다. 이 경우 다음과 같이 수신기를 사용하도록 설정합니다.
+      명령이 0을 반환하면 RDP 수신기를 사용할 수 없습니다. 이 경우 다음과 같이 수신기를 사용하도록 설정합니다.
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
       ```
 
-   10. RDP 수신기에 연결할 수 있는지 확인합니다.
+6. RDP 수신기에 연결할 수 있는지 확인합니다.
 
       ```
       reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled
       ```
 
-   11. 명령이 1을 반환하면 RDP 수신기에 연결할 수 없습니다. 이 경우 다음과 같이 연결을 사용하도록 설정합니다.
+   명령이 1을 반환하면 RDP 수신기에 연결할 수 없습니다. 이 경우 다음과 같이 연결을 사용하도록 설정합니다.
 
       ```
       reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
       ```
 
-6. VM을 다시 시작합니다.
+7. VM을 다시 시작합니다.
 
-7. `exit`를 입력하여 CMD 인스턴스에서 종료하고 **Enter** 키를 두 번 누릅니다.
+8. `exit`를 입력하여 CMD 인스턴스에서 종료하고 **Enter** 키를 두 번 누릅니다.
 
-8. `restart`를 입력하여 VM을 다시 시작합니다.
+9. `restart`를 입력하여 VM을 다시 시작한 다음, VM에 연결합니다.
 
 문제가 계속되면 2단계로 이동합니다.
 
@@ -177,13 +174,13 @@ RDP 수신기가 잘못 구성되었습니다.
 
 ### <a name="offline-repair"></a>오프라인 복구
 
-#### <a name="step-1-turn-on-remote-deskop"></a>1단계: 원격 데스크톱 켜기
+#### <a name="step-1-turn-on-remote-desktop"></a>1단계: 원격 데스크톱 켜기
 
 1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 3. 디스크 관리 콘솔에서 디스크의 플래그가 **온라인**으로 지정되었는지 확인합니다. 연결된 OS 디스크에 할당된 드라이브 문자를 적어 둡니다.
-3. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
-4. 관리자 권한 명령 프롬프트 세션을 엽니다(**관리자 권한으로 실행**). 다음 스크립트를 실행합니다. 이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
+4. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
+5. 관리자 권한 명령 프롬프트 세션을 엽니다(**관리자 권한으로 실행**). 다음 스크립트를 실행합니다. 이 스크립트에서 연결된 OS 디스크에 할당된 드라이브 문자가 F라고 가정합니다. 이 드라이브 문자를 VM에서 적절한 값으로 바꿉니다.
 
       ```
       reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
@@ -219,21 +216,21 @@ RDP 수신기가 잘못 구성되었습니다.
       reg unload HKLM\BROKENSOFTWARE 
       ```
 
-3. VM이 도메인에 가입된 경우 다음 레지스트리 키를 검사하여 RDP를 사용하지 않도록 설정할 그룹 정책이 있는지 확인합니다. 
+6. VM이 도메인에 가입된 경우 다음 레지스트리 키를 검사하여 RDP를 사용하지 않도록 설정할 그룹 정책이 있는지 확인합니다. 
 
-   ```
-   HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
-   ```
-
+      ```
+      HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+      ```
 
       이 키 값이 1로 설정된 경우에는 정책에서 RDP를 사용하지 않도록 설정합니다. GPO 정책을 통해 원격 데스크톱을 사용하도록 설정하려면 도메인 컨트롤러에서 다음 정책을 변경합니다.
 
-   ```
-   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-   ```
+   
+      **컴퓨터 구성\정책\관리 템플릿:**
 
-4. 복구 VM에서 디스크를 분리합니다.
-5. [디스크에서 새 VM을 만듭니다](../windows/create-vm-specialized.md).
+      정책 정의\Windows 구성 요소\원격 데스크톱 서비스\원격 데스크톱 세션 호스트\연결\사용자가 원격 데스크톱 서비스를 사용하여 원격으로 연결하도록 허용
+  
+7. 복구 VM에서 디스크를 분리합니다.
+8. [디스크에서 새 VM을 만듭니다](../windows/create-vm-specialized.md).
 
 문제가 계속되면 2단계로 이동합니다.
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b125d822596675b138560c14c76f9a3120ce3424
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3b9e6a59b44db9295d86e3bc8a8dda9ec9761f38
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628830"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009211"
 ---
 # <a name="create-a-new-device-template-version"></a>새 장치 템플릿 버전 만들기
 
-Microsoft Azure IoT Central을 사용하여 IoT 응용 프로그램을 신속하게 개발할 수 있습니다. 측정값, 설정 또는 속성을 추가하고 편집하고 삭제하여 장치 템플릿 디자인을 신속하게 반복할 수 있습니다. 이러한 변경 내용 중 일부는 현재 연결된 장치를 방해할 수 있습니다. Azure IoT Central은 이처럼 방해가 되는 변경 내용을 식별하여 장치에 업데이트를 안전하게 배포하는 방법을 제공합니다.
+Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발할 수 있습니다. 측정값, 설정 또는 속성을 추가하고 편집하고 삭제하여 장치 템플릿 디자인을 신속하게 반복할 수 있습니다. 이러한 변경 내용 중 일부는 현재 연결된 장치를 방해할 수 있습니다. Azure IoT Central은 이처럼 방해가 되는 변경 내용을 식별하여 장치에 업데이트를 안전하게 배포하는 방법을 제공합니다.
 
 장치 템플릿을 만들 때 버전 번호가 있습니다. 기본적으로 버전 번호는 1.0.0입니다. 장치 템플릿을 편집했는데 그 변경 내용이 라이브 연결된 장치에 영향을 미칠 수 있는 경우 Azure IoT Central은 새 장치 템플릿 버전을 생성하라고 요청합니다.
 

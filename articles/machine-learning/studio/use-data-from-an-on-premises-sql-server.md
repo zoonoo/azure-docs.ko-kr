@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d9d9bfc6f8571ab30804d76b9ab9490b0d2e43c7
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 4ea0a247116db521e03d7092be0bb86a6528f44d
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934195"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346391"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure Machine Learning을 통해 고급 분석 수행
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 온-프레미스 데이터로 작업하는 기업에서는 종종 기계 학습 워크로드를 위해 클라우드의 규모와 민첩성을 활용하려고 합니다. 하지만 클라우드로 온-프레미스 데이터를 이동하여 현재 비즈니스 프로세스 및 워크플로를 중단하지 않으려고 합니다. 이제 Azure Machine Learning은 온-프레미스 SQL Server 데이터베이스의 데이터를 읽은 다음, 이 데이터를 사용하여 교육을 하고 모델 점수를 매길 수 있도록 지원합니다. 더 이상 클라우드 및 온-프레미스 서버 간에 데이터를 수동으로 복사하고 동기화할 필요가 없습니다. 대신 Azure Machine Learning Studio의 **데이터 가져오기** 모듈은 교육 및 점수 매기기 작업을 위해 온-프레미스 SQL Server 데이터베이스에서 직접 데이터를 읽을 수 있습니다.
 

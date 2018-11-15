@@ -4,17 +4,17 @@ description: 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 �
 services: cosmos-db
 author: moderakh
 ms.service: cosmos-db
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ef1d2d0751bf1b1a7ee88fbf37e44e6316dee8f8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249875"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238832"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Azure Cosmos DB SQL API 계정으로 Java 비동기 SDK를 사용하는 경우 문제 해결
 이 문서에서는 Azure Cosmos DB SQL API 계정으로 [Java 비동기 ADK](sql-api-sdk-async-java.md)를 사용할 때 일반적인 문제, 해결, 진단 단계 및 도구를 설명합니다.
@@ -48,7 +48,7 @@ ulimit -a
 
 ##### <a name="snat"></a>Azure SNAT(PAT) 포트 고갈
 
-앱이 Azure VM에서 배포되는 경우 기본적으로 [Azure SNAT 포트](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)는 VM 외부의 모든 엔드포인트에 대한 연결을 설정하는 데 사용됩니다. VM에서 Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)으로 제한됩니다.
+공용 IP 주소 없이 앱이 Azure VM에 배포되는 경우 기본적으로 [Azure SNAT 포트](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)는 VM 외부의 모든 엔드포인트에 대한 연결을 설정하는 데 사용됩니다. VM에서 Cosmos DB 엔드포인트로 허용되는 연결 수는 [Azure SNAT 구성](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)으로 제한됩니다.
 
 Azure SNAT 포트는 Azure VM에 사설 IP 주소 및 VM에서 공용 IP 주소에 연결을 설정하려고 하는 프로세스가 있는 경우에만 사용됩니다. 따라서 Azure SNAT 제한을 피하는 두 가지 해결 방법이 있습니다.
     * [VNET 서비스 엔드포인트 사용](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)에 설명된 대로 Azure VM VNET의 서브넷에 Azure Cosmos DB 서비스 엔드포인트를 추가합니다. 서비스 엔드포인트가 활성화된 경우 공용 IP에서 cosmos DB로 요청이 더 이상 전송되지 않고 대신 VNET 및 서브넷 ID가 전송됩니다. 공용 IP만 허용되는 경우 이 변경 내용으로 인해 방화벽이 삭제될 수 있습니다. 방화벽을 사용 중인 경우 서비스 엔드포인트를 활성화할 때 [VNET ACL](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl)을 사용하여 방화벽에 서브넷을 추가합니다.

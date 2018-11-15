@@ -1,6 +1,6 @@
 ---
 title: 최신 Azure 게스트 OS 릴리스에 대해 알아보기 | Microsoft Docs
-description: Azure  Cloud Services 게스트 OS에 대한 최신 릴리스 뉴스 및 SDK 호환성.
+description: Azure Cloud Services 게스트 OS에 대한 최신 릴리스 뉴스 및 SDK 호환성.
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376672"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978743"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
@@ -66,7 +66,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-5-releases"></a>제품군 5 릴리스
 **Windows Server 2016**
 
-설치된 .NET Framework: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+설치된 .NET Framework: 3.5, 4.6.2
 
 > [!NOTE]
 > OS 제품군 5의 RDP 암호는 10자 이상이어야 합니다.
@@ -84,7 +84,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-4-releases"></a>제품군 4 릴리스
 **Windows Server 2012 R2**
 
-설치된 .NET Framework: 4.0, 4.5, 4.5.1, 4.5.2
+설치된 .NET Framework: 3.5, 4.5.1
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-3-releases"></a>제품군 3 릴리스
 **Windows Server 2012**
 
-설치된 .NET Framework: 4.0, 4.5, 4.5.1, 4.5.2
+설치된 .NET Framework: 3.5, 4.5
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ## <a name="family-2-releases"></a>제품군 2 릴리스
 **Windows Server 2008 R2 SP1**
 
-설치된 .NET Framework: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+설치된 .NET Framework: 3.5 (2.0 및 3.0 포함)
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 |
 | --- | --- | --- |

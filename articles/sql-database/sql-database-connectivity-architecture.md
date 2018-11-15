@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/24/2018
-ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986324"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978404"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 연결 아키텍처
 
@@ -31,19 +31,30 @@ ms.locfileid: "49986324"
 
 다음 단계는 Azure SQL Database SLB(소프트웨어 부하 분산 장치) 및 Azure SQL Database 게이트웨이를 통해 Azure SQL Database에 연결이 설정되는 방법을 설명합니다.
 
-- Azure 내부 또는 Azure 외부의 클라이언트는 공용 IP 주소를 포함하고 포트 1433에서 수신 대기하는 SLB에 연결합니다.
+- 클라이언트는 공용 IP 주소를 포함하고 포트 1433에서 수신 대기하는 SLB에 연결합니다.
 - SLB는 Azure SQL Database 게이트웨이에 트래픽을 전달합니다.
-- 게이트웨이는 트래픽을 올바른 프록시 미들웨어로 리디렉션합니다.
-- 프록시 미들웨어는 적절한 Azure SQL Database에 트래픽을 리디렉션합니다.
+- 효과적인 연결 정책에 따라 게이트웨이는 트래픽을 올바른 프록시 미들웨어로 리디렉션 또는 프록시합니다.
+- 프록시 미들웨어는 적절한 Azure SQL 데이터베이스에 트래픽을 전달합니다.
 
 > [!IMPORTANT]
 > 이러한 각 구성 요소는 보호 네트워크 및 앱 계층에서 기본 제공되는 DDoS(distributed denial of service)를 배포합니다.
 
+## <a name="connection-policy"></a>연결 정책
+
+Azure SQL Database는 SQL Database 서버의 연결 정책 설정에 대한 다음 세 가지 옵션을 지원합니다.
+
+- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 연결을 활성화하려면 클라이언트는 지역에서 Azure SQL Database 게이트웨이 IP 주소 뿐만 아니라 모든 Azure IP 주소에 대한 아웃바운드 방화벽 규칙을 허용해야 합니다([서비스 태그](../virtual-network/security-overview.md#service-tags)와 함께 NSG(네트워크 보안 그룹)를 사용하여 시도). 패킷은 데이터베이스로 직접 이동하므로 대기 시간 및 처리량의 성능이 향상됩니다.
+- **프록시:** 이 모드에서 모든 연결은 Azure SQL Database 게이트웨이를 통해 프록시됩니다. 연결을 활성화하려면 클라이언트는 Azure SQL Database 게이트웨이 IP 주소만 허용하는 아웃바운드 방화벽 규칙이 있어야 합니다(일반적으로 지역당 두 개의 IP 주소). 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 프록시 연결 정책을 통해 리디렉션 연결 정책을 사용하는 것이 좋습니다.
+- **기본값:** 연결 정책을 프록시 또는 리디렉션 중 하나로 명시적으로 변경하지 않는 한 생성 후 모든 서버에 적용되는 연결 정책입니다. 실제 정책은 Azure(리디렉션) 내에서 또는 Azure(프록시) 외부에서 연결이 발생하는지 여부에 따라 달라집니다.
+
 ## <a name="connectivity-from-within-azure"></a>Azure 내부에서 연결
 
-Azure 내부에서 연결하는 경우 연결에는 기본적으로 **리디렉션** 연결 정책이 있습니다. **리디렉션** 정책의 경우 TCP 세션 이후 연결이 Azure SQL Database로 설정되고 대상 가상 IP가 Azure SQL Database 게이트웨이에서 프록시 미들웨어의 대상 가상 IP로 변경되어 클라이언트 세션이 프록시 미들웨어로 리디렉션됩니다. 그런 다음 모든 후속 패킷은 Azure SQL Database 게이트웨이를 무시하고 프록시 미들웨어를 통해 직접 전달됩니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
+2018년 11월 10일 이후에 생성된 서버의 Azure 내부에서 연결하는 경우 연결에는 기본적으로 **리디렉션** 연결 정책이 있습니다. **리디렉션** 정책의 경우 TCP 세션 이후 연결이 Azure SQL Database로 설정되고 대상 가상 IP가 Azure SQL Database 게이트웨이에서 프록시 미들웨어의 대상 가상 IP로 변경되어 클라이언트 세션이 프록시 미들웨어로 리디렉션됩니다. 그런 다음 모든 후속 패킷은 Azure SQL Database 게이트웨이를 무시하고 프록시 미들웨어를 통해 직접 전달됩니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
 
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+
+> [!IMPORTANT]
+> 2018년 11월 10일 이전에 SQL Database 서버를 만든 경우 연결 정책은 **프록시**로 명시적으로 설정됩니다. 서비스 엔드포인트를 사용하는 경우 더 나은 성능을 사용하도록 설정하려면 연결 정책을 **리디렉션**으로 변경하는 것이 좋습니다. 연결 정책을 **리디렉션**으로 변경하는 경우 NSG에서 아래에 나열된 Azure SQL Database 게이트웨이 IP에 아웃바운드를 허용하는 것으로 충분하지 않으면 모든 Azure SQL Database IP에 아웃바운드를 허용해야 합니다. NSG(네트워크 보안 그룹) 서비스 태그의 도움을 받아 수행할 수 있습니다. 자세한 내용은 [서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
 
 ## <a name="connectivity-from-outside-of-azure"></a>Azure 외부에서 연결
 
@@ -51,19 +62,11 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
-> [!IMPORTANT]
-> Azure SQL Database를 사용하여 서비스 엔드포인트를 사용하는 경우 정책은 기본적으로 **프록시**입니다. VNet 내에서 연결을 사용하도록 설정하려면 아래 목록에 지정된 Azure SQL Database 게이트웨이 IP 주소에 아웃바운드 연결을 허용해야 합니다.
-
-서비스 엔드포인트를 사용하는 경우 더 나은 성능을 사용하도록 설정하려면 연결 정책이 **리디렉션**되도록 변경하는 것이 좋습니다. 연결 정책이 **리디렉션**되도록 변경하는 경우 NSG에서 아래에 나열된 Azure SQL Database 게이트웨이 IP에 아웃바운드를 허용하는 것으로 충분하지 않으면 모든 Azure SQL Database IP에 아웃바운드를 허용해야 합니다. NSG(네트워크 보안 그룹) 서비스 태그의 도움을 받아 수행할 수 있습니다. 자세한 내용은 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 참조하세요.
-
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 게이트웨이 IP 주소
 
 온-프레미스 리소스에서 Azure SQL Database에 연결하려면 Azure 지역의 Azure SQL Database 게이트웨이에 아웃바운드 네트워크 트래픽을 허용하도록 해야 합니다. 온-프레미스 리소스에서 연결할 때 기본 설정인 프록시 모드에서는 연결할 경우 연결은 게이트웨이를 통합니다.
 
 다음 표에서는 모든 데이터 지역에 있는 Azure SQL Database 게이트웨이의 기본 및 보조 IP를 나열합니다. 일부 지역에는 두 개의 IP 주소가 있습니다. 이러한 지역에서 기본 IP 주소는 게이트웨이의 현재 IP 주소이고 두 번째 IP 주소는 장애 조치 IP 주소입니다. 장애 조치 주소는 높은 서비스 가용성을 유지하기 위해 서버를 이동할 수 있는 주소입니다. 이러한 지역의 경우 두 IP 주소에 아웃바운드를 허용하는 것이 좋습니다. 두 번째 IP 주소는 Microsoft가 소유하고 있으며 Azure SQL Database에서 연결을 허용하기 위해 활성화될 때까지 어떤 서비스도 수신하지 않습니다.
-
-> [!IMPORTANT]
-> Azure 내에서 연결하는 경우 연결 정책이 기본적으로 **리디렉션**됩니다(서비스 엔드포인트를 사용하는 경우를 제외하고). 다음 IP를 허용하는 것으로는 충분하지 않습니다. 모든 Azure SQL Database IP를 허용해야 합니다. VNet 내에서 연결하는 경우 NSG(네트워크 보안 그룹) 서비스 태그의 도움을 받아 수행할 수 있습니다. 자세한 내용은 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 참조하세요.
 
 | 지역 이름 | 기본 IP 주소 | 보조 IP 주소 |
 | --- | --- |--- |

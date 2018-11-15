@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 0840f1abb05e97ca8f55cb0003e4f3cd2383e8c7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 32fa417d5fcb5c8547dfc7c10b34b3c97ed70559
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222526"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626068"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Linux VM 시스템 할당 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
 
@@ -38,15 +38,7 @@ ms.locfileid: "47222526"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Azure Portal에 로그인](https://portal.azure.com)
-
-- [Linux 가상 머신 만들기](/azure/virtual-machines/linux/quick-create-portal)
-
-- [가상 머신에서 시스템 할당 관리 ID를 사용하도록 설정](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 2a3c317dc9abdb861a007be9aaed714089e9f453
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0dc33c669a73dd92926eef6a9c4a476160ce60a4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388197"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686367"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 머신 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure Marketplace에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
@@ -148,11 +148,11 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 클라우드에서 VHD를 
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
-RDP에 대한 자세한 내용은 MSDN의 [RDP 또는 SSH를 사용하여 Azure VM에 연결](http://msdn.microsoft.com/library/azure/dn535788.aspx)(영문) 문서를 참조하세요.
+RDP에 대한 자세한 내용은 MSDN의 [RDP 또는 SSH를 사용하여 Azure VM에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)(영문) 문서를 참조하세요.
 
 **VM 구성 및 SKU 만들기**
 
-운영 체제 VHD를 다운로드한 후 Hyper-V를 사용하고 SKU 만들기를 시작하도록 VM을 구성합니다. 세부 단계는 TechNet 링크([Hyper-V 설치 및 VM 구성](http://technet.microsoft.com/library/hh846766.aspx))에서 확인할 수 있습니다.
+운영 체제 VHD를 다운로드한 후 Hyper-V를 사용하고 SKU 만들기를 시작하도록 VM을 구성합니다. 세부 단계는 TechNet 링크([Hyper-V 설치 및 VM 구성](https://technet.microsoft.com/library/hh846766.aspx))에서 확인할 수 있습니다.
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 올바른 VHD 크기 선택
 VM 이미지의 Windows 운영 체제 VHD는 128GB 고정 형식 VHD로 만들어져야 합니다.  
@@ -191,7 +191,7 @@ VM 이미지에 대해 자세히 알아보려면 다음 블로그 게시물을 �
 
 ### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>필요한 도구, PowerShell 및 Azure 클래식 CLI 설정
 * [PowerShell을 설정하는 방법](/powershell/azure/overview)
-* [Azure 클래식 CLI를 설정하는 방법](../cli-install-nodejs.md)
+* [Azure CLI를 설정하는 방법](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 사용자 VM 이미지 만들기
 #### <a name="capture-vm"></a>VM 캡처
@@ -427,63 +427,45 @@ Microsoft Azure Storage Explorer를 사용하여 SAS URL을 생성하는 단계�
 
 11. SKU에서 각 VHD에 대해 이 단계를 반복합니다.
 
-**Azure 클래식 CLI(Windows가 아닌 연속 통합에 권장됨)**
+**Azure CLI 2.0(비 Windows 및 지속적인 통합에 권장됨)**
 
 Azure 클래식 CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니다.
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.  [여기](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)에서 Azure 클래식 CLI를 다운로드합니다. **[Windows](http://aka.ms/webpi-azure-cli)** 및 **[MAC OS](http://aka.ms/mac-azure-cli)** 에 대한 다양한 링크를 찾을 수도 있습니다.
+1.  Microsoft Azure CLI를 [여기](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에서 다운로드합니다. **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** 및 **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)** 에 대한 다양한 링크를 찾을 수도 있습니다.
 
 2.  다운로드되면 설치하세요.
 
-3.  다음 코드로 PowerShell 파일(또는 기타 스크립트 실행 파일)을 만들고 로컬로 저장합니다.
+3.  다음 코드를 사용하여 Bash 파일(또는 다른 동등한 스크립트 실행 파일)을 만들고 로컬로 저장합니다.
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
+        export AZURE_STORAGE_ACCOUNT=<Storage Account Name>
+        EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')
+        CONTAINER_SAS=$(az storage container generate-sas --account-name -n vhds --permissions rl --expiry $EXPIRY -otsv)
+        BLOB_URL=$(az storage blob url -c vhds -n <VHD Blob Name> -otsv)
+        echo $BLOB_URL\?$CONTAINER_SAS
 
     위에 있는 다음 매개 변수를 업데이트합니다.
 
-    a. **`<StorageAccountName>`**: 저장소 계정 이름을 제공합니다.
+    a. **`<Storage Account Name>`**: 저장소 계정 이름을 제공합니다.
 
-    b. **`<Storage Account Key>`**: 저장소 계정 키를 제공합니다.
+    b. **`<VHD Blob Name>`**: VHD Blob의 이름을 입력합니다.
 
-    다. **`<Permission Start Date>`**: UTC 시간을 보호하려면 현재 이전 날짜를 선택합니다. 예를 들어, 현재 날짜가 2016년 10월 26일이면 값은 2016/10/25입니다. Azure CLI 버전 2.0 이상을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 10-25-2016T00:00:00Z).
+    시작 날짜 이후 3주 이상 지난 날짜를 선택합니다(기본값은 sas-token 생성 시간임). 값의 예는 **2018-10-11T23:56Z**입니다.
 
-    d. **`<Permission End Date>`**: **시작 날짜** 이후 3주 이상 지난 날짜를 선택합니다. 값은 **11/02/2016**이어야 합니다. Azure CLI 버전 2.0 이상을 사용하는 경우 시작 및 종료 날짜에 날짜 및 시간을 제공합니다(예: 11-02-2016T00:00:00Z).
+    적절한 매개 변수를 업데이트한 후의 예제 코드는 다음과 같습니다. export AZURE_STORAGE_ACCOUNT=vhdstorage1ba78dfb6bc2d8     EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')     CONTAINER_SAS=$(az storage container generate-sas -n vhds --permissions rl --expiry $EXPIRY -otsv)     BLOB_URL=$(az storage blob url -c vhds -n osdisk_1ba78dfb6b.vhd -otsv)     echo $BLOB_URL\?$CONTAINER_SAS
 
-    다음은 적절한 매개 변수를 업데이트한 후의 예제 코드입니다.
+4.  스크립트를 실행합니다. 그러면 컨테이너 수준 액세스에 대한 SAS URL이 제공됩니다.
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
-
-4.  "관리자 권한으로 실행" 모드로 Powershell 편집기를 열고 3단계에서 파일을 엽니다. OS에서 사용할 수 있는 어떤 스크립트 편집기도 사용할 수 있습니다.
-
-5.  스크립트를 실행하면 컨테이너 수준 액세스에 대한 SAS URL을 제공합니다.
-
-    다음은 SAS 서명의 출력으로 메모장에서 강조 표시된 부분을 복사합니다.
-
-    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
-
-6.  이제 컨테이너 수준 SAS URL이 있으므로 여기에 VHD의 이름을 추가해야 합니다.
-
-    컨테이너 수준 SAS URL #
-
-    `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-7.  아래 `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`와 같이 SAS URL의 컨테이너 이름 뒤에 VHD 이름을 삽입합니다.
-
-    예제:
-
-    TestRGVM201631920152.vhd는 VHD 이름이고 VHD SAS URL은 다음과 같습니다.
-
-    `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+5.  SAS URL을 확인합니다.
 
     - 이미지 파일 이름과 ".vhd"가 URI에 있는지 확인합니다.
     -   서명 중간에 "sp=rl"이 표시되는지 확인합니다. 이는 읽기 및 나열 액세스가 성공적으로 제공되었음을 나타냅니다.
     -   서명 중간에 "sr=c"가 표시되는지 확인합니다. 컨테이너 수준 액세스 권한이 있는지 보여 줍니다.
+
+    예제:
+
+    `https://vhdstorage1ba78dfb6bc2d8.blob.core.windows.net/vhds/osdisk_1ba78dfb6b.vhd?se=2018-10-12T00%3A04Z&sp=rl&sv=2018-03-28&sr=c&sig=...`
 
 8.  생성된 공유 액세스 서명 URI가 작동하는지 확인하려면 브라우저에서 테스트합니다. 다운로드 프로세스가 시작됩니다.
 

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 3a27f275cfc151b374ea2807580b430c4e9aa1e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 83be53edf240220726639b51381b487c5b742cee
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420246"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754089"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 저장소 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -22,6 +22,8 @@ ms.locfileid: "50420246"
 > * [현재 버전](connector-azure-blob-storage.md)
 
 이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure Blob 저장소 간에 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+
+Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 

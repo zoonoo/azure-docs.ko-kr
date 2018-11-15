@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 60a92e35f1408d944e8091be4945c53abe3791d1
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585716"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754055"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob 저장소에서 데이터 내보내기
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob 저장소에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 저장소 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.
@@ -128,7 +128,7 @@ ms.locfileid: "47585716"
 이 *선택적인* 단계는 내보내기 작업에 필요한 드라이브 수를 결정하는 데 도움이 됩니다. [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템에서 이 단계를 수행합니다.
 
 1. Windows 시스템에서 [WAImportExport 버전 1을 다운로드](https://www.microsoft.com/en-us/download/details.aspx?id=42659)합니다. 
-2. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`.
+2. `waimportexportv1` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExportV1`
 3. 관리 권한이 있는 PowerShell 또는 명령줄 창을 엽니다. 압축을 푼 폴더로 디렉터리를 변경하려면 다음 명령을 실행합니다.
     
     `cd C:\WaImportExportV1`

@@ -11,30 +11,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: dcd1c40717cb35fe4daa9ab9e2c66f334ffff5fe
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7d3b0e179972464a1ed857c576ca8a7c8fc2e162
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361501"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686809"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>MySQL 리소스 공급자를 제거 합니다.
 
 MySQL 리소스 공급자를 제거 하기 전에 모든 공급자 종속성을 제거 해야 합니다. 리소스 공급자를 설치 하는 데 사용 된 배포 패키지의 복사본을 해야 합니다.
 
+  |Azure Stack의 최소 버전|MySQL RP 버전|
+  |-----|-----|
+  |버전 1808 (1.1808.0.97)|[MySQL 버전 1.1.30.0 RP](https://aka.ms/azurestacksqlrp11300)|
+  |버전 1804 (1.0.180513.1)|[MySQL 버전 1.1.24.0 RP](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
+
 ## <a name="dependency-cleanup"></a>종속성 정리
 
 일부의 정리 작업의 리소스 공급자를 제거 DeployMySqlProvider.ps1 스크립트를 실행 하기 전에 수행할 작업입니다.
 
-테 넌 트 다음 정리 작업을 담당 합니다.
+Azure Stack 테 넌 트 사용자는 다음 정리 작업을 담당 합니다.
 
 * 리소스 공급자에서 모든 해당 데이터베이스를 삭제 합니다. (테 넌 트 데이터베이스를 삭제 하지 않습니다 삭제 데이터입니다.)
 * 공급자 네임 스페이스에서 등록을 취소 합니다.
 
-관리자는 다음 정리 작업을 담당 합니다.
+Azure Stack 운영자가 다음 정리 작업을 담당 합니다.
 
 * MySQL 어댑터에서 호스팅 서버를 삭제합니다.
 * MySQL 어댑터를 참조 하는 모든 계획을 삭제 합니다.
