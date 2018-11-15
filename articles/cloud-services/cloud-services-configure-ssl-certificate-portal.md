@@ -1,6 +1,6 @@
 ---
 title: 클라우드 서비스에 대해 SSL 구성 | Microsoft Docs
-description: 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
+description: 웹 역할에 대해 HTTPS 엔드포인트를 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: .net
 author: jpconnock
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeconnoc
-ms.openlocfilehash: e3e7d271375cd9c3f49d8fedd963b5234dab7902
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: cf2fe10d6a0ab81ff71c948ee2defe6bc7edfd70
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001527"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300194"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대한 SSL 구성
 
-SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
+SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 엔드포인트를 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
 
 > [!NOTE]
 > 이 작업의 절차는 Azure Cloud Services에 적용됩니다. App Services에 대해서는 [이 항목](../app-service/app-service-web-tutorial-custom-ssl.md)을 참조하세요.
@@ -50,7 +50,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 <a name="modify"> </a>
 
 ## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>2단계: 서비스 정의 및 구성 파일 수정
-인증서를 사용하도록 응용 프로그램을 구성하고 HTTPS 끝점을 추가해야 합니다. 따라서 서비스 정의 및 서비스 구성 파일을 업데이트해야 합니다.
+인증서를 사용하도록 응용 프로그램을 구성하고 HTTPS 엔드포인트를 추가해야 합니다. 따라서 서비스 정의 및 서비스 구성 파일을 업데이트해야 합니다.
 
 1. 개발 환경에서 서비스 정의 파일(CSDEF)을 열고 **WebRole** 섹션 내에 **Certificates** 섹션을 추가한 후 인증서(및 중간 인증서)에 대한 다음 정보를 포함합니다.
 
@@ -80,14 +80,14 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
    **Certificates** 섹션에서는 인증서의 이름, 위치 및 인증서가 위치한 저장소의 이름을 정의합니다.
 
-   권한(`permisionLevel` 특성)은 다음 값 중 하나로 설정될 수 있습니다.
+   권한(`permissionLevel` 특성)은 다음 값 중 하나로 설정될 수 있습니다.
 
    | 권한 값 | 설명 |
    | --- | --- |
    | limitedOrElevated |**(기본값)** 모든 역할 프로세스는 개인 키에 액세스할 수 있습니다. |
    | elevated |승격된 프로세스만 개인 키에 액세스할 수 있습니다. |
 
-2. 서비스 정의 파일에서 **끝점** 섹션 내에 **InputEndpoint** 요소를 추가하여 HTTPS를 사용하도록 설정합니다.
+2. 서비스 정의 파일에서 **엔드포인트** 섹션 내에 **InputEndpoint** 요소를 추가하여 HTTPS를 사용하도록 설정합니다.
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -100,7 +100,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
     </WebRole>
     ```
 
-3. 서비스 정의 파일에서 **Sites** 섹션 내에 **Binding** 요소를 추가합니다. 이 요소는 HTTPS 바인딩을 추가하여 끝점을 사이트에 매핑합니다.
+3. 서비스 정의 파일에서 **Sites** 섹션 내에 **Binding** 요소를 추가합니다. 이 요소는 HTTPS 바인딩을 추가하여 엔드포인트를 사이트에 매핑합니다.
 
    ```xml
     <WebRole name="CertificateTesting" vmsize="Small">
@@ -165,7 +165,7 @@ Azure Portal에 연결하고 다음을 수행합니다.
 2. 웹 브라우저에서 **http** 대신 **https**를 사용하도록 링크를 수정한 다음 페이지를 방문합니다.
 
    > [!NOTE]
-   > 자체 서명된 인증서를 사용하는 경우 자체 서명된 인증서와 연결된 HTTPS 끝점으로 이동하면 브라우저에 인증서오류가 표시됩니다. 신뢰할 수 있는 인증 기관에서 서명한 인증서를 사용하면 이 문제가 해결되지만 이 오류는 무시할 수 있습니다. 또 다른 옵션으로 사용자의 신뢰할 수 있는 인증 기관 인증서 저장소에 자체 서명된 인증서를 추가할 수 있습니다.
+   > 자체 서명된 인증서를 사용하는 경우 자체 서명된 인증서와 연결된 HTTPS 엔드포인트로 이동하면 브라우저에 인증서오류가 표시됩니다. 신뢰할 수 있는 인증 기관에서 서명한 인증서를 사용하면 이 문제가 해결되지만 이 오류는 무시할 수 있습니다. 또 다른 옵션으로 사용자의 신뢰할 수 있는 인증 기관 인증서 저장소에 자체 서명된 인증서를 추가할 수 있습니다.
    >
    >
 

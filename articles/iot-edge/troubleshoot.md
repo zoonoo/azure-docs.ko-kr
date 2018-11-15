@@ -2,18 +2,18 @@
 title: Azure IoT Edge 문제 해결 | Microsoft Docs
 description: 일반적인 문제를 해결하고, Azure IoT Edge에 대한 문제 해결 기술을 배웁니다.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6728ea6e8c8323ed3d418a018de0ad64b7af8033
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a553798a3ac15340805984a0e87312875f82c46c
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283260"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567658"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 

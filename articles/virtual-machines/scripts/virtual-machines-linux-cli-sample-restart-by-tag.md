@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 4c409dfcfba14093d5e2cf28df4bb6c5d1bd9533
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a5837a922f14a779260ad6719b01a9c882eb5768
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725975"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622944"
 ---
 # <a name="restart-vms"></a>VM 다시 시작
 
@@ -37,7 +37,7 @@ ms.locfileid: "34725975"
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-두 번째 방법에서는 `az resouce list` 및 필터를 사용하여 태그가 지정된 VM을 리소스로 가져온 후 해당 VM을 다시 시작합니다.
+두 번째 방법에서는 `az resource list` 및 필터를 사용하여 태그가 지정된 VM을 리소스로 가져온 후 해당 VM을 다시 시작합니다.
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)

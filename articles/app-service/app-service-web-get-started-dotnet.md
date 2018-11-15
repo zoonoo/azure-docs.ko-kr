@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 00a1f7edfb24d9bd44e48161f3cd2e69cba36bfc
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ad17488c4e1fd5eb3965049b26d3f00270dce50f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052125"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51301036"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure에서 ASP.NET Core 웹앱 만들기
 
 > [!NOTE]
-> 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 .NET Core 웹앱 만들기](./containers/quickstart-dotnetcore.md)를 참조하세요.
+> 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 .NET Core 웹앱 만들기](./containers/quickstart-dotnetcore.md)를 참조하세요. 
 >
 
 [Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 플랜 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다.

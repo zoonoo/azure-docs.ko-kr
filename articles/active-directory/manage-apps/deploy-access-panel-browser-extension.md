@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4540b68dedc3086c3ea0fb12ebbe3cfe2344698b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a21a21f40e731e8bc1d20e01d3671c372df65d84
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718800"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622043"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>그룹 정책을 사용하여 Internet Explorer용 액세스 패널 확장을 배포하는 방법
-이 자습서에서는 그룹 정책을 사용하여 사용자의 컴퓨터에 Internet Explorer용 액세스 패널 확장을 원격 설치하는 방법을 보여줍니다. 이 확장은 [암호 기반 Single Sign-On](what-is-single-sign-on.md#password-based-single-sign-on)을 사용하여 구성된 앱에 로그인하는 Internet Explorer 사용자에게 필요합니다.
+이 자습서에서는 그룹 정책을 사용하여 사용자의 컴퓨터에 Internet Explorer용 액세스 패널 확장을 원격 설치하는 방법을 보여줍니다. 이 확장은 [암호 기반 Single Sign-On](what-is-single-sign-on.md#password-based-sso)을 사용하여 구성된 앱에 로그인하는 Internet Explorer 사용자에게 필요합니다.
 
 관리자는 이 확장의 배포를 자동화하는 것이 좋습니다. 그렇지 않은 경우 사용자가 직접 확장을 다운로드하여 설치해야 하기 때문에 사용자 오류가 발생하기 쉽고 관리자 권한이 필요합니다. 이 자습서에서는 그룹 정책을 사용하여 소프트웨어 배포를 자동화하는 한 가지 방법을 설명합니다. [그룹 정책에 대해 알아봅니다.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
@@ -40,7 +40,7 @@ ms.locfileid: "44718800"
 2. **서버 관리자** 창에서 **파일 및 Storage 서비스**로 이동합니다.
    
     ![파일 및 Storage 서비스 열기](./media/deploy-access-panel-browser-extension/files-services.png)
-3. **공유** 탭으로 이동합니다. 그런 다음 **태스크** > **새 공유...** 를 클릭합니다.
+3. **공유** 탭으로 이동합니다. 그런 다음 태스크****새 공유...** 를 클릭합니다.
    
     ![파일 및 Storage 서비스 열기](./media/deploy-access-panel-browser-extension/shares.png)
 4. **새 공유 마법사** 를 완료하고 사용자의 컴퓨터에서 액세스할 수 있게 권한을 설정합니다. [공유에 대해 알아봅니다.](https://technet.microsoft.com/library/cc753175.aspx)

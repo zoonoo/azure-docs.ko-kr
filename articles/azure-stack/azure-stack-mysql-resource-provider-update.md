@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: f58ba1af301379810d5072f55c7b9365f205911f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 46671a559f4db9aaa798e2c0d8cc668794687a58
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364696"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686333"
 ---
 # <a name="update-the-mysql-resource-provider"></a>MySQL 리소스 공급자 업데이트 
 
@@ -41,9 +41,6 @@ Azure Stack 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터�
 >[!NOTE]
 >Marketplace 관리에서 최신 Windows Server 2016 Core 이미지를 다운로드 하는 것이 좋습니다. 업데이트를 설치 해야 하는 경우 배치할 수 있습니다는 **단일** 로컬 종속성 경로에서 MSU 패키지 있습니다. 스크립트는이 위치에 MSU 파일이 둘 이상 있으면 실패 합니다.
 
->[!NOTE]  
-> 
-
 DeployMySqlProvider.ps1 스크립트에 대 한 설명 된 동일한 인수를 사용을 해야 하는 스크립트입니다. 여기에 인증서도 제공 합니다.  
 
 다음은의 예는 *UpdateMySQLProvider.ps1* PowerShell 프롬프트에서 실행할 수 있는 스크립트입니다. 계정 정보 및 필요에 따라 암호를 변경 해야 합니다.  
@@ -52,9 +49,10 @@ DeployMySqlProvider.ps1 스크립트에 대 한 설명 된 동일한 인수를 �
 > 업데이트 프로세스를 통합된 시스템에만 적용 됩니다. 
 
 ```powershell 
-# Install the AzureRM.Bootstrapper module and set the profile. 
-Install-Module -Name AzureRm.BootStrapper -Force 
-Use-AzureRmProfile -Profile 2017-03-09-profile 
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
 $domain = "AzureStack" 

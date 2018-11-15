@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 215e0abe196620624dcca7f430aec4ee9b9612f2
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955447"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288206"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Azure AD v2.0 엔드포인트와 v1.0 엔드포인트 비교
 
@@ -41,7 +41,7 @@ ms.locfileid: "49955447"
 
 * v1.0과 v2.0 엔드포인트 둘 다 테넌트별 엔드포인트(`https://login.microsoftonline.com/{TenantId_or_Name}`)를 가리키도록 구성된 *[단일 테넌트](single-and-multi-tenant-apps.md)* 또는 *다중 테넌트* 응용 프로그램으로 구성된 응용 프로그램에 대해 Azure AD 디렉터리의 *[게스트 사용자](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* 가 로그인할 수 있습니다.
 
-v2.0 엔드포인트를 사용하면 개인 계정과 회사 및 학교 계정 모두로 로그인이 가능한 앱을 작성할 수 있기 때문에 계정에 제약이 없는 않는 앱을 작성할 수 있습니다. 예를 들어 앱이 [Microsoft Graph](https://graph.microsoft.io)를 호출하는 경우 일부 추가 기능 및 데이터를 해당 SharePoint 사이트 또는 디렉터리 데이터와 같은 회사 계정에서 사용할 수 있습니다. 단, [사용자의 이메일 읽기](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message)와 같은 많은 작업에서 동일한 코드가 개인 계정과 회사 및 학교 계정 이메일 모두에 액세스할 수 있습니다.
+v2.0 엔드포인트를 사용하면 개인 계정과 회사 및 학교 계정 모두로 로그인이 가능한 앱을 작성할 수 있기 때문에 계정에 제약이 없는 않는 앱을 작성할 수 있습니다. 예를 들어 앱이 [Microsoft Graph](https://developer.microsoft.com/graph)를 호출하는 경우 일부 추가 기능 및 데이터를 해당 SharePoint 사이트 또는 디렉터리 데이터와 같은 회사 계정에서 사용할 수 있습니다. 단, [사용자의 이메일 읽기](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message)와 같은 많은 작업에서 동일한 코드가 개인 계정과 회사 및 학교 계정 이메일 모두에 액세스할 수 있습니다.
 
 v2.0 엔드포인트의 경우 단일 라이브러리(MSAL)를 사용하여 소비자, 교육 및 엔터프라이즈 환경 모두에 대한 액세스 권한을 얻을 수 있습니다.
 

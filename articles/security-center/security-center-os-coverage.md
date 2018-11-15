@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319985"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240429"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure Security Center에서 지원하는 기능 및 플랫폼
 
@@ -80,16 +80,16 @@ ms.locfileid: "49319985"
 |보안 구성|✔|✔|✔|✔|
 |맬웨어 방지|✔|✔|X|X|
 |JIT VM 액세스|✔|X|✔|X|
-|적응 응용 프로그램 컨트롤|✔(Azure만)|X|X|X|
+|적응 응용 프로그램 컨트롤|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |디스크 암호화|✔|X|✔|X|
 |타사 배포|✔|X|✔|X|
 |NSG|✔|X|✔|X|
-|Filess V1|✔|✔|X|X|
+|Filess 위협 검색|✔|✔|X|X|
 |네트워크 맵|✔|X|✔|X|
-|적응형 네트워크 강화|✔|X|✔|X|
+|적응형 네트워크 제어|✔|X|✔|X|
 
-* 이러한 기능은 현재 공개 미리 보기로 지원됩니다.
+\* 이러한 기능은 현재 공개 미리 보기로 지원됩니다.
 
 
 ## <a name="supported-paas-features"></a>지원되는 PaaS 기능
@@ -103,26 +103,17 @@ ms.locfileid: "49319985"
 |Blob 저장소 계정*|✔| ✔|
 |App Services|✔| ✔|
 |클라우드 서비스|✔| X|
-|Redis Cache|✔| X|
-|Service Fabric|✔| X|
-|Azure Automation|✔| X|
-|데이터 레이크 |✔| X|
-|주요 자격 증명 모음|✔| X|
-|Service Bus|✔| X|
-|Stream Analytics|✔| X|
-|Batch|✔| X|
-|논리 앱|✔| X|
 |Vnets|✔| 해당 없음|
 |서브넷|✔| 해당 없음|
 |NIC|✔| ✔|
 |NSG|✔| 해당 없음|
 |구독|✔| ✔|
 
-* 이러한 기능은 현재 공개 미리 보기로 지원됩니다.
+\* 이러한 기능은 현재 공개 미리 보기로 지원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Security Center의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) — 디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택하는 방법을 알아봅니다.
 - [Azure Security Center에서 유형별 보안 경고](security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Security Center에서 가상 컴퓨터 동작 분석 및 크래시 덤프 메모리 분석에 대해 자세히 알아봅니다.
 - [Azure Security Center FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
-- [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+- [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

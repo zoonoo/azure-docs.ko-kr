@@ -9,13 +9,13 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 10/24/2018
-ms.openlocfilehash: 6c2d5a776f603161ef730028168b91844c120aec
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.date: 11/6/2018
+ms.openlocfilehash: 8ce411e424d538a4a1f94300bfe5510658017f56
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158995"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238327"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -84,14 +84,40 @@ Azure Machine Learning SDK는 작업 영역 구성 파일을 사용하여 Azure 
 
 Azure Notebooks 및 Azure DSVM(Data Science Virtual Machine)은 Azure Machine Learning 서비스와 함께 작동하도록 구성된 상태로 제공됩니다. 이러한 환경에는 Azure Machine Learning SDK 같은 필수 구성 요소가 포함되어 있습니다.
 
+### <a name="azure-notebooks"></a>Azure Notebooks
+
 - Azure Notebooks는 Azure 클라우드의 Jupyter Notebook 서비스입니다.
-- Data Science Virtual Machine은 데이터 과학 작업용으로 디자인된 사용자 지정 VM(가상 머신) 이미지입니다. 다음을 포함합니다.
-  - 인기 도구
-  - IDE(통합 개발 환경)
-  - Jupyter Notebooks, PyCharm, Tensorflow 같은 패키지
 - 이러한 환경을 사용할 때도 작업 영역 구성 파일이 필요합니다.
 
 Azure Machine Learning 서비스와 Azure Notebooks를 함께 사용하는 방법에 대한 예는 [Azure Machine Learning 서비스 시작](quickstart-get-started.md)을 참조하세요.
+
+### <a name="data-science-virtual-machines"></a>Data Science Virtual Machine
+
+- Data Science Virtual Machine은 데이터 과학 작업용으로 디자인된 사용자 지정 VM(가상 머신) 이미지입니다. 다음을 포함합니다.
+  - 인기 있는 데이터 과학 도구
+  - RStudio, PyCharm 같은 IDE(통합 개발 환경)
+  - Jupyter Notebook, Tensorflow 같은 패키지
+
+DSVM은 여러 Anaconda 환경이 설치된 상태로 제공됩니다. 패키지를 설치하지 않고 Azure Machine Learning Python SDK를 사용하려면 명령 프롬프트/셸을 열고 다음 명령 중 하나를 사용하여 환경을 활성화합니다.
+
+* __Ubuntu__ DSVM에서 다음 명령을 사용 합니다.
+
+    ```shell
+    conda activate py36
+    ```
+
+* __Windows__ DSVM에서 다음 명령을 사용 합니다.
+
+    ```shell
+    conda activate AzureML
+    ```
+
+이 환경으로 전환한 후에는 패키지를 설치하지 않고 원하는 빌드 도구에서 즉시 Azure Machine Learning SDK를 가져올 수 있습니다.
+
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
 
 Data Science Virtual Machine에 대한 자세한 내용은 [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)을 참조하세요.
 

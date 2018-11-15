@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015777"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614143"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
@@ -55,7 +55,7 @@ Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 �
 
 * **클래식 활동 로그 경고** - 사용자가 할당한 필터 기준에 부합하는 활동 로그 이벤트가 생성되면 트리거되는 스트리밍 로그 알림입니다. 경고 엔진은 단순히 필터 기준을 모든 새 이벤트에 적용하므로 이러한 경고의 상태는 "활성화됨"뿐입니다. 이러한 경고를 통해 새 서비스 상태 사건이 발생하거나 사용자 또는 응용 프로그램이 구독에서 작업을 수행할 때(예: "가상 머신 삭제") 알림을 받을 수 있습니다.
 
-Azure Monitor를 통해 제공되는 진단 로그 데이터의 경우 데이터를 Log Analytics(이전 OMS)로 전달하고 Log Analytics 쿼리 경고를 사용합니다. 이제 Log Analytics는 [새로운 경고 메서드](monitoring-overview-unified-alerts.md)를 사용합니다. 
+Azure Monitor를 통해 제공되는 진단 로그 데이터의 경우 데이터를 Log Analytics(이전 OMS)로 전달하고 Log Analytics 쿼리 경고를 사용합니다. 이제 Log Analytics는 [새로운 경고 메서드](monitoring-overview-alerts.md)를 사용합니다. 
 
 다음 다이어그램에서는 Azure Monitor의 데이터 원본을 요약하고 그러한 데이터에 대해 경고 받는 방법을 개념적으로 설명약합니다.
 

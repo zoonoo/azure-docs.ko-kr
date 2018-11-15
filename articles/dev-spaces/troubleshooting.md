@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: bca818cb4e13066f8a631111b75f50384e521ac1
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: a1c68f7e1d0a24be173137d3a7c920876cc8ba66
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978896"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515746"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -64,9 +64,9 @@ CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. �
 
 _azds.exe_를 사용하는 경우 --verbose 명령줄 옵션을 사용하고 --output 명령줄 옵션을 사용하여 출력 형식을 지정합니다.
  
-    ```cmd
-    azds up --verbose --output json
-    ```
+```cmd
+azds up --verbose --output json
+```
 
 Visual Studio에서
 

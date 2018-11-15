@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 36b57fd98de206641422d80bf3ea3d2a3853f578
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 006d0ef28d82a7648a56b3bf871c5a3afd6a55a6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252567"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624423"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키
 
@@ -48,17 +48,6 @@ Cosmos 컨테이너를 만들 때에만 고유 키를 정의할 수 있습니다
 * 스파스 고유 키는 지원되지 않습니다. 일부 고유 경로 값이 누락되면 null 값으로 간주되어 고유성 제약 조건에 포함됩니다. 따라서 이 제약 조건을 만족하는 null 값을 갖는 단일 항목만 가능합니다.
 
 * 고유 키 이름은 대/소문자를 구분합니다. 예를 들어 컨테이너의 고유 키 제약 조건이 /address/zipcode로 설정되었다고 가정해 봅시다. 데이터에 ZipCode라는 필드가 있으면 Cosmos DB는 "null"을 고유 키로 삽입합니다. "zipcode"와 "ZipCode"는 다르기 때문입니다. 이처럼 대/소문자를 구분하므로 ZipCode가 포함된 모든 레코드를 삽입할 수 없습니다. 중복되는 "null"이 고유 키 제약 조건을 위반하기 때문입니다.
-
-## <a name="supported-apis-and-sdks"></a>지원되는 API 및 SDK
-
-고유 키 기능은 현재 다음 Cosmos DB API 및 클라이언트 SDK에서 지원됩니다. 
-
-|클라이언트 드라이버|SQL API|Cassandra API|MongoDB API|Gremlin API|테이블 API|
-|---|---|---|---|---|---|
-|.NET|yes|아니요|yes|아니요|아니요|
-|자바|yes|아니요|yes|아니요|아니요|
-|Python|yes|아니요|yes|아니요|아니요|
-|Node/JS|yes|아니요|yes|아니요|아니요|
 
 ## <a name="next-steps"></a>다음 단계
 

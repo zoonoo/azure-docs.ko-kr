@@ -3,7 +3,7 @@ title: Service Fabric 및 컨테이너 개요 | Microsoft Docs
 description: Service Fabric 및 마이크로 서비스 응용 프로그램 배포를 위한 컨테이너 사용에 대한 개요. 이 문서는 컨테이너를 사용하는 방법과 Service Fabric에서 사용할 수 있는 기능에 대한 개요를 제공합니다.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: msfussell
-ms.openlocfilehash: 6715142be7f40955861afa634bf6e2472c9f7294
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.author: twhitney, msfussell
+ms.openlocfilehash: 0acbd2d4ccf35c9490a06228eeb1bb465a8ca732
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005778"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299977"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 및 컨테이너
 

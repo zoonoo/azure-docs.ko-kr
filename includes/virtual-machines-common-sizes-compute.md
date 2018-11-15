@@ -5,21 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 11/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0c071fbfb962de1bf077dfa720cd66bc06e42178
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3bd4adcd6df07aa47312223c559f0e9ed4fc0b14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312430"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264141"
 ---
 <!-- F-series, Fs-series* -->
 
 Compute 최적화된 VM 크기는 높은 CPU 대 메모리 비율을 가지며 중간 규모의 트래픽 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 응용 프로그램 서버에 적합합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 
-Fsv2 시리즈는 Intel® Xeon® Platinum 8168 프로세서를 기반으로 하며 2.7GHz라는 기본 코어 및 최대 3.7GHz의 단일 코어 터보를 제공합니다. Intel 확장 가능한 프로세서에서 새로 도입된 Intel® AVX-512 지침은 단일 및 이중 정밀도 부동 소수점 연산에서 벡터 처리 워크로드에 대한 성능을 최대 2배로 향상시킵니다. 즉, 계산 워크로드를 빠르게 처리합니다. 
+Fsv2 시리즈는 Intel® Xeon® Platinum 8168 프로세서를 기반으로 하며, 3.4GHz의 일관적인 올 코어 터보 클록 속도와 최대 3.7GHz의 싱글 코어 터보 주파수를 제공합니다. Intel 확장 가능한 프로세서에서 새로 도입된 Intel® AVX-512 지침은 단일 및 이중 정밀도 부동 소수점 연산에서 벡터 처리 워크로드에 대한 성능을 최대 2배로 향상시킵니다. 즉, 계산 워크로드를 빠르게 처리합니다. 
 
 시간당 가격이 더 낮은 Fsv2 시리즈는 vCPU당 ACU(Azure Compute 단위)를 기준으로 하는 Azure 포트폴리오에서 가격 대비 성능이 가장 좋습니다. 
 

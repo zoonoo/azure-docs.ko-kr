@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/30/2018
-ms.openlocfilehash: 67f5e6d4674f876b2cfd4d879ab40c5a5b12c0cc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/12/2018
+ms.openlocfilehash: 43db0e66c05b6b5c3331d3fba3e4db363d61c9f8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985049"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624355"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 PostgreSQL 확장
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드된 후에 확장은 기본 제공 기능으로 작동할 수 있습니다. PostgreSQL 확장에 대한 자세한 내용은  [관련 개체를 확장으로 패키지](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)를 참조하세요.
@@ -75,6 +75,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 | **확장** | **설명** |
 |---|---|
 | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
+| [plv8](https://plv8.github.io/) | 저장 프로시저, 트리거 등에 사용할 수 있는 PostgreSQL용 Javascript 언어 확장입니다. |
 
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
@@ -88,7 +89,7 @@ PostgreSQL용 Azure 데이터베이스는 현재 여기에 나열된 대로 주�
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | 튜플 수준 통계를 표시하는 방법을 제공합니다. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | 외부 PostgreSQL 서버에 저장된 데이터에 액세스하는 데 사용되는 외부 데이터 래퍼입니다. |
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | CPU나 디스크 비용이 들지 않는 가상의 인덱스를 만드는 방법을 제공합니다. |
-| [plv8](https://plv8.github.io/) | 저장 프로시저, 트리거 등에 사용할 수 있는 PostgreSQL용 Javascript 언어 확장입니다. |
+
 
 ### <a name="postgis-extensions"></a>PostGIS 확장
 

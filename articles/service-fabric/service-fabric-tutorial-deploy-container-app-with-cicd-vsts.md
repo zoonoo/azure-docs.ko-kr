@@ -3,7 +3,7 @@ title: Azure Service Fabric 클러스터에 CI/CD로 컨테이너 응용 프로�
 description: 이 자습서에서는 VSTS(Visual Studio Team Services)를 사용하여 Azure Service Fabric 컨테이너 응용 프로그램에 대한 지속적인 통합 및 배포를 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: ryanwi,v-steg
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: db0abf2c70ac79356496c78275dc658d1ee29a23
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a7cb139da2cdbfb187a62eeadc707f7206de8a34
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035921"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300199"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 컨테이너 응용 프로그램 배포
 

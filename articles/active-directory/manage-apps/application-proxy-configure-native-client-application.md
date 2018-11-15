@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 91f75fdbe7bc7c66bbe581e9d4b295467acd4cd5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989671"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621091"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용하는 방법
 
@@ -98,4 +98,4 @@ ADAL을 이러한 매개 변수로 편집하면 사용자가 회사 네트워크
 
 네이티브 응용 프로그램 흐름에 대한 자세한 내용은 [Web API에 대한 네이티브 응용 프로그램](../develop/native-app.md)을 참조하세요.
 
-[응용 프로그램 프록시에 대한 Single Sign-On](application-proxy-single-sign-on.md) 설정에 대한 자세히 알아보세요.
+[응용 프로그램 프록시에 대한 Single Sign-On](what-is-single-sign-on.md#single- sign-on-methods) 설정에 대한 자세히 알아보세요.

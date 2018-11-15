@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: abca81e0db565c6c84d9be9df07b46c8c338030b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6581081f0f34f73c915f0b026a3ed50816f6731f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960280"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298946"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 응용 프로그램 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -118,7 +118,7 @@ Azure AD에서 /common 엔드포인트의 요청을 받으면 사용자를 로�
 
 응용 프로그램 전용 권한은 테넌트 관리자의 동의를 항상 필요로 합니다. 응용 프로그램이 응용 프로그램 전용 사용 권한을 요청하고 사용자가 응용 프로그램에 로그인을 시도하는 경우 사용자가 동의할 수 없음을 알리는 오류 메시지가 나타납니다.
 
-위임된 특정 권한은 또한 테넌트 관리자의 동의를 필요로 합니다. 예를 들어, 로그인한 사용자로 Azure AD에 쓰기 저장 기능은 테넌트 관리자의 동의가 필요합니다. 응용 프로그램 전용 권한과 같이, 일반 사용자가 관리자 동의가 필요한 위임된 권한을 요청하는 응용 프로그램에 로그인하려는 경우 응용 프로그램에 오류가 발생합니다. 권한에 관리자 동의가 필요한지 여부는 리소스를 게시한 개발자가 결정하며 해당 리스스에 대한 설명서에서 확인할 수 있습니다. [Azure AD Graph API][AAD-Graph-Perm-Scopes] 및 [Microsoft Graph API][MSFT-Graph-permision-scopes]에 대한 권한 설명서에는 관리자 동의가 필요한 권한이 나와 있습니다.
+위임된 특정 권한은 또한 테넌트 관리자의 동의를 필요로 합니다. 예를 들어, 로그인한 사용자로 Azure AD에 쓰기 저장 기능은 테넌트 관리자의 동의가 필요합니다. 응용 프로그램 전용 권한과 같이, 일반 사용자가 관리자 동의가 필요한 위임된 권한을 요청하는 응용 프로그램에 로그인하려는 경우 응용 프로그램에 오류가 발생합니다. 권한에 관리자 동의가 필요한지 여부는 리소스를 게시한 개발자가 결정하며 해당 리스스에 대한 설명서에서 확인할 수 있습니다. [Azure AD Graph API][AAD-Graph-Perm-Scopes] 및 [Microsoft Graph API][MSFT-Graph-permission-scopes]에 대한 권한 설명서에는 관리자 동의가 필요한 권한이 나와 있습니다.
 
 응용 프로그램이 관리자 동의가 필요한 권한을 사용할 경우, 관리자가 작업을 시작할 수 있도록 단추나 링크와 같은 제스처가 있어야 합니다. 응용 프로그램에서 이 작업에 대해 보내는 요청은 `prompt=admin_consent` 쿼리 문자열 매개 변수도 포함된 일반적인 OAuth2/OpenID Connect 권한 부여 요청입니다. 일단 관리자가 동의했고 서비스 주체가 고객 테넌트에 만들어졌다면 차후의 로그인 요청은 `prompt=admin_consent` 매개 변수를 필요로 하지 않습니다. 관리자가 요청된 권한이 허용된다고 결정했다면 테넌트의 다른 사용자들에게 그 시점 이후로 동의하라는 메시지가 표시되지 않습니다.
 
@@ -184,7 +184,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 * [응용 프로그램 개체 및 서비스 주체 개체][AAD-App-SP-Objects]
 * [Azure Active Directory와 응용 프로그램 통합][AAD-Integrating-Apps]
 * [동의 프레임워크 개요][AAD-Consent-Overview]
-* [Microsoft Graph API 권한 범위][MSFT-Graph-permision-scopes]
+* [Microsoft Graph API 권한 범위][MSFT-Graph-permission-scopes]
 * [Azure AD Graph API 권한 범위][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
@@ -201,8 +201,8 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
+[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

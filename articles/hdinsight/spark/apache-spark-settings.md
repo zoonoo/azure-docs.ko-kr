@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 9533992b939983ceda37a7c98d0bc2426168a0ac
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b31be534641f2777bcbfaaa33497d96b457db191
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279360"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684089"
 ---
 # <a name="configure-spark-settings"></a>Spark 설정 구성
 
@@ -30,7 +30,7 @@ HDInsight 클러스터 노드의 VM 수 및 VM 크기는 Spark 구성에 영향�
 
 클러스터에 최적의 Spark 버전을 사용합니다.  HDInsight 서비스에는 여러 버전의 Spark 및 HDInsight가 포함되어 있습니다.  Spark의 각 버전에는 기본 클러스터 설정 집합이 포함됩니다.  
 
-새 클러스터를 만들 때 여러 Spark 버전 중에서 선택할 수 있습니다. 전체 목록을 보려면 [HDInsight 구성 요소 및 버전](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning)을 참조하세요.
+새 클러스터를 만들 때 여러 Spark 버전 중에서 선택할 수 있습니다. 전체 목록을 보려면 [HDInsight 구성 요소 및 버전](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)을 참조하세요.
 
 
 > [!NOTE]

@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956434"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286693"
 ---
 # <a name="about-v20"></a>v2.0 정보
 
@@ -32,7 +32,7 @@ v2.0 엔드포인트와 플랫폼은 미리 보기 상태였으며 지속적으�
 
 Azure Portal 개발자 환경은 이제 ADAL 또는 MSAL로 빌드된 모든 응용 프로그램을 포함하고 사용성을 향상시키기 위해 상당히 업데이트되었습니다.
 
-과거 Azure Active Directory(Azure AD)에서 Microsoft 개인 계정과 회사 계정을 모두 지원하려는 응용 프로그램 개발자는 별도의 두 시스템과 통합해야 했습니다. v2.0 엔드포인트와 플랫폼에서는 이 프로세스를 단순화하는 인증 API 버전을 제공합니다. 여기에서는 단일 통합을 사용하여 두 가지 유형의 계정에서 로그인할 수 있습니다. 또한 v2.0 엔드포인트를 사용하는 응용 프로그램은 두 가지 계정 유형 중 하나를 사용하여 [Microsoft Graph API](https://graph.microsoft.io)의 REST API를 사용할 수 있습니다.
+과거 Azure Active Directory(Azure AD)에서 Microsoft 개인 계정과 회사 계정을 모두 지원하려는 응용 프로그램 개발자는 별도의 두 시스템과 통합해야 했습니다. v2.0 엔드포인트와 플랫폼에서는 이 프로세스를 단순화하는 인증 API 버전을 제공합니다. 여기에서는 단일 통합을 사용하여 두 가지 유형의 계정에서 로그인할 수 있습니다. 또한 v2.0 엔드포인트를 사용하는 응용 프로그램은 두 가지 계정 유형 중 하나를 사용하여 [Microsoft Graph API](https://developer.microsoft.com/graph)의 REST API를 사용할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -56,10 +56,10 @@ v2.0에 관한 자세한 정보를 살펴보세요.
 
 * [v2.0 프로토콜 참조](active-directory-v2-protocols.md)
 * [액세스 토큰 참조](access-tokens.md)
-* [`id_tokens` 참조](id-tokens.md)
+* [ID 토큰 참조](id-tokens.md)
 * [v2.0 인증 라이브러리 참조](reference-v2-libraries.md)
-* [v2.0의 범위 및 동의](v2-permissions-and-consent.md)
-* [Microsoft Graph API](https://graph.microsoft.io)
+* [v2.0의 권한 및 동의](v2-permissions-and-consent.md)
+* [Microsoft Graph API](https://developer.microsoft.com/graph)
 
 > [!NOTE]
 > Azure Active Directory에서 회사 계정과 학교 계정에만 로그인해야 하는 경우 [개발자용 Azure AD 가이드](v1-overview.md)를 시작합니다. v2.0 엔드포인트는 Microsoft 개인 계정에 명시적으로 로그인해야 하는 개발자가 사용하기 위한 것입니다.

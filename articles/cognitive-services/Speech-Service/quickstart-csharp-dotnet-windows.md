@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 2dd001ebebd5cdf90d7d0b8163a85a5f83c855f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281297"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683502"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>빠른 시작: Speech SDK 및 .NET Framework(Windows)를 사용하여 음성 인식 및 기록
 
@@ -23,7 +23,7 @@ ms.locfileid: "51281297"
 
 이 가이드에 따라 Windows용 .NET Framework 및 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 응용 프로그램을 만들 수 있습니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 
-이 빠른 시작에는 Microsoft Speech가 지원되는 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started)을 사용하여 구독 키를 가져올 수 있습니다.
+이 빠른 시작에는 Microsoft Speech가 지원되는 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

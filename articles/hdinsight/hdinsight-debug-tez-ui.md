@@ -1,22 +1,22 @@
 ---
-title: Windows 기반 HDInsight에서 Tez UI 사용 - Azure
-description: Windows 기반 HDInsight 클러스터에서 Tez UI를 사용하여 Tez 작업 디버깅하는 방법을 알아봅니다.
+title: Windows 기반 HDInsight에서 Apache Tez UI 사용 - Azure
+description: Windows 기반 HDInsight에서 Apache Tez UI를 사용하여 Tez 작업을 디버깅하는 방법을 알아봅니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff47d0a71e97ce4ec9fd04e1d0cb9e5592192d53
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ecb613dd2f624b9e0910a0ddcdf931f4b266aa96
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112190"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036586"
 ---
-# <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight 클러스터에서 Tez UI를 사용하여 Tez 작업 디버깅
+# <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Tez UI를 사용하여 Tez 작업 디버깅
 Tez UI는 실행 엔진으로 Tez를 사용하는 Hive 작업을 디버그하는 데 사용할 수 있습니다. Tez UI를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
 
 > [!IMPORTANT]
@@ -26,13 +26,13 @@ Tez UI는 실행 엔진으로 Tez를 사용하는 Hive 작업을 디버그하는
 * Windows 기반 HDInsight 클러스터입니다. 새 클러스터를 만드는 단계는 [Windows 기반 HDInsight 사용 시작](hdinsight-hadoop-tutorial-get-started-windows.md)을 참조하세요.
 
   > [!IMPORTANT]
-  > Tez UI는 2016년 2월 8일 이후에 작성된 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다.
+  > Apache Tez UI는 2016년 2월 8일 이후에 만들어진 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다.
   >
   >
 * Windows 기반 원격 데스크톱 클라이언트입니다.
 
-## <a name="understanding-tez"></a>Tez 이해
-Tez는 Hadoop의 데이터 처리에 대해 확장 가능한 프레임워크로, 기존 MapReduce 처리보다 빠른 속도를 제공합니다. 다음 텍스트를 Hive 쿼리의 일부로 포함하여 Tez를 사용하도록 설정할 수 있습니다.
+## <a name="understanding-apache-tez"></a>Apache Tez 이해
+Tez는 Apache Hadoop의 데이터 처리에 대해 확장 가능한 프레임워크로, 기존 MapReduce 처리보다 빠른 속도를 제공합니다. 다음 텍스트를 Hive 쿼리의 일부로 포함하여 Tez를 사용하도록 설정할 수 있습니다.
 
     set hive.execution.engine=tez;
 

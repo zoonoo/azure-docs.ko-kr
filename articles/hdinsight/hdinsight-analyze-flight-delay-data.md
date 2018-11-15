@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7700de9bed7e5cfc003481a8e7d93720a767928
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3e792eb9ab2e2902bfc9c84db7c1c344fb0cf67f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036158"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622349"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
 Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]* 을 통해 Apache Hadoop MapReduce 작업을 실행할 수 있습니다.
@@ -88,7 +88,7 @@ HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법에 대한
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure the following variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
@@ -449,7 +449,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
     Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
     if (test-path $hqlLocalFileName){
 
-        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwrite it? (Y/N)'
 
         if ($isDelete.ToLower() -ne "y")
         {
@@ -639,7 +639,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
     catch{Connect-AzureRmAccount}
     #EndRegion
 
-    #region - Create and validate Azure resouce group
+    #region - Create and validate Azure resource group
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
     }

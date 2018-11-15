@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/04/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394475"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345575"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(비공개 미리 보기)
 
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * Azure PowerShell. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 * Deployment Manager cmdlet이 있어야 합니다. 이러한 시험판 cmdlet을 설치하려면 최신 버전의 PowerShellGet이 필요합니다. 최신 버전을 가져오려면 [PowerShellGet 설치](/powershell/gallery/installing-psget)를 참조하세요. PowerShellGet이 설치되면 PowerShell 창을 닫습니다. 새 PowerShell 창을 열고, 다음 명령을 사용합니다.
 
-    ```
+    ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
 * [Microsoft Azure Storage 탐색기](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)가 있어야 합니다. Azure Storage 탐색기는 필요하지 않지만 작업을 더 쉽게 수행할 수 있습니다.
@@ -287,7 +287,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
 1. 스크립트를 실행하여 서비스 토폴로지를 배포합니다.
 
-    ```powershell
+    ```azurepowershell-interactive
     $deploymentName = "<Enter a Deployment Name>"
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
@@ -312,7 +312,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
 3. 롤아웃 템플릿을 배포합니다.
 
-    ```powershell
+    ```azurepowershell-interactive
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -Name $deploymentName `
@@ -323,7 +323,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
 4. 다음 PowerShell 스크립트를 사용하여 롤아웃 진행률을 확인합니다.
 
-    ```powershell
+    ```azurepowershell-interactive
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>"
     Get-AzureRmDeploymentManagerRollout `

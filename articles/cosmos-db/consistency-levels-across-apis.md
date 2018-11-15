@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: ed08b90b9e216ee8713bfe445e98144bf2ba02d4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 974531cd5907e4f69e7d064125d3e51fa4974949
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243998"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956386"
 ---
-# <a name="consistency-levels-and-cosmos-db-apis"></a>일관성 수준 및 Cosmos DB API
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
-5가지 일관성 모델은 Cosmos DB를 사용할 때 기본 API인 SQL API로 기본적으로 지원됩니다. SQL API 외에도 Cosmos DB는 MongoDB, Apache Cassandra, Gremlin 및 Azure Table과 같은 인기 있는 데이터베이스에 대해 유선 프로토콜 호환 API에 대한 기본 지원을 제공합니다. 이러한 데이터베이스는 일관성 수준에 대해 정확하게 정의된 일관성 모델 및 SLA 기반 보장을 제공하지 않으며, 일반적으로 Cosmos DB에서 제공하는 5가지 일관성 모델의 하위 집합만 제공합니다. SQL API, Gremlin API 및 Table API의 경우 Cosmos 계정에 구성된 기본 일관성 수준이 사용됩니다.
+Azure Cosmos DB에서 제공되는 5가지 일관성 모델은 Cosmos DB를 사용할 때 기본 API인 Cosmos DB SQL API로 기본적으로 지원됩니다. SQL API 외에도 Cosmos DB는 MongoDB, Apache Cassandra, Gremlin 및 Azure Table과 같은 인기 있는 데이터베이스에 대해 유선 프로토콜 호환 API에 대한 기본 지원을 제공합니다. 이러한 데이터베이스는 정확하게 정의된 일관성 모델 및 일관성 수준에 대한 SLA 지원 보장을 모두 제공하지 않습니다. 이러한 데이터베이스는 일반적으로 Cosmos DB에서 제공하는 5가지 일관성 모델의 하위 집합만 제공합니다. SQL API, Gremlin API 및 Table API의 경우 Cosmos 계정에 구성한 기본 일관성 수준이 사용됩니다.
 
-다음 표는 Cassandra API 및 MongoDB API를 사용할 때 Apache Cassandra 4.x 및 MongoDB 3.4용 OSS 클라이언트 드라이버로 요청된 데이터 일관성 간의 매핑을 각각 보여주며, 해당 Cosmos DB 일관성 수준을 보여줍니다.
+다음 섹션은 Cassandra API 및 MongoDB API를 사용할 때 Apache Cassandra 4.x 및 MongoDB 3.4용 OSS 클라이언트 드라이버로 요청된 데이터 일관성 간의 매핑을 각각 보여주며, 해당 Cosmos DB 일관성 수준을 보여줍니다.
 
-## <a id="cassandra-mapping"></a>Apache Cassandra 및 Cosmos DB 일관성 수준 매핑
+## <a id="cassandra-mapping"></a>Apache Cassandra 및 Cosmos DB 일관성 수준 간 매핑
 
-아래 표는 다중 영역 및 단일 영역 배포에 대한 Apache Cassandra 4.x 클라이언트와 Cosmos DB "기본" 일관성 수준 간의 읽기 일관성에 대한 매핑을 보여줍니다.
+다음 표는 다중 영역 및 단일 영역 배포 모두에 대한 Apache Cassandra 4.x 클라이언트와 Cosmos DB의 기본 일관성 수준 간의 “읽기 일관성” 매핑을 보여줍니다.
 
 | **Apache Cassandra 4.x** | **Cosmos DB(다중 영역)** | **Cosmos DB(단일 영역)** |
 | - | - | - |
@@ -36,7 +36,7 @@ ms.locfileid: "50243998"
 
 ## <a id="mongo-mapping"></a>MongoDB 3.4 및 Cosmos DB 일관성 수준 간의 매핑
 
-아래 표는 다중 영역 및 단일 영역 배포에 대한 MongoDB 3.4 의 "읽기 문제"와 Cosmos DB "기본" 일관성 수준에 대한 매핑을 보여줍니다.
+다음 표는 다중 영역 및 단일 영역 배포 모두에 대한 MongoDB 3.4와 Cosmos DB의 기본 일관성 수준 간의 “읽기 문제” 매핑을 보여줍니다.
 
 | **MongoDB 3.4** | **Cosmos DB(다중 영역)** | **Cosmos DB(단일 영역)** |
 | - | - | - |

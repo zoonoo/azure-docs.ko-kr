@@ -9,16 +9,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: fa429553caf874dd634944a5fca6cd9283194bb4
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251110"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51301019"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions에 대한 Microsoft Graph 바인딩
 
-이 문서에서는 Azure Functions에서 Microsoft Graph 트리거 및 바인딩을 구성하고 사용하는 방법에 대해 설명합니다. 이러한 방법을 배우고 나면 Azure Functions를 사용하여 [Microsoft Graph](https://graph.microsoft.io)에서 데이터, 자세한 정보 및 이벤트를 작업할 수 있습니다.
+이 문서에서는 Azure Functions에서 Microsoft Graph 트리거 및 바인딩을 구성하고 사용하는 방법에 대해 설명합니다. 이러한 방법을 배우고 나면 Azure Functions를 사용하여 [Microsoft Graph](https://developer.microsoft.com/graph)에서 데이터, 자세한 정보 및 이벤트를 작업할 수 있습니다.
 
 Microsoft Graph 확장에는 다음과 같은 바인딩이 제공됩니다.
 - 모든 Microsoft Graph API와 상호 작용할 수 있게 해주는 [인증 토큰 입력 바인딩](#token-input).
@@ -834,7 +834,7 @@ Outlook 메시지 출력 바인딩은 Outlook을 통해 메일 메시지를 보�
 * [예제](#outlook-output---example)
 * [특성](#outlook-output---attributes)
 * [구성](#outlook-output---configuration)
-* [사용 현황](#outlook-outnput---usage)
+* [사용 현황](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Outlook 출력 - 예제
 

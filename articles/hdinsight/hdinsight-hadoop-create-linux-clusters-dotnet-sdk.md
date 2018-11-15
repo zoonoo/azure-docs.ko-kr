@@ -1,6 +1,6 @@
 ---
-title: .NET를 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight
-description: HDInsight .NET SDK를 사용하여 Linux 기반 HDInsight에서 Hadoop, HBase, Storm 또는 Spark 클러스터를 만드는 방법을 알아봅니다.
+title: .NET를 사용하여 Apache Hadoop 클러스터 만들기 - Azure HDInsight
+description: HDInsight .NET SDK를 사용하여 HDInsight용 Linux에서 Apache Hadoop, Apache HBase, Apache Storm 또는 Apache Spark 클러스터를 만드는 방법을 알아봅니다.
 services: hdinsight
 author: mamccrea
 ms.reviewer: jasonh
@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: ea5c0d3b9f444601607ebcda8d139797eb8dd2ec
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 943d5aeccf949c1dd494dc8ec8fda0d782527749
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093914"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035684"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-.NET SDK를 사용하여 Azure HDInsight 클러스터에서 Hadoop 클러스터를 만드는 방법을 알아봅니다.
+.NET SDK를 사용하여 Azure HDInsight 클러스터에서 Apache Hadoop 클러스터를 만드는 방법을 알아봅니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계에서는 하나의 작업자 노드가 있는 클러스터를 만듭니다. 클러스터 만들기에서 또는 클러스터를 만든 후 확장하여 32개 이상의 작업자 노드를 계획하는 경우 최소한 코어 8개와 14GB RAM을 가진 헤드 노드 크기를 선택해야 합니다.
@@ -373,7 +373,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다. 
 
 ### <a name="hadoop-clusters"></a>Hadoop 클러스터
-* [HDInsight에서 하이브 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 

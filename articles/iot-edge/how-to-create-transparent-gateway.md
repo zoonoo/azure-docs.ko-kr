@@ -2,18 +2,18 @@
 title: Azure IoT Edge를 사용하여 투명한 게이트웨이 만들기 | Microsoft Docs
 description: Azure IoT Edge 디바이스를 사용하여 여러 디바이스에 대한 정보를 처리할 수 있는 투명한 게이트웨이 만들기
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a48699507fbba18b20cb94e404c4814f25d31f44
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50915069"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568474"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 

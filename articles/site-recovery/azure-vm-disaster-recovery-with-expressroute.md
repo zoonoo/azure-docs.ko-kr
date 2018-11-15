@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: e7c63fba892f70ca0e18c1bffcda0782316b7ada
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: af57dc50dd156a3398c2c685e436d22ba3daea95
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211556"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567777"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합
 
@@ -185,7 +185,7 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 - 대상 복구 하위 지역은 Azure 동남아시아입니다.
 - 보조 ExpressRoute 회로 연결은 싱가포르의 파트너 에지를 통해 설정됩니다.
 
-장애 조치 후 동일한 IP 주소와 함께 단일 ExpressRoute 회로를 사용하는 단순한 토폴로지의 경우 [이 문서를 검토](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity)합니다.
+장애 조치 후 동일한 IP 주소와 함께 단일 ExpressRoute 회로를 사용하는 단순한 토폴로지의 경우 [이 문서를 검토](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover)합니다.
 
 ### <a name="example-steps"></a>예제 단계
 이 예제에서 복구를 자동화하려면 다음을 수행해야 합니다.

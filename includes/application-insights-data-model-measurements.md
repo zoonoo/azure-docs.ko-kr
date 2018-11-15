@@ -1,3 +1,16 @@
+---
+author: mrbullwinkle
+ms.service: application-insights
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: mbullwin
+ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572433"
+---
 사용자 지정 측정값 컬렉션입니다. 이 컬렉션을 사용하여 원격 분석 항목에 연결된 이름이 지정된 측정값을 보고합니다. 일반적인 사용 사례는 다음과 같습니다.
 - 종속성 원격 분석 페이로드의 크기
 - 요청 원격 분석에서 처리한 큐 항목의 수

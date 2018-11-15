@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a16230b6f51f0ce93f4a9bf53591abbcd6b4bd3b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 4e99656319f543fb40d8509cb4ae9e1c25cfc75b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283685"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622485"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -35,7 +35,7 @@ Log Analytics를 사용하여 로컬 데이터 센터 또는 기타 클라우드
 * PowerShell 스크립트.
 * Azure Stack에서 Windows 온-프레미스를 실행하는 가상 머신의 Resource Manager 템플릿.  
 
-지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](log-analytics-concept-hybrid.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-concept-hybrid.md#network-firewall-requirements)을 검토합니다.
+지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](log-analytics-agent-overview.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-agent-overview.md#network-firewall-requirements)을 검토합니다.
 
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
 Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 적절히 구성하고 Azure 상용 및 미국 정부 클라우드에서 Log Analytics와 성공적으로 통신할 수 있는지 확인하기 위해 각 설치 방법에서 설치하는 동안 필요합니다.  

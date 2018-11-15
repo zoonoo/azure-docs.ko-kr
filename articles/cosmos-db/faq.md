@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 3f0bf2c6c58afbbf9a1256fa5901591e535fe20c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 258d00bcc99165108979ef1679c195a6d2b2d98a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250767"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623063"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -100,7 +100,7 @@ Azure Cosmos DB 구독 사용이 사용자 ID와 연결된 다른 구독의 옆�
 Azure Cosmos DB는 Azure Portal에서 사용할 수 있습니다. 먼저 Azure 구독에 등록합니다. 등록한 후에는 Azure 구독에 SQL API, Gremlin API, 테이블 API, MongoDB API 또는 Cassandra API 계정을 추가할 수 있습니다.
 
 ### <a name="what-is-a-master-key"></a>마스터 키란 무엇인가요?
-마스터 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 마스터 키를 배포할 때 주의하세요. 주 마스터 키 및 보조 마스터 키는 [Azure Portal][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-account.md#keys)을 참조하세요.
+마스터 키는 계정의 모든 리소스에 액세스할 수 있는 보안 토큰입니다. 이 키가 있는 개인은 데이터베이스 계정의 모든 리소스에 대해 읽기 및 쓰기 액세스 권한을 가집니다. 마스터 키를 배포할 때 주의하세요. 주 마스터 키 및 보조 마스터 키는 [Azure Portal][azure-portal]의 **키** 블레이드에서 사용할 수 있습니다. 키에 대한 자세한 내용은 [액세스 키 보기, 복사 및 다시 생성](manage-with-cli.md#list-account-keys)을 참조하세요.
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>PreferredLocations를 설정할 수 있는 지역은 어디인가요? 
 Cosmos DB를 사용할 수 있는 모든 Azure 지역에 PreferredLocations 값을 설정할 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.

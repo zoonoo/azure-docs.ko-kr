@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce8946e5a022eea9281898d1518cc3e8bfb50ee5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1951f001de1b9d0667e5d4430454b32b5a3c890e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092508"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957491"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Application Insights에서 HockeyApp 데이터 탐색
 
@@ -34,7 +34,7 @@ HockeyApp에서 계정 설정, [API 토큰](https://rink.hockeyapp.net/manage/au
 
 ![HockeyApp API 토큰 가져오기](./media/app-insights-hockeyapp-bridge-app/01.png)
 
-Microsoft Azure Portal을 열고 [Application Insights 리소스를 만듭니다](app-insights-create-new-resource.md). 응용 프로그램 유형을 "HockeyApp 브리지 응용 프로그램"으로 설정합니다.
+Microsoft Azure Portal을 열고 [Application Insights 리소스를 만듭니다](app-insights-create-new-resource.md). 애플리케이션 유형을 “HockeyApp 브리지 애플리케이션”으로 설정합니다.
 
 ![새 Application Insights 리소스](./media/app-insights-hockeyapp-bridge-app/02.png)
 
@@ -44,7 +44,7 @@ HockeyApp 브리지 필드가 나타납니다.
 
 ![브리지 필드 입력](./media/app-insights-hockeyapp-bridge-app/03.png)
 
-앞에서 설명한 HockeyApp 토큰을 입력합니다. 이 작업에서는 모든 HockeyApp 응용 프로그램으로 "HockeyApp 응용 프로그램" 드롭다운 메뉴를 채웁니다. 사용하려는 필드를 선택하고 필드의 나머지 부분을 완료합니다. 
+앞에서 설명한 HockeyApp 토큰을 입력합니다. 이 작업에서는 모든 HockeyApp 애플리케이션으로 “HockeyApp 애플리케이션” 드롭다운 메뉴를 채웁니다. 사용하려는 필드를 선택하고 필드의 나머지 부분을 완료합니다. 
 
 새 리소스를 엽니다. 
 
@@ -52,7 +52,7 @@ HockeyApp 브리지 필드가 나타납니다.
 
 ![데이터를 기다리는 Application Insights 리소스](./media/app-insights-hockeyapp-bridge-app/04.png)
 
-끝났습니다. 지금부터 HockeyApp 계측 앱에서 수집된 사용자 지정 및 추적 데이터는 이제 Application Insights의 분석 및 연속 내보내기 기능에서 사용할 수 있습니다.
+이것으로 끝입니다. 지금부터 HockeyApp 계측 앱에서 수집된 사용자 지정 및 추적 데이터는 이제 Application Insights의 분석 및 연속 내보내기 기능에서 사용할 수 있습니다.
 
 이제 사용할 수 있는 이러한 기능을 각각 간단히 검토하겠습니다.
 
@@ -61,7 +61,7 @@ HockeyApp 브리지 필드가 나타납니다.
 
 ![분석](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [분석에 대해 자세히 알아보기](app-insights-analytics-tour.md)
+* [분석에 대해 자세히 알아보기](../log-analytics/query-language/get-started-analytics-portal.md)
 
 ## <a name="continuous-export"></a>연속 내보내기
 연속 내보내기를 사용하면 Azure Blob Storage 컨테이너에 데이터를 내보낼 수 있습니다. 현재 Application Insights에서 제공하는 보존 기간보다 오래 데이터를 유지해야 하는 경우 매우 유용합니다. Blob Storage에 데이터를 유지하고 SQL Database 또는 기본 데이터 웨어하우스 솔루션으로 처리할 수 있습니다.
@@ -69,5 +69,5 @@ HockeyApp 브리지 필드가 나타납니다.
 [연속 내보내기에 대해 자세히 알아보기](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>다음 단계
-* [데이터에 분석 적용](app-insights-analytics-tour.md)
+* [데이터에 분석 적용](../log-analytics/query-language/get-started-analytics-portal.md)
 

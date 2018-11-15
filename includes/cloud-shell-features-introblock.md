@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: azure
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cynthn
+ms.openlocfilehash: eef2c762c87a13c62eeb9b017ed43f54835ab16e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572450"
+---
 Azure Cloud Shell은 Azure 리소스를 관리 및 개발하기 위한 브라우저 기반 셸 환경입니다.
 
 Cloud Shell은 컴퓨터의 직접 설치, 버전 관리 및 유지 관리에 대한 오버헤드 없이 Azure 리소스 관리를 위한 브라우저에서 액세스할 수 있는 미리 구성된 셸 경험을 제공합니다.

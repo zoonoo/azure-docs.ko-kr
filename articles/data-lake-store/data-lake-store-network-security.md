@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: b206b49914a448aa3fc9da63f72cca91f9f9ade1
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218970"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288002"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Azure Data Lake Storage Gen1에 대한 가상 네트워크 통합 - 미리 보기
 
@@ -29,8 +29,6 @@ ms.locfileid: "51218970"
 Data Lake Storage Gen1에 대한 가상 네트워크 통합에서는 가상 네트워크와 Azure AD(Azure Active Directory) 간에 가상 네트워크 서비스 엔드포인트 보안을 사용하여 액세스 토큰에서 추가 보안 클레임을 생성하게 됩니다. 그런 다음, 이러한 클레임을 사용하여 Data Lake Storage Gen1 계정에 대해 가상 네트워크를 인증하고 액세스를 허용합니다.
 
 > [!NOTE]
-> 이 기술은 미리 보기 상태입니다. 프로덕션 환경에서 사용하지 않는 것이 좋습니다.
->
 > 이러한 기능을 사용하는 것과 관련된 추가 비용은 없습니다. 계정에 대해 Data Lake Storage Gen1에 대한 표준 요금이 청구됩니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable)을 참조하세요. 사용하는 다른 모든 Azure 서비스의 경우 [가격 책정](https://azure.microsoft.com/pricing/#product-picker)을 참조하세요.
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Data Lake Storage Gen1에 대한 가상 네트워크 통합 시나리오

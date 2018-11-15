@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740456"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036549"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -76,7 +76,7 @@ Functions 런타임 2.x 버전에서 [`async function`](https://developer.mozill
 
 다음 예제는 트리거되었으며 즉시 실행을 완료한다고 기록하는 간단한 함수입니다.
 
-``` javascript
+```javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
 };
@@ -109,22 +109,27 @@ module.exports = async function (context, req) {
 ## <a name="bindings"></a>바인딩 
 JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 function.json에서 구성되고 정의됩니다. Functions는 다양한 방법으로 바인딩과 상호 작용합니다.
 
-### <a name="reading-trigger-and-input-data"></a>읽기 트리거 및 입력 데이터
-트리거 및 입력 바인딩(`direction === "in"`의 바인딩)은 다음과 같은 세 가지 방법으로 함수에서 읽을 수 있습니다.
+### <a name="inputs"></a>입력
+입력은 Azure Functions에서 두 가지 범주로 나뉩니다. 즉 하나는 트리거 입력이고, 다른 하나는 추가 입력입니다. 트리거 및 기타 입력 바인딩(`direction === "in"`의 바인딩)은 다음과 같은 세 가지 방법으로 함수에서 읽을 수 있습니다.
  - **_[권장]_  함수에 전달된 매개 변수입니다.** 이러한 항목은 *function.json*에 정의된 순서대로 함수에 전달됩니다. *function.json*에 정의된 `name` 속성은 필요하지만 매개 변수의 이름과 일치하지 않아도 됩니다.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
+   
  - **[`context.bindings`](#contextbindings-property) 개체의 모든 멤버입니다.** 각 멤버는 *function.json*에서 정의된 `name` 속성으로 이름이 지정됩니다.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + context.bindings.myTrigger);
        context.log("This is myInput: " + context.bindings.myInput);
        context.log("This is myOtherInput: " + context.bindings.myOtherInput);
    };
    ```
+   
  - **입력으로 JavaScript[`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 개체를 사용합니다.** 그러면 기본적으로 입력 매개 변수로 전달하는 것과 동일하지만 동적으로 입력을 처리할 수 있습니다.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + arguments[1]);
        context.log("This is myInput: " + arguments[2]);
@@ -132,12 +137,13 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    };
    ```
 
-### <a name="writing-data"></a>데이터 쓰기
+### <a name="outputs"></a>outputs
 출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json*에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
 
 다음 방법 중 하나로 데이터를 출력 바인딩에 할당할 수 있습니다. 이러한 메서드를 결합할 수 없습니다.
 - **_[여러 출력에 대한 권장]_ 개체를 반환합니다.** 함수를 반환하는 비동기/Promise를 사용하는 경우 할당된 출력 데이터를 사용하여 개체를 반환할 수 있습니다. 아래 예제에서 출력 바인딩의 이름은 *function.json*에서 "httpResponse" 및 "queueOutput"으로 지정됩니다.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       return {
@@ -148,10 +154,12 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
       };
   };
   ```
+  
   동기 함수를 사용하는 경우 [`context.done`](#contextdone-method)을 사용하여 이 개체를 반환할 수 있습니다(예제 참조).
 - **_[단일 출력에 대한 권장]_ 직접 값을 반환하고 $return 바인딩 이름을 사용합니다.** 함수를 반환하는 비동기/Promise에서 작동합니다. [비동기 함수 내보내기](#exporting-an-async-function)에서 예제를 참조하세요. 
 - **`context.bindings`에 대한 값을 할당합니다.** context.bindings에 직접 값을 할당할 수 있습니다.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       context.bindings.httpResponse = {

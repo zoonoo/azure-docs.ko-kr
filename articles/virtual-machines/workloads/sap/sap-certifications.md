@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: 2962e81f1623457a3b4b6644b89dbd8d63bc2b48
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: de282041066e18a52d596f051def598eef3d458d
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43111713"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287220"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Microsoft Azure에서 실행되는 SAP 인증 및 구성
 
@@ -36,8 +36,8 @@ SAP와 Microsoft는 고객에게 상호 혜택을 주는 강력한 파트너 관
 | SAP 제품 | 지원되는 OS | Azure 제품 |
 | --- | --- | --- |
 | SAP HANA Developer Edition(SQLODBC, ODBO(Windows 전용), ODBC, JDBC 드라이버로 구성된 HANA Client 소프트웨어, HANA Studio, HANA Database 포함) | Red Hat Enterprise Linux, SUSE Linux Enterprise | D 시리즈 VM 제품군 |
-| HANA의 Business One | SUSE Linux Enterprise | DS14_v2 <br /> [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |
-| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5의 제어되는 가용성 M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> Azure의 SAP HANA (대규모 인스턴스) [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에 대한 완벽 지원 |
+| HANA의 Business One | SUSE Linux Enterprise | DS14_v2, M32ts, M32ls, M64ls, M64s <br /> [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) |
+| SAP S/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5의 제어되는 가용성 M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> Azure의 SAP HANA (대규모 인스턴스) [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 | Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, Azure의 SAP HANA(대규모 인스턴스) <br /> [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 | HANA Enterprise for BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> Azure의 SAP HANA (대규모 인스턴스) [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |
 | SAP BW/4 HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5, M64s, M64ms, M128s, M128ms, M64ls, M32ls, M32ts, <br /> Azure(큰 인스턴스)에서 SAP HANA 사용 <br /> [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) |

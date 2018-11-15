@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc7510fdc635de03ac4dd4f64118bc5be040e969
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719412"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622196"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성
 
@@ -31,9 +31,9 @@ Azure Active Directory 응용 프로그램 갤러리는 [이 문서](what-is-sin
 [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) 라이선스가 있는 고객에게는 다음과 같은 추가 기능이 제공됩니다.
 
 * SAML 2.0 ID 공급자를 지원하는 응용 프로그램의 셀프 서비스 통합(SP에서 시작 또는 IdP에서 시작)
-* [암호 기반 SSO](what-is-single-sign-on.md#password-based-single-sign-on)
+* [암호 기반 SSO](what-is-single-sign-on.md#password-based-sso)
 * 사용자 프로비전에 SCIM 프로토콜을 사용하는 응용 프로그램의 셀프 서비스 연결([여기에 설명됨](use-scim-to-provision-users-and-groups.md))
-* [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)에서 응용 프로그램에 대한 링크를 추가하는 기능
+* [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](what-is-single-sign-on.md#linked-sso)에서 응용 프로그램에 대한 링크를 추가하는 기능
 
 사용하지만 아직 Azure AD 응용 프로그램 갤러리에 등록되지 않은 SaaS 응용 프로그램 뿐만 아니라 조직이 클라우드 또는 온-프레미스에서 제어하는 서버에 배포된 타사 웹 응용 프로그램을 포함할 수 있습니다.
 
@@ -165,7 +165,7 @@ SAML 응용 프로그램을 테스트하기 전에 Azure AD로 응용 프로그�
 ## <a name="existing-single-sign-on"></a>기존 Single Sign-On
 이 옵션을 선택하여 조직의 Azure AD 액세스 패널 또는 Office 365 포털에 응용 프로그램에 대한 링크를 추가합니다. 인증에 대한 Azure AD 대신 현재 Azure Active Directory Federation Services(또는 다른 페더레이션 서비스)를 사용하는 사용자 지정 웹앱에 대한 링크를 추가하는 데 사용할 수 있습니다. 혹은 사용자의 액세스 패널에 표시하려는 특정 SharePoint 페이지 또는 다른 웹 페이지에 딥 링크를 추가할 수 있습니다. 
 
-**다음**을 선택한 후에 링크할 응용 프로그램의 URL을 입력하라는 메시지가 표시됩니다. 완료되면 사용자 및 그룹은 응용 프로그램에 할당될 수 있으며 이는 응용 프로그램이 해당 사용자에 대한 [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)에 표시되도록 합니다.
+**다음**을 선택한 후에 링크할 응용 프로그램의 URL을 입력하라는 메시지가 표시됩니다. 완료되면 사용자 및 그룹은 응용 프로그램에 할당될 수 있으며 이는 응용 프로그램이 해당 사용자에 대한 [Office 365 앱 시작 관리자](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](end-user-experiences.md)에 표시되도록 합니다.
 
 > [!NOTE] 
 > 응용 프로그램에 **구성** 탭의 **로고 업로드** 단추를 사용하여 응용 프로그램에 대한 타일 로고를 업로드할 수 있습니다. 

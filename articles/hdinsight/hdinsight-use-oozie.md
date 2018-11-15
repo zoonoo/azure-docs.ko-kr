@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee9fabc89bdf694453f29fe6c929e26f80b0dc7a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: affef85c917804f0b99200dcfa8e53f6d08fcbe4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008711"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684225"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -63,7 +63,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Oozie 워크플로 및 관련 HiveQL 스크립트 정의
 Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되었습니다. 기본 워크플로 파일 이름은 *workflow.xml*입니다. 다음은 이 자습서에서 사용할 워크플로 파일입니다.
-
+```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
 
@@ -118,7 +118,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
         <end name="end"/>
     </workflow-app>
-
+```
 워크플로에 2가지 작업이 정의되어 있습니다. 시작 작업은 *RunHiveScript*입니다. 작업이 성공적으로 실행되면 다음 작업은 *RunSqoopExport*입니다.
 
 RunHiveScript에는 몇 개의 변수가 있습니다. Azure PowerShell을 사용하여 워크스테이션에서 Oozie 작업을 제출할 때 이러한 값을 전달합니다.
@@ -191,7 +191,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
     Oozie 작업 결과를 검사하려면 Visual Studio 또는 다른 도구를 사용하여 Azure SQL Database에 연결합니다.
 
 스크립트는 다음과 같습니다.  Windows PowerShell ISE에서 스크립트를 실행할 수 있습니다. 처음 7개의 변수를 구성하기만 하면 됩니다.
-
+```powershell
     #region - provide the following values
 
     $subscriptionID = "<Enter your Azure subscription ID>"
@@ -200,7 +200,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
     $sqlDatabaseLogin = "<Enter SQL Database Login Name>"
     $sqlDatabasePassword = "<Enter SQL Database Login Password>"
 
-    # HDInsight cluster HTTP user credential used for creating and connectin
+    # HDInsight cluster HTTP user credential used for creating and connecting
     $httpUserName = "admin"  # The default name is "admin"
     $httpPassword = "<Enter HDInsight Cluster HTTP User Password>"
 
@@ -243,7 +243,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
     }
     #endregion
 
-    #region - Create Azure resouce group
+    #region - Create Azure resource group
     Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
@@ -529,8 +529,8 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
     $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $httpCredential -OutVariable $OozieServerStatus
 
     $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-    $oozieServerSatus = $jsonResponse[0].("systemMode")
-    Write-Host "Oozie server status is $oozieServerSatus."
+    $oozieServerStatus = $jsonResponse[0].("systemMode")
+    Write-Host "Oozie server status is $oozieServerStatus."
 
     # create Oozie job
     Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
@@ -570,7 +570,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
     Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!" -ForegroundColor Green
 
     #endregion
-
+```
 
 **자습서를 다시 실행하려면**
 
@@ -580,7 +580,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 * log4jLogsCount 테이블의 데이터
 
 다음은 사용할 수 있는 PowerShell 스크립트 샘플입니다.
-
+```powershell
     $resourceGroupName = "<AzureResourceGroupName>"
 
     $defaultStorageAccountName = "<AzureStorageAccountName>"
@@ -610,6 +610,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
     $cmd.executenonquery()
 
     $conn.close()
+```
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Oozie 워크플로를 정의하는 방법 및 PowerShell을 사용하여 Oozie 작업을 실행하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
@@ -647,7 +648,6 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/

@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 831a72fff0931d116a669060b160f51fde6e1d3e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572459"
+---
 ## <a name="verify-the-output"></a>출력 확인
 파이프라인은 자동으로 adftutorial Blob 컨테이너에서 출력 폴더를 만듭니다. 그런 다음 입력 폴더에서 출력 폴더로 emp.txt 파일을 복사합니다. 
 

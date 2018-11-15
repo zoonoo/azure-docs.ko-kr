@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: c3c01d7013749ca5cbd95224c230932a20a8146b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ef611965382906e933f8d50b5dbdb3969d0b45f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740590"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979049"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 응용 프로그램의 수명 주기 전반에 걸쳐 가상 머신 확장 집합을 수정하거나 업데이트해야 할 수도 있습니다. 이러한 업데이트에는 확장 집합의 구성을 업데이트하거나 응용 프로그램 구성을 변경하는 방법이 포함될 수 있습니다. 이 문서에서는 REST API, Azure PowerShell 또는 Azure CLI를 사용하여 기존 확장 집합을 수정하는 방법에 대해 설명합니다.
@@ -396,6 +396,26 @@ Azure 플랫폼 이미지를 사용하는 경우 *imageReference*를 수정하�
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
+
+또는 확장 집합에서 사용하는 이미지를 변경할 수 있습니다. 예를 들어 확장 집합에서 사용하는 사용자 지정 이미지를 업데이트하거나 변경할 수 있습니다. 이미지 참조 ID 속성을 업데이트하여 확장 집합에서 사용하는 이미지를 변경할 수 있습니다. 이미지 참조 ID 속성은 목록에 포함되어 있지 않으므로 다음 중 한 가지 명령으로 이 속성을 직접 수정할 수 있습니다.
+
+- Azure PowerShell에서 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss), 아래 참조:
+
+    ```powershell
+    Update-AzureRmVmss `
+        -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet" `
+        -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
+    ```
+
+- Azure CLI에서 [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+
+    ```azurecli
+    az vmss update \
+        --resource-group myResourceGroup \
+        --name myScaleSet \
+        --set virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
 

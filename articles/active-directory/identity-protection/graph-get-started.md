@@ -17,15 +17,15 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3cbded3224e7622d13e7af362cb3532a1813787e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a415258b8127bb78d8a8d1b5ef228234b34b3e26
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242163"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287514"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
-Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) API의 시작점입니다. 첫 번째 API인 **identityRiskEvents**를 사용하면 [위험 이벤트](../reports-monitoring/concept-risk-events.md) 및 관련 정보의 목록에 대한 Microsoft Graph를 쿼리할 수 있습니다. 이 문서는 이 API를 쿼리하는 작업부터 시작합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/)를 참조하세요.
+Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) API의 시작점입니다. 첫 번째 API인 **identityRiskEvents**를 사용하면 [위험 이벤트](../reports-monitoring/concept-risk-events.md) 및 관련 정보의 목록에 대한 Microsoft Graph를 쿼리할 수 있습니다. 이 문서는 이 API를 쿼리하는 작업부터 시작합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://developer.microsoft.com/graph/)를 참조하세요.
 
 
 Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 단계가 있습니다.
@@ -219,7 +219,7 @@ API를 호출하려면 다음 매개 변수를 사용하여 헤더를 만듭니�
 축하합니다! Microsoft Graph에 대한 호출을 처음으로 만들었습니다.  
 이제 ID 위험 이벤트를 쿼리하고 적절하게 데이터를 사용할 수 있습니다.
 
-Microsoft Graph 및 Graph API를 사용하여 응용 프로그램을 구축하는 방법에 대한 자세한 내용은 [설명서](https://graph.microsoft.io/docs) 및 [Microsoft Graph 사이트](https://graph.microsoft.io/)에서 확인합니다. 또한 Graph에서 사용할 수 있는 ID 보호 API를 모두 나열하는 [Azure AD ID 보호 API](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root) 페이지에 책갈피를 설정해야 합니다. API를 통해 ID 보호를 사용하는 새로운 방법을 추가하는 대로 해당 페이지에 표시됩니다.
+Microsoft Graph 및 Graph API를 사용하여 응용 프로그램을 구축하는 방법에 대한 자세한 내용은 [설명서](https://developer.microsoft.com/graph/docs) 및 [Microsoft Graph 사이트](https://developer.microsoft.com/graph/)에서 확인합니다. 또한 Graph에서 사용할 수 있는 ID 보호 API를 모두 나열하는 [Azure AD ID 보호 API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root) 페이지에 책갈피를 설정해야 합니다. API를 통해 ID 보호를 사용하는 새로운 방법을 추가하는 대로 해당 페이지에 표시됩니다.
 
 관련 정보는 다음을 참조하세요.
 
@@ -227,9 +227,9 @@ Microsoft Graph 및 Graph API를 사용하여 응용 프로그램을 구축하�
 
 -  [Azure Active Directory ID 보호에서 검색한 위험 이벤트의 유형](../reports-monitoring/concept-risk-events.md)
 
-- [Microsoft Graph](https://graph.microsoft.io/)
+- [Microsoft Graph](https://developer.microsoft.com/graph/)
 
-- [Microsoft Graph 개요](https://graph.microsoft.io/docs)
+- [Microsoft Graph 개요](https://developer.microsoft.com/graph/docs)
 
-- [Azure AD ID 보호 서비스 루트](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
+- [Azure AD ID 보호 서비스 루트](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
 

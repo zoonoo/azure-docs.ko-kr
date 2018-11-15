@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 127f6a5cd8f46b72a4cddcef09cb31b60edd0582
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157193"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299132"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 웹 대시보드에 액세스
 
@@ -33,9 +33,6 @@ Kubernetes 대시보드를 시작하려면 [az aks browse][az-aks-browse] 명령
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
-
-> [!TIP]
-> Azure Cloud Shell에서 이 명령을 실행하는 경우에는 `--enable-cloud-console-aks-browse` 매개 변수를 추가하여 대시보드를 올바르게 엽니다.
 
 이 명령은 개발 시스템과 Kubernetes API 사이에 프록시를 만들고 웹 브라우저에서 Kubernetes 대시보드를 엽니다. 웹 브라우저가 Kubernetes 대시보드에서 열리지 않는 경우 Azure CLI에 표시된 URL 주소(일반적으로 *http://127.0.0.1:8001*)를 복사하여 붙여넣으세요.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f8f65cbbf3f2583e43416fc36050de6c55f105dc
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ca9f2fa249a3d9f4387d0fa45e3c5874eea26120
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161716"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625490"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 SAS 자격 증명으로 Azure Storage에 액세스
 
@@ -36,16 +36,7 @@ ms.locfileid: "44161716"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Azure Portal에 로그인](https://portal.azure.com)
-
-- [Windows 가상 머신 만들기](/azure/virtual-machines/windows/quick-create-portal)
-
-- [가상 머신에서 시스템 할당 ID를 사용하도록 설정](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
-
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기 
 
@@ -85,7 +76,7 @@ Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  
 
     ![대체 이미지 텍스트](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM의 ID를 사용하여 액세스 토큰을 가져온 다음 Azure Resource Manager를 호출하는 데 사용 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM의 ID를 사용하여 액세스 토큰을 가져온 다음 Azure Resource Manager를 호출하는 데 사용 
 
 자습서의 나머지 부분에서는 이전에 만든 VM에서 작업합니다.
 

@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 33499b378a2d74d94a77dda81f0179d6cb0700c3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957928"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636767"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기
 
@@ -51,7 +51,7 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
     
     ```json
     { 
-        "time": "2018-09-13T16:34:20”, 
+        "time": "2018-09-13T16:34:20", 
         "data": { 
             "baseData": { 
                 "metric": "QueueDepth", 
@@ -83,7 +83,7 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
     - **AccessToken**. 이전에 확보한 토큰을 붙여넣습니다.
 
     ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId> /metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
     ```
 1. JSON 파일의 타임스탬프 및 값을 변경합니다. 
 1. 이전 두 단계를 몇 번 반복하여 몇 분간의 데이터를 저장합니다.

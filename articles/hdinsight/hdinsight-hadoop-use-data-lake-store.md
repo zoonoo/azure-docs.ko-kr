@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0859e480df0111e26d5b64bf835f94b3852b3414
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0d76aa5091e77d8713290e6da8908e15ad3ef995
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277361"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684570"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Store 사용
 
@@ -47,7 +47,7 @@ HDInsight 클러스터는 Data Lake Store를 두 가지 방식으로 사용할 �
 | HDInsight 버전 3.2 | 아니요 | yes | |
 | Storm | | |Data Lake Store를 사용하여 Storm 토폴로지에서 데이터를 쓸 수 있습니다. Storm 토폴로지에서 읽을 수 있는 참조 데이터에 Data Lake Store를 사용할 수도 있습니다.|
 
-[!WARNING]
+> [!WARNING]
 > HDInsight HBase는 Azure Data Lake Storage Gen 1에서 지원되지 않습니다.
 
 Data Lake Store를 추가 저장소 계정으로 사용하면 클러스터에서 Azure Storage로 읽거나 쓰는 성능 또는 기능에 영향을 주지 않습니다.

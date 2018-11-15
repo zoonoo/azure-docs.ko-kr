@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 머신 직렬 콘솔 | Microsoft Docs
+title: Linux용 Azure 가상 머신 직렬 콘솔 | Microsoft Docs
 description: Azure 가상 머신용 양방향 직렬 콘솔입니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 22128f027f0a218756e413653aa92ee097064587
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741711"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963821"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Linux용 가상 머신 직렬 콘솔
 
@@ -33,17 +33,17 @@ Windows VM에 대한 직렬 콘솔 설명서는 [Windows용 가상 머신 직렬
 
 ## <a name="prerequisites"></a>필수 조건 
 
-* 직렬 콘솔에 액세스하는 VM에서는 리소스 관리 배포 모델을 사용해야 합니다. 클래식 배포는 지원되지 않습니다. 
+- 직렬 콘솔에 액세스하는 VM에서는 리소스 관리 배포 모델을 사용해야 합니다. 클래식 배포는 지원되지 않습니다. 
 
-* 직렬 콘솔에 액세스하는 VM에서는 [부트 진단](boot-diagnostics.md)을 사용하도록 설정해야 합니다. **지원 + 문제 해결** 섹션에서 **부트 진단**을 선택합니다.
+- 직렬 콘솔에 액세스하는 VM에서는 [부트 진단](boot-diagnostics.md)을 사용하도록 설정해야 합니다. 
 
     ![부트 진단 설정](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-직렬 콘솔을 사용하는 계정에는 VM에 대한 [Virtual Machine Contributor 역할](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다. 
+- 직렬 콘솔을 사용하는 계정에는 VM에 대한 [Virtual Machine Contributor 역할](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다. 
 
-* 직렬 콘솔에 액세스하는 VM에는 암호 기반 계정이 있어야 합니다. VM 액세스 확장의 [암호 재설정](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다. 
+    - 직렬 콘솔에 액세스하는 VM에는 암호 기반 계정이 있어야 합니다. VM 액세스 확장의 [암호 재설정](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) 기능으로 이러한 계정을 만들 수 있습니다. **지원 + 문제 해결** 섹션에서 **암호 재설정**을 선택합니다. 
 
-* Linux 배포에 관련된 설정은 [직렬 콘솔 Linux 배포 가용성](#serial-console-linux-distribution-availability)을 참조하세요.
+    - Linux 배포에 관련된 설정은 [직렬 콘솔 Linux 배포 가용성](#serial-console-linux-distribution-availability)을 참조하세요.
 
 
 
@@ -51,12 +51,14 @@ Windows VM에 대한 직렬 콘솔 설명서는 [Windows용 가상 머신 직렬
 가상 머신의 직렬 콘솔은 Azure Portal을 통해서만 액세스할 수 있습니다.
 
   1. [Azure Portal](https://portal.azure.com)을 엽니다.
+
   1. 왼쪽 메뉴에서 **Virtual Machines**를 선택합니다.
+
   1. 목록에서 VM을 선택합니다. VM에 대한 개요 페이지가 열립니다.
+
   1. **지원 + 문제 해결** 섹션까지 아래로 스크롤하여 **직렬 콘솔**을 선택합니다. 직렬 콘솔이 있는 새 창이 열리고 연결이 시작됩니다.
 
-   ![Linux 직렬 콘솔 창](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Linux 직렬 콘솔 창](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 

@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1722f81c55c490d6030dd04e5907e93012051492
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817102"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289022"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
 
@@ -145,7 +145,7 @@ id_token의 유효성을 완전히 검사한 후 사용자와 세션을 시작�
 
 ## <a name="get-access-tokens"></a>액세스 토큰 가져오기
 
-사용자를 단일 페이지 앱에 로그인했으니, [Microsoft Graph](https://graph.microsoft.io)와 같이 Azure AD로 보안이 유지되는 웹 API를 호출하는 액세스 토큰을 가져올 수 있습니다. `token` response_type을 사용하여 토큰을 이미 받았더라도 이 방법을 사용하여 사용자가 다시 로그인하도록 리디렉션하지 않고 추가 리소스에 대한 토큰을 얻을 수 있습니다.
+사용자를 단일 페이지 앱에 로그인했으니, [Microsoft Graph](https://developer.microsoft.com/graph)와 같이 Azure AD로 보안이 유지되는 웹 API를 호출하는 액세스 토큰을 가져올 수 있습니다. `token` response_type을 사용하여 토큰을 이미 받았더라도 이 방법을 사용하여 사용자가 다시 로그인하도록 리디렉션하지 않고 추가 리소스에 대한 토큰을 얻을 수 있습니다.
 
 일반적인 OpenID Connect/OAuth 흐름에서는 v2.0 `/token` 엔드포인트에 요청을 보내어 이 작업을 수행합니다. 하지만 v2.0 엔드포인트는 CORS 요청을 지원하지 않기 때문에 AJAX 호출이 토큰을 가져오고 새로 고치도록 하는 것은 불가능합니다. 그 대신, 숨겨진 iFrame에 암시적 흐름을 사용하여 다른 웹 API에 대한 새 토큰을 가져올 수 있습니다. 
 

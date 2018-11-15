@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 42994a38aeab7f6da552f2f9073a806142511531
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095531"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241262"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "50095531"
 아니요. Recovery Services 자격 증명 모음은 백업을 저장하기 전에만 저장소 옵션을 변경할 수 있습니다.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 백업된 VM에 대해 ILR(항목 수준 복원)을 수행할 수 있나요?
-아니요. ILR은 지원되지 않습니다. 
+아니요. ILR은 지원되지 않습니다.
 
 
 ## <a name="azure-backup-agent"></a>Azure Backup 에이전트
@@ -75,7 +75,7 @@ VMware/Hyper-V 보호를 위해 별도 라이선스는 필요 없습니다.
 
 ### <a name="which-dpm-versions-are-supported"></a>어떤 DPM 버전이 지원되나요?
 
-지원되는 DPM 버전은 [지원 매트릭스](backup-azure-dpm-introduction.md#prerequisites-and-limitations)에 요약되어 있습니다. DPM 서버에서 최신 DPM 업데이트를 설치하고, [최신 버전](http://aka.ms/azurebackup_agent)의 Azure Backup 에이전트를 실행하는 것이 좋습니다.
+지원되는 DPM 버전은 [지원 매트릭스](backup-azure-dpm-introduction.md#prerequisites-and-limitations)에 요약되어 있습니다. DPM 서버에서 최신 DPM 업데이트를 설치하고, [최신 버전](https://aka.ms/azurebackup_agent)의 Azure Backup 에이전트를 실행하는 것이 좋습니다.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>여러 자격 증명 모음에 서버를 등록할 수 있나요?
 
@@ -99,7 +99,7 @@ VMware/Hyper-V 보호를 위해 별도 라이선스는 필요 없습니다.
 ## <a name="general-backup"></a>일반 백업
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>백업 일정에 제한이 있나요?
-예. 
+예.
 - 최대 하루 3번, Windows Server 또는 Windows 컴퓨터를 백업할 수 있습니다. 예약 정책을 매일 또는 매주 일정으로 설정할 수 있습니다.
 - 최대 하루 2번, DPM을 백업할 수 있습니다. 예약 정책을 매일, 매주, 매월 및 매년으로 설정할 수 있습니다.
 - Azure VM을 하루에 한 번 백업합니다.
@@ -110,12 +110,12 @@ Azure Backup은 Azure Backup Server 및 DPM으로 보호되는 파일, 폴더 �
 
 **OS**| **SKU** |**세부 정보**
 --- | --- | ---
-워크스테이션 | | 
+워크스테이션 | |
 Windows 10 64비트 | Enterprise, Pro, Home | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 Windows 8.1 64비트 | Enterprise, Pro | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 Windows 8 64비트 | Enterprise, Pro | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
 Windows 7 64비트 | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | 컴퓨터에서 최신 서비스 팩과 업데이트가 실행되어야 합니다.
-서버 | | 
+서버 | |
 Windows Server 2016 64비트 | Standard, Datacenter, Essentials | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2012 R2 64비트 | Standard, Datacenter, Foundation | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2012 64비트 | Datacenter, Foundation, Standard | 최신 서비스 팩/업데이트를 포함합니다.
@@ -133,20 +133,20 @@ Azure VM Linux 백업의 경우 Azure Backup은 Core OS Linux를 제외한 [Azur
 크기 제한은 다음과 같습니다.
 
 
-OS/컴퓨터 | 데이터 원본의 크기 제한 
---- | --- | --- 
-Windows 8 이상 | 54,400GB 
-Windows 7 |1700GB 
-Windows Server 2012 이상 | 54,400GB 
-Windows Server 2008, Windows Server 2008 R2 | 1700GB 
-Azure VM | 32개 데이터 디스크<br/><br/> 최대 4095GB의 데이터 디스크
+OS/컴퓨터 | 데이터 원본의 크기 제한
+--- | --- | ---
+Windows 8 이상 | 54,400GB
+Windows 7 |1700GB
+Windows Server 2012 이상 | 54,400GB
+Windows Server 2008, Windows Server 2008 R2 | 1700GB
+Azure VM | 데이터 디스크 16개<br/><br/> 최대 4095GB의 데이터 디스크
 
 ## <a name="how-is-the-data-source-size-determined"></a>데이터 원본 크기는 어떻게 결정하나요?
 
 다음 표에서는 각 데이터 원본 크기가 어떻게 결정되는지를 설명합니다.
 
 **데이터 원본** | **세부 정보**
---- | --- 
+--- | ---
 볼륨 |백업되는 단일 볼륨 VM에서 백업되는 데이터 양
 SQL Server 데이터베이스 |백업되는 단일 SQL Database 크기
 SharePoint | 백업되는 SharePoint 팜 내의 콘텐츠 및 구성 데이터베이스 합계
@@ -158,7 +158,7 @@ BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 
 
 Recovery Services 자격 증명 모음을 사용하여 백업할 수 있는 데이터의 양에는 제한이 없습니다.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>백업이 시작된 후 백업 작업을 취소하면 전송된 백업 데이터가 삭제되나요? 
+### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>백업이 시작된 후 백업 작업을 취소하면 전송된 백업 데이터가 삭제되나요?
 아니요. 백업 작업이 취소되기 전에 자격 증명 모음으로 전송된 모든 데이터는 자격 증명 모음에 유지됩니다. Azure Backup은 백업하는 동안 백업 데이터에 검사점을 간혹 추가하는 검사점 메커니즘을 사용합니다. 백업 데이터에 검사점이 있기 때문에 다음 백업 프로세스에서는 파일의 무결성을 유효성 검사할 수 있습니다. 다음 백업 작업은 이전에 백업한 데이터에 대해 증분됩니다. 증분 백업은 새 데이터 또는 변경된 데이터만 전송하므로 대역폭의 사용률을 개선합니다.
 
 Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 무시됩니다. 다음 백업 작업은 마지막으로 성공한 백업 작업에서 증분 데이터를 전송합니다.
@@ -186,7 +186,7 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 ### <a name="are-the-retention-policies-for-dpm-and-windows-machines-without-dpm-the-same"></a>DPM에 대한 보존 정책과 DPM이 없는 Windows 컴퓨터에 대한 보존 정책이 동일한가요?
 예. 둘 다 일별, 주별, 월별, 연도별 보존 정책을 포함합니다.
 
-### <a name="can-i-customize-retention-policies"></a>보존 정책을 사용자 지정할 수 있나요? 
+### <a name="can-i-customize-retention-policies"></a>보존 정책을 사용자 지정할 수 있나요?
 예. 정책을 사용자 지정할 수 있습니다. 예를 들어 연도별 및 월별은 제외하고 주별 및 일별 보존 요구 사항만 구성할 수 있습니다.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>백업 일정 및 보존 정책의 시간을 다르게 지정할 수 있나요?
@@ -208,7 +208,7 @@ Azure Backup 저장소 아키텍처는 데이터를 빠르게 복원할 수 있�
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>만들 수 있는 복구 지점의 수에 제한이 있나요?
 
-보호된 인스턴스당 최대 9999개의 복구 지점을 만들 수 있습니다. 보호된 인스턴스는 Azure로 백업하는 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다. 
+보호된 인스턴스당 최대 9999개의 복구 지점을 만들 수 있습니다. 보호된 인스턴스는 Azure로 백업하는 컴퓨터, 서버(실제 또는 가상) 또는 워크로드입니다.
 
 - [백업 및 보존](./backup-introduction-to-azure-backup.md#backup-and-retention)에 대해 자세히 알아보세요.
 - [보호된 인스턴스](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)에 대해 자세히 알아보세요.
@@ -238,7 +238,7 @@ Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니�
 - 온-프레미스 백업의 경우 미사용 데이터 암호화 기능은 Azure에 백업할 때 제공한 암호를 사용하여 제공됩니다.
 - Azure VM의 경우 SSE(저장소 서비스 암호화)를 사용하여 미사용 데이터가 암호화됩니다.
 
-Microsoft는 어떠한 경우에도 백업 데이터를 암호 해독하지 않습니다. 
+Microsoft는 어떠한 경우에도 백업 데이터를 암호 해독하지 않습니다.
 
 
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>백업 데이터를 암호화하는 데 사용되는 암호화 키의 최소 길이는 어느 정도인가요?

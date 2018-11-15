@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: d1e4177dff3f9ae8c78fb2e22b12e40ff2682c58
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037569"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625456"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 응용 프로그램의 비밀 응용 프로그램 설정을 안전하게 저장
 
@@ -100,7 +100,7 @@ ms.locfileid: "51037569"
 
 1. 다음 NuGet 패키지를 프로젝트에 설치합니다.
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
 2. 다음과 유사한 파일을 만듭니다. 프로젝트 폴더 외부의 위치에 저장합니다.
@@ -145,7 +145,7 @@ ASP.NET Core 섹션의 지침에 따라 프로젝트의 Key Vault를 구성합�
 
 1. 다음 NuGet 패키지를 프로젝트에 설치합니다.
 ```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets
 ```
 
 2. Web.config에 Key Vault 구성 빌더를 정의합니다. 이 섹션을 *appSettings* 섹션 앞에 배치합니다. Key Vault가 공용 Azure에 있는 경우 *vaultName*이 Key Vault 이름이 되도록 바꾸거나 독립적 클라우드를 사용하는 경우 전체 URI를 대체합니다.

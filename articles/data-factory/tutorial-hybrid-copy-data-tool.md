@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: a6c17fc897dae765f9789840262cb001d598b731
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 91c6939e42f0a8a5126883e5258017b2c38e6f2a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297745"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613973"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,6 +27,7 @@ ms.locfileid: "44297745"
 
 > [!NOTE]
 > - Azure Data Factory를 처음 사용하는 경우 [Data Factory 소개](introduction.md)를 참조하세요.
+
 이 자습서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
@@ -107,7 +108,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 1. 컨테이너 목록에서 **adftutorial**을 선택합니다.
 
-    ![컨테이너 선택](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![컨테이너 선택](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. **adftutorial**에 대한**컨테이너** 창을 열어 둡니다. 이 자습서의 끝부분에서 출력을 확인하는 데 사용합니다. 데이터 팩터리는 이 컨테이너에서 출력 폴더를 자동으로 만듭니다. 따라서 새로 만들 필요가 없습니다.
 

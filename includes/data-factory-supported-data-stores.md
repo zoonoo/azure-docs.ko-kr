@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 72b63754accee2dbd812f338f5756cc8ba914df2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572430"
+---
 | Category | 데이터 저장소 | 소스로 지원 | 싱크로 지원 |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob 저장소](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |

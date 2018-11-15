@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 1d851b60909d548a0735e3827cdfc7746fd8121d
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: fdcc039eb71eaeea03aaae856a6d031d4c528669
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219718"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687574"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -36,7 +36,7 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 
 ## <a name="scenarios"></a>시나리오 개요
 
-[Azure Resource Manager](#arm)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
 | 시나리오 | 방법 | IP 프로토콜 | 설명 |
 | --- | --- | --- | --- |

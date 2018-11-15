@@ -2,7 +2,6 @@
 title: Azure AD 응용 프로그램 프록시에서 커넥터 그룹을 사용하여 별도의 네트워크와 위치에 응용 프로그램 게시 | Microsoft Docs
 description: Azure AD 응용 프로그램 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364976"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622636"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시
 
@@ -86,14 +84,14 @@ Azure AD 응용 프로그램 프록시 커넥터 그룹을 사용하면 공통 �
 응용 프로그램 프록시를 배포한 대부분의 고객은 KCD(Kerberos 제한 위임)를 수행하여 SSO(Single-Sign-On) 기능을 사용하고 있습니다. 이를 위해 커넥터의 컴퓨터는 사용자를 응용 프로그램에 위임할 수 있는 도메인에 가입해야 합니다. KCD는 포리스트 간 기능을 지원합니다. 그러나 서로 간에 신뢰할 수 없는 고유한 다중 포리스트 환경이 있는 회사의 경우 모든 포리스트에 대해 단일 커넥터를 사용할 수 없습니다. 
 
 이 경우 포리스트마다 특정 커넥터를 배포하고 해당 포리스트의 사용자만 제공하도록 게시된 응용 프로그램을 제공하도록 설정할 수 있습니다. 각 커넥터 그룹마다 별도의 포리스트를 나타냅니다. 테넌트와 대부분의 환경이 모든 포리스트에 대해 통합되지만 Azure AD 그룹을 사용하여 사용자를 포리스트 응용 프로그램에 할당할 수 있습니다.
- 
+ 
 ### <a name="disaster-recovery-sites"></a>재해 복구 사이트
 
 다음과 같이 사이트 구현 방법에 따라 DR(재해 복구) 사이트에서 수행할 수 있는 두 가지 방법이 있습니다.
 
 * DR 사이트가 주 사이트와 정확히 같고 네트워킹과 AD 설정이 동일한 활성-활성 모드로 만들어진 경우 주 사이트와 동일한 커넥터 그룹의 DR 사이트에 커넥터를 만들 수 있습니다. 이를 통해 Azure AD는 장애 복구를 검색할 수 있습니다.
 * DR 사이트가 주 사이트와 별개인 경우 DR 사이트에 다른 커넥터 그룹을 만들고 필요에 따라 1) 백업 응용 프로그램을 만들거나 2) 수동으로 기존 응용 프로그램을 DR 커넥터 그룹으로 전환할 수 있습니다.
- 
+ 
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>단일 테넌트에서 여러 회사 제공
 
 단일 서비스 공급자가 여러 회사에 Azure AD 관련 서비스를 배포하고 유지 관리하는 모델을 구현하는 방법에는 여러 가지가 있습니다. 관리자가 커넥터와 응용 프로그램을 여러 그룹으로 분리하는 데 커넥터 그룹이 도움이 됩니다. 소규모 회사에 적합한 한 가지 방법은 단일 Azure AD 테넌트를 보유하지만 다른 회사는 자체의 도메인 이름과 네트워크를 보유하는 것입니다. 또한 단일 IT 부서에서 규제 또는 비즈니스 상의 이유로 여러 회사에 서비스를 제공하는 M&A 시나리오 및 상황에서도 마찬가지입니다. 
@@ -101,7 +99,7 @@ Azure AD 응용 프로그램 프록시 커넥터 그룹을 사용하면 공통 �
 ## <a name="sample-configurations"></a>샘플 구성
 
 구현할 수 있는 몇 가지 예에는 다음 커넥터 그룹이 포함됩니다.
- 
+ 
 ### <a name="default-configuration--no-use-for-connector-groups"></a>기본 구성 - 커넥터 그룹 사용 안 함
 
 커넥터 그룹을 사용하지 않는 경우 구성은 다음과 같습니다.
@@ -109,7 +107,7 @@ Azure AD 응용 프로그램 프록시 커넥터 그룹을 사용하면 공통 �
 ![Azure AD - 커넥터 그룹 없음](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
  
 이 구성은 소규모 배포 및 테스트에 충분합니다. 또한 조직에 플랫 네트워크 토폴로지가 있는 경우에도 잘 작동합니다.
- 
+ 
 ### <a name="default-configuration-and-an-isolated-network"></a>기본 구성 및 격리된 네트워크
 
 이 구성은 기본 구성이 진화한 것으로, IaaS 가상 네트워크와 같이 격리된 네트워크에서 실행되는 특정 응용 프로그램이 있습니다. 
@@ -127,6 +125,6 @@ Azure AD 응용 프로그램 프록시 커넥터 그룹을 사용하면 공통 �
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD 응용 프로그램 프록시 커넥터 이해](application-proxy-connectors.md)
-* [Single Sign-On 사용](application-proxy-single-sign-on.md)
+* [Single Sign-On 사용](what-is-single-sign-on.md)
 
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f07488e526a15fb067d6ea7a265d069fbe3aee3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5601c6c5b85b144b853c40e89c81a22f87b7880f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009558"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614997"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Log Analytics로 Surface Hub를 모니터링하여 상태 추적
 
@@ -84,8 +84,8 @@ Log Analytics를 통한 Surface Hub 모니터링은 등록된 다른 장치 모�
 
    ![Surface Hub 대시보드](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-기존 또는 사용자 지정 로그 검색에 기반한 [경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)를 만들 수 있습니다. Log Analytics에서 Surface Hub로부터 수집한 데이터를 사용하면 문제를 검색하여 장치에 정의하는 조건에 대해 경고할 수 있습니다.
+기존 또는 사용자 지정 로그 검색에 기반한 [경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 만들 수 있습니다. Log Analytics에서 Surface Hub로부터 수집한 데이터를 사용하면 문제를 검색하여 장치에 정의하는 조건에 대해 경고할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-queries.md)을 통한 자세한 Surface Hub 데이터 보기
-* Surface Hub 문제 발생 시 알리는 [경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) 만들기
+* Surface Hub 문제 발생 시 알리는 [경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md) 만들기

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219910"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597631"
 ---
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -45,11 +45,11 @@ ms.locfileid: "51219910"
 | 가상 네트워크 |1000 |
 | 가상 네트워크당 서브넷 |3000 |
 | Virtual Network당 가상 네트워크 피어링 |100 |
-| 가상 네트워크당 DNS 서버 |25 |
+| 가상 네트워크당 DNS 서버 |20 |
 | 가상 네트워크당 개인 IP 주소 |65536 |
 | 네트워크 인터페이스당 개인 IP 주소 |256 |
 | 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |500K |
-| 네트워크 인터페이스(NIC) |24000 |
+| 네트워크 인터페이스(NIC) |65536 |
 | 네트워크 보안 그룹(NSG) |5,000 |
 | NSG당 NSG 규칙 |1000 |
 | 보안 그룹에서 원본이나 대상에 지정된 IP 주소 및 범위 |4000 |
@@ -64,28 +64,27 @@ ms.locfileid: "51219910"
 | 가상 네트워크 탭당 네트워크 인터페이스 탭 구성 |100 |
 
 #### <a name="publicip-address"></a>공용 IP 주소 구분
-
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-| 공용 IP 주소 - 동적 |(기본)200 |지원에 문의 |
+| 공용 IP 주소 - 동적 |(Basic) 1000 |지원에 문의 |
 | 공용 IP 주소 - 고정 |(기본)200 |지원에 문의 |
 | 공용 IP 주소 - 고정 |(표준)200 |지원에 문의 |
 
 #### <a name="load-balancer"></a>부하 분산 장치 제한
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
-| 리소스 | 기본 제한 | 최대 제한 |
+| 리소스 | 기본 제한 |
 | --- | --- | --- |
-| 부하 분산 장치 | 100 | 1000 |
-| 리소스당 규칙 수, 기본 | 250 | 250 |
-| 리소스당 규칙 수, 표준 | 1500 | 1500 |
-| IP 구성당 규칙 수 | 299 |299 |
-| 프런트 엔드 IP 구성 수, 기본 | 10 | 200 |
-| 프런트 엔드 IP 구성 수, 표준 | 10 | 600 |
-| 백 엔드 풀 수, 기본 | 100, 단일 가용성 집합 | 100, 단일 가용성 집합 |
-| 백 엔드 풀 수, 표준 | 1000, 단일 VNet | 1000, 단일 VNet |
-| Load Balancer당 백 엔드 리소스, 표준 * | 150 | 150 |
-| HA 포트 수, 표준 | 내부 프런트 엔드당 1 | 내부 프런트 엔드당 1 |
+| 부하 분산 장치 | 1000 | 
+| 리소스당 규칙 수, 기본 | 250 |
+| 리소스당 규칙 수, 표준 | 1500 | 
+| IP 구성당 규칙 수 | 299 |
+| 프런트 엔드 IP 구성 수, 기본 | 200 |
+| 프런트 엔드 IP 구성 수, 표준 | 600 |
+| 백 엔드 풀 수, 기본 | 100, 단일 가용성 집합 |
+| 백 엔드 풀 수, 표준 | 1000, 단일 VNet |
+| Load Balancer당 백 엔드 리소스, 표준 * | 150 |
+| HA 포트 수, 표준 | 내부 프런트 엔드당 1 |
 
 ** 독립 실행형 가상 머신, 가용성 집합 및 가상 머신 확장 집합의 임의 조합으로 이루어진 최대 150개의 리소스.
 

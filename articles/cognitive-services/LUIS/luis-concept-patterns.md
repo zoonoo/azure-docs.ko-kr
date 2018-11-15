@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd11eb23b10800e115a63549f233e0239763420
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638151"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300373"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다. 
@@ -89,7 +89,7 @@ Pattern.any 엔터티를 사용하여 다양한 길이의 엔터티를 패턴에
 이러한 책 제목 예제에서 책 제목의 문맥상 단어는 LUIS에 혼동을 주지 않습니다. LUIS는 책 제목 패턴을 따르며 Pattern.any 엔터티로 표시되어 있으므로 책 제목이 끝나는 위치를 잘 압니다.
 
 ### <a name="explicit-lists"></a>명시적 목록
-패턴에 Pattern.any가 포함되어 있고 패턴 구문이 발언에 따라 잘못된 엔터티가 추출될 가능성을 허용하는 경우 작성 API를 통해 [명시적 목록](https://aka.ms/ExplicitList)을 만들어 예외를 허용하도록 합니다. 
+패턴에 Pattern.any가 포함되어 있고 패턴 구문이 발언에 따라 잘못된 엔터티가 추출될 가능성을 허용하는 경우 작성 API를 통해 [명시적 목록](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)을 만들어 예외를 허용하도록 합니다. 
 
 예를 들어, 패턴에 선택적 구문 `[]`와 엔터티 구문 `{}`가 데이터를 잘못 추출하는 방식으로 결합되어 있다고 가정해 봅니다.
 
@@ -102,7 +102,7 @@ Pattern.any 엔터티를 사용하여 다양한 길이의 엔터티를 패턴에
 
 위의 표의 발언 `email about the man from La Mancha`에서 제목은 `the man from La Mancha`(책 제목)이지만 제목에 선택적 단어인 `from`이 포함되어 있으므로 제목이 잘못 예측됩니다. 
 
-패턴에서 이러한 예외를 해결하려면 [명시적 목록에 대한 API 작성](https://aka.ms/ExplicitList)을 사용하여 {subject} 엔터티에 대한 명시적 목록 일치로 `the man from la mancha`를 추가합니다.
+패턴에서 이러한 예외를 해결하려면 [명시적 목록에 대한 API 작성](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)을 사용하여 {subject} 엔터티에 대한 명시적 목록 일치로 `the man from la mancha`를 추가합니다.
 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>템플릿 발언에서 선택적 텍스트를 표시하는 구문
 정규식 대괄호 구문 `[]`을 사용하여 발언의 선택적 텍스트에 표시합니다. 선택적 텍스트는 대괄호에 최대 2개의 중괄호를 중첩할 수 있습니다.

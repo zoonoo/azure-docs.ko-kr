@@ -3,7 +3,7 @@ title: Azure Service Fabric 컨테이너 응용 프로그램 만들기 | Microso
 description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 응용 프로그램을 만듭니다. Python 응용 프로그램을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 응용 프로그램을 빌드 및 배포합니다.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: vturecek
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
-ms.author: ryanwi
-ms.openlocfilehash: 12a2ff3f96fa86ac1b52a3138d9a9b2a30b867db
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: twhitney
+ms.openlocfilehash: 587ba52a1a30d187268119567b84d2dd8e471b8d
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803786"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300594"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a2a869c04034f8ca38e80e1bf10518d22e38bcbc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091776"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286999"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 공동 작업 API 및 사용자 지정
 
@@ -75,7 +75,7 @@ API는 다음과 같은 인증 모드에서 실행될 수 있습니다.
 ### <a name="app-only-mode"></a>앱 전용 모드
 앱 전용 컨텍스트에서 초대가 성공하려면 앱에 User.Invite.All 범위가 필요합니다.
 
-자세한 내용은 https://graph.microsoft.io/docs/authorization/permission_scopes를 참조하세요.
+자세한 내용은 https://developer.microsoft.com/graph/docs/authorization/permission_scopes를 참조하세요.
 
 
 ## <a name="powershell"></a>PowerShell

@@ -1,3 +1,16 @@
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572425"
+---
 Bing은 일부 응답의 표시 문자열에 쿼리 용어(또는 Bing이 찾은 다른 관련 용어)를 표시하는 적중 항목 강조 표시를 지원합니다. 예를 들어 웹 페이지의 `name`, `displayUrl` 및 `snippet` 필드에 쿼리 용어가 표시될 수 있습니다.
 
 기본적으로 Bing은 표시 문자열에 강조 표시 마커를 포함하지 않습니다. 마커를 포함하려면 요청에 `textDecorations` 쿼리 매개 변수를 포함하고 **true**로 설정합니다. Bing은 용어의 시작과 끝을 표시하는 E000 및 E001 유니코드 문자를 사용하여 쿼리 용어를 표시합니다. 예를 들어 쿼리 용어가 Sailing Dinghy이고 두 용어 중 하나가 필드에 있는 경우 다음 예제와 같이 해당 용어가 적중 항목 강조 문자로 묶입니다.  

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983761"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299609"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
@@ -31,10 +31,10 @@ ms.locfileid: "45983761"
 |범용| 8| 480|
 |범용| 16| 950|
 |범용| 32| 1500|
-|메모리 최적화| 2| 150|
-|메모리 최적화| 4| 250|
-|메모리 최적화| 8| 480|
-|메모리 최적화| 16| 950|
+|메모리 최적화| 2| 300|
+|메모리 최적화| 4| 500|
+|메모리 최적화| 8| 960|
+|메모리 최적화| 16| 1900|
 
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
 > 오류: 너무 많은 클라이언트가 이미 연결되어 있습니다.

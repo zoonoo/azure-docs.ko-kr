@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: qianw211
-ms.openlocfilehash: 3679981a335c380b54d7349d16f94bb7e5e1fee3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1ab00e51aa8677f71990cf3da8bf01c9ab62ce4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258870"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683140"
 ---
 # <a name="azure-appsource-and-marketplace-review-policies"></a>Azure AppSource 및 Marketplace 리뷰 정책
 
@@ -52,12 +52,3 @@ Azure AppSource 및 Marketplace에 대한 등급 및 리뷰 정책이 여기에 
 * 리뷰의 관점이 균형적이고 중립적이어야 합니다.
 * 리뷰는 공개 포럼에 게시되므로 그에 맞게 적절하게 행동해야 합니다.
 
-## <a name="review-guidelines-for-publishers"></a>게시자용 리뷰 지침
-
-* [AppSource 및 Azure Marketplace 리뷰 정책](./rating-review-policies.md)을 위반할 수 있는 콘텐츠를 게시하지 마세요.
-* 의견에 마케팅 콘텐츠 또는 광고를 포함하지 마세요.
-* 의견에서 다른 앱이나 서비스를 홍보하지 마세요.
-* 게시자의 응답은 특정 앱 및 리뷰와 직접적인 관계가 있어야 합니다.
-* 미리 준비된 응답을 사용하지 마세요. 또한 미리 준비된 의견을 여러 리뷰에 게시하지 마세요.
-* 리뷰어에게 등급 또는 리뷰를 변경해주는 대가로 보상 또는 인센티브를 제공하는 등의 방법으로 리뷰를 조작하면 안 됩니다.
-* 항상 정중한 태도를 유지하고 앱을 홍보하는 가장 좋은 방법은 고객 만족이라는 사실을 기억하세요.

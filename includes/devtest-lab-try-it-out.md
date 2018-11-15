@@ -1,3 +1,16 @@
+---
+author: spelluru
+ms.service: devtest-lab
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: spelluru
+ms.openlocfilehash: d49a06365f7759359a1faaeaf6b51e9b8d69c1a0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572440"
+---
 ## <a name="get-started-with-azure-devtest-labs"></a>Azure DevTest Labs 시작
 Azure를 처음 사용하세요? [평가판 Azure 계정을 만듭니다](https://azure.microsoft.com/free).
 

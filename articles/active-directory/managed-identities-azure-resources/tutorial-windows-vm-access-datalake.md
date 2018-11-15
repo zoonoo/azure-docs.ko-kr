@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/13/2018
 ms.author: daveba
-ms.openlocfilehash: 0acc5c8211d6f7715e97214c49ee4af37850e330
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 4beaf9f1a4206f6840bdb3277770e1996dbc83e1
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106152"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623225"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>자습서: Windows VM 시스템 할당 관리 ID를 사용하여 Azure Data Lake Store에 액세스
 
@@ -33,15 +33,7 @@ ms.locfileid: "47106152"
 
 ## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Azure Portal에 로그인](https://portal.azure.com)
-
-- [Windows 가상 머신 만들기](/azure/virtual-machines/windows/quick-create-portal)
-
-- [가상 머신에서 시스템 할당 ID를 사용하도록 설정](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>VM에 Azure Data Lake Store에 대한 액세스 권한 부여
 

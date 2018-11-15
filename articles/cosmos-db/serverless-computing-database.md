@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140979"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623158"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
@@ -98,7 +98,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 **구현:** 하나의 컨테이너를 수신 대기하는 여러 Azure Cosmos DB 트리거
 
-1. 각각에 Azure Cosmos DB 트리거를 추가하여 여러 Azure Functions를 만들 수 있으며, 모두 쇼핑 카트 데이터의 동일한 변경 피드를 수신 대기합니다. 여러 함수가 동일한 변경 피드를 수신 대기하면 각 함수에 새 임대 컬렉션이 필요합니다. 임대 컬렉션에 대한 자세한 내용은 [변경 피드 프로세서 라이브러리 이해](change-feed.md#understand-cf)를 참조하세요.
+1. 각각에 Azure Cosmos DB 트리거를 추가하여 여러 Azure Functions를 만들 수 있으며, 모두 쇼핑 카트 데이터의 동일한 변경 피드를 수신 대기합니다. 여러 함수가 동일한 변경 피드를 수신 대기하면 각 함수에 새 임대 컬렉션이 필요합니다. 임대 컬렉션에 대한 자세한 내용은 [변경 피드 프로세서 라이브러리 이해](change-feed-processor.md)를 참조하세요.
 2. 사용자 쇼핑 카트에 새 항목을 추가할 때마다 쇼핑 카트 컨테이너의 변경 피드를 통해 각 함수가 독립적으로 호출됩니다.
     * 한 함수는 현재 바구니의 콘텐츠를 사용하여 사용자가 관심을 가질 수 있는 다른 항목의 표시를 변경할 수 있습니다.
     * 다른 함수는 총 재고량을 업데이트할 수 있습니다.

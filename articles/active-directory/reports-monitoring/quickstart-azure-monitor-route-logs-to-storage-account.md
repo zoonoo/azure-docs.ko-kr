@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cf69fdf87f1ce64bd78478f07e575d7ae75c16e0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 9d41c0ceeed2a69884b8ef481c79feb495fc89c0
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394248"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621211"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>자습서: Azure 저장소 계정에 Azure AD 로그 보관(미리 보기)
 
@@ -68,9 +68,8 @@ ms.locfileid: "49394248"
 
     ![진단 설정](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. 약 15분 후 저장소 계정으로 로그가 푸시되었는지 확인합니다. [Azure Portal](https://portal.azure.com)로 이동하고, **저장소 계정**을 선택하고, 이전에 사용한 저장소 계정을 선택하고, **Blob**을 선택합니다. 
+12. 약 15분 후 저장소 계정으로 로그가 푸시되었는지 확인합니다. [Azure Portal](https://portal.azure.com)로 이동하고, **저장소 계정**을 선택하고, 이전에 사용한 저장소 계정을 선택하고, **Blob**을 선택합니다. **감사 로그**에서 **insights-log-audit**를 선택합니다. **로그인 로그**에 **insights-logs-signin**을 선택합니다.
 
-13. **감사 로그**에서 **insights-log-audit**를 선택합니다. **로그인 로그**에 **insights-logs-signin**을 선택합니다.
     ![Storage 계정](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 
 ## <a name="next-steps"></a>다음 단계

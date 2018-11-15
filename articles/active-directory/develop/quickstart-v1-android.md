@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c3ab241e42c431ae4e95e8154343a949bb9e596e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970178"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287237"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -30,7 +30,7 @@ ms.locfileid: "46970178"
 
 Android 응용 프로그램을 개발하는 분들은 Azure AD(Azure Active Directory) 사용자를 간단하게 로그인할 수 있습니다. Azure AD를 사용하면 응용 프로그램이 Microsoft Graph를 통해 또는 개발자 고유의 보호되는 web API를 통해 사용자 데이터에 액세스할 수 있습니다.
 
-Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 OAuth 2.0 및 OpenID Connect를 사용하는 [Microsoft Azure Active Directory 계정](https://azure.microsoft.com/services/active-directory/)을 지원하여 앱에 [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) 사용을 시작할 수 있는 기능을 제공합니다.
+Azure ADAL(AD 인증 라이브러리) Android 라이브러리는 산업 표준 OAuth 2.0 및 OpenID Connect를 사용하는 [Microsoft Azure Active Directory 계정](https://azure.microsoft.com/services/active-directory/)을 지원하여 앱에 [Microsoft Azure Cloud](https://cloud.microsoft.com) & [Microsoft Graph API](https://developer.microsoft.com/graph) 사용을 시작할 수 있는 기능을 제공합니다.
 
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 

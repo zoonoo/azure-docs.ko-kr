@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: d8313ec66f8b71102e63751e7cf07885c899a7e8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301041"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011887"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -308,7 +308,7 @@ Security Center에서 취약점, 업데이트 및 문제를 검색하는 대기 
 - 시스템 업데이트 – 데이터가 24시간 이내 업데이트됩니다.
 - Endpoint Protection 문제 – 데이터가 8시간 이내 업데이트됩니다.
 
-일반적으로 Security Center는 1시간마다 새 데이터를 검사합니다. 위의 대기 시간 값은 최근 검사가 없거나 검사가 실패한 최악의 시나리오입니다.
+Security Center는 일반적으로 한 시간마다 새 데이터를 검사하며 그에 따라 권장 사항을 새로 고칩니다. 
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>"VM 에이전트가 누락됨" 메시지가 표시되는 이유는 무엇인가요?
 데이터 수집을 사용하도록 설정하려면 VM에 VM 에이전트를 설치해야 합니다. Azure Marketplace에서 배포된 VM에 VM 에이전트가 기본적으로 설치됩니다. 다른 VM에 VM 에이전트를 설치하는 방법에 대한 자세한 내용은 블로그 게시물 [VM 에이전트 및 확장](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)을 참조하세요.

@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-registry
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 286159aee00b018d0cacae3858f92cdf0e79cfbc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572466"
+---
 | SKU | 설명 |
 |---|---|
 | Basic | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. Basic 레지스트리는 Standard 및 Premium(Azure Active Directory 인증 통합, 이미지 삭제 및 웹 후크)과 동일한 프로그래밍 성능을 가지고 있지만 크기와 사용량 제약이 있습니다. |

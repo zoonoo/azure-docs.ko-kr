@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: b20a142007b3422d071de47410f4c9cdd1ff62a7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5eb398cf981edbcfe9b98ee89c3dd4e12b3f758f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006739"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615496"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -291,4 +291,4 @@ AzureDiagnostics
 
 - Log Analytics의 [로그 검색](log-analytics-queries.md)을 사용하여 자세한 Azure SQL 데이터를 확인합니다.
 - Azure SQL 데이터를 보여 주는 [사용자 고유의 대시보드 만들기](log-analytics-dashboards.md).
-- 특정 Azure SQL 이벤트가 발생하는 경우의 [경고 만들기](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).
+- 특정 Azure SQL 이벤트가 발생하는 경우의 [경고 만들기](../monitoring-and-diagnostics/monitoring-overview-alerts.md).

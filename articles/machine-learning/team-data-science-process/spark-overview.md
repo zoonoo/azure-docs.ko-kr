@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: acb02df7a1ca49e822062ec5658b4875388b85ab
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 043d19e3917bcdac7e963225af7e614315e414bd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586022"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344708"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 이 항목 모음에서는 HDInsight Spark를 사용하여 데이터 수집, 기능 엔지니어링, 모델링 및 모델 평가와 같은 일반적인 데이터 과학 작업을 완료하는 방법을 보여 줍니다. 사용되는 데이터는 2013 NYC Taxi Trip 및 요금 데이터 집합의 샘플입니다. 작성된 모델은 로지스틱 및 선형 회귀, 임의 포리스트 및 그라데이션 향상된 트리를 포함합니다. 또한 이 항목은 이러한 모델을 Azure Blob Storage(WASB)에 저장하고 예측 성능의 점수를 매기며 평가하는 방법도 보여 줍니다. 고급 항목에서는 교차 유효성 검사 및 하이퍼 매개 변수 스위핑을 사용하여 모델을 학습할 수 있는 방법을 다룹니다. 이 개요 토픽은 제공된 연습의 단계를 완료하는 데 필요한 Spark 클러스터를 설정하는 방법을 설명하는 토픽도 참조합니다. 
 

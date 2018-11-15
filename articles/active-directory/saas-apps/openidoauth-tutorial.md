@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 420ec288b81e0bb12ae9f61a5eaf03880205cc55
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247983"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287441"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에서 OpenID/OAuth 응용 프로그램 구성
 
@@ -84,7 +84,7 @@ Azure AD 동의 프레임워크를 사용하여 다중 테넌트 웹 및 네이�
 
 이 프레임워크는 응용프로그램을 자신의 디렉터리에 등록하는 것에 동의하는 사용자나 관리자를 기반으로 합니다. 등록은 디렉터리 데이터 액세스가 필요할 수도 있습니다. 사용자가 동의해 주면 해당 클라이언트 응용 프로그램에서 사용자를 대신하여 Microsoft Graph API를 호출하고 필요한 대로 정보를 사용할 수 있습니다.
 
-[Microsoft Graph API](https://graph.microsoft.io/)는 Office 365에서 다음과 같은 데이터에 대한 액세스를 제공합니다.
+[Microsoft Graph API](https://developer.microsoft.com/graph/)는 Office 365에서 다음과 같은 데이터에 대한 액세스를 제공합니다.
 
 - Exchange의 일정 및 메시지
 - SharePoint의 사이트 및 목록

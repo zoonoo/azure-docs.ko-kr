@@ -7,15 +7,15 @@ ms.service: automation
 ms.component: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef55e6ca6fc913710bae68a7423369b33f26c009
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1f28f642d1a5fc30055c73a4b7d60c076c83d204
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629001"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250104"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -35,11 +35,48 @@ Azure Automation 상태 구성은 Azure Automation에서 PowerShell 스크립팅
 
 Azure Portal 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 모두 관리할 수 있습니다.
 
-![Azure Automation 블레이드의 스크린샷](./media/automation-dsc-overview/azure-automation-blade.png)
+![Azure Automation 페이지의 스크린샷](./media/automation-dsc-overview/azure-automation-blade.png)
 
 ### <a name="import-reporting-data-into-log-analytics"></a>Log Analytics로 보고 데이터 가져오기
 
 Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. 상태 구성 상태 데이터를 Log Analytics 작업 영역으로 보내는 방법을 알아보려면 [Azure Automation 상태 구성 보고 데이터를 Log Analytics로 전달](automation-dsc-diagnostics.md)을 참조하세요.
+
+## <a name="network-planning"></a>네트워크 구성
+
+상태 구성(DSC)이 Automation과 통신하려면 다음 포트와 URL이 필요합니다.
+
+* 포트: 아웃바운드 인터넷 액세스에는 443 TCP 포트만 필요합니다.
+* 글로벌 URL: *.azure-automation.net
+* US Gov 버지니아의 전역 URL: *.azure-automation.us
+* 에이전트 서비스: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+예외를 정의할 때 나열된 주소를 사용하는 것이 좋습니다. IP 주소의 경우 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 포함합니다.
+
+특정 지역에 대해 정의된 Automation 계정이 있는 경우 해당 지역 데이터 센터에 대한 통신을 제한할 수 있습니다. 다음 표에서는 각 지역에 대한 DNS 레코드를 제공합니다.
+
+| **지역** | **DNS 레코드** |
+| --- | --- |
+| 미국 중서부 | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
+| 미국 중남부 |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| 미국 동부 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
+| 캐나다 중부 |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
+| 서유럽 |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
+| 북유럽 |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
+| 동남아시아 |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
+| 인도 중부 |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
+| 일본 동부 |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
+| 오스트레일리아 동남부 |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
+| 영국 남부 | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
+| 미국 정부 버지니아 | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+
+지역 이름 대신 지역 IP 주소 목록을 보려면 Microsoft 다운로드 센터에서 [Azure 데이터 센터 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653) XML 파일을 다운로드하세요.
+
+> [!NOTE]
+> Azure 데이터 센터 IP 주소 XML 파일은 Microsoft Azure 데이터 센터에서 사용되는 IP 주소 범위를 나열합니다. 이 파일에는 계산, SQL 및 저장소 범위가 포함되어 있습니다.
+>
+>업데이트된 파일이 매주 게시됩니다. 이 파일에는 현재 배포된 범위 및 IP 범위에 대해 예정된 변경 내용이 반영됩니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다.
+>
+> 새 XML 파일을 매주 다운로드하는 것이 좋습니다. 그런 다음 Azure에서 실행되는 서비스를 올바르게 식별하도록 사이트를 업데이트합니다. Azure ExpressRoute 사용자는 Azure 공간에 대한 BGP(Border Gateway Protocol) 공지 사항을 매월 첫 주에 업데이트하는 데 이 파일을 사용하고 있음에 유의해야 합니다.
 
 ## <a name="introduction-video"></a>소개 비디오
 

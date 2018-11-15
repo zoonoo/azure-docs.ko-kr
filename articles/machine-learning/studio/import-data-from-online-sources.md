@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: ab806f8191bc8edc4d5be6003cd177d8c24d71e7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 87a7e968073d8625375ea837f9377145b6dfb45a
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834678"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344864"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>데이터 가져오기 모듈을 사용하여 다양한 온라인 데이터 원본에서 Azure Machine Learning Studio로 데이터 가져오기
 이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure Machine Learning 실험으로 이동하는 데 필요한 정보를 설명합니다.
@@ -30,10 +30,6 @@ ms.locfileid: "34834678"
 > 이 문서에서는 [데이터 가져오기][import-data] 모듈에 대한 일반 정보를 제공합니다. 액세스할 수 있는 데이터 형식, 형식, 매개변수 및 일반 질문의 응답에 대한 자세한 내용은 [데이터 가져오기][import-data] 모듈의 모듈 참조 항목을 참조하세요.
 > 
 > 
-
-<!-- -->
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 ## <a name="introduction"></a>소개
 [Azure Machine Learning Studio](https://studio.azureml.net/Home)에서 [데이터 가져오기][import-data] 모듈을 사용하여 실험을 실행하는 동안 여러 온라인 데이터 원본 중 하나의 데이터에 액세스할 수 있습니다.

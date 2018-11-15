@@ -1,22 +1,22 @@
 ---
-title: 템플릿을 사용하여 Hadoop 클러스터 만들기 - Azure HDInsight
+title: 템플릿을 사용하여 Apache Hadoop 클러스터 만들기 - Azure HDInsight
 description: Resource Manager 템플릿을 사용하여 HDInsight 클러스터를 만드는 방법에 대해 알아봅니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 4e5561c4846889f53723ed8df82d7c6268aee180
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961317"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241619"
 ---
-# <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight의 Hadoop 클러스터 만들기
+# <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 이 문서에서는 Azure Resource Manager 템플릿으로 Azure HDInsight 클러스터를 만드는 몇 가지 방법에 대해 알아봅니다. 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요. 다른 클러스터 만들기 도구 및 기능을 알아보려면 이 페이지 위쪽에 있는 탭 선택기를 클릭하거나 [클러스터 생성 방법](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods)을 참조하세요.

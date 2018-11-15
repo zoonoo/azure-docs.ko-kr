@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 85cf55b4117208266e247316b1050e3988a2ce23
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: aa5e0887f6dfb3e983c08d1bbcf1f56f41a9543d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409155"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012805"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리
 Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
@@ -28,7 +28,7 @@ Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만�
 Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 활용하여 Log Analytics 작업 영역을 호출하고, 이 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
-현재 Log Analytics에 저장된 검색을 사용해서만 경고를 만들 수 있습니다.  자세한 내용은 [로그 검색 REST API](log-analytics-log-search-api.md) 를 참조하세요.
+현재 Log Analytics에 저장된 검색을 사용해서만 경고를 만들 수 있습니다.  자세한 내용은 [로그 검색 REST API](log-analytics-queries.md) 를 참조하세요.
 
 ## <a name="schedules"></a>일정
 저장된 검색은 하나 이상의 일정을 가질 수 있습니다. 일정은 검색이 실행되는 빈도 및 조건이 식별되는 기간을 정의합니다.
@@ -451,8 +451,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
 
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
+    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }" armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
 
 #### <a name="webhook-actions"></a>웹후크 작업
 웹후크 작업은 URL을 호출하고 선택적으로 보낼 페이로드를 제공하는 것으로 프로세스를 시작합니다.  이들은 웹후크에 대해 Azure Automation Runbook 이외의 프로세스를 호출할 수 있다는 것을 제외하고 수정 작업과 유사합니다.  또한 원격 프로세스에 전달할 페이로드를 제공하는 추가 옵션을 제공합니다.
@@ -511,6 +510,6 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 
 ## <a name="next-steps"></a>다음 단계
-* Log Analytics에서 [REST API를 사용하여 로그 검색을 수행](log-analytics-log-search-api.md) 합니다.
+* Log Analytics에서 [REST API를 사용하여 로그 검색을 수행](log-analytics-queries.md) 합니다.
 * [Azure Alerts의 로그 경고](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)에 대해 알아보기
 

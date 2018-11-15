@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 11/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 68c58c16d7083182d412adb6ed0d243a3291cc42
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b4d4471d9c77b5d13dfd5f8c2e9394b1c2d2a87
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433422"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242556"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>IoT Edge 모듈 제품 게시 개요
 
-이 문서에서는 IoT Edge 모듈 제품의 게시 프로세스 및 주요 부분을 설명합니다. 이 문서를 제품을 게시하기 위한 시작 지점으로 사용하여 [Azure Marketplace](https://azuremarketplace.microsoft.com)에 게시합니다.
+<table> <tr> <td>이 섹션에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>에 새로운 Azure IoT Edge 모듈 제안을 게시하는 방법을 설명합니다. IoT Edge 모듈은 IoT Edge 장치에서 실행하도록 만들어진 Docker 호환 컨테이너입니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스 또는 사용자 지정 솔루션 코드를 포함할 수 있습니다. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
 
 ## <a name="publishing-process"></a>게시 프로세스
 
