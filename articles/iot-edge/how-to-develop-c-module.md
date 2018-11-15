@@ -4,17 +4,17 @@ description: Visual Studio Code를 사용하여 Azure IoT Edge용 C 모듈 개�
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3ec7f6043c1d2e8e8f090ffc60822768ab9bc9d9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984004"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566027"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 C 모듈 개발 및 디버그
 
@@ -94,7 +94,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 2. **deployment.template.json**에서 C 모듈의 createOptions를 아래 내용으로 바꾸고 이 파일을 저장합니다. 
     
     ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
 2. VS Code 명령 팔레트에서 **Azure IoT Edge: IoT Edge 솔루션 빌드 및 푸시** 명령을 입력하고 실행합니다.

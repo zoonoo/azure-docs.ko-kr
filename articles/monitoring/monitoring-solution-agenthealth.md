@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 7b05876214c08c9298cca30e01958e43e2ef81d6
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914161"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615340"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Azure의 에이전트 상태 솔루션
 Azure의 에이전트 상태 솔루션은 응답이 없고 운영 데이터를 제출하는 Log Analytic 작업 영역에 직접 보고하는 모든 에이전트 또는 Log Analytic에 연결된 System Center Operations Manager 관리 그룹을 이해하는 데 도움이 됩니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
@@ -118,4 +118,4 @@ Operations Manager 관리 서버에 보고하는 각 에이전트는 두 개의 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) 에 관하여 알아보세요.
+* Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](../monitoring-and-diagnostics/monitoring-overview-alerts.md) 에 관하여 알아보세요. 
