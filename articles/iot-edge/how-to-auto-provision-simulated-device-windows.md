@@ -2,18 +2,18 @@
 title: DPS를 사용하여 Azure IoT Edge 장치 자동 프로비전 - Windows | Microsoft Docs
 description: Windows 컴퓨터에서 시뮬레이트된 장치를 사용하여 Device Provisioning Service로 Azure IoT Edge에 대한 자동 장치 프로비전 테스트
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e558f44f9271009b92fbf4ece9aa706801e4176c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9be790d9b512dc9338cf183240430ad0ada3bef4
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576205"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565108"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전
 
@@ -51,7 +51,7 @@ DPS에서 등록을 만들 때 **초기 장치 쌍 상태**를 선언할 기회�
 * [C](../iot-dps/quick-create-simulated-device.md)
 * [Java](../iot-dps/quick-create-simulated-device-tpm-java.md)
 * [C#](../iot-dps/quick-create-simulated-device-tpm-csharp.md)
-* [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
+* [Node.JS](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
 개별 등록을 만든 후 **등록 ID** 값을 저장합니다. IoT Edge 런타임을 구성하는 경우 이 값을 사용합니다. 

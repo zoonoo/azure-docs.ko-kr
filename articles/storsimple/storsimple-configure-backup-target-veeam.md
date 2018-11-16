@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-ms.openlocfilehash: cc1c7a3f77af76c451bb6e97a081a01c119333b5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f06b74493bad546997f82ed6eef0a89cffb7c75b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23112431"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261981"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>Veeam에서 백업 대상으로 StorSimple 구성
 
@@ -482,7 +482,7 @@ StorSimple 클라우드 스냅숏은 StorSimple 장치에 있는 데이터를 �
 
 StorSimple 장치에서 복원하면 모든 블록 저장소 장치에서 복원하는 것처럼 작동합니다. 클라우드에 계층화된 데이터를 복원하는 경우 복원은 클라우드 속도로 수행됩니다. 로컬 데이터의 경우 복원은 장치의 로컬 디스크 속도로 수행됩니다.
 
-Veeam을 사용하면 Veeam 콘솔에 있는 기본 제공 탐색기 보기에서 StorSimple을 통해 빠르고 세분화된 파일 수준 복구를 수행할 수 있습니다. Veeam 탐색기를 사용하여 백업에서 개별 항목(예: 전자 메일 메시지, Active Directory 개체 또는 SharePoint 항목)을 복구합니다. 온-프레미스 VM을 중지하지 않고 복구를 수행할 수 있습니다. 또한 Azure SQL Database 및 Oracle 데이터베이스에 대한 특정 시점 복구도 수행할 수 있습니다. Veeam 및 StorSimple을 사용하면 Azure에서 항목 수준 복구 프로세스를 빠르고 쉽게 수행할 수 있습니다. 복원을 수행하는 방법에 대한 내용은 다음 Veeam 설명서를 참조하세요.
+Veeam을 사용하면 Veeam 콘솔에 있는 기본 제공 탐색기 보기에서 StorSimple을 통해 빠르고 세분화된 파일 수준 복구를 수행할 수 있습니다. Veeam 탐색기를 사용하여 백업에서 개별 항목(예: 이메일 메시지, Active Directory 개체 또는 SharePoint 항목)을 복구합니다. 온-프레미스 VM을 중지하지 않고 복구를 수행할 수 있습니다. 또한 Azure SQL Database 및 Oracle 데이터베이스에 대한 특정 시점 복구도 수행할 수 있습니다. Veeam 및 StorSimple을 사용하면 Azure에서 항목 수준 복구 프로세스를 빠르고 쉽게 수행할 수 있습니다. 복원을 수행하는 방법에 대한 내용은 다음 Veeam 설명서를 참조하세요.
 
 - [Exchange Server](https://www.veeam.com/microsoft-exchange-recovery.html)용
 - [Active Directory](https://www.veeam.com/microsoft-active-directory-explorer.html)용
@@ -510,9 +510,9 @@ Veeam을 사용하면 Veeam 콘솔에 있는 기본 제공 탐색기 보기에�
 이 문서에서는 다음 문서를 참조했습니다.
 
 - [StorSimple 다중 경로 I/O 설정](storsimple-configure-mpio-windows-server.md)
-- [저장소 시나리오: 씬 프로비전](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [GPT 드라이브 사용](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [공유 폴더의 섀도 복사본 설정](http://technet.microsoft.com/library/cc771893.aspx)
+- [저장소 시나리오: 씬 프로비전](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [GPT 드라이브 사용](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
+- [공유 폴더의 섀도 복사본 설정](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## <a name="next-steps"></a>다음 단계
 

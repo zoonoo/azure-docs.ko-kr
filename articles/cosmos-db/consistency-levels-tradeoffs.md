@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963050"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514777"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB에서 다양한 일관성 수준의 가용성 및 성능 절충
 
@@ -33,20 +33,6 @@ ms.locfileid: "50963050"
 - 동일한 요청 단위 수의 경우 세션, 일관된 접두사 및 최종 일관성 수준은 강력하고 제한된 부실에 비해 약 2배의 읽기 처리량을 제공합니다.
 
 - 지정된 쓰기 작업의 유형의 경우(예: 삽입, 바꾸기, upsert, 삭제 등) 요청 단위에 대한 쓰기 처리량은 모든 일관성 수준에 대해 동일합니다.
-
-## <a name="consistency-levels-and-durability"></a>일관성 수준 및 내구성
-
-쓰기 작업이 클라이언트에서 승인되기 전에 데이터는 쓰기 작업을 허용하는 지역 내에서 복제본의 쿼럼에 의해 지속력 있게 커밋됩니다. 또한 컨테이너가 일관된 인덱싱 정책으로 구성된 경우 인덱스도 동기적으로 업데이트 및 복제되고 쓰기 작업의 승인이 클라이언트로 전송되기 전에 복제본의 쿼럼에 의해 지속적으로 커밋됩니다.
-
-다음 표에는 여러 지역에 걸친 Cosmos 계정에 지역 재해가 발생했을 경우 잠재적인 데이터 손실 기간이 요약되어 있습니다.
-
-| **일관성 수준** | **지역 재해 발생 시 잠재적인 데이터 손실 기간** |
-| - | - |
-| 강력 | 0 |
-| 제한된 부실 | Cosmos 계정에서 구성한 “부실 기간”으로 국한됩니다. |
-| 세션 | 최대 5초 |
-| 일관적인 접두사 | 최대 5초 |
-| 최종 | 최대 5초 |
 
 ## <a name="next-steps"></a>다음 단계
 

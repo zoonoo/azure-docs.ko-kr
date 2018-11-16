@@ -3,7 +3,7 @@ title: Service Fabric 및 VS를 사용하여 Windows 컨테이너 디버깅 | Mi
 description: Visual Studio 2017을 사용하여 Azure Service Fabric에서 Windows 컨테이너를 디버그하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: mikkelhegn
+author: TylerMSFT
 manager: msfussell
 editor: ''
 ms.service: service-fabric
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
-ms.author: mikhegn
-ms.openlocfilehash: 180bd3709cc9ffefb17f78e337e6f6995024fdcf
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.author: twhitney, mikhegn
+ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523430"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300067"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>방법: Visual Studio 2017을 사용하여 Azure Service Fabric에서 Windows 컨테이너 디버깅
 

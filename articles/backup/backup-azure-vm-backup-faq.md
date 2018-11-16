@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ff97d164ee8b2059e1b46377067041d6c381052b
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414797"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753970"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Backup 서비스에 대한 질문
 이 문서에서는 Azure VM Backup 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -48,13 +48,13 @@ Key Vault에 액세스하려면 Azure Backup 서비스에 대한 권한을 부�
 예. "스냅숏 만들기" 단계에 있는 경우 백업 작업을 취소할 수 있습니다. **스냅숏에서 데이터 전송이 진행 중인 경우 작업을 취소할 수 없습니다**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>백업한 관리 디스크 VM에서 리소스 그룹 잠금을 사용하도록 설정했습니다. 내 백업이 계속 작동하나요?
-사용자가 리소스 그룹을 잠그는 경우 Backup 서비스는 이전 복원 지점을 삭제할 수 없습니다. 이로 인해, 백 엔드에서 적용된 최대 18개의 복원 지점 제한에 도달했으므로 새 백업이 시작되지 못합니다. RG 잠금 후에 내부 오류로 인해 백업이 실패하는 경우 다음 [단계에 따라 복원 지점 컬렉션을 제거](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service)합니다.
+사용자가 리소스 그룹을 잠그는 경우 Backup 서비스는 이전 복원 지점을 삭제할 수 없습니다. 이로 인해, 백 엔드에서 적용된 최대 18개의 복원 지점 제한에 도달했으므로 새 백업이 시작되지 못합니다. RG 잠금 후에 내부 오류로 인해 백업이 실패하는 경우 다음 [단계에 따라 복원 지점 컬렉션을 제거](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)합니다.
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Backup 정책에서 DST(일광 절약 시간)을 고려합니까?
 아니요. 로컬 컴퓨터의 날짜 및 시간은 현재 일광 절약 시간을 보정하여 현지 시간으로 표시됩니다. 따라서 예약된 백업에 대해 구성된 시간이 DST 때문에 현지 시간과 다를 수 있습니다.
 
 ### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>Azure Backup을 통해 백업할 VM에는 데이터 디스크를 몇 개까지 연결할 수 있나요?
-Azure Backup은 현재 최대 32개 디스크가 포함된 가상 머신 백업을 지원합니다. 32개 디스크를 모두 지원하려면 [Azure VM Backup 스택 V2로 업그레이드](backup-upgrade-to-vm-backup-stack-v2.md)하세요. 2018년 9월 24일부터는 보호 가능한 모든 VM이 지원될 예정입니다.
+Azure Backup은 현재 최대 16개 디스크가 포함된 가상 머신 백업을 지원합니다. 16개 디스크를 모두 지원하려면 [Azure VM Backup 스택 V2로 업그레이드](backup-upgrade-to-vm-backup-stack-v2.md)하세요. 2018년 9월 24일부터는 보호 가능한 모든 VM이 지원될 예정입니다.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure Backup은 표준 SSD Managed Disks를 지원하나요?
 Azure Backup은 Microsoft Azure Virtual Machines용의 새로운 지속형 저장소 유형인 [표준 SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)를 지원합니다. 이 저장소는 [Azure VM Backup 스택 V2](backup-upgrade-to-vm-backup-stack-v2.md)의 Managed Disks에서 지원됩니다.

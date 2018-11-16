@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 85004852b4e67f1a3f030a5cf97abea7c16c5695
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 43ad99d4814923204b3b1993969bd6a0730530c5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741745"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>자습서: JIRA SAML SSO by Microsoft(V5.2)와 Azure Active Directory 통합
 
@@ -62,7 +62,7 @@ JIRA SAML SSO by Microsoft(V5.2)와 Azure AD의 통합을 구성하려면 다음
 **지원되는 버전:**
 
 * JIRA Core 및 Software: 5.2
-* JIRA는 6.0 및 7.12도 지원합니다. 자세한 내용을 보려면 [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)를 클릭하세요.
+* JIRA는 6.0에서 7.12도 지원합니다. 자세한 내용을 보려면 [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)를 클릭하세요.
 
 ## <a name="scenario-description"></a>시나리오 설명
 

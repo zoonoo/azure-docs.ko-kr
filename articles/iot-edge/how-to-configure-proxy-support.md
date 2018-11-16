@@ -4,16 +4,16 @@ description: 프록시 서버를 통해 통신하도록 Azure IoT Edge 런타임
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/24/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037459"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913226"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 장치 구성
 
@@ -25,6 +25,18 @@ IoT Edge 장치는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다. 장�
 2. 장치의 Docker 디먼과 IoT Edge 디먼이 프록시 서버를 사용하도록 구성합니다.
 3. 장치의 config.yaml 파일에서 edgeAgent 속성을 구성합니다.
 4. 배포 매니페스트에서 IoT Edge 런타임 및 기타 IoT Edge 모듈용 환경 변수를 설정합니다. 
+
+## <a name="know-your-proxy-url"></a>프록시 URL 파악
+
+디바이스에서 Docker 디먼 및 IoT Edge를 모두 구성하려면 해당 프록시 URL을 알아야 합니다. 
+
+프록시 URL은 다음 형식을 사용합니다. **프로토콜**://**proxy_host**:**proxy_port** 
+
+* **프로토콜**은 HTTP 또는 HTTPS입니다. Docker 디먼은 컨테이너 레지스트리 설정에 따라 프로토콜 중 하나를 사용하여 구성할 수 있지만, IoT Edge 디먼 및 런타임 컨테이너는 항상 HTTPS를 사용해야 합니다.
+
+* **proxy_host**는 프록시 서버의 주소입니다. 프록시 서버에서 인증이 필요한 경우 **사용자**:**암호**@**proxy_host** 형식에서 proxy_host의 일부로 자격 증명을 제공할 수 있습니다. 
+
+* **proxy_port**는 프록시가 네트워크 트래픽에 응답하는 네트워크 포트입니다. 
 
 ## <a name="install-the-runtime"></a>런타임 설치
 
@@ -47,7 +59,7 @@ IoT Edge 장치에서 실행되는 Docker 및 IoT Edge 디먼이 프록시 서�
 
 ### <a name="docker-daemon"></a>Docker 디먼
 
-환경 변수를 사용하여 Docker 디먼을 구성하려면 Docker 설명서를 참조하세요. DockerHub 및 Azure Container Registry를 비롯한 대부분의 컨테이너 레지스트리는 HTTPS 요청을 지원하므로 **HTTPS_PROXY** 변수를 설정해야 합니다. TLS(전송 계층 보안)를 지원하지 않는 레지스트리에서 이미지를 끌어오는 경우에는 **HTTP_PROXY**를 설정해야 할 수 있습니다. 
+환경 변수를 사용하여 Docker 디먼을 구성하려면 Docker 설명서를 참조하세요. DockerHub 및 Azure Container Registry를 비롯한 대부분의 컨테이너 레지스트리는 HTTPS 요청을 지원하므로 **HTTPS_PROXY** 매개 변수를 설정해야 합니다. TLS(전송 계층 보안)를 지원하지 않는 레지스트리에서 이미지를 끌어오는 경우에는 **HTTP_PROXY** 매개 변수를 설정해야 합니다. 
 
 사용 중인 Docker 버전에 적용되는 문서를 선택하세요. 
 
@@ -113,7 +125,9 @@ IoT Edge 장치에서 config.yaml 파일을 엽니다. Linux 시스템에서 이
 
 config.yaml 파일에서 **Edge Agent module spec** 섹션을 찾습니다. Edge 에이전트 정의에는 **env** 매개 변수가 포함되어 있으며, 이 매개 변수에 환경 변수를 추가할 수 있습니다. 
 
-![edgeAgent 정의](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+<!--
+![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 env 매개 변수의 자리 표시자인 중괄호를 제거하고 새 줄에 새 변수를 추가합니다. YAML에서 들여쓰기를 하려면 공백 두 개를 추가해야 합니다. 
 
@@ -201,7 +215,7 @@ IoT Edge 장치의 config.yaml 파일에 **UpstreamProtocol** 환경 변수를 �
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

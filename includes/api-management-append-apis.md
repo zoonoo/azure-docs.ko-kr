@@ -1,3 +1,16 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+ms.openlocfilehash: 2bfa356deeede1c16bd5a464ea7081132a67faf6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572409"
+---
 ## <a name="append-other-apis"></a>다른 API 추가
 
 API는 OpenAPI 사양, SOAP API, Azure App Service의 API Apps 기능, Azure 함수 앱, Azure Logic Apps 및 Azure Service Fabric을 포함하여 다양한 서비스에서 공개되는 API로 구성할 수 있습니다.

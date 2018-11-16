@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 76a87b79ccc776e0facd57a1cff50fbbcb4f0b9e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e18b670b94962c0e7aa469402228fd4ed95d846b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414882"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287254"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 
@@ -124,24 +124,25 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
     ```PowerShell
     Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
+    ```
 
-8. You can use the `Add-AlertRule` cmdlet to create, update, or disable an alert rule. You can create email and webhook properties using  `New-AzureRmAlertRuleEmail` and `New-AzureRmAlertRuleWebhook`, respectively. In the Alert rule cmdlet, assign these properties as actions to the **Actions** property of the Alert Rule. The following table describes the parameters and values used to create an alert using a metric.
+8. `Add-AlertRule` cmdlet을 사용하여 경고 규칙을 만들고, 업데이트하고, 비활성화할 수 있습니다. 각각 `New-AzureRmAlertRuleEmail` 및 `New-AzureRmAlertRuleWebhook`를 사용하여 전자 메일 및 webhook 속성을 만들 수 있습니다. 경고 규칙 cmdlet에서, 이러한 속성을 경고 규칙의 **동작** 속성에 동작으로 할당합니다. 다음은 메트릭을 사용하여 경고를 만드는 데 사용되는 매개 변수 및 값을 설명하는 테이블입니다.
 
-    | parameter | value |
+    | 매개 변수 | 값 |
     | --- | --- |
-    | Name |simpletestdiskwrite |
-    | Location of this alert rule |East US |
+    | 이름 |simpletestdiskwrite |
+    | 이 경고 규칙의 위치 |미국 동부 |
     | ResourceGroup |montest |
     | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-    | MetricName of the alert that is created |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
+    | 생성된 경고의 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec. 정확한 메트릭 이름을 검색하는 방법은 `Get-MetricDefinitions` cmdlet를 참조하세요. |
     | operator |GreaterThan |
-    | Threshold value (count/sec in for this metric) |1 |
-    | WindowSize (hh:mm:ss format) |00:05:00 |
-    | aggregator (statistic of the metric, which uses Average count, in this case) |Average |
-    | custom emails (string array) |'foo@example.com','bar@example.com' |
-    | send email to owners, contributors and readers |-SendToServiceOwners |
+    | 임계값(이 메트릭의 경우 수/초) |1 |
+    | WindowSize(h:mm:ss 형식) |00:05:00 |
+    | 집계(이 경우, 평균 횟수를 사용하는 메트릭 통계) |평균 |
+    | 사용자 지정 전자 메일(문자열 배열) |'foo@example.com','bar@example.com' |
+    | 소유자, 참가자 및 일기 권한자에게 전자 메일 보내기 |-SendToServiceOwners |
 
-9. Create an Email action
+9. 전자 메일 동작 만들기
 
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com

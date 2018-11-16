@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/11/2018
+ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 73273447bcf534f6ffd4584673756c40e8509e21
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49437117"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50973895"
 ---
 Azure VM(가상 머신)을 만들 때 [VNet(가상 네트워크)](../articles/virtual-network/virtual-networks-overview.md)을 만들거나 기존 VNet을 사용해야 합니다. 또한 VNet에서 VM을 액세스하는 방법도 결정해야 합니다. [리소스를 만들기 전에 계획을 수립](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)하고 [네트워킹 리소스의 제한](../articles/azure-subscription-service-limits.md#networking-limits)을 이해해야 합니다.
 
@@ -36,9 +36,7 @@ VM을 만들기 전이나 만드는 중에 VNet을 만들 수 있습니다. 다�
 
 [NIC(네트워크 인터페이스)](../articles/virtual-network/virtual-network-network-interface.md)는 VM과 VNet 간의 상호 연결입니다. VM마다 NIC가 하나 이상 있어야 하지만, 만드는 VM의 크기에 따라 NIC가 둘 이상 있을 수 있습니다. [Windows](../articles/virtual-machines/windows/sizes.md) 또는 [Linux](../articles/virtual-machines/linux/sizes.md)에 대해 각 VM 크기에서 지원하는 NIC 수에 대해 알아보세요.
 
-여러 개의 NIC가 있는 VM을 만들거나 VM 수명 주기 동안 NIC를 추가 또는 제거할 수 있습니다. NIC를 여러 개 사용하면 VM에서 서로 다른 서브넷에 연결하고 가장 적절한 인터페이스를 통해 트래픽을 보내거나 받을 수 있습니다.
-
-VM을 가용성 집합에 추가하면 가용성 집합 내의 모든 VM에는 NIC가 하나 이상 있어야 합니다. NIC가 둘 이상 있는 VM에 동일한 수의 NIC가 있을 필요는 없지만 모두에 둘 이상의 NIC가 있어야 합니다.
+여러 개의 NIC가 있는 VM을 만들거나 VM 수명 주기 동안 NIC를 추가 또는 제거할 수 있습니다. NIC를 여러 개 사용하면 VM에서 서로 다른 서브넷에 연결하고 가장 적절한 인터페이스를 통해 트래픽을 보내거나 받을 수 있습니다. 여러 개의 네트워크 인터페이스가 있는 VM은 VM 크기에서 지원하는 수의 동일한 가용성 집합에 있을 수 있습니다. 
 
 VM에 연결된 각각의 NIC는 해당 VM과 동일한 위치와 구독에 있어야 합니다. 각각의 NIC는 해당 NIC와 동일한 Azure 위치와 구독에 있는 VNet에 연결되어야 합니다. VM을 만든 후에 연결되는 서브넷을 변경할 수 있지만, 해당 VNet은 변경할 수 없습니다. VM에 연결된 각각의 NIC에는 해당 VM을 삭제할 때까지 변경되지 않는 MAC 주소가 할당됩니다.
 
@@ -151,7 +149,7 @@ VM 및 VNet을 계획할 때는 NSG를 [계획](../articles/virtual-network/virt
 
 VM은 동일한 VNet에 만들 수 있으며 개인 IP 주소를 사용하여 서로 연결할 수 있습니다. 게이트웨이를 구성하거나 공용 IP 주소를 사용할 필요 없이 다른 서브넷에 있더라도 VM을 연결할 수 있습니다. VM을 VNet에 배치하려면 VNet을 만든 다음 각 VM을 만들 때 해당 VNet과 서브넷에 할당합니다. VM은 배포 또는 시작 중에 네트워크 설정을 가져옵니다.  
 
-VM을 배포할 때 IP 주소가 해당 VM에 할당됩니다. 여러 VM을 VNet 또는 서브넷에 배포하는 경우 부팅할 때 IP 주소가 할당됩니다. DIP(동적 IP 주소)는 VM과 연결된 내부 IP 주소입니다. VM에 정적 DIP를 할당할 수 있습니다. 정적 DIP를 할당하는 경우 실수로 다른 VM의 정적 DIP를 다시 사용하지 않도록 특정 서브넷을 사용하는 것이 좋습니다.  
+VM을 배포할 때 IP 주소가 해당 VM에 할당됩니다. 여러 VM을 VNet 또는 서브넷에 배포하는 경우 부팅할 때 IP 주소가 할당됩니다. VM에 정적 IP를 할당할 수도 있습니다. 정적 IP를 할당하는 경우 실수로 다른 VM의 정적 IP를 다시 사용하지 않도록 특정 서브넷을 사용하는 것이 좋습니다.  
 
 VM을 만들고 나중에 해당 VM을 VNet으로 마이그레이션하려는 경우 단순히 구성만 변경하는 것이 아니라 해당 VM을 VNet에 다시 배포해야 합니다. 다시 배포하는 가장 쉬운 방법은 VM을 삭제하고 연결된 디스크를 제거하지 않은 채 VNet의 원본 디스크를 사용하여 VM을 다시 만드는 것입니다. 
 

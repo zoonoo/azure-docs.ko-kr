@@ -9,19 +9,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: da92f59c4e25ec012cd9ad389c9afac410ba28e1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649995"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219310"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Azure Machine Learning에서 실험 및 학습 메트릭 추적
 
 Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모니터링하여 모델 생성 프로세스를 향상시킬 수 있습니다. 이 문서에서는 학습 스크립트에 로깅을 추가하는 여러 가지 방법, **start_logging** 및 **ScriptRunConfig**를 사용하여 실험을 제출하는 방법, 실행 작업의 진행 상황을 확인하는 방법 및 실행 결과를 보는 방법에 대해 알아봅니다. 
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.168에서 테스트되었습니다. 
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.74에서 테스트됨 
 
 ## <a name="list-of-training-metrics"></a>학습 메트릭 목록 
 
@@ -67,7 +67,6 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
 
   # make up an arbitrary name
   experiment_name = 'train-in-notebook'
-  exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
   
 ## <a name="option-1-use-startlogging"></a>옵션 1: start_logging 사용
@@ -103,7 +102,8 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
 2. Azure Machine Learning 서비스 SDK를 사용하여 실험 추적을 추가하고 지속형 모델을 실험 실행 기록에 업로드합니다. 다음 코드는 태그를 지정하고, 기록하고, 모델 파일을 실험 실행에 업로드합니다.
 
   ```python
-  run = Run.start_logging(experiment = exp)
+  experiment = Experiment(workspace = ws, name = experiment_name)
+  run = experiment.start_logging()
   run.tag("Description","My first run!")
   run.log('alpha', 0.03)
   reg = Ridge(alpha = 0.03)
@@ -209,8 +209,8 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
   ```python
   from azureml.core import ScriptRunConfig
 
-  src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
-  run = exp.submit(src)
+  src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
+  run = experiment.submit(src)
   ```
   
 ## <a name="view-run-details"></a>실행 세부 정보 보기
@@ -248,11 +248,22 @@ Azure Machine Learning 서비스에서 실험을 추적하고 메트릭을 모�
   ![Azure Portal의 실행 세부 정보 스크린샷](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 또한 실행에 대한 모든 출력 또는 로그를 보거나 제출한 실험의 스냅숏을 다운로드하여 실험 폴더를 다른 사용자와 공유할 수도 있습니다.
+### <a name="viewing-charts-in-run-details"></a>실행 세부 정보에서 차트 보기
+
+로깅 API를 사용하여 실행하는 동안 다른 유형의 메트릭을 기록하고 이를 Azure Portal에서 차트로 확인하는 여러 가지 방법이 있습니다. 
+
+|기록된 값|예제 코드| 포털에서 보기|
+|----|----|----|
+|숫자 값의 배열 기록| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|단일 변수 꺾은선형 차트|
+|반복적으로 사용되는 동일한 메트릭 이름(for 루프 내에서와 같이)을 사용하여 단일 숫자 값 기록| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| 단일 변수 꺾은선형 차트|
+|2개의 숫자 열을 반복적으로 사용하여 행 기록|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|두 개의 변수 꺽은선형 차트|
+|두 개의 숫자 열을 사용하여 테이블 기록|`run.log_table(name='Sine Wave', value=sines)`|두 개의 변수 꺽은선형 차트|
 
 ## <a name="example-notebooks"></a>노트북 예제
 이 문서의 개념을 보여 주는 노트북은 다음과 같습니다.
 * [01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
 * [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.getting-started/06.logging-api/06.logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
 
 노트북을 가져오려면 다음을 수행합니다. [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

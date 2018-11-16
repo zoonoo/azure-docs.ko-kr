@@ -1,24 +1,24 @@
 ---
-title: HDInsight로 Ambari Tez 뷰 사용 - Azure
-description: Ambari Tez 뷰를 사용하여 HDInsight에서 Tez 작업을 디버깅하는 방법을 알아봅니다.
+title: HDInsight로 Apache Ambari Tez 뷰 사용 - Azure
+description: Apache Ambari Tez 뷰를 사용하여 HDInsight에서 Tez 작업을 디버깅하는 방법을 알아봅니다.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 576460f4b68d670e534e0ddeed920f7ac99e1458
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: c85ad59acc8e307de05f41365855f3a9669ac2b5
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108889"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034679"
 ---
-# <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>HDInsight에서 Ambari 뷰를 사용하여 Tez 작업 디버깅
+# <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>HDInsight에서 Apache Ambari Tez 뷰를 사용하여 Tez 작업 디버깅
 
-HDInsight의 Ambari Web UI에는 Tez를 사용하는 작업을 이해 및 디버깅하는 데 사용할 수 있는 Tez 보기가 포함되어 있습니다. Tez 뷰를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
+HDInsight의 Apache Ambari Web UI에는 Apache Tez를 사용하는 작업을 이해 및 디버깅하는 데 사용할 수 있는 Tez 보기가 포함되어 있습니다. Tez 뷰를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -28,9 +28,9 @@ HDInsight의 Ambari Web UI에는 Tez를 사용하는 작업을 이해 및 디버
 * Linux 기반 HDInsight 클러스터입니다. 클러스터를 만드는 단계는 [Linux 기반 HDInsight 사용 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * HTML5를 지원하는 최신 웹 브라우저
 
-## <a name="understanding-tez"></a>Tez 이해
+## <a name="understanding-apache-tez"></a>Apache Tez 이해
 
-Tez는 기존의 MapReduce 처리보다 빠른 속도를 제공하는 Hadoop의 데이터 처리에 대해 확장 가능한 프레임워크입니다. Linux 기반 HDInsight 클러스터에서는 Hive에 대한 기본 엔진입니다.
+Tez는 기존의 MapReduce 처리보다 빠른 속도를 제공하는 Apache Hadoop의 데이터 처리에 대해 확장 가능한 프레임워크입니다. Linux 기반 HDInsight 클러스터에서는 Hive에 대한 기본 엔진입니다.
 
 Tez는 작업에서 수행해야 하는 작업 순서를 설명하는 DAG(방향성 비순환 그래프)를 만듭니다. 개별 동작은 꼭짓점을 호출하고 전체 작업의 일부를 실행합니다. 꼭짓점에서 설명하는 작업의 실제 실행을 태스크라고 하며 클러스터의 여러 노드에 분산될 수 있습니다.
 

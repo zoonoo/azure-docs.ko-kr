@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 4189d3a09625f211c6f9eddc7c1c5fe43ad31732
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572439"
+---
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
 
 이 섹션에서는 자체 호스팅 Integration Runtime을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅된 통합 런타임은 컴퓨터의 SQL Server에서 Azure Blob 저장소로 데이터를 복사하는 구성 요소입니다. 
@@ -113,7 +126,7 @@
 
     a. **구성 관리자** 페이지에서 **진단** 탭으로 이동합니다.
 
-    나. 데이터 원본 유형에 대한 **SqlServer**를 선택합니다.
+    b. 데이터 원본 유형에 대한 **SqlServer**를 선택합니다.
 
     다. 서버 이름을 입력합니다.
 

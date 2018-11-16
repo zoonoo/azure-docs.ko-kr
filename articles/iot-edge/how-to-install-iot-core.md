@@ -2,19 +2,19 @@
 title: IoT Core에 Azure IoT Edge 설치 | Microsoft Docs
 description: Windows IoT Core 장치에 Azure IoT Edge 런타임을 설치합니다.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.reviewer: veyalla
 ms.date: 03/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ac729963e63bd97c83719e21dad3ad2cfc9b4fee
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 17afc095fa0500ca98559a9523282d75949faa60
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392797"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564829"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Windows IoT Core에 IoT Edge 런타임 설치 - 미리 보기
 

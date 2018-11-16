@@ -1,3 +1,16 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572421"
+---
 1. [Azure Portal][Azure portal]에 로그인합니다.
 2. 왼쪽 메뉴에서 **+ 리소스 만들기**를 선택합니다. 그런 다음, **통합** > **릴레이**를 선택합니다. 목록에서 **릴레이**를 찾을 수 없으면 오른쪽 위 모서리에서 **모두 보기**를 선택합니다. 
 3. **네임스페이스 만들기** 아래에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.

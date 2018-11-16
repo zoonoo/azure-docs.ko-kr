@@ -8,16 +8,47 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c676932541866df081f6db54fa0b1ec4da7088
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471141"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218596"
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="speech-service-sdk-110"></a>Speech Service SDK 1.1.0
+
+**새로운 기능**
+
+* Android x86/x64를 지원합니다.
+* 프록시 지원: 이제 SpeechConfig 개체에서 함수를 호출하여 프록시 정보(호스트 이름, 포트, 사용자 이름 및 암호)를 설정할 수 있습니다. iOS에서는 아직 이 기능을 사용할 수 없습니다.
+* 향상된 오류 코드 및 메시지입니다. 인식이 오류를 반환한 경우 이미 `Reason`(취소된 이벤트의) 또는 `CancellationDetails`(인식 결과의) `Error`로 설정되어 있습니다. 취소 이벤트에는 이제 두 개의 추가 멤버 `ErrorCode` 및 `ErrorDetails`가 포함됩니다. 서버에서 보고된 오류를 사용하여 추가 오류 정보를 반환하는 경우 해당 서버를 새 멤버에서 사용할 수 있습니다.
+
+**향상된 기능**
+
+* 인식기 구성에서 추가 확인을 추가하고, 추가 오류 메시지를 추가했습니다.
+* 오디오 파일의 중간에 긴 무음 시간 처리가 향상되었습니다.
+* NuGet 패키지: .NET Framework의 경우 프로젝트는 AnyCPU 구성을 통한 빌드를 방지합니다.
+
+**버그 수정**
+
+* 인식기에서 발견된 몇 가지 예외를 수정했습니다. 또한 예외가 catch되고 취소된 이벤트로 변환됩니다.
+* 속성 관리에서 메모리 누수를 해결합니다.
+* 오디오 입력 파일이 인식기 작동을 중지할 수 있는 버그가 수정되었습니다.
+* 세션 중지 이벤트 후 이벤트를 수신할 수 있는 버그가 수정되었습니다.
+* 스레딩에서 일부 경합 상태가 수정되었습니다.
+* 결국 충돌을 일으킬 수 있는 iOS 호환성 문제가 해결되었습니다.
+* Android 마이크 지원의 안정성 향상.
+* JavaScript의 인식기가 인식 언어를 무시하는 버그가 수정되었습니다.
+* Javascript에서 EndpointId(일부 경우) 설정을 방해하는 버그가 수정되었습니다.
+* JavaScript의 AddIntent에서 매개 변수 순서를 변경하고, 누락된 AddIntent JavaScript 서명을 추가했습니다.
+
+**샘플**
+
+* [샘플 리포지토리](https://aka.ms/csspeech/samples)에 끌어오기 및 밀어넣기 스트리밍 사용에 대한 C++ 샘플을 추가했습니다.
 
 ## <a name="speech-service-sdk-101"></a>Speech Service SDK 1.0.1
 

@@ -1,3 +1,16 @@
+---
+author: sdwheeler
+ms.service: azure-powershell
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sewhee
+ms.openlocfilehash: 5f224ab3b0040bcba6b99d8db744e9dbde4a63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572467"
+---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>리소스 관리자 템플릿에 대한 PowerShell 설정
 리소스 관리자에서 Azure PowerShell을 사용하려면 먼저 올바른 Windows PowerShell 및 Azure PowerShell 버전이 있어야 합니다.
 
