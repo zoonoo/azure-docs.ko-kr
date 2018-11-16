@@ -70,38 +70,6 @@ items:
   expanded: true
 - name: 개념
   items:
-  - name: Azure Cosmos 계정 작업
-    href: account-overview.md
-  - name: 컨테이너 및 항목
-    items:
-    - name: 데이터베이스, 컨테이너 및 항목 작업
-      href: databases-containers-items.md
-    - name: 인덱싱
-      items:
-      - name: 개요
-        href: index-overview.md
-      - name: 인덱싱 정책
-        href: index-policy.md
-      - name: 인덱스 형식
-        href: index-types.md
-      - name: 인덱스 경로
-        href: index-paths.md
-    - name: 변경 피드
-      items:
-      - name: 개요
-        href: change-feed.md
-      - name: 변경 피드 읽기
-        href: read-change-feed.md
-      - name: 변경 피드 프로세서
-        href: change-feed-processor.md
-      - name: Azure Functions를 사용한 변경 피드
-        href: change-feed-functions.md
-    - name: TTL(Time to live)
-      href: time-to-live.md
-    - name: 고유 키 제약 조건
-      href: unique-keys.md
-    - name: 트랜잭션 및 낙관적 동시성
-      href: database-transactions-optimistic-concurrency.md
   - name: 글로벌 분포
     items:
     - name: 개요
@@ -136,6 +104,38 @@ items:
       href: request-units.md
     - name: 컨테이너 및 데이터베이스에 대한 처리량 프로비전
       href: set-throughput.md
+  - name: Azure Cosmos 계정 작업
+    href: account-overview.md
+  - name: 컨테이너 및 항목
+    items:
+    - name: 데이터베이스, 컨테이너 및 항목 작업
+      href: databases-containers-items.md
+    - name: 인덱싱
+      items:
+      - name: 개요
+        href: index-overview.md
+      - name: 인덱싱 정책
+        href: index-policy.md
+      - name: 인덱스 형식
+        href: index-types.md
+      - name: 인덱스 경로
+        href: index-paths.md
+    - name: 변경 피드
+      items:
+      - name: 개요
+        href: change-feed.md
+      - name: 변경 피드 읽기
+        href: read-change-feed.md
+      - name: 변경 피드 프로세서
+        href: change-feed-processor.md
+      - name: Azure Functions를 사용한 변경 피드
+        href: change-feed-functions.md
+    - name: TTL(Time to live)
+      href: time-to-live.md
+    - name: 고유 키 제약 조건
+      href: unique-keys.md
+    - name: 트랜잭션 및 낙관적 동시성
+      href: database-transactions-optimistic-concurrency.md
   - name: 보안
     items:
     - name: 개요
@@ -567,9 +567,9 @@ items:
       href: use-cases.md
     - name: 소셜 미디어 앱
       href: social-media-apps.md
-ms.openlocfilehash: 786829ec3052672c4a931d6a31452a3d96058fcd
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 9a9aed84f75d9db93ec02bbfa681412dd1fa97da
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636563"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706391"

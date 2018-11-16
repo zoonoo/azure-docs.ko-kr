@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 38d54d6d568b3cbacbf62f1d9f4dd3feec083287
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 7a1bcde635d890384e660435845c42f016738e00
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389601"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687064"
 documentType: LandingData
 title: Load Balancer
 metadata:
@@ -13,12 +13,12 @@ metadata:
   meta.description: Learn how to use Azure Load Balancer. Quickstarts, tutorials, samples, and more, show you how to deploy a load balancer and load balance traffic to and from virtual machines and cloud resources, and in cross-premises virtual networks.
   services: load-balancer
   author: KumudD
-  manager: jeconnoc
+  manager: twooley
   ms.service: load-balancer
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/19/2018
+  ms.date: 11/14/2018
   ms.author: kumud
 abstract:
   description: Azure Load Balancer의 사용 방법에 대해 알아보세요. 빠른 시작, 자습서, 샘플 등은 부하 분산 장치를 배포하고, 가상 머신 및 클라우드 리소스 간 그리고 크로스-프레미스 가상 네트워크의 트래픽 부하를 분산하는 방법을 보여줍니다.
@@ -49,7 +49,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-manage-portal">Load Balancer 만들기 및 관리</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-manage-portal">VM에 내부 트래픽 부하 분산</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-basic-internal-portal">VM에 내부 트래픽 부하 분산</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">가용성 영역에 VM 부하 분산</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">특정 가용성 영역 내에 VM 부하 분산</a>

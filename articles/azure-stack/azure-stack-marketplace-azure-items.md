@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: ef6b068e7a8b97713c54ddeea1817a6c379703c8
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c3c5e904d8e933c09754e13ccb22d6c16d0a37eb
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804602"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713472"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -104,6 +104,11 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 |  | 항목 이름 | 설명 | 게시자 |
 | --- | --- | --- | --- |
 | ![Arista vEOS 라우터](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS 라우터](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS 라우터는 기능을 갖춘, 다중 클라우드, 엔터프라이즈 및 클라우드 공급자 일관 되 고 매우 안전한 빌드할 수 있는 다중 하이퍼바이저 가상 라우터 및 확장 가능한 하이브리드 네트워크입니다. | Arista Networks |
+| ![Barracuda 응용 프로그램 보안 제어 센터](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 응용 프로그램 보안 제어 센터](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | 여러 Barracuda 웹 응용 프로그램 방화벽 (WAF)를 중앙에서 관리 합니다. | Barracuda Networks, Inc. |
+| ![Barracuda 전자 메일 보안 게이트웨이](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 전자 메일 보안 게이트웨이](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | 인바운드 전자 메일을 통한 공격 으로부터 보호 하기 위해 전자 메일 보안 게이트웨이. | Barracuda Networks, Inc. |
+| ![Barracuda WAF (웹 응용 프로그램 방화벽)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda WAF (웹 응용 프로그램 방화벽)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | 보안 및 대상 및 자동화 된 공격에 대 한 DDoS 보호 합니다. | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen 방화벽 제어 센터](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen 방화벽 제어 센터](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-cc) | Barracuda CloudGen 방화벽 수백 개의 폼 팩터에서 위치에 관계 없이 중앙에서 관리 합니다. | Barracuda Networks, Inc. |
+| ![Azure 용 barracuda CloudGen 방화벽](media/azure-stack-marketplace-azure-items/barracuda.png) | [Azure 용 barracuda CloudGen 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-firewall) | 응용 프로그램 및 데이터 상주를 전적으로 연결이 종료 되는 위치 대신 방화벽 보호를 제공 합니다. | Barracuda Networks, Inc. |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | 오픈 소스 전자 상거래 쇼핑 카트입니다. | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Java에서 오픈 소스 메시지 브로커입니다. | Bitnami |
 | ![Akeneo](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.akeneo) | 강력한 PIM 관리 프로세스를 간소화 하도록 설계 되었습니다. | Bitnami |
@@ -142,8 +147,6 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![JRuby](media/azure-stack-marketplace-azure-items/jruby.png) | [JRuby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jrubystack) | Ruby의 고성능 Java 구현입니다. | Bitnami |
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | 강력한 배포 게시-구독 메시징 시스템입니다. | Bitnami |
 | ![Kafka 클러스터](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka는 게시-구독 메시징 분산된 커밋 로그로 재고할입니다. 이 솔루션에는 여러 Kafka broker 및 Zookeeper 인스턴스를 프로 비전 하 여 Kafka 클러스터의 안정성 향상 됩니다. **이 솔루션 템플릿에 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트도 필요합니다.** | Bitnami |
-| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky 하이브리드 클라우드 보안](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 원활 하 게 조정 되 고 적응 사이버 보안 에코 시스템을 수 있습니다. | Kaspersky 랩 |
-| ![kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | 이 솔루션은 ACS 엔진을 사용 하 여 생성 된 템플릿을 사용 하 여 독립 실행형 클러스터로 실행 하는 Kubernetes 클러스터를 배포 합니다.<br>**이 솔루션 템플릿에 Linux 2.0 용 Ubuntu Server 16.04 LTS 및 사용자 지정 스크립트도 필요합니다.**| Microsoft |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | 완벽 하 게 통합 및 개발 환경을 실행할 준비가 됩니다. | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | 전체 PHP, PostgreSQL 및 Apache 개발 환경입니다. | Bitnami |
 | ![보겠습니다 채팅](media/azure-stack-marketplace-azure-items/letschat.png) | [보겠습니다 채팅](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | 오픈 소스 영구 메시징 응용 프로그램입니다. | Bitnami |
@@ -208,7 +211,6 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![ResourceSpace](media/azure-stack-marketplace-azure-items/resourcespace.png) | [ResourceSpace](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.resourcespace) | 향상 된 공동 작업에 대 한 디지털 자산 관리 시스템입니다. | Bitnami |
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | MIME 지원과 같은 기능을 사용 하 여 IMAP 클라이언트 브라우저 기반입니다. | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | Ruby on Rails에 대 한 사용 하기 쉬운 개발 환경입니다. | Bitnami |
-| ![Service Fabric 클러스터](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | 이 솔루션은 가상 머신 확장 집합에서 독립 실행형 클러스터로 실행 되는 Service Fabric을 배포 합니다. <br>**이 솔루션 템플릿에 또한 Windows Server 2016 Datacenter를 다운로드 하 필요**| Microsoft |
 | ![SEO 패널](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO 패널](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | 오픈 소스 SEO 관리 응용 프로그램에 여러 웹 사이트를 추적 합니다. | Bitnami |
 | ![Shopware](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.shopware) | 오픈 소스 전자 상거래 플랫폼입니다. | Bitnami |
 | ![간단한 컴퓨터 포럼](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [간단한 컴퓨터 포럼](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | 사용자 고유의 온라인 커뮤니티를 만드는 간단한 포럼 소프트웨어입니다. | Bitnami |
@@ -229,19 +231,18 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![X2Engine 판매 CRM](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine 판매 CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | Compact 마케팅, 영업 및 고객 서비스 응용 프로그램입니다. | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS 및 동적 웹 사이트를 만드는 웹 포털 프로그램입니다. | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | 오픈 소스 CRM 시스템: 모바일, 소셜 및 Gamified 합니다. | Bitnami |
-| ![Barracuda 응용 프로그램 보안 제어 센터](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 응용 프로그램 보안 제어 센터](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | 여러 Barracuda 웹 응용 프로그램 방화벽 (WAF)를 중앙에서 관리 합니다. | Barracuda Networks, Inc. |
-| ![Barracuda 전자 메일 보안 게이트웨이](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda 전자 메일 보안 게이트웨이](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | 인바운드 전자 메일을 통한 공격 으로부터 보호 하기 위해 전자 메일 보안 게이트웨이. | Barracuda Networks, Inc. |
-| ![Barracuda WAF (웹 응용 프로그램 방화벽)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda WAF (웹 응용 프로그램 방화벽)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | 보안 및 대상 및 자동화 된 공격에 대 한 DDoS 보호 합니다. | Barracuda Networks, Inc. |
-| ![Barracuda CloudGen 방화벽 제어 센터](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen 방화벽 제어 센터](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-cc) | Barracuda CloudGen 방화벽 수백 개의 폼 팩터에서 위치에 관계 없이 중앙에서 관리 합니다. | Barracuda Networks, Inc. |
-| ![Azure 용 barracuda CloudGen 방화벽](media/azure-stack-marketplace-azure-items/barracuda.png) | [Azure 용 barracuda CloudGen 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-firewall) | 응용 프로그램 및 데이터 상주를 전적으로 연결이 종료 되는 위치 대신 방화벽 보호를 제공 합니다. | Barracuda Networks, Inc. |
 | ![Check Point vSEC 보안 관리](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC 보안 관리](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC는 맬웨어 및 고급 위협 으로부터 Azure에서 고객 자산을 보호 하기 위해 다중 계층, 고급 위협 방지를 제공 합니다. **모두 확인 지점 vSEC marketplace 항목 다운로드 합니다.** | Check Point |
-| ![Chef 자동화](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 빌드, 배포 및 Chef Automate를 지속적인 자동화 플랫폼을 사용 하 여 관리 합니다. **두 Chef marketplace 항목 다운로드** | Chef 소프트웨어, Inc |
+| ![Chef 자동화](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 빌드, 배포 및 Chef Automate를 지속적인 자동화 플랫폼을 사용 하 여 관리 합니다. **두 Chef marketplace 항목 다운로드**합니다. | Chef 소프트웨어, Inc |
+| ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | 백업 및 복구, 응용 프로그램 및 Azure Stack 및 단일 솔루션에서 Azure Stack 환경에 대 한 재해 복구로 VM 마이그레이션에 대 한 포괄적인 솔루션입니다. | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 안정적으로 Vm을 암호화 합니다. **CloudLink SecureVM 항목을 모두 다운로드 합니다.** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM에 포괄적인 보안 플랫폼을 제공 하는 고급 감사 준비 규정 준수 기능을 사용 하 여 보안 도구입니다. | EventTracker |
 | ![f5 키](media/azure-stack-marketplace-azure-items/f5.png) | [f5 BIG-IP 가상 버전](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | 부하 분산, GSLB, 네트워크 방화벽, DNS, WAF 및 응용 프로그램 액세스 고급입니다. | F5 Networks |
 | ![FortiGate 차세대 방화벽](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate 차세대 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | 종합적인 강력한 보안 기능을 사용 하 여 전체 콘텐츠 및 네트워크 보호 기능을 제공 하는 방화벽 기술입니다. 응용 프로그램 제어, 바이러스 백신, IPS, 웹 필터링, 취약성 관리와 같은 고급 기능과 함께 VPN 식별 하 고 최신 복잡 한 보안 위협을 완화 하기 위해 함께에서 작동 합니다. | Fortinet |
 | ![Hortonworks Data Platform (HDP) 샌드박스](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 샌드박스](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 연결 된 HDP 2.5 100% 오픈 소스 플랫폼 Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari에 대 한 합니다. | Hortonworks |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky 하이브리드 클라우드 보안](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 원활 하 게 조정 되 고 적응 사이버 보안 에코 시스템을 수 있습니다. | Kaspersky 랩 |
 | ![KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 계층 4-7 응용 프로그램 배달 컨트롤러 (ADC) 부하 분산, 콘텐츠 스위치 및 Traffic Manager. | KEMP Technologies Inc. |
+| ![kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | 이 솔루션은 ACS 엔진을 사용 하 여 생성 된 템플릿을 사용 하 여 독립 실행형 클러스터로 실행 하는 Kubernetes 클러스터를 배포 합니다.<br>**이 솔루션 템플릿에 Linux 2.0 용 Ubuntu Server 16.04 LTS 및 사용자 지정 스크립트도 필요합니다.**| Microsoft |
+| ![Service Fabric 클러스터](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | 이 솔루션은 가상 머신 확장 집합에서 독립 실행형 클러스터로 실행 되는 Service Fabric을 배포 합니다. <br>**이 솔루션 템플릿에 또한 Windows Server 2016 Datacenter를 다운로드 하 필요**| Microsoft |
 | ![NRI mPLAT Suite-다중 클라우드 Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite-다중 클라우드 Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | 단일 창의 투명 효과 모니터링 하려면 구성, 프로 비전, 자동화 및 모든 워크 로드 또는 클라우드를 제어 합니다. | NRI |
 | ![호환 NooBaa 하이브리드 AWS S3-Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa 하이브리드 AWS S3 compatibe-Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-호환 되는 저장소 서비스 공개에 걸쳐 있고 온-프레미스 용량 리소스입니다. | NooBaa |
 | ![Multipoint 0에 대 한 게이트웨이 NetFoundry 신뢰 Azure Stack 연결](media/azure-stack-marketplace-azure-items/netfoundry.png) | [Multipoint 0에 대 한 게이트웨이 NetFoundry 신뢰 Azure Stack 연결](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | Azure Stack 및 업계 최고의 0 신뢰 보안, VPN 및 동시 사용자를 무제한으로의 처리량 x 5 사용 하 여 모든 네트워크 연결을 통해 어디서 나 간의 소프트웨어 전용, 다중 지점 연결 합니다. | NetFoundry |

@@ -10,6 +10,7 @@ items:
     displayName: architecture
     href: concept-azure-machine-learning-architecture.md
   - name: Workbench에 대한 새로운 소식
+    displayName: desktop
     href: overview-what-happened-to-workbench.md
   expanded: true
 - name: 빠른 시작
@@ -32,7 +33,7 @@ items:
   items:
   - name: Jupyter notebook (GitHub)
     displayName: example, examples
-    href: http://aka.ms/aml-notebooks
+    href: https://aka.ms/aml-notebooks
 - name: 개념
   items:
   - name: 모델 관리
@@ -49,7 +50,7 @@ items:
   - name: 개발 환경 설정 
     items:
     - name: 환경 구성
-      displayName: local, remote
+      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm
       href: how-to-configure-environment.md
     - name: AI용 VS Code Tools
       displayName: Visual Studio Code, vscode
@@ -71,7 +72,7 @@ items:
   - name: 모델 학습
     items:
     - name: 학습 환경 설정
-      displayName: compute target, train
+      displayName: compute target, dsvm, Data Science Virtual Machine, batchai, batch ai, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: 학습에서 데이터에 액세스
       href: how-to-access-data.md
@@ -83,11 +84,12 @@ items:
       - name: TensorFlow
         href: how-to-train-tensorflow.md
     - name: hyperparameters 조정
+      displayName: parameter
       href: how-to-tune-hyperparameters.md
     - name: 실험 및 메트릭 추적
       href: how-to-track-experiments.md
   - name: 기계 학습 자동화
-    displayName: automl
+    displayName: automl, auto ml
     href: how-to-automated-ml.md
     items:
     - name: 자동 학습 구성
@@ -101,6 +103,7 @@ items:
   - name: 모델 배포
     items:
     - name: 모델 배포 위치
+      displayName: publish
       href: how-to-deploy-and-where.md
     - name: ACI에 배포
       displayName: Azure Container Instances
@@ -126,17 +129,21 @@ items:
     - name: Application Insights로 모니터링
       href: how-to-enable-app-insights.md
   - name: 리소스 할당량 관리
+    displayName: limits
     href: how-to-manage-quotas.md
   - name: Machine Learning CLI 사용
-    displayName: cli, command line, command-line
+    displayName: cli, command line, command-line, az,
     href: reference-azure-machine-learning-cli.md
 - name: 참고 자료
   items:
   - name: Machine Learning SDK
-    href: http://aka.ms/aml-sdk
+    displayName: api, core, package
+    href: https://aka.ms/aml-sdk
   - name: 데이터 준비 SDK
-    href: http://aka.ms/data-prep-sdk
+    displayName: api, preparation, package
+    href: https://aka.ms/data-prep-sdk
   - name: 모니터링 SDK
+    displayName: api, package
     href: https://aka.ms/aml-monitoring-sdk
 - name: 리소스
   items:
@@ -147,12 +154,14 @@ items:
   - name: 국가별 가용성
     href: https://azure.microsoft.com/regions/services/
   - name: 릴리스 정보
+    displayName: what's new
     href: azure-machine-learning-release-notes.md
   - name: 알려진 문제
     href: resource-known-issues.md
   - name: 지원 받기
     href: support-for-aml-services.md
   - name: 데이터 내보내기 및 삭제
+    displayName: gdpr
     href: how-to-export-delete-data.md
   - name: 사용되지 않는 문서
     items:
@@ -161,7 +170,7 @@ items:
       href: how-to-migrate.md
     - name: 계정 데이터 내보내기 또는 삭제(사용되지 않음)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
-    - name: Workbench 빠른 시작
+    - name: Workbench 빠른 시작(사용되지 않음)
       href: ../desktop-workbench/quickstart-installation.md
     - name: '자습서 1: 데이터 준비'
       href: ../desktop-workbench/tutorial-classifying-iris-part-1.md
@@ -357,9 +366,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 이전 문제
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 87379b773b353f4f384252a9840f1e75d595e37b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 62bc2016ec9294c00f20587cb6f6f7af7bafa599
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613633"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706656"

@@ -28,8 +28,8 @@
 ### [웹 기준 평가](../security-center/security-center-customize-os-security-config.md)
 
 ## 솔루션 사용
-### [관리 솔루션](../monitoring/monitoring-solutions.md)
-### [대상 솔루션](../monitoring/monitoring-solution-targeting.md)
+### [관리 솔루션](../azure-monitor/insights/solutions.md)
+### [대상 솔루션](../azure-monitor/insights/solution-targeting.md)
 ### 통찰 및 분석
 #### [AD 평가](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD 복제 상태](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -57,12 +57,12 @@
 #### [맬웨어 방지 평가](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## 솔루션 만들기
-### [디자인 및 빌드](../monitoring/monitoring-solutions-creating.md)
-### [솔루션 파일](../monitoring/monitoring-solutions-solution-file.md)
-### [Automation 리소스](../monitoring/monitoring-solutions-resources-automation.md)
-### [로그 검색 및 경고](../monitoring/monitoring-solutions-resources-searches-alerts.md)
-### [뷰](../monitoring/monitoring-solutions-resources-views.md)
-### [모범 사례](../monitoring/monitoring-solutions-best-practices.md)
+### [디자인 및 빌드](../azure-monitor/insights/solutions-creating.md)
+### [솔루션 파일](../azure-monitor/insights/solutions-solution-file.md)
+### [Automation 리소스](../azure-monitor/insights/solutions-resources-automation.md)
+### [로그 검색 및 경고](../azure-monitor/insights/solutions-resources-searches-alerts.md)
+### [뷰](../azure-monitor/insights/solutions-resources-views.md)
+### [모범 사례](../azure-monitor/insights/solutions-best-practices.md)
 
 ## 관리 시나리오
 ### [Runbook에서 분석 데이터 수집](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
