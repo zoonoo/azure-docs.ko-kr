@@ -35,7 +35,7 @@
 # 방법
 ## 인터넷 연결
 ### [네트워크 부하 분산 공용 서버](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [응용 프로그램 부하 분산 공용 서버](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [응용 프로그램 부하 분산 공용 서버](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [웹 응용 프로그램 보호](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [위치 간 트래픽 배포](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## 내부 연결
