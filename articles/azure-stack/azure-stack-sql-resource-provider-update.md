@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: d1bb7da3ad3862e5b15f6440b4c607143b3c5b2a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: ad1a89c69d34dbb48b87a75778e18c9a995f749a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683233"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853560"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL 리소스 공급자 업데이트
 
@@ -27,8 +27,8 @@ ms.locfileid: "51683233"
 
 새 SQL 리소스 공급자는 Azure Stack 새 빌드로 업데이트 될 때 해제 될 수 있습니다. 기존 어댑터 작업을 계속 하지만 가능한 한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다.
 
->[!IMPORTANT]
->릴리스되는 순서 대로 업데이트를 설치 해야 합니다. 버전을 건너뛸 수 없습니다. 버전 목록 가리킵니다 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)합니다.
+> [!IMPORTANT]
+> 릴리스되는 순서 대로 업데이트를 설치 해야 합니다. 버전을 건너뛸 수 없습니다. 버전 목록 가리킵니다 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)합니다.
 
 ## <a name="overview"></a>개요
 

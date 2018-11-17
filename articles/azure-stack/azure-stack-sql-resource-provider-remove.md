@@ -11,25 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b7af23ccdd379aac9959bb9993fc1781a44e705e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e84d2a446de537924f55f1b784731e54c94c768d
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684029"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851573"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL 리소스 공급자를 제거 합니다.
 
 SQL 리소스 공급자를 제거 하기 전에 모든 공급자 종속성을 제거 해야 합니다. 리소스 공급자를 설치 하는 데 사용 된 배포 패키지의 복사본을 해야 합니다.
 
-  |Azure Stack의 최소 버전|SQL RP 버전|
-  |-----|-----|
-  |버전 1808 (1.1808.0.97)|[SQL RP 1.1.30.0 버전](https://aka.ms/azurestacksqlrp11300)|
-  |버전 1804 (1.0.180513.1)|[SQL RP 1.1.24.0 버전](https://aka.ms/azurestacksqlrp11240)
-  |     |     |
+> [!NOTE]
+> 공급자 설치 관리자에서 리소스에 대 한 다운로드 링크를 찾을 수 있습니다 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)합니다.
 
 ## <a name="dependency-cleanup"></a>종속성 정리
 
