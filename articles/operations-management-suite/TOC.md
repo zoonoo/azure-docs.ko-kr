@@ -42,9 +42,9 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric Analytics](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### 서비스 맵
-##### [사용](../monitoring/monitoring-service-map.md)
-##### [구성](../monitoring/monitoring-service-map-configure.md)
-##### [Operations Manager와 통합](../monitoring/monitoring-service-map-scom.md)
+##### [사용](../azure-monitor/insights/service-map.md)
+##### [구성](../azure-monitor/insights/service-map-configure.md)
+##### [Operations Manager와 통합](../azure-monitor/insights/service-map-scom.md)
 #### [SQL 평가](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Analytics 업그레이드](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -65,7 +65,7 @@
 ### [모범 사례](../azure-monitor/insights/solutions-best-practices.md)
 
 ## 관리 시나리오
-### [Runbook에서 분석 데이터 수집](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Runbook에서 분석 데이터 수집](../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)
