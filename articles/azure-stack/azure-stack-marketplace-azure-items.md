@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: c3c5e904d8e933c09754e13ccb22d6c16d0a37eb
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 229c0a6afee893a4a8eb5cd62a1d25266ee8fc3e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713472"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977185"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -32,18 +32,18 @@ ms.locfileid: "51713472"
 
 |  | 항목 이름 | 설명 | 게시자 | OS 종류 |
 | --- | --- | --- | --- | --- |
-|![SQL IaaS 확장](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Windows Marketplace 항목에 모든 SQL Server를 배포 하려면이 확장을 다운로드-이 확장은 필수입니다.** | Microsoft | Windows |
-|![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Windows 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft | Windows |
-|![Powershell DSC 확장](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **PowerShell DSC 확장의 기본 버전으로이 업데이트를 다운로드 합니다. TLS v1.2를 지원 하도록 업데이트 합니다.** | Microsoft | Windows |
-| ![Microsoft 맬웨어 방지 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. **맬웨어 방지 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft | Windows |
-| ![Microsoft Azure 진단 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 진단 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure 진단은 배포 된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. **Windows에 대 한 진단 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft | Windows || ![Microsoft Monitoring 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Monitoring Agent 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Microsoft Monitoring Agent 확장 기능을 모니터링 하는 가상 컴퓨터 수 있도록 OMS와 함께 사용 됩니다. **이 업데이트는 모니터링 에이전트 확장에 대 한 Windows의 기본 버전을 다운로드 합니다.** | Microsoft | Windows |
+|![SQL IaaS 확장](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 확장](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **Windows Marketplace 항목에 모든 SQL Server를 배포 하려면이 확장을 다운로드-이 확장은 필수입니다.** | Microsoft |  Windows |
+|![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Windows 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows |
+|![Powershell DSC 확장](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **PowerShell DSC 확장의 기본 버전으로이 업데이트를 다운로드 합니다. TLS v1.2를 지원 하도록 업데이트 합니다.** | Microsoft |  Windows |
+| ![Microsoft 맬웨어 방지 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. **맬웨어 방지 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows |
+| ![Microsoft Azure 진단 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 진단 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure 진단은 배포 된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. **Windows에 대 한 진단 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft |  Windows || ![Microsoft Monitoring 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Monitoring Agent 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Microsoft Monitoring Agent 확장 기능을 모니터링 하는 가상 컴퓨터 수 있도록 OMS와 함께 사용 됩니다. **이 업데이트는 모니터링 에이전트 확장에 대 한 Windows의 기본 버전을 다운로드 합니다.** | Microsoft |  Windows |
 |![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)|**Linux 용 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다. 이 확장의 버전이 여러 개 및 1.5.2.1와 2.0.x 다운로드 해야 합니다.** | Microsoft | Linux |
 | ![Linux 용 VM 액세스](media/azure-stack-marketplace-azure-items/cse.png) | [Linux 용 VM 액세스](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **Linux 확장에 대 한 기본 버전을 VMAccess의이 업데이트를 다운로드 합니다. 이 업데이트는 Debian Linux Vm을 사용 하려는 경우 중요 합니다.** | Microsoft | Linux |
 | ![Linux 용 Acronis 백업 확장](media/azure-stack-marketplace-azure-items/acronis.png) | [Linux 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure 용 Acronis 백업 확장에는 Acronis 백업 제품군에 데이터 보호의 일부입니다. | Acronis International GmbH 합니다. | Linux |
-| ![Windows 용 Acronis 백업 확장](media/azure-stack-marketplace-azure-items/acronis.png) | [Windows 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure 용 Acronis 백업 확장에는 Acronis 백업 제품군에 데이터 보호의 일부입니다. | Acronis International GmbH 합니다. | Windows |
+| ![Windows 용 Acronis 백업 확장](media/azure-stack-marketplace-azure-items/acronis.png) | [Windows 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure 용 Acronis 백업 확장에는 Acronis 백업 제품군에 데이터 보호의 일부입니다. | Acronis International GmbH 합니다. |  Windows |
 | ![Linux 용 CloudLink SecureVM 확장](media/azure-stack-marketplace-azure-items/cloudlink.png) | [Linux 용 CloudLink SecureVM 확장](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 안정적으로 Vm을 암호화 합니다. | Dell EMC | Linux |
-| ![Windows 용 CloudLink SecureVM 확장](media/azure-stack-marketplace-azure-items/cloudlink.png) | [Windows 용 CloudLink SecureVM 확장](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 안정적으로 Vm을 암호화 합니다. | Dell EMC | Windows |
-| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Windows 용 Kaspersky 하이브리드 클라우드 보안 에이전트](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 Azure 확장을 통해 클라우드 워크 로드 내의 사이버 보안 기능을 제공할 수 있습니다. | Kaspersky 랩 | Windows |
+| ![Windows 용 CloudLink SecureVM 확장](media/azure-stack-marketplace-azure-items/cloudlink.png) | [Windows 용 CloudLink SecureVM 확장](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 안정적으로 Vm을 암호화 합니다. | Dell EMC |  Windows |
+| ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Windows 용 Kaspersky 하이브리드 클라우드 보안 에이전트](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 Azure 확장을 통해 클라우드 워크 로드 내의 사이버 보안 기능을 제공할 수 있습니다. | Kaspersky 랩 |  Windows |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Linux 용 Kaspersky 하이브리드 클라우드 보안 에이전트](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 Azure 확장을 통해 클라우드 워크 로드 내의 사이버 보안 기능을 제공할 수 있습니다. | Kaspersky 랩 | Linux |
 
 ## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft Virtual Machine 이미지 및 솔루션 템플릿
@@ -203,7 +203,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![RabbitMQ 클러스터](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ는 응용 프로그램에 메시지 및 안전을 받을 때까지 라이브 배치 메시지를 수신 하는 일반적인 플랫폼을 제공 하는 메시징 broker입니다. 이 솔루션을 단일 논리 브로커를 구성 하기 위해 RabbitMQ 클러스터에서 여러 노드 프로 비전 할 여러 Vm을 사용 합니다. **이 솔루션 템플릿에 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트도 필요합니다.** | Bitnami |
 | ![다시: 대시](media/azure-stack-marketplace-azure-items/redash.png) | [다시: 대시](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | 오픈 소스 데이터 시각화 및 공동 작업 플랫폼입니다. | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | 강력한 오픈 소스 키-값 저장소입니다. | Bitnami |
-| ![고가용성 redis](media/azure-stack-marketplace-azure-items/redis.png) | [고가용성 redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-redis) | 강력한 오픈 소스 키-값 저장소입니다. **이 솔루션 템플릿에 1807 이상 버전 이어야 하 여 Azure Stack와도 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트를 필요 합니다.** | Bitnami |
+| ![고가용성 redis](media/azure-stack-marketplace-azure-items/redis.png) | [고가용성 redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis-cluster) | 강력한 오픈 소스 키-값 저장소입니다. **이 솔루션 템플릿에 1807 이상 버전 이어야 하 여 Azure Stack와도 Linux 2.0 확장에 대 한 Debian 8 및 사용자 지정 스크립트를 필요 합니다.** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | 강력한 프로젝트 관리 웹 앱 | Bitnami |
 | ![Redmine+Agile](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine+Agile](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | Agile 플러그 인을 사용 하 여 미리 구성 된 프로젝트 관리 응용 프로그램입니다. | Bitnami |
 | ![ReportServer 커뮤니티](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer 커뮤니티](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | 오픈 소스 비즈니스 인텔리전스 플랫폼입니다. | Bitnami |
@@ -250,5 +250,5 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall 알려진 & 알 수 없는 취약점을 검색 하 고 웹 앱에 대 한 공격을 방지 합니다. **모두 (태평양 표준시) Marketplace 항목 다운로드 합니다.** | 양수 기술 |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise를 사용 하면 Azure Stack 인프라의 전체 수명 주기를 자동화할 수 있습니다. **두 Puppet Marketplace 항목 다운로드 합니다.** | Puppet |
 | ![Quest 신속한 복구](media/azure-stack-marketplace-azure-items/quest.png) | [Quest 신속한 복구 코어](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | 데이터 보호를 advanced 신속 하 게 복구할 백업, 복제 및 복구 하나 사용 하기 쉬운 소프트웨어 솔루션에서을 통합 합니다. | Quest Software |
-| ![SUSE 3.1 Manager 프록시 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE 3.1 Manager 프록시 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | 최고의 오픈 소스 인프라 관리 합니다. | SUSE |
+| ![SUSE 3.1 Manager 프록시 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE 3.1 Manager 프록시 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | 최고의 오픈 소스 인프라 관리 합니다. | SUSE |
 | ![ZeroDown 소프트웨어 BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [As a Service ZeroDown 소프트웨어 비즈니스 연속성](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | 해당 비즈니스 연속성을 통해 회사 데이터에 대 한 지속적인 액세스를 사용 하 여 기업 (BCaaS) 서비스로 제공 하는 ZeroDown® 소프트웨어 기술™ 네트워크 중단이 발생 하는 경우 일반적으로 아키텍처, 보호 응용 프로그램 및 트랜잭션 엔터프라이즈를 약화 됩니다. | ZeroDown 소프트웨어 |

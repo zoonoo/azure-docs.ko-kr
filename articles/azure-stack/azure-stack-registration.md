@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: be88e84c48ba31ce564c31eca1f54f164aeb9f93
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8d737c9fbf149051a8142f5ff546ea88e648541b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288240"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976369"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -31,7 +31,7 @@ Azure를 사용 하 여 Azure Stack 등록 하면 Azure에서 마켓플레이스
 > [!IMPORTANT]  
 > Marketplace에서 항목을 제공 하는 포함 하 여 전체 Azure Stack 기능을 지원 하려면 등록이 필요 합니다. 또한 Azure Stack-수-종 청구 모델을 사용 하는 경우 등록 하지 않은 경우 사용 조건에 위반에서 됩니다. Azure Stack 라이선스 모델에 대 한 자세한 내용은 참조 하십시오 합니다 [구입 방법 페이지](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 등록 하기 전에 다음 진행에서 해야 합니다.
 
@@ -423,7 +423,7 @@ Cmdlet을 실행 하려면 다음을 수행 해야 합니다.
     <String>] [<CommonParameters>]
    ```
 
-| 매개 변수 | 종류 | 설명 |
+| 매개 변수 | type | 설명 |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | 에 사용 된 자격 증명 [끝점에 권한 있는 액세스](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)합니다. 형식의 사용자 이름이 **AzureStackDomain\CloudAdmin**합니다. |
 | PrivilegedEndpoint | 문자열 | 미리 구성 된 원격 PowerShell 콘솔을 제공 하는 로그 수집 및 기타 post와 같은 기능을 사용 하 여 배포 작업입니다. 자세한 내용은 참조는 [권한 있는 끝점을 사용 하 여](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) 문서. |
@@ -431,7 +431,7 @@ Cmdlet을 실행 하려면 다음을 수행 해야 합니다.
 | ResourceGroupName | 문자열 |  |
 | ResourceGroupLocation | 문자열 |  |
 | BillingModel | 문자열 | 구독을 사용 하는 청구 모델입니다. 허용 되는이 매개 변수 값은: 용량과 PayAsYouUse를 개발 합니다. |
-| MarketplaceSyndicationEnabled |  |  |
+| MarketplaceSyndicationEnabled | True/False | Marketplace 관리 기능은 포털에서 사용할 수 있는지 여부를 결정 합니다. 인터넷 연결을 사용 하 여 등록 하는 경우 true로 설정 합니다. 연결이 끊어진 환경에 등록 하는 경우 false로 설정 합니다. 연결이 끊긴 등록 합니다 [오프 라인 배포 도구](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) marketplace 항목 다운로드에 사용할 수 있습니다. |
 | UsageReportingEnabled | True/False | Azure Stack 기본적으로 사용 메트릭을 보고합니다. 연산자를 사용 하 여 용량 또는 연결이 끊어진된 환경 지원 사용 보고를 해제 해야 합니다. 허용 되는이 매개 변수 값은: True, False입니다. |
 | AgreementNumber | 문자열 |  |
 | registrationName | 문자열 | Id입니다. 동일한 Azure 구독을 사용 하 여 Azure Stack의 둘 이상의 인스턴스에서 등록 스크립트를 실행 하는 경우 등록에 대 한 고유 이름 설정 매개 변수 중에서 기본값이 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다. |
@@ -445,7 +445,7 @@ Get-AzsRegistrationToken 입력된 매개 변수에서 등록 토큰을 생성 �
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| 매개 변수 | 종류 | 설명 |
+| 매개 변수 | type | 설명 |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | 에 사용 된 자격 증명 [끝점에 권한 있는 액세스](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)합니다. 형식의 사용자 이름이 **AzureStackDomain\CloudAdmin**합니다. |
 | PrivilegedEndpoint | 문자열 |  미리 구성 된 원격 PowerShell 콘솔을 제공 하는 로그 수집 및 기타 post와 같은 기능을 사용 하 여 배포 작업입니다. 자세한 내용은 참조는 [권한 있는 끝점을 사용 하 여](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) 문서. |

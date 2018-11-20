@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8a2a9728a9fcc0c409cd2020c4aa831433538157
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623981"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976131"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack의 진단 도구
 
@@ -70,13 +70,17 @@ if($s)
     Remove-PSSession $s
 }
 ```
-- 매개 변수 **OutputSharePath** 하 고 **OutputShareCredential** 사용자 지정 로그를 저장 하는 데 사용 된 위치.
-- 합니다 **FromDate** 하 고 **ToDate** 특정 기간에 대 한 로그를 수집 하려면 매개 변수를 사용할 수 있습니다. 이러한 매개 변수를 지정 하지 않으면 로그는 기본적으로 지난 4 시간 동안 수집 됩니다.
+
 
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Azure Stack 개발 키트 ASDK () 시스템에서 Get-AzureStackLog를 실행 하려면
-1. 으로 로그인 **AzureStack\CloudAdmin** 호스트 합니다.
-2. 관리자 권한으로 PowerShell 창을 엽니다.
+이러한 단계를 사용 하 여 Get AzureStackLog ASDK 호스트 컴퓨터에서 실행 합니다.
+
+- 매개 변수 **OutputSharePath** 하 고 **OutputShareCredential** 사용자 지정 로그를 저장 하는 데 사용 된 위치.
+- 합니다 **FromDate** 하 고 **ToDate** 특정 기간에 대 한 로그를 수집 하려면 매개 변수를 사용할 수 있습니다. 이러한 매개 변수를 지정 하지 않으면 로그는 기본적으로 지난 4 시간 동안 수집 됩니다.
+
+1. 으로 로그인 **AzureStack\CloudAdmin** ASDK 호스트 컴퓨터.
+2. 관리자 권한으로 새 PowerShell 창을 엽니다.
 3. 실행 합니다 **Get AzureStackLog** PowerShell cmdlet.
 
 **예제:**
