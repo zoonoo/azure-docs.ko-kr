@@ -143,7 +143,7 @@ items:
     items:
     - name: 관리되는 인스턴스
       href: sql-database-managed-instance-index.yml
-    - name: Managed Instance의 정의
+    - name: 개요
       href: sql-database-managed-instance.md
     - name: 리소스 한계
       href: sql-database-managed-instance-resource-limits.md
@@ -163,15 +163,15 @@ items:
       href: sql-database-managed-instance-transact-sql-information.md
     - name: 트랜잭션 복제
       href: replication-with-sql-database-managed-instance.md
-  - name: 비즈니스 연속성
+  - name: Platform as a Service
     items:
+    - name: Platform as a Service
+      href: sql-database-paas.yml
     - name: 비즈니스 연속성
       href: sql-database-business-continuity.md
     - name: 고가용성
       href: sql-database-high-availability.md
-    - name: 가속 데이터베이스 복구
-      href: sql-database-accelerated-database-recovery.md
-    - name: 데이터베이스 백업
+    - name: 자동화된 백업
       href: sql-database-automated-backups.md
     - name: 장기 백업 보존
       items:
@@ -193,6 +193,8 @@ items:
       items:
       - name: 백업을 사용한 복구
         href: sql-database-recovery-using-backups.md
+      - name: 가속 데이터베이스 복구
+        href: sql-database-accelerated-database-recovery.md
       - name: 중단 복구 지침
         href: sql-database-disaster-recovery.md
       - name: 복구 훈련
@@ -208,6 +210,8 @@ items:
   - name: 보안
     items:
     - name: 보안
+      href: sql-database-security-index.yml
+    - name: 개요
       href: sql-database-security-overview.md
     - name: 고급 위협 보호
       items:
@@ -648,9 +652,9 @@ items:
     href: /azure/architecture/
   - name: 고객 사례
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 90ce805e96458e83315cd5f7c9e60b3585f7313d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 12add5f8ee32ce3c5207a604ef7cad821d5e5a4e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854291"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165271"
