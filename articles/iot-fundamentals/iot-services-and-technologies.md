@@ -7,14 +7,14 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365359"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288716"
 ---
-# <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT 기술 및 솔루션: PaaS 및 SaaS
+# <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT(사물 인터넷) 기술 및 솔루션: PaaS 및 SaaS
 
 Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록 모든 고객의 요구 사항을 지원하는 포트폴리오를 만들었습니다. Azure IoT 제품 포트폴리오는 사용 가능한 PaaS/SaaS 기술 및 솔루션의 개요를 보여줍니다. 고객이 고유의 솔루션을 구축하는 데 사용할 수 있는 두 가지 경로를 제공합니다.
 
@@ -24,7 +24,7 @@ Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록
 
 - SaaS(Software as a Service): IoT 솔루션의 복잡성에 노출되지 않고 IoT 응용 프로그램을 개발할 수 있는 새로운 SaaS 솔루션인 [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)로 빠르게 시작하세요. 조직에 고유의 IoT 솔루션을 빌드하는 데 필요한 리소스가 없는 경우 Azure IoT Central은 몇 분 안에 장치 모델, 대시보드 및 규칙을 만들 수 있는 코드 없는 IoT 솔루션입니다.
 
-![Azure IoT 기술 및 솔루션](./media/iot-comparison/paas-saas-technologies-solutions.png)
+![Azure IoT 기술 및 솔루션](./media/iot-services-and-technologies/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>솔루션
 

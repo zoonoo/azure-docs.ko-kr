@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42702409"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615231"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
 
@@ -43,10 +43,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Name                   | *myLoadBalancer*                                   |
+    | 이름                   | *myLoadBalancer*                                   |
     | type          | 공용                                        |
     | SKU           | Standard                          |
-    | 공용 IP 주소 | **새로 만들기**를 선택하고, 텍스트 상자에 *myPublicIP*를 입력합니다. 공용 IP 주소에 대한 표준 SKU는 기본적으로 선택됩니다. **가용성 영역**에 **Zone-redundant**를 선택합니다. |
+    | 공용 IP 주소 | **새로 만들기**를 선택하고, 텍스트 상자에 *myPublicIP*를 입력합니다. 공용 IP 주소에 대한 표준 SKU는 기본적으로 선택됩니다. **가용성 영역**에 **영역 중복**을 선택합니다. |
     | 구독               | 구독을 선택합니다.    |
     |리소스 그룹 | **새로 만들기**를 선택한 다음, *myResourceGroupSLB*를 입력합니다.    |
     | 위치           | **유럽 서부**를 선택합니다.                          |
@@ -145,6 +145,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
     - *myHealthProbe* - 상태 프로브의 이름으로 입력합니다.
     - **HTTP** - 프로토콜 유형으로 입력합니다.
     - *80* - 포트 번호로 입력합니다.
+    - URI 경로의 *Healthprobe.aspx*입니다. 다른 URI로 이 값을 바꾸거나 **"\\"** 라는 기본 경로 값을 유지하여 기본 URI를 가져올 수 있습니다.
     - *15* - 프로브 시도 **간격**(초)으로 입력합니다.
     - *2* - **비정상 임계값** 또는 연속 프로브 오류 횟수가 이 숫자에 도달하면 VM을 비정상 상태로 간주합니다.
 4. **확인**을 클릭합니다.

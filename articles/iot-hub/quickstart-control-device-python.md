@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 06ca8269fc41807dd6cb27bab22d10e45f025ee2
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 08b2018ec1f1d34291778df0fa217b874cc3ffab
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363863"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515100"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>빠른 시작: IoT 허브에 연결된 장치 제어(Python)
 
@@ -26,6 +26,7 @@ IoT Hub는 IoT 장치에서 클라우드로 다량의 원격 분석 데이터를
 빠른 시작에서는 미리 작성된 두 개의 Python 응용 프로그램을 사용합니다.
 
 * 백 엔드 응용 프로그램에서 호출된 직접 메소드에 응답하는 시뮬레이션된 장치 응용 프로그램입니다. 직접 메서드 호출을 수신하기 위해 이 응용 프로그램을 IoT 허브의 장치별 엔드포인트에 연결합니다.
+
 * 시뮬레이션된 장치에서 직접 메서드를 호출하는 백 엔드 응용 프로그램입니다. 장치에서 직접 메서드를 호출하려면 이 응용 프로그램을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -54,7 +55,7 @@ python3 --version
 
 이전 [빠른 시작: 원격 분석을 장치에서 IoT 허브로 전송](quickstart-send-telemetry-python.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>장치 등록
 
@@ -64,7 +65,7 @@ python3 --version
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. 
 
-    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+    **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
 
     **MyPythonDevice** : 등록된 장치에 지정된 이름입니다. 표시된 것처럼 MyPythonDevice를 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 응용 프로그램에서 장치 이름을 업데이트한 후 실행해야 합니다.
 
@@ -73,9 +74,9 @@ python3 --version
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 
-1. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다.
 
-    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+    **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
@@ -87,12 +88,14 @@ python3 --version
 
     이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
-1. 또한 백 엔드 응용 프로그램을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
+3. 또한 백 엔드 응용 프로그램을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
 
     **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name YourIoTHubName --output table
+    az iot hub show-connection-string \
+      --hub-name YourIoTHubName \
+      --output table
     ```
 
     다음과 같은 서비스 연결 문자열을 기록해 둡니다.
@@ -125,7 +128,7 @@ python3 --version
 
     다음 스크린샷에서는 시뮬레이션된 장치 응용 프로그램에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
-    ![시뮬레이션된 장치 실행](media/quickstart-control-device-python/SimulatedDevice-1.png)
+    ![시뮬레이션된 장치 실행](./media/quickstart-control-device-python/SimulatedDevice-1.png)
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
@@ -151,11 +154,11 @@ python3 --version
 
     다음 스크린샷에서는 응용 프로그램에서 장치에 직접 메서드를 호출하고 승인을 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 응용 프로그램 실행](media/quickstart-control-device-python/BackEndApplication.png)
+    ![백 엔드 응용 프로그램 실행](./media/quickstart-control-device-python/BackEndApplication.png)
 
     백 엔드 응용 프로그램을 실행한 후 시뮬레이션된 장치를 실행하는 콘솔 창에 메시지가 표시되고 메시지를 보내는 속도가 변경됩니다.
 
-    ![시뮬레이션된 클라이언트에서 변경](media/quickstart-control-device-python/SimulatedDevice-2.png)
+    ![시뮬레이션된 클라이언트에서 변경](./media/quickstart-control-device-python/SimulatedDevice-2.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

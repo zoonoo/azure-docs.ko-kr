@@ -10,18 +10,18 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: 5bb840be119f5eac380c44e2cf45b3f73a9d981e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3f0d6784f7b7c476313c5cc4190cacd99e4c3973
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985712"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612767"
 ---
-# <a name="tutorial-analyze-videos-with-azure-media-services"></a>자습서: Azure Media Services로 비디오 분석 
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>자습서: API를 사용하여 Media Services v3으로 비디오 분석
 
-이 자습서는 Azure Media Services로 비디오를 분석하는 방법을 보여줍니다. 녹음/녹화한 비디오나 오디오 콘텐츠를 심층적으로 파악해야 하는 다양한 경우가 있을 수 있습니다. 예를 들어, 고객 만족도를 높이 달성하기 위해 음성을 텍스트로 변환하는 프로세스를 실행하여 고객 지원 기록을 인덱스 및 대시보드와 함께 검색 가능한 카탈로그로 변환할 수 있습니다. 그런 다음, 일반적인 불만 사항 목록 및 불만의 출처 등과 같은 비즈니스에 대한 인사이트를 파악할 수 있습니다.
+이 자습서는 Azure Media Services로 비디오를 분석하는 방법을 보여줍니다. 녹음/녹화한 비디오나 오디오 콘텐츠를 심층적으로 파악해야 하는 다양한 경우가 있을 수 있습니다. 예를 들어, 고객 만족도를 높이 달성하기 위해 음성을 텍스트로 변환하는 프로세스를 실행하여 고객 지원 기록을 인덱스 및 대시보드와 함께 검색 가능한 카탈로그로 변환할 수 있습니다. 그런 다음, 일반적인 불만 사항 목록 및 불만의 출처 및 기타 유용한 정보와 같은 비즈니스에 대한 인사이트를 파악할 수 있습니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.    
 
@@ -38,7 +38,14 @@ ms.locfileid: "49985712"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)을 사용할 수 있습니다.
+- Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)을 사용할 수 있습니다.
+- CLI를 로컬로 설치하여 사용하기 위해 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+
+    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령만 Azure Cloud Shell에서 작동합니다. CLI를 로컬로 사용하는 것이 좋습니다.
+
+- [Media Services 계정 만들기](create-account-cli-how-to.md)
+
+    리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
@@ -49,10 +56,6 @@ Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https
  ```
 
 샘플은 [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) 폴더에 있습니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -154,11 +157,11 @@ Ctrl+F5 키를 눌러 *AnalyzeVideos* 응용 프로그램을 실행합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. **CloudShell** 도구를 사용하면 됩니다.
+이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. 
 
-**CloudShell**에서 다음 명령을 실행합니다.
+다음 CLI 명령을 실행합니다.
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

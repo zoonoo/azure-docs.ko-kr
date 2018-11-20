@@ -1,41 +1,43 @@
 ---
-title: '자습서: 이미지에서 얼굴 감지 및 포착 - Face API, Python'
+title: '빠른 시작: Python SDK를 사용하여 이미지에서 얼굴 감지 및 포착'
 titleSuffix: Azure Cognitive Services
-description: Python SDK와 함께 Face API를 사용하여 이미지의 인간 얼굴을 감지하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Face API를 사용하여 원격 이미지에서 얼굴을 감지하고 포착하는 간단한 Python 스크립트를 만들 것입니다.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: tutorial
-ms.date: 03/01/2018
+ms.topic: quickstart
+ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127740"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684004"
 ---
-# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>자습서: Face API 및 Python을 사용하여 얼굴 감지 및 포착 
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>빠른 시작: 이미지에서 얼굴을 감지 및 포착하는 Python 스크립트 만들기
 
-이 자습서에서는 Python SDK를 통해 Face API를 호출하여 이미지의 인간 얼굴을 감지하는 방법을 알아봅니다.
+이 빠른 시작에서는 Azure Face API를 사용하여 Python SDK를 통해 원격 이미지에서 사람 얼굴을 감지하는 간단한 Python 스크립트를 만들 것입니다. 이 애플리케이션은 선택한 이미지를 표시하고 감지된 각 얼굴 주위에 프레임을 그립니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 사용하려면 다음을 수행해야 합니다.
+- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+- [Python 2.7+ 또는 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) 도구
+- Face API Python SDK. 다음 명령을 실행하여 설치할 수 있습니다.
+    ```bash
+    pip install cognitive_face
+    ```
 
-- Python 2.7+ 또는 Python 3.5+ 중 하나를 설치합니다.
-- pip를 설치합니다.
-- 다음과 같이 Face API용 Python SDK를 설치합니다.
+## <a name="detect-faces-in-an-image"></a>이미지에서 얼굴 감지
 
-```bash
-pip install cognitive_face
-```
+새 Python 스크립트 _FaceQuickstart.py_를 만듭니다. 다음 코드를 추가합니다. 얼굴 감지의 핵심 기능입니다. `<Subscription Key>`를 키 값으로 바꿔야 합니다. 또한 키의 올바른 지역 식별자를 사용하도록 `BASE_URL` 값을 변경해야 할 수도 있습니다. 평가판 구독 키는 **westus** 지역에 생성됩니다. 필요에 따라 `img_url`을 사용하려는 이미지의 URL로 설정합니다.
 
-- Microsoft Cognitive Services에 대한 [구독 키](https://azure.microsoft.com/try/cognitive-services/)를 구합니다. 이 자습서의 주 또는 보조 키를 사용할 수 있습니다. (Face API를 사용하려면 유효한 구독 키가 있어야 합니다.)
-
-## <a name="detect-a-face-in-an-image"></a>이미지에서 얼굴 감지
+이 스크립트는 [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API를 래핑하고 얼굴 목록을 반환하는 **cognitive_face.face.detect** 메서드를 호출하여 얼굴을 감지합니다.
 
 ```python
 import cognitive_face as CF
@@ -52,15 +54,22 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-다음은 예제 결과입니다. 감지된 얼굴의 `list`입니다. 목록의 각 항목은 `dict` 인스턴스입니다. 여기서 `faceId`는 감지된 얼굴의 고유 ID이고 `faceRectangle`은 감지된 얼굴 위치를 설명합니다. 얼굴 ID는 24시간 후에 만료됩니다.
+### <a name="try-the-app"></a>앱 시험
 
-```python
-[{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]
+`python FaceQuickstart.py` 명령으로 앱을 실행합니다. 콘솔 창에 다음과 같은 텍스트 응답이 표시됩니다.
+
+```shell
+[{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-## <a name="draw-rectangles-around-the-faces"></a>얼굴 주위의 사각형 그리기
+이것은 감지된 얼굴 목록입니다. 목록의 각 항목은 **dict** 인스턴스이고, 여기서 `faceId`는 감지된 얼굴의 고유 ID이고 `faceRectangle`은 감지된 얼굴의 위치를 설명합니다. 
 
-이전 명령에서 얻은 json 좌표를 사용하여 이미지에 각 얼굴을 시각적으로 나타내는 사각형을 그릴 수 있습니다. `pip install Pillow`를 수행하여 `PIL` 이미징 모듈을 사용해야 합니다.  파일 맨 위에 다음을 추가합니다.
+> [!NOTE]
+> Face ID는 24시간 후에 만료됩니다. 장기간 유지하려면 얼굴 데이터를 명시적으로 저장해야 합니다.
+
+## <a name="draw-face-rectangles"></a>얼굴 사각형 그리기
+
+이전 명령에서 얻은 좌표를 사용하여 이미지에 각 얼굴을 시각적으로 나타내는 사각형을 그릴 수 있습니다. Pillow 이미지 모듈을 사용하려면 Pillow(`pip install pillow`)를 설치해야 합니다. *FaceQuickstart.py* 맨 위에 다음 코드를 추가합니다.
 
 ```python
 import requests
@@ -68,7 +77,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-그런 후, 스크립트에서 `print(faces)` 뒤에 다음을 포함합니다.
+그런 다음, 스크립트 맨 아래에 다음 코드를 추가합니다. 이렇게 하면 사각형 좌표를 구문 분석하는 간단한 함수가 만들어지고, Pillow를 사용하여 원래 이미지에 사각형이 그려집니다. 그런 다음, 기본 이미지 뷰어에 이미지가 표시됩니다.
 
 ```python
 #Convert width height to a point in a rectangle
@@ -93,21 +102,15 @@ for face in faces:
 img.show()
 ```
 
-## <a name="further-exploration"></a>추가 탐색
+## <a name="run-the-app"></a>앱 실행
 
-Face API를 추가로 탐색하는 데 도움이 되도록 이 자습서는 GUI 예제를 제공합니다. 이를 실행하려면 먼저 [wxPython](https://wxpython.org/pages/downloads/)을 설치한 후 아래 명령을 실행합니다.
+먼저 기본 이미지 뷰어를 선택하라는 메시지가 표시될 수 있습니다. 그 후 다음과 비슷한 이미지가 표시됩니다. 콘솔 창에 사각형 데이터가 출력된 것도 보일 것입니다.
 
-```bash
-git clone https://github.com/Microsoft/Cognitive-Face-Python.git
-cd Cognitive-Face-Python
-python sample
-```
+![얼굴 주위에 빨간색 사각형이 그려진 젊은 여자](../images/face-rectangle-result.png)
 
-## <a name="summary"></a>요약
+## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Python SDK 호출을 통해 Face API를 사용하기 위한 기본 프로세스에 배웠습니다. API 세부 사항에 대한 자세한 내용은 방법 및 [API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 참조하세요.
+이 빠른 시작에서는 Face API Python SDK를 사용하는 기본 프로세스를 살펴보고, 이미지에서 얼굴을 감지하여 프레임을 그리는 스크립트를 작성했습니다. 다음으로, 좀 더 복잡한 Python SDK 사용 예제를 살펴보겠습니다. GitHub에서 Cognitive Face Python 샘플로 이동하여 프로젝트 폴더에 복제하고, _README.md_ 파일의 지침을 따르세요.
 
-## <a name="related-topics"></a>관련 항목
-
-- [CSharp에서 Face API 시작](FaceAPIinCSharpTutorial.md)
-- [Android용 Java에서 Face API 시작](FaceAPIinJavaForAndroidTutorial.md)
+> [!div class="nextstepaction"]
+> [Cognitive Face Python 샘플](https://github.com/Microsoft/Cognitive-Face-Python)

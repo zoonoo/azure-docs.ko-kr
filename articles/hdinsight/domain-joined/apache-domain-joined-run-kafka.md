@@ -1,5 +1,5 @@
 ---
-title: Enterprise Security Package를 사용하여 HDInsight에서 Kafka 정책 구성 - Azure
+title: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성 - Azure
 description: Enterprise Security Package를 사용하여 Azure HDInsight에서 Kafka용 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
@@ -8,16 +8,16 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 48cfba6f62d75470efd27e3a4cdcb995e716798b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037144"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633051"
 ---
-# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Kafka 정책 구성(미리 보기)
+# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
-ESP(Enterprise Security Package) Kafka 클러스터용 Apache Ranger 정책을 구성하는 방법을 알아봅니다. ESP 클러스터는 도메인에 연결되므로 사용자가 도메인 자격 증명을 사용하여 인증할 수 있습니다. 이 자습서에서는 `sales*` 및 `marketingspend` 항목 액세스를 제한하는 Range 정책 두 개를 만듭니다.
+ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정책을 구성하는 방법을 알아봅니다. ESP 클러스터는 도메인에 연결되므로 사용자가 도메인 자격 증명을 사용하여 인증할 수 있습니다. 이 자습서에서는 `sales*` 및 `marketingspend` 항목 액세스를 제한하는 Range 정책 두 개를 만듭니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

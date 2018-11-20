@@ -16,18 +16,18 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1809e7f72afd99de38387317daf2ecb92dbe3cf0
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912995"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298724"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>빠른 시작: Microsoft ID 플랫폼을 사용하여 응용 프로그램 등록(미리 보기)
 
 엔터프라이즈 개발자 및 소프트웨어 SaaS(software-as-a-service) 공급자는 Microsoft ID 플랫폼에 통합되어 해당 서비스에 대한 보안 로그인 및 권한 부여를 제공하는 상용 클라우드 서비스 또는 업무용 응용 프로그램 제품군을 개발할 수 있습니다.
 
-이 빠른 시작에서는 Microsoft ID 플랫폼에 통합할 수 있도록 Azure Portal에서 **앱 등록(미리 보기)** 환경을 사용하여 응용 프로그램을 추가 및 등록하는 방법을 살펴봅니다.
+이 빠른 시작에서는 Microsoft ID 플랫폼에 통합할 수 있도록 Azure Portal에서 **앱 등록(미리 보기)** 환경을 사용하여 응용 프로그램을 추가 및 등록하는 방법을 살펴봅니다. 새 애플리케이션 등록 환경의 새로운 기능 및 향상된 기능에 대한 자세한 내용은 [이 블로그 게시물](https://developer.microsoft.com/graph/blogs/new-app-registration/)을 참조하세요. 
 
 ## <a name="prerequisite"></a>필수 요소
 

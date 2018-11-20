@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914195"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633464"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Face API란?
 
@@ -63,6 +63,10 @@ Group API는 알 수 없는 얼굴 집합을 유사성에 따라 여러 그룹�
 데이터베이스가 생성 및 학습되면 감지된 새 얼굴이 있는 그룹에 대해 인식을 수행할 수 있습니다. 얼굴이 그룹의 사람으로 식별되면 해당 사람 개체가 반환됩니다.
 
 사람 인식에 대한 자세한 내용은 [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)를 참조하세요.
+
+## <a name="use-containers"></a>컨테이너 사용
+
+[얼굴 컨테이너를 사용](face-how-to-install-containers.md)하여 표준화된 Docker 컨테이너를 데이터와 가까이 설치하고 얼굴을 검색, 인지 및 식별할 수 있습니다.
 
 ## <a name="sample-apps"></a>샘플 앱
 

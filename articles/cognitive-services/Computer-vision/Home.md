@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250617"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634331"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -53,6 +53,10 @@ Computer Vision을 사용하여 [OCR을 통해 이미지의 텍스트를 시스�
 ## <a name="moderating-content-in-images"></a>이미지 콘텐츠 조정
 
 Computer Vision을 사용하여 [이미지에서 성인용 및 선정적인 콘텐츠를 감지](concept-detecting-adult-content.md)하고, 이미지에 성인용 또는 선정적인 콘텐츠가 포함되어 있을 가능성을 평가하고, 둘 다에 대한 신뢰도 점수를 생성할 수 있습니다. 성인용 및 선정적인 콘텐츠 감지 필터는 기본 설정에 맞게 슬라이딩 눈금에 설정할 수 있습니다.
+
+## <a name="using-containers"></a>컨테이너 사용
+
+[Computer Vision 컨테이너를 사용](computer-vision-how-to-install-containers.md)하여 표준화된 Docker 컨테이너를 데이터에 더 가깝게 설치함으로써 로컬에서 인쇄 및 필기된 텍스트를 인식할 수 있습니다.
 
 ## <a name="image-requirements"></a>이미지 요구 사항
 

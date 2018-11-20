@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 1f2a5f6a1473cde40928ada6e30f6bd9b780543d
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 69bcca7871d9bf4bebf64c0c0ae1b54cd8408927
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814885"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684123"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-node"></a>빠른 시작: Node를 통해 Bing Entity Search SDK 설정
 
@@ -24,7 +24,9 @@ Bing Entity Search SDK는 엔터티 쿼리 및 구문 분석 결과에 대한 RE
 [C# Bing Entity Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js)은 Git Hub에서 얻을 수 있습니다.
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
 
-Bing Entity Search SDK를 사용하여 콘솔 응용 프로그램을 설치하려면 개발 환경에서 `npm install azure-cognitiveservices-entitysearch` 명령을 실행합니다.
+Bing Entity Search SDK를 사용하여 콘솔 애플리케이션을 설치하려면:
+* 개발 환경에서 `npm install ms-rest-azure` 명령을 실행합니다.
+* 개발 환경에서 `npm install azure-cognitiveservices-entitysearch` 명령을 실행합니다.
 
 ## <a name="entity-search-client"></a>Entity Search 클라이언트
 *검색* 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다. `CognitiveServicesCredentials` 인스턴스를 만듭니다.

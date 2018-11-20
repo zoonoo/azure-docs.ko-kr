@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6a3bb5511828d9f8ea7168ffa4748b141484299f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 42a25d6c13fe1052f4aa14696a66c9c7f1fb4d65
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376433"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685687"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -38,7 +38,7 @@ ms.locfileid: "49376433"
 > * SQL Database에서 관리 ID에 최소한의 권한 부여
 
 > [!NOTE]
-> Azure Active Directory 인증은 온-프레미스 Active Directory(AD DS)의 [통합 Windows 인증](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))과 _다릅니다_. AD DS 및 Azure Active Directory는 완전히 다른 인증 프로토콜을 사용합니다. 자세한 내용은 [Windows Server AD DS와 Azure AD 간의 차이](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad)를 참조하세요.
+>Azure Active Directory 인증은 온-프레미스 Active Directory(AD DS)의 [통합 Windows 인증](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))과 _다릅니다_. AD DS 및 Azure Active Directory는 완전히 다른 인증 프로토콜을 사용합니다. 자세한 내용은 [Azure AD Domain Services 설명서](https://docs.microsoft.com/azure/active-directory-domain-services/)를 참조하세요.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

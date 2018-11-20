@@ -12,22 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: 9e6279b2f93cb68043fa96866d8269b7d60b9b25
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a0ca9d8b51bc3cd5ed46b56a4d7fedb45211b136
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379249"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613493"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>CLI 예: Azure Media Services 계정 만들기
 
 이 항목의 Azure CLI 스크립트는 Azure Media Services 계정을 만드는 방법을 보여줍니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>필수 조건 
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하기 위해 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+
+현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령만 Azure Cloud Shell에서 작동합니다. CLI를 로컬로 사용하는 것이 좋습니다.
 
 ## <a name="example-script"></a>예제 스크립트
 
@@ -37,7 +39,7 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 
 다음 명령을 실행하여 리소스 그룹 및 모든 관련 리소스를 제거합니다.
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

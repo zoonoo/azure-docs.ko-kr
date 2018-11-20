@@ -1,6 +1,6 @@
 ---
-title: URL 경로 기반 리디렉션으로 응용 프로그램 게이트웨이 만들기 - Azure CLI
-description: Azure CLI를 사용하여 URL 경로 기반 리디렉션된 트래픽으로 응용 프로그램 게이트웨이를 만드는 방법을 알아봅니다.
+title: 자습서 - URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기 - Azure CLI
+description: 이 자습서에서는 Azure CLI를 사용하여 URL 경로 기반 리디렉션된 트래픽으로 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3515d603c16bffe911df1b927d02644fcffa0788
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8489cf79848eb41e3c6334242ca607e925ae0b31
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947553"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568151"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 URL 경로 기반 리디렉션으로 응용 프로그램 게이트웨이 만들기
 
@@ -313,14 +313,6 @@ URL을 http://&lt;ip-address&gt;:8080/video/test.html로 변경하고 &lt;ip-add
 az group delete --name myResourceGroupAG --location eastus
 ```
 ## <a name="next-steps"></a>다음 단계
-
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-> [!div class="checklist"]
-> * 네트워크 설정
-> * 응용 프로그램 게이트웨이 만들기
-> * 수신기 및 라우팅 규칙 추가
-> * 백 엔드 풀에 대한 가상 머신 확장 집합 만들기
 
 > [!div class="nextstepaction"]
 > [응용 프로그램 게이트웨이 통해 수행할 수 있는 작업에 대한 자세한 정보](application-gateway-introduction.md)

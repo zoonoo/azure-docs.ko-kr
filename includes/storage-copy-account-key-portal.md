@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 499ffdf7e91d4ff6926f59ff534142e0a1c5d6c5
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 13e99f1dc84c5345ba04fcfc412b8ef4237cc581
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51222202"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285818"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>Azure Portal에서 자격 증명 복사
 
-응용 프로그램 예제는 저장소 계정 액세스에 대한 권한을 부여해야 합니다. 연결 문자열 형태로 응용 프로그램에 저장소 계정 자격 증명을 제공하세요. 저장소 계정 자격 증명을 보려면:
+응용 프로그램 예제는 저장소 계정 액세스에 대한 권한을 부여해야 합니다. 스토리지 계정 자격 증명을 연결 문자열 형식으로 애플리케이션에 제공합니다. 저장소 계정 자격 증명을 보려면:
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 저장소 계정을 찾습니다.

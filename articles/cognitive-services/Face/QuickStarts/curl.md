@@ -1,60 +1,65 @@
 ---
-title: '빠른 시작: REST API 및 cURL을 사용하여 이미지에서 얼굴 감지'
+title: '빠른 시작: REST API 및 cURL로 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 cURL과 함께 Face API를 사용하여 이미지에서 얼굴을 감지합니다.
+description: 이 빠른 시작에서는 이미지에서 얼굴을 감지하기 위해 cURL과 함께 Azure Face REST API를 사용합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953351"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578048"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>빠른 시작: REST API 및 cURL을 사용하여 이미지에서 얼굴 감지
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>빠른 시작: Face REST API 및 cURL을 사용하여 이미지에서 얼굴 감지
 
-이 빠른 시작에서는 Face API를 사용하여 이미지에서 얼굴을 감지합니다.
+이 빠른 시작에서는 이미지에서 사람 얼굴을 감지하기 위해 cURL과 함께 Azure Face REST API를 사용합니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-샘플을 실행하려면 구독 키가 있어야 합니다. [Cognitive Services 시도](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다.
+- Face API 구독 키. [Cognitive Services 시도](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
 
-## <a name="detect-faces-in-an-image"></a>이미지에서 얼굴 감지
-
-[Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 메서드를 사용하여 이미지에서 얼굴을 감지하고 다음을 포함한 얼굴 특성을 반환합니다.
-
-* 얼굴 Face: 여러 Face API 시나리오에 사용되는 고유 ID입니다.
-* 얼굴 사각형: 이미지에서 얼굴의 위치를 나타내는 왼쪽, 위쪽, 너비 및 높이입니다.
-* 랜드마크: 얼굴 구성 요소의 중요한 위치를 가리키는 27포인트 얼굴 랜드마크 배열입니다.
-* 연령, 성별, 웃는 정도, 머리 포즈, 얼굴의 털 등을 포함한 얼굴 특성입니다.
-
-샘플을 실행하려면 다음 단계를 수행합니다.
-
-1. 명령 프롬프트를 엽니다.
-2. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
-3. 필요한 경우 URL(`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`)을 변경하여 구독 키를 가져온 위치를 사용합니다.
-4. 필요에 따라 분석할 이미지(`"{\"url\":...`)를 변경합니다.
-5. 명령 창에 코드를 붙여넣습니다.
-6. 명령을 실행합니다.
-
-### <a name="face---detect-request"></a>얼굴 - 감지 요청
-
-> [!NOTE]
-> 구독 키를 가져오는 데 사용한 것과 동일한 위치를 REST 호출에서 사용해야 합니다. 예를 들어 westus에서 구독 키를 받은 경우 다음 URL의 “westcentralus”를 “westus”로 바꿉니다.
+## <a name="write-the-command"></a>명령 작성
+ 
+다음과 같은 명령을 사용하여 Face API를 호출하고 이미지에서 얼굴 특성 데이터를 가져옵니다. 먼저, 텍스트 편집기에 코드를 복사합니다. 코드를 명령의 특정 부분으로 변경해야 실행할 수 있습니다.&mdash;
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-### <a name="face---detect-response"></a>얼굴 - 감지 응답
+### <a name="subscription-key"></a>구독 키
+`<Subscription Key>`를 유효한 Face 구독 키로 바꿉니다.
 
-성공적인 응답이 JSON을 통해 반환됩니다.
+### <a name="face-endpoint-url"></a>Face 엔드포인트 URL
+
+URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`는 쿼리할 Azure Face 엔드포인트를 나타냅니다. 이 URL의 첫 번째 부분을 사용자 구독 키에 해당하는 지역에 맞게 변경해야 합니다(아직 올바르지 않은 경우).
+
+### <a name="url-query-string"></a>URL 쿼리 문자열
+
+Face 엔드포인트 URL의 쿼리 문자열은 검색할 얼굴 특성을 지정합니다. 의도된 용도에 따라 이 문자열을 변경하려고 할 수 있습니다.
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
+
+### <a name="image-source-url"></a>이미지 원본 URL
+소스 URL은 입력으로 사용할 이미지를 나타냅니다. 이것은 분석하려는 이미지를 가리키도록 변경할 수 있습니다.
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
+
+## <a name="run-the-command"></a>명령 실행
+
+변경한 후에는 명령 프롬프트를 열고 새 명령을 입력합니다. 콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예: 
 
 ```json
 [
@@ -150,7 +155,7 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.a
 
 ## <a name="next-steps"></a>다음 단계
 
-이미지에서 사람 얼굴을 감지하고, 사각형으로 얼굴 경계를 표시하고, 연령이나 성별 같은 특성을 반환하는 데 사용되는 Face API를 살펴봅니다.
+이 빠른 시작에서는 Azure Face API를 호출하는 cURL 명령을 작성하여 이미지에서 얼굴을 감지하고 속성을 반환했습니다. 다음에는 Face API 참조 설명서를 살펴보고 보다 자세히 알아보겠습니다.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

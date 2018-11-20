@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 10/30/2018
 ms.author: bahariri
-ms.openlocfilehash: 2a9f1ea069bdb45adb1b8c6b52392f15a4660b5c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a2ab9a77728509b794c2f5b810fb939f6d1a16e3
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285121"
+ms.locfileid: "51286778"
 ---
 # <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>Apache Spark 애플리케이션을 Kafka 지원 Azure Event Hubs에 연결
 이 자습서에서는 Spark 애플리케이션을 Kafka 지원 Event Hubs에 연결하여 실시간으로 스트리밍하는 방법을 안내합니다. 이렇게 통합하면 프로토콜 클라이언트를 변경하거나 사용자 고유의 Kafka 또는 Zookeeper 클러스터를 실행할 필요 없이 스트리밍이 가능합니다. 이 자습서에서는 Apache Spark v2.4+ 및 Apache Kafka v2.0+가 필요합니다.
@@ -80,7 +80,7 @@ val df_write = df.writeStream
 ```
 
 ## <a name="write-to-event-hubs-for-kafka"></a>Kafka용 Event Hubs에 쓰기
-또한 Kafka에 쓰는 방법과 동일한 방법으로 Event Hubs에 쓸 수 있습니다. 잊지 말고 **BOOTSTRAP_SERVERS** 및 **EH_SASL**을 Event Hubs 네임스페이스의 정보로 업데이트해야 합니다.  전체 샘플 코드는 GitHub의 sparkProducer.scala 파일을 참조하세요. 
+또한 Kafka에 쓰는 것과 동일한 방법으로 Event Hubs에 쓸 수도 있습니다. 잊지 말고 **BOOTSTRAP_SERVERS** 및 **EH_SASL**을 Event Hubs 네임스페이스의 정보로 업데이트해야 합니다.  전체 샘플 코드는 GitHub의 sparkProducer.scala 파일을 참조하세요. 
 
 ```scala
 df = /**Dataframe**/

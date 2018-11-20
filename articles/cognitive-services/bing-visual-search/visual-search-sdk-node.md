@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 0956e88bd293b62935f5c8e2b9ef2d30466af8e4
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 77b8f956ca2a6985121cb5dbfebc2755fa73a35c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456612"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685976"
 ---
 # <a name="quickstart-bing-visual-search-sdk-node"></a>빠른 시작: Bing Visual Search SDK Node 
 
@@ -32,7 +32,9 @@ Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
 
-* `npm install Microsoft.Azure.CognitiveServices.Search.VisualSearch`을 실행합니다.
+Bing Visual Search SDK를 사용하여 콘솔 애플리케이션을 설치하려면:
+* `npm install ms-rest-azure` 실행
+* `npm install azure-cognitiveservices-search-visualSearch`을 실행합니다.
 
 <a name="client"></a>
 ## <a name="visual-search-client"></a>Visual Search 클라이언트

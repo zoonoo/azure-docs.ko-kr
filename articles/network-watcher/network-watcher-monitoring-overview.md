@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7cccb47bd7489e88649ee82c4d52c72af0d91e8e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 983b966ad304afb467df26193dd609f6f21a1b32
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390948"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614280"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure Network Watcher란?
 
@@ -98,6 +98,9 @@ Network Watcher에 대해 Azure 지역 간 및 인터넷 서비스 공급자 간
 ### <a name="view-diagnostic-logs-for-network-resources"></a>네트워크 리소스에 대한 진단 로그 보기
 
 네트워크 보안 그룹, 공용 IP 주소, 부하 분산 장치, 가상 네트워크 게이트웨이 및 응용 프로그램 게이트웨이 등 Azure 네트워킹 리소스에 대한 진단을 기록할 수 있습니다. *진단 로그* 기능은 기존 네트워크 리소스에 대해 진단 로그를 생성하는 네트워크 리소스 진단 로그를 활성화 및 비활성화하는 단일 인터페이스를 제공합니다. Microsoft Power BI 및 Azure Log Analytics 같은 도구를 사용하여 진단 로그를 볼 수 있습니다. Azure 네트워크 진단 로그의 분석에 대해 더 자세히 알아보려면 [Log Analytics의 Azure 네트워크 솔루션](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 참조하세요.
+
+## <a name="network-watcher-automatic-enablement"></a>Network Watcher 자동 사용
+구독에서 가상 네트워크를 만들거나 업데이트하는 경우 가상 네트워크의 지역에서 Network Watcher가 자동으로 사용됩니다. 리소스에 대한 영향이나 Network Watcher를 자동으로 사용하도록 설정하는 데 관련된 요금이 발생하지 않습니다. 자세한 내용은 [Network Watcher 만들기](network-watcher-create.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

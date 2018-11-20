@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319339"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621030"
 ---
 # <a name="what-is-azure-relay"></a>Azure 릴레이란?
-Azure Relay 서비스를 사용하면 회사 네트워크에서 실행되는 서비스를 공용 클라우드에 안전하게 공개할 수 있습니다. 방화벽 연결을 열거나 회사 네트워크 인프라를 강제로 변경하지 않고도 이 작업을 수행할 수 있습니다. 
+Azure Relay 서비스를 사용하면 회사 네트워크에서 실행되는 서비스를 공용 클라우드에 안전하게 공개할 수 있습니다. 방화벽에서 포트를 열거나 회사 네트워크 인프라를 강제로 변경하지 않고도 이 작업을 수행할 수 있습니다. 
 
 릴레이 서비스에서 지원하는 클라우드 또는 다른 온-프레미스 환경에서 실행되는 온-프레미스 서비스와 응용 프로그램 간의 시나리오는 다음과 같습니다. 
 
@@ -56,7 +56,7 @@ Azure Relay의 하이브리드 연결 기능은 이전에 있던 Relay 기능의
 > Azure Relay의 하이브리드 연결은 BizTalk Services의 이전 하이브리드 연결 기능을 대체합니다. BizTalk Services의 하이브리드 연결 기능은 Azure Service Bus WCF Relay를 기반으로 합니다. Azure Relay의 하이브리드 연결 기능은 기존 WCF Relay 기능을 보완합니다. 이러한 두 가지 서비스 기능(WCF Relay 및 하이브리드 연결)은 Azure Relay 서비스에 함께 있습니다. 일반적인 게이트웨이를 공유하지만 구현 방식은 서로 다릅니다.
 
 ## <a name="wcf-relay"></a>WCF 릴레이
-WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 만듭니다. 내부적으로, 릴레이 바인딩은 클라우드에서 Service Bus와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다. 자세한 내용은 [WCF 릴레이 시작](relay-wcf-dotnet-get-started.md)을 참조하세요.
+WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 만듭니다. 릴레이 바인딩은 클라우드에서 Service Bus와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다. 자세한 내용은 [WCF 릴레이 시작](relay-wcf-dotnet-get-started.md)을 참조하세요.
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>하이브리드 연결 및 WCF 릴레이
 하이브리드 연결과 WCF Relay는 모두 회사 네트워크 내에 있는 자산에 안전하게 연결할 수 있게 합니다. 다음 표에서 설명한 대로 이들 중 무엇을 사용할지는 특정 요구 사항에 따라 달라집니다.
@@ -68,7 +68,7 @@ WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이
 | **.NET Framework** |x |x |
 | **Java 스크립트/Node.JS** | |x |
 | **표준 기반 개방형 프로토콜** | |x |
-| **여러 RPC 프로그래밍 모델** | |x |
+| **RPC 프로그래밍 모델** | |x |
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>아키텍처: 들어오는 릴레이 요청 처리
 다음 다이어그램에서는 Azure Relay 서비스에서 들어오는 릴레이 요청을 처리하는 방법을 보여 줍니다.
@@ -86,9 +86,9 @@ WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이
 9. 게이트웨이는 메시지를 송신 클라이언트에서 수신 대기 클라이언트로 전달합니다.  
 
 ## <a name="next-steps"></a>다음 단계
-* [.NET Websocket 시작](relay-hybrid-connections-dotnet-get-started.md)
+* [.NET WebSockets 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [.NET HTTP 요청 시작](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [Node Websocket 시작](relay-hybrid-connections-node-get-started.md)
+* [Node WebSockets 시작](relay-hybrid-connections-node-get-started.md)
 * [Node HTTP 요청 시작](relay-hybrid-connections-http-requests-node-get-started.md)
 * [릴레이 FAQ](relay-faq.md)
 

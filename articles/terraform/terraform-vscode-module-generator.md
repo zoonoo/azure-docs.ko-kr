@@ -1,6 +1,6 @@
 ---
-title: Azure Terraform VS Code 모듈 생성기
-description: Yeoman을 사용하여 Terraform 기본 템플릿을 만드는 방법을 알아봅니다.
+title: Yeoman을 사용하여 Azure에 Terraform 기본 템플릿 만들기
+description: Yeoman을 사용하여 Azure에서 Terraform 기본 템플릿을 만드는 방법을 알아봅니다.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, 가상 머신, azure, yeoman
@@ -8,24 +8,26 @@ author: v-mavick
 manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.openlocfilehash: 513b123c44cf2cd37cf81a91e0d2da9599eb1fcd
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 11/08/2018
+ms.openlocfilehash: 9ef27166e84192dec81fd8f8da508785342ffefc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47396359"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288019"
 ---
-# <a name="create-a-terraform-base-template-using-yeoman"></a>Yeoman을 사용하여 Terraform 기본 템플릿 만들기
+# <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Yeoman을 사용하여 Azure에 Terraform 기본 템플릿 만들기
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
 )은 Azure에서 인프라를 쉽게 만드는 방법을 제공합니다. [Yeoman](http://yeoman.io/)은 훌륭한 *모범 사례* 프레임워크를 제공하는 동시에 Terraform 모듈을 만드는 모듈 개발자의 작업을 크게 간소화합니다.
 
-이 문서에서는 Yeoman 모듈 생성기를 사용하여 기본 Terraform 템플릿을 만드는 방법을 알아봅니다.
+이 문서에서는 Yeoman 모듈 생성기를 사용하여 기본 Terraform 템플릿을 만드는 방법을 알아봅니다. 그런 다음, 다음 두 가지 방법을 사용하여 새 Terraform 템플릿을 테스트하는 방법을 알아봅니다.
+
+- 이 문서에서 만든 Docker 파일을 사용하여 Terraform 모듈을 실행합니다.
+- Azure Cloud Shell에서 기본적으로 Terraform 모듈을 실행합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Windows 10, Linux 또는 macOS 10.10+을 실행하는 컴퓨터
 - **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - **Visual Studio Code**: [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US)를 사용하여 Yeoman 생성기에서 만든 파일을 검사합니다. 그러나 선택한 모든 코드 편집기를 사용할 수 있습니다.
 - **Terraform**: Yeoman에서 만든 모듈을 실행하려면 [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure )을 설치해야 합니다.
@@ -33,7 +35,7 @@ ms.locfileid: "47396359"
 - **Go 프로그래밍 언어**: Yeoman에서 생성된 테스트 사례는 Go로 기록되기 때문에 [Go](https://golang.org/)를 설치해야 합니다.
 
 >[!NOTE]
->이 자습서에서 대부분의 절차는 명령줄 항목을 포함합니다. 여기에서 설명된 단계는 모든 운영 체제 및 명령줄 도구에 적용됩니다. 예제에서는 PowerShell을 사용하도록 선택했습니다. 그러나 Git Bash, Windows 명령 프롬프트 또는 Linux 또는 macOS 명령줄 명령과 같은 몇 가지 대안 중 하나를 사용할 수 있습니다.
+>이 자습서에서 대부분의 절차는 명령줄 항목을 포함합니다. 여기에서 설명된 단계는 모든 운영 체제 및 명령줄 도구에 적용됩니다. 예제에서는 로컬 환경에 PowerShell을 사용하고, 클라우드 셸 환경에는 Git Bash를 사용하도록 선택했습니다.
 
 ## <a name="prepare-your-environment"></a>환경 준비
 
@@ -69,7 +71,7 @@ Yeoman 템플릿은 **현재 디렉터리**에서 파일을 생성합니다. 이
 명령 프롬프트에서:
 
 1. 만들려는 새, 만든 빈 디렉터리를 포함하려는 부모 디렉터리로 이동합니다.
-1. `mkdir <new-directory-name>`을 입력합니다.
+1. `mkdir <new-directory-name>` 을 입력합니다.
 
     >[!NOTE]
     ><new-directory-name>을 새 디렉터리의 이름으로 바꿉니다. 이 예제에서는 새 디렉터리의 이름을 `GeneratorDocSample`이라고 지정했습니다.
@@ -87,7 +89,7 @@ Yeoman 템플릿은 **현재 디렉터리**에서 파일을 생성합니다. 이
 
 명령 프롬프트에서:
 
-1. `yo az-terra-module`을 입력합니다.
+1. `yo az-terra-module` 을 입력합니다.
 
 1. 화면 지침을 따라 다음 정보를 제공합니다.
 
@@ -103,7 +105,7 @@ Yeoman 템플릿은 **현재 디렉터리**에서 파일을 생성합니다. 이
         ![Docker 이미지 파일을 포함하시겠습니까?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
         >[!NOTE]
-        >`y`을 입력합니다. **n**을 선택하는 경우 생성된 모듈 코드는 기본 모드에서만 실행을 지원합니다.
+        >`y` 을 입력합니다. **n**을 선택하면 생성된 모듈 코드가 기본 모드에서만 실행되도록 지원합니다.
 
 3. `ls`를 입력하여 생성된 결과 파일을 봅니다.
 
@@ -149,7 +151,7 @@ Yeoman 모듈 생성기에서 생성된 일부 파일을 살펴보겠습니다.
 - 종단 간 테스트는 Terraform을 사용하여 **fixture** 아래에 정의된 모든 항목을 프로비전한 다음, **template_output.go** 코드의 출력을 미리 정의된 예상 값과 비교하려고 합니다.
 - **Gopkg.lock** 및 **Gopkg.toml**: 종속성을 정의합니다. 
 
-## <a name="test-the-module-using-docker"></a>Docker를 사용하여 모듈 테스트
+## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Docker 파일을 사용하여 새 Terraform 모듈 테스트
 
 >[!NOTE]
 >예제에서는 로컬 모듈로 모듈을 실행하고, 실제로 Azure를 터치하지 않습니다.
@@ -185,29 +187,98 @@ Yeoman 모듈 생성기에서 생성된 일부 파일을 살펴보겠습니다.
     >[!NOTE]
     >모듈의 이름, *terra-mod-example*은 위의 1단계에서 입력한 명령에 지정되었습니다.
 
-1. `docker run -it terra-mod-example /bin/sh`을 입력합니다.
+1. `docker run -it terra-mod-example /bin/sh` 을 입력합니다.
 
     이제 Docker에서 실행하고 `ls`를 입력하여 파일을 나열할 수 있습니다.
 
     ![Docker 파일 나열](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
 
-1. `bundle install`을 입력합니다.
+### <a name="build-the-module"></a>모듈 빌드
+
+1. `bundle install` 을 입력합니다.
 
     **번들 완료** 메시지를 기다린 다음, 다음 단계를 진행합니다.
 
-1. `rake build`을 입력합니다.
+1. `rake build` 을 입력합니다.
 
     ![Rake 빌드](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
-### <a name="perform-the-end-to-end-test"></a>종단 간 테스트 수행
+### <a name="run-the-end-to-end-test"></a>종단 간 테스트 실행
 
-1. `rake e2e`을 입력합니다.
+1. `rake e2e` 을 입력합니다.
 
 1. 잠시 후에 **통과** 메시지가 표시됩니다.
 
     ![통과](media/terraform-vscode-module-generator/ymg-pass.png)
 
-1. `exit`를 입력하여 종단 간 테스트를 완료합니다.
+1. `exit`를 입력하여 종단 간 테스트를 완료하고 Docker 환경을 종료합니다.
+
+## <a name="use-yeoman-generator-to-create-and-test-a-module-in-cloud-shell"></a>Yeoman 생성기를 사용하여 Cloud Shell에서 모듈 만들기 및 테스트
+
+이전 섹션에서는 Docker 파일을 사용하여 Terraform 모듈을 테스트하는 방법을 알아보았습니다. 이 섹션에서는 Yeoman 생성기를 사용하여 Cloud Shell에서 모듈을 만들고 테스트합니다.
+
+Docker 파일을 사용하는 대신 Cloud Shell을 사용하면 프로세스가 크게 간소화됩니다. Cloud Shell을 사용하는 경우 이점은 다음과 같습니다.
+
+- Node.js를 설치할 필요가 없습니다.
+- Yeoman을 설치할 필요가 없습니다.
+- Terraform을 설치할 필요가 없습니다.
+
+이러한 모든 항목은 Cloud Shell에 미리 설치되어 있습니다.
+
+### <a name="start-a-cloud-shell-session"></a>Cloud Shell 세션 시작
+
+1. [Azure Portal](https:/portal.azure.com/), [shell.azure.com](https://shell.azure.com), 또는 [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)을 통해 Azure Cloud Shell 세션을 시작합니다.
+
+1. **Azure Cloud Shell 시작** 페이지가 열립니다. **Bash(Linux)** 를 선택합니다. (Power Shell은 지원되지 않습니다.)
+
+    ![Azure Cloud Shell 시작](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
+
+    >[!NOTE]
+    >이 예제에서는 Bash(Linux)를 선택했습니다.
+
+1. 아직 Azure Storage 계정을 설정하지 않은 경우 다음 화면이 나타납니다. **저장소 만들기**를 선택합니다.
+
+    ![탑재된 저장소가 없음](media/terraform-vscode-module-generator/ymg-you-have-no-storage-mounted.png)
+
+1. Azure Cloud Shell은 사용자가 이전에 선택한 셸에서 시작되며, 방금 만든 클라우드 드라이브에 대한 정보를 표시합니다.
+
+    ![클라우드 드라이브가 만들어졌습니다.](media/terraform-vscode-module-generator/ymg-your-cloud-drive-has-been-created-in.png)
+
+### <a name="prepare-a-folder-to-hold-your-terraform-module"></a>Terraform 모듈을 보관할 폴더 준비
+
+1. 이 시점에서 Cloud Shell은 이미 환경 변수에서 GOPATH를 구성했습니다. 경로를 확인하려면 `go env`를 입력합니다.
+
+1. 아직 없는 경우 `mkdir ~/go`를 입력하여 $GOPATH 폴더를 만듭니다.
+
+1. `mkdir ~/go/src`를 입력하여 $GOPATH 폴더 내에 폴더를 만듭니다. 합니다. 이 폴더는 다음 단계에서 만들 <your-module-name> 폴더와 같이 만들 수 있는 여러 프로젝트 폴더를 보관하고 구성하는 데 사용됩니다.
+
+1. `mkdir ~/go/src/<your-module-name>`을 입력하여 Terraform 모듈을 보관할 폴더를 만듭니다.
+
+    >[!NOTE]
+    >이 예제에서는 폴더 이름에 대해 `my-module-name`을 선택했습니다.
+
+1. `cd ~/go/src/<your-module-name>`을 입력하여 모듈 폴더로 이동합니다.
+
+### <a name="create-and-test-your-terraform-module"></a>Terraform 모듈 만들기 및 테스트
+
+1. `yo az-terra-module`을 입력하고, 마법사의 지침을 따릅니다.
+
+    >[!NOTE]
+    >Docker 파일을 만들 것인지 메시지가 표시되면 `N`을 입력할 수 있습니다.
+
+1. `bundle install`을 입력하여 종속성을 설치합니다.
+
+    **번들 완료** 메시지를 기다린 다음, 다음 단계를 진행합니다.
+
+1. `rake build`를 입력하여 모듈을 빌드합니다.
+
+    ![Rake 빌드](media/terraform-vscode-module-generator/ymg-rake-build.png)
+
+1. `rake e2e`를 입력하여 종단 간 테스트를 실행합니다.
+
+1. 잠시 후에 **통과** 메시지가 표시됩니다.
+
+    ![통과](media/terraform-vscode-module-generator/ymg-pass.png)
 
 ## <a name="next-steps"></a>다음 단계
 

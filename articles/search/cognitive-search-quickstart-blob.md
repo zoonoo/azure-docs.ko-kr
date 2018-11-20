@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729995"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288036"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>빠른 시작: 기술 및 샘플 데이터를 사용하여 인식 검색 파이프라인 만들기
 
@@ -26,10 +26,16 @@ ms.locfileid: "45729995"
 * 마법사 실행(엔터티 기술이 사람, 위치 및 조직을 감지)
 * [검색 탐색기](search-explorer.md)를 사용하여 보강된 데이터를 쿼리합니다.
 
+## <a name="supported-regions"></a> 지원되는 지역
+
 다음 지역에 만든 Azure Search 서비스에서 인식 검색을 시도할 수 있습니다.
 
+* 미국 중서부
 * 미국 중남부
+* 미국 동부
 * 서유럽
+* 북유럽
+* 동남아시아
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -57,7 +63,7 @@ Azure 서비스는 이 시나리오에 단독으로 사용됩니다. 준비 과�
 
 1. 리소스 그룹으로는 이 빠른 시작에서 만드는 모든 리소스를 포함할 리소스 그룹을 만듭니다. 이렇게 하면 빠른 시작을 마친 후 보다 쉽게 리소스를 정리할 수 있습니다.
 
-1. 위치로는 **미국 중남부** 또는 **유럽 서부**를 선택합니다. 현재 두 영역에서만 미리 보기를 사용할 수 있습니다.
+1. 위치에 대해 Cognitive Search에 [지원되는 지역](#supported-regions) 중 하나를 선택합니다.
 
 1. 가격 책정 계층으로는 자습서와 빠른 시작을 완료할 수 있는 **무료** 서비스를 만듭니다. 사용자 고유의 데이터를 사용하여 자세히 조사하려면 **기본** 또는 **표준** 같은 [유료 서비스](https://azure.microsoft.com/pricing/details/search/)를 만듭니다. 
 

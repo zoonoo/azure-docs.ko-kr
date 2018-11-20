@@ -8,17 +8,18 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 09/24/2018
-ms.openlocfilehash: e4624b115143f9f2e6dd77aa8ee79597c86ba31c
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 11/09/2018
+ms.openlocfilehash: fff08131af277b20034ad23c354b70e73ae32f2e
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456205"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578283"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>빠른 시작: Python을 사용하여 Azure Machine Learning 시작
 
-이 빠른 시작에서는 Python용 Azure Machine Learning SDK를 사용하여 Machine Learning 서비스 [작업 영역](concept-azure-machine-learning-architecture.md)을 만들고 사용합니다. 이 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다.
+이 빠른 시작에서는 Python용 Azure Machine Learning SDK를 사용하여 Machine Learning 서비스 [작업 영역](concept-azure-machine-learning-architecture.md)을 만들고 사용합니다. 이 작업 영역은 Machine Learning을 사용하여 기계 학습 모델을 실험하고, 교육하고, 배포하는 데 사용되는 클라우드의 기본 블록입니다. 이 빠른 시작에서는 먼저 자체 Python 환경과 Jupyter 노트북 서버를 구성합니다. 설치 과정 없이 실행하려면 [빠른 시작: Azure Portal을 사용하여 Azure Machine Learning 시작](quickstart-get-started.md)을 참조하세요.
+
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -38,6 +39,9 @@ ms.locfileid: "49456205"
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
+>[!NOTE]
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.74에서 테스트됨 
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 
@@ -56,28 +60,31 @@ Miniconda를 [다운로드](https://conda.io/miniconda.html)하여 설치합니�
 
 명령줄 창을 엽니다. Python 3.6을 사용하여 `myenv`라는 새로운 conda 환경을 만듭니다.
 
-```sh
+```shell
 conda create -n myenv -y Python=3.6
 ```
 
 환경을 활성화합니다.
 
-  ```sh
+  ```shell
   conda activate myenv
   ```
 
 ### <a name="install-the-sdk"></a>SDK 설치
 
-활성화된 conda 환경에 SDK를 설치합니다. 이 코드는 Machine Learning SDK의 핵심 구성 요소를 설치합니다. 또한 `myenv` conda 환경에 Jupyter Notebook 서버를 설치합니다. 설치를 완료하는 데 **약 4분**이 소요됩니다.
+활성화된 conda 환경에 SDK를 설치합니다. 아래 명령은 Machine Learning SDK의 핵심 구성 요소를 설치합니다. 또한 `myenv` conda 환경에 Jupyter Notebook 서버를 설치합니다. 머신 구성에 따라 설치를 완료하는 데 몇 분이 소요됩니다.
 
-```sh
+```shell
+# install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
 ```
+
+
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
 Jupyter Notebook을 시작하려면 다음 명령을 입력합니다.
-```sh
+```shell
 jupyter notebook
 ```
 
@@ -85,10 +92,7 @@ jupyter notebook
 
 SDK 버전을 표시하려면 Notebook 셀에 다음 Python 코드를 입력하고 실행합니다.
 
-```python
-import azureml.core
-print(azureml.core.VERSION)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
 새 Azure 리소스 그룹과 새 작업 영역을 만듭니다.
 
@@ -97,10 +101,10 @@ print(azureml.core.VERSION)
 ```python
 from azureml.core import Workspace
 ws = Workspace.create(name='myworkspace',
-                      subscription_id='<azure-subscription-id>',
+                      subscription_id='<azure-subscription-id>',    
                       resource_group='myresourcegroup',
                       create_resource_group=True,
-                      location='eastus2' # or other supported Azure region
+                      location='eastus2' # or other supported Azure region  
                      )
 ```
 
@@ -108,9 +112,8 @@ ws = Workspace.create(name='myworkspace',
 
 연결된 저장소, 컨테이너 레지스트리, 키 자격 증명 모음을 비롯한 작업 영역 세부 정보를 보려면 다음 코드를 입력합니다.
 
-```python
-ws.get_details()
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
+
 
 ## <a name="write-a-configuration-file"></a>구성 파일 작성
 
@@ -118,14 +121,8 @@ ws.get_details()
 
 나중에 이 작업 영역 구성 파일을 사용하여 동일한 작업 영역을 간편하게 로드할 수 있습니다. 다른 노트북 및 스크립트를 사용하여 동일한 디렉터리 또는 하위 디렉터리에 로드할 수 있습니다. 
 
-```python
-# Create the configuration file.
-ws.write_config()
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-# Use this code to load the workspace from 
-# other scripts and notebooks in this directory.
-# ws = Workspace.from_config()
-```
 
 `write_config()` API 호출은 현재 디렉터리에 구성 파일을 만듭니다. `config.json` 파일에는 다음 스크립트가 포함됩니다.
 
@@ -141,24 +138,8 @@ ws.write_config()
 
 SDK의 기본 API를 사용하여 실험 실행을 추적하는 코드를 작성합니다.
 
-```python
-from azureml.core import Experiment
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=useWs)]
 
-# create a new experiment
-exp = Experiment(workspace=ws, name='myexp')
-
-# start a run
-run = exp.start_logging()
-
-# log a number
-run.log('my magic number', 42)
-
-# log a list (Fibonacci numbers)
-run.log_list('my list', [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]) 
-
-# finish the run
-run.complete()
-```
 
 ## <a name="view-logged-results"></a>기록된 결과 보기
 실행이 완료되면 Azure Portal에서 실험 실행을 볼 수 있습니다. 다음 코드를 사용하면 마지막 실행 결과에 대한 URL을 인쇄할 수 있습니다.
@@ -177,9 +158,8 @@ print(run.get_portal_url())
 
 여기서 만든 리소스를 사용하지 않으려는 경우 요금이 발생하지 않도록 삭제하세요.
 
-```python
-ws.delete(delete_dependent_resources=True)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=delete)]
+
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -191,10 +171,34 @@ ws.delete(delete_dependent_resources=True)
 1. 명령줄 창에서 `Ctrl`+`C`를 사용하여 노트북 서버를 중지합니다.
 1. 패키지를 추가로 설치합니다.
 
-    ```sh
+    ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy
     pip install azureml-sdk[automl]
+
+    # install run history widget
+    jupyter nbextension install --py --user azureml.train.widgets
+
+    # enable run history widget
+    jupyter nbextension enable --py --user azureml.train.widgets
     ```
+
+    또한 SDK의 추가 구성 요소를 설치하기 위해 다른 "추가" 키워드를 사용할 수도 있습니다.
+
+    ```shell
+    # install the base SDK and auto ml components
+    pip install azureml-sdk[automl]
+
+    # install the base SDK and model explainability component
+    pip install azureml-sdk[explain]
+
+    # install the base SDK and experimental components
+    pip install azureml-sdk[contrib]
+
+    # install the base SDK and automl components in Azure Databricks environment
+    # read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+    pip install azureml-sdk[databricks]
+    ```
+
 
 이러한 패키지를 설치한 후에는 자습서에 따라 모델을 학습시키고 배포합니다. 
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Resource Manager 템플릿을 사용하여 Azure HDInsight에서 Hadoop 및 Hive 시작 '
+title: '빠른 시작: Resource Manager 템플릿을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작 '
 description: HDInsight 클러스터를 만들고 Hive를 사용하여 데이터를 쿼리하는 방법에 대해 알아봅니다.
 keywords: Hadoop 시작, Hadoop Linux, Hadoop 빠른 시작, Hive 시작, Hive 빠른 시작
 services: hdinsight
@@ -10,16 +10,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.openlocfilehash: cf5992615f021a986aeb3145f01b27a3b565a17b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: cc726156273591215e5a311065ae2fe6dd87402c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014383"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634446"
 ---
-# <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure HDInsight에서 Hadoop 및 Hive 시작
+# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure HDInsight에서 Apache Hadoop 및 Apache Hive 시작
 
-이 문서에서는 Resource Manager 템플릿을 사용하여 HDInsight에서 [Hadoop](http://hadoop.apache.org/) 클러스터를 만든 다음, HDInsight에서 Hive 작업을 실행하는 방법을 알아봅니다. Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 문서에서는 세 가지 작업을 모두 수행할 수 있습니다.
+이 문서에서는 Resource Manager 템플릿을 사용하여 HDInsight에서 [Apache Hadoop](http://hadoop.apache.org/) 클러스터를 만든 다음, HDInsight에서 Hive 작업을 실행하는 방법을 알아봅니다. Hadoop 작업의 대부분은 배치 작업입니다. 클러스터를 만들고 일부 작업을 실행한 다음 클러스터를 삭제합니다. 이 문서에서는 세 가지 작업을 모두 수행할 수 있습니다.
 
 이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 HDInsight Hadoop 클러스터를 만듭니다. 또한 [Azure Portal](apache-hadoop-linux-create-cluster-get-started-portal.md)을 사용하여 클러스터를 만들 수도 있습니다.
 

@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361714"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345711"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Bing Spell Check API란?
 
@@ -42,9 +42,12 @@ API에서 지원하는 두 가지 교정 모드는 `Proof` 및 `Spell`입니다.
 <br /><br/>**참고:** 쿼리 텍스트의 길이가 4,096자를 초과하면 4,096자까지 자른 텍스트를 처리합니다. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spell(맞춤법 검사) - 웹 검색/쿼리 시나리오용
 `Spell`은 더 나은 검색 결과를 더 적극적으로 반환할 수 있습니다. `Spell` 모드는 대부분의 맞춤법 오류를 찾지만, `Proof`에서 포착하는 문법 오류(예: 대문자 표시 및 반복 단어)는 찾지 못합니다.
-<br /></br>**참고:** 지원되는 최대 쿼리 길이는 다음과 같습니다. 쿼리에서 한도를 초과하면 쿼리가 변경되지 않았음을 보여 주는 결과가 나타납니다.
-<ul><li>en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko 언어 코드의 경우 130자입니다. </li>
-<li>언어 코드의 경우 65자입니다.</li></ul>
+
+> [!NOTE]
+> * 지원되는 최대 쿼리 길이는 다음과 같습니다. 쿼리가 최대 길이를 초과할 경우 쿼리 및 해당 결과가 변경되지 않습니다.
+>    * en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko 언어 코드의 경우 130자입니다. 
+>    * 그 외 모든 언어 코드는 65자입니다.
+> * 맞춤법 검사 모드는 쿼리에 대괄호 문자(`[` 및 `]`)를 지원하지 않으며 일치하지 않는 결과가 발생할 수 있습니다. 맞춤법 검사 모드를 사용할 때는 쿼리에서 제거하는 것이 좋습니다.
 
 ## <a name="market-setting"></a>시장 설정
 시장은 요청 URL의 쿼리 매개 변수에 지정되어야 합니다. 그렇지 않으면 맞춤법 검사기에서 IP 주소를 기반으로 기본 시장을 사용합니다.

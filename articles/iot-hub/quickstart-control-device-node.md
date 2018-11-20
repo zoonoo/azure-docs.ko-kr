@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 614e1dc7af174952bb1db0f47e989a91f7334622
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 73eae5f024c6dc707e5fa7c0a55d88672271e313
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363880"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515780"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>빠른 시작: IoT 허브(Node.js)에 연결된 장치 제어
 
@@ -26,6 +26,7 @@ IoT Hub는 IoT 장치에서 클라우드로 다량의 원격 분석 데이터를
 빠른 시작은 두 가지 미리 작성된 Node.js 응용 프로그램을 사용합니다.
 
 * 백 엔드 응용 프로그램에서 호출된 직접 메소드에 응답하는 시뮬레이션된 장치 응용 프로그램입니다. 직접 메서드 호출을 수신하기 위해 이 응용 프로그램을 IoT 허브의 장치별 엔드포인트에 연결합니다.
+
 * 시뮬레이션된 장치에서 직접 메서드를 호출하는 백 엔드 응용 프로그램입니다. 장치에서 직접 메서드를 호출하려면 이 응용 프로그램을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -50,7 +51,7 @@ node --version
 
 이전 [빠른 시작: 원격 분석을 장치에서 IoT 허브로 전송](quickstart-send-telemetry-node.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>장치 등록
 
@@ -60,21 +61,25 @@ node --version
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. 
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
 
    **MyNodeDevice** : 등록된 장치에 지정된 이름입니다. 표시된 것처럼 MyNodeDevice를 사용하세요. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 응용 프로그램에서 장치 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
+    az iot hub device-identity create \
+      --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
 
-1. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다.
 
-    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+    **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    az iot hub device-identity show-connection-string \
+      --hub-name YourIoTHubName \
+      --device-id MyNodeDevice \
+      --output table
     ```
 
     다음과 같은 장치 연결 문자열을 기록해 둡니다.
@@ -83,12 +88,13 @@ node --version
 
     이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
-1. 또한 백 엔드 응용 프로그램을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
+3. 또한 백 엔드 응용 프로그램을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
 
-    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+    **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name YourIoTHubName --output table
+    az iot hub show-connection-string \
+      --hub-name YourIoTHubName --output table
     ```
 
     다음과 같은 서비스 연결 문자열을 기록해 둡니다.
@@ -103,11 +109,11 @@ node --version
 
 1. 로컬 터미널 창에서 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device-2** 폴더로 이동합니다.
 
-1. 원하는 텍스트 편집기에서 **SimulatedDevice.js** 파일을 엽니다.
+2. 원하는 텍스트 편집기에서 **SimulatedDevice.js** 파일을 엽니다.
 
     `connectionString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.js** 파일에 저장합니다.
 
-1. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 응용 프로그램을 실행합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 응용 프로그램을 실행합니다.
 
     ```cmd/sh
     npm install
@@ -116,7 +122,7 @@ node --version
 
     다음 스크린샷에서는 시뮬레이션된 장치 응용 프로그램에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
-    ![시뮬레이션된 장치 실행](media/quickstart-control-device-node/SimulatedDevice-1.png)
+    ![시뮬레이션된 장치 실행](./media/quickstart-control-device-node/SimulatedDevice-1.png)
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
@@ -124,11 +130,11 @@ node --version
 
 1. 또 다른 로컬 터미널 창에서 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\back-end-application** 폴더로 이동합니다.
 
-1. 원하는 텍스트 편집기에서 **BackEndApplication.js** 파일을 엽니다.
+2. 원하는 텍스트 편집기에서 **BackEndApplication.js** 파일을 엽니다.
 
     `connectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **BackEndApplication.js** 파일에 저장합니다.
 
-1. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 응용 프로그램을 실행합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 백 엔드 응용 프로그램을 실행합니다.
 
     ```cmd/sh
     npm install
@@ -137,20 +143,19 @@ node --version
 
     다음 스크린샷에서는 응용 프로그램에서 장치에 직접 메서드를 호출하고 승인을 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 응용 프로그램 실행](media/quickstart-control-device-node/BackEndApplication.png)
+    ![백 엔드 응용 프로그램 실행](./media/quickstart-control-device-node/BackEndApplication.png)
 
     백 엔드 응용 프로그램을 실행한 후 시뮬레이션된 장치를 실행하는 콘솔 창에 메시지가 표시되고 메시지를 보내는 속도가 변경됩니다.
 
-    ![시뮬레이션된 클라이언트에서 변경](media/quickstart-control-device-node/SimulatedDevice-2.png)
+    ![시뮬레이션된 클라이언트에서 변경](./media/quickstart-control-device-node/SimulatedDevice-2.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 백 엔드 응용 프로그램에서 장치에 직접 메서드를 호출하고, 시뮬레이션된 장치 응용 프로그램에서 직접 메서드 호출에 응답했습니다.
+이 빠른 시작에서는 백 엔드 애플리케이션에서 디바이스에 직접 메서드를 호출하고, 시뮬레이션된 디바이스 애플리케이션에서 직접 메서드 호출에 응답했습니다.
 
 장치-클라우드 메시지를 클라우드의 다른 대상으로 라우팅하는 방법을 알아보려면 다음 자습서로 계속 진행합니다.
 

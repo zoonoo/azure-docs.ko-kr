@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342210"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636597"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 
@@ -39,7 +39,7 @@ Microsoft Azure Service Bus는 완전히 관리되는 엔터프라이즈 통합 
 
 ![큐](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-큐의 메시지는 도착 시 순서가 지정되고 타임스탬프가 지정됩니다. 허용되면 메시지는 중복 저장소에 안전하게 보관됩니다. 메시지는 요청 시 메시지를 전송하는 *끌어오기* 모드에서 전송됩니다.
+큐의 메시지는 도착 시 순서가 지정되고 타임스탬프가 지정됩니다. 허용되면 메시지는 중복 스토리지에 안전하게 보관됩니다. 메시지는 요청 시 메시지를 전송하는  *끌어오기* 모드에서 전송됩니다.
 
 ## <a name="topics"></a>토픽
 
@@ -115,9 +115,9 @@ Service Bus는 [.NET](https://github.com/Azure/azure-service-bus-dotnet/tree/mas
 
 Service Bus는 다음 Azure 서비스와 완벽하게 통합됩니다.
 
-- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [함수](https://azure.microsoft.com/services/functions/) 
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [함수](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  

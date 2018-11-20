@@ -1,192 +1,91 @@
 ---
-title: '빠른 시작: .NET SDK 및 C#을 사용하여 이미지에서 얼굴 감지'
+title: '빠른 시작: Azure Face .NET SDK를 사용하여 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Cognitive Services에서 Face Windows C# 클라이언트 라이브러리를 사용하여 이미지의 얼굴을 감지합니다.
+description: 이 빠른 시작에서는 이미지에서 얼굴을 감지하기 위해 C#과 함께 Azure Face SDK를 사용합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4fbbde167a8c895a71ab3614e8c3ecbce26604a9
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954966"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578161"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>빠른 시작: .NET SDK 및 C#을 사용하여 이미지에서 얼굴 감지
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>빠른 시작: Face .NET SDK를 사용하여 이미지에서 얼굴 감지
 
-이 빠른 시작에서는 Face Windows 클라이언트 라이브러리를 사용하여 이미지에서 사람 얼굴을 감지합니다.
+이 빠른 시작에서는 이미지에서 사람 얼굴을 감지하기 위해 C#과 함께 Face 서비스 SDK를 사용합니다. 이 빠른 시작의 작동하는 코드 예제를 보려면 GitHub의 [Cognitive Services Vision csharp 빠른 시작](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) 리포지토리에서 Face 프로젝트를 참조하세요.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 샘플을 실행하려면 구독 키가 있어야 합니다. [Cognitive Services 시도](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다.
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
-* [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) 클라이언트 라이브러리 NuGet 패키지. 패키지를 다운로드할 필요는 없습니다. 설치 지침은 아래에 제공됩니다.
+- Face API 구독 키. [Cognitive Services 시도](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+- [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 
-## <a name="detectwithurlasync-method"></a>DetectWithUrlAsync 메서드
+## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-> [!TIP]
-> [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face)에서 최신 코드를 Visual Studio 솔루션으로 가져옵니다.
+1. Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만들고 **FaceDetection**으로 이름을 지정합니다. 
+1. 솔루션에 다른 프로젝트가 있는 경우 이것을 단일 시작 프로젝트로 선택합니다.
+1. 필요한 NuGet 패키지를 가져옵니다. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. **찾아보기** 탭을 클릭하고 **시험판 포함**을 선택한 후, 다음 패키지를 설치합니다.
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
-`DetectWithUrlAsync` 및 `DetectWithStreamAsync` 메서드는 원격 및 로컬 이미지 각각에 대해 [Face - 감지 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)를 래핑합니다. 이 메서드를 사용하여 이미지에서 얼굴을 감지하고 다음을 포함한 얼굴 특성을 반환할 수 있습니다.
+## <a name="add-face-detection-code"></a>얼굴 감지 코드 추가
 
-* 얼굴 Face: 여러 Face API 시나리오에 사용되는 고유 ID입니다.
-* 얼굴 사각형: 이미지에서 얼굴의 위치를 나타내는 왼쪽, 위쪽, 너비 및 높이입니다.
-* 랜드마크: 얼굴 구성 요소의 중요한 위치를 가리키는 27포인트 얼굴 랜드마크 배열입니다.
-* 연령, 성별, 웃는 정도, 머리 포즈, 얼굴의 털 등을 포함한 얼굴 특성입니다.
+새 프로젝트의 *Program.cs* 파일을 엽니다. 여기에 이미지를 로드하고 얼굴을 감지하는 데 필요한 코드를 추가합니다.
 
-샘플을 실행하려면 다음 단계를 수행합니다.
+### <a name="include-namespaces"></a>네임스페이스 포함
 
-1. Visual Studio에서 새로운 Visual C# 콘솔 앱을 만듭니다.
-1. Face 클라이언트 라이브러리 NuGet 패키지를 설치합니다.
-    1. 맨 위의 메뉴에서 **도구**를 클릭하고, **NuGet 패키지 관리자**를 선택한 다음, **솔루션에 대한 NuGet 패키지 관리**를 선택합니다.
-    1. **찾아보기** 탭을 클릭한 다음, **시험판 포함**을 선택합니다.
-    1. **검색** 상자에서 “Microsoft.Azure.CognitiveServices.Vision.Face”를 입력합니다.
-    1. **Microsoft.Azure.CognitiveServices.Vision.Face**가 표시될 때 선택한 다음, 프로젝트 이름 옆의 확인란을 클릭하고, **설치**를 클릭합니다.
-1. *Program.cs*를 다음 코드로 바꿉니다.
-1. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
-1. 필요한 경우 `faceEndpoint`를 구독 키와 연결된 Azure 지역으로 변경합니다.
-1. 필요에 따라 <`LocalImage>`를 로컬 이미지의 경로 및 파일 이름으로 바꿉니다(설정되지 않으면 무시됨).
-1. 필요에 따라 `remoteImageUrl`을 다른 이미지로 설정합니다.
-1. 프로그램을 실행합니다.
+*Program.cs* 파일 위에 다음 `using` 문을 추가합니다.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Vision.Face;
-using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=1-7)]
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+### <a name="add-essential-fields"></a>필수 필드 추가
 
-namespace DetectFace
-{
-    class Program
-    {
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string subscriptionKey = "<SubscriptionKey>";
+**Program** 클래스에 다음 필드를 추가합니다. 이 데이터는 Face 서비스에 연결하는 방법과 입력 데이터를 가져올 위치를 지정합니다. `subscriptionKey` 필드를 구독 키의 값으로 업데이트해야 하며 올바른 지역 식별자가 포함되도록 `faceEndpoint` 문자열을 변경해야 할 수도 있습니다. 또한 `localImagePath` 및/또는 `remoteImageUrl` 값을 실제 이미지 파일을 가리키는 경로로 설정해야 합니다.
 
-        // You must use the same region as you used to get your subscription
-        // keys. For example, if you got your subscription keys from westus,
-        // replace "westcentralus" with "westus".
-        //
-        // Free trial subscription keys are generated in the westcentralus
-        // region. If you use a free trial subscription key, you shouldn't
-        // need to change the region.
-        // Specify the Azure region
-        private const string faceEndpoint =
-            "https://westcentralus.api.cognitive.microsoft.com";
+`faceAttributes` 필드는 단순히 특정 유형의 특성 배열입니다. 감지된 얼굴에 대해 검색할 정보를 지정합니다.
 
-        // localImagePath = @"C:\Documents\LocalImage.jpg"
-        private const string localImagePath = @"<LocalImage>";
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
 
-        private const string remoteImageUrl =
-            "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg";
+### <a name="create-and-use-the-face-client"></a>Face 클라이언트 만들기 및 사용
 
-        private static readonly FaceAttributeType[] faceAttributes =
-            { FaceAttributeType.Age, FaceAttributeType.Gender };
+다음으로, **Program** 클래스의 **Main** 메서드에 다음 코드를 추가합니다. 그러면 Face API 클라이언트를 설정합니다.
 
-        static void Main(string[] args)
-        {
-            FaceClient faceClient = new FaceClient(
-                new ApiKeyServiceClientCredentials(subscriptionKey),
-                new System.Net.Http.DelegatingHandler[] { });
-            faceClient.Endpoint = faceEndpoint;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
 
-            Console.WriteLine("Faces being detected ...");
-            var t1 = DetectRemoteAsync(faceClient, remoteImageUrl);
-            var t2 = DetectLocalAsync(faceClient, localImagePath);
+또한 **Main** 메서드에서 다음 코드를 추가하여 새로 생성된 Face 클라이언트를 사용하여 원격 및 로컬 이미지에서 얼굴을 감지합니다. 검지 메서드는 다음에 정의합니다. 
 
-            Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
-            Console.ReadLine();
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
 
-        // Detect faces in a remote image
-        private static async Task DetectRemoteAsync(
-            FaceClient faceClient, string imageUrl)
-        {
-            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
-            {
-                Console.WriteLine("\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
-                return;
-            }
+### <a name="detect-faces"></a>얼굴 감지
 
-            try
-            {
-                IList<DetectedFace> faceList =
-                    await faceClient.Face.DetectWithUrlAsync(
-                        imageUrl, true, false, faceAttributes);
+**Program** 클래스에 다음 메서드를 추가합니다. Face 서비스 클라이언트를 사용하여 URL로 참조되는 원격 이미지에서 얼굴을 감지합니다. 여기서는 `faceAttributes` 필드를 사용합니다. `faceList`에 추가된 **DetectedFace** 개체는 지정된 특성(이 경우 나이 및 성별)을 포함합니다.&mdash;
 
-                DisplayAttributes(GetFaceAttributes(faceList, imageUrl), imageUrl);
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imageUrl + ": " + e.Message);
-            }
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
-        // Detect faces in a local image
-        private static async Task DetectLocalAsync(FaceClient faceClient, string imagePath)
-        {
-            if (!File.Exists(imagePath))
-            {
-                Console.WriteLine(
-                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
-                return;
-            }
+마찬가지로 **DetectLocalAsync** 메서드를 추가합니다. Face 서비스 클라이언트를 사용하여 파일 경로로 참조되는 로컬 이미지에서 얼굴을 감지합니다.
 
-            try
-            {
-                using (Stream imageStream = File.OpenRead(imagePath))
-                {
-                    IList<DetectedFace> faceList =
-                            await faceClient.Face.DetectWithStreamAsync(
-                                imageStream, true, false, faceAttributes);
-                    DisplayAttributes(
-                        GetFaceAttributes(faceList, imagePath), imagePath);
-                }
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imagePath + ": " + e.Message);
-            }
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=76-101)]
 
-        private static string GetFaceAttributes(
-            IList<DetectedFace> faceList, string imagePath)
-        {
-            string attributes = string.Empty;
+### <a name="retrieve-and-display-face-attributes"></a>얼굴 특성 검색 및 표시
 
-            foreach (DetectedFace face in faceList)
-            {
-                double? age = face.FaceAttributes.Age;
-                string gender = face.FaceAttributes.Gender.ToString();
-                attributes += gender + " " + age + "   ";
-            }
+다음으로, **GetFaceAttributes** 메서드를 정의합니다. 관련 특성 정보와 함께 문자열을 반환합니다.
 
-            return attributes;
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-        // Display the face attributes
-        private static void DisplayAttributes(string attributes, string imageUri)
-        {
-            Console.WriteLine(imageUri);
-            Console.WriteLine(attributes + "\n");
-        }
-    }
-}
-```
+마지막으로, **DisplayAttributes** 메서드를 정의하여 얼굴 특성 데이터를 콘솔 출력에 기록합니다.
 
-### <a name="detectwithurlasync-response"></a>DetectWithUrlAsync 응답
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
 
-성공적인 응답에는 이미지에 있는 각 얼굴에 대한 성별과 나이가 표시됩니다.
+## <a name="run-the-app"></a>앱 실행
 
-원시 JSON 출력의 예제가 필요하면 [API 빠른 시작: C#을 사용하여 이미지에서 얼굴 감지](CSharp.md)를 참조하세요.
+성공적인 응답에는 이미지에 있는 각 얼굴에 대한 성별과 나이가 표시됩니다. 예: 
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg
@@ -195,7 +94,7 @@ Male 37   Female 56
 
 ## <a name="next-steps"></a>다음 단계
 
-Face 서비스를 사용하여 이미지에서 얼굴을 감지하는 WPF Windows 응용 프로그램을 만드는 방법에 대해 알아봅니다. 응용 프로그램이 각 얼굴 주위에 프레임을 그린 다음, 상태 표시줄에 얼굴에 대한 설명을 표시합니다.
+이 빠른 시작에서 Face API 서비스를 사용하여 로컬 및 원격 이미지의 얼굴을 감지할 수 있는 간단한 .NET 콘솔 애플리케이션을 만들었습니다. 다음으로, 보다 자세한 자습서에 따라 사용자에게 얼굴 정보를 직관적으로 표시하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 이미지에서 얼굴을 감지하고 포착하는 WPF 앱 만들기](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [자습서: 이미지에서 얼굴을 감지하고 분석하는 WPF 앱 만들기](../Tutorials/FaceAPIinCSharpTutorial.md)

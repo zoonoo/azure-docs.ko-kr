@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: aa3c72c7ff2aa5e25fbff9fc38c33fd2dda34ecd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: de15d1f8c268e80ac1659c53a141ec39cc6d3cb8
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985083"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564812"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기(미리 보기)
 
@@ -240,6 +240,13 @@ az functionapp config appsettings set --name <function_app> \
 --settings AzureWebJobsDashboard=$storageConnectionString \
 AzureWebJobsStorage=$storageConnectionString
 ```
+
+> [!NOTE]
+> 컨테이너가 비공개인 경우 다음 애플리케이션 설정도 설정해야 합니다.  
+> - DOCKER_REGISTRY_SERVER_USERNAME  
+> - DOCKER_REGISTRY_SERVER_PASSWORD  
+>
+> 이러한 값을 선택하기 위해서는 함수 앱을 중지했다가 시작해야 합니다.
 
 이제 Linux에서 실행되는 함수를 Azure에서 테스트할 수 있습니다.
 

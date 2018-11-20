@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 12f03352373bebecb74b9dd8d31470ac337f5e71
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d156c481e3c16105ad85cbc793d93306a310d5ef
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227574"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567114"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>자습서: 비디오 및 대본 조정
 
@@ -203,7 +203,7 @@ Content Moderator의 비디오 API를 사용하면 사용자 검토 도구에서
 네트워크 트래픽을 최소화하려면 응용 프로그램은 비디오 파일을 H.264(MPEG-4 AVC) 형식으로 변환하고 최대 너비 640픽셀로 크기를 조정합니다. 높은 효율성(압축률) 때문에 H.264 코덱이 권장됩니다. 압축은 Visual Studio 솔루션의 `Lib` 폴더에 포함된 무료 `ffmpeg` 명령줄 도구를 사용하여 이루어집니다. 입력 파일은 가장 일반적으로 사용되는 비디오 파일 형식 및 코덱을 포함하여 `ffmpeg`에서 지원하는 모든 형식이 될 수 있습니다.
 
 > [!NOTE]
-> 명령줄 옵션을 사용하여 프로그램을 시작할 경우 조정을 위해 제출될 비디오 파일을 포함하는 디렉터리를 지정합니다. `.mp4` 파일 이름 확장명을 가진 이 디렉터리의 모든 파일이 처리됩니다. 다른 파일 이름 확장명을 처리하려면 `Program.cs`의 `Main()` 메서드를 업데이트하여 원하는 확장명을 포함시킵니다.
+> 명령줄 옵션을 사용하여 프로그램을 시작할 경우 조정을 위해 제출될 비디오 파일을 포함하는 디렉터리를 지정합니다. `.mp4` 파일 이름 확장명를 가진 이 디렉터리의 모든 파일이 처리됩니다. 다른 파일 이름 확장명을 처리하려면 `Program.cs`의 `Main()` 메서드를 업데이트하여 원하는 확장명을 포함시킵니다.
 
 단일 비디오 파일을 압축하는 코드는 `AMSComponent.cs`의 `AmsComponent` 클래스입니다. 이 기능을 담당하는 메서드는 여기에 표시된 `CompressVideo()`입니다.
 

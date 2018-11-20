@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981249"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613429"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서 - Azure CLI로 Linux VM 만들기 및 관리
 
@@ -262,7 +262,7 @@ Azure VM의 전원 상태는 여러 상태 중 하나일 수 있습니다. 이 �
 | 할당 취소됨 | 가상 컴퓨터가 하이퍼바이저에서 제거되었지만 제어 영역에서 계속 사용할 수 있음을 나타냅니다. 할당 취소됨 상태의 가상 머신에는 계산 요금이 발생하지 않습니다. |
 | - | 가상 머신의 전원 상태가 알 수 없음을 나타냅니다. |
 
-### <a name="find-power-state"></a>전원 상태 찾기
+### <a name="find-the-power-state"></a>전원 상태 찾기
 
 특정 VM의 상태를 검색하려면 [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) 명령을 사용합니다. 가상 머신 및 리소스 그룹에 대한 올바른 이름을 지정해야 합니다. 
 

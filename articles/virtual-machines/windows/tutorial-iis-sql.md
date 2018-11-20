@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 SQL&#47;IIS&#47;.NET 스택을 실행하는 VM 만들기| Microsoft Docs
+title: 자습서 - Azure에서 SQL, IIS, .NET 스택을 실행하는 VM 만들기 | Microsoft Docs
 description: 이 자습서에서는 Azure에서 Windows 가상 머신에 Azure SQL, IIS, .NET 스택을 설치하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 357a81ef3ab23a1e06b88f083c2fcdc35b27853d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464913"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515491"
 ---
-# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM에 SQL&#47;IIS&#47;.NET 스택 설치
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM에 SQL, IIS, .NET 스택 설치
 
-이 자습서에서는 Azure PowerShell을 사용하여 SQL&#47;IIS&#47;.NET 스택을 설치합니다. 스택은 Windows Server 2016을 실행하는 두 개의 VM으로 구성되며, 하나는 IIS와 .NET과 실행하고 다른 하나는 SQL Server와 실행합니다.
+이 자습서에서는 Azure PowerShell을 사용하여 SQL, IIS, .NET 스택을 설치합니다. 스택은 Windows Server 2016을 실행하는 두 개의 VM으로 구성되며, 하나는 IIS와 .NET과 실행하고 다른 하나는 SQL Server와 실행합니다.
 
 > [!div class="checklist"]
 > * VM 만들기 
@@ -57,7 +57,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-사용자 지정 스크립트 확장을 사용하여 IIS 및 .NET Framework를 설치합니다.
+[Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet으로 사용자 지정 스크립트 확장을 사용하여 IIS 및 .NET Framework를 설치합니다.
 
 ```azurepowershell-interactive
 Set-AzureRmVMExtension `

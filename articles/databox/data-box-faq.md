@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e03d913e1887bceb9267207e3a9abea93ab6d000
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649400"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568033"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -233,7 +233,7 @@ a.  관리 연속성 지원을 위해 다음 보고를 사용할 수 있습니�
 a.  운송업체 추적 로그는 Data Box 주문 기록에 캡처됩니다. 이 보고서는 장치가 Azure 데이터 센터로 반환 되고 장치 디스크의 데이터가 정리된 후 사용할 수 있습니다. 즉시 필요한 경우 배송 업체 웹 사이트에서 직접 주문 추적 번호를 사용하여 추적 정보를 구할 수 있습니다.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Azure 데이터 센터에 Data Box를 직접 전달할 수 있나요? 
-a.  아니요. 현재 Azure 데이터 센터는 UPS/DHL이 아닌 운송업체나 고객의 Data Box 배송을 수취하지 않습니다.
+a.   아니요. 현재 Azure 데이터 센터는 UPS/DHL이 아닌 운송업체나 고객의 Data Box 배송을 수취하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

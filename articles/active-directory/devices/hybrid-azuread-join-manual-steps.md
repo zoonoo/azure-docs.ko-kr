@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: a3c35057af883eb790c44b3547072031eaf4ad2f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c85d3ce6ab3e84d454ddbc2550f430b87705c192
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962013"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622179"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 장치를 수동으로 구성 
 
@@ -520,7 +520,7 @@ Windows 하위 수준 장치를 등록하려면 사용자가 Azure AD에서 장�
 
 ### <a name="configure-on-premises-federation-service"></a>온-프레미스 페더레이션 서비스 구성 
 
-온-프레미스 페더레이션 서비스는 아래와 같이 인코딩된 값으로 resouce_params 매개 변수를 보유한 Azure AD 신뢰 당사자에 대한 인증 요청을 받으면 **authenticationmehod** 및 **wiaormultiauthn** 클레임을 발급하도록 지원해야 합니다.
+온-프레미스 페더레이션 서비스는 아래와 같이 인코딩된 값으로 resouce_params 매개 변수를 보유한 Azure AD 신뢰 당사자에 대한 인증 요청을 받는 경우 **authenticationmehod** 및 **wiaormultiauthn** 클레임을 발급하도록 지원해야 합니다.
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 

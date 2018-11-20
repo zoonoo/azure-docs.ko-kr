@@ -1,5 +1,5 @@
 ---
-title: '자습서: 표준 Load Balancer 생성 및 관리 - Azure Portal | Microsoft Docs'
+title: '자습서: 인터넷 트래픽 부하를 여러 VM에 분산 - Azure Portal | Microsoft Docs'
 description: 이 자습서에서는 Azure Portal을 사용하여 표준 Load Balancer를 만들고 관리하는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380049"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687316"
 ---
-# <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용한 표준 Load Balancer 생성 및 관리
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 인터넷 트래픽 부하를 여러 VM에 분산
 
-부하를 분산하면 들어오는 요청이 여러 가상 머신에 분산되어 가용성 및 확장성이 향상됩니다. 이 자습서에서는 트래픽을 분산하고 고가용성을 제공하는 Azure 표준 Load Balancer의 여러 다른 구성 요소에 대해 알아봅니다. 다음 방법에 대해 알아봅니다.
+부하를 분산하면 들어오는 요청이 여러 가상 머신에 분산되어 가용성 및 확장성이 향상됩니다. 이 자습서에서는 인터넷 트래픽을 여러 VM에 분산하여 고가용성을 제공하는 Azure 표준 Load Balancer의 여러 가지 구성 요소에 대해 알아봅니다. 다음 방법에 대해 알아봅니다.
 
 
 > [!div class="checklist"]
@@ -51,10 +51,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Name                   | *myLoadBalancer*                                   |
+    | 이름                   | *myLoadBalancer*                                   |
     | type          | 공용                                        |
     | SKU           | Standard                          |
-    | 공용 IP 주소 | **새로 만들기**를 선택하고, 텍스트 상자에 *myPublicIP*를 입력합니다. 공용 IP 주소에 대한 표준 SKU는 기본적으로 선택됩니다. **가용성 영역**에 **Zone-redundant**를 선택합니다. |
+    | 공용 IP 주소 | **새로 만들기**를 선택하고, 텍스트 상자에 *myPublicIP*를 입력합니다. 공용 IP 주소에 대한 표준 SKU는 기본적으로 선택됩니다. **가용성 영역**에 **영역 중복**을 선택합니다. |
     | 구독               | 구독을 선택합니다.    |
     |리소스 그룹 | **새로 만들기**를 선택한 다음, *myResourceGroupSLB*를 입력합니다.    |
     | 위치           | **유럽 서부**를 선택합니다.                          |
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. Azure Portal의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 클릭한 다음, 가상 네트워크에 대해 다음 값을 입력합니다.
     |설정|값|
     |---|---|
-    |Name|*myVNet*을 입력합니다.|
+    |이름|*myVNet*을 입력합니다.|
     |구독| 구독을 선택합니다.|
     |리소스 그룹| **기존 항목 사용**을 선택한 다음, *myResourceGroupSLB*를 선택합니다.|
     |서브넷 이름| *myBackendSubnet*을 입력합니다.|
@@ -92,7 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         2. **네트워크 보안 그룹 선택** 페이지에서 **이름**의 경우 *myNetworkSecurityGroup*을 새 네트워크 보안 그룹의 이름으로 선택한 다음, **확인**을 선택합니다.
 5. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
 6. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
-7. 1-6단계를 사용하여 가상 네트워크가 *myVnet*이고, 서브넷이 *myBackendSubnet*이고, 네트워크 보안 그룹이 *myNetworkSecurityGroup*인 *VM2* 및 *VM3*이라는 두 개의 VM을 더 만듭니다. 
+7. 1-6단계를 사용하여 가상 네트워크가 *myVnet*이고, 서브넷이 *myBackendSubnet*이고, 네트워크 보안 그룹이 **myNetworkSecurityGroup*인 *VM2* 및 *VM3*이라는 두 개의 VM을 더 만듭니다. 
 
 ### <a name="create-network-security-group-rule"></a>네트워크 보안 그룹 규칙 만들기
 
@@ -198,7 +198,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 2. **설정**에서 백 엔드 풀 목록에 있는 **백 엔드 풀**을 클릭하고 **myBackendPool**을 클릭합니다.
 3. **myBackendPool** 페이지의 **대상 네트워크 IP 구성**에서 *VM1*을 백 엔드에서 제거하려면 **가상 머신: myVM1** 옆에 있는 삭제 아이콘을 클릭합니다.
 
-*myVM1*이 백 엔드 주소 풀에 더 이상 없으면 *myVM1*에 소프트웨어 업데이트 설치와 같은 유지 관리 작업을 수행할 수 있습니다. *VM1*\*이 없으면 부하는 *myVM2* 및 *myVM3* 에 분산됩니다. 
+*myVM1*이 백 엔드 주소 풀에 더 이상 없으면 *myVM1*에 소프트웨어 업데이트 설치와 같은 유지 관리 작업을 수행할 수 있습니다. *VM1**이 없으면 부하는 *myVM2* 및 *myVM3*에 분산됩니다. 
 
 백 엔드 풀에 *myVM1*을 다시 추가하려면 이 문서의 *백 엔드 풀에 VM 추가* 섹션에 나와 있는 절차를 따릅니다.
 

@@ -1,5 +1,5 @@
 ---
-title: NET Core를 사용하여 Azure Media Services v3에서 라이브 스트림 | Microsoft Docs
+title: Azure Media Services v3에서 라이브 스트림 | Microsoft Docs
 description: 이 자습서에서는 .NET Core를 사용하여 Media Services v3에서 라이브 스트림의 단계를 설명합니다.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: bd149177a91bc0d5897723df2fad50fef11a37ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392338"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613395"
 ---
-# <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>NET Core를 사용하여 Azure Media Services v3에서 라이브 스트림
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>자습서: API를 사용하여 Azure Media Services v3에서 라이브 스트림
 
-[LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents)는 Media Services에서 라이브 스트리밍 콘텐츠 처리를 담당합니다. LiveEvent는 라이브 인코더에 제공할 입력 엔드포인트(수집 URL)를 제공합니다. LiveEvent는 라이브 인코더에서 라이브 입력 스트림을 수신하여 하나 이상의 [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 LiveEvents는 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)을 제공합니다. 이 자습서에는 .NET Core를 사용하여 **통과** 형식의 라이브 이벤트를 만드는 방법을 보여줍니다. 
+[LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents)는 Azure Media Services에서 라이브 스트리밍 콘텐츠를 처리하는 작업을 담당합니다. LiveEvent는 라이브 인코더에 제공할 입력 엔드포인트(수집 URL)를 제공합니다. LiveEvent는 라이브 인코더에서 라이브 입력 스트림을 수신하여 하나 이상의 [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 스트리밍하는 데 사용할 수 있도록 합니다. 또한 LiveEvents는 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)을 제공합니다. 이 자습서에는 .NET Core를 사용하여 **통과** 형식의 라이브 이벤트를 만드는 방법을 보여줍니다. 
 
 > [!NOTE]
 > 계속 진행하기 전에 [Media Services v3에서 라이브 스트리밍](live-streaming-overview.md)을 검토해야 합니다. 
@@ -31,7 +31,6 @@ ms.locfileid: "49392338"
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.    
 
 > [!div class="checklist"]
-> * Media Services 계정 만들기
 > * Media Services API 액세스
 > * 샘플 앱 구성
 > * 라이브 스트리밍을 수행하는 코드 검사
@@ -44,9 +43,17 @@ ms.locfileid: "49392338"
 
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-* Visual Studio Code 또는 Visual Studio 설치
-* 브로드캐스트 또는 이벤트에 사용되는 카메라 또는 장치(예: 랩톱)입니다.
-* 카메라에서 Media Services 라이브 스트리밍 서비스로 보내는 스트림으로 신호를 변환하는 온-프레미스 라이브 인코더입니다. 스트림은 **RTMP** 또는 **부드러운 스트리밍** 형식이어야 합니다.
+- Visual Studio Code 또는 Visual Studio 설치
+- CLI를 로컬로 설치하여 사용하기 위해 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+
+    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령만 Azure Cloud Shell에서 작동합니다. CLI를 로컬로 사용하는 것이 좋습니다.
+
+- [Media Services 계정 만들기](create-account-cli-how-to.md)
+
+    리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
+
+- 브로드캐스트 또는 이벤트에 사용되는 카메라 또는 장치(예: 랩톱)입니다.
+- 카메라에서 Media Services 라이브 스트리밍 서비스로 보내는 스트림으로 신호를 변환하는 온-프레미스 라이브 인코더입니다. 스트림은 **RTMP** 또는 **부드러운 스트리밍** 형식이어야 합니다.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
@@ -61,10 +68,6 @@ ms.locfileid: "49392338"
 > [!IMPORTANT]
 > 이 샘플에서는 각 리소스에 고유한 접미사를 사용합니다. 디버깅을 취소하거나 앱을 실행하지 않고 종료하는 경우 계정에 여러 LiveEvents가 발생합니다. <br/>
 > 실행 중인 LiveEvents를 중지해야 합니다. 그렇지 않으면 **비용이 청구**됩니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -176,9 +179,9 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. **CloudShell** 도구를 사용하면 됩니다.
+이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다.
 
-**CloudShell**에서 다음 명령을 실행합니다.
+다음 CLI 명령을 실행합니다.
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup

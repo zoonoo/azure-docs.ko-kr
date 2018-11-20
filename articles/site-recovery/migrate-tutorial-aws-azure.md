@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d10464dac8d9e47d80f11b8bfaf70740e3ad250
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252142"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567097"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -241,7 +241,10 @@ Azure VM에 마이그레이션할 EC2 인스턴스에 대해 실제 장애 조�
 1. **보호된 항목** > **복제된 항목**에서 AWS 인스턴스를 선택한 후 **장애 조치(Failover)** 를 선택합니다.
 2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 최근 복구 지점을 선택하고 장애 조치(failover)를 시작합니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 1. VM이 **복제된 항목**에 표시되는지 확인합니다.
-2. 각 VM을 마우스 오른쪽 단추로 클릭한 후 **마이그레이션 완료**를 선택합니다. 그러면 마이그레이션 프로세스가 완료되고, AWS VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.
+2. 각 VM을 마우스 오른쪽 단추로 클릭한 후 **마이그레이션 완료**를 선택합니다. 다음을 수행합니다.
+
+    - 그러면 마이그레이션 프로세스가 완료되고, AWS VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.
+    - 이 단계는 복제 데이터를 정리합니다. 마이그레이션된 VM을 삭제하지 않습니다. 
 
     ![마이그레이션 완료](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

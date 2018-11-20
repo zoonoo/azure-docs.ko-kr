@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 67cd78d4900b8ce53cf0c50116c02a9c1b967687
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0683516d16bf1501eee83901c5171811b8c0e44d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958766"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621550"
 ---
 # <a name="manage-database-accounts-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터베이스 계정 관리
 
-이 문서에서는 Cosmos DB 계정을 관리하여 멀티 호밍을 설정하고, 지역을 추가/제거하고, 여러 쓰기 지역을 구성하고 장애 조치(failover) 우선 순위를 설정하는 방법을 설명합니다. 
+이 문서에서는 Azure Cosmos DB 계정을 관리하여 멀티 호밍을 설정하고, 지역을 추가/제거하고, 여러 쓰기 지역을 구성하고, 장애 조치(failover) 우선 순위를 설정하는 방법을 설명합니다. 
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "50958766"
 
 ```bash
 # Create an account
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group Name>
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group Name>
 ```
 
 ## <a name="configure-clients-for-multi-homing"></a>클라이언트 멀티 호밍 구성
@@ -122,13 +122,13 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ```bash
 # Given an account created with 1 region like so
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=0'
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0'
 
 # Add a new region by adding another region to the list
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=0 westus=1'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0 westus=1'
 
 # Remove a region by removing a region from the list
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'westus=0'
 ```
 
 ## <a name="configure-multiple-write-regions"></a>다중 쓰기 지역 구성
@@ -137,17 +137,17 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 데이터베이스 계정을 만들 때 **다중 지역 쓰기** 설정을 사용해야 합니다.
 
-![Cosmos DB 계정 만들기 스크린샷](./media/how-to-manage-database-account/account-create.png)
+![Azure Cosmos 계정 만들기 스크린샷](./media/how-to-manage-database-account/account-create.png)
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
 ```bash
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
 ```
 
 ### <a id="configure-multiple-write-regions-arm"></a>리소스 관리자 템플릿
 
-다음 JSON 코드는 Resource Manager 템플릿 예제입니다. 이 템플릿을 사용하여 일관성 정책은 제한된 부실이고, 최대 부실 간격은 5초이고, 허용되는 최대 부실 요청 수가 100인 Azure Cosmos DB 계정을 배포할 수 있습니다. Resource Manager 템플릿 형식 및 구문에 대해 알아보려면 [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 설명서를 참조하세요.
+다음 JSON 코드는 Resource Manager 템플릿 예제입니다. 이 템플릿을 사용하여 일관성 정책은 제한된 부실이고, 최대 부실 간격은 5초이고, 허용되는 최대 부실 요청 수가 100개인 Azure Cosmos 계정을 배포할 수 있습니다. Resource Manager 템플릿 형식 및 구문에 대해 알아보려면 [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 설명서를 참조하세요.
 
 ```json
 {
@@ -202,11 +202,11 @@ az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Gr
 ```
 
 
-## <a name="enable-manual-failover-for-your-cosmos-account"></a>Cosmos 계정에 수동 장애 조치(failover) 사용
+## <a id="manual-failover"></a>Azure Cosmos 계정에 수동 장애 조치(failover) 사용
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure Portal
 
-1. Azure Cosmos DB 계정으로 이동하여 **"전역적으로 데이터 복제"** 메뉴를 엽니다.
+1. Azure Cosmos 계정으로 이동하여 **"전역적으로 데이터 복제"** 메뉴를 엽니다.
 
 2. 메뉴 맨 위에서 **"수동 장애 조치(failover)"** 단추를 클릭합니다.
 
@@ -223,14 +223,14 @@ az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Gr
 ```bash
 # Given your account currently has regions with priority like so: 'eastus=0 westus=1'
 # Change the priority order to trigger a failover of the write region
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
 ```
 
-## <a name="enable-automatic-failover-for-your-cosmos-account"></a>Cosmos 계정에 자동 장애 조치(failover) 사용
+## <a id="automatic-failover"></a>Azure Cosmos 계정에 자동 장애 조치(failover) 사용
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure Portal
 
-1. Azure Cosmos DB 계정에서 **"전역적으로 데이터 복제"** 창을 엽니다. 
+1. Azure Cosmos 계정에서 **"전역적으로 데이터 복제"** 창을 엽니다. 
 
 2. 창 맨 위에서 **"자동 장애 조치(failover)"** 단추를 클릭합니다.
 
@@ -248,20 +248,20 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ```bash
 # Enable automatic failover on account creation
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover true
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
 
 # Enable automatic failover on an existing account
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover true
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
 
 # Disable automatic failover on an existing account
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover false
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
 ```
 
-## <a name="set-failover-priorities-for-your-cosmos-account"></a>Cosmos 계정의 장애 조치(failover) 우선 순위 설정
+## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Azure Cosmos 계정의 장애 조치(failover) 우선 순위 설정
 
 ### <a id="set-failover-priorities-via-portal"></a>Azure Portal
 
-1. Azure Cosmos DB 계정에서 **"전역적으로 데이터 복제"** 창을 엽니다. 
+1. Azure Cosmos 계정에서 **"전역적으로 데이터 복제"** 창을 엽니다. 
 
 2. 창 맨 위에서 **"자동 장애 조치(failover)"** 단추를 클릭합니다.
 
@@ -280,12 +280,12 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
 ```bash
-az cosmosdb failover-priority-change --name <Cosmos DB Account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
+az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서를 사용하여 Cosmos DB의 일관성 수준 및 데이터 충돌을 관리하는 방법을 자세히 알아볼 수 있습니다.
+다음 문서를 사용하여 Azure Cosmos DB에서 일관성 수준 및 데이터 충돌을 관리하는 방법을 자세히 알아볼 수 있습니다.
 
 * [일관성을 관리하는 방법](how-to-manage-consistency.md)
 * [Azure 지역 간 충돌을 관리하는 방법](how-to-manage-conflicts.md)

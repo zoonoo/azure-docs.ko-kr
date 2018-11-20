@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978321"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685381"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>자습서 - Azure CLI를 사용하여 Azure 디스크 관리
 
@@ -36,9 +36,6 @@ Azure VM(가상 머신)은 디스크를 사용하여 운영 체제, 응용 프�
 > * 디스크 크기 조정
 > * 디스크 스냅숏
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
 
@@ -48,35 +45,15 @@ Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 �
 
 **임시 디스크** - 임시 디스크는 VM과 같은 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 임시 디스크는 성능이 높고 임시 데이터 처리 등의 작업에 사용할 수 있습니다. 그러나 VM이 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터는 제거됩니다. 임시 디스크의 크기는 VM 크기에 따라 결정됩니다. 임시 디스크는 */dev/sdb*로 레이블이 지정되고 탑재 지점은 */mnt*입니다.
 
-### <a name="temporary-disk-sizes"></a>임시 디스크 크기
-
-| type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
-|----|----|----|
-| [범용](sizes-general.md) | A, B 및 D 시리즈 | 1600 |
-| [Compute에 최적화](sizes-compute.md) | F 시리즈 | 576 |
-| [메모리에 최적화](sizes-memory.md) | D, E, G 및 M 시리즈 | 6144 |
-| [Storage에 최적화](sizes-storage.md) | L 시리즈 | 5630 |
-| [GPU](sizes-gpu.md) | N 시리즈 | 1,440 |
-| [고성능](sizes-hpc.md) | A 및 H 시리즈 | 2000 |
 
 ## <a name="azure-data-disks"></a>Azure 데이터 디스크
 
-응용 프로그램을 설치하고 데이터를 저장하기 위해 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 두 개의 데이터 디스크를 연결할 수 있습니다.
+응용 프로그램을 설치하고 데이터를 저장하기 위해 추가 데이터 디스크를 추가할 수 있습니다. 데이터 디스크는 지속형 및 반응형 데이터 저장소가 필요한 상황에 사용해야 합니다. 각 데이터 디스크의 최대 용량은 4TB입니다. 가상 컴퓨터의 크기에 따라 VM에 연결할 수 있는 데이터 디스크 수가 결정됩니다. 각 VM vCPU에 대해 네 개의 데이터 디스크를 연결할 수 있습니다.
 
-### <a name="max-data-disks-per-vm"></a>VM당 최대 데이터 디스크 수
-
-| type | VM 크기 | VM당 최대 데이터 디스크 수 |
-|----|----|----|
-| [범용](sizes-general.md) | A, B 및 D 시리즈 | 64 |
-| [Compute에 최적화](sizes-compute.md) | F 시리즈 | 64 |
-| [메모리에 최적화](../virtual-machines-windows-sizes-memory.md) | D, E 및 G 시리즈 | 64 |
-| [Storage에 최적화](../virtual-machines-windows-sizes-storage.md) | L 시리즈 | 64 |
-| [GPU](sizes-gpu.md) | N 시리즈 | 64 |
-| [고성능](sizes-hpc.md) | A 및 H 시리즈 | 64 |
 
 ## <a name="vm-disk-types"></a>VM 디스크 유형
 
-Azure는 두 가지 유형의 디스크를 제공합니다.
+Azure는 표준과 프리미엄의 두 가지 디스크를 제공합니다.
 
 ### <a name="standard-disk"></a>표준 디스크
 
@@ -88,13 +65,20 @@ Standard Storage는 HDD에 의해 지원되며 성능은 그대로이면서 비�
 
 ### <a name="premium-disk-performance"></a>프리미엄 디스크 성능
 
-|Premium Storage 디스크 유형 | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 디스크 크기(반올림) | 32GB | 64GB | 128GB | 512 GB | 1,024GB(1TB) | 2,048GB(2TB) | 4,095GB(4TB) |
-| 디스크당 최대 IOPS | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 |
-디스크당 처리량 | 25MB/초 | 50MB/초 | 100MB/초 | 150MB/초 | 200MB/s | 250MB/초 | 250MB/초 |
+|Premium Storage 디스크 유형 | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 디스크 크기(반올림) | 32GiB | 64GiB | 128GiB | 512GiB | 1,024GiB(1TiB) | 2,048GiB(2TiB) | 4,095GiB(4TiB) | 8,192GiB(8TiB)
+| 디스크당 최대 IOPS | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 | 12,500 |
+디스크당 처리량 | 25MB/초 | 50MB/초 | 100MB/초 | 150MB/초 | 200MB/s | 250MB/초 | 250MB/초 | 480MB/s |
 
 위의 표에 디스크당 최대 IOPS가 나와 있지만 여러 데이터 디스크를 스트라이프하여 더 높은 수준의 성능을 구현할 수 있습니다. 예를 들어 Standard_GS5 VM은 최대 80,000 IOPS를 얻을 수 있습니다. VM당 최대 IOPS에 대한 자세한 내용은 [Linux VM 크기](sizes.md)를 참조하세요.
+
+
+## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
+
+Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
+
+Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/bash)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
 ## <a name="create-and-attach-disks"></a>디스크 만들기 및 연결
 
@@ -116,7 +100,6 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 128 128
 ```
@@ -139,9 +122,8 @@ az vm disk attach \
 
 디스크가 가상 머신에 연결된 후 디스크를 사용하도록 운영 체제를 구성해야 합니다. 다음 예제에는 디스크를 수동으로 구성하는 방법을 보여 줍니다. 이 프로세스는 cloud-init를 사용하여 자동화할 수도 있으며 여기에 대해서는 [이후의 자습서](./tutorial-automate-vm-deployment.md)에서 다룹니다.
 
-### <a name="manual-configuration"></a>수동 구성
 
-가상 컴퓨터와 SSH 연결 만들기 예제 IP 주소를 가상 머신의 공용 IP로 바꿉니다.
+가상 머신과 SSH 연결 만들기 예제 IP 주소를 가상 머신의 공용 IP로 바꿉니다.
 
 ```azurecli-interactive
 ssh azureuser@52.174.34.95
@@ -204,42 +186,10 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail 
 exit
 ```
 
-## <a name="resize-vm-disk"></a>VM 디스크 크기 조정
 
-VM을 배포한 후 운영 체제 디스크 또는 모든 연결된 데이터 디스크의 크기를 늘릴 수 있습니다. 디스크의 크기를 늘리면 더 많은 저장소 공간이나 더 높은 수준의 성능(예: P10, P20 또는 P30)이 필요한 경우에 유용합니다. 디스크 크기를 줄일 수는 없습니다.
+## <a name="snapshot-a-disk"></a>디스크 스냅숏
 
-디스크 크기를 늘리려면 디스크의 ID 또는 이름이 필요합니다. [az disk list](/cli/azure/disk#az-disk-list) 명령을 사용하여 리소스 그룹의 모든 디스크를 반환합니다. 크기를 조정할 디스크 이름을 기록해 둡니다.
-
-```azurecli-interactive
-az disk list \
-    --resource-group myResourceGroupDisk \
-    --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
-    --output table
-```
-
-VM 할당을 취소해야 합니다. [az vm deallocate](/cli/azure/vm#az-vm-deallocate) 명령을 사용하여 VM을 중지하고 할당을 취소합니다.
-
-```azurecli-interactive
-az vm deallocate --resource-group myResourceGroupDisk --name myVM
-```
-
-[az disk update](/cli/azure/vm/disk#az-vm-disk-update) 명령을 사용하여 디스크의 크기를 조정합니다. 이 예제에서는 *myDataDisk*라는 디스크의 크기를 1테라바이트로 조정합니다.
-
-```azurecli-interactive
-az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
-```
-
-크기 조정 작업이 완료되면 VM을 시작합니다.
-
-```azurecli-interactive
-az vm start --resource-group myResourceGroupDisk --name myVM
-```
-
-운영 체제 디스크의 크기를 조정하는 경우 파티션은 자동으로 확장됩니다. 데이터 디스크의 크기를 조정한 경우 현재 파티션을 모두 VM 운영 체제에서 확장해야 합니다.
-
-## <a name="snapshot-azure-disks"></a>스냅숏 Azure 디스크
-
-디스크 스냅숏을 생성하면 Azure에서는 디스크의 읽기 전용, 지정 시간 복사본을 만듭니다. Azure VM 스냅숏은 구성을 변경하기 전에 VM의 상태를 신속하게 저장하는 데 유용합니다. 원하지 않게 구성이 변경된 경우 스냅숏을 사용하여 VM 상태를 복원할 수 있습니다. VM에 둘 이상의 디스크가 있는 경우 각 디스크의 스냅숏은 다른 디스크의 스냅숏과 독립적으로 생성됩니다. 응용 프로그램 일치 백업을 만들려면 디스크 스냅숏을 만들기 전에 VM을 중지하는 것이 좋습니다. 또는 [Azure Backup 서비스](/azure/backup/)를 사용하면 VM을 실행하는 동안 자동화된 백업을 수행할 수 있습니다.
+디스크 스냅숏을 생성하면 Azure에서는 디스크의 읽기 전용, 지정 시간 복사본을 만듭니다. Azure VM 스냅숏은 구성을 변경하기 전에 VM의 상태를 신속하게 저장하는 데 유용합니다. 문제 또는 오류 발생 시 스냅숏을 사용하여 VM을 복원할 수 있습니다. VM에 둘 이상의 디스크가 있는 경우 각 디스크의 스냅숏은 다른 디스크의 스냅숏과 독립적으로 생성됩니다. 응용 프로그램 일치 백업을 만들려면 디스크 스냅숏을 만들기 전에 VM을 중지하는 것이 좋습니다. 또는 [Azure Backup 서비스](/azure/backup/)를 사용하면 VM을 실행하는 동안 자동화된 백업을 수행할 수 있습니다.
 
 ### <a name="create-snapshot"></a>스냅숏 만들기
 

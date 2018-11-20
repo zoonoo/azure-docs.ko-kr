@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 717ce40caccd1114f8bae762fe38ce986421a4c9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 120fe358e5c8afe63e98038ad353d5ebc45a1937
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306695"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636471"
 ---
 # <a name="import-an-api-app-as-an-api"></a>API로 API 앱 가져오기
 
@@ -34,7 +34,7 @@ ms.locfileid: "38306695"
 ## <a name="prerequisites"></a>필수 조건
 
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 구독에 API 앱이 있는지 확인합니다. 자세한 내용은 [App Service 설명서][https://docs.microsoft.com/azure/app-service/]를 참조하세요.
++ 구독에 API 앱이 있는지 확인합니다. 자세한 내용은 [App Service 설명서](https://docs.microsoft.com/azure/app-service/)를 참조하세요.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -43,7 +43,7 @@ ms.locfileid: "38306695"
 1. **API Management**에서 **API**를 선택합니다.
 2. **새 API 추가** 목록에서 **API 앱**을 선택합니다.
 
-    !(API 앱)[./media/import-api-app-as-api/api-app.png]
+    ![API 앱](./media/import-api-app-as-api/api-app.png)
 3. **찾아보기**를 눌러 구독의 API 앱 목록을 표시합니다.
 4. 앱을 선택합니다. APIM은 선택한 앱과 연결된 swagger를 찾아서 페치하고 가져옵니다. 
 

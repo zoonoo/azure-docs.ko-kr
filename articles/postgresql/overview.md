@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/15/2018
-ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/14/2018
+ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092160"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685857"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database란?
 
-Azure Database for PostgreSQL은 커뮤니티 버전의 오픈 소스 [PostgreSQL](https://www.postgresql.org/) 데이터베이스 엔진을 기반으로 하여 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. PostgreSQL용 Azure Database는 다음과 같은 기능을 제공합니다.
+Azure Database for PostgreSQL은 커뮤니티 버전의 오픈 소스 [PostgreSQL](https://www.postgresql.org/) 데이터베이스 엔진 9.5, 9.6 및 10 버전을 기반으로 하여 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. PostgreSQL용 Azure Database는 다음과 같은 기능을 제공합니다.
 
 - 추가 비용 없이 기본 제공되는 고가용성
 - 예측 가능한 성능, 포괄적인 종량제 가격 책정 사용
@@ -40,7 +40,7 @@ Azure Database for PostgreSQL은 커뮤니티 버전의 오픈 소스 [PostgreSQ
 - [PostgreSQL용 Azure Database에 대한 Azure CLI 샘플](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>몇 초 이내 성능 및 규모 조정
-Azure Database for PostgreSQL 서비스는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층을 제공합니다. 각 계층에서는 데이터베이스 작업을 지원하는 다양한 리소스 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은 [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
+Azure Database for PostgreSQL 서비스는 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층을 제공합니다. 각 계층에서는 데이터베이스 작업을 지원하는 다양한 리소스 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은  [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 기능을 사용하거나 해제하는 시기는 어떻게 결정하나요? 기본 제공 Azure 모니터링 및 경고 기능을 사용합니다. 이러한 도구를 사용하면 현재 또는 예상되는 성능 또는 저장소 요구 사항에 따라 크기를 확장 또는 축소함으로써 발생하는 효과를 신속하게 평가할 수 있습니다. 자세한 내용은 [경고](howto-alert-on-metric.md)를 참조하세요.

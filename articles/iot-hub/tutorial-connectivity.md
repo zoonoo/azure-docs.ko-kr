@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 5a09211dc134cdb372a9712c1f45d7c44660a759
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966863"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685360"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 장치를 사용하여 IoT 허브와의 연결 테스트
 
@@ -77,7 +77,7 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서
 
 개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests\simulated-device** 폴더로 이동합니다.
 
-터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 응용 프로그램을 실행합니다. 포털에서 장치를 추가할 때 적어 둔 장치 연결 문자열을 사용합니다.
+터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 응용 프로그램을 실행합니다. 포털에서 디바이스를 추가할 때 적어 둔 디바이스 연결 문자열을 사용합니다.
 
 ```cmd/sh
 npm install

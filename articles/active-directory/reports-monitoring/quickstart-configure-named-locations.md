@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d99f077449529fb4a4a7f124fe1c0263d4113dee
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49d0840ff7a41ed48151b65e1351628d32d46d24
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363448"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623251"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>빠른 시작: Azure Active Directory의 명명된 위치 구성
 
@@ -62,8 +62,6 @@ ms.locfileid: "46363448"
 
 자세한 내용은 다음을 참조하세요.
 
-- [Azure Active Directory의 조건부 액세스](../active-directory-conditional-access-azure-portal.md).
-
+- [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md)
 - [Azure AD 조건부 액세스의 위치 조건](../conditional-access/location-condition.md)
-
-- [Azure AD 포털의 위험한 로그인 보고서](concept-risky-sign-ins.md).  
+- [위험한 로그인 보고서](concept-risky-sign-ins.md)  

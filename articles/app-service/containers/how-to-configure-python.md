@@ -15,24 +15,38 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406469"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633651"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Linux의 Azure App Service용 Python 앱 구성
 
 이 문서에서는 [Linux의 Azure App Service](app-service-linux-intro.md)에서 Python 앱을 실행하는 방법 및 필요한 경우 App Service의 동작을 사용자 지정하는 방법에 대해 설명합니다.
 
+## <a name="set-python-version"></a>Python 버전 설정
+
+두 가지 기본 이미지 Python 3.6 및 Python 3.7을 사용할 수 있습니다. 원하는 Python 기반 이미지를 사용하여 앱을 만들 수 있습니다. 예를 들어 Python 3.7을 사용하여 앱을 만들려면 Cloud Shell에서 다음 명령을 실행합니다.
+
+```azurecli-interactive
+az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
+```
+
+Python 버전(기본 이미지)을 Python 3.6으로 변경하려면 Cloud Shell에서 다음 명령을 실행합니다.
+
+```azurecli-interactive
+az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "PYTHON|3.6"
+```
+
+다른 버전의 Python이 필요한 경우 대신 자신의 컨테이너 이미지를 빌드하고 배포해야 합니다. 자세한 내용은 [Web App for Containers에 사용자 지정 Docker 이미지 사용](tutorial-custom-docker-image.md)을 참조하세요.
+
 ## <a name="container-characteristics"></a>컨테이너 특성
 
-Linux의 App Service에 배포된 Python 앱은 [Azure-App-Service/python 컨테이너](https://github.com/Azure-App-Service/python/tree/master/3.7.0) GitHub 리포지토리에 정의된 Docker 컨테이너 내에서 실행됩니다.
+Linux 기반 App Service에 배포된 Python 앱은 GitHub 리포지토리에 정의된 Docker 컨테이너 [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) 또는 [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0) 내에서 실행됩니다.
 
 이 컨테이너에는 다음과 같은 특성이 있습니다.
-
-- 기본 컨테이너 이미지는 `python-3.7.0-slim-stretch`이며, 이는 앱이 Python 3.7을 사용하여 실행됨을 의미합니다. 다른 버전의 Python이 필요한 경우 대신 자신의 컨테이너 이미지를 빌드하고 배포해야 합니다. 자세한 내용은 [Web App for Containers에 사용자 지정 Docker 이미지 사용](tutorial-custom-docker-image.md)을 참조하세요.
 
 - 앱은 `--bind=0.0.0.0 --timeout 600` 추가 인수를 통해 [Gunicorn WSGI HTTP 서버](http://gunicorn.org/)를 사용하여 실행됩니다.
 

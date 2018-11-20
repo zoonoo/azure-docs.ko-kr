@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services를 사용하여 업로드, 인코딩 및 스트리밍 | Microsoft Docs
+title: Azure Media Services를 사용하여 업로드, 인코딩 및 스트리밍 - REST | Microsoft Docs
 description: 이 자습서의 단계에 따라 REST를 사용하여 Azure Media Services에서 파일을 업로드하고, 비디오를 인코딩하고, 콘텐츠를 스트림합니다.
 services: media-services
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: e49b450ef2c731e9ddbafa0c8366d9eae29dc5ef
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377434"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615775"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>자습서: REST를 사용하여 비디오 업로드, 인코딩 및 스트림
 
-이 자습서에서는 Azure Media Services를 사용하여 비디오 파일을 업로드, 인코딩 및 스트림하는 방법을 보여 줍니다.
+Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 콘텐츠를 Apple의 HLS 또는 MPEG DASH 형식으로 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encoding-concept.md)을 참조하세요.
 
-Media Services를 사용하면 다양한 브라우저 및 장치에서 재생할 수 있는 형식으로 미디어 파일을 인코딩할 수 있습니다. 예를 들어 Apple의 HLS 또는 MPEG DASH 형식으로 콘텐츠를 스트림할 수 있습니다. 스트림하기 전에 고품질 디지털 미디어 파일을 인코딩해야 합니다. 인코딩 지침은 [인코딩 개념](encoding-concept.md)을 참조하세요.
+이 자습서에서는 REST를 사용하는 Azure Media Services에서 비디오 파일을 업로드하고, 인코딩하고, 스트리밍하는 방법을 보여줍니다. 
 
 ![비디오 재생](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,6 +42,14 @@ Media Services를 사용하면 다양한 브라우저 및 장치에서 재생할
 
 ## <a name="prerequisites"></a>필수 조건
 
+- CLI를 로컬로 설치하여 사용하기 위해 이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+
+    현재 일부 [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) 명령만 Azure Cloud Shell에서 작동합니다. CLI를 로컬로 사용하는 것이 좋습니다.
+
+- [Media Services 계정 만들기](create-account-cli-how-to.md)
+
+    리소스 그룹 이름 및 Media Services 계정 이름에 사용한 값을 기억해 두세요.
+
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 일부 AMS REST 자습서에 표시되는 REST API를 실행합니다. 
 
     지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
@@ -53,10 +61,6 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -352,11 +356,11 @@ Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다. **CloudShell** 도구를 사용하면 됩니다.
+이 자습서에서 만든 Media Services 및 저장소 계정을 포함하여 리소스 그룹의 리소스가 더 이상 필요하지 않으면, 앞서 만든 리소스 그룹을 삭제합니다.  
 
-**CloudShell**에서 다음 명령을 실행합니다.
+다음 CLI 명령을 실행합니다.
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

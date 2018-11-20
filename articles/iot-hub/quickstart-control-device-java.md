@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 3e936b3e08884c1728809aea9054278ffdb99045
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 172c3011221e04bfdb4a4f3ae1515fe0eb10065b
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416990"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515253"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>빠른 시작: IoT 허브에 연결된 장치 제어(Java)
 
@@ -26,6 +26,7 @@ IoT Hub는 IoT 장치에서 클라우드로 다량의 원격 분석 데이터를
 빠른 시작에서는 미리 작성된 두 개의 Java 응용 프로그램을 사용합니다.
 
 * 백 엔드 응용 프로그램에서 호출된 직접 메소드에 응답하는 시뮬레이션된 장치 응용 프로그램입니다. 직접 메서드 호출을 수신하기 위해 이 응용 프로그램을 IoT 허브의 장치별 엔드포인트에 연결합니다.
+
 * 시뮬레이션된 장치에서 직접 메서드를 호출하는 백 엔드 응용 프로그램입니다. 장치에서 직접 메서드를 호출하려면 이 응용 프로그램을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -58,7 +59,7 @@ mvn --version
 
 이전 [빠른 시작: 원격 분석을 장치에서 IoT 허브로 전송](quickstart-send-telemetry-java.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>장치 등록
 
@@ -68,13 +69,14 @@ mvn --version
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. 
 
-   **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+   **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
 
    **MyJavaDevice**: 등록된 장치에 지정된 이름입니다. 표시된 것처럼 MyJavaDevice를 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 응용 프로그램에서 장치 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
+    az iot hub device-identity create \
+      --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 
 2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다.
@@ -82,7 +84,10 @@ mvn --version
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table
+    az iot hub device-identity show-connection-string \
+      -hub-name YourIoTHubName \
+      --device-id MyJavaDevice \
+      --output table
     ```
 
     다음과 같은 장치 연결 문자열을 기록해 둡니다.
@@ -95,7 +100,7 @@ mvn --version
 
 또한 백 엔드 응용 프로그램을 IoT 허브에 연결하여 메시지를 검색할 수 있게 하려면 _서비스 연결 문자열_이 필요합니다. 다음 명령은 IoT Hub에 대한 서비스 연결 문자열을 검색합니다.
    
-**YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
+**YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIoTHubName --output table
@@ -131,7 +136,7 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
     다음 스크린샷에서는 시뮬레이션된 장치 응용 프로그램에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
-    ![시뮬레이션된 장치 실행](media/quickstart-control-device-java/SimulatedDevice-1.png)
+    ![시뮬레이션된 장치 실행](./media/quickstart-control-device-java/SimulatedDevice-1.png)
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
@@ -157,11 +162,11 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
     다음 스크린샷에서는 응용 프로그램에서 장치에 직접 메서드를 호출하고 승인을 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 응용 프로그램 실행](media/quickstart-control-device-java/BackEndApplication.png)
+    ![백 엔드 응용 프로그램 실행](./media/quickstart-control-device-java/BackEndApplication.png)
 
     백 엔드 응용 프로그램을 실행한 후 시뮬레이션된 장치를 실행하는 콘솔 창에 메시지가 표시되고 메시지를 보내는 속도가 변경됩니다.
 
-    ![시뮬레이션된 클라이언트에서 변경](media/quickstart-control-device-java/SimulatedDevice-2.png)
+    ![시뮬레이션된 클라이언트에서 변경](./media/quickstart-control-device-java/SimulatedDevice-2.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -169,7 +174,7 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 백 엔드 응용 프로그램에서 장치에 직접 메서드를 호출하고, 시뮬레이션된 장치 응용 프로그램에서 직접 메서드 호출에 응답했습니다.
+이 빠른 시작에서는 백 엔드 애플리케이션에서 디바이스에 직접 메서드를 호출하고, 시뮬레이션된 디바이스 애플리케이션에서 직접 메서드 호출에 응답했습니다.
 
 장치-클라우드 메시지를 클라우드의 다른 대상으로 라우팅하는 방법을 알아보려면 다음 자습서로 계속 진행합니다.
 

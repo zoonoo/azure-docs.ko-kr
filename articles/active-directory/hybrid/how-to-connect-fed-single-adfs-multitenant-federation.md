@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5239788f06ed3e738d1f0b62ddcde77c2a13b5f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241738"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621264"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
 
@@ -47,7 +47,7 @@ contoso.com의 AD FS가 fabrikam.com에서 사용자를 인증하려면 contoso.
  
 AD FS에 페더레이션된 단일 도메인에 대해 설정되는 기본 발급자는 "http://ADFSServiceFQDN/adfs/services/trust"입니다(예: "http://fs.contoso.com/adfs/services/trust"). Azure Active Directory에는 각 페더레이션 도메인마다 고유한 발급자가 필요합니다. 동일한 AD FS에서 두 도메인을 페더레이션하므로 Azure Active Directory와 페더레이션하는 각 도메인 AD FS에 대해 고유하도록 발급자 값을 수정해야 합니다. 
  
-AD FS 서버에서 Azure AD PowerShell을 열고 다음 단계를 수행합니다.
+AD FS 서버에서 Azure AD PowerShell을 열고(MSOnline 모듈이 설치되어 있는지 확인) 다음 단계를 수행합니다.
  
 contoso.com Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain에 대한 페더레이션 설정인 contoso.com 도메인 Connect-MsolService Update가 포함된 Azure Active Directory에 연결합니다.
  

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 43cf9f5ec0f9c265efa0e59eadbf6c9bbe4f7c3f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085379"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51682882"
 ---
 # <a name="advanced-resource-graph-queries"></a>고급 Resource Graph 쿼리
 
@@ -72,7 +72,7 @@ Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>정규식과 일치하는 가상 머신
 
 이 쿼리는 [정규식](/dotnet/standard/base-types/regular-expression-language-quick-reference)(_regex_로 알려짐)과 일치하는 가상 머신을 찾습니다.
-**matches regex @** 는 **^Contoso(.*)[0-9]+$** 인 일치시킬 정규식을 정의하도록 합니다. 해당 regex 정의는 다음으로 설명되어 있습니다.
+**matches regex @** 는 일치시킬 정규식을 정의할 수 있으며, `^Contoso(.*)[0-9]+$`입니다. 해당 regex 정의는 다음으로 설명되어 있습니다.
 
 - `^` - 일치는 문자열의 시작 부분에서 시작해야 합니다.
 - `Contoso` - 대/소문자 구분 문자열입니다.

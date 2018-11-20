@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 7eeb4fdba8272d9bc2b67d8a33dd7b1d210f5e47
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 61d9d33ae7e8e2104e61bbd24862a709dd6d78ec
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278602"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636495"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 콘솔 앱 빌드
 
@@ -218,7 +218,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 생겼으니, Azure Co
    const containerId = config.container.id;
    ```
 
-   [데이터베이스](sql-api-resources.md#databases) 클래스의 [createIfNotExists](/javascript/api/%40azure/cosmos/databases) 또는 [create](/javascript/api/%40azure/cosmos/databases) 함수를 사용하여 **데이터베이스**를 만들 수 있습니다. 데이터베이스는 여러 컨테이너에 분할된 항목의 논리적 컨테이너입니다. 
+   **Databases** 클래스의 [createIfNotExists](/javascript/api/%40azure/cosmos/databases) 또는 [create](/javascript/api/%40azure/cosmos/databases) 함수를 사용하여 데이터베이스를 만들 수 있습니다. 데이터베이스는 여러 컨테이너에 분할된 항목의 논리적 컨테이너입니다. 
 
 2. **createDatabase** 및 **readDatabase** 메서드를 복사하여 ```databaseId``` 및 ```containerId``` 정의 아래의 app.js 파일에 붙여넣습니다. **createDatabase** 함수는 id ```FamilyDatabase```를 사용하여 새 데이터베이스를 만들며, 아직 없는 경우 ```config```에서 지정됩니다. **readDatabase** 함수는 데이터베이스의 정의를 읽어서 데이터베이스가 있는지 확인합니다.
 

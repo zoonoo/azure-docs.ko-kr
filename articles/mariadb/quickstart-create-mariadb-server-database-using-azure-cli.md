@@ -10,12 +10,12 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: d500a5cab4373d21b729a177ef847c40c2f4211b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354022"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566451"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -59,7 +59,7 @@ ssl-enforcement | **사용** | 이 서버에 SSL을 사용할 것인지 여부�
 storage-size | **51200** | 서버의 저장소 용량입니다(단위는 메가바이트). 유효한 저장소 크기는 5,120MB(최소)이고 1,024MB 단위로 증가합니다. 저장소 크기 한도에 대한 자세한 내용은 [가격 책정 계층](./concepts-pricing-tiers.md)을 참조하세요. 
 버전 | **10.2** | MariaDB 주 엔진 버전입니다.
 admin-user | **myadmin** | 관리자 로그인에 대한 사용자 이름입니다. **admin-user** 매개 변수는 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
-admin-password | *관리자 암호* | 관리자 사용자의 암호입니다. 암호는 8-128자여야 합니다. 암호에는 영어 대문자, 영어 소문자, 숫자 및 영숫자가 아닌 문자의 세 범주에 해당하는 문자가 포함되어야 합니다.
+admin-password | *사용자 암호* | 관리자 사용자의 암호입니다. 암호는 8-128자여야 합니다. 암호에는 영어 대문자, 영어 소문자, 숫자 및 영숫자가 아닌 문자의 세 범주에 해당하는 문자가 포함되어야 합니다.
 
 **sku-name** 매개 변수 값은 다음 예제처럼 *가격 책정 계층*\_*계산 세대*\_*vCores* 규칙을 따릅니다.
 + `--sku-name B_Gen5_4`는 기본 가격 책정 계층, Gen 5 계산 세대 및 vCore 4개에 매핑됩니다.
@@ -216,7 +216,7 @@ mysql 명령줄 도구를 사용하여 서버에 연결하려면:
   | 호스트 이름 | **mydemoserver.mariadb.database.azure.com** | 앞에서 기록한 서버 이름. |
   | 포트 | **3306** | Azure Database for MariaDB의 기본 포트. |
   | 사용자 이름 | **myadmin@mydemoserver** | 앞에서 기록한 서버 관리자 로그인. |
-  | 암호 | *관리자 암호* | 이전에 설정한 관리자 계정 암호를 사용합니다. |
+  | 암호 | *사용자 암호* | 이전에 설정한 관리자 계정 암호를 사용합니다. |
 
 3. 모든 매개 변수가 올바르게 구성되었는지 테스트하려면 **연결 테스트**를 선택합니다.
 
@@ -236,9 +236,7 @@ az group delete --name myresourcegroup
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-<!--
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-using-cli.md)
--->
+> [Azure CLI로 MariaDB 데이터베이스 디자인](./tutorial-design-database-cli.md)

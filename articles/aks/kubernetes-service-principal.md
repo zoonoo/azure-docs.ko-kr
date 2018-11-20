@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: ef3139c4b3f06644b219e177fad0c094ed600fb6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394593"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578352"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -24,7 +24,7 @@ Azure API와 상호 작용하기 위해 AKS 클러스터에는 [Azure AD(Active 
 
 Azure AD 서비스 주체를 만들려면 Azure AD 테넌트에 응용 프로그램을 등록하고 구독의 역할에 해당 응용 프로그램을 할당할 수 있는 사용 권한이 있어야 합니다. 필요한 사용 권한이 없으면 필요한 사용 권한을 할당하거나 AKS 클러스터로 사용하기 위한 서비스 주체를 미리 만들도록 Azure AD 또는 구독 관리자에 요청해야 합니다.
 
-또한 Azure CLI 버전 2.0.46 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.46 이상이 설치되고 구성되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>자동으로 서비스 주체 만들기 및 사용
 
@@ -75,6 +75,45 @@ Azure Portal을 사용하여 AKS 클러스터를 배포하는 경우 **Kubernete
 
 ![Azure Vote로 이동하는 이미지](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
+## <a name="delegate-access-to-other-azure-resources"></a>다른 Azure 리소스에 대한 액세스 권한 위임
+
+AKS 클러스터에 대한 서비스 주체를 사용하여 다른 리소스에 액세스할 수 있습니다. 예를 들어, 고급 네트워킹을 사용하여 기존 가상 네트워크에 연결하거나 ACR(Azure Container Registry)에 연결하려면 서비스 주체에 액세스 권한을 위임해야 합니다.
+
+권한을 위임하려면 [az role assignment create][az-role-assignment-create] 명령을 사용하여 역할 할당을 만듭니다. `appId`를 리소스 그룹 또는 가상 네트워크 리소스와 같은 특정 범위에 할당합니다. 그러면, 역할은 다음 예제에 표시된 것처럼 서비스 주체가 리소스에 대해 가진 사용 권한을 정의합니다.
+
+```azurecli
+az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
+```
+
+리소스에 대한 `--scope`은 전체 리소스 ID여야 합니다(예: */subscriptions/\<guid\>/resourceGroups/myResourceGroup* 또는 */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*).
+
+다음 섹션에서는 만들 필요가 있는 일반적인 위임에 대해 자세히 설명합니다.
+
+### <a name="azure-container-registry"></a>Azure Container Registry
+
+ACR(Azure Container Registry)을 컨테이너 이미지 저장소로 사용하는 경우 이미지를 읽고 끌어오기 위해서는 AKS 클러스터에 대한 사용 권한을 부여해야 합니다. AKS 클러스터의 서비스 주체에는 레지스트리에서 *Reader* 역할이 위임되어야 합니다. 자세한 단계는 [AKS에 ACR에 대한 액세스 권한 부여][aks-to-acr]를 참조하세요.
+
+### <a name="networking"></a>네트워킹
+
+가상 네트워크와 서브넷 또는 공용 IP 주소가 다른 리소스 그룹에 있는 고급 네트워킹을 사용할 수 있습니다. 다음 역할 권한 집합 중 하나를 할당합니다.
+
+- [사용자 지정 역할][rbac-custom-role]을 만들고 다음 역할 권한을 정의합니다.
+  - *Microsoft.Network/virtualNetworks/subnets/join/action*
+  - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/publicIPAddresses/read*
+  - *Microsoft.Network/publicIPAddresses/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
+- 또는 가상 네트워크 내에서 서브넷에 [네트워크 기여자][rbac-network-contributor] 기본 제공 역할을 할당합니다.
+
+### <a name="storage"></a>Storage
+
+다른 리소스 그룹에 있는 기존 디스크 리소스에 액세스해야 할 수 있습니다. 다음 역할 권한 집합 중 하나를 할당합니다.
+
+- [사용자 지정 역할][rbac-custom-role]을 만들고 다음 역할 권한을 정의합니다.
+  - *Microsoft.Compute/disks/read*
+  - *Microsoft.Compute/disks/write*
+- 또는 리소스 그룹에 [Storage 계정 기여자][rbac-storage-contributor] 기본 제공 역할을 할당합니다.
+
 ## <a name="additional-considerations"></a>추가 고려 사항
 
 AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 유의하세요.
@@ -107,3 +146,8 @@ Azure Active Directory 서비스 주체에 대한 자세한 내용은 [응용 �
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
+[rbac-custom-role]: ../role-based-access-control/custom-roles.md
+[rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr

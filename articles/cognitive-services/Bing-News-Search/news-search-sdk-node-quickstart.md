@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 2279a6475ab8c39b3ff599f7244caea59d622651
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bc168cf696d6280ce4c0e7cb46f90af4a2ad7aa0
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803004"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686495"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-node"></a>빠른 시작: Node를 통해 Bing News Search SDK 설정
 
@@ -25,7 +25,9 @@ Bing News Search SDK는 뉴스 쿼리 및 구문 분석 결과에 대한 REST AP
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
 
-Bing News Search SDK를 사용하여 콘솔 응용 프로그램을 설치하려면 개발 환경에서 `npm install azure-cognitiveservices-newssearch` 명령을 실행합니다.
+Bing News Search SDK를 사용하여 콘솔 애플리케이션을 설치하려면:
+* 개발 환경에서 `npm install ms-rest-azure` 명령을 실행합니다.
+* 개발 환경에서 `npm install azure-cognitiveservices-newssearch` 명령을 실행합니다.
 
 ## <a name="news-search-client"></a>News Search 클라이언트
 *검색* 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다. `CognitiveServicesCredentials` 인스턴스를 만듭니다.

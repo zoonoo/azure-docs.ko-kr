@@ -7,18 +7,18 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: overview
-ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 696ba68894b4ac5f73c234ea49883fd0aa3db4d5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 11/14/2018
+ms.openlocfilehash: ed4c05afdc5b061c7779a0b1ca34975f8b06ad7d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320920"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686027"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Azure Database for MariaDB란?
 
-Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/) 데이터베이스 엔진을 기반으로 합니다. 이 서비스는 공개 미리 보기 상태입니다. 
+Azure Database for MariaDB는 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. Azure Database for MariaDB는 [MariaDB 커뮤니티 버전](https://mariadb.org/download/) 데이터베이스 엔진 10.2를 기반으로 합니다. 이 서비스는 공개 미리 보기 상태입니다. 
 
 Azure Database for MariaDB에서는 다음과 같은 기능을 제공합니다.
 
@@ -43,7 +43,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>몇 초 이내 성능 및 규모 조정
 
-미리 보기에서 Azure Database for MariaDB 서비스는 기본, 범용 및 메모리 최적화와 같은 몇 가지 서비스 계층을 제공합니다. 각 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 다양한 성능 및 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은 [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
+미리 보기에서 Azure Database for MariaDB 서비스는 기본, 범용 및 메모리 최적화와 같은 몇 가지 서비스 계층을 제공합니다. 각 계층은 경량급에서 중량급까지 데이터베이스 워크로드를 지원하기 위해 다양한 성능 및 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은  [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
 
 ## <a name="monitoring-and-alerting"></a>모니터링 및 경고
 

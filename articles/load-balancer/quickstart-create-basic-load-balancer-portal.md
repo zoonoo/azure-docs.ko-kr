@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 523f5eba632b15eaaf45f24be820f7b255aae7c0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378434"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616030"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 공용 기본 부하 분산 장치 만들기
 
@@ -159,6 +159,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
    - **myHealthProbe** - 상태 프로브의 이름
    - **HTTP** - 프로토콜 유형
    - **80** - 포트 번호
+   - URI 경로의 **Healthprobe.aspx**입니다. 다른 URI로 이 값을 바꾸거나 **"\\"** 라는 기본 경로 값을 유지하여 기본 URI를 가져올 수 있습니다.
    - **15** - **간격**, 프로브 시도 간의 초 수
    - **2** - **비정상 임계값**, VM을 비정상 상태로 간주하기 전에 발생해야 하는 연속 프로브 오류 횟수
 

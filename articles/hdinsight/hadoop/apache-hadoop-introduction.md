@@ -1,6 +1,6 @@
 ---
-title: HDInsight, Hadoop 및 Spark 기술 스택이란? - Azure
-description: HDInsight, Hadoop 및 Spark 기술 스택 및 구성 요소(빅 데이터 분석을 위한 Kafka, Hive, Storm 및 HBase 포함)를 소개합니다.
+title: HDInsight, Apache Hadoop 및 Apache Spark 기술 스택이란? - Azure
+description: HDInsight, Apache Hadoop 및 Apache Spark 기술 스택 및 구성 요소(빅 데이터 분석을 위한 Kafka, Hive, Storm 및 HBase 포함)를 소개합니다.
 keywords: Azure Hadoop, Hadoop Azure, Hadoop 소개, Hadoop 기술 스택, Hadoop 소개, Hadoop 클러스터란?, Hadoop 용도
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 0c617f09c846811f876206e6045b640e63ad90b1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 190d6203c4a00ed3f448bdbb7366db5bc22c45f8
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007054"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634518"
 ---
-# <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Azure HDInsight 및 Hadoop 기술 스택이란?
+# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>Azure HDInsight 및 Apache Hadoop 기술 스택이란?
 
 이 문서에서는 Azure HDInsight의 Apache Hadoop을 소개합니다. Azure HDInsight는 엔터프라이즈의 경우 완전히 관리되는 전체 스펙트럼의 오픈 소스 분석 서비스입니다. Hadoop, Spark, Hive, LLAP, Kafka, Storm, R 등과 같은 오픈 소스 프레임워크를 사용할 수 있습니다. 
 
