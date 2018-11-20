@@ -31,6 +31,8 @@ items:
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
     - name: 경고 사용 및 장치 문제 수정
       href: iot-accelerators-remote-monitoring-maintain.md
+    - name: 에지에서 이상 검색
+      href: iot-accelerators-remote-monitoring-edge.md
   - name: 장치 시뮬레이션
     items:
     - name: 시뮬레이션 만들기 및 실행
@@ -75,6 +77,10 @@ items:
         href: iot-accelerators-connecting-pi-node.md
       - name: MXChip IoT DevKit
         href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+    - name: IoT Edge 디바이스 추가
+      href: iot-accelerators-remote-monitoring-add-edge-device.md
+    - name: IoT Edge 패키지 가져오기
+      href: iot-accelerators-remote-monitoring-import-edge-package.md
     - name: SIM 데이터 통합
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: 시뮬레이션된 장치 만들기
@@ -99,11 +105,14 @@ items:
     - name: CLI를 사용하여 배포
       href: iot-accelerators-remote-monitoring-deploy-cli.md
     - name: 로컬로 배포
+      href: iot-accelerators-remote-monitoring-deploy-local.md
       items:
       - name: Visual Studio
         href: iot-accelerators-remote-monitoring-deploy-local.md
       - name: Docker
         href: iot-accelerators-remote-monitoring-deploy-local-docker.md
+    - name: 이메일 작업
+      href: iot-accelerators-remote-monitoring-email-actions.md
     - name: PowerBI를 사용하여 원격 분석 시각화
       href: iot-accelerators-integrate-data-powerbi.md
     - name: 원격 모니터링과 Azure Time Series Insights 통합
@@ -216,9 +225,9 @@ items:
     href: iot-accelerators-faq-cf.md
   - name: 스택 오버플로
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-ms.openlocfilehash: 1819c70b5834d8086a57928d39f2e5b547bfb901
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bdd52d0023fbf43343cc5108216c6f11e35b89aa
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615112"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824849"

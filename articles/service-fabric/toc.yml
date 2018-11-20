@@ -239,12 +239,16 @@ items:
       items:
       - name: 노드 유형 및 VM Scale Sets
         href: service-fabric-cluster-nodetypes.md
+      - name: Azure에서 클러스터 업그레이드
+        href: service-fabric-cluster-upgrade.md
       - name: 확장
         href: service-fabric-cluster-scaling.md
       - name: 클러스터 네트워킹 패턴
         href: service-fabric-patterns-networking.md
     - name: 독립 실행형 클러스터
       items:
+      - name: 독립 실행형 클러스터 업그레이드
+        href: service-fabric-cluster-upgrade-standalone.md
       - name: 확장
         href: service-fabric-cluster-scaling-standalone.md
     - name: 클러스터 리소스 관리자
@@ -585,19 +589,27 @@ items:
         - name: 가상 머신 확장 집합 노드 형식 규모 확장
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
       - name: 업그레이드
-        href: service-fabric-cluster-upgrade.md
-      - name: 액세스 제어 설정
-        href: service-fabric-cluster-security-roles.md
-      - name: Load Balancer에서 포트 열기
-        href: create-load-balancer-rule.md
-      - name: 클러스터 인증서를 일반 이름으로 변경
-        href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
-      - name: 수동 롤오버 클러스터 인증서
-        href: service-fabric-cluster-rollover-cert-cn.md
-      - name: 클러스터 인증서 관리
-        href: service-fabric-cluster-security-update-certs-azure.md
-      - name: 클러스터 노드 VM에 원격 연결
-        href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
+        items:
+        - name: Service Fabric 버전 업그레이드
+          href: service-fabric-cluster-upgrade-version-azure.md
+        - name: 클러스터 구성 업그레이드
+          href: service-fabric-cluster-config-upgrade-azure.md
+        - name: 클러스터 노드 패치(Windows)
+          href: service-fabric-patch-orchestration-application.md
+        - name: 클러스터 노드 패치(Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
+        - name: 액세스 제어 설정
+          href: service-fabric-cluster-security-roles.md
+        - name: Load Balancer에서 포트 열기
+          href: create-load-balancer-rule.md
+        - name: 클러스터 인증서를 일반 이름으로 변경
+          href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+        - name: 수동 롤오버 클러스터 인증서
+          href: service-fabric-cluster-rollover-cert-cn.md
+        - name: 클러스터 인증서 관리
+          href: service-fabric-cluster-security-update-certs-azure.md
+        - name: 클러스터 노드 VM에 원격 연결
+          href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
     - name: 독립 실행형 클러스터
       items:
       - name: 생성
@@ -612,20 +624,22 @@ items:
           href: service-fabric-cluster-standalone-package-contents.md
       - name: 확장
         href: service-fabric-cluster-windows-server-add-remove-nodes.md
-      - name: 액세스 제어 설정
-        href: service-fabric-cluster-security-roles.md
-      - name: 구성
-        href: service-fabric-cluster-manifest.md
       - name: 업그레이드
-        href: service-fabric-cluster-upgrade-windows-server.md
+        items:
+        - name: Service Fabric 버전 업그레이드
+          href: service-fabric-cluster-upgrade-windows-server.md
+        - name: 클러스터 구성 업그레이드
+          href: service-fabric-cluster-config-upgrade-windows-server.md
+        - name: 구성 설정
+          href: service-fabric-cluster-manifest.md
+        - name: 액세스 제어 설정
+          href: service-fabric-cluster-security-roles.md
+        - name: 클러스터 노드 패치(Windows)
+          href: service-fabric-patch-orchestration-application.md
     - name: 클러스터 시각화
       href: service-fabric-visualizing-your-cluster.md
     - name: 보안 클러스터에 연결
       href: service-fabric-connect-to-secure-cluster.md
-    - name: 클러스터 노드 패치(Windows)
-      href: service-fabric-patch-orchestration-application.md
-    - name: 클러스터 노드 패치(Linux)
-      href: service-fabric-patch-orchestration-application-linux.md
   - name: 모니터링 및 진단
     items:
     - name: 응용 프로그램 모니터링
@@ -767,9 +781,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 810c04b2d6b2b5e7a8db64e21c10225ccddcb117
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 98ca5a1cbf5298931c14d6c696119d0c98893072
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634280"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853645"
