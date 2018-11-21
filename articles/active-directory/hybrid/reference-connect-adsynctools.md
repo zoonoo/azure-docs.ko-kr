@@ -8,12 +8,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b1e95ade4793fd7d3acf396b00ee4f7d8b81b2f8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 734387e7ce5fc27cb88c73601bdfd0f35d04b693
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670380"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288682"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
@@ -1102,7 +1102,8 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adwatermark"></a>-ADwatermark
-도메인 관리자로 이미 실행 중인 경우 XML 파일 대신 워터마크의 AD 자격 증명 수동 입력(예: $ADwatermark = "TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)")을 제공할 필요가 없습니다.
+도메인 관리자로 이미 실행 중인 경우 AD 자격 증명을 제공할 필요가 없습니다.
+XML 파일 대신 워터마크를 수동으로 입력합니다(예: $ADwatermark = “TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)”).
 
 ```yaml
 Type: String

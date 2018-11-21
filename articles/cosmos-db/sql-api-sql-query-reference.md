@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979508"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623947"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 구문 참조
 
-Azure Cosmos DB는 명시적 스키마를 요구하거나 보조 인덱스를 만들지 않고 계층적 JSON 문서에 대한 문법과 같은 익숙한 SQL(구조적 쿼리 언어)을 사용하여 문서를 쿼리하는 기능을 지원합니다. 이 문서에서는 SQL API 계정과 호환되는 SQL 쿼리 언어에 대한 참조/구문 설명서를 제공합니다. 샘플 데이터를 사용하는 SQL 쿼리 연습에 대해서는 [Azure Cosmos DB 데이터 쿼리](sql-api-sql-query.md)를 참조하세요.  
+Azure Cosmos DB는 명시적 스키마를 요구하거나 보조 인덱스를 만들지 않고 계층적 JSON 문서에 대한 문법과 같은 익숙한 SQL(구조적 쿼리 언어)을 사용하여 문서를 쿼리하는 기능을 지원합니다. 이 문서에서는 SQL API 계정과 호환되는 SQL 쿼리 언어 구문에 대한 설명서를 제공합니다. 예제 SQL 쿼리의 연습은 [Cosmos DB에서 SQL 쿼리](sql-api-sql-query.md)를 참조하세요.  
   
-또한 [Query Playground](http://www.documentdb.com/sql/demo)도 방문하여 Azure Cosmos DB를 체험하고 데이터 집합에 대해 SQL 쿼리를 실행해 보세요.  
+또한 [Query Playground](http://www.documentdb.com/sql/demo)도 방문하여 Cosmos DB를 체험하고 데이터 세트에 대해 SQL 쿼리를 실행해 보세요.  
   
 ## <a name="select-query"></a>SELECT 쿼리  
 ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다. SELECT 문을 설명하는 데 사용되는 규칙은 구문 규칙 섹션에서 표로 작성되어 있습니다. 예를 들어 [SELECT 쿼리 예제](sql-api-sql-query.md#SelectClause)를 참조하세요.
@@ -112,7 +112,7 @@ SELECT <select_specification>
   
 `SELECT *` 구문은 FROM 절에서 정확히 하나의 별칭을 선언한 경우에만 유효합니다. `SELECT *`는 ID 프로젝션을 제공하며, 이는 프로젝션이 필요하지 않은 경우 유용할 수 있습니다. SELECT *는 FROM 절이 지정되고 단일 입력 원본만 도입된 경우에만 유효합니다.  
   
-`SELECT <select_list>`과 `SELECT *`는 "syntactic sugar(구문적 설탕)"이며 다음과 같이 간단한 SELECT 문을 사용하여 표현할 수 있습니다.  
+`SELECT <select_list>`와 `SELECT *`는 "syntactic sugar(구문적 설탕)"이며 다음과 같이 간단한 SELECT 문을 사용하여 표현할 수 있습니다.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
@@ -132,7 +132,7 @@ SELECT <select_specification>
 [SELECT 절](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM 절  
-원본 또는 조인된 원본을 지정합니다. 쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 FROM 절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 원본을 지정하는 것입니다. 일반적으로 전체 컬렉션이 소스이지만 컬렉션의 하위 집합을 대신 지정할 수 있습니다. 이 절을 지정하지 않으면 FROM 절에서 단일 문서를 제공하는 것처럼 다른 절도 계속 실행됩니다. 예를 들어 [FROM 절 예제](sql-api-sql-query.md#FromClause)를 참조하세요.
+원본 또는 조인된 원본을 지정합니다. 쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 FROM 절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 원본을 지정하는 것입니다. 일반적으로 전체 컨테이너가 소스이지만 컨테이너의 하위 집합을 대신 지정할 수 있습니다. 이 절을 지정하지 않으면 FROM 절에서 단일 문서를 제공하는 것처럼 다른 절도 계속 실행됩니다. 예를 들어 [FROM 절 예제](sql-api-sql-query.md#FromClause)를 참조하세요.
   
 **구문**  
   
@@ -143,98 +143,98 @@ FROM <from_specification>
         <from_source> {[ JOIN <from_source>][,...n]}  
   
 <from_source> ::=   
-          <collection_expression> [[AS] input_alias]  
-        | input_alias IN <collection_expression>  
+          <container_expression> [[AS] input_alias]  
+        | input_alias IN <container_expression>  
   
-<collection_expression> ::=   
+<container_expression> ::=   
         ROOT   
-     | collection_name  
+     | container_name  
      | input_alias  
-     | <collection_expression> '.' property_name  
-     | <collection_expression> '[' "property_name" | array_index ']'  
+     | <container_expression> '.' property_name  
+     | <container_expression> '[' "property_name" | array_index ']'  
 ```  
   
 **인수**  
   
 - `<from_source>`  
   
-  별칭이 있거나 없는 데이터 원본을 지정합니다. 별칭을 지정하지 않으면 다음 규칙을 사용하여 `<collection_expression>`에서 유추됩니다.  
+  별칭이 있거나 없는 데이터 원본을 지정합니다. 별칭을 지정하지 않으면 다음 규칙을 사용하여 `<container_expression>`에서 유추됩니다.  
   
-  -  식이 collection_name이면 collection_name이 별칭으로 사용됩니다.  
+  -  식이 container_name이면 container_name이 별칭으로 사용됩니다.  
   
-  -  식이 `<collection_expression>`이면 property_name이 별칭으로 사용됩니다. 식이 collection_name이면 collection_name이 별칭으로 사용됩니다.  
+  -  식이 `<container_expression>`이면 property_name이 별칭으로 사용됩니다. 식이 container_name이면 container_name이 별칭으로 사용됩니다.  
   
 - AS `input_alias`  
   
-  `input_alias`가 기본 컬렉션 식에서 반환되는 값 집합임을 지정합니다.  
+  `input_alias`가 기본 컨테이너 식에서 반환되는 값 집합임을 지정합니다.  
  
 - `input_alias` IN  
   
-  `input_alias`가 기본 컬렉션 식에서 반환되는 각 배열의 모든 배열 요소를 반복하여 얻는 값 집합을 나타내도록 지정합니다. 배열이 아닌 기본 컬렉션 식에서 반환되는 값은 무시됩니다.  
+  `input_alias`가 기본 컨테이너 식에서 반환되는 각 배열의 모든 배열 요소를 반복하여 얻는 값 집합을 나타내도록 지정합니다. 배열이 아닌 기본 컨테이너 식에서 반환되는 값은 무시됩니다.  
   
-- `<collection_expression>`  
+- `<container_expression>`  
   
-  문서를 검색하는 데 사용할 컬렉션 식을 지정합니다.  
+  문서를 검색하는 데 사용할 컨테이너 식을 지정합니다.  
   
 - `ROOT`  
   
-  현재 연결된 기본 컬렉션에서 문서를 검색하도록 지정합니다.  
+  현재 연결된 기본 컨테이너에서 문서를 검색하도록 지정합니다.  
   
-- `collection_name`  
+- `container_name`  
   
-  제공된 컬렉션에서 문서를 검색하도록 지정합니다. 컬렉션의 이름은 현재 연결된 컬렉션의 이름과 일치해야 합니다.  
+  제공된 컨테이너에서 문서를 검색하도록 지정합니다. 컨테이너의 이름은 현재 연결된 컨테이너의 이름과 일치해야 합니다.  
   
 - `input_alias`  
   
   제공된 별칭으로 정의된 다른 원본에서 문서를 검색하도록 지정합니다.  
   
-- `<collection_expression> '.' property_`  
+- `<container_expression> '.' property_`  
   
-  지정된 컬렉션 식으로 검색된 모든 문서에 대해 `property_name` 속성 또는 array_index 배열 요소에 액세스하여 문서를 검색하도록 지정합니다.  
+  지정된 컨테이너 식으로 검색된 모든 문서에 대해 `property_name` 속성 또는 array_index 배열 요소에 액세스하여 문서를 검색하도록 지정합니다.  
   
-- `<collection_expression> '[' "property_name" | array_index ']'`  
+- `<container_expression> '[' "property_name" | array_index ']'`  
   
-  지정된 컬렉션 식으로 검색된 모든 문서에 대해 `property_name` 속성 또는 array_index 배열 요소에 액세스하여 문서를 검색하도록 지정합니다.  
+  지정된 컨테이너 식으로 검색된 모든 문서에 대해 `property_name` 속성 또는 array_index 배열 요소에 액세스하여 문서를 검색하도록 지정합니다.  
   
 **설명**  
   
-`<from_source>(`에서 제공되거나 유추되는 모든 별칭은 고유해야 합니다. `<collection_expression>.`property_name 구문은 `<collection_expression>' ['"property_name"']'`과 같습니다. 그러나 속성 이름에 비식별자 문자가 포함되어 있으면 후자의 구문을 사용할 수 있습니다.  
+`<from_source>(`에서 제공되거나 유추되는 모든 별칭은 고유해야 합니다. `<container_expression>.`property_name 구문은 `<container_expression>' ['"property_name"']'`과 같습니다. 그러나 속성 이름에 비식별자 문자가 포함되어 있으면 후자의 구문을 사용할 수 있습니다.  
   
 ### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>누락된 속성, 누락된 배열 요소, 정의되지 않은 값 처리
   
-컬렉션 식에서 속성이나 배열 요소에 액세스하고 해당 값이 존재하지 않으면 이 값은 무시되고 더 이상 처리되지 않습니다.  
+컨테이너 식에서 속성이나 배열 요소에 액세스하고 해당 값이 존재하지 않으면 이 값은 무시되고 더 이상 처리되지 않습니다.  
   
-### <a name="collection-expression-context-scoping"></a>컬렉션 식 컨텍스트 범위 지정  
+### <a name="container-expression-context-scoping"></a>컨테이너 식 컨텍스트 범위 지정  
   
-컬렉션 식은 컬렉션 범위 또는 문서 범위일 수 있습니다.  
+컨테이너 식은 컨테이너 범위 또는 문서 범위일 수 있습니다.  
   
--   컬렉션 식의 기본 원본이 ROOT 또는 `collection_name`이면 식은 컬렉션 범위입니다. 이러한 식은 컬렉션에서 직접 검색되는 문서 집합을 나타내며 다른 컬렉션 식의 처리에 종속되지 않습니다.  
+-   컨테이너 식의 기본 원본이 ROOT 또는 `container_name`이면 식은 컨테이너 범위입니다. 이러한 식은 컨테이너에서 직접 검색되는 문서 집합을 나타내며 다른 컨테이너 식의 처리에 종속되지 않습니다.  
   
--   컬렉션 식의 기본 원본이 쿼리의 앞 부분에 도입된 `input_alias`이면 식은 문서 범위입니다. 이러한 식은 별칭 지정된 컬렉션과 연결된 집합에 속한 각 문서의 범위에서 컬렉션 식을 평가하여 얻는 문서 집합을 나타냅니다.  결과 집합은 기본 집합에 있는 각 문서에 대해 컬렉션 식을 평가하여 얻는 집합의 합집합입니다.  
+-   컨테이너 식의 기본 원본이 쿼리의 앞 부분에 도입된 `input_alias`이면 식은 문서 범위입니다. 이러한 식은 별칭 지정된 컨테이너와 연결된 집합에 속한 각 문서의 범위에서 컨테이너 식을 평가하여 얻는 문서 집합을 나타냅니다.  결과 집합은 기본 집합에 있는 각 문서에 대해 컨테이너 식을 평가하여 얻는 집합의 합집합입니다.  
   
 ### <a name="joins"></a>조인 
   
-현재 릴리스의 Azure Cosmos DB에서는 내부 조인을 지원합니다. 추가 조인 기능이 곧 출시됩니다. 
+현재 릴리스의 Cosmos DB에서는 내부 조인을 지원합니다. 추가 조인 기능이 곧 출시됩니다. 
 
 내부 조인은 조인에 참여하는 집합의 완전한 교차곱을 만듭니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다. 예를 들어 [JOIN 키워드 예제](sql-api-sql-query.md#Joins)를 참조하세요.
   
 조인 평가는 참여하는 집합의 컨텍스트 범위에 따라 다릅니다.  
   
--  컬렉션 집합 A와 컬렉션 범위 집합 B을 조인하면 집합 A와 집합 B에 있는 모든 요소의 교차곱을 만듭니다.
+-  컨테이너 집합 A와 컨테이너 범위 집합 B을 조인하면 집합 A와 집합 B에 있는 모든 요소의 교차곱을 만듭니다.
   
 -   집합 A와 문서 범위 집합 B를 조인하면 집합 A의 각 문서에 대해 문서 범위 집합 B를 평가하여 얻는 모든 집합의 합집합을 만듭니다.  
   
- 현재 릴리스의 쿼리 프로세서에서는 컬렉션 범위가 지정된 식 하나만 지원합니다.  
+ 현재 릴리스의 쿼리 프로세서에서는 컨테이너 범위가 지정된 식 하나만 지원합니다.  
   
 ### <a name="examples-of-joins"></a>조인 예제  
   
 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>` FROM 절을 살펴보겠습니다.  
   
- 각 원본에서 `input_alias1, input_alias2, …, input_aliasN`을 정의하도록 합니다. 이 FROM 절은 N 튜플(N개 값이 포함된 튜플)의 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컬렉션 별칭을 반복하여 생성된 값을 포함합니다.  
+ 각 원본에서 `input_alias1, input_alias2, …, input_aliasN`을 정의하도록 합니다. 이 FROM 절은 N 튜플(N개 값이 포함된 튜플)의 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컨테이너 별칭을 반복하여 생성된 값을 포함합니다.  
   
 **예제 1** - 2개 원본  
   
-- 컬렉션 범위로 `<from_source1>`을 지정하고 집합 {A, B, C}를 나타냅니다.  
+- 컨테이너 범위로 `<from_source1>`을 지정하고 집합 {A, B, C}를 나타냅니다.  
   
 - input_alias1을 참조하는 문서 범위로 `<from_source2>`를 지정하고 다음 집합을 나타냅니다.  
   
@@ -252,9 +252,9 @@ FROM <from_specification>
   
 **예제 2** - 3개 원본  
   
-- 컬렉션 범위로 `<from_source1>`을 지정하고 집합 {A, B, C}를 나타냅니다.  
+- 컨테이너 범위로 `<from_source1>`을 지정하고 집합 {A, B, C}를 나타냅니다.  
   
-- `input_alias1`을 참조하는 문서 범위로 `<from_source2>`를 지정하고 다음 집합을 나타냅니다.  
+- `input_alias1`를 참조하는 문서 범위로 `<from_source2>`을 지정하고 다음 집합을 나타냅니다.  
   
     `input_alias1 = A,`의 경우 {1, 2}  
   
@@ -279,9 +279,9 @@ FROM <from_specification>
   
 **예제 3** - 3개 원본  
   
-- 컬렉션 범위로 <from_source1>을 지정하고 집합 {A, B, C}를 나타냅니다.  
+- 컨테이너 범위로 <from_source1>을 지정하고 집합 {A, B, C}를 나타냅니다.  
   
-- 컬렉션 범위로 `<from_source1>`을 지정하고 집합 {A, B, C}를 나타냅니다.  
+- 컨테이너 범위로 `<from_source1>`을 지정하고 집합 {A, B, C}를 나타냅니다.  
   
 - input_alias1을 참조하는 문서 범위로 <from_source2>를 지정하고 다음 집합을 나타냅니다.  
   
@@ -371,7 +371,7 @@ ORDER BY <sort_specification>
   
  **설명**  
   
- 쿼리 문법은 속성 기준으로 여러 가지 순서를 지원하지만, Azure Cosmos DB 쿼리 런타임은 단일 속성에 대해서만 정렬을 지원하며, 계산된 속성이 아니라 속성 이름에 대해서만 정렬을 지원합니다. 또한 정렬하기 위해서는 인덱싱 정책에 속성에 대한 범위 인덱스와 지정된 유형이 최대 정밀도로 포함되어야 합니다. 자세한 내용은 인덱싱 정책 설명서를 참조하세요.  
+ 쿼리 문법은 속성 기준으로 여러 가지 순서를 지원하지만, Cosmos DB 쿼리 런타임은 단일 속성에 대해서만 정렬을 지원하며, 계산된 속성이 아니라 속성 이름에 대해서만 정렬을 지원합니다. 또한 정렬하기 위해서는 인덱싱 정책에 속성에 대한 범위 인덱스와 지정된 유형이 최대 정밀도로 포함되어야 합니다. 자세한 내용은 인덱싱 정책 설명서를 참조하세요.  
   
 ##  <a name="bk_scalar_expressions"></a> 스칼라 식  
  스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 간단한 식은 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출일 수 있으며, 연산자를 사용하여 복잡한 식으로 결합될 수 있습니다. 예를 들어 [스칼라 식 예제](sql-api-sql-query.md#scalar-expressions)를 참조하세요.
@@ -517,9 +517,9 @@ ORDER BY <sort_specification>
   
  **설명**  
   
- Azure Cosmos DB에서 값 형식은 실제로 데이터베이스에서 검색될 때까지 알 수 없는 경우가 종종 있습니다. 쿼리의 효율적인 실행을 지원하기 위해 대부분의 연산자에는 엄격한 형식 요구 사항이 있습니다. 또한 연산자 자체는 암시적 변환을 수행하지 않습니다.  
+ Cosmos DB에서 값 형식은 데이터베이스에서 검색될 때까지 알 수 없는 경우가 종종 있습니다. 쿼리의 효율적인 실행을 지원하기 위해 대부분의 연산자에는 엄격한 형식 요구 사항이 있습니다. 또한 연산자 자체는 암시적 변환을 수행하지 않습니다.  
   
- 즉 SELECT * FROM ROOT r WHERE r.Age = 21과 같은 쿼리는 Age 속성이 21인 문서만 반환합니다. "21" = 21 식이 undefined로 평가되므로 Age 속성이 "21" 또는 "0021" 문자열과 일치하지 않는 문서는 일치하지 않는 문서가 됩니다. 이렇게 하면 특정 값(즉, 숫자 21)의 조회가 무한 수의 잠재적 일치 항목(즉, 숫자 21 또는 문자열 "21", "021", "21.0"...)을 검색하는 것보다 빠르기 때문에 인덱스를 더 잘 사용할 수 있습니다. 이는 JavaScript에서 다른 형식의 값에 대해 연산자를 평가하는 방식과 다릅니다.  
+ 즉 SELECT * FROM ROOT r WHERE r.Age = 21과 같은 쿼리는 Age 속성이 21인 문서만 반환합니다. "21" = 21 식이 undefined로 평가되므로 Age 속성이 "21" 또는 "0021" 문자열과 일치하지 않는 문서는 일치하지 않는 문서가 됩니다. 이렇게 하면 특정 값(예: 숫자 21)의 조회가 무한 수의 잠재적 일치 항목(숫자 21 또는 문자열 "21", "021", "21.0"...)을 검색하는 것보다 빠르기 때문에 인덱스를 더 잘 사용할 수 있습니다. 이는 JavaScript에서 다른 형식의 값에 대해 연산자를 평가하는 방식과 다릅니다.  
   
  **배열 및 개체 같음 및 비교**  
   
@@ -632,7 +632,7 @@ ORDER BY <sort_specification>
 |\uXXXX|4자리 16진수로 정의된 유니코드 문자|U+XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a> 쿼리 성능 지침  
- 대형 컬렉션에 대해 쿼리를 효율적으로 실행하려면 하나 이상의 인덱스를 통해 제공될 수 있는 필터를 사용해야 합니다.  
+ 대형 컨테이너에 대해 쿼리를 효율적으로 실행하려면 하나 이상의 인덱스를 통해 제공될 수 있는 필터를 사용해야 합니다.  
   
  인덱스 조회에 대해 고려되는 필터는 다음과 같습니다.  
   
@@ -640,15 +640,15 @@ ORDER BY <sort_specification>
   
 -   문서 경로 식 및 상수와 함께 범위 연산자(<, \<=, >, >=)를 사용합니다.  
   
--   문서 경로 식은 참조되는 데이터베이스 컬렉션에서 문서의 상수 경로를 식별하는 모든 식을 나타냅니다.  
+-   문서 경로 식은 참조되는 데이터베이스 컨테이너에서 문서의 상수 경로를 식별하는 모든 식을 나타냅니다.  
   
  **문서 경로 식**  
   
- 문서 경로 식은 데이터베이스 수집 문서에서 제공하는 문서를 통해 속성 또는 배열 인덱서의 경로를 평가하는 식입니다. 이 경로는 필터에서 직접 참조되는 값의 위치를 데이터베이스 컬렉션의 문서 내에서 식별하는 데 사용될 수 있습니다.  
+ 문서 경로 식은 데이터베이스 컨테이너 문서에서 제공하는 문서를 통해 속성 또는 배열 인덱서의 경로를 평가하는 식입니다. 이 경로는 필터에서 직접 참조되는 값의 위치를 데이터베이스 컨테이너의 문서 내에서 식별하는 데 사용될 수 있습니다.  
   
  문서 경로 식으로 간주되는 식의 조건은 다음과 같습니다.  
   
-1.  컬렉션 루트를 직접 참조합니다.  
+1.  컨테이너 루트를 직접 참조합니다.  
   
 2.  일부 문서 경로 식의 속성 또는 상수 배열 인덱서를 참조합니다.  
   
@@ -674,14 +674,14 @@ ORDER BY <sort_specification>
     |[ ...n ]|앞의 항목이 n번 반복될 수 있음을 나타냅니다. 각 항목은 공백으로 구분 됩니다.|  
   
 ##  <a name="bk_built_in_functions"></a> 기본 제공 함수  
- Azure Cosmos DB는 많은 기본 제공 SQL 함수를 제공합니다. 기본 제공 함수의 범주는 다음과 같습니다.  
+ Cosmos DB는 많은 기본 제공 SQL 함수를 제공합니다. 기본 제공 함수의 범주는 다음과 같습니다.  
   
 |함수|설명|  
 |--------------|-----------------|  
 |[수치 연산 함수](#bk_mathematical_functions)|수치 연산 함수는 각각 인수로 제공된 입력 값에 따라 계산을 수행하고 숫자 값을 반환합니다.|  
 |[형식 검사 함수](#bk_type_checking_functions)|형식 검사 함수를 통해 SQL 쿼리 내에서 식의 형식을 검사할 수 있습니다.|  
 |[문자열 함수](#bk_string_functions)|문자열 함수는 문자열 입력 값에 대한 연산을 수행하고, 문자열, 숫자 또는 부울 값을 반환합니다.|  
-|[배열 함수](#bk_array_functions)|배열 함수는 배열 입력 값에 대한 연산을 수행하고, 숫자, 부울, 또는 배열 값을 반환합니다.|  
+|[배열 함수](#bk_array_functions)|배열 함수는 배열 입력 값에 대한 연산을 수행하고, 숫자, 부울 또는 배열 값을 반환합니다.|  
 |[공간 함수](#bk_spatial_functions)|공간 함수는 공간 개체 입력 값에 대한 연산을 수행하고, 숫자 또는 부울 값을 반환합니다.|  
   
 ###  <a name="bk_mathematical_functions"></a> 수치 연산 함수  
@@ -1761,7 +1761,7 @@ SELECT
 ```  
   
 ####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
- 지정한 식의 형식이 기본 형식(문자열, 부울, 숫자 또는 널)인지 여부를 나타내는 부울 값을 반환합니다.  
+ 지정한 식의 형식이 기본 형식(문자열, 부울, 숫자 또는 null)인지 여부를 나타내는 부울 값을 반환합니다.  
   
  **구문**  
   
@@ -2808,7 +2808,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
  **예**  
   
- 다음 예제에서는 지정된 다각형과 교차하는 모든 영역을 찾는 방법을 보여 줍니다.  
+ 다음 예제에서는 지정된 다각형과 교차하는 모든 영역을 찾는 방법을 보여줍니다.  
   
 ```  
 SELECT a.id   
@@ -2904,7 +2904,7 @@ SELECT ST_ISVALIDDETAILED({
 ```  
   
 ## <a name="next-steps"></a>다음 단계  
- [Azure Cosmos DB에 대한 SQL 구문 및 SQL 쿼리](sql-api-sql-query.md)   
- [Azure Cosmos DB 설명서](https://docs.microsoft.com/azure/cosmos-db/)  
-  
-  
+
+- [Cosmos DB에 대한 SQL 구문 및 SQL 쿼리](sql-api-sql-query.md)
+
+- [Cosmos DB 설명서](https://docs.microsoft.com/azure/cosmos-db/)  

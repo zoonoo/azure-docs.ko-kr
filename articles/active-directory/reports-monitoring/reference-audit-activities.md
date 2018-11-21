@@ -13,32 +13,31 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 818f4f4d8ea51cb278190d6e41953f0b04b2e995
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145371"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622877"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 감사 활동 참조
 
-Azure Active Directory(Azure AD)에서 보고를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
+Azure Active Directory(Azure AD) 보고서를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
 
 Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
-- **활동** 
-    - **로그인 활동** – 관리되는 응용 프로그램 및 사용자 로그인 활동의 사용량에 대한 정보
-    - **감사 로그** - Azure AD 내의 다양한 기능에 의해 수행된 모든 변경 내용에 대한 로그를 통한 추적 기능을 제공합니다. 감사 로그의 예로는 사용자, 앱, 그룹, 역할, 정책, 인증 등 Azure AD 내의 모든 리소스에 대한 변경 내용이 있습니다.
-- **보안** 
-    - **위험한 로그인** - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 자세한 내용은 위험한 로그인을 참조하세요.
-    - **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 자세한 내용은 위험 플래그가 지정된 사용자를 참조하세요.
+- **작업 보고서** 
+    - [로그인](concept-sign-ins.md) – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용 정보를 제공합니다.
+    - [감사 로그](concept-audit-logs.md) - Azure AD 내의 다양한 기능에 의해 수행된 모든 변경 내용에 대한 로그를 통한 추적 기능을 제공합니다. 
+    
+- **보안 보고서** 
+    - [위험한 로그인](concept-risky-sign-ins.md) - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 
+    - [위험 플래그가 지정된 사용자](concept-user-at-risk.md) - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 
 
 이 아티클에서는 감사 로그에 기록될 수 있는 감사 활동을 나열합니다.
- 
-
 
 ## <a name="access-reviews"></a>액세스 검토
 
@@ -72,9 +71,6 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |사용자 관리|V1 응용 프로그램 가져오기|
 |사용자 관리|V2 응용 프로그램 가져오기|
 |사용자 관리|V2 응용 프로그램 가져오기|
-
-
-
 
 ## <a name="account-provisioning"></a>계정 프로비전
 
@@ -593,13 +589,8 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |정책 관리|사용자가 셀프 서비스 암호 재설정 등록|
 
 
-
-
 ## <a name="next-steps"></a>다음 단계
 
-개요:
-
-- 보고는 [Azure Active Directory 보고](overview-reports.md)를 참조하세요.
-
-- 감사 작업 보고서는 [Azure Active Directory 포털의 감사 작업 보고서](concept-audit-logs.md)를 참조하세요. 
-
+- [Azure AD 보고서 개요](overview-reports.md).
+- [감사 로그 보고서](concept-audit-logs.md). 
+- [Azure AD 보고서에 대한 프로그래밍 방식 액세스](concept-reporting-api.md)

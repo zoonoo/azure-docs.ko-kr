@@ -4,16 +4,16 @@ description: 청사진이 거치는 수명 주기 및 각 단계의 세부 정�
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094581"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620598"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
 
@@ -47,6 +47,9 @@ JSON 예제에는 사용자 고유의 값으로 바꿔야 하는 변수가 있�
 대형 청사진을 작성할 때 특정 순서에 따라 리소스를 만들어야 하는 경우도 있습니다. 이 시나리오의 가장 일반적인 사용 패턴은 청사진에 여러 개의 Azure Resource Manager 템플릿이 포함된 경우입니다. Blueprints는 시퀀싱 순서를 정의할 수 있도록 허용하여 이 패턴을 처리합니다.
 
 JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니다. 오직 (리소스 그룹에 대한) 청사진 및 아티팩트 개체만 이 속성을 지원합니다. `dependsOn`은 특정 아티팩트가 만들어지기 전에 만들어야 하는 아티팩트 이름의 문자열 배열입니다.
+
+> [!NOTE]
+> **리소스 그룹** 아티팩트는 `dependsOn` 속성을 지원하지만, 어떤 아티팩트 형식으로도 `dependsOn`의 대상이 될 수 없습니다.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>예 - 순서가 지정된 리소스 그룹을 사용하는 청사진
 

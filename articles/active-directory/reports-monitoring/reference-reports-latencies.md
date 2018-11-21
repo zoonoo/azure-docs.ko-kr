@@ -13,44 +13,44 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/15/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b81c66acc0a90ba9b74cf1f4fb34ef7a545837f9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e5ceae2959f79c677f5b89c0c3f0a487f92ad1c6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736609"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623182"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
 
-Azure Active Directory에서 [보고](../active-directory-preview-explainer.md)를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다. 보고 데이터가 Azure Porta에 표시되는 데 걸리는 시간을 대기 시간이라고도 합니다. 
-
-이 항목에서는 Azure Portal의 모든 보고 범주에 대한 대기 시간 정보를 나열합니다. 
-
+대기 시간은 Azure Active Directory(Azure AD) 보고 데이터가 [Azure Portal](https://portal.azure.com)에 표시되는 데 걸리는 시간입니다. 이 문서에서는 여러 보고서 유형의 예상 대기 시간을 안내합니다. 
 
 ## <a name="activity-reports"></a>작업 보고서
 
-활동 보고에는 다음 두 가지 영역이 있습니다.
+활동 보고서에는 다음 두 가지 유형이 있습니다.
 
-- **로그인 활동** – 관리되는 응용 프로그램 및 사용자 로그인 활동의 사용량에 대한 정보
-- **감사 로그** - 사용자 및 그룹 관리, 관리되는 응용 프로그램 및 디렉터리 활동에 대한 시스템 활동 정보
+- [로그인](concept-sign-ins.md) – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용 정보를 제공합니다.
+- [감사 로그](concept-audit-logs.md) - 사용자 및 그룹 관리, 관리되는 애플리케이션 및 디렉터리 활동에 대한 시스템 활동 정보를 제공합니다.
 
-다음 표에는 활동 보고서에 대한 대기 시간 정보가 나와 있습니다.
+다음 표에는 활동 보고서에 대한 대기 시간 정보가 나와 있습니다. 
 
-| 보고서 | 대기 시간(95%) |대기 시간(99%)|
+> [!NOTE]
+> **대기 시간(95번째 백분위수)** 은 로그의 95%가 보고되는 시간을 가리키고, **대기 시간(99번째 백분위수)** 은 로그의 99%각 보고되는 시간을 가리킵니다. 
+>
+
+| 보고서 | 대기 시간(95번째 백분위수) |대기 시간(99번째 백분위수)|
 | :-- | --- | --- | 
 | 감사 로그 | 2분  | 5분  |
 | 로그인 | 2분  | 5분 |
 
-
 ## <a name="security-reports"></a>보안 보고서
 
-보안 보고에는 다음 두 가지 영역이 있습니다.
+두 가지 형식의 보안 보고서가 있습니다.
 
-- **위험한 로그인** - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 
-- **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 
+- [위험한 로그인](concept-risky-sign-ins.md) - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 
+- [위험 플래그가 지정된 사용자](concept-user-at-risk.md) - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 
 
 다음 표에는 보안 보고서에 대한 대기 시간 정보가 나와 있습니다.
 
@@ -61,7 +61,7 @@ Azure Active Directory에서 [보고](../active-directory-preview-explainer.md)�
 
 ## <a name="risk-events"></a>위험 이벤트
 
-Azure Active Directory는 적응 기계 학습 알고리즘 및 추론을 사용하여 사용자의 계정과 관련된 의심스러운 작업을 검색합니다. 검색된 각 의심스러운 동작은 위험 이벤트라는 레코드에 저장됩니다.
+Azure AD는 적응형 기계 학습 알고리즘 및 추론을 사용하여 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 감지된 각 의심스러운 동작은 **위험 이벤트**라는 레코드에 저장됩니다.
 
 다음 표에는 위험 이벤트에 대한 대기 시간 정보가 나와 있습니다.
 
@@ -75,17 +75,8 @@ Azure Active Directory는 적응 기계 학습 알고리즘 및 추론을 사용
 | 의심스러운 작업이 있는 IP 주소에서 로그인 |2시간 |4시간 |8시간  |
 
 
-
 ## <a name="next-steps"></a>다음 단계
 
-Azure Portal의 활동 보고서에 자세히 알아보려면 다음을 참조하세요.
-
-- [Azure Active Directory 포털의 로그인 활동 보고서](concept-sign-ins.md)
-- [Azure Active Directory 포털의 감사 활동 보고서](concept-audit-logs.md)
-
-Azure Portal의 보안 보고서에 자세히 알아보려면 다음을 참조하세요.
-
-- [Azure Active Directory 포털에서 제공하는 위험에 노출된 사용자 보안 보고서](concept-user-at-risk.md)
-- [Azure Active Directory 포털에서 제공하는 위험한 로그인 보고서](concept-risky-sign-ins.md)
-
-위험 이벤트에 대한 자세한 내용은 [Azure Active Directory 위험 이벤트](concept-risk-events.md)를 참조하세요.
+* [Azure AD 보고서 개요](overview-reports.md)
+* [Azure AD 보고서에 대한 프로그래밍 방식 액세스](concept-reporting-api.md)
+* [Azure Active Directory 위험 이벤트](concept-risk-events.md)

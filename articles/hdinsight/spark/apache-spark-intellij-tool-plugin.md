@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/08/2018
 ms.author: maxluk
-ms.openlocfilehash: 90c84130902420dcaa2ace74a5743fc9719622b0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ff7cfcd56158bd38d031a29a21247fb9eb6b91f9
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014264"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289073"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -195,7 +195,7 @@ Scala 응용 프로그램을 작성한 후 이를 클러스터에 제출할 수 
        > [!NOTE]
        > 참조된 JAR 및 참조 파일을 업로드하려면 [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)(클러스터에 리소스를 업로드하는 방법)를 참조하세요.
                          
-    * **Upload Path**(업로드 경로): Jar 또는 Scala 프로젝트 리소스 제출을 위한 저장소 위치를 표시할 수 있습니다. 지원되는 저장소 유형은 **Azure Blob**, **Use Spark interactive session to upload artifacts**(Spark 대화형 세션을 사용하여 아티팩트 업로드), **Use cluster default storage account**(클러스터 기본 저장소 계정 사용) 등 세 가지입니다. 아래 스크린샷은 Azure Blob의 예입니다.
+    * **Upload Path**(업로드 경로): Jar 또는 Scala 프로젝트 리소스 제출을 위한 저장소 위치를 표시할 수 있습니다. 지원되는 스토리지 유형은 **Azure Blob**, **Use Spark interactive session to upload artifacts**(Spark 대화형 세션을 사용하여 아티팩트 업로드), **Use cluster default storage account**(클러스터 기본 스토리지 계정 사용), **ADLS Gen1** 등 네 가지입니다. 아래 스크린샷은 Azure Blob의 예입니다.
 
         ![Spark 제출 대화 상자](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -258,26 +258,25 @@ IntelliJ용 Azure 도구 키트를 사용하여 다양한 작업을 수행할 �
 Spark 로컬 콘솔(Scala)을 실행하거나 Spark Livy 대화형 세션 콘솔(Scala)을 실행할 수 있습니다.
 
 ### <a name="spark-local-consolescala"></a>Spark 로컬 콘솔(Scala)
-1. 수동으로 종속성을 추가해야 합니다. **파일**->**프로젝트 구조**->**프로젝트 설정**->**라이브러리** 메뉴에서 **+** 를 클릭한 후 **From Maven...**(Maven에서)을 선택합니다. 그런 다음, 팝업 대화 상자에 **org.apache.spark:spark-repl_2.11:2.1.0**을 입력합니다. 라이브러리에서 종속성을 추가한 후에는 **프로젝트 구조** 창에서 **모듈**의 첫 번째 줄로 종속성을 이동해야 합니다. 이동하기 전에 **범위**를 **런타임**으로 변경합니다.
-
-    ![로컬 콘솔 종속성 라이브러리 추가](./media/apache-spark-intellij-tool-plugin/local-console-add-dependency-libraries.png)
-
-    ![로컬 콘솔 첫 번째 줄로 이동](./media/apache-spark-intellij-tool-plugin/local-console-move-first-line.png)
-
-2. 이전에 없는 경우 구성을 설정합니다. **실행/디버그 구성** 창에서 **+**->**Azure HDInsight Spark**를 클릭하고 **로컬로 실행** 탭을 선택한 후 기본 클래스를 선택하고 **확인**을 클릭합니다.
+1. 이전에 없는 경우 구성을 설정합니다. **실행/디버그 구성** 창에서 **+**->**Azure HDInsight Spark**를 클릭하고 **로컬로 실행** 및 **클러스터에서 원격으로 실행** 탭을 선택한 후 기본 클래스를 선택하고 **확인**을 클릭합니다.
 
     ![로컬 콘솔 구성 설정](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
  
-3. 기본 클래스 파일에 해당하는 파일을 열고 **Spark 콘솔**을 마우스 오른쪽 단추로 클릭한 다음, **Run Spark Local Console(Scala)**(Spark 로컬 콘솔 실행(Scala))을 클릭합니다. 또는 **도구**->**Spark 콘솔**->**Run Spark Local Console(Scala)**(Spark 로컬 콘솔 실행(Scala)) 메뉴로 이동하여 콘솔을 시작합니다.
+2. 해당하는 기본 클래스 파일을 열고 **Spark 콘솔**을 마우스 오른쪽 단추로 클릭한 다음, **Run Spark Local Console(Scala)**(Spark 로컬 콘솔 실행(Scala))을 클릭합니다. 또는 **도구**->**Spark 콘솔**->**Run Spark Local Console(Scala)**(Spark 로컬 콘솔 실행(Scala)) 메뉴로 이동하여 콘솔을 시작합니다. 그러면 종속성을 자동 수정할 것인지 묻는 두 개의 대화 상자가 표시됩니다. **자동 수정** 단추를 클릭하기만 하면 됩니다.
+
+    ![Spark 자동 수정1](./media/apache-spark-intellij-tool-plugin/console-auto-fix1.png)
+
+    ![Spark 자동 수정2](./media/apache-spark-intellij-tool-plugin/console-auto-fix2.png)
 
     ![Spark 로컬 진입점](./media/apache-spark-intellij-tool-plugin/spark-console-local-entry-script.png)
 
-4. 로컬 콘솔을 시작한 후에는 아래와 같이 열립니다. 원하는 작업을 수행할 수 있습니다. 예를 들어, **sc.appName**을 입력하고 Ctrl+Enter를 누르면 결과가 표시됩니다.
+3. 로컬 콘솔을 시작한 후에는 아래와 같이 열립니다. 원하는 작업을 수행할 수 있습니다. 예를 들어, **sc.appName**을 입력하고 Ctrl+Enter를 누르면 결과가 표시됩니다. 빨간색 단추를 클릭하여 로컬 콘솔을 종료할 수 있습니다.
 
     ![로컬 콘솔 결과](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
 
+
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy 대화형 세션 콘솔(Scala)
-IntelliJ 2018.2에서만 지원됩니다.
+IntelliJ 2018.2 및 2018.3에서만 지원됩니다.
 
 1. 이전에 없는 경우 구성을 설정합니다. **실행/디버그 구성** 창에서 **+**->**Azure HDInsight Spark**를 클릭하고 **클러스터에서 원격으로 실행** 탭을 선택한 후 클러스터 이름과 기본 클래스를 선택하고 **확인**을 클릭합니다.
 
@@ -290,6 +289,11 @@ IntelliJ 2018.2에서만 지원됩니다.
 3. 콘솔을 시작한 후에는 원하는 작업을 수행할 수 있습니다. 예를 들어, **sc.appName**을 입력하고 Ctrl+Enter를 누르면 결과가 표시됩니다.
 
     ![대화형 콘솔 결과](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
+
+### <a name="send-selection-to-spark-console"></a>Spark 콘솔로 선택 내용 보내기
+일부 코드를 로컬 콘솔 또는 Livy 대화식 세션 콘솔(Scala)로 보내면 편리하게 스크립트 결과를 예측할 수 있습니다. Scala 파일의 일부 코드를 강조 표시하고 **Send Selection To Spark Console**(Spark 콘솔로 선택 내용 보내기)을 마우스 오른쪽 단추로 클릭합니다. 선택한 코드가 콘솔로 보내지고 실행됩니다. 결과는 콘솔의 코드 뒤에 표시됩니다. 콘솔에서 오류가 있는지 검사합니다. 
+
+   ![Spark 콘솔로 선택 내용 보내기](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트를 사용하도록 기존 IntelliJ IDEA 응용 프로그램 변환
 IntelliJ IDEA에서 만든 기존 Spark Scala 응용 프로그램을 IntelliJ용 Azure 도구 키트와 호환되도록 변환할 수 있습니다. 이렇게 하면 플러그 인을 사용하여 HDInsight Spark 클러스터에 응용 프로그램을 제출할 수 있습니다.
@@ -333,11 +337,7 @@ Spark 1.6에서 로컬 실행 동안 32비트 Java SDK를 사용하는 경우 �
 ![IntelliJ의 "VM 옵션" 상자에 옵션 추가](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>FAQ
-클러스터를 연결하는 경우 저장소 자격 증명을 제공하는 것이 좋습니다.
-
-![클러스터 링크, 저장소 자격 증명 제공](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
-
-작업을 제출하는 두 가지 모드가 있습니다. 저장소 자격 증명을 제공하는 경우 작업을 제출하는 데 일괄 처리 모드가 사용됩니다. 그렇지 않으면 대화형 모드가 사용됩니다. 클러스터가 사용 중인 경우 아래 오류가 발생할 수 있습니다.
+클러스터가 사용 중인 경우 아래 오류가 발생할 수 있습니다.
 
 ![클러스터가 사용 중인 경우 Intellij에 오류가 발생합니다.](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
 

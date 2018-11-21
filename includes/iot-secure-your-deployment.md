@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 744d9929d7f82242d2bb75452b70b11af19b3af7
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49084336"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289175"
 ---
-# <a name="secure-your-iot-deployment"></a>IoT 배포 보안 유지
+# <a name="secure-your-internet-of-things-iot-deployment"></a>IoT(사물 인터넷) 배포 보안 유지
 
 이 문서에서는 Azure IoT 기반 IoT(사물 인터넷) 인프라를 보호하기 위한 세부 정보를 제공합니다. 또한 각 구성 요소의 구성 및 배포에 대한 구현 수준의 세부 정보에 연결됩니다. 그밖에도 다양한 경쟁 방법 간을 비교하고 선택 항목을 제공합니다.
 

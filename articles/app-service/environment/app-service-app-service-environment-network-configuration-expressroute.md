@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.openlocfilehash: fcb9fa9004039205fa49f63c50d5907a8029a079
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7873192e4a66cd2faed5a1a1255377139d33d750
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153221"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616064"
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>ExpressRoute를 사용하는 App Service Environment에 대한 네트워크 구성 세부 정보
 ## <a name="overview"></a>개요
@@ -32,15 +32,15 @@ App Service Environment를 Azure Resource Manager 가상 네트워크에서 **�
 ## <a name="required-network-connectivity"></a>필요한 네트워크 연결
 ExpressRoute에 연결된 가상 네트워크에서 처음에 충족되지 않는 App Service Environment에 대한 네트워크 연결 요구 사항이 있습니다.  App Service Environment는 기능을 제대로 작동시키기 위해 다음 사항을 전부 요구합니다.
 
-* 80 포트 및 443 포트에서 전세계 Azure Storage 끝점에 아웃바운드 네트워크 연결.  App Service Environment와 동일한 지역에 있는 끝점 뿐만 아니라 **다른** Azure 지역에 있는 저장소 끝점을 포함합니다.  다음 DNS 도메인에서 Azure Storage 끝점은 다음을 확인합니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net*.  
+* 80 포트 및 443 포트에서 전세계 Azure Storage 엔드포인트에 아웃바운드 네트워크 연결.  App Service Environment와 동일한 지역에 있는 엔드포인트 뿐만 아니라 **다른** Azure 지역에 있는 저장소 엔드포인트를 포함합니다.  다음 DNS 도메인에서 Azure Storage 엔드포인트는 다음을 확인합니다. *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* 및 *file.core.windows.net*.  
 * 포트 445에서 Azure 파일 서비스에 대한 아웃바운드 연결.
-* App Service Environment처럼 동일한 지역에 위치한 Sql DB 끝점에 대한 아웃바운드 네트워크 연결.  Sql DB 끝점은 다음 도메인에서 확인합니다. *database.windows.net*  이를 위해서는 포트 1433, 11000-11999 및 14000-14999에 대한 열기 액세스가 필요합니다.  자세한 내용은 [이 문서에서 SQL 데이터베이스 V12 포트 사용](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md)을 참조하세요.
-* Azure 관리 평면 끝점에 아웃바운드 네트워크 연결(ASM 및 ARM 끝점 모두)  *management.core.windows.net* 및 *management.azure.com* 모두에 아웃 바운드 연결을 포함합니다. 
+* App Service Environment처럼 동일한 지역에 위치한 Sql DB 엔드포인트에 대한 아웃바운드 네트워크 연결.  Sql DB 엔드포인트는 다음 도메인에서 확인합니다. *database.windows.net*  이를 위해서는 포트 1433, 11000-11999 및 14000-14999에 대한 열기 액세스가 필요합니다.  자세한 내용은 [이 문서에서 SQL 데이터베이스 V12 포트 사용](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md)을 참조하세요.
+* Azure 관리 평면 엔드포인트에 아웃바운드 네트워크 연결(ASM 및 ARM 엔드포인트 모두)  *management.core.windows.net* 및 *management.azure.com* 모두에 아웃 바운드 연결을 포함합니다. 
 * *ocsp.msocsp.com*, *mscrl.microsoft.com* 및 *crl.microsoft.com*에 대한 아웃바운드 네트워크 연결입니다.  SSL 기능을 지원하는 데 필요합니다.
-* 가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 끝점 및 도메인을 모두 해결할 수 있어야 합니다.  이러한 끝점을 해결할 수 없으면 App Service Environment 만들기 시도는 실패하고 기존 App Service Environment도 비정상으로 표시됩니다.
+* 가상 네트워크에 대한 DNS 구성은 이전 시점에 언급된 엔드포인트 및 도메인을 모두 해결할 수 있어야 합니다.  이러한 엔드포인트를 해결할 수 없으면 App Service Environment 만들기 시도는 실패하고 기존 App Service Environment도 비정상으로 표시됩니다.
 * DNS 서버와의 통신을 위해서는 포트 53에서 아웃바운드 액세스가 필요합니다.
 * 사용자 지정 DNS 서버가 VPN 게이트웨이의 반대쪽 끝에 있는 경우 App Service Environment를 포함하는 서브넷에서 DNS 서버에 연결할 수 있어야 합니다. 
-* 아웃바운드 네트워크 경로는 내부 회사 프록시를 통과할 수 없고 온-프레미스에 강제로 터널링될 수 없습니다.  이렇게 하면 App Service Environment에서 아웃바운드 네트워크 트래픽의 효율적인 NAT 주소를 변경합니다.  App Service Environment의 아웃바운드 네트워크 트래픽의 NAT 주소 변경은 위에 나열된 끝점 대부분에 연결 실패를 초래합니다.  실패한 App Service Environment 만들기 시도라는 결과로 나타날 뿐만 아니라 이전의 정상 App Service Environment도 비정상으로 표시됩니다.  
+* 아웃바운드 네트워크 경로는 내부 회사 프록시를 통과할 수 없고 온-프레미스에 강제로 터널링될 수 없습니다.  이렇게 하면 App Service Environment에서 아웃바운드 네트워크 트래픽의 효율적인 NAT 주소를 변경합니다.  App Service Environment의 아웃바운드 네트워크 트래픽의 NAT 주소 변경은 위에 나열된 엔드포인트 대부분에 연결 실패를 초래합니다.  실패한 App Service Environment 만들기 시도라는 결과로 나타날 뿐만 아니라 이전의 정상 App Service Environment도 비정상으로 표시됩니다.  
 * 이 [문서][requiredports]에 설명된 대로 App Service Environment에 필요한 포트에 대한 인바운드 네트워크 액세스가 허용되어야 합니다.
 
 유효한 DNS 인프라를 구성하고 가상 네트워크에 유지 관리하여 DNS 요구를 충족할 수 있습니다.  App Service Environment를 만든 후에 어떤 이유로든 DNS 구성이 변경되면 개발자는 App Service Environment를 강제하여 새 DNS 구성을 선택할 수 있습니다.  [Azure Portal][NewPortal]에서 App Service 환경 관리 블레이드의 상단에 있는 "다시 시작" 아이콘을 사용하여 롤링 환경 다시 부팅을 트리거하면 환경에서 새 DNS 구성을 선택하게 됩니다.
@@ -48,9 +48,9 @@ ExpressRoute에 연결된 가상 네트워크에서 처음에 충족되지 않�
 인바운드 네트워크 액세스 요구 사항은 이 [문서][requiredports]에 설명된 대로 필요한 액세스를 허용하도록 App Service 환경 서브넷의 [네트워크 보안 그룹][NetworkSecurityGroups]을 구성하여 충족할 수 있습니다.
 
 ## <a name="enabling-outbound-network-connectivity-for-an-app-service-environment"></a>App Service Environment에 대한 아웃바운드 네트워크 연결을 사용하도록 설정
-기본적으로, 새로 생성된 Express Route 회로는 아웃바운드 인터넷 연결을 허용하는 기본 경로를 알립니다.  이 App Service Environment 구성을 사용하여 다른 Azure 끝점에 연결할 수 있게 만듭니다.
+기본적으로, 새로 생성된 Express Route 회로는 아웃바운드 인터넷 연결을 허용하는 기본 경로를 알립니다.  이 App Service Environment 구성을 사용하여 다른 Azure 엔드포인트에 연결할 수 있게 만듭니다.
 
-그러나 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다.  이 트래픽 흐름이 App Service Environment를 계속 중단시키는 이유는 아웃바운드 트래픽은 온-프레미스를 막거나 다양한 Azure 끝점에서 더이상 작동하지 않는 주소의 인식 불가능한 집합을 NAT하기 때문입니다.
+그러나 고객의 일반적인 구성은 온-프레미스 흐름 대신 아웃바운드 인터넷 트래픽을 강제하는 기본 경로(0.0.0.0/0)로 정의되어 있습니다.  이 트래픽 흐름이 App Service Environment를 계속 중단시키는 이유는 아웃바운드 트래픽은 온-프레미스를 막거나 다양한 Azure 엔드포인트에서 더이상 작동하지 않는 주소의 인식 불가능한 집합을 NAT하기 때문입니다.
 
 해결책은 하나의(혹은 그이상) 사용자 정의 루트(UDRs)를 App Service Environment를 포함하는 서브넷에 정의하는 것입니다.  UDR이 정의한 특정 서브넷 경로는 기본 경로대신 적용됩니다.
 
@@ -93,7 +93,7 @@ ExpressRoute에 연결된 가상 네트워크에서 처음에 충족되지 않�
 
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
 
-0.0.0.0/0가 광범위한 주소 범위이고 따라서 ExpressRoute에서 보급되는 보다 구체적인 주소 범위로 재정의된다는 점에 주의하세요.  다시 이전 권장 사항을 반복하려면 0.0.0.0/0 경로를 가진 UDR은 0.0.0.0/0을 보급하는 Exress 경로 구성과 함께 사용해야 합니다. 
+0.0.0.0/0가 광범위한 주소 범위이고 따라서 ExpressRoute에서 보급되는 보다 구체적인 주소 범위로 재정의된다는 점에 주의하세요.  다시 이전 권장 사항을 반복하려면 0.0.0.0/0 경로를 가진 UDR을 0.0.0.0/0을 보급하는 ExpressRoute 구성과 함께 사용해야 합니다. 
 
 대신 Azure에서 사용하는 CIDR 범위의 포괄적이고 업데이트된 목록을 다운로드할 수 있습니다.  모든 Azure IP 주소 범위를 포함하는 Xml 파일은 [Microsoft 다운로드 센터][DownloadCenterAddressRanges]에서 사용할 수 있습니다.  
 
@@ -110,8 +110,8 @@ ExpressRoute에 연결된 가상 네트워크에서 처음에 충족되지 않�
 
 경로 테이블이 서브넷에 바인딩된 후 첫번째로 테스트 하면서 원하는 효과를 확인하는 것을 권장합니다.  예를 들어, 서브넷에 가상 머신을 배포하고 확인합니다.
 
-* 이 문서의 앞에서 언급한 Azure 끝점과 비 Azure 끝점 모두에 대한 아웃바운드 트래픽은 ExpressRoute 회로로 이동하지 **않습니다** .  서브넷에서 아웃바운드 트래픽이 강제로 터널링된 온-프레미스인 경우 App Service Environment를 만드는 데 실패하기 때문에 이 동작을 확인하는 것이 매우 중요합니다. 
-* 앞서 언급된 끝점에 대한 DNS 조회는 모두 적절하게 해결합니다. 
+* 이 문서의 앞에서 언급한 Azure 엔드포인트와 비 Azure 엔드포인트 모두에 대한 아웃바운드 트래픽은 ExpressRoute 회로로 이동하지 **않습니다** .  서브넷에서 아웃바운드 트래픽이 강제로 터널링된 온-프레미스인 경우 App Service Environment를 만드는 데 실패하기 때문에 이 동작을 확인하는 것이 매우 중요합니다. 
+* 앞서 언급된 엔드포인트에 대한 DNS 조회는 모두 적절하게 해결합니다. 
 
 위의 단계가 확인되면 서브넷이 App Service Environment를 만들 때 "비어" 있어야 하기 때문에 가상 컴퓨터를 삭제해야 합니다.
 

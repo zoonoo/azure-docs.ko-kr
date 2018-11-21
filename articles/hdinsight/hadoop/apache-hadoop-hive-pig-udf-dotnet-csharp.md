@@ -1,6 +1,6 @@
 ---
-title: HDInsight의 Hadoop에서 Hive 및 Pig와 함께 C# 사용 - Azure
-description: Azure HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아봅니다.
+title: HDInsight의 Apache Hadoop에서 Apache Hive 및 Apache Pig와 함께 C# 사용 - Azure
+description: Azure HDInsight에서 Apache Hive 및 Apache Pig 스트림과 함께 C# UDF(사용자 정의 함수)를 사용하는 방법을 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8011a9b8009abd2688d76dc3f1cda84ca453fde1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2ef88fff1313a0e7b1aa0abb502629512daaf636
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014689"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633838"
 ---
-# <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수) 사용
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>HDInsight의 Apache Hadoop에서 Apache Hive 및 Apache Pig 스트림과 함께 C# 사용자 정의 함수 사용
 
-HDInsight에서 Apache Hive 및 Pig와 함께 C# UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아보세요.
+HDInsight에서 Apache Hive 및 Apache Pig와 함께 C# UDF(사용자 정의 함수)를 사용하는 방법을 알아봅니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계는 Linux 기반 및 Windows 기반 HDInsight 클러스터에 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](../hdinsight-component-versioning.md)를 참조하세요.

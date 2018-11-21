@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus WCF 릴레이 자습서 | Microsoft Docs
+title: Azure WCF Relay를 사용하여 외부 클라이언트에 온-프레미스 WCF REST 서비스 노출 | Microsoft Docs
 description: WCF 릴레이를 사용하여 클라이언트 및 서비스 응용 프로그램을 빌드합니다.
 services: service-bus-relay
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2017
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262015"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615479"
 ---
-# <a name="azure-wcf-relay-tutorial"></a>Azure WCF 릴레이 자습서
+# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Azure WCF Relay를 사용하여 외부 클라이언트에 온-프레미스 WCF REST 서비스 노출
 
 이 자습서에서는 Azure Relay를 사용하여 WCF 릴레이 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 설명합니다. [Service Bus 메시징](../service-bus-messaging/service-bus-messaging-overview.md)을 사용하는 유사한 자습서는 [Service Bus 큐 시작](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
 
@@ -31,19 +31,32 @@ ms.locfileid: "51262015"
 
 마지막 세 단계에서는 클라이언트 응용 프로그램 만들기 및 구성 방법과, 호스트의 기능에 액세스할 수 있는 클라이언트 만들기 및 사용 방법을 설명합니다.
 
+이 자습서에서는 다음 단계를 수행합니다.
+
+> [!div class="checklist"]
+> * Relay 네임스페이스 만들기
+> * WCF 서비스 계약 만들기
+> * WCF 계약 구현
+> * 릴레이 서비스에 등록할 WCF 서비스 호스트 및 실행
+> * 서비스 계약에 대한 WCF 클라이언트 만들기
+> * WCF 클라이언트 구성 
+> * WCF 클라이언트 구현
+> * 애플리케이션 실행 
+
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* [Microsoft Visual Studio 2015 이상](https://visualstudio.com). 이 자습서에서는 Visual Studio 2017을 사용합니다.
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/free/)을 참조하세요.
+- Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+- [Visual Studio 2015 이상](http://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
+- Azure SDK for .NET. [SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 설치합니다.
 
-## <a name="create-a-service-namespace"></a>서비스 네임스페이스 만들기
+## <a name="create-a-relay-namespace"></a>Relay 네임스페이스 만들기
+첫 단계는 네임스페이스를 만들고 [SAS(공유 액세스 서명)](../service-bus-messaging/service-bus-sas.md) 키를 확보합니다. 네임스페이스는 릴레이 서비스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 서비스 네임스페이스 및 SAS 키 조합은 Azure에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
-첫 단계는 네임스페이스를 만들고 [SAS(공유 액세스 서명)](../service-bus-messaging/service-bus-sas.md) 키를 확보합니다. 네임스페이스는 릴레이 서비스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 서비스 네임스페이스 및 SAS 키 조합은 Azure에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다. [여기의 지침](relay-create-namespace-portal.md)을 따라 릴레이 네임스페이스를 만듭니다.
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>WCF 서비스 계약 정의
-
 서비스 계약은 서비스가 지원하는 작업(메서드 또는 함수에 대한 웹 서비스 용어)을 지정합니다. 계약은 C++, C#, 또는 Visual Basic 인터페이스를 정의하여 만듭니다. 인터페이스의 각 메서드는 특정 서비스 작업에 해당합니다. 각 인터페이스에는 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 특성이 적용되어야 하고 각 작업에는 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 특성이 적용되어야 합니다. [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 특성이 적용된 인터페이스의 메서드에 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 특성이 지정되지 않은 경우 해당 메서드가 노출되지 않습니다. 이 작업을 위한 코드는 과정을 수행하면서 예제에 제공됩니다. 보다 큰 규모로 진행된 계약 및 서비스 논의에 대한 자세한 내용은 WCF 설명서의 [서비스 디자인 및 구현](https://msdn.microsoft.com/library/ms729746.aspx)을 참조하세요.
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>인터페이스와 함께 릴레이 계약 만들기
@@ -51,13 +64,13 @@ ms.locfileid: "51262015"
 1. **시작** 메뉴의 프로그램을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택하여 Visual Studio를 관리자 권한으로 엽니다.
 2. 새 콘솔 응용 프로그램 프로젝트를 만듭니다. **파일** 메뉴를 클릭하고 **새로 만들기**를 선택한 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자에서 **Visual C#** 을 클릭합니다. **Visual C#** 이 표시되지 않으면 **다른 언어**에서 찾아봅니다. **콘솔 앱(.NET Framework)** 템플릿을 클릭하고 **EchoService**로 이름을 지정합니다. **확인**을 클릭하여 프로젝트를 만듭니다.
 
-    ![][2]
+    ![콘솔 앱 만들기][2]
 
 3. Service Bus NuGet 패키지를 설치합니다. 이 패키지는 WCF **System.ServiceModel** 뿐만 아니라 Service Bus 라이브러리에 대한 참조를 자동으로 추가합니다. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx)은 WCF의 기본 기능에 프로그래밍 방식으로 액세스할 수 있도록 하는 네임스페이스입니다. Service Bus는 WCF의 많은 개체와 특성을 사용하여 서비스 계약을 정의합니다.
 
-    솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다. 찾아보기 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. 프로젝트 이름이 **버전** 상자에서 선택되어 있는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
+    솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다. **찾아보기** 탭을 클릭한 다음 **WindowsAzure.ServiceBus**를 검색합니다. 프로젝트 이름이 **버전** 상자에서 선택되어 있는지 확인합니다. **설치**를 클릭하고 사용 약관에 동의합니다.
 
-    ![][3]
+    ![Service Bus 패키지][3]
 4. 아직 열리지 않은 경우 솔루션 탐색기에서 Program.cs 파일을 두 번 클릭하여 편집기에서 엽니다.
 5. 파일 맨 위에 다음 using 문을 추가합니다.
 
@@ -231,7 +244,7 @@ Azure 릴레이를 만들려면 첫째로 계약을 만들어야 하는데, 계�
 </configuration>
 ```
 
-## <a name="host-and-run-a-basic-web-service-to-register-with-the-relay-service"></a>릴레이 서비스에 등록할 기본 웹 서비스 호스팅 및 실행
+## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>릴레이 서비스에 등록할 WCF 서비스 호스트 및 실행
 
 이 단계에서는 Azure Relay 서비스를 실행하는 방법을 설명합니다.
 
@@ -501,7 +514,7 @@ namespace Microsoft.ServiceBus.Samples
     이 단계에서는 엔드포인트 이름, 서비스에서 정의한 계약, 클라이언트가 TCP를 사용하여 Azure Relay와 통신한다는 사실을 정의합니다. 엔드포인트 이름은 이 엔드포인트 구성을 서비스 URI에 연결하는 다음 절차에서 사용됩니다.
 5. **파일**을 클릭한 다음 **모두 저장**을 클릭합니다.
 
-## <a name="example"></a>예
+### <a name="example"></a>예
 
 다음 코드는 Echo 클라이언트에 대한 App.config 파일을 보여줍니다.
 
@@ -607,7 +620,7 @@ namespace Microsoft.ServiceBus.Samples
     channelFactory.Close();
     ```
 
-## <a name="example"></a>예
+### <a name="example"></a>예
 
 완성된 코드는 다음과 같으며 클라이언트 응용 프로그램을 만드는 방법, 서비스 작업 호출 방법 및 작업 호출 완료 후 클라이언트를 닫는 방법 등을 보여 줍니다.
 
@@ -714,13 +727,10 @@ namespace Microsoft.ServiceBus.Samples
 12. 이런 방식으로 클라이언트에서 서비스로 문자 메시지를 지속적으로 보낼 수 있습니다. 작업을 마치면 클라이언트와 서비스 콘솔 창에서 Enter를 눌러 두 응용 프로그램을 모두 종료합니다.
 
 ## <a name="next-steps"></a>다음 단계
+다음 자습서를 진행합니다. 
 
-이 자습서에서는 Service Bus의 WCF 릴레이 기능을 사용하여 Azure Relay 클라이언트 응용 프로그램 및 서비스를 빌드하는 방법을 보여 줍니다. [Service Bus 메시징](../service-bus-messaging/service-bus-messaging-overview.md)을 사용하는 유사한 자습서는 [Service Bus 큐 시작](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
-
-Azure 릴레이에 대한 자세한 내용은 다음 항목을 참조하세요.
-
-* [Azure Relay 개요](relay-what-is-it.md)
-* [.NET과 함께 WCF 릴레이 서비스를 사용하는 방법](relay-wcf-dotnet-get-started.md)
+> [!div class="nextstepaction"]
+>[네트워크 외부의 클라이언트에 온-프레미스 WCF REST 서비스 노출](service-bus-relay-rest-tutorial.md)
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

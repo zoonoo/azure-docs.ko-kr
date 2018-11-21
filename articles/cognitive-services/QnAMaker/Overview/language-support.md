@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 1a61d8f4008b0183ab5ddb51332d887217f52f48
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8c47c4a59f03328b1dc8d3df7771bac81864bb34
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435667"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566638"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>QnA Maker에 대한 언어 및 지역 지원
 
@@ -34,6 +34,8 @@ QnA Maker는 모든 언어 페이지에서 질문/답변 추출을 지원하지�
 
 ## <a name="query-matching-and-relevance"></a>쿼리 일치 및 관련성
 QnA Maker는 결과를 제공할 때 Azure의 [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)에 의존합니다. 특수한 순위 재지정 기능은 더 나은 관련성을 제공하는 En-* 언어에서 사용할 수 있습니다.
+
+Azure Search 기능은 지원되는 언어에 동일하며 QnA Maker에는 Azure Search 결과의 상위에 있는 추가 랭커(ranker)가 포함되어 있습니다. 이 순위매기기 모델에서는 일부 특수한 의미 체계 및 단어 기반 기능을 en-*에서 사용하며, 아직 다른 언어에는 해당 기능이 제공되지 않습니다. 이러한 기능은 랭커의 내부 작업에 속하므로 제공하지 않습니다. 
 
 QnA Maker는 기술 자료를 만드는 동안에 해당 언어를 자동으로 검색하고 그에 따라 분석기를 설정합니다. 다음 언어로 기술 자료를 만들 수 있습니다. QnA Maker가 언어를 처리하는 방법에 대한 자세한 내용을 보려면 [이 내용](../How-To/language-knowledge-base.md)을 읽어보세요.
 

@@ -1,29 +1,29 @@
 ---
-title: Azure Backup Server v2의 자동 설치
-description: PowerShell 스크립트를 사용하여 Azure Backup Server v2를 자동으로 설치할 수 있습니다. 이런 종류의 설치를 무인 설치라고도 합니다.
+title: Azure Backup Server V2의 자동 설치
+description: PowerShell 스크립트를 사용하여 Azure Backup Server V2를 자동으로 설치할 수 있습니다. 이런 종류의 설치를 무인 설치라고도 합니다.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/30/2017
+ms.date: 11/13/2018
 ms.author: markgal
-ms.openlocfilehash: 126c1971d83a8874c096caf407231fb6dee2ff59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f7bda070e613e5495d3733dd1610cb291e12c36
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606412"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612698"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Azure Backup Server v2의 무인 설치 실행
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Azure Backup Server의 무인 설치 실행
 
-Azure Backup Server v2의 무인 설치를 실행하는 방법을 알아봅니다. 
+Azure Backup Server의 무인 설치를 실행하는 방법을 알아봅니다.
 
-Azure Backup Server v1을 설치할 경우에는 이러한 단계가 적용되지 않습니다.
+Azure Backup Server V1을 설치할 경우에는 이러한 단계가 적용되지 않습니다.
 
-## <a name="install-backup-server-v2"></a>Backup Server v2 설치
+## <a name="install-backup-server"></a>Backup Server 설치
 
-1. Azure Backup Server v2를 호스트하는 서버에서 텍스트 파일을 만듭니다. 메모장이나 다른 텍스트 편집기에서 파일을 만들 수 있습니다. 파일을 MABSSetup.ini로 저장합니다. 
+1. Azure Backup Server V2 이상을 호스트하는 서버에서 텍스트 파일을 만듭니다. 메모장이나 다른 텍스트 편집기에서 파일을 만들 수 있습니다. 파일을 MABSSetup.ini로 저장합니다.
 
 2. MABSSetup.ini 파일에 다음 코드를 붙여넣습니다. 대괄호(\< \>) 내부의 텍스트를 사용자 환경의 값으로 바꿉니다. 다음 텍스트는 예제입니다.
 

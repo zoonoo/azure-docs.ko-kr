@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: c1ca9c45a7bd070ba0dbcee3b428f986ebac47d3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d64395314f73c5d359b30c15ef11bfd3078e068f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062100"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346306"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 산업별 솔루션 검색
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="industry-specific-cortana-intelligence-solutions"></a>산업별 Cortana Intelligence 솔루션
-갤러리의 **[산업](https://gallery.azure.ai/industries)** 섹션에는 다음과 같은 산업별로 다양한 리소스가 모여있습니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)의 **[산업](https://gallery.azure.ai/industries)** 섹션에는 다음과 같은 산업별로 다양한 리소스가 모여있습니다.
 
 * [소매](https://gallery.azure.ai/industries/retail) - 판매 예측, 고객 이탈 예측, 가격 책정 모델 개발 등의 소매업 솔루션이 있습니다.
 * [제조](https://gallery.azure.ai/industries/manufacturing) - 장비 유지 보수 및 에너지 가격 예측과 같은 제조업 솔루션이 있습니다.

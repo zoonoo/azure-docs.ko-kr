@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2c7857cd787e9298e94def5341d61238c5bb3a78
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 00b093b5567d85e7f12373020dfaa5f3ca7b0530
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321174"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514403"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 장치를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
@@ -25,7 +25,8 @@ ms.locfileid: "49321174"
 이 자습서에서는 다음에 대해 알아봅니다.
 
 1. 포털에서 모듈 ID를 만드는 방법 
-1. .NET 장치 SDK를 사용하여 장치에서 모듈을 업데이트하는 방법.
+
+2. .NET 디바이스 SDK를 사용하여 디바이스에서 모듈 쌍을 업데이트하는 방법
 
 > [!NOTE]
 > 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK][lnk-hub-sdks]를 참고하세요.
@@ -36,21 +37,17 @@ ms.locfileid: "49321174"
 * Visual Studio 2015 또는 Visual Studio 2017.
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-## <a name="create-a-device-identity-in-the-portal"></a>포털에서 장치 ID 만들기
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-이제 IoT Hub가 있습니다. [포털](https://portal.azure.com)을 열고 IoT Hub로 이동합니다. IoT 장치를 클릭하고 추가를 클릭하여 장치 ID를 만듭니다. 이름을 **MyFirstDevice**로 지정합니다. 
+### <a name="retrieve-connection-string-for-iot-hub"></a>IoT 허브에 대한 연결 문자열 검색
 
-  ![장치 ID 만들기][8]
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
-저장하면 장치 ID 목록에서 MyFirstDevice ID가 성공적으로 만들어진 것을 볼 수 있습니다.
+## <a name="register-a-new-device-in-the-iot-hub"></a>IoT 허브에서 새 디바이스 등록
 
-  ![장치 ID가 만들어짐][11]
-
-이제 해당 행을 클릭합니다. 장치 세부 정보가 표시됩니다.
-
-  ![장치 세부 정보][10]
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-module-identity-in-the-portal"></a>포털에서 모듈 ID 만들기
 
@@ -173,14 +170,11 @@ private static void ConnectionStatusChangeHandler(ConnectionStatus status, Conne
 
 
 <!-- Images. -->
-[8]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-device-id.JPG
-[9]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
-[10]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-details.JPG
-[11]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-id-created.JPG
-[12]:./media\iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
-[13]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
-[14]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[9]:./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
+[12]:./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
+[13]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
+[14]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 336949d3c3c23041d1907ae2b2a9151ca626d94f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 81a2f444012085782c377de050e7cb5445f8ebb3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834644"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344657"
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 Jupyter Notebooks 검색
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="jupyter-notebooks"></a>Jupyter 노트북
-**[Jupyter 노트북](https://gallery.cortanaintelligence.com/notebooks)** 은 하나의 단일 대화형 캔버스에 코드, 데이터 시각화 및 문서를 포함합니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)의 **[Jupyter Notebook](https://gallery.cortanaintelligence.com/notebooks)** 은 하나의 단일 대화형 캔버스에 코드, 데이터 시각화 및 문서를 포함합니다.
 갤러리의 노트북은 자습서는 물론 고급 기계 학습 기술 및 솔루션에 대한 설명을 제공합니다.
 
 ## <a name="discover"></a>검색

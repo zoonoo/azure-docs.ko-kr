@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 08434007c7ef66349cae2a368d3be94ee522bab1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bfc2f40231b5e28ffa3721eef70311da8dcb6da9
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242351"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51343671"
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 대회 검색
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence 대회
-**[대회](https://gallery.cortanaintelligence.com/competitions)** 는 Cortana Intelligence Suite를 사용하여 복잡한 문제를 해결하기 위해 데이터 과학자 커뮤니티와 경쟁할 멋진 기회를 제공합니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)의 **[대회](https://gallery.cortanaintelligence.com/competitions)** 는 Cortana Intelligence Suite를 사용하여 복잡한 문제를 해결하기 위해 데이터 과학자 커뮤니티와 경쟁할 멋진 기회를 제공합니다.
 
 Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문에 대한 답변은 [Microsoft Cortana Intelligence 대회 관련 FAQ](competition-faq.md)를 참조하세요.
 

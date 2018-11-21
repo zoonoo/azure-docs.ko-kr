@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161826"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567063"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,7 +29,7 @@ ms.locfileid: "47161826"
 
 **UserJourneys** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | UserJourney | 1:n | 전체 사용자 흐름에 필요한 모든 구문을 정의하는 사용자 경험입니다. | 
 
@@ -41,7 +41,7 @@ ms.locfileid: "47161826"
 
 **UserJourney** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OrchestrationSteps | 1:n | 트랜잭션을 정상적으로 수행하려면 따라야 하는 오케스트레이션 시퀀스입니다. 모든 사용자 경험은 순서대로 실행되는 정렬된 오케스트레이션 단계 목록으로 구성됩니다. 한 단계라도 실패하면 트랜잭션은 실패합니다. |
 
@@ -51,12 +51,11 @@ ms.locfileid: "47161826"
 
 오케스트레이션 단계 요소에 정의된 전제 조건을 기준으로 오케스트레이션 단계를 조건부로 실행할 수 있습니다. 예를 들어 특정 클레임이 있는 경우 또는 클레임이 지정한 값과 같거나 다른 경우에만 오케스트레이션 단계를 수행하도록 선택할 수 있습니다. 
 
-
 오케스트레이션 단계의 정렬된 목록을 지정하기 위해 **OrchestrationSteps** 요소가 정책의 일부로 추가됩니다. 이 요소는 필수 요소입니다.
 
 **OrchestrationSteps** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OrchestrationStep | 1:n | 정렬된 오케스트레이션 단계입니다. | 
 
@@ -72,7 +71,7 @@ ms.locfileid: "47161826"
 
 **OrchestrationStep** 요소에는 다음과 같은 요소가 포함될 수 있습니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- | 
 | Preconditions | 0:n | 오케스트레이션 단계를 실행하려면 충족해야 하는 전제 조건 목록입니다. | 
 | ClaimsProviderSelections | 0:n | 오케스트레이션 단계의 클레임 공급자 선택 항목 목록입니다. | 
@@ -82,14 +81,14 @@ ms.locfileid: "47161826"
 
 **Preconditions** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- | 
 | Precondition | 0:n | 사용 중인 기술 프로필별로 클레임 공급자 선택 항목에 따라 클라이언트를 리디렉션하거나 교환 클레임에 대한 서버 호출을 수행합니다. | 
 
 
 ##### <a name="precondition"></a>Precondition
 
-**Precondition** 요소에는 다음과 같은 특성이 포함됩니다.
+**Precondition** 요소에 포함되는 특성은 다음과 같습니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
@@ -98,7 +97,7 @@ ms.locfileid: "47161826"
 
 **Precondition** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 값 | 1:n | 쿼리할 ClaimTypeReferenceId입니다. 확인할 값은 다른 value 요소에 포함되어 있습니다.</li></ul>|
 | 조치 | 1:1 | 오케스트레이션 단계 내에서 수행한 전제 조건 확인의 결과가 true이면 수행해야 하는 작업입니다. `Action`의 값이 `SkipThisOrchestrationStep`으로 설정된 경우 연결된 `OrchestrationStep`이 실행되면 안 됩니다. | 
@@ -165,7 +164,7 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 **ClaimsProviderSelection** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | ClaimsProviderSelection | 0:n | 선택할 수 있는 클레임 공급자의 목록을 제공합니다.|
 
@@ -217,7 +216,7 @@ Preconditions는 여러 전제 조건을 확인할 수 있습니다. 다음 예�
 
 **ClaimsExchanges** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | ClaimsExchange | 0:n | 사용 중인 기술 프로필별로 선택한 ClaimsProviderSelection에 따라 클라이언트를 리디렉션하거나 교환 클레임에 대한 서버 호출을 수행합니다. | 
 

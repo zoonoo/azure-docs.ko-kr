@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 06d78c9a9754638054a07c15ef67bfc703dd77ca
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78920bfe000287daef7b4efcaa8339d599d6f57e
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428763"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578504"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>템플릿을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -33,14 +33,6 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 - Azure Resource Manager 배포 템플릿 사용 방법을 잘 모르는 경우 [개요 섹션](overview.md)을 확인합니다. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-it-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
-- 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 Azure 역할 기반 액세스 제어가 할당되어야 합니다.
-
-    > [!NOTE]
-    > 추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
-
-    - [가상 머신 참가자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor): VM을 만들고, Azure VM에서 시스템 및/또는 사용자가 할당한 관리 ID를 사용하도록 설정하고 제거합니다.
-    - [관리 ID 참가자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할: 사용자 할당 관리 ID를 만듭니다.
-    - [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할: VM으로 사용자 할당 ID를 할당하거나 VM에서 사용자 할당 관리 ID를 제거합니다.
 
 ## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
@@ -58,6 +50,8 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 시스템 할당 관리 ID를 사용하거나 사용하지 않도록 설정합니다.
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Azure VM 생성 중에 또는 기존 VM에서 시스템 할당 관리 ID 사용
+
+VM에서 시스템 할당 관리 ID를 사용하도록 설정하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 역할 할당이 필요합니다.  추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
 1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
 
@@ -136,6 +130,8 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
 VM에서 시스템 할당 관리 ID를 사용하도록 설정한 후 해당 VM이 만들어진 리소스 그룹에 대한 **읽기 권한자** 액세스 등의 역할을 ID에 부여하는 것이 좋습니다.
 
+VM의 시스템 할당 ID에 역할을 할당하려면 계정에 [사용자 액세스 관리자](/azure/role-based-access-control/built-in-roles#user-access-administrator) 역할 할당이 필요합니다.
+
 1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
  
 2. 템플릿을 [편집기](#azure-resource-manager-templates)에 로드하고, 다음 정보를 추가하여 VM이 만들어진 리소스 그룹에 대한 **읽기 권한자** 액세스를 VM에 제공합니다.  템플릿 구조는 선택한 편집기 및 배포 모델에 따라 달라질 수 있습니다.
@@ -178,7 +174,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정한 후 해당 VM�
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Azure VM에서 시스템 할당 관리 ID를 사용하지 않도록 설정
 
-시스템 할당 관리 ID가 더 이상 필요하지 않은 VM이 있는 경우:
+VM에서 시스템 할당 관리 ID를 제거하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 역할 할당이 필요합니다.  추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
 1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
 
@@ -213,6 +209,8 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정한 후 해당 VM�
 > Azure Resource Manager 템플릿을 사용하여 사용자 할당 관리 ID를 만들려면 [사용자 할당 관리 ID 만들기](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity)를 참조하세요.
 
  ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Azure VM에 사용자 할당 관리 ID 할당
+
+VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 및 [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 할당이 필요합니다. 추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
 1. `resources` 요소 아래에 다음 항목을 추가하여 사용자 할당 관리 ID를 VM에 할당합니다.  `<USERASSIGNEDIDENTITY>`를 직접 만든 사용자 할당 관리 ID의 이름으로 바꿔야 합니다.
 
@@ -356,7 +354,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정한 후 해당 VM�
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Azure VM에서 사용자 할당 관리 ID 제거
 
-사용자 할당 관리 ID가 더 이상 필요하지 않은 VM이 있는 경우:
+VM에서 사용자 할당 ID를 제거하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 역할 할당이 필요합니다. 추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
 1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
 

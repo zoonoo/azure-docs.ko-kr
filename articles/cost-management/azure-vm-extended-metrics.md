@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 11/13/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 5f1b4cf63379f0007b87c44164168b8510612f52
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423360"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624100"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 확장 메트릭 추가 
 
@@ -67,6 +67,8 @@ Azure와 Linux 게스트 수준 모니터링 모두 저장소 계정이 필요�
 새 VM을 만들 때는 관리 탭에서 **OS 게스트 진단**에 대해 **사용**을 선택합니다.
 
 ![게스트 OS 진단 사용](./media/azure-vm-extended-metrics/new-enable-diag.png)
+
+Azure Virtual Machines에 대해 확장 메트릭을 활성화하는 방법은 [Azure Linux 에이전트 이해 및 사용](../virtual-machines/extensions/agent-linux.md)과 [Azure Virtual Machine 에이전트 개요](../virtual-machines/extensions/agent-windows.md)를 참조하세요.
 
 ## <a name="resource-manager-credentials"></a>리소스 관리자 자격 증명
 

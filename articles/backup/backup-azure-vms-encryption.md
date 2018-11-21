@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2f22500a4e557cb89bac7ed114d8c76ca8d9f9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715553"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567420"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Azure Backup으로 암호화된 가상 머신을 백업 및 복원 
 이 문서에서는 Azure Backup을 사용하여 VM(가상 머신)을 백업하고 복원하는 단계에 대해 설명합니다. 또한 지원되는 시나리오, 필수 조건 및 오류 사례에 대한 문제 해결 조치에 대한 자세한 정보도 제공합니다.
@@ -76,47 +76,47 @@ ms.locfileid: "44715553"
    **게스트 사용자**인 경우 백업 서비스에 대한 권한이 있어야 백업을 수행하는 데 필요한 키 자격 증명 모음에 액세스할 수 있습니다. [다음 섹션에 설명된 단계](#provide-permissions-to-backup)를 수행하여 이러한 권한을 제공할 수 있습니다.
 
    ![암호화된 VM 메시지](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
- 
+
     이제 자격 증명 모음의 모든 설정을 정의했으므로 페이지 아래쪽의 **백업 사용**을 선택합니다. **백업 사용**은 정책을 자격 증명 모음 및 VM에 배포합니다.
-  
+
 1. 다음 준비 단계는 VM 에이전트를 설치하거나 VM 에이전트가 설치되었는지 확인하는 단계입니다. 똑같이 하려면 [백업 환경 준비](backup-azure-arm-vms-prepare.md)의 단계를 따릅니다.
 
 ### <a name="trigger-a-backup-job"></a>백업 작업 트리거
 백업 작업을 트리거하려면 [Recovery Services 자격 증명 모음에 Azure VM 백업](backup-azure-arm-vms.md)의 단계를 따릅니다.
 
 ### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>암호화를 사용하도록 설정한 상태로 이미 백업한 VM 백업 진행  
-Recovery Services 자격 증명 모음에서 VM이 이미 백업되었으며 나중에 암호화가 설정된 경우 백업이 계속될 수 있게 Backup에 Key Vault 액세스 권한을 부여해야 합니다. [다음 섹션의 단계](#provide-permissions-to-azure-backup)를 사용하여 이러한 권한을 제공할 수 있습니다. 또는 [PowerShell 설명서](backup-azure-vms-automation.md)의 "백업 사용" 섹션에 있는 PowerShell 단계를 따릅니다. 
+Recovery Services 자격 증명 모음에서 VM이 이미 백업되었으며 나중에 암호화가 설정된 경우 백업이 계속될 수 있게 Backup에 Key Vault 액세스 권한을 부여해야 합니다. [다음 섹션의 단계](#provide-permissions-to-azure-backup)를 사용하여 이러한 권한을 제공할 수 있습니다. 또는 [PowerShell 설명서](backup-azure-vms-automation.md)의 "백업 사용" 섹션에 있는 PowerShell 단계를 따릅니다.
 
-## <a name="provide-permissions-to-backup"></a>Backup에 사용 권한 제공
+## <a name="provide-permissions-to-azure-backup"></a>Backup에 사용 권한 제공
 키 자격 증명 모음에 액세스하고 암호화된 VM의 백업을 수행하기 위해 다음 단계를 사용하여 Backup에 관련 사용 권한을 제공합니다.
 1. **모든 서비스**를 선택하고 **Key Vault**를 검색합니다.
 
     ![Key Vault](./media/backup-azure-vms-encryption/search-key-vault.png)
-    
+
 1. Key Vault 목록에서 백업해야 하는 암호화된 VM에 관련된 키 자격 증명 모음을 선택합니다.
 
      ![키 자격 증명 모음 선택](./media/backup-azure-vms-encryption/select-key-vault.png)
-     
+
 1. **액세스 정책**을 선택하고 **새로 추가**를 선택합니다.
 
     ![새로 추가](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
-    
-1. **보안 주체 선택**을 선택하고 검색 상자에 **백업 관리 서비스**를 입력합니다. 
+
+1. **보안 주체 선택**을 선택하고 검색 상자에 **백업 관리 서비스**를 입력합니다.
 
     ![백업 서비스 검색](./media/backup-azure-vms-encryption/search-backup-service.png)
-    
+
 1. **백업 관리 서비스**를 선택하고 **선택** 단추를 클릭합니다.
 
     ![백업 서비스 선택](./media/backup-azure-vms-encryption/select-backup-service.png)
-    
+
 1. **템플릿에서 구성(선택 사항)** 에서 **Azure Backup**을 선택합니다. **키 권한** 및 **비밀 권한**에서 필요한 권한이 미리 입력됩니다. VM이 **BEK만** 사용하여 암호화되는 경우 비밀에 대한 권한이 필요하므로 **키 권한**에 대한 선택 항목을 제거해야 합니다.
 
     ![Azure Backup 선택](./media/backup-azure-vms-encryption/select-backup-template.png)
-    
-1. **확인**을 선택합니다. **백업 관리 서비스**가 **액세스 정책**에 추가됩니다. 
+
+1. **확인**을 선택합니다. **백업 관리 서비스**가 **액세스 정책**에 추가됩니다.
 
     ![액세스 정책](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
-    
+
 1. **저장**을 선택하여 Backup에 필요한 권한을 제공합니다.
 
     ![백업 액세스 정책](./media/backup-azure-vms-encryption/save-access-policy.png)

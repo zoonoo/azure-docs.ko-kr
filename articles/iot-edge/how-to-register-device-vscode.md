@@ -2,18 +2,18 @@
 title: 새 Azure IoT Edge 장치 등록(VS Code) | Microsoft Docs
 description: Visual Studio Code를 사용하여 Azure IoT Hub에 새 IoT Edge 장치 만들기
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7902461f58df1b4fe0c3ed3b577f668fe8be4cc2
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035433"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578708"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>Visual Studio Code에서 새 Azure IoT Edge 장치 등록
 
@@ -37,7 +37,7 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 
    ![Azure IoT Hub 장치 확장](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-3. **Azure IoT Hub 장치** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 마우스로 가리킵니다. 
+3. **Azure IoT Hub 장치** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 클릭하거나 마우스로 가리킵니다. 
 
 4. **IoT Hub 선택**을 선택합니다.
 
@@ -51,7 +51,7 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 
 1. VS Code Explorer에서 **Azure IoT Hub 장치** 섹션을 확장합니다. 
 
-2. **Azure IoT Hub 장치** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 마우스로 가리킵니다. 
+2. **Azure IoT Hub 장치** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 클릭하거나 마우스로 가리킵니다. 
 
 3. **IoT Edge 장치 만들기**를 선택합니다. 
 

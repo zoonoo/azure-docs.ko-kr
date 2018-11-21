@@ -13,46 +13,41 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/31/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce06c72c9974b4887cc441344fd755bfd156a1ca
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914722"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622434"
 ---
-# <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 활동 보고서 오류 코드
+# <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
-사용자 로그인 보고서에서 제공되는 정보를 사용하면 다음과 같은 질문에 대한 대답을 찾을 수 있습니다.
+[사용자 로그인 보고서](concept-sign-ins.md)에서 제공되는 정보를 사용하면 다음과 같은 질문에 대한 대답을 찾을 수 있습니다.
 
-- Azure Active Directory를 사용하여 로그인한 사람은?
-- 서명된 앱은?
-- 실패한 로그인은? 그리고 실패한 경우 이유는?
+- 내 애플리케이션에 로그인한 사용자는 누구인가요?
+- 어떤 애플리케이션이 로그인되어 있나요?
+- 로그인이 실패한 이유는 무엇인가요?
 
-이 문서에는 오류 코드와 관련 설명이 나와 있습니다. 
+로그인에 실패하면 실패에 해당하는 오류 코드가 표시됩니다. 이 문서에서는 적용 가능한 경우 제안되는 일련의 작업과 함께 오류 코드 및 해당 설명을 나열합니다. 
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>실패한 로그인을 표시하려면 어떻게 해야 합니까? 
 
-모든 로그인 활동 데이터에 대한 첫 번째 진입점은 **Azure Active**의 **활동** 섹션에 있는 **[로그인](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)** 입니다.
-
+[Azure Portal](https://portal.azure.com)에서 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)로 이동합니다.
 
 ![로그인 활동](./media/reference-sign-ins-error-codes/61.png "로그인 활동")
 
-로그인 보고서에서 **실패**를 **로그인 상태**로 선택하여 실패한 로그인을 모두 표시할 수 있습니다.
+**로그인 상태** 드롭다운 상자에서 **실패**를 선택하여 모든 실패한 로그인을 표시하도록 보고서를 필터링합니다.
 
 ![로그인 활동](./media/reference-sign-ins-error-codes/06.png "로그인 활동")
 
-표시된 목록에서 항목을 클릭하면 **활동 세부 정보: 로그인**  블레이드가 열립니다. 이 보기에서는 **로그인 오류 코드** 및 **실패 이유**를 포함하여 Azure Active Directory에서 로그인에 대해 추적하는 모든 세부 정보를 제공합니다.
+필터링된 목록에서 항목을 선택하면 **활동 세부 정보: 로그인**  블레이드가 열립니다. 이 보기는 **로그인 오류 코드** 및 **실패 이유**를 포함하여 실패한 로그인 이벤트에 대한 추가 정보를 제공합니다.
 
 ![로그인 활동](./media/reference-sign-ins-error-codes/05.png "로그인 활동")
 
-
-Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보고 API](concept-reporting-api.md)를 사용할 수도 있습니다.
-
-
-다음 섹션에서는 가능한 모든 오류 및 관련 설명에 대한 전체 개요를 제공합니다. 
+[보고 API](concept-reporting-api.md)를 사용하여 프로그래밍 방식으로 로그인 데이터에 액세스할 수도 있습니다.
 
 ## <a name="error-codes"></a>오류 코드
 
@@ -67,17 +62,17 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |40009|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
 |40014|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
 |50000|로그인 서비스에 문제가 있습니다. 이 문제를 해결하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
-|50001|서비스 사용자 이름이 이 테넌트에 없습니다. 테넌트의 관리자가 응용 프로그램을 설치하지 않은 경우에 이 오류가 발생할 수 있습니다. 또는 리소스 보안 주체가 디렉터리에 없거나 잘못되었습니다.|
-|50002|테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 이 문제를 해결할 수 있습니다|
-|50003|서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 응용 프로그램에 구성된 서명 키가 없기 때문일 수 있습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)에 설명된 해결 방법을 확인하세요. 그래도 문제가 계속되면 응용 프로그램 소유자 또는 응용 프로그램 관리자에게 문의하세요.|
-|50005|사용자가 현재 조건부 액세스 정책을 통해 지원되지 않는 플랫폼에서 장치에 로그인하려고 했습니다.|
-|50006| 잘못된 서명으로 인해 서명을 확인하지 못했습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery)에 설명된 해결 방법을 확인하세요. 그래도 문제가 계속되면 응용 프로그램 소유자 또는 응용 프로그램 관리자에게 문의하세요.|
-|50007|이 응용 프로그램에 대한 파트너 암호화 인증서를 찾을 수 없습니다. 이 문제를 해결하려면 [Microsoft에서 지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+|50001|서비스 사용자 이름이 이 테넌트에 없습니다. 테넌트의 관리자가 애플리케이션을 설치하지 않은 경우 또는 리소스 보안 주체를 디렉터리에서 찾을 수 없거나 유효하지 않은 경우에 발생할 수 있습니다.|
+|50002|테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 이 문제를 해결할 수 있습니다.|
+|50003|서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 응용 프로그램에 구성된 서명 키가 없기 때문일 수 있습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)에 설명된 해결 방법을 확인하세요. 문제가 지속되면 애플리케이션 소유자 또는 애플리케이션 관리자에게 문의합니다.|
+|50005|사용자가 현재 조건부 액세스 정책을 통해 지원되지 않는 플랫폼에서 디바이스에 로그인하려고 했습니다.|
+|50006| 잘못된 서명으로 인해 서명을 확인하지 못했습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery)에 설명된 해결 방법을 확인하세요. 문제가 지속되면 애플리케이션 소유자 또는 애플리케이션 관리자에게 문의합니다.|
+|50007|이 응용 프로그램에 대한 파트너 암호화 인증서를 찾을 수 없습니다. 이 문제를 해결하려면 Microsoft에서 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 |50008|토큰에서 SAML 어설션이 누락되었거나 잘못 구성되었습니다. 페더레이션 공급자에게 문의하세요.|
-|50010|토큰 대상 그룹이 구성되지 않았으므로 응용 프로그램에 대한 대상 그룹 URI 유효성 검사가 실패했습니다. 응용 프로그램 소유자에게 문의하세요.|
-|50011|회신 주소가 누락되었거나, 잘못 구성되었거나, 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application)에 나열된 해결 방법을 사용해 보세요. 그래도 문제가 계속되면 응용 프로그램 소유자 또는 응용 프로그램 관리자에게 문의하세요.|
+|50010|토큰 대상 그룹이 구성되지 않았으므로 응용 프로그램에 대한 대상 그룹 URI 유효성 검사가 실패했습니다. 애플리케이션 소유자에게 해결 방법을 문의하세요.|
+|50011|회신 주소가 누락되었거나, 잘못 구성되었거나, 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application)에 나열된 해결 방법을 사용해 보세요. 문제가 지속되면 애플리케이션 소유자 또는 애플리케이션 관리자에게 문의합니다.|
 |50012| 인증에 실패했음을 나타내는 일반적인 오류 메시지입니다. 요청에서 자격 증명 또는 클레임이 누락되었거나 잘못된 경우와 같은 이유로 발생할 수 있습니다. 요청이 올바른 자격 증명 및 클레임과 함께 전송되었는지 확인합니다. |
-|50013|어설션이 여러 가지 이유로 유효하지 않습니다. 즉 토큰 발급자가 유효한 시간 범위 내의 API 버전과 일치하지 않거나, 만료되었거나, 잘못된 형식으로 되어 있습니다. 또는 어설션의 새로 고침 토큰이 주 새로 고침 토큰이 아닙니다.|
+|50013|어설션이 여러 가지 이유로 유효하지 않습니다. 예를 들어 토큰 발급자가 유효한 시간 범위 내의 API 버전과 일치하지 않거나, 토큰이 만료되었거나, 잘못된 형식으로 되어 있습니다. 또는 어설션의 새로 고침 토큰이 주 새로 고침 토큰이 아닙니다.|
 |50017|다음과 같은 이유로 인증 유효성 검사에 실패했습니다.<ul><li>신뢰할 수 있는 인증서 목록에서 발급한 인증서를 찾을 수 없습니다.</li><li>필요한 CrlSegment를 찾을 수 없습니다.</li><li>신뢰할 수 있는 인증서 목록에서 발급한 인증서를 찾을 수 없습니다.</li><li>델타 CRL 배포 지점이 해당 CRL 배포 지점 없이 구성되어 있습니다.</li><li>시간 제한 문제로 인해 유효한 CRL 세그먼트를 검색할 수 없습니다.</li><li>CRL을 다운로드할 수 없습니다.</li></ul>테넌트 관리자에게 문의하세요.|
 |50020|사용자는 다음 이유 중 하나로 권한이 없습니다.<ul><li>사용자는 v1 엔드포인트에서 MSA 계정으로 로그인하려고 합니다.</li><li>사용자가 테넌트에 존재하지 않습니다.</li></ul> 응용 프로그램 소유자에게 문의하세요.|
 |50027|다음과 같은 이유로 JWT 토큰이 잘못되었습니다.<ul><li>nonce 클레임 또는 sub 클레임이 포함되지 않았습니다.</li><li>주체 식별자가 일치하지 않습니다.</li><li>idToken 클레임에 중복된 클레임이 있습니다.</li><li>예기치 않은 발급자입니다.</li><li>예기치 않은 대상 그룹입니다.</li><li>유효한 시간 범위 내에 있지 않습니다. </li><li>토큰 형식이 잘못되었습니다.</li><li>발급자의 외부 ID 토큰에서 서명을 확인하지 못했습니다.</li></ul>응용 프로그램 소유자에게 문의하세요.|
@@ -88,40 +83,40 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |50050|요청 형식이 잘못되었습니다. 응용 프로그램 소유자에게 문의하세요.|
 |50053|잘못된 사용자 ID 또는 암호로 로그인을 너무 많이 시도하여 계정이 잠겨 있습니다.|
 |50055|잘못된 암호입니다. 만료된 암호를 입력했습니다.|
-|50056|암호가 잘못되었거나 null입니다. 이 사용자에 대한 저장소에 암호가 없습니다.|
+|50056|암호가 잘못되었거나 Null입니다. 이 사용자에 대한 저장소에 암호가 없습니다.|
 |50057|사용자 계정을 사용할 수 없습니다. 관리자가 사용하지 못하도록 설정한 계정입니다.|
-|50058|응용 프로그램에서 자동 로그인을 수행하려고 하지만 사용자가 자동으로 로그인할 수 없습니다. 응용 프로그램에서 사용자에게 로그인 옵션을 제공하는 대화형 흐름을 시작해야 합니다. 응용 프로그램 소유자에게 문의하세요.|
+|50058|응용 프로그램에서 자동 로그인을 수행하려고 하지만 사용자가 자동으로 로그인할 수 없습니다. 애플리케이션에서 사용자에게 로그인 옵션을 제공하는 대화형 흐름을 시작해야 합니다. 애플리케이션 소유자에게 문의하세요.|
 |50059|사용자가 디렉터리에 없습니다. 테넌트 관리자에게 문의하세요.|
 |50061|로그아웃 요청이 잘못되었습니다. 응용 프로그램 소유자에게 문의하세요.|
 |50072|사용자가 2단계 인증(대화형)에 등록해야 합니다.|
 |50074|사용자가 MFA 챌린지를 통과하지 못했습니다.|
 |50076|사용자가 MFA 챌린지를 통과하지 못했습니다(비대화형).|
-|50079|사용자가 두 번째 단계 인증(비대화형 로그인)을 등록해야 합니다.|
-|50085|새로 고침 토큰에 소셜 IDP 로그인이 필요합니다. 사용자가 사용자 이름-암호를 사용하여 다시 로그인해 보세요.|
-|50089|흐름 토큰이 만료되었습니다. 인증에 실패했습니다. 사용자가 사용자 이름-암호를 사용하여 다시 로그인해 보세요.|
-|50097|장치 인증이 필요합니다. DeviceId -DeviceAltSecId 클레임이 null이거나 장치 식별자에 해당하는 장치가 없습니다.|
+|50079|사용자가 2단계 인증(비대화형 로그인)을 등록해야 합니다.|
+|50085|새로 고침 토큰에 소셜 IDP 로그인이 필요합니다. 사용자가 해당 사용자 이름 및 암호를 사용하여 다시 로그인해 보세요.|
+|50089|흐름 토큰이 만료되었습니다. 인증에 실패했습니다. 사용자가 해당 사용자 이름 및 암호를 사용하여 다시 로그인해 보세요.|
+|50097|디바이스 인증이 필요합니다. DeviceId 또는 DeviceAltSecId 클레임이 **null**이거나 디바이스 식별자에 해당하는 디바이스가 없기 때문에 발생할 수 있습니다.|
 |50099|JWT 서명이 잘못되었습니다. 응용 프로그램 소유자에게 문의하세요.|
-|50105|로그인한 사용자가 로그인한 응용 프로그램의 역할에 할당되지 않았습니다. 응용 프로그램에 사용자를 할당하세요. 참조 항목: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|로그인한 사용자가 로그인한 응용 프로그램의 역할에 할당되지 않았습니다. 애플리케이션에 사용자를 할당하세요. 참조 항목: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|요청된 페더레이션 영역 개체가 존재하지 않습니다. 테넌트 관리자에게 문의하세요.|
 |50120|JWT 헤더에 문제가 있습니다. 테넌트 관리자에게 문의하세요.|
 |50124|클레임 변환에 잘못된 입력 매개 변수가 포함되어 있습니다. 테넌트 관리자에게 문의하여 정책을 업데이트하세요.|
 |50125|로그인은 암호 재설정 또는 암호 등록 항목으로 인해 중단되었습니다.|
 |50126|잘못된 사용자 이름 또는 암호이거나 잘못된 온-프레미스 사용자 이름 또는 암호입니다.|
-|50127|사용자는 이 콘텐츠에 액세스하기 위해 broker 앱을 설치해야 합니다.|
+|50127|사용자는 이 콘텐츠에 액세스하기 위해 broker 애플리케이션을 설치해야 합니다.|
 |50128|도메인 이름이 잘못되었습니다. 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다.|
-|50129|장치는 작업 공간에 연결되지 않았습니다. 작업 공간 연결에는 장치를 등록할 필요가 없습니다.|
+|50129|디바이스는 작업 공간에 연결되지 않았습니다. **작업 공간 연결**에는 디바이스를 등록할 필요가 없습니다.|
 |50130|클레임 값을 알려진 인증 방법으로 해석할 수 없습니다.|
 |50131|다양한 조건부 액세스 오류에 사용됩니다. 예: Windows 장치 상태가 잘못되었습니다. 의심스러운 활동, 액세스 정책 및 보안 정책 결정으로 인해 요청이 차단되었습니다.|
 |50132|다음과 같은 이유로 자격 증명이 철회되었습니다.<ul><li>SSO 아티팩트가 잘못되었거나 만료되었습니다.</li><li>응용 프로그램에 대한 세션이 최신 상태가 아닙니다.</li><li>자동 로그인 요청을 보냈지만 Azure AD를 사용하는 사용자의 세션이 유효하지 않거나 만료되었습니다.</li></ul>|
 |50133|만료 또는 최근 암호 변경으로 인해 세션이 잘못되었습니다.|
 |50135|계정이 위험하므로 암호를 변경해야 합니다.|
-|50136|msa 세션을 응용 프로그램으로 리디렉션했습니다. 단일 MSA 세션이 검색되었습니다. |
+|50136|MSA 세션을 애플리케이션으로 리디렉션했습니다. 단일 MSA 세션이 검색되었습니다. |
 |50140|사용자가 로그인할 때 "로그인 유지" 인터럽트로 인해 이 오류가 발생했습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 |50143|세션 불일치 - 사용자 테넌트가 다른 리소스로 인해 도메인 힌트와 일치하지 않기 때문에 세션이 유효하지 않습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는  [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 |50144|사용자의 Active Directory 암호가 만료되었습니다. 사용자에 대한 새 암호를 생성하거나 셀프 서비스 재설정 도구를 사용하여 최종 사용자에게 제공합니다.|
 |50146|이 응용 프로그램은 응용 프로그램별 서명 키로 구성해야 합니다. 응용 프로그램이 키로 구성되지 않았거나, 키가 만료되었거나 아직 유효하지 않습니다. 응용 프로그램 소유자에게 문의하세요.|
 |50148|code_verifier가 PKCE에 대한 권한 부여 요청에 제공된 code_challenge와 일치하지 않습니다. 응용 프로그램 개발자에게 문의하세요. |
-|50155|이 사용자에 대한 장치 인증에 실패했습니다.|
+|50155|이 사용자에 대한 디바이스 인증에 실패했습니다.|
 |50158|외부 보안 과제가 충족되지 않았습니다.|
 |50161|외부 공급자가 보낸 클레임이 충분하지 않거나 외부 공급자에게 요청된 클레임이 누락되었습니다.|
 |50166|클레임 공급자에게 요청을 보내지 못했습니다.|
@@ -135,8 +130,8 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |51004|사용자 계정이 디렉터리에 없습니다.|
 |51006|Windows 통합 인증이 필요합니다. 사용자가 wia 클레임이 누락된 세션 토큰을 사용하여 로그인했습니다. 사용자에게 다시 로그인하도록 요청하세요.|
 |52004|사용자가 LinkedIn 리소스에 대한 액세스 동의를 제공하지 않았습니다. |
-|53000|조건부 액세스 정책에는 준수 장치가 필요하고 장치는 규정을 준수하지 않습니다. 사용자가 Intune과 같이 승인된 MDM 공급자에 자신의 장치를 등록해야 합니다.|
-|53001|조건부 액세스 정책에 도메인 가입 장치가 필요하며 장치가 도메인에 가입되어 있지 않습니다. 사용자가 도메인 가입 장치를 사용해야 합니다.|
+|53000|조건부 액세스 정책에는 준수 장치가 필요하고 장치는 규정을 준수하지 않습니다. 사용자가 Intune과 같이 승인된 MDM 공급자에 자신의 디바이스를 등록해야 합니다.|
+|53001|조건부 액세스 정책에 도메인 가입 장치가 필요하며 장치가 도메인에 가입되어 있지 않습니다. 사용자가 도메인 가입 장치를 사용하도록 합니다.|
 |53002|사용된 응용 프로그램이 조건부 액세스에 대해 승인된 응용 프로그램이 아닙니다. 사용자가 액세스 권한을 부여받으려면 사용하도록 승인된 응용 프로그램 목록에 있는 응용 프로그램 중 하나를 사용해야 합니다.|
 |53003|조건부 액세스 정책으로 인해 액세스가 차단되었습니다.|
 |53004|사용자는 이 콘텐츠에 액세스하기 전에 다단계 인증 등록 프로세스를 완료해야 합니다. 사용자가 다단계 인증을 등록해야 합니다.|
@@ -144,7 +139,7 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |65004|사용자가 응용 프로그램에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
 |65005|응용 프로그램에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 응용 프로그램이 없거나, 클라이언트 응용 프로그램에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 응용 프로그램에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 응용 프로그램을 구성했을 수 있습니다. 아래 링크를 사용하여 SAML에 대한 해결 방법을 시도해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
 |70000|다음과 같은 이유로 권한 부여가 잘못되었습니다.<ul><li>요청된 SAML 2.0 어설션에 잘못된 주체 확인 메서드가 있습니다.</li><li>응용 프로그램 OnBehalfOf 흐름은 V2에서 지원하지 않습니다.</li><li>기본 새로 고침 토큰이 세션 키로 서명되지 않았습니다.</li><li>외부 새로 고침 토큰이 잘못되었습니다.</li><li>다른 테넌트에 대한 액세스 권한이 부여되었습니다.</li></ul>|
-|70001|X라는 응용 프로그램이 Y라는 테넌트에 없습니다. 테넌트의 관리자가 X 식별자가 있는 응용 프로그램을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 이 오류가 발생할 수 있습니다. 응용 프로그램에 대한 식별자 값을 잘못 구성했거나 잘못된 테넌트에 인증 요청을 보냈을 수 있습니다.|
+|70001|X라는 응용 프로그램이 Y라는 테넌트에 없습니다. 테넌트의 관리자가 X 식별자가 있는 응용 프로그램을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 이 오류가 발생할 수 있습니다. 애플리케이션에 대한 식별자 값을 잘못 구성했거나 잘못된 테넌트에 인증 요청을 보냈을 수 있습니다.|
 |70002|응용 프로그램에서 잘못된 클라이언트 자격 증명을 반환했습니다. 응용 프로그램 소유자에게 문의하세요.|
 |70003|응용 프로그램에서 지원되지 않는 권한 부여 유형을 반환했습니다. 응용 프로그램 소유자에게 문의하세요.|
 |70004|응용 프로그램에서 잘못된 리디렉션 URI를 반환했습니다. 클라이언트에서 지정한 리디렉션 주소가 구성된 주소 또는 OIDC 승인 목록의 주소와 일치하지 않습니다. 응용 프로그램 소유자에게 문의하세요.|
@@ -152,7 +147,7 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |70007|응용 프로그램에서 토큰을 요청할 때 지원되지 않는 'response_mode' 값을 반환했습니다. 응용 프로그램 소유자에게 문의하세요.|
 |70008|제공된 인증 코드 또는 새로 고침 토큰이 만료되었거나 철회되었습니다. 사용자가 로그인을 다시 시도해야 합니다.|
 |70011|응용 프로그램에서 요청한 범위가 잘못되었습니다. 응용 프로그램 소유자에게 문의하세요.|
-|70012|MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 오류가 계속되면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
+|70012|MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 로그인을 다시 시도하세요. 문제가 계속되면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
 |70018|사용자가 장치 코드 흐름에 대해 잘못된 사용자 코드를 입력했기 때문에 확인 코드가 잘못되었습니다. 권한 부여가 승인되지 않았습니다.|
 |70019|확인 코드가 만료되었습니다. 사용자가 로그인을 다시 시도해야 합니다.|
 |70037|잘못된 시도 응답이 제공되었습니다. 원격 인증 세션이 거부되었습니다.|
@@ -173,7 +168,7 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |80013|인증 에이전트를 실행하는 컴퓨터와 AD 사이의 시간차로 인해 인증 시도를 완료할 수 없습니다. 시간 동기화 문제를 해결하세요.|
 |80014|인증 에이전트 시간이 초과되었습니다. 이 오류에 대한 자세한 내용을 확인하려면 오류 코드, 상관 ID 및 날짜/시간이 있는 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 |81001|사용자의 Kerberos 티켓이 너무 큽니다. 사용자가 너무 많은 그룹에 속해 있고 Kerberos 티켓에 너무 많은 그룹 멤버 자격이 포함된 경우 이 오류가 발생할 수 있습니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도합니다.|
-|81005|인증 패키지가 지원되지 않습니다|
+|81005|인증 패키지가 지원되지 않습니다.|
 |81007|Seamless SSO에 대한 테넌트를 사용할 수 없습니다.|
 |81012|오류 조건이 아닙니다. Azure AD에 로그인하려고 시도하는 사용자가 장치에 로그인한 사용자와 다르다는 것을 나타냅니다. 로그에서 이 코드를 무시해도 됩니다.|
 |90010|다양한 이유로 요청이 지원되지 않습니다. 예를 들어 요청이 지원되지 않는 요청 메서드(POST 메서드만 지원됨)를 사용하여 이루어졌거나 요청된 토큰 서명 알고리즘이 지원되지 않습니다. 응용 프로그램 개발자에게 문의하세요.|
@@ -184,4 +179,5 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Azure Active Directory 포털의 로그인 활동 보고서](concept-sign-ins.md)를 참조하세요.
+* [로그인 보고서 개요](concept-sign-ins.md)
+* [Azure AD 보고서에 대한 프로그래밍 방식 액세스](concept-reporting-api.md)

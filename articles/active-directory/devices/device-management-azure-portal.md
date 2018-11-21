@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: bda1a9df8a58833a544dc065dee0110bccf3ec59
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0497cba4cae66e63f710c9678f6d87c2f9fb8fb1
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138863"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515086"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 장치를 관리하는 방법
 
@@ -151,7 +151,7 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 장치를 관리
 **설명**
 
 - 장치를 사용하거나 사용하지 않도록 설정하려면 Azure AD에서 전역 관리자여야 합니다. 
-- 장치를 사용하지 않도록 설정하면 장치에서 Azure AD 리소스에 액세스할 수 없게 됩니다. 
+- 디바이스를 사용하지 않도록 설정하면 디바이스가 Azure AD로 인증하지 못하게 되므로 디바이스 CA에 의해 또는 WH4B 자격 증명을 사용하여 보호되는 Azure AD 리소스에 디바이스가 액세스하지 못하게 됩니다. 
 
 
 

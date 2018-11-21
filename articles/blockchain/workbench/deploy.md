@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 11/12/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 3ee169e4139f5fc9cd4208c53c4997d50521fed7
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 33fce88e7108ee45236e20b1f20dde56bb7446b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242100"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616387"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench 배포
 
@@ -44,14 +44,151 @@ Blockchain Workbench의 구성 요소에 대한 자세한 내용은 [Azure Block
 
 블록체인 Workbench의 비용은 기본 Azure 서비스 비용의 집계입니다. Azure 서비스에 대한 가격 책정 정보는 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용하여 계산할 수 있습니다.
 
-Azure Blockchain Workbench를 배포하기 전에는 몇 가지 필수 구성 요소가 필요합니다. 필수 구성 요소에는 Azure AD 구성 및 응용 프로그램 등록이 포함됩니다.
+## <a name="prerequisites"></a>필수 조건
 
-### <a name="blockchain-workbench-api-app-registration"></a>Blockchain Workbench API 앱 등록
-
-Blockchain Workbench 배포에는 Azure AD 응용 프로그램의 등록이 필요합니다. Azure AD(Azure Active Directory) 테넌트에서 앱을 등록해야 합니다. 기존 테넌트를 사용하거나 새 테넌트를 만들 수 있습니다. 기존 Azure AD 테넌트를 사용하는 경우 Azure AD 테넌트 내에서 응용 프로그램을 등록하고 Graph API 권한을 부여할 수 있는 충분한 권한이 필요합니다. 기존 Azure AD 테넌트에 충분한 권한이 없는 경우 새 테넌트를 만듭니다. 
+Azure Blockchain Workbench를 사용하려면 Azure AD 구성 및 애플리케이션 등록이 필요합니다. 배포 또는 배포 후 스크립트를 실행하기 전에 Azure AD를 [구성을 수동으로](#azure-ad-configuration) 수행하도록 선택할 수 있습니다. Blockchain Workbench를 다시 배포하는 경우 [Azure AD 구성](#azure-ad-configuration)을 참조하여 Azure AD 구성을 확인합니다.
 
 > [!IMPORTANT]
 > Workbench는 Azure AD 응용 프로그램을 등록하는 데 사용 중인 것과 동일한 테넌트에 배포될 필요가 없습니다. Workbench는 리소스를 배포할 수 있는 충분한 권한이 있는 테넌트에 배포되어야 합니다. Azure AD 테넌트에 대한 자세한 내용은 [Active Directory 테넌트를 가져오는 방법](../../active-directory/develop/quickstart-create-new-tenant.md) 및 [Azure Active Directory와 응용 프로그램 통합](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요.
+
+
+
+## <a name="deploy-blockchain-workbench"></a>Blockchain Workbench 배포
+
+필수 단계가 완료되면 Blockchain Workbench를 배포할 준비가 되었습니다. 다음 섹션에서는 프레임워크를 배포하는 방법을 간략하게 설명합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 오른쪽 위 모서리에서 사용자의 계정을 선택하고 Azure Blockchain Workbench를 배포할 원하는 Azure AD 테넌트로 전환합니다.
+3. 왼쪽 창에서 **리소스 만들기**를 선택합니다. **Marketplace 검색** 검색 창에서 `Azure Blockchain Workbench`를 검색합니다. 
+
+    ![Marketplace 검색 창](media/deploy/marketplace-search-bar.png)
+
+4. **Azure Blockchain Workbench**를 선택합니다.
+
+    ![Marketplace 검색 결과](media/deploy/marketplace-search-results.png)
+
+5. **만들기**를 선택합니다.
+6. 기본 설정을 완료합니다.
+
+    ![Azure Blockchain Workbench 만들기](media/deploy/blockchain-workbench-settings-basic.png)
+
+    | 설정 | 설명  |
+    |---------|--------------|
+    | 리소스 접두사 | 배포에 사용할 짧고 고유한 ID입니다. 이 값은 리소스 이름 지정에 대한 기준으로 사용됩니다. |
+    | VM 사용자 이름 | 사용자 이름은 모든 VM(가상 머신)에 대한 관리자로 사용됩니다. |
+    | 인증 유형 | VM에 연결하는 데 암호 또는 키 중에 무엇을 사용할지 선택합니다. |
+    | 암호 | VM에 연결하는 데 암호가 사용됩니다. |
+    | SSH | **ssh-rsa**로 시작하는 한 줄 형식의 RSA 공개 키를 사용하거나 여러 줄 PEM 형식을 사용합니다. Linux 및 OS X에서는 `ssh-keygen`을, Windows에서는 PuTTYGen을 사용하여 SSH 키를 생성할 수 있습니다. SSH 키에 대한 자세한 정보는 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](../../virtual-machines/linux/ssh-from-windows.md)을 참조하세요. |
+    | 데이터베이스 암호/데이터베이스 암호 확인 | 배포의 일부로 생성된 데이터베이스에 대한 액세스에 사용할 암호를 지정합니다. |
+    | 배포 지역 | Blockchain Workbench 리소스를 배포할 위치를 지정합니다. 최상의 가용성을 위해 이 위치는 **위치** 설정과 일치해야 합니다. |
+    | 구독 | 배포에 사용할 Azure 구독을 지정합니다. |
+    | 리소스 그룹 | **새로 만들기**를 선택하여 새 리소스 그룹을 만들고 고유한 리소스 그룹 이름을 지정합니다. |
+    | 위치 | 프레임워크를 배포할 영역을 지정합니다. |
+
+7. **확인**을 선택하여 기본 설정 구성 섹션을 완료합니다.
+
+8. **고급 성능**에서 새 블록체인 네트워크를 만들지 아니면 기존 인증 증명 블록체인 네트워크를 사용할지를 선택합니다.
+
+    **새로 만들기**를 사용하는 경우:
+
+    *새로 만들기* 옵션은 단일 구성원의 구독 내에서 Ethereum PoA(인증 증명) 노드 집합을 만듭니다. 
+
+    ![새 블록체인 네트워크에 대한 고급 설정](media/deploy/advanced-blockchain-settings-new.png)
+
+    | 설정 | 설명  |
+    |---------|--------------|
+    | 모니터링 | Azure Monitor를 사용하여 블록 체인 네트워크를 모니터링할 수 있도록 할지 여부를 선택합니다. |
+    | Azure Active Directory 설정 | **나중에 추가**를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 재배포하는 경우 *지금 추가*하도록 선택합니다. |
+    | VM 선택 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. |
+
+    **기존 항목 사용**을 사용하는 경우:
+
+    *기존 항목 사용* 옵션을 사용하면 Ethereum PoA(인증 증명) 블록체인 네트워크를 지정할 수 있습니다. 끝점에는 다음과 같은 요구 사항이 적용됩니다.
+
+    * 끝점은 Ethereum PoA(인증 증명) 블록체인 네트워크여야 합니다.
+    * 끝점은 네트워크를 통해 공개적으로 액세스할 수 있어야 합니다.
+    * PoA 블록체인 네트워크는 가스 가격이 0으로 설정되도록 구성되어야 합니다.
+
+    > [!NOTE]
+    > Blockchain Workbench 계정에는 자금이 지원되지 않습니다. 자금이 필요한 경우 트랜잭션은 실패합니다.
+
+    ![기존 블록체인 네트워크에 대한 고급 설정](media/deploy/advanced-blockchain-settings-existing.png)
+
+    | 설정 | 설명  |
+    |---------|--------------|
+    | Ethereum RPC 끝점 | 기존 PoA 블록체인 네트워크의 RPC 끝점을 제공합니다. 엔드포인트는 https:// 또는 http://로 시작되고 포트 번호로 끝납니다. 예를 들어 `https://network.westus.cloudapp.com:8540` |
+    | Azure Active Directory 설정 | **나중에 추가**를 선택합니다.</br>참고: [Azure AD를 미리 구성](#azure-ad-configuration)하도록 선택했거나 재배포하는 경우 *지금 추가*하도록 선택합니다. |
+    | VM 선택 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. |
+
+9. **확인**을 선택하여 고급 설정을 완료합니다.
+
+10. 매개 변수가 정확한지 확인하기 위해 요약을 검토합니다.
+
+    ![요약](media/deploy/blockchain-workbench-summary.png)
+
+11. **만들기**를 선택하여 약관에 동의하고 Azure Blockchain Workbench를 배포합니다.
+
+배포는 최대 90분까지 걸릴 수 있습니다. Azure Portal을 사용하여 진행률을 모니터링할 수 있습니다. 새로 만든 리소스 그룹에서 **배포 > 개요**를 선택하여 배포된 아티팩트의 상태를 확인합니다.
+
+> [!IMPORTANT]
+> 배포 후 Active Directory 설정을 완료해야 합니다. **나중에 추가**하도록 선택한 경우 [Azure AD 구성 스크립트](#azure-ad-configuration-script)를 실행해야 합니다.  **지금 추가**하도록 선택한 경우 [회신 URL을 구성](#configuring-the-reply-url)해야 합니다.
+
+## <a name="blockchain-workbench-web-url"></a>Blockchain Workbench 웹 URL
+
+Blockchain Workbench의 배포가 완료되면 새 리소스 그룹에 사용자의 Blockchain Workbench 리소스가 포함됩니다. Blockchain Workbench 서비스는 웹 URL을 통해 액세스됩니다. 다음 단계에서는 배포된 프레임워크의 웹 URL을 검색하는 방법을 설명합니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 왼쪽 탐색 창에서 **리소스 그룹**을 선택합니다.
+3. Blockchain Workbench를 배포할 때 지정한 리소스 그룹 이름을 선택합니다.
+4. 목록을 형식 기준으로 사전순으로 정렬하려면 **형식** 열 제목을 선택합니다.
+5. 형식이 **App Service**인 리소스가 두 개 있습니다. “-api” 접미사가 *없는* 리소스 유형 **App Service**를 선택합니다.
+
+    ![App Service 목록](media/deploy/resource-group-list.png)
+
+6. App Service의 **Essentials** 섹션에서 배포된 Blockchain Workbench에 대한 웹 URL을 나타내는 **URL** 값을 복사합니다.
+
+    ![App Service Essentials](media/deploy/app-service.png)
+
+사용자 지정 도메인 이름을 Blockchain Workbench와 연결하려면 [Traffic Manager를 사용하는 Azure App Service의 웹앱에 대한 사용자 지정 도메인 이름 구성](../../app-service/web-sites-traffic-manager-custom-domain-name.md)을 참조하세요.
+
+## <a name="azure-ad-configuration-script"></a>Azure AD 구성 스크립트
+
+Azure AD는 Blockchain Workbench 배포를 완료하도록 구성되어야 합니다. PowerShell 스크립트를 사용하여 구성을 수행합니다.
+
+1. 브라우저에서 [Blockchain Workbench 웹 URL](#blockchain-workbench-web-url)로 이동합니다.
+2. Cloud Shell을 사용하여 Azure AD를 설정하는 지침이 표시됩니다. 명령을 복사하고 Cloud Shell을 시작합니다.
+
+    ![AAD 스크립트 시작](media/deploy/launch-aad-script.png)
+
+3. Blockchain Workbench를 배포한 Azure AD 테넌트를 선택합니다.
+4. Cloud Shell에서 명령을 붙여넣고 실행합니다.
+5. 메시지가 표시되면 Blockchain Workbench에 사용하려는 Azure AD 테넌트를 입력합니다. Blockchain Workbench에 대한 사용자를 포함하는 테넌트가 됩니다.
+
+    > [!IMPORTANT]
+    > 인증된 사용자는 Azure AD 애플리케이션 등록을 만들고 테넌트에서 위임된 애플리케이션 권한을 부여하는 권한이 필요합니다. 테넌트의 관리자에게 Azure AD 구성 스크립트를 실행하거나 새 테넌트를 만들도록 요청해야 합니다.
+
+    ![Azure AD 테넌트 입력](media/deploy/choose-tenant.png)
+
+6. 브라우저를 사용하여 Azure AD 테넌트에 인증하라는 메시지가 표시됩니다. 브라우저에서 웹 URL을 열고, 코드를 입력하고, 인증합니다.
+
+    ![코드로 인증](media/deploy/authenticate.png)
+
+7. 스크립트는 여러 개의 상태 메시지를 출력합니다. 테넌트가 성공적으로 프로비전된 경우 **성공** 상태 메시지가 표시됩니다.
+8. Blockchain Workbench URL로 이동합니다. 디렉터리에 읽기 권한을 부여할지 동의를 묻는 메시지가 나타납니다. 이를 통해 Blockchain Workbench 웹앱은 테넌트의 사용자에 액세스할 수 있습니다. 테넌트 관리자인 경우 전체 조직에 대한 동의를 선택할 수 있습니다. 이 옵션은 테넌트의 모든 사용자에 대한 동의를 허용합니다. 그렇지 않으면 각 사용자에게 Blockchain Workbench 웹 애플리케이션을 처음 사용할 때 동의를 묻는 메시지가 표시됩니다.
+9. **동의**를 선택하여 동의합니다.
+
+     ![사용자 프로필 읽기에 대한 동의](media/deploy/graph-permission-consent.png)
+
+10. 동의 후에 Blockchain Workbench 웹앱을 사용할 수 있습니다.
+
+## <a name="azure-ad-configuration"></a>Azure AD 구성
+
+배포 전에 Azure AD 설정을 수동으로 구성하거나 확인하도록 선택하는 경우 이 섹션의 모든 단계를 완료합니다. Azure AD 설정을 자동으로 구성하려는 경우 Blockchain Workbench를 배포한 후 [Azure AD 구성 스크립트](#azure-ad-configuration-script)를 사용합니다.
+
+### <a name="blockchain-workbench-api-app-registration"></a>Blockchain Workbench API 앱 등록
+
+Blockchain Workbench 배포에는 Azure AD 응용 프로그램의 등록이 필요합니다. Azure AD(Azure Active Directory) 테넌트에서 앱을 등록해야 합니다. 기존 테넌트를 사용하거나 새 테넌트를 만들 수 있습니다. 기존 Azure AD 테넌트를 사용하는 경우 Azure AD 테넌트 내에서 애플리케이션을 등록하고, Graph API 권한을 부여하고, 게스트 액세스를 허용할 수 있는 충분한 권한이 필요합니다. 기존 Azure AD 테넌트에 충분한 권한이 없는 경우 새 테넌트를 만듭니다.
+
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 오른쪽 위 모서리에서 사용자의 계정을 선택하고 원하는 Azure AD 테넌트로 전환합니다. 테넌트는 Workbench가 배포되는 구독의 구독 관리자 테넌트에 있어야 하며, 사용자에게 응용 프로그램을 등록할 수 있는 충분한 권한이 있어야 합니다.
@@ -71,36 +208,42 @@ Blockchain Workbench 배포에는 Azure AD 응용 프로그램의 등록이 필�
 
 5. **만들기**를 선택하여 Azure AD 응용 프로그램을 등록합니다.
 
-### <a name="modify-application-manifest"></a>응용 프로그램 매니페스트 수정
+### <a name="modify-manifest"></a>매니페스트 수정
 
-다음으로 Blockchain Workbench 관리자를 지정하려면 Azure AD 내에서 응용 프로그램 역할을 사용하도록 응용 프로그램 매니페스트를 수정해야 합니다.  응용 프로그램 매니페스트에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](../../active-directory/develop/reference-app-manifest.md)를 참조하세요.
+다음으로 Blockchain Workbench 관리자를 지정하려면 Azure AD 내에서 애플리케이션 역할을 사용하도록 매니페스트를 수정해야 합니다.  응용 프로그램 매니페스트에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](../../active-directory/develop/reference-app-manifest.md)를 참조하세요.
 
 1. 등록한 응용 프로그램에 대해 등록된 응용 프로그램 세부 정보 창에서 **매니페스트**를 선택합니다.
 2. GUID를 생성합니다. PowerShell 명령 [guid] :: NewGuid () 또는 New-GUID cmdlet을 사용하여 GUID를 생성할 수 있습니다. 다른 옵션은 GUID 생성기 웹 사이트를 사용하는 것입니다.
 3. 매니페스트의 **appRoles** 섹션을 업데이트하려고 합니다. 매니페스트 편집 창에서 **편집**을 선택하고 `"appRoles": []`를 제공된 JSON으로 바꿉니다. **id** 필드에 대한 값을 사용자가 생성한 GUID로 바꾸었는지 확인합니다. 
 
+    ![매니페스트 편집](media/deploy/edit-manifest.png)
+
     ``` json
     "appRoles": [
-         {
-           "allowedMemberTypes": [
-             "User",
-             "Application"
-           ],
-           "displayName": "Administrator",
-           "id": "<A unique GUID>",
-           "isEnabled": true,
-           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
-           "value": "Administrator"
-         }
-       ],
+         {
+           "allowedMemberTypes": [
+             "User",
+             "Application"
+           ],
+           "displayName": "Administrator",
+           "id": "<A unique GUID>",
+           "isEnabled": true,
+           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
+           "value": "Administrator"
+         }
+       ],
     ```
-
-    ![매니페스트 편집](media/deploy/edit-manifest.png)
 
     > [!IMPORTANT]
     > 값 **관리자**는 Blockchain Workbench 관리자를 식별하는 데 필요합니다.
 
-4.  **저장**을 클릭하여 응용 프로그램 매니페스트 변경 내용을 저장합니다.
+4. 매니페스트에서 **Oauth2AllowImplictFlow** 값을 **true**로 변경합니다.
+
+    ``` json
+    "oauth2AllowImplicitFlow": true,
+    ```
+
+5. **저장**을 선택하여 매니페스트 변경 내용을 저장합니다.
 
 ### <a name="add-graph-api-required-permissions"></a>Graph API 필수 사용 권한 추가
 
@@ -112,11 +255,11 @@ API 응용 프로그램은 디렉터리에 액세스하는 사용자로부터 �
 
     **선택**을 클릭합니다.
 
-2. **응용 프로그램 사용 권한**의 **액세스 허용**에서 **모든 사용자의 전체 프로필 읽기**를 선택합니다.
+2. **위임된 권한**의 **액세스 허용**에서 **모든 사용자의 기본 프로필 읽기**를 선택합니다.
 
     ![액세스 허용](media/deploy/client-app-read-perms.png)
 
-    **선택**을 클릭한 다음, **완료**를 클릭합니다.
+    **저장**을 선택한 다음, **완료**를 선택합니다.
 
 3. **필요한 권한**에서 **사용 권한 부여**를 선택한 다음, 확인 프롬프트에서 **예**를 선택합니다.
 
@@ -124,33 +267,12 @@ API 응용 프로그램은 디렉터리에 액세스하는 사용자로부터 �
 
    권한을 부여하면 Blockchain Workbench는 디렉터리의 사용자에 액세스할 수 있습니다. 읽기 권한은 Blockchain Workbench에서 구성원을 검색 및 추가하는 데 필요합니다.
 
-### <a name="add-graph-api-key-to-application"></a>응용 프로그램에 Graph API 키 추가
-
-Blockchain Workbench는 블록체인 응용 프로그램과 상호 작용하는 사용자를 위한 주 ID 관리 시스템으로 Azure AD를 사용합니다. Blockchain Workbench가 Azure AD에 액세스하고 이름 및 이메일과 같은 사용자 정보를 검색하려면 액세스 키를 추가해야 합니다. Blockchain Workbench는 키를 사용하여 Azure AD로 인증합니다.
-
-1. 등록한 응용 프로그램의 경우 등록된 응용 프로그램 세부 정보 창에서 **설정**을 선택합니다.
-2. **키**를 선택합니다.
-3. 키 **설명**을 지정하고 **만료** 기간 값을 선택하여 새로운 키를 추가합니다. 
-
-    ![키 만들기](media/deploy/app-key-create.png)
-
-    |설정  | 값  |
-    |---------|---------|
-    | 설명 | `Service` |
-    | 만료 | 만료 기간 선택 |
-
-4. **저장**을 선택합니다. 
-5. 키의 값을 복사하고 나중에 사용할 수 있도록 저장합니다. 배포를 위해 필요합니다.
-
-    > [!IMPORTANT]
-    >  배포를 위해 키를 저장하지 않은 경우 새 키를 생성해야 합니다. 키 값은 나중에 포털에서 검색할 수 없습니다.
-
 ### <a name="get-application-id"></a>응용 프로그램 ID 가져오기
 
 응용 프로그램 ID 및 테넌트 정보는 배포를 위해 필요합니다. 배포하는 동안 사용에 대한 정보를 수집하고 저장합니다.
 
 1. 등록한 응용 프로그램의 경우 **설정** > **속성**을 선택합니다.
-2.  **속성** 창에서 배포하는 동안 나중에 사용할 수 있도록 다음 값을 복사하여 저장합니다.
+2. **속성** 창에서 배포하는 동안 나중에 사용할 수 있도록 다음 값을 복사하여 저장합니다.
 
     ![API 앱 속성](media/deploy/app-properties.png)
 
@@ -166,125 +288,17 @@ Blockchain Workbench는 블록체인 응용 프로그램과 상호 작용하는 
 
 ![도메인 이름](media/deploy/domain-name.png)
 
-## <a name="deploy-blockchain-workbench"></a>Blockchain Workbench 배포
+### <a name="guest-user-settings"></a>게스트 사용자 설정
 
-필수 단계가 완료되면 Blockchain Workbench를 배포할 준비가 되었습니다. 다음 섹션에서는 프레임워크를 배포하는 방법을 간략하게 설명합니다.
+Azure AD 테넌트에 게스트 사용자가 있는 경우 Blockchain Workbench 사용자 할당 및 관리가 제대로 작동하는지 확인하도록 추가 단계를 수행합니다.
 
-1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2.  오른쪽 위 모서리에서 사용자의 계정을 선택하고 Azure Blockchain Workbench를 배포할 원하는 Azure AD 테넌트로 전환합니다.
-3.  왼쪽 창에서 **리소스 만들기**를 선택합니다. **Marketplace 검색** 검색 창에서 `Azure Blockchain Workbench`를 검색합니다. 
-
-    ![Marketplace 검색 창](media/deploy/marketplace-search-bar.png)
-
-4.  **Azure Blockchain Workbench**를 선택합니다.
-
-    ![Marketplace 검색 결과](media/deploy/marketplace-search-results.png)
-
-4.  **만들기**를 선택합니다.
-5.  기본 설정을 완료합니다.
-
-    ![Azure Blockchain Workbench 만들기](media/deploy/blockchain-workbench-settings-basic.png)
-
-    | 설정 | 설명  |
-    |---------|--------------|
-    | 리소스 접두사 | 배포에 사용할 짧고 고유한 ID입니다. 이 값은 리소스 이름 지정에 대한 기준으로 사용됩니다. |
-    | VM 사용자 이름 | 사용자 이름은 모든 VM(가상 머신)에 대한 관리자로 사용됩니다. |
-    | 인증 유형 | VM에 연결하는 데 암호 또는 키 중에 무엇을 사용할지 선택합니다. |
-    | 암호 | VM에 연결하는 데 암호가 사용됩니다. |
-    | SSH | **ssh-rsa**로 시작하는 한 줄 형식의 RSA 공개 키를 사용하거나 여러 줄 PEM 형식을 사용합니다. Linux 및 OS X에서는 `ssh-keygen`을, Windows에서는 PuTTYGen을 사용하여 SSH 키를 생성할 수 있습니다. SSH 키에 대한 자세한 정보는 [Azure에서 Windows를 통해 SSH 키를 사용하는 방법](../../virtual-machines/linux/ssh-from-windows.md)을 참조하세요. |
-    | 데이터베이스 암호/데이터베이스 암호 확인 | 배포의 일부로 생성된 데이터베이스에 대한 액세스에 사용할 암호를 지정합니다. |
-    | 배포 지역 | Blockchain Workbench 리소스를 배포할 위치를 지정합니다. 최상의 가용성을 위해 이 위치는 **위치** 설정과 일치해야 합니다. |
-    | 구독 | 배포에 사용할 Azure 구독을 지정합니다. |
-    | 리소스 그룹 | **새로 만들기**를 선택하여 새 리소스 그룹을 만들고 고유한 리소스 그룹 이름을 지정합니다. |
-    | 위치 | 프레임워크를 배포할 영역을 지정합니다. |
-
-6.  **확인**을 선택하여 기본 설정 구성 섹션을 완료합니다.
-
-7.  **Azure Active Directory 설정**을 완료합니다.
-
-    ![Azure AD 설정](media/deploy/blockchain-workbench-settings-aad.png)
-
-    | 설정 | 설명  |
-    |---------|--------------|
-    | 도메인 이름 | [테넌트 도메인 이름 가져오기](#get-tenant-domain-name) 필수 구성 요소 섹션에서 수집된 Azure AD 테넌트를 사용합니다. |
-    | 응용 프로그램 UI | [응용 프로그램 ID 가져오기](#get-application-id) 필수 구성 요소 섹션에서 수집한 블록체인 클라이언트 앱 등록의 응용 프로그램 ID를 사용합니다. |
-    | 응용 프로그램 키 | [응용 프로그램에 Graph API 키 추가](#add-graph-api-key-to-application) 필수 구성 요소 섹션에서 수집한 블록체인 클라이언트 앱 등록의 응용 프로그램 ID를 사용합니다. |
-
-
-8.  **확인**을 클릭하여 Azure AD 매개 변수 구성 섹션을 완료합니다.
-
-9.  **네트워크 성능 및 설정**에서 새 블록체인 네트워크를 만들지 아니면 기존 인증 증명 블록체인 네트워크를 사용할지를 선택합니다.
-
-    **새로 만들기**를 사용하는 경우:
-
-    *새로 만들기* 옵션은 단일 구성원의 구독 내에서 Ethereum PoA(인증 증명) 노드 집합을 만듭니다. 
-
-    ![네트워크 설정 및 성능](media/deploy/blockchain-workbench-settings-network-new.png)
-
-    | 설정 | 설명  |
-    |---------|--------------|
-    | 블록체인 노드 수 | 네트워크에 배포할 Ethereum PoA 유효성 검사기 노드의 수를 선택합니다. |
-    | 저장소 성능 | 블록체인 네트워크에 대한 기본 VM 저장소 성능을 선택합니다. |
-    | 가상 머신 크기 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. |
-
-    **기존 항목 사용**을 사용하는 경우:
-
-    *기존 항목 사용* 옵션을 사용하면 Ethereum PoA(인증 증명) 블록체인 네트워크를 지정할 수 있습니다. 끝점에는 다음과 같은 요구 사항이 적용됩니다.
-
-    * 끝점은 Ethereum PoA(인증 증명) 블록체인 네트워크여야 합니다.
-    * 끝점은 네트워크를 통해 공개적으로 액세스할 수 있어야 합니다.
-    * PoA 블록체인 네트워크는 가스 가격이 0으로 설정되도록 구성되어야 합니다(참고: Blockchain Workbench 계정에는 자금이 지원되지 않습니다. 자금이 필요한 경우 트랜잭션은 실패합니다.)
-
-    ![네트워크 설정 및 성능](media/deploy/blockchain-workbench-settings-network-existing.png)
-
-    | 설정 | 설명  |
-    |---------|--------------|
-    | Ethereum RPC 끝점 | 기존 PoA 블록체인 네트워크의 RPC 끝점을 제공합니다. 끝점은 http://로 시작되고 포트 번호로 끝납니다. 예를 들어 `http://contoso-chain.onmicrosoft.com:8545` |
-    | 저장소 성능 | 블록체인 네트워크에 대한 기본 VM 저장소 성능을 선택합니다. |
-    | 가상 머신 크기 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. |
-
-10. **확인**을 클릭하여 네트워크 설정 및 성능을 완료합니다.
-
-11. **Azure Monitor** 설정을 완료합니다.
-
-    ![Azure Monitor](media/deploy/blockchain-workbench-settings-oms.png)
-
-    | 설정 | 설명  |
-    |---------|--------------|
-    | 모니터링 | Azure Monitor를 사용하여 블록 체인 네트워크를 모니터링할 수 있도록 할지 여부를 선택합니다. |
-    | 기존 Log Analytics 인스턴스에 연결 | 기존 Log Analytics 인스턴스를 사용할지 아니면 새 인스턴스를 만들지 여부를 선택합니다. 기존 인스턴스를 사용하는 경우, 작업 영역 ID와 기본 키를 입력합니다. |
-
-12. **확인**을 클릭하여 Azure Monitor 섹션을 완료합니다.
-
-13. 매개 변수가 정확한지 확인하기 위해 요약을 검토합니다.
-
-    ![요약](media/deploy/blockchain-workbench-summary.png)
-
-14. **만들기**를 선택하여 약관에 동의하고 Azure Blockchain Workbench를 배포합니다.
-
-배포는 최대 90분까지 걸릴 수 있습니다. Azure Portal을 사용하여 진행률을 모니터링할 수 있습니다. 새로 만든 리소스 그룹에서 **배포 > 개요**를 선택하여 배포된 아티팩트의 상태를 확인합니다.
-
-## <a name="blockchain-workbench-web-url"></a>Blockchain Workbench 웹 URL
-
-Blockchain Workbench의 배포가 완료되면 새 리소스 그룹에 사용자의 Blockchain Workbench 리소스가 포함됩니다. Blockchain Workbench 서비스는 웹 URL을 통해 액세스됩니다. 다음 단계에서는 배포된 프레임워크의 웹 URL을 검색하는 방법을 설명합니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 탐색 창에서 **리소스 그룹**을 선택합니다.
-3. Blockchain Workbench를 배포할 때 지정한 리소스 그룹 이름을 선택합니다.
-4. 목록을 형식 기준으로 사전순으로 정렬하려면 **형식** 열 제목을 클릭합니다.
-5. 형식이 **App Service**인 리소스가 두 개 있습니다. “-api” 접미사가 *없는* 리소스 유형 **App Service**를 선택합니다.
-
-    ![App Service 목록](media/deploy/resource-group-list.png)
-
-6.  App Service의 **Essentials** 섹션에서 배포된 Blockchain Workbench에 대한 웹 URL을 나타내는 **URL** 값을 복사합니다.
-
-    ![App Service Essentials](media/deploy/app-service.png)
-
-사용자 지정 도메인 이름을 Blockchain Workbench와 연결하려면 [Traffic Manager를 사용하는 Azure App Service의 웹앱에 대한 사용자 지정 도메인 이름 구성](../../app-service/web-sites-traffic-manager-custom-domain-name.md)을 참조하세요.
+1. Azure AD 테넌트를 전환하고 **Azure Active Directory > 사용자 설정 > 외부 공동 작업 설정 관리**를 선택합니다.
+2. **게스트 사용자 권한이 제한됨**을 **아니요**로 설정합니다.
+    ![외부 공동 작업 설정](media/deploy/user-collaboration-settings.png)
 
 ## <a name="configuring-the-reply-url"></a>회신 URL 구성
 
-Azure Blockchain Workbench가 배포되고 나면, 다음 단계는 Azure AD(Azure Active Directory) 클라이언트 응용 프로그램이 배포된 Blockchain Workbench 웹 URL의 올바른 **회신 URL**에 등록되어 있는지 확인합니다.
+Azure Blockchain Workbench가 배포되고 나면, 배포된 Blockchain Workbench 웹 URL의 Azure AD(Azure Active Directory) 클라이언트 애플리케이션 **회신 URL**을 구성해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD 클라이언트 응용 프로그램을 등록한 테넌트에 있는지 확인합니다.

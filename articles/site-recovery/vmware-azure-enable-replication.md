@@ -1,9 +1,18 @@
 ---
-제목: Azure Site Recovery를 사용하여 Azure로의 VMware 재해 복구에 대한 VMware VM 복제를 사용하도록 설정 | Microsoft Docs
-설명: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로의 재해 복구에 대한 VMware VM 복제를 사용하도록 설정하는 방법을 설명합니다.
-author: asgang ms.service: site-recovery ms.date: 07/06/2018 ms.topic: conceptual ms.author: asgang
-
-
+title: Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구를 위해 VMware VM 복제를 사용하도록 설정 | Microsoft Docs
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure에 대한 재해 복구를 위해 VMware VM 복제를 사용하도록 설정하는 방법을 설명합니다.
+author: asgang
+ms.service: site-recovery
+ms.date: 07/06/2018
+ms.topic: conceptual
+ms.author: asgang
+ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566366"
+---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 
 
@@ -69,10 +78,7 @@ VMware 가상 머신을 복제하는 경우:
     ![복제 사용](./media/vmware-azure-enable-replication/enable-replication7.png)
 14. **복제 사용**을 클릭합니다. **설정** > **작업** > **Site Recovery 작업**에서 **보호 사용** 작업의 진행률을 추적할 수 있습니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
-> [!NOTE]
-> 컴퓨터가 푸시 설치에 대해 준비된 경우 보호를 사용하도록 설정하면 모바일 서비스 구성 요소가 설치됩니다. 컴퓨터에 구성 요소가 설치된 후 보호 작업이 시작되고 실패합니다. 실패 후 각 컴퓨터를 수동으로 다시 시작해야 합니다. 다시 시작한 후 보호 작업이 다시 시작되고 초기 복제가 발생합니다.
->
->
+
 
 ## <a name="view-and-manage-vm-properties"></a>VM 속성 보기 및 관리
 

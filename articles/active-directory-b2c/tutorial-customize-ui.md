@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9c206ac7a13ea222a01cac78c447c0764f753517
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669350"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622672"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스 사용자 지정
 
@@ -64,9 +64,11 @@ Azure 저장소 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS �
  브라우저의 Azure AD B2C 코드는 현대적이고 표준적인 방법을 사용하여 정책에 지정하는 URL에서 사용자 지정 콘텐츠를 로드합니다. CORS(원본 간 리소스 공유)를 사용하면 웹 페이지의 제한된 리소스를 다른 도메인에서 요청할 수 있습니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
-2. **허용된 원본**, **허용된 헤더** 및 **노출된 헤더**에 `your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `fabrikam.b2clogin.com`.
-3. **허용된 동사**의 경우 `GET`과 `OPTIONS`를 모두 선택합니다.
-4. **최대 기간**에 200을 입력합니다.
+2. **허용된 원본**에 `your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `fabrikam.b2clogin.com`
+3. **허용된 메소드**에서 `GET`과 `OPTIONS`를 모두 선택합니다.
+4. **허용된 헤더**에 별표(*)를 입력합니다.
+5. **노출된 헤더**에 별표(*)를 입력합니다.
+6. **최대 기간**에 200을 입력합니다.
 
     ![CORS를 사용하도록 설정](./media/tutorial-customize-ui/enable-cors.png)
 
@@ -74,9 +76,9 @@ Azure 저장소 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS �
 
 ### <a name="create-the-customization-files"></a>사용자 지정 파일 만들기
 
-등록 환경의 UI를 사용자 지정하려면 간단한 HTML 및 CSS 파일을 만드는 것으로 시작합니다. 원하는 방식으로 HTML을 구성할 수 있지만 식별자가 `api`인 **div** 요소가 있어야 합니다. 예: `<div id="api"></div>`. Azure AD B2C는 페이지가 표시될 때 `api` 컨테이너에 요소를 삽입합니다.
+등록 환경의 UI를 사용자 지정하려면 간단한 HTML 및 CSS 파일을 만드는 것으로 시작합니다. 원하는 방식으로 HTML을 구성할 수 있지만 식별자가 `api`인 **div** 요소가 있어야 합니다. 예: `<div id="api"></div>` Azure AD B2C는 페이지가 표시될 때 `api` 컨테이너에 요소를 삽입합니다.
 
-1. 로컬 폴더에서 다음 파일을 만들고 `your-storage-account`를 저장소 계정 이름으로 변경하고 `your-container`를 생성된 컨테이너의 이름으로 변경해야 합니다. 예: `https://store1.blob.core.windows.net/b2c/style.css`.
+1. 로컬 폴더에서 다음 파일을 만들고 `your-storage-account`를 저장소 계정 이름으로 변경하고 `your-container`를 생성된 컨테이너의 이름으로 변경해야 합니다. 예: `https://store1.blob.core.windows.net/b2c/style.css`
 
     ```html
     <!DOCTYPE html>

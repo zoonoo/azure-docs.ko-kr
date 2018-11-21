@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 203a142a21153935e172508e62b813dca95468cb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c39cfdd3bfe244296290c4083644ea7e1b35672
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687085"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298996"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 고가용성 개념
 Azure Database for PostgreSQL 서비스는 높은 수준의 가용성을 보장합니다. 재정적으로 지원되는 SLA(서비스 수준 계약)는 일반 공급 시 99.99%입니다. 이 서비스를 사용할 때는 응용 프로그램 작동 중단 시간이 거의 없습니다.
@@ -35,4 +35,5 @@ HA 모델과 마찬가지로 Azure Database for PostgreSQL의 크기를 늘리�
 크기 조정 작업 중 데이터베이스 연결에 대한 중단이 발생합니다. 클라이언트 응용 프로그램의 연결이 끊어지고, 열려 있고 커밋되지 않은 트랜잭션은 취소됩니다. 클라이언트 응용 프로그램이 연결을 다시 시도하거나 새 연결을 만들면 게이트웨이는 새로 크기가 지정된 인스턴스로 연결을 지정합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- 서비스 개요를 보려면 [PostgreSQL용 Azure 데이터베이스 개요](overview.md)를 참조하세요.
+- 서비스 개요는 [Azure Database for PostgreSQL 개요](overview.md)를 참조하세요.
+- 재시도 논리에 대한 개요는 [Azure Database for PostgreSQL에 대한 일시적 연결 오류 처리](concepts-connectivity.md)를 참조하세요.

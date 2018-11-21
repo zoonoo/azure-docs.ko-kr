@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336858"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345003"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C: 새 클레임을 추가하도록 등록 수정 및 사용자 입력 구성
 
@@ -277,8 +277,8 @@ ms.locfileid: "43336858"
 
 ## <a name="next-steps"></a>다음 단계
 
-아래 나열된 TechnicalProfiles를 변경하여 새 클레임을 소셜 계정 로그인에 대한 흐름에 추가합니다. 이러한 파일은 로케이터로 alternativeSecurityId를 사용하여 사용자 데이터를 쓰고 읽기 위해 소셜/페더레이션된 계정 로그인에 사용됩니다.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+정책이 소셜 계정을 지원하는 경우 아래 나열된 기술 프로필을 변경하여 소셜 계정 로그인에 대한 흐름에 새 클레임을 추가하세요. 이러한 클레임은 소셜 계정 로그인에서 사용자의 데이터를 수집하고 쓰는 데 사용합니다.
+
+1. 기술 프로필 **SelfAsserted-Social**을 찾아 출력 클레임을 추가하세요. **OutputClaims**의 클레임 순서는 Azure AD B2C가 화면에서 클레임을 렌더링하는 순서를 제어합니다. 예: `<OutputClaim ClaimTypeReferenceId="city" />`
+2. 기술 프로필 **AAD-UserWriteUsingAlternativeSecurityId**를 찾아 유지 클레임을 추가하세요. 예: `<PersistedClaim ClaimTypeReferenceId="city" />`
+3. 기술 프로필 **AAD-UserReadUsingAlternativeSecurityId**를 찾아 출력 클레임을 추가하세요. 예: `<OutputClaim ClaimTypeReferenceId="city" />`

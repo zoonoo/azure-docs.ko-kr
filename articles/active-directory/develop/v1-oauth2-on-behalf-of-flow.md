@@ -1,6 +1,6 @@
 ---
-title: OAuth2.0 On-Behalf-Of 초안 사양을 사용하여 Azure AD 서비스 간 인증 | Microsoft Docs
-description: 이 문서는 OAuth 2.0 On-Behalf-Of 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
+title: OAuth 2.0 On-Behalf-Of 초안 사양을 사용하는 Azure Active Directory 서비스 간 인증 | Microsoft Docs
+description: 이 문서에서는 OAuth 2.0 On-Behalf-Of 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -17,86 +17,108 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a231b79bebd9684281edea48dfe7cf5f57ccdacb
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ab9f2638de6f74944eb27f024be3000209554cdf
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986018"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345139"
 ---
-# <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하여 서비스 간 호출
+# <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-OAuth 2.0 OBO(On-Behalf-Of) 흐름은 응용 프로그램이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
+OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 서비스 또는 웹 API로 전송하기 위해 서비스 또는 웹 API 호출하는 애플리케이션을 사용할 수 있습니다. OBO 흐름은 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파합니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
 
 > [!IMPORTANT]
-> 2018년 5월부터 위임자 흐름에는 `id_token`을 사용할 수 없습니다. SPA는 OBO 흐름을 수행하려면 중간 계층 기밀 클라이언트에 **액세스 토큰**을 전달해야 합니다. 클라이언트가 위임자 호출을 수행할 수 있는 데 관한 자세한 내용은 [제한](#client-limitations)을 참조하세요.
+> 2018년 5월을 기준으로 `id_token`은 On-Behalf-Of 흐름에 사용할 수 없습니다.  SPA(단일 페이지 앱)는 OBO 흐름을 수행하려면 중간 계층 기밀 클라이언트에 액세스 토큰을 전달해야 합니다. On-Behalf-Of 호출을 수행할 수 있는 클라이언트에 대한 자세한 내용은 [제한](#client-limitations)을 참조하세요.
 
 ## <a name="on-behalf-of-flow-diagram"></a>On-Behalf-Of 흐름 다이어그램
-사용자가 [OAuth 2.0 권한 부여 코드 부여 흐름](v1-protocols-oauth-code.md)을 사용하여 응용 프로그램에 대해 인증되었다고 가정합니다. 이 시점에서 응용 프로그램은 사용자의 클레임이 있는 액세스 토큰(토큰 A)을 포함하고 중간 계층 웹 API(API A)에 액세스하는 데 동의합니다. 이제 API A는 다운스트림 웹 API(API B)에 대해 인증된 요청을 해야 합니다.
 
-다음 단계는 On-Behalf-Of 흐름을 구성하며 다음 다이어그램을 통해 쉽게 이해할 수 있습니다.
+[OAuth 2.0 권한 부여 코드 부여 흐름](v1-protocols-oauth-code.md)을 사용하는 애플리케이션에 대해 사용자를 인증한 후 OBO 흐름이 시작됩니다. 이 시점에 애플리케이션은 액세스 토큰(토큰 A)을 사용자의 클레임 및 중간 계층 웹 API(API A)에 액세스하는 데 필요한 동의를 포함하는 API A에 전송합니다. 다음으로, API A는 다운스트림 웹 API(API B)에 인증된 요청을 수행합니다.
 
-![OAuth2.0 On-Behalf-Of 흐름](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
-
+이러한 단계는 On-Behalf-Of 흐름인 ![OAuth 2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)를 구성합니다.
 
 1. 클라이언트 응용 프로그램은 토큰 A와 함께 API A에 요청합니다.
-2. API A는 Azure AD 토큰 발급 엔드포인트를 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
-3. Azure AD 토큰 발급 엔드포인트는 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
-4. 토큰 B는 API B에 대한 요청의 권한 부여 헤더에 설정됩니다.
-5. 보안 리소스의 데이터가 API B에 의해 반환됩니다.
+1. API A는 Azure AD 토큰 발급 엔드포인트를 인증하고 API B에 액세스하기 위해 토큰을 요청합니다.
+1. Azure AD 토큰 발급 엔드포인트는 토큰 A와 함께 API A의 자격 증명의 유효성을 검사하고 API B(토큰 B)에 대한 액세스 토큰을 발급합니다.
+1. API B에 대한 요청에는 권한 부여 헤더의 토큰 B가 포함됩니다.
+1. API B는 보안 리소스에서 데이터를 반환합니다.
 
 >[!NOTE]
->다운스트림 서비스에 대한 토큰을 요청하는 데 사용되는 액세스 토큰의 대상 클레임은 OBO 요청을 수행하는 서비스의 ID여야 하고, 이 토큰은 Azure Active Directory 전역 서명 키로 서명해야 합니다(포털에서 **앱 등록**을 통해 등록한 응용 프로그램의 경우 기본 설정으로 사용됨).
+>다운스트림 서비스에 대한 토큰을 요청하는 데 사용된 액세스 토큰의 대상 클레임은 OBO 요청을 만드는 서비스의 ID여야 합니다. 토큰은 Azure Active Directory 글로벌 서명 키로 서명해야 합니다(이 키는 포털에서 **앱 등록**을 통해 등록된 애플리케이션의 기본값입니다).
 
 ## <a name="register-the-application-and-service-in-azure-ad"></a>Azure AD에서 응용 프로그램 및 서비스 등록
-Azure AD에 클라이언트 응용 프로그램 및 중간 계층 서비스를 모두 등록합니다.
+
+중간 계층 서비스 및 클라이언트 애플리케이션을 모두 Azure AD에 등록합니다.
+
 ### <a name="register-the-middle-tier-service"></a>중간 계층 서비스 등록
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 오른쪽 위에서 계정을 클릭하고 **디렉터리** 목록에서 응용 프로그램을 등록하려는 Active Directory 테넌트를 선택합니다.
-3. 왼쪽 탐색 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
-4. **앱 등록**을 클릭하고 **새 응용 프로그램 등록**을 선택합니다.
-5. 응용 프로그램의 이름을 입력하고 응용 프로그램 형식을 선택합니다. 응용 프로그램 형식에 따라 로그온 URL 또는 리디렉션 URL을 기본 URL로 설정합니다. **만들기**를 클릭하여 응용 프로그램을 만듭니다.
-6. Azure Portal에서 응용 프로그램을 선택하고 **설정**을 클릭합니다. 설정 메뉴에서 **키**를 선택하고 키를 추가합니다. 키 기간으로는 1년 또는 2년을 선택합니다. 이 페이지를 저장하면 키 값이 표시되고 값을 안전한 위치에 복사 및 저장합니다. 나중에 구현 시 응용 프로그램 설정을 구성하는 데 이 키가 필요합니다. 이 키 값은 다시 표시되지 않으며 다른 방법으로 검색할 수 없으므로 Azure Portal에 표시되는 즉시 기록해 두세요.
+1. 위쪽 표시줄에서 계정을 선택하고 **디렉터리** 목록에서 검색하여 애플리케이션용 Active Directory 테넌트를 선택합니다.
+1. 왼쪽 창에서 **더 많은 서비스**를 선택하고 **Azure Active Directory**를 선택합니다.
+1. **앱 등록** 및 **새 애플리케이션 등록**을 차례로 선택합니다.
+1. 애플리케이션의 이름을 입력하고 애플리케이션 형식을 선택합니다.
+    1. 애플리케이션 형식에 따라 로그온 URL 또는 리디렉션 URL을 기본 URL로 설정합니다.
+    1. **만들기**를 선택하여 응용 프로그램을 만듭니다.
+1. Azure Portal을 종료하기 전에 클라이언트 비밀을 생성합니다.
+    1. Azure Portal에서 애플리케이션 및 **설정**을 차례로 선택합니다.
+    1. 설정 메뉴에서 **키**를 선택하고 1년 또는 2년 기간 키를 사용하여 키를 추가합니다.
+    1. 이 페이지를 저장하면 Azure Portal에 키 값이 표시됩니다. 키 값을 복사하여 안전한 곳에 저장합니다.
+
+    > [!IMPORTANT]
+    > 구현에서 애플리케이션 설정을 구성하려면 키가 필요합니다. 이 키 값은 다시 표시되지 않으며 어떤 방법으로도 검색할 수 없습니다. Azure Portal에 표시되자마자 이 키 값을 기록합니다.
 
 ### <a name="register-the-client-application"></a>클라이언트 응용 프로그램 등록
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 오른쪽 위에서 계정을 클릭하고 **디렉터리** 목록에서 응용 프로그램을 등록하려는 Active Directory 테넌트를 선택합니다.
-3. 왼쪽 탐색 창에서 **더 많은 서비스**를 클릭하고 **Azure Active Directory**를 선택합니다.
-4. **앱 등록**을 클릭하고 **새 응용 프로그램 등록**을 선택합니다.
-5. 응용 프로그램의 이름을 입력하고 응용 프로그램 형식을 선택합니다. 응용 프로그램 형식에 따라 로그온 URL 또는 리디렉션 URL을 기본 URL로 설정합니다. **만들기**를 클릭하여 응용 프로그램을 만듭니다.
-6. 응용 프로그램에 대한 권한 구성 - 설정 메뉴에서 **필수 권한** 섹션을 선택하고 **추가**, **API 선택**을 차례로 클릭한 다음 텍스트 상자에 중간 계층 서비스의 이름을 입력합니다. 그런 다음 **권한 선택**을 클릭하고 '*서비스 이름* 액세스'를 선택합니다.
+1. 위쪽 표시줄에서 계정을 선택하고 **디렉터리** 목록에서 검색하여 애플리케이션용 Active Directory 테넌트를 선택합니다.
+1. 왼쪽 창에서 **더 많은 서비스**를 선택하고 **Azure Active Directory**를 선택합니다.
+1. **앱 등록** 및 **새 애플리케이션 등록**을 차례로 선택합니다.
+1. 애플리케이션의 이름을 입력하고 애플리케이션 형식을 선택합니다.
+   1. 애플리케이션 형식에 따라 로그온 URL 또는 리디렉션 URL을 기본 URL로 설정합니다.
+   1. **만들기**를 선택하여 응용 프로그램을 만듭니다.
+1. 애플리케이션에 대한 권한을 구성합니다.
+   1. 설정 페이지에서 **필요한 사용 권한**을 선택한 다음, **추가** 및 **API를 차례로 선택합니다**.
+   1. 텍스트 필드에 중간 계층 서비스의 이름을 입력합니다.
+   1. **권한 선택** 및 **액세스 서비스 이름**을 차례로 선택합니다.
 
 ### <a name="configure-known-client-applications"></a>알려진 클라이언트 응용 프로그램 구성
-이 시나리오에서는 중간 계층 서비스에서 다운스트림 API에 액세스하기 위해 사용자 동의를 얻기 위한 사용자 상호 작용이 없습니다. 따라서 다운스트림 API에 대한 액세스를 부여할 수 있는 옵션이 인증 과정에서 동의 단계 중 일부로 미리 제공되어야 합니다.
-이를 위해 아래 단계에 따라 Azure AD에서 클라이언트 앱의 등록을 중간 계층 서비스의 등록과 명시적으로 바인딩합니다. 이렇게 하면 클라이언트와 중간 계층 모두에 필요한 동의가 단일 대화 상자로 병합됩니다.
-1. 중간 계층 서비스 등록으로 이동하고 **매니페스트**를 클릭하여 매니페스트 편집기를 엽니다.
-2. 매니페스트에서 `knownClientApplications` 배열 속성을 찾고 클라이언트 응용 프로그램의 클라이언트 ID를 요소로 추가합니다.
-3. [저장] 단추를 클릭하여 매니페스트를 저장합니다.
+
+이 시나리오에서는 사용자 상호 작용 없이 다운스트림 API에 액세스하려면 중간 계층 서비스에서 사용자 동의를 얻어야 합니다. 다운스트림 API에 대한 액세스 권한을 부여하기 위한 옵션은 인증 과정에서 동의 단계의 일부로 미리 제공되어야 합니다.
+
+중간 계층 서비스의 등록을 사용하여 Azure AD에서 클라이언트 앱 등록을 명시적으로 바인딩하려면 다음 단계를 따릅니다. 이 작업을 통해 클라이언트와 중간 계층에서 필요한 동의가 단일 대화 상자로 병합됩니다.
+
+1. 중간 계층 서비스 등록으로 이동하고 **매니페스트**를 선택하여 매니페스트 편집기를 엽니다.
+1. `knownClientApplications` 배열 속성을 찾고 클라이언트 애플리케이션의 클라이언트 ID를 요소로 추가합니다.
+1. **저장**을 선택하여 매니페스트를 저장합니다.
 
 ## <a name="service-to-service-access-token-request"></a>서비스 간 액세스 토큰 요청
+
 액세스 토큰을 요청하려면 다음 매개 변수로 테넌트별 Azure AD 엔드포인트에 HTTP POST를 만듭니다.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
-클라이언트 응용 프로그램이 공유 암호 또는 인증서 중에서 어떤 방식으로 보호되도록 선택되는지에 따라 두 가지 사례가 있습니다.
+
+클라이언트 애플리케이션은 공유 비밀 또는 인증서로 보안이 설정됩니다.
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
+
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
-| grant_type |필수 | 토큰 요청의 형식입니다. OBO 요청은 JWT 액세스 토큰을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
+| grant_type |필수 | 토큰 요청의 형식입니다. OBO 요청은 JWT(JSON Web Token)을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | 어설션 |필수 | 요청에 사용된 액세스 토큰 값입니다. |
-| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure 관리 포털에서 앱 ID를 찾으려면, **Active Directory**를 클릭하고, 디렉터리를 클릭한 후 응용 프로그램 이름을 클릭합니다. |
+| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
 | client_secret |필수 | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
-| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure 관리 포털에서 앱 ID URI을 찾으려면, **Active Directory**, 디렉터리를 차례로 클릭하고, 응용 프로그램 이름을 클릭한 후 **모든 설정**, **속성**을 클릭합니다. |
+| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
 | scope |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
 
 #### <a name="example"></a>예
+
 다음 HTTP POST는 https://graph.windows.net 웹 API용 액세스 토큰을 요청합니다. `client_id`는 액세스 토큰을 요청하는 서비스를 식별합니다.
 
 ```
@@ -116,22 +138,24 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용한 액세스 토큰 요청
+
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | grant_type |필수 | 토큰 요청의 형식입니다. OBO 요청은 JWT 액세스 토큰을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | 어설션 |필수 | 요청에 사용된 토큰 값입니다. |
-| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure 관리 포털에서 앱 ID를 찾으려면, **Active Directory**를 클릭하고, 디렉터리를 클릭한 후 응용 프로그램 이름을 클릭합니다. |
+| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
 | client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
-| client_assertion |필수 | 응용 프로그램의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
-| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure 관리 포털에서 앱 ID URI을 찾으려면, **Active Directory**, 디렉터리를 차례로 클릭하고, 응용 프로그램 이름을 클릭한 후 **모든 설정**, **속성**을 클릭합니다. |
+| client_assertion |필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명하는 JSON Web Token입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
+| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
 | scope |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
 
-client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type 및 client_assertion으로 바뀐다는 것을 제외하고 공유 비밀에 따른 요청 사례와 매개 변수는 거의 동일합니다.
+이러한 매개 변수는 `client_secret parameter`가 `client_assertion_type` 및 `client_assertion` 두 매개 변수로 대체되는 경우를 제외하고 공유된 비밀을 통한 요청과 거의 동일합니다.
 
 #### <a name="example"></a>예
+
 다음 HTTP POST는 인증서가 있는 https://graph.windows.net 웹 API용 액세스 토큰을 요청합니다. `client_id`는 액세스 토큰을 요청하는 서비스를 식별합니다.
 
 ```
@@ -152,6 +176,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ## <a name="service-to-service-access-token-response"></a>서비스 간 액세스 토큰 응답
+
 성공 응답은 다음 매개 변수가 있는 JSON OAuth 2.0 응답입니다.
 
 | 매개 변수 | 설명 |
@@ -162,10 +187,11 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | expires_on |액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다. |
 | resource |수신 서비스(보안 리소스)의 앱 ID URI입니다. |
 | access_token |요청된 액세스 토큰입니다. 호출 서비스는 이 토큰을 사용하여 수신 서비스에 인증할 수 있습니다. |
-| id_token |요청된 ID 토큰입니다. 호출 서비스는 ID 토큰을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. |
+| id_token |요청된 ID 토큰입니다. 호출 서비스는 이 토큰을 사용하여 사용자 ID를 확인하고 사용자와 함께 세션을 시작할 수 있습니다. |
 | refresh_token |요청된 액세스 토큰에 대한 새로 고침 토큰입니다. 호출 서비스는 이 토큰을 사용하여 현재 액세스 토큰이 만료된 후 다른 액세스 토큰을 요청할 수 있습니다. |
 
 ### <a name="success-response-example"></a>성공 응답 예제
+
 다음 예제에서는 https://graph.windows.net 웹 API용 액세스 토큰 요청에 대한 성공 응답을 보여 줍니다.
 
 ```
@@ -184,7 +210,8 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ### <a name="error-response-example"></a>오류 응답 예제
-다운스트림 API에 설정된 Multi-Factor Authentication과 같은 조건부 액세스 정책이 있는 경우, 다운스트림 API에 대한 액세스 토큰을 얻으려고 할 때 Azure AD 토큰 엔드포인트에서 오류 응답이 반환됩니다. 중간 계층 서비스는 이 오류를 클라이언트 응용 프로그램에 전달하여 클라이언트 응용 프로그램이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
+
+Azure AD 토큰 엔드포인트는 조건부 액세스 정책(예: 다단계 인증)을 통해 설정되는 다운스트림 API에 대한 액세스 토큰을 획득하려는 경우 오류 응답을 반환합니다. 중간 계층 서비스는 이 오류를 클라이언트 응용 프로그램에 전달하여 클라이언트 응용 프로그램이 조건부 액세스 정책을 충족시키기 위해 사용자 상호 작용을 제공할 수 있도록 해야 합니다.
 
 ```
 {
@@ -199,45 +226,47 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ## <a name="use-the-access-token-to-access-the-secured-resource"></a>보안 리소스에 액세스하는 데 액세스 토큰 사용
-이제 중간 계층 서비스는 위에서 획득한 토큰을 사용하고 `Authorization` 헤더에서 토큰을 설정하여 다운스트림 웹 API에 대해 인증된 요청을 할 수 있습니다.
+
+중간 계층 서비스는 `Authorization` 헤더에서 토큰을 설정하여 다운스트림 웹 API에 대해 인증된 요청을 수행하려면 획득한 액세스 토큰을 사용할 수 있습니다.
 
 ### <a name="example"></a>예
+
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
-## <a name="service-to-service-calls-using-a-saml-assertion-obtained-with-an-oauth20-on-behalf-of-flow"></a>OAuth2.0 On-Behalf-Of 흐름을 사용하여 얻은 SAML 어설션을 통한 서비스 간 호출
 
-일부 OAuth 기반 웹 서비스는 비 대화형 흐름에서 SAML 어설션을 수락하는 다른 웹 서비스 API에 액세스해야 합니다.  Azure Active Directory는 SAML 기반 웹 서비스와의 on-behalf-of 흐름에 대한 응답으로 SAML 어설션을 대상 리소스로 제공할 수 있습니다. 
+## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>OAuth2.0 OBO 흐름을 통해 획득한 SAML 어설션
 
->[!NOTE] 
->이것은 OAuth2 기반 응용 프로그램이 SAML 토큰을 사용하는 웹 서비스 API 엔드포인트에 액세스할 수 있도록 하는 OAuth 2.0 on-behalf-of 흐름에 대한 비표준 확장입니다.  
+일부 OAuth 기반 웹 서비스는 비대화형 흐름에서 SAML 어설션을 수락하는 다른 웹 서비스 API에 액세스해야 합니다. Azure Active Directory는 SAML 기반 웹 서비스를 사용하는 On-Behalf-Of 흐름에 대응하여 SAML 어설션을 대상 리소스로 제공할 수 있습니다.
 
->[!TIP]
->프런트 엔드 웹 응용 프로그램에서 SAML로 보호되는 웹 서비스를 호출하는 경우 간단히 API를 호출하고 사용자 기존 세션을 사용하게 되는 일반적인 대화형 인증 흐름을 시작할 수 있습니다.  서비스 간 호출이 사용자 컨텍스트를 제공하기 위해 SAML 토큰을 요구할 경우에만 OBO 흐름 사용을 고려해야 합니다.
+>[!NOTE]
+>이 어설션은 OAuth2 기반 애플리케이션이 SAML 토큰을 사용하는 웹 서비스 API 엔드포인트에 액세스할 수 있는 OAuth 2.0 On-Behalf-Of 흐름에 대한 비표준 확장입니다.
 
-### <a name="obtain-a-saml-token-using-an-obo-request-with-a-shared-secret"></a>공유 비밀과 함께 OBO 요청을 사용하여 SAML 토큰 가져오기
-SAML 어설션을 가져오기 위한 서비스 간 요청에는 다음 매개 변수가 포함됩니다.
+> [!TIP]
+> 프런트 엔드 웹 애플리케이션에서 SAML로 보호되는 웹 서비스를 호출하는 경우 간단히 API를 호출하고 사용자 기존 세션을 사용하여 일반적인 대화형 인증 흐름을 시작할 수 있습니다. 서비스 간 호출이 사용자 컨텍스트를 제공하기 위해 SAML 토큰을 요구할 경우에만 OBO 흐름을 사용해야 합니다.
+
+### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>공유 비밀을 통해 OBO 요청을 사용하여 SAML 토큰 가져오기
+
+SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포함됩니다.
 
 | 매개 변수 |  | 설명 |
 | --- | --- | --- |
 | grant_type |필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
 | 어설션 |필수 | 요청에 사용된 액세스 토큰 값입니다.|
-| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure 관리 포털에서 앱 ID를 찾으려면, **Active Directory**를 클릭하고, 디렉터리를 클릭한 후 응용 프로그램 이름을 클릭합니다. |
+| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
 | client_secret |필수 | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
-| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. SAML 토큰의 대상이 될 리소스입니다.  Azure 관리 포털에서 앱 ID URI을 찾으려면, **Active Directory**, 디렉터리를 차례로 클릭하고, 응용 프로그램 이름을 클릭한 후 **모든 설정**, **속성**을 클릭합니다. |
+| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. SAML 토큰의 대상이 될 리소스입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
 | requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
-| requested_token_type | 필수 | 요청된 토큰의 형식을 지정합니다.  해당 값은 액세스되는 리소스의 요구 사항에 따라 “urn:ietf:params:oauth:token-type:saml2” 또는 “urn:ietf:params:oauth:token-type:saml1”입니다. |
+| requested_token_type | 필수 | 요청된 토큰의 형식을 지정합니다. 값은 액세스된 리소스의 요구 사항에 따라 **urn:ietf:params:oauth:token-type:saml2** 또는 **urn:ietf:params:oauth:token-type:saml1**입니다. |
 
+응답에는 UTF8 및 Base64url로 인코딩된 SAML 토큰이 포함됩니다.
 
-응답에는 UTF8 및 Base64url로 인코딩된 SAML 토큰이 포함됩니다. 
+- **OBO 호출에서 소싱된 SAML 어설션에 대한 SubjectConfirmationData**: 대상 애플리케이션에 **SubjectConfirmationData**의 받는 사람 값이 필요한 경우 값은 리소스 애플리케이션 구성에서 비와일드카드 회신 URL이어야 합니다.
+- **SubjectConfirmationData 노드**: 이 노드는 SAML 응답에 속하지 않으므로 **InResponseTo** 특성을 포함할 수 없습니다. SAML 토큰을 수신하는 애플리케이션은 **InResponseTo** 특성이 없는 SAML 어설션을 수락할 수 있어야 합니다.
 
-OBO 호출에서 소싱된 SAML 어설션에 대한 SubjectConfirmationData: 대상 응용 프로그램에 SubjectConfirmationData의 받는 사람 값이 필요한 경우 리소스 응용 프로그램 구성에서 비와일드카드 회신 URL로 설정되어야 합니다.
-
-SAML 응답에 속하지 않으므로 SubjectConfirmationData 노드는 InResponseTo 특성을 포함할 수 없습니다.  SAML 토큰을 수신하는 응용 프로그램은 InResponseTo 특성 없이 SAML 어설션을 수락할 수 있어야 합니다.
-
-동의: OAuth 흐름에서 사용자 데이터를 포함하는 SAML 토큰을 수락하려면 동의가 부여되어야 합니다.  권한 및 관리자 동의 얻기에 대한 내용은 https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent를 참조하세요.
+- **동의**: OAuth 흐름에서 사용자 데이터를 포함하는 SAML 토큰을 수락하려면 동의가 부여되어야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent)를 참조하세요.
 
 ### <a name="response-with-saml-assertion"></a>SAML 어설션을 사용하여 응답
 
@@ -248,15 +277,25 @@ SAML 응답에 속하지 않으므로 SubjectConfirmationData 노드는 InRespon
 | expires_in |액세스 토큰이 유효한 기간(초)입니다. |
 | expires_on |액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다. |
 | resource |수신 서비스(보안 리소스)의 앱 ID URI입니다. |
-| access_token |SAML 어설션은 access_token 매개 변수에 반환됩니다. |
+| access_token |SAML 어설션을 반환하는 매개 변수입니다. |
 | refresh_token |토큰 새로 고침. 호출 서비스는 이 토큰을 사용하여 현재 SAML 어설션이 만료된 후 다른 액세스 토큰을 요청할 수 있습니다. |
 
-token_type: Bearer expires_in:3296 ext_expires_in:0 expires_on:1529627844 resource:https://api.contoso.com access_token: <Saml assertion> issued_token_type:urn:ietf:params:oauth:token-type:saml2 refresh_token: <Refresh token>
+- token_type: 전달자
+- expires_in: 3296
+- ext_expires_in: 0
+- expires_on: 1529627844
+- resource: `https://api.contoso.com`
+- access_token: \<SAML 어설션\>
+- issued_token_type: urn:ietf:params:oauth:token-type:saml2
+- refresh_token: \<토큰 새로 고침\>
 
 ## <a name="client-limitations"></a>클라이언트 제한 사항
-와일드카드 회신 URL이 있는 공용 클라이언트는 OBO 흐름에 대해 `id_token`을 사용할 수 없습니다. 그러나 기밀 클라이언트는 공용 클라이언트에 등록된 와일드카드 회신 URI가 있는 경우에도 암시적 권한 부여 흐름을 통해 획득한 액세스 토큰을 계속 회수할 수 있습니다.
+
+와일드카드 회신 URL이 있는 공용 클라이언트는 OBO 흐름에 대해 `id_token`을 사용할 수 없습니다. 그러나 기밀 클라이언트는 공용 클라이언트에 등록된 와일드카드 회신 URI가 있는 경우에도 암시적 권한 부여 흐름을 통해 획득한 **액세스** 토큰을 계속 회수할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-OAuth 2.0 프로토콜 및 클라이언트 자격 증명을 사용하여 서비스 간 인증을 수행하는 다른 방법에 대해 자세히 알아보세요.
+
+OAuth 2.0 프로토콜 및 클라이언트 자격 증명을 사용하는 서비스 간 인증을 수행하기 위한 다른 방법에 대해 자세히 알아봅니다.
+
 * [Azure AD에서 OAuth 2.0 클라이언트 자격 증명 부여를 사용하여 서비스 간 인증](v1-oauth2-client-creds-grant-flow.md)
 * [Azure AD의 OAuth 2.0](v1-protocols-oauth-code.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401585"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285739"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Azure Virtual Machine 워크로드용 Ultra SSD(미리 보기) Managed Disks
 
@@ -23,7 +23,7 @@ Azure Ultra SSD(미리 보기)는Azure IaaS VM에 대한 높은 처리량, 높�
 
 **Managed Disks**: Ultra SSD는 Managed Disks로만 사용할 수 있습니다. Ultra SSD는 관리되지 않는 디스크 또는 페이지 Blob으로 배포될 수 없습니다. Managed Disks를 만들 때 디스크 sku 유형을 UltraSSD_LRS로 지정하고, 필요한 디스크 크기, IOPS 및 처리량을 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다.  
 
-**Virtual Machines**: Ultra SSD는 Azure Virtual Machine SKU가 활성화된 모든 프리미엄 SSD와 함께 작동하도록 설계되었지만 미리 보기 기간에 VM 크기는 ES/DS v3 VM 인스턴스로 제한됩니다.
+**Virtual Machines**: Ultra SSD는 Azure Virtual Machine SKU가 지원되는 모든 프리미엄 SSD와 함께 작동하도록 설계되었지만 현재 미리 보기로 제공되고 있으므로 VM 크기가 ES/DS v3로 지정됩니다.
 
 **동적 성능 구성**: Ultra SSD를 통해 가상 머신을 다시 시작할 필요없이 워크로드 요구 사항과 함께 디스크의 성능(IOPS 및 처리량)을 동적으로 변경할 수 있습니다.
 
@@ -64,11 +64,11 @@ Ultra SSD를 사용하는 경우 다음과 같은 청구 고려 사항이 적용
 
 ### <a name="managed-disk-size"></a>Managed Disks 크기
 
-Managed Disks는 프로비전된 크기에 따라 요금이 청구됩니다. Azure는 프로비전된 크기(반올림됨)를 가장 가까운 디스크 크기 옵션에 매핑합니다. 제공되는 디스크 크기에 대한 자세한 내용은 위의 확장성 및 성능 목표 섹션에 있는 표를 참조하세요. 각각의 디스크는 지원되는 프로비전된 디스크 크기에 매핑되고 시간 단위로 적절하게 요금이 청구됩니다. 예를 들어 Ultra SSD 디스크 200GiB를 프로비전하고 20시간 동안 사용한 후 삭제한 경우 디스크 크기 제품 256GiB로 매핑되고 256GiB를 20시간 동안 사용한 만큼 요금이 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양에 관계없이 적용됩니다.
+Managed Disks는 새 Azure VM을 프로비전하는 동안 선택한 VM 크기에 따라 요금이 청구됩니다. Azure는 프로비전된 크기(반올림됨)를 가장 가까운 디스크 크기 옵션에 매핑합니다. 제공되는 디스크 크기에 대한 자세한 내용은 위의 확장성 및 성능 목표 섹션에 있는 표를 참조하세요. 각각의 디스크는 지원되는 프로비전된 디스크 크기에 매핑되고 시간 단위로 적절하게 요금이 청구됩니다. 예를 들어 Ultra SSD 디스크 200GiB를 프로비전하고 20시간 동안 사용한 후 삭제한 경우 디스크 크기 제품 256GiB로 매핑되고 256GiB를 20시간 동안 사용한 만큼 요금이 청구됩니다. 이러한 청구는 디스크에 실제로 기록된 데이터의 볼륨과 관계없이 사용된 계산 시간을 기반으로 한 것입니다.
 
 ### <a name="managed-disk-provisioned-iops"></a>Managed Disks 프로비전된 IOPS
 
-IOPS는 응용 프로그램에서 디스크에 1초 동안 보내는 요청 수입니다. 입력/출력 작업은 순차 또는 임의, 읽기나 쓰기가 될 수 있습니다. 디스크 크기와 마찬가지로 프로비전된 IOPS는 시간 단위로 요금이 청구됩니다. 제공되는 디스크 IOPS에 대한 자세한 내용은 위의 확장성 및 성능 목표 섹션에 있는 표를 참조하세요.
+IOPS는 애플리케이션이 1초 동안 디스크로 보내는 요청의 수입니다. 입출력 작업은 순차 읽기 또는 쓰기나 임의 읽기 또는 쓰기가 될 수 있습니다. VM에 연결된 디스크 수 또는 디스크 크기를 기반으로 시간별 평균 IOPS 수를 기준으로 요금이 청구됩니다. 제공되는 디스크 IOPS에 대한 자세한 내용은 위의 확장성 및 성능 목표 섹션에 있는 표를 참조하세요.
 
 ### <a name="managed-disk-provisioned-throughput"></a>Managed Disks 프로비전된 처리량
 

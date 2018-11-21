@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: fb8c3fe9dd5ca207e4ae37faf9a5a1c4edfffc63
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ded3c89774c39b5edee02b9e3c6807ce75ff16a4
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233816"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566196"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 보안 및 데이터 보호
 
@@ -205,9 +205,9 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
-## <a name="managing-personal-inforamation"></a>개인 정보 관리
+## <a name="managing-personal-information"></a>개인 정보 관리
 
-실제 및 가상 계열 모두에 대한 StorSimple 장치 관리자는 다음과 같은 키 인스턴스에서 개인 정보를 수집합니다.
+실제 및 가상 계열 둘 다에 대한 StorSimple 디바이스 관리자는 다음과 같은 키 인스턴스에서 개인 정보를 수집합니다.
 
 - 사용자의 이메일 주소가 구성된 사용자 설정을 변경합니다. 이 정보는 관리자가 볼 수 있고 지울 수 있습니다. StorSimple 8000 시리즈 장치 및 StorSimple 가상 배열 둘 다에 적용됩니다.
  * StorSimple 8000 시리즈에 대한 설정을 보고 지우려면 [StorSimple 경고 보기 및 관리](storsimple-8000-manage-alerts.md#configure-alert-settings) 단계 수행
