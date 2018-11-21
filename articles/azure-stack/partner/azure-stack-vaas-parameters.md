@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 25c93560b24b2915ef9a9077b5bca0d15286b0e3
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ddc6942b56e3ad4d1f5b16c86dde87f408c1a2c1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646782"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263012"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>서비스로 Azure Stack 유효성 검사에 대 한 워크플로 일반 매개 변수
 
@@ -40,11 +40,11 @@ ms.locfileid: "49646782"
 
 1. dvm이 또는 Azure Stack 환경에 대 한 액세스 권한이 있는 모든 컴퓨터에 로그인 합니다.
 2. 관리자 권한 PowerShell 창에서 다음 명령을 실행 합니다.
-    ```PowerShell
+    ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
-    $stampInfoPass = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
-    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $stampInfoPass)
-    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation'
+    $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
+    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $CloudAdminPassword)
+    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation' -Credential $stampInfoCreds
     ConvertTo-Json $params > stampinfoproperties.json
     ```
 

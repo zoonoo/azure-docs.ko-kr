@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bcfc4cb65c94e34e9f6056ada53726f88489fefb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646654"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261805"
 ---
 # <a name="validate-oem-packages"></a>OEM 패키지 유효성 검사
 
@@ -58,22 +58,17 @@ ms.locfileid: "49646654"
 
 #### <a name="option-1-generating-an-account-sas-url"></a>옵션 1: 계정 SAS URL 생성
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+1. 에 [Azure portal](https://portal.azure.com/)에 저장소 계정으로 이동 하 고 패키지에 포함 된.zip으로 이동
 
-1. 선택 **Blob** 에서 **허용 된 서비스 옵션**합니다. 나머지 옵션을 선택 취소 합니다.
+2. 선택 **SAS 생성** 상황에 맞는 메뉴에서
 
-1. 선택 **컨테이너** 하 고 **개체** 에서 **허용 되는 리소스 유형**합니다. 나머지 옵션을 선택 취소 합니다.
+3. 선택 **읽기** 에서 **권한**
 
-1. 선택 **읽기** 하 고 **목록** 에서 **권한이**합니다. 나머지 옵션을 선택 취소 합니다.
+4. 설정할 **시작 시간** 은 현재 시간 및 **종료 시간** 48 시간 이상 **시작 시간**합니다. 동일한 패키지를 사용 하 여 다른 테스트 실행은 늘리는 것이 좋습니다 **종료 시간** 테스트 길이 대 한 합니다. 후 VaaS 통해 예약 된 테스트가 **종료 시간** 는 실패 하 고 새 SAS를를 생성 해야 합니다.
 
-1. 설정 **시작 시간** 은 현재 시간 및 **종료 시간** 현재 시간에서 1 시간입니다.
+5. 선택 **URL 및 blob SAS 토큰을 생성 합니다.**
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    형식으로 표시 하는 방법을 다음과 같습니다. `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-1. 패키지 컨테이너를 포함 하도록 생성 된 SAS URL을 수정 `{containername}`, 패키지 blob 이름과 `{mypackage.zip}`다음과 같이 합니다.  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-    새를 시작할 때이 값을 사용할 **패키지 유효성 검사** VaaS 포털에서 워크플로.
+사용 하 여 **Blob SAS URL** 새를 시작할 때 **패키지 유효성 검사** VaaS 포털에서 워크플로.
 
 #### <a name="option-2-using-public-read-container"></a>옵션 2: 공용 읽기 컨테이너 사용
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: e84d2a446de537924f55f1b784731e54c94c768d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851573"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275030"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL 리소스 공급자를 제거 합니다.
 
@@ -28,20 +28,16 @@ SQL 리소스 공급자를 제거 하기 전에 모든 공급자 종속성을 �
 > [!NOTE]
 > 공급자 설치 관리자에서 리소스에 대 한 다운로드 링크를 찾을 수 있습니다 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)합니다.
 
+SQL 리소스 공급자를 제거 하는 호스팅 서버에서 테 넌 트 데이터베이스는 삭제 되지 않습니다.
+
 ## <a name="dependency-cleanup"></a>종속성 정리
 
 일부의 정리 작업의 리소스 공급자를 제거 DeploySqlProvider.ps1 스크립트를 실행 하기 전에 수행할 작업입니다.
 
-Azure Stack 테 넌 트 사용자는 다음 정리 작업을 담당 합니다.
-
-* 리소스 공급자에서 모든 해당 데이터베이스를 삭제 합니다. (테 넌 트 데이터베이스를 삭제 하지 않습니다 삭제 데이터입니다.)
-* 공급자 네임 스페이스에서 등록을 취소 합니다.
-
 Azure Stack 운영자가 다음 정리 작업을 담당 합니다.
 
-* MySQL 어댑터에서 호스팅 서버를 삭제합니다.
-* MySQL 어댑터를 참조 하는 모든 계획을 삭제 합니다.
-* MySQL 어댑터와 연관 된 모든 할당량을 삭제 합니다.
+* SQL 어댑터를 참조 하는 모든 계획을 삭제 합니다.
+* SQL 어댑터와 연관 된 모든 할당량을 삭제 합니다.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>SQL 리소스 공급자를 제거 하려면
 
@@ -50,9 +46,9 @@ Azure Stack 운영자가 다음 정리 작업을 담당 합니다.
    > [!NOTE]
    > SQL 리소스 공급자를 제거 하면 종속 리소스에서 리소스 공급자를 현재 사용 중인 경우에 진행 됩니다.
   
-2. SQL 리소스 공급자의 복사본을 이진 가져오고 임시 디렉터리에 콘텐츠를 추출할 자동 압축 풀기 프로그램을 실행 합니다.
+2. SQL 리소스 공급자 설치 패키지의 복사본을 가져오고 임시 디렉터리에 콘텐츠를 추출할 자동 압축 풀기 프로그램을 실행 합니다.
 
-3. 관리자 권한으로 새 PowerShell 콘솔 창을 열고 SQL 리소스 공급자 이진 파일의 압축을 푼 디렉터리로 변경 합니다.
+3. 관리자 권한으로 새 PowerShell 콘솔 창을 열고 SQL 리소스 공급자 설치 파일의 압축을 푼 디렉터리로 변경 합니다.
 
 4. 다음 매개 변수를 사용 하 여 DeploySqlProvider.ps1 스크립트를 실행 합니다.
 
