@@ -19,11 +19,11 @@ ms.locfileid: "50212219"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
-QnA Maker는 데이터 통해 대화식, 질문 및 답변 레이어를 만드는 클라우드 기반 API 서비스입니다. 
+QnA Maker는 데이터를 통해 대화식, 질문 및 답변 레이어를 만드는 클라우드 기반 API 서비스입니다. 
 
-QnA Maker를 사용하면 FAQ(자주 묻는 질문) URL, 제품 설명서, 지원 문서 및 사용자 지정 질문 및 답변과 같은 반구조화된 콘텐츠로 KB(기술 자료)를 만들 수 있습니다. QnA Maker 서비스는 지식 기반의 QnA에서 가능한 최상의 다변과 일치시켜 사용자의 자연어 질문에 답변합니다.
+QnA Maker를 사용하면 FAQ(자주 묻는 질문) URL, 제품 설명서, 지원 문서, 사용자 지정 질문 및 답변과 같은 반구조화된 콘텐츠로 KB(기술 자료)를 만들 수 있습니다. QnA Maker 서비스는 기술 자료의 QnA에서 가능한 최상의 답변과 일치시켜 사용자의 자연어 질문에 대답합니다.
 
-사용하기 쉬운 [웹 포털](https://qnamaker.ai)을 사용하면 개발자 경험 없이 서비스에 대한 만들기, 관리, 학습 및 게시 작업을 수행할 수 있습니다. 서비스가 엔드포인트에 게시되면 챗봇과 같은 클라이언트 응용 프로그램에서 사용자와의 대화를 관리하여 질문을 받고 이에 답변할 수 있습니다. 
+사용하기 쉬운 [웹 포털](https://qnamaker.ai)을 통해 개발자 경험없이도 서비스를 생성, 관리, 학습 및 게시 작업을 수행할 수 있습니다. 서비스가 엔드포인트에 게시되면 챗봇과 같은 클라이언트 응용 프로그램에서 사용자와의 대화를 관리하여 질문을 받고 이에 답변할 수 있습니다. 
 
 ![개요](../media/qnamaker-overview-learnabout/overview.png)
 
@@ -33,7 +33,7 @@ QnA Maker는 데이터를 이용하는 두 가지 핵심 서비스를 제공합�
 
 * **추출**: 구조화 된 질의 응답 데이터는 FAQ 및 제품 설명서와 같은 구조적 혹은 반구조적 [데이터 원본](../Concepts/data-sources-supported.md)에서 추출됩니다. 이 추출은 편집 프로세스의 일환으로 KB [만들기](https://aka.ms/qnamaker-docs-createkb) 등의 일부로 수행할 수 있습니다.
 
-* **일치**: 기술 자료가 [학습되고 테스트](https://aka.ms/qnamaker-docs-trainkb)되면 [게시](https://aka.ms/qnamaker-docs-publishkb)합니다. 이렇게 하면 QnA Maker 기술 자료에 엔드포인트를 사용할 수 있게되며, 이를 봇 또는 클라이언트 응용프로그램에서 이를 사용할 수 있습니다. 이 엔드포인트는 사용자 질문을 받아들이고, 기술 자료에서 신뢰도 점수가 높은 최상의 결과를 반환합니다.
+* **일치**: 기술 자료가 [학습되고 테스트](https://aka.ms/qnamaker-docs-trainkb)되면 [게시](https://aka.ms/qnamaker-docs-publishkb)합니다. 이렇게 하면 QnA Maker 기술 자료에 엔드포인트를 사용할 수 있게되며, 이를 봇 또는 클라이언트 응용 프로그램에서 사용할 수 있습니다. 이 엔드포인트는 사용자 질문을 받아들이고, 기술 자료에서 신뢰도 점수가 높은 최상의 결과를 반환합니다.
 
 ```JSON
 {
@@ -66,7 +66,7 @@ QnA Maker 아키텍처는 다음과 같은 두 가지 구성 요소로 이루어
 
 ## <a name="service-highlights"></a>서비스의 주요 사항
 
-- [FAQ 봇을 만드는](https://aka.ms/qnamaker-docs-create-faqbot) 완벽한 **무코드** 환경입니다.
+- [FAQ 봇을 만드는](https://aka.ms/qnamaker-docs-create-faqbot) 완벽한 **no-code** 환경입니다.
 - **예측에 대한 네트워크 제한이 없습니다**. 트랜잭션 수가 아니라 서비스 호스팅에 대한 비용을 지불합니다. 자세한 내용은 [가격 페이지](https://aka.ms/qnamaker-docs-pricing)를 참조하세요.
 - **필요에 따라 크기를 조정합니다**. 시나리오에 맞게 개별 구성 요소에 대해 적절한 SKU를 선택합니다. QnA Maker 서비스에 대한 [용량을 선택하는 방법](https://aka.ms/qnamaker-docs-capacity)을 참조하세요.
 - **전체 데이터 준수**가 적용됩니다. 예측 서비스 구성 요소는 Azure 구독 및 준수 경계 내에 배포됩니다.
