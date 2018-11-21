@@ -5,7 +5,6 @@
 ### [마켓플레이스에서 게시자 되기](./become-publisher.md)  
 #### [Microsoft 계정 만들기](./guidelines.md)
 #### [개발자 센터에 등록](./register-dev-center.md) 
-#### [Azure Marketplace에 대한 청구 옵션](./billing-options-azure-marketplace.md)  
 #### [Azure 파트너 고객 사용량 특성](./azure-partner-customer-usage-attribution.md)
 #### [클라우드 마켓플레이스의 잠재 고객 관리](./lead-management-for-cloud-marketplace.md)
 
@@ -13,7 +12,7 @@
 
 ### [솔루션에 대한 게시 옵션 확인](./determine-your-listing-type.md)  
 
-### 제품 형식별 게시 가이드 
+### [제품 형식별 게시 가이드](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
 #### [Azure 응용 프로그램: 솔루션 템플릿](./marketplace-solution-templates.md)
 #### [Azure 응용 프로그램: 관리되는 응용 프로그램](./marketplace-managed-apps.md)
@@ -27,6 +26,8 @@
 ### [마켓플레이스를 통한 비즈니스 성장](./grow-your-business-with-azure-marketplace.md)  
 #### [기본 설정 솔루션](./preferred-solutions.md) 
 #### [Marketplace 콘텐츠 유효성 검사](./marketplace-criteria-content-validation.md)
+#### [전용 제품](./private-offers.md)
+#### [Marketplace 상업용 트랜잭션 기능 및 고려 사항](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
 ### [Azure Marketplace 및 AppSource 지원](./support-azure-marketplace.md)  
 
@@ -34,6 +35,16 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [클라우드 파트너 포털](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## [포털 둘러보기](./cloud-partner-portal/portal-tour/cpp-portal-tour.md)
+### [포털 탐색](./cloud-partner-portal/portal-tour/cpp-portal-navigation.md)
+### [새 제품 메뉴](./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md)
+### [모든 제품 페이지](./cloud-partner-portal/portal-tour/cpp-all-offers-page.md)
+### [승인 페이지](./cloud-partner-portal/portal-tour/cpp-approvals-page.md)
+### [모든 게시자 페이지](./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md)
+### [사용자 페이지](./cloud-partner-portal/portal-tour/cpp-users-page.md)
+### [감사 기록 페이지](./cloud-partner-portal/portal-tour/cpp-history-page.md)
+### [인사이트 페이지](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
 ## 포털 관리
 ### [개발자 센터 계정 등록](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)

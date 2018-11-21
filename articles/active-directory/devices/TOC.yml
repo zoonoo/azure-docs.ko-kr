@@ -18,13 +18,18 @@ items:
   - name: Windows 10 첫 실행 환경 중 Azure AD 조인 구성
     href: azuread-joined-devices-frx.md
   expanded: false
+- name: 개념
+  items:
+  - name: 온-프레미스 리소스에 대한 SSO
+    href: azuread-join-sso.md
+  expanded: false
 - name: 방법 가이드
   items:
   - name: Azure Portal을 사용하여 장치 관리
     href: device-management-azure-portal.md
   - name: 부실 장치 관리
     href: manage-stale-devices.md
-  - name: Azure AD 조인 계획
+  - name: Azure AD 조인 구현 계획
     href: azureadjoin-plan.md
   - name: 하이브리드 Azure AD 조인 구현 계획
     href: hybrid-azuread-join-plan.md
@@ -65,9 +70,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: aa3be36e660c1e0a68446166d3ec90a8a24fa3e8
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 54f55af14658fa02999d7f134937fcd357d83d75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092324"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276500"

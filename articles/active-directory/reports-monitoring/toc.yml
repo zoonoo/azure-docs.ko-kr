@@ -64,6 +64,8 @@ items:
     items:
     - name: 활동 보고서 찾기
       href: howto-find-activity-reports.md
+    - name: 사용자에 대한 로그인 오류 문제 해결
+      href: howto-troubleshoot-sign-in-errors.md
     - name: 위험 플래그가 지정된 사용자 수정
       href: howto-remediate-users-flagged-for-risk.md
     - name: Azure AD용 Power BI 콘텐츠 팩 보고서 사용
@@ -95,6 +97,10 @@ items:
   items:
   - name: 보고서
     items:
+    - name: 감사 로그 API 참조
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
+    - name: 로그인 로그 API 참조
+      href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
     - name: 감사 활동
       href: reference-audit-activities.md
     - name: 데이터 보존 정책
@@ -112,9 +118,9 @@ items:
     - name: 로그인 로그 스키마
       href: reference-azure-monitor-sign-ins-log-schema.md
   expanded: true
-ms.openlocfilehash: 6c7dedc0bc592ba47b9fc0a0e017012f2b0be2cd
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4763477baca827eca93f05356dd92249f4c0e63c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623234"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276608"
