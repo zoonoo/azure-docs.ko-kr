@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 51404c35b42d1c98116e74b5b7a47afe05b7d2a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470067"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300560"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 Virtual Network 구성
 Azure Storage는 계층화된 보안을 제공하여 허용되는 특정 네트워크 집합에만 연결되도록 저장소 계정을 보호할 수 있도록 합니다.  네트워크 규칙이 구성된 경우 허용되는 네트워크의 응용 프로그램만 저장소 계정에 액세스할 수 있습니다.  허용되는 네트워크에서 호출되면 응용 프로그램은 저장소 계정에 액세스하기 위한 적절한 인증(유효한 액세스 키 또는 SAS 토큰)을 계속 요구합니다.
@@ -201,7 +201,7 @@ IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용�
 ### <a name="configuring-access-from-on-premises-networks"></a>온-프레미스 네트워크에서의 액세스 구성
 IP 네트워크 규칙을 사용하여 온-프레미스 네트워크에서 저장소 계정으로의 액세스를 허가하려면 네트워크에서 사용되는 인터넷 연결 IP 주소를 식별해야 합니다.  네트워크 관리자에게 도움을 요청합니다.
 
-네트워크가 [ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용하여 Azure 네트워크에 연결된 경우 각 회로는 Microsoft Edge에서 [Azure 공용 피어링](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)을 사용하여 Azure Storage와 같은 Microsoft 서비스에 연결하는 데 사용되는 2개의 공용 IP 주소로 구성됩니다.  회로에서 Azure Storage로의 통신을 허용하려면 회로의 공용 IP 주소에 대한 IP 네트워크 규칙을 만들어야 합니다.  ExpressRoute 회로 공용 P 주소를 찾기 위해 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+네트워크가 [ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용하여 Azure 네트워크에 연결된 경우 각 회로는 Microsoft Edge에서 [Azure 공용 피어링](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)을 사용하여 Azure Storage와 같은 Microsoft 서비스에 연결하는 데 사용되는 2개의 공용 IP 주소로 구성됩니다.  회로에서 Azure Storage로의 통신을 허용하려면 회로의 공용 IP 주소에 대한 IP 네트워크 규칙을 만들어야 합니다.  ExpressRoute 회로 공용 IP 주소를 찾기 위해 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 
 ### <a name="managing-ip-network-rules"></a>IP 네트워크 규칙 관리
@@ -294,7 +294,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 |Azure Event Grid|Microsoft.EventGrid|Blob Storage 이벤트 게시를 사용하도록 설정합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Event Hubs 캡처로 데이터를 보관합니다.  [자세한 정보](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure 네트워킹|Microsoft.Networking|네트워크 트래픽 로그를 저장 및 분석합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights| 보안 저장소 계정에 모니터링 데이터를 쓸 수 있습니다[자세히 알아보기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights| 보안 스토리지 계정에 모니터링 데이터를 쓸 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
 |
 
 

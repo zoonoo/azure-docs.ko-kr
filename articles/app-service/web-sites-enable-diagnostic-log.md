@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231626"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636971"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱에 대한 진단 로깅 설정
 ## <a name="overview"></a>개요
 Azure는 [App Service 웹앱](https://go.microsoft.com/fwlink/?LinkId=529714)을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법을 설명합니다.
 
-이 문서에서는 진단 로그와 같이 작업하기 위해 [Azure Portal](https://portal.azure.com), Azure PowerShell 및 Azure CLI(Azure 명령줄 인터페이스)를 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
+이 문서에서는 진단 로그 작업에 [Azure Portal](https://portal.azure.com)과 Azure CLI를 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -65,7 +65,7 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 
 **웹 서버 로깅**의 경우 **저장소** 또는 **파일 시스템**을 선택할 수 있습니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. 
 
-파일 시스템에 로그를 저장하는 경우 파일은 FTP로 액세스하거나, Azure PowerShell 또는 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Zip 보관 파일로 다운로드할 수 있습니다.
+파일 시스템에 로그를 저장하는 경우 파일은 FTP로 액세스하거나, Azure CLI를 사용하여 Zip 아카이브로 다운로드할 수 있습니다.
 
 기본적으로 로그는 자동으로 삭제되지 않습니다(**응용 프로그램 로깅(파일 시스템)** 제외). 로그를 자동으로 삭제하려면 **보존 기간(일)** 필드를 설정합니다.
 
@@ -73,24 +73,20 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 > [저장소 계정의 선택키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 다음을 수행합니다.
 >
 > 1. **구성** 탭에서 해당 로깅 기능을 **끄기**로 설정합니다. 설정을 저장합니다.
-> 2. 저장소 계정 Blob 또는 테이블에 로깅을 다시 사용합니다. 설정을 저장합니다.
+> 2. 스토리지 계정 Blob에 로깅을 다시 사용합니다. 설정을 저장합니다.
 >
 >
 
-파일 시스템, 테이블 저장소 또는 Blob 저장소를 원하는 방식으로 결합하여 동시에 사용하도록 설정할 수 있으며 로그 수준은 개별적으로 구성할 수 있습니다. 예를 들어 장기적인 로깅 솔루션으로 Blob 저장소에 오류 및 경고를 기록하면서 파일 시스템 로깅은 세부 정보 표시 수준으로 사용할 수 있습니다.
+파일 시스템 또는 Blob Storage를 원하는 방식으로 결합하여 동시에 사용하도록 설정할 수 있으며 로그 수준은 개별적으로 구성할 수 있습니다. 예를 들어 장기적인 로깅 솔루션으로 Blob 저장소에 오류 및 경고를 기록하면서 파일 시스템 로깅은 세부 정보 표시 수준으로 사용할 수 있습니다.
 
-세 저장소 위치 모두는 로깅된 이벤트에 대해 동일한 기본 정보를 제공하는 반면 **Table Storage** 및 **Blob Storage**는 **파일 시스템**에 기록하는 것보다 인스턴스 ID, 스레드 ID 및 좀 더 세부적인 타임스탬프(눈금 형식) 등 추가 정보를 로깅합니다.
+이 두 가지 스토리지 위치는 모두 로깅된 이벤트에 대해 동일한 기본 정보를 제공하되, **Blob Storage**는 인스턴스 ID, 스레드 ID, 그리고 **파일 시스템**에 비해 상세한 타임스탬프(눈금 형식)와 같은 정보를 추가로 로깅합니다.
 
 > [!NOTE]
-> **Table Storage** 또는 **Blob Storage**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](https://azure.microsoft.com/downloads/)중 하나를 사용하여 Azure Storage에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
->
-> [!NOTE]
-> Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 구성하지 않은 경우 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)을 참조하세요.
->
+> **Blob Storage**에 저장된 정보는 이러한 스토리지 시스템에서 바로 작업할 수 있는 스토리지 클라이언트 또는 애플리케이션을 사용해서만 액세스할 수 있습니다. 예를 들어, Visual Studio 2013에는 Blob Storage를 탐색하는 데 사용할 수 있는 스토리지 탐색기를 포함하고 있으며, HDInsight는 Blob Storage에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](https://azure.microsoft.com/downloads/)중 하나를 사용하여 Azure Storage에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
 >
 
 ## <a name="download"></a> 방법: 로그 다운로드
-웹 앱 파일 시스템에 저장된 진단 정보는 FTP를 사용하여 직접 액세스할 수 있습니다. 또한 Azure PowerShell 또는 Azure 명령줄 인터페이스를 사용하여 Zip 보관 파일로 다운로드할 수도 있습니다.
+웹 앱 파일 시스템에 저장된 진단 정보는 FTP를 사용하여 직접 액세스할 수 있습니다. Azure CLI를 사용하여 Zip 아카이브로 다운로드할 수도 있습니다.
 
 로그가 저장되는 디렉터리 구조는 다음과 같습니다.
 
@@ -106,19 +102,7 @@ App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 
 
 웹앱의 FTP/S 서버에 연결되면 로그 파일이 저장되어 있는 **LogFiles** 폴더를 엽니다.
 
-### <a name="download-with-azure-powershell"></a>Azure PowerShell로 다운로드
-로그 파일을 다운로드하려면 새 인스턴스의 Azure PowerShell을 시작하고 다음 명령을 사용합니다.
-
-    Save-AzureWebSiteLog -Name webappname
-
-이 명령은 **-Name** 매개 변수로 지정된 웹앱의 로그를 현재 디렉터리의 **logs.zip**이라는 파일에 저장합니다.
-
-> [!NOTE]
-> Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 구성하지 않은 경우 [Azure PowerShell 설치 및 구성](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)을 참조하세요.
->
->
-
-### <a name="download-with-azure-command-line-interface"></a>Azure 명령줄 인터페이스로 다운로드
+### <a name="download-with-azure-cli"></a>Azure CLI를 사용하여 다운로드
 Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하려면 새 명령 프롬프트, PowerShell, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,7 +110,7 @@ Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하
 이 명령은 'webappname'이라는 웹앱의 로그를 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장합니다.
 
 > [!NOTE]
-> Azure CLI(Azure Command-Line Interface)를 설치하지 않았거나 Azure 구독을 사용하도록 Azure CLI를 구성하지 않은 경우 [Azure CLI 사용 방법](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 참조하세요.
+> Azure CLI를 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure CLI를 사용하는 방법](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)을 참조하세요.
 >
 >
 
@@ -143,7 +127,7 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 [Application Insights로 추적되는 성능에 대해 알아보기](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> 방법: 스트림 로그
-응용 프로그램을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. Azure PowerShell 또는 Azure 명령줄 인터페이스 중 하나를 사용하여 개발 환경에 로깅 정보를 스트리밍할 수 있습니다.
+응용 프로그램을 개발하는 동안 거의 실시간의 로깅 정보를 보는 것이 종종 유용합니다. Azure CLI를 개발 환경에 로깅 정보를 스트리밍할 수 있습니다.
 
 > [!NOTE]
 > 일부 유형의 로깅 버퍼는 로그 파일에 기록하고 이로 인해 스크림에서 이벤트가 작동하지 않을 수 있습니다. 예를 들어 사용자가 페이지를 방문할 때 발생한 응용 프로그램 로그 항목이 페이지 요청에 대한 해당 HTTP 로그 항목보다 먼저 스트림에 표시될 수 있습니다.
@@ -153,29 +137,7 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 >
 >
 
-### <a name="streaming-with-azure-powershell"></a>Azure PowerShell로 스트리밍
-로깅 정보를 스트리밍하려면 Azure PowerShell의 새 인스턴스를 시작하고 다음 명령을 사용합니다.
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-이 명령은 **-Name** 매개 변수로 지정된 웹앱에 연결되고 로그 이벤트가 웹앱에 발생하면 PowerShell 창에 정보를 스트리밍하기 시작합니다. /LogFiles 디렉터리(d:/home/logfiles)에 저장된 .txt, .log 또는 .htm으로 끝나는 파일에 기록된 정보는 로컬 콘솔로 스트리밍됩니다.
-
-오류와 같은 특정 이벤트를 필터링하려면 **-Message** 매개 변수를 사용합니다. 예: 
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예: 
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-사용 가능한 경로 목록을 보려면 -ListPath 매개 변수를 사용합니다.
-
-> [!NOTE]
-> Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/)을 참조하세요.
->
->
-
-### <a name="streaming-with-azure-command-line-interface"></a>Azure 명령줄 인터페이스로 스트리밍
+### <a name="streaming-with-azure-cli"></a>Azure CLI를 사용하여 스트리밍
 로깅 정보를 스트리밍하려면 새 명령 프롬프트, PowerShell, Bash 또는 터미널 세션을 열고 다음 명령을 입력합니다.
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -191,13 +153,15 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Azure Command-Line Interface를 설치하지 않았거나 Azure 구독을 사용하도록 Azure CLI를 구성하지 않은 경우 [Azure Command-Line Interface 사용 방법](../cli-install-nodejs.md)을 참조하세요.
+> Azure CLI를 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure CLI를 사용하는 방법](../cli-install-nodejs.md)을 참조하세요.
 >
 >
 
 ## <a name="understandlogs"></a> 방법: 진단 로그 이해
 ### <a name="application-diagnostics-logs"></a>응용 프로그램 진단 로그
-응용 프로그램 진단은 로그가 파일 시스템, 테이블 저장소 또는 Blob 저장소 중 어디에 저장되는지에 따라 .NET 응용 프로그램 관련 형식으로 정보를 저장합니다. 이벤트가 발생한 날짜 및 시간, 이벤트가 생성된 프로세스 ID, 이벤트 형식(정보, 경고, 오류), 이벤트 메시지 등 저장된 데이터의 기본 집합은 모든 세 저장소 형식에서 동일합니다.
+애플리케이션 진단은 로그가 파일 시스템과 Blob Storage 중 어디에 저장되는지에 따라 .NET 애플리케이션용 형식으로 정보를 저장합니다. 
+
+이벤트가 발생한 날짜 및 시간, 이벤트가 생성된 프로세스 ID, 이벤트 형식(정보, 경고, 오류), 이벤트 메시지 등 저장된 데이터의 기본 집합은 두 스토리지 형식에서 동일합니다. 파일 시스템에서는 로그 파일이 거의 즉각적으로 업데이트되므로 문제 해결을 위해 즉각적인 액세스가 필요한 경우에는 로그 저장을 위해 파일 시스템을 사용하는 것이 유용합니다. Blob Storage는 파일이 캐시된 다음 일정에 따라 스토리지 컨테이너로 플러시되므로 보관 용도로 사용됩니다.
 
 **파일 시스템**
 
@@ -211,27 +175,9 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 파일 시스템에 로깅하면 사용 가능한 세 가지 메서드의 가장 기본적인 정보를 제공하며 시간, 프로세스 ID, 이벤트 수준 및 메시지만 제공합니다.
 
-**Table Storage**
+**Blob storage**
 
-테이블 저장소에 로깅하면 추가 속성을 사용하여 테이블에 저장된 데이터와 이벤트에 대한 좀 더 세부적인 정보를 쉽게 검색할 수 있습니다. 다음 속성(열)이 테이블에 저장된 각 엔터티(행)에 사용됩니다.
-
-| 속성 이름 | 값/형식 |
-| --- | --- |
-| PartitionKey |yyyyMMddHH 형식의 이벤트 날짜/시간 |
-| RowKey |이 엔터티를 고유하게 식별하는 GUID 값 |
-| 타임 스탬프 |이벤트가 발생한 날짜 및 시간 |
-| EventTickCount |이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도) |
-| ApplicationName |웹 앱 이름 |
-| Level |이벤트 수준(예: 오류, 경고, 정보) |
-| EventId |이 이벤트의 이벤트 ID<p><p>지정하지 않을 경우 0으로 기본 설정됨 |
-| InstanceId |이벤트가 발생한 웹앱의 인스턴스 |
-| Pid |프로세스 ID |
-| Tid |이벤트가 생성된 스레드의 스레드 ID |
-| Message |이벤트 세부 정보 메시지 |
-
-**Blob 저장소**
-
-Blob 저장소에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 형식으로 저장됩니다. 테이블 저장소와 마찬가지로 이벤트에 대해 좀 더 세부적인 정보를 제공하기 위해 추가 필드가 로깅됩니다. CSV에서 다음 속성이 각 행에 사용됩니다.
+Blob 저장소에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 형식으로 저장됩니다. 이벤트에 대해 좀 더 세부적인 정보를 제공하기 위해 추가 필드가 로깅됩니다. CSV에서 다음 속성이 각 행에 사용됩니다.
 
 | 속성 이름 | 값/형식 |
 | --- | --- |
@@ -251,7 +197,7 @@ Blob에 저장된 데이터는 다음 예제와 비슷합니다.
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> 로그의 첫 번째 줄에는 이 예에 나타난 대로 열 헤더가 포함됩니다.
+> ASP.NET Core의 경우, [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) 공급자를 사용하여 로깅이 이루어집니다. 이 공급자는 추가 로그 파일을 Blob 컨테이너에 저장합니다. 자세한 내용은 [Azure의 ASP.NET Core 로깅](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure)을 참조하세요.
 >
 >
 

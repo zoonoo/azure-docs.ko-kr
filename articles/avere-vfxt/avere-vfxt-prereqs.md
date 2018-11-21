@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 823bf50a54ff43fa95f7136c137e3d8f3303c3e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d32c664049b7e7c1231e78c552e7c61d016fbe84
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669530"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286761"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Avere vFXT 만들기 준비
 
@@ -60,7 +60,7 @@ vFXT를 만드는 사용자에게 소유자 액세스 권한을 부여하지 않
 |Azure 구성 요소|할당량|
 |----------|-----------|
 |가상 머신|D16s_v3 또는 E32s_v3 3개 이상|
-|프리미엄 SSD 저장소|노드당 200GB OS 공간 및 1-4TB 캐시 공간 |
+|프리미엄 SSD 저장소|노드당 200GB OS 공간 + 1TB-4TB 캐시 공간 |
 |저장소 계정(선택 사항) |v2|
 |데이터 백 엔드 저장소(선택 사항) |새 LRS Blob 컨테이너 1개 |
 
@@ -84,7 +84,6 @@ vFXT를 만드는 사용자에게 소유자 액세스 권한을 부여하지 않
 
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
-   az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-node:latest
    ```
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>다음 단계: vFXT 클러스터 만들기

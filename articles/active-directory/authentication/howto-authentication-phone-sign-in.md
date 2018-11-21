@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804330"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287186"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Microsoft Authenticator 앱(공개 미리 보기)에서 암호 없이 휴대폰에 로그인
 
@@ -37,11 +37,16 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 ### <a name="steps-to-enable"></a>사용하도록 설정하는 단계
 
-1. [Azure Active Directory V2 PowerShell 모듈의 공개 미리 보기 릴리스](https://www.powershellgallery.com/packages/AzureADPreview/)를 설치합니다.  
-2. PowerShell에서 두 명령을 실행합니다.
-   1. `Connect-AzureAD`
-      1. 인증 대화 상자에서 테넌트의 계정으로 로그인합니다. 계정은 보안 관리자나 글로벌 관리자여야 합니다.
-   2. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+Azure Active Directory V2 PowerShell 모듈 공개 미리 보기 릴리스의 최신 버전이 있어야 합니다. 이를 확실히 하기 위해 다음 명령을 실행하여 설치를 제거한 후 다시 설치할 수도 있습니다.
+
+1. `Uninstall-Module -Name AzureADPreview`
+2. `Install-Module -Name AzureADPreview`
+
+다음 PowerShell 명령을 사용하여 암호 없는 휴대폰 로그인 미리 보기를 사용하도록 설정할 수 있습니다.
+
+1. `Connect-AzureAD`
+   1. 인증 대화 상자에서 테넌트의 계정으로 로그인합니다. 계정은 보안 관리자나 글로벌 관리자여야 합니다.
+1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>최종 사용자가 휴대폰 로그인을 사용할 수 있도록 하려면 어떻게 하나요?
 

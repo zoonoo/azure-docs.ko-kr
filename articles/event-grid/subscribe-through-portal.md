@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72eaa17e78086a4e5338bb3198ef7471c44b785f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: eb48e40007a25992a9a399176b6a4f93be89efc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234788"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344090"
 ---
 # <a name="subscribe-to-events-through-portal"></a>포털을 통해 이벤트 구독
 
@@ -45,6 +45,16 @@ ms.locfileid: "40234788"
 1. 이벤트 및 구독 이름을 처리하는 엔드포인트 같은 이벤트 구독에 대 한 추가 정보를 제공합니다.
 
    ![구독 세부 정보 제공](./media/subscribe-through-portal/provide-subscription-details.png)
+
+1. 배달 못한 편지를 사용하도록 설정하고 재시도 정책을 사용자 지정하려면 **추가 기능**을 선택합니다.
+
+   ![추가 기능 선택](./media/subscribe-through-portal/select-additional-features.png)
+
+1. 제공되지 않은 이벤트를 저장하는 데 사용할 컨테이너를 선택하고 재시도를 전송하는 방법을 설정합니다.
+
+   ![배달 못한 편지 및 재시도 사용](./media/subscribe-through-portal/set-deadletter-retry.png)
+
+1. 완료되면 **만들기**를 선택합니다.
 
 ## <a name="create-subscription-on-resource"></a>리소스에 대한 구독 만들기
 

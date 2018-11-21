@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
-ms.openlocfilehash: 178f4314f9ede86444ee60fd2a64f85dc283080b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5beb952c2330d44ffe090fc422afa6da67376b0d
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138534"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288053"
 ---
 # <a name="create-entities-without-utterances"></a>발화 없는 엔터티 만들기
 
@@ -116,7 +116,7 @@ ms.locfileid: "50138534"
 
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택한 다음, **새 엔터티 만들기**를 선택합니다.
 
-1. **엔터티 추가** 대화 상자에서 엔터티 이름 상자에 입력하고 **엔터티 형식**으로 **Pattern.any**를 선택합니다.
+1. **엔터티 추가** 대화 상자의 **엔터티 이름** 상자에 `HumanResourcesFormTitle`을 입력하고 **Pattern.any**를 **엔터티 형식**으로 선택합니다.
 
     pattern.any 엔터티를 사용하려면 올바른 중괄호 구문(예: `Where is **{HumanResourcesFormTitle}** on the server?`)을 사용하여 **앱 성능 개선** 섹션의 **패턴** 페이지에서 패턴을 추가합니다.
 
@@ -128,7 +128,7 @@ ms.locfileid: "50138534"
 
 원본 및 대상 도시의 계층 구조 엔터티로 동일한 예제를 사용하면 차이는 계층 구조 자식 대신에 역할이 원본으로 명명된다는 점입니다. 
 
-역할 구문은 **{Entityname:Rolename}** 입니다. 즉, 엔터티 이름 뒤에 콜론이 오고 이어 역할 이름이 나옵니다. 예: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+역할 구문은 **{Entityname:Rolename}** 입니다. 즉, 엔터티 이름 뒤에 콜론이 오고 이어 역할 이름이 나옵니다. 예: `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`
 
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
 

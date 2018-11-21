@@ -10,22 +10,23 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8cdf6ec4b02c6e194ea631687078d1851c465e45
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8bcdccc0a8cdb50d2c587513b887f6dfdb95c13f
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005719"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287290"
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>HDInsight의 HBase: Hadoop에 BigTable 같은 기능을 제공하는 NoSQL 데이터베이스
 Apache HBase는 Hadoop을 기반으로 하고 Google BigTable 이후에 모델링된 오픈 소스 NoSQL 데이터베이스입니다. HBase는 열 패밀리로 구성된 스키마 없는 데이터베이스에서 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공합니다.
 
-데이터는 테이블의 행에 저장되고 행 내의 데이터는 열 제품군으로 그룹화됩니다. HBase는 사용 전에 열과 열에 저장되는 데이터 형식을 정의할 필요가 없다는 점에서 스키마 없는 데이터베이스입니다. 오픈 소스 코드는 수천 대의 노드에 있는 페타바이트 크기의 데이터를 처리할 수 있을 정도로 선형으로 확장됩니다. Hadoop 에코시스템의 분산 응용 프로그램이 제공하는 데이터 중복, 일괄 처리 및 기타 기능을 사용할 수 있습니다.
+사용자 관점에서 볼 때 HBase는 데이터베이스와 유사합니다. 데이터는 테이블의 행과 열에 저장되고 행 내의 데이터는 열 제품군으로 그룹화됩니다. HBase는 사용 전에 열과 열에 저장되는 데이터 형식을 정의할 필요가 없다는 점에서 스키마 없는 데이터베이스입니다. 오픈 소스 코드는 수천 대의 노드에 있는 페타바이트 크기의 데이터를 처리할 수 있을 정도로 선형으로 확장됩니다. Hadoop 에코시스템의 분산 응용 프로그램이 제공하는 데이터 중복, 일괄 처리 및 기타 기능을 사용할 수 있습니다.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="how-is-hbase-implemented-in-azure-hdinsight"></a>Azure HDInsight에서 HBase를 구현하는 방법
-HDInsight HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 [Azure Storage](./../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake Store](./../hdinsight-hadoop-use-data-lake-store.md)에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능 및 비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다. HBase 및 Hadoop은 Azure의 빅데이터 프로젝트에 유용한 시작점이며, 특히 실시간 응용 프로그램이 대형 데이터 세트로 작동하도록 할 수 있습니다.
+
+HDInsight HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 [Azure Storage](./../hdinsight-hadoop-use-blob-storage.md)에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능 및 비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다. HBase 및 Hadoop은 Azure의 빅데이터 프로젝트에 유용한 시작점이며, 특히 실시간 응용 프로그램이 대형 데이터 세트로 작동하도록 할 수 있습니다.
 
 HDInsight 구현은 HBase의 규모 확장 아키텍처를 활용하여 테이블 자동 분할, 읽기 및 쓰기에 대한 강력한 일관성 및 자동 장애 조치(Failover)를 제공합니다. 읽기를 위한 메모리 내 캐싱과 쓰기를 위한 높은 처리량 스트리밍을 통해 성능이 향상됩니다. HBase 클러스터는 가상 네트워크 내에 만들 수 있습니다. 자세한 내용은 [Azure Virtual Network에 HDInsight 클러스터 만들기](./apache-hbase-provision-vnet.md)를 참조하세요.
 
@@ -37,7 +38,7 @@ HBase의 HBase 셸에서 `create`, `get`, `put` 및 `scan` 명령을 사용하�
 >
 
 ## <a name="scenarios-use-cases-for-hbase"></a>시나리오: HBase의 사용 사례
-BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검색입니다. 검색 엔진은 엔진을 포함하는 웹 페이지에 용어를 매핑하는 인덱스를 구축합니다. 그러나 HBase가 적합한 다른 많은 사용 사례가 있으며, 몇 가지 사례가 이 섹션에 나와 있습니다.
+웹 검색에서 BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례입니다. 검색 엔진은 엔진을 포함하는 웹 페이지에 용어를 매핑하는 인덱스를 구축합니다. 그러나 HBase가 적합한 다른 많은 사용 사례가 있으며, 몇 가지 사례가 이 섹션에 나와 있습니다.
 
 * 키-값 저장소
   
@@ -60,7 +61,9 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 
 ## <a name="see-also"></a>참고 항목
 * [Apache HBase](https://hbase.apache.org/)
+* [Apache HBase Reference Guide](https://hbase.apache.org/book.html)(Apache HBase 참조 설명서)
 * [Bigtable: 구조화된 데이터의 분산 저장소 시스템](http://research.google.com/archive/bigtable.html)
+* [Apache HBase/Phoenix – Tips , Tricks & Best Practices in Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2016/08/28/hdinsight-hbase-faq/)(Apache HBase/Phoenix – Azure HDInsight의 팁, 요령 및 모범 사례)
 
 
 

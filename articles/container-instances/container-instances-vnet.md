@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/05/2018
 ms.author: danlep
-ms.openlocfilehash: cab19cf051efea55a476128e4038aa69efdce8d9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e2f0d90a0a4384560c0a4126c028761765cb9e45
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157091"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288869"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -56,7 +56,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 ## <a name="required-network-resources"></a>필요한 네트워크 리소스
 
-가상 네트워크에 컨테이너 그룹을 배포할 때 필요한 세 가지 Azure Virtual Network 리소스는 [가상 네트워크](#virtual-network) 자체, 가상 네트워크 내의 [위임된 서브넷](#subnet-delegated) 및 [네트워크 프로필](#network-profile)입니다.
+가상 네트워크에 컨테이너 그룹을 배포할 때 필요한 세 가지 Azure Virtual Network 리소스는 [가상 네트워크](#virtual-network) 자체, 가상 네트워크 내의 [위임된 서브넷](#subnet-delegated) 및 [네트워크 프로필](#network-profile)입니다. 
 
 ### <a name="virtual-network"></a>가상 네트워크
 
@@ -70,15 +70,17 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 ### <a name="network-profile"></a>네트워크 프로필
 
-Azure 리소스용 네트워크 구성 템플릿인 네트워크 프로필은 리소스를 배포해야 하는 서브넷 등 리소스의 특정 네트워크 속성을 지정합니다. 서브넷(가상 네트워크)에 컨테이너 그룹을 처음 배포하면 네트워크 프로필이 자동으로 생성됩니다. 그러면 다음에 컨테이너 그룹을 서브넷에 배포할 때 해당 네트워크 프로필을 사용할 수 있습니다.
+Azure 리소스용 네트워크 구성 템플릿인 네트워크 프로필은 리소스를 배포해야 하는 서브넷 등 리소스의 특정 네트워크 속성을 지정합니다. 처음 [az container create][az-container-create] 명령을 사용하여 서브넷(가상 네트워크)에 컨테이너 그룹을 배포하는 경우 Azure가 사용자를 위해 네트워크 프로필을 만듭니다. 그러면 다음에 컨테이너 그룹을 서브넷에 배포할 때 해당 네트워크 프로필을 사용할 수 있습니다. 
+
+Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용하여 서브넷에 컨테이너 그룹을 배포하려면 네트워크 프로필의 전체 Resource Manager 리소스 ID를 제공해야 합니다. [az container create][az-container-create]를 사용하여 이전에 만든 프로필을 사용할 수도 있고 Resource Manager 템플릿([참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles) 확인)을 사용하여 프로필을 만들 수도 있습니다. 이전에 만든 프로필의 ID를 가져오려면 [az network profile list][az-network-profile-list] 명령을 사용합니다. 
 
 아래 다이어그램에서는 Azure Container Instances에 위임된 서브넷에 컨테이너 그룹이 여러 개 배포되어 있습니다. 컨테이너 그룹 하나를 서브넷에 배포한 후에는 같은 네트워크 프로필을 지정하여 추가 컨테이너 그룹을 배포할 수 있습니다.
 
 ![가상 네트워크 내의 컨테이너 그룹][aci-vnet-01]
 
-## <a name="deploy-to-virtual-network"></a>가상 네트워크에 배포
+## <a name="deployment-scenarios"></a>배포 시나리오
 
-새 가상 네트워크에 컨테이너 그룹을 배포하고 Azure에서 필요한 네트워크 리소스를 자동으로 생성하도록 허용하거나, 기존 가상 네트워크에 배포할 수 있습니다.
+[az container create][az-container-create]를 사용하여 새 가상 네트워크에 컨테이너 그룹을 배포하고 Azure가 사용자에게 필요한 네트워크 리소스를 만들도록 허용하거나 기존 가상 네트워크에 배포할 수 있습니다. 
 
 ### <a name="new-virtual-network"></a>새 가상 네트워크
 
@@ -99,19 +101,21 @@ Azure 리소스용 네트워크 구성 템플릿인 네트워크 프로필은 �
 
 1. 기존 가상 네트워크 내에 서브넷을 만들거나 기존 서브넷에서 기타 리소스를 *모두* 비웁니다.
 1. [az container create][az-container-create] 명령을 사용하여 컨테이너 그룹을 배포하고 다음 중 하나를 지정합니다.
-   * 가상 네트워크 이름 및 서브넷 이름</br>
-    또는
-   * 네트워크 프로필 이름 또는 ID
+   * 가상 네트워크 이름 및 서브넷 이름
+   * 다른 리소스 그룹의 가상 네트워크를 사용할 수 있는 가상 네트워크 리소스 ID 및 서브넷 리소스 ID
+   * [az network profile list][az-network-profile-list]를 사용하여 가져올 수 있는 네트워크 프로필 이름 또는 ID
 
 기존 서브넷에 첫 번째 컨테이너 그룹을 배포하면 Azure Container Instances에 해당 서브넷이 위임됩니다. 해당 서브넷에는 컨테이너 그룹 이외의 리소스를 더 이상 배포할 수 없습니다.
 
+## <a name="deployment-examples"></a>배포 예제
+
 다음 섹션에서는 Azure CLI를 사용하여 가상 네트워크에 컨테이너 그룹을 배포하는 방법을 설명합니다. 명령 예제는 **Bash** 셸용으로 서식이 지정되어 있습니다. PowerShell이나 명령 프롬프트 등의 다른 셸을 사용하려는 경우 해당 셸에 따라 줄 연속 문자를 조정하세요.
 
-## <a name="deploy-to-new-virtual-network"></a>새 가상 네트워크에 배포
+### <a name="deploy-to-a-new-virtual-network"></a>새 가상 네트워크에 배포
 
 먼저 컨테이너 그룹을 배포하고 새 가상 네트워크와 서브넷의 매개 변수를 지정합니다. 이러한 매개 변수를 지정하면 가상 네트워크와 서브넷이 생성되고, Azure Container instances에 서브넷이 위임되며, 네트워크 프로필도 작성됩니다. 리소스를 만들고 나면 컨테이너 그룹이 서브넷에 배포됩니다.
 
-새 가상 네트워크와 서브넷의 설정을 지정하는 다음 [az container create][az-container-create] 명령을 실행합니다. 이 명령은 정적 웹 페이지를 제공하는 소규모 Node.js 웹 서버가 실행되는 [microsoft/aci-helloworld][aci-helloworld] 컨테이너를 배포합니다. 다음 섹션에서는 같은 서브넷에 두 번째 컨테이너 그룹을 배포하고 두 컨테이너 인스턴스 간의 통신을 테스트합니다.
+새 가상 네트워크와 서브넷의 설정을 지정하는 다음 [az container create][az-container-create] 명령을 실행합니다. 가상 네트워크에서 컨테이너 그룹을 [지원](#preview-limitations)하는 지역에 만들어진 리소스 그룹의 이름을 제공해야 합니다. 이 명령은 정적 웹 페이지를 제공하는 소규모 Node.js 웹 서버가 실행되는 [microsoft/aci-helloworld][aci-helloworld] 컨테이너를 배포합니다. 다음 섹션에서는 같은 서브넷에 두 번째 컨테이너 그룹을 배포하고 두 컨테이너 인스턴스 간의 통신을 테스트합니다.
 
 ```azurecli
 az container create \
@@ -126,7 +130,7 @@ az container create \
 
 이 방법을 사용하여 새 가상 네트워크에 배포할 때는 네트워크 리소스가 생성되는 과정에서 배포가 몇 분 정도 소요될 수 있습니다. 초기 배포 후의 추가 컨테이너 그룹 배포는 더 빨리 완료됩니다.
 
-## <a name="deploy-to-existing-virtual-network"></a>기존 가상 네트워크에 배포
+### <a name="deploy-to-existing-virtual-network"></a>기존 가상 네트워크에 배포
 
 이제 새 가상 네트워크에 컨테이너 그룹을 배포했으므로 같은 서브넷에 두 번째 컨테이너 그룹을 배포하고 두 컨테이너 인스턴스 간의 통신을 확인합니다.
 
@@ -174,7 +178,7 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 로그 출력에는 `wget`이 로컬 서브넷의 개인 IP 주소를 사용하여 첫 번째 컨테이너에 연결한 다음 해당 컨테이너에서 인덱스 파일을 다운로드할 수 있었다는 내용이 표시되어야 합니다. 두 컨테이너 그룹 간의 네트워크 트래픽은 가상 네트워크 내에서 그대로 유지됩니다.
 
-## <a name="deploy-to-existing-virtual-network---yaml"></a>기존 가상 네트워크에 배포 - YAML
+### <a name="deploy-to-existing-virtual-network---yaml"></a>기존 가상 네트워크에 배포 - YAML
 
 YAML 파일을 사용하여 기존 가상 네트워크에 컨테이너 그룹을 배포할 수도 있습니다. 가상 네트워크의 서브넷에 배포하려면 YAML에서 몇 가지 추가 속성을 지정합니다.
 

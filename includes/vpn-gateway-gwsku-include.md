@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 605533f25b36a92a660301d28aa63cb2ecdd44f4
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37910007"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285705"
 ---
 가상 네트워크 게이트웨이를 만들 때 사용하려는 게이트웨이 SKU를 지정해야 합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "37910007"
 
 | **SKU**| **기능**|
 | ---    | ---         |
-|**기본**(\*\*)   | **경로 기반 VPN**: P2S 장착 10터널, P2S에 대한 RADIUS 인증 없음, P2S에 대한 IKEv2 없음<br>**정책 기반 VPN**: (IKEv1): 1개의 터널. P2S 없음|
+|**기본**(\*\*)   | **경로 기반 VPN**: S2S/연결 터널 10개, P2S에 대한 RADIUS 인증 없음, P2S에 대한 IKEv2 없음<br>**정책 기반 VPN**: (IKEv1): S2S/연결 터널 1개, P2S 없음|
 | **VpnGw1, VpnGw2 및 VpnGw3** | **경로 기반 VPN**: 최대 30개의 터널( * ),P2S, BGP, 활성-활성, 사용자 지정 IPsec/IKE 정책, ExpressRoute/VPN 공존 |
 |        |             |
 

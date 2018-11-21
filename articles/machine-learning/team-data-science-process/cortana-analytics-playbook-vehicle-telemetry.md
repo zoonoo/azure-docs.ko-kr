@@ -15,19 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 02a12e917ed36367ffac1ac2e7a1fef1c6098ea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0594b9b40fdf8647f99946a31dbb47a95c9694ac
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985370"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300356"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>차량 원격 분석 솔루션 플레이북
-이 메뉴는 이 플레이북 장에 연결됩니다. 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
-
-## <a name="overview"></a>개요
 슈퍼 컴퓨터가 랩 밖으로 나와 이제 차고에 주차되어 있습니다. 이제 많은 센서를 포함하는 첨단 자동차에 배치되고 있습니다. 이러한 센서를 통해 매순간 수백만 개의 이벤트를 추적하고 모니터링할 수 있습니다. 2020년이 되면 이러한 차량 대부분이 인터넷에 연결될 것입니다. 이러한 엄청난 데이터를 활용하여 더 안전하고 안정성이 높은 좋은 승차 환경을 제공할 수 있습니다. Microsoft는 Cortana Intelligence를 통해 이 꿈을 현실화했습니다.
 
 Cortana 인텔리전스는 데이터를 지능형 작업으로 변환하는 데 사용되는 완전히 관리되는 빅데이터 및 고급 분석 제품군입니다. Cortana Intelligence 차량 원격 분석 솔루션 템플릿은 자동차 대리점, 자동차 제조업체 및 보험 회사가 차량 상태 및 주행 습관에 대한 예측 가능한 정보를 실시간으로 얻을 수 있는 방법을 보여줍니다.
@@ -54,3 +50,8 @@ Cortana 인텔리전스는 데이터를 지능형 작업으로 변환하는 데 
 * **시뮬레이트된 차량 신호 및 진단**: 차량 텔레매틱스 시뮬레이터는 지정된 시간에 차량의 상태 및 주행 패턴에 해당하는 진단 정보 및 신호를 내보냅니다. 
 * **차량 카탈로그**: 이 참조 데이터 집합은 모델에 VIN 수를 매핑합니다.
 
+## <a name="next-steps"></a>다음 단계
+
+이 솔루션을 추가로 탐색하려면 [차량 원격 분석 솔루션 플레이북: 솔루션에 대한 심층 분석](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)을 참조하세요.
+
+이 솔루션에 대해 Power BI 보고서 및 대시보드를 구성하는 방법을 알아보려면 [차량 원격 분석 솔루션 템플릿 Power BI 대시보드 설정 지침](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)을 참조하세요.

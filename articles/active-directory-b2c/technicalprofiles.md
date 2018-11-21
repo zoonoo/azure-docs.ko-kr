@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f1242b299c6d2278bd75b576f225987854a2d8a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44383118"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566536"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -80,7 +80,7 @@ ms.locfileid: "44383118"
 
 **TechnicalProfile**에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 도메인 | 0:1 | 기술 프로필의 도메인 이름입니다. 예를 들어 기술 프로필이 Facebook ID 공급자를 지정하는 경우 도메인 이름은 Facebook.com입니다. |
 | DisplayName | 0:1 | 사용자에게 표시할 수 있는 기술 프로필의 이름입니다. |
@@ -108,14 +108,14 @@ ms.locfileid: "44383118"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Name | yes | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` 또는 `None`입니다. |
+| 이름 | yes | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` 또는 `None`입니다. |
 | Handler | 아니요 | 프로토콜 이름이 `Proprietary`로 설정된 경우 Azure AD B2C에서 프로토콜 처리기를 확인하는 데 사용하는 어셈블리의 정규화된 이름을 지정합니다. |
 
 ### <a name="metadata"></a>Metadata
 
 **Metadata** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 항목 | 0:n | 기술 프로필과 관련된 메타데이터입니다. 기술 프로필 유형마다 다른 메타데이터 항목 집합이 있습니다. 자세한 내용은 기술 프로필 유형 섹션을 참조하세요. |
 
@@ -131,7 +131,7 @@ ms.locfileid: "44383118"
 
 **CryptographicKeys** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 키 | 1:n | 이 기술 프로필에서 사용되는 암호화 키입니다. |
 
@@ -148,7 +148,7 @@ ms.locfileid: "44383118"
 
 **InputClaimsTransformations** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1:n | 클레임 공급자 또는 신뢰 당사자에게 클레임이 전송되기 전에 실행해야 하는 클레임 변환의 식별자입니다. 클레임 변환을 사용하여 기존 ClaimsSchema 클레임을 수정하거나 새 클레임을 생성할 수 있습니다. |
 
@@ -164,7 +164,7 @@ ms.locfileid: "44383118"
 
 **InputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
@@ -182,7 +182,7 @@ ms.locfileid: "44383118"
 
 **PersistedClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | 저장할 클레임 유형입니다. |
 
@@ -200,7 +200,7 @@ ms.locfileid: "44383118"
 
 **OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | 필요한 출력 클레임 유형입니다. |
 
@@ -219,7 +219,7 @@ ms.locfileid: "44383118"
 
 **OutputClaimsTransformations** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1:n | 클레임 공급자 또는 신뢰 당사자에게 클레임이 전송되기 전에 실행해야 하는 클레임 변환의 식별자입니다. 클레임 변환을 사용하여 기존 ClaimsSchema 클레임을 수정하거나 새 클레임을 생성할 수 있습니다. |
 
@@ -235,13 +235,13 @@ ms.locfileid: "44383118"
 
 **ValidationTechnicalProfiles** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | 참조 기술 프로필의 일부 또는 모든 출력 클레임 유효성을 검사하는 데 사용되는 기술 프로필의 식별자입니다. 참조된 기술 프로필의 모든 입력 클레임이 참조 기술 프로필의 출력 클레임에 표시되어야 합니다. |
 
 #### <a name="validationtechnicalprofile"></a>ValidationTechnicalProfile
 
-**ValidationTechnicalProfile** 요소에는 다음 특성이 포함됩니다.
+**ValidationTechnicalProfile** 요소에 포함되는 특성은 다음과 같습니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |

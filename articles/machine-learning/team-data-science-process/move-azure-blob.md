@@ -1,6 +1,6 @@
 ---
 title: Azure Blob Storage 간 데이터 이동 | Microsoft Docs
-description: Azure Blob Storage의 데이터 이동
+description: Azure Blob Storage 간 데이터 이동
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,19 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 717fdd2053cae28234458e197f8211ef25cf7f9d
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7d0111b22df45577fccc3f4491f375ddd2e8b40f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394394"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344470"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Azure Blob Storage 간 데이터 이동
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
-<!-- just in case, adding this to separate these two include references -->
+팀 데이터 과학 프로세스는 프로세스의 각 단계에서 가장 적절한 방법으로 처리되거나 분석되도록 데이터가 다양한 저장소 환경에 수집되거나 로드되어야 합니다.
+다음 문서에서는 다양한 기술을 사용하여 Azure Blob Storage 간에 데이터를 이동하는 방법을 설명합니다.
 
-[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
+* [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
+* [AZCopy](move-data-to-azure-blob-using-azcopy.md)
+* [Python](move-data-to-azure-blob-using-python.md)
+* [SSIS](move-data-to-azure-blob-using-ssis.md)
 
 가장 적합한 방법은 시나리오에 따라 달라집니다. [Azure Machine Learning의 고급 분석 시나리오](plan-sample-scenarios.md) 문서는 고급 분석 프로세스에서 사용되는 다양한 데이터 과학 워크플로에 필요한 리소스를 결정하도록 도와줍니다.
 

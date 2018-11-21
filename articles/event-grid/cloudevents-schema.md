@@ -6,24 +6,26 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3865a94192a65a2cb8a761cc1da30317f605548b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044552"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287203"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid에서 CloudEvents 스키마 사용
 
-[기본 이벤트 스키마](event-schema.md) 외에, Azure Event Grid는 기본적으로 [CloudEvents JSON 스키마](https://github.com/cloudevents/spec/blob/master/json-format.md)의 이벤트를 지원합니다. [CloudEvents](http://cloudevents.io/)는 일반적인 방법으로 이벤트 데이터를 설명하는 [공개 표준 사양](https://github.com/cloudevents/spec/blob/master/spec.md)입니다.
+[기본 이벤트 스키마](event-schema.md) 외에, Azure Event Grid는 기본적으로 [CloudEvents JSON 스키마](https://github.com/cloudevents/spec/blob/master/json-format.md)의 이벤트를 지원합니다. [CloudEvents](http://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/master/spec.md)입니다.
 
 CloudEvents는 클라우드 기반 이벤트를 게시 및 사용하기 위한 일반적인 이벤트 스키마를 제공하여 상호 운용성을 간소화합니다. 이 스키마를 통해 균일한 도구, 이벤트를 라우팅 및 처리하는 표준 방법, 외부 이벤트 스키마를 역직렬화하는 유니버설 방법이 가능해집니다. 공통 스키마를 통해 여러 플랫폼에서 작업을 보다 쉽게 통합할 수 있습니다.
 
 CloudEvents는 [Cloud Native Compute Foundation](https://www.cncf.io/)을 통해 Microsoft를 비롯한 일부 [공동 작업자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. 현재, 버전 0.1로 제공됩니다.
 
 이 문서에서는 Event Grid에서 CloudEvents 스키마를 사용하는 방법을 설명합니다.
+
+## <a name="install-preview-feature"></a>미리 보기 기능 설치
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -91,12 +93,12 @@ CloudEvents 스키마에서 이벤트의 입출력 둘 다에 Event Grid를 사�
 
 ### <a name="input-schema"></a>입력 스키마
 
-사용자 지정 토픽에 대한 입력 스키마를 CloudEvents로 설정하려면 사용자 지정 토픽 `--input-schema cloudeventv01schema`를 만들 때 Azure CLI에서 다음 매개 변수를 사용합니다. 이제 사용자 지정 토픽의 들어오는 이벤트는 CloudEvents v0.1 형식을 갖습니다.
+사용자 지정 토픽을 만들 때 해당 사용자 지정 토픽의 입력 스키마를 설정합니다.
 
-Event Grid 토픽을 만들려면 다음을 사용합니다.
+Azure CLI의 경우 
 
-```azurecli
-# if you have not already installed the extension, do it now.
+```azurecli-interactive
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
@@ -107,24 +109,50 @@ az eventgrid topic create \
   --input-schema cloudeventv01schema
 ```
 
+PowerShell의 경우 다음을 사용합니다.
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridTopic `
+  -ResourceGroupName gridResourceGroup `
+  -Location westcentralus `
+  -Name <topic_name> `
+  -InputSchema CloudEventV01Schema
+```
+
 현재 버전의 CloudEvents는 이벤트의 일괄 처리를 지원하지 않습니다. CloudEvent 스키마를 갖는 이벤트를 토픽에 게시하려면 각 이벤트를 개별적으로 게시합니다.
 
 ### <a name="output-schema"></a>출력 스키마입니다.
 
-이벤트 구독의 출력 스키마를 CloudEvents로 설정하려면 이벤트 구독 `--event-delivery-schema cloudeventv01schema`를 만들 때 Azure CLI에서 다음 매개 변수를 사용합니다. 이 이벤트 구독에 대한 이벤트는 이제 CloudEvents v0.1 형식으로 배달할 수 있습니다.
+이벤트 구독을 만들 때 출력 스키마를 설정합니다.
 
-이벤트 구독을 만들려면 다음을 사용하세요.
+Azure CLI의 경우 
 
-```azurecli
+```azurecli-interactive
+topicID=$(az eventgrid topic show --name <topic-name> -g gridResourceGroup --query id --output tsv)
+
 az eventgrid event-subscription create \
   --name <event_subscription_name> \
-  --topic-name <topic_name> \
-  -g gridResourceGroup \
+  --source-resource-id $topicID \
   --endpoint <endpoint_URL> \
   --event-delivery-schema cloudeventv01schema
 ```
 
-현재 버전의 CloudEvents는 이벤트의 일괄 처리를 지원하지 않습니다. CloudEvent 스키마용으로 구성된 이벤트 구독은 각 이벤트를 개별적으로 수신합니다. 현재는, 이벤트가 CloudEvents 스키마에 전달되는 경우 Azure Functions 앱에 Event Grid 트리거를 사용할 수 없습니다. HTTP 트리거를 사용해야 합니다. CloudEvents 스키마에서 이벤트를 수신하는 HTTP 트리거를 구현하는 예제는 [HTTP 트리거를 Event Grid 트리거로 사용](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
+PowerShell의 경우 다음을 사용합니다.
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -DeliverySchema CloudEventV01Schema
+```
+
+현재 버전의 CloudEvents는 이벤트의 일괄 처리를 지원하지 않습니다. CloudEvent 스키마용으로 구성된 이벤트 구독은 각 이벤트를 개별적으로 수신합니다. 현재는, 이벤트가 CloudEvents 스키마에 전달되는 경우 Azure Functions 앱에 Event Grid 트리거를 사용할 수 없습니다. HTTP 트리거를 사용합니다. CloudEvents 스키마에서 이벤트를 수신하는 HTTP 트리거를 구현하는 예제는 [HTTP 트리거를 Event Grid 트리거로 사용](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

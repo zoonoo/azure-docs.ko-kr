@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043280"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300577"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>다른 Azure 지역으로 ADE(Azure Disk Encryption) 사용 가능 가상 머신 복제
 
@@ -104,7 +104,7 @@ Site Recovery에서 사용되는 기본 대상 설정을 수정할 수 있습니
 
 1. ‘대상 구독’ 옆에 있는 **사용자 지정:** 을 클릭하여 기본 대상 구독을 수정합니다. 동일한 AAD(Azure Active Directory) 테넌트에서 사용할 수 있는 모든 구독 목록에서 구독을 선택합니다.
 
-2. 아래의 기본 설정을 수정하려면 ‘리소스 그룹, 네트워크, 저장소 및 가용성 집합’ 옆의 **사용자 지정:** 을 클릭합니다.
+2. 아래의 기본 설정을 수정하려면 ‘리소스 그룹, 네트워크, 스토리지 및 가용성 집합’ 옆의 **사용자 지정:** 을 클릭합니다.
     - **대상 리소스 그룹**에서 ,구독 내 대상 위치에 있는 모든 리소스 그룹의 목록에서 리소스 그룹을 선택할 수 있습니다.
     - **대상 가상 네트워크**에서 대상 위치의 모든 가상 네트워크 목록에서 네트워크를 선택합니다.
     - **가용성 집합**에서 가용성 집합 설정이 원본 지역 가용성 집합의 일부인 경우 VM에 가용성 집합 설정을 추가할 수 있습니다.

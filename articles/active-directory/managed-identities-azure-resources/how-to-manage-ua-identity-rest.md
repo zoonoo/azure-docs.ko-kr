@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: dc7abd4bdec30ae870ff6add33d4b9b1c08b5bbd
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4bf77cd34ba985dfcfa568db0543150c0510c406
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159642"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300101"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>REST API 호출을 사용하여 사용자 할당 관리 ID 만들기, 나열 또는 삭제
 
@@ -36,14 +36,13 @@ Azure 리소스에 대한 관리 ID는 코드에 자격 증명을 포함할 필�
 - Windows를 사용하는 경우, [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about)을 설치하거나 Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
 - [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about) 또는 [Linux 배포 OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)를 사용하는 경우, [Azure CLI 로컬 콘솔을 설치](/cli/azure/install-azure-cli)합니다.
 - Azure CLI 로컬 콘솔을 사용하는 경우, 사용자 할당 관리 ID 정보를 배포하거나 검색하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다.
-- 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 역할이 할당되어야 합니다.
-    - [관리 ID 참가자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)는 사용자 할당 관리 ID를 만들고 읽고(나열하고), 업데이트하고 삭제하는 역할을 합니다.
-    - [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator)는 사용자 할당 관리 ID의 속성을 읽는(나열하는) 역할을 합니다.
 - `az account get-access-token`을 통해 전달자 액세스 토큰을 검색하여 다음 사용자 할당 관리 ID 작업을 수행합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기 
+
+사용자 할당 관리 ID를 만들려면 계정에 [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할 할당이 필요합니다.
 
 사용자 할당 관리 ID를 만들려면 Azure Resource Manager API에 다음 CURL 요청을 사용합니다. `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>` 및 `<ACCESS TOKEN>` 값을 원하는 값으로 바꿉니다.
 
@@ -57,12 +56,16 @@ ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Be
 
 ## <a name="list-user-assigned-managed-identities"></a>사용자 할당 관리 ID 나열
 
+사용자 할당 관리 ID를 나열하려면/읽으려면 계정에 [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 또는 [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할 할당이 필요합니다.
+
 사용자 할당 관리 ID를 나열하려면 Azure Resource Manager API에 다음 CURL 요청을 사용합니다. `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` 및 `<ACCESS TOKEN>` 값을 원하는 값으로 바꿉니다.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 ## <a name="delete-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 삭제
+
+사용자 할당 관리 ID를 삭제하려면 계정에 [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할 할당이 필요합니다.
 
 사용자 할당 관리 ID를 삭제하려면 Azure Resource Manager API에 다음 CURL 요청을 사용합니다. `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` 및 `<ACCESS TOKEN>` 매개 변수 값을 원하는 값으로 바꿉니다.
 

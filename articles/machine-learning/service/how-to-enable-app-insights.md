@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: fa425a5ecd8cf8f4c7b3516534b4c4f0f4257850
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 285486d5fe641d49ee21d7340b62f83d75862553
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085345"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578302"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Application Insights를 사용하여 프로덕션 환경에서 Azure Machine Learning 모델 모니터링
 
@@ -24,6 +24,10 @@ ms.locfileid: "50085345"
 * 예외.
 
 [Application Insights에 대해 자세히 알아봅니다](../../application-insights/app-insights-overview.md). 
+
+>[!NOTE]
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.74에서 테스트됨
+
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
@@ -109,8 +113,11 @@ Application Insights를 사용하지 않도록 설정하려면 다음 코드를 
 ## <a name="evaluate-data"></a>데이터 평가
 서비스의 데이터는 Azure Machine Learning 서비스가 있는 동일한 리소스 그룹 내 Application Insights 계정에 저장됩니다.
 이 데이터를 보려면:
-1. [Azure Portal](https://portal.azure.com)의 리소스 그룹으로 이동하여 Application Insights 리소스를 찾아봅니다. 
-2. **개요** 탭에 서비스에 대한 기본 메트릭 집합이 표시됩니다.
+1. [Azure Portal](https://portal.azure.com)의 Machine Learning Service 작업 영역으로 이동하여 Application Insights 링크를 클릭합니다.
+
+    [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+
+1. **개요** 탭을 선택하면 서비스에 대한 기본 메트릭 집합이 표시됩니다.
 
    [![개요](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -130,3 +137,7 @@ Application Insights 사용 방법에 대한 자세한 내용은 [Application In
 
 ## <a name="next-steps"></a>다음 단계
 또한 프로덕션에서 모델에 대한 데이터를 수집할 수 있습니다. [프로덕션에서 모델용 데이터 수집](how-to-enable-data-collection.md) 문서를 읽어보세요. 
+
+
+## <a name="other-references"></a>기타 참조
+* [컨테이너용 Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)

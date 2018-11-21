@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2deacb7d15f370c9182c3239493ed60f735d738c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6fbb09d41535bf811a42b204f4e3d38b87c2846c
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736838"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287951"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>SAP 워크로드 시나리오 호스팅 및 실행에 Azure 사용
 
@@ -35,6 +35,11 @@ SAP HANA용 Azure의 고유한 특성은 Azure를 경쟁에서 차별화하는 �
 Azure의 SAP 워크로드 호스팅 시나리오에서는 Azure Activity Directory를 사용한 다양한 SAP 구성 요소 및 SAP SaaS 또는 PaaS 제품에 대한 ID 통합 및 Single-Sign-On 요구 사항도 발생할 수 있습니다. Azure Active Directory(AAD) 및 SAP 엔터티를 사용한 이러한 통합 및 Single-Sign-On 시나리오 목록은 "AAD SAP ID 통합 및 Single-Sign-On” 섹션에 설명 및 문서화되어 있습니다.
 
 ## <a name="latest-changes"></a>최신 변경 내용
+
+대기 시간이 중요한 SAP 시스템 통신 경로에서의 [Azure 네트워크 가상 어플라이언스](https://azure.microsoft.com/solutions/network-appliances/) 사용과 구성에 대한 설명
+
+- [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [Azure에서 SAP HANA 인프라 구성 및 작업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 Azure VM의 SAP HANA 동적 계층화에 대한 설명서
 
@@ -64,9 +69,9 @@ Azure VM M128s의 SAP HANA 스케일 아웃 관련 설명서에 다음이 추가
 
 
 ## <a name="sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA
-설명서의이 섹션에서는 SAP HANA의 다양한 측면을 다룹니다. 전제 조건으로 Azure 계산, 저장소 및 네트워킹에 대한 대부분의 지식을 비롯한 Azure IaaS 기본 서비스를 제공하는 Azure의 주요 서비스와 친숙해야 합니다. 해당 토픽은 [Azure 계획 지침](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)과 관련된 SAP NetWeaver에서 처리됩니다. 
+설명서의이 섹션에서는 SAP HANA의 다양한 측면을 다룹니다. 전제 조건으로 Azure 계산, 저장소 및 네트워킹에 대한 대부분의 지식을 비롯한 Azure IaaS 기본 서비스를 제공하는 Azure의 주요 서비스와 친숙해야 합니다. 이러한 토픽 중 대부분은 SAP NetWeaver 관련 [Azure 계획 지침](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)에서 다룹니다. 
 
-Azure의 HANA에 특정된 설명서는 문서 및 해당 하위 문서의 목록으로 이루어져 있습니다.
+Azure의 HANA 관련 설명서는 문서 및 해당 하위 문서의 목록으로 이루어져 있습니다.
 
 - [빠른 시작: Azure VM에서 단일 인스턴스 SAP HANA 수동 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Azure에서 SAP S/4HANA 또는 BW/4HANA 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)

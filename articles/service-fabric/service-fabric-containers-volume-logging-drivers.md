@@ -3,7 +3,7 @@ title: Service Fabric Azure Files 볼륨 드라이버(미리 보기) | Microsoft
 description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azure Files 사용을 지원합니다. 현재 미리 보기로 제공되고 있습니다.
 services: service-fabric
 documentationcenter: other
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: twhitney, subramar
+ms.openlocfilehash: fabb44f9369dd7b7050ae353ab94263f140aae48
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239375"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346408"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files 볼륨 드라이버(미리 보기)
 Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공하는 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/)입니다. 이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 응용 프로그램으로 패키지됩니다. 용도는 클러스터에 배포되는 다른 Service Fabric 컨테이너 응용 프로그램에 대한 Azure Files 기반 볼륨을 제공하는 것입니다.
@@ -166,12 +166,11 @@ Azure Files 볼륨 플러그 인에 대한 드라이버 이름은 **sfazurefile*
 - **Destination** - 이 태그는 실행 중인 컨테이너에서 볼륨이 매핑되는 위치입니다. 따라서 대상은 컨테이너 내에 이미 존재하는 위치가 될 수 없습니다.
 
 위의 코드 조각의 **DriverOption** 요소에 나와 있는 것처럼 Azure Files 볼륨 플러그 인은 다음 드라이버 옵션을 지원합니다.
+- **shareName** - 컨테이너에 대한 볼륨을 제공하는 Azure Files 파일 공유의 이름입니다.
+- **storageAccountName** - Azure Files 파일 공유를 포함하는 Azure Storage 계정의 이름입니다.
+- **storageAccountKey** - Azure Files 파일 공유를 포함하는 Azure Storage 계정에 대한 액세스 키입니다.
+- **storageAccountFQDN** - 저장소 계정과 연결된 도메인 이름입니다. storageAccountFQDN을 지정하지 않으면 storageAccountName과 함께 기본 접미사(file.core.windows.net)를 사용하여 도메인 이름이 생성됩니다.  
 
-지원되는 드라이버 옵션:
-- **shareName** - 컨테이너에 대한 볼륨을 제공하는 Azure Files 파일 공유의 이름
-- **storageAccountName** - Azure Files 파일 공유를 포함하는 Azure 저장소 계정의 이름
-- **storageAccountKey** - Azure Files 파일 공유를 포함하는 Azure 저장소 계정에 대한 액세스 키
-- **storageAccountFQDN** - 저장소 계정과 연결된 도메인 이름입니다. storageAccountFQDN을 지정하지 않으면 storageAccountName과 함께 기본 접미사(file.core.windows.net)를 사용하여 도메인 이름이 생성됩니다. 
     ```xml
     - Example1: 
         <DriverOption Name="shareName" Value="myshare1" />
@@ -184,6 +183,7 @@ Azure Files 볼륨 플러그 인에 대한 드라이버 이름은 **sfazurefile*
         <DriverOption Name="storageAccountKey" Value="mykey2" />
         <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
     ```
+
 ## <a name="using-your-own-volume-or-logging-driver"></a>사용자 고유의 볼륨 또는 로깅 드라이버 사용
 Service Fabric은 사용자 고유의 사용자 지정 [볼륨](https://docs.docker.com/engine/extend/plugins_volume/) 또는 [로깅](https://docs.docker.com/engine/admin/logging/overview/) 드라이버 사용을 허용합니다. Docker 볼륨/로깅 드라이버가 클러스터에 설치되어 있지 않으면 RDP/SSH 프로토콜을 사용하여 수동으로 설치할 수 있습니다. [가상 머신 확장 집합 시작 스크립트](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) 또는 [SetupEntryPoint 스크립트](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service)를 통해 이러한 프로토콜을 사용하여 설치를 수행할 수 있습니다.
 

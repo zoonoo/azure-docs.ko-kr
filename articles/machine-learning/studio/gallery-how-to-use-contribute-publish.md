@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 0494963f59e885cf2e7fe42704f1314e66ea28a5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 250b0cf6ff949fab064dc61a5260a68fd78d0387
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834790"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346374"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
-[!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-<!-- separating these 2 includes -->
+**[Azure AI Gallery](http://gallery.cortanaintelligence.com)**.
+갤러리에는 자체 분석 솔루션을 개발하는 데 사용할 수 있는 다양한 리소스가 있습니다.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

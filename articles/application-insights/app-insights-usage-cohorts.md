@@ -14,12 +14,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 35737b91d8ef0b58223f51530f56408df1c7eb8e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138795"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564921"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 
@@ -49,9 +49,9 @@ ms.locfileid: "50138795"
     이 코호트에 대해 다음 세 가지 매개 변수가 있습니다.
     * **Activities**: “사용량”으로 계산되는 이벤트 및 페이지 보기를 선택할 수 있습니다.
     * **Period**: 한 달에 대한 정의입니다.
-    * **UsedAtleastCustom**: 참여한 사용자로 계산되기 위해 기간 내에 사용해야 하는 시간입니다.
+    * **UsedAtLeastCustom**: 참여한 사용자로 계산되기 위해 기간 내에 사용해야 하는 시간입니다.
 
-4. **UsedAtleastCustom**을 **5+ days**로 변경하고, **Period**를 기본값인 28일로 둡니다.
+4. **UsedAtLeastCustom**을 **5+ days**로 변경하고, **Period**를 기본값인 28일로 둡니다.
 
     ![참여한 사용자](.\media\app-insights-usage-cohorts\003.png)
 

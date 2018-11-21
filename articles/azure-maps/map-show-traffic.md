@@ -3,18 +3,18 @@ title: Azure Maps를 사용하여 트래픽 표시 | Microsoft Docs
 description: Javascript 맵에서 트래픽 데이터를 표시하는 방법
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/14/2018
+ms.date: 11/10/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 532001a0cda22903d0bdf807ee868aef211336e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 45f7913c5cc69f99b01ba1a911910273673856d3
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240089"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51513770"
 ---
 # <a name="show-traffic-on-the-map"></a>맵에 트래픽 표시
 
@@ -27,7 +27,7 @@ ms.locfileid: "51240089"
 
 위의 코드에서 첫 번째 코드 블록은 지도 개체를 만듭니다. 지침은 [지도 만들기](map-create.md)를 참조하세요.
 
-두 번째 코드 블록은 맵 클래스의 [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) 기능을 사용하여 맵에 트래픽 흐름 및 인시던트를 렌더링합니다.
+두 번째 코드 블록은 맵의 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) 함수를 사용하여 맵의 트래픽 흐름 및 인시던트를 렌더링합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

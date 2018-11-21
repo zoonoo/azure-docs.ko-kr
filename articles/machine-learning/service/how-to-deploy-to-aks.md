@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3ab32388e0a35f4abf3866aa0a84ee0628b0570c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318200"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346323"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Azure Machine Learning 서비스에서 Azure Kubernetes Service로 모델을 배포하는 방법
 
@@ -63,6 +63,9 @@ Azure Kubernetes Service는 Docker 이미지를 사용합니다. 이미지를 �
 1. 이미지를 구성하려면 점수 매기기 스크립트 및 환경 파일을 만들어야 합니다. 스크립트 및 환경 파일을 만드는 예제는 이미지 분류 예제의 다음 섹션을 참조하세요.
 
     * [점수 매기기 스크립트(score.py) 만들기](tutorial-deploy-models-with-aml.md#create-scoring-script)
+
+        > [!IMPORTANT]
+        > 점수 매기기 스크립트는 클라이언트에서 제출한 데이터를 받아서 채점을 위해 모델로 전달합니다. 스크립트 및 모델에 필요한 데이터 구조를 문서화합니다. 이러한 설명서가 있으면 웹 서비스를 사용하도록 클라이언트를 빌드하는 경우 쉽게 수행할 수 있습니다.
 
     * [환경 파일(myenv.yml) 만들기](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
@@ -190,3 +193,7 @@ aks_service.delete()
 image.delete()
 model.delete()
 ```
+
+## <a name="next-steps"></a>다음 단계
+
+[웹 서비스로 배포된 ML 모델을 사용](how-to-consume-web-service.md)하는 방법에 대해 알아봅니다.

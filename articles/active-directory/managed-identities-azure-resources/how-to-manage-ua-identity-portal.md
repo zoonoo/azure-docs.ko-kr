@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: bdbe15a85ad4d2ef6918b7ab7e16942edde5096e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220336"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300458"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당
 
@@ -33,11 +33,10 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-it-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
-- 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 역할이 할당되어야 합니다.
-    - [관리 ID 참가자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)는 사용자 할당 관리 ID를 만들고 읽고(나열하고), 업데이트하고 삭제하는 역할을 합니다.
-    - [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator)는 사용자 할당 관리 ID의 속성을 읽는(나열하는) 역할을 합니다.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기
+
+사용자 할당 관리 ID를 만들려면 계정에 [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할 할당이 필요합니다.
 
 1. 사용자가 할당한 관리 ID를 만들려면 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 검색 상자에 *관리 ID*를 입력하고, **서비스** 아래에서 **관리 ID**를 클릭합니다.
@@ -52,6 +51,8 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
 
 ## <a name="list-user-assigned-managed-identities"></a>사용자 할당 관리 ID 나열
 
+사용자 할당 관리 ID를 나열하려면/읽으려면 계정에 [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 또는 [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할 할당이 필요합니다.
+
 1. 사용자 할당 관리 ID를 나열하려면 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 검색 상자에 *관리 ID*를 입력하고, 서비스 아래에서 **관리 ID**를 클릭합니다.
 3. 구독의 사용자 할당 관리 ID 목록이 반환됩니다.  사용자 할당 관리 ID 세부 정보를 보려면 해당 이름을 클릭합니다.
@@ -60,13 +61,17 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 삭제
 
+사용자 할당 관리 ID를 삭제하려면 계정에 [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할 할당이 필요합니다.
+
 1. 사용자 할당 관리 ID를 삭제하려면 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 사용자 할당 관리 ID를 선택하고 **삭제**를 클릭합니다.
 3. 확인 상자 아래에서 **예**를 선택합니다.
 
 ![사용자 할당 관리 ID 삭제](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID에 역할 할당 
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID에 역할 할당
+
+사용자 할당 관리 ID에 역할을 할당하려면 계정에 [사용자 액세스 관리자](/azure/role-based-access-control/built-in-roles#user-access-administrator) 역할 할당이 필요합니다.
 
 1. 사용자 할당 관리 ID를 나열하려면 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 검색 상자에 *관리 ID*를 입력하고, 서비스 아래에서 **관리 ID**를 클릭합니다.

@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: fc4b2d0beef1c91cd937ba901974796441657441
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234768"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300951"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>차량 원격 분석 솔루션 플레이 북: 솔루션에 대한 심층 분석
-이 메뉴는 다음 플레이 북의 섹션에 연결됩니다. 
-
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 이 문서는 솔루션 아키텍처에 표시된 각 단계를 드릴다운합니다. 사용자 지정에 대한 지침 및 포인터가 포함되어 있습니다. 
+
+이 솔루션에 대한 요약 설명을 검토하려면 [차량 원격 분석 솔루션 플레이북](cortana-analytics-playbook-vehicle-telemetry.md)을 참조하세요.
+
 
 ## <a name="data-sources"></a>데이터 원본
 이 솔루션은 서로 다른 두 개의 데이터 원본을 사용합니다.
@@ -675,3 +675,7 @@ Power BI는 실시간 데이터 및 예측 분석 시각화를 위해 이 솔루
 * [Azure Data Factory 데이터 이동 기능](../../data-factory/copy-activity-overview.md)
 * [Azure Data Factory .NET 작업](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [샘플 데이터 준비에 사용되는 Azure Data Factory .NET 작업 Visual Studio 솔루션](https://go.microsoft.com/fwlink/?LinkId=717077) 
+
+## <a name="next-steps"></a>다음 단계
+
+이 솔루션에 대해 Power BI 보고서 및 대시보드를 구성하는 방법을 알아보려면 [차량 원격 분석 솔루션 템플릿 Power BI 대시보드 설정 지침](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)을 참조하세요.

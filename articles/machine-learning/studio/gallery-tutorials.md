@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 3ca7897455f763237533aa15680fbfcf805cdaf9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4ef653a603bccc001a5bbbb4c2af97e5ca0b20a8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834729"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344436"
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Azure AI 갤러리에서 자습서 검색 및 공유
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="tutorials"></a>자습서
-Azure AI 갤러리는 기계 학습 기술 및 개념을 안내하는 여러 [자습서](https://gallery.cortanaintelligence.com/tutorials)를 제공합니다. 또한 자습서는 기계 학습 문제를 해결하기 위한 고급 방법을 설명할 수도 있습니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)는 기계 학습 기술 및 개념을 안내하는 여러 [자습서](https://gallery.cortanaintelligence.com/tutorials)를 제공합니다. 또한 자습서는 기계 학습 문제를 해결하기 위한 고급 방법을 설명할 수도 있습니다.
 
 ## <a name="discover"></a>검색
 [갤러리에서](http://gallery.cortanaintelligence.com) 자습서를 찾아보려면 **추가 정보** 아래에 있는 **자습서**를 선택합니다.

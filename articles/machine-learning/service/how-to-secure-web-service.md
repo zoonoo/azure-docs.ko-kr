@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801015"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344487"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>SSL을 사용하여 Azure Machine Learning 웹 서비스 보호
 
@@ -53,9 +53,8 @@ SSL 인증서를 확보하는 방법은 여러 가지입니다. 가장 일반적
 > [!TIP]
 > 인증 기관이 인증서와 키를 PEM으로 인코딩된 파일로 제공할 수 없는 경우 [OpenSSL](https://www.openssl.org/)과 같은 유틸리티를 사용하여 형식을 변경할 수 있습니다.
 
-> [!IMPORTANT]
-> 자체 서명된 인증서는 개발에만 사용해야 합니다. 프로덕션에 사용해서는 안됩니다. 자체 서명된 인증서를 사용하는 경우 [자체 서명된 인증서를 통해 웹 서비스 사용](#self-signed) 섹션에서 구체적인 지침을 참조하세요.
-
+> [!WARNING]
+> 자체 서명된 인증서는 개발에만 사용해야 합니다. 프로덕션에 사용해서는 안됩니다. 자체 서명된 인증서로 인해 클라이언트 애플리케이션에 문제가 발생할 수 있습니다. 자세한 내용은 클라이언트 애플리케이션에 사용된 네트워크 라이브러리에 대한 설명서를 참조하세요.
 
 ## <a name="enable-ssl-and-deploy"></a>SSL를 사용하도록 설정하고 배포
 
@@ -119,91 +118,8 @@ SSL를 사용하도록 설정하여 서비스를 배포하거나 다시 배포�
 
   아래 그림과 같이 AKS 클러스터 "공용 IP 주소"의 "구성" 탭에서 DNS를 업데이트합니다. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함하는 리소스 그룹 아래에 생성된 리소스 종류 중 하나로 표시됩니다.
 
-  ![Azure Machine Learning 서비스: SSL을 사용하여 웹 서비스 보호](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Azure Machine Learning 서비스: SSL을 사용하여 웹 서비스 보호](./media/how-to-secure-web-service/aks-public-ip-address.png)self-
 
-## <a name="consume-authenticated-services"></a>인증된 서비스 사용
+## <a name="next-steps"></a>다음 단계
 
-### <a name="how-to-consume"></a>사용 방법 
-+ **ACI 및 AKS**: 
-
-  ACI 및 AKS 웹 서비스의 경우 다음 문서에서 웹 서비스 사용 방법을 확인할 수 있습니다.
-  + [ACI에 배포하는 방법](how-to-deploy-to-aci.md)
-
-  + [AKS에 배포하는 방법](how-to-deploy-to-aks.md)
-
-+ **FPGA**:  
-
-  다음 예제는 Python과 C#을 사용하여 인증된 FPGA 서비스를 사용하는 방법을 보여 줍니다.
-  `authkey`는 서비스를 배포할 때 반환된 기본 키 또는 보조 키로 바꿉니다.
-
-  Python 예제:
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  C# 예제:
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### <a name="set-the-authorization-header"></a>인증 헤더 설정
-다른 gRPC 클라이언트는 인증 헤더를 설정하여 요청을 인증할 수 있습니다. 일반적인 방법은 `SslCredentials`와 `CallCredentials`를 결합하는 `ChannelCredentials` 개체를 생성하는 것입니다. 이것은 요청의 인증 헤더에 추가됩니다. 특정 헤더에 대한 지원 구현에 대한 자세한 내용은 [https://grpc.io/docs/guides/auth.html](https://grpc.io/docs/guides/auth.html)을 참조하세요.
-
-다음 예제에서는 C# 및 Go에서 헤더를 설정하는 방법을 보여줍니다.
-
-+ C# 사용 시에는 다음과 같이 헤더를 설정합니다.
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ Go 사용 시에는 다음과 같이 헤더를 설정합니다.
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## <a name="consume-services-with-self-signed-certificates"></a>자체 서명된 인증서로 서비스 사용
-
-클라이언트가 자체 서명된 인증서로 보안이 설정된 서버를 인증할 수 있게 설정하는 방법은 두 가지입니다.
-
-* 클라이언트 시스템에서, 클라이언트 시스템의 `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` 환경 변수가 인증서 파일을 가리키도록 설정합니다.
-
-* `SslCredentials` 개체를 생성할 때 인증서 파일의 콘텐츠를 생성자에게 전달합니다.
-
-두 가지 방법 중 하나를 사용하면 gRPC가 인증서를 루트 인증서로 사용하게 됩니다.
-
-> [!IMPORTANT]
-> gRPC는 신뢰할 수 없는 인증서를 허용하지 않습니다. 신뢰할 수 없는 인증서를 사용하면 `Unavailable` 상태 코드가 발생하면서 실패합니다. 실패의 세부 정보에는 `Connection Failed`가 포함됩니다.
+[웹 서비스로 배포된 ML 모델을 사용](how-to-consume-web-service.md)하는 방법에 대해 알아봅니다.

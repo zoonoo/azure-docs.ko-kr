@@ -3,7 +3,7 @@ title: 컨테이너 및 서비스에 대한 Azure Service Fabric 리소스 거�
 description: Azure Service Fabric을 사용하면 컨테이너 내부 또는 외부에서 실행 중인 서비스에 대해 리소스 제한을 지정할 수 있습니다.
 services: service-fabric
 documentationcenter: .net
-author: masnider
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: subramar
-ms.openlocfilehash: 49c7e2c99cce13880781a67806543b1cde0c12b6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney, subramar
+ms.openlocfilehash: f2898de030a70d578eb45e81c9ccbef90bce96c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208015"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300475"
 ---
 # <a name="resource-governance"></a>리소스 관리 
 
@@ -78,12 +78,12 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 노드 용량의 완전 수동 설정이 필요한 경우 클러스터의 노드를 설명하는 데 기본 메커니즘을 사용할 수도 있습니다. 다음은 2GB의 메모리와 4개 코어로 노드를 설정하는 방법의 예제입니다. 
 
 ```xml
-    <NodeType Name="MyNodeType">
-      <Capacities>
-        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
-        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
-      </Capacities>
-    </NodeType>
+    <NodeType Name="MyNodeType">
+      <Capacities>
+        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
+        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
+      </Capacities>
+    </NodeType>
 ```
 
 사용 가능한 리소스의 자동 확인을 사용하고 노드 용량이 클러스터 매니페스트에서 수동으로 정의된 경우 Service Fabric은 노드가 사용자가 정의한 용량을 지원하기에 충분한 리소스를 갖는지 확인합니다.
@@ -102,8 +102,8 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 최적 성능을 얻으려면 클러스터 매니페스트에서 다음 설정도 켜야 합니다. 
 
 ```xml
-<Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
@@ -131,7 +131,7 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
     </Policies>
   </ServiceManifestImport>
 ```
-  
+  
 이 예제에서 **ServicePackageA**라는 서비스 패키지는 자신이 배치된 노드의 코어 하나를 취합니다. 이 서비스 패키지에는 코드 패키지 2개(**CodeA1** 및 **CodeA2**)가 포함되어 있으며, 둘 다 `CpuShares` 매개 변수를 지정합니다. 비율이 CpuShares 512:256이면 코어가 코드 패키지 2개에 나뉩니다. 
 
 따라서 이 예제에서 CodeA1은 코어의 2/3를 받고, CodeA2는 코어의 1/3을 받습니다(동일한 비율의 소프트 보장 예약). 코드 패키지에 대한 CpuShares를 지정하지 않은 경우 Service Fabric은 코어를 균일하게 나눕니다.
@@ -180,8 +180,7 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 </Application>
 ```
 
-> [!IMPORTANT] 
-> 응용 프로그램 매개 변수를 사용해서 리소스 관리는 지정하는 방식은 Service Fabric 버전 6.1부터 사용할 수 있습니다.<br> 
+> [!IMPORTANT] 애플리케이션 매개 변수를 사용해 리소스 관리는 지정하는 방식은 Service Fabric 버전 6.1부터 사용할 수 있습니다.<br> 
 >
 > 리소스 관리를 지정하는 데 응용 프로그램 매개 변수를 사용할 경우 Service Fabric을 버전 6.1 이전 버전으로 다운그레이드할 수 없습니다. 
 

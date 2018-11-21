@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 951ac39e1bb6ce050da26fa8ff3f93fd4e27e7d7
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1dfc01d0f2f0f5f3eae58fd6c889fee3ad306135
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318393"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623030"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 데이터 위치 구성
 이 항목의 목적은 Azure AD(Azure Active Directory) Connect 동기화에서 기본 데이터 위치에 대한 특성을 구성하는 방법을 안내하는 것입니다. Office 365에서 다중 지역 기능을 사용하는 경우, 이 특성을 사용하여 사용자의 Office 365 데이터의 지리적 위치를 지정할 수 있습니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -31,7 +31,7 @@ ms.locfileid: "49318393"
 **preferredDataLocation** 특성을 설정하여 사용자의 지역을 정의할 수 있습니다. 사서함 및 OneDrive와 같은 사용자의 Office 365 리소스를 사용자와 동일한 지역에 두고, 전체 조직에 대해 하나의 테넌트만 유지할 수 있습니다.
 
 > [!IMPORTANT]
-> 현재 다중 지역은 Office 365 서비스 구독을 2,500개 이상 보유한 고객에게 제공됩니다. 자세한 내용은 Microsoft 담당자에게 문의하세요.
+> 현재 다중 지역은 Office 365 서비스 구독을 5,000개 이상 보유한 고객이 사용할 수 있습니다. 자세한 내용은 Microsoft 담당자에게 문의하세요.
 >
 >
 

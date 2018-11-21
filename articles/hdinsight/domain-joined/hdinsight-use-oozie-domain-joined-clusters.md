@@ -9,15 +9,15 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 563a4c14d78b7edd228c998817f44c6b3f14efe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 298277b720045c06d78f1c4964de2246dac22f08
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947500"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633668"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
-Oozie는 Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Oozie는 Hadoop 스택과 통합되며 다음 작업을 지원합니다.
+Apache Oozie는 Apache Hadoop 작업을 관리하는 워크플로 및 코디네이션 시스템입니다. Oozie는 Hadoop 스택과 통합되며 다음 작업을 지원합니다.
 - Apache MapReduce
 - Apache Pig
 - Apache Hive
@@ -166,7 +166,7 @@ nano workflow.xml
  ```
 4. `clustername`을 클러스터의 이름으로 바꿉니다. 
 
-5. 파일을 저장하려면 Ctrl + X를 선택합니다. `Y`을 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
+5. 파일을 저장하려면 Ctrl + X를 선택합니다. `Y` 을 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
 
     워크플로는 두 부분으로 구분됩니다.
     *   **자격 증명 섹션.** 이 섹션에서는 Oozie 작업을 인증하는 데 사용되는 자격 증명을 사용합니다.

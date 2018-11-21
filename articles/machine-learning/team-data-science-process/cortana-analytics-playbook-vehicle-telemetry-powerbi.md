@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f86d1d74f5139458999a8c91ac35ec76ac278c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262282"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300934"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>차량 원격 분석 솔루션 템플릿 Power BI 대시보드 설정 지침
-이 메뉴는 이 플레이북 장에 연결됩니다. 
-
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 이 차량 원격 분석 솔루션은 자동차 대리점, 자동차 제조업체 및 보험 회사가 Cortana Intelligence의 기능을 사용하는 방법을 보여줍니다. 이들은 고객 경험, 연구 및 개발, 마케팅 캠페인을 개선하기 위한 차량 상태 및 주행 습관에 대한 실시간 및 예측 통찰력을 얻을 수 있습니다. 이러한 단계별 지침은 구독에 솔루션을 배포한 후 Power BI 보고서 및 대시보드를 구성하는 방법을 보여 줍니다. 
+
+이 솔루션에 대한 요약 설명을 검토하려면 [차량 원격 분석 솔루션 플레이북](cortana-analytics-playbook-vehicle-telemetry.md)을 참조하세요.
+이 솔루션을 추가로 탐색하려면 [차량 원격 분석 솔루션 플레이북: 솔루션에 대한 심층 분석](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 * [차량 원격 분석](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) 솔루션을 배포합니다. 

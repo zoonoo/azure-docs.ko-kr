@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 12b14b87a02619b21e80436c80a284c4011f8b33
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407878"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300322"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
 
@@ -44,7 +44,9 @@ Azure Key Vault는 Azure Resource Manager에서 관리하는 추적된 리소스
 ### <a name="purge-protection--flag"></a>보호 플래그 제거
 제거 보호(Azure CLI의 **--enable-purge-protection**) 플래그는 기본적으로 해제되어 있습니다. 이 플래그를 설정하면 보존 기간인 90일이 지날 때까지 삭제된 상태의 자격 증명 모음이나 개체를 제거할 수 없습니다. 즉, 이러한 자격 증명 모음 또는 개체는 여전히 복구할 수 있는 상태입니다. 고객은 이 플래그를 설정함으로써 보존 기간이 지날 때까지는 자격 증명 모음이나 개체가 영구적으로 삭제되지 않도록 할 수 있습니다. 제거 보호 플래그는 일시 삭제 플래그가 설정되어 있는 경우에만 설정할 수 있습니다. 또는 자격 증명 모음 생성 시에 일시 삭제와 제거 보호를 모두 설정할 수 있습니다.
 
-[!NOTE] 제거 보호 설정을 위한 필수 구성 요소는 일시 삭제를 설정해야 한다는 것입니다. Azure CLI 2에서 일시 삭제를 설정하는 명령은 다음과 같습니다.
+> [!NOTE] 
+   제거 보호 설정을 위한 필수 조건은 일시 삭제를 설정해야 한다는 것입니다.
+Azure CLI 2에서 일시 삭제를 설정하는 명령은 다음과 같습니다.
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

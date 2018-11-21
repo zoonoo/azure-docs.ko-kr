@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a6c2ffa619eeff8b455df8a8b2157525af12c640
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 6ac37c3a53b0cc71bdab85fb86e0e85d998867aa
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27600889"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300611"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>특정 위치에서 Azure 지역에 연결할 때의 상대적 대기 시간 보기
 
@@ -60,7 +60,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 > 네트워크 감시자를 검색할 때 이전 명령에서 지정된 지역과 같은 지역을 지정할 필요는 없습니다. 이전 명령에서는 기존 네트워크 감시자를 지정하기만 하면 됩니다. 네트워크 감시자는 어떤 지역에도 있을 수 있습니다. `-Country` 및 `-State`에 대한 값을 지정할 때는 유효한 값을 지정해야 합니다. 이 값은 대/소문자를 구분합니다. 제한된 수의 국가, 시/도 및 구/군/시에 대한 데이터를 사용할 수 있습니다. [사용 가능한 국가, 시/도, 구/군/시 및 공급자 보기](#view-available)의 명령을 실행하여 이전 명령에서 사용할 사용 가능한 국가, 시/도 및 구/군/시 목록을 확인합니다. 
 
 > [!WARNING]
-> `-StartTime` 및 `-EndTime`에 대해 2017년 11월 14일 이후 날짜를 지정해야 합니다. 2017년 11월 14일 이전 날짜를 지정하면 데이터가 반환되지 않습니다. 
+> `-StartTime` 및 `-EndTime`에 대해 지난 30일 이내의 날짜를 지정해야 합니다. 이전 날짜를 지정하면 데이터가 반환되지 않습니다.
 
 이전 명령의 출력은 다음과 같습니다.
 

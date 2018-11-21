@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 6b8cb104c734edf688d875a8e9674a660f2db4e2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b586639cc6c9d4e25d65fa9f3a510e22789acfb2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834603"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346038"
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Azure AI 갤러리에서 컬렉션 검색 및 공유
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="collections"></a>컬렉션
-[컬렉션](https://gallery.cortanaintelligence.com/collections)을 사용하면 특정한 솔루션 또는 개념에 대해 사용하는 실험, API 및 기타 갤러리 항목을 그룹화할 수 있습니다. 사용하거나 나중에 참조하도록 저장하거나 공유하도록 그룹화할 수 있습니다.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com)에서 [컬렉션](https://gallery.cortanaintelligence.com/collections)을 사용하면 특정한 솔루션 또는 개념에 대해 사용하는 실험, API 및 기타 갤러리 항목을 그룹화할 수 있습니다. 사용하거나 나중에 참조하도록 저장하거나 공유하도록 그룹화할 수 있습니다.
 
 ## <a name="discover"></a>검색
 [갤러리에서](http://gallery.cortanaintelligence.com) 컬렉션을 찾아보려면 **추가 정보** 아래에서 **컬렉션**을 선택합니다.

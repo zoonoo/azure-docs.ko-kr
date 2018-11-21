@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870481"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514964"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>응용 프로그램을 Azure SQL Database Managed Instance에 연결
 
@@ -60,7 +60,7 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니다. 따라서 개발자 상자에서 액세스하려면 먼저 개발자 상자와 Managed Instance VNet 간에 연결을 만들어야 합니다. 이렇게 하려면 네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결을 구성합니다. 자세한 내용은 [온-프레미스 컴퓨터에서 Azure SQL Database Managed Instance로 연결 지점-사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 
 ## <a name="connect-from-on-premises-with-vnet-peering"></a>VNet 피어링을 사용하여 온-프레미스에서 연결
-고객에 의해 구현되는 또 다른 시나리오는 VPN Gateway가 한 호스팅 Managed Instance의 구독 및 별도 가상 네트워크에 설치된 경우입니다. 그런 다음, 두 가상 네트워크는 피어링됩니다. 그러한 구현 방식이 다음 샘플 아키텍처 다이어그램에 나와 있습니다.
+고객에 의해 구현되는 또 다른 시나리오는 VPN Gateway가 한 호스팅 Managed Instance의 구독 및 별도 가상 네트워크에 설치된 경우입니다. 그러면 이 두 개의 가상 네트워크가 피어링됩니다. 그러한 구현 방식이 다음 샘플 아키텍처 다이어그램에 나와 있습니다.
 
 ![VNet 피어링](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
@@ -83,6 +83,10 @@ Managed Instance는 개인 IP 주소를 통해서만 액세스할 수 있습니�
 이 시나리오는 다음 다이어그램에서 설명합니다.
 
 ![통합 앱 피어링](./media/sql-database-managed-instance/integrated-app-peering.png)
+
+>[!NOTE]
+>VNet 통합 기능은 ExpressRoute 게이트웨이가 있는 VNet에 앱을 통합하지 않습니다. ExpressRoute 게이트웨이가 공존 모드로 구성되어 있어도 VNet 통합은 작동하지 않습니다. ExpressRoute 연결을 통해 리소스에 액세스해야 하는 경우에는 VNet에서 실행되는 App Service Environment를 사용할 수 있습니다.
+>
  
 ## <a name="troubleshooting-connectivity-issues"></a>연결 문제 해결
 

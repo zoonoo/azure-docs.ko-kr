@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049979"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300169"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
 
@@ -60,6 +60,13 @@ DNS 확인의 중단을 염려하지 않는 경우에는 [Azure Web Apps에 기�
 | \*(와일드카드) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
 
 DNS 레코드 페이지에서 마이그레이션할 DNS 이름의 레코드 종류에 유의합니다. App Service는 CNAME 및 A 레코드로부터의 매핑을 지원합니다.
+
+> [!NOTE]
+> CloudFlare와 같은 특정 공급자의 경우 `awverify.*`는 유효한 레코드가 아닙니다. 이 레코드 대신 `*`만 사용하세요.
+
+> [!NOTE]
+> 와일드카드 `*` 레코드는 기존 CNAME 레코드가 있는 하위 도메인 유효성을 검사하지 않습니다. 각 하위 도메인에 대해 TXT 레코드를 명시적으로 만들어야 할 수 있습니다.
+
 
 ### <a name="enable-the-domain-for-your-app"></a>앱에 대해 도메인 사용
 

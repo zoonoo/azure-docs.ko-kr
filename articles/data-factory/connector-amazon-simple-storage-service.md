@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: bdbf0b74b6e851e0dd84ff5d9aafb84d878d8ea2
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 4885693abd8c6b66f8e68d83a8d6a2db3b0ed438
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542077"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344130"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 저장소 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,7 +94,7 @@ Amazon S3에서 데이터를 복사하려면 데이터 집합의 type 속성을 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 데이터 집합의 type 속성을 **AmazonS3Object**로 설정해야 합니다. |yes |
-| bucketName | S3 버킷 이름입니다. 와일드카드 필터는 지원되지 않습니다. |yes |
+| bucketName | S3 버킷 이름입니다. 와일드카드 필터는 지원되지 않습니다. |Copy/Lookup 활동의 경우 예, GetMetadata 활동의 경우 아니요 |
 | key | 지정된 버킷에서 S3 개체 키의 **이름 또는 와일드카드 필터**입니다. "prefix" 속성이 지정되어 있지 않은 경우에만 적용됩니다. <br/><br/>와일드카드 필터는 폴더 부분이 아닌 파일 이름 부분에만 지원됩니다. 허용되는 와일드카드는 `*`(문자 0자 이상 일치) 및 `?`(문자 0자 또는 1자 일치)입니다.<br/>- 예 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- 예 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>`^`을 사용하여 실제 파일 이름 내에 와일드카드 또는 이 이스케이프 문자가 있는 경우 이스케이프합니다. |아니요 |
 | 접두사 | S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. "key" 속성이 지정되어 있지 않은 경우에만 적용됩니다. |아니요 |
 | 버전 | S3 버전 관리를 사용하도록 설정하면 S3 개체의 버전입니다. |아니요 |
