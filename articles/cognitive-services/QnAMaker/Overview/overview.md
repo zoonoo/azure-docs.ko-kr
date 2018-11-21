@@ -19,9 +19,9 @@ ms.locfileid: "50212219"
 ---
 # <a name="what-is-qna-maker"></a>QnA Maker란?
 
-QnA Maker는 데이터 위에 대화형 질문 및 답변 레이어를 만드는 클라우드 기반 API 서비스입니다. 
+QnA Maker는 데이터 통해 대화식, 질문 및 답변 레이어를 만드는 클라우드 기반 API 서비스입니다. 
 
-QnA Maker를 사용하면 FAQ(자주 묻는 질문) URL, 제품 설명서, 지원 문서 및 사용자 지정 질문 및 답변과 같은 반구조화된 콘텐츠로 KB(기술 자료)를 만들 수 있습니다. QnA Maker 서비스는 기술 자료에서 가장 적합한 QnA 답변과 매칭하는 방식으로 사용자의 자연어 질문에 답합니다.
+QnA Maker를 사용하면 FAQ(자주 묻는 질문) URL, 제품 설명서, 지원 문서 및 사용자 지정 질문 및 답변과 같은 반구조화된 콘텐츠로 KB(기술 자료)를 만들 수 있습니다. QnA Maker 서비스는 지식 기반의 QnA에서 가능한 최상의 다변과 일치시켜 사용자의 자연어 질문에 답변합니다.
 
 사용하기 쉬운 [웹 포털](https://qnamaker.ai)을 사용하면 개발자 경험 없이 서비스에 대한 만들기, 관리, 학습 및 게시 작업을 수행할 수 있습니다. 서비스가 엔드포인트에 게시되면 챗봇과 같은 클라이언트 응용 프로그램에서 사용자와의 대화를 관리하여 질문을 받고 이에 답변할 수 있습니다. 
 
@@ -29,11 +29,11 @@ QnA Maker를 사용하면 FAQ(자주 묻는 질문) URL, 제품 설명서, 지�
 
 ## <a name="key-qna-maker-processes"></a>키 QnA Maker 프로세스
 
-QnA Maker에서 데이터에 대해 제공하는 두 가지 핵심 서비스는 다음과 같습니다.
+QnA Maker는 데이터를 이용하는 두 가지 핵심 서비스를 제공합니다.
 
-* **추출**: 구조적 질문-답변 데이터는 FAQ 및 제품 설명서와 같은 구조적 및 반구조적 [데이터 원본](../Concepts/data-sources-supported.md)에서 추출됩니다. 이 추출은 편집 프로세스의 일환으로 KB [만들기](https://aka.ms/qnamaker-docs-createkb) 등의 일부로 수행할 수 있습니다.
+* **추출**: 구조화 된 질의 응답 데이터는 FAQ 및 제품 설명서와 같은 구조적 혹은 반구조적 [데이터 원본](../Concepts/data-sources-supported.md)에서 추출됩니다. 이 추출은 편집 프로세스의 일환으로 KB [만들기](https://aka.ms/qnamaker-docs-createkb) 등의 일부로 수행할 수 있습니다.
 
-* **일치**: 기술 자료가 [학습되고 테스트](https://aka.ms/qnamaker-docs-trainkb)되면 [게시](https://aka.ms/qnamaker-docs-publishkb)합니다. 이렇게 하면 QnA Maker 기술 자료에 엔드포인트를 사용할 수 있으며, 이에 따라 봇 또는 클라이언트앱에서 이를 사용할 수 있습니다. 이 엔드포인트는 사용자 질문을 허용하고, 일치에 대한 신뢰도 점수와 함께 가장 적합한 기술 자료의 답변으로 응답합니다.
+* **일치**: 기술 자료가 [학습되고 테스트](https://aka.ms/qnamaker-docs-trainkb)되면 [게시](https://aka.ms/qnamaker-docs-publishkb)합니다. 이렇게 하면 QnA Maker 기술 자료에 엔드포인트를 사용할 수 있게되며, 이를 봇 또는 클라이언트 응용프로그램에서 이를 사용할 수 있습니다. 이 엔드포인트는 사용자 질문을 받아들이고, 기술 자료에서 신뢰도 점수가 높은 최상의 결과를 반환합니다.
 
 ```JSON
 {
@@ -55,9 +55,9 @@ QnA Maker에서 데이터에 대해 제공하는 두 가지 핵심 서비스는 
 
 ## <a name="qna-maker-architecture"></a>QnA Maker 아키텍처
 
-QnA Maker 아키텍처는 다음과 같은 두 가지 구성 요소로 구성됩니다.
+QnA Maker 아키텍처는 다음과 같은 두 가지 구성 요소로 이루어져 있습니다.
 
-1. **QnA Maker 관리 서비스**: 초기 만들기, 업데이트, 학습 및 게시가 포함된 QnA Maker 기술 자료에 대한 관리 환경입니다. 이러한 작업은 [포털](https://qnamaker.ai) 또는 [관리 API](https://aka.ms/qnamaker-v4-apis)를 통해 수행할 수 있습니다. 
+1. **QnA Maker 관리 서비스**: 초기 생성, 업데이트, 학습 및 게시가 포함된 QnA Maker 기술 자료에 대한 관리 환경입니다. 이러한 작업은 [포털](https://qnamaker.ai) 또는 [관리 API](https://aka.ms/qnamaker-v4-apis)를 통해 수행할 수 있습니다. 
 
 2. **QnA Maker 데이터 및 런타임**: 지정된 지역의 Azure 구독에 배포됩니다. 사용자의 KB 콘텐츠는 [Azure Search](https://azure.microsoft.com/services/search/)에 저장되고, 엔드포인트는 [App Service](https://azure.microsoft.com/services/app-service/)로 배포됩니다. 또한 분석을 위해 [Application Insights](https://azure.microsoft.com/services/application-insights/) 리소스를 배포하도록 선택할 수도 있습니다.
 
