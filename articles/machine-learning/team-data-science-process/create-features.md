@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: b4194ef5ab1c2c09206ea0acf78cb539bc2fc0b7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fd3f010c3fccca679daa6639c1427d17ae64a0d1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836520"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51343995"
 ---
 # <a name="feature-engineering-in-data-science"></a>데이터 과학의 기능 엔지니어링
 이 문서에서는 기능 엔지니어링의 목적을 설명하고 기계 학습의 데이터 향상 프로세스에서 수행하는 역할의 예를 제공합니다. 이 프로세스를 설명하는 데 사용된 예제는 Azure Machine Learning Studio에서 가져온 것입니다. 
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
-
-이 **메뉴**는 다양한 환경에서 데이터에 대한 기능을 만드는 방법을 설명하는 문서로 연결되는 링크입니다. 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
+이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)의 단계입니다.
 
 기능 엔지니어링은 원시 데이터에서 학습 프로세스를 용이하게 하는 데 도움이 되는 기능을 만들어 학습 알고리즘의 예측 능력을 높입니다. 기능의 엔지니어링 및 선택은 [팀 데이터 과학 프로세스 수명 주기가 무엇인가요?](overview.md)에 설명된 TDSP의 한 부분입니다. 기능 엔지니어링 및 선택은 TDSP의 **개발 기능** 단계의 일부입니다. 
 
@@ -37,6 +35,11 @@ ms.locfileid: "34836520"
 일반적으로 추가 기능을 생성하기 위해 **기능 엔지니어링**을 먼저 적용한 다음, 관련이 없는 중복 기능이나 고도로 상관된 기능을 제거하기 위해 **기능 선택** 단계가 수행됩니다.
 
 기계 학습에 사용되는 교육 데이터는 수집된 원시 데이터에서 기능을 추출하여 향상시킬 수 있습니다. 필기 문자의 이미지 분류 방법을 배우는 경우 엔지니어링된 기능의 예로는 원시 비트 분산 데이터에서 구성된 비트 밀도 맵 작성이 있습니다. 이 맵을 사용하면 단순히 직접 원시 분산을 사용하는 것보다 효율적으로 문자의 경계를 찾을 수 있습니다.
+
+특정 환경의 데이터에 대한 기능을 만들려면 다음 문서를 참조하세요.
+
+* [SQL Server의 데이터에 대한 기능 만들기](create-features-sql-server.md)
+* [Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기](create-features-hive.md)
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -48,7 +51,7 @@ ms.locfileid: "34836520"
 Azure Machine Learning을 시작할 때 스튜디오에 제공된 샘플을 사용하면 이 프로세스를 구체적으로 파악하기가 쉽습니다. 다음은 제공되는 두 가지 예입니다.
 
 * 대상 값이 알려진 감독된 실험에서의 회귀 예제 [자전거 대여 수 예측](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4)
-* [기능 해싱](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
+*  [기능 해싱](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## <a name="example-1-add-temporal-features-for-a-regression-model"></a>예 1: 회귀 모델을 위해 temporal 기능 추가
 Azure Machine Learning Studio의 “자전거 수요 예측" 실험을 사용하여 회귀 작업을 위해 기능을 엔지니어링하는 방법을 설명해 보겠습니다. 이 실험의 목표는 자전거 수요, 즉 특정 월/일/시간에 자전거 대여 수를 예측하는 것입니다. “자전거 대여 UCI 데이터 집합" 데이터 집합을 원시 입력 데이터로 사용합니다. 이 데이터 집합은 미국, 워싱턴 DC에서 자전거 임대망을 유지 관리하는 Capital Bikeshare 회사의 실제 데이터를 기반으로 합니다. 이 데이터 집합에는 2011년과 2012년에 있는 날의 특정 시간 대에 자전거 대여 수가 표시되고, 17379 행과 17열이 포함되어 있습니다. 원시 기능 집합에는 날씨 조건(온도/습도/풍속) 및 날의 유형(휴일/주중)이 포함되어 있습니다. 예측되는 필드는 "cnt" 개수로, 특정 시간 대의 자전거 대여 수를 나타내는 수이고, 범위는 1-977입니다.

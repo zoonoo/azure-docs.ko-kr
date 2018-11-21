@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 8c669e13ec3345ff75024c54eda8c13ad194705a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2e254faae0289cd00c7e66d430ec3148fccb364a
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741133"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory 통합
 
@@ -65,14 +65,22 @@ Confluence SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 �
 
 - Confluence: 5.0 ~ 5.10
 - Confluence: 6.0.1
+- Confluence: 6.1.1
 - Confluence: 6.2.1
+- Confluence: 6.3.4
+- Confluence: 6.4.0
+- Confluence: 6.5.0
 - Confluence: 6.6.2
+- Confluence: 6.7.0
 - Confluence: 6.8.1
+- Confluence: 6.9.0
+- Confluence: 6.10.0
+- Confluence: 6.11.0
 - Confluence: 6.12.0
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Confluence SAML SSO by Microsoft 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -144,7 +152,7 @@ Confluence SAML SSO by Microsoft에서 Azure AD Single Sign-On을 구성하고 �
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 명명된 URL인 경우 포트는 선택 사항입니다. 이러한 값은 Confluence 플러그 인 구성 중에 수신되며 자습서의 뒷부분에 설명되어 있습니다.
 
-5. **SAML 서명 인증서** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여  **앱 페더레이션 메타데이터 URL** 을 복사하고 메모장에 붙여넣습니다.
+5. **SAML 서명 인증서** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
 
     ![인증서 다운로드 링크](./media/confluencemicrosoft-tutorial/tutorial_metadataurl.png)
 

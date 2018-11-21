@@ -17,6 +17,8 @@ items:
     href: detailed-troubleshoot-rdp.md
   - name: DHCP를 사용 안 함으로 인한 RDP 오류 문제 해결
     href: troubleshoot-rdp-dhcp-disabled.md
+  - name: NSG 설정으로 인한 RDP 오류 문제 해결
+    href: troubleshoot-rdp-nsg-problem.md
   - name: 특정 오류 해결
     href: troubleshoot-specific-rdp-errors.md
   - name: 라이선스 없이 서버의 오류 해결
@@ -60,11 +62,11 @@ items:
   items:
   - name: Linux
     href: redeploy-to-new-node-linux.md
-  - name: Windows
+  - name: " Windows"
     href: redeploy-to-new-node-windows.md
 - name: VM 암호 다시 설정
   items:
-  - name: Windows
+  - name: " Windows"
     href: reset-local-password-without-agent.md
   - name: Linux
     href: reset-password.md
@@ -98,19 +100,19 @@ items:
   items:
   - name: Linux
     href: troubleshoot-deployment-new-vm-linux.md
-  - name: Windows
+  - name: " Windows"
     href: troubleshoot-deployment-new-vm-windows.md
 - name: 배포 문제 해결
   items:
   - name: Linux
     href: troubleshoot-deploy-vm-linux.md
-  - name: Windows
+  - name: " Windows"
     href: troubleshoot-deploy-vm-windows.md
 - name: 장치 이름이 변경됨
   href: troubleshoot-device-names-problems.md
 - name: VM 복구 액세스
   items:
-  - name: Windows
+  - name: " Windows"
     items:
     - name: PowerShell
       href: troubleshoot-recovery-disks-windows.md
@@ -149,9 +151,9 @@ items:
   href: understand-vm-reboot.md
 - name: 원격 문제 해결 도구
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: 4b4202e0eb155e80b86332287ba4ed3a37a24741
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: fbbc44073d4cb27222800943826ab7a177709833
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705619"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260632"

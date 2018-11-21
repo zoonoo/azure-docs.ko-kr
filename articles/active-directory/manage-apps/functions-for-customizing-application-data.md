@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: d8e390fc185c3cb0b63bcea56feb4b133652673d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258836"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345796"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 응용 프로그램에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -37,13 +37,13 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 * 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름: \"Contoso\""
 
 ## <a name="list-of-functions"></a>함수 목록
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>추가
-**함수:**<br> Append(source, suffix)
+**함수:**<br>  Append(source, suffix)
 
-**설명:**<br> 원본 문자열 값을 문자열의 끝에 접미사로 추가합니다.
+**설명:**<br>  원본 문자열 값을 문자열의 끝에 접미사로 추가합니다.
 
 **매개 변수:**<br> 
 
@@ -54,9 +54,9 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**함수:**<br> FormatDateTime(source, inputFormat, outputFormat)
+**함수:**<br>  FormatDateTime(source, inputFormat, outputFormat)
 
-**설명:**<br> 한 형식의 날짜 문자열을 다른 형식으로 변환합니다.
+**설명:**<br>  한 형식의 날짜 문자열을 다른 형식으로 변환합니다.
 
 **매개 변수:**<br> 
 
@@ -68,7 +68,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="join"></a>Join
-**함수:**<br> Join(separator, source1, source2, …)
+**함수:**<br>  Join(separator, source1, source2, …)
 
 **설명:**<br> 다중 **source** 문자열 값을 단일 문자열로 결합할 수 있다는 점을 제외하고 Join()은 Append()와 유사하며, 각 값은 **separator** 문자열로 구분됩니다.
 
@@ -83,9 +83,9 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="mid"></a>Mid
-**함수:**<br> Mid(source, start, length)
+**함수:**<br>  Mid(source, start, length)
 
-**설명:**<br> 원본 값의 부분 문자열을 반환합니다. 부분 문자열은 원본 문자열에서 문자 중 일부만 포함하는 문자열입니다.
+**설명:**<br>  원본 값의 부분 문자열을 반환합니다. 부분 문자열은 원본 문자열에서 문자 중 일부만 포함하는 문자열입니다.
 
 **매개 변수:**<br> 
 
@@ -109,7 +109,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="not"></a>not
-**함수:**<br> Not(source)
+**함수:**<br>  Not(source)
 
 **설명:**<br> **원본**의 부울 값을 대칭 이동합니다. **원본** 값이 "*True*"인 경우 "*False*"를 반환합니다. 그렇지 않은 경우 "*True*"를 반환합니다.
 
@@ -124,7 +124,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 **함수:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **설명:**<br>
-문자열 내 값을 대체합니다. 제공된 매개 변수에 따라 다르게 작동합니다.
+ 문자열 내 값을 대체합니다. 제공된 매개 변수에 따라 다르게 작동합니다.
 
 * **oldValue** 및 **replacementValue**가 제공되는 경우:
   
@@ -152,6 +152,24 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 | **template** |옵션 |문자열 |**template** 값이 제공되면, 템플릿 내에서 **oldValue**를 찾아 원본 값으로 바꿉니다. |
 
 - - -
+### <a name="selectuniquevalue"></a>SelectUniqueValue
+**함수:**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
+
+**설명:**<br> 최소 두 개의 인수가 필요하며, 이는 표현식을 사용하여 정의된 고유한 값 생성 규칙입니다. 함수는 각 규칙을 평가한 후 대상 앱/디렉터리에서 생성된 값이 고유한지 확인합니다. 발견된 첫 번째 고유한 값이 반환됩니다. 모든 값이 이미 대상에 있는 경우 항목은 위탁되고 감사 로그에 이유가 기록됩니다. 제공할 수 있는 인수 수에 상한은 없습니다.
+
+> [!NOTE]
+>1. 최상위 레벨 함수이므로 중첩할 수 없습니다.
+>2. 이 함수는 항목 만들기에만 사용할 수 있습니다. 특성과 함께 사용할 경우 **매핑 적용** 속성을 **개체를 만드는 동안만**으로 설정합니다.
+
+
+**매개 변수:**<br> 
+
+| 이름 | 필수/ 반복 | type | 메모 |
+| --- | --- | --- | --- |
+| **uniqueValueRule1  … uniqueValueRuleN ** |2개 이상 필요, 상한 없음 |문자열 | 평가할 고유한 값 생성 규칙 목록 |
+
+
+- - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **함수:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -165,9 +183,9 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**함수:**<br> StripSpaces(source)
+**함수:**<br>  StripSpaces(source)
 
-**설명:**<br> 원본 문자열에서 모든 공백(" ")을 제거합니다.
+**설명:**<br>  원본 문자열에서 모든 공백(" ")을 제거합니다.
 
 **매개 변수:**<br> 
 
@@ -177,7 +195,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 - - -
 ### <a name="switch"></a>Switch
-**함수:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+**함수:**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **설명:**<br> **원본** 값이 **key**와 일치하면, 해당 **key**의 **value**를 반환합니다. **원본** 값과 일치하는 키가 없으면 **defaultValue**를 반환합니다.  **Key** 및 **value** 매개 변수는 항상 쌍으로 제공되어야 합니다. 함수는 항상 짝수 개수의 매개 변수를 예상합니다.
 
@@ -193,7 +211,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 ## <a name="examples"></a>예
 ### <a name="strip-known-domain-name"></a>알려진 도메인 이름 제거
 사용자 이름을 가져오려면 사용자의 전자 메일에서 알려진 도메인 이름을 제거해야 합니다. <br>
-예를 들어, 도메인이 "contoso.com"인 경우 다음 식을 사용할 수 있습니다.
+ 예를 들어, 도메인이 "contoso.com"인 경우 다음 식을 사용할 수 있습니다.
 
 **식:** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -238,8 +256,9 @@ NormalizeDiacritics([givenName])
 * **출력**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
+
 SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다. <br>
-예를 들어 ServiceNow에 대한 날짜 형식을 지정하려고 할 수 있습니다.
+ 예를 들어 ServiceNow에 대한 날짜 형식을 지정하려고 할 수 있습니다.
 
 **식:** <br>
 
@@ -251,8 +270,9 @@ SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다
 * **출력**: “2015-01-23”
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>미리 정의된 옵션 집합을 기반으로 값 바꾸기
+
 Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 정의해야 합니다. <br>
-상태 코드가 미리 정의된 옵션 중 하나와 일치하지 않으면 기본값인 "오스트레일리아/시드니"를 사용합니다.
+ 상태 코드가 미리 정의된 옵션 중 하나와 일치하지 않으면 기본값인 "오스트레일리아/시드니"를 사용합니다.
 
 **식:** <br>
 
@@ -262,6 +282,26 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 
 * **입력** (상태): "QLD"
 * **출력**: "오스트레일리아/브리즈번"
+
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>UPN(userPrincipalName) 특성의 고유한 값 생성
+
+사용자의 이름, 중간 이름, 성에 따라, UPN 특성에 값을 할당하려면 먼저 해당 UPN 특성에 대해 값을 생성하고 대상 AD 디렉터리에서 해당 값이 고유한지 확인해야 합니다.
+
+**식:** <br>
+
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+
+**샘플 입/출력:**
+
+* (PreferredFirstName) **입력**: “John”
+* (PreferredLastName) **입력**: “Smith”
+* **출력**: John.Smith@contoso.com의 UPN 값이 디렉터리에 아직 없는 경우 “John.Smith@contoso.com”
+* **출력**: John.Smith@contoso.com의 UPN 값이 디렉터리에 이미 있는 경우 “J.Smith@contoso.com”
+* **출력**: 위의 두 UPN 값이 디렉터리에 이미 있는 경우 “Jo.Smith@contoso.com”
 
 ## <a name="related-articles"></a>관련 문서
 * [SaaS 앱에 자동화된 사용자 프로비전/프로비전 해제](user-provisioning.md)

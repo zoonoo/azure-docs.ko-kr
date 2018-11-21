@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f899c2fb871ee528219bd48e94de62746626447f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416123"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288121"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -139,10 +139,10 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 |데이터 대상|HDFS, RDBMS, Kafka, MPP ||
 |**토픽**: **메타데이터**|||
 |Hive DB 형식|Mysql, Postgres||
-|아니요. Hive metastore 수|2||
-|아니요. Hive 테이블 수|100||
-|아니요. Ranger 정책 수|20||
-|아니요. Oozie 워크플로 수|100||
+| 아니요. Hive metastore 수|2||
+| 아니요. Hive 테이블 수|100||
+| 아니요. Ranger 정책 수|20||
+| 아니요. Oozie 워크플로 수|100||
 |**토픽**: **규모**|||
 |복제를 비롯한 데이터 볼륨|100TB||
 |일일 수집 볼륨|50GB||
@@ -154,11 +154,11 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 |디스크 공간 사용률|75%||
 |평균 네트워크 사용률(%)|25%
 |**토픽**: **직원**|||
-|아니요. 관리자 수|2||
-|아니요. 개발자 수|10||
-|아니요. 최종 사용자 수|100||
+| 아니요. 관리자 수|2||
+| 아니요. 개발자 수|10||
+| 아니요. 최종 사용자 수|100||
 |기술|Hadoop, Spark||
-|아니요. 마이그레이션 작업에 사용 가능한 리소스|2||
+| 아니요. 마이그레이션 작업에 사용 가능한 리소스|2||
 |**토픽**: **제한 사항**|||
 |현재 제한 사항|대기 시간이 높음||
 |현재 과제|동시성 문제||
@@ -180,9 +180,9 @@ Azure HDInsight는  [HDP(Hortonworks Data Platform)](https://hortonworks.com/pr
 |Azure와 타사의 모니터링 및 경고 사용 비교|Azure 모니터링 및 경고 사용||
 |**토픽**: **보인 기본 설정** |||
 |보호되는 비공개 데이터 파이프라인입니까?|yes||
-|도메인 조인 클러스터(ESPP)입니까?|     yes||
+|도메인 가입 클러스터(ESP)입니까?|     yes||
 |온-프레미스 AD가 클라우드와 동기화됩니까?|     yes||
-|아니요. 동기화할 AD 사용자 수가 얼마입니까?|          100||
+| 아니요. 동기화할 AD 사용자 수가 얼마입니까?|          100||
 |암호를 클라우드와 동기화해도 괜찮습니까?|    yes||
 |클라우드 전용 사용자입니까?|                 yes||
 |MFA가 필요합니까?|                       아니요|| 

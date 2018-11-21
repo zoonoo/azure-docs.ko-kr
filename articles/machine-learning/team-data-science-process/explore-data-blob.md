@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: b80fcecf28eaaf05e7fc199a9c318fd4148b9212
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b617ae1a1df0ed220d03e0124aa9dafd9fc2388c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497861"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346000"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>pandas를 사용하여 Azure Blob 저장소의 데이터 탐색
+
 이 문서는 [pandas](http://pandas.pydata.org/) Python 패키지를 사용하여 Azure Blob 컨테이너에 저장된 데이터를 탐색하는 방법에 대해 설명합니다.
 
-다음 **메뉴** 는 다양한 저장소 환경에서 데이터를 탐색하기 위해 도구를 사용하는 방법을 설명하는 토픽에 연결되는 링크입니다. 이 작업은 [DSP(데이터 과학 프로세스)](overview.md)의 단계입니다.
-
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+이 작업은 [팀 데이터 과학 프로세스](overview.md)의 단계입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
@@ -65,7 +64,7 @@ ms.locfileid: "46497861"
 ## <a name="blob-dataexploration"></a>pandas를 사용 하 여 데이터 탐색의 예
 다음은 pandas를 사용하여 데이터를 탐색하는 방식의 예입니다.
 
-1. **행 및 열 수** 
+1.  **행 및 열 수** 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. 다음 데이터 집합에서 첫 번째 또는 마지막 몇 **행**을 **검사**합니다.

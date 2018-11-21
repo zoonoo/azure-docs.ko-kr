@@ -1,6 +1,6 @@
 ---
 title: Apache Hive 및 HiveQL이란 - Azure HDInsight
-description: Apache Hive는 Hadoop용 데이터 웨어하우스 시스템입니다. Transact-SQL과 유사하게 HiveQL을 사용하여 Hive에 저장된 데이터를 쿼리할 수 있습니다. 이 문서에서는 Azure HDInsight와 함께 Hive 및 HiveQL을 사용하는 방법에 알아봅니다.
+description: Apache Hive는 Apache Hadoop용 데이터 웨어하우스 시스템입니다. Transact-SQL과 유사하게 HiveQL을 사용하여 Hive에 저장된 데이터를 쿼리할 수 있습니다. 이 문서에서는 Azure HDInsight와 함께 Hive 및 HiveQL을 사용하는 방법에 알아봅니다.
 keywords: hiveql,what is hive,hadoop hiveql,how to use hive,learn hive,what is hive
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241109"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633719"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
-[Apache Hive](http://hive.apache.org/)는 Hadoop용 데이터 웨어하우스 시스템입니다. Hive를 사용하면 데이터의 요약, 쿼리 및 분석을 수행할 수 있습니다. Hive 쿼리는 SQL과 유사한 쿼리 언어인 HiveQL로 작성합니다.
+[Apache Hive](http://hive.apache.org/)는 Apache Hadoop용 데이터 웨어하우스 시스템입니다. Hive를 사용하면 데이터의 요약, 쿼리 및 분석을 수행할 수 있습니다. Hive 쿼리는 SQL과 유사한 쿼리 언어인 HiveQL로 작성합니다.
 
 Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 수 있습니다. 구조를 정의한 후에 Java 또는 MapReduce 지식 없이 해당 데이터를 쿼리할 때에 HiveQL을 사용할 수 있습니다.
 
@@ -40,11 +40,11 @@ HDInsight에서 Hive를 사용하는 여러 가지 방법을 알아보려면 다
 | 다음을 원하는 경우 **이 메서드를 사용**... | ...**대화형** 쿼리 | ...**배치** 처리 | ... **클러스터 운영 체제** | ... **클라이언트 운영 체제** |
 |:--- |:---:|:---:|:--- |:--- |
 | [HDInsight tools for Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X, 또는 Windows |
-| [Visual Studio용 HDInsight 도구](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux 또는 Windows* |Windows |
+| [Visual Studio용 HDInsight 도구](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux 또는 Windows* | Windows |
 | [Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |모두(브라우저 기반) |
 | [Beeline 클라이언트](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X, 또는 Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux 또는 Windows* |Linux, Unix, Mac OS X, 또는 Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 또는 Windows* |Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 또는 Windows* | Windows |
 
 > [!IMPORTANT]
 > \* Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
