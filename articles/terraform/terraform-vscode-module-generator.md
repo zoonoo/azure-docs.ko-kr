@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 9ef27166e84192dec81fd8f8da508785342ffefc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288019"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284338"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Yeoman을 사용하여 Azure에 Terraform 기본 템플릿 만들기
 
@@ -227,7 +227,7 @@ Docker 파일을 사용하는 대신 Cloud Shell을 사용하면 프로세스가
 
 ### <a name="start-a-cloud-shell-session"></a>Cloud Shell 세션 시작
 
-1. [Azure Portal](https:/portal.azure.com/), [shell.azure.com](https://shell.azure.com), 또는 [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)을 통해 Azure Cloud Shell 세션을 시작합니다.
+1. [Azure Portal](https://portal.azure.com/), [shell.azure.com](https://shell.azure.com), 또는 [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)을 통해 Azure Cloud Shell 세션을 시작합니다.
 
 1. **Azure Cloud Shell 시작** 페이지가 열립니다. **Bash(Linux)** 를 선택합니다. (Power Shell은 지원되지 않습니다.)
 

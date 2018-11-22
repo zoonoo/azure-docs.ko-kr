@@ -3,19 +3,19 @@ title: '빠른 시작: C#을 사용하여 엔드포인트 호출 - Bing Custom S
 titlesuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 C#으로 Bing Custom Search 엔드포인트를 호출하여 사용자 지정 검색 인스턴스의 검색 결과를 요청하는 방법을 보여 줍니다.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: maheshb
-ms.openlocfilehash: c0e315f9b96133d68bf1f9c02da1436b877baf40
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a04d2a2bcaaf4edcf03fac3e2242f94712ce8022
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468418"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163047"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-c"></a>빠른 시작: Bing Custom Search 엔드포인트 호출(C#)
 

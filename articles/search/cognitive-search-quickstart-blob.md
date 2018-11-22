@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288036"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264131"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>빠른 시작: 기술 및 샘플 데이터를 사용하여 인식 검색 파이프라인 만들기
 
@@ -33,9 +33,16 @@ ms.locfileid: "51288036"
 * 미국 중서부
 * 미국 중남부
 * 미국 동부
+* 미국 동부 2
+* 미국 서부 2
+* 캐나다 중부
 * 서유럽
+* 영국 남부
 * 북유럽
+* 브라질 남부
 * 동남아시아
+* 인도 중부
+* 오스트레일리아 동부
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

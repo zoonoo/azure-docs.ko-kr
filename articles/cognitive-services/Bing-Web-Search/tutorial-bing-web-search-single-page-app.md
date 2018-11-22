@@ -3,19 +3,19 @@ title: '자습서: 단일 페이지 웹앱 만들기 - Bing Web Search API'
 titleSuffix: Azure Cognitive Services
 description: 이 단일 페이지 앱은 Bing Web Search API를 사용하여 단일 페이지 앱에서 관련 검색 결과를 검색, 구문 분석 및 표시하는 방법을 보여 줍니다.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: tutorial
 ms.date: 09/12/2018
-ms.author: erhopf
-ms.openlocfilehash: 670f02cbd8e994664e7c4edd75940ff43f9616b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: b94e6f70d4a28dc59ddaa62cfad55c6c8383b761
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126482"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161925"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>자습서: Bing Web Search API를 사용하여 단일 페이지 앱 만들기
 

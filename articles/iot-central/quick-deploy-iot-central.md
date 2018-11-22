@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: f0e5b9d6e873cad1a997bda2ee286c92ad3818d3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3ffc361421f57b405c284742b662a833b178f9da
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959463"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260326"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램 만들기
 
@@ -30,7 +30,7 @@ Azure IoT Central [응용 프로그램 관리자](https://aka.ms/iotcentral) 페
 
 1. 결제 계획을 선택합니다.
     - **평가판** 응용 프로그램은 만료되기 전에 7일 동안 무료입니다. 만료되기 전에 언제든지 종량제로 변환할 수 있습니다.
-    - **종량제** 응용 프로그램은 처음 5개의 장치 무료와 함께 장치별로 요금이 청구됩니다.
+    - **종량제** 애플리케이션은 처음 5개의 디바이스는 무료로 사용하며, 디바이스별로 요금이 청구됩니다.
 
     [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 가격 책정에 대해 자세히 알아보세요.
 
@@ -60,4 +60,4 @@ Azure IoT Central [응용 프로그램 관리자](https://aka.ms/iotcentral) 페
 이 빠른 시작에서는 IoT Central 응용 프로그램을 만들었습니다. 권장되는 단계는 다음과 같습니다.
 
 > [!div class="nextstepaction"]
-> [IoT Central 둘러보기](#overview-iot-central-tour)
+> [IoT Central 둘러보기](https://docs.microsoft.com/azure/iot-central/overview-iot-central-tour)

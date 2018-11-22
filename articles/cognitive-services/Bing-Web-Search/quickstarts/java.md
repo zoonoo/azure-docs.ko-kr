@@ -3,19 +3,19 @@ title: '빠른 시작: Java를 사용하여 검색 수행 - Bing Web Search API'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java를 사용하여 Bing Web Search API를 처음 호출하고 JSON 응답을 받는 방법을 알아봅니다.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
-ms.openlocfilehash: 9fc9d35db50305b632f5d9c8bdfa13d28ab97980
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: aahi
+ms.openlocfilehash: 1a942e39e680c9399145a629d03a1202b1f85ae7
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412978"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164237"
 ---
 # <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>빠른 시작: Java를 사용하여 Bing Web Search API 호출  
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e879e096fb990e4567b43b1938909449820edd42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412723"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262060"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -178,7 +178,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
      client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. 다음 스크립트 블록을 추가하여 검색 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소, 위치, POI(관심 지점) 같은 대부분의 유사 항목 입력을 처리합니다. 이 코드는 지정된 반경 내에서 가까운 주유소를 검색합니다. 그러면 응답이 GeoJSON 형식으로 구문 분석되어 데이터 원본에 추가되고, 기호 레이어를 통해 데이터의 결과가 자동으로 맵에 렌더링됩니다. 스크립트의 마지막 부분은 맵의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) 속성을 사용하여 결과의 경계 상자를 사용하는 카메라 보기를 설정합니다. 좌표를 기준으로 경계 상자가 계산되므로 기호 아이콘의 픽셀 크기를 보정하기 위해 안쪽 여백이 추가됩니다. 
+2. 다음 스크립트 블록을 추가하여 검색 쿼리를 작성합니다. Search Service의 기본 검색 API인 유사 항목 검색 서비스를 사용합니다. 유사 항목 검색 서비스는 주소, 위치, POI(관심 지점) 같은 대부분의 유사 항목 입력을 처리합니다. 이 코드는 지정된 반경 내에서 가까운 주유소를 검색합니다. 그러면 응답이 GeoJSON 형식으로 구문 분석되어 데이터 원본에 추가되고, 기호 레이어를 통해 데이터의 결과가 자동으로 맵에 렌더링됩니다. 스크립트의 마지막 부분은 맵의 [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 속성을 사용하여 결과의 경계 상자를 사용하는 카메라 보기를 설정합니다. 좌표를 기준으로 경계 상자가 계산되므로 기호 아이콘의 픽셀 크기를 보정하기 위해 안쪽 여백이 추가됩니다. 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.

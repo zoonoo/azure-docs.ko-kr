@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 55ea5adc9ca6378367cf26ac679d8fa63c2ab5f6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 67f42954828b318262abcb600c58e5ea0675d52d
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340378"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853753"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Go를 사용하여 인쇄 텍스트 추출(OCR)
 
@@ -37,10 +37,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     1. `subscriptionKey`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 `uriBase`의 값을 구독 키를 가져온 Azure 지역의 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 메서드에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요한 경우 `imageUrl`의 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.go` 확장명의 파일로 저장합니다. 예: `get-printed-text.go`.
+1. 코드를 `.go` 확장명의 파일로 저장합니다. 예: `get-printed-text.go`
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `go build` 명령을 실행하여 파일에서 패키지를 컴파일합니다. 예: `go build get-printed-text.go`.
-1. 프롬프트에서 컴파일된 패키지를 실행합니다. 예: `get-printed-text`.
+1. 프롬프트에서 `go build` 명령을 실행하여 파일에서 패키지를 컴파일합니다. 예: `go build get-printed-text.go`
+1. 프롬프트에서 컴파일된 패키지를 실행합니다. 예: `get-printed-text`
 
 ```go
 package main
@@ -63,7 +63,7 @@ func main() {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the West Central US region.
+    // Free trial subscription keys are generated in the "westus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     const uriBase =

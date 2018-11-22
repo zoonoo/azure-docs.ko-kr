@@ -3,19 +3,19 @@ title: '빠른 시작: Bing Spell Check API, Java'
 titlesuffix: Azure Cognitive Services
 description: Bing Spell Check API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 20677167c88b4e3cf326067fac7a33bede9ee4c3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: aahi
+ms.openlocfilehash: 988bf8aeea2bd3b172803dac19584b1d3019b178
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420356"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161046"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-java"></a>빠른 시작: Java를 통해 Bing Spell Check API 사용 
 

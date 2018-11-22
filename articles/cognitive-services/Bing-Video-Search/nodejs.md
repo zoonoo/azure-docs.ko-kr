@@ -3,19 +3,19 @@ title: '빠른 시작: Bing Video Search API, Node.js'
 titlesuffix: Azure Cognitive Services
 description: Bing Video Search API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: a4ee4b0c0f4ce46110cebf95cdf927f8df3567d0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: aahi
+ms.openlocfilehash: 25e515d5a62f9f5d396b7d4a9ef8d7b24d9fce42
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220388"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164577"
 ---
 # <a name="quickstart-bing-video-search-api-with-nodejs"></a>빠른 시작: Node.js를 사용한 Bing Video Search API
 
