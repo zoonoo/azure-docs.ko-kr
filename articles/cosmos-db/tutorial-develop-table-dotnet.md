@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c41873d8f87a9a1203cefa37f99098f23e7aab92
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e198a85d1c04cbc437ad23dadfa3005a72eaa2ce
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239016"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161636"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
 
@@ -293,7 +293,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-Azure Cosmos DB는 Table API에 대한 Azure Table 저장소와 동일한 쿼리 기능을 지원합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 추가 기능은 향후 서비스 업데이트의 Table API에서 제공됩니다. 이러한 기능에 대한 개요는 [Azure Cosmos DB 쿼리](sql-api-sql-query.md)를 참조하세요. 
+Azure Cosmos DB는 Table API에 대한 Azure Table 저장소와 동일한 쿼리 기능을 지원합니다. 또한 Azure Cosmos DB는 정렬, 집계, 지리 공간적 쿼리, 계층 구조 및 다양한 기본 제공 함수도 지원합니다. 이러한 기능에 대한 개요는 [Azure Cosmos DB 쿼리](how-to-sql-query.md)를 참조하세요. 
 
 ## <a name="replace-an-entity"></a>엔터티 바꾸기
 엔터티를 업데이트하려면 Table service에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 Table service에 저장합니다. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 

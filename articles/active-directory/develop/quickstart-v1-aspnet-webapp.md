@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: 538a92c094c10cce1177a9669465b383873fc5a1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a421527de275d38650c314d3722a7d2f93e8331d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971844"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285019"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft로 로그인 추가
 
@@ -145,7 +145,7 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 더 자세한 로그인 단추는 [응용 프로그램을 위한 브랜딩 지침](https://docs.microsoft.com/azure/active-directory/develop/howto-add-branding-guidelines-in-azure-ad-apps)으로 이동하세요.
+<!--start-collapse--> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 더 자세한 로그인 단추는 [응용 프로그램을 위한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)으로 이동하세요.
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>7단계: 컨트롤러를 추가하여 사용자 클레임 표시
