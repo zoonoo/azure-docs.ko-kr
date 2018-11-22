@@ -245,6 +245,8 @@ items:
       href: create-ptr-for-smtp-service.md
     - name: 가상 어플라이언스에 대한 문제 해결 검사 목록
       href: virtual-network-troubleshoot-nva.md
+    - name: 아웃바운드 SMTP 연결 문제 해결
+      href: troubleshoot-outbound-smtp-connectivity.md
   - name: 클래식
     items:
     - name: 가상 네트워크 만들기 및 관리
@@ -355,9 +357,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
     href: virtual-networks-faq.md
-ms.openlocfilehash: 693cc8789703a0b224625fe70f501dfc442a6bc6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 03c2f4e3df1ce47405d1b09f93396218e3f57059
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086879"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283507"
