@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2018
+ms.date: 11/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4035e93b8eed0a7bc1dd0cddbc42f41e9c26f333
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 026f8354b3947b3f92c1fc88b7c2e168177543d9
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218868"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284713"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹 앱에 Microsoft 로그인 추가
 
@@ -38,7 +38,7 @@ ms.locfileid: "51218868"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
 >
-> 1. [Azure Portal - 응용 프로그램 등록(미리 보기)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)으로 이동합니다.
+> 1. [Azure Portal - 응용 프로그램 등록(미리 보기)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)으로 이동합니다.
 > 1. 응용 프로그램 이름을 입력하고 **등록**을 클릭합니다.
 > 1. 지침에 따라 클릭 한 번으로 새 응용 프로그램을 다운로드하고 자동으로 구성합니다.
 >

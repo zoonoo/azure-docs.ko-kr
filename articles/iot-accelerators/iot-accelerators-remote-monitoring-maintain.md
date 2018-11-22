@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 3138f0ebb6316e69c873a37d479ddc0279a361ef
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8ea4a615cff02cad1030f10b408fe047f1208a60
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285080"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819223"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>자습서: 장치 문제 해결 및 수정
 
@@ -28,7 +28,7 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 > * 장치의 경고 조사
 > * 장치의 문제 해결
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 

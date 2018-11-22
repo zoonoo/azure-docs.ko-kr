@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: b98c78e0845d6390fee66dd6518acd7b8eb91f37
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: b07c1f1556e69e95b2cd27f94423a6fb09fc44d4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342265"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853866"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 사용하여 썸네일 생성
 
@@ -45,9 +45,9 @@ Computer Vision을 사용하려면 구독 키가 필요합니다. [구독 키 �
     1. `subscription_key`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 `vision_base_url`의 값을 구독 키를 가져온 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요에 따라 `image_url`의 값을 썸네일을 생성하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-thumbnail.py`.
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-thumbnail.py`
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-thumbnail.py`.
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-thumbnail.py`
 
 ```python
 import requests
@@ -65,7 +65,7 @@ assert subscription_key
 # subscription keys. For example, if you got your subscription keys from
 # westus, replace "westcentralus" in the URI below with "westus".
 #
-# Free trial subscription keys are generated in the westcentralus region.
+# Free trial subscription keys are generated in the "westus" region.
 # If you use a free trial subscription key, you shouldn't need to change
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"

@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/18
 ms.author: zarhoads
-ms.openlocfilehash: 7c24375cd86700b3b4125447e1aa6dbc7507d8ba
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 511512434dffe7becd38087482876ddeb68af060
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515814"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853458"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure PowerShell을 사용하여 가상 머신 확장 집합을 만들고, 샘플 응용 프로그램을 배포합니다.
@@ -85,7 +85,7 @@ Update-AzureRmVmss `
 
 ## <a name="allow-traffic-to-application"></a>응용 프로그램에 트래픽 허용
 
- 기본 웹 애플리케이션에 대한 액세스를 허용하려면 [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.compute/new-azurermnetworksecurityruleconfig) 및 [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.compute/new-azurermnetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다. 자세한 내용은 [Azure 가상 머신 확장 집합에 대한 네트워킹](virtual-machine-scale-sets-networking.md)을 참조하세요.
+ 기본 웹 애플리케이션에 대한 액세스를 허용하려면 [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 및 [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)을 사용하여 네트워크 보안 그룹을 만듭니다. 자세한 내용은 [Azure 가상 머신 확장 집합에 대한 네트워킹](virtual-machine-scale-sets-networking.md)을 참조하세요.
 
  ```azurepowershell-interactive
  # Get information about the scale set

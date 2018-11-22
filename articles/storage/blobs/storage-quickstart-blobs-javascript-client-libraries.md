@@ -7,22 +7,25 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.author: tamram
-ms.date: 10/18/2018
+ms.date: 11/14/2018
 ms.topic: quickstart
 ms.component: blobs
-ms.openlocfilehash: 3b4bf95b0f5d275f6c8b4325e88a7ac326efa16b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139461"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711485"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>빠른 시작: 브라우저에서 JavaScript/HTML을 사용하여 Blob 업로드, 나열 및 삭제
+
 이 빠른 시작은 브라우저에서 전적으로 실행되는 코드의 Blob을 관리하는 방법을 보여줍니다. 여기에 사용된 방법은 Blob 저장소 계정에 대한 보호된 액세스를 보장하도록 필요한 보안 조치를 사용하는 방법을 보여줍니다. 이 빠른 시작을 완료하려면 [Azure 구독](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)이 필요합니다.
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+## <a name="prerequisites"></a>필수 조건
+
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>저장소 계정 CORS 규칙 설정 
 웹 응용 프로그램이 클라이언트에서 Blob 저장소에 액세스하려면 [원본 간 리소스 공유](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) 또는 CORS를 사용하도록 계정을 구성해야 합니다. 

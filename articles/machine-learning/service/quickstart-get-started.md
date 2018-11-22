@@ -9,12 +9,12 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7ed45b5e8a8c3cab26c0998260055ffd7a0f0c5d
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159012"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710259"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>빠른 시작: Azure Portal을 사용하여 Azure Machine Learning 시작
 
@@ -37,7 +37,7 @@ ms.locfileid: "50159012"
 
 사용자가 만든 리소스는 다른 Machine Learning 서비스 자습서 및 방법 문서의 필수 구성 요소로 사용할 수 있습니다. 다른 Azure 서비스와 마찬가지로 Machine Learning과 관련하여 특정 리소스에 대한 제한이 있습니다. Azure Batch AI 클러스터 크기를 예로 들 수 있습니다. 기본 제한 및 할당량을 늘리는 방법은 [이 문서](how-to-manage-quotas.md)를 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
 
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기 

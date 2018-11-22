@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 2870bf8911c48ac4cbb442278f172b37a474152b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 4bd36744cc417e85f49e58f9a08d2b9006da9fe4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078056"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284032"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack의 Managed Disks: 차이점 및 고려 사항
 이 문서에서는 Azure Stack의 Managed Disks 및 azure Managed Disks의 알려진된 차이점을 요약 합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
@@ -40,7 +40,7 @@ Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니
 |프리미엄 디스크  |완전하게 지원 |성능 제한이 있지만 프로비저닝할 수 있습니다 또는 보장  |
 |프리미엄 디스크 IOPs  |디스크 크기에 따라 달라 집니다.  |디스크당 IOPs는 2300까지 |
 |프리미엄 디스크 처리량 |디스크 크기에 따라 달라 집니다. |디스크당 초당 145 MB |
-|디스크의 최대 크기  |4 TB       |1TB       |
+|디스크 크기  |Azure Premium 디스크: P4 (32 GiB) P80를 (32 TiB)<br>Azure 표준 SSD 디스크: e 10 (128 GiB) E80를 (32 TiB)<br>Azure 표준 HDD 디스크: S4 (32 GiB) S80를 (32 TiB) |32 M4: GiB<br>64 M6: GiB<br>128 M10: GiB<br>256 M15: GiB<br>512 M20: GiB<br>M30: 1024 GiB |
 |디스크 성능 분석 |메트릭을 집계 하 고 지원 되는 디스크 메트릭 당 |아직 지원 되지 않음 |
 |마이그레이션      |VM을 다시 만들 필요 없이 기존 관리 되지 않는 Azure Resource Manager Vm에서 마이그레이션하는 도구를 제공 합니다.  |아직 지원 되지 않음 |
 

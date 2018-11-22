@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8a5ca4f94a6f1186b6d1a26b1c7e12357cd9e799
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616370"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285121"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 솔루션을 학습 하는 edge 컴퓨터 만들기
 
@@ -89,7 +89,7 @@ Azure 및 Azure Stack에 대 한 사전 지식이 필요합니다. 계속 하기
 
  -  Azure Stack 통합 시스템 또는 Azure Stack 개발 키트 배포 합니다.
 
-    - Azure Stack에서 설치 지침을 찾을 [Azure Stack Development Kit 설치](/articles/azure-stack/asdk/asdk-install)합니다.
+    - Azure Stack에서 설치 지침을 찾을 [Azure Stack Development Kit 설치](../asdk/asdk-install.md)합니다.
      - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 이 설치를 완료 하려면 몇 시간 필요할 수 있습니다.
 
  -  배포 [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) Azure Stack에 PaaS 서비스

@@ -1,21 +1,21 @@
 ---
 title: 클라우드에서 Kubernetes 개발 환경 만들기 | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: iainfoulds
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: iainfou
+ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: fb33eb2ce1d494191f589e78637d886339e595be
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: efb3e63841dbe88bd8711881b373ab505468eabd
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978947"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704769"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>빠른 시작: Azure Dev Spaces(Node.js)를 사용하여 Kubernetes 개발 환경 만들기
 

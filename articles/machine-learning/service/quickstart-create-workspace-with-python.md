@@ -9,12 +9,12 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 11/09/2018
-ms.openlocfilehash: fff08131af277b20034ad23c354b70e73ae32f2e
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 6258717e5c068c910ad9faac3b03f13df8030487
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578283"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710650"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>빠른 시작: Python을 사용하여 Azure Machine Learning 시작
 
@@ -42,7 +42,7 @@ ms.locfileid: "51578283"
 >[!NOTE]
 > 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.74에서 테스트됨 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
 
 
 ## <a name="install-the-sdk"></a>SDK 설치

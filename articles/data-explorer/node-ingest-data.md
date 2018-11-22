@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: d5385ad5142c402a04bb6d5272573917b830754b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: fa322ee685d09717ac5b98398d4d1d61de2be1e9
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142612"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706639"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>빠른 시작: Azure 데이터 탐색기 Node 라이브러리를 사용하여 데이터 수집
 
@@ -149,8 +149,8 @@ kustoClient.execute(kustoDatabse, query, (err, results) => {
 [https://dataexplorer.azure.com](https://dataexplorer.azure.com)에 로그인하고 클러스터에 연결합니다. 데이터베이스에서 다음 명령을 실행하여 지난 4시간 동안 수집 실패가 있었는지 확인합니다. 실행하기 전에 데이터베이스 이름을 바꿉니다.
     
 ```Kusto
-    .show ingestion failures
-    | where FailedOn > ago(4h) and Database == "<DatabaseName>"
+.show ingestion failures
+| where FailedOn > ago(4h) and Database == "<DatabaseName>"
 ```
 
 다음 명령을 실행하여 지난 4시간 동안 진행된 모든 수집 작업의 상태를 확인합니다. 실행하기 전에 데이터베이스 이름을 바꿉니다.

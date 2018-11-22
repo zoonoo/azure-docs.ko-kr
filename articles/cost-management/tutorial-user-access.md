@@ -9,13 +9,13 @@ ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
-manager: dougeby
-ms.openlocfilehash: b3dcfc1756932d75f9885490baa8d09af54d111c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957474"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275270"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>자습서: Cloudyn 데이터 액세스 권한 할당
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정이 있어야 합니다.
-- Cloudyn 평가판 등록 또는 유료 구독이 있어야 합니다.
+- Cloudyn에 대한 평가판 등록 또는 유료 구독이 있어야 합니다.
 
 ## <a name="create-a-user-with-admin-access"></a>관리자 액세스 권한이 있는 사용자 만들기
 

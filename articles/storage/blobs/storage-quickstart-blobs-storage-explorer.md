@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/09/2018
+ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: 336fecf95dab36dcf00b5a0c92b700297622cc6d
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: eef05a5b52e807a4db058682f034f6762cb93b9f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902980"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711194"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>빠른 시작: Azure Storage 탐색기를 사용하여 개체 저장소에 Blob 만들기
 
@@ -21,11 +21,9 @@ ms.locfileid: "48902980"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 이 빠른 시작을 사용하려면 Azure Storage 탐색기를 설치해야 합니다. Windows, Macintosh 또는 Linux용 Azure Storage 탐색기를 설치하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 참조하세요.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="log-in-to-storage-explorer"></a>Storage 탐색기에 로그인
 

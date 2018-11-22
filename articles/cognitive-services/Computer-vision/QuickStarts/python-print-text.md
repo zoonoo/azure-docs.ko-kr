@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: e206f3e716bed558c8041b5714433cecbf9500ac
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 8a435df6c30f625752339bfdf89884ce4a77ddde
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345116"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853798"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 Python을 사용하여 인쇄 텍스트 추출(OCR)
 
@@ -41,9 +41,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     1. `subscription_key`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 `vision_base_url`의 값을 구독 키를 가져온 Azure 지역의 Computer Vision 리소스에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요에 따라 `image_url`의 값을 인쇄 텍스트를 추출하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-printed-text.py`.
+1. 코드를 `.py` 확장명의 파일로 저장합니다. 예: `get-printed-text.py`
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-printed-text.py`.
+1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예: `python get-printed-text.py`
 
 ```python
 import requests
@@ -62,7 +62,7 @@ assert subscription_key
 # subscription keys. For example, if you got your subscription keys from
 # westus, replace "westcentralus" in the URI below with "westus".
 #
-# Free trial subscription keys are generated in the westcentralus region.
+# Free trial subscription keys are generated in the "westus" region.
 # If you use a free trial subscription key, you shouldn't need to change
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"

@@ -6,18 +6,18 @@ ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 7b4b147e51be3061362b57d0b6860b83cc681752
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: aeaa56d192899ef12b698ebbc5f19305f79f4ff1
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685058"
+ms.locfileid: "51706265"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Azure Dev Spaces에서 .NET Core 및 Visual Studio를 사용하여 시작
 

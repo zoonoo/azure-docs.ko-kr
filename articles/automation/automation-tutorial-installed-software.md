@@ -11,12 +11,12 @@ ms.service: automation
 ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: d8fb8ca84f68e6e8c503375b3b2fae1ce1eb72ba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad9fc7deb73cdcbcf83cc10b9b28f7d7e4ac7661
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989212"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283794"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure 및 비Azure 컴퓨터에 설치된 소프트웨어 검색
 
@@ -41,7 +41,7 @@ ms.locfileid: "46989212"
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
+Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
