@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946099"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636274"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 사용하여 문제를 디버그하는 방법
 
@@ -42,12 +42,12 @@ Azure Digital Twins 인스턴스에 대해 진단 설정을 사용하도록 설�
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'yourCorrelationIdentifier'
+| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| 사용자 지정 특성 이름 | 바꿀 항목 |
+| 쿼리 값 | 다음 항목으로 교체 |
 | --- | --- |
-| *yourCorrelationIdentifier* | 이벤트 데이터에 대해 지정된 상관 관계 ID |
+| YOUR_CORRELATION_IDENTIFIER | 이벤트 데이터에 대해 지정된 상관 관계 ID |
 
 사용자 정의 함수를 기록하면 해당 로그는 Azure Log Analytics 인스턴스에 범주 `UserDefinedFunction`으로 나타납니다. 이들을 검색하려면 Azure Log Analytics에 다음 쿼리 조건을 입력합니다.
 
@@ -62,6 +62,8 @@ AzureDiagnostics
 
 솔루션 문제를 해결할 때 일반적인 문제의 진단과 식별이 모두 중요합니다. 사용자 정의 함수를 개발할 때 발생하는 여러 가지 일반적인 문제를 아래에 요약합니다.
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### <a name="ensure-a-role-assignment-was-created"></a>역할 할당이 만들어졌는지 확인
 
 관리 API 내에서 만들어진 역할 할당이 없는 경우 사용자 정의 함수가 알림 보내기, 메타데이터 검색 및 토폴로지 내에서 계산된 값 설정 등과 같은 작업을 수행하기 위한 액세스 권한을 갖지 못하게 됩니다.
@@ -69,13 +71,12 @@ AzureDiagnostics
 관리 API를 통해 사용자 정의 함수에 대한 역할 할당이 있는지 확인합니다.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| 사용자 지정 특성 이름 | 바꿀 항목 |
+| 매개 변수 | 다음 항목으로 교체 |
 | --- | --- |
-| *yourManagementApiUrl* | 관리 API의 전체 URL 경로  |
-| *yourUserDefinedFunctionId* | 역할 할당을 검색할 사용자 정의 함수의 ID|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | 역할 할당을 검색할 사용자 정의 함수의 ID|
 
 역할 할당이 검색되지 않은 경우 [사용자 정의 함수에 대한 역할 함수를 만드는 방법](./how-to-user-defined-functions.md)에 관한 이 문서를 따르십시오.
 
@@ -84,14 +85,13 @@ GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&o
 Azure Digital Twins 인스턴스의 관리 API에 대해 다음 호출을 사용하여 지정된 선택기가 지정된 센서에 적용되는지 결정할 수 있습니다.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| 사용자 지정 특성 이름 | 바꿀 항목 |
+| 매개 변수 | 다음 항목으로 교체 |
 | --- | --- |
-| *yourManagementApiUrl* | 관리 API의 전체 URL 경로  |
-| *yourMatcherIdentifier* | 평가하려는 검사기의 ID |
-| *yourSensorIdentifier* | 평가하려는 센서의 ID |
+| *YOUR_MATCHER_IDENTIFIER* | 평가하려는 검사기의 ID |
+| *YOUR_SENSOR_IDENTIFIER* | 평가하려는 센서의 ID |
 
 응답:
 
@@ -109,13 +109,12 @@ GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluat
 Azure Digital Twins의 관리 API에 대해 다음 호출을 사용하여 지정된 센서의 수신 원격 측정에서 트리거할 사용자 정의 함수의 ID를 결정할 수 있습니다.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| 사용자 지정 특성 이름 | 바꿀 항목 |
+| 매개 변수 | 다음 항목으로 교체 |
 | --- | --- |
-| *yourManagementApiUrl* | 관리 API의 전체 URL 경로  |
-| *yourSensorIdentifier* | 원격 측정을 보낼 센서의 ID |
+| *YOUR_SENSOR_IDENTIFIER* | 원격 측정을 보낼 센서의 ID |
 
 응답:
 

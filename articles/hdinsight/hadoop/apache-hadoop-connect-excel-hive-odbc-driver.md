@@ -1,5 +1,5 @@
 ---
-title: Hive ODBC 드라이버로 Hadoop에 Excel 연결 - Azure HDInsight
+title: Hive ODBC 드라이버로 Apache Hadoop에 Excel 연결 - Azure HDInsight
 description: Excel용 Microsoft Hive ODBC 드라이버를 설정하고 Microsoft Excel의 HDInsight 클러스터에서 데이터를 쿼리하는 데 사용하는 방법에 대해 알아봅니다.
 keywords: hadoop excel, hive excel, hive odbc
 services: hdinsight
@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ecdde9b5ac4c6c303edf553af3eb33986d4fb199
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 09642aba1cd0daa05e56e418330f21361d9263a2
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005090"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632512"
 ---
-# <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Hadoop에 Excel 연결
+# <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Apache Hadoop에 Excel 연결
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
@@ -39,7 +39,7 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 
 이 드라이버는 32비트 또는 64비트 버전의 Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 및 Windows Server 2012에 설치할 수 있습니다. 이 드라이버를 사용하여 Azure HDInsight에 연결할 수 있습니다. ODBC 드라이버를 사용하는 응용 프로그램 버전에 맞는 버전을 설치해야 합니다. 이 자습서에서는 Office Excel에서 드라이버를 사용합니다.
 
-## <a name="create-hive-odbc-data-source"></a>Hive ODBC 데이터 원본 만들기
+## <a name="create-apache-hive-odbc-data-source"></a>Apache Hive ODBC 데이터 원본 만들기
 다음 단계에 따라 Hive ODBC 데이터 원본을 만들 수 있습니다.
 
 1. Windows 8 또는 Windows 10에서 Windows 키를 눌러 시작 화면을 연 후 **data sources**를 입력합니다.

@@ -3,19 +3,19 @@ title: '빠른 시작: Bing Entity Search API, Ruby'
 titlesuffix: Azure Cognitive Services
 description: Bing Entity Search API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: fb6eeafd8183d9e0ae3e6822c236344a9ea1f90f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.author: aahi
+ms.openlocfilehash: a8589c924ecb5a5d3d3503c3b9375d8e14126385
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419047"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160753"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-java"></a>빠른 시작: Ruby를 통해 Bing Entity Search API 사용 
 

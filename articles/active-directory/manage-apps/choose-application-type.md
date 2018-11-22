@@ -12,24 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 3a9f27a92a4bc808ff9bcf04b66523a92f1bcf03
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3fe268b6491a2a3cc1237173506ef5a91beb7d26
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355512"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625084"
 ---
-# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>응용 프로그램을 추가할 때 사용할 응용 프로그램 형식을 선택하는 방법
+# <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션을 추가할 때 애플리케이션 유형 선택
+Azure AD(Azure Active Directory)에 추가할 수 있는 네 가지 유형의 애플리케이션에 대해 알아봅니다. Azure Active Directory에서 애플리케이션을 추가할 때 4개의 애플리케이션 유형 중 하나를 선택하라는 메시지가 표시됩니다. 
 
-이 문서는 Azure AD와 통합할 수 있는 네 가지 기본 응용 프로그램 형식을 이해하는 데 도움이 됩니다.
-
-* 각 형식에 의해 지원되는 항목
-* 해당 응용 프로그램을 선택할 수도 있는 이유
-* 사용자가 **프로비전**되는 방법 또는 사용할 **Single Sign-On** 기술과 같은 해당 응용 프로그램의 핵심 속성을 구성하는 방법.
-
-## <a name="supported-application-types-in-azure-ad"></a>Azure AD에서 지원되는 응용 프로그램 형식
+## <a name="what-are-the-types-of-applications"></a>애플리케이션의 유형은 무엇인가요?
 
 Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가** 기능을 사용하여 추가할 수 있는 네 가지 기본 응용 프로그램 형식을 지원합니다. 내용은 다음과 같습니다.
 
@@ -41,7 +36,7 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 -   **비 갤러리 응용 프로그램** – 사용자의 응용 프로그램을 가져옵니다! 원하는 모든 웹 링크 또는 사용자 이름 및 암호 필드를 렌더링하는 모든 응용 프로그램은 SAML 또는 OpenID Connect 프로토콜을 지원하거나 Single Sign-On에 대해 Azure AD와 통합하려는 SCIM을 지원합니다.
 
-## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>모든 이전 응용 프로그램 형식에서 지원되는 기능 및 특징
+## <a name="features-and-capabilities-supported-by-the-application-types"></a>애플리케이션 유형에서 지원되는 기능 및 특징
 
 다음 기능은 Azure AD에서 이전 4개의 응용 프로그램 형식 중 하나에서 지원됩니다.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 087e11f906fe7f5c2fe67c43a597de8551dfc951
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013057"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685942"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -49,7 +49,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Docker Orchestrator 및 OS 플랫폼에 대한 컨테이너 모니터링 솔루션 지원
 아래 표에는 Log Analytics를 통한 컨테이너 인벤토리/성능/로그의 Docker 오케스트레이션 및 운영 체제 모니터링 지원에 대한 설명이 요약되어 있습니다.   
 
-| | ACS | Linux | Windows | 컨테이너<br>인벤토리 | 이미지<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>행사 | 행사<br>로그 | 컨테이너<br>로그 |
+| | ACS | Linux |  Windows | 컨테이너<br>인벤토리 | 이미지<br>인벤토리 | 노드<br>인벤토리 | 컨테이너<br>성능 | 컨테이너<br>행사 | 행사<br>로그 | 컨테이너<br>로그 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -126,7 +126,7 @@ Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 
 
 **CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우:**
 
-- Linux용 Log Analytics 에이전트를 설치하는 방법에 대한 자세한 내용과 해당 단계는 [Log Analytics에 Linux 컴퓨터 연결](log-analytics-concept-hybrid.md)을 참조하세요.
+- Linux용 Log Analytics 에이전트를 설치하는 방법에 대한 자세한 내용과 단계는 [Log Analytics 에이전트 개요](log-analytics-agent-overview.md)를 참조하세요.
 
 **CoreOS를 포함한 모든 Linux 컨테이너 호스트의 경우:**
 

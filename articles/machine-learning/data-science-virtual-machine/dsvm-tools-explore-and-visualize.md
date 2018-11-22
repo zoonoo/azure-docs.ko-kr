@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: df29d0a55317d06d656d8444c6bd7754c6c955eb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407217"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567386"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine용 데이터 탐색 및 시각화 도구
 
@@ -60,7 +60,7 @@ ms.locfileid: "31407217"
 |    |           |
 | ------------- | ------------- |
 | 무엇인가요?   | 대화형 데이터 시각화 및 BI 도구    |
-| 지원되는 DSVM 버전      | Windows  |
+| 지원되는 DSVM 버전      |  Windows  |
 | 일반적인 사용 용도      |  데이터 시각화 및 대시보드 작성   |
 | 사용/실행 방법      | 바탕 화면 바로 가기(`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | DSVM의 관련 도구      |   Visual Studio 2017, Visual Studio Code, Juno      |

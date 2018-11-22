@@ -14,30 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: spelluru
-ms.openlocfilehash: d4b7babe9d8243c5240ab6d7f990bbaa2a6969a2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4713033ec8729a68f4c5ee13ac6140e0c5f33779
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854442"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578106"
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus 메시징 샘플
 
 Service Bus 메시지 샘플은 [Service Bus 메시지](https://azure.microsoft.com/services/service-bus/)의 주요 기능을 보여 줍니다. 현재, 다음과 같은 두 위치에서 샘플을 찾을 수 있습니다.
 
-- [GitHub의 Service Bus 메시지 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet): GitHub에서 호스팅되는 샘플의 최신 집합입니다. 이러한 .NET 샘플에 대한 설명은 리포지토리에서 [추가 정보 파일](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md)을 참조하세요. 샘플은 계속 업데이트되므로 자주 업데이트를 확인하세요.
-- [MSDN 샘플 페이지](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5): MSDN 코드 갤러리에 위치하는 이전 샘플입니다. 이러한 예제가 계속 작동하지만 유지되지 않으며 현재 권장되는 프로그래밍 방법에 비해 오래된 상태일 수 있습니다.
- 
+- [.NET 및 Java](https://github.com/Azure/azure-service-bus/tree/master/samples) .NET 샘플의 설명은 리포지토리의 [.NET 추가 정보](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md)를, Java 샘플의 설명은 [Java 추가 정보](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)를 참조하세요.
+- [Typescript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+
 ## <a name="service-bus-explorer"></a>Service Bus 탐색기
 
 또한 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)는 Service Bus 서비스 네임스페이스에 연결하여 메시지 엔터티를 쉽게 관리할 수 있도록 GitHub에서 호스팅되는 샘플입니다. 도구는 가져오기/내보내기 기능 등의 고급 기능 및 메시징 엔터티를 테스트하고 서비스를 릴레이하는 기능을 제공합니다. 전체 Service Bus 탐색기 소스 및 [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer)에 대한 설명서를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-샘플 위치는 다음과 같습니다.
-
-- [GitHub 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples)
-- [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)
 
 Service Bus의 개념적 개요는 다음 항목을 참조하세요.
 

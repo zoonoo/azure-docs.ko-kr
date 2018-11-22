@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/13/2018
+ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412451"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632563"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
@@ -60,12 +60,15 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 - Backup 보존 기간
 - 백업 중복 옵션
 - MySQL 엔진 버전
+- 방화벽 규칙
 
 복제본을 만든 후에는 마스터 서버와는 별도로 가격 책정 계층(기본 가격 책정 계층에서 이 계층으로 또는 그 반대로 변경하는 경우는 제외), 계산 생성, vCores, 저장소 및 백업 보존을 변경할 수 있습니다.
 
 ### <a name="master-server-configuration"></a>마스터 서버 구성
 
-마스터의 서버 구성(예: vCores 또는 저장소)이 업데이트되면 복제본 구성은 같거나 더 큰 값으로 업데이트되어야 합니다. 이렇게 하지 않으면 복제본 서버가 마스터에 대한 변경을 따라가지 못하여 결과적으로 충돌할 수 있습니다. 
+마스터의 서버 구성(예: vCores 또는 저장소)이 업데이트되면 복제본 구성은 같거나 더 큰 값으로 업데이트되어야 합니다. 이렇게 하지 않으면 복제본 서버가 마스터에 대한 변경을 따라가지 못하여 결과적으로 충돌할 수 있습니다.
+
+복제본 서버를 만든 후에 마스터 서버에 추가된 새 방화벽 규칙은 복제본에 복제되지 않습니다. 복제본은 새 방화벽 규칙에서도 업데이트되어야 합니다.
 
 ### <a name="deleting-the-master-server"></a>마스터 서버 삭제
 
@@ -87,7 +90,4 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Portal을 사용하여 읽기 복제본 생성 및 관리](howto-read-replicas-portal.md) 방법 알아보기
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- [Azure CLI를 사용하여 읽기 복제본 생성 및 관리](howto-read-replicas-cli.md) 방법 알아보기

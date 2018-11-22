@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 11/07/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389448"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569008"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 
@@ -43,15 +43,21 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
 
    ![Google API 자격 증명](media/google-federation/google-api.png)
  
-4. **Oauth 동의 화면** 탭을 선택하고 **사용자에게 표시되는 제품 이름**을 입력합니다. (다른 설정은 변경하지 말고 그대로 둡니다.) **저장**을 선택합니다.
+4. **OAuth 동의 화면** 탭을 선택하고 **애플리케이션 이름**을 입력합니다. (다른 설정은 변경하지 말고 그대로 둡니다.)
 
    ![Google OAuth 동의 화면](media/google-federation/google-oauth-consent-screen.png)
 
-5. **자격 증명** 탭을 선택합니다. **자격 증명 만들기** 메뉴에서 **OAuth 클라이언트 ID**를 선택합니다.
+5. **권한 있는 도메인** 섹션으로 스크롤하고 microsoftonline.com을 입력합니다.
+
+   ![권한 있는 도메인 섹션](media/google-federation/google-oauth-authorized-domains.png)
+
+6. **저장**을 선택합니다.
+
+7. **자격 증명** 탭을 선택합니다. **자격 증명 만들기** 메뉴에서 **OAuth 클라이언트 ID**를 선택합니다.
 
    ![Google API 자격 증명](media/google-federation/google-api-credentials.png)
 
-6. **응용 프로그램 유형**에서 **웹 응용 프로그램**을 선택한 다음, **권한이 부여된 리디렉션 URI**에서 다음 URI를 입력합니다.
+8. **응용 프로그램 유형**에서 **웹 응용 프로그램**을 선택한 다음, **권한이 부여된 리디렉션 URI**에서 다음 URI를 입력합니다.
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(여기서 `<directory id>`는 디렉터리 ID입니다.)
    
@@ -60,7 +66,7 @@ Google Gmail 사용자에게 초대를 보낼 때 게스트 사용자는 테넌�
 
    ![OAuth 클라이언트 ID 만들기](media/google-federation/google-create-oauth-client-id.png)
 
-7. **만들기**를 선택합니다. 클라이언트 ID 및 클라이언트 비밀을 복사합니다. Azure AD 포털에서 ID 공급자를 추가할 때 사용하게 됩니다.
+9. **만들기**를 선택합니다. 클라이언트 ID 및 클라이언트 비밀을 복사합니다. Azure AD 포털에서 ID 공급자를 추가할 때 사용하게 됩니다.
 
    ![OAuth 클라이언트 ID 및 클라이언트 비밀](media/google-federation/google-auth-client-id-secret.png)
 

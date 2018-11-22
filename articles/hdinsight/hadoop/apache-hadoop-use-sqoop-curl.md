@@ -1,6 +1,6 @@
 ---
-title: HDInsight에서 Curl과 Hadoop Sqoop 사용 - Azure
-description: 원격으로 Curl을 사용하여 HDInsight에 Sqoop 작업을 제출하는 방법에 대해 알아봅니다.
+title: HDInsight에서 Curl과 Apache Sqoop 사용 - Azure
+description: 원격으로 Curl을 사용하여 HDInsight에 Apache Sqoop 작업을 제출하는 방법에 대해 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: fd05ee18ccad7e689f9679df2bbf80dc19e39368
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4b565252c78bfe2194530d840651a57df2686728
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010442"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633176"
 ---
-# <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Curl을 사용하여 HDInsight에서 Hadoop으로 Sqoop 작업 실행
+# <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Curl을 사용하여 HDInsight에서 Hadoop과 Apache Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-HDInsight의 Hadoop 클러스터에서 Curl을 사용하여 Sqoop 작업을 실행하는 방법에 대해 배웁니다.
+HDInsight의 Apache Hadoop 클러스터에서 Curl을 사용하여 Apache Sqoop 작업을 실행하는 방법에 대해 알아봅니다.
 
 Sqoop 작업을 실행하고 모니터링하며 결과를 검색하는 원시 HTTP 요청을 사용하여 HDInsight와 상호 작용하는 방법을 설명하는 데 Curl을 사용합니다. 이 Curl은 HDInsight 클러스터에서 제공하는 WebHCat REST API(이전의 Templeton)를 사용하여 작동합니다.
 

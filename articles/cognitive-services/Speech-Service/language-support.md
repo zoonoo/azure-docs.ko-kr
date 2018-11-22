@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: 5adc0e39c271b71d6c003eaba6cb5b8a71531bd7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471444"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622519"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Speech Service API에 대한 언어 및 지역 지원
 
@@ -160,7 +160,7 @@ zh-TW | 중국어(대만)|Female | “Microsoft Server Speech Text to Speech Voi
 
 ## <a name="speech-translation"></a>Speech Translation
 
-**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 다음과 같은 음성 언어 테이블 중 하나여야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다.
+**Speech Translation** API는 음성 간 음성 및 음성을 텍스트로 번역에 대해 다른 언어를 지원합니다. 원본 언어는 다음과 같은 음성 언어 테이블 중 하나여야 합니다. 사용 가능한 대상 언어는 번역 대상이 음성인지 또는 텍스트인지에 따라 달라집니다. 들어오는 음성을 [60개 언어](https://www.microsoft.com/translator/business/languages/) 이상으로 변환할 수 있습니다. 이러한 언어의 하위 집합을 [음성 합성](language-support.md#text-languages)에 사용할 수 있습니다. 
 
 ### <a name="speech-languages"></a>음성 언어
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse 릴리스 정보 RSe 2018 | Microsoft Docs
+title: Azure SQL Data Warehouse 릴리스 정보 2018년 9월 | Microsoft Docs
 description: Azure SQL Data Warehouse에 대한 릴리스 정보입니다.
 services: sql-data-warehouse
 author: twounder
@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: f2fe1bc06f4122a1d27b22288784b3db167c300c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f8073fd746bc02c23efab914c45c61830942a677
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321702"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577985"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 9월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 9월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.

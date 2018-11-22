@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0058ce8316fa8202cf53eaa1048a44b77efdecb5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012448"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636903"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성입니다.
 
@@ -26,9 +26,9 @@ ms.locfileid: "51012448"
 - Azure AD B2C에서 내보낸 보안 토큰의 중요한 클레임 형식
 - Azure AD B2C 테넌트에 있는 여러 앱 및 정책의 SSO(Single Sign-On) 동작
 
-기본 제공 정책의 경우 다음과 같이 Azure AD B2C 디렉터리에서 이 기능을 사용할 수 있습니다.
+이 기능은 모든 정책 형식에 사용할 수 있지만 이 예제에서는 등록 또는 로그인 정책에 이 기능을 사용하는 방법을 보여줍니다. 기본 제공 정책의 경우 다음과 같이 Azure AD B2C 디렉터리에서 이 기능을 사용할 수 있습니다.
 
-1. **등록 또는 로그인 정책**을 클릭합니다. *참고: **등록 또는 로그인 정책*\*\*뿐만 아니라 모든 정책 유형에서 이 기능을 사용할 수 있습니다.
+1. **등록 또는 로그인 정책**을 클릭합니다.
 2. 클릭하여 정책을 엽니다. 예를 들어 **B2C_1_SiUpIn**을 클릭합니다.
 3. 메뉴 위쪽에서 **편집**을 클릭합니다.
 4. **토큰, 세션 및 Single Sign-On 구성**을 클릭합니다.
@@ -74,7 +74,7 @@ Azure AD B2C는 보호된 리소스에 대한 보안 액세스를 활성화하�
     - **지원되지 않음** - 이 속성은 이전 버전과의 호환성을 위해서만 제공되므로 가능한 한 빨리 **ObjectID**로 전환하는 것이 좋습니다.
 - **정책 ID를 나타내는 클레임** - 이 속성은 토큰 요청에 사용된 정책 ID가 채워지는 클레임 유형을 식별합니다.
     - **tfp** - 이 속성은 기본값입니다.
-    - **acr** -이 속성은 이전 버전과 호환성을 위해서만 제공됩니다.
+    -  **acr** -이 속성은 이전 버전과 호환성을 위해서만 제공됩니다.
 
 ## <a name="session-behavior"></a>세션 동작
 

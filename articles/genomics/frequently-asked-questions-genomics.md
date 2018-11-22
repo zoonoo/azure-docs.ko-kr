@@ -9,16 +9,33 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 804076fdc653622336ac3b99c15df0bc027510d9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730151"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683903"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
 이 문서에는 Microsoft Genomics와 관련될 수 있는 주요 질문이 나열되어 있습니다. Microsoft Genomics 서비스에 대한 자세한 내용은 [Microsoft Genomics란?](overview-what-is-genomics.md)을 참조하세요. 문제 해결 방법에 대한 자세한 내용은 [문제 해결 가이드](troubleshooting-guide-genomics.md)를 참조하세요. 
+
+## <a name="what-is-the-microsoft-genomics-service-gatk-4-promotion"></a>Microsoft Genomics 서비스 GATK 4 프로모션이란?
+2018년 말까지 Microsoft Genomics 서비스는 무료로 GATK4와 함께 20개의 WGS 실행을 제공합니다. 이 제안에 참여하려면 [여기](https://aka.ms/msgatk4)에 등록합니다. 
+
+### <a name="what-are-the-common-issues-i-might-encounter-while-running-the-microsoft-genomics-service-gatk4-promotion"></a>Microsoft Genomics 서비스 GATK4 프로모션을 실행하는 동안 발생할 수 있는 일반적인 문제점은 무엇인가요?
+다음은 일반적인 오류 목록과 권장 해결 방법입니다.
+
+| **메시지**                                                                                                                                                                                    | **원인**                                                                                                    | **해결 방법**                                                                                                                                                                                                       |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `gatk4-promo`는 계정에서 사용할 수 없습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics를 참조하세요.                               | 활성화되지 않은 상태에서 Microsoft Genomics 서비스를 사용하여 GATK4 워크플로를 실행하려고 합니다.       | 계정을 활성화하려면 [여기](https://aka.ms/msgatk4)를 방문하세요. 평가판은 2018년 말에 만료됩니다. 이 날짜 이후에는 프로모션 실행을 위해 계정을 활성화할 수 없습니다. |
+| `gatk4-promo`를 사용해 주셔서 감사합니다. 평가판 기간이 종료되었습니다. https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics에 대한 자세한 내용은                  | GATK4 평가판이 해당 연도 말에 만료되었으며 `gatk4-promo` process_name을 호출하려고 합니다.  | process_name 매개 변수를 `gatk4-promo` 대신 `gatk4`로 전환합니다. 이는 공식 gatk4 버전이며, 이 매개 변수를 사용하면 워크플로에 비용이 청구됩니다.                                         |
+| `gatk4-promo`를 사용해 주셔서 감사합니다. 할당된 모든 실행을 사용했습니다. 자세한 내용은 https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics를 참조하세요. | GATK4에 대해 20번의 프로모션 실행을 모두 성공적으로 제출했습니다.                               | process_name 인수를 `gatk4-promo` 대신 `gatk4`로 설정된 상태에서 실행되는 새 gatk4를 제출하세요. 이 매개 변수를 사용하면 워크플로에 비용이 청구됩니다.                                                          |        
+
+
+## <a name="can-i-run-gatk4-workflows-on-microsoft-genomics-without-signing-up-for-the-gatk4-promotion"></a>GATK4 프로모션에 등록하지 않고 Microsoft Genomics에서 GATK4 워크플로를 실행할 수 있나요?
+예, Microsoft Genomics 서비스의 config.txt 파일에서 process_name을 `gatk4`로 지정하세요. 일반 청구 요금으로 청구되며 20번의 무료 실행은 Microsoft Genomics 계정에 적용되지 않습니다.
+
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics의 SLA는 무엇인가요?
@@ -48,7 +65,7 @@ Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 
 Azure Portal로 이동하여 Genomics 계정 페이지를 여세요. **관리** 제목 아래에서 **액세스 키**를 선택하세요. 거기에서 API URL과 액세스 키를 모두 찾을 수 있습니다.
 
 ## <a name="why-do-i-need-two-access-keys"></a>두 개의 액세스 키가 필요한 이유는 무엇인가요?
-서비스 사용을 중단하지 않고 업데이트(재생성)하려면 두 개의 액세스 키가 필요합니다. 예를 들어, 첫 번째 키를 업데이트하려고 합니다. 이 경우 두 번째 키를 사용하도록 모든 새 워크플로를 전환합니다. 그런 다음 첫 번째 키를 사용하여 이미 실행 중인 워크플로가 완료될 때까지 기다립니다. 그런 다음에 키를 업데이트합니다.
+서비스 사용을 중단하지 않고 업데이트(재생성)하려면 두 개의 액세스 키가 필요합니다. 예를 들어 첫 번째 키를 업데이트하려는 경우 모든 새 워크플로에서 두 번째 키를 사용해야 합니다. 그런 다음, 첫 번째 키를 업데이트하기 전에 첫 번째 키를 사용하는 모든 워크플로가 완료될 때까지 기다립니다.
 
 ## <a name="do-you-save-my-storage-account-keys"></a>내 저장소 계정 키를 저장하나요?
 저장소 계정 키는 Microsoft Genomics 서비스에 대한 단기 액세스 토큰을 만들어 입력 파일을 읽고 출력 파일을 쓰는 데 사용됩니다. 기본 토큰 지속 기간은 48시간입니다. 토큰 지속 기간은 submit 명령의 `-sas/--sas-duration` 옵션으로 변경할 수 있습니다. 값은 시간 단위입니다.

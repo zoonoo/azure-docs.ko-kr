@@ -12,20 +12,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: report-monitor
-ms.date: 05/14/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e4aa4a87bec8f737405c90bb42bdb5fc60cb379a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233000"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625269"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 위험 이벤트
 
-대부분의 보안 침해는 공격자가 사용자의 ID를 도용하여 환경에 대한 액세스 권한을 얻을 때 발생합니다. 손상된 ID를 검색하는 것은 쉬운 작업이 아닙니다. Azure Active Directory는 적응 기계 학습 알고리즘 및 추론을 사용하여 사용자의 계정과 관련된 의심스러운 작업을 검색합니다. 검색된 각 의심스러운 동작은 *위험 이벤트*라는 레코드에 저장됩니다.
+대부분의 보안 침해는 공격자가 사용자의 ID를 도용하여 환경에 대한 액세스 권한을 얻을 때 발생합니다. 손상된 ID를 검색하는 것은 쉬운 작업이 아닙니다. Azure Active Directory는 적응 기계 학습 알고리즘 및 추론을 사용하여 사용자의 계정과 관련된 의심스러운 작업을 검색합니다. 감지된 각 의심스러운 동작은 **위험 이벤트**라는 레코드에 저장됩니다.
 
+두 곳에서 보고된 위험 이벤트를 검토할 수 있습니다.
+
+ - **Azure AD 보고** - 위험 이벤트는 Azure AD의 보안 보고서의 일부입니다. 자세한 내용은 [위험에 노출된 사용자 보안 보고서](concept-user-at-risk.md) 및 [위험한 로그인 보안 보고서](concept-risky-sign-ins.md)를 참조하세요.
+
+ - **Azure AD ID 보호** - 위험 이벤트는 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) 보고 기능의 일부입니다.
+    
 현재, Azure Active Directory는 6가지 유형의 위험 이벤트를 검색합니다.
 
 - [자격 증명이 손실된 사용자](#leaked-credentials) 
@@ -35,18 +41,18 @@ ms.locfileid: "51233000"
 - [의심스러운 작업이 있는 IP 주소에서 로그인](#sign-ins-from-ip-addresses-with-suspicious-activity) 
 - [알 수 없는 위치에서 로그인](#sign-in-from-unfamiliar-locations) 
 
-
 ![위험 이벤트](./media/concept-risk-events/91.png)
 
-감지된 위험 이벤트에 대해 얻은 정보는 Azure AD 구독에 연결됩니다. Azure AD Premium P2 버전에서 모든 기본 감지에 대한 가장 자세한 정보를 가져옵니다. Azure AD Premium P1 버전에서 라이선스에서 다루지 않는 감지는 **추가 위험이 있는 로그인이 감지됨** 위험 이벤트로 표시됩니다.
+감지된 위험 이벤트에 대해 얻은 정보는 Azure AD 구독에 연결됩니다. 
 
+* **Azure AD Premium P2 버전**에서 모든 기본 감지에 대한 가장 자세한 정보를 가져옵니다. 
+* **Azure AD Premium P1 버전**에서 라이선스가 적용되지 않는 검색 항목이 **추가 위험이 있는 로그인이 감지됨**이라는 위험 이벤트로 표시됩니다.
 
-이 문서에서는 위험 이벤트의 자세한 개요와 이를 사용하여 Azure AD ID를 보호하는 방법을 제공합니다.
-
+위험 이벤트의 감지는 ID 보호의 중요한 측면을 나타내는 반면 수동으로 해결하거나 조건부 액세스 정책을 구성하여 자동화된 응답을 구현하는 옵션도 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
 
 ## <a name="risk-event-types"></a>위험 이벤트 유형
 
-위험 이벤트 유형 속성은 위험 이벤트 레코드가 만들어진 의심스러운 동작의 식별자입니다.
+**위험 이벤트 유형** 속성은 위험 이벤트 레코드가 만들어진 의심스러운 동작의 식별자입니다.
 
 검색 프로세스에 대한 Microsoft의 지속적인 투자는 다음과 같은 결과를 가져왔습니다.
 
@@ -62,12 +68,11 @@ ms.locfileid: "51233000"
 - Microsoft 보안 팀
 - 신뢰할 수 있는 기타 소스 
 
-서비스에서 사용자 이름/암호 쌍을 획득하면 AAD에 대해 사용자의 현재 유효한 자격 증명인지 확인합니다. 일치하면 사용자의 암호가 손상된 것이며 *누출된 자격 증명 위험 이벤트*가 만들어집니다.
+서비스에서 사용자 이름/암호 쌍을 획득하면 AAD에 대해 사용자의 현재 유효한 자격 증명인지 확인합니다. 일치하면 사용자의 암호가 손상된 것이며 **누출된 자격 증명 위험 이벤트**가 만들어집니다.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>익명 IP 주소에서 로그인
 
 이 위험 이벤트 유형은 익명 프록시 IP 주소로 식별된 IP 주소에서 시도하여 성공적으로 로그인한 사용자를 식별합니다. 이 프록시는 해당 장치의 IP 주소를 숨기려는 사용자가 사용하며 악의적인 의도로 사용될 수 있습니다.
-
 
 ### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치로 불가능한 이동
 
@@ -86,12 +91,11 @@ ID 보호는 기본 인증/레거시 프로토콜에 대한 일반적이지 않�
 이 위험 이벤트 유형은 적극적으로 봇 서버와 통신한다고 알려진 맬웨어로 감염된 장치에서 시도한 로그인을 식별합니다. 봇 서버와 접촉했던 IP 주소에 대해 사용자의 장치의 IP 주소를 상호 연결하여 결정됩니다. 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>의심스러운 작업이 있는 IP 주소에서 로그인
-이 위험 이벤트 유형은 짧은 기간 동안에 여러 사용자 계정에서 실패한 로그인 시도가 많이 확인되는 IP 주소를 식별합니다. 이는 공격자가 사용하는 IP 주소의 트래픽 패턴과 일치하며 계정이 이미 또는 손상되었거나 손상될 것이라는 확실한 지표입니다. 조직의 다른 사용자가 정기적으로 사용하는 IP 주소와 같은 명백한 "*가양성*"을 무시하는 기계 학습 알고리즘입니다.  시스템에는 새 사용자 및 새 테넌트의 로그인 동작을 알아보는 14일의 초기 학습 기간이 있습니다.
-
+이 위험 이벤트 유형은 짧은 기간 동안에 여러 사용자 계정에서 실패한 로그인 시도가 많이 확인되는 IP 주소를 식별합니다. 이는 공격자가 사용하는 IP 주소의 트래픽 패턴과 일치하며 계정이 이미 또는 손상되었거나 손상될 것이라는 확실한 지표입니다. 조직의 다른 사용자가 정기적으로 사용하는 IP 주소와 같은 명백한 가양성을 무시하는 기계 학습 알고리즘입니다.  시스템에는 새 사용자 및 새 테넌트의 로그인 동작을 알아보는 14일의 초기 학습 기간이 있습니다.
 
 ## <a name="detection-type"></a>검색 유형
 
-검색 유형 속성은 위험 이벤트의 검색 기간에 대한 지표입니다(실시간 또는 오프라인). 현재 대부분의 위험 이벤트는 위험 이벤트가 발생되고 사후 처리 작업에서 오프라인으로 검색됩니다.
+검색 유형 속성은 위험 이벤트의 검색 기간에 대한 지표입니다(**실시간** 또는 **오프라인**). 현재 대부분의 위험 이벤트는 위험 이벤트가 발생되고 사후 처리 작업에서 오프라인으로 검색됩니다.
 
 다음 표에는 검색 유형이 관련 보고서에 표시되는 데 걸리는 시간이 나와 있습니다.
 
@@ -115,7 +119,7 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 
 ## <a name="risk-level"></a>위험 수준
 
-위험 이벤트의 위험 수준 속성은 위험 이벤트의 심각도 및 신뢰도에 대한 지표입니다(높음, 보통 또는 낮음). 이 속성은 수행해야 하는 작업의 우선 순위를 지정하는 데 도움이 됩니다. 
+위험 이벤트의 위험 수준 속성은 위험 이벤트의 심각도 및 신뢰도에 대한 지표입니다(**높음**, **보통** 또는 **낮음**). 이 속성은 수행해야 하는 작업의 우선 순위를 지정하는 데 도움이 됩니다. 
 
 위험 이벤트의 심각도는 신호의 강도를 ID 손상의 예측 변수로 나타냅니다. 신뢰도는 가양성의 가능성에 대한 표시기입니다. 
 
@@ -151,40 +155,19 @@ Azure Active Directory가 검색하는 위험 이벤트 유형의 경우 검색 
 
 ### <a name="sign-ins-from-infected-devices"></a>감염된 장치에서 로그인
 
-이 위험 이벤트는 사용자 장치가 아닌 IP 주소를 식별합니다. 여러 장치에서 단일 IP 주소를 지지하고 일부만 봇 네트워크에서 제어하는 경우 다른 장치에서 시도한 로그인은 이 이벤트를 불필요하게 트리거할 수 있습니다. 이러한 이유로 해당 위험 이벤트를 **낮음**으로 분류합니다.  
+이 위험 이벤트는 사용자 장치가 아닌 IP 주소를 식별합니다. 여러 디바이스에서 단일 IP 주소를 지지하고 일부만 봇 네트워크에서 제어하는 경우 다른 디바이스에서 시도한 로그인은 이 이벤트를 불필요하게 트리거할 수 있습니다. 이 위험 이벤트가 **낮음**으로 분류되는 이유입니다.  
 
-사용자에게 연락하고 모든 사용자 장치를 검사하는 것이 좋습니다. 사용자의 개인 장치가 감염되었거나 이전에 언급했듯이 사용자 이외의 다른 사람이 사용자와 동일한 IP 주소에서 감염된 장치를 사용했을 가능성이 있습니다. 감염된 장치는 종종 바이러스 백신 소프트웨어로 아직 식별되지 않는 맬웨어로 감염됩니다. 또한 장치에 감염을 일으킬 수 있는 잘못된 사용자 습관을 나타낼 수 있습니다.
+사용자에게 연락하고 모든 사용자 장치를 검사하는 것이 좋습니다. 사용자의 개인 디바이스가 감염되었거나 사용자 이외의 다른 사람이 사용자와 동일한 IP 주소에서 감염된 디바이스를 사용했을 가능성이 있습니다. 감염된 디바이스는 종종 바이러스 백신 소프트웨어로 아직 식별되지 않는 맬웨어로 감염됩니다. 또한 디바이스에 감염을 일으킬 수 있는 잘못된 사용자 습관을 나타낼 수 있습니다.
 
 맬웨어 감염을 해결하는 방법에 대한 자세한 내용은 [맬웨어 보호 센터](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409)(영문)를 참조하세요.
-
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>의심스러운 작업이 있는 IP 주소에서 로그인
 
 사용자에게 문의하여 의심스럽다고 표시된 IP 주소에서 실제로 로그인했는지를 확인하는 것이 좋습니다. 일부가 의심스러운 작업에 책임이 있을 수 있는 반면 동일한 IP 주소에 여러 장치가 있을 수 있으므로 이 이벤트 유형의 위험 수준은 "**보통**"입니다. 
 
 
- 
 ## <a name="next-steps"></a>다음 단계
 
-위험 이벤트는 Azure AD의 ID 보호에 대한 기반입니다. Azure AD는 현재 여섯 가지 위험 이벤트를 감지할 수 있습니다. 
-
-
-| 위험 이벤트 유형 | 위험 수준 | 검색 유형 |
-| :-- | --- | --- |
-| [자격 증명이 손실된 사용자](#leaked-credentials) | 높음 | 오프라인 |
-| [익명 IP 주소에서 로그인](#sign-ins-from-anonymous-ip-addresses) | 중간 | 실시간 |
-| [비정상적 위치로 불가능한 이동](#impossible-travel-to-atypical-locations) | 중간 | 오프라인 |
-| [알 수 없는 위치에서 로그인](#sign-in-from-unfamiliar-locations) | 중간 | 실시간 |
-| [감염된 장치에서 로그인](#sign-ins-from-infected-devices) | 낮음 | 오프라인 |
-| [의심스러운 작업이 있는 IP 주소에서 로그인](#sign-ins-from-ip-addresses-with-suspicious-activity) | 중간 | 오프라인|
-
-사용자 환경에서 검색된 위험 이벤트는 어디에서 확인할 수 있습니까?
-두 곳에서 보고된 위험 이벤트를 검토할 수 있습니다.
-
- - **Azure AD 보고** - 위험 이벤트는 Azure AD의 보안 보고서의 일부입니다. 자세한 내용은 [위험에 노출된 사용자 보안 보고서](concept-user-at-risk.md) 및 [위험한 로그인 보안 보고서](concept-risky-sign-ins.md)를 참조하세요.
-
- - **Azure AD ID 보호** - 위험 이벤트는 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) 보고 기능의 일부입니다.
-    
-
-위험 이벤트의 감지는 ID 보호의 중요한 측면을 나타내는 반면 수동으로 해결하거나 조건부 액세스 정책을 구성하여 자동화된 응답을 구현하는 옵션도 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
- 
+* [위험에 노출된 사용자 보안 보고서](concept-user-at-risk.md)
+* [위험한 로그인 보안 보고서](concept-risky-sign-ins.md)
+* [Azure AD ID 보호](../active-directory-identityprotection.md)

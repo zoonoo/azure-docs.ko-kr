@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a91e14afa8325e75507b2f65cd9d71ab38df4524
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 780799103708483fb0092c7a4c15bfaa3269c073
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235244"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636485"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>VM에서 사용자 지정 이미지 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "51235244"
 
     ![사용자 지정 이미지 만들기 창](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. sysprep이 VM에서 실행되었는지 여부를 선택합니다. sysprep이 VM에서 실행되지 않은 경우 이 사용자 지정 이미지에서 VM을 만들 때 sysprep을 실행할지를 지정합니다.
+1. sysprep이 VM에서 실행되었는지 여부를 선택합니다. sysprep이 VM에서 실행되지 않은 경우 사용자 지정 이미지가 만들어질 때 sysprep을 VM에서 실행할 것인지 여부를 지정합니다.
 
 1. 완료했으면 **확인** 을 선택하여 사용자 지정 이미지를 만듭니다.
 

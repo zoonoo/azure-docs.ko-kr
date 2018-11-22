@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 633501b03a362fbd07e14e308e18488f03af5af5
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6f02e20efbcb34d1f70f9f10acbe5bb3800cb4d2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069212"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683954"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -42,7 +42,7 @@ ms.locfileid: "39069212"
 ## <a name="microsoftcdnprofile"></a>Microsoft.CDN/profile
 |실행된 검사|
 |---|
-|<ul> <li>CDN 구성 작업을 위해 보조 포털에 액세스할 수 있는가?</li><li>CDN 끝점에서 진행 중인 배달 문제가 있는가?</li><li>사용자가 CDN 리소스의 구성을 변경할 수 있는가?</li><li>구성 변경 내용이 예상된 속도로 전파되는가?</li><li>사용자가 Azure Portal, PowerShell 또는 API를 사용하여 CDN 구성을 관리할 수 있는가?</li> </ul>|
+|<ul> <li>CDN 구성 작업을 위해 보조 포털에 액세스할 수 있는가?</li><li>CDN 엔드포인트에서 진행 중인 배달 문제가 있는가?</li><li>사용자가 CDN 리소스의 구성을 변경할 수 있는가?</li><li>구성 변경 내용이 예상된 속도로 전파되는가?</li><li>사용자가 Azure Portal, PowerShell 또는 API를 사용하여 CDN 구성을 관리할 수 있는가?</li> </ul>|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |실행된 검사|
@@ -100,6 +100,11 @@ ms.locfileid: "39069212"
 |실행된 검사|
 |---|
 |<ul><li> 네임스페이스에서 등록, 설치 또는 전송과 같은 런타임 작업을 수행 할 수 있는가?</li></ul>|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
+|실행된 검사|
+|---|
+|<ul><li>용량 리소스가 실행 중인가요?</li><li>모든 워크노드가 실행 중인가요?</li></ul>|
 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |실행된 검사|

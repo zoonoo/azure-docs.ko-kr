@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: fd20fe880ae77992e5eadb5f2b581d3f5b53f86e
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bbc9ad4f15bdffa2c0f9b6f4b56f8b1701c83c47
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085878"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636621"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Azure에서 OpenShift를 배포하기 위한 일반적인 필수 조건
 
@@ -99,12 +99,11 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## <a name="create-a-service-principal"></a>서비스 주체 만들기 
-OpenShift는 사용자 이름 및 암호 또는 서비스 주체를 사용하여 Azure와 통신합니다. Azure 서비스 주체는 앱, 서비스 및 OpenShift와 같은 자동화 도구를 사용할 수 있는 보안 ID입니다. 서비스 주체가 Azure에서 수행할 수 있는 작업에 대한 권한은 사용자가 제어하고 정의합니다. 사용자 이름 및 암호를 제공하는 것 이상으로 보안을 향상시키기 위해 이 예제에서는 기본 서비스 주체를 만듭니다.
+OpenShift는 사용자 이름 및 암호 또는 서비스 주체를 사용하여 Azure와 통신합니다. Azure 서비스 주체는 앱, 서비스 및 OpenShift와 같은 자동화 도구를 사용할 수 있는 보안 ID입니다. 서비스 주체가 Azure에서 수행할 수 있는 작업에 대한 권한은 사용자가 제어하고 정의합니다. 서비스 사용자의 권한 범위를 전체 구독 대신 특정 리소스 그룹으로 제한하는 것이 좋습니다.
 
 [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)를 사용하여 서비스 주체를 만들고 OpenShift가 필요로 하는 자격 증명을 출력합니다.
 
 다음 예제에서는 서비스 주체를 만들고 openshiftrg라는 리소스 그룹에 대한 contributor 권한을 할당합니다.
-를 별도로 실행하고 --scopes 옵션을 제공하는 출력을 사용합니다.
 
 먼저 openshiftrg라는 리소스 그룹을 만듭니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor의 Azure Active Directory 활동 로그(미리 보기) | Microsoft Docs
-description: Azure Monitor의 Azure Active Directory 활동 로그 개요(미리 보기)
+description: Azure Monitor의 Azure Active Directory 활동 로그 소개(미리 보기)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,30 +13,30 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3a4fc814a40bf370a137a2045c6218d3ee4b8778
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395580"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625439"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure Monitor의 Azure AD 활동 로그(미리 보기)
 
-이제 Azure Monitor를 사용하여 사용자 고유의 저장소 계정 또는 이벤트 허브에 Azure AD(Azure Active Directory) 활동 로그를 라우팅할 수 있습니다. Azure Monitor의 Azure Active Directory 로그 공개 미리 보기를 사용하면 다음을 수행할 수 있습니다.
+이제 장기 보존 및 데이터 통찰력을 위해 Azure AD(Azure Active Directory) 활동 로그를 여러 엔드포인트에 라우팅할 수 있습니다. Azure Monitor에서 Azure AD 로그인의 공개 미리 보기를 사용하여 다음을 수행할 수 있습니다.
 
-* Azure 저장소 계정의 감사 로그를 보관하여 데이터를 장기간 보존합니다.
-* Splunk 및 QRadar 같은 인기 있는 SIEM(보안 정보 및 이벤트 관리) 도구를 사용하여 감사 로그를 Azure 이벤트 허브로 스트리밍하여 분석합니다.
-* 감사 로그를 이벤트 허브로 스트리밍하여 고유한 사용자 지정 로그 솔루션과 통합합니다.
+* 데이터를 장기간 보존하기 위해 Azure 스토리지 계정에 Azure AD 활동 로그를 보관합니다.
+* Splunk 및 QRadar 같은 인기 있는 SIEM(보안 정보 및 이벤트 관리) 도구를 사용하여 Azure AD 활동 로그를 Azure 이벤트 허브로 스트리밍하여 분석합니다.
+* Azure AD 활동 로그를 이벤트 허브로 스트리밍하여 고유한 사용자 지정 로그 솔루션과 통합합니다.
 * Azure AD 활동 로그를 Log Analytics에 보내 연결된 데이터에 대한 다양한 시각화, 모니터링 및 경고를 가능하게 합니다.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>지원되는 보고서
 
-이 기능을 사용하여 감사 활동 로그 및 로그인 활동 로그를 Azure Storage 계정, 이벤트 허브 또는 사용자 지정 솔루션으로 라우팅할 수 있습니다. 
+이 기능을 사용하여 Azure AD 감사 로그 및 로그인 로그를 Azure 스토리지 계정, 이벤트 허브, Log Analytics 또는 사용자 지정 솔루션으로 라우팅할 수 있습니다. 
 
 * **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
 * **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그에 보고된 작업을 누가 수행했는지 확인할 수 있습니다.
@@ -101,25 +101,19 @@ Log Analytics 작업 영역 관리와 관련된 비용을 검토하려면 [Log A
 
 이 섹션에서는 Azure Monitor의 Azure AD 로그에 대해 자주 묻는 질문에 대답하고 알려진 문제에 대해 토론합니다.
 
-**Q: 어디서 시작해야 합니까?** 
-
-**A**: 이 문서에서는 이 기능을 배포하려면 무엇이 필요한지 살펴봅니다. 필수 구성 요소를 충족한 후에는 로그를 구성하고 이벤트 허브로 라우팅하는 방법을 안내하는 자습서를 진행합니다.
-
----
-
 **Q: 어떤 로그가 포함됩니까?**
 
 **A:** 현재 B2C 관련 감사 이벤트가 포함되지 않지만, 이 기능을 라우팅하는 데 로그인 활동 로그와 감사 로그를 모두 사용할 수 있습니다. 현재 지원되는 로그 유형 및 기능 기반 로그를 알아보려면 [감사 로그 스키마](reference-azure-monitor-audit-log-schema.md) 및 [로그인 로그 스키마](reference-azure-monitor-sign-ins-log-schema.md)를 참조하세요. 
 
 ---
 
-**Q: 작업 수행 후 해당 로그가 이벤트 허브에 표시되려면 얼마나 걸립니까?**
+**Q: 작업 수행 후 해당 로그가 내 이벤트 허브에 표시되려면 얼마나 걸립니까?**
 
 **A**: 작업이 수행된 후 2~5분 내에 이벤트 허브에 로그가 나타나야 합니다. Event Hubs에 대한 자세한 내용은 [Azure Event Hubs란?](../../event-hubs/event-hubs-about.md)을 참조하세요.
 
 ---
 
-**Q: 작업 수행 후 해당 로그가 저장소 계정에 표시되려면 얼마나 걸립니까?**
+**Q: 작업 수행 후 해당 로그가 내 스토리지 계정에 표시되려면 얼마나 걸립니까?**
 
 **A:** Azure 저장소 계정의 경우 대기 시간은 어디서나 작업 수행 후 5~15분입니다.
 

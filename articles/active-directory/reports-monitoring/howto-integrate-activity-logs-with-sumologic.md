@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d13eb22bd58dc7e680a27738549665bc2b691898
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4a39ee2fb057547c44c9eb08c85afdbb971ea5d5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392213"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622417"
 ---
-# <a name="integrate-azure-ad-logs-with-sumologic-by-using-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 SumoLogic과 Azure AD 로그 통합
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 SumoLogic과 Azure Active Directory 로그 통합
 
 이 문서에서는 Azure Monitor를 사용하여 SumoLogic과 Azure AD(Azure Active Directory) 로그를 통합하는 방법을 알아봅니다. 먼저 Azure 이벤트 허브에 로그를 라우트한 다음, SumoLogic과 이벤트 허브를 통합합니다.
 

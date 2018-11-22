@@ -11,18 +11,18 @@ ms.custom: mvc, vs-azure
 ms.topic: quickstart
 ms.date: 11/15/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 37663e5053de8066458364bbfdf824caa154dfb1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 48651d7c4589af4f8866001c1330c041cab5ea1a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227028"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261363"
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
-Visual Studio Tools for AI는 딥 러닝/AI 솔루션을 빌드, 테스트 및 배포하기 위한 개발 확장입니다. Azure Machine Learning과 원활한 통합, 특히 이전 교육 및 사용자 지정 메트릭의 성능을 자세히 기술한 실행 기록 보기가 특징입니다. 또한 [Microsoft Cognitive Toolkit(이전의 CNTK)](https://www.microsoft.com/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) 및 기타 심층 학습 프레임워크를 사용하여 새 프로젝트를 탐색하고 부트스트랩할 수 있는 샘플 탐색기 보기를 제공합니다. 끝으로 Azure Virtual Machines 또는 GPU 포함 Linux 서버 같은 원격 환경에 관한 모델을 교육하는 작업을 제출할 수 있는 컴퓨터 대상에 대한 탐색기를 제공합니다. 또한 [Azure Batch AI(미리 보기)](https://docs.microsoft.com/azure/batch-ai/)에 수월하게 액세스할 수 있습니다.
+Visual Studio Tools for AI는 딥 러닝/AI 솔루션을 빌드, 테스트 및 배포하기 위한 개발 확장입니다. Azure Machine Learning과 원활한 통합, 특히 이전 교육 및 사용자 지정 메트릭의 성능을 자세히 기술한 실행 기록 보기가 특징입니다. 또한 [Microsoft Cognitive Toolkit(이전의 CNTK)](https://docs.microsoft.com/cognitive-toolkit/), [Google TensorFlow](https://www.tensorflow.org) 및 기타 심층 학습 프레임워크를 사용하여 새 프로젝트를 탐색하고 부트스트랩할 수 있는 샘플 탐색기 보기를 제공합니다. 끝으로 Azure Virtual Machines 또는 GPU 포함 Linux 서버 같은 원격 환경에 관한 모델을 교육하는 작업을 제출할 수 있는 컴퓨터 대상에 대한 탐색기를 제공합니다. 또한 [Azure Batch AI(미리 보기)](https://docs.microsoft.com/azure/batch-ai/)에 수월하게 액세스할 수 있습니다.
  
 ## <a name="getting-started"></a>시작 
 시작하려면 먼저 [Visual Studio](https://www.visualstudio.com/downloads/)를 다운로드하여 설치해야 합니다. Visual Studio를 연 후 다음 단계를 수행합니다.

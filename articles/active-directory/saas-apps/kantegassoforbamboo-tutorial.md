@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ceab1293b5bd1fbae9088783651d0effa8c5a78a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e6e534aaa833d7c66216896765d20cdcf50a461
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449005"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>자습서: Kantega SSO for Bamboo와 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Kantega SSO for Bamboo와 Azure AD 통합을 구성하려면 다음 항목이 �
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Kantega SSO for Bamboo 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -114,7 +114,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하고 테스트�
     
     a. **식별자** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    b. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
 1. **SP** 시작 모드에서 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
@@ -173,7 +173,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하고 테스트�
 
     a. **앱 ID URI**을 복사하여 Azure Portal의 **Kantega SSO for Bamboo 도메인 및 URL** 섹션에서 **식별자, 회신 URL 및 로그온 URL**로 사용합니다.
 
-    나. **다음**을 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 1. **Metadata import**(메타데이터 가져오기) 섹션에서 다음 단계를 수행합니다.
 
@@ -181,7 +181,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하고 테스트�
 
     a. **Metadata file on my computer**(내 컴퓨터의 메타데이터 파일)를 클릭하여 Azure Portal에서 다운로드한 메타데이터 파일을 업로드합니다.
 
-    나. **다음**을 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 1. **Name and SSO location**(이름 및 SSO 위치) 섹션에서 다음 단계를 수행합니다.
 
@@ -189,7 +189,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하고 테스트�
 
     a. **ID 공급자 이름** 텍스트 상자에 ID 공급자의 이름(예: Azure AD)을 입력합니다.
 
-    나. **다음**을 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 1. 서명 인증서를 확인하고 **다음**을 클릭합니다.   
 
@@ -201,7 +201,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하고 테스트�
 
     a. **필요한 경우 Bamboo의 내부 디렉터리에 사용자 만들기**를 선택하고 사용자에 대한 적절한 그룹 이름을 입력합니다(그룹이 여러 개인 경우 쉼표로 구분 가능).
 
-    나. **다음**을 클릭합니다.
+    b. **다음**을 클릭합니다.
 
 1. **Finish**를 클릭합니다.
 
@@ -213,12 +213,12 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하고 테스트�
 
     a. 페이지의 왼쪽 창에서 **Known domains**(알려진 도메인)를 선택합니다.
 
-    나. **Known domains**(알려진 도메인) 텍스트 상자에 도메인 이름을 입력합니다.
+    b. **Known domains**(알려진 도메인) 텍스트 상자에 도메인 이름을 입력합니다.
 
     다. **저장**을 클릭합니다.
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -245,7 +245,7 @@ Kantega SSO for Bamboo에서 Azure AD Single Sign-On을 구성하고 테스트�
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 
@@ -269,7 +269,7 @@ Azure AD 사용자가 Bamboo에 로그인할 수 있도록 하려면 Bamboo로 �
 
     a. **사용자 이름** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
     
-    나. **암호** 텍스트 상자에서 사용자에 대한 암호를 입력합니다.
+    b. **암호** 텍스트 상자에서 사용자에 대한 암호를 입력합니다.
 
     다. **암호 확인** 텍스트 상자에 사용자의 암호를 다시 입력합니다.
     

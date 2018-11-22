@@ -2,20 +2,20 @@
 title: Azure 빠른 시작 - Batch 작업 실행 - .NET
 description: Batch .NET 클라이언트 라이브러리를 사용하여 Batch 작업 및 태스크를 빠르게 실행합니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/06/2018
-ms.author: danlep
+ms.date: 11/16/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d22e5111a0413c1774d4d41290741414c82039f7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d6d1fb9631af06f6bfbb2c360661779281a08905
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814834"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975112"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>빠른 시작: .NET API를 사용하여 첫 번째 Azure Batch 작업 실행
 
@@ -73,7 +73,7 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 그런 다음 실행합니다. 샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 계산 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 배치 계정으로 이동하여 풀, 계산 노드, 작업 및 태스크를 모니터링합니다.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/16/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -150,7 +150,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 Batch 풀을 만들려면 앱에서 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 메서드를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Windows Server 이미지에 대한 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference)를 지정합니다. Batch는 Azure Marketplace의 다양한 Linux 및 Windows Server 이미지와 사용자 지정 VM 이미지를 지원합니다.
 
-노드 수(`PoolNodeCount`)와 VM 크기(`PoolVMSize`)는 상수로 정의됩니다. 샘플은 기본적으로 *Standard_A1_v2* 크기인 2개 노드로 구성되는 풀을 만듭니다. 제안된 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다. 
+노드 수(`PoolNodeCount`)와 VM 크기(`PoolVMSize`)는 상수로 정의됩니다. 샘플은 기본적으로 *Standard_A1_v2* 크기인 2개 노드로 구성되는 풀을 만듭니다. 제안된 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
 
 [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) 메서드는 풀을 Batch 서비스에 제출합니다.
 
@@ -158,7 +158,7 @@ Batch 풀을 만들려면 앱에서 [BatchClient.PoolOperations.CreatePool](/dot
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2012-R2-Datacenter-smalldisk",
+    sku: "2016-Datacenter-smalldisk",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =

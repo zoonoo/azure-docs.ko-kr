@@ -1,7 +1,21 @@
-제목: API 참조 = Face API 제목 접미사: Azure Cognitive Services 설명: API 참조는 Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management 및 Face Algorithms API에 대한 정보를 제공합니다.
-서비스: cognitive-services 작성자: SteveMSFT 관리자: cgronlun
-
-ms.service: cognitive-services ms.구성 요소: face-api ms.제목: 참조 ms.날짜: 2018/03/01 ms.작성자: sbowles
+---
+title: API 참조 - Face API
+titleSuffix: Azure Cognitive Services
+description: API 참조는 Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management 및 Face Algorithms API에 대한 정보를 제공합니다.
+services: cognitive-services
+author: SteveMSFT
+manager: cgronlun
+ms.service: cognitive-services
+ms.component: face-api
+ms.topic: reference
+ms.date: 03/01/2018
+ms.author: sbowles
+ms.openlocfilehash: 283a042bb8ea32f8f6db9bebb211bc2762a3a4c1
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578076"
 ---
 # <a name="api-reference"></a>API 참조
 

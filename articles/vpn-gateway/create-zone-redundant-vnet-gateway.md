@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: f531be5a814ed1805a2938daec1d210f9daccfa5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 400ac3232b7e7dcd594734d818e3cafef09188fd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949777"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614551"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Azure 가용성 영역에서 영역 중복 가상 네트워크 게이트웨이 만들기
 
-Azure 가용성 영역에 VPN 및 ExpressRoute 게이트웨이를 배포할 수 있습니다. 그러면 가상 네트워크 게이트웨이에 복원력, 확장성 및 고가용성이 제공됩니다. Azure Availability Zones에서 게이트웨이를 배포하면 Azure에서 영역 수준 오류로의 온-프레미스 네트워크 연결성을 보호하면서 물리적 및 논리적으로 영역 내 게이트웨이를 구분합니다. 자세한 내용은 [영역 중복 가상 네트워크 게이트웨이 정보](about-zone-redundant-vnet-gateways.md) 및 [Azure 가용성 영역 정보](../availability-zones/az-overview.md)를 참조하세요.
+Azure 가용성 영역에서 VPN 및 ExpressRoute 게이트웨이를 배포할 수 있습니다. 그러면 가상 네트워크 게이트웨이에 복원력, 확장성 및 고가용성이 제공됩니다. Azure Availability Zones에서 게이트웨이를 배포하면 Azure에서 영역 수준 오류로의 온-프레미스 네트워크 연결성을 보호하면서 물리적 및 논리적으로 영역 내 게이트웨이를 구분합니다. 자세한 내용은 [영역 중복 가상 네트워크 게이트웨이 정보](about-zone-redundant-vnet-gateways.md) 및 [Azure 가용성 영역 정보](../availability-zones/az-overview.md)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

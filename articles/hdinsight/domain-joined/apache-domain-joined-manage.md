@@ -9,19 +9,19 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 02a77ef9589a42a6f33087ba7e22efc3144a8f2c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973561"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634467"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
 HDInsight ESP(Enterprise Security Package)의 사용자 및 역할과 ESP 클러스터 관리 방법을 알아봅니다.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>VSCode를 사용하여 도메인 가입된 클러스터에 연결
 
-Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다.
+Apache Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결하고, 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 보안 Apache Hadoop 클러스터를 연결할 수 있습니다.
 1. **CTRL+SHIFT+P**를 선택하여 명령 팔레트를 연 다음, **HDInsight: Link a cluster**를 입력합니다.
 
    ![클러스터 연결 명령](./media/apache-domain-joined-manage/link-cluster-command.png)

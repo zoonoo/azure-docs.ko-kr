@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: f71a7ad538e22359a2a0dd9c2e3f6c4448ee5a2d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5d1e86630ff9143a75e5b0502a64c7661cc2822c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232396"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161085"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB 소개: SQL API
 
@@ -24,7 +24,7 @@ ms.locfileid: "51232396"
 
 ![Azure SQL API](./media/sql-api-introduction/cosmosdb-sql-api.png) 
 
-Azure Cosmos DB는 SQL API를 사용하여 스키마 없는 JSON 데이터에 꾸준히 낮은 대기 시간으로 풍부하고 친숙한 [SQL 쿼리 기능](sql-api-sql-query.md)을 제공합니다. 이 문서에서는 Azure Cosmos DB에 포함된 SQL API의 개요에 대해 설명하고, 이 API를 사용하여 방대한 볼륨의 JSON 데이터를 저장하고, 밀리초 크기 대기 시간 내에서 쿼리하고, 스키마를 쉽게 발전시키는 방법을 제공합니다. 
+Azure Cosmos DB는 SQL API를 사용하여 스키마 없는 JSON 데이터에 꾸준히 낮은 대기 시간으로 풍부하고 친숙한 [SQL 쿼리 기능](how-to-sql-query.md)을 제공합니다. 이 문서에서는 Azure Cosmos DB에 포함된 SQL API의 개요에 대해 설명하고, 이 API를 사용하여 방대한 볼륨의 JSON 데이터를 저장하고, 밀리초 크기 대기 시간 내에서 쿼리하고, 스키마를 쉽게 발전시키는 방법을 제공합니다. 
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Azure Cosmos DB는 어떤 기능 및 주요 기능을 제공하나요?
 Azure Cosmos DB는 SQL API를 통해 다음과 같은 주요 기능 및 이점을 제공합니다.
@@ -34,7 +34,7 @@ Azure Cosmos DB는 SQL API를 통해 다음과 같은 주요 기능 및 이점�
 
 * **다중 지역 복제:** Azure Cosmos DB에서는 Azure Cosmos DB 계정에 연결된 모든 지역에 투명하게 데이터를 복제하여 해당 보증을 포함한 일관성, 가용성과 성능 사이의 균형을 제공하는 한편 데이터에 대한 전역 액세스를 필요로 하는 응용 프로그램을 개발할 수 있도록 합니다. Azure Cosmos DB에서는 멀티 호밍 API를 사용하는 투명한 지역 장애 조치 및 전 세계에 걸쳐 처리량 및 저장소 크기를 탄력적으로 조정하는 기능을 제공합니다. [Azure Cosmos DB로 데이터를 글로벌 배포](distribute-data-globally.md)에서 자세히 알아봅니다.
 
-* **익숙한 SQL 구문을 사용한 임시 쿼리:** 다른 형식의 JSON 문서를 저장하고 익숙한 SQL 구문을 통해 해당 문서를 쿼리합니다. Azure Cosmos DB는 동시성이 높고 잠금이 없으며 로그 구조화된 인덱싱 기술을 활용하여 모든 문서 콘텐츠를 자동으로 인덱싱합니다. 따라서 스키마 힌트, 보조 인덱스 또는 뷰를 지정할 필요 없이 풍부한 실시간 쿼리를 사용할 수 있습니다. [Azure Cosmos DB 쿼리](sql-api-sql-query.md)에서 자세히 알아보세요. 
+* **익숙한 SQL 구문을 사용한 임시 쿼리:** 다른 형식의 JSON 문서를 저장하고 익숙한 SQL 구문을 통해 해당 문서를 쿼리합니다. Azure Cosmos DB는 동시성이 높고 잠금이 없으며 로그 구조화된 인덱싱 기술을 활용하여 모든 문서 콘텐츠를 자동으로 인덱싱합니다. 따라서 스키마 힌트, 보조 인덱스 또는 뷰를 지정할 필요 없이 풍부한 실시간 쿼리를 사용할 수 있습니다. [Azure Cosmos DB 쿼리](how-to-sql-query.md)에서 자세히 알아보세요. 
 * **데이터베이스 내의 JavaScript 실행:** 표준 JavaScript를 사용하여 응용 프로그램 논리를 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)로 표현합니다. 이렇게 하면 응용 프로그램과 데이터베이스 스키마 간의 불일치에 관계 없이 응용 프로그램 논리가 데이터에서 작동할 수 있습니다. SQL API는 데이터베이스 엔진 내에서 직접 JavaScript 응용 프로그램 논리의 전체 트랜잭션 실행을 제공합니다. JavaScript가 전체 통합되므로 JavaScript 프로그램 내에서 격리된 트랜잭션으로 INSERT, REPLACE, DELETE 및 SELECT 작업을 실행할 수 있습니다. [SQL Server 쪽 프로그래밍](programming.md)에서 자세히 알아보세요.
 
 * **튜닝 가능한 일관성 수준:** 잘 정의된 5가지 일관성 수준에서 선택하여 일관성과 성능 간의 최적 절충을 실현합니다. 쿼리 및 읽기 작업에 대해 Azure Cosmos DB는 강력, 제한된 부실, 세션, 일관된 접두사, 최종의 5가지 일관성 수준을 제공합니다. 이러한 잘 정의된 세부적인 일관성 수준을 통해 일관성, 가용성 및 대기 시간 간에 타당한 절충을 수행할 수 있습니다. [일관성 수준을 사용하여 가용성 및 성능 최대화](consistency-levels.md)에서 자세히 알아보세요.

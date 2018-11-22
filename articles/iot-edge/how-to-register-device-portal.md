@@ -2,18 +2,18 @@
 title: 새 Azure IoT Edge 장치 등록(포털) | Microsoft Docs
 description: Azure Portal을 사용하여 새 IoT Edge 장치를 등록
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b61594469df33e11c23c9cbe0b9542da374fefa3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 6657203c76bc03a262fbcbd30b5bf74b5be140eb
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035247"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577501"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Azure Portal에서 새 Azure IoT Edge 장치 등록
 
@@ -23,7 +23,7 @@ Azure IoT Edge에서 IoT 장치를 사용하려면 먼저 IoT Hub에 등록해�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)입니다. 
+* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) 
 
 ## <a name="create-a-device"></a>장치 만들기
 
@@ -44,7 +44,7 @@ IoT Hub에 연결된 에지를 사용할 수 있는 모든 장치는 **IoT Edge*
 장치를 설정할 준비가 되면, 물리적 장치를 IoT Hub에 있는 해당 ID와 연결하는 연결 문자열이 필요합니다.
 
 1. 포털에서 **IoT Edge** 페이지의 Edge 장치 목록에서 장치 ID를 클릭합니다. 
-2. **연결 문자열 - 기본 키** 또는 **연결 문자열 - 보조 키** 중 하나의 값을 복사합니다. 
+2. **연결 문자열(기본 키)** 또는 **연결 문자열(보조 키)** 중 하나의 값을 복사합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

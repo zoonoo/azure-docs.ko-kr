@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 3f826b622ed88d861d687fe7a6cb9b1304f6d779
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: acfaed619aa8d6e90060b31023e0ae0f33709d73
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342147"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853033"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>빠른 시작: Computer Vision에서 REST API 및 JavaScript를 사용하여 원격 이미지 분석
 
@@ -36,7 +36,7 @@ Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가�
     1. `subscriptionKey`의 값을 구독 키로 바꿉니다.
     1. 필요한 경우 `uriBase`의 값을 구독 키를 가져온 Azure 지역의 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 메서드에 대한 엔드포인트 URL로 바꿉니다.
     1. 필요한 경우 `inputImage` 컨트롤에 대한 `value` 특성의 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.html` 확장명의 파일로 저장합니다. 예: `analyze-image.html`.
+1. 코드를 `.html` 확장명의 파일로 저장합니다. 예: `analyze-image.html`
 1. 브라우저 창을 엽니다.
 1. 브라우저에서 파일을 브라우저 창으로 끌어서 놓습니다.
 1. 웹 페이지가 브라우저에 표시되면 **이미지 분석** 단추를 선택합니다.
@@ -64,7 +64,7 @@ Computer Vision에 대한 구독 키가 있어야 합니다. 구독 키를 가�
         // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the West Central US region.
+        // Free trial subscription keys are generated in the "westus" region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =

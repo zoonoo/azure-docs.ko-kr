@@ -3,19 +3,19 @@ title: '빠른 시작: Bing Video Search API, C#'
 titlesuffix: Azure Cognitive Services
 description: Bing Video Search API 사용을 빠르게 시작하는 데 도움이 되는 정보 및 코드 샘플을 확인합니다.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 00522ac87a74226c9af1920bd884792ff2956a95
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: aahi
+ms.openlocfilehash: 6078ab0ac5b5fbde64def2bb79f23ad804fd1149
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225772"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160523"
 ---
 # <a name="quickstart-bing-video-search-api-with-c"></a>빠른 시작: C#을 사용하여 Bing Video Search API
 

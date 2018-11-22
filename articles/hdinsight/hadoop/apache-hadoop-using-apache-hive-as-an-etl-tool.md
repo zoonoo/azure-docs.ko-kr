@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: cd62083bc7bd0254084f0fc209540de929c25d06
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042256"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632546"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용
 
-일반적으로 들어오는 데이터를 분석에 적합한 대상으로 로드하기 전에, 정리하고 변환해야 합니다. ELT(추출, 변환 및 로드) 작업은 데이터를 준비하고 데이터 대상에 로드하는 데 사용됩니다.  HDInsight의 Hive는 구조화되지 않은 데이터를 읽고, 필요에 따라 데이터를 처리한 후 의사 결정 지원 시스템에 대한 관계형 데이터 웨어하우스에 데이터를 로드할 수 있습니다. 이 방법에서 데이터는 원본에서 추출된 후 확장 가능한 저장소(예: Azure Storage Blob 또는 Azure Data Lake Store)에 저장됩니다. 그런 후 데이터는 Hive 쿼리 시퀀스를 사용하여 변환된 후, Hive 내에서 대상 데이터 저장소로 대량 로드되기 위한 최종 준비 단계가 됩니다.
+일반적으로 들어오는 데이터를 분석에 적합한 대상으로 로드하기 전에, 정리하고 변환해야 합니다. ELT(추출, 변환 및 로드) 작업은 데이터를 준비하고 데이터 대상에 로드하는 데 사용됩니다.  HDInsight의 Apache Hive는 구조화되지 않은 데이터를 읽고, 필요에 따라 데이터를 처리한 다음, 의사 결정 지원 시스템에 대한 관계형 데이터 웨어하우스에 데이터를 로드할 수 있습니다. 이 방법에서 데이터는 원본에서 추출된 후 확장 가능한 저장소(예: Azure Storage Blob 또는 Azure Data Lake Store)에 저장됩니다. 그런 후 데이터는 Hive 쿼리 시퀀스를 사용하여 변환된 후, Hive 내에서 대상 데이터 저장소로 대량 로드되기 위한 최종 준비 단계가 됩니다.
 
 ## <a name="use-case-and-model-overview"></a>사용 사례 및 모델 개요
 

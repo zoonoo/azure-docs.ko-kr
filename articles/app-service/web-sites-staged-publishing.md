@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ea9167404034911a0e917374fbdb9962da1578d5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257836"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636070"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
 
-웹앱, Linux의 웹앱, 모바일 백 엔드 및 API 앱을 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에 배포할 때 **표준** 또는 **프리미엄** App Service 계획 계층에서 실행하면 기본 프로덕션 슬롯 대신 별도의 배포 슬롯에 배포할 수 있습니다. 배포 슬롯은 실제로 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
+웹앱, Linux의 웹앱, 모바일 백 엔드 및 API 앱을 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에 배포할 때 **표준**, **프리미엄** 또는 **격리** App Service 계획 계층에서 실행하면 기본 프로덕션 슬롯 대신 별도의 배포 슬롯에 배포할 수 있습니다. 배포 슬롯은 실제로 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 응용 프로그램을 배포 슬롯에 배포하면 다음과 같은 이점이 있습니다.
 
 * 프로덕션 슬롯과 교환하기 전에 준비 배포 슬롯에서 앱 변경 사항의 유효성을 검사할 수 있습니다.
 * 먼저 슬롯으로 앱을 배포하고 프로덕션으로 교환하기 때문에 프로덕션으로 교환되기 전에 슬롯에 있는 모든 인스턴스가 준비되어 있는 상태입니다. 따라서 앱을 배포할 때 가동 중지가 발생하지 않습니다. 트래픽 리디렉션은 중단 없이 원활하게 수행되며 교환 작업으로 인해 삭제되는 요청은 없습니다. 사전 교환 유효성 검사가 필요하지 않은 경우 [자동 교환](#Auto-Swap) 을 구성하여 이 전체 워크플로를 자동화할 수 있습니다.
@@ -36,7 +36,7 @@ ms.locfileid: "51257836"
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>배포 슬롯 추가
-여러 배포 슬롯을 사용하려면 앱이 **표준** 또는 **프리미엄** 계층에서 실행 중이어야 합니다.
+여러 배포 슬롯을 사용하려면 앱이 **표준**, **프리미엄** 또는 **격리* 계층에서 실행 중이어야 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 앱의 [리소스 블레이드](../azure-resource-manager/resource-group-portal.md#manage-resources)를 엽니다.
 2. **배포 슬롯** 옵션을 선택한 후 **슬롯 추가**를 클릭합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "51257836"
     ![새 배포 슬롯 추가][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > 앱이 **표준** 또는 **프리미엄** 계층이 아닌 경우 준비된 게시를 사용하려면 지원 계층을 나타내는 메시지를 받게 됩니다. 이때 **업그레이드**를 선택할 수 있는 옵션이 제공되고 계속하기 전에 앱의 **크기 조정** 탭으로 이동합니다.
+   > 앱이 **표준**, **프리미엄** 또는 **격리* 계층이 아닌 경우 준비된 게시를 사용하려면 지원 계층을 나타내는 메시지를 받게 됩니다. 이때 **업그레이드**를 선택할 수 있는 옵션이 제공되고 계속하기 전에 앱의 **크기 조정** 탭으로 이동합니다.
    > 
    > 
 3. **슬롯 추가** 블레이드에서 슬롯에 이름을 지정하고, 다른 기존 배포 슬롯으로부터 앱 구성을 복제할 것인지 여부를 선택합니다. 확인 표시를 클릭하여 계속합니다.

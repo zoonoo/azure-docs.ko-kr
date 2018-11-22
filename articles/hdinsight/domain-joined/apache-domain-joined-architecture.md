@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8d344adc367eb9b93e52d9423a2ab4dda657b298
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 35768aed3509d6ec5b73c64c7a8a6b132957ace1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115542"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632733"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight에서 Enterprise Security Package 사용
 
@@ -24,11 +24,11 @@ ms.locfileid: "49115542"
 
 HDInsight는 널리 사용되는 ID 공급자인 Active Directory를 관리되는 방식으로 사용합니다. [Azure AD DS(Azure Active Directory Domain Services)](../../active-directory-domain-services/active-directory-ds-overview.md)와 HDInsight를 통합하고 도메인 자격 증명을 사용하여 클러스터에 액세스할 수 있습니다. 
 
-HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입니다. 따라서 HDInsight에서 실행 중인 모든 서비스(Ambari, Hive 서버, Ranger, Spark thrift 서버 등)가 인증된 사용자에 원활하게 작동합니다. 관리자는 Apache Ranger를 사용하여 클러스터의 리소스에 대한 역할 기반 액세스 제어를 제공하는 강력한 권한 부여 정책을 만들 수 있습니다.
+HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입니다. 따라서 HDInsight에서 실행 중인 모든 서비스(Apache Ambari, Apache Hive 서버, Apache Ranger, Apache Spark thrift 서버 및 기타)가 인증된 사용자에 대해 원활하게 작동합니다. 관리자는 Apache Ranger를 사용하여 클러스터의 리소스에 대한 역할 기반 액세스 제어를 제공하는 강력한 권한 부여 정책을 만들 수 있습니다.
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>Active Directory와 HDInsight 통합
 
-오픈 소스 Hadoop은 인증 및 보안에 Kerberos를 사용합니다. 따라서 ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터 노드는 Azure AD DS에서 관리하는 도메인에 조인됩니다. Kerberos 보안은 클러스터의 Hadoop 구성 요소에 대해 구성됩니다. 
+오픈 소스 Apache Hadoop은 인증 및 보안에 Kerberos를 사용합니다. 따라서 ESP(Enterprise Security Package)가 포함된 HDInsight 클러스터 노드는 Azure AD DS에서 관리하는 도메인에 조인됩니다. Kerberos 보안은 클러스터의 Hadoop 구성 요소에 대해 구성됩니다. 
 
 다음 작업은 자동으로 만들어집니다.
 - 각 Hadoop 구성 요소에 대한 서비스 주체 

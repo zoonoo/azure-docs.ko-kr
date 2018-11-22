@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: c8035a87816c56daa5ac9e1f95b40d15fa556cd9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 1ae352a0292e75eb9a5bf07e3ddca79ca687dea2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465162"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687387"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Azure CLI(미리 보기)를 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
 
@@ -48,7 +48,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-등록 요청을 전파하는 데 최대 10분까지 걸릴 수 있습니다. [az feature show](/cli/azure/feature#az_feature_show)를 사용하여 등록 상태를 확인할 수 있습니다. `State`가 *Registered*로 보고되면 [az provider register](/cli/azure/provider#az_provider_register)를 사용하여 *Mirosoft.Compute* 공급자를 다시 등록합니다.
+등록 요청을 전파하는 데 최대 10분까지 걸릴 수 있습니다. [az feature show](/cli/azure/feature#az_feature_show)를 사용하여 등록 상태를 확인할 수 있습니다. `State`가 *Registered*로 보고되면 [az provider register](/cli/azure/provider#az_provider_register)를 사용하여 *Microsoft.Compute* 공급자를 다시 등록합니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute

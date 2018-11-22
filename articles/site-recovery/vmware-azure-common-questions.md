@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012108"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636818"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -110,6 +110,8 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 - 프로세스 서버 - 복제 게이트웨이의 역할을 합니다. 즉 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 통해 최적화하며, Azure 저장소로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고, 온-프레미스 VMware VM에 대한 자동 검색을 수행합니다.
 - 마스터 대상 서버 - Azure에서 장애 복구 중에 복제 데이터를 처리합니다.
 
+구성 서버 구성 요소 및 프로세스에 대해 [자세히 알아봅니다](vmware-azure-architecture.md).
+
 ### <a name="where-do-i-set-up-the-configuration-server"></a>구성 서버를 설정해야 하는 위치는 어떻게 되나요?
 구성 서버에는 단일 고가용성 온-프레미스 VMware VM이 필요합니다.
 
@@ -121,20 +123,40 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 최신 버전의 OVF 템플릿을 사용하여 [구성 서버 VM을 만드는](vmware-azure-deploy-configuration-server.md) 것이 좋습니다. VMware 서버에 대한 액세스 권한이 없는 것처럼 어떤 이유로 액세스할 수 없는 경우 포털에서 [통합 설치 파일을 다운로드](physical-azure-set-up-source.md)하여 VM에서 실행할 수 있습니다.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>구성 서버에서 둘 이상의 지역에 복제할 수 있나요?
-아니요. 이렇게 하려면 각 지역마다 구성 서버를 설정해야 합니다.
+ 아니요. 이렇게 하려면 각 지역마다 구성 서버를 설정해야 합니다.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Azure에서 구성 서버를 호스팅할 수 있나요?
 가능한 경우 구성 서버를 실행하는 Azure VM에서 온-프레미스 VMware 인프라 및 VM과 통신해야 합니다. 이로 인해 대기 시간이 늘어나고 진행 중인 복제에 영향을 줄 수 있습니다.
 
-
-### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>최신 버전의 구성 서버 템플릿은 어디서 구할 수 있나요?
-최신 버전은 [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 다운로드하세요.
-
 ### <a name="how-do-i-update-the-configuration-server"></a>구성 서버를 업데이트하려면 어떻게 할까요?
-업데이트 롤업을 설치합니다. 최신 업데이트 정보는 [wiki 업데이트 페이지](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)에서 찾을 수 있습니다.
+구성 서버 업데이트에 [대해 알아봅니다](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). 최신 업데이트 정보는 [Azure 업데이트 페이지](https://azure.microsoft.com/updates/?product=site-recovery)에서 찾을 수 있습니다. [Microsoft 다운로드 센터](https://aka.ms/asrconfigurationserver)에서 최신 버전의 구성 서버를 직접 다운로드할 수도 있습니다.
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>배포된 구성 서버를 백업해야 하나요?
 구성 서버의 예약된 정기 백업을 수행하는 것이 좋습니다. 성공적인 장애 복구(Failover)를 위해서는 장애 복구(Failover)하려는 가상 머신이 구성 서버 데이터베이스에 있어야 하고 구성 서버가 실행 중이고 연결된 상태여야 합니다. [여기](vmware-azure-manage-configuration-server.md)에서 일반 구성 서버 관리 작업에 대해 자세히 알아볼 수 있습니다.
+
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>구성 서버를 설정할 때 MySQL을 수동으로 다운로드하여 설치할 수 있나요?
+예. MySQL을 다운로드하여 **C:\Temp\ASRSetup** 폴더에 넣습니다. 그런 다음, 수동으로 설치합니다. 구성 서버 VM을 설정하고 조건에 동의하면 MySQL이 **다운로드 및 설치**에 **이미 설치됨**으로 표시됩니다.
+
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>MySQL을 다운로드하지 않고 Site Recovery에서 설치할 수 있나요?
+예. MySQL 설치 관리자를 다운로드하여 **C:\Temp\ASRSetup** 폴더에 넣습니다.  구성 서버 VM을 설정하고, 조건에 동의하고, **다운로드 및 설치**를 클릭하면 포털에서 추가한 설치 관리자를 사용하여 MySQL을 설치합니다.
+ 
+### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>다른 용도로 구성 서버 VM을 사용할 수 있나요?
+아니요, 구성 서버로만 VM을 사용해야 합니다. 
+
+### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>구성 서버에 등록된 자격 증명 모음을 변경할 수 있나요?
+ 아니요. 구성 서버에 등록된 후에는 자격 증명 모음을 변경할 수 없습니다.
+
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버의 재해 복구에 동일한 구성 서버를 사용할 수 있나요?
+예, 하지만 물리적 머신은 VMware VM으로만 장애 복구(failback)할 수 있습니다.
+
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>구성 서버의 암호는 어디서 다운로드할 수 있나요?
+[이 문서를 검토](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)하여 암호를 다운로드 하는 방법에 대해 알아봅니다.
+
+### <a name="where-can-i-download-vault-registration-keys"></a>자격 증명 모음 등록 키는 어디서 다운로드할 수 있나요?
+
+**Recovery Services 자격 증명 모음**에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 통해 다운로드합니다. **서버**에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 자격 증명 파일을 다운로드합니다.
+
+
 
 ## <a name="mobility-service"></a>모바일 서비스
 

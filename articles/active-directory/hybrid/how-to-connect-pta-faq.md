@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637868"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685653"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -36,7 +36,7 @@ ms.locfileid: "49637868"
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>통과 인증은 [Microsoft Azure 독일 클라우드](http://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서 사용할 수 있나요?
 
-아니요. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
+ 아니요. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 통과 인증에서 작동하나요?
 
@@ -48,7 +48,7 @@ ms.locfileid: "49637868"
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 
-아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
+ 아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>통과 인증 에이전트와 동일한 서버에 [Azure AD 응용 프로그램 프록시](../manage-apps/application-proxy.md)를 설치할 수 있나요?
 
@@ -79,6 +79,23 @@ ms.locfileid: "49637868"
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>통과 인증 에이전트는 아웃바운드 웹 프록시 서버를 통해 통신할 수 있나요?
 
 예. 온-프레미스 환경에서 WPAD(웹 프록시 자동 검색)를 사용하는 경우 인증 에이전트는 자동으로 네트워크에서 웹 프록시 서버를 찾아서 사용하려고 합니다.
+
+사용자 환경에 WPAD가 없는 경우 프록시 정보를 추가하여(아래 그림 참조) 통과 인증 에이전트가 Azure AD와 통신할 수 있습니다.
+- 서버에 통과 인증 에이전트를 설치하기 전에 Internet Explorer에서 프록시 정보를 구성합니다. 이렇게 하면 인증 에이전트 설치를 완료할 수 있지만 관리자 포털에서는 여전히 **비활성**으로 표시됩니다.
+- 서버에서 "C:\Program Files\Microsoft Azure AD Connect 인증 에이전트"로 이동합니다.
+- "AzureADConnectAuthenticationAgentService" 구성 파일을 편집하고 다음 줄을 추가합니다("http://contosoproxy.com:8080"을 실제 프록시 주소로 교체).
+
+```
+   <system.net>
+      <defaultProxy enabled="true" useDefaultCredentials="true">
+         <proxy
+            usesystemdefault="true"
+            proxyaddress="http://contosoproxy.com:8080"
+            bypassonlocal="true"
+         />
+     </defaultProxy>
+   </system.net>
+```
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>동일한 서버에 둘 이상의 통과 인증 에이전트를 설치할 수 있나요?
 

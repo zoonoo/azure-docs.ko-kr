@@ -1,6 +1,6 @@
 ---
-title: HDInsight에서 PowerShell과 Hadoop Hive 사용 - Azure
-description: PowerShell을 사용하여 HDInsight의 Hadoop에서 Hive 쿼리 실행
+title: HDInsight에서 PowerShell과 Apache Hive 사용 - Azure
+description: PowerShell을 사용하여 HDInsight의 Apache Hadoop에서 Hive 쿼리를 실행합니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e02f6b17dff93ce2df1f06ad9681e3086c35300c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257870"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633114"
 ---
-# <a name="run-hive-queries-using-powershell"></a>PowerShell을 사용하여 Hive 쿼리 실행
+# <a name="run-apache-hive-queries-using-powershell"></a>PowerShell을 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-이 문서는 Azure 리소스 그룹 모드에서 Azure PowerShell을 사용하여 HDInsight 클러스터의 Hadoop에서 Hive 쿼리를 실행하는 예제를 제공합니다.
+이 문서는 Azure 리소스 그룹 모드에서 Azure PowerShell을 사용하여 HDInsight 클러스터의 Apache Hadoop에서 Hive 쿼리를 실행하는 예제를 제공합니다.
 
 > [!NOTE]
 > 이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Hadoop
+* HDInsight 클러스터 버전 3.4 이상의 Linux 기반 Apache Hadoop
 
   > [!IMPORTANT]
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.

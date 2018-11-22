@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233799"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621754"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -171,7 +171,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 * 페더레이션된 앱에 직접 로그인
 * 페더레이션된 앱, 암호로 보호된 앱 또는 기존 앱에 대한 딥 링크
 
-자세한 내용은 [사용자에게 Azure AD 통합 응용 프로그램 배포](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)를 참조하세요.
+자세한 내용은 [애플리케이션에 대한 최종 사용자 환경](../manage-apps/end-user-experiences.md)을 참조하세요.
 
 - - -
 **Q: Azure AD에서 응용 프로그램에 대한 인증 및 Single Sign-On을 설정하는 다른 방법은 무엇인가요?**
@@ -182,7 +182,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 * [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)
 * [Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Azure Active Directory에서 Single Sign-On이 작동하는 방식](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Azure AD의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **Q: 온-프레미스를 실행하는 응용 프로그램을 추가할 수 있나요?**

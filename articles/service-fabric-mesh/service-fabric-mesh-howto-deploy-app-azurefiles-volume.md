@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3b350deff2883761af6a3a2b3c5c9ef22235bde0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038355"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614262"
 ---
 # <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Service Fabric Mesh 응용 프로그램의 컨테이너 내부에 Azure Files 기반 볼륨을 탑재하여 Azure Service Fabric Mesh 응용 프로그램에 상태 저장
 
@@ -62,10 +62,10 @@ az group create --name myResourceGroup --location eastus
 
 템플릿의 `storageAccountKey` 매개 변수는 보안 문자열입니다. 배포 상태 및 `az mesh service show` 명령에는 표시되지 않습니다. 다음 명령에 올바르게 지정되었는지 확인합니다.
 
-다음 명령은 [mesh_rp.linux.json 템플릿](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json)을 사용하여 Linux 응용 프로그램을 배포합니다. Windows 응용 프로그램을 배포하려면 [mesh_rp.windows.json 템플릿](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json)을 사용합니다. 컨테이너 이미지가 크면 배포 시간이 더 오래 걸릴 수 있습니다.
+다음 명령은 [counter.azurefilesvolume.linux.json 템플릿](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json)을 사용하여 Linux 애플리케이션을 배포합니다. Windows 애플리케이션을 배포하려면 [counter.azurefilesvolume.windows.json 템플릿](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json)을 사용합니다. 컨테이너 이미지가 크면 배포 시간이 더 오래 걸릴 수 있습니다.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
 몇 분 안에 명령에서 `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`를 반환합니다.

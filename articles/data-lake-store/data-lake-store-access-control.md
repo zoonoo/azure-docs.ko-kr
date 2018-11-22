@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432626"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567488"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1의 액세스 제어
 
@@ -128,9 +128,11 @@ Data Lake Storage Gen1 계정에 대한 **소유자** 역할에 속해 있는 �
 
 POSIX ACL에서 모든 사용자는 "주 그룹"과 연결됩니다. 예를 들어 "alice" 사용자는 "finance" 그룹에 속할 수 있습니다. 또한 Alice는 여러 그룹에 속할 수 있지만 항상 한 그룹을 주 그룹으로 지정합니다. POSIX에서 Alice가 파일을 만들 때는 해당 파일의 소유 그룹이 자신의 주 그룹(여기서는 "finance"임)으로 설정됩니다. 그렇지 않으면 소유 그룹은 다른 사용자/그룹에 할당된 사용 권한과 유사하게 동작합니다.
 
+Data Lake Storage Gen1의 사용자와 연결된 “기본 그룹”이 없으므로 아래와 같이 소유 중인 그룹이 할당됩니다.
+
 **새 파일이나 폴더의 소유 그룹 할당**
 
-* **사례 1** - "/" 루트 폴더입니다. 이 폴더는 Data Lake Storage Gen1 계정이 만들어질 때 생성됩니다. 이 경우 소유 그룹은 계정을 만든 사용자로 설정됩니다.
+* **사례 1** - "/" 루트 폴더입니다. 이 폴더는 Data Lake Storage Gen1 계정이 만들어질 때 생성됩니다. 이 경우 소유 그룹은 모두 0 GUID로 설정됩니다.  이 값은 어떠한 액세스도 허용하지 않습니다.  그룹이 할당될 때까지는 자리 표시자입니다.
 * **사례 2**(기타 모든 경우) - 새 항목을 만들 때 소유 그룹이 부모 폴더에서 복사됩니다.
 
 **소유 그룹 변경**
@@ -140,7 +142,9 @@ POSIX ACL에서 모든 사용자는 "주 그룹"과 연결됩니다. 예를 들�
 * 소유 사용자가 대상 그룹의 구성원이기도 한 경우 소유 사용자입니다.
 
 > [!NOTE]
-> 소유 그룹은 파일 또는 폴더의 ACL을 *변경할 수 없습니다*.  소유 그룹은 루트 폴더의 경우 계정을 만든 사용자로 설정되지만 위의 **사례 1**, 단일 사용자 계정은 소유 그룹을 통한 권한 제공에 적합하지 않습니다.  해당하는 경우 올바른 사용자 그룹에 이 권한을 할당할 수 있습니다.
+> 소유 그룹은 파일 또는 폴더의 ACL을 *변경할 수 없습니다*.
+>
+> 2018년 9월 이전에 생성된 계정의 경우, 위의 **사례 1**에 대한 루트 폴더의 사례에서 계정을 만든 사용자로 소유 그룹이 설정되었습니다.  단일 사용자 계정이 소유 그룹을 통해 권한을 제공하는 데 유효하지 않으므로 이 기본 설정으로 사용 권한이 부여되지 않습니다. 올바른 사용자 그룹에 이 권한을 할당할 수 있습니다.
 
 
 ## <a name="access-check-algorithm"></a>액세스 검사 알고리즘
@@ -246,7 +250,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>ACL에 대한 지원을 사용하도록 설정해야 하나요?
 
-아니요. ACL을 통한 액세스 제어는 Data Lake Storage Gen1 계정에 대해 항상 켜져 있습니다.
+ 아니요. ACL을 통한 액세스 제어는 Data Lake Storage Gen1 계정에 대해 항상 켜져 있습니다.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>폴더 및 해당 내용을 재귀적으로 삭제하는 데 필요한 권한은 무엇인가요?
 

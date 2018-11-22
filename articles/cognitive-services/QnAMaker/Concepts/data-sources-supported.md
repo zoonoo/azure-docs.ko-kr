@@ -8,27 +8,27 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: 4c96eb5b49c72fe9bb5ab977c773407889c56805
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213307"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624880"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 콘텐츠의 데이터 원본
 
-QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FAQ, 제품 설명서, 지침, 지원 문서, 정책 등의 반 구조화된 콘텐츠에서 질문-대답 쌍을 자동으로 추출합니다. 구조화된 QnA 콘텐츠 파일의 콘텐츠를 기술 자료에 추가할 수도 있습니다. 
+QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FAQ, 제품 설명서, 지침, 지원 문서 및 정책 등의 반 구조화된 콘텐츠에서 질문-대답 쌍을 자동으로 추출합니다. 구조화된 QnA 콘텐츠 파일의 콘텐츠를 기술 자료에 추가할 수도 있습니다. 
 
 다음 표에는 QnA Maker에서 지원되는 콘텐츠 형식 및 파일 형식이 요약되어 있습니다.
 
 |원본 유형|콘텐츠 형식| 예|
 |--|--|--|
 |URL|FAQ(플랫, 섹션 또는 토픽 홈페이지 포함)|[일반 FAQ](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [링크가 포함된 FAQ](https://www.microsoft.com/software-download/faq), [토픽 홈페이지가 포함된 FAQ](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF/DOC|FAQ, 제품 설명서, 브로슈어, 논문, 전단 정책, 지원 가이드, 구조화된 QnA 등|[구조화된 QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [샘플 제품 설명서.pdf](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [샘플 반 구조화.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [샘플 백서.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
-|Excel|구조화된 QnA 파일(RTF, HTML 지원 포함)|[샘플 QnA FAQ.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|구조화된 QnA 파일|[샘플 chit-chat.tsv](https://github.com/Microsoft/BotBuilder-PersonalityChat/blob/master/CSharp/Datasets/scenario_responses_the_friend.tsv)|
+|PDF/DOC|FAQ, 제품 설명서, 브로슈어, 논문, 전단 정책, 지원 가이드, 구조화된 QnA 등|[구조화된 QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [샘플 제품 설명서.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [샘플 반 구조화.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [샘플 백서.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|구조화된 QnA 파일(RTF, HTML 지원 포함)|[샘플 QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|TXT/TSV|구조화된 QnA 파일|[샘플 chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="faq-urls"></a>FAQ URL
 
@@ -131,6 +131,10 @@ Answer2
 ## <a name="editorially-add-to-knowledge-base"></a>편집자로서 기술 자료에 추가
 
 기술 자료를 채울 기존 콘텐츠가 없는 경우 편집자로서 QnA Maker 기술 자료에 QnA를 추가할 수도 있습니다. [여기](../How-To/edit-knowledge-base.md)에서 기술 자료를 업데이트하는 방법을 알아봅니다.
+
+## <a name="formatting-considerations"></a>서식 지정 고려 사항
+
+파일 또는 URL을 가져온 후 Markdown으로 변환되며 해당 형식으로 저장됩니다. 변환 프로세스가 파일 및 URL의 링크를 올바르게 변환하지 않는 경우 **편집** 페이지에서 질문 및 답변을 편집해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

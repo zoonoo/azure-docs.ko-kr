@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 73b594aaabd814108dfce813b53a4ea865336e63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985066"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687438"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge의 Azure Stream Analytics(미리 보기)
 
@@ -71,13 +71,17 @@ ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 저장소 컨테이
 
 1. Azure Portal에서 새 "Stream Analytics 작업"을 만듭니다. [새 ASA 작업을 만들기 위한 직접 링크](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob)
 
-2. 생성 화면에서 **Edge**를 **호스팅 환경**으로 선택합니다(다음 그림 참조). ![작업 생성](media/stream-analytics-edge/ASAEdge_create.png)
+2. 생성 화면에서 **Edge**를 **호스팅 환경**으로 선택합니다(다음 그림 참조).
+
+   ![작업 만들기](media/stream-analytics-edge/ASAEdge_create.png)
 3. 작업 정의
     1. **입력 스트림 정의**. 작업에 대해 하나 또는 여러 개의 입력 스트림을 정의합니다.
     2. 참조 데이터를 정의합니다(선택 사항).
     3. **출력 스트림 정의**. 작업에 대해 하나 또는 여러 개의 출력 스트림을 정의합니다. 
     4. **쿼리 정의**. 인라인 편집기를 사용하여 클라우드에서 ASA 쿼리를 정의합니다. 컴파일러는 ASA Edge에 대해 사용되도록 설정된 구문을 자동으로 확인합니다. 샘플 데이터를 업로드하여 쿼리를 테스트할 수도 있습니다. 
+
 4. **IoT Edge 설정** 메뉴에서 저장소 컨테이너 정보를 설정합니다.
+
 5. 선택적 설정 지정
     1. **이벤트 순서**. Portal에서 정렬되지 않은 정책을 구성할 수 있습니다. [여기](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396)에서 설명서를 참조할 수 있습니다.
     2. **로캘**. 국제화 형식을 설정합니다.
@@ -181,20 +185,27 @@ ASA 작업에서 생성한 각 입/출력 스트림에 해당하는 엔드포인
 
 
 ##### <a name="reference-data"></a>참조 데이터
-참조 데이터(조회 테이블이라고도 함)는 정적이거나 느리게 변경되는 특성을 지닌 한정된 데이터 집합으로, 데이터 스트림을 조회하거나 상관 관계를 지정하는 데 사용됩니다. Azure Stream Analytics 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에서 [참조 데이터 조인](https://msdn.microsoft.com/library/azure/dn949258.aspx)을 사용합니다. 자세한 내용은 [참조 데이터에 대한 ASA 설명서](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data)를 참조하세요.
+참조 데이터(조회 테이블이라고도 함)는 정적이거나 느리게 변경되는 특성을 지닌 한정된 데이터 집합으로, 데이터 스트림을 조회하거나 상관 관계를 지정하는 데 사용됩니다. Azure Stream Analytics 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에서 [참조 데이터 조인](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics)을 사용합니다. 자세한 내용은 [Stream Analytics에서 조회에 대한 참조 데이터 사용](stream-analytics-use-reference-data.md)을 참조하세요.
 
-IoT Edge에서 ASA에 대한 참조 데이터를 사용하려면 다음 단계를 수행해야 합니다. 
-1. 작업에 대한 새 입력 만들기
+로컬 참조 데이터만 지원됩니다. 작업이 IoT Edge 디바이스에 배포되면 사용자 정의 파일 경로에서 참조 데이터를 로드합니다.
+
+Edge에서 참조 데이터를 사용하여 작업을 만들려면:
+
+1. 작업에 대한 새 입력을 만듭니다.
+
 2. **참조 데이터**를 **원본 유형**으로 선택합니다.
-3. 파일 경로를 설정합니다. 파일 경로는 장치 ![참조 데이터 만들기](media/stream-analytics-edge/ReferenceData.png)에서 **절대** 파일 경로여야 합니다.
-4. Docker 구성에서 **공유 드라이브**를 사용하도록 설정하고, 배포를 시작하기 전에 해당 드라이브가 사용되도록 설정되어 있는지 확인합니다.
 
-자세한 내용은 [Windows용 Docker 설명서](https://docs.docker.com/docker-for-windows/#shared-drives)를 참조하세요.
+3. 디바이스에서 참조 데이터 파일을 준비합니다. Windows 컨테이너의 경우 참조 데이터 파일을 로컬 드라이브에 저장하고 로컬 드라이브를 Docker 컨테이너와 공유합니다. Linux 컨테이너의 경우 Docker 볼륨을 만들고 데이터 파일을 볼륨에 채웁니다.
 
-> [!Note]
-> 현재 로컬 참조 데이터만 지원됩니다.
+4. 파일 경로를 설정합니다. Windows 디바이스의 경우 절대 경로를 사용합니다. Linux 디바이스의 경우 볼륨의 경로를 사용합니다.
 
+![IoT Edge에서 Azure Stream Analytics 작업에 대한 새 참조 데이터 입력](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
+IoT Edge 업데이트에 대한 참조 데이터는 배포에 의해 트리거됩니다. 트리거되면 ASA 모듈은 실행 중인 작업을 중지하지 않고 업데이트된 데이터를 선택합니다.
+
+참조 데이터를 업데이트하는 두 가지 방법은 다음과 같습니다.
+* Azure Portal에서 ASA 작업의 참조 데이터 경로를 업데이트합니다.
+* IoT Edge 배포를 업데이트합니다.
 
 
 ## <a name="license-and-third-party-notices"></a>라이선스 및 타사 알림

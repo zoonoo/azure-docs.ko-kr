@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c318411fe17fb60c1c0bf991a07b46a515252952
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243423"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683223"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
+
 이 문서에서는 분할된 테이블을 만들어서 SQL Server 데이터베이스로 대량의 데이터를 병렬로 더 빨리 가져오는 방법을 설명합니다. SQL Database로 빅 데이터를 로드/전송할 때 *분할된 테이블 및 뷰*를 사용하여 SQL DB로 데이터를 가져오는 작업과 후속 쿼리의 성능을 개선할 수 있습니다. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>새 데이터베이스 및 파일 그룹 만들기
@@ -81,7 +82,7 @@ ms.locfileid: "51243423"
   함수/스키마에 따라 각 파티션에 적용되는 범위를 확인하려면 다음 쿼리를 실행합니다.
   
         SELECT psch.name as PartitionScheme,
-            prng.value AS ParitionValue,
+            prng.value AS PartitionValue,
             prng.boundary_id AS BoundaryID
         FROM sys.partition_functions AS pfun
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id

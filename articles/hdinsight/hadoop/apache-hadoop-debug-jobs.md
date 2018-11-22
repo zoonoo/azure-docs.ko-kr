@@ -1,5 +1,5 @@
 ---
-title: 'HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure '
+title: 'HDInsight에서 Apache Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure '
 description: PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261152"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634637"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop 로그 분석
 
-Azure HDInsight의 Hadoop 클러스터 각각에는 기본 파일 시스템으로 사용되는 Azure 저장소 계정이 있습니다. 이 Storage 계정을 기본 Storage 계정이라고 합니다. 클러스터는 기본 Storage 계정의 Azure Table Storage 및 Blob Storage를 사용하여 로그를 저장합니다.  클러스터용 기본 저장소 계정을 알아보려면 [HDInsight의 Hadoop 클러스터 관리](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)를 참조하세요. 로그는 클러스터를 삭제한 후에 Storage 계정에 유지됩니다.
+Azure HDInsight의 Apache Hadoop 클러스터 각각에는 기본 파일 시스템으로 사용되는 Azure Storage 계정이 있습니다. 이 Storage 계정을 기본 Storage 계정이라고 합니다. 클러스터는 기본 Storage 계정의 Azure Table Storage 및 Blob Storage를 사용하여 로그를 저장합니다.  클러스터용 기본 저장소 계정을 알아보려면 [HDInsight의 Hadoop 클러스터 관리](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)를 참조하세요. 로그는 클러스터를 삭제한 후에 Storage 계정에 유지됩니다.
 
 ## <a name="logs-written-to-azure-tables"></a>Azure 테이블에 기록된 로그
 
@@ -131,7 +131,7 @@ Azure Portal에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스
 
 이러한 오류 메시지 중 일부는 Azure 포털에서 HDInsight 클러스터를 관리할 때도 발생할 수 있습니다. 하지만 이때 발생할 수 있는 다른 오류 메시지는 해당 컨텍스트에서 가능한 수정 작업의 제약 조건으로 인해 세분화하기 어렵습니다. 다른 오류 메시지는 뚜렷한 해결 방법이 있는 경우 제공됩니다. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **설명**: Hive 및 Oozie 메타스토어에 사용자 지정 설정을 사용하려면 하나 이상의 구성 요소에 대한 Azure SQL 데이터베이스 세부 정보를 제공하세요.
 * **해결 방법**: 사용자가 올바른 SQL Azure 메타스토어를 제공하고 요청을 다시 시도해야 합니다.  
 

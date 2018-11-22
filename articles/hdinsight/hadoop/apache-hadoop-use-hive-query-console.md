@@ -1,6 +1,6 @@
 ---
-title: HDInsight의 쿼리 콘솔에서 Hadoop Hive 사용 - Azure
-description: 브라우저에서 웹 기반 쿼리 콘솔을 사용하여 HDInsight Hadoop 클러스터에 대한 Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
+title: HDInsight의 쿼리 콘솔에서 Apache Hive 사용 - Azure
+description: 브라우저에서 웹 기반 쿼리 콘솔을 사용하여 HDInsight Hadoop 클러스터에서 Apache Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4083ceca8c9181c8acb1a90e782cb5bca981e684
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: da270792c8987ff43c422c5b03eb8b789b8bda5e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013975"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634593"
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>쿼리 콘솔을 사용하여 Hive 쿼리 실행
+# <a name="run-apache-hive-queries-using-the-query-console"></a>쿼리 콘솔을 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-이 문서에서는 브라우저에서 HDInsight Hadoop 클러스터의 Hive 쿼리를 실행하려면 HDInsight 쿼리 콘솔을 사용하는 방법에 대해 배웁니다.
+이 문서에서는 HDInsight 쿼리 콘솔을 사용하여 브라우저의 HDInsight Hadoop 클러스터에서 Apache Hive 쿼리를 실행하는 방법에 대해 알아봅니다.
 
 > [!IMPORTANT]
 > HDInsight 쿼리 콘솔은 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.

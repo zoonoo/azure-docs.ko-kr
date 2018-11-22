@@ -1,6 +1,6 @@
 ---
-title: HDInsight에서 Hadoop 작업 제출
-description: Azure HDInsight에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다.
+title: HDInsight에서 Apache Hadoop 작업 제출
+description: Azure HDInsight에서 Apache Hadoop 작업을 제출하는 방법을 알아봅니다.
 ms.reviewer: jasonh
 services: hdinsight
 ms.author: hrasheed
@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 9a764814028c1858139e2439c674c176d4e754ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 633a5c26711b7ef9f891455c6712b77238fd3a62
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009143"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631969"
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Hadoop 작업 제출
 
-HDInsight, curl 또는 Azure PowerShell에 대해 Microsoft.NET SDK를 사용하여 Azure HDInsight에서 Hadoop 작업을 제출할 수 있습니다.
+HDInsight, curl 또는 Azure PowerShell에 대해 Microsoft.NET SDK를 사용하여 Azure HDInsight에서 Apache Hadoop 작업을 제출할 수 있습니다.
 
 ## <a name="resources"></a>리소스
 

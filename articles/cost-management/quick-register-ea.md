@@ -9,19 +9,19 @@ ms.date: 09/14/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
-manager: dougeby
-ms.openlocfilehash: bed1ea3785c35d1053a0ff2147c3bdd797e28581
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996640"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273570"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Azure Enterprise Agreement 등록 및 비용 데이터 보기
 
 Azure 기업계약을 통해 Cloudyn에 등록할 수 있습니다. 등록하면 Cloudyn 포털에 액세스할 수 있습니다. 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다. 또한 비용 데이터를 즉시 보기 시작하는 방법을 보여줍니다.
 
-Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure Cost Management는 기본 Azure 비용 관리 솔루션입니다. 이 솔루션을 사용하면 비용을 분석하고, 예산을 작성/관리하고, 데이터를 내보내고, 비용 절약을 위한 최적화 권장 사항을 검토하고 필요한 조치를 취할 수 있습니다. 자세한 내용은 [Azure Cost Management](overview-cost-mgt.md)를 참조하세요.
+Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure Cost Management는 기본 Azure 비용 관리 솔루션입니다. 이 솔루션을 사용하면 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 비용 절약을 위한 최적화 권장 사항을 검토하고 필요한 조치를 취할 수 있습니다. 자세한 내용은 [Azure Cost Management](overview-cost-mgt.md)를 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: cdb1fa7dd9bada5615a0dcd706184a5213ff917b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 11d23102ca807ab1ddf41f1d0e72aed8a8513ac8
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299256"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636648"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -67,19 +67,19 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
 1. Windows 컴퓨터의 아키텍처에 해당하는 VPN 클라이언트 구성 파일을 선택합니다. 64비트 프로세서 아키텍처의 경우 'VpnClientSetupAmd64' 설치 관리자 패키지를 선택합니다. 32비트 프로세서 아키텍처의 경우 'VpnClientSetupX86' 설치 관리자 패키지를 선택합니다. 
 2. 해당 패키지를 두 번 클릭하여 설치합니다. SmartScreen 팝업이 표시되면 **자세한 정보**, **실행**을 차례로 클릭합니다.
-3. 클라이언트 컴퓨터에서 **네트워크 설정**으로 이동하고 **VPN**을 클릭합니다. VPN 연결에서 연결되는 가상 네트워크의 이름을 표시합니다. 
+3. 클라이언트 컴퓨터에서 **네트워크 설정**으로 이동하고 **VPN**을 클릭합니다. VPN 연결에서 연결되는 가상 네트워크의 이름을 표시합니다. 
 4. 연결을 시도하기 전에 먼저 클라이언트 컴퓨터에 클라이언트 인증서가 설치되어 있어야 합니다. Azure 기본 인증서 인증 유형을 사용할 때 인증을 위해 클라이언트 인증서가 필요합니다. 인증서 생성에 대한 자세한 내용은 [인증서 생성](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)을 참조하세요. 클라이언트 인증서를 설치하는 방법은 [클라이언트 인증서 설치](point-to-site-how-to-vpn-client-install-azure-cert.md)를 참조하세요.
 
 ## <a name="installmac"></a>Mac(OS X)
 
  Azure에 연결할 모든 Mac에서 원시 IKEv2 VPN 클라이언트를 수동으로 구성해야 합니다. Azure는 원시 Azure 인증서 인증을 위해 mobileconfig 파일을 제공하지 않습니다. **일반**에는 구성에 필요한 모든 정보가 포함됩니다. 다운로드에 Generic 폴더가 보이지 않으면 IKEv2가 터널 유형으로 선택되지 않았을 가능성이 큽니다. IKEv2가 선택되면 zip 파일을 다시 생성하여 Generic 폴더를 검색합니다.<br>Generic 폴더에 포함되는 파일은 다음과 같습니다.
 
-* **VpnSettings.xml** - 서버 주소 및 터널 종류와 같은 중요한 설정이 포함되어 있습니다. 
+* **VpnSettings.xml** - 서버 주소 및 터널 종류와 같은 중요한 설정이 포함되어 있습니다. 
 * **VpnServerRoot.cer** - P2S 연결 설정에서 Azure VPN Gateway의 유효성을 검사하는 데 필요한 루트 인증서가 포함되어 있습니다.
 
 다음 단계에 따라 인증서 인증을 위한 Mac VPN 기본 클라이언트를 구성합니다. Azure에 연결할 모든 Mac에서 다음 단계를 완료해야 합니다.
 
-1. **VpnServerRoot** 루트 인증서를 Mac으로 가져옵니다. 이렇게 하려면 해당 파일을 Mac으로 복사하고 두 번 클릭하면 됩니다.  
+1. **VpnServerRoot** 루트 인증서를 Mac으로 가져옵니다. 이렇게 하려면 해당 파일을 Mac으로 복사하고 두 번 클릭하면 됩니다.  
 **추가**를 클릭하여 가져옵니다.
 
   ![인증서 추가](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
@@ -97,7 +97,7 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 4. **Generic** 폴더의 **VpnSettings.xml** 파일에서 **VpnServer** 태그 값을 복사합니다. 이 값을 프로필의 **서버 주소** 및 **원격 ID** 필드에 붙여넣습니다.
 
   ![서버 정보](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-5. **인증 설정**을 클릭하고 **인증서**를 선택합니다. 
+5. **인증 설정**을 클릭하고 **인증서**를 선택합니다. 
 
   ![인증 설정](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
 6. **선택...** 을 클릭합니다. 인증에 사용하려는 클라이언트 인증서를 선택합니다. 이 인증서는 2단계에서 설치한 인증서입니다.
@@ -172,7 +172,7 @@ strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증�
 1. Azure Portal에서 VPNClient 패키지를 다운로드합니다.
 2. 파일을 추출합니다.
 3. **일반** 폴더에서 VpnServerRoot.cer을 /etc/ipsec.d/cacerts로 복사하거나 이동합니다.
-4. **일반** 폴더에서 cp client.p12를 /etc/ipsec.d/private/로 복사하거나 이동합니다.
+4. cp client.p12를 /etc/ipsec.d/private/로 복사하거나 이동합니다. 이 파일은 Azure VPN Gateway의 클라이언트 인증서입니다.
 5. VpnSettings.xml 파일을 열고 <VpnServer> 값을 복사합니다. 이 값은 다음 단계에서 사용됩니다.
 6. 아래 예제에서 값을 조정한 다음 예제를 /etc/ipsec.conf 구성에 추가합니다.
   
@@ -185,7 +185,7 @@ strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증�
   leftauth=eap-tls
   leftid=%client # use the DNS alternative name prefixed with the %
   right= Enter the VPN Server value here# Azure VPN gateway address
-  rightid=%Enter the VPN Server value here# Azure VPN gateway address, prefixed with %
+  rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
   rightsubnet=0.0.0.0/0
   leftsourceip=%config
   auto=add

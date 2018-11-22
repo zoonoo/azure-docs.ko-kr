@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: fe1f2e026aaa4260d34b9b1cb96064053af1c3c7
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580551"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568015"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL Data Warehouse를 업그레이드하여 성능 최적화
 Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키텍처로 업그레이드합니다.
@@ -30,7 +30,7 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 > [!NOTE]
@@ -45,13 +45,17 @@ Azure SQL Data Warehouse를 최신 세대 Azure 하드웨어와 저장소 아키
 
 ## <a name="start-the-upgrade"></a>업그레이드 시작
 
-1. Azure Portal에서 계산에 최적화된 Gen1 계층 데이터 웨어하우스로 이동하여 **Gen2로 업그레이드**를 클릭합니다. ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Azure Portal에서 계산에 최적화된 Gen1 계층 데이터 웨어하우스로 이동하여 [작업] 탭 아래에서 **Gen2로 업그레이드** 카드를 클릭합니다. ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+    
+> [!NOTE]
+> [작업] 탭 아래 **Gen2로 업그레이드** 카드가 표시되지 않으면 구독 유형이 현재 지역으로 제한됩니다. [지원 티켓을 제출](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)하여 구독을 허용 목록으로 가져옵니다.
 
 2. 기본적으로 데이터 웨어하우스에 대한 **제안된 성능 수준 선택**은 아래에 있는 매핑을 사용하여 계산에 최적화된 Gen1 계층의 현재 성능 수준을 기반으로 합니다.
     
    | 계산에 최적화된 Gen1 계층 | 계산에 최적화된 Gen2 계층 |
    | :----------------------: | :-------------------: |
-   |      DW100 – DW1000      |        DW1000c        |
+   |      DW100 – DW600       |        DW500c         |
+   |          DW1000          |        DW1000c        |
    |          DW1200          |        DW1500c        |
    |          DW1500          |        DW1500c        |
    |          DW2000          |        DW2000c        |

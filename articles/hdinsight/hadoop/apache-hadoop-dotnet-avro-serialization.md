@@ -1,5 +1,5 @@
 ---
-title: Hadoop - Microsoft Avro Library에서 데이터 직렬화 - Azure
+title: Apache Hadoop에서 데이터 직렬화 - Microsoft Avro Library - Azure
 description: Microsoft Avro Library를 사용하여 메모리, 데이터베이스 또는 파일에 유지하기 위해 HDInsight의 Hadoop에서 데이터를 직렬화 및 역직렬화하는 방법을 알아보세요.
 keywords: avro,hadoop avro
 services: hdinsight
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 5928c6490c9de6c48b75800158b8298007d7b8ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae728cd1cfc27a17badcce319a8cd047b54ddb1e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246908"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634008"
 ---
-# <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro 라이브러리로 Hadoop의 데이터 직렬화
+# <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro Library를 사용하여 Apache Hadoop의 데이터 직렬화
 
 >[!NOTE]
 >Avro SDK는 더 이상 Microsoft에서 지원되지 않습니다. 라이브러리는 오픈 소스 커뮤니티에서 지원됩니다. 라이브러리의 소스는 [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro)에 있습니다.
@@ -52,17 +52,8 @@ Apache Avro 직렬화 형식은 Azure HDInsight 및 기타 Apache Hadoop 환경�
 * <a href="https://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a>(6.0.4 이상)
 
-Newtonsoft.Json.dll 종속성은 Microsoft Avro 라이브러리의 설치와 함께 자동으로 다운로드됩니다. 이 절차는 다음 섹션에 제공됩니다.
-
-Microsoft Avro 라이브러리는 다음 절차를 사용하여 Visual Studio에서 설치할 수 있는 NuGet 패키지로 배포됩니다.
-
-1. **프로젝트** 탭-> **NuGet 패키지 관리...** 를 선택합니다.
-2. **온라인 검색** 상자에서 "Microsoft.Hadoop.Avro"를 검색합니다.
-3. **Microsoft Azure HDInsight Avro Library** 옆의 **설치** 단추를 클릭합니다.
-
-Newtonsoft.Json.dll(>= 6.0.4) 종속성은 Microsoft Avro 라이브러리와 함께 자동으로 다운로드됩니다.
-
-Microsoft Avro 라이브러리 소스 코드는 [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro)에 있습니다.
+> [!Note]
+> Microsoft Avro Library는 더 이상 NuGet 패키지로 지원되지 않습니다. Avro Library 복제를 사용하려는 경우 [Microsoft.Hadoop.Avro Github 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro)는 머신의 코드를 컴파일합니다.
 
 ## <a name="compile-schemas-using-avro-library"></a>Avro 라이브러리를 사용하여 스키마 컴파일
 Microsoft Avro 라이브러리에는 이전에 정의된 JSON 스키마에 따라 자동으로 C# 형식을 만들 수 있는 코드 생성 유틸리티가 있습니다. 코드 생성 유틸리티는 이진 실행 파일로 배포되지 않지만, 다음 절차에 따라 쉽게 빌드할 수 있습니다.
@@ -97,7 +88,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 5번째 예는 Avro 개체 컨테이너 파일에 대해 사용자 지정 압축 코덱을 사용하는 방법을 보여 줍니다. 이 예에 대한 코드를 포함하는 샘플은 <a href="https://code.msdn.microsoft.com/Serialize-data-with-the-67159111" target="_blank">Azure 코드 샘플</a> (영문) 사이트에서 다운로드할 수 있습니다.
 
-6번째 샘플은 Avro 직렬화를 사용하여 데이터를 Azure Blob 저장소에 업로드하고 HDInsight(Hadoop) 클러스터에서 Hive를 사용하여 데이터를 분석하는 방법을 보여 줍니다. <a href="https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure 코드 샘플</a> 사이트에서 다운로드할 수 있습니다.
+6번째 샘플은 Avro 직렬화를 사용하여 데이터를 Azure Blob 저장소에 업로드하고 HDInsight(Hadoop) 클러스터에서 Hive를 사용하여 데이터를 분석하는 방법을 보여 줍니다.  <a href="https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure 코드 샘플</a> 사이트에서 다운로드할 수 있습니다.
 
 이 항목에서 설명된 6개 샘플의 링크는 다음과 같습니다.
 

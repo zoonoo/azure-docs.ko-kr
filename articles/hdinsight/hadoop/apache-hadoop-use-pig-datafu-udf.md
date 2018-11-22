@@ -1,6 +1,6 @@
 ---
-title: HDInsight에서 Pig와 함께 Apache DataFu Pig 사용 - Azure
-description: Apache DataFu Pig는 Hadoop에서 Pig와 함께 사용하기 위한 라이브러리 컬렉션입니다. HDInsight 클러스터에서 Pig와 함께 DataFu를 사용하는 방법에 대해 알아봅니다.
+title: HDInsight에서 Apache Pig와 함께 Apache DataFu 사용 - Azure
+description: Apache DataFu Pig는 Apache Hadoop에서 Apache Pig와 함께 사용하기 위한 라이브러리 컬렉션입니다. HDInsight 클러스터에서 Pig와 함께 DataFu를 사용하는 방법에 대해 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 43885f3e1fcba97b5af201edfc0cce78a5a5eae5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0c7e8b7ab10771c611f80d36fb1c9ed0cf3e6f1b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012431"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632359"
 ---
-# <a name="use-apache-datafu-pig-with-pig-on-hdinsight"></a>HDInsight에서 pig와 함께 Apache DataFu Pig 사용
+# <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>HDInsight에서 Apache Pig와 함께 Apache DataFu Pig 사용
 
 HDInsight에서 Apache DataFu Pig를 사용하는 방법을 알아봅니다.
 
-DataFu Pig는 Hadoop에서 Pig와 함께 사용하기 위한 오픈 소스 라이브러리의 컬렉션입니다.
+Apache DataFu Pig는 Apache Hadoop에서 Apache Pig와 함께 사용하기 위한 오픈 소스 라이브러리 컬렉션입니다.
 DataFu Pig에 대한 자세한 내용은 [https://datafu.apache.org/](https://datafu.apache.org/)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -32,7 +32,7 @@ DataFu Pig에 대한 자세한 내용은 [https://datafu.apache.org/](https://da
   > [!IMPORTANT]
   > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-* [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
+*  [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
 ## <a name="install-datafu-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에 DataFu 설치
 

@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 46b6b789b2bab7e647e10a61939bd16b5ea8726d
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b1126b2cdb7a5cd7451a916558bc928653bc0027
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209704"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577926"
 ---
 # <a name="confidence-score"></a>신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다. 
@@ -53,6 +53,8 @@ ms.locfileid: "50209704"
 
 - **적용 범위**(또는 재현율)가 좀 더 중요하고 가능한 한 많은 질문에 응답하려는 경우(사용자 질문에 부분적으로만 연관되어 있더라도) 임계값을 낮춥니다. 응답이 사용자의 실제 쿼리에 대한 응답이 아니지만 관련된 다른 응답을 제공하는 경우가 더 많을 수 있습니다. *예제:* 임계값 **30**을 지정하면 “내 기술 자료를 어디에서 편집할 수 있나요?”와 같은 쿼리에 대해 관련성이 높은 응답을 제공하지 못할 수 있으며 위와 같이 응답할 수 있습니다.
 
+> [!NOTE]
+> QnA Maker의 최신 버전에는 점수 매기기 논리에 대한 개선 사항이 포함되며 임계값에 영향을 줄 수 있습니다. 언제든지 서비스를 업데이트하여 필요한 경우 임계값을 테스트하고 조정해야 합니다. [여기](https://www.qnamaker.ai/UserSettings)에서 QnA 서비스 버전을 확인할 수 있습니다. 최신 업데이트를 가져오는 방법은 [여기](../How-To/troubleshooting-runtime.md)를 참조하세요.
 
 ## <a name="improve-confidence-scores"></a>신뢰도 점수 개선
 사용자 쿼리에 대한 특정 응답의 신뢰도 점수를 향상하기 위해 사용자 쿼리를 해당 응답의 대체 질문으로 기술 자료에 추가할 수 있습니다.

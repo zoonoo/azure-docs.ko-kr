@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c65cfedd398bbb18d65f36a3f2a768e11443687a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962540"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636512"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM 백업 스택 V2로 업그레이드
 
@@ -86,15 +86,42 @@ Azure Portal을 사용하는 경우 자격 증명 모음 대시보드에 알림�
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+### <a name="cli"></a>CLI
+셸에서 다음 명령을 실행합니다.
+1.  Azure 계정 로그인:
+
+    ```
+    az login
+    ```
+
+2.  등록하려는 구독을 선택합니다.
+
+    ```
+    az account set --subscription "Subscription Name"
+    ```
+
+3.  이 구독을 등록합니다.
+
+    ```
+    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+    ```
 
 ## <a name="verify-that-the-upgrade-is-finished"></a>업그레이드 완료 확인
+### <a name="powershell"></a>PowerShell
 관리자 권한 PowerShell 터미널에서 다음 cmdlet을 실행합니다.
 
 ```
 Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-“등록됨”이 표시되면 구독이 VM 백업 스택 Resource Manager 배포 모델로 업그레이드된 것입니다.
+### <a name="cli"></a>CLI
+셸에서 다음 명령을 실행합니다.
+
+```
+az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+```
+
+"등록됨"으로 표시되면 구독이 V2 백업 스택으로 업그레이드됩니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

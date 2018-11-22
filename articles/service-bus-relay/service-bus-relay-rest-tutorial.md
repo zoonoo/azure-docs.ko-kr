@@ -12,26 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232446"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614475"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 릴레이 REST 자습서
-
 이 자습서에서는 REST 기반 인터페이스를 표시하는 간단한 Azure Relay 호스트 응용 프로그램을 구축하는 방법을 설명합니다. REST는 웹 브라우저와 같은 웹 클라이언트가 HTTP 요청을 통해 Service Bus API에 액세스할 수 있도록 합니다.
 
 자습서에서는 WCF(Windows Communication Foundation) REST 프로그래밍 모델을 사용하여 Azure Relay에 REST 서비스를 구축합니다. 자세한 내용은 WCF 설명서의 [WCF REST 프로그래밍 모델](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) 및 [서비스 디자인 및 구현](/dotnet/framework/wcf/designing-and-implementing-services)을 참조하세요.
 
-## <a name="step-1-create-a-namespace"></a>단계 1: 네임스페이스 만들기
+이 자습서에서는 다음 단계를 수행합니다.
+
+> [!div class="checklist"]
+> * Relay 네임스페이스 만들기
+> * REST 기반 WCF 서비스 계약 정의
+> * REST 기반 WCF 계약 구현
+> * REST 기반 WCF 서비스 호스트 및 실행
+> * 서비스 실행 및 테스트
+
+## <a name="prerequisites"></a>필수 조건
+
+이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
+
+- Azure 구독. 구독이 없으면 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+- [Visual Studio 2015 이상](http://www.visualstudio.com) - 이 자습서의 예제에서는 Visual Studio 2017을 사용합니다.
+- Azure SDK for .NET. [SDK 다운로드 페이지](https://azure.microsoft.com/downloads/)에서 설치합니다.
+
+## <a name="create-a-relay-namespace"></a>Relay 네임스페이스 만들기
 
 Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 네임스페이스는 응용 프로그램 내에서 Azure 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다. [여기의 지침](relay-create-namespace-portal.md)을 따라 릴레이 네임스페이스를 만듭니다.
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>2단계: Azure Relay와 사용할 REST 기반 WCF 서비스 계약 정의
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Azure Relay와 사용할 REST 기반 WCF 서비스 계약 정의
 
 WCF REST 스타일 서비스를 만들 때 계약을 정의해야 합니다. 계약은 호스트가 지원하는 작업을 지정합니다. 서비스 작업은 웹 서비스 메서드로 생각할 수 있습니다. 계약은 C++, C#, 또는 Visual Basic 인터페이스를 정의하여 만듭니다. 인터페이스의 각 메서드는 특정 서비스 작업에 해당합니다. [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) 특성은 각 인터페이스에 반드시 적용되어야 하고, [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) 속성은 각 작업에 반드시 적용되어야 합니다. [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute)을 포함하는 인터페이스의 메서드에 [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute)이 없으면 해당 메서드는 드러나지 않습니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 표시됩니다.
 
@@ -136,7 +152,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>3단계: Service Bus를 사용할 REST 기반 WCF 서비스 계약을 구현합니다.
+## <a name="implement-the-rest-based-wcf-service-contract"></a>REST 기반 WCF 서비스 계약 구현
 REST 스타일 WCF 릴레이 서비스를 만들려면 첫째로 계약을 만들어야 하는데, 계약은 인터페이스를 사용하여 정의됩니다. 다음 단계는 인터페이스를 구현합니다. 이 과정 중에 사용자 정의 **IImageContract** 인터페이스를 구현하는 **ImageService**라는 클래스가 생성됩니다. 계약을 구현한 후 App.config 파일을 사용하여 인터페이스를 구현합니다. 구성 파일은 서비스 이름, 계약 이름, 릴레이 서비스와 통신에 사용되는 프로토콜 유형과 같은 응용 프로그램에 필요한 정보를 포함합니다. 이 작업에 사용되는 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 이전 단계에서와 마찬가지로 REST 스타일 계약과 WCF 릴레이 계약의 구현 간에는 거의 차이가 없습니다.
@@ -430,7 +446,7 @@ namespace Microsoft.ServiceBus.Samples
 </configuration>
 ```
 
-## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>4단계: Azure Relay를 사용하기 위해 REST 기반 WCF 서비스를 호스팅
+## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>Azure Relay를 사용하기 위해 REST 기반 WCF 서비스 호스팅
 이 단계에서는 WCF 릴레이와 함께 콘솔 응용 프로그램을 사용하여 웹 서비스를 실행하는 방법을 설명합니다. 이 단계에서 작성되는 전체 코드는 과정을 수행하면서 예제에 제공됩니다.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>서비스에 대한 기본 주소를 만들려면
@@ -476,7 +492,7 @@ namespace Microsoft.ServiceBus.Samples
     host.Close();
     ```
 
-## <a name="example"></a>예
+### <a name="example"></a>예
 다음 예제는 자습서에 포함된 이전 단계의 구현 및 서비스 계약을 포함하고 콘솔 응용 프로그램에 서비스를 호스트합니다. 다음 코드를 이름이 ImageListener.exe인 실행 파일로 컴파일 합니다.
 
 ```csharp
@@ -551,7 +567,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### <a name="compiling-the-code"></a>코드 컴파일
+## <a name="run-and-test-the-service"></a>서비스 실행 및 테스트
 솔루션을 빌드한 후 다음을 수행하여 응용 프로그램을 실행합니다.
 
 1. **F5** 키를 누르거나 실행 파일 위치(ImageListener\bin\Debug\ImageListener.exe)로 이동하여 서비스를 실행합니다. 다음 단계를 수행하는 데 필요하므로 앱을 실행 중인 상태로 둡니다.

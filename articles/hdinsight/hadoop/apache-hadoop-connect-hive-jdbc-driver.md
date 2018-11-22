@@ -1,6 +1,6 @@
 ---
-title: JDBC 드라이버를 통해 Hive 쿼리 - Azure HDInsight
-description: Java 응용 프로그램에서 JDBC 드라이버를 사용하여 HDInsight의 Hadoop에 Hive 쿼리를 제출합니다. 프로그래밍 방식으로 SQuirrel SQL 클라이언트에서 연결합니다.
+title: JDBC 드라이버를 통해 Apache Hive 쿼리 - Azure HDInsight
+description: Java 애플리케이션에서 JDBC 드라이버를 사용하여 HDInsight의 Hadoop에 Apache Hive 쿼리를 제출합니다. 프로그래밍 방식으로 SQuirrel SQL 클라이언트에서 연결합니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014417"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633447"
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Hive 쿼리
+# <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Java 응용 프로그램에서 JDBC 드라이버를 사용하여 Azure HDInsight의 Hadoop에 Hive 쿼리를 제출하는 방법을 알아봅니다. 이 문서의 정보는 프로그래밍 방식으로 SQuirrel SQL 클라이언트에서 연결하는 방법을 보여 줍니다.
+Java 애플리케이션에서 JDBC 드라이버를 사용하여 Azure HDInsight의 Apache Hadoop에 Apache Hive 쿼리를 제출하는 방법을 알아봅니다. 이 문서의 정보는 프로그래밍 방식으로 SQuirrel SQL 클라이언트에서 연결하는 방법을 보여 줍니다.
 
 Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)를 참조하세요.
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945181"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622094"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI 커넥터를 사용하여 Azure Cosmos DB 데이터 시각화
 
@@ -76,11 +76,11 @@ Azure Cosmos DB 계정에서 화산 데이터를 검색하고 대화형 Power BI
 
 5. **커넥터 미리 보기** 페이지에서 **계속**을 클릭합니다. **Azure Cosmos DB** 창이 나타납니다.
 
-6. 아래와 같이 데이터를 검색할 Azure Cosmos DB 계정 엔드포인트 URL을 지정한 다음, **확인**을 클릭합니다. 자신의 계정을 사용하려는 경우 Azure Portal의 **[키](manage-account.md#keys)** 블레이드에 있는 URI 상자에서 URL을 검색할 수 있습니다. 필요에 따라 데이터베이스 이름, 컬렉션 이름을 제공하거나 탐색기를 사용하여 데이터를 가져오는 위치를 식별하는 데이터베이스 및 컬렉션을 선택할 수도 있습니다.
+6. 아래와 같이 데이터를 검색할 Azure Cosmos DB 계정 엔드포인트 URL을 지정한 다음, **확인**을 클릭합니다. 자신의 계정을 사용하려면 Azure Portal의 **키** 블레이드에 있는 URI 상자에서 URL을 검색할 수 있습니다. 필요에 따라 데이터베이스 이름, 컬렉션 이름을 제공하거나 탐색기를 사용하여 데이터를 가져오는 위치를 식별하는 데이터베이스 및 컬렉션을 선택할 수도 있습니다.
    
-7. 처음으로 이 엔드포인트에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다. 자신의 계정을 사용하는 경우 Azure Portal의 **[읽기 전용 키](manage-account.md#keys)** 블레이드에 있는 **기본 키** 상자에서 키를 검색합니다. 적절한 키를 입력하고 **연결**을 클릭합니다.
+7. 처음으로 이 엔드포인트에 연결하는 경우 계정 키를 입력하라는 메시지가 표시됩니다. 자신의 계정을 사용하는 경우 Azure Portal의 **읽기 전용 키** 블레이드에 있는 **기본 키** 상자에서 키를 검색합니다. 적절한 키를 입력하고 **연결**을 클릭합니다.
    
-   보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다. 이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure Portal의 [키](manage-account.md#keys) 블레이드에서 사용할 수 있습니다. 
+   보고서를 작성할 때는 읽기 전용 키를 사용하는 것이 좋습니다. 이렇게 하면 불필요하게 마스터 키가 잠재적인 보안 위험에 노출되는 것을 방지할 수 있습니다. 읽기 전용 키는 Azure Portal의 **키** 블레이드에서 사용할 수 있습니다. 
     
 8. 계정이 성공적으로 연결되면 **탐색기** 창이 표시됩니다. **탐색기**는 계정의 데이터베이스 목록을 표시합니다.
 

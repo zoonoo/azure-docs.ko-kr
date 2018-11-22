@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962387"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344980"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -44,11 +44,11 @@ Media Services를 사용하면 AES-128(Advanced Encryption Standard) 또는 Micr
 
 최신 릴리스에서는 다음과 같은 기능이 새롭게 향상되었습니다.
 
-- 라이브에 대한 짧은 대기 시간(종단간 10초)
+- 새로운 짧은 대기 시간 모드 자세한 내용은 [대기 시간](#latency)을 참조하세요.
 - RTMP 지원 향상(향상된 안정성 및 더 많은 소스 인코더 지원)
 - RTMPS 보안 수집
 
-    LiveEvent를 만들면 이제 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다.   
+    LiveEvent를 만들면 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다.   
 - 24시간 코드 변환 지원 
 - SCTE35를 통한 RTMP의 광고 신호 지원 향상
 
@@ -82,12 +82,12 @@ Media Services를 사용하면 AES-128(Advanced Encryption Standard) 또는 Micr
 
 다음 테이블에서는 두 가지 LiveEvent 형식의 기능을 비교합니다.
 
-| 기능 | 통과 LiveEvent | 기본 LiveEvent |
+| 기능 | 통과 LiveEvent | 표준 LiveEvent |
 | --- | --- | --- |
 | 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니요 |yes |
 | 최대 해상도, 계층 수 |4Kp30  |720p, 6계층, 30fps |
 | 입력 프로토콜 |RTMP, 부드러운 스트리밍 |RTMP, 부드러운 스트리밍 |
-| 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
+| 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 | [가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
 | 최대 실행 시간 |연중 무휴 |연중 무휴 |
 | 슬레이트 삽입 지원 |아니요 |yes |
 | API를 통한 광고 신호 지원|아니요 |yes |
@@ -126,6 +126,20 @@ LiveEvent는 동시 실행 LiveOutput을 최대 세 개까지 지원하므로 �
 LiveEvent로 들어오는 스트림이 있으면 자산, LiveOutput 및 StreamingLocator를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 이렇게 하면 스트림이 보관되고 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 시청자가 스트림을 사용할 수 있게 됩니다.
 
 Azure Media Services 계정이 만들어지면, 기본 스트리밍 엔드포인트가 중지됨 상태의 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 실행 상태에 있어야 합니다.
+
+## <a name="latency"></a>대기 시간
+
+이 섹션에서는 짧은 대기 시간 설정 및 다양한 플레이어를 사용하는 경우 표시되는 일반적인 결과에 대해 설명합니다. 그 결과는 CDN 및 네트워크 대기 시간에 따라 다릅니다.
+
+새로운 LowLatency 기능을 사용하려면 LiveEvent에서 **StreamOptionsFlag**를 **LowLatency**로 설정할 수 있습니다. 스트림이 실행되면 [Azure Media Player](http://ampdemo.azureedge.net/)(AMP) 데모 페이지를 사용할 수 있으며, 재생 옵션을 설정하여 "짧은 대기 시간 추론 프로필"을 사용할 수 있습니다.
+
+### <a name="pass-through-liveevents"></a>통과 LiveEvent
+
+||2초 GOP 짧은 대기 시간 사용|1초 GOP 짧은 대기 시간 사용|
+|---|---|---|
+|AMP의 DASH|10초|8초|
+|기본 iOS 플레이어의 HLS|14초|10초|
+|Mixer 플레이어의 HLS.JS|30초|16초|
 
 ## <a name="billing"></a>결제
 

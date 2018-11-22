@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: c39df127e07601dbc5125d246f25da22ce4a0e40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f4bf1f35a39042fa38e5d7c7e52c4f8593ffd824
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981766"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683528"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell-preview"></a>Azure PowerShell(미리 보기)을 사용하여 가상 머신 확장 집합에서 OS 및 연결된 데이터 디스크 암호화
 
@@ -48,7 +48,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-등록 요청을 전파하는 데 최대 10분까지 걸릴 수 있습니다. [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) 명령을 사용하여 등록 상태를 확인할 수 있습니다. `RegistrationState`가 *Registered*로 보고되면 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider)를 사용하여 *Mirosoft.Compute* 공급자를 다시 등록합니다.
+등록 요청을 전파하는 데 최대 10분까지 걸릴 수 있습니다. [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) 명령을 사용하여 등록 상태를 확인할 수 있습니다. `RegistrationState`가 *Registered*로 보고되면 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider)를 사용하여 *Microsoft.Compute* 공급자를 다시 등록합니다.
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"

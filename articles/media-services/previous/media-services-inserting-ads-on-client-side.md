@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 71ac963f00993f8a66d41a8d6f3f67528d9c0583
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903050"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625152"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 이 문서에서는 클라이언트 측에서 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
@@ -107,7 +107,7 @@ VAST 파일은 표시할 광고를 지정합니다. 다음 XML은 선형 광고�
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -127,7 +127,7 @@ VAST 파일은 표시할 광고를 지정합니다. 다음 XML은 선형 광고�
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -160,7 +160,7 @@ VAST 파일은 표시할 광고를 지정합니다. 다음 XML은 선형 광고�
     </Creative>
 ```
 
-<**NonLinearAds**> 요소에는 각각 비선형 광고를 설명할 수 있는 <**NonLinear**> 요소가 둘 이상 포함될 수 있습니다. <**NonLinear**> 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 <**StaticResouce**>, <**IFrameResource**> 또는 <**HTMLResouce**>일 수 있습니다. <**StaticResource**>는 비 HTML 리소스를 설명하고, 다음과 같이 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
+<**NonLinearAds**> 요소에는 각각 비선형 광고를 설명할 수 있는 <**NonLinear**> 요소가 둘 이상 포함될 수 있습니다. <**NonLinear**> 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 <**StaticResource**>, <**IFrameResource**> 또는 <**HTMLResource**>일 수 있습니다. <**StaticResource**>는 비 HTML 리소스를 설명하고, 다음과 같이 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
 
 Image/gif, image/jpeg, image/png – 리소스가 HTML <**img**> 태그에 표시됩니다.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945063"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625797"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스 사용자 지정
 
@@ -99,17 +99,13 @@ Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
 
 다음을 수행하여 CORS(원본 간 리소스 공유)에 Blob 저장소를 구성합니다.
 
->[!NOTE]
->샘플 HTML 및 CSS 콘텐츠를 사용하여 UI 사용자 지정 기능을 사용하시겠습니까? Azure Blob 저장소 계정에 샘플 콘텐츠를 업로드하고 구성하는 [간단한 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)를 제공했습니다. 이 도구를 사용하는 경우 [등록 또는 로그인 사용자 지정 정책 수정](#modify-your-sign-up-or-sign-in-custom-policy)으로 건너뜁니다.
-
-1. **저장소** 블레이드의 **설정** 아래에서 **CORS**를 엽니다.
-2. **추가**를 클릭합니다.
-3. **허용된 원본**의 경우 별표(\*)를 입력합니다.
-4. **허용되는 동사** 드롭다운 목록에서 **가져오기**와 **옵션**을 모두 선택합니다.
-5. **허용된 헤더**의 경우 별표(\*)를 입력합니다.
-6. **노출된 헤더**의 경우 별표(\*)를 입력합니다.
-7. **최대 기간(초)** 의 경우 **200**을 입력합니다.
-8. **추가**를 클릭합니다.
+1. 메뉴에서 **CORS**를 선택합니다.
+2. **허용된 원본**에 `your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `fabrikam.b2clogin.com`
+3. **허용된 메소드**에서 `GET`과 `OPTIONS`를 모두 선택합니다.
+4. **허용된 헤더**에 별표(*)를 입력합니다.
+5. **노출된 헤더**에 별표(*)를 입력합니다.
+6. **최대 기간**에 200을 입력합니다.
+7. **저장**을 클릭합니다.
 
 ## <a name="test-cors"></a>CORS 테스트
 

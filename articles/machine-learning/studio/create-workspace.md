@@ -12,24 +12,21 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 94502cbb0946ad1568cf33716480406b17fd57ac
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 19cbb27221bfb95a0900eb7a604e540cb066037e
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833957"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345558"
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 만들기 및 공유
-이 메뉴는 CAPS(Cortana 분석 프로세스)에서 사용하는 다양한 데이터 과학 환경을 설정하는 방법을 설명하는 항목에 연결됩니다.
 
-[!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
-
-Azure Machine Learning Studio를 사용하려면 Machine Learning 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
+Azure Machine Learning Studio를 사용하려면 Machine Learning Studio 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ### <a name="to-create-a-workspace"></a>작업 영역을 만들려면
-1. [Azure 포털](https://portal.azure.com/)
+1.  [Azure 포털](https://portal.azure.com/)
 
     > [!NOTE]
     > 로그인하여 작업 영역을 만들려면 Azure 구독 관리자여야 합니다. 

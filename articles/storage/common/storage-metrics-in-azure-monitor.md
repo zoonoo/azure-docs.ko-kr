@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: b9b6c67930e251302f397e199c65f949997a25cf
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 72d324e0b5fe0c50dadc076306c9167c0492290a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637975"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625592"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -404,6 +404,10 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 **Azure Storage가 Managed Disks 또는 Unmanaged Disks에 대한 메트릭을 지원하나요?**
 
 예. Azure Compute는 디스크에서 메트릭을 지원합니다. 자세한 내용은 [문서](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)를 참조하세요.
+
+**새 메트릭을 사용하여 클래식 메트릭을 어떻게 매핑 및 마이그레이션하나요?**
+
+[Azure Storage 메트릭 마이그레이션](./storage-metrics-migration.md)에서 클래식 메트릭과 새 메트릭 간의 자세한 매핑을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914093"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687336"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -91,7 +91,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 ![Azure Portal: Azure AD Connect 창](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Seamless SSO는 각 AD 포리스트의 온-프레미스 AD(Active Directory)에 Azure AD를 나타내는 `AZUREADSSOACC`라는 컴퓨터 계정을 만듭니다. 기능이 작동하려면 이 컴퓨터 계정이 필요합니다. 다른 컴퓨터 계정이 저장된 OU(조직 단위)로 `AZUREADSSOACC` 컴퓨터 계정을 이동하여 동일한 방식으로 관리되고 삭제되지 않도록 합니다.
+> Seamless SSO는 각 AD 포리스트의 온-프레미스 AD(Active Directory)에 Azure AD를 나타내는 `AZUREADSSOACC`라는 컴퓨터 계정을 만듭니다. 기능이 작동하려면 이 컴퓨터 계정이 필요합니다. 온-프레미스 환경에서 Pass-the-hash 및 자격 증명 도난 완화 아키텍처를 사용하는 경우 `AZUREADSSOACC` 컴퓨터 계정이 격리 컨테이너에 저장되지 않도록 합니다. 컴퓨터 컨테이너에 컴퓨터 계정을 만들기 위해 적절하게 변경하세요. Azure AD Connect 마법사에서 성공적으로 Seamless SSO를 사용하도록 설정한 후 `AZUREADSSOACC` 컴퓨터 계정을 실수로 삭제되지 않도록 다른 컴퓨터 계정이 관리되는 OU(조직 단위)로 이동합니다.
 
 ## <a name="step-3-roll-out-the-feature"></a>3단계: 기능 배포
 

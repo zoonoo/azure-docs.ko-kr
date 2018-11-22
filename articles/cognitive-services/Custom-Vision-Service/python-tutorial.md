@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: quickstart
 ms.date: 11/2/2018
 ms.author: areddish
-ms.openlocfilehash: 4de1a33006f580bda9d356027e93b4bf2309dd90
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c110abd9354134d52d4f82f7c828fc5e13f218a8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281390"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262999"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>빠른 시작: Custom Vision Python SDK를 사용하여 이미지 분류 프로젝트 만들기
 
@@ -48,14 +48,16 @@ pip install azure-cognitiveservices-vision-customvision
 새 Custom Vision Service 프로젝트를 만드는 다음 코드를 스크립트에 추가합니다. 구독 키를 적절한 정의에 삽입합니다.
 
 ```Python
-from azure.cognitiveservices.vision.customvision.training import training_api
+from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
 from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
+
+ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
 
-trainer = training_api.TrainingApi(training_key)
+trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Create a new project
 print ("Creating project...")
@@ -116,12 +118,12 @@ print ("Done!")
 예측 엔드포인트에 이미지를 보내고 예측을 검색하려면 파일의 끝에 다음 코드를 추가합니다.
 
 ```python
-from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
+from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
 
 # Now there is a trained endpoint that can be used to make a prediction
 
-predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
+predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 test_img_url = base_image_url + "Images/Test/test_image.jpg"
 results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url)

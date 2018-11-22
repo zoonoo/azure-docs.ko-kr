@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 11/13/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13ce1a7c9008a7893892e5d7e6b67a243c381c9f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349146"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622009"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
-이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 지원하는 응용 프로그램(특히 [Azure Active Directory 응용 프로그램 갤러리](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)의 "기능을 갖춘" 범주에서 추가된 응용 프로그램)에 대한 자동 사용자 계정 프로비전 및 프로비전 해제를 관리하는 방법을 설명합니다. 자동 사용자 계정 프로비전 및 작동 방식에 대한 자세한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램에 사용자 프로비전 및 프로비전 해제 자동화](user-provisioning.md)를 참조하세요.
+이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 자동 사용자 계정 프로비전 및 지원되는 애플리케이션에 대한 프로비전 해제를 관리하는 방법을 설명합니다. 자동 사용자 계정 프로비전 및 작동 방식에 대한 자세한 내용은 [Azure Active Directory를 사용하여 SaaS 응용 프로그램에 사용자 프로비전 및 프로비전 해제 자동화](user-provisioning.md)를 참조하세요.
 
 ## <a name="finding-your-apps-in-the-portal"></a>포털에서 앱 찾기
-[Azure Active Directory 응용 프로그램 갤러리](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)를 사용하여 디렉터리 관리자에 의해 디렉터리의 Single Sign-On이 구성된 모든 응용 프로그램을 이제 [Azure Portal](https://portal.azure.com)에서 확인하고 관리할 수 있습니다. 응용 프로그램은 포털의 **모든 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다.
+디렉터리에서 Single Sign-On에 대해 구성된 모든 애플리케이션은 [Azure Portal](https://portal.azure.com)에서 보고 관리할 수 있습니다. 응용 프로그램은 포털의 **모든 서비스** &gt; **엔터프라이즈 응용 프로그램** 섹션에서 찾을 수 있습니다. 엔터프라이즈 앱은 조직 내에서 배포 및 사용되는 앱입니다.
 
 ![Enterprise 응용 프로그램 창](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
 
@@ -77,7 +77,5 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 간의 미리 구�
 
 Azure AD와 대상 응용 프로그램 간에 만들어지고 업데이트 및 제거되는 모든 사용자 및 그룹의 로그를 제공하는 **프로비전 활동 보고서**와 읽기, 만들기, 업데이트 또는 제거에 실패한 사용자 및 그룹 개체에 대한 자세한 오류 메시지를 제공하는 **프로비전 오류 보고서**에 대한 링크가 제공됩니다. 
 
-## <a name="feedback"></a>사용자 의견
 
-사용자 의견을 계속 보내주세요! [피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal)의 **관리자 포털Admin Portal** 섹션에서 개선을 위한 의견과 아이디어를 게시합니다.  엔지니어링 팀은 매일 멋진 새로운 기능을 구축하는 방법을 구상하며, 사용자의 지침에 따라 다음에 구축할 기능을 구체화하고 정의하겠습니다.
 

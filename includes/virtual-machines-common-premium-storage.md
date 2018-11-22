@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2e8b2753a441b0d7f27745fdf622b26dcee7784a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263290"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572457"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM의 고성능 Premium Storage 및 관리 디스크
 
@@ -167,7 +167,7 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 
 * **프로비전된 용량 및 성능**
 
-    프리미엄 저장소 디스크를 프로비전하면 표준 저장소와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 저장소 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 응용 프로그램에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다.
+    프리미엄 저장소 디스크를 프로비전하면 표준 저장소와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 저장소 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 응용 프로그램에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다. 프리미엄 SSD 디스크는 대상 성능 99.9%의 시간을 제공하도록 설계되었습니다.
 
 * **디스크 크기**
 

@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
-ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038606"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566621"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API
 
@@ -127,14 +127,43 @@ HTTP 코드|의미|가능한 원인
 
 ### <a name="json-response"></a>JSON 응답
 
-결과는 JSON 형식으로 반환됩니다. `simple` 형식은 다음 최상위 필드만을 포함합니다.
+결과는 JSON 형식으로 반환됩니다. 쿼리 매개 변수에 따라 `simple` 또는 `detailed` 형식이 반환됩니다.
+
+#### <a name="the-simple-format"></a>`simple` 형식 
+
+이 형식은 다음 최상위 필드를 포함합니다.
 
 |필드 이름|Content|
 |-|-|
-|`RecognitionStatus`|상태(예: 인식 성공에 `Success`)입니다. 다음 표를 참조하세요.|
+|`RecognitionStatus`|상태(예: 인식 성공에 `Success`)입니다. 이 [표](rest-apis.md#recognitionstatus)를 참조하세요.|
 |`DisplayText`|대문자로 표시, 문장 부호, 역 텍스트 정규화(”two hundred”를 “200”, 또는 “doctor smith”를 “Dr. Smith"로, 발화된 텍스트를 더 짧은 형태로 변환 ) 및 욕설 마스킹 후에 인식된 텍스트입니다. 성공 시만 표시합니다.|
 |`Offset`|인식된 음성이 오디오 스트림에서 시작하는 시간(100나노초 단위)입니다.|
 |`Duration`|오디오 스트림에서 인식된 음성의 기간(100나노초 단위)입니다.|
+
+#### <a name="the-detailed-format"></a>`detailed` 형식 
+
+이 형식은 다음 최상위 필드를 포함합니다.
+
+|필드 이름|Content|
+|-|-|
+|`RecognitionStatus`|상태(예: 인식 성공에 `Success`)입니다. 이 [표](rest-apis.md#recognition-status)를 참조하세요.|
+|`Offset`|인식된 음성이 오디오 스트림에서 시작하는 시간(100나노초 단위)입니다.|
+|`Duration`|오디오 스트림에서 인식된 음성의 기간(100나노초 단위)입니다.|
+|`NBest`|가능성이 가장 높은 순위에서 가능성이 가장 낮은 순위까지, 동일한 음성의 대체 해석 목록입니다. [NBest 설명](rest-apis.md#nbest)을 참조하세요.|
+
+#### <a name="nbest"></a>NBest
+
+`NBest` 필드는 가능성이 가장 높은 순위에서 가능성이 가장 높은 순위까지, 동일한 음성의 대체 해석 목록입니다. 첫 번째 항목은 기본 인식 결과와 같습니다. 각 항목에는 다음 필드가 포함됩니다.
+
+|필드 이름|Content|
+|-|-|
+|`Confidence`|0.0(신뢰도 없음)에서 1.0(완전 신뢰도)까지 항목의 신뢰도 점수입니다.
+|`Lexical`|인식된 텍스트의 어휘 형태, 즉 인식된 실제 단위입니다.
+|`ITN`|전화 번호, 숫자, 축약어("doctor smith"가 "dr smith")가 포함된 인식된 텍스트의 역 텍스트 정규화된("기본형") 형태와 적용된 기타 변형입니다.
+|`MaskedITN`| 요청된 경우 욕설 마스킹이 적용된 ITN 형태입니다.
+|`Display`| 문장 부호 및 대문자로 표시가 추가된 인식된 텍스트의 표시 형태입니다.
+
+#### <a name="recognitionstatus"></a>RecognitionStatus
 
 `RecognitionStatus` 필드는 다음 값을 포함할 수 있습니다.
 
@@ -148,17 +177,6 @@ HTTP 코드|의미|가능한 원인
 
 > [!NOTE]
 > 오디오가 욕설로만 구성되어 있고 `profanity` 쿼리 매개 변수가 `remove`로 설정되어 있는 경우 서비스는 음성 결과를 변환하지 않습니다.
-
-
-`detailed` 형식은 `NBest` 필드와 함께 `simple` 형식과 동일한 필드를 포함합니다. `NBest` 필드는 가능성이 가장 높은 순위에서 가능성이 가장 높은 순위까지, 동일한 음성의 대체 해석 목록입니다. 첫 번째 항목은 기본 인식 결과와 같습니다. 각 항목에는 다음 필드가 포함됩니다.
-
-|필드 이름|Content|
-|-|-|
-|`Confidence`|0.0(신뢰도 없음)에서 1.0(완전 신뢰도)까지 항목의 신뢰도 점수입니다.
-|`Lexical`|인식된 텍스트의 어휘 형태, 즉 인식된 실제 단위입니다.
-|`ITN`|전화 번호, 숫자, 축약어("doctor smith"가 "dr smith")가 포함된 인식된 텍스트의 역 텍스트 정규화된("기본형") 형태와 적용된 기타 변형입니다.
-|`MaskedITN`| 요청된 경우 욕설 마스킹이 적용된 ITN 형태입니다.
-|`Display`| 문장 부호 및 대문자로 표시가 추가된 인식된 텍스트의 표시 형태입니다. 최상위 결과에서 `DisplayText`와 동일합니다.
 
 ### <a name="sample-responses"></a>샘플 응답
 

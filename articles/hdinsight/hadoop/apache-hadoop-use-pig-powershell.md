@@ -1,6 +1,6 @@
 ---
-title: HDInsight에서 PowerShell과 Hadoop Pig 사용 - Azure
-description: Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터에 Pig 작업을 제출하는 방법에 대해 알아봅니다.
+title: HDInsight에서 PowerShell과 Apache Pig 사용 - Azure
+description: Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터에 Apache Pig 작업을 제출하는 방법에 대해 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e50c551381a065e8651ab7970ef9cf18c6c3a765
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e9f6778f12f4f6260bfc20c3a78f7929f13405b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011020"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634535"
 ---
-# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Azure PowerShell을 사용하여 HDInsight에서 Pig 작업 실행
+# <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Azure PowerShell을 사용하여 HDInsight에서 Apache Pig 작업 실행
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-이 문서는 Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터에 Pig 작업을 제출하는 예제를 보여 줍니다. Pig를 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 모델링하는 언어(Pig Latin)를 사용하여 MapReduce 작업을 작성할 수 있습니다.
+이 문서에서는 Azure PowerShell을 사용하여 HDInsight의 Apache Hadoop 클러스터에 Apache Pig 작업을 제출하는 예제를 보여줍니다. Pig를 사용하면 매핑하고 함수를 줄이는 대신 데이터 변환을 모델링하는 언어(Pig Latin)를 사용하여 MapReduce 작업을 작성할 수 있습니다.
 
 > [!NOTE]
 > 이 문서에는 예제에 사용된 Pig Latin 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에 사용된 Pig Latin에 대한 자세한 내용은 [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)을 참조하세요.

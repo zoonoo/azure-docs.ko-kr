@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964155"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625626"
 ---
 # <a name="manage-workspaces"></a>작업 영역 관리
 
@@ -239,7 +239,7 @@ OMS 포털을 사용하여 가격 책정 계층을 변경하려면 Azure 구독�
 ![OMS 리본 메뉴](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 데이터 센터 또는 다른 클라우드 환경에 있는 컴퓨터에서 데이터를 수집하려면 [Log Analytics를 사용하여 환경의 컴퓨터에서 데이터 수집](log-analytics-concept-hybrid.md)을 참조하세요.
+* 데이터 센터 또는 다른 클라우드 환경의 컴퓨터에서 데이터를 수집하려면 [Log Analytics 에이전트 개요](log-analytics-agent-overview.md)를 참조하세요.
 * Azure VM에서 데이터 수집을 구성하려면 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하세요.  
 * [솔루션 갤러리에서 Log Analytics 솔루션을 추가](../monitoring/monitoring-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
 

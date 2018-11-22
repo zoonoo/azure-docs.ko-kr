@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: cde8516b93c2aac0cb74d9c9599168c8e6a70472
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734136"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712027"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>빠른 시작: .Net을 사용하여 개체 저장소에 Blob 만들기
 
@@ -21,9 +21,7 @@ ms.locfileid: "45734136"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-이 빠른 시작을 완료하려면 먼저 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure 저장소 계정을 만듭니다. 저장소 계정을 만드는 데 도움이 필요한 경우 [저장소 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 다음으로 운영 체제용 .NET Core 2.0을 다운로드 및 설치합니다. Windows를 실행하는 경우 원한다면 Visual Studio를 설치하고 .NET Framework를 사용할 수 있습니다. 또한 운영 체제와 사용할 편집기를 설치하도록 선택할 수도 있습니다.
 

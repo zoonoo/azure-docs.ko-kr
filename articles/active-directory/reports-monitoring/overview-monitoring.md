@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 92e200f358098d5516246d057d1cef406750e326
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623203"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264685"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>Azure Active Directory 모니터링이란? (미리 보기)
 
@@ -32,6 +32,8 @@ ms.locfileid: "51623203"
 - Azure 저장소 계정.
 - Azure 이벤트 허브. 따라서 Splunk 및 Sumologic 인스턴스와 통합할 수 있습니다.
 - Azure Log Analytics 작업 영역. 여기서 데이터를 분석하고, 대시보드를 만들고, 특정 이벤트에 대해 경고할 수 있습니다.
+
+> [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="diagnostic-settings-configuration"></a>진단 설정 구성
 

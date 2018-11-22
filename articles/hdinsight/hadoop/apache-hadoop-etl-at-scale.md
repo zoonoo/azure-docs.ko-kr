@@ -1,6 +1,6 @@
 ---
 title: 규모에 맞게 ETL(추출, 변환 및 로드) - Azure HDInsight
-description: Hadoop과 함께 HDInsight에서 ETL을 사용하는 방법을 알아봅니다.
+description: HDInsight에서 Apache Hadoop과 ETL을 사용하는 방법을 알아봅니다.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049005"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633328"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
-ETL(추출, 변환 및 로드)은 다양한 원본에서 데이터를 가져오고, 표준 위치에 수집하고, 정리 및 처리한 다음, 최종적으로 쿼리할 수 있는 데이터 저장소에 로드하는 프로세스입니다. 레거시 ETL 프로세스는 데이터를 가져오고, 제 위치에서 정리한 다음, 관계형 데이터 엔진에 저장합니다. HDInsight를 사용하면 다양한 Hadoop 에코시스템 구성 요소에서 규모에 맞게 ETL을 수행할 수 있습니다. 
+ETL(추출, 변환 및 로드)은 다양한 원본에서 데이터를 가져오고, 표준 위치에 수집하고, 정리 및 처리한 다음, 최종적으로 쿼리할 수 있는 데이터 저장소에 로드하는 프로세스입니다. 레거시 ETL 프로세스는 데이터를 가져오고, 제 위치에서 정리한 다음, 관계형 데이터 엔진에 저장합니다. HDInsight를 사용하면 다양한 Apache Hadoop 에코시스템 구성 요소에서 규모에 맞게 ETL을 수행할 수 있습니다. 
 
 ETL 프로세스에서 HDInsight를 사용하는 방법은 다음과 같은 파이프라인으로 요약할 수 있습니다.
 

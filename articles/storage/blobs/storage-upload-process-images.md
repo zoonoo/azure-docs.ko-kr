@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 237599a5dbd39147b02e9a85cbe34502d0d91923
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c58bb19a18e6f0f78e07e403df5489f2f7342203
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227047"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853101"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -24,7 +24,7 @@ ms.locfileid: "47227047"
 # <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Images 컨테이너 보기](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
 ![Images 컨테이너 보기](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -103,7 +103,7 @@ Blob Storage 계정 이름 및 키를 적어둡니다. 샘플 앱은 이러한 �
 다음 예에서는 **체험** 가격 책정 계층에서 `myAppServicePlan`이라는 App Service 계획을 만듭니다.
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
@@ -124,7 +124,7 @@ App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지�
 
 샘플 프로젝트에는 이미지를 수락하고, 저장소 계정에 저장한 후 썸네일 컨테이너의 이미지를 표시하는 [ASP.NET MVC](https://www.asp.net/mvc) 앱이 포함되어 있습니다. 웹 응용 프로그램은 Azure Storage 클라이언트 라이브러리의 [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), 및 [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) 네임스페이스를 사용하여 Azure Storage와 상호 작용합니다.
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
 App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다. `<web_app>`을 이전 단계에서 만든 웹앱의 이름으로 바꿉니다.
 
 ---
@@ -197,7 +197,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_GetBlockBlobReference_System_String_)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
 
 ![이미지 업로드 앱](media/storage-upload-process-images/upload-app-nodejs.png)
 
@@ -281,7 +281,7 @@ router.post('/', uploadStrategy, (req, res) => {
 # <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Images 컨테이너 보기](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
 ![Images 컨테이너 보기](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---

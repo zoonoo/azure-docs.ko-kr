@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d445a4673245b4c6d1986d099113beba79d136bb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e3f08b80b891ad277794ae5a07c3662dab2f2c16
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310592"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687455"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: FAQ(질문과 대답)
 
@@ -36,7 +36,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 ## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Seamless SSO는 [Microsoft Azure 독일 클라우드](http://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서 사용할 수 있나요?
 
-아니요. Seamless SSO는 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
+ 아니요. Seamless SSO는 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 응용 프로그램은 무엇인가요?
 
@@ -46,7 +46,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 | -- | -- |
 | 액세스 패널 | https://myapps.microsoft.com/contoso.com |
 | 웹용 Outlook | https://outlook.office365.com/contoso.com |
-| Office 365 포털 | https://portal.office.com?domain_hint=contoso.com |
+| Office 365 포털 | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
 
 또한 응용 프로그램이 Azure AD의 공통 엔드포인트(즉, https://login.microsoftonline.com/common/<...>) 대신 Azure AD의 테넌트 엔드포인트(즉, https://login.microsoftonline.com/contoso.com/<..> 또는 https://login.microsoftonline.com/<tenant_ID>/<..>)로 로그인 요청을 전송할 경우 사용자는 자동 로그온 환경을 사용합니다. 이러한 형식의 로그인을 요청하는 응용 프로그램의 부분 목록이 아래에 나열됩니다.
 

@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f032e3ebf6a10411057cd6d41df0cad6248f328b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012465"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636240"
 ---
 # <a name="create-and-manage-role-assignments"></a>역할 할당 만들기 및 관리
 
@@ -26,6 +26,8 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 * **역할 정의 ID**
 * **공간 경로**
 * **테넌트 ID**: 대부분의 경우 Azure Active Directory 테넌트 ID
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="role-definition-identifiers"></a>역할 정의 식별자
 
@@ -57,7 +59,7 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 ## <a name="create-a-role-assignment"></a>역할 할당 만들기
 
 ```plaintext
-HTTP POST /api/v1.0/roleassignments
+HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
 | **Name** | **필수** | **형식** | **설명** |
@@ -108,22 +110,22 @@ HTTP POST /api/v1.0/roleassignments
 GET을 사용하여 역할 할당을 가져옵니다.
 
 ```plaintext
-HTTP GET /api/v1/roleassignments?path={path}
+HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
 | **Name** | **위치** | **필수** |    **형식** |  **설명** |
 | --- | --- | --- | --- | --- |
-| path | path | True | 문자열 | 공간의 전체 경로 |
+| YOUR_PATH | path | True | 문자열 |    공간의 전체 경로 |
 
 DELETE를 사용하여 역할 할당을 삭제합니다.
 
 ```plaintext
-HTTP DELETE /api/v1/roleassignments/{id}
+HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 ```
 
 | **Name** | **위치** | **필수** | **형식** | **설명** |
 | --- | --- | --- | --- | --- |
-| ID | path | True | 문자열 |   역할 할당 ID |
+| YOUR_ROLE_ID | path | True | 문자열 | 역할 할당 ID |
 
 ## <a name="next-steps"></a>다음 단계
 
