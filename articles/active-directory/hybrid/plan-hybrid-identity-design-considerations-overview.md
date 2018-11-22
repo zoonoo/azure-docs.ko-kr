@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d916e884e7764a1ba5ebaf224750f38e7d7673e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308662"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344885"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory 하이브리드 ID 설계 고려 사항
 소비자 기반 장치가 기업 전반에 퍼지고 있기 때문에 클라우드 기반 소프트웨어 SaaS 응용 프로그램은 쉽게 채택할 수 있습니다. 결과적으로 내부 데이터 센터 및 클라우드 플랫폼에 걸쳐 사용자의 응용 프로그램 액세스를 제어하도록 유지하는 것은 어렵습니다.  
@@ -62,6 +62,6 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 
 | 강력한 ID 솔루션을 통해 데이터 보안을 향상하기 위한 계획 |[데이터 보호 요구 사항 결정](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [콘텐츠 관리 요구 사항 결정](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [액세스 제어 요구 사항 확인](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [사고 대응 요구 사항 결정](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | 하이브리드 ID 수명 주기에 대한 계획 |[하이브리드 ID 관리 작업 결정](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [동기화 관리](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [하이브리드 ID 관리 채택 전략 결정](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
-## <a name="download-this-guide"></a>이 가이드 다운로드
-[Technet 갤러리](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288)에서 하이브리드 ID 설계 고려 사항 가이드의 pdf 버전을 다운로드할 수 있습니다. 
+## <a name="next-steps"></a>다음 단계
+[ID 요구 사항 확인](plan-hybrid-identity-design-considerations-business-needs.md)
 

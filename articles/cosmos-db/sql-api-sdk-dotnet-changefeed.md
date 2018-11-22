@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: eb50673b4f618caadfa1abfb654d7e3f15e51713
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740963"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685449"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ ms.locfileid: "50740963"
   * 이제 IChangeFeedObserver.ProcessChangesAsync는 CancellationToken을 사용합니다.
   * IRemainingWorkEstimator - 남은 작업 추정을 프로세서에서 별도로 사용할 수 있습니다.
   * 새 확장성 지점:
-    * IParitionLoadBalancingStrategy - 프로세서의 인스턴스 간 파티션의 사용자 지정 부하 분산용
+    * IPartitionLoadBalancingStrategy - 프로세서의 인스턴스 간 파티션의 사용자 지정 부하 분산용.
     * ILease, ILeaseManager - 사용자 지정 임대 관리용
     * IPartitionProcessor - 파티션에 대한 사용자 지정 처리 변경용
 * 로깅 - [LibLog](https://github.com/damianh/LibLog) 라이브러리를 사용합니다.

@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: ea69befb1084b08352eb3cf38db0364c5c82c45b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237063"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684640"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터
 
@@ -98,7 +98,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>4단계: 그룹 식별자 캐시
-필요에 따라 네트워크 대기 시간을 줄이기 위해, 검색 요청이 실행되면 캐시에서 그룹이 반환되어 AAD로의 왕복 시간을 단축하도록 사용자 그룹 연결을 캐시할 수 있습니다. (AAD Batch API)[https://developer.microsoft.com/graph/docs/concepts/json_batching]를 사용하여 여러 사용자가 있는 단일 HTTP 요청을 보내고 캐시를 작성할 수 있습니다.
+필요에 따라 네트워크 대기 시간을 줄이기 위해, 검색 요청이 실행되면 캐시에서 그룹이 반환되어 AAD로의 왕복 시간을 단축하도록 사용자 그룹 연결을 캐시할 수 있습니다. [AAD Batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching)를 사용하여 여러 사용자가 있는 단일 Http 요청을 보내고 캐시를 빌드할 수 있습니다.
 
 Microsoft Graph는 많은 양의 요청을 처리하도록 설계되었습니다. 요청이 너무 많이 발생하면 Microsoft Graph가 HTTP 상태 코드 429와 함께 요청을 실패합니다. 자세한 내용은 [Microsoft Graph 제한](https://developer.microsoft.com/graph/docs/concepts/throttling)을 참조하세요.
 

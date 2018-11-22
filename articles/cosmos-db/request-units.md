@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: rimman
-ms.openlocfilehash: eabfe503d9b92252ada0014eba4c83390dd6fd97
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 709cd16c7eee30dd2d88ea87b5f704ad20530ffb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236078"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621346"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 
@@ -52,8 +52,8 @@ Cosmos DB는 다양한 API(SQL, MongoDB, Cassandra, Gremlin 및 Table)를 지원
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Cosmos DB 컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md)에 대해 자세히 알아보기
-* [논리 파티션](partition-data.md)에 대해 자세히 알아보기
-* [크기 조정 처리량](scaling-throughput.md)에 대해 자세히 알아보기
-* [Cosmos 컨테이너의 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md)에 대해 알아보기
-* [Cosmos 데이터베이스의 처리량을 프로비전하는 방법](how-to-provision-database-throughput.md)에 대해 알아보기
+* [Cosmos DB 컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md)에 대한 자세한 정보
+* [논리 파티션](partition-data.md)에 대한 자세한 정보
+* [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)에 대한 자세한 정보
+* [Cosmos 컨테이너의 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md) 알아보기
+* [Cosmos 데이터베이스의 처리량을 프로비전하는 방법](how-to-provision-database-throughput.md) 알아보기

@@ -10,29 +10,31 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/06/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 182537d6f07b624f2395f591681ed4596579bde0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fab94088d1d54012a955b0663b078d03b13d6299
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42142139"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624915"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
 
-이 문서에서는 Azure Portal에서 Azure Active Directory 사용자 작업 보고서를 찾는 방법을 설명합니다.
+이 문서에서는 Azure Portal에서 Azure AD(Azure Active Directory) 사용자 작업 보고서를 찾는 방법을 알아봅니다.
 
-## <a name="activity-and-integrated-app-reports"></a>활동 및 통합 앱 보고서
+## <a name="audit-logs-report"></a>감사 로그 보고서
 
-Azure Portal의 컨텍스트 기반 보고서의 경우 기존 보고서가 단일 보기에 병합되었습니다. 단일 기본 API는 보기에 데이터를 제공합니다.
+감사 로그 보고서는 애플리케이션 작업의 여러 보고서를 컨텍스트 기반 보고에 대한 단일 보기로 결합합니다. 감사 로그 보고서에 액세스하려면:
 
-이 보기를 보려면 **Azure Active Directory** 블레이드의 **작업**에서 **감사 로그**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+2. 오른쪽 위 모서리에서 디렉터리를 선택한 다음, 왼쪽 탐색 창에서 **Azure Active Directory** 블레이드를 선택합니다.
+3. Azure Active Directory 블레이드의 **활동** 섹션에서 **감사 로그**를 선택합니다. 
 
-![감사 로그](./media/howto-find-activity-reports/482.png "감사 로그")
+    ![감사 로그](./media/howto-find-activity-reports/482.png "감사 로그")
 
-다음과 같은 보고서가 이 보기에 통합되었습니다.
+감사 로그 보고서는 다음과 같은 보고서를 통합합니다.
 
 * 감사 보고서
 * 암호 재설정 활동
@@ -43,26 +45,11 @@ Azure Portal의 컨텍스트 기반 보고서의 경우 기존 보고서가 단�
 * 암호 롤오버 상태
 * 계정 프로비전 오류
 
+### <a name="filtering-on-audit-logs"></a>감사 로그 필터링
 
-개선된 응용 프로그램 사용 현황 보고서가 **로그인** 보기에 포함되었습니다. 이 보기를 보려면 **Azure Active Directory** 블레이드의 **작업**에서 **로그인**을 선택합니다.
+감사 보고서에서 고급 필터링을 사용하여 **활동 범주** 필터에서 지정하여 특정 범주의 감사 데이터에 액세스할 수 있습니다. 예를 들어 셀프 서비스 암호 재설정과 관련된 모든 작업을 보려면 **셀프 서비스 암호 관리** 범주를 선택합니다. 
 
-![로그인 보기](./media/howto-find-activity-reports/483.png "로그인 보기")
-
-**로그인** 보기에는 모든 사용자 로그인이 포함되어 있습니다. 이 정보를 사용하여 응용 프로그램 사용 정보를 얻을 수 있습니다. **관리** 섹션의 **Enterprise 응용 프로그램** 개요에서도 응용 프로그램 사용 정보를 볼 수 있습니다.
-
-![Enterprise 응용 프로그램](./media/howto-find-activity-reports/484.png "Enterprise 응용 프로그램")
-
-## <a name="access-a-specific-report"></a>특정 보고서에 액세스
-
-Azure Portal에서 단일 보기를 제공하지만 사용자는 특정 보고서를 살펴볼 수도 있습니다.
-
-### <a name="audit-logs"></a>감사 로그
-
-고객 피드백에 대한 응답으로 Azure Portal에서 고급 필터링을 사용하여 원하는 데이터에 액세스할 수 있습니다. 사용할 수 있는 필터 중 하나는 Azure AD의 다양한 작업 로그 유형을 나열하는 *작업 범주*입니다. 원하는 내용만 표시되도록 결과 범위를 좁히려면 범주를 선택합니다.
-
-예를 들어 셀프 서비스 암호 재설정과 관련된 작업만 보려면 **셀프 서비스 암호 관리** 범주를 선택하면 됩니다. 사용자에게 표시되는 범주는 사용자가 현재 작업 중인 리소스를 기반으로 합니다.  
-
-![필터 감사 로그 페이지의 범주 옵션](./media/howto-find-activity-reports/06.png "필터 감사 로그 페이지의 범주 옵션")
+    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
 
 작업 범주에는 다음과 같은 항목이 포함됩니다.
 
@@ -71,19 +58,36 @@ Azure Portal에서 단일 보기를 제공하지만 사용자는 특정 보고�
 - 셀프 서비스 그룹 관리
 - 계정 프로비전
 
-### <a name="application-usage"></a>응용 프로그램 사용 현황
 
-모든 앱 또는 단일 앱의 응용 프로그램 사용 현황에 대한 세부 정보를 보려면 **작업**에서 **로그인**을 선택합니다. 결과의 범위를 좁히려면 사용자 이름 또는 응용 프로그램 이름을 필터링하면 됩니다.
+## <a name="sign-ins-report"></a>로그인 보고서 
+
+**로그인** 보기는 모든 사용자 로그인 뿐만 아니라 **애플리케이션 사용량** 보고서를 포함합니다. **Enterprise 애플리케이션** 개요의 **관리** 섹션에서도 애플리케이션 사용량 정보를 볼 수 있습니다.
+
+    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
+
+로그인 보고서에 액세스하려면:
+
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+2. 오른쪽 위 모서리에서 디렉터리를 선택한 다음, 왼쪽 탐색 창에서 **Azure Active Directory** 블레이드를 선택합니다.
+3. Azure Active Directory 블레이드의 **활동** 섹션에서 **로그인**을 선택합니다. 
+
+    ![로그인 보기](./media/howto-find-activity-reports/483.png "로그인 보기")
+
+
+### <a name="filtering-on-application-name"></a>애플리케이션 이름 필터링
+
+로그인 보고서를 사용하여 사용자 이름 또는 애플리케이션 이름을 필터링하여 애플리케이션 사용량에 대한 세부 정보를 볼 수 있습니다.
 
 ![로그인 이벤트 필터링 페이지](./media/howto-find-activity-reports/07.png "로그인 이벤트 필터링 페이지")
 
-### <a name="security-reports"></a>보안 보고서
+## <a name="security-reports"></a>보안 보고서
 
-#### <a name="azure-ad-anomalous-activity-reports"></a>Azure AD 비정상 작업 보고서
+### <a name="anomalous-activity-reports"></a>비정상적인 활동 보고서
 
-Azure AD 비정상 작업 보안 보고서는 통합되어 하나의 중앙 보기를 제공합니다. 이 보기에는 Azure AD가 감지하여 보고할 수 있는 모든 보안 관련 위험 이벤트가 표시됩니다.
+비정상적인 활동 보고서는 Azure AD가 감지하고 보고할 수 있는 보안 관련 위험 이벤트에 대한 정보를 제공합니다.
 
-다음 테이블에는 Azure Portal의 Azure AD 비정상 작업 보안 보고서 및 해당하는 위험 이벤트 형식이 나열되어 있습니다.
+다음 테이블에는 Azure Portal의 Azure AD 비정상 작업 보안 보고서 및 해당하는 위험 이벤트 형식이 나열되어 있습니다. 자세한 내용은 [Azure Active Directory 위험 이벤트](concept-risk-events.md)를 참조하세요.  
+
 
 | Azure AD 비정상 작업 보고서 |  ID 보호 위험 이벤트 유형|
 | :--- | :--- |
@@ -99,29 +103,18 @@ Azure AD 비정상 작업 보안 보고서는 통합되어 하나의 중앙 보�
 * 여러 번의 실패 후 로그인
 * 여러 지역에서의 로그인
 
-자세한 내용은 [Azure Active Directory 위험 이벤트](concept-risk-events.md)를 참조하세요.  
 
+### <a name="detected-risk-events"></a>검색된 위험 이벤트
 
-#### <a name="detected-risk-events"></a>검색된 위험 이벤트
+[Azure Portal](https://portal.azure.com)의 **Azure Active Directory** 블레이드 **보안** 섹션에서 검색된 위험 이벤트에 대한 보고서에 액세스할 수 있습니다. 검색된 위험 이벤트는 다음과 같은 보고서에서 추적됩니다.   
 
-Azure Portal의 **Azure Active Directory** 블레이드 **보안** 섹션에서는 검색된 위험 이벤트에 대한 보고서에 액세스할 수 있습니다. 검색된 위험 이벤트는 다음과 같은 보고서에서 추적됩니다.   
+- [위험에 노출된 사용자](concept-user-at-risk.md)
+- [위험한 로그인](concept-risky-sign-ins.md)
 
-- 위험에 노출된 사용자
-- 위험한 로그인
-
-![보안 보고서](./media/howto-find-activity-reports/04.png "보안 보고서")
-
-보안 보고서에 대한 자세한 내용은 다음 항목을 참조하세요.
-
-- [Azure Active Directory 포털의 위험에 노출된 사용자 보안 보고서](concept-user-at-risk.md)
-- [Azure Active Directory 포털의 위험한 로그인 보고서](concept-risky-sign-ins.md)
-
-
-**응용 프로그램 사용 현황** 보고서를 보려면 **Azure Active Directory** 블레이드의 **관리**에서 **Enterprise 응용 프로그램**을 선택한 다음 **로그인**을 선택합니다.
-
-
-![엔터프라이즈 응용 프로그램 로그인 보고서](./media/howto-find-activity-reports/199.png)
+    ![보안 보고서](./media/howto-find-activity-reports/04.png "보안 보고서")
 
 ## <a name="next-steps"></a>다음 단계
 
-보고 개요는 [Azure Active Directory 보고](overview-reports.md)를 참조하세요.
+* [감사 로그 개요](concept-audit-logs.md)
+* [로그인 개요](concept-sign-ins.md)
+* [위험 이벤트 개요](concept-risk-events.md)

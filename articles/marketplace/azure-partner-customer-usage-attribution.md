@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280676"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685704"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -59,12 +59,13 @@ GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 
 1. [템플릿 배포에서 GUID 성공을 확인](#verify-the-guid-deployment)합니다.
 
 ### <a name="sample-resource-manager-template-code"></a>샘플 Resource Manager 템플릿 코드
-아래 샘플 코드를 기본 템플릿 파일에 추가할 때 사용자 고유의 입력으로 수정해야 합니다.
+
+템플릿에 대한 추적 리소스를 사용하도록 설정하려면 리소스 섹션 아래에 다음 추가 리소스를 추가해야 합니다. 아래 샘플 코드를 기본 템플릿 파일에 추가할 때 사용자 고유의 입력으로 수정해야 합니다.
 리소스는 **mainTemplate.json** 또는 **azuredeploy.json** 파일에만 추가해야 하며, 중첩되거나 연결된 템플릿에 있으면 안 됩니다.
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
+{ // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
@@ -126,12 +127,12 @@ GUID는 32자리의 16진수가 있는 고유 참조 번호입니다. 추적을 
 > [!Note]
 > 그렇지만 [Azure Storage의 GUID 생성기 양식](https://aka.ms/StoragePartners)을 사용하여 GUID를 만드는 것이 좋습니다. 자세한 내용은 [FAQ](#faq)를 참조하세요.
 
-모든 제품 및 배포 채널에 대한 고유 GUID를 만듭니다. 템플릿을 사용하여 두 개의 솔루션을 배포하고 각각을 Azure Marketplace와 GitHub에서 사용할 수 있는 경우 4개의 GUID를 만들어야 합니다.
+각 제품에 대한 모든 제안 및 배포 채널에 대해 고유한 GUID를 만드는 것이 좋습니다. 보고를 분할하지 않으려면 제품의 여러 배포 채널에 대해 단일 GUID를 사용하도록 선택할 수 있습니다. 
+
+템플릿을 사용하여 제품을 배포하고 Azure Marketplace 및 GitHub에서 모두 사용할 수 있는 경우, 2개의 고유 GUID를 만들고 등록할 수 있습니다.
 
 *   Azure Marketplace의 제품 A 
 *   GitHub의 제품 A
-*   Azure Marketplace의 제품 B 
-*   GitHub의 제품 B
 
 보고는 파트너 값(Microsoft 파트너 ID) 및 GUID를 통해 수행됩니다. 
 

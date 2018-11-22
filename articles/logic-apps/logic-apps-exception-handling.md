@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263755"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686265"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -73,7 +73,7 @@ ms.locfileid: "39263755"
 
 | 값 | type | 설명 |
 |-------|------|-------------|
-| <*retry-policy-type*> | 문자열 | 사용하려는 재시도 정책 유형은 "기본", "없음", "고정" 또는 "지수"입니다. | 
+| <*retry-policy-type*> | 문자열 | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) | 
 | <*retry-interval*> | 문자열 | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. | 
 | <*retry-attempts*> | 정수  | 재시도 횟수이며, 1~90 사이여야 합니다. | 
 ||||
@@ -221,9 +221,9 @@ ms.locfileid: "39263755"
 
 ### <a name="get-context-and-results-for-failures"></a>실패에 대한 컨텍스트 및 결과 가져오기
 
-범위에서 실패를 catch하는 것이 유용하지만, 실패한 작업과 반환된 오류 또는 상태 코드를 정확히 파악하는 데 도움이 되는 컨텍스트가 필요할 수 있습니다. "@result()" 식은 범위에 있는 모든 작업의 결과에 대한 컨텍스트를 제공합니다.
+범위에서 실패를 catch하는 것이 유용하지만, 실패한 작업과 반환된 오류 또는 상태 코드를 정확히 파악하는 데 도움이 되는 컨텍스트가 필요할 수 있습니다. `@result()` 식은 범위에 있는 모든 작업의 결과에 대한 컨텍스트를 제공합니다.
 
-"@result()" 식은 단일 매개 변수(범위 이름)를 수락하고 해당 범위 내에서 발생하는 모든 작업 결과의 배열을 반환합니다. 이러한 작업 개체에는 작업 시작 시간, 종료 시간, 상태, 입력, 상관 ID 및 출력과 같이 **@actions()** 개체와 동일한 특성이 포함됩니다. 범위 내에서 실패한 작업에 대한 컨텍스트를 보내려면 **@result()** 함수를 **runAfter** 속성과 쉽게 페어링할 수 있습니다.
+`@result()` 식은 단일 매개 변수(범위 이름)를 수락하고 해당 범위 내에서 발생하는 모든 작업 결과의 배열을 반환합니다. 이러한 작업 개체에는 작업 시작 시간, 종료 시간, 상태, 입력, 상관 ID 및 출력과 같이 **@actions()** 개체와 동일한 특성이 포함됩니다. 범위 내에서 실패한 작업에 대한 컨텍스트를 보내려면 **@result()** 함수를 **runAfter** 속성과 쉽게 페어링할 수 있습니다.
 
 **실패** 결과가 있는 범위에서 각 작업에 대해 작업을 실행하고 실패한 작업에 대한 결과 배열을 필터링하려면 **[배열 필터링](../connectors/connectors-native-query.md)** 작업 및 [**For each**](../logic-apps/logic-apps-control-flow-loops.md) 루프와 **@result()** 를 페어링할 수 있습니다. 필터링된 결과 배열을 사용하고 **For each** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다. 
 
@@ -270,22 +270,22 @@ ms.locfileid: "39263755"
 
 이 예제에서 수행되는 작업을 설명하는 자세한 연습은 다음과 같습니다.
 
-1. “My_Scope” 내의 모든 작업에서 결과를 가져오기 위해 **배열 필터링** 작업은 필터 식 "@result('My_Scope')"를 사용합니다.
+1. “My_Scope” 내의 모든 작업에서 결과를 가져오기 위해 **배열 필터링** 작업은 필터 식 `@result('My_Scope')`를 사용합니다.
 
-2. **배열 필터링**에 대한 조건은 상태가 **실패**인 모든 "@result()" 항목입니다. 이 조건은 “My_Scope”의 모든 작업 결과에 대한 배열을 실패한 작업 결과만 있는 배열로 필터링합니다.
+2. **배열 필터링**에 대한 조건은 상태가 **실패**인 모든 `@result()` 항목입니다. 이 조건은 “My_Scope”의 모든 작업 결과에 대한 배열을 실패한 작업 결과만 있는 배열로 필터링합니다.
 
 3. *필터링된 배열* 출력에서 **For each** 루프 작업을 수행합니다. 이 단계는 이전에 필터링된 실패한 작업 결과 각각에 대해 작업을 수행합니다.
 
    범위에서 단일 작업이 실패한 경우 **For each** 루프의 작업은 한 번만 실행됩니다. 
    여러 실패한 작업에서 오류당 하나의 작업이 발생합니다.
 
-4. "@item()['outputs']['body']" 식인 **For each** 항목 응답 본문에 HTTP POST를 보냅니다. 
+4. `@item()['outputs']['body']` 식인 **For each** 항목 응답 본문에 HTTP POST를 보냅니다. 
 
-   "@result()" 항목 모양은 "@actions()" 모양과 같으며 동일한 방식으로 구문 분석할 수 있습니다.
+   `@result()` 항목 모양은 `@actions()` 모양과 같으며 동일한 방식으로 구문 분석할 수 있습니다.
 
-5. 실패한 작업 이름("@item()['name']") 및 실패한 실행 클라이언트 추적 ID("@item()['clientTrackingId']")가 있는 두 개의 사용자 지정 헤더도 포함됩니다.
+5. 실패한 작업 이름(`@item()['name']`) 및 실패한 실행 클라이언트 추적 ID(`@item()['clientTrackingId']`)가 있는 두 개의 사용자 지정 헤더를 포함됩니다.
 
-참고로, 이전 예제에서 구문 분석된 **name**, **body** 및 **clientTrackingId** 속성을 보여 주는 단일 "@result()" 항목의 예제는 다음과 같습니다. **For each** 작업 외부에서 "@result()"는 이러한 개체의 배열을 반환합니다.
+참고로, 이전 예제에서 구문 분석된 **name**, **body** 및 **clientTrackingId** 속성을 보여 주는 단일 `@result()` 항목의 예제는 다음과 같습니다. **For each** 작업 외부에서 `@result()`는 이러한 개체의 배열을 반환합니다.
 
 ```json
 {

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: eae7f97799e38d5a4b09e3f193a84b423dced780
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/09/2018
+ms.openlocfilehash: 44d6135c8a259d3d4c791d359136963483088c5a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869332"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567896"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL Database 단일 및 풀링된 데이터베이스에 복제
 
@@ -65,7 +65,7 @@ SQL Server 복제는 Azure SQL Database에서 [논리 서버](sql-database-logic
 
 1. 온-프레미스 SQL Server 데이터베이스에서 트랜잭션 복제 게시를 만듭니다.  
 2. 온-프레미스 SQL Server에서 **새 구독 마법사** 또는 Transact-SQL 명령문을 사용하여 Azure SQL Database에 대한 구독 밀어넣기를 생성합니다.  
-3. 초기 데이터 집합은 일반적으로 스냅숏 에이전트에 의해 생성되고 배포 에이전트에 의해 배포 및 적용된 스냅숏입니다. 초기 데이터 집합은 백업 또는 SQL Server Integration Services와 같은 다른 수단을 통해 제공될 수도 있습니다.  
+3. Azure SQL Database에서 풀링된 단일 데이터베이스와 함께 초기 데이터 세트는 스냅숏 에이전트에 의해 생성되고 배포 에이전트에 의해 배포 및 적용된 스냅숏입니다. Azure SQL Database Managed Instance와 함께 데이터베이스 백업을 사용하여 구독자 데이터베이스를 시드할 수도 있습니다.
 
 ### <a name="data-migration-scenario"></a>데이터 마이그레이션 시나리오  
 

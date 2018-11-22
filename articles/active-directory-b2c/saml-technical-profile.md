@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 301ae251413cc174f115479e9ebef2310aa83ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 347a437a9f45f29348e97c616c985764135e5427
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162445"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687472"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 SAML 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Active Directory) B2C에서는 SAML 2.0 ID 공급자를 지원합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. SAML 기술 프로필을 사용하면 AD-FS 및 Salesforce와 같은 SAML 기반 ID 공급자를 페더레이션할 수 있습니다. 그러면 사용자가 기존 소셜 또는 엔터프라이즈 ID로 로그인할 수 있게 됩니다.
+Azure AD(Active Directory) B2C에서는 SAML 2.0 ID 공급자를 지원합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. SAML 기술 프로필을 사용하면 [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) 및 [Salesforce](active-directory-b2c-setup-sf-app-custom.md)와 같은 SAML 기반 ID 공급자를 페더레이션할 수 있습니다. 그러면 사용자가 기존 소셜 또는 엔터프라이즈 ID로 로그인할 수 있게 됩니다.
 
 ## <a name="metadata-exchange"></a>메타데이터 교환
 
-메타데이터는 서비스 공급자 또는 ID 공급자와 같은 SAML 당사자의 구성을 표시하기 위해 SAML 프로토콜에서 사용되는 정보입니다. 메타데이터는 로그인/로그아웃, 인증서, 로그인 방법 등과 같은 서비스의 위치를 정의합니다. ID 공급자는 메타데이터를 사용하여 Azure AD B2C와 통신하는 방법을 확인합니다. 메타데이터는 XML 형식으로 구성되며, 다른 당사자가 메타데이터 무결성의 유효성을 검사할 수 있도록 디지털 서명으로 서명될 수 있습니다. Azure AD B2C는 SAML ID 공급자와 페더레이션될 때 SAML 요청을 시작하며 SAML 응답을 기다리는 서비스 공급자 역할을 합니다. 그리고 경우에 따라서는 원치 않는 SAML 인증(ID 공급자가 시작하는 인증이라고도 함)을 제외하기도 합니다. 
+메타데이터는 서비스 공급자 또는 ID 공급자와 같은 SAML 당사자의 구성을 표시하기 위해 SAML 프로토콜에서 사용되는 정보입니다. 메타데이터는 로그인/로그아웃, 인증서, 로그인 방법 등과 같은 서비스의 위치를 정의합니다. ID 공급자는 메타데이터를 사용하여 Azure AD B2C와 통신하는 방법을 확인합니다. 메타데이터는 XML 형식으로 구성되며, 다른 당사자가 메타데이터 무결성의 유효성을 검사할 수 있도록 디지털 서명으로 서명될 수 있습니다. Azure AD B2C는 SAML ID 공급자와 페더레이션될 때 SAML 요청을 시작하며 SAML 응답을 기다리는 서비스 공급자 역할을 합니다. 그리고 경우에 따라서는 원치 않는 SAML 인증(ID 공급자가 시작하는 인증이라고도 함)을 수락하기도 합니다. 
 
 양 당사자에서 “정적 메타데이터” 또는 “동적 메타데이터”로 메타데이터를 구성할 수 있습니다. 정적 모드에서는 전체 메타데이터를 한 당사자에서 복사하여 다른 당사자에서 설정합니다. 동적 모드에서는 상대 당사자가 동적으로 구성을 읽는 동안 메타데이터에 대한 URL을 설정합니다. 두 모드의 원칙은 동일합니다. 즉, ID 공급자에서 Azure AD B2C 기술 프로필의 메타데이터를 설정하고 Azure AD B2C에서 ID 공급자의 메타데이터를 설정합니다.
 
@@ -34,14 +34,14 @@ Azure AD(Active Directory) B2C에서는 SAML 2.0 ID 공급자를 지원합니다
 다음 예제에서는 Azure AD B2C 기술 프로필의 SAML 메타데이터에 대한 URL 주소를 보여 줍니다.
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 다음 값을 바꿉니다.
 
-- **your-tenant**: 실제 테넌트 이름(예: your-tenant.onmicrosoft.com)
+- fabrikam.b2clogin.com과 같은 테넌트 이름이 있는 **your-tenant-name**.
 - **your-policy**를 정책 이름으로. SAML 공급자 기술 프로필을 구성한 정책 또는 해당 정책에서 상속하는 정책을 사용합니다.
-- **your-technical-profile**: 실제 SAML ID 공급자 기술 프로필 이름
+- SAML ID 공급자 기술 프로필 이름이 있는 **your-technical-profile**.
 
 ## <a name="digital-signing-certificates-exchange"></a>디지털 서명 인증서 교환
 

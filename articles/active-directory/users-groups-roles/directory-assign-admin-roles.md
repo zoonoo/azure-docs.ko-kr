@@ -14,18 +14,18 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 28f06efdd990e46eaa84b1fe26ed5d8944971505
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156921"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686129"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
 Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도록 별도의 관리자를 지정할 수 있습니다. 관리자는 Azure AD 포털에서 사용자 추가 또는 변경, 관리 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 및 도메인 이름 관리와 같은 작업을 수행하도록 지정할 수 있습니다.
 
-전역 관리자는 모든 관리 기능에 액세스할 수 있습니다. 기본적으로 Azure 구독에 등록하는 사람에게는 디렉터리에 대한 글로벌 관리자 역할이 할당됩니다. 글로벌 관리자만 관리자 역할을 위임할 수 있습니다.
+전역 관리자는 모든 관리 기능에 액세스할 수 있습니다. 기본적으로 Azure 구독에 등록하는 사람에게는 디렉터리에 대한 글로벌 관리자 역할이 할당됩니다. 글로벌 관리자와 권한 있는 역할 관리자만 관리자 역할을 위임할 수 있습니다.
 
 ## <a name="assign-or-remove-administrator-roles"></a>관리자 역할 할당 또는 제거
 
@@ -213,8 +213,8 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Azure Active Directory에서 servicePrincipals.appRoleAssignments 속성을 업데이트합니다. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Azure Active Directory에서 servicePrincipals.owners 속성을 업데이트합니다. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Azure Active Directory에서 servicePrincipals.policies 속성을 업데이트합니다. |
-| microsoft.aad.directory/users/assignLicense | Azure Active Directory에서 사용자의 라이선스를 관리합니다. |
-| microsoft.aad.reports/allEntities/read | Azure AD 보고서를 읽습니다. |
+| microsoft.aad.reports/applicationAuditLogs/read | Azure AD 보고서에서 applicationAuditLogs를 읽습니다. |
+| microsoft.aad.reports/applicationSignInReports/read | Azure AD 보고서에서 applicationSignInReports를 읽습니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
@@ -317,8 +317,8 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 | microsoft.aad.directory/servicePrincipals/delete | Azure Active Directory에서 servicePrincipals를 삭제합니다. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Azure Active Directory에서 servicePrincipals.owners 속성을 업데이트합니다. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Azure Active Directory에서 servicePrincipals.policies 속성을 업데이트합니다. |
-| microsoft.aad.directory/users/assignLicense | Azure Active Directory에서 사용자의 라이선스를 관리합니다. |
-| microsoft.aad.reports/allEntities/read | Azure AD 보고서를 읽습니다. |
+| microsoft.aad.reports/applicationAuditLogs/read | Azure AD 보고서에서 applicationAuditLogs를 읽습니다. |
+| microsoft.aad.reports/applicationSignInReports/read | Azure AD 보고서에서 applicationSignInReports를 읽습니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
@@ -337,7 +337,8 @@ Azure AD에서 장치를 관리하기 위한 모든 권한입니다.
 | microsoft.aad.directory/devices/delete | Azure Active Directory에서 장치를 삭제합니다. |
 | microsoft.aad.directory/devices/disable | Azure Active Directory에서 장치를 사용하지 않도록 설정합니다. |
 | microsoft.aad.directory/devices/enable | Azure Active Directory에서 장치를 사용하도록 설정합니다. |
-| microsoft.aad.reports/allEntities/read | Azure AD 보고서를 읽습니다. |
+| microsoft.aad.reports/applicationAuditLogs/read | Azure AD 보고서에서 applicationAuditLogs를 읽습니다. |
+| microsoft.aad.reports/applicationSignInReports/read | Azure AD 보고서에서 applicationSignInReports를 읽습니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 
@@ -385,7 +386,8 @@ Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을
 | microsoft.aad.directorySync/allEntities/allTasks | Azure AD Connect에서 모든 작업을 수행합니다. |
 | microsoft.aad.identityProtection/allEntities/allTasks | microsoft.aad.identityProtection에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
-| microsoft.aad.reports/allEntities/allTasks | Azure AD 보고서를 읽고 구성합니다. |
+| microsoft.aad.reports/applicationAuditLogs/read | Azure AD 보고서에서 applicationAuditLogs를 읽습니다. |
+| microsoft.aad.reports/applicationSignInReports/read | Azure AD 보고서에서 applicationSignInReports를 읽습니다. |
 | microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Azure Information Protection의 모든 측면을 관리합니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
@@ -447,6 +449,28 @@ Azure AD 및 Office 365에서 준수 구성 및 보고서를 읽고 관리할 �
 | microsoft.aad.directory/policies/conditionalAccess/owners/read | Azure Active Directory에서 policies.conditionalAccess 속성을 읽습니다. |
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | Azure Active Directory에서 policies.conditionalAccess 속성을 업데이트합니다. |
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Azure Active Directory에서 policies.conditionalAccess 속성을 읽습니다. |
+
+### <a name="crm-service-administrator"></a>CRM 서비스 관리자
+Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
+
+  > [!NOTE]
+  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
+  >
+  >
+
+  > [!NOTE]
+  > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
+  >
+  >
+
+| **Actions** | **설명** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
+| microsoft.powerApps.dynamics365/allEntities/allTasks | Dynamics 365의 모든 측면을 관리합니다. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
 ### <a name="customer-lockbox-access-approver"></a>고객 LockBox 액세스 승인자
 고객 조직 데이터에 액세스하려는 Microsoft 지원 요청을 승인할 수 있습니다.
@@ -604,28 +628,8 @@ Azure AD Connect에서만 사용됩니다.
 | microsoft.aad.directory/users/manager/update | Azure Active Directory에서 users.manager 속성을 업데이트합니다. |
 | microsoft.aad.directory/users/userPrincipalName/update | Azure Active Directory에서 users.userPrincipalName 속성을 업데이트합니다. |
 
-### <a name="dynamics-365-administrator"></a>Dynamics 365 Administrator
-Dynamics 365 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Dynamics 365 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Dynamics 365 관리자”입니다.
-
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  > 이 역할에는 Azure Active Directory 외부의 추가 권한도 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
-  >
-  >
-
-| **Actions** | **설명** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
-| microsoft.powerApps.dynamics365/allEntities/allTasks | Dynamics 365의 모든 측면을 관리합니다. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
-
-### <a name="exchange-administrator"></a>Exchange 관리자
-Exchange 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Exchange 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Exchange 관리자”입니다.
+### <a name="exchange-service-administrator"></a>Exchange 서비스 관리자
+Exchange 제품의 모든 측면을 관리할 수 있습니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -640,13 +644,14 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph 
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
+| microsoft.aad.directory/groups/unified/basic/update | Office 365 그룹의 기본 속성을 업데이트합니다. |
 | microsoft.aad.directory/groups/unified/create | Office 365 그룹을 만듭니다. |
 | microsoft.aad.directory/groups/unified/delete | Office 365 그룹을 삭제합니다. |
-| microsoft.aad.directory/groups/unified/basic/update | Office 365 그룹의 기본 속성을 업데이트합니다. |
 | microsoft.aad.directory/groups/unified/members/update | Office 365 그룹의 멤버 자격을 업데이트합니다. |
 | microsoft.aad.directory/groups/unified/owners/update | Office 365 그룹의 소유권을 업데이트합니다. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.exchange/allEntities/allTasks | Exchange Online의 모든 측면을 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
@@ -713,8 +718,8 @@ Azure Information Protection 제품의 모든 측면을 관리할 수 있습니�
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
-### <a name="intune-administrator"></a>Intune 관리자
-Intune 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Intune 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Intune 관리자”입니다.
+### <a name="intune-service-administrator"></a>Intune 서비스 관리자
+Intune 제품의 모든 측면을 관리할 수 있습니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -769,8 +774,8 @@ Intune 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph AP
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 
-### <a name="skype-for-business-administrator"></a>비즈니스용 Skype 관리자
-비즈니스용 Skype 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “비즈니스용 Skype 서비스 관리자”로 식별됩니다. Azure Portal에서는 “비즈니스용 Skype 관리자”입니다.
+### <a name="lync-service-administrator"></a>Lync 서비스 관리자
+비즈니스용 Skype 제품의 모든 측면을 관리할 수 있습니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -886,8 +891,8 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
-### <a name="power-bi-administrator"></a>Power BI 관리자
-Power BI 제품의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Power BI 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Power BI 관리자”입니다.
+### <a name="power-bi-service-administrator"></a>Power BI 서비스 관리자
+Power BI 제품의 모든 측면을 관리할 수 있습니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -941,7 +946,8 @@ Azure AD의 역할 할당 및 Privileged Identity Management의 모든 측면을
 
 | **Actions** | **설명** |
 | --- | --- |
-| microsoft.aad.reports/allEntities/read | Azure AD 보고서를 읽습니다. |
+| microsoft.aad.reports/applicationAuditLogs/read | Azure AD 보고서에서 applicationAuditLogs를 읽습니다. |
+| microsoft.aad.reports/applicationSignInReports/read | Azure AD 보고서에서 applicationSignInReports를 읽습니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
@@ -970,6 +976,8 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽고 구성을 �
 | microsoft.aad.identityProtection/allEntities/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
 | microsoft.aad.identityProtection/allEntities/update | microsoft.aad.identityProtection에서 모든 리소스를 업데이트합니다. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
+| microsoft.aad.reports/applicationAuditLogs/read | Azure AD 보고서에서 applicationAuditLogs를 읽습니다. |
+| microsoft.aad.reports/applicationSignInReports/read | Azure AD 보고서에서 applicationSignInReports를 읽습니다. |
 | microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.protectionCenter/allEntities/read | Office 365 보호 센터의 모든 측면을 읽습니다. |
@@ -993,6 +1001,8 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽을 수 있습�
 | --- | --- |
 | microsoft.aad.identityProtection/allEntities/read | microsoft.aad.identityProtection에서 모든 리소스를 읽습니다. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | microsoft.aad.privilegedIdentityManagement에서 모든 리소스를 읽습니다. |
+| microsoft.aad.reports/applicationAuditLogs/read | Azure AD 보고서에서 applicationAuditLogs를 읽습니다. |
+| microsoft.aad.reports/applicationSignInReports/read | Azure AD 보고서에서 applicationSignInReports를 읽습니다. |
 | microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.protectionCenter/allEntities/read | Office 365 보호 센터의 모든 측면을 읽습니다. |
@@ -1019,8 +1029,8 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽을 수 있습�
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
 
-### <a name="sharepoint-administrator"></a>SharePoint 관리자
-SharePoint 서비스의 모든 측면을 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “SharePoint 서비스 관리자”로 식별됩니다. Azure Portal에서는 “SharePoint 관리자”입니다.
+### <a name="sharepoint-service-administrator"></a>SharePoint 서비스 관리자
+SharePoint 서비스의 모든 측면을 관리할 수 있습니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -1035,12 +1045,14 @@ SharePoint 서비스의 모든 측면을 관리할 수 있습니다. Microsoft G
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
-| microsoft.aad.directory/groups/unified/delete | Office 365 그룹을 삭제합니다. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
 | microsoft.aad.directory/groups/unified/basic/update | Office 365 그룹의 기본 속성을 업데이트합니다. |
+| microsoft.aad.directory/groups/unified/create | Office 365 그룹을 만듭니다. |
+| microsoft.aad.directory/groups/unified/delete | Office 365 그룹을 삭제합니다. |
 | microsoft.aad.directory/groups/unified/members/update | Office 365 그룹의 멤버 자격을 업데이트합니다. |
 | microsoft.aad.directory/groups/unified/owners/update | Office 365 그룹의 소유권을 업데이트합니다. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 | microsoft.office365.sharepoint/allEntities/allTasks | microsoft.office365.sharepoint에서 모든 리소스를 만들고 삭제하고, 표준 속성을 읽고 업데이트합니다. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
@@ -1108,8 +1120,8 @@ Microsoft Teams 서비스 내에서 호출 및 회의 기능을 관리할 수 �
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
 
-### <a name="teams-administrator"></a>Teams 관리자
-Microsoft Teams 서비스를 관리할 수 있습니다. Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Teams 서비스 관리자”로 식별됩니다. Azure Portal에서는 “Teams 관리자”입니다.
+### <a name="teams-service-administrator"></a>Teams 서비스 관리자
+Microsoft Teams 서비스를 관리할 수 있습니다.
 
   > [!NOTE]
   > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
@@ -1124,11 +1136,13 @@ Microsoft Teams 서비스를 관리할 수 있습니다. Microsoft Graph API, Az
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/groups/hiddenMembers/read | Azure Active Directory에서 groups.hiddenMembers 속성을 읽습니다. |
-| microsoft.aad.directory/policies/basic/read | Azure Active Directory에서 정책의 기본 속성을 읽습니다. |
-| microsoft.aad.directory/groups/unified/delete | Office 365 그룹을 삭제합니다. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Azure Active Directory에서 groups.unified 속성을 업데이트합니다. |
 | microsoft.aad.directory/groups/unified/basic/update | Office 365 그룹의 기본 속성을 업데이트합니다. |
+| microsoft.aad.directory/groups/unified/create | Office 365 그룹을 만듭니다. |
+| microsoft.aad.directory/groups/unified/delete | Office 365 그룹을 삭제합니다. |
 | microsoft.aad.directory/groups/unified/members/update | Office 365 그룹의 멤버 자격을 업데이트합니다. |
 | microsoft.aad.directory/groups/unified/owners/update | Office 365 그룹의 소유권을 업데이트합니다. |
+| microsoft.aad.directory/policies/basic/read | Azure Active Directory에서 정책의 기본 속성을 읽습니다. |
 | microsoft.azure.accessService/allEntities/allTasks | Azure 액세스 서비스의 모든 측면을 관리합니다. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |

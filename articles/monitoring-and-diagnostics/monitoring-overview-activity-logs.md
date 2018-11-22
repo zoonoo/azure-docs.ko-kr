@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f69a7f5e7aef4da798ec7c9ce3b7af3a456c00e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006025"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613361"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 
@@ -33,7 +33,7 @@ ms.locfileid: "51006025"
 Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 활동 로그에서 이벤트를 검색할 수 있습니다.
 
 > [!NOTE]
->  [최신 경고](monitoring-overview-unified-alerts.md)는 활동 로그 경고 규칙을 만들고 관리할 때 향상된 환경을 제공합니다.  [자세히 알아보기](alert-activity-log.md).
+> [최신 경고](monitoring-overview-alerts.md)는 활동 로그 경고 규칙을 만들고 관리할 때 향상된 환경을 제공합니다.  [자세히 알아보기](alert-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>활동 로그의 범주

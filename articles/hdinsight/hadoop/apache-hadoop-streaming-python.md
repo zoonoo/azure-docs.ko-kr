@@ -1,6 +1,6 @@
 ---
 title: HDInsight에서 Python MapReduce 작업 개발 - Azure
-description: MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법 알아보기 Hadoop은 Java 이외의 언어로 작성하기 위해 MapReduce용 스트리밍 API를 제공합니다.
+description: MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법 알아보기 Apache Hadoop은 Java 이외의 언어로 작성하기 위해 MapReduce용 스트리밍 API를 제공합니다.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 author: hrasheed-msft
@@ -10,20 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5ed61eb05d0aa4360e042097d6b8c632c17ea59c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008728"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634025"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>HDInsight용 Python 스트리밍 MapReduce 프로그램 개발
 
-MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법 알아보기 Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하여 Java 이외의 언어로 map 및 reduce 함수를 작성할 수 있습니다. 이 문서의 단계는 맵을 구현하고 Python의 구성 요소를 줄입니다.
+MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법 알아보기 Apache Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하여 Java 이외의 언어로 map 및 reduce 함수를 작성할 수 있습니다. 이 문서의 단계는 맵을 구현하고 Python의 구성 요소를 줄입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight 클러스터의 Linux 기반 Hadoop
+* HDInsight 클러스터의 Linux 기반 Apache Hadoop
 
   > [!IMPORTANT]
   > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.

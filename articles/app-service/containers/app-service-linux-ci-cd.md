@@ -13,60 +13,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
-ms.author: msangapu
-ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/08/2018
+ms.author: msangapu;yili
+ms.openlocfilehash: b26366edddc223b842cc5d38473bda42422f1840
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867028"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298541"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Web App for Containers를 사용한 연속 배포
 
 이 자습서에서는 관리되는 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) 리포지토리 또는 [Docker 허브](https://hub.docker.com)에서 사용자 지정 컨테이너 이미지에 대한 연속 배포를 구성합니다.
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+## <a name="enable-continuous-deployment-with-acr"></a>ACR을 사용하여 지속적인 배포 활성화
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
+![ACR webhook 스크린샷](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-## <a name="enable-the-continuous-deployment-feature"></a>연속 배포 기능 사용
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 페이지의 왼쪽에서 **App Service** 옵션을 선택합니다.
+3. 지속적인 배포를 구성하려는 앱의 이름을 선택합니다.
+4. **컨테이너 설정** 페이지에서 **단일 컨테이너**를 선택합니다.
+5. **Azure Container Registry**를 선택합니다.
+6. **지속적인 배포 > 켜짐**을 선택합니다.
+7. **저장**을 선택하여 지속적인 배포를 활성화합니다.
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하고 다음 명령을 실행하여 연속 배포 기능을 사용하도록 설정할 수 있습니다.
+## <a name="use-the-acr-webhook"></a>ACR webhook 사용
 
-```azurecli-interactive
-az webapp deployment container config --name name --resource-group myResourceGroup --enable-cd true
-```
+지속적인 배포가 활성화되면 Azure Container Registry webhook 페이지에서 새로 만든 webhook를 볼 수 있습니다.
 
-[Azure Portal](https://portal.azure.com/)의 페이지 왼쪽에서 **App Service** 옵션을 선택합니다.
+![ACR webhook 스크린샷](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
-Docker 허브 연속 배포를 구성하려는 앱의 이름을 선택합니다.
+Container Registry에서 Webhook를 클릭하여 현재 webhook를 볼 수 있습니다.
 
-**컨테이너 설정** 페이지에서 **켜기**를 선택한 다음 **저장**을 선택하여 연속 배포를 사용하도록 설정합니다.
+## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Docker 허브(선택 사항)를 사용하여 지속적인 배포 활성화
 
-![앱 설정 스크린샷](./media/app-service-webapp-service-linux-ci-cd/step2.png)
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+2. 페이지의 왼쪽에서 **App Service** 옵션을 선택합니다.
+3. 지속적인 배포를 구성하려는 앱의 이름을 선택합니다.
+4. **컨테이너 설정** 페이지에서 **단일 컨테이너**를 선택합니다.
+5. **Docker 허브**를 선택합니다.
+6. **지속적인 배포 > 켜짐**을 선택합니다.
+7. **저장**을 선택하여 지속적인 배포를 활성화합니다.
 
-## <a name="prepare-the-webhook-url"></a>웹후크 URL을 준비합니다.
+![앱 설정 스크린샷](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용하고 다음 명령을 실행하여 웹후크 URL을 가져옵니다.
-
-```azurecli-interactive
-az webapp deployment container show-cd-url --name sname1 --resource-group rgname
-```
-
-웹후크 URL을 적어둡니다. 다음 섹션에서 필요합니다.
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`
-
-Azure Portal에서 웹앱 게시 프로필을 다운로드하여 `publishingusername` 및 `publishingpwd`를 구할 수 있습니다.
-
-![웹후크 2를 추가하는 스크린샷](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
-
-## <a name="add-a-webhook"></a>웹후크 추가
-
-웹후크를 추가하려면 다음 가이드의 단계를 수행합니다.
-
-- 웹후크 URL을 사용하는 [Azure Container Registry](../../container-registry/container-registry-webhook.md)
-- [Docker 허브에 대한 웹후크](https://docs.docker.com/docker-hub/webhooks/)
+Webhook URL을 복사합니다. Docker 허브에 대한 webhook를 추가하려면 <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">Docker 허브에 대한 webhook</a>를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

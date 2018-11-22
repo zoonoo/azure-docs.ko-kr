@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 49341b320df98bb08ee4f5c4ee061a51bec29ff2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977671"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686163"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
-Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 있습니다. 예산을 사용하여 특정 기간 중 사용자가 소비 또는 구독하는 Azure 서비스를 설명할 수 있습니다. 비용을 적극적으로 관리하고 지출이 진행되는 방식을 모니터링하기 위해 지출에 대해 다른 사람들에게 알리는 데 도움이 됩니다. 시간이 지남에 따라 지출이 진행되는 방식을 확인할 수 있습니다. 사용자가 만든 예산 임계값이 초과된 경우 알림만 트리거되고 리소스에는 영향을 미치지 않으며 소비도 중단되지 않습니다. 예산을 사용하여 비용 분석 시 지출을 비교하고 추적할 수 있습니다.
+Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 있습니다. 예산을 사용하여 특정 기간 중 사용자가 소비 또는 구독하는 Azure 서비스를 설명할 수 있습니다. 비용을 적극적으로 관리하고 지출이 진행되는 방식을 모니터링하기 위해 지출에 대해 다른 사람들에게 알리는 데 도움이 됩니다. 사용자가 만든 예산 임계값이 초과된 경우 알림만 트리거되고 리소스에는 영향을 미치지 않으며 소비도 중단되지 않습니다. 예산을 사용하여 비용 분석 시 지출을 비교하고 추적할 수 있습니다.
 
 예산은 미래의 만료 날짜를 선택한 경우 동일한 예산 금액에 대해 기간(월별, 분기별 또는 연간)이 끝나면 자동으로 다시 설정됩니다. 동일한 예산 금액으로 다시 설정하므로, 미래 기간에 대해 예산 책정된 통화 금액이 다를 경우 별도의 예산을 만들어야 합니다.
 
-이 자습서의 예제는 Azure EA(Enterprise Agreement) 구독에 대한 예산을 만들고 편집하는 방법을 안내합니다.
+이 자습서의 예제는 Azure EA(Enterprise Agreement) 구독에 대한 예산을 만들고 편집하는 과정을 안내합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -77,7 +77,7 @@ Azure Portal에서 **Cost Management + 청구** &gt; **구독** &gt; 구독 선�
 
 ## <a name="edit-a-budget"></a>예산 편집
 
-권한이 있는 액세스 수준에 따라, 예산을 편집하여 속성을 변경할 수 있습니다. 다음 예제에서 사용자가 구독에 대한 기여자 권한만 있으므로 속성은 읽기 전용입니다. 현재 **만료 날짜**는 비활성화되어 있으며 설정되면 수정할 수 없습니다.
+권한이 있는 액세스 수준에 따라, 예산을 편집하여 속성을 변경할 수 있습니다. 다음 예제에서는 사용자가 구독에 대한 기여자 권한만 있으므로 일부 속성은 읽기 전용입니다. 현재 **만료 날짜**는 비활성화되어 있으며 설정되면 수정할 수 없습니다.
 
 ![예산 편집 - 기여자 권한](./media/tutorial-acm-create-budgets/edit-budget.png)
 

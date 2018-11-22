@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914654"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345490"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>방법: Azure AD 앱에 선택적 클레임 제공(공개 미리 보기)
 
@@ -42,7 +42,7 @@ ms.locfileid: "50914654"
 | 계정 유형 | V1.0 엔드포인트 | V2.0 엔드포인트  |
 |--------------|---------------|----------------|
 | 개인 Microsoft 계정  | 해당 없음 - 대신 RPS 티켓이 사용됩니다. | 지원 예정 |
-| Azure AD 계정          | 지원됨                          | 지원됨(주의 사항 있음)      |
+| Azure AD 계정          | 지원됨                          | 지원됨(주의 사항 있음) |
 
 > [!IMPORTANT]
 > [앱 등록 포털](https://apps.dev.microsoft.com)을 통해 등록된 Azure AD 및 개인 계정을 모두 지원하는 앱은 선택적 클레임을 사용할 수 없습니다. 그러나 v2.0 엔드포인트를 사용하여 Azure AD에만 등록된 앱은 매니페스트에서 요청한 선택적 클레임을 가져올 수 있습니다. Azure Portal에서 기존 **앱 등록** 환경의 애플리케이션 매니페스트 편집기를 사용하여 선택적 클레임을 편집할 수 있습니다. 그러나 이 기능은 아직 새 **앱 등록(미리 보기)** 환경에서 애플리케이션 매니페스트 편집기를 통해 사용할 수 없습니다.
@@ -60,8 +60,6 @@ ms.locfileid: "50914654"
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다. OpenID Connect 사양을 참조하세요.| JWT        |           |  |
 | `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
-| `signin_state`             | 로그인 상태 클레임입니다.   | JWT        |           | 6개의 플래그 반환 값:<br> "dvc_mngd": 장치가 관리됩니다.<br> "dvc_cmp": 장치가 규격입니다.<br> "dvc_dmjd": 장치가 도메인에 가입되어 있습니다.<br> "dvc_mngd_app": 장치가 MDM을 통해 관리됩니다.<br> "inknownntwk": 장치가 알려진 네트워크 내부에 있습니다.<br> "kmsi": 로그인 유지가 사용되었습니다. <br> |
-| `controls`                 | 조건부 액세스 정책에 의해 적용되는 세션 컨트롤이 포함된 다중 값 클레임입니다. | JWT        |           | 3개 값:<br> "app_res": 앱이 좀 더 세분화된 제한 사항을 적용해야 합니다. <br> "ca_enf": 조건부 액세스 적용이 지연되었으며 여전히 필요합니다. <br> "no_cookie": 이 토큰은 브라우저에서 쿠키를 교환하는 데 충분하지 않습니다. <br>  |
 | `home_oid`                 | 게스트 사용자의 경우 사용자의 홈 테넌트에 있는 사용자의 개체 ID입니다.| JWT        |           | |
 | `sid`                      | 세션 기준 사용자 로그아웃에 사용되는 세션 ID입니다. | JWT        |           |         |
 | `platf`                    | 장치 플랫폼입니다.    | JWT        |           | 장치 유형을 확인할 수 있는 관리 장치로 제한됩니다.|
@@ -76,6 +74,7 @@ ms.locfileid: "50914654"
 | `xms_pl`                   | 사용자 기본 설정 언어  | JWT ||설정되는 경우 사용자의 기본 설정 언어입니다. 게스트 액세스 시나리오에서 해당 홈 테넌트의 원본 위치입니다. 형식이 지정된 LL-CC("en-us"). |
 | `xms_tpl`                  | 테넌트 기본 설정 언어| JWT | | 설정된 경우 리소스 테넌트의 기본 설정 언어입니다. 형식이 지정된 LL("en"). |
 | `ztdid`                    | 무인 배포 ID | JWT | | [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)에 사용된 장치 ID |
+|`email`                     | 사용자가 있는 경우 이 사용자에 대한 이메일 주소를 지정할 수 있습니다.  | JWT, SAML | | 이 값은 사용자가 테넌트의 게스트인 경우 기본적으로 포함됩니다.  관리되는 사용자(테넌트 내부)의 경우 이 선택적 클레임 또는 v2.0에서만 OpenID 범위를 통해 요청해야 합니다.  관리되는 사용자의 경우 이메일 주소는 [Office 관리 포털](https://portal.office.com/adminportal/home#/users)에서 설정해야 합니다.|  
 | `acct`             | 테넌트의 사용자 계정 상태입니다. | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다. 게스트인 경우 값은 `1`입니다. |
 | `upn`                      | UserPrincipalName 클레임입니다. | JWT, SAML  |           | 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다. <br> 추가 속성: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

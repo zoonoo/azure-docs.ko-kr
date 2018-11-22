@@ -5,21 +5,21 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036668"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634229"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication용 NPS 확장의 오류 메시지 해결
 
-Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경우 이 문서를 사용하여 해결 방법을 더 빠르게 찾을 수 있습니다. 
+Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경우 이 문서를 사용하여 해결 방법을 더 빠르게 찾을 수 있습니다. NPS 확장 로그는 NPS 확장이 설치되어 있는 서버의 **사용자 지정 보기** > **서버 역할** > **네트워크 정책 및 액세스 서비스** 아래에 있는 이벤트 뷰어에 위치합니다.
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>일반적인 오류에 대한 문제 해결 단계
 
@@ -36,9 +36,6 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 | **REQUEST_MISSING_CODE** | NPS 서버와 NAS 서버 간의 암호 암호화 프로토콜이 사용 중인 보조 인증 방법을 지원하는지 확인합니다. **PAP**는 클라우드에서 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드와 같은 Azure MFA의 모든 인증 방법을 지원합니다. **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다. |
 | **USERNAME_CANONICALIZATION_ERROR** | 사용자가 온-프레미스 Active Directory 인스턴스에 존재하는지와 NPS 서비스에 디렉터리에 액세스할 수 있는 권한이 있는지 확인합니다. 포리스트 간 트러스트를 사용하는 경우 [지원 서비스](#contact-microsoft-support) 추가 지원을 요청하세요. |
 
-
-   
-
 ### <a name="alternate-login-id-errors"></a>대체 로그인 ID 오류
 
 | 오류 코드 | 오류 메시지 | 문제 해결 단계 |
@@ -46,7 +43,6 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 | **ALTERNATE_LOGIN_ID_ERROR** | 오류: userObjectSid 조회 실패 | 사용자가 온-프레미스 Active Directory 인스턴스에 있는지 확인합니다. 포리스트 간 트러스트를 사용하는 경우 [지원 서비스](#contact-microsoft-support) 추가 지원을 요청하세요. |
 | **ALTERNATE_LOGIN_ID_ERROR** | 오류: 대체 LoginId 조회 실패 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE가 [유효한 Active Directory 특성](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx)으로 설정되어 있는지 확인합니다. <br><br> LDAP_FORCE_GLOBAL_CATALOG가 True로 설정되어 있거나 LDAP_LOOKUP_FORESTS가 비어 있지 않은 값으로 구성된 경우 글로벌 카탈로그를 구성했는지와 AlternateLoginId 특성이 추가되었는지 확인합니다. <br><br> LDAP_LOOKUP_FORESTS가 비어 있지 않은 값으로 구성된 경우 해당 값이 올바른지 확인합니다. 포리스트 이름을 여러 개 있으면 이름은 공백 없이 세미콜론으로 구분해야 합니다. <br><br> 이러한 단계로도 문제가 해결되지 않으면 [지원 서비스에 문의](#contact-microsoft-support)하세요. |
 | **ALTERNATE_LOGIN_ID_ERROR** | 오류: 대체 LoginId 값이 비어 있음 | AlternateLoginId 특성이 사용자에 대해 구성되어 있는지 확인합니다. |
-
 
 ## <a name="errors-your-users-may-encounter"></a>사용자에게 발생할 수 있는 오류
 
@@ -97,7 +93,7 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 
 ### <a name="troubleshoot-user-accounts"></a>사용자 계정 문제 해결
 
-사용자에게 [2단계 인증 문제가 발생하면](../user-help/multi-factor-authentication-end-user-troubleshoot.md) 문제를 자체 진단하도록 도와주세요. 
+사용자에게 [2단계 인증 문제가 발생하면](../user-help/multi-factor-authentication-end-user-troubleshoot.md) 문제를 자체 진단하도록 도와주세요.
 
 ### <a name="contact-microsoft-support"></a>Microsoft 지원에 문의
 
@@ -131,5 +127,3 @@ Azure Multi-factor Authentication용 NPS 확장에서 오류가 발생하는 경
 
 5. 레지스트리 편집기를 열고, HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa로 이동한 다음, **VERBOSE_LOG**를 **FALSE**로 설정합니다.
 6. C:\NPS 폴더의 내용을 Zip으로 압축하고 지원 사례에 Zip 파일을 첨부합니다.
-
-

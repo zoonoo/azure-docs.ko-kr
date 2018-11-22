@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: db68f979239a5783338d99360209ae231a75c936
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 70a3de35f6fd942bca5355db3a7c6b57aec6adbc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945038"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613939"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보 
 
@@ -27,6 +27,54 @@ ms.locfileid: "49945038"
 * 버그 수정
 * 사용되지 않는 기능
 * 변경 계획
+
+## <a name="november-2018"></a>2018년 11월
+
+현재 CLI 2.0 모듈이 [Azure Media Services v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50에 제공됩니다.
+
+### <a name="new-commands"></a>새 명령
+
+- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - 미디어 예약 단위를 관리할 수 있습니다
+
+### <a name="new-features-and-breaking-changes"></a>새 기능과 주요 변경 내용
+
+#### <a name="asset-commands"></a>자산 명령
+
+- ```--storage-account``` 및 ```--container``` 인수가 추가되었습니다.
+- ```az ams asset get-sas-url``` 명령에서 만료 시간(현재+23시간) 및 사용 권한(읽기)에 대한 기본값이 추가되었습니다.
+
+#### <a name="job-commands"></a>작업 명령
+
+- ```--correlation-data``` 및 ```--label``` 인수가 추가되었습니다.
+- ```--output-asset-names```의 이름이 ```--output-assets```으로 바뀌었습니다. 이제 'assetName = label' 형식으로 공백으로 구분된 자산 목록을 허용합니다. 레이블이 없는 자산은 ‘assetName=’과 같이 보낼 수 있습니다.
+
+#### <a name="streaming-locator-commands"></a>스트리밍 로케이터 명령
+
+- ```az ams streaming locator``` 기본 명령이 ```az ams streaming-locator```로 바뀌었습니다.
+- ```--streaming-locator-id``` 및 ```--alternative-media-id support``` 인수가 추가되었습니다.
+- ```--content-keys argument``` 인수가 업데이트되었습니다.
+- ```--content-policy-name```의 이름이 ```--content-key-policy-name```으로 바뀌었습니다.
+
+#### <a name="streaming-policy-commands"></a>스트리밍 정책 명령
+
+- ```az ams streaming policy``` 기본 명령이 ```az ams streaming-policy```로 바뀌었습니다.
+- ```az ams streaming-policy create```에 암호화 매개 변수 지원이 추가되었습니다.
+
+#### <a name="transform-commands"></a>변환 명령
+
+- ```--preset-names``` 인수가 ```--preset```으로 바뀌었습니다. 이제 한 번에 1개의 출력/사전 설정만 설정할 수 있습니다(더 추가하려면 ```az ams transform output add```를 실행해야 함). 또한 사용자 정의 JSON에 경로를 전달하여 사용자 정의 StandardEncoderPreset을 설정할 수 있습니다.
+- 제거할 출력 인덱스를 전달하여 ```az ams transform output remove```를 수행할 수 있습니다.
+- ```az ams transform create``` 및 ```az ams transform output add``` 명령에 ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` 인수가 추가되었습니다.
 
 ## <a name="october-2018---ga"></a>2018년 10월 - GA
 
@@ -120,5 +168,4 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [개요](media-services-overview.md)
+[개요](media-services-overview.md)

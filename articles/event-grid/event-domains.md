@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.openlocfilehash: b5a1e521f46da7feffd2eb556ad1662a9ccaee55
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/08/2018
+ms.openlocfilehash: 4e21b1bb85ba91266370d89ec8dbd0fae84ef197
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913839"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299795"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Event Grid 토픽을 관리하는 이벤트 도메인 이해
 
@@ -23,7 +23,7 @@ ms.locfileid: "50913839"
 * 각 토픽을 개별적으로 관리하지 않고 토픽을 분할합니다.
 * 각 토픽 엔드포인트에 개별적으로 게시할 필요가 없습니다.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+이 기능은 미리 보기 상태입니다. 이 기능을 사용하려면 미리 보기 확장 또는 모듈을 설치해야 합니다. 자세한 내용은 [이벤트 도메인을 사용하여 토픽을 관리하고 이벤트를 게시하는 방법](how-to-event-domains.md)을 참조하세요.
 
 ## <a name="event-domain-overview"></a>이벤트 도메인 개요
 

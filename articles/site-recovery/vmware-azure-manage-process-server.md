@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 8a9342a2354cd4c92fa0230965b4eef6284ee826
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209125"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568855"
 ---
 # <a name="manage-process-servers"></a>프로세스 서버 관리
 
@@ -79,4 +79,16 @@ ms.locfileid: "50209125"
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
+## <a name="manage-anti-virus-software-on-process-servers"></a>프로세스 서버에서 바이러스 백신 소프트웨어 관리
+
+바이러스 백신 소프트웨어가 독립 실행형 프로세스 서버 또는 마스터 대상 서버에서 활성화되어 있으면 다음 폴더를 바이러스 백신 작업에서 제외합니다.
+
+
+- C:\Program Files\Microsoft Azure Recovery Services Agent
+- C:\ProgramData\ASR
+- C:\ProgramData\ASRLogs
+- C:\ProgramData\ASRSetupLogs
+- C:\ProgramData\LogUploadServiceLogs
+- C:\ProgramData\Microsoft Azure Site Recovery
+- 프로세스 서버 설치 디렉터리(예: C:\Program Files (x86)\Microsoft Azure Site Recovery)
 

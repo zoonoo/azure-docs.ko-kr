@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: 5707f97dff099d1ad914dcf3faa96cc287d48de9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245667"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684752"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services를 사용하여 Enterprise Security Package로 HDInsight 클러스터 구성
 
@@ -22,7 +22,7 @@ ESP(Enterprise Security Package) 클러스터는 Azure HDInsight 클러스터에
 이 문서에서는 Azure AD DS(Azure Active Directory Domain Services)를 사용하여 ESP로 HDInsight 클러스터를 구성하는 방법을 알아봅니다.
 
 >[!NOTE]
->ESP는 Spark, Interactive 및 Hadoop용 HDI 3.6에서 GA(일반적으로 사용할 수) 있습니다. HBase 및 Kafka 클러스터 유형에 대한 ESP는 미리 보기입니다.
+>ESP는 Spark, Interactive 및 Apache Hadoop용 HDI 3.6의 GA입니다. HBase 및 Kafka 클러스터 유형에 대한 ESP는 미리 보기입니다.
 
 ## <a name="enable-azure-ad-ds"></a>Azure AD-DS 사용
 
@@ -64,6 +64,9 @@ ESP 클러스터를 설정하려면 사용자 할당 관리 ID를 만들어야 �
 ![HDInsight 관리 ID 운영자 역할 할당](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
 ## <a name="networking-considerations"></a>네트워킹 고려 사항
+
+> [!NOTE]
+> Azure AD-DS는 ARM(Azure Resource Manager) 기반 vNET에 배포되어야 합니다. Azure AD-DS에서는 클래식 가상 네트워크가 지원되지 않습니다. 자세한 내용은 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network)를 참조하세요.
 
 Azure AD-DS를 사용하도록 설정하면 로컬 DNS(도메인 이름 서비스) 서버가 AD VM(Virtual Machine)에서 실행됩니다. 이러한 사용자 지정 DNS 서버를 사용하도록 Azure AD-DS VNET(가상 네트워크)을 구성합니다. 올바른 IP 주소를 찾으려면 **관리** 범주 아래에서 **속성**을 선택하고, **가상 네트워크의 IP 주소** 아래에 나열된 IP 주소를 살펴봅니다.
 

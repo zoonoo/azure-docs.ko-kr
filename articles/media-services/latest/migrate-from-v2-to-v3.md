@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 2f5c0ef63ba150fdad4aea1a0c65269611d56815
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247690"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616013"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -45,7 +45,7 @@ ms.locfileid: "51247690"
 * 파일 기반 작업 처리를 위한 [변환](transforms-jobs-concept.md) 개념을 도입합니다. 변환을 사용하여 재사용 가능한 구성을 빌드하고, Azure Resource Manager 템플릿을 만들고, 여러 고객 또는 테넌트 간에 처리 설정을 격리할 수 있습니다.
 * 동적 패키징 및 동적 암호화 설정이 서로 다른 [여러 개의 StreamingLocator](streaming-locators-concept.md)가 자산에 있을 수 있습니다.
 * [콘텐츠 보호](content-key-policy-concept.md)에서 다중 키 기능을 지원합니다.
-* 최대 24시간 길이의 라이브 이벤트를 스트리밍할 수 있습니다.
+* 단일 비트 전송률 기여 피드를 다중 비트 전송률이 있는 출력 스트림으로 코드 변환하기 위해 Media Services를 사용할 때 최대 24시간 분량의 라이브 이벤트를 스트리밍할 수 있습니다.
 * 대기 시간이 짧은 새 라이브 스트리밍이 LiveEvents에서 지원됩니다.
 * LiveEvent 미리 보기는 동적 패키징 및 동적 암호화를 지원합니다. 이렇게 하면 DASH 및 HLS 패키징뿐만 아니라 미리 보기에서도 콘텐츠 보호가 가능합니다.
 * LiveOutput은 v2 API의 Program 엔터티보다 사용 방법이 간단합니다. 
@@ -59,6 +59,7 @@ ms.locfileid: "51247690"
 * v3 SDK가 Storage SDK에서 분리되었으며, 따라서 사용하고 싶은 Storage SDK를 보다 철저하게 제어하고 버전 문제를 피할 수 있게 되었습니다. 
 * v3 API에서 모든 인코딩 비트 전송률은 비트/초입니다. 이것은 v2 Media Encoder Standard 미리 설정과 다른 점입니다. 예를 들어 v2의 비트 전송률은 128(kbps)로 지정되지만 v3에서는 128000(비트/초)이 됩니다. 
 * Entities AssetFiles, AccessPolicies 및 IngestManifests는 v3에 없습니다.
+* v3에서 IAsset.ParentAssets 속성이 없습니다.
 * ContentKeys는 더 이상 엔터티가 아닌 StreamingLocator의 속성입니다.
 * Event Grid 지원은 NotificationEndpoints를 대체합니다.
 * 다음 엔터티의 이름이 바뀌었습니다.

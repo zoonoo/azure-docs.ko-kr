@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 94633ce2f11f9efa99f1ad44820abd5aecdec923
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457213"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623796"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory의 CI/CD(지속적인 통합 및 지속적인 업데이트)
 
-연속 통합은 코드 베이스에 자동으로 이루어진 변경 내용을 각각 가능한 빨리 테스트하는 방법입니다. 지속적인 업데이트는 지속적인 통합 중에 발생하는 테스트를 수행하고, 변경 내용을 준비 또는 프로덕션 시스템에 푸시합니다.
+지속적인 통합은 코드 베이스에 자동으로 이루어진 변경 내용을 각각 가능한 빨리 테스트하는 방법입니다. 지속적인 업데이트는 지속적인 통합 중에 발생하는 테스트를 수행하고, 변경 내용을 준비 또는 프로덕션 시스템에 푸시합니다.
 
 Azure Data Factory의 경우 지속적인 통합 및 지속적인 업데이트는 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 것입니다. 지속적인 통합 및 지속적인 업데이트를 수행하기 위해 Azure Resource Manager 템플릿과 Data Factory UI의 통합을 사용할 수 있습니다. **ARM 템플릿** 옵션을 선택하는 경우 Data Factory UI가 Resource Manager 템플릿을 생성할 수 있습니다. **ARM 템플릿 내보내기**를 선택하는 경우 포털에서는 Data Factory의 Resource Manager 템플릿과 모든 연결 문자열 및 기타 매개 변수를 포함하는 구성 파일을 생성합니다. 그런 다음, 각 환경(개발, 테스트, 프로덕션)에 하나의 구성 파일을 만들어야 합니다. 주 Resource Manager 템플릿 파일은 모든 환경에서 동일하게 유지됩니다.
 
@@ -75,11 +75,11 @@ Data Factory UI에서 Azure Repos GIT 통합을 사용하도록 설정한 후에
 
 ### <a name="requirements"></a>요구 사항
 
--   [*Azure Resource Manager 서비스 엔드포인트*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)를 사용하여 Team Foundation Server 또는 Azure Repos에 연결된 Azure 구독
+-    [*Azure Resource Manager 서비스 엔드포인트*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)를 사용하여 Team Foundation Server 또는 Azure Repos에 연결된 Azure 구독
 
 -   Azure Repos Git 통합이 구성된 Data Factory
 
--   암호를 포함한 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+-   비밀을 포함한  [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Azure Pipelines 릴리스 설정
 
@@ -832,6 +832,48 @@ else {
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Resource Manager 템플릿에서 사용자 지정 매개 변수 사용
 
 Resource Manager 템플릿에 대한 사용자 지정 매개 변수를 정의할 수 있습니다. 리포지토리의 루트 폴더에 `arm-template-parameters-definition.json`이라는 파일이 있으면 됩니다. 파일 이름은 여기에 표시된 이름과 정확히 일치해야 합니다. Data Factory는 공동 작업 분기만이 아니라 현재 작업 중인 모든 분기에서 파일을 읽으려고 합니다. 파일이 없는 경우 Data Factory에서 기본 매개 변수와 값을 사용합니다.
+
+### <a name="syntax-of-a-custom-parameters-file"></a>사용자 지정 매개 변수 파일의 구문
+
+사용자 지정 매개 변수 파일을 작성할 때 사용할 몇 가지 지침은 다음과 같습니다. 이 구문의 예제를 보려면 다음 섹션, [샘플 사용자 지정 매개 변수 파일](#sample)을 참조하세요.
+
+1. 정의 파일에서 배열을 지정할 때 템플릿의 일치하는 속성이 배열임을 나타냅니다. Data Factory는 배열의 첫 번째 개체에 지정된 정의를 사용하여 배열에 있는 모든 개체를 반복합니다. 두 번째 개체, 문자열은 각 반복에 대한 매개 변수의 이름으로 사용되는 속성의 이름이 됩니다.
+
+    ```json
+    ...
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    ...
+    ```
+
+2. 속성 이름을 `*`로 설정하면 템플릿에서 명시적으로 정의된 속성을 제외하고 해당 수준의 모든 속성을 사용하도록 하려는 것을 나타냅니다.
+
+3. 문자열로 속성의 값을 설정할 때 속성을 매개 변수화하려는 것을 나타냅니다. `<action>:<name>:<stype>` 양식을 사용합니다.
+    1.  `<action>`은 다음 문자 중 하나일 수 있습니다. 
+        1.  `=`는 매개 변수에 대한 기본값으로 현재 값을 유지하는 것을 의미합니다.
+        2.  `-`는 매개 변수에 대한 기본값을 유지하지 않는 것을 의미합니다.
+        3.  `|`는 연결 문자열에 대한 Azure Key Vault에서 비밀에 대한 특수 사례입니다.
+    2.  `<name>`은 매개 변수의 이름입니다. `<name`>이 비어 있는 경우 매개 변수의 이름을 사용합니다. 
+    3.  `<stype>`은 매개 변수의 형식입니다. `<stype>`이 비어 있는 경우 기본 형식은 문자열입니다.
+4.  매개 변수 이름의 시작 부분에 `-` 문자를 입력하는 경우 전체 Resource Manager 매개 변수 이름은 `<objectName>_<propertyName>`으로 단축됩니다.
+예를 들어 `AzureStorage1_properties_typeProperties_connectionString`은 `AzureStorage1_connectionString`으로 단축됩니다.
+
+
+### <a name="sample"></a> 샘플 사용자 지정 매개 변수 파일
 
 다음 예제에서는 샘플 매개 변수 파일을 보여 줍니다. 이 샘플을 참조로 사용하여 사용자 지정 매개 변수 파일을 만듭니다. 제공한 파일의 JSON 형식이 올바르지 않으면 Data Factory에서 브라우저 콘솔에 오류 메시지를 출력하고, Data Factory UI에 표시된 기본 매개 변수와 값으로 돌아갑니다.
 

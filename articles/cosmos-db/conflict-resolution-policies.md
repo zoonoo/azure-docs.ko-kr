@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: c682b61a39224f2c80db8fe5fa153ea5e5d82922
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958572"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514828"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>충돌 유형 및 해결 정책
 
 충돌 및 충돌 해결 정책은 Cosmos 계정이 여러 쓰기 지역으로 구성된 경우 적용됩니다.
 
-여러 쓰기 지역으로 구성된 Cosmos DB 계정의 경우 여러 작성자가 여러 지역에서 동일한 항목을 동시에 업데이트하는 경우 업데이트 충돌이 발생할 수 있습니다. 업데이트 충돌은 다음 세 가지 유형으로 분류됩니다.
+여러 쓰기 지역으로 구성된 Cosmos 계정의 경우 여러 작성자가 여러 지역에서 동일한 항목을 동시에 업데이트하는 경우 업데이트 충돌이 발생할 수 있습니다. 업데이트 충돌은 다음 세 가지 유형으로 분류됩니다.
 
 1. **삽입 충돌:** 이러한 충돌은 애플리케이션이 두 개 이상의 지역에서 동일한 고유 인덱스(예: ID 속성)를 사용하여 두 개 이상의 항목을 동시에 삽입하는 경우 발생할 수 있습니다. 이 경우 모든 쓰기는 각각의 로컬 지역에서 처음에는 성공할 수 있지만, 선택한 충돌 해결 정책에 따라 원래 ID가 있는 하나의 항목만 최종적으로 커밋됩니다.
 

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 83acdb320e0be0837ec5188a11cb86b91ed077fa
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980220"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683981"
 ---
 # <a name="container-skus-tab"></a>컨테이너 SKU 탭
 
@@ -46,7 +46,7 @@ SKU 메타데이터는 컨테이너 목록에 대한 상점 디스플레이 정�
 
 ### <a name="container-metadata"></a>컨테이너 메타데이터
 
-컨테이너 메타데이터에는 ACR(Azure Container Registry) 내의 이미지 리포지토리 세부 정보에 대한 참조 정보가 포함되어 있습니다. Azure Marketplace는 공용 마켓플레이스 레지스트리에 이미지를 복사하며, 이 이미지는 인증 후에 고객이 사용할 수 있습니다. 컨테이너 이미지를 사용하기 위한 Azure 사용자의 모든 요청은 Marketplace Container Registry에서 처리됩니다.
+컨테이너 메타데이터에는 ACR(Azure Container Registry) 내의 이미지 리포지토리 세부 정보에 대한 참조 정보가 포함되어 있습니다. Azure Marketplace는 이 이미지를 Marketplace별 공용 레지스트리에 복사한 다음, 인증 후에 해당 이미지를 고객이 사용할 수 있습니다. Azure Marketplace 컨테이너 이미지를 사용하는 Azure 사용자의 모든 요청은 ACR이 아닌 Marketplace의 공용 레지스트리에서 제공됩니다.
 
 ![컨테이너 메타데이터](./media/containers-image-repository.png)
     

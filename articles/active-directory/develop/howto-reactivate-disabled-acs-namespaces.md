@@ -15,12 +15,12 @@ ms.date: 11/07/2018
 ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.openlocfilehash: 298afda7549690a9ea0314bff63a714be50a33b9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f0de122dc3dbd770e91a8412430423bee222b30
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019878"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577965"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화된 Access Control Service 네임스페이스 다시 활성화
 
@@ -35,7 +35,7 @@ ms.locfileid: "51019878"
 연장을 신청하지 않은 경우 2018년 11월 7일에 ACS 네임스페이스를 사용하지 않도록 설정하기 시작했습니다. 커뮤니케이션을 받지 못했고 2019년 2월 4일까지 연장하고자 한다면 다음 섹션의 지침에 따르세요.
 
 > [!NOTE]
-> PowerShell 명령을 실행하고 연장을 요청하려면 구독의 관리자여야 합니다.
+> PowerShell 명령을 실행하고 연장을 요청하려면 구독의 서비스 관리자 또는 공동 관리자여야 합니다.
 
 ## <a name="find-and-enable-your-acs-namespaces"></a>ACS 네임스페이스 찾기 및 사용하도록 설정
 
@@ -62,6 +62,9 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
         ```
     
         여기서 `[Command-Name]`은 ACS 명령의 이름입니다.
+1. **Connect-AcsAccount** cmdlet을 사용하여 ACS에 연결합니다. 
+
+    **Set-ExecutionPolicy**를 실행하여 실행 정책을 변경해야 명령을 실행할 수 있습니다.
 1. **Get-AcsSubscription** cmdlet을 사용하여 사용 가능한 Azure 구독을 나열합니다.
 1. **Get-AcsNamespace** cmdlet을 사용하여 ACS 네임스페이스를 나열합니다.
 1. `State`가 `Disabled`인지 확인하여 네임스페이스가 사용하도록 설정되었는지 확인합니다.

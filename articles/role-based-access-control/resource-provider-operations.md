@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7d044559d72b07dc86a5ee1c2269452a9059de61
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f2fc320d0d66e19ec8a1e591377c482a7ec64d9
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471512"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626136"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -78,7 +78,7 @@ ms.locfileid: "49471512"
 > | 액션(Action) | Microsoft.ADHybridHealthService/addsservices/addomainservicemembers/read | 지정된 서비스 이름에 대한 모든 서버를 가져옵니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/addsservices/alerts/read | 경고 ID, 경고 발생 날짜, 경고 마지막으로 검색된 경고, 경고 설명, 마지막 업데이트, 경고 수준, 경고 상태, 경고 문제 해결 링크 등과 같은 포리스트에 대한 경고 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/addsservices/configuration/read | 포리스트에 대한 서비스 구성을 가져옵니다. 예: 포리스트 이름, 기능 수준, 도메인 명명 마스터 FSMO 역할, 스키마 마스터 FSMO 역할 등 |
-> | 액션(Action) | Microsoft.ADHybridHealthService/addsservices/delete | 서비스 및 해당 서버(상태 데이터 포함)를 삭제합니다. |
+> | 조치 | Microsoft.ADHybridHealthService/addsservices/delete | 서비스 및 해당 서버(상태 데이터 포함)를 삭제합니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/addsservices/dimensions/read | 포리스트에 대한 도메인 및 사이트 정보를 가져옵니다. 예: 상태, 활성 경고, 해결된 경고, 속성(도메인 기능 수준, 포리스트, 인프라 마스터, PDC, RID 마스터 등)  |
 > | 액션(Action) | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | 포리스트에 대한 사용자 기본 설정을 가져옵니다.<br>예: MetricCounterName(ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes, ldapsearches)<br>UI 차트 등에 대한 설정입니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/addsservices/forestsummary/read | 지정된 포리스트에 대한 포리스트 요약을 가져옵니다(포리스트 이름, 이 포리스트에 속한 도메인 수, 사이트 수 및 사이트 정보 등). |
@@ -105,7 +105,7 @@ ms.locfileid: "49471512"
 > | 액션(Action) | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | 지정된 테넌트에 대한 일별 IPAddress당 UserId당 잘못된 사용자 이름/암호 시도 빈도와 관련하여 큐에 새로 넣어진 보고 작업의 상태 및 최종 결과가 포함된 Blob SAS URI를 가져옵니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | DevOps에서 동의한 테넌트 목록을 가져옵니다. 일반적으로 고객 지원에 사용됩니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/reports/isdevops/read | DevOps에서 동의한 테넌트인지 여부를 나타내는 값을 가져옵니다. |
-> | 액션(Action) | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | 선택한 DevOps 테넌트에 대한 userid(objectid)를 업데이트합니다. |
+> | 조치 | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | 선택한 DevOps 테넌트에 대한 userid(objectid)를 업데이트합니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | 지정된 테넌트에 대해 선택한 배포를 가져옵니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/reports/tenantassigneddeployment/read | 테넌트 ID가 지정되면 테넌트 저장소 위치를 가져옵니다. |
 > | 액션(Action) | Microsoft.ADHybridHealthService/reports/updateselecteddeployment/read | 액세스할 데이터가 있는 지리적 위치를 가져옵니다. |
@@ -241,7 +241,7 @@ ms.locfileid: "49471512"
 > | 액션(Action) | Microsoft.ApiManagement/service/apis/read | 등록된 모든 API의 목록을 가져오거나 API의 세부 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/apis/releases/delete | API의 모든 릴리스를 제거하거나 API 릴리스를 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/apis/releases/read | API 릴리스를 가져오거나 API 릴리스 세부 정보를 가져옵니다. |
-> | 액션(Action) | Microsoft.ApiManagement/service/apis/releases/write | 새 API 릴리스를 만들거나 기존 API 릴리스를 업데이트합니다. |
+> | 조치 | Microsoft.ApiManagement/service/apis/releases/write | 새 API 릴리스를 만들거나 기존 API 릴리스를 업데이트합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/apis/revisions/delete | API의 모든 수정 버전을 제거합니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/apis/revisions/read | API에 속한 수정 버전을 가져옵니다. |
 > | 액션(Action) | Microsoft.ApiManagement/service/apis/schemas/delete | 기존 스키마를 제거합니다. |
@@ -395,8 +395,8 @@ ms.locfileid: "49471512"
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.Authorization/checkAccess/action | 호출자에게 특정 작업을 수행할 권한이 있는지 확인합니다. |
 > | 액션(Action) | Microsoft.Authorization/classicAdministrators/delete | 구독에서 관리자를 제거합니다. |
-> | 액션(Action) | Microsoft.Authorization/classicAdministrators/operationstatuses/read | 관리자가 구독의 작업 상태를 가져옵니다. |
-> | 액션(Action) | Microsoft.Authorization/classicAdministrators/read | 구독에 대한 관리자를 읽습니다. |
+> | 액션(Action) | Microsoft.Authorization/classicAdministrators/operationstatuses/read | 구독의 관리자 작업 상태를 가져옵니다. |
+> | 조치 | Microsoft.Authorization/classicAdministrators/read | 구독에 대한 관리자를 읽습니다. |
 > | 액션(Action) | Microsoft.Authorization/classicAdministrators/write | 구독에 대한 관리자를 추가 또는 수정합니다. |
 > | 액션(Action) | Microsoft.Authorization/denyAssignments/delete | 지정된 범위에서 거부 할당을 삭제합니다. |
 > | 액션(Action) | Microsoft.Authorization/denyAssignments/read | 거부 할당에 대한 정보를 가져옵니다. |
@@ -553,7 +553,7 @@ ms.locfileid: "49471512"
 > | 액션(Action) | Microsoft.AzureActiveDirectory/b2cDirectories/delete | B2C 디렉터리 리소스를 삭제합니다. |
 > | 액션(Action) | Microsoft.AzureActiveDirectory/b2cDirectories/read | B2C 디렉터리 리소스를 봅니다. |
 > | 액션(Action) | Microsoft.AzureActiveDirectory/b2cDirectories/write | B2C 디렉터리 리소스를 만들거나 업데이트합니다. |
-> | 액션(Action) | Microsoft.AzureActiveDirectory/operations/read | Microsoft.AzureActiveDirectory 리소스 공급자에 사용할 수 있는 모든 API 작업을 읽습니다. |
+> | 조치 | Microsoft.AzureActiveDirectory/operations/read | Microsoft.AzureActiveDirectory 리소스 공급자에 사용할 수 있는 모든 API 작업을 읽습니다. |
 > | 액션(Action) | Microsoft.AzureActiveDirectory/register/action | Microsoft.AzureActiveDirectory 리소스 공급자 구독을 등록합니다. |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
@@ -672,12 +672,12 @@ ms.locfileid: "49471512"
 > [!div class="mx-tdCol2BreakAll"]
 > | 액션 유형 | 작업(Operation) | 설명 |
 > | --- | --- | --- |
-> | 조치 | Microsoft.Blueprint/blueprintAssignments/delete | 모든 청사진 아티팩트를 삭제합니다. |
+> | 조치 | Microsoft.Blueprint/blueprintAssignments/delete | 청사진 아티팩트 삭제 |
 > | 조치 | Microsoft.Blueprint/blueprintAssignments/read | 모든 청사진 아티팩트를 읽습니다. |
-> | 조치 | Microsoft.Blueprint/blueprintAssignments/write | 청사진 아티팩트를 만들거나 업데이트합니다. |
-> | 조치 | Microsoft.Blueprint/blueprints/artifacts/delete | 모든 청사진 아티팩트를 삭제합니다. |
+> | 조치 | Microsoft.Blueprint/blueprintAssignments/write | 청사진 아티팩트 만들기 및 업데이트 |
+> | 조치 | Microsoft.Blueprint/blueprints/artifacts/delete | 청사진 아티팩트 삭제 |
 > | 조치 | Microsoft.Blueprint/blueprints/artifacts/read | 모든 청사진 아티팩트를 읽습니다. |
-> | 조치 | Microsoft.Blueprint/blueprints/artifacts/write | 청사진 아티팩트를 만들거나 업데이트합니다. |
+> | 조치 | Microsoft.Blueprint/blueprints/artifacts/write | 청사진 아티팩트 만들기 및 업데이트 |
 > | 조치 | Microsoft.Blueprint/blueprints/delete | 모든 청사진을 삭제합니다. |
 > | 조치 | Microsoft.Blueprint/blueprints/read | 모든 청사진을 읽습니다. |
 > | 조치 | Microsoft.Blueprint/blueprints/versions/artifacts/read | 모든 청사진 아티팩트를 읽습니다. |
@@ -936,7 +936,7 @@ ms.locfileid: "49471512"
 > | 액션(Action) | Microsoft.ClassicCompute/virtualMachines/detachDisk/action | 데이터 디스크를 가상 머신에서 분리합니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/virtualMachines/diagnosticsettings/read | 가상 머신 진단 설정을 가져옵니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/virtualMachines/disks/read | 데이터 디스크의 목록을 검색합니다. |
-> | 액션(Action) | Microsoft.ClassicCompute/virtualMachines/downloadRemoteDesktopConnectionFile/action | 가상 머신에 대한 RDP 파일을 다운로드합니다. |
+> | 조치 | Microsoft.ClassicCompute/virtualMachines/downloadRemoteDesktopConnectionFile/action | 가상 머신에 대한 RDP 파일을 다운로드합니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/virtualMachines/extensions/operationStatuses/read | 가상 머신 확장의 작업 상태를 읽습니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/virtualMachines/extensions/read | 가상 머신 확장을 가져옵니다. |
 > | 액션(Action) | Microsoft.ClassicCompute/virtualMachines/extensions/write | 가상 머신 확장을 배치합니다. |
@@ -975,8 +975,8 @@ ms.locfileid: "49471512"
 > | 액션(Action) | Microsoft.ClassicNetwork/networkSecurityGroups/delete | 네트워크 보안 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | 네트워크 보안 그룹의 작업 상태를 읽습니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | 네트워크 보안 그룹 진단 설정을 가져옵니다. |
-> | 액션(Action) | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | 네트워크 보안 그룹 진단 설정을 만들거나 업데이트하며, 이 작업은 Insights 리소스 공급자를 통해 보완됩니다. |
-> | 액션(Action) | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | 네트워크 보안 그룹에 대한 이벤트를 가져옵니다. |
+> | 액션(Action) | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | 네트워크 보안 그룹 진단 설정을 만들거나 업데이트합니다. 이 작업은 인사이트 리소스 공급자를 통해 보완됩니다. | 
+> | 조치 | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | 네트워크 보안 그룹에 대한 이벤트를 가져옵니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/networkSecurityGroups/read | 네트워크 보안 그룹을 가져옵니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete | 보안 규칙을 삭제합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/operationStatuses/read | 네트워크 보안 그룹 보안 규칙의 작업 상태를 읽습니다. |
@@ -1030,7 +1030,7 @@ ms.locfileid: "49471512"
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/write | 원격 가상 네트워크 피어링 프록시를 추가하거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete | 서브넷과 연결된 네트워크 보안 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read | 네트워크 보안 그룹과 연결된 가상 네트워크 서브넷에 대한 작업 상태를 읽습니다. |
-> | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/read | 서브넷과 연결된 네트워크 보안 그룹을 가져옵니다. |
+> | 조치 | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/read | 서브넷과 연결된 네트워크 보안 그룹을 가져옵니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/write | 서브넷과 연결된 네트워크 보안 그룹을 추가합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/validateMigration/action | Virtual Network의 마이그레이션 유효성을 검사합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/virtualNetworkPeerings/read | 가상 네트워크 피어링을 가져옵니다. |
@@ -1101,7 +1101,7 @@ ms.locfileid: "49471512"
 > | 액션(Action) | Microsoft.CognitiveServices/accounts/usages/read | 기존 리소스에 대한 할당량 사용량을 가져옵니다. |
 > | 액션(Action) | Microsoft.CognitiveServices/accounts/write | API 계정을 씁니다. |
 > | 액션(Action) | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | 구독에 대해 사용 가능한 SKU를 읽습니다. |
-> | 액션(Action) | Microsoft.CognitiveServices/Operations/read | 사용 가능한 모든 작업을 나열합니다. |
+> | 조치 | Microsoft.CognitiveServices/Operations/read | 사용 가능한 모든 작업을 나열합니다. |
 > | 액션(Action) | Microsoft.CognitiveServices/register/action | Cognitive Services에 대한 구독을 등록합니다. |
 > | 액션(Action) | Microsoft.CognitiveServices/skus/read | Cognitive Services에 사용 가능한 SKU를 읽습니다. |
 
@@ -1214,8 +1214,8 @@ ms.locfileid: "49471512"
 > | 조치 | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/read | Virtual Machine Scale Set에 대한 진단 설정을 가져옵니다. |
 > | 조치 | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/write | Virtual Machine Scale Set에 대한 진단 설정을 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/logDefinitions/read | Virtual Machine Scale Set에 대해 사용할 수 있는 로그를 가져옵니다. |
-> | 조치 | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | 가상 머신 크기 집합 메트릭 정의를 읽습니다. |
-> | 액션(Action) | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | 가상 머신 확장 집합의 모든 공용 IP 주소 속성을 가져옵니다. |
+> | 조치 | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | Virtual Machine Scale Set 메트릭 정의를 읽습니다. |
+> | 조치 | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | 가상 머신 확장 집합의 모든 공용 IP 주소 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachineScaleSets/Read | 가상 머신 확장 집합의 속성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachineScaleSets/redeploy/action | 가상 머신 확장 집합의 인스턴스를 다시 배포합니다. |
 > | 액션(Action) | Microsoft.Compute/virtualMachineScaleSets/reimage/action | 가상 머신 확장 집합의 인스턴스를 이미지로 다시 설치합니다. |
@@ -3189,7 +3189,7 @@ ms.locfileid: "49471512"
 > | --- | --- | --- |
 > | 액션(Action) | Microsoft.Migrate/locations/assessmentOptions/read | 지정된 위치에서 사용할 수 있는 평가 옵션을 가져옵니다. |
 > | 액션(Action) | Microsoft.Migrate/locations/checknameavailability/action | 지정된 위치에서 지정된 구독의 리소스 이름의 가용성을 확인합니다. |
-> | 액션(Action) | Microsoft.Migrate/Operations/read | Microsoft.KeyVault 리소스 공급자에서 사용할 수 있는 작업을 나열합니다. |
+> | 조치 | Microsoft.Migrate/Operations/read | Microsoft.KeyVault 리소스 공급자에서 사용할 수 있는 작업을 나열합니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/assessments/read | 프로젝트 내의 평가를 나열합니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/delete | 프로젝트를 삭제합니다. |
 > | 액션(Action) | Microsoft.Migrate/projects/groups/assessments/assessedmachines/read | 평가된 머신의 속성을 가져옵니다. |
@@ -3453,8 +3453,8 @@ ms.locfileid: "49471512"
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/delete | 네트워크 보안 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/join/action | 네트워크 보안 그룹을 연결합니다. |
 > | 액션(Action) | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | 네트워크 보안 그룹 진단 설정을 가져옵니다. |
-> | 액션(Action) | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | 네트워크 보안 그룹 진단 설정을 만들거나 업데이트하며, 이 작업은 Insights 리소스 공급자를 통해 보완됩니다. |
-> | 액션(Action) | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | 네트워크 보안 그룹에 대한 이벤트를 가져옵니다. |
+> | 액션(Action) | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write | 네트워크 보안 그룹 진단 설정을 만들거나 업데이트합니다. 이 작업은 인사이트 리소스 공급자를 통해 보완됩니다. |
+> | 조치 | Microsoft.Network/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read | 네트워크 보안 그룹에 대한 이벤트를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/read | 네트워크 보안 그룹 정의를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/securityRules/delete | 보안 규칙을 삭제합니다. |
 > | 액션(Action) | Microsoft.Network/networkSecurityGroups/securityRules/read | 보안 규칙 정의를 가져옵니다. |
@@ -3573,8 +3573,8 @@ ms.locfileid: "49471512"
 > | 액션(Action) | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/read | 중첩 엔드포인트의 속성을 포함하여 Traffic Manager 프로필에 속한 중첩 엔드포인트를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/trafficManagerProfiles/nestedEndpoints/write | 기존 Traffic Manager 프로필에서 새 중첩 엔드포인트를 추가하거나 해당 Traffic Manager 프로필에서 기존 중첩 엔드포인트의 속성을 업데이트합니다. |
 > | 액션(Action) | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/read | Traffic Manager 진단 설정을 가져옵니다. |
-> | 액션(Action) | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Traffic Manager 진단 설정을 만들거나 업데이트하며, 이 작업은 Insights 리소스 공급자를 통해 보완됩니다. |
-> | 액션(Action) | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read | Traffic Manager에 대한 이벤트를 가져옵니다. |
+> | 액션(Action) | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/diagnosticSettings/write | Traffic Manager 진단 설정을 만들거나 업데이트합니다. 이 작업은 인사이트 리소스 공급자를 통해 보완됩니다. |
+> | 조치 | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/logDefinitions/read | Traffic Manager에 대한 이벤트를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/trafficManagerProfiles/providers/Microsoft.Insights/metricDefinitions/read | Traffic Manager에 사용 가능한 메트릭을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/trafficManagerProfiles/read | Traffic Manager 프로필 구성을 가져옵니다. 여기에는 DNS 설정, 트래픽 라우팅 설정, 엔드포인트 모니터링 설정 및 이 Traffic Manager 프로필이 라우팅하는 엔드포인트 목록이 포함됩니다. |
 > | 액션(Action) | Microsoft.Network/trafficManagerProfiles/write | Traffic Manager 프로필을 만들거나 기존 Traffic Manager 프로필의 구성을 수정합니다.<br>여기에는 프로필을 사용하거나 사용하지 않도록 설정, DNS 설정, 트래픽 라우팅 설정 또는 엔드포인트 모니터링 설정의 수정이 포함됩니다.<br>Traffic Manager 프로필이 라우팅하는 엔드포인트를 추가 및 제거하고, 사용하거나 사용하지 않도록 설정할 수 있습니다. |
@@ -3599,8 +3599,8 @@ ms.locfileid: "49471512"
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/getvpnclientipsecparameters/action | VirtualNetworkGateway P2S 클라이언트에 대한 Vpnclient Ipsec 매개 변수를 가져옵니다. |
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/getvpnprofilepackageurl/action | 미리 생성된 vpn 클라이언트 프로필 패키지의 URL을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/read | Virtual Network Gateway 진단 설정을 가져옵니다. |
-> | 액션(Action) | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Virtual Network Gateway 진단 설정을 만들거나 업데이트하며, 이 작업은 Insights 리소스 공급자를 통해 보완됩니다. |
-> | 액션(Action) | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read | Virtual Network Gateway에 대한 이벤트를 가져옵니다. |
+> | 액션(Action) | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/diagnosticSettings/write | Virtual Network Gateway 진단 설정을 만들거나 업데이트합니다. 이 작업은 인사이트 리소스 공급자를 통해 보완됩니다. |
+> | 조치 | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/logDefinitions/read | Virtual Network Gateway에 대한 이벤트를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read | Virtual Network Gateway에 사용 가능한 메트릭을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworkGateways/read | VirtualNetworkGateway를 가져옵니다. |
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/reset/action | virtualNetworkGateway를 다시 설정합니다. |

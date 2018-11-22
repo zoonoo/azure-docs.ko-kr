@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281781"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616200"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -81,7 +81,7 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 * Storage 탐색기 다시 시작
 * 인증 창이 비어 있는 경우 1분 이상 기다렸다가 인증 대화 상자를 닫습니다.
 * 컴퓨터와 Storage 탐색기에 대해 프록시와 인증서 설정이 올바르게 구성되었는지 확인합니다.
-* Windows를 사용 중이며 같은 컴퓨터와 로그인에서 Visual Studio 2017에 대한 액세스 권한이 있는 경우 Visual Studio 2017에 로그인해 봅니다. Visual Studio 2017에 성공적인 로그인 후 Storage 탐색기를 열고 계정 패널에서 계정을 확인할 수 있어야 합니다. 
+* Windows를 사용 중이며 같은 컴퓨터와 로그인에서 Visual Studio 2017에 대한 액세스 권한이 있는 경우 Visual Studio 2017에 로그인해 봅니다. Visual Studio 2017에 성공적인 로그인 후 Storage 탐색기를 열고 계정 패널에서 계정을 확인할 수 있어야 합니다.
 
 이러한 방법으로 문제를 해결하지 못한 경우 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)합니다.
 
@@ -115,6 +115,8 @@ macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 
 
 * 프록시 URL 및 포트 번호
 * 프록시가 요구하는 경우 사용자 이름과 암호
+
+Storage 탐색기는 프록시 설정 구성에 대한 .pac 파일을 지원하지 않습니다.
 
 ### <a name="common-solutions"></a>일반적인 솔루션
 

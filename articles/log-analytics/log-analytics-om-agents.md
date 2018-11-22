@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 11/14/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fcdc14534e833ee394645e19cf8bc4bd9d6a7aaa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c8bba283a0c3fde75966ae123023e50d497abd5a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961146"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687557"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Log Analytics에 Operations Manager 연결
-System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 Log Analytics 작업 영역으로 Operations Manager를 통합할 수 있습니다. 이렇게 하면 Log Analytics의 기회를 활용하면서도 Operations Manager를 계속 사용하여 다음 작업을 할 수 있습니다.
+[System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807)에 대한 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하기 위해 Log Analytics 작업 영역으로 Operations Manager를 통합할 수 있습니다. 이렇게 하면 Log Analytics의 기회를 활용하면서도 Operations Manager를 계속 사용하여 다음 작업을 할 수 있습니다.
 
 * Operations Manager를 사용하여 IT 서비스의 상태 모니터링
 * 인시던트 및 문제 관리를 지원하는 ITSM 솔루션과 통합 유지 관리
@@ -44,7 +44,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 
 * Log Analytics는 System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 이상 및 Operations Manager 2012 R2 UR2 이상만 지원합니다. 프록시 지원은 Operations Manager 2012 SP1 UR7 및 Operations Manager 2012 R2 UR3에 추가되었습니다.
 * 모든 Operations Manager 에이전트는 최소 지원 요구 사항을 만족해야 합니다. 에이전트가 최소 업데이트를 따르고 있는지 확인하고, 그렇지 않으면 Windows 에이전트 통신이 실패하고 Operations Manager 이벤트 로그에 오류가 생성될 수 있습니다.
-* Log Analytics 작업 영역. 자세한 내용은 [사용자 환경의 컴퓨터를 Log Analytics에 연결](log-analytics-concept-hybrid.md)을 검토하세요.
+* Log Analytics 작업 영역. 자세한 내용은 [Log Analytics 작업 영역 개요](log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json)를 검토합니다.
 * [Log Analytics 기여자 역할](log-analytics-manage-access.md#manage-accounts-and-users)의 멤버인 계정으로 Azure에 인증합니다.  
 
 >[!NOTE]
@@ -52,7 +52,7 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 >Operations Manager의 각 버전에 대해 새로운 관리 팩이 릴리스되었습니다.  
 >* System Center Operations Manager 1801은 [여기](https://www.microsoft.com/download/details.aspx?id=57173)에서 관리 팩을 다운로드받으세요.  
 >* System Center 2016 - Operations Manager는 [여기](https://www.microsoft.com/download/details.aspx?id=57172)에서 관리 팩을 다운로드받으세요.  
->* System Center Operations Manager 2012 R2는 [여기](https://www.microsoft.com/en-us/download/details.aspx?id=57171)에서 관리 팩을 다운로드받으세요.  
+>* System Center Operations Manager 2012 R2는 [여기](https://www.microsoft.com/download/details.aspx?id=57171)에서 관리 팩을 다운로드받으세요.  
 
 ### <a name="network"></a>네트워크
 아래 정보는 Operations Manager 에이전트, 관리 서버 및 운영 콘솔이 Log Analytics와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다. 각 구성 요소의 트래픽은 네트워크에서 Log Analytics 서비스로 아웃바운드됩니다.   
@@ -101,7 +101,7 @@ Log Analytics 작업 영역에 Operations Manager 관리 그룹을 처음으로 
 1. Operations Manager 콘솔에서 **관리** 작업 영역을 선택합니다.
 1. Operations Management Suite 노드를 확장하고 **연결**을 클릭합니다.
 1. **Operations Management Suite에 등록** 링크를 클릭합니다.
-1. **Operations Management Suite 등록 마법사: 인증** 페이지에서 OMS 구독과 연결된 관리자 계정의 이메일 주소 또는 전화 번호와 암호를 입력하고 **로그인**을 클릭합니다.
+1. **Operations Management Suite 등록 마법사: 인증** 페이지에서 OMS 구독과 연결된 관리자 계정의 전자 메일 주소 또는 전화 번호와 암호를 입력하고 **로그인**을 클릭합니다.
 
    >[!NOTE]
    >OMS를 이제 Log Analytics라고 합니다.

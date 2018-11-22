@@ -6,20 +6,23 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.author: adgera
-ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960205"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624253"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>Azure Digital Twins Swagger 사용
 
 프로비전된 Azure Digital Twins 인스턴스에는 각각 자동으로 생성된 고유한 Swagger 참조 설명서가 포함됩니다.
 
 [Swagger](https://swagger.io/) 또는 [OpenAPI](https://www.openapis.org/)는 복잡한 API 정보를 대화형 및 언어 중립적 참조 리소스로 통합합니다. Swagger는 API에 대한 작업을 수행하는 데 사용할 JSON 페이로드, HTTP 메서드 및 특정 엔드포인트에 대한 중요 참고 자료를 제공합니다.
+
+> [!IMPORTANT]
+> Swagger 인증에 대한 지원은 공개 미리 보기 동안 일시적으로 비활성화됩니다.
 
 ## <a name="swagger-summary"></a>Swagger 요약
 
@@ -33,20 +36,7 @@ Swagger는 다음을 비롯한 API의 대화형 요약을 제공합니다.
 
 Swagger는 관리 API에 대해 수행된 개발 및 테스트 호출을 보조하는 편리한 도구입니다.
 
-> [!TIP]
-> Swagger 미리 보기는 API 기능 집합을 설명하기 위해 제공됩니다.
-> [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger)에서 호스팅됩니다.
-
-다음에서 생성된 고유한 관리 API Swagger 설명서에 액세스할 수 있습니다.
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
-```
-
-| 사용자 지정 특성 이름 | 다음 항목으로 교체 |
-| --- | --- |
-| *yourInstanceName* | Azure Digital Twins 인스턴스의 이름 |
-| *yourLocation* | 인스턴스를 호스팅하는 서버 지역 |
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>참조 자료
 
@@ -104,7 +94,10 @@ Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드�
 
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0 권한 부여
 
-OAuth 2.0으로 보호되는 API 리소스에 대한 요청을 대화형으로 테스트하려면 [공식 설명서](https://swagger.io/docs/specification/authentication/oauth2/)를 참조하세요.
+OAuth 2.0으로 보호되는 요청을 대화형으로 테스트하는 방법에 대해 자세히 알아보려면 [공식 설명서](https://swagger.io/docs/specification/authentication/oauth2/)를 참조하세요.
+
+> [!NOTE]
+> OAuth 2.0 인증에 대한 지원은 공개 미리 보기 동안 일시적으로 비활성화됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f344424c372f65cd8bfe5779cc65f0e866e58a11
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252550"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633974"
 ---
 # <a name="how-to-use-alternative-inputs"></a>대체 입력을 사용하는 방법
 
@@ -137,8 +137,10 @@ ms.locfileid: "51252550"
     3. 변경 내용 제출을 클릭합니다.
 4. 왼쪽 창에서 ‘denver’를 클릭하여 선택합니다.
     1. 대체 입력 추가에 ‘'for denver’를 입력합니다.
-    2. ‘forecast for austin’을 입력합니다.
-        - 전체 문구가 강조 표시됩니다. 문구를 클릭한 다음, 빨간색 x를 클릭합니다. austin을 선택하고 도시를 클릭합니다.
+    1. ‘forecast for austin’을 입력합니다.
+        - 오류 메시지가 나타납니다. '텍스트 변형에는 원래 입력 텍스트와 동일하게 검색된 엔터티가 포함되어야 합니다.'
+        - 'austin'이라는 단어를 클릭합니다.
+        - 'austin'에 대한 엔터티를 선택할 수 있는 팝업이 나타납니다. **도시**를 클릭합니다.
         - 변경 내용 제출을 클릭합니다.
     1. 완료를 클릭하면 모델이 다시 학습됩니다.
 

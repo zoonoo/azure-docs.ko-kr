@@ -2,18 +2,18 @@
 title: Azure IoT Edge용 모듈 개발 | Microsoft Docs
 description: Azure IoT Edge용 사용자 지정 모듈을 만드는 방법을 알아봅니다.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: cb97e2cf6d554753f64afc76de84f43e38443909
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741439"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567233"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해
 
@@ -26,9 +26,9 @@ IoT Edge 런타임은 여러 IoT Edge 모듈의 기능을 통합하고 이를 Io
 IoT Edge 허브는 IoT Hub에 프록시 및 로컬 통신이라는 두 가지 주요 기능을 제공합니다.
 
 ### <a name="iot-hub-primitives"></a>IoT Hub 기본 형식
-IoT Hub는 다음과 같은 점에서 장치와 비슷하게 모듈 인스턴스를 표시합니다.
+IoT Hub는 다음과 같은 점에서 디바이스와 비슷하게 모듈 인스턴스를 표시합니다.
 
-* [장치 쌍](../iot-hub/iot-hub-devguide-device-twins.md) 및 해당 장치의 다른 모듈 쌍과 별개이며 격리된 모듈 쌍이 있습니다.
+* [디바이스 쌍](../iot-hub/iot-hub-devguide-device-twins.md) 및 해당 디바이스의 다른 모듈 쌍과 별개이며 격리된 모듈 쌍이 있습니다.
 * [장치-클라우드 메시지](../iot-hub/iot-hub-devguide-messaging.md)를 보낼 수 있습니다.
 * 특별히 해당 ID에서 대상으로 지정된 [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)를 받을 수 있습니다.
 
@@ -41,7 +41,7 @@ IoT Hub는 다음과 같은 점에서 장치와 비슷하게 모듈 인스턴스
 ### <a name="device-to-cloud-messages"></a>장치-클라우드 메시지
 IoT Edge 허브는 장치-클라우드 메시지의 복잡한 처리를 사용할 수 있게 하기 위해 모듈 간 메시지 및 모듈과 IoT Hub 간 메시지의 선언적 라우팅을 제공합니다. 선언적 라우팅을 사용하면 모듈은 다른 모듈에서 보낸 메시지를 가로채고, 처리하고, 복잡한 파이프라인에 전파할 수 있습니다. [모듈 구성](module-composition.md) 문서에서는 경로를 사용하여 복잡한 파이프라인으로 모듈을 구성하는 방법을 설명합니다.
 
-IoT Edge 모듈은 일반적인 IoT Hub 장치 응용 프로그램과 달리 처리를 위해 로컬 IoT Edge 허브에서 프록시하는 장치-클라우드 메시지를 받을 수 있습니다.
+IoT Edge 모듈은 일반적인 IoT Hub 디바이스 애플리케이션과 반대로 처리를 위해 로컬 IoT Edge 허브에서 프록시하는 디바이스-클라우드 메시지를 받을 수 있습니다.
 
 IoT Edge 허브는 [모듈 구성](module-composition.md) 문서에서 설명하는 선언적 경로에 따라 메시지를 모듈에 전파합니다. IoT Edge 모듈을 개발할 경우 메시지 처리기를 설정하여 이러한 메시지를 받을 수 있습니다.
 
@@ -58,7 +58,9 @@ IoT Edge는 경로 만들기를 간소화하기 위해 모듈 '입력' 및 '출�
 | $outputName | 메시지를 보내는 데 사용된 출력입니다. 비어 있을 수 있습니다. |
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>모듈에서 IoT Edge 허브에 연결
-모듈에서 로컬 IoT Edge 허브에 연결하는 과정은 모듈 시작 시 IoT Edge 런타임에서 제공하는 연결 문자열을 사용하고, 응용 프로그램이 해당 장치의 IoT Edge 허브에서 제공하는 인증서를 수락하는지 확인하는 두 단계로 구성됩니다.
+모듈에서 로컬 IoT Edge 허브로의 연결은 두 단계로 이루어집니다. 
+1. 모듈이 시작될 때 IoT Edge 런타임에서 제공하는 연결 문자열을 사용합니다.
+2. 애플리케이션이 해당 디바이스의 IoT Edge 허브에서 제공한 인증서를 허용하는지 확인합니다.
 
 사용할 연결 문자열은 IoT Edge 런타임에서 `EdgeHubConnectionString` 환경 변수에 삽입됩니다. 이렇게 하면 이를 사용하려는 모든 프로그램에서 사용할 수 있습니다.
 

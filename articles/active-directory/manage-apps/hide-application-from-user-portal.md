@@ -2,65 +2,57 @@
 title: Azure Active Directory의 사용자 환경에서 응용 프로그램 숨기기 | Microsoft Docs
 description: Azure Active Directory 액세스 패널 또는 Office 365 시작 관리자의 사용자 환경에서 응용 프로그램을 숨기는 방법입니다.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/04/2018
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.reviewer: asteen
-ms.custom: it-pro
-ms.openlocfilehash: 55f80396df4cbfe7d0a16a6a5066b68aadc0bdd3
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: kasimpso
+ms.openlocfilehash: f1203b4381055deca79a70e8d295e072feaf492a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368921"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613583"
 ---
-# <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>Azure Active Directory의 사용자 환경에서 응용 프로그램 숨기기
+# <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Azure Active Directory의 최종 사용자로부터 애플리케이션 숨기기
 
-사용자 액세스 패널 또는 Office 365 시작 관리자에 표시하지 않으려는 응용 프로그램이 있는 경우 이 앱 타일을 숨기는 옵션이 있습니다.  다음 두 가지 옵션을 사용하여 사용자의 앱 시작 관리자에서 응용 프로그램을 숨길 수 있습니다.
+최종 사용자의 MyApps 패널 또는 Office 365 시작 관리자에서 애플리케이션을 숨기는 방법에 대한 지침입니다. 애플리케이션을 숨겨도 애플리케이션에 대한 사용자의 권한은 계속 유지됩니다. 
 
-- 사용자 액세스 패널 및 Office 365 앱 시작 관리자에서 타사 응용 프로그램 숨기기
-- 사용자 액세스 패널에서 모든 Office 365 응용 프로그램 숨기기
+## <a name="prerequisites"></a>필수 조건
 
-앱을 숨긴다면 앱 사용자가 여전히 앱에 대한 권한을 갖지만 앱은 앱 시작 관리자에 나타나지 않습니다. 엔터프라이즈 앱을 관리하려면 적절한 권한이 있어야 하며 해당 디렉터리의 전역 관리자여야 합니다.
+MyApps 패널 및 Office 365 시작 관리자에서 애플리케이션을 숨기려면 애플리케이션 관리자 권한이 필요합니다.
+
+모든 Office 365 애플리케이션을 숨기려면 글로벌 관리자 권한이 필요합니다.
 
 
-## <a name="hiding-an-application-from-users-end-user-experiences"></a>사용자의 최종 사용자 환경에서 응용 프로그램 숨기기
-상황에 따라 아래 단계를 사용하여 액세스 패널에서 응용 프로그램을 숨길 수 있습니다.
+## <a name="hide-an-application-from-the-end-user"></a>최종 사용자로부터 애플리케이션 숨기기
+MyApps 패널 및 Office 365 애플리케이션 시작 관리자에서 애플리케이션을 숨기려면 다음 단계를 사용합니다.
 
-### <a name="how-do-i-hide-a-third-party-app-from-users-access-panel-and-o365-app-launchers"></a>사용자의 액세스 패널 및 O365 앱 시작 관리자로부터 타사 앱을 숨기려면 어떻게 해야 하나요?
-사용자 액세스 패널 및 Office 365 앱 시작 관리자에서 응용 프로그램을 숨기려면 다음 단계를 따르세요.
+1.  [Azure Portal](https://portal.azure.com)에 디렉터리에 대한 글로벌 관리자 권한으로 로그인합니다.
+2.  **Azure Active Directory**를 선택합니다.
+3.  **Enterprise 응용 프로그램**을 선택합니다. **엔터프라이즈 애플리케이션 - 모든 애플리케이션** 블레이드를 엽니다.
+4.  아직 선택하지 않은 경우 **애플리케이션 종류**에서 **엔터프라이즈 애플리케이션**을 선택합니다.
+5.  숨기려는 애플리케이션을 검색하고 해당 애플리케이션을 클릭합니다.  애플리케이션의 개요가 열립니다.
+6.  **속성**을 클릭합니다. 
+7.  **사용자가 볼 수 있습니까?** 란 질문에 **아니요**를 클릭합니다.
+8.  **저장**을 클릭합니다.
 
-1.  디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2.  **모든 서비스**를 선택하고 텍스트 상자에 **Azure Active Directory**를 입력한 다음, **입력**을 선택합니다.
-3.  **Azure Active Directory - *directoryname*** 화면(즉, 관리 중인 디렉터리에 대한 Azure AD 화면)에서 **Enterprise 응용 프로그램**을 선택합니다.
-![Enterprise 앱](./media/hide-application-from-user-portal/app1.png)
-4.  **Enterprise 응용 프로그램** 화면에서 **모든 응용 프로그램**을 선택합니다. 관리할 수 있는 앱의 목록이 표시됩니다.
-5.  **Enterprise 응용 프로그램 - 모든 응용 프로그램** 화면에서 앱을 선택합니다.</br>
-![Enterprise 앱](./media/hide-application-from-user-portal/app2.png)
-6.  ***appname*** 화면(즉, 제목에서 선택된 앱의 이름을 사용한 화면)에서 속성을 선택합니다.
-7.  ***appname* -속성** 화면에서, **사용자에게 보입니까?** 에 대해 **예**를 선택합니다.
-![Enterprise 앱](./media/hide-application-from-user-portal/app3.png)
-8.  **저장** 명령을 선택합니다.
 
-### <a name="how-do-i-hide-office-365-applications-from-users-access-panel"></a>사용자 액세스 패널에서 Office 365 응용 프로그램을 숨기려면 어떻게 하나요?
+## <a name="hide-office-365-applications-from-the-myapps-panel"></a>MyApps 패널에서 Office 365 애플리케이션 숨기기
 
-액세스 패널에서 모든 Office 365 응용 프로그램을 숨기려면 다음 단계를 따르세요. Office 365 포털에는 해당 앱이 계속 표시됩니다.
+MyApps 패널에서 모든 Office 365 애플리케이션을 숨기려면 다음 단계를 사용합니다. 애플리케이션은 Office 365 포털에 계속 표시됩니다.
 
-1.  디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2.  **모든 서비스**를 선택하고 텍스트 상자에 **Azure Active Directory**를 입력한 다음, **입력**을 선택합니다.
-3.  **Azure Active Directory - *directoryname*** 화면(즉, 관리 중인 디렉터리에 대한 Azure AD 화면)에서 **사용자 설정**을 선택합니다.
-4.  **사용자 설정** 화면의 **엔터프라이즈 응용 프로그램** 아래에서 **사용자가 Office 365 포털에서 Office 365 앱만 볼 수 있음**에 대해 **예**를 선택합니다.
+1.  [Azure Portal](https://portal.azure.com)에 디렉터리에 대한 글로벌 관리자 권한으로 로그인합니다.
+2.  **Azure Active Directory**를 선택합니다.
+3.  **사용자 설정**을 선택합니다.
+4.  **엔터프라이즈 애플리케이션**에서 **최종 사용자가 해당 애플리케이션을 시작하고 보는 방법 관리**를 클릭합니다.
+5.  **사용자가 Office 365 포털에서 Office 365 앱만 볼 수 있음**에 대해 **예**를 클릭합니다.
+6.  **저장**을 클릭합니다.
 
-![엔터프라이즈 앱](./media/hide-application-from-user-portal/apps4.png)
 
 ## <a name="next-steps"></a>다음 단계
 * [내 그룹 모두 보기](../fundamentals/active-directory-groups-view-azure-portal.md)

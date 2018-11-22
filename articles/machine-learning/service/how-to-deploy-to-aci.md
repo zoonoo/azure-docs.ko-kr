@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429466"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345049"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Azure Container Instances에 웹 서비스 배포 
 
@@ -50,7 +50,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 모든 모델 파일을 저장하는 데 사용되는 Docker 이미지를 구성합니다.
 1. [다음 지침을 사용](tutorial-deploy-models-with-aml.md#create-scoring-script)하여 채점 스크립트(score.py)를 만듭니다.
 
-1. [다음 지침을 사용](tutorial-deploy-models-with-aml.md#create-environment-file)하여 환경 파일(myenv.yml)을 만듭니다. 
+    > [!IMPORTANT]
+    > 채점 스크립트는 클라이언트에서 제출한 데이터를 받아서 채점을 위해 모델로 전달합니다. 스크립트 및 모델에 필요한 데이터 구조를 문서화합니다. 이러한 설명서가 있으면 웹 서비스를 사용하도록 클라이언트를 빌드하는 경우 쉽게 수행할 수 있습니다.
+
+1. [다음 지침을 사용](tutorial-deploy-models-with-aml.md#create-environment-file)하여 환경 파일(myenv.yml)을 만듭니다.
 
 1. 이러한 두 파일을 사용하여 다음과 같이 SDK에서 Python으로 Docker 이미지를 구성합니다.
 
@@ -217,8 +220,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 이제 웹 서비스를 테스트할 수 있습니다.
 
-<a name='test-web-service'/>
-## <a name="test-the-web-service"></a>웹 서비스 테스트
+## <a name="a-nametest-web-servicetest-the-web-service"></a><a name='test-web-service'/>웹 서비스 테스트
 
 웹 서비스는 어떤 메서드가 사용되든 동일합니다.  예측을 얻으려면 서비스의 `run` 메서드를 사용합니다.  
 
@@ -261,4 +263,5 @@ service.delete()
 
 ## <a name="next-steps"></a>다음 단계
 
-대규모 배포를 위해 [Azure Kubernetes Service에 배포](how-to-deploy-to-aks.md)하는 방법을 알아봅니다. 
+* [웹 서비스로 배포된 ML 모델을 사용](how-to-consume-web-service.md)하는 방법에 대해 알아봅니다.
+* 대규모 배포를 위해 [Azure Kubernetes Service에 배포](how-to-deploy-to-aks.md)하는 방법을 알아봅니다. 

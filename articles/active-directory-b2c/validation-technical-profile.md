@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: c21a5c5b23b709ce6683c51cf96f0e6ff89efc78
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543142"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568679"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C의 사용자 지정 정책에 유효성 검사 기술 프로필 정의
 
@@ -54,7 +54,7 @@ ms.locfileid: "45543142"
 | --------- | -------- | ----------- |
 | ReferenceId | yes | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
 |ContinueOnError|아니요| 이 유효성 검사 기술 프로필에서 오류가 발생하는 경우 후속 유효성 검사 기술 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값: `true` 또는 `false`(기본값, 추가 유효성 프로필의 처리가 중지되고 오류가 반환됨) 
-|ContinueOnSuccess | 아니요 | 이 유효성 검사 기술 프로필이 성공하는 경우 후속 유효성 검사 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값: `true` 또는 `false`. 기본값은 `true`입니다. 즉 추가 유효성 검사 프로필의 처리가 계속됩니다. |
+|ContinueOnSuccess | 아니요 | 이 유효성 검사 기술 프로필이 성공하는 경우 후속 유효성 검사 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 즉 추가 유효성 검사 프로필의 처리가 계속됩니다. |
 
 **ValidationTechnicalProfile** 요소에 에 포함되는 요소는 다음과 같습니다.
 

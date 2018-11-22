@@ -1,6 +1,6 @@
 ---
 title: 로컬로 원격 모니터링 솔루션 배포 - Docker - Azure | Microsoft Docs
-description: 이 방법 가이드에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 머신에 배포하는 방법을 보여줍니다.
+description: 이 방법 가이드에서는 테스트 및 개발을 위해 Docker를 사용하여 원격 모니터링 솔루션 가속기를 로컬 머신에 배포하는 방법을 보여줍니다.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 91f43473a5648be5264038993f43b61887e0c363
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285415"
+ms.locfileid: "51288547"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. 이 문서에서는 마이크로 서비스를 로컬 Docker 컨테이너에 배포하는 방법을 보여 줍니다. 로컬 마이크로 서비스 배포는 클라우드에서 IoT Hub, Cosmos DB, Azure Streaming Analytics 및 Azure Time Series Insights 서비스와 같은 클라우드 서비스를 사용합니다.
+이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. 마이크로 서비스를 로컬 Docker 컨테이너에 배포하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 클라우드에서 IoT Hub, Cosmos DB, Azure Streaming Analytics 및 Azure Time Series Insights 서비스와 같은 클라우드 서비스를 사용합니다.
 
 로컬 머신의 IDE에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md)를 참조하세요.
 
@@ -70,13 +70,13 @@ docker-compose up
 이 명령을 처음 실행하는 경우 Docker는 Docker 허브에서 마이크로 서비스 이미지를 다운로드하여 컨테이너를 로컬로 빌드합니다. 다음 실행에서 Docker는 컨테이너를 즉시 실행합니다.
 
 > [!TIP]
-> 종종 새로운 기능이 포함된 새 Docker 이미지를 게시합니다. 다음 명령 세트를 사용하여 최신 Docker 컨테이너를 가져오기 전에 로컬 Docker 컨테이너와 해당 이미지를 정리할 수 있습니다. 
+> Microsoft는 종종 새로운 기능이 포함된 새 Docker 이미지를 게시합니다. 다음 명령 세트를 사용하여 최신 Docker 컨테이너를 가져오기 전에 로컬 Docker 컨테이너와 해당 이미지를 정리할 수 있습니다.
 
-```cmd/sh
-docker list
-docker rm <list_of_containers>
-docker rmi <list_of_images>
-```
+    ```cmd/sh
+    docker list
+    docker rm <list_of_containers>
+    docker rmi <list_of_images>
+    ```
 
 별도의 셸을 사용하여 컨테이너에서 로그를 볼 수 있습니다. 먼저 `docker ps` 명령을 사용하여 컨테이너 ID를 찾습니다. 그런 다음, `docker logs {container-id} --tail 1000`을 사용하여 지정된 컨테이너에 대한 마지막 1,000개 항목을 봅니다.
 
@@ -101,14 +101,4 @@ docker rmi <list_of_images>
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
-
-> [!div class="checklist"]
-> * 로컬 개발 환경 설정
-> * 솔루션 가속기 구성
-> * 솔루션 가속기 배포
-> * 솔루션 가속기에 로그인
-
-이제 원격 모니터링 솔루션을 배포했으므로 다음 단계는 [솔루션 대시보드의 기능을 탐색](quickstart-remote-monitoring-deploy.md)하는 것입니다.
-
-<!-- Next tutorials in the sequence -->
+원격 모니터링 솔루션을 배포했으니, 다음 단계는 [솔루션 대시보드의 기능을 탐색](quickstart-remote-monitoring-deploy.md)하는 것입니다.

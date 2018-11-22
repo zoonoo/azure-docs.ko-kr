@@ -5,21 +5,21 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/12/2018
 ms.author: alkohli
-ms.openlocfilehash: 0cb1a0bccbb989506988f36c515d59cddb832265
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c28eaf22d05bfda5085f9e269bda85ca0d46a7d3
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263398"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578130"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>StorSimple을 Azure 파일 동기화 및 Data Box Edge 데이터 전송 옵션과 비교 
  
-이 문서에서는 온-프레미스 데이터를 Azure로 전송하는 옵션의 개요를 제공하고 Data Box Edge, AFS(Azure 파일 동기화), StorSimple 8000 시리즈를 비교합니다.
+이 문서에서는 온-프레미스 데이터를 Azure로 전송하는 옵션의 개요를 제공하고 Data Box Edge, Azure 파일 동기화, StorSimple 8000 시리즈를 비교합니다.
 
 - **[Data Box Edge](/azure/databox-online/data-box-edge-overview.md)** – Data Box Edge는 Azure와 데이터를 주고 받을 수 있는 온-프레미스 네트워크 디바이스로, 업로드하는 동안 데이터를 사전 처리하는 AI 지원 Edge 컴퓨팅을 제공합니다. Ignite 2018에서 발표되었으며 현재 공개 미리 보기로 제공됩니다. Data Box Gateway는 동일한 데이터 전송 기능을 제공하는 가상 디바이스 버전입니다.
-- **[Azure 파일 동기화](/azure/storage/files/storage-sync-files-deployment-guide.md)** – Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. AFS의 일반 공급은 2018년 초반에 발표되었습니다.
+- **[Azure 파일 동기화](/azure/storage/files/storage-sync-files-deployment-guide.md)** – Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. Azure 파일 동기화의 일반 공급은 2018년 초에 발표되었습니다.
 - **[StorSimple](/azure/storsimple/storsimple-overview.md)** – StorSimple은 기업에서 기본 스토리지, 데이터 보호, 보관 및 재해 복구를 위해 Azure 스토리지와 긴밀하게 통합하여 스토리지 인프라를 단일 솔루션에 통합할 수 있도록 도와주는 하이브리드 디바이스입니다. StorSimple의 제품 수명 주기는 [여기](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series)서 찾을 수 있습니다.
 
 ## <a name="comparison-summary"></a>비교 요약
@@ -33,9 +33,9 @@ ms.locfileid: "51263398"
 |하드웨어         |서비스의 일부로 Microsoft에서 물리적 디바이스 제공 | 고객이 제공 |서비스의 일부로 Microsoft에서 물리적 디바이스 제공  |
 |데이터 형식      |사용자 지정 형식   |파일         |Blob 또는 파일    |
 |프로토콜 지원 |iSCSI          |SMB, NFS    | SMB 또는 NFS      |
-|가격          |[StorSimple 가격 책정](https://azure.microsoft.com/pricing/details/storsimple/) |[AFS 가격 책정](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge 가격 책정](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|가격          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure 파일 동기화](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview.md) 및 [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview.md)에 대한 자세한 정보
-- [Azure 파일 동기화](/azure/storage/files/storage-sync-files-deployment-guide.md)에 대한 자세한 정보
+- [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) 및 [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)에 대한 자세한 정보
+- [Azure 파일 동기화](/azure/storage/files/storage-sync-files-deployment-guide)에 대한 자세한 정보

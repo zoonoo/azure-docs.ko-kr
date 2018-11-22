@@ -15,37 +15,17 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143732"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515644"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
 
-**Q: Android 또는 iOS BYOD 장치를 등록할 수 있나요?**
-
-**A:** 예, 하이브리드 고객만 Azure 장치 등록 서비스를 사용하여 등록할 수 있습니다. AD FS의 온-프레미스 장치 등록 서비스에서는 지원되지 않습니다.
-
-**Q: macOS 장치를 등록하려면 어떻게 할까요?**
-
-**A:** macOS 장치를 등록하려면:
-
-1.  [규정 준수 정책 만들기](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [macOS 장치에 대한 조건부 액세스 정책 정의](../active-directory-conditional-access-azure-portal.md) 
-
-**설명**
-
-- 조건부 액세스 정책에 포함된 사용자는 리소스에 액세스할 수 있는 [macOS에 대해 지원되는 버전의 Office](../conditional-access/technical-reference.md#client-apps-condition)가 필요합니다. 
-
-- 첫 번째 액세스를 시도하는 동안 사용자가 회사 포털을 사용하여 장치를 등록하라는 메시지가 표시됩니다.
-
----
-
-**Q: 최근에 장치를 등록했습니다. Azure Portal에서 내 사용자 정보에 장치가 표시되지 않는 이유는 무엇인가요?**
-
-**A:** 하이브리드 Azure AD에 가입된 Windows 10 장치가 사용자 장치 아래에 표시되지 않습니다.
+**Q: 최근에 장치를 등록했습니다. Azure Portal에서 내 사용자 정보에 디바이스가 표시되지 않는 이유는 무엇인가요? 또는 하이브리드 Azure AD 조인된 디바이스에 대해 디바이스 소유자가 해당 없음으로 표시되는 이유는 무엇인가요?**
+**A:** 하이브리드 Azure AD 조인된 Windows 10 디바이스는 사용자 디바이스 아래 표시되지 않습니다.
 Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 사용할 수도 있습니다.
 
 다음 장치만 사용자 장치 아래에 나열됩니다.
@@ -58,12 +38,16 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 **Q: 클라이언트의 장치 등록 상태를 어떻게 알 수 있나요?**
 
-**A:** Azure Portal에서 모든 장치로 이동한 다음, 장치 ID를 사용하여 장치를 검색할 수 있습니다. 조인 유형 열 아래의 값을 확인합니다.
-
-등록된 장치에서 로컬 장치 등록 상태를 확인하려면 다음을 수행합니다.
+**A:** Azure Portal에서 모든 장치로 이동한 다음, 장치 ID를 사용하여 장치를 검색할 수 있습니다. 조인 유형 열 아래의 값을 확인합니다. 경우에 따라 디바이스를 다시 설정하거나 이미지로 다시 설치할 수 있습니다. 따라서 디바이스에서도 디바이스 등록 상태를 반드시 확인해야 합니다.
 
 - Windows 10 및 Windows Server 2016 이상 장치의 경우, dsregcmd.exe /status를 실행합니다.
 - 하위 수준 OS 버전의 경우 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"를 실행합니다.
+
+---
+
+**Q: Azure Portal에서 사용자 정보에 장치 레코드가 표시되고 장치에 등록된 상태로 표시됩니다. 조건부 액세스를 사용할 수 있게 제대로 설정되어 있는 것인가요?**
+
+**A:** deviceID로 리플렉션된 장치 가입 상태는 Azure AD의 가입 상태와 일치해야 하며 조건부 액세스에 대한 평가 조건을 만족해야 합니다. 자세한 내용은 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 장치 필요](../conditional-access/require-managed-devices.md)를 참조하세요.
 
 ---
 
@@ -88,25 +72,6 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 3.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`을 입력합니다.
 
 ---
-**Q: 장치에서 Azure AD 조인 장치를 로컬로 조인 해제하려면 어떻게 하나요?**
-
-**A:** 
-- 하이브리드 Azure AD 조인 장치의 경우, 예약된 작업이 장치를 다시 등록하지 않도록 자동 등록을 꺼야 합니다. 그런 다음, 관리자 권한으로 명령 프롬프트를 열고 `dsregcmd.exe /debug /leave`를 입력합니다. 또는 여러 장치에서 이 명령을 스크립트로 실행하여 대량으로 조인 해제할 수 있습니다.
-
-- 순수한 Azure AD 조인 장치의 경우, Azure AD 사용자 자격 증명으로 로그인할 수 없으므로 오프라인 로컬 관리자 계정이 있는지 확인하거나 계정을 만들어야 합니다. 그런 다음, **설정** > **계정** > **회사 또는 학교 액세스**로 이동합니다. 계정을 선택하고 **연결 끊기**를 클릭합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 장치를 다시 부팅하여 조인 해제 프로세스를 완료합니다.
-
----
-
-**Q: 사용자가 Azure AD 조인 장치에서 프린터를 검색할 수 없습니다. Azure AD 조인 장치에서 어떻게 인쇄를 사용하도록 설정할 수 있나요?**
-
-**A:** Azure AD 조인 장치용 프린터를 배포하려면 [Hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)(하이브리드 클라우드 인쇄)를 참조하세요. 하이브리드 클라우드 인쇄를 배포하려면 온-프레미스 Windows Server가 필요합니다. 현재는 클라우드 기반 인쇄 서비스를 사용할 수 없습니다. 
-
----
-
-**Q: 원격 Azure AD 조인 장치에 연결하려면 어떻게 하나요?**
-**A:** 자세한 내용은 https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc 문서를 참조하세요.
-
----
 
 **Q: Azure Portal에서 중복된 장치 항목이 나타나는 이유는 무엇인가요?**
 
@@ -128,7 +93,27 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 >[!Note] 
 >등록된 장치의 경우에는 장치를 초기화하여 사용자가 리소스에 액세스하지 못하게 하는 것이 좋습니다. 자세한 내용은 [Intune에서 관리를 위해 장치 등록](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)을 참조하세요. 
+---
 
+# <a name="azure-ad-join-faq"></a>Azure AD 조인 FAQ
+
+**Q: 장치에서 Azure AD 조인 장치를 로컬로 조인 해제하려면 어떻게 하나요?**
+
+**A:** 
+- 하이브리드 Azure AD 조인 장치의 경우, 예약된 작업이 장치를 다시 등록하지 않도록 자동 등록을 꺼야 합니다. 그런 다음, 관리자 권한으로 명령 프롬프트를 열고 `dsregcmd.exe /debug /leave`를 입력합니다. 또는 여러 장치에서 이 명령을 스크립트로 실행하여 대량으로 조인 해제할 수 있습니다.
+
+- 순수한 Azure AD 조인 장치의 경우, Azure AD 사용자 자격 증명으로 로그인할 수 없으므로 오프라인 로컬 관리자 계정이 있는지 확인하거나 계정을 만들어야 합니다. 그런 다음, **설정** > **계정** > **회사 또는 학교 액세스**로 이동합니다. 계정을 선택하고 **연결 끊기**를 클릭합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 장치를 다시 부팅하여 조인 해제 프로세스를 완료합니다.
+
+---
+
+**Q: 사용자가 Azure AD 조인 장치에서 프린터를 검색할 수 없습니다. Azure AD 조인 장치에서 어떻게 인쇄를 사용하도록 설정할 수 있나요?**
+
+**A:** Azure AD 조인 장치용 프린터를 배포하려면 [Hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)(하이브리드 클라우드 인쇄)를 참조하세요. 하이브리드 클라우드 인쇄를 배포하려면 온-프레미스 Windows Server가 필요합니다. 현재는 클라우드 기반 인쇄 서비스를 사용할 수 없습니다. 
+
+---
+
+**Q: 원격 Azure AD 조인 장치에 연결하려면 어떻게 하나요?**
+**A:** 자세한 내용은 https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc 문서를 참조하세요.
 
 ---
 
@@ -144,12 +129,6 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 ---
 
-**Q: Azure Portal에서 사용자 정보에 장치 레코드가 표시되고 장치에 등록된 상태로 표시됩니다. 조건부 액세스를 사용할 수 있게 제대로 설정되어 있는 것인가요?**
-
-**A:** deviceID로 리플렉션된 장치 가입 상태는 Azure AD의 가입 상태와 일치해야 하며 조건부 액세스에 대한 평가 조건을 만족해야 합니다. 자세한 내용은 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 장치 필요](../conditional-access/require-managed-devices.md)를 참조하세요.
-
----
-
 **Q: Azure AD에 조인한 장치에 대해 "사용자 이름 또는 암호가 올바르지 않습니다." 메시지가 표시되는 이유는 무엇인가요?**
 
 **A:** 이 시나리오에 대한 일반적인 이유는 다음과 같습니다.
@@ -158,7 +137,7 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 - 컴퓨터가 Azure Active Directory와 통신할 수 없습니다. 네트워크 연결 문제가 있는지 확인합니다.
 
-- 페더레이션 로그인을 수행하려면 페더레이션 서버가 Ws-Trust 활성 엔드포인트를 지원해야 합니다. 
+- 페더레이션 로그인을 수행하려면 페더레이션 서버가 WS-Trust 엔드포인트 사용을 지원하고 액세스 가능해야 합니다. 
 
 - 통과 인증을 사용하도록 설정했으며, 사용자에게 로그온 시 변경해야 하는 임시 암호가 있습니다.
 
@@ -170,14 +149,15 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 ---
 
-**Q: 오류 정보가 표시되지 않더라도 PC 조인 시도가 실패하는 이유는 무엇인가요?**
+**Q: 오류 정보가 표시되지 않더라도 PC에서 Azure AD 조인 시도가 실패하는 이유는 무엇인가요?**
 
 **A:** 한 가지 가능한 원인은 사용자가 기본 제공 로컬 관리자 계정을 사용하여 장치에 로그인했기 때문입니다. Azure Active Directory 조인을 사용하여 설치를 완료하기 전에 다른 로컬 계정을 만드세요. 
 
-
 ---
 
-**Q: 자동 장치 등록에 대한 문제 해결 정보는 어디에서 찾나요?**
+# <a name="hybrid-azure-ad-join-faq"></a>하이브리드 Azure AD 조인 FAQ
+
+**Q: 하이브리드 Azure AD 조인 실패를 진단하기 위한 문제 해결 정보는 어디에서 찾을 수 있나요?**
 
 **A:** 문제 해결 정보는 다음을 참조하세요.
 
@@ -188,3 +168,23 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 ---
 
+# <a name="azure-ad-register-faq"></a>Azure AD 등록 FAQ
+
+**Q: Android 또는 iOS BYOD 장치를 등록할 수 있나요?**
+
+**A:** 예, 하이브리드 고객만 Azure 장치 등록 서비스를 사용하여 등록할 수 있습니다. AD FS의 온-프레미스 장치 등록 서비스에서는 지원되지 않습니다.
+
+**Q: macOS 장치를 등록하려면 어떻게 할까요?**
+
+**A:** macOS 장치를 등록하려면:
+
+1.  [규정 준수 정책 만들기](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [macOS 장치에 대한 조건부 액세스 정책 정의](../active-directory-conditional-access-azure-portal.md) 
+
+**설명**
+
+- 조건부 액세스 정책에 포함된 사용자는 리소스에 액세스할 수 있는 [macOS에 대해 지원되는 버전의 Office](../conditional-access/technical-reference.md#client-apps-condition)가 필요합니다. 
+
+- 첫 번째 액세스를 시도하는 동안 사용자가 회사 포털을 사용하여 장치를 등록하라는 메시지가 표시됩니다.
+
+---

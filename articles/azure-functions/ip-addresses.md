@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: 0ed488cd717bc1548b26dcf8ff5f200a62710132
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: a92a4183962f71005577478bf27df9b5fb945acf
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584891"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634365"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -55,6 +55,8 @@ IP 주소는 개별 함수가 아니라 함수 앱과 연결됩니다. 들어오
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+> [!NOTE]
+> [소비 계획](functions-scale.md#consumption-plan)에서 실행되는 함수 앱의 크기를 조정하는 경우 새로운 아웃바운드 IP 주소 범위를 할당할 수 있습니다. 소비 계획에서 실행하는 경우 전체 데이터 센터를 허용 목록에 추가해야 합니다.
 
 ## <a name="data-center-outbound-ip-addresses"></a>데이터 센터 아웃바운드 IP 주소
 

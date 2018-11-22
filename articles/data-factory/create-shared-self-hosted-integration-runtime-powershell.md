@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 Azure Data Factory에서 자체 호스팅 통합 런타임 공유 만들기 | Microsoft Docs
-description: 여러 데이터 팩터리가 통합 런타임에 액세스할 수 있도록 Azure Data Factory에서 자체 호스팅 통합 런타임 공유를 만드는 방법을 알아봅니다.
+description: Azure Data Factory에서 자체 호스팅 통합 런타임 공유를 만들어 여러 데이터 팩터리가 통합 런타임에 액세스할 수 있도록 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: d7f3fbcb3235c8c620876e68a62f3e491770779d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: b32ea4293daa9206c6b0da4bdee777677c5d340d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252035"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685517"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>PowerShell을 사용하여 Azure Data Factory에서 자체 호스팅 통합 런타임 공유 만들기
 
-이 단계별 가이드에서는 Azure PowerShell을 사용하여 Azure Data Factory에서 자체 호스팅 IR(통합 런타임) 공유를 만드는 방법을 보여줍니다. 그런 다음, 다른 데이터 팩터리에서 자체 호스팅 통합 런타임 공유를 사용할 수 있습니다. 이 자습서에서 수행하는 단계는 다음과 같습니다. 
+이 단계별 가이드에서는 Azure PowerShell을 사용하여 Azure Data Factory에서 자체 호스팅 통합 런타임 공유를 만드는 방법을 보여줍니다. 그런 다음, 다른 데이터 팩터리에서 자체 호스팅 통합 런타임 공유를 사용할 수 있습니다. 이 자습서에서 수행하는 단계는 다음과 같습니다. 
 
 1. 데이터 팩터리를 만듭니다. 
 1. 자체 호스팅 통합 런타임을 만듭니다.
@@ -33,18 +33,16 @@ ms.locfileid: "50252035"
 
 - **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다. 
 
-- **Azure PowerShell**. [Windows에서 Azure PowerShell 설치](/powershell/azure/install-azurerm-ps)의 지침을 따르세요. PowerShell을 사용하여 다른 데이터 팩터리와 공유할 수 있는 자체 호스팅 통합 런타임을 만드는 스크립트를 실행합니다. 
+- **Azure PowerShell**. [PowerShellGet을 사용하여 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0)의 지침을 따르세요. PowerShell을 사용하여 다른 데이터 팩터리와 공유할 수 있는 자체 호스팅 통합 런타임을 만드는 스크립트를 실행합니다. 
 
-> [!NOTE]
-> Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)에서 관심 있는 지역을 선택합니다.
+> [!NOTE]  
+> Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)에서 관심 있는 지역을 선택합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
-1. Windows PowerShell ISE를 시작합니다.
+1. Windows PowerShell ISE(통합 스크립팅 환경)를 시작합니다.
 
-1. 변수를 만듭니다.
-
-    다음 스크립트를 복사 및 붙여넣고 변수(SubscriptionName, ResourceGroupName 등)를 실제 값으로 바꿉니다. 
+1. 변수를 만듭니다. 다음 스크립트를 복사하여 붙여넣습니다. **SubscriptionName** 및 **ResourceGroupName**과 같은 변수를 실제 값으로 바꿉니다. 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -65,20 +63,19 @@ ms.locfileid: "50252035"
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
 
-1. 로그인하고 구독을 선택합니다.
-
-    스크립트에 다음 코드를 추가하여 로그인하고 Azure 구독을 선택합니다.
+1. 로그인하고 구독을 선택합니다. 스크립트에 다음 코드를 추가하여 로그인하고 Azure 구독을 선택합니다.
 
     ```powershell
     Connect-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-1. 리소스 그룹 및 Data Factory를 만듭니다.
+1. 리소스 그룹 및 데이터 팩터리를 만듭니다.
 
-    *(이 단계는 선택 사항입니다. 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다.)* 
+    > [!NOTE]  
+    > 이 단계는 선택 사항입니다. 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다. 
 
-    [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 WestEurope 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 
+    [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) 명령을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 WestEurope 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 
 
     ```powershell
     New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -94,7 +91,8 @@ ms.locfileid: "50252035"
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 만들기
 
-*(이 단계는 선택 사항입니다. 다른 데이터 팩터리와 공유하려는 자체 호스팅 통합 런타임이 이미 있는 경우 이 단계를 건너뜁니다.)*
+> [!NOTE]  
+> 이 단계는 선택 사항입니다. 다른 데이터 팩터리와 공유하려는 자체 호스팅 통합 런타임이 이미 있는 경우 이 단계를 건너뜁니다.
 
 다음 명령을 실행하여 자체 호스팅 통합 런타임을 만듭니다.
 
@@ -132,7 +130,8 @@ Get-AzureRmDataFactoryV2IntegrationRuntimeKey `
 
 ### <a name="create-another-data-factory"></a>다른 데이터 팩터리 만들기
 
-*(이 단계는 선택 사항입니다. 공유하려는 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다.)*
+> [!NOTE]  
+> 이 단계는 선택 사항입니다. 공유하려는 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다.
 
 ```powershell
 $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -141,9 +140,9 @@ $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 ```
 ### <a name="grant-permission"></a>사용 권한 부여
 
-만들고 등록한 자체 호스팅 통합 런타임에 액세스해야 하는 Data Factory에 권한을 부여합니다.
+만들고 등록한 자체 호스팅 통합 런타임에 액세스해야 하는 데이터 팩터리에 권한을 부여합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 이 단계를 건너뛰지 마세요!
 
 ```powershell
@@ -171,7 +170,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime `
 
 ## <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>데이터 팩터리에서 통합 런타임 공유 취소
 
-통합 런타임 공유에 액세스하는 데이터 팩터리의 액세스를 취소하기 위해 다음 명령을 실행할 수 있습니다.
+통합 런타임 공유에서 데이터 팩터리의 액세스를 취소하려면 다음 명령을 실행합니다.
 
 ```powershell
 Remove-AzureRMRoleAssignment `
@@ -180,7 +179,7 @@ Remove-AzureRMRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-기존 연결된 통합 런타임을 제거하기 위해 통합 런타임 공유에 대해 다음 명령을 실행할 수 있습니다.
+기존 연결된 통합 런타임을 제거하려면 통합 런타임 공유에 대해 다음 명령을 실행합니다.
 
 ```powershell
 Remove-AzureRmDataFactoryV2IntegrationRuntime `
@@ -193,6 +192,6 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime `
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Factory의 통합 런타임](concepts-integration-runtime.md)에서 통합 런타임 개념을 검토합니다.
+- [Azure Data Factory의 통합 런타임 개념](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime)을 검토합니다.
 
-- [자체 호스팅 통합 런타임 만들기 및 구성](create-self-hosted-integration-runtime.md)에서 Azure Portal에 자체 호스팅 통합 런타임을 만드는 방법을 알아봅니다.
+- [Azure Portal에서 자체 호스팅 통합 런타임을 만드는](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime) 방법을 알아봅니다.

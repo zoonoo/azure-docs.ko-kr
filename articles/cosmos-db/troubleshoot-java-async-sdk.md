@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee92a5dd474cdf4f32ed2c7327d732a2cfbbbf79
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238832"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632937"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Azure Cosmos DB SQL API 계정으로 Java 비동기 SDK를 사용하는 경우 문제 해결
 이 문서에서는 Azure Cosmos DB SQL API 계정으로 [Java 비동기 ADK](sql-api-sdk-async-java.md)를 사용할 때 일반적인 문제, 해결, 진단 단계 및 도구를 설명합니다.
@@ -148,7 +148,7 @@ Cosmos DB 에뮬레이터 HTTPS 인증서는 자체 서명입니다. SDK를 에�
 
 ## <a name="enable-client-sice-logging"></a>클라이언트 SDK 로깅 사용
 
-비동기 Java SDK는 log4j 및 logback과 같은 인기 있는 로깅 프레임워크로 로깅을 지원하는 로깅 외관으로 SLF4j를 사용합니다.
+Java 비동기 SDK는 log4j 및 logback과 같은 인기 있는 로깅 프레임워크로 로깅을 지원하는 로깅 외관으로 SLF4j를 사용합니다.
 
 예를 들어 로깅 프레임워크로 log4j를 사용하려는 경우 다음 라이브러리를 Java 클래스 경로에 추가합니다.
 

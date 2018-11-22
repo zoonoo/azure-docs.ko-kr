@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: c53bab2e838425dfdd124e64c3d7d3114fa30429
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fe58b335a029e558ce29871483589908f17c03cd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834433"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345694"
 ---
 # <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Azure AI 갤러리에서 사용자 지정 기계 학습 모듈 검색
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="custom-modules-for-machine-learning-studio"></a>Machine Learning Studio
-Azure AI 갤러리는 Azure Machine Learning Studio의 역량을 확장하는 여러 [사용자 지정 모듈](https://gallery.cortanaintelligence.com/customModules)을 제공합니다. 실험에서 사용하도록 모듈을 가져와서 한층 더 진보된 예측 분석 솔루션을 개발할 수 있습니다.
+[Azure AI 갤러리](http://gallery.cortanaintelligence.com)는 Azure Machine Learning Studio의 역량을 확장하는 여러 [사용자 지정 모듈](https://gallery.cortanaintelligence.com/customModules)을 제공합니다. 실험에서 사용하도록 모듈을 가져와서 한층 더 진보된 예측 분석 솔루션을 개발할 수 있습니다.
 
 현재 갤러리는 *시계열 분석*, *연결 규칙*, *클러스터링 알고리즘*(K-means 외) 및 *시각화* 모듈과 기타 자주 사용되는 유틸리티 모듈을 제공합니다.
 

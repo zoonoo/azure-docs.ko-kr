@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 10/01/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b1333eda0fa0bffdf3852f24414511f55acc090e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395581"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624644"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Azure Active Directory에 대한 Log Analytics 보기 설치 및 사용
 
@@ -42,7 +42,7 @@ Log Analytics 보기를 사용하려면 다음이 필요합니다.
 
 1. Log Analytics 작업 영역으로 이동합니다. 이렇게 하려면 먼저 [Azure Portal](https://portal.azure.com)로 이동하고, **모든 서비스**를 선택합니다. 텍스트 상자에서 **Log Analytics**를입력하고, **Log Analytics**를 선택합니다. 활동 로그를 라우팅한 작업 영역을 필수 구성 요소의 일부로 선택합니다.
 2. **뷰 디자이너**를 선택하고, **가져오기**를 선택한 다음, **파일 선택**을 선택하여 로컬 컴퓨터에서 보기를 가져옵니다.
-3. 필수 조건에서 다운로드한 보기를 선택하고, **저장**을 선택하여 가져오기를 저장합니다. **Azure AD 계정 프로비전 이벤트** 보기, **로그인 이벤트** 보기 및 **사용자 동의 수행** 보기에 대해 이 작업을 수행합니다.
+3. 필수 조건에서 다운로드한 보기를 선택하고, **저장**을 선택하여 가져오기를 저장합니다. **Azure AD 계정 프로비전 이벤트** 보기 및 **로그인 이벤트** 보기에 대해 이 작업을 수행합니다.
 
 ## <a name="use-the-views"></a>보기 사용
 
@@ -52,7 +52,6 @@ Log Analytics 보기를 사용하려면 다음이 필요합니다.
 
     * **Azure AD 계정 프로비전 이벤트**: 프로비전 활동 감사(예: 새로 프로비전된 사용자 수 및 프로비전 실패 횟수, 업데이트된 사용자 수 및 업데이트 실패 횟수, 프로비전 해제된 사용자 수 및 해당 실패 횟수)와 관련된 보고서가 표시됩니다.    
     * **로그인 이벤트**: 로그인 활동 모니터링(예: 응용 프로그램, 사용자, 장치별 로그인)과 관련된 가장 적절한 보고서와 시간 경과에 따른 로그인 수를 추적하는 요약 보기가 표시됩니다.
-    * **사용자 동의 수행**: 사용자 동의(예: 사용자에 의한 동의 허용, 동의한 사용자의 로그인 및 모든 동의 기반 응용 프로그램에 대한 응용 프로그램의 로그인)와 관련된 보고서가 표시됩니다. 
 
 3. 이러한 보기 중 하나를 선택하여 개별 보고서로 이동합니다. 모든 보고서 매개 변수에 대해 경고를 설정할 수도 있습니다. 예를 들어 로그인 오류가 발생할 때마다 알려주는 경고를 설정해 보겠습니다. 이렇게 하려면 먼저 **로그인 이벤트** 보기를 선택하고, **시간 경과별 로그인 오류** 보고서를 선택한 다음, **분석**을 선택하여 보고서를 지지하는 실제 쿼리가 포함된 세부 정보 페이지를 엽니다. 
 

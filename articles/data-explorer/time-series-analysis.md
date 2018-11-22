@@ -1,6 +1,6 @@
 ---
 title: Azure 데이터 탐색기 시계열 분석
-description: Azure 데이터 탐색기에서 시계열 분석에 대해 알아보기
+description: 'Azure 데이터 탐색기에서 시계열 분석에 대해 알아보기 '
 services: data-explorer
 author: orspod
 ms.author: v-orspod
@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: fafaf0b4721c45b002e67896223877da43d66e56
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51220016"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636695"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 데이터 탐색기에서 시계열 분석
 
@@ -57,10 +57,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- 다음과 같은 경우 [`make-series`](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator) 연산자를 사용하여 세 개의 시계열 집합을 만듭니다.
+- 다음과 같은 경우 [`make-series`](/azure/kusto/query/make-seriesoperator) 연산자를 사용하여 세 개의 시계열 집합을 만듭니다.
     - `num=count()`: 트래픽의 시계열
     - `range(min_t, max_t, 1h)`: 시계열은 시간 범위에서 1시간 bin 단위로 만들어짐(가장 오래되고 최신의 테이블 레코드의 타임 스탬프)
-    - `default=0`: 기본 시계열을 만들려면 누락된 bin에 대한 채우기 메서드를 지정합니다. 또는 변경을 위해 [`series_fill_const()`](https://docs.microsoft.com/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-backwardfunction) 및 [`series_fill_linear()`](https://docs.microsoft.com/azure/kusto/query/series-fill-linearfunction) 사용
+    - `default=0`: 기본 시계열을 만들려면 누락된 bin에 대한 채우기 메서드를 지정합니다. 또는 변경을 위해 [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) 및 [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) 사용
     - `byOsVer`: OS별 파티션
 - 실제 시계열 데이터 구조는 각 시간 bin 단위당 집계된 값의 숫자형 배열입니다. 시각화를 위해 `render timechart`를 사용합니다.
 
@@ -71,14 +71,14 @@ demo_make_series1
 ## <a name="time-series-analysis-functions"></a>시계열 분석 함수
 
 이 섹션에서는 일반적인 시계열 처리 함수를 수행합니다.
-시계열 집합을 만든 후 ADX는 증가하는 함수 목록을 지원하여 [시계열 설명서](https://docs.microsoft.com/azure/kusto/query/machine-learning-and-tsa)에 있을 수 있는 함수를 처리하고 분석합니다. 시계열의 처리 및 분석을 위한 몇 가지 대표적인 함수에 대해 설명하겠습니다.
+시계열 집합을 만든 후 ADX는 증가하는 함수 목록을 지원하여 [시계열 설명서](/azure/kusto/query/machine-learning-and-tsa)에 있을 수 있는 함수를 처리하고 분석합니다. 시계열의 처리 및 분석을 위한 몇 가지 대표적인 함수에 대해 설명하겠습니다.
 
 ### <a name="filtering"></a>필터링
 
 필터링은 신호 처리의 일반적인 사례로서 시계열 처리 작업(예: 노이즈가 있는 신호 및 변경 내용 검색 평활화)에 유용합니다.
 - 일반 필터링 함수에는 다음과 같은 두 가지가 있습니다.
-    - [`series_fir()`](https://docs.microsoft.com/azure/kusto/query/series-firfunction): FIR 필터를 적용합니다. 이동 평균의 간단한 계산 및 변경 내용 검색에 대한 시계열 차별화에 사용합니다.
-    - [`series_iir()`](https://docs.microsoft.com/azure/kusto/query/series-iirfunction): IIR 필터를 적용합니다. 지수 평활법 및 누적 합계에 사용합니다.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): FIR 필터를 적용합니다. 이동 평균의 간단한 계산 및 변경 내용 검색에 대한 시계열 차별화에 사용합니다.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction): IIR 필터를 적용합니다. 지수 평활법 및 누적 합계에 사용합니다.
 - `Extend` 5개 bin 크기의 새 이동 평균 계열(*ma_num*이라고 함)을 쿼리에 추가하여 설정한 시계열.
 
 ```kusto
@@ -95,8 +95,8 @@ demo_make_series1
 ### <a name="regression-analysis"></a>회귀 분석
 
 ADX는 분할된 선형 회귀 분석을 지원하여 시계열 추세를 예측합니다.
-- [series_fit_line()](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction)을 사용하여 일반적인 추세 검색을 위해 시계열에 적합한 선을 맞춥니다.
-- [series_fit_2lines()](https://docs.microsoft.com/azure/kusto/query/series-fit-2linesfunction)를 사용하여 모니터링 시나리오에 유용한 기준선을 기준으로 추세 변경 사항을 검색합니다.
+- [series_fit_line()](/azure/kusto/query/series-fit-linefunction)을 사용하여 일반적인 추세 검색을 위해 시계열에 적합한 선을 맞춥니다.
+- [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction)를 사용하여 모니터링 시나리오에 유용한 기준선을 기준으로 추세 변경 사항을 검색합니다.
 
 `series_fit_line()`의 예제 및 시계열 쿼리의 `series_fit_2lines()` 함수.
 
@@ -128,8 +128,9 @@ demo_series3
 
 ![시계열 계절성](media/time-series-analysis/time-series-seasonality.png)
 
-- [series_periods_detect()](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction)를 사용하여 시계열의 기간을 자동으로 검색합니다. 
-- 메트릭이 특정 고유 기간을 포함해야 하는 것을 알고 해당 기간이 있는지 확인하려는 경우 [series_periods_validate()](https://docs.microsoft.com/azure/kusto/query/series-periods-validatefunction)를 사용합니다.
+- [series_periods_detect()](/azure/kusto/query/series-periods-detectfunction)를 사용하여 시계열의 기간을 자동으로 검색합니다. 
+- 메트릭이 특정 고유 기간을 포함해야 하는 것을 알고 해당 기간이 있는지 확인하려는 경우 [series_periods_validate()](/azure/kusto/query/series-periods-validatefunction)를 사용합니다.
+
 > [!NOTE]
 > 특정 고유 마침표가 없으면 비정상임
 
@@ -150,7 +151,7 @@ demo_series3
 
 ### <a name="element-wise-functions"></a>요소별 함수
 
-시계열에서 산술 및 논리 작업을 수행할 수 있습니다. [series_subtract()](https://docs.microsoft.com/azure/kusto/query/series-subtractfunction)를 사용하여 잔여 시계열 즉, 원본 원시 메트릭과 평활된 메트릭 간의 차이를 계산하고, 잔여 신호의 변칙을 검색할 수 있습니다.
+시계열에서 산술 및 논리 작업을 수행할 수 있습니다. [series_subtract()](/azure/kusto/query/series-subtractfunction)를 사용하여 잔여 시계열 즉, 원본 원시 메트릭과 평활된 메트릭 간의 차이를 계산하고, 잔여 신호의 변칙을 검색할 수 있습니다.
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -165,7 +166,9 @@ demo_make_series1
 
 ![시계열 작업](media/time-series-analysis/time-series-operations.png)
 
-파란색: 원본 시계열 빨간색: 평활된 시계열 녹색: 잔여 시계열
+- 파란색: 원본 시계열
+- 빨간색: 평활 시계열
+- 녹색: 잔여 시계열
 
 ## <a name="time-series-workflow-at-scale"></a>대규모의 시계열 워크플로
 
@@ -255,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-2분 이내에 ADX는 읽기 개수가 갑자기 줄어든 비정상적인 두 개의 시계열(23115에서)을 검색했습니다.
+2분이 안 되는 시간에 ADX는 20,000개가 넘는 시계열을 분석하여 읽기 개수가 갑자기 줄어든 비정상적인 두 개의 시계열을 검색했습니다.
 
 ADX 빠른 성능과 결합된 이러한 고급 기능은 시계열 분석을 위해 고유하고 강력한 솔루션을 제공합니다.

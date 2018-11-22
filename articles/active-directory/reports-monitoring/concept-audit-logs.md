@@ -13,41 +13,39 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6fa26cb7947658af77496831d7239b4331aa1f2
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 883f521040c67cb8fe9578bc5c490bc3dfccba28
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42140715"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624661"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
-Azure Active Directory(Azure AD)에서 보고를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
+Azure AD(Azure Active Directory) 보고서를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
 
-Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
+보고 아키텍처는 다음과 같은 구성 요소로 구성됩니다.
 
 - **활동** 
-    - **로그인 활동** – 관리되는 응용 프로그램 및 사용자 로그인 활동의 사용량에 대한 정보
-    - **감사 로그** - Azure AD 내의 다양한 기능에 의해 수행된 모든 변경 내용에 대한 로그를 통한 추적 기능을 제공합니다. 감사 로그의 예로는 사용자, 앱, 그룹, 역할, 정책, 인증 등 Azure AD 내의 모든 리소스에 대한 변경 내용이 있습니다.
+    - **로그인** – [로그인 보고서](concept-sign-ins.md)는 관리되는 애플리케이션 및 사용자 로그인 활동의 사용 정보를 제공합니다.
+    - **감사 로그** - Azure AD 내의 다양한 기능에 의해 수행된 모든 변경 내용에 대한 로그를 통한 추적 기능을 제공합니다. 감사 로그의 예제로는 사용자, 앱, 그룹, 역할 및 정책 추가 또는 제거와 같은 Azure AD 내의 모든 리소스에 대한 변경 내용이 있습니다.
 - **보안** 
-    - **위험한 로그인** - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 자세한 내용은 위험한 로그인을 참조하세요.
-    - **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 자세한 내용은 위험 플래그가 지정된 사용자를 참조하세요.
+    - **위험한 로그인** - [위험한 로그인](concept-risky-sign-ins.md)은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 
+    - **위험 플래그가 지정된 사용자** - [위험한 사용자](concept-user-at-risk.md)는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다.
 
-이 항목에서는 감사 활동에 대한 개요를 제공합니다.
+이 문서에서는 감사 보고서에 대한 개요를 제공합니다.
  
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
-* 보안 관리 또는 보안 판독기 역할의 사용자
-* 전역 관리자
-* 개별 사용자(비관리자)는 자신의 활동을 볼 수 있습니다.
 
+* **보안 관리자**, **보안 읽기 권한자** 또는 **글로벌 관리자** 역할의 사용자
+* 또한 모든 사용자(비관리자)는 감사 활동 자체를 볼 수 있습니다.
 
 ## <a name="audit-logs"></a>감사 로그
 
-Azure Active Directory의 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다.  
-모든 감사 데이터에 대한 첫 번째 진입점은 **Azure Active Directory**의 **활동** 섹션에 있는 **감사 로그**입니다.
+Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스하려면 **Azure Active Directory**의 **활동** 섹션에서 **감사 로그**를 선택합니다. 
 
 ![감사 로그](./media/concept-audit-logs/61.png "감사 로그")
 
@@ -68,15 +66,14 @@ Azure Active Directory의 감사 로그는 규정 준수를 위한 시스템 활
 
 ![감사 로그](./media/concept-audit-logs/21.png "감사 로그")
 
-
-목록 보기에서 항목을 클릭하면 사용할 수 있는 세부 정보를 모두 얻을 수 있습니다.
+자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
 ![감사 로그](./media/concept-audit-logs/22.png "감사 로그")
 
 
 ## <a name="filtering-audit-logs"></a>감사 로그 필터링
 
-보고된 데이터를 자신에게 적합한 수준으로 좁히려면 다음 필드를 사용하여 감사 데이터를 필터링할 수 있습니다.
+다음 필드에서 감사 데이터를 필터링할 수 있습니다.
 
 - 날짜 범위
 - 초기자(작업자)
@@ -85,7 +82,6 @@ Azure Active Directory의 감사 로그는 규정 준수를 위한 시스템 활
 - 작업
 
 ![감사 로그](./media/concept-audit-logs/23.png "감사 로그")
-
 
 **날짜 범위** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다.  
 가능한 값은 다음과 같습니다.
@@ -131,8 +127,7 @@ Azure Active Directory의 감사 로그는 규정 준수를 위한 시스템 활
 
 **활동** 필터는 사용자가 선택한 범주와 활동 리소스 종류를 기반으로 합니다. 보려는 특정 활동을 선택하거나 모두 선택할 수 있습니다. 
 
-Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta(여기서 $tenantdomain = 도메인 이름)를 사용하여 모든 감사 작업 목록을 가져오거나 [감사 보고서 이벤트](concept-audit-logs.md) 문서를 참조할 수 있습니다.
-
+Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta(여기서 $tenantdomain = 도메인 이름)를 사용하여 모든 감사 작업 목록을 가져오거나 [감사 보고서 이벤트](reference-audit-activities.md) 문서를 참조할 수 있습니다.
 
 ## <a name="audit-logs-shortcuts"></a>감사 로그 바로 가기
 
@@ -169,25 +164,23 @@ Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?
 
 응용 프로그램 기반 감사 보고서를 사용하여 다음과 같은 질문에 대한 답을 얻을 수 있습니다.
 
-* 추가되거나 업데이트된 응용 프로그램은 무엇인가요?
-* 삭제된 응용 프로그램은 무엇인가요?
-* 응용 프로그램에 대한 서비스 원칙이 변경되었나요?
+* 추가되거나 업데이트된 애플리케이션은 무엇인가요?
+* 제거된 애플리케이션은 무엇인가요?
+* 애플리케이션에 대한 서비스 주체가 변경되었나요?
 * 응용 프로그램의 이름이 변경되었나요?
 * 누가 응용 프로그램에 동의했나요?
 
-응용 프로그램과 관련된 감사 데이터를 검토하려면 **Enterprise 응용 프로그램** 블레이드의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 미리 선택된 **활동 리소스 종류**인 **엔터프라이즈 응용 프로그램**이 있습니다.
+애플리케이션과 관련된 감사 데이터를 검토하려면 **Enterprise 애플리케이션** 블레이드의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 **활동 리소스 종류**로 미리 선택된 **엔터프라이즈 애플리케이션**이 있습니다.
 
 ![감사 로그](./media/concept-audit-logs/134.png "감사 로그")
 
-이 보기는 **그룹** 또는 **사용자**로 더 자세히 필터링할 수 있습니다.
+**그룹** 또는 **사용자**로 이 보기를 필터링할 수 있습니다.
 
 ![감사 로그](./media/concept-audit-logs/25.png "감사 로그")
 
 
-
 ## <a name="next-steps"></a>다음 단계
 
-- 보고 개요는 [Azure Active Directory 보고](overview-reports.md)를 참조하세요.
-
-- 모든 감사 활동의 전체 목록은 [Azure AD 감사 활동 참조](reference-audit-activities.md)를 참조하세요.
-
+- [Azure AD 감사 활동 참조](reference-audit-activities.md)
+- [Azure AD 보고서 보존 참조](reference-reports-data-retention.md)
+- [Azure AD 로그 대기 시간 참조](reference-reports-latencies.md)

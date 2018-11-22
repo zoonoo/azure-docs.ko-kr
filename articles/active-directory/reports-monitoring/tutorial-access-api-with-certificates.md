@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: report-monitor
-ms.date: 05/07/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5c54af76fc1e145ea062c6bcb37f354a7de94781
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 0ee756828a50cdf62471923614afbe88e238b9ef
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364179"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624560"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>자습서: 인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
 [Azure AD(Azure Active Directory) Reporting API](concept-reporting-api.md)는 일련의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 다양한 프로그래밍 언어 및 도구에서 이러한 API를 호출할 수 있습니다. 사용자 작업 없이 Azure AD Reporting API에 액세스하려면 인증서를 사용하도록 액세스를 구성해야 합니다.
 
-이 자습서에서는 테스트 인증서를 만든 다음 보고용 MS Graph API에 액세스하는 데 사용합니다. 프로덕션 환경에서는 테스트 인증서를 사용하지 않는 것이 좋습니다. 
+이 자습서에서는 테스트 인증서를 사용하여 보고용 MS Graph API에 액세스하는 방법을 알아봅니다. 프로덕션 환경에서는 테스트 인증서를 사용하지 않는 것이 좋습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,28 +39,24 @@ ms.locfileid: "46364179"
     - ADAL을 사용하는 사용자, 응용 프로그램 키 및 인증서의 액세스 토큰
     - Graph API를 처리하는 페이지 단위의 결과
 
-4. 모듈을 처음 사용하는 경우 **Install-MSCloudIdUtilsModule**을 실행하고, 그렇지 않으면 **Import-Module** Powershell 명령을 사용하여 모듈을 가져옵니다.
+4. 모듈을 처음 사용하는 경우 **Install-MSCloudIdUtilsModule**을 실행하고, 그렇지 않으면 **Import-Module** Powershell 명령을 사용하여 모듈을 가져옵니다. 세션은 다음 화면과 유사하게 표시됩니다.
 
-세션은 다음 화면과 유사하게 표시됩니다.
-
-  ![Windows PowerShell](./media/tutorial-access-api-with-certificates/module-install.png)
+        ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-## <a name="create-a-test-certificate"></a>테스트 인증서 만들기
-
-1. **New-SelfSignedCertificate** Powershell commandlet을 사용하여 테스트 인증서를 만듭니다.
+5. **New-SelfSignedCertificate** Powershell commandlet을 사용하여 테스트 인증서를 만듭니다.
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-2. **Export-Certificate** commandlet을 사용하여 테스트 인증서를 인증서 파일로 내보냅니다.
+6. **Export-Certificate** commandlet을 사용하여 테스트 인증서를 인증서 파일로 내보냅니다.
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
 
    ```
 
-## <a name="register-the-certificate-in-your-app"></a>앱에 인증서 등록
+## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 **Azure Active Directory**, **앱 등록**을 차례로 선택하고 목록에서 응용 프로그램을 선택합니다. 
 
@@ -86,29 +82,22 @@ ms.locfileid: "46364179"
 
 6. 매니페스트를 저장합니다. 
   
-## <a name="get-an-access-token-for-ms-graph-api"></a>MS Graph API에 대한 액세스 토큰 가져오기
-
-1. MSCloudIdUtils PowerShell 모듈에서 **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet을 사용하여 이전 단계에서 가져온 응용 프로그램 ID와 지문을 전달합니다. 
+7. 이제 이 인증서를 사용하여 MS Graph API에 대한 액세스 토큰을 가져올 수 있습니다. MSCloudIdUtils PowerShell 모듈에서 **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet을 사용하여 이전 단계에서 가져온 응용 프로그램 ID와 지문을 전달합니다. 
 
  ![Azure portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-## <a name="use-the-access-token-to-call-the-graph-api"></a>액세스 토큰을 사용하여 Graph API 호출
+8. Powershell 스크립트에서 액세스 토큰을 사용하여 Graph API를 쿼리합니다. MSCloudIDUtils에서 **Invoke-MSCloudIdMSGraphQuery** cmdlet을 사용하여 signins 및 directoryAudits 엔드포인트를 열거합니다. 이 cmdlet은 여러 페이지 단위의 결과를 처리한 다음 PowerShell 파이프라인에 해당 결과를 보냅니다.
 
-1. 이제, Powershell 스크립트에서 액세스 토큰을 사용하여 Graph API를 쿼리할 수 있습니다. MSCloudIDUtils에서 **Invoke-MSCloudIdMSGraphQuery** cmdlet을 사용하여 signins 및 directoryAudits 엔드포인트를 열거합니다. 이 cmdlet은 여러 페이지 단위의 결과를 처리한 다음 PowerShell 파이프라인에 해당 결과를 보냅니다.
-
-2. directoryAudits 엔드포인트를 쿼리하여 감사 로그를 검색합니다. 
+9. directoryAudits 엔드포인트를 쿼리하여 감사 로그를 검색합니다. 
  ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-3. signins 엔드포인트를 쿼리하여 로그인 로그를 검색합니다.
+10. signins 엔드포인트를 쿼리하여 로그인 로그를 검색합니다.
  ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-4. 이제 이 데이터를 CSV로 내보내고 SIEM 시스템에 저장하도록 선택할 수 있습니다. 예약된 태스크에서 스크립트를 래핑하여 원본 코드에서 응용 프로그램 키를 저장하지 않고 주기적으로 테넌트에서 Azure AD 데이터를 가져올 수도 있습니다. 
+11. 이제 이 데이터를 CSV로 내보내고 SIEM 시스템에 저장하도록 선택할 수 있습니다. 예약된 태스크에서 스크립트를 래핑하여 원본 코드에서 응용 프로그램 키를 저장하지 않고 주기적으로 테넌트에서 Azure AD 데이터를 가져올 수도 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [reporting API의 첫 인상 살펴보기](concept-reporting-api.md)
 * [감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
 * [로그인 활동 보고서 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
-
-

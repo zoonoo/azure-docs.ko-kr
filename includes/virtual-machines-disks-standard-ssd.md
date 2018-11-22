@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263931"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572436"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Azure 가상 머신 워크로드용 표준 SSD Managed Disks
 
@@ -46,9 +46,9 @@ Azure 표준 SSD(Solid State Drives) Managed Disks는 더 낮은 IOPS 수준에�
 |E70 *    |16,384GiB      |최대 2,000       |초당 최대 500MiB        |
 |E80 *    |32,767GiB      |최대 2,000       |초당 최대 500MiB        |
 
-표준 SSD는 대부분의 IO 작업에 수 밀리초의 대기 시간을 제공하고, 위의 표에 나와 있는 한도까지 IOPS와 처리량을 제공하도록 설계되었습니다. 트래픽 패턴에 따라 실제 IOPS 및 처리량은 달라질 수 있습니다. 표준 SSD는 HDD 디스크보다 더 일관적인 성능과 더 짧은 대기 시간을 제공합니다.
+표준 SSD는 대부분의 IO 작업에 수 밀리초의 대기 시간을 제공하고, 대부분 위의 표에 나와 있는 99% 시간 한도까지 IOPS와 처리량을 제공하도록 설계되었습니다. 트래픽 패턴에 따라 실제 IOPS 및 처리량은 달라질 수 있습니다. 표준 SSD는 HDD 디스크보다 더 일관적인 성능과 더 짧은 대기 시간을 제공합니다.
 
-반면, 프리미엄 SSD는 표준 SSD보다 성능이 뛰어나며, 대기 시간이 더 짧고, IOPS/처리량이 높으며, 프로비전된 디스크 성능과 훨씬 더 높은 일관성을 지원합니다. 중요한 프로덕션 워크로드에 권장되는 디스크 형식입니다. 워크로드에 대기 시간이 짧은 고성능 디스크 지원이 필요한 경우 Premium Storage를 사용하는 것이 좋습니다.
+반면, 프리미엄 SSD는 표준 SSD보다 성능이 뛰어나며, 대기 시간이 더 짧고, IOPS/처리량이 높으며, 프로비전된 디스크 성능과 훨씬 더 높은 일관성을 지원합니다. 프리미엄 SSD는 중요한 프로덕션 워크로드에 권장되는 디스크 형식입니다. 워크로드에 대기 시간이 짧은 고성능 디스크 지원이 필요한 경우 Premium Storage를 사용하는 것이 좋습니다.
 
 프리미엄 SSD와 마찬가지로 표준 SSD도 256KiB의 IO 단위 크기를 사용합니다. 전송되는 데이터가 256KiB 미만일 경우 하나의 I/O 단위로 간주됩니다. 더 큰 I/O 크기는 256KiB 크기의 여러 I/O로 계산됩니다. 예를 들어, 1,100KiB I/O는 I/O 단위 5개로 계산됩니다.
 

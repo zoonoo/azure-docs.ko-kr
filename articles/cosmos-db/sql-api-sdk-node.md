@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0dc7daebe91199cc6c54ac5e3a2d8f43e1592a73
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b5ba00376e40b92a217bddd5b27c53dbe30c3cf3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282427"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687506"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ms.locfileid: "51282427"
 * 다양한 오타 수정
 
 ### <a name="2.0.4"/>2.0.4</a>
-* 2.0.3에 도입된 입력 정의 문제 수정
+* 2.0.3에 도입된 형식 정의 문제 수정
 
 ### <a name="2.0.3"/>2.0.3</a>
 * `big-integer` 종속성 제거
@@ -153,7 +153,7 @@ ms.locfileid: "51282427"
 * 잘못된 concat 결과로 인해 링크를 반환하지 못했던 RangePartitionResolver.resolveForRead 버그가 수정되었습니다.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* hashParitionResolver resolveForRead() 해결: 예외를 throw하는 제공된 파티션 키가 없는 경우 모든 등록된 링크의 목록을 대신 반환합니다.
+* hashPartitionResolver resolveForRead() 해결: 예외를 throw하는 제공된 파티션 키가 없는 경우 모든 등록된 링크의 목록을 대신 반환합니다.
 
 ### <a name="1.5.4"/>1.5.4</a>
 * 문제 해결 [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - 전용 HTTPS 에이전트: Azure Cosmos DB 목적으로 전역 에이전트를 수정하지 않도록 합니다. 모든 lib의 요청에 대해 전용 에이전트를 사용 합니다.

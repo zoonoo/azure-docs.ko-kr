@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a29f1c4a625552dd958884c6a172bee470e61ca6
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 03fe587ede297ac7dea90b7a5fb2d5323f60659e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49312610"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51628174"
 ---
 | 리소스 | 대상 | 하드 한도 |
 |----------|--------------|------------|
-| 구독당 저장소 동기화 서비스 수 | 15개 저장소 동기화 서비스 | 아니요 |
+| 구독당 저장소 동기화 서비스 수 | 지역당 15개 스토리지 동기화 서비스 | 아니요 |
 | 저장소 동기화 서비스당 동기화 그룹 수 | 100개 동기화 그룹 | yes |
 | 저장소 동기화 서비스당 등록된 서버 | 서버 99대 | yes |
 | 동기화 그룹당 클라우드 엔드포인트 수 | 1개 클라우드 엔드포인트 | yes |
@@ -30,4 +30,4 @@ ms.locfileid: "49312610"
 | 최대 개체(디렉터리 및 파일) 보안 설명자 크기 | 4KiB | yes |
 | 파일 크기 | 100GiB | 아니요 |
 | 계층화할 파일에 대한 최소 파일 크기 | 64KiB | yes |
-| 동시 동기화 세션 | 프로세서당 2개의 활성 동기화 세션 또는 서버당 최대 8개의 활성 동기화 세션 | yes |
+| 동시 동기화 세션 | V4 에이전트: 제한은 사용할 수 있는 시스템 리소스에 따라 달라집니다. <BR> V3 에이전트: 프로세서당 2개의 활성 동기화 세션 또는 서버당 최대 8개의 활성 동기화 세션 | yes

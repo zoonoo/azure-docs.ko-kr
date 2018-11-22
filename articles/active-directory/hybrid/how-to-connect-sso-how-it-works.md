@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 83a36c81ad88ccb37fe4a258f895b1e1cbe9299f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304552"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687404"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory Seamless Single Sign-On: 기술 심층 분석
 
@@ -79,8 +79,8 @@ Seamless SSO는 편의적인 기능입니다. 이는 SSO가 실패하면 로그�
 
 1. 사용자가 회사 네트워크의 도메인 가입 회사 장치에서 네이티브 응용 프로그램(예: Outlook 클라이언트)에 액세스하려고 합니다.
 2. 사용자가 아직 로그인되지 않은 경우 네이티브 응용 프로그램은 장치의 Windows 세션에서 사용자의 사용자 이름을 검색합니다.
-3. 앱은 Azure AD에 사용자 이름을 전송하고, 테넌트의 WS-Trust MEX 엔드포인트를 검색합니다.
-4. 그런 후 WS-Trust MEX 엔드포인트를 쿼리하여 통합된 인증 엔드포인트를 사용할 수 있는지 확인합니다.
+3. 앱은 Azure AD에 사용자 이름을 전송하고, 테넌트의 WS-Trust MEX 엔드포인트를 검색합니다. 이 WS-Trust 엔드포인트는 Seamless SSO 기능에 의해 단독으로 사용되며 Azure AD에서 WS-Trust 프로토콜의 일반적인 구현이 아닙니다.
+4. 그런 후 WS-Trust MEX 엔드포인트를 쿼리하여 통합된 인증 엔드포인트를 사용할 수 있는지 확인합니다. 통합 인증 엔드포인트는 Seamless SSO 기능에 의해 단독으로 사용됩니다.
 5. 4단계가 성공하면 Kerberos 챌린지가 발급됩니다.
 6. 앱은 Kerberos 티켓을 검색할 수 있으면 Azure AD의 통합된 인증 엔드포인트까지 전달합니다.
 7. Azure AD는 Kerberos 티켓의 암호를 해독하고 유효한지 검사합니다.

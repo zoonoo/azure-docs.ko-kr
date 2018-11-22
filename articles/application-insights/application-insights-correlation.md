@@ -3,22 +3,22 @@ title: Azure Application Insights 원격 분석 상관 관계 | Microsoft 문서
 description: Application Insights 원격 분석 상관 관계
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
+author: lgayhardt
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/09/2018
+ms.date: 10/31/2018
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.author: lagayhar
+ms.openlocfilehash: b61163f7e2bc4cf4e7029c9852e5baad431fa0e0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280166"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615843"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -146,19 +146,15 @@ Application Insights SDK 시작 버전 `2.4.0-beta1`에서는 DiagnosticsSource 
 ### <a name="role-name"></a>역할 이름
 경우에 따라, [응용 프로그램 맵](app-insights-app-map.md)에 구성 요소 이름에 표시되는 방식을 사용자 지정하려고 할 수 있습니다. 이렇게 하려면 다음 중 하나를 수행하여 `cloud_roleName`을 수동으로 설정할 수 있습니다.
 
-원격 분석 이니셜라이저를 통해(모든 원격 분석 항목에 태그 지정)
-```Java
-public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
-
-    @Override
-    protected void onInitializeTelemetry(Telemetry telemetry) {
-        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
-    }
-  }
+`WebRequestTrackingFilter`를 사용 중인 경우 `WebAppNameContextInitializer`에서 자동으로 애플리케이션 이름을 설정합니다. 구성 파일(ApplicationInsights.xml)에 다음을 추가합니다.
+```XML
+<ContextInitializers>
+  <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
+</ContextInitializers>
 ```
-[장치 컨텍스트 클래스](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context)를 통해(이 원격 분석 항목에만 태그 지정)
+클라우드 컨텍스트 클래스를 통해:
 ```Java
-telemetry.getContext().getDevice().setRoleName("My Component Name");
+telemetryClient.getContext().getCloud().setRole("My Component Name");
 ```
 
 ## <a name="next-steps"></a>다음 단계

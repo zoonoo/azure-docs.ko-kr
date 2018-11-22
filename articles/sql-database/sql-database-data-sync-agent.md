@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: 032676528120995dab980207ee9d09ccad712142
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.date: 11/12/2018
+ms.openlocfilehash: bb80b512176e8fe260eb4572ea9fa801a6ffc80a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285375"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685143"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화용 데이터 동기화 에이전트
 
@@ -31,8 +31,14 @@ Azure SQL 데이터 동기화용 데이터 동기화 에이전트를 설치 및 
 
 명령 프롬프트에서 데이터 동기화 에이전트를 자동으로 설치하려면 다음 예제와 비슷한 명령을 입력합니다. 다운로드한 .msi 파일의 파일 이름을 확인하고, **TARGETDIR** 및 **SERVICEACCOUNT** 인수에 대한 고유한 값을 제공합니다.
 
+- **TARGETDIR**에 대한 값을 제공하지 않으면 기본값은 `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`입니다.
+
+- `LocalSystem`을 **SERVICEACCOUNT**의 값으로 제공하는 경우, 온-프레미스 SQL Server에 연결하도록 에이전트를 구성할 때 SQL Server 인증을 사용합니다.
+
+- 도메인 사용자 계정 또는 로컬 사용자 계정을 **SERVICEACCOUNT**의 값으로 제공하는 경우, **SERVICEPASSWORD** 인수를 사용하여 암호를 제공해야 합니다. 예: `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`
+
 ```cmd
-msiexec /i SQLDataSyncAgent-2.0--ENU.msi TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn 
+msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
 ## <a name="sync-data-with-sql-server-on-premises"></a>온-프레미스 SQL Server와 데이터 동기화
@@ -91,10 +97,10 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
 - **원인**. 대부분의 시나리오에서 이 오류가 발생할 수 있습니다. 이 오류에 대한 특정 원인을 확인하려면 로그를 검토합니다.
 
-- **해결 방법**. 오류의 특정 원인을 찾으려면 Windows Installer 로그를 생성하고 검토합니다. 명령 프롬프트에서 로깅을 켤 수 있습니다. 예를 들어 다운로드한 AgentServiceSetup.msi 파일이 LocalAgentHost.msi이면 다음 명령줄을 사용하여 로그 파일을 생성하고 검사합니다.
+- **해결 방법**. 오류의 특정 원인을 찾으려면 Windows Installer 로그를 생성하고 검토합니다. 명령 프롬프트에서 로깅을 켤 수 있습니다. 예를 들어 다운로드한 설치 파일이 `SQLDataSyncAgent-2.0-x86-ENU.msi`인 경우 다음 명령줄을 사용하여 로그 파일을 생성하고 검사합니다.
 
-    -   설치 시: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   제거 시: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+    -   설치 시: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+    -   제거 시: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     또한 Windows Installer에서 수행한 모든 설치에 대한 로깅을 켤 수 있습니다. Microsoft 기술 자료 문서 [Windows Installer 로깅을 설정하는 방법](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging)은 Windows Installer에 대한 로깅을 켜기 위한 원클릭 솔루션을 제공합니다. 또한 로그의 위치도 제공합니다.
 
@@ -268,13 +274,15 @@ SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdat
 #### <a name="examples"></a>예
 
 ```cmd
-SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username xiwu -password Yukon900 -encryption true
+SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true
 
 SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication windows -encryption true
 
 ```
 
 ### <a name="unregister-a-database"></a>데이터베이스 등록 취소
+
+이 명령을 사용하여 데이터베이스를 등록 취소하면 데이터베이스가 완전히 프로비전을 해제합니다. 데이터베이스가 다른 동기화 그룹에 속해 있는 경우 이 작업은 다른 동기화 그룹을 중단합니다.
 
 #### <a name="usage"></a>사용 현황
 
@@ -308,6 +316,15 @@ SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -da
 
 SQL 데이터 동기화에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
-
-- [SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](sql-database-sync-data.md)
+-   개요 - [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)
+-   데이터 동기화 설정
+    - 포털에서 - [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
+    - PowerShell 사용
+        -  [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](sql-database-best-practices-data-sync.md)
+-   모니터 - [Log Analytics를 사용하여 SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
+-   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
+-   동기화 스키마 업데이트
+    -   Transact-SQL 사용 - [Azure SQL 데이터 동기화에서 스키마 변경 내용 복제 자동화](sql-database-update-sync-schema.md)
+    -   PowerShell 사용 - [PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트](scripts/sql-database-sync-update-schema.md)

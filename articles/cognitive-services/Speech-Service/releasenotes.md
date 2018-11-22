@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/12/2018
 ms.author: wolfma
-ms.openlocfilehash: e2c676932541866df081f6db54fa0b1ec4da7088
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 706f51ae1e2d81e2003f2fcd637def95c7a42f8e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218596"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567539"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -48,7 +48,7 @@ ms.locfileid: "51218596"
 
 **샘플**
 
-* [샘플 리포지토리](https://aka.ms/csspeech/samples)에 끌어오기 및 밀어넣기 스트리밍 사용에 대한 C++ 샘플을 추가했습니다.
+* [샘플 리포지토리](https://aka.ms/csspeech/samples)에 끌어오기 및 밀어넣기 스트리밍 사용에 대한 C++ 및 C# 샘플을 추가했습니다.
 
 ## <a name="speech-service-sdk-101"></a>Speech Service SDK 1.0.1
 

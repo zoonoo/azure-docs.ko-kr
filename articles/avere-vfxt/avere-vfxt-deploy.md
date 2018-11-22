@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958611"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578640"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
-vFXT 클러스터를 만들려면 vFXT 클러스터를 만들고 관리하는 데 필요한 스크립트, 템플릿 및 소프트웨어 인프라가 있는 VM인 클러스터 컨트롤러를 사용하는 것이 가장 쉬운 방법입니다.
+Azure에서 vFXT 클러스터를 만드는 가장 쉬운 방법은 클러스터 컨트롤러를 사용하는 것입니다. 클러스터 컨트롤러란 vFXT 클러스터를 만들고 관리하는 데 필요한 스크립트, 템플릿 및 소프트웨어 인프라가 포함된 VM을 말합니다.
 
 새 vFXT 클러스터를 배포하는 단계는 다음과 같습니다.
 
@@ -82,7 +82,7 @@ vFXT 클러스터를 만들려면 vFXT 클러스터를 만들고 관리하는 �
 * 가상 네트워크 리소스 그룹, 이름 및 서브넷 이름 - 기존 vnet을 사용하는 경우 기존 리소스의 이름을 입력하거나, 새 vnet을 만드는 경우 새 이름을 입력합니다
 * **컨트롤러 이름** - 컨트롤러 VM에 대한 이름을 설정합니다.
 * 컨트롤러 관리자 사용자 이름 -기본값은 `azureuser`입니다.
-* SSH 키 - 관리자 사용자 이름과 연결할 공개 키를 붙여넣습니다. 도움이 필요한 경우 [SSH 키를 만들고 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)을 참조하세요.
+* SSH 키 - 관리자 사용자 이름과 연결할 공개 키를 붙여넣습니다. 도움이 필요한 경우 [SSH 키를 만들고 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)을 참조하세요.
 
 **사용 약관** 아래에서 
 
@@ -91,18 +91,16 @@ vFXT 클러스터를 만들려면 vFXT 클러스터를 만들고 관리하는 �
   > [!NOTE] 
   > 구독 소유자가 아닌 경우 [소프트웨어 사용 약관에 미리 동의](avere-vfxt-prereqs.md#accept-software-terms-in-advance)의 필수 조건 단계에 따라 소유자가 사용 약관에 동의하도록 합니다. 
 
+
 완료되면 **구매**를 클릭합니다. 5-6분 후에 컨트롤러 노드가 가동되고 실행됩니다.
 
-출력 페이지를 참조하여 클러스터에 필요한 정보를 수집해야 합니다. 자세히 알아보려면 [클러스터를 만드는 데 필요한 입력](#inputs-needed-for-cluster-creation)을 참조하세요.
+출력 페이지를 방문하여 클러스터를 만드는 데 필요한 컨트롤러 정보를 수집합니다. 자세한 정보는 [클러스터를 만드는 데 필요한 정보](#information-needed-to-create-the-cluster)를 읽어보세요.
 
 ### <a name="create-controller---azure-marketplace-image"></a>컨트롤러 만들기 - Azure Marketplace 이미지
 
-Azure Marketplace에서 ``Avere``라는 이름을 검색하여 컨트롤러 템플릿을 찾습니다. **Avere vFXT for Azure 컨트롤러** 템플릿을 선택합니다. 
+Azure Marketplace에서 ``Avere``라는 이름을 검색하여 컨트롤러 템플릿을 찾습니다. **Avere vFXT for Azure 컨트롤러** 템플릿을 선택합니다.
 
 아직 수행하지 않은 경우 사용 약관에 동의하고, **만들기** 단추 아래에 있는 "프로그래밍 방식으로 배포하시겠습니까?" 링크를 클릭하여 Marketplace 이미지에 프로그래밍 방식으로 액세스할 수 있도록 설정합니다.
-
-> [!NOTE] 
-> 첫 번째 일반 공급 주간(2018년 10월 31일 - 11월 7일)에는 이 절차를 수행하는 대신 두 개의 소프트웨어 이미지에 대한 사용 약관에 동의하는 명령줄 옵션을 사용해야 합니다. [소프트웨어 사용 약관에 미리 동의](avere-vfxt-prereqs.md#accept-software-terms-in-advance)의 지침을 따르세요. 
 
 ![[만들기] 단추 아래에 있는 프로그래밍 방식 액세스에 대한 링크의 스크린샷](media/avere-vfxt-deploy-programmatically.png)
 
@@ -125,7 +123,7 @@ Azure Marketplace에서 ``Avere``라는 이름을 검색하여 컨트롤러 템�
   * 사용자 이름/암호 또는 SSH 공개 키(권장)를 선택합니다.
   
     > [!TIP] 
-    > SSH 키가 더 안전합니다. 도움이 필요한 경우 [SSH 키를 만들고 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)을 참조하세요. 
+    > SSH 키가 더 안전합니다. 도움이 필요한 경우 [SSH 키를 만들고 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)을 참조하세요. 
   * 사용자 이름을 지정합니다. 
   * SSH 키를 붙여넣거나, 암호를 입력하고 확인합니다.
 * **인바운드 포트 규칙** - 공용 IP 주소를 사용하는 경우 22(SSH) 포트를 엽니다.
@@ -172,29 +170,31 @@ Azure Blob 저장소를 백 엔드 데이터 저장소로 사용하는 경우 �
 
   ![서비스 엔드포인트를 만드는 단계에 대한 주석이 있는 Azure Portal 스크린샷](media/avere-vfxt-service-endpoint.png)
 
-## <a name="gather-needed-inputs"></a>필요한 입력 데이터 수집
+## <a name="information-needed-to-create-the-cluster"></a>클러스터를 만드는 데 필요한 정보
 
-클러스터를 만드는 데 필요한 정보는 다음과 같습니다. 
+클러스터 컨트롤러를 만든 후 다음 단계에 필요한 정보를 알고 있는지 확인합니다. 
 
-Resource Manager 템플릿을 사용하여 컨트롤러 노드를 만든 경우 [템플릿 출력에서 정보를 가져올](#finding-template-output) 수 있습니다. 
+컨트롤러에 연결하는 데 필요한 정보: 
 
-컨트롤러에 연결하는 데 필요한 정보는 다음과 같습니다. 
-
-* 컨트롤러 사용자 이름 및 SSH 키 또는 암호
+* 컨트롤러 사용자 이름 및 SSH 키(또는 암호)
 * 컨트롤러 IP 주소 또는 컨트롤러 VM에 연결하는 다른 방법
 
-클러스터를 만드는 데 필요한 정보는 다음과 같습니다. 
+클러스터에 필요한 정보: 
 
 * 리소스 그룹 이름
 * Azure 위치 
 * 가상 네트워크 이름
 * 서브넷 이름
-* 클러스터 노드 역할 이름
+* 클러스터 노드 역할 이름 - 이 이름은 [아래](#create-the-cluster-node-access-role)에 설명된 역할을 만들 때 설정됩니다.
 * Blob 컨테이너를 만드는 경우 저장소 계정 이름
 
-또한 컨트롤러 VM 정보 페이지로 이동하여 누락된 정보를 찾을 수도 있습니다. 예를 들어 **모든 리소스**를 클릭하고, 컨트롤러 이름을 검색한 다음, 컨트롤러 이름을 클릭하여 세부 정보를 확인합니다.
+Resource Manager 템플릿을 사용하여 컨트롤러 노드를 만든 경우 [템플릿 출력](#find-template-output)에서 정보를 가져올 수 있습니다. 
 
-### <a name="finding-template-output"></a>템플릿 출력 찾기
+Azure Marketplace 이미지를 사용하여 컨트롤러를 만든 경우 이러한 항목의 대부분을 직접 제공합니다. 
+
+컨트롤러 VM 정보 페이지로 이동하여 누락된 항목을 찾습니다. 예를 들어 **모든 리소스**를 클릭하고, 컨트롤러 이름을 검색한 다음, 컨트롤러 이름을 클릭하여 세부 정보를 확인합니다.
+
+### <a name="find-template-output"></a>템플릿 출력 찾기
 
 Resource Manager 템플릿 출력에서 이 정보를 찾으려면 다음 절차를 수행합니다.
 
@@ -215,7 +215,7 @@ Resource Manager 템플릿 출력에서 이 정보를 찾으려면 다음 절차
 1. 클러스터 컨트롤러에 연결하는 방법은 설정에 따라 달라집니다.
 
    * 컨트롤러에 공용 IP 주소가 있는 경우 컨트롤러의 IP에 대한 SSH를 설정한 관리자 사용자 이름(예: ``ssh azureuser@40.117.136.91``)으로 지정합니다.
-   * 컨트롤러에 공용 IP가 없으면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) 또는 vnet에 대한 VPN 연결을 사용합니다.
+   * 컨트롤러에 공용 IP가 없으면 vnet에 대한 VPN 또는 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) 연결을 사용합니다.
 
 1. 컨트롤러에 로그인한 후 `az login`을 실행하여 인증합니다. 셸에 제공된 인증 코드를 복사한 다음, 웹 브라우저를 사용하여 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)을 로드하고 Microsoft 시스템을 통해 인증합니다. 확인을 위해 셸로 돌아갑니다.
 
@@ -226,7 +226,9 @@ Resource Manager 템플릿 출력에서 이 정보를 찾으려면 다음 절차
 ## <a name="create-the-cluster-node-access-role"></a>클러스터 노드 액세스 역할 만들기
 
 > [!NOTE] 
-> 구독 소유자가 아니고 역할을 아직 만들지 않은 경우 구독 소유자에게 다음 단계를 수행하도록 하거나 [컨트롤러 없이 Avere vFXT 클러스터 런타임 액세스 역할 만들기](avere-vfxt-pre-role.md)의 절차를 사용합니다.
+> * 구독 소유자가 아니고 역할을 아직 만들지 않은 경우 구독 소유자에게 다음 단계를 수행하도록 하거나 [컨트롤러 없이 Avere vFXT 클러스터 런타임 액세스 역할 만들기](avere-vfxt-pre-role.md)의 절차를 사용합니다.
+> 
+> * Microsoft 내부 사용자는 새로 만들려고 시도하는 대신 “Avere 클러스터 런타임 운영자”라는 기존 역할을 사용해야 합니다. 
 
 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/)는 필요한 작업을 수행할 수 있는 권한을 vFXT 클러스터 노드에 부여합니다.  
 
@@ -292,15 +294,18 @@ RESOURCE_GROUP=
 파일을 저장하고 종료합니다.
 
 ### <a name="run-the-script"></a>스크립트 실행
+
 만든 파일 이름을 입력하여 스크립트를 실행합니다(예: `./create-cloudbacked-cluster-west1`).  
 
-연결이 끊기는 경우에 대비하여 `screen` 또는 `tmux`와 같은 [터미널 멀티플렉서](http://linuxcommand.org/lc3_adv_termmux.php) 내에서 이 명령을 실행하는 것이 좋습니다.  
+> [!TIP]
+> 연결이 끊기는 경우에 대비하여 `screen` 또는 `tmux`와 같은 [터미널 멀티플렉서](http://linuxcommand.org/lc3_adv_termmux.php) 내에서 이 명령을 실행하는 것이 좋습니다.  
+
 출력도 `~/vfxt.log`에 기록됩니다.
 
 스크립트가 완료되면 클러스터 관리에 필요한 관리 IP 주소를 복사합니다.
 
 ![끝 부분에 관리 IP 주소를 표시하는 스크립트의 명령줄 출력](media/avere-vfxt-mgmt-ip.png)
 
-### <a name="next-step"></a>다음 단계
+## <a name="next-step"></a>다음 단계
 
 이제 클러스터가 실행되고 관리 IP 주소를 알고 있으므로 [클러스터 구성 도구에 연결](avere-vfxt-cluster-gui.md)하여 지원을 사용하도록 설정하고, 필요한 경우 저장소를 추가할 수 있습니다.

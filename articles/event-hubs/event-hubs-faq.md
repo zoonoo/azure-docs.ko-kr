@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 10/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4e0f762a69451ce0dc9ec00db5992fce0707f275
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282444"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300678"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -50,7 +50,7 @@ Event Hubs 표준 계층은 현재 최대 7일의 보존 기간을 지원합니�
 ### <a name="how-do-i-monitor-my-event-hubs"></a>내 Event Hubs를 모니터링하려면 어떻게 할까요?
 Event Hubs는 [Azure Monitor](../azure-monitor/overview.md)에 리소스 상태를 제공하는 자세한 메트릭을 내보냅니다. 또한 네임스페이스 수준뿐만 아니라 엔터티 수준에서도 Event Hubs 서비스의 전반적인 상태를 평가할 수 있습니다. [Azure Event Hubs](event-hubs-metrics-azure-monitor.md)에 제공되는 모니터링에 대해 알아보세요.
 
-## <a name="apache-kakfa-integration"></a>Apache Kakfa 통합
+## <a name="apache-kafka-integration"></a>Apache Kafka 통합
 
 ### <a name="how-do-i-integrate-my-existing-kafka-application-with-event-hubs"></a>기존 Kafka 애플리케이션을 Event Hubs와 통합하려면 어떻게 할까요?
 Event Hubs는 기존 Apache Kafka 기반 애플리케이션에서 사용할 수 있는 Kafka 엔트포인트를 제공합니다. PaaS Kafka 환경을 갖추려면 구성만 변경하면 됩니다. 이 구성은 사용자 고유의 Kafka 클러스터를 실행하기 위한 대안을 제공합니다. Event Hubs는 Apache Kafka 1.0 및 최신 클라이언트 버전을 지원하고, 기존 Kafka 애플리케이션, 도구 및 프레임워크와 작동합니다. 자세한 내용은 [Kafka용 Event Hubs 리포지토리](https://github.com/Azure/azure-event-hubs-for-kafka)를 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: HDInsight .NET SDK를 사용하여 Hive 쿼리 실행 - Azure
-description: HDInsight .NET SDK를 사용하여 Azure HDInsight Hadoop에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다.
+title: HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행 - Azure
+description: HDInsight .NET SDK를 사용하여 Azure HDInsight Apache Hadoop에 Apache Hadoop 작업을 제출하는 방법에 대해 알아봅니다.
 ms.reviewer: jasonh
 services: hdinsight
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5cababaa7c808969e6e24a70581f54639f269621
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 790cc11e3d4cf1d0260b1099efd82bdddec85785
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016015"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634569"
 ---
-# <a name="run-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 실행
+# <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 알아봅니다. Hive 테이블을 나열하기 위한 Hive 쿼리를 제출한 후 결과를 표시하는 C# 프로그램을 작성합니다.
+HDInsight.NET SDK를 사용하여 Apache Hive 쿼리를 제출하는 방법에 대해 알아봅니다. Hive 테이블을 나열하기 위한 Hive 쿼리를 제출한 후 결과를 표시하는 C# 프로그램을 작성합니다.
 
 > [!NOTE]
 > 이 문서의 단계는 Windows 클라이언트에서 수행되어야 합니다. Hive와 함께 작동하도록 Linux, OS X 또는 Unix 클라이언트를 사용하는 방법에 대한 정보를 보려면 문서 맨 위에 표시된 탭 선택기를 사용합니다.
@@ -27,7 +27,7 @@ HDInsight.NET SDK를 사용하여 Hive 쿼리를 제출하는 방법에 대해 �
 ## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
-* **HDInsight에 Hadoop 클러스터**. [HDInsight에서 Linux 기반 Hadoop 사용 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* **HDInsight의 Apache Hadoop 클러스터** [HDInsight에서 Linux 기반 Hadoop 사용 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
     > [!WARNING]
     > 2017년 9월 15일부터 HDInsight .NET SDK는 Azure Storage 계정의 Hive 쿼리 결과만 반환할 수 있습니다. Azure Data Lake Store를 주 저장소로 사용하는 HDInsight 클러스터에서 이 예제를 사용하면 .NET SDK를 사용하여 검색 결과를 검색할 수 없습니다.

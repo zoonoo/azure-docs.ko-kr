@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a216f3ddd89ad92dbbae617c51d5fc9c478c0c03
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49433278"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684820"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IoT Edge 모듈 SKU 탭
 
@@ -90,7 +90,7 @@ SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 �
 
 ## <a name="sku-content"></a>SKU 콘텐츠
 
-Edge 모듈 이미지에서 IoT Edge 모듈을 업로드하는 데 필요한 정보를 제공합니다.
+**Edge 모듈 이미지**에서 IoT Edge 모듈을 업로드하는 데 필요한 정보를 제공합니다.
 
 업로드하고 인증할 수 있도록 IoT Edge 모듈 이미지를 포함하는 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)(ACR)에 대한 액세스를 제공합니다. 게시된 후 Azure Marketplace에서 호스트된 공용 컨테이너 레지스트리를 사용하여 IoT Edge 모듈이 복사되고 배포됩니다.
 

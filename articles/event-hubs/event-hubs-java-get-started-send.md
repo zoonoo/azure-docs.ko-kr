@@ -7,14 +7,14 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/12/2018
 ms.author: shvija
-ms.openlocfilehash: 87d3261d5d9604b004c949e384e9d48e957229d7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 510f1a2bc23d14e1bb9e8e561b52936ae9d53685
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455728"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624542"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Java를 사용하여 Azure Event Hubs로 이벤트 전송
 
@@ -143,7 +143,7 @@ eventHubClient.closeSync();
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Java를 사용하여 이벤트 허브로 메시지를 전송했습니다. .NET Framework를 사용하여 이벤트 허브에서 이벤트를 수신하는 방법을 알아보려면 [이벤트 허브에서 이벤트 수신 - Java](event-hubs-java-get-started-receive-eph.md)를 참조하세요.
+이 빠른 시작에서는 Java를 사용하여 이벤트 허브로 메시지를 전송했습니다. Java를 사용하여 이벤트 허브에서 이벤트를 수신하는 방법을 알아보려면 [이벤트 허브에서 이벤트 수신 - Java](event-hubs-java-get-started-receive-eph.md)를 참조하세요.
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md

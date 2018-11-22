@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c731d0498c026a5d0659335550f6e280a031b1e4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011360"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612808"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
@@ -84,7 +84,7 @@ OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니�
 경고는 [Azure Portal로 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)되었습니다. 완료되면 경고에 대한 관리 작업은 Azure Portal에서만 사용할 수 있습니다. 기존 경고는 계속 OMS 포털에 나열됩니다. Log Analytics 경고 REST API 또는 Log Analytics 경고 리소스 템플릿을 사용하여 프로그래밍 방식으로 경고에 액세스하는 경우 API 호출, Azure Resource Manager 템플릿 및 PowerShell 명령에서 작업 대신 작업 그룹을 사용해야 합니다.
 
 ### <a name="alert-management-solution"></a>경고 관리 솔루션
-[경고 관리 솔루션](log-analytics-solution-alert-management.md) 대신 [Azure Monitor의 통합 경고 인터페이스](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)를 사용하여 경고를 시각화하고 관리할 수 있습니다. 이 새로운 환경은 Log Analytics에서 로그 경고를 포함하여 Azure 내의 여러 원본에서 경고를 집계합니다. 경고의 배포를 확인하고, 스마트 그룹을 통해 관련 경고의 자동 그룹화를 활용하고, 풍부하게 필터를 적용하는 동안 여러 구독에서 경고를 볼 수 있습니다. 이러한 모든 기능은 2018년 6월 4일부터 미리 보기에서 사용할 수 있습니다. 경고 관리 솔루션은 Azure Portal에서 사용할 수 없습니다. 
+[경고 관리 솔루션](log-analytics-solution-alert-management.md) 대신 [Azure Monitor의 통합 경고 인터페이스](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 사용하여 경고를 시각화하고 관리할 수 있습니다. 이 새로운 환경은 Log Analytics에서 로그 경고를 포함하여 Azure 내의 여러 원본에서 경고를 집계합니다. 경고의 배포를 확인하고, 스마트 그룹을 통해 관련 경고의 자동 그룹화를 활용하고, 풍부하게 필터를 적용하는 동안 여러 구독에서 경고를 볼 수 있습니다. 이러한 모든 기능은 2018년 6월 4일부터 미리 보기에서 사용할 수 있습니다. 경고 관리 솔루션은 Azure Portal에서 사용할 수 없습니다. 
 
 경고 관리 솔루션(경고 유형별 레코드)에 의해 수집된 데이터는 솔루션이 작업 영역에 대해 설치되는 한 Log Analytics에 계속 포함됩니다. 2018년 8월부터 통합 경고에서 작업 영역으로 경고의 스트리밍은 이 기능을 대체해 사용하도록 설정됩니다. 일부 스키마 변경 사항이 예상되며 나중에 발표될 것입니다.
 

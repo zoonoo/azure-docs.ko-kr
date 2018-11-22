@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: d4b7d8ec5cb162e5fc844f107fbd5eb08fb00639
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353536"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685721"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -28,7 +28,7 @@ ms.locfileid: "49353536"
 
 Q: Apple iOS 장치에 스트리밍하려면 어떻게 하나요?
 
-A: URL의 "/Manifest" 부분에 "(format=m3u8-aapl)" 경로를 추가하여 스트리밍 원본 서버에 Apple iOS 네이티브 장치에서 사용할 수 있게 HLS 콘텐츠를 다시 반환하도록 지시합니다(자세한 내용은 (콘텐츠 배달)[media-services-deliver-content-overview.md] 참조).
+A: URL의 "/Manifest" 부분에 "(format=m3u8-aapl)" 경로를 추가하여 스트리밍 원본 서버에 Apple iOS 네이티브 디바이스에서 사용할 수 있게 HLS 콘텐츠를 다시 반환하도록 지시합니다(자세한 내용은 [콘텐츠 전달](media-services-deliver-content-overview.md) 참조).
 
 Q: 인덱싱을 확장하려면 어떻게 하나요?
 

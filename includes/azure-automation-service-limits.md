@@ -5,20 +5,21 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 04/05/2018
+ms.date: 11/07/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964568"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285755"
 ---
 | 리소스 | 최대 제한 |메모|
 | --- | --- |---|
 | Automation 계정당 30초마다 전송할 수 있는 새 작업의 최대 수(예약되지 않은 작업) |100 |이 제한에 도달하면 작업을 만들기 위한 후속 요청이 실패합니다. 클라이언트는 오류 응답을 받습니다.|
 | Automation 계정당 동일한 인스턴스 시간에 동시 실행 작업의 최대 수(예약되지 않은 작업) |200 |이 제한에 도달하면 작업을 만들기 위한 후속 요청이 실패합니다. 클라이언트는 오류 응답을 받습니다.|
+| 30일 롤링 기간 동안 작업 메타데이터의 최대 스토리지 크기입니다. | 10GB(약 4백만 작업)|이 제한에 도달하면 작업을 만들기 위한 후속 요청이 실패합니다. |
 | Automation 계정당 30초마다 가져올 수 있는 모듈의 최대 수 |5 ||
 | 모듈의 최대 크기 |100 MB ||
 | 작업 런타임 - 무료 계층 |월별 구독당 500분 ||

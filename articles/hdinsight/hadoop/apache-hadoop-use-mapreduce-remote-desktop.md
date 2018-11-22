@@ -1,6 +1,6 @@
 ---
-title: HDInsight에서 Hadoop과 MapReduce 및 원격 데스크톱 사용 - Azure
-description: 원격 데스크톱을 사용하여 HDInsight에서 Hadoop에 연결하여 MapReduce 작업을 실행하는 방법을 알아봅니다.
+title: HDInsight의 Apache Hadoop과 MapReduce 및 원격 데스크톱 - Azure
+description: 원격 데스크톱을 사용하여 HDInsight의 Apache Hadoop에 연결하여 MapReduce 작업을 실행하는 방법을 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee87bd5743307ea5b9ee3ca1258e8cd985a095c5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012931"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634484"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>원격 데스크톱을 사용하는 HDInsight에서 Hadoop과 MapReduce 사용
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>HDInsight의 Apache Hadoop에서 원격 데스크톱과 MapReduce 사용
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-이 문서에서는 원격 데스크톱을 사용하여 HDInsight 클러스터에서 Hadoop에 연결한 다음 Hadoop 명령을 사용하여 MapReduce 작업을 실행하는 방법을 배웁니다.
+이 문서에서는 원격 데스크톱을 사용하여 HDInsight 클러스터에서 Apache Hadoop에 연결한 다음, Hadoop 명령을 사용하여 MapReduce 작업을 실행하는 방법을 알아봅니다.
 
 > [!IMPORTANT]
 > 원격 데스크톱은 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
