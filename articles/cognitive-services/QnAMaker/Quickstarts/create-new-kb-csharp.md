@@ -67,7 +67,7 @@ Program.cs의 맨 위에 단일 using 문을 다음 줄로 바꾸어 프로젝�
 
 [!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=91-105 "Add a POST request to create KB")]
 
-이 API 호출은 Location 헤더 필드에 operation ID가 포함된 JSON 응답을 반환합니다. operation ID를 사용하여 KB가 생성되었는지 확인하십시오. 
+이 API 호출은 Location 헤더 필드에 operation ID가 포함된 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 생성되었는지 확인하십시오.
 
 ```JSON
 {
@@ -112,7 +112,7 @@ Program.cs의 맨 위에 단일 using 문을 다음 줄로 바꾸어 프로젝�
 
 ## <a name="add-createkb-method"></a>CreateKB 메서드 추가
 
-다음 메서드는 KB를 만들고 상태 확인을 반복합니다.  POST 응답 헤더 필드 중 **Location**에 _생성된_ **Operation ID**가 반환되며, GET 요청시 경로의 일부에 사용됩니다. KB를 만드는 데 시간이 걸릴 수 있으므로 상태가 성공 또는 실패 할 때까지, 상태 확인을 위해 호출을 반복해야 합니다. 작업이 성공하면 KB ID가 **resourceLocation**으로 반환됩니다. 
+다음 메서드는 KB를 만들고 상태 확인을 반복합니다. POST 응답 헤더 필드 중 **Location**에 _create_ **Operation ID**가 반환되며, GET 요청시 경로의 일부에 사용됩니다. KB를 만드는 데 시간이 걸릴 수 있으므로 상태가 성공 또는 실패 할 때까지, 상태 확인을 위해 호출을 반복해야 합니다. 작업이 성공하면 KB ID가 **resourceLocation**으로 반환됩니다. 
 
 [!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=176-237 "Add CreateKB method")]
 
