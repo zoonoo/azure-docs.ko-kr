@@ -19,7 +19,7 @@ ms.locfileid: "51567726"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>빠른 시작: C#를 사용하여 QnA Maker 기술 자료 만들기
 
-이 빠른 시작에서는 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만들고 게시하는 방법을 안내합니다. QnA Maker는 [데이터 원본](../Concepts/data-sources-supported.md)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의됩니다. 
+이 빠른 시작에서는 QnA Maker 기술 자료 샘플을 프로그래밍 방식으로 만들고 게시하는 방법을 안내합니다. QnA Maker는 [데이터 원본](../Concepts/data-sources-supported.md)에서 반구조화된 콘텐츠(예: FAQ)의 질문과 답변을 자동으로 추출합니다. 기술 자료 모델은 API 요청 본문에 전송된 JSON에 정의되어 있습니다. 
 
 이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
 * [KB 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
@@ -29,10 +29,10 @@ ms.locfileid: "51567726"
 ## <a name="prerequisites"></a>필수 조건
 
 * 최신 [**Visual Studio Community Edition**](https://www.visualstudio.com/downloads/)
-* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키를 검색하려면 대시보드의 **리소스 관리** 아래에서 **키**를 선택합니다. 
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키를 검색하려면 대시보드의 **리소스 관리**에서 **키**를 선택합니다. 
 
 > [!NOTE] 
-> 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-csharp** Github 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)에서 지원됩니다.
+> 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-csharp** Github 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)에서 구할 수 있습니다.
 
 ## <a name="create-a-knowledge-base-project"></a>기술 자료 프로젝트 만들기
 
@@ -40,13 +40,13 @@ ms.locfileid: "51567726"
 
 ## <a name="add-the-required-dependencies"></a>필수 종속성 추가
 
-Program.cs의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 프로젝트에 필요한 종속성을 추가합니다.
+Program.cs의 맨 위에 단일 using 문을 다음 줄로 바꾸어 프로젝트에 필요한 종속성을 추가합니다.
 
 [!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=1-11 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>필요한 상수 추가
 
-프로그램 클래스의 맨 위에서 QnA Maker에 액세스하기 위한 다음 상수를 추가합니다.
+프로그램 클래스의 상단에 QnA Maker를 액세스하기 위한 상수를 추가합니다.
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-24 "Add the required constants")]
 
@@ -63,11 +63,11 @@ Program.cs의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 프로�
 
 ## <a name="add-a-post-request-to-create-kb"></a>KB를 만들기 위한 POST 요청 추가
 
-다음 코드에서는 KB를 만들도록 QnA Maker API에 HTTPS 요청을 하고 응답을 받습니다.
+다음 코드는 QnA Maker API에 KB를 만들도록 HTTPS 요청을 하고 응답을 수신합니다.
 
 [!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=91-105 "Add a POST request to create KB")]
 
-이 API 호출은 헤더 필드 **Location**에 ID를 포함하는 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 성공적으로 만들어졌는지 결정합니다. 
+이 API 호출은 Location 헤더 필드에 operation ID가 포함된 JSON 응답을 반환합니다. 작업 ID를 사용하여 KB가 생성되었는지 확인하십시오.
 
 ```JSON
 {
@@ -112,7 +112,7 @@ Program.cs의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 프로�
 
 ## <a name="add-createkb-method"></a>CreateKB 메서드 추가
 
-다음 메서드는 KB를 만들고 상태 확인을 반복합니다.  POST 응답 헤더 필드 **Location**에 _create_ **Operation ID**가 반환된 후 GET 요청의 경로 부분에 사용됩니다. KB를 만드는 데 시간이 걸릴 수 있으므로 상태가 성공 또는 실패일 때까지 상태를 확인하기 위한 호출을 반복해야 합니다. 작업이 성공하면 **resourceLocation**에 KB ID가 반환됩니다. 
+다음 메서드는 KB를 만들고 상태 확인을 반복합니다. POST 응답 헤더 필드 중 **Location**에 _create_ **Operation ID**가 반환되며, GET 요청시 경로의 일부에 사용됩니다. KB를 만드는 데 시간이 걸릴 수 있으므로 상태가 성공 또는 실패 할 때까지, 상태 확인을 위해 호출을 반복해야 합니다. 작업이 성공하면 KB ID가 **resourceLocation**으로 반환됩니다. 
 
 [!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=176-237 "Add CreateKB method")]
 
