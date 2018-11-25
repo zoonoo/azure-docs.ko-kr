@@ -32,7 +32,7 @@ ms.locfileid: "43123193"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="install-web-app-extension-for-cloud-shell"></a>Cloud Shell에 대한 웹앱 확장 설치
+## <a name="install-web-app-extension-for-cloud-shell"></a>Cloud Shell 사용을 위한 웹앱 확장 설치
 
 이 빠른 시작을 완료하려면 [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add)을 추가해야 합니다. 확장이 이미 설치되어 있는 경우 최신 버전으로 업데이트해야 합니다. 웹앱 확장을 업데이트하려면 `az extension update -n webapp`을 입력합니다.
 
