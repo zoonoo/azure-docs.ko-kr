@@ -42,7 +42,7 @@ ms.locfileid: "43123193"
 az extension add --name webapp
 ```
 
-확장이 설치되면 Cloud Shell은 다음 예제에 대한 정보를 표시합니다.
+확장이 설치되면 Cloud Shell은 예를 들어 다음과 같은 정보를 표시합니다.
 
 ```bash
 The installed extension 'webapp' is in preview.
