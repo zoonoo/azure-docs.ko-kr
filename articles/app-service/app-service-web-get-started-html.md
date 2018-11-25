@@ -50,7 +50,7 @@ The installed extension 'webapp' is in preview.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-Cloud Shell에서 빠른 시작 디렉터리를 만든 다음, 변경합니다.
+Cloud Shell에서 quickstart 디렉터리를 만든 다음, 그 디렉토리로 이동합니다.
 
 ```bash
 mkdir quickstart
