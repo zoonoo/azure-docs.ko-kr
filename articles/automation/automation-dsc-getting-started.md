@@ -85,11 +85,11 @@ ms.locfileid: "45634362"
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 페이지의 **구성 관리**에서 **상태 구성(DSC)** 을 선택합니다.
 1. **상태 구성(DSC)** 페이지에서 **구성** 탭을 클릭한 다음, **TestConfig**(이전 절차에서 가져온 구성의 이름)를 클릭합니다.
-1. **TestConfig 구성** 페이지에서 **구성 원본 보기**를 클릭합니다.
+1. **TestConfig 구성** 페이지에서 **구성 소스 보기**를 클릭합니다.
 
    ![TestConfig 구성 블레이드의 스크린샷](./media/automation-dsc-getting-started/ViewConfigSource.png)
 
-   **TestConfig 구성 원본** 페이지가 열리고 구성에 대한 PowerShell 코드를 표시합니다.
+   **TestConfig 구성 소스** 페이지가 열리고 구성에 대한 PowerShell 코드가 표시됩니다.
 
 ## <a name="compiling-a-configuration-in-azure-automation"></a>Azure Automation에서 구성 컴파일
 
