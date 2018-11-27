@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석 '
-description: Microsoft Power BI를 사용하여 Spark 데이터 저장 HDInsight 클러스터 시각화
+description: Microsoft Power BI를 사용하여 Apache Spark 데이터 저장 HDInsight 클러스터 시각화
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 341346b290fc3dab94773f75f2269cc147e71b82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252465"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712418"
 ---
-# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Spark 데이터 분석 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석 
 
 Microsoft Power BI를 사용하여 Azure HDInsight의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
 
@@ -78,7 +78,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
     ![HDInsight Apache Spark에서 Power BI Desktop으로 데이터 가져오기](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Apache Spark BI에서 Power BI로 데이터 가져오기")
 
 
-2. 검색 상자에 `Spark`를 입력하고 **Azure HDInsight Spark(베타)** 를 선택한 후 **연결**을 클릭합니다.
+2. 검색 상자에 `Spark`를 입력하고 **Azure HDInsight Spark**를 선택한 후 **연결**을 클릭합니다.
 
     ![Apache Spark BI에서 Power BI로 데이터 가져오기](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Apache Spark BI에서 Power BI로 데이터 가져오기")
 

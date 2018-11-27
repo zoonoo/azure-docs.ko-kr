@@ -5,15 +5,15 @@ author: aditidugar
 ms.author: adugar
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/11/2018
+ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8258c8f34b4b9a1b216d9d497dcdf7d3b8db1373
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369514"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284568"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>자습서: 경고에 대한 근본 원인 분석 수행
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [![대시보드의 트럭에 대한 필터](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
-필터를 적용하면 필터 조건과 일치하는 장치만 **대시보드** 페이지의 맵 및 원격 분석 패널에 표시됩니다. **truck-02**를 포함한 트럭 두 대가 솔루션 가속기에 연결된 것을 볼 수 있습니다.
+필터를 적용하면 필터 조건과 일치하는 디바이스만 **대시보드**의 맵 및 원격 분석 패널에 표시됩니다. **truck-02**를 포함한 트럭 두 대가 솔루션 가속기에 연결된 것을 볼 수 있습니다.
 
 ## <a name="view-real-time-telemetry"></a>실시간 원격 분석 보기
 
@@ -62,11 +62,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [![TSI 탐색기 초기 보기](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-expanded.png#lightbox)
 
-필터 상자에 **delivery-truck**을 입력하여 장치를 필터링하고 왼쪽 패널에서 **측정값**으로 **온도**를 선택합니다.
+필터 상자에 **delivery-truck**을 입력하여 디바이스를 필터링하고 왼쪽 패널에서 **측정값**으로 **온도**를 선택합니다.
 
 [![TSI 탐색기 트럭 온도](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
-원격 모니터링 대시보드에서 보던 것과 동일한 보기가 표시되며, 경보가 트리거된 시간 프레임에 더 가까이 확대할 수 있습니다.
+원격 모니터링 대시보드에서 본 것과 동일한 보기가 표시됩니다. 또한 경고가 트리거된 시간 프레임을 좀 더 자세히 확대할 수도 있습니다.
 
 [![TSI 탐색기 확대/축소](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="diagnose-the-alert"></a>경고 진단
 
-현재 보기에서 스트림을 보면 두 트럭에 대한 고도 프로필이 서로 매우 다름을 확인할 수 있습니다. 또한 트럭이 높은 고도로 도달하면 **delivery-truck-02**의 온도 저하가 발생합니다. 트럭들은 동일한 경로를 사용하도록 예정되었기 때문에 이 발견은 놀랍습니다.
+현재 보기에서 스트림을 보면 두 트럭에 대한 고도 프로필이 서로 다르다는 것을 확인할 수 있습니다. 또한 트럭이 높은 고도로 도달하면 **delivery-truck-02**의 온도 저하가 발생합니다. 트럭들은 동일한 경로를 사용하도록 예정되었기 때문에 이 발견은 놀랍습니다.
 
 트럭이 서로 다른 이동 경로를 사용했다는 의혹을 확인하려면 **추가** 단추를 사용하여 가로 패널에 다른 창을 추가합니다. 새 분할 창에서 새 레이블의 이름을 **장치**로 변경하여 이전 레이블과 일치하도록 하세요. **측정값**으로 **경도**를, **분할 기준**으로 **iothub-connection-device-id**를 선택하여 경도 원격 분석을 보기에 추가합니다. **경도** 스트림 간의 차이를 보고 서로 다른 이동 경로를 따랐음을 알 수 있습니다.
 
@@ -88,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-new-rule"></a>새 규칙 만들기
 
-트럭 경로는 일반적으로 사전에 최적화되어 있지만, 교통 패턴, 날씨 및 기타 예측할 수 없는 사건으로 인해 지연이 발생하고 결국 가장 적절한 판단을 기반으로 트럭 운전사가 마지막 순간 경로를 결정해야 할 수 있습니다. 그러나 차량 내의 자산 온도는 치명적이므로 1분 동안의 평균 고도가 350피트를 넘는 경우에는 경고를 수신하도록 원격 모니터링 솔루션에 추가 규칙을 작성해야 합니다.
+트럭 경로는 일반적으로 사전에 최적화되어 있지만, 교통 패턴, 날씨 및 기타 예측할 수 없는 사건으로 인해 지연이 발생하고 결국 가장 적절한 판단을 기반으로 트럭 운전사가 마지막 순간 경로를 결정해야 할 수 있습니다. 그러나 차량 내의 자산 온도는 치명적이므로 원격 모니터링 솔루션에 추가 규칙을 작성해야 합니다. 1분 동안의 평균 고도가 350피트를 넘는 경우에는 경고를 수신하도록 이 규칙을 지정해야 합니다.
 
 [![원격 모니터링 규칙 탭 설정 고도 규칙](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 

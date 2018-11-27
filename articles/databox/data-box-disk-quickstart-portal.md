@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245072"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712265"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>빠른 시작: Azure Portal(미리 보기)을 사용하여 Azure Data Box Disk 배포
 
@@ -67,7 +67,7 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 
     1. Azure Portal에서 **일반 > 장치 세부 정보**로 이동하여 암호를 가져옵니다.
     2. 디스크에 데이터 디스크를 복사하는 데 사용되는 컴퓨터에서 운영 체제별 Data Box Disk 잠금 해제 도구를 다운로드하고 추출합니다. 
-    3. Data Box Disk 잠금 해제 도구를 실행하고 지원 암호를 제공합니다. 디스크를 다시 삽입하려면 잠금 해제 도구를 다시 실행하고 암호를 제공합니다. **BitLocker 대화 상자 또는 BitLocker 키를 사용하여 디스크를 잠금 해제하지 마세요.** 디스크 잠금 해제 방법에 대한 자세한 내용은 [Windows 클라이언트에서 디스크 잠금 해제]() 또는 [Linux 클라이언트에서 디스크 잠금 해제]()로 이동하세요.
+    3. Data Box Disk 잠금 해제 도구를 실행하고 지원 암호를 제공합니다. 디스크를 다시 삽입하려면 잠금 해제 도구를 다시 실행하고 암호를 제공합니다. **BitLocker 대화 상자 또는 BitLocker 키를 사용하여 디스크를 잠금 해제하지 마세요.** 디스크 잠금 해제 방법에 대한 자세한 내용은 [Windows 클라이언트에서 디스크 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) 또는 [Linux 클라이언트에서 디스크 잠금 해제](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client)로 이동하세요.
     4. 디스크에 할당한 드라이브 문자가 도구에 의해 표시됩니다. 디스크 드라이브 문자를 기록해 둡니다. 이후 단계에서 사용됩니다.
 
 ## <a name="copy-data-and-validate"></a>데이터 복사 및 유효성 검사
@@ -85,7 +85,6 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 2. (선택 사항) 복사가 완료된 후 *DataBoxDiskImport* 폴더에 제공된 `DataBoxDiskValidation.cmd`을 실행하여 유효성 검사에 대한 체크섬을 생성하는 것이 좋습니다. 데이터 크기에 따라 이 단계는 시간이 걸릴 수 있습니다. 
 3. 드라이브를 분리합니다. 
 
-
 ## <a name="ship-to-azure"></a>Azure에 배송
 
 이 단계는 완료하는 데 약 5~7분이 걸립니다.
@@ -94,7 +93,6 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 2. 배송 지점에 봉인된 패키지를 전달합니다.  
 
 Data Box Disk 서비스가 이메일 알림을 보내고 Azure Portal에서 작업 상태를 업데이트합니다.
-
 
 ## <a name="verify-your-data"></a>데이터 확인
 
@@ -126,5 +124,3 @@ Data Box Disk 서비스가 이메일 알림을 보내고 Azure Portal에서 작�
 
 > [!div class="nextstepaction"]
 > [Azure Portal을 사용하여 Data Box Disk 관리](data-box-portal-ui-admin.md)
-
-

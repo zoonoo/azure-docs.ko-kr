@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 40bee31b7880a323a48e92912ee323c43c3a97da
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634780"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165461"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>자습서: Azure에서 Java EE 및 Postgres 웹앱 빌드
 
@@ -51,13 +51,38 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 Maven POM을 원하는 App Service 이름 및 리소스 그룹으로 업데이트합니다. 이러한 값은 _pom.xml_ 파일의 더 깊은 곳에 있는 Azure 플러그 인에 삽입됩니다. App Service 계획 또는 인스턴스를 미리 만들 필요가 없습니다. Maven 플러그 인이 리소스 그룹 및 App Service를 새로 만듭니다(아직 없는 경우).
 
+_pom.xml_의 `<plugins>` 섹션으로 스크롤하여 Azure 플러그 인을 검사할 수 있습니다. azure-webapp-maven-plugin의 _pom.xml_에 대한 `<plugin>` 구성 섹션에는 다음 구성이 있어야 합니다.
+
+```xml
+      <!--*************************************************-->
+      <!-- Deploy to WildFly in App Service Linux           -->
+      <!--*************************************************-->
+ 
+      <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.5.0</version>
+        <configuration>
+ 
+          <!-- Web App information -->
+          <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+          <appServicePlanName>${WEBAPP_PLAN_NAME}</appServicePlanName>
+          <appName>${WEBAPP_NAME}</appName>
+          <region>${REGION}</region>
+ 
+          <!-- Java Runtime Stack for Web App on Linux-->
+          <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+ 
+        </configuration>
+      </plugin>
+```
+
 자리 표시자를 원하는 리소스 이름으로 바꿉니다.
 ```xml
 <azure.plugin.appname>YOUR_APP_NAME</azure.plugin.appname>
 <azure.plugin.resourcegroup>YOUR_RESOURCE_GROUP</azure.plugin.resourcegroup>
 ```
 
-_pom.xml_의 `<plugins>` 섹션으로 스크롤하여 Azure 플러그 인을 검사할 수 있습니다.
 
 ## <a name="build-and-deploy-the-application"></a>응용 프로그램 빌드 및 배포
 

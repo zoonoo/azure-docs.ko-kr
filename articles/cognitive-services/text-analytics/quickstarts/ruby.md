@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 39aeef8b8c88737a7e50f7dc1db5e874279176c0
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8495d003113b2ba607dada7b8f5624d8281d3583
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784658"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284407"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Ruby를 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
 
-이 문서에서는 [텍스트 분석 API](//go.microsoft.com/fwlink/?LinkID=759711) 및 Ruby를 사용하여 [언어 감지](#Detect), [감정 분석](#SentimentAnalysis), [핵심 구 추출](#KeyPhraseExtraction) 및 [연결된 엔터티 식별](#Entities)을 수행하는 방법을 보여 줍니다.
+이 문서에서는  [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) 및 Ruby를 사용하여 [언어 감지](#Detect), [감정 분석](#SentimentAnalysis), [핵심 구 추출](#KeyPhraseExtraction) 및 [연결된 엔터티 식별](#Entities)을 수행하는 방법을 보여 줍니다.
 
 API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-**텍스트 분석 API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. **매월 5,000개 트랜잭션의 체험 계층**을 사용하여 이 빠른 시작을 완료할 수 있습니다.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다. 
 

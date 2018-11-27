@@ -8,105 +8,96 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 67914cccd4b1cee2bb43f18fc00346f15d79cafa
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b10180ad89890c314aec7059347186fa66b354f6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646095"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165087"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>빠른 시작: Go를 사용하여 QnA Maker 기술 자료 게시
 
-이 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
+이 REST 기반 빠른 시작에서는 KB(기술 자료)를 프로그래밍 방식으로 게시하는 방법을 안내합니다. 게시는 최신 버전의 기술 자료를 전용 Azure Search 인덱스에 푸시하고, 응용 프로그램 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 
 이 빠른 시작에서 호출하는 QnA Maker API는 다음과 같습니다.
 * [게시](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - 이 API는 요청 본문에 어떤 정보도 요구하지 않습니다.
 
-1. 즐겨 찾는 IDE에 새 Go 프로젝트를 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
-4. 프로그램을 실행합니다.
+## <a name="prerequisites"></a>필수 조건
 
-```go
+* [Go 1.10.1](https://golang.org/dl/)
+* [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키를 검색하려면 대시보드의 **리소스 관리** 아래에서 **키**를 선택합니다. 
+
+* QnA Maker KB(기술 자료) ID는 아래와 같이 kbid 쿼리 문자열 매개 변수의 URL에 있습니다.
+
+    ![QnA Maker 기술 자료 ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
+
+    아직 기술 자료가 없는 경우 샘플을 만들어서 빠른 시작: [새 기술 자료 만들기](create-new-kb-csharp.md)에서 사용하면 됩니다.
+
+> [!NOTE] 
+> 전체 솔루션 파일은 [**Azure-Samples/cognitive-services-qnamaker-go** Github 리포지토리](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base)에서 지원됩니다.
+
+## <a name="create-a-go-file"></a>Go 파일 만들기
+
+VSCode를 열고 `publish-kb.go`라는 새 파일을 만듭니다.
+
+## <a name="add-the-required-dependencies"></a>필수 종속성 추가
+
+`publish-kb.go`의 맨 위에 프로젝트에 필요한 종속성을 추가하는 다음 줄을 추가합니다.
+
+[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=3-7 "Add the required dependencies")]
+
+## <a name="create-the-main-function"></a>main 함수 만들기
+
+필요한 종속성 뒤에 다음 클래스를 추가합니다.
+
+```Go
 package main
 
-import (
-    "bytes"
-    "encoding/json"
-    "fmt"
-    "io/ioutil"
-    "net/http"
-    "strconv"
-)
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace this with a valid subscription key.
-var subscriptionKey string = "ENTER KEY HERE"
-
-// NOTE: Replace this with a valid knowledge base ID.
-var kb string = "ENTER ID HERE";
-
-var host string = "https://westus.api.cognitive.microsoft.com"
-var service string = "/qnamaker/v4.0"
-var method string = "/knowledgebases/"
-
-func pretty_print(content string) string {
-    var obj map[string]interface{}
-    json.Unmarshal([]byte(content), &obj)
-    result, _ := json.MarshalIndent(obj, "", "  ")
-    return string(result)
-}
-
-func post(uri string, content string) string {
-    req, _ := http.NewRequest("POST", uri, bytes.NewBuffer([]byte(content)))
-    req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
-    req.Header.Add("Content-Type", "application/json")
-    req.Header.Add("Content-Length", strconv.Itoa(len(content)))
-    client := &http.Client{}
-    response, err := client.Do(req)
-    if err != nil {
-        panic(err)
-    }
-
-    defer response.Body.Close()
-    body, _ := ioutil.ReadAll(response.Body)
-
-    if(response.StatusCode == 204) {
-        return "{'result' : 'Success.'}"
-    } else {
-        return string(body)
-    }
-}
-
-func publish(uri string, req string) string {
-    fmt.Println("Calling " + uri + ".")
-    return post(uri, req)
-}
-
 func main() {
-    var uri = host + service + method + kb
-    body := publish(uri, "")
-    fmt.Printf(body + "\n")
 
 }
 ```
 
-## <a name="the-publish-a-knowledge-base-response"></a>기술 자료 게시 응답
+## <a name="add-required-constants"></a>필요한 상수 추가
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
+**main**
 
-```json
-{
-  "result": "Success."
-}
+
+ 함수 내부에 QnA Maker에 액세스하는 데 필요한 상수를 추가합니다. 사용자 고유의 값으로 대체합니다.
+
+[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=16-20 "Add the required constants")]
+
+## <a name="add-post-request-to-publish-kb"></a>KB를 게시하기 위한 POST 요청 추가
+
+필요한 상수 뒤에 다음 코드를 추가합니다. 이 코드는 기술 자료로 질문을 보내기 위한 QnA Maker API에 대한 HTTPS 요청을 수행한 후 답변을 수신합니다.
+
+[!code-go[Add a POST request to publish KB](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to publish KB")]
+
+API 호출은 성공적인 게시에 대해 응답 본문에 내용이 없는 204 상태를 반환합니다. 이 코드는 204 응답에 대한 내용을 추가합니다.
+
+다른 응답의 경우 해당 응답은 변경되지 않은 채 반환됩니다.
+
+## <a name="build-and-run-the-program"></a>프로그램 빌드 및 실행
+
+파일을 컴파일하는 다음 명령을 실행합니다. 명령 프롬프트에는 빌드 성공에 대한 정보가 반환되지 않습니다.
+
+```bash
+go build publish-kb.go
 ```
+
+프로그램을 실행하려면 명령줄에 다음 명령을 입력합니다. 이 명령은 기술 자료를 게시한 후 성공 또는 오류에 대한 204를 출력하기 위한 요청을 QnA Maker API에 보냅니다.
+
+```bash
+./publish-kb
+```
+
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## <a name="next-steps"></a>다음 단계
+
+기술 자료가 게시된 후 [답변을 생성할 엔드포인트 URL](../Tutorials/create-publish-answer.md#generating-an-answer)이 필요합니다. 
 
 > [!div class="nextstepaction"]
 > [QnA Maker(V4) REST API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

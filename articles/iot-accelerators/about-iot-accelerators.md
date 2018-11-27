@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345116"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824543"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기란?
 
@@ -50,7 +50,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 ### <a name="predictive-maintenance"></a>예측 유지 관리
 
-이 솔루션 가속기를 사용하여 원격 장치가 실패한다고 예측되는 시기를 예측합니다. 따라서 오류가 발생하기 전에 유지 관리를 수행할 수 있습니다. 이 솔루션 가속기는 기계 학습 알고리즘을 사용하여 장치 원격 분석에서 오류를 예측합니다. 예제 장치는 항공기 엔진 또는 엘리베이터일 수 있습니다.
+이 솔루션 가속기를 사용하여 원격 디바이스가 실패한다고 예측되는 시기를 예측합니다. 따라서 디바이스에 오류가 발생하기 전에 유지 관리를 수행할 수 있습니다. 이 솔루션 가속기는 기계 학습 알고리즘을 사용하여 장치 원격 분석에서 오류를 예측합니다. 예제 장치는 항공기 엔진 또는 엘리베이터일 수 있습니다.
 
 예측 유지 관리 대시보드를 사용하여 예측 유지 관리 분석을 볼 수 있습니다.
 
@@ -97,7 +97,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 * **Basic:** 데모 또는 배포 테스트에 대한 비용을 절약할 수 있는 버전입니다. 모든 마이크로 서비스가 단일 Azure 가상 머신에 배포됩니다.
 * **로컬:** 테스트 및 개발을 위한 로컬 컴퓨터 배포입니다. 이 방법은 마이크로 서비스를 로컬 Docker 컨테이너에 배포하고, 클라우드의 IoT Hub, Azure Cosmos DB 및 Azure Storage 서비스에 연결합니다.
 
-솔루션 가속기를 실행하는 비용은 [기본 Azure 서비스 비용](https://azure.microsoft.com/pricing)의 집계입니다. 배포 옵션을 선택할 때 사용되는 Azure 서비스의 세부 정보가 표시됩니다.
+솔루션 가속기를 실행하는 비용은 조합된 [기본 Azure 서비스 실행 비용](https://azure.microsoft.com/pricing)입니다. 배포 옵션을 선택할 때 사용되는 Azure 서비스의 세부 정보가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

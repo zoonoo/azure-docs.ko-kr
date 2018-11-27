@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741031"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706979"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>자습서: Azure Cosmos DB MongoDB API 계정으로 데이터 마이그레이션
 
@@ -36,13 +36,13 @@ MongoDB API 계정으로 데이터를 마이그레이션하기 전에, 몇 가�
 
 1. 컬렉션을 미리 만들어 크기 조정:
         
-    * 기본적으로 Azure Cosmos DB는 1,000RU(요청 단위)/초로 새 MongoDB 컬렉션을 프로비전합니다. mongoimport, mongorestore를 사용하여 마이그레이션을 시작하기 전에 [Azure Portal](https://portal.azure.com) 또는 MongoDB 드라이버 및 도구에서 모든 컬렉션을 미리 만듭니다. 데이터 크기가 10GB를 초과하는 경우 적절한 분할 키를 사용하여 [분할된 컬렉션](partition-data.md)을 만들어야 합니다.
+   * 기본적으로 Azure Cosmos DB는 1,000RU(요청 단위)/초로 새 MongoDB 컬렉션을 프로비전합니다. mongoimport, mongorestore를 사용하여 마이그레이션을 시작하기 전에 [Azure Portal](https://portal.azure.com) 또는 MongoDB 드라이버 및 도구에서 모든 컬렉션을 미리 만듭니다. 데이터 크기가 10GB를 초과하는 경우 적절한 분할 키를 사용하여 [분할된 컬렉션](partition-data.md)을 만들어야 합니다. MongoDB에서는 엔터티 데이터를 컬렉션에 저장하는 것이 좋습니다. 비교 가능한 크기 및 프로비전 처리량의 엔터티를 Azure Cosmos 데이터베이스 수준에서 함께 배치할 수 있습니다.
 
-    * [Azure Portal](https://portal.azure.com)에서 마이그레이션을 위해서만 단일 파티션 컬렉션의 경우 1,000RU/초에서, 분할된 컬렉션의 경우 2,500RU/초에서 컬렉션 처리량을 늘립니다. 처리량이 높을수록 속도 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. 마이그레이션 후 즉시 처리량을 줄여 비용을 절감할 수 있습니다.
+   * [Azure Portal](https://portal.azure.com)에서 마이그레이션 기간 동안 단일 파티션 컬렉션의 경우 1,000RU/초에서, 분할된 컬렉션의 경우 2,500RU/초에서 컬렉션 처리량을 늘립니다. 처리량이 높을수록 속도 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. 마이그레이션 후 즉시 처리량을 줄여 비용을 절감할 수 있습니다.
 
-    * 컬렉션 수준에서 RU/초를 프로비전하는 것 외에도, 부모 데이터베이스 수준에서 컬렉션 집합에 대한 RU/초를 프로비전할 수도 있습니다. 이렇게 하려면 데이터베이스 및 컬렉션을 미리 만들고, 각 컬렉션에 대해 분할 키를 정의해야 합니다.
+   * 컬렉션 수준에서 RU/초를 프로비전하는 것 외에도, 부모 데이터베이스 수준에서 컬렉션 집합에 대한 RU/초를 프로비전할 수도 있습니다. 이렇게 하려면 데이터베이스 및 컬렉션을 미리 만들고, 각 컬렉션에 대해 분할 키를 정의해야 합니다.
 
-    * 선호하는 도구, 드라이버 또는 SDK를 통해 분할된 컬렉션을 만들 수 있습니다. 이 예제에서는 Mongo Shell을 사용하여 분할된 컬렉션을 만듭니다.
+   * 선호하는 도구, 드라이버 또는 SDK를 통해 분할된 컬렉션을 만들 수 있습니다. 이 예제에서는 Mongo Shell을 사용하여 분할된 컬렉션을 만듭니다.
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )

@@ -3,23 +3,23 @@ title: '빠른 시작: Bing Spell Check API, Python'
 titlesuffix: Azure Cognitive Services
 description: Bing Spell Check API를 사용하여 빠르게 시작할 수 있도록 정보 및 코드 샘플을 가져옵니다.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 8614e4388f45c3bc9f71697bad44589e2165f6c8
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: aahi
+ms.openlocfilehash: d77fd2637e7516dbae361518c4b729ca1217e6e6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803293"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160215"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-python"></a>빠른 시작: Python을 통해 Bing Spell Check API 사용 
 
-이 문서에서는 Python을 통해 [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/)를 사용하는 방법을 보여 줍니다. Spell Check API는 제안된 바꾸기와 함께 인식할 수 없는 단어 목록을 반환합니다. 일반적으로 텍스트를 이 API에 제출한 다음, 텍스트에서 제안된 바꾸기를 수행하거나 응용 프로그램 사용자에게 표시하여 바꾸기 여부를 결정할 수 있습니다. 이 문서에서는 "Hello, wrld!" 텍스트가 포함된 요청을 보내는 방법을 보여 줍니다. 제안된 바꾸기는 "Hello" 및 "World"입니다.
+이 문서에서는 Python을 통해 [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) 를 사용하는 방법을 보여줍니다. Spell Check API는 제안된 바꾸기와 함께 인식할 수 없는 단어 목록을 반환합니다. 일반적으로 텍스트를 이 API에 제출한 다음, 텍스트에서 제안된 바꾸기를 수행하거나 응용 프로그램 사용자에게 표시하여 바꾸기 여부를 결정할 수 있습니다. 이 문서에서는 "Hello, wrld!" 텍스트가 포함된 요청을 보내는 방법을 보여 줍니다. 제안된 바꾸기는 "Hello" 및 "World"입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

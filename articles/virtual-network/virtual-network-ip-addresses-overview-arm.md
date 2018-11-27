@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: 65dc420b6832b7b0a4cf14d63203d4c66e2a4254
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6b8bf4a0bc6b5e5e9b9ad7f91ba409aaf922e8e9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993598"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822238"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -75,7 +75,7 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
 
 - 고정 할당 방법으로만 할당됩니다.
 - 기본적으로 보호되고 인바운드 트래픽에 닫혀 있습니다. [네트워크 보안 그룹](security-overview.md#network-security-groups)을 사용하여 허용된 인바운드 트래픽을 명시적으로 허용해야 합니다.
-- 네트워크 인터페이스 또는 공용 표준 연결 부하 분산 장치에 할당합니다. Azure 표준 부하 분산 장치에 대한 자세한 내용은 [Azure 표준 부하 분산 장치](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+- 네트워크 인터페이스, 공용 표준 부하 분산 디바이스, Application Gateway 또는 VPN Gateway에 할당됩니다. Azure 표준 부하 분산 장치에 대한 자세한 내용은 [Azure 표준 부하 분산 장치](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 - 기본적으로 중복된 영역입니다. 영역을 만들고 특정 가용성 영역에서 보장할 수 있습니다. 사용 가능한 영역에 대해 자세히 알아보려면 [가용성 영역 개요](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [표준 부하 분산 장치 및 가용성 영역](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
  
 > [!NOTE]
@@ -132,8 +132,8 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 | --- | --- | --- | --- |
 | 가상 머신 |Linux |yes |yes |
 | 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |yes |yes |
-| VPN 게이트웨이 |게이트웨이 IP 구성 |yes |아니요 |
-| 응용 프로그램 게이트웨이 |프런트 엔드 구성 |yes |아니요 |
+| VPN 게이트웨이 |게이트웨이 IP 구성 |yes |yes |
+| 응용 프로그램 게이트웨이 |프런트 엔드 구성 |yes |yes |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 [가상 네트워크](virtual-networks-overview.md) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.

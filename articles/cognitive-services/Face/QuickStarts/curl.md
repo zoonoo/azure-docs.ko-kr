@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b6c05382a3a40aa9157fd64a7f0192c58e79b0ee
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578048"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853781"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>빠른 시작: Face REST API 및 cURL을 사용하여 이미지에서 얼굴 감지
 
@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Face API 구독 키. [Cognitive Services 시도](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
 
 ## <a name="write-the-command"></a>명령 작성
  
@@ -40,7 +40,7 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.a
 
 ### <a name="face-endpoint-url"></a>Face 엔드포인트 URL
 
-URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`는 쿼리할 Azure Face 엔드포인트를 나타냅니다. 이 URL의 첫 번째 부분을 사용자 구독 키에 해당하는 지역에 맞게 변경해야 합니다(아직 올바르지 않은 경우).
+URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`는 쿼리할 Azure Face 엔드포인트를 나타냅니다. 이 URL의 첫 번째 부분을 사용자 구독 키에 해당하는 지역에 맞게 변경해야 합니다(모든 지역 엔드포인트 목록을 보려면 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조).
 
 ### <a name="url-query-string"></a>URL 쿼리 문자열
 

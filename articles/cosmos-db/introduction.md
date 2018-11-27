@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 717a0234f0155229597c6fc4fe70a7868a536975
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242293"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160736"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -50,7 +50,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
 
 * **응답성 높은 중요 업무용 응용 프로그램 빌드**
     * Azure Cosmos DB는 고객에게 백분위 99의 종단 간 대기 시간을 보장합니다. 
-    * 일반적인 1KB 항목의 경우 Cosmos DB는 동일한 Azure 지역 내에서 99번째 백분위수로 10ms 미만의 종단 간 읽기 대기 시간, 15ms 미만의 인덱싱된 쓰기를 보장합니다. 중간 대기 시간이 크게 낮아집니다(5ms 미만).
+    * 일반적인 1KB 항목의 경우 Cosmos DB는 동일한 Azure 지역 내에서 99번째 백분위수로 10ms 미만의 종단 간 읽기 대기 시간, 10ms 미만의 인덱싱된 쓰기를 보장합니다. 중간 대기 시간이 크게 낮아집니다(5ms 미만).
 
 * **"Always On" 가용성 보장**
     * 모든 단일 지역 데이터베이스 계정에 대해 99.99% 가용성 SLA 및 모든 다중 지역 데이터베이스 계정에 대해 99.999% 읽기 가용성을 보장합니다.
@@ -79,9 +79,9 @@ Azure Cosmos DB는 기존의 관계형 및 비관계형 데이터베이스의 �
 | --- | --- | --- | --- |
 | 글로벌 분포 | 아니요 | 아니요 | 예, 멀티 호밍 API를 사용하여 30개 이상의 지역에서 턴키 배포|
 | 수평적 확장 | 아니요 | yes | 예, 독립적으로 저장소 및 처리량을 확장할 수 있습니다. | 
-| 대기 시간 보장 | 아니요 | yes | 예, <10ms인 읽기의 99% 및 <15 ms인 쓰기 | 
+| 대기 시간 보장 | 아니요 | yes | 예, <10ms인 읽기의 99% 및 <10ms인 쓰기 | 
 | 고가용성 | 아니요 | yes | 예, Azure Cosmos DB는 항상 켜져 있고, PACELC 장단점이 잘 정의되어 있으며, 자동 및 수동 장애 조치 옵션을 제공합니다.|
-| 데이터 모델 + API | 관계형 + SQL | 다중 모델 + OSS API | 다중 모델 + SQL + OSS API(추가 서비스 예정) |
+| 데이터 모델 + API | 관계형 + SQL | 다중 모델 + OSS API | 다중 모델 + SQL + OSS API |
 | SLA | yes | 아니요 | 예, 대기 시간, 처리량, 일관성, 가용성에 대한 포괄적 SLA |
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB를 활용하는 솔루션

@@ -3,18 +3,18 @@ title: Azure Maps를 사용하여 여러 경로 찾기 | Microsoft Docs
 description: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/29/2018
+ms.date: 11/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 67b68489f2e06b9149f842f293a769fa7f688be0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412706"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705282"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -291,12 +291,7 @@ ms.locfileid: "50412706"
 
 [여기서 실제 샘플 살펴보기](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
-Azure Maps의 적용 범위 및 기능에 대해 자세히 알아보려면 다음을 참조하세요.
+다음 자습서에서는 Azure Maps를 사용하여 간단한 저장소 로케이터를 만드는 과정을 보여 줍니다.
 
 > [!div class="nextstepaction"]
-> [확대/축소 수준 및 타일 그리드](zoom-levels-and-tile-grid.md)
-
-더 많은 코드 예제와 대화형 코딩 환경을 살펴보려면 다음을 참조하세요.
-
-> [!div class="nextstepaction"]
-> [맵 컨트롤을 사용하는 방법](how-to-use-map-control.md)
+> [Azure Maps를 사용하여 저장소 로케이터 만들기](./tutorial-create-store-locator.md)

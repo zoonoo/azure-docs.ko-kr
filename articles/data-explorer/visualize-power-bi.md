@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393715"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854104"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>자습서: Power BI에서 Azure Data Explorer의 데이터 시각화
 
@@ -36,9 +36,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 * [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md)
 
-* [StormEvents 샘플 데이터](ingest-sample-data.md)
+* [StormEvents 샘플 데이터](ingest-sample-data.md) [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/)(**무료 다운로드** 클릭)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/)(**무료 다운로드** 선택)
 
 ## <a name="render-visuals-in-azure-data-explorer"></a>Azure Data Explorer에서 시각적 개체 렌더링
 
@@ -82,17 +82,17 @@ Power BI에 들어가기 전에 Azure Data Explorer에서 시각적 개체를 �
 
 이제 Power BI Desktop에서 Azure Data Explorer에 연결합니다.
 
-1. Power BI Desktop에서 **데이터 가져오기**를 선택한 다음, **더 보기**를 선택합니다.
+1. Power BI Desktop의 **홈** 탭에서 **데이터 가져오기**, **자세히**를 차례로 클릭합니다.
 
     ![데이터 가져오기](media/visualize-power-bi/get-data-more.png)
 
-1. *Kusto*를 검색하여 **Azure Kusto(베타)** 를 선택한 다음, **연결**을 선택합니다.
+1. *Azure Data Explorer*를 검색한 다음, **Azure Data Explorer(베타)**, **연결**을 차례로 선택합니다.
 
     ![데이터 검색 및 가져오기](media/visualize-power-bi/search-get-data.png)
 
 1. **커넥터 미리 보기** 화면에서 **계속**을 선택합니다.
 
-1. **Kusto** 화면에서 테스트 클러스터 및 데이터베이스의 이름을 입력합니다. 클러스터는 `https://<ClusterName>.<Region>.kusto.windows.net` 형식이어야 합니다. 테이블 이름으로 *StormEvents*를 입력합니다. 다른 모든 옵션은 기본값으로 두고 **확인**을 선택합니다.
+1. 다음 화면에서 테스트 클러스터 및 데이터베이스의 이름을 입력합니다. 클러스터는 `https://<ClusterName>.<Region>.kusto.windows.net` 형식이어야 합니다. 테이블 이름으로 *StormEvents*를 입력합니다. 다른 모든 옵션은 기본값으로 두고 **확인**을 선택합니다.
 
     ![클러스터, 데이터베이스, 테이블 옵션](media/visualize-power-bi/cluster-database-table.png)
 

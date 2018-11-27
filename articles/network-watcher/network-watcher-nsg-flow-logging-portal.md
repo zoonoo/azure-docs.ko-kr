@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41924827"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822469"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 
@@ -37,6 +37,9 @@ NSG(네트워크 보안 그룹)를 사용하면 VM(가상 머신)에 대한 인�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
+> [!NOTE] 
+> 미국 중서부 지역에서 흐름 로그 버전 2만 사용할 수 있습니다. 구성은 Azure Portal 및 REST API를 통해 사용할 수 있습니다. 지원되지 않는 지역에서 버전 2를 사용하도록 설정하면 버전 1 로그가 저장소 계정에 저장됩니다.
+
 ## <a name="create-a-vm"></a>VM 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **+ 리소스 만들기**를 선택합니다.
@@ -45,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     |설정|값|
     |---|---|
-    |Name|myVm|
+    |이름|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |구독| 구독을 선택합니다.|
@@ -88,7 +91,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
     | 설정        | 값                                                        |
     | ---            | ---   |
-    | Name           | 길이가 3~24자이고 소문자 및 숫자만 포함할 수 있고 모든 Azure Storage 계정에서 고유해야 합니다.                                                               |
+    | 이름           | 길이가 3~24자이고 소문자 및 숫자만 포함할 수 있고 모든 Azure Storage 계정에서 고유해야 합니다.                                                               |
     | 위치       | **미국 동부**를 선택합니다.                                           |
     | 리소스 그룹 | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
 
@@ -100,8 +103,9 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
 6. NSG 목록에서 **myVm nsg**라는 NSG를 선택합니다.
 7. **흐름 로그 설정**에서 **켜기**를 선택합니다.
-8. 3단계에 만든 저장소 계정을 선택합니다.
-9. **보존(일)** 을 5로 선택한 다음, **저장**을 선택합니다.
+8. 흐름 로깅을 버전을 선택합니다. 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다. ![흐름 로그 버전 선택](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+9. 3단계에 만든 저장소 계정을 선택합니다.
+10. **보존(일)** 을 5로 선택한 다음, **저장**을 선택합니다.
 
 ## <a name="download-flow-log"></a>흐름 로그 다운로드
 
@@ -126,6 +130,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
 다음 json은 다음에 대한 데이터를 기록한 각 흐름의 PT1H.json 파일에 표시되는 내용의 예제입니다.
 
+### <a name="version-1-flow-log-event"></a>버전 1 흐름 로그 이벤트
 ```json
 {
     "time": "2018-05-01T15:00:02.1713710Z",
@@ -135,29 +140,83 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 1,
-        "flows": [{
-            "rule": "UserRule_default-allow-rdp",
-            "flows": [{
-                "mac": "000D3A170C69",
-                "flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
-            }]
-        }]
+        "flows": [
+            {
+                "rule": "UserRule_default-allow-rdp",
+                "flows": [
+                    {
+                        "mac": "000D3A170C69",
+                        "flowTuples": [
+                            "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
 ```
+### <a name="version-2-flow-log-event"></a>버전 2 흐름 로그 이벤트
+```json
+{
+    "time": "2018-11-13T12:00:35.3899262Z",
+    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 2,
+        "flows": [
+            {
+                "rule": "DefaultRule_DenyAllInBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                            "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                            "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                        ]
+                    }
+                ]
+            },
+            {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                            "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                            "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                            "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
 
 이전 출력에서 **mac**의 값은 VM을 만들 때 만든 네트워크 인터페이스의 MAC 주소입니다. **flowTuples**의 쉼표로 구분된 정보는 다음과 같습니다.
 
 | 예제 데이터 | 데이터가 나타내는 정보   | 설명                                                                              |
 | ---          | ---                    | ---                                                                                      |
-| 1525186745   | 타임스탬프             | 흐름이 발생하는 경우 UNIX EPOCH 형식의 타임스탬프입니다. 이전 예제에서 날짜는 2018년 5월 1일 오후 2:59:05 GMT으로 변환됩니다.                                                                                    |
-| 192.168.1.4  | 원본 IP 주소      | 흐름이 시작된 원본 IP 주소입니다.
-| 10.0.0.4     | 대상 IP 주소  | 흐름을 보내는 대상 IP 주소입니다. 10.0.0.4는 [VM 만들기](#create-a-vm)에서 만든 VM의 개인 IP 주소입니다.                                                                                 |
-| 55960        | 원본 포트            | 흐름이 시작된 원본 포트입니다.                                           |
-| 3389         | 대상 포트       | 흐름을 보낸 대상 포트입니다. 포트 3389로 트래픽을 보냈으므로 **UserRule_default-allow-rdp**라는 규칙이 로그 파일에서 흐름을 처리했습니다.                                                |
+| 1542110377   | 타임스탬프             | 흐름이 발생하는 경우 UNIX EPOCH 형식의 타임스탬프입니다. 이전 예제에서 날짜는 2018년 5월 1일 오후 2:59:05 GMT으로 변환됩니다.                                                                                    |
+| 10.0.0.4  | 원본 IP 주소      | 흐름이 시작된 원본 IP 주소입니다. 10.0.0.4는 [VM 만들기](#create-a-vm)에서 만든 VM의 개인 IP 주소입니다.
+| 13.67.143.118     | 대상 IP 주소  | 흐름을 보내는 대상 IP 주소입니다.                                                                                  |
+| 44931        | 원본 포트            | 흐름이 시작된 원본 포트입니다.                                           |
+| 443         | 대상 포트       | 흐름을 보낸 대상 포트입니다. 포트 443으로 트래픽을 보냈으므로 **UserRule_default-allow-rdp**라는 규칙이 로그 파일에서 흐름을 처리했습니다.                                                |
 | T            | 프로토콜               | 흐름의 프로토콜이 TCP(T) 또는 UDP(U)인지입니다.                                  |
-| I            | 방향              | 트래픽이 인바운드(I) 또는 아웃바운드(O)인지입니다.                                     |
-| A            | 조치                 | 트래픽을 허용했는지(A) 또는 거부했는지(D)입니다.                                           |
+| O            | 방향              | 트래픽이 인바운드(I) 또는 아웃바운드(O)인지입니다.                                     |
+| A            | 조치                 | 트래픽을 허용했는지(A) 또는 거부했는지(D)입니다.  
+| C            | 흐름 상태 **버전 2만 해당** | 흐름의 상태를 캡처합니다. 가능한 상태는 다음과 같습니다. **B**: 흐름이 만들어질 때 시작합니다. 통계가 제공되지 않습니다. **C**: 지속적인 흐름에 대해 계속됩니다. 통계가 5분 간격으로 제공됩니다. **E**: 흐름이 종료되면 끝납니다. 통계가 제공됩니다. |
+| 30 | 보낸 패킷 - 원본에서 대상 **버전 2만 해당** | 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷의 총 수입니다. |
+| 16978 | 보낸 바이트 - 원본에서 대상 **버전 2만 해당** | 마지막 업데이트 이후 원본에서 대상으로 전송된 TCP 또는 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다. | 
+| 24 | 보낸 패킷 - 대상에서 원본으로 **버전 2만 해당** | 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 또는 UDP 패킷의 총 수입니다. |
+| 14008| 보낸 바이트 - 대상에서 원본으로 **버전 2만 해당** | 마지막 업데이트 이후 대상에서 원본으로 전송된 TCP 및 UDP 패킷 바이트의 총 수입니다. 패킷 바이트에는 패킷 헤더 및 페이로드가 포함됩니다.| |
 
 ## <a name="next-steps"></a>다음 단계
 

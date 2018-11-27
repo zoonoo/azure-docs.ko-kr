@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913566"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822367"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>자습서: 내보낸 데이터를 만들고 관리
 
-비용 분석 자습서를 읽으셨다면 Cost Management 데이터를 수동으로 다운로드하는 방법에 익숙하실 것입니다. 그러나 날마다 자동으로 Azure 저장소에 Cost Management 데이터를 내보내는 일별 되풀이 작업을 만들 수 있습니다. 내보낸 데이터는 CSV 형식이며 Cost Management에서 수집한 모든 정보를 포함하고 있습니다. Azure 저장소로 내보낸 데이터를 외부 시스템에 사용하고 사용자 고유의 사용자 지정 데이터와 결합할 수 있습니다. 그리고 내보낸 데이터를 대시보드나 기타 재무 시스템 같은 외부 시스템에서 사용할 수 있습니다.
+비용 분석 자습서를 읽으셨다면 Cost Management 데이터를 수동으로 다운로드하는 방법에 익숙하실 것입니다. 그러나 매일, 매주 또는 매월 자동으로 Azure 저장소에 Cost Management 데이터를 내보내는 되풀이 작업을 만들 수 있습니다. 내보낸 데이터는 CSV 형식이며 Cost Management에서 수집한 모든 정보를 포함하고 있습니다. Azure 저장소로 내보낸 데이터를 외부 시스템에 사용하고 사용자 고유의 사용자 지정 데이터와 결합할 수 있습니다. 그리고 내보낸 데이터를 대시보드나 기타 재무 시스템 같은 외부 시스템에서 사용할 수 있습니다.
 
 이 자습서의 예제는 비용 관리 데이터를 내보낸 후 데이터 내보내기가 성공했는지 확인하는 단계를 안내합니다.
 
@@ -48,11 +48,17 @@ Azure Storage 계정의 경우:
 
 Cost Management + 청구 &gt; Cost Management &gt; 구독 &gt; 내보내기 &gt; **추가**에서 구독 또는 리소스 그룹을 선택합니다.
 
-내보내기의 이름을 입력하고 구독, Azure 저장소 계정, 컨테이너 및 파일 저장소 디렉터리 또는 BLOB 컨테이너를 지정한 다음, **만들기**를 클릭합니다.
+내보내기의 이름을 입력하고 "월간 누계 비용 매일 내보내기" 옵션을 선택합니다. **다음**을 클릭합니다.
 
-![새 내보내기](./media/tutorial-export-acm-data/new-export01.png)
+![새 내보내기: 내보내기 형식](./media/tutorial-export-acm-data/basics_exports.png)
 
-새 내보내기는 내보내기 목록에 표시됩니다. 기본적으로 새 내보내기가 사용되며, 매일 실행됩니다. 예정된 내보내기를 해제 또는 삭제하려면 목록에서 항목을 클릭하고 **사용 안 함** 또는 **삭제**를 클릭합니다.
+Azure 저장소 계정에 대한 구독을 지정하고 저장소 계정을 선택합니다.  내보내기 파일을 보낼 저장소 컨테이너 및 디렉터리 경로를 지정합니다.  **다음**을 클릭합니다.
+
+![새 내보내기: 저장소](./media/tutorial-export-acm-data/storage_exports.png)
+
+내보내기 세부 정보를 검토하고 **만들기**를 클릭합니다.
+
+새 내보내기는 내보내기 목록에 표시됩니다. 기본적으로 새 내보내기가 사용되도록 설정됩니다. 예정된 내보내기를 해제 또는 삭제하려면 목록에서 항목을 클릭하고 **사용 안 함** 또는 **삭제**를 클릭합니다.
 
 처음에는 내보내기가 실행될 때까지 1~2시간이 걸릴 수 있습니다. 그러나 내보낸 파일에 데이터가 표시될 때까지는 최대 4시간이 걸릴 수 있습니다.
 

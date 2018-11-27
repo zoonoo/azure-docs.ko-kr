@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 4378d04d8909ecb0cd77c3196b74ecd51eb19638
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 92344943d2ec19f6730387221974a001e6a2045a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686231"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852897"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>자습서: 이미지에서 얼굴을 감지하고 포착하는 Android 앱 만들기
 
@@ -92,11 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
 
-`<Subscription Key>`를 해당 구독 키로 바꿔야 합니다. 또한 해당 키에 적합한 지역 식별자를 사용하여 `<API endpoint>`를 Face API 엔드포인트로 바꿉니다. 평가판 구독 키는 **westus** 지역에 생성됩니다. 다음은 API 엔드포인트 값의 예입니다.
-
-```java
-apiEndpoint = "https://westus.api.cognitive.microsoft.com/face/v1.0";
-```
+`<Subscription Key>`를 해당 구독 키로 바꿔야 합니다. 또한 해당 키에 적합한 지역 식별자를 사용하여 `<API endpoint>`를 Face API 엔드포인트로 바꿉니다(모든 지역 엔드포인트 목록을 보려면 [Face API 문서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조). 평가판 구독 키는 **westus** 지역에 생성됩니다.
 
 **프로젝트** 창에서 **앱**, **매니페스트**를 확장하고 *AndroidManifest.xml*을 엽니다. 다음 요소를 `manifest` 요소의 직계 하위 항목으로 삽입합니다.
 

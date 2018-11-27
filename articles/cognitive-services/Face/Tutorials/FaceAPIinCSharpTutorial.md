@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 5319584d892c261dcc6290703e9ca6518640cc94
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685483"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852676"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>자습서: 이미지에서 얼굴 데이터를 표시하는 WPF 앱 만들기
 
@@ -67,7 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-다음으로, **MainWindow** 클래스에 다음 코드를 삽입합니다. 이렇게 하면 구독 키를 사용하여 **FaceClient** 인스턴스가 만들어지며, 구독 키는 사용자가 직접 입력해야 합니다. 또한 `faceEndpoint`에서 지역 문자열을 구독의 올바른 지역으로 설정해야 합니다.
+다음으로, **MainWindow** 클래스에 다음 코드를 삽입합니다. 이렇게 하면 구독 키를 사용하여 **FaceClient** 인스턴스가 만들어지며, 구독 키는 사용자가 직접 입력해야 합니다. `faceEndpoint`의 지역 문자열을 구독에 대한 올바른 지역으로 설정해야 합니다(모든 지역 엔드포인트 목록에 대해서는 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조).
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 

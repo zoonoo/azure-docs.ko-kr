@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: be2c68922221af848c9e484d03527d02808c071a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 68c8c3767ff3a3d2873c1ff50928ab8d2cada4b1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283821"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263754"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준 관리
 
@@ -34,7 +34,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-아래 예제는 미국 동부 및 미국 서부 지역에서 다중 마스터를 사용하고, 기본 일관성 정책을 제한된 부실로 설정하고, 최대 부실 간격이 10초이고, 허용되는 최대 부실 요청 수가 200인 새 Cosmos DB 계정을 만듭니다.
+아래의 이 예제에서는 기본 일관성 정책을 세션으로 설정하고, 미국 동부 및 미국 서부 지역에서 다중 마스터를 사용하도록 설정한 새 Cosmos DB 계정을 만듭니다.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -42,9 +42,7 @@ $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
 
 $iprangefilter = ""
 
-$consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness";
-                       "maxIntervalInSeconds"= "10";
-                       "maxStalenessPrefix"="200"}
+$consistencyPolicy = @{"defaultConsistencyLevel"="Session"}
 
 $CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
                         "locations"=$locations;

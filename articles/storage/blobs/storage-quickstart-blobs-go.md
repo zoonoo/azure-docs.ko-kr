@@ -6,14 +6,14 @@ author: seguler
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/23/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: d3f6f2c9a1ca5016eb9a6597ba32dc1471f77cb4
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2939bd5c7b32cc9fe05326ee72dbb7367a72ef7f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038327"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711160"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>빠른 시작: Go를 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -21,17 +21,20 @@ ms.locfileid: "51038327"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 다음이 필요합니다. 
-* [Go 1.8 이상](https://golang.org/dl/) 설치
-* `go get -u github.com/Azure/azure-storage-blob-go/azblob`을 사용하여 [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/)를 다운로드하고 설치합니다. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-> [!NOTE]
-> URL에서 Azure는 대문자로 시작해야 합니다. 그렇지 않으면 SDK를 사용할 때 대소문자 관련 가져오기 문제가 발생할 수 있습니다. 또한 가져오기 구문에서도 Azure를 대문자로 시작해야 합니다.
+다음 추가 필수 구성 요소를 설치했는지 확인합니다.
+ 
+* [Go 1.8 이상](https://golang.org/dl/)
+* [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/): 다음 명령 사용
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+    ```
+    go get -u github.com/Azure/azure-storage-blob-go/azblob
+    ``` 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    > [!NOTE]
+    > URL에서 `Azure`를 대문자로 표시하여 SDK로 작업할 때 대/소문자 관련 가져오기 문제가 발생하지 않도록 합니다. 또한 import 문에서도 `Azure`를 대문자로 표시합니다.
+    
 ## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
 이 빠른 시작에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git)은 기본 Go 응용 프로그램입니다.  
 

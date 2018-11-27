@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b03681e6205b7db24960c99a87a3c84c213884d2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: dbd4b1cc7c1ec2a6d612020a99367138cada24a8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240293"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161014"
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
 
@@ -56,7 +56,7 @@ Site Recovery는 다음을 위해 복제를 관리할 수 있습니다.
 
 **지원됨** | **세부 정보**
 --- | ---
-**복제 시나리오** | 한 Azure 지역의 Azure VM을 다른 곳에 복제할 수 있습니다.<br/><br/>  온-프레미스 VMware VM, Hyper-V VM, 물리적 서버(Windows 및 Linux), Azure4 Stack VM을 Azure에 복제합니다.<br/><br/> 온-프레미스 VMware VM, Center VMM에서 관리하는 Hyper-V VM 및 물리적 서버를 보조 사이트에 복제합니다.
+**복제 시나리오** | 한 Azure 지역의 Azure VM을 다른 곳에 복제할 수 있습니다.<br/><br/>  온-프레미스 VMware VM, Hyper-V VM, 물리적 서버(Windows 및 Linux), Azure Stack VM을 Azure에 복제합니다.<br/><br/> 온-프레미스 VMware VM, Center VMM에서 관리하는 Hyper-V VM 및 물리적 서버를 보조 사이트에 복제합니다.
 **지역** | Site Recovery가 [지원되는 지역](https://azure.microsoft.com/regions/services/)을 검토합니다. |
 **복제된 컴퓨터** | [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) 복제, [온-프레미스 VMware VM 및 물리적 서버](vmware-physical-azure-support-matrix.md#replicated-machines) 및 [온-프레미스 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms)에 대한 복제 요구 사항을 검토합니다.
 **워크로드** | 복제가 지원되는 컴퓨터에서 실행되는 모든 워크로드를 복제할 수 있습니다. 또한 Site Recovery 팀이 [몇 가지 앱](site-recovery-workload.md#workload-summary)에 대해 앱별 테스팅을 수행하였습니다.

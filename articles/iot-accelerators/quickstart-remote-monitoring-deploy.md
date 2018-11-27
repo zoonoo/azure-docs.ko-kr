@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140860"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824781"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 시도
 
@@ -32,7 +32,7 @@ Azure 구독에 솔루션 가속기를 배포할 때 일부 구성 옵션을 설
 
 Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators)에 로그인합니다.
 
-**원격 모니터링** 타일에서 **지금 시도**를 클릭합니다.
+**원격 모니터링** 타일을 클릭합니다. **원격 모니터링** 페이지에서 **지금 시도**를 클릭합니다.
 
 ![원격 모니터링 선택](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
@@ -40,9 +40,10 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 **.NET**을 언어로 선택합니다. Java 및 .NET 구현에는 동일한 기능이 있습니다.
 
-원격 모니터링 솔루션 가속기에 **솔루션 이름** 을 입력합니다. 이 빠른 시작에서는 **contoso-rm2**를 호출합니다.
+원격 모니터링 솔루션 가속기에 **솔루션 이름** 을 입력합니다. 이 빠른 시작에서는 **contoso-rm**을 호출합니다.
 
-솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 이 빠른 시작에서는 **Visual Studio Enterprise** 및 **서유럽**을 사용하고 있습니다. 구독 내에서 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
+솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 이 빠른 시작에서는 **미국 동부**를 사용합니다.
+**Visual Studio Enterprise**를 선택할 수 있지만 그러려면 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
 
 배포를 시작하려면 **솔루션 만들기**를 클릭합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
 

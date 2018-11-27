@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 65d0d6848534326bb3ef43f1bd8bc700971603e6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: a514359edcf21d5882b2361d10c06214d8e39502
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636801"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274869"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>CLI를 사용하여 관리 디스크를 동일한 구독이나 다른 구독으로 복사
 
-이 스크립트는 관리 디스크를 동일한 구독이나 같은 지역에 있지만 다른 구독으로 복사합니다. 이 스크립트를 실행하려면 두 구독의 글로벌 AAD 테넌트 관리자여야 합니다.
+이 스크립트는 관리 디스크를 동일한 구독이나 같은 지역에 있지만 다른 구독으로 복사합니다. 이러한 복사는 구독이 동일한 AAD 테넌트의 일부일 때만 수행됩니다.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

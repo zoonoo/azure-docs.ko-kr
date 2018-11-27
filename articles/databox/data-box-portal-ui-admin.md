@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b98653ea0896e617a666147d243f24cb55483a28
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091694"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974992"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Azure Portal을 사용하여 Data Box Disk 관리(미리 보기)
 
@@ -109,7 +109,7 @@ Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 문서�
 
 ## <a name="edit-notification-details"></a>알림 세부 정보 편집
 
-주문 상태 이메일을 수신하려는 사용자를 변경해야 할 수 있습니다. 예를 들어 사용자는 디스크가 배달되거나 선택되면 알림을 받아야 합니다. 다른 사용자는 원본에서 삭제하기 전에 데이터가 Azure 저장소 계정에 있는 것을 확인할 수 있도록 데이터 복사가 완료되면 알림을 받아야 할 수 있습니다. 이러한 경우에 알림 세부 정보를 편집할 수 있습니다.
+주문 상태 전자 메일을 수신하도록 할 사용자를 변경해야 할 수 있습니다. 예를 들어 사용자는 디스크가 배달되거나 선택되면 알림을 받아야 합니다. 다른 사용자는 원본에서 삭제하기 전에 데이터가 Azure 저장소 계정에 있는 것을 확인할 수 있도록 데이터 복사가 완료되면 알림을 받아야 할 수 있습니다. 이러한 경우에 알림 세부 정보를 편집할 수 있습니다.
 
 알림 세부 정보를 편집하려면 다음 단계를 수행합니다.
 

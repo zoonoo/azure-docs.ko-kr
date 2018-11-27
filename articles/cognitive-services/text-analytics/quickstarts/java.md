@@ -10,32 +10,33 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 8ea45d202e550e16a7afd11e056738b2b21bd963
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: f2e576b421526c0245ff249d77214b27c9fd649a
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267718"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283947"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: Java를 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
 
-이 아티클에서는 [텍스트 분석 API](//go.microsoft.com/fwlink/?LinkID=759711) 및 Java를 사용하여 [언어 감지](#Detect), [감정 분석](#SentimentAnalysis), [핵심 구 추출](#KeyPhraseExtraction) 및 [연결된 엔터티 식별](#Entities)을 수행하는 방법을 보여줍니다.
+이 문서에서는  [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) 및 Java를 사용하여 [언어 감지](#Detect), [감정 분석](#SentimentAnalysis), [핵심 구 추출](#KeyPhraseExtraction) 및 [연결된 엔터티 식별](#Entities)을 수행하는 방법을 보여 줍니다.
 
 API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-**텍스트 분석 API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. **매월 5,000개 트랜잭션의 체험 계층**을 사용하여 이 빠른 시작을 완료할 수 있습니다.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+
 등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>언어 검색
 
-언어 감지 API는 [언어 감지 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)를 사용하여 텍스트 문서의 언어를 감지합니다.
+Language Detection API는  [언어 감지 메서드](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)를 사용하여 텍스트 문서의 언어를 감지합니다.
 
-1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
+1. 즐겨 찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
 3. `accessKey` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. `host`의 위치(현재 `westus`)를 등록한 지역으로 바꿉니다.

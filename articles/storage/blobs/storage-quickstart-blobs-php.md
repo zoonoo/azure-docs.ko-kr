@@ -6,28 +6,26 @@ author: roygara
 ms.service: storage
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: b0a562bd37c1877651863525241d70990d38ded2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ecb87af9cc75898aa8734b329dce01f70511a27
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969618"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712911"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>PHP를 사용하여 Azure Blob 저장소에서 개체 전송
 이 빠른 시작에서 PHP를 사용하여 Azure Blob 저장소의 컨테이너에 블록 Blob을 업로드, 다운로드 및 나열하는 방법에 대해 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 다음이 필요합니다. 
-* [PHP](http://php.net/downloads.php) 설치
-* [PHP용 Azure Storage SDK](https://github.com/Azure/azure-storage-php) 설치
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
+다음 추가 필수 구성 요소를 설치했는지 확인합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+* [PHP](http://php.net/downloads.php)
+* [PHP용 Azure Storage SDK](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
 이 빠른 시작에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git)은 기본 PHP 응용 프로그램입니다.  

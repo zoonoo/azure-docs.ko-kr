@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003750"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852200"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>메시지를 배달하는 Azure 서비스 중에서 선택
 
@@ -53,7 +53,9 @@ Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 �
 
 Event Grid는 이벤트 구동, 반응성 프로그래밍을 사용할 수 있는 이벤트 백플레인입니다. 게시-구독 모델을 사용합니다. 게시자는 이벤트를 내보내지만 처리될 이벤트에 대한 기대치가 없습니다. 구독자는 처리하려는 이벤트를 결정합니다.
 
-Event Grid는 Azure 서비스와 긴밀히 통합하고 타사 서비스와 통합할 수 있습니다. 이벤트 소비를 단순화하고 상수 폴링에 대한 필요성을 제거하여 비용을 낮춥니다. Event Grid는 효율적이고 안정적으로 Azure 및 비 Azure 리소스에서 이벤트를 라우팅합니다. 등록된 구독자 끝점에 이벤트를 분산합니다. 이벤트 메시지는 서비스 및 응용 프로그램의 변화에 대응하는 데 필요한 정보를 포함합니다. Event Grid는 데이터 파이프라인이 아니며, 업데이트된 실제 개체를 배달하지 않습니다.
+Event Grid는 Azure 서비스와 긴밀히 통합하고 타사 서비스와 통합할 수 있습니다. 이벤트 소비를 단순화하고 상수 폴링에 대한 필요성을 제거하여 비용을 낮춥니다. Event Grid는 효율적이고 안정적으로 Azure 및 비 Azure 리소스에서 이벤트를 라우팅합니다. 등록된 구독자 엔드포인트에 이벤트를 분산합니다. 이벤트 메시지는 서비스 및 응용 프로그램의 변화에 대응하는 데 필요한 정보를 포함합니다. Event Grid는 데이터 파이프라인이 아니며, 업데이트된 실제 개체를 배달하지 않습니다.
+
+Event Grid는 엔드포인트에 배달되지 않은 이벤트에 대해 배달 못 한 편지 기능을 지원합니다.
 
 다음과 같은 특성이 있습니다.
 

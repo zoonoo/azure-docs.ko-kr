@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684004"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853152"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>빠른 시작: 이미지에서 얼굴을 감지 및 포착하는 Python 스크립트 만들기
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="detect-faces-in-an-image"></a>이미지에서 얼굴 감지
 
-새 Python 스크립트 _FaceQuickstart.py_를 만듭니다. 다음 코드를 추가합니다. 얼굴 감지의 핵심 기능입니다. `<Subscription Key>`를 키 값으로 바꿔야 합니다. 또한 키의 올바른 지역 식별자를 사용하도록 `BASE_URL` 값을 변경해야 할 수도 있습니다. 평가판 구독 키는 **westus** 지역에 생성됩니다. 필요에 따라 `img_url`을 사용하려는 이미지의 URL로 설정합니다.
+새 Python 스크립트 _FaceQuickstart.py_를 만듭니다. 다음 코드를 추가합니다. 얼굴 감지의 핵심 기능입니다. `<Subscription Key>`를 키 값으로 바꿔야 합니다. 또한 키의 올바른 지역 식별자를 사용하도록 `BASE_URL` 값을 변경해야 할 수도 있습니다(모든 지역 엔드포인트 목록에 대해서는 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조). 평가판 구독 키는 **westus** 지역에 생성됩니다. 필요에 따라 `img_url`을 사용하려는 이미지의 URL로 설정합니다.
 
 이 스크립트는 [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API를 래핑하고 얼굴 목록을 반환하는 **cognitive_face.face.detect** 메서드를 호출하여 얼굴을 감지합니다.
 

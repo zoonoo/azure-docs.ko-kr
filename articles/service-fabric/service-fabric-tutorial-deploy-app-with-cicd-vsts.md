@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2017
+ms.date: 11/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7f14151224a9e2baa74183696c92bca06695bf4f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380151"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853743"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포
 
@@ -94,23 +94,23 @@ Azure DevOps 릴리스 파이프라인에서는 응용 프로그램 패키지를
 
 웹 브라우저를 열고 [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting)에서 새 프로젝트로 이동합니다.
 
-**빌드 및 릴리스** 탭을 선택하고 **빌드**를 선택한 다음, **새 파이프라인**을 클릭합니다.
+**파이프라인** 탭을 선택하고 **빌드**를 선택한 다음, **새 파이프라인**을 클릭합니다.
 
 ![새 파이프라인][new-pipeline]
 
-소스로 **Azure DevOps Git**을 선택하고, **Voting** 팀 프로젝트, **Voting** 리포지토리 및 **마스터** 기본 분기 또는 수동 및 예약 빌드를 선택합니다.  그런 후 **계속**을 클릭합니다.
+소스로 **Azure Repos Git**을 선택하고, **Voting** 팀 프로젝트, **Voting** 리포지토리 및 **마스터** 기본 분기 또는 수동 및 예약 빌드를 선택합니다.  그런 후 **계속**을 클릭합니다.
+
+![리포지토리 선택][select-repo]
 
 **템플릿 선택**에서 **Azure Service Fabric 응용 프로그램** 템플릿을 선택하고 **적용**을 클릭합니다.
 
 ![빌드 템플릿 선택][select-build-template]
 
-**작업**에서 **에이전트 큐**로 "호스트된 VS2017"을 입력합니다.
+**작업**에서 **에이전트 풀**로 "호스트된 VS2017"을 입력합니다.
 
 ![태스크 선택][save-and-queue]
 
-**트리거** 아래에서 **지속적인 통합 사용**을 선택하여 지속적인 통합을 사용하도록 설정합니다. **분기 필터** 내에서 **+ 추가**를 클릭하면 **분기 사양**이 기본값인 **마스터**로 지정됩니다. **저장 및 큐**를 선택하여 수동으로 빌드를 시작합니다.
-
-**빌드 파이프라인 및 큐 저장 대화 상자**에서 **저장 및 큐에 넣기**를 클릭합니다.
+**트리거** 아래에서 **지속적인 통합 사용**을 선택하여 지속적인 통합을 사용하도록 설정합니다. **분기 필터** 내에서 **분기 사양**이 기본값인 **마스터**로 지정됩니다. **저장 및 큐**를 선택하여 수동으로 빌드를 시작합니다.
 
 ![트리거 선택][save-and-queue2]
 
@@ -118,7 +118,7 @@ Azure DevOps 릴리스 파이프라인에서는 응용 프로그램 패키지를
 
 ### <a name="create-a-release-pipeline"></a>릴리스 파이프라인 만들기
 
-**빌드 및 릴리스** 탭, **릴리스**, **+ 새 파이프라인**을 차례로 선택합니다.  **템플릿 선택**에서 목록의 **Azure Service Fabric 배포** 템플릿을 선택하고 **적용**을 선택합니다.
+**파이프라인** 탭, **릴리스**, **+ 새 파이프라인**을 차례로 선택합니다.  **템플릿 선택**에서 목록의 **Azure Service Fabric 배포** 템플릿을 선택하고 **적용**을 선택합니다.
 
 ![릴리스 템플릿 선택][select-release-template]
 
@@ -198,6 +198,7 @@ Azure DevOps에 변경 내용을 푸시하면 빌드가 자동으로 트리거�
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
+[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

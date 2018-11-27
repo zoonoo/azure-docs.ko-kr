@@ -8,12 +8,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 85d6ac0084343dc821a4eaf91c8053c9885ccfeb
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366049"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706996"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>자습서: Azure Time Series Insights JavaScript 클라이언트 라이브러리
 
@@ -36,7 +36,7 @@ ms.locfileid: "46366049"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) 등 대부분의 최신 웹 브라우저에서 볼 수 있는 "개발자 도구" 기능(일명 DevTools 또는 F12)을 사용합니다. 아직 이 기능에 익숙하지 않은 경우 계속 진행하기 전에 브라우저에서 이 기능을 탐구하는 것이 좋습니다.
+이 자습서에서는 [Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) 등 대부분의 최신 웹 브라우저에서 볼 수 있는 "개발자 도구" 기능(일명 DevTools 또는 F12)을 사용합니다. 아직 이 기능에 익숙하지 않은 경우 계속 진행하기 전에 브라우저에서 이 기능을 탐구하는 것이 좋습니다.
 
 ## <a name="time-series-insights-sample-application"></a>Time Series Insights 샘플 응용 프로그램
 

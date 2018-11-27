@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: a5223b026705cef5abbcd0be6f64cf0c98fd0930
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309028"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283964"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>빠른 시작: C#을 사용하여 텍스트 분석 Cognitive Service 호출
 <a name="HOLTop"></a>
 
-이 문서에서는 [텍스트 분석 API](//go.microsoft.com/fwlink/?LinkID=759711) 및 C#을 사용하여 언어 감지, 감정 분석 및 핵심 구 추출을 수행하는 방법을 보여 줍니다. 코드는 최소한의 외부 라이브러리 참조를 사용하여 .NET Core 응용 프로그램에서 작동하도록 작성되었으므로, Linux 또는 MacOS에서 실행할 수도 있습니다.
+이 문서에서는  [Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711) 및 C#을 사용하여 언어 감지, 감정 분석 및 핵심 구 추출을 수행하는 방법을 보여 줍니다. 코드는 최소한의 외부 라이브러리 참조를 사용하여 .NET Core 응용 프로그램에서 작동하도록 작성되었으므로, Linux 또는 MacOS에서 실행할 수도 있습니다.
 
 API 기술 문서는 [API 정의](//go.microsoft.com/fwlink/?LinkID=759346)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-**텍스트 분석 API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. **매월 5,000개 트랜잭션의 체험 계층**을 사용하여 이 빠른 시작을 완료할 수 있습니다.
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 등록하는 동안 생성된 [엔드포인트 및 액세스 키](../How-tos/text-analytics-how-to-access-key.md)도 있어야 합니다. 
 

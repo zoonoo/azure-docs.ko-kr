@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: 949fb2487c3ca519c1d7022c1434d0a029ed20bb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cb713ac53b399d8ba79d003ee6d948bb5af5220b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627873"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975775"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역을 위한 사용자 지정 모델 빌드, 배포 및 사용
 
@@ -26,7 +26,7 @@ ms.locfileid: "51627873"
 
 2. Azure Portal 통해 Translator Text API 구독. Custom Translator에서 작업 영역과 연결할 Translator Text API 구독 키가 필요합니다. [Translator Text API에 등록하는 방법](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)을 참조하세요.
 
-3. 위의 두 가지 조건이 모두 준비되면 [Custom Translator](https://portal.customtranslator.azure.ai) 포털에 로그인합니다. Custom Translator 포털에서, Microsoft Translator Text API 구독 키를 작업 영역과 연결할 수 있는 [설정] 페이지로 이동합니다. 
+3. 위의 두 가지 조건이 모두 준비되면 [Custom Translator](https://portal.customtranslator.azure.ai) 포털에 로그인합니다. Custom Translator 포털에서, Microsoft Translator Text API 구독 키를 작업 영역과 연결할 수 있는 [설정] 페이지로 이동합니다.
 
 ## <a name="create-a-project"></a>프로젝트 만들기
 
@@ -49,11 +49,11 @@ Custom Translator 포털 방문 페이지에서 [새 프로젝트]를 클릭합�
 
 필수 문서가 모두 업로드되면 그 다음 단계는 모델 빌드입니다.
 
-앞에서 만든 프로젝트를 선택합니다. 업로드한 모든 문서가 이 프로젝트와 언어 쌍을 공유하는 것을 볼 수 있습니다. 모델에 포함할 문서를 선택합니다. [교육](training-and-model.md#training-dataset-for-custom-translator), [튜닝](training-and-model.md#tuning-dataset-for-custom-translator) 및 [테스트](training-and-model.md#testing-dataset-for-custom-translator) 데이터를 선택할 수도 있고, 교육 데이터만 선택하고 Custom Translator가 자동으로 모델의 튜닝 및 테스트 집합을 빌드하게 할 수도 있습니다.
+앞에서 만든 프로젝트를 선택합니다. 업로드한 모든 문서가 이 프로젝트와 언어 쌍을 공유하는 것을 볼 수 있습니다. 모델에 포함할 문서를 선택합니다. [교육](training-and-model.md#training-dataset-for-custom-translator), [튜닝](training-and-model.md#tuning-dataset-for-custom-translator) 및 [테스트](training-and-model.md#testing-dataset-for-custom-translator) 데이터를 선택할 수도 있고, 교육 데이터만 선택하고 Custom Translator가 자동으로 모델의 튜닝 및 테스트 세트를 빌드하게 할 수도 있습니다.
 
 ![모델 만들기](media/quickstart/ct-how-to-train.png)
 
-원하는 문서를 선택했으면 [모델 만들기] 단추를 클릭하여 모델을 만들고 교육을 시작합니다. 교육 상태 및 교육한 모델에 대한 모든 상세 정보를 [모델] 탭에서 볼 수 있습니다.
+원하는 문서를 선택했으면 모델 만들기 단추를 클릭하여 모델을 만들고 교육을 시작합니다. 교육 상태 및 교육한 모델에 대한 모든 상세 정보를 모델 탭에서 볼 수 있습니다.
 
 자세한 내용은 [모델 만들기](how-to-train-model.md)를 참조하세요.
 

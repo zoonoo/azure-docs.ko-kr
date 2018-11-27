@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 355d3258392fa722fbdc3762a9125a22e8a69b67
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0d0ff627ad2549ff9b6f09b6c934c5a17a102962
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954305"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852373"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>빠른 시작: REST API 및 JavaScript를 사용하여 이미지에서 얼굴 감지
 
@@ -37,10 +37,10 @@ ms.locfileid: "49954305"
 샘플을 실행하려면 다음 단계를 수행합니다.
 
 1. 다음을 복사하고 `detectFaces.html` 같은 파일에 저장합니다.
-2. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
-3. 필요한 경우 `uriBase` 값을 변경하여 구독 키를 가져온 위치를 사용합니다.
-4. 파일을 브라우저로 끌어서 놓습니다.
-5. `Analyze faces` 단추를 클릭합니다.
+1. `<Subscription Key>`를 유효한 구독 키로 바꿉니다.
+1. 필요한 경우 구독 키를 획득한 위치를 사용하도록 `uriBase` 값을 변경합니다(모든 지역 엔드포인트 목록에 대해서는 [Face API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조).
+1. 파일을 브라우저로 끌어서 놓습니다.
+1. `Analyze faces` 단추를 클릭합니다.
 
 ### <a name="face---detect-request"></a>얼굴 - 감지 요청
 
@@ -63,7 +63,7 @@ ms.locfileid: "49954305"
         // subscription keys from westus, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the "westus" region.
         // If you use a free trial subscription key, you shouldn't need to change 
         // this region.
         var uriBase =

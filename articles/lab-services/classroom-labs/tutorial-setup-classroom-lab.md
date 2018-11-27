@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/05/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856641"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706010"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -81,7 +81,7 @@ ms.locfileid: "48856641"
 
         > [!WARNING]
         > 게시한 후에는 게시를 취소할 수 없습니다. 
-    2. 나중에 게시하려면 **나중을 위해 저장**을 선택합니다. 마법사가 완료되면 템플릿 VM을 게시할 수 있습니다. 마법사가 완료된 후에 템플릿을 구성하고 게시하는 방법에 대한 자세한 내용은 [클래스룸 랩을 관리하는 방법](how-to-manage-classroom-labs.md) 문서의 [템플릿 게시](how-to-manage-classroom-labs.md#publish-the-template) 섹션을 참조하세요.
+    2. 나중에 게시하려면 **나중을 위해 저장**을 선택합니다. 마법사가 완료되면 템플릿 VM을 게시할 수 있습니다. 마법사가 완료된 후에 템플릿을 구성하고 게시하는 방법에 대한 자세한 내용은 [클래스룸 랩을 관리하는 방법](how-to-manage-classroom-labs.md) 문서의 [템플릿 게시](how-to-create-manage-template.md#publish-the-template-vm) 섹션을 참조하세요.
 
         ![템플릿 게시](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. 템플릿 **게시 진행률**이 표시됩니다. 이 프로세스는 최대 1시간이 걸릴 수 있습니다. 
@@ -97,17 +97,33 @@ ms.locfileid: "48856641"
 
     ![중지됨 상태의 가상 머신](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+## <a name="add-users-to-the-lab"></a>랩에 사용자 추가
+
+1. 왼쪽 메뉴에서 **사용자**를 선택합니다. 기본적으로 **액세스 제한** 옵션이 사용되도록 설정됩니다. 이 설정이 켜져 있으면 사용자가 사용자 목록에 없으면 등록 링크가 있어도 랩에 등록할 수 없습니다. 목록의 사용자만 전송 받은 등록 링크를 사용하여 랩에 등록할 수 있습니다. 이 절차에서는 사용자를 목록에 추가합니다. **액세스 제한**을 끌 수도 있습니다. 이 경우 사용자는 등록 링크가 있기만 하면 랩에 등록할 수 있습니다. 
+2. 도구 모음에서 **사용자 추가**를 선택합니다. 
+3. **사용자 추가** 페이지에서 여러 줄에 걸쳐 또는 세미콜론으로 구분해서 단일 줄에 사용자의 이메일 주소를 입력합니다. 
+
+    ![사용자 이메일 주소 추가](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. **저장**을 선택합니다. 목록에서 사용자의 이메일 주소 및 해당 상태(등록됨 또는 등록 해제됨)를 확인합니다. 
+
+    ![사용자 목록](../media/how-to-configure-student-usage/users-list-new.png)
+
+
 ## <a name="send-registration-link-to-students"></a>학생에게 등록 링크 보내기
 
-1. 왼쪽 메뉴에서 **대시보드**를 선택하여 **대시보드** 보기로 전환합니다. 
-2. **사용자 등록** 타일을 선택합니다.
+1. 페이지에 아직 표시되지 않으면 **사용자** 보기로 전환합니다. 
+2. **등록 링크 가져오기** 타일을 선택합니다.
 
     ![학생 등록 ​링크](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. **사용자 등록** 대화 상자에서 **복사** 단추를 선택합니다. 링크가 클립보드에 복사됩니다. 이메일 편집기에 붙여넣고 학생에게 이메일을 보냅니다. 
+1. **사용자 등록** 대화 상자에서 **복사** 단추를 선택합니다. 링크가 클립보드에 복사됩니다. 
 
     ![학생 등록 ​링크](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. **사용자 등록** 대화 상자에서 **닫기**를 선택합니다. 
-3. 학생이 강의에 등록할 수 있도록 등록 링크를 학생들과 공유합니다. 
+4. 학생이 강의에 등록할 수 있도록 등록 링크를 학생들과 공유합니다. **제한 옵션** 설정을 사용하도록 설정했으며 목록에 사용자 목록이 있으면 다음 작업을 수행합니다.
+    1. 목록에서 사용자의 **이메일 주소**를 선택합니다. 
+    2. 기본 이메일 프로그램 창에 **받는 사람** 주소가 표시됩니다. 
+    3. 이전에 복사한 **등록 URL**을 붙여 넣습니다. 
+    4. **이메일**을 보냅니다.
 
 
 ## <a name="next-steps"></a>다음 단계

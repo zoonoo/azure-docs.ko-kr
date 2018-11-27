@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 29d673f48671ec917e45b7ff76feeebf0b868c4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.date: 11/21/2018
+ms.openlocfilehash: 76436da1013c6747e9167c006e0d7c5e89ec8d9c
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426892"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284747"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>자습서: Azure Machine Learning 서비스에서 자동화된 기계 학습을 사용하여 분류 모델 학습
 
@@ -34,7 +34,10 @@ ms.locfileid: "49426892"
 > * 학습 결과 검토
 > * 최적 모델 등록
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
+
+>[!NOTE]
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.79에서 테스트됨
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
@@ -214,7 +217,7 @@ Jupyter 위젯을 사용하거나 실험 기록을 검사하여 실험의 결과
 Jupyter Notebook 위젯을 사용하여 모든 결과에 대한 그래프 및 테이블을 확인합니다.
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 

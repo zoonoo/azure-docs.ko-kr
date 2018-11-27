@@ -1,24 +1,19 @@
 ---
-title: Apache Kafka용 Azure Event Hubs로 스트리밍 | Microsoft Docs
+title: Apache Kafka용 Azure Event Hubs로 스트리밍
 description: Kafka 프로토콜 및 API를 사용하여 Event Hubs로 스트리밍합니다.
 services: event-hubs
-documentationcenter: ''
 author: basilhariri
-manager: timlt
+ms.author: bahariri
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/01/2018
-ms.author: bahariri
-ms.openlocfilehash: 18224c3ebf3b5dd9920dcc4b4868ee8bb42e5f91
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 748ed7dde98d81de6e1d2661c6ce50d10357ba3d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418792"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975314"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Apache Kafka용 Event Hubs로 스트리밍
 이 빠른 시작에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Kafka 지원 Event Hubs로 스트리밍하는 방법을 보여줍니다. 생산자와 소비자가 응용 프로그램 구성을 간단하게 변경하여 Kafka 지원 Event Hubs로 대화하는 방법을 알아봅니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
@@ -47,7 +42,7 @@ ms.locfileid: "50418792"
  
 3. 고유 이름을 제공하고 네임스페이스에서 Kafka를 사용하도록 설정합니다. **만들기**를 클릭합니다.
     
-    ![네임스페이스 만들기](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![네임스페이스 만들기](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. 네임스페이스가 만들어지면 **설정** 탭에서 **공유 액세스 정책**을 클릭하여 연결 문자열을 가져옵니다.
 

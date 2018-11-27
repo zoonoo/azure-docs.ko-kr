@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: e6e49a03ee76c50cb2fff492bfd50b2820abafe4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 067a8deb935fb8a49d72c6ce441e8d9760c5390c
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343761"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283658"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서 1: Azure Machine Learning Service로 이미지 분류 모델 학습시키기
 
@@ -33,7 +33,10 @@ ms.locfileid: "49343761"
 
 모델을 선택하고 배포하는 방법은 나중에 이 [자습서의 제2부](tutorial-deploy-models-with-aml.md)에서 알아봅니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
+
+>[!NOTE]
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.79에서 테스트했습니다.
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
@@ -42,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> 이 자습서는 Azure Machine Learning SDK 0.168 버전을 사용하여 테스트했습니다. 
+> 이 자습서는 Azure Machine Learning SDK 0.1.74 버전을 사용하여 테스트했습니다. 
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 
@@ -93,41 +96,43 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-remote-compute-target"></a>원격 계산 대상 만들기
 
-Azure Batch AI는 데이터 과학자가 GPU를 지원하는 VM을 포함하여 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습시킬 수 있게 해주는 관리 서비스입니다.  이 자습서에서는 학습 환경으로 Azure Batch AI 클러스터를 만듭니다. 사용자의 작업 영역에 클러스터가 아직 없으면 이 코드가 새로 만듭니다. 
+Azure ML Managed Compute는 데이터 과학자가 GPU를 지원하는 VM을 포함하여 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습시킬 수 있게 해주는 관리 서비스입니다.  이 자습서에서는 학습 환경으로 Azure Managed Compute 클러스터를 만듭니다. 사용자의 작업 영역에 클러스터가 아직 없으면 이 코드가 새로 만듭니다. 
 
  **클러스터를 만드는 데 약 5분이 소요됩니다.** 클러스터가 이미 작업 영역에 있는 경우 이 코드는 해당 클러스터를 사용하고 클러스터 생성 프로세스를 건너뜁니다.
 
 
 ```python
-from azureml.core.compute import ComputeTarget, BatchAiCompute
-from azureml.core.compute_target import ComputeTargetException
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
 
 # choose a name for your cluster
-batchai_cluster_name = "traincluster"
+compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
 
-try:
-    # look for the existing cluster by name
-    compute_target = ComputeTarget(workspace=ws, name=batchai_cluster_name)
-    if type(compute_target) is BatchAiCompute:
-        print('found compute target {}, just use it.'.format(batchai_cluster_name))
-    else:
-        print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
-except ComputeTargetException:
+# This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
+vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+
+
+if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('found compute target. just use it. ' + compute_name)
+else:
     print('creating a new compute target...')
-    compute_config = BatchAiCompute.provisioning_configuration(vm_size="STANDARD_D2_V2", # small CPU-based VM
-                                                                #vm_priority='lowpriority', # optional
-                                                                autoscale_enabled=True,
-                                                                cluster_min_nodes=0, 
-                                                                cluster_max_nodes=4)
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
+                                                                min_nodes = compute_min_nodes, 
+                                                                max_nodes = compute_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, batchai_cluster_name, compute_config)
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it uses the scale settings for the cluster
+    # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-    # Use the 'status' property to get a detailed status for the current cluster. 
+     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -143,7 +148,7 @@ except ComputeTargetException:
 
 ### <a name="download-the-mnist-dataset"></a>MNIST 데이터 집합 다운로드
 
-MNIST 데이터 집합을 다운로드하고 파일을 `data` 디렉터리에 로컬로 저장합니다.  학습 및 테스트용 이미지 및 레이블이 모두 다운로드됩니다.  
+MNIST 데이터 집합을 다운로드하고 파일을 `data` 디렉터리에 로컬로 저장합니다.  학습 및 테스트용 이미지 및 레이블이 모두 다운로드됩니다.
 
 
 ```python
@@ -160,7 +165,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>일부 샘플 이미지 표시
 
-압축된 파일을 `numpy` 배열로 로드합니다. 그런 다음, `matplotlib`를 사용하여 데이터 집합에 있는 30개의 무작위 이미지를 그리고, 위에 레이블을 표시합니다. 이 단계를 수행하려면 `util.py` 파일에 포함된 `load_data` 함수가 필요합니다. 이 파일은 샘플 폴더에 포함되어 있습니다. 이 노트북과 동일한 폴더에 배치되어 있는지 확인합니다. `load_data` 함수는 압축 파일을 numpy 배열로 구문 분석합니다.
+압축된 파일을 `numpy` 배열로 로드합니다. 그런 다음, `matplotlib`를 사용하여 데이터 집합에 있는 30개의 무작위 이미지를 그리고, 위에 레이블을 표시합니다. 이 단계를 수행하려면 `util.py` 파일에 포함된 `load_data` 함수가 필요합니다. 이 파일은 샘플 폴더에 포함되어 있습니다. 이 노트북과 동일한 폴더에 배치되어 있는지 확인합니다. `load_data` 함수는 압축 파일을 numpy 배열로 간단히 구문 분석합니다.
 
 
 
@@ -209,9 +214,9 @@ ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=T
 ```
 이제 모델 학습을 시작하는 데 필요한 모든 준비가 갖추어졌습니다. 
 
-## <a name="train-a-model-locally"></a>로컬로 모델 학습
+## <a name="train-a-local-model"></a>로컬 모델 학습
 
-scikit-learn의 간단한 로지스틱 회귀 모델을 로컬로 학습합니다.
+scikit-learn을 사용하여 간단한 로지스틱 회귀 모델을 로컬로 학습합니다.
 
 **로컬 학습은 컴퓨터 구성에 따라 1~2분이 소요**될 수 있습니다.
 
@@ -243,7 +248,7 @@ print(np.average(y_hat == y_test))
 이 태스크의 경우 이전에 설정한 원격 학습 클러스터로 작업을 제출하세요.  작업을 제출하려면
 * 디렉터리 만들기
 * 학습 스크립트 만들기
-* 추정기 만들기
+* Estimator 개체 만들기
 * 작업 제출 
 
 ### <a name="create-a-directory"></a>디렉터리 만들기
@@ -314,11 +319,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 이 스크립트가 데이터를 가져오고 모델을 저장하는 방법은 다음과 같습니다.
 
-+ 학습 스크립트는 인수를 읽어 데이터를 포함하는 디렉터리를 찾습니다.  나중에 작업을 제출할 때 이 인수에 대한 데이터 저장소를 가리킵니다(`parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data directory mounting point')`).
-
++ 학습 스크립트는 인수를 읽어 데이터를 포함하는 디렉터리를 찾습니다.  나중에 작업을 제출할 때 이 인수에 대한 데이터 저장소를 가리킵니다(`parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`).
     
 + 학습 스크립트는 모델을 outputs 디렉터리에 저장합니다. <br/>
-`joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')`<br/>
+`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 이 디렉터리에 작성된 모든 내용은 작업 영역으로 자동 업로드됩니다. 자습서 뒷부분에서 이 디렉터리의 모델에 액세스하게 됩니다.
 
 `utils.py` 파일은 데이터 집합을 올바르게 로드하기 위해 학습 스크립트에서 참조됩니다.  이 스크립트를 원격 리소스의 학습 스크립트와 함께 액세스할 수 있도록 스크립트 폴더에 복사하세요.
@@ -341,7 +345,7 @@ shutil.copy('utils.py', script_folder)
 * 학습 스크립트의 필요한 매개 변수 
 * 학습에 필요한 Python 패키지
 
-이 자습서에서 이 대상은 Batch AI 클러스터입니다. 프로젝트 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다. data_folder는 데이터 저장소를 사용하도록 설정되어 있습니다(`ds.as_mount()`).
+이 자습서에서 이 대상은 Batch AI 클러스터입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다. data_folder는 데이터 저장소를 사용하도록 설정되어 있습니다(`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator
@@ -395,7 +399,7 @@ Jupyter 위젯으로 실행의 진행 상태를 감시합니다.  실행 제출�
 
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
@@ -423,7 +427,7 @@ print(run.get_metrics())
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
-배포 자습서에서 이 모델을 좀 더 자세히 알아봅니다.
+다음 자습서에서 이 모델을 좀 더 자세히 알아봅니다.
 
 ## <a name="register-model"></a>모델 등록
 

@@ -4,17 +4,17 @@ description: 시뮬레이트된 에지 장치에서 분석을 실행하여 Azure
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/02/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 16c5b15612acebacfa034c6c55dd053a21eac0d2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 78cb00c568942e6b8c0f5da035381c82f5789a08
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566332"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977015"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -61,7 +61,7 @@ IoT Edge 장치:
 * IoT Edge 장치 역할을 하는 Windows 컴퓨터 또는 가상 머신입니다. 지원되는 Windows 버전을 사용하세요.
   * Windows 10 이상
   * Windows Server 2016 이상
-* Windows 컴퓨터인 경우 Hyper-v [시스템 요구 사항](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)을 충족하는지 확인합니다.
+* Windows 컴퓨터인 경우 Hyper-V [시스템 요구 사항](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)을 충족하는지 확인합니다.
 * 가상 머신인 경우 [중첩된 가상화](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)를 사용하도록 설정하고 최소 2GB 메모리를 할당하세요.
 * [Windows용 Docker](https://docs.docker.com/docker-for-windows/install/)를 설치하고, 지금 실행 중인지 확인합니다.
 
@@ -82,7 +82,7 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
    ```
 
-   구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다.
+   구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다. IoT Hub 이름을 사용할 수 없다는 오류가 발생할 경우 다른 사용자에게 해당 이름의 허브가 이미 있는 것입니다. 새 이름을 사용해 보세요. 
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge 장치 등록
 
@@ -91,7 +91,7 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합
 
 IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 만듭니다. 장치 ID는 클라우드에 있으며, 사용자는 고유한 장치 연결 문자열을 사용하여 물리적 장치를 장치 ID에 연결합니다.
 
-IoT Edge 장치는 일반적인 IoT 장치와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, 처음부터 IoT Edge 장치로 선언합니다.
+IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, `--edge-enabled` 플래그를 사용하여 이 ID를 IoT Edge 디바이스로 선언합니다. 
 
 1. Azure Cloud Shell에서 다음 명령을 입력하여 **myEdgeDevice**라는 장치를 허브에 만듭니다.
 
@@ -99,13 +99,15 @@ IoT Edge 장치는 일반적인 IoT 장치와 다르게 작동하며 다른 방�
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
-1. IoT Hub에서 물리적 장치를 해당 ID에 연결하는 장치에 대한 연결 문자열을 검색합니다.
+   iothubowner 정책 키에 대한 오류가 표시될 경우 Cloud Shell에서 최신 버전의 azure-cli-iot-ext 확장이 실행 중인지 확인합니다. 
+
+2. IoT Hub에서 물리적 장치를 해당 ID에 연결하는 장치에 대한 연결 문자열을 검색합니다.
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-1. 연결 문자열을 복사하고 저장합니다. 다음 섹션에서 이 값을 사용하여 IoT Edge 런타임을 구성할 것입니다.
+3. 연결 문자열을 복사하고 저장합니다. 다음 섹션에서 이 값을 사용하여 IoT Edge 런타임을 구성할 것입니다.
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge 런타임 설치 및 시작
 
@@ -118,7 +120,9 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
 
 이 섹션의 지침은 Linux 컨테이너를 사용하여 IoT Edge 런타임을 구성합니다. Windows 컨테이너를 사용하려는 경우 [Windows 컨테이너를 사용하려면 Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows-with-windows.md)를 참조하세요.
 
-IoT Edge 장치로 작동하도록 준비한 Windows 머신 또는 VM에서 다음 단계를 완료합니다.
+### <a name="connect-to-your-iot-edge-device"></a>IoT Edge 디바이스에 연결
+
+이 섹션의 단계는 모두 IoT Edge 디바이스에서 수행됩니다. 사용자 고유의 머신을 IoT Edge 디바이스로 사용하는 경우 이 부분을 건너뛰어도 됩니다. 가상 머신 또는 보조 하드웨어를 사용하는 경우 이제 해당 머신에 연결할 수 있습니다. 
 
 ### <a name="download-and-install-the-iot-edge-service"></a>IoT Edge 서비스 다운로드 및 설치
 
@@ -195,7 +199,7 @@ iotedge logs tempSensor -f
 
   ![모듈의 데이터 보기](./media/quickstart/iotedge-logs.png)
 
-[Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT Hub에서 받는 메시지를 볼 수 있습니다.
+[Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT Hub에 메시지가 들어오는 것을 확인할 수도 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -203,7 +207,7 @@ IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하�
 
 ### <a name="delete-azure-resources"></a>Azure 리소스 삭제
 
-새 리소스 그룹에서 가상 머신 및 IoT 허브를 만든 경우 해당 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 유지하려는 모든 해당 리소스 그룹에 있는 경우 정리하려는 개별 리소스를 삭제합니다.
+새 리소스 그룹에서 가상 머신 및 IoT 허브를 만든 경우 해당 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 리소스 그룹의 콘텐츠를 한 번 더 확인하여 유지할 내용이 없는지 검토합니다. 전체 그룹을 삭제하지는 않으려는 경우 대신, 개별 리소스를 삭제할 수 있습니다.
 
 **IoTEdgeResources** 그룹을 제거합니다.
 

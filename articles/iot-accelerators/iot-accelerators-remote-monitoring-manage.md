@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222152"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821070"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 장치 구성 및 관리
 
@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="act-on-a-device"></a>장치에서 작동
 
-시뮬레이션된 엔진 장치가 대시보드에서 시작된 작업에 제대로 응답하는지 테스트하려면 **FirmwareUpdate** 메서드를 실행합니다. 메서드를 실행하여 장치에 조치를 취하려면 장치 목록에서 장치를 선택한 다음, **작업**을 선택합니다. 여러 장치에 조치를 취하려면 둘 이상의 장치를 선택할 수 있습니다. **작업** 패널에서 **메서드 실행**을 선택합니다. **엔진** 장치 모델은 세 가지 메서드 즉, **FirmwareUpdate**, **FillTank** 및 **EmptyTank**를 지정합니다.
+시뮬레이션된 엔진 장치가 대시보드에서 시작된 작업에 제대로 응답하는지 테스트하려면 **FirmwareUpdate** 메서드를 실행합니다. 메서드를 실행하여 장치에 조치를 취하려면 장치 목록에서 장치를 선택한 다음, **작업**을 선택합니다. 여러 장치에 조치를 취하려면 둘 이상의 장치를 선택할 수 있습니다. **작업** 패널에서 **메서드**를 선택합니다. **엔진** 장치 모델은 세 가지 메서드 즉, **FirmwareUpdate**, **FillTank** 및 **EmptyTank**를 지정합니다.
 
 [![엔진 메서드](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -81,7 +81,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="reconfigure-a-device"></a>장치 다시 구성
 
-엔진의 구성 속성을 업데이트할 수 있는지 테스트하려면 **장치** 페이지의 장치 목록에서 해당 항목을 선택합니다. 그런 다음, **작업**을 클릭하고 **다시 구성**을 선택합니다. 작업 패널에 선택한 장치에 대해 업데이트 가능한 속성 값이 표시됩니다.
+엔진의 구성 속성을 업데이트할 수 있는지 테스트하려면 **장치** 페이지의 장치 목록에서 해당 항목을 선택합니다. 그런 다음, **작업**을 클릭하고 **속성**을 선택합니다. 작업 패널에 선택한 장치에 대해 업데이트 가능한 속성 값이 표시됩니다.
 
 [![장치 다시 구성](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 

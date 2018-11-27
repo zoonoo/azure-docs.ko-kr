@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 710d157dcf4c6d060e59bcfbb69455e2ddc91bdd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d5761e3e37e1265938d1f1b27324de667a13ca
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450133"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707098"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>자습서: Azure Lab Services에서 랩 사용량 추적
 이 자습서에서는 랩 작성자/소유자가 랩 사용량을 추적하는 방법을 보여줍니다.
@@ -49,18 +49,14 @@ ms.locfileid: "39450133"
     ![VM 사용량](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>학생 VM 관리 
-가상 머신 목록의 행을 마우스로 가리키면 다음 작업을 수행하는 컨트롤이 표시됩니다. 
+가상 머신 목록의 행을 마우스로 가리키면 다음 작업을 수행하는 컨트롤이 표시됩니다(이전 섹션의 이미지 참조). 
 
 - VM에 연결
 - VM 시작
 - VM 중지
 - VM 삭제
 
-![VM 컨트롤](../media/tutorial-track-usage/vm-controls.png) 
-
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 랩에 등록한 사용자를 찾고, 랩에서 VM 사용량을 추적하고, 랩에서 VM을 관리하는 방법을 알아보았습니다.
-
-클래스룸 랩에 대한 자세한 내용은 [방법 가이드](how-to-manage-lab-accounts.md)의 토픽을 참조하세요.
+클래스룸 랩에 대한 자세한 내용은 [방법 가이드](how-to-manage-lab-accounts.md)의 문서를 참조하세요.
