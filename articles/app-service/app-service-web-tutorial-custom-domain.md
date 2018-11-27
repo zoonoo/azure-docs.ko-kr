@@ -42,7 +42,7 @@ ms.locfileid: "43664890"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서를 위해 만든 앱을 사용합니다.
+* [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서에서 만든 앱을 사용합니다.
 * 도메인 이름을 구입하고 도메인 공급자(예: GoDaddy)의 DNS 레지스트리에 대한 액세스 권한이 있는지 확인합니다.
 
   예를 들어 `contoso.com` 및 `www.contoso.com`에 대한 DNS 항목을 추가하려면 `contoso.com` 루트 도메인에 대한 DNS 설정을 구성할 수 있어야 합니다.
