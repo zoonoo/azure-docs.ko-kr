@@ -89,7 +89,7 @@ ms.locfileid: "45634362"
 
    ![TestConfig 구성 블레이드의 스크린샷](./media/automation-dsc-getting-started/ViewConfigSource.png)
 
-   **TestConfig 구성 소스** 페이지가 열리고 구성에 대한 PowerShell 코드를 표시합니다.
+   **TestConfig 구성 소스** 페이지가 열리고 구성에 대한 PowerShell 코드가 표시됩니다.
 
 ## <a name="compiling-a-configuration-in-azure-automation"></a>Azure Automation에서 구성 컴파일
 
