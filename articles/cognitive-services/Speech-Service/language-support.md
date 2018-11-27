@@ -90,7 +90,7 @@ en-IE | 영어(아일랜드) |Male | “Microsoft Server Speech Text to Speech V
 en-IN | 영어(인도) | Female | “Microsoft Server Speech Text to Speech Voice(en-IN, Heera, Apollo)”
 | | |Female | “Microsoft Server Speech Text to Speech Voice(en-IN, PriyaRUS)”
 | | |Male | “Microsoft Server Speech Text to Speech Voice(en-IN, Ravi, Apollo)”
-ko-KR | 영어(미국) |Female | “Microsoft Server Speech Text to Speech Voice(en-US, ZiraRUS)”
+en-US | 영어(미국) |Female | “Microsoft Server Speech Text to Speech Voice(en-US, ZiraRUS)”
 | | |Female | “Microsoft Server Speech Text to Speech Voice(en-US, JessaRUS)”
 | | |Male | “Microsoft Server Speech Text to Speech Voice(en-US, BenjaminRUS)”
 | | |Female | “Microsoft Server Speech Text to Speech Voice(en-US, Jessa24kRUS)”
