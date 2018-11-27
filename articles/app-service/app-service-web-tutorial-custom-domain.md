@@ -58,7 +58,7 @@ ms.locfileid: "43664890"
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[클래식 포털](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+[Azure 포털](https://portal.azure.com)에서 Azure 계정으로 로그인합니다.
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>Azure Portal에서 앱으로 이동합니다.
 
