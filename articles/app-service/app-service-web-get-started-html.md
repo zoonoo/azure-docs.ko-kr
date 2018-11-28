@@ -66,7 +66,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-샘플 코드를 포함하는 디렉터리로 변경하고 `az webapp up` 명령을 실행합니다.
+샘플 코드가 들어있는 디렉토리로 이동한 후 `az webapp up` 명령을 실행합니다.
 
 다음 명령에서 <app_name>을 고유한 앱 이름으로 바꿉니다.
 
