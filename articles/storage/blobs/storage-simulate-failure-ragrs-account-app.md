@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 044cc30a418f3c54053a6f4878f97f5c9ea9f9e2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180946"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335115"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>자습서: 읽기 액세스 중복 저장소 액세스 오류 시뮬레이션
 
@@ -145,7 +145,7 @@ nslookup STORAGEACCOUNTNAME.blob.core.windows.net
  
 `<destination_ip>`을 저장소 계정 IP 주소로, `<gateway_ip>`를 로컬 호스트 IP 주소로 바꿉니다. 응용 프로그램을 다시 시작하려면 **아무 키**를 누릅니다.
 
-응용 프로그램이 다시 실행되기 시작하면 기본 엔드포인트에 대한 요청이 실패하기 시작합니다. 응용 프로그램이 기본 엔드포인트로 다시 연결을 5회 시도합니다. 5회의 실패 임계값 후에는 보조 읽기 전용 엔드포인트에서 이미지를 요청합니다. 응용 프로그램이 보조 엔드포인트에서 이미지를 20회 성공적으로 검색하면 응용 프로그램이 기본 엔드포인트에 연결을 시도합니다. 그래도 기본 엔드포인트에 연결할 수 없는 경우 응용 프로그램은 보조 엔드포인트에서 읽기를 다시 시작합니다. 이 패턴은 이전 자습서에서 설명한 [회로 차단기](/azure/architecture/patterns/circuit-breaker.md) 패턴입니다.
+응용 프로그램이 다시 실행되기 시작하면 기본 엔드포인트에 대한 요청이 실패하기 시작합니다. 응용 프로그램이 기본 엔드포인트로 다시 연결을 5회 시도합니다. 5회의 실패 임계값 후에는 보조 읽기 전용 엔드포인트에서 이미지를 요청합니다. 응용 프로그램이 보조 엔드포인트에서 이미지를 20회 성공적으로 검색하면 응용 프로그램이 기본 엔드포인트에 연결을 시도합니다. 그래도 기본 엔드포인트에 연결할 수 없는 경우 응용 프로그램은 보조 엔드포인트에서 읽기를 다시 시작합니다. 이 패턴은 이전 자습서에서 설명한 [회로 차단기](/azure/architecture/patterns/circuit-breaker) 패턴입니다.
 
 ### <a name="simulate-primary-endpoint-restoration"></a>기본 엔드포인트 복원 시뮬레이션
 
