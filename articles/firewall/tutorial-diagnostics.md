@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987435"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426170"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>자습서: Azure Firewall 로그 모니터링
 
 방화벽 로그를 사용하여 Azure Firewall을 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다. 메트릭을 사용하여 포털에서 성능 카운터를 볼 수 있습니다. 
 
-이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 로그를 [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), 저장소 및 Event Hubs로 보내 Log Analytics 또는 Excel 및 Power BI 같은 다른 도구에서 분석합니다.
+이러한 로그 중 일부는 포털을 통해 액세스할 수 있습니다. 로그를 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), 저장소 및 Event Hubs로 보내 Log Analytics 또는 Excel 및 Power BI 같은 다른 도구에서 분석합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -94,7 +94,7 @@ ms.locfileid: "49987435"
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>네트워크 및 응용 프로그램 규칙 로그 보기 및 분석
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)는 카운터 및 이벤트 로그 파일을 수집합니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)는 카운터 및 이벤트 로그 파일을 수집합니다. 여기에는 로그를 분석하는 시각화 및 강력한 검색 기능이 포함되어 있습니다.
 
 Azure Firewall Log Analytics 샘플 쿼리는 [Azure Firewall Log Analytics 샘플](log-analytics-samples.md)을 참조하세요.
 
@@ -111,7 +111,7 @@ Azure Firewall Log Analytics 샘플 쿼리는 [Azure Firewall Log Analytics 샘�
 로그를 수집하도록 방화벽을 구성했으므로 데이터를 보려면 Log Anaytics를 탐색할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics의 네트워킹 모니터링 솔루션](../log-analytics/log-analytics-azure-networking-analytics.md)
+> [Log Analytics의 네트워킹 모니터링 솔루션](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

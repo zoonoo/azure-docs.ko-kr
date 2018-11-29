@@ -3,17 +3,17 @@ title: 포함 파일
 description: 포함 파일
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a8be74558fb71ceb1c28c27004b27a5a5f477a8f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c746fc86ea4d260575eb97b16d4a190b175f754
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650704"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585769"
 ---
 Visual Studio의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 통해 함수를 논리적 단위로 그룹화하여 관리, 배포 및 리소스를 공유할 수 있습니다.
 

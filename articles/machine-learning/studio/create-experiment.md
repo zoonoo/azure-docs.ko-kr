@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 8f4740a559e73620500c4ab04ea6e9e25405b8a3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263573"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425713"
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>기계 학습 자습서: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
 
@@ -43,9 +43,7 @@ ms.locfileid: "52263573"
 - [기계 학습 알고리즘 치트 시트](algorithm-cheat-sheet.md) 및 [Microsoft Azure Machine Learning용 알고리즘 선택 방법](algorithm-choice.md) - 다운로드 가능한 이 포스터 및 관련 문서는 Studio 알고리즘을 깊이 있게 설명합니다.
 - [Machine Learning Studio: 알고리즘 및 모듈 도움말](https://msdn.microsoft.com/library/azure/dn905974.aspx) -기계 학습 알고리즘을 포함하여 모든 Studio 모듈에 대 한 완전한 참조입니다.
 
-<!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="how-does-machine-learning-studio-help"></a>Machine Learning Studio는 도움이 되나요?
 

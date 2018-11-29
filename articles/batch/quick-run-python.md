@@ -2,20 +2,20 @@
 title: Azure 빠른 시작 - Batch 작업 실행 - Python
 description: Batch Python 클라이언트 라이브러리를 사용하여 Batch 작업 및 태스크를 빠르게 실행합니다.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/26/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 424516a4a321227e4e79cfe33d40e8fdca24a779
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0ce9d6854f464efdf0ff6eea8644fedc5ad90d1f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815276"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427329"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>빠른 시작: Python API를 사용하여 첫 번째 Batch 작업 실행
 
@@ -55,8 +55,7 @@ Python 개발 환경에서 `pip`를 사용하여 필요한 패키지를 설치�
 pip install -r requirements.txt
 ```
 
-`python_quickstart_client.py`파일을 엽니다. Batch 및 저장소 계정 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
-
+`config.py`파일을 엽니다. Batch 및 저장소 계정 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -81,7 +80,7 @@ python python_quickstart_client.py
 샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 첫 번째 계산 노드가 실행되는 즉시 실행되도록 태스크를 큐에 넣습니다. [Azure Portal](https://portal.azure.com)에서 배치 계정으로 이동하여 배치 계정의 풀, 노드, 작업 및 태스크를 모니터링합니다.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -115,7 +114,7 @@ Batch processing began with mainframe computers and punch cards. Today it still 
 * 노드에서 실행할 하나의 작업과 세 개의 태스크를 만듭니다. 각 태스크는 Bash 셸 명령줄을 사용하여 입력 파일 중 하나를 처리합니다.
 * 태스크에서 반환된 파일을 표시합니다.
 
-자세한 내용은 `python_quickstart_client.py` 파일 및 다음 섹션을 참조하세요. 
+자세한 내용은 `python_quickstart_client.py` 파일 및 다음 섹션을 참조하세요.
 
 ### <a name="preliminaries"></a>준비 단계
 
@@ -123,8 +122,8 @@ Batch processing began with mainframe computers and punch cards. Today it still 
 
 ```python
 blob_client = azureblob.BlockBlobService(
-    account_name=_STORAGE_ACCOUNT_NAME,
-    account_key=_STORAGE_ACCOUNT_KEY)
+    account_name=config._STORAGE_ACCOUNT_NAME,
+    account_key=config._STORAGE_ACCOUNT_KEY)
 ```
 
 앱은 `blob_client` 참조를 사용하여 저장소 계정에 컨테이너를 만들고, 데이터 파일을 이 컨테이너에 업로드합니다. 저장소의 파일은 나중에 Batch에서 계산 노드에 다운로드할 수 있는 [ResourceFile](/python/api/azure.batch.models.resourcefile) Batch 개체로 정의됩니다.
@@ -142,14 +141,13 @@ input_files = [
 이 앱은 Batch 서비스에서 풀, 작업 및 태스크를 만들고 관리하는 [BatchServiceClient](/python/api/azure.batch.batchserviceclient) 개체를 만듭니다. 샘플의 Batch 클라이언트는 공유 키 인증을 사용합니다. 또한 Batch는 Azure Active Directory 인증도 지원합니다.
 
 ```python
-credentials = batch_auth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    _BATCH_ACCOUNT_KEY)
+credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
+    config._BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=_BATCH_ACCOUNT_URL)
+    base_url=config._BATCH_ACCOUNT_URL)
 ```
-
 
 ### <a name="create-a-pool-of-compute-nodes"></a>계산 노드 풀 만들기
 
@@ -170,8 +168,8 @@ new_pool = batch.models.PoolAddParameter(
             version="latest"
             ),
         node_agent_sku_id="batch.node.ubuntu 16.04"),
-    vm_size=_POOL_VM_SIZE,
-    target_dedicated_nodes=_POOL_NODE_COUNT
+    vm_size=config._POOL_VM_SIZE,
+    target_dedicated_nodes=config._POOL_NODE_COUNT
 )
 batch_service_client.pool.add(new_pool)
 ```
@@ -220,7 +218,7 @@ for task in tasks:
     print("Task: {}".format(task.id))
     print("Node: {}".format(node_id))
 
-    stream = batch_service_client.file.get_from_task(job_id, task.id, _STANDARD_OUT_FILE_NAME)
+    stream = batch_service_client.file.get_from_task(job_id, task.id, config._STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,

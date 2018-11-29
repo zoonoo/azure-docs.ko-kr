@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: dd73ca876385cf81059228088f7b027f533315eb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277839"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427491"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>자습서 4: 컨텍스트 관련 패턴 추출
 
@@ -49,7 +49,7 @@ ms.locfileid: "51277839"
 > * 도시 구 목록 만들기
 > * 엔드포인트에서 의도 및 엔터티 가져오기
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>기존 앱 사용
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
@@ -64,7 +64,7 @@ ms.locfileid: "51277839"
 
 ## <a name="create-new-entities"></a>새 엔터티 만들기
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 왼쪽 탐색 영역에서 **엔터티**를 선택합니다. 
 
@@ -254,7 +254,7 @@ ms.locfileid: "51277839"
 
 ## <a name="get-intent-and-entities-from-endpoint"></a>엔드포인트에서 의도 및 엔터티 가져오기
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 주소의 URL 끝으로 이동하고 `Move wayne berry from miami to mount vernon`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 

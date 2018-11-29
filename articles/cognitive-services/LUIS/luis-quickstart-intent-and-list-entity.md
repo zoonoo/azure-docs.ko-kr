@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280712"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425074"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>자습서 4: 정확하게 일치하는 텍스트 추출
 이 자습서에서는 미리 정의된 항목 목록과 일치하는 데이터를 가져오는 방법을 설명합니다. 목록의 각 항목은 동의어 목록을 포함할 수 있습니다. 인사 관리 앱의 경우 이름, 이메일, 전화 번호, 미국 연방 세금 ID 등의 여러 핵심 정보 조각으로 직원을 식별할 수 있습니다. 
@@ -41,7 +41,7 @@ ms.locfileid: "51280712"
 > * 게시
 > * 엔드포인트에서 의도 및 엔터티 가져오기
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>기존 앱 사용
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
@@ -57,7 +57,7 @@ ms.locfileid: "51280712"
 
 ## <a name="moveemployee-intent"></a>MoveEmployee 의도
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **새 의도 만들기**를 선택합니다. 
 
@@ -84,7 +84,7 @@ ms.locfileid: "51280712"
 
     이전 자습서에서 숫자 및 datetimeV2를 추가했으며 예제 발언에서 발견되면 자동으로 레이블이 지정됩니다.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>직원 목록 엔터티
 **MoveEmployee** 의도에 예제 발언이 생겼으니, LUIS가 직원이 무엇인지 이해해야 합니다. 

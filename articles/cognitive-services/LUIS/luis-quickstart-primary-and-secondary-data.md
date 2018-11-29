@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4647e663f4a2734451835f90d2687bb6aaf91712
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277803"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425259"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>자습서 7: 간단한 엔터티 및 구 목록을 사용하여 이름 추출
 
@@ -86,7 +86,7 @@ ms.locfileid: "51277803"
 
 엔터티가 예제 발화에 표시되면 간단한 엔터티의 신호를 강화하는 구 목록을 추가해야 합니다. 구 목록은 정확한 일치로 사용되지 **않고** 예상되는 모든 값일 필요가 없습니다. 
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **의도** 페이지에서 **ApplyForJob** 의도를 선택합니다. 
 
