@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981164"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334230"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler에서 개념, 용어 및 엔터티
 
@@ -315,9 +315,9 @@ Scheduler 작업이 실패할 경우 Scheduler에서 동작을 재시도할지 �
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure Scheduler 정의](scheduler-intro.md)
+* [Azure Scheduler란?](scheduler-intro.md)
 * [개념, 용어 및 엔터티 계층 구조](scheduler-concepts-terms.md)
 * [복잡한 일정 및 고급 되풀이 빌드](scheduler-advanced-complexity.md)
 * [한도, 할당량, 기본값 및 오류 코드](scheduler-limits-defaults-errors.md)
-* [Azure Scheduler REST API 참조](https://docs.microsoft.com/rest/api/schedule)
+* [Azure Scheduler REST API 참조](/rest/api/scheduler)
 * [Azure Scheduler PowerShell cmdlet 참조](scheduler-powershell-reference.md)

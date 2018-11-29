@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 82d7e5ab57d9cf12c6917386282182faacb07725
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282393"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423420"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>자습서 3: 적절한 형식의 데이터 추출
 이 자습서에서는 **정규식** 엔터티를 사용하여 발언에서 일관적인 형식의 데이터를 추출하도록 인사 관리 앱을 수정합니다.
@@ -48,7 +48,7 @@ HRF-456098 title?
 > * 게시
 > * 엔드포인트에서 의도 및 엔터티 가져오기
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>기존 앱 사용
 마지막 자습서에서 만든 **HumanResources**라는 앱을 사용하여 계속 진행합니다. 
@@ -63,7 +63,7 @@ HRF-456098 title?
 
 ## <a name="findform-intent"></a>FindForm 의도
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **새 의도 만들기**를 선택합니다. 
 
@@ -90,7 +90,7 @@ HRF-456098 title?
 
     응용 프로그램에는 이전 자습서에서 추가된 미리 작성된 번호 엔터티가 있으므로 각 양식 번호에 태그가 지정됩니다. 이는 클라이언트 응용 프로그램에 대해 충분하지만 번호에 숫자 형식의 레이블이 지정되지 않습니다. 적절한 이름으로 새 엔터티를 만들면 LUIS에서 반환할 때 클라이언트 응용 프로그램에서 해당 엔터티를 적절히 처리할 수 있습니다.
 
-    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="regular-expression-entity"></a>정규식 엔터티 
 양식 번호와 일치하는 정규식 엔터티는 `hrf-[0-9]{6}`입니다. 이 정규식은 `hrf-` 리터럴 문자와 일치하지만 대/소문자 및 문화권 변형을 무시합니다. 6자리 숫자에 대해 0에서 9까지의 숫자와 정확하게 일치합니다.

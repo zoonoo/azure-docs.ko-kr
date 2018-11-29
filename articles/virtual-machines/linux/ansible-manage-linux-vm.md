@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: 06a0f2416ecff9e2f9a21877e26487b56452d0a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14e675097a23b50c8ff193c69c377ac8edfb989f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251324"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317265"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Azure에서 Ansible을 사용하여 Linux 가상 머신 관리
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 다른 리소스와 동일한 방식으로 Azure 가상 머신을 관리할 수 있습니다. 이 문서에서는 Ansible 플레이북을 사용하여 Linux 가상 머신을 시작 및 중지하는 방법을 보여줍니다. 
@@ -141,4 +141,4 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [Ansible을 사용하여 Azure 동적 인벤토리 관리](/articles/ansible/ansible-manage-azure-dynamic-inventories)
+> [Ansible을 사용하여 Azure 동적 인벤토리 관리](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

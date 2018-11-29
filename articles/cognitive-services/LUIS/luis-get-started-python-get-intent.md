@@ -10,32 +10,32 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8fe39a2876d37e4897c03a5654e500e2e2d3cb9f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: bec438933e83bfc0abf4930935f74a1af731565c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276953"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422340"
 ---
 # <a name="quickstart-get-intent-using-python"></a>빠른 시작: Python을 사용하여 의도 가져오기
 이 빠른 시작에서는 발언을 LUIS 엔드포인트로 전달하고 의도와 엔터티를 다시 가져옵니다.
 
-[!INCLUDE[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
 * [Python 3.6](https://www.python.org/downloads/) 이상
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## <a name="get-luis-key"></a>LUIS 키 가져오기
 
-[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## <a name="get-intent-with-browser"></a>브라우저를 사용하여 의도 가져오기
 
-[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
 ## <a name="get-intent--programmatically"></a>프로그래밍 방식으로 의도 가져오기
 
@@ -55,7 +55,7 @@ Python을 사용하여 이전 단계의 브라우저 창에서 본 것과 동일
 
 ## <a name="luis-keys"></a>LUIS 키
 
-[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 Python 파일을 삭제합니다. 

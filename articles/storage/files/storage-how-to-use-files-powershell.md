@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 119853df5b5234b65bdade890df1fecb72c326b7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 48ac46a9087e8027d0282533afccc4d9b28481ba
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157380"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582471"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 파일 공유 만들기 및 관리 
 이 가이드에서는 PowerShell을 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 응용 프로그램 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
@@ -49,7 +49,7 @@ $storageAcct = New-AzureRmStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
-이제 첫 번째 Azure 파일 공유를 만들 수 있습니다. [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare) cmdlet을 사용하여 파일 공유를 만들 수 있습니다. 이 예제에서는 `myshare`라는 공유를 만듭니다.
+이제 첫 번째 Azure 파일 공유를 만들 수 있습니다. [New-AzureStorageShare](/powershell/module/azure.storage/new-azurestorageshare) cmdlet을 사용하여 파일 공유를 만들 수 있습니다. 이 예제에서는 `myshare`라는 공유를 만듭니다.
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -79,7 +79,7 @@ File REST 프로토콜을 직접 작업하는 것이 가능하지만(즉, REST H
 다음 예제에서는 AzureRM PowerShell을 사용하여 File REST 프로토콜로 Azure 파일 공유를 조작하는 방법을 보여 줍니다. 
 
 #### <a name="create-directory"></a>디렉터리 만들기
-Azure 파일 공유의 루트에 *myDirectory*라는 새 디렉터리를 만들려면 [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory) cmdlet을 사용합니다.
+Azure 파일 공유의 루트에 *myDirectory*라는 새 디렉터리를 만들려면 [New-AzureStorageDirectory](/powershell/module/azure.storage/new-azurestoragedirectory) cmdlet을 사용합니다.
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `

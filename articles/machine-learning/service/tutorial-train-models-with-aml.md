@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 11/21/2018
-ms.openlocfilehash: 067a8deb935fb8a49d72c6ce441e8d9760c5390c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283658"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496216"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서 1: Azure Machine Learning Service로 이미지 분류 모델 학습시키기
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `01.train-models.ipynb` 노트북을 실행할 수 있습니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://aka.ms/aml-notebook-tut-01)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `01.train-models.ipynb` 노트북을 실행할 수 있습니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

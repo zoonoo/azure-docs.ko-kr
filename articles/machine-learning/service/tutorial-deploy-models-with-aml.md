@@ -9,18 +9,18 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ad6b296543cffedb215c87b1fc893a22b29a3052
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427351"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497592"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>자습서 #2: ACI(Azure Container Instance)에서 이미지 분류 모델 배포
 
 이 자습서는 **2부로 구성된 자습서 시리즈 중 제2부**입니다. [이전 자습서에서는](tutorial-train-models-with-aml.md), 기계 학습 모델을 학습한 후 클라우드에서 작업 영역에 모델을 등록합니다.  
 
-이제 [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/)(ACI)에서 모델을 웹 서비스로 배포할 준비가 되었습니다. 웹 서비스는 이미지로서, 이 경우에는 채점 논 및 모델 자체를 캡슐화하는 Docker 이미지입니다. 
+이제 [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/)(ACI)에서 모델을 웹 서비스로 배포할 준비가 되었습니다. 웹 서비스는 하나의 이미지로서, 이 경우에는 채점 논리 및 모델 자체를 캡슐화하는 Docker 이미지입니다. 
 
 자습서의 이 부분에서는 Azure Machine Learning 서비스(미리 보기)를 사용하여 다음을 수행합니다.
 
@@ -35,7 +35,7 @@ ACI는 프로덕션 배포에는 이상적이지 않지만, 워크플로를 테�
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `02.deploy-models.ipynb` 노트북을 실행할 수 있습니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://aka.ms/aml-notebook-tut-02)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `02.deploy-models.ipynb` 노트북을 실행할 수 있습니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -176,13 +176,13 @@ plt.show()
 * 모델 사용 방법을 보여 주는 채점 스크립트
 * 설치해야 할 패키지가 무엇인지를 보여주는 환경 파일
 * ACI를 빌드하기 위한 구성 파일
-* 전에 학습한 모델
+* 이전에 학습을 진행한 모델
 
 <a name="make-script"></a>
 
 ### <a name="create-scoring-script"></a>채점 스크립트 만들기
 
-모델 사용 법을 보여 주기 위해 웹 서비스 호출에서 사용하는 score.py라는 채점 스크립트를 만듭니다.
+모델 사용법을 보여줄 수 있는 웹 서비스 호출에 사용되는 채점 스크립트(score.py)를 만듭니다.
 
 다음 두 개의 필수 함수를 채점 스크립트에 포함해야 합니다.
 * `init()` 함수는 일반적으로 모델을 전역 개체에 로드합니다. 이 함수는 Docker 컨테이너를 시작할 때 한 번만 실행됩니다. 
@@ -228,7 +228,7 @@ myenv.add_conda_package("scikit-learn")
 with open("myenv.yml","w") as f:
     f.write(myenv.serialize_to_string())
 ```
-`myenv.yml` 파일 콘텐츠 검토.
+`myenv.yml` 파일 콘텐츠를 검토합니다.
 
 ```python
 with open("myenv.yml","r") as f:
@@ -253,11 +253,11 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
 
 이미지를 구성하고 배포합니다. 다음 코드는 다음과 같은 단계를 거칩니다.
 
-1. 다음을 사용하여 이미지 빌드:
+1. 다음 파일을 사용하여 이미지를 빌드합니다.
    * 채점 파일(`score.py`)
    * 환경 파일(`myenv.yml`)
    * 모델 파일
-1. 작업 영역에서 해당 이미지를 등록 합니다. 
+1. 작업 영역에서 해당 이미지를 등록합니다. 
 1. 이미지를 ACI 컨테이너로 보냅니다.
 1. 이미지를 사용하여 ACI에서 컨테이너를 시작합니다.
 1. 웹 서비스 HTTP 엔드포인트를 가져옵니다.

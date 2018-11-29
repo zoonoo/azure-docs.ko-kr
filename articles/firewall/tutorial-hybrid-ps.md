@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 781365e32ce5602e9fb99b620e068ddf68de8c44
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854172"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316399"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -309,9 +309,6 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 
 - 허브 게이트웨이 서브넷에서 방화벽 IP 주소를 통해 스포크 서브넷으로 가는 경로
 - 방화벽 IP 주소를 통해 스포크 서브넷으로부터의 기본 경로
-
-> [!NOTE]
-> Azure Firewall은 BGP를 사용하여 온-프레미스 네트워크를 학습합니다. 여기에는 온-프레미스 네트워크를 통해 인터넷 트래픽을 다시 라우팅하는 기본 경로가 포함될 수 있습니다. 프로덕션 배포에서는 방화벽에서 인터넷으로 직접 인터넷 트래픽을 전송하려고 할 수도 있습니다. 다음 홉 형식 **Internet**을 사용하여 AzureFirewallSubnet에 사용자 정의 기본 경로(0.0.0.0/0)를 추가할 수 있습니다. 온-프레미스 대상 트래픽은 BGP에서 학습된 더 구체적인 경로를 사용하여 VPN/ExpressRoute 게이트웨이를 통해 여전히 강제로 터널링됩니다.
 
 ```azurepowershell
 #Create a route table

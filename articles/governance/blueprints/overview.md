@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b2e767bf27962472a19e5d2e704b456cffe18423
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277537"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498606"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
@@ -57,7 +57,7 @@ Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습
 |리소스  | 계층 구조 옵션| 설명  |
 |---------|---------|---------|
 |리소스 그룹     | 구독 | 청사진 내의 다른 아티팩트에 사용할 새 리소스 그룹을 만듭니다.  이러한 자리 표시자 리소스 그룹을 사용하면 정확히 원하는 구조로 리소스를 구성할 수 있으며, 포함된 정책 및 역할 할당 아티팩트와 Azure Resource Manager 템플릿의 범위도 제한할 수 있습니다.         |
-|Azure Resource Manager 템플릿      | 리소스 그룹 | 템플릿은 복잡한 환경을 작성하는 데 사용됩니다. SharePoint 팜, Azure Automation State Configuration 또는 Log Analytics 작업 영역과 같은 환경을 예로 들 수 있습니다. |
+|Azure Resource Manager 템플릿      | 구독, 리소스 그룹 | 템플릿은 복잡한 환경을 작성하는 데 사용됩니다. SharePoint 팜, Azure Automation State Configuration 또는 Log Analytics 작업 영역과 같은 환경을 예로 들 수 있습니다. |
 |정책 할당     | 구독, 리소스 그룹 | 청사진이 할당된 구독에 정책 또는 이니셔티브를 할당할 수 있습니다. 정책이나 이니셔티브는 청사진의 범위 내(청사진 관리 그룹 이하 수준)에 있어야 합니다. 정책 또는 이니셔티브에 매개 변수가 있는 경우 청사진 생성 시나 할당 중에 이러한 매개 변수를 할당할 수 있습니다.       |
 |역할 할당   | 구독, 리소스 그룹 | 적절한 사용자가 리소스에 대한 적절한 액세스 권한을 항상 소유하도록 기존 사용자나 그룹을 기본 제공 역할에 추가합니다. 역할 할당은 전체 구독에 대해 정의할 수도 있고 청사진에 포함된 특정 리소스 그룹에 중첩할 수도 있습니다. |
 

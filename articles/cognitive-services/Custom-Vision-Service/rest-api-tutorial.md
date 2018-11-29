@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a38f737b5281903328a53d6552b1666ca4f58d80
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: afdc306a3d5a3130ecb44f88910e76f23f7c0c0e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364961"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334723"
 ---
 # <a name="tutorial-use-the-custom-vision-rest-api"></a>자습서: Custom Vision REST API 사용
 
@@ -100,7 +100,7 @@ $resp.Content
 > [!TIP]
 > 응답의 `id` 항목은 새 프로젝트의 ID입니다. 이는 이 문서의 뒷부분에 나오는 다른 예제에서 사용됩니다.
 
-이 요청에 대한 자세한 내용은 [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290)를 참조하세요.
+이 요청에 대한 자세한 내용은 [CreateProject](https://go.microsoft.com/fwlink/?linkid=865446)를 참조하세요.
 
 ### <a name="specific-domains"></a>특정 도메인
 

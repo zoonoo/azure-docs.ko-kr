@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d039654fc1d652a3997515a12caa48acaac124fe
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429790"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425295"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Azure File Storage와 함께 Storage 탐색기 사용
 
@@ -29,7 +29,7 @@ Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 �
 
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 
-- [Storage 탐색기 다운로드 및 설치](http://www.storageexplorer.com/)
+- [Storage 탐색기 다운로드 및 설치](https://www.storageexplorer.com/)
 
 - [Azure 저장소 계정 또는 서비스에 연결](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -203,7 +203,7 @@ Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 �
 
         ![파일 업로드](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        나. **파일 업로드** 대화 상자에서 **파일** 텍스트 상자 오른쪽에 있는 줄임표(**…**) 단추를 선택하여 업로드할 파일을 선택합니다.
+        b. **파일 업로드** 대화 상자에서 **파일** 텍스트 상자 오른쪽에 있는 줄임표(**…**) 단추를 선택하여 업로드할 파일을 선택합니다.
 
         ![파일 추가](media/vs-azure-tools-storage-explorer-files/image19.png)
 
@@ -215,7 +215,7 @@ Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 �
 
         ![폴더 메뉴 업로드](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        나. **폴더 업로드** 대화 상자에서 **폴더** 텍스트 상자 오른쪽에 있는 줄임표(**…**) 단추를 선택하여 내용을 업로드할 폴더를 선택합니다.
+        b. **폴더 업로드** 대화 상자에서 **폴더** 텍스트 상자 오른쪽에 있는 줄임표(**…**) 단추를 선택하여 내용을 업로드할 폴더를 선택합니다.
 
         다. 필요에 따라 선택한 폴더 내용을 업로드할 대상 폴더를 지정합니다. 대상 폴더가 없다면 폴더가 만들어집니다.
 
@@ -225,7 +225,7 @@ Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 �
         
         a. 다운로드하려는 파일을 선택합니다.
         
-        나. 기본 창 도구 모음에서 **다운로드**를 선택합니다.
+        b. 기본 창 도구 모음에서 **다운로드**를 선택합니다.
         
         다. **다운로드한 파일을 저장할 위치 지정** 대화 상자에서 파일을 다운로드할 위치와 명명하려는 이름을 지정합니다.
 
@@ -235,7 +235,7 @@ Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 �
         
         a.  열려는 파일을 선택합니다.
         
-        나.  기본 창 도구 모음에서 **열기**를 선택합니다.
+        b.  기본 창 도구 모음에서 **열기**를 선택합니다.
         
         다.  파일의 기본 파일 형식과 연결된 응용 프로그램을 사용하여 파일을 다운로드하고 엽니다.
 
@@ -243,7 +243,7 @@ Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 �
 
         a. 복사하려는 파일을 선택합니다.
 
-        나. 기본 창 도구 모음에서 **복사**를 선택합니다.
+        b. 기본 창 도구 모음에서 **복사**를 선택합니다.
 
         다. 왼쪽 창에서 또 다른 파일 공유로 이동하고 기본 창에서 보려면 두 번 클릭합니다.
 
@@ -253,12 +253,12 @@ Azure 파일 저장소는 표준 SMB(서버 메시지 블록) 프로토콜을 �
 
         a. 삭제하려는 파일을 선택합니다.
 
-        나. 기본 창 도구 모음에서 **삭제**를 선택합니다.
+        b. 기본 창 도구 모음에서 **삭제**를 선택합니다.
 
         다. 확인 대화 상자에서 **확인** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [최신 Storage 탐색기 릴리스 정보 및 비디오](http://www.storageexplorer.com/)를 보세요.
+- [최신 Storage 탐색기 릴리스 정보 및 비디오](https://www.storageexplorer.com/)를 보세요.
 
 - [Azure blob, 테이블, 큐 및 파일을 사용하여 응용 프로그램을 작성](https://azure.microsoft.com/documentation/services/storage/)하는 방법 알아보기.

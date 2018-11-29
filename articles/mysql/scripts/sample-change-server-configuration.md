@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 011178f539fcb826e0e6fb60925d740945461ea9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 59d72f36146e691412398220fc9ba51910e65e0b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952894"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582074"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용하여 MySQL 서버용 Azure Database의 구성 나열 및 업데이트
 이 샘플 CLI 스크립트는 사용 가능한 모든 구성 매개 변수와 MySQL 서버용 Azure Database에 대해 허용되는 값을 나열하고 *innodb_lock_wait_timeout*을 기본값 이외의 값으로 설정합니다.
@@ -27,7 +27,7 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 
 ## <a name="sample-script"></a>샘플 스크립트
 이 샘플 스크립트에서 강조 표시된 줄을 편집하여 관리자 사용자 이름 및 암호를 자신의 이름과 암호로 업데이트합니다.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/change-server-configurations/change-server-configurations.sh?highlight=18-19 "List and update configurations of Azure Database for MySQL.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/change-server-configurations/change-server-configurations.sh?highlight=15-16 "List and update configurations of Azure Database for MySQL.")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 스크립트가 실행 된 후 다음 명령을 사용하여 리소스 그룹 및 관련된 모든 리소스를 제거합니다. 
@@ -39,10 +39,10 @@ CLI를 로컬로 실행하도록 선택한 경우 이 문서에 Azure CLI 버전
 | **명령** | **참고 사항** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az mysql server create](/cli/azure/mysql/server#az-msql-server-create) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-msql-server-configuration-list) | MySQL 서버용 Azure Database의 구성을 나열합니다. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-msql-server-configuration-set) | MySQL 서버용 Azure Database의 구성을 업데이트합니다. |
-| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-msql-server-configuration-show) | MySQL 서버용 Azure Database의 구성을 보여 줍니다. |
+| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | 데이터베이스를 호스팅하는 MySQL 서버를 만듭니다. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) | MySQL 서버용 Azure Database의 구성을 나열합니다. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) | MySQL 서버용 Azure Database의 구성을 업데이트합니다. |
+| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) | MySQL 서버용 Azure Database의 구성을 보여 줍니다. |
 | [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

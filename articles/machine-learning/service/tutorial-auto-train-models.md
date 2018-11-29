@@ -9,12 +9,12 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 11/21/2018
-ms.openlocfilehash: 76436da1013c6747e9167c006e0d7c5e89ec8d9c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0c7431e5b66da721248b2a49c214584bf43e577f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284747"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498563"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>자습서: Azure Machine Learning 서비스에서 자동화된 기계 학습을 사용하여 분류 모델 학습
 
@@ -37,11 +37,11 @@ ms.locfileid: "52284747"
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.79에서 테스트됨
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.79에서 테스트했습니다.
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `03.auto-train-models.ipynb` 노트북을 실행할 수 있습니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://aka.ms/aml-notebook-tut-03)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `03.auto-train-models.ipynb` 노트북을 실행할 수 있습니다.
 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]

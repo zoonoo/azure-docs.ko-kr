@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288750"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582431"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Azure IoT(사물 인터넷)란?
 
@@ -113,7 +113,7 @@ Azure에는 몇 가지 IoT 관련 서비스가 있으며, 어떤 서비스를 �
 
 5. [**IoT Edge**](/azure/iot-edge/): IoT Hub를 기반으로 하는 서비스입니다. 클라우드가 아닌 IoT 디바이스에서 데이터를 분석하는 데 사용할 수 있습니다. 워크로드 중 일부를 에지 디바이스로 이동하면 클라우드로 보내야 하는 메시지가 줄어듭니다. 
 
-6. [**Azure Digital Twins**](/azure/azure-digital-twins/): 이 서비스를 사용하면 물리적 환경의 포괄적인 모델을 만들 수 있습니다. 사람, 공간 및 디바이스 간의 관계와 상호 작용을 모델링할 수 있습니다. 예를 들어 공장에 대한 유지 관리 요구 사항을 예측하거나, 전력망에 대한 실시간 에너지 요구 사항을 분석하거나, 사무실에 사용 가능한 공간의 사용을 최적화할 수 있습니다.
+6. [**Azure Digital Twins**](../digital-twins/index.yml): 이 서비스를 사용하면 물리적 환경의 포괄적인 모델을 만들 수 있습니다. 사람, 공간 및 디바이스 간의 관계와 상호 작용을 모델링할 수 있습니다. 예를 들어 공장에 대한 유지 관리 요구 사항을 예측하거나, 전력망에 대한 실시간 에너지 요구 사항을 분석하거나, 사무실에 사용 가능한 공간의 사용을 최적화할 수 있습니다.
 
 7. [**Time Series Insights**](/azure/time-series-insights): 이 서비스를 사용하면 IoT 디바이스에서 생성된 대량의 시계열 데이터를 저장, 시각화 및 쿼리할 수 있습니다. 이 서비스는 IoT Hub에서 사용할 수 있습니다. 
 

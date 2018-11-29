@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4da20ffebb9943787fa487336dbd2ba22fdcf875
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: fb1ef9c2bb448d74d447e647f6dc8122cda6e1f7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458176"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445764"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>빠른 시작: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -188,7 +188,7 @@ spec:
 응용 프로그램을 실행하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 다음 예제 출력은 AKS 클러스터에 만들어진 Kubernetes 리소스를 보여줍니다.
