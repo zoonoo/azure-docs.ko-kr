@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6448e592db8024d911831b0b3634dabb4ed3b101
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063118"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443409"
 ---
 # <a name="suspended-domains"></a>일시 중단된 도메인
 Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을 오랫동안 서비스할 수 없는 경우 관리되는 도메인이 일시 중단됨 상태로 전환됩니다. 이 문서에서는 관리되는 도메인이 일시 중단된 이유와 일시 중단된 도메인을 수정하는 방법을 설명합니다.
@@ -43,7 +43,7 @@ Azure AD DS(Azure Active Directory Domain Services)가 관리되는 도메인을
 
 
 ### <a name="needs-attention-state"></a>"주의 필요" 상태
-관리자가 작업을 수행해야 하는 문제가 하나 이상 있는 경우, 관리되는 도메인은 **주의 필요** 상태입니다. 이 상태에 있는 관리되는 도메인의 상태 페이지에는 하나 이상의 경고가 나열됩니다. 
+관리자가 작업을 수행해야 하는 문제가 하나 이상 있는 경우, 관리되는 도메인은 **주의 필요** 상태입니다. 이 상태에 있는 관리되는 도메인의 상태 페이지에는 하나 이상의 경고가 나열됩니다.
 
 예를 들어, 가상 네트워크에 대해 제한적인 NSG를 구성한 경우, Microsoft에서 관리되는 도메인을 업데이트 및 모니터링하지 못할 수 있습니다. 이 잘못된 구성은 관리되는 도메인을 "주의 필요" 상태로 전환하는 경고를 트리거합니다.
 

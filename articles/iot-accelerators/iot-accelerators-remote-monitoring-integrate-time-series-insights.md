@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: ba6d79661a2c07ba3eef1f16a117992a858830b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 3ae41ff4cf501a58668d25b16027029f6bae4749
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605932"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317490"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>원격 모니터링과 Azure Time Series Insights 통합
 
@@ -22,7 +22,7 @@ Azure Time Series Insights는 클라우드에서 IoT 규모 시계열 데이터�
 원격 모니터링 솔루션 가속기는 이제 자동 배포 및 Time Series Insights와의 통합을 제공합니다. 이 방법에서 아직 Time Series Insights를 포함하지 않은 기존 원격 모니터링 솔루션에 대해 Time Series Insights를 구성하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
-> Azure 중국 클라우드에서는 현재 Time Series Insights를 사용할 수 없습니다. Azure 중국 클라우드에서 새 원격 모니터링 솔루션 가속기 배포는 모든 저장소에 대해 Cosmos DB를 사용합니다.
+> Azure 중국 클라우드에서는 현재 Time Series Insights를 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 저장소에 Cosmos DB를 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -292,6 +292,6 @@ Time Series Insights 통합을 완료하려면 업데이트된 마이크로서�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Time Series Insights 탐색기에서 데이터를 탐색하고 경고를 진단하는 방법에 대한 자세한 내용은 [루트 원인 분석 수행](/tutorials) 자습서를 참조하세요.
+* Time Series Insights 탐색기에서 데이터를 탐색하고 경고를 진단하는 방법에 대한 자세한 내용은 [루트 원인 분석 수행](iot-accelerators-remote-monitoring-root-cause-analysis.md) 자습서를 참조하세요.
 
 * Time Series Insights 탐색기에서 데이터를 탐색하고 쿼리하는 방법에 대해 알아보려면 [Azure Time Series Insights 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer) 설명서를 참조하세요.

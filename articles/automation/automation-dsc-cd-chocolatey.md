@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259176"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284798"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>사용 예: Automation State Configuration 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
 
@@ -34,14 +34,14 @@ DevOps 업계에는 연속 통합 파이프라인의 여러 시점에서 개발�
 ## <a name="component-overview"></a>구성 요소 개요
 
 [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 같은 패키지 관리자는 Linux 분야에서 잘 알려져 있지만 Windows 분야에서는 그렇지 않습니다.
-[Chocolatey](https://chocolatey.org/)도 마찬가지입니다. Scott Hanselman의 [블로그](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)에서 이 항목에 대해 잘 소개하고 있습니다. 간단히 말해 Chocolatey를 사용하면 패키지의 중앙 리포지토리에 있는 패키지를 명령줄을 사용하여 Winodws 시스템에 설치할 수 있습니다. 자체 리포지토리를 만들어 관리할 수 있고 Chocolatey가 사용자가 지정한 수 만큼의 리포지토리에서 패키지를 설치할 수 있습니다.
+[Chocolatey](https://chocolatey.org/)도 마찬가지입니다. Scott Hanselman의 [블로그](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)에서 이 항목에 대해 잘 소개하고 있습니다. 간단히 말해 Chocolatey를 사용하면 패키지의 중앙 리포지토리에 있는 패키지를 명령줄을 사용하여 Winodws 시스템에 설치할 수 있습니다. 자체 리포지토리를 만들어 관리할 수 있고 Chocolatey가 사용자가 지정한 수 만큼의 리포지토리에서 패키지를 설치할 수 있습니다.
 
 DSC(필요한 상태 구성)([개요](/powershell/dsc/overview))는 컴퓨터에 원하는 구성을 선언할 수 있는 PowerShell 도구입니다. 예를 들어, "Chocolatey와 IIS를 설치하고 포트 80을 개방하며 웹 사이트 설치의 1.0.0 버전을 원합니다."라고 말할 수 있습니다. DSC LCM(로컬 구성 관리자)이 이러한 구성을 구현합니다. DSC 풀 서버가 컴퓨터에 대한 구성 리포지토리를 담고 있습니다. 각 컴퓨터의 LCM이 주기적인 검사를 통해 자신의 구성이 저장된 구성과 일치하는지 확인합니다. 상태를 보고하거나, 컴퓨터를 저장된 구성과 일치하는 상태로 되돌리는 작업을 수행할 수 있습니다. 풀 서버에서 저장된 구성을 편집하여 컴퓨터나 컴퓨터 집합이 변경된 구성과 일치하게 만들 수 있습니다.
 
 Azure Automation은 사용자가 일정 및 전역 변수와 같은 Runbook, 노드, 자산을 사용하여 다양한 작업을 자동화할 수 있도록 하는 Microsoft Azure의 관리되는 서비스입니다.
 Azure Automation State Configuration은 PowerShell DSC 도구를 포함하도록 자동화 기능을 확장합니다. 여기서 알맞은 [개요](automation-dsc-overview.md)를 제공합니다.
 
-DSC 리소스는 네트워크 관리, Active Directory 또는 SQL Server 등과 같은 특정 기능을 갖는 코드 모듈입니다. Chocolatey DSC 리소스는 NuGet 서버 액세스(서로 간), 패키지 다운로드, 패키지 설치 방법 등을 이해하고 있습니다. 여러 다른 DSC 리소스는 [PowerShell 갤러리](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)에 있습니다.
+DSC 리소스는 네트워크 관리, Active Directory 또는 SQL Server 등과 같은 특정 기능을 갖는 코드 모듈입니다. Chocolatey DSC 리소스는 NuGet 서버 액세스(서로 간), 패키지 다운로드, 패키지 설치 방법 등을 이해하고 있습니다. 여러 다른 DSC 리소스는 [PowerShell 갤러리](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)에 있습니다.
 이러한 모듈은 사용자가 구성에서 사용할 수 있게 Azure Automation State Configuration 풀 서버에 설치됩니다.
 
 리소스 관리자 템플릿은 네트워크, 서브넷, 네트워크 보안, 라우팅, 부하 분산 장치, NIC, VM 등의 인프라를 생성하는 선언적인 방법을 제공합니다. 다음 [문서](../azure-resource-manager/resource-manager-deployment-model.md)에서는 Resource Manager 배포 모델(선언적)을 Azure 서비스 관리(ASM 또는 클래식) 배포 모델(명령적)을 비교하고 핵심 리소스 공급자, 계산, 저장소 및 네트워크에 대해 설명합니다.
@@ -64,8 +64,10 @@ Resource Manager 템플릿으로 시작하지 않아도 괜찮습니다. VM을 �
 
 인증된(`Connect-AzureRmAccount`) PowerShell 명령줄에서(풀 서버를 설정하는 데 몇 분 정도 소요될 수 있음):
 
-    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```azurepowershell-interactive
+New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```
 
 자동화 계정을 미국 동부 2, 미국 중남부, 미국 버지니아 주 정부, 유럽 서부, 동남 아시아, 일본 동부, 인도 중부 및 오스트레일리아 남동부, 캐나다 중부, 유럽 북부 등의 지역 중 하나에 놓을 수 있습니다(즉, 위치).
 
@@ -177,7 +179,7 @@ Get-AzureRmAutomationDscCompilationJob `
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>5단계: 패키지 메타데이터 만들기 및 유지 관리
 
 패키지 리포지토리에 넣는 각 패키지에 대해 이를 설명하는 nuspec이 필요합니다.
-해당 nuspec은 NuGet 서버에서 컴파일 및 저장해야 합니다. 이 프로세스는 [여기](http://docs.nuget.org/create/creating-and-publishing-a-package)에서 설명합니다. MyGet.org를 NuGet 서버로 사용할 수 있습니다. 이 서비스를 판매하고 있지만 스타터 SKU는 무료입니다. NuGet.org에서 개인 패키지에 대 한 자체 NuGet 서버 설치 관련 지침을 찾을 수 있습니다.
+해당 nuspec은 NuGet 서버에서 컴파일 및 저장해야 합니다. 이 프로세스는 [여기](https://docs.nuget.org/create/creating-and-publishing-a-package)에서 설명합니다. MyGet.org를 NuGet 서버로 사용할 수 있습니다. 이 서비스를 판매하고 있지만 스타터 SKU는 무료입니다. NuGet.org에서 개인 패키지에 대 한 자체 NuGet 서버 설치 관련 지침을 찾을 수 있습니다.
 
 ## <a name="step-6-tying-it-all-together"></a>6단계: 모든 항목 요약
 

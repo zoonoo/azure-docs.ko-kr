@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 01e8b5c518931411ba6e2d75168de6753bf55260
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34c11c911b6c2ffbc4d4800cd7203a8d430814fb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971725"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311248"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 구독
 
@@ -97,7 +97,7 @@ ms.locfileid: "46971725"
 
 ## <a name="cli"></a>피어링 만들기 - Azure CLI
 
-이 자습서에서는 각 구독에 대해 다른 계정을 사용합니다. 두 구독 모두에 대해 권한이 있는 계정을 사용할 경우 모든 단계에 동일한 계정을 사용하고, Azure 로그아웃 절차를 생략하며 사용자 역할 할당을 만드는 스크립트 줄을 제거할 수 있습니다. 다음 스크립트 전체에서 UserA@azure.com 및 UserB@azure.com은 사용자 A와 사용자 B에 사용하는 사용자 이름으로 바꿉니다. Azure 클래식 CLI와 Azure CLI를 사용하여 다음 단계를 완료합니다. 아래의 아무 단계에서나 **사용해 보세요.** 단추를 클릭하거나, 로컬 컴퓨터에서 [클래식 CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 설치하고 명령을 실행하면 Azure Cloud Shell에서 단계를 완료할 수 있습니다.
+이 자습서에서는 각 구독에 대해 다른 계정을 사용합니다. 두 구독 모두에 대해 권한이 있는 계정을 사용할 경우 모든 단계에 동일한 계정을 사용하고, Azure 로그아웃 절차를 생략하며 사용자 역할 할당을 만드는 스크립트 줄을 제거할 수 있습니다. 다음 스크립트 전체에서 UserA@azure.com 및 UserB@azure.com은 사용자 A와 사용자 B에 사용하는 사용자 이름으로 바꿉니다. Azure 클래식 CLI와 Azure CLI를 사용하여 다음 단계를 완료합니다. 아래의 아무 단계에서나 **사용해 보세요.** 단추를 클릭하거나, 로컬 컴퓨터에서 [클래식 CLI](/cli/azure/install-classic-cli) 및 [CLI](/cli/azure/install-azure-cli)를 설치하고 명령을 실행하면 Azure Cloud Shell에서 단계를 완료할 수 있습니다.
 
 1. Cloud Shell을 사용하는 경우 Azure에 자동 로그인되므로 2단계로 건너뛰세요. 명령 세션을 열고 `azure login` 명령을 사용하여 Azure에 로그인합니다.
 2. `azure config mode asm` 명령을 입력하여 클래식 CLI를 서비스 관리 모드에서 실행합니다.

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 161a5710766db626e4c4ec6bb6fdfafcc20650d5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50868d32b35e77495965b9ee9d0023d23b43fd5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248047"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426386"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>자습서: 클라우드에 단일 AD 포리스트 환경 페더레이션
 
@@ -280,7 +280,7 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>사용자 중 한 명으로 로그인 테스트
 
-1.  [http://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
+1.  [https://myapps.microsoft.com](httpss://myapps.microsoft.com)으로 이동합니다.
 2. 새 테넌트에 생성된 사용자 계정으로 로그인합니다.  다음 형식을 사용하여 로그인해야 합니다(user@domain.onmicrosoft.com). 사용자가 온-프레미스 로그인에 사용한 것과 동일한 암호를 사용합니다.
 ![Verify](media/tutorial-password-hash-sync/verify1.png)
 

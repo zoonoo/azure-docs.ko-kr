@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: c590c9d1ccbbb84a76ba09021a97464ec85c5784
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507214"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852982"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
 역방향 프록시는 Service Fabric 클러스터에서 실행되는 마이크로 서비스를 통해 http 엔드포인트가 있는 다른 서비스를 검색하고 통신할 수 있도록 하는 선택적 Azure Service Fabric 서비스입니다. 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 이 문서에서는 클러스터에서 역방향 프록시를 설정하고 구성하는 방법에 대해 설명합니다. 
@@ -231,7 +231,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
 
    독립 실행형 클러스터에 대한 인증서를 구성하고 관리하는 방법 및 역방향 프록시를 보호하는 데 사용되는 인증서를 구성하는 방법에 대한 자세한 내용은 [X509 인증서 기반 보안](./service-fabric-windows-cluster-x509-security.md)을 참조하세요.
 
-ClusterConfig.json 파일이 역방향 프록시를 사용하도록 수정되면 [클러스터 구성 업그레이드](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration)의 지침에 따라 클러스터에 변경 내용을 푸시합니다.
+ClusterConfig.json 파일이 역방향 프록시를 사용하도록 수정되면 [클러스터 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)의 지침에 따라 클러스터에 변경 내용을 푸시합니다.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Azure Load Balancer를 통해 공용 포트에서 역방향 프록시 노출
@@ -239,7 +239,7 @@ ClusterConfig.json 파일이 역방향 프록시를 사용하도록 수정되면
 Azure 클러스터 외부에서 역방향 프록시를 처리하려면 역방향 프록시 포트에 대한 Azure Load Balancer 규칙과 Azure Health Probe를 설정합니다. 이러한 단계는 클러스터를 만든 후에 언제든지 Azure Portal 또는 Resource Manager 템플릿을 사용하여 수행할 수 있습니다. 
 
 > [!WARNING]
-> 부하 분산 장치에서 역방향 프록시의 포트를 구성하면 HTTP 끝점을 표시하는 클러스터의 모든 마이크로 서비스의 주소를 클러스터 외부에서 지정할 수 있습니다. 즉, 내부용으로 의도된 마이크로 서비스를 악의적인 사용자가 검색할 수 있습니다. 이것은 잠재적으로 악용될 수 있는 심각한 취약성을 나타냅니다. 예:
+> 부하 분산 장치에서 역방향 프록시의 포트를 구성하면 HTTP 엔드포인트를 표시하는 클러스터의 모든 마이크로 서비스의 주소를 클러스터 외부에서 지정할 수 있습니다. 즉, 내부용으로 의도된 마이크로 서비스를 악의적인 사용자가 검색할 수 있습니다. 이것은 잠재적으로 악용될 수 있는 심각한 취약성을 나타냅니다. 예:
 >
 > * 악의적인 사용자는 충분히 강화된 공격 노출 영역이 없는 내부 서비스를 반복적으로 호출하여 서비스 거부 공격을 시작할 수 있습니다.
 > * 악의적인 사용자가 잘못된 패킷을 내부 서비스로 전송하여 의도하지 않은 동작이 발생할 수 있습니다.
@@ -332,7 +332,7 @@ Azure에서 호스팅되는 클러스터에 대한 Resource Manager 템플릿 �
    }
    ``` 
 
-Azure 클러스터에 대한 패브릭 설정을 업데이트하는 방법에 대한 자세한 내용은 [Resource Manager 템플릿을 사용하여 클러스터 설정 사용자 지정](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates)을 참조하세요. 독립 실행형 클러스터의 경우 [독립 실행형 클러스터에 대한 클러스터 설정 사용자 지정](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters)을 참조하세요. 
+Azure 클러스터에 대한 패브릭 설정을 업데이트하는 방법에 대한 자세한 내용은 [Resource Manager 템플릿을 사용하여 클러스터 설정 사용자 지정](service-fabric-cluster-config-upgrade-azure.md)을 참조하세요. 독립 실행형 클러스터의 경우 [독립 실행형 클러스터에 대한 클러스터 설정 사용자 지정](service-fabric-cluster-config-upgrade-windows-server.md)을 참조하세요. 
 
 몇 가지 패브릭 설정은 역방향 프록시와 서비스 간의 보안 통신을 설정하는 데 사용됩니다. 이러한 설정에 대한 자세한 내용은 [역방향 프록시를 사용하여 보안 서비스 연결](service-fabric-reverseproxy-configure-secure-communication.md)을 참조하세요.
 

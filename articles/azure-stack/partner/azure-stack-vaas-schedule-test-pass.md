@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: How to
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1fbda6c0351287b9bc7574d100c0862b172a0aed
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3021fafe7d74f71450eec9b3720c974b04ada224
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651770"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426930"
 ---
 # <a name="schedule-your-first-test"></a>첫 번째 테스트를 예약 합니다.
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Azure Stack 솔루션에 대 한 유효성 검사 서비스 (VaaS) 포털에서 테스트를 예약 합니다. VaaS 솔루션을는 특정 하드웨어 자재 명세서 정보 (BoM)를 사용 하 여 Azure Stack 솔루션을 나타냅니다. 하드웨어가 Azure Stack을 실행할 수 있는지 확인 하는 테스트를 예약할 수 있습니다.
 

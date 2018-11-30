@@ -2,25 +2,21 @@
 title: 팀 데이터 과학 프로세스 수명 주기의 비즈니스 이해 단계 - Azure | Microsoft Docs
 description: 데이터 과학 프로젝트의 비즈니스 이해 단계에 대한 목표, 작업 및 결과물입니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 00dc359fc171afe470b1dfe8f38d0951085ec580
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 3d2a6bf5a7e4766ca6205c413dd27fa9a69c16b7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228303"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446724"
 ---
 # <a name="business-understanding"></a>비즈니스 이해
 

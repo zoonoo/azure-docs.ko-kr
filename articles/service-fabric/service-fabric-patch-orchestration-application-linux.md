@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746720"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285155"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Linux 운영 체제 패치
 
@@ -147,7 +147,7 @@ sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://aka.ms/POA/POA_v2.
 
 1. 모든 필수 구성 요소 단계를 완료하여 클러스터를 준비합니다.
 2. 다른 Service Fabric 앱과 마찬가지로 패치 오케스트레이션 앱을 배포합니다. PowerShell 또는 Azure Service Fabric CLI를 사용하여 앱을 배포할 수 있습니다. [PowerShell을 사용하여 응용 프로그램 배포 및 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) 또는 [Azure Service Fabric CLI를 사용하여 응용 프로그램 배포](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)의 단계를 따릅니다.
-3. 배포 시 응용 프로그램을 구성하려면 `ApplicationParamater`를 `New-ServiceFabricApplication` cmdlet 또는 제공된 스크립트에 전달합니다. 사용자 편의를 위해 powershell(Deploy.ps1) 및 bash(Deploy.sh) 스크립트는 응용 프로그램과 함께 제공됩니다. 스크립트를 사용하려면 다음을 수행합니다.
+3. 배포 시 응용 프로그램을 구성하려면 `ApplicationParameter`를 `New-ServiceFabricApplication` cmdlet 또는 제공된 스크립트에 전달합니다. 사용자 편의를 위해 powershell(Deploy.ps1) 및 bash(Deploy.sh) 스크립트는 응용 프로그램과 함께 제공됩니다. 스크립트를 사용하려면 다음을 수행합니다.
 
     - Service Fabric 클러스터에 연결합니다.
     - 배포 스크립트를 실행합니다. 필요에 따라 스크립트에 응용 프로그램 매개 변수를 전달합니다. 예: .\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OR ./Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 

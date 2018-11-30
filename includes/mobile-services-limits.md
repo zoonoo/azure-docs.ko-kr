@@ -1,4 +1,16 @@
-
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 4f0cb05214cf391d0ac2a75511473a3ddf9778dd
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279778"
+---
 | 계층: | 무료 | BASIC | 표준 |
 | --- | --- | --- | --- |
 | API 호출 |500 K |1.5 M / 단위 |15 M / 단위 |

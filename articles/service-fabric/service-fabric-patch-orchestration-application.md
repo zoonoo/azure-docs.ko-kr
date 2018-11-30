@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409359"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285053"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -167,7 +167,7 @@ sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://aka.ms/POA/POA_v1.
 
 1. 모든 필수 구성 요소 단계를 완료하여 클러스터를 준비합니다.
 2. 다른 Service Fabric 앱과 마찬가지로 패치 오케스트레이션 앱을 배포합니다. PowerShell을 사용하여 앱을 배포할 수 있습니다. [PowerShell을 사용하여 응용 프로그램 배포 및 제거](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications)의 단계를 따릅니다.
-3. 배포 시 응용 프로그램을 구성하려면 `ApplicationParamater`를 `New-ServiceFabricApplication` cmdlet에 전달합니다. 편의를 위해 Deploy.ps1 스크립트가 응용 프로그램과 함께 제공됩니다. 스크립트를 사용하려면 다음을 수행합니다.
+3. 배포 시 응용 프로그램을 구성하려면 `ApplicationParameter`를 `New-ServiceFabricApplication` cmdlet에 전달합니다. 편의를 위해 Deploy.ps1 스크립트가 응용 프로그램과 함께 제공됩니다. 스크립트를 사용하려면 다음을 수행합니다.
 
     - `Connect-ServiceFabricCluster`를 사용하여 Service Fabric 클러스터에 연결합니다.
     - 적절한 `ApplicationParameter` 값을 사용하여 PowerShell 스크립트 Deploy.ps1을 실행합니다.

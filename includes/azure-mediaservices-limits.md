@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279789"
+---
 >[!NOTE]
 >고정되지 않는 리소스의 경우 지원 티켓을 열어 발생되는 할당량을 요청할 수 있습니다. 더 높은 한도를 얻기 위해 추가 Azure Media Services 계정을 만들지 **마십시오**.
 

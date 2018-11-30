@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3e1acb714cfc1c059f8d02240c2a6d49be9f4971
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010590"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335285"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics의 사용자 지정 필드
 Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으로 검색 가능한 필드를 추가하여 Log Analytics의 기존 레코드를 확장할 수 있습니다.  사용자 지정 필드는 동일한 레코드의 다른 속성에서 추출한 데이터로 자동으로 채워집니다.
@@ -81,7 +81,7 @@ Azure Portal에서 Log Analytics 작업 영역의 **고급 설정** 메뉴에서
 사용자 지정 필드를 제거하는 방법은 두 가지입니다.  첫 번째는 위의 설명대로 전체 목록을 볼 때 각 필드의 **제거** 옵션입니다.  다른 방법은 레코드를 검색하고 필드 왼쪽의 단추를 클릭하는 것입니다.  메뉴에 사용자 지정 필드를 제거하는 옵션이 표시됩니다.
 
 ## <a name="sample-walkthrough"></a>샘플 연습
-다음 섹션은 사용자 지정 필드를 만드는 전체 예제를 안내합니다.  이 예제는 서비스 변경 상태를 나타내는 Windows 이벤트의 서비스 이름을 추출합니다.  이것은 Windows 컴퓨터의 시스템 로그에서 서비스 제어 관리자에 의해 생성되는 이벤트에 의존합니다.  이 예제를 계속하려면, [시스템 로그에 대한 정보 이벤트를 수집](log-analytics-data-sources-windows-events.md)해야 합니다.
+다음 섹션은 사용자 지정 필드를 만드는 전체 예제를 안내합니다.  이 예제는 서비스 변경 상태를 나타내는 Windows 이벤트의 서비스 이름을 추출합니다.  이것은 Windows 컴퓨터의 시스템 로그에서 서비스 제어 관리자에 의해 생성되는 이벤트에 의존합니다.  이 예제를 계속하려면, [시스템 로그에 대한 정보 이벤트를 수집](../azure-monitor/platform/data-sources-windows-events.md)해야 합니다.
 
 서비스 시작 또는 중지를 나타내는 이벤트인, 이벤트 ID가 7036인 서비스 제어 관리자의 모든 이벤트를 반환하기 위해서 다음 쿼리를 입력합니다.
 
@@ -141,5 +141,5 @@ DPMRA 서비스를 포함하는 레코드로 스크롤하고 동일한 프로세
 
 ## <a name="next-steps"></a>다음 단계
 * 조건에 대한 사용자 지정 필드를 사용하여 쿼리를 빌드하기 위해 [검색 로그](log-analytics-queries.md) 에 대해 알아봅니다.
-* 사용자 지정 필드를 사용하여 구문 분석하는 [사용자 지정 로그 파일](log-analytics-data-sources-custom-logs.md)을 모니터링합니다.
+* 사용자 지정 필드를 사용하여 구문 분석하는 [사용자 지정 로그 파일](../azure-monitor/platform/data-sources-custom-logs.md)을 모니터링합니다.
 

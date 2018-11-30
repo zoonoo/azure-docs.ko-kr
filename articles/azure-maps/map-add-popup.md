@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0be10c155398133887fadb1fe9954068f3afb9d9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568117"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282535"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
 
@@ -33,7 +33,7 @@ ms.locfileid: "51568117"
 
 [기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다.  기호 계층은 세 번째 코드 블록에서 생성됩니다. 데이터 원본이 기호 계층에 추가된 다음, 맵에 추가됩니다.
 
-네 번째 코드 블록은 `new atlas.Popup()`을 통해 [팝업 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)를 만듭니다. position 및 pixelOffset과 같은 팝업 속성은 [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest)의 일부입니다. PopupOptions는 popup 생성자나 popup 클래스의 [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) 함수를 통해 정의할 수 있습니다. 기호 계층에 대한 `mouseover` 이벤트 수신기가 생성됩니다.
+네 번째 코드 블록은 `new atlas.Popup()`을 통해 [팝업 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)를 만듭니다. position 및 pixelOffset과 같은 팝업 속성은 [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions)의 일부입니다. PopupOptions는 popup 생성자나 popup 클래스의 [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) 함수를 통해 정의할 수 있습니다. 기호 계층에 대한 `mouseover` 이벤트 수신기가 생성됩니다.
 
 마지막 코드 블록에서는 `mouseover` 이벤트 수신기에 의해 트리거되는 함수가 생성됩니다. 여기서 팝업 속성 및 콘텐츠를 설정하고 맵에 팝업 개체를 추가합니다.
 

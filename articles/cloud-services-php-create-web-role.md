@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 30afc1c577ab6dd18374d5ef5199c7e7d9e89fe4
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 83834104dd73e4381947903196ad35c3497b64a1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145368"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425679"
 ---
 # <a name="create-php-web-and-worker-roles"></a>PHP 웹 및 작업자 역할 만들기
 
@@ -217,10 +217,10 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 
 자세한 내용은 [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)를 참조하세요.
 
-[install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[서비스 정의(.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[서비스 구성(.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[iis.net]: http://www.iis.net/
+[install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
+[서비스 정의(.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
+[서비스 구성(.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[iis.net]: https://www.iis.net/
 [sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
-[sqlsrv drivers]: http://php.net/sqlsrv
-[sqlncli.msi x64 설치 관리자]: http://go.microsoft.com/fwlink/?LinkID=239648
+[sqlsrv drivers]: https://php.net/sqlsrv
+[sqlncli.msi x64 설치 관리자]: https://go.microsoft.com/fwlink/?LinkID=239648

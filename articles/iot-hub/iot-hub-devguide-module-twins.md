@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 1b76bfded6562f61a0a9f4a870a18a1fff71bc6a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309739"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284316"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>IoT Hub의 모듈 쌍 이해 및 사용
 
@@ -327,7 +327,7 @@ IoT Hub는 모듈 쌍 desired 또는 reported 속성에서 각 JSON 개체에 �
 ## <a name="optimistic-concurrency"></a>낙관적 동시성
 
 태그, desired 및 reported 속성은 모두 낙관적 동시성을 지원합니다.
-[RFC7232]()https://tools.ietf.org/html/rfc7232에 따르면, 태그에는 ETag가 있고 이것은 태그의 JSON 표현을 나타냅니다. 일관성을 보장하기 위해 솔루션 백 엔드에서 조건부 업데이트 작업에 ETag를 사용할 수 있습니다.
+[RFC7232](https://tools.ietf.org/html/rfc7232)에 따르면 태그에는 ETag가 있고 이것은 태그의 JSON 표현을 나타냅니다. 일관성을 보장하기 위해 솔루션 백 엔드에서 조건부 업데이트 작업에 ETag를 사용할 수 있습니다.
 
 모듈 쌍 desired 및 reported 속성에는 ETag가 없지만 증분할 수 있는 `$version` 값이 있습니다. ETag와 마찬가지로 버전은 업데이트의 일관성을 유지하는 파티를 업데이트하여 사용할 수 있습니다. 예를 들어 reported 속성에 대한 모듈 앱 또는 desired 속성에 대한 솔루션 백 엔드가 있습니다.
 

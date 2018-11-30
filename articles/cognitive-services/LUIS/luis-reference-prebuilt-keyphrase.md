@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4133b7c7c3fabbe92a3208c567d7b4c6c2c27283
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a543e60c6e77ed9fdb825ad6cb2a936119677671
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434401"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334587"
 ---
 # <a name="keyphrase-entity"></a>keyPhrase 엔터티
 keyPhrase는 발언에서 다양한 핵심 구를 추출합니다. keyphrase를 포함하는 예제 발언을 응용 프로그램에 추가할 필요는 없습니다. keyPhrase 엔터티는 [텍스트 분석](../text-analytics/overview.md) 기능의 일부로 [여러 문화권](luis-language-support.md#languages-supported)에서 지원됩니다. 

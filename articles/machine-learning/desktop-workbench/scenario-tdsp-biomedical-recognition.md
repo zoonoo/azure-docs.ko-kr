@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ca8e1081b514d5569c84a6364d55e8f49bee533
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0d31fc0ecb06727aa44d31d832b0bfd5145b7c7d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239008"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262095"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>TDSP(Team Data Science Process) 템플릿을 사용하는 생명 공학 엔터티 인식
 
@@ -174,7 +174,7 @@ Word2Vec는 레이블이 없는 학습 모음에서 신경망 모델을 학습�
 
 ![Skip Gram 모델](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-이 모델은 계층적 Softmax 및 음수 샘플링을 사용하여 성능을 최적화합니다. H-SoftMax(계층적 SoftMax)는 이진 트리에서 영감을 얻은 근사값입니다. H-SoftMax는 기본적으로 일반 SoftMax 레이어를 단어가 리프인 계층적 레이어로 대체합니다. 이를 통해 한 단어의 확률 계산을 일련의 확률 계산으로 분해할 수 있으므로 모든 단어에 대해 비싼 정규화를 계산하지 않아도 됩니다. 균형 있는 이진 트리의 깊이는 log2(|V|)이므로(V는 어휘임) 단어의 최종 확률을 구하려면 최대 log2(|V|) 노드를 평가하기만 하면 됩니다. 해당 컨텍스트 c에 철자 w가 지정될 확률은 리프 노드로 이어지는 오른쪽 및 왼쪽 전환 확률의 곱입니다. 자주 사용하는 단어의 표현이 더 짧도록 데이터 집합의 단어 빈도에 따라 Huffman 트리를 만들 수 있습니다. 자세한 내용은 [이 링크](http://sebastianruder.com/word-embeddings-softmax/)를 참조하세요.
+이 모델은 계층적 Softmax 및 음수 샘플링을 사용하여 성능을 최적화합니다. H-SoftMax(계층적 SoftMax)는 이진 트리에서 영감을 얻은 근사값입니다. H-SoftMax는 기본적으로 일반 SoftMax 레이어를 단어가 리프인 계층적 레이어로 대체합니다. 이를 통해 한 단어의 확률 계산을 일련의 확률 계산으로 분해할 수 있으므로 모든 단어에 대해 비싼 정규화를 계산하지 않아도 됩니다. 균형 있는 이진 트리의 깊이는 log2(|V|)이므로(V는 어휘임) 단어의 최종 확률을 구하려면 최대 log2(|V|) 노드를 평가하기만 하면 됩니다. 해당 컨텍스트 c에 철자 w가 지정될 확률은 리프 노드로 이어지는 오른쪽 및 왼쪽 전환 확률의 곱입니다. 자주 사용하는 단어의 표현이 더 짧도록 데이터 집합의 단어 빈도에 따라 Huffman 트리를 만들 수 있습니다. 자세한 내용은 [이 링크](http://ruder.io/word-embeddings-softmax/)를 참조하세요.
 이미지는 [여기](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/)에서 가져왔습니다.
 
 ##### <a name="visualization"></a>시각화

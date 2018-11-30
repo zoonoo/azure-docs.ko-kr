@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: 5c1858fca1ca5f6bc48f5225ecf2d52dee055c91
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 37f0ba800cca4b096691a8bb6b43eb33a636d833
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092750"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284866"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - Azure 대상 마이그레이션 크기 조정
 
@@ -289,9 +289,9 @@ Contoso는 용량 고려 사항에 따라 이러한 구성 요소를 배포하�
 --- | ---
 **최대 일일 변동률** | 단일 프로세스 서버는 최대 2TB의 일일 변동률을 처리할 수 있습니다. VM은 하나의 프로세스 서버만 사용할 수 있으므로 복제된 VM에 지원되는 최대 일일 데이터 변동률은 2TB입니다.
 **최대 처리량** | 표준 Azure 저장소 계정은 초당 최대 20,000개의 요청을 처리할 수 있고 전체 복제 VM에서 IOPS(초당 입출력 작업 수)는 이 한도 내로 유지되어야 합니다. 예를 들어, VM의 디스크가 5개이고 각 디스크가 VM에서 120 IOPS(8K 크기)를 생성할 경우 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다.<br/><br/> 필요한 저장소 계정 수는 총 원본 머신 IOPS를 20,000으로 나눈 값입니다. 복제된 머신은 Azure에서 단일 저장소 계정에만 속할 수 있습니다.
-**구성 서버** | 100~200개 VM을 함께 복제하는 작업에 대한 Contoso의 예상과 [구성 서버 크기 요구 사항](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server)에 따라 다음과 같은 구성 서버 머신이 필요합니다.<br/><br/> CPU: 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz)<br/><br/> 메모리: 32GB<br/><br/> 캐시 디스크: 1TB<br/><br/> 데이터 변동률: 1TB~2TB.<br/><br/> 크기 요구사항 외에도 Contoso는 구성 서버가 마이그레이션할 VM과 동일한 네트워크 및 LAN 세그먼트에서 최적의 위치에 있는지 확인해야 합니다.
+**구성 서버** | 100~200개 VM을 함께 복제하는 작업에 대한 Contoso의 예상과 [구성 서버 크기 요구 사항](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server)에 따라 다음과 같은 구성 서버 머신이 필요합니다.<br/><br/> CPU: 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz)<br/><br/> 메모리: 32GB<br/><br/> 캐시 디스크: 1TB<br/><br/> 데이터 변동률: 1TB~2TB.<br/><br/> 크기 요구사항 외에도 Contoso는 구성 서버가 마이그레이션할 VM과 동일한 네트워크 및 LAN 세그먼트에서 최적의 위치에 있는지 확인해야 합니다.
 **프로세스 서버** | Contoso는100~200개 VM을 복제하는 기능을 사용하여 독립 실행형 전용 프로세스 서버를 배포합니다.<br/><br/> CPU: 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz)<br/><br/> 메모리: 32GB<br/><br/> 캐시 디스크: 1TB<br/><br/> 데이터 변동률: 1TB~2TB.<br/><br/> 프로세스 서버는 사용량이 매우 많으므로 복제에 필요한 디스크 I/O, 네트워크 트래픽 및 CPU를 처리할 수 있는 ESXi 호스트에 있어야 합니다. Contoso는 이 목적으로 전용 호스트를 고려합니다. 
-**네트워킹** | Contoso는 현재 사이트 간 VPN 인프라를 검토했고 Azure ExpressRoute를 구현하기로 결정했습니다. 이 구현은 대기 시간을 줄이고 대역폭을 Contoso의 기본 미국 동부 2 Azure 지역으로 개선하므로 중요합니다.<br/><br/> **모니터링**: Contoso는 프로세스 서버에서 데이터 흐름을 주의 깊게 모니터링해야 합니다. 데이터가 네트워크 대역폭을 오버로드하는 경우 Contoso는 [프로세스 서버 대역폭의 제한](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth)을 고려합니다.
+**네트워킹** | Contoso는 현재 사이트 간 VPN 인프라를 검토했고 Azure ExpressRoute를 구현하기로 결정했습니다. 이 구현은 대기 시간을 줄이고 대역폭을 Contoso의 기본 미국 동부 2 Azure 지역으로 개선하므로 중요합니다.<br/><br/> **모니터링**: Contoso는 프로세스 서버에서 데이터 흐름을 주의 깊게 모니터링해야 합니다. 데이터가 네트워크 대역폭을 오버로드하는 경우 Contoso는 [프로세스 서버 대역폭의 제한](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth)을 고려합니다.
 **Azure 저장소** | 마이그레이션을 위해 Contoso는 대상 Azure Storage 계정의 적합한 유형 및 개수를 식별해야 합니다.  Site Recovery는 VM 데이터를 Azure 저장소에 복제합니다.<br/><br/> Site Recovery는 표준 또는 프리미엄(SSD) 저장소 계정으로 복제할 수 있습니다.<br/><br/> Contoso는 저장소를 결정하기 위해 [저장소 한도](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)를 검토하고 시간에 따른 예상 성장률 및 사용량 증가를 고려해야 합니다. 마이그레이션의 속도 및 우선 순위에 따라 Contoso는 프리미엄 저장소 계정을 사용하기로 결정했습니다.<br/><br/> 마이그레이션 프로세스 중에 여러 저장소 계정을 만들고 다시 사용합니다.
 Contoso는 Azure에 배포된 모든 VM에 관리 디스크를 사용하도록 결정했습니다.  필요한 IOPS에 따라 디스크가 표준(HDD) 또는 프리미엄(SSD)인지 여부가 결정됩니다.<br/>.<br/>
 

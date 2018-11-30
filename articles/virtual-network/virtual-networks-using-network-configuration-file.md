@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 5267ce5c50e8a57843f0bc54165289b38013ad91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2baae0a1932bdcb7fa5e29ac06dd8ae7a7020a30
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986118"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421847"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>네트워크 구성 파일을 사용하여 가상 네트워크(클래식) 구성
 > [!IMPORTANT]
@@ -134,7 +134,7 @@ PowerShell 또는 클래식 CLI를 사용하여 네트워크 구성 파일을 �
 
 ### <a name="azure-classic-cli"></a>Azure 클래식 CLI
 
-1. [Azure 클래식 CLI를 설치합니다](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 클래식 CLI 명령 프롬프트에서 나머지 단계를 완료합니다.
+1. [Azure 클래식 CLI를 설치합니다](/cli/azure/install-classic-cli). 클래식 CLI 명령 프롬프트에서 나머지 단계를 완료합니다.
 2. `azure login` 명령을 입력하여 Azure에 로그인합니다.
 3. `azure config mode asm` 명령을 입력하여 asm 모드에 있는지 확인합니다.
 4. 필요에 따라 다음 명령에서 디렉터리 및 파일 이름을 변경한 후 명령을 실행하여 네트워크 구성 파일을 가져옵니다.

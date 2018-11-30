@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: e30ffe2dd79d55e856ef297608745b60578cf7e7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131033"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282879"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Azure DB for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
 다음 섹션에서는 PostgreSQL에서 Azure Database for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제 및 제한 사항에 대해 설명합니다. 
 
 ## <a name="online-migration-configuration"></a>온라인 마이그레이션 구성
-- 원본 PostgreSQL Server는 버전 9.5.11, 9.6.7 또는 10.3 이상을 실행해야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](1.2.%09https:/docs.microsoft.com/azure/postgresql/concepts-supported-versions) 문서를 참조하세요.
+- 원본 PostgreSQL Server는 버전 9.5.11, 9.6.7 또는 10.3 이상을 실행해야 합니다. 자세한 내용은 [지원되는 PostgreSQL 데이터베이스 버전](../postgresql/concepts-supported-versions.md) 문서를 참조하세요.
 - 같은 버전의 마이그레이션만 지원됩니다. 예를 들어 PostgreSQL 9.5.11을 Azure Database for PostgreSQL 9.6.7로 마이그레이션할 수는 없습니다.
 - **원본 PostgreSQL postgresql.conf** 파일에서 논리 복제를 사용하도록 설정하려면 다음 매개 변수를 설정합니다.
     - **wal_level** = logical

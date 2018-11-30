@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e87cd3742a5dcd52c3a447bb66ea9089c18d5aee
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214684"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976190"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>AI를 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights
 
@@ -41,7 +41,7 @@ Intelligent Insights는 다음 값을 제공하는 Azure의 기본 제공 인텔
 
 Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 지난 7일의 기준 워크로드를 비교하여 데이터베이스 성능을 분석합니다. 데이터베이스 워크로드는 가장 많이 반복되고 가장 큰 쿼리와 같이 데이터베이스 성능에 가장 중요하다고 판단되는 쿼리로 구성됩니다. 생성된 각 워크로드 기준이 개별 인스턴스에 대해 특정적이고 고유하기 때문에 각 데이터베이스는 구조, 데이터, 사용량 및 응용 프로그램에 따라 고유합니다. 워크로드 기준과는 별도로 Intelligent Insights는 또한 절대 작업 임계값을 모니터링하고 과도한 대기 시간 문제, 심각한 예외, 성능에 영향을 줄 수 있는 쿼리 매개 변수화의 문제를 감지합니다.
 
-인공 지능을 사용하여 관찰된 여러 개의 메트릭에서 성능 저하 문제가 검색되면 분석이 수행됩니다. 데이터베이스 상황을 지능적으로 분석한 진단 로그가 생성됩니다. 인텔리전스 Insights를 사용하면 데이터베이스 성능 문제가 처음 출현할 때부터 해결될 때까지 쉽게 추적할 수 있습니다. 검색된 각 문제는 최초 문제 검색부터, 성능 개선 확인, 완료의 주기에서 추적됩니다. 업데이트는 15분마다 진단 로그에서 제공됩니다.
+인공 지능을 사용하여 관찰된 여러 개의 메트릭에서 성능 저하 문제가 검색되면 분석이 수행됩니다. 데이터베이스 상황을 지능적으로 분석한 진단 로그가 생성됩니다. 인텔리전스 Insights를 사용하면 데이터베이스 성능 문제가 처음 출현할 때부터 해결될 때까지 쉽게 추적할 수 있습니다. 검색된 각 문제는 최초 문제 검색부터, 성능 개선 확인, 완료의 주기에서 추적됩니다.
 
 ![데이터베이스 성능 분석 워크플로](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 

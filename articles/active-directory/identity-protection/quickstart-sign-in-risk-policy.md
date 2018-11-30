@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 6879822e8451e6170bf17fff4ab66b672f711a93
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632390"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822147"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>빠른 시작 - Azure Active Directory Identity Protection을 사용하여 세션 위험 검색 시 액세스 차단  
 
@@ -122,6 +122,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - Azure AD 사용자를 삭제하는 방법을 모르면 [사용자를 추가하거나 삭제하는 방법](../fundamentals/add-users-azure-active-directory.md#delete-a-user)을 참조하세요.
 
-- Tor 브라우저를 제거할 지침은 [제거](https://tb-manual.torproject.org/en-US/uninstalling.html)를 참조하세요.
+- Tor 브라우저를 제거할 지침은 [제거](https://tb-manual.torproject.org/uninstalling/)를 참조하세요.
 
 

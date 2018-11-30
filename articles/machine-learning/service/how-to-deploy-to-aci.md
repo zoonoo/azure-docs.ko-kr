@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 3c07f39a6c6c4ce244ba49a26617b3e645c57acb
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345049"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710378"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Azure Container Instances에 웹 서비스 배포 
 
@@ -28,7 +28,7 @@ ms.locfileid: "51345049"
 * `Webservice.deploy_from_model()`을 사용하여 등록된 모델에서 배포
 * `Webservice.deploy_from_image()`를 사용하여 이미지에서 등록된 모델 배포
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
 
 
 ## <a name="prerequisites"></a>필수 조건

@@ -8,12 +8,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 734387e7ce5fc27cb88c73601bdfd0f35d04b693
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288682"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426488"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell 참조
 이 설명서에서는 Azure AD Connect에 포함된 ADSyncTools.psm1 PowerShell 모듈에 대해 다음과 같은 참조 정보를 제공합니다.
@@ -63,7 +63,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="confirm-adsynctoolsadmoduleloaded"></a>Confirm-ADSyncToolsADModuleLoaded
 
@@ -191,7 +191,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="export-adsynctoolsconsistencyguidmigration"></a>Export-ADSyncToolsConsistencyGuidMigration
 
@@ -284,7 +284,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-adsyncsqlbrowserinstances"></a>Get-ADSyncSQLBrowserInstances
 
@@ -371,7 +371,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-adsynctoolsconsistencyguid"></a>Get-ADSyncToolsConsistencyGuid
 
@@ -418,7 +418,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-adsynctoolsobjectguid"></a>Get-ADSyncToolsObjectGuid
 
@@ -465,7 +465,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
@@ -512,7 +512,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="get-adsynctoolssourceanchorchanged"></a>Get-ADSyncToolsSourceAnchorChanged
 
@@ -578,7 +578,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="import-adsynctoolsimmutableidmigration"></a>Import-ADSyncToolsImmutableIdMigration
 
@@ -641,7 +641,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 
 ## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
@@ -701,7 +701,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="remove-adsynctoolsexpiredcertificates"></a>Remove-ADSyncToolsExpiredCertificates
 
@@ -786,7 +786,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="repair-adsynctoolsautoupgradestate"></a>Repair-ADSyncToolsAutoUpgradeState
 
@@ -940,7 +940,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="test-adsyncnetworkport"></a>Test-ADSyncNetworkPort
 
@@ -1119,7 +1119,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="trace-adsynctoolsldapquery"></a>Trace-ADSyncToolsLdapQuery
 
@@ -1212,7 +1212,7 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
 
 ## <a name="update-adsynctoolsconsistencyguidmigration"></a>Update-ADSyncToolsConsistencyGuidMigration
 
@@ -1336,4 +1336,4 @@ Accept wildcard characters: False
 
 #### <a name="commonparameters"></a>CommonParameters
 이 cmdlet 일반 매개 변수를 지원합니다. -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction 및 -WarningVariable.
-자세한 내용은 about_CommonParameters(http://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.
+자세한 내용은 about_CommonParameters(https://go.microsoft.com/fwlink/?LinkID=113216)를 참조하세요.

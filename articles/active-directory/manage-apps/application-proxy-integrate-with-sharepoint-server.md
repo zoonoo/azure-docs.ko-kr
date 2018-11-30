@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456901"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425210"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
@@ -119,7 +119,7 @@ SPN을 설정하는 가장 쉬운 방법은 사이트에 이미 있는 SPN 형�
 1. SPN으로 다른 컴퓨터에서 해당 사이트로 이동합니다.
  이 작업을 수행하면 관련 Kerberos 티켓 집합이 컴퓨터에서 캐시됩니다. 이러한 티켓에는 탐색할 대상 사이트의 SPN이 포함되어 있습니다.
 
-2. [Klist](http://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html)라는 도구를 사용하여 해당 사이트에 대한 SPN을 끌어올 수 있습니다. 브라우저에서 사이트에 액세스한 사용자와 같은 컨텍스트에서 실행 중인 명령 창에서 다음 명령을 실행합니다.
+2. [Klist](https://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html)라는 도구를 사용하여 해당 사이트에 대한 SPN을 끌어올 수 있습니다. 브라우저에서 사이트에 액세스한 사용자와 같은 컨텍스트에서 실행 중인 명령 창에서 다음 명령을 실행합니다.
 ```
 Klist
 ```

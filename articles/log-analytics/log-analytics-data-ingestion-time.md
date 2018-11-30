@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f7b0f7c1cd08168db3f0f0ffd6cf6c4fa2c604e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955259"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334553"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log Analytics의 데이터 수집 시간
 Azure Log Analytics는 점점 더 빠른 속도로 매달 테라바이트 단위의 데이터를 보내는 수천 명의 고객을 처리하는 Azure Monitor의 대규모 데이터 서비스입니다. 데이터가 수집된 후 Log Analytics에서 사용할 수 있기까지 걸리는 시간에 대해 질문하는 경우가 많습니다. 이 문서에서는 이 대기 시간에 영향을 주는 여러 요인에 대해 설명합니다.
@@ -40,7 +40,7 @@ Azure Log Analytics는 점점 더 빠른 속도로 매달 테라바이트 단위
 에이전트 및 관리 솔루션은 다양한 전략을 사용하여 가상 머신에서 데이터를 수집하므로 대기 시간에 영향을 줄 수 있습니다. 몇 가지 특정 예제는 다음과 같습니다.
 
 - Windows 이벤트, syslog 이벤트 및 성능 메트릭은 즉시 수집됩니다. Linux 성능 카운터는 30초 간격으로 폴링됩니다.
-- 타임스탬프가 변경되면 IIS 로그 및 사용자 지정 로그가 수집됩니다. IIS 로그의 경우, [IIS에 구성된 롤오버 일정](log-analytics-data-sources-iis-logs.md)의 영향을 받습니다. 
+- 타임스탬프가 변경되면 IIS 로그 및 사용자 지정 로그가 수집됩니다. IIS 로그의 경우, [IIS에 구성된 롤오버 일정](../azure-monitor/platform/data-sources-iis-logs.md)의 영향을 받습니다. 
 - Active Directory 복제 솔루션은 5일마다 해당 평가를 수행하는 반면, Active Directory 평가 솔루션은 Active Directory 인프라를 매주 평가합니다. 에이전트는 평가가 완료된 경우에만 이러한 로그를 수집합니다.
 
 ### <a name="agent-upload-frequency"></a>에이전트 업로드 빈도
@@ -61,7 +61,7 @@ Log Analytics 에이전트를 경량으로 유지하기 위해 에이전트는 �
 로그 레코드가 Log Analytics 파이프라인에 수집되고 나면, 테넌트 격리를 보장하고 해당 데이터가 손실되지 않도록 임시 저장소에 기록됩니다. 이 프로세스로 인해 일반적으로 5~15초가 추가됩니다. 일부 관리 솔루션은 데이터가 스트리밍될 때 데이터를 집계하고 인사이트를 파생하기 위해 부하가 높은 알고리즘을 구현합니다. 예를 들어, 네트워크 성능 모니터링은 들어오는 데이터를 3분 간격으로 집계하므로 대기 시간 3분이 추가됩니다. 대기 시간을 추가하는 또 다른 프로세스는 사용자 지정 로그를 처리하는 프로세스입니다. 경우에 따라 이 프로세스로 인해 에이전트가 파일에서 수집하는 로그에 대기 시간이 몇 분 정도 추가될 수 있습니다.
 
 ### <a name="new-custom-data-types-provisioning"></a>새 사용자 지정 데이터 형식 프로비저닝
-[사용자 지정 로그](../log-analytics/log-analytics-data-sources-custom-logs.md) 또는 [데이터 수집기 API](../log-analytics/log-analytics-data-collector-api.md)에서 새 사용자 지정 데이터 형식이 생성되는 경우, 시스템이 전용 저장소 컨테이너를 만듭니다. 이는 이 데이터 형식이 처음 나타날 때만 발생하는 일회성 오버헤드입니다.
+[사용자 지정 로그](../log-analytics/../azure-monitor/platform/data-sources-custom-logs.md) 또는 [데이터 수집기 API](../log-analytics/log-analytics-data-collector-api.md)에서 새 사용자 지정 데이터 형식이 생성되는 경우, 시스템이 전용 저장소 컨테이너를 만듭니다. 이는 이 데이터 형식이 처음 나타날 때만 발생하는 일회성 오버헤드입니다.
 
 ### <a name="surge-protection"></a>서지 보호
 Log Analytics의 최우선 과제는 고객 데이터가 손실되지 않도록 하는 것이므로, 시스템에 데이터 서지에 대한 보호 기능이 기본 제공됩니다. 여기에는 부하가 높은 경우에도 시스템이 계속 작동하도록 유지하는 버퍼가 포함됩니다. 부하가 정상적일 때는 이러한 제어로 인해 1분 미만이 추가되지만, 극단적인 조건과 오류 상황에서는 데이터를 안전하게 유지하는 반면 상당한 시간이 추가될 수 있습니다.

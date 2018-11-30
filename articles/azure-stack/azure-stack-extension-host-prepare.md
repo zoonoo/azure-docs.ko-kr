@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/09/2018
+ms.date: 11/27/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 049e859f1d736e7c06ac5d40e33d91d1540c3d9e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8de810e689a00f081df82365eca00131453a6db5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514369"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447116"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack에 대 한 확장 호스트 준비
 
@@ -121,8 +121,6 @@ Azure Stack 준비 검사 도구를 두 개의 새, 필요한 SSL 인증서에 �
     }
     ```
 
-
-
 ### <a name="update-dns-configuration"></a>DNS 구성 업데이트
 
 > [!Note]  
@@ -131,8 +129,8 @@ Azure Stack 끝점을 게시 하려면 개별 호스트 A 레코드를 구성한
 
 | IP | 호스트 이름 | type |
 |----|------------------------------|------|
-| \<IP &GT; | Adminhosting 합니다. <Region>.<FQDN> | A |
-| \<IP &GT; | 호스팅. <Region>.<FQDN> | A |
+| \<IP &GT; | *. Adminhosting 합니다. \<지역 >. \<FQDN > | A |
+| \<IP &GT; | *. 호스팅. \<지역 >. \<FQDN > | A |
 
 Cmdlet을 실행 하 여 권한 있는 끝점을 사용 하 여 할당 된 Ip를 검색할 수 있습니다 **Get AzureStackStampInformation**합니다.
 

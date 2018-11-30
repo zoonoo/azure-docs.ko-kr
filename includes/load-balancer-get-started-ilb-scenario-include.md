@@ -1,3 +1,16 @@
+---
+author: kumudD
+ms.service: load-balancer
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: kumud
+ms.openlocfilehash: f0e575af51f952a80fe42102b033727713c75cf9
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52271320"
+---
 ## <a name="configuration-scenario"></a>구성 시나리오
 
 이 시나리오에서는 다음 그림과 같이 가상 네트워크에 내부 부하 분산 장치를 만듭니다.
@@ -6,6 +19,6 @@
 
 시나리오의 구성은 다음과 같습니다.
 
-* **DB1** 및 **DB2**라는 두 가상 컴퓨터
-* 내부 부하 분산 장치에 대한 끝점
+* **DB1** 및 **DB2**라는 두 가상 머신
+* 내부 부하 분산 장치에 대한 엔드포인트
 * 내부 부하 분산 장치

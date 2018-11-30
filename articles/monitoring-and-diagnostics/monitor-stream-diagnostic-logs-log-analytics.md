@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: e9f082b795325349001b5231304588e5297a1443
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fe1557a6f9e5fd4e463af254fa1dd52726e73024
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960721"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713047"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Log Analytics로 Azure 진단 로그 스트리밍
 
@@ -96,7 +96,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Log Analytics에서 데이터를 쿼리하려면 어떻게 하나요?
 
-Portal의 로그 검색 블레이드 또는 Log Analytics에 속하는 고급 분석에서 AzureDiagnostics 테이블 아래에 제공되는 로그 관리 솔루션을 통해 진단 로그를 쿼리할 수 있습니다. 또한 Log Analytics로 전송하는 로그 데이터를 즉시 이해하는 데 도움이 되는 [Azure 리소스의 몇 가지 솔루션](../monitoring/monitoring-solutions.md)을 설치할 수 있습니다.
+Portal의 로그 검색 블레이드 또는 Log Analytics에 속하는 고급 분석에서 AzureDiagnostics 테이블 아래에 제공되는 로그 관리 솔루션을 통해 진단 로그를 쿼리할 수 있습니다. 또한 Log Analytics로 전송하는 로그 데이터를 즉시 이해하는 데 도움이 되는 [Azure 리소스의 몇 가지 솔루션](../azure-monitor/insights/solutions.md)을 설치할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: dc3bbab2242321ae736f3f2cefb1eed5e96e834e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7ce11b3e54a8770a2b3d53e335afc57f52d3d14e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288733"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425312"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 개발자 용어집
 
@@ -173,7 +173,7 @@ Azure AD Graph API에 의해 노출된 응용 프로그램 역할에 대한 자�
 
 ## <a name="security-token"></a>보안 토큰
 
-OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명된 문서입니다. OAuth2 [권한 부여](#authorization-grant)의 경우 [액세스 토큰](#access-token)(OAuth2)과 [ID 토큰](http://openid.net/specs/openid-connect-core-1_0.html#IDToken)은 보안 토큰의 유형으로서 둘 다 [JWT(JSON Web Token)][JWT] 형식으로 구현됩니다.
+OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명된 문서입니다. OAuth2 [권한 부여](#authorization-grant)의 경우 [액세스 토큰](#access-token)(OAuth2)과 [ID 토큰](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)은 보안 토큰의 유형으로서 둘 다 [JWT(JSON Web Token)][JWT] 형식으로 구현됩니다.
 
 ## <a name="service-principal-object"></a>서비스 주체 개체
 
@@ -251,6 +251,6 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
-[OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
-[OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
-[OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+[OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html
+[OpenIDConnect-AuthZ-Endpoint]: https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
+[OpenIDConnect-ID-Token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken

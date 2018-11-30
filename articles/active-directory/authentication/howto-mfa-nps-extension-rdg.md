@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 7fb69fd52c03300ee554fd903cba1670f2aa2421
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 10b2b6e67c22efaf1dcab2cfe8abdd42b7576dbc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318608"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426070"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -359,7 +359,7 @@ Azure MFA가 사용자에 대해 작동하는 경우 관련 이벤트 로그를 
 
 이러한 로그 파일에 대한 자세한 내용은 [NPS 데이터베이스 형식 로그 파일 해석(영문)](https://technet.microsoft.com/library/cc771748.aspx)을 참조하세요. 이러한 로그 파일의 항목은 스프레드시트 또는 데이터베이스로 가져오지 않고는 해석하기가 어려울 수 있습니다. 로그 파일을 해석하는 데 도움이 되는 여러 IAS 파서를 온라인으로 찾을 수 있습니다. 
 
-아래 이미지는 다운로드할 수 있는 [셰어웨어 응용 프로그램](http://www.deepsoftware.com/iasviewer)의 출력을 보여 줍니다. 
+아래 이미지는 다운로드할 수 있는 [셰어웨어 응용 프로그램](https://www.deepsoftware.com/iasviewer)의 출력을 보여 줍니다. 
 
 ![셰어웨어 앱](./media/howto-mfa-nps-extension-rdg/image35.png)
 

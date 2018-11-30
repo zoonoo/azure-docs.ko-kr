@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f830a27e9caf032443c2b27bdd2f95fa8069bcf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4e8a39e16bd67169aac8dd7328338197b604e93f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247282"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426913"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>자습서: PHS(암호 해시 동기화)를 사용하여 단일 AD 포리스트 통합
 
@@ -224,7 +224,7 @@ Azure AD 테넌트가 준비되었으면 글로벌 관리자 계정을 만들겠
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>사용자로 로그인 테스트
 
-1.  [http://myapps.microsoft.com](https://myapps.microsoft.com)으로 이동합니다.
+1.  [https://myapps.microsoft.com](httpss://myapps.microsoft.com)으로 이동합니다.
 2. 새 테넌트에 생성된 사용자 계정으로 로그인합니다.  다음 형식을 사용하여 로그인해야 합니다(user@domain.onmicrosoft.com). 사용자가 온-프레미스 로그인에 사용한 것과 동일한 암호를 사용합니다.</br>
 ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
 

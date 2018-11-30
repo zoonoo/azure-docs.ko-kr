@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577014"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335217"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -462,7 +462,7 @@ ASP.NET용으로 개발된 로깅 프레임워크를 권장하며, 사용 방법
 
 ### <a name="log-filtering"></a>로그 필터링
 
-`ILogger` 인스턴스로 만든 모든 로그에는 `Category` 및 `Level`이 연결됩니다. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel)은 열거형이며, 정수 코드는 상대적 중요도를 나타냅니다.
+`ILogger` 인스턴스로 만든 모든 로그에는 `Category` 및 `Level`이 연결됩니다. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel)은 열거형이며, 정수 코드는 상대적 중요도를 나타냅니다.
 
 |LogLevel    |코드|
 |------------|---|
@@ -474,7 +474,7 @@ ASP.NET용으로 개발된 로깅 프레임워크를 권장하며, 사용 방법
 |중요    | 5 |
 |없음        | 6 |
 
-각 범주를 특정 [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel)로 독립적으로 필터링할 수 있습니다. 예를 들어 BLOB 트리거 처리에 대한 모든 로그를 보고 싶지만 그 외에는 `Error` 이상만 보고 싶은 경우가 있습니다.
+각 범주를 특정 [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel)로 독립적으로 필터링할 수 있습니다. 예를 들어 BLOB 트리거 처리에 대한 모든 로그를 보고 싶지만 그 외에는 `Error` 이상만 보고 싶은 경우가 있습니다.
 
 간편하게 필터링 규칙을 지정할 수 있도록 WebJobs SDK는 Application Insights 및 콘솔을 포함하여 여러 기존 로깅 공급자에게 전달할 수 있는 `LogCategoryFilter`를 제공합니다.
 

@@ -1,26 +1,22 @@
 ---
 title: 'AI(인공 지능) 응용 프로그램에 대한 DevOps: Docker, Kubernetes 및 Python Flask 응용 프로그램을 사용하여 Azure에서 지속적인 통합 파이프라인 만들기'
 description: 'AI(인공 지능) 응용 프로그램에 대한 DevOps: Docker 및 Kubernetes를 사용하여 Azure에서 지속적인 통합 파이프라인 만들기'
-services: machine-learning, team-data-science-process
-documentationcenter: ''
-author: jainr
-manager: deguhath
+services: machine-learning
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
-ms.author: jainr
-ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=jainr, ms.author=jainr)
+ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094397"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496755"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>AI(인공 지능) 응용 프로그램에 대한 DevOps: Docker 및 Kubernetes를 사용하여 Azure에서 지속적인 통합 파이프라인 만들기
 AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 데이터 과학자와 응용 프로그램을 빌드하고 사용할 최종 사용자에게 노출하는 앱 개발자라는 두 가지 작업 스트림이 있습니다. 이 문서에서는 AI 응용 프로그램을 위한 CI(지속적인 통합)/CD(지속적인 배포) 파이프라인을 구현하는 방법을 설명합니다. AI 응용 프로그램은 미리 학습된 ML(Machine Learning) 모델이 포함된 응용 프로그램 코드의 조합입니다. 이 문서의 경우 개인 Azure blob 저장소 계정에서 미리 학습된 모델을 페치합니다. 이는 AWS S3 계정에도 적용될 수 있습니다. 문서에서는 간단한 python flask 웹 응용 프로그램을 사용합니다.
@@ -55,7 +51,7 @@ AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 
 1. 개발자는 응용 프로그램 코드 중 선택한 IDE에서 작업합니다.
 2. 선택한 소스 제어에 대한 코드를 커밋합니다(Azure DevOps에 다양한 소스 제어를 위한 지원이 있음).
 3. 이와 별도로, 데이터 과학자는 자신의 모델을 개발합니다.
-4. 만족스러우면 모델을 모델 리포지토리에 게시합니다. 이 경우 blob 저장소 계정을 사용합니다. 이는 REST API를 통해 Azure ML Workbench의 모델 관리 서비스로 쉽게 바꿀 수 있습니다.
+4. 만족스러우면 모델을 모델 리포지토리에 게시합니다. 이 경우 blob 저장소 계정을 사용합니다. 
 5. 빌드가 GitHub의 커밋에 따라 Azure DevOps에서 시작됩니다.
 6. Azure DevOps 빌드 파이프라인은 Blob 컨테이너에서 최신 모델을 끌어와 컨테이너를 만듭니다.
 7. Azure DevOps는 이미지를 Azure Container Registry의 개인 이미지 리포지토리에 푸시합니다.

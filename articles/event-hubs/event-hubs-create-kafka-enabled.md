@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: bahariri
-ms.openlocfilehash: 7ce12f9dcaa15ade95274419f99c13d5915dbaaa
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b72f6b190aad436398629c67f271020ffd0a8da9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143913"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822078"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Apache Kafka 지원 이벤트 허브 만들기
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
  
 3. 고유 이름을 제공하고 네임스페이스에서 Kafka를 사용하도록 설정합니다. **만들기**를 클릭합니다.
     
-    ![네임스페이스 만들기](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![네임스페이스 만들기](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. 네임스페이스가 만들어지면 **설정** 탭에서 **공유 액세스 정책**을 클릭하여 연결 문자열을 가져옵니다.
 

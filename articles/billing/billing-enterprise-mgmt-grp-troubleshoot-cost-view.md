@@ -2,7 +2,7 @@
 title: Azure 기업 비용 보기 문제 해결 | Microsoft Docs
 description: Azure Portal 내에서 조직의 비용 보기에 발생할 수 있는 문제를 해결하는 방법에 대해 알아봅니다.
 author: rthorn17
-manager: rithorn
+manager: adpick
 editor: ''
 ms.assetid: ''
 ms.service: billing
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
 ms.author: cwatson
-ms.openlocfilehash: 853307f24574e6cea5841bcace815fea2bbcf2c8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: be74714667c2fed57a797a972ddcd7949cae5933
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47390667"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274673"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>기업 비용 보기 문제 해결 
 

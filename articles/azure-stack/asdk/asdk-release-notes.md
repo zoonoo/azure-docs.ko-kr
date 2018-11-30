@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515763"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427253"
 ---
 # <a name="asdk-release-notes"></a>ASDK 릴리스 정보  
 이 문서에서는 향상 된 기능, 수정 및 알려진된 문제에 Azure Stack 개발 키트 ASDK ()에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
@@ -233,7 +233,7 @@ ms.locfileid: "51515763"
 
 - <!-- ASDK --> **Virtual Machine Scale Sets에 대 한 갤러리 항목은 기본 제공 이제**합니다.  Virtual Machine Scale Set 갤러리 항목은 이제 사용 가능 사용자 및 관리자 포털에서 다운로드 하지 않고도 합니다. 
 
-- <!-- IS, ASDK --> **가상 머신 확장 집합 크기 조정**합니다.  포털을 사용할 수 있습니다 [가상 머신 확장 집합 확장](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
+- <!-- IS, ASDK --> **가상 머신 확장 집합 크기 조정**합니다.  포털을 사용할 수 있습니다 [가상 머신 확장 집합 확장](../azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
 
 - <!-- 2489570 | IS ASDK--> **사용자 지정 IPSec/IKE 정책 구성에 대 한 지원을** 에 대 한 [VPN 게이트웨이가 Azure Stack에서](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways)합니다.
 

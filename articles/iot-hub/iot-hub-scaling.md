@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: c37492a42322ffc386751c4c63b981c9d93a72f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 8ff99b8c5cf839afb8c8e73c18c2c413998ba64a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633379"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261721"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>솔루션에 대한 올바른 IoT Hub 계층 선택
 
@@ -83,7 +83,7 @@ IoT Hub의 기본 및 표준 계층 간의 지원되는 기능 차이는 일부 
 | [장치 이벤트 보내기](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | yes | yes |
 | 모듈 이벤트 보내기 | yes | yes |
 | [파일 업로드 상태 업데이트](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | yes | yes |
-| [대량 장치 작업](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | 예, IoT Edge 기능을 제외하고 맞습니다. | yes | 
+| [대량 장치 작업](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentoperation) | 예, IoT Edge 기능을 제외하고 맞습니다. | yes | 
 | [명령 큐 제거](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | yes |
 | [장치 쌍 가져오기](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | yes |
 | 모듈 쌍 가져오기 |   | yes |

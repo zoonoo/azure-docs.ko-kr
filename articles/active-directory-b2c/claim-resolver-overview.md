@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dab6b87c2785d3331817d6c191be64d406683a51
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312245"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852387"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -33,10 +33,10 @@ Azure AD(Azure Active Directory) B2C [사용자 지정 정책](active-directory-
 </ClaimType>
 ```
 
-기술 프로필에서 클레임 해결 프로그램을 클레임 유형으로 매핑합니다. Azure AD B2C는 클레임 해결 프로그램 `{context:corelationId}`의 값을 클레임 `correlationId`에 입력하고 클레임을 기술 프로필에 보냅니다.
+기술 프로필에서 클레임 해결 프로그램을 클레임 유형으로 매핑합니다. Azure AD B2C는 클레임 해결 프로그램 `{Context:CorrelationId}`의 값을 클레임 `correlationId`에 입력하고 클레임을 기술 프로필에 보냅니다.
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## <a name="claim-resolver-types"></a>클레임 해결 프로그램 유형
@@ -50,7 +50,7 @@ Azure AD(Azure Active Directory) B2C [사용자 지정 정책](active-directory-
 | {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | en |
 | {Culture:LCID}   | 언어 코드의 LCID | 1033 |
 | {Culture:RegionName} | 지역에 대한 2자 ISO 코드 | US |
-| {Culture:RFC5646} | RFC5646 언어 코드 | ko-KR |
+| {Culture:RFC5646} | RFC5646 언어 코드 | en-US |
 
 ### <a name="policy"></a>정책
 

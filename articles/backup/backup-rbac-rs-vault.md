@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 11/14/2018
 ms.author: trinadhk
-ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011326"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704650"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
@@ -41,7 +41,7 @@ Azure Backup은 백업 관리 작업을 제어할 수 있는 기본 제공 역�
 | | 가상 머신 참가자 | VM 리소스 |
 | VM의 주문형 백업 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
 | VM 복원 | Backup 운영자 | Recovery Services 자격 증명 모음 |
-| | 가상 머신 참가자 | VM이 배포될 리소스 그룹 |
+| | 참가자 | VM이 배포될 리소스 그룹 |
 | | 가상 머신 참가자 | 백업된 원본 VM |
 | 관리되지 않는 디스크 VM 백업 복원 | Backup 운영자 | 복구 자격 증명 모음 리소스 |
 | | 가상 머신 참가자 | 백업된 원본 VM |

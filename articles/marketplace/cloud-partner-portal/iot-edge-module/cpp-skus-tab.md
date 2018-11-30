@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684820"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276043"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IoT Edge 모듈 SKU 탭
 
@@ -125,7 +125,7 @@ IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. �
 
 |  **필드**       |     **설명**                                                          |
 |  ---------       |     ---------------                                                          |
-| **기본 경로**        | 각 기본 경로 이름 및 값은 512자 미만이어야 합니다. 최대 5개의 기본 경로를 정의할 수 있습니다. 경로 값에 올바른 [경로 구문](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)을 사용해야 합니다. 모듈을 참조하려면 공백 및 특수 문자 없이 **SKU 제목**이 될 해당 기본 모듈 이름을 사용합니다. 아직 알려지지 않은 다른 모듈을 참조하려면 `<FROM_MODULE_NAME>` 규칙을 사용하여 고객이 이 정보를 업데이트해야 한다는 것을 알도록 합니다. [IoT Edge 경로](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)에 대해 자세히 알아봅니다. <br/> 예를 들어 모듈 `ContosoModule`이 `ContosoInput`의 입력 및 `ContosoOutput`에서 출력 데이터를 수신 대기하는 경우 다음 2개의 기본 경로를 정의하는 것이 좋습니다.<br/>- 이름 #1: `ToContosoModule`<br/>- 값 #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- 이름 #2: `FromContosoModuleToCloud`<br/>- 값 #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOuput INTO $upstream`<br/>  |
+| **기본 경로**        | 각 기본 경로 이름 및 값은 512자 미만이어야 합니다. 최대 5개의 기본 경로를 정의할 수 있습니다. 경로 값에 올바른 [경로 구문](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)을 사용해야 합니다. 모듈을 참조하려면 공백 및 특수 문자 없이 **SKU 제목**이 될 해당 기본 모듈 이름을 사용합니다. 아직 알려지지 않은 다른 모듈을 참조하려면 `<FROM_MODULE_NAME>` 규칙을 사용하여 고객이 이 정보를 업데이트해야 한다는 것을 알도록 합니다. [IoT Edge 경로](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)에 대해 자세히 알아봅니다. <br/> 예를 들어 모듈 `ContosoModule`이 `ContosoInput`의 입력 및 `ContosoOutput`에서 출력 데이터를 수신 대기하는 경우 다음 2개의 기본 경로를 정의하는 것이 좋습니다.<br/>- 이름 #1: `ToContosoModule`<br/>- 값 #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- 이름 #2: `FromContosoModuleToCloud`<br/>- 값 #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
 | **기본 쌍 desired 속성**      | 각 기본 쌍 desired 속성 이름 및 값은 512자 미만이어야 합니다. 최대 5개의 이름/값 쌍 desired 속성을 정의할 수 있습니다. 쌍 desired 속성의 값은 최대 4개의 중첩된 계층 구조의 배열이 없는 이스케이프되지 않은 유효한 JSON이어야 합니다. [쌍 desired 속성](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties)에 대해 자세히 알아봅니다. <br/> 예를 들어 모듈이 쌍 desired 속성을 통해 동적으로 구성할 수 있는 새로 고침 빈도를 지원하는 경우 다음 기본 쌍 desired 속성을 정의하는 것이 좋습니다.<br/> - 이름 #1: `RefreshRate`<br/>- 값 #1: `60`|
 | **기본 환경 변수**  | 각 기본 환경 변수 이름 및 값은 512자 미만이어야 합니다. 최대 5개의 이름/값 환경 변수를 정의할 수 있습니다. <br/>예를 들어 모듈을 시작하기 전에 사용 약관에 동의해야 하는 경우 다음 환경 변수를 정의할 수 있습니다.<br/> - 이름 #1: `ACCEPT_EULA`<br/>- 값 #1: `Y`|
 | **기본 createOptions**  | createOptions는 512자 미만이어야 합니다. 이스케이프되지 않은 유효한 JSON이어야 합니다. [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules)에 대해 자세히 알아봅니다. <br/> 예를 들어 모듈에서 포트를 바인딩해야 하는 경우 다음 createOptions를 정의할 수 있습니다.<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|

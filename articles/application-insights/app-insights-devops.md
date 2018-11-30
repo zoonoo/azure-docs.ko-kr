@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958605"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822673"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
@@ -82,7 +82,7 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 ## <a name="case-study-real-madrid-fc"></a>사례 연구: Real Madrid F.C.
 [Real Madrid Football Club](http://www.realmadrid.com/) 의 웹 서비스는 전 세계 4억 5,000만 명의 팬에게 서비스를 제공합니다. 팬들은 웹 브라우저와 클럽 모바일 앱을 통해 액세스합니다. 팬은 입장권을 예매할 수 있을 뿐만 아니라 경기 결과, 선수, 예정 경기에 대한 정보와 비디오 클립에도 액세스할 수 있습니다. 골인 수 등의 필터로 검색도 가능합니다. 또한, 소셜 미디어에도 링크되어 있습니다. 사용자 경험은 매우 개인화되어 있으며, 팬의 참여를 유도하기 위해 양방향 통신으로 설계되었습니다.
 
-솔루션은 [Microsoft Azure의 서비스 및 응용 프로그램 시스템](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx)입니다. 확장성은 핵심 요구 사항입니다. 트래픽은 변동이 심하고 경기 무렵이나 도중에 매우 높아질 수 있습니다.
+솔루션은 [Microsoft Azure의 서비스 및 응용 프로그램 시스템](https://www.microsoft.com/inculture/sports/real-madrid/)입니다. 확장성은 핵심 요구 사항입니다. 트래픽은 변동이 심하고 경기 무렵이나 도중에 매우 높아질 수 있습니다.
 
 Real Madrid에게는 시스템 성능을 모니터링하는 것이 매우 중요합니다. Azure Application Insights는 시스템 전체에 대한 종합적인 개관을 제공하여 안정적이고 높은 수준의 서비스를 보장합니다. 
 

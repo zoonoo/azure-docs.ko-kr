@@ -14,26 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145743"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446516"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
 * 외부
 * 내부
 
-
-API Management를 내부 가상 네트워크 모드로 배포하는 경우 모든 서비스 끝점(게이트웨이, 개발자 포털, Azure Portal, 직접 관리 및 Git)은 액세스를 제어하는 가상 네트워크 내부에서만 볼 수 있습니다. 서비스 끝점은 공용 DNS 서버에 등록되지 않습니다.
+API Management를 내부 가상 네트워크 모드로 배포하는 경우 모든 서비스 엔드포인트(게이트웨이, 개발자 포털, Azure Portal, 직접 관리 및 Git)는 액세스를 제어하는 가상 네트워크 내부에서만 볼 수 있습니다. 서비스 엔드포인트는 공용 DNS 서버에 등록되지 않습니다.
 
 내부 모드에서 API Management를 사용하면 다음 시나리오를 달성할 수 있습니다.
+
 * 사이트 간 연결 또는 Azure ExpressRoute VPN 연결을 사용하여 타사의 외부에서 개인 데이터 센터에 호스팅된 API에 안전하게 액세스할 수 있게 합니다.
 * 공통 게이트웨이를 통해 클라우드 기반 API와 온-프레미스 API를 공개함으로써 하이브리드 클라우드 시나리오를 사용하도록 설정합니다.
-* 단일 게이트웨이 끝점을 사용하여 여러 지리적 위치에서 호스팅되는 API를 관리합니다. 
+* 단일 게이트웨이 엔드포인트를 사용하여 여러 지리적 위치에서 호스팅되는 API를 관리합니다. 
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -76,20 +77,20 @@ API Management를 내부 가상 네트워크 모드로 배포하는 경우 모�
 API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를 관리합니다. 내부 가상 네트워크 모드의 경우 자체의 라우팅을 관리해야 합니다.
 
 > [!NOTE]
-> API Management 서비스는 IP 주소에서 오는 요청을 수신 대기하지 않습니다. 해당 서비스 끝점에 구성된 호스트 이름에 대한 요청에만 응답합니다. 이러한 끝점에는 게이트웨이, Azure Portal, 개발자 포털, 직접 관리 끝점 및 Git가 포함됩니다.
+> API Management 서비스는 IP 주소에서 오는 요청을 수신 대기하지 않습니다. 해당 서비스 엔드포인트에 구성된 호스트 이름에 대한 요청에만 응답합니다. 이러한 엔드포인트에는 게이트웨이, Azure Portal, 개발자 포털, 직접 관리 엔드포인트 및 Git가 포함됩니다.
 
 ### <a name="access-on-default-host-names"></a>기본 호스트 이름에 대한 액세스
-예를 들어 "contoso"라는 API Management 서비스를 만들면 기본적으로 다음 서비스 끝점이 구성됩니다.
+예를 들어 "contoso"라는 API Management 서비스를 만들면 기본적으로 다음 서비스 엔드포인트가 구성됩니다.
 
    * 게이트웨이 또는 프록시: contoso.azure-api.net
 
    * Azure Portal 및 개발자 포털: contoso.portal.azure-api.net
 
-   * 직접 관리 끝점: contoso.management.azure-api.net
+   * 직접 관리 엔드포인트: contoso.management.azure-api.net
 
    * Git: contoso.scm.azure-api.net
 
-이러한 API Management 서비스 끝점에 액세스하려면 API Management를 배포한 가상 네트워크에 연결된 서브넷에 가상 머신을 만들 수 있습니다. 서비스의 내부 가상 IP 주소가 10.0.0.5라고 가정하면 다음과 같이 호스트 파일을 매핑할 수 있습니다(%SystemDrive%\drivers\etc\hosts).
+이러한 API Management 서비스 엔드포인트에 액세스하려면 API Management를 배포한 가상 네트워크에 연결된 서브넷에 가상 머신을 만들 수 있습니다. 서비스의 내부 가상 IP 주소가 10.0.0.5라고 가정하면 다음과 같이 호스트 파일을 매핑할 수 있습니다(%SystemDrive%\drivers\etc\hosts).
 
    * 10.0.0.5     contoso.azure-api.net
 
@@ -99,19 +100,19 @@ API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를
 
    * 10.0.0.5     contoso.scm.azure-api.net
 
-그런 다음 만든 가상 머신에서 모든 서비스 끝점에 액세스할 수 있습니다. 가상 네트워크에서 사용자 지정 DNS 서버를 사용하는 경우 DNS 레코드를 만들고 가상 네트워크의 어느 곳에서나 이러한 끝점에 액세스할 수 있습니다. 
+그런 다음 만든 가상 머신에서 모든 서비스 엔드포인트에 액세스할 수 있습니다. 가상 네트워크에서 사용자 지정 DNS 서버를 사용하는 경우 DNS 레코드를 만들고 가상 네트워크의 어느 곳에서나 이러한 엔드포인트에 액세스할 수 있습니다. 
 
 ### <a name="access-on-custom-domain-names"></a>사용자 지정 도메인 이름에 대한 액세스
 
-   1. 기본 호스트 이름으로 API Management 서비스에 액세스하지 않으려면 다음 이미지에 표시된 대로 모든 서비스 끝점에 대해 사용자 지정 도메인 이름을 설정하면 됩니다. 
+   1. 기본 호스트 이름으로 API Management 서비스에 액세스하지 않으려면 다음 이미지에 표시된 대로 모든 서비스 엔드포인트에 대해 사용자 지정 도메인 이름을 설정하면 됩니다. 
 
    ![API Management를 위한 사용자 지정 도메인 설정][api-management-custom-domain-name]
 
-   2. 그런 다음 DNS 서버에 레코드를 만들어 가상 네트워크 내에서만 액세스할 수 있는 이러한 끝점에 액세스할 수 있습니다.
+   2. 그런 다음 DNS 서버에 레코드를 만들어 가상 네트워크 내에서만 액세스할 수 있는 이러한 엔드포인트에 액세스할 수 있습니다.
 
 ## <a name="routing"> </a> 라우팅
-+ 서브넷 범위의 부하 분산된 개인 가상 IP 주소는 예약되며 VNet 내에서 API Management 서비스 끝점에 액세스하는 데 사용됩니다.
-+ 부하 분산된 VIP(공용 IP 주소)도 포트 3443 통해서만 관리 서비스 끝점에 액세스하도록 하기 위해 예약됩니다.
++ 서브넷 범위의 부하 분산된 개인 가상 IP 주소는 예약되며 VNet 내에서 API Management 서비스 엔드포인트에 액세스하는 데 사용됩니다.
++ 부하 분산된 VIP(공용 IP 주소)도 포트 3443 통해서만 관리 서비스 엔드포인트에 액세스하도록 하기 위해 예약됩니다.
 + 서브넷 IP 범위의 IP 주소(DIP)는 VNet 내의 리소스에 액세스하는 데 사용되고, 공용 IP 주소(VIP)는 VNet 외부 리소스에 액세스하는 데 사용됩니다.
 + 부하 분산된 공용 및 개인 IP 주소는 Azure Portal의 개요/기본 정보 블레이드에서 확인할 수 있습니다.
 

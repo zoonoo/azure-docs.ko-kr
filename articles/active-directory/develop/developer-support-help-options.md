@@ -17,12 +17,12 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 9b2ccce4ef6fad4f7710ba2092d67ac5f4e73b71
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601267"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422442"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션 
 
@@ -67,13 +67,13 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널이며, Mic
 
 |구성 요소/영역  |태그들  |
 |---------|---------|
-|ADAL 라이브러리 |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
-|MSAL 라이브러리     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|
-|OWIN 미들웨어  |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
-|인증 또는 권한 부여 주제와 관련된 다른 모든 영역 |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
+|ADAL 라이브러리 |[[adal]](https://stackoverflow.com/questions/tagged/adal)|
+|MSAL 라이브러리     |[[msal]](https://stackoverflow.com/questions/tagged/msal)|
+|OWIN 미들웨어  |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)|
+|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
+|인증 또는 권한 부여 주제와 관련된 다른 모든 영역 |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
 > 다음 Stack Overflow 게시물에는 질문을 작성하는 방법 및 소스 코드를 추가하는 방법에 대한 팁이 있습니다. 이러한 지침을 따르면 커뮤니티 구성원이 신속하게 질문을 평가하고 응답할 수 있는 기회를 늘릴 수 있습니다.  

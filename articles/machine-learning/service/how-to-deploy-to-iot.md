@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: dc6119bdca850a71064795a80f3087c15189a2e5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091626"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710004"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>IoT Edge에서 모델 배포 준비
 
@@ -27,7 +27,7 @@ Azure IoT Edge 장치는 Azure IoT Edge 런타임을 실행하는 Linux 또는 W
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
+* Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://aka.ms/AMLfree)을 만드세요.
 
 * Azure Machine Learning 서비스 작업 영역. 이를 만들려면 [Azure Machine Learning 서비스 시작](quickstart-get-started.md) 문서에 나와 있는 단계를 따릅니다.
 

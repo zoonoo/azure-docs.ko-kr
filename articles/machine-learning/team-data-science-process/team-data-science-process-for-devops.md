@@ -2,25 +2,21 @@
 title: DevOps용 팀 데이터 과학 프로세스 | Microsoft 문서
 description: 팀 데이터 과학 프로세스 및 Azure Machine Learning을 사용하여 분석 워크로드를 이해하기 위한 지침을 제공합니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 487e1fa4baa42d4266798790e899912cf62031db
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: af6468e0d9deb08d0a2902de2a6b413b4b9052b8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979304"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447081"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>개발자 작업용 팀 데이터 과학 프로세스
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2b04853e8d01ae559ce4ad982daba2928a6cd130
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4220af0a93bd48074c29c7b8e25a822d28a8161b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244477"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712384"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서는 [Azure 보안 센터](../security/security-microsoft-trust-center.md)의 정보를 보완하기 위해 Azure Monitor의 기능인 Log Analytics에 고유한 정보를 제공합니다.  
@@ -158,7 +158,7 @@ Operations Manager의 경우 Operations Manager 관리 그룹에서 Log Analytic
 
 연결된 시스템과 Log Analytics 서비스 간 모든 통신은 암호화됩니다. TLS(HTTPS) 프로토콜은 암호화에 사용됩니다.  Log Analytics에 최신 암호화 프로토콜을 적용할 수 있도록 Microsoft SDL 프로세스를 준수합니다.
 
-각 에이전트 유형은 Log Analytics에 대한 데이터를 수집합니다. 수집되는 데이터 형식은 사용하는 솔루션 유형에 따라 다릅니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](../monitoring/monitoring-solutions.md)에서 데이터 수집에 대한 요약 정보를 참조할 수 있습니다. 또한 대부분의 솔루션에 대해 자세한 컬렉션 정보를 사용할 수 있습니다. 솔루션은 미리 정의된 보기, 로그 검색 쿼리, 데이터 수집 규칙 및 처리 논리의 모음입니다. 관리자만 Log Analytics를 사용하여 솔루션을 가져올 수 있습니다. 가져온 솔루션은 Operations Manager 관리 서버(사용하는 경우)로 이동한 후 선택한 임의 에이전트로 이동합니다. 그런 다음 에이전트에서 데이터를 수집합니다.
+각 에이전트 유형은 Log Analytics에 대한 데이터를 수집합니다. 수집되는 데이터 형식은 사용하는 솔루션 유형에 따라 다릅니다. [솔루션 갤러리에서 Log Analytics 솔루션 추가](../azure-monitor/insights/solutions.md)에서 데이터 수집에 대한 요약 정보를 참조할 수 있습니다. 또한 대부분의 솔루션에 대해 자세한 컬렉션 정보를 사용할 수 있습니다. 솔루션은 미리 정의된 보기, 로그 검색 쿼리, 데이터 수집 규칙 및 처리 논리의 모음입니다. 관리자만 Log Analytics를 사용하여 솔루션을 가져올 수 있습니다. 가져온 솔루션은 Operations Manager 관리 서버(사용하는 경우)로 이동한 후 선택한 임의 에이전트로 이동합니다. 그런 다음 에이전트에서 데이터를 수집합니다.
 
 ## <a name="2-send-data-from-agents"></a>2. 에이전트에서 데이터 보내기
 등록 키와 함께 모든 에이전트 유형을 등록하고 인증서 기반 인증 및 포트 443을 통한 SSL을 사용하여 에이전트와 Log Analytics 서비스 간에 보안 연결이 설정됩니다. Log Analytics는 암호 저장소를 사용하여 키를 생성 및 유지합니다. 개인 키는 90일마다 회전되어 Azure에 저장되며 Azure 운영팀에서 엄격한 규정 및 규정 준수 방식을 따라 관리합니다.

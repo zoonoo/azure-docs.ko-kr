@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 8315647afec0166b41ce7a75f491077edd56db46
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036263"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422055"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Storage 탐색기로 Azure Blob Storage 리소스 관리
 ## <a name="overview"></a>개요
@@ -29,7 +29,7 @@ Blob 저장소를 사용하여 세상에 공개적으로 표시하거나 응용 
 ## <a name="prerequisites"></a>필수 조건
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 
-* [Storage 탐색기 다운로드 및 설치](http://www.storageexplorer.com)
+* [Storage 탐색기 다운로드 및 설치](https://www.storageexplorer.com)
 * [Azure 저장소 계정 또는 서비스에 연결](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Blob 컨테이너 만들기
@@ -213,7 +213,7 @@ Blob 컨테이너를 만들었다면 blob 컨테이너에 blob 업로드, 로컬
      3. 확인 대화 상자에서 **확인** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [최신 Storage 탐색기 릴리스 정보 및 비디오](http://www.storageexplorer.com)를 보세요.
+* [최신 Storage 탐색기 릴리스 정보 및 비디오](https://www.storageexplorer.com)를 보세요.
 * [Azure blob, 테이블, 큐 및 파일을 사용하여 응용 프로그램을 작성](https://azure.microsoft.com/documentation/services/storage/)하는 방법 알아보기.
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

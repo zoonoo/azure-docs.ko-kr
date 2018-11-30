@@ -3,7 +3,7 @@ title: Azure 상태 개요 | Microsoft Docs
 description: Azure 서비스 상태에 대한 전반적인 보기입니다.
 services: Azure status
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shtabriz
-ms.openlocfilehash: 6bb67fa17ace2e662091c6b66a774baf9d7d8bfd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: be3c8d10ef034a4bd03f178bc1334b8a9eeb2f58
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181823"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282909"
 ---
 # <a name="azure-status"></a>Azure 상태
 [Azure 상태](https://azure.microsoft.com/status/)는 Azure 서비스 상태에 대한 전반적인 보기를 제공합니다. Azure 상태를 사용하여 서비스 가용성에 대한 최신 정보를 얻을 수 있습니다. 모든 사용자는 Azure 상태에 대한 액세스를 가지며 해당 서비스 상태를 보고하는 모든 서비스를 볼 수 있습니다. 
@@ -37,7 +37,7 @@ Azure 상태 페이지는 항상 최신 상태 정보를 표시하지만 [Azure 
 여기에서 이전의 근본 원인, 완화 및 Azure에 대한 다음 단계를 포함하여 과거 최대 90일의 이벤트를 확인할 수 있습니다.
 
 ## <a name="rss-feed"></a>RSS 피드
-Azure 상태는 또한 구독할 수 있는 Azure 서비스의 상태에 대한 변경 내용의 [RSS 피드](https://azure.microsoft.com/status/feed/)를 제공합니다.
+Azure 상태는 또한 구독할 수 있는 Azure 서비스의 상태에 대한 변경 내용의 [RSS 피드](https://azure.microsoft.com/en-us/status/feed/)를 제공합니다.
 
 # <a name="next-steps"></a>다음 단계
 * [Service Health](./service-health-overview.md)를 사용하여 Azure 상태로 더욱 개인 설정된 보기를 가져오는 방법을 알아봅니다.

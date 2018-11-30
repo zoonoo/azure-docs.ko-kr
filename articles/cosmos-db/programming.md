@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: dd1fff79d6f611ae29307d666860d3740f4372f1
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817109"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162129"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
 
@@ -733,7 +733,7 @@ Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumen
     });
 ```
 
-다음 예제에서는 UDF(사용자 정의 함수)를 만들고 [SQL 쿼리](sql-api-sql-query.md)에 사용하는 방법을 보여 줍니다.
+다음 예제에서는 UDF(사용자 정의 함수)를 만들고 [SQL 쿼리](how-to-sql-query.md)에 사용하는 방법을 보여 줍니다.
 
 ```javascript
 UserDefinedFunction function = new UserDefinedFunction()

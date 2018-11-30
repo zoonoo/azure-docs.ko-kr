@@ -16,16 +16,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8879cc331c5d0e8c6aab24e8c6178d96ab23bf9d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8738205aec8e0b00115a185886ca293b2f96033c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955404"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422374"
 ---
 # <a name="native-apps"></a>네이티브 앱
 
-네이티브 앱은 사용자 대신 웹 API를 호출하는 응용 프로그램입니다. 이 시나리오는 [OAuth 2.0 사양](http://tools.ietf.org/html/rfc6749)의 섹션 4.1에 설명된 대로 공용 클라이언트의 OAuth 2.0 인증 코드 권한 유형을 기반으로 구축되었습니다. 네이티브 응용 프로그램은 OAuth 2.0 프로토콜을 사용하여 사용자에 대한 액세스 토큰을 가져옵니다. 그런 다음 이 액세스 토큰은 웹 API에 대한 요청으로 전송됩니다. 그러면 사용자가 인증되고 원하는 리소스가 반환됩니다.
+네이티브 앱은 사용자 대신 웹 API를 호출하는 응용 프로그램입니다. 이 시나리오는 [OAuth 2.0 사양](https://tools.ietf.org/html/rfc6749)의 섹션 4.1에 설명된 대로 공용 클라이언트의 OAuth 2.0 인증 코드 권한 유형을 기반으로 구축되었습니다. 네이티브 응용 프로그램은 OAuth 2.0 프로토콜을 사용하여 사용자에 대한 액세스 토큰을 가져옵니다. 그런 다음 이 액세스 토큰은 웹 API에 대한 요청으로 전송됩니다. 그러면 사용자가 인증되고 원하는 리소스가 반환됩니다.
 
 ## <a name="diagram"></a>다이어그램
 
