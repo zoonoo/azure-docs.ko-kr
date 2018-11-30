@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5a3d63637d7b680a012057b92546ccde87ac73de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 61af2c13a7cf395b5a96dc7b7ba63ad4d70dcf36
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233364"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333013"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes Azure Stack Marketplace에 추가
 
@@ -70,7 +70,7 @@ Marketplace에는 다음 Ubuntu Server 이미지를 추가 합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 
-1. `UbuntuServer`을 입력합니다.
+1. `UbuntuServer` 을 입력합니다.
 
 1. 최신 버전의 서버를 선택 합니다. 정식 버전을 확인 하 고 최신 버전이 있는지 확인 합니다.
     - **게시자**: Canonical
@@ -90,7 +90,7 @@ Marketplace에서 Kubernetes를 추가 합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 
-1. `Custom Script for Linux`을 입력합니다.
+1. `Custom Script for Linux` 을 입력합니다.
 
 1. 다음 프로필을 사용 하 여 스크립트를 선택 합니다.
     - **제공**: Linux 2.0에 대 한 사용자 지정 스크립트
@@ -111,7 +111,7 @@ Marketplace에서 Kubernetes를 추가 합니다.
 
 1. 선택 **+ Azure에서 추가**합니다.
 
-1. `Kubernetes`을 입력합니다.
+1. `Kubernetes` 을 입력합니다.
 
 1. `Kubernetes Cluster`를 선택합니다.
 
@@ -136,7 +136,7 @@ Kubernetes 항목 제거 하려면:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. 현재 항목의 이름 같은 note `Microsoft.AzureStackKubernetesCluster.0.2.0`
+3. 현재 항목의 이름 같은 note `Microsoft.AzureStackKubernetesCluster.0.3.0`
 
 4. 항목을 제거 하려면 다음 PowerShell cmdlet을 사용 합니다.
 

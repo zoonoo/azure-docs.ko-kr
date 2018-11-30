@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095341"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334893"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>자습서: Azure와 클라우드 간 크기 조정 솔루션 만들기
 
@@ -49,7 +49,7 @@ Azure Stack에서 전환 프로세스를 수동으로 트리거된 웹 앱을 �
 -   동작합니다. 필요한 경우 만듭니다는 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 시작 하기 전에 합니다.
 
 - Azure Stack 통합 시스템 또는 Azure Stack 개발 키트 배포 합니다.
-    - Azure Stack에서 설치 지침을 찾을 [Azure Stack Development Kit 설치](/articles/azure-stack/asdk/asdk-install)합니다.
+    - Azure Stack에서 설치 지침을 찾을 [Azure Stack Development Kit 설치](../asdk/asdk-install.md)합니다.
     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 이 설치를 완료 하려면 몇 시간 필요할 수 있습니다.
 
 -   배포할 [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) Azure Stack에 PaaS 서비스입니다.
@@ -97,7 +97,7 @@ Azure Stack에서 전환 프로세스를 수동으로 트리거된 웹 앱을 �
 Azure 및 Azure Stack에 웹 앱을 배포 하려면 하이브리드 연속 통합 및 지속적인 배포 (CI/CD)를 설정 하 고 두 클라우드 모두에 변경 내용 푸시 자동 키를 누릅니다.
 
 > [!Note]  
-> 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 합니다. "[App Service on Azure Stack을 사용 하 여 시작 하기 전에](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" Azure Stack 운영자에 대 한 섹션입니다.
+> 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 합니다. "[App Service on Azure Stack을 사용 하 여 시작 하기 전에](../azure-stack-app-service-before-you-get-started.md)" Azure Stack 운영자에 대 한 섹션입니다.
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Visual Studio 팀에 코드 추가 Services 프로젝트
 
@@ -259,7 +259,7 @@ Visual Studio Team Services 및 Team Foundation Server (TFS)는 항상 구성 �
 ## <a name="develop-the-application-build"></a>응용 프로그램 빌드를 개발 합니다.
 
 > [!Note]  
-> 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 합니다. "[App Service on Azure Stack을 사용 하 여 시작 하기 전에](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" Azure Stack 운영자에 대 한 섹션입니다.
+> 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 합니다. "[App Service on Azure Stack을 사용 하 여 시작 하기 전에](../azure-stack-app-service-before-you-get-started.md)" Azure Stack 운영자에 대 한 섹션입니다.
 
 사용 하 여 [웹과 같은 Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/) 두 클라우드 모두에 배포 하는 VSTS에서 앱 코드입니다.
 

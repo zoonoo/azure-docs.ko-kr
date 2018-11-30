@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 11/23/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: cc6af421551ba8ca973c15455daebf58c317d6f5
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976488"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314675"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -88,7 +88,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 - 백업 서비스 인프라에서 이동 합니다 [공용 인프라 네트워크](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) 에 [공용 VIP 네트워크](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network)합니다. 고객은 서비스에 공용 VIP 네트워크에서 백업 저장소 위치에 액세스할 수 있도록 해야 합니다.  
 
 > [!IMPORTANT]  
-> 파일 서버에 공용 VIP 네트워크에서 연결을 허용 하지 않는 방화벽이 있는 경우 이러한 변경으로 인해 실패 "오류 53 네트워크 경로 찾을 수 없습니다."를 사용 하 여 인프라 백업 이 주요 변경 내용에 적절 한 해결 방법은 없습니다. Microsoft는 고객 피드백에 따라 핫픽스에서이 변경 내용 되돌리기 됩니다. 살펴보시기 합니다 [업데이트 단계 섹션 게시](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-update-1809#post-update-steps) 1809에 사용할 수 있는 핫픽스에 대 한 자세한 정보에 대 한 합니다. 핫픽스를 사용할 수 있는 네트워크 정책에는 공용 VIP 네트워크에 인프라 리소스에 액세스를 허용 하지 않는 경우에 1809로 업데이트 한 후 적용 해야 합니다. 이 변경 1811의 모든 시스템에 적용 됩니다. 추가 작업이 필요 하지 않습니다. 있는지 1809에서 핫픽스를 적용 합니다.  
+> 파일 서버에 공용 VIP 네트워크에서 연결을 허용 하지 않는 방화벽이 있는 경우 이러한 변경으로 인해 실패 "오류 53 네트워크 경로 찾을 수 없습니다."를 사용 하 여 인프라 백업 이 주요 변경 내용에 적절 한 해결 방법은 없습니다. Microsoft는 고객 피드백에 따라 핫픽스에서이 변경 내용 되돌리기 됩니다. 살펴보시기 합니다 [업데이트 단계 섹션 게시](#post-update-steps) 1809에 사용할 수 있는 핫픽스에 대 한 자세한 정보에 대 한 합니다. 핫픽스를 사용할 수 있는 네트워크 정책에는 공용 VIP 네트워크에 인프라 리소스에 액세스를 허용 하지 않는 경우에 1809로 업데이트 한 후 적용 해야 합니다. 이 변경 1811의 모든 시스템에 적용 됩니다. 추가 작업이 필요 하지 않습니다. 있는지 1809에서 핫픽스를 적용 합니다.  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>Common Vulnerabilities and Exposures
 
@@ -173,7 +173,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 > 다음 업데이트 패키지에서 사용할 수 있는 확장 호스트에 대 한 준비 된 Azure Stack 배포를 가져옵니다. 다음 지침을 사용 하 여 시스템을 준비 [Azure Stack에 대 한 확장 호스트에 대 한 준비](azure-stack-extension-host-prepare.md)합니다.
 
 이 업데이트의 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 볼 뿐만 아니라 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.  
-- [KB 4471993 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## <a name="known-issues-post-installation"></a>알려진된 문제 (사후 설치)
 
@@ -226,7 +226,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
    
   실행 합니다 [테스트 AzureStack](azure-stack-diagnostic-test.md) 인프라 역할 인스턴스의 상태를 확인 하 고 단위 노드의 크기를 조정 하는 cmdlet입니다. 문제가 감지 되 면 [테스트 AzureStack](azure-stack-diagnostic-test.md), 이러한 경고를 무시할 수 있습니다. 문제가 감지 될 경우에 인프라 역할 인스턴스 또는 관리 포털 또는 PowerShell을 사용 하 여 노드를 시작 하려면 시작할 수 있습니다.
 
-  최신에서이 문제를 해결할 [1809 핫픽스 릴리스](https://support.microsoft.com/help/4471993/), 문제가 발생 하면이 핫픽스를 설치 해야 합니다. 
+  최신에서이 문제를 해결할 [1809 핫픽스 릴리스](https://support.microsoft.com/help/4477849/), 문제가 발생 하면이 핫픽스를 설치 해야 합니다. 
 
 <!-- 1264761 - IS ASDK -->  
 - 에 대 한 경고를 표시 될 수 있습니다 합니다 **상태 컨트롤러** 다음 세부 정보는 구성 요소:  

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 03efe32e7a9a29318e4f97ce5636616fad443284
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c4a4b70e39731b3a78fd42078bfa1b7340343f9a
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956666"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334374"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>모니터링 및 VaaS 포털에서 테스트를 관리 합니다.
 

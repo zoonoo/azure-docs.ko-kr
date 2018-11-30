@@ -2,14 +2,14 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
-ms.openlocfilehash: d23ba90f7cc0c5a03db2ef3eed4a662abe7ff27e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: be9b3b3a9cbb39386d13f76c595ce5e34688adac
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650556"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52336074"
 ---
 유효성 검사 워크플로에서 **예약** 워크플로 만드는 동안 지정 된 워크플로 수준 일반적인 매개 변수를 사용 하는 테스트 (참조 [서비스로AzureStack유효성검사에대한워크플로일반매개변수](../azure-stack-vaas-parameters.md)). 테스트 매개 변수 값에 유효 하지 않게 됩니다, 경우 있습니다 해야 재충전할 하에 설명 된 대로 [워크플로 매개 변수를 수정](../azure-stack-vaas-monitor-test.md#change-workflow-parameters)합니다.
 

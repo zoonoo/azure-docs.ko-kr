@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: John.Haskin
-ms.openlocfilehash: 988b32d378b9affccb79f3351761f0eca5c91346
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d83eb501bbe685890decb3acbb8116164f4199db
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651778"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422663"
 ---
 # <a name="best-practices-for-validation-as-a-service"></a>서비스 유효성 검사에 대 한 모범 사례
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 이 유효성 검사 (VaaS) 서비스에서 리소스를 관리 하는 것에 대 한 모범 사례를 설명 합니다. VaaS 리소스의 개요를 보려면 [유효성 검사 서비스 핵심 개념으로](azure-stack-vaas-key-concepts.md)입니다.
 
