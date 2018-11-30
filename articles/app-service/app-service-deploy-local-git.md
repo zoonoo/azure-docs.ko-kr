@@ -33,7 +33,7 @@ ms.locfileid: "44303698"
 * [Git를 설치](http://www.git-scm.com/downloads)합니다.
 * 배포할 코드가 있는 로컬 Git 리포지토리를 가지고 있어야 합니다.
 
-진행할 샘플 리포지토리를 사용하려면 로컬 터미널 창에서 다음 명령을 실행합니다.
+샘플 리포지토리를 사용해서 따라하려면 로컬 터미널 창에서 다음 명령을 실행합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
