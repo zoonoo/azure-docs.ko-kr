@@ -3,7 +3,7 @@ title: Azure Security Center에서 보안 경고 처리 | Microsoft Docs
 description: 이 문서는 Azure Security Center 기능을 사용하여 보안 인시던트를 처리하는 데 도움이 됩니다.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
-ms.author: yurid
-ms.openlocfilehash: f1cda4eb48235f9b72697eee77aac6a4e576aaf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 40e46ed99684877e829068c209ab318913b79e2a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258497"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633931"
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 처리
 보안 경고를 심사 및 조사하는 작업은 가장 숙련된 보안 분석가라도 많은 시간이 걸릴 수 있고 분석가 중 다수는 어떻게 시작할지도 알지 못할 수 있습니다. 보안 센터에서는 고유한 [보안 경고](security-center-managing-and-responding-alerts.md) 간에 정보를 연결하기 위해 [분석](security-center-detection-capabilities.md)을 사용하여 공격 캠페인의 단일 보기 및 모든 관련된 경고를 제공할 수 있습니다. 공격자가 사용한 작업 및 영향을 받는 리소스를 신속하게 이해할 수 있습니다.

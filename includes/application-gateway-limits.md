@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: victorh
-ms.openlocfilehash: 44f9400a1ecebd3c204ec0b891c5d7fe01bdfd25
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 3d66d825306c5183bdd8d8e611d98904eef2022a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51628173"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440307"
 ---
 | 리소스 | 기본 제한 | 참고 |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "51628173"
 | 인증 인증서 |40 | |
 | 최소 요청 시간 초과 |1초 | |
 | 최대 요청 시간 초과 |24시간 | |
-| 사이트 수 |20 |HTTP 수신기당 1 |
+| 사이트 수 |40 |HTTP 수신기당 1 |
 | 수신기당 URL 맵 |1 | |
 | URL 맵당 최대 경로 기반 규칙|100|
 | 구성 리디렉션 |40| |

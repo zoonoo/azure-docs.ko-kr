@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 49a2c03664ba39a624871b24c0b86a968a67eddb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a0fcb95ed34ed3d98c6b25b475c0866135897f3
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521526"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584675"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Azure Import/Export의 상태 보기
 
@@ -23,7 +23,6 @@ ms.locfileid: "39521526"
 Azure Portal에서 가져오기 또는 내보내기 작업의 상태를 추적할 수 있습니다. **Import/Export** 탭을 클릭합니다. 작업 목록이 페이지에 나타납니다.
 
 ![작업 상태 보기](./media/storage-import-export-service/jobstate.png)
-
 
 ## <a name="view-job-status"></a>작업 상태 보기
 
@@ -74,7 +73,7 @@ Import/Export 작업을 처리하는 데 걸리는 시간은 다음과 같은 �
 -  작업 형식 및 복사되는 데이터의 크기
 -  작업에서 디스크의 수 
 
-Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 복사를 완료하려고 합니다. Azure Portal에 게시된 상태 뿐만 아니라, REST API를 사용하여 작업 진행 상황을 추적할 수 있습니다. [작업 나열]() 작업의 API 호출에 포함된 완료율 매개 변수는 복사 진행률을 제공합니다.
+Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수신되고 7~10일 내에 복사를 완료하려고 합니다. Azure Portal에 게시된 상태 뿐만 아니라, REST API를 사용하여 작업 진행 상황을 추적할 수 있습니다. [작업 나열](/previous-versions/azure/dn529083(v=azure.100)) 작업의 API 호출에 포함된 완료율 매개 변수는 복사 진행률을 제공합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -82,4 +81,3 @@ Import/Export 서비스에는 SLA가 없지만 이 서비스는 디스크가 수
 * [WAImportExport 도구 설정](storage-import-export-tool-how-to.md)
 * [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](storage-use-azcopy.md)
 * [Azure Import/Export REST API 샘플](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-

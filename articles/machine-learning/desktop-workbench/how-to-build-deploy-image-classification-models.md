@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5917cd7a5e4fcc2733765f642ad0958092372c1
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: ab9e04b8a9eb4290891b3c7d55f8262c4ba64d44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616217"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584049"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Azure Machine Learning으로 이미지 분류 모델 작성 및 배포
 
@@ -37,7 +37,7 @@ AMLPCV를 사용하여 이 모델을 구축하고 배포하는 경우 다음 단
 7. 웹 서비스 배포
 8. 웹 서비스 부하 테스트
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/)는 딥 러닝 프레임워크로 사용되며 학습은 ([딥 러닝 데이터 과학 VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview))과 같은 GPU 기반 컴퓨터에서 로컬로 수행되고 배포에는 Azure ML Operationalization CLI가 사용됩니다.
+[CNTK](https://docs.microsoft.com/cognitive-toolkit/)는 딥 러닝 프레임워크로 사용되며 학습은 ([딥 러닝 데이터 과학 VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview))과 같은 GPU 기반 컴퓨터에서 로컬로 수행되고 배포에는 Azure ML Operationalization CLI가 사용됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -175,7 +175,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>증강 이미지
 
-[`augmentation` 모듈](https://docs.microsoft.com/python/api/cvtk.augmentation)은 [imgaug](https://github.com/aleju/imgaug) 라이브러리에 설명된 모든 변환을 사용하여 데이터 집합 개체를 증강하는 기능을 제공합니다. 이미지 변환은 단일 파이프라인으로 그룹화할 수 있으며 이 경우 파이프라인의 모든 변환이 각 이미지에 동시에 적용됩니다. 
+[`augmentation` 모듈](/python/api/cvtk/cvtk.augmentation.augmentation)은 [imgaug](https://github.com/aleju/imgaug) 라이브러리에 설명된 모든 변환을 사용하여 데이터 집합 개체를 증강하는 기능을 제공합니다. 이미지 변환은 단일 파이프라인으로 그룹화할 수 있으며 이 경우 파이프라인의 모든 변환이 각 이미지에 동시에 적용됩니다. 
 
 다른 보강 단계를 별도로 적용하거나 다른 방식으로 적용하려면 여러 파이프라인을 정의하고 여기에 *augment_dataset* 함수를 전달할 수 있습니다. 이미지 증강에 대한 자세한 내용과 예제는 [imgaug 설명서](https://github.com/aleju/imgaug)를 참조하세요.
 

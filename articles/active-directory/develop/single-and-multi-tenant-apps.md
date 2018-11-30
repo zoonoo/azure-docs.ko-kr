@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 8986f18b9f1f2953ad0612679d31996628870cb1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a965cd70e3eba04f278cf432196b9386b537462d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988226"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424343"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory의 테넌시
 
@@ -29,7 +29,7 @@ Azure AD(Azure Active Directory)에서는 사용자 및 앱과 같은 개체를 
 
 ## <a name="who-can-sign-in-to-your-app"></a>앱에 로그인할 수 있는 사용자
 
-앱 개발에 있어서 개발자는 [Azure Portal](http://portal.azure.com)에서 앱을 등록하는 동안 해당 앱을 단일 테넌트 또는 다중 테넌트로 구성할 수 있습니다.
+앱 개발에 있어서 개발자는 [Azure Portal](https://portal.azure.com)에서 앱을 등록하는 동안 해당 앱을 단일 테넌트 또는 다중 테넌트로 구성할 수 있습니다.
 * 단일 테넌트 앱은 홈 테넌트라고도 하는 등록된 테넌트에서만 사용할 수 있습니다.
 * 다중 테넌트 앱은 해당 홈 테넌트와 기타 테넌트의 사용자에게 지원됩니다.
 

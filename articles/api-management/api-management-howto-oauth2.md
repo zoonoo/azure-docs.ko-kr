@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: cd022677da59588eca910a508b2596aa513eff4b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c0e502c1627ebe9d63ca43cb46b982bb0639f3d7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302812"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444733"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -30,6 +30,8 @@ ms.locfileid: "44302812"
 
 > [!NOTE]
 > Azure Active Directory를 사용하여 OAuth 2.0을 구성하는 방법에 대한 자세한 내용은 [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet] 샘플을 참조하세요.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"></a>API Management에서 OAuth 2.0 권한 부여 서버 구성
 

@@ -10,17 +10,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032124"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333499"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
+
  일괄 테스트는 현재 학습된 모델의 포괄적인 테스트로, LUIS에서 성능을 측정할 수 있습니다. 
 
 <a name="batch-testing"></a>
+
 ## <a name="import-a-dataset-file-for-batch-testing"></a>일괄 테스트용 데이터 집합 파일 가져오기
 
 1. 위쪽 막대에서 **테스트**를 선택한 다음, **일괄 테스트 패널**을 선택합니다.
@@ -36,6 +38,7 @@ ms.locfileid: "47032124"
 4. **완료**를 선택합니다. 데이터 집합 파일이 추가됩니다.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>데이터 집합 실행, 이름 바꾸기, 내보내기 또는 삭제
+
 데이터 집합을 실행하거나, 이름을 바꾸거나, 내보내거나 삭제하려면 데이터 집합 행 끝에 있는 줄임표(***...***) 단추를 사용합니다.
 
 ![데이터 집합 작업](./media/luis-how-to-batch-test/batch-testing-options.png)
@@ -55,7 +58,9 @@ ms.locfileid: "47032124"
 |![테스트 준비 완료 아이콘](./media/luis-how-to-batch-test/batch-test-result-blue.png)|테스트를 실행할 준비가 되었습니다.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
+
 ## <a name="view-batch-test-results"></a>일괄 테스트 결과 보기 
+
 일괄 테스트 결과를 검토하려면 **결과 보기**를 선택합니다.
 
 ![일괄 테스트 결과](./media/luis-how-to-batch-test/run-test-results.png)
@@ -64,6 +69,7 @@ ms.locfileid: "47032124"
 
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
+
 ## <a name="filter-chart-results"></a>차트 결과 필터링
 
 특정 의도 또는 엔터티별로 차트를 필터링하려면 오른쪽 필터링 패널에서 의도 또는 엔터티를 선택합니다. 선택 항목에 따라 그래프에서 데이터 요소 및 해당 배포가 업데이트됩니다. 
@@ -71,6 +77,7 @@ ms.locfileid: "47032124"
 ![시각화된 일괄 테스트 결과](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
 ## <a name="view-single-point-utterance-data"></a>단일 지점 발화 데이터 보기
+
 차트에서 데이터 요소를 마우스로 가리키면 해당 예측의 확신도 점수가 표시됩니다. 데이터 요소를 선택하여 페이지 아래쪽의 발화 목록에서 해당 발화를 검색합니다. 
 
 ![선택한 발화](./media/luis-how-to-batch-test/selected-utterance.png)
@@ -78,7 +85,9 @@ ms.locfileid: "47032124"
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="view-section-data"></a>섹션 데이터 보기
+
 4섹션 차트의 오른쪽 위에서 **가양성**과 같은 섹션 이름을 선택합니다. 해당 섹션의 모든 발화가 목록의 차트 아래에 표시됩니다. 
 
 ![섹션별 선택한 발화](./media/luis-how-to-batch-test/selected-utterances-by-section.png)

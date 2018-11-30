@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 526ba73858322ee41f649a338f22226da6af33e7
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cab78d09038b8ab00c318b3ce615d99139e9b005
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964082"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634033"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -84,10 +84,10 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 연결하려는 ITSM 제품에 따라 다음 단계를 사용합니다.
 
-- [SCSM(System Center Service Manager)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](log-analytics-itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](log-analytics-itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](log-analytics-itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [SCSM(System Center Service Manager)](../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [ServiceNow](../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
+- [Provance](../azure-monitor/platform/itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
+- [Cherwell](../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
 ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니다.
 
@@ -100,7 +100,7 @@ ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니�
 
     ![ITSM 연결 추가](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
-4.  [ITSM 제품/서비스 문서를 사용하여 ITSMC 연결 구성](log-analytics-itsmc-connections.md)에 설명된 대로 연결 설정을 지정합니다.
+4.  [ITSM 제품/서비스 문서를 사용하여 ITSMC 연결 구성](../azure-monitor/platform/itsmc-connections.md)에 설명된 대로 연결 설정을 지정합니다.
 
     > [!NOTE]
 
@@ -157,13 +157,13 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 또한 서비스 맵 솔루션 내에서 영향 받는 컴퓨터에 대해 동기화된 인시던트를 시각화할 수 있습니다.
 
-서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 따라서 생각처럼 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. [자세히 알아보기](../monitoring/monitoring-service-map.md).
+서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 따라서 생각처럼 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. [자세히 알아보기](../azure-monitor/insights/service-map.md).
 
 서비스 맵 솔루션을 사용하는 경우 다음 예와 같이 ITSM 솔루션에서 만들어진 서비스 데스크 항목을 볼 수 있습니다.
 
 ![Log Analytics 화면](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-추가 정보: [서비스 맵](../monitoring/monitoring-service-map.md)
+추가 정보: [서비스 맵](../azure-monitor/insights/service-map.md)
 
 
 ## <a name="additional-information"></a>추가 정보
@@ -291,7 +291,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - 각 연결에 대한 사용자 이름, 암호 클라이언트 ID 및 클라이언트 비밀을 올바르게 입력했는지 확인합니다.  
     - 해당 ITSM 제품에 연결하는 데 충분한 권한이 있는지 확인합니다.  
  - Service Manager 연결의 경우  
-    - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터와의 연결이 성공적으로 설정되었는지 확인하려면 [하이브리드 연결](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) 설정 설명서에 따라 웹앱 URL을 방문합니다.  
+    - 웹앱이 성공적으로 배포되고 하이브리드 연결이 만들어졌는지 확인합니다. 온-프레미스 Service Manager 컴퓨터와의 연결이 성공적으로 설정되었는지 확인하려면 [하이브리드 연결](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) 설정 설명서에 따라 웹앱 URL을 방문합니다.  
 
 2.  ServiceNow의 데이터가 Log Analytics와 동기화되지 않으면 ServiceNow 인스턴스가 중지 상태가 아닌지 확인합니다. ServiceNow Dev 인스턴스가 오랫동안 유휴 상태일 때 중지 상태로 전환되는 경우가 있습니다. 다른 문제를 보고합니다.
 3.  Log Analytics 경고가 발생하지만 ITSM 제품에 작업 항목이 만들어지지 않거나 구성 항목이 작업 항목에 또는 기타 일반적인 정보에 대해 만들어지거나 연결되지 않는 경우 다음 위치를 확인합니다.
@@ -301,7 +301,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Service Manager 웹앱 배포 문제 해결
 1.  웹앱 배포 문제가 발생한 경우 구독에 리소스 생성/배포 권한이 있는지 확인합니다.
 2.  [스크립트](log-analytics-itsmc-service-manager-script.md)를 실행할 때 **"개체 참조가 개체의 인스턴스로 설정되지 않았습니다."** 오류가 발생하는 경우 **사용자 구성** 섹션에서 유효한 값을 입력했는지 확인합니다.
-3.  Service Bus Relay 네임스페이스 만들기에 실패한 경우 구독에 필요한 리소스 공급자가 등록되어 있는지 확인합니다. 등록되지 않은 경우 Azure Portal에서 수동으로 서비스 버스 릴레이 네임스페이스를 만듭니다. Azure Portal에서 [하이브리드 연결을 만드는](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) 동안 만들 수도 있습니다.
+3.  Service Bus Relay 네임스페이스 만들기에 실패한 경우 구독에 필요한 리소스 공급자가 등록되어 있는지 확인합니다. 등록되지 않은 경우 Azure Portal에서 수동으로 서비스 버스 릴레이 네임스페이스를 만듭니다. Azure Portal에서 [하이브리드 연결을 만드는](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) 동안 만들 수도 있습니다.
 
 
 ## <a name="contact-us"></a>문의처
@@ -309,4 +309,4 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 IT Service Management Connector에 대해 질문이나 의견이 있는 경우 [omsitsmfeedback@microsoft.com ](mailto:omsitsmfeedback@microsoft.com)으로 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[ITSM 제품/서비스를 IT Service Management Connector에 추가](log-analytics-itsmc-connections.md).
+[ITSM 제품/서비스를 IT Service Management Connector에 추가](../azure-monitor/platform/itsmc-connections.md).

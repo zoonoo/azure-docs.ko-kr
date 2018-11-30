@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 100d2a6163c6b2b7a7bf8a557e69e1082b48eaee
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: b985521fdcfc5ca67b6410719ad72c0962004df6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979219"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499609"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 참조
 
@@ -157,7 +157,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 |address|엔터티가 위치한 우편 주소입니다.|[PostalAddress](#postaladdress)|  
 |entityPresentationInfo|엔터티의 형식을 확인하는 데 사용할 수 있는 힌트와 같은 엔터티에 대한 추가 정보입니다. 예를 들어 식당 또는 호텔인지 여부입니다. `entityScenario` 필드는 ListItem으로 설정됩니다.|[EntityPresentationInfo](#entitypresentationinfo)|  
 |이름|엔터티의 이름입니다.|문자열|  
-|전화 번호|엔터티의 전화 번호입니다.|문자열|  
+|telephone|엔터티의 전화 번호입니다.|문자열|  
 |URL|엔터티의 웹 사이트에 대한 URL입니다.<br /><br /> 엔터티의 이름과 함께 이 URL을 사용하여 클릭하면 사용자를 엔터티의 웹 사이트로 이동시키는 하이퍼링크를 만듭니다.|문자열|  
 |webSearchUrl|이 위치의 Bing 검색 결과에 대한 URL입니다.|문자열| 
   

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 442aa7034c3fec57b3b9394e6b0f46d4dec47849
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954316"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633115"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>가상 네트워크 서브넷 추가, 변경 또는 삭제
 
@@ -69,7 +69,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 4. 서브넷의 목록에서 설정을 변경할 서브넷을 선택합니다. 다음 설정을 변경할 수 있습니다.
 
     - **주소 범위:** 서브넷 내에 배포된 리소스가 없는 경우 주소 범위를 변경할 수 있습니다. 서브넷에 리소스가 있으면 먼저 다른 서브넷으로 리소스를 이동하거나 서브넷에서 삭제해야 합니다. 리소스 이동 또는 삭제를 수행하는 단계는 리소스에 따라 다릅니다. 서브넷에 있는 리소스를 이동 또는 삭제하는 방법에 대해 알아보려면 이동 또는 삭제하려는 각 리소스 종류의 설명서를 참조하세요. [서브넷 추가](#add-a-subnet)의 5단계에서 **주소 범위**에 대한 제약 조건을 참조하세요.
-    - **사용자**: 기본 제공 역할 또는 사용자 지정 역할을 사용하여 서브넷에 대한 액세스를 제어할 수 있습니다. 역할과 사용자를 할당하여 서브넷에 액세스하는 방법에 대한 자세한 내용은 [역할 할당을 사용하여 Azure 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access)를 참조하세요.
+    - **사용자**: 기본 제공 역할 또는 사용자 지정 역할을 사용하여 서브넷에 대한 액세스를 제어할 수 있습니다. 역할과 사용자를 할당하여 서브넷에 액세스하는 방법에 대한 자세한 내용은 [역할 할당을 사용하여 Azure 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment)를 참조하세요.
     - **네트워크 보안 그룹** 및 **경로 테이블**: [서브넷 추가](#add-a-subnet)의 5단계를 참조하세요.
     - **서비스 엔드포인트**: [서브넷 추가](#add-a-subnet)의 5단계에서 서비스 엔드포인트를 참조하세요. 기존 서브넷에 대해 서비스 엔드포인트를 사용하도록 설정할 경우, 서브넷의 리소스에서 실행 중인 중요 작업이 없는지 확인합니다. 서비스 엔드포인트는 서브넷에 있는 모든 네트워크 인터페이스의 경로를 *0.0.0.0/0* 주소 접두사를 사용하고 다음 홉 유형이 *인터넷*인 기본 경로 사용에서 서비스의 주소 접두사를 사용하고 다음 홉 유형이 *VirtualNetworkServiceEndpoint*인 새 경로 사용으로 전환합니다. 전환 중에, 열려 있는 TCP 연결이 종료될 수 있습니다. 모든 네트워크 인터페이스에서 서비스로 들어오는 트래픽 흐름이 새 경로로 업데이트될 때까지 서비스 엔드포인트를 사용할 수 없습니다. 라우팅에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md)를 참조하세요.
     - **서브넷 위임:** [서브넷 추가](#add-a-subnet)의 5단계에서 서비스 엔드포인트를 참조하세요. 서브넷 위임은 0개 이상의 위임을 사용할 수 있도록 수정할 수 있습니다. 서비스의 리소스가 이미 서브넷에 배포된 경우 서비스의 모든 리소스가 제거될 때까지 서브넷 위임을 제거할 수 없습니다. 다른 서비스를 위임하려면 **서비스** 목록에서 위임할 서비스를 선택합니다. 

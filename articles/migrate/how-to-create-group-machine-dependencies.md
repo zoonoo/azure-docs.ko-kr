@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: de093976a318b2658ff4009f4c5e314851f66b81
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2755cc4e8e0e5a1b2a0e491b00fc73530dd9b958
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403812"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635682"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>컴퓨터 종속성 매핑을 사용하여 컴퓨터 그룹화
 
@@ -35,7 +35,7 @@ Azure Migrate는 Log Analytics의 서비스 맵 솔루션을 활용하여 컴퓨
 > 마이그레이션 프로젝트에 연결된 작업 영역은 변경할 수 없습니다.
 
 ### <a name="download-and-install-the-vm-agents"></a>VM 에이전트 다운로드 및 설치
-작업 영역을 구성한 후에는 평가하려는 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다. 또한 인터넷에 연결되지 않은 머신이 있으면 [Log Analytics 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 다운로드하여 설치해야 합니다.
+작업 영역을 구성한 후에는 평가하려는 각 온-프레미스 컴퓨터에 에이전트를 다운로드하여 설치해야 합니다. 또한 인터넷에 연결되지 않은 머신이 있으면 [Log Analytics 게이트웨이](../azure-monitor/platform/gateway.md)를 다운로드하여 설치해야 합니다.
 
 1. **개요**에서 **관리** > **컴퓨터**를 차례로 클릭하고 필요한 컴퓨터를 선택합니다.
 2. **종속성** 열에서 **에이전트 설치**를 클릭합니다.
@@ -72,7 +72,7 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) 및 [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) 운영 체제에 대한 종속성 에이전트 지원에 대해 자세히 알아보세요.
+[Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) 및 [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) 운영 체제에 대한 종속성 에이전트 지원에 대해 자세히 알아보세요.
 
 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples).
 

@@ -347,5 +347,5 @@
 ## [가격](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

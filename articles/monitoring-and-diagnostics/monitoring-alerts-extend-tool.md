@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 6cbcb42ee8c77ff0c8ded966b4f04af8815ca726
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614954"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632996"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Log Analytics에서 Azure Alerts로 경고 확장
 Azure Log Analytics에서 경고 기능은 Azure Alerts로 바뀝니다. 이 전환의 일부로 Log Analytics에서 원래 구성된 경고를 Azure로 확장합니다. 해당 경고가 Azure로 자동으로 이동하는 것을 기다리지 않으려면 다음 프로세스를 시작하면 됩니다.
@@ -150,7 +150,7 @@ POST 요청에 성공한 경우 다음과 같은 응답과 함께 HTTP 200 확�
 }
 ```
 
-이 응답에서는 경고가 Azure Alerts에 성공적으로 확장되었음을 나타냅니다. 이 버전 속성은 경고가 Azure로 확장되었는지만 확인하고 [Log Analytics 검색 API](../log-analytics/log-analytics-api-alerts.md)와는 관련되지 않습니다. 경고를 성공적으로 Azure로 확장한 경우 POST 요청에서 제공된 이메일 주소가 보고서에 보내집니다. 지정된 작업 영역의 모든 경고가 Azure로 확장되도록 이미 예약된 경우 POST 요청에 대한 응답은 시도가 금지되었습니다(403 상태 코드)입니다. 오류 메시지를 보거나 프로세스가 멈췄는지 알아보려면 GET 요청을 제출할 수 있습니다. 오류 메시지가 없으면 요약 정보와 함께 반환됩니다.
+이 응답에서는 경고가 Azure Alerts에 성공적으로 확장되었음을 나타냅니다. 이 버전 속성은 경고가 Azure로 확장되었는지만 확인하고 [Log Analytics 검색 API](../azure-monitor/platform/api-alerts.md)와는 관련되지 않습니다. 경고를 성공적으로 Azure로 확장한 경우 POST 요청에서 제공된 이메일 주소가 보고서에 보내집니다. 지정된 작업 영역의 모든 경고가 Azure로 확장되도록 이미 예약된 경우 POST 요청에 대한 응답은 시도가 금지되었습니다(403 상태 코드)입니다. 오류 메시지를 보거나 프로세스가 멈췄는지 알아보려면 GET 요청을 제출할 수 있습니다. 오류 메시지가 없으면 요약 정보와 함께 반환됩니다.
 
 ```json
 {

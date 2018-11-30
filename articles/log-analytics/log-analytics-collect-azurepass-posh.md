@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 681f0eeff0d93e6af341d2dddaf7da4475c13d9d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a9635a7c9bad9079814750dc4be945701ba80451
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007198"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632316"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Log Analytics로 Azure PaaS 리소스 메트릭의 수집 구성
 
@@ -85,4 +85,4 @@ Log Analytics 작업 영역에 데이터를 보내는 리소스가 이미 있는
 
 * [사용자 지정 필드](log-analytics-custom-fields.md)를 사용하여 이벤트 레코드를 개별 필드로 구문 분석합니다.
 
-* 로그 검색을 조직에 의미 있는 방식으로 시각화하는 방법을 이해하려면 [Log Analytics에서 사용할 사용자 지정 대시보드 만들기](log-analytics-dashboards.md)를 검토하세요.
+* 로그 검색을 조직에 의미 있는 방식으로 시각화하는 방법을 이해하려면 [Log Analytics에서 사용할 사용자 지정 대시보드 만들기](../azure-monitor/platform/dashboards.md)를 검토하세요.

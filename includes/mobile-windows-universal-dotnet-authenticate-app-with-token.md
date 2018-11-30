@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: b5368123d6d96e6a58a6926539d6ef22ec68c28b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440293"
+---
 1. MainPage.xaml.cs 프로젝트 파일에서 다음 **using** 문을 추가합니다.
    
         using System.Linq;        

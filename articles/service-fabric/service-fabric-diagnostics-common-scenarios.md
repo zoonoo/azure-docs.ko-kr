@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 35d1fa5f8963d007b1d8b59ccf0f1dec7abafa09
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402237"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633098"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단
 
@@ -142,6 +142,6 @@ Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) 및 
 * [AI에 경고 설정](../application-insights/app-insights-alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
 * [Application Insights의 스마트 감지](../application-insights/app-insights-proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 AI에 전송되는 원격 분석에 대한 사전 분석 수행
 * 검색 및 진단에 도움이 되도록 Log Analytics [경고](../log-analytics/log-analytics-alerts.md)에 대해 자세히 알아보세요.
-* 온-프레미스 클러스터의 경우 Log Analytics는 Log Analytics로 데이터를 보내는 데 사용할 수 있는 게이트웨이(HTTP 전달 프록시)를 제공합니다. 자세한 내용은 [Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 Log Analytics에 컴퓨터 연결](../log-analytics/log-analytics-oms-gateway.md)을 참조하세요.
+* 온-프레미스 클러스터의 경우 Log Analytics는 Log Analytics로 데이터를 보내는 데 사용할 수 있는 게이트웨이(HTTP 전달 프록시)를 제공합니다. 자세한 내용은 [Log Analytics 게이트웨이를 사용하여 인터넷 액세스 없이 Log Analytics에 컴퓨터 연결](../azure-monitor/platform/gateway.md)을 참조하세요.
 * Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능 알아보기
 * Log Analytics에 대한 자세한 개요와 제공되는 사항을 보려면 [Log Analytics란?](../operations-management-suite/operations-management-suite-overview.md)을 참조하세요.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319866"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444618"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
@@ -32,6 +32,8 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 * 내부 소비자 및 외부 소비자의 소비에 대해 동일한 API Management 리소스를 사용합니다.
 * 단일 API Management 리소스를 사용하며 외부 소비자가 사용할 수 있는 API Management에서 정의된 API의 하위 집합을 갖습니다.
 * 공용 인터넷에서 API Management에 대한 액세스를 켜기 및 끄기로 전환하는 턴키 방법을 제공합니다.
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 

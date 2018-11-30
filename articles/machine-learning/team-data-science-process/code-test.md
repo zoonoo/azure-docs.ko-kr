@@ -1,26 +1,22 @@
 ---
 title: UCI 성인 소득 예측 데이터 집합을 활용하여 Azure에서 데이터 과학 코드 테스트 - Team Data Science Process 및 Azure DevOps Services
 description: UCI 성인 소득 예측 데이터를 활용한 데이터 과학 코드 테스트
-services: machine-learning, team-data-science-process
-documentationcenter: ''
-author: weig
-manager: deguhath
+services: machine-learning
+author: marktab
+manager: cgronlun
 editor: cgronlun
-ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
-ms.author: weig
-ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=weig, ms.author=weig)
+ms.openlocfilehash: d04f50bc3de34c28c10be7ba429f85a99096de47
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294698"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443953"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>UCI 성인 소득 예측 데이터 집합을 활용한 데이터 과학 코드 테스트
 이 문서에서는 데이터 과학 워크플로에서 코드를 테스트하기 위한 예비 지침을 제공합니다. 이러한 테스트를 통해 데이터 과학자는 체계적이며 효율적인 방식으로 품질 및 예상되는 코드의 결과를 확인할 수 있습니다. 코드 테스트가 어떻게 수행되는지 보여 주기 위해 이전에 게시한 [UCI 성인 소득 데이터 집합을 사용하는 TDSP(Team Data Science Process) 프로젝트](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 사용합니다. 

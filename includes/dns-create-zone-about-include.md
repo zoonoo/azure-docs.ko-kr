@@ -1,3 +1,16 @@
+---
+author: vhorne
+ms.service: dns
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: victorh
+ms.openlocfilehash: 74031a8dbc9b64d6a09533789eed1296ff334d47
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52331264"
+---
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다.
 
 예를 들어 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 여러 DNS 레코드를 포함할 수 있습니다.

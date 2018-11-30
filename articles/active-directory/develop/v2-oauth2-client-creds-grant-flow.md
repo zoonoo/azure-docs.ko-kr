@@ -17,18 +17,18 @@ ms.date: 11/13/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3ecf837af735b97e269eb3fdc01d2e56ec40fb6e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: be10af7096a11fb27971af9dc28036df4a4b0968
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624508"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423561"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 클라이언트 자격 증명 흐름
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-응용 프로그램의 ID를 사용하여 웹 호스팅 리소스에 액세스하기 위해 RFC 6749에 명시된 [OAuth 2.0 클라이언트 자격 증명 권한 부여](http://tools.ietf.org/html/rfc6749#section-4.4)(때로는 *2단계 OAuth*라고도 함)를 사용할 수 있습니다. 이 유형의 권한 부여는 일반적으로 사용자의 직접적인 상호 작용 없이 백그라운드에서 실행해야 하는 서버 간 상호 작용에 사용됩니다. 이러한 유형의 응용 프로그램은 종종 *디먼* 또는 *서비스 계정*이라고 합니다.
+응용 프로그램의 ID를 사용하여 웹 호스팅 리소스에 액세스하기 위해 RFC 6749에 명시된 [OAuth 2.0 클라이언트 자격 증명 권한 부여](https://tools.ietf.org/html/rfc6749#section-4.4)(때로는 *2단계 OAuth*라고도 함)를 사용할 수 있습니다. 이 유형의 권한 부여는 일반적으로 사용자의 직접적인 상호 작용 없이 백그라운드에서 실행해야 하는 서버 간 상호 작용에 사용됩니다. 이러한 유형의 응용 프로그램은 종종 *디먼* 또는 *서비스 계정*이라고 합니다.
 
 OAuth 2.0 클라이언트 자격 증명 부여 흐름은 사용자를 가장하는 대신 다른 웹 서비스를 호출할 때 웹 서비스(기밀 클라이언트)가 자체 자격 증명을 사용하여 인증하도록 허용합니다. 이 시나리오에서 클라이언트는 일반적으로 중간 계층 웹 서비스, 데몬 서비스 또는 웹 사이트입니다. 더 높은 수준의 보증을 위해 Azure AD(Azure Active Directory)는 호출 서비스가 자격 증명으로 인증서(공유 비밀 대신)를 사용할 수 있도록 합니다.
 

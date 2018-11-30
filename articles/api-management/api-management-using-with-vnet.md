@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959046"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443528"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 인터넷에서 사용할 수 없고 라우팅할 있는 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -27,7 +27,8 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 
 > [!NOTE]
 > Azure API Management는 클래식 및 Azure Resource Manager Vnet을 모두 지원합니다.
->
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -38,7 +39,6 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + APIM 인스턴스. 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
-+ VNET 연결은 프리미엄 및 개발자 계층에서만 사용할 수 있습니다. [업그레이드 및 확장](upgrade-and-scale.md#upgrade-and-scale) 항목에서 지침에 따라 이러한 계층 중 하나로 전환합니다.
 
 ## <a name="enable-vpn"> </a>VNET 연결 사용
 

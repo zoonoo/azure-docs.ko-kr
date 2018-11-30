@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956625"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584624"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>사전 및 사후 스크립트 관리(미리 보기)
 
@@ -220,8 +220,6 @@ if ($summary.Type -eq "Error")
 ## <a name="known-issues"></a>알려진 문제
 
 * 사전 및 사후 스크립트를 사용하는 경우 개체 또는 배열을 매개 변수에 전달할 수 없습니다. Runbook이 실패합니다.
-* 사전 또는 사후 스크립트를 선택하는 경우 게시되지 않은 Runbook이 선택할 수 있는 것으로 표시됩니다. 게시되지 않은 Runbook은 호출할 수 없고 이로 인해 실패할 수 있으므로 게시된 Runbook만 선택해야 합니다.
-* [동적 그룹(미리 보기)](automation-update-management.md#using-dynamic-groups)을 사용하여 배포에 추가된 컴퓨터는 현재 사전 및 사후 스크립트에 전달되는 **SoftwareUpdateConfigurationRunContext** 매개 변수의 일부가 아닙니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440299"
+---
 이전 예제에서는 앱이 시작될 때마다 클라이언트가 ID 공급자와 백 엔드 Azure 서비스 둘 다에 접근해야 하는 표준 로그인을 보여 주었습니다. 이 메서드는 비효율적이며 많은 고객이 동시에 앱을 시작하려고 하는 경우 사용 관련 문제가 발생할 수 있습니다. 더 나은 접근 방법은 Azure 서비스에서 반환된 권한 부여 토큰을 캐시한 다음 공급자 기반 로그인을 사용하기 전에 이 토큰을 먼저 사용하는 것입니다.
 
 > [!NOTE]

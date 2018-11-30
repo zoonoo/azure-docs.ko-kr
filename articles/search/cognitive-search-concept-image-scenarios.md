@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 88e3658216f3eec545d4388ddf2d90cea60995c3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5ee821f3d1e81e581f376d4b14b3e8393a8f190c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166953"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444638"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>인식 검색 시나리오의 이미지에서 정보를 처리하고 추출하는 방법
 
@@ -121,7 +121,6 @@ OCR 기술을 사용하면 이미지에서 텍스트를 검색하는 데 사용�
   "skills":
   [
     {
-        "name": "OCR skill",
         "description": "Extract text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",

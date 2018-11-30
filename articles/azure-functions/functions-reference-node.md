@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 44a2cb196e1a89b0abe229f478c0b76b146aa268
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567148"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620628"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -70,8 +70,6 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### <a name="exporting-an-async-function"></a>비동기 함수 내보내기
-JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 선언을 사용하거나 그렇지 않으면 JavaScript [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)(Functions v1.x에서는 사용 불가)를 반환할 때 함수 완료를 나타내는 [`context.done`](#contextdone-method) 콜백을 명시적으로 호출할 필요가 없습니다. 내보낸 비동기 함수/Promise가 완료되면 함수가 완료됩니다.
-
 Functions 런타임 2.x 버전에서 [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 선언 또는 일반 JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)를 사용할 때 함수가 완료되었음을 나타내는 [`context.done`](#contextdone-method) 콜백을 명시적으로 호출할 필요가 없습니다. 내보낸 비동기 함수/Promise가 완료되면 함수가 완료됩니다. 버전 1.x 런타임을 대상으로 하는 함수의 경우 코드 실행이 완료되면 [`context.done`](#contextdone-method)을 호출해야 합니다.
 
 다음 예제는 트리거되었으며 즉시 실행을 완료한다고 기록하는 간단한 함수입니다.

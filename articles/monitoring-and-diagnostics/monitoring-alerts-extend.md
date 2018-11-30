@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8aabcf342cde6de9fd4438014c9c400b28470e9b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612576"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632673"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Log Analytics 경고를 Azure Alerts로 확장
 최근까지 Azure Log Analytics에는 Log Analytics 데이터에 기반한 조건을 사전에 알려줄 수 있는 자체 경고 기능이 포함됩니다. Microsoft Operations Management Suite 포털에서 경고 규칙을 관리했습니다. 새 경고 환경은 이제 Microsoft Azure의 다양한 서비스에서 경고를 통합했습니다. 이 환경은 Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능하며 Log Analytics 및 Azure Application Insights에서 활동 로그, 메트릭 및 로그의 경고를 지원합니다. 
@@ -55,7 +55,7 @@ Operations Management Suite 포털에서 새 경고를 만들거나 기존 경�
 > 경고를 추가하거나 편집해야 하는 개인에게 할당된 사용 권한이 Azure에서 제대로 할당됐는지 확인합니다. 부여해야 하는 사용 권한을 이해하려면 [Azure Monitor 및 Alerts를 사용한 사용 권한](monitoring-roles-permissions-security.md)을 참조합니다.  
 > 
 
-[Log Analytics API](../log-analytics/log-analytics-api-alerts.md) 및 [Log Analytics 리소스 템플릿](../monitoring/monitoring-solutions-resources-searches-alerts.md)에서 계속 경고를 만들 수 있습니다. 이렇게 하면 작업 그룹을 포함해야 합니다.
+[Log Analytics API](../azure-monitor/platform/api-alerts.md) 및 [Log Analytics 리소스 템플릿](../azure-monitor/insights/solutions-resources-searches-alerts.md)에서 계속 경고를 만들 수 있습니다. 이렇게 하면 작업 그룹을 포함해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

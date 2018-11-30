@@ -1,3 +1,16 @@
+---
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tomfitz
+ms.openlocfilehash: a2ee8705be3f34b6df113c68d88e375411f84bf2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440302"
+---
 ## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell에서 템플릿 배포
 
 [Cloud Shell](../articles/cloud-shell/overview.md)을 사용하여 템플릿을 배포할 수 있습니다. 그러나 먼저 Cloud Shell용 저장소 계정에 템플릿을 로드해야 합니다. Cloud Shell을 사용해 본 적이 없다면 [Azure Cloud Shell 개요](../articles/cloud-shell/overview.md)에서 Cloud Shell 설정 방법을 참조하세요.

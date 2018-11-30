@@ -2,25 +2,21 @@
 title: 차량 상태 및 주행 습관을 예측하는 방법 심층 분석 - Azure | Microsoft Docs
 description: Cortana Intelligence의 기능을 사용하여 차량 상태 및 주행 습관에 대한 예측 가능한 통찰력 및 실시간 정보를 얻습니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b1c01bcd15c5cfc63eae7c2b1983fc9075d4220c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300951"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444387"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>차량 원격 분석 솔루션 플레이 북: 솔루션에 대한 심층 분석
 
@@ -670,7 +666,7 @@ Power BI는 실시간 데이터 및 예측 분석 시각화를 위해 이 솔루
 ### <a name="references"></a>참조
 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-* [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Azure 데이터 팩터리](https://docs.microsoft.com/rest/api/datafactory/)
 * [스트림 수집을 위한 Azure Event Hubs SDK](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Azure Data Factory 데이터 이동 기능](../../data-factory/copy-activity-overview.md)
 * [Azure Data Factory .NET 작업](../../data-factory/transform-data-using-dotnet-custom-activity.md)

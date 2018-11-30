@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7a3545e3fdf37f33db4c3b77be6cf6d5db0f6aef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4200accee94840a8a4455308f24a857fd5d7034a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973578"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632979"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
-이 문서에서는 Azure Monitor에 저장된 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다. 여기에는 [Azure 메트릭 저장소의 메트릭](../monitoring/monitoring-data-collection.md#metrics)과 [Log Analytics의 로그 데이터](../monitoring/monitoring-data-collection.md#logs)가 포함됩니다. 
+이 문서에서는 Azure Monitor에 저장된 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다. 여기에는 [Azure 메트릭 저장소의 메트릭](../azure-monitor/platform/data-collection.md#metrics)과 [Log Analytics의 로그 데이터](../azure-monitor/platform/data-collection.md#logs)가 포함됩니다. 
 
 차트 및 그래프와 같은 시각화는 모니터링 데이터를 분석하여 문제에 대해 드릴다운하고 패턴을 식별하는 데 도움이 될 수 있습니다. 사용하는 도구에 따라 조직 내부 및 외부의 다른 사용자와 시각화를 공유하는 옵션이 제공될 수도 있습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "46973578"
 - 상황별 드릴다운이 제한됩니다.
 
 ## <a name="azure-monitor-views"></a>Azure Monitor 뷰
-[Azure Monitor의 뷰](../log-analytics/log-analytics-view-designer.md)를 통해 Log Analytics에 저장된 로그 데이터로 사용자 지정 시각화를 만들 수 있습니다. [모니터링 솔루션](../monitoring/monitoring-solutions.md)에서 수집한 데이터를 표시하는 데 사용됩니다.
+[Azure Monitor의 뷰](../azure-monitor/platform/view-designer.md)를 통해 Log Analytics에 저장된 로그 데이터로 사용자 지정 시각화를 만들 수 있습니다. [모니터링 솔루션](../azure-monitor/insights/solutions.md)에서 수집한 데이터를 표시하는 데 사용됩니다.
 
 ![보기](media/visualizations/view.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "46973578"
 - Log Analytics 데이터를 다양하게 시각화할 수 있습니다.
 - 뷰를 내보내고 가져오는 방법을 통해 다른 리소스 그룹 및 구독으로 전송합니다.
 - 작업 영역 및 모니터링 솔루션을 사용하여 Log Analytic 관리 모델로 통합합니다.
-- 사용자 지정 매개 변수에 대해 [필터링](../log-analytics/log-analytics-view-designer-filters.md)할 수 있습니다.
+- 사용자 지정 매개 변수에 대해 [필터링](../azure-monitor/platform/view-designer-filters.md)할 수 있습니다.
 - 대화형이며, 여러 수준의 드릴인(다른 뷰로 드릴하는 뷰)을 지원합니다.
 
 ### <a name="limitations"></a>제한 사항
@@ -138,9 +138,9 @@ ms.locfileid: "46973578"
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Monitor에서 수집하는 데이터](../monitoring/monitoring-data-collection.md)에 대해 알아봅니다.
+- [Azure Monitor에서 수집하는 데이터](../azure-monitor/platform/data-collection.md)에 대해 알아봅니다.
 - [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)에 대해 알아봅니다.
-- [Azure Monitor의 뷰](../log-analytics/log-analytics-view-designer.md)에 대해 알아봅니다.
+- [Azure Monitor의 뷰](../azure-monitor/platform/view-designer.md)에 대해 알아봅니다.
 - [Application Insights의 통합 문서](../application-insights/app-insights-usage-workbooks.md)에 대해 알아봅니다.
 - [Power BI로 로그 데이터 가져오기](../log-analytics/log-analytics-powerbi.md)에 대해 알아봅니다.
 - [Grafana Azure Monitor 데이터 원본 플러그 인](../monitoring-and-diagnostics/monitor-send-to-grafana.md)에 대해 알아봅니다.

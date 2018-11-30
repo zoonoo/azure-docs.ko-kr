@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4c35820daa9cc25f40dfa0034d9ce632ece235a7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404854"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633408"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux용 Log Analytics 가상 머신 확장
 
@@ -219,7 +219,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 51 | 이 확장이 VM의 운영 체제에서 지원되지 않음 | |
 | 55 | Log Analytics 서비스에 연결할 수 없거나, 필수 패키지가 없거나, dpkg 패키지 관리자가 잠겨 있음| 시스템에서 인터넷에 액세스할 수 있는지 또는 유효한 HTTP 프록시가 제공되었는지 확인합니다. 또한 작업 영역 ID가 정확한지 확인하고 curl 및 tar 유틸리티가 설치되어 있는지도 확인합니다. |
 
-추가 문제 해결 정보는 [Linux용 Log Analytics 에이전트 문제 해결 가이드](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md)에서 확인할 수 있습니다.
+추가 문제 해결 정보는 [Linux용 Log Analytics 에이전트 문제 해결 가이드](../../azure-monitor/platform/vmext-troubleshoot.md)에서 확인할 수 있습니다.
 
 ### <a name="support"></a>지원
 

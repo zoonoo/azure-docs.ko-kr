@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fab4bcb62d15be11ab0a588b7a58447f05b4466a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6e711b99fa197a2092a673c87124e49fcf3c293e
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014672"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635529"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Log Analytics에서 Azure 활동 로그 수집 및 분석
 
@@ -54,7 +54,7 @@ Log Analytics는 무료로 활동 로그를 수집하고 90일 동안 무료로 
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-agent-windows.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](../azure-monitor/platform/agent-windows.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](log-analytics-quick-collect-linux-computer.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure 저장소에서 정보를 수집하지 않습니다. |
@@ -67,7 +67,7 @@ Log Analytics는 무료로 활동 로그를 수집하고 90일 동안 무료로 
 
 다음 단계를 수행하여 작업 영역에 대해 Activity Log Analytics 솔루션을 구성합니다.
 
-1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../monitoring/monitoring-solutions.md)에서 설명한 프로세스를 사용하여 Activity Log Analytics 솔루션을 사용하도록 설정합니다.
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Activity Log Analytics 솔루션을 사용하도록 설정합니다.
 2. Log Analytics 작업 영역으로 이동하도록 활동 로그를 구성합니다.
     1. Azure Portal에서 작업 영역을 선택한 다음 **Azure 활동 로그**를 클릭합니다.
     2. 각 구독에 대해 구독 이름을 클릭합니다.  

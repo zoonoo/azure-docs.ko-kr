@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4a2cb6fa310cc56b4c5ccb1cb625b88431f70783
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6b6dd80f649b0c92aacdb5711e88d7710db5f51b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633855"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424445"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Azure Active Directory 코드 샘플(v2.0 엔드포인트)
 
@@ -73,7 +73,7 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET Core 2.0 Web API 호출
 ------------------ | -------- |  ----------| ---------- | -------------------------
-데스크톱(WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 대화형 | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+데스크톱(WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 대화형 | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
 데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NET.png) | Windows 통합 인증 |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NETcore.png) | 사용자 이름/암호 |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 모바일(UWP)   | ![.NET/C#(UWP)](media/sample-v2-code/logo_windows.png) | 대화형 |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |

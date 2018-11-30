@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9d3399ba6ee724d91117486744ad1431f53edbce
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052940"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444696"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Azure API Management에서 사용자 지정 CA 인증서를 추가하는 방법
 
 Azure API Management를 통해 신뢰할 수 있는 루트 및 중간 인증서 저장소 내의 머신에 CA 인증서를 설치할 수 있습니다. 서비스에 사용자 지정 CA 인증서가 필요한 경우 이 기능을 사용해야 합니다.
 
 이 문서에서는 Azure Portal에서 Azure API Management 서비스 인스턴스의 CA 인증서를 관리하는 방법을 보여줍니다.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>CA 인증서 업로드
 

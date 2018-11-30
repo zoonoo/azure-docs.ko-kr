@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f25a422385abfcdb7020eb7477c0ae2ee55cd8fb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 319bae3025741d6a3130c92d876ae38fcbcdf11e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210599"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333941"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>서비스 패브릭 클러스터 리소스 관리자 소개
 이전에 IT 시스템 또는 온라인 서비스를 관리하는 작업은 특정 물리적 또는 가상 머신을 특정 서비스 또는 시스템에 전담하는 것을 의미했습니다. 서비스는 계층으로 설계되었습니다. “웹” 계층 및 “데이터” 또는 “저장소” 계층이 있었습니다. 응용 프로그램에는 요청이 들어오고 나가는 메시지 계층과 캐싱에 전용으로 사용되는 컴퓨터 집합이 있었습니다. 워크로드의 각 계층 또는 형식에 특정 컴퓨터가 전용으로 지정되어 있었습니다. 데이터베이스에도 전용으로 사용하는 컴퓨터가 몇 대 있고 웹 서버에도 몇 대가 있었습니다. 특정 유형의 워크로드로 인해 컴퓨터가 너무 뜨거워지는 문제가 발생한 경우 해당 계층에 동일한 구성으로 더 많은 컴퓨터를 추가했습니다. 그러나 모든 워크로드를 쉽게 확장할 수 있는 것은 아니었습니다. 특히 데이터 계층을 사용할 때는 컴퓨터를 더 큰 컴퓨터로 바꾸었습니다. 간편성. 컴퓨터에 오류가 발생한 경우 컴퓨터를 복원할 수 있을 때까지 전체 응용 프로그램 중 해당 부분은 낮은 최대 용량으로 실행합니다. (재미는 없더라도)아직 상당히 쉽습니다.
@@ -60,7 +60,7 @@ Cluster Resource Manager가 서비스를 이동시키는 일을 담당하므로 
 ## <a name="next-steps"></a>다음 단계
 - Cluster Resource Manager 내의 아키텍처 및 정보 흐름에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-architecture.md)를 확인하세요.
 - Cluster Resource Manager에는 클러스터를 설명하기 위한 많은 옵션이 있습니다. 메트릭에 대해 자세히 알아보려면 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)에 대한 문서를 확인하세요.
-- 서비스 구성에 대한 자세한 내용은 [서비스 구성](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)에서 알아봅니다.
+- 서비스 구성에 대한 자세한 내용은 [서비스 구성에 대한 자세한 정보](service-fabric-cluster-resource-manager-configure-services.md)에서 알아봅니다.
 - 메트릭은 서비스 패브릭 클러스터 리소스 관리자가 클러스터의 소비와 용량을 관리하는 방법입니다. 메트릭 및 구성 방법에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 확인하세요.
 - 클러스터 리소스 관리자는 서비스 패브릭의 관리 기능으로 작동합니다. 해당 통합에 대한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-management-integration.md)
 - 클러스터 Resource Manager가 클러스터의 부하를 관리하고 분산하는 방법을 알아보려면 [부하 분산](service-fabric-cluster-resource-manager-balancing.md)

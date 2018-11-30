@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963118"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499497"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](http://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 장치에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -109,7 +109,6 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
    * **https://management.azure.com/subscriptions/...** 을
    * **https://api.applicationinsights.io/beta/apps/...** 으로 바꿉니다.
 3. 마지막으로 자격 증명을 기본으로 업데이트하고 API 키를 사용합니다.
- �
 
 **기존 스크립트**
  ```

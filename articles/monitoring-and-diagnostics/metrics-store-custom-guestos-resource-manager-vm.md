@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: f8945ee49ff41a65548da5a3a3c374279bdcc435
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7e7049ec075cbabb678a98502527f0190dab99ea
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413590"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444531"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Windows 가상 머신용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -27,7 +27,7 @@ Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../a
 
 ## <a name="prerequisites"></a>필수 조건
 
-- 구독은 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal)에 등록해야 합니다. 
+- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal)에 등록되어야 합니다. 
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다. 
 
@@ -153,7 +153,7 @@ Azure에서 MSI 확장에 시스템 ID를 할당하도록 VM 리소스에 **iden
             "properties": { 
             "publisher": "Microsoft.Azure.Diagnostics", 
             "type": "IaaSDiagnostics", 
-            "typeHandlerVersion": "1.4", 
+            "typeHandlerVersion": "1.12", 
             "autoUpgradeMinorVersion": true, 
             "settings": { 
                 "WadCfg": { 

@@ -9,12 +9,12 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 79e26d4d2cf5743abae6dc0f1fb58585e1b9b9db
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ef183397cf7ca3f1f561f6951290b722df31e5ed
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977909"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620203"
 ---
 # <a name="how-to-access-data-during-training"></a>학습 중에 데이터에 액세스하는 방법
 데이터 저장소를 사용하여 Azure Machine Learning 워크플로의 데이터에 액세스하고 상호 작용합니다.
@@ -76,7 +76,7 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 ```Python
 datastores = ws.datastores()
 for name, ds in datastores.items(),
-    print(name, ds.datastore_type)"
+    print(name, ds.datastore_type)
 ```
 
 편의상 등록된 데이터 저장소 중 하나를 작업 영역의 기본 데이터 저장소로 설정합니다.

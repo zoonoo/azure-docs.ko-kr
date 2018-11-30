@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 134c7ab8156f3acb558e8b8a2da343961a6aad4e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 58bc0c0669992b8b3884e24c39862f47412b9110
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419336"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584658"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -201,7 +201,6 @@ VM에 여러 인터페이스가 있는 경우 받은 인터페이스의 프로�
 ## <a name="limitations"></a>제한 사항
 
 -  HTTPS 프로브는 클라이언트 인증서를 사용한 상호 인증을 지원하지 않습니다.
--  현재 SDK, PowerShell은 HTTPS 프로브를 지원하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

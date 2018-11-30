@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a5deccbe87bc8de6f6438259c2a43cc4618c24ab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a4c429b1c54c6bf71175abbc763a178792281a0f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016712"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633149"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Log Analytics에 구성 관리자 연결
 System Center Configuration Manager 환경을 Azure Log Analytics에 연결하여 장치 수집 데이터를 동기화하고 Log Analytics 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
@@ -57,7 +57,7 @@ Log Analytics는 System Center Configuration Manager 현재 분기, 1606 이상 
 6. **다음에 대한 액세스 할당** 드롭다운 목록 아래에서 이전에 AD에서 만든 Configuration Manager 응용 프로그램을 선택한 다음, **확인**을 클릭합니다.  
 
 ## <a name="download-and-install-the-agent"></a>에이전트 다운로드 및 설치
-Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 호스팅하는 컴퓨터에 Microsoft Monitoring Agent를 설치하는 데 사용할 수 있는 방법을 이해하려면 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](log-analytics-agent-windows.md) 문서를 검토하세요.  
+Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 호스팅하는 컴퓨터에 Microsoft Monitoring Agent를 설치하는 데 사용할 수 있는 방법을 이해하려면 [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md) 문서를 검토하세요.  
 
 ## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>구성 관리자에 Log Analytics 연결 추가
 Log Analytics 연결을 추가하려면 구성 관리자 환경에 온라인 모드를 위해 구성된 [서비스 연결점](https://technet.microsoft.com/library/mt627781.aspx)이 있어야 합니다.

@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b91c3dec1dda401fbacab39325b2c8980ec7254f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ee89f3d57ded382b4d4519e4054448c144b10c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625067"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632694"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
@@ -81,7 +81,7 @@ Automation 계정에서 **업데이트 관리**의 **구성 관리** 또는 **�
 
 Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. Automation 계정에서 **업데이트 관리**의 **구성 관리** 또는 **업데이트 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
-**비Azure 컴퓨터 추가**를 클릭합니다. 이 작업은 머신에서 솔루션에 보고를 시작할 수 있도록 [머신에 Microsoft Monitoring Agent를 설치 및 구성하는 방법에 대한 지침](../log-analytics/log-analytics-agent-overview.md)이 포함된 새 브라우저 창을 엽니다. System Center Operations Manager에서 현재 관리하고 있는 머신을 등록하는 경우에는 새 에이전트가 필요하지 않으며 작업 영역 정보가 기존 에이전트에 입력됩니다.
+**비Azure 컴퓨터 추가**를 클릭합니다. 이 작업은 머신에서 솔루션에 보고를 시작할 수 있도록 [머신에 Microsoft Monitoring Agent를 설치 및 구성하는 방법에 대한 지침](../azure-monitor/platform/log-analytics-agent.md)이 포함된 새 브라우저 창을 엽니다. System Center Operations Manager에서 현재 관리하고 있는 머신을 등록하는 경우에는 새 에이전트가 필요하지 않으며 작업 영역 정보가 기존 에이전트에 입력됩니다.
 
 ## <a name="onboard-machines-in-the-workspace"></a>작업 영역에서 컴퓨터 등록
 

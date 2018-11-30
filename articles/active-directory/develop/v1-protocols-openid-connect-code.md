@@ -17,16 +17,16 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a830527f65cdbd485ef57ea43e4564363f3ca98b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3b60a659700b1e464f4d8f70516a2ceaa0f08b6b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967764"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423748"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>OpenID Connect 및 Azure Active Directory를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 는 OAuth 2.0 프로토콜을 기반으로 하는 간단한 ID 계층입니다. OAuth 2.0은 보호된 리소스에 액세스하기 위해 [**액세스 토큰**](access-tokens.md)을 가져오고 사용하는 메커니즘을 정의하지만 ID 정보를 제공하는 표준 메서드는 정의하지 않습니다. OpenID Connect는 OAuth 2.0 권한 부여 프로세스에 대한 확장으로 인증을 구현합니다. 사용자 ID를 확인하고 사용자에 대한 기본 프로필 정보를 제공하는 최종 사용자에 대한 정보를 [`id_token`](id-tokens.md) 형태로 제공합니다.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 는 OAuth 2.0 프로토콜을 기반으로 하는 간단한 ID 계층입니다. OAuth 2.0은 보호된 리소스에 액세스하기 위해 [**액세스 토큰**](access-tokens.md)을 가져오고 사용하는 메커니즘을 정의하지만 ID 정보를 제공하는 표준 메서드는 정의하지 않습니다. OpenID Connect는 OAuth 2.0 권한 부여 프로세스에 대한 확장으로 인증을 구현합니다. 사용자 ID를 확인하고 사용자에 대한 기본 프로필 정보를 제공하는 최종 사용자에 대한 정보를 [`id_token`](id-tokens.md) 형태로 제공합니다.
 
 OpenID Connect는 서버에서 호스트되고 브라우저를 통해 액세스되는 웹 응용 프로그램을 빌드하는 경우 권장 사항입니다.
 
@@ -96,7 +96,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | nonce |필수 |결과 `id_token`에 클레임으로 포함되는, 앱에서 생성한 요청에 포함되는 값입니다. 그러면 앱이 이 값을 확인하여 토큰 재생 공격을 완화시킬 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열 또는 GUID입니다. |
 | redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. |
 | response_mode |선택 사항 |결과 authorization_code를 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 지원되는 값은 *HTTP 폼 게시*의 경우 `form_post`이고, *URL 조각*의 경우 `fragment`입니다. 웹 응용 프로그램의 경우 응용 프로그램에 대한 가장 안전한 토큰 전송을 보장하기 위해 `response_mode=form_post`를 사용하는 것이 좋습니다. id_token을 포함하는 모든 흐름의 기본값은 `fragment`입니다.|
-| state |권장 |토큰 응답에 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](http://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생하기 전 앱의 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코드하는 데에도 사용됩니다. |
+| state |권장 |토큰 응답에 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생하기 전 앱의 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코드하는 데에도 사용됩니다. |
 | prompt |선택 사항 |필요한 사용자 상호 작용 유형을 나타냅니다. 현재 유효한 값은 'login', 'none', 'consent'뿐입니다. `prompt=login`은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다. `prompt=none`은 그 반대로 사용자에게 어떠한 대화형 프롬프트도 표시되지 않도록 합니다. Single-Sign On을 통해 요청이 자동으로 완료될 수 없는 경우에 엔드포인트는 오류를 반환합니다. `prompt=consent`는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다. |
 | login_hint |선택 사항 |사용자 이름을 미리 알고 있는 경우 사용자를 위해 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용될 수 있습니다. `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다. |
 
@@ -117,7 +117,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | 매개 변수 | 설명 |
 | --- | --- |
 | id_token |앱이 요청한 `id_token` 입니다. `id_token` 을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. |
-| state |토큰 응답에도 반환되는 요청에 포함된 값입니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](http://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생하기 전 앱의 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코드하는 데에도 사용됩니다. |
+| state |토큰 응답에도 반환되는 요청에 포함된 값입니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생하기 전 앱의 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코드하는 데에도 사용됩니다. |
 
 ### <a name="error-response"></a>오류 응답
 

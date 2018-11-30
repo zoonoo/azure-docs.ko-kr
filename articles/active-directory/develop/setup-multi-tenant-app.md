@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 0007afaf1a961b578b68925fc554cd0195bd5621
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: fe7d305110d8d78c0550741419bc35a0c4a4498e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723827"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423578"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>새 다중 테넌트 응용 프로그램을 구성하는 방법
 
@@ -31,4 +31,4 @@ ms.locfileid: "44723827"
 - 좀 더 깊이 있는 이해를 위해 [다중 테넌트 응용 프로그램이 구성되고 종합적으로 코딩되는 방법](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)(등록 방법, "common" 엔드포인트 사용 방법, "user" 및 "admin" 동의 구현 방법, 좀 더 수준 높은 다중 계층 시나리오를 구현 방법 포함) 알아보기
 
 ## <a name="next-steps"></a>다음 단계
-[AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

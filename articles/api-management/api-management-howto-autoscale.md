@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 1d996469c01640a70b68d70e8c24c617e0defd64
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250783"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444805"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 자동 크기 조정  
 
@@ -32,6 +32,8 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
 + Azure API Management 인스턴스. 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
 + [Azure API Management 인스턴스의 용량](api-management-capacity.md)에 대한 개념을 이해합니다.
 + 비용이 소요되는 결과를 비롯하여 [Azure API Management의 수동 크기 조정 과정](upgrade-and-scale.md)을 이해합니다.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Azure API Management 자동 크기 조정 제한 사항
 
@@ -80,7 +82,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
     | 임계값             | 80%               | 평균 용량 메트릭에 대한 임계값입니다.                                                                                                                                                                                                                                 |
     | 기간(분) | 30                | 용량 메트릭의 평균을 구하는 시간 간격은 사용 패턴에 따라 다릅니다. 시간이 길어질수록 반응은 더 원활해지며 일시적인 스파이크는 스케일 아웃 결정에 적은 영향을 미칩니다. 그러나 스케일 아웃 트리거는 지연됩니다. |
     | *작업*              |                   |                                                                                                                                                                                                                                                                                 |
-    | 작업             | 다음을 기준으로 개수 늘이기 |                                                                                                                                                                                                                                                                                 |
+    | 작업(Operation)             | 다음을 기준으로 개수 늘이기 |                                                                                                                                                                                                                                                                                 |
     | 인스턴트 수        | 1                 | 1단위로 Azure API Management 인스턴스를 규모 확장합니다.                                                                                                                                                                                                                          |
     | 정지(분)   | 60                | Azure API Management 서비스를 규모 확장하는 데 20분 이상 소요됩니다. 대부분의 경우 60분의 정지 기간은 많은 스케일 아웃이 트리거되지 않도록 합니다.                                                                                                  |
 
@@ -107,7 +109,7 @@ Azure API Management 서비스 인스턴스가 규칙 집합을 기반으로 자
     | 임계값             | 35%               | 규모 확장 규칙과 마찬가지로 이 값은 Azure API Management의 사용 패턴에 크게 의존합니다. |
     | 기간(분) | 30                | 규모 확장 규칙에 사용한 것과 동일한 값                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | *작업*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | 작업             | 다음을 기준으로 개수 줄이기 | 규모 확장 규칙에 사용한 것과 반대입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+    | 작업(Operation)             | 다음을 기준으로 개수 줄이기 | 규모 확장 규칙에 사용한 것과 반대입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | 인스턴트 수        | 1                 | 규모 확장 규칙에 사용한 것과 동일한 값                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | 정지(분)   | 90                | 규모 감축은 규모 확장보다 더 보수적이므로 정지 기간이 더 길어야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                    |
 

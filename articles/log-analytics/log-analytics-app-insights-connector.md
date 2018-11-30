@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2e59286822d49abeea522b5346ba531408559a7b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0e083668231d63a2bed669bc5d1a42a977d4b5e0
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014825"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635512"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관 리 솔루션(미리 보기)
 
@@ -44,7 +44,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-agent-windows.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
+| [Windows 에이전트](../azure-monitor/platform/agent-windows.md) | 아니요 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](log-analytics-quick-collect-linux-computer.md) | 아니요 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
@@ -57,7 +57,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 ## <a name="configuration"></a>구성
 
-1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../monitoring/monitoring-solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
+1. [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../azure-monitor/insights/solutions.md)에서 설명한 프로세스를 사용하여 Azure Web Apps 분석 솔루션을 사용하도록 설정합니다.
 2. [Azure Portal](https://portal.azure.com)로 이동합니다. **모든 서비스**를 선택하여 Application Insights를 엽니다. 그런 다음, Application Insights를 검색합니다. 
 3. **구독**에서 Application Insights 리소스가 포함된 구독을 선택한 다음, **이름**에서 하나 이상의 응용 프로그램을 선택합니다.
 4. **저장**을 클릭합니다.

@@ -2,25 +2,21 @@
 title: Azure Machine Learning을 위한 고급 분석 시나리오 확인 | Microsoft Docs
 description: 팀 데이터 과학 프로세스에서 고급 예측 분석을 수행하기 위한 적절한 시나리오를 선택합니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: bf5ee52c98c173dbdde0a00c5657b8694b363279
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 16d8457e5605ce0e3c10ed95296b5a883a4c602c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143027"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444837"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning의 고급 분석 시나리오
 이 문서에서는 [TDSP(팀 데이터 과학 프로세스)](overview.md)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. TDSP는 지능형 응용 프로그램 개발을 위해 팀원들이 공동으로 작업하기 위한 체계적인 방법을 제공합니다. 여기에 제시된 시나리오는 Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 데이터 처리 워크플로에서 사용 가능한 옵션을 보여 줍니다.

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623158"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582788"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
@@ -124,7 +124,7 @@ Azure Functions는 인프라를 프로비전 또는 관리하지 않고 요청 �
 
 Azure Cosmos DB는 다음과 같은 이유로 서버를 사용하지 않는 컴퓨팅 아키텍처에 권장되는 데이터베이스입니다.
 
-* **모든 데이터 즉시 액세스**: Azure Cosmos DB는 기본적으로 모든 데이터를 [자동으로 인덱싱](indexing-policies.md)하고 해당 인덱스를 즉시 사용할 수 있게 하므로 저장된 모든 값에 대한 세분화된 액세스 권한을 갖습니다. 따라서 데이터베이스를 지속적으로 쿼리, 업데이트 및 새 항목을 추가하고 Azure Functions를 통해 즉시 액세스할 수 있습니다.
+* **모든 데이터 즉시 액세스**: Azure Cosmos DB는 기본적으로 모든 데이터를 [자동으로 인덱싱](index-policy.md)하고 해당 인덱스를 즉시 사용할 수 있게 하므로 저장된 모든 값에 대한 세분화된 액세스 권한을 갖습니다. 따라서 데이터베이스를 지속적으로 쿼리, 업데이트 및 새 항목을 추가하고 Azure Functions를 통해 즉시 액세스할 수 있습니다.
 
 * **스키마 사용 안 함**. Azure Cosmos DB는 스키마를 사용하지 않으므로 Azure Functions의 모든 데이터 출력을 처리할 수 있습니다. 이 “모두 처리” 방법을 사용하면 모두 Azure Cosmos DB에 출력되는 다양한 함수를 간단히 만들 수 있습니다.
 

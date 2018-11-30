@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 601169cc62a99438f661adc06ab166b545606edb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: abd64b7d2fa7930f5b6177c7ac037840da34dc18
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624593"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333584"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 보고서 보존 정책
 
@@ -32,7 +32,7 @@ ms.locfileid: "51624593"
 | Azure AD 버전 | 수집 시작 |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | 구독을 위한 가입 시기 |
-| Azure AD Free | 처음으로 [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)를 열거나 [보고 API](https://aka.ms/aadreports)를 사용할 때  |
+| Azure AD Free <br /> Azure AD Basic | 처음으로 [Azure Active Directory 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)를 열거나 [보고 API](https://aka.ms/aadreports)를 사용할 때  |
 
 ---
 
