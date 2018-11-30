@@ -1,3 +1,16 @@
+---
+author: genlin
+ms.service: virtual-network
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: genli
+ms.openlocfilehash: 3df4108907a4e1e65a444faf1049163966b7accf
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52271338"
+---
 ## <a name="scenario"></a>시나리오
 단일 NIC가 있는 VM을 만들고 가상 네트워크에 연결합니다. VM은 세 개의 *개인* IP 주소와 두 개의 *공용* IP 주소가 필요합니다. IP 주소는 다음 IP 구성에 할당됩니다.
 

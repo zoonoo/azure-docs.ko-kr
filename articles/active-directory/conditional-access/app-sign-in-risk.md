@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604368"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705925"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스를 사용하여 세션 위험이 감지되면 액세스 차단  
 
@@ -212,7 +212,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
 
-- Tor 브라우저를 제거할 지침은 [제거](https://tb-manual.torproject.org/en-US/uninstalling.html)를 참조하세요.
+- Tor 브라우저를 제거할 지침은 [제거](https://tb-manual.torproject.org/uninstalling/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

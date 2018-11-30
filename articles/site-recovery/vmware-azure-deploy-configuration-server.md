@@ -1,20 +1,21 @@
 ---
 title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 배포 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware 재해 복구를 위해 구성 서버를 배포하는 방법 설명
-author: rayne-wiselman
-manager: carmonm
+description: 이 문서에서는 Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버를 관리하는 방법을 설명합니다.
+services: site-recovery
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: raynew
-ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 11/18/2018
+ms.author: ramamill
+ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233160"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162605"
 ---
-# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 구성 서버 배포
+# <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
 Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Site Recovery](site-recovery-overview.md)를 사용할 경우 온-프레미스 구성 서버를 배포합니다. 구성 서버는 온-프레미스 VMware와 Azure 간의 통신을 조정합니다. 또한 데이터 복제를 관리합니다. 이 문서에서는 VMware VM을 Azure로 복제할 때 구성 서버를 배포하는 데 필요한 단계를 안내합니다. 물리적 서버 복제를 위해 구성 서버를 설정해야 하는 경우 [이 문서에 따릅니다](physical-azure-set-up-source.md).
 

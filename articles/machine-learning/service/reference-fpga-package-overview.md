@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 344423ea9943e04dc5f02ebee0903d179be90bbd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 83c5a788f85fcc47c221f5c8f9e6944c4448fbf9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887584"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712129"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning 하드웨어 가속 패키지
 
@@ -32,7 +32,7 @@ Azure Machine Learning 하드웨어 가속 패키지는 Azure Machine Learning�
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLfree)을 만듭니다.
 
 1. Azure Machine Learning 모델 관리 계정. 계정 만들기에 대한 자세한 내용은 [Azure Machine Learning 빠른 시작 및 Workbench 설치](../desktop-workbench/quickstart-installation.md) 문서를 참조하세요. 
 

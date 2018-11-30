@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685177"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262910"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
 Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API가 생성됩니다. 이 API로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
-Azure Container 인스턴스, Azure Kubernetes Service 또는 Project Brainwave(필드 프로그래밍 가능 게이트 배열)에 이미지를 배포할 때 웹 서비스가 생성됩니다. 이미지는 등록된 모델과 채점 파일에서 생성됩니다. 웹 서비스에 액세스하는 데 사용되는 URI는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 검색할 수 있습니다. 인증이 사용 가능한 경우 SDK를 사용하여 인증 키를 가져올 수도 있습니다.
+Azure Container 인스턴스, Azure Kubernetes Service 또는 Project Brainwave(필드 프로그래밍 가능 게이트 배열)에 이미지를 배포할 때 웹 서비스가 생성됩니다. 이미지는 등록된 모델과 채점 파일에서 생성됩니다. 웹 서비스에 액세스하는 데 사용되는 URI는 [Azure Machine Learning SDK](https://aka.ms/aml-sdk)를 사용하여 검색할 수 있습니다. 인증이 사용 가능한 경우 SDK를 사용하여 인증 키를 가져올 수도 있습니다.
 
 ML 웹 서비스를 사용하는 클라이언트를 만들 때 일반적인 워크플로는 다음과 같습니다.
 

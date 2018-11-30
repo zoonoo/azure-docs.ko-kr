@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 97350c90ab4ce9c3623a293c3a6637edc65ced08
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345473"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706061"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 및 Azure Machine Learning: 상호 운용 가능한 AI 모델 만들기 및 배포
 
-ONNX([Open Neural Network Exchange](http://onnx.ai)) 형식은 Machine Learning 모델을 표현하기 위한 개방형 표준입니다. Microsoft를 비롯하여 호환 프레임워크와 도구를 만드는 [파트너 커뮤니티](http://onnx.ai/supported-tools)에서 ONNX를 지원합니다. Microsoft는 데이터 과학자와 개발자가 다음 작업을 수행할 수 있도록 개방형 상호 운용 가능 AI를 지원하기 위해 노력하고 있습니다.
+ONNX([Open Neural Network Exchange](https://onnx.ai)) 형식은 Machine Learning 모델을 표현하기 위한 개방형 표준입니다. Microsoft를 비롯하여 호환 프레임워크와 도구를 만드는 [파트너 커뮤니티](https://onnx.ai/supported-tools)에서 ONNX를 지원합니다. Microsoft는 데이터 과학자와 개발자가 다음 작업을 수행할 수 있도록 개방형 상호 운용 가능 AI를 지원하기 위해 노력하고 있습니다.
 
 + 선택한 프레임워크를 사용하여 모델을 만들고 학습시키기
 + 최소한의 통합 작업만으로 플랫폼 간에 모델 배포
@@ -207,6 +207,6 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 ## <a name="more-info"></a>자세한 정보
 
 ONNX에 대해 자세히 알아보거나 프로젝트에 참가합니다.
-+ [ONNX 프로젝트 웹 사이트](http://onnx.ai)
++ [ONNX 프로젝트 웹 사이트](https://onnx.ai)
 
 + [GitHub의 ONNX 코드](https://github.com/onnx/onnx)

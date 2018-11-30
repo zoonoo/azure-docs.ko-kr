@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740385"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262077"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Azure DevTest Labs 인프라의 거버넌스 - 리소스
 이 문서에서는 조직 내 DevTest Labs용으로 리소스를 조정하고 관리하는 방법을 설명합니다. 
@@ -35,7 +35,7 @@ Azure 구독 내에서 DevTest Labs 리소스를 조정하려면 어떻게 해�
 - 개발 환경과 프로덕션 환경 분리를 위한 세그먼트화의 필요 여부 
 - 관리, 안정성 및 확장을 장기적으로 쉽게 진행하기 위해 도입되는 제어 기능
 
-**첫 번째 권장 방식**은 프로덕션 구독과 개발 구독을 구분하는 방식이 요약되어 있는 조직의 Azure 분류법을 검토하는 것입니다. 아래 다이어그램에 나와 있는 제안 분류법을 사용하면 개발/테스트 환경과 프로덕션 환경을 논리적으로 분리할 수 있습니다. 이 방식을 사용하는 경우 조직은 각 환경과 연결된 비용을 개별적으로 추적하는 청구 코드를 도입할 수 있습니다. 자세한 내용은 [규범적 구독 거버넌스](/architecture/cloud-adoption/appendix/azure-scaffold)를 참조하세요. 또한 [Azure 태그](../azure-resource-manager/resource-group-using-tags.md)를 사용하여 추적 및 청구용으로 리소스를 구성할 수도 있습니다.
+**첫 번째 권장 방식**은 프로덕션 구독과 개발 구독을 구분하는 방식이 요약되어 있는 조직의 Azure 분류법을 검토하는 것입니다. 아래 다이어그램에 나와 있는 제안 분류법을 사용하면 개발/테스트 환경과 프로덕션 환경을 논리적으로 분리할 수 있습니다. 이 방식을 사용하는 경우 조직은 각 환경과 연결된 비용을 개별적으로 추적하는 청구 코드를 도입할 수 있습니다. 자세한 내용은 [규범적 구독 거버넌스](/azure/architecture/cloud-adoption/appendix/azure-scaffold)를 참조하세요. 또한 [Azure 태그](../azure-resource-manager/resource-group-using-tags.md)를 사용하여 추적 및 청구용으로 리소스를 구성할 수도 있습니다.
 
 **두 번째 권장 방식**은 Azure Enterprise Portal 내에서 DevTest 구독을 사용하도록 설정하는 것입니다. 이 경우 조직은 Azure Enterprise 구독에서 일반적으로 제공되지 않는 클라이언트 운영 체제를 실행할 수 있습니다. 그 후에는 라이선싱에 신경쓰지 않고 수행하는 계산에 대한 요금만 결제하는 엔터프라이즈 소프트웨어를 사용하면 됩니다. 이 경우 Microsoft SQL Server와 같은 IaaS의 갤러리 이미지를 비롯한 지정된 서비스의 대금이 사용량을 기준으로만 청구됩니다. EA(기업계약) 고객의 경우 [여기](https://azure.microsoft.com/offers/ms-azr-0148p/)에서, 그리고 종량제 고객의 경우 [여기](https://azure.microsoft.com/offers/ms-azr-0023p/)에서 Azure DevTest 구독에 대한 세부 정보를 확인할 수 있습니다.
 

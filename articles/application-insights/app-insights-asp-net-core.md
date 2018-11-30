@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: a0e0d2c3604ea2357f52c3d464933c622ba1810d
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3e838cd45eefa5b5b644992bb8eae36abf3ec33a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523243"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276349"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core용 Application Insights
 
@@ -321,7 +321,7 @@ Application Insights 제품 그룹은 [전체 .NET Framework SDK](https://github
 
 출력에서 _인사이트_ 단어를 검색하는 경우 다음과 유사한 결과가 강조 표시됩니다.
 
-```DebugOuput
+```DebugOutput
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\store\x64\netcoreapp2.0\microsoft.aspnetcore.applicationinsights.hostingstartup\2.0.3\lib\netcoreapp2.0\Microsoft.AspNetCore.ApplicationInsights.HostingStartup.dll'.
 'dotnet.exe' (CoreCLR: clrhost): Loaded 'C:\Program Files\dotnet\store\x64\netcoreapp2.0\microsoft.applicationinsights.aspnetcore\2.1.1\lib\netstandard1.6\Microsoft.ApplicationInsights.AspNetCore.dll'.
 

@@ -1,3 +1,16 @@
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: spelluru
+ms.openlocfilehash: 16ce537a54fc77fc0f72b859d6d193501d86c1fc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52271316"
+---
 ## <a name="create-a-ruby-application"></a>Ruby 응용 프로그램 만들기
 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md)를 참조하세요.
 

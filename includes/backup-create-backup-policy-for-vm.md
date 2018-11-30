@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: backup
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: raynew
+ms.openlocfilehash: e62771096bc59bc05879ce7b7e2da19f050b27b0
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279787"
+---
 ## <a name="defining-a-backup-policy"></a>백업 정책 정의
 백업 정책은 데이터 스냅숏이 생성된 시간 및 스냅숏을 보관하는 기간에 대한 행렬을 정의합니다. VM 백업을 위한 정책을 정의할 때 백업 작업을 *하루에 한 번*트리거할 수 있습니다. 새 정책을 만들면 자격 증명 모음에 적용됩니다. 백업 정책 인터페이스는 다음과 같습니다.
 

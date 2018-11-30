@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aff3ce4bc290f6e4ad2fb11a586372862d0c1462
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9602b8ff4d0df15b030626d5e2cfeca9bcc2bd5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240735"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284117"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure Automation에서 Runbook 출력 및 메시지
-대부분의 Azure Automation Runbook에는 사용자에게 표시되는 오류 메시지와 같은 일종의 출력 형식 또는 다른 워크플로에서 사용할 복합 개체가 있습니다. Windows PowerShell은 [여러 스트림](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동하고 runbook을 만들 경우 각각을 사용하는 방법은 모범 사례를 따라야 합니다.
+대부분의 Azure Automation Runbook에는 사용자에게 표시되는 오류 메시지와 같은 일종의 출력 형식 또는 다른 워크플로에서 사용할 복합 개체가 있습니다. Windows PowerShell은 [여러 스트림](https://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 제공하여 스크립트 또는 워크플로에서 출력을 보냅니다. Azure Automation은 이러한 스트림에서 각각 다르게 작동하고 runbook을 만들 경우 각각을 사용하는 방법은 모범 사례를 따라야 합니다.
 
 다음 표에서는 게시된 Runbook을 실행할 경우와 [Runbook을 테스트](automation-testing-runbook.md)할 경우 모두에 Azure Portal의 각 스트림 및 해당 동작을 간략히 설명합니다. 각 스트림에 대한 자세한 내용은 후속 섹션에 제공됩니다.
 
@@ -64,13 +64,17 @@ Workflow Test-Runbook
 
 Runbook 작업에 대한 출력 스트림은 다음과 같습니다.
 
-    Output inside of function
-    Output outside of function
+```output
+Output inside of function
+Output outside of function
+```
 
 Runbook 작업에 대한 자세한 정보 표시 스트림은 다음과 같습니다.
 
-    Verbose outside of function
-    Verbose inside of function
+```output
+Verbose outside of function
+Verbose inside of function
+```
 
 Runbook을 게시하고 시작하기 전에 자세한 정보 표시 스트림 출력을 얻기 위해 Runbook 설정에서 자세한 정보 표시 로깅을 켜야 합니다.
 
@@ -131,7 +135,7 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 ```
 
 ### <a name="verbose-stream"></a>자세한 정보 표시 스트림
-자세한 정보 표시 메시지 스트림은Runbook 작업에 대한 일반 정보입니다. [디버그 스트림](#Debug) 을 runbook에서 사용할 수 없기 때문에 디버그 정보에 자세한 정보 표시 메시지를 사용해야 합니다. 기본적으로 게시된 Runbook에서 자세한 정보 표시 메시지는 작업 기록에 저장되지 않습니다. 자세한 정보 표시 메시지를 저장하기 위해 Azure Portal에 있는 Runbook의 구성 탭에서 게시된 Runbook을 상세 레코드 기록으로 구성합니다. 대부분의 경우 성능상의 이유로 runbook에 대한 자세한 정보 표시 레코드를 기록하지 않는 기본 설정을 유지해야 합니다. 옵션을 켜서 문제를 해결하거나 runbook 디버그합니다.
+자세한 정보 표시 메시지 스트림은Runbook 작업에 대한 일반 정보입니다. [디버그 스트림](#debug-stream) 을 runbook에서 사용할 수 없기 때문에 디버그 정보에 자세한 정보 표시 메시지를 사용해야 합니다. 기본적으로 게시된 Runbook에서 자세한 정보 표시 메시지는 작업 기록에 저장되지 않습니다. 자세한 정보 표시 메시지를 저장하기 위해 Azure Portal에 있는 Runbook의 구성 탭에서 게시된 Runbook을 상세 레코드 기록으로 구성합니다. 대부분의 경우 성능상의 이유로 runbook에 대한 자세한 정보 표시 레코드를 기록하지 않는 기본 설정을 유지해야 합니다. 옵션을 켜서 문제를 해결하거나 runbook 디버그합니다.
 
 [runbook을 테스트](automation-testing-runbook.md)할 경우 runbook이 자세한 정보 표시 레코드를 기록하도록 구성되면 자세한 정보 표시 메시지는 표시되지 않습니다. [runbook을 테스트](automation-testing-runbook.md)하는 동안 자세한 정보 표시 메시지를 표시하려면 $VerbosePreference 변수를 계속으로 설정해야 합니다. 해당 변수를 설정하면, 자세한 정보 표시 메시지가 Azure Portal의 테스트 출력 창에 표시됩니다.
 

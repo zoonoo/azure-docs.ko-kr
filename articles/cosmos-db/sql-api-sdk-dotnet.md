@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f7f8af635eb7d5449a242f3a7708d865c13bb448
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389771"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162809"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -182,7 +182,7 @@ ms.locfileid: "49389771"
 * 문자열 필드를 정렬할 때 파티션 간 order-by 쿼리 연속 작업이 작동하지 않는 문제를 해결합니다.
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](sql-api-sql-query.md#Aggregates)을 참조하세요.
+* 집계 쿼리(COUNT, MIN, MAX, SUM 및 AVG)에 대한 지원이 추가되었습니다. [집계 지원](how-to-sql-query.md#Aggregates)을 참조하세요.
 * 분할된 컬렉션에 대한 최소 처리량이 10,100RU/s에서 2500RU/s로 감소됩니다.
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4

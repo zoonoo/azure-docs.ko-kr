@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2caf3d6373e764f5d5538a14a1750f1bfee2871d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614143"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822282"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
@@ -89,7 +89,7 @@ Webhook는 다음 예시 항목을 사용하여 자동화 및 조치를 활성�
 ## <a name="next-steps"></a>다음 단계
 다음을 사용하여 경고 규칙에 대한 정보를 확인하고 구성할 수 있습니다.
 
-* [메트릭](../monitoring/monitoring-data-collection.md)에 대해 자세히 알아보기
+* [메트릭](../azure-monitor/platform/data-collection.md)에 대해 자세히 알아보기
 * [Azure Portal을 통해 클래식 메트릭 경고](alert-metric-classic.md) 구성
 * [클래식 메트릭 경고 PowerShell](alert-metric-classic.md) 구성
 * [클래식 메트릭 경고 CLI(명령줄 인터페이스)](alert-metric-classic.md) 구성

@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 54aef992e95454387ee2fda1d1b34d6dcae3e21e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d81925589eefa0ea5851180c83db5bc3540aabda
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959114"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262689"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk Encryption 필수 구성 요소(이전 릴리스)
 
@@ -118,7 +118,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 
 ## <a name="bkmk_CLI"></a> Azure CLI
 
-[Azure CLI 2.0](/cli/azure)은 Azure 리소스를 관리하기 위한 명령줄 도구입니다. CLI는 데이터를 유연하게 쿼리하고, 장기 실행 작업을 비차단 프로세스로 지원하고, 쉽게 스크립팅할 수 있도록 설계되었습니다. [Azure Cloud Shell](/cloud-shell/overview.md)과 함께 브라우저에서 사용하거나 로컬 컴퓨터에 설치하여 PowerShell 세션에서 사용할 수 있습니다.
+[Azure CLI 2.0](/cli/azure)은 Azure 리소스를 관리하기 위한 명령줄 도구입니다. CLI는 데이터를 유연하게 쿼리하고, 장기 실행 작업을 비차단 프로세스로 지원하고, 쉽게 스크립팅할 수 있도록 설계되었습니다. [Azure Cloud Shell](../cloud-shell/overview.md)과 함께 브라우저에서 사용하거나 로컬 컴퓨터에 설치하여 PowerShell 세션에서 사용할 수 있습니다.
 
 1. 로컬 머신에서 사용할 [Azure CLI 설치](/cli/azure/install-azure-cli)(선택 사항):
 
@@ -166,7 +166,7 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documenta
 [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault) cmdlet을 사용하여 Azure PowerShell을 통해 키 자격 증명 모음을 만들 수 있습니다. Key Vault에 대한 추가 cmdlet은 [AzureRM.KeyVault](/powershell/module/azurerm.keyvault/)를 참조하세요. 
 
 1. 필요한 경우 [Azure 구독에 연결](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH)합니다. 
-2. 필요한 경우 [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup)을 사용하여 새 리소스 그룹을 만듭니다.  데이터 센터 위치를 나열하려면 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocationn)을 사용합니다. 
+2. 필요한 경우 [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup)을 사용하여 새 리소스 그룹을 만듭니다.  데이터 센터 위치를 나열하려면 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation)을 사용합니다. 
      
      ```azurepowershell-interactive
      # Get-AzureRmLocation 
@@ -186,7 +186,7 @@ Azure Disk Encryption은 [Azure Key Vault](https://azure.microsoft.com/documenta
 [az keyvault](/cli/azure/keyvault#commands) 명령을 사용하여 Azure CLI를 통해 키 자격 증명 모음을 관리할 수 있습니다. 키 자격 증명 모음을 만들려면 [az keyvault create](/cli/azure/keyvault#az-keyvault-create)를 사용합니다.
 
 1. 필요한 경우 [Azure 구독에 연결](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI)합니다.
-2. 필요한 경우 [az group create](/cli/azure/groupt#az-group-create)를 사용하여 새 리소스 그룹을 만듭니다. 위치를 나열하려면 [az account list-locations](/cli/azure/account#az-account-list)를 사용합니다. 
+2. 필요한 경우 [az group create](/cli/azure/group#az-group-create)를 사용하여 새 리소스 그룹을 만듭니다. 위치를 나열하려면 [az account list-locations](/cli/azure/account#az-account-list)를 사용합니다. 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
@@ -272,7 +272,7 @@ Azure AD 응용 프로그램에 자격 증명 모음의 키 또는 암호에 액
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Azure CLI를 사용하여 Azure AD 응용 프로그램에 대한 키 자격 증명 모음 액세스 정책 설정
-[az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy)를 사용하여 액세스 정책을 설정합니다. 자세한 내용은 [CLI 2.0을 사용하여 Key Vault 관리](../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret)를 참조하세요.
+[az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy)를 사용하여 액세스 정책을 설정합니다. 자세한 내용은 [CLI 2.0을 사용하여 Key Vault 관리](../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret)를 참조하세요.
 
 1. 필요한 경우 [Azure 구독에 연결](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI)합니다.
 2. 다음 명령을 사용하여 비밀 및 래핑 키를 가져오려면 Azure CLI 액세스를 통해 만든 서비스 주체에게 액세스 권한을 부여합니다.

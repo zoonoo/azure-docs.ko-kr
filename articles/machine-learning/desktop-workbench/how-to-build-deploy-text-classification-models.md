@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 97d988332a2c5234cb260cef29f195f0fecfee45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73f95280cc02b6f891c4ef67cd11084768d7d282
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994941"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853016"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Azure Machine Learning으로 텍스트 분류 모델 작성 및 배포
 
@@ -436,7 +436,7 @@ text_classifier.fit(df_train)
 
 다음 코드 샘플은 기본 파이프라인 및 모델 매개 변수를 사용하여 모델을 학습시키는 방법을 보여줍니다. 
 
-"text_word_ngrams"에 어떤 매개 변수가 포함되는지 보려면 [get_step_param_names_by_name](https://docs.microsoft.com/python/api/tatk.core.base_text_model.basetextmodel)을 사용합니다. 이 함수는 소문자, input_col, output_col 등과 같은 매개 변수를 반환합니다. 
+"text_word_ngrams"에 어떤 매개 변수가 포함되는지 보려면 [get_step_param_names_by_name](/python/api/msft-tatk/tatk.core.base_text_model.basetextmodel#get-step-param-names-by-name)을 사용합니다. 이 함수는 소문자, input_col, output_col 등과 같은 매개 변수를 반환합니다. 
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
@@ -625,7 +625,7 @@ text_classifier.export_params(params_file_path)
 </div>
 
 ## <a name="evaluate-model-performance"></a>모델 성능 평가
-[평가 모듈](https://docs.microsoft.com/python/api/tatk.evaluation)은 테스트 데이터 집합에서 학습된 텍스트 분류자의 정확성을 평가합니다. evaluate 함수는 혼동 행렬을 생성하고 매크로 F1 점수를 제공합니다.
+[평가 모듈](/python/api/msft-tatk/tatk.evaluation)은 테스트 데이터 집합에서 학습된 텍스트 분류자의 정확성을 평가합니다. evaluate 함수는 혼동 행렬을 생성하고 매크로 F1 점수를 제공합니다.
 
 ```python
  text_classifier.evaluate(df_test)          

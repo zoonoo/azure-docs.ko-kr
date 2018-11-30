@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: d0425b68f1b241bde4b2100d13d60165e5a1f1fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 366aed206e8b1fb72547a64a957d83eec78c1358
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255175"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161987"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute용 가상 네트워크 게이트웨이 구성(클래식)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "51255175"
 
 **Azure 배포 모델 정보**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>시작하기 전에
 이 구성에 필요한 Azure PowerShell cmdlet을 설치했는지 확인합니다(1.0.2 이상). Cmdlet을 설치하지 않은 경우 구성 단계를 시작하기 전에 설치해야 합니다. Azure PowerShell 설치에 관한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.

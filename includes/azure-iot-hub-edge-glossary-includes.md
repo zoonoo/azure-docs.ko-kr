@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: dobett
+ms.openlocfilehash: c95bca125ea70cf32acad0d5ea67c3ad195ed704
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279792"
+---
 ## <a name="automatic-device-management"></a>자동 장치 관리
 Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대규모 장치를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 장치 관리를 사용하여 해당 속성을 기반으로 장치 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때마다 IoT Hub에서 장치를 업데이트하도록 할 수 있습니다.  [자동 장치 구성](../articles/iot-hub/iot-hub-auto-device-config.md) 및 [IoT Edge 자동 배포](../articles/iot-edge/how-to-deploy-monitor.md)로 구성됩니다.
 

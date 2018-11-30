@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d78e5ba030a8b68b99a92be8a830a365c2870c1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c8a2caf2826069824a993294f4eba514ea870d9c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235890"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307378"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Azure Security Center에서 디스크 암호화 적용
 Azure Security Center는 암호화되지 않은 Windows 또는 Linux VM 디스크가 있는 경우 Azure Disk Encryption을 사용하여 디스크 암호화를 적용하도록 권장합니다. 디스크 암호화를 사용하면 Windows 및 Linux IaaS VM 디스크를 암호화할 수 있습니다.  VM에서 OS 및 데이터 볼륨에 암호화를 사용하는 것이 좋습니다.
@@ -56,7 +56,7 @@ Azure Virtual Machines에 대해 사용할 수 있는 방법은 여러 가지가
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-policies.md) -- 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) -- 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) –- Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md) -- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.

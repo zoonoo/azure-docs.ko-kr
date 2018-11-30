@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399375"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160871"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>기존 VPN Gateway 연결이 있는 VNet에 사이트 간 연결 추가(클래식)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell(클래식)](vpn-gateway-multi-site.md)
 >
 >
@@ -36,7 +36,7 @@ ms.locfileid: "29399375"
 
 ### <a name="deployment-models-and-methods"></a>배포 모델 및 메서드
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 새 문서 및 추가 도구를 이 구성에 사용할 수 있게 되었으므로 다음 표를 업데이트합니다. 문서를 사용할 수 있는 경우 표에서 직접 링크를 제공합니다.
 
@@ -138,7 +138,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="4-add-multiple-site-references"></a>4. 여러 사이트 참조 추가
 사이트 참조 정보를 추가 또는 제거하면 ConnectionsToLocalNetwork/LocalNetworkSiteRef의 구성이 변경됩니다. 새 로컬 사이트 참조를 추가하면 Azure에서 새 터널을 만듭니다. 아래 예제에서 네트워크 구성은 단일 사이트 연결용입니다. 모두 변경했으면 파일을 저장합니다.
 
-```
+```xml
   <Gateway>
     <ConnectionsToLocalNetwork>
       <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
@@ -148,7 +148,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
 추가 사이트 참조를 추가하려면(다중 사이트 구성 만들기) 아래 예제와 같이 추가 "LocalNetworkSiteRef" 줄을 추가하기만 하면 됩니다.
 
-```
+```xml
   <Gateway>
     <ConnectionsToLocalNetwork>
       <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>

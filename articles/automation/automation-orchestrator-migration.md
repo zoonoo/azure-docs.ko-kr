@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83fff9fa322431983c1d385705ae235a8e818570
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237267"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275285"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Orchestrator에서 Azure Automation으로 마이그레이션(Beta)
 [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) 의 Runbook은 특별히 Orchestrator용으로 작성된 통합 팩의 활동을 기반으로 하는 반면, Azure Automation의 Runbook은 Windows PowerShell을 기반으로 합니다.  Azure Automation에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)은 해당 활동이 PowerShell cmdlet, 자식 Runbook 및 자산을 나타내는 Orchestrator Runbook과 모양이 유사합니다.
@@ -79,7 +79,9 @@ Runbook Converter는 변환을 수행하는 **ConvertFrom SCORunbook** 를 호�
 ### <a name="using-runbook-converter"></a>Runbook Converter 사용
 **ConvertFrom SCORunbook** 에 대한 구문은 다음과 같습니다.
 
-    ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```powershell
+ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```
 
 * RunbookPath - 변환할 runbook을 포함하는 내보내기 파일의 경로입니다.
 * 모듈 - runbook의 작업을 포함하는 통합 모듈의 목록을 구분하는 쉼표입니다.
@@ -87,8 +89,9 @@ Runbook Converter는 변환을 수행하는 **ConvertFrom SCORunbook** 를 호�
 
 다음 예제 명령은 **MyRunbooks.ois_export**라는 내보내기 파일에서 runbook을 변환합니다.  이러한 runbook은 Active Directory 및 Data Protection Manager 통합 팩을 사용합니다.
 
-    ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
-
+```powershell
+ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
+```
 
 ### <a name="log-files"></a>로그 파일
 Runbook Converter는 동일한 위치에 있는 다음 로그 파일을 변환된 runbook으로 만듭니다.  파일이 이미 있는 경우 마지막 변환에서 정보를 사용하여 덮어씁니다.

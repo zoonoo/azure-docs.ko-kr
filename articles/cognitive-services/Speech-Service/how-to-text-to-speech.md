@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 16b7de909ce57a7f8d3cea54a59996dc6f0a6ba0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469920"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712010"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Speech Service에서 "Text to Speech" 사용
 
@@ -92,7 +92,7 @@ Response audio payload
 429|너무 많은 요청|구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다.
 |502|잘못된 게이트웨이    | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다.
 
-Text to Speech REST API에 대한 자세한 내용은 [REST API](rest-apis.md#text-to-speech)를 참조하세요.
+Text to Speech REST API에 대한 자세한 내용은 [REST API](rest-apis.md#text-to-speech-api)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

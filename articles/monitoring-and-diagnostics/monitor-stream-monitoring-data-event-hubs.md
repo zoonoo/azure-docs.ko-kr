@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4c6765e54dc881c35e344f111e82721be0852052
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961826"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823761"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -71,7 +71,7 @@ Azure 활동 로그에서 Event Hubs 네임스페이스로 데이터를 보내�
 
 Azure 리소스는 두 가지 유형의 모니터링 데이터를 내보냅니다.
 1. [리소스 진단 로그](./monitoring-overview-of-diagnostic-logs.md)
-2. [Metrics](../monitoring/monitoring-data-collection.md)(메트릭)
+2. [Metrics](../azure-monitor/platform/data-collection.md)(메트릭)
 
 두 가지 유형의 데이터는 리소스 진단 설정을 사용하여 이벤트 허브로 전송됩니다. [이 가이드에 따라](./monitoring-stream-diagnostic-logs-to-event-hubs.md) 특정 리소스에 대한 리소스 진단 설정을 지정합니다. 로그를 수집하려는 각 리소스에 대한 리소스 진단 설정을 지정합니다.
 

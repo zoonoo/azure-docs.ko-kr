@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 11/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3bb7e9837f74fd04d38cc77a9504cc26c6dcf803
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958560"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854189"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Log Analytics에서 고급 쿼리 작성
 
@@ -76,28 +76,6 @@ Event
 | extend USTimeGenerated = utc_to_us_date_format(TimeGenerated)
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
-
-## <a name="functions"></a>Functions
-다른 쿼리에서 참조될 수 있도록, 함수 별칭을 사용하여 쿼리를 저장할 수 있습니다. 예를 들어, 다음 표준 쿼리는 마지막 날에 보고된 모든 누락된 보안 업데이트를 반환합니다.
-
-```Kusto
-Update
-| where TimeGenerated > ago(1d) 
-| where Classification == "Security Updates" 
-| where UpdateState == "Needed"
-```
-
-이 쿼리를 함수로 저장하고 _security_updates_last_day_와 같이 별칭을 지정할 수 있습니다. 그런 후, SQL과 관련된 필수 보안 업데이트를 검색하기 위해 다른 쿼리에서 사용할 수 있습니다.
-
-```Kusto
-security_updates_last_day | where Title contains "SQL"
-```
-
-쿼리를 함수로 저장하려면 포털에서 **저장** 단추를 선택하고 **다른 이름으로 저장**을 _함수_로 변경합니다. 함수 별칭에는 문자, 숫자 또는 밑줄을 포함할 수 있지만 문자 또는 밑줄로 시작해야 합니다.
-
-> [!NOTE]
-> Log Analytics 쿼리에는 함수를 저장할 수 있지만, Application Insights 쿼리의 경우는 현재 이러한 기능이 지원되지 않습니다.
-
 
 ## <a name="print"></a>Print
 `print`는 단일 열 및 단일 행이 있는 테이블을 반환하며, 계산 결과를 표시합니다. 이 함수는 단순 계산이 필요한 경우에 종종 사용됩니다. 예를 들어, PST로 현재 시간을 확인한 후 EST를 사용하여 열에 추가하려면 다음을 입력합니다.

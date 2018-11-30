@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 45ddb31a20b830de29cf77231bb3acd6f8917601
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a17cf3aca439c40d187e06fb29b76e78a036ccc
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230906"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976226"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>실패하거나 오류가 발생하거나 거부되는 Azure Linux VM에 대한 SSH 연결 문제 해결
 Linux VM(가상 머신)에 연결하려고 할 때 다양한 이유로 인해 SSH(Secure Shell) 오류, SSH 연결 실패 또는 SSH 연결 거부 문제가 발생할 수 있습니다. 이 문서는 문제를 찾아 해결하는 데 도움이 됩니다. Azure Portal, Azure CLI 또는 Linux용 VM 액세스 확장을 사용하여 연결 문제를 해결할 수 있습니다.
@@ -242,7 +242,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * 새 Azure 노드에 VM을 다시 배포합니다. VM을 다시 배포하는 방법에 대한 자세한 내용은 [새 Azure 노드로 가상 머신 다시 배포](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
   
     이 작업이 완료되면 임시 디스크 데이터가 손실되고 가상 컴퓨터와 연결된 동적 IP 주소가 업데이트됩니다.
-* [Linux 기반 가상 머신의 암호 또는 SSH를 다시 설정하는 방법](../linux/classic/reset-access-classic.md?)의 지침을 따르세요.
+* [Linux 기반 가상 머신의 암호 또는 SSH를 다시 설정하는 방법](../linux/classic/reset-access-classic.md)의 지침을 따르세요.
   
   * 암호 또는 SSH 키를 재설정합니다.
   * 새 *sudo* 사용자 계정을 만듭니다.

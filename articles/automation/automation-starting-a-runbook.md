@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 020923a76c94b10165e95bb4c5950419595dff0b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2aea370d7de063805eb584cd7d90395ca725b4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252346"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275490"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 시작
 다음 표를 통해 특정 시나리오에 가장 적합하게 Azure Automation에서 Runbook을 시작하는 방법을 결정할 수 있습니다. 이 문서에서는 Azure Portal 및 Windows PowerShell을 사용하여 Runbook을 시작하는 방법에 대해 자세히 설명합니다. 다른 방법에 대한 자세한 내용은 아래 링크에서 액세스할 수 있는 다른 설명서에 제공됩니다.
@@ -43,13 +43,13 @@ ms.locfileid: "51252346"
 ## <a name="starting-a-runbook-with-windows-powershell"></a>Windows PowerShell을 사용하여 Runbook 시작
 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) 을 사용하여 Windows PowerShell에서 Runbook을 시작할 수 있습니다. 다음 샘플 코드는 Test-Runbook이라는 Runbook을 시작합니다.
 
-```
+```azurepowershell-interactive
 Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
 Start-AzureRmAutomationRunbook은 Runbook이 시작된 후 해당 상태를 추적하는 데 사용할 수 있는 작업 개체를 반환합니다. [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob)에서 이 작업 개체를 사용하여 작업 상태를 확인하고 [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput)에서 이 작업 개체를 사용하여 해당 출력을 가져올 수 있습니다. 다음 샘플 코드는 Test-Runbook이라는 Runbook을 시작하고 완료될 때까지 기다린 후 해당 출력을 표시합니다.
 
-```
+```azurepowershell-interactive
 $runbookName = "Test-Runbook"
 $ResourceGroup = "ResourceGroup01"
 $AutomationAcct = "MyAutomationAccount"
@@ -68,7 +68,7 @@ Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job
 
 Runbook에 매개 변수가 필요한 경우 [해시 테이블](https://technet.microsoft.com/library/hh847780.aspx)로 제공해야 합니다. 해시 테이블의 키는 매개 변수 이름과 일치하고 값은 매개 변수 값입니다. 다음 예제에서는 FirstName 및 LastName이라는 두 개의 문자열 매개 변수와 RepeatCount라는 정수 및 Show라는 부울 매개 변수를 사용하여 Runbook을 시작하는 방법을 보여 줍니다. 매개 변수에 대한 자세한 내용은 아래의 [Runbook 매개 변수](#Runbook-parameters)를 참조하세요.
 
-```
+```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
@@ -83,7 +83,7 @@ Azure Automation 웹 서비스는 다음 섹션에 설명된 대로 특정 데�
 
 예를 들어 다음 테스트 Runbook에서는 user라는 매개 변수를 허용합니다.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -101,13 +101,13 @@ Workflow Test-Parameters
 
 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
-```
+```json
 {FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
 그러면 다음과 같이 출력됩니다.
 
-```
+```output
 Joe
 Smith
 Joe
@@ -119,7 +119,7 @@ Smith
 
 예를 들어 다음 테스트 Runbook에서는 *user*라는 매개 변수를 허용합니다.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -136,13 +136,13 @@ Workflow Test-Parameters
 
 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
-```
+```input
 ["Joe","Smith",2,true]
 ```
 
 그러면 다음과 같이 출력됩니다.
 
-```
+```output
 Joe
 Smith
 Joe
@@ -154,7 +154,7 @@ Smith
 
 예를 들어 다음 테스트 Runbook에서는 credential이라는 매개 변수를 허용합니다.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -166,13 +166,13 @@ Workflow Test-Parameters
 
 *My Credential*이라는 자격 증명 자산이 있다고 가정할 경우 user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
-```
+```input
 My Credential
 ```
 
 자격 증명의 사용자 이름을 *jsmith*라고 가정할 경우 다음과 같이 출력됩니다.
 
-```
+```output
 jsmith
 ```
 

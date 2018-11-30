@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: c0d9494d24feaee80a9be92f047ca1d91d42c82c
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 87d15f7b351f2b8b6a8c010651d82faa66b28918
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452227"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276468"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -92,7 +92,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
-      "timestamp":123456789,          
+      "timestamp":123456789          
     },
     "protectedSettings": {
        "commandToExecute": "<command-to-execute>",

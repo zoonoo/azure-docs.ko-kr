@@ -11,14 +11,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/24/2018
-ms.openlocfilehash: 7322b07740d5dec85b6217e122fb262647527c96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 792ac3f26bdea6c6ccb084d893925d60e6333edb
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258411"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852456"
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Azure Machine Learning 모델을 Azure IoT Edge 장치에 배포
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 
 Azure Machine Learning 모델을 Docker 기반 웹 서비스로 컨테이너화할 수 있습니다. Azure IoT Edge를 사용하여 장치에 원격으로 컨테이너를 배포할 수 있습니다. 이러한 서비스를 함께 사용하여 빠른 응답 시간 및 적은 데이터 전송에 대한 에지에서 모델을 실행합니다. 
 

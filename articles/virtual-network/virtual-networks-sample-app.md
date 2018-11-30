@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 8506238e41c5d9dac8d76d729d4919b30a0528b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a0f1313f8b22aba0a153563bd804435c3ef53f2
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23124351"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159868"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>DMZ에 사용할 샘플 응용 프로그램
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
 
 이러한 PowerShell 스크립트는 IIS01 및 AppVM01 서버에서 로컬로 실행하여 프런트 엔드 IIS01 서버에서 백 엔드 AppVM01 서버의 콘텐츠가 포함된 html 페이지를 표시하는 간단한 웹 응용 프로그램을 설치 및 설정할 수 있습니다.
 
-그러면 다양한 DMZ 예제를 위한 간단한 테스트 환경을 제공하고 끝점, NSG, UDR, 방화벽 규칙을 변경할 경우 트래픽 흐름에 어떤 영향을 미치는지 확인할 수 있습니다.
+그러면 다양한 DMZ 예제를 위한 간단한 테스트 환경을 제공하고 엔드포인트, NSG, UDR, 방화벽 규칙을 변경할 경우 트래픽 흐름에 어떤 영향을 미치는지 확인할 수 있습니다.
 
 ## <a name="firewall-rule-to-allow-icmp"></a>ICMP를 허용하기 위한 방화벽 규칙
 이 간단한 PowerShell 문은 모든 Windows VM에서 실행하여 ICMP(Ping) 트래픽을 허용할 수 있습니다. 이 경우 방화벽 업데이트가 Windows 방화벽을 통과하도록 하여 테스트와 문제 해결을 더욱 간단히 수행할 수 있습니다(대부분의 Linux 배포판에서 ICMP는 기본적으로 사용하도록 설정되어 있음).
@@ -132,8 +132,8 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     $MainPage | Out-File -FilePath "C:\inetpub\wwwroot\Home.aspx" -Encoding ascii
     $WebConfig | Out-File -FilePath "C:\inetpub\wwwroot\Web.config" -Encoding ascii
 
-# Set App Pool to Clasic Pipeline to remote file access will work easier
-    Write-Host "Updaing IIS Settings" -ForegroundColor Cyan
+# Set App Pool to Classic Pipeline to remote file access will work easier
+    Write-Host "Updating IIS Settings" -ForegroundColor Cyan
     c:\windows\system32\inetsrv\appcmd.exe set app "Default Web Site/" /applicationPool:".NET v4.5 Classic"
     c:\windows\system32\inetsrv\appcmd.exe set config "Default Web Site/" /section:system.webServer/security/authentication/anonymousAuthentication /userName:$theAdmin /password:$thePassword /commit:apphost
 

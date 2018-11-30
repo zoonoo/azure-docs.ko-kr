@@ -3,19 +3,19 @@ title: 언어 지원 - Bing Web Search API
 titleSuffix: Azure Cognitive Services
 description: Bing News Search API에서 지원되는 자연 언어, 국가 및 지역 목록입니다.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: erhopf
-ms.openlocfilehash: c15e1ddd35e625a713ff569f26e9312d9dcd0bc8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: aahi
+ms.openlocfilehash: 6d7b227ac182ca2cd30d6a6eaa428ea86757214c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435671"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164401"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Bing Web Search API에 대한 언어 및 지역 지원
 
@@ -108,5 +108,5 @@ Bing Web Search API는 수십 개의 국가 또는 지역을 지원하며, 이 �
 |대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |미국|스페인어|es-US|

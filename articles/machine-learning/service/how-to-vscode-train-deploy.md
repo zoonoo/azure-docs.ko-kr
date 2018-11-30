@@ -5,16 +5,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: jmartens
-author: j-martens
+ms.author: shwinne
+author: swinner95
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 377a4bbf359b2c65136625fcef8a1093e49da728
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945249"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854308"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code Tools for AI: VS Code에서 ML 모델 학습 및 배포
 이 문서에서는 **VS Code Tools for AI** 확장을 사용하여 VS Code에서 Azure Machine Learning 서비스로 기계 학습 및 딥 러닝 모델을 학습하고 배포하는 방법을 알아봅니다.
@@ -29,7 +29,7 @@ Azure Machine Learning은 로컬로 및 원격 계산 대상에 대해 실험을
 
 + VS Code와 함께 [Azure Machine Learning SDK for Python을 설치](how-to-vscode-tools.md)합니다.
 
-+ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
++ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
 
 ## <a name="create-and-manage-compute-targets"></a>계산 대상 만들기 및 관리
 

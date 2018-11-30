@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7e93e83f7594d30d223d37454e09943beba6d3ce
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113997"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976736"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure SSIS 통합 런타임을 시작하고 중지하는 방법
 이 문서에서는 Azure Automation 및 Azure Data Factory를 사용하여 Azure SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. Azure SSIS(SQL Server Integration Services) IR(통합 런타임)을 실행할 때는 비용이 발생합니다. 따라서 보통 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고 필요하지 않을 때는 중지할 수 있습니다. Data Factory UI 또는 Azure PowerShell을 사용하여 [Azure SSIS IR을 수동으로 시작 또는 중지 ](manage-azure-ssis-integration-runtime.md)할 수 있습니다.
@@ -347,7 +347,7 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
     6. SSIS 패키지를 마우스 오른쪽 단추로 클릭하고 **보고서** -> **표준 보고서** -> **모든 실행**을 선택합니다. 
     7. SSIS 패키지가 실행되었는지 확인합니다. 
 
-        ![SSIS 패키지 실행 확인](./media/how-to-schedule-azure-ssis-integration-runtime/verfiy-ssis-package-run.png)
+        ![SSIS 패키지 실행 확인](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
 
 ### <a name="schedule-the-pipeline"></a>파이프라인 예약 
 파이프라인이 예상대로 작동하므로 이 파이프라인을 지정된 케이던스에 실행하는 트리거를 만들 수 있습니다. 일정 트리거를 파이프라인에 연결하는 방법에 대한 자세한 내용은 [일정에 따라 파이프라인 트리거](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule)를 참조하세요.

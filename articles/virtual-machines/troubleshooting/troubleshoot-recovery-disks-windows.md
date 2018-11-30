@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 5d052a1f8dcb67c6ea96d1bb4cde4de38e540cf4
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1dd529b142de9815ed41f68bc9b60cdda5d47612
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412191"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820055"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 디스크 자체에서 문제 해결 단계를 수행해야 할 수 있습니다. 일반적인 예로는 응용 프로그램 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 다음, 원래 VM을 복구하기 위해 Azure PowerShell을 사용하는 방법을 자세히 설명합니다. 
@@ -236,10 +236,10 @@ Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name $vm.Name -Force
 $disk = Get-AzureRmDisk -ResourceGroupName myResourceGroup -Name newDisk
 
 # Set the VM configuration to point to the new disk  
-Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name 
+Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name  -sto
 
-# Update the VM with the new OS disk
-Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm 
+# Update the VM with the new OS disk. Possible values of StorageAccountType include: 'Standard_LRS' and 'Premium_LRS'
+Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -StorageAccountType <Type of the storage account >
 
 # Start the VM
 Start-AzureRmVM -Name $vm.Name -ResourceGroupName myResourceGroup

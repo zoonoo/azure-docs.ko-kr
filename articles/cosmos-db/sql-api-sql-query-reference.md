@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dbd3d4e34df3bf918c831a3d9c74de8a9015b50e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623947"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163608"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 구문 참조
 
-Azure Cosmos DB는 명시적 스키마를 요구하거나 보조 인덱스를 만들지 않고 계층적 JSON 문서에 대한 문법과 같은 익숙한 SQL(구조적 쿼리 언어)을 사용하여 문서를 쿼리하는 기능을 지원합니다. 이 문서에서는 SQL API 계정과 호환되는 SQL 쿼리 언어 구문에 대한 설명서를 제공합니다. 예제 SQL 쿼리의 연습은 [Cosmos DB에서 SQL 쿼리](sql-api-sql-query.md)를 참조하세요.  
+Azure Cosmos DB는 명시적 스키마를 요구하거나 보조 인덱스를 만들지 않고 계층적 JSON 문서에 대한 문법과 같은 익숙한 SQL(구조적 쿼리 언어)을 사용하여 문서를 쿼리하는 기능을 지원합니다. 이 문서에서는 SQL API 계정과 호환되는 SQL 쿼리 언어 구문에 대한 설명서를 제공합니다. 예제 SQL 쿼리의 연습은 [Cosmos DB에서 SQL 쿼리](how-to-sql-query.md)를 참조하세요.  
   
 또한 [Query Playground](http://www.documentdb.com/sql/demo)도 방문하여 Cosmos DB를 체험하고 데이터 세트에 대해 SQL 쿼리를 실행해 보세요.  
   
 ## <a name="select-query"></a>SELECT 쿼리  
-ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다. SELECT 문을 설명하는 데 사용되는 규칙은 구문 규칙 섹션에서 표로 작성되어 있습니다. 예를 들어 [SELECT 쿼리 예제](sql-api-sql-query.md#SelectClause)를 참조하세요.
+ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다. SELECT 문을 설명하는 데 사용되는 규칙은 구문 규칙 섹션에서 표로 작성되어 있습니다. 예를 들어 [SELECT 쿼리 예제](how-to-sql-query.md#SelectClause)를 참조하세요.
   
 **구문**  
   
@@ -69,7 +69,7 @@ SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. �
 공백 문자와 주석은 문법에서 아무런 의미가 없지만 토큰을 분리하는 데 사용해야 합니다. 예를 들어 `-1e5`는 단일 숫자 토큰이지만, `: – 1 e5`는 숫자 1과 식별자 e5가 뒤에 나오는 마이너스 토큰입니다.  
 
 ##  <a name="bk_select_query"></a> SELECT 절  
-SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. 선택적 절 중 하나는 생략할 수 있습니다. 그러나 선택적 절이 사용되면 올바른 순서로 표시되어야 합니다. 예를 들어 [SELECT 쿼리 예제](sql-api-sql-query.md#SelectClause)를 참조하세요.
+SELECT 문의 절은 위에서 표시한 순서대로 지정해야 합니다. 선택적 절 중 하나는 생략할 수 있습니다. 그러나 선택적 절이 사용되면 올바른 순서로 표시되어야 합니다. 예를 들어 [SELECT 쿼리 예제](how-to-sql-query.md#SelectClause)를 참조하세요.
 
 **구문**  
 
@@ -132,7 +132,7 @@ SELECT <select_specification>
 [SELECT 절](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM 절  
-원본 또는 조인된 원본을 지정합니다. 쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 FROM 절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 원본을 지정하는 것입니다. 일반적으로 전체 컨테이너가 소스이지만 컨테이너의 하위 집합을 대신 지정할 수 있습니다. 이 절을 지정하지 않으면 FROM 절에서 단일 문서를 제공하는 것처럼 다른 절도 계속 실행됩니다. 예를 들어 [FROM 절 예제](sql-api-sql-query.md#FromClause)를 참조하세요.
+원본 또는 조인된 원본을 지정합니다. 쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 FROM 절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 원본을 지정하는 것입니다. 일반적으로 전체 컨테이너가 소스이지만 컨테이너의 하위 집합을 대신 지정할 수 있습니다. 이 절을 지정하지 않으면 FROM 절에서 단일 문서를 제공하는 것처럼 다른 절도 계속 실행됩니다. 예를 들어 [FROM 절 예제](how-to-sql-query.md#FromClause)를 참조하세요.
   
 **구문**  
   
@@ -216,7 +216,7 @@ FROM <from_specification>
   
 현재 릴리스의 Cosmos DB에서는 내부 조인을 지원합니다. 추가 조인 기능이 곧 출시됩니다. 
 
-내부 조인은 조인에 참여하는 집합의 완전한 교차곱을 만듭니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다. 예를 들어 [JOIN 키워드 예제](sql-api-sql-query.md#Joins)를 참조하세요.
+내부 조인은 조인에 참여하는 집합의 완전한 교차곱을 만듭니다. N 방향 조인의 결과는 N 요소 튜플의 집합이며, 여기서 튜플의 각 값은 조인에 참여하는 별칭 지정된 집합과 연결되며 다른 절에서 해당 별칭을 참조하여 액세스할 수 있습니다. 예를 들어 [JOIN 키워드 예제](how-to-sql-query.md#Joins)를 참조하세요.
   
 조인 평가는 참여하는 집합의 컨텍스트 범위에 따라 다릅니다.  
   
@@ -311,7 +311,7 @@ FROM <from_specification>
  [SELECT 절](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE 절  
- 쿼리에서 반환되는 문서에 대한 검색 조건을 지정합니다. 예를 들어 [WHERE 절 예제](sql-api-sql-query.md#WhereClause)를 참조하세요.
+ 쿼리에서 반환되는 문서에 대한 검색 조건을 지정합니다. 예를 들어 [WHERE 절 예제](how-to-sql-query.md#WhereClause)를 참조하세요.
   
  **구문**  
   
@@ -336,7 +336,7 @@ WHERE <filter_condition>
  문서를 반환하려면 필터 조건으로 지정된 식을 true로 평가해야 합니다. true 부울 값만 조건을 충족하고, 다른 값(undefined, null, false, 숫자, 배열 또는 개체)은 조건을 충족하지 않습니다.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY 절  
- 쿼리에서 반환되는 결과의 정렬 순서를 지정합니다. 예를 들어 [ORDER BY 절 예제](sql-api-sql-query.md#OrderByClause)를 참조하세요.
+ 쿼리에서 반환되는 결과의 정렬 순서를 지정합니다. 예를 들어 [ORDER BY 절 예제](how-to-sql-query.md#OrderByClause)를 참조하세요.
   
  **구문**  
   
@@ -374,7 +374,7 @@ ORDER BY <sort_specification>
  쿼리 문법은 속성 기준으로 여러 가지 순서를 지원하지만, Cosmos DB 쿼리 런타임은 단일 속성에 대해서만 정렬을 지원하며, 계산된 속성이 아니라 속성 이름에 대해서만 정렬을 지원합니다. 또한 정렬하기 위해서는 인덱싱 정책에 속성에 대한 범위 인덱스와 지정된 유형이 최대 정밀도로 포함되어야 합니다. 자세한 내용은 인덱싱 정책 설명서를 참조하세요.  
   
 ##  <a name="bk_scalar_expressions"></a> 스칼라 식  
- 스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 간단한 식은 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출일 수 있으며, 연산자를 사용하여 복잡한 식으로 결합될 수 있습니다. 예를 들어 [스칼라 식 예제](sql-api-sql-query.md#scalar-expressions)를 참조하세요.
+ 스칼라 식은 단일 값을 얻기 위해 평가될 수 있는 기호와 연산자의 조합입니다. 간단한 식은 상수, 속성 참조, 배열 요소 참조, 별칭 참조 또는 함수 호출일 수 있으며, 연산자를 사용하여 복잡한 식으로 결합될 수 있습니다. 예를 들어 [스칼라 식 예제](how-to-sql-query.md#scalar-expressions)를 참조하세요.
   
  스칼라 식에 포함될 수 있는 값에 대한 자세한 내용은 [상수](#bk_constants) 섹션을 참조하세요.  
   
@@ -2905,6 +2905,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>다음 단계  
 
-- [Cosmos DB에 대한 SQL 구문 및 SQL 쿼리](sql-api-sql-query.md)
+- [Cosmos DB에 대한 SQL 구문 및 SQL 쿼리](how-to-sql-query.md)
 
 - [Cosmos DB 설명서](https://docs.microsoft.com/azure/cosmos-db/)  

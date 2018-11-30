@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 091eb6af871cc53dff3459c55c668e8ffb227984
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 86f0867389ce6ee1c83190e03ba17362db29d6f7
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567471"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975876"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Visual Studio 2017을 사용하여 Azure IoT Edge용 C# 모듈 개발 및 디버그(미리 보기)
 
@@ -53,7 +53,7 @@ Visual Studio 2017이 준비되면 다음을 수행해야 합니다.
 
 1. **도구** 메뉴에서 **확장 및 업데이트**를 선택합니다. **설치됨 > 도구**를 펼치면 **Azure IoT Edge**와 **클라우드 탐색기**가 보입니다.
 
-2. 설치된 버전을 적어둡니다. 이 버전을 Visual Studio Marketplace([클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools))의 최신 버전과 비교할 수 있습니다.
+2. 설치된 버전을 적어둡니다. 이 버전을 Visual Studio Marketplace([클라우드 탐색기](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS), [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge))의 최신 버전과 비교할 수 있습니다.
 
 3. 최신 버전이 아닌 경우 다음 섹션에 표시된 대로 Visual Studio에서 도구를 업데이트합니다.
 

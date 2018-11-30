@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 1bcc290d987e8294f9a73cf8490f6cdd0251b440
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ceb8e929520becd2bf097fefc9c6fe8959b1bf85
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467279"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51709817"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>REST API를 사용하여 음성 인식
 
@@ -29,7 +29,7 @@ REST API는 [SDK](speech-sdk.md)에서 지원하는 언어를 사용하지 않�
 > REST API를 사용할 경우 발언이 15초 이하로 제한됩니다.
 > 긴 발언을 인식하는 방법에 대해서는 [Speech SDK](how-to-recognize-speech-csharp.md)를 참조하세요.
 
-**Speech to Text** REST API에 대한 자세한 내용은 [REST API](rest-apis.md#speech-to-text) 문서를 참조하세요. 이 API가 실제로 작동하는 모습을 보려면 GitHub에서 [REST API 샘플](https://github.com/Azure-Samples/SpeechToText-REST)을 다운로드합니다.
+**Speech to Text** REST API에 대한 자세한 내용은 [REST API](rest-apis.md#speech-to-text-api) 문서를 참조하세요. 이 API가 실제로 작동하는 모습을 보려면 GitHub에서 [REST API 샘플](https://github.com/Azure-Samples/SpeechToText-REST)을 다운로드합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 3883fc71c099718face38c16897040788fe0c6ab
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246785"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262556"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전
 
@@ -132,7 +132,7 @@ R 콘솔을 시작하려면 셸에서 **R**만 입력하면 됩니다. 이렇게
 
 또한 원하는 경우 [상위 20개 R 패키지](http://www.kdnuggets.com/2015/06/top-20-r-packages.html)를 설치하기 위해 R 스크립트를 사용할 수도 있습니다. 앞에서 설명한 것처럼 R 대화형 인터페이스를 표시한 다음 셸에 **R** 을 입력하여 이 스크립트를 실행할 수 있습니다.  
 
-### <a name="python"></a>파이썬
+### <a name="python"></a>Python
 Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7 및 3.5가 설치되었습니다. 이 배포 버전에는 약 300개의 가장 인기 있는 수학, 엔지니어링 및 데이터 분석 패키지와 함께 기본 Python이 포함되어 있습니다. 기본 텍스트 편집기를 사용할 수 있습니다. 또한 Anaconda Python 배포에 번들로 포함된 Python IDE인 Spyder를 사용할 수도 있습니다. Spyder를 사용하려면 그래픽 데스크톱 또는 X11 전달이 필요합니다. 그래픽 데스크톱에 Spyder에 대한 바로 가기가 제공됩니다.
 
 Python은 2.7 및 3.5 버전이 있으므로 현재 세션에서 작업하려는 Python 버전(conda 환경)을 활성화해야 합니다. 활성화 프로세스는 PATH 변수를 원하는 Python 버전으로 설정합니다.
@@ -374,6 +374,6 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 
 * [Linux 데이터 과학 Virtual Machine의 데이터 과학](linux-dsvm-walkthrough.md) 연습은 여기에 프로비전된 Linux 데이터 과학을 사용하여 여러 가지 일반적인 데이터 과학 작업을 수행하는 방법을 보여 줍니다. 
 * 이 문서에 설명된 도구를 사용하여 데이터 과학 VM에서 다양한 데이터 과학 도구를 살펴봅니다. 가상 머신 내의 셸에서 *dsvm-more-info* 를 실행하여 VM에 설치된 도구에 대한 기본 소개 및 자세한 내용을 참조할 수도 있습니다.  
-* [팀 데이터 과학 프로세스](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
+* [팀 데이터 과학 프로세스](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)를 사용하여 종단 간 분석 솔루션을 체계적으로 구축하는 방법을 알아봅니다.
 * [Cortana 분석 갤러리](http://gallery.cortanaanalytics.com) 를 방문하여 Cortana 분석 Suite을 사용하는 기계 학습 및 데이터 분석 샘플을 확인합니다.
 

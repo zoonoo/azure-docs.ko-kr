@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5830b3a4bdcd12c01626d9ff3f814d2e7612eaaa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0074cf703c5d30dca3c8353f4821e71684a190c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29398613"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164563"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell(클래식)](vpn-gateway-multi-site.md)
 >
 > 
@@ -35,7 +35,7 @@ ms.locfileid: "29398613"
 이 문서는 RouteBased VPN 게이트웨이가 있는 리소스 관리자 VNet에 적용됩니다. 이러한 단계가 ExpressRoute/사이트 간 공존 연결 구성에는 적용되지 않습니다. 공존 연결에 대한 자세한 내용은 [xpress 경로/S2S 공존 연결](../expressroute/expressroute-howto-coexist-resource-manager.md)을 참조하세요.
 
 ### <a name="deployment-models-and-methods"></a>배포 모델 및 메서드
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 새 문서 및 추가 도구를 이 구성에 사용할 수 있게 되었으므로 다음 표를 업데이트합니다. 문서를 사용할 수 있는 경우 표에서 직접 링크를 제공합니다.
 

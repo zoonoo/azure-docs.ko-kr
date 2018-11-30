@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 765a10a336b908d399f46b2248aab3903c594d24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1039cde45824491bcc82f324c05e4819e66355e0
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628548"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975995"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 ODBC 데이터 저장소에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -355,33 +355,6 @@ ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식
 
 ## <a name="repeatable-read-from-relational-sources"></a>관계형 원본에서 반복 가능한 읽기
 관계형 데이터 저장소에서 데이터를 복사할 때는 의도치 않는 결과를 방지하기 위해 반복성을 염두에 두어야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 집합에 대한 재시도 정책을 구성할 수 있습니다. 어느 쪽이든 조각이 재실행되는 경우 조각이 실행되는 횟수에 관계없이 같은 데이터를 읽어야 합니다. [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
-
-## <a name="ge-historian-store"></a>GE Historian 저장소
-다음 예제와 같이 [GE Proficy Historian(현재 GE Historian)](http://www.geautomation.com/products/proficy-historian) 데이터 저장소를 Azure Data Factory에 연결하는 ODBC 연결된 서비스를 만듭니다.
-
-```json
-{
-    "name": "HistorianLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "connectionString": "DSN=<name of the GE Historian store>;",
-            "gatewayName": "<gateway name>",
-            "authenticationType": "Basic",
-            "userName": "<user name>",
-            "password": "<password>"
-        }
-    }
-}
-```
-
-온-프레미스 컴퓨터에서 데이터 관리 게이트웨이를 설치하고 포털에 게이트웨이를 등록합니다. 온-프레미스 컴퓨터에 설치된 게이트웨이는 GE Historian용 ODBC 드라이버를 사용하여 GE Historian 데이터 저장소에 연결합니다. 따라서 게이트웨이 컴퓨터에 아직 설치되지 않은 경우 해당 드라이버를 설치합니다. 자세한 내용은 [연결 사용](#enabling-connectivity) 섹션을 참조하세요.
-
-Data Factory 솔루션에서 GE Historian 저장소를 사용하기 전에 게이트웨이에서 다음 섹션의 지침을 사용하여 데이터 저장소에 연결할 수 있는지 여부를 확인합니다.
-
-복사 작업에서 ODBC 데이터 저장소를 원본 데이터 저장소로 사용하는 데 대한 자세한 개요를 보려면 문서를 처음부터 읽어보세요.  
 
 ## <a name="troubleshoot-connectivity-issues"></a>연결 문제 해결
 연결 문제를 해결하려면 **데이터 관리 게이트웨이 구성 관리자**의 **진단** 탭을 사용합니다.

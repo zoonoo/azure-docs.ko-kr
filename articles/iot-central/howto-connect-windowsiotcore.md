@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d166d490c00a9805ec9cecae6509acc531d8d711
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5be556ca13b9e4f681239998205aac073cc0fb99
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959871"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974758"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 Windows IoT Core 장치 연결
 
@@ -23,7 +23,7 @@ ms.locfileid: "50959871"
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-1. **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
+1. **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 참조는 [애플리케이션 빠른 시작 만들기](quick-deploy-iot-central.md)를 참조하세요.
 2. Windows 10 IoT Core 운영 체제를 실행하는 장치. 이 연습에서는 Raspberry Pi를 사용합니다.
 
 
@@ -57,7 +57,7 @@ Azure IoT Central 응용 프로그램에서 **Windows IoT Core** 장치 템플�
 
 ### <a name="what-youll-need"></a>필요한 항목
 
-실제 Windows 10 IoT Core 장치를 설정하려면 Windows 10 IoT Core를 실행하는 장치가 필요합니다. Windows 10 IoT Core 장치를 설정하는 방법은 [여기](https://developer.microsoft.com/en-us/windows/iot/getstarted/prototype/setupdevice)서 알아볼 수 있습니다.
+실제 Windows 10 IoT Core 장치를 설정하려면 Windows 10 IoT Core를 실행하는 장치가 필요합니다. Windows 10 IoT Core 장치를 설정하는 방법은 [여기](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup)서 알아볼 수 있습니다.
 
 Azure IoT Central과 통신할 수 있는 클라이언트 응용 프로그램도 필요합니다. Azure SDK를 사용하여 자신만의 고유한 사용자 지정 응용 프로그램을 빌드하고 Visual Studio를 사용하여 장치에 배포할 수도 있고, [미리 작성된 샘플](https://developer.microsoft.com/en-us/windows/iot/samples)을 다운로드하여 간단하게 장치에 배포하고 실행할 수도 있습니다. 
 

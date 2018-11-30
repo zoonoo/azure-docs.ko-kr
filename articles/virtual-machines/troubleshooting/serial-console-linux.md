@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0c47600082a2c633116d1e85e9f31324544c2c57
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963821"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261754"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Linux용 가상 머신 직렬 콘솔
 
@@ -95,7 +95,7 @@ SSH/RDP 구성 문제 | 직렬 콘솔에 액세스하여 설정을 변경합니�
 > 직렬 콘솔을 사용하거나 사용하지 않도록 설정하려면 구독에 대한 쓰기 권한이 있어야 합니다. 이러한 사용 권한은 관리자 또는 소유자 역할을 포함합니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
 
 ### <a name="subscription-level-disable"></a>구독 수준에서 비활성화
-[콘솔 REST API 호출 비활성화](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole)를 통해 전체 구독의 직렬 콘솔을 비활성화할 수 있습니다. API 설명서 페이지에서 지원되는 **사용해 보기** 기능을 사용하여 구독의 직렬 콘솔을 비활성화하거나 활성화할 수 있습니다. **subscriptionId**에 대한 구독 ID를 입력하고, **기본값**에 대한 **기본값**을 입력한 다음, **실행**을 선택합니다. Azure CLI 명령은 아직 지원되지 않습니다.
+[콘솔 REST API 호출 비활성화](/rest/api/serialconsole/console/disableconsole)를 통해 전체 구독의 직렬 콘솔을 비활성화할 수 있습니다. API 설명서 페이지에서 지원되는 **사용해 보기** 기능을 사용하여 구독의 직렬 콘솔을 비활성화하거나 활성화할 수 있습니다. **subscriptionId**에 대한 구독 ID를 입력하고, **기본값**에 대한 **기본값**을 입력한 다음, **실행**을 선택합니다. Azure CLI 명령은 아직 지원되지 않습니다.
 
 ![REST API 사용해 보기](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

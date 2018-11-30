@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: c477eee662d20c66eaa3be3927e47c2c6bf379a6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ae2afddbf6556947ae9fdc1eb65daaae18c2c26d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633268"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707081"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -22,14 +22,14 @@ ms.locfileid: "51633268"
 ## <a name="invalid-vault-credentials-provided"></a>잘못된 자격 증명 모음이 제공되었습니다.
 | 오류 세부 정보 | 가능한 원인 | 권장 작업 |
 | ---     | ---     | ---    |
-| **오류** </br> *잘못된 보관 자격 증명이 제공되었습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. (ID: 34513)* | <ul><li> 자격 증명 모음 자격 증명이 유효하지 않습니다. (즉 등록되기 전 다운로드된지 48시간 이상이 지났습니다.)<li>MARS 에이전트는 Windows Temp 디렉터리에 파일을 다운로드할 수 없습니다. <li>자격 증명 모음 자격 증명이 네트워크 위치에 있습니다. <li>TLS 1.0을 사용하지 않도록 설정되어 있습니다.<li> 구성된 프록시 서버가 연결을 차단하고 있습니다. <br> |  <ul><li>새 자격 증명 모음 자격 증명을 다운로드합니다.(**참고**: 여러 자격 증명 모음 자격 증명 파일을 이전에 다운로드한 경우 다운로드한 최신 파일은 48시간 동안만 유효합니다.) <li>**인터넷 옵션** > **보안** > **인터넷**으로 이동합니다. 다음으로 **사용자 지정 수준**을 선택하고 파일 다운로드 섹션이 표시될 때까지 스크롤합니다. 그런 다음 **사용**을 선택합니다.<li>또한 이러한 사이트를 IE [신뢰할 수 있는 사이트](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements)에 추가해야 합니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다. <li> 컴퓨터와 날짜 및 시간을 일치시킵니다.<li>파일 다운로드가 허용되지 않는다는 오류가 발생하면 C:/Windows/Temp 디렉터리에 많은 수의 파일이 있을 가능성이 있습니다.<li>C:/Windows/Temp로 이동하여 확장명이 .tmp인 파일이 60,000 또는 65,000개 넘게 있는지 확인합니다. 있는 경우 해당 파일을 삭제합니다.<li>.NET Framework 4.6.2가 설치되어 있는지 확인합니다. <li>PCI 준수로 인해 TLS 1.0을 사용하지 않도록 설정한 경우 이 [문제 해결 페이지](https://support.microsoft.com/help/4022913)를 참조하세요. <li>서버에 바이러스 백신 소프트웨어가 설치되어 있는 경우 다음 파일을 바이러스 백신 검사에서 제외합니다. <ul><li>CBengine.exe<li>.NET Framework와 관련되어 있는 CSC.exe 서버에 설치된 모든 .NET 버전에 대한 CSC.exe 파일이 있습니다. 영향을 받는 서버의 모든 .NET Framework 버전에 연결된 CSC.exe 파일을 제외합니다. *예를 들어 v2.0.50727의 경우 .NET Framework 경로 C:\Windows\Microsoft.NET\Framework\v2.0.50727을 제외합니다. 마찬가지로, 나머지 .NET Framework 버전 경로도 제외합니다.* <li>폴더를 스크래치하거나 위치를 캐시합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.<br><li>bin 폴더는 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin입니다.
+| **오류** </br> *잘못된 보관 자격 증명이 제공되었습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. (ID: 34513)* | <ul><li> 자격 증명 모음 자격 증명이 유효하지 않습니다. (즉 등록되기 전 다운로드된지 48시간 이상이 지났습니다.)<li>MARS 에이전트는 Windows Temp 디렉터리에 파일을 다운로드할 수 없습니다. <li>자격 증명 모음 자격 증명이 네트워크 위치에 있습니다. <li>TLS 1.0을 사용하지 않도록 설정되어 있습니다.<li> 구성된 프록시 서버가 연결을 차단하고 있습니다. <br> |  <ul><li>새 자격 증명 모음 자격 증명을 다운로드합니다.(**참고**: 여러 자격 증명 모음 자격 증명 파일을 이전에 다운로드한 경우 다운로드한 최신 파일은 48시간 동안만 유효합니다.) <li>**인터넷 옵션** > **보안** > **인터넷**으로 이동합니다. 다음으로 **사용자 지정 수준**을 선택하고 파일 다운로드 섹션이 표시될 때까지 스크롤합니다. 그런 다음 **사용**을 선택합니다.<li>또한 이러한 사이트를 IE [신뢰할 수 있는 사이트](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements)에 추가해야 합니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다. <li> 컴퓨터와 날짜 및 시간을 일치시킵니다.<li>파일 다운로드가 허용되지 않는다는 오류가 발생하면 C:/Windows/Temp 디렉터리에 많은 수의 파일이 있을 가능성이 있습니다.<li>C:/Windows/Temp로 이동하여 확장명이 .tmp인 파일이 60,000 또는 65,000개 넘게 있는지 확인합니다. 있는 경우 해당 파일을 삭제합니다.<li>.NET Framework 4.6.2가 설치되어 있는지 확인합니다. <li>PCI 준수로 인해 TLS 1.0을 사용하지 않도록 설정한 경우 이 [문제 해결 페이지](https://support.microsoft.com/help/4022913)를 참조하세요. <li>서버에 바이러스 백신 소프트웨어가 설치되어 있는 경우 다음 파일을 바이러스 백신 검사에서 제외합니다. <ul><li>CBengine.exe<li>.NET Framework와 관련되어 있는 CSC.exe 서버에 설치된 모든 .NET 버전에 대한 CSC.exe 파일이 있습니다. 영향을 받는 서버의 모든 .NET Framework 버전에 연결된 CSC.exe 파일을 제외합니다. <li>폴더를 스크래치하거나 위치를 캐시합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.<br><li>bin 폴더는 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin입니다.
 
 
 ## <a name="the-mars-agent-was-unable-to-connect-to-azure-backup"></a>MARS 에이전트가 Azure Backup에 연결할 수 없습니다.
 
 | 오류 세부 정보 | 가능한 원인 | 권장 작업 |
 | ---     | ---     | ---    |
-| **오류** </br><ol><li>*Microsoft Azure Recovery Services 에이전트에서 Microsoft Azure Backup에 연결할 수 없습니다. (ID: 100050) 네트워크 설정을 확인하고 인터넷에 연결할 수 있는지 확인하세요.*<li>*(407) 프록시 인증 필요* |프록시가 연결을 차단 중 |  <ul><li>**인터넷 옵션** > **보안** > **인터넷**으로 이동합니다. 그런 다음 **사용자 지정 수준**을 선택하고 파일 다운로드 섹션이 표시될 때까지 스크롤합니다. **사용**을 선택합니다.<li>또한 이러한 사이트를 IE [신뢰할 수 있는 사이트](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements)에 추가해야 합니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다. <li>서버에 바이러스 백신 소프트웨어가 설치되어 있는 경우 다음 파일을 바이러스 백신 검사에서 제외합니다. <ul><li>CBEngine.exe(dpmra.exe 대신)<li>CSC.exe(.NET Framework와 관련됨) 서버에 설치된 모든 .NET 버전에 대한 CSC.exe 파일이 있습니다. 영향을 받는 서버의 모든 .NET Framework 버전에 연결된 CSC.exe 파일을 제외시킵니다. *예를 들어 v2.0.50727의 경우 .NET Framework 경로 C:\Windows\Microsoft.NET\Framework\v2.0.50727을 제외합니다. 마찬가지로, 나머지 .NET Framework 버전 경로도 제외합니다.* <li>폴더를 스크래치하거나 위치를 캐시합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.<li>bin 폴더는 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin입니다.
+| **오류** </br><ol><li>*Microsoft Azure Recovery Services 에이전트에서 Microsoft Azure Backup에 연결할 수 없습니다. (ID: 100050) 네트워크 설정을 확인하고 인터넷에 연결할 수 있는지 확인하세요.*<li>*(407) 프록시 인증 필요* |프록시가 연결을 차단 중 |  <ul><li>**인터넷 옵션** > **보안** > **인터넷**으로 이동합니다. 그런 다음 **사용자 지정 수준**을 선택하고 파일 다운로드 섹션이 표시될 때까지 스크롤합니다. **사용**을 선택합니다.<li>또한 이러한 사이트를 IE [신뢰할 수 있는 사이트](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements)에 추가해야 합니다.<li>프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다. <li>서버에 바이러스 백신 소프트웨어가 설치되어 있는 경우 다음 파일을 바이러스 백신 검사에서 제외합니다. <ul><li>CBEngine.exe(dpmra.exe 대신)<li>CSC.exe(.NET Framework와 관련됨) 서버에 설치된 모든 .NET 버전에 대한 CSC.exe 파일이 있습니다. 영향을 받는 서버의 모든 .NET Framework 버전에 연결된 CSC.exe 파일을 제외시킵니다. <li>폴더를 스크래치하거나 위치를 캐시합니다. <br>*스크래치 폴더 또는 캐시 위치 경로의 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다*.<li>bin 폴더는 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin입니다.
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>안전한 백업을 위한 암호화 키를 설정하지 못했습니다.
