@@ -109,7 +109,7 @@ ms.locfileid: "50413080"
                                                             <a href="authentication/index.yml"><i>자세히 보기 &gt;</i></a>
                                                             </p>
                                                         <br><br>
-                                                        <h3><a href="b2b/index.yml">B2B(Business to Business)</a></h3>
+                                                        <h3><a href="b2b/index.yml">기업 간 (b2b)</a></h3>
                                                         <p>
                                                             <a href="b2b/b2b-quickstart-add-guest-users-portal.md">포털에서 게스트 사용자 추가</a><br>
                                                             <a href="b2b/b2b-tutorial-bulk-invite.md">게스트 사용자 대량 초대</a><br>
@@ -117,7 +117,7 @@ ms.locfileid: "50413080"
                                                             <a href="b2b/index.yml"><i>자세히 보기 &gt;</i></a>
                                                             </p>
                                                         <br><br>
-                                                        <h3><a href="/azure/active-directory-b2c/index">B2C(Business to Consumer)</a></h3>
+                                                        <h3><a href="/azure/active-directory-b2c/index">비즈니스 고객 (B2C)</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Azure AD B2C 테넌트 만들기</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">인증할 웹앱 활성화</a><br>
@@ -158,7 +158,7 @@ ms.locfileid: "50413080"
                                                             <a href="devices/index.yml"><i>자세히 보기 &gt;</i></a><br>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="/azure/active-directory-domain-services/index">Domain Services</a></h3>
+                                                        <h3><a href="/azure/active-directory-domain-services/index">도메인 서비스</a></h3>
                                                         <p>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Azure AD Domain Services 활성화</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal">관리되는 도메인에 Windows Server VM 연결</a><br>
