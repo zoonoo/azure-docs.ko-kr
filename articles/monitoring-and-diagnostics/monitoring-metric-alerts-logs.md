@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 66a10cdd6324147509bcb45dad9e9b40b5335fef
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 92474bdead021429792f5d51a28ffb7bafc5be2b
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684919"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334247"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기  
 
@@ -21,10 +21,10 @@ ms.locfileid: "51684919"
 Azure Monitor는 [클래식 경고](alert-metric-classic.md)보다 이점이 있는 [메트릭 경고 유형](monitoring-near-real-time-metric-alerts.md)을 지원합니다. [다양한 Azure 서비스](monitoring-supported-metrics.md)에 대해 메트릭을 사용할 수 있습니다. 이 문서에서는 리소스(`Microsoft.OperationalInsights/workspaces`)의 하위 집합을 사용하는 방법에 대해 설명합니다. 
 
 Azure 또는 온-프레미스의 리소스를 포함하여 [로그]에서 [메트릭]의 일부인 메트릭으로 추출된 메트릭 경고를 인기 있는 Log Analytics 로그에서 사용할 수 있습니다. 지원되는 Log Analytics 솔루션은 다음과 같습니다.
-- Windows 및 Linux 컴퓨터에 대한 [성능 카운터](../log-analytics/log-analytics-data-sources-performance-counters.md)
-- [에이전트 상태에 대한 하트비트 레코드](../monitoring/monitoring-solution-agenthealth.md)
+- Windows 및 Linux 컴퓨터에 대한 [성능 카운터](../azure-monitor/platform/data-sources-performance-counters.md)
+- [에이전트 상태에 대한 하트비트 레코드](../azure-monitor/insights/solution-agenthealth.md)
 - [업데이트 관리](../automation/automation-update-management.md) 레코드
-- [이벤트 데이터](../log-analytics/log-analytics-data-sources-windows-events.md) 로그
+- [이벤트 데이터](../azure-monitor/platform/data-sources-windows-events.md) 로그
  
 Azure에서 **로그 메트릭 경고**를 사용하면 쿼리 기반 [로그 경고](alert-log.md)에 비해 많은 이점이 있습니다. 그 중 일부는 다음과 같습니다.
 - 메트릭 경고는 실시간에 가까운 모니터링 기능을 제공하며, 로그 메트릭 경고는 로그 원본의 데이터를 포크하여 동일하게 보장합니다.
@@ -46,9 +46,9 @@ Azure에서 **로그 메트릭 경고**를 사용하면 쿼리 기반 [로그 �
 ## <a name="prerequisites-for-metric-alert-for-logs"></a>로그 메트릭 경고의 필수 조건
 Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하려면 다음을 설정하여 사용할 수 있어야 합니다.
 1. **활성 Log Analytics 작업 영역**: 유효한 활성 Log Analytics 작업 영역이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-create-workspace.md)를 참조하세요.
-2. **Log Analytics 작업 영역에 대한 에이전트 구성**: Azure VM 및/또는 온-프레미스 VM에서 이전 단계에서 사용된 Log Analytics 작업 영역으로 데이터를 보내도록 에이전트를 구성해야 합니다. 자세한 내용은 [Log Analytics - 에이전트 개요](../monitoring/monitoring-overview-azure-agents.md)를 참조하세요.
-3. **지원되는 Log Analytics 솔루션 설치**: Log Analytics 솔루션에서 Log Analytics 작업 영역으로 데이터를 보내도록 구성해야 합니다. 지원되는 솔루션은 [Windows 및 Linux에 대한 성능 카운터](../log-analytics/log-analytics-data-sources-performance-counters.md), [에이전트 상태에 대한 하트비트 레코드](../monitoring/monitoring-solution-agenthealth.md), 업데이트 관리 및 [이벤트 데이터](../log-analytics/log-analytics-data-sources-windows-events.md)입니다.
-4. **로그를 보내도록 Log Analytics 솔루션 구성**: Log Analytcis 솔루션은 [Log Analytics 작업 영역에 지원되는 메트릭](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)에 해당하는 필수 로그/데이터를 사용하도록 설정해야 합니다. 예를 들어 *% 사용 가능한 메모리* 카운터는 먼저 [성능 카운터](../log-analytics/log-analytics-data-sources-performance-counters.md) 솔루션에 구성해야 합니다.
+2. **Log Analytics 작업 영역에 대한 에이전트 구성**: Azure VM 및/또는 온-프레미스 VM에서 이전 단계에서 사용된 Log Analytics 작업 영역으로 데이터를 보내도록 에이전트를 구성해야 합니다. 자세한 내용은 [Log Analytics - 에이전트 개요](../azure-monitor/platform/agents-overview.md)를 참조하세요.
+3. **지원되는 Log Analytics 솔루션 설치**: Log Analytics 솔루션에서 Log Analytics 작업 영역으로 데이터를 보내도록 구성해야 합니다. 지원되는 솔루션은 [Windows 및 Linux에 대한 성능 카운터](../azure-monitor/platform/data-sources-performance-counters.md), [에이전트 상태에 대한 하트비트 레코드](../azure-monitor/insights/solution-agenthealth.md), 업데이트 관리 및 [이벤트 데이터](../azure-monitor/platform/data-sources-windows-events.md)입니다.
+4. **로그를 보내도록 Log Analytics 솔루션 구성**: Log Analytcis 솔루션은 [Log Analytics 작업 영역에 지원되는 메트릭](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)에 해당하는 필수 로그/데이터를 사용하도록 설정해야 합니다. 예를 들어 *% 사용 가능한 메모리* 카운터는 먼저 [성능 카운터](../azure-monitor/platform/data-sources-performance-counters.md) 솔루션에 구성해야 합니다.
 
 ## <a name="configuring-metric-alert-for-logs"></a>로그 메트릭 경고 구성
  메트릭 경고는 Azure Portal, Resource Manager 템플릿, REST API, PowerShell 및 Azure CLI를 사용하여 만들고 관리할 수 있습니다. 로그 메트릭 경고는 메트릭 경고의 변형이므로 필수 조건이 완료되면 지정된 Log Analytics 작업 영역에 대한 로그 메트릭 경고를 만들 수 있습니다. 페이로드 스키마, 적용 가능한 할당량 한도 및 청구 가격을 포함하여 [메트릭 경고](monitoring-near-real-time-metric-alerts.md)의 모든 특성과 기능은 로그 메트릭 경고에도 적용할 수 있습니다.
@@ -58,8 +58,7 @@ Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하�
 - 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고로 선택한 신호는 **메트릭** 유형입니다.
 - 차원 필터를 사용하여 특정 조건 또는 리소스를 필터링합니다. 로그에 대한 메트릭은 다차원입니다.
 - *신호 논리*를 구성할 때 단일 경고를 만들어 여러 차원 값(예: 컴퓨터)에 걸쳐 있을 수 있습니다.
-- Azure Portal을 사용하여 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고를 만들지 **않는** 경우, 사용자는 먼저 [Azure Monitor - 예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
-)을 사용하여 로그 데이터를 메트릭으로 변환하는 명시적 규칙을 수동으로 만들어야 합니다.
+- Azure Portal을 사용하여 선택한 *Log Analytics 작업 영역*에 대한 메트릭 경고를 만들지 **않는** 경우, 사용자는 먼저 [Azure Monitor - 예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)을 사용하여 로그 데이터를 메트릭으로 변환하는 명시적 규칙을 수동으로 만들어야 합니다.
 
 > [!NOTE]
 > Azure Portal을 통해 Log Analytics 작업 영역에 대한 메트릭 경고를 만드는 경우, *사용자가 개입하거나 작업할 필요 없이* [Azure Monitor - 예약된 쿼리 규칙](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)을 통해 로그 데이터를 메트릭으로 변환하는 해당 규칙이 백그라운드에서 자동으로 만들어집니다. Azure Portal 이외의 수단을 사용하여 로그 메트릭 경고를 만드는 경우, 메트릭 경고를 만들기 전에 ScheduledQueryRule 기반 로그를 메트릭 변환 규칙으로 만드는 샘플 수단에 대한 [로그 메트릭 경고에 대한 리소스 템플릿](#resource-template-for-metric-alerts-for-logs) 섹션을 참조하세요. 그렇지 않으면 만들어진 로그 메트릭 경고에 대한 데이터가 없습니다.

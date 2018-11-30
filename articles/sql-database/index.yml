@@ -57,7 +57,7 @@ sections:
       html: <p>예측 가능한 성능의 단일 데이터베이스가 필요한 SaaS 응용 프로그램 및 마이크로서비스에 논리 서버에서 호스트되는 단일 데이터베이스를 사용합니다.</p>
       image:
         src: media/index/i_db.svg
-      title: Single Database
+      title: 단일 데이터베이스
     - href: /azure/sql-database/sql-database-elastic-pool
       html: <p>SQL Database 탄력적 풀은 사용 요구가 다양하고 예측하기 어려운 여러 데이터베이스를 관리하고 크기를 조정하기 위한 간단하고 비용 효과적인 솔루션입니다.</p>
       image:
@@ -67,7 +67,7 @@ sections:
       html: <p>Managed Instance를 사용하여 데이터베이스 코드 변경 없이 또는 최소한으로 완전히 관리되는 Azure PaaS 데이터베이스 서비스에 온-프레미스 데이터베이스를 쉽게 마이그레이션합니다.</p>
       image:
         src: media/index/i_mi.svg
-      title: Managed Instance
+      title: 관리되는 인스턴스
     - href: /azure/sql-database/sql-database-paas
       html: <p>기본 제공 고가용성, 자동화된 백업 및 지역 복제는 유지 관리 작업, 인프라 또는 하드웨어 오류가 비즈니스를 중단하지 않도록 방지합니다.</p>
       image:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 984c74c44cb5149e0c4af83ea8ca4d88e67877ae
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262202"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584777"
 ---
 # <a name="azure-database-security-overview"></a>Azure 데이터베이스 보안 개요
 
@@ -199,7 +199,7 @@ SQL ATP(Advanced Threat Protection)은 데이터 검색 및 분류, 취약성 �
 - 잠재적으로 위험한 응용 프로그램에서 액세스 
 - Azure Database for PostgreSQL 자격 증명에 대한 무차별 암호 대입 공격 
 
-[Azure Database for MySQL Advanced Threat Protection](/mysql/concepts-data-access-and-security-threat-protection.md)은 PostgreSQL Advanced Protection과 유사한 보호를 제공합니다.  
+[Azure Database for MySQL Advanced Threat Protection](../mysql/concepts-data-access-and-security-threat-protection.md)은 PostgreSQL Advanced Protection과 유사한 보호를 제공합니다.  
 
 ## <a name="centralized-security-management"></a>중앙 집중식 보안 관리 
 
@@ -220,7 +220,7 @@ SQL ATP(Advanced Threat Protection)은 데이터 검색 및 분류, 취약성 �
 
 또한 중요한 데이터를 추출하는 쿼리를 명시적으로 감사할 수 있도록 SQL 쿼리의 결과 집합 민감도를 계산하고 데이터를 보호할 수 있습니다. SQL Information Protection에 대한 자세한 내용은 Azure SQL Database 데이터 검색 및 분류를 참조하세요.
 
-Azure Security Center에서 [SQL Information Protection 정책](/security-center/security-center-info-protection-policy.md)을 구성할 수 있습니다.
+Azure Security Center에서 [SQL Information Protection 정책](../security-center/security-center-info-protection-policy.md)을 구성할 수 있습니다.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

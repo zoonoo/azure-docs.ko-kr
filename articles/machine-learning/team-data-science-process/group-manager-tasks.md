@@ -1,25 +1,21 @@
 ---
 title: Team Data Science Process 그룹 관리자 작업 - Azure | Microsoft Docs
 description: 데이터 과학 팀 프로젝트의 그룹 관리자 작업에 대한 개요.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: a89c0f916f67de1bae81a5e1b3dcfc2cae41d248
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ee10f17f76f7c3745cb32223c58b0d2d12f7d6b6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304189"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446350"
 ---
 # <a name="group-manager-tasks"></a>그룹 관리자 작업
 
@@ -287,7 +283,7 @@ GitRepos\GroupCommon\GroupProjectTemplate 디렉터리에서 다음 명령을 �
 
 ![23](./media/group-manager-tasks/push-to-group-server-showed-up-2.PNG)
 
-마지막으로, **GitRepos\GroupCommon\GroupUtilities** 디렉터리로 변경하고 동일한 git bash 명령 집합을 실행합니다.
+ 마지막으로, **GitRepos\GroupCommon\GroupUtilities** 디렉터리로 변경하고 동일한 git bash 명령 집합을 실행합니다.
 
     git status
     git add .

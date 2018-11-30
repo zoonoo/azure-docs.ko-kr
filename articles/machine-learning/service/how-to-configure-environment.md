@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 11/6/2018
-ms.openlocfilehash: 2fd2d35bde95a3e268f46b398f2163f9d40ab1ee
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: fa70e0dfa1f131e38e43faa3d80497d50a52e135
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613956"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275217"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -157,10 +157,10 @@ Jupyter Notebook은 [Jupyter 프로젝트](https://jupyter.org/)의 일부입니
     conda install nb_conda
 
     # install experiment widget
-    jupyter nbextension install --py --user azureml.train.widgets
+    jupyter nbextension install --py --user azureml.widgets
 
     # enable experiment widget
-    jupyter nbextension enable --py --user azureml.train.widgets
+    jupyter nbextension enable --py --user azureml.widgets
     ```
 
 1. 다음 명령을 사용하여 Jupyter Notebook을 엽니다.

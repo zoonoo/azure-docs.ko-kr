@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387280"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311456"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 
@@ -255,7 +255,7 @@ Azure Portal에서 감사 로그를 읽는 방법에 대한 자세한 내용은 
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 동적 그룹에 작동하나요?
 
-예. “할당된 사용자 및 그룹만 동기화”하도록 구성하면 Azure AD 사용자 프로비저닝 서비스는 [동적 그룹](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule])의 멤버인지 여부에 따라 SaaS 응용 프로그램에서 사용자를 프로비전하거나 프로비전 해제할 수 있습니다. 또한 동적 그룹은 “모든 사용자 및 그룹 동기화” 옵션을 사용할 때도 작동합니다.
+예. “할당된 사용자 및 그룹만 동기화”하도록 구성하면 Azure AD 사용자 프로비저닝 서비스는 [동적 그룹](../users-groups-roles/groups-create-rule.md)의 멤버인지 여부에 따라 SaaS 응용 프로그램에서 사용자를 프로비전하거나 프로비전 해제할 수 있습니다. 또한 동적 그룹은 “모든 사용자 및 그룹 동기화” 옵션을 사용할 때도 작동합니다.
 
 그러나 동적 그룹의 사용은 Azure AD에서 SaaS 응용 프로그램으로의 종단 간 사용자 프로비저닝에 대한 전체 성능에 영향을 줄 수 있습니다. 동적 그룹을 사용하는 경우 다음과 같은 주의 사항 및 권장 사항에 유의하세요.
 
@@ -265,7 +265,7 @@ Azure Portal에서 감사 로그를 읽는 방법에 대한 자세한 내용은 
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 중첩 그룹에 작동하나요?
 
-아니요. “할당된 사용자 및 그룹만 동기화”하도록 구성된 경우 Azure AD 사용자 프로비저닝 서비스는 중첩된 그룹에 있는 사용자를 읽거나 프로비전할 수 없습니다. 명시적으로 할당된 그룹의 직계 멤버인 사용자만 읽고 프로비전할 수 있습니다.
+ 아니요. “할당된 사용자 및 그룹만 동기화”하도록 구성된 경우 Azure AD 사용자 프로비저닝 서비스는 중첩된 그룹에 있는 사용자를 읽거나 프로비전할 수 없습니다. 명시적으로 할당된 그룹의 직계 멤버인 사용자만 읽고 프로비전할 수 있습니다.
 
 이것은 Single Sign-On에도 영향을 미치는 “응용 프로그램에 대한 그룹 기반 할당”의 제한 사항으로, [그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )에 설명되어 있습니다.
 

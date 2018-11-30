@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 81728e7963767cd90bf2486a35fbce55043a76f7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685942"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633472"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -36,7 +36,7 @@ ms.locfileid: "51685942"
 - Service Fabric
 - Red Hat OpenShift
 
-AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워크로드의 성능을 모니터링하려는 경우 [Azure Kubernetes Service 모니터링](../monitoring/monitoring-container-insights-overview.md)을 참조하세요. 컨테이너 모니터링 솔루션은 해당 플랫폼을 모니터링하도록 지원하지 않습니다.  
+AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워크로드의 성능을 모니터링하려는 경우 [Azure Kubernetes Service 모니터링](../azure-monitor/insights/container-insights-overview.md)을 참조하세요. 컨테이너 모니터링 솔루션은 해당 플랫폼을 모니터링하도록 지원하지 않습니다.  
 
 다음 다이어그램에서는 Log Analytics에서 다양한 컨테이너 호스트와 에이전트 간의 관계를 보여줍니다.
 
@@ -97,7 +97,7 @@ AKS(Azure Kubernetes Service)에 호스트된 Kubernetes 환경에 배포된 워
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../monitoring/monitoring-solutions.md)에서 설명하는 프로세스를 사용하여 Log Analytics 작업 영역에 컨테이너 모니터링 솔루션을 추가합니다.
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](../azure-monitor/insights/solutions.md)에서 설명하는 프로세스를 사용하여 Log Analytics 작업 영역에 컨테이너 모니터링 솔루션을 추가합니다.
 
 2. Log Analytics 에이전트를 사용하여 Docker를 설치하고 사용합니다. 운영 체제 및 Docker 조정자에 따라 에이전트를 구성하는 데 다음 메서드를 사용할 수 있습니다.
   - 독립 실행형 호스트의 경우:
@@ -126,7 +126,7 @@ Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 
 
 **CoreOS를 제외한 모든 Linux 컨테이너 호스트의 경우:**
 
-- Linux용 Log Analytics 에이전트를 설치하는 방법에 대한 자세한 내용과 단계는 [Log Analytics 에이전트 개요](log-analytics-agent-overview.md)를 참조하세요.
+- Linux용 Log Analytics 에이전트를 설치하는 방법에 대한 자세한 내용과 단계는 [Log Analytics 에이전트 개요](../azure-monitor/platform/log-analytics-agent.md)를 참조하세요.
 
 **CoreOS를 포함한 모든 Linux 컨테이너 호스트의 경우:**
 
@@ -524,9 +524,9 @@ Windows 컨테이너에서 사용하는 Docker 데몬 구성에 대한 자세한
 
 #### <a name="install-windows-agents"></a>Windows 에이전트 설치
 
-Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면 컨테이너 호스트인 Windows 컴퓨터에 MMA(Microsoft Monitoring Agent)를 설치합니다. 온-프레미스 환경에서 Windows를 실행하는 컴퓨터는 [Log Analytics에 Windows 컴퓨터 연결](log-analytics-agent-windows.md)을 참조하세요. Azure에서 실행되는 가상 머신의 경우 [가상 머신 확장](log-analytics-quick-collect-azurevm.md)을 사용하여 Log Analytics에 연결합니다.
+Windows 및 Hyper-V 컨테이너 모니터링을 사용하도록 설정하려면 컨테이너 호스트인 Windows 컴퓨터에 MMA(Microsoft Monitoring Agent)를 설치합니다. 온-프레미스 환경에서 Windows를 실행하는 컴퓨터는 [Log Analytics에 Windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md)을 참조하세요. Azure에서 실행되는 가상 머신의 경우 [가상 머신 확장](log-analytics-quick-collect-azurevm.md)을 사용하여 Log Analytics에 연결합니다.
 
-Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 머신](log-analytics-quick-collect-azurevm.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](log-analytics-agent-windows.md)만 현재 Service Fabric에 대해 지원됩니다.
+Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 있습니다. 그러나 [Azure에서 실행 중인 가상 머신](log-analytics-quick-collect-azurevm.md) 및 [온-프레미스 환경에서 Windows를 실행하는 컴퓨터](../azure-monitor/platform/agent-windows.md)만 현재 Service Fabric에 대해 지원됩니다.
 
 컨테이너 모니터링 솔루션이 Windows에 대해 올바르게 설정되어 있는지 확인할 수 있습니다. 관리 팩이 제대로 다운로드되었는지 확인하려면 *ContainerManagement.xxx*를 찾습니다. 파일은 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 폴더에 있어야 합니다.
 
@@ -543,7 +543,7 @@ Azure Portal에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니�
 데이터는 다음 에이전트 형식으로 3분마다 수집됩니다.
 
 - [Linux용 Log Analytics 에이전트](log-analytics-quick-collect-linux-computer.md)
-- [Windows 에이전트](log-analytics-agent-windows.md)
+- [Windows 에이전트](../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM 확장](log-analytics-quick-collect-azurevm.md)
 
 

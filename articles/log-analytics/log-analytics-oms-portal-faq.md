@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5f5143800c423bdbaac9994b55e500723018dce4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283447"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634356"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS 포털에서 Azure Portal로 전환하는 Log Analytics 사용자를 위한 일반적인 질문
 Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구성을 관리하고 수집된 데이터를 분석했습니다.  이 포털의 모든 기능은 Azure Portal로 이동되었으며 계속 개발될 예정입니다.
@@ -27,7 +27,7 @@ Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구
 이 문서에서는 이 전환을 수행하는 사용자를 위한 일반적인 질문에 대답합니다.  OMS 포털에서 Log Analytics를 사용한 경우 여기서 Azure Portal에서 동일한 작업을 수행할 수 있는 방법을 찾을 수 있습니다.
 
 ## <a name="do-i-need-to-migrate-anything"></a>마이그레이션해야 하는 사항이 있나요?
-아니요. Log Analytics 자체는 변경되지 않으므로 마이그레이션해야 하는 사항은 없습니다. Log Analytics에 액세스하는 데 사용하는 인터페이스만 변경됩니다. 실제로, 현재 OMS 포털에서 사용하는 것과 동일한 작업 영역, 솔루션, 뷰 및 로그 검색을 Azure Portal에서 액세스할 수 있습니다.
+ 아니요. Log Analytics 자체는 변경되지 않으므로 마이그레이션해야 하는 사항은 없습니다. Log Analytics에 액세스하는 데 사용하는 인터페이스만 변경됩니다. 실제로, 현재 OMS 포털에서 사용하는 것과 동일한 작업 영역, 솔루션, 뷰 및 로그 검색을 Azure Portal에서 액세스할 수 있습니다.
 
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Azure에서 Log Analytics를 어디서 찾을 수 있습니까?
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.  **모든 서비스**를 클릭하고 리소스 목록에서 **Log Analytics**를 입력합니다. **Log Analytics**를 선택한 다음, 사용자의 작업 영역을 선택합니다. 작업 영역에 대한 요약 페이지가 표시됩니다.
@@ -82,9 +82,9 @@ Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 �
 | Linux 서버   | 작업 영역에 대한 **고급 설정** 메뉴입니다. |
 | Azure Storage     | 작업 영역에 대한 **고급 설정** 메뉴입니다. |
 | System Center     | 작업 영역에 대한 **고급 설정** 메뉴입니다. |
-| Office 365        | 구성 세부 정보는 [Office 365 관리 솔루션에 대한 설명서](../monitoring/monitoring-solution-office-365.md)를 참조하세요. |
+| Office 365        | 구성 세부 정보는 [Office 365 관리 솔루션에 대한 설명서](../azure-monitor/insights/solution-office-365.md)를 참조하세요. |
 | Windows 원격 분석 | 솔루션에 대한 설정 메뉴입니다. 구성 세부 정보는 [Azure Portal의 Windows Analytics](/windows/deployment/update/windows-analytics-azure-portal)를 참조하세요. |
-| ITSM 커넥터    | Log Analytics를 사용하여 ITSM 서비스에 연결하기 위한 지침은 [ITSM 제품/서비스를 IT 서비스 관리 커넥터에 연결](../log-analytics/log-analytics-itsmc-connections.md)을 참조하세요. |
+| ITSM 커넥터    | Log Analytics를 사용하여 ITSM 서비스에 연결하기 위한 지침은 [ITSM 제품/서비스를 IT 서비스 관리 커넥터에 연결](../log-analytics/../azure-monitor/platform/itsmc-connections.md)을 참조하세요. |
 
 ### <a name="data"></a>Data
 대부분의 데이터 설정은 작업 영역에 대한 **고급 설정** 메뉴에서 관리합니다. 다음 표에 이 메뉴의 각 섹션에 대한 세부 정보가 나와 있습니다.
@@ -107,13 +107,13 @@ Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 �
 작업 영역에 대한 **솔루션** 메뉴에서 솔루션을 관리합니다. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>관리 솔루션을 설치 및 제거하려면 어떻게 해야 하나요?
-OMS 포털에서는 솔루션 갤러리에서 관리 솔루션을 설치하고 **설정**에서 제거합니다. Azure Portal에서는 Azure Marketplace에서 [관리 솔루션을 설치](../monitoring/monitoring-solutions.md#install-a-management-solution)합니다. 설치된 솔루션의 목록에서 [솔루션을 제거](../monitoring/monitoring-solutions.md#remove-a-management-solution)합니다.
+OMS 포털에서는 솔루션 갤러리에서 관리 솔루션을 설치하고 **설정**에서 제거합니다. Azure Portal에서는 Azure Marketplace에서 [관리 솔루션을 설치](../azure-monitor/insights/solutions.md#install-a-management-solution)합니다. 설치된 솔루션의 목록에서 [솔루션을 제거](../azure-monitor/insights/solutions.md#remove-a-management-solution)합니다.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>경고를 만들고 관리하려면 어떻게 해야 합니까?
 Log Analytics 쿼리를 기반으로 하는 경고 규칙은 이제 [통합된 경고 환경](../monitoring-and-diagnostics/alert-metric.md)에서 관리됩니다. Azure Portal에서 경고 구성 및 사용에 대한 자세한 내용은 [Log Analytics에서 Azure Alerts로 경고를 확장하는 방법](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md)을 참조하세요.
 
 ## <a name="how-do-i-access-my-dashboards"></a>내 대시보드에 액세스하려면 어떻게 해야 하나요?
-Log Analytics의 [내 대시보드](../log-analytics/log-analytics-dashboards.md) 기능이 더 이상 사용되지 않습니다. 이 기능은 뷰 디자이너 부분의 개인 컬렉션을 사용할 수 있으며 기본 제공 Azure 대시보드 기능으로 대체 됩니다. 공유 보기에 대해 [뷰 디자이너](../log-analytics/log-analytics-view-designer.md)를 사용하면 Log Analytics에서 계속 데이터 시각화를 할 수 있습니다. 또한 이러한 보기에서 시각화를 고정하거나 [개별 쿼리](../log-analytics/log-analytics-tutorial-dashboards.md)의 경우 Azure 대시보드에 고정할 수 있습니다.
+Log Analytics의 [내 대시보드](../log-analytics/../azure-monitor/platform/dashboards.md) 기능이 더 이상 사용되지 않습니다. 이 기능은 뷰 디자이너 부분의 개인 컬렉션을 사용할 수 있으며 기본 제공 Azure 대시보드 기능으로 대체 됩니다. 공유 보기에 대해 [뷰 디자이너](../log-analytics/../azure-monitor/platform/view-designer.md)를 사용하면 Log Analytics에서 계속 데이터 시각화를 할 수 있습니다. 또한 이러한 보기에서 시각화를 고정하거나 [개별 쿼리](../log-analytics/log-analytics-tutorial-dashboards.md)의 경우 Azure 대시보드에 고정할 수 있습니다.
 
 ## <a name="how-do-i-check-my-usage"></a>내 사용량은 어떻게 확인할 수 있나요?
 이제 작업 영역의 **사용량 및 예상 비용**을 선택하면 Log Analytics의 내 사용량 및 비용을 쉽게 보고 관리할 수 있습니다.
@@ -126,5 +126,5 @@ Log Analytics의 [내 대시보드](../log-analytics/log-analytics-dashboards.md
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal을 사용하여 [관리 솔루션을 찾아 설치](../monitoring/monitoring-solutions.md)합니다.
+- Azure Portal을 사용하여 [관리 솔루션을 찾아 설치](../azure-monitor/insights/solutions.md)합니다.
 - [Azure Portal의 로그 검색](log-analytics-log-search-portals.md)에 대해 알아봅니다.

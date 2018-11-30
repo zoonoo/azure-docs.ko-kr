@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 93c61f0b9b923f84b2c84d2db4456442e2f9fb27
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e4bd6a3e39fbb5d1eea4d7770d8940f801aecd43
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444507"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276489"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation 통합 모듈
 PowerShell은 Azure Automation의 기본 기술입니다. Azure Automation은 PowerShell을 기반으로 하기 때문에 PowerShell 모듈은 Azure Automation의 확장성에 대한 키입니다. 이 문서에서는 "통합 모듈"이라고 하는 PowerShell 모듈에서 Azure Automation을 만드는 세부 정보 및 Azure Automation 내에서 통합 모듈로 작동하도록 고유한 PowerShell 모듈을 만드는 모범 사례를 안내합니다. 
@@ -34,7 +34,7 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
 
 모듈이 Azure Automation 연결 형식을 포함해야 하는 경우 연결 유형 속성을 지정하는 `<ModuleName>-Automation.json`이라는 이름의 파일도 포함해야 합니다. 압축된.zip 파일의 모듈 폴더 내에 배치된 json 파일이며 모듈이 나타내는 시스템 또는 서비스에 연결하는 데 필요한 "연결"의 필드를 포함합니다. 결국 Azure Automation의 연결 형식을 만들게 됩니다. 이 파일을 사용하여 필드 이름을 설정할 수 있고 필드에 관계 없이 모듈의 연결 형식에 대한 암호화 및/또는 선택적이어야 합니다. 다음은 json 파일 형식인 템플릿입니다.
 
-```
+```json
 { 
    "ConnectionFields": [
    {
@@ -67,7 +67,7 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
 
 1. 모듈에서 모든 cmdlet에 대한 개요, 설명 및 도움말 URI를 포함합니다. PowerShell에서는 cmdlet에 대한 도움말 정보를 정의하여 사용자가 **Get-Help** cmdlet과 해당 정보를 통해 도움을 받을 수 있습니다. 예를 들어 .psm1 파일에 기록된 PowerShell 모듈에 대한 개요 및 도움말 URI를 정의할 수 있는 방법은 다음과 같습니다.<br>  
    
-    ```
+    ```powershell
     <#
         .SYNOPSIS
          Gets all outgoing phone numbers for this Twilio account 
@@ -105,11 +105,11 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
 1. 원격 시스템에 대해 모듈을 실행하는 경우
 
     a. 해당 원격 시스템 즉, 파일 연결 형식에 연결하는 데 필요한 정보를 정의하는 통합 모듈 메타데이터 파일을 포함해야 합니다.  
-    나. 모듈의 각 cmdlet은 매개 변수로 연결 개체(해당 연결 형식의 인스턴스)를 포함해야 합니다.  
+    b. 모듈의 각 cmdlet은 매개 변수로 연결 개체(해당 연결 형식의 인스턴스)를 포함해야 합니다.  
 
     연결 형식의 필드가 포함된 개체를 cmdlet에 대한 매개 변수로 전달하도록 허용하는 경우 모듈의 cmdlet은 Azure Automation에서 쉽게 사용할 수 있게 됩니다. 이 방식으로 사용자는 cmdlet를 호출할 때마다 cmdlet의 해당 매개 변수에 연결 자산의 매개 변수를 매핑할 필요가 없습니다. 위의 runbook 예제에 따라 CorpTwilio라는 Twilio 연결 자산을 사용하여 Twilio에 액세스하고 계정에서 모든 전화 번호를 반환합니다.  cmdlet의 매개 변수에 연결의 필드를 매핑하는 방법을 알고 있나요?<br>
    
-    ```
+    ```powershell
     workflow Get-CorpTwilioPhones
     {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
@@ -120,9 +120,9 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
     }
     ```
   
-    이에 접근하는 더 쉽고 나은 방법은 cmdlet에 직접 연결 개체를 전달하는 것입니다 -
+     이에 접근하는 더 쉽고 나은 방법은 cmdlet에 직접 연결 개체를 전달하는 것입니다 -
    
-    ```
+    ```powershell
     workflow Get-CorpTwilioPhones
     {
       $CorpTwilio = Get-AutomationConnection -Name 'CorpTwilio'
@@ -131,9 +131,9 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
     }
     ```
    
-    매개 변수에 대한 연결 필드 대신에 매개 변수인 연결 개체를 직접 수용할 수 있도록 하여 cmdlet에 다음과 같은 동작을 설정할 수 있습니다. 일반적으로 각각에 대해 매개 변수를 설정하여 Azure Automation을 사용하는 사용자가 hashtable을 생성하지 않고 cmdlet를 호출하여 연결 개체의 역할을 할 수 있도록 합니다. 연결 필드 속성을 하나씩 전달하는 데 다음 매개 변수 집합 **SpecifyConnectionFields** 를 사용합니다. **UseConnectionObject** 를 사용하면 연결을 직접 전달할 수 있습니다. 보시다시피 [Twilio PowerShell 모듈](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) 의 Send-TwilioSMS cmdlet을 사용하면 한 쪽을 전달할 수 있습니다. 
+     매개 변수에 대한 연결 필드 대신에 매개 변수인 연결 개체를 직접 수용할 수 있도록 하여 cmdlet에 다음과 같은 동작을 설정할 수 있습니다. 일반적으로 각각에 대해 매개 변수를 설정하여 Azure Automation을 사용하는 사용자가 hashtable을 생성하지 않고 cmdlet를 호출하여 연결 개체의 역할을 할 수 있도록 합니다. 연결 필드 속성을 하나씩 전달하는 데 다음 매개 변수 집합 **SpecifyConnectionFields** 를 사용합니다. **UseConnectionObject** 를 사용하면 연결을 직접 전달할 수 있습니다. 보시다시피 [Twilio PowerShell 모듈](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) 의 Send-TwilioSMS cmdlet을 사용하면 한 쪽을 전달할 수 있습니다. 
    
-    ```
+    ```powershell
     function Send-TwilioSMS {
       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
       HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
@@ -160,7 +160,7 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
 1. 모듈에서 모든 cmdlet에 대한 출력 형식을 정의합니다. cmdlet에 대한 출력 형식을 정의하면 디자인 타임 IntelliSense에서 작성 중에 사용하기 위한 cmdlet의 출력 속성을 확인할 수 있습니다. Automation runbook 그래픽을 작성하는 동안 특히 유용하며 이 경우 디자인 타임 지식은 모듈을 사용하는 쉬운 사용자 환경의 키입니다.<br><br> ![그래픽 Runbook 출력 형식](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> PowerShell ISE에서 cmdlet의 출력을 실행하지 않는 "사전 입력" 기능과 비슷합니다.<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
 1. 모듈의 Cmdlet은 매개 변수에 복잡한 개체 유형을 사용하지 않아야 합니다. PowerShell 워크플로는 복합 형식을 역직렬화된 형태로 저장한다는 점에서 PowerShell과 다릅니다. 기본 형식은 기본 요소로 유지되지만 복합 형식은 역직렬화된 버전으로 변환되며 이는 기본적으로 속성 모음입니다. 예를 들어 runbook(또는 문제에 대한 PowerShell 워크플로)에서 **Get-Process** cmdlet을 사용하는 경우 예상된 [System.Diagnostic.Process] 형식이 아닌 [Deserialized.System.Diagnostic.Process] 형식의 개체를 반환합니다. 이 형식에는 역직렬화된 형식으로 동일한 속성이 포함되지만 메서드는 포함되지 않습니다. 이 값을 cmdlet에 대한 매개 변수로 전달하려는 경우 cmdlet에서 이 매개 변수에 대한 [System.Diagnostic.Process] 값이 필요하면 다음 오류가 표시됩니다. *'프로세스' 매개 변수에서 인수 변환을 처리할 수 없습니다. 오류: "Deserialized.System.Diagnostics.Process" 형식의 "System.Diagnostics.Process(CcmExec)" 값을 "System.Diagnostics.Process" 형식으로 변환할 수 없습니다.*   예상된 [System.Diagnostic.Process] 형식 및 지정된 [Deserialized.System.Diagnostic.Process] 형식 간의 형식이 일치하지 않기 때문입니다. 이 문제를 해결하는 방법은 모듈의 cmdlet이 매개 변수에 복합 형식을 사용하지 않도록 하는 것입니다. 작업을 수행하는 잘못된 방법은 다음과 같습니다.
    
-    ```
+    ```powershell
     function Get-ProcessDescription {
       param (
             [System.Diagnostic.Process] $process
@@ -169,9 +169,9 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
     }
     ``` 
     <br>
-    또한 복잡한 개체를 선택하고 사용하는 cmdlet이 내부적으로 사용할 수 있는 기본 요소를 가져오는 올바른 방법은 다음과 같습니다. cmdlet이 PowerShell 워크플로가 아닌 PowerShell의 컨텍스트에서 실행되기 때문에 cmdlet 내에서 $process는 잘못된 [System.Diagnostic.Process] 형식이 됩니다.  
+     또한 복잡한 개체를 선택하고 사용하는 cmdlet이 내부적으로 사용할 수 있는 기본 요소를 가져오는 올바른 방법은 다음과 같습니다. cmdlet이 PowerShell 워크플로가 아닌 PowerShell의 컨텍스트에서 실행되기 때문에 cmdlet 내에서 $process는 잘못된 [System.Diagnostic.Process] 형식이 됩니다.  
    
-    ```
+    ```powershell
     function Get-ProcessDescription {
       param (
             [String] $processName
@@ -185,7 +185,7 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
    Runbook의 연결 자산은 복합 형식인 hashtable이며 이러한 hashtable은 캐스트 예외 없이 해당 –Connection 매개 변수에 대한 cmdlet에 전달될 수 있습니다. 기술적으로 일부 PowerShell 형식은 직렬화된 형식에서 역직렬화된 형식으로 제대로 캐스팅할 수 있으며 따라서 역직렬화되지 않은 형식을 허용하는 매개 변수에 대한 cmdlet에 전달될 수 있습니다. Hashtable은 다음 중 하나입니다. 모듈 작성자가 정의한 형식이 올바르게 역직렬화되는 방식으로 구현될 수 있지만 고려해야 할 장단점이 있습니다. 형식에는 기본 생성자, 모든 공용 속성 및 는 PSTypeConverter가 있어야 합니다. 그러나 모듈 작성자가 소유하지 않은 미리 정의된 형식의 경우 "수정"할 방법이 없습니다. 따라서 매개 변수 모두에 대한 복합 형식을 방지하는 것이 좋습니다. Runbook 작성 팁: 어떤 이유로든 cmdlet이 복합 형식 매개 변수를 사용해야 하거나 사용자가 복합 형식 매개 변수가 필요한 다른 사람의 모듈을 사용하는 경우 로컬 PowerShell의 PowerShell 워크플로 runbook 및 PowerShell 워크플로 해결 방법은 복합 형식을 생성하는 cmdlet 및 동일한 InlineScript 작업에서 복합 형식을 사용하는 cmdlet을 래핑하는 것입니다. InlineScript가 해당 콘텐츠를 PowerShell 워크플로 대신 PowerShell으로 실행하기 때문에 복합 형식을 생성하는 cmdlet에서는 역직렬화된 복합 형식이 아닌 올바른 형식을 생성합니다.
 1. 모듈의 모든 cmdlet을 상태 비저장으로 만듭니다. PowerShell 워크플로는 다른 세션에서 워크플로 호출하는 모든 cmdlet을 실행합니다. 즉, 동일한 모듈의 다른 cmdlet에서 생성/수정된 세션 상태에 의존하는 cmdlet은 PowerShell 워크플로 runbook에서 작동하지 않습니다.  다음은 수행해서는 안되는 작업의 예제입니다.
    
-    ```
+    ```powershell
     $globalNum = 0
     function Set-GlobalNum {
        param(
