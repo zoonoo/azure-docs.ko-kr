@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: c65cfedd398bbb18d65f36a3f2a768e11443687a
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 8882970471b554f6d05a9cf3028e7be572292ef6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636512"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582703"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM 백업 스택 V2로 업그레이드
 
@@ -111,7 +111,7 @@ Azure Portal을 사용하는 경우 자격 증명 모음 대시보드에 알림�
 관리자 권한 PowerShell 터미널에서 다음 cmdlet을 실행합니다.
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ### <a name="cli"></a>CLI
