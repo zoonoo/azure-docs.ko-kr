@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 10eeb7a94bd6b2513dc36d0d8a1829eddb452835
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 2bbcfc95895ca925b585ab15d4a2edf404eb162f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040053"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634849"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>자동화 스크립트를 사용하여 Service Manager 웹앱 만들기
 
-다음 스크립트를 사용하여 Service Manager 인스턴스에 대한 웹앱을 만듭니다. Service Manager 연결에 대한 자세한 내용은 [Service Manager 웹앱](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)에 나와 있습니다.
+다음 스크립트를 사용하여 Service Manager 인스턴스에 대한 웹앱을 만듭니다. Service Manager 연결에 대한 자세한 내용은 [Service Manager 웹앱](../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)에 나와 있습니다.
 
 다음 필수 정보를 제공하여 스크립트를 실행합니다.
 
@@ -323,4 +323,4 @@ if(!$err)
 
 ```
 ## <a name="next-steps"></a>다음 단계
-[하이브리드 연결 구성](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).
+[하이브리드 연결 구성](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

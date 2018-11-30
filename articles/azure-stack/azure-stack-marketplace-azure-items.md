@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/28/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 229c0a6afee893a4a8eb5cd62a1d25266ee8fc3e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977185"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620696"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -53,7 +53,6 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 |  | 항목 이름 | 설명 | 게시자 |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | 엔터프라이즈 수준의 솔루션은 간단 하 게 배포할 비용 효율적인, 응용 프로그램 및 사용자 중심입니다. 이러한 이미지는 최신 패치를 사용 하 여 정기적으로 업데이트 됩니다. **중요 한 정보: 2018 년 1 월 18 일을 삭제 하 고 최신 버전으로 대체 해야 하기 전에 다운로드 하는 이미지입니다.** | Microsoft |
-| ![원격 데스크톱 서비스](media/azure-stack-marketplace-azure-items/remotedesktopservicesdeployment.png) | [원격 데스크톱 서비스 (RDS) 배포](https://azuremarketplace.microsoft.com/marketplace/apps/rds.remote-desktop-services-basic-deployment) | 기본 원격 데스크톱 서비스 (RDS) 배포를 만듭니다. **최신 Windows Server 2016 Datacenter 이미지를 다운로드 합니다.** | Microsoft |
 | ![SharePoint Server 2013 평가판](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 평가판](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Microsoft SharePoint Server 2013 평가판 Windows Server 2012 Datacenter 및 Visual Studio 2017 community edition에 있습니다. | Microsoft |
 | ![SharePoint Server 2016 평가판](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 평가판](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Microsoft SharePoint Server 2016 평가판 Windows Server 2016 Datacenter의 합니다. | Microsoft |
 | ![Windows Server 2012 R2의 SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2의 SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQL2014SP2-WS2012R2) | SQL Server 2014 서비스 팩 2 **필수 다운로드:** SQL IaaS 확장 합니다. | Microsoft |

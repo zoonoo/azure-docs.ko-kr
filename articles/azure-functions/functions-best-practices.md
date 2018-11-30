@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aecd68734999c30f3dc8e7a2ea8c7d5e9cdfacb0
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 78882742549632e7f1f6362f9e3ad0ae0034ffda
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166341"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634679"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -37,7 +37,7 @@ Azure Functions를 사용하여 서버가 없는 솔루션을 빌드하고 설�
 
 ### <a name="cross-function-communication"></a>함수 통신 교차
 
-[지속형 함수](durable-functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)는 여러 함수 간에 상태 전환 및 통신을 관리하도록 빌드됩니다.
+[지속형 함수](durable/durable-functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)는 여러 함수 간에 상태 전환 및 통신을 관리하도록 빌드됩니다.
 
 지속형 함수 및 Logic Apps를 사용하지 않고 여러 기능을 통합하는 경우 함수 통신 교차를 위해 저장소 큐를 사용하는 것이 일반적으로 가장 좋은 방법입니다.  주요 이유는 저장소 큐는 더 저렴하고 프로비전하는 것이 훨씬 쉽습니다. 
 

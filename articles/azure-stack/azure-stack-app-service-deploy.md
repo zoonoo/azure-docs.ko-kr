@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614058"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635376"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack에 App Service 리소스 공급자 추가
 
@@ -202,17 +202,17 @@ App Service 리소스 공급자를 배포 하려면 다음이 단계를 수행 �
 
     ![App Service 관리](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >기존 가상 네트워크에 배포 하 고 내부 IP 주소를 사용 하 여 파일 서버에 연결할, 아웃 바운드 보안 규칙을 추가 해야 합니다. 이 규칙에 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 합니다.  이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.<br>
-    >  - 원본: 모든
-    >  - 원본 포트 범위: *
-    >  - 대상: IP 주소
-    >  - 대상 IP 주소 범위: Ip 범위에 파일 서버에 대 한
-    >  - 대상 포트 범위: 445
-    >  - 프로토콜: TCP
-    >  - 작업: 허용
-    >  - 우선 순위: 700
-    >  - 이름: Outbound_Allow_SMB445
+    기존 가상 네트워크에 배포 하 고 내부 IP 주소를 사용 하 여 파일 서버에 연결할, 아웃 바운드 보안 규칙을 추가 해야 합니다. 이 규칙에 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 합니다.  이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
+
+    - 원본: 모든
+    - 원본 포트 범위: *
+    - 대상: IP 주소
+    - 대상 IP 주소 범위: Ip 범위에 파일 서버에 대 한
+    - 대상 포트 범위: 445
+    - 프로토콜: TCP
+    - 작업: 허용
+    - 우선 순위: 700
+    - 이름: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Azure Stack에서 App Service 테스트 드라이브
 
