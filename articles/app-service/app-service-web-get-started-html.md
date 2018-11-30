@@ -58,7 +58,7 @@ mkdir quickstart
 cd quickstart
 ```
 
-다음으로 다음 명령을 실행하여 빠른 시작 디렉터리에 샘플 앱 리포지토리를 복제합니다.
+이어서 다음 명령을 실행하여 quickstart 디렉터리에 샘플 앱 리포지토리를 복제합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
