@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c330171f0c85bce6451b8f342203e2eeeccb3c5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798698"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425143"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Azure Cosmos DB와 함께 쿼리 성능 튜닝
 
-Azure Cosmos DB에서는 스키마 또는 보조 인덱스를 요구하지 않고도 [데이터를 쿼리하기 위한 SQL API](sql-api-sql-query.md)를 제공합니다. 이 문서에서는 개발자를 위한 다음 정보를 제공합니다.
+Azure Cosmos DB에서는 스키마 또는 보조 인덱스를 요구하지 않고도 [데이터를 쿼리하기 위한 SQL API](how-to-sql-query.md)를 제공합니다. 이 문서에서는 개발자를 위한 다음 정보를 제공합니다.
 
 * Azure Cosmos DB의 SQL 쿼리 실행 작동 방식에 대한 대략적인 정보
 * 쿼리 요청 및 응답 헤더, 클라이언트 SDK 옵션에 대한 세부 정보
@@ -218,7 +218,7 @@ SDK 릴리스 정보 및 구현된 클래스와 메서드에 대한 자세한 �
 쿼리 실행 메트릭에 관한 섹션은 쿼리의 서버 실행 시간을 검색하는 방법을 설명합니다(`totalExecutionTimeInMs`). 따라서 쿼리 실행에 걸린 시간과 네트워크 전송에 소요된 시간을 구별할 수 있습니다.
 
 ### <a name="indexing-policy"></a>인덱싱 정책
-인덱싱 경로, 종류, 모드 및 쿼리 실행에 어떻게 영향을 주는지에 대한 내용은 [인덱싱 정책 구성](indexing-policies.md)을 참조하세요. 기본적으로 인덱싱 정책은 같음 쿼리에는 유효하지만 범위 쿼리/order by 쿼리에는 유효하지 않은 문자열용 해시 인덱싱을 사용합니다. 문자열에 대해 범위 쿼리가 필요한 경우 모든 문자열에 대해 범위 인덱스 유형을 지정하는 것이 좋습니다. 
+인덱싱 경로, 종류, 모드 및 쿼리 실행에 어떻게 영향을 주는지에 대한 내용은 [인덱싱 정책 구성](index-policy.md)을 참조하세요. 기본적으로 인덱싱 정책은 같음 쿼리에는 유효하지만 범위 쿼리/order by 쿼리에는 유효하지 않은 문자열용 해시 인덱싱을 사용합니다. 문자열에 대해 범위 쿼리가 필요한 경우 모든 문자열에 대해 범위 인덱스 유형을 지정하는 것이 좋습니다. 
 
 ## <a name="query-execution-metrics"></a>쿼리 실행 메트릭
 선택 사항인 `x-ms-documentdb-populatequerymetrics` 헤더(.NET SDK에서 `FeedOptions.PopulateQueryMetrics`)에 전달하여 쿼리 실행에 대한 자세한 메트릭을 얻을 수 있습니다. `x-ms-documentdb-query-metrics`에서 반환된 값은 쿼리 실행의 고급 문제 해결을 위한 다음 키-값 쌍을 포함합니다. 
@@ -274,8 +274,8 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 
 ## <a name="next-steps"></a>다음 단계
-* 지원되는 SQL 쿼리 연산자 및 키워드에 대해 알아보려면 [SQL 쿼리](sql-api-sql-query.md)를 참조하세요. 
+* 지원되는 SQL 쿼리 연산자 및 키워드에 대해 알아보려면 [SQL 쿼리](how-to-sql-query.md)를 참조하세요. 
 * 요청 단위에 대해 알아보려면 [요청 단위](request-units.md)를 참조하세요.
-* 인덱싱 정책에 대해 알아보려면 [인덱싱 정책](indexing-policies.md)을 참조하세요. 
+* 인덱싱 정책에 대해 알아보려면 [인덱싱 정책](index-policy.md)을 참조하세요. 
 
 

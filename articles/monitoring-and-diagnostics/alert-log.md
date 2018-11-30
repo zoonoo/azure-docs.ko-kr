@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6e6db7ef2f2de075aea41a29e69b2c674efafa17
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279108"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635359"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리  
 
@@ -132,7 +132,7 @@ ms.locfileid: "51279108"
 ### <a name="azure-resource-template-for-log-analytics"></a>Log Analytics에 대한 Azure 리소스 템플릿
 Log Analytics에 대한 로그 경고는 일정한 간격으로 저장된 검색을 실행하는 경고 규칙에 의해 만들어집니다. 쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 실행됩니다. 
 
-Log Analytics 저장된 검색 및 Log Analytics 경고에 대한 리소스 템플릿은 설명서의 Log Analytics 섹션에서 사용할 수 있습니다. 자세한 정보는 설명 목적의 샘플 및 스키마 세부 내용을 포함하는 [Log Analytics 저장된 검색 및 경고 추가](../monitoring/monitoring-solutions-resources-searches-alerts.md)를 참조하세요.
+Log Analytics 저장된 검색 및 Log Analytics 경고에 대한 리소스 템플릿은 설명서의 Log Analytics 섹션에서 사용할 수 있습니다. 자세한 정보는 설명 목적의 샘플 및 스키마 세부 내용을 포함하는 [Log Analytics 저장된 검색 및 경고 추가](../azure-monitor/insights/solutions-resources-searches-alerts.md)를 참조하세요.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Application Insights에 대한 Azure 리소스 템플릿
 Application Insights 리소스에 대한 로그 경고는 `Microsoft.Insights/scheduledQueryRules/`의 종류입니다. 이 리소스 종류에 대한 자세한 내용은 [Azure Monitor - 예약된 쿼리 규칙 API 참조](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)를 참조하세요.
@@ -223,7 +223,7 @@ Application Insights 리소스에 대한 로그 경고는 `Microsoft.Insights/sc
 ### <a name="powershell-cli-or-api-for-log-analytics"></a>Log Analytics에 대한 PowerShell, CLI 또는 API
 Log Analytics Alert REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 따라서 API는 PowerShell 명령줄에서 액세스할 수 있으며 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 결과를 사용하게 됩니다.
 
-Powershell에서 API에 액세스하는 예제를 포함하는 [REST API로 Log Analytics에서 경고 규칙 만들기 및 관리](../log-analytics/log-analytics-api-alerts.md)에 대해 자세히 알아봅니다.
+Powershell에서 API에 액세스하는 예제를 포함하는 [REST API로 Log Analytics에서 경고 규칙 만들기 및 관리](../azure-monitor/platform/api-alerts.md)에 대해 자세히 알아봅니다.
 
 ### <a name="powershell-cli-or-api-for-application-insights"></a>Application insights에 대한 PowerShell, CLI 또는 API
 [Azure Monitor - 예약된 쿼리 규칙 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)는 REST API이며 Azure Resource Manager REST API와 완벽하게 호환됩니다. 따라서 Resource Manager cmdlet 뿐 아니라 Azure CLI를 사용하여 Powershell을 통해 사용할 수 있습니다.

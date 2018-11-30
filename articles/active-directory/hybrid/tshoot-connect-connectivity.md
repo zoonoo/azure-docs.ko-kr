@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f34b0015a4a6d7b8c2c23f539cf21232adaec58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5d5eee525c6f071840d186cb6bd54faf9bf2787b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304672"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310670"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -46,7 +46,7 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |CRL 목록을 다운로드하는 데 사용됩니다. |
 | \*.verisign.com |HTTP/80 |CRL 목록을 다운로드하는 데 사용됩니다. |
-| \*.entrust.com |HTTP/80 |MFA에 대한 CRL 목록을 다운로드하는 데 사용됩니다. |
+| \*.entrust.net |HTTP/80 |MFA에 대한 CRL 목록을 다운로드하는 데 사용됩니다. |
 | \*.windows.net |HTTPS/443 |Azure AD에 로그인하는 데 사용됩니다. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |MFA에 사용됩니다. |
 | \*.microsoftonline.com |HTTPS/443 |Azure AD 디렉터리를 구성하고 데이터 가져오거나 내보내는 데 사용됩니다. |

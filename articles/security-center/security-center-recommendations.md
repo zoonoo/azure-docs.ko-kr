@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5ea8718b90a82e904f54e5569d36f27146ffe5f1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253162"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316620"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Security Center에서 보안 권장 사항 관리
 이 문서에서는 Azure Security Center의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
@@ -34,13 +34,13 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 
 ## <a name="implementing-security-recommendations"></a>보안 권장 사항 구현
 ### <a name="set-recommendations"></a>권장 사항 설정
-[Azure Security Center의 보안 정책 설정](security-center-policies.md)에서 다음을 배울 수 있습니다.
+[Azure Security Center의 보안 정책 설정](security-center-azure-policy.md)에서 다음을 배울 수 있습니다.
 
 * 보안 정책 구성.
 * 데이터 수집 사용.
 * 보안 정책의 일부로 표시될 권장 사항 선택.
 
-현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/security-overview.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다.  [보안 정책 설정](security-center-policies.md) 은 각 권장 사항 옵션에 대한 설명을 제공합니다.
+현재 정책 권장 사항은 시스템 업데이트, 기준 규칙, 맬웨어 방지 프로그램, 서브넷 및 네트워크 인터페이스의 [네트워크 보안 그룹](../virtual-network/security-overview.md), SQL 데이터베이스 감사, SQL 데이터베이스 투명한 데이터 암호화 및 웹 응용 프로그램 방화벽에 중점을 두고 있습니다.  [보안 정책 설정](security-center-azure-policy.md) 은 각 권장 사항 옵션에 대한 설명을 제공합니다.
 
 ### <a name="monitor-recommendations"></a>권장 사항 모니터링
 보안 정책이 설정되면 보안 센터는 리소스의 보안 상태를 분석하여 잠재적인 취약성을 식별합니다. **개요**의 **권장 사항** 타일은 Security Center에서 식별된 권장 사항의 총 수를 알려줍니다.
@@ -135,7 +135,7 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 보안 센터의 보안 권장 사항을 소개했습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-policies.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.

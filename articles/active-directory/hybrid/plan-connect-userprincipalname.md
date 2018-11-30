@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637717"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426811"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
 
@@ -34,7 +34,7 @@ UserPrincipalName 특성 값은 사용자 계정에 대한 Azure AD 사용자 �
 |대체 로그인 ID|UserPrincipalName 이외의 온-프레미스 특성(예: 로그인에 사용되는 mail 특성)입니다.|
 
 ## <a name="what-is-userprincipalname"></a>UserPrincipalName이란?
-UserPrincipalName은 인터넷 표준 [RFC 822](http://www.ietf.org/rfc/rfc0822.txt)에 따른 사용자의 인터넷 스타일 로그인 이름에 해당하는 특성입니다. 
+UserPrincipalName은 인터넷 표준 [RFC 822](https://www.ietf.org/rfc/rfc0822.txt)에 따른 사용자의 인터넷 스타일 로그인 이름에 해당하는 특성입니다. 
 
 ### <a name="upn-format"></a>UPN 형식
 UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. “\@” 기호를 사용해서 접두사를 접미사에 연결합니다. 예: “someone\@example.com”. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 

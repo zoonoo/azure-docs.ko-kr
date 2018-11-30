@@ -17,18 +17,18 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466719"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424955"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 응용 프로그램에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
 오늘날 Azure Active Directory(Azure AD)는 사용자 지정 응용 프로그램뿐만 아니라 Azure AD 앱 갤러리에서 미리 통합된 응용 프로그램 모두를 포함하여 대부분의 엔터프라이즈 응용 프로그램에서 단일 로그인을 지원합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Azure AD를 통해 응용 프로그램을 인증하면 Azure AD는 (HTTP POST를 통해) 응용 프로그램에 토큰을 보냅니다. 그런 다음 응용 프로그램이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 "클레임"이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
 
-‘클레임’은 해당 사용자에 대해 발급하는 토큰 내에서 ID 공급자가 사용자에 대해 나타내는 정보입니다. [SAML 토큰 ](http://en.wikipedia.org/wiki/SAML_2.0)에서 이러한 데이터는 일반적으로 SAML 특성 문에 포함됩니다. 사용자 고유의 ID는 대개 이름 식별자라고도 하는 SAML Subject에 나타납니다.
+‘클레임’은 해당 사용자에 대해 발급하는 토큰 내에서 ID 공급자가 사용자에 대해 나타내는 정보입니다. [SAML 토큰 ](https://en.wikipedia.org/wiki/SAML_2.0)에서 이러한 데이터는 일반적으로 SAML 특성 문에 포함됩니다. 사용자 고유의 ID는 대개 이름 식별자라고도 하는 SAML Subject에 나타납니다.
 
 기본적으로 Azure AD는 Azure AD에 사용자의 사용자 이름(또는 사용자 계정 이름) 값과 함께 NameIdentifier 클레임이 포함된 SAML 토큰을 응용 프로그램에 발급합니다. 이 값이 사용자를 고유하게 식별할 수 있습니다. 또한 SAML 토큰에는 사용자의 메일 주소, 이름 및 성을 포함하는 추가 클레임이 포함됩니다.
 

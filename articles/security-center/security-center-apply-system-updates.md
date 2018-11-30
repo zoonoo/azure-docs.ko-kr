@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7b5f4415351ad5b51b874e5dc17349160f65e9ef
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a0d0cbacfa03080d519e5d9e3592ad01ed58b933
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240378"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316586"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Azure Security Center의 시스템 업데이트 적용
 Azure Security Center는 매일 Windows 및 Linux VM(가상 머신)과 컴퓨터에서 누락된 운영 체제 업데이트를 모니터링합니다. Security Center는 Windows 컴퓨터에 구성된 서비스에 따라 Windows 업데이트 또는 WSUS(Windows Server Update Services)에서 사용 가능한 보안 및 중요 업데이트의 목록을 검색합니다. 보안 센터는 또한 Linux 시스템에서 최신 업데이트를 확인합니다. VM 또는 컴퓨터에 누락된 시스템 업데이트가 있으면 Security Center는 시스템 업데이트를 적용하는 것이 좋다는 메시지를 표시합니다.
@@ -84,7 +84,7 @@ Azure Security Center는 매일 Windows 및 Linux VM(가상 머신)과 컴퓨터
 ## <a name="next-steps"></a>다음 단계
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-policies.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md) -- 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) –- Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27bfd3176ecad847f9bba2a62abd66b55484443b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146691"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443018"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
 
@@ -26,11 +26,10 @@ Azure API Management는 원하는 Azure 지역의 수에 상관 없이 단일 Az
 
 새 Azure API Management 서비스는 처음에 단일 Azure 지역인 주 지역에 [단위][unit]를 하나만 포함합니다. 추가 지역은 Azure Portal을 통해 쉽게 추가할 수 있습니다. API Management 게이트웨이 서버는 각 지역에 배포되고 호출 트래픽이 가장 가까운 게이트웨이에 라우팅됩니다. 지역이 오프라인 상태가 되면 다음으로 가장 가까운 게이트웨이에 트래픽이 자동으로 리디렉션됩니다.
 
-> [!IMPORTANT]
-> 다중 지역 배포는 **[프리미엄][Premium]** 계층에서만 사용할 수 있습니다.
-
 > [!NOTE]
 > Azure API Management는 여러 지역에서 API 게이트웨이 구성 요소만 복제합니다. 서비스 관리 구성 요소는 주 영역에서만 호스팅됩니다. 주 지역에서 중단이 발생하는 경우 Azure API Management 서비스 인스턴스에 구성 변경 사항(설정 또는 정책 업데이트 포함)을 적용할 수 없습니다.
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"></a>새 지역에 API Management 서비스 인스턴스 배포
 

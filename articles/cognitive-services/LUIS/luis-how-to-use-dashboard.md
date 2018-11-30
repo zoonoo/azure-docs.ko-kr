@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212815"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335013"
 ---
 # <a name="application-dashboard"></a>응용 프로그램 대시보드
 앱 대시보드를 사용하면 한눈에 앱을 모니터링할 수 있습니다. **내 앱** 페이지에서 응용 프로그램 이름을 클릭하여 앱을 열고 맨 위 패널에서 **대시보드**를 선택하면 **대시보드**가 표시됩니다. 
@@ -26,15 +26,7 @@ ms.locfileid: "50212815"
 > * LUIS [API](https://aka.ms/luis-endpoint-apis) 및 봇을 포함한 모든 엔드포인트 요청에 LUIS 엔드포인트 키 사용
 > * 각 LUIS 앱에 서로 다른 엔드포인트 키를 사용합니다. 모든 앱에 단일 엔드포인트 키를 사용하지 마세요. 엔드포인트 키는 앱 수준이 아닌 키 수준에서 추적됩니다.  
 
-**대시보드** 페이지에는 시간에 따른 [엔드포인트](luis-glossary.md#endpoint) 사용 현황뿐 아니라 현재 모델 상태를 비롯한 LUIS 앱의 개요가 제공됩니다. <!--The following image shows the **Dashboard** page.-->
-
-<!-- TBD: Get a working screen shot
-![The Dashboard](./media/luis-how-to-use-dashboard/dashboard.png)
--->
-
-<!-- TBD: IS THIS STILL TRUE?
-At the top of the **Dashboard** page, a contextual notification bar constantly displays notifications to update you on the required or recommended actions appropriate for the current state of your app. It also provides useful tips and alerts as needed. A detailed description of the data reported on the **Dashboard** page follows.
--->
+**대시보드** 페이지에는 시간에 따른 [엔드포인트](luis-glossary.md#endpoint) 사용 현황뿐 아니라 현재 모델 상태를 비롯한 LUIS 앱의 개요가 제공됩니다. 
   
 ## <a name="app-status"></a>앱 상태
 대시보드에는 앱이 마지막으로 학습 및 게시된 날짜 및 시간을 비롯하여 응용 프로그램의 학습 및 게시 상태가 표시됩니다.  
@@ -49,8 +41,7 @@ At the top of the **Dashboard** page, a contextual notification bar constantly d
 ## <a name="endpoint-hits"></a>엔드포인트 적중 횟수
 대시보드에는 LUIS 앱이 수신하는 총 엔드포인트 적중 횟수가 표시되고 대시보드를 통해 지정한 기간 내의 적중 횟수를 표시할 수 있습니다. 표시되는 총 적중 횟수는 [엔드포인트 키](./luis-concept-keys.md#endpoint-key)를 사용하는 엔드포인트 적중 횟수와 [작성 키](./luis-concept-keys.md#authoring-key)를 사용하는 엔드포인트 적중 횟수의 합계입니다.
 
-<!-- TBD: this image is old but I don't have a new one based on usage -->
-![끝점 적중 횟수](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
+![엔드포인트 적중 횟수](./media/luis-how-to-use-dashboard/dashboard-endpointhits.png)
 
 > [!NOTE] 
 > 최근 엔드포인트 적중 횟수는 Azure Portal의 LUIS 서비스 개요에 있습니다. 

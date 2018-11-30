@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 0656cfcc2dcded284be1a337f797681117f3b313
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 4107b292a606ea629e7de0c7be66621d699c5f42
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142551"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427389"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -51,7 +51,7 @@ NPM(네트워크 성능 모니터)은 응용 프로그램에 대한 네트워크
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Log Analytics의 네트워크 성능 모니터 솔루션 구성](../log-analytics/log-analytics-network-performance-monitor.md) 
+* [Log Analytics의 네트워크 성능 모니터 솔루션 구성](../azure-monitor/insights/network-performance-monitor.md) 
 * [사용 사례](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  제품 업데이트: [2017년 2월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [2017년 8월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 

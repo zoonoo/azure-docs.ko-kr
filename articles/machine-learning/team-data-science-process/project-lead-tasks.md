@@ -1,25 +1,21 @@
 ---
 title: Team Data Science Process 프로젝트 리더 작업 - Azure | Microsoft Docs
 description: 프로젝트 리더가 데이터 과학 팀 프로젝트에서 수행하는 작업에 대한 개요입니다.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 6a618efc6860371883bff7ebb953880293ad3120
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303884"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442900"
 ---
 # <a name="project-lead-tasks"></a>프로젝트 리더 작업
 

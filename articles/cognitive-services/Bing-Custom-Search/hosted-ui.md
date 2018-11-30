@@ -3,19 +3,19 @@ title: 사이트 검색, 호스티드 UI Bing Custom Search 사용
 titlesuffix: Azure Cognitive Services
 description: Bing Custom Search 호스티트 UI 구성 방법을 설명합니다.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 77845cb60dac707326acdb08b0198f8725a36f62
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: c71597cf540cca67b9558ce28d20ce1d21ae0243
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813977"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424989"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>호스트된 UI 환경 구성
 
@@ -105,7 +105,7 @@ ms.locfileid: "48813977"
 > [!NOTE]
 > 사용자 지정 호스트된 UI 구성을 변경하면 오른쪽 창에 변경 내용에 대한 시각적 참조가 제공됩니다. 표시된 검색 결과는 인스턴스에 대한 실제 결과가 아닙니다.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>사용자 지정 UI 사용
 
@@ -143,5 +143,5 @@ ms.locfileid: "48813977"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [장식 표식을 사용하여 텍스트 강조 표시](./hit-highlighting.md)
+- [장식 표식을 사용하여 텍스트를 강조 표시](./hit-highlighting.md)
 - [웹 페이지 페이징](./page-webpages.md)

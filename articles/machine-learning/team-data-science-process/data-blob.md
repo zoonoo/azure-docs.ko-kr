@@ -1,26 +1,22 @@
 ---
 title: 고급 분석을 사용하여 Azure Blob 데이터 처리 | Microsoft Docs
 description: Azure Blob 저장소에서 데이터 처리
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 3daf86f59a84f8c442581160142dcf806173b626
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836605"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442387"
 ---
 # <a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
 이 문서에서는 Azure Blob 저장소에 저장된 데이터를 탐색하고 기능을 생성하는 방법을 다룹니다. 

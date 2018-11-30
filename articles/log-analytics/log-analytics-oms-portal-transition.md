@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8337d6b353b6651a2699176813220ed7a7a0f879
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612808"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634798"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
@@ -84,7 +84,7 @@ OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니�
 경고는 [Azure Portal로 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)되었습니다. 완료되면 경고에 대한 관리 작업은 Azure Portal에서만 사용할 수 있습니다. 기존 경고는 계속 OMS 포털에 나열됩니다. Log Analytics 경고 REST API 또는 Log Analytics 경고 리소스 템플릿을 사용하여 프로그래밍 방식으로 경고에 액세스하는 경우 API 호출, Azure Resource Manager 템플릿 및 PowerShell 명령에서 작업 대신 작업 그룹을 사용해야 합니다.
 
 ### <a name="alert-management-solution"></a>경고 관리 솔루션
-[경고 관리 솔루션](log-analytics-solution-alert-management.md) 대신 [Azure Monitor의 통합 경고 인터페이스](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 사용하여 경고를 시각화하고 관리할 수 있습니다. 이 새로운 환경은 Log Analytics에서 로그 경고를 포함하여 Azure 내의 여러 원본에서 경고를 집계합니다. 경고의 배포를 확인하고, 스마트 그룹을 통해 관련 경고의 자동 그룹화를 활용하고, 풍부하게 필터를 적용하는 동안 여러 구독에서 경고를 볼 수 있습니다. 이러한 모든 기능은 2018년 6월 4일부터 미리 보기에서 사용할 수 있습니다. 경고 관리 솔루션은 Azure Portal에서 사용할 수 없습니다. 
+[경고 관리 솔루션](../azure-monitor/platform/alert-management-solution.md) 대신 [Azure Monitor의 통합 경고 인터페이스](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 사용하여 경고를 시각화하고 관리할 수 있습니다. 이 새로운 환경은 Log Analytics에서 로그 경고를 포함하여 Azure 내의 여러 원본에서 경고를 집계합니다. 경고의 배포를 확인하고, 스마트 그룹을 통해 관련 경고의 자동 그룹화를 활용하고, 풍부하게 필터를 적용하는 동안 여러 구독에서 경고를 볼 수 있습니다. 이러한 모든 기능은 2018년 6월 4일부터 미리 보기에서 사용할 수 있습니다. 경고 관리 솔루션은 Azure Portal에서 사용할 수 없습니다. 
 
 경고 관리 솔루션(경고 유형별 레코드)에 의해 수집된 데이터는 솔루션이 작업 영역에 대해 설치되는 한 Log Analytics에 계속 포함됩니다. 2018년 8월부터 통합 경고에서 작업 영역으로 경고의 스트리밍은 이 기능을 대체해 사용하도록 설정됩니다. 일부 스키마 변경 사항이 예상되며 나중에 발표될 것입니다.
 
@@ -98,7 +98,7 @@ OMS 모바일 앱은 OMS 포털과 함께 종료됩니다. OMS 모바일 앱 대
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure 네트워크 보안 그룹 분석
-[Azure 네트워크 보안 그룹 분석 솔루션](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)은 최근에 시작된 [트래픽 분석](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)으로 대체되어 클라우드 네트워크에서 사용자 및 응용 프로그램 작업에 대한 가시성을 제공합니다. 트래픽 분석은 조직의 네트워크 활동을 감사하고, 응용 프로그램 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 됩니다. 
+[Azure 네트워크 보안 그룹 분석 솔루션](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)은 최근에 시작된 [트래픽 분석](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)으로 대체되어 클라우드 네트워크에서 사용자 및 응용 프로그램 작업에 대한 가시성을 제공합니다. 트래픽 분석은 조직의 네트워크 활동을 감사하고, 응용 프로그램 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 됩니다. 
 
 이 솔루션은 NSG 흐름 로그를 분석하고 다음에 대한 인사이트를 제공합니다.
 

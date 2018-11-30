@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 83f648b67ae4f8e6fb964d82c245f1c7ba475542
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: e7cf7518a20f1901e3347350f090c9a8588a7a7c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568543"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422918"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법
 이 가이드에서는 Azure에 호스트된 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 설명합니다. 결과적으로 응용 프로그램은 다음 스크린샷에 표시된 대로 지정된 번호와 메시지를 사용하여 호출하라는 메시지를 사용자에게 표시합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "51568543"
 ## <a name="twilio-prereqs"></a>필수 조건
 이 항목에서 코드를 사용하려면 다음을 수행해야 합니다.
 
-1. [Twilio 콘솔][twilio_console]에서 Twilio 계정 및 인증 토큰을 가져옵니다. Twilio를 시작하려면 [https://www.twilio.com/try-twilio][try_twilio]에서 등록하세요. [http://www.twilio.com/pricing][twilio_pricing]에서 가격을 평가할 수 있습니다. Twilio에서 제공하는 API에 대한 내용은 [http://www.twilio.com/voice/api][twilio_api]를 참조하세요.
+1. [Twilio 콘솔][twilio_console]에서 Twilio 계정 및 인증 토큰을 가져옵니다. Twilio를 시작하려면 [https://www.twilio.com/try-twilio][try_twilio]에서 등록하세요. [https://www.twilio.com/pricing][twilio_pricing]에서 가격을 평가할 수 있습니다. Twilio에서 제공하는 API에 대한 내용은 [https://www.twilio.com/voice/api][twilio_api]를 참조하세요.
 2. *Twilio .NET 라이브러리*를 웹 역할에 추가합니다. 이 항목의 뒷부분에 나오는 **웹 역할 프로젝트에 Twilio 라이브러리를 추가하려면**을 참조하세요.
 
 [Azure에서 기본적인 웹 역할][azure_webroles_get_started] 만들기에 익숙해져야 합니다.
@@ -126,7 +126,7 @@ namespace WebRole1
                 // Create a URL using the Twilio message and the user-entered
                 // text. You must replace spaces in the user's text with '%20'
                 // to make the text suitable for a URL.
-                var url = $"http://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
+                var url = $"https://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
                 var twimlUri = new Uri(url);
 
                 // Display the endpoint, API version, and the URL for the message.
@@ -148,7 +148,7 @@ namespace WebRole1
 
 ![Twilio 및 ASP.NET을 사용하는 Azure 통화 응답][twilio_dotnet_basic_form_output]
 
-TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml]서 확인할 수 있습니다. &lt;Say&gt; 및 기타 Twilio 동사에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml/say][twilio_say]에서 찾을 수 있습니다.
+TwiML에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml][twiml]서 확인할 수 있습니다. &lt;Say&gt; 및 기타 Twilio 동사에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml/say][twilio_say]에서 찾을 수 있습니다.
 
 ## <a id="nextsteps"></a>다음 단계
 이 코드는 Azure에서 ASP.NET 웹 역할의 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예: 
@@ -162,15 +162,15 @@ TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml
 * [Azure에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
-[twilio_pricing]: http://www.twilio.com/pricing
-[try_twilio]: http://www.twilio.com/try-twilio
-[twilio_api]: http://www.twilio.com/voice/api
+[twilio_pricing]: https://www.twilio.com/pricing
+[try_twilio]: https://www.twilio.com/try-twilio
+[twilio_api]: https://www.twilio.com/voice/api
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified
 
 [twilio_dotnet_basic_form]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form.png
 [twilio_dotnet_basic_form_output]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form_output.png
 
-[twiml]: http://www.twilio.com/docs/api/twiml
+[twiml]: https://www.twilio.com/docs/api/twiml
 
 
 
@@ -181,10 +181,10 @@ TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml
 [howto_sql_azure_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/sql-database/
 
 
-[twilio_docs_security]: http://www.twilio.com/docs/security
-[twilio_docs]: http://www.twilio.com/docs
-[twilio_say]: http://www.twilio.com/docs/api/twiml/say
+[twilio_docs_security]: https://www.twilio.com/docs/security
+[twilio_docs]: https://www.twilio.com/docs
+[twilio_say]: https://www.twilio.com/docs/api/twiml/say
 
 
-[azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
+[azure_runtime_ref_dotnet]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 [azure_webroles_get_started]: https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-get-started

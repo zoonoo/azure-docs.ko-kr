@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 1615d7e37119f185ebbb3bd674bc006d96d72e4d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 62872a3fd3e6e830e25fc4cdba01d1f32b80db91
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030172"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446537"
 ---
 # <a name="url-entity"></a>URL 엔터티
 URL 엔터티는 도메인 이름 또는 IP 주소를 사용하여 URL을 추출합니다. 이 엔터티를 이미 학습했기 때문에 URL을 응용 프로그램에 포함하는 예제 발언을 추가할 필요가 없습니다. URL 엔터티는 `en-us` 문화권에서만 지원됩니다. 

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 2aef9b6f32d562776be3e3da25b017d5ff88c4c4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 1b681b4344512f26f1edc4a5264e718deac569ae
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024333"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441692"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Azure API Management 인스턴스 업그레이드 및 크기 조정  
 
@@ -40,6 +40,8 @@ ms.locfileid: "50024333"
 + APIM 인스턴스 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
 
 + [Azure API Management 인스턴스의 용량](api-management-capacity.md)에 대한 개념을 이해합니다.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="upgrade-and-scale"></a>업그레이드 및 크기 조정  
 

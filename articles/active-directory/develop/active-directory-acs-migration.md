@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: da114cc343d04165d5a6a2137aeb2b675258230a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 805270fa4cc051929ecb1362f2d3cd4455a17a60
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015335"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423384"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -113,7 +113,7 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 
 Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 
-- **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `http://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
+- **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `https://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
 - **2018년 4월 2일**: Azure 클래식 포털이 완전히 사용 중지됩니다. 즉, 더 이상 URL을 통해 Access Control 네임스페이스 관리를 사용할 수 없습니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 `https://\<namespace\>.accesscontrol.windows.net`에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
 - **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control(\<namespace\>.accesscontrol.windows.net에 위치)로 전송된 모든 요청이 실패합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
 
@@ -139,7 +139,7 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 | Azure Backup | [Azure Backup 에이전트 업그레이드](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
-<!-- Azure RemoteApp deprecated in favor of Citrix: http://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
+<!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
 <!-- Exchange push notifications are moving, customers don't need to move -->
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->

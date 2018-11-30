@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 678a31b8c07b21e4bb2c43b8e8bc286d66ee4bab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a5717f95e5e40fe04f4fa22eaedf168539e20f3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233748"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309232"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
 [Application Insights](app-insights-overview.md)에서 [경고](app-insights-alerts.md)의 구성을 자동화할 수 있습니다.
@@ -43,15 +43,15 @@ Azure PowerShell을 시작하고 [구독에 연결](/powershell/azure/overview)�
 
 ```PowerShell
 
-    Add-AzureAccount
+    Add-AzureRmAccount
 ```
 
 
 ## <a name="get-alerts"></a>경고 받기
-    Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+    Get-AzureRmAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## <a name="add-alert"></a>경고 추가
-    Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
+    Add-AzureRmMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
      -MetricName "{METRIC NAME}" `
@@ -70,7 +70,7 @@ HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 �
 
 GUID는 구독 ID입니다(응용 프로그램의 계측 키 아님).
 
-    Add-AlertRule -Name "slow responses" `
+    Add-AzureRmMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -84,7 +84,7 @@ GUID는 구독 ID입니다(응용 프로그램의 계측 키 아님).
 ## <a name="example-2"></a>예 2
 [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric)을 사용하여 "salesPerHour"라는 메트릭을 보고하는 응용 프로그램이 있습니다. 24시간 이상 평균 "salesPerHour"가 100 미만으로 떨어지는 경우 동료에게 전자 메일을 보냅니다.
 
-    Add-AlertRule -Name "poor sales" `
+    Add-AzureRmMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `

@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347786"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422256"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 응용 프로그램에 디버그
 
@@ -32,7 +32,7 @@ ms.locfileid: "44347786"
 내 앱 보안 로그인 확장을 다운로드하고 설치하려면 다음 링크 중 하나를 사용합니다.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 
@@ -75,7 +75,7 @@ AAD 및 대상 응용 프로그램 간 SAML 기반 Single Sign-On을 테스트�
     - 문제의 근본 원인을 확인하는 명령문입니다.
 2.  Azure AD로 다시 돌아가 **Single Sign-On 테스트** 블레이드를 찾습니다.
 3.  위의 **해결 지침 가져오기** 텍스트 상자에서 오류 메시지를 붙여넣습니다.
-3.  **해결 지침 가져오기**를 클릭하여 문제 해결을 위한 단계를 표시합니다. 이 지침은 SAML 요청 또는 SAML 응답에서 정보를 요구할 수 있습니다. 내 앱 보안 로그인 확장을 사용하지 않는 경우 SAML 요청 및 응답을 검색하려면 [Fiddler](http://www.telerik.com/fiddler) 같은 도구가 필요할 수 있습니다.
+3.  **해결 지침 가져오기**를 클릭하여 문제 해결을 위한 단계를 표시합니다. 이 지침은 SAML 요청 또는 SAML 응답에서 정보를 요구할 수 있습니다. 내 앱 보안 로그인 확장을 사용하지 않는 경우 SAML 요청 및 응답을 검색하려면 [Fiddler](https://www.telerik.com/fiddler) 같은 도구가 필요할 수 있습니다.
 4.  SAML 요청의 대상이 Azure Active Directory에서 가져온 SAML Single Sign-On 서비스 URL에 해당하는지 확인합니다.
 5.  SAML 요청의 발급자가 Azure Active Directory의 응용 프로그램에 대해 구성한 것과 동일한 식별자인지 확인입니다. Azure AD는 사용자 디렉터리에서 응용 프로그램을 찾는 데 발급자를 사용합니다.
 6.  AssertionConsumerServiceURL은 응용 프로그램이 Azure Active Directory에서 SAML 토큰을 수신하려는 위치인지 확인합니다. Azure Active Directory에서 이 값을 구성할 수 있지만 SAML 요청에 포함된 경우에는 필수적이지 않습니다.
@@ -90,7 +90,7 @@ AAD 및 대상 응용 프로그램 간 SAML 기반 Single Sign-On을 테스트�
 1. 응용 프로그램이 Azure AD 갤러리에 있는 경우 Azure AD와 응용 프로그램의 통합을 위한 모든 단계를 따랐는지 확인합니다. 응용 프로그램에 대한 통합 지침을 찾으려면 [SaaS 응용 프로그램 통합 자습서 목록](../saas-apps/tutorial-list.md)을 참조합니다.
 2. SAML 응답을 검색합니다.
     - 내 앱 보안 로그인 확장이 설치된 경우 **Single Sign-On 테스트** 블레이드에서 **SAML 응답 다운로드**를 클릭합니다.
-    - 확장이 설치되지 않은 경우 [Fiddler](http://www.telerik.com/fiddler) 같은 도구를 사용하여 SAML 응답을 검색합니다. 
+    - 확장이 설치되지 않은 경우 [Fiddler](https://www.telerik.com/fiddler) 같은 도구를 사용하여 SAML 응답을 검색합니다. 
 3. SAML 응답 토큰에서 이러한 요소를 확인합니다.
     - NameID 값과 형식의 사용자 고유 식별자
     - 토큰에서 발급된 클레임

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231535"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426257"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>에너지 수요 예측을 위한 Cortana Intelligence 솔루션 템플릿 플레이 북
 ## <a name="executive-summary"></a>요약
@@ -122,7 +122,7 @@ LTLF에 대한 소비량 시나리오는 대부분 계획 중이므로 STLF에 �
 ### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>사용 사례 예 1: eSmart 시스템 - 오버로드 최적화
 [스마트 그리드](https://en.wikipedia.org/wiki/Smart_grid) 의 중요한 역할은 변동되는 소비량 패턴을 동적으로 지속적으로 최적화하고 조정하는 것입니다. 전력 소비량은 주로 온도 변화로 인한 장기 변동의 영향을 받을 수 있습니다(*예:* 냉방 또는 난방에 많은 전력이 사용됨). 이와 동시에 전력 소비량은 장기 추세의 영향도 받습니다. 여기에는 계절성 효과, 국경일, 장기 소비량 증가 및 소비자 지수, 유가 및 GDP와 같은 경제적 요인도 포함될 수 있습니다.
 
-이 사용 사례에서 [eSmart](http://www.esmartsystems.com/) 는 그리드의 지정된 변전소에서 오버로드 상황의 성향을 예측할 수 있는 클라우드 기반 솔루션을 배포하려고 합니다. 특히, eSmart는 1시간 이내 오버로드가 발생할 가능성이 있는 변전소를 식별하여 즉각적인 조치를 취하고 해당 상황을 피하거나 해결하려고 합니다.
+이 사용 사례에서 [eSmart](https://www.esmartsystems.com/) 는 그리드의 지정된 변전소에서 오버로드 상황의 성향을 예측할 수 있는 클라우드 기반 솔루션을 배포하려고 합니다. 특히, eSmart는 1시간 이내 오버로드가 발생할 가능성이 있는 변전소를 식별하여 즉각적인 조치를 취하고 해당 상황을 피하거나 해결하려고 합니다.
 
 정확하고 신속한 예측 수행을 위해서는 세 가지 예측 모델을 구현해야 합니다.
 
@@ -365,7 +365,7 @@ MAPE는 절대 평균 백분율 오차(Mean Absolute Percentage Error)를 나타
 에너지 수요 예측의 컨텍스트 내에서는 지속적이고 정기적인 예측을 호출하는 동시에 모델에 대해 최신 데이터를 사용할 수 있고 예측된 데이터를 다시 소비 클라이언트로 전송하도록 하는 것을 목표로 합니다.
 
 ### <a name="web-services-deployment"></a>웹 서비스 배포
-Azure 기계 학습에서 기본 배포 가능한 구성 요소는 웹 서비스입니다. 클라우드에서 예측 모델을 사용할 수 있는 가장 효과적인 방법입니다. 웹 서비스는 모델을 캡슐화하여 [RESTful](http://www.restapitutorial.com/) API(응용 프로그래밍 인터페이스)로 래핑합니다. 아래 다이어그램에 나타난 것처럼 클라이언트 코드의 일부로 API를 사용할 수 있습니다.
+Azure 기계 학습에서 기본 배포 가능한 구성 요소는 웹 서비스입니다. 클라우드에서 예측 모델을 사용할 수 있는 가장 효과적인 방법입니다. 웹 서비스는 모델을 캡슐화하여 [RESTful](https://www.restapitutorial.com/) API(응용 프로그래밍 인터페이스)로 래핑합니다. 아래 다이어그램에 나타난 것처럼 클라이언트 코드의 일부로 API를 사용할 수 있습니다.
 
 ![배포 및 소비 서비스](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 

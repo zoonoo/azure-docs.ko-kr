@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: ac4aa3c8aafae24736cc7b48a9ca4e8ba9fd0742
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e3dfbc4fc4d7ed40ebac7de6fe78398b13eafd58
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125190"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316551"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Azure Security Center에서 SQL 정보 보호 정책 사용자 지정
  
@@ -86,7 +86,7 @@ Azure 테넌트에 대한 정보 보호 정책을 사용자 지정하려면 [테
 Azure Security Center에서 보안 정책 및 데이터 보안에 대한 자세한 내용은 다음 문서를 참조하세요.
  
 - [보안 정책 개요](security-center-policies-overview.md): Security Center에서 보안 정책 개요를 가져옵니다.
-- [Azure Security Center에서 보안 정책 설정](security-center-policies.md): Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+- [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md): Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 - [Azure Security Center 데이터 보안](security-center-data-security.md): Security Center에서 데이터를 관리하고 보호하는 방법을 알아봅니다.
 
 

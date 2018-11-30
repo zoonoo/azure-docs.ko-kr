@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238780"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317498"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Security Center에서 보안 구성 수정
 Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 체제)를 매일 분석하여 이러한 VM과 컴퓨터를 공격에 보다 취약하게 만들 수 있는 구성을 확인합니다. Security Center에서는 OS 구성이 권장 보안 구성 규칙과 일치하지 않을 경우 취약성을 해결하도록 권장하며, 이러한 취약성 해결을 위해 구성을 변경하는 것이 좋습니다.
@@ -101,7 +101,7 @@ Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 �
 Security Center에 대해 알아보려면 다음 리소스를 참조하세요.
 
 * 지원되는 Windows 및 Linux VM의 목록은 [Azure Security Center에서 지원되는 플랫폼](security-center-os-coverage.md)을 참조하세요.
-* Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아보려면 [Azure Security Center에서 보안 정책 설정](security-center-policies.md)을 참조하세요.
+* Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아보려면 [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md)을 참조하세요.
 * 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아보려면 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 * Azure 리소스의 상태를 모니터링하는 방법을 알아보려면 [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)을 참조하세요.
 * 보안 경고를 관리하고 대응하는 방법을 알아보려면 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.

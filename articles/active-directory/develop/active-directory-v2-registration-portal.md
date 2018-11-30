@@ -17,12 +17,12 @@ ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 0a9ec2e84197729f98fbf90bac53b505a8c99a19
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190118"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427345"
 ---
 # <a name="app-registration-reference"></a>앱 등록 참조
 이 문서에서는 [Microsoft 앱 등록 포털](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/)에 있는 다양한 기능에 대한 컨텍스트와 설명을 제공합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "43190118"
 이 목록에는 Microsoft 계정으로만 사용하도록 등록된 모든 응용 프로그램이 포함되어 있습니다. Azure Active Directory에는 사용할 수 없습니다. 여기서는 이전에 `https://account.live.com/developers/applications`의 MSA 개발자 포털에 등록된 모든 응용 프로그램을 찾을 수 있습니다. 이전에 `https://account.live.com/developers/applications`에서 수행한 모든 함수를 이제 이 새 포털 `https://apps.dev.microsoft.com`에서 수행할 수 있습니다.
 
 ## <a name="application-secrets"></a>응용 프로그램 암호
-응용 프로그램 암호는 Azure AD에서 응용 프로그램에서 신뢰할 수 있는 [클라이언트 인증](http://tools.ietf.org/html/rfc6749#section-2.3) 이 되도록 하는 자격 증명입니다. OAuth 및 OpenID Connect에서 응용 프로그램 비밀은 일반적으로 `client_secret`라고 합니다. v2.0 프로토콜에서, 웹 주소 지정 가능한 위치에서 `https` 구성표를 사용하여 보안 토큰을 받는 모든 응용 프로그램에서는 해당 보안 토큰 상환 시 Azure AD에서 자신을 식별할 수 있도록 응용 프로그램 암호를 사용해야 합니다. 또한 장치에서 토큰을 받는 모든 네이티브 클라이언트는 응용 프로그램 비밀을 사용하여 클라이언트 인증을 수행할 수 없도록 금지됩니다. 이에 따라 안전하지 않은 환경에서 비밀을 저장할 필요가 없습니다.
+응용 프로그램 암호는 Azure AD에서 응용 프로그램에서 신뢰할 수 있는 [클라이언트 인증](https://tools.ietf.org/html/rfc6749#section-2.3) 이 되도록 하는 자격 증명입니다. OAuth 및 OpenID Connect에서 응용 프로그램 비밀은 일반적으로 `client_secret`라고 합니다. v2.0 프로토콜에서, 웹 주소 지정 가능한 위치에서 `https` 구성표를 사용하여 보안 토큰을 받는 모든 응용 프로그램에서는 해당 보안 토큰 상환 시 Azure AD에서 자신을 식별할 수 있도록 응용 프로그램 암호를 사용해야 합니다. 또한 장치에서 토큰을 받는 모든 네이티브 클라이언트는 응용 프로그램 비밀을 사용하여 클라이언트 인증을 수행할 수 없도록 금지됩니다. 이에 따라 안전하지 않은 환경에서 비밀을 저장할 필요가 없습니다.
 
 각 앱에는 지정된 시점에 유효한 두 개의 응용 프로그램 비밀이 포함될 수 있습니다. 두 개의 비밀을 유지하여 응용 프로그램의 전체 환경에서 정기적으로 키 롤오버를 수행할 수 있습니다. 응용 프로그램 전체를 새 비밀로 마이그레이션하면 이전 비밀을 삭제하고 새 비밀을 프로비전할 수 있습니다.
 

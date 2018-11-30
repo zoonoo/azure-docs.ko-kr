@@ -2,25 +2,21 @@
 title: 데이터 과학자를 위한 팀 데이터 과학 프로세스 | Microsoft Docs
 description: 팀 데이터 과학 프로세스 및 Azure Machine Learning을 사용하여 분석 워크로드를 이해하기 위한 지침을 제공합니다.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 80f006c4e8f051c3f744168be114f1c9fb3b1a0f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ddf73f15dc7c269ba3bf9a2912c3713fd4e847f2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092494"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497582"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>데이터 과학자를 위한 팀 데이터 과학 프로세스
 
@@ -65,7 +61,7 @@ ms.locfileid: "50092494"
 | Power BI를 사용하여 결과 시각화                                                         | [Power BI](https://powerbi.microsoft.com/guided-learning/)                                                                                     | Power BI는 Microsoft의 데이터 시각화 도구입니다. 웹에서 모바일 장치 및 데스크톱 컴퓨터를 포함한 여러 플랫폼에서 제공됩니다. 이 문서에서 Azure Storage의 결과에 액세스하고 Power BI를 사용하는 시각화를 만들어서 만든 솔루션의 출력을 사용하는 방법을 알아봅니다.                                                                                                                                                                                                                                                                                                                             | [Power BI에서 이 자습서를 완료합니다.](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) 그런 다음 실험 실행에서 만든 Blob CSV에 Power BI를 연결합니다.                                                                                                                                                                                                                                                                       |
 | 솔루션 모니터링                                                                     | [Application Insights](../../application-insights/app-insights-overview.md)                                            | 최종 솔루션을 모니터링하는 데 사용할 수 있는 여러 도구가 있습니다. Azure Application Insights를 사용하면 솔루션에 기본 제공 모니터링을 쉽게 통합할 수 있습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [응용 프로그램을 모니터링하도록 Application Insights를 설정합니다](https://cmatskas.com/visual-studio-code-integration-with-azure-application-insights/).                                                                                                                                                                                                                                                                                                                  |
 |                                                                                           | [Azure Log Analytics](../../log-analytics/log-analytics-overview.md)                                                   | 응용 프로그램을 모니터링하는 다른 방법은 DevOps 프로세스에 통합하는 것입니다. Azure Log Analytics 시스템은 분석 솔루션을 배포한 후에 감시할 수 있는 많은 기능을 제공합니다.                                                                                                                                                                                                                                                                                                                                                                                                                       | Azure Log Analytics를 사용하여 [이 자습서를 완료합니다](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal).                                                                                                                                                                                                                                                                                                       |
-| 이 학습 경로 완료                                                               | 시도할 추가 프로젝트                                                                                                                           | 축하합니다! 이 학습 경로를 완료했습니다. 자세한 내용은 더 많이 있습니다. 고급 예제는 Azure Machine Learning 서비스에서 고객 변동 모델을 빌드하는 것입니다. [여기에서 사용해 보세요!](../desktop-workbench/scenario-churn-prediction.md)                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| 이 학습 경로 완료                                                               |                                                                                                                           | 축하합니다! 이 학습 경로를 완료했습니다. 자세한 내용은 더 많이 있습니다.                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 ## <a name="next-steps"></a>다음 단계
 [개발자 작업용 팀 데이터 과학 프로세스](team-data-science-process-for-devops.md) 이 문서는 고급 분석 및 Cognitive Services 솔루션 구현에 관련된 DevOps(개발자 작업) 함수를 탐색합니다. 

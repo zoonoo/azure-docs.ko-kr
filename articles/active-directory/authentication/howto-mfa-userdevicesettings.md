@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2f73d9795ba807e5901568507ad2fae5b001c91a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: cf470ad14c27fd36cf60bb540e823b15fc58eded
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161292"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496905"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
 
@@ -54,7 +54,7 @@ ms.locfileid: "39161292"
 10. **닫기**를 클릭합니다.
 
 ## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>사용자에 대해 기억된 모든 장치에서 MFA 복원
-Azure Multi-Factor Authentication의 구성 가능한 기능 중 하나는 사용자에게 장치를 신뢰할 수 있는 것으로 표시하는 옵션을 제공하는 것입니다. 자세한 내용은 [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md#remember-multi-factor-authentication-for-devices-that-users-trust)을 참조하세요.
+Azure Multi-Factor Authentication의 구성 가능한 기능 중 하나는 사용자에게 장치를 신뢰할 수 있는 것으로 표시하는 옵션을 제공하는 것입니다. 자세한 내용은 [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md#remember-multi-factor-authentication)을 참조하세요.
 
 사용자는 일반 장치에서 구성 가능한 일 수 동안 2단계 인증을 옵트아웃(opt out)할 수 있습니다. 계정이 손상되거나 신뢰할 수 있는 장치를 분실한 경우 신뢰할 수 있는 상태를 제거할 수 있어야 하고 다시 2단계 인증이 필요합니다.
 

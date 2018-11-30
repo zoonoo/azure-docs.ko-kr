@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
-ms.openlocfilehash: 9211a487b9e03d2cecead224584077859bfc7bb7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e25b1e08ea6cb395381c065621e1137eaec2fe20
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253689"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314811"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center 및 Azure Virtual Machines
 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 통해 위협을 예방하고 감지하며 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
@@ -58,7 +58,7 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 ![보안 정책](./media/security-center-virtual-machine/security-center-virtual-machine-fig1.png)
 
 > [!NOTE]
-> 사용 가능한 각 **방지 정책**을 알아보려면 [보안 정책 설정](security-center-policies.md) 문서를 참조하세요.
+> 사용 가능한 각 **방지 정책**을 알아보려면 [보안 정책 설정](security-center-azure-policy.md) 문서를 참조하세요.
 > 
 > 
 
@@ -85,7 +85,7 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 > 
 
 ## <a name="monitor-security-health"></a>보안 상태 모니터링
-구독의 리소스에 대한 [보안 정책](security-center-policies.md) 을 활성화한 후에 보안 센터는 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다.  **리소스 보안 상태** 블레이드의 문제와 함께 리소스의 보안 상태를 볼 수 있습니다. **리소스 보안** 상태 타일에서 **가상 머신**을 클릭하면 VM에 대한 권장 사항이 포함된 **가상 머신** 블레이드가 열립니다. 
+구독의 리소스에 대한 [보안 정책](security-center-azure-policy.md) 을 활성화한 후에 보안 센터는 리소스의 보안을 분석하여 잠재적 취약성을 식별합니다.  **리소스 보안 상태** 블레이드의 문제와 함께 리소스의 보안 상태를 볼 수 있습니다. **리소스 보안** 상태 타일에서 **가상 머신**을 클릭하면 VM에 대한 권장 사항이 포함된 **가상 머신** 블레이드가 열립니다. 
 
 ![보안 상태](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -99,7 +99,7 @@ Azure Security Center에서 구성한 보안 정책을 기반으로 생성된 �
 ## <a name="see-also"></a>참고 항목
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-policies.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 

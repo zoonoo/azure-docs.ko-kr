@@ -3,19 +3,19 @@ title: 사용자 지정 보기 정의 - Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: 사이트 및 세로 검색 서비스를 만드는 방법을 설명합니다.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.author: aahi
+ms.openlocfilehash: d45d917d733727eca3286bb6335ce77591f39685
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282926"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427287"
 ---
 # <a name="configure-your-custom-search-experience"></a>사용자 지정 검색 환경 구성
 
@@ -160,7 +160,7 @@ Bing을 사용하여 Custom Search 인스턴스에 조각을 추가하려면 다
 5.  포함하려는 결과 옆에 있는 **사이트 추가**를 클릭합니다.
 6.  **확인** 단추를 클릭합니다.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="view-statistics"></a>통계 보기
 

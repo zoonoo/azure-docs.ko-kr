@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c7d1665eece966053f52e118bb0d6f7f5ec4cba6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957866"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422850"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>방법: ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정
 
@@ -130,7 +130,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3단계: 응용 프로그램에 올바른 사용 권한 설정
 
-Android에서 브로커 응용 프로그램은 Android OS의 계정 관리자 기능을 사용하여 응용 프로그램 간에 자격 증명을 관리합니다. Android에서 브로커를 사용하려면 앱 매니페스트에 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. 이러한 사용 권한은 [여기의 계정 관리자에 대한 Google 설명서](http://developer.android.com/reference/android/accounts/AccountManager.html)에 자세히 설명돼 있습니다.
+Android에서 브로커 응용 프로그램은 Android OS의 계정 관리자 기능을 사용하여 응용 프로그램 간에 자격 증명을 관리합니다. Android에서 브로커를 사용하려면 앱 매니페스트에 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. 이러한 사용 권한은 [여기의 계정 관리자에 대한 Google 설명서](https://developer.android.com/reference/android/accounts/AccountManager.html)에 자세히 설명돼 있습니다.
 
 특히 이러한 사용 권한은 다음과 같습니다.
 

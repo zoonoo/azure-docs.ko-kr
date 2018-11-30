@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08d9566c3ce8f486465f0ed7fb5aab4419e592d8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e3bd48cf56650e266f5002a179d20177b3127f25
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228592"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426412"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -60,11 +60,11 @@ SAML 응답 메시지 내에서 서명 노드에는 메시지 자체에 대한 �
 
 1. 어설션 노드 자체에 서명해야 합니다.
 2.  RSA-sha1 알고리즘을 DigestMethod로 사용해야 합니다. 기타 디지털 서명 알고리즘은 허용되지 않습니다.
-   `<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>`
+   `<ds:DigestMethod Algorithm="https://www.w3.org/2000/09/xmldsig#sha1"/>`
 3.  XML 문서에 서명을 할 수도 있습니다. 
-4.  Transform 알고리즘은 다음 샘플의 값과 일치해야 합니다. `<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
-       <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.  SignatureMethod 알고리즘은 다음 샘플과 일치해야 합니다. `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+4.  Transform 알고리즘은 다음 샘플의 값과 일치해야 합니다. `<ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+       <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#"/>`
+9.  SignatureMethod 알고리즘은 다음 샘플과 일치해야 합니다. `<ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>지원되는 바인딩
 바인딩은 필요한 전송 관련 통신 매개 변수입니다. 바인딩에는 다음 요구 사항이 적용됩니다.
@@ -103,21 +103,21 @@ SAML 응답 메시지 내에서 서명 노드에는 메시지 자체에 대한 �
     </samlp:Status>
     <Assertion ID="_7e3c1bcd-f180-4f78-83e1-7680920793aa" IssueInstant="2014-01-31T15:36:31.279Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
     <Issuer>http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
-    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:Signature xmlns:ds="https://www.w3.org/2000/09/xmldsig#">
       <ds:SignedInfo>
-        <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
-        <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+        <ds:CanonicalizationMethod Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#" />
+        <ds:SignatureMethod Algorithm="https://www.w3.org/2000/09/xmldsig#rsa-sha1" />
         <ds:Reference URI="#_7e3c1bcd-f180-4f78-83e1-7680920793aa">
           <ds:Transforms>
-            <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
-            <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+            <ds:Transform Algorithm="https://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+            <ds:Transform Algorithm="https://www.w3.org/2001/10/xml-exc-c14n#" />
           </ds:Transforms>
-          <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+          <ds:DigestMethod Algorithm="https://www.w3.org/2000/09/xmldsig#sha1" />
           <ds:DigestValue>CBn/5YqbheaJP425c0pHva9PhNY=</ds:DigestValue>
         </ds:Reference>
       </ds:SignedInfo>
       <ds:SignatureValue>TciWMyHW2ZODrh/2xrvp5ggmcHBFEd9vrp6DYXp+hZWJzmXMmzwmwS8KNRJKy8H7XqBsdELA1Msqi8I3TmWdnoIRfM/ZAyUppo8suMu6Zw+boE32hoQRnX9EWN/f0vH6zA/YKTzrjca6JQ8gAV1ErwvRWDpyMcwdYCiWALv9ScbkAcebOE1s1JctZ5RBXggdZWrYi72X+I4i6WgyZcIGai/rZ4v2otoWAEHS0y1yh1qT7NDPpl/McDaTGkNU6C+8VfjD78DrUXEcAfKvPgKlKrOMZnD1lCGsViimGY+LSuIdY45MLmyaa5UT4KWph6dA==</ds:SignatureValue>
-      <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#">
         <ds:X509Data>
           <ds:X509Certificate>MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyhBREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDTE1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9ybWVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/+3ZWxd9T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEMb2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvyJOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBySx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==</ds:X509Certificate>
         </ds:X509Data>
@@ -167,7 +167,7 @@ SAML 2.0 ID 공급자와 Azure AD 간의 통신을 사용하도록 설정해야 
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>SAML 2.0 ID 공급자로 로그온하기 위해 Windows PowerShell 설치
 Azure AD 로그온에 사용하기 위해 SAML 2.0 ID 공급자를 구성하고 다음에 수행할 단계는 Windows PowerShell용 Azure Active Directory 모듈을 다운로드하고 설치하는 것입니다. 일단 설치되면 이러한 cmdlet을 사용하여 Azure AD 도메인을 페더레이션된 도메인으로 구성합니다.
 
-Windows PowerShell용 Azure Active Directory 모듈은 Azure AD에서 조직 데이터를 관리하기 위한 다운로드입니다. 이 모듈은 Windows PowerShell에 cmdlet 집합을 설치합니다. 이러한 cmdlet을 사용하여 Azure AD 및 구독된 모든 클라우드 서비스에 대한 Single Sign-On 액세스를 설정합니다. cmdlet을 다운로드하고 설치하는 방법에 대한 지침을 [http://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)를 참조하세요.
+Windows PowerShell용 Azure Active Directory 모듈은 Azure AD에서 조직 데이터를 관리하기 위한 다운로드입니다. 이 모듈은 Windows PowerShell에 cmdlet 집합을 설치합니다. 이러한 cmdlet을 사용하여 Azure AD 및 구독된 모든 클라우드 서비스에 대한 Single Sign-On 액세스를 설정합니다. cmdlet을 다운로드하고 설치하는 방법에 대한 지침을 [https://technet.microsoft.com/library/jj151815.aspx](httpss://technet.microsoft.com/library/jj151815.aspx)를 참조하세요.
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>SAML ID 공급자 및 Azure AD 간에 트러스트 설정
 Azure AD 도메인에서 페더레이션을 구성하기 전에 사용자 지정 도메인을 먼저 구성해야 합니다. Microsoft에서 제공하는 기본 도메인은 페더레이션할 수 없습니다. Microsoft의 기본 도메인은 "onmicrosoft.com"으로 끝납니다.
@@ -188,14 +188,14 @@ SAML 2.0 ID 공급자를 사용하여 페더레이션하려는 각 Azure Active 
 
 3.  IDP 메타데이터 파일에서 서명 인증서 base64 인코딩 문자열을 얻을 수 있습니다. 이 위치의 예가 제공되어 있으나 구현에 따라 약간 다를 수 있습니다.
 
-    `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
+    `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-“Set-MsolDomainAuthentication”에 대한 자세한 내용은 [http://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx)를 참조하세요.
+“Set-MsolDomainAuthentication”에 대한 자세한 내용은 [https://technet.microsoft.com/library/dn194112.aspx](httpss://technet.microsoft.com/library/dn194112.aspx)를 참조하세요.
 
 >[!NOTE]
 >“$ecpUrl = “https://WS2012R2-0.contoso.com/PAOS””는 ID 공급자에 대해 ECP 확장을 설정한 경우에만 실행해야 합니다. OWA(Outlook Web Application)를 제외한 Exchange Online 클라이언트는 POST 기반 활성 끝점에 의존합니다. SAML 2.0 STS가 Shibboleth의 ECP 활성 끝점 구현과 비슷한 활성 끝점을 구현하는 경우 이러한 리치 클라이언트가 Exchange Online 서비스와 상호 작용할 수 있습니다.
 
-페더레이션이 구성되면 "비페더레이션"(또는 "관리")으로 다시 전환할 수 있지만 이 변경을 완료하려면 최대 2시간이 걸릴 수 있으며 클라우드 기반 로그인을 위한 새 임의 암호를 각 사용자에게 배포해야 합니다. 일부 시나리오에서는 설정의 오류를 복구하기 위해 "관리"로 다시 전환해야 할 수 있습니다. 도메인 변환에 대한 자세한 내용은 [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx)를 참조하세요.
+페더레이션이 구성되면 "비페더레이션"(또는 "관리")으로 다시 전환할 수 있지만 이 변경을 완료하려면 최대 2시간이 걸릴 수 있으며 클라우드 기반 로그인을 위한 새 임의 암호를 각 사용자에게 배포해야 합니다. 일부 시나리오에서는 설정의 오류를 복구하기 위해 "관리"로 다시 전환해야 할 수 있습니다. 도메인 변환에 대한 자세한 내용은 [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx)를 참조하세요.
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Azure AD/Office 365로 사용자 계정 프로비전
 Office 365에서 사용자를 인증하려면 먼저 SAML 2.0 클레임의 어설션에 해당하는 사용자 계정으로 Azure AD를 프로비전해야 합니다. 이러한 사용자 계정이 사전에 Azure AD에 알려져 있지 않으면 페더레이션 로그인에 사용할 수 없습니다. Azure AD Connect 또는 Windows PowerShell을 사용하여 사용자 계정을 프로비전할 수 있습니다.
@@ -218,7 +218,7 @@ Azure AD에 새 사용자 추가를 자동화하고 온-프레미스 디렉터�
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-“New-MsolUser” 체크 아웃에 대한 자세한 내용은 [http://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)을 참조하세요.
+“New-MsolUser” 체크 아웃에 대한 자세한 내용은 [https://technet.microsoft.com/library/dn194096.aspx](httpss://technet.microsoft.com/library/dn194096.aspx)을 참조하세요.
 
 >[!NOTE]
 >"UserPrinciplName" 값은 SAML 2.0 클레임의 "IDPEmail"에 대해 전송하는 값과 일치해야 하고 "ImmutableID" 값은 "NameID" 어설션에 전송된 값과 일치해야 합니다.

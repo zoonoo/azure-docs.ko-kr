@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: a3dadfc4257d43f9df1b93f5d486e5577b7889d6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ad04976136fc8db04dbe52bf78bea49a9149e5db
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055314"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312700"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API에서 인덱싱
 
@@ -99,5 +99,5 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 현재 컬렉션에 문서가 포함되지 않은 경우에만 고유 인덱스를 만들 수 있습니다. 인기 있는 MongoDB 마이그레이션 도구는 데이터를 가져온 후 고유 인덱스를 만들도록 시도합니다. 이 문제를 방지하기 위해 사용자는 마이그레이션 도구를 허용하는 대신 해당 컬렉션 및 고유 인덱스를 수동으로 만드는 것이 좋습니다(```mongorestore```의 경우 이 동작은 명령줄에서 --noIndexRestore 플래그를 사용하여 수행됨).
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?](../cosmos-db/indexing-policies.md)
+* [Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?](../cosmos-db/index-policy.md)
 * [TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료](../cosmos-db/time-to-live.md)

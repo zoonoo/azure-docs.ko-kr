@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 91979d46a341f0892d4e5774246bac5a7897f698
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 756d00786005fb6de26ff363d4e233fc28b48687
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815616"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426845"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 및 OpenID Connect 프로토콜
 
@@ -31,7 +31,7 @@ OpenID Connect는 웹 응용 프로그램에 사용자를 안전하게 로그인
 > [!NOTE]
 > v2.0 엔드포인트에서는 일부 Azure AD(Azure Active Directory) 시나리오 및 기능만 지원합니다. v2.0 엔드포인트를 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html)는 OAuth를 통해 Single Sign-On을 수행할 수 있도록 OAuth 2.0 *권한 부여* 프로토콜을 확장하여 *인증* 프로토콜로 사용합니다. OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 *ID 토큰*의 개념을 소개합니다. ID 토큰은 사용자에 대한 기본 프로필 정보도 가져옵니다. OpenID Connect는 OAuth 2.0을 확장하기 때문에 앱에서 [권한 부여 서버](active-directory-v2-protocols.md#the-basics)로 보안이 유지되는 리소스에 액세스하는 데 사용할 수 있는 *액세스 토큰*을 안전하게 획득할 수 있습니다. 또한 v2.0 엔드포인트는 Azure AD에 등록된 타사 앱이 Web API와 같은 안전한 리소스에 대한 액세스 토큰을 발급할 수 있도록 허용합니다. 액세스 토큰을 발급하도록 응용 프로그램을 설정하는 방법에 대한 자세한 내용은 [v2.0 엔드포인트로 앱을 등록하는 방법](quickstart-v2-register-an-app.md)을 참조하세요. 서버에서 호스트되고 브라우저를 통해 액세스되는 [웹 응용 프로그램](v2-app-types.md#web-apps) 을 빌드하는 경우 OpenID Connect를 사용하는 것이 좋습니다.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)는 OAuth를 통해 Single Sign-On을 수행할 수 있도록 OAuth 2.0 *권한 부여* 프로토콜을 확장하여 *인증* 프로토콜로 사용합니다. OpenID Connect는 클라이언트가 사용자 ID를 확인할 수 있게 하는 보안 토큰인 *ID 토큰*의 개념을 소개합니다. ID 토큰은 사용자에 대한 기본 프로필 정보도 가져옵니다. OpenID Connect는 OAuth 2.0을 확장하기 때문에 앱에서 [권한 부여 서버](active-directory-v2-protocols.md#the-basics)로 보안이 유지되는 리소스에 액세스하는 데 사용할 수 있는 *액세스 토큰*을 안전하게 획득할 수 있습니다. 또한 v2.0 엔드포인트는 Azure AD에 등록된 타사 앱이 Web API와 같은 안전한 리소스에 대한 액세스 토큰을 발급할 수 있도록 허용합니다. 액세스 토큰을 발급하도록 응용 프로그램을 설정하는 방법에 대한 자세한 내용은 [v2.0 엔드포인트로 앱을 등록하는 방법](quickstart-v2-register-an-app.md)을 참조하세요. 서버에서 호스트되고 브라우저를 통해 액세스되는 [웹 응용 프로그램](v2-app-types.md#web-apps) 을 빌드하는 경우 OpenID Connect를 사용하는 것이 좋습니다.
 
 ## <a name="protocol-diagram-sign-in"></a>프로토콜 다이어그램: 로그인
 
@@ -116,7 +116,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | scope |필수 |공백으로 구분된 범위 목록입니다. OpenID Connect의 경우 동의 UI에서 "로그인" 권한으로 해석되는 `openid`범위가 포함되어야 합니다. 동의를 요청하기 위해 이 요청에 다른 범위를 포함할 수도 있습니다. |
 | nonce |필수 |앱에서 생성한 요청에 포함되는 값이며, 결과 id_token 값에 클레임으로 포함됩니다. 앱은 이 값을 확인하여 토큰 재생 공격을 완화할 수 있습니다. 이 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | response_mode |권장 |결과 권한 부여 코드를 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. `form_post` 또는 `fragment`일 수 있습니다. 웹 응용 프로그램의 경우 응용 프로그램에 대한 가장 안전한 토큰 전송을 보장하기 위해 `response_mode=form_post`를 사용하는 것이 좋습니다. |
-| state |권장 |토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](http://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
+| state |권장 |토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 또한 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
 | prompt |옵션 |필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다. `prompt=login` 클레임은 사용자가 해당 요청에 자격 증명을 입력하도록 하여 Single-Sign On을 무효화합니다. `prompt=none` 클레임은 반대입니다. 이 클레임은 사용자에게 어떤 대화형 메시지도 표시되지 않도록 합니다. Single-Sign On을 통해 요청이 자동으로 완료될 수 없는 경우에 v2.0 엔드포인트는 오류를 반환합니다. `prompt=consent` 클레임은 사용자가 로그인 한 후 OAuth 동의 대화 상자를 트리거합니다. 이 대화 상자에서는 앱에 권한을 부여하도록 사용자에게 요청합니다. |
 | login_hint |옵션 |사용자 이름을 미리 알고 있는 경우 이 매개 변수를 사용하여 사용자를 위해 로그인 페이지의 사용자 이름 및 전자 메일 주소 필드를 미리 채울 수 있습니다. 앱에서는 종종 `preferred_username` 클레임을 사용하여 이전 로그인에서 사용자 이름을 이미 추출한 후 재인증 과정에서 이 매개 변수를 사용합니다. |
 | domain_hint |옵션 |이 값은 `consumers` 또는 `organizations`일 수 있습니다. 포함된 경우, v2.0 로그인 페이지를 거친 사용자가 좀 더 효율적인 사용자 경험을 가질 수 있도록 전자 메일 기반 검색 프로세스를 건너뜁니다. 앱에서는 종종 ID 토큰에서 `tid` 클레임을 추출하여 재인증 과정에서 이 매개 변수를 사용합니다. `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`(Microsoft 계정 소비자 테넌트)인 경우 `domain_hint=consumers`를 사용합니다. 그렇지 않으면 `domain_hint=organizations`를 사용합니다. |
@@ -175,7 +175,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 ## <a name="validate-the-id-token"></a>ID 토큰 유효성 검사
 
-id_token을 받는 것만으로는 사용자를 인증하는 데 충분하지 않습니다. id_token의 서명 유효성을 검사하고 앱의 요구 사항에 따라 토큰의 클레임을 확인해야 합니다. v2.0 엔드포인트는 [JWT(JSON 웹 토큰)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 및 공개 키 암호화를 사용하여 토큰에 서명하고 토큰이 유효한지 확인합니다.
+id_token을 받는 것만으로는 사용자를 인증하는 데 충분하지 않습니다. id_token의 서명 유효성을 검사하고 앱의 요구 사항에 따라 토큰의 클레임을 확인해야 합니다. v2.0 엔드포인트는 [JWT(JSON 웹 토큰)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) 및 공개 키 암호화를 사용하여 토큰에 서명하고 토큰이 유효한지 확인합니다.
 
 클라이언트 코드에서 `id_token`의 유효성을 검사하도록 선택할 수 있지만, 일반적으로 `id_token`을 백 엔드 서버에 보내서 그 곳에서 유효성 검사를 수행합니다. id_token의 서명 유효성을 검사한 후 확인해야 하는 몇 개의 클레임이 있습니다. [토큰 유효성 검사](id-tokens.md#validating-an-idtoken) 및 [서명 키 롤오버에 대한 중요한 정보](active-directory-signing-key-rollover.md)를 포함한 자세한 내용은 [`id_token` 참조](id-tokens.md)를 확인하세요. 대부분의 언어 및 플랫폼에서 사용할 수 있는 하나 이상의 토큰의 구문 분석 및 유효성 검사에 대한 라이브러리를 사용하는 것이 좋습니다.
 <!--TODO: Improve the information on this-->

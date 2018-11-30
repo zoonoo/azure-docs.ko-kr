@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eb0fa1edaadddfe055f3fc53a6d232e5a1293490
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230949"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424938"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -212,7 +212,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 
 2단계 인증이 필요한 계정에서 작동하지 않는 로컬 컴퓨터에 설치된 비브라우저 응용 프로그램에 로그인을 시도할 때 0x800434D4L 오류가 발생합니다.
 
-이 오류를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이 해결책에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능을 제공하는](http://help.outlook.com/141/gg709759.aspx?sl=1) 방법을 참조하세요.
+이 오류를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이 해결책에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능을 제공하는](https://help.outlook.com/141/gg709759.aspx?sl=1) 방법을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

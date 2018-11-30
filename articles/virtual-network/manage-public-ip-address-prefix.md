@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 32ad02583f84a84c494dc8300834cd9ff2f0d771
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a0ae1f3fbf9189068cae4b18ac92f0bea0498f67
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094976"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427576"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>공용 IP 주소 접두사 만들기, 변경 또는 삭제
 
@@ -91,7 +91,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 |도구|명령|
 |---|---|
-|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list): 공용 IP 주소를 나열함, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show): 설정을 표시함, [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update): 업데이트함, [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete): 삭제함|
+|CLI|[az network public-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list): 공용 IP 주소를 나열함, [az network public-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show): 설정을 표시함, [az network public-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-update): 업데이트함, [az network public-ip prefix delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete): 삭제함|
 |PowerShell|[Get-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/get-azurermpublicipprefix): 공용 IP 주소 개체를 검색하고 해당 설정을 확인함, [Set-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/set-azurermpublicipprefix): 설정을 업데이트함, [Remove-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/remove-azurermpublicipprefix): 삭제함|
 
 ## <a name="permissions"></a>권한

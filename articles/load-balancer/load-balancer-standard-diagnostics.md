@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 6c730455e2d8b590a4e4b9ca0392985918678bf4
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167701"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426471"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>표준 Load Balancer에 대한 메트릭 및 상태 진단
 
@@ -220,6 +220,6 @@ SYN 패킷 메트릭은 특정 프런트 엔드와 관련해서 도착했거나 
 - [Standard Load Balancer](load-balancer-standard-overview.md)에 대해 자세히 알아보세요.
 - [Load Balancer 아웃바운드 연결](https://aka.ms/lboutbound)에 대해 자세히 알아봅니다.
 - [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)에 대해 자세히 알아봅니다.
-- [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) 및 [REST API를 통해 메트릭을 검색하는 방법](https://docs.microsoft.com/rest/api/monitor/metrics/metrics_list)에 대해 자세히 알아봅니다.
+- [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) 및 [REST API를 통해 메트릭을 검색하는 방법](/rest/api/monitor/metrics/list)에 대해 자세히 알아봅니다.
 
 

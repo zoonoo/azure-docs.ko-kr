@@ -10,18 +10,18 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 27a4bccfbac73c7c8c902a59fdd4cafe0c420c31
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635090"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634543"
 ---
 # <a name="install-and-run-containers"></a>컨테이너 설치 및 실행
 
 컨테이너화는 애플리케이션 또는 서비스를 컨테이너 이미지로 패키지하는 소프트웨어 배포 방법입니다. 애플리케이션 또는 서비스에 대한 구성 및 종속성이 컨테이너 이미지에 포함됩니다. 그런 다음, 컨테이너 이미지를 거의 또는 전혀 수정하지 않고 컨테이너 호스트에 배포할 수 있습니다. 컨테이너는 가상 머신보다 더 작은 공간을 사용하여 서로 간에 또는 기본 운영 체제로부터 격리됩니다. 컨테이너는 단기 작업을 위해 컨테이너 이미지에서 인스턴스화할 수 있으며 더 이상 필요하지 않을 때 제거할 수 있습니다.
 
-Face는 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별하는 Face라는 표준화된 Docker용 Linux 컨테이너를 제공합니다. Face는 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 또한 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수 있습니다.
+Face는 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별하는 Face라는 표준화된 Docker용 Linux 컨테이너를 제공합니다. Face는 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -58,9 +58,6 @@ Face 컨테이너를 사용하려면 Azure에 Face 리소스를 만들어야 합
 
 1. Azure Portal에서 Face 리소스를 만듭니다.  
    Face 컨테이너를 사용하려면 먼저 해당 Face 리소스를 Azure Portal에 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Portal에서 Cognitive Services 계정 만들기](../cognitive-services-apis-create-account.md)를 참조하세요.
-
-   > [!IMPORTANT]
-   > Face 리소스는 F0 가격 책정 계층을 사용해야 합니다.
 
 1. Azure 리소스에 대한 엔드포인트 URL 및 구독 키를 가져옵니다.  
    Azure 리소스가 만들어지면 해당 리소스의 엔드포인트 URL 및 구독 키를 사용하여 해당 Face 컨테이너를 인스턴스화해야 합니다. Azure Portal에 있는 Face 리소스의 [빠른 시작] 및 [키] 페이지에서 각각의 엔드포인트 URL과 구독 키를 복사할 수 있습니다.

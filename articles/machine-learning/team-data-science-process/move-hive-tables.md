@@ -1,26 +1,22 @@
 ---
 title: Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드 | Microsoft Docs
 description: Hive 테이블을 만들어서 blob의 데이터를 Hive 테이블에 로드
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: c1cbd523b8c74bf1221dc47b832c35e9119493a9
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 42911c347cd055f37f7fe8f31b6d22cc18a78662
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346289"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442883"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
 

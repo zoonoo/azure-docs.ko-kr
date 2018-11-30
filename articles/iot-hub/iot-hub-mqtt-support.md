@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 53643b185825d4cc03073144e1b3547452629c08
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344968"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497609"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -66,11 +66,11 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
 * **ClientId** 필드에 **deviceId**를 사용합니다.
 
-* **Username** 필드에 `{iothubhostname}/{device_id}/api-version=2016-11-14`를 사용합니다. 여기서 `{iothubhostname}`은 IoT Hub의 전체 CName입니다.
+* **Username** 필드에 `{iothubhostname}/{device_id}/api-version=2018-06-30`를 사용합니다. 여기서 `{iothubhostname}`은 IoT Hub의 전체 CName입니다.
 
     예를 들어, IoT Hub의 이름이 **contoso.azure devices.net**이고 장치의 이름이 **MyDevice01**이면 전체 **Username** 필드에 다음이 포함되어야 합니다.
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`
+    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
 
 * **암호** 필드에는 SAS 토큰을 사용합니다. SAS 토큰의 형식은 HTTPS 및 AMQP 프로토콜에 대해 동일합니다.
 

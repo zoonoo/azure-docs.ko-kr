@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2018
 ms.author: billmath
-ms.openlocfilehash: d76905df230fe9d1a61186cc22d14bb44028e00b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ca200c76596dc1a4f31bf36f00bb1661d12d19f7
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252095"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426369"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Office 365 신뢰 당사자 트러스트에 대한 서명 해시 알고리즘 변경
 ## <a name="overview"></a>개요
@@ -45,7 +45,7 @@ AD FS(Active Directory Federation Services)는 변조될 수 없음을 확인하
 1. AD FS 서버에서 관리자 권한으로 PowerShell을 엽니다.
 2. **Set-AdfsRelyingPartyTrust** cmdlet을 사용하여 보안 해시 알고리즘을 설정합니다.
    
-   <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
+   <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'https://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ## <a name="also-read"></a>참조 항목
 * [Azure AD Connect를 사용하여 Office 365 트러스트 복구](how-to-connect-fed-management.md#repairthetrust)

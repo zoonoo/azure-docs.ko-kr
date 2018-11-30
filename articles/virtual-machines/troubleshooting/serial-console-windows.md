@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 0a4a31a4905de38de444604c8ffdf4d4a2e632d4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e4deb40f2c9dfb080739f4426129223b152baea9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515865"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335660"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Windows용 가상 머신 직렬 콘솔
 
@@ -133,7 +133,7 @@ NMI를 받을 때 크래시 덤프 파일을 만들도록 Windows 구성에 대�
 > 직렬 콘솔을 사용하거나 사용하지 않도록 설정하려면 구독에 대한 쓰기 권한이 있어야 합니다. 이러한 권한에는 관리자 또는 소유자 역할이 포함되지만 이에 국한되지 않습니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
 
 ### <a name="subscription-level-disable"></a>구독 수준에서 비활성화
-[콘솔 REST API 호출 비활성화](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole)를 통해 전체 구독의 직렬 콘솔을 비활성화할 수 있습니다. API 설명서 페이지에서 지원되는 **사용해 보기** 기능을 사용하여 구독의 직렬 콘솔을 비활성화하거나 활성화할 수 있습니다. **subscriptionId**에 대한 구독 ID를 입력하고, **기본값**에 대한 “기본값”을 입력한 다음, **실행**을 선택합니다. Azure CLI 명령은 아직 지원되지 않습니다.
+[콘솔 REST API 호출 비활성화](/rest/api/serialconsole/console/disableconsole)를 통해 전체 구독의 직렬 콘솔을 비활성화할 수 있습니다. API 설명서 페이지에서 지원되는 **사용해 보기** 기능을 사용하여 구독의 직렬 콘솔을 비활성화하거나 활성화할 수 있습니다. **subscriptionId**에 대한 구독 ID를 입력하고, **기본값**에 대한 “기본값”을 입력한 다음, **실행**을 선택합니다. Azure CLI 명령은 아직 지원되지 않습니다.
 
 ![REST API 사용해 보기](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

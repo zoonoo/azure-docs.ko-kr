@@ -1,25 +1,21 @@
 ---
 title: 데이터 과학 팀 프로젝트용 플랫폼 및 도구 - Azure | Microsoft Docs
 description: Team Data Science Process를 표준화하는 기업에서 사용할 수 있는 데이터 및 분석 리소스를 항목별로 정리하고 설명합니다.
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 5cfe86414473f352673f39850a34f8ef265c91f5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258904"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446452"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>데이터 과학 프로젝트용 플랫폼 및 도구
 
@@ -152,4 +148,4 @@ Linux(CentOS) 컴퓨터를 사용하여 git 명령을 실행하는 경우 Azure 
 
 **특정 시나리오** 에 대한 프로세스의 모든 단계를 보여 주는 종합적인 전체 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 항목에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다. 
 
-Azure Machine Learning Studio를 사용하는 Team Data Science Process의 단계를 실행하는 예제는 [Azure ML 사용](https://aka.ms/datascienceprocess) 학습 경로를 참조하세요.
+Azure Machine Learning Studio를 사용하는 Team Data Science Process의 단계를 실행하는 예제는 [Azure ML 사용](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 학습 경로를 참조하세요.

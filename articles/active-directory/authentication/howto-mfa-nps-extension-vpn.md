@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297574"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423120"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -438,7 +438,7 @@ Azure Multi-factor Authentication 로그의 관련 이벤트는 다음과 같습
 
 고급 문제 해결을 수행하려면 NPS 서비스가 설치된 NPS 데이터베이스 형식 로그 파일을 참조하세요. 이 로그 파일은 _%SystemRoot%\System32\Logs_ 폴더에 쉼표로 구분된 텍스트 파일로 만들어집니다. 로그 파일에 대한 자세한 내용은 [NPS 데이터베이스 형식 로그 파일 해석](https://technet.microsoft.com/library/cc771748.aspx)을 참조하세요. 
 
-이러한 로그 파일의 항목은 스프레드시트 또는 데이터베이스로 내보내지 않으면 해석하기 어렵습니다. 온라인에서 로그 파일을 해석하는 데 도움이 되는 많은 IAS(인터넷 인증 서비스) 구문 분석 도구를 찾을 수 있습니다. 다운로드할 수 있는 [셰어웨어 응용 프로그램](http://www.deepsoftware.com/iasviewer)의 출력은 다음과 같습니다. 
+이러한 로그 파일의 항목은 스프레드시트 또는 데이터베이스로 내보내지 않으면 해석하기 어렵습니다. 온라인에서 로그 파일을 해석하는 데 도움이 되는 많은 IAS(인터넷 인증 서비스) 구문 분석 도구를 찾을 수 있습니다. 다운로드할 수 있는 [셰어웨어 응용 프로그램](https://www.deepsoftware.com/iasviewer)의 출력은 다음과 같습니다. 
 
 ![셰어웨어 응용 프로그램](./media/howto-mfa-nps-extension-vpn/image49.png)
 

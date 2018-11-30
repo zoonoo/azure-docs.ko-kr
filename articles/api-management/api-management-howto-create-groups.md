@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5392cf5463dd0b11d1ce53856c8e4e2e788892b0
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38603067"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442424"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법
+
 API Management에서 그룹은 개발자에 대한 제품 표시 여부를 관리하는 데 사용됩니다. 제품이 먼저 그룹에 표시된 다음, 이러한 그룹의 개발자가 그룹과 연결된 제품을 보고 구독할 수 있습니다. 
 
 API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 있습니다.
@@ -34,6 +35,8 @@ API Management에는 다음과 같은 변경할 수 없는 시스템 그룹이 �
 이 가이드에서는 API Management 인스턴스의 관리자가 새 그룹을 추가하고 이 그룹과 새 제품 및 개발자를 연결하는 방법을 보여 줍니다.
 
 게시자 포털에서 그룹 만들기 및 관리 외에도 API Management REST API [그룹](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) 엔터티를 사용하여 그룹을 만들고 관리할 수 있습니다.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 

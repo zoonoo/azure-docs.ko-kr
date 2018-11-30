@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040043"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335626"
 ---
 # <a name="prebuilt-domain-reference"></a>미리 작성된 도메인 참조
 이 참조는 LUIS에서 제공하는 의도 및 엔터티의 미리 작성된 컬렉션에 해당하는 [미리 작성된 도메인](luis-how-to-use-prebuilt-domains.md)에 대한 정보를 제공합니다.
@@ -27,27 +27,27 @@ LUIS는 20가지의 미리 작성된 도메인을 제공합니다.
 
 | 미리 빌드된 도메인 | 설명 | 지원되는 언어 |
 | ---------------- |-----------------------|:------:|
-| Calendar | Calendar 도메인은 약속을 추가, 삭제 또는 편집하고, 참가자 가용성을 확인하고, 일정 이벤트에 대한 정보를 찾기 위한 의도 및 엔터티를 제공합니다.| ko-KR<br/> zh-CN |
-| Camera | Camera 도메인은 사진을 촬영하고, 비디오를 녹화하고, 비디오를 응용 프로그램으로 브로드캐스트하기 위한 의도 및 엔터티를 제공합니다.| ko-KR |
-| 통신 | 메시지 전송 및 전화 통화| ko-KR <br/> zh-CN |
-| Entertainment  | 음악, 동영상, TV 관련 쿼리 처리| ko-KR |
-| 이벤트 | 콘서트, 축제, 스포츠 게임 및 코미디 쇼 티켓 예약| ko-KR |
-| Fitness | 피트니스 활동 추적과 관련된 요청 처리| ko-KR |
-| 게임 | 멀티플레이 게임의 게임 파티와 관련된 요청 처리| ko-KR |
-| HomeAutomation | 조명 및 어플라이언스와 같은 스마트 홈 장치 제어| ko-KR<br/> zh-CN |
-| MovieTickets | 영화관의 영화 티켓 예약| ko-KR |
-| 음악 | 뮤직 플레이어에서 음악 재생| ko-KR<br/> zh-CN |
-| 참고 | Note 도메인은 메모 생성, 편집 및 찾기와 관련된 의도 및 엔터티를 제공합니다.| ko-KR<br/> zh-CN |
-| OnDevice | OnDevice 도메인은 장치 제어와 관련된 의도 및 엔터티를 제공합니다.| ko-KR<br/> zh-CN |
-| 장소  | 회사, 기관, 식당, 공용 공간 및 주소와 같은 장소 관련 쿼리 처리| ko-KR<br/> zh-CN |
-| 미리 알림 | 미리 알림 생성, 편집 및 찾기와 관련된 요청 처리| ko-KR<br/> zh-CN |
-| RestaurantReservation | 식당 예약에 대한 관리 요청 처리| ko-KR<br/> zh-CN |
-| Taxi | 택시 예약 처리| ko-KR<br/> zh-CN |
-| 번역 | 텍스트를 대상 언어로 번역| ko-KR<br/> zh-CN |
-| TV | TV 제어| ko-KR |
-| 공공 시설  | "도움말", "반복”, “다시 시작”과 같이 많은 도메인에서 공통되는 요청 처리| ko-KR |
-| Weather | 날씨 보고서 및 예측 가져오기| ko-KR<br/> zh-CN |
-| 웹 | 웹 사이트 탐색| ko-KR<br/> zh-CN |
+| Calendar | Calendar 도메인은 약속을 추가, 삭제 또는 편집하고, 참가자 가용성을 확인하고, 일정 이벤트에 대한 정보를 찾기 위한 의도 및 엔터티를 제공합니다.| en-US<br/> zh-CN |
+| Camera | Camera 도메인은 사진을 촬영하고, 비디오를 녹화하고, 비디오를 응용 프로그램으로 브로드캐스트하기 위한 의도 및 엔터티를 제공합니다.| en-US |
+| 통신 | 메시지 전송 및 전화 통화| en-US <br/> zh-CN |
+| Entertainment  | 음악, 동영상, TV 관련 쿼리 처리| en-US |
+| 이벤트 | 콘서트, 축제, 스포츠 게임 및 코미디 쇼 티켓 예약| en-US |
+| Fitness | 피트니스 활동 추적과 관련된 요청 처리| en-US |
+| 게임 | 멀티플레이 게임의 게임 파티와 관련된 요청 처리| en-US |
+| HomeAutomation | 조명 및 어플라이언스와 같은 스마트 홈 장치 제어| en-US<br/> zh-CN |
+| MovieTickets | 영화관의 영화 티켓 예약| en-US |
+| 음악 | 뮤직 플레이어에서 음악 재생| en-US<br/> zh-CN |
+| 참고 | Note 도메인은 메모 생성, 편집 및 찾기와 관련된 의도 및 엔터티를 제공합니다.| en-US<br/> zh-CN |
+| OnDevice | OnDevice 도메인은 장치 제어와 관련된 의도 및 엔터티를 제공합니다.| en-US<br/> zh-CN |
+| 장소  | 회사, 기관, 식당, 공용 공간 및 주소와 같은 장소 관련 쿼리 처리| en-US<br/> zh-CN |
+| 미리 알림 | 미리 알림 생성, 편집 및 찾기와 관련된 요청 처리| en-US<br/> zh-CN |
+| RestaurantReservation | 식당 예약에 대한 관리 요청 처리| en-US<br/> zh-CN |
+| Taxi | 택시 예약 처리| en-US<br/> zh-CN |
+| 번역 | 텍스트를 대상 언어로 번역| en-US<br/> zh-CN |
+| TV | TV 제어| en-US |
+| 공공 시설  | "도움말", "반복”, “다시 시작”과 같이 많은 도메인에서 공통되는 요청 처리| en-US |
+| Weather | 날씨 보고서 및 예측 가져오기| en-US<br/> zh-CN |
+| 웹 | 웹 사이트 탐색| en-US<br/> zh-CN |
 
 각 도메인에 대한 자세한 내용은 다음 섹션을 참조하세요.
 

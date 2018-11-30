@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 27df7d306b55b7280c871d4638dc34c8fcd33acb
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 50613e4ba244403c61d711927f1e809accbcebeb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903668"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421711"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>PHP에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
@@ -29,10 +29,8 @@ Twilio는 개발자가 응용 프로그램에 음성, VoIP 및 메시징을 포�
 
 **Twilio 음성** 을 통해 응용 프로그램에서 전화를 걸고 받을 수 있습니다. **Twilio SMS** 를 사용하면 응용 프로그램에서 문자 메시지를 보내고 받을 수 있습니다. **Twilio 클라이언트** 를 통해서는 전화, 태블릿 또는 브라우저에서 VoIP 통화를 하고 WebRTC를 지원할 수 있습니다.
 
-## 
-  <a id="Pricing">
-  </a>Twilio 가격 책정 및 특별 제공
-Azure 고객은 Twilio 계정을 업그레이드할 때 [특별 제공](http://www.twilio.com/azure)(10달러의 Twilio 크레딧)을 받습니다. 이 Twilio 크레딧은 모든 Twilio 사용량에 적용될 수 있습니다. 10달러의 크레딧은 전화 번호 및 메시지 또는 통화 대상의 위치에 따라 SMS 메시지를 1,000개 보내거나 최대 1000분간 인바운드 음성을 받을 수 있는 금액입니다. [http://ahoy.twilio.com/azure](http://ahoy.twilio.com/azure)에서 이 Twilio 크레딧을 충전하고 시작하세요.
+## <a id="Pricing"></a>Twilio 가격 책정 및 특별 제공
+Azure 고객은 Twilio 계정을 업그레이드할 때 [특별 제공](https://www.twilio.com/azure)(10달러의 Twilio 크레딧)을 받습니다. 이 Twilio 크레딧은 모든 Twilio 사용량에 적용될 수 있습니다. 10달러의 크레딧은 전화 번호 및 메시지 또는 통화 대상의 위치에 따라 SMS 메시지를 1,000개 보내거나 최대 1000분간 인바운드 음성을 받을 수 있는 금액입니다. [https://ahoy.twilio.com/azure](https://ahoy.twilio.com/azure)에서 이 Twilio 크레딧을 충전하고 시작하세요.
 
 Twilio는 종량제 서비스입니다. 설정 수수료는 없으며 언제든 계정을 종료할 수 있습니다. [Twilio 가격 책정][twilio_pricing]에서 자세한 내용을 볼 수 있습니다.
 
@@ -44,7 +42,7 @@ Twilio API의 핵심 요소는 Twilio 동사와 TwiML(Twilio Markup Language)입
 ### <a id="Verbs"></a>Twilio 동사
 API는 Twilio 동사를 활용합니다. 예를 들어 **&lt;Say&gt;** 동사는 Twilio에 통화 메시지를 음성으로 전달하도록 지시합니다.
 
-다음은 Twilio 동사의 목록입니다. 기타 동사 및 기능에 대해서는 [Twilio Markup Language 설명서](http://www.twilio.com/docs/api/twiml)(영문)에서 알아보십시오.
+다음은 Twilio 동사의 목록입니다. 기타 동사 및 기능에 대해서는 [Twilio Markup Language 설명서](https://www.twilio.com/docs/api/twiml)(영문)에서 알아보십시오.
 
 * **&lt;Dial&gt;**: 발신자를 다른 전화에 연결합니다.
 * **&lt;Gather&gt;**: 전화 키패드에 입력된 숫자를 수집합니다.
@@ -77,7 +75,7 @@ Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][try_twilio](�
 Twilio 계정을 등록하면 계정 ID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하십시오. 계정 ID 및 인증 토큰은 [Twilio 계정 페이지][twilio_account](영문)의 **ACCOUNT SID** 및 **AUTH TOKEN**에서 각기 확인할 수 있습니다.
 
 ## <a id="create_app"></a>HP 응용 프로그램 만들기
-Twilio 서비스를 사용하고 Azure에서 실행되고 있는 PHP 응용 프로그램은 Twilio 서비스를 사용하는 다른 PHP 응용 프로그램과 차이가 없습니다. Twilio 서비스가 REST 기반이고 여러 가지 방법으로 PHP에서 호출될 수 있기는 하지만, 이 문서에서는 [GitHub의 PHP용 Twilio 라이브러리][twilio_php]와 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다. PHP용 Twilio 라이브러리를 사용하는 방법에 대한 자세한 내용은 [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs]를 참조하세요.
+Twilio 서비스를 사용하고 Azure에서 실행되고 있는 PHP 응용 프로그램은 Twilio 서비스를 사용하는 다른 PHP 응용 프로그램과 차이가 없습니다. Twilio 서비스가 REST 기반이고 여러 가지 방법으로 PHP에서 호출될 수 있기는 하지만, 이 문서에서는 [GitHub의 PHP용 Twilio 라이브러리][twilio_php]와 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다. PHP용 Twilio 라이브러리를 사용하는 방법에 대한 자세한 내용은 [https://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs]를 참조하세요.
 
 Twilio/PHP 응용 프로그램을 빌드하여 Azure에 배포하는 방법에 대한 자세한 지침은 [Azure의 PHP 응용 프로그램에서 Twilio를 사용하여 전화를 거는 방법][howto_phonecall_php]을 참조하세요.
 
@@ -118,7 +116,7 @@ PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **
     $to_number = "NNNNNNNNNNN";
 
     // Use the Twilio-provided site for the TwiML response.
-    $url = "http://twimlets.com/message";
+    $url = "https://twimlets.com/message";
 
     // The phone message text.
     $message = "Hello world.";
@@ -176,7 +174,7 @@ PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **
     }
 
 ## <a id="howto_provide_twiml_responses"></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공
-응용 프로그램에서 Twilio API 호출을 시작하면 Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위의 예제에서는 Twilio 제공 URL [http://twimlets.com/message][twimlet_message_url]을 사용합니다. TwiML은 Twilio에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어, [http://twimlets.com/message][twimlet_message_url]을 클릭하여 빈 `<Response>` 요소를 확인합니다. 또 다른 예로 [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world]를 클릭하여 `<Say>` 요소를 포함하는 `<Response>` 요소를 확인합니다.
+응용 프로그램에서 Twilio API 호출을 시작하면 Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위의 예제에서는 Twilio 제공 URL [https://twimlets.com/message][twimlet_message_url]을 사용합니다. TwiML은 Twilio에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어, [https://twimlets.com/message][twimlet_message_url]을 클릭하여 빈 `<Response>` 요소를 확인합니다. 또 다른 예로 [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world]를 클릭하여 `<Say>` 요소를 포함하는 `<Response>` 요소를 확인합니다.
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 사이트를 만들 수 있습니다. XML 응답을 반환하는 모든 언어로 사이트를 만들 수 있습니다. 이 항목에서는 TwiML을 만들기 위해 PHP를 사용 중이라고 가정합니다.
 
@@ -243,28 +241,28 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
 * [Twilio 지원 문의][twilio_support]
 
 [twilio_php]: https://github.com/twilio/twilio-php
-[twilio_lib_docs]: http://readthedocs.org/docs/twilio-php/en/latest/index.html
+[twilio_lib_docs]: https://readthedocs.org/docs/twilio-php/en/latest/index.html
 [twilio_github_readme]: https://github.com/twilio/twilio-php/blob/master/README.md
 [ssl_validation]: https://www.twilio.com/docs/api/errors
 [twilio_api_service]: https://api.twilio.com
 [howto_phonecall_php]: partner-twilio-php-make-phone-call.md
 [twilio_voice_request]: https://www.twilio.com/docs/api/twiml/twilio_request
 [twilio_sms_request]: https://www.twilio.com/docs/api/twiml/sms/twilio_request
-[misc_role_config_settings]: http://msdn.microsoft.com/library/windowsazure/hh690945.aspx
-[twimlet_message_url]: http://twimlets.com/message
-[twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
+[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[twimlet_message_url]: https://twimlets.com/message
+[twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World
 [twiml_reference]: https://www.twilio.com/docs/api/twiml
-[twilio_pricing]: http://www.twilio.com/pricing
-[special_offer]: http://ahoy.twilio.com/azure
+[twilio_pricing]: https://www.twilio.com/pricing
+[special_offer]: https://ahoy.twilio.com/azure
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
-[twilio_api_documentation]: http://www.twilio.com/api
-[twilio_security_guidelines]: http://www.twilio.com/docs/security
-[twilio_howtos]: http://www.twilio.com/docs/howto
+[twilio_api_documentation]: https://www.twilio.com/api
+[twilio_security_guidelines]: https://www.twilio.com/docs/security
+[twilio_howtos]: https://www.twilio.com/docs/howto
 [twilio_on_github]: https://github.com/twilio
-[twilio_support]: http://www.twilio.com/help/contact
-[twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+[twilio_support]: https://www.twilio.com/help/contact
+[twilio_quickstarts]: https://www.twilio.com/docs/quickstart

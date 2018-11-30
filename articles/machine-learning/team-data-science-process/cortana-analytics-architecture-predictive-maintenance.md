@@ -2,25 +2,21 @@
 title: Azure를 사용하여 항공 예측 유지 관리 - Cortana 인텔리전스 솔루션 아키텍처 | Microsoft Docs
 description: 항공, 유틸리티, 운송에서 예측 유지 관리를 위한 Microsoft Cortana Intelligence 솔루션 템플릿의 아키텍처 다이어그램.
 services: machine-learning
-documentationcenter: ''
-author: garyericson
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 759746a5-388a-42cf-bccf-435bf9b53251
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: garye
-ms.openlocfilehash: d5e8607a2eac404598394177c0c8ade0d650ef19
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=garyericson, ms.author=garye)
+ms.openlocfilehash: 6ac07606fc546570cd72b76e39aecb12d62b8e8a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249135"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446945"
 ---
 # <a name="architecture-of-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿의 아키텍처
 아래 다이어그램은 [예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿 아키텍처](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1)의 아키텍처 개요를 제공합니다.

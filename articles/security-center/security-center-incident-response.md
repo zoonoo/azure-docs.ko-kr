@@ -3,7 +3,7 @@ title: Azure Security Center에서 보안 인시던트에 대한 대응 | Micros
 description: 이 문서에서는 사고 대응 시나리오에서 Azure Security Center를 사용하는 방법을 설명합니다.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
-ms.author: yurid
-ms.openlocfilehash: d398edb8e7c009e38265525fb1924acd8fa68d9c
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 684098dd2780e827ccc74b7fbbb16a2be75fa3e1
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161257"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619880"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>사고 대응에 Azure Security Center 사용
 대부분의 조직은 공격을 받은 후에 보안 사고에 대응하는 방법을 알아봅니다. 비용과 손상을 줄이려면 공격이 발생하기 전에 사고 대응 계획을 적절히 수립하는 것이 중요합니다. Azure Security Center는 사고에 대응하는 여러 단계에서 사용할 수 있습니다.

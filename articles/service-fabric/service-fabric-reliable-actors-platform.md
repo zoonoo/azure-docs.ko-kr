@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: f8e6ad4b23eeaf46cccac9c8ff9d41f71511129d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bd3a77e1486d4af61539e55f67811221dd971b37
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642855"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582346"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
 이 문서에서는 Azure Service Fabric 플랫폼에서 Reliable Actors가 작동하는 방법을 설명합니다. Reliable Actors는 *행위자 서비스*라는 상태 저장 신뢰할 수 있는 서비스의 구현에서 호스트되는 프레임워크에서 실행됩니다. 행위자 서비스는 행위자에게 발송되는 수명 주기 및 메시지를 관리하는 데 필요한 모든 구성 요소를 포함합니다.
@@ -54,7 +54,7 @@ Reliable Services에서 서비스는 `StatefulService` 클래스를 상속합니
 * 행위자 서비스 유형. 유형 이름은 행위자 프로젝트 이름에 따라 생성됩니다. 행위자의 지속성 특성에 따라 HasPersistedState 플래그도 적절하게 설정됩니다.
 * 코드 패키지.
 * 구성 패키지.
-* 장치 및 끝점.
+* 장치 및 엔드포인트.
 
 ### <a name="application-manifest"></a>응용 프로그램 매니페스트.
 행위자 프레임워크 빌드 도구는 행위자 서비스에 대한 기본 서비스 정의를 자동으로 만듭니다. 빌드 도구가 기본 서비스 속성을 채웁니다.
@@ -99,7 +99,7 @@ GUID/UUID 및 문자열을 사용하는 경우 값은 Int64로 해시됩니다. 
 ## <a name="next-steps"></a>다음 단계
 * [행위자 상태 관리](service-fabric-reliable-actors-state-management.md)
 * [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
-* [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [행위자 API 참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors?redirectedfrom=MSDN&view=azure-dotnet#microsoft_servicefabric_actors)
 * [.NET 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java 샘플 코드](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 

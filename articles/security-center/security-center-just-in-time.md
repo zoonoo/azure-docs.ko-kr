@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 72acf0f06bbed0129ff322b10a7faf16fd94f712
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320342"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314748"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time를 사용하여 가상 머신 액세스 관리
 
@@ -262,7 +262,7 @@ PowerShell에서 다음 내용을 실행하세요.
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-- [보안 정책 설정](security-center-policies.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+- [보안 정책 설정](security-center-azure-policy.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 - [보안 권장 사항 관리](security-center-recommendations.md) - 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
 - [보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 - [보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.

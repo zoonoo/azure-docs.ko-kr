@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2ba7039fe42e3b5638b99161e12e9888bc852f87
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635092"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634645"
 ---
 # <a name="install-and-run-containers"></a>컨테이너 설치 및 실행
 
@@ -60,9 +60,6 @@ Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.
 
 1. Azure Portal에서 Azure 리소스를 만듭니다.  
    텍스트 인식 컨테이너를 사용하려면 먼저 해당 텍스트 인식 리소스를 Azure Portal에 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure Portal에서 Cognitive Services 계정 만들기](../cognitive-services-apis-create-account.md)를 참조하세요.
-
-   > [!IMPORTANT]
-   > Computer Vision 리소스는 F0 가격 책정 계층을 사용해야 합니다.
 
 1. Azure 리소스에 대한 엔드포인트 URL 및 구독 키를 가져옵니다.  
    Azure 리소스가 만들어지면 해당 리소스의 엔드포인트 URL 및 구독 키를 사용하여 해당 텍스트 인식 컨테이너를 인스턴스화해야 합니다. Azure Portal에 있는 Computer Vision 리소스의 [빠른 시작] 및 [키] 페이지에서 각각의 엔드포인트 URL과 구독 키를 복사할 수 있습니다.

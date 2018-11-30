@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d291a46eaac0f5e4023d343f700448d029765098
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625626"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634883"
 ---
 # <a name="manage-workspaces"></a>작업 영역 관리
 
@@ -52,7 +52,7 @@ Azure 구독당 여러 작업 영역을 포함할 수 있으며 이들 간의 �
 * 관리되는 서비스 공급자이며 자신이 관리하는 각 고객에 대한 Log Analytics 데이터를 다른 고객의 데이터와 격리되게 유지해야 합니다.
 * 여러 고객을 관리하며 각 고객/부서/비즈니스 그룹의 고유 데이터를 보지만 다른 고객/부서/비즈니스 그룹의 데이터를 보지 않기를 원합니다.
 
-Windows 에이전트를 사용하여 데이터를 수집하는 경우 [각 에이전트를 구성하여 하나 이상의 작업 영역에 보고](log-analytics-agent-windows.md)할 수 있습니다.
+Windows 에이전트를 사용하여 데이터를 수집하는 경우 [각 에이전트를 구성하여 하나 이상의 작업 영역에 보고](../azure-monitor/platform/agent-windows.md)할 수 있습니다.
 
 System Center Operations Manager를 사용하는 경우 각 Operations Manager 관리 그룹을 한 작업 영역에만 연결할 수 있습니다. Operations Manager에서 관리하는 컴퓨터에 Microsoft 모니터링 에이전트를 설치하고 에이전트가 Operations Manager와 서로 다른 Log Analytics 작업 영역에 모두 보고하게 할 수 있습니다.
 
@@ -239,7 +239,7 @@ OMS 포털을 사용하여 가격 책정 계층을 변경하려면 Azure 구독�
 ![OMS 리본 메뉴](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>다음 단계
-* 데이터 센터 또는 다른 클라우드 환경의 컴퓨터에서 데이터를 수집하려면 [Log Analytics 에이전트 개요](log-analytics-agent-overview.md)를 참조하세요.
+* 데이터 센터 또는 다른 클라우드 환경의 컴퓨터에서 데이터를 수집하려면 [Log Analytics 에이전트 개요](../azure-monitor/platform/log-analytics-agent.md)를 참조하세요.
 * Azure VM에서 데이터 수집을 구성하려면 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하세요.  
-* [솔루션 갤러리에서 Log Analytics 솔루션을 추가](../monitoring/monitoring-solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
+* [솔루션 갤러리에서 Log Analytics 솔루션을 추가](../azure-monitor/insights/solutions.md) 하여 기능을 추가하고 데이터를 수집합니다.
 

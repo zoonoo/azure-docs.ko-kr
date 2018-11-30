@@ -2,25 +2,21 @@
 title: Azure VM에서 SQL Server를 사용하여 기계 학습 모델 빌드 및 배포 | Microsoft Docs
 description: 활성 중인 고급 분석 프로세스 및 기술
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: deguhath
-ms.openlocfilehash: 23766598b1af4e05b007e5ba844190f1fe03a660
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: cad56d2e8de071feb9a02e0cfc6bcc884eebe91a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394377"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445466"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
 이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 집합([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합)을 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.

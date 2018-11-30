@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 52ca063a2e6345f80370c64b376ff09d72643ccc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 626b9199f3de6fe9aba03ba537aa6e6b6e28ba5c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230617"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310926"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Azure Security Center 리소스 권장 사항 이해하기
 
@@ -76,7 +76,7 @@ ms.locfileid: "51230617"
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 머신 및 응용 프로그램 보호](security-center-virtual-machine-protection.md)
-* [Azure Security Center에서 보안 정책 설정](security-center-policies.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 
