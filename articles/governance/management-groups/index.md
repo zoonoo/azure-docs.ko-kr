@@ -6,17 +6,17 @@ manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/28/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: b5a99ff8cfc0a915b70c6d90b8aa04d020177d54
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.topic: overview
+ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748173"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584608"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
 
@@ -28,12 +28,12 @@ ms.locfileid: "50748173"
 
 리소스를 통합 정책 및 액세스 관리를 위한 계층 구조로 구성하는 유연한 관리 그룹 및 구독 구조를 만들 수 있습니다. 다음 다이어그램은 관리 그룹을 사용하여 거버넌스용 계층을 만드는 예를 보여줍니다.
 
-![트리](./media/MG_overview.png)
+![트리](./media/tree.png)
 
-이 예제와 같은 계층 구조를 만들면 정책을 적용할 수 있습니다. 예를 들어 "인프라 팀 관리 그룹"의 미국 서부 지역으로 제한된 VM 위치를 적용하여 내부 규정 및 보안 정책을 사용하도록 설정할 수 있습니다. 이 정책은 해당 관리 그룹의 두 EA 구독으로 상속되어 해당 구독의 모든 VM에 적용됩니다. 이 정책은 관리 그룹에서 구독으로 상속되므로, 거버넌스 향상을 위해 리소스 또는 구독 소유자가 이 보안 정책을 변경할 수 없습니다.
+정책을 적용할 수 있도록 계층을 만듭니다(예: VM 위치를 "인프라 팀 관리 그룹" 그룹의 미국 서부 지역으로 제한). 이 정책은 해당 관리 그룹의 두 EA 구독으로 상속되어 해당 구독의 모든 VM에 적용됩니다. 거버넌스 향상을 위해 리소스 또는 구독 소유자가 이 보안 정책을 변경할 수 없습니다.
 
-관리 그룹을 사용할 만한 또 다른 시나리오는 여러 구독에 대한 사용자 액세스 제공입니다. 해당 관리 그룹에서 여러 구독을 이동하면 관리 그룹에 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 할당을 만들 수 있습니다. 이 할당은 모든 구독에 대한 액세스를 상속합니다.
-여러 구독에 RBAC 할당을 스크립팅할 필요 없이, 관리 그룹에 하나만 할당하면 사용자가 필요한 모든 항목에 액세스할 수 있습니다.
+관리 그룹을 사용하는 또 다른 시나리오는 여러 구독에 대한 사용자 액세스를 제공하는 것입니다. 해당 관리 그룹에서 여러 구독을 이동하면 관리 그룹에 하나의 RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md)) 할당을 만들 수 있습니다. 그러면 모든 구독에 대한 액세스를 상속하게 됩니다.
+관리 그룹에 하나만 할당하면 여러 구독에 RBAC를 스크립팅하지 않고 사용자가 필요한 모든 항목에 액세스할 수 있습니다.
 
 ### <a name="important-facts-about-management-groups"></a>관리 그룹에 대한 중요 한 사실
 
@@ -41,8 +41,8 @@ ms.locfileid: "50748173"
 - 관리 그룹 트리에서 지원할 수 있는 최대 깊이 수준은 6입니다.
   - 이 제한에는 루트 수준 또는 구독 수준이 포함되지 않습니다.
 - 각 관리 그룹 및 구독은 하나의 부모만 지원할 수 있습니다.
-- 각 관리 그룹은 여러 자식을 가질 수 있습니다.
-- 모든 구독 및 관리 그룹은 각 디렉터리에서 단일 계층 내에 포함됩니다. 미리 보기 중 예외는 [루트 관리 그룹에 대한 중요한 사실](#important-facts-about-the-root-management-group)을 참조하세요.
+- 각 관리 그룹에는 여러 자식 요소가 있을 수 있습니다.
+- 모든 구독 및 관리 그룹은 각 디렉터리의 단일 계층 내에 위치합니다. 미리 보기 중 예외는 [루트 관리 그룹에 대한 중요한 사실](#important-facts-about-the-root-management-group)을 참조하세요.
 
 ## <a name="root-management-group-for-each-directory"></a>각 디렉터리에 대한 루트 관리 그룹
 
@@ -73,19 +73,19 @@ ms.locfileid: "50748173"
 
 ## <a name="trouble-seeing-all-subscriptions"></a>모든 구독 표시 관련 문제
 
-(2018년 6월 25일) 이전에 미리 보기 초기 단계의 관리 그룹을 사용하여 시작된 몇몇 디렉터리는 모든 구독이 계층 구조에 적용되지 않은 경우에 문제가 발생할 수 있습니다.  계층 구조에 구독을 적용하는 프로세스가 디렉터리의 루트 관리 그룹에 대한 역할 또는 정책 할당이 완료된 후 구현되었기 때문입니다.
+(2018년 6월 25일) 이전에 미리 보기 초기 단계의 관리 그룹을 사용하여 시작된 몇몇 디렉터리에는 모든 구독이 계층 구조에 적용되지 않은 경우 문제가 발생할 수 있습니다.  계층 구조에 구독을 적용하는 프로세스는 디렉터리의 루트 관리 그룹에 대한 역할 또는 정책 할당이 완료된 후에 구현되었습니다.
 
 ### <a name="how-to-resolve-the-issue"></a>문제 해결 방법
 
-이 문제를 해결할 수 있는 두 가지 셀프 서비스 옵션이 있습니다.
+이 문제를 해결하기 위해 수행할 수 있는 두 가지 옵션이 있습니다.
 
 1. 루트 관리 그룹에서 모든 역할 및 정책 할당 제거
-    1. 서비스는 루트 관리 그룹에서 모든 정책 및 역할 할당을 제거한 후 다음 야간 주기에 모든 구독을 계층 구조에 다시 채웁니다.  이렇게 확인하는 이유는 모든 테넌트 구독에 액세스 권한이 우연히 지정되거나 정책이 할당되지 않도록 하기 위해서입니다.
+    1. 서비스는 루트 관리 그룹에서 모든 정책 및 역할 할당을 제거한 후 다음 야간 주기에 모든 구독을 계층 구조에 다시 채웁니다.  이 프로세스는 모든 테넌트 구독에 액세스 권한이 우연히 지정되거나 정책이 할당되지 않도록 합니다.
     1. 서비스에 영향을 주지 않고 이 프로세스를 수행하는 가장 좋은 방법은 루트 관리 그룹에서 한 수준 아래에 역할 또는 정책 할당을 적용하는 것입니다. 그런 다음, 루트 범위에서 모든 할당을 제거할 수 있습니다.
 1. API를 직접 호출하여 다시 채우기 프로세스 시작
-    1. 디렉터리에서 승인된 모든 고객은 *TenantBackfillStatusRequest* 또는 *StartTenantBackfillRequest* API를 호출할 수 있습니다. 호출된 StartTenantBackfillRequest API는 모든 구독을 계층 구조로 이동하는 초기 설정 프로세스를 시작합니다. 이 프로세스는 또한 모든 새 구독을 루트 관리 그룹의 자식으로 적용하기 시작합니다. 루트의 모든 정책 또는 액세스 할당이 모든 구독에 적용되어도 괜찮다면 루트 수준의 모든 할당을 변경하지 않고도 이 프로세스를 수행할 수 있습니다.
+    1. 디렉터리의 모든 고객은 *TenantBackfillStatusRequest* 또는 *StartTenantBackfillRequest* API를 호출할 수 있습니다. 호출된 StartTenantBackfillRequest API는 모든 구독을 계층 구조로 이동하는 초기 설정 프로세스를 시작합니다. 이 프로세스는 또한 모든 새 구독을 루트 관리 그룹의 자식으로 적용하기 시작합니다. 이 프로세스는 루트 수준에서 할당을 변경하지 않고 수행될 수 있습니다. API를 호출하면 루트의 정책 또는 액세스 할당이 모든 구독에 적용될 수 있어도 괜찮습니다.
 
-이 다시 채우기 프로세스에 대한 질문이 있는 경우 managementgroups@microsoft.com으로 문의하세요.  
+이 다시 채우기 프로세스에 대한 질문이 있는 경우 managementgroups@microsoft.com에 문의하세요.  
   
 ## <a name="management-group-access"></a>관리 그룹 액세스
 
@@ -105,11 +105,25 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 |리소스 정책 참가자 |        |        |      |        |               | X             |       |
 |사용자 액세스 관리자   |        |        |      |        | X             |               |       |
 
-*: MG 기여자 및 MG 읽기 권한자만 사용자가 관리 그룹 범위에서 이러한 작업을 수행하도록 허용합니다.  
+*: MG 기여자 및 MG 읽기 권한자는 사용자가 관리 그룹 범위에서 이러한 작업만 수행하도록 허용합니다.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>사용자 지정 RBAC 역할 정의 및 할당
 
 사용자 지정 RBAC 역할은 현재 관리 그룹에서 지원되지 않습니다. [관리 그룹 피드백 포럼](https://aka.ms/mgfeedback)을 참조하여 이 항목의 상태를 봅니다.
+
+## <a name="audit-management-groups-using-activity-logs"></a>활동 로그를 사용하여 관리 그룹 감사
+
+이 API를 통해 관리 그룹을 추적하려면 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 사용합니다. 현재 PowerShell, CLI 또는 Azure Portal을 사용하여 관리 그룹 작업을 추적할 수 없습니다.
+
+1. Azure AD 테넌트의 테넌트 관리자로 [액세스의 권한을 상승한](../../role-based-access-control/elevate-access-global-admin.md) 다음, `/providers/microsoft.insights/eventtypes/management` 범위에 대해 감사 사용자에게 읽기 역할을 할당합니다.
+1. 감사 사용자로 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 호출하여 관리 그룹 작업을 확인합니다. 모든 관리 그룹 작업에 대해 **Microsoft.Management** 리소스 공급자로 필터링하려고 합니다.  예제:
+
+```
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> 명령줄에서 이 API를 편리하게 호출하려면 [ARMClient](https://github.com/projectkudu/ARMClient)를 시도합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -117,6 +131,6 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 
 - [관리 그룹을 만들어 Azure 리소스 구성](create.md)
 - [관리 그룹을 변경, 삭제 또는 관리하는 방법](manage.md)
-- [Azure PowerShell 모듈 설치](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [REST API 사양 검토](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Azure CLI 확장 설치](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [Azure PowerShell 리소스 모듈에서 관리 그룹 검토](https://aka.ms/mgPSdocs)
+- [REST API에서 관리 그룹 검토](https://aka.ms/mgAPIdocs)
+- [Azure CLI에서 관리 그룹 검토](https://aka.ms/mgclidoc)
