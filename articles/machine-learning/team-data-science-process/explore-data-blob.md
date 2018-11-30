@@ -64,7 +64,7 @@ ms.locfileid: "51346000"
 ## <a name="blob-dataexploration"></a>pandas를 사용 하 여 데이터 탐색의 예
 다음은 pandas를 사용하여 데이터를 탐색하는 방식의 예입니다.
 
-1.  **행 및 열 수** 
+1. **행** 및 열 수 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. 다음 데이터 집합에서 첫 번째 또는 마지막 몇 **행**을 **검사**합니다.
