@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: b6196ec434d00a6fbc6714095fa4182ede98ce91
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fbd4552a9e40f16a6fedec4e04be0d7d6d39351d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633438"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724488"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Azure Stack에서 모니터링 데이터를 사용 하는 방법
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상: Azure Stack 통합 시스템*
 
 Azure Monitor 파이프라인만을 사용 하 여 한 곳에서 모니터링 데이터 같은 전역 Azure에서 Azure Monitor를 찾을 수 있습니다. 하지만 모든 글로벌 Azure의 모니터링 데이터는 Azure Stack에서 사용할 수 있습니다. 이 문서에서는 프로그래밍 방식으로 서비스에서 모니터링 데이터를 수집할 수는 다양 한 방법의 요약을 찾을 수 있습니다.
  

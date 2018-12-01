@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: b0cf2d7856a78bbe2aa531c6e872168e8e33b06a
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 45c06afd0d298c467d8f0a3a42b68bf1948c6ed3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021814"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726749"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack에서 azure Monitor
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상: Azure Stack 통합 시스템*
 
 이 문서에서는 Azure Stack에서 Azure Monitor 서비스의 개요를 제공 합니다. Azure Monitor의 작업 및 Azure Stack에서 Azure Monitor를 사용 하는 방법에 대 한 추가 정보에 설명 합니다. 
 

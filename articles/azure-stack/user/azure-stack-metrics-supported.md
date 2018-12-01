@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: a9849b5c96b38fbfe6fa8ef4a69a1a2d4d6e6f2f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f8ef54393f3de00ae231c45c117e3a16a8d1aad1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958077"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725610"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Azure Stack에서 Azure Monitor를 사용 하 여 지원 되는 메트릭
 
-*적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
+*적용 대상: Azure Stack 통합 시스템*
 
 Azure에서 메트릭을 검색할 수 있습니다와 같은 전역 Azure로 Azure Stack에서 모니터링 합니다. 포털에서 사용자 측정값 만들기, REST API에서 가져와야 하 하거나 PowerShell 또는 CLI를 사용 하 여 쿼리할 수 있습니다.
 

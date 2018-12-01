@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087494"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722091"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack에서 지원 되는 가상 머신 크기
 
@@ -28,7 +28,7 @@ ms.locfileid: "50087494"
 
 ## <a name="general-purpose"></a>범용 가상 컴퓨터
 
-범용 VM 크기는 분산 된 CPU 대 메모리 비율을 제공합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버 사용 됩니다.
+범용 VM 크기는 분산 된 CPU 대 메모리 비율을 제공합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버 사용 됩니다. 각 데이터 디스크는 기본 A 시리즈를 제외한 프리미엄 VM 크기에 대 한 IOPS는 2300까지. 기본 A에 대 한 데이터 디스크 크기는 500 IOPS.
 
 ### <a name="basic-a"></a>Basic A
 
