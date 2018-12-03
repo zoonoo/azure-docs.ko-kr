@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244078"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495772"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행
 
-이 자습서에서는 csv 파일에서 데이터 프레임을 만드는 방법과 Azure HDInsight의 Apache Spark 클러스터에 대해 대화형 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Spark에서 데이터 프레임은 명명된 열로 구성된 데이터의 분산된 컬렉션입니다. 데이터 프레임은 관계형 데이터베이스의 테이블이나 R/Python의 데이터 프레임과 개념적으로 동일합니다.
+이 자습서에서는 csv 파일에서 데이터 프레임을 만드는 방법과 Azure HDInsight의 [Apache Spark](https://spark.apache.org/) 클러스터에 대해 대화형 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Spark에서 데이터 프레임은 명명된 열로 구성된 데이터의 분산된 컬렉션입니다. 데이터 프레임은 관계형 데이터베이스의 테이블이나 R/Python의 데이터 프레임과 개념적으로 동일합니다.
  
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -99,10 +99,10 @@ Azure Portal에서 클러스터를 열고 **삭제**를 선택합니다.
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
-* Spark 데이터 프레임을 만듭니다.
+* Apache Spark 데이터 프레임을 만듭니다.
 * 데이터 프레임에 대해 Spark SQL을 실행합니다.
 
-다음 문서로 진행하여 Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요. 
+다음 문서로 진행하여 Apache Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요. 
 > [!div class="nextstepaction"]
 > [BI 도구를 사용하여 데이터 분석](apache-spark-use-bi-tools.md)
 

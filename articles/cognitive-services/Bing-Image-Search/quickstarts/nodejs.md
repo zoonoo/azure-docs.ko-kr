@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 1584b3e0a1e1c560d42b5f8320d0e15ad6242918
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 189533e496e90dc072f33c9560275323ba5e62c4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294597"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312071"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-nodejs"></a>빠른 시작: Bing Image Search REST API 및 Node.js를 사용하여 검색 쿼리 보내기
 
@@ -32,6 +32,8 @@ ms.locfileid: "46294597"
 
 * [JavaScript 요청 라이브러리](https://github.com/request/request)
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="create-and-initialize-the-application"></a>응용 프로그램 만들기 및 초기화
 

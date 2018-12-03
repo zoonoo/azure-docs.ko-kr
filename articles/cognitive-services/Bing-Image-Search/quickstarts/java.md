@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 1a7cc7d58975aa0cd5903581610d642193951ec4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 63add2406b4535747c09299ecc0df6d1b6b47da3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412469"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315871"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-java"></a>빠른 시작: Bing Image Search REST API 및 Java를 사용하여 검색 쿼리 보내기
 
@@ -27,6 +27,7 @@ ms.locfileid: "50412469"
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
+* **검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 * [JDK(Java Development Kit) 7 또는 8](https://aka.ms/azure-jdks)
 

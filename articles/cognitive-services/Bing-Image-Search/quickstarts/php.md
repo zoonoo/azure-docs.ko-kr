@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: ac3de25773249119535ac6f3bd063ff6b9b7831e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b3143a34590e41d0222b4e4aa6eeda07ee407e45
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295532"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311860"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>빠른 시작: Bing Image Search REST API 및 PHP를 사용하여 검색 쿼리 보내기
 
@@ -31,6 +31,8 @@ ms.locfileid: "46295532"
 * [PHP 5.6.x 이상](http://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="create-and-initialize-the-application"></a>응용 프로그램 만들기 및 초기화
 

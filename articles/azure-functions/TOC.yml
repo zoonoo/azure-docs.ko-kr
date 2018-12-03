@@ -3,8 +3,10 @@ items:
   href: index.yml
 - name: 개요
   items:
-  - name: 함수 정보
+  - name: Azure Functions 정보
     href: functions-overview.md
+  - name: 지속성 함수
+    href: durable/durable-functions-overview.md
   - name: 서버리스 비교
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: 빠른 시작
@@ -94,44 +96,6 @@ items:
     href: ip-addresses.md
   - name: 온-프레미스 함수
     href: functions-runtime-overview.md
-  - name: 지속성 함수
-    items:
-    - name: 개요
-      href: durable-functions-overview.md
-    - name: 함수 형식 및 기능
-      href: durable-functions-types-features-overview.md
-    - name: 바인딩
-      href: durable-functions-bindings.md
-    - name: 검사점 및 재생
-      href: durable-functions-checkpointing-and-replay.md
-    - name: 사용자 지정 오케스트레이션 상태
-      href: durable-functions-custom-orchestration-status.md
-    - name: 인스턴스 관리
-      href: durable-functions-instance-management.md
-    - name: HTTP API
-      href: durable-functions-http-api.md
-    - name: 오류 처리
-      href: durable-functions-error-handling.md
-    - name: 진단
-      href: durable-functions-diagnostics.md
-    - name: 타이머
-      href: durable-functions-timers.md
-    - name: 외부 이벤트
-      href: durable-functions-external-events.md
-    - name: 외부 오케스트레이션
-      href: durable-functions-eternal-orchestrations.md
-    - name: Singleton 오케스트레이션
-      href: durable-functions-singletons.md
-    - name: 하위 오케스트레이션
-      href: durable-functions-sub-orchestrations.md
-    - name: 작업 허브
-      href: durable-functions-task-hubs.md
-    - name: 버전 관리
-      href: durable-functions-versioning.md
-    - name: 성능 및 확장
-      href: durable-functions-perf-and-scale.md
-    - name: 재해 복구 및 지역 배포
-      href: durable-functions-disaster-recovery-geo-distribution.md
 - name: 방법 가이드
   items:
   - name: 개발
@@ -180,6 +144,30 @@ items:
       href: disable-function.md
   - name: 모니터
     href: functions-monitoring.md
+  - name: 보안
+    items:
+    - name: SSL 인증서 구입
+      href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: 사용자 인증
+      items:
+      - name: Azure AD를 사용하여 인증
+        href: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Facebook을 사용하여 인증
+        href: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Google을 사용하여 인증
+        href: ../app-service/app-service-mobile-how-to-configure-google-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Microsoft 계정을 사용하여 인증
+        href: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+      - name: Twitter를 사용하여 인증
+        href: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: 고급 인증
+      href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: IP 제한
+      href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: 관리 ID 사용
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Key Vault에서 비밀 참조
+      href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: 통합
     items:
     - name: SQL Database에 연결
@@ -194,24 +182,6 @@ items:
       href: functions-flow-scenario.md
     - name: 관리 ID 사용
       href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: 지속성 함수
-    items:
-    - name: 설치
-      href: durable-functions-install.md
-    - name: 체이닝
-      href: durable-functions-sequence.md
-    - name: 팬아웃/팬인
-      href: durable-functions-cloud-backup.md
-    - name: 모니터
-      href: durable-functions-monitor.md
-    - name: 사용자 개입
-      href: durable-functions-phone-verification.md
-    - name: 단위 테스트
-      href: durable-functions-unit-testing.md
-    - name: 이벤트 게시
-      href: durable-functions-event-publishing.md
-    - name: WebJobs SDK 사용
-      href: durable-functions-webjobs-sdk.md
   - name: 문제 해결
     items:
     - name: 저장소 문제 해결
@@ -288,13 +258,15 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-functions
   - name: Twitter
     href: https://twitter.com/azurefunctions
+  - name: 제품 사용자 의견 제공
+    href: https://feedback.azure.com/forums/355860-azure-functions
   - name: Azure Functions GitHub 리포지토리
     href: https://github.com/Azure/Azure-Functions/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: eb408491ee9ed4994324a5fd425e87da6e4c59a1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: facc469c576bf1de905441bb5b56a00bd745e924
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633787"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632299"

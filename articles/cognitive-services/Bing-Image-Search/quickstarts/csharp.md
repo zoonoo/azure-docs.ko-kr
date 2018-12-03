@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 897e380092b029855ac6c986c1126ca4b2d657a9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3819b476c5d3638f409b4195d6340920032d7b99
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296649"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307494"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>빠른 시작: Bing Image Search API 및 C#을 사용하여 검색 쿼리 보내기
 
@@ -26,12 +26,13 @@ ms.locfileid: "46296649"
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 코드 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 * NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크.
 * Linux/MacOS를 사용하는 경우 이 응용 프로그램은 [Mono](http://www.mono-project.com/)를 사용하여 실행할 수 있습니다.
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="create-and-initialize-a-project"></a>프로젝트 만들기 및 초기화
 

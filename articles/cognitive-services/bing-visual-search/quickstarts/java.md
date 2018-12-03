@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: f54914b846c6a001a9fb10d938a038e390abf6bf
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1b63b12a48f5ccfb1a396ffa9282249b03893fe
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416446"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445177"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>빠른 시작: Java에서 첫 번째 Bing Visual Search 쿼리
 
@@ -36,10 +36,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 
 ## <a name="prerequisites"></a>필수 조건
+이 빠른 시작의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
 
 이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](https://aka.ms/azure-jdks)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
-
-이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
 
 ## <a name="running-the-application"></a>응용 프로그램 실행
 

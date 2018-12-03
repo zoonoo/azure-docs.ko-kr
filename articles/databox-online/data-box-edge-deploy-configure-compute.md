@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: e970f7cc0d4c4620f2da69286be36d0c22e0d747
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 77a2b8d2b5d3ac42dcbbe2db2b05d38657290073
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260366"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443790"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>자습서: Azure Data Box Edge를 사용하여 데이터 변환(미리 보기)
 
@@ -163,7 +163,7 @@ Edge 계산 역할이 Edge 장치에 설정되면 두 가지 장치, 즉 IoT 장
  
 6.  **경로 지정** 아래에서 모듈 간 경로를 설정합니다. 이 경우 데이터를 클라우드 공유에 푸시하는 로컬 공유의 이름을 제공합니다. **다음**을 클릭합니다.
 
-    루트를 다음 루트 문자열로 대체할 수 있습니다. "route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"
+    경로를 `"route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"` 경로 문자열로 바꿉니다.
 
     ![사용자 지정 모듈 추가](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
  

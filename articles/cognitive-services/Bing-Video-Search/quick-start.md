@@ -10,16 +10,16 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: abeeec95755a566216ac65b2edf5c831a8ab93b6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 5b1ac98ee9ad5625d8db9790a3be10d42236874b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225517"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307460"
 ---
 # <a name="quickstart-your-first-video-search-query"></a>빠른 시작: 첫 번째 비디오 검색 쿼리
 
-첫 번째 호출을 수행하기 전에 먼저 Bing Search Cognitive Services 구독 키를 가져와야 합니다. 키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api)를 참조하세요.
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 비디오 검색 결과를 가져오려면 다음 엔드포인트로 GET 요청을 보냅니다.  
   

@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 908373a216d0b14bb2dd41d3bb740b5582ac3ab1
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 4e79fdbf465c04075320b71b5471b196e603d046
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814239"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316007"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>빠른 시작: Python을 통해 Bing Entity Search SDK 설정
 
@@ -24,6 +24,8 @@ Entity Search SDK는 웹 쿼리 및 구문 분석 결과에 대한 REST API 기�
 [Python Bing Entity Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py)은 Git Hub에서 얻을 수 있습니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+
 Python이 없을 경우 설치하세요. SDK는 Python 2.7 3.3, 3.4, 3.5 및 3.6과 호환됩니다.
 
 Python 개발에 대한 일반 권장 사항은 [가상 환경](https://docs.python.org/3/tutorial/venv.html)을 사용하는 것입니다. [venv module](https://pypi.python.org/pypi/virtualenv)을 사용하여 가상 환경을 설치하고 초기화합니다. Python 2.7용 virtualenv를 설치해야 합니다.

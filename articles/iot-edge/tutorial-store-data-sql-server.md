@@ -9,12 +9,12 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fc83546080111554446cb8f7b7ca97026f99e02e
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 95041ca77930d87bff6ea31e2eab89a6634cfcf5
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283432"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442967"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -56,9 +56,9 @@ Azure IoT Edge 장치:
 
 임의 Docker 호환 레지스트리를 사용하여 컨테이너 이미지를 유지할 수 있습니다. 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **컨테이너** > **Container Registry**를 선택합니다.
+컨테이너 레지스트리가 아직 없는 경우 다음 단계를 따라 Azure에서 새로 만드세요.
 
-    ![컨테이너 레지스트리 만들기](./media/tutorial-deploy-function/create-container-registry.png)
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **컨테이너** > **Container Registry**를 선택합니다.
 
 2. 다음 값을 입력하여 컨테이너 레지스트리를 만듭니다.
 
@@ -75,7 +75,7 @@ Azure IoT Edge 장치:
 
 6. 컨테이너 레지스트리를 만든 후에는 해당 레지스트리를 찾은 다음, **액세스 키**를 선택합니다. 
 
-7. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사합니다. 나중에 자습서의 뒷부분에서 이러한 값을 사용하여 컨테이너 레지스트리에 대한 액세스를 제공합니다. 
+7. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사합니다. 나중에 자습서의 뒷부분에서 이러한 값을 사용하여 컨테이너 레지스트리에 대한 액세스를 제공합니다.  
 
 ## <a name="create-a-function-project"></a>함수 프로젝트 만들기
 
@@ -229,9 +229,9 @@ Azure IoT Edge 장치:
        "type": "docker",
        "status": "running",
        "restartPolicy": "always",
+       "env":{},
        "settings": {
            "image": "",
-           "environment": "",
            "createOptions": ""
        }
    }
@@ -239,50 +239,47 @@ Azure IoT Edge 장치:
 
    ![SQL 서버 컨테이너 추가](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-5. IoT Edge 장치의 Docker 컨테이너 유형에 따라 **sql.settings** 매개 변수를 다음 코드로 업데이트합니다.
-
+5. IoT Edge 디바이스의 Docker 컨테이너 유형에 따라 **sql** 모듈 매개 변수를 다음 코드로 업데이트합니다.
    * Windows 컨테이너:
 
-        ```json
-        {
-            "image": "microsoft/mssql-server-windows-developer",
-            "environment": {
-                "ACCEPT_EULA": "Y",
-                "SA_PASSWORD": "Strong!Passw0rd"
-            },
-            "createOptions": {
-                "HostConfig": {
-                    "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
-                    "PortBindings": {
-                        "1433/tcp": [{"HostPort": "1401"}]
-                    }
-                }
-            }
-        }
-        ```
- 
+      ```json
+      "env": {
+         "ACCEPT_EULA": {"value": "Y"},
+         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+       },
+       "settings": {
+          "image": "microsoft/mssql-server-windows-developer",
+          "createOptions": {
+              "HostConfig": {
+                  "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+                  "PortBindings": {
+                      "1433/tcp": [{"HostPort": "1401"}]
+                  }
+              }
+          }
+      }
+      ```
 
    * Linux 컨테이너:
 
-        ```json
-        {
-            "image": "mcr.microsoft.com/mssql/server:latest",
-            "environment": {
-                "ACCEPT_EULA": "Y",
-                "SA_PASSWORD": "Strong!Passw0rd"
-            },
-            "createOptions": {
-                "HostConfig": {
-                    "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-                    "PortBindings": {
-                        "1433/tcp": [{"HostPort": "1401"}]
-                    }
-                }
-            }
-        }
-        ```
-    
-    
+      ```json
+      "env": {
+         "ACCEPT_EULA": {"value": "Y"},
+         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+       },
+       "settings": {
+          "image": "mcr.microsoft.com/mssql/server:latest",
+          "createOptions": {
+              "HostConfig": {
+                  "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+                  "PortBindings": {
+                      "1433/tcp": [{"HostPort": "1401"}]
+                  }
+              }
+          }
+      }
+      ```
+
    >[!Tip]
    >프로덕션 환경에서 SQL Server 컨테이너를 만들 때마다 [기본 시스템 관리자 암호를 변경](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password)해야 합니다.
 

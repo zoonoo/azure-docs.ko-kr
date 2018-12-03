@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: 0c5ac37b5a3992c3f9e80fd8f155f368fa61615c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: ae536166d75af48ea653b256924b5432cfd1f5ef
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163812"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309983"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>빠른 시작: C#용 Bing Web Search SDK 사용
 
@@ -23,8 +23,9 @@ Bing Web Search SDK를 사용하면 Bing Web Search를 C# 응용 프로그램에
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>필수 조건
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
+## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) 또는

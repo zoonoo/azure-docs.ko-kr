@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4cb6e79b563ac0172f93b3a721b79c230a96a1d5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 25b01de47767e335d614aa0a8cf32c344c7305d8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457989"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442849"
 ---
 # <a name="quickstart-bing-visual-search-sdk-c"></a>빠른 시작: Bing Visual Search SDK C#
 
@@ -33,7 +33,16 @@ Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API
 ## <a name="prerequisites"></a>필수 조건
 
 * Visual Studio 2017. 필요하면 여기(https://www.visualstudio.com/vs/community/)에서 무료 커뮤니티 버전을 다운로드할 수 있습니다.
-* Cognitive Services API 키는 SDK 호출을 인증하는 데 필요합니다. [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)에 등록합니다. 평가판 키는 초당 한 번의 호출로 7일 동안 유효합니다. 프로덕션 시나리오의 경우 [액세스 키를 구입하세요](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). [가격 책정 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/)도 참조하세요.
+* 이 빠른 시작의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
+
 * .NET core SDK 및 .net core 1.1 앱을 실행하는 기능입니다. 여기(https://www.microsoft.com/net/download/)에서 코어, 프레임워크 및 런타임을 가져올 수 있습니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성

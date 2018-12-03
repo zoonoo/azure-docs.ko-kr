@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2e65313207e2bb29ae269425012cc6c340261ba4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888342"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443460"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>자습서: Bing Visual Search 업로드 분석
 
@@ -23,6 +23,15 @@ ms.locfileid: "48888342"
 
 이 자습서는 Bing Visual Search 응답의 콘텐츠를 탐색하려는 개발자를 위해 작성되었습니다. 모든 사용 및 표시 요구 사항을 적용하지는 않습니다(예를 들어 Microsoft의 개인정보처리방침에 대한 링크는 제공되지 않음). 모든 사용 요구 사항에 대해서는 [Bing 사용 및 표시 요구 사항](./use-and-display-requirements.md)을 참조하세요.
 
+이 자습서의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
 
 ## <a name="where-to-start"></a>시작하기기
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 환경에서 규정 비준수 리소스를 식별하는 정책 할당 만들기
+title: Azure에서 규정 비준수 리소스를 식별하는 정책 할당 만들기
 description: 이 문서에서는 규정 비준수 리소스를 식별하는 정책 정의를 만드는 단계를 안내합니다.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 60b8663c5b465fecd3275def7d1e85f4511a23e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ee22208f9f55840b80392ef2b0a9fce0da4c4db7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954265"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584692"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Azure 환경에서 규정 비준수 리소스를 식별하는 정책 할당 만들기
 

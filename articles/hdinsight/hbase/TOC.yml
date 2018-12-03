@@ -1,11 +1,11 @@
 items:
 - name: Azure HDInsight 설명서
   href: /azure/hdinsight
-- name: HDInsight의 HBase
+- name: HDInsight의 Apache HBase
   items:
   - name: 개요
     href: apache-hbase-overview.md
-  - name: HDInsight의 Hadoop 구성 요소
+  - name: HDInsight의 Apache Hadoop 구성 요소
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -13,7 +13,7 @@ items:
     maintainContext: true
 - name: 시작하기
   items:
-  - name: HBase 및 NoSQL로 시작
+  - name: Apache HBase 및 NoSQL로 시작
     href: apache-hbase-tutorial-get-started-linux.md
   - name: HDInsight 앱 설치
     href: ../hdinsight-apps-install-applications.md
@@ -33,7 +33,7 @@ items:
       maintainContext: true
   - name: 개발
     items:
-    - name: HBase.NET SDK 사용
+    - name: Apache HBase.NET SDK 사용
       href: apache-hbase-rest-sdk.md
     - name: Java 응용 프로그램 배포
       href: apache-hbase-build-java-maven-linux.md
@@ -46,13 +46,13 @@ items:
     - name: HDInsight의 Apache Phoenix
       href: ../hdinsight-phoenix-in-hdinsight.md
       maintainContext: true
-    - name: Phoenix 및 SQLLine 사용
+    - name: Apache Phoenix 및 SQLLine 사용
       href: apache-hbase-phoenix-squirrel-linux.md
-    - name: Phoenix Query Server REST SDK 사용
+    - name: Apache Phoenix Query Server REST SDK 사용
       href: apache-hbase-using-phoenix-query-server-rest-sdk.md
   - name: 빅 데이터 분석
     items:
-    - name: Spark를 사용하여 HBase 데이터 읽기 및 쓰기
+    - name: Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
       href: ../hdinsight-using-spark-query-hbase.md
       maintainContext: true
   - name: 클러스터 확장
@@ -126,7 +126,7 @@ items:
     - name: 주문형 클러스터 만들기
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Hadoop 클러스터 관리
+    - name: Apache Hadoop 클러스터 관리
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: .NET SDK 사용
@@ -139,13 +139,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: Ambari 웹 UI를 사용하여 클러스터 관리
+    - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Ambari 웹 UI를 사용하여 클러스터 최적화
+      - name: Apache Ambari 웹 UI를 사용하여 클러스터 최적화
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Ambari REST API 사용
+      - name: Apache Ambari REST API 사용
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -158,15 +158,15 @@ items:
     - name: 저장소 계정 추가
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Hadoop 작업용 데이터 업로드
+    - name: Apache Hadoop 작업용 데이터 업로드
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: psql을 사용하여 Phoenix로 데이터 대량 로드
+    - name: psql을 사용하여 Apache Phoenix로 데이터 대량 로드
       href: apache-hbase-phoenix-psql.md
     - name: Data Lake Store가 있는 다중 HDInsight 클러스터
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
-    - name: Sqoop으로 데이터 가져오기 및 내보내기
+    - name: Apache Sqoop으로 데이터 가져오기 및 내보내기
       href: ../hdinsight-use-sqoop.md
       items:
       - name: SSH를 사용하여 연결
@@ -187,7 +187,7 @@ items:
     - name: HDInsight 클러스터를 최신 버전으로 업그레이드
       href: ../hdinsight-upgrade-cluster.md
       maintainContext: true
-    - name: HBase 클러스터를 최신 버전으로 마이그레이션
+    - name: Apache HBase 클러스터를 최신 버전으로 마이그레이션
       href: apache-hbase-migrate-new-version.md
     - name: HDInsight 클러스터의 OS 패치
       href: ../hdinsight-os-patching.md
@@ -198,13 +198,13 @@ items:
     - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: HDFS 문제 해결
+    - name: Apache Hadoop HDFS 문제 해결
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: HBase 문제 해결
+    - name: Apache HBase 문제 해결
       href: apache-troubleshoot-hbase.md
       maintainContext: true
-    - name: YARN 문제 해결
+    - name: Apache Hadoop YARN 문제 해결
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: 리소스
@@ -212,25 +212,25 @@ items:
       - name: Linux에서 HDInsight 사용에 관한 정보
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop 메모리 및 성능
+      - name: Apache Hadoop 메모리 및 성능
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Linux에서 Hadoop YARN 응용 프로그램 로그에 액세스
+      - name: Linux에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Hadoop 서비스에 대한 힙 덤프 사용
+      - name: Apache Hadoop 서비스에 대한 힙 덤프 사용
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
       - name: WebHCat 오류 이해 및 해결
         href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
         maintainContext: true
-      - name: Hive 설정 수정 메모리 부족 오류
+      - name: Apache Hive 설정 수정 메모리 부족 오류
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Ambari 뷰를 사용하여 Tez 작업 디버깅
+      - name: Apache Ambari 뷰를 사용하여 Apache TEZ 작업 디버그
         href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
-      - name: Hive 쿼리 최적화
+      - name: Apache Hive 쿼리 최적화
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
     maintainContext: true
@@ -247,11 +247,11 @@ items:
     - name: 온-프레미스 네트워크와 HDInsight 연결
       href: ../connect-on-premises-network.md
       maintainContext: true
-    - name: Azure VNet에서 HBase 클러스터 만들기
+    - name: Azure VNet에서 Apache HBase 클러스터 만들기
       href: apache-hbase-provision-vnet.md
-    - name: Azure VNet의 HBase 클러스터 복제
+    - name: Azure VNet의 Apache HBase 클러스터 복제
       href: apache-hbase-replication.md
-    - name: HBase 및 Phoenix에 대한 백업 및 복제 설정
+    - name: Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
       href: apache-hbase-backup-replication.md
   - name: Log Analytics를 사용한 모니터링
     items:
@@ -264,7 +264,7 @@ items:
     - name: 클러스터 성능 모니터링
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-    - name: Phoenix 성능 모범 사례
+    - name: Apache Phoenix 성능 모범 사례
       href: apache-hbase-phoenix-performance.md
 - name: 참고 자료
   items:
@@ -280,13 +280,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET(HBase)
+  - name: .NET(Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET(Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST (영문)
     href: /rest/api/hdinsight/
-  - name: REST(Spark)
+  - name: REST(Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: 관련 항목
   items:
@@ -298,34 +298,34 @@ items:
     - name: Linux 클러스터로 .NET 솔루션 마이그레이션
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: Hadoop MapReduce 샘플 실행
+    - name: Apache Hadoop MapReduce 샘플 실행
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: 클러스터의 Solr 사용
+    - name: 클러스터의 Apache Solr 사용
       href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
-    - name: Giraph를 사용하여 대규모 그래프 처리
+    - name: Apache Giraph를 사용하여 대규모 그래프 처리
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
-    - name: 워크플로에 대해 Oozie 사용
+    - name: 워크플로에 대해 Apache Oozie 사용
       href: ../hdinsight-use-oozie.md
       maintainContext: true
-    - name: Storm 토폴로지 배포 및 관리
+    - name: Apache Storm 토폴로지 배포 및 관리
       href: ../storm/apache-storm-deploy-monitor-topology.md
       maintainContext: true
-    - name: Maven을 사용하여 Java 응용 프로그램 빌드
+    - name: Apache Maven을 사용하여 Java 애플리케이션 빌드
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Tez UI를 사용하여 Tez 작업 디버깅
+    - name: Apache Tez UI를 사용하여 TEZ 작업 디버그
       href: ../hdinsight-debug-tez-ui.md
       maintainContext: true
     - name: 스크립트 작업을 사용하여 사용자 지정
       href: ../hdinsight-hadoop-customize-cluster.md
       maintainContext: true
-    - name: YARN 응용 프로그램 로그 액세스
+    - name: Apache Hadoop YARN 애플리케이션 로그에 액세스
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
-    - name: Mahout을 사용하여 영화 추천 생성
+    - name: Apache Mahout을 사용하여 영화 추천 생성
       href: ../hdinsight-mahout.md
       maintainContext: true
     - name: 비행 지연 데이터 분석
@@ -340,7 +340,7 @@ items:
     - name: Azure 포털을 사용하여 클러스터 관리
       href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
-    - name: Ambari API를 사용하여 클러스터 모니터링
+    - name: Apache Ambari API를 사용하여 클러스터 모니터링
       href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: 리소스
@@ -365,9 +365,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: bd15bf79fa8782a2bbcb74e4636aa8cbc95ef28a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 9bf9d1f319d92712fe15ac510717b0c0eb1a53c6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362860"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317214"

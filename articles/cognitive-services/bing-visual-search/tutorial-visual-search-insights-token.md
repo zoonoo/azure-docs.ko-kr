@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 06d6bc8e53276b5542210c2843d7221d6fd79c09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 62780500d29c891182d3869bf0ba3ccdc5e2f715
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386437"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441064"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>자습서: Bing Visual Search SDK ImageInsightsToken 및 결과
 Visual Search SDK에는 `ImageInsightsToken`을 반환하는 이전 검색에서 온라인으로 이미지를 찾는 옵션이 포함됩니다.  이 예제는 `ImageInsightsToken`을 가져와 후속 검색에서 토큰을 사용합니다.  코드는 `ImageInsightsToken`을 Bing에 보내고 Bing Search URL 및 온라인에서 찾은 비슷한 이미지의 URL을 포함하는 결과를 반환합니다.
@@ -24,6 +24,16 @@ Visual Search SDK에는 `ImageInsightsToken`을 반환하는 이전 검색에서
 Visual Studio 2017. 필요하면 여기(https://www.visualstudio.com/vs/community/)에서 무료 커뮤니티 버전을 다운로드할 수 있습니다.
 Cognitive Services API 키는 SDK 호출을 인증하는 데 필요합니다. 평가판 키에 등록합니다. 평가판 키는 초당 한 번의 호출로 7일 동안 유효합니다. 프로덕션 시나리오의 경우 액세스 키를 구입하세요. 가격 책정 정보도 참조하세요.
 .NET core SDK 및 .net core 1.1 앱을 실행하는 기능입니다. 여기(https://www.microsoft.com/net/download/)에서 코어, 프레임워크 및 런타임을 가져올 수 있습니다.
+
+이 자습서의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
 Bing Web Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 NuGet 패키지 관리 옵션을 찾습니다. 추가:

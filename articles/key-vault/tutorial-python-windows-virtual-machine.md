@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Python에서 Azure Linux Virtual Machine에 Azure Key Vault를 사용하는 방법 | Microsoft Docs
+title: 자습서 - Python에서 Azure Windows Virtual Machine에 Azure Key Vault를 사용하는 방법 | Microsoft Docs
 description: 자습서 Key Vault에서 비밀을 읽도록 ASP.NET Core 응용 프로그램 구성
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 863f3a8c18eab5b42b5f1377ca0f91f9740c06e7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 26b5b16e3eb016edbe53c3526e51c3aa44f307b5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265976"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583587"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>자습서: Python에서 Azure Linux Virtual Machine에 Azure Key Vault를 사용하는 방법
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>자습서: Python에서 Azure Windows Virtual Machine에 Azure Key Vault를 사용하는 방법
 
 Azure Key Vault를 통해 응용 프로그램, 서비스 및 IT 리소스에 액세스하는 데 필요한 API 키, 데이터베이스 연결 문자열과 같은 비밀을 보호할 수 있습니다.
 

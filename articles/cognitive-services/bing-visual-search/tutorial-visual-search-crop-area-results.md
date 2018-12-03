@@ -9,21 +9,29 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 66e17c00da898e575bb858dbe16a35d1c44a2780
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 27141c014c9ccdf9d62c9bde5c96bd31abfc025e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226913"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447098"
 ---
 # <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>자습서: Bing Visual Search SDK 이미지 자르기 영역 및 결과
 Visual Search SDK에는 이미지의 영역을 선택하고 더 큰 이미지의 자르기 영역과 유사한 이미지를 온라인에서 찾는 옵션이 포함되어 있습니다.  이 예제에서는 여러 사람이 포함된 이미지에서 한 사람을 표시하는 자르기 영역을 지정합니다.  코드는 더 큰 이미지의 자르기 영역 및 URL을 보내고 Bing Search URL 및 온라인에서 찾은 비슷한 이미지의 URL을 포함하는 결과를 반환합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Windows에서 실행되는 이 코드를 가져오려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. (무료 Community Edition이 작동됩니다.)
+Windows에서 실행되는 이 코드를 가져오려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. 체험 Community Edition을 사용해도 됩니다.
 
-Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요하며, Azure 대시보드에서 유료 구독 키를 사용해도 됩니다.
+이 자습서의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
 Bing Web Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 NuGet 패키지 관리 옵션을 찾습니다. Microsoft.Azure.CognitiveServices.Search.VisualSearch 패키지를 추가합니다.

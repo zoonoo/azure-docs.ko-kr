@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 9edb85fcaa2c3f9c58cc74c55d52e4dbbf751727
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5b1768978425d3153f775e20a1a4c44a39794779
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014519"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315957"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Apache Kafka 만들기
 
@@ -161,11 +161,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Zookeeper 및 Broker 호스트 정보 가져오기
+## <a id="getkafkainfo"></a>Apache Zookeeper 및 Broker 호스트 정보 가져오기
 
-Kafka를 사용할 때는 *Zookeeper* 및 *Broker* 호스트를 알고 있어야 합니다. 이러한 호스트는 Apache Kafka API 및 Kafka와 함께 제공되는 다양한 유틸리티에서 사용됩니다.
+Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 있어야 합니다. 이러한 호스트는 Apache Kafka API 및 Kafka와 함께 제공되는 다양한 유틸리티에서 사용됩니다.
 
-이 섹션에서는 클러스터에서 Ambari REST API에서 호스트 정보를 가져옵니다.
+이 섹션에서는 클러스터에서 Apache Ambari REST API에서 호스트 정보를 가져옵니다.
 
 1. 클러스터에 대한 SSH 연결에서 다음 명령을 사용하여 `jq` 유틸리티를 설치합니다. 이 유틸리티는 JSON 문서를 구문 분석하는 데 사용되며 호스트 정보 검색에 유용합니다.
    
@@ -249,7 +249,7 @@ Kafka는 *토픽*에 데이터 스트림을 저장합니다. 토픽을 관리하
         > [!IMPORTANT] 
         > Apache Kafka는 Azure 장애 도메인을 인식하지 않습니다. 항목에 대한 파티션 복제본을 만들 때 고가용성에 대해 복제본을 제대로 배포하지 않을 수 있습니다.
 
-        고가용성을 보장하려면 [Kafka 파티션 재조정 도구](https://github.com/hdinsight/hdinsight-kafka-tools)를 사용합니다. 이 도구는 Apache Kafka 클러스터의 헤드 노드에 대한 SSH 연결에서 실행되어야 합니다.
+        고가용성을 보장하려면 [Apache Kafka 파티션 재조정 도구](https://github.com/hdinsight/hdinsight-kafka-tools)를 사용합니다. 이 도구는 Apache Kafka 클러스터의 헤드 노드에 대한 SSH 연결에서 실행되어야 합니다.
 
         가장 높은 Apache Kafka 데이터 가용성을 보장하려면 다음과 같은 경우에 토픽에 대한 파티션 복제본의 부하를 다시 조정해야 합니다.
 
@@ -311,7 +311,7 @@ Kafka는 토픽에 *레코드*를 저장합니다. *생산자*에서 레코드�
 
 4. __Ctrl+C__를 사용하여 소비자를 중지합니다.
 
-또한 프로그래밍 방식으로 생산자와 소비자를 만들 수 있습니다. 이 API를 사용하는 예제는 [HDInsight의 Kafka 생산자 및 소비자 API](apache-kafka-producer-consumer-api.md) 문서를 참조하세요.
+또한 프로그래밍 방식으로 생산자와 소비자를 만들 수 있습니다. 이 API를 사용하는 예제는 [HDInsight의 Apache Kafka 생산자 및 소비자 API](apache-kafka-producer-consumer-api.md) 문서를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -331,5 +331,5 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Kafka에서 Apache Spark 사용](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Apache Kafka에서 Apache Spark 사용](../hdinsight-apache-kafka-spark-structured-streaming.md)
 

@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: edebd1361e39a338672b4249dd159e5c1d4078ce
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2df767ef92ca056535e2d70a53a1588c9e89c647
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294155"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316789"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>빠른 시작: Bing Image Search SDK 및 C#을 사용하여 이미지 검색
 
@@ -24,7 +24,6 @@ ms.locfileid: "46294155"
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-
 * [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/)의 모든 버전.
 * [Cognitive Image Search NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0).
 
@@ -32,6 +31,7 @@ Visual Studio에서 Bing Image Search SDK를 설치하려면 Visual Studio의 �
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="create-and-initialize-the-application"></a>응용 프로그램 만들기 및 초기화
 

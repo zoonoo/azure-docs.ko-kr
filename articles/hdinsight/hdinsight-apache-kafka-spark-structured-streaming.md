@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 83e277eceea2df746de6f6e9a33130989e2d874d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5f59f14f93b5bfc79c07b096a07ac109be0bedb6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278364"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499089"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>자습서: HDInsight에서 Apache Kafka의 Apache Spark 구조적 스트림 사용
 
-이 자습서에서는 Azure HDInsight에서 Apache Kafka를 사용하여 Apache Spark 구조적 스트림을 통해 데이터를 읽고 쓰는 방법을 보여줍니다.
+이 자습서에서는 Azure HDInsight에서 [Apache Kafka](https://kafka.apache.org/)를 사용하여 [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 통해 데이터를 읽고 쓰는 방법을 보여줍니다.
 
 Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진입니다. 정적 데이터에 대한 일괄 처리 계산과 동일하게 스트리밍 계산을 표현할 수 있습니다. 
 
@@ -35,11 +35,11 @@ Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* HDInsight의 Spark에서 Jupyter Notebook을 사용하는 방법 이해. 자세한 내용은 [HDInsight의 Spark로 데이터 로드 및 쿼리 실행](spark/apache-spark-load-data-run-query.md) 문서를 참조하세요.
+* HDInsight의 Spark에서 [Jupyter Notebook](https://jupyter.org/)을 사용하는 방법 이해. 자세한 내용은 [HDInsight의 Apache Spark로 데이터 로드 및 쿼리 실행](spark/apache-spark-load-data-run-query.md) 문서를 참조하세요.
 
 * [Scala](https://www.scala-lang.org/) 프로그래밍 언어 숙지. 이 자습서에 사용되는 코드는 Scala로 작성됩니다.
 
-* Kafka 토픽 생성 방법 이해. 자세한 내용은 [HDInsight의 Kafka 빠른 시작](kafka/apache-kafka-get-started.md) 문서를 참조하세요.
+* Kafka 토픽 생성 방법 이해. 자세한 내용은 [HDInsight의 Apache Kafka 빠른 시작](kafka/apache-kafka-get-started.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
 > 이 문서의 단계를 수행하려면 HDInsight의 Spark와 HDInsight의 Kafka 클러스터를 모두 포함하는 Azure 리소스 그룹이 필요합니다. 이러한 클러스터는 모두 Azure Virtual Network에 있으며, 여기서는 Spark 클러스터와 Kafka 클러스터 간에 직접 통신할 수 있습니다.
@@ -48,7 +48,7 @@ Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진�
 >
 > 가상 네트워크에서 HDInsight를 사용하는 방법에 대한 자세한 내용은 [가상 네트워크를 사용하여 HDInsight 확장](hdinsight-extend-hadoop-virtual-network.md)을 참조하세요.
 
-## <a name="structured-streaming-with-kafka"></a>Kafka를 사용하는 구조적 스트림
+## <a name="structured-streaming-with-apache-kafka"></a>Apache Kafka를 사용하는 구조적 스트림
 
 Spark Structured Streaming은 Spark SQL 엔진에서 작성된 스트림 처리 엔진입니다. 구조적 스트리밍을 사용하여 일괄 처리 쿼리를 작성하는 경우와 동일한 방식으로 스트리밍 쿼리를 쓸 수 있습니다.
 
@@ -205,7 +205,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Spark Structured Streaming을 사용하여 HDInsight의 Kafka에서 데이터를 읽고 쓰는 방법을 배웠습니다. Kafka에서 Storm을 사용하는 방법을 알아보려면 다음 링크를 사용하세요.
+이 자습서에서는 [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 사용하여 HDInsight의 [Apache Kafka](https://kafka.apache.org/)에서 데이터를 읽고 쓰는 방법을 배웠습니다. Kafka에서 [Apache Storm](https://storm.apache.org/)을 사용하는 방법을 알아보려면 다음 링크를 사용하세요.
 
 > [!div class="nextstepaction"]
-> [Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)
+> [Apache Kafka에서 Apache Storm 사용](hdinsight-apache-storm-with-kafka.md)

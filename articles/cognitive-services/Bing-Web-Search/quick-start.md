@@ -11,18 +11,18 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: af32abe1c61c44b14d0f70033aee54aa7eba7c8b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6e4c5a47ea19a4308865de78f3a4c059a9f8ac79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126244"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312404"
 ---
 # <a name="your-first-bing-search-query"></a>첫 번째 Bing 검색 쿼리
 
-첫 번째 호출을 만들려면 Cognitive Services 구독 키가 필요합니다. 키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)를 참조하세요.
+첫 번째 호출을 만들려면 Cognitive Services 구독 키가 필요합니다. 키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)를 참조하세요. [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
-Web Search 결과를 가져오려면 다음 엔드포인트로 GET 요청을 보냅니다.  
+웹 검색 결과를 가져오려면 다음 엔드포인트로 GET 요청을 보냅니다.  
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search

@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/18/2018
 ms.author: rosh
-ms.openlocfilehash: b0e083a7397378956d9fe0d0ae2257aaf0bbdf1e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a50771fddc15ab0ec284fa7f42539f1f8dcce40d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223429"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308650"
 ---
 # <a name="quickstart-bing-video-search-sdk-java"></a>빠른 시작: Bing Video Search SDK Java
 
@@ -24,7 +24,9 @@ Bing Video Search SDK는 비디오 쿼리 및 구문 분석 결과에 대한 RES
 [Java Bing Video Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch)은 Git Hub에서 얻을 수 있습니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
-**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다. Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Video Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
+
+Maven, Gradle 또는 기타 종속성 관리 시스템을 사용하여 Bing Video Search SDK 종속성을 설치합니다. Maven POM 파일에는 다음 선언이 필요합니다.
 ```
   <dependencies>
     <dependency>

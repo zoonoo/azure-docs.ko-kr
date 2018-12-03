@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1d7c880a56c79d516c3904c3f532eb7006f0b68c
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 179a13d6fbb162ae7727c6a176b60879901dc4d1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705840"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426189"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -78,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 11. 다른 기본 설정을 사용한 다음, **만들기**를 클릭합니다.
 
 > [!NOTE]
-> AzureFirewallSubnet 서브넷의 최소 크기는/25입니다.
+> AzureFirewallSubnet 서브넷의 최소 크기는 /26입니다.
 
 ### <a name="create-additional-subnets"></a>추가 서브넷 만들기
 
@@ -115,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 9. **공용 IP**에서 **새로 만들기**를 클릭합니다.
 10. 공용 IP 주소 이름으로 **Srv-Jump-PIP**를 입력하고 **확인**을 클릭합니다.
 11. 나머지는 기본값으로 두고 **다음: 관리**를 클릭합니다.
-12. **끄기**를 클릭하여 부팅 진단을 사용하지 않도록 설정합니다. 나머지는 기본값으로 두고 **검토 + 만들기**를 클릭합니다.
+12. **끄기**를 클릭하여 부팅 진단을 사용하지 않도록 설정합니다. 기타 기본값을 적용하고 **검토 + 만들기**를 클릭합니다.
 13. 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
 
 **Srv-Work**라는 다른 가상 머신을 만들려면 이 프로세스를 반복합니다.

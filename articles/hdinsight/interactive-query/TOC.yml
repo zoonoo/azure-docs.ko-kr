@@ -29,12 +29,12 @@ items:
     - name: Azure Data Lake Store 사용
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
-  - name: 대화형 쿼리에 Hadoop 사용
+  - name: 대화형 쿼리에 Apache Hadoop 사용
     items:
-    - name: Hadoop과 Hive
+    - name: Hadoop과 Apache Hive 사용
       href: ../hadoop/hdinsight-use-hive.md
       items:
-      - name: Zeppelin 사용
+      - name: Apache Zeppelin 사용
         href: ../hdinsight-connect-hive-zeppelin.md
         maintainContext: true
       - name: Visual Studio용 도구
@@ -46,7 +46,7 @@ items:
       - name: Hortonworks 샌드박스를 사용한 Data Lake 도구
         href: ../hdinsight-hadoop-emulator-visual-studio.md
         maintainContext: true
-      - name: Hive View 사용
+      - name: Apache Hive View 사용
         href: ../hadoop/apache-hadoop-use-hive-ambari-view.md
         maintainContext: true
       - name: Beeline 사용
@@ -74,7 +74,7 @@ items:
     - name: Hive와 함께 Java UDF 사용
       href: ../hadoop/apache-hadoop-hive-java-udf.md
       maintainContext: true
-    - name: Hadoop 작업 제출
+    - name: Apache Hadoop 작업 제출
       href: ../hadoop/submit-apache-hadoop-jobs-programmatically.md
       maintainContext: true
   - name: 개발
@@ -91,7 +91,7 @@ items:
     - name: C# 사용자 정의 함수 사용
       href: ../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
       maintainContext: true
-    - name: Hive 및 Pig에서 Python 사용
+    - name: Apache Hive 및 Apache Pig와 함께 Python 사용
       href: ../hadoop/python-udf-hdinsight.md
       maintainContext: true
     - name: 비대화형 인증 .NET HDInsight 응용 프로그램 만들기
@@ -104,13 +104,13 @@ items:
       maintainContext: true
     - name: 대화형 쿼리에 Power BI 연결
       href: ./apache-hadoop-connect-hive-power-bi-directquery.md
-    - name: Hadoop에 Power BI 연결
+    - name: Apache Hadoop에 Power BI 연결
       href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
       maintainContext: true
-    - name: Hadoop에 Excel 연결
+    - name: Apache Hadoop에 Excel 연결
       href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
       maintainContext: true
-    - name: Hive JDBC 드라이버를 사용하여 연결
+    - name: Apache Hive JDBC 드라이버를 사용하여 연결
       href: ../hadoop/apache-hadoop-connect-hive-jdbc-driver.md
       maintainContext: true
     - name: 저장된 센서 데이터 분석
@@ -122,7 +122,7 @@ items:
     - name: 비행 지연 데이터 분석
       href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
-    - name: Hive를 사용하여 웹 사이트 로그 분석
+    - name: Apache Hive를 사용하여 웹 사이트 로그 분석
       href: ../hadoop/apache-hive-analyze-website-log.md
       maintainContext: true
   - name: 클러스터 확장
@@ -136,10 +136,10 @@ items:
     - name: 스크립트 작업 개발
       href: ../hdinsight-hadoop-script-actions-linux.md
       maintainContext: true
-    - name: Hive 라이브러리 추가
+    - name: Apache Hive 라이브러리 추가
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
-    - name: Zeppelin 사용
+    - name: Apache Zeppelin 사용
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
     - name: Grafana 사용
@@ -180,7 +180,7 @@ items:
     - name: 데이터에 액세스 제한
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
       maintainContext: true
-    - name: 사용자에게 Ambari 보기에 대한 권한 부여
+    - name: 사용자에게 Apache Ambari 보기에 대한 권한 부여
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
   - name: 관리
@@ -210,7 +210,7 @@ items:
     - name: 주문형 클러스터 만들기
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Hadoop 클러스터 관리
+    - name: Apache Hadoop 클러스터 관리
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: .NET SDK 사용
@@ -223,13 +223,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: Ambari 웹 UI를 사용하여 클러스터 관리
+    - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Ambari 웹 UI를 사용하여 클러스터 최적화
+      - name: Apache Ambari 웹 UI를 사용하여 클러스터 최적화
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Ambari REST API 사용
+      - name: Apache Ambari REST API 사용
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -245,7 +245,7 @@ items:
     - name: 저장소 계정 추가
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Hadoop 작업용 데이터 업로드
+    - name: Apache Hadoop 작업용 데이터 업로드
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: Data Lake Store가 있는 다중 HDInsight 클러스터
@@ -272,13 +272,13 @@ items:
     - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: HDFS 문제 해결
+    - name: Apache Hadoop HDFS 문제 해결
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: Hive 문제 해결
+    - name: Apache HIVE 문제 해결
       href: ../hdinsight-troubleshoot-hive.md
       maintainContext: true
-    - name: YARN 문제 해결
+    - name: Apache Hadoop YARN 문제 해결
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: 리소스
@@ -286,25 +286,25 @@ items:
       - name: Linux에서 HDInsight 사용에 관한 정보
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop 메모리 및 성능
+      - name: Apache Hadoop 메모리 및 성능
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Linux에서 Hadoop YARN 응용 프로그램 로그에 액세스
+      - name: Linux에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Hadoop 서비스에 대한 힙 덤프 사용
+      - name: Apache Hadoop 서비스에 대한 힙 덤프 사용
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
       - name: WebHCat 오류 이해 및 해결
         href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
         maintainContext: true
-      - name: Hive 설정 수정 메모리 부족 오류
+      - name: Apache Hive 설정 수정 메모리 부족 오류
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Ambari 뷰를 사용하여 Tez 작업 디버깅
+      - name: Apache Ambari 뷰를 사용하여 Apache TEZ 작업 디버그
         href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
-      - name: Hive 쿼리 최적화
+      - name: Apache Hive 쿼리 최적화
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
     maintainContext: true
@@ -324,7 +324,7 @@ items:
     - name: Azure AD DS를 사용하여 HDInsight에서 엔터프라이즈 보안 구성
       href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
       maintainContext: true
-    - name: Hive 정책 구성
+    - name: Apache Hive 정책 구성
       href: ../domain-joined/apache-domain-joined-run-hive.md
       maintainContext: true
     - name: 엔터프라이즈 보안을 사용하여 클러스터 관리
@@ -366,13 +366,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET(HBase)
+  - name: .NET(Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET(Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST (영문)
     href: /rest/api/hdinsight/
-  - name: REST(Spark)
+  - name: REST(Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: 리소스
   items:
@@ -396,9 +396,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 3f3dbea40ea402d5fc6670931ddc8fc8f85d1ca4
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 5dd6517a42a906db7297cbfe5bbded3299b0834a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364322"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308410"

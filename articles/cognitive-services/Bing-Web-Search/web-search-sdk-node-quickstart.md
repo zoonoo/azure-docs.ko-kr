@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: 14227239f3772f7c820f0c5dc941a89da9675f4e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 435f7840e2d3d7d8a4d1d53a0a3e8b4e85fe4dce
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162427"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312649"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>빠른 시작: Node.js용 Bing Web Search SDK 사용
 
@@ -25,8 +25,9 @@ Bing Web Search SDK를 사용하면 Bing Web Search를 Node.js 응용 프로그�
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>필수 조건
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
+## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
 * [Node.js 6](https://nodejs.org/en/download/) 이상

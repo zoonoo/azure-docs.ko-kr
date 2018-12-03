@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345575"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425006"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(비공개 미리 보기)
 
@@ -41,6 +41,8 @@ ms.locfileid: "51345575"
 > * 최신 버전 배포
 > * 리소스 정리
 
+Azure Deployment Manager REST API 참조는 [여기](https://docs.microsoft.com/rest/api/deploymentmanager/)서 찾을 수 있습니다.
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -50,12 +52,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * [Azure Resource Manager 템플릿](./resource-group-overview.md)을 개발한 경험이 있어야 합니다.
 * Azure Deployment Manager가 비공개 미리 보기로 제공됩니다. Azure Deployment Manager를 사용하여 등록하려면 [등록 시트](https://aka.ms/admsignup)를 채웁니다. 
 * Azure PowerShell. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
-* Deployment Manager cmdlet이 있어야 합니다. 이러한 시험판 cmdlet을 설치하려면 최신 버전의 PowerShellGet이 필요합니다. 최신 버전을 가져오려면 [PowerShellGet 설치](/powershell/gallery/installing-psget)를 참조하세요. PowerShellGet이 설치되면 PowerShell 창을 닫습니다. 새 PowerShell 창을 열고, 다음 명령을 사용합니다.
+* Deployment Manager cmdlet이 있어야 합니다. 이러한 시험판 cmdlet을 설치하려면 최신 버전의 PowerShellGet이 필요합니다. 최신 버전을 가져오려면 [PowerShellGet 설치](/powershell/gallery/installing-psget)를 참조하세요. PowerShellGet이 설치되면 PowerShell 창을 닫습니다. 새로운 관리자 권한 PowerShell 창을 열고, 다음 명령을 사용합니다.
 
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
-* [Microsoft Azure Storage 탐색기](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)가 있어야 합니다. Azure Storage 탐색기는 필요하지 않지만 작업을 더 쉽게 수행할 수 있습니다.
+* [Microsoft Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)가 있어야 합니다. Azure Storage 탐색기는 필요하지 않지만 작업을 더 쉽게 수행할 수 있습니다.
 
 ## <a name="understand-the-scenario"></a>시나리오 이해
 
@@ -145,10 +147,10 @@ ArtifactStore 다운로드 폴더에는 다음 두 개의 폴더가 있습니다
 사용자가 할당한 관리 ID를 만들고 구독에 대한 액세스 제어를 구성해야 합니다.
 
 > [!IMPORTANT]
-> 사용자가 할당한 관리 ID는 [롤아웃](#create-the-rollout-template)과 동일한 위치에 있어야 합니다. 현재 롤아웃을 포함한 Deployment Manager 리소스는 미국 중부 또는 동부 2 지역에서만 만들 수 있습니다.
+> 사용자가 할당한 관리 ID는 [롤아웃](#create-the-rollout-template)과 동일한 위치에 있어야 합니다. 현재 롤아웃을 포함한 Deployment Manager 리소스는 미국 중부 또는 동부 2 지역에서만 만들 수 있습니다. 하지만 이는 Deployment Manager 리소스(예: 서비스 토폴로지, 서비스, 서비스 단위, 롤아웃 및 단계)에만 해당합니다. 대상 리소스는 지원되는 모든 Azure 지역에 배포될 수 있습니다. 이 자습서에서 예를 들면 Deployment Manager 리소스는 미국 중부에 배포되지만 서비스는 미국 동부와 미국 서부에 배포됩니다. 이 제한 사항은 나중에 변경될 예정입니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. [사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 만듭니다.
+2. [사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 만듭니다.
 3. 포털의 왼쪽 메뉴에서 **구독**을 선택한 다음, 구독을 선택합니다.
 4. **액세스 제어(IAM)** 를 선택한 다음, **추가**를 선택합니다.
 5. 다음 값을 입력하거나 선택합니다.
@@ -200,6 +202,9 @@ variables 섹션에서는 리소스 이름, 두 서비스에 대한 Azure 위치
 - **dependsOn**: 모든 서비스 토폴로지 리소스가 아티팩트 소스 리소스에 따라 달라집니다.
 - **artifacts**는 템플릿 아티팩트를 가리킵니다.  여기서는 상대 경로가 사용됩니다. 전체 경로는 artifactSourceSASLocation(아티팩트 소스에서 정의됨), artifactRoot(아티팩트 소스에서 정의됨) 및 templateArtifactSourceRelativePath(또는 parametersArtifactSourceRelativePath)를 연결하여 생성됩니다.
 
+> [!NOTE]
+> 서비스 단위 이름은 31자 이하여야 합니다. 
+
 ### <a name="topology-parameters-file"></a>토폴로지 매개 변수 파일
 
 토폴로지 템플릿에 사용되는 매개 변수 파일을 만듭니다.
@@ -211,7 +216,7 @@ variables 섹션에서는 리소스 이름, 두 서비스에 대한 Azure 위치
     - **azureResourceLocation**: Azure 위치를 잘 모르는 경우 이 자습서에서는 **centralus**를 사용합니다.
     - **artifactSourceSASLocation**: 서비스 단위 템플릿 및 매개 변수 파일이 배포를 위해 저장되는 루트 디렉터리(Blob 컨테이너)에 대한 SAS URI를 입력합니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
     - **templateArtifactRoot**: 아티팩트의 폴더 구조를 변경하지 않는 한 이 자습서에서는 **templates/1.0.0.0**을 사용합니다.
-    - **tragetScriptionID**: Azure 구독 ID를 입력합니다.
+    - **targetScriptionID**: Azure 구독 ID를 입력합니다.
 
 > [!IMPORTANT]
 > 토폴로지 템플릿과 롤아웃 템플릿은 몇 가지 공통 매개 변수를 공유합니다. 이러한 매개 변수에는 동일한 값이 있어야 합니다. 이러한 매개 변수로 **namePrefix**, **azureResourceLocation** 및 **artifactSourceSASLocation**이 있습니다(이 자습서에서는 두 아티팩트 소스에서 동일한 저장소 계정을 공유함).
@@ -242,7 +247,7 @@ variables 섹션에서는 리소스 이름을 정의합니다. 서비스 토폴�
 
 루트 수준에는 세 가지 리소스, 즉 소스, 단계 및 롤아웃이 정의되어 있습니다.
 
-아티팩트 소스 정의는 토폴로지 템플릿에 정의된 것과 동일합니다.  자세한 내용은 [서비스 토폴로지 템플릿 만들기](#create-the-service-topology-tempate)를 참조하세요.
+아티팩트 소스 정의는 토폴로지 템플릿에 정의된 것과 동일합니다.  자세한 내용은 [서비스 토폴로지 템플릿 만들기](#create-the-service-topology-template)를 참조하세요.
 
 다음 스크린샷에서는 wait(대기) 단계 정의를 보여 줍니다.
 
@@ -310,7 +315,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
     리소스를 보려면 **숨겨진 형식 표시**를 선택해야 합니다.
 
-3. 롤아웃 템플릿을 배포합니다.
+3. <a id="deploy-the-rollout-template"></a>롤아웃 템플릿을 배포합니다.
 
     ```azurepowershell-interactive
     # Create the rollout
@@ -325,7 +330,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
     ```azurepowershell-interactive
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>"
+    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
@@ -365,7 +370,7 @@ Azure PowerShell을 사용하여 템플릿을 배포할 수 있습니다.
 
 1. CreateADMRollout.Parameters.json을 엽니다.
 2. **binaryArtifactRoot**를 **binaries/1.0.0.1**로 업데이트합니다.
-3. [템플릿 배포](#deploy-the-templates)의 지침에 따라 롤아웃을 다시 배포합니다.
+3. [템플릿 배포](#deploy-the-rollout-template)의 지침에 따라 롤아웃을 다시 배포합니다.
 4. [배포 확인](#verify-the-deployment)에서 설명한 대로 배포를 확인합니다. 웹 페이지에는 1.0.0.1 버전이 표시됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리

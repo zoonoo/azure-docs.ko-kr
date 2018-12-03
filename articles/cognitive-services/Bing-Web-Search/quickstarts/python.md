@@ -10,18 +10,21 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: 2f034bd60747282ac9724250ab260e06122def6f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0f6f3991e01e4eb6919d958002ef6230a2570dbe
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160997"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309457"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>빠른 시작: Python을 사용하여 Bing Web Search API 호출  
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 이 빠른 시작을 사용하여 Bing Web Search API를 처음 호출하고 10분 내에 JSON 응답을 받습니다.  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 이 예제는 [MyBinder](https://mybinder.org)에서 Jupyter 노트북으로 실행됩니다. binder 시작(launch binder) 배지를 클릭하여 시작합니다.
 

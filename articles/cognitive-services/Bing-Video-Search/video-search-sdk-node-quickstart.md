@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: rosh
-ms.openlocfilehash: 9a2544fe5a3c0bac763b9aee79c36893ec56f351
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 985ddcff35a16c747fff34ed487c72744e1ee466
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686690"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313450"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-node"></a>빠른 시작: Node를 사용하여 Bing Video Search SDK
 
@@ -24,6 +24,7 @@ Bing Video Search SDK는 비디오 쿼리 및 구문 분석 결과에 대한 RES
 [Node Bing Video Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js)은 Git Hub에서 얻을 수 있습니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 Bing Video Search SDK를 사용하여 콘솔 애플리케이션을 설치하려면:
 * 개발 환경에서 `npm install ms-rest-azure` 명령을 실행합니다.

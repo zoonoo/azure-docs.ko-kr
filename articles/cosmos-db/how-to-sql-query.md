@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f9ec8ff1fbd5f6341d2d949d15d963f8abe15200
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166607"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444447"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>SQL 쿼리를 사용하여 Azure Cosmos DB 데이터 쿼리
 
@@ -400,9 +400,18 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 이항 및 단항 연산자뿐 아니라 속성 참조도 허용됩니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered`는 `isRegistered` 속성을 포함하고 속성 값이 JSON `true` 값과 같은 JSON 항목을 반환합니다. 다른 값(false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` 등)이면 소스 항목이 결과에서 제외됩니다. 
 
 ### <a name="equality-and-comparison-operators"></a>같음 및 비교 연산자
+
 다음 표는 SQL API에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** | | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | | **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined | | **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | | **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | | **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | | **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | | **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
+|---|---|---|---|---|---|---|---|
+| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
 다른 비교 연산자(예: >, >=, !=, < 및 <=)의 경우:
 

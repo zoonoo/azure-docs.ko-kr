@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 51f3bcee3a2e5bab8f3592d97f0caa91e8002dd4
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: b7c44184d0a0d8d5a8f1fbd80b053230f2c1ae84
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615983"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582023"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>자습서: Time Series Insights를 사용하여 Azure Digital Twins 공간의 이벤트 시각화 및 분석
 
@@ -160,6 +160,10 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 앞으로 Azure Digital Twins 탐색을 중지하려는 경우 이 자습서에서 만든 리소스를 자유롭게 삭제할 수 있습니다.
 
 1. [Azure Portal](http://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택하고, Digital Twins 리소스 그룹을 선택한 다음, **삭제**를 선택하면 됩니다.
+
+    > [!TIP]
+    > Digital Twins 인스턴스를 삭제하는 데 문제가 있을 경우 픽스가 포함된 서비스 업데이트가 배포된 것입니다. 인스턴스 삭제를 다시 시도해 보세요.
+
 2. 필요한 경우 작업 머신에서 샘플 애플리케이션을 삭제합니다. 
 
 

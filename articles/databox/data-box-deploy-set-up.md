@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/17/2018
+ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393833"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427525"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>자습서: Azure Data Box에 케이블 연결
 
@@ -30,7 +30,9 @@ ms.locfileid: "49393833"
 시작하기 전에 다음 사항을 확인합니다.
 
 1. [자습서: Azure Data Box 주문](data-box-deploy-ordered.md)을 완료했습니다.
-2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다. 현재 레이블 아래의 장치에 부착된 투명 주머니에 배송 레이블이 있습니다. 반품 발송 시 사용할 수 있으므로 이 레이블을 안전하게 보관하세요.
+2. Data Box를 받았고 포털의 주문 상태가 **배달됨**입니다. 
+    - 현재 레이블 아래의 장치에 부착된 투명 주머니에 배송 레이블이 있습니다. 반품 발송 시 사용할 수 있으므로 이 레이블을 안전하게 보관하세요.
+    - 유럽의 일부 지역은 상자에 패키징된 디바이스를 받을 수 있습니다. 디바이스를 개봉한 후에는 반품 배송에 대비해 상자를 보관해 두세요.
 3. [Data Box 안전 지침](data-box-safety.md)을 검토했습니다.
 4. 100TB 저장소 장치에 사용할 하나의 접지식 전원 코드를 수취했습니다.
 5. Data Box에 복사할 데이터가 포함된 호스트 컴퓨터가 있습니다. 호스트 컴퓨터는 다음 사항이 필수입니다.

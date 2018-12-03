@@ -2,21 +2,21 @@
 title: 병렬 워크로드 실행 - Azure Batch .NET
 description: 자습서 - Batch .NET 클라이언트 라이브러리를 사용하여 Azure Batch의 ffmpeg로 미디어 파일 트랜스코딩
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/07/2018
-ms.author: danlep
+ms.date: 11/20/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 02b715ade9a9a537f6bd0e476ada299140bff4bb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815514"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423612"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>자습서: .NET API를 사용하여 Azure Batch에서 병렬 워크로드 실행
 
@@ -41,7 +41,7 @@ ms.locfileid: "48815514"
 
 * Batch 계정 및 연결된 Azure Storage 계정. 이러한 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하는 Batch 빠른 시작을 참조하세요.
 
-* [Windows 64비트 버전의 ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip)(.zip). 로컬 컴퓨터에 zip 파일을 다운로드하세요. 이 자습서에서는 zip 파일만 필요합니다. 파일의 압축을 풀거나 로컬에 설치할 필요가 없습니다. 
+* [Windows 64비트 버전의 ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip)(.zip). 로컬 컴퓨터에 zip 파일을 다운로드하세요. 이 자습서에서는 zip 파일만 필요합니다. 파일의 압축을 풀거나 로컬에 설치할 필요가 없습니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 `BatchDotNetFfmpegTutorial.sln`(Visual Studio 솔루션 파일)이 있는 디렉터리로 이동합니다.
 
-Visual Studio에서 솔루션 파일을 열고 `program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
+Visual Studio에서 솔루션 파일을 열고 `Program.cs`의 자격 증명 문자열을 계정에 대해 가져온 값으로 업데이트합니다. 예: 
 
 ```csharp
 // Batch account credentials
@@ -104,7 +104,7 @@ Visual Studio 또는 명령줄에서 `dotnet build` 및 `dotnet run` 명령을 �
 그런 다음 실행합니다. 샘플 응용 프로그램을 실행하는 경우 콘솔 출력은 다음과 비슷합니다. 실행 중에 풀의 계산 노드가 시작되는 동안 `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`에서 일시 중지가 발생합니다. 
 
 ```
-Sample start: 12/12/2017 3:20:21 PM
+Sample start: 11/19/2018 3:20:21 PM
 
 Container [input] created.
 Container [output] created.
@@ -120,17 +120,15 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 Success! All tasks completed successfully within the specified timeout period.
 Deleting container [input]...
 
-Sample end: 12/12/2017 3:29:36 PM
+Sample end: 11/19/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
-
 
 Azure Portal에서 Batch 계정으로 가서 풀, 계산 노드, 작업 및 태스크를 모니터링합니다. 예를 들어 풀의 계산 노드에 대한 열 지도를 보려면 **풀** > *WinFFmpegPool*을 클릭합니다.
 
 태스크가 실행 중일 때 열 지도는 다음과 유사합니다.
 
 ![풀 열 지도](./media/tutorial-parallel-dotnet/pool.png)
-
 
 기본 구성에서 응용 프로그램을 실행하는 경우 일반적인 실행 시간은 **약 10분**입니다. 풀을 만드는 데 가장 많은 시간이 걸립니다.
 
@@ -155,7 +153,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-이 앱은 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) 개체를 만들어 Batch 서비스의 풀, 작업 및 태스크를 만들고 관리합니다. 샘플의 Batch 클라이언트는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 응용 프로그램을 인증합니다.
+이 앱은 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) 개체를 만들어 Batch 서비스의 풀, 작업 및 태스크를 만들고 관리합니다. 샘플의 Batch 클라이언트는 공유 키 인증을 사용합니다. 또한 Batch는 [Azure Active Directory](batch-aad-auth.md)를 통한 인증도 지원하여 개별 사용자 또는 무인 애플리케이션을 인증합니다.
 
 ```csharp
 BatchSharedKeyCredentials sharedKeyCredentials = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -178,7 +176,7 @@ CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 `Program.cs`의 두 메서드는 파일 업로드에 관여합니다.
 
 * `UploadResourceFilesToContainerAsync`: ResourceFile 개체의 컬렉션을 반환하고 내부적으로 `UploadResourceFileToContainerAsync`을 호출하여 `inputFilePaths` 매개 변수에 전달된 각 파일을 업로드합니다.
-* `UploadResourceFileToContainerAsync`: 입력 컨테이너에 각 파일을 Blob으로 업로드합니다. 파일 업로드 후 Blob에 대한 SAS(공유 액세스 서명)을 가져오고 이를 나타내는 ResourceFile 개체를 반환합니다. 
+* `UploadResourceFileToContainerAsync`: 입력 컨테이너에 각 파일을 Blob으로 업로드합니다. 파일 업로드 후 Blob에 대한 SAS(공유 액세스 서명)을 가져오고 이를 나타내는 ResourceFile 개체를 반환합니다.
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -198,9 +196,9 @@ List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
 
 그런 다음, 샘플이 `CreatePoolIfNotExistAsync`에 대한 호출을 통해 Batch 계정에 계산 노드의 풀을 만듭니다. 이 정의된 메서드는 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 메서드를 사용하여 노드 수, VM 크기 및 풀 구성을 설정합니다. 여기서 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 개체는 Azure Marketplace에 게시된 Windows Server 이미지에 대한 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference)를 지정합니다. Batch는 Azure Marketplace의 광범위한 VM 이미지뿐만 아니라 사용자 지정 VM 이미지도 지원합니다.
 
-노드 수 및 VM 크기는 정의된 상수를 사용하여 설정됩니다. Batch는 전용 노드와 [우선 순위가 낮은](batch-low-pri-vms.md) 노드를 지원하며, 풀에서 하나 또는 둘 다 사용할 수 있습니다. 전용 노드는 풀에 예약되어 있습니다. 우선 순위가 낮은 노드는 Azure의 잔여 VM 용량에서 할인된 가격으로 제공됩니다. Azure에 충분한 용량이 없으면 우선 순위가 낮은 노드는 사용할 수 없게 됩니다. 이 샘플은 기본적으로 *Standard_A1_v2* 크기의 우선 순위가 낮은 노드 5개만 포함된 풀을 만듭니다. 
+노드 수 및 VM 크기는 정의된 상수를 사용하여 설정됩니다. Batch는 전용 노드와 [우선 순위가 낮은](batch-low-pri-vms.md) 노드를 지원하며, 풀에서 하나 또는 둘 다 사용할 수 있습니다. 전용 노드는 풀에 예약되어 있습니다. 우선 순위가 낮은 노드는 Azure의 잔여 VM 용량에서 할인된 가격으로 제공됩니다. Azure에 충분한 용량이 없으면 우선 순위가 낮은 노드는 사용할 수 없게 됩니다. 이 샘플은 기본적으로 *Standard_A1_v2* 크기의 우선 순위가 낮은 노드 5개만 포함된 풀을 만듭니다.
 
-풀 구성에 [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference)를 추가하면 계산 노드에 ffmpeg 응용 프로그램이 배포됩니다. 
+풀 구성에 [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference)를 추가하면 계산 노드에 ffmpeg 응용 프로그램이 배포됩니다.
 
 [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) 메서드는 풀을 Batch 서비스에 제출합니다.
 
@@ -208,7 +206,7 @@ List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2012-R2-Datacenter-smalldisk",
+    sku: "2016-Datacenter-smalldisk",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =
@@ -220,7 +218,7 @@ pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
     targetDedicatedComputeNodes: DedicatedNodeCount,
     targetLowPriorityComputeNodes: LowPriorityNodeCount,
-    virtualMachineSize: PoolVMSize,                                                
+    virtualMachineSize: PoolVMSize,
     virtualMachineConfiguration: virtualMachineConfiguration);
 
 pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
@@ -234,7 +232,7 @@ await pool.CommitAsync();
 
 ### <a name="create-a-job"></a>작업 만들기
 
-Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `CreateJobAsync`를 호출하여 작업을 만듭니다. 이 정의된 메서드는 [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) 메서드를 사용하여 풀에 작업을 만듭니다. 
+Batch 작업은 태스크를 실행할 풀과 우선 순위 및 작업 일정과 같은 선택적 설정을 지정합니다. 이 샘플은 `CreateJobAsync`를 호출하여 작업을 만듭니다. 이 정의된 메서드는 [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) 메서드를 사용하여 풀에 작업을 만듭니다.
 
 [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) 메서드는 작업을 Batch 서비스에 제출합니다. 처음에는 작업에 태스크가 없습니다.
 
@@ -252,7 +250,7 @@ await job.CommitAsync();
 
 이 샘플에서는 명령줄을 실행한 후 MP3 파일에 대한 [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) 개체를 만듭니다. 각 태스크의 출력 파일(이 경우에는 하나)은 태스크의 [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) 속성을 사용하여 연결된 저장소 계정의 컨테이너에 업로드됩니다.
 
-그런 다음, 샘플에서는 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) 메서드를 사용하여 작업에 태스크를 추가하고, 해당 태스크를 계산 노드에서 실행할 때까지 큐에서 대기합니다. 
+그런 다음, 샘플에서는 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) 메서드를 사용하여 작업에 태스크를 추가하고, 해당 태스크를 계산 노드에서 실행할 때까지 큐에서 대기합니다.
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -289,7 +287,7 @@ return tasks
 
 ### <a name="monitor-tasks"></a>태스크 모니터링
 
-Batch가 작업에 태스크를 추가하면 서비스가 연결된 풀의 계산 노드 실행 대기열에 자동으로 추가하고 예약합니다. 지정한 설정에 따라 Batch는 대기, 예약, 다시 시도하는 모든 작업 및 기타 담당 작업 관리 업무를 처리합니다. 
+Batch가 작업에 태스크를 추가하면 서비스가 연결된 풀의 계산 노드 실행 대기열에 자동으로 추가하고 예약합니다. 지정한 설정에 따라 Batch는 대기, 예약, 다시 시도하는 모든 작업 및 기타 담당 작업 관리 업무를 처리합니다.
 
 태스크 실행을 모니터링하는 방법은 여러 가지가 있습니다. 이 샘플은 완료 시에만 태스크 실패 또는 성공 상태를 보고하는 `MonitorTasks` 메서드를 정의합니다. `MonitorTasks` 코드는 태스크에 대한 최소한의 정보만 효율적으로 선택하는 [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel)을 지정합니다. 그런 다음 태스크 상태를 모니터링하는 도우미 유틸리티를 제공하는 [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor)를 만듭니다. `MonitorTasks`에서는 샘플이 제한된 시간 이내에 모든 태스크가 `TaskState.Completed`에 도달할 때까지 기다립니다. 그런 다음 작업을 종료하고, 완료되었지만 0이 아닌 종료 코드와 같은 오류가 발생한 태스크를 보고합니다.
 

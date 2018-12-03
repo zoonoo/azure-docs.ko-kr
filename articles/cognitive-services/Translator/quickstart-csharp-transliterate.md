@@ -1,111 +1,172 @@
 ---
 title: '빠른 시작: 텍스트 스크립트 변환, C# - Translator Text'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 C#과 함께 Translator Text API를 사용하여 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 변환합니다.
+description: 이 빠른 시작에서는 .NET Core 및 Translator Text REST API를 사용하여 텍스트를 한 스크립트에서 다른 스크립트로 음역(변환)하는 방법을 알아봅니다. 이 샘플에서는 라틴어 알파벳을 사용하도록 일본어를 음역합니다.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/21/2018
 ms.author: erhopf
-ms.openlocfilehash: d0dd7ef04f6feb04df4fafc5b750f291d05f2862
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 4987a50f7a689b74062154b8427fd7bec8e2e8a6
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646214"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334313"
 ---
 # <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-c"></a>빠른 시작: Translator Text REST API(C#)로 텍스트 음역
 
-이 빠른 시작에서는 Translator Text API를 사용하여 한 언어의 텍스트를 다른 언어로 변환합니다.
+이 빠른 시작에서는 .NET Core(C#) 및 Translator Text REST API를 사용하여 텍스트를 한 스크립트에서 다른 스크립트로 음역(변환)하는 방법을 알아봅니다. 제공된 샘플에서는 라틴어 알파벳을 사용하도록 일본어를 음역합니다.
+
+이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. 체험 Community Edition을 사용해도 됩니다.
+* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [Json.NET NuGet 패키지](https://www.nuget.org/packages/Newtonsoft.Json/)
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
+* Speech Service에 대한 Azure 구독 키
 
-Translator Text API를 사용하려면 구독 키도 필요합니다. [Translator Text API에 등록하는 방법](translator-text-how-to-signup.md)을 참조하세요.
+## <a name="create-a-net-core-project"></a>.NET Core 프로젝트 만들기
 
-## <a name="transliterate-request"></a>음역 요청
+새 명령 프롬프트(또는 터미널 세션)를 열고 이 명령을 실행합니다.
 
-> [!TIP]
-> [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)에서 최신 코드를 받습니다.
+```console
+dotnet new console -o transliterate-sample
+cd transliterate-sample
+```
 
-다음은 [Transliterate](./reference/v3-0-transliterate.md) 메서드를 사용하여 특정 언어의 텍스트를 한 스크립트에서 다른 스크립트로 변환합니다.
+첫 번째 명령은 두 가지 작업을 수행합니다. 새 .NET 콘솔 애플리케이션을 만들고 `transliterate-sample`이라는 디렉터리를 만듭니다. 두 번째 명령은 프로젝트의 디렉터리로 변경합니다.
 
-1. 즐겨찾는 IDE에서 새 C# 프로젝트를 만듭니다.
-2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
-4. 프로그램을 실행합니다.
+그런 다음, Json.Net을 설치해야 합니다. 프로젝트의 디렉터리에서 다음을 실행합니다.
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
+## <a name="add-required-namespaces-to-your-project"></a>프로젝트에 필요한 네임스페이스 추가
+
+이전에 실행한 `dotnet new console` 명령은 `Program.cs`를 포함한 프로젝트를 만듭니다. 이 파일은 애플리케이션 코드가 보관되는 곳입니다. `Program.cs`를 열고 문을 사용하여 기존 항목을 바꿉니다. 이러한 문은 빌드하고 샘플 앱을 빌드하고 실행하는 데 필요한 모든 형식에 액세스할 수 있는지 확인합니다.
 
 ```csharp
 using System;
 using System.Net.Http;
 using System.Text;
-// NOTE: Install the Newtonsoft.Json NuGet package.
 using Newtonsoft.Json;
+```
 
-namespace TranslatorTextQuickStart
+## <a name="create-a-function-to-transliterate-text"></a>텍스트를 음역하는 함수 만들기
+
+`Program` 클래스 내에서 `TransliterateText`라는 함수를 만듭니다. 이 클래스는 Transliterate 리소스를 호출하는 데 사용되는 코드를 캡슐화하고 콘솔에 결과를 출력합니다.
+
+```csharp
+static void TransliterateText()
 {
-    class Program
-    {
-        static string host = "https://api.cognitive.microsofttranslator.com";
-        static string path = "/transliterate?api-version=3.0";
-        // Transliterate text in Japanese from Japanese script (i.e. Hiragana/Katakana/Kanji) to Latin script.
-        static string params_ = "&language=ja&fromScript=jpan&toScript=latn";
-
-        static string uri = host + path + params_;
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        // Transliterate "good afternoon".
-        static string text = "こんにちは";
-
-        async static void Transliterate()
-        {
-            System.Object[] body = new System.Object[] { new { Text = text } };
-            var requestBody = JsonConvert.SerializeObject(body);
-
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(responseBody), Formatting.Indented);
-
-                Console.OutputEncoding = UnicodeEncoding.UTF8;
-                Console.WriteLine(result);
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            Transliterate();
-            Console.ReadLine();
-        }
-    }
+  /*
+   * The code for your call to the translation service will be added to this
+   * function in the next few sections.
+   */
 }
 ```
 
-## <a name="transliterate-response"></a>음역 응답
+## <a name="set-the-subscription-key-host-name-and-path"></a>구독 키, 호스트 이름 및 경로 설정
 
-성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다.
+`TransliterateText` 함수에 이러한 줄을 추가합니다. `api-version`과 함께 두 개의 매개 변수가 `route`에 추가된 것을 알 수 있습니다. 이러한 매개 변수는 입력 언어 및 음역 스크립트를 설정하는 데 사용됩니다. 이 샘플에서는 일본어(`jpan`) 및 라틴어(`latn`)로 설정됩니다. 구독 키 값을 업데이트해야 합니다.
+
+```csharp
+string host = "https://api.cognitive.microsofttranslator.com";
+string route = "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
+string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+```
+
+다음으로, 음역하려는 텍스트를 포함하는 JSON 개체를 만들고 직렬화해야 합니다. `body` 배열에 둘 이상의 개체를 전달할 수 있다는 사실을 참고하세요.
+
+```csharp
+System.Object[] body = new System.Object[] { new { Text = @"こんにちは" } };
+var requestBody = JsonConvert.SerializeObject(body);
+```
+
+## <a name="instantiate-the-client-and-make-a-request"></a>클라이언트를 인스턴스화하고 요청 수행
+
+이러한 줄은 `HttpClient` 및 `HttpRequestMessage`를 인스턴스화합니다.
+
+```csharp
+using (var client = new HttpClient())
+using (var request = new HttpRequestMessage())
+{
+  // In the next few sections you'll add code to construct the request.
+}
+```
+
+## <a name="construct-the-request-and-print-the-response"></a>요청 만들기 및 응답 출력
+
+`HttpRequestMessage` 내부에서 다음을 수행합니다.
+
+* HTTP 메서드 선언
+* 요청 URI 만들기
+* 요청 본문(직렬화된 JSON 개체) 삽입
+* 필수 헤더 추가
+* 비동기 요청 수행
+* 응답 출력
+
+`HttpRequestMessage`에 이 코드를 추가합니다.
+
+```csharp
+// Set the method to POST
+request.Method = HttpMethod.Post;
+
+// Construct the full URI
+request.RequestUri = new Uri(host + route);
+
+// Add the serialized JSON object to your request
+request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+
+// Add the authorization header
+request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+// Send request, get response
+var response = client.SendAsync(request).Result;
+var jsonResponse = response.Content.ReadAsStringAsync().Result;
+
+// Print the response
+Console.WriteLine(jsonResponse);
+Console.WriteLine("Press any key to continue.");
+```
+
+## <a name="put-it-all-together"></a>모든 요소 결합
+
+마지막 단계는 `Main` 함수에서 `TransliterateText()`를 호출하는 것입니다. `static void Main(string[] args)`을 찾고 이러한 줄을 추가하세요.
+
+```csharp
+TransliterateText();
+Console.ReadLine();
+```
+
+## <a name="run-the-sample-app"></a>샘플 앱 실행
+
+이제 끝났습니다. 샘플 앱을 실행할 준비가 되었습니다. 명령줄(또는 터미널 세션)에서 프로젝트 디렉터리로 이동하고 다음을 실행합니다.
+
+```console
+dotnet run
+```
+
+## <a name="sample-response"></a>샘플 응답
 
 ```json
 [
-  {
-    "text": "konnnichiha",
-    "script": "latn"
-  }
+    {
+        "script": "latn",
+        "text": "konnnichiha"
+    }
 ]
 ```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+샘플 앱의 소스 코드에서 구독 키와 같은 기밀 정보를 제거해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -113,3 +174,11 @@ namespace TranslatorTextQuickStart
 
 > [!div class="nextstepaction"]
 > [GitHub에서 C# 예제 살펴보기](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+
+## <a name="see-also"></a>참고 항목
+
+* [텍스트 번역](quickstart-csharp-translate.md)
+* [입력으로 언어 식별](quickstart-csharp-detect.md)
+* [대체 번역 가져오기](quickstart-csharp-dictionary.md)
+* [지원되는 언어 목록 가져오기](quickstart-csharp-languages.md)
+* [입력으로 문장 길이 확인](quickstart-csharp-sentences.md)

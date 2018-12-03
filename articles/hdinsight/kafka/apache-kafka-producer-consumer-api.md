@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277735"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313826"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>자습서: Apache Kafka 생산자 및 소비자 API 사용
 
-HDInsight의 Kafka에서 Kafka 생산자 및 소비자 API를 사용하는 방법을 알아봅니다.
+HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아봅니다.
 
 Kafka 생산자 API를 통해 Kafka 클러스터에 데이터 스트림을 보낼 수 있습니다. Kafka 소비자 API를 통해 클러스터에서 데이터 스트림을 읽을 수 있습니다.
 
@@ -56,7 +56,7 @@ Java 및 JDK를 설치할 때 사용자의 개발 워크스테이션에 다음 �
 
 ## <a name="set-up-your-deployment-environment"></a>배포 환경 설정
 
-이 자습서에서는 HDInsight 3.6 기반의 Apache Kafka가 필요합니다. HDInsight 클러스터에서 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Kafka 시작](apache-kafka-get-started.md) 설명서를 참조하세요.
+이 자습서에서는 HDInsight 3.6 기반의 Apache Kafka가 필요합니다. HDInsight 클러스터에서 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md) 설명서를 참조하세요.
 
 ## <a name="understand-the-code"></a>코드 이해
 
@@ -171,7 +171,7 @@ consumer = new KafkaConsumer<>(properties);
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. Kafka broker 호스트와 Zookeeper 호스트를 가져오려면 다음 명령을 사용합니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다.
+    2. Kafka broker 호스트와 Apache Zookeeper 호스트를 가져오려면 다음 명령을 사용합니다. 메시지가 표시되면 클러스터 로그인(관리자) 계정에 대한 암호를 입력합니다.
     
         ```bash
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
@@ -227,8 +227,8 @@ Kafka에 저장된 레코드는 파티션에서 받은 순서대로 저장됩니
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 HDInsight의 Kafka에서 Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아보았습니다. Kafka 작업에 대해 자세히 알아보려면 다음을 사용하세요.
+이 문서에서는 HDInsight의 Kafka에서 Apache Kafka 생산자 및 소비자 API를 사용하는 방법에 대해 알아보았습니다. Kafka 작업에 대해 자세히 알아보려면 다음을 사용하세요.
 
-* [Kafka 로그 분석](apache-kafka-log-analytics-operations-management.md)
-* [Kafka 클러스터 간 데이터 복제](apache-kafka-mirroring.md)
-* [HDInsight의 Kafka 스트림 API](apache-kafka-streams-api.md)
+* [Apache Kafka 로그 분석](apache-kafka-log-analytics-operations-management.md)
+* [Apache Kafka 클러스터 간 데이터 복제](apache-kafka-mirroring.md)
+* [HDInsight의 Apache Kafka 스트림 API](apache-kafka-streams-api.md)

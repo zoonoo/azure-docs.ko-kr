@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712418"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583281"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석 
 
-Microsoft Power BI를 사용하여 Azure HDInsight의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
+[Microsoft Power BI](https://powerbi.microsoft.com/)를 사용하여 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)의 [Apache Spark](https://spark.apache.org/) 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="verify-the-data"></a>데이터 확인
 
-[이전 자습서](apache-spark-load-data-run-query.md)에서 만든 Jupyter 노트북은 `hvac` 테이블을 만드는 코드를 포함합니다. 이 테이블은 **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv** 모든 HDInsight Spark 클러스터에서 사용 가능한 CSV 파일을 기반으로 합니다. 데이터를 확인하려면 다음 절차를 따릅니다.
+[이전 자습서](apache-spark-load-data-run-query.md)에서 만든 [Jupyter Notebook](https://jupyter.org/)은 `hvac` 테이블을 만드는 코드를 포함합니다. 이 테이블은 **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv** 모든 HDInsight Spark 클러스터에서 사용 가능한 CSV 파일을 기반으로 합니다. 데이터를 확인하려면 다음 절차를 따릅니다.
 
 1. Jupyter 노트북에서 다음 코드를 붙여넣은 다음 **Shift + Enter**를 누릅니다. 코드가 테이블의 존재 여부를 확인합니다.
 
@@ -214,9 +214,9 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
-- Power BI를 사용하여 Spark 데이터 시각화
+- Power BI를 사용하여 Apache Spark 데이터 시각화.
 
 다음 문서로 진행하여 Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요. 
 > [!div class="nextstepaction"]
-> [Spark 스트리밍 작업 실행](apache-spark-eventhub-streaming.md)
+> [Apache Spark 스트리밍 작업 실행](apache-spark-eventhub-streaming.md)
 

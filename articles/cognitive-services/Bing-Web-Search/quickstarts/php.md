@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: bee9cf2a6ddc385ddf0cb04c58edacaa2da6ec5d
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: f4fb66997b6deb6d5e02da2e9976190f00958752
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163337"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314595"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>빠른 시작: PHP를 사용하여 Bing Web Search API 호출  
 
@@ -23,8 +23,9 @@ ms.locfileid: "52163337"
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>필수 조건
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
+## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
 * [PHP 5.6.x](http://php.net/downloads.php) 이상

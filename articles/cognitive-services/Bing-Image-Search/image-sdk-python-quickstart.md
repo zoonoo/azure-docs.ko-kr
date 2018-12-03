@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 7afe19cf0167784a5c8b3e2751ec869a2664935d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a2a39049196e19d29d2b4d845b9cf756392013bf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296620"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315033"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>빠른 시작: Bing Image Search SDK 및 Python을 사용하여 이미지 검색
 
@@ -24,6 +24,7 @@ ms.locfileid: "46296620"
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py)에서 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 * [Python 2.7 또는 3.4](https://www.python.org/) 이상.
 

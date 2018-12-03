@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9f77beb8c51fb3a06045183433907e1c634fb45d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820276"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317911"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -81,7 +81,7 @@ ms.locfileid: "51820276"
 * 몇 개의 추가 열에 커피숍에 관련된 메타데이터, 즉 전화 번호, Wi-Fi 핫스폿 및 휠체어 이용 가능성, 매장 개장 및 마감 시간(24시간 형식)이 포함됩니다. 위치 데이터와 관련성이 좀 더 깊은 메타데이터를 포함하는 고유한 열을 만들 수 있습니다.
 
 > [!Note]
-> Azure Maps는 구형의 Mercato 프로젝션(EPSG:3857)을 사용합니다.
+> Azure Maps는 구형 Mercator 프로젝션 "EPSG:3857"의 데이터를 렌더링하되, WGS84 데이터를 사용하는 "EPSG:4325"의 데이터를 읽습니다. 
 
 애플리케이션에 데이터 세트를 노출하는 방법은 다양합니다. 한 가지 방법은 데이터베이스에 데이터를 로드하고, 데이터를 쿼리한 후 결과를 사용자 브라우저로 보내는 웹 서비스를 노출하는 것입니다. 이 옵션은 대형 데이터 세트 또는 자주 업데이트되는 데이터 세트에 이상적입니다. 그러나 이 옵션을 제공하려면 훨씬 더 많은 개발 작업이 필요하며 비용도 많이 듭니다. 
 

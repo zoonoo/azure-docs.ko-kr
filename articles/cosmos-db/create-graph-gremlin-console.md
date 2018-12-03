@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 8e98c778c89a74b6c3c1cfa7dc7feb311c62b076
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422969"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499513"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin 콘솔에서 그래프 만들기, 쿼리 및 트래버스
 
@@ -23,7 +23,7 @@ ms.locfileid: "47422969"
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
 > * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
-> * [Node.js](create-graph-nodejs.md)
+> * [Node.JS](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
 > * [PHP](create-graph-php.md)
 >  
@@ -42,7 +42,7 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-또한 [Gremlin 콘솔](http://tinkerpop.apache.org/)을 설치해야 합니다. 버전 3.2.5 이상을 사용합니다.
+또한 [Gremlin 콘솔](http://tinkerpop.apache.org/)을 설치해야 합니다. 버전 3.2.5 이상을 사용합니다. (Windows에서 Gremlin 콘솔을 사용하려면 [Java 런타임](https://www.oracle.com/technetwork/java/javase/overview/index.html)을 설치해야 합니다.)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 

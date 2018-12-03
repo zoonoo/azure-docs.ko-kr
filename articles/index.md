@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 189e1745a0768f36dd776ba88230a2d47037f9c2
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ef9cb669db24cf2b68de955047e8e2d2f9fb04e9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285172"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499638"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -329,7 +329,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                             <li></li>
                             <li class="bottomRightItem">
                                 <a href="https://docs.microsoft.com/azure/index#pivot=products&panel=all">
-                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">모든 Azure 서비스 보기<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
+                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">모든 Azure 서비스 보기<svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
                             </li>
                         </ul>
@@ -1545,7 +1545,13 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-network/ddos-protection-overview">
+                                        <li>
+                                            <a href="/azure/dedicated-hsm">
+                                                <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                <p>Azure 전용 HSM</p>
+                                            </a>
+                                        </li>
+                        <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Azure DDoS 보호</p>
                                             </a>
@@ -4565,7 +4571,26 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-network/ddos-protection-overview">
+                                <a href="/azure/dedicated-hsm/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>전용 HSM</h3>
+                                                    <p>Azure에서 암호화 키 스토리지 사용</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                    <a href="/azure/virtual-network/ddos-protection-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -6153,7 +6178,7 @@ Azure 리소스 관리자 </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://storageexplorer.com">Storage 탐색기</a>
+                                                    <a href="https://storageexplorer.com">Storage 탐색기</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">시작</a>

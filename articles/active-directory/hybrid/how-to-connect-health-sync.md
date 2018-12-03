@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9811c51485ec30e7fe692c52f4e65cefd93e5cb0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277140"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499076"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 Azure AD Connect 동기화 모니터링
 다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조하세요.
@@ -62,7 +62,7 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 
 ![동기화 대기 시간](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## <a name="object-level-synchronization-error-report-preview"></a>개체 수준 동기화 오류 보고서(미리 보기)
+## <a name="object-level-synchronization-error-report"></a>개체 수준 동기화 오류 보고서
 이 기능은 Azure AD Connect를 사용하여 Windows Server AD와 Azure AD 간의 ID 데이터를 동기화할 때 발생할 수 있는 동기화 오류에 대한 보고서를 제공합니다.
 
 * 보고서에서는 동기화 클라이언트를 통해 기록된 오류를 포함합니다(Azure AD Connect 1.1.281.0 버전 이상)
@@ -74,7 +74,7 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
   * 범주별 오류에 따른 개체의 목록
   * 한 곳에서 발생한 오류에 대한 모든 데이터
   * 충돌로 인해 오류와 함께 개체의 특징을 비교 정렬
-  * CVS로 오류 보고서를 다운로드(출시 예정)
+  * CVS로 오류 보고서를 다운로드
 
 ### <a name="categorization-of-errors"></a>오류 분류
 보고서에서는 기존 동기화 오류를 다음과 같은 범주로 분류합니다.

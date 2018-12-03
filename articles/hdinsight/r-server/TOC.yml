@@ -5,7 +5,7 @@ items:
   items:
   - name: 개요
     href: r-server-overview.md
-  - name: HDInsight의 Hadoop 구성 요소
+  - name: HDInsight의 Apache Hadoop 구성 요소
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -71,10 +71,10 @@ items:
     - name: Mono 설치 또는 업데이트
       href: ../hdinsight-hadoop-install-mono.md
       maintainContext: true
-    - name: Hive 라이브러리 추가
+    - name: Apache Hive 라이브러리 추가
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
-    - name: Giraph 사용
+    - name: Apache Giraph 사용
       href: ../hdinsight-hadoop-giraph-install-linux.md
       maintainContext: true
     - name: Hue 사용
@@ -83,10 +83,10 @@ items:
     - name: R 사용
       href: ../hdinsight-hadoop-r-scripts-linux.md
       maintainContext: true
-    - name: Solr 사용
+    - name: Apache Solr 사용
       href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
-    - name: Zeppelin 사용
+    - name: Apache Zeppelin 사용
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
     - name: 빈 에지 노드 사용
@@ -128,7 +128,7 @@ items:
     - name: 데이터에 액세스 제한
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
       maintainContext: true
-    - name: 사용자에게 Ambari 보기에 대한 권한 부여
+    - name: 사용자에게 Apache Ambari 보기에 대한 권한 부여
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
   - name: 관리
@@ -171,13 +171,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: Ambari 웹 UI를 사용하여 클러스터 관리
+    - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Ambari 웹 UI를 사용하여 클러스터 최적화
+      - name: Apache Ambari 웹 UI를 사용하여 클러스터 최적화
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Ambari REST API 사용
+      - name: Apache Ambari REST API 사용
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -187,13 +187,13 @@ items:
     - name: 저장소 계정 추가
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Hadoop 작업용 데이터 업로드
+    - name: Apache Hadoop 작업용 데이터 업로드
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: Data Lake Store가 있는 다중 HDInsight 클러스터
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
-    - name: Sqoop으로 데이터 가져오기 및 내보내기
+    - name: Apache Sqoop으로 데이터 가져오기 및 내보내기
       href: ../hadoop/hdinsight-use-sqoop.md
       items:
       - name: SSH를 사용하여 연결
@@ -204,10 +204,10 @@ items:
         href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
       - name: Azure PowerShell을 사용하여 실행
         href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
-    - name: 워크플로에 대해 Oozie 사용
+    - name: 워크플로에 대해 Apache Oozie 사용
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: 시간 기준의 Oozie 코디네이터 사용
+    - name: 시간 기준의 Apache Oozie 코디네이터 사용
       href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: 클러스터 및 서비스 포트와 URI
@@ -231,13 +231,13 @@ items:
     - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: HDFS 문제 해결
+    - name: Apache Hadoop HDFS 문제 해결
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: Hive 문제 해결
+    - name: Apache HIVE 문제 해결
       href: ../hdinsight-troubleshoot-hive.md
       maintainContext: true
-    - name: YARN 문제 해결
+    - name: Apache Hadoop YARN 문제 해결
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: 리소스
@@ -245,25 +245,25 @@ items:
       - name: Linux에서 HDInsight 사용에 관한 정보
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop 메모리 및 성능
+      - name: Apache Hadoop 메모리 및 성능
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: Linux에서 Hadoop YARN 응용 프로그램 로그에 액세스
+      - name: Linux에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Hadoop 서비스에 대한 힙 덤프 사용
+      - name: Apache Hadoop 서비스에 대한 힙 덤프 사용
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
       - name: WebHCat 오류 이해 및 해결
         href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
         maintainContext: true
-      - name: Hive 설정 수정 메모리 부족 오류
+      - name: Apache Hive 설정 수정 메모리 부족 오류
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: Ambari 뷰를 사용하여 Tez 작업 디버깅
+      - name: Apache Ambari 뷰를 사용하여 Apache TEZ 작업 디버그
         href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
-      - name: Hive 쿼리 최적화
+      - name: Apache Hive 쿼리 최적화
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
     maintainContext: true
@@ -305,13 +305,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET(HBase)
+  - name: .NET(Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET(Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST (영문)
     href: /rest/api/hdinsight/
-  - name: REST(Spark)
+  - name: REST(Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: 리소스
   items:
@@ -337,9 +337,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: a34bc7152f94728891092e4686ea2f5412ecd120
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: fdf844f959d7832214795155c3af5c0cf3ec6a25
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361894"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495810"

@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: d810704d0f18915d805a4db46818df30147c8dfa
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c28a3097e8b0733db229fc10778d0ac77a3b0a7a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283287"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306373"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>빠른 시작: Python용 Bing Web Search SDK 사용
 
@@ -25,8 +25,9 @@ Bing Web Search SDK를 사용하면 Bing Web Search를 Python 응용 프로그�
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>필수 조건
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
+## <a name="prerequisites"></a>필수 조건
 Bing Web Search SDK는 Python 2.7 3.3, 3.4, 3.5 및 3.6과 호환됩니다. 이 빠른 시작에서는 가상 환경을 사용하는 것이 좋습니다.
 
 * Python 2.7, 3.3, 3.4, 3.5 또는 3.6

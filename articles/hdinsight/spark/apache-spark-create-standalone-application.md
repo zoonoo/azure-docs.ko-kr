@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 529dc37187f6709ecfa93bf3a6d71f053ba49103
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008966"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499315"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Spark에 대한 Scala Maven 응용 프로그램 만들기
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark에 대한 Scala Maven 애플리케이션 만들기
 
-이 자습서에서는 IntelliJ IDEA에서 Maven을 사용하여 Scala로 작성한 Spark 응용 프로그램을 만드는 방법을 알아봅니다. 문서는 빌드 시스템으로 Apache Maven을 사용하고 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형으로 시작합니다.  IntelliJ IDEA에서 Scala 응용 프로그램 만들기는 다음 단계를 포함합니다.
+이 자습서에서는 IntelliJ IDEA에서 [Apache Maven](https://maven.apache.org/)을 사용하여 [Scala](https://www.scala-lang.org/)로 작성한 [Apache Spark](https://spark.apache.org/) 애플리케이션을 만드는 방법을 알아봅니다. 문서는 빌드 시스템으로 Apache Maven을 사용하고 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형으로 시작합니다.  IntelliJ IDEA에서 Scala 응용 프로그램 만들기는 다음 단계를 포함합니다.
 
 * 빌드 시스템으로 Maven을 사용합니다.
 * POM(프로젝트 개체 모델) 파일을 업데이트하여 Spark 모듈 종속성을 해결합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "51008966"
 * Livy를 사용하여 Spark 클러스터에서 응용 프로그램을 실행합니다.
 
 > [!NOTE]
-> 또한 HDInsight는 Linux의 HDInsight Spark 클러스터에 대한 응용 프로그램을 만들고 제출하는 과정을 용이하게 하는 IntelliJ IDEA 플러그 인 도구를 제공합니다. 자세한 내용은 [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램 만들기 및 제출](apache-spark-intellij-tool-plugin.md)을 참조하세요.
+> 또한 HDInsight는 Linux의 HDInsight Spark 클러스터에 대한 응용 프로그램을 만들고 제출하는 과정을 용이하게 하는 IntelliJ IDEA 플러그 인 도구를 제공합니다. 자세한 내용은 [IntelliJ IDEA용 HDInsight 도구 플러그인을 사용하여 Apache Spark 애플리케이션 만들기 및 제출](apache-spark-intellij-tool-plugin.md)을 참조하세요.
 > 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -183,16 +183,16 @@ Scala 플러그 인을 설치하려면 다음 단계를 사용합니다.
        
         ![JAR 만들기](./media/apache-spark-create-standalone-application/output.png)
 
-## <a name="run-the-application-on-the-spark-cluster"></a>Spark 클러스터에서 응용 프로그램 실행
+## <a name="run-the-application-on-the-apache-spark-cluster"></a>Apache Spark 클러스터에서 애플리케이션 실행
 클러스터에서 응용 프로그램을 실행하려면 다음 방법을 사용할 수 있습니다.
 
-* **Azure 저장소 Blob에 응용 프로그램 jar을 복사** 합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
-* **Livy를 사용하여 응용 프로그램 작업을 원격으로** Spark 클러스터에 제출합니다. HDInsight의 Spark 클러스터에는 Spark 작업을 원격으로 제출하는 REST 엔드포인트를 노출하는 Livy가 포함됩니다. 자세한 내용은 [HDInsight의 Spark 클러스터와 함께 Livy를 사용하여 원격으로 Spark 작업 제출](apache-spark-livy-rest-interface.md)을 참조하세요.
+* **Azure 저장소 Blob에 응용 프로그램 jar을 복사** 합니다. [**AzCopy**](../../storage/common/storage-use-azcopy.md) 명령줄 유틸리티를 사용하면 이렇게 할 수 있습니다. 데이터를 업로드하는 데 사용할 수 있는 다른 클라이언트도 많이 있습니다. [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md)에서 자세한 정보를 찾을 수 있습니다.
+* **Apache Livy를 사용하여 애플리케이션 작업을 원격으로** Spark 클러스터에 제출합니다. HDInsight의 Spark 클러스터에는 Spark 작업을 원격으로 제출하는 REST 엔드포인트를 노출하는 Livy가 포함됩니다. 자세한 내용은 [HDInsight의 Spark 클러스터와 함께 Apache Livy를 사용하여 원격으로 Apache Spark 작업 제출](apache-spark-livy-rest-interface.md)을 참조하세요.
 
 ## <a name="next-step"></a>다음 단계
 
-이 문서에서는 Spark Scala 응용 프로그램을 만드는 방법을 배웠습니다. 다음 문서를 진행하여 Livy를 사용하여 HDInsight Spark 클러스터에서 이 응용 프로그램을 실행하는 방법에 대해 알아봅니다.
+이 문서에서는 Apache Spark Scala 애플리케이션을 만드는 방법을 배웠습니다. 다음 문서를 진행하여 Livy를 사용하여 HDInsight Spark 클러스터에서 이 응용 프로그램을 실행하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
->[Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](./apache-spark-livy-rest-interface.md)
+>[Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](./apache-spark-livy-rest-interface.md)
 

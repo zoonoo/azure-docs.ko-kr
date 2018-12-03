@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b592ac10d483bbf0ca058e87f819b8f67847c54e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296111"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444787"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>자습서: Application Insights를 사용하여 Service Fabric에서 ASP.NET Core 응용 프로그램 모니터링 및 진단
 
@@ -79,6 +79,8 @@ VotingWeb 및 VotingData 서비스 둘 다에 대해 Application Insights를 구
 1. 서비스 이름을 마우스 오른쪽 단추로 클릭하고 **Application Insights 구성...** 을 클릭합니다.
 
     ![AI 구성](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>프로젝트 형식에 따라 서비스 이름을 마우스 오른쪽 단추로 클릭할 때 추가-> Application Insights 원격 분석...을 클릭해야 합니다.
 
 2. **체험하기**를 클릭합니다.
 3. Azure 구독 설정에 사용한 계정에 로그인하고 Application Insights 리소스를 만든 구독을 선택합니다. “리소스” 드롭다운의 *기존 Application Insights 리소스*에서 리소스를 찾습니다. **등록**을 클릭하여 Application Insights를 서비스에 추가합니다.

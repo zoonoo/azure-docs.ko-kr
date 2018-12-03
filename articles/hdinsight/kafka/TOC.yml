@@ -3,7 +3,7 @@ items:
   href: /azure/hdinsight
 - name: 개요
   items:
-  - name: HDInsight의 Kafka 정보
+  - name: HDInsight의 Apache Kafka 정보
     href: apache-kafka-introduction.md
   - name: 구성 요소 버전 관리
     href: ../hdinsight-component-versioning.md
@@ -13,23 +13,23 @@ items:
     maintainContext: true
 - name: 빠른 시작
   items:
-  - name: Kafka 클러스터 만들기 - 포털
+  - name: Apache Kafka 클러스터 만들기 - Portal
     href: apache-kafka-get-started.md
-  - name: Kafka 클러스터 만들기 - PowerShell
+  - name: Apache Kafka 클러스터 만들기 - PowerShell
     href: apache-kafka-quickstart-powershell.md
-  - name: Kafka 클러스터 만들기 - 템플릿
+  - name: Apache Kafka 클러스터 만들기 - 템플릿
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: 자습서
   items:
-  - name: 1 - Spark 구조적 스트리밍 사용
+  - name: 1 - Apache Spark 구조적 스트리밍 사용
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
-  - name: 2 - Storm을 사용하여 Kafka에서 쓰기/읽기
+  - name: 2 - Apache Storm과 함께 Apache Kafka에서 쓰기/사용
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: 3 - Kafka Producer 및 Kafka Consumer API 사용
+  - name: 3 - Apache Kafka 생산자 및 소비자 API 사용
     href: apache-kafka-producer-consumer-api.md
-  - name: 4 - Kafka Streams API를 사용하여 앱 개발
+  - name: 4 - Apache Kafka Streams API를 사용하여 앱 개발
     href: apache-kafka-streams-api.md
 - name: 개념
   items:
@@ -44,26 +44,26 @@ items:
   items:
   - name: 자동 항목 만들기 사용
     href: apache-kafka-auto-create-topics.md
-  - name: IoT Hub와 Kafka 사용
+  - name: IoT Hub와 함께 Apache Kafka 사용
     href: apache-kafka-connector-iot-hub.md
   - name: HDInsight 앱 설치
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
-  - name: 가상 네트워크에서 Kafka 사용
+  - name: 가상 네트워크에서 Apache Kafka 사용
     href: apache-kafka-connect-vpn-gateway.md
-  - name: Kafka 데이터 복제
+  - name: Apache Kafka 데이터 복제
     href: apache-kafka-mirroring.md
-  - name: Kafka 로그 분석
+  - name: Apache Kafka 로그 분석
     href: apache-kafka-log-analytics-operations-management.md
   - name: 스트리밍 파이프라인 만들기
     items:
-    - name: Spark, Kafka, 및 Azure Cosmos DB
+    - name: Apache Spark, Apache Kafka 및 Azure Cosmos DB
       href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
       maintainContext: true
-    - name: Kafka 및 Spark(DStream)
+    - name: Apache Kafka 및 Apache Spark(DStream)
       href: ../hdinsight-apache-spark-with-kafka.md
       maintainContext: true
-    - name: Azure Container Service에서 Kafka 사용
+    - name: Azure Container Service와 함께 Apache Kafka 사용
       href: apache-kafka-azure-container-services.md
   - name: 개발
     items:
@@ -143,7 +143,7 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       maintainContext: true
-    - name: Hadoop 클러스터 관리
+    - name: Apache Hadoop 클러스터 관리
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: .NET SDK 사용
@@ -156,13 +156,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: Ambari 웹 UI를 사용하여 클러스터 관리
+    - name: Apache Ambari 웹 UI를 사용하여 클러스터 관리
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: Ambari 웹 UI를 사용하여 클러스터 최적화
+      - name: Apache Ambari 웹 UI를 사용하여 클러스터 최적화
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: Ambari REST API 사용
+      - name: Apache Ambari REST API 사용
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -172,7 +172,7 @@ items:
     - name: 저장소 계정 추가
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: Hadoop 작업용 데이터 업로드
+    - name: Apache Hadoop 작업용 데이터 업로드
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: Data Lake Store가 있는 다중 HDInsight 클러스터
@@ -196,10 +196,10 @@ items:
     - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: HDFS 문제 해결
+    - name: Apache Hadoop HDFS 문제 해결
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: YARN 문제 해결
+    - name: Apache Hadoop YARN 문제 해결
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: 리소스
@@ -207,13 +207,13 @@ items:
       - name: Linux에서 HDInsight 사용에 관한 정보
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop 메모리 및 성능
+      - name: Apache Hadoop 메모리 및 성능
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
       - name: Linux에서 Hadoop YARN 응용 프로그램 로그에 액세스
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: Hadoop 서비스에 대한 힙 덤프 사용
+      - name: Apache Hadoop 서비스에 대한 힙 덤프 사용
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
     maintainContext: true
@@ -257,7 +257,7 @@ items:
     href: ../hdinsight-go-sdk-overview.md
   - name: REST (영문)
     href: /rest/api/hdinsight/
-  - name: REST(Spark)
+  - name: REST(Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: 리소스
   items:
@@ -274,9 +274,9 @@ items:
   - name: HDInsight에 대한 Windows 도구
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9b172aaedcab44b4557368c5d2a5bd6dfd010903
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0b0fc56015adb5fcecd5bcd6ce501c828e694164
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155017"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495668"

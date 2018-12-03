@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: c8ab6b6e6bab7451de7d975dde644386fd4cb84e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979474"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311537"
 ---
 # <a name="hybrid-identity-and-microsoft-identity-solutions"></a>하이브리드 ID 및 Microsoft ID 솔루션
 [Microsoft Azure AD(Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md) 하이브리드 ID 솔루션을 사용하면 온-프레미스의 사용자를 계속 관리하면서 온-프레미스 디렉터리 개체를 Azure AD와 동기화할 수 있습니다. 온-프레미스 Windows Server Active Directory와 Azure AD와의 동기화를 계획할 때는 맨 먼저 관리된 ID를 사용할지 또는 페더레이션 ID를 사용할지를 결정해야 합니다. 
@@ -42,7 +42,7 @@ ms.locfileid: "50979474"
 Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사용자가 로그인할 수 있도록 하기만 하면 되는 대부분 조직의 경우 기본 암호 해시 동기화 옵션을 사용하는 것이 좋습니다. 이 옵션이 적합하지 않은 경우 통과 인증과 AD FS 중에 결정해야 합니다.
 
 > [!TIP]
-> 사용자 암호는 실제 사용자 암호를 나타내는 해시 값의 형태로 온-프레미스 Windows Server Active Directory에 저장됩니다. 해시 값은 단방향 수학 함수(해시 알고리즘)의 결과입니다. 암호의 일반 텍스트 버전에 대한 함수의 결과를 되돌릴 수 있는 방법이 없습니다. 암호 해시를 사용하여 온-프레미스 네트워크에 로그인할 수 없습니다. 암호를 동기화하도록 선택하면 Azure AD Connect가 온-프레미스 Active Directory에서 암호 해시를 추출하고 암호 해시에 추가 보안 처리를 적용한 후 암호 해시가 Azure AD로 동기화됩니다. 암호 해시 동기화를 암호 쓰기 저장과 함께 사용하여 Azure AD에서 셀프 서비스 암호 재설정을 사용하도록 설정할 수 있습니다. 또한 회사 네트워크에 연결된 도메인에 연결된 컴퓨터의 사용자에 대해 SSO(Single Sign-On)를 사용하도록 설정할 수 있습니다. Single Sign-On으로 활성화된 사용자는 클라우드 리소스에 안전하게 액세스하기 위해 사용자 이름을 입력하기만 하면 됩니다. 
+> 사용자 암호는 실제 사용자 암호를 나타내는 해시 값의 형태로 온-프레미스 Windows Server Active Directory에 저장됩니다. 해시 값은 단방향 수학 함수(해시 알고리즘)의 결과입니다. 암호의 일반 텍스트 버전에 대한 함수의 결과를 되돌릴 수 있는 방법이 없습니다. 암호 해시를 사용하여 온-프레미스 네트워크에 로그인할 수 없습니다. 암호 해시를 동기화하도록 선택하면 Azure AD Connect가 온-프레미스 Active Directory에서 암호 해시를 추출하고 암호 해시에 추가 보안 처리를 적용한 후 암호 해시가 Azure AD로 동기화됩니다. 암호 해시 동기화를 암호 쓰기 저장과 함께 사용하여 Azure AD에서 셀프 서비스 암호 재설정을 사용하도록 설정할 수 있습니다. 또한 회사 네트워크에 연결된 도메인에 연결된 컴퓨터의 사용자에 대해 SSO(Single Sign-On)를 사용하도록 설정할 수 있습니다. Single Sign-On으로 활성화된 사용자는 클라우드 리소스에 안전하게 액세스하기 위해 사용자 이름을 입력하기만 하면 됩니다. 
 >
 
 ## <a name="pass-through-authentication"></a>통과 인증

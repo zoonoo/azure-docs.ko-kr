@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 447c59d45e3b1614ce8dbddc56f9dba0dd156e90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802987"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317061"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-c"></a>빠른 시작: C#을 통해 Bing News Search SDK 설정
 
@@ -24,6 +24,7 @@ Bing News Search SDK는 뉴스 쿼리 및 구문 분석 결과에 대한 REST AP
 [C# Bing News Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch)은 Git Hub에서 얻을 수 있습니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.  
 
 Bing News Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.NewsSearch` 패키지를 추가합니다.
 

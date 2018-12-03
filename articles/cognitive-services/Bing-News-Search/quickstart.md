@@ -10,16 +10,16 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: bc3d2e43983791cf8f666660675a7dd537f04d77
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 36c287f64ddc15eb3cb0179ed2465e1279177595
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802528"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309058"
 ---
 # <a name="quickstart-your-first-news-search-query"></a>빠른 시작: 첫 번째 뉴스 검색 쿼리
 
-첫 번째 호출을 수행하기 전에 먼저 Cognitive Services 구독 키를 가져와야 합니다. 이 키를 얻는 방법은 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)를 참조하세요.
+첫 번째 호출을 수행하기 전에 먼저 Cognitive Services 구독 키를 가져와야 합니다. 키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)를 참조하세요.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 뉴스 전용 검색 결과를 가져오려면 다음 엔드포인트로 GET 요청을 보냅니다.
 

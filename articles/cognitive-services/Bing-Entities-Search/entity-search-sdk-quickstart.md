@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: abf7e4344bea88fd86b86135ffab30672d77922e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 7cbb97fbf237e14d6822edfa174ca469f8988e2d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814106"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307361"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-c"></a>빠른 시작: C#을 통해 Bing Entity Search SDK 설정
 
@@ -24,6 +24,7 @@ Bing Entity Search API는 엔터티 검색 및 결과 구문 분석을 위한 RE
 [C# Bing Entity Search SDK 소스 코드 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch)은 Git Hub에서 얻을 수 있습니다.
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
+**검색** 아래에서 [Cognitive Services 액세스 키](https://azure.microsoft.com/try/cognitive-services/)를 가져옵니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 Bing Entity Search SDK를 사용하여 콘솔 응용 프로그램을 설정하려면 Visual Studio의 솔루션 탐색기에서 `Manage NuGet Packages` 옵션을 찾습니다.  `Microsoft.Azure.CognitiveServices.Search.EntitySearch` 패키지를 추가합니다.
 

@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 2a72afe708c157fb2a19ac0bfcea2bea34f7b56f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625653"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584199"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>자습서: Azure Digital Twins를 사용하여 건물을 프로비전하고 작업 조건 모니터링
 
@@ -253,6 +253,10 @@ ms.locfileid: "51625653"
 더 이상 Azure Digital Twins를 탐색할 계획이 없는 경우 이 자습서에서 만든 리소스를 자유롭게 삭제할 수 있습니다.
 
 1. [Azure Portal](http://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택하고, Digital Twins 리소스 그룹을 선택하고, **삭제**를 선택하면 됩니다.
+
+    > [!TIP]
+    > Digital Twins 인스턴스를 삭제하는 데 문제가 있을 경우 픽스가 포함된 서비스 업데이트가 배포된 것입니다. 인스턴스 삭제를 다시 시도해 보세요.
+
 2. 필요한 경우 작업 머신에서 샘플 애플리케이션을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계

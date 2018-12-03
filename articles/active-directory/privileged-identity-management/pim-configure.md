@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 6720294fe9a3e166d0d6ef8f141e53212ef4b194
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465863"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496796"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
@@ -73,7 +73,7 @@ Privileged Identity Management에서 지원하는 시나리오는 다음과 같�
 
 - 보류 중인 승인(요청) 보기
 - 역할 상승 요청(단일 및/또는 대량) 승인 또는 거부
-- 승인/거부에 대한 근거 제공 
+- 승인/거부에 대한 근거 제공 
 
 **적격 역할 사용자는 다음을 수행할 수 있습니다.**
 
@@ -81,22 +81,13 @@ Privileged Identity Management에서 지원하는 시나리오는 다음과 같�
 - 활성화 요청 상태 보기
 - 활성화가 승인되면 Azure AD에서 작업 수행
 
-## <a name="enable-privileged-identity-management-for-your-directory"></a>디렉터리에서 Privileged Identity Management 사용
+## <a name="who-can-do-what-in-pim"></a>PIM에서 수행할 수 있는 작업
 
-[Azure 포털](https://portal.azure.com/)에서 Azure AD Privileged Identity Management 사용을 시작할 수 있습니다.
+PIM을 처음 사용하는 경우 해당 사용자에게 디렉터리에 대한 [보안 관리자](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) 및 [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할이 자동으로 할당됩니다.
 
-> [!NOTE]
-> 디렉터리에 대해 Azure AD Privileged Identity Management를 사용하려면 Microsoft 계정(예: @outlook.com)이 아닌 조직 계정(예: @yourdomain.com)의 전역 관리자여야 합니다.
+Azure AD 역할의 경우 권한 있는 역할 관리자 역할에 있는 사용자만 PIM의 다른 관리자에 대한 할당을 관리할 수 있습니다. [PIM 관리를 위해 다른 관리자에게 액세스 권한을 부여](pim-how-to-give-access-to-pim.md)할 수 있습니다. 전역 관리자, 보안 관리자 및 보안 읽기 권한자는 PIM에서 Azure AD 역할에 대한 할당을 볼 수 있습니다.
 
-1. 해당 디렉터리의 전역 관리자로 [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
-2. 조직에 둘 이상의 디렉터리가 있는 경우 Azure 포털의 오른쪽 위에서 사용자 이름을 선택합니다. Azure AD Privileged Identity Management를 사용할 디렉터리를 선택합니다.
-3. **모든 서비스**를 선택하고 필터 텍스트 상자를 사용하여 **Azure AD Privileged Identity Management**를 검색합니다.
-4. **대시보드에 고정** 옵션을 선택하고 **만들기**를 클릭합니다. Privileged Identity Management 응용 프로그램이 열립니다.
-
-디렉터리에서 Azure AD Privileged Identity Management를 처음 사용하는 사용자이고 Azure AD 디렉터리 역할로 이동하면 [보안 마법사](pim-security-wizard.md)에서 초기 할당 환경을 안내합니다. 이 작업 이후 자동으로 디렉터리의 첫 번째 **보안 관리자** 및 **권한 있는 역할 관리자**가 됩니다.
-
-Azure AD 역할의 경우 권한 있는 역할 관리자 역할에 있는 사용자만 Azure AD PIM의 다른 관리자에 대한 할당을 관리할 수 있습니다. [다른 사용자에게 PIM의 디렉터리 역할을 관리할 수 있는 권한을 부여](pim-how-to-give-access-to-pim.md)할 수 있습니다. 전역 관리자, 보안 관리자 및 보안 읽기 권한자는 Azure AD PIM에서 Azure AD 역할에 대한 할당을 볼 수 있습니다.
-Azure RBAC 역할의 경우 구독 관리자, 리소스 소유자 또는 리소스 사용자 액세스 관리자만 Azure AD PIM에서 다른 관리자에 대한 할당을 관리할 수 있습니다.  권한 있는 역할 관리자, 보안 관리자 또는 보안 읽기 권한자인 사용자는 기본적으로 Azure AD PIM에서 Azure RBAC 역할에 대한 할당을 볼 수 있는 액세스 권한을 가지고 있지 않습니다.
+Azure 리소스 역할의 경우 구독 관리자, 리소스 소유자 또는 리소스 사용자 액세스 관리자만 PIM에서 다른 관리자에 대한 할당을 관리할 수 있습니다. 권한 있는 역할 관리자, 보안 관리자 또는 보안 읽기 권한자인 사용자는 기본적으로 PIM에서 Azure 리소스 역할에 대한 할당을 볼 수 있는 액세스 권한을 가지고 있지 않습니다.
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Privileged Identity Management 개요(진입점)
 
@@ -186,6 +177,6 @@ Azure AD PIM을 사용하기 전에 테넌트에 Azure AD Premium P2(또는 EMS 
 
 ## <a name="next-steps"></a>다음 단계
 
+- [PIM 사용 시작](pim-getting-started.md)
 - [PIM을 사용하기 위한 구독 요구 사항](subscription-requirements.md)
-- [PIM에서 관리할 수 있는 Azure AD 디렉터리 역할](pim-roles.md)
 - [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

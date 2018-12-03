@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: 590a7aa875f5f8c40576d69d7e73bdfc31fffbf8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636257"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582397"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>빠른 시작: Azure Digital Twins로 사용 가능한 회의실 찾기
 
@@ -150,6 +150,10 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 1. 샘플 리포지토리를 다운로드할 때 생성된 폴더를 삭제하세요.
 1. [Azure Portal](http://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 그런 다음, Digital Twins 리소스를 선택합니다. **모든 리소스** 창의 위쪽에서 **삭제**를 선택합니다.
+   
+    > [!TIP]
+    > Digital Twins 인스턴스를 삭제하는 데 문제가 있을 경우 픽스가 포함된 서비스 업데이트가 배포된 것입니다. 인스턴스 삭제를 다시 시도해 보세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

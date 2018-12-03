@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3ca6422bf5335604e561b71db6c75a889a74586
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615758"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334213"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합
 
@@ -93,7 +93,7 @@ Key Vault를 만들려면:
     * **Key Vault 이름**: 고유한 이름을 지정합니다. 
     * **테넌트 ID**: 템플릿 함수가 자동으로 검색한 테넌트 ID입니다.  기본값을 변경하지 마십시오.
     * **AD 사용자 ID**: 마지막 절차에서 검색한 Azure AD 사용자 개체 ID를 입력합니다.
-    * **비밀 이름**: 기본 이름은 **mAdminPassword**입니다. 여기에서 비밀 이름을 변경하면 가상 머신을 배포할 때 비밀 이름을 업데이트해야 합니다.
+    * **비밀 이름**: 기본 이름은 **vmAdminPassword**입니다. 여기에서 비밀 이름을 변경하면 가상 머신을 배포할 때 비밀 이름을 업데이트해야 합니다.
     * **비밀 값**: 비밀을 입력합니다.  비밀은 가상 머신에 로그인할 때 사용되는 암호입니다. 마지막 절차에서 만든 생성된 암호를 사용하는 것이 좋습니다.
     * **위에 명시된 사용 약관에 동의함**: 선택합니다.
 3. 맨 위에서 **매개 변수 편집**을 선택하여 템플릿을 살펴봅니다.

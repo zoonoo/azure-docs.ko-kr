@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 57e719c6ef75b08d8c188d2d2d344867bbf590b1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623104"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427458"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure AD Graph API에 액세스
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 이 자습서에서는 Linux VM(가상 머신)에 시스템 할당 관리 ID를 사용하여 Azure AD Graph API에 액세스하여 그룹 멤버 자격을 검색하는 방법을 보여 줍니다. Azure 리소스에 대한 관리 ID는 Azure에서 자동으로 관리되며 이를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다.  
 

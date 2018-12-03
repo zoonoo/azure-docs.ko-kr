@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 4bb37032f2ecdfecf08adec3f32aa00d5ad12897
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 370503cc463fd3683f47fe0b573ad83daa0b9d14
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255526"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584556"
 ---
-# <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 HDInsight에서 Spark 클러스터 만들기
+# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 HDInsight에서 Apache Spark 클러스터 만들기
 Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법과 Hive 테이블에 대해 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)를 참조하세요.
 
 이 빠른 시작에서는 Azure Portal을 사용하여 HDInsight Spark 클러스터를 만듭니다. 클러스터는 클러스터 저장소로 Azure Storage Blob을 사용합니다. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
@@ -133,4 +133,5 @@ Azure Portal로 다시 전환하고, **삭제**를 선택합니다.
 이 빠른 시작에서는 HDInsight Spark 클러스터를 만들고 기본 Spark SQL 쿼리를 실행하는 방법을 알아보았습니다. 다음 자습서를 진행하여 샘플 데이터에서 대화형 쿼리를 실행하는 데 HDInsight Spark 클러스터를 사용하는 방법에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
->[Spark에서 대화형 쿼리 실행](./apache-spark-load-data-run-query.md)
+>[Apache Spark에서 대화형 쿼리 실행](./apache-spark-load-data-run-query.md)
+

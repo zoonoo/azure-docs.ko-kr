@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d3a3b30539ed33bf3e8d21a8cc5e5f2692308f98
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: cb6153d2859968a02345cfbcfa66bd9a4177d864
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283195"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427427"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>빠른 시작: PowerShell에서 Azure SQL Data Warehouse의 계산 능력 조정
 
@@ -23,7 +23,7 @@ PowerShell에서 Azure SQL Data Warehouse의 계산 능력을 조정합니다. �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-이 자습서에는 Azure PowerShell 모듈 버전 5.1.1 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 현재 사용 중인 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps.md)를 참조하세요.
+이 자습서에는 Azure PowerShell 모듈 버전 5.1.1 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 현재 사용 중인 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -43,10 +43,10 @@ Connect-AzureRmAccount
 Get-AzureRmSubscription
 ```
 
-기본 구독과는 다른 구독을 사용해야 할 경우 [Select-AzureRmSubscription](/powershell/module/azurerm.profile/select-azurermsubscription)을 실행합니다.
+기본 구독과는 다른 구독을 사용해야 할 경우 [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext)를 실행합니다.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "MySubscription"
+Set-AzureRmContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>데이터 웨어하우스 정보 조회
@@ -55,7 +55,7 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
 다음 단계에 따라 데이터 웨어하우스에 대한 위치 정보를 찾습니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure Portal의 왼쪽 페이지에서 **SQL 데이터 웨어하우스**를 클릭합니다.
 3. **SQL 데이터 웨어하우스** 페이지에서 **mySampleDataWarehouse**를 선택합니다. 데이터 웨어하우스가 열립니다.
 

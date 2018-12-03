@@ -25,12 +25,14 @@ items:
       href: iot-accelerators-remote-monitoring-monitor.md
     - name: 장치 문제 검색
       href: iot-accelerators-remote-monitoring-automate.md
-    - name: 장치 구성 및 관리
+    - name: 디바이스 구성
       href: iot-accelerators-remote-monitoring-manage.md
     - name: 경고에 대한 근본 원인 분석 수행
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
     - name: 경고 사용 및 장치 문제 수정
       href: iot-accelerators-remote-monitoring-maintain.md
+    - name: 디바이스 구성 일괄 업데이트
+      href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
     - name: 에지에서 이상 검색
       href: iot-accelerators-remote-monitoring-edge.md
   - name: 장치 시뮬레이션
@@ -81,6 +83,8 @@ items:
       href: iot-accelerators-remote-monitoring-add-edge-device.md
     - name: IoT Edge 패키지 가져오기
       href: iot-accelerators-remote-monitoring-import-edge-package.md
+    - name: 자동 디바이스 관리 패키지 가져오기
+      href: iot-accelerators-remote-monitoring-import-adm-package.md
     - name: SIM 데이터 통합
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: 시뮬레이션된 장치 만들기
@@ -225,9 +229,9 @@ items:
     href: iot-accelerators-faq-cf.md
   - name: 스택 오버플로
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-ms.openlocfilehash: bdd52d0023fbf43343cc5108216c6f11e35b89aa
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b36278d1e2a85cd7759d81b022fb1883b7ca2aa6
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824849"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680942"

@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d5201f3b2a0a3548b1f9eaf4a3f6c6b0fe160d18
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: e64acff180d0faf3dfcfe02abb2d659db62ed788
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567709"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312319"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: Java IoT Edge 모듈 개발 및 시뮬레이션된 장치에 배포
 
@@ -55,16 +55,31 @@ Azure IoT Edge 장치:
 
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
-이 자습서에서는 VS Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
 
-이 자습서에서는 Docker 호환 레지스트리를 사용할 수 있습니다. 클라우드에서 사용 가능한 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
+이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
 
-1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **컨테이너** > **Azure Container Registry**를 선택합니다.
-2. 레지스트리에 이름을 지정하고, 구독을 선택하고, 리소스 그룹을 선택하고, SKU를 **기본**으로 설정합니다. 
-3. **만들기**를 선택합니다.
-4. 컨테이너 레지스트리를 만든 후에는 해당 레지스트리를 찾고 **액세스 키**를 선택합니다. 
-5. **관리 사용자**를 **사용**으로 전환합니다.
-6. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사합니다. 레지스트리에 Docker 이미지를 게시하고 Azure IoT Edge 런타임에 레지스트리 자격 증명을 추가하려면 자습서의 뒷부분에 나오는 이러한 값을 사용합니다. 
+임의 Docker 호환 레지스트리를 사용하여 컨테이너 이미지를 유지할 수 있습니다. 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
+
+컨테이너 레지스트리가 아직 없는 경우 다음 단계를 따라 Azure에서 새로 만드세요.
+
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **컨테이너** > **Container Registry**를 선택합니다.
+
+2. 다음 값을 입력하여 컨테이너 레지스트리를 만듭니다.
+
+   | 필드 | 값 | 
+   | ----- | ----- |
+   | 레지스트리 이름 | 고유한 이름을 입력합니다. |
+   | 구독 | 드롭다운 목록에서 구독을 선택합니다. |
+   | 리소스 그룹 | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
+   | 위치 | 가까운 위치를 선택합니다. |
+   | 관리 사용자 | **사용**으로 설정합니다. |
+   | SKU | **기본**을 선택합니다. | 
+
+5. **만들기**를 선택합니다.
+
+6. 컨테이너 레지스트리를 만든 후에는 해당 레지스트리를 찾은 다음, **액세스 키**를 선택합니다. 
+
+7. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사합니다. 나중에 자습서의 뒷부분에서 이러한 값을 사용하여 컨테이너 레지스트리에 대한 액세스를 제공합니다. 
 
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge 모듈 프로젝트 만들기
 다음 단계에서는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 Azure IoT Edge maven 템플릿 패키지와 Azure IoT Java 장치 SDK를 기반으로 하는 IoT Edge 모듈 프로젝트를 만듭니다.
@@ -75,17 +90,20 @@ Azure IoT Edge 장치:
 
 1. Visual Studio Code에서 **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
 
-2. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
+2. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트의 프롬프트에 따라 솔루션을 만듭니다.
 
-   1. 솔루션을 만들 폴더를 선택합니다. 
-   2. 솔루션에 대한 이름을 제공하거나 기본 **EdgeSolution**을 그대로 적용합니다.
-   3. **Java 모듈**을 모듈 템플릿으로 선택합니다. 
-   4. groupId 값을 제공하거나 기본값인 **com.edgemodule**을 그대로 적용합니다.
-   5. 기본 모듈 이름을 **JavaModule**로 바꿉니다. 
-   6. 이전 섹션에서 만든 Azure Container Registry를 첫 번째 모듈에 대한 이미지 리포지토리로 지정합니다. **localhost:5000**을 복사한 로그인 서버 값으로 바꿉니다. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/javamodule과 같습니다.
-
-
-Java 모듈을 처음 만드는 경우 maven 패키지를 다운로드하는 데 몇 분이 걸릴 수 있습니다. 그런 다음, VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션 작업 영역에는 최상위 구성 요소 5개가 포함됩니다. 이 자습서에서는 **\.vscode** 폴더 또는 **\.gitignore** 파일을 편집하지 않습니다. **modules** 폴더에는 모듈에 대한 Java 코드와 모듈을 컨테이너 이미지로 빌드하기 위한 Dockerfile이 포함되어 있습니다. **\.env** 파일은 컨테이너 레지스트리 자격 증명을 저장합니다. **deployment.template.json** 파일에는 IoT Edge 런타임에서 장치에 모듈을 배포하는 데 사용하는 정보가 포함되어 있습니다. 
+   | 필드 | 값 |
+   | ----- | ----- |
+   | 폴더 선택 | VS Code에 대한 개발 머신에서 위치를 선택하여 솔루션 파일을 만듭니다. |
+   | 솔루션 이름 제공 | 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값 **EdgeSolution**을 적용합니다. |
+   | 모듈 템플릿 선택 | **Java 모듈**을 선택합니다. |
+   | groupId에 값 지정 | 그룹 ID 값을 입력하거나 기본값인 **com.edgemodule**을 그대로 적용합니다. |
+   | 모듈 이름 제공 | 모듈 이름을 **JavaModule**로 지정합니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/javamodule과 같습니다. |
+ 
+   ![Docker 이미지 리포지토리 제공](./media/tutorial-java-module/repository.png)
+   
+Java 모듈을 처음 만드는 경우 maven 패키지를 다운로드하는 데 몇 분이 걸릴 수 있습니다. 그런 다음, VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션 작업 영역에는 최상위 구성 요소 5개가 포함됩니다. **modules** 폴더에는 모듈에 대한 Java 코드와 모듈을 컨테이너 이미지로 빌드하기 위한 Dockerfile이 포함되어 있습니다. **\.env** 파일은 컨테이너 레지스트리 자격 증명을 저장합니다. **deployment.template.json** 파일에는 IoT Edge 런타임에서 장치에 모듈을 배포하는 데 사용하는 정보가 포함되어 있습니다. 그리고 **deployment.debug.template.json** 파일에는 모듈의 디버그 버전이 포함되어 있습니다. 이 자습서에서는 **\.vscode** 폴더 또는 **\.gitignore** 파일을 편집하지 않습니다. 
 
 솔루션을 만들 때 컨테이너 레지스트리를 지정하지 않았지만 기본값인 localhost:5000을 수락한 경우에는 \.env 파일이 없습니다. 
 
@@ -200,6 +218,26 @@ Java 모듈을 처음 만드는 경우 maven 패키지를 다운로드하는 데
 
 11. 이 파일을 저장합니다.
 
+12. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 deployment.template.json 파일을 엽니다. 이 파일은 **tempSensor** 및 **JavaModule**의 두 모듈을 배포하도록 **$edgeAgent**에 지시합니다. VS Code 상태 표시줄에서 IoT Edge의 기본 플랫폼은 **amd64**로 설정되므로 **JavaModule**은 Linux amd64 버전의 이미지로 설정됩니다. IoT Edge 디바이스의 아키텍처가 이와 다를 경우 상태 표시줄의 기본 플랫폼을 **amd64**에서 **arm32v7** 또는 **windows-amd64**로 변경하세요. 
+
+   배포 매니페스트에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
+
+   deployment.template.json 파일에는 Docker 레지스트리 자격 증명을 저장하는 **registryCredentials** 섹션이 있습니다. 실제 사용자 이름 및 암호 쌍은 Git에서 무시하는 .env 파일에 저장됩니다.  
+
+13. **JavaModule** 모듈 쌍을 배포 매니페스트에 추가합니다. **$edgeHub** 모듈 쌍 뒤에 있는 **moduleContent** 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다. 
+
+   ```json
+       "JavaModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
+
+   ![배포 템플릿에 모듈 쌍 추가](./media/tutorial-java-module/module-twin.png)
+
+14. 이 파일을 저장합니다.
+
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드
 
 이전 섹션에서는 IoT Edge 솔루션을 만들고, **JavaModule**에 코드를 추가하여 보고된 머신 온도가 허용 가능한 임계값 미만인 메시지를 필터링했습니다. 이제 솔루션을 컨테이너 이미지로 빌드하고 컨테이너 레지스트리로 푸시해야 합니다. 
@@ -211,26 +249,7 @@ Java 모듈을 처음 만드는 경우 maven 패키지를 다운로드하는 데
    ```
    첫 번째 섹션에서 복사한 Azure 컨테이너 레지스트리의 사용자 이름, 암호 및 로그인 서버를 사용합니다. 또는 Azure Portal에서 레지스트리의 **액세스 키** 섹션에서 이러한 값을 다시 검색할 수 있습니다.
 
-2. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 deployment.template.json 파일을 엽니다. 이 파일은 **tempSensor** 및 **JavaModule**의 두 모듈을 배포하도록 **$edgeAgent**에 지시합니다. **JavaModule.image** 값은 Linux amd64 버전의 이미지로 설정됩니다. IoT Edge 장치의 아키텍처인 경우 이미지 버전을 **arm32v7**로 변경합니다. 
-
-   IoT Edge 솔루션을 만들 때 변경한 기본 **SampleModule** 이름이 아닌 올바른 모듈 이름이 템플릿에 있는지 확인합니다.
-
-   배포 매니페스트에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
-
-3. deployment.template.json 파일에는 Docker 레지스트리 자격 증명을 저장하는 **registryCredentials** 섹션이 있습니다. 실제 사용자 이름 및 암호 쌍은 Git에서 무시하는 .env 파일에 저장됩니다.  
-
-4. **JavaModule** 모듈 쌍을 배포 매니페스트에 추가합니다. **$edgeHub** 모듈 쌍 뒤에 있는 **moduleContent** 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다. 
-    ```json
-        "JavaModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
-
-4. 이 파일을 저장합니다.
-
-5. VS Code 탐색기에서 deployment.template.json 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 
+2. VS Code 탐색기에서 deployment.template.json 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 
 
 솔루션을 빌드하도록 Visual Studio Code에 지시하면 먼저 배포 템플릿의 정보를 가져와서 **config**라는 새 폴더에 deployment.json 파일을 생성합니다. 그런 다음, 통합 터미널에서 `docker build` 및 `docker push`, 두 개의 명령을 실행합니다. 이 두 명령은 코드를 빌드하고,, Java 앱을 컨테이너화한 다음, 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 코드를 푸시합니다. 
 

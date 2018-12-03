@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 09/21/2018
+ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e5c6b523a098bef4bb40ccd924750cc8aefd0e87
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: bc66e143dc8cb98f08080092af95661ba50be9a3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567369"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317707"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: C IoT Edge 모듈 개발 및 시뮬레이트된 장치에 배포
 
@@ -53,27 +53,32 @@ Azure IoT Edge 장치:
 >[!Note]
 >Azure IoT Edge용 C 모듈은 Windows 컨테이너를 지원하지 않습니다. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
-이 자습서에서는 VS Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
 
-이 자습서에서는 Docker 호환 레지스트리를 사용할 수 있습니다. 클라우드에서 사용 가능한 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
+이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
 
-다음 Azure CLI 명령은 **IoTEdgeResources**라는 리소스 그룹에 레지스트리를 만듭니다. **{acr_name}** 을 레지스트리의 고유한 이름으로 바꿉니다. 
+임의 Docker 호환 레지스트리를 사용하여 컨테이너 이미지를 유지할 수 있습니다. 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
 
-   ```azurecli-interactive
-   az acr create --resource-group IoTEdgeResources --name {acr_name} --sku Basic --admin-enabled true
-   ```
+컨테이너 레지스트리가 아직 없는 경우 다음 단계를 따라 Azure에서 새로 만드세요.
 
-레지스트리의 자격 증명을 검색합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **컨테이너** > **Container Registry**를 선택합니다.
 
-   ```azurecli-interactive
-   az acr credential show --name {acr_name}
-   ```
+2. 다음 값을 입력하여 컨테이너 레지스트리를 만듭니다.
 
-**사용자 이름** 및 암호 중 하나의 값을 복사합니다. 레지스트리에 Docker 이미지를 게시할 때 및 에지 런타임에 레지스트리 자격 증명을 추가할 때 자습서의 뒷부분에 나오는 이러한 값을 사용합니다. 
+   | 필드 | 값 | 
+   | ----- | ----- |
+   | 레지스트리 이름 | 고유한 이름을 입력합니다. |
+   | 구독 | 드롭다운 목록에서 구독을 선택합니다. |
+   | 리소스 그룹 | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
+   | 위치 | 가까운 위치를 선택합니다. |
+   | 관리 사용자 | **사용**으로 설정합니다. |
+   | SKU | **기본**을 선택합니다. | 
+
+5. **만들기**를 선택합니다.
+
+6. 컨테이너 레지스트리를 만든 후에는 해당 레지스트리를 찾은 다음, **액세스 키**를 선택합니다. 
+
+7. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사합니다. 나중에 자습서의 뒷부분에서 이러한 값을 사용하여 컨테이너 레지스트리에 대한 액세스를 제공합니다. 
 
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge 모듈 프로젝트 만들기
 다음 단계는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 .NET Core 2.0을 기반으로 IoT Edge 모듈 프로젝트를 만드는 방법을 보여 줍니다.
@@ -86,21 +91,25 @@ Azure IoT Edge 장치:
 
 2. 명령 팔레트에서 **Azure: 로그인** 명령을 입력 및 실행하고, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계는 건너뛸 수 있습니다.
 
-3. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
+3. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트의 프롬프트에 따라 솔루션을 만듭니다.
 
-   1. 솔루션을 만들 폴더를 선택합니다. 
-   2. 솔루션에 대한 이름을 제공하거나 기본 **EdgeSolution**을 그대로 적용합니다.
-   3. **C 모듈**을 모듈 템플릿으로 선택합니다. 
-   4. 모듈 이름을 **CModule**로 지정합니다. 
-   5. 이전 섹션에서 만든 Azure Container Registry를 첫 번째 모듈에 대한 이미지 리포지토리로 지정합니다. **localhost:5000**을 **\<registry name\>.azurecr.io**로 바꿉니다. 문자열에서 localhost 부분만 바꾸고, 모듈 이름을 삭제하지 마세요. 
-
+   | 필드 | 값 |
+   | ----- | ----- |
+   | 폴더 선택 | VS Code에 대한 개발 머신에서 위치를 선택하여 솔루션 파일을 만듭니다. |
+   | 솔루션 이름 제공 | 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값 **EdgeSolution**을 적용합니다. |
+   | 모듈 템플릿 선택 | **C 모듈**을 선택합니다. |
+   | 모듈 이름 제공 | 모듈 이름을 **CModule**로 지정합니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. 마지막 문자열은 \<\>registry name.azurecr.io/cmodule 형식입니다. |
+ 
    ![Docker 이미지 리포지토리 제공](./media/tutorial-c-module/repository.png)
 
-VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션 작업 영역에는 최상위 구성 요소 5개가 포함됩니다. 이 자습서에서는 **\.vscode** 폴더 또는 **\.gitignore** 파일을 편집하지 않습니다. **modules** 폴더에는 모듈에 대한 C 코드와 모듈을 컨테이너 이미지로 빌드하기 위한 Dockerfile이 포함되어 있습니다. **\.env** 파일은 컨테이너 레지스트리 자격 증명을 저장합니다. **deployment.template.json** 파일에는 IoT Edge 런타임에서 장치에 모듈을 배포하는 데 사용하는 정보가 포함되어 있습니다. 
+VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션 작업 영역에는 최상위 구성 요소 5개가 포함됩니다. **modules** 폴더에는 모듈에 대한 C 코드와 모듈을 컨테이너 이미지로 빌드하기 위한 Dockerfile이 포함되어 있습니다. **\.env** 파일은 컨테이너 레지스트리 자격 증명을 저장합니다. **deployment.template.json** 파일에는 IoT Edge 런타임에서 장치에 모듈을 배포하는 데 사용하는 정보가 포함되어 있습니다. 그리고 **deployment.debug.template.json** 파일에는 모듈의 디버그 버전이 포함되어 있습니다. 이 자습서에서는 **\.vscode** 폴더 또는 **\.gitignore** 파일을 편집하지 않습니다.
 
 솔루션을 만들 때 컨테이너 레지스트리를 지정하지 않았지만 기본값인 localhost:5000을 수락한 경우에는 \.env 파일이 없습니다. 
 
-   ![C 솔루션 작업 영역](./media/tutorial-c-module/workspace.png)
+<!--
+   ![C solution workspace](./media/tutorial-c-module/workspace.png)
+-->
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
@@ -285,7 +294,23 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
 
 11. **main.c** 파일을 저장합니다.
 
-## <a name="build-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드
+12. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 **deployment.template.json** 파일을 엽니다. 이 파일은 `$edgeAgent`에 **tempSensor** 및 **CModule**이라는 두 모듈을 배포하도록 지시합니다. VS Code 상태 표시줄에서 IoT Edge의 기본 플랫폼은 **amd64**로 설정되므로 **NodeModule**은 Linux amd64 버전의 이미지로 설정됩니다. IoT Edge 디바이스의 아키텍처가 이와 다를 경우 상태 표시줄의 기본 플랫폼을 **amd64**에서 **arm32v7**로 변경하세요. 배포 매니페스트에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
+
+13. CModule 모듈 쌍을 배포 매니페스트에 추가합니다. `$edgeHub` 모듈 쌍 뒤에 있는 `moduleContent` 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다. 
+
+    ```json
+        "CModule": {
+            "properties.desired":{
+                "TemperatureThreshold":25
+            }
+        }
+    ```
+
+   ![배포 템플릿에 CModule 쌍 추가](./media/tutorial-c-module/module-twin.png)
+
+14. **deployment.template.json** 파일을 저장합니다.
+
+## <a name="build-and-push-your-solution"></a>솔루션 빌드 및 푸시
 
 이전 섹션에서는 IoT Edge 솔루션을 만들고 CModule에 코드를 추가하여 보고된 머신 온도가 허용 가능한 한도 이내인 메시지를 필터링했습니다. 이제 솔루션을 컨테이너 이미지로 빌드하고 컨테이너 레지스트리로 푸시해야 합니다. 
 
@@ -298,22 +323,7 @@ VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 솔루션
    ```
    첫 번째 섹션에서 복사한 Azure Container Registry의 사용자 이름, 암호 및 로그인 서버를 사용합니다. 또는 Azure Portal에서 레지스트리의 **액세스 키** 섹션에서 이러한 항목을 다시 검색합니다.
 
-2. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 **deployment.template.json** 파일을 엽니다. 이 파일은 `$edgeAgent`에 **tempSensor** 및 **CModule**이라는 두 모듈을 배포하도록 지시합니다. `CModule.image` 값은 Linux amd64 버전의 이미지로 설정됩니다. 배포 매니페스트에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
-
-4. CModule 모듈 쌍을 배포 매니페스트에 추가합니다. `$edgeHub` 모듈 쌍 뒤에 있는 `moduleContent` 섹션의 아래쪽에 다음 JSON 내용을 삽입합니다. 
-
-    ```json
-        "CModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
-
-   ![배포 템플릿에 CModule 쌍 추가](./media/tutorial-c-module/module-twin.png)
-
-4. **deployment.template.json** 파일을 저장합니다.
-5. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 
+2. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 
 
 Visual Studio Code에 솔루션을 빌드하라고 지시하면 Visual Studio Code는 먼저 새 **config** 폴더에 `deployment.json` 파일을 생성합니다. 업데이트한 템플릿 파일, 즉, 컨테이너 레지스트리 자격 증명을 저장하는 데 사용한 .env 파일과 CModule 폴더의 module.json 파일에서 deployment.json 파일에 대한 정보가 수집됩니다. 
 

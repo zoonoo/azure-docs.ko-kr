@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 994c864f04980dc963f9e7c4eb99b33382ad17e4
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614908"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583264"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure Digital Twins 공간으로부터 알림 수신
 
@@ -194,6 +194,10 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 더 이상 Azure Digital Twins를 탐색할 계획이 없는 경우 이 자습서에서 만든 리소스를 자유롭게 삭제할 수 있습니다.
 
 1. [Azure Portal](http://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택하고, Digital Twins 리소스 그룹을 선택하고, **삭제**를 선택하면 됩니다.
+
+    > [!TIP]
+    > Digital Twins 인스턴스를 삭제하는 데 문제가 있을 경우 픽스가 포함된 서비스 업데이트가 배포된 것입니다. 인스턴스 삭제를 다시 시도해 보세요.
+
 2. 필요한 경우 작업 머신에서 샘플 애플리케이션을 삭제합니다. 
 
 

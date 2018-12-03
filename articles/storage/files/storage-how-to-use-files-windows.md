@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: f1dd07756ca484171a3d662df35493efbe5a5ee7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6b93c26918b4f70eb23e7055db813f35d3787d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415622"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445738"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -24,9 +24,9 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 
 | Windows 버전        | SMB 버전 | Azure VM에 탑재 가능 | 온-프레미스에 탑재 가능 |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019(미리 보기)<sup>1</sup> | SMB 3.0 | yes | yes |
-| Windows 10<sup>2</sup> | SMB 3.0 | yes | yes |
-| Windows Server 반기 채널<sup>3</sup> | SMB 3.0 | yes | yes |
+| Windows Server 2019    | SMB 3.0 | yes | yes |
+| Windows 10<sup>1</sup> | SMB 3.0 | yes | yes |
+| Windows Server 반기 채널<sup>2</sup> | SMB 3.0 | yes | yes |
 | Windows Server 2016    | SMB 3.0     | yes                   | yes                  |
 | Windows 8.1            | SMB 3.0     | yes                   | yes                  |
 | Windows Server 2012 R2 | SMB 3.0     | yes                   | yes                  |
@@ -34,9 +34,8 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 | Windows 7              | SMB 2.1     | yes                   | 아니요                   |
 | Windows Server 2008 R2 | SMB 2.1     | yes                   | 아니요                   |
 
-<sup>1</sup>Windows Server 2019는 [Windows Server 참가자 프로그램](https://insider.windows.com/for-business-getting-started-server/)을 통해 미리 보기로 제공됩니다. Windows Server 2019는 아직 프로덕션 용도로 지원되지 않습니다. 다만, Azure 파일 공유에 연결할 때 [Windows 문제 해결 가이드](storage-troubleshoot-windows-file-connection-problems.md)에 없는 문제가 발생할 경우 문의해 주세요.  
-<sup>2</sup>Windows 10 버전 1507, 1607, 1703, 1709 및 1803.  
-<sup>3</sup>Windows Server 버전 1709 및 1803.
+<sup>1</sup>Windows 10, 버전 1507, 1607, 1703, 1709, 1803, 1809.  
+<sup>2</sup>Windows Server, 버전 1709 및 1803.
 
 > [!Note]  
 > 사용자의 Windows 버전에 대해 가장 최근의 KB를 선택하는 것이 좋습니다.

@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 8/8/2018
+ms.date: 11/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: fe84dfcef2a5dad1c170592f933638b984e16a05
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 439a3338d5b2104d20e8de99a83fe19c6935a5ac
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717032"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499479"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
-Azure Virtual Network를 사용하면 Azure VM(Virtual Machines)과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. Azure Virtual Network는 다음과 같은 주요 기능을 제공합니다.
+Azure Virtual Network를 사용하면 Azure VM(Virtual Machines)과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. 가상 네트워크는 단일 지역으로 범위가 제한되지만 가상 네트워크 피어링을 사용하여 여러 지역의 여러 가상 네트워크를 연결할 수 있습니다.
+
+Azure Virtual Network는 다음과 같은 주요 기능을 제공합니다.
 
 ## <a name="isolation-and-segmentation"></a>격리 및 구분
 

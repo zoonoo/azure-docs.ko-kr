@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 935241d5574a59edfa256b74db3a0aeab2f7bf91
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9f2a6d9b75ccf704862d169b96ea1a1f2edb9815
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458108"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445689"
 ---
 # <a name="quickstart-bing-visual-search-sdk-python"></a>빠른 시작: Bing Visual Search SDK Python
 
@@ -30,7 +30,16 @@ Bing Visual Search SDK는 웹 요청 및 구문 분석 결과에 대한 REST API
 * [태그, 동작 및 actionType](#tags-actions)
 
 ## <a name="application-dependencies"></a>응용 프로그램 종속성
-* Cognitive Services API 키는 SDK 호출을 인증하는 데 필요합니다. [평가판 키](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)에 등록합니다. 평가판 키는 초당 한 번의 호출로 7일 동안 유효합니다. 프로덕션 시나리오의 경우 [액세스 키를 구입하세요](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). [가격 책정 정보](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/)도 참조하세요.
+* 이 빠른 시작의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
+ 
 * Python이 없을 경우 설치하세요. SDK는 Python 2.7 3.3, 3.4, 3.5 및 3.6과 호환됩니다.
 * Python 개발에 대한 일반 권장 사항은 [가상 환경](https://docs.python.org/3/tutorial/venv.html)을 사용하는 것입니다. [venv module](https://pypi.python.org/pypi/virtualenv)을 사용하여 가상 환경을 설치하고 초기화합니다. Python 2.7용 virtualenv를 설치합니다.
 ```

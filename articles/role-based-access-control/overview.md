@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d264160fb3f1c14db3379a314e60efdadb6905b5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 19285bf7a1323e9698fe408566304d0596d1c983
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210417"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311268"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)란?
 
@@ -101,7 +101,7 @@ Azure Portal, Azure CLI, Azure PowerShell, Azure SDK 또는 REST API를 사용�
 
 ## <a name="deny-assignments"></a>거부 할당
 
-이전에는 RBAC가 거부가 없는 허용 전용 모델이었지만 이제 RBAC는 제한된 방식으로 거부 할당을 지원합니다. 거부 할당은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹 또는 서비스 주체에게 거부 작업 집합을 바인딩합니다. 역할 할당은 허용된 일련의 작업을 정의하고 거부 할당은 허용되지 않는 일련의 작업을 정의합니다. 즉, 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 지정된 작업을 사용자가 수행할 수 없도록 차단합니다. 거부 할당은 역할 할당보다 우선합니다.
+이전에는 RBAC가 거부가 없는 허용 전용 모델이었지만 이제 RBAC는 제한된 방식으로 거부 할당을 지원합니다. 거부 할당은 역할 할당과 마찬가지로 액세스를 거부하기 위해 특정 범위에서 사용자, 그룹 또는 서비스 주체에게 거부 작업 집합을 바인딩합니다. 역할 할당은 *허용된* 일련의 작업을 정의하고 거부 할당은 *허용되지 않는* 일련의 작업을 정의합니다. 즉, 거부 할당은 역할 할당이 사용자에게 액세스 권한을 부여하더라도 지정된 작업을 사용자가 수행할 수 없도록 차단합니다. 거부 할당은 역할 할당보다 우선합니다.
 
 현재 거부 할당은 **읽기 전용**이며 Azure를 통해서만 설정할 수 있습니다. 자신의 거부 할당을 만들 수는 없지만, 할당이 사용자의 유효한 권한에 영향을 줄 수 있으므로 거부 할당을 나열할 수 있습니다. 거부 할당에 대한 정보를 얻으려면 `Microsoft.Authorization/denyAssignments/read` 권한이 있어야 하며, 이것은 대부분의 [기본 제공 역할](built-in-roles.md#owner)에 포함됩니다. 자세한 내용은 [거부 할당 이해](deny-assignments.md)를 참조하세요.
 

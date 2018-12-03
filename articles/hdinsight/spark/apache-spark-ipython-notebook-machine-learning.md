@@ -9,22 +9,22 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eac44d3b8daae27afec8aa24f4767bdb5dbf991a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239562"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580573"
 ---
-# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>자습서: HDInsight에서 Spark Machine Learning 응용 프로그램 빌드 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>자습서: HDInsight에서 Apache Spark 기계 학습 애플리케이션 빌드 
 
-이 자습서에서는 Jupyter Notebook을 사용하여 Azure HDInsight에 대한 Apache Spark Machine Learning 응용 프로그램을 빌드하는 방법을 알아봅니다. 
+이 자습서에서는 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Azure HDInsight에 대한 [Apache Spark](https://spark.apache.org/) 기계 학습 애플리케이션을 빌드하는 방법을 알아봅니다. 
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html)는 분류, 회귀, 클러스터링, 공동 작업 필터링, 차원 감소, 기본 최적화 기본 요소 등 일반적인 학습 알고리즘 및 유틸리티로 구성된 Spark의 확장 가능한 기계 학습 라이브러리입니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
-> * Spark Machine Learning 응용 프로그램 개발
+> * Apache Spark 기계 학습 애플리케이션 개발
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -190,7 +190,7 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
-* Spark Machine Learning 응용 프로그램 개발
+* Apache Spark 기계 학습 애플리케이션 개발
 
 다음 자습서로 이동하여 Spark용 IntelliJ IDEA 작업을 사용하는 방법을 알아봅니다. 
 

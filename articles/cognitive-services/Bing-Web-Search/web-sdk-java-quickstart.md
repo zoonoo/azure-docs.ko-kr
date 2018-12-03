@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: aahi
-ms.openlocfilehash: 71628862c7949df303f10181737a140a7f1e9ac4
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8883a312bf6da4167936e844e75047ae40cac9f3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165308"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309308"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>빠른 시작: Java용 Bing Web Search SDK 사용
 
@@ -25,8 +25,9 @@ Bing Web Search SDK를 사용하면 Bing Web Search를 Java 응용 프로그램�
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>필수 조건
+[Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
+## <a name="prerequisites"></a>필수 조건
 이 빠른 시작을 실행하기 전에 필요한 몇 가지 조건은 다음과 같습니다.
 
 * [JDK 7 또는 8](https://aka.ms/azure-jdks)

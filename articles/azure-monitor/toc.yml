@@ -191,9 +191,9 @@ items:
       - name: Log Analytics 에이전트
         items:
         - name: 개요
-          href: ../log-analytics/log-analytics-agent-overview.md?toc=/azure/azure-monitor/toc.json
+          href: platform/log-analytics-agent.md
         - name: Windows 에이전트
-          href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
+          href: platform/agent-windows.md
         - name: Windows용 VM 확장
           href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: Linux용 VM 확장
@@ -201,9 +201,9 @@ items:
         - name: Operations Manager
           href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
         - name: OMS 게이트웨이
-          href: ../log-analytics/log-analytics-oms-gateway.md?toc=/azure/azure-monitor/toc.json
+          href: platform/gateway.md
         - name: 에이전트 관리
-          href: ../log-analytics/log-analytics-agent-manage.md?toc=/azure/azure-monitor/toc.json
+          href: platform/agent-manage.md
       - name: Azure 진단 확장
         items:
         - name: 개요
@@ -231,31 +231,31 @@ items:
       - name: 문제 해결
         items:
         - name: Log Analytics VM 확장
-          href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: platform/vmext-troubleshoot.md
         - name: Log Analytics Linux 에이전트
-          href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
+          href: platform/agent-linux-troubleshoot.md
     - name: 에이전트 데이터 원본
       items:
       - name: 개요
-        href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
+        href: platform/agent-data-sources.md
       - name: Windows 이벤트
-        href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-windows-events.md
       - name: 사용자 지정 JSON 데이터
-        href: ../log-analytics/log-analytics-data-sources-json.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-json.md
       - name: 수집된 성능 데이터
-        href: ../log-analytics/log-analytics-data-sources-collectd.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-collectd.md
       - name: Nagios 및 Zabbix 경고
-        href: ../log-analytics/log-analytics-data-sources-alerts-nagios-zabbix.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-alerts-nagios-zabbix.md
       - name: syslog
-        href: ../log-analytics/log-analytics-data-sources-syslog.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-syslog.md
       - name: 성능 카운터
-        href: ../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-performance-counters.md
       - name: Linux 응용 프로그램 성능
-        href: ../log-analytics/log-analytics-data-sources-linux-applications.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-linux-applications.md
       - name: IIS 로그
-        href: ../log-analytics/log-analytics-data-sources-iis-logs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-iis-logs.md
       - name: 사용자 지정 로그
-        href: ../log-analytics/log-analytics-data-sources-custom-logs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-sources-custom-logs.md
       - name: 사용자 지정 필드
         href: ../log-analytics/log-analytics-custom-fields.md?toc=/azure/azure-monitor/toc.json
     - name: 응용 프로그램 구성
@@ -542,23 +542,23 @@ items:
       - name: Azure SQL
         href: ../log-analytics/log-analytics-azure-sql.md?toc=/azure/azure-monitor/toc.json
       - name: SQL Server
-        href: ../log-analytics/log-analytics-sql-assessment.md?toc=/azure/azure-monitor/toc.json
+        href: insights/sql-assessment.md
     - name: 네트워크 모니터링
       items:
       - name: 네트워킹 분석
-        href: ../log-analytics/log-analytics-azure-networking-analytics.md?toc=/azure/azure-monitor/toc.json
+        href: insights/azure-networking-analytics.md
       - name: 네트워크 성능 모니터
         items:
         - name: 솔루션 개요
-          href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=/azure/azure-monitor/toc.json
+          href: insights/network-performance-monitor.md
         - name: 성능 모니터링
-          href: ../log-analytics/log-analytics-network-performance-monitor-performance-monitor.md?toc=/azure/azure-monitor/toc.json
+          href: insights/network-performance-monitor-performance-monitor.md
         - name: 서비스 엔드포인트
-          href: ../log-analytics/log-analytics-network-performance-monitor-service-endpoint.md?toc=/azure/azure-monitor/toc.json
+          href: insights/network-performance-monitor-service-endpoint.md
         - name: ExpressRoute
-          href: ../log-analytics/log-analytics-network-performance-monitor-expressroute.md?toc=/azure/azure-monitor/toc.json
+          href: insights/network-performance-monitor-expressroute.md
         - name: 가격
-          href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
+          href: insights/network-performance-monitor-pricing-faq.md
         - name: FAQ
           href: ../log-analytics/log-analytics-network-performance-monitor-faq.md?toc=/azure/azure-monitor/toc.json
     - name: 가상 머신 모니터링
@@ -586,11 +586,11 @@ items:
       - name: 에이전트 상태
         href: insights/solution-agenthealth.md
       - name: 용량 및 성능
-        href: ../log-analytics/log-analytics-capacity.md?toc=/azure/azure-monitor/toc.json
+        href: insights/capacity-performance.md
       - name: VMWare Analytics
-        href: ../log-analytics/log-analytics-vmware.md?toc=/azure/azure-monitor/toc.json
+        href: insights/vmware.md
       - name: 실시간 데이터
-        href: ../log-analytics/log-analytics-wire-data.md?toc=/azure/azure-monitor/toc.json
+        href: insights/wire-data.md
       - name: 서비스 맵
         items:
         - name: 사용
@@ -602,23 +602,23 @@ items:
     - name: Azure 리소스 모니터링
       items:
       - name: Key Vault 분석
-        href: ../log-analytics/log-analytics-azure-key-vault.md?toc=/azure/azure-monitor/toc.json
+        href: insights/azure-key-vault.md
       - name: Service Fabric 분석
         href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
     - name: 기타 리소스 모니터링
       items:
       - name: AD 상태 평가
-        href: ../log-analytics/log-analytics-ad-assessment.md?toc=/azure/azure-monitor/toc.json
+        href: insights/ad-assessment.md
       - name: AD 복제 상태
-        href: ../log-analytics/log-analytics-ad-replication-status.md?toc=/azure/azure-monitor/toc.json
+        href: insights/ad-replication-status.md
       - name: DNS
-        href: ../log-analytics/log-analytics-dns.md?toc=/azure/azure-monitor/toc.json
+        href: insights/dns-analytics.md
       - name: Office 365
         href: insights/solution-office-365.md
       - name: Operations Manager 평가
-        href: ../log-analytics/log-analytics-scom-assessment.md?toc=/azure/azure-monitor/toc.json
+        href: insights/scom-assessment.md
       - name: Surface Hub
-        href: ../log-analytics/log-analytics-surface-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: insights/surface-hubs.md
     - name: 모니터링 솔루션 사용
       items:
       - name: 개요
@@ -628,18 +628,18 @@ items:
   - name: 데이터 가상화
     items:
     - name: 뷰
-      href: ../log-analytics/log-analytics-view-designer.md?toc=/azure/azure-monitor/toc.json
+      href: platform/view-designer.md
       items:
       - name: 타일 참조
-        href: ../log-analytics/log-analytics-view-designer-tiles.md?toc=/azure/azure-monitor/toc.json
+        href: platform/view-designer-tiles.md
       - name: 시각화 요소 참조
-        href: ../log-analytics/log-analytics-view-designer-parts.md?toc=/azure/azure-monitor/toc.json
+        href: platform/view-designer-parts.md
       - name: 필터
-        href: ../log-analytics/log-analytics-view-designer-filters.md?toc=/azure/azure-monitor/toc.json
+        href: platform/view-designer-filters.md
     - name: 대시보드
       items:
       - name: 로그
-        href: ../log-analytics/log-analytics-dashboards.md?toc=/azure/azure-monitor/toc.json
+        href: platform/dashboards.md
       - name: 응용 프로그램
         href: ../application-insights/app-insights-dashboards.md?toc=/azure/azure-monitor/toc.json
     - name: Power BI
@@ -648,7 +648,7 @@ items:
         href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
       - name: 응용 프로그램 데이터 내보내기
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
-    - name: Grafana로 메트릭 보내기
+    - name: 데이터를 Grafana에 보내기
       href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
   - name: 데이터 분석
     items:
@@ -781,7 +781,7 @@ items:
         - name: 논리 앱 작업 구현
           href: ../monitoring-and-diagnostics/monitoring-action-groups-logic-app.md?toc=/azure/azure-monitor/toc.json
       - name: Operations Manager의 경고
-        href: ../log-analytics/log-analytics-solution-alert-management.md?toc=/azure/azure-monitor/toc.json
+        href: platform/alert-management-solution.md
       - name: 경고 관리
         items:
         - name: 경고 인스턴스 관리
@@ -823,7 +823,7 @@ items:
       - name: IT Service Management Connector
         href: ../log-analytics/log-analytics-itsmc-overview.md?toc=/azure/azure-monitor/toc.json
       - name: IT Service Management 연결
-        href: ../log-analytics/log-analytics-itsmc-connections.md?toc=/azure/azure-monitor/toc.json
+        href: platform/itsmc-connections.md
       - name: Service Manager 웹앱 만들기
         href: ../log-analytics/log-analytics-itsmc-service-manager-script.md?toc=/azure/azure-monitor/toc.json
   - name: 사용량 및 비용 관리
@@ -930,14 +930,6 @@ items:
       href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
     - name: Context
       href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
-  - name: 경고
-    items:
-    - name: Log Analytics에서 Azure로 경고 확장
-      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
-    - name: OMS 포털에서 Azure Portal에 경고 복사
-      href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
-    - name: 클래식 경고 및 모니터링의 사용 중지
-      href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure 기능
@@ -975,6 +967,16 @@ items:
         href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=/azure/azure-monitor/toc.json
       - name: "1"
         href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json
+  - name: 기능 및 API 사용 중지
+    items:
+    - name: 클래식 자동 크기 조정 및 메트릭 API
+      href: ./platform/classic-api-retirement-metrics-autoscale.md
+    - name: 클래식 경고 및 모니터링
+      href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
+    - name: Log Analytics에서 Azure로 경고 확장
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
+    - name: OMS 포털에서 Azure Portal에 경고 복사
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
 - name: 리소스
   items:
   - name: Azure 로드맵
@@ -1005,9 +1007,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 763fc0139f3de48bb3a4285ab64c9015d4cb4d2a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e73da33dd67d9fa4b7427ff82a5cedca9db018ba
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853849"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633489"
