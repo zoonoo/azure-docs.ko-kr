@@ -409,15 +409,15 @@ items:
       - name: Azure 활동 로그
         items:
         - name: 분석
-          href: ../log-analytics/log-analytics-activity.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-activity-logs.md
         - name: 구독 간 수집
-          href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-activity-logs-subscriptions.md
       - name: 서비스 로그 및 메트릭
-        href: ../log-analytics/log-analytics-azure-storage.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-azure-metrics-logs.md
       - name: Azure Storage에서 진단 또는 로그 데이터
-        href: ../log-analytics/log-analytics-azure-storage-iis-table.md?toc=/azure/azure-monitor/toc.json
+        href: platform/azure-storage-iis-table.md
       - name: Azure PaaS 리소스
-        href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-azurepass-posh.md
       - name: 사용자 지정 데이터 원본 상관 관계 만들기
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: 사용자 지정 데이터 수집
@@ -425,7 +425,7 @@ items:
       - name: Log Analytics 데이터 수집기 API
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Log Analytics 데이터 수집기 API 파이프라인 예제
-        href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/create-pipeline-datacollector-api.md
       - name: 응용 프로그램 데이터
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
       - name: 메트릭 저장소 REST API
@@ -453,7 +453,7 @@ items:
       - name: 진단 로그를 이벤트 허브로 라우팅
         href: ../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=/azure/azure-monitor/toc.json
       - name: 응용 프로그램 데이터를 Log Analytics로 라우팅
-        href: ../log-analytics/log-analytics-app-insights-connector.md?toc=/azure/azure-monitor/toc.json
+        href: platform/app-insights-connector.md
       - name: 응용 프로그램 데이터 내보내기
         items:
         - name: 연속 내보내기
@@ -719,7 +719,7 @@ items:
       - name: 검색 결과에서 작업 수행
         href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
       - name: 컴퓨터 그룹
-        href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
+        href: platform/computer-groups.md
       - name: 흐름 커넥터
         href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
       - name: 로그 검색 API
@@ -1007,9 +1007,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: e73da33dd67d9fa4b7427ff82a5cedca9db018ba
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9c1f8397ce9e88216eaff10cda9c3b2ebbc6e5bd
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633489"
+ms.locfileid: "52682931"
