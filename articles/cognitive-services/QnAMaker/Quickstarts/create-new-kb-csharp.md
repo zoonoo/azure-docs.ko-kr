@@ -112,7 +112,7 @@ Program.cs의 맨 위에서 단일 using 문을 다음 줄로 바꾸어 프로�
 
 ## <a name="add-createkb-method"></a>CreateKB 메서드 추가
 
-다음 메서드는 KB를 만들고 상태 확인을 반복합니다.  POST 응답 헤더 필드 **Location**에 _create_ **Operation ID**가 반환된 후 GET 요청의 경로 부분에 사용됩니다. KB를 만드는 데 시간이 걸릴 수 있으므로 상태가 성공 또는 실패일 때까지 상태를 확인하기 위한 호출을 반복해야 합니다. 작업이 성공하면 **resourceLocation**에 KB ID가 반환됩니다. 
+다음 메서드는 KB를 만들고 상태 확인을 반복합니다.  POST 응답 헤더 필드 중 **Location**에 _create_ **Operation ID**가 반환되며, GET 요청시 경로의 일부에 사용됩니다. KB를 만드는 데 시간이 걸릴 수 있으므로 상태가 성공 또는 실패 할 때까지, 상태 확인을 위해 호출을 반복해야 합니다. 작업이 성공하면 KB ID가 **resourceLocation**으로 반환됩니다. 
 
 [!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=176-237 "Add CreateKB method")]
 
