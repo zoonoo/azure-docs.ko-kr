@@ -4,7 +4,7 @@ description: 경험으로 해당 제품에 Azure 청구 API를 통합하여 Micr
 services: ''
 documentationcenter: ''
 author: tonguyen
-manager: tonguyen
+manager: mumami
 editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 95d90e898ddc8766cf96a5a72c315407cd596393
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393862"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275958"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>클라우드 크루저 및 Microsoft Azure 청구 API 통합
 이 문서는 새로운 Microsoft Azure 청구 API로부터 수집한 정보를 Cloud Cruiser에서 워크플로 비용 시뮬레이션 및 분석에 사용할 수 있는 방법을 설명합니다.

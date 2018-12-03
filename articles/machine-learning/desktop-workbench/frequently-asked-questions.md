@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4785f87515663831b1177c6c0958d3d965351797
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 45cf987d9af7b7dd0e8f05056b49ba56835603e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996573"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313946"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 질문과 대답
 
@@ -171,4 +171,4 @@ Workbench의 데이터 준비 도구는 현재 다음 형식에서의 수집을 
 
 **Azure Machine Learning은 Microsoft Cognitive Toolkit와 어떤 관계가 있나요?**
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)는 새 도구 및 서비스에서 지원하는 많은 프레임워크 중 하나입니다. Cognitive Toolkit은 Feed-Forward Deep Neural Networks, Convolutional Nets, Sequence-to-Sequence 및 Recurrent Networks 등 인기 있는 기계 학습 모델을 사용하고 조합할 수 있는 통합된 심층 학습 도구 키트입니다. Microsoft Cognitive Toolkit에 대한 자세한 내용을 확인하려면 당사 [제품 설명서](https://docs.microsoft.com/cognitive-toolkit/)를 참조하세요. 
+[Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/)는 새 도구 및 서비스에서 지원하는 많은 프레임워크 중 하나입니다. Cognitive Toolkit은 Feed-Forward Deep Neural Networks, Convolutional Nets, Sequence-to-Sequence 및 Recurrent Networks 등 인기 있는 기계 학습 모델을 사용하고 조합할 수 있는 통합된 심층 학습 도구 키트입니다. Microsoft Cognitive Toolkit에 대한 자세한 내용을 확인하려면 당사 [제품 설명서](https://docs.microsoft.com/cognitive-toolkit/)를 참조하세요. 

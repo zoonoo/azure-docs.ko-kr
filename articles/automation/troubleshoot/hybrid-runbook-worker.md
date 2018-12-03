@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6c8dc240172451118fd75b042ba267740999882d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 38e2589365c2f1c88145fbf068d3ed267d4a4621
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321770"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284572"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -30,7 +30,7 @@ Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록�
 
 Runbook 실행에 실패하고 다음 오류가 발생합니다.
 
-```
+```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 

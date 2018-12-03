@@ -3,8 +3,9 @@ title: Cortana Intelligence 대회 관련 FAQ | Microsoft Docs
 description: Microsoft Cortana Intelligence 대회와 관련하여 자주 묻는 질문입니다.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 28be219c35d382cbd141bb050b35893da02ab775
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256454"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265112"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 대회 관련 FAQ
 **Cortana Intelligence 대회는 무엇입니까?**

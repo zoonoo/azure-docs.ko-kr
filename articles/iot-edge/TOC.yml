@@ -42,20 +42,22 @@ items:
   items:
   - name: IoT Edge 런타임
     href: iot-edge-runtime.md
-  - name: IoT Edge 인증서
-    href: iot-edge-certs.md
   - name: IoT Edge 모듈
     items:
     - name: Azure IoT Edge 모듈 이해
       href: iot-edge-modules.md
     - name: 개발
       href: module-development.md
-    - name: 컴퍼지션
-      href: module-composition.md
     - name: 에지 에이전트 및 허브 속성
       href: module-edgeagent-edgehub.md
-  - name: 배포
-    href: module-deployment-monitoring.md
+  - name: 모듈 배포
+    items:
+    - name: 배포 매니페스트
+      href: module-composition.md
+    - name: 자동 배포
+      href: module-deployment-monitoring.md
+  - name: IoT Edge 인증서
+    href: iot-edge-certs.md
   - name: 오프라인 기능
     href: offline-capabilities.md
   - name: IoT Edge 장치를 게이트웨이로
@@ -68,6 +70,8 @@ items:
       href: iot-edge-security-manager.md
   - name: 플랫폼 지원
     href: support.md
+  - name: 프로덕션 배포 검사 목록
+    href: production-checklist.md
   - name: IoT Edge 용어집
     href: iot-edge-glossary.md
 - name: 방법 가이드
@@ -218,9 +222,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 7ad5c5da9162c2b5d9b5908dbea5630cf277393c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 27bc0b00a51f10695c5ce1e2e600b91a1f97b0ab
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613905"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582807"

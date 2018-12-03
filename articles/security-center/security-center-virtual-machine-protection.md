@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0bd93e0732b0e822fae68b4ac2cc5e28fb246808
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016967"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316653"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 응용 프로그램 보호
 Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 응용 프로그램, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
@@ -75,7 +75,7 @@ Security Center에서 자동 프로비전을 위해 초기화된 VM 및 컴퓨�
 **시스템 업데이트 적용**에는 그래프 형식으로 Windows 및 Linux에 대한 중요 업데이트에 대한 요약이 있습니다. 두 번째 부분에는 다음 정보가 포함된 테이블이 있습니다.
 
 - **이름**: 누락된 업데이트의 이름입니다.
-- **VM 및 컴퓨터 수**: 이 업데이트를 누락한 VM 및 컴퓨터의 총 수입니다.
+-  **VM 및 컴퓨터 수**: 이 업데이트를 누락한 VM 및 컴퓨터의 총 수입니다.
 - **업데이트 심각도**: 특정 권장 사항의 심각도를 설명합니다.
 
     - **심각**: 중요한 리소스(응용 프로그램, 가상 머신 또는 네트워크 보안 그룹)에 취약성이 있으며 주의가 필요합니다.
@@ -249,7 +249,7 @@ VM 또는 컴퓨터에 대한 보안 세부 정보는 다음과 같습니다. �
 
 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-policies.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 

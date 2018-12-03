@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 4dff27d8ef7357e5af3635cc39fb52963689e7bb
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e7407341d7b85c101531c5a005cfd8db0eac2021
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247968"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423027"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Azure에 SharePoint 팜 백업
 SharePoint 팜은 다른 데이터 원본을 백업하는 것과 같은 방법으로 Microsoft Azure Backup Server(MABS)를 사용하여 Microsoft Azure에 백업합니다. Azure Backup은 일간, 주간, 월간 혹은 연간 백업 지점을 생성하도록 백업 일정에 유연성을 제공하고 다양한 백업 지점에 관한 보존 정책 옵션을 제공합니다. 또한 빠른 복구 시간 목표(RTO)를 위해 로컬 디스크 복사본을 저장하는 기능과 경제적인 장기 보존을 위해 Azure에 사본을 복사하는 기능을 제공합니다.
@@ -23,7 +23,7 @@ DPM의 Azure Backup은 다음 시나리오들을 지원합니다.
 
 | 워크로드 | 버전 | SharePoint 배포 | 보호 및 복구 |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint는 물리적 서버 또는 하이퍼-V/VMware 가상 머신으로 배포됨  <br> -------------- <br> SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목   Azure 복구 지점에서 팜 및 데이터베이스 복구 |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint는 물리적 서버 또는 하이퍼-V/VMware 가상 머신으로 배포됨  <br> -------------- <br> SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목   Azure 복구 지점에서 팜 및 데이터베이스 복구 |
 
 ## <a name="before-you-start"></a>시작하기 전에
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.

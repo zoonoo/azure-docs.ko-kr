@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 31f4c64296c180ac441f2fb691514a4b9fb35a57
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 954eec8566173dd4707926d5f713a5cd509bdd9b
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687200"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory 통합
 
@@ -51,7 +51,7 @@ SharePoint 온-프레미스와 Azure AD 통합을 구성하려면 다음 항목�
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
- 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 SharePoint 온-프레미스 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -314,14 +314,14 @@ Azure AD에 로그인하고 SharePoint에 액세스할 사용자는 응용 프�
 
 <!--Image references-->
 
-[1]: ./media\sharepoint-on-premises-tutorial/tutorial_general_01.png
-[2]: ./media\sharepoint-on-premises-tutorial/tutorial_general_02.png
-[3]: ./media\sharepoint-on-premises-tutorial/tutorial_general_03.png
-[4]: ./media\sharepoint-on-premises-tutorial/tutorial_general_04.png
+[1]: ./media/sharepoint-on-premises-tutorial/tutorial_general_01.png
+[2]: ./media/sharepoint-on-premises-tutorial/tutorial_general_02.png
+[3]: ./media/sharepoint-on-premises-tutorial/tutorial_general_03.png
+[4]: ./media/sharepoint-on-premises-tutorial/tutorial_general_04.png
 
-[100]: ./media\sharepoint-on-premises-tutorial/tutorial_general_100.png
+[100]: ./media/sharepoint-on-premises-tutorial/tutorial_general_100.png
 
-[200]: ./media\sharepoint-on-premises-tutorial/tutorial_general_200.png
-[201]: ./media\sharepoint-on-premises-tutorial/tutorial_general_201.png
-[202]: ./media\sharepoint-on-premises-tutorial/tutorial_general_202.png
-[203]: ./media\sharepoint-on-premises-tutorial/tutorial_general_203.png
+[200]: ./media/sharepoint-on-premises-tutorial/tutorial_general_200.png
+[201]: ./media/sharepoint-on-premises-tutorial/tutorial_general_201.png
+[202]: ./media/sharepoint-on-premises-tutorial/tutorial_general_202.png
+[203]: ./media/sharepoint-on-premises-tutorial/tutorial_general_203.png

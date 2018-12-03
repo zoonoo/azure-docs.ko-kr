@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 253f817099bd2705d8b9ea98741dc8fd28f09efe
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230634"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421660"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
 이 FAQ는 Azure Web Apps용 ClearDB MySQL 데이터베이스의 사용 및 구매에 대한 일반적인 질문에 답변합니다.
@@ -25,7 +25,7 @@ ms.locfileid: "51230634"
 > [!IMPORTANT]
 > 2018년 6월 13일을 기준으로 ClearDB는 Microsoft에서 요금이 청구되는 Azure 기반 고객을 ClearDB를 사용하는 직접 청구 모델로 전환했습니다. 이 문서의 정보는 이전 내용입니다. 더 이상 Azure에서 만든 ClearDB 데이터베이스를 만들거나 업그레이드할 수 없습니다.
 >
-> 자세한 내용 및 다음 단계를 보려면 [ClearDB 서비스 계획으로 변경](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/)을 참조하세요.
+> 자세한 내용 및 다음 단계를 보려면 [ClearDB 서비스 계획으로 변경](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/)을 참조하세요.
 
 
 ## <a name="what-options-do-i-have-for-mysql-on-azure"></a>Azure에서 MySQL을 사용하려면 어떤 옵션이 필요한가요?

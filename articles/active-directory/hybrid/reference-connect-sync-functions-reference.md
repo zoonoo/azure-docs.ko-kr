@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2302061d5a3eaf9ef51543b1304104e2dbe54bd9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb6f74a1de3e91868d7b20563a790352486862ee
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307252"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425696"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
@@ -600,7 +600,7 @@ FormatDateTime 함수는 날짜/시간을 지정된 형식의 문자열로 구�
 * 형식: 변환할 형식을 나타내는 문자열입니다.
 
 **설명**  
-형식에 대해 가능한 값은 [사용자 정의 날짜/시간 형식(Format 함수)](http://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)에서 확인할 수 있습니다.
+형식에 대해 가능한 값은 [사용자 정의 날짜/시간 형식(Format 함수)](https://msdn2.microsoft.com/library/73ctwf33\(VS.90\).aspx)에서 확인할 수 있습니다.
 
 **예제:**  
 
