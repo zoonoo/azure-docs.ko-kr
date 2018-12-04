@@ -27,19 +27,19 @@ Azure Automation 상태 구성은 Azure 외부에서 DSC를 사용하는 것에 
 
 ### <a name="built-in-pull-server"></a>기본 제공 끌어오기 서버
 
-Azure Automation 상태 구성에서는 대상 노드가 구성을 자동으로 수신하고 원하는 상태를 따르며 규정 준수를 다시 보고하도록 [Windows 기능 DSC-Service](/powershell/dsc/pullserver)와 유사한 DSC 끌어오기 서버가 제공됩니다. Azure Automation에 있는 기본 제공 끌어오기 서버는 자체 끌어오기 서버를 설정하고 유지 관리할 필요가 없습니다. Azure Automation은 클라우드 또는 온-프레미스에서 가상 또는 실제 Windows 또는 Linux 컴퓨터를 대상으로 할 수 있습니다.
+Azure Automation 상태 구성은 대상 노드가 구성을 자동으로 수신하고 원하는 상태를 따르며 규정 준수를 다시 보고하도록 [Windows DSC 서비스 기능](/powershell/dsc/pullserver)과 유사한 DSC 끌어오기 서버를 제공합니다. Azure Automation에 있는 기본 제공 끌어오기 서버는 자체 끌어오기 서버를 설정하고 유지 관리할 필요가 없습니다. Azure Automation은 클라우드 또는 온-프레미스에서 가상 또는 실제 Windows 또는 Linux 컴퓨터를 대상으로 할 수 있습니다.
 
 ### <a name="management-of-all-your-dsc-artifacts"></a>모든 DSC 아티팩트 관리
 
-Azure Automation 상태 구성은 Azure Automation에서 PowerShell 스크립팅을 위해 제공하는 것과 동일한 관리 계층을 [PowerShell 필요한 상태 구성](/powershell/dsc/overview)에 제공합니다.
+Azure Automation 상태 구성은 Azure Automation이 PowerShell 스크립팅에 제공하는 동일한 관리 계층을 [PowerShell DSC(Desired State Configuration)](/powershell/dsc/overview)에 제공합니다.
 
-Azure Portal 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 모두 관리할 수 있습니다.
+Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 모두 관리할 수 있습니다.
 
 ![Azure Automation 페이지의 스크린샷](./media/automation-dsc-overview/azure-automation-blade.png)
 
 ### <a name="import-reporting-data-into-log-analytics"></a>Log Analytics로 보고 데이터 가져오기
 
-Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. 상태 구성 상태 데이터를 Log Analytics 작업 영역으로 보내는 방법을 알아보려면 [Azure Automation 상태 구성 보고 데이터를 Log Analytics로 전달](automation-dsc-diagnostics.md)을 참조하세요.
+Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내도록 Azure Automation 상태 구성을 구성할 수 있습니다. 상태 구성 상태 데이터를 Log Analytics 작업 영역으로 보내는 방법을 알아보려면 [Log Analytics에 Azure Automation 상태 구성 보고 데이터 전달](automation-dsc-diagnostics.md)을 참조하세요.
 
 ## <a name="network-planning"></a>네트워크 구성
 
@@ -76,22 +76,22 @@ Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상
 >
 >업데이트된 파일이 매주 게시됩니다. 이 파일에는 현재 배포된 범위 및 IP 범위에 대해 예정된 변경 내용이 반영됩니다. 파일에 제시된 새 범위는 데이터 센터에서 적어도 한 주 동안 사용되지 않습니다.
 >
-> 새 XML 파일을 매주 다운로드하는 것이 좋습니다. 그런 다음 Azure에서 실행되는 서비스를 올바르게 식별하도록 사이트를 업데이트합니다. Azure ExpressRoute 사용자는 Azure 공간에 대한 BGP(Border Gateway Protocol) 공지 사항을 매월 첫 주에 업데이트하는 데 이 파일을 사용하고 있음에 유의해야 합니다.
+> 새 XML 파일을 매주 다운로드하는 것이 좋습니다. 그런 다음 Azure에서 실행되는 서비스를 올바르게 식별하도록 사이트를 업데이트합니다. Azure ExpressRoute 사용자는 이 파일을 사용해 Azure 공간에 대한 BGP(Border Gateway Protocol) 공지 사항을 매월 첫 주에 업데이트하고 있음에 유의해야 합니다.
 
 ## <a name="introduction-video"></a>소개 비디오
 
 읽기보다 비디오를 시청하기가 편하신가요? Azure Automation 상태 구성이 처음 발표된 2015년 5월 당시의 비디오를 다음에서 확인하세요.
 
 > [!NOTE]
-> 이 비디오에 언급된 개념 및 수명은 정확하지만 이 비디오가 기록된 이후에 Azure Automation 상태 구성은 많이 발전되었습니다. 일반적으로 사용할 수 있고 Azure 포털의 UI는 보다 강력해졌으며 더 많은 기능을 제공하고 있습니다.
+> 이 비디오에 언급된 개념 및 수명 주기는 정확하지만 이 비디오가 기록된 이후에 Azure Automation 상태 구성은 많이 발전되었습니다. 일반적으로 사용할 수 있고 Azure 포털의 UI는 보다 강력해졌으며 더 많은 기능을 제공하고 있습니다.
 
 [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>다음 단계
 
 - 시작하려면 [Azure Automation 상태 구성 시작하기](automation-dsc-getting-started.md)를 참조하세요.
-- 노드를 온보드하는 방법에 대한 자세한 내용은 [Azure Automation 상태 구성을 통해 관리를 위한 머신 온보드](automation-dsc-onboarding.md)를 참조하세요.
+- 노드를 온보드하는 방법에 대한 자세한 내용은 [Azure Automation 상태 구성을 통해 머신을 관리 하기 위한 머신 온보딩](automation-dsc-onboarding.md)를 참조하세요.
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation 상태 구성에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
 - PowerShell cmdlet 참조는 [Azure Automation 상태 구성 cmdlet](/powershell/module/azurerm.automation/#automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation 상태 구성 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
-- 지속적인 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Azure Automation 상태 구성 및 Chocolatey를 사용하여 지속적인 배포](automation-dsc-cd-chocolatey.md)를 참조하세요.
+- 지속적인 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Azure Automation 상태 구성 및 Chocolatey를 사용한 지속적인 배포](automation-dsc-cd-chocolatey.md)를 참조하세요.
