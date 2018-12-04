@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: cb02ecb06728f5f36a0d51a3ec22cc8ba5cb44e7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.reviewer: kivenkat
+ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094758"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847527"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack에서 virtual machines 사용 시 고려 사항
 
@@ -40,7 +40,7 @@ Azure Stack virtual machines는 주문형으로 확장 가능한 컴퓨팅 리�
 | 가상 머신 디스크 성능 | 디스크 유형 및 크기에 따라 달라 집니다. | 디스크가 연결 된 VM의 VM 크기에 따라 달라 집니다를 참조 하는 [Azure Stack에서 지원 되는 가상 머신 크기](azure-stack-vm-sizes.md) 문서.
 | API 버전 | Azure는 항상 모든 가상 머신 기능에 대 한 최신 API 버전을 가집니다. | Azure Stack 이러한 서비스에 대 한 특정 Azure 서비스 및 특정 API 버전을 지원합니다. 지원 되는 API 버전의 목록을 보려면를 참조 합니다 [API 버전](#api-versions) 이 문서의 섹션입니다. |
 |가상 컴퓨터 가용성 집합|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인<br>관리 되는 디스크 지원|여러 장애 도메인 (2 또는 3 지역당)<br>여러 업데이트 도메인 (최대 20)<br>관리 디스크 지원 되지 않습니다|
-|가상 머신 크기 집합|자동 크기 조정 지원|자동 크기 조정 지원 되지 않습니다.<br>확장 집합 포털, Resource Manager 템플릿 또는 PowerShell을 사용 하 여에 더 많은 인스턴스를 추가 합니다.
+|가상 머신 크기 집합|자동 크기 조정 지원|지원 되지 않습니다 자동 크기 조정 합니다.<br>확장 집합 포털, Resource Manager 템플릿 또는 PowerShell을 사용 하 여에 더 많은 인스턴스를 추가 합니다.
 
 ## <a name="virtual-machine-sizes"></a>가상 머신 크기
 
