@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f6a818e0f628924342ddd50322bb54bf1d1d6079
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624780"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976664"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데이터를 수집하여 보안 취약성과 위협을 모니터링합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 컴퓨터에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Microsoft Monitoring Agent는 작업 영역에 크래시 덤프 파일을 복사합니다.
@@ -48,7 +48,7 @@ Security Center는 Azure VM(Virtual Machines) 및 비 Azure 컴퓨터에서 데�
 
 Microsoft Monitoring Agent의 자동 프로비저닝을 사용하도록 설정하려면 다음을 수행합니다.
 1. Security Center 주 메뉴에서 **보안 정책**을 선택합니다.
-2. 구독을 선택합니다.
+2. 목록의 원하는 구독에 대한 설정 열에서 **설정 편집**을 클릭합니다.
 
   ![구독 선택][7]
 
@@ -135,7 +135,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 
     a.  Security Center 주 메뉴에서 **보안 정책**을 선택합니다.
      
-    b.  에이전트를 연결할 작업 영역을 선택합니다.
+    b.  목록의 원하는 구독에 대한 설정 열에서 **설정 편집**을 클릭하여 에이전트를 연결하려는 원하는 작업 영역을 선택합니다.
         ![작업 영역 선택][8] c. 가격 책정 계층을 설정합니다.
         ![가격 책정 계층 선택][9] 
    

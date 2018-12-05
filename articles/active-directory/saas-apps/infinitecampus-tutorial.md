@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 7ce577901530856690754f3db18ba9f40bfb8a51
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019917"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632809"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>자습서: Infinite Campus와 Azure Active Directory 통합
 
@@ -48,10 +48,11 @@ Infinite Campus와 Azure AD 통합을 구성하려면 다음 항목이 필요합
 
 - 꼭 필요한 경우가 아니면 프로덕션 환경을 사용하지 마세요.
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
+- 구성을 완료하려면 최소한 Azure Active Directory 관리자여야 합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Infinite Campus 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -110,7 +111,7 @@ Infinite Campus에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     ![Configure Single Sign-On](common/editconfigure.png)
 
-5. **서비스 공급자 메타데이터 파일**이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+5. **서비스 공급자 메타데이터 파일**(**11.b** 단계)이 있는 경우 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     a. **메타데이터 파일 업로드**를 클릭합니다.
 
@@ -124,7 +125,7 @@ Infinite Campus에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     ![이미지](./media/infinitecampus-tutorial/tutorial_infinitecampus_url.png)
 
-    d. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+    d. **로그온 URL** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다(도메인은 호스팅 모델에 따라 다름).`https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
     > **서비스 공급자 메타데이터 파일**은 Infinite Campus SSO 구성 페이지에서 제공됩니다. 이 페이지에 대해서는 자습서 뒷부분에서 설명합니다.
@@ -143,7 +144,7 @@ Infinite Campus에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     ![인증서 다운로드 링크](./media/infinitecampus-tutorial/tutorial_infinitecampus_certificate.png) 
 
-7. **Infinite Campus 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+7. **Infinite Campus 설정** 섹션에서 다음 값을 사용하여 Azure 메타데이터 파일/URL을 업로드하거나 활용할 때 유효성을 검사합니다.
 
     a. 로그인 URL
 
@@ -169,7 +170,7 @@ Infinite Campus에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
     a. **SAML Single Sign-On 사용**을 선택합니다.
 
-    b. **서비스 공급자 메타데이터** 링크를 클릭하여 **서비스 공급자 메타데이터 파일**을 다운로드한 다음, **기본 SAML 구성** 섹션에 업로드합니다. 그러면 Azure Portal에서 **식별자** 및 **회신 URL** 값이 자동으로 입력됩니다.
+    b. **서비스 공급자 메타데이터** 링크를 클릭하여 **서비스 공급자 메타데이터 파일**을 컴퓨터에 저장한 다음, **기본 SAML 구성** 섹션에 업로드합니다. 그러면 Azure Portal에서 **식별자** 및 **회신 URL** 값이 자동으로 입력됩니다(5단계).
 
     다. **IDP(ID 공급자) 서버 데이터 검색 옵션 선택** 섹션에서 **메타데이터 URL**을 선택하고 텍스트 상자에 **앱 페더레이션 메타데이터 ULR**을 붙여넣은 다음, **동기화**를 클릭합니다.
 
@@ -179,7 +180,7 @@ Infinite Campus에서 Azure AD Single Sign-On을 구성하고 테스트하려면
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
-이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
+이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 _단일_ 테스트 사용자를 만드는 것입니다.
 
 1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**를 차례로 선택하고 **모든 사용자**를 선택합니다.
 
@@ -234,8 +235,7 @@ Infinite Campus는 인구 통계 기반 아키텍처입니다. Infinite Campus �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Infinite Campus 타일을 클릭하면 Infinite Campus 애플리케이션에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에서 Infinite Campus 타일을 클릭하면 Infinite Campus 애플리케이션에 자동으로 로그온됩니다. Azure AD를 관리할 때와 동일한 브라우저에서 Infinite Camnpus 애플리케이션에 로그인하는 경우에는 테스트 사용자로 Azure AD에 로그인했는지 확인하세요. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

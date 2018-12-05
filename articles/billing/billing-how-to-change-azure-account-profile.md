@@ -4,7 +4,7 @@ description: Azure 계정의 프로필을 변경하는 방법을 설명하고 Az
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 ms.assetid: 9d4ef5d9-11fc-4684-ace6-467f4ce26ba8
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 09ac7659487a81d68089a060bf038213722d4dbb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422629"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580430"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>연락처 메일, 주소 및 전화 번호와 같은 Azure 계정 프로필 정보 변경
 
@@ -46,7 +46,7 @@ ms.locfileid: "47422629"
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>프로필 메일을 업데이트하면 로그인 메일 주소도 업데이트되나요?
 
-아니요. 프로필 메일을 업데이트하는 경우 로그인 메일 주소는 업데이트되지 않습니다. 로그인 메일 주소를 변경하려면 계정 소유권을 이전해야 합니다.
+ 아니요. 프로필 메일을 업데이트하는 경우 로그인 메일 주소는 업데이트되지 않습니다. 로그인 메일 주소를 변경하려면 계정 소유권을 이전해야 합니다.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>프로필 주소를 업데이트하면 신용 카드 청구 주소도 업데이트되나요?
 
@@ -56,7 +56,7 @@ ms.locfileid: "47422629"
 
 기술 제약 조건으로 인해 기존 계정의 국가를 변경할 수 없습니다. 그러나 원하는 국가에서 계정을 만든 다음 Azure 지원에 문의하여 해당 계정으로 서비스를 마이그레이션할 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
-추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요. 
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

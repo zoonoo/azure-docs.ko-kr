@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 049b6969b33290edf6ef8a2ea437808d914057a9
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423173"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285070"
 ---
 # <a name="partitioned-queues-and-topics"></a>분할 큐 및 항목
 
@@ -38,7 +38,7 @@ Azure Service Bus로 분할된 큐 및 항목을 사용하려면 Azure SDK 버�
 
 ### <a name="standard"></a>Standard
 
-표준 메시징 계층에서 Service Bus 큐 및 토픽은 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우 Service Bus는 사용자가 지정한 각 GB마다 엔터티의 16개 사본(16개 파티션)을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 \* 16) = 80GB가 됩니다. [Azure Portal][Azure portal]의 해당 엔터티에 대한 **개요** 블레이드에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
+표준 메시징 계층에서 Service Bus 큐 및 토픽은 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우 Service Bus는 사용자가 지정한 각 GB마다 엔터티의 4개 사본(4개 파티션)을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 4개의 파티션에서 최대 큐 크기는 (5 \* 4) = 20GB가 됩니다. [Azure Portal][Azure portal]의 해당 엔터티에 대한 **개요** 블레이드에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
 
 ### <a name="premium"></a>Premium
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913991"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632792"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID 관련 FAQ 및 알려진 문제
 
@@ -43,18 +43,33 @@ ms.locfileid: "50913991"
 
 ID의 보안 경계는 연결되는 리소스입니다. 예를 들어, Azure 리소스에 대한 관리 ID를 갖는 가상 머신의 보안 경계는 바로 가상 머신입니다. 해당 VM에서 실행되는 모든 코드는 Azure 리소스에 대한 관리 ID 엔드포인트 및 요청 토큰을 호출할 수 있습니다. 이것은 Azure 리소스에 대한 관리 ID를 지원하는 다른 리소스와 비슷한 환경입니다.
 
+### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>요청에 ID를 지정하지 않을 경우 IMDS 기본값은 무엇인가요?
+
+- 시스템에서 할당된 관리 ID가 활성화되지 않은 경우 요청에 ID를 지정하지 않으면 IMDS 기본값은 시스템에서 할당된 관리 ID가 됩니다.
+- 시스템에서 할당된 관리 ID가 활성화되지 않은 경우 사용자가 할당한 관리 ID 하나만 있으면 IMDS 기본값은 사용자가 할당한 관리 ID가 됩니다. 
+- 시스템에서 할당된 관리 ID가 활성화되지 않은 경우 사용자가 할당한 관리 ID가 여러 개 존재하면 요청에 관리 ID를 지정해야 합니다.
+
 ### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>Azure 리소스 VM IMDS 엔드포인트 또는 VM 확장 엔드포인트에 대해 관리 ID를 사용해야 하나요?
 
 VM에서 Azure 리소스에 대한 관리 ID를 사용할 경우 Azure 리소스에 대한 관리 ID IMDS 엔드포인트를 사용하는 것이 좋습니다. Azure Instance Metadata Service는 Azure Resource Manager를 통해 생성된 모든 IaaS VM에 액세스할 수 있는 REST 엔드포인트입니다. IMDS에 비해 Azure 리소스에 대한 관리 ID를 사용할 때는 몇 가지 이점은 다음과 같습니다.
-
-1. 모든 Azure IaaS 지원 운영 체제는 IMDS이 아닌 Azure 리소스에 대한 관리 ID를 사용할 수 있습니다. 
-2. 이제 Azure 리소스에 대한 관리 ID를 사용하기 위해 VM에 확장을 설치하지 않아도 됩니다. 
-3. Azure 리소스에 대한 관리 ID에 사용되는 인증서가 VM에는 더 이상 없습니다. 
-4. IMDS 엔드포인트는 잘 알려진 라우팅 불가능 IP 주소로, VM 내에서만 사용할 수 있습니다. 
+    - 모든 Azure IaaS 지원 운영 체제는 IMDS이 아닌 Azure 리소스에 대한 관리 ID를 사용할 수 있습니다.
+    - 이제 Azure 리소스에 대한 관리 ID를 사용하기 위해 VM에 확장을 설치하지 않아도 됩니다. 
+    - Azure 리소스에 대한 관리 ID에 사용되는 인증서가 VM에는 더 이상 없습니다.
+    - IMDS 엔드포인트는 잘 알려진 라우팅 불가능 IP 주소로, VM 내에서만 사용할 수 있습니다.
 
 Azure 리소스에 대한 관리 ID VM 확장은 현재 사용 가능하지만, 앞으로는 IMDS 엔드포인트를 기본적으로 사용하게 될 것입니다. Azure 리소스에 대한 관리 ID VM 확장은 2019년 1월에 사용 중단됩니다. 
 
 Azure Instance Metadata Service에 대한 자세한 내용은 [IMDS 설명서](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)를 참조하세요.
+
+### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>구독을 다른 디렉터리로 이동하면 관리 ID가 자동으로 다시 생성되나요?
+
+ 아니요. 구독을 다른 디렉터리로 이동하는 경우 관리 ID를 수동으로 다시 만들고 Azure RBAC 역할 할당을 다시 부여해야 합니다.
+    - 시스템에서 할당된 관리 ID: 비활성화하거나 재활성화합니다.
+    - 사용자가 할당한 관리 ID: 삭제한 후 다시 생성하여 필요한 리소스(예: 가상 머신)에 다시 연결합니다.
+
+### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>관리 ID를 사용하여 다른 디렉터리/테넌트의 리소스에 액세스할 수 있나요?
+
+ 아니요. 관리 ID는 현재 교차 디렉터리 시나리오를 지원하지 않습니다. 
 
 ### <a name="what-are-the-supported-linux-distributions"></a>지원되는 Linux 배포는 무엇입니까?
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567953"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165648"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -77,6 +77,9 @@ Azure AD에서 직접 ID를 만드는 경우 사용자의 [암호가 만료되�
 * 온-프레미스 장애(예: 랜섬웨어 공격)의 경우 [암호 해시 동기화를 사용하여 클라우드 인증](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)으로 전환할 수 있습니다. 이 백업 인증 방법을 사용하면 Office 365를 비롯하여 Azure Active Directory를 통한 인증을 위해 구성된 앱에 계속 액세스할 수 있습니다. 이 경우 IT 직원은 온-프레미스 중단이 해결될 때까지 개인 이메일 계정을 사용하여 데이터를 공유할 필요가 없습니다.
 
 [암호 해시 동기화](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) 작동 방식에 대해 자세히 알아보세요.
+
+> [!NOTE]
+> 암호 해시 동기화를 사용하도록 설정하고 Azure AD Domain services를 사용하는 경우 Kerberos(AES 256) 해시 및 필요에 따라 NTLM(RC4, 솔트 없음) 해시도 암호화된 후 Azure AD와 동기화됩니다. 
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>AD FS 엑스트라넷 스마트 잠금 구현
 

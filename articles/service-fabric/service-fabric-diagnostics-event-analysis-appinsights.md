@@ -12,22 +12,24 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: aedbc5925a6e101299170843abef79ef6125eafe
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230423"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291048"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
-Microsoft Azure Application Insights는 응용 프로그램 모니터링 및 진단을 위한 확장 가능한 플랫폼입니다. 여기에는 강력한 분석 및 쿼리 도구, 사용자 지정 가능한 대시보드 및 시각화, 자동화된 경고 등의 추가 옵션이 포함됩니다. 이는 Service Fabric 응용 프로그램 및 서비스에 대한 모니터링과 진단을 위해 권장되는 플랫폼입니다. 이 문서에서는 다음과 같은 일반적인 질문에 답변합니다.
+Azure Monitor의 일부인 Azure Application Insights는 응용 프로그램 모니터링 및 진단을 위한 확장 가능한 플랫폼입니다. 여기에는 강력한 분석 및 쿼리 도구, 사용자 지정 가능한 대시보드 및 시각화, 자동화된 경고 등의 추가 옵션이 포함됩니다. Application Insights와 Service Fabric의 통합에는 Visual Studio 및 Azure Portal에 대한 도구 경험뿐만 아니라, 기본 제공되는 포괄적인 로깅 환경을 제공하는 Service Fabric 관련 메트릭이 포함됩니다. Application Insights를 통해 많은 로그가 자동으로 생성되고 수집되지만 응용 프로그램에 사용자 지정 로깅을 추가하여 보다 풍부한 진단 환경을 만드는 것이 좋습니다.
 
-* 응용 프로그램 및 서비스 내부에서 어떤 작업이 진행되는지 파악하고 원격 분석 데이터를 수집하려면 어떻게 해야 하나요?
-* 응용 프로그램, 특히 서로 통신하는 서비스 문제를 해결하려면 어떻게 해야 하나요?
-* 서비스 성능(예: 페이지 로드 시간, http 요청)에 대한 메트릭을 얻으려면 어떻게 해야 하나요?
+이 문서에서는 다음과 같은 일반적인 질문에 답변합니다.
+
+* 애플리케이션 및 서비스 내부에서 어떤 작업이 진행되는지 파악하고 원격 분석 데이터를 수집하려면 어떻게 해야 하나요?
+* 애플리케이션, 특히 서로 통신하는 서비스 문제를 해결하려면 어떻게 해야 하나요?
+* 서비스 성능(예: 페이지 로드 시간, HTTP 요청)에 대한 메트릭을 얻으려면 어떻게 해야 하나요?
 
 이 문서의 목적은 Application Insights 내에서 인사이트를 획득하고 문제를 해결하는 방법을 보여주는 것입니다. Service Fabric을 사용하여 Application Insights를 설정 및 구성하는 방법을 알아보려면 [자습서](service-fabric-tutorial-monitoring-aspnet.md)를 살펴보세요.
 
@@ -110,7 +112,7 @@ EventFlow를 사용하여 이벤트를 집계하는 경우 `Microsoft.Diagnostic
 
 EventFlow 및 WAD는 진단 및 모니터링에 좀 더 모듈 방식으로 접근할 수 있으므로 집계 솔루션으로 사용하는 것이 좋습니다. 즉, EventFlow의 출력을 변경하려는 경우 실제 계측을 변경할 필요 없이 구성 파일을 간단히 수정하기만 하면 됩니다. 그러나 Application Insights를 사용하기로 결정하고 다른 플랫폼으로 변경할 가능성이 없는 경우 이벤트를 집계하여 Application Insights에 보내는 작업에 대해 Application Insights의 새 SDK 사용에 대해 살펴봐야 합니다. 즉, 데이터를 Application Insights로 보내도록 EventFlow를 구성할 필요가 없으며 대신 ApplicationInsight의 Service Fabric NuGet 패키지를 설치합니다. 패키지에 대한 자세한 내용은 [여기](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)를 참조하세요.
 
-[Application Insights support for Microservices and Containers](https://azure.microsoft.com/blog/app-insights-microservices/)(마이크로 서비스 및 컨테이너에 대한 Application Insights 지원)에서는 작업 중인 새로운 기능 중 일부(현재 베타 버전)를 보여 주며 이를 통해 Application Insights에서 보다 풍부한 기본 모니터링 옵션을 사용할 수 있습니다. 여기에는 종속성 추적(클러스터의 모든 서비스 및 응용 프로그램의 AppMap을 빌드하고 그 사이의 통신을 설정하는 데 사용됨) 및 서비스에서 발생한 추적의 상관 관계가 포함됩니다(앱 또는 서비스의 워크플로 문제를 정확히 발견 가능).
+[Application Insights support for Microservices and Containers](https://azure.microsoft.com/blog/app-insights-microservices/)(마이크로 서비스 및 컨테이너에 대한 Application Insights 지원)에서는 작업 중인 새로운 기능 중 일부(현재 베타 버전)를 보여 주며 이를 통해 Application Insights에서 보다 풍부한 기본 모니터링 옵션을 사용할 수 있습니다. 여기에는 종속성 추적(클러스터의 모든 서비스 및 애플리케이션의 AppMap을 빌드하고 그 사이의 통신을 설정하는 데 사용됨) 및 서비스에서 발생한 추적의 상관 관계가 포함됩니다(애플리케이션 또는 서비스의 워크플로 문제를 정확히 발견 가능).
 
 .NET에서 개발 중이고 Service Fabric의 프로그래밍 모델 중 일부를 사용하고 있으며 이벤트 및 로그 데이터를 시각화하고 분석하기 위한 플랫폼으로 Application Insights를 사용하려는 경우 모니터링 및 진단 워크플로인 Application Insights SDK 경로를 통해 이동하는 것이 좋습니다. Application Insights를 사용하여 로그를 수집 및 표시하려면 [이 문서](../application-insights/app-insights-asp-net-more.md) 및 [이 문서](../application-insights/app-insights-asp-net-trace-logs.md)를 참조하세요.
 

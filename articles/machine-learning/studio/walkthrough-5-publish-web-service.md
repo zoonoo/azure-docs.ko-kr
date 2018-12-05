@@ -1,10 +1,11 @@
 ---
-title: '5단계: Machine Learning 웹 서비스 배포 | Microsoft Docs'
+title: '5단계: Machine Learning Studio 웹 서비스 배포 | Microsoft Docs'
 description: '예측 솔루션 개발 연습 5단계: Azure Machine Learning Studio에서 예측 실험을 웹 서비스로 배포합니다.'
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 436656195e00311dd350a5526b01fffa56ac02ca
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 33965270c2be6f70614def79a49f1c4aa1a8fbbc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246745"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309932"
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>연습 5단계: Azure Machine Learning 웹 서비스 배포
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>연습 5단계: Azure Machine Learning Studio 웹 서비스 배포
 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
 
 1. [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)

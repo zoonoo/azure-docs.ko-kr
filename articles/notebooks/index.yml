@@ -1,0 +1,74 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 1be098bb098befecf29863bfe2d0d5220edddb01
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52852427"
+documentType: LandingData
+title: Azure Notebooks 설명서
+metadata:
+  title: Azure Notebooks 설명서 - 빠른 시작, 자습서, 가이드 | Microsoft Docs
+  description: 호스티드 Azure Notebooks 서비스를 통해 Jupyter Notebook을 만들고, 실행하고, 공유하는 방법에 대해 알아봅니다.
+  services: notebooks
+  author: kraigb
+  manager: douge
+  ms.service: notebooks
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/04/2018
+  ms.author: kraigb
+abstract:
+  description: Azure Notebooks는 무료 호스티드 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다. Jupyter(이전의 IPython)는 오픈 소스 프로젝트이며 이를 통해 Markdown 텍스트, 실행 코드(Python, R 및 F#), 영구 데이터, 그래픽 및 시각화를 Notebook이라는 공유 가능한 단일 캔버스로 손쉽게 결합할 수 있습니다.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: 이러한 빠른 시작을 탐색하여 Azure Notebooks를 사용하는 방법을 알아봅니다.
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: /azure/notebooks/quickstart-create-share-jupyter-notebook
+      html: <p>Azure Notebooks에서 Jupyter Notebook을 만들고 실행한 다음, 해당 Notebook을 다른 사용자와 공유하는 방법에 대해 알아봅니다.</p>
+      image:
+        src: media/index/Azure_AddNotebook.svg
+      title: Notebook 만들기 및 공유
+    - href: /azure/notebooks/quickstart-clone-jupyter-notebook
+      html: <p>GitHub 리포지토리에서 Jupyter Notebook을 복제하고 Azure Notebooks 계정에서 실행하는 방법에 대해 알아봅니다.</p>
+      image:
+        src: media/index/Azure_ClonePage.svg
+      title: Notebook 복제
+    - href: /azure/notebooks/quickstart-migrate-local-jupyter-notebook
+      html: <p>로컬 컴퓨터 또는 웹 URL에서 Azure Notebooks로 Jupyter Notebook을 전송한 다음, 공동 작업을 위해 공유하는 방법에 대해 알아봅니다.</p>
+      image:
+        src: media/index/Azure_MigrateNotebook.svg
+      title: 로컬 Jupyter Notebook 마이그레이션
+    - href: /azure/notebooks/quickstart-create-jupyter-notebook-project-environment
+      html: <p>설치된 패키지 및 시작 스크립트의 특정 세트를 사용하여 Azure Notebooks 프로젝트를 구성하는 방법에 대해 알아봅니다.</p>
+      image:
+        src: media/index/Azure_CustomEnvironment.svg
+      title: 사용자 지정 환경을 사용하여 프로젝트 만들기
+    - href: /azure/notebooks/quickstart-sign-in-azure-notebooks
+      html: <p>Azure Notebooks에 로그인하고 사용자 ID를 설정하여 저장된 프로젝트에 액세스하고 Notebook을 다른 사용자와 공유하는 기능을 제공하는 방법에 대해 알아봅니다.</p>
+      image:
+        src: media/index/Azure_UserAccount.svg
+      title: 로그인 및 사용자 ID 설정
+- title: 단계별 자습서
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Notebook을 처음부터 끝까지 빌드하는 방법에 대해 알아봅니다.</a>
+- title: 샘플
+  items:
+  - type: paragraph
+    text: 다음 샘플을 사용하여 Notebooks 작업을 수행합니다.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/notebooks/azure-notebooks-samples">샘플 Jupyter Notebooks</a>

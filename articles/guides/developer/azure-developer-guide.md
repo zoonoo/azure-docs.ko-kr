@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956445"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976811"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -92,7 +92,7 @@ VM에 대한 제어 수준으로 인해 Azure에서 PaaS 모델에 적합하지 
 
 Azure Service Fabric은 손쉽게 빌드, 패키지, 배포 및 확장 가능하고 안정성이 뛰어난 마이크로 서비스를 관리하는 분산된 시스템 플랫폼입니다. 또한 배포된 응용 프로그램의 프로비전, 배포, 모니터링, 업그레이드/패치 및 삭제를 위한 포괄적인 응용 프로그램 관리 기능을 제공합니다. 컴퓨터의 공유 풀에서 실행하는 앱은 작게 시작하고 필요에 따라 수백 또는 수천 대의 컴퓨터로 확장할 수 있습니다.
 
-Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용하여 WebAPI를 지원합니다. Service Fabric은 .NET Core 및 Java 모두에서 Linux에 대한 서비스를 구축하는 SDK를 제공합니다. Service Fabric에 대해 알아보려면 [Service Fabric 학습 경로](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)를 참조하세요.
+Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용하여 WebAPI를 지원합니다. Service Fabric은 .NET Core 및 Java 모두에서 Linux에 대한 서비스를 구축하는 SDK를 제공합니다. Service Fabric에 대해 알아보려면 [Service Fabric 설명서](https://docs.microsoft.com/en-us/azure/service-fabric/)를 참조하세요.
 
 >**사용 시기:** Service Fabric은 응용 프로그램을 만들거나 마이크로 서비스 아키텍처를 사용하도록 기존 응용 프로그램을 다시 작성하는 경우에 적합합니다. 기본 인프라에 대한 더 많은 제어 기능 또는 직접 액세스가 필요한 경우에 Service Fabric을 사용합니다.
 

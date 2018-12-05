@@ -3,19 +3,18 @@ title: .NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API �
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: dbe511f59b62d018115706d31a5cd955576cbaee
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fd437e42c404bec71036e760b95aef7e005d3fd9
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229000"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880202"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -571,7 +570,7 @@ do
 * 사용 가능한 API에 대한 자세한 내용은 Table service 참조 설명서를 참조하세요.
 * [Storage Client Library for .NET 참조](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 * [REST API 참조](https://msdn.microsoft.com/library/azure/dd179355)
-* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
+*  [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하십시오.
 * [.NET을 사용하여 Azure Blob 저장소를 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md) 하여 구조화되지 않은 데이터를 저장합니다.
 * [.NET(C#)을 사용하여 SQL Database에 연결](../sql-database/sql-database-develop-dotnet-simple.md)하여 관계형 데이터를 저장합니다.

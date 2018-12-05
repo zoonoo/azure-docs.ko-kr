@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2371f52591db667498398daa889ebc14708a9674
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037765"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499206"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -109,7 +109,7 @@ namespace HDInsightManagement
 이 프로그램을 실행하면 프롬프트가 나타납니다.  프롬프트를 표시하지 않으려면 [비대화형 인증 .NET HDInsight 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)를 참조하세요.
 
 ## <a name="create-clusters"></a>클러스터 만들기
-[.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+ [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
 ## <a name="list-clusters"></a>클러스터 나열
 다음 코드 조각은 클러스터 및 일부 속성을 나열합니다.
@@ -228,7 +228,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 이 작업은 포털을 통해서도 수행할 수 있습니다. [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]를 참조하세요.
 
 ## <a name="update-http-user-credentials"></a>HTTP 사용자 자격 증명 업데이트
-이는 [HTTP 권한 부여/해지 액세스](#grant/revoke-access)와 절차가 동일합니다. 클러스터에 HTTP 액세스 권한이 부여되어 있는 경우 이를 먼저 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
+[HTTP 액세스 부여/해지](#grant/revoke-access)와 같은 절차입니다.  클러스터에 HTTP 액세스 권한이 부여된 경우 먼저 해당 권한을 해지해야 합니다.  그런 다음 새 HTTP 사용자 자격 증명을 사용하여 액세스 권한을 부여합니다.
 
 ## <a name="find-the-default-storage-account"></a>기본 저장소 계정 찾기
 다음 코드 조각에서는 클러스터에 대한 기본 저장소 계정 이름 및 기본 저장소 계정 키를 가져오는 방법을 보여 줍니다.
@@ -242,25 +242,25 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>작업 제출
-**MapReduce 작업을 제출하려면**
+**Apache Hadoop MapReduce 작업을 제출하려면**
 
-[HDInsight에서 Hadoop MapReduce 샘플 실행](hadoop/apache-hadoop-run-samples-linux.md)을 참조하세요.
+[HDInsight에서 Apache Hadoop MapReduce 샘플 실행](hadoop/apache-hadoop-run-samples-linux.md)을 참조하세요.
 
 **Apache Hive 작업을 제출하려면** 
 
-[.NET SDK를 사용하여 Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요.
+[.NET SDK를 사용하여 Apache Hive 쿼리 실행](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)을 참조하세요.
 
 **Apache Pig 작업을 제출하려면**
 
-[.NET SDK를 사용하여 Pig 작업 실행](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)을 참조하세요.
+[.NET SDK를 사용하여 Apache Pig 작업 실행](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)을 참조하세요.
 
 **Apache Sqoop 작업을 제출하려면**
 
-[HDInsight와 함께 Sqoop 사용](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)을 참조하세요.
+[HDInsight에서 Apache Sqoop 사용](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)을 참조하세요.
 
 **Apache Oozie 작업을 제출하려면**
 
-[Hadoop과 함께 Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](hdinsight-use-oozie-linux-mac.md)을 참조하세요.
+[Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](hdinsight-use-oozie-linux-mac.md)을 참조하세요.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob 저장소에 데이터 업로드
 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.

@@ -11,16 +11,18 @@ items:
     href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: 빠른 시작
   items:
-  - name: 함수 만들기 - 포털
-    href: functions-create-first-azure-function.md
   - name: 함수 만들기 - Visual Studio
     href: functions-create-your-first-function-visual-studio.md
   - name: 함수 만들기 - Visual Studio Code
     href: functions-create-first-function-vs-code.md
   - name: 함수 만들기 - Java/Maven
     href: functions-create-first-java-maven.md
+  - name: 함수 만들기 - Python
+    href: functions-create-first-function-python.md
   - name: 함수 만들기 - Azure CLI
     href: functions-create-first-azure-function-azure-cli.md
+  - name: 함수 만들기 - 포털
+    href: functions-create-first-azure-function.md
   - name: 함수 만들기 - Linux
     href: functions-create-first-azure-function-azure-cli-linux.md
   - name: 트리거
@@ -86,6 +88,8 @@ items:
       href: functions-reference-node.md
     - name: 자바
       href: functions-reference-java.md
+    - name: Python
+      href: functions-reference-python.md
   - name: 진단
     href: ../app-service/app-service-diagnostics.md
   - name: 성능 고려 사항
@@ -114,6 +118,8 @@ items:
       href: functions-create-maven-intellij.md
     - name: Eclipse 개발
       href: functions-create-maven-eclipse.md
+    - name: Linux 함수 앱 만들기
+      href: create-function-app-linux-app-service-plan.md
     - name: 연결 관리
       href: manage-connections.md
     - name: 오류 처리
@@ -188,6 +194,14 @@ items:
       href: functions-recover-storage-account.md
 - name: 참고 자료
   items:
+  - name: API 참조
+    items:
+    - name: 자바
+      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python
+  - name: 앱 설정 참조
+    href: functions-app-settings.md
   - name: 바인딩
     items:
     - name: Blob 저장소
@@ -229,13 +243,12 @@ items:
     - name: Twilio
       href: functions-bindings-twilio.md
   - name: host.json 참조
+    href: functions-host-json.md
     items:
     - name: Functions 2.x
       href: functions-host-json.md
     - name: Functions 1.x
       href: functions-host-json-v1.md
-  - name: 앱 설정 참조
-    href: functions-app-settings.md
   - name: OpenAPI 참조
     href: functions-api-definition.md
 - name: 리소스
@@ -264,9 +277,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: facc469c576bf1de905441bb5b56a00bd745e924
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: bd85d1f3afa9e6ebc580f252782756bff278b9d8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632299"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850653"

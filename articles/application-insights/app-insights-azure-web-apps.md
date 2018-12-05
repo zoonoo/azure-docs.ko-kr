@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: e88d38e6d95459cc1c41adecee6b7ece659eac99
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 17a0b36fffb14f423aba3dd02b5b42d44933309c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957253"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165393"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Azure 웹앱 성능 모니터링
 [Azure Portal](https://portal.azure.com)에서 [Azure 웹앱](../app-service/app-service-web-overview.md)의 응용 프로그램 성능 모니터링을 설정할 수 있습니다. [Azure Application Insights](app-insights-overview.md)는 해당 작업에 대한 원격 분석을 저장하고 분석하는 Application Insights 서비스에 보내는 앱을 계측합니다. 여기서 메트릭 차트 및 검색 도구를 사용하여 문제를 진단하고 성능을 개선하며 사용량 평가할 수 있습니다.
@@ -43,9 +43,9 @@ Azure에서 웹앱을 이미 실행 중인 경우 이미 일부 요청 및 오�
 
     ![웹앱 계측](./media/app-insights-azure-web-apps/create-resource.png)
 
-2. 리소스가 만들어지면 **웹앱용 Application Insights 확장 확인 및 업데이트**를 선택하여 확장이 최신 상태인지 확인합니다.
+2. 사용할 리소스를 지정한 후 Application Insights에서 애플리케이션에 대한 플랫폼별 데이터를 수집하는 방법을 선택할 수 있습니다.
 
-     ![사이트 확장 확인 및 업데이트](./media/app-insights-azure-web-apps/check-and-update.png)
+    ![플랫폼별 옵션 선택](./media/app-insights-azure-web-apps/choose-options.png)
 
 3. Application Insights를 설치한 후 **웹앱을 계측**합니다.
 
@@ -64,7 +64,7 @@ Azure에서 웹앱을 이미 실행 중인 경우 이미 일부 요청 및 오�
 
 *Application Insights를 제거하거나 다른 리소스에 보내기로 전환하려면 어떻게 해야 합니까?*
 
-* Azure에서 웹앱 제어 블레이드를 열고 개발 도구 아래에서 **확장**을 엽니다. Application Insights 확장을 삭제합니다. 그런 다음 모니터링 아래에서 Application Insights를 선택하고 원하는 리소스를 만들거나 선택합니다.
+* Azure에서 웹앱 제어 블레이드를 열고 설정 아래에서 **Application Insights**를 엽니다. 맨 위에 있는 **사용 안 함**을 클릭하거나 **리소스 변경** 섹션에서 새 리소스를 선택하여 Application Insights를 해제할 수 있습니다.
 
 ## <a name="build-the-app-with-application-insights"></a>Application Insights로 앱 빌드
 Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석을 제공할 수 있습니다. 특히 추적 로그를 수집하고 [사용자 지정 원격 분석을 작성](app-insights-api-custom-events-metrics.md)하고 보다 자세한 예외 보고서를 가져올 수 있습니다.
@@ -101,7 +101,7 @@ Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석�
 * [라이브 앱에서 프로파일러를 실행합니다](app-insights-profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - Application Insights로 Azure Functions 모니터링
 * [Azure 진단을 사용](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) 하여 Application Insights에 보냅니다.
-* [서비스 상태 메트릭을 모니터링](../monitoring/monitoring-data-collection.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
+* [서비스 상태 메트릭을 모니터링](../azure-monitor/platform/data-collection.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
 * 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](../monitoring-and-diagnostics/monitoring-overview-alerts.md)합니다.
 * [JavaScript 앱 및 웹 페이지용 Application Insights](app-insights-javascript.md)를 사용하여 웹 페이지로 이동하는 브라우저에서 클라이언트 원격 분석을 가져옵니다.
 * [가용성 웹 테스트를 설정](app-insights-monitor-web-app-availability.md) 합니다.

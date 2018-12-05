@@ -9,17 +9,16 @@ ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 41c8fd0092af035153b3161c4a6c3eb5c5ef3f1d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cb106abaff2446fdbc2d025ae96c95745bc53150
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958902"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728058"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps용 Application Insights 개요
 
@@ -178,18 +177,18 @@ Marcela는 가만히 앉아서 경고를 기다리고 있지는 않습니다. �
 
 **언제 발생하나요?** 이벤트 및 메트릭 차트에서 제공하는 기록 보기를 통해 가능한 원인과 효과를 쉽게 연관지을 수 있습니다. 응답 시간 또는 예외 속도에 간헐적인 최대치가 있으면 요청 수를 살펴 봅니다. 동시에 최대치로 올라가는 경우 리소스 문제일 수 있습니다. 더 많은 CPU 또는 메모리를 할당해야 하나요? 또는 부하를 관리할 수 없는 종속성인가요?
 
-**원인이 무엇인가요?**  예를들어 고객이 계정서를 원할 때 특정 요청 유형의 성능에서 갑작스러운 하락이 있는 경우, 웹 응용 프로그램보다는 외부 하위 시스템일 가능성이 있습니다. 메트릭 탐색기에서 종속성 실패 비율 및 종속성 기간 비율을 선택하여 감지한 문제가 있는 과거 몇 시간 또는 몇 일에 대한 기록을 비교합니다. 연관된 변경 내용이 있는 경우 외부 하위 시스템 때문일 수 있습니다.  
+**원인이 무엇인가요?**   예를들어 고객이 계정서를 원할 때 특정 요청 유형의 성능에서 갑작스러운 하락이 있는 경우, 웹 응용 프로그램보다는 외부 하위 시스템일 가능성이 있습니다. 메트릭 탐색기에서 종속성 실패 비율 및 종속성 기간 비율을 선택하여 감지한 문제가 있는 과거 몇 시간 또는 몇 일에 대한 기록을 비교합니다. 연관된 변경 내용이 있는 경우 외부 하위 시스템 때문일 수 있습니다.  
 
 
 ![종속성 오류 및 종속성에 대한 호출 기간 차트](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 일부 느린 종속성 문제는 지리적 위치 문제입니다. Fabrikam 은행은 Azure 가상 컴퓨터를 사용하며, 의도치 않게 다른 국가에 웹 서버 및 계정 서버가 있음을 발견했습니다. 그 중 하나를 마이그레이션하여 극적인 개선이 이루어졌습니다.
 
-**무엇을 했나요?** 문제가 종속성에 있는 것으로 나타나지 않고 항상 있지 않는 경우, 최근 변경 내용으로 인한 것일 수 있습니다. 메트릭 및 이벤트 차트에서 제공하는 기록적 관점을 통해 갑작스러운 변경 내용과 배포를 쉽게 연관지을 수 있습니다. 이는 문제에 대한 검색 범위를 좁힙니다. 응용 프로그램 코드에서 성능을 저하시킨 줄을 확인하려면 Application Insights Profiler를 사용하도록 설정합니다. [Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링](./app-insights-profiler.md)을 참조하세요. Profiler를 사용하도록 설정하고 나면 다음과 같은 추적이 표시됩니다. 이 예제에서는 *GetStorageTableData* 메서드로 인해 문제가 발생했음을 쉽게 확인할 수 있습니다.  
+**무엇을 했나요?**  문제가 종속성에 있는 것으로 나타나지 않고 항상 있지 않는 경우, 최근 변경 내용으로 인한 것일 수 있습니다. 메트릭 및 이벤트 차트에서 제공하는 기록적 관점을 통해 갑작스러운 변경 내용과 배포를 쉽게 연관지을 수 있습니다. 이는 문제에 대한 검색 범위를 좁힙니다. 응용 프로그램 코드에서 성능을 저하시킨 줄을 확인하려면 Application Insights Profiler를 사용하도록 설정합니다. [Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링](./app-insights-profiler.md)을 참조하세요. Profiler를 사용하도록 설정하고 나면 다음과 같은 추적이 표시됩니다. 이 예제에서는 *GetStorageTableData* 메서드로 인해 문제가 발생했음을 쉽게 확인할 수 있습니다.  
 
 ![App Insights Profiler 추적](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
-**무엇이 일어나고 있나요?** 일부 문제가 드물게만 발생하고 오프라인 테스트를 통해서는 추적하기 어려울 수 있습니다. 최대한 할 수 있는 일은 실시간으로 발생할 때 버그를 확보하려고 노력하는 것입니다. 예외 보고서에서 스택 덤프를 점검할 수 있습니다. 또한 자주 사용하는 로깅 프레임워크 또는 TrackTrace()나 TrackEvent()를 사용하여 추적 호출을 작성할 수 있습니다.  
+**무엇이 일어나고 있나요?**  일부 문제가 드물게만 발생하고 오프라인 테스트를 통해서는 추적하기 어려울 수 있습니다. 최대한 할 수 있는 일은 실시간으로 발생할 때 버그를 확보하려고 노력하는 것입니다. 예외 보고서에서 스택 덤프를 점검할 수 있습니다. 또한 자주 사용하는 로깅 프레임워크 또는 TrackTrace()나 TrackEvent()를 사용하여 추적 호출을 작성할 수 있습니다.  
 
 Fabrikam은 계좌 간 이체에 간헐적인 문제가 있었으나 특정 계좌 유형에만 발생하지는 않았습니다. 자세히 이해하기 위해 계좌 유형을 각각의 호출에 속성으로 연결하여 코드에서 주요 포인트로 TrackTrace() 호출을 삽입했습니다. 이를 통해 진단 검색에서 해당 추적을 필터링하기 쉬워졌습니다. 또한 속성 및 측정값으로 매개 변수 값을 추적 호출에 연결했습니다.
 

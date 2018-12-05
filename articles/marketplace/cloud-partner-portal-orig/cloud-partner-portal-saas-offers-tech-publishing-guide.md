@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e648d6d3bd8d8ac14fb3f9723f4667c1cc33ac6
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228898"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620186"
 ---
 <a name="saas-application-technical-publishing-guide"></a>SaaS 응용 프로그램 기술 게시 가이드
 ===========================================
@@ -32,7 +32,7 @@ SaaS 응용 프로그램 기술 게시 가이드를 시작합니다. 이 가이�
 <a name="what-are-pre-requisites-for-publishing-a-saas-app"></a>SaaS 앱을 게시하기 위한 필수 구성 요소는 무엇인가요?
 -------------------------------------------------
 
-게시 포털에서는 여러 개인이 제품을 게시하기 위해 공동 작업할 수 있는 포털의 역할 기반 액세스를 제공합니다. 자세한 내용은 [사용자 관리](./cloud-partner-portal-manage-users.md)를 참조하세요. 
+[Cloud 파트너 포털](https://cloudpartner.azure.com)에서는 여러 개인이 제품을 게시하기 위해 공동 작업할 수 있도록 포털에 대한 역할 기반 액세스를 제공합니다. 자세한 내용은 [사용자 관리](./cloud-partner-portal-manage-users.md)를 참조하세요. 
 
 게시자 계정을 대신하여 제품을 게시하려면 *소유자* 역할의 사용자 중 한 명이 [사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft 개인정보처리방침](https://www.microsoft.com/privacystatement/default.aspx) 및 [Microsoft Azure 인증 프로그램 계약](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/) 준수에 동의해야 합니다.
 
@@ -58,7 +58,7 @@ SaaS 앱 제품은 다음 표에 설명된 5개 섹션으로 구성됩니다.
 
 ### <a name="creating-a-new-offer"></a>새 제품 만들기
 
-Cloud 파트너 포털에 로그인한 후 왼쪽 메뉴 모음에서 **새 제품** 항목을 선택하면 사용 가능한 제품의 메뉴가 표시됩니다. 다음 이미지는 이러한 제품의 예를 보여 줍니다.
+[Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그인한 후 왼쪽 메뉴 모음에서 **새 제품** 항목을 선택하면 사용 가능한 제품 메뉴가 표시됩니다. 다음 이미지는 이러한 제품의 예를 보여 줍니다.
 
 ![SaaS 새 제품](media/cpp-creating-saas-offers/saas-new-offer.png)
 
@@ -154,7 +154,7 @@ SaaS 앱에는 앱에 대한 요약 및 설명의 처음 두 섹션을 제공해
 
 | **제안 필드** | **설명**                                                                                                          |
 |------------------| ------------------------------------------------------------------------------------------------------------------------ |
-| 로고            | **Azure를 통한 판매** SaaS 앱인 경우 모든 로고 이미지를 제공해야 합니다. 목록인 경우에는 로고가 2개만 필요합니다. Cloud 파트너 포털에 업로드되는 모든 로고에 다음 지침을 사용해야 합니다.     <br/> - 로고의 기본 색과 보조 색 수는 적게 유지합니다. Azure 디자인은 단순한 색 팔레트를 사용합니다.     <br/> - 로고의 배경색으로 검은색 또는 흰색을 사용하지 않습니다. Azure Portal의 테마 색은 검은색 및 흰색입니다. 대신에 Azure Portal에서 로고가 돋보이도록 하는 색을 사용합니다. 간단한 기본 색을 사용하는 것이 좋습니다. 투명한 배경을 사용하는 경우 로고 및 텍스트가 검은색, 흰색 또는 파란색이 아닌지 확인합니다.     <br/> - 로고의 배경에 그라데이션 효과를 사용하지 않습니다.     <br/> - 로고에 회사 또는 브랜드 이름을 포함한 텍스트를 놓지 않습니다. 로고의 모양과 느낌은 ‘평면적’이어야 하며 그라데이션은 사용하지 않습니다.    <br/> - 로고 이미지를 늘이면 안 됩니다.                   |
+| 로고            | **Azure를 통한 판매** SaaS 앱인 경우 모든 로고 이미지를 제공해야 합니다. 목록인 경우에는 로고가 2개만 필요합니다. [Cloud 파트너 포털](https://cloudpartner.azure.com)에 업로드되는 모든 로고에 다음 지침을 사용해야 합니다.     <br/> - 로고의 기본 색과 보조 색 수는 적게 유지합니다. Azure 디자인은 단순한 색 팔레트를 사용합니다.     <br/> - 로고의 배경색으로 검은색 또는 흰색을 사용하지 않습니다. Azure Portal의 테마 색은 검은색 및 흰색입니다. 대신에 Azure Portal에서 로고가 돋보이도록 하는 색을 사용합니다. 간단한 기본 색을 사용하는 것이 좋습니다. 투명한 배경을 사용하는 경우 로고 및 텍스트가 검은색, 흰색 또는 파란색이 아닌지 확인합니다.     <br/> - 로고의 배경에 그라데이션 효과를 사용하지 않습니다.     <br/> - 로고에 회사 또는 브랜드 이름을 포함한 텍스트를 놓지 않습니다. 로고의 모양과 느낌은 ‘평면적’이어야 하며 그라데이션은 사용하지 않습니다.    <br/> - 로고 이미지를 늘이면 안 됩니다.                   |
 | 동영상           | 제품 동영상 링크를 추가할 수 있습니다. 고객에게 제품과 함께 표시되는 YouTube 및/또는 Vimeo 동영상의 링크를 사용할 수 있습니다. 1280x720픽셀의 png 이미지를 사용하여 동영상의 썸네일 이미지를 입력해야 합니다. 제품당 최대 4개의 동영상을 포함할 수 있습니다. |
 | 문서        | 제품에 마케팅 문서를 추가할 수 있습니다. 모든 문서는 PDF 형식이어야 하고 제품당 최대 3개의 문서를 포함할 수 있습니다.                                                                                                                                                      |
 | 스크린샷      | 제품의 스크린샷을 추가할 수 있습니다. 제품당 최대 5개의 스크린샷을 추가할 수 있습니다. 최대 이미지 크기는 1280x720픽셀입니다.                                                                                                                                             |

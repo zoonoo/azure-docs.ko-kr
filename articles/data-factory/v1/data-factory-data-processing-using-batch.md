@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238525"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976862"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 집합 처리
 > [!NOTE]
@@ -41,7 +41,7 @@ Batch 서비스를 통해 응용 프로그램을 병렬로 규모에 따라 실�
 * [Batch의 기본 사항](../../batch/batch-technical-overview.md)
 * [Batch 기능 개요](../../batch/batch-api-basics.md)
 
-필요에 따라 Batch에 대한 자세한 내용 [Batch 학습 경로](https://azure.microsoft.com/documentation/learning-paths/batch/)를 참조하세요.
+필요에 따라 Batch에 대해 자세히 알아보려면 [Batch 설명서](https://docs.microsoft.com/en-us/azure/batch/)를 참조하세요.
 
 ## <a name="why-azure-data-factory"></a>Azure Data Factory를 사용해야 하는 이유
 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. Data Factory를 사용하여 온-프레미스 및 클라우드 데이터 저장소에서 중앙 집중식 데이터 저장소로 데이터를 이동하는 관리되는 데이터 파이프라인을 만들 수 있습니다. 예제는 Azure Blob Storage입니다. Azure HDInsight 및 Azure Machine Learning과 같은 서비스를 사용하여 데이터를 처리/변환하는 데 Data Factory를 사용할 수 있습니다. 데이터 파이프라인을 예약된 방식(예: 매시간, 매일 및 매주)으로 실행되도록 예약할 수도 있습니다. 한 번에 파이프라인을 모니터링하고 관리하여 문제를 식별하고 조치를 취할 수 있습니다.
@@ -51,7 +51,7 @@ Batch 서비스를 통해 응용 프로그램을 병렬로 규모에 따라 실�
 * [데이터 팩터리 소개](data-factory-introduction.md)
 * [첫 번째 데이터 파이프라인 작성](data-factory-build-your-first-pipeline.md)   
 
-필요에 따라 Data Factory에 대해 자세히 알아보려면 [Data Factory의 학습 경로](https://azure.microsoft.com/documentation/learning-paths/data-factory/)를 참조하세요.
+필요에 따라 Data Factory에 대해 자세히 알아보려면 [Data Factory 설명서](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory)를 참조하세요.
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory 및 Batch
 Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 작업은 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 복사/이동하는 데 사용됩니다. Hive 작업은 Azure에서 Hadoop 클러스터(HDInsight)를 사용하여 데이터를 처리하는 데 사용됩니다. 지원되는 변환 작업 목록은 [데이터 변환 작업](data-factory-data-transformation-activities.md)을 참조하세요.

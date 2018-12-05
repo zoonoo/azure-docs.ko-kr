@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 378baad0735238dc0921e5e78e2a27b3ae907e19
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 611cd0878e88d2e1c0a988f73b57e391c5a8551d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628045"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975910"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
@@ -134,6 +134,19 @@ Custom Translator에 대한 전체 허브 작업 영역을 마이그레이션하
 
 >[!Note]
 >마이그레이션은 NMT 언어가 있는 언어 쌍에만 지원됩니다. 현재 [지원되는 NMT 언어](https://www.microsoft.com/translator/business/languages/)의 목록을 확인하세요. NMT 언어가 존재하지 않는 언어 쌍의 경우 데이터가 허브에서 Custom Translator로 이동되지만 해당 언어 쌍에 대해 학습을 수행할 수는 없습니다.
+
+## <a name="custom-translator-versus-hub"></a>Custom Translator 및 허브
+
+이 표에서는 Microsoft Translator Hub와 및 Custom Translator 간의 기능을 비교합니다.
+
+|   | 허브 | Custom Translator |
+|:-----|:----:|:----:|
+|사용자 지정 기능 상태   | 일반 공급  | 미리 보기 |
+| Text API 버전  | V2    | V3  |
+| SMT 사용자 지정 | yes   | 아니요 |
+| NMT 사용자 지정 | 아니요    | yes |
+| 새로운 통합 Speech Service 사용자 지정 | 아니요    | yes |
+| 추적 없음 | yes | yes |
 
 ## <a name="next-steps"></a>다음 단계
 

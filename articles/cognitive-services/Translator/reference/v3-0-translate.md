@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bebe9b6565d618cb773de0379122a17bf7f70403
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914297"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165427"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -83,6 +83,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   <tr>
     <td>toScript</td>
     <td>*선택적 매개 변수*입니다.<br/>번역된 텍스트의 스크립트를 지정합니다.</td>
+  </tr>
+  <tr>
+    <td>allowFallback</td>
+    <td>*선택적 매개 변수*입니다.<br/>사용자 지정 시스템이 없을 때 서비스가 일반 시스템으로 대체(fallback)되도록 지정합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.<br/><br/>`allowFallback=false`는 번역 시 요청으로 지정된 `category`에 대해 학습된 시스템만 사용하도록 지정합니다. 언어 X에서 언어 Y로 번역할 때 피벗 언어 E를 통한 체인 연결이 필요할 경우 체인(X->E 및 E->Y)의 모든 시스템은 사용자 지정 시스템이어야 하고 동일한 범주를 사용해야 합니다. 특정 범주를 사용하는 시스템이 없는 경우 요청은 400 상태 코드를 반환합니다. `allowFallback=true`는 사용자 지정 시스템이 없을 때 서비스가 일반 시스템으로 대체(fallback)되도록 지정합니다.
+</td>
   </tr>
 </table> 
 
@@ -164,6 +169,21 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
+## <a name="response-headers"></a>응답 헤더
+
+<table width="100%">
+  <th width="20%">헤더</th>
+  <th>설명</th>
+    <tr>
+    <td>X-RequestId</td>
+    <td>요청을 식별하기 위해 서비스에서 생성한 값입니다. 문제 해결을 위해 사용됩니다.</td>
+  </tr>
+  <tr>
+    <td>X-MT-System</td>
+    <td>번역에 대해 요청된 각 'to' 언어에 대해 번역에 사용된 시스템 형식을 지정합니다. 값은 쉼표로 구분된 문자열 목록입니다. 각 문자열은 다음 형식을 나타냅니다.<br/><ul><li>Custom - 요청에는 사용자 지정 시스템이 포함되고, 번역 중에 하나 이상의 사용자 지정 시스템이 사용되었습니다.</li><li>Team - 다른 모든 요청</li></td>
+  </tr>
+</table> 
+
 ## <a name="response-status-codes"></a>응답 상태 코드
 
 요청을 반환하는 가능한 HTTP 상태 코드는 다음과 같습니다. 
@@ -186,6 +206,10 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
   <tr>
     <td>403</td>
     <td>요청에 권한이 없습니다. 세부 정보 오류 메시지를 확인합니다. 이것은 흔히 평가판 구독으로 제공된 사용 가능한 모든 번역이 모두 사용되었음을 나타냅니다.</td>
+  </tr>
+  <tr>
+    <td>408</td>
+    <td>리소스가 없으므로 요청을 이행할 수 없습니다. 세부 정보 오류 메시지를 확인합니다. 사용자 지정 `category`을 사용하는 경우 요청을 처리하기 위해 사용자 지정 번역 시스템을 아직 사용할 수 없음을 나타냅니다. 대기 기간(예: 1분) 후에 요청을 다시 시도합니다.</td>
   </tr>
   <tr>
     <td>429</td>

@@ -13,7 +13,7 @@ items:
     items:
     - name: 단일 데이터베이스
       href: sql-database-get-started-portal.md
-    - name: Managed Instance
+    - name: 관리되는 인스턴스
       href: sql-database-managed-instance-get-started.md
   - name: 구성
     items:
@@ -143,8 +143,10 @@ items:
     items:
     - name: 관리되는 인스턴스
       href: sql-database-managed-instance-index.yml
-    - name: 개요
+    - name: Managed Instance 개요
       href: sql-database-managed-instance.md
+    - name: 만들기 및 관리
+      href: sql-database-managed-instance-create-manage.md
     - name: 리소스 한계
       href: sql-database-managed-instance-resource-limits.md
     - name: VNet 통합
@@ -157,15 +159,17 @@ items:
         href: sql-database-managed-instance-sync-network-configuration.md
       - name: 연결 아키텍처
         href: sql-database-managed-instance-connectivity-architecture.md
+      - name: 관리 엔드포인트
+        href: sql-database-managed-instance-management-endpoint.md
       - name: 응용 프로그램 연결
         href: sql-database-managed-instance-connect-app.md
     - name: T-SQL 차이점
       href: sql-database-managed-instance-transact-sql-information.md
     - name: 트랜잭션 복제
       href: replication-with-sql-database-managed-instance.md
-  - name: Platform as a Service
+  - name: 서비스로서의 플랫폼
     items:
-    - name: Platform as a Service
+    - name: 서비스로서의 플랫폼
       href: sql-database-paas.yml
     - name: 비즈니스 연속성
       href: sql-database-business-continuity.md
@@ -211,7 +215,7 @@ items:
     items:
     - name: 보안
       href: sql-database-security-index.yml
-    - name: 개요
+    - name: 보안 개요
       href: sql-database-security-overview.md
     - name: 고급 위협 보호
       items:
@@ -652,9 +656,9 @@ items:
     href: /azure/architecture/
   - name: 고객 사례
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 12add5f8ee32ce3c5207a604ef7cad821d5e5a4e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 2cc5240aa7302d687f0b7a2fad2af29105e86de0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165271"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840421"

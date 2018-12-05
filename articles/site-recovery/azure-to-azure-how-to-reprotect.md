@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: caef9a93e7d388ab55939876b7cc8344ce6370d0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f890fc6e854f1d56d396c56ddfd8cc5a0481282f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012516"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976947"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>주 지역으로 장애 조치(failover)된 Azure VM 다시 보호
 
@@ -83,4 +83,4 @@ ms.locfileid: "51012516"
 
 ## <a name="next-steps"></a>다음 단계
 
-VM을 보호한 후 장애 조치(failover)를 시작할 수 있습니다. 장애 조치(failover)를 수행하면 보조 지역의 VM을 종료하고 잠시 가동 중지되었다가 주 지역에 VM을 만들어 부팅합니다. 시간을 적절하게 선택하고, 테스트 장애 조치(failover)를 실행하지만 주 사이트에 전체 장애 조치(failover)를 시작하는 것이 좋습니다. 장애 조치(failover)에 대해 [자세히 알아봅니다](site-recovery-failover.md) .
+VM을 보호한 후 장애 조치(failover)를 시작할 수 있습니다. 장애 조치(failover)를 수행하면 보조 지역의 VM을 종료하고 잠시 가동 중지되었다가 주 지역에 VM을 만들어 부팅합니다. 시간을 적절하게 선택하고, 주 사이트에 전체 장애 조치(failover)를 시작하기 전에 테스트 장애 조치(failover)를 실행하는 것이 좋습니다. 장애 조치(failover)에 대해 [자세히 알아봅니다](site-recovery-failover.md) .

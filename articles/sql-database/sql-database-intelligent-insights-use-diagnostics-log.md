@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166897"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977100"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights의 Azure SQL Database 성능 진단 로그 사용
 
@@ -39,9 +39,7 @@ ms.locfileid: "47166897"
 
 ## <a name="issue-id-and-database-affected"></a>문제 ID 및 영향받는 데이터베이스
 
-문제 식별 속성(issueId_d)은 해결될 때까지 성능 문제를 고유하게 추적하는 방법을 제공합니다. Intelligent Insights는 각 문제 수명 주기를 “활성”, “확인 중” 또는 “완료됨”으로 관찰합니다. 이러한 각 상태 단계를 통해 Intelligent Insights는 여러 이벤트 레코드를 로그에 기록할 수 있습니다. 이러한 각 항목에 대한 문제 ID 번호가 고유하게 유지됩니다. Intelligent Insights는 수명 주기를 통해 문제를 추적하고 15분마다 진단 로그에서 Insight를 생성합니다.
-
-성능 문제가 검색되고 지속되면 문제는 상태(status_s) 속성 아래에 “활성”으로 보고됩니다. 검색된 문제가 완화되면 문제가 확인되고 상태(status_s) 속성 아래에 “확인 중”으로 보고됩니다. 더 이상 문제가 없는 경우에는 상태(status_s) 속성이 이 문제를 “완료됨”으로 보고합니다.
+문제 식별 속성(issueId_d)은 해결될 때까지 성능 문제를 고유하게 추적하는 방법을 제공합니다. 동일한 문제의 상태를 보고하는 로그의 여러 이벤트 레코드는 동일한 문제 ID를 공유합니다.
 
 문제 ID와 함께 진단 로그는 진단 로그에 보고된 문제에 관련된 특정 이벤트의 시작(intervalStartTime_t) 및 종료(intervalEndTme_t) 타임스탬프를 보고합니다.
 

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d3705267520087e098e3e2bcc55e677935dc6097
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623791"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275336"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -57,6 +57,9 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드의 **작업** 섹션에서 **로그인**을 선택하여 로그인 보고서에 액세스할 수 있습니다.
 
 ![로그인 활동](./media/concept-sign-ins/61.png "로그인 활동")
+
+> [!IMPORTANT]
+> 로그인 보고서에는 **대화형** 로그인, 즉 사용자 이름과 암호를 사용하는 수동 로그인만 표시됩니다. 비대화형 로그인(서비스 간 인증)은 로그인 보고서에 표시되지 않습니다. 
 
 로그인 로그에는 다음 항목을 보여주는 기본 목록 보기가 있습니다.
 

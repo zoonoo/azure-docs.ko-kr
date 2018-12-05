@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915928"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976251"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure 간 복제의 네트워킹 정보
 
@@ -60,10 +60,9 @@ IP 기반 방화벽 프록시 또는 NSG 규칙을 사용하여 아웃바운드 
 - 원본 지역의 저장소 계정 해당하는 모든 IP 주소 범위
     - 원본 지역에 대한 NSG 규칙을 기반으로 [저장소 서비스 태그](../virtual-network/security-overview.md#service-tags)를 만듭니다.
     - VM에서 캐시 저장소 계정에 데이터를 쓸 수 있도록 이러한 주소를 허용합니다.
-- Office 365 [인증 및 ID IP V4 엔드포인트](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)에 해당하는 모든 IP 주소 범위입니다.
-    - 나중에 Office 365 범위에 새 주소가 추가된 경우 새 NSG 규칙을 만들어야 합니다.
+- AAD에 해당하는 모든 IP 주소에 대한 액세스를 허용하는 [AAD(Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 NSG 규칙을 만드세요.
+    - 나중에 AAD(Azure Active Directory)에 새 주소가 추가될 때 새 NSG 규칙을 만들어야 합니다.
 - Site Recovery 서비스 엔드포인트 IP 주소는 [XML 파일로 제공](https://aka.ms/site-recovery-public-ips)되며 대상 위치에 따라 달라집니다.
--  NSG에서 필요한 규칙을 자동으로 만들려면 [이 스크립트를 다운로드하여 사용](https://aka.ms/nsg-rule-script)하면 됩니다.
 - 프로덕션 NSG에서 규칙을 만들기 전에 테스트 NSG에서 필요한 NSG 규칙을 만들고 문제가 없는지 확인하는 것이 좋습니다.
 
 

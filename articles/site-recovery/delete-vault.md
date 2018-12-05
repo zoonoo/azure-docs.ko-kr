@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 6827bcc561ced0d346d79e60b3f2b2fde83bc2d8
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212423"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977053"
 ---
-# <a name="delete-a-site-recovery-recovery-services-vault"></a>Site Recovery의 Recovery Services 자격 증명 모음 삭제
+# <a name="delete-a-site-recovery-services-vault"></a>Site Recovery Services 자격 증명 모음 삭제
 
 종속성으로 인해 Azure Site Recovery 자격 증명 모음을 삭제하지 못할 수 있으며, 수행해야 하는 작업은 Site Recovery 시나리오에 따라 다릅니다. Azure Backup에서 사용되는 자격 증명 모음을 삭제하려면 [Azure에서 백업 자격 증명 모음 삭제](../backup/backup-azure-delete-vault.md)를 참조하세요.
 

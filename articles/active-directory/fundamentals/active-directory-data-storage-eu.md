@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
-ms.openlocfilehash: d0015f40714b639d15245827ae0da3ca0f132df4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733400"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976896"
 ---
 # <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Microsoft Azure AD(Azure Active Directory)에서 유럽 고객의 ID 데이터를 저장하는 위치
 Azure AD를 통해 사용자 ID를 관리하고 인텔리전스 기반 액세스 정책을 만들어 조직의 리소스를 보호할 수 있습니다. ID 데이터는 서비스를 구독할 때 조직에서 제공한 주소에 기반된 위치에 저장됩니다. 예를 들어 Office 365 또는 Azure를 구독하는 경우입니다. ID 데이터를 저장하는 위치에 대한 특정 정보는 Microsoft 보안 센터의 [데이터를 어디에 배치하나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
@@ -25,7 +25,7 @@ Azure AD를 통해 사용자 ID를 관리하고 인텔리전스 기반 액세스
 
 ## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>유럽 데이터 센터 외부에 저장된 유럽 고객의 데이터
 
-유럽 기반 주소를 사용하는 조직의 경우 대부분의 Azure AD 관련 유럽 ID 데이터는 유럽 데이터 센터에 유지됩니다. 유럽 데이터 센터에 저장되지 않은 Azure AD 데이터에는 다음이 포함됩니다.
+유럽 기반 주소를 사용하는 조직의 경우 대부분의 Azure AD 관련 유럽 ID 데이터는 유럽 데이터 센터에 유지됩니다. 유럽 데이터 센터에 저장되고 미국 데이터 센터에도 복제되는 Azure AD 데이터에는 다음이 포함됩니다.
 
 - **ID 관련 특성**
 
