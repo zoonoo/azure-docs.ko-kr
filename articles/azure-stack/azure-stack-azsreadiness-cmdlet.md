@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 60e9a790a9b74bce7ccbdd58b320ad969c0932f3
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 03fd91b8412c75a994f55f589179f718189e67a7
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079285"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52891166"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>시작-AzsReadinessChecker cmdlet 참조
 
@@ -228,7 +228,8 @@ Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSO
 **예: Azure id의 유효성을 검사합니다**
 ```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
-Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AzureDirectoryTenantName azurestack.contoso.com
+# Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
 이 예제에서는 서비스 관리자 계정 자격 증명을 묻는 메시지가 안전 하 게 하 고 시작 AzsReadinessChecker Azure 계정 및 Azure Active Directory 유효성 검사 "azurestack.contoso.com" 테 넌 트 디렉터리 이름으로 AAD 배포
@@ -245,9 +246,10 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Depl
 
 **예: Azure 등록의 유효성을 검사합니다**
 ```PowerShell
-$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
-$subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
-Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment AzureCloud
+$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
+$subscriptionID = "<subscription ID"
+# Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
 이 예제에서는 구독 소유자 자격 증명을 묻는 메시지가 안전 하 게 시작 AzsReadinessChecker 다음 지정된 된 계정에 대 한 유효성 검사를 수행 하 고 Azure Stack 등록에 확인 하기 위해 구독을 사용할 수 있습니다. 
@@ -255,8 +257,8 @@ Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -Registra
 
 **예: 배포 데이터 (배포 팀)를 사용 하 여 Azure 등록의 유효성을 검사합니다**
 ```PowerShell
-$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner"e.g. subscriptionowner@contoso.onmicrosoft.com"
-$subscriptionID = "f7c26209-cd2d-4625-86ba-724ebeece794"
+$registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
+$subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
@@ -446,7 +448,7 @@ Azure Stack 배포 및 등록에 사용할 계정, 디렉터리 및 구독에 �
 |형식:                       |문자열   |
 |위치:                   |named    |
 |기본값:              |없음     |
-|유효한 값:                |' AzureCloud', 'AzureChinaCloud', 'AzureGermanCloud' |
+|유효한 값:                |' AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment' |
 |파이프라인 입력 허용:      |False    |
 |와일드 카드 문자를 허용 합니다. |False    |
 
