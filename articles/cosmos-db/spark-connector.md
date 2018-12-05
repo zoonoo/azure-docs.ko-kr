@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269414"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707183"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화
  
@@ -83,7 +83,7 @@ Spark와 Azure Cosmos DB 간의 통신은 Spark 마스터 노드와 Azure Cosmos
 
 6. **Notebook 만들기** 대화 상자에서 사용자에게 익숙한 이름을 입력하고, **Python**을 언어로 선택합니다. 드롭다운 목록에서 이전에 만든 클러스터를 선택하고, **만들기**를 선택합니다.  
 
-7. “doctorwho” Azure Cosmos DB 계정에서 호스트되는 항공편 샘플 데이터를 사용하여 몇 가지 Spark 쿼리를 실행합니다. (이 계정은 공개적으로 액세스할 수 있습니다.) [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 Notebook의 HTML 버전을 호스트합니다. 리포지토리 파일을 다운로드하고, `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`으로 이동합니다. Azure Databricks 계정으로 Notebook을 가져오고 실행할 수 있습니다. 다음 섹션에서는 코드 블록의 기능을 자세히 설명합니다.
+7. “doctorwho” Azure Cosmos DB 계정에서 호스트되는 항공편 샘플 데이터를 사용하여 몇 가지 Spark 쿼리를 실행합니다. 이 계정은 공개적으로 액세스할 수 있습니다. [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 [Read_Batch_PyDocumentDB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_PyDocumentDB.ipynb) 노트를 호스트합니다. Azure Databricks 계정으로 Notebook을 가져오고 실행할 수 있습니다. 다음 섹션에서는 코드 블록의 기능을 자세히 설명합니다.
 
 다음 코드 조각은 pyDocumentDB SDK를 가져오고 Spark 컨텍스트에서 쿼리를 실행하는 방법을 보여줍니다. 코드 조각에 표시된 대로 pyDocumentDB SDK에는 Azure Cosmos DB 계정에 연결하는 데 필요한 연결 매개 변수가 포함되어 있습니다. 필수 라이브러리를 가져오고, 마스터 키와 호스트를 구성하여 Azure Cosmos DB 클라이언트(pydocumentdb.document_client)를 만듭니다.
 
@@ -209,7 +209,7 @@ Spark 작업자 노드와 Azure Cosmos DB 데이터 노드(파티션) 간에 데
 
 ### <a name="read-twitter-data-from-azure-cosmos-db"></a>Azure Cosmos DB에서 Twitter 데이터 읽기
  
-이 섹션에서는 Spark 쿼리를 실행하여 Azure Cosmos DB에서 Twitter 데이터 일괄 처리를 읽습니다. [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 Notebook의 HTML 버전을 호스트합니다. 리포지토리 파일을 다운로드하고 `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html`으로 이동합니다. Azure Databricks 계정에 Notebook을 가져오고, 계정 URI, 마스터 키, 데이터베이스 및 컬렉션 이름을 업데이트할 수 있습니다. Notebook을 실행하거나 다음과 같이 만들 수 있습니다.
+이 섹션에서는 Spark 쿼리를 실행하여 Azure Cosmos DB에서 Twitter 데이터 일괄 처리를 읽습니다. [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 [Read_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_Twitter_Data.ipynb) 노트를 호스트합니다. Azure Databricks 계정에 Notebook을 가져오고, 계정 URI, 마스터 키, 데이터베이스 및 컬렉션 이름을 업데이트할 수 있습니다. Notebook을 실행하거나 다음과 같이 만들 수 있습니다.
 
 1. Azure Databricks 계정으로 이동하고, **작업 영역** > **만들기** > **Notebook**을 선택합니다. 
 
@@ -268,7 +268,7 @@ Java SDK는 구성 매핑에 다음 값을 지원합니다.
 
 ### <a name="read-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Azure Cosmos DB에 스트리밍되는 Twitter 데이터 읽기
 
-이 섹션에서는 Spark 쿼리를 실행하여 스트리밍 Twitter 데이터의 변경 피드를 읽습니다. 이 섹션에서 쿼리를 실행하는 동안 Twitter 피드 앱이 실행 중이고 Azure Cosmos DB에 데이터를 펌프하는지 확인합니다. [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 Notebook의 HTML 버전을 호스트합니다. 리포지토리 파일을 다운로드하고, `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html`으로 이동합니다. Azure Databricks 계정에 Notebook을 가져오고, 계정 URI, 마스터 키, 데이터베이스 및 컬렉션 이름을 업데이트할 수 있습니다. Notebook을 실행하거나 다음과 같이 만들 수 있습니다.
+이 섹션에서는 Spark 쿼리를 실행하여 스트리밍 Twitter 데이터의 변경 피드를 읽습니다. 이 섹션에서 쿼리를 실행하는 동안 Twitter 피드 앱이 실행 중이고 Azure Cosmos DB에 데이터를 펌프하는지 확인합니다. [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 [Read_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Stream_Twitter_Data.scala) 노트를 호스트합니다. Azure Databricks 계정에 Notebook을 가져오고, 계정 URI, 마스터 키, 데이터베이스 및 컬렉션 이름을 업데이트할 수 있습니다. Notebook을 실행하거나 다음과 같이 만들 수 있습니다.
 
 1. Azure Databricks 계정으로 이동하고, **작업 영역** > **만들기** > **Notebook**을 선택합니다.  
 
@@ -335,7 +335,7 @@ Java SDK는 다음 연결 설정을 지원합니다.
 
 ### <a name="write-twitter-data-to-azure-cosmos-db"></a>Azure Cosmos DB에 Twitter 데이터 쓰기 
 
-이 섹션에서는 Spark 쿼리를 실행하여 Twitter 데이터의 일괄 처리를 동일한 데이터베이스의 새 컬렉션에 씁니다. [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 Notebook의 HTML 버전을 호스트합니다. 리포지토리 파일을 다운로드하고, `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html`으로 이동합니다. Azure Databricks 계정에 Notebook을 가져오고, 계정 URI, 마스터 키, 데이터베이스 및 컬렉션 이름을 업데이트할 수 있습니다. Notebook을 실행하거나 다음과 같이 만들 수 있습니다.
+이 섹션에서는 Spark 쿼리를 실행하여 Twitter 데이터의 일괄 처리를 동일한 데이터베이스의 새 컬렉션에 씁니다. [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 [Write_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Batch_Twitter_Data.ipynb) 노트를 호스트합니다. Azure Databricks 계정에 Notebook을 가져오고, 계정 URI, 마스터 키, 데이터베이스 및 컬렉션 이름을 업데이트할 수 있습니다. Notebook을 실행하거나 다음과 같이 만들 수 있습니다.
 
 1. Azure Databricks 계정으로 이동하고, **작업 영역** > **만들기** > **Notebook**을 선택합니다.  
 
@@ -428,7 +428,7 @@ Java SDK는 구성 매핑에 다음 값을 지원합니다.
 
 ### <a name="write-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Azure Cosmos DB에 스트리밍되는 Twitter 데이터 쓰기 
 
-이 섹션에서는 Spark 쿼리를 실행하여 스트리밍 Twitter 데이터의 변경 피드를 동일한 데이터베이스의 새 컬렉션에 씁니다. [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 Notebook의 HTML 버전을 호스트합니다. 리포지토리 파일을 다운로드하고, `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html`으로 이동합니다. Azure Databricks 계정에 Notebook을 가져오고, 계정 URI, 마스터 키, 데이터베이스 및 컬렉션 이름을 업데이트할 수 있습니다. Notebook을 실행하거나 다음과 같이 만들 수 있습니다.
+이 섹션에서는 Spark 쿼리를 실행하여 스트리밍 Twitter 데이터의 변경 피드를 동일한 데이터베이스의 새 컬렉션에 씁니다. [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 리포지토리에서 [Write_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Stream_Data.scala) 노트를 호스트합니다. Azure Databricks 계정에 Notebook을 가져오고, 계정 URI, 마스터 키, 데이터베이스 및 컬렉션 이름을 업데이트할 수 있습니다. Notebook을 실행하거나 다음과 같이 만들 수 있습니다.
 
 1. Azure Databricks 계정으로 이동하고, **작업 영역** > **만들기** > **Notebook**을 선택합니다.  
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240106"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821092"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -84,7 +84,7 @@ does the article really start here?-->
 
 Azure AD PIM(Privileged Identity Management)이 아직 설정되지 않은 경우 프로덕션 테넌트에서 이를 설정합니다. Privileged Identity Management가 설정되면 권한 있는 액세스 역할 변경에 대한 알림 이메일 메시지를 받게 됩니다. 이러한 알림에서는 디렉터리에서 권한이 높은 역할에 추가 사용자가 추가될 때 조기 경고를 제공합니다.
 
-Azure AD Privileged Identity Management는 Azure AD Premium P2 또는 EMS E5에 포함되어 있습니다. 이러한 솔루션을 사용하면 온-프레미스 환경과 클라우드에 있는 응용 프로그램 및 리소스에 대한 액세스를 보호할 수 있습니다. Azure AD Premium P2 또는 EMS E5가 아직 없고 이 로드맵에서 언급하는 기능을 더 자세히 평가하려면, [Enterprise Mobility + Security 90일 평가판](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)에 등록합니다. Azure AD 고급 보안 보고, 감사 및 경고를 사용하여 활동을 모니터링하려면, 이러한 라이선스 평가판을 통해 Azure AD Privileged Identity Management 및 Azure AD Identity Protection을 사용해 봅니다.
+Azure AD Privileged Identity Management는 Azure AD Premium P2 또는 EMS E5에 포함되어 있습니다. 이러한 솔루션을 사용하면 온-프레미스 환경과 클라우드에 있는 응용 프로그램 및 리소스에 대한 액세스를 보호할 수 있습니다. Azure AD Premium P2 또는 EMS E5가 아직 없고 이 로드맵에서 언급하는 기능을 더 자세히 평가하려면, [Enterprise Mobility + Security 90일 평가판](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)에 가입합니다. Azure AD 고급 보안 보고, 감사 및 경고를 사용하여 활동을 모니터링하려면, 이러한 라이선스 평가판을 통해 Azure AD Privileged Identity Management 및 Azure AD Identity Protection을 사용해 봅니다.
 
 Azure AD Privileged Identity Management가 설정되면 다음을 수행합니다.
 
@@ -102,7 +102,7 @@ Azure AD Privileged Identity Management가 설정되면 다음을 수행합니�
 
 Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자에 속한 사용자를 확인합니다. 테넌트에 Azure AD PIM이 없으면 [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)를 사용할 수 있습니다. 일반적인 역할인 전역 관리자 역할부터 시작합니다. Office 365 포털, Azure Portal에서, 아니면 Microsoft PowerShell용 Azure AD 모듈을 사용하여 이 관리자 역할이 할당되었는지 여부에 관계없이 이 역할이 할당된 사용자는 조직에서 구독한 모든 클라우드 서비스에서 동일한 권한을 갖습니다. 
 
-이러한 역할에 더 이상 필요하지 않은 계정을 제거하고 관리자 역할에 할당된 나머지 계정은 다음과 같이 분류합니다.
+이러한 역할에 더 이상 필요하지 않은 계정을 모두 제거합니다. 그런 다음, 관리자 역할에 할당된 나머지 계정을 분류합니다.
 
 * 관리 사용자에게 개별적으로 할당되고, 비관리 용도(예: 개인 이메일)로 사용될 수도 있습니다.
 * 관리 사용자에게 개별적으로 할당되고, 관리 용도로만 지정됩니다.
@@ -127,11 +127,11 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 ![2단계](./media/directory-admin-roles-secure/stage-two.png)
 
-로드맵의 2단계는 가장 자주 사용되는 자격 증명 도난 공격 기법과 악용을 완화하는 데 집중하며, 약 2-4주 내에 구현되도록 설계되었습니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 작업은 다음과 같습니다.
+로드맵의 2단계는 가장 자주 사용되는 자격 증명 도난 공격 기법과 악용을 완화하는 데 집중하며, 약 2-4주 내에 구현할 수 있습니다. 권한 있는 보안 액세스 로드맵의 이 단계에 포함되는 작업은 다음과 같습니다.
 
 ### <a name="general-preparation"></a>일반적인 준비
 
-#### <a name="conduct-a-inventory-of-services-owners-and-admins"></a>서비스, 소유자 및 관리자의 인벤토리 수행
+#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>서비스, 소유자 및 관리자의 인벤토리 수행
 
 BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 무선 연결이 확장됨에 따라 네트워크에 연결된 사용자를 모니터링하는 것이 중요합니다. 효과적인 보안 감사의 경우 네트워크에서 실행되지만 IT에서 지원하지 않아 안전하지 않을 수 있는 장치, 응용 프로그램 및 프로그램이 표시되는 경우가 많습니다. 자세한 내용은 [Azure 보안 관리 및 모니터링 개요](../../security/security-management-and-monitoring-overview.md)를 참조하세요. 인벤토리 프로세스에는 다음 작업이 모두 포함되어야 합니다. 
 
@@ -337,7 +337,7 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 * 필요한 경우에만 권한 있는 액세스 권한을 부여하고, 나중에 제거합니다(Just-In-Time).
 * 권한 있는 계정과 관련된 감사 활동을 유지하고 검토합니다.
 
-완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft 클라우드 IT 아키텍처 리소스](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources)를 참조하세요. 이러한 항목을 다루는 Microsoft 서비스에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [회사를 보호하기 위한 중요한 사이버 방어 구축](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx)을 참조하세요.
+완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft 클라우드 IT 아키텍처 리소스](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources)를 참조하세요. 이러한 항목을 다루는 Microsoft 서비스에 대한 자세한 내용은 Microsoft 담당자에게 문의하거나 [회사를 보호하기 위한 중요한 사이버 방어 구축](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)을 참조하세요.
 
 권한 있는 보안 액세스 로드맵의 마지막 단계에 포함되는 구성 요소는 다음과 같습니다.
 

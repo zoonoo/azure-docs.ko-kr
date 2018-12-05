@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960160"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821517"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Azure VM의 RDP 일반 오류 문제 해결
 
@@ -65,7 +65,7 @@ RDP 수신기가 잘못 구성되었습니다.
 
 ### <a name="serial-console"></a>직렬 콘솔
 
-#### <a name="step-1-turn-on-remote-desktop"></a>1단계: 원격 데스크톱 켜기
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>1단계: 직렬 콘솔의 CMD 인스턴스 열기
 
 1. **지원 및 문제 해결** > **직렬 콘솔(미리 보기)** 을 선택하여 [직렬 콘솔](serial-console-windows.md)에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
 

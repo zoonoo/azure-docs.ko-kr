@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210689"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706809"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 서비스의 작동 원리: 아키텍처 및 개념
 
@@ -156,9 +156,9 @@ Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저�
 
 실험을 사용하는 예제를 보려면 [빠른 시작: Azure Machine Learning 서비스 시작](quickstart-get-started.md) 문서를 참조하세요.
 
-## <a name="pipelines"></a>파이프라인
+## <a name="pipeline"></a>파이프라인
 
-파이프라인은 기계 학습 단계를 연결하는 워크플로를 만들고 관리하는 데 사용됩니다. 예를 들어, 파이프라인에는 데이터 준비, 모델 학습, 모델 배포 및 추론 단계가 포함될 수 있습니다. 각 단계(phase)는 각각 다양한 컴퓨팅 대상에서 자동으로 실행될 수 있는 여러 단계(step)를 포함할 수 있습니다.
+기계 학습 파이프라인은 기계 학습 단계를 연결하는 워크플로를 만들고 관리하는 데 사용됩니다. 예를 들어, 파이프라인에는 데이터 준비, 모델 학습, 모델 배포 및 추론 단계가 포함될 수 있습니다. 각 단계(phase)는 각각 다양한 컴퓨팅 대상에서 자동으로 실행될 수 있는 여러 단계(step)를 포함할 수 있습니다.
 
 이 서비스를 사용한 기계 학습 파이프라인에 대한 자세한 내용은 [파이프라인 및 Azure Machine Learning](concept-ml-pipelines.md)을 참조하세요.
 

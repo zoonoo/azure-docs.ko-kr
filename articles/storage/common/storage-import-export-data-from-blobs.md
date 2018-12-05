@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 60a92e35f1408d944e8091be4945c53abe3791d1
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: faf8852df8b50c43affe32ede0f1e96d0bb80d3d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754055"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821245"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob 저장소에서 데이터 내보내기
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob 저장소에서 많은 양의 데이터를 안전하게 내보내는 방법에 대한 단계별 지침을 제공합니다. 서비스를 사용하려면 빈 드라이브를 Azure 데이터 센터에 배송해야 합니다. 서비스에서 저장소 계정의 데이터를 드라이브로 내보낸 다음, 드라이브를 다시 배송합니다.

@@ -10,28 +10,28 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 7931cd8a6f8b3de826e8dd563a837f80fc15d88a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310412"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705654"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 라이선스 기능 검사 목록
 
-Azure AD(Azure Active Directory)를 조직에 배포하고 보안을 유지하는 것은 어려울 수 있습니다. 이 문서에서는 보안 태세를 향상시키기 30일, 90일 또는 그 이상의 과정을 완료하는 데 고객에게 도움이 되는 몇 가지 일반적인 작업을 확인합니다. Azure AD를 이미 배포한 조직이더라도 이 검사 목록을 사용하여 투자를 최대한 활용할 수 있습니다.
+Azure AD(Azure Active Directory)를 조직에 배포하고 보안을 유지하는 것은 어려울 수 있습니다. 이 문서에서는 고객에게 유용한 몇 가지 일반적인 작업을 식별합니다. 고객은 보안 강화를 위해 이러한 작업을 일반적으로 30일, 90일 또는 그 이상 동안 완료합니다. Azure AD를 이미 배포한 조직이더라도 이 검사 목록을 사용하여 투자를 최대한 활용할 수 있습니다.
 
 ID 인프라를 잘 계획하고 실행해 두면 인증된 사용자와 장치를 통해서만 생산성 워크로드와 데이터에 보다 안전하게 액세스할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 가이드에서는 Azure AD Premium P2 라이선스, Enterprise Mobility + Security E5, Microsoft 365 E5 또는 이와 동등한 라이선스 번들을 사용한다고 가정합니다.
+이 가이드에서는 Azure AD Premium P2 라이선스, Enterprise Mobility + Security E5, Microsoft 365 E5 또는 이와 유사한 라이선스 번들을 사용한다고 가정합니다.
 
 [Azure AD 라이선스](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Microsoft 365 Enterprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+[Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
 ## <a name="plan-and-deploy-day-1-30"></a>계획 및 배포: 1~30일차
 
@@ -71,7 +71,7 @@ ID 인프라를 잘 계획하고 실행해 두면 인증된 사용자와 장치�
    - [특정 조직의 B2B 사용자 초대 허용 또는 차단](../b2b/allow-deny-list.md)
    - [Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여](../b2b/hybrid-cloud-to-on-premises.md)
 - 사용자 수명 주기 관리 전략 결정
-- [장치 관리 전략 결정](../devices/overview.md)
+- [디바이스 관리 전략 결정](../devices/overview.md)
    - [Azure AD 연결에 대한 사용 시나리오와 배포 고려 사항](../devices/azureadjoin-plan.md)
 - [조직의 비즈니스용 Windows Hello 관리](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 

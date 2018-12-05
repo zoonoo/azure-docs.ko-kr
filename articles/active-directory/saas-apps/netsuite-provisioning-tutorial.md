@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Netsuite 구성 | Microsoft Docs'
-description: Azure Active Directory와 Netsuite 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Netsuite OneWorld 구성 | Microsoft Docs'
+description: Azure Active Directory와 Netsuite OneWorld 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e14f74f3dd6d49b882dedcb2ae01029a50a459a3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 81e590297283a8fe88d9257e201259056a3e3744
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346749"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823857"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Netsuite 구성
 
-이 자습서의 목적은 사용자 계정을 Azure AD에서 Netsuite로 자동으로 프로비전 및 프로비전 해제하도록 Netsuite 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
+이 자습서의 목적은 사용자 계정을 Azure AD에서 Netsuite로 자동으로 프로비전 및 프로비전 해제하도록 Netsuite OneWorld 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
 *   Azure Active Directory 테넌트.
-*   Netsuite Single Sign-On이 설정된 구독
-*   팀 관리자 권한이 있는 Netsuite의 사용자 계정
+*   Netsuite OneWorld 구독. 자동 사용자 프로비저닝은 현재 NetSuite OneWorld에서만 지원됩니다.
+*   관리자 권한이 있는 Netsuite의 사용자 계정
 
-## <a name="assigning-users-to-netsuite"></a>Netsuite에 사용자 할당
+## <a name="assigning-users-to-netsuite-oneworld"></a>Netsuite OneWorld에 사용자 할당
 
 Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 응용 프로그램에 "할당된" 사용자 및 그룹만 동기화됩니다.
 
@@ -41,7 +41,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-netsuite"></a>Netsuite에 사용자를 사용하기 위한 주요 팁
+### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Netsuite OneWorld에 사용자를 사용하기 위한 주요 팁
 
 *   단일 Azure AD 사용자를 Netsuite에 할당하여 프로비전 구성을 테스트하는 것이 좋습니다. 추가 사용자 및/또는 그룹은 나중에 할당할 수도 있습니다.
 

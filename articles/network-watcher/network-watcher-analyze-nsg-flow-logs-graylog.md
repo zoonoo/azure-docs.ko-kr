@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414780"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823047"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
 [네트워크 보안 그룹 흐름 로그](network-watcher-nsg-flow-logging-overview.md)는 Azure 네트워크 인터페이스의 송/수신 IP 트래픽을 파악하는 데 사용할 수 있는 정보를 제공합니다. 흐름 로그는 네트워크 보안 그룹 규칙 기반의 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 네트워크 인터페이스, 흐름에 대한 5계층 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜) 및 트래픽이 허용 또는 거부되었는지 여부를 보여 줍니다.
 
 흐름 로깅을 사용하도록 설정된 네트워크 보안 그룹이 네트워크에 많이 있을 수 있습니다. 이러한 네트워크 보안 그룹 중 일부는 구문 분석하고 로그에서 정보를 얻기가 느리고 복잡할 수 있습니다. 이 문서에서는 Graylog(오픈 소스 로그 관리 및 분석 도구)와 Logstash(오픈 소스 서버 쪽 데이터 처리 파이프라인)를 사용하여 이러한 네트워크 보안 그룹 흐름 로그를 중앙에서 관리하는 솔루션을 제공합니다.
+
+> [!Warning]
+> 다음 단계는 흐름 로그 버전 1을 사용하여 작동합니다. 자세한 내용은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md)를 참조하세요. 다음 지침은 수정 없이 로그 파일의 버전 2를 사용하여 작동하지 않습니다.
 
 ## <a name="scenario"></a>시나리오
 

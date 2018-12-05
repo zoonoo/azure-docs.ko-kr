@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 80799eb716e77a4dec02a2daf028c35589c75da0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235278"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824305"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "51235278"
 Azure는 VM이 상주하는 클라우드 영역에 따라 KMS 정품 인증에 다양한 엔드포인트를 사용합니다. 이 문제 해결 가이드를 사용하는 경우 사용자의 지역에 해당하는 적절한 KMS 엔드포인트를 사용합니다.
 
 * Azure 공용 클라우드 지역: kms.core.windows.net:1688
-* Azure 중국 국가 클라우드 지역: kms.core.chinacloudapi.cn:1688
+* Azure 중국 21Viant 국가 클라우드 지역: kms.core.chinacloudapi.cn:1688
 * Azure 독일 국가 클라우드 지역: kms.core.cloudapi.de:1688
 * Azure 미국 정부 국가 클라우드 지역: kms.core.usgovcloudapi.net:1688
 
@@ -84,8 +84,7 @@ Windows Server 2016 또는 Windows Server 2012 R2의 사용자 지정 이미지�
 3. VM이 올바른 Azure KMS 서버를 사용하도록 구성되어 있는지 확인합니다. 이렇게 하려면 다음 명령을 실행합니다.
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     명령이 다음을 반환해야 합니다. 키 관리 서비스 컴퓨터 이름을 kms.core.windows.net:1688으로 성공적으로 설정합니다.
 
@@ -117,7 +116,7 @@ Windows Server 2016 또는 Windows Server 2012 R2의 사용자 지정 이미지�
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Azure Marketplace에서 Windows Server 2016을 만들었습니다. Windows Server 2016을 활성화하기 위해 KMS 키를 구성해야 하나요? 
  
-아니요. Azure Marketplace의 이미지는 적절한 KMS 클라이언트 설정 키를 이미 구성했습니다. 
+ 아니요. Azure Marketplace의 이미지는 적절한 KMS 클라이언트 설정 키를 이미 구성했습니다. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>VM이 Azure HUB(Hybrid Use Benefit)를 사용하는지 여부와 상관없이 동일하게 Windows 정품 인증이 작동하나요? 
  

@@ -8,53 +8,81 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 09c5981701ffdee5f2e5dba47cc98c91d5df7526
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 94641796fa77e03efc7158bc3aaf4bde9385c899
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603909"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824271"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>원격 모니터링 아키텍처 선택
 
-Azure IoT 원격 모니터링 솔루션 가속기는 고객이 개발 프로세스를 가속화할 수 있는 장치 연결, 장치 관리 및 스트림 처리와 같은 일반적인 IoT 시나리오가 도입된 오픈 소스, MIT 사용이 허가된 솔루션 가속기입니다.  원격 모니터링 솔루션은 [여기](https://aka.ms/iotrefarchitecture) 게시된 권장 Azure IoT 참조 아키텍처를 따릅니다.  
+Azure IoT 원격 모니터링 솔루션 가속기는 오픈 소스, MIT 사용이 허가된 솔루션 가속기입니다. 이 기능은 IoT 개발 프로세스의 속도를 높이기 위한 다음과 같은 일반적인 IoT 시나리오를 보여 줍니다.
 
-이 문서에서는 원격 모니터링 솔루션을 위해 각 하위 시스템에 선택되는 아키텍처 및 기술을 설명하고 고려해야 할 대안을 논의합니다.  원격 모니터링 솔루션에서 선택하는 기술은 원격 모니터링 IoT 솔루션을 구현하는 유일한 방법은 아닙니다.  기술 구현은 성공적인 응용 프로그램을 빌드하기 위한 기준이며 기술, 환경 및 고객 솔루션 구현에 대한 수직적 응용 프로그램 요구에 맞게 수정되어야 합니다.
+- 장치 연결
+- 장치 관리
+- 스트림 처리
+
+원격 모니터링 솔루션은 권장되는 [Azure IoT 참조 아키텍처](https://aka.ms/iotrefarchitecture)를 따릅니다.
+
+이 문서에서는 각 원격 모니터링 하위 시스템에서 선택되는 아키텍처 및 기술 과 고려해야 할 대안에 대해 설명합니다. 그렇지만 원격 모니터링 솔루션에서 선택하는 Microsoft 기술은 원격 모니터링 IoT 솔루션을 구현하는 유일한 방법은 아닙니다. 이러한 기술 구현을 성공적인 애플리케이션 빌드를 위한 기준으로 사용하고 다음과 같이 수정해야 합니다.
+
+- 조직의 사용 가능한 기술 및 환경에 맞아야 합니다.
+- 수직적 애플리케이션 요구를 충족해야 합니다.
 
 ## <a name="architectural-choices"></a>아키텍처 선택
 
-### <a name="microservices-serverless-and-cloud-native"></a>마이크로 서비스, 서버리스 및 클라우드 네이티브
+IoT 애플리케이션에 대해 Microsoft에서 권장하는 아키텍처는 클라우드 네이티브, 마이크로 서비스 및 서버리스 기반입니다. IoT 애플리케이션의 여러 다른 하위 시스템을 별도로 배포하고 크기를 조정할 수 있는 별도 서비스로 빌드해야 합니다. 이러한 특성 덕분에 더 크게 확장할 수 있고, 개별 하위 시스템 업데이트 시 유연성이 높아지며, 하위 시스템에 대해 적합한 기술을 선택할 수 있는 융통성이 제공됩니다.
 
-클라우드 네이티브, 마이크로 서비스 및 서버리스 조건을 충족하는 아키텍처를 IoT 응용 프로그램에 사용하는 것이 좋습니다.  IoT 응용 프로그램의 다른 하위 시스템은 독립적으로 배포 가능하고 독립적으로 확장할 수 있는 개별 서비스로 빌드해야 합니다.  이러한 특성 덕분에 더 크게 확장할 수 있고, 개별 하위 시스템 업데이트 시 유연성이 높아지며, 하위 시스템 기준마다 적합한 기술을 선택할 수 있는 융통성이 제공됩니다.  마이크로 서비스는 여러 기술을 통해 구현할 수 있습니다. 예를 들어 Azure Functions와 같은 서버리스 기술을 통해 Docker와 같은 컨테이너 기술을 사용하거나 Azure App Service와 같은 PaaS 서비스에 마이크로 서비스를 호스트합니다.
+둘 이상의 기술을 사용하여 마이크로 서비스를 구현할 수 있습니다. 예를 들어, 다음 옵션 중 하나를 선택하여 마이크로 서비스를 구현할 수 있습니다.
 
-## <a name="core-subsystem-technology-choices"></a>핵심 하위 시스템 기술 선택
+- Azure Functions와 같은 서버리스 기술과 함께 Docker와 같은 컨테이너 기술을 사용합니다.
+- Azure App Services와 같은 PaaS 서비스에서 마이크로 서비스를 호스트합니다.
+
+## <a name="technology-choices"></a>기술 선택
 
 이 섹션에서는 각 핵심 하위 시스템에 대한 원격 모니터링 솔루션의 기술 선택 사항에 대해 자세히 설명합니다.
 
-![코어 다이어그램](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png) 
+![코어 다이어그램](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png)
 
 ### <a name="cloud-gateway"></a>클라우드 게이트웨이
-Azure IoT Hub는 원격 모니터링 솔루션 클라우드 게이트웨이로 사용됩니다.  IoT Hub는 장치와의 안전한 양방향 통신을 제공합니다. [여기](https://azure.microsoft.com/services/iot-hub/)에서 IoT Hub에 대해 더 자세히 알아볼 수 있습니다. IoT 장치 연결의 경우 .NET Core 및 Java IoT Hub SDK가 사용됩니다.  SDK는 IoT Hub REST API에 대한 래퍼를 제공하고 다시 시도 같은 시나리오를 처리합니다.
+
+Azure IoT Hub는 원격 모니터링 솔루션 클라우드 게이트웨이로 사용됩니다. [IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 디바이스와의 안전한 양방향 통신을 제공합니다.
+
+IoT 디바이스 연결을 위해 다음을 사용할 수 있습니다.
+
+- [IoT Hub 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks): 디바이스에 대한 기본 클라이언트 애플리케이션을 구현합니다. SDK는 IoT Hub REST API에 대한 래퍼를 제공하고 다시 시도 같은 시나리오를 처리합니다.
+- 솔루션 가속기에서 Azure IoT Edge와 통합하여 디바이스의 컨테이너에서 실행되는 사용자 지정 모듈을 배포 및 관리합니다.
 
 ### <a name="stream-processing"></a>스트림 처리
-스트림 처리를 위해 원격 모니터링 솔루션은 Azure Stream Analytics를 사용하여 복잡한 규칙 처리합니다.  단순한 규칙을 원하는 고객을 위해 간단한 규칙의 처리를 지원하는 사용자 지정 마이크로 서비스를 제공합니다. 이 설정은 특별한 배포의 일부는 아닙니다. 참조 아키텍처에서는 간단한 규칙 처리에 Azure Functions를 사용하고 복잡한 규칙 처리에는 ASA(Azure Stream Analytics)를 사용하는 것을 권장합니다.  
+
+스트림 처리를 위해 원격 모니터링 솔루션은 Azure Stream Analytics를 사용하여 복잡한 규칙 처리합니다. 단순한 규칙을 원하는 경우 기본 제공 배포에 속하지 않더라도 단순한 규칙 처리가 지원되는 사용자 지정 마이크로 서비스를 사용할 수 있습니다. 참조 아키텍처에서는 간단한 규칙 처리에 Azure Functions를 사용하고 복잡한 규칙 처리에는 Azure Stream Analytics를 사용하는 것을 권장합니다.
 
 ### <a name="storage"></a>Storage
-저장소의 경우 원격 모니터링 솔루션 가속기는 Azure Time Series Insights 및 Azure Cosmos DB를 모두 사용합니다. Azure Time Series Insights는 연결된 장치에서 IoT Hub를 통해 들어오는 메시지를 저장합니다. 솔루션 가속기는 Azure Cosmos DB를 콜드 저장소, 규칙 정의, 경보 및 구성 설정과 같은 다른 모든 저장소에 사용합니다. Azure Time Series Insights 및 Azure Data Lake와 같은 솔루션이 많은 사용 사례에 적합하긴 하지만, Azure Cosmos DB는 IoT 응용 프로그램에 권장되는 범용 웜 저장소 솔루션입니다. Azure Time Series Insights를 사용하면 추세와 이상 현상을 파악하여 시계열 센서 데이터에 대한 심층적 인사이트를 얻을 수 있습니다. 이를 통해 근본 원인을 분석하고 비용이 많이 드는 가동 중지 시간을 방지할 수 있습니다. 
+
+저장소의 경우 원격 모니터링 솔루션 가속기는 Azure Time Series Insights 및 Azure Cosmos DB를 모두 사용합니다. Azure Time Series Insights는 연결된 장치에서 IoT Hub를 통해 들어오는 메시지를 저장합니다. 솔루션 가속기는 Azure Cosmos DB를 콜드 저장소, 규칙 정의, 경보 및 구성 설정과 같은 다른 모든 저장소에 사용합니다.
+
+Azure Time Series Insights 및 Azure Data Lake와 같은 솔루션이 많은 사용 사례에 적합하긴 하지만, Azure Cosmos DB는 IoT 응용 프로그램에 권장되는 범용 웜 저장소 솔루션입니다. Azure Time Series Insights를 사용하면 추세와 이상 현상을 파악하여 시계열 센서 데이터에 대한 심층적 인사이트를 얻을 수 있습니다. 이를 통해 근본 원인을 분석하고 비용이 많이 드는 가동 중지 시간을 방지할 수 있습니다.
 
 > [!NOTE]
 > Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 저장소에 Cosmos DB를 사용합니다.
 
 ### <a name="business-integration"></a>비즈니스 통합
-원격 모니터링 솔루션의 비즈니스 통합은 웜 저장소에 배치되는 경보 생성으로 제한됩니다. 추가 비즈니스 통합은 Azure Logic Apps를 사용한 솔루션을 통합하여 수행할 수 있습니다.
+
+원격 모니터링 솔루션의 비즈니스 통합은 웜 스토리지에 배치되는 경보 생성으로 제한됩니다. 심층적인 비즈니스 통합 시나리오를 구현하려면 솔루션을 Azure Logic Apps에 연결합니다.
 
 ### <a name="user-interface"></a>사용자 인터페이스
-웹 UI는 JavaScript React로 빌드됩니다.  React는 자주 사용되는 업계 웹 UI 프레임워크를 제공하고 Angular와 같은 다른 인기 있는 프레임워크와 비슷합니다.  
+
+웹 UI는 JavaScript React로 빌드됩니다. React는 자주 사용되는 업계 웹 UI 프레임워크를 제공하고 Angular와 같은 다른 인기 있는 프레임워크와 비슷합니다.
 
 ### <a name="runtime-and-orchestration"></a>런타임 및 오케스트레이션
-원격 모니터링 솔루션의 하위 시스템 구현을 위해 선택한 응용 프로그램 런타임은 수평적 확장을 위한 오케스트레이터로 Kubernetes를 사용하는 Docker 컨테이너입니다.  이 아키텍처는 하위 시스템당 개별 크기 조정 정의를 허용하지만, 보안 측면에서 VM 및 컨테이너를 최신 상태로 유지하기 위한 DevOps 비용이 발생됩니다.  Docker 및 Kubernetes에 대한 대안에는 PaaS 서비스에서 마이크로 서비스를 호스팅하거나(예: Azure App Service), 오케스트레이터로 Service Fabric, DCOS, Swarm 등을 사용하는 것입니다.
+
+원격 모니터링 솔루션은 Docker 컨테이너를 사용하여 Kubernetes가 있는 하위 시스템을 수평적 확장을 위한 오케스트레이터로 실행합니다. 이 아키텍처를 사용하면 각 하위 시스템에 대해 별도로 크기 조정을 정의할 수 있습니다. 그러나 이 아키텍처에서 가상 머신과 컨테이너를 최신 상태로 안전하게 유지하려면 DevOps 비용이 발생합니다.
+
+Docker 대신, Azure App Service와 같은 PaaS 서비스에서 마이크로 서비스를 호스트할 수 있습니다. Kubernetes의 경우는 Service Fabric, DC/OS 또는 Swarm과 같은 오케스트레이터를 대신 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [여기](https://www.azureiotsolutions.com/)에서 원격 모니터링 솔루션을 배포합니다.
 * [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) 및 [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/)에서 GitHub 코드를 탐색합니다.  
 * [여기](https://aka.ms/iotrefarchitecture)에서 IoT 참조 아키텍처에 대해 자세히 알아봅니다.

@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6debfaed28be2b5dee5e24a443b791f75f7bea8f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634195"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822911"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화
 
 네트워크 보안 그룹 흐름 로그는 네트워크 보안 그룹의 송/수신 IP 트래픽을 이해하는 데 사용할 수 있는 정보를 제공합니다. 이러한 흐름 로그는 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여 줍니다.
 
 이러한 흐름 로그는 수동으로 구문 분석하여 통찰력을 얻기 어려울 수 있습니다. 그러나 이 데이터를 시각화하는 데 도움이 되는 오픈 소스 도구가 몇 가지 있습니다. 이 문서에서는 Kibana 대시보드에서 흐름 로그를 신속하게 인덱싱하고 시각화할 수 있는 탄력적인 스택을 사용하여 이러한 로그를 시각화하는 솔루션을 제공합니다.
+
+> [!Warning]  
+> 다음 단계는 흐름 로그 버전 1을 사용하여 작동합니다. 자세한 내용은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md)를 참조하세요. 다음 지침은 수정 없이 로그 파일의 버전 2를 사용하여 작동하지 않습니다.
 
 ## <a name="scenario"></a>시나리오
 

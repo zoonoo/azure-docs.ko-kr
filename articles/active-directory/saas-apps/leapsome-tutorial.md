@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441938"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>자습서: Leapsome과 Azure Active Directory 통합
 
@@ -49,7 +49,7 @@ Leapsome과 Azure AD의 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Leapsome 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -134,7 +134,7 @@ Leapsome에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     | picture | 직원의 그림에 대한 URL | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
-    > 그림 특성의 값은 실제 값이 아닙니다. 이 값을 실제 그림 URL로 업데이트합니다. 이 값을 얻으려면 [Leapsome 클라이언트 지원 팀](mailto:support@leapsome.com)에 문의하세요.
+    > 그림 특성의 값은 실제 값이 아닙니다. 이 값을 실제 그림 URL로 업데이트합니다. 이 값을 얻으려면  [Leapsome 클라이언트 지원 팀](mailto:support@leapsome.com)에 문의하세요.
     
     a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
 
@@ -142,7 +142,7 @@ Leapsome에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Configure Single Sign-On](./media/leapsome-tutorial/tutorial_attribute_05.png)
     
-    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
     
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
@@ -174,7 +174,7 @@ Leapsome에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     a. **SAML 기반 Single Sign-On**을 선택합니다.
 
-    나. **로그인 URL(여기서는 로그인을 시작할 사용자를 가리킴)** 값을 복사하여 Azure Portal에서 **Leapsome 도메인 및 URL** 섹션의 **Sign-On URL** 텍스트 상자에 붙여넣습니다.
+    b. **로그인 URL(여기서는 로그인을 시작할 사용자를 가리킴)** 값을 복사하여 Azure Portal에서 **Leapsome 도메인 및 URL** 섹션의 **Sign-On URL** 텍스트 상자에 붙여넣습니다.
 
     다. **회신 URL(사용자의 ID 공급자로부터 응답을 받음)** 값을 복사하여 Azure Portal에서 **Leapsome 도메인 및 URL** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
@@ -218,7 +218,7 @@ Leapsome에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
  
 ### <a name="create-a-leapsome-test-user"></a>Leapsome 테스트 사용자 만들기
 
-이 섹션에서는 Leapsome에서 Britta Simon이라는 사용자를 만듭니다. [Leapsome 지원 팀](mailto:support@leapsome.com)과 협력하여 Leapsome 플랫폼의 허용 목록에 포함하는 데 필요한 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 Leapsome 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
+이 섹션에서는 Leapsome에서 Britta Simon이라는 사용자를 만듭니다.  [Leapsome 지원 팀](mailto:support@leapsome.com)과 협력하여 Leapsome 플랫폼의 허용 목록에 포함하는 데 필요한 사용자 또는 도메인을 추가합니다. 팀에서 도메인을 추가하면 사용자가 Leapsome 플랫폼에 자동으로 프로비전됩니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

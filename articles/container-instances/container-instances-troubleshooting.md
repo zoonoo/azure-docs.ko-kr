@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978181"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820361"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
@@ -205,6 +205,9 @@ Azure에서 다양한 지역별 리소스 부하로 인해 컨테이너 인스�
 ## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>기본 Docker API에 연결하거나 권한 있는 컨테이너를 실행할 수 없음
 
 Azure Container Instances는 컨테이너 그룹을 호스트하는 기본 인프라에 대한 직접 액세스를 노출하지 않습니다. 여기에는 컨테이너의 호스트에서 실행되고 권한 있는 컨테이너를 실행하는 Docker API에 대한 액세스가 포함됩니다. Docker 상호 작용이 필요한 경우 [REST 참조 설명서](https://aka.ms/aci/rest)에서 ACI API가 무엇을 지원하는지 확인하세요. 빠진 부분이 있는 경우 [ACI 피드백 포럼](https://aka.ms/aci/feedback)에서 요청을 제출하세요.
+
+## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>일치하지 않는 포트로 인해 IP에 액세스하지 못할 수 있습니다.
+Azure Container Instances는 현재 일반 docker 구성과 같은 포트 매핑을 지원하지 않지만 수정 내용이 로드맵에 나와 있습니다. 액세스할 수 있어야 하는 데 액세스할 수 없는 IP가 있으면 `ports` 속성을 사용하여 컨테이너 그룹에 노출한 것과 동일한 포트를 수신하도록 컨테이너 이미지를 구성해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 컨테이너를 디버깅할 수 있도록 [컨테이너 로그 및 이벤트를 검색](container-instances-get-logs.md)하는 방법을 알아봅니다.

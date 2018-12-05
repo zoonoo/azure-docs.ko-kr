@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 VMware 및 물리적 서버 재해 복구를 위한 구성 서버 관리 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 재해 복구하기 위해 기존 구성 서버를 관리하는 방법에 대해 설명합니다.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
-ms.author: raynew
-ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.author: ramamill
+ms.openlocfilehash: a58de808816bf80cf950d7b032ca042c7913a2e5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568457"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976387"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM 재해 복구용 구성 서버 관리
 
@@ -222,7 +222,14 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 2. 만료 날짜가 **구성 서버 상태** 아래에 표시됩니다.
 3. **인증서 갱신**을 선택합니다.
 
-## <a name="update-windows-licence"></a>Windows 라이선스 업데이트
+## <a name="refresh-configuration-server"></a>구성 서버 새로 고침
+
+1. Azure Portal에서 **Recovery Services 자격 증명 모음** > **관리** > **Site Recovery 인프라** > **VMware 및 물리적 머신** > **구성 서버**로 이동합니다.
+2. 새로 고치려는 구성 서버를 클릭합니다.
+3. 선택한 구성 서버의 세부 정보가 있는 블레이드에서 **자세히** > **서버 새로 고침**을 클릭합니다.
+4. **Recovery Services 자격 증명 모음** > **모니터링** > **Site Recovery 작업**에서 작업의 진행률을 모니터링합니다.
+
+## <a name="update-windows-license"></a>Windows 라이선스 업데이트
 
 OVF 템플릿에 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. 중단 없이 사용하려면 제공된 라이선스를 사용하여 Windows를 정품 인증해야 합니다.
 

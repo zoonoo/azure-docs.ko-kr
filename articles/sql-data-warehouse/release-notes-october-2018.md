@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/11/2018
+ms.date: 11/14/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 82f55c87c54fa5197a2bd5c24ea3863da1700c7b
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579294"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705381"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 10월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 10월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
@@ -49,11 +49,8 @@ Azure SQL Data Warehouse ADR(가속 데이터베이스 복구)이 공개 미리 
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql)
 
-## <a name="instant-data-movement"></a>인스턴트 데이터 이동 
-이제 인스턴트 데이터 이동은 순서 섞기 외에도 브로드캐스트 및 파티션 이동으로 확장됩니다.
-
-## <a name="scale-up-column-store-columnstore-metadata-memory-management-sql-server"></a>열 저장소 강화: Columnstore 메타데이터 메모리 관리(SQL Server)
-열 저장소 메타데이터에 최적화된 메모리 관리 
+## <a name="columnstore-memory-management"></a>Columnstore 메모리 관리
+압축된 열 저장소 행 그룹의 수가 증가하면 이러한 행 그룹에 대한 내부 열 세그먼트 메타데이터를 관리하는 데 필요한 메모리도 증가합니다.  결과적으로 일부 Columnstore DMV(동적 관리 뷰)에 대해 실행되는 쿼리 및 쿼리 성능이 저하될 수 있습니다.  이번 릴리스에서는 이러한 경우에 대한 내부 메타데이터 크기가 최적화되어 이러한 쿼리의 환경 및 성능이 개선되도록 수정되었습니다. 
 
 ## <a name="azure-data-lake-storage-gen2-integration-ga"></a>Azure Data Lake Storage Gen2 통합(GA)
 이제 Azure SQL DW(SQL Data Warehouse)가 Azure Data Lake Storage Gen2와 기본적으로 통합됩니다. 고객은 ABFS에서 외부 테이블을 사용하여 SQL DW로 데이터를 로드할 수 있습니다. 이 기능을 통해 고객은 데이터 레이크를 Data Lake Storage Gen2에 통합할 수 있습니다. 

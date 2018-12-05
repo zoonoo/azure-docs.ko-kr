@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: b66d6bc93f9d2df3eccabf0f0f9edb0384bab70f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 05a364cc66d18909c7833138d351dc02bace32c2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635094"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822112"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
 
-개발자는 Azure Cognitive Services의 컨테이너 지원을 통해 Azure에 제공되면서도 [Docker 컨테이너](https://www.docker.com/what-container)의 유연성까지 갖춘 동일한 여러 API를 사용할 수 있습니다. 현재 컨테이너 지원은 [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md) 및 [Text Analytics](text-analytics/overview.md)를 비롯한 Azure Cognitive Services 하위 집합에 미리 보기로 제공됩니다.
+개발자는 Azure Cognitive Services의 컨테이너 지원을 통해 Azure에서 사용할 수 있는 동일한 여러 API를 사용할 수 있으며 [Docker 컨테이너](https://www.docker.com/what-container)에 제공되는 서비스를 유연하게 배포 및 호스트할 수 있습니다. 현재 컨테이너 지원은 [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md) 및 [Text Analytics](text-analytics/overview.md)를 비롯한 Azure Cognitive Services 하위 집합에 미리 보기로 제공됩니다.
 
 컨테이너화는 종속성 및 구성을 포함한 애플리케이션 또는 서비스가 컨테이너 이미지로 패키징되는 소프트웨어 배포 방법입니다. 컨테이너 이미지를 거의 또는 전혀 수정하지 않고 컨테이너 호스트에 배포할 수 있습니다. 컨테이너는 서로 그리고 기본 운영 체제와 격리되며, 가상 머신보다 공간을 적게 차지합니다. 단기 작업용 컨테이너 이미지에서 컨테이너화를 시작하고, 더 이상 필요 없으면 제거할 수 있습니다.
 

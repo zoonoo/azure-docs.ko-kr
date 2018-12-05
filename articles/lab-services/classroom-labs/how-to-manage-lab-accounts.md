@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140826"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707132"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services의 랩 계정 관리 
 Azure Lab Services에서 랩 계정은 강의실 랩과 같은 관리되는 랩의 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 이 문서는 랩 계정을 만들거나, 모든 랩 계정을 보거나, 랩 계정을 삭제하는 방법을 설명합니다.
@@ -114,7 +114,9 @@ Azure Lab Services에서 랩 계정은 강의실 랩과 같은 관리되는 랩�
 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Lab Services를 사용하여 랩 설정 시작합니다.
+다음 문서를 참조하세요.
 
-- [클래스룸 랩 설정](tutorial-setup-classroom-lab.md)
-- [랩 설정](../tutorial-create-custom-lab.md)
+- [랩 소유자 권한으로 랩 만들기 및 관리](how-to-manage-classroom-labs.md)
+- [랩 소유자 권한으로 템플릿 설정 및 게시](how-to-create-manage-template.md)
+- [랩 소유자 권한으로 랩 사용 구성 및 제어](how-to-configure-student-usage.md)
+- [랩 사용자 권한으로 클래스룸 랩 액세스](how-to-use-classroom-lab.md)

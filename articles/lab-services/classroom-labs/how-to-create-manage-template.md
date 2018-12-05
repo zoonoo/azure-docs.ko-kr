@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 3ecbef3b3063ceb413b852f8000b44a85d28d08e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8bd64aaa51faf968c0c7ae374daad3de4ca3a343
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142924"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706860"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 템플릿 만들기 및 관리
 랩의 템플릿은 모든 사용자의 가상 머신이 만들어지는 기본 가상 머신 이미지입니다. 랩 사용자에게 제공하려는 구성과 정확히 일치하도록 템플릿 가상 머신을 설정합니다. 랩 사용자에게 표시되는 템플릿의 이름 및 설명을 제공할 수 있습니다. 그런 후 랩 사용자가 템플릿 VM의 인스턴스를 사용할 수 있도록 템플릿을 게시합니다. 템플릿을 게시하면 Azure Lab Services가 템플릿을 사용하여 랩에 VM을 만듭니다. 이 과정에서 만들어지는 VM 수는 랩에 허용되는 최대 사용자 수와 같으며, 이 값은 랩의 사용 정책에서 설정할 수 있습니다. 모든 가상 머신은 템플릿과 구성이 동일합니다.
@@ -88,16 +88,14 @@ ms.locfileid: "50142924"
 ## <a name="set-up-a-template-after-creating-a-lab"></a>랩을 만든 후 템플릿 설정 
 랩을 만든 후에 템플릿을 설정할 수도 있습니다.   
 
-### <a name="set-template-title-and-description"></a>템플릿 제목 및 설명 설정
-1. **템플릿** 섹션에서 템플릿의 **편집**(연필 아이콘)을 선택합니다. 
-2. **사용자 보기** 창에 템플릿의 **제목**을 입력합니다.
-3. 템플릿에 대한 **설명**을 입력합니다.
-4. **저장**을 선택합니다.
+## <a name="set-or-update-template-title-and-description"></a>템플릿 제목 및 설명 설정 또는 업데이트
+다음 단계에 따라 제목과 설명을 처음 설정한 후 나중에 업데이트합니다. 
 
-    ![클래스룸 랩 설명](../media/how-to-manage-classroom-labs/lab-description.png)
+1. **템플릿** 섹션에서 마우스를 템플릿의 **이름** 또는 템플릿의 **설명**으로 이동한 후 선택합니다. 
+2. 템플릿에 대해 **새 이름** 또는 **새 설명**을 입력하고 **Enter** 키를 누릅니다.
 
-### <a name="set-up-the-template-vm"></a>템플릿 VM 설정
- 템플릿 VM에 연결하고 필요한 소프트웨어를 설치한 후 학생에게 제공합니다. 
+## <a name="set-up-or-update-a-template-vm"></a>템플릿 VM 설정 또는 업데이트
+ 템플릿 VM에 연결하고 필요한 소프트웨어를 설치한 후 학생에게 제공합니다. 다음 단계를 사용하여 처음으로 템플릿 VM을 설정하거나 VM을 업데이트합니다. 
 
 1. 템플릿 가상 머신이 준비될 때까지 기다립니다. 가상 머신이 준비되면 **시작** 단추가 활성화됩니다. VM을 시작하려면 **시작**을 선택합니다.
 
@@ -112,7 +110,7 @@ ms.locfileid: "50142924"
     ![템플릿 VM 중지](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-## <a name="publish-the-template"></a>템플릿 게시 
+## <a name="publish-the-template-vm"></a>템플릿 VM 게시
 랩을 만드는 동안 템플릿을 게시하지 않으면 나중에 게시할 수 있습니다. 게시하기 전에 템플릿 VM에 연결하고 소프트웨어를 사용하여 업데이트할 수 있습니다. 템플릿을 게시하면 Azure Lab Services가 템플릿을 사용하여 랩에 VM을 만듭니다. 이 과정에서 만들어지는 VM 수는 랩에 허용되는 최대 사용자 수와 같으며, 이 값은 랩의 사용 정책에서 설정할 수 있습니다. 모든 가상 머신은 템플릿과 구성이 동일합니다. 
 
 1. **템플릿** 섹션에서 **게시**를 선택합니다. 
@@ -147,7 +145,9 @@ ms.locfileid: "50142924"
     ![다시 게시 성공](../media/how-to-create-manage-template/republish-success.png)
 
 ## <a name="next-steps"></a>다음 단계
-Azure Lab Services를 사용하여 랩 설정 시작합니다.
+다음 문서를 참조하세요.
 
-- [클래스룸 랩 설정](how-to-manage-classroom-labs.md)
-- [랩 설정](../tutorial-create-custom-lab.md)
+- [관리자 권한으로 랩 계정 만들기 및 관리](how-to-manage-lab-accounts.md)
+- [랩 소유자 권한으로 랩 만들기 및 관리](how-to-manage-classroom-labs.md)
+- [랩 소유자 권한으로 랩 사용 구성 및 제어](how-to-configure-student-usage.md)
+- [랩 사용자 권한으로 클래스룸 랩 액세스](how-to-use-classroom-lab.md)

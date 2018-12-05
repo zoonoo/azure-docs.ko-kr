@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e603ef749dbe66eda1c235b62c5155c4af6dc9db
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3540d68491d6f2c8282aa1ef0b385300aaa190cf
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955149"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822486"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -32,6 +32,9 @@ ms.locfileid: "46955149"
 네트워크 보안 그룹 흐름 로그는 네트워크 보안 그룹을 통해 수신 및 송신 IP 트래픽에 대한 정보를 볼 수 있는 Network Watcher의 기능입니다. 이러한 흐름 로그는 json 형식으로 작성되고 트래픽이 허용되거나 거부된 경우 각 규칙을 기준으로 아웃바운드 및 인바운드 흐름, 흐름이 적용되는 NIC, 흐름에 대한 5개의 튜플 정보(원본/대상 IP, 원본/대상 포트, 프로토콜)를 보여 줍니다.
 
 이 문서의 단계를 수행하려면 [Mac, Linux 및 Windows용 Azure 명령줄 인터페이스를 설치(CLI)](/cli/azure/install-azure-cli)해야 합니다.
+
+> [!NOTE] 
+> 미국 중서부 지역에서 흐름 로그 버전 2만 사용할 수 있습니다. 구성은 Azure Portal 및 REST API를 통해 사용할 수 있습니다. 지원되지 않는 지역에서 버전 2를 사용하도록 설정하면 버전 1 로그가 스토리지 계정에 출력됩니다.
 
 ## <a name="register-insights-provider"></a>Insights 공급자 등록
 

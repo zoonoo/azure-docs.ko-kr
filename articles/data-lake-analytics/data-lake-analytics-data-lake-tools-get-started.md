@@ -9,17 +9,19 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/13/2018
-ms.openlocfilehash: c41ac2246386b8838d1310a9cd5c03dd0cf5d8e4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1c6a83626f86724bcaa61de03a49b5327af19d88
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244511"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706537"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Data Lake Tools for Visual Studio를 사용하여 U-SQL 스크립트 개발
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Visual Studio를 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 작업을 정의하고, 작업을 Data Lake Analytics 서비스에 제출하는 방법에 대해 알아봅니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
+Azure Data Lake 및 Stream Analytics Tools는 두 가지 Azure 서비스, Azure Data Lake Analytics 및 Azure Stream Analytics와 관련된 기능을 포함합니다. Azure Stream Analytics 시나리오에 대한 자세한 내용은 [Azure Stream Analytics Tools for Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md)를 참조하세요.
+
+이 문서에서는 Visual Studio를 사용하여 Azure Data Lake Analytics 계정을 만들고, [U-SQL](data-lake-analytics-u-sql-get-started.md)로 작업을 정의하고, 작업을 Data Lake Analytics 서비스에 제출하는 방법을 설명합니다. 데이터 레이크 분석에 대한 자세한 내용은 [Azure 데이터 레이크 분석 개요](data-lake-analytics-overview.md)를 참조하세요.
 
 >[!IMPORTANT]
 > Azure Data Lake Tools for Visual Studio 버전 2.3.3000.4 이상으로 업그레이드하는 것이 좋습니다. 이전 버전은 더 이상 다운로드할 수 없으며 이제 사용되지 않습니다. 

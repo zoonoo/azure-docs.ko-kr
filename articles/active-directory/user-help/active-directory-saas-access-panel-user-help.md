@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306413"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705687"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>MyApps 포털 액세스 및 사용과 관련된 문제 해결
 
@@ -57,7 +57,7 @@ MyApps 포털에는 JavaScript를 지원하고 CSS를 사용하도록 설정된 
 다음 사이트에서 확장을 직접 다운로드할 수도 있습니다.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 확장을 설치했지만 여전히 문제가 발생하는 경우 다음을 시도해 보세요.

@@ -2,8 +2,7 @@
 title: Windows용 Azure N 시리즈 GPU 드라이버 설정 | Microsoft Docs
 description: Azure에서 Windows Server 또는 Windows를 실행하는 N 시리즈 VM용 NVIDIA GPU 드라이버를 설정하는 방법입니다.
 services: virtual-machines-windows
-documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 551d9da51abaeddfd22c72748a552ba0ae155de6
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033262"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707014"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치 
 
@@ -51,13 +50,13 @@ GPU 장치 상태를 쿼리하려면 드라이버와 설치된 [nvidia-smi](http
 
 1. 명령 프롬프트를 열고 **C:\Program Files\NVIDIA Corporation\NVSMI** 디렉터리로 변경합니다.
 
-2. `nvidia-smi`을 실행합니다. 드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util**에 **0%** 가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
+2. `nvidia-smi`을 실행합니다. 드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 작업을 실행 중이지 않으면 **GPU-Util**에 **0%** 가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
 
 ![NVIDIA 장치 상태](./media/n-series-driver-setup/smi.png)  
 
 ## <a name="rdma-network-connectivity"></a>RDMA 네트워크 연결
 
-동일한 가용성 집합 또는 VM 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 연결에 필요한 Windows 네트워크 장치 드라이버를 설치하는 HpcVmDrivers 확장을 추가해야 합니다. RDMA 지원 N 시리즈에 VM 확장을 추가하려면 Azure Resource Manager용 [Azure PowerShell](/powershell/azure/overview) cmdlet을 사용합니다.
+동일한 가용성 집합 또는 가상 머신 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 연결에 필요한 Windows 네트워크 장치 드라이버를 설치하는 HpcVmDrivers 확장을 추가해야 합니다. RDMA 지원 N 시리즈에 VM 확장을 추가하려면 Azure Resource Manager용 [Azure PowerShell](/powershell/azure/overview) cmdlet을 사용합니다.
 
 미국 서부 하위 지역에서 이름이 myVM인 기존 RDMA 지원 VM에 최신 버전 1.1 HpcVMDrivers 확장을 설치하려면
   ```PowerShell
