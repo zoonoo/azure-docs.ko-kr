@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515355"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273802"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -46,7 +46,7 @@ Azure Cost Management에는 지출을 계획, 분석 및 절약하여 클라우�
 - 해결해야 하는 비즈니스 문제가 무엇입니까?
 - 리소스에서 어떤 사용 패턴을 기대합니까?
 
-이러한 질문에 대한 답변은 가장 적합한 제안을 선택하는 데 도움이 됩니다. 답변에 따라 사용할 인프라와 Azure 효율성을 극대화하는 방법이 결정됩니다.
+이러한 질문에 대한 답변은 가장 적합한 제품을 선택하는 데 도움이 됩니다. 답변에 따라 사용할 인프라와 Azure 효율성을 극대화하는 방법이 결정됩니다.
 
 #### <a name="visibility"></a>표시 유형
 
@@ -105,7 +105,7 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 
 ## <a name="estimate-the-cost-of-your-solution"></a>솔루션 비용 예측
 
-인프라를 배포하기 전에, 솔루션 비용을 평가합니다. 평가를 수행하면 워크로드에 대한 조직의 예산을 미리 작성하는 데 도움이 됩니다. 그런 다음 시간 경과에 따른 예산을 사용하여 초기 예측의 유효성을 벤치마킹할 수 있습니다. 또한 배포한 솔루션의 실제 비용과 비교할 수도 있습니다.
+인프라를 배포하기 전에, 솔루션 비용을 평가합니다. 평가를 수행하면 워크로드에 대한 조직의 예산을 미리 작성하는 데 도움이 됩니다. 그런 다음, 시간 경과에 따른 예산을 사용하여 초기 예측의 유효성을 벤치마킹할 수 있습니다. 또한 배포한 솔루션의 실제 비용과 비교할 수도 있습니다.
 
 ### <a name="azure-pricing-calculator"></a>Azure 요금 계산기
 
@@ -177,7 +177,7 @@ Azure는 조직에서 비용을 절약하기 위해 활용할 수 있는 많은 
 
 #### <a name="azure-reservations"></a>Azure Reservations
 
-Azure Reservations을 통해 1년 또는 3년에 해당하는 가상 머신 비용 또는 SQL Database 계산 용량을 선불로 결제할 수 있습니다. 선불로 결제하면 사용하는 리소스에 대해 할인 혜택을 받을 수 있습니다. Azure Reservations는 1년 또는 3년 사전 약정을 통해 가상 머신 또는 SQL 데이터베이스 계산 비용을 상당히(종량제 가격의 최대 72%까지) 절약할 수 있습니다. Reservations에는 청구 할인이 제공되며, 가상 머신이나 SQL 데이터베이스의 런타임 상태에 영향을 주지 않습니다.
+Azure Reservations를 통해 1년 또는 3년에 해당하는 가상 머신 비용 또는 SQL Database 컴퓨팅 용량을 선불로 결제할 수 있습니다. 선불로 결제하면 사용하는 리소스에 대해 할인 혜택을 받을 수 있습니다. Azure Reservations는 1년 또는 3년 사전 약정을 통해 가상 머신 또는 SQL 데이터베이스 컴퓨팅 비용을 종량제 가격의 최대 72%까지 절약할 수 있습니다. Reservations에는 청구 할인이 제공되며, 가상 머신이나 SQL 데이터베이스의 런타임 상태에 영향을 주지 않습니다.
 
 자세한 내용은 [Azure Reservations란?](../billing/billing-save-compute-costs-reservations.md)을 참조하세요.
 

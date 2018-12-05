@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 6613def8891109e3a0ddf818111898a893a8035d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628847"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161880"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java Enterprise 가이드
 
@@ -27,17 +27,18 @@ Linux 기반의 Azure App Service는 Java 개발자가 JEE(Java Enterprise) 애�
 
 ## <a name="scale-with-app-service"></a>App Service의 크기 조정 
 
-Linux 기반의 App Service에서 실행 중인 WildFly 애플리케이션 서버는 도메인 구성이 아닌 독립 실행형 모드에서 실행됩니다. 
+Linux 기반의 App Service에서 실행 중인 WildFly 애플리케이션 서버는 도메인 구성이 아닌 독립 실행형 모드에서 실행됩니다. App Service 계획을 확장할 때 각 WildFly 인스턴스는 독립 실행형 서버로 구성됩니다.
 
- [크기 조정 규칙](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json)을 사용하고 [인스턴스 수를 늘려서](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 애플리케이션을 수직 또는 수평적으로 확장합니다.
+ [크기 조정 규칙](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json)을 사용하고 [인스턴스 수를 늘려서](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 애플리케이션을 수직 또는 수평적으로 확장합니다. 
 
 ## <a name="customize-application-server-configuration"></a>사용자 지정 애플리케이션 서버 구성
 
-개발자는 다음과 같이 시작 Bash 스크립트를 작성하여 애플리케이션에 필요한 추가 구성을 실행할 수 있습니다.
+웹앱 인스턴스는 상태 비저장이므로 시작된 새로운 각 인스턴스는 애플리케이션에서 필요한 Wildfly 구성을 지원하도록 시작 시 구성되어야 합니다.
+다음을 수행하기 위해 WildFly CLI를 호출하도록 시작 Bash 스크립트를 작성할 수 있습니다.
 
 - 데이터 원본 설정
 - 메시징 공급자 구성
-- Wildfly 서버 구성에 다른 모듈 및 종속성 추가
+- Wildfly 서버 구성에 다른 모듈 및 종속성을 추가합니다.
 
  Wildfly는 작동되어 실행되지만 애플리케이션은 시작되기 전에 스크립트가 실행됩니다. 스크립트는 `/opt/jboss/wildfly/bin/jboss-cli.sh`에서 호출된 [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)를 사용하여 서버를 시작한 후 필요한 구성 또는 변경 사항을 사용하여 애플리케이션 서버를 구성해야 합니다. 
 
@@ -51,7 +52,7 @@ Wildfly를 구성하는 데 CLI의 대화형 모드를 사용하지 마십시오
 
 다음 예와 같이 Azure Portal의 **시작 스크립트** 필드를 시작 셸 스크립트의 위치에 설정합니다. `/home/site/deployments/tools/your-startup-script.sh`
 
-[애플리케이션 설정](/azure/app-service/web-sites-configure#application-settings)을 사용하여 스크립트에서 사용할 환경 변수를 설정합니다. 이러한 설정은 시작 스크립트 환경에서 사용할 수 있도록 만들어지며, 버전 제어 외부에서 연결 문자열 및 기타 비밀을 유지합니다.
+애플리케이션 구성에서 [애플리케이션 설정](/azure/app-service/web-sites-configure#application-settings)을 제공하여 스크립트에서 사용하기 위한 환경 변수를 전달합니다. 애플리케이션 설정은 연결 문자열 및 버전 제어에서 벗어나도록 애플리케이션을 구성하는 데 필요한 기타 비밀을 유지합니다.
 
 ## <a name="modules-and-dependencies"></a>모듈 및 종속성
 

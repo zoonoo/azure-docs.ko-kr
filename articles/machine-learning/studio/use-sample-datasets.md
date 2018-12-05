@@ -1,10 +1,11 @@
 ---
-title: Machine Learning Studio에서 샘플 데이터 집합 사용 | Microsoft Docs
+title: 샘플 데이터 세트 사용 - Azure Machine Learning Studio | Microsoft Docs
 description: Machine Learning Studio에 포함된 샘플 모델에서 사용되는 데이터 집합을 설명합니다. 실험에 대해 이 샘플 데이터 집합을 사용할 수 있습니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 7a90a8f05082e2c0731f9f112d3e56ecaf4ea55b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398804"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308837"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 집합 사용
 [top]: #machine-learning-sample-datasets

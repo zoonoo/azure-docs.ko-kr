@@ -1,10 +1,11 @@
 ---
-title: Machine Learning을 사용하여 고객 이탈 분석 | Microsoft Docs
-description: 고객 이탈을 분석하고 채점하는 통합 모델 개발에 대한 사례 연구
+title: Azure Machine Learning Studio를 사용하여 고객 이탈 분석 | Microsoft Docs
+description: Azure Machine Learning Studio를 사용하여 고객 이탈을 분석하고 채점하는 통합 모델 개발에 대한 사례 연구입니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1beba951a6785aa90eef22a63a8064e9da1bb27f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835120"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314987"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 고객 이탈 분석
+# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 사용하여 고객 이탈 분석
 ## <a name="overview"></a>개요
 이 문서에서는 Azure Machine Learning을 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 Machine Learning을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
 

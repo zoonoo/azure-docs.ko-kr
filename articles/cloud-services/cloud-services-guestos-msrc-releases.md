@@ -11,17 +11,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/12/2018
+ms.date: 11/15/2018
 ms.author: raiye
-ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578776"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854274"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="november-2018-guest-os"></a>2018년 11월 게스트 OS
+
+>[!NOTE]
+>11월 게스트 OS는 자동 업데이트용으로 구성된 클라우드 서비스 VM으로 롤아웃 중입니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 11월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다.
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | 2018년 11월 13일 |
+| Rel 18-11 | [4467694] | 깜박임 | 3.67, 4.60, 5.25 | 2018년 11월 13일 |
+| Rel 18-11 | [4467106] | Windows 보안 | 2.80 | 2018년 11월 13일 |
+| Rel 18-11 | [4467678] | Windows 보안 | 3.67 | 2018년 11월 13일 |
+| Rel 18-11 | [4467703] | Windows 보안 | 4.60 | 2018년 11월 13일 |
+| Rel 18-11 | [4467691] | Windows 10 보안 | 5.25 | 2018년 11월 13일 |
+| 해당 없음 | [3173426] | 서비스 스택 업데이트 | 3.67 | 2016년 7월 12일 |
+| 해당 없음 | [4465659] | 서비스 스택 업데이트 | 5.25 | 2018년 11월 13일 |
+| 해당 없음 | [4462923] | 10월 비보안 롤업 | 2.80 | 2018년 10월 9일 |
+| 해당 없음 | [4462929] | 10월 비보안 롤업 | 3.67 | 2018년 10월 9일 |
+| 해당 없음 | [4462926] | 10월 비보안 롤업 | 4.60 | 2018년 10월 9일 |
+| 해당 없음 | [3109976] | 앱 호환성 shim | 4.60 | 2016년 4월 12일 |
+| 해당 없음 | [4457037] | 앱 호환성 shim | 4.60| 2018년 6월 12일 |
+
+[4466536]: http://support.microsoft.com/kb/4466536
+[4467694]: http://support.microsoft.com/kb/4467694
+[4467106]: http://support.microsoft.com/kb/4467106
+[4467678]: http://support.microsoft.com/kb/4467678
+[4467703]: http://support.microsoft.com/kb/4467703
+[4467691]: http://support.microsoft.com/kb/4467691
+[3173426]: http://support.microsoft.com/kb/3173426
+[4465659]: http://support.microsoft.com/kb/4465659
+[4462923]: http://support.microsoft.com/kb/4462923
+[4462929]: http://support.microsoft.com/kb/4462929
+[4462926]: http://support.microsoft.com/kb/4462926
+[3109976]: http://support.microsoft.com/kb/3109976
+[4457037]: http://support.microsoft.com/kb/4457037
 
 ## <a name="october-2018-guest-os"></a>2018년 10월 게스트 OS
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 463c74638b0e50348b8c9454334b7457e7b570e6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283889"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423350"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure Cosmos DB 글로벌 배포 - 내부 살펴보기
 
@@ -72,7 +72,7 @@ Cosmos 데이터베이스 지역으로 구성된 각각의 실제 파티션 그�
 
 Cosmos 데이터베이스를 단일 쓰기 지역 또는 다중 쓰기 지역으로 구성하든지에 상관 없이 잘 정의된 5가지 일관성 모델 중에서 선택할 수 있습니다. 다중 쓰기 지역을 사용하도록 설정하기 위해 새로 추가된 지원에서는 다음과 같이 일관성 수준에서 몇 가지 주목할 만한 측면이 있습니다.  
 
-이전과 같이, 제한된 부실 지속성은 모든 읽기가 어떠한 지역의 최신 쓰기로부터 k개 접두사 또는 t초 내에 있게 됨을 보장합니다. 또한, 제한된 부실 지속성은 단조 및 일관된 접두사 보증을 제공합니다. 엔트로피 방지 프로토콜은 속도 제한 방식으로 작동하며, 접두사가 누적되지 않고 쓰기에서 역 압력을 적용할 필요가 없음을 보장합니다. 이전과 마찬가지로 세션 일관성은 전 세계적으로 단조 읽기, 단조 쓰기, 사용자 고유의 쓰기 읽기, 쓰기 후 읽기 및 일관된 접두사 보증을 보장합니다. 강력한 일관성으로 구성된 데이터베이스의 경우, 시스템은 각 파티션 집합 내에서 리더를 지정하여 단일 쓰기 지역으로 다시 전환합니다. 
+이전과 같이, 제한된 부실 지속성은 모든 읽기가 어떠한 지역의 최신 쓰기로부터 k개 접두사 또는 t초 내에 있게 됨을 보장합니다. 또한, 제한된 부실 지속성은 단조 및 일관된 접두사 보증을 제공합니다. 엔트로피 방지 프로토콜은 속도 제한 방식으로 작동하며, 접두사가 누적되지 않고 쓰기에서 역 압력을 적용할 필요가 없음을 보장합니다. 이전과 마찬가지로 세션 일관성은 전 세계적으로 단조 읽기, 단조 쓰기, 사용자 고유의 쓰기 읽기, 쓰기 후 읽기 및 일관된 접두사 보증을 보장합니다. 강력한 일관성으로 구성된 데이터베이스의 경우 다중 마스터(짧은 쓰기 대기 시간, 높은 쓰기 가용성)의 이점은 지역 간 동기 복제로 인해 적용되지 않습니다.
 
 Cosmos DB의 5가지 일관성 모델의 의미 체계는 [여기](consistency-levels.md)에서 설명하며, 고수준 TLA+ 사양을 사용한 수학적인 설명은 [여기](https://github.com/Azure/azure-cosmos-tla)에서 확인할 수 있습니다.
 
@@ -81,5 +81,5 @@ Cosmos DB의 5가지 일관성 모델의 의미 체계는 [여기](consistency-l
 이제 다음 문서를 사용하여 글로벌 배포를 구성하는 방법을 알아봅니다.
 
 * [클라이언트에서 멀티 호밍(multi-homing)을 구성하는 방법](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [데이터베이스에서 지역을 추가/제거하는 방법](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [데이터베이스 계정에서 지역 추가/제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [SQL API 계정에 대한 사용자 지정 충돌 해결 정책을 만드는 방법](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

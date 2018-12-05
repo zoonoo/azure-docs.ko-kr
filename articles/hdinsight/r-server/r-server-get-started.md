@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 0811f0e115545a37b6c570c436900a8548adae61
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006365"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496463"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 시작
 
-Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습니다. 이 옵션을 사용하면 R 스크립트에서 Spark 및 MapReduce를 사용하여 분산된 계산을 실행할 수 있습니다. 이 아티클에서는 HDInsight에서 ML 서비스 클러스터를 만드는 방법 및 R 스크립트를 실행하여 분산된 R 계산에 Spark를 사용하는 방법을 알아봅니다.
+Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습니다. 이 옵션을 사용하면 R 스크립트에서 [Apache Spark](https://spark.apache.org/) 및 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)를 사용하여 분산 컴퓨팅을 실행할 수 있습니다. 이 아티클에서는 HDInsight에서 ML 서비스 클러스터를 만드는 방법 및 R 스크립트를 실행하여 분산된 R 계산에 Spark를 사용하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,7 +37,7 @@ Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습�
 
     * **클러스터 이름**: HDInsight 클러스터의 이름입니다.
     * **구독**: 사용할 구독을 선택합니다.
-    * **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**: HTTPS를 통해 클러스터에 액세스할 때 로그인입니다. 이러한 자격 증명을 사용하여 Ambari Web UI 또는 REST API와 같은 서비스에 액세스합니다.
+    * **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**: HTTPS를 통해 클러스터에 액세스할 때 로그인입니다. 이러한 자격 증명을 사용하여 Apache Ambari Web UI 또는 REST API와 같은 서비스에 액세스합니다.
     * **SSH(보안 셸) 사용자 이름**: SSH를 통해 클러스터에 액세스할 때 사용되는 로그인입니다. 기본적으로 암호는 클러스터 로그인 암호와 동일합니다.
     * **리소스 그룹**: 클러스터를 만들어 놓은 리소스 그룹입니다.
     * **위치**: 클러스터를 만들어 놓은 Azure 지역입니다.

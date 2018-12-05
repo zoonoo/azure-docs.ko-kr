@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 70c19b394b5c5702a0ec0f18aa3bbd0c05e39dfd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249798"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582747"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -29,7 +29,7 @@ ms.locfileid: "51249798"
 Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 응용 프로그램 둘 다에서 동일한 암호로 로그인할 수 있습니다. 통과 인증은 사용자의 암호를 온-프레미스 Active Directory와 직접 비교하여 유효성을 검사하고 사용자를 로그인합니다.
 
 >[!IMPORTANT]
->AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 경우 [여기](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx)에 게시된 자세한 배포 가이드를 따르는 것이 좋습니다.
+>AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 경우 [여기](https://aka.ms/adfstoPTADPDownload)에 게시된 자세한 배포 가이드를 따르는 것이 좋습니다.
 
 통과 인증을 테넌트에 배포하려면 다음 지침을 따릅니다.
 
@@ -44,13 +44,13 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 
-1. Azure AD Connect를 실행할 수 있도록 Windows Server 2012 R2 이상을 실행 중인 서버를 찾습니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
+1. Azure AD Connect를 실행할 수 있도록 Windows Server 2012 R2 이상을 실행 중인 서버를 찾습니다. 아직 사용하지 않는 경우 [서버에서 TLS 1.2를 사용하도록 설정](./how-to-connect-install-prerequisites.md#enable-tls-12-for-azure-ad-connect)합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
 2. 이전 단계에서 찾은 서버에 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 설치합니다. Azure AD Connect가 이미 실행되고 있는 경우 버전이 1.1.750.0 이상인지 확인합니다.
 
     >[!NOTE]
     >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470)를 참조하세요.
 
-3. 독립 실행형 인증 에이전트를 실행할 수 있도록 Windows Server 2012 R2 이상을 실행 중인 하나 이상의 추가 서버를 찾습니다. 이러한 추가 서버는 로그인 요청의 고가용성을 보장하기 위해 필요합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
+3. 독립 실행형 인증 에이전트를 실행할 수 있도록 TLS 1.2를 사용하도록 설정한 Windows Server 2012 R2 이상을 실행 중인 하나 이상의 추가 서버를 찾습니다. 이러한 추가 서버는 로그인 요청의 고가용성을 보장하기 위해 필요합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
 
     >[!IMPORTANT]
     >프로덕션 환경의 테넌트에서 실행되는 최소 3개의 인증 에이전트를 확보하는 것이 좋습니다. 테넌트당 인증 에이전트 12개로 지정된 시스템 제한이 있습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
@@ -85,7 +85,7 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 ![Azure AD Connect: 사용자 로그인 변경](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->통과 인증은 테넌트 수준 기능입니다. 기능을 켜면 테넌트의 _모든_ 관리되는 도메인에서 사용자 로그인에 영향을 줍니다. AD FS(Active Directory Federation Services)에서 통과 인증으로 전환하는 경우 적어도 12시간 이상 기다린 후 AD FS 인프라를 종료해야 합니다. 이 대기 시간은 전환하는 동안 사용자가 Exchange ActiveSync에 계속 로그인할 수 있도록 유지하기 위한 시간입니다. AD FS에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 도움말은 [여기](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx)에 게시된 자세한 배포 가이드를 확인합니다.
+>통과 인증은 테넌트 수준 기능입니다. 기능을 켜면 테넌트의 _모든_ 관리되는 도메인에서 사용자 로그인에 영향을 줍니다. AD FS(Active Directory Federation Services)에서 통과 인증으로 전환하는 경우 적어도 12시간 이상 기다린 후 AD FS 인프라를 종료해야 합니다. 이 대기 시간은 전환하는 동안 사용자가 Exchange ActiveSync에 계속 로그인할 수 있도록 유지하기 위한 시간입니다. AD FS에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 도움말은 [여기](https://aka.ms/adfstoptadpdownload)에 게시된 자세한 배포 계획을 확인합니다.
 
 ## <a name="step-3-test-the-feature"></a>3단계: 기능 테스트
 

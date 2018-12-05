@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e6c4097f4886213bde8adcaac51f36a3bfef702
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f9d786988cb547771b8fd999b911bd228cdc3e2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010302"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311044"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight에서 Apache HBase 예제 시작
 
-HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hive를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다. 일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
+HDInsight에서 [Apache HBase](http://hbase.apache.org/) 클러스터를 만들고, HBase 테이블을 만들고 [Apache Hive](https://hive.apache.org/)를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다.  일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -30,7 +30,7 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 * [SSH(Secure Shell)](../hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
-## <a name="create-hbase-cluster"></a>HBase 클러스터 만들기
+## <a name="create-apache-hbase-cluster"></a>Apache HBase 클러스터 만들기
 다음 절차에서는 Azure Resource Manager 템플릿을 사용하여 HBase 클러스터 및 종속된 기본 Azure Storage 계정을 만듭니다. 절차에 사용되는 매개 변수와 다른 클러스터 생성 메서드를 이해하려면 [HDInsight에서 Linux 기반 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
 1. Azure 포털에서 템플릿을 열려면 다음 이미지를 클릭합니다. 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에 있습니다.
@@ -56,13 +56,13 @@ HDInsight에서 HBase 클러스터를 만들고, HBase 테이블을 만들고 Hi
 > 
 
 ## <a name="create-tables-and-insert-data"></a>테이블 만들기 및 데이터 삽입
-SSH를 사용하여 HBase 클러스터를 연결하고 HBase 셸을 사용하여 HBase 테이블을 만들고 데이터 및 쿼리 데이터를 삽입할 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+SSH를 사용하여 HBase 클러스터를 연결하고 [Apache HBase 셸](http://hbase.apache.org/0.94/book/shell.html)을 사용하여 HBase 테이블을 만들고 데이터 및 쿼리 데이터를 삽입할 수 있습니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 대부분의 사람들의 경우, 데이터는 테이블 형식으로 나타납니다.
 
 ![HDInsight HBase 테이블 형식 데이터][img-hbase-sample-data-tabular]
 
-BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시됩니다.
+[Cloud BigTable](https://cloud.google.com/bigtable/)의 구현인 HBase에서는 동일한 데이터가 다음과 같이 표시됩니다.
 
 ![HDInsight HBase BigTable 데이터][img-hbase-sample-data-bigtable]
 
@@ -100,7 +100,7 @@ BigTable의 구현인 HBase에서 동일한 데이터는 다음과 같이 표시
    
     행이 하나만 있기 때문에 스캔 명령을 사용하여 동일한 결과가 표시됩니다.
    
-    HBase 테이블 스키마에 대한 자세한 내용은 [HBase 스키마 디자인 소개][hbase-schema]를 참조하세요. HBase 명령에 대한 자세한 내용은 [Apache HBase 참조 가이드][hbase-quick-start]를 참조하세요.
+    HBase 테이블 스키마에 대한 자세한 내용은 [Apache HBase 스키마 디자인 소개][hbase-schema]를 참조하세요. HBase 명령에 대한 자세한 내용은 [Apache HBase 참조 가이드][hbase-quick-start]를 참조하세요.
 5. 셸 종료
    
     ```hbaseshell
@@ -124,7 +124,7 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-필요에 따라 텍스트 파일을 만들고 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침에 대해서는 [HDInsight에서 Hadoop 작업용 데이터 업로드][hdinsight-upload-data]를 참조하세요.
+필요에 따라 텍스트 파일을 만들고 고유한 저장소 계정에 파일을 업로드할 수 있습니다. 지침에 대해서는 [HDInsight에서 Apache Hadoop 작업용 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
 > [!NOTE]
 > 이 절차는 마지막 절차에서 만든 연락처 HBase 테이블을 사용합니다.
@@ -144,9 +144,9 @@ HBase는 테이블로 데이터를 로드하는 여러 방법을 포함합니다
 
 3. HBase 셸을 열고 스캔 명령을 사용하여 테이블 내용을 나열할 수 있습니다.
 
-## <a name="use-hive-to-query-hbase"></a>Hive를 사용하여 HBase 쿼리
+## <a name="use-apache-hive-to-query-apache-hbase"></a>Apache Hive를 사용하여 Apache HBase 쿼리
 
-Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다. 이 섹션에서는 HBase 테이블에 매핑되는 Hive 테이블을 만들고 이를 사용하여 HBase 테이블의 데이터를 쿼리합니다.
+[Apache Hive](https://hive.apache.org/)를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다. 이 섹션에서는 HBase 테이블에 매핑되는 Hive 테이블을 만들고 이를 사용하여 HBase 테이블의 데이터를 쿼리합니다.
 
 1. **PuTTY**를 열고 클러스터에 연결합니다.  이전 절차의 지침을 참조하세요.
 2. SSH 세션에서 다음 명령을 사용하여 Beeline을 시작합니다.
@@ -157,7 +157,7 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
     Beeline에 대한 자세한 내용은 [Beeline을 사용하여 HDInsight에서 Hadoop과 Hive 사용](../hadoop/apache-hadoop-use-hive-beeline.md)을 참조하세요.
        
-3. 다음 HiveQL 스크립트를 실행하여 HBase 테이블에 매핑되는 Hive 테이블을 만듭니다. 이 문을 실행하기 전에 HBase 셸을 사용하여 이 자습서의 앞에서 참조한 샘플 테이블을 만들었는지 확인합니다.
+3. 다음 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 스크립트를 실행하여 HBase 테이블에 매핑되는 Hive 테이블을 만듭니다. 이 문을 실행하기 전에 HBase 셸을 사용하여 이 자습서의 앞에서 참조한 샘플 테이블을 만들었는지 확인합니다.
 
     ```hiveql   
     CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -268,13 +268,14 @@ HDInsight에서 HBase는 클러스터 모니터링에 대한 웹 UI와 함께 �
 HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스 제어 요구 사항](../hdinsight-administer-use-portal-linux.md#create-clusters)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 HBase 클러스터를 만드는 방법 및 테이블을 만들고 HBase 셸의 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
+이 문서에서는 Apache HBase 클러스터를 만드는 방법 및 테이블을 만들고 HBase 셸의 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
 
 자세한 내용은 다음을 참조하세요.
 
-* [HDInsight HBase 개요][hdinsight-hbase-overview]: HBase는 대량의 비구조적/반구조적 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
+* [HDInsight HBase 개요][hdinsight-hbase-overview]: Apache HBase는 대량의 비구조적/반구조적 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Apache Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
+
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hbase-reference]: http://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf

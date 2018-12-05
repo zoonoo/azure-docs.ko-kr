@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 589aae8321d2c081f09ed46d9def2229d3973ffd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 35869e0a345299f2b0724f01201154fc8d090e4f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613211"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975382"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
@@ -53,7 +53,7 @@ Azure 리소스에 대해 사용할 수 있는 최신 메트릭은 다음과 같
 - 현재 Azure Portal의 [경고(클래식) 섹션](monitoring-overview-alerts-classic.md)을 통해 사용할 수 있는 Application Insights에 대한 이전(클래식) 플랫폼과 사용자 지정 메트릭 및 관련 경고이며, [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 리소스로 액세스할 수 있습니다.
 - 현재 Azure Porta에서 [Application Insights 내 스마트 검색](../application-insights/app-insights-proactive-diagnostics.md)으로 사용할 수 있는 이전(클래식) 오류 이상 경고이며, Azure Portal의 [경고(클래식) 섹션](monitoring-overview-alerts-classic.md)에 표시된 경고 구성도 포함됩니다.
 
-해당 [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), Azure Portal 페이지 및 [리소스 템플릿](monitoring-enable-alerts-using-template.md)이 포함된 모든 클래식 모니터링 및 경고 시스템은 2019년 6월까지 사용할 수 있습니다. 이 날짜 이후에는 클래식 모니터링 및 경고 서비스가 사용 중지되어 더 이상 사용할 수 없게 됩니다. 2019년 6월 이후 경고(클래식)에 계속 존재하는 모든 경고 규칙은 계속 실행되지만 수정할 수는 없습니다.
+해당 [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure Portal 페이지](alert-metric-classic.md) 및 [리소스 템플릿](monitoring-enable-alerts-using-template.md)이 포함된 모든 클래식 모니터링 및 경고 시스템은 2019년 6월까지 사용할 수 있습니다. 이 날짜 이후에는 클래식 모니터링 및 경고 서비스가 사용 중지되어 더 이상 사용할 수 없게 됩니다. 2019년 6월 이후 경고(클래식)에 계속 존재하는 모든 경고 규칙은 계속 실행되지만 수정할 수는 없습니다.
 
 2019년 6월 이후 클래식 모니터링 및 경고 플랫폼에 남아 있는 모든 경고는 2019년 7월에 Microsoft에서 새 Azure 모니터 플랫폼의 해당 경고로 자동으로 마이그레이션합니다. 이 프로세스는 가동 중지 시간 없이 원활하게 진행되며 고객이 모니터링 범위를 손실하지 않도록 보장합니다.
 

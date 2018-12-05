@@ -12,15 +12,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 74b2cea8e3adfb6689d4ac7049e7892f8f0ecf4a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158859"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582636"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -84,7 +84,9 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 
 단일 Azure AD 테넌트에 Azure AD Connect Sync 서버를 두 개 이상 연결하는 것은 지원되지 않습니다. [준비 서버](#staging-server)사용은 예외입니다.
 
-### <a name="multiple-forests-separate-topologies"></a>다중 포리스트, 별도의 토폴로지
+단일 Azure AD 테넌트에 연결된 **여러 동기화 서버**와 다른 이 토폴로지는 지원되지 않습니다.
+
+### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>여러 포리스트, 단일 동기화 서버, 사용자가 하나의 디렉터리에 표시됩니다
 ![모든 디렉터리에서 사용자를 한 번만 표시하는 옵션](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
 ![다중 포리스트 및 별도의 토폴로지에 대한 설명](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)

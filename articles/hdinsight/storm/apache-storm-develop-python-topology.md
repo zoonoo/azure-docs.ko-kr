@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: b46fa5eb9772a19a5613fc276071167d884f6057
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 04046b4c7c36418b9024a690ad5279f9e34578a5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008762"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583638"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
-Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다. Apache Storm은 여러 언어를 지원하여 한 토폴로지에 여러 언어의 구성 요소를 결합할 수 있습니다. Flux 프레임워크(Storm 0.10.0에서 소개)를 사용하면 Python 구성 요소를 사용하는 솔루션을 쉽게 만들 수 있습니다.
+Python 구성 요소를 사용하는 [Apache Storm](http://storm.apache.org/) 토폴로지를 만드는 방법에 대해 알아봅니다. Apache Storm은 여러 언어를 지원하여 한 토폴로지에 여러 언어의 구성 요소를 결합할 수 있습니다. [Flux](http://storm.apache.org/releases/current/flux.html) 프레임워크(Storm 0.10.0에서 소개)를 사용하면 Python 구성 요소를 사용하는 솔루션을 쉽게 만들 수 있습니다.
 
 > [!IMPORTANT]
 > 이 문서의 정보는 HDInsight 3.6에서 Storm을 사용하여 테스트했습니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -32,7 +32,7 @@ Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방�
 
 * JDK Java 1.8 이상
 
-* Maven 3
+* [Apache Maven 3](https://maven.apache.org/download.cgi)
 
 * (선택 사항) 로컬 Storm 개발 환경 - 로컬 Storm 환경은 토폴로지를 로컬로 실행하려는 경우에만 필요합니다. 자세한 내용은 [개발 환경 설정](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html)(영문)을 참조하세요.
 
@@ -148,5 +148,5 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 
 HDInsight와 함께 Python을 사용하는 다른 방법은 다음 문서를 참조하세요.
 
-* [MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법](../hadoop/apache-hadoop-streaming-python.md)
-* [Pig 및 Hive에서 UDF(사용자 정의 함수)를 사용하는 방법](../hadoop/python-udf-hdinsight.md)
+* [Apache Hadoop MapReduce 작업을 스트리밍하는 데 Python을 사용하는 방법](../hadoop/apache-hadoop-streaming-python.md)
+* [Apache Pig 및 Apache Hive에서 UDF(사용자 정의 함수)를 사용하는 방법](../hadoop/python-udf-hdinsight.md)

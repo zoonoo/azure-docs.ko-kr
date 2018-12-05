@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 74d8629eb8fc29f3cb572be0b1ccb8b6149ab971
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016287"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499460"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight의 ML Services 및 오픈 소스 기능 소개
 
@@ -27,7 +27,7 @@ Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러�
 
 HDInsight의 ML Services는 Azure Blob 또는 Data Lake Store에 로드된 거의 모든 크기의 데이터 집합에서 R 기반 분석을 위한 최신 기능을 제공합니다. ML Services 클러스터는 오픈 소스 R을 기반으로 하기 때문에 빌드한 R 기반 응용 프로그램은 8000개 이상의 오픈 소스 R 패키지를 활용할 수 있습니다. Microsoft의 빅 데이터 분석 패키지인 ScaleR의 루틴도 사용 가능합니다.
 
-클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 ScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 ScaleR의 Hadoop Map Reduce 또는 Spark 계산 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
+클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 ScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 ScaleR의 Hadoop Map Reduce 또는 Apache Spark 컴퓨팅 컨텍스트를 사용하여 클러스터의 노드 전반에 함수를 실행할 수도 있습니다.
 
 분석 결과에서 얻은 모델 또는 예측을 온-프레미스 용도로 다운로드할 수 있습니다. 또한 특히 [Azure Machine Learning Studio](http://studio.azureml.net) [웹 서비스](../../machine-learning/studio/publish-a-machine-learning-web-service.md)를 통해 Azure의 다른 곳에서 작동할 수 있습니다.
 
@@ -114,7 +114,7 @@ R 스크립트의 단계 대부분이 에지 노드에서 실행되므로 사용
 
 이러한 경우 클러스터를 만든 후에 스크립트 작업을 통해 추가 패키지를 설치할 수 있습니다. 자세한 내용은 [HDInsight 클러스터에서 ML Services 관리](r-server-hdinsight-manage.md)를 참조하세요.
 
-### <a name="change-hadoop-mapreduce-memory-settings"></a>Hadoop Map Reduce 메모리 설정 변경
+### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>Apache Hadoop MapReduce 메모리 설정 변경
 
 Map Reduce 작업을 실행할 때 ML Services에 사용 가능한 메모리 양을 변경하기 위해 클러스터를 수정할 수 있습니다. 클러스터를 수정하려면 클러스터의 Azure 포털 블레이드를 통해 제공되는 Apache Ambari UI를 사용합니다. 클러스터의 Ambari UI에 액세스하는 방법에 대한 지침은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](../hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945742"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308127"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -150,28 +150,36 @@ SuSE Linux는 symlink를 사용하여 인증서 목록을 유지 관리하므로
 
 Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>문제 1: Site Recovery에 Azure 가상 머신을 등록하지 못했습니다(151037). </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>문제 1: Site Recovery에 Azure 가상 머신을 등록하지 못했습니다(151195). </br>
 - **가능한 원인** </br>
-  - VM에서 NSG를 사용하여 아웃바운드 액세스를 제어하고 있으며 아웃바운드 액세스에 필요한 IP 범위가 허용 목록에 없습니다.
-  - 타사 방화벽 도구를 사용하고 있으며 필요한 IP 범위/URL이 허용 목록에 없습니다.
+  - DNS를 확인할 수 없어 사이트 복구 엔드포인트에 대한 연결을 설정할 수 없습니다.
+  - 가상 머신을 장애 조치(failover)했지만 DR 지역에서 DNS 서버에 도달할 수 없는 경우 재보호 기간에 자주 발생합니다.
+  
+- **해결 방법**
+   - 사용자 지정 DNS를 사용하는 경우 재해 복구 지역에서 DNS 서버에 액세스할 수 있는지 확인합니다. 사용자 지정 DNS가 있는지 확인하려면 VM > 재해 복구 네트워크 > DNS 서버로 이동합니다. 가상 머신에서 DNS 서버에 액세스를 시도합니다. 액세스할 수 없는 경우 DNS 서버를 장애 조치(failover)하거나 DR 네트워크와 DNS 사이를 연결하여 액세스 가능하게 만듭니다.
+  
+    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+ 
 
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>문제 2: Site Recovery 구성이 실패했습니다(151196).
+- **가능한 원인** </br>
+  - Office 365 인증에 연결하여 IP4 엔드포인트를 식별할 수 없습니다.
 
 - **해결 방법**
-   - 방화벽 프록시를 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 URL 또는 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [방화벽 프록시 지침](https://aka.ms/a2a-firewall-proxy-guidance)을 참조하세요.
-   - NSG 규칙을 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [네트워크 보안 그룹 지침](azure-to-azure-about-networking.md)을 참조하세요.
-   - [필요한 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필요한 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)가 허용 목록에 있도록 하려면 [네트워킹 지침 문서](azure-to-azure-about-networking.md)의 단계에 따릅니다.
+  - Azure Site Recovery는 인증을 위해 Office 365 IP 범위에 액세스할 수 있어야 합니다.
+    Azure NSG(네트워크 보안 그룹) 규칙/방화벽 프록시를 사용하여 VM의 아웃바운드 네트워크 연결을 제어하는 경우 O365 IP 범위로의 통신을 허용해야 합니다. AAD에 해당하는 모든 IP 주소에 대한 액세스를 허용하는 [AAD(Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 NSG 규칙을 만드세요.
+        - 나중에 AAD(Azure Active Directory)에 새 주소가 추가될 때 새 NSG 규칙을 만들어야 합니다.
 
-### <a name="issue-2-site-recovery-configuration-failed-151072"></a>문제 2: Site Recovery 구성이 실패했습니다(151072).
+
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>문제 3: Site Recovery 구성이 실패했습니다(151197).
 - **가능한 원인** </br>
-  - Site Recovery 서비스 엔드포인트에 연결을 설정할 수 없습니다.
-
+  - Azure Site Recovery 서비스 엔드포인트에 연결할 수 없습니다.
 
 - **해결 방법**
-   - 방화벽 프록시를 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 URL 또는 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [방화벽 프록시 지침](https://aka.ms/a2a-firewall-proxy-guidance)을 참조하세요.
-   - NSG 규칙을 사용하여 VM에서 아웃바운드 네트워크 연결을 제어하는 경우 필수 구성 요소 데이터 센터 IP 범위가 허용 목록에 있는지 확인합니다. 자세한 내용은 [네트워크 보안 그룹 지침](https://aka.ms/a2a-nsg-guidance)을 참조하세요.
-   - [필요한 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 또는 [필요한 IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)가 허용 목록에 있도록 하려면 [네트워킹 지침 문서](site-recovery-azure-to-azure-networking-guidance.md)의 단계에 따릅니다.
+  - Azure Site Recovery는 지역에 따라 [Site Recovery IP 범위](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)에 액세스할 수 있어야 합니다. 가상 머신에서 필요한 ip 범위에 액세스할 수 있는지 확인합니다.
+    
 
-### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>문제 3: 네트워크 트래픽이 온-프레미스 프록시 서버를 통과할 때 A2A 복제가 실패했습니다(151072).
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버를 통과할 때 A2A 복제가 실패했습니다(151072).
  - **가능한 원인** </br>
    - 사용자 지정 프록시 설정이 유효하지 않으며 ASR Mobility Service 에이전트가 IE에서 프록시 설정을 자동으로 검색하지 않았습니다.
 

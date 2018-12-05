@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016049"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311809"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -76,6 +76,8 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 **ITSM** - ITSM 작업이 ITSM 연결을 요구하는 한 작업 그룹에 최대 10개의 ITSM 작업이 있을 수 있습니다. [ITSM 연결](../log-analytics/log-analytics-itsmc-overview.md)을 만드는 방법에 대해 알아봅니다.
 
 **논리 앱** - 한 작업 그룹에 최대 10개의 논리 앱 작업이 포함될 수 있습니다.
+
+**함수 앱** - 작업으로 구성된 함수 앱의 함수 키는 Functions API를 통해 읽으며, 현재는 v2 함수 앱에서 "AzureWebJobsSecretStorageType" 앱 설정을 "파일"로 구성해야 합니다. 자세한 내용은 [Functions V2에서 키 관리 변경]( https://aka.ms/funcsecrets)을 참조하세요.
 
 **Runbook** - 한 작업 그룹에 최대 10개의 Runbook이 작업이 있을 수 있습니다. Runbook 페이로드 제한은 [Azure 구독 서비스 제한](../azure-subscription-service-limits.md)을 참조하세요.
 

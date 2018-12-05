@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: aca81bd529fe6151dce7aba6754874355189fc59
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870182"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444395"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Azure Cloud Shell의 LUIS 서비스 사용량 데이터
 Azure Portal에서 PowerShell cmdlet을 사용하여 LUIS 리소스 작업을 수행할 수 있습니다. 
@@ -32,7 +32,7 @@ Azure Portal [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quicksta
 ## <a name="open-cloud-shell"></a>Cloud Shell 열기
 Azure Portal Cloud Shell을 사용하는 경우 항상 최신 PowerShell 버전이 있습니다. 
 
-**Cloud Shell 시작** 단추를 사용하여 Cloud Shell을 열거나, 브라우저에서 [https://shell.azure.com](https://shell.azure.com)을 엽니다. 
+**Cloud Shell 시작** 단추를 사용하여 Cloud Shell을 열거나, 브라우저에서 [https://shell.azure.com](https://shell.azure.com)을 엽니다. 환경으로 Power Shell을 선택합니다. Azure Storage 계정이 없는 경우 계정을 만들어야 합니다. 
 
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 

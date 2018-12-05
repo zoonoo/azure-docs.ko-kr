@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4206301296c94bd0d24743854756ac6dd1d712dd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014332"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495378"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Azure Marketplace에 HDInsight 응용 프로그램 게시
 Azure HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 설치할 수 있습니다. 이 문서에서는 HDInsight 응용 프로그램을 Azure Marketplace에 게시하는 방법에 대해 알아봅니다. Azure Marketplace에 게시하는 방법에 대한 일반적인 내용은 [Azure Marketplace에 제품 게시](../marketplace/marketplace-publishers-guide.md)를 참조하세요.
@@ -102,6 +102,6 @@ HDInsight 응용 프로그램을 게시하려면
 * 클러스터에 [HDInsight 응용 프로그램을 설치](hdinsight-apps-install-applications.md)하는 방법을 알아봅니다.
 * [사용자 지정 HDInsight 응용 프로그램을 설치](hdinsight-apps-install-custom-applications.md)하고 게시되지 않은 HDInsight 응용 프로그램을 HDInsight에 배포하는 방법을 알아봅니다.
 * [스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터를 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)하고 더 많은 응용 프로그램을 추가하는 방법을 알아봅니다. 
-* [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터를 만드는 방법](hdinsight-hadoop-create-linux-clusters-arm-templates.md)을 알아봅니다.
+* [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Apache Hadoop 클러스터를 만드는](hdinsight-hadoop-create-linux-clusters-arm-templates.md) 방법을 알아봅니다.
 * [HDInsight에서 비어 있는 에지 노드를 사용](hdinsight-apps-use-edge-node.md)하여 HDInsight 클러스터에 액세스하고, HDInsight 응용 프로그램을 테스트하고, HDInsight 응용 프로그램을 호스팅하는 방법을 알아봅니다.
 

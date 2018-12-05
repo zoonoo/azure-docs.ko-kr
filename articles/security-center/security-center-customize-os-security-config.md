@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 925f45f8d251882cfc8acf4b04902cea45451dd4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007266"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334196"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Azure Security Center에서 OS 보안 구성 사용자 지정(미리 보기)
 
@@ -32,7 +32,7 @@ Azure Security Center는 방화벽, 감사, 암호 정책 등과 관련된 규�
 규칙을 사용자 지정하면 조직의 환경에 보다 적합한 구성 옵션을 제어할 수 있습니다. 사용자가 사용자 지정 평가 정책을 설정한 다음 구독에서 적용 가능한 모든 시스템에 적용할 수 있습니다.
 
 > [!NOTE]
-> - 현재 OS 보안 구성 사용자 지정은 Windows Server 버전 2008, 2008 R2, 2012 및 2012 R2 운영 체제에서만 사용할 수 있습니다.
+> - 현재 OS 보안 구성 사용자 지정은 Windows Server 버전 2008, 2008 R2, 2012, 2012 R2 및 2016 운영 체제에서만 사용할 수 있습니다.
 > - 구성은 선택한 구독 아래의 모든 작업 영역에 연결된 모든 VM과 컴퓨터에 적용됩니다.
 > - OS 보안 구성 사용자 지정은 Security Center 표준 계층에서만 사용할 수 있습니다.
 >
@@ -60,7 +60,7 @@ Security Center에서 기본 OS 보안 구성을 사용자 지정하려면 다�
 3.  사용자 지정할 구독의 행에서 **설정 편집**을 클릭합니다.
 
 4. **보안 구성 편집**을 선택합니다.  
-    
+
     !["보안 구성 편집" 창](media/security-center-customize-os-security-config/blade.png)
 
 5. 단계에 따라 파일을 다운로드 및 편집하고 수정된 파일을 업로드합니다.

@@ -1,10 +1,11 @@
 ---
-title: 한 실험에서 여러 모델 만들기 | Microsoft Docs
+title: 한 실험에서 여러 모델 만들기 - Azure Machine Learning Studio | Microsoft Docs
 description: PowerShell을 사용하여 알고리즘은 동일하지만 다른 학습 데이터 집합으로 여러 Machine Learning 모델 및 웹 서비스 엔드포인트를 만듭니다.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: (previous ms.author=haining, author=hning86)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
@@ -15,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: dcf4e9fa9435d8f20784b20f3873d408adb78c20
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469829"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316568"
 ---
-# <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>PowerShell을 사용하여 한 실험에서 여러 Machine Learning 모델 및 웹 서비스 엔드포인트 만들기
+# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Azure Machine Learning Studio: PowerShell을 사용하여 한 실험에서 여러 모델 및 웹 서비스 엔드포인트 만들기
+
 일반적인 기계 학습 문제는 동일한 학습 워크플로를 포함하고 동일한 알고리즘을 사용하지만 서로 다른 학습 데이터 집합을 입력으로 사용하려는 것입니다. 이 문서에서는 단일 실험을 사용하여 Azure Machine Learning Studio에서 대규모로 이 작업을 수행하는 방법을 보여 줍니다.
 
 예를 들어, 글로벌 자전거 임대 프랜차이즈 업체를 소유하고 있다고 가정해 보겠습니다. 기록 데이터를 기반으로 임대 수요를 예측하는 회귀 모델을 구축하려고 합니다. 전 세계에 1,000개의 임대 위치가 있으며 각 위치에 대한 데이터 집합을 수집했습니다. 여기에는 각 위치와 관련된 날짜, 시간, 날씨 및 트래픽과 같은 중요한 특징이 포함됩니다.

@@ -1,11 +1,12 @@
 ---
-title: Azure Machine Learning REST API 오류 코드 | Microsoft Docs
+title: Azure Machine Learning Studio REST API 오류 코드 | Microsoft Docs
 description: 이러한 오류 코드는 Azure Machine Learning 웹 서비스의 작업에서 반환될 수 있습니다.
 keywords: ''
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
@@ -16,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: fbedf355c6b1c45d581408a962b875544838087f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 274fbced61318a6617b04ea3092e8e2f96a10940
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836092"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314904"
 ---
-# <a name="machine-learning-rest-api-error-codes"></a>Machine Learning REST API 오류 코드
+# <a name="machine-learning-studio-rest-api-error-codes"></a>Machine Learning Studio REST API 오류 코드
  
-다음 오류 코드는 Azure Machine Learning 웹 서비스의 작업에서 반환될 수 있습니다.
+다음 오류 코드는 Azure Machine Learning Studio 웹 서비스의 작업에서 반환될 수 있습니다.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument(HTTP 상태 코드 400)
  
@@ -63,12 +64,12 @@ ms.locfileid: "34836092"
 | MissingOutputOverrideSpecification | 요청에 출력 재정의 {0}에 대한 Blob 사양이 누락되었습니다. 요청에 유효한 Blob 위치를 지정하거나 위치 재정의가 필요하지 않으면 출력 사양을 제거하세요. |
 | MissingRequestInput | 웹 서비스에 입력이 필요한데 입력이 제공되지 않았습니다. 모델에서 게시된 입력 포트를 기반으로 유효한 입력을 반드시 제공하고 다시 시도하세요. |
 | MissingRequiredGlobalParameters | 필수 웹 서비스 매개 변수 중 일부가 제공되지 않았습니다. 모듈에 필요한 매개 변수가 올바른지 확인하고 다시 시도하세요. |
-| MissingRequiredOutputOverrides | 암호화된 서비스 끝점을 호출하는 경우 모든 서비스의 출력에 대해 출력 재정의를 반드시 전달해야 합니다. 이러한 출력에 대해 현재 누락된 재정의: {0} |
+| MissingRequiredOutputOverrides | 암호화된 서비스 엔드포인트를 호출하는 경우 모든 서비스의 출력에 대해 출력 재정의를 반드시 전달해야 합니다. 이러한 출력에 대해 현재 누락된 재정의: {0} |
 | MissingWebServiceGroupId | 웹 서비스 그룹 ID가 제공되지 않았습니다. 유효한 웹 서비스 그룹 ID를 제공하고 다시 시도하세요. |
 | MissingWebServiceId | 웹 서비스 ID가 제공되지 않았습니다. 유효한 웹 서비스 ID를 제공하고 다시 시도하세요. |
 | MissingWebServicePackage | 웹 서비스 패키지가 제공되지 않았습니다. 유효한 웹 서비스 패키지를 제공하고 다시 시도하세요. |
 | MissingWorkspaceId | 작업 영역 ID가 제공되지 않았습니다. 유효한 작업 영역 ID를 제공하고 다시 시도하세요. |
-| ModelConfigurationInvalid | 모델 패키지에 모델 구성이 잘못되었습니다. 모델 구성에 출력 끝점 정의, std 오류 끝점, std 출력 끝점이 포함되었는지 확인하고 다시 시도하세요. |
+| ModelConfigurationInvalid | 모델 패키지에 모델 구성이 잘못되었습니다. 모델 구성에 출력 엔드포인트 정의, std 오류 엔드포인트, std 출력 엔드포인트가 포함되었는지 확인하고 다시 시도하세요. |
 | ModelPackageIdInvalid | 모델 패키지 ID가 잘못되었습니다. 모델 패키지 ID가 올바른지 확인하고 다시 시도하세요. |
 | RequestBodyInvalid | 요청 본문이 제공되지 않았거나 요청 본문을 역직렬화하는 동안 오류가 발생했습니다. |
 | RequestIsEmpty | 요청이 제공되지 않았습니다. 유효한 요청을 제공하고 다시 시도하세요. |

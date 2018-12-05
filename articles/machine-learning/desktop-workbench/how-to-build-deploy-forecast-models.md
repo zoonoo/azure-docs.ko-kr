@@ -10,12 +10,12 @@ ms.author: mattcon
 author: matthewconners
 ms.date: 07/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06613ed1eac43ebe865666f85235de74903b1d5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f06f4f958d59978e886cbfda47a9ed73f8353592
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953602"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634985"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Azure Machine Learning으로 예측 모델 작성 및 배포
 
@@ -109,7 +109,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>데이터 로드 및 탐색
 
-이 코드 조각은 원시 데이터 집합(이 경우 [Dominick's Finer Foods의 데이터](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks))으로 시작하는 일반적인 프로세스를 보여줍니다.  편의 함수 [load_dominicks_oj_data](https://docs.microsoft.com/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data)를 사용할 수도 있습니다.
+이 코드 조각은 원시 데이터 집합(이 경우 [Dominick's Finer Foods의 데이터](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks))으로 시작하는 일반적인 프로세스를 보여줍니다.  편의 함수 [load_dominicks_oj_data](/python/api/azuremlftk/ftk.data.dominicks_oj.load_dominicks_oj_data)를 사용할 수도 있습니다.
 
 
 ```python
@@ -340,7 +340,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 데이터에는 데이터 프레임에 약 250가지의 store와 brand 조합이 포함되어 있습니다. 각 조합은 자체 영업 시계열을 정의합니다. 
 
-[TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) 클래스를 사용하면 입자(_grain_)를 통해 단일 데이터 구조에서 여러 계열을 편리하게 모델링할 수 있습니다. 입자(grain)는 `store` 및 `brand` 열에 의해 지정됩니다.
+[TimeSeriesDataFrame](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe) 클래스를 사용하면 입자(_grain_)를 통해 단일 데이터 구조에서 여러 계열을 편리하게 모델링할 수 있습니다. 입자(grain)는 `store` 및 `brand` 열에 의해 지정됩니다.
 
 입자(grain)는 현실 세계에서 물리적으로 항상 의미가 있지만 그룹은 그렇지 않아도 되는 것이 입자(_grain_)와 _그룹_의 차이입니다. 모델 성능을 향상시키는 데 그룹화가 도움이 된다고 사용자가 생각하는 경우, 내부 패키지 함수는 group을 사용하여 여러 시계열에서 단일 모델을 작성합니다. 기본적으로 그룹은 입자(grain)와 동일하게 설정되고 단일 모델은 각 입자(grain)에 대해 작성됩니다. 
 
@@ -500,10 +500,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
   </tbody>
 </table>
 
-
-
-[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) 함수는 시계열 데이터 프레임에 대한 포괄적인 보고서를 생성합니다. 보고서에는 일반 데이터 설명과 시계열 데이터 관련 통계가 모두 포함됩니다. 
-
+[TimeSeriesDataFrame.ts_report](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe#ts-report) 함수는 시계열 데이터 프레임에 대한 포괄적인 보고서를 생성합니다. 보고서에는 일반 데이터 설명과 시계열 데이터 관련 통계가 모두 포함됩니다. 
 
 ```python
 whole_tsdf.ts_report()
@@ -889,14 +886,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>데이터 전처리 및 누락 값 대체
 
-[last_n_periods_split](https://docs.microsoft.com/python/api/ftk.ts_utils?view=azure-ml-py-latest) 유틸리티 함수를 사용하여 학습 집합과 테스트 집합으로 데이터를 분할하는 것부터 시작합니다. 결과 집합에는 각 시계열의 최근 40개 관측이 포함됩니다. 
+[last_n_periods_split](/python/api/azuremlftk/ftk.ts_utils#last-n-periods-split) 유틸리티 함수를 사용하여 학습 집합과 테스트 집합으로 데이터를 분할하는 것부터 시작합니다. 결과 집합에는 각 시계열의 최근 40개 관측이 포함됩니다. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-기본 시계열 모델에는 인접 시계열이 필요합니다. [check_regularity_by_grain](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) 함수를 사용하여 계열이 규칙적인지 즉, 일정한 간격으로 샘플링된 인덱스가 있는지 확인합니다.
+기본 시계열 모델에는 인접 시계열이 필요합니다. [check_regularity_by_grain](/python/api/azuremlftk/ftk.time_series_data_frame.timeseriesdataframe#check-regularity-by-grain) 함수를 사용하여 계열이 규칙적인지 즉, 일정한 간격으로 샘플링된 인덱스가 있는지 확인합니다.
 
 
 ```python
@@ -971,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-대부분의 계열(249개 중 213개)이 불규칙한 것을 볼 수 있습니다. 누락된 판매 수량 값을 채우려면 [대체 변환](https://docs.microsoft.com/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest)이 필요합니다. 많은 대체 옵션이 있지만 다음 샘플 코드에서는 선형 보간을 사용합니다.
+대부분의 계열(249개 중 213개)이 불규칙한 것을 볼 수 있습니다. 누락된 판매 수량 값을 채우려면 [대체 변환](/python/api/azuremlftk/ftk.transforms.time_series_imputer.timeseriesimputer)이 필요합니다. 많은 대체 옵션이 있지만 다음 샘플 코드에서는 선형 보간을 사용합니다.
 
 
 ```python
@@ -1037,8 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>여러 모델 통합
 
-[ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) 추정을 통해 여러 추정을 결합하고 코드 한 줄로 맞춤/예측을 수행할 수 있습니다.
-
+[ForecasterUnion](/python/api/azuremlftk/ftk.models.forecaster_union.forecasterunion) 추정을 통해 여러 추정을 결합하고 코드 한 줄로 맞춤/예측을 수행할 수 있습니다.
 
 ```python
 forecaster_union = ForecasterUnion(
@@ -1251,7 +1247,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-[RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) 함수는 sklearn 회귀 추정을 래핑하여 TimeSeriesDataFrame에서 학습할 수 있도록 합니다. 래핑된 forecaster는 각 그룹을 동일한 모델(이 경우 store)에 배치합니다. forecaster는 비슷한 것으로 간주되어 함께 풀링할 수 있는 일련의 그룹에 대한 하나의 모델을 학습할 수 있습니다. 일련의 그룹에 대한 하나의 모델은 짧은 계열에 대한 예측을 개선하기 위해 긴 계열의 데이터를 사용하는 경우가 많습니다. 이러한 모델은 회귀를 지원하는 라이브러리의 다른 모델로 대체할 수 있습니다. 
+[RegressionForecaster](/python/api/azuremlftk/ftk.models.regression_forecaster.regressionforecaster) 함수는 sklearn 회귀 추정을 래핑하여 TimeSeriesDataFrame에서 학습할 수 있도록 합니다. 래핑된 forecaster는 각 그룹을 동일한 모델(이 경우 store)에 배치합니다. forecaster는 비슷한 것으로 간주되어 함께 풀링할 수 있는 일련의 그룹에 대한 하나의 모델을 학습할 수 있습니다. 일련의 그룹에 대한 하나의 모델은 짧은 계열에 대한 예측을 개선하기 위해 긴 계열의 데이터를 사용하는 경우가 많습니다. 이러한 모델은 회귀를 지원하는 라이브러리의 다른 모델로 대체할 수 있습니다. 
 
 
 ```python
@@ -1369,13 +1365,13 @@ all_errors.sort_values('MedianAPE')
 
 ### <a name="cross-validation-parameter-and-model-sweeping"></a>교차 유효성 검사, 매개 변수 및 모델 비우기    
 
-이 패키지는 일부 기존 기계 학습 함수를 예측 응용 프로그램에 맞게 변경합니다.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator?view=azure-ml-py-latest)는 예측 프레임워크에 알려진 것과 그렇지 않은 것을 존중하면서 일시적으로 교차 유효성 검사를 수행합니다. 
+이 패키지는 일부 기존 기계 학습 함수를 예측 응용 프로그램에 맞게 변경합니다.  [RollingOriginValidator](/python/api/azuremlftk/ftk.model_selection.cross_validation.rollingoriginvalidator)는 예측 프레임워크에 알려진 것과 그렇지 않은 것을 존중하면서 일시적으로 교차 유효성 검사를 수행합니다. 
 
 아래 그림에서 각 사각형은 한 시점의 데이터를 나타냅니다. 파란 사각형은 학습을 나타내고 주황색 사각형은 각 폴드의 테스트를 나타냅니다. 테스트 데이터는 가장 큰 학습 시점 이후의 시점에서 나와야 합니다. 그렇지 않으면 이후 데이터가 학습 데이터로 유출되어 모델 평가가 유효하지 않게 됩니다. 
 ![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 **매개 변수 비우기**  
-[TSGridSearchCV](https://docs.microsoft.com/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) 클래스는 지정된 매개 변수 값을 철저히 검색하고 `RollingOriginValidator`를 사용하여 최적의 매개 변수를 찾기 위해 매개 변수 성능을 평가합니다.
+[TSGridSearchCV](/python/api/azuremlftk/ftk.model_selection.search.tsgridsearchcv) 클래스는 지정된 매개 변수 값을 철저히 검색하고 `RollingOriginValidator`를 사용하여 최적의 매개 변수를 찾기 위해 매개 변수 성능을 평가합니다.
 
 
 ```python
@@ -1390,10 +1386,10 @@ grid_cv_rf = TSGridSearchCV(randomforest_model_for_cv, param_grid_rf, cv=rollcv)
 
 # fit and predict
 randomforest_cv_fitted= grid_cv_rf.fit(train_feature_tsdf, y=train_feature_tsdf.ts_value)
-print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
+print('Best parameter: {}'.format(randomforest_cv_fitted.best_params_))
 ```
 
-    Best paramter: {'estimator__n_estimators': 100}
+    Best parameter: {'estimator__n_estimators': 100}
     
 
 **모델 비우기**  
@@ -1647,7 +1643,7 @@ aml_deployment.deploy()
 
 ### <a name="score-the-web-service"></a>웹 서비스 채점
 
-작은 데이터 집합을 채점하려면 [score](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) 메서드를 사용하여 모든 데이터에 대해 하나의 웹 서비스 호출을 제출합니다.
+작은 데이터 세트를 채점하려면 [score](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score) 메서드를 사용하여 모든 데이터에 대해 하나의 웹 서비스 호출을 제출합니다.
 
 
 ```python
@@ -1668,8 +1664,7 @@ aml_web_service = aml_deployment.get_deployment()
 results = aml_web_service.score(score_context=score_context)
 ```
 
-큰 데이터 집합을 채점하려면 [병렬 채점](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) 모드를 사용하여 각 데이터 그룹마다 하나씩, 여러 웹 서비스 호출을 제출합니다.
-
+큰 데이터 집합을 채점하려면 [병렬 채점](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score-parallel) 모드를 사용하여 각 데이터 그룹마다 하나씩, 여러 웹 서비스 호출을 제출합니다.
 
 ```python
 results = aml_web_service.score(score_context=score_context, method='parallel')

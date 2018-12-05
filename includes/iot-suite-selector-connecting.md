@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 218fc33390575a3df96d0b7d7696b3085c38c8f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264213"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620764"
 ---
 > [!div class="op_single_selector"]
 > * [Windows에서 C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -56,7 +56,7 @@ ms.locfileid: "51264213"
 > [!NOTE]
 > 솔루션에 장치가 이미 추가되어 있으면 이 단계를 건너뜁니다. 그러나 다음 단계에서는 장치 연결 문자열이 필요합니다. [Azure Portal](https://portal.azure.com)에서 검색하거나 [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI 도구를 사용하여 장치 연결 문자열을 검색할 수 있습니다.
 
-솔루션 가속기에 연결하는 장치는 유효한 자격 증명을 사용하여 IoT Hub에 자신을 식별할 수 있어야 합니다. 솔루션에 장치를 추가할 때 자격 증명이 포함된 장치 연결 문자열을 저장할 기회가 있습니다. 이 자습서의 뒷부분에서는 클라이언트 응용 프로그램에 장치 연결 문자열을 포함시킵니다.
+솔루션 가속기에 연결하는 장치는 유효한 자격 증명을 사용하여 IoT Hub에 자신을 식별할 수 있어야 합니다. 솔루션에 디바이스를 추가할 때 자격 증명이 포함된 디바이스 연결 문자열을 저장할 기회가 있습니다. 이 자습서의 뒷부분에서는 클라이언트 응용 프로그램에 장치 연결 문자열을 포함시킵니다.
 
 원격 모니터링 솔루션에 장치를 추가하려면 솔루션의 **장치** 페이지에서 다음 단계를 완료합니다.
 

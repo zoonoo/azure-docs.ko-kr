@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d72ffd849f9e1e6e661b0e54b7182b02a16c8024
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3e50bf42076132f69fcb655da61a790fe207b949
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568991"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444412"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 Java 모듈 개발 및 디버그
 
@@ -64,7 +64,7 @@ IoT Edge 솔루션을 디버그, 실행 및 테스트하기 위한 로컬 개발
 7. 솔루션의 첫 번째 모듈에 대한 템플릿으로 **Java 모듈**을 선택합니다.
 8. 모듈의 이름을 입력합니다. 컨테이너 레지스트리 내에서 고유한 이름을 선택합니다. 
 8. groupId 값을 제공하거나 기본값인 **com.edgemodule**을 그대로 적용합니다.
-9. 모듈의 이미지 리포지토리를 입력합니다. VS Code에서 모듈 이름을 자동으로 채우기 때문에 **localhost:5000**을 고유한 레지스트리 정보로 바꾸기만 하면 됩니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 localhost를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 **\<레지스트리 이름\>.azurecr.io**와 같이 표시됩니다. 문자열에서 localhost 부분만 바꾸고, 모듈 이름을 삭제하지 마세요.
+9. 모듈의 이미지 리포지토리를 입력합니다. VS Code에서 모듈 이름을 자동으로 채우기 때문에 **localhost:5000**을 고유한 레지스트리 정보로 바꾸기만 하면 됩니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 localhost를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 **\<레지스트리 이름\>.azurecr.io**와 같이 표시됩니다. 문자열에서 localhost 부분만 바꾸고, 모듈 이름을 삭제하지 마세요. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/\<modulename\>과 같이 표시됩니다.
 
    ![Docker 이미지 리포지토리 제공](./media/how-to-develop-node-module/repository.png)
 
@@ -79,6 +79,8 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만들고 새 
    >환경 파일은 모듈에 대한 이미지 리포지토리를 제공하는 경우에만 생성됩니다. localhost 기본값을 로컬로 테스트하고 디버그하도록 수락하는 경우 환경 변수를 선언할 필요가 없습니다. 
 
 * **deployment.template.json** 파일은 테스트에 사용할 수 있는 데이터를 시뮬레이트하는 샘플 **tempSensor** 모듈과 함께 새 모듈을 나열합니다. 배포 매니페스트의 작동 방식에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
+* **deployment.debug.template.json** 파일에는 적절한 컨테이너 옵션이 있는 디버그 버전의 모듈 이미지가 포함됩니다.
+
 
 ## <a name="develop-your-module"></a>모듈 개발
 
@@ -90,6 +92,14 @@ Visual Studio Code는 Java를 지원합니다. [VS Code에서 Java로 작업하�
 
 ## <a name="launch-and-debug-module-code-without-container"></a>컨테이너 없이 모듈 코드 시작 및 디버그
 IoT Edge Java 모듈은 Azure IoT Java 장치 SDK에 따라 달라집니다. 기본 모듈 코드에서 환경 설정 및 입력 이름을 사용하여 **ModuleClient**를 초기화합니다. 즉, IoT Edge Java 모듈에는 시작 및 실행을 위한 환경 설정이 필요하므로 입력 채널로 메시지를 전송하거나 라우팅해야 합니다. 기본 Java 모듈은 하나의 입력 채널만 포함하며 이름은 **input1**입니다.
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>IoT Edge 솔루션에 대한 IoT Edge 시뮬레이터 설치
+
+개발 머신에서 IoT Edge 보안 디먼을 설치하는 대신 IoT Edge 시뮬레이터를 시작하여 IoT Edge 솔루션을 실행할 수 있습니다. 
+
+1. 왼쪽의 장치 탐색기에서 마우스 오른쪽 단추로 IoT Edge 장치 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 장치 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
+
+2. 통합 터미널에서 IoT Edge 시뮬레이터가 성공적으로 설치된 것을 확인할 수 있습니다.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>단일 모듈 앱에 대한 IoT Edge 시뮬레이터 설치
 
@@ -132,7 +142,7 @@ IoT Edge Java 모듈은 Azure IoT Java 장치 SDK에 따라 달라집니다. 기
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>디버깅을 위한 모듈 컨테이너 빌드 및 연결 모드에서 디버그
 
-기본 솔루션에는 2개의 모듈, 즉 시뮬레이션된 온도 센서 모듈과 Java 파이프 모듈이 포함됩니다. 시뮬레이션된 온도 센서는 Java 파이프 모듈로 메시지를 계속 전송합니다.그러면 해당 메시지가 IoT Hub에 파이프됩니다. 만든 모듈 폴더에는 서로 다른 컨테이너 유형에 사용되는 여러 Docker 파일이 있습니다. **.debug** 확장명으로 끝나는 이러한 파일을 사용하여 테스트할 모듈을 빌드합니다. 현재, Java 모듈은 linux-amd64 및 linux-arm32v7 컨테이너에서만 디버깅을 지원합니다.
+기본 솔루션에는 2개의 모듈, 즉 시뮬레이션된 온도 센서 모듈과 Java 파이프 모듈이 포함됩니다. 시뮬레이션된 온도 센서는 Java 파이프 모듈로 메시지를 계속 전송합니다.그러면 해당 메시지가 IoT Hub에 파이프됩니다. 만든 모듈 폴더에는 서로 다른 컨테이너 유형에 사용되는 여러 Docker 파일이 있습니다. **.debug** 확장명으로 끝나는 이러한 파일을 사용하여 테스트할 모듈을 빌드합니다. 기본적으로 **deployment.debug.template.json**에는 디버그 버전의 이미지가 포함됩니다. 현재, Java 모듈은 linux-amd64 및 linux-arm32v7 컨테이너에서만 디버깅을 지원합니다. VS Code 상태 표시줄에서 Azure IoT Edge 기본 플랫폼을 전환할 수 있습니다.
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>IoT Edge 솔루션에 대한 IoT Edge 시뮬레이터 설치
 
@@ -144,12 +154,9 @@ IoT Edge Java 모듈은 Azure IoT Java 장치 SDK에 따라 달라집니다. 기
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>디버깅을 위한 컨테이너 빌드/실행 및 연결 모드에서 디버그
 
-1. VS Code에서 `deployment.template.json` 파일로 이동합니다. 끝에 **.debug**를 추가하여 모듈 이미지 URL을 업데이트합니다.
+1. `App.java`로 이동합니다. 이 파일에 중단점을 추가합니다.
 
-2. **deployment.template.json**에서 Java 모듈 createOptions를 아래 콘텐츠로 바꾸고 이 파일을 저장합니다. 
-    ```json
-    "createOptions":"{\"HostConfig\":{\"PortBindings\":{\"5005/tcp\":[{\"HostPort\":\"5005\"}]}}}"
-    ```
+2. VS Code 파일 탐색기에서 솔루션에 대한 `deployment.debug.template.json` 파일을 선택하고 상황에 맞는 메뉴에서 **Build and Run IoT Edge solution in Simulator**(시뮬레이터에서 IoT Edge 솔루션 빌드 및 실행)를 클릭합니다. 같은 창에서 모든 모듈 컨테이너 로그를 볼 수 있습니다. Docker 탐색기로 이동하여 컨테이너 상태를 확인할 수도 있습니다.
 
 5. VS Code 디버그 보기로 이동합니다. 모듈에 대한 디버그 구성 파일을 선택합니다. 디버그 옵션 이름은 **ModuleName 원격 디버그(Java)** 와 비슷해야 합니다.
 

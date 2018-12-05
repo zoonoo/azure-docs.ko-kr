@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637968"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264389"
 ---
 # <a name="prediction-score"></a>예측 점수
 예측 점수는 예측 결과에 대한 LUIS의 신뢰도를 나타냅니다. 
@@ -62,7 +62,7 @@ ms.locfileid: "49637968"
 챗봇에 의도의 신뢰도를 나타내는 특정 LUIS 점수가 필요한 경우에는 상위 두 의도 간 점수 차이를 사용해야 합니다. 이렇게 하면 학습에서 변형 유연성이 제공됩니다. 
 
 ## <a name="punctuation"></a>문장 부호
-문장 부호는 LUIS에서 별도 토큰입니다. 끝에 마침표가 포함된 발언과 포함되지 않은 발언은 별도의 두 발언이며 두 가지 다른 예측이 이루어질 수 있습니다. 모델이 [예제 발언](luis-concept-utterance.md)(문장 부호를 포함하거나 포함하지 않음) 또는 [patterns}(luis-concept-patterns.md)(특수 구문 `I am applying for the {Job} position[.]`을 사용하여 문장 부호를 무시하는 것이 더 쉬움)에서 문장 부호를 처리하는지 확인합니다.
+문장 부호는 LUIS에서 별도 토큰입니다. 끝에 마침표가 포함된 발언과 포함되지 않은 발언은 별도의 두 발언이며 두 가지 다른 예측이 이루어질 수 있습니다. 모델이 [예제 발언](luis-concept-utterance.md)(문장 부호를 포함하거나 포함하지 않음) 또는 [패턴](luis-concept-patterns.md)(`I am applying for the {Job} position[.]` 특수 구문을 사용하여 문장 부호를 무시하는 것이 더 쉬움)에서 문장 부호를 처리하는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

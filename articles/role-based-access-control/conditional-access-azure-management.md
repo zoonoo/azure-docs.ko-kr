@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 083cb4eb84746f4a61b51f3573a0bf66110fe1ee
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435051"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274741"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>조건부 액세스로 Azure Management에 대한 액세스 관리
 
@@ -32,7 +32,7 @@ Azure Management에 대한 정책을 만들려면 정책을 적용할 앱을 선
 
 ![Azure 관리에 대한 조건부 액세스](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-만든 정책은 클래식 Azure Portal, Azure Resource Manager 공급자, 클래식 Service Management API 및 Azure PowerShell 등을 비롯한 모든 Azure Management 끝점에 적용됩니다.
+만든 정책은 클래식 Azure Portal, Azure Resource Manager 공급자, 클래식 Service Management API 및 Azure PowerShell 등을 비롯한 모든 Azure Management 엔드포인트에 적용됩니다. 정책은 Azure Resource Manager API를 호출하는 Azure PowerShell에 적용됩니다. Microsoft Graph를 호출하는 [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)에는 적용되지 않습니다.
 
 > [!CAUTION]
 > Azure Management에 대한 액세스를 관리하는 정책을 설정하기 전에 조건부 액세스가 어떻게 작동하는지 이해해야 합니다. 포털에 대한 자신의 액세스를 차단할 수 있는 조건은 만들지 않아야 합니다.

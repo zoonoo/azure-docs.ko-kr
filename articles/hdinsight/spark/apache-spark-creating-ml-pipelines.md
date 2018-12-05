@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3cd27438247b801e384b80d96ba288896b4c5aae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234225"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499396"
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>Spark Machine Learning 파이프라인 만들기
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Apache Spark 기계 학습 파이프라인 만들기
 
 Apache Spark의 확장 가능한 MLlib(기계 학습 라이브러리)는 모델링 기능을 분산 환경에 제공합니다. [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) Spark 패키지는 데이터 프레임에 작성된 고급 수준의 API 집합입니다. 이러한 API를 사용하면 실용적인 기계 학습 파이프라인을 만들고 튜닝할 수 있습니다.  *Spark 기계 학습*은 이전의 RDD 기반 파이프라인 API가 아니라 이 MLlib 데이터 프레임 기반 API를 참조합니다.
 
@@ -131,4 +131,4 @@ only showing top 20 rows
 
 ## <a name="see-also"></a>참고 항목
 
-* [Azure에서 Scala 및 Spark를 사용하는 데이터 과학](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Azure에서 Scala 및 Apache Spark를 사용한 데이터 과학](../../machine-learning/team-data-science-process/scala-walkthrough.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 4bf77cd34ba985dfcfa568db0543150c0510c406
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 86d2f013567d768437e589df366c5c131e1bcf50
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300101"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421916"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>REST API 호출을 사용하여 사용자 할당 관리 ID 만들기, 나열 또는 삭제
 
@@ -44,8 +44,6 @@ Azure 리소스에 대한 관리 ID는 코드에 자격 증명을 포함할 필�
 
 사용자 할당 관리 ID를 만들려면 계정에 [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할 할당이 필요합니다.
 
-사용자 할당 관리 ID를 만들려면 Azure Resource Manager API에 다음 CURL 요청을 사용합니다. `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>` 및 `<ACCESS TOKEN>` 값을 원하는 값으로 바꿉니다.
-
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```bash
@@ -54,31 +52,61 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
+s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+
+**요청 헤더**
+
+|요청 헤더  |설명  |
+|---------|---------|
+|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
+
+**요청 본문**
+
+|이름  |설명  |
+|---------|---------|
+|location     | 필수 사항입니다. 리소스 위치.        |
+
 ## <a name="list-user-assigned-managed-identities"></a>사용자 할당 관리 ID 나열
 
 사용자 할당 관리 ID를 나열하려면/읽으려면 계정에 [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 또는 [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할 할당이 필요합니다.
 
-사용자 할당 관리 ID를 나열하려면 Azure Resource Manager API에 다음 CURL 요청을 사용합니다. `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` 및 `<ACCESS TOKEN>` 값을 원하는 값으로 바꿉니다.
-
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
+
+```HTTP
+GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
+```
+
+|요청 헤더  |설명  |
+|---------|---------|
+|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
+
 ## <a name="delete-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 삭제
 
 사용자 할당 관리 ID를 삭제하려면 계정에 [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할 할당이 필요합니다.
 
-사용자 할당 관리 ID를 삭제하려면 Azure Resource Manager API에 다음 CURL 요청을 사용합니다. `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` 및 `<ACCESS TOKEN>` 매개 변수 값을 원하는 값으로 바꿉니다.
-
 > [!NOTE]
-> 사용자 할당 관리 ID를 삭제해도 할당된 리소스에서 참조는 제거되지 않습니다. CURL을 사용하여 VM에서 사용자 할당 관리를 제거하려면 [Azure VM에서 사용자 할당 ID 제거](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm)를 참조하세요.
+> 사용자 할당 관리 ID를 삭제해도 할당된 리소스에서 참조는 제거되지 않습니다. CURL을 사용하여 VM에서 사용자 할당 관리 ID를 제거하려면 [Azure VM에서 사용자 할당 ID 제거](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm)를 참조하세요.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview' -X DELETE -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+|요청 헤더  |설명  |
+|---------|---------|
+|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
+
 ## <a name="next-steps"></a>다음 단계
 
 CURL을 사용하여 Azure VM/VMSS에 사용자 할당 관리 ID를 할당하는 방법에 대한 자세한 내용은 [REST API 호출을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](qs-configure-rest-vm.md#user-assigned-managed-identity) 및 [REST API 호출을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](qs-configure-rest-vmss.md#user-assigned-managed-identity)을 참조하세요.
-
-
