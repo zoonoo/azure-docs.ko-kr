@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/21/2018
 ms.author: juliako
-ms.openlocfilehash: 70a3de35f6fd942bca5355db3a7c6b57aec6adbc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 598587a0fe726ccf65f062833f84b352ca03c077
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613939"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315531"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보 
 
@@ -27,6 +27,13 @@ ms.locfileid: "51613939"
 * 버그 수정
 * 사용되지 않는 기능
 * 변경 계획
+
+## <a name="known-issues"></a>알려진 문제
+
+> [!NOTE]
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-sdk), CLI 또는 지원되는 SDK 중 하나를 사용하세요.
+
+자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
 
 ## <a name="november-2018"></a>2018년 11월
 

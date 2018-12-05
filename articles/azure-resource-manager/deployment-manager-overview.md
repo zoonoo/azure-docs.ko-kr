@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: eea981800147f24025e01826f7550a95041c107f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395131"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427304"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Azure 배포 관리자(개인용 미리 보기)로 안전한 배포 사례 사용
 
@@ -34,6 +34,8 @@ Azure Deployment Manager가 비공개 미리 보기로 제공됩니다. Azure �
 * 롤아웃용 매개 변수 파일
 
 롤아웃 템플릿을 배포하기 전에 토폴로지 템플릿을 배포합니다.
+
+Azure Deployment Manager REST API 참조는 [여기](https://docs.microsoft.com/rest/api/deploymentmanager/)서 찾을 수 있습니다.
 
 ## <a name="supported-locations"></a>지원되는 위치
 

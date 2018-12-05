@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: d3694d49256b9844f6e3a76ce83f53be4b42ca48
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ea54419f230a7988a42fd4b85be0d212ee3d14d4
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006093"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582584"
 ---
-# <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight에서 Spark 클러스터의 Jupyter 노트북에 대한 커널 
+# <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark 클러스터에 있는 Jupyter Notebook에 대한 커널 
 
-HDInsight Spark 클러스터는 응용 프로그램 테스트를 위해 Spark에서 Jupyter 노트북과 함께 사용할 수 있는 커널을 제공합니다. 커널은 코드를 실행하고 해석하는 프로그램입니다. 세 개의 커널은 다음과 같습니다.
+HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache Spark](https://spark.apache.org/)에서 Jupyter Notebook과 함께 사용할 수 있는 커널을 제공합니다. 커널은 코드를 실행하고 해석하는 프로그램입니다. 세 개의 커널은 다음과 같습니다.
 
 - **PySpark** - Python2에서 작성한 응용 프로그램용
 - **PySpark3** - Python3에서 작성한 응용 프로그램용
@@ -135,7 +135,7 @@ Jupyter Notebook을 여는 경우 루트 수준에서 사용할 수 있는 두 �
 > 기본 저장소로 Azure Data Lake Store를 사용하는 HDInsight 클러스터는 연결된 저장소에 노트를 저장하지 않습니다.
 >
 
-Notebook이 저장소 계정에 저장되는 방식은 HDFS와 호환됩니다. 따라서 클러스터에 SSH 연결을 설정한 경우 다음 코드 조각에 표시된 것처럼 파일 관리 명령을 사용할 수 있습니다.
+Notebook이 스토리지 계정에 저장되는 방식은 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)와 호환됩니다. 따라서 클러스터에 SSH 연결을 설정한 경우 다음 코드 조각에 표시된 것처럼 파일 관리 명령을 사용할 수 있습니다.
 
     hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
     hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
@@ -154,19 +154,19 @@ Spark HDInsight 클러스터의 Jupyter 노트북은 Google Chrome에서만 지�
 * [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
-* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
+* [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>응용 프로그램 만들기 및 실행
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
+* [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)
 

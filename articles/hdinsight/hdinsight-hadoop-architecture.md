@@ -9,25 +9,25 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 066734c88890d5f1a6e42c5350db47d1a398b60a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f6393d15572eadb376cbd88dc94c3de0fd8fa80b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277582"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495577"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>HDInsight의 Apache Hadoop 아키텍처
 
-Apache Hadoop에는 스토리지를 제공하는 HDFS(Hadoop 분산 파일 시스템)와 처리 제공하는 YARN(Yet Another Resource Negotiator)의 두 가지 핵심 구성 요소가 포함되어 있습니다. 저장소 및 처리 기능을 사용하면 클러스터에서 MapReduce 프로그램을 실행하여 원하는 데이터 처리를 수행할 수 있게 됩니다.
+[Apache Hadoop](https://hadoop.apache.org/)에는 스토리지를 제공하는 [Apache HDFS(Hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html)와 처리를 제공하는 [Apache Hadoop YARN(Yet Another Resource Negotiator)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)이라는 두 가지 핵심 구성 요소가 포함되어 있습니다. 스토리지 및 처리 기능을 사용하면 클러스터에서 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) 프로그램을 실행하여 원하는 데이터 처리를 수행할 수 있게 됩니다.
 
 > [!NOTE]
 > 일반적으로 HDFS는 HDInsight 클러스터 내에 배포되어 저장소를 제공하지 않습니다. 대신 Hadoop 구성 요소에서 HDFS 호환 인터페이스 계층을 사용합니다. 실제 저장소 용량은 Azure Storage 또는 Azure Data Lake Store에서 제공합니다. Hadoop의 경우 HDFS가 있는 것처럼 HDInsight 클러스터에서 실행되는 MapReduce 작업이 실행되므로 저장소 요구 사항을 지원하기 위해 변경할 필요가 없습니다. HDInsight의 Hadoop에서 저장소는 아웃소싱되지만 YARN 처리는 핵심 구성 요소로 남아 있습니다. 자세한 내용은 [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md)를 참조하세요.
 
 이 문서에서는 YARN과 HDInsight에서 응용 프로그램 실행을 조정하는 방법에 대해 소개합니다.
 
-## <a name="apache-yarn-basics"></a>Apache YARN 기본 사항 
+## <a name="apache-hadoop-yarn-basics"></a>Apache Hadoop YARN 기본 내용 
 
-YARN은 Hadoop의 데이터 처리를 제어하고 조정합니다. YARN에는 클러스터의 노드에서 프로세스로 실행되는 다음 두 가지 핵심 서비스가 있습니다. 
+YARN은 Hadoop의 데이터 처리를 제어하고 오케스트레이션합니다. YARN에는 클러스터의 노드에서 프로세스로 실행되는 다음 두 가지 핵심 서비스가 있습니다. 
 
 * ResourceManager 
 * NodeManager
@@ -50,5 +50,5 @@ NodeManager는 응용 프로그램을 구성하는 작업을 실행한 다음, �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight에서 Hadoop과 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight의 Apache Hadoop에서 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 * [Azure HDInsight 소개](hadoop/apache-hadoop-introduction.md)

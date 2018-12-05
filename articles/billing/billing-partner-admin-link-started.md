@@ -3,6 +3,7 @@ title: 파트너 ID에 Azure 계정 연결 | Microsoft Docs
 description: 고객의 리소스를 관리하기 위해 사용하는 사용자 계정에 파트너 ID를 연결하여 Azure 고객 관리를 추적합니다.
 services: billing
 author: dhirajgandhi
+manager: dhgandhi
 ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
@@ -10,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686997"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274182"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -124,7 +125,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 **파트너 ID를 연결할 수 있는 사용자는 누구인가요?**
 
-고객의 리소스를 관리하고 있는 파트너 조직의 모든 사용자는 계정에 파트너 ID를 연결할 수 있습니다.
+고객의 Azure 리소스를 관리하는 파트너 조직의 모든 사용자는 파트너 ID를 계정에 연결할 수 있습니다.
 
 **파트너 ID가 연결되면 변경할 수 있나요?**
 

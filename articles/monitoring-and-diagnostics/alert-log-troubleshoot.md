@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e2326f56ad367f744bc7895bc8c4bfd6f32d0310
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616489"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264882"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Azure Monitor에서 로그 경고 문제 해결  
 ## <a name="overview"></a>개요
@@ -61,7 +61,7 @@ ms.locfileid: "51616489"
 
 ![여러 값을 사용한 메트릭 측정 쿼리 실행](./media/monitor-alerts-unified/LogMMQuery.png)
 
-"다음에 대한 집계"는 $table이므로 $table 열(빨간색으로 표시됨)의 데이터가 정렬됩니다. 그러면 "다음에 대한 집계" 필드, 즉 $table의 형식을 그룹화하고 살펴봅니다. 예를 들어 availabilityResults 값은 하나의 그림/엔터티(주황색으로 강조 표시됨)로 간주됩니다. 이 값 그림/엔터티에서 경고 서비스는 'availabilityResults' 테이블 값에 대해 경고가 트리거되는 3회 연속 위반(녹색으로 표시됨)이 발생했는지 확인합니다. 마찬가지로, $table의 다른 값에 대해 3회 연속 위반이 나타나면 동일한 또 다른 경고 알림이 트리거됩니다. 경보 서비스는 시간별로 하나의 그림/엔터티(주황색으로 표시됨)의 값을 자동으로 정렬합니다.
+"다음에 대한 집계"는 $table이므로 $table 열(빨간색으로 표시됨)의 데이터가 정렬됩니다. 그러면 "다음에 대한 집계" 필드, 즉 $table의 형식을 그룹화하고 살펴봅니다. 예를 들어 availabilityResults 값은 하나의 그림/엔터티(주황색으로 강조 표시됨)로 간주됩니다. 이 값 그림/엔터티에서 경고 서비스는 'availabilityResults' 테이블 값에 대해 경고가 트리거되는 3회 연속 위반(녹색으로 표시됨)이 발생했는지 확인합니다. 마찬가지로, $table의 다른 값에 대해 3회 연속 위반이 나타나면 동일한 항목에 대해 또 다른 경고 알림이 트리거됩니다. 경보 서비스는 시간별로 하나의 그림/엔터티(주황색으로 표시됨)의 값을 자동으로 정렬합니다.
 
 이제 메트릭 측정 로그 경고 규칙이 수정되었고, 쿼리는 3회 연속 위반에 대한 경고 논리를 포함하여 이전 구성과 동일하게 유지되는 구성의 나머지 부분이 있는 `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`였다고 가정합니다. 이 경우 "다음에 대한 집계" 옵션은 기본적으로 timestamp가 됩니다. summarize…by, 즉 timestamp에 대한 쿼리에는 하나의 값만 제공되므로 앞의 예제와 마찬가지로 실행 종료 시의 출력은 아래 그림과 같습니다. 
 

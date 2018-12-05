@@ -4,7 +4,7 @@ description: Azure Portal 또는 Azure 계정 센터에 로그인할 때 구독�
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: ac1956987b224417dde56014200add6cabb0e1df
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 584342b3dd223c45495db36ad49d83dece858137
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227437"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581785"
 ---
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에 로그인을 시도할 때 구독을 찾을 수 없음 오류 발생
 
@@ -53,6 +53,6 @@ ms.locfileid: "51227437"
 1. 확인하려는 구독을 선택한 다음 **설정**에서 확인합니다.
 1. **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.  
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-추가 도움이 필요한 경우 [지원에 문의](https://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)하여 문제를 신속하게 해결하세요. 
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

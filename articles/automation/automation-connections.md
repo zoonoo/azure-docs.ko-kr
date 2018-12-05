@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1e9ca18d2075d40f6f55bc84723f79ae7e10850b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261216"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284543"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
@@ -102,11 +102,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 그래픽 편집기의 라이브러리 창에서 연결을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 선택하여 **Get-AutomationConnection**를 그래픽 Runbook에 추가합니다.
 
-![](media/automation-connections/connection-add-canvas.png)
+![캔버스에 추가](media/automation-connections/connection-add-canvas.png)
 
 다음 그림에서는 그래픽 Runbook에서 연결을 사용하는 예제를 보여 줍니다.  이는 텍스트 runbook과 함께 실행 계정을 통해 인증하기 위해 위에서 보여 준 예제와 동일합니다.  이 예제에서는 인증을 위해 연결 개체를 사용하는 **실행 계정 연결 가져오기** 활동에 대해 **상수 값** 데이터 집합을 사용합니다.  ServicePrincipalCertificate 매개 변수 집합에는 단일 개체가 필요하기 때문에 여기서는 [파이프라인 링크](automation-graphical-authoring-intro.md#links-and-workflow)가 사용됩니다.
 
-![](media/automation-connections/automation-get-connection-object.png)
+![연결 가져오기](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Python2 Runbook 샘플
 다음 예제에서는 Python2 Runbook에서 다음 계정으로 실행 연결을 사용하여 인증하는 방법을 보여 줍니다.

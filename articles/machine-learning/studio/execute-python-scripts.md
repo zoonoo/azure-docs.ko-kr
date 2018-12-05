@@ -1,11 +1,12 @@
 ---
-title: Python Machine Learning 스크립트 실행 | Microsoft Docs
-description: Azure Machine Learning에서 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙 및 기본 사용 시나리오, 기능 및 제한 사항을 간략히 설명합니다.
+title: Python 기계 학습 스크립트 실행 - Azure Machine Learning Studio | Microsoft Docs
+description: Azure Machine Learning Studio에서 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙 및 기본 사용 시나리오, 기능 및 제한 사항을 간략히 설명합니다.
 keywords: python 기계 학습, pandas, python pandas, python 스크립트, python 스크립트 실행
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 7520780060f603a7e394b100549529a2c1b6fe4b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 958dd91277a81a9082a4149d2b0026fc11bf882a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228167"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317588"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행
 
@@ -150,7 +151,7 @@ zip 파일을 데이터 집합으로 Azure Machine Learning Studio에 업로드�
  
 ![image10](./media/execute-python-scripts/figure7.png)
 
-그림 7. [Python 스크립트 실행][execute-python-script] 모듈에서 사용 중인 사용자 정의 함수.
+ 그림 7. [Python 스크립트 실행][execute-python-script] 모듈에서 사용 중인 사용자 정의 함수.
 
 
 ## <a name="working-with-visualizations"></a>시각화 작업
@@ -201,9 +202,9 @@ Azure Machine Learning에서 설치되는 Anaconda 환경에는 NumPy, SciPy, Sc
 ## <a name="limitations"></a>제한 사항
 [Python 스크립트 실행][execute-python-script]에는 현재 다음과 같은 제한 사항이 있습니다.
 
-1. *샌드박스 실행.* 현재 Python 런타임은 샌드박스로 작동하므로, 지속적인 방식으로 네트워크나 로컬 파일 시스템에 액세스할 수 없습니다. 모듈이 완료되면 로컬에 저장된 모든 파일이 격리되어 삭제됩니다. Python 코드는 현재 디렉터리와 하위 디렉터리를 제외하고, 코드가 실행되는 컴퓨터에 있는 대부분의 디렉터리에 액세스할 수 없습니다.
-2. *정교한 개발 및 디버깅 지원이 부족합니다.* 현재 Python 모듈에서는 Intellisense와 디버깅 같은 IDE 기능을 지원하지 않습니다. 또한 모듈이 런타임에서 실패하는 경우 전체 Python 스택 추적을 사용할 수 있습니다. 그러나 스택 추적은 모듈의 출력 로그에서 확인해야 합니다. 현재로서는 IPython과 같은 환경에서 Python 스크립트를 개발하고 디버그한 다음 모듈에 코드를 가져오는 것이 좋습니다.
-3. *단일 데이터 프레임 출력.* Python 진입점은 단일 데이터 프레임을 출력으로 반환할 수만 있습니다. 현재로서는 학습된 모델과 같은 임의의 Python 개체를 Azure Machine Learning 런타임에 직접 반환할 수 없습니다. 동일한 제한 사항이 있는 [R 스크립트 실행][execute-r-script]과 마찬가지로, 대부분의 경우 개체를 바이트 배열로 만든 다음 데이터 프레임 내부에서 반환할 수 있습니다.
+1. *샌드박스 실행.*  현재 Python 런타임은 샌드박스로 작동하므로, 지속적인 방식으로 네트워크나 로컬 파일 시스템에 액세스할 수 없습니다. 모듈이 완료되면 로컬에 저장된 모든 파일이 격리되어 삭제됩니다. Python 코드는 현재 디렉터리와 하위 디렉터리를 제외하고, 코드가 실행되는 컴퓨터에 있는 대부분의 디렉터리에 액세스할 수 없습니다.
+2. *정교한 개발 및 디버깅 지원이 부족합니다.*  현재 Python 모듈에서는 Intellisense와 디버깅 같은 IDE 기능을 지원하지 않습니다. 또한 모듈이 런타임에서 실패하는 경우 전체 Python 스택 추적을 사용할 수 있습니다. 그러나 스택 추적은 모듈의 출력 로그에서 확인해야 합니다. 현재로서는 IPython과 같은 환경에서 Python 스크립트를 개발하고 디버그한 다음 모듈에 코드를 가져오는 것이 좋습니다.
+3. *단일 데이터 프레임 출력.*  Python 진입점은 단일 데이터 프레임을 출력으로 반환할 수만 있습니다. 현재로서는 학습된 모델과 같은 임의의 Python 개체를 Azure Machine Learning 런타임에 직접 반환할 수 없습니다. 동일한 제한 사항이 있는 [R 스크립트 실행][execute-r-script]과 마찬가지로, 대부분의 경우 개체를 바이트 배열로 만든 다음 데이터 프레임 내부에서 반환할 수 있습니다.
 4. *Python 설치를 사용자 지정할 수 없음*. 현재 사용자 지정 Python 모듈을 추가하는 유일한 방법은 이전에 설명한 zip 파일 메커니즘을 통한 것입니다. 이 방법은 작은 모듈의 경우 가능하지만, 모듈이 크거나(특히 네이티브 DLL이 있는 모듈) 모듈 수가 많은 경우 번거로울 수 있습니다. 
 
 ## <a name="conclusions"></a>결론

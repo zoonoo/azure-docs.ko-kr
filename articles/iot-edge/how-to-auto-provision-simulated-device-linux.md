@@ -8,18 +8,18 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 703dedc69e491377ce0890610a2882ab95ae6e5a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565074"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446255"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Linux 가상 머신에서 가상 TPM을 사용하여 Edge 장치 만들기 및 프로비전
 
-Edge를 사용하지 않는 장치와 마찬가지로 [Device Provisioning Service](../iot-dps/index.yml)를 사용하여 Azure IoT Edge 장치를 자동 프로비전할 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요. 
+Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning Service](../iot-dps/index.yml)를 사용하여 Azure IoT Edge 디바이스를 자동 프로비전할 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요. 
 
-이 문서에서는 다음 단계를 사용하여 시뮬레이션된 Edge 장치에서 자동 프로비전을 테스트하는 방법을 보여줍니다. 
+이 문서에서는 다음 단계를 통해 시뮬레이션된 Edge 디바이스에서 자동 프로비전을 테스트하는 방법을 보여줍니다. 
 
 * 하드웨어 보안을 위해 시뮬레이션된 TPM(신뢰할 수 있는 플랫폼 모듈)을 사용하여 Hyper-v에서 Linux 가상 머신(VM)을 만듭니다.
 * IoT Hub DPS(Device Provisioning Service)의 인스턴스를 만듭니다.
@@ -105,7 +105,7 @@ Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위*
 
 가상 머신에서 프로비전 정보를 검색하고 이를 사용하여 Device Provisioning Service에서 개별 등록을 만듭니다. 
 
-DPS에서 등록을 만들 때 **초기 장치 쌍 상태**를 선언할 기회가 있습니다. 장치 쌍에서 지역, 환경, 위치 또는 장치 유형 같은 솔루션에 필요한 모든 메트릭을 기준으로 장치 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-monitor.md)를 만드는 데 사용됩니다. 
+DPS에서 등록을 만들 때 **초기 장치 쌍 상태**를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-monitor.md)를 만드는 데 사용됩니다. 
 
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동합니다. 
@@ -136,7 +136,7 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 해당 구성 요�
 
 IoT Edge 런타임이 장치를 자동으로 프로비전하려면 TPM에 대한 액세스가 필요합니다. 
 
-TPM 액세스 권한을 부여하려면 다음 단계를 사용합니다. 또는 *iotedge* 서비스가 루트로 실행될 수 있도록 systemd 설정을 재정의하여 동일한 작업을 완수할 수 있습니다. 
+*iotedge* 서비스에 루트 권한이 있도록 systemd 설정을 재정의하여 IoT Edge 런타임에 TPM 액세스 권한을 부여할 수 있습니다. 서비스 권한을 승격시키지 않으려는 경우 다음 단계를 사용하여 수동으로 TPM 액세스 권한을 제공할 수도 있습니다. 
 
 1. 장치에서 TPM 하드웨어 모듈에 대한 파일 경로를 찾아 로컬 변수로 저장합니다. 
 
@@ -180,8 +180,10 @@ TPM 액세스 권한을 부여하려면 다음 단계를 사용합니다. 또는
    출력이 성공하면 다음과 같이 표시됩니다.
 
    ```output
-   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
+
+   올바른 사용 권한이 적용됐는지 확인할 수 없는 경우 머신을 재부팅하여 udev를 새로 고칩니다. 
 
 8. 파일을 재정의하는 IoT Edge 런타임을 엽니다. 
 
@@ -234,7 +236,7 @@ IoT Edge 런타임이 실행되고 있는지 확인합니다.
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
-런타임이 성공적으로 시작된 경우 IoT Hub로 이동하여 새 장치가 자동으로 프로비전되고 IoT Edge 모듈을 실행할 준비가 되었는지 확인할 수 있습니다. 
+런타임이 성공적으로 시작한 경우 IoT Hub로 이동하여 새 디바이스를 자동으로 프로비전했는지 확인할 수 있습니다. 이제 디바이스가 IoT Edge 모듈을 실행할 준비가 되었습니다. 
 
 IoT Edge 디먼의 상태를 확인합니다.
 
@@ -257,4 +259,4 @@ iotedge list
 
 ## <a name="next-steps"></a>다음 단계
 
-Device Provisioning Service 등록 프로세스를 사용하면 새 장치를 프로비전할 때 장치 ID 및 장치 쌍 태그를 동시에 설정할 수 있습니다. 자동 장치 관리를 사용하여 개별 장치 또는 장치 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-monitor-cli.md)하거나 [Azure Portal을 사용하여 대규모 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-monitor.md)하는 방법을 알아봅니다.
+Device Provisioning Service 등록 프로세스를 사용하면 새 장치를 프로비전할 때 장치 ID 및 장치 쌍 태그를 동시에 설정할 수 있습니다. 자동 장치 관리를 사용하여 개별 장치 또는 장치 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-monitor-cli.md)하거나 [Azure Portal을 사용하여 대규모로 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-monitor.md)하는 방법을 알아봅니다.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 01a52941a452ae7e4fa283959b071d31d3ad80c7
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624830"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162351"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB의 일관성 수준
 
@@ -49,7 +49,7 @@ Azure Cosmos DB에서 제공하는 포괄적인 SLA는 읽기 요청의 100%가 
 
   제한된 부실은 "부실 창" 내부를 제외하고 전체 전역 순서를 제공합니다. "부실 창" 내부 및 외부 지역에 단조 읽기 보증이 존재합니다. 강력한 일관성은 제한된 부실에서 제공하는 것과 의미 체계는 같으며 “부실 기간”이 영(0)입니다. 제한된 부실을 **시간 지연 원자성**이라고도 합니다. 클라이언트가 쓰기를 허용하는 지역 내에서 읽기 작업을 수행하는 경우 제한된 부실 일관성에서 제공하는 보장이 강력한 일관성의 보장과 동일합니다.
 
-- **일관성 수준 = “세션”**: 읽기에서 일관적인 접두사, 단조 읽기, 단조 쓰기, 쓰기 읽기, 읽기 뒤 쓰기 보장을 적용하도록 합니다. 세션 일관성은 클라이언트 세션으로 범위가 지정됩니다.
+- **일관성 수준 = “세션”**: 읽기에서 일관적인 접두사(단일 “쓰기” 세션 가정), 단조 읽기, 단조 쓰기, 쓰기 읽기, 읽기 뒤 쓰기 보장을 적용하도록 합니다. 세션 일관성은 클라이언트 세션으로 범위가 지정됩니다.
 
 - **일관성 수준 = “일관적인 접두사”**: 반환되는 업데이트는 간격 없이 모든 업데이트의 일부 접두사를 포함합니다. 일관적인 접두사는 읽기가 잘못된 쓰기를 볼 수 없도록 보장합니다.
 

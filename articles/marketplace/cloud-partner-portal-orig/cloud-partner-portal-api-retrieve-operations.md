@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3f0f087c98f2b6594ab7e841f92ffac7ffe4003e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807820"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974470"
 ---
 <a name="retrieve-operations"></a>작업 검색
 ===================
@@ -40,8 +40,8 @@ ms.locfileid: "48807820"
 
 |  **Name**          |      **설명**                                                                                           | **데이터 형식** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  게시자 식별자(예: `Contoso`)                                                                   |  문자열       |
-|  offerId           |  제품 식별자                                                                                              |  문자열       |
+|  publisherId       |  게시자 식별자입니다(예: `Contoso`).                                                                   |  문자열       |
+|  offerId           |  제안 식별자입니다.                                                                                              |  문자열       |
 |  operationId       |  제품에 대한 작업을 고유하게 식별하는 GUID입니다. operationId는 이 API를 사용하여 검색할 수 있으며, [제품 게시](./cloud-partner-portal-api-publish-offer.md) API와 같은 장기 실행 작업에 대한 응답의 HTTP 헤더에도 반환됩니다.  |   Guid   |
 |  filteredStatus    | 이 API가 반환하는 컬렉션을 상태(예: `running`)별로 필터링하는 데 사용되는 선택적 쿼리 매개 변수입니다.  |   문자열 |
 |  api-version       | 최신 버전 API                                                                                           |    Date      |
@@ -189,7 +189,7 @@ ms.locfileid: "48807820"
 |  submissionType              | 제품에 대해 보고되는 작업 유형(예: `Publish/GGoLive`)을 식별합니다.      |
 |  createdDateTime             | 작업이 만들어진 UTC 날짜/시간입니다.                                                       |
 |  lastActionDateTime          | 작업에 대한 마지막 업데이트가 수행된 UTC 날짜/시간입니다.                                       |
-|  status                      | 작업 상태입니다. 예: ‘시작되지 않음 | 실행 중 | 실패 | 완료됨`. Only one operation can have status `실행 상태일 수 있습니다. |
+|  status                      | 작업의 상태입니다. `not started` \| `running` \| `failed` \| `completed` 중 하나입니다. 한 번에 하나의 작업만 상태 `running`을 가질 수 있습니다. |
 |  error                       | 실패한 작업에 대한 오류 메시지입니다.                                                               |
 |  |  |
 
@@ -201,5 +201,5 @@ ms.locfileid: "48807820"
 |  200      | `OK` - 요청이 성공적으로 처리되었으며 요청한 작업이 반환되었습니다.        |
 |  400      | `Bad/Malformed request` - 오류 응답 본문에 자세한 정보가 들어 있을 수 있습니다.                    |
 |  403      | `Forbidden` - 클라이언트는 지정된 네임스페이스에 액세스할 수 없습니다.                          |
-|  404      | `Not found` - 지정된 엔터티가 존재하지 않습니다.                                                 |
+|  404      | `Not found` - 지정한 엔터티가 없습니다.                                                 |
 |  |  |

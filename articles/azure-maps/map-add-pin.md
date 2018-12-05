@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92d80d9a4d39a3f21539e5e6e498fc52df213a19
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c56ac35f49c364b7b0f2ad26b82b178411419414
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248815"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282688"
 ---
 # <a name="add-symbols-and-markers-to-a-map"></a>지도에 기호 및 표식 추가
 
@@ -51,7 +51,7 @@ ms.locfileid: "50248815"
 
 두 번째 코드 블록에서는 위치 배열이 정의되고 [MultiPoint](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.multipoint?view=azure-iot-typescript-latest) 개체가 생성됩니다. 그런 다음, [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 데이터 원본 개체가 생성되고 MultiPoint 개체가 데이터 원본에 추가됩니다.
 
-[거품형 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)은 [데이터 원본](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 원으로 렌더링합니다. 마지막 코드 블록은 거품형 계층을 만들고 지도에 추가합니다. [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest)에서 거품형 계층의 속성을 참조하세요.
+[거품형 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)은 [데이터 원본](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 원으로 렌더링합니다. 마지막 코드 블록은 거품형 계층을 만들고 지도에 추가합니다. [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)에서 거품형 계층의 속성을 확인합니다.
 
 MultiPoint 개체, 데이터 원본 및 거품형 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 원이 표시되도록 합니다.
 
@@ -64,9 +64,9 @@ MultiPoint 개체, 데이터 원본 및 거품형 계층이 생성되고 지도�
 
 두 번째 코드 블록은 [point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 개체를 만듭니다. 그런 다음, [data source](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 클래스를 사용하여 데이터 원본 개체를 만들고 데이터 원본에 점을 추가합니다.
 
-[거품형 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)은 [데이터 원본](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 원으로 렌더링합니다. 세 번째 코드 블록은 거품형 계층을 만들고 지도에 추가합니다. [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest)에서 거품형 계층의 속성을 참조하세요.
+[거품형 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)은 [데이터 원본](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 원으로 렌더링합니다. 세 번째 코드 블록은 거품형 계층을 만들고 지도에 추가합니다. [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)에서 거품형 계층의 속성을 확인합니다.
 
-[기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다. 마지막 코드 블록은 거품형의 텍스트 레이블을 렌더링하는 기호 계층을 만들고 지도에 추가합니다. [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.symbollayeroptions?view=azure-iot-typescript-latest)에서 기호 계층의 속성을 참조하세요.
+[기호 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)은 텍스트 또는 아이콘을 사용하여 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)에 래핑된 점 기반 데이터를 지도에 기호로 렌더링합니다. 마지막 코드 블록은 거품형의 텍스트 레이블을 렌더링하는 기호 계층을 만들고 지도에 추가합니다. [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)에서 기호 계층의 속성을 참조하세요.
 
 데이터 원본 및 계층이 생성되고 지도의 [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) 함수 내에 추가되어 지도가 완전히 로드된 후 데이터가 표시되도록 합니다.
 

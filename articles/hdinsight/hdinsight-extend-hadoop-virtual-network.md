@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 308527bce2048921c2af65aa78a12d8ef2c2bed2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238984"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497782"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -25,7 +25,7 @@ ms.locfileid: "51238984"
 
 * Azure Virtual Network에서 데이터 저장소에 HDInsight를 연결합니다.
 
-* 인터넷을 통해 공개적으로 사용할 수 없는 Apache Hadoop 서비스에 직접 액세스합니다. 예를 들어 Kafka API 또는 HBase Java API.
+* 인터넷을 통해 공개적으로 사용할 수 없는 [Apache Hadoop](https://hadoop.apache.org/) 서비스에 직접 액세스합니다. 예: [Apache Kafka](https://kafka.apache.org/) API 또는 [Apache HBase](https://hbase.apache.org/) Java API.
 
 > [!WARNING]
 > 이 문서의 정보를 이해하려면 TCP/IP 네트워킹에 대한 사전 지식이 필요합니다. TCP/IP 네트워킹에 대해 잘 모르는 경우 이전에 프로덕션 네트워크를 수정한 사람과 협력하여 작업해야 합니다.
@@ -171,11 +171,11 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
 자세한 내용은 [VM 및 역할 인스턴스의 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 문서를 참조하세요.
 
-## <a name="directly-connect-to-hadoop-services"></a>Hadoop 서비스에 직접 연결
+## <a name="directly-connect-to-apache-hadoop-services"></a>Apache Hadoop 서비스에 직접 연결
 
 https://CLUSTERNAME.azurehdinsight.net에 있는 클러스터에 연결할 수 있습니다. 이 주소는 공용 IP를 사용하며, NSG를 사용하여 인터넷에서 들어오는 트래픽을 제한한 경우 액세스할 수 없습니다. 또한 클러스터를 VNet에 배포하는 경우 개인 엔드포인트 https://CLUSTERNAME-int.azurehdinsight.net을 사용하여 액세스할 수 있습니다. 이 엔드포인트는 클러스터 액세스를 위한 VNet 내부의 사설 IP로 확인됩니다.
 
-가상 네트워크를 통해 Ambari 및 다른 웹 페이지에 연결하려면 다음 단계를 사용합니다.
+가상 네트워크를 통해 Apache Ambari 및 다른 웹 페이지에 연결하려면 다음 단계를 사용합니다.
 
 1. HDInsight 클러스터 노드의 내부 FQDN(정규화된 도메인 이름)을 검색하려면 다음 방법 중 하나를 사용합니다.
 
@@ -316,7 +316,7 @@ HDInsight는 여러 포트에서 서비스를 공개합니다. 가상 어플라�
 * 11000-11999
 * 14000-14999
 
-특정 서비스에 대한 포트 목록은 [HDInsight의 Hadoop 서비스에서 사용하는 포트](hdinsight-hadoop-port-settings-for-services.md) 문서를 참조하세요.
+특정 서비스에 대한 포트 목록은 [HDInsight의 Apache Hadoop 서비스에서 사용되는 포트](hdinsight-hadoop-port-settings-for-services.md) 문서를 참조하세요.
 
 가상 어플라이언스의 방화벽 규칙에 대한 자세한 내용은 [가상 어플라이언스 시나리오](../virtual-network/virtual-network-scenario-udr-gw-nva.md) 문서를 참조하세요.
 
@@ -660,8 +660,8 @@ $vnet | Set-AzureRmVirtualNetwork
 ## <a name="next-steps"></a>다음 단계
 
 * 온-프레미스 네트워크에 연결하기 위해 HDInsight를 구성하는 종단 간 예제는 [HDInsight를 온-프레미스 네트워크에 연결](./connect-on-premises-network.md)을 참조하세요.
-* Azure 가상 네트워크에서 Hbase 클러스터를 구성하려면 [Azure Virtual Network의 HDInsight에서 HBase 클러스터 만들기](hbase/apache-hbase-provision-vnet.md)를 참조하세요.
-* HBase 지리적 복제를 구성하려면 [Azure 가상 네트워크에서 HBase 클러스터 복제 설정](hbase/apache-hbase-replication.md)을 참조하세요.
+* Azure 가상 네트워크에서 Apache Hbase 클러스터를 구성하려면 [Azure Virtual Network의 HDInsight에서 Apache HBase 클러스터 만들기](hbase/apache-hbase-provision-vnet.md)를 참조하세요.
+* Apache HBase 지리적 복제를 구성하려면 [Azure 가상 네트워크에서 Apache HBase 클러스터 복제 설정](hbase/apache-hbase-replication.md)을 참조하세요.
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 * 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.

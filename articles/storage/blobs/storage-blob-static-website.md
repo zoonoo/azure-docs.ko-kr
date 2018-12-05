@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: ddc85cb7c9bd4488295b22e687d199a73d23922c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 36b4fbac13e012de2fbef137c6637fd7e2daea8f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955629"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161296"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 Azure Storage GPv2 계정을 사용하면 *$web*이라는 저장소 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 서비스할 수 있습니다. Azure Storage에 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS 서비스를 포함한 서버리스 아키텍처를 사용할 수 있습니다.
@@ -109,7 +109,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NA
 
 - [AZCopy](../common/storage-use-azcopy.md)
 - [Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)
-- [Visual Studio Team System](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Azure Pipelines](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
 - [Visual Studio Code 확장](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 항상 파일을 *$web* 컨테이너로 복사해야 합니다.
@@ -160,7 +160,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NA
 ## <a name="next-steps"></a>다음 단계
 * [Azure CDN을 사용하여 HTTPS를 통한 사용자 지정 도메인으로 Blob 액세스](storage-https-custom-domain-cdn.md)
 * [Blob 또는 웹 엔드포인트에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)
-* [Azure 기능](/azure/azure-functions/functions-overview)
+* [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure Web Apps](/azure/app-service/app-service-web-overview)
 * [첫 번째 서버 없는 웹앱 빌드](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
 * [자습서: Azure DNS에 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)

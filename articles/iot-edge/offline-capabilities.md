@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567029"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284645"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>IoT Edge 장치, 모듈 및 자식 장치용 확장 오프라인 기능(미리 보기)을 이해합니다.
 
@@ -48,7 +48,7 @@ IoT Edge 장치가 오프라인으로 전환되면 Edge 허브는 세 가지 역
 
 이 문서에서 설명한 확장된 오프라인 기능은 [IoT Edge 버전 1.0.4 이상](https://github.com/Azure/azure-iotedge/releases)에서 사용할 수 있습니다. 이보다 낮은 버전은 오프라인 기능 집합을 갖고 있습니다. 확장된 오프라인 기능이 없는 기존 IoT Edge 장치는 런타임 버전을 변경하여 업그레이드할 수 없지만, 새 IoT Edge 장치 ID를 사용하여 이러한 기능을 획득하도록 다시 구성해야 합니다. 
 
-확장된 오프라인 지원은 미국 동부 및 유럽 서부를 제외하고 IoT Hub가 제공되는 모든 지역에서 사용할 수 있습니다. 
+확장된 오프라인 지원은 IoT Hub를 사용할 수 있는 모든 지역(미국 동부 지역 **제외**)에서 사용할 수 있습니다.
 
 비 Edge IoT 장치는 오직 한 대만 자식 장치로 추가할 수 있습니다. 
 
@@ -65,6 +65,19 @@ IoT Edge 장치의 확장된 오프라인 기능을 자식 IoT 장치로 확장�
    ![IoT Edge 장치 세부 정보 페이지에서 자식 장치 관리](./media/offline-capabilities/manage-child-devices.png)
 
 부모 장치는 여러 자식 장치를 가질 수 있지만, 자식 장치는 한 부모만 가질 수 있습니다.
+
+### <a name="specifying-dns-servers"></a>DNS 서버 지정 
+
+견고성을 향상시키려면 환경에서 사용되는 DNS 서버 주소를 지정하는 것이 좋습니다. 예를 들어 Linux에서 다음이 포함되도록 **/etc/docker/daemon.json**을 업데이트합니다(파일을 만들어야 할 수도 있음).
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+로컬 DNS 서버를 사용하는 경우 1.1.1.1을 로컬 DNS 서버의 IP 주소로 바꿉니다. 변경 내용이 적용되도록 Docker 서비스를 다시 시작합니다.
+
 
 ## <a name="optional-offline-settings"></a>선택적 오프라인 설정
 

@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902929"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282518"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>응용 프로그램 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -151,7 +151,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
-이 예제는 [Azure Portal](https://portal.azure.com)을 사용하여 *acceptedMappedClaims* 필드를 업데이트합니다.
+다음 예제에서는 [Azure Portal](https://portal.azure.com)을 사용하여 *acceptedMappedClaims* 필드를 업데이트합니다.
 1. 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **앱 등록**을 선택합니다.
 3. 응용 프로그램 > **매니페스트**를 선택합니다.

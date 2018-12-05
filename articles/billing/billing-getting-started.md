@@ -4,7 +4,7 @@ description: Azure 청구서에 예기치 않은 요금이 부과되지 않도�
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 3e7af4039ca5cd8aaadc36d3f87900e2127af7ab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c19769dda281f4346c23b823ea00eac83790b618
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255662"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582533"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -167,7 +167,8 @@ Advisor 대시보드의 **비용** 탭에서 실행 가능한 권장 지침을 �
 
 계정 관리자가 아니면 경우 누군가가 [Azure Active Directory RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 통해 부분적인 액세스 권한을 부여한 것입니다. 구독을 관리하고 청구 정보를 변경하려면 [계정 관리자를 찾고](billing-subscription-transfer.md#whoisaa) 작업을 수행하거나 [구독을 전송](billing-subscription-transfer.md)하도록 요청합니다.
 
-계정 관리자가 더 이상 조직에 있지 않은 상태에서 청구를 관리해야 할 경우 [지원 서비스에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요. 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+계정 관리자가 더 이상 조직에 있지 않은 상태에서 청구를 관리해야 하는 경우에는 [문의하세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

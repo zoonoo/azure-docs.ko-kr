@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.author: danlep
-ms.openlocfilehash: e2f0d90a0a4384560c0a4126c028761765cb9e45
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e03a35b31c9089abe973c7e4388b508f668a3970
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288869"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619846"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -44,6 +44,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 **지원되는** 지역:
 
+* 북유럽(northeurope)
 * 유럽 서부(westeurope)
 * 미국 서부(westus)
 
@@ -72,7 +73,7 @@ Azure Virtual Network에 컨테이너 그룹을 배포하는 경우 다음과 �
 
 Azure 리소스용 네트워크 구성 템플릿인 네트워크 프로필은 리소스를 배포해야 하는 서브넷 등 리소스의 특정 네트워크 속성을 지정합니다. 처음 [az container create][az-container-create] 명령을 사용하여 서브넷(가상 네트워크)에 컨테이너 그룹을 배포하는 경우 Azure가 사용자를 위해 네트워크 프로필을 만듭니다. 그러면 다음에 컨테이너 그룹을 서브넷에 배포할 때 해당 네트워크 프로필을 사용할 수 있습니다. 
 
-Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용하여 서브넷에 컨테이너 그룹을 배포하려면 네트워크 프로필의 전체 Resource Manager 리소스 ID를 제공해야 합니다. [az container create][az-container-create]를 사용하여 이전에 만든 프로필을 사용할 수도 있고 Resource Manager 템플릿([참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles) 확인)을 사용하여 프로필을 만들 수도 있습니다. 이전에 만든 프로필의 ID를 가져오려면 [az network profile list][az-network-profile-list] 명령을 사용합니다. 
+Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용하여 서브넷에 컨테이너 그룹을 배포하려면 네트워크 프로필의 전체 Resource Manager 리소스 ID를 제공해야 합니다. [az container create][az-container-create]를 사용하여 이전에 만든 프로필을 사용할 수도 있고 Resource Manager 템플릿을 사용하여 프로필을 만들 수도 있습니다([템플릿 예제](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet) 및 [참조](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles) 참조). 이전에 만든 프로필의 ID를 가져오려면 [az network profile list][az-network-profile-list] 명령을 사용합니다. 
 
 아래 다이어그램에서는 Azure Container Instances에 위임된 서브넷에 컨테이너 그룹이 여러 개 배포되어 있습니다. 컨테이너 그룹 하나를 서브넷에 배포한 후에는 같은 네트워크 프로필을 지정하여 추가 컨테이너 그룹을 배포할 수 있습니다.
 
@@ -295,6 +296,9 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
+Resource Manager 템플릿을 사용하여 새 가상 네트워크, 서브넷, 네트워크 프로필 및 컨테이너 그룹을 배포하려면 [VNet을 사용하여 Azure 컨테이너 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
+)를 참조하세요.
 
 이 문서에서는 여러 가상 네트워크 리소스와 기능에 대해 간략하게 설명했습니다. Azure Virtual Network 설명서에서는 다음 주제에 대해 광범위하게 설명합니다.
 

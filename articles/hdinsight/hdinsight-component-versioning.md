@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: fca83090e6713e4360bd19d49c7fd6b9147fd6ea
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 2ae0450be420edeb4ef18d0c9e5ca6e1dacaf50d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219735"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497022"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?
 
-엔터프라이즈 보안 패키지뿐만 아니라 Microsoft Azure HDInsight의 Apache Hadoop 에코시스템 구성 요소 및 버전에 대해 알아봅니다. 또한 HDInsight에서 Hadoop 구성 요소 버전을 확인하는 방법을 알아봅니다. 
+Enterprise Security Package뿐만 아니라 Microsoft Azure HDInsight의 [Apache Hadoop](https://hadoop.apache.org/) 에코시스템 구성 요소 및 버전에 대해 알아봅니다. 또한 HDInsight에서 Hadoop 구성 요소 버전을 확인하는 방법을 알아봅니다. 
 
 각 HDInsight 버전은 클라우드 배포판의 HDP(Hortonworks Data Platform) 버전입니다.
 
@@ -58,7 +58,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>현재 Hadoop 구성 요소 버전 정보 확인
 
-HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 버전은 HDInsight에 대한 업데이트로 변경될 수 있습니다. Hadoop 구성 요소를 확인하고 클러스터에 대해 사용 중인 버전을 확인하려면 Ambari REST API를 사용합니다. **GetComponentInformation** 명령은 서비스 구성 요소에 대한 정보를 검색합니다. 자세한 내용은 [Ambari 설명서][ambari-docs]를 참조하세요.
+HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 버전은 HDInsight에 대한 업데이트로 변경될 수 있습니다. Hadoop 구성 요소를 확인하고 클러스터에 대해 사용 중인 버전을 확인하려면 Ambari REST API를 사용합니다. **GetComponentInformation** 명령은 서비스 구성 요소에 대한 정보를 검색합니다. 자세한 내용은 [Apache Ambari 설명서][ambari-docs]를 참조하세요.
 
 Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 C:\apps\dist\ 디렉터리의 콘텐츠를 검사하는 것입니다.
 
@@ -117,8 +117,8 @@ Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방�
 
     자세한 내용은 다음을 참조하세요.
 
-    - [도메인 조인 HDInsight 클러스터 소개를 사용한 Hadoop 보안 소개](./domain-joined/apache-domain-joined-introduction.md)
-    - [HDInsight에서 Azure 도메인에 가입된 Hadoop 클러스터 계획](./domain-joined/apache-domain-joined-architecture.md)
+    - [도메인에 가입된 HDInsight 클러스터를 사용하는 Apache Hadoop 보안 소개](./domain-joined/apache-domain-joined-introduction.md)
+    - [HDInsight에서 Azure 도메인에 가입된 Apache Hadoop 클러스터 계획](./domain-joined/apache-domain-joined-architecture.md)
     - [도메인 가입 샌드박스 환경 구성](./domain-joined/apache-domain-joined-configure.md)
     - [Azure Active Directory Domain Services를 사용하여 도메인에 가입된 HDInsight 클러스터 구성](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
@@ -129,7 +129,7 @@ Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방�
 
     자세한 내용은 다음을 참조하세요.
 
-    - [도메인에 가입된 HDInsight에서 Hive 정책 구성](./domain-joined/apache-domain-joined-run-hive.md)
+    - [도메인에 가입된 HDInsight에서 Apache Hive 정책 구성](./domain-joined/apache-domain-joined-run-hive.md)
 
 - 감사 로그를 보고 액세스 및 구성된 정책을 모니터링합니다. 
 
@@ -151,7 +151,7 @@ Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방�
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows 사용 중지
 Microsoft Azure HDInsight 버전 3.3은 Windows에 대한 HDInsight의 마지막 버전이었습니다. Windows HDInsight의 사용 중지 날짜는 2018년 7월 31일입니다. 또는 Windows 3.3 이전 버전의 HDInsight 클러스터가 설치된 경우 2018년 7월 31일 이전에 Linux HDInsight로 마이그레이션해야 합니다(HDInsight 버전 3.5 이상). Linux OS로 마이그레이션하면 HDInsight 클러스터를 만들거나 크기를 조정하는 기능을 유지할 수 있습니다. Windows의 HDInsight 버전 3.3에 대한 지원은 2016년 6월 27일에 만료되었습니다.
 
-HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 결과적으로 HDInsight 내의 구성 요소 중 일부가 Linux에서만 제공됩니다. 기본 파일 시스템으로 Apache Ranger, Kafka, 대화형 쿼리, Spark, HDInsight 응용 프로그램 및 Azure Data Lake Store가 포함됩니다. HDInsight의 이후 릴리스는 Linux OS에서만 사용할 수 있습니다. Windows HDInsight는 향후에 더 이상 릴리스되지 않습니다. 
+HDInsight 버전 3.4부터 Microsoft는 Linux OS에서만 HDInsight를 릴리스했습니다. 결과적으로 HDInsight 내의 구성 요소 중 일부가 Linux에서만 제공됩니다. 기본 파일 시스템으로 [Apache Ranger](https://ranger.apache.org/), [Apache Kafka](https://kafka.apache.org/), Interactive Query, [Apache Spark](https://spark.apache.org/), HDInsight 애플리케이션 및 Azure Data Lake Store가 포함됩니다. HDInsight의 이후 릴리스는 Linux OS에서만 사용할 수 있습니다. Windows HDInsight는 향후에 더 이상 릴리스되지 않습니다. 
 
 ## <a name="faqs"></a>FAQ
 
@@ -264,8 +264,8 @@ _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 �
 > - 작업자는 HBase 클러스터 형식에 대한 *지역*으로 알려져 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [HDInsight의 Hadoop, Spark 등에 대한 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)
-- [Windows PC에서 HDInsight의 Hadoop 작업](hdinsight-hadoop-windows-tools.md)
+- [HDInsight의 Apache Hadoop, Spark 등에 대한 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)
+- [Windows PC의 HDInsight에서 Apache Hadoop 작업](hdinsight-hadoop-windows-tools.md)
 
 [Supported HDInsight versions]:(#supported-hdinsight-versions)
 

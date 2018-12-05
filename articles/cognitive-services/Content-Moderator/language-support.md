@@ -10,14 +10,14 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: sajagtap
-ms.openlocfilehash: 3b0cd73be1857d0849c4cb53dcc52c5c27206e80
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5c170fd2871d0e487f705e1e7274fdfdda4049e6
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230916"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276381"
 ---
-# <a name="language-and-region-support-for-content-moderator-api"></a>Content Moderator API에 대한 언어 및 지역 지원
+# <a name="language-support-for-content-moderator-api"></a>Content Moderator API를 위한 언어 지원
 
 > [!NOTE]
 > **language** 매개 변수에 대해 `eng`를 할당하거나, 기계 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워 둡니다. **이 기능은 영어만 지원합니다**.

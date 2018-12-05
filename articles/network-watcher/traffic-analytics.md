@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457411"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443035"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -53,9 +53,39 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-미국 중서부, 미국 동부, 미국 동부 2, 미국 중북부, 미국 중남부, 미국 중부, 미국 서부, 미국 서부 2, 캐나다 중부, 유럽 서부, 북유럽, 영국 서부, 영국 남부, 일본 동부, 인도 중부, 오스트레일리아 동부, 오스트레일리아 남동부 및 동남 아시아에서 NSG용 트래픽 분석을 사용할 수 있습니다. 
+지원되는 다음 지역 중 하나에서 NSG용 트래픽 분석을 사용할 수 있습니다.
 
-로그 분석 작업 영역이 미국 중서부, 미국 동부, 유럽 서부, 영국 남부, 캐나다 중부, 일본 동부, 인도 중부, 오스트레일리아 남동부 또는 동남 아시아 지역에 있어야 합니다.
+* 캐나다 중부
+* 미국 중서부
+* 미국 동부
+* 미국 동부 2
+* 미국 중북부
+* 미국 중남부
+* 미국 중부
+* 미국 서부
+* 미국 서부 2
+* 서유럽
+* 북유럽
+* 브라질 남부
+* 영국 서부
+* 영국 남부
+* 오스트레일리아 동부
+* 오스트레일리아 남동부
+* 동남아시아
+* 인도 중부
+* 인도 남부
+* 일본 동부 
+
+Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
+* 캐나다 중부
+* 미국 중서부
+* 미국 동부
+* 서유럽
+* 영국 남부
+* 오스트레일리아 남동부
+* 동남아시아
+* 인도 중부
+* 일본 동부
 
 ## <a name="prerequisites"></a>필수 조건
 

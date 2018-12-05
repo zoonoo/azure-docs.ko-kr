@@ -1,6 +1,6 @@
 ---
 title: Azure Storage Blob에 대한 변경 불가능한 저장소 | Microsoft Docs
-description: Azure Storage는 사용자가 지정한 간격 동안 지울 수 없고 수정할 수 없는 상태로 데이터를 저장할 수 있게 하는 Blob(개체) 저장소에 대한 WORM(Write Once, Read Many) 지원을 제공합니다.
+description: Azure Storage는 사용자가 지정한 간격 동안 지울 수 없고 수정할 수 없는 상태로 데이터를 저장할 수 있게 하는 Blob(개체) 스토리지에 대한 WORM(Write Once, Read Many) 지원을 제공합니다.
 services: storage
 author: xyh1
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037003"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261475"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Azure Blob Storage에 중요 비즈니스용 데이터 저장
 
-Azure Blob(개체) 저장소에 대한 변경 불가능한 저장소를 사용하면 사용자가 중요 비즈니스용 데이터를 WORM(Write Once, Read Many) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. 보존 간격 기간 동안 Blob을 만들고 읽을 수 있지만, 수정하거나 삭제할 수는 없습니다.
+사용자는 Azure Blob(개체) 스토리지에 대한 변경 불가능한 스토리지를 사용하여 중요 비즈니스용 데이터를 WORM(Write Once, Read Many) 상태로 저장할 수 있습니다. 이 상태는 사용자가 지정한 간격 동안 데이터를 지울 수 없고 수정할 수 없게 만듭니다. 보존 간격 기간 동안 Blob을 만들고 읽을 수 있지만, 수정하거나 삭제할 수는 없습니다.
 
 ## <a name="overview"></a>개요
 
@@ -47,7 +47,7 @@ Azure Blob(개체) 저장소에 대한 변경 불가능한 저장소를 사용�
 
 ## <a name="how-it-works"></a>작동 방법
 
-Azure Blob 저장소에 대한 변경 불가능한 저장소는 두 가지 유형의 WORM 또는 변경 불가능한 정책, 즉, 시간 기준 보존 정책과 법적 보존 정책을 지원합니다. 이러한 변경 불가능한 정책을 만드는 방법에 대한 자세한 내용은 [시작](#Getting-started) 섹션을 참조하세요.
+Azure Blob 저장소에 대한 변경 불가능한 저장소는 두 가지 유형의 WORM 또는 변경 불가능한 정책, 즉, 시간 기준 보존 정책과 법적 보존 정책을 지원합니다. 이러한 변경 불가능한 정책을 만드는 방법에 대한 자세한 내용은 [시작](#getting-started) 섹션을 참조하세요.
 
 컨테이너에 시간 기준 보존 정책 또는 법적 보존을 적용하면 모든 기존 Blob이 변경 불가능한 상태(쓰기 및 삭제 금지)로 전환됩니다. 컨테이너에 업로드된 모든 새 Blob도 변경 불가능한 상태로 전환됩니다.
 
@@ -69,7 +69,7 @@ Azure Blob 저장소에 대한 변경 불가능한 저장소는 두 가지 유�
 
 ### <a name="legal-holds"></a>법적 보존
 
-법적 보존이 설정되면 이 법적 보존을 지울 때까지 기존 및 새 Blob이 모두 변경 불가능한 상태로 유지됩니다. 법적 보존을 설정하고 지우는 방법에 대한 자세한 내용은 [시작](#Getting-started) 섹션을 참조하세요.
+법적 보존이 설정되면 이 법적 보존을 지울 때까지 기존 및 새 Blob이 모두 변경 불가능한 상태로 유지됩니다. 법적 보존을 설정하고 지우는 방법에 대한 자세한 내용은 [시작](#getting-started) 섹션을 참조하세요.
 
 컨테이너에는 법적 보존 정책 및 시간 기준 보존 정책이 모두 있을 수 있습니다. 유효 보존 기간이 만료된 경우에도 법적 보존이 지워질 때까지 해당 컨테이너의 모든 Blob은 변경 불가능한 상태로 유지됩니다. 반대로, 모든 법적 보존이 지워진 경우에도 유효 보존 기간이 만료될 때까지 Blob은 변경 불가능한 상태로 유지됩니다.
 

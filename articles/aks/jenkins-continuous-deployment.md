@@ -1,46 +1,51 @@
 ---
-title: AKS(Azure Kubernetes Service)를 사용한 Jenkins 지속적인 배포
-description: Jenkins로 지속적인 배포 프로세스를 자동화하여 AKS(Azure Kubernetes Service)에서 컨테이너화된 앱을 배포 및 업그레이드하는 방법 알아보기
+title: 자습서 - Jenkins를 사용하여 GitHub에서 AKS(Azure Kubernetes Service)로 배포
+description: GitHub에서의 CI(지속적인 통합) 및 AKS(Azure Kubernetes Service)로의 CD(지속적인 배포)를 위해 Jenkins 설정
 services: container-service
-author: iainfoulds
 ms.service: container-service
+author: iainfoulds
+ms.author: iainfou
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: iainfou
-ms.openlocfilehash: 5417e59f15ffcf48cc2af27044355d2bb5c9edaf
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d252e275280ed2a5c2129f6b228e9989a33b37fd
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087698"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853634"
 ---
-# <a name="create-a-continuous-deployment-pipeline-with-jenkins-and-azure-kubernetes-service-aks"></a>Jenkins 및 AKS(Azure Kubernetes Service)를 사용하여 지속적인 배포 파이프라인 만들기
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 지속적인 통합 및 배포를 사용하여 GitHub에서 AKS(Azure Kubernetes Service)로 배포
 
-AKS(Azure Kubernetes Service)에서 응용 프로그램 업데이트를 빠르게 배포하기 위해 종종 CI/CD(지속적인 통합/지속적인 배포) 플랫폼을 사용합니다. CI/CD 플랫폼에서 코드 커밋은 업데이트된 응용 프로그램 인스턴스를 배포하는 데 사용될 새 컨테이너 빌드를 트리거할 수 있습니다. 이 문서에서는 Jenkins를 CI/CD 플랫폼으로 사용하여 컨테이너 이미지를 빌드하고 ACR(Azure Container Registry)에 푸시한 다음, AKS에서 해당 응용 프로그램을 실행합니다. 다음 방법에 대해 알아봅니다.
+이 자습서에는 Jenkins에서 CI(지속적인 통합) 및 CD(지속적인 배포)를 설정하여 GitHub의 샘플 앱을 [AKS(Azure Kubernetes Service)](/azure/aks/intro-kubernetes)로 배포합니다. 이런 방식으로 커밋을 GitHub에 푸시하여 앱을 업데이트하는 경우 Jenkins는 자동으로 새 컨테이너 빌드를 실행하고, 컨테이너 이미지를 ACR(Azure Container Registry)에 푸시한 다음, AKS에서 앱을 실행합니다. 
+
+이 자습서에서는 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
-> * AKS 클러스터에 Azure 투표 응용 프로그램 예제 배포
-> * 기본 Jenkins 인스턴스 만들기
-> * Jenkins가 ACR과 상호 작용하도록 자격 증명 구성
-> * 자동화된 빌드를 위한 Jenkins 빌드 작업 및 GitHub 웹후크 만들기
-> * CI/CD 파이프라인을 테스트하여 GitHub 코드 커밋에 따라 AKS에서 응용 프로그램 업데이트
+> * AKS 클러스터에 Azure 투표 앱 예제를 배포합니다.
+> * 기본 Jenkins 프로젝트를 만듭니다.
+> * Jenkins가 ACR과 상호 작용하도록 자격 증명을 설정합니다.
+> * 자동화된 빌드를 위한 Jenkins 빌드 작업 및 GitHub 웹후크를 만듭니다.
+> * CI/CD 파이프라인을 테스트하여 GitHub 코드 커밋에 따라 AKS에서 애플리케이션을 업데이트합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 조건
 
-이 아티클의 단계를 완료하려면 다음 항목이 필요합니다.
+이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 - Kubernetes, Git, CI/CD 및 컨테이너 이미지에 대한 기본적인 이해
 
-- [AKS 클러스터][aks-quickstart] 및 [AKS 클러스터 자격 증명][aks-credentials]으로 구성된 `kubectl`.
-- [ACR(Azure Container Registry) 레지스트리][acr-quickstart], ACR 로그인 서버 이름 및 [ACR 레지스트리에 인증][acr-authentication]하도록 구성된 AKS 클러스터.
+- [AKS 클러스터][aks-quickstart] 및 [AKS 클러스터 자격 증명][aks-credentials]으로 구성된 `kubectl`
+
+- [ACR(Azure Container Registry) 레지스트리][acr-quickstart], ACR 로그인 서버 이름 및 [ACR 레지스트리에 인증][acr-authentication]하도록 구성된 AKS 클러스터
 
 - Azure CLI 버전 2.0.46 이상의 설치 및 구성.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우  [Azure CLI 설치][install-azure-cli]를 참조하세요.
-- 개발 시스템에 [설치된 Docker][docker-install].
-- GitHub 계정, [GitHub 개인용 액세스 토큰][git-access-token], 개발 시스템에 설치된 Git 클라이언트.
+
+- 개발 시스템에 [설치된 Docker][docker-install]
+
+- GitHub 계정, [GitHub 개인용 액세스 토큰][git-access-token], 개발 시스템에 설치된 Git 클라이언트
 
 - Jenkins를 배포하는 이 샘플 스크립트 방법이 아닌 사용자 고유의 Jenkins 인스턴스를 제공하는 경우 Jenkins 인스턴스를 사용하려면 [Docker를 설치 및 구성][docker-install]해야 하고 [kubectl][kubectl-install]이 있어야 합니다.
 
-## <a name="prepare-the-application"></a>응용 프로그램 준비
+## <a name="prepare-your-app"></a>앱 준비
 
 이 문서에서는 하나 이상의 Pod에서 호스트되는 웹 인터페이스와 임시 데이터 저장소를 위한 Redis를 호스트하는 두 번째 Pod를 포함하는 Azure 투표 응용 프로그램 예제를 사용합니다. 자동화된 배포를 위해 Jenkins 및 AKS를 통합하기 전에 먼저 수동으로 Azure 투표 응용 프로그램을 준비하고 AKS 클러스터에 배포합니다. 이 수동 배포는 응용 프로그램의 버전 1이고 이를 통해 작동 중인 응용 프로그램을 볼 수 있습니다.
 

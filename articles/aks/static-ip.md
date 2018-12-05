@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 24b7e03808cb5df9fa4c122ca4c9317f723dac72
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6097c96c0211c1efac2c2652eb0ef7d668d6877
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414644"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427049"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>AKS(Azure Kubernetes Service) 부하 분산 장치에 고정 공용 IP 주소 사용
 
@@ -28,7 +28,9 @@ ms.locfileid: "50414644"
 
 ## <a name="create-a-static-ip-address"></a>고정 IP 주소 만들기
 
-AKS에서 사용할 고정 공용 IP 주소를 만들 때는 **노드** 리소스 그룹에서 IP 주소 리소스를 만들어야 합니다. [az aks show][az-aks-show] 명령을 사용하여 리소스 그룹 이름을 가져온 다음 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster*의 노드 리소스 그룹을 가져옵니다.
+AKS에서 사용할 고정 공용 IP 주소를 만드는 경우 **노드** 리소스 그룹에서 IP 주소 리소스를 만들어야 합니다. 리소스를 구분하려는 경우 [노드 리소스 그룹 외부의 고정 IP 주소 사용](#use-a-static-ip-address-outside-of-the-node-resource-group)을 참조하세요.
+
+[az aks show][az-aks-show] 명령을 사용하여 노드 리소스 그룹 이름을 가져오고 `--query nodeResourceGroup` 쿼리 매개 변수를 추가합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster*의 노드 리소스 그룹을 가져옵니다.
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv

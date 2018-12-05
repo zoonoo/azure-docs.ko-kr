@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002923"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426794"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
@@ -54,11 +54,11 @@ ms.locfileid: "39002923"
 ```
 
 ## <a name="type-properties"></a>형식 속성
-Name | 설명 | type | Required?
+이름 | 설명 | type | Required?
 ---- | ----------- | ---- | --------
-dataset | 조회를 위한 데이터 집합 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 집합 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
-원본 | 복사 작업 원본과 동일한 데이터 집합 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
-firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | BOOLEAN | 아니요. 기본값은 `true`입니다.
+dataset | 조회를 위한 데이터 집합 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 집합 속성** 섹션에서 확인하세요. | 키/값 쌍 | yes
+원본 | 복사 작업 원본과 동일한 데이터 집합 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | yes
+firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | BOOLEAN |  아니요. 기본값은 `true`입니다.
 
 > [!NOTE]
 
@@ -297,6 +297,15 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
     }
 ]
 ```
+
+## <a name="limitations-and-workarounds"></a>제한 사항 및 해결 방법
+
+조회 활동 및 제안된 해결 방법의 몇 가지 제한 사항은 다음과 같습니다.
+
+| 제한 사항 | 해결 방법 |
+|---|---|
+| 조회 작업에는 최대 5,000개의 행 및 최대 2MB의 크기가 있습니다. | 최대 행 수 또는 최대 크기를 초과하지 않는 데이터를 검색하는 내부 파이프라인을 통해 외부 파이프라인을 반복하는 두 수준의 파이프라인을 설계합니다. |
+| | |
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 

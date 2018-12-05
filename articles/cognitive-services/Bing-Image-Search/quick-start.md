@@ -10,16 +10,16 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9e211cf5acd17ab80948d0b7161bdd2a9220c4a6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5742efb2dca02565735cf308d9ede9316ce6d12e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373055"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314867"
 ---
 # <a name="your-first-images-search-query"></a>첫 번째 이미지 검색 쿼리
 
-첫 번째 호출을 만들려면 Bing Search Cognitive Services 구독 키가 필요합니다. 키를 얻는 방법은 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)를 참조하세요.
+첫 번째 호출을 만들려면 Bing Search Cognitive Services 구독 키가 필요합니다. 키를 받으려면 [Cognitive Services 체험하기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)를 참조하세요.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 이미지 검색 결과를 가져오려면 다음 엔드포인트로 GET 요청을 보냅니다.  
   
@@ -29,11 +29,11 @@ https://api.cognitive.microsoft.com/bing/v7.0/images/search
   
 요청은 HTTPS 프로토콜을 사용해야 합니다.
 
-모든 요청이 서버에서 시작되는 것이 좋습니다. 클라이언트 응용 프로그램의 일부로 키를 배포하면 제3자가 나쁜 목적을 갖고 응용 프로그램에 액세스할 가능성이 높아집니다. 또한 서버에서 호출을 만들면 향후 API 버전을 업그레이드하기 위한 단일 업그레이드 지점이 제공됩니다.
+모든 요청은 서버에서 시작되는 것이 좋습니다. 클라이언트 응용 프로그램의 일부로 키를 배포하면 제3자가 나쁜 목적을 갖고 응용 프로그램에 액세스할 가능성이 높아집니다. 또한 서버에서 호출하면 향후 API 버전을 위한 단일 업그레이드 지점이 제공됩니다.
 
-요청에서는 사용자의 검색어가 포함된 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 쿼리 매개 변수를 지정해야 합니다. 선택 사항이지만, 요청에서 결과를 가져올 지역/국가를 식별하는 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#mkt) 쿼리 매개 변수도 지정해야 합니다. `freshness` 및 `size` 같은 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters)를 참조하세요. 모든 쿼리 매개 변수 값은 URL 인코딩되어야 합니다.  
+요청에서 사용자의 검색어가 포함된 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query) 쿼리 매개 변수를 지정해야 합니다. 선택 사항이지만, 결과를 가져올 지역/국가를 식별하는 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#mkt) 쿼리 매개 변수도 요청에서 지정해야 합니다. `freshness` 및 `size`와 같은 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters)를 참조하세요. 모든 쿼리 매개 변수 값은 URL 인코딩되어야 합니다.  
   
-요청에서는 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#subscriptionkey) 헤더를 지정해야 합니다. 선택 사항이지만, 다음 헤더도 지정하는 것이 좋습니다.  
+요청에서 [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#subscriptionkey) 헤더를 지정해야 합니다. 선택 사항이지만, 다음 헤더도 지정하는 것이 좋습니다.  
   
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#clientid)  
@@ -57,7 +57,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-다음은 이전 쿼리에 대한 응답을 보여줍니다.
+다음은 이전 요청에 대한 응답을 보여줍니다.
 
 ```json
 {

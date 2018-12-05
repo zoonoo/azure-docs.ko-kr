@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 4a8b2c07754b1a1c9679f7b044f112bf03dfb433
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 89abf64e6b47700bb16aaf6d4d4c0efbbbd9f520
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392111"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581589"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>매핑을 계산하는 무료 서비스 이해
 
@@ -53,10 +53,6 @@ ms.locfileid: "47392111"
 
 \** 공유 미터는 여러 서비스에서 사용할 수 있습니다. 예를 들어 가상 머신과 저장소는 모두 데이터 송신(GB) 미터에 대해 사용량을 내보냅니다.
 
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-
-
-
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
-
-도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

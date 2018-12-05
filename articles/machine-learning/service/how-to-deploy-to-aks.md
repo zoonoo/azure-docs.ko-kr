@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d9328b293d38114d319d79e38b91b1b67e410d94
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346323"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581838"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Azure Machine Learning 서비스에서 Azure Kubernetes Service로 모델을 배포하는 방법
 
@@ -25,7 +25,7 @@ AKS로의 배포를 통해 자동 크기 조정, 로깅, 모델 데이터 컬렉
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만드세요.
+- Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://aka.ms/AMLfree)을 만드세요.
 
 - Azure Machine Learning 서비스 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
 
@@ -65,7 +65,7 @@ Azure Kubernetes Service는 Docker 이미지를 사용합니다. 이미지를 �
     * [점수 매기기 스크립트(score.py) 만들기](tutorial-deploy-models-with-aml.md#create-scoring-script)
 
         > [!IMPORTANT]
-        > 점수 매기기 스크립트는 클라이언트에서 제출한 데이터를 받아서 채점을 위해 모델로 전달합니다. 스크립트 및 모델에 필요한 데이터 구조를 문서화합니다. 이러한 설명서가 있으면 웹 서비스를 사용하도록 클라이언트를 빌드하는 경우 쉽게 수행할 수 있습니다.
+        > 채점 스크립트는 클라이언트에서 제출한 데이터를 받아서 채점을 위해 모델로 전달합니다. 스크립트 및 모델에 필요한 데이터 구조를 문서화합니다. 이러한 설명서가 있으면 웹 서비스를 사용하도록 클라이언트를 빌드하는 경우 쉽게 수행할 수 있습니다.
 
     * [환경 파일(myenv.yml) 만들기](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
@@ -127,7 +127,7 @@ print(aks_target.provisioning_errors)
 기존 AKS 클러스터가 Azure 구독에 있는 경우 이미지를 배포하는 데 사용할 수 있습니다. 다음 코드 조각은 작업 영역에 클러스터를 연결하는 방법을 설명합니다. 
 
 > [!IMPORTANT]
-> AKS 1.11.2 버전만 지원됩니다.
+> AKS 1.11.3 버전만 지원됩니다.
 
 ```python
 # Get the resource id from https://porta..azure.com -> Find your resource group -> click on the Kubernetes service -> Properties

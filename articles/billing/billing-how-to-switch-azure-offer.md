@@ -4,7 +4,7 @@ description: Azure 구독을 변경하고 Azure 계정 센터를 사용하여 �
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 9cb415a84a61212b8c8e3840bdc85429b5d5308c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c8332ab9bbe22dab71d0b75446b478c424df66fb
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391877"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582140"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>다른 제안으로 Azure 종량제 구독 변경
 
@@ -114,6 +114,6 @@ Azure 제안은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 * 리소스를 새 구독으로 바로 마이그레이션할 수 있으며 자세한 방법은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.
 * Azure 구독과 그 안에 있는 모든 것의 소유권을 다른 사람에게 양도하려면 [Azure 구독의 소유권 이전](billing-subscription-transfer.md)을 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

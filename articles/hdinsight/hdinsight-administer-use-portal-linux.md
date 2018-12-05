@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: hrasheed
-ms.openlocfilehash: b96712c3a920a70e121f0a72954680ced2ba96ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 77f1d0f9d1f9ad07b977750e7701b660781d63e5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252295"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499388"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-[Azure Portal][azure-portal]을 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
+[Azure Portal][azure-portal]을 사용하여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리할 수 있습니다. 다른 도구를 사용하여 HDInsight에서 Hadoop 클러스터를 관리하는 방법에 대한 정보를 보려면 위쪽에 있는 탭 선택기를 사용하세요.
 
 **필수 구성 요소**
 
@@ -46,7 +46,7 @@ ms.locfileid: "51252295"
 ## <a name="create-clusters"></a>클러스터 만들기
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 지원되는 구성 요소 목록은 [Azure HDInsight에 포함된 Hadoop 버전은 무엇인가요?](hdinsight-component-versioning.md)를 참조하세요. 클러스터를 만드는 방법에 대한 일반적인 정보는 [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 지원되는 구성 요소 목록은 [Azure HDInsight에 포함된 Apache Hadoop 버전은 무엇인가요?](hdinsight-component-versioning.md)를 참조하세요. 클러스터를 만드는 방법에 대한 일반적인 정보는 [HDInsight에서 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 ### <a name="access-control-requirements"></a>Access Control 요구 사항
 
@@ -99,7 +99,7 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
     * **HDInsight 파트너**: 현재 HDInsight 파트너를 추가/제거합니다.
     * **속성**: 클러스터 속성을 표시합니다.
 * **잠금**: 클러스터가 수정되거나 삭제되지 않도록 잠금을 추가합니다.
-    * **Automation 스크립트**: 클러스터에 대한 Azure Resource Manager 템플릿을 표시하고 내보냅니다. 현재는 Azure Storage 계정만 내보낼 수 있습니다. [Azure Resource Manager 템플릿을 사용하여 HDInsight의 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
+    * **Automation 스크립트**: 클러스터에 대한 Azure Resource Manager 템플릿을 표시하고 내보냅니다. 현재는 Azure Storage 계정만 내보낼 수 있습니다. [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 **모니터링**
 * **변경**: 경고와 작업을 관리합니다.
     * **메트릭**: Azure Log Analytics에서 클러스터 메트릭을 모니터링합니다.
@@ -159,12 +159,12 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
 
 데이터 노드 수 변경에 따른 영향은 다음과 같이 HDInsight에서 지원하는 각 클러스터 유형에 따라 다릅니다.
 
-* Hadoop은
+* Apache Hadoop
 
     모든 보류 중인 또는 실행 중인 작업에 영향을 주지 않고 실행되는 Hadoop 클러스터의 작업자 노드 수를 원활하게 늘릴 수 있습니다. 작업이 진행 중인 동안에 새 작업을 제출할 수 있습니다. 크기 조정 작업의 오류는 정상적으로 처리되므로 클러스터는 항상 기능 상태로 남아 있습니다.
 
     데이터 노드 수를 줄여 Hadoop 클러스터를 축소하면 클러스터의 서비스 중 일부가 다시 시작됩니다. 그러면 실행 중인 작업과 보류 중인 작업이 크기 조정 작업을 완료하지 못하고 실패합니다. 그러나 작업이 완료되면 작업을 다시 제출할 수 있습니다.
-* HBase
+* Apache HBase
 
     HBase 클러스터가 실행 중인 동안 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 지역 서버는 크기 조정 작업을 완료하는 몇 분 안에 자동으로 균형을 맞춥니다. 그러나 클러스터의 헤드 노드에 로그인한 다음 명령 프롬프트 창에서 다음 명령을 실행하여 자동으로 지역 서버의 균형을 맞출 수도 있습니다.
 
@@ -176,7 +176,7 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
 
     HBase 셸을 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Apache HBase 예제 시작](hbase/apache-hbase-tutorial-get-started-linux.md)을 참조하세요.
 
-* Storm
+* Apache Storm
 
     실행 중인 동안 Storm 클러스터에 데이터 노드를 원활하게 추가하거나 제거할 수 있습니다. 하지만 크기 조정 작업이 성공적으로 완료되면 토폴로지 균형을 다시 조정해야 합니다.
 
@@ -208,10 +208,10 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 
 프로세스를 프로그래밍할 수 있는 방법은 다양합니다.
 
-* 사용자 Azure 데이터 팩터리. 주문형 HDInsight 연결된 서비스 만들기는 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Linux 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md) 를 참조하세요.
+* 사용자 Azure 데이터 팩터리. 주문형 HDInsight 연결된 서비스 만들기는 [Azure Data Factory를 사용하여 HDInsight에서 주문형 Linux 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-adf.md) 를 참조하세요.
 * Azure PowerShell 사용  [비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)을 참조하세요.
 * Azure 클래식 CLI 사용 [Azure 클래식 CLI를 사용하여 HDInsight 클러스터 관리](hdinsight-administer-use-command-line.md)를 참조하세요.
-* HDInsight .NET SDK 사용 [Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
+* HDInsight .NET SDK 사용 [Apache Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 
 가격 정보는 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요. 포털에서 클러스터를 삭제하려면 [클러스터 삭제](#delete-clusters)
 
@@ -223,7 +223,7 @@ HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩�
 
 [HDInsight 클러스터를 최신 버전으로 업그레이드](./hdinsight-upgrade-cluster.md)를 참조하세요.
 
-## <a name="open-the-ambari-web-ui"></a>Ambari 웹 UI 열기
+## <a name="open-the-apache-ambari-web-ui"></a>Apache Ambari 웹 UI 열기
 
 Ambari는 RESTful API에서 지원하는 직관적이고 사용하기 쉬운 Hadoop 관리 웹 UI를 제공합니다. Ambari를 사용하면 시스템 관리자가 Hadoop 클러스터를 관리하고 모니터링할 수 있습니다.
 
@@ -236,7 +236,7 @@ Ambari는 RESTful API에서 지원하는 직관적이고 사용하기 쉬운 Had
 
     ![HDInsight Hadoop Ambari 웹 UI](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
 
-자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+자세한 내용은 [Apache Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
 ## <a name="change-passwords"></a>암호 변경
 HDInsight 클러스터마다 두 개의 사용자 계정이 포함될 수 있습니다. HDInsight 클러스터 사용자 이름(HTTP 사용자 계정이라고도 함) 및 SSH 사용자 계정은 만들기 프로세스 중에 만들어집니다. Ambari 웹 UI를 사용하여 클러스터 사용자 계정의 사용자 이름 및 암호를 변경할 수 있으며 스크립트 작업을 사용하여 SSH 사용자 계정을 변경할 수 있습니다.
@@ -323,7 +323,7 @@ HDInsight 클러스터는 Azure Storage 계정 또는 Azure Data Lake Store를 �
 
 Data Lake Store 계정을 나열하려면 이전 스크린샷에서 **Data Lake Store 액세스**를 클릭합니다.
 
-## <a name="run-hive-queries"></a>Hive 쿼리 실행
+## <a name="run-apache-hive-queries"></a>Apache Hive 쿼리 실행
 Azure 포털에서 직접 Hive 작업을 실행할 수는 없지만 Ambari 웹 UI에서 Hive View를 사용할 수 있습니다.
 
 **Ambari Hive View를 사용하여 Hive 쿼리를 실행하려면**
@@ -337,7 +337,7 @@ Azure 포털에서 직접 Hive 작업을 실행할 수는 없지만 Ambari 웹 U
 4. **쿼리 편집기**에서 Hive 쿼리를 입력한 다음 **실행**을 클릭합니다.
 
 ## <a name="monitor-jobs"></a>작업 모니터링
-[Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md#monitoring)를 참조하세요.
+[Apache Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md#monitoring)를 참조하세요.
 
 ## <a name="browse-files"></a>파일 찾아보기
 Azure 포털을 사용하여 기본 컨테이너의 콘텐츠를 찾아볼 수 있습니다.
@@ -354,11 +354,11 @@ Azure 포털을 사용하여 기본 컨테이너의 콘텐츠를 찾아볼 수 �
 HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에서 사용하기 위해 구독에서 사용할 수 있는 코어 수뿐만 아니라 이 클러스터에 할당된 코어 수 및 이 클러스터 내에서 노드에 할당된 방법에 대한 정보도 표시됩니다. [클러스터 나열 및 표시](#list-and-show-clusters)를 참조하세요.
 
 > [!IMPORTANT]
-> HDInsight 클러스터에 의해 제공되는 서비스를 모니터링하려면 Ambari 웹 또는 Ambari REST API를 사용해야 합니다. Ambari 사용에 대한 자세한 내용은 [Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
+> HDInsight 클러스터에 의해 제공되는 서비스를 모니터링하려면 Ambari 웹 또는 Ambari REST API를 사용해야 합니다. Ambari 사용에 대한 자세한 내용은 [Apache Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
 ## <a name="connect-to-a-cluster"></a>클러스터에 연결
 
-* [HDInsight에서 하이브 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [HDInsight에서 Apache Hive 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>다음 단계
@@ -368,13 +368,13 @@ HDInsight 클러스터 블레이드의 **사용량** 섹션에는 HDInsight에�
 * [Azure PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)
 * [Azure 클래식 CLI를 사용하여 HDInsight 관리](hdinsight-administer-use-command-line.md)
 * [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)
-* [Ambari 웹 UI 사용에 대한 자세한 내용](hdinsight-hadoop-manage-ambari.md)
-* [Ambari REST API 사용에 자세한 내용](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
-* [HDInsight에서 Sqoop 사용](hadoop/hdinsight-use-sqoop.md)
+* [Apache Ambari 웹 UI 사용에 대한 자세한 내용](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari REST API 사용에 자세한 내용](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
+* [HDInsight에서 Apache Sqoop 사용](hadoop/hdinsight-use-sqoop.md)
 * [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Azure HDInsight에 포함된 Hadoop 버전](hdinsight-component-versioning.md)
+* [Azure HDInsight에 포함된 Apache Hadoop 버전](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Hadoop 명령줄"

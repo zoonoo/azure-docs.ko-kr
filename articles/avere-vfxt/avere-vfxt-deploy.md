@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578640"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164326"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>vFXT 클러스터 배포
 
@@ -286,7 +286,7 @@ RESOURCE_GROUP=
 * 서브넷 이름
 * Azure AD 런타임 역할 이름 - [클러스터 노드 액세스 역할 만들기](#create-the-cluster-node-access-role)의 예제를 수행한 경우 ``avere-cluster``를 사용합니다. 
 * 저장소 계정 이름(새 Blob 컨테이너를 만드는 경우)
-* 클러스터 이름 - 동일한 리소스 그룹에 동일한 이름을 사용하는 두 개의 vFXT 클러스터가 있을 수 없습니다. 
+* 클러스터 이름 - 동일한 리소스 그룹에 동일한 이름을 사용하는 두 개의 vFXT 클러스터가 있을 수 없습니다. 모범 사례를 위해 각 클러스터에 고유한 이름을 지정합니다.
 * 관리 암호 - 클러스터를 모니터링하고 관리하기 위한 보안 암호를 선택합니다. 이 암호는 ``admin`` 사용자에게 할당됩니다. 
 * 노드 인스턴스 유형 - 자세한 내용은 [vFXT 노드 크기](avere-vfxt-deploy-plan.md#vfxt-node-sizes) 참조
 * 노드 캐시 크기 - 자세한 내용은 [vFXT 노드 크기](avere-vfxt-deploy-plan.md#vfxt-node-sizes) 참조

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/19/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd55bb78fd385ab12d711e569ca6d5013c48e545
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4ad1633e4d56e44e3b82f90121a14c6ef6f0b976
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221998"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441404"
 ---
 # <a name="bing-visual-search-sdk"></a>Bing Visual Search SDK
 
@@ -32,6 +32,16 @@ Bing Visual Search는 Visual Search API를 연습해보는 데 사용할 수 있
     * 정의 및 종속성에 대한 [Python 라이브러리](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-imagesearch)
 
 각 언어에 대한 SDK 샘플에는 샘플을 설치 및 실행하는 단계와 SDK 사용을 위한 필수 구성 요소를 설명하는 ReadMe 파일이 포함되어 있습니다.
+
+이러한 샘플의 경우 [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/)에 표시된 대로 S9 가격 계층에서 구독을 시작해야 합니다. 
+
+Azure Portal에서 구독을 시작하려면
+1. `Search resources, services, and docs`라고 표시되는 Azure Portal의 맨 위에 있는 텍스트 상자에 'BingSearchV7'을 입력합니다.  
+2. 드롭다운 목록의 Marketplace 아래에서 `Bing Search v7`을 선택합니다.
+3. 새 리소스에 대해 `Name`을 입력합니다.
+4. `Pay-As-You-Go` 구독을 선택합니다.
+5. `S9` 가격 책정 계층을 선택합니다.
+6. `Enable`을 클릭하여 구독을 시작합니다.
 
 ### <a name="sdk-tools"></a>SDK 도구
 Bing Visual Search의 기능을 탐색하기 위한 SDK 도구는 Git 리포지토리 [Bing Visual Search 도구](https://github.com/Azure-Samples/bing-visualsearch-tools)에서 찾을 수 있습니다.

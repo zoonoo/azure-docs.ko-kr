@@ -9,13 +9,13 @@ ms.reviewer: klam
 ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
-ms.date: 08/18/2016
-ms.openlocfilehash: f5a8b929cf5af6e4e43c6003e6b622d04a50b93e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/14/2018
+ms.openlocfilehash: be3f8ddaf9788eb9023ffc2caf2e0d6aeb49bdba
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980943"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712061"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Azure Scheduler에서 고급 일정과 되풀이 작업 작성
 
@@ -32,7 +32,7 @@ ms.locfileid: "46980943"
 
 * **이미지 처리**: 사용량이 적은 시간에 실행되어 클라우드 컴퓨팅을 사용하고 그날 업로드된 이미지를 압축하는 평일 작업을 만듭니다.
 
-이 문서에서는 Scheduler와 [Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule)를 사용하여 만들 수 있고 각 일정에 대한 JSON(JavaScript Object Notation) 정의를 포함하는 예제 작업에 대해 설명하고 합니다. 
+이 문서에서는 Scheduler와 [Azure Scheduler REST API](/rest/api/scheduler)를 사용하여 만들 수 있고 각 일정에 대한 JSON(JavaScript Object Notation) 정의를 포함하는 예제 작업에 대해 설명하고 합니다. 
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -51,7 +51,7 @@ ms.locfileid: "46980943"
 
 ## <a name="create-schedule-with-rest-api"></a>REST API로 일정 만들기
 
-[Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule)로 기본 일정을 만들려면 다음 단계를 수행합니다.
+[Azure Scheduler REST API](/rest/api/scheduler)로 기본 일정을 만들려면 다음 단계를 수행합니다.
 
 1. [등록 작업 - Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register)를 사용하여 리소스 공급자에 Azure 구독을 등록합니다. Azure Scheduler 서비스의 공급자 이름은 **Microsoft.Scheduler**입니다. 
 
@@ -96,7 +96,7 @@ ms.locfileid: "46980943"
 
 * Scheduler 작업의 날짜에는 날짜만 포함되며 [ISO 8601 사양](http://en.wikipedia.org/wiki/ISO_8601)을 따릅니다.
 
-* Scheduler 작업의 날짜-시간에는 날짜와 시간이 모두 포함되며 [ISO 8601 사양](http://en.wikipedia.org/wiki/ISO_8601)을 따르고 UTC 오프셋이 지정되지 않은 경우 UTC로 간주됩니다. 
+* Scheduler 작업의 날짜-시간에는 날짜와 시간이 모두 포함되며 [ISO 8601 사양](http://en.wikipedia.org/wiki/ISO_8601)을 따르고, UTC 오프셋이 지정되지 않은 경우 UTC로 간주됩니다. 
 
 자세한 내용은 [개념, 용어 및 엔터티](../scheduler/scheduler-concepts-terms.md)를 참조하세요.
 
@@ -125,16 +125,16 @@ ms.locfileid: "46980943"
 }
 ```
 
-* 현재 날짜 및 시간은 "2015-04-08 13:00"입니다.
+* 현재 날짜 및 시간은 2015년 4월 8일 오후 1시입니다.
 
-* 시작 날짜와 시간이 "2015-04-07 14:00"이기 때문에 현재 날짜와 시간보다 과거입니다.
+* 시작 날짜와 시간이 2015년 4월 7일 오후 2시이기 때문에 현재 날짜와 시간보다 과거입니다.
 
 * 되풀이는 2일 간격입니다.
 
-1. 이러한 조건 하에서 첫 번째 실행 시기는 2015-04-09 오후 2시입니다. 
+1. 이러한 조건 하에서 첫 번째 실행 시기는 2015년 4월 09일 오후 2시입니다. 
 
    Scheduler는 시작 시간을 기준으로 실행이 발생하는 시간을 계산하고 과거 인스턴스는 모두 삭제하고, 향후 다음 번 인스턴스를 사용합니다. 
-   이 경우 **startTime**은 2015-04-07 오후 2시이므로 다음 인스턴스는 이 시간에서 2일 후인 2015-04-09 오후 2시입니다.
+   이 경우 **startTime**은 2015년 4월 7일 오후 2시이므로 다음 인스턴스는 이 시간에서 2일 후인 2015년 4월 9일 오후 2시입니다.
 
    **startTime**이 2017-04-05 오후 2시이거나 2017-04-01 오후 2시인지 여부에 관계없이 첫 번째 실행 시간은 동일합니다. 첫 번째 실행 후 후속 실행은 일정을 기반으로 계산됩니다. 
    
@@ -155,7 +155,7 @@ ms.locfileid: "46980943"
 
 또한 **schedule**을 사용하여 작업 실행의 횟수를 *늘릴* 수도 있습니다. 예를 들어 **frequency**가 "month"인 작업에 월의 1일과 2일에 실행되는 일정이 있는 경우, 이 작업은 한 달에 한 번 실행되는 것이 아니라 월의 1일과 2일에 실행됩니다.
 
-여러 일정 요소를 지정하는 경우 가장 큰 것부터 가장 작은 것 순으로, 즉 주차, 월 일, 요일, 시간, 분의 순서로 계산됩니다.
+둘 이상의 일정 요소를 지정하는 경우 가장 큰 것부터 가장 작은 것 순으로, 즉 주차, 월 일, 요일, 시간, 분의 순서로 계산됩니다.
 
 다음 테이블은 schedule 요소의 세부 정보입니다.
 
@@ -181,7 +181,7 @@ ms.locfileid: "46980943"
 | `{"minutes":[15,45], "hours":[5,17]}` |매일 오전 5시 15분, 오전 5시 45분, 오후 5시 15분, 오후 5시 45분에 실행됩니다. |
 | `{"minutes":[0,15,30,45]}` |15분마다 실행됩니다. |
 | `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |매시간 실행됩니다.<br /><br />이 작업은 매시간 실행됩니다. 분이 지정된 경우 **startTime**에 대한 값으로 제어됩니다. **startTime** 값이 지정되지 않으면 분은 만든 시간으로 제어됩니다. 예를 들어 시작 시간 또는 만든 시간 중 해당하는 시간이 오후 12:25인 경우 작업은 00:25, 01:25, 02:25, …, 23:25에 실행됩니다.<br /><br />이 일정은 **frequency**가 "hour"이고 **interval**이 1이며 **schedule** 값이 없는 작업과 동일합니다. 차이점은 이 일정을 다른 **frequency**와 **interval** 값으로 사용하여 다른 작업을 만들 수 있다는 것입니다. 예를 들어 **frequency**가 "month"인 경우 일정은 매일(**frequency**가 "day"인 경우)이 아니라 한 달에 한 번만 실행됩니다. |
-| `{minutes:[0]}` |매시간 정각에 실행됩니다.<br /><br />또한 이 작업은 매 시간 정각(오전 12시, 오전 1시, 오전 2시 등)에만 실행됩니다. frequency가 "day"인 경우 **frequency**가 "hour", **startTime** 값이 0분, **schedule**이 없는 작업과 동일합니다. 그러나 **frequency**가 "week" 또는 "month"인 경우 일정은 각각 주에 하루 또는 월에 하루만 실행됩니다. |
+| `{minutes:[0]}` |매시간 정각에 실행됩니다.<br /><br />또한 이 작업은 매 시간 정각(오전 12시, 오전 1시, 오전 2시 등)에만 실행됩니다. 이 일정은 frequency가 "day"인 경우 **frequency**가 "hour", **startTime** 값이 0분, **schedule**이 없는 작업과 동일합니다. 그러나 **frequency**가 "week" 또는 "month"인 경우 일정은 각각 주에 하루 또는 월에 하루만 실행됩니다. |
 | `{"minutes":[15]}` |매시간 15분에 실행됩니다.<br /><br />오전 0시 15분, 오전 1시 15분, 오전 2시 15분 등에서 시작하여 매 시간마다 실행됩니다. 오후 11시 15분에 끝납니다. |
 | `{"hours":[17], "weekDays":["saturday"]}` |매주 토요일 오후 5시에 실행됩니다. |
 | `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |매주 월요일, 수요일 및 금요일 오후 5시에 실행됩니다. |
@@ -196,7 +196,7 @@ ms.locfileid: "46980943"
 | `{"minutes":[0], "hours":[6], "monthDays":[-1]}` |월의 마지막 일 오전 6시에 실행됩니다.<br /><br />월의 마지막 일에 작업을 실행하려면 28, 29, 30 또는 31 대신 -1을 사용합니다. |
 | `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` |매월 첫 번째 일 및 마지막 일 오전 6시에 실행됩니다. |
 | `{monthDays":[1,-1]}` |매월 첫 번째 일 및 마지막 일 시작 시간에 실행됩니다. |
-| `{monthDays":[1,14]}` |매월 1일 및 14일 시작 시간에 실행됩니다. |
+| `{monthDays":[1,14]}` |매월 첫 번째 일 및 14일 시작 시간에 실행됩니다. |
 | `{monthDays":[2]}` |매월 2일 시작 시간에 실행됩니다. |
 | `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |매월 첫 번째 금요일 오전 5시에 실행됩니다. |
 | `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |매월 첫 번째 금요일 시작 시간에 실행됩니다. |

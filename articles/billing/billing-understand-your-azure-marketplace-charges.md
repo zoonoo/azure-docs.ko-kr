@@ -4,7 +4,7 @@ description: 이전에는 Marketplace로 알려진 외부 서비스의 요금 �
 services: ''
 documentationcenter: ''
 author: adpick
-manager: tonguyen
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ee11b7b565e669f61f6ba77e02139f071c452f4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0e90c043976fc1798f675f8bf480b02e0ed93536
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392213"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581921"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure 외부 서비스 요금 청구의 이해
 외부 서비스는 Azure Marketplace의 타사 소프트웨어 공급 업체에 의해 게시됩니다. 예를 들어 SendGrid는 Azure에서 구입할 수 있지만 Microsoft에서 게시되지 않은 외부 서비스입니다.
@@ -86,6 +86,7 @@ EA 고객은 EA 포털에서 외부 서비스 지출을 살펴보고 다운로�
 
 ![리소스 삭제](./media/billing-understand-your-azure-marketplace-charges/deleteMarketplaceOrder.PNG)
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
-다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

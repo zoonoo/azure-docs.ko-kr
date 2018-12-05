@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035954"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495586"
 ---
-# <a name="use-batch-transcription"></a>일괄 처리 전사 사용
+# <a name="why-use-batch-transcription"></a>Batch Transcription을 사용하는 이유
 
-일괄 처리 전사는 저장소에 대용량의 오디오가 있는 경우에 적합합니다. Rest API를 사용하면 SAS(공유 액세스 서명) URI를 통해 오디오 파일을 가리키고 비동기적으로 전사를 받을 수 있습니다.
+일괄 처리 전사는 저장소에 대용량의 오디오가 있는 경우에 적합합니다. 전용 Rest API를 사용하면 SAS(공유 액세스 서명) URI를 통해 오디오 파일을 가리키고 비동기식으로 전사를 받을 수 있습니다.
 
 ## <a name="the-batch-transcription-api"></a>Batch Transcription API
 
@@ -36,16 +36,16 @@ Batch Transcription API는 추가 기능과 함께 비동기 음성 텍스트 �
 
 Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
-이름| 채널  |
-----|----------|
-mp3 |   Mono   |   
-mp3 |  스테레오  | 
-wav |   Mono   |
-wav |  스테레오  |
-Opus|   Mono   |
-Opus|  스테레오  |
+| 형식 | Codec | Bitrate | 샘플링 주기 |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16비트 | 8 또는 16kHz, 모노, 스테레오 |
+| MP3 | PCM | 16비트 | 8 또는 16kHz, 모노, 스테레오 |
+| OGG | OPUS | 16비트 | 8 또는 16kHz, 모노, 스테레오 |
 
-스테레오 오디오 스트림의 경우 일괄 처리 전사는 전사하는 동안 왼쪽 및 오른쪽 채널을 분할합니다. 결과를 포함하는 2개의 JSON 파일이 각각 단일 채널에서 만들어집니다. 말하기 기준 타임스탬프를 사용하여 개발자는 순서가 지정된 최종 기록을 만들 수 있습니다. 욕설 필터 및 문장 부호 모델을 설정하기 위한 속성을 포함하는 채널의 출력은 다음과 같이 JSON 샘플에 표시됩니다.
+> [!NOTE]
+> Batch Transcription API에는 S0 키(유료 계층)가 필요합니다. 무료(f0) 키로는 작동하지 않습니다.
+
+스테레오 오디오 스트림의 경우 Batch Transcription API는 전사하는 동안 왼쪽 및 오른쪽 채널을 분할합니다. 결과를 포함하는 2개의 JSON 파일이 각각 단일 채널에서 만들어집니다. 말하기 기준 타임스탬프를 사용하여 개발자는 순서가 지정된 최종 기록을 만들 수 있습니다. 다음 JSON 샘플에는 욕설 필터 및 문장 부호 모델을 설정하기 위한 속성을 포함하는 채널의 출력이 표시됩니다.
 
 ```json
 {
@@ -62,6 +62,16 @@ Opus|  스테레오  |
 
 > [!NOTE]
 > Batch Transcription API는 기록, 해당 상태 및 관련 결과를 요청하기 위해 REST 서비스를 사용합니다. 모든 언어에서 API를 사용할 수 있습니다. 다음 섹션에서는 API 사용 방법을 설명합니다.
+
+### <a name="query-parameters"></a>쿼리 매개 변수
+
+이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
+
+| 매개 변수 | 설명 | 필수/선택 |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용되는 값은 욕설 필터링을 비활성화하는 `none`, 욕설을 별표로 바꾸는 `masked`, 결과에서 모든 욕설을 제거하는 `removed`, 또는 “profanity” 태그를 추가하는 `tags`입니다. 기본 설정은 `masked`입니다. | 옵션 |
+| `PunctuationMode` | 인식 결과에서 문장 부호의 처리 방법을 지정합니다. 허용되는 값은 문장 부호를 비활성화하는 `none`, 명시적인 문장 부호를 의미하는 `dictated`, 디코더가 문장 부호를 처리하도록 하는 `automatic`, 지정된 문장 부호 또는 자동을 의미하는 `dictatedandautomatic`입니다. | 옵션 |
+
 
 ## <a name="authorization-token"></a>권한 부여 토큰
 

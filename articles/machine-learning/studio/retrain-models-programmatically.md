@@ -1,10 +1,11 @@
 ---
-title: 프로그래밍 방식으로 Machine Learning 모델 다시 학습 | Microsoft Docs
+title: 프로그래밍 방식으로 Machine Learning Studio 모델 보존 - Azure | Microsoft Docs
 description: Azure Machine Learning에서 프로그래밍 방식으로 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
@@ -15,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b2090b39991363ee2a5b2e12945d97dc0fa9f2b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b38143fe6f1f1cf3e65a2989e1b0a71c28530b2a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835507"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313388"
 ---
-# <a name="retrain-machine-learning-models-programmatically"></a>프로그래밍 방식으로 Machine Learning 모델 다시 학습
-이 연습에서는 C# 및 Machine Learning Batch Execution 서비스를 사용하여 Azure Machine Learning 웹 서비스를 프로그래밍 방식으로 다시 학습하는 방법을 배웁니다.
+# <a name="retrain-machine-learning-studio-models-programmatically"></a>프로그래밍 방식으로 Machine Learning Studio 모델 다시 학습
+이 연습에서는 C# 및 Machine Learning Batch Execution 서비스를 사용하여 Azure Machine Learning Studio 웹 서비스를 프로그래밍 방식으로 다시 학습하는 방법을 배웁니다.
 
 모델을 다시 학습한 후 다음 연습에서는 예측 웹 서비스에서 모델을 업데이트하는 방법을 보여 줍니다.
 
@@ -96,7 +97,7 @@ ms.locfileid: "34835507"
 2. Machine Learning 웹 서비스 포털에 로그인합니다.
 3. 기존 웹 서비스를 사용하여 작업하는 경우 **Classic Web Services**를 클릭합니다.
    1. 현재 작업 중인 웹 서비스를 클릭합니다.
-   2. "기본" 끝점을 클릭합니다.
+   2. "기본" 엔드포인트를 클릭합니다.
    3. **사용**을 클릭합니다.
    4. **사용** 페이지의 맨 아래에 있는 **샘플 코드** 섹션에서 **Batch**를 클릭합니다.
    5. 이 절차의 5 단계를 계속합니다.

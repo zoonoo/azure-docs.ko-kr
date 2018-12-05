@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037686"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497342"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 기반의 App Service에 대한 Java 개발자 가이드
 
@@ -28,6 +28,10 @@ Linux 기반의 Azure App Service는 Java 개발자가 Tomcat 또는 Java SE(Sta
 ## <a name="logging-and-debugging-apps"></a>앱 로깅 및 디버깅
 
 Azure Portal을 통해 각 앱에 대한 성능 보고서, 트래픽 시각화 및 상태 확인을 사용할 수 있습니다. 이러한 진단 도구를 사용하는 방법에 대한 자세한 내용은 [Azure App Service 진단 개요](/azure/app-service/app-service-diagnostics)를 참조하세요.
+
+## <a name="application-performance-monitoring"></a>애플리케이션 성능 모니터링
+
+Linux의 App Service에서 실행되는 Java 앱으로 New Relic 및 AppDynamics을 구성하는 방법에 대한 지침은 [Linux에서 Azure App Service의 Java 앱을 사용한 애플리케이션 성능 모니터링 도구](how-to-java-apm-monitoring.md)를 참조하세요.
 
 ### <a name="ssh-console-access"></a>SSH 콘솔 액세스 
 
@@ -124,7 +128,7 @@ Azure Portal에서, 웹앱의 **응용 프로그램 설정** 아래에 `$JAVA_OP
 </appSettings> 
 ```
 
-## <a name="secure-application"></a>보안 응용 프로그램
+## <a name="secure-applications"></a>보안 애플리케이션
 
 Linux용 App Service에서 실행되는 Java 응용 프로그램의 [보안 모범 사례](/azure/security/security-paas-applications-using-app-services) 집합은 다른 응용 프로그램과 동일합니다. 
 
@@ -168,7 +172,7 @@ Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인�
 
 1. `context.xml` 파일이 없으면 웹 응용 프로그램에 추가하고, 프로젝트가 빌드될 때 WAR 파일의 `META-INF` 디렉터리에 추가합니다.
 
-2. 이 파일에서는 데이터 원본을 JNDI 주소에 연결하는 `Context` 경로 항목을 추가합니다. The
+2. 이 파일에서는 데이터 원본을 JNDI 주소에 연결하는 `Context` 경로 항목을 추가합니다.
 
     ```xml
     <Context>
@@ -192,7 +196,7 @@ Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인�
 
 공유 서버 수준 리소스의 경우:
 
-1. 아직 구성이 있는 경우 SSH를 사용하여 `/usr/local/tomcat/conf`의 내용을 App Service Linux 인스턴스의 `/home/tomcat`에 복사합니다.
+1. 아직 구성이 있는 경우 SSH를 사용하여 `/usr/local/tomcat/conf`의 내용을 App Service Linux 인스턴스의 `/home/tomcat/conf`에 복사합니다.
 
 2. 컨텍스트를 `server.xml`에 추가
 
@@ -231,7 +235,7 @@ Azure Portal에서 **인증 및 권한 부여** 옵션을 사용하여 앱 인�
 
     3. SFTP 클라이언트를 사용하여 로컬 터널링 포트에 연결하고 파일을 `/home/tomcat/lib` 폴더에 업로드합니다.
 
-5. App Service Linux 응용 프로그램을 다시 시작합니다. Tomcat이 `CATALINA_HOME`을 `/home/tomcat`으로 다시 설정하고, 업데이트된 구성 및 클래스를 사용할 것입니다.
+5. App Service Linux 응용 프로그램을 다시 시작합니다. Tomcat이 `CATALINA_HOME`을 `/home/tomcat/conf`으로 다시 설정하고, 업데이트된 구성 및 클래스를 사용할 것입니다.
 
 ## <a name="docker-containers"></a>Docker 컨테이너
 

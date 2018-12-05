@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1a64e40b13b05fc7f9fdb6f5aa99c8d8cc47c471
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d0d1efcdaab07e77d835319544fc70eb8687702f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251613"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316347"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Azure 웹앱의 "502 잘못된 게이트웨이" 및 "503 서비스를 사용할 수 없음" HTTP 오류 해결
 "502 잘못된 게이트웨이" 및 "503 서비스를 사용할 수 없음" 오류는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 호스트되는 웹앱에서 일반적으로 나타나는 오류입니다. 이 문서는 이러한 오류를 해결하는 데 도움이 됩니다.
@@ -74,22 +74,10 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. 데이터 수집
-#### <a name="use-the-azure-app-service-support-portal"></a>Azure App Service 지원 포털 사용
-Web Apps는 HTTP 로그, 이벤트 로그, 프로세스 덤프 등등을 확인하여 사용자의 웹앱과 연관된 문제 해결 기능을 제공합니다. **http://&lt;your app name>.scm.azurewebsites.net/Support**에서 지원 포털을 사용하여 모든 정보에 액세스할 수 있습니다.
+#### <a name="use-the-diagnostics-tool"></a>진단 도구 사용
+App Service는 구성할 필요 없이 웹앱 문제를 해결하는 데 도움이 되는 지능적인 대화형 환경입니다. 웹앱에서 문제가 발생하면 진단 도구는 문제를 더 쉽고 빠르게 확인하고 해결하기 위해 올바른 정보로 안내하여 무엇이 문제인지를 지적합니다.
 
-Azure App Service 지원 포털은 일반적인 문제 해결 시나리오의 세 단계를 지원하기 위해 3개의 별도 탭을 제공합니다.
-
-1. 현재 동작을 관찰하기
-2. 진단 정보 수집 및 기본 제공 분석기를 실행하여 분석하기
-3. 완화
-
-지금 문제가 발생했다면, **분석** > **진단** > **바로 진단**을 클릭하여 HTTP 로그, 이벤트 뷰어 로그, 메모리 덤프, PHP 오류 로그 및 PHP 보고서를 수집하는 진단 세션을 생성합니다.
-
-데이터가 수집되면, 데이터에 대한 분석하고 HTML 보고서를 제공합니다.
-
-데이터를 다운로드할 경우 기본적으로 D:\home\data\DaaS folder에 저장됩니다.
-
-Azure App Service 지원 포털에 대한 자세한 내용은 [Azure Websites의 지원 사이트 확장에 대한 새 업데이트](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites)를 참조하세요.
+App Service 진단에 액세스하려면 [Azure Portal](https://portal.azure.com)의 App Service 앱 또는 App Service 환경으로 이동합니다. 왼쪽 탐색 메뉴에서 **문제 진단 및 해결**을 클릭합니다.
 
 #### <a name="use-the-kudu-debug-console"></a>Kudu 디버그 콘솔 사용
 Web Apps는 사용자 환경에 대한 정보를 얻을 수 있는 JSON 엔드포인트와 비슷한 디버깅, 탐색, 파일 업로드할 수 있는 디버그 콘솔과 함께 제공됩니다. 이 콘솔은 *Kudu 콘솔* 또는 사용자 웹앱에서는 *SCM 대시보드*라고 합니다.

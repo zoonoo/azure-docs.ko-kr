@@ -14,17 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8ca04fef8a17c43c9d1f761e36d8da7f1e07d4d5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3684a1fa22982b62992db28cccd88d67738bc94
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283583"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161704"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.
-동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)에 대해 자세히 알아보기
+동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)에 대해 자세히 알아보고 기능 피드백의 경우 [Connnect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
 
+## <a name="november-2018"></a>2018년 11월
+**새 GA 기능:** 
+* 동기화를 위한 Azure AD Connect Health - 포털에서 중복된 특성 동기화 오류 진단 및 수정
+
+**에이전트 업데이트:** 
+*  AD DS용 Azure AD Connect Health 에이전트(버전 3.1.24.0) 
+1. TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
+2. 글로벌 카탈로그 경고 노이즈 감소
+3. 상태 에이전트 등록 버그 수정
+
+*   AD FS용 Azure AD Connect Health Agent(버전 3.1.24.0)
+1. TLS(전송 계층 보안) 프로토콜 버전 1.2 규정 준수 및 적용
+2. 지역화된 운영 체제에 대한 테스트 ADFSRequestToken 지원
+3. 진단 에이전트 EventHandler 잠금 문제 해결
+4. 상태 에이전트 등록 버그 수정
 
 ## <a name="august-2018"></a>2018년 8월 
 *  Azure AD Connect 버전 1.1.880.0과 함께 출시된 동기화용 Azure AD Connect Health Agent(버전 3.1.7.0)    

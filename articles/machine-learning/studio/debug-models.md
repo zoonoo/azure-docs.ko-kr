@@ -1,10 +1,11 @@
 ---
-title: Azure Machine Learning에서 모델 디버그 | Microsoft Docs
-description: Azure Machine Learning에서 모델 학습 및 모델 점수 매기기 모듈에 의해 생성된 오류를 디버그하는 방법
+title: Azure Machine Learning Studio에서 모델 디버그 | Microsoft Docs
+description: Azure Machine Learning Studio에서 모델 학습 및 모델 점수 매기기 모듈에 의해 생성된 오류를 디버그하는 방법을 설명합니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.openlocfilehash: 144edca6d2e6fc8d0d8e59e6cff1d3f37eb233aa
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: bb1a3e778dcbcfacbc9e605ebf2d855786d71510
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834314"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312598"
 ---
-# <a name="debug-your-model-in-azure-machine-learning"></a>Azure Machine Learning에서 모델 디버그
+# <a name="debug-your-model-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 디버그
 
 이 문서에서는 모델을 실행할 때 다음 두 가지 오류 중 하나가 발생할 수 있는 잠재적 원인을 설명합니다.
 

@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f72490169149d247a43e2760815d757c3606f1b3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979134"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163727"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 용어
 
@@ -32,7 +32,7 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트
 
 **응용 프로그램**: Service Fabric Mesh 응용 프로그램은 Mesh 응용 프로그램 배포, 버전 관리 및 수명의 단위입니다. 각 응용 프로그램 인스턴스의 수명 주기를 독립적으로 관리할 수 있습니다.  응용 프로그램은 하나 이상의 서비스 코드 패키지 및 설정으로 구성됩니다. 응용 프로그램은 Azure RM(Resource Model) 스키마를 사용하여 정의됩니다.  서비스는 RM 템플릿의 응용 프로그램 리소스 속성으로 설명됩니다.  응용 프로그램이 사용하는 네트워크 및 볼륨이 응용 프로그램에서 참조됩니다.  응용 프로그램을 만들면 응용 프로그램, 서비스, 네트워크 및 볼륨이 Service Fabric 리소스 모델을 사용하여 모델링됩니다.
 
-**서비스**: 응용 프로그램의 서비스는 마이크로 서비스를 나타내고 완전한 독립 실행형 기능을 수행합니다. 각 서비스는 코드 패키지와 관련된 컨테이너 이미지를 실행하는 데 필요한 모든 항목을 설명하는 하나 이상의 코드 패키지로 구성됩니다.  응용 프로그램의 서비스 수를 강화 및 규모 축소할 수 있습니다.
+**서비스**: 응용 프로그램의 서비스는 마이크로 서비스를 나타내고 완전한 독립 실행형 기능을 수행합니다. 각 서비스는 코드 패키지와 관련된 컨테이너 이미지를 실행하는 데 필요한 모든 항목을 설명하는 하나 이상의 코드 패키지로 구성됩니다.  애플리케이션의 서비스 복제 수를 확대 및 축소할 수 있습니다.
 
 **코드 패키지**: 코드 패키지는 다음을 포함하여 코드 패키지와 연결된 컨테이너 이미지를 실행하는 데 필요한 모든 것을 설명합니다.
 

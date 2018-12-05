@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 642fc66bff763105e9d5463886474703a9a50781
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a664ec3643100f4bf477fbc58070ae966088d3af
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376706"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426053"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -32,7 +32,7 @@ ms.locfileid: "49376706"
 - 이 솔루션은 Log Analytics 작업 영역, Azure Automation 계정 및 Alerts를 지원하는 Azure 및 AzureGov의 모든 지역에서 사용할 수 있습니다. AzureGov 지역은 현재 이메일 기능을 지원하지 않습니다.
 
 > [!NOTE]
-> 클래식 VM용 솔루션을 사용하는 경우 모든 VM이 클라우드 서비스마다 순차적으로 처리됩니다. 병렬 작업 처리는 계속해서 다양한 클라우드 서비스에서 지원됩니다.
+> 클래식 VM용 솔루션을 사용하는 경우 모든 VM이 클라우드 서비스마다 순차적으로 처리됩니다. 가상 머신은 다른 클라우드 서비스에서 여전히 병렬로 처리됩니다.
 >
 > Azure CSP(Cloud Solution Provider) 구독은 Azure Resource Manager 모델만 지원하므로 Azure Resource Manager 이외의 서비스는 프로그램에서 사용할 수 없습니다. 시작/중지 솔루션을 실행하면 클래식 리소스를 관리하기 위한 cmdlet에 발생하는 오류가 발생할 수 있습니다. CSP에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)를 참조하세요.
 
@@ -78,7 +78,7 @@ ms.locfileid: "49376706"
    여기에서는 다음을 묻는 메시지가 표시됩니다.
    - **대상 ResourceGroup 이름**을 지정합니다. 이 값은 이 솔루션에서 관리되는 VM을 포함하는 리소스 그룹 이름입니다. 이름은 두 개 이상 입력할 수 있으며 각 이름을 쉼표로 구분해야 하고 대/소문자는 구분되지 않습니다. 구독 내 모든 리소스 그룹의 VM을 대상으로 하려는 경우에는 와일드카드 사용이 지원됩니다. 이 값은 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupNames** 변수에 저장됩니다.
    - **VM 제외 목록(문자열)** 을 지정합니다. 이 값은 대상 리소스 그룹에 있는 하나 이상의 가상 머신 이름입니다. 이름은 두 개 이상 입력할 수 있으며 각 이름을 쉼표로 구분해야 하고 대/소문자는 구분되지 않습니다. 와일드카드를 사용할 수 있습니다. 이 값은 **External_ExcludeVMNames** 변수에 저장됩니다.
-   - **일정**을 선택합니다. 이 값은 대상 리소스 그룹의 VM을 시작하고 중지하는 되풀이 날짜 및 시간입니다. 기본적으로 일정은 지금부터 30분 동안 구성됩니다. 다른 지역을 선택할 수는 없습니다. 솔루션을 구성한 후 일정을 특정 표준 시간대로 구성하려면 [시작 및 종료 일정 수정](#modify-the-startup-and-shutdown-schedule)을 참조하세요.
+   - **일정**을 선택합니다. 이 값은 대상 리소스 그룹의 VM을 시작하고 중지하는 되풀이 날짜 및 시간입니다. 기본적으로 일정은 지금부터 30분 동안 구성됩니다. 다른 지역을 선택할 수는 없습니다. 솔루션을 구성한 후 일정을 특정 표준 시간대로 구성하려면 [시작 및 종료 일정 수정](#modify-the-startup-and-shutdown-schedules)을 참조하세요.
    - 작업 그룹에서 **메일 알림**을 받으려면 기본값인 **예**를 그대로 두고 유효한 메일 주소를 제공합니다. **아니요**를 선택하지만 나중에 메일 알림을 수신하려면 쉼표로 구분된 유효한 메일 주소로 만들어진 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 업데이트하면 됩니다. 또한 다음 경고 규칙을 사용하도록 설정해야 합니다.
 
      - AutoStop_VM_Child
@@ -217,16 +217,16 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 
 ### <a name="schedules"></a>일정
 
-다음 표에서는 Automation 계정에서 만든 각 기본 일정을 나열합니다. 일정을 수정하거나 고유한 사용자 지정 일정을 만들 수 있습니다. 기본적으로 모든 일정은 **Scheduled_StartVM** 및 **Scheduled_StopVM**을 제외하고 사용되지 않도록 설정됩니다.
+다음 표에서는 Automation 계정에서 만든 각 기본 일정을 나열합니다. 일정을 수정하거나 고유한 사용자 지정 일정을 만들 수 있습니다. 기본적으로 모든 일정은 **Scheduled_StartVM** 및 **Scheduled_StopVM**을 제외하고 사용되지 않도록 설정됩니다.
 
 일정 작업이 겹칠 수 있기 때문에 모든 일정을 사용하도록 설정해서는 안 됩니다. 그에 맞게 수행하고 수정할 최적화를 결정하는 것이 가장 좋습니다. 추가 설명을 보려면 개요 섹션에서 예제 시나리오를 참조하세요.
 
 |일정 이름 | Frequency(빈도) | 설명|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8시간마다 | AutoStop_CreateAlert_Parent Runbook을 8시간 간격으로 실행합니다. 그러면 Azure Automation 변수에서 External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames 및 External_ExcludeVMNames에서 VM 기반 값이 중지됩니다. 또는 VMList 매개 변수를 사용하여 쉼표로 구분된 VM 목록을 지정할 수 있습니다.|
-|Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 _Stop_ 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다. 자산 변수를 통해 정의된 규칙을 충족하는 모든 VM이 자동으로 중지됩니다. 관련된 일정 **Scheduled-StartVM**을 사용하도록 설정합니다.|
-|Scheduled_StartVM | 사용자 정의, 매일 | 매일 지정된 시간에 _Start_ 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다. 적절한 변수로 정의된 규칙을 충족하는 모든 VM이 자동으로 시작됩니다. 관련된 일정 **Scheduled-StopVM**을 사용하도록 설정합니다.|
-|Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 매주 금요일 지정된 시간에 _Stop_ 매개 변수를 사용하여 Sequenced_Parent Runbook이 실행됩니다. 적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 Runbook 섹션을 참조하세요. 관련된 일정, **Sequenced-StartVM**을 사용하도록 설정합니다.|
+|Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 _Stop_ 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다. 자산 변수를 통해 정의된 규칙을 충족하는 모든 VM이 자동으로 중지됩니다. 관련된 일정 **Scheduled-StartVM**을 사용하도록 설정합니다.|
+|Scheduled_StartVM | 사용자 정의, 매일 | 매일 지정된 시간에 _Start_ 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다. 적절한 변수로 정의된 규칙을 충족하는 모든 VM이 자동으로 시작됩니다. 관련된 일정 **Scheduled-StopVM**을 사용하도록 설정합니다.|
+|Sequenced-StopVM | 오전 1시(UTC), 매주 금요일 | 매주 금요일 지정된 시간에 _Stop_ 매개 변수를 사용하여 Sequenced_Parent Runbook이 실행됩니다. 적절한 변수로 **SequenceStop** 태그가 정의되어 있는 모든 VM이 순차적으로(오름차순으로) 중지됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 Runbook 섹션을 참조하세요. 관련된 일정, **Sequenced-StartVM**을 사용하도록 설정합니다.|
 |Sequenced-StartVM | 오후 1시(UTC), 매주 월요일 | 매주 월요일 지정된 시간에 _Start_ 매개 변수를 사용하여 Sequenced_Parent Runbook이 실행됩니다. 적절한 변수로 **SequenceStart** 태그가 정의되어 있는 모든 VM이 순차적으로(내림차순으로) 시작됩니다. 태그 값과 자산 변수에 대한 자세한 내용은 Runbook 섹션을 참조하세요. 관련된 일정, **Sequenced-StopVM**을 사용하도록 설정합니다.|
 
 ## <a name="log-analytics-records"></a>Log Analytics 레코드

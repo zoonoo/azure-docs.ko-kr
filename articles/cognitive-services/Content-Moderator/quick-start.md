@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260009"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852693"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>빠른 시작: Content Moderator 익히기
 
@@ -26,7 +26,7 @@ ms.locfileid: "51260009"
 - 웹 브라우저
 
 ## <a name="set-up-the-review-tool"></a>검토 도구 설정
-Content Moderator 검토 도구는 사람 검토자가 의사를 결정할 때 인식 서비스를 지원할 수 있는 웹 기반 도구입니다. 이 가이드에서는 검토 도구를 설정하는 간단한 프로세스를 통해 Content Moderator 서비스의 작동 원리를 알아보겠습니다. [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트로 이동하여 등록합니다.
+Content Moderator 검토 도구는 사람 검토자가 의사를 결정할 때 인식 서비스를 지원할 수 있는 웹 기반 도구입니다. 이 가이드에서는 검토 도구를 설정하는 간단한 프로세스를 통해 Content Moderator 서비스의 작동 원리를 알아보겠습니다. [Content Moderator 검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트로 이동하여 가입합니다.
 
 ![Content Moderator 홈페이지](images/homepage.PNG)
 
@@ -58,7 +58,7 @@ Content Moderator 검토 도구는 사람 검토자가 의사를 결정할 때 �
 
 ## <a name="learn-more-about-the-review-tool"></a>검토 도구에 대한 자세한 정보
 
-Content Moderator 검토 도구를 사용하는 방법에 대해 자세히 알아보려면 [인간 참여형](Review-Tool-User-Guide/human-in-the-loop.md) 가이드를 살펴보고, 검토 도구 API를 통해 사람 검토 환경을 미세 조정하는 방법을 알아보세요.
+Content Moderator 검토 도구를 사용하는 방법에 대해 자세히 알아보려면 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 가이드를 살펴보고, 검토 도구 API를 통해 사람 검토 환경을 미세 조정하는 방법을 알아보세요.
 - [작업 API](try-review-api-job.md)는 조정 API를 사용하여 콘텐츠를 검사하고 검토 도구에서 검토를 생성합니다. 
 - [검토 API](try-review-api-review.md)는 먼저 콘텐츠를 검사하지 않고 사용자 조정자를 위해 이미지, 텍스트 또는 비디오 검토를 직접 만듭니다. 
 - [워크플로 API](try-review-api-workflow.md)는 팀이 만드는 사용자 지정 워크플로에 대한 세부 정보를 만들고, 업데이트하고, 가져옵니다.

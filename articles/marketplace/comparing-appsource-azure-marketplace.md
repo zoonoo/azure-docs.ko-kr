@@ -14,18 +14,22 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3aadd39a3c85b89c3626b838f15ea5e6e58fdfb8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 926fc46a4afd4e434e9769802ac096347b4ce4f0
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668752"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620084"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>AppSource와 Azure Marketplace 비교
 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [Microsoft AppSource](https://appsource.microsoft.com)의 상점은 고유한 고객 요구에 맞춰 서비스합니다. 상점을 사용하여 역할별로 대상 고객을 지정할 수 있습니다. 사용자는 고객에 따라 적합한 솔루션 또는 서비스를 제공할 수 있습니다.
 
 ## <a name="understanding-the-differences-between-storefronts"></a>상점 간의 차이점 이해
 상점을 선택하려면 먼저 자신의 제품에 대한 대상 사용자 그룹을 찾습니다. 여러 상점에서 대상 사용자 그룹을 지정하는 경우 여러 상점에서 판매하기 위해 한 번씩 게시할 수 있습니다.
+
+| Azure Marketplace | AppSource |
+|:--- |:--- |
+| IT 전문가 및 개발자 | 비즈니스 의사 결정권자 |
  
 다음 표에서는 상점 사용의 이점에 대해 설명합니다.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 7726a28e0254f4316759c3d8c74f57db6a9e399e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242197"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442984"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Azure AD에서 관리되는 도메인으로 범위 동기화 구성
 이 문서에서는 Azure AD 디렉터리에서 Azure AD Domain Services 관리되는 도메인으로 특정 사용자 계정만 동기화하도록 구성하는 방법을 보여 줍니다.
@@ -47,7 +47,12 @@ ms.locfileid: "50242197"
 >
 
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization"></a>새 관리되는 도메인 만들기 및 그룹 기반 범위 동기화 사용
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>새 관리형 도메인 만들기 및 Azure Portal을 사용하여 그룹 기반 범위 동기화 사용하도록 설정
+
+1. [시작 가이드](active-directory-ds-getting-started.md)에 따라 관리형 도메인을 만듭니다.
+2. Azure AD Domain Services 만들기 마법사에서 동기화 스타일 선택 중에 **범위**를 선택합니다.
+
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>새 관리형 도메인 만들기 및 PowerShell을 사용하여 그룹 기반 범위 동기화 사용하도록 설정
 PowerShell을 사용하여 이 단계 집합을 완료합니다. [PowerShell을 사용하여 Azure Active Directory Domain Services를 사용](active-directory-ds-enable-using-powershell.md)하도록 설정하려면 지침을 참조하세요. 이 문서의 몇 단계는 범위 동기화를 구성하기 위해 약간 수정되었습니다.
 
 다음 단계를 완료하여 관리되는 도메인에 대한 그룹 기반 범위 동기화를 구성합니다.

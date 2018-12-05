@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624880"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422357"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 콘텐츠의 데이터 원본
 
@@ -29,6 +29,10 @@ QnA Maker는 웹 페이지, PDF 파일 또는 MS Word doc 파일로 저장된 FA
 |PDF/DOC|FAQ, 제품 설명서, 브로슈어, 논문, 전단 정책, 지원 가이드, 구조화된 QnA 등|[구조화된 QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [샘플 제품 설명서.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [샘플 반 구조화.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [샘플 백서.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
 |Excel|구조화된 QnA 파일(RTF, HTML 지원 포함)|[샘플 QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|구조화된 QnA 파일|[샘플 chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+
+## <a name="data-source-locations"></a>데이터 원본 위치
+
+모든 데이터 원본에 대해 공용 URL만 유효합니다. 인증을 요구하는 데이터 원본을 제출하지 마십시오. 인증된 사이트에서 파일을 다운로드한 다음, 파일 업로드 옵션을 사용하여 질문과 답변을 추출할 수 있습니다.
 
 ## <a name="faq-urls"></a>FAQ URL
 

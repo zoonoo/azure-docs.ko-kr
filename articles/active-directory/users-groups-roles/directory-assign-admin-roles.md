@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 5c880ca15eea6ccf77f93f74c9e1ca41f7fc01ee
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686129"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276723"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -174,15 +174,11 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   * Exchange Online, Office 보안 및 준수 센터, 인사 관리 시스템과 같은 Azure AD 외부의 다른 서비스에 있는 관리자
   * 중요한 개인 정보에 액세스할 수 있는 임원, 법률 고문 및 인사 관리 직원과 같은 비관리자
 
+## <a name="role-permissions"></a>역할 권한
 다음 표에서는 각 역할에 부여되는 Azure Active Directory의 특정 권한에 대해 설명합니다. 일부 역할에는 Azure Active Directory 외부의 Microsoft 서비스에 대한 추가 사용 권한이 있을 수 있습니다.
 
 ### <a name="application-administrator"></a>응용 프로그램 관리자
 앱 등록 및 엔터프라이즈 앱의 모든 측면을 만들고 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
 | **Actions** | **설명** |
 | --- | --- |
@@ -223,11 +219,6 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 ### <a name="application-developer"></a>응용 프로그램 개발자
 ‘사용자가 응용 프로그램을 등록할 수 있음’ 설정에 관계없이 응용 프로그램 등록을 만들 수 있습니다.
 
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Azure Active Directory에서 응용 프로그램을 만듭니다. 작성자는 첫 번째 소유자로 추가되고, 만들어진 개체는 작성자의 250개 개체 만들기 할당량과 대조하여 계산됩니다. |
@@ -237,11 +228,6 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="billing-administrator"></a>대금 청구 관리자
 결제 정보 업데이트와 같은 일반 결제 관련 작업을 수행할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -263,11 +249,6 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 데스크톱 관리 도구 및 서비스(Intune 등)을 액세스하고 관리할 수 있습니다.
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -283,11 +264,6 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="cloud-application-administrator"></a>클라우드 응용 프로그램 관리자
 앱 프록시를 제외한 앱 등록 및 엔터프라이즈 앱의 모든 측면을 만들고 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
 | **Actions** | **설명** |
 | --- | --- |
@@ -327,11 +303,6 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 ### <a name="cloud-device-administrator"></a>클라우드 장치 관리자
 Azure AD에서 장치를 관리하기 위한 모든 권한입니다.
 
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/devices/delete | Azure Active Directory에서 장치를 삭제합니다. |
@@ -344,11 +315,6 @@ Azure AD에서 장치를 관리하기 위한 모든 권한입니다.
 
 ### <a name="company-administrator"></a>회사 관리자
 Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -411,11 +377,6 @@ Azure AD 및 Azure AD ID를 사용하는 Microsoft 서비스의 모든 측면을
 Azure AD 및 Office 365에서 준수 구성 및 보고서를 읽고 관리할 수 있습니다.
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -435,11 +396,6 @@ Azure AD 및 Office 365에서 준수 구성 및 보고서를 읽고 관리할 �
 ### <a name="conditional-access-administrator"></a>조건부 액세스 관리자
 조건부 액세스 기능을 관리할 수 있습니다.
 
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | Azure Active Directory에서 policies.conditionalAccess 속성을 읽습니다. |
@@ -452,11 +408,6 @@ Azure AD 및 Office 365에서 준수 구성 및 보고서를 읽고 관리할 �
 
 ### <a name="crm-service-administrator"></a>CRM 서비스 관리자
 Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -476,11 +427,6 @@ Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
 고객 조직 데이터에 액세스하려는 Microsoft 지원 요청을 승인할 수 있습니다.
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -493,11 +439,6 @@ Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
 ### <a name="device-administrators"></a>장치 관리자
 이 역할의 구성원은 Azure AD에서 조인한 장치의 로컬 관리자 그룹에 추가됩니다.
 
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/groupSettings/basic/read | Azure Active Directory에서 groupSettings의 기본 속성을 읽습니다. |
@@ -505,11 +446,6 @@ Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
 
 ### <a name="directory-readers"></a>디렉터리 읽기 권한자
 기본 디렉터리 정보를 읽을 수 있습니다. 응용 프로그램에 대한 액세스 권한은 사용자를 위한 것이 아닙니다.
-
-  > [!NOTE]
-  > 이 역할은 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
 | **Actions** | **설명** |
 | --- | --- |
@@ -570,11 +506,6 @@ Dynamics 365 제품의 모든 측면을 관리할 수 있습니다.
 ### <a name="directory-synchronization-accounts"></a>디렉터리 동기화 계정
 Azure AD Connect에서만 사용됩니다.
 
-  > [!NOTE]
-  > 이 역할은 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | Azure Active Directory에서 organization.dirSync 속성을 업데이트합니다. |
@@ -604,11 +535,6 @@ Azure AD Connect에서만 사용됩니다.
 ### <a name="directory-writers"></a>디렉터리 작성자
 기본 디렉터리 정보를 읽고 쓸 수 있습니다. 응용 프로그램에 대한 액세스 권한은 사용자를 위한 것이 아닙니다.
 
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/groups/create | Azure Active Directory에서 그룹을 만듭니다. |
@@ -630,11 +556,6 @@ Azure AD Connect에서만 사용됩니다.
 
 ### <a name="exchange-service-administrator"></a>Exchange 서비스 관리자
 Exchange 제품의 모든 측면을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -659,11 +580,6 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 ### <a name="guest-inviter"></a>게스트 초대자
 ‘멤버가 게스트를 초대할 수 있음’ 설정에 관계없이 게스트 사용자를 초대할 수 있습니다.
 
-  > [!NOTE]
-  > 이 역할은 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Azure Active Directory에서 users.appRoleAssignments 속성을 읽습니다. |
@@ -682,11 +598,6 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 ### <a name="helpdesk-administrator"></a>기술 지원팀 관리자
 관리자가 아닌 사용자 및 기술 지원팀 관리자의 암호를 재설정할 수 있습니다.
 
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Azure Active Directory에서 모든 사용자 새로 고침 토큰을 무효화합니다. |
@@ -699,11 +610,6 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 
 ### <a name="information-protection-administrator"></a>Information Protection 관리자
 Azure Information Protection 제품의 모든 측면을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -720,11 +626,6 @@ Azure Information Protection 제품의 모든 측면을 관리할 수 있습니�
 
 ### <a name="intune-service-administrator"></a>Intune 서비스 관리자
 Intune 제품의 모든 측면을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -761,11 +662,6 @@ Intune 제품의 모든 측면을 관리할 수 있습니다.
 ### <a name="license-administrator"></a>라이선스 관리자
 사용자 및 그룹의 제품 라이선스를 관리할 수 있습니다.
 
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
 | **Actions** | **설명** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Azure Active Directory에서 사용자의 라이선스를 관리합니다. |
@@ -776,11 +672,6 @@ Intune 제품의 모든 측면을 관리할 수 있습니다.
 
 ### <a name="lync-service-administrator"></a>Lync 서비스 관리자
 비즈니스용 Skype 제품의 모든 측면을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -800,11 +691,6 @@ Intune 제품의 모든 측면을 관리할 수 있습니다.
 Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽을 수 있습니다. 
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -816,11 +702,6 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 
 ### <a name="partner-tier1-support"></a>파트너 계층1 지원
 사용하지 마세요. 일반적인 용도로는 적합하지 않습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -853,11 +734,6 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 
 ### <a name="partner-tier2-support"></a>파트너 계층2 지원
 사용하지 마세요. 일반적인 용도로는 적합하지 않습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -895,11 +771,6 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 Power BI 제품의 모든 측면을 관리할 수 있습니다.
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -917,11 +788,6 @@ Power BI 제품의 모든 측면을 관리할 수 있습니다.
 Azure AD의 역할 할당 및 Privileged Identity Management의 모든 측면을 관리할 수 있습니다.
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -933,11 +799,6 @@ Azure AD의 역할 할당 및 Privileged Identity Management의 모든 측면을
 
 ### <a name="reports-reader"></a>보고서 구독자
 로그인 및 감사 보고서를 읽을 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -954,11 +815,6 @@ Azure AD의 역할 할당 및 Privileged Identity Management의 모든 측면을
 
 ### <a name="security-administrator"></a>보안 관리자
 Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽고 구성을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -988,11 +844,6 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽고 구성을 �
 Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽을 수 있습니다.
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -1012,11 +863,6 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽을 수 있습�
 서비스 상태 정보를 읽고, 지원 티켓을 관리할 수 있습니다.
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -1031,11 +877,6 @@ Azure AD 및 Office 365에서 보안 정보 및 보고서를 읽을 수 있습�
 
 ### <a name="sharepoint-service-administrator"></a>SharePoint 서비스 관리자
 SharePoint 서비스의 모든 측면을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -1061,11 +902,6 @@ SharePoint 서비스의 모든 측면을 관리할 수 있습니다.
 Microsoft Teams 서비스 내에서 호출 및 회의 기능을 관리할 수 있습니다.
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -1084,11 +920,6 @@ Microsoft Teams 서비스 내에서 호출 및 회의 기능을 관리할 수 �
 고급 도구를 사용하여 Teams 내에서 통신 문제를 해결할 수 있습니다.
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -1104,11 +935,6 @@ Microsoft Teams 서비스 내에서 호출 및 회의 기능을 관리할 수 �
 기본 도구를 사용하여 Teams 내에서 통신 문제를 해결할 수 있습니다.
 
   > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
-
-  > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
   >
   >
@@ -1122,11 +948,6 @@ Microsoft Teams 서비스 내에서 호출 및 회의 기능을 관리할 수 �
 
 ### <a name="teams-service-administrator"></a>Teams 서비스 관리자
 Microsoft Teams 서비스를 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
   > [!NOTE]
   > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
@@ -1152,11 +973,6 @@ Microsoft Teams 서비스를 관리할 수 있습니다.
 
 ### <a name="user-account-administrator"></a>사용자 계정 관리자
 제한된 관리자의 암호 재설정을 비롯하여 사용자 및 그룹의 모든 측면을 관리할 수 있습니다.
-
-  > [!NOTE]
-  > 이 역할은 디렉터리 읽기 권한자 역할에서 추가 권한을 상속합니다.
-  >
-  >
 
 | **Actions** | **설명** |
 | --- | --- |

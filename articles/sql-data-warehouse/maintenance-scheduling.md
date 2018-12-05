@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 09/20/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: c2ed79673af3563ae62f516057a174770cda99e9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d626fd9b083b9ca2c55c286a1dd806620a639434
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427865"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498023"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>유지 관리 일정을 사용하여 서비스 유지 관리 및 업데이트 관리
 
-Azure SQL Data Warehouse 유지 관리 예약 기능은 현재 미리 보기로 제공됩니다. 이 기능은 서비스 상태 계획된 유지 관리 알림, 리소스 상태 검사 모니터 및 Azure SQL Data Warehouse 유지 관리 예약 서비스와 통합됩니다.
+유지 관리 일정을 이제 모든 Azure SQL Data Warehouse 지역에서 사용할 수 있습니다. 이 기능은 서비스 상태 계획된 유지 관리 알림, 리소스 상태 검사 모니터 및 Azure SQL Data Warehouse 유지 관리 예약 서비스와 통합됩니다.
 
 유지 관리 예약 기능을 사용하면 새 기능, 업그레이드 및 패치를 받기에 편리한 시간 범위를 선택할 수 있습니다. 7일 기간 내에서 기본 및 보조 유지 관리 기간을 선택합니다. 예를 들어 기본 기간을 토요일 22:00 ~ 일요일 01:00로, 보조 기간을 수요일 19:00 ~ 22:00로 할 수 있습니다. SQL Data Warehouse가 기본 유지 관리 기간 중에 유지 관리를 수행할 수 없는 경우 보조 유지 관리 기간 중에 유지 관리를 다시 시도합니다.
 
@@ -27,7 +27,7 @@ Azure SQL Data Warehouse 유지 관리 예약 기능은 현재 미리 보기로 
 
 각 유지 관리 기간은 3 ~ 8시간이 될 수 있습니다. 유지 관리는 기간 내에 언제든 발생할 수 있습니다. 서비스가 데이터 웨어하우스에 새 코드를 배포할 때는 연결이 잠깐 동안 끊깁니다. 
 
-기능 미리 보기 기간 동안에는 각기 별도의 기간 범위(일) 내에 기본 기간과 보조 기간을 지정해야 합니다. 모든 유지 관리 작업은 예약된 유지 관리 기간 내에 완료되어야 합니다. 사전 알림 없이는 지정된 유지 관리 기간이 아닐 때 유지 관리가 수행되지 않습니다. 데이터 웨어하우스는 예약된 유지 관리 중에 일시 중지되는 경우 다시 시작 작업 중에 업데이트됩니다.  
+이 기능을 사용하려면 별도의 날짜 범위 내에서 기본 및 보조 기간을 식별해야 합니다. 모든 유지 관리 작업은 예약된 유지 관리 기간 내에 완료되어야 합니다. 사전 알림 없이는 지정된 유지 관리 기간이 아닐 때 유지 관리가 수행되지 않습니다. 데이터 웨어하우스는 예약된 유지 관리 중에 일시 중지되는 경우 다시 시작 작업 중에 업데이트됩니다.  
 
 
 ## <a name="alerts-and-monitoring"></a>경고 및 모니터링
@@ -51,6 +51,7 @@ Azure SQL Data Warehouse 유지 관리 예약 기능은 현재 미리 보기로 
 - 유지 관리 일정을 변경하는 방법을 [자세히 알아봅니다](changing-maintenance-schedule.md).
 - Azure Monitor를 사용하여 경고를 작성, 확인 및 관리하는 방법에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage).
 - 로그 경고 규칙용 웹후크 작업에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook).
+- 작업 그룹을 만들고 관리하는 방법을 [자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups).
 - Azure Service Health에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/service-health/service-health-overview).
 
 

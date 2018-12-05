@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 11/26/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: fef4615517da08262cc5845aaa076472c3874b34
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: mal
+ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984291"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335064"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 공동 작업 사용자를 Azure Portal에 추가
 
@@ -83,11 +83,11 @@ B2B 공동 작업 사용자를 Azure AD 관리자로 응용 프로그램에 추�
 7. **할당 추가**에서 **사용자 및 그룹**을 선택합니다.
 8. 다음 중 하나를 수행합니다.
    - 게스트 사용자가 이미 디렉터리에 있으면 B2B 사용자를 검색합니다. 사용자를 선택하고, **선택**을 클릭한 다음, **할당**을 클릭하여 사용자를 앱에 추가합니다.
-   - 게스트 사용자가 아직 디렉터리에 있지 않은 경우 **초대**를 선택합니다.
+   - 아직 디렉터리에 게스트 사용자가 없으면 **멤버 선택 또는 외부 사용자 초대**에서 사용자의 이메일 주소를 입력합니다. 메시지 상자에서 선택적 개인 메시지를 입력합니다. 메시지 상자에서 **초대**를 클릭합니다.
            
        ![게스트 구성원을 추가하려면 초대 단추 추가](./media/add-users-administrator/AppInviteUsers.png)
    
-      **게스트 초대**에서 이메일 주소 및 선택적 개인 메시지를 입력한 다음, **초대**를 선택합니다. **선택**을 클릭한 다음, **할당**을 클릭하여 사용자를 앱에 추가합니다. 초대가 초대된 사용자에게 자동으로 이동합니다.
+      **선택**을 클릭한 다음, **할당**을 클릭하여 사용자를 앱에 추가합니다. 초대가 초대된 사용자에게 자동으로 이동합니다.
 
 9. 게스트 사용자가 **기본 액세스**의 할당된 역할을 포함하는 응용 프로그램의 **사용자 및 그룹** 목록에 나타납니다. 역할을 변경하려는 경우 다음을 수행합니다.
    - 게스트 사용자를 선택한 다음, **편집**을 선택합니다. 

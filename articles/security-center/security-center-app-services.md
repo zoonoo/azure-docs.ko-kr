@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 11/14/2018
 ms.author: rkarlin
-ms.openlocfilehash: 062d3ce75372cd09e617fb984208542a31cb8e4a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f46837751901015fd80d3ecc7a620878cadb3f12
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019861"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317877"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Azure Security Center를 통해 App Service 보호
 이 문서에서는 Azure Security Center를 사용하여 App Service 기반으로 실행 중인 애플리케이션을 모니터링 및 보호하는 데 도움이 됩니다.
@@ -63,7 +63,7 @@ App Service에 대한 모니터링과 권장 사항을 사용하지 않도록 �
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 Azure Security Center의 모니터링 기능을 사용하는 방법을 살펴보았습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-policies.md) - Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) - Azure Security Center에서 보안 설정을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.

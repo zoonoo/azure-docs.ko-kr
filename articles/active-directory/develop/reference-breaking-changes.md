@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da681500ccff24e6e9bfa6b7bb9e5a14a725f158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8e00674f331a56be9abe6f2356aa88d7dcf1d0b0
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279638"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282387"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능? 
 
@@ -56,7 +56,7 @@ ms.locfileid: "51279638"
 
 앱에서 여러 리소스에 대한 토큰을 얻기 위해 인증 코드를 재사용하는 경우에는 코드를 사용하여 새로 고침 토큰을 얻은 다음, 이 새로 고침 토큰을 사용하여 다른 리소스에 대한 추가 토큰을 얻는 것이 좋습니다. 인증 코드는 한 번만 사용할 수 있지만 새로 고침 토큰은 여러 리소스에서 여러 번 사용할 수 있습니다. OAuth 코드 흐름 중에 인증 코드를 다시 사용하려고 하는 새 앱에서는 invalid_grant 오류가 발생합니다.
 
-새로 고침 토큰에 대한 자세한 내용은 [액세스 토큰 새로 고침](v1-protocols-oauth-code.md#refreshing-the-access-tokens)을 참조하세요.
+새로 고침 토큰에 대한 자세한 내용은 [액세스 토큰 새로 고침](v1-protocols-oauth-code.md#refreshing-the-access-tokens)을 참조하세요.  ADAL 또는 MSAL을 사용하는 경우 이 작업은 라이브러리를 통해 처리됩니다. 'AcquireTokenByAuthorizationCodeAsync'의 두 번째 인스턴스를 'AcquireTokenSilentAsync'로 바꿉니다. 
 
 ## <a name="may-2018"></a>2018년 5월
 

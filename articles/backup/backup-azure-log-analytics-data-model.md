@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32ce9cb456e302647e2e09db6ed549cd4795fed7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448393"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635155"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이터 모델을 사용하면 원하는 대로 사용자 지정 쿼리와 대시보드를 만들거나 Azure Backup 데이터를 사용자 지정할 수 있습니다.
@@ -44,10 +44,10 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | VaultUniqueId_s |텍스트 |경고와 관련된 보호된 자격 증명 모음의 고유 식별자 |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |데이터가 수집되는 리소스의 고유 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
-| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예:Microsoft.RecoveryServices) For example, Microsoft.RecoveryServices |
-| ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예:Vaults) For example, Vaults |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
+| ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
+| ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ### <a name="backupitem"></a>BackupItem
 이 표에서는 백업 항목 관련 필드에 대한 세부 정보를 제공합니다.
@@ -70,8 +70,8 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | 리소스 |텍스트 |데이터가 수집되는 리소스(예: Recovery Services 자격 증명 모음 이름) |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |수집되는 데이터에 대한 리소스 ID(예: Recovery Services 자격 증명 모음 리소스 ID) |
-| SubscriptionId |텍스트 |수집되는 데이터에 대한 리소스의 구독 식별자(예:  Recovery Services 자격 증명 모음) |
-| ResourceGroup |텍스트 |수집되는 데이터에 대한 리소스의 리소스 그룹(예:  Recovery Services 자격 증명 모음) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |수집되는 데이터에 대한 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
 | ResourceProvider |텍스트 |수집되는 데이터에 대한 리소스 공급자(예: Microsoft.RecoveryServices) |
 | ResourceType |텍스트 |수집되는 데이터에 대한 리소스 종류(예: Vaults) |
 
@@ -93,8 +93,8 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | VaultUniqueId_s |텍스트 |백업 항목이 포함된 자격 증명 모음의 고유 식별자 |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예:  Recovery Services 자격 증명 모음) |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예:  Recovery Services 자격 증명 모음) |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |수집되는 데이터에 대한 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
 | ResourceProvider |텍스트 |수집되는 데이터에 대한 리소스 공급자(예: Microsoft.RecoveryServices) |
 | ResourceType |텍스트 |수집되는 데이터에 대한 리소스 종류(예: Vaults) |
 
@@ -122,9 +122,9 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | DataTransferredInMB_s | Number |이 작업에 대해 전송되는 데이터 크기(MB 단위)|
 | JobUniqueId_g |텍스트 |작업을 식별하는 고유 ID |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
-| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예:Recovery Services 자격 증명 모음 리소스 ID) For example, Recovery Services vault resource id|
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
+| ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID)|
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
 | ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
 | ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
@@ -163,8 +163,8 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | YearlyRetentionDaysOfTheMonth_s |텍스트 |매년 보존에 대해 선택한 월의 날짜 |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
 | ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
 | ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
@@ -184,8 +184,8 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | VaultUniqueId_s |텍스트 |이 정책이 속한 자격 증명 모음의 고유 ID |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
 | ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
 | ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
@@ -209,8 +209,8 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | AzureBackupAgentVersion_s |텍스트 |Azure Backup 에이전트의 버전 번호 |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
 | ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
 | ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
@@ -230,8 +230,8 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | VaultUniqueId_s |텍스트 |이 보호된 서버가 속한 자격 증명 모음의 고유 ID |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
 | ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
 | ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
@@ -253,8 +253,8 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | VaultUniqueId_s |텍스트 |저장소가 계산되는 자격 증명 모음의 고유 ID |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
 | ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
 | ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
@@ -275,10 +275,10 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | StorageReplicationType_s |텍스트 |자격 증명 모음에 대한 저장소 복제 유형(예: GeoRedundant) |
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID) |
-| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
-| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) Recovery Services vault) for which data is collected |
+| SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |
+| ResourceGroup |텍스트 |데이터가 수집되는 리소스의 리소스 그룹(예: Recovery Services 자격 증명 모음) |
 | ResourceProvider |텍스트 |데이터가 수집되는 리소스 공급자(예: Microsoft.RecoveryServices) |
 | ResourceType |텍스트 |데이터가 수집되는 리소스 종류(예: Vaults) |
 
 ## <a name="next-steps"></a>다음 단계
-Azure Backup 보고서를 만들기 위한 데이터 모델을 검토한 후에는 Log Analytics에서 [대시보드를 만들](../log-analytics/log-analytics-dashboards.md) 수 있습니다.
+Azure Backup 보고서를 만들기 위한 데이터 모델을 검토한 후에는 Log Analytics에서 [대시보드를 만들](../azure-monitor/platform/dashboards.md) 수 있습니다.

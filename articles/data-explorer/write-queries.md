@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 952d8801c189322161bbf8b795676af48b92c29f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394340"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854257"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Azure 데이터 탐색기용 쿼리 작성
 
@@ -28,7 +28,7 @@ ms.locfileid: "49394340"
 
 - StormEvents 샘플 데이터가 포함된 자체 클러스터에서 쿼리 실행. 자세한 내용은 [빠른 시작: Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기](create-cluster-database-portal.md) 및 [Azure 데이터 탐색기로 샘플 데이터 수집](ingest-sample-data.md)을 참조하세요.
 
-StormEvents 샘플 데이터 집합에는 [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/)에서 제공하는 날씨 관련 데이터가 포함되어 있습니다.
+[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>쿼리 언어의 개요
 
@@ -147,7 +147,7 @@ StormEvents
 
 ### <a name="top"></a>top
 
-[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator): 지정한 열을 기준으로 정렬된 처음 *N*개 레코드를 반환합니다.
+[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator): 지정한 열을 기준으로 정렬된 처음  *N* 개 레코드를 반환합니다.
 
 다음 쿼리는 연산자 수는 하나 더 적지만 위의 쿼리와 같은 결과를 반환합니다.
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) 또는 [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)에 의해 생성된 HyperLogLog 결과에서 **dcount**를 계산합니다.
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction): [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) 또는 [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)에 의해 생성된 HyperLogLog 결과에서 **dcount**를 계산합니다.
 
 다음 쿼리는 HLL 알고리즘을 사용하여 개수를 생성합니다.
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): 식으로 정의된 모집단의 지정된 [**근사 순위 백분위수**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) 추정치를 반환합니다. 정확도는 백분위수 지역의 인구 밀도에 따라 달라집니다. [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator) 내의 집계 컨텍스트에서만 사용할 수 있습니다.
+[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction): 식으로 정의된 모집단의 지정된 [**근사 순위 백분위수**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) 추정치를 반환합니다. 정확도는 백분위수 지역의 인구 밀도에 따라 달라집니다.  [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator) 내의 집계 컨텍스트에서만 사용할 수 있습니다.
 
 다음 쿼리는 태풍 기간에 대한 백분위수를 계산합니다.
 
@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator): 두 테이블의 행을 병합하여 각 테이블에서 지정된 열의 값을 일치시키는 방식으로 새 테이블을 만듭니다. Justo에서는 전체 조인 형식 범위(**fullouter**, **inner**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**)를 지원합니다.
+[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator): 두 테이블의 행을 병합하여 각 테이블에서 지정된 열의 값을 일치시키는 방식으로 새 테이블을 만듭니다. Justo에서는 전체 조인 형식 범위(**fullouter**, **inner**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**)를 지원합니다.
 
 다음 예제에서는 내부 조인을 사용하여 두 테이블을 조인합니다.
 
@@ -842,7 +842,7 @@ range _day from _start to _end step 1d
 
 ### <a name="newactivitymetrics-plugin"></a>new_activity_metrics 플러그 인
 
-[ **플러그 인**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): 새 사용자 코호트에 대해 유용한 활동 메트릭(고유 개수 값, 새 값의 고유 개수, 보유율, 변동률)을 계산합니다. 이 플러그 인은 개념상으로는 [**activity_metrics 플러그 인**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin)과 비슷하지만 새 사용자만을 대상으로 합니다.
+[ **플러그 인**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin): 새 사용자 코호트에 대해 유용한 활동 메트릭(고유 개수 값, 새 값의 고유 개수, 보유율, 변동률)을 계산합니다. 이 플러그 인은 개념상으로는 [**activity_metrics 플러그 인**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin)과 비슷하지만 새 사용자만을 대상으로 합니다.
 
 다음 쿼리는 새 사용자 코호트(첫 주에 도착한 사용자)에 대해 1주 동안의 보유율과 변동률을 계산합니다.
 
@@ -902,7 +902,7 @@ StormEvents
 
 [**funnel_sequence_completion 플러그 인**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): 서로 다른 기간 내에서 완료된 시퀀스 단계의 경로를 계산합니다.
 
-다음 쿼리는 1시간/4시간/1일의 “전체” 시간(`[1h, 4h, 1d]`) 동안 `Hail -> Tornado -> Thunderstorm -> Wind` 시퀀스의 완료 경로를 확인합니다.
+다음 쿼리는 1시간/4시간/1일의 “전체” 시간(`[1h, 4h, 1d]`) 동안  `Hail -> Tornado -> Thunderstorm -> Wind` 시퀀스의 완료 경로를 확인합니다.
 
 **\[**[**쿼리를 실행하려면 클릭**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -918,7 +918,7 @@ StormEvents
 
 ## <a name="functions"></a>Functions
 
-이 섹션에서는 서버에 저장되는 재사용 가능 쿼리인 [**함수**](https://docs.microsoft.com/azure/kusto/query/functions)에 대해 설명합니다. 쿼리와 다른 함수를 통해 함수를 호출할 수 있습니다. 재귀 함수는 지원되지 않습니다.
+이 섹션에서는 서버에 저장되는 재사용 가능 쿼리인 [**함수**](https://docs.microsoft.com/azure/kusto/query/functions)에 대해 설명합니다. 쿼리와 다른 함수를 통해 함수를 호출할 수 있습니다. 재귀 함수는 지원되지 않습니다.
 
 > [!NOTE]
 > 읽기 전용인 help 클러스터에서는 함수를 만들 수 없습니다. 함수를 만들려면 자체 테스트 클러스터를 사용하세요.

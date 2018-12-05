@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: sajagtap
-ms.openlocfilehash: 161c7cd8bac07d5ffc138297d98a40317a8d88fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6e1fc08af1062ae8962ba33c6df980182175264b
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372950"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852149"
 ---
 # <a name="team-and-subteams"></a>팀 및 하위 팀 #
 
@@ -58,6 +58,6 @@ Content Moderator를 사용하려면 먼저 팀을 만들어야 합니다. 팀�
 
 ## <a name="switch-between-subteams-to-review-assigned-content"></a>하위 팀을 전환하여 할당된 콘텐츠 검토 ##
 
-하나 또는 여러 하위 팀의 멤버인 경우 [검토 도구 대시보드]에서 하위 팀 간에 전환할 수 있습니다. 하위 팀에 속한 현재 보류 중인 모든 검토를 보려면 [이미지] 탭에서 [하위 팀 선택]을 선택합니다.
+하나 또는 여러 하위 팀의 멤버인 경우 검토 도구 대시보드에서 하위 팀 간에 전환할 수 있습니다. 하위 팀에 속한 현재 보류 중인 모든 검토를 보려면 [이미지] 탭에서 [하위 팀 선택]을 선택합니다.
 
 ![하위 팀 간에 전환](images/3-review-image-subteam-2.png)

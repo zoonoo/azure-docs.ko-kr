@@ -5,25 +5,25 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632695"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854325"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>ACR 작업에서 다단계 작성, 테스트 및 패치 작업 실행
 
-다단계 작업을 수행하면 여러 단계/컨테이너를 기반으로 하는 워크플로를 통해 ACR 작업의 단일 이미지 작성 및 푸시 기능을 확장할 수 있습니다. 다단계 작업을 사용해 여러 이미지를 차례로 또는 병렬로 작성/푸시하고 단일 작업 실행 내에서 해당 이미지를 명령으로 실행할 수 있습니다. 각 단계는 컨테이너 이미지 작성 또는 푸시 작업을 정의하며 컨테이너 실행도 정의할 수 있습니다. 다단계 작업의 각 단계는 실행 환경으로 컨테이너를 사용합니다.
+다단계 작업을 수행하면 여러 단계/컨테이너를 기반으로 하는 워크플로를 통해 ACR 작업의 단일 이미지 작성 및 푸시 기능을 확장할 수 있습니다. 다중 단계 작업을 사용하여 시리즈 또는 병렬로 여러 이미지를 빌드 및 푸시합니다. 그런 다음, 단일 작업 실행 내에서 명령으로 해당 이미지를 실행합니다. 각 단계는 컨테이너 이미지 작성 또는 푸시 작업을 정의하며 컨테이너 실행도 정의할 수 있습니다. 다단계 작업의 각 단계는 실행 환경으로 컨테이너를 사용합니다.
 
 > [!IMPORTANT]
 > 이전에 미리 보기 중에 `az acr build-task` 명령을 사용하여 작업을 만든 경우 [az acr task][az-acr-task] 명령을 사용하여 해당 작업을 다시 만들어야 합니다.
 
-예를 들어 다음 과정을 자동화하는 단계가 포함된 작업을 실행할 수 있습니다.
+예를 들어 다음 논리를 자동화하는 단계가 포함된 작업을 실행할 수 있습니다.
 
-1. 웹 응용 프로그램 이미지 작성
+1. 웹 응용 프로그램 이미지 빌드
 1. 웹 응용 프로그램 컨테이너 실행
 1. 웹 응용 프로그램 테스트 이미지 빌드
 1. 실행 중인 응용 프로그램 컨테이너에 대해 테스트를 수행하는 웹 응용 프로그램 테스트 컨테이너 실행
@@ -37,11 +37,11 @@ ms.locfileid: "51632695"
 
 ## <a name="common-task-scenarios"></a>일반 작업 시나리오
 
-다단계 작업을 통해 수행할 수 있는 시나리오는 다음과 같습니다.
+다단계 작업을 통해 수행할 수 있는 시나리오는 다음 논리와 같습니다.
 
 * 하나 이상의 컨테이너 이미지를 차례로 또는 병렬로 작성/태그 지정/푸시
 * 단위 테스트 및 코드 검사를 실행하고 해당 결과 캡처
-* 기능 테스트를 실행하고 해당 결과 캡처. ACR 작업에서는 여러 컨테이너를 실행하고 컨테이너 간에 일련의 요청을 실행할 수 있습니다.
+* 기능 테스트를 실행하고 해당 결과 캡처. ACR 작업에서는 둘 이상의 컨테이너를 실행하고 컨테이너 간에 일련의 요청을 실행할 수 있습니다.
 * 컨테이너 이미지 작성 전/후 단계를 포함한 작업 기반 실행 과정 수행
 * 즐겨 사용하는 배포 엔진을 통해 대상 환경에 컨테이너 하나 이상 배포
 
@@ -176,5 +176,5 @@ ACR 작업의 다단계 작업 기능은 미리 보기 상태이므로 피드백
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task

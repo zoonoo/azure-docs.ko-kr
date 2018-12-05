@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 59c89c81f618876de48de66a38e1063eb658fba4
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d3d42a3c81153d54690f0825368eaa950dbac18e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742958"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314782"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>미리 보기: Azure AD 암호 보호 온-프레미스 - 질문과 대답
 
@@ -50,7 +50,7 @@ FRS(DFSR에 대한 선행 기술)는 대부분의 알려진 문제를 포함하�
 
 [DFSR로 sysvol 복제를 마이그레이션하는 사례](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
 
-[DRS의 경우 종료가 가깝습니다.](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
+[FRS의 경우 종료가 가깝습니다.](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
 **Q: DC 에이전트 소프트웨어를 설치하거나 업그레이드하는 데 다시 부팅이 필요한 이유는 무엇인가요?**
 
@@ -58,7 +58,7 @@ FRS(DFSR에 대한 선행 기술)는 대부분의 알려진 문제를 포함하�
 
 **Q: 특정 프록시 서버를 사용하도록 DC 에이전트를 구성하는 방법이 있나요?**
 
-아니요.
+ 아니요.
 
 ## <a name="next-steps"></a>다음 단계
 

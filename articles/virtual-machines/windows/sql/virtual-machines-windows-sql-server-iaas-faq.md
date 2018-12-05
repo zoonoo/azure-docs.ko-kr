@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edddc40b17adde685f875dfaa6b20879c6e61b15
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259159"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495485"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -39,7 +39,7 @@ ms.locfileid: "51259159"
 
 1. **사용 가능한 SQL Server 가상 머신 갤러리 이미지는 무엇인가요?**
 
-   Azure는 모든 Windows 및 Linux용 버전의 SQL Server의 지원되는 모든 주요 릴리스에서 가상 머신 이미지를 유지 관리합니다. 자세한 내용은 [Windows VM 이미지](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) 및 [Linux VM 이미지](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create)의 전체 목록은 참조하세요.
+   Azure는 모든 Windows 및 Linux용 버전의 SQL Server의 지원되는 모든 주요 릴리스에서 가상 머신 이미지를 유지 관리합니다. 자세한 내용은 [Windows VM 이미지](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) 및 [Linux VM 이미지](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create) 전체 목록을 참조하세요.
 
 1. **기존 SQL Server 가상 머신 갤러리 이미지가 업데이트되나요?**
 
@@ -55,7 +55,7 @@ ms.locfileid: "51259159"
 
 1. **가상 머신 갤러리에 표시되지 않은 구성을 설정할 수 있습니까(예: Windows 2008 R2 + SQL Server 2012)?**
 
-   아니요. SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 제공된 이미지 중 하나를 선택해야 합니다.
+    아니요. SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 제공된 이미지 중 하나를 선택해야 합니다.
 
 ## <a name="creation"></a>만들기
 
@@ -71,16 +71,48 @@ ms.locfileid: "51259159"
 
 1. **Azure VM에 라이선스가 있는 내 SQL Server 사본을 설치하려면 어떻게 해야 합니까?**
 
-   두 가지 방법으로 이 작업을 수행할 수 있습니다. [라이선스를 지원하는 가상 머신 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 프로비전할 수 있으며, 이는 또한 BYOL(사용자 라이선스 필요)로 알려져 있습니다. 다른 옵션은 SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치하는 것입니다. 그러나 SQL Server를 수동으로 설치하는 경우 포털 통합이 없고 SQL Server IaaS 에이전트 확장이 지원되지 않으므로 자동화된 Backup 및 자동화된 패칭 등의 기능은 이 시나리오에서는 작동하지 않습니다. 이러한 이유로 BYOL 갤러리 이미지 중 하나를 사용하는 것이 좋습니다. Azure VM에서 BYOL 또는 사용자 고유의 SQL Server 미디어를 사용하려면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 있어야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
+   두 가지 방법으로 이 작업을 수행할 수 있습니다. [라이선스를 지원하는 가상 머신 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 프로비전할 수 있으며, 이는 또한 BYOL(사용자 라이선스 필요)로 알려져 있습니다. 다른 옵션은 SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치하는 것입니다. 그러나 SQL Server를 수동으로 설치하는 경우 포털 통합이 없고 SQL Server IaaS 에이전트 확장이 지원되지 않으므로 자동화된 Backup 및 자동화된 패칭 등의 기능은 이 시나리오에서는 작동하지 않습니다. 따라서, BYOL 갤러리 이미지 중 하나를 사용하는 것이 좋습니다. Azure VM에서 BYOL 또는 사용자 고유의 SQL Server 미디어를 사용하려면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 있어야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
-1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
-
-   아니요. 초 단위로 요금이 부과되는 라이선스에서 사용자 라이선스 사용으로 전환할 수 없습니다. [BYOL 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 사용하여 새 Azure 가상 머신을 만든 다음 표준 [데이터 마이그레이션 기법](virtual-machines-windows-migrate-sql.md)을 사용하여 데이터베이스를 새 서버로 마이그레이션합니다.
 
 1. **대기/장애 조치(failover)에만 사용되는 경우 Azure VM에서 SQL Server 라이선스 비용을 지불해야 하나요?**
 
-   [Virtual Machine 라이선스 FAQ](https://azure.microsoft.com/pricing/licensing-faq/)에 설명된 대로 Software Assurance가 있고 License Mobility를 사용할 경우 HA 배포에서 수동 보조 복제본으로 참여하는 하나의 SQL Server 라이선스에 대해 비용을 지불할 필요가 없습니다. 그렇지 않으면 그에 대한 라이선스 비용을 지불해야 합니다.
+   Virtual Machine 라이선스 FAQ,](https://azure.microsoft.com/pricing/licensing-faq/)에 설명된 대로 Software Assurance가 있고 라이선스 이동을 사용할 경우 HA 배포에서 수동 보조 복제본으로 참여하는 하나의 SQL Server 라이선스에 대해 비용을 지불할 필요가 없습니다. 그렇지 않으면 그에 대한 라이선스 비용을 지불해야 합니다.
 
+1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
+
+   예. 원래 배포된 이미지에 관계없이 두 라이선스 모델 간에 쉽게 이동할 수 있습니다. 자세한 내용은 [SQL VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요.
+
+1. **새 SQL VM을 만들 때 BYOL 이미지와 SQL VM RP 중 무엇을 사용해야 하나요?**
+
+   EA 고객은 BYOL(사용자 라이선스 필요) 이미지만 사용할 수 있습니다. Software Assurance가 있는 다른 고객은 SQL VM 리소스 공급자를 사용하여 [AHB(Azure 하이브리드 혜택)](https://azure.microsoft.com/pricing/licensing-faq/)를 통해 SQL VM을 만들 수 있습니다. 
+
+1. **라이선싱 모델을 전환할 때 SQL Server 가동 중지 시간이 필요한가요?**
+
+    아니요. [라이선싱 모델을 변경](virtual-machines-windows-sql-ahb.md)해도 SQL Server 가동 중지 시간이 필요하지 않습니다. 변경 내용이 즉시 적용되기 때문에 VM을 다시 시작하지 않아도 됩니다. 
+
+1. **CSP 구독으로 Azure 하이브리드 혜택을 활성화할 수 있나요?**
+
+   예. [라이선싱 모델 변경](virtual-machines-windows-sql-ahb.md)은 CSP 구독에서 가능합니다. 
+
+1. **내 VM을 새 SQL VM 리소스 공급자에 등록하면 추가 비용이 발생하나요?**
+
+    아니요. SQL VM 리소스 공급자에서는 추가 비용 없이 Azure VM에서 SQL Server에 대한 추가 관리 기능을 사용할 수 있습니다. 
+
+1. **SQL VM 리소스 공급자를 모든 고객이 사용할 수 있나요?**
+ 
+   예. 모든 고객이 새 SQL VM 리소스 공급자에 등록할 수 있습니다. 단, Software Assurance Benefit 혜택을 받은 사용자만 SQL Server VM에서 [AHB(Azure 하이브리드 혜택)](https://azure.microsoft.com/pricing/hybrid-benefit/)(또는 BYOL)를 활성화할 수 있습니다. 
+
+1. **VM 리소스가 이동되거나 삭제되면   _* Microsoft.SqlVirtualMachine_* 리소스는 어떻게 되나요?** 
+
+   Microsoft.Compute/VirtualMachine 리소스가 삭제되거나 이동되면 연결된 Microsoft.SqlVirtualMachine 리소스에 작업을 비동기적으로 복제하도록 통지됩니다.
+
+1. **_* Microsoft.SqlVirtualMachine_* 리소스가 삭제되면 VM은 어떻게 되나요??**
+
+   Microsoft.Compute/VirtualMachine 리소스는 Microsoft.SqlVirtualMachine 리소스가 삭제되어도 영향을 받지 않습니다. 단, 라이선싱 변경 내용은 기본적으로 원본 이미지 소스로 다시 돌아갑니다. 
+
+1. **자체 배포된 SQL Server VM을 SQL VM 리소스 공급자에 등록할 수 있나요?**
+
+   예. SQL Server를 자체 매체에서 등록한 경우에는 SQL VM을 리소스 공급자에 등록하여 SQL IaaS 확장을 통해 제공되는 관리 효율성 혜택을 받을 수 있습니다. 단, 자체 배포된 SQL VM은 PAYG로 변환할 수 없습니다. 
 
 ## <a name="administration"></a>관리
 

@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 3123de58ea3dc4ab2c426f1393f8eca19542bfbf
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d48f24048225f4a0571915c2e27b931f858e8f6e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957142"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316971"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>빠른 시작: Python에서 Bing Local Business Search API에 쿼리 보내기
 
@@ -27,7 +27,7 @@ ms.locfileid: "50957142"
 
 * [Python](https://www.python.org/) 2.x 또는 3.x
  
-Bing API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판에서 제공되는 액세스 키를 사용합니다.
+Bing API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판에서 제공되는 액세스 키를 사용합니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ## <a name="run-the-complete-application"></a>전체 애플리케이션 실행
 
@@ -53,7 +53,7 @@ path = '/v7.0/localbusinesses/search'
 
 query = 'restaurant in Bellevue'
 
-params = '?q=' + urllib.parse.quote (query) + '&appid=' + subscriptionKey + '&traffictype=Internal_monitor&mkt=en-us'
+params = '?q=' + urllib.parse.quote (query) + '&mkt=en-us'
 
 def get_local():
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 7470783ba3ebac652c83c397ba2bbe683023c657
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041588"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582227"
 ---
-# <a name="overview-of-spark-structured-streaming"></a>Spark 구조적 스트리밍 개요
+# <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark 구조적 스트리밍 개요
 
-Spark 구조적 스트리밍을 사용하면 데이터 스트림을 처리하기 위한 높은 처리량의 확장성 있는 내결함성 응용 프로그램을 구현할 수 있습니다. 구조적 스트리밍은 Spark SQL 엔진을 기반으로 하며, Spark SQL 데이터 프레임 및 데이터 집합의 구문이 향상되어 일괄 쿼리를 작성하는 것과 같은 방식으로 스트리밍 쿼리를 작성할 수 있습니다.  
+[Apache Spark](https://spark.apache.org/) 구조적 스트리밍을 사용하면 데이터 스트림 처리를 위한 확장성 있고 처리량이 높은 내결함성 애플리케이션을 구현할 수 있습니다. 구조적 스트리밍은 Spark SQL 엔진을 기반으로 하며, Spark SQL 데이터 프레임 및 데이터 집합의 구문이 향상되어 일괄 쿼리를 작성하는 것과 같은 방식으로 스트리밍 쿼리를 작성할 수 있습니다.  
 
-구조적 스트리밍 응용 프로그램은 HDInsight Spark 클러스터에서 실행되며, Kafka, 디버깅용 TCP 소켓, Azure Storage 또는 Azure Data Lake Store의 스트리밍 데이터에 연결됩니다. 외부 저장소 서비스를 사용하는 후자의 두 가지 옵션을 사용하면 저장소에 추가된 새 파일을 감시하고 스트리밍된 것처럼 해당 내용을 처리할 수 있습니다. 
+구조적 스트리밍 애플리케이션은 HDInsight Spark 클러스터에서 실행되며, [Apache Kafka](https://kafka.apache.org/), 디버깅용 TCP 소켓, Azure Storage 또는 Azure Data Lake Store의 스트리밍 데이터에 연결됩니다. 외부 저장소 서비스를 사용하는 후자의 두 가지 옵션을 사용하면 저장소에 추가된 새 파일을 감시하고 스트리밍된 것처럼 해당 내용을 처리할 수 있습니다. 
 
 구조적 스트리밍은 입력 데이터에 작업(예: 선택, 프로젝션, 집계, 창 작업 및 스트리밍 데이터 프레임과 참조 데이터 프레임의 조인)을 적용하는 장기 실행 쿼리를 만듭니다. 그런 다음, 사용자 지정 코드(예: SQL Database 또는 Power BI)를 사용하여 결과를 파일 저장소(Azure Storage Blob 또는 Data Lake Store) 또는 데이터 저장소에 출력합니다. 또한 구조적 스트리밍은 로컬로 디버그하기 위해 콘솔에 출력을 제공하고, HDInsight에서 디버그하기 위해 생성된 데이터를 볼 수 있도록 메모리 내 테이블에 출력을 제공합니다. 
 
@@ -124,7 +124,7 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
-지원되는 입력 데이터 원본, 작업 및 출력 싱크와 함께 Spark 구조적 스트림 API에 대한 자세한 내용은 [Spark 구조적 스트리밍 프로그래밍 가이드](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)를 참조하세요.
+지원되는 입력 데이터 원본, 작업 및 출력 싱크와 함께 Spark 구조적 스트림 API에 대한 자세한 내용은 [Apache Spark 구조적 스트리밍 프로그래밍 가이드](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)를 참조하세요.
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>검사점 및 미리 쓰기 로그
 
@@ -132,14 +132,14 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 ## <a name="deploying-spark-streaming-applications"></a>Spark 스트리밍 응용 프로그램 배포
 
-일반적으로 Spark Streaming 응용 프로그램을 JAR 파일에 로컬로 빌드한 다음, JAR 파일을 HDInsight 클러스터에 연결된 기본 저장소로 복사하여 HDInsight의 Spark에 배포합니다. POST 작업을 사용하여 클러스터에서 사용할 수 있는 LIVY REST API를 통해 응용 프로그램을 시작할 수 있습니다. POST의 본문에는 JAR에 대한 경로, main 메서드에서 스트리밍 응용 프로그램을 정의하고 실행하는 클래스의 이름, 그리고 필요에 따라 작업의 리소스 요구 사항(예: 실행기, 메모리 및 코어의 수)과 응용 프로그램 코드에 필요한 모든 구성 설정을 제공하는 JSON 문서가 포함되어 있습니다.
+일반적으로 Spark Streaming 응용 프로그램을 JAR 파일에 로컬로 빌드한 다음, JAR 파일을 HDInsight 클러스터에 연결된 기본 저장소로 복사하여 HDInsight의 Spark에 배포합니다. POST 작업을 사용하여 클러스터에서 사용할 수 있는 [Apache Livy](https://livy.incubator.apache.org/) REST API를 통해 애플리케이션을 시작할 수 있습니다. POST의 본문에는 JAR에 대한 경로, main 메서드에서 스트리밍 응용 프로그램을 정의하고 실행하는 클래스의 이름, 그리고 필요에 따라 작업의 리소스 요구 사항(예: 실행기, 메모리 및 코어의 수)과 응용 프로그램 코드에 필요한 모든 구성 설정을 제공하는 JSON 문서가 포함되어 있습니다.
 
 ![Spark Streaming 응용 프로그램 배포](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-또한 LIVY 엔드포인트에 대한 GET 요청으로 모든 응용 프로그램의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 응용 프로그램을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
+또한 LIVY 엔드포인트에 대한 GET 요청으로 모든 응용 프로그램의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 응용 프로그램을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [Apache LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight에서 Apache Spark 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Spark 구조적 스트리밍 프로그래밍 가이드](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
-* [LIVY를 사용하여 원격으로 Spark 작업 시작](apache-spark-livy-rest-interface.md)
+* [Apache Spark 구조적 스트리밍 프로그래밍 가이드](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Apache LIVY를 사용하여 원격으로 Apache Spark 작업 시작](apache-spark-livy-rest-interface.md)

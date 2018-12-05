@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0dfe096bb3a2a2116ead2423f53a5e44c8f02630
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c3cf2b703760debb368e26d629ee73f56ce93d39
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567522"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441260"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-python-modules-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 Python 모듈 개발 및 디버그
 
@@ -66,7 +66,7 @@ ms.locfileid: "51567522"
 
 7. 모듈의 이름을 입력합니다. 컨테이너 레지스트리 내에서 고유한 이름을 선택합니다. 
 
-8. 모듈의 이미지 리포지토리 이름을 입력합니다. VS Code는 **localhost:5000**으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 **\<레지스트리 이름\>.azurecr.io**와 같이 표시됩니다. 문자열에서 localhost 부분만 바꾸고, 모듈 이름을 삭제하지 마세요. 
+8. 모듈의 이미지 리포지토리 이름을 입력합니다. VS Code는 **localhost:5000**으로 모듈 이름을 자동으로 채웁니다. 고유한 레지스트리 정보로 바꿉니다. 테스트를 위해 로컬 Docker 레지스트리를 사용하는 경우 **localhost**를 사용해도 됩니다. Azure Container Registry를 사용하는 경우 레지스트리 설정의 로그인 서버를 사용합니다. 로그인 서버는 **\<레지스트리 이름\>.azurecr.io**와 같이 표시됩니다. 문자열에서 localhost 부분만 바꾸고, 모듈 이름을 삭제하지 마세요. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/\<modulename\>과 같이 표시됩니다.
 
    ![Docker 이미지 리포지토리 제공](./media/how-to-develop-c-module/repository.png)
 
@@ -81,6 +81,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
    > 환경 파일은 모듈에 대한 이미지 리포지토리를 제공하는 경우에만 생성됩니다. localhost 기본값을 로컬로 테스트하고 디버그하도록 수락하는 경우 환경 변수를 선언할 필요가 없습니다. 
 
 * **deployment.template.json** 파일은 테스트에 사용할 수 있는 데이터를 시뮬레이션하는 샘플 **tempSensor** 모듈과 함께 새 모듈을 나열합니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요. 
+* **deployment.debug.template.json** 파일에는 적절한 컨테이너 옵션이 있는 디버그 버전의 모듈 이미지가 포함됩니다.
 
 ## <a name="develop-your-module"></a>모듈 개발
 
@@ -92,13 +93,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 
 각 모듈 폴더에는 서로 다른 컨테이너 유형에 사용되는 여러 Docker 파일이 있습니다. **.debug** 확장명으로 끝나는 이러한 파일을 사용하여 테스트할 모듈을 빌드합니다. 현재 Python 모듈은 Linux amd64 컨테이너에서만 디버깅을 지원합니다. 
 
-1. VS Code에서 `deployment.template.json` 파일로 이동합니다. 끝에 **.debug**를 추가하여 모듈 이미지 URL을 업데이트합니다.
-
-2. **deployment.template.json**에서 Python 모듈 createOptions를 아래 콘텐츠로 바꾸고 이 파일을 저장합니다. 
-    
-    ```json
-    "createOptions": "{\"ExposedPorts\":{\"5678/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"5678/tcp\":[{\"HostPort\":\"5678\"}]}}}"
-    ```
+1. VS Code에서 `deployment.debug.template.json` 파일로 이동합니다. 이 파일에는 적절한 만들기 옵션이 있는 디버그 버전의 모듈 이미지가 포함됩니다. 
 
 3. `main.py`로 이동하여 다음 코드를 import 섹션 뒤에 추가합니다.
     
@@ -132,9 +127,9 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
     ```
 
 2. VS Code 명령 팔레트에서 **Azure IoT Edge: IoT Edge 솔루션 빌드 및 푸시** 명령을 입력하고 실행합니다.
-3. 명령 팔레트에서 솔루션의 `deployment.template.json` 파일을 선택합니다. 
+3. 명령 팔레트에서 솔루션의 `deployment.debug.template.json` 파일을 선택합니다. 
 4. Azure IoT Hub Device Explorer에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭합니다. 그런 후 **단일 장치용 배포 만들기**를 선택합니다. 
-5. 솔루션의 **config** 폴더를 엽니다. 그런 다음, `deployment.json` 파일을 선택합니다. **Edge 배포 매니페스트 선택**을 선택합니다. 
+5. 솔루션의 **config** 폴더를 엽니다. 그런 다음, `deployment.debug.amd64.json` 파일을 선택합니다. **Edge 배포 매니페스트 선택**을 선택합니다. 
 
 VS Code 통합 터미널에서 배포 ID를 사용하여 생성된 배포가 표시됩니다.
 

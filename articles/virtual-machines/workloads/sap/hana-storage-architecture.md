@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 614d6aef4a2b7be551574fd3c8e25e2a3e3c1c07
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030958"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275996"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA(대규모 인스턴스) 저장소 아키텍처
 
-SAP HANA on Azure(대규모 인스턴스)의 저장소 레이아웃은 SAP 권장 지침에 따라 클래식 배포 모델에서 SAP HANA를 통해 구성됩니다. 이 지침은 [SAP HANA 저장소 요구 사항](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다.
+Azure의 SAP HANA(대규모 인스턴스)의 스토리지 레이아웃은 SAP 권장 지침에 따라 클래식 배포 모델에서 SAP HANA를 통해 구성됩니다. 이 지침은 [SAP HANA 저장소 요구 사항](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다.
 
 유형 I 클래스의 HANA 대규모 인스턴스는 메모리 볼륨으로 저장소 볼륨의 4배를 제공합니다. 유형 II 클래스의 HANA 대규모 인스턴스 장치의 경우 저장소는 4배를 초과할 수 없습니다. 장치에는 HANA 트랜잭션 로그 백업을 저장하기 위한 볼륨이 제공됩니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 설치 및 구성](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
@@ -33,6 +33,7 @@ SAP HANA on Azure(대규모 인스턴스)의 저장소 레이아웃은 SAP 권�
 | --- | --- | --- | --- | --- |
 | S72 | 1,280GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328GB | 768 GB |1,280GB | 768 GB |
+| S96 | 1,280GB | 512 GB | 768 GB | 512 GB |
 | S192 | 4,608GB | 1,024GB | 1,536GB | 1,024GB |
 | S192m | 11,520 GB | 1,536GB | 1,792GB | 1,536GB |
 | S192xm |  11,520 GB |  1,536GB |  1,792GB |  1,536GB |
@@ -72,7 +73,7 @@ HANA 대규모 인스턴스 SKU를 세분화하는 경우 가능한 분할 조�
 
 HANA 대규모 인스턴스 장치에 둘 이상의 활성 SAP HANA 인스턴스를 호스팅할 수 있습니다. 저장소 스냅숏 및 재해 복구 기능을 제공하기 위해 이러한 구성에는 인스턴스당 볼륨 세트가 필요합니다. 현재 HANA 대규모 인스턴스 장치는 다음과 같이 세분화할 수 있습니다.
 
-- **S72, S72m, S144, S192**: 장치의 최소 크기는 256GB이며, 256GB씩 증분할 수 있습니다. 다른 증분 단위(예: 256GB, 512GB)는 장치의 메모리 최댓값과 결합할 수 있습니다.
+- **S72, S72m, S96, S144, S192**: 최소 시작 단위는 256GB이며, 256GB씩 증분할 수 있습니다. 다른 증분 단위(예: 256GB, 512GB)는 장치의 메모리 최댓값과 결합할 수 있습니다.
 - **S144m 및 S192m**: 장치의 최소 크기는 512GB이며, 256GB씩 증분할 수 있습니다. 다른 증분 단위(예: 512GB, 768GB)는 장치의 메모리 최댓값과 결합할 수 있습니다.
 - **유형 II 클래스**: 장치의 최소 크기는 2TB이며, 512GB씩 증분할 수 있습니다. 다른 증분 단위(예: 512GB, 1TB, 1.5TB)는 장치의 메모리 최댓값과 결합할 수 있습니다.
 
@@ -81,7 +82,7 @@ HANA 대규모 인스턴스 장치에 둘 이상의 활성 SAP HANA 인스턴스
 | SKU | 메모리 크기 | 저장소 크기 | 여러 데이터베이스가 장착된 크기 |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1 x 768GB HANA 인스턴스<br /> 또는 1 x 512GB 인스턴스 + 1 x 256GB 인스턴스<br /> 또는 3 x 256GB 인스턴스 | 
-| S72m | 1.5 TB | 6 TB | 3 x 512GB HANA 인스턴스<br />또는 1 x 512GB 인스턴스 + 1 x 1TB 인스턴스<br />또는 6 x 256GB 인스턴스<br />또는 1x1.5 TB 인스턴스 | 
+| S72m | 1.5 TB | 6 TB | 3 x 512GB HANA 인스턴스<br />또는 1 x 512GB 인스턴스 + 1 x 1TB 인스턴스<br />또는 6 x 256GB 인스턴스<br />또는 1x1.5TB 인스턴스 | 
 | S192m | 4 TB | 16 TB | 8 x 512GB 인스턴스<br />또는 4 x 1TB 인스턴스<br />또는 4 x 512GB 인스턴스 + 2 x 1TB 인스턴스<br />또는 4 x 768GB 인스턴스 + 2 x 512GB 인스턴스<br />또는 1 x 4TB 인스턴스 |
 | S384xm | 8 TB | 22 TB | 4 x 2TB 인스턴스<br />또는 2 x 4TB 인스턴스<br />또는 2 x 3TB 인스턴스 + 1 x 2TB 인스턴스<br />또는 2 x 2.5TB 인스턴스 + 1 x 3TB 인스턴스<br />또는 1 x 8TB 인스턴스 |
 

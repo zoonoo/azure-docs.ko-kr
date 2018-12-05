@@ -1,5 +1,5 @@
 ---
-title: 원격 데스크톱을 통해 Azure Virtual Machines에 연결할 때 내부 오류 발생 | Microsoft Docs
+title: Azure Virtual Machines에 RDP로 연결할 때 내부 오류 발생 | Microsoft Docs
 description: Microsoft Azure에서 RDP 내부 오류를 해결하는 방법을 알아봅니다. | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 0576d241b3412697ac0d46e77cdfb416921781cb
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7d0d4a34a31f15c23638eba1f14794838780f2b0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215910"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307163"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>원격 데스크톱을 통해 Azure VM에 연결하려고 할 때 내부 오류 발생 
 

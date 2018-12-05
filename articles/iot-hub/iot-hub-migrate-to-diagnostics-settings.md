@@ -5,14 +5,14 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 11/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 3cb0f91f3143e6a4828548f3a15678b3814cba17
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 236adb45ec6663ad361df1afbf6389a449f2a529
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154864"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159902"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Azure IoT Hub를 작업 모니터링에서 진단 설정으로 마이그레이션
 
@@ -49,6 +49,10 @@ Azure Portal에서 IoT Hub를 업데이트하려면 먼저 진단 설정을 켠 
 * 직접 메서드
 
 특정 스키마 구조에 대한 자세한 내용은 [진단 설정에 대한 스키마의 이해](iot-hub-monitor-resource-health.md#understand-the-logs)를 참조하세요.
+
+## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>디바이스 연결 모니터링 및 낮은 대기 시간을 사용하여 이벤트 연결 해제
+
+디바이스 연결을 모니터링하고 이벤트의 연결을 해제하려면 Event Grid에서 [**디바이스 연결 끊김** 이벤트](iot-hub-event-grid.md#event-types)를 구독하여 경고를 받고 디바이스 연결 상태를 모니터링하는 것이 좋습니다. 이 [자습서](iot-hub-how-to-order-connection-state-events.md)를 사용하여 IoT 솔루션에서 IoT Hub의 장치 연결된 이벤트 및 장치 연결 해제된 이벤트를 통합하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

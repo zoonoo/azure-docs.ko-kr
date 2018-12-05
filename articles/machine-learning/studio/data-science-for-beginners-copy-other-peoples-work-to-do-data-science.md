@@ -1,11 +1,12 @@
 ---
-title: 다른 사용자의 데이터 과학 예제 복사 - Azure Machine Learning | Microsoft Docs
+title: 다른 사용자의 데이터 과학 예제 복사 - Azure Machine Learning Studio | Microsoft Docs
 description: '데이터 과학의 비밀: 다른 사람들이 사용자의 작업을 수행하도록 유도 Azure AI 갤러리에서 Machine Learning 예제를 가져옵니다.'
 keywords: 데이터 과학 예제,Machine Learning 예제,클러스터링 알고리즘,클러스터링 알고리즘 예제
 services: machine-learning
 documentationcenter: na
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
@@ -16,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: 84c6f4a1cedc0a04ee820f1de60f51e653f28425
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e573a0394fa47cd6325fe582366242644232cf3d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833882"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313778"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 ## <a name="video-5-data-science-for-beginners-series"></a>비디오 5: 초급자를 위한 데이터 과학 시리즈

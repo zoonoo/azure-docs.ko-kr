@@ -1,9 +1,9 @@
 ---
-title: Azure AI 갤러리 산업별 솔루션 | Microsoft Docs
-description: Azure AI 갤러리에서 산업별 솔루션을 검색합니다.
+title: Azure AI Gallery 산업 솔루션 - Azure Machine Learning Studio | Microsoft Docs
+description: Azure AI Gallery의 산업 섹션은 소매, 제조, 금융, 의료 등과 같은 산업에 관련된 다양한 리소스를 제공합니다.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
+author: ericlicoding
 manager: jhubbard
 editor: cgronlun
 ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: d64395314f73c5d359b30c15ef11bfd3078e068f
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.custom: (previous ms.author=garye, author=garyericson)
+ms.author: amlstudiodocs
+ms.openlocfilehash: 760f47bf42be32201eea86748d69875b0bf04ce4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346306"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317401"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 산업별 솔루션 검색
 

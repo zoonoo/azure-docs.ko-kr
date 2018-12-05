@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 2195a43665f99e8388b13fc6dc3e528496bd3901
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b1276ab227f4bf65483fb2cdec57c759573bc7c5
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242690"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853594"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>등록된 Azure Active Directory 앱의 서비스 약관 및 개인정보처리방침
 
@@ -64,10 +64,10 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 
 Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
 
-1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 앱  **등록** 섹션으로 이동하여 앱을 선택합니다.  
-3. 앱의  **속성** 섹션을 엽니다.
-4. 서 **비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
+3. 앱의 **속성** 섹션을 엽니다.
+4. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
 5. 변경 내용을 저장합니다.
 
     ![서비스 약관 및 개인정보처리방침 URL이 있는 앱 속성 섹션](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
@@ -76,9 +76,9 @@ Azure Portal에서 앱을 등록한 경우 다음 단계를 수행합니다.
 
 응용 프로그램 등록 포털 또는 개발자 센터에서 앱을 등록한 경우 다음 단계를 수행합니다.
 
-1.  [응용 프로그램 등록 포털](https://apps.dev.microsoft.com/)에 로그인합니다.
-2. 앱을 선택하고  **프로필** 섹션으로 스크롤합니다.
-3. 서 **비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
+1. [애플리케이션 등록 포털](https://apps.dev.microsoft.com/)에 로그인합니다.
+2. 앱을 선택하고 **프로필** 섹션으로 스크롤합니다.
+3. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
 4. 변경 내용을 저장합니다.
 
     ![서비스 약관 및 개인정보처리방침 URL이 있는 앱 프로필 섹션](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)

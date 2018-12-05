@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ca05941a499d6bc3e183919de7b407cfba53038d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d60f2aca912f279f84710863e5f6ce507de64cb0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958256"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309177"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Bing Local Business Search API에 쿼리 보내기
 
@@ -29,7 +29,7 @@ ms.locfileid: "50958256"
 
 * [JavaScript 요청 라이브러리](https://github.com/request/request)
 
-Bing API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판에서 제공되는 액세스 키를 사용합니다.
+Bing API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판에서 제공되는 액세스 키를 사용합니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 ##<a name="code-scenario"></a>코드 시나리오
 다음 코드는 정의를 가져오고 요청을 보냅니다. 다음 단계로 구현됩니다.
@@ -56,7 +56,7 @@ let path = '/v7.0/localbusinesses/search';
 let mkt = 'en-US';
 let q = 'hotel in Bellevue';
 
-let params = '?q=' + encodeURI(q) + "&appid=" + accessKey + "&traffictype=Internal_monitor&mkt=" + mkt;
+let params = '?q=' + encodeURI(q) + "&mkt=" + mkt;
 
 let response_handler = function (response) {
     let body = '';

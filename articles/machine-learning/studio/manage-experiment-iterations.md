@@ -1,10 +1,11 @@
 ---
-title: Machine Learning 스튜디오에서 반복 실험 관리 | Microsoft Docs
+title: Machine Learning 스튜디오에서 반복 실험 관리 - Azure | Microsoft Docs
 description: Azure Machine Learning Studio에서 반복 실험을 관리하는 방법
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 4dcae0bb3cb89e65079b88f7be68ddf360ce1b8c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b96ab59db8c4586304a864ee432dbd1c74b25fd6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834814"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313540"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 반복 실험 관리
 예측 분석 모델을 개발하는 과정은 반복 프로세스이며, 실험의 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다. 이 프로세스의 핵심은 다양하게 반복되는 실험 매개 변수와 구성을 추적하는 것입니다.

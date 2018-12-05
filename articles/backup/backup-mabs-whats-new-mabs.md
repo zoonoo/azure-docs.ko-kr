@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 8e80d935bac94f3d4b2380799a1aed256828af75
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e963f675dfe2a57fc19f3169beeb1d7d4066af93
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625881"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315599"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server의 새로운 기능
 
@@ -60,6 +60,7 @@ MABS V3은 정식 릴리스이며, Windows Server 2016, Windows Server 2019에 �
 ## <a name="next-steps"></a>다음 단계
 
 서버를 준비하는 방법을 알아보거나 워크로드 보호를 시작합니다.
+- [MABS V3의 알려진 문제](backup-mabs-release-notes-v3.md)
 - [Backup Server 워크로드 준비](backup-azure-microsoft-azure-backup.md)
 - [Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md)
 - [Backup Server를 사용하여 SQL Server 백업](backup-azure-sql-mabs.md)

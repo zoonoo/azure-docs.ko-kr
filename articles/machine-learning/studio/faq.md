@@ -1,11 +1,12 @@
 ---
-title: Azure Machine Learning FAQ(질문과 대답) | Microsoft Docs
-description: 'Azure Machine Learning 소개: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ.'
+title: Machine Learning Studio FAQ(질문과 대답) - Azure | Microsoft Docs
+description: 'Azure Machine Learning Studio: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ.'
 keywords: 기계 학습 소개, 예측 모델링, 기계 학습이란 무엇인가요
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
 ms.component: studio
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247775"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309143"
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 질문과 대답: 대금 청구, 기능, 제한 사항 및 지원
+# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio 질문과 대답: 대금 청구, 기능, 제한 사항 및 지원
 Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문(FAQ)과 해당하는 대답입니다. 이 FAQ는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대한 질문을 제공합니다.
 
 **여기에서 찾을 수 없는 질문이 있나요?**
@@ -29,12 +30,6 @@ Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 �
 Azure Machine Learning은 데이터 과학 커뮤니티의 멤버가 Azure Machine Learning에 대한 질문을 할 수 있는 MSDN 포럼을 운영합니다. Azure Machine Learning 팀에서 포럼을 모니터링합니다. 답변을 검색하거나 새로운 질문을 게시하려면 [Azure Machine Learning 포럼](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)으로 이동하세요.
 
 ## <a name="general-questions"></a>일반적인 질문
-**Azure Machine Learning이란 무엇인가요?**
-
-Azure Machine Learning은 완벽하게 관리되는 서비스로, 이 서비스를 통해 클라우드에 예측 분석 솔루션을 만들고, 테스트하고, 운영하고, 관리할 수 있습니다. 브라우저만 있으면 로그인하고 데이터를 업로드하고 즉시 기계 학습 실험을 시작할 수 있습니다. 끌어서 놓기 예측 모델링, 모듈의 대형 팔레트 및 시작 템플릿의 라이브러리를 활용하면 일반적인 기계 학습 작업을 간단히, 빠르게 수행할 수 있습니다. 자세한 내용은 [Azure Machine Learning 서비스 개요](https://azure.microsoft.com/services/machine-learning/)를 참조하세요. 주요 용어 및 개념을 설명하는 기계 학습 소개는 [Azure Machine Learning 소개](what-is-machine-learning.md)를 참조하세요.
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **Machine Learning Studio란 무엇인가요?**
 
 Machine Learning Studio는 웹 브라우저를 사용하여 액세스하는 워크벤치 환경입니다. Machine Learning Studio는 실험 형태의 종단 간 데이터 과학 워크플로를 구성할 수 있는 시각적 컴퍼지션 인터페이스로 모듈 팔레트를 호스트합니다.
@@ -157,7 +152,7 @@ Machine Learning Studio는 Microsoft Research에서 개발된 확장 가능한 �
 
 **제공된 알고리즘에서 적합한 알고리즘 하나를 선택하는 데 대한 지침이 있나요?**
 
-[알고리즘을 선택하는 방법](algorithm-choice.md)를 참조하세요.
+ [알고리즘을 선택하는 방법](algorithm-choice.md)를 참조하세요.
 
 **제공되는 알고리즘은 R 또는 Python으로 작성되었나요?**
 
@@ -173,7 +168,7 @@ Machine Learning Studio는 Microsoft Research에서 개발된 확장 가능한 �
 
 **기본 제공 모듈을 사용하여 신경망 모델의 계층을 시각화할 수 있나요?**
 
-아니요.
+ 아니요.
 
 **C# 또는 일부 다른 언어로 모듈을 만들 수 있나요?**
 
@@ -210,7 +205,7 @@ API 다시 학습을 사용합니다. 자세한 내용은 [프로그래밍 방�
 ### <a name="create"></a>생성
 **모델을 로컬로 배포하거나 인터넷에 연결하지 않고 응용 프로그램에서 배포할 수 있나요?**
 
-아니요.
+ 아니요.
 
 **모든 웹 서비스에 예상되는 기준 대기 시간이 있나요?**
 
@@ -251,7 +246,7 @@ RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입
 
 **R 작업은 노드 간에 분산되나요?**
 
-아니요.  
+ 아니요.  
 
 **학습에 사용할 수 있는 데이터의 양은 얼마인가요?**
 
@@ -280,7 +275,7 @@ Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대
 
 **웹 서비스를 실행하는 가상 머신의 크기를 조정할 수 있나요?**
 
-아니요.  
+ 아니요.  
 
 ## <a name="security-and-availability"></a>보안 및 사용 가능성
 **웹 서비스에 대한 http 엔드포인트에 기본적으로 액세스할 수 있는 사람은 누구인가요? 엔드포인트에 대한 액세스는 어떻게 제한하나요?**

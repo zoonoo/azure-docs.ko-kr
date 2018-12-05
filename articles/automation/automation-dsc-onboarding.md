@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50f8fea04da3b1e414917a6404cb3f6e838bf716
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244528"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284815"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -42,7 +42,7 @@ Azure Automation 상태 구성을 사용하면 Azure Portal이나 PowerShell을 
 
 ### <a name="azure-portal"></a>Azure portal
 
-[Azure Portal](http://portal.azure.com/)에서 **찾아보기** -> **가상 머신(클래식)** 를 클릭합니다. 온보드할 Windows VM을 선택합니다. 가상 머신의 대시보드 블레이드에서 **모든 설정** -> **확장** -> **추가** -> **Azure Automation DSC** -> **만들기**를 클릭합니다.
+[Azure Portal](https://portal.azure.com/)에서 **찾아보기** -> **가상 머신(클래식)** 를 클릭합니다. 온보드할 Windows VM을 선택합니다. 가상 머신의 대시보드 블레이드에서 **모든 설정** -> **확장** -> **추가** -> **Azure Automation DSC** -> **만들기**를 클릭합니다.
 사용 사례에 필요한 [PowerShell DSC 로컬 구성 관리자 값](/powershell/dsc/metaconfig4), Automation 계정의 등록 키 및 등록 URL과, 선택적으로 VM에 할당할 노드 구성을 입력합니다.
 
 ![DSC에 대한 Azure VM 확장](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
@@ -132,7 +132,7 @@ Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되
 
 **등록**에서 사용 사례에 필요한 [PowerShell DSC 로컬 Configuration Manager 값](/powershell/dsc/metaconfig4)과 선택적으로 VM에 할당할 노드 구성을 입력합니다.
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![온보딩](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 

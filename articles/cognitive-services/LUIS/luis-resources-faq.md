@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649315"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284373"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding FAQ
 
@@ -60,6 +60,16 @@ Cortana의 미리 빌드된 앱은 2017년부터 더 이상 사용되지 않습�
 
 ## <a name="luis-endpoint"></a>LUIS 엔드포인트
 
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>내 엔드포인트 쿼리에서 예기치 않은 결과를 반환했습니다. 어떻게 해야 하나요?
+
+예기치 않은 쿼리 예측 결과는 게시된 모델의 상태를 기반으로 합니다. 모델을 수정하려면 모델을 변경하고, 학습하고, 다시 게시해야 할 수도 있습니다. 
+
+모델 수정은 [활성 학습](luis-how-to-review-endoint-utt.md)으로 시작합니다.
+
+모든 학습 데이터를 사용하기 위해 [애플리케이션 버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)를 업데이트하여 비결정적 학습을 제거할 수 있습니다. 
+
+다른 팁을 보려면 [모범 사례](luis-concept-best-practices.md)를 검토하세요. 
+
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>LUIS가 쿼리 주변 또는 단어 중간에 공백을 추가하는 이유는 무엇인가요?
 LUIS는 [문화권](luis-language-support.md#tokenization)에 따라 발언을 [토큰화](luis-glossary.md#token)합니다. 원래 값과 토큰화된 값 둘다 [데이터 추출](luis-concept-data-extraction.md#tokenized-entity-returned)에 사용할 수 있습니다.
 
@@ -67,7 +77,7 @@ LUIS는 [문화권](luis-language-support.md#tokenization)에 따라 발언을 [
 Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [엔드포인트 키를 만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). **[키 및 엔드포인트](luis-how-to-manage-keys.md)** 페이지에서 [키를 할당](luis-how-to-manage-keys.md#assign-endpoint-key)합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
 
 ### <a name="how-do-i-interpret-luis-scores"></a>LUIS 점수는 어떻게 해석할 수 있나요?
-시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 더 많은 학습 데이터를 제공하면 가능성이 가장 높은 의도의 점수를 높일 수 있습니다.
+시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 더 많은 학습 데이터를 제공하면 가능성이 가장 높은 의도의 [점수](luis-concept-prediction-score.md)를 높일 수 있습니다.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>내 앱의 대시보드에서 엔드포인트 적중이 표시되지 않는 이유는 무엇인가요?
 앱의 대시보드에 표시되는 총 끝점 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 끝점 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다.
@@ -187,7 +197,7 @@ LUIS 템플릿을 선택하고 템플릿 창에서 **선택** 단추를 선택�
 ## <a name="luis-service"></a>LUIS 서비스
 
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>온-프레미스 또는 사설 클라우드에서 LUIS를 사용할 수 있나요?
-아니요.
+ 아니요.
 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Build 2018 Conference에서 Language Understanding 기능이나 데모에 대해 들어보았으나 어떻게 지칭하는지 기억이 나지 않습니다.

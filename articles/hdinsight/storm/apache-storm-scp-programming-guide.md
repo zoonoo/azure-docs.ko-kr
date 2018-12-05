@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: e6025ba2645c284cca87483b48b2d79a9558d574
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012533"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496860"
 ---
 # <a name="scp-programming-guide"></a>SCP 프로그래밍 가이드
 SCP는 안정적이며 일관성 있는 실시간 고성능 데이터 처리 응용 프로그램을 빌드하기 위한 플랫폼입니다. 이 플랫폼은 OSS 커뮤니티에서 디자인한 스트림 처리 시스템인 [Apache Storm](http://storm.incubator.apache.org/)을 기반으로 구축되었습니다. Nathan Marz가 디자인한 Storm은 Twitter에서 오픈 소스 방식으로 제공되며, 매우 안정적인 분산 방식 조정과 상태 관리를 수행하는 데 사용할 수 있는 또 다른 Apache 프로젝트인 [Apache ZooKeeper](http://zookeeper.apache.org/)를 활용합니다. 
@@ -207,7 +207,7 @@ Context는 응용 프로그램에 실행 환경을 제공합니다. 각 ISCPPlug
 ### <a name="statestore"></a>StateStore
 `StateStore` 은(는) 메타데이터 서비스, 단조 시퀀스 생성 및 비대기 조정 기능을 제공합니다. `StateStore`을(를) 기반으로 하여 분산 잠금, 분산 큐, 장벽 및 트랜잭션 서비스를 비롯한 높은 수준의 분산형 동시성 추상화를 작성할 수 있습니다.
 
-SCP 응용 프로그램은 `State` 개체를 사용하여 ZooKeeper에 일부 정보를 영구 보존할 수 있습니다(특히 트랜잭션 토폴로지의 경우). 따라서 트랜잭션 Spout 작동이 중단되어 다시 시작되는 경우 응용 프로그램이 ZooKeeper에서 필요한 정보를 검색하여 파이프라인을 다시 시작할 수 있습니다.
+SCP 애플리케이션은 `State` 개체를 사용하여 [Apache ZooKeeper](https://zookeeper.apache.org/)에 일부 정보를 영구 보존할 수 있습니다(특히 트랜잭션 토폴로지의 경우). 따라서 트랜잭션 Spout 작동이 중단되어 다시 시작되는 경우 응용 프로그램이 ZooKeeper에서 필요한 정보를 검색하여 파이프라인을 다시 시작할 수 있습니다.
 
 `StateStore` 개체는 기본적으로 다음 메서드를 포함합니다.
 
@@ -355,12 +355,12 @@ SCP.NET에는 트랜잭션 토폴로지를 정의하는 다음 함수가 추가�
 | **새 함수** | **매개 변수** | **설명** |
 | --- | --- | --- |
 | **tx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp;Spout 정의 맵 및 Bolt 정의 맵으로 트랜잭션 토폴로지를 정의합니다. |
-| **scp-tx-spout** |exec-name<br />args<br />fields |트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다. |
+| **scp-tx-spout** |exec-name<br />args<br />fields |트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Spout의 출력 필드입니다. |
 | **scp-tx-batch-bolt** |exec-name<br />args<br />fields |트랜잭션 Batch Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />Fields는 Bolt의 출력 필드입니다. |
-| **scp-tx-commit-bolt** |exec-name<br />args<br />fields |트랜잭션 커밋 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다. |
+| **scp-tx-commit-bolt** |exec-name<br />args<br />fields |트랜잭션 커밋 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Bolt의 출력 필드입니다. |
 | **nontx-topolopy** |topology-name<br />spout-map<br />bolt-map |토폴로지 이름, &nbsp; Spout 정의 맵 및 Bolt 정의 맵으로 비트랜잭션 토폴로지를 정의합니다. |
-| **scp-spout** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
-| **scp-bolt** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br />***fields*** 는 Bolt의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
+| **scp-spout** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Spout를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Spout의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
+| **scp-bolt** |exec-name<br />args<br />fields<br />매개 변수 |비트랜잭션 Bolt를 정의합니다. ***args***를 사용하여 ***exec-name***이라는 응용 프로그램을 실행합니다.<br /><br /> ***fields*** 는 Bolt의 출력 필드입니다.<br /><br />***parameters***는 선택적 항목으로, "nontransactional.ack.enabled"와 같은 일부 매개 변수를 지정하는 데 사용됩니다. |
 
 SCP.NET에는 다음 키워드가 정의되어 있습니다.
 
@@ -642,9 +642,9 @@ ISCPBatchBolt 인스턴스를 만들면 입력 매개 변수에서 `txAttempt`�
 이 예제는 기본적으로 HelloWorld와 같습니다. 차이점은 사용자 코드가 DLL로 컴파일되며 토폴로지가 SCPHost.exe를 사용하여 제출된다는 것뿐입니다. 자세한 설명은 "SCP 호스트 모드" 섹션을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-SCP를 사용하여 만든 Storm 토폴로지 예제는 다음 문서를 참조하세요.
+SCP를 사용하여 만든 Apache Storm 토폴로지 예제는 다음 문서를 참조하세요.
 
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)
-* [HDInsight의 Storm으로 Azure Event Hubs에서 이벤트 처리](apache-storm-develop-csharp-event-hub-topology.md)
-* [HDInsight의 Storm을 사용하여 Event Hubs에서 차량 센서 데이터 처리](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
-* [Azure Event Hubs에서 HBase로 ETL(추출, 변환 및 로드)](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
+* [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리](apache-storm-develop-csharp-event-hub-topology.md)
+* [HDInsight의 Apache Storm을 사용하여 Event Hubs의 차량 센서 데이터 처리](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [Azure Event Hubs에서 Apache HBase로 ETL(추출, 변환 및 로드)](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)

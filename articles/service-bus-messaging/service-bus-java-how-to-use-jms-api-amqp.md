@@ -1,6 +1,6 @@
 ---
 title: Java Service Bus API와 함께 AMQP 1.0을 사용하는 방법 | Microsoft Docs
-description: Azure Service Bus 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법.
+description: Azure Service Bus 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: java
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a223c67e0c1f2e71d2953be63924a114e7420af
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018233"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308073"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Service Bus 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
 AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 응용 프로그램을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>JNDI 컨텍스트 설정 및 ConnectionFactory 구성
 
 **기본 연결 문자열** 아래 [Azure Portal](https://portal.azure.com)의 ‘공유 액세스 정책’에서 제공되는 정책에 참조되는 **연결 문자열**
-```
+```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
@@ -89,7 +89,7 @@ Destination queue = (Destination) context.lookup("QUEUE");
 Qpid 속성 파일 JNDI 공급자에서 destination을 정의하는 데 사용되는 항목의 형식은 다음과 같습니다.
 
 생산자의 대상 큐를 만들려면 - 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -103,7 +103,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 소비자의 대상 큐를 만들려면 - 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -297,7 +297,7 @@ public class JmsQueueQuickstart {
 ```
 
 ### <a name="run-the-application"></a>응용 프로그램 실행
-공유 액세스 정책의 **연결 문자열**을 전달하여 응용 프로그램을 실행합니다.
+공유 액세스 정책의 **연결 문자열**을 전달하여 애플리케이션을 실행합니다.
 응용 프로그램을 실행하면 다음과 같은 양식 출력이 표시됩니다.
 
 ```

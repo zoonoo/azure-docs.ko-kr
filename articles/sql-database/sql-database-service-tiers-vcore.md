@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c74d71f0ca8faec587cb36a789ed0328f9b24711
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 11/27/2018
+ms.openlocfilehash: 4d71e54beac6e4816d8bcc9097219b2e7b7cabb7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954700"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441862"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 서비스 계층, Azure 하이브리드 혜택 및 마이그레이션
 
@@ -41,8 +41,8 @@ vCore 모델은 범용 및 중요 비즈니스용이라는 두 가지 서비스 
 |---|---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 저장소 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 응용 프로그램입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|확장성이 우수한 저장소 및 읽기 크기 조정 요구 사항이 포함된 대부분의 비즈니스 워크로드|
 |컴퓨팅|4세대: 1-24개 vCore<br/>5세대: 1-80개 vCore|4세대: 1-24개 vCore<br/>5세대: 1-80개 vCore|4세대: 1-24개 vCore<br/>5세대: 1-80개 vCore|
-|메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.5GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.5GB |Gen4: 코어당 7GB<br>Gen5: 코어당 5.5GB|
-|Storage|[프리미엄 원격 저장소](../virtual-machines/windows/premium-storage.md),<br/>단일 데이터베이스: 5GB – 4TB<br/>Managed Instance: 32GB - 8TB |로컬 SSD 저장소,<br/>단일 데이터베이스: 5GB – 4TB<br/>Managed Instance: 32GB - 4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
+|메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB |Gen4: 코어당 7GB<br>Gen5: 코어당 5.1GB|
+|Storage|[프리미엄 원격 스토리지](../virtual-machines/windows/premium-storage.md)를 사용합니다.<br/>단일 데이터베이스: 5GB – 4TB<br/>Managed Instance: 32GB - 8TB |로컬 SSD 스토리지를 사용합니다.<br/>단일 데이터베이스: 5GB – 1TB<br/>Managed Instance: 32GB - 4TB |필요에 따라 자동으로 증가하는 유연한 저장소. 최대 100TB 이상의 저장소를 지원합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 대한 로컬 SSD 저장소. 마지막 장기 데이터 저장소인 Azure 원격 저장소. |
 |IO 처리량(근사치)|단일 데이터베이스: vCore당 500 IOPS(최대 7,000 IOPS)</br>Managed Instance: [파일 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 다름|vCore당 5000 IOPS(최대 200,000 IOPS)|TBD|
 |가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA|?|
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 및 복원은 빠른 복구를 위한 이러한 스냅숏을 사용합니다. 백업은 즉각적이며 IO 계산 성능에 영향을 주지 않습니다. 데이터 작업의 크기가 아닙니다(몇 시간 또는 며칠 대신 몇 분이 소요됨).|
@@ -50,7 +50,7 @@ vCore 모델은 범용 및 중요 비즈니스용이라는 두 가지 서비스 
 |||
 
 > [!NOTE]
-> Azure를 탐구하기 위해 Azure 무료 계정과 연결된 기본 서비스 계층에서 무료 Azure SQL 데이터베이스를 얻을 수 있습니다. 자세한 내용은 [Azure 무료 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
+> Azure를 탐구하기 위해 Azure 체험 계정과 연결된 기본 서비스 계층에서 무료 Azure SQL 데이터베이스를 얻을 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
 
 - 자세한 내용은 [단일 데이터베이스의 vCore 리소스 제한](sql-database-vcore-resource-limits-single-databases.md) 및 [Managed Instance의 vCore 리소스 제한](sql-database-managed-instance.md#vcore-based-purchasing-model)을 참조하세요.
 - 범용 및 중요 비즈니스용 서비스 계층에 대한 자세한 내용은 [범용 및 중요 비즈니스용 서비스 계층](sql-database-service-tiers-general-purpose-business-critical.md)을 참조하세요.

@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a3de0df8fde3b271b7ba9bb9aab01dbcd5c3bf08
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.topic: conceptual
+ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991224"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582420"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -207,7 +207,7 @@ az account management-group show --name 'Contoso'
 
 ### <a name="move-subscriptions-in-powershell"></a>PowerShell에서 구독 이동
 
-PowerShell에서 구독을 이동하려면 Add-AzureRmManagementGroupSubscription 명령을 사용합니다.  
+PowerShell에서 구독을 이동하려면 New-AzureRmManagementGroupSubscription 명령을 사용합니다.  
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -272,12 +272,26 @@ Azure CLI에서 update 명령을 사용하여 관리 그룹을 이동합니다.
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## <a name="audit-management-groups-using-activity-logs"></a>활동 로그를 사용하여 관리 그룹 감사
+
+이 API를 통해 관리 그룹을 추적하려면 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 사용합니다. 현재는 PowerShell, CLI 또는 Azure Portal을 사용하여 관리 그룹 작업을 추적할 수 없습니다.
+
+1. Azure AD 테넌트의 테넌트 관리자로 [액세스의 권한을 상승한](../../role-based-access-control/elevate-access-global-admin.md) 다음, `/providers/microsoft.insights/eventtypes/management` 범위에 대해 감사 사용자에게 읽기 역할을 할당합니다.
+1. 감사 사용자로 [테넌트 활동 로그 API](/rest/api/monitor/tenantactivitylogs)를 호출하여 관리 그룹 작업을 확인합니다. 모든 관리 그룹 작업에 대해 **Microsoft.Management** 리소스 공급자를 기준으로 필터링해야 합니다.  예제:
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> 명령줄에서 이 API를 편리하게 호출하려면 [ARMClient](https://github.com/projectkudu/ARMClient)를 시도합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-관리 솔루션에 대해 자세히 알아보려면 다음을 참조하세요.
+관리 그룹에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-- [Azure 관리 그룹으로 리소스 구성](overview.md)
 - [관리 그룹을 만들어 Azure 리소스 구성](create.md)
-- [Azure PowerShell 모듈 설치](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [REST API 사양 검토](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Azure CLI 확장 설치](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [관리 그룹을 변경, 삭제 또는 관리하는 방법](manage.md)
+- [Azure PowerShell 리소스 모듈에서 관리 그룹 검토](https://aka.ms/mgPSdocs)
+- [REST API에서 관리 그룹 검토](https://aka.ms/mgAPIdocs)
+- [Azure CLI에서 관리 그룹 검토](https://aka.ms/mgclidoc)

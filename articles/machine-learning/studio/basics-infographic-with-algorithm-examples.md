@@ -1,11 +1,12 @@
 ---
-title: '인포그래픽: Machine Learning 기본 사항 - 알고리즘 예제 | Microsoft Docs'
+title: '인포그래픽: Machine Learning 기본 사항 - 알고리즘 예제 - Azure Machine Learning Studio | Microsoft Docs'
 description: 기계 학습 기본 사항의 이해하기 쉬운 개요에는 알고리즘 예제가 포함됩니다. 다운로드 가능한 인포그래픽은 대부분의 기계 학습 관련 질문을 다룹니다.
 keywords: 기계 학습 기본 사항, 알고리즘 예제, 초보자용 기계 학습, 기계 학습 관련 질문, 널리 사용되는 알고리즘, 알고리즘 인포그래픽
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 8ef67add44428e08a1851a039e7e8c2c747e930d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ccbe152901ff7f59548239a1d59e585b8e356c23
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253859"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308005"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 기계 학습 기본 사항
 기계 학습 기본 사항에 대한 이해하기 쉬운 인포그래픽 개요를 다운로드하여 일반적인 기계 학습 질문에 답변하는 데 널리 사용되는 알고리즘을 알아봅니다. 알고리즘 예제를 통해 기계 학습 초보자는 사용할 알고리즘과 용도를 이해할 수 있습니다.

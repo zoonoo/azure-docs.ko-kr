@@ -8,34 +8,52 @@ manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 11/14/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 683b5b24fe8e7da086e000ff38411d3eb1c2f781
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034969"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495743"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>응용 프로그램 프록시 시작 및 커넥터 설치
-이 문서에서는 Azure AD에서 클라우드 디렉터리에 Microsoft Azure AD 응용 프로그램 프록시를 사용하도록 설정하는 단계를 안내합니다.
+이 문서에서는 Azure AD(Azure Active Directory)에서 애플리케이션 프록시를 사용하도록 설정하는 단계를 안내합니다.
 
 응용 프로그램 프록시가 조직에 가져오는 보안 및 생산성의 이점을 잘 모르는 경우 [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](application-proxy.md)에 대해 자세히 알아봅니다.
 
-## <a name="application-proxy-prerequisites"></a>응용 프로그램 프록시 필수 구성 요소
-응용 프로그램 프록시 서비스를 사용하도록 설정하고 사용하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>필수 조건
+애플리케이션 프록시를 사용하도록 설정하는 데 필요한 내용:
 
-* 사용자가 전역 관리자인 [Microsoft Azure AD 기본 또는 프리미엄 구독](../fundamentals/active-directory-whatis.md) 및 Azure AD 디렉터리입니다.
-* 응용 프로그램 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 또는 2016을 실행하는 서버입니다. 서버는 클라우드의 응용 프로그램 프록시 서비스 및 게시 중인 온-프레미스 응용 프로그램에 연결할 수 있어야 합니다.
-  * Kerberos 제한된 위임을 사용하는 게시된 응용 프로그램에 대한 Single Sign-On의 경우 이 컴퓨터는 게시하는 응용 프로그램과 동일한 AD 도메인에 가입되어야 합니다. 자세한 내용은 [응용 프로그램 프록시를 사용하는 Single Sign-On용 KCD](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
-* 기본 운영 체제에서 실행되는 TLS 1.2 TLS 1.2로 변경하려면 [TLS 1.2 사용](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect)의 단계를 따릅니다. 해당 콘텐츠가 Azure AD Connect에 대한 것인 반면 이 프로시저는 모든.NET 클라이언트에 대해 동일합니다.
+* [Microsoft Azure AD 기본 또는 Premium 구독](https://azure.microsoft.com/pricing/details/active-directory). 
+* 애플리케이션 관리자 계정
 
-조직에서 프록시 서버를 사용하여 인터넷에 연결하려면 응용 프로그램 프록시를 시작하기 전에 구성하는 방법에 대한 세부 내용은 [기존 온-프레미스 프록시 서버로 작업](application-proxy-configure-connectors-with-proxy-servers.md)을 읽어보세요.
+### <a name="windows-server"></a>Windows Server
+애플리케이션 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 이상을 실행하는 서버가 필요합니다. 서버를 Azure의 애플리케이션 프록시 서비스 및 게시 중인 온-프레미스 애플리케이션에 연결해야 합니다.
+
+Windows Server는 TLS 1.2를 사용하도록 설정한 후 애플리케이션 프록시 커넥터를 설치해야 합니다. 버전 1.5.612.0 이하의 기존 커넥터는 추가 공지가 있을 때까지 이전 버전의 TLS에서 계속 작동됩니다. TLS 1.2를 사용하도록 설정하려면:
+
+1. 다음 레지스트리 키를 설정합니다.
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. 서버 다시 시작
+
+KCD(Kerberos Contrained Delegation)를 사용하는 애플리케이션에 Single Sign-On하려면 Windows Server 및 게시 중인 애플리케이션이 동일한 Active Directory 도메인에 있어야 합니다. 자세한 내용은 [애플리케이션 프록시를 사용하는 Single Sign-On용 KCD](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
+  
+### <a name="proxy-servers"></a>프록시 서버
+
+조직에서 프록시 서버를 사용하여 인터넷에 연결하는 경우에는 애플리케이션 프록시에 맞게 프록시 서버를 구성해야 합니다.  자세한 내용은 [기존 온-프레미스 프록시 서버로 작업](application-proxy-configure-connectors-with-proxy-servers.md)을 참조하세요. 
+
+
 
 ## <a name="open-your-ports"></a>포트 열기
 

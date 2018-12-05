@@ -1,10 +1,11 @@
 ---
-title: Azure Machine Learning에서 사용자 지정 R 모듈 작성 | Microsoft Docs
-description: Azure Machine Learning에서 사용자 지정 R 모듈을 작성하기 위한 빠른 시작입니다.
+title: Azure Machine Learning Studio에 사용할 사용자 지정 R 모듈 정의 | Microsoft Docs
+description: 이 항목에서는 Azure Machine Learning에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning Studio 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여줍니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
@@ -15,15 +16,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b8ab22f1567102ed79ccf6e0bf49dbdbc3f42ea9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261113"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308434"
 ---
-# <a name="author-custom-r-modules-in-azure-machine-learning"></a>Azure Machine Learning에서 사용자 지정 R 모듈 작성
-이 항목에서는 Azure Machine Learning에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
+# <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio에 사용할 사용자 지정 R 모듈 정의
+
+이 토픽에서는 Azure Machine Learning Studio에서 사용자 지정 R 모듈을 작성하여 배포하는 방법을 설명합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다. 또한 이러한 파일을 생성하여 Machine Learning 작업 영역에서 모듈을 정의하는 파일을 구조화하고 배포용 모듈을 등록하는 방법을 보여 줍니다. 그런 다음 사용자 지정 모듈의 정의에 사용되는 요소 및 특성에 대해 자세히 설명합니다. 보조 기능과 파일 및 여러 출력을 사용하는 방법도 소개합니다. 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

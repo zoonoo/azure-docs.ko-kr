@@ -4,7 +4,7 @@ description: 무료 평가판 구독과 같은 Azure 구독을 취소하는 방�
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: cwatson
-ms.openlocfilehash: c39dcdc0c4a89aa01c31dde1c5354ef1d4afe91d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395569"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584352"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Azure 구독 취소
 
@@ -44,7 +44,7 @@ ms.locfileid: "47395569"
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>구독을 취소한 후에는 어떻게 되나요?
 
-취소하면 청구가 즉시 중지됩니다. 그러나 취소가 포털에 표시되기까지 최대 10분 정도 걸릴 수 있습니다.
+취소하면 청구가 즉시 중지됩니다. 그러나 취소가 포털에 표시되기까지 최대 10분이 걸릴 수 있습니다.
 
 그 후에는 서비스를 사용할 수 없습니다. 즉, 가상 머신의 할당이 취소되고 임시 IP 주소가 해제되며 저장소는 읽기 전용이 됩니다.
 
@@ -58,6 +58,6 @@ ms.locfileid: "47395569"
 
 종량제 구독이 아닌 경우 구독을 다시 활성화하려면 취소 후 90일 이내에 지원 센터로 문의하세요.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

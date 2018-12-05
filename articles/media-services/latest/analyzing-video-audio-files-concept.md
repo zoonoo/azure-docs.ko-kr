@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228134"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427431"
 ---
 # <a name="analyzing-video-and-audio-files"></a>비디오 및 오디오 파일 분석
 
@@ -33,7 +33,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 |**미리 설정 이름**|**시나리오**|**세부 정보**|
 |---|---|---|
-|**AudioAnalyzerPreset**|오디오 분석|미리 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 집합을 적용합니다. 현재 미리 설정은 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다.<br/>BCP-47 형식의 'language tag-region'(예: 'en-US')을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원되는 언어 목록은 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'입니다.|
+|**AudioAnalyzerPreset**|오디오 분석|미리 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 집합을 적용합니다. 현재 미리 설정은 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다.<br/>BCP-47 형식의 'language tag-region'(예: 'en-US')을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원되는 언어 목록은 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'입니다. 언어가 지정되지 않거나 Null로 설정되지 않은 경우 자동 언어 감지가 사용됩니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다.|
 |**VideoAnalyzerPreset**|오디오 및 비디오 분석|오디오 및 비디오 모두에서 통찰력(풍부한 메타데이터)을 추출하고 JSON 형식 파일을 출력합니다. 비디오 파일을 처리할 때 오디오 통찰력만 추출할지 여부를 지정할 수 있습니다. 자세한 내용은 [비디오 분석](analyze-videos-tutorial-with-api.md)을 참조하세요.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset

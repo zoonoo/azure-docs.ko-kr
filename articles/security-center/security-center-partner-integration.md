@@ -3,7 +3,7 @@ title: Azure Security Center에서 보안 솔루션 통합 | Microsoft Docs
 description: Azure Security Center를 파트너와 통합하여 Azure 리소스의 전반적인 보안을 강화하는 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
-ms.author: terrylan
-ms.openlocfilehash: 1abf9efb5c0bed205ce5b87b1f055c14a11ce9ec
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: bbdda5012e6132940d00ae23a6d26469b0216fd0
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245020"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335443"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -47,14 +47,17 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 | 엔드포인트 보호               | 플랫폼                             | Security Center 설치 | Security Center 검색 |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
 | Windows Defender(Microsoft 맬웨어 방지 프로그램)                  | Windows Server 2016                   | 아니오, OS에 기본 제공           | yes                       |
-| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2 | 확장을 통해                | yes                       |
+| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해                | yes                       |
 | Trend Micro - 모든 버전         | Windows Server 제품군                 | 아니요                           | yes                       |
 | Symantec v12.1.1100+              | Windows Server 제품군                 | 아니요                           | yes                       |
 | McAfee v10+                       | Windows Server 제품군                 | 아니요                           | yes                       |
 | Kaspersky                         | Windows Server 제품군                 | 아니요                           | 아니요                        |
 | Sophos                            | Windows Server 제품군                 | 아니요                           | 아니요                        |
 
-
+> [!NOTE]
+> Windows Server 2008 R2 가상 머신에서 SCEP(System Center Endpoint Protection)의 검색을 위해서는 PowerShell 3.0(또는 상위 버전)이 설치된 후 SCEP가 설치되어야 합니다.
+>
+>
 
 ## <a name="how-security-solutions-are-integrated"></a>보안 솔루션을 통합하는 방법
 Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩니다. 또한 다음을 비롯한 다른 보안 데이터 원본에 연결할 수 있습니다.

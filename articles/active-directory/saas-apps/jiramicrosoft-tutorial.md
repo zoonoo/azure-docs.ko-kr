@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/22/2018
 ms.author: jeedes
-ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 608269a05ae1ed699954cd301aa03056e089fa8a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010731"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426104"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>자습서: JIRA SAML SSO by Microsoft와 Azure Active Directory 통합
 
@@ -68,7 +68,7 @@ JIRA SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 항목�
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.
-이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+ 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 JIRA SAML SSO by Microsoft 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -154,11 +154,26 @@ JIRA SAML SSO by Microsoft에서 Azure AD Single Sign-On을 구성하고 테스�
 
     ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon12.png)
 
-9. 플러그 인이 설치되면 **추가 기능 관리** 섹션의 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
+9. JIRA 역방향 프록시 시나리오 또는 부하 분산 장치 시나리오를 실행하려면 다음 단계를 수행합니다.
+
+    > [!NOTE]
+    > 아래 지침에 따라 먼저 서버를 구성한 다음, 플러그 인을 설치해야 합니다.
+
+    a. JIRA 서버 애플리케이션의 **server.xml** 파일에 **connector** 포트의 다음 특성을 추가합니다.
+
+    `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
+
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+
+    b. 프록시/부하 분산 장치에 따라 **시스템 설정**에서 **기준 URL**을 변경합니다.
+
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+
+10. 플러그 인이 설치되면 **추가 기능 관리** 섹션의 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
     ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon13.png)
 
-10. 구성 페이지에서 다음 단계를 수행합니다.
+11. 구성 페이지에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon52.png)
 

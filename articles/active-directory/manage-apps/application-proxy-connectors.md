@@ -2,25 +2,21 @@
 title: Azure AD 응용 프로그램 프록시 커넥터 이해 | Microsoft Docs
 description: Azure AD 응용 프로그램 프록시 커넥터에 대한 기본 사항을 제공합니다.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036040"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445961"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터 이해
 
@@ -32,7 +28,24 @@ ms.locfileid: "51036040"
 
 ## <a name="requirements-and-deployment"></a>요구 사항 및 배포
 
-응용 프로그램 프록시를 성공적으로 배포하려면 커넥터가 하나 이상 필요하지만, 복원력을 높이기 위해 두 개 이상을 사용하는 것이 좋습니다. Windows Server 2012 R2 또는 2016 컴퓨터에 커넥터를 설치합니다. 커넥터는 응용 프로그램 프록시 서비스 및 게시하는 온-프레미스 응용 프로그램과 통신할 수 있어야 합니다. 애플리케이션 프록시에는 기본 운영 체제에서 실행되는 TLS 1.2도 필요합니다. TLS 1.2로 변경하려면 [TLS 1.2 사용](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect)의 단계를 따릅니다. 해당 콘텐츠가 Azure AD Connect에 대한 것인 반면 이 프로시저는 모든.NET 클라이언트에 대해 동일합니다.
+응용 프로그램 프록시를 성공적으로 배포하려면 커넥터가 하나 이상 필요하지만, 복원력을 높이기 위해 두 개 이상을 사용하는 것이 좋습니다. Windows Server 2012 R2 또는 2016 컴퓨터에 커넥터를 설치합니다. 커넥터는 응용 프로그램 프록시 서비스 및 게시하는 온-프레미스 응용 프로그램과 통신할 수 있어야 합니다. 
+
+### <a name="windows-server"></a>Windows Server
+애플리케이션 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 이상을 실행하는 서버가 필요합니다. 서버를 Azure의 애플리케이션 프록시 서비스 및 게시 중인 온-프레미스 애플리케이션에 연결해야 합니다.
+
+Windows Server는 TLS 1.2를 사용하도록 설정한 후 애플리케이션 프록시 커넥터를 설치해야 합니다. 버전 1.5.612.0 이하의 기존 커넥터는 추가 공지가 있을 때까지 이전 버전의 TLS에서 계속 작동됩니다. TLS 1.2를 사용하도록 설정하려면:
+
+1. 다음 레지스트리 키를 설정합니다.
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. 서버 다시 시작
+
 
 커넥터 서버의 네트워크 요구 사항에 대한 자세한 내용은 [응용 프로그램 프록시를 시작하고 커넥터 설치](application-proxy-enable.md)를 참조하세요.
 

@@ -3,8 +3,9 @@ title: Azure Machine Learning Studio의 새로운 기능 | Microsoft Docs
 description: Azure Machine Learning Studio에서 사용할 수 있는 새로운 기능입니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2018
-ms.openlocfilehash: 2f990ce30b66392e8a649e4e88b21457d9fe223b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c93bb9a2fa7991df265b4767585d920c137a436d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212661"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311146"
 ---
 # <a name="whats-new-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio의 새로운 기능
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685449"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632486"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -43,8 +43,18 @@ ms.locfileid: "51685449"
 
 ### <a name="v2-builds"></a>v2 빌드
 
+### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
+* 요청 연속 토큰에서 변경 피드 시작을 지원하기 위해 새 속성 ChangeFeedProcessorOptions.StartContinuation을 추가했습니다. 이 속성은 임대 컬렉션이 비어 있거나 임대에 ContinuationToken이 설정되어 있지 않은 경우에만 사용됩니다. ContinuationToken이 설정된 임대 컬렉션의 임대의 경우 ContinuationToken이 사용되며 ChangeFeedProcessorOptions.StartContinuation은 무시됩니다.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* 파티션당 연속 토큰을 지속하기 위해 사용자 지정 스토리지 사용을 위한 지원이 추가되었습니다.
+  * 예를 들어 사용자 지정 임대 스토리지는 어떠한 사용자 지정 방식으로든 파티션된 Azure Cosmos DB 임대 컬렉션일 수 있습니다.
+  * 사용자 지정 임대 스토리지는 새 확장성 지점 ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) 및 ILeaseStoreManager 공용 인터페이스를 사용할 수 있습니다.
+  * ILeaseManager 인터페이스가 여러 역할 인터페이스로 리팩터링되었습니다.
+* 호환성이 손상되는 사소한 변경: 확장성 포인트 ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager)가 제거되었습니다. 대신 ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager)를 사용합니다.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* 임대 컬렉션이 분할된 경우 분할을 처리하는 동안 발생할 수 있는 문제가 해결되었습니다. 이 문제롷 인해 사라진 파티션에 대한 임대가 임대 컬렉션에서 삭제되지 않을 수 있습니다. 이 문제는 이 릴리스에서 해결되었습니다.
+* 이 릴리스는 모니터링된 컬렉션에서 분할을 처리하고 파티션된 임대 컬렉션을 사용하는 중 발생하는 문제를 해결합니다. 분할 파티션에 대한 임대 처리 시 해당 파티션에 해당하는 임대는 삭제할 수 없습니다. 이 문제는 이 릴리스에서 해결되었습니다.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * 다중 마스터 계정 및 새 세션 토큰 형식에 대한 고정 추정기 계산입니다.

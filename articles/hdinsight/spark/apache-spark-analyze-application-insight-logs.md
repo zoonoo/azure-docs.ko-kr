@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: a1b21afb02cffe608ece8687359a021c84b05e1e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 951292a34f59fd143a7997571513a3c852bbce81
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014298"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497980"
 ---
-# <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>HDInsight에서 Spark를 사용하여 Application Insights 원격 분석 로그 분석
+# <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight에서 Apache Spark를 사용하여 Application Insights 원격 분석 로그 분석
 
-HDInsight에서 Spark를 사용하여 Application Insights 원격 분석 데이터를 분석하는 방법에 대해 알아봅니다.
+HDInsight에서 [Apache Spark](https://spark.apache.org/)를 사용하여 Application Insights 원격 분석 데이터를 분석하는 방법에 대해 알아봅니다.
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) 는 웹 응용 프로그램을 모니터링하는 분석 서비스입니다. Application Insights에 의해 생성된 원격 분석 데이터를 Azure Storage로 내보낼 수 있습니다. 데이터가 Azure Storage에 있으면 HDInsight를 사용하여 분석할 수 있습니다.
 
@@ -26,7 +26,7 @@ HDInsight에서 Spark를 사용하여 Application Insights 원격 분석 데이�
 
 * 응용 프로그램에서 Application Insights를 사용하도록 구성합니다.
 
-* Linux 기반 HDInsight 클러스터를 만드는 데 익숙해야 합니다. 자세한 내용은 [HDInsight에서 Spark 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* Linux 기반 HDInsight 클러스터를 만드는 데 익숙해야 합니다. 자세한 내용은 [HDInsight에서 Apache Spark 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
   > [!IMPORTANT]
   > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -362,14 +362,14 @@ Azure Storage 계정을 기존 클러스터에 추가하려면 [추가 저장소
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 데이터와 서비스로 작업하기 위해 Spark를 사용하는 방법의 자세한 예제는 다음 문서를 참조하세요.
+Azure의 데이터와 서비스 작업에 Apache Spark를 사용하는 더 많은 예제는 다음 문서를 참조하세요.
 
-* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
+* [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 
 Spark 응용 프로그램을 만들고 실행하는 자세한 내용은 다음 문서를 참조하세요.
 
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
+* [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)

@@ -1,10 +1,11 @@
 ---
-title: Azure AI 갤러리 | Microsoft Docs
+title: Azure AI Gallery - Azure Machine Learning Studio | Microsoft Docs
 description: Azure AI 갤러리의 분석 리소스 등을 공유 및 검색합니다. 다른 사용자로부터 배우고 커뮤니티에 직접 제공합니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 250b0cf6ff949fab064dc61a5260a68fd78d0387
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 99742e8b25a406dcc08371812b943c0d01dde113
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346374"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310614"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 71322869eb9272fb59b98a0e21b1f639129572b7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c63e2e3ec922d2cf26603fe19606008b1e8d3f45
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255930"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498171"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용
 
@@ -22,9 +22,9 @@ ms.locfileid: "51255930"
 
 심층 학습은 의료, 교통, 제조 등에 이르는 모든 분야에 영향을 줍니다. 기업은 [이미지 분류](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [음성 인식](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), 개체 인식 및 기계 번역과 같은 어려운 문제를 해결하기 위해 딥 러닝으로 전환하고 있습니다. 
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano 등 [널리 사용되는 수많은 프레임워크](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)가 있습니다. Caffe는 가장 유명한 비기호(명령적) 신경망 프레임워크 중 하나로, 컴퓨터 비전을 비롯한 많은 영역에서 널리 사용 됩니다. 또한 [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep)는 Caffe를 Apache Spark와 결합하여 기존 Hadoop 클러스터에서 심층 학습을 쉽게 사용하도록 할 수 있습니다. Spark ETL 파이프라인과 함께 심층 학습을 사용하여 시스템 복잡성을 줄이고 완전한 솔루션 학습에 따른 대기 시간을 줄일 수 있습니다.
+[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), [Apache MXNet](https://mxnet.apache.org/), Theano 등 [널리 사용되는 수많은 프레임워크](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)가 있습니다. [Caffe](http://caffe.berkeleyvision.org/)는 가장 많이 사용되는 비기호(명령적) 신경망 프레임워크 중 하나로, Computer Vision을 비롯한 많은 영역에서 널리 사용 됩니다. 또한 [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep)는 Caffe를 Apache Spark와 결합하여 기존 Hadoop 클러스터에서 심층 학습을 쉽게 사용하도록 할 수 있습니다. Spark ETL 파이프라인과 함께 심층 학습을 사용하여 시스템 복잡성을 줄이고 완전한 솔루션 학습에 따른 대기 시간을 줄일 수 있습니다.
 
-[HDInsight](https://azure.microsoft.com/services/hdinsight/)는 Spark, Hive, Hadoop, HBase, Storm, Kafka 및 ML 서비스에 최적화된 오픈 소스 기반의 분석 클러스터를 제공하는 클라우드 Hadoop 솔루션입니다. HDInsight는 99.9% SLA를 보장합니다. 이러한 각 빅 데이터 기술과 ISV 응용 프로그램은 엔터프라이즈용 보안과 모니터링으로 관리 클러스터 형태로 쉽게 배포 가능합니다.
+[HDInsight](https://azure.microsoft.com/services/hdinsight/)는 Apache Spark, Apache Hive, Apache Hadoop, Apache HBase, Apache Storm, Apache Kafka 및 ML Services에 최적화된 오픈 소스 분석 클러스터를 제공하는 클라우드 Apache Hadoop 솔루션입니다. HDInsight는 99.9% SLA를 보장합니다. 이러한 각 빅 데이터 기술과 ISV 응용 프로그램은 엔터프라이즈용 보안과 모니터링으로 관리 클러스터 형태로 쉽게 배포 가능합니다.
 
 이 문서에서는 HDInsight 클러스터에 대해 [Spark의 Caffe](https://github.com/yahoo/CaffeOnSpark)를 설치하는 방법을 보여줍니다. 또한 이 문서는 기본 제공 MNIST 데모를 사용하여 CPU에서 HDInsight Spark를 통해 분산 심층 학습을 사용하는 방법을 보여줍니다.
 
@@ -69,7 +69,7 @@ HDInsight는 PaaS 솔루션으로, 뛰어난 플랫폼 기능을 제공하므로
 ![종속성 설치를 위한 스크립트 동작](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>2단계: 헤드 노드에서 HDInsight용 Spark에 Caffe 빌드
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>2단계: 헤드 노드에서 HDInsight용 Apache Spark에 Caffe 빌드
 
 두 번째 단계는 헤드 노드에 Caffe를 빌드한 후 컴파일된 라이브러리를 모든 작업자 노드에 배포하는 것입니다. 이 단계에서는 [헤드 노드에 대해 ssh를 수행](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)해야 합니다. 그런 후에 [CaffeOnSpark 빌드 프로세스](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn)를 따라야 합니다. 다음은 CaffeOnSpark 빌드에 사용할 수 있는 스크립트와 몇 가지 추가 단계입니다. 
 
@@ -294,8 +294,8 @@ SampleID는 MNIST 데이터 집합에서 ID를 나타내며 레이블은 모델�
 * [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
-* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)

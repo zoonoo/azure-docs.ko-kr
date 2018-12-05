@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241262"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261669"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 이 문서에서는 Azure Backup 서비스에 대한 일반적인 질문과 대답을 제공합니다.
@@ -33,15 +33,15 @@ ms.locfileid: "51241262"
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>구독 간에 내 자격 증명 모음을 이동할 수 있나요?
 
-아니요. 자격 증명 모음은 구독 수준에서 만들어지며 다른 구독에 다시 할당할 수 없습니다.
+ 아니요. 자격 증명 모음은 구독 수준에서 만들어지며 다른 구독에 다시 할당할 수 없습니다.
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>백업 데이터를 다른 자격 증명 모음에 이동할 수 있나요?
 
-아니요. 자격 증명 모음에 저장된 백업 데이터는 다른 자격 증명 모음으로 옮길 수 없습니다.
+ 아니요. 자격 증명 모음에 저장된 백업 데이터는 다른 자격 증명 모음으로 옮길 수 없습니다.
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>백업 후 GRS에서 LRS로 변경할 수 있나요?
 
-아니요. Recovery Services 자격 증명 모음은 백업을 저장하기 전에만 저장소 옵션을 변경할 수 있습니다.
+ 아니요. Recovery Services 자격 증명 모음은 백업을 저장하기 전에만 저장소 옵션을 변경할 수 있습니다.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 백업된 VM에 대해 ILR(항목 수준 복원)을 수행할 수 있나요?
 아니요. ILR은 지원되지 않습니다.
@@ -79,7 +79,7 @@ VMware/Hyper-V 보호를 위해 별도 라이선스는 필요 없습니다.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>여러 자격 증명 모음에 서버를 등록할 수 있나요?
 
-아니요. DPM 또는 Azure Backup 서버는 하나의 자격 증명 모음에만 등록할 수 있습니다.
+ 아니요. DPM 또는 Azure Backup 서버는 하나의 자격 증명 모음에만 등록할 수 있습니다.
 
 
 
@@ -88,7 +88,7 @@ VMware/Hyper-V 보호를 위해 별도 라이선스는 필요 없습니다.
 
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Azure Stack에서 DPM을 사용하여 앱을 백업할 수 있나요?
-아니요. Azure Backup을 사용하여 Azure Stack을 보호할 수 있으며 Azure Backup은 DPM을 사용하여 Azure Stack에 있는 앱을 백업하는 기능은 지원하지 않습니다.
+ 아니요. Azure Backup을 사용하여 Azure Stack을 보호할 수 있으며 Azure Backup은 DPM을 사용하여 Azure Stack에 있는 앱을 백업하는 기능은 지원하지 않습니다.
 
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>내 파일 및 폴더를 보호하기 위해 Azure Backup 에이전트를 설치한 경우 Azure에 온-프레미스 워크로드를 백업하기 위해 System Center DPM을 설치할 수 있나요?
@@ -125,7 +125,7 @@ Windows Storage Server 2012 64비트 | Standard, Workgroup | 최신 서비스 �
 Windows Server 2008 R2 SP1 64비트 | Standard, Enterprise, Datacenter, Foundation | 최신 업데이트를 포함합니다.
 Windows Server 2008 64비트 | Standard, Enterprise, Datacenter | 최신 업데이트를 포함합니다.
 
-Azure VM Linux 백업의 경우 Azure Backup은 Core OS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md)을 지원합니다.  VM에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 있는 한 다른 Bring-Your-Own Linux 배포가 작동할 수 있습니다.
+Azure VM Linux 백업의 경우 Azure Backup은 Core OS Linux 및 32비트 운영 체제를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md)을 지원합니다. VM에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 있는 한 다른 Bring-Your-Own Linux 배포가 작동할 수 있습니다.
 
 
 ## <a name="are-there-size-limits-for-data-backup"></a>데이터 백업에 대한 크기 제한이 있나요?
@@ -159,7 +159,7 @@ BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 
 Recovery Services 자격 증명 모음을 사용하여 백업할 수 있는 데이터의 양에는 제한이 없습니다.
 
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>백업이 시작된 후 백업 작업을 취소하면 전송된 백업 데이터가 삭제되나요?
-아니요. 백업 작업이 취소되기 전에 자격 증명 모음으로 전송된 모든 데이터는 자격 증명 모음에 유지됩니다. Azure Backup은 백업하는 동안 백업 데이터에 검사점을 간혹 추가하는 검사점 메커니즘을 사용합니다. 백업 데이터에 검사점이 있기 때문에 다음 백업 프로세스에서는 파일의 무결성을 유효성 검사할 수 있습니다. 다음 백업 작업은 이전에 백업한 데이터에 대해 증분됩니다. 증분 백업은 새 데이터 또는 변경된 데이터만 전송하므로 대역폭의 사용률을 개선합니다.
+ 아니요. 백업 작업이 취소되기 전에 자격 증명 모음으로 전송된 모든 데이터는 자격 증명 모음에 유지됩니다. Azure Backup은 백업하는 동안 백업 데이터에 검사점을 간혹 추가하는 검사점 메커니즘을 사용합니다. 백업 데이터에 검사점이 있기 때문에 다음 백업 프로세스에서는 파일의 무결성을 유효성 검사할 수 있습니다. 다음 백업 작업은 이전에 백업한 데이터에 대해 증분됩니다. 증분 백업은 새 데이터 또는 변경된 데이터만 전송하므로 대역폭의 사용률을 개선합니다.
 
 Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 무시됩니다. 다음 백업 작업은 마지막으로 성공한 백업 작업에서 증분 데이터를 전송합니다.
 
@@ -173,7 +173,7 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>백업이 시작된 후 백업 작업을 취소하면 전송된 백업 데이터가 삭제되나요?
 
-아니요. 백업 작업이 취소되기 전에 자격 증명 모음으로 전송된 모든 데이터는 자격 증명 모음에 유지됩니다.
+ 아니요. 백업 작업이 취소되기 전에 자격 증명 모음으로 전송된 모든 데이터는 자격 증명 모음에 유지됩니다.
 - Azure Backup은 백업하는 동안 백업 데이터에 검사점을 간혹 추가하는 검사점 메커니즘을 사용합니다.
 - 백업 데이터에 검사점이 있기 때문에 다음 백업 프로세스에서는 파일의 무결성을 유효성 검사할 수 있습니다.
 - 다음 백업 작업은 이전에 백업한 데이터에 대해 증분됩니다. 증분 백업은 새 데이터 또는 변경된 데이터만 전송하므로 대역폭의 사용률을 개선합니다.
@@ -190,7 +190,7 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 예. 정책을 사용자 지정할 수 있습니다. 예를 들어 연도별 및 월별은 제외하고 주별 및 일별 보존 요구 사항만 구성할 수 있습니다.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>백업 일정 및 보존 정책의 시간을 다르게 지정할 수 있나요?
-아니요. 보존 정책은 백업 지점에만 적용할 수 있습니다. 예를 들어, 이 이미지는 오전 12시와 오후 6시에 수행되는 백업의 보존 정책을 보여 줍니다.
+ 아니요. 보존 정책은 백업 지점에만 적용할 수 있습니다. 예를 들어, 이 이미지는 오전 12시와 오후 6시에 수행되는 백업의 보존 정책을 보여 줍니다.
 
 ![Backup 일정 및 보존](./media/backup-azure-backup-faq/Schedule.png)
 
@@ -217,7 +217,7 @@ Azure Backup 저장소 아키텍처는 데이터를 빠르게 복원할 수 있�
 Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니다.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>데이터를 복원할 때 Azure의 송신 트래픽에 대해 요금을 납부하나요?
-아니요. 복구는 무료이며 송신 트래픽에는 요금이 부과되지 않습니다.
+ 아니요. 복구는 무료이며 송신 트래픽에는 요금이 부과되지 않습니다.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>백업 정책을 변경하면 어떻게 되나요?
 

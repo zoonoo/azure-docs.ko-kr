@@ -1,11 +1,12 @@
 ---
-title: 온라인 데이터 원본에서 Machine Learning Studio로 데이터 가져오기 | Microsoft Docs
-description: 다양한 온라인 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져오는 방법.
+title: 온라인 데이터 원본에서 Machine Learning Studio로 데이터 가져오기 - Azure | Microsoft Docs
+description: 이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure Machine Learning Studio 실험으로 이동하는 데 필요한 정보를 설명합니다.
 keywords: 데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
@@ -16,15 +17,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 87a7e968073d8625375ea837f9377145b6dfb45a
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 89e2414b32dfb3cc6773d09dcdc3e711e56492ef
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344864"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315027"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>데이터 가져오기 모듈을 사용하여 다양한 온라인 데이터 원본에서 Azure Machine Learning Studio로 데이터 가져오기
-이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure Machine Learning 실험으로 이동하는 데 필요한 정보를 설명합니다.
+이 문서에서는 다양한 원본에서 온라인 데이터를 가져오는 기능에 대한 지원 및 이러한 원본의 데이터를 Azure Machine Learning Studio 실험으로 이동하는 데 필요한 정보를 설명합니다.
 
 > [!NOTE]
 > 이 문서에서는 [데이터 가져오기][import-data] 모듈에 대한 일반 정보를 제공합니다. 액세스할 수 있는 데이터 형식, 형식, 매개변수 및 일반 질문의 응답에 대한 자세한 내용은 [데이터 가져오기][import-data] 모듈의 모듈 참조 항목을 참조하세요.

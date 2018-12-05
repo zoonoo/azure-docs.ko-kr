@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/06/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: db5502b796fc345b2e2bf083f864d80bd59e7293
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3c683d5819ded4eb3d286969b8c3fc3f0bd42865
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427130"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497508"
 ---
 # <a name="view-a-maintenance-schedule"></a>유지 관리 일정 보기 
 
@@ -34,6 +34,7 @@ ms.locfileid: "49427130"
 ## <a name="next-steps"></a>다음 단계
 - Azure Monitor를 사용하여 경고를 작성, 확인 및 관리하는 방법에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage).
 - 로그 경고 규칙용 웹후크 작업에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook).
+- 작업 그룹을 만들고 관리하는 방법을 [자세히 알아봅니다](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups).
 - Azure Service Health에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/service-health/service-health-overview).
 
 

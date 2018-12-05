@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986291"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317350"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>빠른 시작: JavaScript 응용 프로그램에서 사용자 로그인 및 액세스 토큰 획득
 
@@ -66,7 +66,7 @@ ms.locfileid: "49986291"
 #### <a name="step-3-configure-your-javascript-app"></a>3단계: JavaScript 앱 구성
 
 > [!div renderon="docs"]
-> `index.html`을 편집하고 `applicationConfig` 아래의 `Enter_the_Application_Id_here`를 방금 등록한 앱의 응용 프로그램 ID로 바꿉니다.
+> `index.html`을 편집하고 `applicationConfig` 아래에서 `clientID` 및 `authority` 값을 설정합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > `index.html`을 편집하고 `applicationConfig`를 다음으로 바꿉니다.
@@ -74,13 +74,25 @@ ms.locfileid: "49986291"
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> 위치:
+> - `Enter_the_Application_Id_here` - 등록한 응용 프로그램의 **응용 프로그램(클라이언트) ID**입니다.
+> - `Enter_the_Tenant_Info_Here` - 다음 옵션 중 하나로 설정됩니다.
+>   - 응용 프로그램이 **이 조직 디렉터리의 계정**을 지원하는 경우 이 값을 **테넌트 ID** 또는 **테넌트 이름**(예: contoso.microsoft.com)으로 바꿉니다.
+>   - 응용 프로그램이 **모든 조직 디렉터리의 계정**을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
+>   - 응용 프로그램이 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정**을 지원하는 경우 이 값을 `common`으로 바꿉니다.
+>
+> > [!TIP]
+> > **응용 프로그램(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
+
 > [!NOTE]
->[Node.js](https://nodejs.org/en/download/)를 사용하는 경우 포트 30662에 대한 수신 대기를 시작하도록 서버에 대해 *server.js* 파일이 구성됩니다.
-> [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)을 사용하는 경우 포트 30662에 대한 수신 대기를 시작하도록 서버에 대해 코드 샘플의 *.csproj* 파일이 구성됩니다.
+> 서버는 [Node.js](https://nodejs.org/en/download/) 프로젝트의 *server.js* 파일 및 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 프로젝트의 *.csproj* 파일에서 30662 포트를 수신 대기하도록 구성됩니다.
 >
 
 #### <a name="step-4-run-the-project"></a>4단계: 프로젝트 실행
@@ -121,7 +133,7 @@ npm install msal
 빠른 시작 코드에서는 라이브러리를 초기화하는 방법도 보여줍니다.
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Where  |  |

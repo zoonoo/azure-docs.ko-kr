@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 39db03170d6a9c9d481b1448b54bdbd52e205921
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 85bd9e93fbd4c5ab5c0d2388d19334bc2cd3cb9e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037298"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497533"
 ---
-# <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
+# <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석
 소셜 웹 사이트는 빅데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다.
-이 자습서에서는 Twitter 스트리밍 API를 사용해 트윗을 가져온 다음 Azure HDInsight의 Apache Hive를 사용하여 특정 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자 목록을 가져옵니다.
+이 자습서에서는 Twitter 스트리밍 API를 사용하여 트윗을 가져온 다음 Azure HDInsight의 [Apache Hive](https://hive.apache.org/)를 사용하여 특정 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자 목록을 가져옵니다.
 
 > [!IMPORTANT]
-> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터에 대한 단계는 [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석(Linux)](hdinsight-analyze-twitter-data-linux.md)을 참조하세요.
+> 이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 클러스터에 대한 단계는 [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석(Linux)](hdinsight-analyze-twitter-data-linux.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
@@ -243,7 +243,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 유효성 검사 절차로, Azure 저장소 탐색기 또는 Azure PowerShell을 사용하여 Azure Blob 저장소에서 출력 파일 **/tutorials/twitter/data/tweets.txt**를 확인할 수 있습니다. 파일을 나열하는 샘플 Windows PowerShell 스크립트를 보려면 [HDInsight에서 Blob Storage 사용][hdinsight-storage-powershell]을 참조하세요.
 
 ## <a name="create-hiveql-script"></a>HiveQL 스크립트 만들기
-Azure PowerShell을 사용하여 여러 HiveQL 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키지할 수 있습니다. 이 자습서에서는 HiveQL 스크립트를 만듭니다. 스크립트 파일은 Azure Blob 저장소에 업로드해야 합니다. 다음 섹션에서는 Azure PowerShell을 사용하여 스크립트 파일을 실행합니다.
+Azure PowerShell을 사용하여 여러 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 문을 한 번에 하나씩 실행하거나 HiveQL 문을 스크립트 파일에 패키징할 수 있습니다. 이 자습서에서는 HiveQL 스크립트를 만듭니다. 스크립트 파일은 Azure Blob 저장소에 업로드해야 합니다. 다음 섹션에서는 Azure PowerShell을 사용하여 스크립트 파일을 실행합니다.
 
 > [!NOTE]
 > Hive 스크립트 파일 및 트윗 10,000개를 포함하는 파일이 공용 Blob 컨테이너에 업로드되었습니다. 업로드된 파일을 사용하려는 경우 이 섹션을 건너뛸 수 있습니다.
@@ -454,7 +454,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 다음 Windows PowerShell 스크립트를 사용하여 Hive 스크립트를 실행합니다. 첫 번째 변수를 설정해야 합니다.
 
 > [!NOTE]
-> 마지막 두 섹션에서 업로드한 HiveQL 스크립트 및 트윗을 사용하려면 $hqlScriptFile을 "/tutorials/twitter/twitter.hql"로 설정합니다. 사용자를 위해 공개 blob에 업로드한 것을 사용하려면 $hqlScriptFile을 “wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql”로 설정합니다.
+> 마지막 두 섹션에서 업로드한 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 스크립트 및 트윗을 사용하려면 $hqlScriptFile을 "/tutorials/twitter/twitter.hql"로 설정합니다. 사용자를 위해 공개 blob에 업로드한 것을 사용하려면 $hqlScriptFile을 “wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql”로 설정합니다.
 
 ```powershell
 #region variables and constants
@@ -532,16 +532,16 @@ Write-Host "==================================" -ForegroundColor Green
 > [!NOTE]
 > Hive 테이블은 필드 구분 기호로 \001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다.
 
-분석 결과가 Azure Blob 저장소에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, 파워 쿼리를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 응용 프로그램을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop], [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query] 및 [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결][hdinsight-hive-odbc]을 참조하세요.
+분석 결과가 Azure Blob 저장소에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, 파워 쿼리를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 응용 프로그램을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop], [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query] 및 [Microsoft Hive ODBC Driver로 Excel을 HDInsight에 연][hdinsight-hive-odbc]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 비구조적 JSON 데이터 집합을 구조적 Hive 테이블로 변환하여 Azure의 HDInsight를 통해 Twitter 데이터를 쿼리하고 탐색하고 분석하는 방법을 살펴보았습니다. 자세한 내용은 다음을 참조하세요.
+이 자습서에서는 비정형 JSON 데이터 세트를 구조적 Apache Hive 테이블로 변환하여 Azure의 HDInsight를 사용하여 Twitter 데이터를 쿼리하고 탐색하고 분석하는 방법을 살펴보았습니다. 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight 시작][hdinsight-get-started]
 * [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data]
 * [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query]
 * [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결][hdinsight-hive-odbc]
-* [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop]
+* [HDInsight에서 Apache Sqoop 사용][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html

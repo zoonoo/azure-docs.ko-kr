@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4dd54a4a4985a33bc14022d7f722bdf83224c4aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10023d34a245f9493cfe244882dbdc1351a78513
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240854"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447217"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management 액세스 제한 정책
 이 문서에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.  
@@ -133,6 +133,10 @@ ms.locfileid: "51240854"
 -   **정책 범위:** product  
   
 ##  <a name="LimitCallRateByKey"></a> 키로 호출 속도 제한  
+
+> [!IMPORTANT]
+> 이 기능은 API Management의 **Consumption** 계층에서 사용할 수 없습니다.
+
  `rate-limit-by-key` 정책은 호출 속도를 지정된 기간당 지정된 숫자로 제한하여 키 하나당 최대 API 사용을 차단합니다. 키는 임의의 문자열 값을 포함할 수 있으며 일반적으로 정책 식을 사용하여 제공됩니다. 제한에 포함될 요청을 지정하기 위해 선택적 증분 조건을 추가할 수 있습니다. 이 정책이 트리거되는 경우 호출자는 `429 Too Many Requests` 응답 상태 코드를 수신합니다.  
   
  이 정책에 대한 자세한 내용과 예제는 [Azure API Management로 고급 요청 제한](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/)을 참조하세요.  
@@ -285,6 +289,10 @@ ms.locfileid: "51240854"
 -   **정책 범위:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a> 키로 사용 할당량 설정  
+
+> [!IMPORTANT]
+> 이 기능은 API Management의 **Consumption** 계층에서 사용할 수 없습니다.
+
  `quota-by-key` 정책은 키를 기준으로 갱신 가능 또는 수명 호출 볼륨 및/또는 대역폭 할당량을 적용할 수 있습니다. 키는 임의의 문자열 값을 포함할 수 있으며 일반적으로 정책 식을 사용하여 제공됩니다. 할당량에 포함될 요청을 지정하기 위해 선택적 증분 조건을 추가할 수 있습니다. 여러 정책이 동일한 키 값을 증가시키는 경우 요청당 한 번만 증가됩니다. 요청 제한에 도달하면 호출자는 `403 Forbidden` 응답 상태 코드를 수신합니다.
   
  이 정책에 대한 자세한 내용과 예제는 [Azure API Management로 고급 요청 제한](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/)을 참조하세요.  

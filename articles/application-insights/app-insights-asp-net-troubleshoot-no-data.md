@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bc4c0617ebf9b400260a217462abbcc439ae440
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228541"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284679"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -175,8 +175,14 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 이 기능을 비활성화할 수는 있지만 그러지 않는 것이 좋습니다. 샘플링은 진단을 목적으로 관련 원격 분석이 올바르게 전송되도록 설계되었습니다. 
 
-## <a name="client-ip-address-is-0000"></a>클라이언트 IP 주소는 0.0.0.0 
-2018년 2월에 클라이언트 IP 주소의 로깅을 제거했다고 [발표했습니다](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/). 이 조치는 지리적 위치에 영향을 주지 않습니다.
+## <a name="client-ip-address-is-0000"></a>클라이언트 IP 주소는 0.0.0.0
+
+2018년 2월 5일에 클라이언트 IP 주소의 로깅이 제거되었다고 발표했습니다. 이 조치는 지리적 위치에 영향을 주지 않습니다.
+
+> [!NOTE]
+> IP 주소의 처음 3개의 8진수가 필요하면 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)를 사용하여 사용자 지정 특성을 추가할 수 있습니다.
+> 2018년 2월 5일 이전에 수집된 데이터에는 영향을 주지 않습니다.
+
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>사용자 원격 분석에 잘못된 지리적 데이터
 도시, 지역 및 국가 차원이 IP 주소에서 파생되며 항상 정확하지는 않습니다. 이러한 IP 주소를 먼저 위치에 대해 처리한 다음, 저장할 위치를 0.0.0.0으로 변경합니다.

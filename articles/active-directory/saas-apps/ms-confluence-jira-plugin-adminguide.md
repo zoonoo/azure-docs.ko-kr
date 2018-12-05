@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 49516523abdd927c3ae60235fcd74473689c6856
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020710"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426879"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory의 Atlassian Jira 및 Confluence 관리자 가이드
 
@@ -67,9 +67,23 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 플러그 인에서는 다음 버전의 Jira 및 Confluence를 지원합니다.
 
-* Jira Core 및 소프트웨어: 6.0 ~ 7.8
-* Jira Service Desk: 3.0 ~ 3.2
+* JIRA Core 및 Software: 6.0~7.12
+* JIRA Service Desk: 3.0.0~3.5.0
+* JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)을 클릭하세요.
 * Confluence: 5.0 ~ 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ## <a name="installation"></a>설치
 
@@ -79,7 +93,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 2. Jira/Confluence 관리 콘솔로 이동하고 **추가 기능**을 선택합니다.
 
-3. Atlassian Marketplace에서 **Microsoft SAML SSO 플러그 인**을 검색합니다.
+3. Microsoft 다운로드 센터에서 [Jira용 Microsoft SAML SSO 플러그 인](https://www.microsoft.com/download/details.aspx?id=56506)/ [Confluence용 Microsoft SAML SSO 플러그 인](https://www.microsoft.com/download/details.aspx?id=56503)을 다운로드합니다.
 
    적절한 버전의 플러그 인이 검색 결과에 나타납니다.
 
@@ -165,15 +179,29 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>플러그 인은 클라우드 버전에서 작동하나요?
 
-아니요. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전만을 지원합니다.
+ 아니요. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전만을 지원합니다.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>플러그 인에서 지원하는 Jira 및 Confluence 버전은 무엇인가요?
 
 플러그 인에서는 이러한 버전을 지원합니다.
 
-* Jira Core 및 소프트웨어: 6.0 ~ 7.8
-* Jira Service Desk: 3.0 ~ 3.2
+* JIRA Core 및 Software: 6.0~7.12
+* JIRA Service Desk: 3.0.0~3.5.0
+* JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)을 클릭하세요.
 * Confluence: 5.0 ~ 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ### <a name="is-the-plug-in-free-or-paid"></a>플러그 인은 무료인가요, 유료인가요?
 
@@ -195,7 +223,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>플러그 인은 Azure AD 이외에 IdP와 함께 작동하나요?
 
-아니요. Azure AD와만 함께 작동합니다.
+ 아니요. Azure AD와만 함께 작동합니다.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>플러그 인과 함께 작동하는 SAML 버전은 무엇인가요?
 
@@ -203,12 +231,12 @@ SAML 2.0과 함께 작동합니다.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>플러그 인은 사용자 프로비저닝을 수행하나요?
 
-아니요. 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 응용 프로그램에서 사용자를 프로비전해야 합니다.
+ 아니요. 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 응용 프로그램에서 사용자를 프로비전해야 합니다.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>플러그 인에서 지원하는 Jira 및 Confluence 버전은 무엇인가요?
 
-아니요. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전과 함께 작동합니다.
+ 아니요. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전과 함께 작동합니다.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>플러그 인은 Jira 및 Confluence의 HTTP 버전과 함께 작동하나요?
 
-아니요. 플러그 인은 HTTPS가 설정된 설치 버전에서만 작동합니다.
+ 아니요. 플러그 인은 HTTPS가 설정된 설치 버전에서만 작동합니다.

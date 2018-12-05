@@ -9,20 +9,20 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: 2e1a912f2d2aa8a6f9b165524351f2a16232537c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212202"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854223"
 ---
-# <a name="human-in-the-loop"></a>인간 참여형
+# <a name="review-tool-overview"></a>검토 도구 개요
 
 사용자와 컴퓨터가 함께 콘텐츠를 조정할 때 최상의 결과를 얻을 수 있습니다. 컴퓨터는 실제 세상에서 예측 정확도를 보완하거나 변조해야 하는 사용자 검토를 효율적으로 강화합니다. 그 결과, 사용자 또는 컴퓨터가 단독으로 작업할 때보다 효율적인 하이브리드 콘텐츠 수정 프로세스를 얻게 됩니다.
 
-## <a name="how-the-review-tool-helps"></a>검토 도구가 도와주는 방식 ##
+## <a name="what-it-does"></a>기능
 
-사용자 검토 도구를 컴퓨터 지원 수정 API와 함께 사용하면 콘텐츠 수정 수명 주기와 관련된 중요한 작업을 수행할 수 있습니다.
+사용자 검토 도구를 머신 지원 수정 API와 함께 사용하면 콘텐츠 수정 수명 주기와 관련된 중요한 작업을 수행할 수 있습니다.
 
 1. 기본 수정 API 결과에서 사용자 검토 만들기 자동화
 2. 도구 하나로(검토 도구 및 API) 여러 형식(텍스트, 이미지 및 비디오) 조정

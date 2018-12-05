@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: a4689093508c3287e60da9d4668393e71211fbdd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405705"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711075"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Azure Search BLOB 인덱서를 사용하여 JSON BLOB 인덱싱
 이 문서에서는 Azure Blob Storage의 JSON Blob에서 구조화된 콘텐츠를 추출하도록 Azure Search Blob 인덱서를 구성하는 방법을 보여줍니다.
@@ -24,11 +24,8 @@ Azure Blob Storage에서 JSON Blob은 일반적으로 단일 JSON 문서 또는 
 | JSON 문서 | parsingMode | 설명 | 가용성 |
 |--------------|-------------|--------------|--------------|
 | Blob 당 하나 | `json` | JSON Blob을 텍스트의 단일 청크로 구문 분석합니다. 각 JSON Blob은 단일 Azure Search 문서가 됩니다. | 일반적으로 [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) 및 [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API 모두에서 사용할 수 있습니다. |
-| Blob 당 여러 개 | `jsonArray` | Blob에서 JSON 배열을 구문 분석합니다. 여기서 배열의 각 요소는 별도의 Azure Search 문서가 됩니다.  | 미리 보기에서 [REST api-version=`2017-11-11-Preview`](search-api-2017-11-11-preview.md) 및 [.NET SDK 미지 보기](https://aka.ms/search-sdk-preview)입니다. |
+| Blob 당 여러 개 | `jsonArray` | Blob에서 JSON 배열을 구문 분석합니다. 여기서 배열의 각 요소는 별도의 Azure Search 문서가 됩니다.  | 일반적으로 [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) 및 [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API 모두에서 사용할 수 있습니다. |
 
-> [!Note]
-> 미리 보기 API는 테스트 및 평가 용도로 제공되며 프로덕션 환경에는 사용되지 않습니다.
->
 
 ## <a name="setting-up-json-indexing"></a>JSON 인덱싱 설정
 JSON Blob을 인덱싱하는 작업은 Azure Search에 있는 모든 인덱서에 공통되는 세 부분으로 구성된 워크플로의 일반 문서 추출과 비슷합니다.
@@ -103,9 +100,9 @@ Azure Search Blob 인덱서를 사용하여 이전 예제와 비슷한 JSON 문�
 
 명시된 대로 필드 매핑이 필요하지 않습니다. "text", "datePublished" 및 "tags" 필드를 포함하는 인덱스가 지정된 Blob 인덱서는 요청에서 필드 매핑 없이 올바른 매핑을 유추할 수 있습니다.
 
-## <a name="how-to-parse-json-arrays-preview"></a>JSON 배열(미리 보기)을 구문 분석하는 방법
+## <a name="how-to-parse-json-arrays"></a>JSON 배열을 구문 분석하는 방법
 
-또는 JSON 배열 미리 보기 기능을 선택할 수 있습니다. 이 기능은 Blob에 *JSON 개체 배열*이 포함되고 각 배열 요소를 별도의 Azure Search 문서로 나타내려고 하는 경우에 유용합니다. 예를 들어 다음 JSON Blob의 경우 각각 "id" 및 "text" 필드가 있는 별도의 3개 문서로 Azure Search 인덱스를 채울 수 있습니다.  
+또는 JSON 배열 기능을 선택할 수 있습니다. 이 기능은 Blob에 *JSON 개체 배열*이 포함되고 각 배열 요소를 별도의 Azure Search 문서로 나타내려고 하는 경우에 유용합니다. 예를 들어 다음 JSON Blob의 경우 각각 "id" 및 "text" 필드가 있는 별도의 3개 문서로 Azure Search 인덱스를 채울 수 있습니다.  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -115,9 +112,9 @@ Azure Search Blob 인덱서를 사용하여 이전 예제와 비슷한 JSON 문�
 
 ### <a name="indexer-definition-for-a-json-array"></a>JSON 배열의 인덱서 정의
 
-인덱서 요청은 JSON 배열에 미리 보기 API 및 `jsonArray` 파서를 사용합니다. JSON Blob을 인덱싱하는 두 개의 배열 관련 요구 사항은 다음과 같습니다.
+인덱서 요청은 JSON 배열에 `jsonArray` 파서를 사용합니다. JSON Blob을 인덱싱하는 두 개의 배열 관련 요구 사항은 다음과 같습니다.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

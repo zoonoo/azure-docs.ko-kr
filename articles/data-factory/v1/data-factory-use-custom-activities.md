@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 580dd5bf6a7e905927189f4b1ae42ab49a1cbc80
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b7a2f9350633be5ec0cb8d5a7c6e7cc5048f956a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730718"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276009"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,7 @@ Data Factory에서 지원되지 않는 데이터 저장소에서 다른 위치�
 ## <a name="walkthrough-create-a-custom-activity"></a>연습: 사용자 지정 작업 만들기
 ### <a name="prerequisites"></a>필수 조건
 * Visual Studio 2012/2013/2015
-* [Azure .NET SDK](https://azure.microsoft.com/downloads/)
+*  [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Azure Batch 필수 조건
 이 연습에서는 Azure Batch를 계산 리소스로 사용하여 사용자 지정 .NET 작업을 실행할 것입니다. **Azure Batch**는 클라우드에서 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행하기 위한 플랫폼 서비스입니다. Azure Batch는 **가상 머신의 관리되는 컬렉션**에서 실행되는 계산 집약적 작업을 예약하고, 작업 요구에 맞게 계산 리소스의 규모를 자동으로 조정할 수 있습니다. Azure Batch 서비스의 개요에 대한 자세한 내용은 [Azure Batch 기본 사항][batch-technical-overview] 문서를 참조하세요.
@@ -212,7 +212,7 @@ public IDictionary<string, string> Execute(
         foreach (LinkedService ls in linkedServices)
             logger.Write("linkedService.Name {0}", ls.Name);
     
-        // get the first Azure Storate linked service from linkedServices object
+        // get the first Azure Storage linked service from linkedServices object
         // using First method instead of Single since we are using the same
         // Azure Storage linked service for input and output.
         inputLinkedService = linkedServices.First(
@@ -358,7 +358,7 @@ public IDictionary<string, string> Execute(
     }
     ```
 
-    GetFolderPath 메서드는 데이터 집합이 가리키는 폴더로 경로를 반환하고 GetFileName 메서드는 데이터 집합이 가리키는 BLOB/파일의 이름을 반환합니다. {Year}, {Month}, {Day} 등의 변수를 사용하여 폴더 경로를 정의하면 이 메서드는 변수를 런타임 값으로 바꾸지 않고 문자열을 있는 그대로 반환합니다. SliceStart, SliceEnd 등에 대한 액세스에 대해 자세히 알아보려면 [확장 속성 액세스](#access-extended-properties) 를 참조하세요.    
+    GetFolderPath 메서드는 데이터 집합이 가리키는 폴더로 경로를 반환하고 GetFileName 메서드는 데이터 집합이 가리키는 BLOB/파일의 이름을 반환합니다. {Year}, {Month}, {Day} 등의 변수를 사용하여 folderPath를 정의하면 이 메서드는 변수를 런타임 값으로 바꾸지 않고 문자열을 있는 그대로 반환합니다. SliceStart, SliceEnd 등에 대한 액세스에 대해 자세히 알아보려면 [확장 속성 액세스](#access-extended-properties) 를 참조하세요.    
 
     ```JSON
     "name": "InputDataset",
@@ -460,7 +460,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    2. **accessKey** 속성에 대한 Azure Batch 계정 키를 지정합니다.
    3. **poolName** 속성에 대한 필수 조건의 일부로 만든 풀의 이름을 지정합니다. 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
    4. **batchUri** 속성에 대한 Azure Batch URI를 지정합니다. 예: `https://westus.batch.azure.com`.  
-   5. **AzureStorageLinkedService** for the **linkedServiceName** 속성의 Azure 배치 계정 이름을 지정합니다.
+   5.  **AzureStorageLinkedService** for the **linkedServiceName** 속성의 Azure 배치 계정 이름을 지정합니다.
 
         ```json
         {
@@ -640,7 +640,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    ![출력 분할](./media/data-factory-use-custom-activities/OutputSlices.png)
 4. 출력 파일이 **adftutorial** 컨테이너의 Blob 저장소에 생성되었는지 확인합니다.
 
-   ![사용자 지정 작업의 출력][image-data-factory-ouput-from-custom-activity]
+   ![사용자 지정 작업의 출력][image-data-factory-output-from-custom-activity]
 5. 출력 파일을 열면 다음과 유사한 출력이 표시됩니다.
 
     ```
@@ -1063,6 +1063,6 @@ GitHub의 [Azure Data Factory - 로컬 환경](https://github.com/gbrueckl/Azure
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [hivewalkthrough]: data-factory-data-transformation-activities.md
 
-[image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
+[image-data-factory-output-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png

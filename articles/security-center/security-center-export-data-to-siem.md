@@ -1,5 +1,5 @@
 ---
-title: SIEM-파이프라인 구성에 Azure 보안 데이터 내보내기 [미리 보기] | Microsoft Docs
+title: SIEM-파이프라인 구성에 Azure 보안 데이터 내보내기 | Microsoft Docs
 description: 이 아티클은 Azure 보안 센터 로그를 SIEM으로 보낼 때 생성되는 결과를 기록합니다.
 services: security-center
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 11/26/2018
 ms.author: barclayn
-ms.openlocfilehash: aede60a729fe9c0594ded485e189c0b467e34271
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4cc9478197b39198a94ace1cbefab81de3cdb32b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298236"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306729"
 ---
-# <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>SIEM-파이프라인 구성에 Azure 보안 데이터 내보내기 [미리 보기]
+# <a name="azure-security-data-export-to-siem-pipeline-configuration"></a>SIEM-파이프라인 구성에 Azure 보안 데이터 내보내기
 
 이 문서는 Azure Security Center 보안 데이터를 SIEM에 내보내기 하는 절차를 자세히 설명합니다.
 
@@ -37,11 +37,11 @@ Azure Security Center에서 생성하는 처리된 이벤트는 Azure Monitor를
 
 ## <a name="what-is-the-azure-security-data-exposed-to-siem"></a>SIEM에 공개된 Azure 보안 데이터는 무엇입니까?
 
-우리는 이 미리 보기 버전에 [보안 경고](../security-center/security-center-managing-and-responding-alerts.md)를 공개합니다. 이후 릴리스에는 보안 권장 사항이 포함된 데이터 집합을 보강합니다.
+이 버전에서는 [보안 경고](../security-center/security-center-managing-and-responding-alerts.md)가 공개됩니다. 이후 릴리스에는 보안 권장 사항이 포함된 데이터 집합을 보강합니다.
 
-## <a name="how-to-setup-the-pipeline"></a>파이프라인을 설정하는 방법은? 
+## <a name="how-to-setup-the-pipeline"></a>파이프라인을 설정하는 방법
 
-### <a name="create-an-event-hub"></a>이벤트 허브 만들기 
+### <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
 시작하기 전에 먼저 [Event Hubs 네임스페이스](../event-hubs/event-hubs-create.md)를 만들어야 합니다. 이 네임스페이스 및 이벤트 허브는 모든 모니터링 데이터에 대한 대상입니다.
 

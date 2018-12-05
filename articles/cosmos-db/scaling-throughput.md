@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d29f01c7f953ed211b429e41b844a01c67e41054
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282379"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160667"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB에서 처리량 크기 조정
 
@@ -23,7 +23,7 @@ Azure Cosmos DB에서 프로비전된 처리량은 요청 단위/초(RU/s, 복�
 
 Cosmos 컨테이너 또는 Cosmos 데이터베이스에서 RU를 프로비전할 수 있습니다. 컨테이너에서 프로비전된 RU는 해당 컨테이너에서 수행된 작업에 대해 단독으로 사용할 수 있습니다. 데이터베이스에서 프로비전된 RU는 데이터베이스 내의 모든 컨테이너에서 공유됩니다(독점적으로 할당된 RU가 있는 모든 컨테이너 제외).
 
-처리량의 크기를 탄력적으로 조정하기 위해 프로비전된 RU/s를 언제든지 늘리거나 줄일 수 있습니다. 자세한 내용은 [처리량을 프로비전하는 방법](set-throughput.md) 및 Cosmos 컨테이너 및 데이터베이스의 크기를 탄력적으로 조정하는 방법을 참조하세요. 처리량을 전역적으로 크기 조정하기 위해 언제든지 Cosmos 계정에서 영역을 추가하거나 제거할 수 있습니다. 자세한 내용은 [Cosmos 계정에 영역을 추가 또는 제거하는 방법](how-to-manage-database-account.md#addremove-regions-from-your-database-account)을 참조하세요. 여러 영역을 Cosmos 계정과 연결하는 것은 전세계에서 낮은 대기 시간 및 [고가용성](high-availability.md)을 달성하기 위해 많은 시나리오에서 중요합니다.
+처리량의 크기를 탄력적으로 조정하기 위해 프로비전된 RU/s를 언제든지 늘리거나 줄일 수 있습니다. 자세한 내용은 [처리량을 프로비전하는 방법](set-throughput.md) 및 Cosmos 컨테이너 및 데이터베이스의 크기를 탄력적으로 조정하는 방법을 참조하세요. 처리량을 전역적으로 크기 조정하기 위해 언제든지 Cosmos 계정에서 영역을 추가하거나 제거할 수 있습니다. 자세한 내용은 [데이터베이스 계정에서 Azure 지역 추가/제거](how-to-manage-database-account.md#addremove-regions-from-your-database-account)를 참조하세요. 여러 영역을 Cosmos 계정과 연결하는 것은 전세계에서 낮은 대기 시간 및 [고가용성](high-availability.md)을 달성하기 위해 많은 시나리오에서 중요합니다.
 
 ## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>프로비전된 처리량을 영역에 분산하는 방법
 

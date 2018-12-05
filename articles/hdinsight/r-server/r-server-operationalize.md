@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3f93f96c6c9fc551b8b66167eab58861b0ac0b52
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005957"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496914"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 클러스터 운영
 
@@ -79,9 +79,9 @@ HDInsight에서 ML 서비스 클러스터를 사용하여 데이터 모델링을
 
     d. 표시된 메뉴 옵션에서 **E**를 입력하여 주 메뉴로 돌아간 다음 **8**을 입력하여 관리 유틸리티를 종료합니다.
 
-### <a name="long-delays-when-consuming-web-service-on-spark"></a>Spark에서 웹 서비스를 사용할 때 긴 지연 발생
+### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Apache Spark에서 웹 서비스를 사용할 때 긴 지연 발생
 
-Spark 계산 컨텍스트에서 mrsdeploy 함수로 만든 웹 서비스를 이용하려고 할 때 긴 지연이 발생하는 경우 일부 누락된 폴더를 추가해야 할 수 있습니다. Spark 응용 프로그램은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 '*rserve2*'라는 사용자에게 속합니다. 이 문제를 해결하려면
+Apache Spark 컴퓨팅 컨텍스트에서 mrsdeploy 함수로 생성된 웹 서비스를 이용하려고 할 때 긴 지연이 발생하면 누락된 폴더를 추가해야 할 수도 있습니다. Spark 응용 프로그램은 mrsdeploy 함수를 사용하여 웹 서비스에서 호출될 때마다 '*rserve2*'라는 사용자에게 속합니다. 이 문제를 해결하려면
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -139,7 +139,7 @@ SSH 세션이 활성화되면 로컬 머신의 12800 포트에서 발생한 트�
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>1단계: 작업자 노드 서비스 해제
 
-ML 서비스 클러스터는 YARN을 통해 관리되지 않습니다. 작업자 노드 서비스를 해제하지 않으면 YARN 리소스 관리자가 서버에서 사용하는 리소스를 인식하지 못하기 때문에 예상대로 작동하지 않습니다. 이 상황을 피하려면 계산 노드의 크기를 조정하기 전에 작업자 노드의 서비스를 해제하는 것이 좋습니다.
+ML 서비스 클러스터는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)을 통해 관리되지 않습니다. 작업자 노드 서비스를 해제하지 않으면 YARN 리소스 관리자가 서버에서 사용하는 리소스를 인식하지 못하기 때문에 예상대로 작동하지 않습니다. 이 상황을 피하려면 계산 노드의 크기를 조정하기 전에 작업자 노드의 서비스를 해제하는 것이 좋습니다.
 
 작업자 노드 서비스를 해제하려면 다음 단계를 따르세요.
 

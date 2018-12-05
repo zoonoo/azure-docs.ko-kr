@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622519"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284764"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Speech Service API에 대한 언어 및 지역 지원
 
@@ -36,7 +36,7 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다. 서로 다
  en-GB | 영어(영국) | 아니요 | 예 | yes
  en-IN | 영어(인도) | yes | 예 | yes
  en-NZ | 영어(뉴질랜드) | 아니요 | 예 | yes  
- ko-KR | 영어(미국) | yes | 예 | yes
+ en-US | 영어(미국) | yes | 예 | yes
  es-ES | 스페인어(스페인) | 아니요 | yes | 아니요
  es-MX | 스페인어(멕시코) | 아니요 | yes | 아니요
  fi-FI | 핀란드어(핀란드) | 아니요 | 아니요 | 아니요
@@ -70,7 +70,6 @@ ar-SA | 아랍어(사우디아라비아) | Male | “Microsoft Server Speech Tex
 bg-BG | 불가리아어 | Male | “Microsoft Server Speech Text to Speech Voice(bg-BG, Ivan)”
 ca-ES | 카탈로니아어(스페인) | Female | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)”
 cs-CZ | 체코어 | Male | “Microsoft Server Speech Text to Speech Voice(cs-CZ, Jakub)”
-cs-CZ | 체코어 | Male | “Microsoft Server Speech Text to Speech Voice(cs-CZ, Vit)”
 da-DK | 덴마크어 | Female | “Microsoft Server Speech Text to Speech Voice(da-DK, HelleRUS)”
 de-AT | 독일어(오스트리아) | Male | “Microsoft Server Speech Text to Speech Voice(de-AT, Michael)”
 de-CH | 독일어(스위스) | Male | “Microsoft Server Speech Text to Speech Voice(de-CH, Karsten)”
@@ -86,7 +85,6 @@ en-GB | 영어(영국) | Female | “Microsoft Server Speech Text to Speech Voic
 | | |Female | “Microsoft Server Speech Text to Speech Voice(en-GB, HazelRUS)”
 | | |Male | “Microsoft Server Speech Text to Speech Voice(en-GB, George, Apollo)”
 en-IE | 영어(아일랜드) |Male | “Microsoft Server Speech Text to Speech Voice(en-IE, Sean)”
-en-IE | 영어(아일랜드) |Male | “Microsoft Server Speech Text to Speech Voice(en-IE, Shaun)”
 en-IN | 영어(인도) | Female | “Microsoft Server Speech Text to Speech Voice(en-IN, Heera, Apollo)”
 | | |Female | “Microsoft Server Speech Text to Speech Voice(en-IN, PriyaRUS)”
 | | |Male | “Microsoft Server Speech Text to Speech Voice(en-IN, Ravi, Apollo)”
@@ -153,10 +151,10 @@ zh-TW | 중국어(대만)|Female | “Microsoft Server Speech Text to Speech Voi
 
 ### <a name="customization"></a>사용자 지정
 
-음성 사용자 지정이 가능한 언어는 미국 영어(en-US), 본토 중국어(zh-CN) 및 이탈리아어(it-IT)입니다.
+음성 사용자 지정은 미국 영어(en-US), 본토 중국어(zh-CN), 프랑스어(fr-FR), 독일어(de-DE) 및 이탈리아어(it-IT)로 사용할 수 있습니다.
 
 > [!NOTE]
-> 이탈리아 음성 학습은 2,000개 이상의 발화로 이루어진 데이터 집합으로 시작합니다. 중국어-영어 이중 언어 모델도 2,000개 이상의 발화로 이루어진 초기 데이터 집합으로 지원됩니다.
+> 프랑스어, 독일어 및 이탈리아 음성 학습은 2,000개 이상의 발화가 있는 데이터 세트로 시작합니다. 중국어-영어 이중 언어 모델도 2,000개 이상의 발화로 이루어진 초기 데이터 집합으로 지원됩니다.
 
 ## <a name="speech-translation"></a>Speech Translation
 

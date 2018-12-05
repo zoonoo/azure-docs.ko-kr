@@ -1,5 +1,5 @@
 ---
-title: Azure Management
+title: Azure 관리 개요
 description: Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 응용 프로그램 및 리소스 관리 영역에 대한 개요입니다.
 author: DCtheGeek
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.openlocfilehash: 268526277dc935ccffc30120f2bb170ad3ff3ef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 180b0cb9f52858d9b0f079ea711fd5ccab738ecf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978229"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582312"
 ---
 # <a name="management-in-azure"></a>Azure의 관리
 
@@ -43,7 +43,7 @@ Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다. [Azu
 
 ## <a name="secure"></a>보안
 
-응용 프로그램, 리소스 및 데이터의 보안 관리에는 위협 평가하고 보안 데이터 수집 및 분석하고 응용 프로그램과 리소스가 안전하게 구성 및 디자인되도록 보장하는 조합이 필요합니다. 보안 모니너링과 위협 분석은 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 포함하는 [Azure Security Center](../security-center/security-center-intro.md)에서 제공합니다. 또한 Azure에서의 보안 및 안전한 Azure 리소스 구성에 대한 지침에 대한 종합 정보는 [Azure 보안 소개](../security/azure-security.md)를 참조하면 됩니다.
+응용 프로그램, 리소스 및 데이터의 보안 관리에는 위협 평가하고 보안 데이터 수집 및 분석하고 응용 프로그램과 리소스가 안전하게 구성 및 디자인되도록 보장하는 조합이 필요합니다. 보안 모니터링과 위협 분석은 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 포함하는 Azure Security Center에서 제공합니다. 또한 Azure에서의 보안 및 안전한 Azure 리소스 구성에 대한 지침에 대한 종합 정보는 [Azure 보안 소개](../security/azure-security.md)를 참조하면 됩니다.
 
 ## <a name="protect"></a>보호
 

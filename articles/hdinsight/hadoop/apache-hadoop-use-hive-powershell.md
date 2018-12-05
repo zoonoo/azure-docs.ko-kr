@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4927c76c1bb6be6c27d2e559e6d1292008b3643b
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633114"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162353"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>PowerShell을 사용하여 Apache Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -59,7 +59,7 @@ Azure PowerShell은 HDInsight에서 Hive 쿼리를 원격으로 실행할 수 �
 
         .\hivejob.ps1
 
-    스크립트를 실행할 때 클러스터에 대한 클러스터 이름 및 HTTPS/관리자 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 구독에 로그인하라는 메시지도 표시될 수 있습니다.
+    스크립트를 실행할 때 클러스터 이름 및 HTTPS/클러스터 관리자 계정 자격 증명을 입력하라는 메시지가 표시됩니다. Azure 구독에 로그인하라는 메시지도 표시될 수 있습니다.
 
 3. 작업이 완료되면 다음 텍스트와 유사한 정보가 반환됩니다.
 

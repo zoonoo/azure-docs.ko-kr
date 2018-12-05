@@ -1,10 +1,11 @@
 ---
-title: Azure Machine Learning 웹 서비스에서 Import/Export 데이터 사용 | Microsoft Docs
+title: Azure Machine Learning Studio 웹 서비스에서 데이터 가져오기/내보내기 사용 | Microsoft Docs
 description: 데이터 가져오기 및 내보내기 데이터 모듈을 사용하여 웹 서비스에서 데이터를 보내고 받는 방법을 알아봅니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 27873930ebef75923088f8bf2170c8e6a383cfa8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ee7d0fb4792983099dc6192de8f85338daee357f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837415"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306950"
 ---
-# <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Azure ML 웹 서비스 배포
+# <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Azure Machine Learning Studio 웹 서비스 배포
 
 예측 실험을 만들 때 일반적으로 웹 서비스 입력 및 출력을 추가합니다. 실험을 배포하면 소비자는 입력 및 출력을 통해 웹 서비스에서 데이터를 보내고 받을 수 있습니다. 일부 응용 프로그램에서는 소비자 데이터를 데이터 피드에서 사용할 수 있거나 해당 데이터가 Azure Blob 저장소와 같은 외부 데이터 원본에 이미 있을 수 있습니다. 이러한 경우 웹 서비스 입력 및 출력을 사용하여 데이터를 읽고 쓸 필요가 없습니다. 대신, BES(Batch 실행 서비스)를 사용하여 데이터 가져오기 모듈을 통해 데이터 원본에서 데이터를 읽고, 데이터 내보내기 모듈을 통해 다른 데이터 위치에 점수 매기기 결과를 쓸 수 있습니다.
 
@@ -102,7 +103,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 1. 실험 캔버스 맨 아래에서 실행을 클릭합니다.
 2. 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[클래식]** 를 선택합니다.
 3. 웹 서비스 대시보드에서 API 키를 찾습니다. 나중에 사용할 수 있게 복사한 다음 저장합니다.
-4. **기본 끝점** 테이블에서 **Batch 실행** 링크를 클릭하여 API 도움말 페이지를 엽니다.
+4. **기본 엔드포인트** 테이블에서 **Batch 실행** 링크를 클릭하여 API 도움말 페이지를 엽니다.
 5. Visual Studio(**새로 만들기** > **프로젝트** > **Visual C#** > **Windows 클래식 바탕 화면** > **콘솔 앱(.NET Framework)**)에서 C# 콘솔 응용 프로그램을 만듭니다.
 6. API 도움말 페이지 맨 아래에서 **샘플 코드** 섹션을 찾습니다.
 7. C# 샘플 코드를 복사하고 Program.cs 파일에 붙여 넣은 후 blob 저장소에 대한 모든 참조를 제거합니다.

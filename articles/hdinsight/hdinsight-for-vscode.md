@@ -10,16 +10,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: f8bd1f1181cbd592782ce1126d5d61b5f257ca08
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9603751db01eaffdf9fbe26164aed53017c5e23c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234751"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499536"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight Tools for Visual Studio Code 사용
 
-Azure HDInsight Tools for VS Code(Visual Studio Code)를 사용하여 Apache Hive 배치 작업, 대화형 Apache Hive 쿼리 및 PySpark 스크립트를 만들고 제출하는 방법에 대해 알아봅니다. Azure HDInsight Tools는 VS Code에서 지원하는 플랫폼에 설치할 수 있습니다. 여기에는 Windows, Linux, macOS가 포함됩니다. 다양한 플랫폼에 대한 필수 조건을 찾을 수 있습니다.
+[Azure HDInsight Tools for Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode)(VS Code)를 사용하여 [Apache Hive](https://hive.apache.org/) 일괄 작업, 대화형 Apache Hive 쿼리 및 PySpark 스크립트를 만들고 제출하는 방법에 대해 알아봅니다. Azure HDInsight Tools는 VS Code에서 지원하는 플랫폼에 설치할 수 있습니다. 여기에는 Windows, Linux, macOS가 포함됩니다. 다양한 플랫폼에 대한 필수 조건을 찾을 수 있습니다.
 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -102,7 +102,7 @@ VS Code에서 HDInsight 클러스터에 스크립트를 제출하려면 먼저 A
 
 <h3 id="linkcluster">클러스터를 연결하려면</h3>
 
-Apache Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결하거나, 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 Enterprise Security Pack 보안 Hadoop 클러스터를 연결할 수 있습니다.
+[Apache Ambari](https://ambari.apache.org/) 관리형 사용자 이름을 사용하여 정상적인 클러스터를 연결하거나, 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 Enterprise Security Pack 보안 Hadoop 클러스터를 연결할 수 있습니다.
 1. **CTRL+SHIFT+P**를 선택하여 명령 팔레트를 연 다음, **HDInsight: Link a Cluster**를 입력합니다.
 
    ![클러스터 연결 명령](./media/hdinsight-for-vscode/link-cluster-command.png)
@@ -294,9 +294,9 @@ Python2.x를 사용하려면 다음 단계를 수행합니다.
 
 Python 작업을 제출한 후 전송 로그가 VS Code의 **출력** 창에 나타납니다. **Spark UI URL** 및 **Yarn UI URL**도 표시됩니다. 웹 브라우저에서 URL을 열어 작업 상태를 추적할 수 있습니다.
 
-## <a name="livy-configuration"></a>Livy 구성
+## <a name="apache-livy-configuration"></a>Apache Livy 구성
 
-Livy 구성은 지원되며, 작업 영역 폴더의 **.VSCode\settings.json**에서 설정될 수 있습니다. 현재 Livy 구성은 Python 스크립트만 지원합니다. 자세한 내용은 [Livy 추가 정보](https://github.com/cloudera/livy/blob/master/README.rst )를 참조하세요.
+[Apache Livy](https://livy.incubator.apache.org/) 구성은 지원되며, 작업 영역 폴더의 **.VSCode\settings.json**에서 설정할 수 있습니다. 현재 Livy 구성은 Python 스크립트만 지원합니다. 자세한 내용은 [Livy 추가 정보](https://github.com/cloudera/livy/blob/master/README.rst )를 참조하세요.
 
 <a id="triggerlivyconf"></a>**Livy 구성을 트리거하는 방법**
    
@@ -390,28 +390,28 @@ HDInsight for VS Code에서 지원하는 기능은 다음과 같습니다.
 
 ### <a name="tools-and-extensions"></a>도구 및 확장
 
-* [IntelliJ용 Azure 도구 키트를 사용하여 VPN을 통해 원격으로 Spark 응용 프로그램 디버그](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [IntelliJ용 Azure 도구 키트를 사용하여 SSH를 통해 원격으로 Spark 응용 프로그램 디버그](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 원격으로 Apache Spark 애플리케이션 디버그](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Azure Toolkit for IntelliJ를 사용하여 SSH를 통해 원격으로 Apache Spark 애플리케이션 디버그](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Eclipse용 Azure 도구 키트의 HDInsight 도구를 사용하여 Spark 응용 프로그램 만들기](spark/apache-spark-eclipse-tool-plugin.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](spark/apache-spark-zeppelin-notebook.md)
-* [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](spark/apache-spark-jupyter-notebook-kernels.md)
+* [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 Apache Spark 애플리케이션 만들기](spark/apache-spark-eclipse-tool-plugin.md)
+* [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](spark/apache-spark-zeppelin-notebook.md)
+* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Azure HDInsight에서 Microsoft Power BI를 사용하여 Hive 데이터 시각화](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Azure HDInsight에서 Microsoft Power BI를 사용하여 Apache Hive 데이터 시각화](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Visual Studio Code용 PySpark 대화형 환경 설정](set-up-pyspark-interactive-environment.md)
-* [Azure HDInsight에서 Zeppelin을 사용하여 Hive 쿼리 실행](./hdinsight-connect-hive-zeppelin.md)
+* [Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>시나리오
-* [BI와 Spark: BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](spark/apache-spark-use-bi-tools.md)
-* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](spark/apache-spark-custom-library-website-log-analysis.md)
+* [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](spark/apache-spark-use-bi-tools.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>응용 프로그램 만들기 및 실행
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](spark/apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](spark/apache-spark-livy-rest-interface.md)
+* [Apache Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](spark/apache-spark-livy-rest-interface.md)
 
 ### <a name="manage-resources"></a>리소스 관리
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](spark/apache-spark-resource-manager.md)

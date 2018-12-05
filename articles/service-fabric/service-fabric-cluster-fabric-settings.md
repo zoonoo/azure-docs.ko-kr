@@ -12,77 +12,23 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9da213525a5921295d6271adfd473b7a05a049a4
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884496"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497914"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
-이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정을 사용자 지정하는 방법을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 독립 실행형 클러스터의 경우 ClusterConfig.json 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 
+이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
 
-> [!NOTE]
-> 이러한 설정의 일부만 포털에서 사용할 수 있습니다. 아래에 나열된 설정을 포털에서 사용할 수 없는 경우 Azure Resource Manager 템플릿을 사용하여 해당 설정을 사용자 지정합니다.
-> 
-
-## <a name="description-of-the-different-upgrade-policies"></a>다른 업그레이드 정책에 대한 설명
+세 가지 다른 업그레이드 정책이 있습니다.
 
 - **동적** – 동적 구성을 변경해도 Service Fabric 프로세스 또는 서비스 호스트 프로세스가 다시 시작되지는 않습니다. 
 - **정적** – 정적 구성을 변경하면 변경 내용을 사용하기 위해 Service Fabric 노드가 다시 시작됩니다. 노드의 서비스는 다시 시작됩니다.
 - **허용 안함** – 이 설정은 수정할 수 없습니다. 이 설정을 변경하려면 클러스터를 삭제하고 새 클러스터를 만들어야 합니다. 
-
-## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 클러스터 설정 사용자 지정
-아래 단계에서는 Azure Resource Explorer를 사용하여 새로운 *MaxDiskQuotaInMB* 설정을 *Diagnostics* 섹션에 추가하는 방법을 보여 줍니다.
-
-1. https://resources.azure.com으로 이동합니다.
-2. **구독** -> **\<사용자의 구독>** -> **resourceGroups** -> **\<사용자의 리소스 그룹>** -> **공급자** -> **Microsoft.ServiceFabric** -> **클러스터** -> **\<클러스터 이름>** 을 펼쳐서 구독으로 이동합니다.
-3. 오른쪽 위 모서리에서 **읽기/쓰기**를 선택합니다.
-4. **편집**을 선택하고 `fabricSettings` JSON 요소를 업데이트하고 새 요소를 추가합니다.
-
-```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
-```
-
-또한 Azure Resource Manager를 사용하여 다음 방법 중 하나에서 클러스터 설정을 사용자 지정할 수 있습니다.
-
-- [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template)을 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
-- [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell)을 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
-- [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli)를 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
-- Azure RM PowerShell [Set-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) 및 [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) 명령을 사용하여 설정을 직접 수정합니다.
-- Azure CLI [az sf 클러스터 설정](https://docs.microsoft.com/cli/azure/sf/cluster/setting) 명령을 사용하여 설정을 직접 수정합니다.
-
-## <a name="customize-cluster-settings-for-standalone-clusters"></a>독립 실행형 클러스터에 대한 클러스터 설정 사용자 지정
-독립 실행형 클러스터는 ClusterConfig.json 파일을 통해 구성됩니다. 자세한 정보는 [독립 실행형 Windows 클러스터에 대한 구성 설정](./service-fabric-cluster-manifest.md)을 참조하세요.
-
-ClusterConfig.json의 [클러스터 속성](./service-fabric-cluster-manifest.md#cluster-properties) 섹션 아래에서 `fabricSettings` 섹션의 설정을 추가, 업데이트 또는 제거할 수 있습니다. 
-
-예를 들어 다음 JSON은 새 설정 *MaxDiskQuotaInMB*를 `fabricSettings` 아래의 *진단* 섹션에 추가합니다.
-
-```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
-```
-
-ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그레이드](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration)의 지침을 따라 클러스터에 설정을 적용합니다. 
-
 
 다음은 사용자 지정하고 섹션별로 정리할 수 있는 패브릭 설정의 목록입니다.
 
@@ -867,7 +813,4 @@ ClusterConfig.json 파일의 설정을 수정한 후 [클러스터 구성 업그
 |X509StoreName | string, 기본값: "My"|동적|UpgradeService의 X509StoreName입니다. |
 
 ## <a name="next-steps"></a>다음 단계
-클러스터 관리에 대한 자세한 내용은 다음 문서를 읽어보세요.
-
-[Azure 클러스터에서 인증서 추가, 롤오버, 제거 ](service-fabric-cluster-security-update-certs-azure.md) 
-
+자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md) 및 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.

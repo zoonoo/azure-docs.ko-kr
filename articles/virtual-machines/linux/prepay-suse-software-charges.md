@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: yashar
-ms.openlocfilehash: 9c3976a5fa98049de03f2a65b71f1fc927947142
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 44d23cf38eb1dca9ade94c5a8fd0ae495300be44
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43310621"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582193"
 ---
 # <a name="prepay-for-suse-software-plans-from-azure-reservations"></a>Azure Reservations에서 SUSE 소프트웨어 플랜에 대한 선불
 
@@ -38,7 +38,7 @@ Azure Portal에서 SUSE 소프트웨어 플랜을 구매할 수 있습니다. �
 
     | 필드      | 설명|
     |:------------|:--------------|
-    |Name        |이 구매의 이름입니다.|
+    |이름        |이 구매의 이름입니다.|
     |구독|이 플랜에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독 시 지불 방법은 예약에 대해 선불로 비용이 청구됩니다. 구독 유형은 기업 계약(제안 번호: MS-AZR-0017P) 또는 종량제(제안 번호: MS-AZR-0003P)여야 합니다. Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다. 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.|
     |범위       |범위에는 하나 또는 여러 개의 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우: <ul><li>단일 구독 - 플랜 할인이 이 구독의 SUSE Linux 사용량에 적용됩니다. </li><li>공유 - 플랜 할인이 청구 컨텍스트 내의 모든 구독에서 SUSE Linux 사용량에 적용됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독(개발/테스트 구독 제외)을 포함합니다. 종량제 고객의 공유 범위는 계정 관리자가 만든 모든 종량제 구독입니다.</li></ul>|
     |소프트웨어 플랜     |SUSE Linux 플랜을 선택합니다. 구매할 대상 식별에 대한 도움말은 [SUSE Linux Enterprise 소프트웨어 예약 할인이 적용되는 방식 이해](../../billing/billing-understand-suse-reservation-charges.md)를 참조하세요.|
@@ -64,12 +64,12 @@ Azure Portal에서 SUSE 소프트웨어 플랜을 구매할 수 있습니다. �
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Reservations란?](../../billing/billing-save-compute-costs-reservations.md)
+- [Azure 예약이란?](../../billing/billing-save-compute-costs-reservations.md)
 - [Azure에서 Reservations 관리](../../billing/billing-manage-reserved-vm-instance.md)
 - [SUSE 예약 할인이 적용되는 방식 이해](../../billing/billing-understand-suse-reservation-charges.md)
 - [종량제 구독의 예약 사용량 이해](../../billing/billing-understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](../../billing/billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

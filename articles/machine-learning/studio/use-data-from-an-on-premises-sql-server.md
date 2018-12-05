@@ -1,10 +1,11 @@
 ---
-title: Azure Machine Learning에서 온-프레미스 SQL Server 사용 | Microsoft Docs
-description: 온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure Machine Learning을 통해 고급 분석을 수행할 수 있습니다.
+title: Azure Machine Learning Studio를 사용하는 온-프레미스 SQL Server | Microsoft Docs
+description: 온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure Machine Learning Studio를 통해 고급 분석을 수행할 수 있습니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
@@ -15,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: 4ea0a247116db521e03d7092be0bb86a6528f44d
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346391"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310959"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure Machine Learning을 통해 고급 분석 수행
 
 온-프레미스 데이터로 작업하는 기업에서는 종종 기계 학습 워크로드를 위해 클라우드의 규모와 민첩성을 활용하려고 합니다. 하지만 클라우드로 온-프레미스 데이터를 이동하여 현재 비즈니스 프로세스 및 워크플로를 중단하지 않으려고 합니다. 이제 Azure Machine Learning은 온-프레미스 SQL Server 데이터베이스의 데이터를 읽은 다음, 이 데이터를 사용하여 교육을 하고 모델 점수를 매길 수 있도록 지원합니다. 더 이상 클라우드 및 온-프레미스 서버 간에 데이터를 수동으로 복사하고 동기화할 필요가 없습니다. 대신 Azure Machine Learning Studio의 **데이터 가져오기** 모듈은 교육 및 점수 매기기 작업을 위해 온-프레미스 SQL Server 데이터베이스에서 직접 데이터를 읽을 수 있습니다.
 
-이 문서에서는 온-프레미스 SQL Server 데이터를 Azure Machine Learning으로 수신하는 방법을 대략적으로 설명합니다. 여기서는 사용자가 작업 영역, 모듈, 데이터 집합, 실험 *등*의 Azure Machine Learning 개념에 익숙하다고 가정하겠습니다.
+이 문서에서는 온-프레미스 SQL Server 데이터를 Azure Machine Learning Studio로 수신하는 방법을 대략적으로 설명합니다. 여기서는 사용자가 작업 영역, 모듈, 데이터 집합, 실험 *등*의 Azure Machine Learning 개념에 익숙하다고 가정하겠습니다.
 
 > [!NOTE]
 > 이 기능을 무료 작업 영역에서는 사용할 수 없습니다. Machine Learning 가격 책정 및 계층에 대한 자세한 내용은 [Azure Machine Learning 가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)을 참조하세요.

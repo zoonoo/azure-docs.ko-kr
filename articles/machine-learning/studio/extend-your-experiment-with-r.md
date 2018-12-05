@@ -1,10 +1,11 @@
 ---
-title: R로 실험 확장 | Microsoft Docs
+title: R을 사용하여 실험 확장 - Azure Machine Learning Studio | Microsoft Docs
 description: R 스크립트 실행 모듈을 사용하여 R 언어를 통해 Azure Machine Learning Studio의 기능을 확장하는 방법.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 2c038a45-ba4d-42ea-9a88-e67391ef8c0a
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 1f05119d94611df2e75afc3a56d9682d1149326c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: df6453f1cf6e8b372239d528067a7258d645518d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834477"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311011"
 ---
-# <a name="extend-your-experiment-with-r"></a>R을 사용하여 실험 확장
+# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: R을 사용하여 실험 확장 
 [R 스크립트 실행][execute-r-script] 모듈을 사용하여 R 언어를 통해 Azure Machine Learning Studio의 기능을 확장할 수 있습니다.
 
 이 모듈에서는 여러 입력 데이터 집합을 허용하고 출력으로 단일 데이터 집합을 생성합니다. [R 스크립트 실행][execute-r-script] 모듈의 **R 스크립트** 매개 변수에 R 스크립트를 입력할 수 있습니다.
@@ -32,7 +33,7 @@ ms.locfileid: "34834477"
     dataset1 <- maml.mapInputPort(1)
 
 ## <a name="listing-all-currently-installed-packages"></a>현재 설치된 모든 패키지 나열
-설치된 패키지 목록을 변경할 수 있습니다. [Azure Machine Learning에서 지원하는 R 패키지](https://msdn.microsoft.com/library/azure/mt741980.aspx)에 현재 설치된 패키지의 목록이 있습니다.
+설치된 패키지 목록을 변경할 수 있습니다. [Azure Machine Learning Studio에서 지원하는 R 패키지](https://msdn.microsoft.com/library/azure/mt741980.aspx)에 현재 설치된 패키지의 목록이 있습니다.
 
 [R 스크립트 실행][execute-r-script] 모듈에 다음 코드를 입력하여 설치된 패키지의 완전한 현재 목록을 가져올 수도 있습니다.
 

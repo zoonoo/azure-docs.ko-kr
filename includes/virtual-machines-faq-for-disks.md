@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263892"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52585776"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -51,7 +51,7 @@ Managed Disks는 저장소 계정 관리를 처리하여 Azure IaaS VM을 위한
 
 **Azure Storage 계정에서 VHD 파일을 사용하여 다른 지역에 관리 디스크를 만들 수 있나요?**
 
-아니요.
+ 아니요.
 
 **고객이 Managed Disks를 사용하는 경우 규모 제한이 있나요?**
 
@@ -59,11 +59,11 @@ Managed Disks는 저장소 계정과 관련된 한도를 없앱니다. 그러나
 
 **관리 디스크의 증분 스냅숏을 가져올 수 있나요?**
 
-아니요. 현재 스냅숏 기능은 Managed Disk의 전체 복사본을 만듭니다.
+ 아니요. 현재 스냅숏 기능은 Managed Disk의 전체 복사본을 만듭니다.
 
 **관리 및 관리되지 않는 디스크를 조합하여 가용성 집합의 VM을 구성할 수 있나요?**
 
-아니요. 가용성 집합에 있는 VM은 모두 Managed Disks를 사용하거나 모두 관리되지 않는 디스크를 사용해야 합니다. 가용성 집합을 만들 때 사용할 디스크 유형을 사용자가 선택할 수 있습니다.
+ 아니요. 가용성 집합에 있는 VM은 모두 Managed Disks를 사용하거나 모두 관리되지 않는 디스크를 사용해야 합니다. 가용성 집합을 만들 때 사용할 디스크 유형을 사용자가 선택할 수 있습니다.
 
 **Managed Disks가 Azure Portal에서 기본 옵션인가요?**
 
@@ -111,15 +111,15 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 **Managed Disks를 축소하거나 크기를 줄일 수 있나요?**
 
-아니요. 이 기능은 현재 지원되지 않습니다. 
+ 아니요. 이 기능은 현재 지원되지 않습니다. 
 
 **내 디스크에서 임대를 중단할 수 있나요?**
 
-아니요. 현재 디스크를 사용하는 경우 실수로 삭제하지 않도록 방지하기 위해 임대로는 지원되지 않습니다.
+ 아니요. 현재 디스크를 사용하는 경우 실수로 삭제하지 않도록 방지하기 위해 임대로는 지원되지 않습니다.
 
 **VM을 프로비전하는 데 특수화된(시스템 준비 도구를 사용하여 생성되거나 일반화된) 운영 체제 디스크를 사용하는 경우 컴퓨터 이름 속성을 변경할 수 있나요?**
 
-아니요. 컴퓨터 이름 속성은 업데이트할 수 없습니다. 새 VM은 운영 체제 디스크를 만들 때 사용한 부모 VM에서 이 속성을 상속합니다. 
+ 아니요. 컴퓨터 이름 속성은 업데이트할 수 없습니다. 새 VM은 운영 체제 디스크를 만들 때 사용한 부모 VM에서 이 속성을 상속합니다. 
 
 **Managed Disks를 사용하여 VM을 만드는 Azure Resource Manager 템플릿 예제를 어디에 배치할 수 있나요?**
 * [Managed Disks를 사용하는 템플릿 목록](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
@@ -127,7 +127,7 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 **비관리 및 관리 디스크를 동일한 VM에 함께 배치할 수 있나요?**
 
-아니요.
+ 아니요.
 
 **BLOB에서 디스크를 만들 때 해당 원본 BLOB와 지속적으로 유지되는 관계가 있습니까?**
 
@@ -136,6 +136,10 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 **관리 또는 비관리 디스크가 생성된 후 이름을 변경할 수 있습니까?**
 
 관리 디스크의 이름은 변경할 수 없습니다. 하지만 현재 VHD 또는 VM에 연결되어 있지 않은 경우에 한해 비관리 디스크의 이름은 변경할 수 있습니다.
+
+**Azure 디스크에서 GBT 분할을 사용할 수 있나요?**
+
+GBT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 있습니다. OS 디스크는 MBR 파티션 스타일을 사용해야 합니다.
 
 ## <a name="standard-ssd-disks"></a>표준 SSD 디스크
 
@@ -171,7 +175,7 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표
 템플릿을 사용하여 표준 SSD 디스크를 만드는 방법에 대한 전체 템플릿 예제를 보려면 [표준 SSD 데이터 디스크를 사용하여 Windows 이미지에서 VM 만들기](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)를 참조하세요.
 
 **기존 디스크를 표준 SSD로 변환할 수 있나요?**
-예, 할 수 있습니다. Managed Disks로 변환하는 방법에 대한 일반 지침을 보려면 [Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)을 참조하세요. 또한 다음 값을 사용하여 디스크 유형을 표준 SSD로 업데이트하세요.
+ 예, 할 수 있습니다. Managed Disks로 변환하는 방법에 대한 일반 지침을 보려면 [Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)을 참조하세요. 또한 다음 값을 사용하여 디스크 유형을 표준 SSD로 업데이트하세요.
 -AccountType StandardSSD_LRS
 
 **HDD 대신 표준 SSD 디스크를 사용할 경우의 이점은 무엇입니까?**
@@ -199,11 +203,11 @@ Azure Resource Manager 템플릿, SDK, PowerShell 또는 CLI를 사용하여 표
 
 **기존 VM Scale Sets가 관리되지 않는 디스크에서 Managed Disks로 자동으로 마이그레이션되도록 지원되나요?**
 
-아니요. 관리되지 않는 디스크에서 이전 확장 집합의 이미지를 사용하여 Managed Disks로 새 확장 집합을 만들 수 있습니다.
+ 아니요. 관리되지 않는 디스크에서 이전 확장 집합의 이미지를 사용하여 Managed Disks로 새 확장 집합을 만들 수 있습니다.
 
 **Managed Disks로 마이그레이션하기 전에 페이지 Blob 스냅숏에서 Managed Disks를 만들 수 있나요?**
 
-아니요. 페이지 blob 스냅숏을 페이지 blob으로 내보내고 내보낸 페이지 blob에서 Managed Disks를 만들 수 있습니다.
+ 아니요. 페이지 blob 스냅숏을 페이지 blob으로 내보내고 내보낸 페이지 blob에서 Managed Disks를 만들 수 있습니다.
 
 **Azure Site Recovery에 의해 보호되는 온-프레미스 컴퓨터를 Managed Disks가 있는 VM으로 장애 조치(Failover)할 수 있나요?**
 
@@ -229,11 +233,11 @@ Microsoft에서 암호화 키를 관리합니다.
 
 **내 Managed Disks에 Storage 서비스 암호화를 비활성화할 수 있나요?**
 
-아니요.
+ 아니요.
 
 **Storage 서비스 암호화는 특정 지역에서만 사용할 수 있나요?**
 
-아니요. Managed Disks를 사용할 수 있는 모든 지역에서 사용할 수 있습니다. 모든 공용 지역 및 독일에서 Managed Disks를 사용할 수 있습니다. 중국에서도 사용할 수 있지만, 고객 관리 키가 아닌 Microsoft 관리 키의 경우로 국한됩니다.
+ 아니요. Managed Disks를 사용할 수 있는 모든 지역에서 사용할 수 있습니다. 모든 공용 지역 및 독일에서 Managed Disks를 사용할 수 있습니다. 중국에서도 사용할 수 있지만, 고객 관리 키가 아닌 Microsoft 관리 키의 경우로 국한됩니다.
 
 **내 Managed Disk가 암호화되었는지 어떻게 확인할 수 있나요?**
 
@@ -256,7 +260,7 @@ yes
 
 **Managed Disk 또는 스냅숏에서 내보낸 VHD도 암호화되나요?**
 
-아니요. 하지만 암호화된 Managed Disk 또는 스냅숏의 암호화된 저장소 계정에 VHD를 내보낼 경우 암호화됩니다. 
+ 아니요. 하지만 암호화된 Managed Disk 또는 스냅숏의 암호화된 저장소 계정에 VHD를 내보낼 경우 암호화됩니다. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>프리미엄 디스크: 관리 및 관리되지 않는 디스크
 
@@ -266,7 +270,7 @@ yes
 
 **프리미엄 및 표준 데이터 디스크를 모두 D, Dv2, G 또는 F 시리즈와 같이 프리미엄 SD 디스크를 지원하지 않는 크기에 연결할 수 있나요?**
 
-아니요. 프리미엄 SD 디스크를 지원하는 크기를 사용하지 않는 VM에는 표준 데이터 디스크만 연결할 수 있습니다.
+ 아니요. 프리미엄 SD 디스크를 지원하는 크기를 사용하지 않는 VM에는 표준 데이터 디스크만 연결할 수 있습니다.
 
 **80GB인 기존 VHD로 프리미엄 데이터 디스크를 만들 경우 비용은 얼마가 드나요?**
 

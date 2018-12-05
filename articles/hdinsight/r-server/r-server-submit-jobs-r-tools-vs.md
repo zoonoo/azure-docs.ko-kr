@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 400cb16e4f4440283a783116c4ee843bc0a7344c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248574"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497117"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
@@ -64,7 +64,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
 ## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>HDInsight ML 서비스 클러스터에 작업 제출
 
-PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 계산 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 계산 컨텍스트를 만듭니다.
+PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 계산 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Apache Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 컴퓨팅 컨텍스트를 만듭니다.
 
 1. 에지 노드의 호스트 이름을 찾으려면 Azure에서 HDInsight ML 서비스 클러스터 창을 연 다음, 개요 창의 상단 메뉴에서 **SSH(보안 셸)** 를 선택합니다.
 
@@ -132,7 +132,7 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Clien
 
         ![복사된 파일](./media/r-server-submit-jobs-r-tools-vs/copied-file.png)
 
-6. 현재 Spark 컨텍스트의 사용이 끝났으면 중지해야 합니다. 여러 컨텍스트를 한 번에 실행할 수 없습니다.
+6. 현재 Apache Spark 컨텍스트의 사용이 끝나면 중지해야 합니다. 여러 컨텍스트를 한 번에 실행할 수 없습니다.
 
     ```R
     rxStopEngine(mySparkCluster)

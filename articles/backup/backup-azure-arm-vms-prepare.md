@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256275"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422799"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Azure VM 백업 준비
 
@@ -34,7 +34,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
 
 ## <a name="supported-operating-systems-for-backup"></a>백업에 지원되는 운영 체제
 
- * **Linux**: Azure Backup은 CoreOS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 지원합니다. 파일 저장을 지원하는 Linux 운영 체제의 목록은 [가상 머신 백업에서 파일 복구](backup-azure-restore-files-from-vm.md#for-linux-os)를 참조하세요.
+ * **Linux**: Azure Backup은 CoreOS Linux 및 32비트 운영 체제를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 지원합니다. 파일 저장을 지원하는 Linux 운영 체제의 목록은 [가상 머신 백업에서 파일 복구](backup-azure-restore-files-from-vm.md#for-linux-os)를 참조하세요.
 
     > [!NOTE]
     > 가상 머신에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 있는 한 다른 Bring-Your-Own-Linux 배포가 작동할 수 있습니다. 그러나 이러한 배포는 지원되지 않습니다.
@@ -49,13 +49,14 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
 * LUKS(Linux 통합 키 설치) 암호화를 통해 암호화된 Linux VM을 백업하도록 지원하지 않습니다.
 * CSV(클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버 구성을 포함하는 VM을 백업하지 않는 것이 좋습니다. 완료된 경우 CSV 작성기의 실패가 예상됩니다. 스냅숏 작업 중에 클러스터 구성에 포함된 모든 VM이 포함되어야 합니다. Azure Backup은 다중 VM 일관성을 지원하지 않습니다.
 * Backup 데이터는 VM에 연결된 네트워크 탑재된 드라이브를 포함하지 않습니다.
-* 복원하는 동안 기존 가상 머신의 교체는 지원되지 않습니다. VM이 존재하는 경우 VM 복원을 시도하면, 복원 작업이 실패합니다.
+* **복원 구성**에서 **기존 항목 바꾸기**  옵션을 사용하면 현재 VM의 기존 디스크를 선택한 복원 지점으로 바꿀 수 있습니다. 이 작업은 현재 VM이 존재하는 경우에게만 수행할 수 있습니다. 
 * 지역 간 백업 및 복원은 지원되지 않습니다.
 * 백업을 구성하는 동안 **방화벽 및 가상 네트워크** 저장소 계정 설정에서 모든 네트워크의 액세스를 허용하는지 확인합니다.
 * 선택한 네트워크에 대해 저장소 계정에 대한 방화벽 및 가상 네트워크 설정을 구성한 다음, Azure Backup 서비스가 네트워크 제한 저장소 계정에 액세스할 수 있도록 **신뢰할 수 있는 Microsoft 서비스가 이 저장소 계정에 액세스하도록 허용합니다.** 를 예외적으로 선택합니다. 네트워크 제한 저장소 계정에는 항목 수준 복구가 지원되지 않습니다.
 * Azure의 모든 공영 지역에 있는 가상 머신을 백업할 수 있습니다. (지원되는 지역의 [검사 목록](https://azure.microsoft.com/regions/#services)을 참조하세요.) 찾는 지역이 현재 지원되지 않는 경우 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 * 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. 대해 자세히 알아보려면 [다중 DC 도메인 컨트롤러 복원](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)을 참조하세요.
 * Write Accelerator를 사용하도록 설정된 디스크의 스냅숏은 지원되지 않습니다. 이 제한 사항은 가상 머신의 모든 디스크에 대해 응용 프로그램 일치 스냅숏을 수행하는 Azure Backup 서비스 기능을 차단합니다.
+* Azure Backup은 Azure VM 백업을 위한 일광 절약 시간 변경에 대해 시계 자동 조정을 지원하지 않습니다. 필요한 경우 정책을 수정하여 일광 절약 시간 변경을 고려합니다.
 * 다음과 같은 특수 네트워크 구성을 포함하는 가상 머신 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 통해 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)을 참조하세요.
   * 부하 분산 장치 구성에서의 가상 머신(내부 및 외부)
   * 다중의 예약된 IP 주소가 있는 가상 머신

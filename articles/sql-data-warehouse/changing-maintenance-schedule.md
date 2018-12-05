@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 428b9970471c9365812639e251810c571698a574
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425962"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713268"
 ---
 # <a name="change-a-maintenance-schedule"></a>유지 관리 일정 변경 
 
 ## <a name="portal"></a>포털
 유지 관리 일정은 언제든지 업데이트하거나 변경할 수 있습니다. 선택한 인스턴스가 활성 유지 관리 주기를 통해 진행되는 경우 설정이 저장됩니다. 식별된 다음 유지 관리 기간 중에 활성화됩니다. 활성 유지 관리 이벤트 중에 데이터 웨어하우스를 모니터링하는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/service-health/resource-health-overview). 
 
-Azure 유지 관리 일정은 미리 보기 상태이며, 7일 동안 두 유지 관리 기간을 선택합니다. 각 유지 관리 기간은 3 ~ 8시간이 될 수 있습니다. 유지 관리는 유지 관리 기간 내에서 언제든지 발생할 수 있지만 사전 알림 없이 시간 범위 외에 발생하지는 않습니다. 서비스가 데이터 웨어하우스에 새 코드를 배포할 때는 연결이 잠깐 동안 끊깁니다. 
+유지 관리 일정을 사용하려면 7일 동안 두 유지 관리 기간을 선택해야 합니다. 각 유지 관리 기간은 3 ~ 8시간이 될 수 있습니다. 유지 관리는 유지 관리 기간 내에서 언제든지 발생할 수 있지만 사전 알림 없이 시간 범위 외에 발생하지는 않습니다. 서비스가 데이터 웨어하우스에 새 코드를 배포할 때는 연결이 잠깐 동안 끊깁니다. 
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>기본 및 보조 기간 확인
 

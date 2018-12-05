@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 11/16/2018
+ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346703"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853832"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -323,9 +323,10 @@ ms.locfileid: "51346703"
 
 ### <a name="managed-connectors"></a>관리되는 커넥터
 
-[Microsoft 관리되는 커넥터](../connectors/apis-list.md)가 호출하도록 지원하려면 논리 앱이 있는 지역에 따라 다음과 같은 아웃바운드 IP 주소가 포함되도록 방화벽 구성을 설정합니다.
+[Microsoft 관리되는 커넥터](../connectors/apis-list.md)가 호출하도록 지원하려면 논리 앱이 있는 지역에 지정된 모든 아웃바운드 IP 주소가 포함되도록 방화벽 구성을 설정합니다. [Azure Government](/azure-government/documentation-government-welcome) 및 [Azure China 21Vianet](/azure/china/china-welcome)의 경우 커넥터에 대한 예약된 IP 주소를 현재 사용할 수 없습니다.
 
 > [!IMPORTANT]
+> 
 > 기존 구성이 있는 경우 논리 앱이 있는 지역에 대한 다음 목록의 IP 주소를 포함하여 일치하도록 **2018년 9월 1일 이전까지 가능한 한 빨리** 업데이트하세요. 
 > 
 > Logic Apps는 방화벽을 통해 Azure Storage 계정에 직접 연결하도록 지원하지 않습니다. 이러한 저장소 계정에 액세스하려면 다음 옵션 중 하나를 사용합니다. 

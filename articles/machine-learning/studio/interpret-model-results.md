@@ -1,10 +1,11 @@
 ---
-title: Machine Learning에서 모델 결과 해석 | Microsoft Docs
+title: Machine Learning Studio에서 모델 결과 해석 - Azure | Microsoft Docs
 description: 모델 점수 매기기 출력을 사용하고 시각화하여 알고리즘에 설정된 최적의 매개 변수를 선택하는 방법
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: e62f4716a95a6c1840afde27361eeb756abff335
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c06b05989270b4199e5d97ca399a1411b73a702b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837007"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310272"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning"></a>Machine Learning에서 모델 결과 해석
+# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 모델 결과 해석
 이 토픽에서는 Azure Machine Learning Studio에서 예측 결과를 시각화하고 해석하는 방법을 설명합니다. 모델을 학습시키고 모델에 대한 예측을 수행("모델 점수 매기기")한 후에는 예측 결과를 이해하고 해석해야 합니다.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
@@ -116,7 +117,7 @@ Azure Machine Learning에는 이러한 각 분류 유형을 다루는 여러 모
 
 ![모델 점수 매기기 결과](./media/interpret-model-results/7.png)
 
-그림 7. 다중 클래스 분류에서 모델 점수 매기기 결과 시각화
+ 그림 7. 다중 클래스 분류에서 모델 점수 매기기 결과 시각화
 
 **결과 해석**
 

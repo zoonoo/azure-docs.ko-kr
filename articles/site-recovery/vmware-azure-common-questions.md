@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로의
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636818"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162486"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -47,14 +47,20 @@ LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하�
 ## <a name="on-premises"></a>온-프레미스
 
 ### <a name="what-do-i-need-on-premises"></a>온-프레미스에는 무엇이 필요한가요?
-온-프레미스에는 단일 VMware VM에 설치된 Site Recovery 구성 요소가 필요합니다. 하나 이상의 ESXi 호스트가 있는 VMware 인프라가 필요하며 vCenter 서버를 사용하는 것이 좋습니다. 또한 복제할 하나 이상의 VMware VM도 필요합니다. VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](vmware-azure-architecture.md).
 
-다음 두 가지 방법 중 하나로 온-프레미스 구성 서버를 배포할 수 있습니다.
+온-프레미스에서 다음이 필요합니다.
+- 단일 VMware VM에 설치된 Site Recovery 구성 요소
+- 하나 이상의 ESXi 호스트가 있는 VMware 인프라가 필요하며 vCenter 서버를 사용하는 것이 좋습니다.
+- 복제할 하나 이상의 VMware VM도 필요합니다.
 
-1. 사전 설치된 구성 서버가 있는 VM 템플릿을 사용하여 배포합니다. [여기에서 자세히 알아보세요](vmware-azure-tutorial.md#download-the-vm-template).
-2. 원하는 Windows Server 2016 컴퓨터에서 설치 프로그램을 사용하여 배포합니다. [여기에서 자세히 알아보세요](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+VMware에서 Azure로 복제 아키텍처에 대해 [자세히 알아보세요](vmware-azure-architecture.md).
 
-사용자의 고유한 Windows Server 컴퓨터에서 구성 서버 배포 시작 단계를 검색하려면 보호 활성화의 보호 목표에서 **Azure로 > 가상화되지 않음/기타**를 선택합니다.
+다음과 같이 온-프레미스 구성 서버를 배포할 수 있습니다.
+
+- 미리 설치된 구성 서버와 함께 OVA 템플릿을 사용하여 VMware VM으로 구성 서버를 배포하는 것이 좋습니다.
+- 어떤 이유로 템플릿으로 사용할 수 없는 경우 구성 서버를 수동으로 설정할 수 있습니다. [자세히 알아보기](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>온-프레미스 VM은 어디에 복제되는가요?
 데이터는 Azure 저장소에 복제됩니다. 장애 조치를 실행하면 Site Recovery에서 저장소 계정으로부터 Azure VM을 자동으로 만듭니다.
@@ -110,7 +116,7 @@ Azure로 VMware 복제의 경우 디스크 크기를 수정할 수 있습니다.
 - 프로세스 서버 - 복제 게이트웨이의 역할을 합니다. 즉 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 통해 최적화하며, Azure 저장소로 보냅니다. 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고, 온-프레미스 VMware VM에 대한 자동 검색을 수행합니다.
 - 마스터 대상 서버 - Azure에서 장애 복구 중에 복제 데이터를 처리합니다.
 
-구성 서버 구성 요소 및 프로세스에 대해 [자세히 알아봅니다](vmware-azure-architecture.md).
+구성 서버 구성 요소 및 프로세스에 대해 [자세히 알아보세요](vmware-azure-architecture.md).
 
 ### <a name="where-do-i-set-up-the-configuration-server"></a>구성 서버를 설정해야 하는 위치는 어떻게 되나요?
 구성 서버에는 단일 고가용성 온-프레미스 VMware VM이 필요합니다.

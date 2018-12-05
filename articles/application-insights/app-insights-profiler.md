@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9aae08aa5906f341a890ac15e30d2863109d83a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b0fc10099f1388169146d90efcd7c20dcbe8df27
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140011"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164951"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure Web Apps 프로파일링
 
@@ -31,18 +31,18 @@ Profiler는 현재 Web Apps에서 실행 중인 ASP.NET 및 ASP.NET Core 웹앱�
 * [Virtual Machines](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-Application Insights Profiler는 Application Insights 사이트 확장과 함께 설치됩니다. 사이트 확장을 설치하고 Azure Web Apps에 대한 프로필을 가져오도록 구성해야 합니다. 웹앱을 배포했으면, 소스 코드에 Application Insights SDK를 포함한 경우에도 아래 단계에 따라 프로파일러를 사용하도록 설정합니다.
+Application Insights Profiler는 App Services 런타임의 일부로 미리 설치되어 있지만 Azure Web Apps에 대한 프로필을 가져오도록 해당 기능을 켜야 합니다. 웹앱을 배포했으면, 소스 코드에 Application Insights SDK를 포함한 경우에도 아래 단계에 따라 프로파일러를 사용하도록 설정합니다.
 
 1. Azure Portal에서 **App Services** 창으로 이동합니다.
 1. **설정 > 모니터링** 창으로 이동합니다.
 
    ![App Services 포털에서 App Insights를 사용하도록 설정](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-1. 창의 지침에 따라 새 리소스를 만들거나 기존 App Insights 리소스를 선택하여 웹앱을 모니터링합니다. 모든 기본 옵션을 수락합니다. **코드 수준 진단**은 기본적으로 켜져 있고 Profiler를 사용하도록 설정합니다.
+1. 창의 지침에 따라 새 리소스를 만들거나 기존 App Insights 리소스를 선택하여 웹앱을 모니터링합니다. 또한 Profiler가 **켜기** 상태인지 확인합니다.
 
    ![App Insights 사이트 확장 추가][Enablement UI]
 
-1. Profiler는 이제 App Insights 사이트 확장을 사용하여 설치되고 App Services 앱 설정을 사용하여 활성화됩니다.
+1. 이제 Profiler가 App Services 앱 설정을 사용하여 활성화됩니다.
 
     ![Profiler에 대한 앱 설정][profiler-app-setting]
 

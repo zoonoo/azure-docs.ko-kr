@@ -2,24 +2,24 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines-windows
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 11/08/2018
-ms.author: danlep
+ms.date: 11/27/2018
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 6b6c7ce5589920f3101a13ab0ed6b7877f9cbca8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: f58d08629fcde791186d27ae09e7417453faf8ad
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333772"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585768"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
 ### <a name="nvidia-tesla-cuda-drivers"></a>NVIDIA Tesla(CUDA) 드라이버
 
-NCv2, NCv3 및 ND 시리즈 VM(NV 시리즈의 경우는 선택적임)용 NVIDIA Tesla(CUDA) 드라이버는 다음 표에 나와 있는 운영 체제에서만 사용할 수 있습니다. 드라이버 다운로드 링크는 발표 시점에 제공된 링크입니다. 최신 드라이버에 대해서는 [NVIDIA](http://www.nvidia.com/) 웹 사이트를 참조하세요.
+NC, NCv2, NCv3, ND 및 NDv2 시리즈 VM(NV 시리즈의 경우는 선택적임)용 NVIDIA Tesla(CUDA) 드라이버는 다음 표에 나와 있는 운영 체제에서만 사용할 수 있습니다. 드라이버 다운로드 링크는 발표 시점에 제공된 링크입니다. 최신 드라이버에 대해서는 [NVIDIA](http://www.nvidia.com/) 웹 사이트를 참조하세요.
 
 > [!TIP]
 > Windows Server VM에서 수동 CUDA 드라이버를 설치하는 대신, Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) 이미지를 배포할 수 있습니다. Windows Server 2016용 DSVM 에디션은 NVIDIA CUDA 드라이버, CUDA 심층 신경망 네트워크 라이브러리 및 기타 도구를 사전 설치합니다.
@@ -36,5 +36,5 @@ Microsoft는 가상 워크스테이션으로 사용되는 NV 및 NVv2 시리즈 
 
 | OS | 드라이버 |
 | -------- |------------- |
-| Windows Server 2016<br/><br/>윈도우 10 | [GRID 6.2(391.81)](https://go.microsoft.com/fwlink/?linkid=874181)(.exe) |
-| Windows Server 2012 R2 | [GRID 6.2(391.81)](https://go.microsoft.com/fwlink/?linkid=874184)(.exe)  |
+| Windows Server 2016<br/><br/>윈도우 10 | [GRID 7(411.81)](https://go.microsoft.com/fwlink/?linkid=874181)(.exe) |
+| Windows Server 2012 R2 | [GRID 7(411.81)](https://go.microsoft.com/fwlink/?linkid=874184)(.exe)  |

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 48b4878eef7395b51d19c59443736bae5aeb7365
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 0c44e57f99ea8fea91fd8178400c648e8dcd982b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233585"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309813"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso 마이그레이션: Azure에 온-프레미스 앱 다시 빌드
 
@@ -115,7 +115,7 @@ Contoso는 장점 및 단점 목록을 함께 조합하여 제안된 디자인�
 **서비스** | **설명** | **비용**
 --- | --- | ---
 [AKS](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Kubernetes 관리, 배포 및 운영을 간소화합니다. 완전히 관리되는 Kubernetes 컨테이너 오케스트레이션 서비스를 제공합니다.  | AKS는 무료 서비스입니다.  가상 머신, 연결된 저장소, 사용한 네트워킹 리소스에 대한 비용만 지불하면 됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/kubernetes-service/).
-[Azure 기능](https://azure.microsoft.com/services/functions/) | 서버 없는 이벤트 구동 계산 환경으로 개발을 가속화합니다. 필요할 때 확장할 수 있습니다.  | 사용한 리소스 비용만 지불하면 됩니다. 초당 리소스 사용량과 실행 횟수에 따라 요금이 청구됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/functions/).
+[Azure Functions](https://azure.microsoft.com/services/functions/) | 서버 없는 이벤트 구동 계산 환경으로 개발을 가속화합니다. 필요할 때 확장할 수 있습니다.  | 사용한 리소스 비용만 지불하면 됩니다. 초당 리소스 사용량과 실행 횟수에 따라 요금이 청구됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/functions/).
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | 모든 유형의 컨테이너 배포용 이미지를 저장합니다. | 기능, 저장소 및 사용 기간에 따른 비용입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/container-registry/).
 [Azure App Service](https://azure.microsoft.com/services/app-service/containers/) | 모든 플랫폼에서 실행되는 엔터프라이즈급 웹, 모바일 및 API 앱을 빠르게 빌드, 배포 및 확장하세요. | App Service 계획은 초 단위로 요금이 청구됩니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
@@ -495,7 +495,7 @@ Contoso 관리자는 프런트 엔드 사이트용으로 서로 다른 두 프�
 
     ![Json 설정](./media/contoso-migration-rebuild/configure-webapp2.png)
 
-5. 파일이 업데이트되면 파일 이름을 **smarthotelsettingsurl**로 바꾼 후 이전에 만든 저장소 블로그에 업로드합니다.
+5. 파일이 업데이트되면 파일 이름을 **smarthotelsettingsurl**로 바꾼 후 이전에 만든 BLOB 스토리지에 업로드합니다.
 
     ![이름 바꾸기 및 업로드](./media/contoso-migration-rebuild/configure-webapp3.png)
 

@@ -7,14 +7,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9234a57bdec3dfd7a1ccdba00b90a5c853dc1c5a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 42128a05ad9f82ff6b202eb6566c1fea60caa760
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960970"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162435"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>응용 프로그램에 대한 올바른 일관성 수준 선택
 
@@ -52,7 +52,7 @@ Cosmos DB SQL API 또는 Table API를 사용하여 애플리케이션이 빌드�
 
 * 나머지 세 가지 일관성 수준의 경우 부실 창은 워크로드에 따라 크게 달라집니다. 예를 들어 데이터베이스에서 발생하는 쓰기가 없는 경우 **최종**, **세션** 또는 **일관된 접두사** 일관성 수준이 있는 읽기 작업은 강력한 일관성 수준이 있는 읽기 작업과 동일한 결과를 발생할 수 있습니다.
 
-Cosmos DB 계정이 강력한 일관성 이외의 일관성 수준으로 구성된 경우 PBS(확률적 제한된 부실) 메트릭을 확인하여 워크로드에 대한 강력한 일관성 읽기를 가져오도록 클라이언트의 확률을 확인할 수 있습니다. 이 메트릭은 Azure Portal에 공개되어 있으며 자세히 알아보려면 [PBS 메트릭을 사용하는 방법](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric) 문서를 참조하세요.
+Cosmos DB 계정이 강력한 일관성 이외의 일관성 수준으로 구성된 경우 PBS(확률적 제한된 부실) 메트릭을 확인하여 워크로드에 대한 강력한 일관성 읽기를 가져오도록 클라이언트의 확률을 확인할 수 있습니다. 이 메트릭은 Azure Portal에서 노출됩니다. 자세히 알아보려면 [PBS(확률적 제한된 부실) 메트릭 모니터링](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)을 참조하세요.
 
 확률적 제한된 부실은 최종이 어떻게 최종 일관성인지 보여줍니다. 이 메트릭은 현재 Cosmos DB 계정에서 구성한 일관성 수준보다 얼마나 자주 더 강력한 일관성을 가져올 수 있는지에 대한 통찰력을 제공합니다. 즉, 쓰기 및 읽기 영역 조합에 대한 강력한 일관성 읽기를 가져오는 확률(밀리초로 제한됨)을 확인할 수 있습니다.
 
@@ -63,4 +63,4 @@ Cosmos DB 계정이 강력한 일관성 이외의 일관성 수준으로 구성�
 * [Cosmos DB API에서 일관성 수준 매핑](consistency-levels-across-apis.md)
 * [다양한 일관성 수준에 대한 가용성 및 성능의 장단점](consistency-levels-tradeoffs.md)
 * [응용 프로그램에 대한 세션 토큰을 관리하는 방법](how-to-manage-consistency.md#utilize-session-tokens)
-* [PBS(확률적 제한된 부실) 메트릭을 모니터링하는 방법](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [PBS(확률적 제한된 부실) 메트릭 모니터링](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9489d6e8780a30c5c54ee307d6c45c4bc2eb0e5d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fa72765e02592b72efb09320958a0aa244ae8b08
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419285"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265290"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
 
@@ -24,7 +24,7 @@ ms.locfileid: "50419285"
 
 ESP(Enterprise Security Package)는 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 액세스 제어를 지원합니다. ESP 옵션을 선택하면 HDInsight 클러스터가 Active Directory 도메인에 조인되고 엔터프라이즈 관리자는 Apache Ranger를 사용하여 Hive 보안을 위한 RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다. 또한 관리자는 직원의 데이터 액세스 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있습니다.
 
-ESP 기능은 현재 미리 보기로 제공되며 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Apache Interactive Query 유형의 클러스터에서만 사용할 수 있습니다.
+ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Query(Hive LLAP)의 클러스터 유형에서 사용할 수 있습니다. 
 
 도메인에 조인된 HDInsight 클러스터를 배포하려면 다음 단계를 수행합니다.
 

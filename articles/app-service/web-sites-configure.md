@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115525"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443511"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱 구성
 
@@ -78,6 +78,8 @@ ms.locfileid: "49115525"
 
 앱 설정은 저장될 때 항상 암호화됩니다(미사용 암호화).
 
+[Key Vault 참조](app-service-key-vault-references.md)를 사용하여 Key Vault에서 앱 설정을 해결할 수 있습니다.
+
 ### <a name="connection-strings"></a>연결 문자열
 연결된 리소스의 연결 문자열입니다. 
 
@@ -93,6 +95,8 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 예를 들어 MySql 연결 문자열 이름이 `connectionstring1`로 지정된 경우 환경 변수 `MYSQLCONNSTR_connectionString1`을 통해 액세스될 수 있습니다.
 
 연결 문자열은 저장될 때 항상 암호화됩니다(미사용 암호화).
+
+[Key Vault 참조](app-service-key-vault-references.md)를 사용하여 Key Vault에서 연결 설정을 해결할 수 있습니다.
 
 ### <a name="default-documents"></a>기본 문서
 기본 문서는 웹 사이트의 루트 URL에 표시되는 웹 페이지입니다.  목록에서 첫 번째로 일치되는 파일이 사용됩니다. 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 130d0154fc0558ae7284e8407ba88fda3a2a53d5
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: a2367eff3095df82662f7b56571ecdbd966609fd
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391303"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284015"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Azure VNET 내 VM에서 Azure Data Lake Storage Gen1 액세스
 Azure Data Lake Storage Gen1은 공용 인터넷 IP 주소에서 실행되는 PaaS 서비스입니다. 공용 인터넷에 연결할 수 있는 서버는 일반적으로 Azure Data Lake Storage Gen1 엔드포인트에도 연결할 수 있습니다. 기본적으로 Azure VNET에 있는 모든 VM은 인터넷에 액세스할 수 있으므로 Azure Data Lake Storage Gen1에 액세스할 수 있습니다. 그러나 VNET에서 VM을 인터넷에 액세스하지 못하도록 구성할 수 있습니다. 이러한 VM의 경우 Azure Data Lake Storage Gen1에 대한 액세스도 제한됩니다. Azure VNET의 VM에 대한 공용 인터넷 액세스를 차단하려면 다음 방법 중 하나를 사용하여 수행할 수 있습니다.
@@ -29,7 +29,7 @@ Azure Data Lake Storage Gen1은 공용 인터넷 IP 주소에서 실행되는 Pa
 이 문서에서는 앞서 나열한 세 가지 방법 중 하나를 사용하여 리소스에 액세스하도록 제한된 Azure VM에서 Azure Data Lake Storage Gen1에 액세스할 수 있도록 설정하는 방법을 알아봅니다.
 
 ## <a name="enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity"></a>연결이 제한된 VM에서 Azure Data Lake Storage Gen1에 대한 연결 사용
-이러한 VM에서 Azure Data Lake Storage Gen1에 액세스하려면 Azure Data Lake Storage Gen1 계정을 사용할 수 있는 IP 주소에 액세스하도록 구성해야 합니다. 계정의 DNS 이름(`<account>.azuredatalakestore.net`)을 확인하여 Data Lake Storage Gen1 계정의 IP 주소를 식별할 수 있습니다. 계정의 DNS 이름을 확인하려면 **nslookup**과 같은 도구를 사용할 수 있습니다. 컴퓨터에서 명령 프롬프트를 열고 다음 명령을 실행합니다.
+이러한 VM에서 Azure Data Lake Storage Gen1에 액세스하려면 Azure Data Lake Storage Gen1 계정을 사용할 수 있는 지역에 대한 IP 주소에 액세스하도록 구성해야 합니다. 계정의 DNS 이름(`<account>.azuredatalakestore.net`)을 확인하여 Data Lake Storage Gen1 계정 지역에 대한 IP 주소를 식별할 수 있습니다. 계정의 DNS 이름을 확인하려면 **nslookup**과 같은 도구를 사용할 수 있습니다. 컴퓨터에서 명령 프롬프트를 열고 다음 명령을 실행합니다.
 
     nslookup mydatastore.azuredatalakestore.net
 

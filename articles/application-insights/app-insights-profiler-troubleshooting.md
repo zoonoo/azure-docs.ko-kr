@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fa6e70fe58e5066fcf308425a4c0d104c072a756
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978845"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164306"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -46,9 +46,6 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 
 1. Profiler가 실행되는 기간 동안 요청이 있는 경우 Profiler가 사용하도록 설정된 응용 프로그램의 부분에서 요청이 처리되는지 확인합니다. 경우에 따라 응용 프로그램이 여러 구성 요소로 이루어져 있지만 Profiler가 전체가 아닌 일부 구성 요소에 대해서만 사용하도록 설정되어 있을 수 있습니다. Application Insights Profiler 구성 페이지에 추적이 업로드된 구성 요소가 표시됩니다.
 
-### <a name="net-core-21-bug"></a>.Net Core 2.1 버그
-프로파일러 에이전트에 ASP.NET Core 2.1에서 실행되는 응용 프로그램에서 수행된 추적을 업로드하지 못하도록 하는 버그가 있습니다. 수정하려고 노력하고 있으며 곧 준비될 예정입니다. 이 버그의 수정 사항은 10월 말에 배포될 것입니다.
-
 ### <a name="other-things-to-check"></a>기타 확인해야 할 사항:
 * 앱이 .NET Framework 4.6에서 실행되고 있는지 확인합니다.
 * 웹앱이 ASP.NET Core 응용 프로그램인 경우 ASP.NET Core 2.0 이상을 실행해야 합니다.
@@ -69,10 +66,11 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 ## <a name="troubleshooting-profiler-on-app-services"></a>App Service에서 Profiler 문제 해결
 ### <a name="for-the-profiler-to-work-properly"></a>프로파일러가 제대로 작동하려면:
 * 웹앱 서비스 계획이 기본 계층 이상이어야 합니다.
-* 웹앱에 App Services용 Application Insights 확장(2.6.5)이 설치되어 있어야 합니다.
+* 웹앱에서 Application Insights를 사용할 수 있어야 합니다.
 * 웹앱에 Application Insights SDK에서 사용하는 동일한 계측 키를 사용하여 구성된 **APPINSIGHTS_INSTRUMENTATIONKEY** 설정이 있어야 합니다.
 * 웹앱에 **APPINSIGHTS_PROFILERFEATURE_VERSION** 앱 설정이 정의되어 있고 1.0.0으로 설정되어 있어야 합니다.
-* **ApplicationInsightsProfiler2** 웹 작업이 실행되고 있어야 합니다. [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)로 이동한 후 도구 메뉴에서 **WebJobs 대시보드**를 열어 웹 작업을 확인할 수 있습니다. 아래 스크린샷에서 볼 수 있는 것처럼 ApplicationInsightsProfiler2 링크를 클릭하면 로그를 포함하여 웹 작업에 대한 세부 정보를 볼 수 있습니다.
+* 웹앱에 **DiagnosticServices_EXTENSION_VERSION** 앱 설정이 정의되어 있어야 하며 값을 ~3으로 설정해야 합니다.
+* **ApplicationInsightsProfiler3** 웹 작업이 실행되고 있어야 합니다. [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)로 이동한 후 도구 메뉴에서 **WebJobs 대시보드**를 열어 웹 작업을 확인할 수 있습니다. 아래 스크린샷에서 볼 수 있는 것처럼 ApplicationInsightsProfiler2 링크를 클릭하면 로그를 포함하여 웹 작업에 대한 세부 정보를 볼 수 있습니다.
 
     웹 작업 세부 정보를 보기 위해 클릭해야 하는 링크는 다음과 같습니다. 
 
@@ -91,11 +89,7 @@ Profiler를 구성하면 웹앱의 설정에 업데이트가 이루어집니다.
 1. **무중단**을 **사용**으로 설정합니다.
 1. **APPINSIGHTS_INSTRUMENTATIONKEY** 앱 설정을 추가하고 값을 SDK에서 사용한 동일한 계측 키로 설정합니다.
 1. **APPINSIGHTS_PROFILERFEATURE_VERSION** 앱 설정을 추가하고 해당 값을 1.0.0으로 설정합니다.
-1. **고급 도구**를 엽니다.
-1. **이동**을 선택하여 Kudu 웹 사이트를 엽니다.
-1. Kudu 웹 사이트에서 **사이트 확장**을 선택합니다.
-1. Azure Web Apps 갤러리에서 **Application Insights**를 설치합니다.
-1. 웹 앱을 다시 시작합니다.
+1. **DiagnosticServices_EXTENSION_VERSION** 앱 설정을 추가하고, 값을 ~3으로 설정합니다.
 
 ### <a name="too-many-active-profiling-sessions"></a>너무 많은 활성 프로파일링 세션
 

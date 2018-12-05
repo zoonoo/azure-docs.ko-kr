@@ -1,6 +1,6 @@
 ---
 ms.assetid: ''
-title: Azure Key Vault Storage 계정 키
+title: Azure Key Vault 관리 스토리지 계정 - CLI
 description: 저장소 계정 키는 Azure Key Vault 간의 원활한 통합과 Azure Storage 계정에 대한 키 기반 액세스를 제공합니다.
 ms.topic: conceptual
 services: key-vault
@@ -9,14 +9,14 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: e62c599d82f488bf1fc30ce503c271084c5ae59d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e110a24af6a0d49ea949db6bc30ab344c81d0f48
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300226"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619285"
 ---
-# <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault Storage 계정 키
+# <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 관리 스토리지 계정 - CLI
 
 > [!NOTE]
 > [Azure Storage는 이제 AAD 권한 부여를 지원합니다](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). 사용자가 해당 저장소 계정 키 회전에 대해 걱정할 필요가 없으므로 저장소에 대한 인증 및 권한 부여에 Azure Active Directory를 사용하는 것이 좋습니다.

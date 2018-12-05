@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1f74538deab38db536bfcdc6d0f703d455039d51
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b42dc0f86a70feb06b32a20c7cbdd513920f65d6
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235907"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263524"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -36,6 +36,17 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
 
 다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+
+## <a name="12670"></a>1.2.67.0
+
+### <a name="release-status"></a>릴리스 상태 
+
+2018/11/19: 다운로드용으로 릴리스되었습니다.
+
+### <a name="fixed-issues"></a>해결된 문제
+
+이 핫픽스 빌드는 Windows Server 2008/R2에서 ADDS 도메인 컨트롤러를 사용할 때 암호 쓰기 저장이 실패하는 이전 빌드의 회귀를 수정합니다.
 
 ## <a name="12650"></a>1.2.65.0 
 
@@ -1053,7 +1064,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 * [AD FS 구성](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) 가능
 * [DirSync에서 업그레이드](how-to-dirsync-upgrade-get-started.md) 가능
 * [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md)
-* [스테이징 모드](how-to-connect-sync-operations.md#staging-mode)
+*  [스테이징 모드](how-to-connect-sync-operations.md#staging-mode)
 
 **새로운 미리 보기 기능:**
 

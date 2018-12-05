@@ -7,13 +7,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 4209ce8d15bf53381825e8bb3e47f0a16366a436
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 5124e06296962f1b673c77bfe318ff48d7fb11aa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346606"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291326"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure Stream Analytics 출력 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "49346606"
       - 작업이 이벤트 허브를 사용하는 경우 메시지의 본문이 *Null*인지 확인합니다.
       
     - 데이터 변환 오류가 0보다 크며 증가하는 경우 다음을 의미할 수 있습니다.
-      - 작업이 이벤트를 역직렬화하지 못할 수도 있습니다.
+      - 출력 이벤트가 대상 싱크의 스키마를 따르지 않습니다. 
       - 이벤트 스키마가 쿼리에서 이벤트의 정의 또는 예상 스키마와 일치하지 않을 수도 있습니다.
       - 이벤트에서 일부 필드의 데이터 형식이 예상과 일치하지 않을 수도 있습니다.
       

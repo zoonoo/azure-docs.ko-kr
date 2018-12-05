@@ -1,18 +1,25 @@
 ---
 title: Azure로 장애 조치(failover) 문제 해결 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 장애 조치(failover)하는 동안 발생하는 일반적인 문제를 해결하는 방법을 설명합니다.
+description: 이 문서에서는 Azure로 장애 조치(failover) 시 일반적인 오류 문제를 해결하는 방법을 설명합니다.
+services: site-recovery
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
+ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: 420d061b34734c7b5997f5cdd58fe7faaee9cb82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236759"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447149"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>가상 머신을 Azure로 장애 조치 시 오류 문제 해결
 
@@ -22,7 +29,7 @@ ms.locfileid: "51236759"
 
 Site Recovery가 Azure에서 장애 조치된 가상 머신을 만들 수 없습니다. 다음 이유 중 하나로 인해 발생할 수 있습니다.
 
-* 가상 머신을 만드는 데 사용할 수 있는 할당량이 충분하지 않습니다. [구독] -&gt; [사용량 + 할당량]으로 이동하여 사용할 수 있는 할당량을 확인할 수 있습니다. [새로운 지원 요청](https://aka.ms/getazuresupport)을 열어 할당량을 늘릴 수 있습니다.
+* 가상 머신을 만드는 데 사용할 수 있는 할당량이 충분하지 않습니다. [구독] -&gt; [사용량 + 할당량]으로 이동하여 사용할 수 있는 할당량을 확인할 수 있습니다. [새로운 지원 요청](http://aka.ms/getazuresupport)을 열어 할당량을 늘릴 수 있습니다.
 
 * 동일한 가용성 집합에 다른 크기 제품군의 가상 머신을 장애 조치하려고 합니다. 동일한 가용성 집합의 모든 가상 머신에 대해 동일한 크기 제품군을 선택했는지 확인합니다. 가상 머신의 Compute 및 네트워크 설정으로 이동하여 크기를 변경한 후 장애 조치를 다시 시도합니다.
 
@@ -30,7 +37,7 @@ Site Recovery가 Azure에서 장애 조치된 가상 머신을 만들 수 없습
 
 ## <a name="failover-failed-with-error-id-28092"></a>장애 조치 실패(오류 ID 28092)
 
-Site Recovery가 장애 조치된 가상 머신에 대해 네트워크 인터페이스를 만들 수 없습니다. 구독에서 네트워크 인터페이스를 만드는 데 사용할 수 있는 충분한 할당량이 있는지 확인합니다. [구독] -> [사용량 + 할당량]으로 이동하여 사용할 수 있는 할당량을 확인할 수 있습니다. [새로운 지원 요청](https://aka.ms/getazuresupport)을 열어 할당량을 늘릴 수 있습니다. 할당량이 충분하고 일시적인 문제일 수 있다면 작업을 다시 시도합니다. 다시 시도 후에도 문제가 계속되면 이 문서의 끝에 의견을 남겨 주세요.  
+Site Recovery가 장애 조치된 가상 머신에 대해 네트워크 인터페이스를 만들 수 없습니다. 구독에서 네트워크 인터페이스를 만드는 데 사용할 수 있는 충분한 할당량이 있는지 확인합니다. [구독] -> [사용량 + 할당량]으로 이동하여 사용할 수 있는 할당량을 확인할 수 있습니다. [새로운 지원 요청](http://aka.ms/getazuresupport)을 열어 할당량을 늘릴 수 있습니다. 할당량이 충분하고 일시적인 문제일 수 있다면 작업을 다시 시도합니다. 다시 시도 후에도 문제가 계속되면 이 문서의 끝에 의견을 남겨 주세요.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>장애 조치 실패(오류 ID 70038)
 
@@ -38,7 +45,37 @@ Site Recovery가 Azure에서 장애 조치된 클래식 가상 머신을 만들 
 
 * 만들 가상 머신에 필요한 가상 네트워크와 같은 리소스 중 하나가 존재하지 않습니다. 가상 머신의 Compute 및 네트워크 설정에 제공된 대로 가상 네트워크를 만들거나 이미 존재하는 가상 네트워크로 설정을 수정한 다음 장애 조치를 다시 시도합니다.
 
-## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>연결할 수 없음/RDP/SSH - VM 연결 단추가 회색으로 표시됨
+## <a name="failover-failed-with-error-id-170010"></a>장애 조치 실패(오류 ID 170010)
+
+Site Recovery가 Azure에서 장애 조치된 가상 머신을 만들 수 없습니다. 하이드레이션의 내부 활동이 온-프레미스 가상 머신에 대해 실패했으므로 발생할 수 있습니다.
+
+Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상태의 일부 드라이버 및 자동 시작 상태의 DHCP와 같은 서비스가 필요합니다. 따라서 장애 조치(failover) 시 하이드레이션 작업은 **atapi, intelide, storflt, vmbus 및 storvsc 드라이버**의 시작 형식을 부팅 시작으로 변환합니다. 또한 DHCP와 같은 몇 가지 서비스의 시작 유형을 자동 시작으로 변환합니다. 이 작업은 특정 환경 문제로 인해 실패할 수 있습니다. 드라이버의 시작 유형을 수동으로 변경하려면 다음 단계를 따릅니다.
+
+1. 비하이드레이션 스크립트를 [다운로드](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1)하여 다음과 같이 실행합니다. 이 스크립트는 VM에 하이드레이션이 필요한지 확인합니다.
+
+    `.\Script-no-hydration.ps1`
+
+    하이드레이션 필요한 경우 다음 결과가 표시됩니다.
+
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+
+        This system doesn't meet no-hydration requirement.
+
+    VM이 비하이드레이션 요구 사항을 충족하는 경우 이 스크립트에는 "이 시스템은 비하이드레이션 요구 사항을 충족합니다"라는 결과가 표시됩니다. 이 경우 모든 드라이버 및 서비스는 Azure에서 필요한 상태에 있으며 VM에서 하이드레이션은 필요 없습니다.
+
+2. VM이 비하이드레이션 요구 사항을 충족하지 않는 경우 다음과 같이 no-hydration-set 스크립트를 실행합니다.
+
+    `.\Script-no-hydration.ps1 -set`
+    
+    그러면 드라이버의 시작 유형이 변환되고 다음과 같은 결과가 표시됩니다.
+    
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
+
+        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+
+        This system is now no-hydration compatible. 
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>가상 머신의 연결 단추가 회색으로 표시되어 장애 조치된 가상 머신에 RDP/SSH를 연결할 수 없음
 
 Azure에서 장애 조치(failover)된 VM의 **연결** 단추가 회색으로 표시되고 Express 경로 또는 사이트 간 VPN 연결을 통해 Azure에 연결되지 않은 경우에는 다음을 수행합니다.
 

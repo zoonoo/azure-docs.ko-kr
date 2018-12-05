@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: e55c06c7e8a2d0952cac809b622fa9a63ccee399
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 533e8b30bf59010f71df477b96b5441c83c34be7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959803"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307111"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>빠른 시작: Java를 사용하여 Bing Local Business Search API에 쿼리 보내기
 
@@ -27,7 +27,7 @@ ms.locfileid: "50959803"
 
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요합니다.
+Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. 이 빠른 시작에는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)이면 충분합니다. 평가판을 활성화할 때 제공된 액세스 키가 필요합니다.  [Cognitive Services 가격 책정 - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)도 참조하세요.
 
 이 예제 애플리케이션은 *hotel in Bellevue*에 대한 쿼리에서 로컬 응답 데이터를 가져옵니다.
 
@@ -37,9 +37,9 @@ Bing Search API를 사용하는 [Cognitive Services API 계정](https://docs.mic
 
 ````
     // construct URL of search request (endpoint + query string)
-     URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "appid=AEA845921DC03F506DC317A90EDDBF33074523F7&traffictype=Internal_monitor&market=en-us");
+     URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-    //connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
     // receive JSON body
     InputStream stream = connection.getInputStream();
@@ -100,10 +100,9 @@ public class LocalSearchCls {
 
         public static SearchResults SearchLocal (String searchQuery) throws Exception {
             // construct URL of search request (endpoint + query string)
-            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + 
-                         "&appid=" + subscriptionKey + "&traffictype=Internal_monitor&market=en-us");
+            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "&mkt=en-us");
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-            //connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
             // receive JSON body
             InputStream stream = connection.getInputStream();

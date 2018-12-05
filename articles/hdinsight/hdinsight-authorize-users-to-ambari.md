@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 4e05d4ff9c090fac0242921e15ef16439d3ed27f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954452"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496890"
 ---
-# <a name="authorize-users-for-ambari-views"></a>사용자에게 Ambari 보기에 대한 권한 부여
+# <a name="authorize-users-for-apache-ambari-views"></a>사용자에게 Apache Ambari Views에 대한 권한 부여
 
-[ESP(Enterprise Security Package) 사용 HDInsight 클러스터](./domain-joined/apache-domain-joined-introduction.md)는 Azure Active Directory 기반 인증을 비롯한 엔터프라이즈급 기능을 제공합니다. 클러스터에 대한 액세스를 제공 받은 Azure AD 그룹에 추가된 [새 사용자를 동기화](hdinsight-sync-aad-users-to-cluster.md)하여 특정 사용자가 특정 작업을 수행할 수 있게 할 수 있습니다. Ambari의 사용자, 그룹, 권한 작업은 ESP HDInsight 클러스터와 표준 HDInsight 클러스터 모두에 대해 지원됩니다.
+[ESP(Enterprise Security Package) 사용 HDInsight 클러스터](./domain-joined/apache-domain-joined-introduction.md)는 Azure Active Directory 기반 인증을 비롯한 엔터프라이즈급 기능을 제공합니다. 클러스터에 대한 액세스를 제공 받은 Azure AD 그룹에 추가된 [새 사용자를 동기화](hdinsight-sync-aad-users-to-cluster.md)하여 특정 사용자가 특정 작업을 수행할 수 있게 할 수 있습니다. [Apache Ambari](https://ambari.apache.org/)의 사용자, 그룹, 권한 작업은 ESP HDInsight 클러스터와 표준 HDInsight 클러스터 모두에 대해 지원됩니다.
 
-Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 자신의 도메인 자격 증명을 사용하여 Hue, Ambari 보기, ODBC, JDBC, PowerShell, REST API 등 다른 승인된 엔드포인트와의 클러스터 상호 작용을 인증할 수 있습니다.
+Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 클러스터 노드에 로그온할 수 있습니다. 또한 자체 도메인 자격 증명을 사용하여 [Hue](http://gethue.com/), Ambari 보기, ODBC, JDBC, PowerShell, REST API 등의 승인된 다른 엔드포인트와 클러스터의 상호 작용을 인증할 수 있습니다.
 
 > [!WARNING]
 > Linux 기반 HDInsight 클러스터에서 Ambari watchdog(hdinsightwatchdog)의 암호는 변경하지 마세요. 암호를 변경하면 스크립트 동작을 사용하거나 클러스터에서 크기 조정 작업을 수행하는 기능이 중단됩니다.
@@ -29,13 +29,13 @@ Active Directory 사용자는 자신의 도메인 자격 증명을 사용하여 
 
 ## <a name="access-the-ambari-management-page"></a>Ambari 관리 페이지 액세스
 
-[Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에서 **Ambari 관리 페이지**로 이동하려면 **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** 으로 이동합니다. 클러스터를 만들 때 정의한 클러스터 관리자 사용자 이름 및 암호를 입력합니다. 다음으로, Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
+[Apache Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)에서 **Ambari 관리 페이지**로 이동하려면 **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** 으로 이동하세요. 클러스터를 만들 때 정의한 클러스터 관리자 사용자 이름 및 암호를 입력합니다. 다음으로, Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
 
 ![Ambari 관리](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
-## <a name="grant-permissions-to-hive-views"></a>Hive 보기에 대한 권한 부여
+## <a name="grant-permissions-to-apache-hive-views"></a>Apache Hive View에 대한 권한 부여
 
-Ambari는 Hive 및 Tez에 대한 보기 인스턴스가 함께 제공됩니다. 하나 이상의 Hive 보기 인스턴스에 대한 액세스 권한을 부여하려면 **Ambari 관리 페이지**로 이동합니다.
+Ambari에는 [Apache Hive](https://hive.apache.org/) 및 [Apache TEZ](https://tez.apache.org/)에 대한 보기 인스턴스가 함께 제공됩니다. 하나 이상의 Hive 보기 인스턴스에 대한 액세스 권한을 부여하려면 **Ambari 관리 페이지**로 이동합니다.
 
 1. 관리 페이지에서, 왼쪽에 있는 **Views** 메뉴 머리글 아래에서 **보기** 연결을 선택합니다.
 
@@ -72,9 +72,9 @@ Ambari는 Hive 및 Tez에 대한 보기 인스턴스가 함께 제공됩니다. 
 
 보기를 사용할 사용자에게 권한을 할당하되, 해당 사용자를 추가 권한이 있는 그룹 구성원으로 할당하지 않으려면 보기에 사용자를 직접 추가하는 것이 좋습니다. 관리 오버헤드를 줄이려는 경우 그룹에 권한을 할당하는 것이 좀 더 간단할 수 있습니다.
 
-## <a name="grant-permissions-to-tez-views"></a>Tez 보기에 대한 권한 부여
+## <a name="grant-permissions-to-apache-tez-views"></a>Apache TEZ 보기에 대한 권한 부여
 
-사용자는 Tez 보기 인스턴스를 사용하여 Hive 쿼리 및 Pig 스크립트를 통해 제출된 모든 Tez 작업을 모니터링하고 디버그할 수 있습니다. 클러스터가 프로비전될 때 만들어진 기본 Tez 보기 인스턴스 하나 있습니다.
+사용자는 [Apache TEZ](https://tez.apache.org/) 보기 인스턴스를 사용하여 [Apache Hive](https://hive.apache.org/) 쿼리 및 [Apache Pig](https://pig.apache.org/) 스크립트를 통해 제출된 모든 Tez 작업을 모니터링하고 디버그할 수 있습니다. 클러스터가 프로비전될 때 만들어진 기본 Tez 보기 인스턴스 하나 있습니다.
 
 Tez 보기 인스턴스에 사용자 및 그룹을 할당하려면 앞서 설명했듯이 보기 페이지에서 **TEZ** 행을 확장합니다.
 
@@ -136,7 +136,7 @@ Microsoft Azure Active Directory 도메인 사용자 "hiveuser2"를 *클러스�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [ESP를 사용하여 HDInsight에서 Hive 정책 구성](./domain-joined/apache-domain-joined-run-hive.md)
+* [ESP가 포함된 HDInsight에서 Apache Hive 정책 구성](./domain-joined/apache-domain-joined-run-hive.md)
 * [ESP HDInsight 클러스터 관리](./domain-joined/apache-domain-joined-manage.md)
-* [HDInsight에서 Hadoop과 Hive 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [HDInsight에서 Apache Hadoop과 Apache Hive View 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [클러스터에 Azure AD 사용자 동기화](hdinsight-sync-aad-users-to-cluster.md)

@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8beb372c3fae567b23e51d2776dd9a79d837c657
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279884"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313838"
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
 
@@ -86,7 +86,7 @@ Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리
 가능한 Service Bus 예외의 목록은 [예외 개요][Exceptions overview]를 참조하세요.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>공유 액세스 서명이란 무엇이고 어떤 언어가 서명 생성을 지원하나요?
-공유 액세스 서명은 SHA – 256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. 노드, PHP, Java 및 C\#에서 직접 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명][Shared Access Signatures] 문서를 참조하세요.
+공유 액세스 서명은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Java 및 C\#에서 직접 서명을 생성하는 방법에 대한 내용은 [공유 액세스 서명][Shared Access Signatures] 문서를 참조하세요.
 
 ## <a name="subscription-and-namespace-management"></a>구독 및 네임스페이스 관리
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>다른 Azure 구독으로 네임스페이스를 마이그레이션하려면 어떻게 해야 하나요?

@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa43a6f1f7c757366e321e7da0fb1e47d4928cee
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: b68f7004366dcb502ffc8332cf8266a434c7ecfb
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639359"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977151"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>가상 머신 Marketplace 탭
 
 **새 제안** 페이지의 **Marketplace** 탭을 사용하면 잠재 고객에게 마케팅, 판매 및 법적 정보와 계약을 제공하고 마켓플레이스에서 창출된 잠재 고객을 관리할 수 있습니다. 이 긴 양식은 **개요**, **마케팅 아티팩트**, **잠재 고객 관리** 및 **법적 정보**의 4개 섹션으로 나뉩니다. 
 
 ## <a name="overview-section"></a>개요 섹션
-이 섹션에서는 Azure Marketplace 제안에 대한 일반적인 정보를 입력합니다.  필드 이름에 별표(*)가 추가되면 필수 항목임을 나타냅니다.
+이 섹션에서는 Azure Marketplace 제품에 대한 일반적인 정보를 입력합니다.  필드 이름에 별표(*)가 추가되면 필수 항목임을 나타냅니다.
 
 ![가상 머신에 대한 새 제안 양식에 있는 Marketplace 탭의 개요 섹션](./media/publishvm_008.png)
 
@@ -40,7 +40,8 @@ ms.locfileid: "49639359"
 | **설명**           | 솔루션에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다. |
 | **마케팅 식별자**  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **미리 보기 구독 ID** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
-| **유용한 링크**          | 제안이 가장 적합하게 연결될 수 있는 비즈니스 및 기술 범주에 대한 다중 선택입니다.  최대 5개까지 허용됩니다.  |
+| **유용한 링크**          | 설명서, 릴리스 정보, FAQ 등에 URL을 추가합니다. |
+| **권장 범주(최대 5개)** | 제품이 가장 적합하게 연결될 수 있는 비즈니스 및 기술 범주에 대한 다중 선택입니다.  최대 5개까지 허용됩니다.  |
 |  |  |
 
 
@@ -124,7 +125,7 @@ Cloud 파트너 포털에 업로드되는 모든 로고는 다음 지침을 따�
 
 |  **필드**                |     **설명**                                                          |
 |  ---------                |     ---------------                                                          |
-| **개인정보처리방침 URL**    | 게시된 개인정보처리방침에 대한 URL입니다.                                            |
+| **개인정보처리방침 URL**    | 게시된 개인정보처리방침에 대한 URL                                            |
 | **사용 약관**          | 일반 텍스트 또는 단순 HTML 형식으로 작성된 정책입니다.  <!-- TODO - max char length? -->       |
 |  |  |
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282784"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263607"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -56,7 +56,7 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 | 전용 노드 | 2000 |
 | 우선 순위가 낮은 노드 | 1000 |
 
-<sup>1</sup> 노드 간 통신을 사용하도록 설정된 풀입니다.
+<sup>1</sup> 노드 간 통신을 사용하도록 설정되지 않은 풀입니다.
 
 ## <a name="other-limits"></a>기타 제한
 

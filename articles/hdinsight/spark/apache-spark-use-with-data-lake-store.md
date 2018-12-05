@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9fe4b3e49f8e3270f58929a5708a83ab02e2486c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 876a564c3cf5ee4b19d7f2530ecff1ed12bebe63
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255253"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581831"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Store의 데이터 분석
 
-이 자습서에서는 HDInsight Spark 클러스터와 함께 제공되는 Jupyter Notebook을 사용하여 Data Lake Store 계정에서 데이터를 읽는 작업을 실행합니다.
+이 자습서에서는 HDInsight Spark 클러스터와 함께 제공되는 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Data Lake Store 계정에서 데이터를 읽는 작업을 실행합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -61,7 +61,7 @@ Data Lake Store를 추가 저장소로, Azure Storage Blob을 기본 저장소�
 
 ## <a name="use-an-hdinsight-spark-cluster-with-data-lake-store"></a>Data Lake Store를 포함한 HDInsight Spark 클러스터 사용
 
-1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
+1. [Azure Portal](https://portal.azure.com/)의 시작 보드에서 Apache Spark 클러스터에 대한 타일을 클릭합니다(시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.
 
 2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
@@ -115,7 +115,7 @@ Data Lake Store를 추가 저장소로, Azure Storage Blob을 기본 저장소�
             # Register the data fram as a table to run queries against
             hvacdf.registerTempTable("hvac")
 
-6. PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 기타 PySpark 커널에서 사용 가능한 매직에 대한 자세한 내용은 [Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
+6. PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
@@ -134,5 +134,5 @@ Data Lake Store를 추가 저장소로, Azure Storage Blob을 기본 저장소�
 ## <a name="next-steps"></a>다음 단계
 
 * [Apache Spark에서 실행할 독립 실행형 Scala 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
-* [IntelliJ용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기](apache-spark-intellij-tool-plugin.md)
-* [Eclipse용 Azure 도구 키트의 HDInsight 도구를 사용하여 HDInsight Spark Linux 클러스터용 Spark 응용 프로그램 만들기](apache-spark-eclipse-tool-plugin.md)
+* [Azure Toolkit for IntelliJ의 HDInsight 도구를 사용하여 HDInsight Spark Linux 클러스터용 Apache Spark 애플리케이션 만들기](apache-spark-intellij-tool-plugin.md)
+* [Azure Toolkit for Eclipse의 HDInsight 도구를 사용하여 HDInsight Spark Linux 클러스터용 Apache Spark 애플리케이션 만들기](apache-spark-eclipse-tool-plugin.md)

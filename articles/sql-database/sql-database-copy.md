@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 639795824bf75bb99d34f12d4dfc4e0695341986
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: f3da1a8cef5abc8fd30a0dc7760005ad5fff5446
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868415"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335372"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>트랜잭션 측면에서 일관된 Azure SQL Database의 복사본을 만듭니다.
 
@@ -26,6 +26,9 @@ Azure SQL Database는 동일한 서버 또는 다른 서버에서 기존 Azure S
 ## <a name="overview"></a>개요
 
 데이터베이스 복사본은 복사 요청 당시의 원본 데이터베이스의 스냅숏입니다. 동일한 서버 또는 다른 서버, 해당 서비스 계층 및 계산 크기 또는 동일한 서비스 계층(버전) 내 다른 계산 크기를 선택할 수 있습니다. 복사가 완료되면 완전히 작동하는 독립 데이터베이스가 됩니다. 이 시점에서 모든 버전으로 업그레이드하거나 다운그레이드할 수 있습니다. 로그인, 사용자 및 사용 권한은 독립적으로 관리됩니다.  
+
+> [!NOTE]
+> 데이터베이스 복사본을 만들 때 [자동화된 데이터베이스 백업](sql-database-automated-backups.md)이 사용됩니다.
 
 ## <a name="logins-in-the-database-copy"></a>데이터베이스 복사본에서 로그인
 

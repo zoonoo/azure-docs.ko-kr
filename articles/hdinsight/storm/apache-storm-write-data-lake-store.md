@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: d38b4e511defbb50dd5f74ae72e71d3316a57b3c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 524195372abde91b302ee03c13152f234ef56406
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567131"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498253"
 ---
-# <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 HDFS에 쓰기
+# <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
 
-Storm을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 저장소에 데이터를 쓰는 방법에 대해 알아봅니다. HDInsight는 Azure Storage 및 Azure Data Lake Store를 모두 HDFS 호환 저장소로 사용할 수 있습니다. Storm은 HDFS에 데이터를 쓰는 [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 제공합니다. 이 문서는 HdfsBolt에서 두 가지 유형의 저장소에 쓰는 방법에 대한 정보를 제공합니다. 
+[Apache Storm](http://storm.apache.org/)을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 스토리지에 데이터를 쓰는 방법에 대해 알아봅니다. HDInsight는 Azure Storage 및 Azure Data Lake Store를 모두 HDFS 호환 저장소로 사용할 수 있습니다. Storm은 HDFS에 데이터를 쓰는 [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 제공합니다. 이 문서는 HdfsBolt에서 두 가지 유형의 저장소에 쓰는 방법에 대한 정보를 제공합니다. 
 
 > [!IMPORTANT]
 > 이 문서에서 사용되는 예제 토폴로지는 HDInsight의 Storm에 포함된 구성 요소를 사용합니다. 다른 Apache Storm 클러스터와 함께 Azure Data Lake Store를 사용하려면 수정해야 할 수도 있습니다.
@@ -129,7 +129,7 @@ bolts:
 * `rotationPolicy`: 파일을 회전하는 시기를 정의합니다. 이 예제에서는 회전이 수행되지 않습니다.
 * `hdfs-bolt`: 이전 구성 요소를 `HdfsBolt` 클래스의 구성 매개 변수로 사용합니다.
 
-Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)을 참조하세요.
+Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html)을 참조하세요.
 
 ## <a name="configure-the-cluster"></a>클러스터 구성
 
@@ -219,5 +219,5 @@ Storm 토폴로지가 중지될 때까지 실행되거나 클러스터가 삭제
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Storm을 사용하여 Azure Data Lake Store에 쓰는 방법을 알아보았으므로 다른 [HDInsight에 대한 Storm 예제](apache-storm-example-topology.md)를 검색합니다.
+Apache Storm을 사용하여 Azure Storage 및 Azure Data Lake Store에 쓰는 방법을 알아보았으면, 다른 [HDInsight용 Apache Storm 예제](apache-storm-example-topology.md)를 알아보세요.
 

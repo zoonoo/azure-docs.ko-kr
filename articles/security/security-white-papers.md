@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/10/2018
+ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 9ecdc0b7d2d21962dbfc7c14e9fff3fd969dd018
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5feedcd750841be159a7cf4a31f408aec2fffd38
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721095"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712979"
 ---
 # <a name="azure-security-white-papers"></a>Azure 보안 백서
 | | |
 |-|-|
 |[&nbsp;&nbsp;Azure&nbsp;보안 소개](azure-security.md)|고객 및 Microsoft 운영 관점 둘 다에서 Azure에 구현된 보안 제어 컬렉션에 대해 설명합니다. Azure에서 사용할 수 있는 고객용 보안 제어에 대해 포괄적으로 설명합니다.|
 |[Azure 솔루션에 대한 보안 모범 사례](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|Azure를 사용하여 클라우드 솔루션을 설계, 배포 및 관리할 때 사용할 보안 모범 사례 모음입니다.|
+|[Azure에서 보안 애플리케이션 개발](abstract-develop-secure-apps.md)|보안 질문 및 클라우드용 애플리케이션을 개발하는 경우 소프트웨어 개발 수명 주기의 각 단계에서 고려해야 하는 컨트롤에 대한 일반 가이드입니다.|
 |[고급 위협 감지](azure-threat-detection.md)|위협 취약성 평가, 진단 및 분석에 대한 Azure 접근 방법을 안내합니다. Microsoft에서 고급 위협 검색 메커니즘을 사용하여 플랫폼을 보호하는 방법을 설명합니다. 또한 Microsoft에서 이러한 메커니즘을 공용 기능 및 서비스에 포함하는 방법을 설명합니다.|
 |[Azure 미사용 데이터 암호화](azure-security-encryption-atrest.md)|Azure에서 미사용 데이터가 보호되는 방식과 데이터 보호 구현에 참여하는 다양한 구성 요소를 중점적으로 설명합니다. 여러 키 관리 보호 방법의 장단점을 검토합니다.|
 |[Azure 로깅 및 감사](azure-log-audit.md)|Azure에 호스트된 서비스에서 보안 로그를 생성, 수집 및 분석하는 방법을 소개합니다. 이러한 로그는 Azure 배포에 대한 보안 정보를 얻는 데 유용할 수 있습니다. |

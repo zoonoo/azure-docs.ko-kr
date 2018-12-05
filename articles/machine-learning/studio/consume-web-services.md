@@ -1,10 +1,11 @@
 ---
-title: Azure Machine Learning 웹 서비스 사용 방법 | Microsoft Docs
-description: Machine Learning 서비스가 배포된 후에는 실시간 요청-응답 서비스 또는 일괄 처리 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다.
+title: Azure Machine Learning Studio 웹 서비스 사용 방법 | Microsoft Docs
+description: Azure Machine Learning Studio에서 기계 학습 서비스가 배포된 후에는 RESTFul 웹 서비스를 실시간 요청-응답 서비스 또는 일괄 처리 실행 서비스로 사용할 수 있습니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: b89fb0fbb499fa06c9e56f02937b1c586efde9b6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833382"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309109"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Azure Machine Learning 웹 서비스 사용 방법
+# <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Azure Machine Learning Studio 웹 서비스 사용 방법
 
 Azure Machine Learning 예측 모델을 웹 서비스로 배포하고 나면 REST API를 사용하여 데이터를 전송하고 예측을 얻을 수 있습니다. 데이터를 실시간으로 또는 일괄 처리 모드로 보낼 수 있습니다.
 
@@ -61,7 +62,7 @@ Machine Learning 웹 서비스에 대한 자세한 내용은 [Machine Learning �
 
 1. Azure Machine Learning 웹 서비스 포털의 최상위 메뉴에서 **클래식 웹 서비스**를 클릭합니다.
 2. 사용하고 있는 웹 서비스를 클릭합니다.
-3. 키를 검색하려는 끝점을 클릭합니다.
+3. 키를 검색하려는 엔드포인트를 클릭합니다.
 4. 위쪽 메뉴에서 **사용**을 클릭합니다.
 5. **기본 키**를 복사하고 저장합니다.
 
@@ -79,9 +80,9 @@ HTTP 요청 및 응답을 지원하는 모든 프로그래밍 언어를 사용�
 Machine Learning API 도움말에는 예측 웹 서비스에 대한 세부 정보가 포함되어 있습니다.
 
 1. 사용하고 있는 웹 서비스를 클릭합니다.
-2. API 도움말 페이지를 보려는 끝점을 클릭합니다.
+2. API 도움말 페이지를 보려는 엔드포인트를 클릭합니다.
 3. 위쪽 메뉴에서 **사용**을 클릭합니다.
-4. 응답 간 또는 Batch 실행 끝점에서 **API 도움말 페이지**를 클릭합니다.
+4. 응답 간 또는 Batch 실행 엔드포인트에서 **API 도움말 페이지**를 클릭합니다.
 
 **새 웹 서비스에 대한 Machine Learning API 도움말을 보려면**
 

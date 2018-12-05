@@ -1,31 +1,33 @@
 ---
-title: '빠른 시작: Node.js를 사용하여 BLOB 업로드, 다운로드 및 나열 - Azure Storage'
-description: 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Node.js용 저장소 클라이언트 라이브러리를 사용하여 Blob을 Azure Storage에 업로드하고, Blob을 다운로드하고, Blob을 컨테이너에 나열합니다.
+title: Node.js SDK v2를 사용하여 Azure Storage에서 Blob를 만드는 방법
+description: 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Node.js v2용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 업로드하고, Blob을 다운로드하고, 컨테이너에 Blob을 나열합니다.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 09/20/2018
+ms.topic: conceptual
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 267218b4b958251e6748fbae17ca1ac267cf3287
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 31804932cd4176cd55af752a7c1d05ae0a5f0cdf
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140590"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260770"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Blob 업로드, 다운로드 및 나열
+# <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Node.js SDK v2를 사용하여 Blob을 업로드, 다운로드 및 나열하는 방법
 
-이 빠른 시작에서는 Node.js를 사용하여 Azure Blob Storage를 통해 Blob을 업로드, 다운로드 및 나열하고 컨테이너를 관리하는 방법에 대해 알아봅니다.
+이 가이드에서는 Node.js를 사용하여 Blob을 업로드, 다운로드 및 나열하고 Azure Blob Storage를 통해 컨테이너를 관리하는 방법에 대해 알아봅니다.
 
-이 빠른 시작을 완료하려면 [Azure 구독](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)이 필요합니다.
+## <a name="prerequisites"></a>필수 조건
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+[Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure Storage 계정을 만듭니다. 저장소 계정을 만드는 데 도움이 필요한 경우 [저장소 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
 
 ## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
 
-이 빠른 시작의 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)은 간단한 Node.js 콘솔 응용 프로그램입니다. 시작하려면 다음 명령을 사용하여 리포지토리를 컴퓨터에 복제합니다.
+[샘플 애플리케이션](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)은 간단한 Node.js 콘솔 애플리케이션입니다. 시작하려면 다음 명령을 사용하여 리포지토리를 컴퓨터에 복제합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
@@ -72,7 +74,7 @@ Container "demo" is deleted
 Done
 ```
 
-이 빠른 시작에 새로운 저장소 계정을 사용할 경우 "*Containers*"라는 레이블 아래에 나열된 컨테이너 이름이 보이지 않을 수 있습니다.
+이 예제에서 새로운 스토리지 계정을 사용할 경우 “*Containers*”라는 레이블 아래에 나열된 컨테이너 이름이 보이지 않을 수 있습니다.
 
 ## <a name="understanding-the-code"></a>코드 이해
 첫 번째 식은 환경 변수로 값을 로드하는 데 사용됩니다.
@@ -122,7 +124,7 @@ const listContainers = async () => {
 };
 ```
 
-그룹의 크기는 [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest)를 통해 구성할 수 있습니다. *listContainersSegmented*를 호출하면 Blob 메타데이터가 [ContainerResult](/nodejs/api/azure-storage/blobresult) 인스턴스의 배열로 반환됩니다. 결과는 5,000개의 증분 일괄 처리(세그먼트)로 반환됩니다. 컨테이너에 5,000개보다 많은 Blob이 있는 경우 *continuationToken*에 대한 값이 결과에 포함됩니다. Blob 컨테이너에서 후속 세그먼트를 나열하려면 연속 토큰을 두 번째 인수로 *listContainersSegment*에 다시 전달할 수 있습니다.
+그룹의 크기는 [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest)를 통해 구성할 수 있습니다. *listContainersSegmented*를 호출하면 Blob 메타데이터가 [ContainerResult](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.containerresult?view=azure-node-latest) 인스턴스의 배열로 반환됩니다. 결과는 5,000개의 증분 일괄 처리(세그먼트)로 반환됩니다. 컨테이너에 5,000개보다 많은 Blob이 있는 경우 *continuationToken*에 대한 값이 결과에 포함됩니다. Blob 컨테이너에서 후속 세그먼트를 나열하려면 연속 토큰을 두 번째 인수로 *listContainersSegment*에 다시 전달할 수 있습니다.
 
 ### <a name="create-a-container"></a>컨테이너 만들기
 
@@ -165,7 +167,7 @@ const uploadString = async (containerName, blobName, text) => {
 ```
 ### <a name="upload-a-local-file"></a>로컬 파일 업로드
 
-*uploadLocalFile* 함수는 [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile)을 사용하여 파일을 파일 시스템에서 Blob Storage에 업로드하고 쓰거나 덮어씁니다. 
+*uploadLocalFile* 함수는 [createBlockBlobFromLocalFile](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--)을 사용하여 파일을 파일 시스템에서 Blob Storage에 업로드하고 쓰거나 덮어씁니다. 
 
 ```javascript
 const uploadLocalFile = async (containerName, filePath) => {
@@ -182,11 +184,11 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-콘텐츠를 Blob에 업로드하는 데 사용할 수 있는 다른 방법은 [text](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) 및 [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream)를 사용하는 것입니다. 파일이 Blob 저장소에 업로드되었는지 확인하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 계정의 데이터를 확인하면 됩니다.
+콘텐츠를 Blob에 업로드하는 데 사용할 수 있는 다른 방법은 [text](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--) 및 [streams](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--)를 사용하는 것입니다. 파일이 Blob 저장소에 업로드되었는지 확인하려면 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 계정의 데이터를 확인하면 됩니다.
 
 ### <a name="list-the-blobs"></a>Blob 나열
 
-*listBlobs* 함수는 [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) 메서드를 호출하여 컨테이너의 Blob 메타데이터 목록을 반환합니다. 
+*listBlobs* 함수는 [listBlobsSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) 메서드를 호출하여 컨테이너의 Blob 메타데이터 목록을 반환합니다. 
 
 ```javascript
 const listBlobs = async (containerName) => {
@@ -226,7 +228,7 @@ const downloadBlob = async (containerName, blobName) => {
 
 ### <a name="delete-a-blob"></a>Blob 삭제
 
-*deleteBlob* 함수는 [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) 함수를 호출합니다. 이름에서 알 수 있듯이 이 함수는 Blob이 이미 삭제된 오류를 반환하지 않습니다.
+*deleteBlob* 함수는 [deleteBlobIfExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists-string--string--errororresult-boolean--) 함수를 호출합니다. 이름에서 알 수 있듯이 이 함수는 Blob이 이미 삭제된 오류를 반환하지 않습니다.
 
 ```javascript
 const deleteBlob = async (containerName, blobName) => {
@@ -353,7 +355,7 @@ Blob 저장소를 사용하여 Node.js 응용 프로그램을 개발하기 위�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Node.js를 사용하여 로컬 디스크와 Azure Blob 저장소 간에 파일을 업로드하는 방법을 보여줍니다. Blob Storage를 사용하는 방법을 자세히 알아보려면 GitHub 리포지토리로 이동하세요.
+이 문서에서는 Node.js를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 업로드하는 방법을 설명합니다. Blob Storage를 사용하는 방법을 자세히 알아보려면 GitHub 리포지토리로 이동하세요.
 
 > [!div class="nextstepaction"]
 > [JavaScript 리포지토리용 Azure Storage SDK](https://github.com/Azure/azure-storage-node)

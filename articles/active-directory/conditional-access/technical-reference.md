@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 445611338b0b2895d83626e8cf450dc8d1cb27a6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2f9075cef671128cacc37f16e8bf29bf0f60401d
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406402"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619642"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 조건부 액세스 설정 참조
 
@@ -94,7 +94,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 - Windows Phone
 
-- Windows
+-  Windows
 
 - macOS
 
@@ -125,13 +125,13 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 | OS                     | 브라우저                            | 지원     |
 | :--                    | :--                                 | :-:         |
-| 윈도우 10             | Internet Explorer, Edge, Chrome     | ![확인][1] |
+| 윈도우 10             | Internet Explorer, Microsoft Edge, Chrome     | ![확인][1] |
 | Windows 8 / 8.1        | Internet Explorer, 크롬           | ![확인][1] |
 | Windows 7              | Internet Explorer, 크롬           | ![확인][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![확인][1] |
 | Android                | 크롬, Intune Managed Browser      | ![확인][1] |
-| Windows Phone          | Internet Explorer, Edge             | ![확인][1] |
-| Windows Server 2016    | Internet Explorer, Edge             | ![확인][1] |
+| Windows Phone          | Internet Explorer, Microsoft Edge             | ![확인][1] |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![확인][1] |
 | Windows Server 2016    | Chrome                              | 서비스 예정 |
 | Windows Server 2012 R2 | Internet Explorer, 크롬           | ![확인][1] |
 | Windows Server 2008 R2 | Internet Explorer, 크롬           | ![확인][1] |

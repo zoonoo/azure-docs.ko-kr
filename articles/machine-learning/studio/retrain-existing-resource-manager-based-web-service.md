@@ -1,10 +1,11 @@
 ---
-title: 기존 예측 웹 서비스 재학습 | Microsoft Docs
-description: Azure Machine Learning에서 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
+title: 기존 예측 웹 서비스 재학습 - Azure Machine Learning Studio | Microsoft Docs
+description: Azure Machine Learning Studio에서 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 웹 서비스를 업데이트하는 방법을 알아봅니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 1a30f9166c81c4757267c95b13b08f3202748467
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8da3c5d5c79ce52f1f5176a8b3317ce2a0e0bc5f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684650"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311299"
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>기존 예측 웹 서비스 재학습
 이 문서에서는 다음 시나리오에 대한 재학습 프로세스를 설명합니다.

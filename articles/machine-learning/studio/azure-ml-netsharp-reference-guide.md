@@ -1,10 +1,11 @@
 ---
-title: Net# 신경망 사양 언어 가이드 - Azure Machine Learning | Microsoft Docs
-description: Net#을 사용하여 사용자 지정 신경망 모델을 만드는 방법에 대한 예제와 Net# 신경망 사양 언어 구문
+title: Net# 인공신경망 네트워크 - Azure Machine Learning Studio | Microsoft Docs
+description: Net# 인공신경망 사양 언어 구문과 Net# 및 Azure Machine Learning Studio를 사용하여 사용자 지정 인공신경망 모델을 만드는 방법에 대한 예제입니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 8a96cfdedcde9b4037627f3e61af862c0600ca20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258480"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315310"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Azure Machine Learning용 Net# 신경망 사양 언어에 대한 가이드
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 Net# 인공신경망 사양 언어에 대한 가이드
 
 Net#은 Microsft에서 개발된 언어로 신경망 아키텍처를 정의하기 위해 사용됩니다. Net#을 사용하여 신경망 구조를 정의하면 이미지, 오디오 또는 비디오 같은 데이터에서 학습을 향상하는 것으로 알려진 임의 차원의 나선 또는 DNN(Deep Neural Network) 같은 복잡한 구조를 정의할 수 있습니다.
 

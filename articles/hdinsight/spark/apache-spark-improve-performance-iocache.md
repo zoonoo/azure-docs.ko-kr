@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 3616183b5ea34b8a14712d2c449de87950443111
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954508"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581938"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Azure HDInsight IO 캐시를 사용하여 Apache Spark 워크로드의 성능 개선(미리 보기)
 
-IO 캐시는 Apache Spark 작업의 성능을 개선하는 Azure HDInsight에 대한 데이터 캐싱 서비스입니다. IO 캐시는 Spark 클러스터에서 실행할 수 있는 Tez 및 Hive 워크로드에서도 작동합니다. IO 캐시는 RubiX라는 오픈 소스 캐싱 구성 요소를 사용합니다. RubiX는 클라우드 저장소 시스템의 데이터에 액세스하는 빅 데이터 분석 엔진에 사용하기 위한 로컬 디스크 캐시입니다. RubiX는 캐싱 목적으로 작동 메모리를 예약하지 않고 SSD(반도체 드라이브)를 사용하므로 캐싱 시스템에 고유한 기능입니다. IO 캐시 서비스는 클러스터의 각 작업자 노드에서 RubiX 메타데이터 서버를 시작하고 관리합니다. 또한 클러스터의 모든 서비스를 RubiX 캐시의 투명한 사용에 적합하도록 구성합니다.
+IO 캐시는 Apache Spark 작업의 성능을 개선하는 Azure HDInsight에 대한 데이터 캐싱 서비스입니다. IO 캐시는 [Apache Spark](https://spark.apache.org/) 클러스터에서 실행할 수 있는 [Apache TEZ](https://tez.apache.org/) 및 [Apache Hive](https://hive.apache.org/) 워크로드에서도 작동합니다. IO 캐시는 RubiX라는 오픈 소스 캐싱 구성 요소를 사용합니다. RubiX는 클라우드 저장소 시스템의 데이터에 액세스하는 빅 데이터 분석 엔진에 사용하기 위한 로컬 디스크 캐시입니다. RubiX는 캐싱 목적으로 작동 메모리를 예약하지 않고 SSD(반도체 드라이브)를 사용하므로 캐싱 시스템에 고유한 기능입니다. IO 캐시 서비스는 클러스터의 각 작업자 노드에서 RubiX 메타데이터 서버를 시작하고 관리합니다. 또한 클러스터의 모든 서비스를 RubiX 캐시의 투명한 사용에 적합하도록 구성합니다.
 
 대부분의 SSD는 초당 1 GB를 초과하는 대역폭을 제공합니다. 이 대역폭은 운영 체제 메모리 내 파일 캐시에 의해 보완되며 Apache Spark 같은 빅 데이터 계산 처리 엔진을 로드하기에 충분한 대역폭을 제공합니다. 작동 메모리는 Apache Spark가 메모리에 크게 의존하는 셔플과 같은 작업을 처리하는 데 사용할 수 있도록 남아 있습니다. 작동 메모리를 독점적으로 사용하면 Apache Spark가 최적의 리소스 사용을 달성할 수 있습니다.  
 
@@ -52,7 +52,7 @@ Azure HDInsight IO 캐시는 기본적으로 미리 보기에서 비활성화됩
   
 IO 캐시를 사용하도록 설정한 후 Spark 작업을 실행하는 디스크 공간 오류가 발생할 수 있습니다. 이러한 오류는 Spark 작업이 순서 섞기 작업 중에 데이터를 저장하는 데 로컬 디스크 저장소도 사용하기 때문에 발생합니다. Spark는 IO 캐시가 사용하도록 설정되고 Spark 저장소 공간이 감소한 후 SSD 공간이 부족해질 수 있습니다. IO 캐시가 사용하는 공간의 양은 기본적으로 총 SSD 공간의 절반입니다. IO 캐시에 대한 디스크 공간 사용량은 Ambari에서 구성할 수 있습니다. 디스크 공간 오류가 발생하면 IO 캐시에 사용되는 SSD 공간의 양을 줄이고 서비스를 다시 시작합니다. IO 캐시에 대해 설정한 공간을 변경하려면 다음 단계를 수행합니다.
 
-1. Ambari에서 왼쪽의 **HDFS**를 선택합니다.
+1. Apache Ambari에서 왼쪽의 **HDFS**를 선택합니다.
 
 1. **Configs** 및 **고급** 탭을 선택합니다.
 

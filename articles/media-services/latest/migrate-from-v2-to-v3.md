@@ -13,20 +13,23 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/07/2018
+ms.date: 11/21/2018
 ms.author: juliako
-ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616013"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310398"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
 이 문서에서는 Azure Media Services v3에서 변경된 내용을 설명하고, 두 버전 간의 차이점을 보여주고, 마이그레이션 가이드를 제공합니다.
 
 현재 비디오 서비스가 [레거시 Media Services v2 API](../previous/media-services-overview.md) 위에 배포된 경우 v3 API로 마이그레이션하기 전에 다음 지침 및 고려 사항을 검토해야 합니다. v3 API에는 개발자 경험과 Media Services 기능을 향상하는 여러 이점과 새 기능이 있습니다. 그러나 이 문서의 [알려진 문제](#known-issues) 섹션에서 언급했듯이, API 버전 간의 변경 사항으로 인해 몇 가지 제한이 있습니다. Media Services 팀이 지속적으로 v3 API를 개선하고 버전 간 차이를 해결하고 있으므로 이 페이지는 계속 유지됩니다. 
+
+> [!NOTE]
+> 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-sdk), CLI 또는 지원되는 SDK 중 하나를 사용하세요.
 
 ## <a name="benefits-of-media-services-v3"></a>Media Services v3의 혜택
 
@@ -65,9 +68,7 @@ ms.locfileid: "51616013"
 * 다음 엔터티의 이름이 바뀌었습니다.
     * JobOutput은 Task를 대체하며, 이제 Job의 일부입니다.
     * StreamingLocator는 Locator를 대체합니다.
-    * LiveEvent는 Channel을 대체합니다.
-        
-        LiveEvents 요금은 라이브 채널 미터를 기반으로 청구됩니다. 자세한 내용은 [라이브 스트리밍 개요](live-streaming-overview.md#billing) 및 [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
+    * LiveEvent는 Channel을 대체합니다.<br/>LiveEvents 요금은 라이브 채널 미터를 기반으로 청구됩니다. 자세한 내용은 [라이브 스트리밍 개요](live-streaming-overview.md#billing) 및 [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
     * LiveOutput은 Program을 대체합니다.
 * Liveoutput은 명시적으로 시작할 필요가 없습니다. 생성 시 시작되고 삭제 시 중지됩니다. v2 API에서는 프로그램이 다르게 작동했습니다. 생성 후 시작해야 했습니다.
 
@@ -75,10 +76,7 @@ ms.locfileid: "51616013"
 
 v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다. 격차를 해소하기 위한 작업이 진행 중입니다.
 
-* v3를 통해 [프리미엄 인코더](../previous/media-services-premium-workflow-encoder-formats.md) 및 레거시 [미디어 분석 프로세서](../previous/media-services-analytics-overview.md)(Azure Media Services Indexer 2 미리 보기, Face Redactor 등)에 액세스할 수 없습니다.
-
-    Media Indexer 1 또는 2 미리 보기에서 마이그레이션하려는 고객은 v3 API의 AudioAnalyzer 프리셋을 즉시 사용할 수 있습니다.  이 새 프리셋은 기존 Media Indexer 1 또는 2보다 많은 기능을 포함하고 있습니다. 
-
+* v3를 통해 [프리미엄 인코더](../previous/media-services-premium-workflow-encoder-formats.md) 및 레거시 [미디어 분석 프로세서](../previous/media-services-analytics-overview.md)(Azure Media Services Indexer 2 미리 보기, Face Redactor 등)에 액세스할 수 없습니다.<br/>Media Indexer 1 또는 2 미리 보기에서 마이그레이션하려는 고객은 v3 API의 AudioAnalyzer 프리셋을 즉시 사용할 수 있습니다.  이 새 프리셋은 기존 Media Indexer 1 또는 2보다 많은 기능을 포함하고 있습니다. 
 * 다음과 같은 v2 API의 Media Encoder Standard 고급 기능 중 상당수는 현재 v3에서 사용할 수 없습니다.
     * 클리핑(주문형 및 라이브 시나리오용)
     * 자산 연결
@@ -103,13 +101,12 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 ## <a name="known-issues"></a>알려진 문제
 
 * 현재는 Azure Portal을 사용하여 v3 리소스를 관리할 수 없습니다. [REST API](https://aka.ms/ams-v3-rest-sdk), CLI 또는 지원되는 SDK 중 하나를 사용하세요.
-* 현재 Media Services v2 API를 사용하여 미디어 예약 단위만 관리할 수 있습니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요.
+* 작업, 특히 비디오 또는 오디오 분석과 관련된 작업의 동시성 및 성능을 제어하려면 계정에서 MRU(미디어 예약 단위)를 프로비전해야 합니다. 자세한 내용은 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)을 참조하세요. [CLI 2.0 for Media Services v3](media-reserved-units-cli-how-to.md), [Azure Portal](../previous/media-services-portal-scale-media-processing.md) 또는 [v2 API](../previous/media-services-dotnet-encoding-units.md)를 사용하여 MRU를 관리할 수 있습니다. Media Services v2를 사용하든 아니면 v3 API를 사용하든, MRU를 프로비전해야 합니다.
 * v3 API로 만든 Media Services 엔터티는 v2 API를 사용하여 관리할 수 없습니다.  
 * v2 API로 만든 엔터티를 v3 API를 통해 관리하는 것은 좋지 않습니다. 다음은 두 버전의 엔터티가 서로 호환되지 않는 차이점의 예입니다.   
     * v2에서 만든 작업 및 태스크는 변환과 연결되지 않으므로 v3에서 나타나지 않습니다. v3 변환 및 작업으로 전환하는 것이 좋습니다. 전환할 때 비교적 짧은 기간 동안 진행 중인 v2 작업을 모니터링해야 합니다.
-    * v2로 만든 채널 및 프로그램(v3에서는 LiveEvents 및 LiveOutput으로 매핑)은 v3를 사용하여 계속 관리할 수 없습니다. 편리한 채널 중지점에서 v3 LiveEvents 및 LiveOutputs으로 전환하는 것이 좋습니다.
-    
-        현재는 지속적으로 실행 중인 채널을 마이그레이션할 수 없습니다.  
+    * v2로 만든 채널 및 프로그램(v3에서는 LiveEvents 및 LiveOutput으로 매핑)은 v3를 사용하여 계속 관리할 수 없습니다. 편리한 채널 중지점에서 v3 LiveEvents 및 LiveOutputs으로 전환하는 것이 좋습니다.<br/>현재는 지속적으로 실행 중인 채널을 마이그레이션할 수 없습니다.  
+
 > [!NOTE]
 > 이 문서에 책갈피를 지정하고 업데이트를 계속 확인하세요.
 

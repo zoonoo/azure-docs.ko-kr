@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: c51df7aeef136fee42b061cd422cc62d67f33e96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258921"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712146"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance 및 SQL Server 간의 T-SQL 차이점
 
@@ -75,7 +75,7 @@ Managed Instance에는 자동 백업이 있으며, 사용자가 전체 데이터
   - 테이프 옵션: `REWIND`, `NOREWIND`, `UNLOAD` 및 `NOUNLOAD`는 지원되지 않습니다.
   - 로그 관련 옵션: `NORECOVERY`, `STANDBY` 및 `NO_TRUNCATE`은 지원되지 않습니다.
 
-제한 사항:  
+ 제한 사항:  
 
 - Managed Instance는 최대 32개의 스트라이프가 있는 백업에 데이터베이스를 백업할 수 있습니다. 이는 백업 압축을 사용할 경우 데이터베이스를 최대 4TB까지 백업할 수 있습니다.
 - 최대 백업 스트라이프 크기는 195GB(최대 Blob 크기)입니다. 백업 명령에서 스트라이프 수를 늘려 개별 스트라이프 크기를 줄이고 이 제한 내에서 유지합니다.
@@ -317,7 +317,7 @@ HDFS 또는 Azure Blob 저장소의 파일을 참조하는 외부 테이블은 �
 - 기존의 모든 메모리 최적화 파일 그룹의 이름이 XTP로 바뀝니다.  
 - `SINGLE_USER` 및 `RESTRICTED_USER` 옵션이 `MULTI_USER`로 변환됩니다.
 
-제한 사항:  
+ 제한 사항:  
 
 - 여러 백업 세트가 있는 `.BAK` 파일은 복원할 수 없습니다.
 - 여러 로그 파일이 있는 `.BAK` 파일은 복원할 수 없습니다.
@@ -427,7 +427,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 각 Managed Instance에는 Azure Premium Disk 공간에 대해 예약된 최대 35TB의 저장소가 있으며 각 데이터베이스 파일은 별도의 실제 디스크에 배치됩니다. 디스크 크기는 128GB, 256GB, 512GB, 1TB 또는 4TB일 수 있습니다. 디스크의 사용되지 않는 공간은 변경될 수 있지만 Azure Premium 디스크 크기의 총 합계는 35TB를 초과할 수 없습니다. 경우에 따라 총 8TB가 필요 없는 Managed Instance는 내부 조각화로 인해 저장소 크기에 대한 35TB Azure 제한을 초과할 수 있습니다.
 
-예를 들어, Managed Instance에는 크기가 1.2TB인 하나의 파일이 4TB 디스크에 있을 수 있고, 크기가 1GB인 파일 248개가 별도의 128GB 디스크에 있을 수 있습니다. 이 예제에서:
+예를 들어 Managed Instance에는 크기가 1.2TB인 하나의 파일이 4TB 디스크에 있을 수 있고, 크기가 1GB인 파일 248개가 별도의 128GB 디스크에 있을 수 있습니다. 이 예제에서:
 
 - 전체 디스크 저장소 크기는 1x4TB + 248x128GB = 35TB입니다.
 - 인스턴스에서 데이터베이스에 대해 예약된 총 공간은 1 x 1.2TB + 248 x 1GB = 1.4TB입니다.

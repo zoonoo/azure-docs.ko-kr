@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402763"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582499"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -63,7 +63,38 @@ ms.locfileid: "49402763"
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>트래픽 분석을 사용할 수 있는 Azure 지역은 어디인가요?
 
-미국 중서부, 미국 동부, 미국 동부 2, 미국 중북부, 미국 중남부, 미국 중부, 미국 서부, 미국 서부 2, 유럽 서부, 북유럽, 영국 서부, 영국 남부, 오스트레일리아 동부, 오스트레일리아 남동부 및 동남 아시아에서 NSG용 트래픽 분석을 사용할 수 있습니다. Log Analytics 작업 영역이 미국 중서부, 미국 동부, 유럽 서부, 영국 남부, 오스트레일리아 남동부 또는 동남 아시아 지역에 있어야 합니다.
+지원되는 다음 지역 중 하나에서 NSG용 트래픽 분석을 사용할 수 있습니다.
+- 캐나다 중부
+- 미국 중서부
+- 미국 동부
+- 미국 동부 2
+- 미국 중북부
+- 미국 중남부
+- 미국 중부
+- 미국 서부
+- 미국 서부 2
+- 서유럽
+- 북유럽
+- 브라질 남부
+- 영국 서부
+- 영국 남부
+- 오스트레일리아 동부
+- 오스트레일리아 남동부 
+- 동남아시아
+- 인도 중부
+- 인도 남부
+- 일본 동부
+
+Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
+- 캐나다 중부
+- 미국 중서부
+- 미국 동부
+- 서유럽
+- 영국 남부
+- 오스트레일리아 남동부
+- 동남아시아 
+- 인도 중부
+- 일본 동부
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>흐름 로그를 설정하려는 NSG가 작업 영역과 다른 지역에 있어도 되나요?
 
@@ -83,7 +114,7 @@ ms.locfileid: "49402763"
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>원시 로그를 다른 구독에 저장할 수 있나요?
 
-아니요. 흐름 로그에 NSG를 사용할 수 있는 저장소 계정에 원시 로그를 저장할 수 있습니다. 그러나 저장소 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
+ 아니요. 흐름 로그에 NSG를 사용할 수 있는 저장소 계정에 원시 로그를 저장할 수 있습니다. 그러나 저장소 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>“찾을 수 없음” 오류로 인해 트래픽 분석에 대해 NSG를 구성할 수 없으면 어떻게 하나요?
 
@@ -91,11 +122,11 @@ ms.locfileid: "49402763"
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>NSG 흐름 로그 페이지에 상태가 “로드 실패”로 표시되면 어떻게 하나요?
 
-흐름 로깅이 성공적으로 작동하려면 Microsoft.Insights 공급자를 등록해야 합니다. Microsoft.Insights 공급자가 구독에 대해 등록된 것인지 확실하지 않은 경우, 다음 명령에서 *xxxxx-xxxxx-xxxxxx-xxxx*를 바꾼 후 PowerShell에서 다음 명령을 실행합니다.
+흐름 로깅이 제대로 작동하려면 Microsoft.Insights 공급자를 등록해야 합니다. Microsoft.Insights 공급자가 구독에 등록되어 있는지 확실하지 않은 경우, 다음 명령에서 *xxxxx-xxxxx-xxxxxx-xxxx*를 바꾼 후 PowerShell에서 다음 명령을 실행합니다.
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>솔루션을 구성했습니다. 그런데 왜 대시보드에 아무 것도 표시되지 않나요?

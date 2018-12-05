@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155623"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262434"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 응용 프로그램 실행
 
@@ -74,7 +74,7 @@ Linux 컨테이너 워크로드의 경우 현재 Batch는 Azure Marketplace의 M
 
 * Azure N-시리즈 VM의 배포를 간소화하기 위해 사전 설치된 NVIDIA GPU 드라이버
 
-* 사전 설치된 RDMA 드라이버(RDMA 가능 VM 크기에 배포될 경우 Azure RDMA 네트워크에 액세스하도록 풀 노드를 허용)를 사용 또는 사용하지 않는 이미지  
+* 사전 설치된 RDMA 드라이버를 사용 또는 사용하지 않는 이미지. 이렇나 드라이버는 RDMA 가능 VM 크기에 배포될 경우 Azure RDMA 네트워크에 액세스하도록 풀 노드를 허용합니다. 
 
 Batch와 호환되는 Linux 배포판 중 하나에서 Docker를 실행하는 VM에서 사용자 지정 이미지를 만들 수도 있습니다. 자체 사용자 지정 Linux 이미지를 제공하려는 경우 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 지침을 참조하세요.
 
@@ -222,41 +222,62 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
-
 ## <a name="container-settings-for-the-task"></a>작업(task)에 대한 컨테이너 설정
 
-컴퓨팅 노드에서 컨테이너 작업을 실행하려면 컨테이너 실행 옵션, 사용할 이미지 및 레지스트리와 같은 컨테이너 특정 설정을 지정해야 합니다.
+컨테이너 사용 풀에서 컨테이너 작업을 실행하려면 컨테이너별 설정을 지정합니다. 설정에는 사용할 이미지, 레지스트리 및 컨테이너 실행 옵션이 포함됩니다.
 
-작업 클래스의 `ContainerSettings` 속성을 사용하여 컨테이너별 설정을 구성합니다. 이러한 설정은 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 클래스에 의해 정의됩니다.
+* 작업 클래스의 `ContainerSettings` 속성을 사용하여 컨테이너별 설정을 구성합니다. 이러한 설정은 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 클래스에 의해 정의됩니다.
 
-컨테이너 이미지에 대해 작업(task)를 실행하는 경우 [클라우드 작업(task)](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)에 컨테이너 설정이 필요합니다. 그러나 [시작 태스크](/dotnet/api/microsoft.azure.batch.starttask), [작업(Job) 준비 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)에는 컨테이너 설정이 필요하지 않습니다(즉, 컨테이너 컨텍스트 내에서 또는 노드에서 직접 실행될 수 있음).
+* 컨테이너 이미지에 대해 작업(task)를 실행하는 경우 [클라우드 작업(task)](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)에 컨테이너 설정이 필요합니다. 그러나 [시작 태스크](/dotnet/api/microsoft.azure.batch.starttask), [작업(Job) 준비 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)에는 컨테이너 설정이 필요하지 않습니다(즉, 컨테이너 컨텍스트 내에서 또는 노드에서 직접 실행될 수 있음).
 
-선택적 [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions)는 작업이 컨테이너를 만들기 위해 실행하는 `docker create` 명령에 대한 추가 인수입니다.
+### <a name="container-task-command-line"></a>컨테이너 작업 명령줄
+
+컨테이너 작업을 실행하면 Batch에서 [docker create](https://docs.docker.com/engine/reference/commandline/create/) 명령을 사용하여 작업에 지정된 이미지를 사용하여 컨테이너를 생성합니다. 그런 다음, Batch는 컨테이너의 작업 실행을 제어합니다. 
+
+컨테이너가 아닌 Batch 작업을 사용하여 컨테이너 작업에 대한 명령줄을 설정합니다. Batch에서 자동으로 컨테이너를 만들기 때문에 명령줄은 컨테이너에서 실행되는 명령만 지정합니다.
+
+Batch 작업에 대한 컨테이너 이미지가 [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) 스크립트를 통해 구성되면 기본 ENTRYPOINT를 사용하거나 재정의하도록 명령줄을 설정할 수 있습니다. 
+
+* 컨테이너 이미지의 기본 ENTRYPOINT를 사용하려면 작업 명령줄을 빈 문자열 `""`로 설정합니다.
+
+* 기본 ENTRYPOINT를 재정의하려는 경우 또는 이미지에 ENTRYPOINT가 없는 경우 컨테이너에 적절한 명령줄을 설정합니다(예: `/app/myapp` 또는 `/bin/sh -c python myscript.py`).
+
+선택적 [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions)는 Batch가 컨테이너를 만들고 실행하는 데 사용하는 `docker create` 명령에 제공하는 추가 인수입니다. 예를 들어 컨테이너에 대한 작업 디렉터리를 설정하려면 `--workdir <directory>` 옵션을 설정합니다. 추가 옵션에 대한 [docker create](https://docs.docker.com/engine/reference/commandline/create/) 참조를 확인하세요.
 
 ### <a name="container-task-working-directory"></a>컨테이너 작업의 작업 디렉터리
 
-Azure Batch 컨테이너 작업의 명령줄은 Batch가 일반(컨테이너 아님) 작업에 대해 설정하는 환경과 매우 유사한 컨테이너의 작업 디렉터리에서 실행됩니다.
+Batch 컨테이너 작업은 Batch가 일반(컨테이너 아님) 작업에 대해 설정하는 디렉터리와 매우 유사한 컨테이너의 작업 디렉터리에서 실행됩니다. 이 작업 디렉터리는 이미지에 구성된 경우 [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) 또는 기본 컨테이너 작업 디렉터리(Windows 컨테이너의 경우 `C:\` 또는 Linux 컨테이너의 경우 `/`)와 다릅니다. 
 
-* `AZ_BATCH_NODE_ROOT_DIR`(노드의 Azure Batch 디렉터리의 루트)의 모든 하위 디렉터리는 컨테이너에 매핑됩니다.
+Batch 컨테이너 작업의 경우:
+
+* 호스트 노드의 `AZ_BATCH_NODE_ROOT_DIR`(Azure Batch 디렉터리의 루트)의 모든 하위 디렉터리는 컨테이너에 매핑됩니다.
 * 모든 작업 환경 변수는 컨테이너에 매핑됩니다.
-* 응용 프로그램 작업 디렉터리는 일반 작업과 동일하게 설정되므로 응용 프로그램 패키지 및 리소스 파일과 같은 기능을 사용할 수 있습니다.
+* 노드의 작업 디렉터리 `AZ_BATCH_TASK_WORKING_DIR`은 일반 작업과 동일하게 설정되며 컨테이너에 매핑됩니다. 
 
-Batch는 컨테이너의 기본 작업 디렉터리를 변경하기 때문에 작업은 일반적인 컨테이너 작업 디렉터리(예: Windows 컨테이너의 경우 기본적으로 `c:\`, Linux의 경우 `/`, 컨테이너 이미지에 구성된 경우 다른 디렉터리)와 다른 위치에서 실행됩니다. 컨테이너 응용 프로그램이 Batch 컨텍스트에서 올바르게 실행되도록 하려면 다음 중 하나를 수행합니다. 
+이러한 매핑을 통해 컨테이너 작업이 아닌 작업과 동일한 방식으로 작업할 수 있습니다. 예를 들어, 애플리케이션 패키지를 사용하여 애플리케이션을 설치하고, Azure Storage에서 리소스 파일에 액세스하고, 작업 환경 설정을 사용하고, 컨테이너를 중지한 후 작업 출력 파일을 유지할 수 있습니다.
 
-* 작업 명령줄 또는 컨테이너 작업 디렉터리가 아직 절대 경로로 구성되지 않은 경우 절대 경로를 지정하는지 확인합니다.
+### <a name="troubleshoot-container-tasks"></a>컨테이너 작업 문제 해결
 
-* 작업의 ContainerSettings에서 컨테이너 실행 옵션에 작업 디렉터리를 설정합니다. 예: `--workdir /app`.
+컨테이너 작업이 예상대로 실행되지 않으면 컨테이너 이미지의 WORKDIR 또는 ENTRYPOINT 구성에 대한 정보를 가져와야 할 수도 있습니다. 구성을 확인하려면 [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/) 명령을 실행합니다. 
 
-다음 Python 코드 조각에서는 Docker 허브에서 가져온 Ubuntu 컨테이너에서 실행되는 기본 명령줄을 보여 줍니다. 여기서 `--rm` 컨테이너 실행 옵션은 작업 완료 후 컨테이너를 제거합니다.
+필요한 경우에 이미지를 기반으로 하는 컨테이너 작업의 설정을 조정합니다.
+
+* 작업 명령줄의 절대 경로를 지정합니다. 이미지의 기본 ENTRYPOINT가 작업 명령줄에 사용되는 경우 절대 경로가 설정되어 있는지 확인합니다.
+
+* 작업의 컨테이너 실행 옵션에서 이미지의 WORKDIR에 일치하도록 작업 디렉터리를 변경합니다. 예를 들어 `--workdir /app`으로 설정합니다.
+
+## <a name="container-task-examples"></a>컨테이너 작업 예제
+
+다음 Python 코드 조각은 Docker 허브에서 가져온 가상의 이미지에서 생성된 컨테이너에서 실행되는 기본 명령줄을 보여줍니다. 여기서 `--rm` 컨테이너 옵션은 작업이 완료된 후 컨테이너를 제거하며, `--workdir` 옵션은 작업 디렉터리를 설정합니다. 명령줄은 호스트의 작업 디렉터리에 작은 파일을 기록하는 간단한 셸 명령을 사용하여 컨테이너 ENTRYPOINT를 재정의합니다. 
 
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='ubuntu', 
-    container_run_options='--rm')
+    image_name='myimage', 
+    container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='/bin/echo hello',
+    command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
 
@@ -267,11 +288,11 @@ task = batch.models.TaskAddParameter(
 ```csharp
 // Simple container task command
 
-string cmdLine = "c:\myApp.exe";
+string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu",
-    containerRunOptions: "--rm --read-only"
+    imageName: "myimage",
+    containerRunOptions: "--rm --workdir c:\\app"
     );
 
 CloudTask containerTask = new CloudTask (
@@ -287,6 +308,6 @@ CloudTask containerTask = new CloudTask (
 
 * Linux에서 Docker CE를 설치 및 사용하는 방법에 대한 자세한 내용은 [Docker](https://docs.docker.com/engine/installation/) 설명서를 참조하세요.
 
-* 사용자 지정 이미지 사용에 대한 자세한 내용은 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)를 참조하세요.
+* 사용자 지정 이미지 사용에 대한 자세한 내용은 [관리형 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)를 참조하세요.
 
 * 컨테이너 기반 시스템을 만들기 위한 프레임워크인 [Moby 프로젝트](https://mobyproject.org/)에 대해 자세히 알아봅니다.

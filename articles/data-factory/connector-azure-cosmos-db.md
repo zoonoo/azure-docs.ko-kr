@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 9a75ae8645503366a490dbc0ea65d2fdc73d7c61
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: c10a933f371bfc84b863413134f2fdf5ff9c0e34
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167293"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161840"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB 간 데이터 복사
 
@@ -182,8 +182,11 @@ Azure Cosmos DB로 데이터를 복사하려면 복사 작업의 **sink** 형식
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 싱크의 **type** 속성을 **DocumentDbCollectionSink**로 설정해야 합니다. |yes |
 | writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert**입니다.<br/><br/>**upsert**의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: ID가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 ID를 자동으로 생성합니다. 즉, **upsert**가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |아니요<br />(기본값: **insert**) |
-| writeBatchSize | Data Factory는 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Azure Cosmos DB에 데이터를 씁니다. **writeBatchSize** 속성은 라이브러리에 제공하는 문서의 크기를 제어합니다. **writeBatchSize**의 값을 증가시켜 성능을 향상시킬 수 있습니다. |아니요<br />(기본값: **10,000**) |
+| writeBatchSize | Data Factory는 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Azure Cosmos DB에 데이터를 씁니다. **writeBatchSize** 속성은 라이브러리에 제공하는 문서의 크기를 제어합니다. 성능을 개선하기 위해 **writeBatchSize**에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄이도록 시도할 수 있습니다. 아래 팁을 참조하세요. |아니요<br />(기본값: **10,000**) |
 | nestingSeparator |중첩된 해당 문서를 나타내는 **source** 열 이름에 특수 문자가 필요합니다. <br/><br/>예를 들어, 출력 데이터 집합 구조에서 `Name.First`는 **nestedSeparator**가 **.** (점)인 경우 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다. `"Name": {"First": "[value maps to this column from source]"}`  |아니요<br />(기본값: **.** (점)) |
+
+>[!TIP]
+>Cosmos DB는 단일 요청의 크기를 2MB로 제한합니다. 수식은 요청 크기 = 단일 문서 크기 * 쓰기 일괄 처리 크기입니다. **"요청 크기가 너무 큽니다."** 라는 오류가 발생하는 경우 **복사 싱크 구성에서 `writeBatchSize` 값**을 줄입니다.
 
 **예제**
 

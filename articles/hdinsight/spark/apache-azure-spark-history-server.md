@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042366"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497266"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>확장된 Spark 기록 서버를 사용하여 Spark 응용 프로그램 디버그 및 진단
+# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단
 
-이 문서에서는 확장된 Spark 기록 서버를 사용하여 완료되고 실행되는 Spark 응용 프로그램을 디버그 및 진단하는 방법에 대한 지침을 제공합니다. 확장은 데이터 탭 및 그래프 탭과 진단 탭을 포함합니다. **데이터** 탭에서 사용자는 Spark 작업의 입출력 데이터를 확인할 수 있습니다. **그래프** 탭에서 사용자는 데이터 흐름을 확인하고 작업 그래프를 재생할 수 있습니다. **진단** 탭에서 사용자는 **데이터 편향**, **시간 편향** 및 **실행기 사용량 분석**을 참조할 수 있습니다.
+이 문서에서는 확장된 Apache Spark 기록 서버를 사용하여 완료되어 실행되는 Spark 애플리케이션을 디버그 및 진단하는 방법에 대한 지침을 제공합니다. 확장은 데이터 탭 및 그래프 탭과 진단 탭을 포함합니다. **데이터** 탭에서 사용자는 Spark 작업의 입출력 데이터를 확인할 수 있습니다. **그래프** 탭에서 사용자는 데이터 흐름을 확인하고 작업 그래프를 재생할 수 있습니다. **진단** 탭에서 사용자는 **데이터 편향**, **시간 편향** 및 **실행기 사용량 분석**을 참조할 수 있습니다.
 
-## <a name="get-access-to-spark-history-server"></a>Spark 기록 서버 액세스
+## <a name="get-access-to-apache-spark-history-server"></a>Apache Spark 기록 서버에 액세스
 
-Spark 기록 서버는 완료되고 실행되는 Spark 응용 프로그램의 웹 UI입니다. 
+Apache Spark 기록 서버는 완료되고 실행되는 Spark 애플리케이션의 웹 UI입니다. 
 
-### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Azure Portal에서 Spark 기록 서버 웹 UI 열기
+### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Azure Portal에서 Apache Spark 기록 서버 웹 UI 열기
 
 1. [Azure Portal](https://portal.azure.com/)에서 Spark 클러스터를 엽니다. 자세한 내용은 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)를 참조하세요.
 2. **빠른 링크**에서 **클러스터 대시보드**를 클릭한 다음, **Spark 기록 서버**를 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다. 
@@ -87,7 +87,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
     ![그래프 피드백](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="graph-tab-in-spark-history-server"></a>Spark 기록 서버의 그래프 탭
+## <a name="graph-tab-in-apache-spark-history-server"></a>Apache Spark 기록 서버의 그래프 탭
 작업 그래프 보기를 가져오려면 작업 ID를 선택한 다음, 도구 메뉴에서 **Graph**를 클릭합니다.
 
 + 생성된 작업 그래프를 통해 작업의 개요를 확인합니다. 
@@ -158,7 +158,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
     ![그래프 피드백](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="diagnosis-tab-in-spark-history-server"></a>Spark 기록 서버의 진단 탭
+## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Apache Spark 기록 서버의 진단 탭
 작업 진단 보기를 가져오려면 작업 ID를 선택한 다음, 도구 메뉴에서 **진단**을 클릭합니다. 진단 탭에는 **데이터 편향**, **시간 편향** 및 **실행기 사용량 분석**이 있습니다.
     
 + **데이터 편향**, **시간 편향** 및 **실행기 사용량 분석** 탭을 각각 선택합니다.
@@ -326,8 +326,8 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight에서 Spark 클러스터에 대한 리소스 관리](apache-spark-resource-manager.md)
-* [Spark 설정 구성](apache-spark-settings.md)
+* [HDInsight에서 Apache Spark 클러스터용 리소스 관리](apache-spark-resource-manager.md)
+* [Apache Spark 설정 구성](apache-spark-settings.md)
 
 
 ## <a name="contact-us"></a>문의처

@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 183f8fd47ea5239e31f03f3aecf420cfb5842098
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6c1307fcb472f6c66a95b76ad3c1b1686ce4f998
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009830"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308941"
 ---
-# <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure Virtual Network의 HDInsight에서 HBase 클러스터 만들기
-[Azure Virtual Network][1]에서 Azure HDInsight HBase 클러스터를 만드는 방법을 알아봅니다.
+# <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure Virtual Network의 HDInsight에서 Apache HBase 클러스터 만들기
+[Azure Virtual Network][1]에서 Azure HDInsight Apache HBase 클러스터를 만드는 방법을 알아봅니다.
 
-가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다. 이점은 다음과 같습니다.
+가상 네트워크 통합을 사용하면 애플리케이션이 HBase와 직접 통신할 수 있도록 애플리케이션과 동일한 가상 네트워크에 Apache HBase 클러스터를 배포할 수 있습니다. 이점은 다음과 같습니다.
 
 * 웹 응용 프로그램을 HBase 클러스터의 노드에 직접 연결하므로 HBase Java RPC(원격 프로시저 호출) API를 통해 통신할 수 있습니다.
 * 트래픽이 여러 게이트웨이 및 부하 분산 장치를 통과하지 않도록 하여 성능을 향상시킵니다.
@@ -31,8 +31,8 @@ ms.locfileid: "51009830"
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
 
-## <a name="create-hbase-cluster-into-virtual-network"></a>가상 네트워크에 HBase 클러스터 만들기
-이 섹션에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 Azure 가상 네트워크에서 종속 Azure Storage 계정으로 Linux 기반 HBase 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
+## <a name="create-apache-hbase-cluster-into-virtual-network"></a>가상 네트워크에 Apache HBase 클러스터 만들기
+이 섹션에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 Azure 가상 네트워크에서 종속 Azure Storage 계정으로 Linux 기반 Apache HBase 클러스터를 만듭니다. 기타 클러스터 생성 방법 및 설정에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)를 참조하세요.
 
 > [!NOTE]
 > 일부 속성이 템플릿에 하드 코딩되었습니다. 예: 
@@ -64,11 +64,11 @@ ms.locfileid: "51009830"
    * **위에 명시된 사용 약관에 동의함**: (선택)
 3. **구매**를 클릭합니다. 클러스터를 만들려면 20분 정도가 걸립니다. 클러스터가 만들어졌으면 포털에서 클러스터 블레이드를 클릭하면 열립니다.
 
-이 자습서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure Portal을 사용하여 HDInsight에서 Hadoop 클러스터 관리](../hdinsight-administer-use-management-portal.md#delete-clusters)를 참조하세요.
+이 자습서를 완료한 후에 클러스터를 삭제할 수 있습니다. HDInsight를 사용하면 데이터가 Azure Storage에 저장되기 때문에 클러스터를 사용하지 않을 때 안전하게 삭제할 수 있습니다. HDInsight 클러스터를 사용하지 않는 기간에도 요금이 청구됩니다. 클러스터에 대한 요금이 저장소에 대한 요금보다 몇 배 더 많기 때문에, 클러스터를 사용하지 않을 때는 삭제하는 것이 경제적인 면에서 더 합리적입니다. 클러스터 삭제에 대한 내용은 [Azure Portal을 사용하여 HDInsight에서 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-management-portal.md#delete-clusters)를 참조하세요.
 
-새 HBase 클러스터 사용을 시작하려는 경우 [HDInsight에서 Hadoop을 통해 HBase 사용 시작](./apache-hbase-tutorial-get-started-linux.md)의 절차를 사용할 수 있습니다.
+새 HBase 클러스터 사용을 시작하려는 경우 [HDInsight에서 Apache Hadoop을 통해 Apache HBase 사용 시작](./apache-hbase-tutorial-get-started-linux.md)의 절차를 따르면 됩니다.
 
-## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>HBase Java RPC API를 사용하여 HBase 클러스터에 연결
+## <a name="connect-to-the-apache-hbase-cluster-using-apache-hbase-java-rpc-apis"></a>Apache HBase Java RPC API를 사용하여 Apache HBase 클러스터에 연결
 1. 동일한 Azure 가상 네트워크와 동일한 서브넷에 IaaS(infrastructure as a service) 가상 머신을 만듭니다. 새 IaaS 가상 머신을 만드는 지침은 [Windows Server를 실행하는 Virtual Machine 만들기](../../virtual-machines/windows/quick-create-portal.md)를 참조하세요. 이 문서의 단계를 수행할 때 다음과 같은 네트워크 구성 값을 사용해야 합니다.
 
    * **가상 네트워크**: &lt;클러스터 이름>-vnet
@@ -83,7 +83,7 @@ ms.locfileid: "51009830"
 
 2. Java 응용 프로그램을 사용하여 HBase에 원격으로 연결할 때는 FQDN(정규화된 도메인 이름)을 사용해야 합니다. FQDN을 확인하려면 HBase 클러스터의 연결별 DNS 접미사를 가져와야 합니다. 이렇게 하려면 다음 방법 중 하나를 사용합니다.
 
-   * 웹 브라우저를 사용하여 Ambari를 호출합니다.
+   * 웹 브라우저를 사용하여 [Apache Ambari](https://ambari.apache.org/)를 호출합니다.
 
      https://&lt;ClusterName>.azurehdinsight.net/api/v1/clusters/&lt;ClusterName>/hosts?minimal_response=true로 이동합니다. JSON 파일의 DNS 접미사를 설정합니다.
    * Ambari 웹 사이트를 사용합니다.
@@ -225,7 +225,7 @@ ms.locfileid: "51009830"
 
 가상 머신이 HBase 클러스터와 통신할 수 있는지 확인하려면 가상 머신에서 `ping headnode0.<dns suffix>` 명령을 사용합니다. 예를 들면 ping headnode0.mycluster.b1.cloudapp.net을 사용합니다.
 
-Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성](./apache-hbase-build-java-maven-linux.md) 의 단계에 따라 응용 프로그램을 만들 수 있습니다. 응용 프로그램이 원격 HBase 서버에 연결하도록 하려면 이 예제의 **hbase-site.xml** 파일이 ZooKeeper의 FQDN을 사용하도록 수정합니다. 예: 
+Java 애플리케이션에서 이 정보를 사용하려는 경우 [Apache Maven을 통해 HDInsight(Hadoop)와 함께 Apache HBase를 사용하는 Java 애플리케이션 작성](./apache-hbase-build-java-maven-linux.md) 의 단계에 따라 애플리케이션을 만들 수 있습니다. 응용 프로그램이 원격 HBase 서버에 연결하도록 하려면 이 예제의 **hbase-site.xml** 파일이 ZooKeeper의 FQDN을 사용하도록 수정합니다. 예: 
 
     <property>
         <name>hbase.zookeeper.quorum</name>
@@ -238,13 +238,13 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 >
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 HBase 클러스터를 만드는 방법을 배웠습니다. 자세한 내용은 다음을 참조하세요.
+이 자습서에서는 Apache HBase 클러스터를 만드는 방법을 배웠습니다. 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight에서 빈 에지 노드 사용](../hdinsight-apps-use-edge-node.md)
-* [HDInsight에서 HBase 복제 구성](apache-hbase-replication.md)
-* [HDInsight에서 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
-* [HDInsight의 Hadoop에서 HBase 사용 시작](./apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight에서 Apache HBase 복제 구성](apache-hbase-replication.md)
+* [HDInsight에 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
+* [HDInsight에서 Hadoop을 통해 Apache HBase 사용 시작](./apache-hbase-tutorial-get-started-linux.md)
 * [Virtual Network 개요](../../virtual-network/virtual-networks-overview.md)
 
 [1]: http://azure.microsoft.com/services/virtual-network/

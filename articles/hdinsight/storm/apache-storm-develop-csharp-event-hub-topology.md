@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0eb283eda04d4123e0c05d2c48663a5aca88ebc4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 027c8155c84959ca429eb9b093a155ac22aaf324
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249560"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582216"
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>HDInsight의 Storm(C#)으로 Azure Event Hubs에서 이벤트 처리
+# <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(C#)
 
-HDInsight의 Apache Storm에서 Azure Event Hubs를 사용하는 방법에 대해 알아봅니다. 이 문서는 C# Storm 토폴로지를 사용하여 Event Hubs에서 데이터를 읽고 씁니다.
+HDInsight의 [Apache Storm](http://storm.apache.org/)에서 Azure Event Hubs를 사용하는 방법에 대해 알아봅니다. 이 문서는 C# Storm 토폴로지를 사용하여 Event Hubs에서 데이터를 읽고 씁니다.
 
 > [!NOTE]
-> 이 프로젝트의 Java 버전은 [HDInsight의 Storm(Java)으로 Azure Event Hubs에서 이벤트 처리](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)를 참조하세요.
+> 이 프로젝트의 Java 버전은 [HDInsight의 Apache Storm으로 Azure Event Hubs의 이벤트 처리(Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)를 참조하세요.
 
 ## <a name="scpnet"></a>SCP.NET
 
@@ -225,4 +225,4 @@ Event Hubs는 이 예제의 데이터 원본입니다. [Event Hubs 시작](../..
 
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)
 * [SCP 프로그래밍 가이드](apache-storm-scp-programming-guide.md)
-* [HDInsight의 Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)
+* [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)

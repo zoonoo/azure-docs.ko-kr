@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d2181fb22079112c84e3e7c65575b12aa0c867ac
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006552"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498272"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>storm-starter 예제를 사용하여 HDInsight의 Apache Storm 시작
 
-storm-starter 예제를 사용하여 HDInsight의 Apache Storm을 시작하는 방법을 알아봅니다.
+storm-starter 예제를 사용하여 HDInsight의 [Apache Storm](http://storm.apache.org/)을 사용하는 방법을 알아봅니다.
 
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Azure HDInsight의 Storm을 사용하여 실시간 데이터 분석을 수행하는 클라우드 기반 Storm 클러스터를 만들 수 있습니다.
 
@@ -34,7 +34,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 * **SSH 및 SCP 사용 경험**. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-## <a name="create-a-storm-cluster"></a>Storm 클러스터 만들기
+## <a name="create-an-apache-storm-cluster"></a>Apache Storm 클러스터 만들기
 
 다음 단계를 사용하여 HDInsight 클러스터에 Storm을 만듭니다.
 
@@ -139,7 +139,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
     * **비활성화** - 실행 중인 토폴로지를 일시 중지합니다.
 
-    * **균형 다시 맞추기** - 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 균형을 다시 맞추면 병렬 처리가 조정되어 클러스터에서 증가/감소한 노드 수가 보정됩니다. 자세한 내용은 [Storm 토폴로지의 병렬 처리 이해](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
+    * **균형 다시 맞추기** - 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 균형을 다시 맞추면 병렬 처리가 조정되어 클러스터에서 증가/감소한 노드 수가 보정됩니다. 자세한 내용은 [Apache Storm 토폴로지의 병렬 처리 이해](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
 
     * **중단** - 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
 
@@ -187,15 +187,15 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 ## <a id="next"></a>다음 단계
 
-Apache Storm 자습서에서는 HDInsight에서 Storm으로 작업하는 기본 사항을 알아보았습니다. 다음으로 [Maven을 사용하여 Java 기반 토폴로지를 개발하는 방법](apache-storm-develop-java-topology.md)에 대해 알아봅니다.
+Apache Storm 자습서에서는 HDInsight에서 Storm으로 작업하는 기본 사항을 알아보았습니다. 다음으로, [Apache Maven을 사용하여 Java 기반 토폴로지를 개발](apache-storm-develop-java-topology.md)하는 방법을 알아봅니다.
 
 Java 기반 토폴로지를 개발하는 데 익숙한 경우 [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](apache-storm-deploy-monitor-topology-linux.md) 문서를 참조하세요.
 
-.NET 개발자인 경우 Visual Studio를 사용하여 C# 또는 하이브리드 C#/Java 토폴로지를 만들 수 있습니다. 자세한 내용은 [Visual Studio용 Hadoop 도구를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
+.NET 개발자인 경우 Visual Studio를 사용하여 C# 또는 하이브리드 C#/Java 토폴로지를 만들 수 있습니다. 자세한 내용은 [Visual Studio용 Apache Hadoop 도구를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
 예를 들어 HDInsight에서 Storm과 함께 사용할 수 있는 토폴로지는 다음 예제를 참조하세요.
 
-* [HDInsight의 Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)
+* [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

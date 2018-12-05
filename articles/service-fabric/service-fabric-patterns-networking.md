@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: b180e62804b875ca4547a9d09f19efff32ae0cd9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2fce90f971d13b94c73012d4089cca05739c5440
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207226"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853713"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.
@@ -31,7 +31,7 @@ ms.locfileid: "34207226"
 
 Service Fabric은 표준 가상 머신 확장 집합에서 실행됩니다. 가상 머신 확장 집합에서 사용할 수 있는 모든 기능을 Service Fabric 클러스터에서 사용할 수 있습니다. 가상 머신 확장 집합 및 Service Fabric에 대한 Azure Resource Manager 템플릿의 네트워킹 섹션은 동일합니다. 기존 가상 네트워크에 배포한 후 Azure ExpressRoute, Azure VPN Gateway, 네트워크 보안 그룹 및 가상 네트워크의 피어링 등의 다른 네트워킹 기능을 쉽게 통합할 수 있습니다.
 
-Service Fabric은 한 가지 측면에서 다른 네트워킹 기능과 다릅니다. [Azure Portal](https://portal.azure.com)이 내부적으로 SFRP(Service Fabric 리소스 공급자)를 사용하여 노드 및 응용 프로그램에 대한 정보를 얻기 위해 클러스터를 호출한다는 것이 바로 그것입니다. Service Fabric 리소스 공급자는 관리 끝점에서 HTTP 게이트웨이 포트(기본적으로 19080)에 대해 공개적으로 액세스 가능한 인바운드 액세스 권한이 필요합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 관리 끝점을 사용하여 클러스터를 관리합니다. 또한 Service Fabric 리소스 공급자는 Azure Portal에 표시하기 위해 클러스터에 대한 정보를 쿼리하는 데도 이 포트를 사용합니다. 
+Service Fabric은 한 가지 측면에서 다른 네트워킹 기능과 다릅니다. [Azure Portal](https://portal.azure.com)이 내부적으로 SFRP(Service Fabric 리소스 공급자)를 사용하여 노드 및 응용 프로그램에 대한 정보를 얻기 위해 클러스터를 호출한다는 것이 바로 그것입니다. Service Fabric 리소스 공급자는 관리 엔드포인트에서 HTTP 게이트웨이 포트(기본적으로 19080)에 대해 공개적으로 액세스 가능한 인바운드 액세스 권한이 필요합니다. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 관리 엔드포인트를 사용하여 클러스터를 관리합니다. 또한 Service Fabric 리소스 공급자는 Azure Portal에 표시하기 위해 클러스터에 대한 정보를 쿼리하는 데도 이 포트를 사용합니다. 
 
 Service Fabric 리소스 공급자에서 포트 19080에 액세스할 수 없으면 포털에 *노드를 찾을 수 없음* 메시지가 표시되고 노드 및 응용 프로그램 목록이 빈 상태로 나타납니다. Azure Portal에서 클러스터를 보려는 경우 부하 분산 장치가 공용 IP 주소를 노출해야 하고 네트워크 보안 그룹은 들어오는 포트 19080 트래픽을 허용해야 합니다. 설정이 이러한 요구 사항을 충족하지 않는 경우 Azure Portal에 클러스터의 상태가 표시되지 않습니다.
 
@@ -106,15 +106,20 @@ DnsSettings              : {
             },*/
     ```
 
+2. 기존 서브넷을 사용하고 1단계에서 이 변수를 사용하지 않도록 설정했으므로 `Microsoft.Compute/virtualMachineScaleSets`의 `nicPrefixOverride` 특성을 주석으로 처리합니다.
 
-2. `vnetID` 변수를 기존 가상 네트워크를 가리키도록 변경합니다.
+    ```
+            /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
+    ```
+
+3. `vnetID` 변수를 기존 가상 네트워크를 가리키도록 변경합니다.
 
     ```
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
-3. Azure에서 새 가상 네트워크를 만들지 않도록 리소스에서 `Microsoft.Network/virtualNetworks`를 제거합니다.
+4. Azure에서 새 가상 네트워크를 만들지 않도록 리소스에서 `Microsoft.Network/virtualNetworks`를 제거합니다.
 
     ```
     /*{
@@ -144,7 +149,7 @@ DnsSettings              : {
     },*/
     ```
 
-4. 새 가상 네트워크를 만드는 데만 의존하지 않도록 `Microsoft.Compute/virtualMachineScaleSets`의 `dependsOn` 특성에서 가상 네트워크를 주석 처리합니다.
+5. 새 가상 네트워크를 만드는 데만 의존하지 않도록 `Microsoft.Compute/virtualMachineScaleSets`의 `dependsOn` 특성에서 가상 네트워크를 주석 처리합니다.
 
     ```
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -158,7 +163,7 @@ DnsSettings              : {
 
     ```
 
-5. 템플릿 배포
+6. 템플릿 배포
 
     ```powershell
     New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
@@ -280,7 +285,7 @@ DnsSettings              : {
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
-배포 후에는 부하 분산 장치가 다른 리소스 그룹의 공용 고정 IP 주소에 바인딩된 것을 볼 수 있습니다. Service Fabric 클라이언트 연결 끝점 및 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 끝점은 고정 IP 주소의 DNS FQDN을 가리킵니다.
+배포 후에는 부하 분산 장치가 다른 리소스 그룹의 공용 고정 IP 주소에 바인딩된 것을 볼 수 있습니다. Service Fabric 클라이언트 연결 엔드포인트 및 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 엔드포인트는 고정 IP 주소의 DNS FQDN을 가리킵니다.
 
 <a id="internallb"></a>
 ## <a name="internal-only-load-balancer"></a>내부 전용 부하 분산 장치
@@ -378,12 +383,12 @@ DnsSettings              : {
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
-배포 후에 부하 분산 장치는 개인 정적 10.0.0.250 IP 주소를 사용합니다. 동일한 가상 네트워크에 다른 컴퓨터가 있는 경우 내부 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 끝점으로 이동할 수 있습니다. 부하 분산 장치 뒤의 노드 중 하나로 연결됩니다.
+배포 후에 부하 분산 장치는 개인 정적 10.0.0.250 IP 주소를 사용합니다. 동일한 가상 네트워크에 다른 컴퓨터가 있는 경우 내부 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 엔드포인트로 이동할 수 있습니다. 부하 분산 장치 뒤의 노드 중 하나로 연결됩니다.
 
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>내부 및 외부 부하 분산 장치
 
-이 시나리오는 기존 단일 노드 형식 외부 부하 분산 장치로 시작하고 동일한 노드 형식에 대한 내부 부하 분산 장치를 추가합니다. 백 엔드 주소 풀에 연결된 백 엔드 포트는 단일 부하 분산 장치에만 할당할 수 있습니다. 응용 프로그램 포트를 포함할 부하 분산 장치 및 관리 끝점을 포함할 부하 분산 장치를 선택합니다(포트 19000 및 19080). 내부 부하 분산 장치에 관리 끝점을 둘 경우 이 문서 앞부분에서 제시된 Service Fabric 리소스 공급자 제한 사항에 유의하세요. 사용하는 예제에서 관리 끝점은 외부 부하 분산 장치에 유지됩니다. 또한 포트 80을 응용 프로그램 포트에 추가한 후 내부 부하 분산 장치에 배치합니다.
+이 시나리오는 기존 단일 노드 형식 외부 부하 분산 장치로 시작하고 동일한 노드 형식에 대한 내부 부하 분산 장치를 추가합니다. 백 엔드 주소 풀에 연결된 백 엔드 포트는 단일 부하 분산 장치에만 할당할 수 있습니다. 응용 프로그램 포트를 포함할 부하 분산 장치 및 관리 엔드포인트를 포함할 부하 분산 장치를 선택합니다(포트 19000 및 19080). 내부 부하 분산 장치에 관리 엔드포인트를 둘 경우 이 문서 앞부분에서 제시된 Service Fabric 리소스 공급자 제한 사항에 유의하세요. 사용하는 예제에서 관리 엔드포인트는 외부 부하 분산 장치에 유지됩니다. 또한 포트 80을 응용 프로그램 포트에 추가한 후 내부 부하 분산 장치에 배치합니다.
 
 두 노드 형식 클러스터에서 한 노드 형식은 외부 부하 분산 장치에 있습니다. 다른 노드 형식은 내부 부하 분산 장치에 있습니다. 두 노드 형식 클러스터를 사용하려면 포털에서 만들어진 두 노드 형식 템플릿(두 가지 부하 분산 장치와 함께 제공)에서 두 번째 부하 분산 장치를 내부 부하 분산 장치로 전환합니다. 자세한 내용은 [내부 전용 부하 분산 장치](#internallb) 섹션을 참조하세요.
 
@@ -488,7 +493,7 @@ DnsSettings              : {
     "inboundNatPools": [
     ```
 
-5. 두 번째 `Microsoft.Network/loadBalancers` 리소스를 추가합니다. [내부 전용 부하 분산 장치](#internallb) 섹션에서 만든 내부 부하 분산 장치와 비슷해 보이지만 "-Int" 부하 분산 장치 변수를 사용하고 응용 프로그램 포트 80만 구현합니다. 또한 `inboundNatPools`를 제거하여 RDP 끝점을 공용 부하 분산 장치에 유지합니다. 내부 부하 분산 장치의 RDP를 원할 경우 외부 부하 분산 장치의 `inboundNatPools`를 이 내부 부하 분산 장치로 이동합니다.
+5. 두 번째 `Microsoft.Network/loadBalancers` 리소스를 추가합니다. [내부 전용 부하 분산 장치](#internallb) 섹션에서 만든 내부 부하 분산 장치와 비슷해 보이지만 "-Int" 부하 분산 장치 변수를 사용하고 응용 프로그램 포트 80만 구현합니다. 또한 `inboundNatPools`를 제거하여 RDP 엔드포인트를 공용 부하 분산 장치에 유지합니다. 내부 부하 분산 장치의 RDP를 원할 경우 외부 부하 분산 장치의 `inboundNatPools`를 이 내부 부하 분산 장치로 이동합니다.
 
     ```
             /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
@@ -595,7 +600,7 @@ DnsSettings              : {
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```
 
-배포 후 리소스 그룹에서 두 개의 부하 분산 장치를 볼 수 있습니다. 부하 분산 장치를 찾아보면 공용 IP 주소와 공용 IP 주소에 할당된 관리 끝점(포트 19000 및 19080)을 볼 수 있습니다. 또한 고정 내부 IP 주소와 내부 부하 분산 장치에 할당된 응용 프로그램 끝점(포트 80)도 볼 수 있습니다. 두 부하 분산 장치 모두 동일한 가상 머신 확장 집합 백 엔드 풀을 사용합니다.
+배포 후 리소스 그룹에서 두 개의 부하 분산 장치를 볼 수 있습니다. 부하 분산 장치를 찾아보면 공용 IP 주소와 공용 IP 주소에 할당된 관리 엔드포인트(포트 19000 및 19080)를 볼 수 있습니다. 또한 고정 내부 IP 주소와 내부 부하 분산 장치에 할당된 응용 프로그램 엔드포인트(포트 80)도 볼 수 있습니다. 두 부하 분산 장치 모두 동일한 가상 머신 확장 집합 백 엔드 풀을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [클러스터 만들기](service-fabric-cluster-creation-via-arm.md)

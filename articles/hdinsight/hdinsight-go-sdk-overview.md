@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 9/21/2018
 ms.author: tyfox
-ms.openlocfilehash: 8beb75748c2e9fe3f71ad321c4cd523e344fb90c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f018130ca94c7efb7a9c6c873c150dcc382dbc4c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901909"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498302"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Go 관리 SDK 미리 보기
 
@@ -141,7 +141,7 @@ func main() {
 
 #### <a name="example"></a>예
 
-이 예제에서는 2개의 헤드 노드 및 1개의 작업자 노드를 사용하여 Spark 클러스터를 만드는 방법을 보여줍니다.
+이 예제에서는 2개의 헤드 노드 및 1개의 작업자 노드를 사용하여 [Apache Spark](https://spark.apache.org/) 클러스터를 만드는 방법을 보여줍니다.
 
 > [!NOTE]
 > 먼저 아래 설명된 대로 리소스 그룹 및 저장소 계정을 만들어야 합니다. 이미 만든 경우에는 이 단계를 건너뛸 수 있습니다.

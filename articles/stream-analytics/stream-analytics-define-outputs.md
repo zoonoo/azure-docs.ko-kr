@@ -2,26 +2,25 @@
 title: Azure Stream Analytics의 출력 이해
 description: 이 문서에서는 분석 결과에 대한 Power BI를 포함하여 Azure Stream Analytics에서 사용할 수 있는 데이터 출력 옵션을 설명합니다.
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: 2ef599fe704b184e82de2d704753e3fb4a274a2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/21/2018
+ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257802"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310046"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 다양한 유형의 출력을 설명합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용하여 추가 비즈니스 분석 및 데이터의 데이터 웨어하우징을 수행할 수 있습니다. 
 
 Stream Analytics 쿼리를 디자인할 때 [INTO 절](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics)을 사용하여 출력의 이름을 참조하세요. 작업당 단일 출력 또는 쿼리에서 여러 INTO 절을 제공하여 필요한 경우 스트리밍 작업당 여러 출력을 사용할 수 있습니다.
 
-Stream Analytics 작업 출력을 만들고, 편집하고 테스트하기 위해 [Azure Portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 사용할 수 있습니다.
+Stream Analytics 작업 출력을 만들고, 편집하고 테스트하기 위해 [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) 및 [Visual Studio](stream-analytics-quick-create-vs.md)를 사용할 수 있습니다.
 
 일부 출력 형식은 처리량을 최적화하기 위해 [분할](#partitioning) 및 다양한 [출력 일괄 처리 크기](#output-batch-size)를 지원합니다.
 
@@ -70,8 +69,8 @@ Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet
 | 출력 별칭 |쿼리 출력을 이 데이터베이스로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | 데이터베이스 | 출력을 보내는 데이터베이스의 이름입니다. |
 | 서버 이름 | SQL Database 서버 이름입니다. |
-| 사용자 이름 | 데이터베이스에 쓸 수 있는 액세스 권한이 있는 사용자 이름입니다. |
-| 암호 | 데이터베이스에 연결하는 암호 |
+| 사용자 이름 | 데이터베이스에 쓸 수 있는 액세스 권한이 있는 사용자 이름입니다. Stream Analytics는 SQL 인증만 지원합니다. |
+| 암호 | 데이터베이스에 연결하는 암호입니다. |
 | 테이블 | 출력을 기록되는 테이블 이름입니다. 테이블 이름은 대/소문자를 구분하며 이 테이블의 스키마는 작업 출력에서 생성되는 필드의 수 및 해당 형식과 정확히 일치해야 합니다. |
 
 > [!NOTE]

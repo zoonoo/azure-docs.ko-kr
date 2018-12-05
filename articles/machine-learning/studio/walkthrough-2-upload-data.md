@@ -1,10 +1,11 @@
 ---
-title: '2단계: Machine Learning 실험에 데이터 업로드 | Microsoft Docs'
+title: '2단계: Machine Learning Studio 실험에 데이터 업로드 - Azure | Microsoft Docs'
 description: '예측 솔루션 연습 개발의 2단계: Azure Machine Learning Studio로 저장된 공용 데이터를 업로드합니다.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: dfa6ae8011da0299c270035b8b781d70a8e80119
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835793"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311979"
 ---
-# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>연습 2단계: Azure Machine Learning 실험에 기존 데이터 업로드
+# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>연습 2단계: Azure Machine Learning Studio 실험에 기존 데이터 업로드
 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
 
 1. [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)

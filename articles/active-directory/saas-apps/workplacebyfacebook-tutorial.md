@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e072a27087f90bddd3f7c416904758e40c2f6b9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423874"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425191"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>자습서: Workplace by Facebook과 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ Workplace by Facebook과 Azure AD 통합을 구성하려면 다음 항목이 필
 > Facebook에는 Workplace Standard(무료)와 Workplace Premium(유료)의 두 가지 제품이 있습니다. 모든 Workplace Premium 테넌트는 비용 또는 필요한 라이선스에 영향을 미치지 않고 SCIM 및 SSO 통합을 구성할 수 있습니다. SSO 및 SCIM은 Workplace Standard에서 사용할 수 없는 합니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Workplace by Facebook 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -118,7 +118,7 @@ Workplace by Facebook에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<instancename>.facebook.com`
 
-    나. **식별자** 텍스트 상자에서 `https://www.facebook.com/company/<instanceID>` 패턴을 사용하여 URL을 입력합니다.
+    b. **식별자** 텍스트 상자에서 `https://www.facebook.com/company/<instanceID>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. Workplace 커뮤니티에 대한 올바른 값을 보려면 Workplace 회사 대시보드의 인증 페이지를 참조하세요. 
@@ -140,7 +140,7 @@ Workplace by Facebook에서 Azure AD Single Sign-On을 구성하고 테스트하
    > [!NOTE] 
    > SAML 인증 프로세스의 일환으로 Workplace는 Azure AD에 매개 변수를 전달하기 위해 최대 2.5KB 크기의 쿼리 문자열을 사용할 수 있습니다.
 
-1. **회사 대시보드**에서 **인증** 탭으로 이동합니다.
+1. **관리 패널**에서 차례로 **보안** 탭 및 **인증**으로 이동합니다.
 
 1. **SAML 인증** 아래 드롭다운 목록에서 **SSO 전용**을 선택합니다.
 
@@ -200,7 +200,7 @@ Require SAML authentication for all users now(모든 사용자에게 SAML 인증
 
     a. **이름** 텍스트 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
+    b. **사용자 이름** 텍스트 상자에 BrittaSimon의 **전자 메일 주소**를 입력합니다.
 
     다. **암호 표시**를 선택하고 **암호** 값을 적어둡니다.
 

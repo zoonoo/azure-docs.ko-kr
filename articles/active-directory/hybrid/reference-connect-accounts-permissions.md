@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a3bce69236586bcd0a250c47f1129ac0d94e8b26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231485"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308786"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -39,7 +39,10 @@ Azure AD Connect는 온-프레미스 또는 Windows Server Active Directory의 �
 
 Azure AD Connect를 실행하는 데 사용되는 이러한 세 가지 계정 외에, Azure AD Connect를 설치하기 위해 다음 추가 계정도 필요합니다.  다음과 같습니다.
 
-- **AD DS Enterprise 관리자 계정**: Azure AD Connect를 설치하는 데 사용됩니다.
+- **로컬 관리자 계정**: Azure AD Connect를 설치하고 머신의 로컬 관리자 권한을 가진 관리자.
+
+- **AD DS Enterprise 관리자 계정**: 필요에 따라 위의 "AD DS 커넥터 계정"을 만드는 데 사용됩니다.
+
 - **Azure AD 전역 관리자 계정**: Azure AD Connect 계정을 만들고 Azure AD를 구성하는 데 사용됩니다.
 
 - **SQL SA 계정(선택 사항)**: SQL Server의 전체 버전을 사용할 때 ADSync 데이터베이스를 만드는 데 사용됩니다.  이 SQL Server는 Azure AD Connect 설치의 로컬 또는 원격일 수 있습니다.  이 계정은 엔터프라이즈 관리자와 동일한 계정일 수 있습니다.  이제 SQL 관리자가 대역 외에서 데이터베이스를 프로비전한 후 데이터베이스 소유권이 있는 Azure AD Connect 관리자가 설치할 수 있습니다.  이에 대한 내용은 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](how-to-connect-install-sql-delegation.md)를 참조하세요.

@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 8941a7332c19b1a9d5c04abb0e4b03ae83e98016
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260485"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315430"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 
-HDInsight의 Apache Kafka 및 Azure IoT Hub 간에 데이터를 이동하려면 [Kafka 연결 Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) 커넥터를 사용하는 방법에 대해 알아봅니다. 이 문서에서는 클러스터의 에지 노드에서 IoT Hub 커넥터를 실행하는 방법을 설명합니다.
+HDInsight의 Apache Kafka 및 Azure IoT Hub 간에 데이터를 이동하려면 [Apache Kafka 연결 Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub) 커넥터를 사용하는 방법에 대해 알아봅니다. 이 문서에서는 클러스터의 에지 노드에서 IoT Hub 커넥터를 실행하는 방법을 설명합니다.
 
-Kafka 연결 API를 사용하면 데이터를 계속 Kafka로 끌어오거나 Kafka에서 다른 시스템으로 데이터를 밀어넣기하는 커넥터를 구현할 수 있습니다. [Kafka 연결 Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub)는 Azure IoT Hub에서 데이터를 Kafka로 끌어오는 커넥터입니다. Kafka에서 데이터를 IoT Hub로 밀어넣기할 수도 있습니다. 
+Kafka 연결 API를 사용하면 데이터를 계속 Kafka로 끌어오거나 Kafka에서 다른 시스템으로 데이터를 밀어넣기하는 커넥터를 구현할 수 있습니다. [Apache Kafka 연결 Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub)는 Azure IoT Hub에서 데이터를 Kafka로 끌어오는 커넥터입니다. Kafka에서 데이터를 IoT Hub로 밀어넣기할 수도 있습니다. 
 
 IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT Hub로 밀어넣기하는 경우 __싱크__ 커넥터를 사용합니다. IoT Hub 커넥터는 원본 및 싱크 커넥터 모두를 제공합니다.
 
@@ -84,7 +84,7 @@ IoT Hub에서 끌어오는 경우 __원본__ 커넥터를 사용합니다. IoT H
 >
 >    이 명령은 프로젝트에 대한 `target/scala-2.11` 디렉터리에서 `kafka-connect-iothub-assembly_2.11-0.6.jar`라는 파일을 만듭니다.
 
-## <a name="configure-kafka"></a>Kafka 구성
+## <a name="configure-apache-kafka"></a>Apache Kafka 구성
 
 SSH 연결에서 에지 노드까지 다음 단계를 사용하여 독립 실행형 모드에서 실행되도록 Kafka를 구성합니다.
 
@@ -111,7 +111,7 @@ SSH 연결에서 에지 노드까지 다음 단계를 사용하여 독립 실행
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-4. Zookeeper 노드의 주소를 가져옵니다. 클러스터에 여러 Zookeeper 노드가 있지만 하나 또는 두 개의 참조만 필요합니다. 두 Zookeeper 노드의 주소를 가져오려면 다음 명령을 사용합니다.
+4. Apache Zookeeper 노드의 주소를 가져옵니다. 클러스터에 여러 Zookeeper 노드가 있지만 하나 또는 두 개의 참조만 필요합니다. 두 Zookeeper 노드의 주소를 가져오려면 다음 명령을 사용합니다.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -335,7 +335,7 @@ t.runtime.WorkerSinkTask:262)
     > [!WARNING]
     > 새 SSH 연결이므로 `$KAFKABROKERS` 변수는 어떤 정보도 포함하지 않습니다. 이를 설정하려면 다음 방법 중 하나를 사용합니다.
     >
-    > * [Kafka 구성](#configure-kafka) 섹션에서 처음 3단계를 사용합니다.
+    > * [Apache Kafka 구성](#configure-apache-kafka) 섹션의 처음 세 단계를 사용합니다.
     > * 값을 가져오려면 이전 SSH 연결에서 `echo $KAFKABROKERS`를 사용한 다음, 다음 명령에서 `$KAFKABROKERS`를 실제 값으로 바꿉니다.
 
     ```bash
@@ -367,7 +367,7 @@ t.runtime.WorkerSinkTask:262)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 HDInsight에서 IoT Kafka 커넥터를 시작하기 위해 Kafka 연결 API를 사용하는 방법을 알아보았습니다. Kafka를 사용하는 다른 방법을 찾으려면 다음 링크를 사용하세요.
+이 문서에서는 HDInsight에서 IoT Kafka 커넥터를 시작하기 위해 Apache Kafka 연결 API를 사용하는 방법을 알아보았습니다. Kafka를 사용하는 다른 방법을 찾으려면 다음 링크를 사용하세요.
 
-* [HDInsight의 Kafka에서 Apache Spark 사용](../hdinsight-apache-spark-with-kafka.md)
-* [HDInsight의 Kafka에서 Apache Storm 사용](../hdinsight-apache-storm-with-kafka.md)
+* [HDInsight에서 Apache Spark 및 Apache Kafka 사용](../hdinsight-apache-spark-with-kafka.md)
+* [HDInsight에서 Apache Storm 및 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md)

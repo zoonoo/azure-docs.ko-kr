@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: d48b55af705eddb42853fb236e5eb6a214d1a0ff
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 682ffb5659cd776117fd3eec8fdb0fa5e0427ab8
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394055"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582306"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Azure 계정으로 Office 365 구독에 등록
 Azure 구독자인 경우 Azure 계정을 사용하여 Office 365 구독에 등록할 수 있습니다. Azure 구독이 있는 조직의 일부인 경우 기존 Azure AD(Azure Active Directory)에서 사용자를 위한 Office 365 구독을 만들 수 있습니다. Azure Active Directory 테넌트에서 전역 관리자 또는 대금 청구 관리자 권한이 있는 계정을 사용하여 Office 365에 등록합니다. 자세한 내용은 [Azure AD에서 계정 권한 확인](#RoleInAzureAD) 및 [Azure Active Directory에서 관리자 역할 할당](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
@@ -53,7 +53,7 @@ Office 365 계정과 Azure 구독이 둘 다 이미 있는 경우 [Azure 구독�
 등록 후 Azure 구독이 속해 있는 Azure Active Directory 인스턴스에 Office 365 구독이 추가됩니다. 자세한 내용은 [Azure 및 Office 365 구독에 대한 추가 정보](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) 및 [Azure 구독이 Azure Active Directory와 연결되는 방법](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)을 참조하세요.
 
 ## <a id="RoleInAzureAD"></a>Azure AD에서 내 계정 사용 권한 확인
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스**를 클릭하고 **Active Directory**를 검색합니다.
 
     ![Azure Portal의 Active Directory 스크린샷](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
@@ -69,5 +69,6 @@ Office 365 계정과 Azure 구독이 둘 다 이미 있는 경우 [Azure 구독�
 
     ![Azure Portal 디렉터리 역할 대금 청구 관리자를 보여 주는 스크린샷](./media/billing-use-existing-azure-account-office-365-subscription/billing-directoryrole-limited.png)
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
-추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요. 
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 

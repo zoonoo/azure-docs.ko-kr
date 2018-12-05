@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 85fea195b05bea8a1db70f8b5b81cabdfe7c6c72
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8525b1450ae8b7badfe1c569c2040ecf1ab78070
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041512"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314374"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Azure HDInsight의 Apache Kafka에 대한 Bring Your Own Key(미리 보기)
 
@@ -81,9 +81,9 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
    ![Azure Portal의 Kafka 디스크 암호화](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
-   클러스터를 만드는 동안 키 버전을 포함한 전체 키 URL을 제공합니다. 예: `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+   클러스터를 만드는 동안 키 버전을 포함한 전체 키 URL을 제공합니다. 예: `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4` 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
 
-## <a name="faq-for-byok-to-kafka"></a>Kafka에 대한 BYOK FAQ
+## <a name="faq-for-byok-to-apache-kafka"></a>Apache Kafka에 대한 BYOK FAQ
 
 **Kafka 클러스터가 내 Key Vault에 어떻게 액세스하나요?**
 
@@ -107,7 +107,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Key Vault의 키를 안전하게 �
 
 **OS 디스크/리소스 디스크도 암호화되나요?**
 
-   아니요. OS 디스크 및 리소스 디스크는 암호화되지 않습니다.
+    아니요. OS 디스크 및 리소스 디스크는 암호화되지 않습니다.
 
 **클러스터가 강화될 경우 새 broker가 BYOK를 원활하게 지원할까요?**
 

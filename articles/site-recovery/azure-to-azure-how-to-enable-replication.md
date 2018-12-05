@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 2f4721155610da3be3ff0db3608d7c1e163aa344
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e73659dca034c0333a73786788c8f342b57598da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211845"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314667"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>다른 Azure 지역으로 Azure 가상 머신 복제
 
@@ -53,7 +53,15 @@ ms.locfileid: "50211845"
     - **대상 저장소 계정(원본 VM이 관리 디스크를 사용하는 경우)**: 기본적으로 Site Recovery는 원본 VM 저장소 구성을 모방하는 새 대상 저장소 계정을 만듭니다. 저장소 계정이 이미 있는 경우 다시 사용됩니다.
     - **복제본 관리 디스크(원본 VM이 관리 디스크를 사용하는 경우)**: Site Recovery는 대상 지역에 새로운 복제본 관리 디스크를 만들어서 원본 VM의 관리 디스크와 동일한 저장소 유형(표준 또는 프리미엄)을 원본 VM의 관리 디스크로 미러링합니다.
     - **캐시 저장소 계정**: Site Recovery는 원본 지역에 캐시 저장소로 불리는 추가 저장소 계정이 필요합니다. 원본 VM에서 발생하는 모든 변경 내용이 대상 위치로 복제되기 전에 추적되고 캐시 저장소 계정으로 전송됩니다.
-    - **가용성 집합**: 기본적으로 Azure Site Recovery는 이름에 "asr" 접미사가 있는 대상 지역에 새 가용성 집합을 만듭니다. Azure Site Recovery에서 만든 가용성 집합이 이미 있는 경우 해당 가용성 집합이 재사용 됩니다.
+    - **대상 가용성 집합**: 기본적으로 Azure Site Recovery는 원본 영역에서 가용성 집합에 있는 VM 부분의 이름에 "asr" 접미사가 있는 대상 지역에 새 가용성 집합을 만듭니다. Azure Site Recovery에서 만든 가용성 집합이 이미 있는 경우 해당 가용성 집합이 재사용 됩니다.
+    - **대상 가용성 영역**: 기본적으로 Site Recovery는 대상 지역이 가용성 영역을 지원하는 경우 대상 지역의 원본 지역과 동일한 영역 번호를 할당합니다.
+
+    대상 지역이 가용성 영역을 지원하지 않는 경우 대상 VM은 기본적으로 단일 인스턴스로 구성됩니다. 필요한 경우 '사용자 지정'을 클릭하여 이러한 VM이 대상 지역에서 가용성 집합의 일부가 되도록 구성할 수 있습니다.
+
+    >[!NOTE]
+    >복제를 사용하도록 설정한 후에는 가용성 유형(단일 인스턴스, 가용성 집합 또는 가용성 영역)을 변경할 수 없습니다. 가용성 유형을 변경하려면 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
+    >
+    
     - **복제 정책**: 복구 지점 보존 기록 및 앱 일치 스냅숏 빈도 대한 설정을 정의합니다. 기본적으로 Azure Site Recovery는 복구 지점 보존의 경우 '24시간', 앱 일치 스냅숏 빈도의 경우 '60분'인 기본 설정으로 새 복제 정책을 만듭니다.
 
     ![복제 사용](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)

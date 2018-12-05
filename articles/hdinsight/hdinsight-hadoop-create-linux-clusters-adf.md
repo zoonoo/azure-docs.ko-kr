@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 1e55da981daf29aca491c480d58f399bc681fd27
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036379"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499555"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-이 문서에서는 필요에 따라 Azure Data Factory를 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터를 만드는 방법을 알아봅니다. 그런 후 Azure Data Factory에서 데이터 파이프라인을 사용하여 Hive 작업을 실행하고 클러스터를 삭제합니다. 이 자습서를 마치면 클러스터 생성, 작업 실행 및 클러스터 삭제가 일정에 따라 수행되는 빅 데이터 작업 실행을 운용하는 방법을 알게 됩니다.
+이 문서에서는 필요에 따라 Azure Data Factory를 사용하여 Azure HDInsight에서 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 만드는 방법을 알아봅니다. 그런 후 Azure Data Factory에서 데이터 파이프라인을 사용하여 Hive 작업을 실행하고 클러스터를 삭제합니다. 이 자습서를 마치면 클러스터 생성, 작업 실행 및 클러스터 삭제가 일정에 따라 수행되는 빅 데이터 작업 실행을 운용하는 방법을 알게 됩니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다. 
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 
-이 섹션에서는 주문형으로 만든 HDInsight 클러스터에 대한 기본 저장소로 사용할 수 있는 저장소 계정을 만듭니다. 이 저장소 계정은 클러스터에서 실행되는 샘플 Hive 작업을 시뮬레이트하는 데 사용하는 샘플 HiveQL 스크립트(**hivescript.hql**)를 포함합니다.
+이 섹션에서는 주문형으로 만든 HDInsight 클러스터에 대한 기본 저장소로 사용할 수 있는 저장소 계정을 만듭니다. 이 스토리지 계정은 클러스터에서 실행되는 샘플 [Apache Hive](https://hive.apache.org/) 작업을 시뮬레이션하는 데 사용하는 샘플 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 스크립트(**hivescript.hql**)를 포함합니다.
 
 이 섹션에서는 Azure PowerShell 스크립트를 사용하여 저장소 계정을 만들고 저장소 계정 내의 필수 파일에 추가로 복사합니다. 이 섹션에 있는 Azure PowerShell 샘플 스크립트는 다음 작업을 수행합니다.
 
@@ -338,7 +338,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Data Factory를 사용하여 주문형 HDInsight 클러스터를 만들고 Hive 작업을 실행하는 방법을 알아보았습니다. 사용자 지정 구성을 사용하여 HDInsight 클러스터를 만드는 방법을 알아보려면 다음 문서를 계속 진행합니다.
+이 문서에서는 Azure Data Factory를 사용하여 주문형 HDInsight 클러스터를 만들고 [Apache Hive](https://hive.apache.org/) 작업을 실행하는 방법을 알아보았습니다. 사용자 지정 구성을 사용하여 HDInsight 클러스터를 만드는 방법을 알아보려면 다음 문서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 >[사용자 지정 구성을 사용하여 Azure HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)

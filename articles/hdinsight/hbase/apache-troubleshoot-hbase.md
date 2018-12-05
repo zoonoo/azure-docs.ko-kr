@@ -8,14 +8,14 @@ ms.author: nitinver
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 7/7/2017
-ms.openlocfilehash: e25a2dcaf9b7c820f5d7e0312fb2cb55fc558882
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593902"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317231"
 ---
-# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 HBase 문제 해결
+# <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache HBase 문제 해결
 
 Apache Ambari에서 Apache HBase 페이로드를 사용할 때의 주요 문제 및 해결 방법을 알아봅니다.
 
@@ -30,7 +30,7 @@ HBase Master UI에서 모든 영역 서버 중 부하가 분산되지 않은 영
 할당되지 않은 영역을 정상 상태로 전환하려면 다음 단계를 수행합니다.
 
 1. SSH를 사용하여 HDInsight HBase 클러스터에 로그인합니다.
-2. ZooKeeper 셸에 연결하려면 `hbase zkcli` 명령을 실행합니다.
+2. Apache ZooKeeper 셸에 연결하려면 `hbase zkcli` 명령을 실행합니다.
 3. `rmr /hbase/regions-in-transition` 명령 또는 `rmr /hbase-unsecure/regions-in-transition` 명령을 실행합니다.
 4. `hbase zkcli` 셸을 종료하려면 `exit` 명령을 사용합니다.
 5. Apache Ambari UI를 열고 활성 HBase Master 서비스를 다시 시작합니다.
@@ -46,7 +46,7 @@ HBase Master UI에서 모든 영역 서버 중 부하가 분산되지 않은 영
 ### <a name="resolution-steps"></a>해결 단계:
 
 1. SSH를 사용하여 HDInsight HBase 클러스터에 로그인합니다.
-2. ZooKeeper 셸에 연결하려면 `hbase zkcli` 명령을 실행합니다.
+2. Apache ZooKeeper 셸에 연결하려면 `hbase zkcli` 명령을 실행합니다.
 3. `rmr /hbase/regions-in-transition` 또는 `rmr /hbase-unsecure/regions-in-transition` 명령을 실행합니다.
 4. `hbase zkcli` 셸을 종료하려면 `exit` 명령을 사용합니다.
 5. Ambari UI에서 활성 HBase Master 서비스를 다시 시작합니다.
@@ -56,7 +56,7 @@ HBase Master UI에서 모든 영역 서버 중 부하가 분산되지 않은 영
 
 ### <a name="issue"></a>문제
 
-로컬 HDFS(Hadoop 분산 파일 시스템)가 HDInsight 클러스터에서 안전 모드 상태로 중단되었습니다.
+로컬 Apache HDFS(Hadoop 분산 파일 시스템)가 HDInsight 클러스터에서 안전 모드 상태로 중단되었습니다.
 
 ### <a name="detailed-description"></a>자세한 설명
 
@@ -211,7 +211,7 @@ HDInsight 클러스터 규모가 매우 적은 수의 노드로 축소되었습�
 
 ### <a name="resolution-steps"></a>해결 단계:
 
-Phoenix와 연결하려면 활성 ZooKeeper 노드의 IP 주소를 제공해야 합니다. sqlline.py에서 연결하려는 ZooKeeper 서비스가 실행 중인지 확인합니다.
+Apache Phoenix와 연결하려면 활성 Apache ZooKeeper 노드의 IP 주소를 제공해야 합니다. sqlline.py에서 연결하려는 ZooKeeper 서비스가 실행 중인지 확인합니다.
 1. SSH를 사용하여 HDInsight 클러스터에 로그인합니다.
 2. 다음 명령을 입력합니다.
                 
@@ -247,7 +247,7 @@ Phoenix와 연결하려면 활성 ZooKeeper 노드의 IP 주소를 제공해야 
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. Ambari UI에서 다음 단계를 완료하여 모든 ZooKeeper 노드에서 HMaster 서비스를 다시 시작합니다.
+6. Apache Ambari UI에서 다음 단계를 완료하여 모든 ZooKeeper 노드에서 HMaster 서비스를 다시 시작합니다.
 
     1. HBase의 **요약** 섹션에서 **HBase** > **Active HBase Master**로 이동합니다. 
     2. **구성 요소** 섹션에서 HBase Master 서비스를 다시 시작합니다.
@@ -331,7 +331,7 @@ HMaster 서비스의 알려진 문제입니다. 일반 클러스터 시작 작�
   
 ### <a name="resolution-steps"></a>해결 단계:
 
-1. Ambari UI에서 **HBase** > **Configs**로 이동합니다. 사용자 지정 hbase-site.xml 파일에서 다음 설정을 추가합니다. 
+1. Apache Ambari UI에서 **HBase** > **Configs**로 이동합니다. 사용자 지정 hbase-site.xml 파일에서 다음 설정을 추가합니다. 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -344,9 +344,9 @@ HMaster 서비스의 알려진 문제입니다. 일반 클러스터 시작 작�
 
 ### <a name="issue"></a>문제
 
-영역 서버의 다시 시작 실패는 다음의 모범 사례를 통해 방지할 수 있습니다. HBase 영역 서버를 다시 시작하려는 경우 과도한 워크로드 활동을 일시 중지하는 것이 좋습니다. 종료가 진행 중일 때 응용 프로그램이 영역 서버와 계속 연결되면 영역 서버 재시작 작업이 몇 분 정도 더 느려집니다. 또한 먼저 모든 테이블을 플러시하는 것이 좋습니다. 테이블을 플러시하는 방법에 대한 참조는 [HDInsight HBase: 테이블에 플러시하여 HBase 클러스터 다시 시작 시간을 개선하는 방법](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)을 참조하세요.
+영역 서버의 다시 시작 실패는 다음의 모범 사례를 통해 방지할 수 있습니다. HBase 영역 서버를 다시 시작하려는 경우 과도한 워크로드 활동을 일시 중지하는 것이 좋습니다. 종료가 진행 중일 때 응용 프로그램이 영역 서버와 계속 연결되면 영역 서버 재시작 작업이 몇 분 정도 더 느려집니다. 또한 먼저 모든 테이블을 플러시하는 것이 좋습니다. 테이블을 플러시하는 방법에 대한 참조는 [HDInsight HBase: 테이블을 플러시하여 Apache HBase 클러스터 다시 시작 시간을 개선하는 방법](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)을 참조하세요.
 
-Ambari UI에서 HBase 영역 서버에 대한 다시 시작 작업을 시작하면 영역 서버가 다운되지만 바로 다시 시작되지 않는 것을 보게 됩니다. 
+Apache Ambari UI에서 HBase 영역 서버에 대한 다시 시작 작업을 시작하면 영역 서버가 다운되지만 바로 다시 시작되지 않는 것을 보게 됩니다. 
 
 백그라운드에서 진행되는 작업은 다음과 같습니다. 
 

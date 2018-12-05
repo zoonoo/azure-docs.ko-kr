@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: 2051f37656b6717c879a24f6e06c31a0ade0b950
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1a8396f91f1e6f863d99be17dc8d00133a1bdd3a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012329"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162554"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
 
@@ -21,6 +21,7 @@ ms.locfileid: "51012329"
 * 자격 증명/권한 오류
 * 연결 오류
 * 지원되지 않는 운영 체제
+* VSS 설치 오류
 
 복제를 활성화하면 Azure Site Recovery가 가상 머신에 모바일 서비스 에이전트 설치를 푸시하려고 합니다. 이러한 시도의 일환으로 구성 서버가 가상 머신에 연결하여 에이전트를 복사하려고 합니다. 설치에 성공하려면 아래에 있는 단계별 문제 해결 지침을 따르십시오.
 
@@ -40,13 +41,10 @@ ms.locfileid: "51012329"
 ## <a name="connectivity-check-errorid-95117--97118"></a>**연결 모니터링(ErrorID: 95117 및 97118)**
 
 * 구성 서버에서 원본 머신에 ping을 수행할 수 있는지 확인합니다. 복제를 활성화하는 동안 확장 프로세스 서버를 선택한 경우 프로세스 서버에서 원본 머신에 ping을 수행할 수 있어야 합니다.
-  * 원본 서버 머신 명령줄에서 텔넷을 사용하여 아래와 같이 https 포트(기본값 9443)로 구성 서버/확장 프로세스 서버에 ping을 수행하여 네트워크 연결 문제나 방화벽 포트 차단 문제가 있는지 확인합니다.
+  * 원본 서버 머신 명령줄에서 텔넷을 사용하여 아래와 같이 https 포트(135)로 구성 서버/확장 프로세스 서버에 ping을 수행하여 네트워크 연결 문제나 방화벽 포트 차단 문제가 있는지 확인합니다.
 
-     `telnet <CS/ scale-out PS IP address> <port>`
-
-  * 연결할 수 없는 경우에는 구성 서버/확장 프로세스 서버에서 인바운드 포트 9443을 허용합니다.
+     `telnet <CS/ scale-out PS IP address> <135>`
   * **InMage Scout VX Agent – Sentinel/Outpost** 서비스의 상태를 확인합니다. 서비스가 실행 되고 있지 않으면 시작합니다.
-
 * 추가로 **Linux VM**에서도 시작합니다.
   * 최신 openssh, openssh-server 및 openssl 패키지가 설치되어 있는지 확인합니다.
   * SSH(Secure Shell)를 사용할 수 있고 22 포트에서 실행 중인지 확인합니다.
@@ -95,6 +93,43 @@ ms.locfileid: "51012329"
 실패에 대한 또 다른 가장 일반적인 이유는 지원되지 않는 운영 체제일 수 있습니다. 모바일 서비스를 성공적으로 설치하려면 지원되는 운영 체제/커널 버전에 설치해야 합니다.
 
 Azure Site Recovery에서 어떤 운영 체제가 지원되는지 알아보려면 [지원 매트릭스 문서](vmware-physical-azure-support-matrix.md#replicated-machines)를 참조하세요.
+
+## <a name="vss-installation-failures"></a>VSS 설치 오류
+
+VSS 설치는 모바일 에이전트 설치의 일부입니다. 이 서비스는 애플리케이션 일치 복구 지점 생성 프로세스에 사용됩니다. VSS 설치 중 오류는 여러 이유로 인해 발생할 수 있습니다. 정확한 오류를 식별하려면 **c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log**를 참조하세요. 몇 가지 일반적인 오류 및 해결 단계는 다음 섹션에서 강조 표시됩니다.
+
+### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>VSS 오류 -2147023170 [0x800706BE] - 종료 코드 511
+
+이 문제는 바이러스 백신 소프트웨어가 Azure Site Recovery 서비스의 작업을 차단하는 경우에 주로 나타납니다. 이를 해결하려면
+
+1. [여기](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)에서 언급된 모든 폴더를 제외합니다.
+2. 바이러스 백신 공급자가 게시한 지침을 따라 Windows에서 DLL의 등록을 차단 해제합니다.
+
+### <a name="vss-error-7-0x7---exit-code-511"></a>VSS 오류 7 [0x7] - 종료 코드 511
+
+이는 런타임 오류이며 VSS 설치를 위한 메모리 부족으로 인해 발생합니다. 이 작업의 성공적인 완료를 위해 디스크 공간을 늘려야 합니다.
+
+### <a name="vss-error--2147023824-0x80070430---exit-code-517"></a>VSS 오류 -2147023824 [0x80070430] - 종료 코드 517
+
+이 오류는 Azure Site Recovery VSS 공급자 서비스가 [삭제를 위해 표시된](https://msdn.microsoft.com/en-us/library/ms838153.aspx) 경우에 발생합니다. 다음 명령줄을 실행하여 원본 머신에서 수동으로 VSS를 설치해 보세요.
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-error--2147023841-0x8007041f---exit-code-512"></a>VSS 오류 -2147023841 [0x8007041F] - 종료 코드 512
+
+이 오류는 Azure Site Recovery VSS 공급자 서비스 데이터베이스가 [잠긴](https://msdn.microsoft.com/en-us/library/ms833798.aspx) 경우에 발생합니다. 다음 명령줄을 실행하여 원본 머신에서 수동으로 VSS를 설치해 보세요.
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-exit-code-806"></a>VSS 종료 코드 806
+
+이 오류는 설치에 사용되는 사용자 계정에 CSScript 명령을 실행할 수 있는 사용 권한이 없는 경우에 발생합니다. 사용자 계정에 스크립트를 실행하기 위해 필요한 권한을 제공하고 작업을 다시 시도합니다.
+
+### <a name="other-vss-errors"></a>기타 VSS 오류
+
+다음 명령줄을 실행하여 원본 머신에서 수동으로 VSS 공급자 서비스를 설치해 보세요.
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ## <a name="next-steps"></a>다음 단계
 

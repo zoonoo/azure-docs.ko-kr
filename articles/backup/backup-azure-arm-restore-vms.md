@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0d78ae294cea383fbe59a1f7968d8bf18b1942d1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420526"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422959"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Azure Portal을 사용하여 가상 머신 복원
 정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 Recovery Services 자격 증명 모음에 저장됩니다. VM(가상 머신)을 복구하거나 다시 빌드해야 하는 경우 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원할 때 다음을 수행할 수 있습니다.
@@ -151,7 +151,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 **위치 복원**이 **기존 항목 바꾸기** 탭을 통해 수행됩니다.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>복원 지점에서 기존 디스크를 교체합니다.
-**기존 항목 바꾸기** 옵션을 사용하면 현재 VM의 기존 디스크를 선택한 복원 지점으로 교체할 수 있습니다. 이 작업은 현재 VM이 존재하는 경우에게만 수행할 수 있습니다. 어떤 이유로든 삭제되면 이 작업은 수행할 수 없습니다. 대안으로 VM 또는 디스크를 **새로 만들어서** 복원 작업을 계속하는 것이 좋습니다. 예방 수단으로 기존 디스크 교체 작업을 수행하는 동안 디스크 교체 작업을 시작하기 전에 데이터를 백업합니다. 복원 지점에 현재 VM보다 많거나 적은 디스크가 있으면 복원 지점의 디스크 수가 VM에만 반영됩니다. 현재 비관리 디스크 및 암호화 디스크에는 **기존 옵션 바꾸기**가 지원되지 않습니다. [일반화된 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 및 [사용자 지정 이미지](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/)를 사용하여 만들어진 VM에도 지원되지 않습니다.  
+**기존 항목 바꾸기** 옵션을 사용하면 현재 VM의 기존 디스크를 선택한 복원 지점으로 교체할 수 있습니다. 이 작업은 현재 VM이 존재하는 경우에게만 수행할 수 있습니다. 어떤 이유로든 삭제되면 이 작업은 수행할 수 없습니다. 대안으로 VM 또는 디스크를 **새로 만들어서** 복원 작업을 계속하는 것이 좋습니다. 예방 수단으로 이 작업을 수행하는 동안 데이터를 백업한 후 디스크 교체 작업을 시작합니다. 이렇게 하면 구성된 백업 정책에 예약된 대로 보존 기간이 있는 자격 증명 모음에서 스냅숏 및 복구 지점을 만들 수 있습니다. 복원 지점에 현재 VM보다 많거나 적은 디스크가 있으면 복원 지점의 디스크 수가 VM에만 반영됩니다. 현재 비관리 디스크 및 암호화 디스크에는 **기존 옵션 바꾸기**가 지원되지 않습니다. [일반화된 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 및 [사용자 지정 이미지](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/)를 사용하여 만들어진 VM에도 지원되지 않습니다.  
 
  **복원 구성** 블레이드에서 선택해야 하는 유일한 입력은 **준비 위치**입니다.
 
@@ -242,7 +242,7 @@ Azure Portal에서 또는 PowerShell을 사용하여 다른 VM과 마찬가지�
 
    다. [여러 NIC](../virtual-machines/windows/multiple-nics.md)가 있는 VM을 만듭니다.
 
-   d. [여러 예약된 IP](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)가 있는 VM을 만듭니다.
+   d.  [여러 예약된 IP](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md)가 있는 VM을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 VM을 복원할 수 있습니다. VM의 일반적인 오류에 대한 정보에 대한 문제 해결 문서를 참조하세요. 또한 VM을 사용하는 작업 관리에 대한 문서를 확인합니다.

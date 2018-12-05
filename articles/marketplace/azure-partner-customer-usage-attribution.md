@@ -12,26 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685704"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262604"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
-Azure 소프트웨어 파트너의 솔루션은 Azure 구성 요소가 필요하거나 Azure 인프라에 직접 배포해야 합니다. 파트너 솔루션을 배포하고 자체 Azure 리소스를 프로비전하는 고객은 배포 상태를 파악하기 어렵고, 이에 따라 Azure 성장에 미치는 영향에 광학을 사용할 수 있습니다. 높은 수준의 가시성을 추가하면 Microsoft 판매 팀과 제휴하여 Microsoft 파트너 프로그램에 대한 크레딧을 얻게 됩니다.   
+Azure 소프트웨어 파트너의 솔루션은 Azure 구성 요소가 필요하거나 Azure 인프라에 직접 배포해야 합니다. 파트너 솔루션을 배포하고 자체 Azure 리소스를 프로비전하는 고객은 배포 상태를 파악하기 어렵고, 이에 따라 Azure 성장에 미치는 영향에 광학을 사용할 수 있습니다. 높은 수준의 가시성을 추가하면 Microsoft 판매 팀과 제휴하여 Microsoft 파트너 프로그램에 대한 크레딧을 얻게 됩니다. 
 
 Microsoft는 이제 파트너가 Azure에 자사 소프트웨어를 배포한 고객의 Azure 사용량을 더 효율적으로 추적할 수 있는 유용한 방법을 제공합니다. 이 새 방법에서는 Azure Resource Manager를 사용하여 Azure 서비스의 배포를 오케스트레이션합니다.
 
 Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스와 Azure 사용량을 연결할 수 있습니다. Azure Marketplace, 빠른 시작 리포지토리, 개인 GitHub 리포지토리 및 일대일 고객 참여를 통해 연결을 구성할 수 있습니다. 추적을 사용하도록 설정하려면 다음 두 가지 방법을 사용할 수 있습니다.
 
 - Azure Resource Manager 템플릿: 파트너 소프트웨어를 실행하기 위해 Azure 서비스를 배포할 Resource Manager 템플릿 또는 솔루션 템플릿입니다. 파트너는 Azure 솔루션의 인프라와 구성을 정의하는 Resource Manager 템플릿을 만들 수 있습니다. Resource Manager 템플릿을 사용하면 개발자와 고객이 수명 주기 전반에 걸쳐 솔루션을 배포할 수 있습니다. 리소스가 일관된 상태로 배포된다는 것을 확신할 수 있습니다. 
-
 - Azure Resource Manager API: 파트너는 Resource Manager API를 직접 호출하여 Resource Manager 템플릿을 배포하거나 Azure 서비스를 직접 프로비전할 API 호출을 생성할 수 있습니다. 
+
+고객 사용량 특성은 Azure Marketplace에 게시된 모든 [솔루션 템플릿](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)에 필요합니다. 
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용
 

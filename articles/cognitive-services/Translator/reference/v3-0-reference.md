@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430037"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853356"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -135,6 +135,7 @@ Authorization: Bearer <Base64-access_token>
 | 403000| 작업이 허용되지 않습니다.|
 | 403001| 구독이 무료 할당량을 초과했기 때문에 작업이 허용되지 않습니다.|
 | 405000| 요청 메서드가 요청된 리소스에 대해 지원되지 않습니다.|
+| 408001| 요청된 사용자 지정 변환 시스템을 아직 사용할 수 없습니다. 잠시 후에 다시 시도하세요.|
 | 415000| Content-Type 헤더가 누락되었거나 올바르지 않습니다.|
 | 429000, 429001, 429002| 클라이언트가 너무 많은 요청을 보냈기 때문에 서버에서 요청을 거부했습니다. 제한을 방지하도록 요청의 빈도를 줄입니다.|
 | 500000| 예기치 않은 오류가 발생했습니다. 이 오류가 계속 발생하는 경우 오류의 날짜/시간, 응답 헤더 X-RequestId의 요청 식별자 및 요청 헤더 X-ClientTraceId의 클라이언트 식별자를 사용하여 보고합니다.|

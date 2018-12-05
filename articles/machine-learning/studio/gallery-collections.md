@@ -1,10 +1,11 @@
 ---
-title: Azure AI 갤러리 컬렉션 | Microsoft Docs
-description: Azure AI 갤러리에서 컬렉션을 검색하고 공유합니다.
+title: Azure AI Gallery 컬렉션 - Azure Machine Learning Studio | Microsoft Docs
+description: Azure AI Gallery에서 컬렉션을 사용하면 특정한 솔루션 또는 개념에 대해 사용하는 실험, API 및 기타 갤러리 항목을 그룹화할 수 있습니다. 사용하거나 나중에 참조하도록 저장하거나 공유하도록 그룹화할 수 있습니다.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: b586639cc6c9d4e25d65fa9f3a510e22789acfb2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: cc70405655cd07d87ca5b1004b7666d3b45bc649
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346038"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308684"
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>Azure AI 갤러리에서 컬렉션 검색 및 공유
 

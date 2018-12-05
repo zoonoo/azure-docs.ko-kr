@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622672"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581802"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 응용 프로그램의 사용자 인터페이스 사용자 지정
 
@@ -64,7 +64,7 @@ Azure 저장소 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS �
  브라우저의 Azure AD B2C 코드는 현대적이고 표준적인 방법을 사용하여 정책에 지정하는 URL에서 사용자 지정 콘텐츠를 로드합니다. CORS(원본 간 리소스 공유)를 사용하면 웹 페이지의 제한된 리소스를 다른 도메인에서 요청할 수 있습니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
-2. **허용된 원본**에 `your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `fabrikam.b2clogin.com`
+2. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `https://fabrikam.b2clogin.com` 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
 3. **허용된 메소드**에서 `GET`과 `OPTIONS`를 모두 선택합니다.
 4. **허용된 헤더**에 별표(*)를 입력합니다.
 5. **노출된 헤더**에 별표(*)를 입력합니다.

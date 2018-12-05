@@ -9,28 +9,32 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: fb9b50ecb16bd37d005403a14ea11c6d89f50dfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7319dc02d07ef1e100b39dbe138870676578fd69
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983650"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634288"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
 > [!NOTE] 
-> Linux의 App Service 및 Web App for Containers는 현재 관리 ID를 지원하지 않습니다.
+> Linux의 App Service 및 Web App for Containers의 관리 ID 지원은 현재 미리 보기 중입니다.
 
 > [!Important] 
 > 앱이 구독/테넌트 간에 마이그레이션되면 App Service 및 Azure Functions에 대한 관리 ID가 예상대로 작동하지 않습니다. 앱에서 새 ID를 확보해야 하며 해당 기능을 사용 중지했다가 다시 사용하도록 설정하여 확보할 수 있습니다. 아래 [ID 제거](#remove)를 참조하세요. 다운스트림 리소스에도 새 ID를 사용하려면 액세스 정책을 업데이트해야 합니다.
 
 이 항목에서는 App Service 및 Azure Functions 응용 프로그램에 대한 관리 ID를 만드는 방법과 다른 리소스에 액세스하는 데 사용하는 방법을 보여 줍니다. Azure Active Directory의 관리 ID를 사용하면 앱에서 다른 AAD 보호 리소스(예: Azure Key Vault)에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. AAD의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
-## <a name="creating-an-app-with-an-identity"></a>ID를 사용하여 앱 만들기
+애플리케이션에 두 가지 형식의 ID를 부여할 수 있습니다. 
+- **시스템 할당 ID**는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다. 시스템 할당 ID는 일반적으로 Windows 앱에만 지원됩니다. 
+- **사용자 할당 ID**는 앱에 할당할 수 있는 독립 실행형 Azure 리소스입니다. 앱에는 여러 사용자 할당 ID가 있을 수 있습니다. 사용자 할당 ID 지원은 모든 앱 형식에 대해 미리 보기 중입니다.
 
-ID를 사용하여 앱을 만들려면 응용 프로그램에서 추가 속성을 설정해야 합니다.
+## <a name="adding-a-system-assigned-identity"></a>시스템 할당 ID 추가
+
+시스템 할당 ID를 사용하여 앱을 만들려면 애플리케이션에서 추가 속성을 설정해야 합니다.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
@@ -42,9 +46,9 @@ ID를 사용하여 앱을 만들려면 응용 프로그램에서 추가 속성�
 
 3. **관리 ID**를 선택합니다.
 
-4. **Azure Active Directory**을 **켜기**로 전환합니다. **저장**을 클릭합니다.
+4. **시스템 할당** 탭에서 **상태**를 **켜기**로 바꿉니다. **저장**을 클릭합니다.
 
-![App Service의 관리 ID](media/app-service-managed-service-identity/msi-blade.png)
+![App Service의 관리 ID](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
@@ -94,7 +98,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 응용 프로그�
     New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
     ```
 
-3. 이 응용 프로그램에 대한 ID를 만들려면 `identity assign` 명령을 실행합니다.
+3. 이 응용 프로그램에 대한 ID를 만들려면 `Set-AzureRmWebApp -AssignIdentity` 명령을 실행합니다.
 
     ```azurepowershell-interactive
     Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
@@ -111,7 +115,10 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 }    
 ```
 
-이는 응용 프로그램에 대한 ID를 만들어서 관리하라고 Azure에 알려주는 것입니다.
+> [!NOTE] 
+> 애플리케이션에는 시스템 할당 ID와 사용자 할당 ID 둘 다 동시에 있을 수 있습니다. 이 경우에 `type` 속성이 `SystemAssigned,UserAssigned`가 됩니다.
+
+시스템 할당 형식을 추가하면 애플리케이션에 대한 ID를 만들어서 관리하라고 Azure에 알려주는 것입니다.
 
 예를 들어 웹앱이 다음과 같을 수 있습니다.
 ```json
@@ -139,12 +146,100 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 사이트가 생성되면 다음과 같은 추가 속성이 있습니다.
 ```json
 "identity": {
+    "type": "SystemAssigned",
     "tenantId": "<TENANTID>",
     "principalId": "<PRINCIPALID>"
 }
 ```
 
 여기서 `<TENANTID>` 및 `<PRINCIPALID>`는 GUID로 대체됩니다. tenantId 속성은 ID가 속한 AAD 테넌트를 식별합니다. principalId는 응용 프로그램 새 ID의 고유 식별자입니다. AAD 내에서 서비스 주체는 사용자가 App Service 또는 Azure Functions 인스턴스에 지정한 이름과 동일한 이름을 갖습니다.
+
+
+## <a name="adding-a-user-assigned-identity-preview"></a>사용자 할당 ID 추가(미리 보기)
+
+> [!NOTE] 
+> 사용자 할당 ID는 현재 미리 보기 중입니다. 소버린 클라우드는 아직 지원되지 않습니다.
+
+사용자 할당 ID로 앱을 만들려면 ID를 만든 다음, 앱 구성에 리소스 ID를 추가해야 합니다.
+
+### <a name="using-the-azure-portal"></a>Azure Portal 사용
+
+> [!NOTE] 
+> 이 포털 환경은 배포될 예정이며 일부 지역에서는 지원되지 않을 수 있습니다.
+
+먼저, 사용자 할당 ID 리소스를 만들어야 합니다.
+
+1. [이러한 지침](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)에 따라 사용자 할당 관리 ID 리소스를 만듭니다.
+
+2. 평소처럼 포털에서 앱을 만듭니다. 포털에서 해당 앱으로 이동합니다.
+
+3. 함수 앱을 사용하는 경우 **플랫폼 기능**으로 이동합니다. 다른 유형의 앱을 사용하는 경우 왼쪽 탐색 창에서 **설정** 그룹이 나올 때까지 아래로 스크롤합니다.
+
+4. **관리 ID**를 선택합니다.
+
+5. **사용자 할당(미리 보기)** 탭 내에서 **추가**를 클릭합니다.
+
+6. 이전에 만든 ID를 검색한 후 선택합니다. **추가**를 클릭합니다.
+
+![App Service의 관리 ID](media/app-service-managed-service-identity/msi-blade-user.png)
+
+### <a name="using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
+
+Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자동화할 수 있습니다. App Service 및 Functions에 배포하는 방법에 대한 자세한 내용은 [App Service에서 리소스 배포 자동화](../app-service/app-service-deploy-complex-application-predictably.md) 및 [Azure Functions에서 리소스 배포 자동화](../azure-functions/functions-infrastructure-as-code.md)를 참조하세요.
+
+모든 `Microsoft.Web/sites` 형식의 리소스는 `<RESOURCEID>`를 원하는 ID의 리소스 ID로 바꿔 리소스 정의에 다음 블록을 포함한 ID로 만들 수 있습니다.
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {}
+    }
+}    
+```
+
+> [!NOTE] 
+> 애플리케이션에는 시스템 할당 ID와 사용자 할당 ID 둘 다 동시에 있을 수 있습니다. 이 경우에 `type` 속성이 `SystemAssigned,UserAssigned`가 됩니다.
+
+사용자 할당 형식을 추가하면 애플리케이션에 대한 ID를 만들어서 관리하라고 Azure에 알려주는 것입니다.
+
+예를 들어 웹앱이 다음과 같을 수 있습니다.
+```json
+{
+    "apiVersion": "2016-08-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "location": "[resourceGroup().location]",
+    "identity": {
+        "type": "UserAssigned"
+    },
+    "properties": {
+        "name": "[variables('appName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
+        "hostingEnvironment": "",
+        "clientAffinityEnabled": false,
+        "alwaysOn": true
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+    ]
+}
+```
+
+사이트가 생성되면 다음과 같은 추가 속성이 있습니다.
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "<RESOURCEID>": {
+            "principalId": "<PRINCIPALID>",
+            "clientId": "<CLIENTID>"
+        }
+    }
+}
+```
+
+여기서 `<PRINCIPALID>` 및 `<CLIENTID>`는 GUID로 대체됩니다. principalId는 AAD 관리에 사용되는 ID의 고유 식별자입니다. clientId는 런타임 호출 중 사용할 ID 지정에 사용하는 애플리케이션의 새 ID에 대한 고유 식별자입니다.
+
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Azure 리소스 토큰 가져오기
 
@@ -189,6 +284,7 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 > |resource|쿼리|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다.|
 > |api-version|쿼리|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|
 > |secret|헤더|MSI_SECRET 환경 변수의 값입니다.|
+> |clientid|쿼리|(선택 사항) 사용할 사용자 할당 ID의 식별자입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
 
 
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.
@@ -241,7 +337,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 
 <a name="token-js"></a>Node.JS:
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
     var options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
@@ -265,7 +361,7 @@ $accessToken = $tokenResponse.access_token
 
 ## <a name="remove"></a>ID 제거
 
-포털, PowerShell 또는 CLI를 사용하여 생성할 때와 같은 방식으로 기능을 사용하지 않도록 설정하여 ID를 제거할 수 있습니다. REST/ARM 템플릿 프로토콜에서는 유형을 "None"으로 설정하여 수행됩니다.
+사용자 할당 ID는 포털, PowerShell 또는 CLI를 사용하여 생성할 때와 같은 방식으로 기능을 사용하지 않도록 설정하여 제거할 수 있습니다. 사용자 할당 ID는 개별 제거할 수 있습니다. REST/ARM 템플릿 프로토콜에서는 이 형식을 "None"으로 설정하면 모든 ID가 제거됩니다.
 
 ```json
 "identity": {
@@ -273,7 +369,7 @@ $accessToken = $tokenResponse.access_token
 }    
 ```
 
-ID를 이런 방식으로 제거하면 AAD에서 보안 주체도 삭제됩니다. 앱 리소스가 삭제될 때 시스템 할당 ID가 AAD에서 자동으로 제거됩니다.
+이런 방식으로 시스템 할당 ID를 제거하면 AAD에서도 삭제됩니다. 앱 리소스가 삭제될 때 시스템 할당 ID도 AAD에서 자동으로 제거됩니다.
 
 > [!NOTE] 
 > 설정할 수 있는 응용 프로그램 설정인 WEBSITE_DISABLE_MSI도 있으며 이것은 로컬 토큰 서비스를 비활성화합니다. 그러나 ID는 그대로 유지되고, 도구에는 여전히 관리 ID가 "on" 또는 "enabled"로 표시됩니다. 따라서 이 설정은 사용하지 않는 것이 좋습니다.

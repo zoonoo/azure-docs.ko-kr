@@ -4,26 +4,30 @@ description: 이 문서에서는 Application Gateway용 WAF(웹 응용 프로그
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/7/2018
+ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 71990244db859a61885968a502d9849a36d81dce
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219531"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425177"
 ---
 # <a name="web-application-firewall-waf"></a>WAF(웹 응용 프로그램 방화벽)
 
-WAF(웹 응용 프로그램 방화벽)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. 
+WAF(웹 응용 프로그램 방화벽)는 일반적인 악용 및 취약점으로부터 웹 응용 프로그램에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다.
 
-웹 응용 프로그램의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 응용 프로그램 방화벽을 통해 보안 관리가 훨씬 간단해지고 응용 프로그램 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 응용 프로그램을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 응용 프로그램 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
+웹 응용 프로그램의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격 및 사이트 간 스크립팅 공격 등이 있습니다. 
+
+응용 프로그램 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 응용 프로그램 토폴로지의 여러 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 응용 프로그램 방화벽을 통해 보안 관리가 훨씬 간단해지고 응용 프로그램 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 개별 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 응용 프로그램 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
 WAF는 [OWASP 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다. 추가 구성이 필요 없이 새로운 취약점에 대한 보호를 포함하도록 자동으로 업데이트됩니다.
 
 ![imageURLroute](./media/waf-overview/WAF1.png)
 
-Application Gateway는 ADC(응용 프로그램 배달 컨트롤러)로 작동하여 SSL 종료, 쿠키 기반 세션 선호도, 라운드 로빈 부하 분산, 콘텐츠 기반 라우팅, 다중 웹 사이트 호스트 및 향상된 보안 기능을 제공합니다. Application Gateway가 제공하는 향상된 보안 기능으로는 SSL 정책 관리, 종단 간 SSL 지원이 포함됩니다. 이제 ADC 제품에 직접 통합되는 WAF(웹 응용 프로그램 방화벽)에 의해 응용 프로그램 보안이 강화되었습니다. 그 중 하나로 웹 응용 프로그램을 관리하고 일반적인 웹 취약점 공격으로부터 보호할 수 있는 구성이 용이한 중앙 위치를 제공합니다.
+Application Gateway는 ADC(애플리케이션 배달 컨트롤러)로서 작동하여 SSL 종료, 쿠키 기반 세션 선호도, 라운드 로빈 부하 분산, 콘텐츠 기반 라우팅, 다중 웹 사이트 호스트 기능 및 향상된 보안을 제공합니다.
+
+Application Gateway가 제공하는 향상된 보안 기능으로는 SSL 정책 관리, 엔드투엔드 SSL 지원이 포함됩니다. 이제 ADC 제품에 직접 통합되는 WAF(웹 응용 프로그램 방화벽)에 의해 응용 프로그램 보안이 강화되었습니다. 그 중 하나로 웹 응용 프로그램을 관리하고 일반적인 웹 취약점 공격으로부터 보호할 수 있는 구성이 용이한 중앙 위치를 제공합니다.
 
 ## <a name="benefits"></a>이점
 
@@ -53,11 +57,11 @@ Application Gateway는 ADC(응용 프로그램 배달 컨트롤러)로 작동하
 - HTTP 프로토콜 위반 보호
 - 누락된 호스트 사용자-에이전트 헤더 및 수락 헤더 같은 HTTP 프로토콜 이상 보호
 - 봇, 크롤러 및 스캐너에 대한 방지
-- 일반적인 애플리케이션 구성 오류(즉 Apache, IIS 등) 검색
+- 일반적인 애플리케이션 구성 오류(예: Apache, IIS 등) 검색
 
 ### <a name="public-preview-features"></a>공개 미리 보기 기능
 
-현재 WAF 공개 미리 SKU는 다음과 같은 기능을 포함합니다.
+현재 WAF 공개 미리 SKU에는 다음과 같은 기능이 포함됩니다.
 
 - **요청 크기 제한** - 사용자는 웹 응용 프로그램 방화벽을 통해 상한과 하한 사이의 범위에서 요청 크기 제한을 구성할 수 있습니다.
 - **제외 목록** - 사용자는 WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 수 있습니다. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다.
@@ -82,7 +86,7 @@ Application Gateway는 CRS 3.0 및 CRS 2.2.9라는 두 개의 규칙 집합을 �
 - 봇, 크롤러 및 스캐너에 대한 방지
 - 일반적인 애플리케이션 구성 오류(예: Apache, IIS 등) 검색
 
-더 자세한 규칙 목록 및 해당 보호는 [핵심 규칙 집합](#core-rule-sets)을 참조하세요.
+더 자세한 규칙 목록 및 해당 보호는 [핵심 규칙 세트](#core-rule-sets)를 참조하세요.
 
 
 #### <a name="owasp30"></a>OWASP_3.0
@@ -91,7 +95,7 @@ Application Gateway는 CRS 3.0 및 CRS 2.2.9라는 두 개의 규칙 집합을 �
 
 |RuleGroup|설명|
 |---|---|
-|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|메서드(PUT, PATCH< ..)를 잠그는 규칙을 포함합니다.|
+|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|메서드(PUT, PATCH)를 잠그는 규칙 포함|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| 포트 및 환경 스캐너로부터 보호하는 규칙을 포함합니다.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|프로토콜 및 인코딩 문제로부터 보호하는 규칙을 포함합니다.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|헤더 주입, 밀수 요청 및 응답 분할로부터 보호하는 규칙을 포함합니다.|
@@ -129,13 +133,13 @@ Application Gateway WAF는 다음 두 가지 모드에서 실행되도록 구성
 
 ### <a name="application-gateway-waf-reports"></a>WAF 모니터링
 
-Application Gateway의 상태를 모니터링하는 것이 중요합니다. 웹 응용 프로그램 방화벽 및 보호되는 응용 프로그램의 상태를 모니터링하는 기능은 로깅과 Azure Monitor, Azure Security Center(출시 예정) 및 Log Analytics의 통합을 통해 제공됩니다.
+Application Gateway의 상태를 모니터링하는 것이 중요합니다. 웹 응용 프로그램 방화벽 및 보호되는 응용 프로그램의 상태를 모니터링하는 기능은 로깅과 Azure Monitor, Azure Security Center 및 Log Analytics의 통합을 통해 제공됩니다.
 
 ![진단](./media/waf-overview/diagnostics.png)
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-각 Application Gateway 로그는 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)와 통합됩니다.  이를 통해 WAF 경고 및 로그를 포함하여 진단 정보를 추적할 수 있습니다.  **진단** 탭 아래의 포털에 있는 Application Gateway 리소스 내에서 이러한 기능을 제공하거나 Azure Monitor를 통해 직접 이러한 기능을 제공합니다. Application Gateway에 진단 로그를 사용하는 방법에 대해 알아보려면 [Application Gateway 진단](application-gateway-diagnostics.md)을 참조하세요.
+각 Application Gateway 로그는 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)와 통합됩니다.  이를 통해 WAF 경고 및 로그를 포함하여 진단 정보를 추적할 수 있습니다.  **진단** 탭 아래의 포털에 있는 Application Gateway 리소스 내에서 이러한 기능을 제공하거나 Azure Monitor를 통해 직접 이러한 기능을 제공합니다. 애플리케이션 게이트웨이의 진단 로그를 사용하는 방법에 대해 알아보려면 [Application Gateway 진단](application-gateway-diagnostics.md) 참조
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
@@ -145,7 +149,7 @@ Application Gateway의 상태를 모니터링하는 것이 중요합니다. 웹 
 
 #### <a name="logging"></a>로깅
 
-Application Gateway WAF는 감지된 각 위협에 대한 상세 보고를 제공합니다. 로깅은 Azure 진단 로그에 통합되고 경고는 json 형식으로 기록됩니다. 이러한 로그는 [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)와 통합될 수 있습니다.
+Application Gateway WAF는 감지된 각 위협에 대한 상세 보고를 제공합니다. 로깅은 Azure 진단 로그에 통합되고 경고는 json 형식으로 기록됩니다. 이러한 로그는 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)와 통합될 수 있습니다.
 
 ![imageURLroute](./media/waf-overview/waf2.png)
 
@@ -179,7 +183,9 @@ Application Gateway WAF는 감지된 각 위협에 대한 상세 보고를 제�
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Application Gateway WAF SKU 가격 책정
 
-새 WAF SKU 아래에서 웹 응용 프로그램 방화벽을 사용할 수 있습니다. 이 SKU는 클래식 배포 모델이 아닌 Azure Resource Manager 프로비전 모델에서만 사용할 수 있습니다. 또한 WAF SKU는 중간 규모 및 대규모 Application Gateway 인스턴스 크기로만 제공됩니다. Application Gateway의 모든 제한 사항이 WAF SKU에도 적용됩니다. 가격 책정은 시간 당 게이트웨이 인스턴스 요금 및 데이터 처리 충전을 기반으로 합니다. WAF SKU 시간 당 게이트웨이 가격 책정은 표준 SKU 요금과 다르며 [Application Gateway 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/application-gateway/)에서 찾을 수 있습니다. 데이터 처리 요금은 동일하게 유지됩니다. 규칙 또는 규칙 그룹 당 요금은 없습니다. 동일한 웹 응용 프로그램 방화벽 뒤에서 여러 웹 응용 프로그램을 보호할 수 있으며 여러 응용 프로그램을 지원하는 추가 비용이 없습니다. 
+새 WAF SKU 아래에서 웹 응용 프로그램 방화벽을 사용할 수 있습니다. 이 SKU는 클래식 배포 모델이 아닌 Azure Resource Manager 프로비전 모델에서만 사용할 수 있습니다. 또한 WAF SKU는 중간 규모 및 대규모 애플리케이션 게이트웨이 인스턴스 크기로만 제공됩니다. Application Gateway의 모든 제한 사항이 WAF SKU에도 적용됩니다.
+
+가격 책정은 시간 당 게이트웨이 인스턴스 요금 및 데이터 처리 충전을 기반으로 합니다. WAF SKU 시간 당 게이트웨이 가격 책정은 표준 SKU 요금과 다르며 [Application Gateway 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/application-gateway/)에서 찾을 수 있습니다. 데이터 처리 요금은 동일하게 유지됩니다. 규칙 또는 규칙 그룹 당 요금은 없습니다. 동일한 웹 애플리케이션 방화벽 뒤에서 여러 웹 애플리케이션을 보호할 수 있으며 여러 애플리케이션을 지원하기 위한 비용은 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

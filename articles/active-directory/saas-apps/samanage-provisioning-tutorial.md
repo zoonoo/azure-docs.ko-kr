@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: e5a69fa2ee9a8c4baaeb6586627c7a9a3c9ba4a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347956"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634509"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Samanage 구성
 
@@ -141,7 +141,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![Samanage 프로비전](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. **설정**의 **범위** 섹션에서 원하는 값을 선택하여 Samanage에 프로비전하려는 사용자 및/또는 그룹을 정의합니다.
+15. **설정**의 **범위** 섹션에서 원하는 값을 선택하여 Samanage에 프로비전하려는 사용자 및/또는 그룹을 정의합니다. **모든 사용자 및 그룹 동기화** 옵션 선택 시 아래의 **커넥터 제한 사항** 섹션에 설명된 대로 제한 사항을 고려하세요.
 
     ![Samanage 프로비전](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
@@ -153,6 +153,10 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고, Samanage의 Azure AD 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 활동 보고서에 대한 링크를 따를 수 있습니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+
+## <a name="connector-limitations"></a>커넥터 제한 사항
+
+* **모든 사용자 및 그룹 동기화** 옵션을 선택하고 기본값이 Samanage **역할** 특성에 대해 구성된 경우 **Null인 경우 기본값(선택 사항임)** 필드에서 원하는 값이 다음 형식 **{"displayName":"역할"}**(여기 역할은 원하는 기본값임)으로 표현되었는지 확인합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 333e73af3578cdc363e7ede08ca52207cfd0fdb0
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248918"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446792"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -157,7 +157,7 @@ public static string Run(CustomObject req, ILogger log)
 }
 
 public class CustomObject {
-     public String name {get; set;}
+     public string name {get; set;}
 }
 ```
 
@@ -434,6 +434,45 @@ module.exports = function (context, req) {
 }
 ```
 
+### <a name="working-with-client-identities"></a>클라이언트 ID 사용
+
+함수 앱이 [App Service 인증 / 권한 부여](../app-service/app-service-authentication-overview.md)를 사용하는 경우 코드에서 인증된 클라이언트에 대한 정보를 볼 수 있습니다. 이 정보는 [플랫폼에 의해 삽입된 요청 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)로서 사용할 수 있습니다. 
+
+데이터 바인딩에서 이 정보를 읽을 수도 있습니다. 이 기능은 Functions 2.x 런타임에서만 사용할 수 있습니다. 또한 이 기능은 현재 .NET 언어에 대해서만 사용할 수 있습니다.
+
+.NET 언어에서 이 정보는 [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0)로 사용할 수 있습니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+
+public static IActionResult Run(HttpRequest req, ILogger log)
+{
+    ClaimsPrincipal identities = req.HttpContext.User;
+    // ...
+    return new OkResult();
+}
+```
+
+또는 ClaimsPrincipal은 함수 시그니처에 단순히 추가 매개 변수로 포함될 수 있습니다.
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
+{
+    // ...
+    return;
+}
+
+```
+
 ### <a name="authorization-keys"></a>권한 부여 키
 
 함수에서는 키를 사용해 개발 중에 HTTP 함수 엔드포인트 액세스를 더 어렵게 만들 수 있습니다.  표준 HTTP 트리거의 경우 요청에 이러한 API 키가 있어야 할 수 있습니다. 
@@ -483,7 +522,7 @@ module.exports = function (context, req) {
 
 프로덕션 환경에서 함수 엔드포인트를 완벽하게 보호하려면 다음의 함수 앱 수준 보안 옵션 중 하나를 구현해야 합니다.
 
-* 함수 앱에 대해 App Service 인증/권한 부여를 설정합니다. App Service 플랫폼에서는 AAD(Azure Active Directory) 및 기타 여러 타사 ID 공급자를 사용하여 클라이언트를 인증할 수 있습니다. 이 플랫폼을 통해 함수용 사용자 지정 권한 부여 규칙을 구현할 수 있으며, 함수 코드에서 사용자 정보를 사용할 수 있습니다. 자세히 알아보려면 [Azure App Service에서 인증 및 권한 부여](../app-service/app-service-authentication-overview.md)를 참조하세요.
+* 함수 앱에 대해 App Service 인증/권한 부여를 설정합니다. App Service 플랫폼에서는 AAD(Azure Active Directory) 및 기타 여러 타사 ID 공급자를 사용하여 클라이언트를 인증할 수 있습니다. 이 플랫폼을 통해 함수용 사용자 지정 권한 부여 규칙을 구현할 수 있으며, 함수 코드에서 사용자 정보를 사용할 수 있습니다. 자세히 알아보려면 [Azure App Service에서 인증 및 권한 부여](../app-service/app-service-authentication-overview.md) 및 [클라이언트 ID 사용](#working-with-client-identities)을 참조하세요.
 
 * Azure APIM(API Management)를 사용하여 요청을 인증합니다. APIM은 수신 요청에 사용할 수 있는 여러 가지 API 보안 옵션을 제공합니다. 자세히 알아보려면 [API Management 인증 정책](../api-management/api-management-authentication-policies.md)을 참조하세요. APIM을 적용하면 APIM 인스턴스의 IP 주소에서 보내는 요청만 수락하도록 함수 앱을 구성할 수 있습니다. 자세히 알아보려면 [IP 주소 제한](ip-addresses.md#ip-address-restrictions)을 참조하세요.
 

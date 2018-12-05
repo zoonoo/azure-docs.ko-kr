@@ -1,22 +1,22 @@
 ---
 title: Azure Monitor에서 동적 임계값을 사용하여 경고 만들기
 description: 기계 학습 기반 동적 임계값을 사용한 경고 만들기
-author: antonfrMSFT
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.author: mbullwin
-ms.reviewer: antonfr
+ms.date: 11/29/2018
+ms.author: Yaniv.Lavi
+ms.reviewer: mbullwin
 ms.component: alerts
-ms.openlocfilehash: 1b47e3804d8be36e3c6c8c570fec06f542e8dbf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: af9f85014ea16dd266c56a71f13b4dce2adccc9a
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233969"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619711"
 ---
-# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>Azure Monitor의 동적 임계값을 사용한 경고(제한된 공개 미리 보기)
+# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-private-preview"></a>Azure Monitor의 동적 임계값을 사용한 경고(제한된 비공개 미리 보기)
 
 동적 임계값을 사용한 경고는 Azure Monitor에 포함된 Azure 메트릭 경고의 향상된 기능이며, 고급 ML(Machine Learning) 기능을 활용하여 메트릭의 기존 동작을 학습하고 기준선을 자동으로 계산하여 경고 임계값으로 사용합니다.
 

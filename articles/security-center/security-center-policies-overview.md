@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center 보안 정책 설정 | Microsoft Docs
-description: Azure Security Center 보안 정책 설정을 구성합니다.
+title: Azure Security Center 설정 | Microsoft Docs
+description: Azure Security Center 설정을 구성합니다.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,23 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2aa4545aa79260bea792392e1bebf4166253fc87
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256632"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315718"
 ---
-# <a name="security-policy-settings"></a>보안 정책 설정
-이 문서에서는 Security Center의 보안 정책 설정에 대한 개요를 제공합니다.
+# <a name="security-center-settings"></a>Security Center 설정
+이 문서에서는 Security Center의 설정에 대한 개요를 제공합니다.
 
-## <a name="what-are-security-policies"></a>보안 정책이란?
-보안 정책은 워크로드에서 원하는 구성을 정의하고 회사 또는 규정 보안 요구 사항을 준수하는 데 도움이 됩니다. Azure Security Center에서 Azure 구독에 대한 정책을 정의하고 워크로드의 유형 또는 데이터의 민감도에 맞게 조정할 수 있습니다. 예를 들어 개인 식별 정보와 같이 규제된 데이터를 사용하는 응용 프로그램은 다른 작업보다 높은 수준의 보안이 필요할 수 있습니다.
-
-보안 정책에 따라 다음을 설정할 수 있습니다.
+다음 설정은 보안 정책에서 찾을 수 있습니다.
 
 - **데이터 컬렉션**: 에이전트 프로비전 및 [데이터 컬렉션](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) 설정을 결정합니다.
-- **보안 정책**: Security Center에서 모니터링 및 권장하는 컨트롤을 결정합니다. Security Center에서 [보안 정책](security-center-policies.md)을 편집할 수 있습니다. [Azure Policy](security-center-azure-policy.md)를 사용하여 새 정의를 만들고, 추가 정책을 정의하고, 관리 그룹에 걸쳐 정책을 할당할 수도 있습니다. 
+- **보안 정책**: Security Center에서 모니터링 및 권장하는 컨트롤을 결정합니다. Security Center에서 [보안 정책](security-center-azure-policy.md)을 편집할 수 있습니다. [Azure Policy](security-center-azure-policy.md)를 사용하여 새 정의를 만들고, 추가 정책을 정의하고, 관리 그룹에 걸쳐 정책을 할당할 수도 있습니다. 
 - **메일 알림**: 보안 연락처 및 [메일 알림](security-center-provide-security-contact-details.md) 설정을 결정합니다.
 - **가격 책정 계층**: 무료 또는 표준 [가격 선택](security-center-pricing.md)을 정의합니다. 선택한 계층에 따라 범위의 리소스에 대해 사용할 수 있는 Security Center 기능이 결정됩니다. 구독, 리소스 그룹 및 작업 영역에 대한 계층을 지정할 수 있습니다.
 
@@ -49,7 +46,7 @@ Security Center는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Security Center의 보안 정책에 대해 알아보았습니다. Azure Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Security Center에서 보안 정책 설정](security-center-policies.md): Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md): Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md): Security Center 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md): Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.

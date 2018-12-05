@@ -4,7 +4,7 @@ description: 청구서로 Azure 구독 비용을 지불하는 방법을 설명�
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: jureid
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 27d84748e932ae438f68ca7b84004c98c26e42d7
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: bea7f0e88a371474db907dd74f08bd74c0e7c9e1
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393896"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584369"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용을 지불하기 위한 요청 제출
 
@@ -50,6 +50,6 @@ Azure 지원에 요청을 제출하여 Azure 구독에 대한 지불 방법을 �
 
 필요한 신용 수준 때문에 신용 검사를 실행해야 할 경우 신용 검사 신청서를 보내 드립니다. 신청서를 제출하면 신용 신청을 처리하는 데 5-7일 정도 걸릴 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

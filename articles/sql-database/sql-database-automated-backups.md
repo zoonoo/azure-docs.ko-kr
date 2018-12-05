@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 36099a49cc9e6c810727606bb73d2669f1e0df79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985695"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422513"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
 
@@ -42,7 +42,7 @@ SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 
 
 ## <a name="how-long-are-backups-kept"></a>백업은 얼마 동안 유지되나요?
 
-각 SQL Database 백업에는 데이터베이스의 서비스 계층을 기반으로 하는 기본 보존 기간이 있으며, 이 기간은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)과 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 간에 차이가 있습니다. 데이터베이스의 백업 보존 기간을 업데이트할 수 있습니다. 자세한 내용은 [백업 보존 기간 변경](#how-to-change-backup-retention-period)을 참조하세요.
+각 SQL Database에는 [구매 모델 및 서비스 계층](#pitr-retention-period)에 따라 달라지는 7-35일의 기본 백업 보존 기간이 있습니다. Azure 논리 서버에서 데이터베이스의 백업 보존 기간을 업데이트할 수 있습니다(이 기능은 Managed Instance에서 사용하도록 곧 설정됩니다). 자세한 내용은 [백업 보존 기간 변경](#how-to-change-backup-retention-period)을 참조하세요.
 
 데이터베이스를 삭제하면 SQL Database는 온라인 데이터베이스에 하는 것과 동일한 방식으로 백업을 유지합니다. 예를 들어, 보존 기간이 7일인 기본 데이터베이스를 삭제하는 경우, 4일 된 백업은 앞으로 3일 동안 더 저장됩니다.
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: e32e281509da32d4816c9e137a462553891c82f1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686146"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582601"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Cost Management 데이터에 대한 액세스 할당
 
@@ -42,7 +42,7 @@ ms.locfileid: "51686146"
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>EA 포털에서 비용에 대한 액세스를 사용하도록 설정
 
-청구 계정 범위에는 EA 포털에서 **사용**으로 설정된 **DA 요금 보기** 옵션이 필요합니다. 다른 모든 범위에는 EA 포털에서 **사용**으로 설정된 **AO 요금 보기** 옵션이 필요합니다.
+부서 범위에는 EA 포털에서 **사용**으로 설정된 **DA 요금 보기** 옵션이 필요합니다. 다른 모든 범위에는 EA 포털에서 **사용**으로 설정된 **AO 요금 보기** 옵션이 필요합니다.
 
 옵션을 사용하도록 설정하려면 다음을 수행합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "51686146"
 3. 액세스를 제공하려는 Cost Management 범위의 경우 요금 옵션으로 **DA 요금 보기** 및/또는 **AO 요금 보기**를 사용하도록 설정합니다.  
     ![DA 및 AO 보기 요금 옵션이 표시된 등록 탭](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-요금 보기 옵션을 사용하도록 설정되면 대부분의 범위에 Azure Portal의 RBAC(역할 기반 액세스 제어) 권한 구성도 필요합니다.
+요금 보기 옵션을 사용하도록 설정하면 대부분의 범위에 Azure Portal의 RBAC(역할 기반 액세스 제어) 권한 구성도 필요합니다.
 
 ## <a name="enterprise-administrator-role"></a>엔터프라이즈 관리자 역할
 
@@ -75,7 +75,7 @@ ms.locfileid: "51686146"
 
 ### <a name="assign-department-scope-access"></a>부서 범위 액세스 할당
 
-부서 범위에 액세스하려면 EA 포털에서 부서 관리자(DA 요금 보기) 액세스 권한이 필요합니다. 부서 관리자는 한 부서 또는 여러 부서와 연결된 비용 및 사용량 데이터를 볼 수 있습니다.  부서에 대한 데이터에는 부서에 연결된 등록 계정에 속한 모든 구독이 포함됩니다. Azure Portal에서는 어떠한 작업도 필요하지 않습니다.
+부서 범위에 액세스하려면 EA 포털에서 부서 관리자(DA 요금 보기) 액세스 권한이 필요합니다. 부서 관리자는 한 부서 또는 여러 부서와 연결된 비용 및 사용량 데이터를 볼 수 있습니다. 부서에 대한 데이터에는 부서에 연결된 등록 계정에 속한 모든 구독이 포함됩니다. Azure Portal에서는 어떠한 작업도 필요하지 않습니다.
 
 1. [https://ea.azure.com](https://ea.azure.com)의 EA 포털에 엔터프라이즈 관리자 계정으로 로그인합니다.
 2. 왼쪽 창에서 **관리**를 선택합니다.
@@ -89,7 +89,7 @@ ms.locfileid: "51686146"
 
 ## <a name="assign-enrollment-account-scope-access"></a>등록 계정 범위 액세스 할당
 
-등록 계정 범위에 액세스하려면 EA 포털에서 계정 소유자(AO 요금 보기) 액세스 권한이 있어야 합니다. 계정 소유자는 등록 계정과 관련된 비용 및 사용량 데이터를 볼 수 있습니다. 등록 계정의 데이터에는 등록과 연결된 모든 Azure 구독이 포함됩니다. Azure Portal에서는 어떠한 작업도 필요하지 않습니다.
+등록 계정 범위에 액세스하려면 EA 포털에서 계정 소유자(AO 요금 보기) 액세스 권한이 있어야 합니다. 계정 소유자는 해당 등록 계정에서 생성된 구독과 관련된 비용 및 사용량 데이터를 볼 수 있습니다. Azure Portal에서는 어떠한 작업도 필요하지 않습니다.
 
 1. [https://ea.azure.com](https://ea.azure.com)의 EA 포털에 엔터프라이즈 관리자 계정으로 로그인합니다.
 2. 왼쪽 창에서 **관리**를 선택합니다.
@@ -101,9 +101,11 @@ ms.locfileid: "51686146"
 8. **추가**를 클릭하여 계정을 만듭니다.  
     ![계정 추가 상자](./media/assign-access-acm-data/add-account.png)
 
+위의 단계를 완료하면 사용자 계정이 Enterprise Portal의 등록 계정이 되고 구독을 만들 수 있습니다. 사용자는 자신이 만든 구독에 대한 비용 및 사용량 데이터에 액세스할 수 있습니다.
+
 ## <a name="assign-management-group-scope-access"></a>관리 그룹 범위 액세스 할당
 
-관리 그룹 범위에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 관리 그룹에 대한 권한을 구성합니다. 다른 사용자가 액세스할 수 있도록 설정하려면 관리 그룹에 대한 기여자 이상의 권한이 있어야 합니다. 또한 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
+관리 그룹 범위에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 관리 그룹에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 관리 그룹에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 또한 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
 1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. 사이드바에서 **모든 서비스**를 선택하고, _관리 그룹_을 검색한 다음,  **관리 그룹**을 선택합니다.
@@ -119,7 +121,7 @@ ms.locfileid: "51686146"
 
 ## <a name="assign-subscription-scope-access"></a>구독 범위 액세스 할당
 
-구독에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 구독에 대한 권한을 구성합니다. 다른 사용자가 액세스할 수 있도록 설정하려면 구독에 대한 기여자 이상의 권한이 있어야 합니다. 또한 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
+구독에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 구독에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 구독에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 또한 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
 1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. 사이드바에서 **모든 서비스**를 선택하고, _구독_을 검색한 다음, **구독**을 선택합니다.
@@ -133,7 +135,7 @@ ms.locfileid: "51686146"
 
 ## <a name="assign-resource-group-scope-access"></a>리소스 그룹 범위 액세스 할당
 
-리소스 그룹에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 리소스 그룹에 대한 권한을 구성합니다. 다른 사용자가 액세스할 수 있도록 설정하려면 리소스 그룹에 대한 기여자 이상의 권한이 있어야 합니다. 또한 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
+리소스 그룹에 액세스하려면 Cost Management 읽기 권한자(또는 읽기 권한자) 이상의 권한이 필요합니다. Azure Portal에서 리소스 그룹에 대한 권한을 구성할 수 있습니다. 다른 사람들의 액세스가 가능하도록 설정하려면 리소스 그룹에 대해 사용자 액세스 관리자(또는 소유자) 이상의 권한이 있어야 합니다. 또한 EA 포털에서 **AO 요금 보기** 설정을 사용하도록 설정해야 합니다.
 
 1. [http://portal.azure.com](http://portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. 사이드바에서 **모든 서비스** 를 선택하고, _리소스 그룹_을 검색한 다음, **리소스 그룹**을 선택합니다.

@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: cwatson
 ROBOTS: NOINDEX
-ms.openlocfilehash: d7bf1d06c598dd7e548c109f68d0996c0be2b6b8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c8d78d51425ea5a5fc2f3b326710b3c2ad5a6a06
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391371"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581853"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>학생용 Azure 구독이 비활성화되는 이유와 다시 활성화하는 방법은 무엇인가요?
 
@@ -57,6 +57,6 @@ ms.locfileid: "47391371"
 
 학생용 Azure 구독을 실수로 취소한 경우 [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 연락하여 다시 활성화할 수 있습니다. 다시 활성화되면 등록 날짜로부터 12개월 동안 남은 무료 서비스와 크레딧에 계속 액세스할 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-다른 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

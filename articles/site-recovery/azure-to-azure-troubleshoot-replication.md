@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
-ms.openlocfilehash: 0ac90d8ef29d4293a5eeb5f932687788320c218e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 22ea3d955fe2910dc99ab4015165008da899d48e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615799"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312853"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Azure 간 VM 지속적인 복제 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "51615799"
 Azure Site Recovery는 원본 지역에서 재해 복구 지역으로 데이터를 일관되게 복제하고 5분마다 크래시 일관성 지점을 만듭니다. 60분 동안 복구 지점을 만드는 데 Site Recovery를 사용할 수 없는 경우 사용자에게 경고합니다. 다음은 이 오류를 발생시킬 수 있는 원인입니다.
 
 **원인 1: [원본 가상 머신의 높은 데이터 변경률](#high-data-change-rate-on-the-source-virtal-machine)**    
-**원인 2: [네트워크 연결 문제 ](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**원인 2: [네트워크 연결 문제 ](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>원인 및 해결 방법
 
@@ -77,5 +77,10 @@ Azure Site Recovery에 디스크의 유형에 따른 데이터 변경률 제한�
 
 ### <a name="Network-connectivity-issue"></a>네트워크 연결 문제
 
+#### <a name="network-latency-to-cache-storage-account-"></a>캐시 스토리지 계정의 네트워크 대기 시간:
+ 가상 머신에서 캐시 스토리지 계정으로 데이터를 업로드하는 속도가 3초당 4MB 미만인 경우 Site Recovery는 복제된 데이터를 캐시 스토리지 계정으로 보내고 문제가 발생할 수 있습니다. 대기 시간과 관련된 문제가 있는지 확인하려면 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)를 사용하여 가상 머신에서 캐시 스토리지 계정으로 데이터를 업로드합니다.<br>
+대기 시간이 높은 경우 VM에서 아웃바운드 네트워크 트래픽을 제어하는 데 네트워크 가상 어플라이언스를 사용 중인지 확인합니다. 모든 복제 트래픽이 NVA를 통과하는 경우 어플라이언스가 제한될 수 있습니다. 복제 트래픽이 NVA로 이동하지 않도록 "Storage"에 대한 가상 네트워크에서 네트워크 서비스 엔드포인트를 만드는 것이 좋습니다. [네트워크 가상 어플라이언스 구성](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)을 참조하세요.
+
+#### <a name="network-connectivity"></a>네트워크 연결
 Site Recovery 복제가 작동하려면 VM에서 특정 URL 또는 IP 범위에 대한 아웃바운드 연결이 필요합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다.</br>
-[Site Recovery URL에 대한 아웃바운드 연결](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors?#outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072)을 참조하세요.
+[Site Recovery URL에 대한 아웃바운드 연결](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)을 참조하여 모든 URL이 연결되었는지 확인하세요. 

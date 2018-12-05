@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 53cec59841fbda49e4e410f069882ea76996f9fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428294"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>자습서: MobileIron과 Azure Active Directory 통합
 
@@ -50,7 +50,7 @@ MobileIron과 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 MobileIron 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -106,22 +106,21 @@ MobileIron에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
  
     ![Single Sign-On 대화 상자](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-1. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **MobileIron 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1.  **IDP**  시작 모드에서 애플리케이션을 구성하려면 **MobileIron 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![MobileIron 도메인 및 URL Single Sign-On 정보](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. **식별자** 텍스트 상자에서 `https://www.mobileiron.com/<key>` 패턴을 사용하여 URL을 입력합니다.
+    1. **식별자** 텍스트 상자에서 `https://www.mobileiron.com/<key>` 패턴을 사용하여 URL을 입력합니다.
 
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    1. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1.  **SP**  시작 모드에서 애플리케이션을 구성하려면  **고급 URL 설정 표시** 를 선택하고 다음 단계를 수행합니다.
 
     ![MobileIron 도메인 및 URL Single Sign-On](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
-    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<host>.mobileiron.com/user/login.html`
+     **로그인 URL**  텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<host>.mobileiron.com/user/login.html`
     
-    > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이 자습서의 뒷부분에서 설명한 대로 MobileIron 관리 포털에서 키와 호스트의 값을 가져옵니다.
+    > [!NOTE]  이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이 자습서의 뒷부분에서 설명한 대로 MobileIron 관리 포털에서 키와 호스트의 값을 가져옵니다.
 
 1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -148,7 +147,7 @@ MobileIron에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![Single Sign-On 관리 메타데이터 구성 단추](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
 > [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+> 이제 앱을 설정하는 동안 [Azure Portal ](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -174,13 +173,13 @@ MobileIron에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![사용자 대화 상자](./media/mobileiron-tutorial/create_aaduser_04.png)
 
-    a. **이름** 상자에 **BrittaSimon**을 입력합니다.
+    1. **이름** 상자에 **BrittaSimon**을 입력합니다.
 
-    나. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
+    1. **사용자 이름** 상자에 사용자인 Britta Simon의 전자 메일 주소를 입력합니다.
 
-    다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
+    1. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
-    d. **만들기**를 클릭합니다.
+    1. **만들기**를 클릭합니다.
   
 ### <a name="create-a-mobileiron-test-user"></a>MobileIron 테스트 사용자 만들기
 
@@ -199,13 +198,13 @@ MobileIron의 경우 프로비전은 수동 작업입니다.
 
     ![Single Sign-On 사용자 구성 추가 단추](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. **전자 메일 주소** 텍스트 상자에 brittasimon@contoso.com과 같은 사용자의 메일 주소를 입력합니다.
+    1. **전자 메일 주소** 텍스트 상자에 brittasimon@contoso.com과 같은 사용자의 메일 주소를 입력합니다.
 
-    나. **이름** 텍스트 상자에 사용자의 이름(예: Britta)을 입력합니다.
+    1. **이름** 텍스트 상자에 사용자의 이름(예: Britta)을 입력합니다.
 
-    다. **성** 텍스트 상자에 사용자의 성(예: Simon)을 입력합니다.
+    1. **성** 텍스트 상자에 사용자의 성(예: Simon)을 입력합니다.
     
-    d. **Done**을 클릭합니다.  
+    1. **Done**을 클릭합니다.  
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 49341b320df98bb08ee4f5c4ee061a51bec29ff2
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bb8eb4eae192cf0dd3a3555a3b1209705dd83aaf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686163"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583694"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -33,13 +33,15 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
 ## <a name="prerequisites"></a>필수 조건
 
-예산은 모든 Azure EA 고객에게 제공됩니다. 예산을 만들고 관리하려면 Azure EA 구독에 대한 읽기 권한이 있어야 합니다. EA 구독 및 리소스 그룹에 대한 개별 예산을 만들 수 있습니다. 그러나 EA 청구 계정에 대한 예산을 만들 수 없습니다.
+예산은 모든 Azure EA 고객에게 제공됩니다. Azure EA 구독 보기 예산에 대한 읽기 권한이 있어야 합니다. 예산을 만들고 관리하려면 기여자 사용 권한이 있어야 합니다. EA 구독 및 리소스 그룹에 대한 개별 예산을 만들 수 있습니다. 그러나 EA 청구 계정에 대한 예산을 만들 수 없습니다.
 
 다음 Azure 사용 권한은 사용자 및 그룹별 예산에 대한 구독에 따라 지원됩니다.
 
 - 소유자 – 구독에 대한 예산을 만들고, 수정하거나 삭제할 수 있습니다.
-- 기여자 – 자신의 예산을 만들고, 수정하거나 삭제할 수 있습니다. 다른 사용자가 만든 예산에 대한 예산 금액을 수정할 수 있습니다.
-- 읽기 권한자 - 사용 권한이 있는 예산을 볼 수 있습니다.
+- 기여자 및 Cost Management 기여자 – 자신의 예산을 만들거나, 수정하거나, 삭제할 수 있습니다. 다른 사용자가 만든 예산에 대한 예산 금액을 수정할 수 있습니다.
+- 읽기 권한자 및 Cost Management 읽기 권한자 - 사용 권한이 있는 예산을 볼 수 있습니다.
+
+Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대한 자세한 내용은 [Cost Management 데이터에 대한 액세스 할당](assign-access-acm-data.md)을 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: aba023667094fb00647861fb2dd300eda64e4897
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669960"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163174"
 ---
 # <a name="configure-storage"></a>저장소 구성
 
@@ -48,15 +48,20 @@ NAS 코어 파일러를 추가하는 단계는 다음과 같습니다.
 
 1. Avere 제어판의 위쪽에서 **설정** 탭을 클릭합니다.
 
-2. 왼쪽에서 **코어 파일러** > **코어 파일러 관리**를 차례로 클릭합니다.
+1. 왼쪽에서 **코어 파일러** > **코어 파일러 관리**를 차례로 클릭합니다.
 
-3. **만들기**를 클릭합니다.
+1. **만들기**를 클릭합니다.
 
-   ![코어 파일러 이름과 해당 정규화된 도메인 이름이 있는 새 코어 파일러 추가 페이지의 스크린샷](media/avere-vfxt-add-core-filer.png)
+   ![만들기 단추 위로 커서가 있는 새 코어 필터 추가 페이지의 스크린샷](media/avere-vfxt-add-core-filer-start.png)
+
+1. 마법사에서 필수 정보를 입력합니다. 
 
    * 코어 파일러의 이름을 지정합니다.
    * 사용 가능한 경우 FQDN(정규화된 도메인 이름)을 제공합니다. 그렇지 않으면 코어 파일러로 확인되는 IP 주소 또는 호스트 이름을 제공합니다.
    * 목록에서 파일러 종류를 선택합니다. 확실하지 않으면 **기타**를 선택합니다.
+
+     ![코어 파일러 이름과 해당 정규화된 도메인 이름이 있는 새 코어 파일러 추가 페이지의 스크린샷](media/avere-vfxt-add-core-filer.png)
+  
    * **다음**을 클릭하고 캐시 정책을 선택합니다. 
    * **파일러 추가**를 클릭합니다.
    * 자세한 내용은 Avere 클러스터 설정 가이드의 [새 NAS 코어 파일러 추가](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html)를 참조하세요.

@@ -1,6 +1,6 @@
 ---
-title: Azure AD 액세스 검토를 사용하여 액세스 검토 | Microsoft Docs
-description: Azure Active Directory 액세스 검토를 사용하여 액세스를 검토하는 방법을 알아봅니다.
+title: Azure AD 액세스 검토를 사용하여 액세스 검토 시작 | Microsoft Docs
+description: Azure Active Directory 액세스 검토를 사용하여 액세스 검토를 시작하는 방법을 알아봅니다.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -14,14 +14,14 @@ ms.component: compliance
 ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 09247a430d2ece44c307297838b7f4dc2819d56d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 455a4922dfd0832c49729bed007dd696562be07a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607033"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263429"
 ---
-# <a name="review-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 액세스 검토
+# <a name="start-an-access-review-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 액세스 검토 시작
 
 Azure AD(Azure Active Directory)는 액세스 검토라는 기능을 사용하여 회사에서 Azure AD 및 기타 Microsoft Online Services에 속한 응용 프로그램에 대한 액세스 및 그룹 구성원을 관리하는 방법을 간소화합니다. Microsoft로부터 그룹 구성원 또는 응용 프로그램에 대한 액세스 권한이 있는 사용자의 액세스를 검토하도록 요청하는 전자 메일을 받았을 것입니다. 
 

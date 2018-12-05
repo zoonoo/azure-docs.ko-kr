@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1fc1d3b4418b178921dc32ee834342b75fa31f20
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983120"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311078"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Azure 리소스에서 로그 데이터 수집 및 소비
 
@@ -45,7 +45,7 @@ ms.locfileid: "46983120"
 로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hubs 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
 
 > [!NOTE]
->  현재는 보안 가상 네트워크 뒤에 있는 저장소 계정에 네트워크 흐름 로그를 보관할 수 없습니다.
+>  현재는 보안 가상 네트워크 뒤에 있는 스토리지 계정에 네트워크 흐름 로그를 보관할 수 없습니다.
 
 > [!WARNING]
 > 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./monitor-diagnostic-logs-append-blobs.md) 

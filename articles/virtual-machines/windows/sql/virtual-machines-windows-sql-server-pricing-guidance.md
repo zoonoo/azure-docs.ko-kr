@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003562"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496472"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM에 대한 가격 책정 지침
 
@@ -37,7 +37,7 @@ ms.locfileid: "40003562"
 
 개념 증명을 개발, 테스트 또는 빌드하려면 무료 라이선스 **SQL Server Developer Edition**을 사용합니다. 이 버전에는 SQL Server Enterprise 버전의 모든 기능이 있어, 모든 유형의 응용 프로그램을 빌드하고 테스트할 수 있습니다. 그러나 Developer 버전은 프로덕션에서는 실행할 수 없습니다. SQL Server Developer 버전 VM은 연결된 SQL Server 라이선스 비용이 없으므로 VM에 대해서만 비용이 발생합니다.
 
-프로덕션에서 간단한 워크로드를 실행하려면(4개 코어 미만, 메모리 1GB 미만, 10GB/데이터베이스 미만) 무료 라이선스 **SQL Server Express Edition**을 사용합니다. SQL Server Express 버전 VM 또한 VM에 대해서만 비용 발생합니다.
+프로덕션에서 간단한 워크로드를 실행하려면(4개 코어 미만, 메모리 1GB 미만, 10GB/데이터베이스 미만) 자유롭게 사용이 허가된 **SQL Server Express Edition**을 사용하세요. SQL Server Express 버전 VM 또한 VM에 대해서만 비용 발생합니다.
 
 이러한 개발/테스트 또는 간단한 프로덕션 작업의 경우 이러한 작업에 맞는 더 작은 VM 크기를 선택하여 비용을 절감할 수도 있습니다. 일부 시나리오에는 DS1v2를 선택하는 것이 좋습니다.
 
@@ -90,6 +90,9 @@ SQL Server의 모든 버전(2012 SP3 ~ 2017)에 대한 비용은 동일합니다
 >
 >여기에는 Web, Standard 및 Enterprise Edition에 대한 추가 SQL Server 라이선싱 비용은 포함되지 않았습니다. 가장 정확한 가격 책정 예상 값을 얻으려면 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) 또는 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)에 대한 가격 책정 페이지에서 운영 체제와 SQL Server 버전을 선택합니다.
 
+> [!NOTE]
+> 이제 라이선스 모델을 종량제 모델과 BYOL(사용자 라이선스 필요) 간에 변경할 수 있습니다. 자세한 내용은 [SQL VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요. 
+
 ## <a id="byol"></a> BYOL(사용자 라이선스 필요)
 
 **License Mobility를 통해 SQL Server 사용자 라이선스 필요**(**BYOL**이라고도 함)는 Azure VM에서 기존 SQL Server 볼륨 라이선스와 함께 Software Assurance를 사용함을 의미합니다. BYOL을 사용하는 SQL Server VM의 경우 볼륨 라이선싱 프로그램을 통해 이미 라이선스 및 Software Assurance를 구매했다면 SQL Server 라이선스가 아닌 VM 실행에 대한 비용만 청구됩니다.
@@ -123,7 +126,9 @@ BYOL과 함께 SQL Server VM을 사용하려면 SQL Server Standard 또는 Enter
 > Azure에서 사용할 SQL Server 라이선스 수를 10일 이내에 알려주세요. 이전 이미지의 링크에는 이 작업을 수행하는 방법에 대한 지침이 있습니다.
 
 > [!NOTE]
-> 사용자 고유의 라이선스를 사용하기 위해 초 단위로 요금이 부과되는 SQL Server VM의 라이선스 모델을 변경할 수 없습니다. 이 경우에 새 BYOL VM을 만들고 새 VM에 데이터베이스를 마이그레이션해야 합니다.
+> 이제 라이선스 모델을 종량제 모델과 BYOL(사용자 라이선스 필요) 간에 변경할 수 있습니다. 자세한 내용은 [SQL VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요. 
+
+
 
 ## <a name="reduce-costs"></a>비용 절감
 

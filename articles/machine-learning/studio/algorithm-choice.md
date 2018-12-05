@@ -1,9 +1,10 @@
 ---
-title: Machine Learning 알고리즘 선택 방법 | Microsoft Docs
+title: 기계 학습 알고리즘을 선택하는 방법 - Azure Machine Learning Studio | Microsoft Docs
 description: 클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure Machine Learning Studio 알고리즘을 선택하는 방법입니다.
 services: machine-learning
-author: pakalra
-ms.author: pakalra
+author: ericlicoding
+ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 tags: ''
@@ -12,12 +13,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262304"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312421"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 위한 알고리즘 선택 방법
 

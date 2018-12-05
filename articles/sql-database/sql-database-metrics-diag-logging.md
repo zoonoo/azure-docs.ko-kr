@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 8f66c95202e0ccdef86f9630f7a98c20023a8955
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087749"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426002"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 
@@ -101,7 +101,7 @@ Azure SQL Database 및 Managed Instance의 데이터베이스에 대한 진단 �
    ![SQL Database에 대해 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> 데이터베이스 진단 설정에서 감사 로그를 사용하도록 설정할 수 없습니다. 감사 로그 스트리밍을 사용하도록 설정하려면 [데이터베이스에 대해 감사 설정](sql-database-auditing.md#subheading-2) 및 [Azure Log Analytics 및 Azure Event Hubs의 SQL 감사 로그](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)를 참조하세요.
+> 데이터베이스 진단 설정에서 보안 감사 로그를 사용하도록 설정할 수 없습니다. 감사 로그 스트리밍을 사용하도록 설정하려면 [데이터베이스에 대해 감사 설정](sql-database-auditing.md#subheading-2) 및 [Azure Log Analytics 및 Azure Event Hubs의 SQL 감사 로그](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)를 참조하세요.
 >
 
 > [!TIP]
@@ -182,7 +182,7 @@ Azure SQL Database 및 Managed Instance의 데이터베이스에 대한 진단 �
 2. **진단 설정**을 선택합니다.
 3. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
 
-   ![Managed Instance에 대해 진단 사용](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Managed Instance에 대해 진단 사용](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 4. 본인이 참조할 설정 이름을 입력합니다.
 5. 탄력적 풀에서 진단 데이터를 스트리밍할 리소스를 선택합니다(**저장소 계정에 보관**, **이벤트 허브로 스트림**, **Log Analytics에 보내기**).
@@ -190,7 +190,7 @@ Azure SQL Database 및 Managed Instance의 데이터베이스에 대한 진단 �
 7. 인스턴스 진단 원격 분석 **ResourceUsageStats**의 확인란을 선택합니다.
 8. 페이지 맨 아래에 있는 **저장**
 
-   ![Managed Instance에 대해 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Managed Instance에 대해 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
 > 모니터링하려는 각 Managed Instance에 대해 위의 단계를 반복합니다.

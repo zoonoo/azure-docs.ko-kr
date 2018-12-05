@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 37e43e4bb8b2aea21e0fa396dd197ca41793469d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e20faa36f14e681b6eb81203024e79a649f47c95
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394168"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582556"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>Azure 무료 계정에 대한 요금 청구 방지
 
@@ -62,6 +62,6 @@ Azure 체험 계정에 체험용으로 포함되지 않은 서비스를 사용�
 
 체험 서비스 및 수량이 만료되면 Azure에서는 사용자에게 사용 중인 모든 서비스에 대해 종량제 요금을 청구합니다. Azure Portal을 사용하여 사용하지 않는 서비스에 대한 리소스를 삭제할 수 있습니다. 모든 Azure 서비스를 사용하지 않으려는 경우 [구독을 취소](billing-how-to-cancel-azure-subscription.md)할 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

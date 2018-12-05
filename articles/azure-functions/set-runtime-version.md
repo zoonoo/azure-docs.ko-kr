@@ -2,19 +2,18 @@
 title: Azure Functions 런타임 버전을 대상으로 지정하는 방법
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. Azure에서 호스팅된 함수 앱의 런타임 버전을 지정하는 방법을 알아봅니다.
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: 6d89746c0a2d4642e5025789d352803195c0a3b9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886810"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498389"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
@@ -37,23 +36,13 @@ Functions를 통해 함수 앱에서 `FUNCTIONS_EXTENSION_VERSION` 응용 프로
 
 ## <a name="view-and-update-the-current-runtime-version"></a>현재 런타임 버전 확인 및 업데이트
 
-현재 함수 앱에서 사용하는 런타임 버전을 보려면 다음 절차를 따르세요.
+함수 앱에 사용되는 런타임 버전을 변경할 수 있습니다. 주요 변경 내용이 발생할 가능성이 있으므로 함수 앱에서 함수를 만들기 전에 런타임 버전만 변경해야 합니다. 런타임 버전은 `FUNCTIONS_EXTENSION_VERSION` 설정에서 결정되지만, 설정을 직접 변경하지 않고 Azure Portal에서 이 변경을 수행해야 합니다. 그 이유는 포털에서 변경 내용이 확인되고 필요에 따라 관련된 다른 변경 내용이 적용되기 때문입니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 함수 앱으로 이동합니다.
+### <a name="from-the-azure-portal"></a>Azure Portal에서
 
-1. **구성된 기능**에서 **함수 앱 설정**을 선택합니다.
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-    ![함수 앱 설정을 선택합니다.](./media/set-runtime-version/add-update-app-setting.png)
-
-1. **함수 앱 설정** 탭에서 **런타임 버전**을 찾습니다. 특정 런타임 버전 및 요청된 주 버전을 적어둡니다. 아래 예제에서 주 버전은 `~2`로 설정됩니다.
-
-   ![함수 앱 설정을 선택합니다.](./media/set-runtime-version/function-app-view-version.png)
-
-1. 함수 앱을 버전 1.x 런타임으로 고정하려면 **런타임 버전** 아래에서 **~1**을 선택합니다. 앱에 함수가 있으면 이 스위치를 사용할 수 없습니다.
-
-1. 런타임 버전을 변경한 경우 **개요** 탭으로 돌아와서 **다시 시작**을 선택해 앱을 다시 시작합니다.  버전 1.x 런타임에서 함수 앱 실행이 다시 시작되며 함수를 만들 때는 버전 1.x 템플릿이 사용됩니다.
-
-## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Azure CLI를 사용하여 런타임 버전 확인 및 업데이트
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Azure CLI에서
 
 Azure CLI에서 `FUNCTIONS_EXTENSION_VERSION`을 확인하고 설정할 수도 있습니다.
 

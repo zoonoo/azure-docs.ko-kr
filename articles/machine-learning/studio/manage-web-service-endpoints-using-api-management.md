@@ -1,11 +1,12 @@
 ---
-title: API Management를 사용하여 Azure ML 웹 서비스를 관리하는 방법 알아보기 | Microsoft Docs
+title: API Management를 사용하여 Machine Learning Studio 웹 서비스 관리 - Azure | Microsoft Docs
 description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다.
 keywords: 기계 학습, api 관리
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
@@ -16,16 +17,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 9543b1f3b10c246dadaf21b6960c7b6785fb66f4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566383"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308242"
 ---
-# <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대해 알아봅니다.
+# <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Management를 사용하여 Azure Machine Learning Studio 웹 서비스 관리
 ## <a name="overview"></a>개요
-이 가이드에서는 API Management를 빠르게 시작하여 AzureML 웹 서비스를 관리하는 방법을 보여 줍니다.
+이 가이드에서는 API Management를 빠르게 시작하여 Azure Machine Learning Studio 웹 서비스를 관리하는 방법을 보여줍니다.
 
 ## <a name="what-is-azure-api-management"></a>Azure API Management란?
 Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리할 수 있는 Azure 서비스입니다. Azure API Management에 대한 자세한 내용은 [여기](https://azure.microsoft.com/services/api-management/) 를 클릭하세요. Azure API Management를 시작하는 방법에 대한 설명은 [여기](../../api-management/api-management-get-started.md)를 클릭하세요. 이 가이드를 기반으로 하는 이 다른 가이드에서는 알림 구성, 가격 책정 계층, 응답 처리, 사용자 인증, 제품 생산, 개발자 구독 및 사용량 대시보딩을 포함하는 다양한 주제를 다룹니다.

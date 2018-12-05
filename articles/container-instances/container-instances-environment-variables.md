@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1fcb72d75dca99b6670ca3ff536403a6268554a2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4dde10c5cb4a764a268b8b9d3ebfaebc008e13ed
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238151"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162528"
 ---
 # <a name="set-environment-variables"></a>환경 변수 설정
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-출력을 수정하려면 *NumWords* 및 *MinLength* 변수에 대한 값을 지정하여 추가된 `--environment-variables` 인수로 두 번째 컨테이너를 시작합니다.
+출력을 수정하려면 *NumWords* 및 *MinLength* 변수에 대한 값을 지정하여 추가된 `--environment-variables` 인수로 두 번째 컨테이너를 시작합니다. (이 예제에서는 Bash 셸 또는 Azure Cloud Shell에서 CLI를 실행하고 있다고 가정합니다. Windows 명령 프롬프트를 사용하는 경우 `--environment-variables "NumWords"="5" "MinLength"="8"`과 같이 큰 따옴표를 사용하여 변수를 지정합니다.)
 
 ```azurecli-interactive
 az container create \

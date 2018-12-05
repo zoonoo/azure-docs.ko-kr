@@ -9,16 +9,52 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261585"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291343"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 서비스의 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 서비스의 릴리스에 대해 알아봅니다. 
+
+## <a name="2018-11-20"></a>2018-11-20
+
+### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Python용 Azure Machine Learning SDK v0.1.80
+
++ **주요 변경 내용** 
+  * *azureml.train.widgets* 네임스페이스가 *azureml.widgets*로 전환되었습니다.
+  * *azureml.core.compute.AmlCompute*는 *azureml.core.compute.BatchAICompute* 및 *azureml.core.compute.DSVMCompute* 클래스를 더 이상 사용하지 않습니다. 후자의 클래스는 이후 릴리스에서 제거됩니다. AmlCompute 클래스는 이제 더 쉽게 정의할 수 있으며, vm_size 및 max_nodes만 필요하고, 작업이 제출되면 클러스터가 자동으로 0에서 max_nodes로 확장됩니다. [노트북 샘플](https://github.com/Azure/MachineLearningNotebooks/tree/master/training)은 이 정보로 업데이트되었으며, 이를 사용하는 방법에 대한 예제를 제공합니다. 이 간소화와 나중에 릴리스될 많은 흥미로운 기능이 마음에 들기를 바랍니다!
+
+### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning 데이터 준비 SDK v0.5.1 
+
+[참고 문서](https://aka.ms/data-prep-sdk)를 참조하여 데이터 준비 SDK에 대해 자세히 알아봅니다.
++ **새로운 기능**
+   * DataPrep 패키지를 실행하고 데이터 세트 또는 데이터 흐름에 대한 데이터 프로필을 볼 수 있는 새 DataPrep CLI가 만들어졌습니다.
+   * 유용성이 향상되도록 SetColumnType API가 다시 설계되었습니다.
+   * smart_read_file의 이름이 auto_read_file로 변경되었습니다.
+   * 기울이기 및 첨도가 이제 데이터 프로필에 포함되었습니다.
+   * 계층화된 샘플링을 통해 샘플링할 수 있습니다.
+   * CSV 파일이 포함된 zip 파일에서 읽을 수 있습니다.
+   * 임의 분할을 사용하여 데이터 세트를 행 단위로 분할할 수 있습니다(예: 테스트 학습 세트로 분할).
+   * .dtypes를 호출하여 데이터 흐름 또는 데이터 프로필에서 모든 열 데이터 형식을 가져올 수 있습니다.
+   * .row_count를 호출하여 데이터 흐름 또는 데이터 프로필에서 행 수를 가져올 수 있습니다.
+
++ **버그 수정**
+   * long에서 double로 변환할 수 있도록 수정되었습니다. 
+   * 열 추가 이후의 어설션이 수정되었습니다. 
+   * 경우에 따라 그룹을 검색하지 않는 FuzzyGrouping 문제가 해결되었습니다.
+   * 다중 열 정렬 순서를 따르도록 정렬 함수가 수정되었습니다.
+   * Pandas에서 처리하는 방식과 비슷하게 처리하도록 식이 수정되었습니다.
+   * dbfs 경로에서 읽을 수 있도록 수정되었습니다.
+   * 오류 메시지를 더 쉽게 이해할 수 있습니다. 
+   * 이제 AML 토큰을 사용하여 원격 컴퓨팅 대상을 읽을 때 더 이상 오류가 발생하지 않습니다.
+   * 이제 Linux DSVM에서 더 이상 오류가 발생하지 않습니다.
+   * 이제 문자열 조건자에 문자열이 아닌 값이 있는 경우에도 더 이상 충돌하지 않습니다.
+   * 이제 Dataflow에서 올바르게 실패해야 하는 경우 어설션 오류를 처리합니다.
+   * 이제 Azure Databricks에서 dbutils 탑재 스토리지 위치를 지원합니다.
 
 ## <a name="2018-11-05"></a>2018-11-05
 

@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f610a221dca296561fefab65a6c40b52a5dd292a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515378"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275839"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -83,7 +83,7 @@ Visual Studio가 최신 상태이고 [가장 최신 버전](#check-your-tools-ve
 * **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 사용되지 않으며, [Azure Functions 핵심 도구](functions-run-local.md)에서 사용됩니다. 이 파일을 사용하여 함수에 필요한 변수에 대한 앱 설정을 지정합니다. 프로젝트에서 함수 바인딩에 필요한 각 연결에 대한 **값** 배열에 새 항목을 추가합니다. 자세한 내용은 Azure Functions 핵심 도구 문서의 [로컬 설정 파일](functions-run-local.md#local-settings-file)을 참조하세요.
 
     >[!IMPORTANT]
-    >local.settings.json 파일에 비밀이 포함될 수 있으므로 프로젝트 원본 제어에서 해당 파일을 제외해야 합니다. 이 파일에 대한 **출력 디렉터리로 복수** 설정은 항상 **변경된 내용만 복사**여야 합니다. 
+    >local.settings.json 파일에 비밀이 포함될 수 있으므로 프로젝트 원본 제어에서 해당 파일을 제외해야 합니다. 이 파일에 대한 **출력 디렉터리로 복사** 설정은 항상 **변경된 내용만 복사**여야 합니다. 
 
 자세한 내용은 [Functions 클래스 라이브러리 프로젝트](functions-dotnet-class-library.md#functions-class-library-project)를 참조하세요.
 

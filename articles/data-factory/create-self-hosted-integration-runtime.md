@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038471"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284832"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. IR에 대한 세부 정보는 [통합 런타임 개요](concepts-integration-runtime.md)를 참조하세요.
@@ -198,7 +198,9 @@ PowerShell을 사용하여 자체 호스팅 통합 런타임을 공유하려면 
 
 * 이 기능을 지원하는 Azure PowerShell 버전은 6.6.0 이상(AzureRM.DataFactoryV2, 0.5.7 이상)입니다.
 
-* 권한을 부여하려면 사용자에게 소유자 역할 또는 공유된 IR이 있는 데이터 팩터리의 상속된 소유자 역할이 있어야 합니다. 
+* 권한을 부여하려면 사용자에게 소유자 역할 또는 공유된 IR이 있는 데이터 팩터리의 상속된 소유자 역할이 있어야 합니다.
+
+* 공유 기능은 동일한 Azure Active Directory 테넌트 내의 데이터 팩터리에서만 작동합니다.
 
 * Active Directory [게스트 사용자](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)의 경우에는 UI의 검색 기능(검색 키워드를 사용하여 모든 데이터 팩터리 나열)이 [작동하지 않습니다](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). 하지만 데이터 팩터리의 소유자인 게스트 사용자는 검색 기능을 사용하지 않고도 IR을 공유할 수 있습니다. 이렇게 하려면 IR을 공유해야 하는 데이터 팩터리의 MSI를 **권한 할당** 텍스트 상자에 직접 입력한 다음 Azure Data Factory UI에서 **추가**를 선택합니다. 
 

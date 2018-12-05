@@ -10,14 +10,14 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 23cf02e8cc33b3a66a04ae0472b1e5a6baa59cc2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 61001d4926dcce68872a368afb5b28f2d3a8e2c0
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418996"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819003"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 
 
@@ -32,6 +32,8 @@ ms.locfileid: "50418996"
 
 네트워크 인터페이스를 다시 설정하려면 다음 단계를 따르세요.
 
+#### <a name="use-azure-portal"></a>Azure Portal 사용
+
 1.  [Azure 포털]( https://ms.portal.azure.com)로 이동합니다.
 2.  **Virtual Machines(클래식)** 를 선택합니다.
 3.  영향을 받는 Virtual Machine을 선택합니다.
@@ -41,6 +43,31 @@ ms.locfileid: "50418996"
 7.  [저장]을 선택합니다.
 8.  가상 머신을 다시 시작하여 시스템에 대한 새 NIC를 초기화합니다.
 9.  컴퓨터에 RDP를 시도합니다. 성공할 경우 개인 IP 주소를 원래대로 변경할 수 있습니다(원하는 경우). 그렇지 않은 경우 현재 상태를 유지할 수 있습니다. 
+
+#### <a name="use-azure-powershell"></a>Azure PowerShell 사용
+
+1. 먼저 [최신 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 설치했는지 확인합니다.
+2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다.
+
+    ```powershell
+    #Set the variables 
+    $SubscriptionID = "<Suscription ID>"
+    $VM = "<VM Name>"
+    $CloudService = "<Cloud Service>"
+    $VNET = "<Virtual Network>"
+    $IP = "NEWIP"
+
+    #Log in to the subscription 
+    Add-AzureAccount
+    Select-AzureSubscription -SubscriptionId $SubscriptionId 
+
+    #Check whether the new IP address is available in the virtual network.
+    Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
+    
+    #Add/Change static IP. This process will not change MAC address
+    Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
+    ```
+3. 컴퓨터에 RDP를 시도합니다. 성공할 경우 개인 IP 주소를 원래대로 변경할 수 있습니다(원하는 경우). 그렇지 않은 경우 현재 상태를 유지할 수 있습니다. 
 
 ### <a name="for-vms-deployed-in-resource-group-model"></a>리소스 그룹 모델에서 배포된 VM의 경우
 
@@ -54,6 +81,31 @@ ms.locfileid: "50418996"
 8.  **IP 주소**를 서브넷에서 사용할 수 있는 다른 IP 주소로 변경합니다.
 9. 가상 머신을 다시 시작하여 시스템에 대한 새 NIC를 초기화합니다.
 10. 컴퓨터에 RDP를 시도합니다. 성공할 경우 개인 IP 주소를 원래대로 변경할 수 있습니다(원하는 경우). 그렇지 않은 경우 현재 상태를 유지할 수 있습니다. 
+
+#### <a name="use-azure-powershell"></a>Azure PowerShell 사용
+
+1. 먼저 [최신 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 설치했는지 확인합니다.
+2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다.
+
+    ```powershell
+    #Set the variables 
+    $SubscriptionID = "<Suscription ID>"
+    $VM = "<VM Name>"
+    $ResourceGroup = "<Resource Group>"
+    $VNET = "<Virtual Network>"
+    $IP = "NEWIP"
+
+    #Log in to the subscription 
+    Add-AzureRMAccount
+    Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
+    
+    #Check whether the new IP address is available in the virtual network.
+    Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
+
+    #Add/Change static IP. This process will not change MAC address
+    Get-AzureRMVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzureRMVM
+    ```
+3. 컴퓨터에 RDP를 시도합니다.  성공할 경우 개인 IP 주소를 원래대로 변경할 수 있습니다(원하는 경우). 그렇지 않은 경우 현재 상태를 유지할 수 있습니다. 
 
 ## <a name="delete-the-unavailable-nics"></a>사용할 수 없는 NIC를 삭제합니다.
 컴퓨터에 원격 데스크톱을 수행한 후 잠재적인 문제를 방지하기 위해 이전 NIC를 삭제해야 합니다.

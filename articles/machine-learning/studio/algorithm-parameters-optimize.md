@@ -1,10 +1,11 @@
 ---
-title: Azure Machine Learning에서 알고리즘 최적화 | Microsoft Docs
-description: Azure Machine Learning에서 알고리즘에 대한 최적 매개 변수 집합을 선택하는 방법에 대해 설명합니다.
+title: Azure Machine Learning Studio에 사용할 알고리즘 최적화 | Microsoft Docs
+description: Azure Machine Learning Studio에서 알고리즘에 대한 최적 매개 변수 집합을 선택하는 방법에 대해 설명합니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
@@ -15,14 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 64d725712dc8cf87deb150944a390c9cef87b56f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833899"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314715"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Azure Machine Learning에서 알고리즘을 최적화하는 매개 변수 선택
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 알고리즘을 최적화하는 매개 변수 선택
+
 이 토픽에서는 Azure Machine Learning에서 알고리즘에 대한 올바른 하이퍼 매개 변수 집합을 선택하는 방법에 대해 설명합니다. 대부분의 기계 학습 알고리즘은 설정할 매개 변수를 포함하고 있습니다. 모델을 학습할 때 이러한 매개 변수의 값을 제공해야 합니다. 학습된 모델의 효율성은 선택한 모델 매개 변수에 따라 달라집니다. 최적의 매개 변수 집합을 찾는 프로세스를 *모델 선택*이라고 합니다.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]

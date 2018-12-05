@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42312166"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275689"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,11 +65,46 @@ Oracle 연결 서비스에 다음 속성이 지원됩니다.
 >[!TIP]
 >“ORA-01025: UPI parameter out of range”(ORA-01025: UPI 매개 변수가 범위를 벗어남) 오류가 표시되고 Oracle이 8i 버전인 경우 연결 문자열에 `WireProtocolMode=1`을 추가하고 다시 시도합니다.
 
-Oracle 연결에서 암호화를 사용하도록 설정하려면 다음 두 가지 옵션이 있습니다.
+**Oracle 연결에서 암호화를 사용하도록 설정하려면** 다음 두 가지 옵션이 있습니다.
 
-1.  Oracle 서버 쪽에서 OAS(Oracle Advanced Security)로 이동하여 3DES(Triple-DES Encryption) 및 AES(Advanced Encryption Standard)를 지원하는 암호화 설정을 구성합니다. 자세한 내용은 [여기](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759)를 참조하세요. ADF Oracle 커넥터는 Oracle에 대한 연결을 설정할 때 OAS에서 구성한 암호화 방법을 사용하도록 해당 암호화 방법을 자동으로 협상합니다.
+1.  **3DES(Triple-DES Encryption) 및 AES(Advanced Encryption Standard)** 를 사용하려면 Oracle 서버 쪽에서 OAS(Oracle Advanced Security)로 이동하여 암호화 설정을 구성합니다. 자세한 내용은 [여기](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759)를 참조하세요. ADF Oracle 커넥터는 Oracle에 대한 연결을 설정할 때 OAS에서 구성한 암호화 방법을 사용하도록 해당 암호화 방법을 자동으로 협상합니다.
 
-2.  클라이언트 쪽에서 `EncryptionMethod=1`을 연결 문자열에 추가할 수 있습니다. 이렇게 하면 SSL/TLS가 암호화 방법으로 사용됩니다. 이를 사용하려면 암호화 충돌을 방지하기 위해 Oracle 서버 쪽의 OAS에서 비SSL 암호화 설정을 사용하지 않도록 설정해야 합니다.
+2.  **SSL**을 사용하려면 다음 단계를 수행합니다.
+
+    1.  SSL 인증서 정보를 가져옵니다. SSL 인증서의 DER로 인코딩된 인증서 정보를 가져오고 출력(----- Begin Certificate … End Certificate -----)을 텍스트 파일로 저장합니다.
+
+        ```
+        openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
+        ```
+
+        **예:** DERcert.cer에서 인증서 정보를 추출한 다음, 출력을 cert.txt로 저장합니다.
+
+        ```
+        openssl x509 -inform DER -in DERcert.cer -text
+        Output:
+        -----BEGIN CERTIFICATE-----
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXX
+        -----END CERTIFICATE-----
+        ```
+    
+    2.  키 저장소 또는 trustsotre를 빌드합니다. 다음 명령은 PKCS-12 형식의 암호를 사용하거나 사용하지 않는 trustsotre 파일을 만듭니다.
+
+        ```
+        openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
+        ```
+
+        **예:** 암호를 사용하는 MyTrustStoreFile이라는 PKCS12 trustsotre 파일을 만듭니다
+
+        ```
+        openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
+        ```
+
+    3.  예를 들어 C:\MyTrustStoreFile과 같은 자체 호스팅 IR 머신에 truststore 파일을 배치합니다.
+    4.  ADF에서 `EncryptionMethod=1` 및 해당 `TrustStore`/`TrustStorePassword` 값(예: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`)을 사용하여 Oracle 연결 문자열을 구성합니다.
 
 **예제:**
 

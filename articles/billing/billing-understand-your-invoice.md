@@ -4,7 +4,7 @@ description: Azure 구독에 대한 사용량 및 청구를 읽고 이해하는 
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: jureid
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: 4bfaaa51e39a7db297626a8009306eef9e3efa80
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393784"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581560"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서의 조건 이해
 
@@ -114,5 +114,6 @@ ms.locfileid: "47393784"
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>청구서의 요금이 맞는지 확인하려면 어떻게 할까요?
 청구서의 요금에 대한 더 자세한 내용을 보려는 경우 [Microsoft Azure의 청구서 이해](billing-understand-your-bill.md)를 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
-추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
+
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

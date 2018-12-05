@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685653"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619823"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -34,7 +34,7 @@ ms.locfileid: "51685653"
 
 통과 인증은 무료 기능입니다. 이 기능을 사용하는 데 Azure AD 유료 버전이 필요하지 않습니다.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>통과 인증은 [Microsoft Azure 독일 클라우드](http://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서 사용할 수 있나요?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>통과 인증은 [Microsoft Azure 독일 클라우드](https://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서 사용할 수 있나요?
 
  아니요. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "51685653"
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>통과 인증은 "userPrincipalName" 대신 "Alternate ID"를 사용자 이름으로 지원하나요?
 
-예. 통과 인증은 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md)를 참조하세요. 모든 Office 365 응용 프로그램에서 `Alternate ID`를 지원하지는 않습니다. 특정 응용 프로그램의 설명서 지원 부분을 참조하세요.
+예, 통과 인증은 Azure AD Connect에서 구성될 때 `Alternate ID`를 사용자 이름으로 지원합니다. 전제 조건으로 Azure AD Connect는 온-프레미스 Active Directory `UserPrincipalName` 특성을 Azure AD로 동기화해야 합니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](how-to-connect-install-custom.md)를 참조하세요. 모든 Office 365 응용 프로그램에서 `Alternate ID`를 지원하지는 않습니다. 특정 응용 프로그램의 설명서 지원 부분을 참조하세요.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 
@@ -119,6 +119,10 @@ AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그�
 
 예. Active Directory 포리스트 간에 포리스트 신뢰가 있고 이름 접미사 라우팅이 제대로 구성된 경우 다중 포리스트 환경이 지원됩니다.
 
+## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>통과 인증이 여러 인증 에이전트에 대한 부하 분산을 제공하나요?
+
+아니요, 여러 개의 통과 인증 에이전트를 설치하면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)만 보장됩니다. 인증 에이전트 간에 결정적 부하 분산을 제공하지 않습니다. (임의의) 모든 인증 에이전트는 특정 사용자 로그인 요청을 처리할 수 있습니다.
+
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>설치해야 하는 통과 인증 에이전트 수는 몇 개인가요?
 
 여러 개의 통과 인증 에이전트를 설치하면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)이 보장됩니다. 그러나 인증 에이전트 간에 결정적 부하 분산을 제공하지는 않습니다.
@@ -132,7 +136,7 @@ AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그�
 대부분의 고객의 경우 고가용성 및 용량을 위해 총 2~3개의 인증 에이전트로도 충분합니다. 로그인 대기 시간을 개선하려면 도메인 컨트롤러에 가까운 곳에 인증 에이전트를 설치해야 합니다.
 
 >[!NOTE]
->테넌트당 인증 에이전트 12개로 지정된 시스템 제한이 있습니다.
+>테넌트당 인증 에이전트 40개라는 시스템 제한이 있습니다.
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Azure AD Connect를 실행하는 서버가 아닌 다른 서버에 첫 번째 통과 인증 에이전트를 설치할 수 있나요?
 
@@ -149,6 +153,22 @@ Azure AD Connect 마법사를 다시 실행하고 사용자 로그인 방법을 
 ## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>통과 인증 에이전트를 제거하면 어떻게 되나요?
 
 서버에서 통과 인증 에이전트를 제거하면 서버에서 로그인 요청 수락을 중지합니다. 테넌트에서 사용자 로그인 기능을 중단하지 않도록 방지하려면 통과 인증 에이전트를 제거하기 전에 다른 인증 에이전트가 실행되도록 합니다.
+
+## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>이전 테넌트가 원래 AD FS를 사용하여 설치되었습니다.  최근에 PTA로 마이그레이션했지만 이제 Azure AD와 동기화하여 UPN 변경 내용이 표시되지 않습니다.  UPN 변경 내용이 동기화되지 않는 이유는 무엇인가요?
+
+A: 다음과 같은 경우에 온-프레미스 UPN 변경 내용을 동기화할 수 없습니다.
+
+- Azure AD 테넌트가 2015년 6월 15일 이전에 생성된 경우
+- 처음에 인증에 AD FS를 사용하여 Azure AD 테넌트와 페더레이션된 경우
+- 관리 사용자가 PTA를 인증으로 사용하도록 전환하는 경우
+
+즉, 2015년 6월 15일 이전에 만들어진 테넌트의 기본 동작이 UPN 변경 내용을 차단하기 때문입니다.  UPN 변경 내용의 차단을 취소해야 하는 경우 다음 PowerShell cmdlt을 실행해야 합니다.  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+2015년 6월 15일 이후에 만든 테넌트에는 UPN 변경 내용을 동기화하는 기본 동작이 포함됩니다.   
+
+
 
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.

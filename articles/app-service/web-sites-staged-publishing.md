@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: cb7b114836c83338f71c85f59299ecf1dc4613a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636070"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317622"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -75,6 +75,7 @@ ms.locfileid: "51636070"
 * 처리기 매핑
 * 모니터링 및 진단 설정
 * WebJob 콘텐츠
+* 하이브리드 연결
 
 **교환되지 않은 설정**:
 
@@ -168,7 +169,7 @@ ms.locfileid: "51636070"
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>교환하기 전에 사용자 지정 준비
-일부 앱에는 사용자 지정 준비 작업이 필요할 수 있습니다. web.config의 `applicationInitialization` 구성 요소를 사용하면 요청을 받기 전에 수행할 사용자 지정 초기화 작업을 지정할 수 있습니다. 교환 작업은 이 사용자 지정 준비가 완료될 때까지 대기합니다. 샘플 web.config 조각은 다음과 같습니다.
+[자동 전환](#Auto-Swap)을 사용하면 일부 앱에서 사용자 지정 준비 작업이 필요할 수 있습니다. web.config의 `applicationInitialization` 구성 요소를 사용하면 요청을 받기 전에 수행할 사용자 지정 초기화 작업을 지정할 수 있습니다. 교환 작업은 이 사용자 지정 준비가 완료될 때까지 대기합니다. 샘플 web.config 조각은 다음과 같습니다.
 
     <system.webServer>
         <applicationInitialization>

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 11/15/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 44cc582bfa0a6940de7eeea9b54e3979735c07e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bd2efce831fa98b3a4543d67d247d04dc8fc9d04
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998245"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853186"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독
 
@@ -52,7 +52,7 @@ ms.locfileid: "46998245"
     - **구독**: 사용자의 구독을 선택합니다.
     - **리소스 그룹**: **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.
     - **위치**: *미국 동부*
-4. **+새로 만들기**를 클릭합니다. **Marketplace 검색** 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 표시되는 **가상 네트워크**를 클릭합니다. 
+4. **+새로 만들기**를 클릭합니다. **Marketplace 검색** 상자에 *가상 네트워크*를 입력합니다. 검색 결과에 표시되는 **가상 네트워크**를 클릭합니다.
 5. **가상 네트워크** 블레이드의 **배포 모델 선택** 상자에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다.
 6. **가상 네트워크 만들기** 블레이드에서 다음 설정에 대한 값을 입력하거나 선택한 다음 **만들기**를 클릭합니다.
     - **이름**: *myVnet2*
@@ -68,7 +68,7 @@ ms.locfileid: "46998245"
 10. 나타난 **myVnet1 - 피어링** 블레이드에서 **+ 추가**를 클릭합니다.
 11. 나타나는 **피어링 추가** 블레이드에서 다음 옵션을 입력하거나 선택한 다음 **확인**을 클릭합니다.
      - **이름**: *myVnet1ToMyVnet2*
-     - **가상 네트워크 배포 모델**: **클래식**을 선택합니다. 
+     - **가상 네트워크 배포 모델**: **클래식**을 선택합니다.
      - **구독**: 사용자의 구독을 선택합니다.
      - **가상 네트워크**: **가상 네트워크 선택**을 클릭한 다음 **myVnet2**를 클릭합니다.
      - **가상 네트워크 액세스 허용:** **사용**이 선택되어 있는지 확인합니다.
@@ -81,7 +81,7 @@ ms.locfileid: "46998245"
 
 ## <a name="cli"></a>피어링 만들기 - Azure CLI
 
-Azure 클래식 CLI와 Azure CLI를 사용하여 다음 단계를 완료합니다. 아래의 아무 단계에서나 **사용해 보세요.** 단추를 클릭하거나, 로컬 컴퓨터에서 [클래식 CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 설치하고 명령을 실행하면 Azure Cloud Shell에서 단계를 완료할 수 있습니다.
+Azure 클래식 CLI와 Azure CLI를 사용하여 다음 단계를 완료합니다. 아래의 아무 단계에서나 **사용해 보세요.** 단추를 클릭하거나, 로컬 컴퓨터에서 [클래식 CLI](/cli/azure/install-cli-version-1.0?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)를 설치하고 명령을 실행하면 Azure Cloud Shell에서 단계를 완료할 수 있습니다.
 
 1. Cloud Shell을 사용하는 경우 Azure에 자동 로그인되므로 2단계로 건너뛰세요. 명령 세션을 열고 `azure login` 명령을 사용하여 Azure에 로그인합니다.
 2. `azure config mode asm` 명령을 입력하여 CLI를 서비스 관리 모드에서 실행합니다. 
@@ -109,10 +109,10 @@ Azure 클래식 CLI와 Azure CLI를 사용하여 다음 단계를 완료합니�
      --address-prefix 10.0.0.0/16
    ```
 
-5. CLI를 사용하여 서로 다른 배포 모델을 통해 생성된 두 가상 네트워크 사이에 가상 네트워크 피어링을 만듭니다. PC의 텍스트 편집기에 다음 스크립트를 복사합니다. `<subscription id>`는 구독 ID로 바꿉니다. 구독 ID를 모르는 경우 `az account show` 명령을 입력합니다. 출력에 표시되는 **id** 값이 구독 ID입니다. CLI 세션에 수정된 스크립트를 붙여 넣고 `Enter`를 누릅니다.
+5. CLI를 사용하여 서로 다른 배포 모델을 통해 생성된 두 가상 네트워크 사이에 가상 네트워크 피어링을 만듭니다. PC의 텍스트 편집기에 다음 스크립트를 복사합니다. `<subscription id>`는 구독 ID로 바꿉니다. 구독 ID를 모르는 경우 `az account show` 명령을 입력합니다. 출력에 표시되는 **ID** 값이 구독 ID입니다. CLI 세션에 수정된 스크립트를 붙여 넣고 `Enter`를 누릅니다.
 
    ```azurecli-interactive
-   # Get the id for VNet1.
+   # Get the ID for VNet1.
    vnet1Id=$(az network vnet show \
      --resource-group myResourceGroup \
      --name myVnet1 \
@@ -163,8 +163,8 @@ Azure 클래식 CLI와 Azure CLI를 사용하여 다음 단계를 완료합니�
     ```
 
     > [!WARNING]
-    > 변경된 네트워크 구성 파일을 가져오면 구독의 기존 가상 네트워크가 변경될 수 있습니다. 이전 가상 네트워크만 추가하고, 구독에서 기존 가상 네트워크를 변경하거나 제거하지 않도록 합니다. 
-5. `Connect-AzureRmAccount` 명령을 입력하여 Azure에 로그인하고 가상 네트워크(리소스 관리자)를 만듭니다.  로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요.
+    > 변경된 네트워크 구성 파일을 가져오면 구독의 기존 가상 네트워크가 변경될 수 있습니다. 이전 가상 네트워크만 추가하고, 구독에서 기존 가상 네트워크를 변경하거나 제거하지 않도록 합니다.
+5. `Connect-AzureRmAccount` 명령을 입력하여 Azure에 로그인하고 가상 네트워크(Resource Manager)를 만듭니다. 로그인하는 데 사용하는 계정에 가상 네트워크 피어링을 만드는 데 필요한 권한이 있어야 합니다. 사용 권한 목록은 [가상 네트워크 피어링 사용 권한](virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요.
 6. 리소스 그룹 및 가상 네트워크(리소스 관리자)를 만듭니다. 스크립트 복사하여 PowerShell에 붙여 넣고 `Enter`를 누릅니다.
 
     ```powershell
@@ -204,8 +204,9 @@ Azure 클래식 CLI와 Azure CLI를 사용하여 다음 단계를 완료합니�
 
 9. **선택 사항**: 이 자습서에서 가상 머신을 만드는 내용은 다루지 않지만, 각 가상 네트워크에서 가상 머신을 만들고 한 가상 머신에서 다른 가상 머신으로 연결하여 연결의 유효성을 검사할 수 있습니다.
 10. **선택 사항**: 이 자습서에서 만든 리소스를 삭제하려면 이 문서의 [리소스 삭제](#delete-powershell)에서 설명하는 단계를 완료합니다.
- 
+
 ## <a name="delete"></a>리소스 삭제
+
 이 자습서를 마친 경우 사용 요금이 발생하지 않도록 자습서에서 만든 리소스를 삭제하려고 할 것입니다. 리소스 그룹을 삭제하면 리소스 그룹에 있는 리소스도 모두 삭제됩니다.
 
 ### <a name="delete-portal"></a>Azure Portal
@@ -254,7 +255,7 @@ Azure 클래식 CLI와 Azure CLI를 사용하여 다음 단계를 완료합니�
     ```
 
     > [!WARNING]
-    > 변경된 네트워크 구성 파일을 가져오면 구독의 기존 가상 네트워크(클래식)에 변경을 초래할 수 있습니다. 이전 가상 네트워크만 제거하고, 구독에서 다른 기존 가상 네트워크를 변경하거나 제거하지 않도록 합니다. 
+    > 변경된 네트워크 구성 파일을 가져오면 구독의 기존 가상 네트워크(클래식)에 변경을 초래할 수 있습니다. 이전 가상 네트워크만 제거하고, 구독에서 다른 기존 가상 네트워크를 변경하거나 제거하지 않도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

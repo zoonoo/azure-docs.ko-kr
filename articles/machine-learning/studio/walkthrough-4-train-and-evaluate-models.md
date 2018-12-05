@@ -1,10 +1,11 @@
 ---
-title: '4단계: 예측 분석 모델 학습 및 평가 | Microsoft Docs'
+title: '4단계: 예측 분석 모델 학습 - Azure Machine Learning Studio | Microsoft Docs'
 description: '예측 솔루션 개발 연습 4단계: Azure Machine Learning Studio에서 다중 모델을 학습하고, 점수를 매기고, 평가합니다.'
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
@@ -15,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 95937ee74be3f6facbc482c3cfd80a8af9128ea3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4b4ffcf8e6c886a2f182c844f940e53c24d1efa0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836016"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313472"
 ---
-# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>연습 4단계: 예측 분석 모델 학습 및 평가
+# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>연습 4단계: Machine Learning Studio에서 예측 분석 모델 학습 및 평가
 이 토픽에는 연습의 4번째 단계인 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)이 포함되어 있습니다.
 
-1. [Machine Learning 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
+1. [Machine Learning Studio 작업 영역 만들기](walkthrough-1-create-ml-workspace.md)
 2. [기존 데이터 업로드](walkthrough-2-upload-data.md)
 3. [새 실험 만들기](walkthrough-3-create-new-experiment.md)
 4. **모델 학습 및 평가**
@@ -40,7 +41,7 @@ Azure Machine Learning Studio를 사용하여 기계 학습 모델을 만들 때
 다양한 모델을 선택할 수 있습니다. 사용할 수 있는 모델을 보려면 모듈 팔레트에서 **Machine Learning** 노드를 확장하고 **모델 초기화** 및 그 아래 노드를 확장합니다. 이 실험에서는 [2클래스 SVM(Support Vector Machine)][two-class-support-vector-machine] 및 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈을 선택합니다.    
 
 > [!TIP]
-> 해결하려는 특정 문제에 가장 적합한 Machine Learning 알고리즘을 결정하는 데 대한 도움말을 보려면 [Microsoft Azure Machine Learning을 위한 알고리즘 선택 방법](algorithm-choice.md)을 참조하세요.
+> 해결하려는 특정 문제에 가장 적합한 Machine Learning 알고리즘을 결정하는 데 대한 도움말을 보려면 [Microsoft Azure Machine Learning Studio를 위한 알고리즘 선택 방법](algorithm-choice.md)을 참조하세요.
 > 
 > 
 

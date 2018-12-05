@@ -1,10 +1,11 @@
 ---
-title: Azure AI 갤러리 Jupyter Notebooks | Microsoft Docs
+title: Azure AI Gallery Jupyter Notebook - Azure Machine Learning Studio | Microsoft Docs
 description: Azure AI 갤러리에서 Jupyter Notebooks를 검색합니다.
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 556e0671-1b50-4bcb-92eb-889962310633
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 81a2f444012085782c377de050e7cb5445f8ebb3
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: efc24f957a4c1288212fed2792d3dd14a49e1a2b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344657"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307716"
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 Jupyter Notebooks 검색
 

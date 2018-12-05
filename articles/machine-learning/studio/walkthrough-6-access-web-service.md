@@ -1,10 +1,11 @@
 ---
-title: '6단계: Machine Learning 웹 서비스 액세스 | Microsoft Docs'
-description: '예측 솔루션 연습 개발의 6단계: 활성 Azure Machine Learning 웹 서비스 액세스'
+title: '6단계: Machine Learning Studio 웹 서비스 액세스 | Microsoft Docs'
+description: '예측 솔루션 연습 개발의 6단계: 활성 Azure Machine Learning Studio 웹 서비스에 액세스합니다.'
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: be63a04d0fe71039b19eb6bc0678a319f622a811
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5402f228a650a1a3d3282180a52f9e9f9cc10a3a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836707"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306457"
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>연습 6단계: Azure Machine Learning 웹 서비스 액세스
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-studio-web-service"></a>연습 6단계: Azure Machine Learning Studio 웹 서비스 액세스
 
 [Azure Machine Learning에서 예측 분석 솔루션 개발](walkthrough-develop-predictive-solution.md)
 

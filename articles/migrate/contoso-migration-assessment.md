@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: ea0987eaea8ee558df35ecce6afb5e7bab3ac4de
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087630"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635019"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 마이그레이션: Azure로 마이그레이션하기 위한 온-프레미스 워크로드 평가
 
@@ -125,8 +125,8 @@ Contoso 및 다른 사용자는 평가를 위해 다음 필수 조건을 충족�
 - 온-프레미스 VMware VM 두 대 이상(그 중 하나는 SQL Server 데이터베이스 실행).
 - 각 VM에 Azure Migrate 에이전트를 설치할 권한.
 - VM이 인터넷에 직접 연결되어야 합니다.  
-        - 인터넷 액세스를 [필요한 URL](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites)로 제한할 수 있습니다.  
-        - VM에 인터넷 연결이 없는 경우 Azure [Log Analytics Gateway](../log-analytics/log-analytics-oms-gateway.md)를 설치하고, 이를 통해 에이전트 트래픽을 전달해야 합니다.
+    - 인터넷 액세스는 [필수 URL](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites)로 제한할 수 있습니다.  
+    - VM에 인터넷 연결이 없는 경우 Azure [Log Analytics Gateway](../azure-monitor/platform/gateway.md)를 설치하고, 이를 통해 에이전트 트래픽을 전달해야 합니다.
 - SQL Server 인스턴스를 실행하는 VM의 FQDN(데이터베이스 평가용).
 - SQL Server VM에서 실행되는 Windows 방화벽은 1433 TCP 포트(기본값)에서 외부 연결을 허용해야 합니다. 이 설정을 통해 Data Migration Assistant를 연결할 수 있습니다.
 

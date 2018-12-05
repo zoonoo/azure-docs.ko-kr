@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: cb8774395b7374677e8de3b80630a2d4abf490f9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60a8d03a6562c9a66c2f6781ebbc330c989b343e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372918"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852098"
 ---
 # <a name="review-text"></a>텍스트 검토
 
@@ -32,4 +32,4 @@ Content Moderator에서 **시도** 탭을 선택합니다. 그런 다음, **텍�
 
 자세한 결과가 창에 표시됩니다. 결과에는 Text Moderation API가 반환한 검색된 태그 및 용어가 포함됩니다. 태그의 선택 상태를 전환하려면 태그를 선택합니다. 직접 만든 사용자 지정 태그를 사용해도 됩니다.
 
-![텍스트 결과 검토](images/3-review-text-2.png)
+![Chrome 브라우저 창에서 플래그가 지정된 텍스트를 보여주는 검토 도구의 스크린샷](../images/reviewresults_text.png)

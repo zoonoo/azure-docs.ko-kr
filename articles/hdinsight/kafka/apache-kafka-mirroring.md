@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 21fa41db2e205a7b17deae6d018308fe6e7ff213
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006773"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309041"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker를 사용하여 HDInsight에서 Kafka와 함께 Apache Kafka 토픽 복제
 
@@ -25,11 +25,11 @@ Apache Kafka의 미러링 기능을 사용하여 토픽을 보조 클러스터�
 > [!WARNING]
 > 미러링이 내결함성을 달성하는 수단으로 간주되어서는 안됩니다. 토픽 내의 항목에 대한 오프셋은 원본 및 대상 클러스터 간에 서로 다르므로 클라이언트에서는 이 두 가지를 서로 교환하여 사용할 수 없습니다.
 >
-> 내결함성이 염려되는 경우 클러스터 내의 토픽에 대한 복제를 설정해야 합니다. 자세한 내용은 [HDInsight에서 Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
+> 내결함성이 염려되는 경우 클러스터 내의 토픽에 대한 복제를 설정해야 합니다. 자세한 내용은 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
 
-## <a name="how-kafka-mirroring-works"></a>Kafka 미러링 작동 방식
+## <a name="how-apache-kafka-mirroring-works"></a>Apache Kafka 미러링 작동 방식
 
-미러링은 MirrorMaker 도구(Apache Kafka의 일부)를 사용하여 원본 클러스터의 토픽에서 레코드를 소비한 다음 대상 클러스터에 로컬 복사본을 만듭니다. MirrorMaker는 원본 클러스터에서 읽은 *소비자*(0개 이상)와 로컬(대상) 클러스터에 쓰는 *생산자*(1개)를 사용합니다.
+미러링은 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) 도구(Apache Kafka의 일부)를 사용하여 원본 클러스터의 토픽에서 레코드를 소비한 다음, 대상 클러스터에 로컬 복사본을 만듭니다. MirrorMaker는 원본 클러스터에서 읽은 *소비자*(0개 이상)와 로컬(대상) 클러스터에 쓰는 *생산자*(1개)를 사용합니다.
 
 미러링 프로세스를 보여 주는 다이어그램은 다음과 같습니다.
 
@@ -56,7 +56,7 @@ HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka 서�
 
 두 개의 Azure Virtual Network 연결에 대한 자세한 내용은 [VNet 간 연결 구성](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)을 참조하세요.
 
-## <a name="create-kafka-clusters"></a>Kafka 클러스터 만들기
+## <a name="create-apache-kafka-clusters"></a>Apache Kafka 클러스터 만들기
 
 Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있지만 Azure Resource Manager 템플릿을 사용하는 것이 더 쉽습니다. 다음 단계에 따라 Azure 가상 네트워크와 두 Kafka 클러스터를 Azure 구독에 배포합니다.
 
@@ -106,7 +106,7 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 
     자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. 다음 명령을 사용하여 원본 클러스터에 대한 Zookeeper 호스트를 찾습니다.
+2. 다음 명령을 사용하여 원본 클러스터에 대한 Apache Zookeeper 호스트를 찾습니다.
 
     ```bash
     # Install jq if it is not installed
@@ -295,10 +295,10 @@ Azure 가상 네트워크와 Kafka 클러스터를 수동으로 만들 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 MirrorMaker를 사용하여 Kafka 클러스터 복제본을 만드는 방법을 알아봤습니다. Kafka를 사용하는 다른 방법을 찾으려면 다음 링크를 사용하세요.
+이 문서에서는 [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)를 사용하여 [Apache Kafka](https://kafka.apache.org/) 클러스터 복제본을 만드는 방법을 알아보았습니다. Kafka를 사용하는 다른 방법을 찾으려면 다음 링크를 사용하세요.
 
 * [Apache Kafka MirrorMaker 문서](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)(cwiki.apache.org)
 * [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)
-* [HDInsight의 Kafka에서 Apache Spark 사용](../hdinsight-apache-spark-with-kafka.md)
-* [HDInsight의 Kafka에서 Apache Storm 사용](../hdinsight-apache-storm-with-kafka.md)
-* [Azure Virtual Network를 통해 Kafka에 연결](apache-kafka-connect-vpn-gateway.md)
+* [HDInsight에서 Apache Spark 및 Apache Kafka 사용](../hdinsight-apache-spark-with-kafka.md)
+* [HDInsight에서 Apache Storm 및 Apache Kafka 사용](../hdinsight-apache-storm-with-kafka.md)
+* [Azure Virtual Network를 통해 Apache Kafka에 연결](apache-kafka-connect-vpn-gateway.md)

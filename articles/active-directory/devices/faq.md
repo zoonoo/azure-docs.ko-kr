@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515644"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309347"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
 
@@ -93,6 +93,7 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 >[!Note] 
 >등록된 장치의 경우에는 장치를 초기화하여 사용자가 리소스에 액세스하지 못하게 하는 것이 좋습니다. 자세한 내용은 [Intune에서 관리를 위해 장치 등록](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)을 참조하세요. 
+
 ---
 
 # <a name="azure-ad-join-faq"></a>Azure AD 조인 FAQ
@@ -103,6 +104,20 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 - 하이브리드 Azure AD 조인 장치의 경우, 예약된 작업이 장치를 다시 등록하지 않도록 자동 등록을 꺼야 합니다. 그런 다음, 관리자 권한으로 명령 프롬프트를 열고 `dsregcmd.exe /debug /leave`를 입력합니다. 또는 여러 장치에서 이 명령을 스크립트로 실행하여 대량으로 조인 해제할 수 있습니다.
 
 - 순수한 Azure AD 조인 장치의 경우, Azure AD 사용자 자격 증명으로 로그인할 수 없으므로 오프라인 로컬 관리자 계정이 있는지 확인하거나 계정을 만들어야 합니다. 그런 다음, **설정** > **계정** > **회사 또는 학교 액세스**로 이동합니다. 계정을 선택하고 **연결 끊기**를 클릭합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 장치를 다시 부팅하여 조인 해제 프로세스를 완료합니다.
+
+---
+
+**Q: Azure AD에서 삭제 또는 비활성화된 Azure AD 조인 디바이스에 사용자가 로그인할 수 있나요?**
+**A:** 예. Windows에서는 이전에 로그인한 사용자가 네트워크 연결 없이도 신속하게 데스크톱에 액세스할 수 있도록 로그온 기능이 캐시되었습니다. Azure AD에서 디바이스가 삭제 또는 비활성화되어도 Windows 디바이스에서 그 사실을 알지 못합니다. 따라서 이전에 로그인한 사용자는 캐시된 로그온을 사용하여 데스크톱에 계속 액세스할 수 있습니다. 그러나 디바이스가 삭제 또는 비활성화되면 사용자는 디바이스 기반 조건부 액세스에 의해 보호되는 리소스에 액세스할 수 없습니다. 
+
+아직 로그인하지 않은 사용자는 자신에게 설정된 캐시된 로그인이 없기 때문에 디바이스에 액세스할 수 없습니다. 
+
+---
+
+**Q: 비활성화되거나 삭제된 사용자가 Azure AD 조인 디바이스에 로그인할 수 있나요? **
+**A:** 예, 하지만 시간 제한이 있습니다. Azure AD에서 사용자가 삭제 또는 비활성화되어도 Windows 디바이스에서 그 사실을 즉시 알지 못합니다. 따라서 이전에 로그인한 사용자는 캐시된 로그온을 사용하여 데스크톱에 액세스할 수 있습니다. 디바이스가 사용자 상태를 인식하면(일반적으로 4시간 이하) Windows는 해당 사용자가 데스크톱에 액세스하지 못하도록 차단합니다. Azure AD에서 사용자가 삭제 또는 비활성화되면 해당 사용자의 모든 토큰이 취소되므로 어떤 리소스에도 액세스할 수 없습니다. 
+
+이전에 로그인하지 않은 삭제 또는 비활성화된 사용자는 자신에게 설정된 캐시된 로그인이 없기 때문에 디바이스에 액세스할 수 없습니다. 
 
 ---
 

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 77e5d6c278436a1fc192421c9867106409389a66
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 424de36dbbd3b09e635679900110148b9edd0242
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888224"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422885"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -278,8 +278,8 @@ namespace SampleApp
   Activity Output section:
   "exitcode": 0
   "outputs": [
-    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
-    "https://shengcstorbatch.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
+    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stdout.txt",
+    "https://<container>.blob.core.windows.net/adfjobs/<GUID>/output/stderr.txt"
   ]
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)"
   Activity Error section:
@@ -292,7 +292,11 @@ namespace SampleApp
 
   > [!IMPORTANT]
   > - activity.json, linkedServices.json 및 datasets.json은 Batch 작업의 런타임 폴더에 저장됩니다. 이 예제의 경우 activity.json, linkedServices.json 및 datasets.json은 "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" 경로에 저장됩니다. 필요한 경우 개별적으로 정리해야 합니다. 
-  > - 연결된 서비스가 자체 호스팅 통합 런타임을 사용하는 경우 키 또는 암호와 같은 중요한 정보를 자체 호스팅 통합 런타임으로 암호화하여 사용자 정의 개인 네트워크 환경에 자격 증명을 유지하도록 합니다. 이러한 방식으로 사용자 지정 응용 프로그램 코드에서 참조하는 경우 일부 중요한 필드가 누락될 수 있습니다. 필요한 경우 연결된 서비스 참조를 사용하는 대신 extendedProperties에서 SecureString을 사용합니다. 
+  > - 자체 호스팅 통합 런타임을 사용하는 연결된 서비스의 경우 키 또는 암호와 같은 중요한 정보를 자체 호스팅 통합 런타임으로 암호화하여 사용자 정의 개인 네트워크 환경에 자격 증명을 유지해야 합니다. 이러한 방식으로 사용자 지정 응용 프로그램 코드에서 참조하는 경우 일부 중요한 필드가 누락될 수 있습니다. 필요한 경우 연결된 서비스 참조를 사용하는 대신 extendedProperties에서 SecureString을 사용합니다. 
+
+## <a name="pass-outputs-to-another-activity"></a>다른 활동으로 출력 전달
+
+사용자 지정 활동의 코드에서 사용자 지정 값을 다시 Azure Data Factory에 보낼 수 있습니다. 그럼으로써 사용자 애플리케이션에서 `outputs.json`에 해당 값을 작성할 수 있습니다. Data Factory는 `outputs.json`의 콘텐츠를 복사하여 `customOutput` 속성 값으로 작업 출력에 추가합니다. (크기는 2MB로 제한됩니다.) 다운스트림 작업에서 `outputs.json`의 콘텐츠를 사용하려는 경우 `@activity('<MyCustomActivity>').output.customOutput` 식을 사용하여 값을 가져올 수 있습니다.
 
 ## <a name="retrieve-securestring-outputs"></a>SecureString 출력 검색
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364298"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820225"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
 
@@ -23,29 +23,33 @@ ms.locfileid: "46364298"
 
 원격 모니터링 솔루션을 처음 배포하는 경우 **관리자** 및 **읽기 전용**이라는 두 가지 역할이 있습니다.
 
-**관리자** 역할에 해당하는 모든 사용자는 솔루션에 대한 모든 권한을 갖습니다. **읽기 전용** 역할에 해당하는 사용자는 다음 작업을 수행할 수 없습니다.
+**관리자** 역할의 모든 사용자는 아래의 다음 권한을 포함하여 솔루션에 대한 전체 액세스 권한이 있습니다. **읽기 전용** 역할의 사용자는 솔루션을 보는 액세스만을 갖습니다.
 
-- 알람 업데이트
-- 알람 삭제
-- 장치 만들기
-- 장치 업데이트
-- 장치 삭제
-- 장치 그룹 만들기
-- 장치 그룹 업데이트
-- 장치 그룹 삭제
-- 규칙 만들기
-- 규칙 업데이트
-- 규칙 삭제
-- 작업 만들기
-- SIM 관리 업데이트
+| 사용 권한            | 관리자 | 읽기 전용 |
+|----------------       |-------|-----------|
+| 솔루션 보기         | yes   | yes       |
+| 알람 업데이트         | yes   | 아니요        |
+| 알람 삭제         | yes   | 아니요        |
+| 장치 만들기        | yes   | 아니요        |
+| 장치 업데이트        | yes   | 아니요        |
+| 장치 삭제        | yes   | 아니요        |
+| 장치 그룹 만들기  | yes   | 아니요        |
+| 장치 그룹 업데이트  | yes   | 아니요        |
+| 장치 그룹 삭제  | yes   | 아니요        |
+| 규칙 만들기          | yes   | 아니요        |
+| 규칙 업데이트          | yes   | 아니요        |
+| 규칙 삭제          | yes   | 아니요        |
+| 작업 만들기           | yes   | 아니요        |
+| SIM 관리 업데이트 | yes   | 아니요        |
 
-원격 모니터링 솔루션을 배포하는 사람은 Azure Active Directory 응용 프로그램 소유자이며 이 사람에게는 **관리자** 역할이 자동으로 할당됩니다. 응용 프로그램 소유자는 Azure Portal에서 다른 사용자에게 역할을 할당할 수 있습니다.
+기본적으로 솔루션을 배포한 사용자에게는 **관리자** 역할이 자동으로 할당되고 Azure Active Directory 애플리케이션 소유자입니다. 애플리케이션 소유자로서 Azure Portal을 통해 다른 사용자에게 역할을 할당할 수 있습니다. 다른 사용자가 솔루션에서 역할을 할당하게 하려면, Azure Portal에서 응용 프로그램 소유자로 설정해야 합니다.
 
-다른 사용자가 솔루션에서 역할을 할당하게 하려면, Azure Portal에서 응용 프로그램 소유자로 설정해야 합니다.
+> [!NOTE]
+> 솔루션을 배포한 사용자는 만들어진 직후 볼 수 있는 **유일한 사용자**입니다. 읽기 전용, 관리자 또는 사용자 지정 역할 중 하나로 애플리케이션을 보는 다른 액세스 권한을 부여하려면 사용자 추가 또는 제거에 대한 아래의 다음 지침을 참조합니다.
 
 ## <a name="add-or-remove-users"></a>사용자 추가 또는 제거
 
-Azure Portal을 사용하여 원격 모니터링 솔루션에 사용자를 추가하거나 제거합니다. 다음 단계에서는 원격 모니터링 솔루션을 배포할 때 만들어진 [Azure Active Directory 엔터프라이즈 응용 프로그램](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application)을 사용합니다.
+Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용하여 원격 모니터링 솔루션에서 역할에 사용자를 추가하거나 제거할 수 있습니다. 다음 단계에서는 원격 모니터링 솔루션을 배포할 때 만들어진 [Azure Active Directory 엔터프라이즈 애플리케이션](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application)을 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

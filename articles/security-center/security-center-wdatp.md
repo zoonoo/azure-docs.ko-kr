@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068335"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316993"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection과 Azure Security Center 통합
 
@@ -99,12 +99,12 @@ Windows Defender ATP 센서는 시스템 컨텍스트에서 연결하므로, 프
 
 3. 명령이 정상적으로 실행되면 Azure Security Center 대시보드와 Windows Defender ATP 포털에 새 경고가 표시됩니다. 이 경고가 표시되려면 몇 분 정도 걸릴 수 있습니다.
 
-4. Security Center에서 경고를 검토하려면 **보안 경고** >  **의심스러운 Powershell 명령줄**로 이동합니다.
+4. Security Center에서 경고를 검토하려면 **보안 경고** >  **의심스러운 Powershell 명령줄**로 이동합니다.
 
 5. 조사 창에서 Windows Defender ATP 포털로 이동 하는 링크를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Security Center에서 보안 정책 설정](security-center-policies.md): Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+- [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md): Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 - [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md): 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
 - [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md): Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.

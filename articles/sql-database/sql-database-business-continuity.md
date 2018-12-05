@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 9dab136795094350abe29e7d779a22ec1c94ef70
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 14fdc0dc12debb32f63d7322c233e06fc2fc0d9e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986664"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161544"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
@@ -28,7 +28,7 @@ Azure SQL Database는 비즈니스 프로세스에 영향을 줄 수 있는 오�
 - 악의적인 공격자가 데이터를 삭제하거나 데이터베이스를 삭제하는 데 성공했습니다.
 - 지진으로 인해 정전되었거나 데이터 센터가 일시적으로 사용할 수 없게 되었습니다.
 
-이러한 경우는 Azure SQL Database에서 제어할 수 없으므로 데이터를 복구하고 응용 프로그램을 계속 실행할 수 있도록 하는 SQL Database의 비즈니스 연속성 기능을 사용해야 합니다.
+이러한 경우는 Azure SQL Database에서 제어할 수 없으므로 데이터를 복구하고 애플리케이션을 계속 실행할 수 있도록 하는 SQL Database의 비즈니스 연속성 기능을 사용해야 합니다.
 
 이 개요에서는 Azure SQL Database에서 비즈니스 연속성 및 재해 복구를 위해 제공하는 기능에 대해 설명합니다. 데이터 손실을 유발하거나 데이터베이스 및 응용 프로그램을 사용할 수 없게 만들 수 있는 중단 이벤트에서의 복구와 관련된 옵션, 권장 사항 및 자습서에 대해 알아봅니다. 사용자 또는 응용 프로그램 오류가 데이터 무결성에 영향을 주거나, Azure 지역에 가동 중단이 발생하거나, 응용 프로그램에 유지 관리가 필요할 때 수행할 작업을 알아봅니다.
 

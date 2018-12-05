@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: f68bf05ef9749794c78898e4464489e7cfb358ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231385"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820004"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
 
@@ -66,7 +66,7 @@ FTP 대시보드에서 **복사**를 클릭하여 FTPS 엔드포인트 및 앱 �
 
 [Azure Portal](https://portal.azure.com)의 앱 리소스 페이지에서 왼쪽 탐색 창에 있는 **앱 설정**을 선택합니다.
 
-암호화되지 않은 FTP를 사용하지 않도록 설정하려면 **FTPS만**을 선택합니다. FTP 및 FTPS를 둘 다 완전히 사용하지 않도록 설정하려면 **사용 안 함**을 선택합니다. 완료되면 **저장**을 클릭합니다. **FTPS만** 사용하는 경우 웹앱의 **SSL 설정** 블레이드로 이동하여 TLS 1.1 이상을 적용해야 합니다. TLS 1.0은 **FTPS만**으로 지원되지 않습니다.
+암호화되지 않은 FTP를 사용하지 않도록 설정하려면 **FTPS만**을 선택합니다. FTP 및 FTPS를 둘 다 완전히 사용하지 않도록 설정하려면 **사용 안 함**을 선택합니다. 완료되면 **저장**을 클릭합니다. **FTPS만** 사용하는 경우 웹앱의 **SSL 설정** 블레이드로 이동하여 TLS 1.2 이상을 적용해야 합니다. TLS 1.0 및 1.1은 **FTPS만**으로 지원되지 않습니다.
 
 ![FTP/S 사용 안 함](./media/app-service-deploy-ftp/disable-ftp.png)
 
