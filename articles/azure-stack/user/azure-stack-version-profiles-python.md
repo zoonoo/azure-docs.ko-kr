@@ -14,12 +14,12 @@ ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: 657eefcd5b7793f2f181d074084a272e65943681
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17fb8a82709e7c0c7353b70f7731895889167a79
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246449"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873957"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API 버전 프로필을 사용 하 여 Azure Stack에서 Python 사용
 
@@ -92,7 +92,7 @@ Azure Stack 사용자의 가상 머신에 대 한 일반적인 관리 작업을 
     이 샘플 (및 SDK)에 Python 2.7, 3.4, 3.5 및 3.6 호환 됩니다.
 
 2.  Python 개발을 위한 일반적인 권장 사항은 가상 환경을 사용 하는 것입니다. 
-    자세한 내용은 참조 하세요. https://docs.python.org/3/tutorial/venv.html
+    자세한 내용은 https://docs.python.org/3/tutorial/venv.html를 참조하세요.
     
     설치 하 고 Python 3에서 "venv" 모듈을 사용 하 여 가상 환경 초기화 (설치 해야 합니다 [virtualenv](https://pypi.python.org/pypi/virtualenv) Python 2.7 용):
 
@@ -153,5 +153,5 @@ os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 
 - [Azure Python 개발자 센터](https://azure.microsoft.com/develop/python/)
 - [Azure Virtual Machines 설명서](https://azure.microsoft.com/services/virtual-machines/)
-- [Virtual Machines에 대 한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- [Virtual Machines에 대 한 학습 경로](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
 - Microsoft Azure 구독이 없는, 하는 경우 무료 평가판 계정을 얻을 수 있습니다 [여기](https://go.microsoft.com/fwlink/?LinkId=330212)합니다.

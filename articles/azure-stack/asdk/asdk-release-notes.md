@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c9ac1c228fd3fd4ba666fd7881e387d79929ed9a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427253"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869962"
 ---
 # <a name="asdk-release-notes"></a>ASDK 릴리스 정보  
 이 문서에서는 향상 된 기능, 수정 및 알려진된 문제에 Azure Stack 개발 키트 ASDK ()에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
@@ -46,32 +46,11 @@ ms.locfileid: "52427253"
 <!-- TBD - IS ASDK --> 
 - Azure Stack 사용자 포털에서 가상 컴퓨터를 만든이 및 포털 잘못 된 DS 시리즈 VM에 연결할 수 있는 데이터 디스크 수를 표시 하는 문제가 수정 되었습니다. DS 시리즈 Vm은 Azure 구성으로 많은 데이터 디스크를 수용할 수 있습니다.
 
-- 다음과 같은 관리 디스크 문제가 1809에서 고정 되어 있으며는 1808에도 수정 되어 [Azure Stack 핫픽스 1.1808.7.113](https://support.microsoft.com/help/4471992/): 
-
-   <!--  2966665 – IS, ASDK --> 
-   - 관리 디스크 virtual machines (DS, DSv2, Fs, Fs_V2) 오류로 인해 실패 하는 프리미엄 크기는 연결 SSD 데이터 디스크에서 문제를 해결 했습니다.: *가상 머신 'vmname' 오류에 대 한 디스크를 업데이트 하지 못했습니다: 요청 때문에 작업을 수행할 수 없습니다 저장소 계정 유형 VM 크기에 대 한 'Premium_LRS'를 사용할 수 없습니다 ' Standard_DS/Ds_V2/FS/Fs_v2)* 합니다. 
-   
-   - 사용 하 여 관리 디스크 VM을 만드는 **createOption**: **Attach** 다음 오류로 인해 실패: *장기 실행 작업 상태 '실패'를 사용 하 여 실패 했습니다. 추가 정보: '내부 실행 오류가 발생 했습니다.'*
-   ErrorCode: InternalExecutionError ErrorMessage: 내부 실행 오류가 발생 했습니다.
-   
-   이제이 문제가 해결 되었습니다.
-
 - <!-- 2702741 -  IS, ASDK --> 동적 할당을 사용 하 여 배포 된 공용 Ip는 메서드가 없습니다. 문제 해결된 실행 중지-할당 취소 후에 유지 되도록 보장 합니다. 이제 보존 됩니다.
 
 - <!-- 3078022 - IS, ASDK --> VM 중지-할당 해제 하기 전에 되었던 1808 경우 수 없는 다시 할당 1808 업데이트 후 합니다.  이 문제는 1809에서 해결 됩니다. 이 문제가 해결 1809에서이 상태에 있으며 시작할 수 없습니다. 인스턴스를 시작할 수 있습니다. 또한 수정 반복에서이 문제를 방지합니다.
 
-<!-- 3090289 – IS, ASDK --> 
-- 여기서 1808 업데이트를 적용 한 후 문제가 발생할 수 있습니다는 다음 Managed Disks를 사용 하 여 Vm을 배포 하는 경우 문제를 해결 했습니다.
-
-   1. Managed Disks를 사용 하 여 VM 배포 1808 업데이트 하기 전에 구독을 만든 경우 내부 오류 메시지와 함께 실패할 수 있습니다. 오류를 해결 하려면 각 구독에 대해 다음이 단계를 수행 합니다.
-      1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
-      2. 로 동일한 구독에 따라 **액세스 제어 (IAM)**, 되어 있는지 확인 하 고 **Azure Stack – Managed Disk** 나열 됩니다.
-   2. 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 이 오류를 해결 하려면 다음이 단계를 수행 합니다.
-      1. 적용 된 [1808 Azure Stack 핫픽스](https://support.microsoft.com/help/4471992)합니다.
-      2. 단계를 따릅니다 [이 문서에서는](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
-
 - **다양 한 수정** 성능, 안정성, 보안 및 Azure Stack에서 사용 되는 운영 체제에 대 한
-
 
 ### <a name="changes"></a>변경 내용
 
