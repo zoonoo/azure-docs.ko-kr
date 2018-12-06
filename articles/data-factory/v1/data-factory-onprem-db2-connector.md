@@ -91,7 +91,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | **암호** |사용자 계정의 암호입니다. |아니오 |
 | **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 집합을 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. JSON 데이터 집합에 대한 **structure**, **availability** 및 **policy**과 같은 섹션은 모든 데이터 집합 유형(Azure SQL, Azure Blob 저장소, Azure Table 저장소 등)에서 비슷합니다.
 
 **typeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. DB2 데이터 집합을 포함하는 **RelationalTable** 형식의 데이터 집합에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
@@ -299,7 +299,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 }
 ```
 
-## <a name="type-mapping-for-db2"></a>DB2에 대한 형식 매핑
+## <a name="type-mapping-for-db2"></a> DB2에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 대로 복사 활동에서는 다음 2단계 접근 방법을 사용하여 source 형식에서 sink 형식으로의 자동 형식 변환을 수행합니다.
 
 1. 네이티브 소스 형식에서 .NET 형식으로 변환
