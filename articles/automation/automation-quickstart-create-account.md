@@ -37,7 +37,7 @@ https://portal.azure.com에서 Azure에 로그인
     ![페이지에서 Automation 계정에 대한 정보 입력](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
-    > Automation Account를 배포할 수 있는 위치의 업데이트된 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/ko-kr/global-infrastructure/services/)을 참조하세요.
+    > Automation Account를 배포할 수 있는 위치의 업데이트된 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all)을 참조하세요.
 
 1. 배포가 완료되면 ****모든 서비스**를 클릭하고, **Automation 계정**을 선택하고, 만든 Automation 계정을 선택합니다.
 
