@@ -36,7 +36,7 @@ Microsoft은 데이터 과학자에게 최고의 도구인 R 프로그래밍 언
 |서비스                                                          |설명                                                                       |
 |-----------------------------------------------------------------|----------------------------------------------------------------------------------|
 |[데이터 과학 Virtual Machine](#data-science-virtual-machine)    |데이터 과학 워크스테이션 또는 사용자 지정 계산 대상으로 사용할 사용자 지정된 VM|
-|[HDInsight의 ML 서비스](#ml-services-on-hdinsight)            |여러 노드 간에 대규모 데이터 집합에 대한 R 분석을 실행하기 위한 클러스터 기반 시스템   |
+|[HDInsight의 ML 서비스](#ml-services-on-hdinsight)            |여러 노드 간에 대규모 데이터 세트에 대한 R 분석을 실행하기 위한 클러스터 기반 시스템   |
 |[Azure Databricks](#azure-databricks)                            |R 및 다른 언어를 지원하는 공동 작업 Spark 환경               |
 |[Azure Machine Learning Studio](#azure-machine-learning-studio)  |Azure의 기계 학습 실험에서 사용자 지정 R 스크립트 실행                      |
 |[Azure Batch](#azure-batch)                                      |클러스터의 여러 노드 간에 R 코드를 경제적으로 실행하기 위한 다양한 옵션 제공|
@@ -63,7 +63,7 @@ DSVM은 워크스테이션으로 사용할 수 있을 뿐만 아니라 R 프로�
 DSVM에 대해 자세히 알아보려면 ["Linux/Windows용 Azure 데이터 과학 Virtual Machine에 대한 소개"](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview)를 참조하세요.
 
 ## <a name="ml-services-on-hdinsight"></a>HDInsight의 ML 서비스
-[Microsoft ML Services](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview)는 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다.  이 솔루션은 Azure Blob 또는 Data Lake Store에 로드된 거의 모든 크기의 데이터 집합에서 R 기반 분석을 위한 최신 기능을 제공합니다.
+[Microsoft ML Services](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-overview)는 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다.  이 솔루션은 Azure Blob 또는 Data Lake Store에 로드된 거의 모든 크기의 데이터 세트에서 R 기반 분석을 위한 최신 기능을 제공합니다.
 
 이는 클러스터 간에 R 코드를 확장할 수 있게 해주는 엔터프라이즈급 솔루션입니다.  Microsoft의
 <code>[RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler)</code> 패키지에 제공되는 기능을 활용하면 HDInsight의 R 스크립트가 클러스터의 여러 노드에서 동시에 데이터 처리 함수를 실행할 수 있습니다.  그러면 R이 워크스테이션에서 실행 중인 단일 스레드 R보다 훨씬 더 큰 규모의 데이터를 고속으로 처리할 수 있습니다.
@@ -97,7 +97,7 @@ ML Studio 실험 내에서 R을 사용하는 방법에 대한 자세한 내용�
 
 ### <a name="create-manage-and-deploy-experiments-from-your-local-r-environment"></a>로컬 R 환경에서 실험 생성, 관리 및 배포
 ML Studio에서 R을 사용하는 다른 방법은
-<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> 패키지를 사용하여 R 프로그래밍 환경과 관련된 실험 프로세스를 모니터링하고 제어하는 것입니다.  Microsoft에서 유지 관리하는 이 패키지를 사용하여 Azure ML에서 데이터 집합을 업로드 및 다운로드하고, 실험을 질의하고, R 함수를 Azure ML 웹 서비스로 게시하고, 기존의 웹 서비스를 통해 R 데이터를 실행하고, 출력을 검색할 수 있습니다.
+<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> 패키지를 사용하여 R 프로그래밍 환경과 관련된 실험 프로세스를 모니터링하고 제어하는 것입니다.  Microsoft에서 유지 관리하는 이 패키지를 사용하여 Azure ML에서 데이터 세트를 업로드 및 다운로드하고, 실험을 질의하고, R 함수를 Azure ML 웹 서비스로 게시하고, 기존의 웹 서비스를 통해 R 데이터를 실행하고, 출력을 검색할 수 있습니다.
 
 이 패키지는 Azure ML을 R 코드의 확장 가능한 배포 플랫폼으로 훨씬 더 쉽게 사용할 수 있게 해줍니다.  UI에서 클릭하고 끄는 대신 이미 알고 있는 도구를 사용하여 전체적인 배포 프로세스를 자동화할 수 있습니다.
 
