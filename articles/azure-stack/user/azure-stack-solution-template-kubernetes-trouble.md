@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f7f23a6d645a1d8e16e42e751050d8d91b49e2b3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007828"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956723"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes에 배포 문제 해결
 
@@ -178,6 +178,6 @@ Bash 해야 Azure Stack을 관리 하는 데 사용할 수 있는 컴퓨터에�
 
 [Azure Stack에 Kubernetes 배포](azure-stack-solution-template-kubernetes-deploy.md)
 
-[(Azure Stack 운영자)에 대 한 Marketplace에 Kubernetes 클러스터를 추가](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[(Azure Stack 운영자)에 대 한 Marketplace에 Kubernetes 클러스터를 추가](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Azure의 Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

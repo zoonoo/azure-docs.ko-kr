@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254522"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972391"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 관리 기본 사항
 Azure Stack 관리 접하는 경우 알아야 할 몇 가지 있습니다. 이 지침은 Azure Stack 운영자 역할의 개요 및 생산성을 높이려는 신속 하 게 사용자에 게 필요한를 제공 합니다.
@@ -32,9 +32,9 @@ Azure Stack 통합 시스템을 사용 하는 경우 Azure Stack의 업데이트
  
 ### <a name="development-kit"></a>개발 키트
 
-Azure Stack 개발 키트를 사용 하는 경우 검토 합니다 [Azure Stack 이란?](.\asdk\asdk-what-is.md) 문서 개발 키트 및 제한 사항의 용도 이해 해야 합니다. 개발 키트를 사용 하 여 샌드박스로"," Azure Stack을 평가 하 고 개발 하 고 수 있는 비-프로덕션 환경에서 앱을 테스트 해야 합니다. (배포 정보에 대 한 참조를 [Azure Stack 개발 키트 배포](.\asdk\asdk-install.md) 문서입니다.)
+Azure Stack 개발 키트를 사용 하는 경우 검토 합니다 [Azure Stack 이란?](./asdk/asdk-what-is.md) 문서 개발 키트 및 제한 사항의 용도 이해 해야 합니다. 개발 키트를 사용 하 여 샌드박스로"," Azure Stack을 평가 하 고 개발 하 고 수 있는 비-프로덕션 환경에서 앱을 테스트 해야 합니다. (배포 정보에 대 한 참조를 [Azure Stack 개발 키트 배포](./asdk/asdk-install.md) 문서입니다.)
 
-Azure와 같은에서는 빠른 혁신. 정기적으로 새 빌드 출시할 예정입니다. 개발 키트를 실행 하는 경우 이동할 최신 빌드를 수행 해야 합니다 [Azure Stack 다시 배포](.\asdk\asdk-redeploy.md)합니다. 업데이트 패키지를 적용할 수 없습니다. 이 프로세스 시간은 걸리지만 장점은 최신 기능을 시도해 볼 수 있습니다. 웹 사이트에 대 한 개발 키트 설명서는 최신 릴리스 빌드를 반영합니다.
+Azure와 같은에서는 빠른 혁신. 정기적으로 새 빌드 출시할 예정입니다. 개발 키트를 실행 하는 경우 이동할 최신 빌드를 수행 해야 합니다 [Azure Stack 다시 배포](./asdk/asdk-redeploy.md)합니다. 업데이트 패키지를 적용할 수 없습니다. 이 프로세스 시간은 걸리지만 장점은 최신 기능을 시도해 볼 수 있습니다. 웹 사이트에 대 한 개발 키트 설명서는 최신 릴리스 빌드를 반영합니다.
 
 ## <a name="learn-about-available-services"></a>사용 가능한 서비스에 대해 알아보기
 

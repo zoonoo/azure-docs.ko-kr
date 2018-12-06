@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7c92b2a060e73484b73a60f9215425cba40ea3f1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285121"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966724"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 솔루션을 학습 하는 edge 컴퓨터 만들기
 
@@ -163,23 +163,23 @@ Azure 및 Azure Stack에 대 한 사전 지식이 필요합니다. 계속 하기
 
 10. **만들기**를 선택하여 저장소 계정을 만듭니다.
 
-    ![대체 텍스트](\media\azure-stack-solution-machine-learning\image1.png)
+    ![대체 텍스트](/media/azure-stack-solution-machine-learning/image1.png)
 
 11.  최근에 만든 저장소 계정을 선택 합니다.
 
 12.  선택 **Blob**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image2.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image2.png)
 
 13.  선택 **+ 컨테이너** 에서 선택한 **컨테이너**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image3.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image3.png)
 
 14.  컨테이너 이름을 **uploadeddata** 하 고 액세스 유형을 선택 **컨테이너**합니다.
 
 15.  선택 **만들**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image4.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image4.png)
 
 ## <a name="step-2-create-a-data-science-virtual-machine"></a>2 단계: 데이터 과학 Virtual Machine 만들기
 
@@ -189,11 +189,11 @@ Azure portal에서 Ubuntu 데이터 과학 Virtual Machine (DSVM)을 만듭니�
 
 2.  선택 된 **+ 새로 만들기** 링크 및 CSP에 대 한"데이터 과학 Virtual Machine에 대 한 Linux Ubuntu 검색
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image5.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image5.png)
 
 1.  선택 **Linux (Ubuntu) 용 데이터 과학 Virtual Machine** 목록에 따라는 화면의 지침 DSVM을 만듭니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image6.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image6.png)
 
 > ! [중요]  
 > **선택할** 암호 * *으로*인증 유형*합니다.
@@ -268,19 +268,19 @@ Azure Machine Learning 계정을 프로 비전 하려면 Azure portal을 사용 
 
 1.  에 로그인 합니다 [Azure portal](https://portal.azure.com/) 사용할 Azure 구독에 대 한 자격 증명을 사용 합니다. Azure 구독을 만들려면을 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image7.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image7.png)
 
 1.  포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다.
 
-    ![Azure Portal에서 리소스 만들기](media\azure-stack-solution-machine-learning\image8.png)
+    ![Azure Portal에서 리소스 만들기](media/azure-stack-solution-machine-learning/image8.png)
 
 1.  검색 창에 **Machine Learning**을 입력합니다. **Machine Learning 실험(미리 보기)** 이라는 검색 결과를 선택합니다.
 
-    ![Azure Machine Learning 검색](media\azure-stack-solution-machine-learning\image9.png)
+    ![Azure Machine Learning 검색](media/azure-stack-solution-machine-learning/image9.png)
 
 1.  에 **Machine Learning 실험** 창에 선택한 아래쪽으로 스크롤하여 **만들기** 실험 계정을 정의 하려면.
 
-    ![Azure Machine Learning - 실험 계정 만들기](media\azure-stack-solution-machine-learning\image10.png)
+    ![Azure Machine Learning - 실험 계정 만들기](media/azure-stack-solution-machine-learning/image10.png)
 
 1.  에 **ML 실험** 창 Machine Learning 실험 계정을 구성 합니다.
 
@@ -299,15 +299,15 @@ Azure Machine Learning 계정을 프로 비전 하려면 Azure portal을 사용 
     | 모델 관리 가격 책정 계층 | **개발/테스트** | 선택 **가격 책정 계층이 선택 되지 않음** 새 모델 관리 계정에 대 한 가격 책정 계층을 지정 합니다. 비용 절감에 대 한 구독 (제한적으로 사용 가능)에서 사용 가능한 경우 DEVTEST 가격 책정 계층을 선택 합니다. 그렇지 않으면 S1 가격 책정 계층을 선택합니다. 가격 책정 계층 선택을 저장 하려면 선택 합니다. |
     | 대시보드에 고정 | 선택 | 선택 된 **대시보드에 고정** Azure portal의 전면 대시보드 페이지에서 Machine Learning 실험 계정 쉽게 추적할 수 있도록 하는 옵션입니다. |
 
-    ![Machine Learning 실험 계정 구성](media\azure-stack-solution-machine-learning\image11.png)
+    ![Machine Learning 실험 계정 구성](media/azure-stack-solution-machine-learning/image11.png)
 
 1.  **만들기**를 클릭하여 모델 관리 계정과 함께 실험 계정을 만드는 프로세스를 시작합니다.
 
-    ![Machine Learning 실험 계정 구성](media\azure-stack-solution-machine-learning\image12.png)
+    ![Machine Learning 실험 계정 구성](media/azure-stack-solution-machine-learning/image12.png)
 
     계정을 만들려면 몇 분 정도 걸릴 수 있습니다. Azure portal 도구 모음에서 알림 아이콘 (벨)을 선택 하 여 배포 프로세스의 상태를 확인 합니다.
 
-    ![Azure Portal 알림](media\azure-stack-solution-machine-learning\image13.png)
+    ![Azure Portal 알림](media/azure-stack-solution-machine-learning/image13.png)
 
 ### <a name="install-and-log-in-to-workbench"></a>설치 하 고 workbench에 로그인 
 
@@ -349,7 +349,7 @@ Azure Machine Learning Workbench를 이제 Windows나 macOS에서 사용할 수 
 
 1.  **프로젝트** 창에서 더하기 기호(+)를 선택하고 **새 프로젝트**를 선택합니다.
 
-    ![새 작업 영역](media\azure-stack-solution-machine-learning\image14.png)
+    ![새 작업 영역](media/azure-stack-solution-machine-learning/image14.png)
 
 1.  양식 필드에 정보를 채우고 **만들기** 단추를 선택하여 Workbench에 새 프로젝트를 만듭니다.
 
@@ -362,11 +362,11 @@ Azure Machine Learning Workbench를 이제 Windows나 macOS에서 사용할 수 
     | 선택한 작업 영역 | IrisGarden(있는 경우) | Azure portal에서 실험 계정에 대해 만든 작업 영역을 선택 합니다. <br>빠른 시작을 사용 하 여, IrisGarden의 이름으로 작업 영역에 나열 됩니다. 실험 계정 이름 또는 기본 계정 이름을 사용 하 여 작업 영역을 사용 하십시오. |
     | 프로젝트 템플릿 | 아이리스 분류 | 템플릿에 제품을 탐색 하는 데 사용 되는 데이터 및 스크립트에 포함 됩니다. 이 템플릿은 스크립트 및이 설명서 사이트에서이 빠른 시작 및 기타 자습서에 필요한 데이터를 포함 합니다. |
 
-    ![새 프로젝트](media\azure-stack-solution-machine-learning\image15.png)
+    ![새 프로젝트](media/azure-stack-solution-machine-learning/image15.png)
 
 1.  새 프로젝트가 만들어지고 프로젝트 대시보드에서 해당 프로젝트가 열립니다. 프로젝트 홈페이지, 데이터 소스, 노트북 및 소스 코드 파일을 탐색 합니다.
 
-    ![프로젝트 열기](media\azure-stack-solution-machine-learning\image16.png)
+    ![프로젝트 열기](media/azure-stack-solution-machine-learning/image16.png)
 
 ### <a name="attach-a-dsvm-compute-target"></a>DSVM 계산 대상 연결
 
@@ -374,7 +374,7 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
 
 1.  Azure ML Workbench 앱 내에서 Azure ML Workbench CLI를 선택 하 여 시작 **파일**->**PowerShell 열기**
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image17.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image17.png)
 
 1.  프롬프트를 열었습니다. PowerShell 명령을 사용 하 여:
 
@@ -384,19 +384,19 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
 
 1.  다음과 같은 메시지가 나타납니다.
 
-     ![대체 텍스트](media\azure-stack-solution-machine-learning\image18.png)
+     ![대체 텍스트](media/azure-stack-solution-machine-learning/image18.png)
 
 1.  프롬프트에 설명 된 대로 사이트를 찾아 제공 되는 코드를 입력 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image19.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image19.png)
 
 1.  메시지가 표시 되 면 계속 선택한 Azure ML 실험 계정에 연결 된 Azure 계정을 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image20.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image20.png)
 
 1.  Azure ML Workbench CLI는 다음 프롬프트를 보냅니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image21.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image21.png)
 
 1.  ML 계정 및 작업 영역 로그인 성공으로 표시 되 면 DSVM을 연결 합니다.
 
@@ -406,7 +406,7 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
 
     다음 알림이 표시 됩니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image22.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image22.png)
 
     ```PowerShell  
         # prepare the Docker image on the DSVM 
@@ -427,15 +427,15 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
 
     이 파일에는 5개 열, 50개 행이 있는 테이블이 포함되어 있습니다. 네 개의 열은 숫자 기능 열입니다. 다섯 번째 열은 문자열 대상 열. 열에는 헤더 이름이 없습니다.
 
-    ![iris.csv](media\azure-stack-solution-machine-learning\image23.png)
+    ![iris.csv](media/azure-stack-solution-machine-learning/image23.png)
 
 1.  **데이터 뷰**에서 더하기 기호(**+**)를 선택하여 새 데이터 원본을 추가합니다. **데이터 원본 추가** 페이지가 열립니다.
 
-    ![Azure Machine Learning Workbench의 데이터 뷰](media\azure-stack-solution-machine-learning\image24.png)
+    ![Azure Machine Learning Workbench의 데이터 뷰](media/azure-stack-solution-machine-learning/image24.png)
 
 1.  선택 **텍스트 파일 (\*.csv \*.json, \*.txt.,...)** .
 
-    ![Azure Machine Learning Workbench에서 데이터 원본](media\azure-stack-solution-machine-learning\image25.png)
+    ![Azure Machine Learning Workbench에서 데이터 원본](media/azure-stack-solution-machine-learning/image25.png)
 
 1.  **다음**을 선택합니다.
 
@@ -444,39 +444,39 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
     > [!Important]  
     > 선택 된 **iris.csv** 이 연습에 대 한 현재 프로젝트 디렉터리에서 파일입니다. 그렇지 않으면 이후 단계가 실패할 수 있습니다.
 
-    ![아이리스 선택](media\azure-stack-solution-machine-learning\image26.png)
+    ![아이리스 선택](media/azure-stack-solution-machine-learning/image26.png)
 
 1.  라는 새 파일 `*iris-1.dsource` 만들어집니다. 파일을 사용 하 여 고유 하 게 라고 `-1` 샘플 프로젝트는 번호가 이미 제공 하므로 **iris.dsource** 파일입니다.
 
     파일이 열리고 데이터가 표시됩니다. 일련의 열 머리글에서 **Column1** 하 **Column5**,이 데이터 집합에 자동으로 추가 됩니다. 아래쪽으로 스크롤하여 데이터 집합의 마지막 행이 비어 있는지 확인 합니다. CSV 파일에 여분의 줄 바꿈이 인해 행이 비어 있습니다.
 
-    ![아이리스 데이터 뷰](media\azure-stack-solution-machine-learning\image27.png)
+    ![아이리스 데이터 뷰](media/azure-stack-solution-machine-learning/image27.png)
 
 1.  **메트릭** 단추를 선택합니다. 히스토그램이 생성되어 표시됩니다.
 
     선택 하 여 데이터 뷰로 다시 전환 합니다 **데이터** 단추입니다.
 
-    ![아이리스 데이터 뷰](media\azure-stack-solution-machine-learning\image28.png)
+    ![아이리스 데이터 뷰](media/azure-stack-solution-machine-learning/image28.png)
 
 1.  히스토그램을 관찰합니다. 각 열에 대한 통계의 전체 집합이 계산됩니다.
 
-    ![아이리스 데이터 뷰](media\azure-stack-solution-machine-learning\image29.png)
+    ![아이리스 데이터 뷰](media/azure-stack-solution-machine-learning/image29.png)
 
 1.  **준비** 단추를 선택하여 데이터 준비 패키지를 만들기 시작합니다. **준비** 대화 상자가 열립니다.
 
     샘플 프로젝트에 포함 되어는 **iris.dprep** 데이터 준비 파일이 기본적으로 선택 됩니다.
 
-    ![아이리스 데이터 뷰](media\azure-stack-solution-machine-learning\image30.png)
+    ![아이리스 데이터 뷰](media/azure-stack-solution-machine-learning/image30.png)
 
 1.  선택 하 여 새 데이터 준비 패키지를 만들 **+ 새 데이터 준비 패키지** 합니다.
 
-    ![아이리스 데이터 뷰](media\azure-stack-solution-machine-learning\image31.png)
+    ![아이리스 데이터 뷰](media/azure-stack-solution-machine-learning/image31.png)
 
 1.  패키지 이름에 대한 새 값(**iris-1** 사용)을 입력한 다음, **확인**을 선택합니다.
 
     새 데이터 준비 패키지를 명명 된 **iris-1.dprep** 만들어지고 데이터 준비 편집기에서 열립니다.
 
-    ![아이리스 데이터 뷰](media\azure-stack-solution-machine-learning\image32.png)
+    ![아이리스 데이터 뷰](media/azure-stack-solution-machine-learning/image32.png)
 
     다음으로, 데이터 준비는 필요 합니다.
 
@@ -484,7 +484,7 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
 
     순서 대로 입력 **꽃 받침 길이**를 **꽃 받침 너비**를 **꽃잎 길이**를 **꽃잎 너비**, 및 **종류** 5 개 열에 대해 각각.
 
-    ![열 이름 바꾸기](media\azure-stack-solution-machine-learning\image33.png)
+    ![열 이름 바꾸기](media/azure-stack-solution-machine-learning/image33.png)
 
 1.  고유 값을 계산합니다.
 
@@ -496,23 +496,23 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
 
         데이터 아래에 **검사기** 창이 열립니다. 네 개의 막대가 있는 히스토그램에 표시 됩니다. 대상 열에는 4 개의 고유 값: **iris_virginica**를 **iris_versicolor**합니다**iris-setosa**, 및 **(null)** 값입니다.
 
-    ![값 개수 선택](media\azure-stack-solution-machine-learning\image34.png)
+    ![값 개수 선택](media/azure-stack-solution-machine-learning/image34.png)
 
-    ![값 개수 히스토그램](media\azure-stack-solution-machine-learning\image35.png)
+    ![값 개수 히스토그램](media/azure-stack-solution-machine-learning/image35.png)
 
 1.  null 값을 필터링하려면 "(null)" 상자를 선택한 다음, 빼기 기호(**-**)를 선택합니다.
 
     그러면 (null) 행이 회색으로 바뀌어 필터링되었음을 나타냅니다.
 
-    ![null 필터링](media\azure-stack-solution-machine-learning\image36.png)
+    ![null 필터링](media/azure-stack-solution-machine-learning/image36.png)
 
 1.  개별 데이터 준비 단계는 **단계** 창에서 자세히 설명합니다. 열 이름이 고 null 값 행 필터링 된 경우 각 작업은 데이터 준비 단계로 기록 됩니다. 해당 설정을 조정 하 고, 단계 순서, 단계를 제거 하는 개별 단계를 편집 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image37.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image37.png)
 
 1.  데이터 준비 편집기를 닫습니다. 그래프 아이콘이 있는 **iris-1** 탭의 **x** 아이콘을 선택하여 탭을 닫습니다. 작업에 자동으로 저장 됩니다는 **iris-1.dprep** 아래에 표시 된 파일을 **데이터 준비** 제목입니다.
 
-    ![닫습니다](media\azure-stack-solution-machine-learning\image38.png)
+    ![닫습니다](media/azure-stack-solution-machine-learning/image38.png)
 
 ### <a name="generate-python-code-to-invoke-a-data-preparation-package"></a>데이터 준비 패키지를 호출 하는 Python 코드를 생성 합니다.
 
@@ -522,7 +522,7 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
 
 2.  **iris-1.dprep** 파일을 마우스 오른쪽 단추로 클릭하고 바로 가기 메뉴에서 **데이터 액세스 코드 파일 생성**을 선택합니다.
 
-    ![코드 생성](media\azure-stack-solution-machine-learning\image39.png)
+    ![코드 생성](media/azure-stack-solution-machine-learning/image39.png)
 
     라는 새 파일 **iris-1.py** 데이터 준비 패키지로 만든 논리를 호출 하는 코드의 다음 줄으로 열립니다.
 
@@ -552,18 +552,18 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
 
 1.  열려 있는 프로젝트를 선택 합니다 **파일** 프로젝트 폴더의 파일 목록을 엽니다 가장 왼쪽 창에서 단추 (폴더 아이콘).
 
-    ![Azure Machine Learning Workbench에서 프로젝트 열기](media\azure-stack-solution-machine-learning\image40.png)
+    ![Azure Machine Learning Workbench에서 프로젝트 열기](media/azure-stack-solution-machine-learning/image40.png)
 
 1.  **iris_sklearn.py** Python 스크립트 파일을 선택합니다.
 
-    ![스크립트 선택](media\azure-stack-solution-machine-learning\image41.png)
+    ![스크립트 선택](media/azure-stack-solution-machine-learning/image41.png)
 
     Workbench의 새 텍스트 편집기 탭에 코드가 표시됩니다.
 
     > [!Note]  
     > 표시 된 코드를 하지 때문일 수 있습니다 정확 하 게 앞의 코드와 동일한이 샘플 프로젝트는 자주 업데이트 합니다.
 
-    ![파일 열기](media\azure-stack-solution-machine-learning\image42.png)
+    ![파일 열기](media/azure-stack-solution-machine-learning/image42.png)
 
 1.  Python 스크립트 코드를 확인하여 코딩 스타일을 파악합니다.
 
@@ -615,31 +615,31 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
 
 2.  **iris_sklearn.py**라는 탭을 찾습니다.
 
-    ![스크립트가 있는 탭 찾기](media\azure-stack-solution-machine-learning\image43.png)
+    ![스크립트가 있는 탭 찾기](media/azure-stack-solution-machine-learning/image43.png)
 
 1.  해당 탭의 도구 모음에서 선택 **로컬** 을 실행 환경으로 andiris_sklearn.pyas 스크립트를 실행 합니다. 이 옵션들은 이미 선택되어 있을 수 있습니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image44.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image44.png)
 
 1.  도구 모음 및 enter0.01in 왼쪽에서 오른쪽으로 이동 합니다 **인수** 필드입니다.
 
     이 값은 로지스틱 회귀 모델의 정규화 속도에 해당 합니다.
 
-    ![로컬 및 스크립트 선택](media\azure-stack-solution-machine-learning\image45.png)
+    ![로컬 및 스크립트 선택](media/azure-stack-solution-machine-learning/image45.png)
 
 1.  **실행** 단추를 선택합니다. 작업이 바로 예약됩니다. 이 작업은 Workbench 창의 오른쪽에 있는 **작업** 창에 나열됩니다.
 
-    ![로컬 및 스크립트 선택](media\azure-stack-solution-machine-learning\image46.png)
+    ![로컬 및 스크립트 선택](media/azure-stack-solution-machine-learning/image46.png)
 
     잠시 후 작업의 상태에서 전환 **제출 중**를 **실행**, 마지막에 **완료**합니다.
 
 1.  **작업** 창의 작업 상태 텍스트에서 **완료됨**을 선택합니다.
 
-    ![sklearn 실행](media\azure-stack-solution-machine-learning\image47.png)
+    ![sklearn 실행](media/azure-stack-solution-machine-learning/image47.png)
 
     팝업 창이 열리고 실행에 대 한 표준 출력 (stdout) 텍스트가 표시 됩니다. 표준 출력 텍스트를 닫으려면 선택 합니다 **닫습니다** (**x**)의 오른쪽 위에 있는 팝업 창에는 단추입니다.
 
-    ![표준 출력](media\azure-stack-solution-machine-learning\image48.png)
+    ![표준 출력](media/azure-stack-solution-machine-learning/image48.png)
 
 1.  동일한 작업 상태에서를 **작업** 창, 파란색 텍스트 **iris_sklearn.py 선택 \[n\] **(* n *은 실행된 횟수) 바로 위에  **완료** 상태 및 시작 시간입니다. **실행 속성** 창이 열리고 해당되는 특정 실행에 대한 다음 정보가 표시됩니다.
 
@@ -701,13 +701,13 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
 
 1.  **실행** 목록을 열려면 왼쪽 도구 모음에서 **실행** 단추(시계 아이콘)를 선택합니다. 선택한 **iris_sklearn.py** 표시할 합니다 **실행 대시보드** ofiris_sklearn.py 합니다.
 
-    ![실행 보기](media\azure-stack-solution-machine-learning\image49.png)
+    ![실행 보기](media/azure-stack-solution-machine-learning/image49.png)
 
 1.  **실행 대시보드** 탭이 열립니다.
 
     여러 번 실행에 걸쳐 캡처된 통계 정보를 검토합니다. 그래프 탭의 위쪽에 렌더링합니다. 각 실행은 연속 번호가 있으며 실행된 세부 정보 화면 맨 아래에 있는 테이블에 나열 됩니다.
 
-    ![실행 대시보드](media\azure-stack-solution-machine-learning\image50.png)
+    ![실행 대시보드](media/azure-stack-solution-machine-learning/image50.png)
 
 1.  테이블을 필터링한 다음, 원하는 그래프를 선택하면 각 실행의 상태, 기간, 정확도 및 정규화 속도를 볼 수 있습니다.
 
@@ -715,11 +715,11 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
 
 3.  **실행 대시보드**로 돌아가려면 **비교** 창의 왼쪽 위에서 **실행 목록** 뒤로 단추를 선택합니다.
 
-    ![실행 목록에 반환](media\azure-stack-solution-machine-learning\image51.png)
+    ![실행 목록에 반환](media/azure-stack-solution-machine-learning/image51.png)
 
 1.  개별 실행을 선택하여 실행 세부 정보 보기를 표시합니다. 선택한 실행에 대한 통계는 **실행 속성** 섹션에 나열됩니다. 출력 폴더에 기록 된 파일에 나열 됩니다는 **출력** 섹션 및 여기에서 파일을 다운로드 합니다.
 
-    ![실행 세부 정보](media\azure-stack-solution-machine-learning\image52.png)
+    ![실행 세부 정보](media/azure-stack-solution-machine-learning/image52.png)
 
 두 개의 도면, 즉 혼돈 행렬 및 다중 클래스 ROC 곡선은 **시각화** 섹션에서 렌더링됩니다. 또한 모든 로그 파일은 **로그** 섹션에서 찾을 수 있습니다.
 
@@ -840,13 +840,13 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
 
     프로젝트 파일을 나열하려면 왼쪽 창에서 폴더 아이콘을 선택합니다.  **run.py**이라는 Python 스크립트를 엽니다. 이 스크립트는 다양 한 정규화 속도로 루프에 유용 합니다. 
 
-    ![실행 목록에 반환](media\azure-stack-solution-machine-learning\image53.png)
+    ![실행 목록에 반환](media/azure-stack-solution-machine-learning/image53.png)
 
 1.  다양한 정규화 속도로 실험을 여러 번 실행합니다.
 
     이 스크립트는 시작` aniris_sklearn.pyjob` 정규화 속도 o와 `10.0` (터무니 없이 큰 숫자)입니다. 스크립트 비율 보다 작으면 안 될 때까지 다음 실행 및 등과 절반 속도 다음 잘라냅니다 `0.005`합니다. 스크립트에는 다음 코드가 포함되어 있습니다.
 
-    ![실행 목록으로 돌아가기](media\azure-stack-solution-machine-learning\image54.png)
+    ![실행 목록으로 돌아가기](media/azure-stack-solution-machine-learning/image54.png)
 
 1.  다음과 같은 명령줄에서 **run.py** 스크립트를 실행합니다.
 
@@ -906,7 +906,7 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
 
     3. **실행 속성** 창이 열립니다. 창의 오른쪽 위 섹션을 확인 합니다 **출력** 섹션입니다. d\ 합니다. Pickle 파일을 다운로드 하려면 확인란을 옆에 선택 합니다 **model.pkl** 파일을 선택한 후 **다운로드**합니다. 프로젝트 폴더의 루트에 파일을 저장 합니다. 이후 단계에서 파일이 필요 합니다.  
 
-    ![pickle 파일 다운로드](media\azure-stack-solution-machine-learning\image55.png)
+    ![pickle 파일 다운로드](media/azure-stack-solution-machine-learning/image55.png)
 
 ### <a name="get-scoring-script-and-schema-files"></a>스크립트 및 스키마 파일을 점수 매기기 가져오기
 
@@ -918,7 +918,7 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
 
 3.  **score_iris.py** 파일을 선택합니다. Python 스크립트가 열립니다. 이 파일은 점수 매기기 파일로 사용됩니다.
 
-    ![점수 매기기 파일](media\azure-stack-solution-machine-learning\image56.png)
+    ![점수 매기기 파일](media/azure-stack-solution-machine-learning/image56.png)
 
 1.  스키마 파일을 가져오려면 스크립트를 실행합니다. 명령 모음에서 **로컬** 환경과 **score_iris.py** 스크립트를 선택한 다음, **실행**을 선택합니다.
 
@@ -1040,7 +1040,7 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
 
     가지도록 "프로 비전 상태" 값 "성공"와 같이 5 단계에서 환경을 설정 하기 전에:
 
-    ![프로비전 상태](media\azure-stack-solution-machine-learning\image57.png)
+    ![프로비전 상태](media/azure-stack-solution-machine-learning/image57.png)
 
 1.  환경을 설정합니다.
 
@@ -1160,7 +1160,7 @@ Linux 세션에 대 한 Windows 하위 시스템 내에서 명령을 사용 하 
     The key fingerprint is: SHA256:lUtUUjzaqWqGeolEPKeBmsnrhcNGM9Dn2OxYatt05SE  <user>@<machine-name>
     The key's randomart image is:  
     ```
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image58.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image58.png)
 
 4. 키를 생성 한 후 다음 명령을 사용 하 여 키 정보를 붙여 넣습니다. 
     ```Bash
@@ -1217,11 +1217,11 @@ Linux 세션에 대 한 Windows 하위 시스템 내에서 명령을 사용 하 
 
 9.  선택 **+ 새로 만들기** > **계산** > **Kubernetes 클러스터**합니다. **만들기**를 선택합니다.
 
-    ![솔루션 템플릿 배포](media\azure-stack-solution-machine-learning\image59.png)
+    ![솔루션 템플릿 배포](media/azure-stack-solution-machine-learning/image59.png)
 
 10\ 합니다. 선택 **기본 사항** 에 Kubernetes 클러스터를 만듭니다.
 
-    ![Deploy Solution Template](media\azure-stack-solution-machine-learning\image60.png)
+    ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
 
 11. 입력 된 **Linux VM Admin Username**합니다. Kubernetes 클러스터의 일부인 Linux Virtual Machines 및 dvm이 대 한 사용자 이름입니다.
 
@@ -1250,7 +1250,7 @@ Linux 세션에 대 한 Windows 하위 시스템 내에서 명령을 사용 하 
 
 1.  선택 된 **Azure Stack 스탬프 설정**합니다.
 
-    ![솔루션 템플릿 배포](media\azure-stack-solution-machine-learning\image61.png)
+    ![솔루션 템플릿 배포](media/azure-stack-solution-machine-learning/image61.png)
 
 2.  입력 된 **Azure Resource Manager 끝점을 테 넌 트**합니다. Kubernetes 클러스터에 대 한 리소스 그룹을 만들려면 연결 하는 Azure Resource Manager 끝점입니다. Azure Stack 연산자를 사용 하 여 끝점에 통합된 시스템에 대 한 필요 합니다. 에 Azure Stack 개발 키트 ASDK ()를 사용 하 여 `https://management.local.azurestack.external`입니다.
 
@@ -1356,7 +1356,7 @@ sudo cat  /var/lib/waagent/custom-script/download/0/acs-engine/_output/edgemlsta
 
 (아래 출력 참조) Kubernetes 구성 설정은 정의 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image62.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image62.png)
 
 로컬 프록시 서비스를 시작 합니다.
 
@@ -1366,19 +1366,19 @@ kubectl proxy
 
 다음 주소에서 kubernetes 클러스터 UI로 이동: `https://localhost:8001`합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image63.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image63.png)
 
 이제 컨테이너 및 온-프레미스에서 볼 수 있는 클라우드에 상주 하는 컨테이너를 배포 하는 위치를 해야 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image64.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image64.png)
 
 사용자 지정 된 **iris_deployment.yaml** 파일 (에 /*mnt/c/사용자/<current user>/문서/Kube 디렉터리*) 하므로 **webservicename** 및 컨테이너  **이미지** 하 고 **이름을** 원하는 어떤 코드 편집기를 사용 하 여 배포와 일치 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image65.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image65.png)
 
 컨테이너 포트를 설정 **5001입니다.**
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image66.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image66.png)
 
 만든 다음 합니다 **imagePullSecret**:
 
@@ -1409,7 +1409,7 @@ kubectl create secret docker-registry azuremlcr --docker-server=<your-registry-s
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image67.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
 
 배포의 상태를 확인 합니다.
 
@@ -1417,7 +1417,7 @@ kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deploymen
 Kubectl get deployments
 ```
 
-    ![Alt text](media\azure-stack-solution-machine-learning\image68.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
 
 배포에는 약간의 시간이 걸릴 수 있습니다.
 
@@ -1429,7 +1429,7 @@ Kubectl get deployments
 
 2.  프로젝트 페이지에서 선택 **새 프로젝트**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image69.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image69.png)
 
 1.  프로젝트 이름을 **HybridMLIris**합니다.
 
@@ -1437,7 +1437,7 @@ Kubectl get deployments
 
 3.  선택한 프로세스 선택 **만들기**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image70.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image70.png)
 
 ### <a name="import-some-code--create-repository"></a>가져오기 코드 리포지토리 만들기
 
@@ -1447,15 +1447,15 @@ YAML 코드에 대 한 Git 리포지토리는 필요 합니다.
 
 1.  기본 프로젝트 대시보드에서 생성 Git 자격 증명을 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image71.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image71.png)
 
 1.  필수 및 Git 자격 증명을 저장 하는 경우 암호를 입력 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image72.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image72.png)
 
 1.  선택 하 여 리포지토리를 초기화 합니다 **초기화** 단추를 만들기는 **추가 정보** 파일입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image73.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image73.png)
 
 #### <a name="clone-the-git-repository-locally-and-upload-the-code"></a>Git 리포지토리를 로컬로 복제 하 고 코드를 업로드 합니다. 
 
@@ -1465,7 +1465,7 @@ YAML 코드에 대 한 Git 리포지토리는 필요 합니다.
     sudo mkdir /mnt/c/users/<User>/source sudo mkdir /mnt/c/users/<User>/source/repos sudo mkdir /mnt/c/users/<User>/source/repos/hybridMLIris cd /mnt/c/users/<User>/source/repos/hybridMLIris sudo git clone  https://<yourvstssite>.visualstudio.com/HybridMLIris/_git/HybridMLIris
     ```
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image74.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image74.png)
 
 1.  새로 복제 된 리포지토리로 이동 합니다.
 
@@ -1474,7 +1474,7 @@ YAML 코드에 대 한 Git 리포지토리는 필요 합니다.
     cd ./HybridMLIris
     ```
     
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image75.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image75.png)
 
 1.  복사 합니다 **iris_deployment.yaml** 리포지토리로 파일입니다.
 
@@ -1488,7 +1488,7 @@ YAML 코드에 대 한 Git 리포지토리는 필요 합니다.
     git add . git commit -m Added Deployment YAML git push
     ```
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image76.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image76.png)
 
 ### <a name="prepare-the-private-build-and-release-agent-for-vsts-integration"></a>개인 빌드 및 릴리스 에이전트를 VSTS 통합을 위한 준비
 
@@ -1514,27 +1514,27 @@ VSTS에 대 한 Azure Resource Manager는 서비스 주체를 사용 하 여 인
 
 1.  **앱 등록** Azure Active Directory에서 응용 프로그램을 선택 합니다.
 
-    ![응용 프로그램 선택](media\azure-stack-solution-machine-learning\image77.png)
+    ![응용 프로그램 선택](media/azure-stack-solution-machine-learning/image77.png)
 
 1.  값을 기록해 **응용 프로그램 id입니다. 값에는 VSTS에서 서비스 끝점을 구성할 때 사용 됩니다.**
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image78.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image78.png)
 
 1.  인증 키를 생성하려면 **설정**을 선택합니다.
 
-    ![설정 선택](media\azure-stack-solution-machine-learning\image79.png)
+    ![설정 선택](media/azure-stack-solution-machine-learning/image79.png)
 
 1.  **키**를 선택합니다.
 
-    ![키 선택](media\azure-stack-solution-machine-learning\image80.png)
+    ![키 선택](media/azure-stack-solution-machine-learning/image80.png)
 
 1.  키에 대한 설명 및 키의 기간을 제공합니다. 완료되면 **저장**을 선택합니다.
 
-    ![키 저장](media\azure-stack-solution-machine-learning\image81.png)
+    ![키 저장](media/azure-stack-solution-machine-learning/image81.png)
 
 키를 저장하면 키 값이 표시됩니다. 나중에 필요할 때이 값을 복사 합니다. 합니다 **키 값** 응용 프로그램 ID는 응용 프로그램으로 로그인 해야 합니다. 응용 프로그램 검색할 수 있는 키 값을 저장 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image82.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image82.png)
 
 #### <a name="get-tenant-id"></a>테 넌 트 ID 가져오기
 
@@ -1542,15 +1542,15 @@ VSTS 서비스 끝점 구성의 일부로 필요 합니다 **테 넌 트 ID** Az
 
 1.  **Azure Active Directory**를 선택합니다.
 
-    ![Azure Active Directory 선택](media\azure-stack-solution-machine-learning\image83.png)
+    ![Azure Active Directory 선택](media/azure-stack-solution-machine-learning/image83.png)
 
 1.  선택 된 테 넌 트 ID를 가져오려면 **속성** Azure AD 테 넌 트에 대 한 합니다.
 
-    ![Azure AD 속성 선택](media\azure-stack-solution-machine-learning\image84.png)
+    ![Azure AD 속성 선택](media/azure-stack-solution-machine-learning/image84.png)
 
 1.  **디렉터리 ID**를 복사합니다. 이 값은 테 넌 트 id입니다.
 
-    ![테넌트 ID](media\azure-stack-solution-machine-learning\image85.png)
+    ![테넌트 ID](media/azure-stack-solution-machine-learning/image85.png)
 
 Azure Stack 구독에 리소스를 배포 하려면 서비스 주체 권한 부여
 
@@ -1560,27 +1560,27 @@ Azure Stack 구독에 리소스를 배포 하려면 서비스 주체 권한 부�
 
 1.  응용 프로그램을 할당할 범위 원하는 수준으로 이동 합니다. 예를 들어 구독 범위에서 역할을 할당하려면 **구독**을 선택합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image86.jpeg)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image86.jpeg)
 
 1.  선택 합니다 **구독** (리소스 그룹 또는 리소스) 응용 프로그램을 할당 합니다.
 
-    ![할당을 위한 구독 선택](media\azure-stack-solution-machine-learning\image87.png)
+    ![할당을 위한 구독 선택](media/azure-stack-solution-machine-learning/image87.png)
 
 1.  **Access Control(IAM)** 을 선택합니다.
 
-    ![액세스 선택](media\azure-stack-solution-machine-learning\image88.png)
+    ![액세스 선택](media/azure-stack-solution-machine-learning/image88.png)
 
 1.  **추가**를 선택합니다.
 
-    ![추가 선택](media\azure-stack-solution-machine-learning\image89.png)
+    ![추가 선택](media/azure-stack-solution-machine-learning/image89.png)
 
 1.  응용 프로그램을 할당할 역할을 선택 합니다. 다음 이미지는 **소유자** 역할입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image90.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image90.png)
 
 1.  기본적으로 Azure Active Directory 응용 프로그램이 사용 가능한 옵션에 표시되지 않습니다. 응용 프로그램을 찾으려면 **이름을** 검색에 필드를 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image91.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image91.png)
 
 1.  **저장**을 선택하여 역할 할당을 완료합니다. 응용 프로그램은 해당 범위에 대 한 역할에 할당 된 사용자 목록에 표시 됩니다.
 
@@ -1598,18 +1598,18 @@ Azure 역할 기반 Access Control (RBAC)에 Azure 및 Azure Stack에 대 한 �
 
  -  선택 **보안 관리** 액세스 토큰 생성 페이지에 있습니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image92.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image92.png)
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image93.jpeg)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image93.jpeg)
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image94.jpeg)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image94.jpeg)
 
 > [!Note]  
 > 토큰 정보를 가져옵니다. 이 화면을 종료 한 후에 다시 표시 되지 않습니다.
 
 1.  복사 합니다 **토큰**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image95.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image95.png)
 
 #### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Azure Stack에는 VSTS 빌드 에이전트 설치 호스팅된 빌드 서버
 
@@ -1660,7 +1660,7 @@ Azure 역할 기반 Access Control (RBAC)에 Azure 및 Azure Stack에 대 한 �
 
 2.  다운로드 및 빌드 에이전트를 사용 하 여 서비스 배포를 **개인용 액세스 토큰 (PAT)** VM 관리자 계정으로 실행 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image96.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image96.png)
 
     ```Bash  
         cd \home\<user>
@@ -1678,7 +1678,7 @@ Azure 역할 기반 Access Control (RBAC)에 Azure 및 Azure Stack에 대 한 �
         ./config.sh
     ```
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image97.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image97.png)
 
 2.  이후에 **./config.sh**다음 서버 부팅 시 서비스를 사용 하도록 코드 및 서비스를 시작 완성을 실행 합니다.
 
@@ -1693,23 +1693,23 @@ Azure 역할 기반 Access Control (RBAC)에 Azure 및 Azure Stack에 대 한 �
 
 사용자는 VSTO 빌드 스택에 Azure 서비스 앱을 배포할 수 있도록 끝점을 만들 수 있습니다. VSTS는 Azure Stack을 사용 하 여 연결 하는 빌드 에이전트에 연결 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image98.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image98.png)
 
 1.  에 **설정을** 메뉴에서 **보안**합니다.
 
 2.  에 **VSTS 그룹** 왼쪽에서 선택 목록 **의해 끝점 작성자**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image99.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image99.png)
 
 3.  에 **구성원 탭** 선택 합니다 **+ 추가**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image100.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image100.png)
 
 1.  형식 **username** 사용자 이름 목록에서 선택 합니다.
 
 2.  **변경 내용 저장**을 선택합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image101.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image101.png)
 
 3.  에 **VSTS 그룹** 왼쪽에서 선택 목록 **끝점 관리자**합니다.
 
@@ -1719,13 +1719,13 @@ Azure 역할 기반 Access Control (RBAC)에 Azure 및 Azure Stack에 대 한 �
 
 6.  선택 **변경 내용을 저장 합니다.**
 
-    ![buchatech](media\azure-stack-solution-machine-learning\image102.jpeg)
+    ![buchatech](media/azure-stack-solution-machine-learning/image102.jpeg)
 
     Azure Stack에서 빌드 에이전트는 다음 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 VSTS에서 지침을 얻습니다.
 
     Azure Stack 연결에는 VSTS 준비가 되었습니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image103.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image103.png)
 
 ### <a name="configure-build-and-release-definitions"></a>빌드 및 릴리스 정의 구성 합니다.
 
@@ -1735,61 +1735,61 @@ Azure 역할 기반 Access Control (RBAC)에 Azure 및 Azure Stack에 대 한 �
 
 1.  빌드 및 릴리스 허브에 있는 빌드 섹션을 선택 하 고 새 정의 만듭니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image104.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image104.png)
 
 1.  VSTS Git 선택 하 고 이전에 만든 리포지토리를 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image105.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image105.png)
 
 1.  빈 파이프라인 템플릿 선택
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image106.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image106.png)
 
 1.  빌드 이름을 **복사 아티팩트** 에이전트 큐에 대 한 Azure Stack 빌드 서버를 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image107.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image107.png)
 
 1.  1 단계에서 프로세스를 선택 하 고 이름을 **복사 아티팩트**, 한 다음 **태스크를 추가** 단계:
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image108.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image108.png)
 
 1.  선택 **빌드 아티팩트 게시** 에서 합니다 **유틸리티** 나열 하 고 선택 **추가**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image109.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image109.png)
 
 1.  선택 합니다 **게시할 경로** 선택한 합니다 **iris_deployment.yaml** 파일입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image110.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image110.png)
 
 1.  아티팩트 이름 지정 **iris_deployment** 되도록 게시 위치를 선택 하 고 **Visual Studio Team Services/TFS**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image111.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image111.png)
 
 1.  선택 **저장 및 큐**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image112.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image112.png)
 
 1.  빌드 ID를 선택 하 여 빌드의 상태를 확인 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image113.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image113.png)
 
 성공 다음과 유사 하 게 표시 됩니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image114.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image114.png)
 
 #### <a name="create-the-release-definition-for-the-yaml-code"></a>YAML 코드에 대 한 릴리스 정의 만들기
 
 1.  빌드 및 릴리스 허브에 새 정의 릴리스 섹션을 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image115.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image115.png)
 
 1.  템플릿으로 빈 파이프라인을 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image106.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image106.png)
 
 1.  스택 환경 Azure 이름입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image116.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image116.png)
 
 1.  새 아티팩트를 선택 하 여 추가할 **아티팩트** 고 **+ 추가**
 
@@ -1799,25 +1799,25 @@ Azure 역할 기반 Access Control (RBAC)에 Azure 및 Azure Stack에 대 한 �
 
 4.  선택한 **추가**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image117.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image117.png)
 
 1.  Azure Stack 환경에서 선택한 Azure Stack에 새 작업 추가
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image118.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image118.png)
 
 
 1.  에이전트 단계에서는 Azure Stack 호스트 된 빌드 서버에 에이전트 큐를 설정 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image119.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image119.png)
 
 1.  이 단계에 새 태스크를 추가 하 고 배포 내에서 Kubernetes 작업으로 배포 선택한 추가 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image120.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image120.png)
 
 
 1.  이름을 **Kubectl Apply** (기본 이름)을 적용 명령을 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image121.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image121.png)
 
     이제 새 Kubernetes 서비스 연결을 만듭니다.
 
@@ -1846,7 +1846,7 @@ Azure 역할 기반 Access Control (RBAC)에 Azure 및 Azure Stack에 대 한 �
 
 11. 로 <https://aka.ms/devicelogin> 브라우저에서 합니다. 메시지가 표시 되 면 브라우저에 CLI에서 받은 코드를 입력 합니다.
 
-    ![Kubernetes 서비스 끝점](media\azure-stack-solution-machine-learning\image122.png)
+    ![Kubernetes 서비스 끝점](media/azure-stack-solution-machine-learning/image122.png)
 
 1.  Kubernetes 클러스터에 대 한 액세스 자격 증명을 가져오려면 명령 프롬프트에서 다음 명령을 입력 합니다.
 
@@ -1854,20 +1854,20 @@ Azure 역할 기반 Access Control (RBAC)에 Azure 및 Azure Stack에 대 한 �
 
 az aks 자격 증명 가져오기 리소스 그룹 <yourResourceGroup> 이름 <yourazurecontainerservice>
 
-![Kubernetes 서비스 끝점](media\azure-stack-solution-machine-learning\image123.png)
+![Kubernetes 서비스 끝점](media/azure-stack-solution-machine-learning/image123.png)
 
 1.  로 이동 합니다 **.kube**홈 디렉터리에 있는 폴더 (예: c:\\사용자가\\<user>\\문서\\Kube)
 
 2.  내용을 복사 합니다**config**파일 및 Kubernetes 연결 창에 붙여 넣습니다. 선택 된**확인**단추입니다.
 
-    ![Kubernetes 서비스 끝점](media\azure-stack-solution-machine-learning\image124.png)
+    ![Kubernetes 서비스 끝점](media/azure-stack-solution-machine-learning/image124.png)
     
 
 3.  Kubernetes 끝점 만들어지고 선택 되 면 구성 파일을 추가 하려면 사용 하 여 구성 파일 확인란을 선택 합니다. 다음 연결 된 아티팩트에 iris_deployment.yaml 파일로 이동 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image125.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image125.png)
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image126.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image126.png)
 
 4.  릴리스 정의를 저장합니다.
 
@@ -1883,7 +1883,7 @@ kubectl get deployments
 
 출력 배포 프로세스에서 작업 하는 동안 이와 비슷하게 같아야 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image127.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image127.png)
 
 ```Bash  
 kubectl proxy
@@ -1891,7 +1891,7 @@ kubectl proxy
 
 Kubernetes UI 실행 되 면 배포 이동할 [ **https://localhost:8001/** ](https://localhost:8001/) 으로 이동 **워크 로드에는 복제본 집합->** 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image128.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image128.png)
 
 ### <a name="deploy-the-yaml-service"></a>YAML 서비스 배포
 
@@ -1903,7 +1903,7 @@ Kubernetes UI 실행 되 면 배포 이동할 [ **https://localhost:8001/** ](ht
     cd /mnt/c/users/<User>/source/repos/HybridMLIris/HybridMLIris/
     ```
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image75.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image75.png)
 
 1.  복사 합니다 **iris_service.yaml** 리포지토리로 파일입니다.
 
@@ -1919,21 +1919,21 @@ Kubernetes UI 실행 되 면 배포 이동할 [ **https://localhost:8001/** ](ht
     git push
     ```
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image129.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image129.png)
 
 #### <a name="update-the-build-definition-for-the-yaml-code"></a>The YAML 코드에 대 한 빌드 정의 업데이트 합니다.
 
 1.  빌드 및 릴리스 허브에 있는 빌드 섹션을 선택 하 고 앞에서 만든 정의 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image130.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image130.png)
 
 2.  정의 편집 하려면 편집 단추를 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image131.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image131.png)
 
 3.  **태스크를 추가** 단계입니다. 선택 **빌드 아티팩트 게시** 에서 합니다 **유틸리티** 나열 하 고 선택 **추가**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image108.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image108.png)
 
 4.  이름을 **Kubectl Apply** (기본 이름)을 적용 명령을 선택 합니다.
 
@@ -1943,26 +1943,26 @@ Kubernetes UI 실행 되 면 배포 이동할 [ **https://localhost:8001/** ](ht
 
 1.  빌드 및 릴리스 허브에서 theReleases 섹션을 선택 하 고 이전에 만든 릴리스 정의 선택 합니다. 편집 링크를 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image132.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image132.png)
 
 1.  환경을 선택 **Azure Stack** 다음 Azure Stack에 새 태스크를 추가 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image133.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image133.png)
 
 1.  추가 **새 작업** 이 단계를 선택 합니다 **Kubernetes에 배포** 아래에서 작업 **배포** 선택한 **추가**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image134.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image134.png)
 
 1.  이름을 **Kubectl Apply** (기본 이름)을 적용 명령을 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image109.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image109.png)
 
 1.  앞에서 만든 Azure Stack 연결 Kubernates 서비스 연결을 설정 하 고 다음을 선택 합니다 **구성 파일을 사용 하 여** 구성 파일을 추가 하려면 확인란을 선택 합니다. 연결 된 아티팩트에 iris_service.yaml 파일을 찾습니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image135.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image135.png)
 
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image136.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  릴리스 정의를 저장합니다.
 
@@ -1978,7 +1978,7 @@ kubectl get deployments
 
 출력 배포 프로세스에서 작업 하는 동안 이와 비슷하게 같아야 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image127.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image127.png)
 
 
 ```Bash  
@@ -1987,7 +1987,7 @@ kubectl proxy
 
 Kubernetes UI 실행 되 면 배포 이동할 [ **https://localhost:8001/** ](https://localhost:8001/) 으로 이동 **워크 로드에는 복제본 집합->** 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image137.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image137.png)
 
 
 ### <a name="kubernetes-scoring-and-validation"></a>Kubernetes 점수 매기기 및 유효성 검사
@@ -2000,15 +2000,15 @@ kubectl proxy
 
 Kubernetes UI를 찾은 다음로 이동 **배포** -> **아이리스 배포** -> **새 복제본 세트**  ->  **Iris-배포-xxxxxxxxx** (xs는 배포 ID)입니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image138.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image138.png)
 
 으로 이동 **서비스** 선택한 합니다 **외부 끝점** 유효성을 검사할 서비스의 작동 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image139.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image139.png)
 
 아래와 비슷한 유효성 검사 메시지를 표시 합니다.
 
-![대체 텍스트](media\azure-stack-solution-machine-learning\image140.png)
+![대체 텍스트](media/azure-stack-solution-machine-learning/image140.png)
 
 #### <a name="create-azure-stack-scoring-function-app-in-the-azure-stack-portal"></a>Azure Stack 포털에 함수 앱을 점수 매기기 Azure 스택 만들기
 
@@ -2016,37 +2016,37 @@ Kubernetes UI를 찾은 다음로 이동 **배포** -> **아이리스 배포** -
 
 1.  Azure Stack 사용자 포털에서 선택 합니다 **+ 새로 만들기** 단추 왼쪽 위에 있는, 선택한**웹 + 모바일** >**함수 앱**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image141.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image141.png)
 
 1.  함수 이름을 **데이터 함수** 콘텐츠 나머지 Machine Learning을 사용 하 여 동일한 리소스 그룹에 배치 합니다. 도구에서 자동 생성 소비에 대 한 새 앱 서비스 계획 및 앱 저장소에 대해 이전에 만든 저장소 계정을 사용 하도록 합니다.
 
-    ![새 함수 앱 설정 정의](media\azure-stack-solution-machine-learning\image142.png)
+    ![새 함수 앱 설정 정의](media/azure-stack-solution-machine-learning/image142.png)
 
 1.  선택**만들기**프로 비전 하 고 함수 앱을 배포 합니다.
 
 2.  포털의 오른쪽 위 모서리에 있는 알림 아이콘을 선택 하 고 확인 합니다**배포 성공** 메시지입니다.
 
-    ![새 함수 앱 설정 정의](media\azure-stack-solution-machine-learning\image143.png)
+    ![새 함수 앱 설정 정의](media/azure-stack-solution-machine-learning/image143.png)
 
 1.  선택**리소스로 이동** 새 함수 앱을 볼 수 있습니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image144.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image144.png)
 
 1.  선택 하 여 새 함수를 만듭니다 **함수**, 해당 **+ 새 함수** 단추입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image145.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image145.png)
 
 1.  HTTP 트리거를 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image146.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image146.png)
 
 1.  선택 **C\#**  언어 및 함수 이름: **정리-데이터 점수 매기기**, 권한 부여 수준을 설정 하 고 **익명**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image147.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image147.png)
 
 1.  예제 내용의 함수로 정리-점수-데이터에 대 한 코드를 복사-붙여넣기.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image148.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image148.png)
 
 #### <a name="use-postman-to-validate-functions"></a>Postman을 사용 하 여 유효성을 검사할 함수
 
@@ -2054,39 +2054,39 @@ Kbernetes 및 함수를 설정한 후 확인 올바르게 사용할 수 있습�
 
 1.  Kubernetes UI를 찾은 다음로 이동 **배포** -> **아이리스 배포** -> **새 복제본 세트**  ->  **Iris-배포-xxxxxxxxx** (xs는 배포 ID)
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image138.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image138.png)
 
 1.  으로 이동 **Services** 복사 합니다 **외부 끝점**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image149.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image149.png)
 
 1.  다운로드 하 고 Postman 앱을 설치 [여기](https://www.getpostman.com/apps) 필요한 경우.
 
 2.  Postman 앱에 로그인 하 고 새 파일 대화 상자를 닫습니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image150.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image150.png)
 
 1.  postman 앱 내에서 게시물을 선택...
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image151.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image151.png)
 
 1.  붙여넣기를 **외부 끝점** URL에서 postman 앱에는 **요청 URL** 추가  **\\점수** 아래 표시 된 대로 URL의 끝에 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image152.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image152.png)
 
 1.  선택 합니다 **본문** 탭 한 다음 데이터 형식으로 **원시**, 한 다음 **JSON**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image153.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image153.png)
 
 1.  웹 브라우저에서로 이동 **외부 끝점**합니다. 다음 URL을 추가 **/swagger.json** 서비스 Swagger 파일 설치를 테스트 하는 데이 인해 발생 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image154.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image154.png)
 
 1.  에 나열 된 예제를 복사 합니다 **Swagger.JSON** 파일입니다.
 
 2.  Postman 앱에서이 예제에서는 게시물의 본문에 붙여넣고 선택 **보낼**합니다. 아래에 표시 된 것과 비슷합니다는 값을 반환 해야 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image155.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image155.png)
 
 ## <a name="step-7-create-an-azure-stack-storage-account-and-storage-queue"></a>7 단계: Azure Stack 저장소 계정 및 저장소 큐 만들기
 
@@ -2106,29 +2106,29 @@ Kbernetes 및 함수를 설정한 후 확인 올바르게 사용할 수 있습�
 
 7.  선택**만들기**저장소 계정을 만들어야 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image156.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  최근에 만든 저장소 계정을 선택 합니다.
 
 2.  선택**큐**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image157.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image157.png)
 
 1.  선택 **+ 큐** 선택한 큐 이름을 **확인 합니다.**
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image158.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image158.png)
 
 1.  가져오기는 **연결 문자열** 저장소 큐에 복사 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image159.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image159.png)
 
 1.  Azure 함수 앱으로 이동 하 고 선택한 **응용 프로그램 설정**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image160.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image160.png)
 
 1.  함수 앱의 응용 프로그램 설정 내에서 응용 프로그램 설정, 아래로 스크롤하여 선택한 **+ 새 설정 추가**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image161.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image161.png)
 
 1.  저장소 계정 이름을 입력 합니다 **이름을** 끝에 추가 필드에; (_s)
 
@@ -2136,11 +2136,11 @@ Kbernetes 및 함수를 설정한 후 확인 올바르게 사용할 수 있습�
 
 1.  연결 문자열을 붙여 합니다 **값** 필드입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image162.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image162.png)
 
 1.  선택한 응용 프로그램 설정의 최상위까지 스크롤하여 **저장할**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image163.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image163.png)
 
 ### <a name="update-the-scoring-function-to-use-storage-queue"></a>저장소 큐를 사용 하는 점수 매기기 함수를 업데이트 합니다.
 
@@ -2150,15 +2150,15 @@ Kbernetes 및 함수를 설정한 후 확인 올바르게 사용할 수 있습�
 
 3.  선택한 **+ 새 출력** 출력에서 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image164.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image164.png)
 
 1.  선택한 **Azure Queue Storage** 선택한 **선택**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image165.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image165.png)
 
 1.  업데이트를 **큐 이름** 설정한 후 앞에서 만든 저장소 큐에는 **저장소 계정 연결** 을 선택 하 고 이전 만든 저장소 계정 연결 **저장 합니다.**
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image166.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image166.png)
 
 ## <a name="step-8-create-a-function-to-handle-clean-data"></a>8 단계: 데이터 정리를 처리 하는 함수 만들기
 
@@ -2166,15 +2166,15 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
 1.  선택 하 여 새 함수를 만듭니다 **함수**, 해당 **+ 새 함수** 단추입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image167.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image167.png)
 
 1.  선택 **타이머 트리거**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image168.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image168.png)
 
 1.  선택 **C\#**  언어 및 함수 이름: **azure에 업로드** 일정을 설정 하 고 **0 0 \*/1 \* \* \***  는 CRON 표기법은 시간에 한 번입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image169.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image169.png)
 
 ### <a name="get-the-connection-string-to-the-azure-hosted-storage-account"></a>Azure 호스 티 드 저장소 계정에 연결 문자열 가져오기
 
@@ -2182,17 +2182,17 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
 2.  선택 **액세스 키**를 복사 합니다 **연결 문자열** 저장소 계정에 대 한 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image170.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image170.png)
 
 ### <a name="update-the-upload-to-azure-function-to-use-the-azure-hosted-storage"></a>업데이트 업로드-에-azure 호스트 된 Azure Storage를 사용 하는 함수
 
 1.  Azure 함수 앱으로 이동 하 고 선택한 **응용 프로그램 설정**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image171.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image171.png)
 
 1.  함수 앱의 응용 프로그램 설정 내에서 응용 프로그램 설정, 아래로 스크롤하여 선택한 **+ 새 설정 추가**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image172.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image172.png)
 
 1.  저장소 계정 이름을 입력 합니다 **이름을** 끝에 추가 필드에; (_s)
 
@@ -2200,11 +2200,11 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
 1.  Azure 호스트 된 저장소 계정 연결 문자열에 붙여 합니다 **값** 필드입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image173.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image173.png)
 
 1.  선택한 응용 프로그램 설정의 최상위까지 스크롤하여 **저장할**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image174.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image174.png)
 
 1.  로 다시 이동 합니다 **azure에 업로드** 함수입니다.
 
@@ -2212,15 +2212,15 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
 3.  선택한 **+ 새 출력** 출력에서 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image175.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image175.png)
 
 1.  선택한 **Azure Blob Storage** 선택한 **선택**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image176.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image176.png)
 
 1.  업데이트를 **경로** 형식은 앞부분에서 만든 저장소 컨테이너에: **uploadeddata / {rand-guid}.txt**를 설정한 후는 **저장소 계정 연결** 에 Azure storage 계정 연결 이전 만들고 선택 **저장 합니다.**
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image177.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image177.png)
 
 1.  복사-붙여넣기에 대 한 코드 예제에서는 내용의 **azure에 업로드** 함수로 합니다.
 
@@ -2228,11 +2228,11 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
 3.  저장 하 고 코드를 실행 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image178.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image178.png)
 
 1.  Azure에서 클라우드까지 구문 분석 데이터를 보려면 Azure 호스트 된 저장소 계정에 확인: 성공 비슷합니다는 아래.
 
-    ![대체 텍스트](media\azure-stack-solution-machine-learning\image179.png)
+    ![대체 텍스트](media/azure-stack-solution-machine-learning/image179.png)
 
 데이터를 Azure Stack 호스트 된 Kubernetes 기계 학습에서 중요 한 데이터의 삭제 되었으며 Azure Stack 호스팅된 함수 앱을 통해 온-프레미스 Azure Stack에서 Azure 공용 클라우드로 업로드는 edge/연결 끊김의 업로드에 대 한 데이터를 준비할 수 및 시나리오입니다.
 

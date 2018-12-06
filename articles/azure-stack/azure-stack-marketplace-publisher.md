@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4758c29d1cdb7e09c397524574ba1ab6701efeeb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f1c433be7e8adc0779860c3ec3bfb5d7174fca5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238030"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970725"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Marketplace 항목 게시 도구를 사용 하 여 추가
 
@@ -28,7 +28,7 @@ ms.locfileid: "51238030"
 
 ## <a name="prerequisites"></a>필수 조건
 
- - 가지 거 나 Azure Stack 호스트에서 도구 키트를 실행 합니다 [VPN](.\asdk\asdk-connect.md#connect-with-vpn) 도구를 실행 하는 컴퓨터에서 ASDK 호스트에 연결 합니다.
+ - 가지 거 나 Azure Stack 호스트에서 도구 키트를 실행 합니다 [VPN](./asdk/asdk-connect.md#connect-with-vpn) 도구를 실행 하는 컴퓨터에서 ASDK 호스트에 연결 합니다.
 
  - 다운로드 합니다 [Azure Stack 빠른 시작 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) 압축을 풉니다.
 

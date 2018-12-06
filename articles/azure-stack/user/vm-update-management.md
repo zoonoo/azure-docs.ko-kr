@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.openlocfilehash: 1ef20dc35b069c5f12c2f31d0979949be27271e0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: be793fa5d346d05e6b7bd9f93f1108b7a3542fa6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324417"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959175"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack VM 업데이트 및 관리
 Azure Stack을 사용 하 여 배포 된 Windows Vm을 관리 하려면 다음 Azure Automation 솔루션 기능을 사용할 수 있습니다.
@@ -41,7 +41,7 @@ Azure Stack을 사용 하 여 배포 된 Windows Vm을 관리 하려면 다음 A
 Azure Stack Windows Vm에 대 한 인벤토리, 변경 내용 추적 및 업데이트 관리 Azure automation 기능을 사용 하려면 먼저 Azure에서 이러한 솔루션을 사용 하도록 설정 해야 합니다.
 
 > [!TIP]
-> 이러한 기능을 Azure Vm에 대 한 사용에 이미 있는 경우 기존 LogAnalytics 작업 영역 자격 증명을 사용할 수 있습니다. LogAnalytics WorkspaceID 및 사용 하려는 기본 키를 이미 있는 경우 건너 뛰 세요 [절로](.\vm-update-management.md#in-the-azure-stack-administration-portal)합니다. 이렇게 하지 않으면 새 LogAnalytics 작업 영역 및 automation 계정을 만들려면이 섹션에서 계속 합니다.
+> 이러한 기능을 Azure Vm에 대 한 사용에 이미 있는 경우 기존 LogAnalytics 작업 영역 자격 증명을 사용할 수 있습니다. LogAnalytics WorkspaceID 및 사용 하려는 기본 키를 이미 있는 경우 건너 뛰 세요 [절로](./vm-update-management.md#in-the-azure-stack-administration-portal)합니다. 이렇게 하지 않으면 새 LogAnalytics 작업 영역 및 automation 계정을 만들려면이 섹션에서 계속 합니다.
 
 첫 번째 단계는 이러한 솔루션을 사용 하도록 설정 하는 것 [LogAnalytics 작업 영역 만들기](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) Azure 구독에 있습니다. Log Analytics 작업 영역에는 자체 데이터 리포지토리, 데이터 원본 및 솔루션을 사용 하 여 고유한 Log Analytics 환경입니다. 작업 영역을 만든 후에 WorkspaceID 및 키를 note 합니다. 이 정보를 보려면 작업 영역 블레이드로 이동를 클릭 **고급 설정**를 검토 합니다 **작업 영역 ID** 및 **기본 키** 값. 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 0b65f37310b911184c05fd8fb8554eeb824814b8
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 185c4685de0c889c3b6e7b173445546ed5b7d921
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364815"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955415"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>고급 Azure Stack 개발 키트 평가 작업
 기본 Azure Stack 개발 키트 (ASDK) 서비스 기능 및 기능에 알고 나면 있습니다 수 파악해 보세요 추가 Azure Stack의 고급 시나리오를 테스트 하 여 합니다. 이러한 고급 평가 작업은 Azure Stack 연산자 설명서에서 완벽 하 게 설명 되어 있습니다.
@@ -31,17 +31,18 @@ ms.locfileid: "49364815"
 ## <a name="delegate-offers-in-azure-stack"></a>Azure Stack에서 제안 위임
 Azure Stack 운영자로 제품을 만들고 사용자를 등록 해야 다른 사용자를 배치 하려는 경우가 많습니다. 예를 들어, 서비스 공급자 인 경우 재판매인 고객을 등록 하 고 사용자를 대신해 관리에 좋습니다. 또는 기업에서 중앙 IT 그룹에 속하지 인 경우에 사용자 개입 없이 사용자를 등록 하는 자회사를 할 수 있습니다.
 
-[Azure Stack에서 제품 위임](.\.\azure-stack-delegated-provider.md) 연결 하 고 직접 수 있는 것 보다 더 많은 사용자를 관리 하는 데 수 있도록 하 여 이러한 작업을 사용 하 여 도움이 됩니다. 
+[Azure Stack에서 제품 위임](../azure-stack-delegated-provider.md) 연결 하 고 직접 수 있는 것 보다 더 많은 사용자를 관리 하는 데 수 있도록 하 여 이러한 작업을 사용 하 여 도움이 됩니다.
 
 ## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Azure Stack 사용자에 게 SQL database를 사용할 수 있도록
-Azure Stack 운영자로 서 사용자에 게는 제품을 만들 수 있습니다 (테 넌 트)는 클라우드 네이티브 앱, 웹사이트 및 워크 로드를 사용 하 여 사용할 수 있는 SQL database를 만듭니다. 이러한 사용자 지정, 주문형, 클라우드 기반 데이터베이스를 사용자에 게 제공 하 여 저장할 수 시간 및 리소스입니다. 
+Azure Stack 운영자로 서 사용자에 게는 제품을 만들 수 있습니다 (테 넌 트)는 클라우드 네이티브 앱, 웹사이트 및 워크 로드를 사용 하 여 사용할 수 있는 SQL database를 만듭니다. 이러한 사용자 지정, 주문형, 클라우드 기반 데이터베이스를 사용자에 게 제공 하 여 저장할 수 시간 및 리소스입니다.
 
-SQL Server 리소스 공급자 어댑터를 사용 하 여 [Azure Stack 사용자에 게 SQL database를 사용할 수 있도록](.\.\azure-stack-tutorial-sql-server.md) 서비스로 Azure Stack의 합니다. 리소스 공급자를 설치한 후 하나 이상의 SQL Server 인스턴스에 연결 합니다.
+SQL Server 리소스 공급자 어댑터를 사용 하 여 [Azure Stack 사용자에 게 SQL database를 사용할 수 있도록](../azure-stack-tutorial-sql-server.md) 서비스로 Azure Stack의 합니다. 리소스 공급자를 설치한 후 하나 이상의 SQL Server 인스턴스에 연결 합니다.
 
 ## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>웹 및 API apps를 Azure Stack 사용자에 게 사용할 수 있도록
 Azure Stack 운영자로 서 사용자에 게는 제품을 만들 수 있습니다 (테 넌 트) Azure Functions 및 웹 API 응용 프로그램을 만듭니다. 이러한 주문형, 클라우드 기반 앱에 대 한 액세스를 사용자에 게 제공 하 여 저장할 수 시간 및 리소스입니다.
 
-App Service 리소스 공급자를 배포 [웹 및 API apps를 Azure Stack 사용자에 게 사용할 수 있도록](.\.\azure-stack-tutorial-app-service.md)
+App Service 리소스 공급자를 배포 [웹 및 API apps를 Azure Stack 사용자에 게 사용할 수 있도록](../azure-stack-tutorial-app-service.md)
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Stack 통합 시스템을 사용 하 여 서비스를 제공 하는 방법에 대 한 자세한 정보](.\.\azure-stack-offer-services-overview.md)
+
+[Azure Stack 통합 시스템을 사용 하 여 서비스를 제공 하는 방법에 대 한 자세한 정보](../azure-stack-offer-services-overview.md)

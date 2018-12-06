@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c463599190c5bfaac47a70dbca7b8a67dc830f3a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363486"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957643"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 문제 해결
 
@@ -43,7 +43,7 @@ ms.locfileid: "49363486"
 Azure Stack에서 Vm을 배포 하기 전에 Windows Server 이미지 및 갤러리 항목을 추가 해야 합니다.
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>Azure Stack 호스트를 다시 시작한 후 일부 Vm 자동으로 시작할 수 없습니다.
-호스트를 다시 부팅 한 후 Azure Stack 서비스를 즉시 사용할 수 없는 것을 확인할 수 있습니다.  Azure Stack 때문에 이것이 [인프라 Vm](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) 및 리소스 공급자의 일관성을 확인 하려면 다소 시간이 소요 되지만 결국 자동으로 시작 됩니다.
+호스트를 다시 부팅 한 후 Azure Stack 서비스를 즉시 사용할 수 없는 것을 확인할 수 있습니다.  Azure Stack 때문에 이것이 [인프라 Vm](../azure-stack/asdk/asdk-architecture.md#virtual-machine-roles) 및 리소스 공급자의 일관성을 확인 하려면 다소 시간이 소요 되지만 결국 자동으로 시작 됩니다.
 
 또한 Vm이 Azure Stack 개발 키트 호스트를 다시 부팅 후 자동으로 시작 하지 해당 테 넌 트를 확인할 수 있습니다. 이 알려진된 문제 및 몇 가지 수동 단계를 온라인 상태로 전환 해야 함:
 

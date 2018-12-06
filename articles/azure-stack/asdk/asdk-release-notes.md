@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: c9ac1c228fd3fd4ba666fd7881e387d79929ed9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a4be229e1c491c3062b14e631cfec5b14185bb82
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869962"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957666"
 ---
 # <a name="asdk-release-notes"></a>ASDK 릴리스 정보  
-이 문서에서는 향상 된 기능, 수정 및 알려진된 문제에 Azure Stack 개발 키트 ASDK ()에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](.\.\azure-stack-updates.md#determine-the-current-version)합니다.
+이 문서에서는 향상 된 기능, 수정 및 알려진된 문제에 Azure Stack 개발 키트 ASDK ()에 대 한 정보를 제공 합니다. 실행 중인 버전을 잘 모를 경우 [포털을 사용 하 여 확인](../azure-stack-updates.md#determine-the-current-version)합니다.
 
 > 에서 새로운 기능을 ASDK 구독 하 여 최신 합니다 [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [피드](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)합니다.
 
@@ -180,13 +180,13 @@ ms.locfileid: "52869962"
 이 빌드 Azure Stack에 대 한 다음과 같은 향상 된 기능 및 수정 프로그램을 포함합니다.  
 
 <!-- 1658937 | ASDK, IS --> 
-- **미리 정의 된 일정에 따라 백업을 시작** -는 어플라이언스로 Azure Stack 이제 자동으로 트리거할 수 사용자의 개입을 제거 하는 정기적으로 백업 인프라입니다. Azure Stack 정의 된 보존 기간 보다 오래 된 백업에 대 한 외부 공유를 자동으로 정리 합니다. 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](.\.\azure-stack-backup-enable-backup-powershell.md)합니다.
+- **미리 정의 된 일정에 따라 백업을 시작** -는 어플라이언스로 Azure Stack 이제 자동으로 트리거할 수 사용자의 개입을 제거 하는 정기적으로 백업 인프라입니다. Azure Stack 정의 된 보존 기간 보다 오래 된 백업에 대 한 외부 공유를 자동으로 정리 합니다. 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](../azure-stack-backup-enable-backup-powershell.md)합니다.
 
 <!-- 2496385 | ASDK, IS -->  
-- **추가 데이터 전송 시간으로 전체 백업 시간입니다.** 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](.\.\azure-stack-backup-enable-backup-powershell.md)합니다.
+- **추가 데이터 전송 시간으로 전체 백업 시간입니다.** 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](../azure-stack-backup-enable-backup-powershell.md)합니다.
 
 <!-- 1702130 | ASDK, IS --> 
-- **이제 백업 외부 용량 외부 공유의 올바른 용량을 보여 줍니다.** (하드 코드 된이 이전에 10gb입니다.) 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](.\.\azure-stack-backup-enable-backup-powershell.md)합니다.
+- **이제 백업 외부 용량 외부 공유의 올바른 용량을 보여 줍니다.** (하드 코드 된이 이전에 10gb입니다.) 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](../azure-stack-backup-enable-backup-powershell.md)합니다.
  
 <!-- 2753130 |  IS, ASDK   -->  
 - **Azure Resource Manager 템플릿은 이제 condition 요소를 지원** -이제는 조건을 사용 하 여 Azure 리소스 관리자 템플릿에서 리소스를 배포할 수 있습니다. 매개 변수 값이 있는 경우 평가 같은 조건에 따라 리소스를 배포 하도록 템플릿을 디자인할 수 있습니다. 조건으로 서식 파일을 사용 하는 방법에 대 한 정보를 참조 하세요 [조건부 리소스 배포](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) 하 고 [Azure Resource Manager 템플릿의 변수 섹션](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) Azure 설명서에서. 
@@ -194,7 +194,7 @@ ms.locfileid: "52869962"
    템플릿을 사용할 수도 있습니다 [둘 이상의 구독 또는 리소스 그룹에 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment)합니다.  
 
 <!--2753073 | IS, ASDK -->  
-- **Microsoft.Network API 리소스 버전 지원 고쳤습니다** API 버전 2017-10-01 Azure Stack 네트워크 리소스에 대 한 15 개 2015-06-에 대 한 지원을 포함 하도록 합니다. 이 릴리스에서 리소스 버전 2015-06-15 2017-10-01 사이 대 한 지원이 포함 되지 않습니다. 참조 하십시오 [Azure Stack 네트워킹에 대 한 고려 사항](.\.\user\azure-stack-network-differences.md) 기능 차이점에 대 한 합니다.
+- **Microsoft.Network API 리소스 버전 지원 고쳤습니다** API 버전 2017-10-01 Azure Stack 네트워크 리소스에 대 한 15 개 2015-06-에 대 한 지원을 포함 하도록 합니다. 이 릴리스에서 리소스 버전 2015-06-15 2017-10-01 사이 대 한 지원이 포함 되지 않습니다. 참조 하십시오 [Azure Stack 네트워킹에 대 한 고려 사항](../user/azure-stack-network-differences.md) 기능 차이점에 대 한 합니다.
 
 <!-- 2272116 | IS, ASDK   -->  
 - **Azure Stack에는 외부 Azure Stack 인프라 끝점에 대 한 역방향 DNS 조회에 대 한 지원이 추가 되었습니다** (즉, adminportal, 관리 포털과 adminmanagement). 이렇게 하면 Azure Stack 외부 끝점 이름을 IP 주소에서 확인할 수 있습니다.
@@ -222,7 +222,7 @@ ms.locfileid: "52869962"
 - **Azure Resource Manager 지역 이름이 포함 됩니다.** 이 릴리스를 사용 하 여 Azure Resource Manager에서 검색 된 개체는 지역 이름 특성을 포함 이제 됩니다. 기존 PowerShell 스크립트를 다른 cmdlet에 개체를 직접 통과 하면 스크립트 오류가 발생 하 고 실패할 수 있습니다. Azure Resource Manager 규격 동작을 이며 region 특성 뺄 호출 클라이언트가 필요 합니다. 자세한 내용은 Azure Resource Manager를 참조 하십시오 [Azure Resource Manager 설명서](https://docs.microsoft.com/azure/azure-resource-manager/)합니다.
 
 <!-- TBD | IS, ASDK -->  
-- **위임 된 공급자 간에 구독을 이동 합니다.** 이제 동일한 디렉터리 테 넌 트에 속해 있는 기존 또는 새 위임 된 공급자 구독 간에 구독을 이동할 수 있습니다. 기본 공급자 구독에 속하는 구독을 동일한 디렉터리 테 넌 트 위임 된 공급자 구독에도 이동할 수 있습니다. 자세한 내용은 참조 [Azure Stack에서 제품 위임](.\.\azure-stack-delegated-provider.md)합니다.
+- **위임 된 공급자 간에 구독을 이동 합니다.** 이제 동일한 디렉터리 테 넌 트에 속해 있는 기존 또는 새 위임 된 공급자 구독 간에 구독을 이동할 수 있습니다. 기본 공급자 구독에 속하는 구독을 동일한 디렉터리 테 넌 트 위임 된 공급자 구독에도 이동할 수 있습니다. 자세한 내용은 참조 [Azure Stack에서 제품 위임](../azure-stack-delegated-provider.md)합니다.
  
 <!-- 2536808 IS ASDK --> 
 - **VM을 만들 때 향상 된** Azure marketplace에서 다운로드 하는 이미지를 사용 하 여 만든 Vm에 대 한 합니다.
@@ -246,7 +246,7 @@ ms.locfileid: "52869962"
 - 외부 공유에서 백업을 수동으로 삭제할 때에 이제 백업 목록을 새로 고칩니다.
 
 <!-- 2360715 |  ASDK, IS -->  
-- 데이터 센터 통합을 설정한 경우 더 이상 AD FS 메타 데이터 파일은 공유에서 액세스 합니다. 자세한 내용은 [페더레이션 메타 데이터 파일을 제공 하 여 AD FS 통합 설정](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)합니다. 
+- 데이터 센터 통합을 설정한 경우 더 이상 AD FS 메타 데이터 파일은 공유에서 액세스 합니다. 자세한 내용은 [페더레이션 메타 데이터 파일을 제공 하 여 AD FS 통합 설정](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)합니다. 
 
 <!-- 2388980 | ASDK, IS --> 
 - 문제를 해결 했습니다 방지 없도록 할당 기존 공용 IP 주소는 이전에 할당 된 네트워크 인터페이스 또는 부하 분산 장치를 새 네트워크 인터페이스 또는 부하 분산 장치.  
@@ -269,7 +269,7 @@ ms.locfileid: "52869962"
 <!--  TBD ASDK --> 
 - 가상 컴퓨터 (PEP) 권한 끝점을 호스트 하는 4GB로 증가 했습니다. ASDK,이 가상 머신에 AzS ERCS01 라고 했습니다.
 
-- <!--  TBD – IS, ASDK --> *기본 A* 가상 머신 크기에 대 한 현재 퇴직 [virtual machine scale sets 만들기](.\.\azure-stack-compute-add-scalesets.md) (VMSS) 포털을 통해. 이 크기를 사용 하 여 VMSS를 만들려면, PowerShell 또는 템플릿을 사용 합니다. 
+- <!--  TBD – IS, ASDK --> *기본 A* 가상 머신 크기에 대 한 현재 퇴직 [virtual machine scale sets 만들기](../azure-stack-compute-add-scalesets.md) (VMSS) 포털을 통해. 이 크기를 사용 하 여 VMSS를 만들려면, PowerShell 또는 템플릿을 사용 합니다. 
 
 ### <a name="known-issues"></a>알려진 문제
 
@@ -283,7 +283,7 @@ ms.locfileid: "52869962"
 - 사용자 구독에서 해당 계획을 제거 하는 경우에는 추가 요금제는 사용자 구독에 추가 되는 계획을 삭제할 수 없습니다. 계획에는 추가 요금제를 참조 하는 구독도 삭제 될 때까지 상태로 유지 됩니다. 
 
 <!--2760466 – IS  ASDK --> 
-- 이 버전을 실행 하는 새 Azure Stack 환경에 설치한 경우이 경고는 나타냅니다 *활성화 필요* 표시 되지 않을 수 있습니다. [활성화](.\.\azure-stack-registration.md) 마켓플레이스 배포를 사용 하려면 먼저 필요 합니다. 
+- 이 버전을 실행 하는 새 Azure Stack 환경에 설치한 경우이 경고는 나타냅니다 *활성화 필요* 표시 되지 않을 수 있습니다. [활성화](../azure-stack-registration.md) 마켓플레이스 배포를 사용 하려면 먼저 필요 합니다. 
 
 <!-- TBD - IS ASDK --> 
 - 1804 버전을 사용 하 여 도입 된 관리 구독 유형에 사용할 수 없습니다. 구독 유형은 **구독을 계량**, 및 **소비 구독**합니다. 이러한 구독 유형은 **구독을 계량**, 및 **소비 구독**합니다. 이러한 구독 유형에 1804 버전부터 새 Azure Stack 환경에서 표시 되지만 아직 사용할 준비가 완료 됩니다. 계속 사용 해야 합니다 **기본 공급자 구독** 형식입니다.
@@ -417,17 +417,17 @@ ms.locfileid: "52869962"
 ### <a name="new-features"></a>새로운 기능
 이 빌드 Azure Stack에 대 한 다음과 같은 향상 된 기능 및 수정 프로그램을 포함합니다.  
 
-- <!-- 1658937 | ASDK, IS --> **미리 정의 된 일정에 따라 백업을 시작** -는 어플라이언스로 Azure Stack 이제 자동으로 트리거할 수 사용자의 개입을 제거 하는 정기적으로 백업 인프라입니다. Azure Stack 정의 된 보존 기간 보다 오래 된 백업에 대 한 외부 공유를 자동으로 정리 합니다. 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](.\.\azure-stack-backup-enable-backup-powershell.md)합니다.
+- <!-- 1658937 | ASDK, IS --> **미리 정의 된 일정에 따라 백업을 시작** -는 어플라이언스로 Azure Stack 이제 자동으로 트리거할 수 사용자의 개입을 제거 하는 정기적으로 백업 인프라입니다. Azure Stack 정의 된 보존 기간 보다 오래 된 백업에 대 한 외부 공유를 자동으로 정리 합니다. 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](../azure-stack-backup-enable-backup-powershell.md)합니다.
 
-- <!-- 2496385 | ASDK, IS -->  **추가 데이터 전송 시간으로 전체 백업 시간입니다.** 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](.\.\azure-stack-backup-enable-backup-powershell.md)합니다.
+- <!-- 2496385 | ASDK, IS -->  **추가 데이터 전송 시간으로 전체 백업 시간입니다.** 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](../azure-stack-backup-enable-backup-powershell.md)합니다.
 
--   <!-- 1702130 | ASDK, IS -->  **이제 백업 외부 용량 외부 공유의 올바른 용량을 보여 줍니다.** (하드 코드 된이 이전에 10gb입니다.) 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](.\.\azure-stack-backup-enable-backup-powershell.md)합니다.
+-   <!-- 1702130 | ASDK, IS -->  **이제 백업 외부 용량 외부 공유의 올바른 용량을 보여 줍니다.** (하드 코드 된이 이전에 10gb입니다.) 자세한 내용은 [PowerShell 사용 하 여 Azure Stack에 대 한 백업을 사용 하도록 설정](../azure-stack-backup-enable-backup-powershell.md)합니다.
  
 - <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager 템플릿은 이제 condition 요소를 지원** -이제는 조건을 사용 하 여 Azure 리소스 관리자 템플릿에서 리소스를 배포할 수 있습니다. 매개 변수 값이 있는 경우 평가 같은 조건에 따라 리소스를 배포 하도록 템플릿을 디자인할 수 있습니다. 조건으로 서식 파일을 사용 하는 방법에 대 한 정보를 참조 하세요 [조건부 리소스 배포](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) 하 고 [Azure Resource Manager 템플릿의 변수 섹션](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) Azure 설명서에서. 
 
    템플릿을 사용할 수도 있습니다 [둘 이상의 구독 또는 리소스 그룹에 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment)합니다.  
 
-- <!--2753073 | IS, ASDK -->  **Microsoft.Network API 리소스 버전 지원 고쳤습니다** API 버전 2017-10-01 Azure Stack 네트워크 리소스에 대 한 15 개 2015-06-에 대 한 지원을 포함 하도록 합니다.  리소스 버전 2015-06-15 2017-10-01 사이 대 한 지원이이 릴리스에 포함 되어 있지 않지만 이후 버전에 포함 됩니다.  참조 하십시오 [Azure Stack 네트워킹에 대 한 고려 사항](.\.\user\azure-stack-network-differences.md) 기능 차이점에 대 한 합니다.
+- <!--2753073 | IS, ASDK -->  **Microsoft.Network API 리소스 버전 지원 고쳤습니다** API 버전 2017-10-01 Azure Stack 네트워크 리소스에 대 한 15 개 2015-06-에 대 한 지원을 포함 하도록 합니다.  리소스 버전 2015-06-15 2017-10-01 사이 대 한 지원이이 릴리스에 포함 되어 있지 않지만 이후 버전에 포함 됩니다.  참조 하십시오 [Azure Stack 네트워킹에 대 한 고려 사항](../user/azure-stack-network-differences.md) 기능 차이점에 대 한 합니다.
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack에는 외부 Azure Stack 인프라 끝점에 대 한 역방향 DNS 조회에 대 한 지원이 추가 되었습니다** (즉, adminportal, 관리 포털과 adminmanagement). 이렇게 하면 Azure Stack 외부 끝점 이름을 IP 주소에서 확인할 수 있습니다.
 
@@ -444,11 +444,11 @@ ms.locfileid: "52869962"
 
   이 기능은 미리 보기 상태에서 이므로 프로덕션 환경에 의존 하지 마십시오 있습니다.
 
-  자세한 내용은 [Azure Stack syslog 전달을](.\.\azure-stack-integrate-security.md)합니다.
+  자세한 내용은 [Azure Stack syslog 전달을](../azure-stack-integrate-security.md)합니다.
 
 - <!-- ####### | IS, ASDK -->  **Azure Resource Manager 지역 이름이 포함 됩니다.** 이 릴리스를 사용 하 여 Azure Resource Manager에서 검색 된 개체는 지역 이름 특성을 포함 이제 됩니다. 기존 PowerShell 스크립트를 다른 cmdlet에 개체를 직접 통과 하면 스크립트 오류가 발생 하 고 실패할 수 있습니다. Azure Resource Manager 규격 동작을 이며 region 특성 뺄 호출 클라이언트가 필요 합니다. 자세한 내용은 Azure Resource Manager를 참조 하십시오 [Azure Resource Manager 설명서](https://docs.microsoft.com/azure/azure-resource-manager/)합니다.
 
-- <!-- TBD | IS, ASDK -->  **위임 된 공급자 간에 구독을 이동 합니다.** 이제 동일한 디렉터리 테 넌 트에 속해 있는 기존 또는 새 위임 된 공급자 구독 간에 구독을 이동할 수 있습니다. 기본 공급자 구독에 속하는 구독을 동일한 디렉터리 테 넌 트 위임 된 공급자 구독에도 이동할 수 있습니다. 자세한 내용은 참조 [Azure Stack에서 제품 위임](.\.\azure-stack-delegated-provider.md)합니다.
+- <!-- TBD | IS, ASDK -->  **위임 된 공급자 간에 구독을 이동 합니다.** 이제 동일한 디렉터리 테 넌 트에 속해 있는 기존 또는 새 위임 된 공급자 구독 간에 구독을 이동할 수 있습니다. 기본 공급자 구독에 속하는 구독을 동일한 디렉터리 테 넌 트 위임 된 공급자 구독에도 이동할 수 있습니다. 자세한 내용은 참조 [Azure Stack에서 제품 위임](../azure-stack-delegated-provider.md)합니다.
  
 - <!-- 2536808 IS ASDK --> **VM을 만들 때 향상 된** Azure marketplace에서 다운로드 하는 이미지를 사용 하 여 만든 Vm에 대 한 합니다.
 
@@ -464,7 +464,7 @@ ms.locfileid: "52869962"
 
 - <!-- 2215948 |  ASDK, IS --> 외부 공유에서 백업을 수동으로 삭제할 때에 이제 백업 목록을 새로 고칩니다.
 
-- <!-- 2360715 |  ASDK, IS -->  데이터 센터 통합을 설정한 경우 더 이상 AD FS 메타 데이터 파일은 공유에서 액세스 합니다. 자세한 내용은 [페더레이션 메타 데이터 파일을 제공 하 여 AD FS 통합 설정](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)합니다. 
+- <!-- 2360715 |  ASDK, IS -->  데이터 센터 통합을 설정한 경우 더 이상 AD FS 메타 데이터 파일은 공유에서 액세스 합니다. 자세한 내용은 [페더레이션 메타 데이터 파일을 제공 하 여 AD FS 통합 설정](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)합니다. 
 
 - <!-- 2388980 | ASDK, IS --> 문제를 해결 했습니다 방지 없도록 할당 기존 공용 IP 주소는 이전에 할당 된 네트워크 인터페이스 또는 부하 분산 장치를 새 네트워크 인터페이스 또는 부하 분산 장치.  
 
@@ -511,7 +511,7 @@ ms.locfileid: "52869962"
 - 이 버전의 Azure Stack을 사용 하 여 OEM 확장 패키지를 사용 하 여 드라이버 업데이트를 적용할 수 없습니다.  이 문제에 대 한 해결 방법은 없습니다.
  
 <!-- TBD - IS ASDK --> 
-- 기능 [드롭다운 목록에서 새 지원 요청을 열려면](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) 에서 관리자 내에서 포털을 사용할 수 없습니다. 다음 링크를 대신 사용 합니다.     
+- 기능 [드롭다운 목록에서 새 지원 요청을 열려면](../azure-stack-manage-portals.md#quick-access-to-help-and-support) 에서 관리자 내에서 포털을 사용할 수 없습니다. 다음 링크를 대신 사용 합니다.     
     - Azure Stack Development Kit를 사용 하 여 https://aka.ms/azurestackforum입니다.    
 
 <!-- 2403291 - IS ASDK --> 
@@ -605,7 +605,7 @@ ms.locfileid: "52869962"
 <!-- 2292271 - IS ASDK --> 
 - 제품 및 테 넌 트 구독을 사용 하 여 연결 된 계획의 일부인 네트워크 리소스에 대 한 할당량 한도 늘릴 경우 해당 구독에 새 제한이 적용 되지 않습니다. 그러나 할당량 증가 이후에 만든 새 구독에 새 제한이 적용지 않습니다.
 
-  이 문제를 해결 하려면 계획을 이미 구독과 연결 된 경우 네트워크 할당량을 늘리려면는 추가 요금제를 사용 합니다. 자세한 내용은 참조 하는 방법 [는 추가 요금제를 사용할 수 있도록](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available)입니다.
+  이 문제를 해결 하려면 계획을 이미 구독과 연결 된 경우 네트워크 할당량을 늘리려면는 추가 요금제를 사용 합니다. 자세한 내용은 참조 하는 방법 [는 추가 요금제를 사용할 수 있도록](../azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available)입니다.
 
 <!-- 2304134 IS ASDK --> 
 - DNS 영역 리소스 또는 연결 된 경로 테이블 리소스는 구독을 삭제할 수 없습니다. 구독을 성공적으로 삭제 하려면 먼저 테 넌 트 구독에서 DNS 영역 및 경로 테이블 리소스를 삭제 해야 합니다.

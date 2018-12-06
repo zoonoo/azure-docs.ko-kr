@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 8b6257519c3b1db2180335523047e8dc55558d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275030"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954595"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL 리소스 공급자를 제거 합니다.
 
 SQL 리소스 공급자를 제거 하기 전에 모든 공급자 종속성을 제거 해야 합니다. 리소스 공급자를 설치 하는 데 사용 된 배포 패키지의 복사본을 해야 합니다.
 
 > [!NOTE]
-> 공급자 설치 관리자에서 리소스에 대 한 다운로드 링크를 찾을 수 있습니다 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)합니다.
+> 공급자 설치 관리자에서 리소스에 대 한 다운로드 링크를 찾을 수 있습니다 [리소스 공급자 필수 구성 요소 배포](./azure-stack-sql-resource-provider-deploy.md#prerequisites)합니다.
 
 SQL 리소스 공급자를 제거 하는 호스팅 서버에서 테 넌 트 데이터베이스는 삭제 되지 않습니다.
 

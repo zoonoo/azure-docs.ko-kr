@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 36d37adff6d45b7d154511c11888aad090c54638
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ee76d71f89fb94c8c05c6a733dac241a9e4fa13c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853679"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965141"
 ---
 # <a name="update-the-mysql-resource-provider"></a>MySQL 리소스 공급자 업데이트 
 
@@ -28,7 +28,7 @@ ms.locfileid: "51853679"
 Azure Stack 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제 될 수 있습니다. 기존 어댑터를 작동 하는 동안에 가능한 한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 
 
 > [!IMPORTANT]
-> 릴리스되는 순서 대로 업데이트를 설치 해야 합니다. 버전을 건너뛸 수 없습니다. 버전 목록 가리킵니다 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites)합니다.
+> 릴리스되는 순서 대로 업데이트를 설치 해야 합니다. 버전을 건너뛸 수 없습니다. 버전 목록 가리킵니다 [리소스 공급자 필수 구성 요소 배포](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)합니다.
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>MySQL 리소스 공급자 어댑터 (통합된 시스템에만 해당) 업데이트
 

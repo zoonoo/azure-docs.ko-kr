@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: e5ce479940faaaae95467fe6d426e999b4c6569f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468673"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959199"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Azure Stack 사용자 구독에 대 한 소유자를 변경 합니다.
 
@@ -40,8 +40,8 @@ Azure Stack 운영자 PowerShell을 사용 하 여 사용자 구독의 청구 �
 
 사용자 구독의 청구 소유자를 변경 하려면 다음 스크립트를 실행 합니다. 스크립트를 실행 하는 데 사용 하는 컴퓨터가 Azure Stack에 연결 하 고 Azure Stack PowerShell 모듈 1.3.0 실행 이상. 자세한 내용은 [Azure Stack PowerShell 설치](azure-stack-powershell-install.md)합니다. 
 
-> [!Note]  
->  다중 테 넌 트에서 Azure Stack, 새 소유자 기존 소유자와 같은 디렉터리에 있어야 합니다. 다른 디렉터리에 있는 사용자는 구독의 소유권을 제공할 수 있습니다, 전에 먼저 [디렉터리로 해당 사용자를 게스트로 초대](../active-directory/b2b/add-users-administrator.md)합니다. 
+> [!Note]
+>  다중 테 넌 트에서 Azure Stack, 새 소유자 기존 소유자와 같은 디렉터리에 있어야 합니다. 다른 디렉터리에 있는 사용자는 구독의 소유권을 제공할 수 있습니다, 전에 먼저 [디렉터리로 해당 사용자를 게스트로 초대](../active-directory/b2b/add-users-administrator.md)합니다. 
 
 실행 하기 전에 스크립트에서 다음 값을 바꿉니다. 
  

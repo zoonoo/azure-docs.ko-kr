@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ad1a89c69d34dbb48b87a75778e18c9a995f749a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8fc8be105c6c610e6b246fa0ec619fecc81b1dd9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853560"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966248"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL 리소스 공급자 업데이트
 
@@ -28,11 +28,11 @@ ms.locfileid: "51853560"
 새 SQL 리소스 공급자는 Azure Stack 새 빌드로 업데이트 될 때 해제 될 수 있습니다. 기존 어댑터 작업을 계속 하지만 가능한 한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다.
 
 > [!IMPORTANT]
-> 릴리스되는 순서 대로 업데이트를 설치 해야 합니다. 버전을 건너뛸 수 없습니다. 버전 목록 가리킵니다 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)합니다.
+> 릴리스되는 순서 대로 업데이트를 설치 해야 합니다. 버전을 건너뛸 수 없습니다. 버전 목록 가리킵니다 [리소스 공급자 필수 구성 요소 배포](./azure-stack-sql-resource-provider-deploy.md#prerequisites)합니다.
 
 ## <a name="overview"></a>개요
 
-리소스 공급자를 업데이트 하려면 사용 합니다 *UpdateSQLProvider.ps1* 스크립트입니다. 이 스크립트는 새 SQL 리소스 공급자의 다운로드에 포함 되어 있습니다. 업데이트 프로세스를 사용 하는 프로세스와 비슷합니다 [리소스 공급자 배포](.\azure-stack-sql-resource-provider-deploy.md)합니다. 업데이트 스크립트는 DeploySqlProvider.ps1 스크립트와 동일한 인수를 사용 하 고 인증서 정보를 제공 해야 합니다.
+리소스 공급자를 업데이트 하려면 사용 합니다 *UpdateSQLProvider.ps1* 스크립트입니다. 이 스크립트는 새 SQL 리소스 공급자의 다운로드에 포함 되어 있습니다. 업데이트 프로세스를 사용 하는 프로세스와 비슷합니다 [리소스 공급자 배포](./azure-stack-sql-resource-provider-deploy.md)합니다. 업데이트 스크립트는 DeploySqlProvider.ps1 스크립트와 동일한 인수를 사용 하 고 인증서 정보를 제공 해야 합니다.
 
 ### <a name="update-script-processes"></a>스크립트 프로세스를 업데이트 합니다.
 
@@ -68,7 +68,7 @@ $domain = "AzureStack"
 # For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using. 
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.

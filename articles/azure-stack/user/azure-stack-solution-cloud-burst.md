@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334893"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968206"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>자습서: Azure와 클라우드 간 크기 조정 솔루션 만들기
 
@@ -60,7 +60,7 @@ Azure Stack에서 전환 프로세스를 수동으로 트리거된 웹 앱을 �
 
 -   테 넌 트 구독 내에서 웹 앱을 만듭니다. 나중에 사용 하 여 새 웹 앱 url에 대 한 참고를 확인 합니다.
 
--   테 넌 트 구독 내에서 VSTS 가상 컴퓨터를 배포 합니다.
+-   테 넌 트 구독 내에서 Azure 파이프라인 Virtual Machine을 배포 합니다.
 
 -   필수.NET 3.5를 사용 하 여 Windows Server 2016 VM입니다. 이 VM은 개인 빌드 에이전트와 Azure Stack에서 테 넌 트 구독에 빌드됩니다.
 
@@ -99,140 +99,142 @@ Azure 및 Azure Stack에 웹 앱을 배포 하려면 하이브리드 연속 통�
 > [!Note]  
 > 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 합니다. "[App Service on Azure Stack을 사용 하 여 시작 하기 전에](../azure-stack-app-service-before-you-get-started.md)" Azure Stack 운영자에 대 한 섹션입니다.
 
-### <a name="add-code-to-visual-studio-team-services-project"></a>Visual Studio 팀에 코드 추가 Services 프로젝트
+### <a name="add-code-to-azure-repos"></a>코드를 Azure 리포지토리 추가
 
-1. VSTS에 대 한 프로젝트 만들기 권한이 있는 계정으로 Visual Studio Team Services (VSTS)을 하에 로그인 합니다.
+Azure Repos
+
+1. Azure 리포지토리를 Azure 저장소에 대 한 프로젝트 만들기 권한이 있는 계정으로 로그인 합니다.
 
     CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용할 수 있습니다. 사용 하 여 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/) 모두 사설 및 호스트 된 클라우드 개발에 대 한 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image1.JPG)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image1.JPG)
 
 2. **리포지토리를 복제 합니다** 만들어 기본 웹 앱을 열어서 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image2.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image2.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>두 클라우드 모두에서 App Services에 대 한 자체 포함 된 웹 앱 배포 만들기
 
 1.  편집 된 **WebApplication.csproj** 파일입니다. 선택 **runtimeidentifier-** 추가한 **win10-x64**합니다. (참조 [자체 포함 배포](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 설명서입니다.) 
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image3.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image3.png)
 
-2.  팀 탐색기를 사용 하 여 VSTS 코드에서 확인 합니다.
+2.  팀 탐색기를 사용 하 여 Azure 리포지토리에 코드를 체크 인 합니다.
 
-3.  Visual Studio Team Services에 응용 프로그램 코드에 체크 인 된 있는지 확인 합니다.
+3.  Azure 리포지토리에 응용 프로그램 코드에 체크 인 된 있는지 확인 합니다.
 
 ## <a name="create-the-build-definition"></a>빌드 정의 만들기
 
-1. 빌드 정의를 만들 수 있는 기능을 확인 하는 VSTS에 로그인 합니다.
+1. 빌드 정의 만들 수 있는 기능을 확인 하려면 Azure 파이프라인에 로그인 합니다.
 
 2. 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하는 데 필요한입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image4.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image4.png)
 
 3. 빌드를 실행 합니다. 합니다 [자체 포함된 배포 빌드](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 프로세스는 Azure 및 Azure Stack에서 실행 될 수 있는 아티팩트를 게시 합니다.
 
 ## <a name="use-an-azure-hosted-agent"></a>Azure를 사용 하 여 호스트 된 에이전트
 
-VSTS에서 호스트 된 에이전트를 사용 하 여는 웹 앱 빌드 및 배포 하는 편리한 옵션입니다. 유지 관리 및 업그레이드는 Microsoft Azure에 지속적인 중단 없이 개발, 테스트 및 배포를 사용 하도록 설정 하 여 자동으로 수행 됩니다.
+Azure 파이프라인에서 호스트 된 에이전트를 사용 하 여는 웹 앱 빌드 및 배포 하는 편리한 옵션입니다. 유지 관리 및 업그레이드는 Microsoft Azure에 지속적인 중단 없이 개발, 테스트 및 배포를 사용 하도록 설정 하 여 자동으로 수행 됩니다.
 
 ### <a name="manage-and-configure-the-cd-process"></a>관리 하 고 CD 프로세스를 구성 합니다.
 
-Visual Studio Team Services 및 Team Foundation Server (TFS)는 항상 구성 및 관리 가능한 파이프라인에 대 한 제공 개발과 같은 여러 환경에 릴리스 스테이징, QA 및 프로덕션 환경; 특정 단계에서 승인 필요를 포함 합니다.
+Azure 파이프라인 및 Azure DevOps 서버 제공 항상 구성 및 관리 가능한 파이프라인 개발과 같은 여러 환경에 릴리스를 스테이징, QA 및 프로덕션 환경입니다. 특정 단계에서 승인 필요를 포함 합니다.
 
 ## <a name="create-release-definition"></a>릴리스 정의 만들기
 
-![대체 텍스트](media\azure-stack-solution-cloud-burst\image5.png)
+![대체 텍스트](media/azure-stack-solution-cloud-burst/image5.png)
 
 1.  선택 합니다 **plus** 아래에서 새 릴리스를 추가 하려면 단추를 **릴리스 탭** VSO의 빌드 및 릴리스 페이지에서.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image6.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image6.png)
 
 2. Azure App Service 배포 템플릿을 적용 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image7.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image7.png)
 
 3. 아티팩트 추가에서 Azure 클라우드 앱의 빌드 아티팩트를 추가 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image8.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image8.png)
 
 4. 파이프라인 탭을 선택 합니다 **단계를 작업** 환경에 연결 하 고 Azure 클라우드 환경 값을 설정 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image9.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image9.png)
 
 5. 설정 된 **환경 이름** 선택한 Azure **구독** Azure 클라우드 끝점에 대 한 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image10.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image10.png)
 
 6. 환경 이름 set 필수 **Azure app service 이름**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image11.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image11.png)
 
 7. 입력 **호스팅된 VS2017** Azure 클라우드 호스팅 환경에 대 한 에이전트 큐에서 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image12.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image12.png)
 
 8. Azure App Service 배포 메뉴에서 선택 된 유효한 **패키지 또는 폴더가** 환경에 대 한 합니다. 선택 **확인** 하 **폴더 위치**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image13.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image13.png)
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image14.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image14.png)
 
 9. 모든 변경 내용을 저장 하 고로 돌아가서 **릴리스 파이프라인**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image15.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image15.png)
 
 10. Azure Stack 앱에 대 한 빌드를 선택 하면 새 아티팩트를 추가 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image16.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image16.png)
 
 11. Azure App Service 배포를 적용 하는 하나의 자세한 환경을 추가 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image17.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image17.png)
 
 12. 새 Azure Stack 환경을 이름을 지정 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image18.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image18.png)
 
 13. Azure Stack 환경에서 찾을 **태스크** 탭 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image19.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image19.png)
 
 14. Azure Stack 끝점에 대 한 구독을 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image20.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image20.png)
 
 15. Azure Stack에 웹 앱 이름이 앱 서비스 이름으로 설정 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image21.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image21.png)
 
 16. Azure Stack 에이전트를 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image22.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image22.png)
 
 17. 배포할 Azure App Service 섹션 선택 유효한 **패키지 또는 폴더가** 환경에 대 한 합니다. 선택 **확인** 폴더 위치에 있습니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image23.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image23.png)
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image24.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image24.png)
 
 18. 변수 탭에서 명명 된 변수를 추가 `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, 해당 값으로 설정 **true**, 및 Azure Stack에 대 한 범위입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image25.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image25.png)
 
 19. 선택 합니다 **연속** 아티팩트와 enable 배포 트리거 아이콘 합니다 **계속** 배포 트리거.
 
-    ![대체 텍스트](media\azure-stack-solution-cloud-burst\image26.png)
+    ![대체 텍스트](media/azure-stack-solution-cloud-burst/image26.png)
 
 20. 선택 합니다 **pre-deployment** Azure Stack 환경에서 조건 아이콘 트리거를 설정 하 고 **릴리스 후 합니다.**
 
 21. 모든 변경 내용을 저장 합니다.
 
 > [!Note]  
-> 작업에 대 한 일부 설정을 수 자동으로 정의 된 [환경 변수](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) 템플릿에서 릴리스 정의 만들 때. 작업 설정;에서 이러한 설정은 수정할 수 없습니다. 대신 이러한 설정을 편집 하려면 부모 환경 항목을 선택 해야 합니다.
+> 작업에 대 한 일부 설정을 수 자동으로 정의 된 [환경 변수](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) 템플릿에서 릴리스 정의 만들 때. 작업 설정;에서 이러한 설정은 수정할 수 없습니다. 대신 이러한 설정을 편집 하려면 부모 환경 항목을 선택 해야 합니다.
 
 ## <a name="publish-to-azure-stack-via-visual-studio"></a>Visual Studio 통해 Azure Stack에 게시
 
-끝점을 만들면 Visual Studio Online (VSTO) 빌드는 Azure Stack에 Azure 서비스 앱을 배포할 수 있습니다. VSTS는 Azure Stack에 연결 하는 빌드 에이전트에 연결 합니다.
+끝점을 만들면 Visual Studio Online (VSTO) 빌드는 Azure Stack에 Azure 서비스 앱을 배포할 수 있습니다. Azure 파이프라인은 Azure Stack에 연결 하는 빌드 에이전트에 연결 합니다.
 
 1.  VSTO에 로그인 하 고 앱 설정 페이지로 이동 합니다.
 
@@ -254,18 +256,18 @@ Visual Studio Team Services 및 Team Foundation Server (TFS)는 항상 구성 �
 
 10. **변경 내용 저장**을 선택합니다.
 
-끝점 정보가 했으므로 Azure Stack 연결 VSTS 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트는 VSTS에서 지침을 가져옵니다. 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음을
+끝점 정보가 했으므로 Azure 파이프라인 Azure Stack 연결을 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트는 지침을 Azure 파이프라인에서 가져오고 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음 합니다.
 
 ## <a name="develop-the-application-build"></a>응용 프로그램 빌드를 개발 합니다.
 
 > [!Note]  
 > 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 합니다. "[App Service on Azure Stack을 사용 하 여 시작 하기 전에](../azure-stack-app-service-before-you-get-started.md)" Azure Stack 운영자에 대 한 섹션입니다.
 
-사용 하 여 [웹과 같은 Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/) 두 클라우드 모두에 배포 하는 VSTS에서 앱 코드입니다.
+사용 하 여 [웹과 같은 Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/) 두 클라우드 모두에 배포 하려면 Azure 저장소에서 앱 코드입니다.
 
-### <a name="add-code-to-a-vsts-project"></a>VSTS 프로젝트에 코드 추가
+### <a name="add-code-to-a-azure-repos-project"></a>Azure 리포지토리 프로젝트에 코드 추가
 
-1.  Azure Stack에 대 한 프로젝트 만들기 권한이 있는 계정으로 VSTS에 로그인 합니다. 다음 화면 캡처 HybridCICD 프로젝트에 연결 하는 방법을 보여 줍니다.
+1.  Azure 저장소에 Azure Stack에 대 한 프로젝트 만들기 권한이 있는 계정으로 로그인 합니다. 다음 화면 캡처 HybridCICD 프로젝트에 연결 하는 방법을 보여 줍니다.
 
 2.  **리포지토리를 복제 합니다** 만들어 기본 웹 앱을 열어서 합니다.
 
@@ -273,13 +275,13 @@ Visual Studio Team Services 및 Team Foundation Server (TFS)는 항상 구성 �
 
 1.  편집 합니다 **WebApplication.csproj** 파일: 선택 **runtimeidentifier-** 다음 win10-x64를 추가 합니다. 자세한 내용은 [자체 포함된 배포](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 설명서.
 
-2.  팀 탐색기를 사용 하 여 VSTS에 코드를 확인 합니다.
+2.  팀 탐색기를 사용 하 여 코드를 Azure 리포지토리를 확인 합니다.
 
-3.  Visual Studio Team Services에 응용 프로그램 코드를 체크 인 있는지 확인 합니다.
+3.  Azure 저장소에 응용 프로그램 코드 체크 인 있는지 확인 합니다.
 
 ### <a name="create-the-build-definition"></a>빌드 정의 만들기
 
-1.  빌드 정의 만들 수 있는 계정으로 VSTS에 로그인 합니다.
+1.  Azure 파이프라인에 빌드 정의 만들 수 있는 계정으로 로그인 합니다.
 
 2.  로 이동 합니다 **웹 응용 프로그램 빌드** 프로젝트에 대 한 페이지입니다.
 
@@ -289,23 +291,23 @@ Visual Studio Team Services 및 Team Foundation Server (TFS)는 항상 구성 �
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Azure를 사용 하 여 호스트 된 빌드 에이전트
 
-VSTS에서 호스트 된 빌드 에이전트를 사용 하는 웹 앱 빌드 및 배포에 대 한 편리한 옵션입니다. 에이전트 유지 관리 및 업그레이드를 중단 없이 연속적으로 연속 개발 주기를 사용 하도록 설정 하는 Microsoft Azure에서 자동으로 수행 됩니다.
+Azure 파이프라인에서 호스팅된 빌드 에이전트를 사용 하는 웹 앱 빌드 및 배포에 대 한 편리한 옵션입니다. 에이전트 유지 관리 및 업그레이드를 중단 없이 연속적으로 연속 개발 주기를 사용 하도록 설정 하는 Microsoft Azure에서 자동으로 수행 됩니다.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>연속 배포 (CD) 프로세스를 구성 합니다.
 
-Visual Studio Team Services (VSTS) 및 Team Foundation Server (TFS) 제공 항상 구성 및 관리 가능한 파이프라인 개발과 같은 여러 환경에 릴리스를 스테이징, QA (품질 보증), 및 프로덕션 합니다. 이 프로세스는 응용 프로그램 수명 주기의 특정 단계에서 승인 필요를 포함할 수 있습니다.
+파이프라인 및 Azure DevOps 서버를 azure 개발, 스테이징, QA (품질 보증), 및 프로덕션과 같은 여러 환경에 릴리스를 항상 구성 및 관리 가능한 파이프라인을 제공합니다. 이 프로세스는 응용 프로그램 수명 주기의 특정 단계에서 승인 필요를 포함할 수 있습니다.
 
 #### <a name="create-release-definition"></a>릴리스 정의 만들기
 
 릴리스 정의 만드는 경우 응용 프로그램의 마지막 단계는 빌드 프로세스 이 릴리스 정의 릴리스를 만들고 빌드 배포에 사용 됩니다.
 
-1.  VSTS에 로그인 하 고 이동할 **빌드 및 릴리스** 프로젝트용입니다.
+1.  Azure 파이프라인에 로그인 하 고 이동할 **빌드 및 릴리스** 프로젝트용입니다.
 
 2.  에 **릴리스에서** 탭을 선택 **[+]** 선택 하 고 **릴리스 정의 만들기**합니다.
 
 3.  **템플릿을 선택**, 선택 **Azure App Service 배포**를 선택한 후 **적용**합니다.
 
-4.  온 **아티팩트 추가**에서 * * 소스 (빌드 정의) Azure 클라우드 빌드 앱을 선택 합니다.
+4.  **아티팩트 추가**에서 **원본 (빌드 정의)** Azure 클라우드 빌드 앱을 선택 합니다.
 
 5.  에 **파이프라인** 탭을 선택 합니다 **1 단계**, **작업이 1 개** 연결할 **환경 작업 보기**.
 
@@ -321,7 +323,7 @@ Visual Studio Team Services (VSTS) 및 Team Foundation Server (TFS) 제공 항�
 
 11. 모든 변경 내용을 저장 하 고로 돌아가서 **파이프라인**합니다.
 
-12. 에 **파이프라인** 탭을 선택 **아티팩트 추가**, 선택는 **NorthwindCloud Traders 선박** 에서 * * 소스 (빌드 정의) * * 목록입니다.
+12. 에 **파이프라인** 탭을 선택 **아티팩트 추가**, 선택 합니다 **NorthwindCloud Traders 선박** 에서 **소스 (빌드 정의)** 목록입니다.
 
 13. 온 **템플릿을 선택**, 다른 환경을 추가 합니다. 선택할 **Azure App Service 배포** 선택한 후 **적용**합니다.
 
@@ -346,7 +348,7 @@ Visual Studio Team Services (VSTS) 및 Team Foundation Server (TFS) 제공 항�
 23. 모든 변경 내용을 저장 합니다.
 
 > [!Note]  
-> 릴리스 작업에 대 한 일부 설정으로 자동으로 정의 됩니다 [환경 변수](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) 템플릿에서 릴리스 정의 만들 때. 이러한 설정은 작업 설정을 수정할 수 없습니다 되지만 부모 환경 항목을 수정할 수 있습니다.
+> 릴리스 작업에 대 한 일부 설정으로 자동으로 정의 됩니다 [환경 변수](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables) 템플릿에서 릴리스 정의 만들 때. 이러한 설정은 작업 설정을 수정할 수 없습니다 되지만 부모 환경 항목을 수정할 수 있습니다.
 
 ## <a name="create-a-release"></a>릴리스를 만듭니다.
 
