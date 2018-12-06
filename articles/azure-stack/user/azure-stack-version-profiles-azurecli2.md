@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277276"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969960"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack에서 Azure CLI를 사용 하 여 API 버전 프로필 사용
 
@@ -36,7 +36,7 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA 루트 인증서를 신뢰 합니다.
 
-1. Azure Stack CA 루트 인증서를 가져오는 [귀하가 Azure Stack 운영자](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) 신뢰 하 고 있습니다. Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 추가 합니다.
+1. Azure Stack CA 루트 인증서를 가져오는 [귀하가 Azure Stack 운영자](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) 신뢰 하 고 있습니다. Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 추가 합니다.
 
 1. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 해야 합니다 [pip](https://pip.pypa.io) 하며 [로](https://pypi.org/project/certifi/) 모듈을 설치 합니다. Bash 프롬프트에서 다음 Python 명령에 사용할 수 있습니다.
 
@@ -76,7 +76,7 @@ sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -242,6 +242,6 @@ Azure Stack에서 CLI를 사용 하는 경우 주의 해야 하는 몇 가지 �
 
 [Azure CLI을 사용하여 템플릿 배포](azure-stack-deploy-template-command-line.md)
 
-[Azure Stack 사용자 (운영자)에 대 한 Azure CLI를 사용 하도록 설정](..\azure-stack-cli-admin.md)
+[Azure Stack 사용자 (운영자)에 대 한 Azure CLI를 사용 하도록 설정](../azure-stack-cli-admin.md)
 
 [사용자 권한 관리](azure-stack-manage-permissions.md)

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341840"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963916"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure Stack에 배포 된 가상 컴퓨터를 보호 합니다.
 
@@ -58,7 +58,7 @@ Azure Stack 클라우드 운영자는 기본 Azure Stack 인프라 및 서비스
 | **Azure Stack CSP 데이터 센터에 배포 된 후 CSP에서 작동** | 사용자 Vm 작업을 수행할 CSP Azure Stack에 배포 됩니다. 사용자 Vm 백업에서 복원 기능은 직접 Azure로 장애 조치 합니다. | CSP는 자체 데이터 센터에서 Azure Stack의 기본 및 보조 인스턴스를 작동합니다. 사용자 Vm 복원 기능은 두 Azure Stack 인스턴스 간의 장애 조치 합니다. | CSP의 Azure Stack 기본 사이트에서 작동합니다. 고객의 데이터 센터는 복원 또는 장애 조치 대상입니다. |
 | **Azure Stack 고객 데이터 센터에 배포 하 여 고객이 운영** | 사용자 Vm에 배포 된 Azure Stack을 운영 하는 고객. 사용자 Vm 백업에서 복원 기능은 직접 Azure로 장애 조치 합니다. | 고객은 자체 데이터 센터에서 Azure Stack의 기본 및 보조 인스턴스를 작동합니다. 사용자 Vm 복원 기능은 두 Azure Stack 인스턴스 간의 장애 조치 합니다. | 고객의 Azure Stack 기본 사이트에서 작동합니다. CSP의 데이터 센터는 복원 또는 장애 조치 대상입니다. |
 
-![원본-대상 조합](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![원본-대상 조합](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>응용 프로그램 복구 목표
 
@@ -77,7 +77,7 @@ RTO 및 RPO는 비즈니스 요구 사항입니다. 응용 프로그램의 RTO �
 
 VM 기반 응용 프로그램에 대 한 가장 일반적인 보호 체계 백업 소프트웨어를 사용 하는 것입니다. 일반적으로 VM을 지 원하는 운영 체제, 운영 체제 구성, 응용 프로그램 이진 파일 및 응용 프로그램 데이터에 포함 되어 있습니다. 백업 볼륨, 디스크 또는 전체 VM의 스냅숏을 수행 하 여 생성 됩니다. Azure Stack을 사용 하 여 Azure Stack 저장소 또는 게스트 OS의 컨텍스트 내에서 백업 작업의 유연성이 및 Api를 계산 합니다. Azure Stack에는 하이퍼바이저 수준에서 수행 백업을 지원 하지 않습니다.
  
-![백업 복원](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![백업 복원](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 응용 프로그램 복구 같은 클라우드 또는 새 클라우드를 하나 이상의 Vm을 복원 해야 합니다. 데이터 센터 또는 공용 클라우드에서 클라우드를 대상 지정할 수 있습니다. 선택한 컨트롤 내에서 전적으로 클라우드와 데이터 개인 정보 보호 및 주권 요구 사항에 기반 합니다.
  
@@ -107,7 +107,7 @@ Azure Stack에서 Vm을 백업 하는 것에 대 한 중요 고려 사항:
 
 이 방식에서는 하나의 클라우드에서 배포 된 응용 프로그램 및 해당 VM은 다른 클라우드로 복제 됩니다. 장애 조치가 트리거될 경우 Vm 보조 두 번째 클라우드에서 전원이 켜져 있어야 합니다. 일부 시나리오에서는 장애 조치에 Vm 및 연결 디스크를 만듭니다. 이 프로세스는 특히 특정 시작 순서를 요구 하는 다중 계층 응용 프로그램을 사용 하 여 완료 하는 데 시간이 오래 걸릴 수 있습니다. 응용 프로그램 요청 처리를 시작할 준비가 되기 전에 실행 해야 하는 단계도 있을 수 있습니다.
 
-![복제-수동 장애 조치](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![복제-수동 장애 조치](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: 가동 중지 시간 (분)
  - (복제 빈도)에 따라 변수 데이터 손실이 RPO:

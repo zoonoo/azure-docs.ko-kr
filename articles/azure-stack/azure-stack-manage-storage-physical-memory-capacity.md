@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: a914d20f61b5b632e792ca29f6c201964db4a203
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0516ee7a8319b85765280b4c84f5febec8343ada
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452142"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965618"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Azure Stack에 대 한 실제 메모리 용량 관리
 
@@ -33,7 +33,7 @@ Azure Stack에 대 한 사용 가능한 총 메모리 용량을 늘리려면 추
 
 다음 흐름 다이어그램에서는 각 배율 단위 노드로 메모리를 추가 하는 일반적인 프로세스를 보여 줍니다.
 
-![각 배율 단위 노드로 메모리를 추가 합니다.](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![각 배율 단위 노드로 메모리를 추가 합니다.](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
 
 ## <a name="add-memory-to-an-existing-node"></a>기존 노드에 메모리를 추가 합니다.
 다음 단계를 추가 메모리가 프로세스의 대략적인 개요를 제공합니다. 

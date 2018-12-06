@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: a5f3b206b83beb15ee3b29d5d5b9e389e85a91fb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 32d0e0f48a99b5c06b1efa61e6e1a53cf5b0e61b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466990"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971796"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>사용량 및 Azure Stack에서 결제
 
@@ -35,9 +35,9 @@ Azure Stack에서 각 리소스 공급자 리소스 사용량에 따른 사용 �
 
 있다면 [Azure를 사용 하 여 Azure Stack 인스턴스 등록](azure-stack-register.md), Azure Stack Azure 상거래에 사용 현황 데이터를 보내도록 구성 됩니다. 데이터를 Azure에 업로드 한 후 청구 포털을 통해 또는 Azure 리소스 사용량 Api를 사용 하 여 액세스할 수 있습니다. 더 어떻게 사용 하는 방법에 대 한 데이터를 보고 Azure에 알아보려면 [사용 데이터 보고](azure-stack-usage-reporting.md)합니다.  
 
-다음 이미지는 사용 현황 파이프라인의 주요 구성 요소를 보여줍니다. 
+다음 이미지는 사용 현황 파이프라인의 주요 구성 요소를 보여줍니다.
 
-![파이프라인 사용](media\azure-stack-billing-and-chargeback\usagepipeline.png)
+![파이프라인 사용](media/azure-stack-billing-and-chargeback/usagepipeline.png)
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>사용 현황 정보를 찾을 수 있나요, 방법과?
 

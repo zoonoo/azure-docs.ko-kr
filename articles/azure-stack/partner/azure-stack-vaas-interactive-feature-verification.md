@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bc2fbf7aadf99a2f765def2d352819dfa6cd5fa4
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: dc0c6a37e11574cef857a7af773a9d90bea57357
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265854"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972068"
 ---
 # <a name="interactive-feature-verification-testing"></a>대화형 기능 확인 테스트  
 
@@ -48,7 +48,7 @@ ms.locfileid: "52265854"
 
 3.  선택 **시작** 에 **테스트 통과** 바둑판식으로 배열 합니다.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image1.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image1.png)
 
 4.  에 대 한 이름을 입력 합니다 **테스트 통과** 워크플로.
 
@@ -63,7 +63,7 @@ ms.locfileid: "52265854"
 > [!Note]  
 > 디스크 식별 대화형 기능이 확인 테스트에 대 한 도메인 관리자 사용자 이름 및 암호를 지정 해야 합니다.
 
-![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image2.png)
+![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image2.png)
 
 ## <a name="select-the-test"></a>테스트를 선택 합니다.
 
@@ -72,51 +72,51 @@ ms.locfileid: "52265854"
     > [!Note]  
     > 테스트 참고 자료를 개선 하는 대로 버전의 테스트를 하나씩 늘립니다. Microsoft에서 다르게 지정 하지 않으면에 항상 가장 높은 버전을 사용 해야 합니다.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image4.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2.  선택 하 여 도메인 관리자 사용자 이름 및 암호를 제공한 **편집**합니다.
 
 3.  적절 한 테스트 실행 에이전트/dvm이에서 테스트를 시작 하려면 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image5.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
 4.  선택 **제출** 테스트를 시작 합니다.
 
-![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image6.png)
+![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
 ## <a name="start-the-test"></a>테스트 시작
 
 디스크 식별 테스트 프롬프트 VaaS 에이전트를 실행 하는 컴퓨터에 표시 합니다. 일반적으로 이것이 Jumpbox를 dvm이 Azure Stack 인스턴스에 대 한 합니다.
 
-![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image8.png)
+![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
 ## <a name="choose-the-actions"></a>작업 선택
 
 1.  수행 합니다 **설명서** 및 **유효성 검사** 검토 하는 방법은 Microsoft에서이 시나리오를 수행 하는 방법에 대 한 링크.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image9.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
 2.  **다음**을 선택합니다.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image10.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
 3.  Precheck 스크립트를 실행 하는 지침을 따릅니다.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image11.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
 4.  Precheck 스크립트를 성공적으로 완료 되 면 수동 시나리오 (디스크 교체)를 기준으로 실행 합니다 **설명서** 하 고 **유효성 검사** 에서 링크를 **정보**탭 합니다.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image12.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
 5.  수동 시나리오를 수행 하는 동안 대화 상자를 닫지 마세요.
 
 6.  수동 시나리오를 수행 했으면 게시물 확인 스크립트를 실행 하려면 지침을 따릅니다.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image13.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
 7.  수동 시나리오 (디스크 교체) 성공적으로 완료 되 면 선택 **다음**합니다.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image14.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
 > [!Important]  
 > 창을 닫으면 그 전에 테스트는 중지 됩니다.
@@ -125,7 +125,7 @@ ms.locfileid: "52265854"
 
 1.  테스트가 완료 되 면 피드백을 보내도록 묻는 메시지가 나타납니다.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image15.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
 2.  이러한 질문에는 시나리오의 성공 비율과 릴리스 품질을 평가 하는 Microsoft 데 도움이 됩니다.
 
@@ -133,7 +133,7 @@ ms.locfileid: "52265854"
 
 1.  Microsoft에 제출 하려면 모든 로그 파일을 연결 합니다.
 
-    ![대체 텍스트](media\azure-stack-vaas-interactive-feature-verification\image16.png)
+    ![대체 텍스트](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
 2.  피드백 제출을 EULA를 수락 합니다.
 

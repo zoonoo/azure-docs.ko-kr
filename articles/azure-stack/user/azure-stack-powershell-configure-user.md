@@ -6,21 +6,20 @@ documentationcenter: ''
 author: sethmanheim
 manager: femila
 editor: ''
-ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 12/05/2018
 ms.author: sethm
 ms.reviewer: Balsu.G
-ms.openlocfilehash: acdad9788737f4f552cedc1b5f42e03e2288dba8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7710a08fffed304d4d9dd9b036e4c00bcd02a9a9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159082"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965960"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>사용자로 PowerShell 사용 하 여 Azure Stack에 연결
 
@@ -32,7 +31,7 @@ ms.locfileid: "44159082"
   - 요구 사항이 있는지 확인 합니다.
   - Azure와 연결 되어 Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS). 
   - 리소스 공급자를 등록 합니다.
-  - 연결을 테스트 합니다.
+  - 연결을 테스트합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -82,9 +81,13 @@ Azure Stack 구성에서 값을 사용 하 여 다음 스크립트 변수를 대
   $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
   # Sign in to your environment
+
+  $cred = get-credential
+
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
-    -TenantId $tenantId
+    -TenantId $tenantId `
+     $cred = get-credential
   ```
 
 ## <a name="register-resource-providers"></a>리소스 공급자 등록

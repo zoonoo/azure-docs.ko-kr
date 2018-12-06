@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237908"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969535"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 준비 된 데이터 분석 솔루션 만들기 
 
@@ -87,7 +87,7 @@ Azure functions 및 저장소 솔루션에는 데이터 볼륨 및 처리 요구
 
     다.  계정 종류: **저장소 (범용 V1)**
 
-    d.  위치: **미국 서 부**
+    d.  위치: **미국 서부**
 
     e.  복제: **로컬 중복 저장소 (LRS)**
 
@@ -103,7 +103,7 @@ Azure functions 및 저장소 솔루션에는 데이터 볼륨 및 처리 요구
 
 4.  선택 **storage 계정을 만들려면 만들기**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image1.png)
+    ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  를 만든 후에 저장소 계정의 이름을 선택 합니다.
 
@@ -111,7 +111,7 @@ Azure functions 및 저장소 솔루션에는 데이터 볼륨 및 처리 요구
 
 7.  블레이드의 맨 위에 있는 선택 **+ 컨테이너.** 선택한 **컨테이너**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image2.png)
+    ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image2.png)
 
 8.  이름: **세요**
 
@@ -137,7 +137,7 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
     | 구독 | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. |
     | **리소스 그룹** |  |  |
     | myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |  |
-    | OS | Windows | 서버 없는 호스팅은 현재 Windows에서 실행될 때만 가능합니다. |
+    | OS |  Windows | 서버 없는 호스팅은 현재 Windows에서 실행될 때만 가능합니다. |
     | **호스팅 계획** |  |  |
     | 소비 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. 소비 계획 기본적으로 리소스 함수를 통해 필요에 따라 동적으로 추가 됩니다. 이 서버 리스 호스팅에 대 한 요금만 함수 실행 시간입니다. |  |
     | 위치 | 가장 가까운 지역 | 함수 액세스 또는 다른 서비스에 가까운 영역을 선택 합니다. |
@@ -146,31 +146,31 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
     **예제:**
 
-    ![새 함수 앱 설정 정의](media\azure-stack-solution-staged-data-analytics\image6.png)
+    ![새 함수 앱 설정 정의](media/azure-stack-solution-staged-data-analytics/image6.png)
 
 5.  **만들기**를 선택하여 함수 앱을 프로비전하고 배포합니다.
 
 6.  포털의 오른쪽 위 모서리에 있는 [알림] 아이콘을 선택하고 **배포 성공** 메시지가 표시될 때까지 기다립니다.
 
-    ![새 함수 앱 설정 정의](media\azure-stack-solution-staged-data-analytics\image7.png)
+    ![새 함수 앱 설정 정의](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  선택 **리소스로 이동** 새 함수 앱을 볼 수 있습니다.
 
-![함수 앱을 성공적으로 만들었습니다.](media\azure-stack-solution-staged-data-analytics\image8.png)
+![함수 앱을 성공적으로 만들었습니다.](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Azure Stack 함수 앱에 함수 추가
 
 1.  클릭 하 여 새 함수를 만들 **함수**, 해당 **+ 새 함수** 단추입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image3.png)
+    ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  선택 **타이머 트리거**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image4.png)
+    ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image4.png)
 
 3.  선택 **C\#**  언어 및 함수 이름: `upload-to-azure` 일정을 설정 `0 0 * * * *`는 CRON에서 표기법은 한 번 한 시간입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image5.png)
+    ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Blob Storage 트리거 함수 만들기
 
@@ -178,7 +178,7 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
 2.  검색 필드에 입력 `blob` 한 다음에 대 한 원하는 언어를 선택 합니다 **Blob 트리거** 템플릿.
 
-  ![Blob Storage 트리거 템플릿을 선택합니다.](media\azure-stack-solution-staged-data-analytics\image10.png)
+  ![Blob Storage 트리거 템플릿을 선택합니다.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
 3.  아래 표에 지정 된 대로 설정을 사용 합니다.
 
@@ -190,7 +190,7 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
     **예제:**
 
-    ![Blob Storage 트리거 함수 만들기.](media\azure-stack-solution-staged-data-analytics\image11.png)
+    ![Blob Storage 트리거 함수 만들기.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
 4.  **만들기**를 선택하여 함수를 만듭니다.
 
@@ -202,7 +202,7 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
 3.  저장소 계정을 확장 **Blob 컨테이너**, blob 이전에 만든 및 합니다. 선택 **업로드할** 차례로 **파일을 업로드**합니다.
 
-    ![Blob 컨테이너에 파일 업로드.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Blob 컨테이너에 파일 업로드.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  업로드 파일 대화 상자에서 파일 필드를 선택 합니다. 이미지 파일과 같은 로컬 컴퓨터에는 파일을 찾아 선택 하 고 선택 **엽니다** 차례로 **업로드**합니다.
 
@@ -210,7 +210,7 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
     **예제:**
 
-    ![로그에서 메시지 보기.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![로그에서 메시지 보기.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>Azure Stack 저장소 계정 만들기
 
@@ -232,9 +232,9 @@ Blob 및 큐를 포함 하는 Azure Stack 저장소 계정을 만듭니다.
 
 4.  선택 **확인 합니다.**
 
-    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image14.png)
+    ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![대체 텍스트](media\azure-stack-solution-staged-data-analytics\image15.png)
+    ![대체 텍스트](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>큐 트리거 함수 만들기
 
@@ -252,13 +252,13 @@ Blob 및 큐를 포함 하는 Azure Stack 저장소 계정을 만듭니다.
 
 ## <a name="test-the-queue-triggered-function"></a>테스트는 큐 트리거 함수
 
-1.  Azure portal에서 함수를 찾습니다. 확장을 **로그** 페이지의 맨 아래에 있는 로그 스트리밍이 일시 중지 되지 않았는지 확인 합니다.
+1.  Azure Stack 포털에서 함수로 이동 합니다. 확장을 **로그** 페이지의 맨 아래에 있는 로그 스트리밍이 일시 중지 되지 않았는지 확인 합니다.
 
 2.  Storage 탐색기를 열고이 섹션의 앞부분에서 만든 저장소 계정에 연결 합니다.
 
 3.  저장소 계정을 확장 **Blob 컨테이너**, blob 이전에 만든 및 합니다. 선택 **업로드할** 차례로 **파일을 업로드 합니다.**
 
-    ![Blob 컨테이너에 파일 업로드.](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![Blob 컨테이너에 파일 업로드.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  업로드 파일 대화 상자에서 파일 필드를 선택 합니다. 이미지 파일과 같은 로컬 컴퓨터에는 파일을 찾아 선택 하 고 선택 **엽니다** 차례로 **업로드**합니다.
 
@@ -266,7 +266,7 @@ Blob 및 큐를 포함 하는 Azure Stack 저장소 계정을 만듭니다.
 
   **예제:**
 
-    ![로그에서 메시지 보기.](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![로그에서 메시지 보기.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>준수 데이터를 안전 하 게 저장 및 액세스
 

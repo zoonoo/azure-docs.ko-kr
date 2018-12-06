@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 2017e08361c9ff060fde96b78549133d48372e34
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: da88be76d01b246e273739566d629348895b68b6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853900"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972000"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack에서 MySQL 리소스 공급자 배포
 
@@ -32,8 +32,8 @@ MySQL Server 리소스 공급자를 사용 하 여 Azure Stack 서비스로 MySQ
 
 Azure Stack MySQL 리소스 공급자를 배포 하기 전에 준비에서 되어야 하는 몇 가지 필수 구성 요소가 있습니다. 이러한 요구 사항에 맞게, 권한 있는 끝점을 VM에 액세스할 수 있는 컴퓨터에서이 문서의 단계를 완료 합니다.
 
-* 따라서 아직 수행 하지 않은 경우 [Azure Stack 등록](.\azure-stack-registration.md) Azure 마켓플레이스 항목을 다운로드할 수 있도록 Azure를 사용 합니다.
-* 이 설치를 실행할 시스템에서 Azure 및 Azure Stack PowerShell 모듈을 설치 해야 합니다. 해당 시스템에는.NET 런타임의 최신 버전을 사용 하 여 Windows 10 또는 Windows Server 2016 이미지를 해야 합니다. 참조 [Azure Stack 용 PowerShell 설치](.\azure-stack-powershell-install.md)합니다.
+* 따라서 아직 수행 하지 않은 경우 [Azure Stack 등록](./azure-stack-registration.md) Azure 마켓플레이스 항목을 다운로드할 수 있도록 Azure를 사용 합니다.
+* 이 설치를 실행할 시스템에서 Azure 및 Azure Stack PowerShell 모듈을 설치 해야 합니다. 해당 시스템에는.NET 런타임의 최신 버전을 사용 하 여 Windows 10 또는 Windows Server 2016 이미지를 해야 합니다. 참조 [Azure Stack 용 PowerShell 설치](./azure-stack-powershell-install.md)합니다.
 * 다운로드 하 여 Azure Stack marketplace에 필요한 Windows Server core VM을 추가 합니다 **Windows Server 2016 Datacenter Server Core** 이미지입니다.
 
 * 이진 MySQL 리소스 공급자를 다운로드 하 고 임시 디렉터리에 콘텐츠를 추출할 자동 압축 풀기 프로그램을 실행 합니다.
@@ -60,7 +60,7 @@ Azure Stack MySQL 리소스 공급자를 배포 하기 전에 준비에서 되�
 
 ### <a name="certificates"></a>인증서
 
-_통합된 시스템 설치용_합니다. 선택적 PaaS 인증서 섹션에서 설명한 SQL PaaS PKI 인증서를 제공 해야 합니다 [Azure Stack 배포에 대 한 PKI 요구 사항](.\azure-stack-pki-certs.md#optional-paas-certificates)합니다. 지정 된 위치에.pfx 파일을 배치 합니다 **DependencyFilesLocalPath** 매개 변수입니다. ASDK 시스템에 대 한 인증서를 제공 하지 않습니다.
+_통합된 시스템 설치용_합니다. 선택적 PaaS 인증서 섹션에서 설명한 SQL PaaS PKI 인증서를 제공 해야 합니다 [Azure Stack 배포에 대 한 PKI 요구 사항](./azure-stack-pki-certs.md#optional-paas-certificates)합니다. 지정 된 위치에.pfx 파일을 배치 합니다 **DependencyFilesLocalPath** 매개 변수입니다. ASDK 시스템에 대 한 인증서를 제공 하지 않습니다.
 
 ## <a name="deploy-the-resource-provider"></a>리소스 공급자 배포
 

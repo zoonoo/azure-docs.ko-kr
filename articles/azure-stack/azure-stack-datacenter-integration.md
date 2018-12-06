@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720449"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962684"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 통합 시스템의 데이터 센터 통합 고려 사항
 Azure Stack 통합 시스템에서 관심이 있는 경우에 배포 및 시스템 데이터 센터에 적용 하는 방법의 주요 계획 고려 사항 중 일부를 이해 해야 합니다. 이 문서에서는 Azure Stack 다중 노드 시스템에 대 한 중요 한 인프라 결정을 내릴 수 있도록 이러한 고려 사항은의 대략적인 개요를 제공 합니다. 이러한 고려 사항을 이해에는 데이터 센터에 Azure Stack을 배포할 때 OEM 하드웨어 공급 업체를 작업할 때 도움이 됩니다.  
@@ -57,7 +57,7 @@ Azure Stack 배포의 경우 Azure AD 또는 AD FS에 대 한 사용 하려는 i
 
 Id 공급자 선택 하는 등 Active Directory 도메인에 참가 여부를 테 넌 트 가상 컴퓨터, id 시스템 및 계정에서 사용 하는 관련이 없습니다. 이 별도입니다.
 
-에 id 공급자를 선택 하는 방법에 대 한 자세히 알아볼 수 있습니다 합니다 [Azure Stack 통합된 시스템 연결 모델 문서](.\azure-stack-connection-models.md)합니다.
+에 id 공급자를 선택 하는 방법에 대 한 자세히 알아볼 수 있습니다 합니다 [Azure Stack 통합된 시스템 연결 모델 문서](./azure-stack-connection-models.md)합니다.
 
 ### <a name="ad-fs-and-graph-integration"></a>AD FS 및 그래프 통합
 AD FS를 사용 하 여 id 공급자로 Azure Stack을 배포 하려는 경우에 페더레이션 트러스트를 통해 기존 AD FS 인스턴스를 사용 하 여 Azure Stack에서 AD FS 인스턴스를 통합 해야 합니다. 이 id를 기존 Active Directory 포리스트를 Azure Stack에서 리소스를 사용 하 여 인증할 수 있습니다.

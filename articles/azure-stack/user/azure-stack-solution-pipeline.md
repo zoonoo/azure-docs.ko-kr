@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280744"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967064"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>자습서: Azure 및 Azure에 앱을 배포 스택
 
@@ -126,27 +126,27 @@ Azure DevOps 서비스에 대 한 Azure Resource Manager는 서비스 주체를 
 
 1. Azure Active Directory의 **앱 등록**에서 응용 프로그램을 선택합니다.
 
-    ![응용 프로그램 선택](media\azure-stack-solution-hybrid-pipeline\000_01.png)
+    ![응용 프로그램 선택](media/azure-stack-solution-hybrid-pipeline/000_01.png)
 
 2. 값을 기록해 **응용 프로그램 ID**합니다. Azure DevOps 서비스에서 서비스 끝점을 구성 하는 경우 해당 값을 사용 합니다.
 
-    ![응용 프로그램 UI](media\azure-stack-solution-hybrid-pipeline\000_02.png)
+    ![응용 프로그램 UI](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
 3. 인증 키를 생성하려면 **설정**을 선택합니다.
 
-    ![앱 설정 편집](media\azure-stack-solution-hybrid-pipeline\000_03.png)
+    ![앱 설정 편집](media/azure-stack-solution-hybrid-pipeline/000_03.png)
 
 4. 인증 키를 생성하려면 **키**를 선택합니다.
 
-    ![키 설정 구성](media\azure-stack-solution-hybrid-pipeline\000_04.png)
+    ![키 설정 구성](media/azure-stack-solution-hybrid-pipeline/000_04.png)
 
 5. 키에 대 한 설명을 입력 하 고 키의 기간을 설정 합니다. 완료되면 **저장**을 선택합니다.
 
-    ![키 설명 및 기간](media\azure-stack-solution-hybrid-pipeline\000_05.png)
+    ![키 설명 및 기간](media/azure-stack-solution-hybrid-pipeline/000_05.png)
 
     키, 키를 저장 한 후 **값** 표시 됩니다. 이 값을 나중에 가져올 수 없습니다 때문에이 값을 복사 합니다. 제공 하는 **키 값** 응용 프로그램으로 로그인 하려면 응용 프로그램 id입니다. 응용 프로그램에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
-    ![키 값](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+    ![키 값](media/azure-stack-solution-hybrid-pipeline/000_06.png)
 
 ### <a name="get-the-tenant-id"></a>테 넌 트 ID를 가져옵니다.
 
@@ -154,15 +154,15 @@ Azure DevOps 서비스를 실행 하려면 서비스 끝점 구성의 일부로 
 
 1. **Azure Active Directory**를 선택합니다.
 
-    ![Azure Active Directory 테 넌 트에 대 한](media\azure-stack-solution-hybrid-pipeline\000_07.png)
+    ![Azure Active Directory 테 넌 트에 대 한](media/azure-stack-solution-hybrid-pipeline/000_07.png)
 
 2. 테넌트 ID를 가져오려면 Azure AD 테넌트에 대한 **속성**을 선택합니다.
 
-    ![테 넌 트 속성 보기](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+    ![테 넌 트 속성 보기](media/azure-stack-solution-hybrid-pipeline/000_08.png)
 
 3. **디렉터리 ID**를 복사합니다. 이 값은 테넌트 ID입니다.
 
-    ![디렉터리 ID](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+    ![디렉터리 ID](media/azure-stack-solution-hybrid-pipeline/000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Azure Stack 구독에 리소스를 배포 하려면 서비스 주체 권한 부여
 
@@ -172,27 +172,27 @@ Azure DevOps 서비스를 실행 하려면 서비스 끝점 구성의 일부로 
 
 1. 응용 프로그램을 할당하려는 범위 수준으로 이동합니다. 예를 들어 구독 범위에서 역할을 할당하려면 **구독**을 선택합니다.
 
-    ![구독 선택](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+    ![구독 선택](media/azure-stack-solution-hybrid-pipeline/000_10.png)
 
 2. **구독**, Visual Studio Enterprise를 선택 합니다.
 
-    ![Visual Studio Enterprise](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+    ![Visual Studio Enterprise](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
 3. Visual Studio Enterprise에서 선택 **액세스 제어 (IAM)** 합니다.
 
-    ![액세스 제어(IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![액세스 제어(IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
 
 4. **추가**를 선택합니다.
 
-    ![추가](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+    ![추가](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
 5. **권한 추가**, 역할을 선택 하는 응용 프로그램에 할당 하려면. 이 예제는 **소유자** 역할입니다.
 
-    ![소유자 역할](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+    ![소유자 역할](media/azure-stack-solution-hybrid-pipeline/000_14.png)
 
 6. 기본적으로 Azure Active Directory 응용 프로그램이 사용 가능한 옵션에 표시되지 않습니다. 응용 프로그램을 찾으려면에서 해당 이름을 제공 해야 합니다는 **선택** 필드를 검색 합니다. 앱을 선택합니다.
 
-    ![앱 검색 결과](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+    ![앱 검색 결과](media/azure-stack-solution-hybrid-pipeline/000_16.png)
 
 7. **저장**을 선택하여 역할 할당을 완료합니다. 목록에서 해당 범위에 대한 역할에 할당된 사용자 목록에 응용 프로그램이 표시될 것입니다.
 
@@ -212,37 +212,37 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 
 2. 선택 **보안 관리** 액세스 토큰 생성 페이지에 있습니다.
 
-    ![사용자 로그인](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![사용자 로그인](media/azure-stack-solution-hybrid-pipeline/000_17.png)
 
-    ![프로젝트 선택](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![프로젝트 선택](media/azure-stack-solution-hybrid-pipeline/000_18.png)
 
-    ![개인용 액세스 토큰 추가](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+    ![개인용 액세스 토큰 추가](media/azure-stack-solution-hybrid-pipeline/000_18a.png)
 
-    ![토큰 만들기](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+    ![토큰 만들기](media/azure-stack-solution-hybrid-pipeline/000_18b.png)
 
 3. 토큰을 복사 합니다.
 
     > [!Note]
     > 토큰 정보를 저장 합니다. 이 정보는 저장 되지 않습니다 하 고 다시 표시 되지 않습니다 웹 페이지에서 벗어날 때.
 
-    ![개인용 액세스 토큰](media\azure-stack-solution-hybrid-pipeline\000_19.png)
+    ![개인용 액세스 토큰](media/azure-stack-solution-hybrid-pipeline/000_19.png)
 
 ### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Azure Stack에서 Azure DevOps 서비스 빌드 에이전트 설치 호스팅된 빌드 서버
 
 1. Azure Stack 호스트에 배포 된 빌드 서버에 연결 합니다.
 2. 다운로드 및 배포 개인을 사용 하 여 서비스로 빌드 에이전트 액세스 토큰 (PAT) 및 VM 관리자 계정으로 실행 합니다.
 
-    ![빌드 에이전트를 다운로드 합니다.](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+    ![빌드 에이전트를 다운로드 합니다.](media/azure-stack-solution-hybrid-pipeline/010_downloadagent.png)
 
 3. 추출 된 빌드 에이전트에 대 한 폴더로 이동 합니다. 실행 합니다 **config.cmd** 관리자 권한 명령 프롬프트에서 파일입니다.
 
-    ![추출 된 빌드 에이전트](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+    ![추출 된 빌드 에이전트](media/azure-stack-solution-hybrid-pipeline/000_20.png)
 
-    ![빌드 에이전트를 등록 합니다.](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+    ![빌드 에이전트를 등록 합니다.](media/azure-stack-solution-hybrid-pipeline/000_21.png)
 
 4. config.cmd 완료 되 면 빌드 에이전트 폴더를 추가 파일을 사용 하 여 업데이트 됩니다. 압축 푼된 콘텐츠의 폴더는 다음과 같아야 합니다.
 
-    ![빌드 에이전트 폴더 업데이트](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
+    ![빌드 에이전트 폴더 업데이트](media/azure-stack-solution-hybrid-pipeline/009_token_file.png)
 
     Azure DevOps 서비스 폴더에서 에이전트를 볼 수 있습니다.
 
@@ -250,23 +250,23 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 
 끝점을 만들면 Visual Studio Online (VSTO) 빌드는 Azure Stack에 Azure 서비스 앱을 배포할 수 있습니다. Azure DevOps 서비스는 Azure Stack에 연결 하는 빌드 에이전트에 연결 합니다.
 
-![VSTO에서 NorthwindCloud 샘플 앱](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+![VSTO에서 NorthwindCloud 샘플 앱](media/azure-stack-solution-hybrid-pipeline/012_securityendpoints.png)
 
 1. VSTO에 로그인 하 고 앱 설정 페이지로 이동 합니다.
 2. **설정**에서 **보안**을 선택합니다.
 3. **Azure DevOps 서비스 그룹**를 선택 **의해 끝점 작성자**합니다.
 
-    ![NorthwindCloud 끝점 작성자](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+    ![NorthwindCloud 끝점 작성자](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
 
 4. 에 **멤버** 탭을 선택 **추가**합니다.
 
-    ![멤버 추가](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+    ![멤버 추가](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
 5. **사용자 및 그룹 추가**사용자 이름을 입력 하 고 사용자 목록에서 해당 사용자를 선택 합니다.
 6. **변경 내용 저장**을 선택합니다.
 7. 에 **Azure DevOps 서비스 그룹** 목록에서 **끝점 관리자**합니다.
 
-    ![NorthwindCloud 끝점 관리자](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+    ![NorthwindCloud 끝점 관리자](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. 에 **멤버** 탭을 선택 **추가**합니다.
 9. **사용자 및 그룹 추가**사용자 이름을 입력 하 고 사용자 목록에서 해당 사용자를 선택 합니다.
@@ -297,13 +297,13 @@ Azure 역할 기반 Access Control (RBAC)는 Azure에 대 한 세분화 된 액�
 
 이제 끝점을 만들었으므로 DevOps Azure Stack 연결에 사용할 준비가 되었습니다. Azure Stack에서 빌드 에이전트에서 DevOps 지침 가져오고 에이전트에서 Azure Stack을 사용 하 여 통신에 대 한 끝점 정보를 전달 하는 다음 합니다.
 
-![빌드 에이전트가 Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+![빌드 에이전트가 Azure AD](media/azure-stack-solution-hybrid-pipeline/016_save_changes.png)
 
 ### <a name="create-an-endpoint-for-ad-fs"></a>AD FS에 대 한 끝점을 만듭니다.
 
 Azure DevOps에 대 한 최신 업데이트는 인증용 인증서를 사용 하 여 서비스 주체를 사용 하 여 서비스 연결을 만들 수 있습니다. Id 공급자로 Adfs를 사용 하 여 Azure Stack을 배포 하는 경우 이것이 필요 합니다. 
 
-![빌드 에이전트 AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+![빌드 에이전트 AD FS](media/azure-stack-solution-hybrid-pipeline/image06.png)
 
 다음 매핑을 사용 하 여 서비스 연결을 만들 수 있습니다.
 
@@ -342,17 +342,17 @@ CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용�
 
 1. Azure Stack에서 프로젝트 만들기 권한이 있는 조직을 사용 하 여 Azure DevOps 서비스에 로그인 합니다. 다음 화면 캡처 HybridCICD 프로젝트에 연결 하는 방법을 보여 줍니다.
 
-    ![프로젝트에 연결](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+    ![프로젝트에 연결](media/azure-stack-solution-hybrid-pipeline/017_connect_to_project.png)
 
 2. **리포지토리를 복제 합니다** 만들어 기본 웹 앱을 열어서 합니다.
 
-    ![리포지토리 복제](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+    ![리포지토리 복제](media/azure-stack-solution-hybrid-pipeline/018_link_arm.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>두 클라우드 모두에서 App Services에 대 한 자체 포함 된 웹 앱 배포 만들기
 
 1. 편집 합니다 **WebApplication.csproj** 파일: 선택 **runtimeidentifier-** 추가한 `win10-x64.` 자세한 내용은 참조 하십시오 [자체 포함된 배포](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 설명서입니다.
 
-    ![Runtimeidentifier-구성](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+    ![Runtimeidentifier-구성](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 
 2. 팀 탐색기를 사용 하 여 Azure DevOps 서비스에 코드를 확인 합니다.
 
@@ -366,7 +366,7 @@ CI/CD 하이브리드 응용 프로그램 코드와 인프라 코드를 적용�
 
 3. **인수**에 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하려면 반드시 확인 해야 합니다.
 
-    ![인수 빌드 파이프라인 추가](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![인수 빌드 파이프라인 추가](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 
 4. 빌드를 실행 합니다. 합니다 [자체 포함된 배포 빌드](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 프로세스는 Azure 및 Azure Stack에서 실행 될 수 있는 아티팩트를 게시 합니다.
 
@@ -385,89 +385,89 @@ Azure DevOps 서비스 및 Team Foundation Server (TFS)는 항상 구성 및 관
 1. Azure DevOps 서비스에 로그인 하 고 이동할 **Azure 파이프라인** 프로젝트에 대 한 합니다.
 2. 에 **릴리스에서** 탭을 선택  **\[ +]** 선택 하 고 **릴리스 정의 만들기**합니다.
 
-   ![릴리스 파이프라인 만들기](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![릴리스 파이프라인 만들기](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
 
 3. **템플릿을 선택**, 선택 **Azure App Service 배포**를 선택한 후 **적용**합니다.
 
-    ![템플릿 적용](media\azure-stack-solution-hybrid-pipeline\102.png)
+    ![템플릿 적용](media/azure-stack-solution-hybrid-pipeline/102.png)
 
 4. **아티팩트 추가**에서 **원본 (빌드 정의)** 풀 다운 메뉴에서 Azure 클라우드 빌드 앱을 선택 합니다.
 
-    ![아티팩트 추가](media\azure-stack-solution-hybrid-pipeline\103.png)
+    ![아티팩트 추가](media/azure-stack-solution-hybrid-pipeline/103.png)
 
 5. 에 **파이프라인** 탭을 선택 합니다 **1 단계**, **작업이 1 개** 연결할 **환경 작업 보기**.
 
-    ![파이프라인 보기 작업](media\azure-stack-solution-hybrid-pipeline\104.png)
+    ![파이프라인 보기 작업](media/azure-stack-solution-hybrid-pipeline/104.png)
 
 6. 에 **작업** 탭을 입력으로 Azure는 **환경 이름** AzureCloud Traders 웹 EP에서 선택 하 고는 **Azure 구독** 드롭 다운 목록.
 
-    ![환경 변수 설정](media\azure-stack-solution-hybrid-pipeline\105.png)
+    ![환경 변수 설정](media/azure-stack-solution-hybrid-pipeline/105.png)
 
 7. 입력 합니다 **Azure app service 이름**, 다음 화면 캡처에 표시 된 "northwindtraders"입니다.
 
-    ![App service 이름](media\azure-stack-solution-hybrid-pipeline\106.png)
+    ![App service 이름](media/azure-stack-solution-hybrid-pipeline/106.png)
 
 8. 에이전트 단계에 대 한 선택 **호스팅된 VS2017** 에서 합니다 **에이전트 큐** 드롭 다운 목록.
 
-    ![호스트 된 에이전트](media\azure-stack-solution-hybrid-pipeline\107.png)
+    ![호스트 된 에이전트](media/azure-stack-solution-hybrid-pipeline/107.png)
 
 9. **Azure App Service 배포**, 선택 유효한 **패키지 또는 폴더가** 환경에 대 한 합니다.
 
-    ![패키지 또는 폴더 선택](media\azure-stack-solution-hybrid-pipeline\108.png)
+    ![패키지 또는 폴더 선택](media/azure-stack-solution-hybrid-pipeline/108.png)
 
 10. **선택 파일 또는 폴더**를 선택 **확인** 하 **위치**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-hybrid-pipeline\109.png)
+    ![대체 텍스트](media/azure-stack-solution-hybrid-pipeline/109.png)
 
 11. 모든 변경 내용을 저장 하 고로 돌아가서 **파이프라인**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-hybrid-pipeline\110.png)
+    ![대체 텍스트](media/azure-stack-solution-hybrid-pipeline/110.png)
 
 12. 에 **파이프라인** 탭을 선택 **아티팩트 추가**, 선택 합니다 **NorthwindCloud Traders 선박** 에서 **소스 (빌드 정의)** 드롭 다운 목록.
 
-    ![새 아티팩트 추가](media\azure-stack-solution-hybrid-pipeline\111.png)
+    ![새 아티팩트 추가](media/azure-stack-solution-hybrid-pipeline/111.png)
 
 13. 온 **템플릿을 선택**, 다른 환경을 추가 합니다. 선택할 **Azure App Service 배포** 선택한 후 **적용**합니다.
 
-    ![템플릿 선택](media\azure-stack-solution-hybrid-pipeline\112.png)
+    ![템플릿 선택](media/azure-stack-solution-hybrid-pipeline/112.png)
 
 14. "Azure Stack"으로 입력 합니다 **환경 이름**합니다.
 
-    ![환경 이름](media\azure-stack-solution-hybrid-pipeline\113.png)
+    ![환경 이름](media/azure-stack-solution-hybrid-pipeline/113.png)
 
 15. 에 **작업** 탭, 찾기 및 Azure Stack을 선택 합니다.
 
-    ![Azure Stack 환경](media\azure-stack-solution-hybrid-pipeline\114.png)
+    ![Azure Stack 환경](media/azure-stack-solution-hybrid-pipeline/114.png)
 
 16. **Azure 구독** 드롭 다운 목록에서 Azure Stack 끝점에 대 한 "AzureStack Traders 선박 EP"를 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-hybrid-pipeline\115.png)
+    ![대체 텍스트](media/azure-stack-solution-hybrid-pipeline/115.png)
 
 17. Azure Stack 웹 앱 이름으로 입력 합니다 **App service 이름**합니다.
 
-    ![App service 이름](media\azure-stack-solution-hybrid-pipeline\116.png)
+    ![App service 이름](media/azure-stack-solution-hybrid-pipeline/116.png)
 
 18. 아래 **에이전트 선택**에서 "azurestack의 경우-bDouglas Fir"를 선택 합니다 **에이전트 큐** 드롭 다운 목록.
 
-    ![에이전트를 선택 합니다.](media\azure-stack-solution-hybrid-pipeline\117.png)
+    ![에이전트를 선택 합니다.](media/azure-stack-solution-hybrid-pipeline/117.png)
 
 19. 에 대 한 **Azure App Service 배포**, 선택 유효한 **패키지 또는 폴더가** 환경에 대 한 합니다. 온 **파일 또는 폴더 선택**를 선택 **확인** 폴더에 대 한 **위치**합니다.
 
-    ![패키지 또는 폴더 선택](media\azure-stack-solution-hybrid-pipeline\118.png)
+    ![패키지 또는 폴더 선택](media/azure-stack-solution-hybrid-pipeline/118.png)
 
-    ![위치를 승인 합니다.](media\azure-stack-solution-hybrid-pipeline\119.png)
+    ![위치를 승인 합니다.](media/azure-stack-solution-hybrid-pipeline/119.png)
 
 20. 에 **변수에** 탭에서 명명 된 변수를 찾을 **VSTS_ARM_REST_IGNORE_SSL_ERRORS**합니다. 변수 값을 설정 합니다 **true**, 해당 범위를 설정 하 고 **Azure Stack**합니다.
 
-    ![변수를 구성 합니다.](media\azure-stack-solution-hybrid-pipeline\120.png)
+    ![변수를 구성 합니다.](media/azure-stack-solution-hybrid-pipeline/120.png)
 
 21. 에 **파이프라인** 탭을 선택 합니다 **연속 배포 트리거** 집합과 NorthwindCloud Traders 웹 아티팩트에 대 한 아이콘을 **연속 배포 트리거** 를 **활성화**합니다.  "NorthwindCloud Traders-선박" 아티팩트에 대 한 동일한 작업을 수행 합니다.
 
-    ![연속 배포 트리거 설정](media\azure-stack-solution-hybrid-pipeline\121.png)
+    ![연속 배포 트리거 설정](media/azure-stack-solution-hybrid-pipeline/121.png)
 
 22. Azure Stack 환경에 대해 선택 된 **배포 전 조건** 아이콘 트리거를 설정 **릴리스 후**합니다.
 
-    ![배포 전 조건 트리거 설정](media\azure-stack-solution-hybrid-pipeline\122.png)
+    ![배포 전 조건 트리거 설정](media/azure-stack-solution-hybrid-pipeline/122.png)
 
 23. 변경 내용을 모두 저장합니다.
 
@@ -480,15 +480,15 @@ Azure DevOps 서비스 및 Team Foundation Server (TFS)는 항상 구성 및 관
 
 1. 에 **파이프라인** 탭을 열고 합니다 **릴리스** 드롭 다운 나열 하 고 선택 **릴리스 만들기**.
 
-    ![릴리스를 만듭니다.](media\azure-stack-solution-hybrid-pipeline\200.png)
+    ![릴리스를 만듭니다.](media/azure-stack-solution-hybrid-pipeline/200.png)
 
 2. 릴리스에 대 한 설명을 입력, 올바르지 아티팩트 선택 되어 있는지 확인 하 고 선택한 **만들기**합니다. 배너를 몇 분 후 새 릴리스를 만든 및 릴리스 이름의 링크로 표시 되는 나타내는 표시 됩니다. 릴리스 요약 페이지를 보려면이 링크를 선택 합니다.
 
-    ![릴리스 생성 배너](media\azure-stack-solution-hybrid-pipeline\201.png)
+    ![릴리스 생성 배너](media/azure-stack-solution-hybrid-pipeline/201.png)
 
 3. 릴리스 요약 페이지에 대 한 릴리스에 대 한 세부 정보를 보여 줍니다. "릴리스-2"에 대 한 다음 화면 캡처에는 **환경** 섹션 보여줍니다 합니다 **배포 상태** "IN PROGRESS", Azure Stack에 대 한 상태와 Azure가 "SUCCEEDED"에 대 한 합니다. Azure 환경에 대 한 배포 상태를 "SUCCEEDED"로 변경 되 면 릴리스 승인 준비가 되었음을 나타내는 배너가 나타납니다. 때 배포 보류 중이거나 실패 한 파란색 **(i)** 정보 아이콘이 표시 됩니다. 지연 또는 오류에 대 한 이유를 포함 하는 팝업이 표시 아이콘을 마우스로 가리킵니다.
 
-    ![릴리스 요약 페이지](media\azure-stack-solution-hybrid-pipeline\202.png)
+    ![릴리스 요약 페이지](media/azure-stack-solution-hybrid-pipeline/202.png)
 
 목록과 같은 다른 보기 릴리스를 승인 보류 중임을 나타내는 아이콘도 표시 됩니다. 이 아이콘에 대 한 팝업 환경 이름 및 배포와 관련 된 자세한 정보를 보여 줍니다. 관리자로 릴리스와 릴리스에서 승인을 받기 위해 대기 하 고 있는 참조의 전반적인 진행 상황을 확인할에 대 한 것은 쉽습니다.
 
@@ -502,7 +502,7 @@ Azure DevOps 서비스 및 Team Foundation Server (TFS)는 항상 구성 및 관
 
 2. 배포가 완료 되 면 전체 로그 파일은 오른쪽 창에 표시 됩니다. 선택할 수 있습니다 **단계** 초기화 "작업을" 예: 한 번에 대 한 로그 파일을 보려면 왼쪽된 창에서. 개별 로그를 참조 하는 기능 쉽게 추적 및 전체 배포의 부분을 디버깅 합니다. 할 수도 있습니다 **저장할** 단계에 대 한 로그 파일 또는 **모든 로그를 zip으로 다운로드**합니다.
 
-    ![릴리스 로그](media\azure-stack-solution-hybrid-pipeline\203.png)
+    ![릴리스 로그](media/azure-stack-solution-hybrid-pipeline/203.png)
 
 3. 엽니다는 **요약** 릴리스에 대 한 일반 정보를 보려면 탭 합니다. 이 보기는 빌드, 배포 된 환경, 배포 상태 및 릴리스에 대 한 기타 정보에 대 한 정보를 표시 합니다.
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2fdd8a586c9c8dae0ab9cec1176b71a137893b17
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8243ee2e657f42959c9f0a71c7c50fc1a2dda737
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384996"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966420"
 documentType: LandingData
 title: Azure Cosmos DB 설명서
 metadata:
@@ -13,13 +13,10 @@ metadata:
   description: Azure Cosmos DB를 사용하여 전역적으로 분산된 다중 모델 데이터베이스를 사용하는 방법을 알아봅니다. 자습서는 문서, 키/값 및 그래프 데이터베이스를 빌드 및 쿼리하는 방법을 보여 줍니다.
   services: cosmos-db
   author: SnehaGunda
-  manager: kfile
+  ms.author: sngun
   ms.service: cosmos-db
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/26/2018
-  ms.author: sngun
 abstract:
   description: Azure Cosmos DB는 문서, 키-값, 넓은 열 및 그래프 데이터베이스를 지원하는 전세계로 분산된 다중 모델 데이터베이스 서비스입니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Cosmos DB를 사용하는 방법을 알아봅니다.
   aside:
@@ -161,7 +158,7 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: " 크기 조정하도록 빌드된 Azure Cosmos DB 데이터베이스 만들기"
+    - title: " 크기 조정하도록 빌드된 Azure Cosmos DB 데이터베이스 만들기"
       href: /learn/modules/create-cosmos-db-for-scale/
       image:
         src: /learn/achievements/create-cosmos-db-for-scale.svg

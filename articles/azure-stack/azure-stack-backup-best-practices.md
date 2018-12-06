@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: cca5fe492032c74a9922780f197065e9c2b40ad3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035104"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966137"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>인프라 Backup 서비스에 대 한 유용한 정보
 
@@ -46,7 +46,7 @@ ms.locfileid: "51035104"
 
 키를 안전한 위치 (예를 들어 공용 Azure Key Vault 비밀)에 저장 되어야 합니다. Azure Stack 다시 배포 하는 동안이 키를 사용 해야 합니다. 
 
-![키를 안전한 위치를 저장 합니다.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![키를 안전한 위치를 저장 합니다.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
 ## <a name="operational-best-practices"></a>운영 모범 사례
 

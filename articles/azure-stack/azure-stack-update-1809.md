@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2018
+ms.date: 12/05/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: bcb135e19796bcab8a8e06e3c1896b247188a58c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314675"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970844"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 업데이트
 
@@ -57,7 +57,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 <!-- TBD - IS ASDK --> 
 - Azure Stack 사용자 포털에서 가상 컴퓨터를 만든이 및 포털 잘못 된 DS 시리즈 VM에 연결할 수 있는 데이터 디스크 수를 표시 하는 문제가 수정 되었습니다. DS 시리즈 Vm은 Azure 구성으로 많은 데이터 디스크를 수용할 수 있습니다.
 
-- 다음과 같은 관리 디스크 문제가 1809에서 고정 되어 있으며는 1808에도 수정 되어 [Azure Stack 핫픽스 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- 다음과 같은 관리 디스크 문제가 1809에서 고정 되어 있으며는 1808에도 수정 되어 [Azure Stack 핫픽스 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
    - 관리 디스크 virtual machines (DS, DSv2, Fs, Fs_V2) 오류로 인해 실패 하는 프리미엄 크기는 연결 SSD 데이터 디스크에서 문제를 해결 했습니다.: *가상 머신 'vmname' 오류에 대 한 디스크를 업데이트 하지 못했습니다: 요청 때문에 작업을 수행할 수 없습니다 저장소 계정 유형 VM 크기에 대 한 'Premium_LRS'를 사용할 수 없습니다 ' Standard_DS/Ds_V2/FS/Fs_v2)* 합니다. 
@@ -78,14 +78,14 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
       1. 테 넌 트 포털에서로 이동 **구독** 구독을 찾습니다. 클릭 **리소스 공급자**, 클릭 **Microsoft.Compute**를 클릭 하 고 **re-register**합니다.
       2. 로 동일한 구독에 따라 **액세스 제어 (IAM)**, 되어 있는지 확인 하 고 **Azure Stack – Managed Disk** 나열 됩니다.
    2. 다중 테 넌 트 환경에 구성한 게스트 디렉터리와 연결 된 구독에서 Vm을 배포할 내부 오류 메시지와 함께 실패할 수 있습니다. 이 오류를 해결 하려면 다음이 단계를 수행 합니다.
-      1. 적용 된 [1808 Azure Stack 핫픽스](https://support.microsoft.com/help/4471992)합니다.
+      1. 적용 된 [1808 Azure Stack 핫픽스](https://support.microsoft.com/help/4481066)합니다.
       2. 단계를 따릅니다 [이 문서에서는](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) 각 게스트 디렉터리를 다시 구성 합니다.
 
 
 ### <a name="changes"></a>변경 내용
 
 <!-- 2635202 - IS, ASDK -->
-- 백업 서비스 인프라에서 이동 합니다 [공용 인프라 네트워크](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network) 에 [공용 VIP 네트워크](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network)합니다. 고객은 서비스에 공용 VIP 네트워크에서 백업 저장소 위치에 액세스할 수 있도록 해야 합니다.  
+- 백업 서비스 인프라에서 이동 합니다 [공용 인프라 네트워크](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) 에 [공용 VIP 네트워크](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network)합니다. 고객은 서비스에 공용 VIP 네트워크에서 백업 저장소 위치에 액세스할 수 있도록 해야 합니다.  
 
 > [!IMPORTANT]  
 > 파일 서버에 공용 VIP 네트워크에서 연결을 허용 하지 않는 방화벽이 있는 경우 이러한 변경으로 인해 실패 "오류 53 네트워크 경로 찾을 수 없습니다."를 사용 하 여 인프라 백업 이 주요 변경 내용에 적절 한 해결 방법은 없습니다. Microsoft는 고객 피드백에 따라 핫픽스에서이 변경 내용 되돌리기 됩니다. 살펴보시기 합니다 [업데이트 단계 섹션 게시](#post-update-steps) 1809에 사용할 수 있는 핫픽스에 대 한 자세한 정보에 대 한 합니다. 핫픽스를 사용할 수 있는 네트워크 정책에는 공용 VIP 네트워크에 인프라 리소스에 액세스를 허용 하지 않는 경우에 1809로 업데이트 한 후 적용 해야 합니다. 이 변경 1811의 모든 시스템에 적용 됩니다. 추가 작업이 필요 하지 않습니다. 있는지 1809에서 핫픽스를 적용 합니다.  
@@ -143,7 +143,7 @@ Azure Stack 1809 업데이트 빌드 번호는 **1.1809.0.90**합니다.
 
 ### <a name="prerequisites"></a>필수 조건
 
-- 1809 적용 하기 전에 1808에 대 한 최신 Azure Stack 핫픽스를 설치 합니다. 자세한 내용은 [KB 4471992 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.7.113](https://support.microsoft.com/help/4471992/)합니다.
+- 1809 적용 하기 전에 1808에 대 한 최신 Azure Stack 핫픽스를 설치 합니다. 자세한 내용은 [KB 4481066 – Azure Stack 핫픽스 Azure Stack 핫픽스 1.1808.9.117](https://support.microsoft.com/help/4481066/)합니다.
 
   > [!TIP]  
   > 다음을 구독할 *RRS* 또는 *Atom* Azure Stack 핫픽스를 피드 합니다.

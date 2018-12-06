@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 6fa3ba36dca45d5b99c6b5f2ba24367bcd077024
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 181f37fb72584e18cc963ba1ffde070379a1b0c6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028831"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961464"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Azure Stack 백업 유효성을 검사 하 여 ASDK 사용
-Azure Stack을 배포 하 고 제품, 계획, 할당량 및 구독 같은 사용자 리소스를 프로 비전을 수행 해야 [Azure Stack 인프라 백업 사용](..\azure-stack-backup-enable-backup-console.md)합니다. 예약 및 일반 인프라 백업을 실행 하는 인프라 관리 데이터가 손실 되지 치명적인 하드웨어 또는 서비스 오류 이면 해야 합니다.
+Azure Stack을 배포 하 고 제품, 계획, 할당량 및 구독 같은 사용자 리소스를 프로 비전을 수행 해야 [Azure Stack 인프라 백업 사용](../azure-stack-backup-enable-backup-console.md)합니다. 예약 및 일반 인프라 백업을 실행 하는 인프라 관리 데이터가 손실 되지 치명적인 하드웨어 또는 서비스 오류 이면 해야 합니다.
 
 > [!TIP]
-> 하는 것이 좋습니다 있습니다 [주문형 백업을 실행할](..\azure-stack-backup-back-up-azure-stack.md) 사용 가능한 최신 인프라 데이터의 복사본을 확인 하기 위해이 절차를 시작 하기 전에 합니다. 백업이 완료 된 후 백업 ID를 캡처할 수 있는지 확인 합니다. 이 ID는 클라우드 복구 중 해야 합니다. 
+> 하는 것이 좋습니다 있습니다 [주문형 백업을 실행할](../azure-stack-backup-back-up-azure-stack.md) 사용 가능한 최신 인프라 데이터의 복사본을 확인 하기 위해이 절차를 시작 하기 전에 합니다. 백업이 완료 된 후 백업 ID를 캡처할 수 있는지 확인 합니다. 이 ID는 클라우드 복구 중 해야 합니다. 
 
 Azure Stack 인프라 백업에는 Azure Stack 다시 배포 하는 동안 복원할 수 있는 클라우드에 대 한 중요 한 데이터가 포함 됩니다. 이러한 백업은 프로덕션 클라우드 영향을 주지 않고 유효성을 검사 하 여 ASDK를 사용할 수 있습니다. 
 

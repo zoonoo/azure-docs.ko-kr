@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034340"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968735"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>치명적인 데이터 손실 로부터 복구
 
@@ -40,11 +40,11 @@ Azure Stack 데이터 센터에서 Azure 서비스를 실행합니다. Azure Sta
 
 Azure 시작을 보호 하는 과정은 인프라 및 응용 프로그램/테 넌 트 데이터를 별도로 백업 시작 됩니다. 이 문서는 인프라를 보호 하는 방법에 설명 합니다. 
 
-![Azure Stack의 초기 배포](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Azure Stack의 초기 배포](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
 최악의 경우 모든 데이터가 손실 됩니다 Azure Stack 복구는 Azure Stack 및 모든 사용자 데이터의 해당 배포 고유 인프라 데이터를 복원 하는 프로세스입니다. 
 
-![Azure Stack 다시 배포](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Azure Stack 다시 배포](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## <a name="restore"></a>복원
 

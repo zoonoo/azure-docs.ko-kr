@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a792bc083c3a2c78b24d5895c34420b86b0863bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944939"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959770"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack에서 크기 조정 단위 노드 작업
 
@@ -148,9 +148,9 @@ PowerShell 통해 다시 시작 작업을 실행 합니다.
 PowerShell 통해 복구 작업을 실행 합니다.
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ````
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Stack 패브릭 관리자 모듈에 대 한 자세한 내용은 참조 하세요 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0)합니다.
+Azure Stack 패브릭 관리자 모듈에 대 한 자세한 내용은 참조 하세요 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0)합니다.

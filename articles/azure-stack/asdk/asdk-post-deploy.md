@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a343b01b89bfbe9bc047c0b8b703b975b21b6290
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e099240d3f8670032ff2d6c0fad295c5f14f6e70
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901881"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969365"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
 
@@ -41,7 +41,7 @@ Azure Stack 호환 AzureRM 모듈을 지정 하려면 API 버전 프로필을 �
 ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure Stack PowerShell 모듈을 설치할 수 있습니다.
 
 > [!IMPORTANT]
-> 필요한 버전을 설치 하기 전에 확인 하면 [기존 Azure PowerShell 모듈을 제거](.\.\azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)합니다.
+> 필요한 버전을 설치 하기 전에 확인 하면 [기존 Azure PowerShell 모듈을 제거](../azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)합니다.
 
 - **인터넷에 연결 된** ASDK 호스트 컴퓨터에서. 개발 키트 설치에서 이러한 모듈을 설치 하려면 다음 PowerShell 스크립트를 실행 합니다.
 
@@ -173,7 +173,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ## <a name="enable-multi-tenancy"></a>다중 테넌트 사용
 
-Azure AD를 사용 하 여 배포 해야 [다중 테 넌 트 활성화](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) ASDK 설치 합니다.
+Azure AD를 사용 하 여 배포 해야 [다중 테 넌 트 활성화](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) ASDK 설치 합니다.
 
 > [!NOTE]  
 > Azure Stack 등록에 사용 된 도메인 이름을 포털에 추가 되어야 하는 Azure Stack 포털에 로그인 할 Azure Stack 등록을 사용 하는 것 이외의 도메인의 관리자 또는 사용자 계정이 사용 되 면 url입니다. 예를 들어 fabrikam.onmicrosoft.com Azure Stack에 등록 된 경우 사용자 계정 로그인 이며 admin@contoso.com에 사용자 포털에 로그인 하는 데 url: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.

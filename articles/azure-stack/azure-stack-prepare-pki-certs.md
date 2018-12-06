@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379591"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972035"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure Stack PKI 인증서 배포 준비
 인증서 파일 [선택한 CA에서 얻은](azure-stack-get-pki-certs.md) 가져오고 Azure Stack 인증서 요구 사항 일치 하는 속성을 사용 하 여 내보낸 해야 합니다.
@@ -38,15 +38,15 @@ ms.locfileid: "44379591"
 
 1. 에 **인증서 가져오기 마법사**를 선택 **로컬 컴퓨터** 가져오기 위치로 합니다. **다음**을 선택합니다. 다음 화면에서 다음 다시 클릭 합니다.
 
-    ![로컬 컴퓨터 가져오기 위치](.\media\prepare-pki-certs\1.png)
+    ![로컬 컴퓨터 가져오기 위치](./media/prepare-pki-certs/1.png)
 
 1.  선택할 **모든 인증서를 다음 저장소에 위치** 선택한 후 **엔터프라이즈 신뢰** 위치로 합니다. 클릭 **확인** 인증서 저장소 선택 대화 상자를 닫으려면 차례로 **다음**합니다.
 
-    ![인증서 저장소 구성](.\media\prepare-pki-certs\3.png)
+    ![인증서 저장소 구성](./media/prepare-pki-certs/3.png)
 
     a. PFX에 가져오는 경우 추가 대화 상자를 사용 하 여 나타납니다. 에 **개인 키 보호** 페이지에서 인증서 파일에 대 한 암호를 입력 하 고 사용 하도록 설정 된 **를 내보낼 수 있도록이 키를 표시 합니다. 이렇게 하면 백업 또는 나중에 키를 전송할 수 있습니다** 옵션입니다. **다음**을 선택합니다.
 
-    ![키를 내보낼 수 있도록 표시](.\media\prepare-pki-certs\2.png)
+    ![키를 내보낼 수 있도록 표시](./media/prepare-pki-certs/2.png)
 
 1. 가져오기를 완료 하려면 마침을 클릭 합니다.
 
@@ -58,11 +58,11 @@ ms.locfileid: "44379591"
 
 1. 파일을 클릭 합니다. 스냅인 추가/제거를 선택 하는 인증서 추가 클릭 합니다.
 
-    ![인증서 스냅인 추가](.\media\prepare-pki-certs\mmc-2.png)
+    ![인증서 스냅인 추가](./media/prepare-pki-certs/mmc-2.png)
  
 1. 컴퓨터 계정을 선택한 다음 다음 로컬 컴퓨터를 선택 차례로 완료 합니다. 스냅인 추가/제거 페이지를 닫으려면 확인을 클릭 합니다.
 
-    ![인증서 스냅인 추가](.\media\prepare-pki-certs\mmc-3.png)
+    ![인증서 스냅인 추가](./media/prepare-pki-certs/mmc-3.png)
 
 1. 인증서 찾아보기 > 엔터프라이즈 신뢰 > 인증서 위치 합니다. 오른쪽의 인증서에 표시 되는지 확인 합니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 740a3ce36dde953cb92c52a10cbebf12544adae0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614812"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968155"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Azure Stack에서 Azure App Service의 오프 라인 업데이트
 
@@ -101,7 +101,7 @@ Azure Stack 환경에서 App Service 리소스 공급자를 업그레이드 하�
 
    1. 클릭 합니다 **Connect** 단추 옆에 **Azure Stack 구독** 상자입니다.
         * Azure Active Directory (Azure AD)를 사용 하는 경우 Azure AD 관리자 계정 및 Azure Stack을 배포할 때 제공한 암호를 입력 합니다. 클릭 **로그인**합니다.
-        * Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예를 들어 *cloudadmin@azurestack.local*입니다. 암호를 입력 하 고 클릭 **로그인**합니다.
+        * Active Directory Federation Services (AD FS)를 사용 하는 경우에 관리자 계정을 제공 합니다. 예를 들어 _cloudadmin@azurestack.local_합니다. 암호를 입력 하 고 클릭 **로그인**합니다.
    2. 에 **Azure Stack 구독** 상자를 선택 합니다 **공급자 구독 기본**.
    3. 에 **Azure Stack 위치** 상자에서 배포 하는 지역에 해당 하는 위치를 선택 합니다. 예를 들어 선택 **로컬** 경우 Azure Stack 개발 키트를 배포 합니다.
    4. 기존 App Service 배포 감지 되 면 다음 리소스 그룹 및 저장소 계정은 채울 되며 회색으로 표시 합니다.

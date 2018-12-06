@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 041d679cfc428278737a5668887e73f13ac694b1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137056"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959545"
 ---
 # <a name="what-is-azure-stack"></a>Azure Stack이란?
 
@@ -34,7 +34,7 @@ Azure Stack 통합 시스템은 Microsoft와 [하드웨어 파트너](https://az
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack 개발 키트
 
-Microsoft [ASDK(Azure Stack Development Kit)](.\asdk\asdk-what-is.md)는 Azure Stack에 대한 평가 및 학습에 사용할 수 있는 Azure Stack의 단일 노드 배포입니다.  또한 ASDK를 개발자 환경으로 사용하여 Azure와 일치하는 API 및 툴링을 사용하여 앱을 빌드할 수 있습니다.
+Microsoft [ASDK(Azure Stack Development Kit)](./asdk/asdk-what-is.md)는 Azure Stack에 대한 평가 및 학습에 사용할 수 있는 Azure Stack의 단일 노드 배포입니다.  또한 ASDK를 개발자 환경으로 사용하여 Azure와 일치하는 API 및 툴링을 사용하여 앱을 빌드할 수 있습니다.
 
 >[!Note]
 >ASDK는 프로덕션 환경으로 사용되지 않습니다.

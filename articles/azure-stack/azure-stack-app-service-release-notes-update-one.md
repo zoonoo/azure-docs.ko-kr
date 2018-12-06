@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078718"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971898"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service에서 Azure Stack 업데이트 1 릴리스 정보
 
@@ -145,7 +145,7 @@ Get-AzureStackRootCert.ps1의 오류로 인해 고객이 루트 인증서가 설
 
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
+    ```
 
 2. 로 이동 합니다 **CN0 VM** Azure Stack 관리자 포털에서 Virtual Machines에서 및 **연결 클릭** 컨트롤러 인스턴스를 사용 하 여 원격 데스크톱 세션을 엽니다. App Service 배포 중 지정한 자격 증명을 사용 합니다.
 3. 시작 **관리자 권한으로 PowerShell** 다음 스크립트를 실행 하 고
@@ -197,18 +197,20 @@ Get-AzureStackRootCert.ps1의 오류로 인해 고객이 루트 인증서가 설
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- 작업자는 기존 가상 네트워크에 App Service 배포 되 고 파일 서버 에서만 사용 가능 개인 네트워크의 경우 파일 서버에 연결할 수 없습니다.
- 
+
+6. 작업자는 기존 가상 네트워크에 App Service 배포 되 고 파일 서버 에서만 사용 가능 개인 네트워크의 경우 파일 서버에 연결할 수 없습니다.
+
 기존 가상 네트워크와 파일 서버에 연결할 내부 IP 주소에 배포 하기로 선택한 경우 아웃 바운드 보안 규칙을 추가 하 있습니다 작업자 서브넷과 파일 서버 간에 SMB 트래픽을 사용 하도록 설정 해야 합니다. 이렇게 하려면 관리 포털에서 WorkersNsg 이동한 다음 속성을 사용 하 여 아웃 바운드 보안 규칙을 추가 합니다.
- * 원본: 모든
- * 원본 포트 범위: *
- * 대상: IP 주소
- * 대상 IP 주소 범위: 파일 서버에 대 한 Ip의 범위
- * 대상 포트 범위: 445
- * 프로토콜: TCP
- * 작업: 허용
- * 우선 순위: 700
- * 이름: Outbound_Allow_SMB445
+
+- 원본: 모든
+- 원본 포트 범위: *
+- 대상: IP 주소
+- 대상 IP 주소 범위: 파일 서버에 대 한 Ip의 범위
+- 대상 포트 범위: 445
+- 프로토콜: TCP
+- 작업: 허용
+- 우선 순위: 700
+- 이름: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack을 운영 하는 클라우드 관리자에 대 한 알려진된 문제
 

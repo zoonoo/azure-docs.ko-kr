@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 19e7506dac82e4d12d5aecbdb5ae1c14fb944c29
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961538"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965396"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 지역 분산 앱 솔루션 만들기
 
@@ -81,7 +81,7 @@ ms.locfileid: "46961538"
 
 > [!div class="checklist"]
 > - 웹 앱 만들기 및 게시
-> - VSTS 프로젝트에 코드 추가
+> - 코드를 Azure 리포지토리 추가
 > - 여러 클라우드 대상에 앱 빌드를 가리킵니다.
 > - 관리 하 고 CD 프로세스를 구성 합니다.
 
@@ -108,130 +108,130 @@ DNS 영역 파일 foCreate 웹 앱 및 publishr 도메인을 업데이트 합니
 > [!Note]  
 > 신디케이티드 실행 (Windows Server 및 SQL) 및 App Service 배포에 적절 한 이미지를 사용 하 여 azure Stack가 필요 합니다. App Service 설명서를 검토 합니다. "[App Service on Azure Stack을 사용 하 여 시작 하기 전에](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" Azure Stack 운영자에 대 한 섹션입니다.
 
-#### <a name="add-code-to-vsts-project"></a>VSTS 프로젝트에 코드 추가
+#### <a name="add-code-to-azure-repos"></a>코드를 Azure 리포지토리 추가
 
-1. Visual Studio에 로그인을 **프로젝트 만들기 권한이 있는 계정을** VSTS에서.
+1. Visual Studio에 로그인을 **프로젝트 만들기 권한이 있는 계정을** Azure 리포지토리에 합니다.
 
     하이브리드 지속적인 통합/지속적인 업데이트 (CI/CD) 응용 프로그램 코드와 인프라 코드를 적용할 수 있습니다. 사용 하 여 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/) 모두 사설 및 호스트 된 클라우드 개발에 대 한 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image1.JPG)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image1.JPG)
 
 2. **리포지토리를 복제 합니다** 만들어 기본 웹 앱을 열어서 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image2.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image2.png)
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>두 클라우드 모두에서 웹 앱 배포 만들기
 
 1.  편집 된 **WebApplication.csproj** 파일: 선택 **runtimeidentifier-** 추가한 **win10-x64**합니다. (참조 [자체 포함 배포](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 설명서입니다.)
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image3.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image3.png)
 
-1.  **VSTS에 코드 체크 인** 팀 탐색기를 사용 합니다.
+1.  **Azure 리포지토리 코드를 체크 인** 팀 탐색기를 사용 합니다.
 
-2.  있는지 확인 합니다 **응용 프로그램 코드** Visual Studio Team Services에 체크 인 되었습니다.
+2.  있는지 확인 합니다 **응용 프로그램 코드** Azure 리포지토리에 체크 인 되었습니다.
 
 ### <a name="create-the-build-definition"></a>빌드 정의 만들기
 
-1. **VSTS에 로그인** 빌드 정의를 만들 수 있는 기능을 확인 합니다.
+1. **Azure 파이프라인 로그인** 빌드 정의를 만들 수 있는 기능을 확인 합니다.
 
 2. 추가 **-r win10-x64** 코드입니다. .NET Core를 사용 하 여 자체 포함된 배포를 트리거하는 데 필요한입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image4.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image4.png)
 
 3. **빌드 실행**합니다. 합니다 [자체 포함된 배포 빌드](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) 프로세스는 Azure 및 Azure Stack에서 실행 될 수 있는 아티팩트를 게시 합니다.
 
 **Azure 호스트 된 에이전트를 사용 하 여**
 
-VSTS에서 호스트 된 에이전트를 사용 하는 웹 앱 빌드 및 배포 하는 편리한 옵션입니다. 유지 관리 및 업그레이드는 Microsoft Azure에 지속적인 중단 없이 개발, 테스트 및 배포를 사용 하도록 설정 하 여 자동으로 수행 됩니다.
+Azure 파이프라인에서 호스트 된 에이전트를 사용 하는 웹 앱 빌드 및 배포 하는 편리한 옵션입니다. 유지 관리 및 업그레이드는 Microsoft Azure에 지속적인 중단 없이 개발, 테스트 및 배포를 사용 하도록 설정 하 여 자동으로 수행 됩니다.
 
 ### <a name="manage-and-configure-the-cd-process"></a>관리 하 고 CD 프로세스를 구성 합니다.
 
-Visual Studio Team Services (VSTS) 및 Team Foundation Server (TFS)는 항상 구성 및 관리 가능한 파이프라인에 대 한 제공 개발과 같은 여러 환경에 릴리스 스테이징, QA 및 프로덕션 환경; 특정 단계에서 승인 필요를 포함 합니다.
+Azure DevOps 및 Azure DevOps 서버 제공 항상 구성 및 관리 가능한 파이프라인 개발과 같은 여러 환경에 릴리스를 스테이징, QA 및 프로덕션 환경; 특정 단계에서 승인 필요를 포함 합니다.
 
 #### <a name="create-release-definition"></a>릴리스 정의 만들기
 
 
-![대체 텍스트](media\azure-stack-solution-geo-distributed\image5.png)
+![대체 텍스트](media/azure-stack-solution-geo-distributed/image5.png)
 
 1.  선택 합니다 **plus** 아래에서 새 릴리스를 추가 하려면 단추를 **릴리스 탭** 빌드 및 릴리스 페이지의 온라인 VSO (Visual Studio)에서.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image6.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. 적용 된 **Azure App Service 배포** 템플릿.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image7.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image7.png)
 
 3. 추가 아티팩트 풀 다운 메뉴에서 **아티팩트 추가** Azure 클라우드 빌드 앱에 대 한 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image8.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image8.png)
 
 4. 파이프라인 탭을 선택 합니다 **단계를 작업** 환경에 연결 하 고 Azure 클라우드 환경 값을 설정 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image9.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image9.png)
 
 5. 설정 된 **환경 이름** 선택한 Azure **구독** Azure 클라우드 끝점에 대 한 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image10.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image10.png)
 
 6. 환경 이름 set 필수 **Azure app service 이름**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image11.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image11.png)
 
 7. 입력 **호스팅된 VS2017** Azure 클라우드 호스팅 환경에 대 한 에이전트 큐에서 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image12.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image12.png)
 
 8. Azure App Service 배포 메뉴에서 선택 된 유효한 **패키지 또는 폴더가** 환경에 대 한 합니다. 확인을 선택 **폴더 위치**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image13.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image13.png)
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image14.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image14.png)
 
 9. 모든 변경 내용을 저장 하 고로 돌아가서 **릴리스 파이프라인**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image15.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image15.png)
 
 10. 추가 된 **새 아티팩트** Azure Stack 앱에 대 한 빌드를 선택 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image16.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image16.png)
 
 11. 자세한 환경 적용 한 추가 **Azure App Service 배포 합니다.**
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image17.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image17.png)
 
 12. 새 환경 이름을 **Azure Stack.**
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image18.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image18.png)
 
 13. Azure Stack 환경에서 찾을 **태스크** 탭 합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image19.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image19.png)
 
 14. 선택 된 **구독** Azure Stack 끝점에 대 한 합니다.
 
-  ![대체 텍스트](media\azure-stack-solution-geo-distributed\image20.png)
+  ![대체 텍스트](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Azure Stack 웹 앱 이름으로 설정 합니다 **App service 이름**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image21.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image21.png)
 
 16. 선택 된 **Azure Stack 에이전트**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image22.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image22.png)
 
 17. 배포할 Azure App Service 섹션 선택 유효한 **패키지 또는 폴더가** 환경에 대 한 합니다. 확인을 선택 **폴더 위치**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image23.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image23.png)
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image24.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image24.png)
 
 18. 아래 **변수** 라는 변수를 추가 하는 탭 `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS`, 해당 값으로 설정 `true`, 범위를 지정 하 고 `Azure Stack`입니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image25.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image25.png)
 
 19. 선택 합니다 **연속** 아티팩트와 enable 배포 트리거 아이콘 합니다 **계속** 배포 트리거.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image26.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image26.png)
 
 20. 선택 합니다 **pre-deployment** Azure Stack 환경에서 조건 아이콘 트리거를 설정 하 고 **릴리스 후 합니다.**
 
@@ -244,7 +244,7 @@ Visual Studio Team Services (VSTS) 및 Team Foundation Server (TFS)는 항상 �
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 
 
-![대체 텍스트](media\azure-stack-solution-geo-distributed\image27.png)
+![대체 텍스트](media/azure-stack-solution-geo-distributed/image27.png)
 
 > [!div class="checklist"]
 > - Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑
@@ -296,7 +296,7 @@ DNS 레코드 페이지를 볼 수 있습니다 **내 도메인**합니다. 명�
 
 다음 스크린샷은 DNS 레코드 페이지의 예입니다.
 
-![DNS 레코드 페이지 예](media\azure-stack-solution-geo-distributed\image28.png)
+![DNS 레코드 페이지 예](media/azure-stack-solution-geo-distributed/image28.png)
 
 1.  도메인 이름 등록자에서 선택 **추가 또는 만들기** 레코드를 만듭니다. 일부 공급자에는 다른 레코드 형식을 추가하는 다양한 링크가 있습니다. 공급자의 설명서를 참조 하세요.
 
@@ -306,7 +306,7 @@ DNS 레코드 페이지를 볼 수 있습니다 **내 도메인**합니다. 명�
 
 CNAME을 추가한 후 DNS 레코드 페이지가 다음 예제와 같이 표시 됩니다.
 
-![Azure 앱에 대한 포털 탐색](media\azure-stack-solution-geo-distributed\image29.png)
+![Azure 앱에 대한 포털 탐색](media/azure-stack-solution-geo-distributed/image29.png)
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Azure에서 CNAME 레코드 매핑 사용
 
@@ -348,9 +348,9 @@ CNAME을 추가한 후 DNS 레코드 페이지가 다음 예제와 같이 표시
 
   새 호스트 이름 앱에 반영 되려면 약간의 시간이 걸릴 수 있습니다 **사용자 지정 도메인** 페이지입니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
   
-  ![대체 텍스트](media\azure-stack-solution-geo-distributed\image31.png) 
+  ![대체 텍스트](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  오류 발생 시 확인 오류 알림 페이지의 맨 아래에 표시 됩니다. ![확인 오류](media\azure-stack-solution-geo-distributed\image32.png)
+  오류 발생 시 확인 오류 알림 페이지의 맨 아래에 표시 됩니다. ![확인 오류](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  와일드 카드 도메인을 매핑할 위의 단계를 반복 될 수 있습니다 (\*. northwindcloud.com)... 따라서 각각에 대해 별도 CNAME 레코드를 만들 필요 없이이 app service에 추가 하위 도메인 추가. 이 설정을 구성 하려면 등록 기관 지침을 따릅니다.
@@ -404,17 +404,17 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 
 2.  왼쪽된 메뉴에서 선택 **App Services**를 선택한 다음 웹 앱 이름을 선택 합니다.
 
-![웹앱 선택](media\azure-stack-solution-geo-distributed\image33.png)
+![웹앱 선택](media/azure-stack-solution-geo-distributed/image33.png)
 
 #### <a name="check-the-pricing-tier"></a>가격 책정 계층 확인
 
 1.  웹 앱 페이지의 왼쪽 탐색에서 스크롤하여 합니다 **설정을** 선택한 섹션 **강화 (App Service 계획)** 합니다.
 
-    ![강화 메뉴](media\azure-stack-solution-geo-distributed\image34.png)
+    ![강화 메뉴](media/azure-stack-solution-geo-distributed/image34.png)
 
 1.  웹 앱에 있지 않은지 확인 합니다 **무료** 하거나 **공유** 계층입니다. 웹 앱의 현재 계층이 진한 파란색 상자로 강조 표시 됩니다.
 
-    ![가격 책정 계층 확인](media\azure-stack-solution-geo-distributed\image35.png)
+    ![가격 책정 계층 확인](media/azure-stack-solution-geo-distributed/image35.png)
 
 사용자 지정 SSL은 **무료** 또는 **공유** 계층에서 지원되지 않습니다. 고급, 다음 섹션의 단계에 따라 또는 **가격 책정 계층 선택** 페이지를 건너뜁니다 [업로드 및 SSL 인증서 바인딩](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)합니다.
 
@@ -424,11 +424,11 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 
 2.  **선택**을 선택합니다.
 
-![가격 책정 계층 선택](media\azure-stack-solution-geo-distributed\image36.png)
+![가격 책정 계층 선택](media/azure-stack-solution-geo-distributed/image36.png)
 
 알림 표시 되 면 크기 조정 작업이 완료 되었습니다.
 
-![강화 알림](media\azure-stack-solution-geo-distributed\image37.png)
+![강화 알림](media/azure-stack-solution-geo-distributed/image37.png)
 
 #### <a name="bind-your-ssl-certificate-and-merge-intermediate-certificates"></a>SSL 인증서 바인딩 및 중간 인증서 병합
 
@@ -491,11 +491,11 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 5.  **업로드**를 선택합니다.
 
-![인증서 업로드](media\azure-stack-solution-geo-distributed\image38.png)
+![인증서 업로드](media/azure-stack-solution-geo-distributed/image38.png)
 
 나타나는 App Service 인증서를 업로드 완료 되 면 합니다 **SSL 설정** 페이지입니다.
 
-![대체 텍스트](media\azure-stack-solution-geo-distributed\image39.png)
+![대체 텍스트](media/azure-stack-solution-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>SSL 인증서 바인딩
 
@@ -514,11 +514,11 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
     1.  선택 **바인딩 추가**합니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image40.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image40.png)
 
 나타나는 App Service 인증서를 업로드 완료 되 면 합니다 **SSL 바인딩을** 섹션입니다.
 
-![대체 텍스트](media\azure-stack-solution-geo-distributed\image41.png)
+![대체 텍스트](media/azure-stack-solution-geo-distributed/image41.png)
 
 #### <a name="remap-the-a-record-for-ip-ssl"></a>IP SSL에 대 한 A 레코드 다시 매핑
 
@@ -534,7 +534,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 다양 한 브라우저에서 https://<your.custom.domain>to 이동 ap를 제공 하는 웹을 확인 합니다.
 
-![대체 텍스트](media\azure-stack-solution-geo-distributed\image42.png)
+![대체 텍스트](media/azure-stack-solution-geo-distributed/image42.png)
 
 > [!Note]  
 > 인증서 유효성 검사 오류가 발생 한 경우 자체 서명 된 인증서를 원인 이거나 중간 인증서 남아 있을 수를 PFX 파일로 내보낼 때.
@@ -545,7 +545,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 웹 앱 페이지에서 선택 **SL 설정**합니다. 그런 다음 **HTTPS에만 해당**에서 **켜기**를 선택합니다.
 
-![HTTPS 적용](media\azure-stack-solution-geo-distributed\image43.png)
+![HTTPS 적용](media/azure-stack-solution-geo-distributed/image43.png)
 
 작업이 완료 되 면 앱을 가리키는 HTTP Url 중 하나로 이동 합니다. 예: 
 
@@ -561,7 +561,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 2.  **TLS 버전**, 최소 TLS 버전을 선택 합니다.
 
-![TLS 1.1 또는 1.2 적용](media\azure-stack-solution-geo-distributed\image44.png)
+![TLS 1.1 또는 1.2 적용](media/azure-stack-solution-geo-distributed/image44.png)
 
 ### <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 
@@ -583,7 +583,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
     7.  Traffic Manager 프로필의 전역 배포가 완료 되 면 해당 리소스 그룹에 리소스의 하나로 나열 됩니다.
 
-    ![대체 텍스트](media\azure-stack-solution-geo-distributed\image45.png)
+    ![대체 텍스트](media/azure-stack-solution-geo-distributed/image45.png)
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager 엔드포인트 추가
 
@@ -632,7 +632,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 1.  두 엔드포인트 추가가 완료되면 **온라인**인 모니터링 상태와 함께 **Traffic Manager 프로필**에 표시됩니다.
 
-  ![대체 텍스트](media\azure-stack-solution-geo-distributed\image46.png)
+  ![대체 텍스트](media/azure-stack-solution-geo-distributed/image46.png)
 
 **글로벌 엔터프라이즈 Azure 지역 배포 기능에 의존**
 

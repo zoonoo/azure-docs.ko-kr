@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: accd36c9e0d09da0073570301600b362fff85f6e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647343"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971830"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Azure Stack에서 Virtual Machine Scale Sets 사용 가능
 
@@ -97,7 +97,7 @@ Azure Stack에 가상 머신 확장 집합 자동 크기 조정을 지원 하지
 
     최신 버전 (변경 하는 사용 가능한 버전)를 사용 하 여 이미지를 다운로드 하는 경우 확장 집합 확장할 수 없습니다. 이 기본적으로 확장 집합 템플릿에서 지정 된 이미지 버전을 사용할 수 있어야 합니다.  
 
-자세한 내용은 [운영 체제 디스크 및 이미지](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images)합니다.  
+자세한 내용은 [운영 체제 디스크 및 이미지](./user/azure-stack-compute-overview.md#operating-system-disks-and-images)합니다.  
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 확장
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 999017e24f6c4c24735b7e0cc818bf20aaabab62
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3caa45064c41b641aa913e210aa698d818d5355e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338576"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970274"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Microsoft Azure Stack 개발 키트 (ASDK) 문제 해결
 이 문서는 ASDK에 대 한 일반적인 문제 해결 정보를 제공합니다. 문서화 되지 않은 문제가 발생 하는 경우을 선택 했는지 확인 합니다 [Azure Stack MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) 정보와 추가 지원을 요청 합니다.  
@@ -64,7 +64,7 @@ Azure Stack에서 Vm을 배포 하기 전에 Windows Server 이미지 및 갤러
 
 "분리 된" Vhd를 표시 하는 경우 삭제 된 저장소 계정에 대 한 폴더의 경우 일부가 알아야 것입니다. 저장소 계정 삭제 되지 않은 경우에 보통는 여전히 남아 있습니다.
 
-자세한 내용은에서 보존 임계값 및 주문형 회수를 구성 하는 방법에 대 한 [저장소 계정 관리](.\.\azure-stack-manage-storage-accounts.md).
+자세한 내용은에서 보존 임계값 및 주문형 회수를 구성 하는 방법에 대 한 [저장소 계정 관리](../azure-stack-manage-storage-accounts.md).
 
 ## <a name="storage"></a>Storage
 ### <a name="storage-reclamation"></a>저장소 확보
@@ -72,4 +72,3 @@ Azure Stack에서 Vm을 배포 하기 전에 Windows Server 이미지 및 갤러
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Stack 지원 포럼 방문](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
-

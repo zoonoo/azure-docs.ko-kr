@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 4aa74aebfd9e0ef6c71913c76181a07045aa3ad7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5573c7f122360b3bd3adeb9dcca1c827a1933f70
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231222"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959464"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Azure Stack에 Kubernetes 배포
 
@@ -179,6 +179,6 @@ Kubernetes에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Kubernetes를 추가할 Marketplace (Azure Stack 연산자)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Kubernetes를 추가할 Marketplace (Azure Stack 연산자)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Azure의 Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

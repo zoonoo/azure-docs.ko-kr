@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 209152b157ef2cfae872490bcff4f2a7100c3a4d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e65f85d8349c4c8c69a50e93b093c04250e73a4e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339341"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961465"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>사용량 및 클라우드 서비스 공급자로 Azure Stack에 대 한 청구를 관리 합니다. 
 
@@ -33,7 +33,7 @@ CSP로 Azure Stack에 사용 하 여 다양 한 고객과 작동 합니다. 각 
 
 **사용 현황 추적 CSP로 추가 하는 단계**
 
-[ ![사용 및 클라우드 서비스 공급자 관리를 사용 하도록 설정 하는 것에 대 한 프로세스](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png "사용 및 클라우드 서비스 공급자 관리를 사용 하도록 설정 하기 위한 프로세스") ](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png#lightbox)
+[ ![사용 및 클라우드 서비스 공급자 관리를 사용 하도록 설정 하는 것에 대 한 프로세스](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "사용 및 클라우드 서비스 공급자 관리를 사용 하도록 설정 하기 위한 프로세스") ](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>CSP 또는 APSS 구독 만들기
 

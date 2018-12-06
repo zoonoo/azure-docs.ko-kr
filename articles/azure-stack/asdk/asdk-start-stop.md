@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 98ae7fe0fde922aee28ffc05b64d223a40085447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0b1affb708a8d481a1378fa691b6547865b0b214
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340922"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963592"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>시작 및 중지 된 Azure Stack 개발 키트 ASDK)
 단순히 ASDK 호스트 컴퓨터를 다시 시작 하는 권장 되지 않습니다. 대신이 문서의 적절히 종료 하 고 ASDK 서비스를 다시 시작 절차 따라야 합니다. 
@@ -62,7 +62,7 @@ ASDK 종료 된 방법에 관계 없이 모든 Azure Stack 서비스가 시작 �
    ```
 6. Azure Stack 서비스가 성공적으로 다시 시작 되었는지 확인 하려면 출력을 검토 합니다.
 
-올바르게 종료 하 고 Azure Stack 서비스를 다시 시작 하는 권장 되는 절차에 대 한 자세한 내용은 참조 하세요 [Start 및 stop Azure Stack](.\.\azure-stack-start-and-stop.md)합니다. 
+올바르게 종료 하 고 Azure Stack 서비스를 다시 시작 하는 권장 되는 절차에 대 한 자세한 내용은 참조 하세요 [Start 및 stop Azure Stack](../azure-stack-start-and-stop.md)합니다. 
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>시작 및 종료 문제 해결 
 Azure Stack 서비스 ASDK 호스트 컴퓨터의 전원 후 2 시간 내에서 성공적으로 시작 하지 않습니다 하는 경우 다음이 단계를 수행 합니다.
@@ -79,7 +79,7 @@ Azure Stack 서비스 ASDK 호스트 컴퓨터의 전원 후 2 시간 내에서 
    ```powershell
    Test-AzureStack
    ```
-5. 출력을 검토 하 고 오류를 해결 합니다. 자세한 내용은 [Azure Stack의 유효성 검사 테스트를 실행할](.\.\azure-stack-diagnostic-test.md)합니다.
+5. 출력을 검토 하 고 오류를 해결 합니다. 자세한 내용은 [Azure Stack의 유효성 검사 테스트를 실행할](../azure-stack-diagnostic-test.md)합니다.
 6. 실행 하 여 PEP 세션 내에서 Azure Stack 서비스를 다시 시작 합니다 **시작 AzureStack** cmdlet:
 
    ```powershell
@@ -89,4 +89,4 @@ Azure Stack 서비스 ASDK 호스트 컴퓨터의 전원 후 2 시간 내에서 
 실행 하는 경우 **시작 AzureStack** 오류와 결과 방문를 [Azure Stack 지원 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) 문제 해결 지원 ASDK를 가져오려고 합니다. 
 
 ## <a name="next-steps"></a>다음 단계 
-Azure Stack의 진단 도구에 대 한 자세한 로깅 문제를 참조 하세요 [진단 도구를 Azure Stack](.\.\azure-stack-diagnostics.md)합니다.
+Azure Stack의 진단 도구에 대 한 자세한 로깅 문제를 참조 하세요 [진단 도구를 Azure Stack](../azure-stack-diagnostics.md)합니다.
