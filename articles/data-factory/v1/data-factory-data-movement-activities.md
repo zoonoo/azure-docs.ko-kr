@@ -136,7 +136,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 두 가지 방법을 통해 복사 활동을 포함하는 파이프라인을 만들 수 있습니다.
 
 ### <a name="by-using-the-copy-wizard"></a>복사 마법사 사용
-Data Factory 복사 마법사를 사용하면 복사 활동을 포함하는 파이프라인을 만들 수 있습니다. 이 파이프라인에서는 연결된 서비스, 데이터 집합 및 파이프라인에 대한 *JSON 정의를 작성하지 않고도* 지원되는 소스에서 대상으로 데이터를 복사할 수 있습니다. 마법사에 대한 자세한 내용은 [Data Factory 복사 마법사](data-factory-copy-wizard.md) 를 참조하세요.  
+Data Factory 복사 마법사를 사용하면 복사 활동을 포함하는 파이프라인을 만들 수 있습니다. 이 파이프라인에서는 연결된 서비스, 데이터 세트 및 파이프라인에 대한 *JSON 정의를 작성하지 않고도* 지원되는 소스에서 대상으로 데이터를 복사할 수 있습니다. 마법사에 대한 자세한 내용은 [Data Factory 복사 마법사](data-factory-copy-wizard.md) 를 참조하세요.  
 
 ### <a name="by-using-json-scripts"></a>JSON 스크립트 사용
 Azure 포털, Visual Studio 또는 Azure PowerShell에서 Data Factory Editor를 사용하여 복사 활동을 통해 파이프라인에 대한 JSON 정의를 만들 수 있습니다. 그런 다음 해당 정의를 배포하여 Data Factory에서 파이프라인을 만들 수 있습니다. 단계별 지침이 포함된 자습서는 [자습서: Azure Data Factory 파이프라인에서 복사 활동 사용](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 을 참조하세요.    

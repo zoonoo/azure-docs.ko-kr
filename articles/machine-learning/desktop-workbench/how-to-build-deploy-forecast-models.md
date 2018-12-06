@@ -65,7 +65,7 @@ ms.locfileid: "52634985"
 
 ### <a name="explore-the-sample-data"></a>샘플 데이터 탐색
 
-아래 코드 샘플의 기계 학습 예측 예제는 [University of Chicago's Dominick's Finer Foods 데이터 집합](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks)을 기반으로 오렌지 주스 판매를 예측합니다. Dominick's는 시카고 대도시 지역의 식료품 체인이었습니다.
+아래 코드 샘플의 기계 학습 예측 예제는 [University of Chicago's Dominick's Finer Foods 데이터 세트](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks)를 기반으로 오렌지 주스 판매를 예측합니다. Dominick's는 시카고 대도시 지역의 식료품 체인이었습니다.
 
 ### <a name="import-any-dependencies-for-this-sample"></a>이 샘플의 모든 종속성 가져오기
 
@@ -1664,7 +1664,7 @@ aml_web_service = aml_deployment.get_deployment()
 results = aml_web_service.score(score_context=score_context)
 ```
 
-큰 데이터 집합을 채점하려면 [병렬 채점](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score-parallel) 모드를 사용하여 각 데이터 그룹마다 하나씩, 여러 웹 서비스 호출을 제출합니다.
+큰 데이터 세트를 채점하려면 [병렬 채점](/python/api/azuremlftk/ftk.operationalization.forecast_web_service.forecastwebservice#score-parallel) 모드를 사용하여 각 데이터 그룹마다 하나씩, 여러 웹 서비스 호출을 제출합니다.
 
 ```python
 results = aml_web_service.score(score_context=score_context, method='parallel')

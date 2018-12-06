@@ -106,11 +106,11 @@ Azure SQL Database Managed Instance 연결된 서비스에 다음 속성이 지�
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 집합 문서를 참조하세요. 이 섹션에서는 Azure SQL Database Managed Instance 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 집합 문서를 참조하세요. 이 섹션에서는 Azure SQL Database Managed Instance 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Azure SQL Database Managed Instance 간에 데이터를 복사하려면 데이터 집합의 type 속성을 **SqlServerTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Azure SQL Database Managed Instance 간에 데이터를 복사하려면 데이터 세트의 type 속성을 **SqlServerTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -154,7 +154,7 @@ Azure SQL Database Managed Instance에서 데이터를 복사하려면 복사 �
 **주의할 사항**
 
 - **sqlReaderQuery**가 SqlSource에 지정되면 복사 작업은 데이터를 가져오는 Managed Instance 원본에 대해 이 쿼리를 실행합니다. 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수 있습니다(저장 프로시저가 매개 변수를 사용하는 경우).
-- "sqlReaderQuery" 또는 "sqlReaderStoredProcedureName" 속성 중 하나를 지정하지 않으면 JSON 데이터 집합의 "structure" 섹션에 정의된 열은 쿼리(`select column1, column2 from mytable`)를 생성하는 데 사용되어 Managed Instance에 대해 실행합니다. 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
+- "sqlReaderQuery" 또는 "sqlReaderStoredProcedureName" 속성 중 하나를 지정하지 않으면 JSON 데이터 세트의 "structure" 섹션에 정의된 열은 쿼리(`select column1, column2 from mytable`)를 생성하는 데 사용되어 Managed Instance에 대해 실행합니다. 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
 **예제: SQL 쿼리 사용**
 
@@ -442,7 +442,7 @@ Azure SQL Database Managed Instance로 데이터를 복사할 때 사용자 지�
 }
 ```
 
-데이터베이스에서  SqlWriterStoredProcedureName과 동일한 이름으로 저장 프로시저를 정의합니다. 지정된 원본에서 입력 데이터를 처리하고 출력 테이블에 병합합니다. 저장 프로시저에서 테이블 형식의 매개 변수 이름은 데이터 집합에 정의된 "tableName"과 동일해야 합니다.
+데이터베이스에서  SqlWriterStoredProcedureName과 동일한 이름으로 저장 프로시저를 정의합니다. 지정된 원본에서 입력 데이터를 처리하고 출력 테이블에 병합합니다. 저장 프로시저에서 테이블 형식의 매개 변수 이름은 데이터 세트에 정의된 "tableName"과 동일해야 합니다.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

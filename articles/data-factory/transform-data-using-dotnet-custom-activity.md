@@ -317,11 +317,11 @@ namespace SampleApp
 
 ## <a name="compare-v2-v1"></a>v2 사용자 지정 활동 및 버전 1(사용자 지정) DotNet 작업 비교
 
-  Azure Data Factory 버전 1에서는 `IDotNetActivity` 인터페이스의 `Execute` 메서드를 구현하는 클래스를 통해 .Net 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업을 구현합니다. (사용자 지정) DotNet 작업의 JSON 페이로드에 있는 연결된 서비스, 데이터 집합 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 버전 1 동작에 대한 자세한 내용은 [버전 1(사용자 지정) DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이 구현 때문에, 버전 1 DotNet 활동 코드의 대상이 .Net Framework 4.5.2여야 합니다. 버전 1 DotNet 활동은 Windows 기반 Azure Batch 풀 노드에서도 실행되어야 합니다. 
+  Azure Data Factory 버전 1에서는 `IDotNetActivity` 인터페이스의 `Execute` 메서드를 구현하는 클래스를 통해 .Net 클래스 라이브러리 프로젝트를 만들어 (사용자 지정) DotNet 작업을 구현합니다. (사용자 지정) DotNet 작업의 JSON 페이로드에 있는 연결된 서비스, 데이터 세트 및 확장된 속성은 강력한 형식의 개체로 실행 메서드에 전달됩니다. 버전 1 동작에 대한 자세한 내용은 [버전 1(사용자 지정) DotNet](v1/data-factory-use-custom-activities.md)을 참조하세요. 이 구현 때문에, 버전 1 DotNet 활동 코드의 대상이 .Net Framework 4.5.2여야 합니다. 버전 1 DotNet 활동은 Windows 기반 Azure Batch 풀 노드에서도 실행되어야 합니다. 
 
   Azure Data Factory V2 사용자 지정 작업에서는 .Net 인터페이스를 구현할 필요가 없습니다. 이제 명령, 스크립트 및 실행 파일로 컴파일된 자체 사용자 지정 코드를 직접 실행할 수 있습니다. 이 구현을 구성하려면 `Command` 속성과 `folderPath` 속성을 함께 지정합니다. 사용자 지정 작업은 `folderpath`에서 실행 파일 및 종속성을 업로드하고 명령을 실행합니다. 
 
-  Data Factory v2 사용자 지정 작업의 JSON 페이로드에 정의된 연결된 서비스, 데이터 집합(referenceObjects에 정의됨) 및 확장된 속성은 실행 파일에서 JSON 파일로서 액세스할 수 있습니다. 위의 SampleApp.exe 코드 샘플에 나와 있는 것처럼 JSON 직렬 변환기를 사용하여 필요한 속성에 액세스할 수 있습니다. 
+  Data Factory v2 사용자 지정 작업의 JSON 페이로드에 정의된 연결된 서비스, 데이터 세트(referenceObjects에 정의됨) 및 확장된 속성은 실행 파일에서 JSON 파일로서 액세스할 수 있습니다. 위의 SampleApp.exe 코드 샘플에 나와 있는 것처럼 JSON 직렬 변환기를 사용하여 필요한 속성에 액세스할 수 있습니다. 
 
   Data Factory V2 사용자 지정 작업이 변경되면서 이제 기본 설정 언어로 사용자 지정 코드 논리를 쓰고, Azure Batch에서 지원하는 Windows 및 Linux 운영 체제에서 해당 코드를 실행할 수 있습니다. 
 
@@ -333,8 +333,8 @@ namespace SampleApp
 |사용자 지정 논리를 정의하는 방법      |실행 파일을 제공하여      |.Net DLL을 구현하여      |
 |사용자 지정 논리의 실행 환경      |Windows 또는 Linux      |Windows(.Net Framework 4.5.2)      |
 |스크립트 실행      |실행 중인 스크립트 직접 지원(예: Windows VM의 "cmd/c echo hello world")      |.Net DLL에서 구현 필요      |
-|필요한 데이터 집합      |옵션      |작업을 연결하고 정보를 전달하는 데 필요      |
-|작업에서 사용자 지정 논리에 정보 전달      |ReferenceObjects(LinkedServices 및 데이터 집합) 및 ExtendedProperties(사용자 지정 속성)를 통해      |ExtendedProperties(사용자 지정 속성), 입력 및 출력 데이터 집합을 통해      |
+|필요한 데이터 세트      |옵션      |작업을 연결하고 정보를 전달하는 데 필요      |
+|작업에서 사용자 지정 논리에 정보 전달      |ReferenceObjects(LinkedServices 및 데이터 세트) 및 ExtendedProperties(사용자 지정 속성)를 통해      |ExtendedProperties(사용자 지정 속성), 입력 및 출력 데이터 세트를 통해      |
 |사용자 지정 논리에서 정보 검색      |실행 파일의 동일한 폴더에 저장된 activity.json, linkedServices.json 및 datasets.json 구문 분석      |.Net SDK(.Net 프레임 4.5.2)를 통해      |
 |로깅      |STDOUT에 직접 작성      |.Net DLL에서 로거 구현      |
 
@@ -343,7 +343,7 @@ namespace SampleApp
 
    - .NET 클래스 라이브러리의 프로젝트를 콘솔 앱으로 변경합니다. 
    - `Main` 메서드를 사용하여 응용 프로그램을 시작합니다. `IDotNetActivity` 인터페이스의 `Execute` 메서드는 더 이상 필요하지 않습니다. 
-   - 연결된 서비스, 데이터 집합 및 작업을 읽고 JSON 직렬 변환기를 사용하여 강력한 형식의 개체가 아닌 다른 방식으로 구문 분석합니다. 주 사용자 지정 코드 논리에 필수 속성의 값을 전달합니다. 앞에 나온 SampleApp.exe 코드 예제를 참조하세요. 
+   - 연결된 서비스, 데이터 세트 및 작업을 읽고 JSON 직렬 변환기를 사용하여 강력한 형식의 개체가 아닌 다른 방식으로 구문 분석합니다. 주 사용자 지정 코드 논리에 필수 속성의 값을 전달합니다. 앞에 나온 SampleApp.exe 코드 예제를 참조하세요. 
    - 로거 개체는 더 이상 지원되지 않습니다. 실행 파일의 출력은 콘솔에 출력될 수 있으며 stdout.txt에 저장됩니다. 
    - Microsoft.Azure.Management.DataFactories NuGet 패키지는 더 이상 필요하지 않습니다. 
    - 코드를 컴파일하고 실행 파일 및 종속성을 Azure Storage에 업로드한 후 `folderPath` 속성에 경로를 정의합니다. 

@@ -45,7 +45,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 5. Azure SQL 서버 사용자 이름 및 암호를 입력합니다.
    
     ![Power BI 로그인](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-sign-in.png)
-6. 데이터베이스를 열려면 왼쪽 블레이드에서 AdventureWorksDW 데이터 집합을 클릭합니다.
+6. 데이터베이스를 열려면 왼쪽 블레이드에서 AdventureWorksDW 데이터 세트를 클릭합니다.
    
     ![Power BI AdventureWorksDW 열기](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-open-adventureworks.png)
 

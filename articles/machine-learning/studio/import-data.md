@@ -1,11 +1,12 @@
 ---
-title: Machine Learning 스튜디오로 데이터 가져오기 | Microsoft Docs
+title: Machine Learning 스튜디오로 데이터 가져오기 - Azure | Microsoft Docs
 description: 다양한 데이터 원본에서 Azure Machine Learning Studio로 데이터를 가져오는 방법. 지원되는 데이터 형식에 대해 알아봅니다.
 keywords: 데이터 가져오기, 데이터 형식, 데이터 유형, 데이터 원본, 학습 데이터
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 575e17f214561bde06b70bf87c4895ae379659f2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 8f6bc6e1e13de879f81e6fc6f1f447d0c2856ced
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344725"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315259"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>다양한 데이터 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져오기
 
@@ -33,7 +34,7 @@ ms.locfileid: "51344725"
 * [**온-프레미스 SQL Server 데이터베이스**](use-data-from-an-on-premises-sql-server.md) - 수동으로 데이터를 복사하지 않고도 온-프레미스 SQL Server 데이터베이스의 데이터를 사용합니다.
 
 > [!NOTE]
-> Machine Learning Studio에는 학습 데이터로 사용할 수 있는 샘플 데이터 집합이 많이 있습니다. 이에 대한 자세한 내용은 [Azure Machine Learning Studio의 샘플 데이터 집합 사용](use-sample-datasets.md)을 참조하세요.
+> Machine Learning Studio에는 학습 데이터로 사용할 수 있는 샘플 데이터 세트가 많이 있습니다. 이에 대한 자세한 내용은 [Azure Machine Learning Studio의 샘플 데이터 세트 사용](use-sample-datasets.md)을 참조하세요.
 > 
 > 
 

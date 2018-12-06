@@ -23,14 +23,14 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2018
 ms.locfileid: "52308837"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 집합 사용
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 세트 사용
 [top]: #machine-learning-sample-datasets
 
-Azure Machine Learning에서 새 작업 영역을 만들 때 다양한 샘플 데이터 집합 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 집합 중 다수는 [Azure AI 갤러리](http://gallery.cortanaintelligence.com/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
+Azure Machine Learning에서 새 작업 영역을 만들 때 다양한 샘플 데이터 집합 및 실험이 기본적으로 포함됩니다. 이 샘플 데이터 세트 중 다수는 [Azure AI 갤러리](http://gallery.cortanaintelligence.com/)의 샘플 모델에서 사용됩니다. 나머지는 Machine Learning에서 일반적으로 사용되는 다양한 유형의 데이터 예로 포함됩니다.
 
 일부 데이터 집합은 Azure Blob Storage에서 사용할 수 있습니다. 이러한 데이터 집합의 경우 다음 표에서 직접 링크가 제공됩니다. [데이터 가져오기][import-data] 모듈을 사용하여 이 데이터 집합을 실험에 사용할 수 있습니다.
 
-이러한 샘플 데이터 집합의 나머지는 작업 영역의 **저장된 데이터 집합** 아래에서 확인할 수 있습니다. Machine Learning Studio의 실험 캔버스 왼쪽에 있는 모듈 팔레트에서 찾을 수 있습니다.
+이러한 샘플 데이터 세트의 나머지는 작업 영역의 **저장된 데이터 세트** 아래에서 확인할 수 있습니다. Machine Learning Studio의 실험 캔버스 왼쪽에 있는 모듈 팔레트에서 찾을 수 있습니다.
 실험 캔버스로 끌어와 이러한 데이터 집합을 실험에서 사용할 수 있습니다.
 
 
@@ -127,7 +127,7 @@ Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM m
 <tr>
   <td>유방암 정보</td>
   <td>
-데이터 집합에는 X선 이미지의 의심스러운 영역 각각에 대한 추가 정보가 포함됩니다. 각 예제는 Breast Cancer Features 데이터 집합에 있는 해당 행 번호에 대한 정보(예: 레이블, 환자 ID, 전체 이미지를 기준으로 한 패치 좌표)를 제공합니다. 환자별로 많은 예제가 있습니다. 암이 있는 환자의 경우 일부 예제는 양성이고 일부는 음성입니다. 암이 없는 환자의 경우 모든 예제는 음성입니다. 데이터 집합에는 102,000개의 예제가 있습니다. 데이터 집합이 편향적이며, 요소의 0.6%가 양성이고 나머지는 음성입니다. 데이터 집합은 Siemens Healthcare가 제공했습니다.
+데이터 집합에는 X선 이미지의 의심스러운 영역 각각에 대한 추가 정보가 포함됩니다. 각 예제는 Breast Cancer Features 데이터 세트에 있는 해당 행 번호에 대한 정보(예: 레이블, 환자 ID, 전체 이미지를 기준으로 한 패치 좌표)를 제공합니다. 환자별로 많은 예제가 있습니다. 암이 있는 환자의 경우 일부 예제는 양성이고 일부는 음성입니다. 암이 없는 환자의 경우 모든 예제는 음성입니다. 데이터 집합에는 102,000개의 예제가 있습니다. 데이터 집합이 편향적이며, 요소의 0.6%가 양성이고 나머지는 음성입니다. 데이터 집합은 Siemens Healthcare가 제공했습니다.
   </td>
 </tr>
 
@@ -301,7 +301,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <tr>
   <td>강철 가열 냉각 다중 클래스 데이터 집합</td>
   <td>
-이 데이터 집합은 강철 가열 냉각 시도에서 얻은 일련의 레코드를 포함합니다. 여기에는 결과 강철 유형의 물리적 특성(너비, 두께, 유형(코일, 시트 등))이 포함됩니다.
+이 데이터 세트는 강철 가열 냉각 시도에서 얻은 일련의 레코드를 포함합니다. 여기에는 결과 강철 유형의 물리적 특성(너비, 두께, 유형(코일, 시트 등))이 포함됩니다.
 <p></p>
 <b>사용:</b> 두 가지 숫자 클래스 특성인 경도 또는 강도의 하나를 예측합니다. 특성 간의 상관 관계를 분석할 수도 있습니다.
 <p></p>
@@ -367,7 +367,7 @@ Azure Machine Learning Studio로 업로드하기 전에 데이터 집합이 다�
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
   <td>
-데이터 집합에 고객 데이터 및 다이렉트 메일 캠페인 회신에 대한 내용이 포함됩니다. 각 행은 고객을 나타냅니다. 데이터 집합에 사용자 인구 통계와 과거 동작에 대한 9개의 기능 및 3개의 레이블 열(방문, 전환, 지출)이 포함됩니다.  방문은 마케팅 캠페인 이후 고객이 방문했음을 나타내는 이진 열입니다. 전환은 고객이 무언가를 구입했음을 나타냅니다. 지출은 소비된 금액입니다.  이 데이터 집합은 Kevin Hillstrom이 MineThatData E-Mail Analytics And Data Mining Challenge를 위해 제공했습니다.
+데이터 집합에 고객 데이터 및 다이렉트 메일 캠페인 회신에 대한 내용이 포함됩니다. 각 행은 고객을 나타냅니다. 데이터 세트에 사용자 인구 통계와 과거 동작에 대한 9개의 기능 및 3개의 레이블 열(방문, 전환, 지출)이 포함됩니다.  방문은 마케팅 캠페인 이후 고객이 방문했음을 나타내는 이진 열입니다. 전환은 고객이 무언가를 구입했음을 나타냅니다. 지출은 소비된 금액입니다.  이 데이터 집합은 Kevin Hillstrom이 MineThatData E-Mail Analytics And Data Mining Challenge를 위해 제공했습니다.
   </td>
 </tr>
 

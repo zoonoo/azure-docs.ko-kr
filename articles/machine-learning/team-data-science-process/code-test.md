@@ -1,5 +1,5 @@
 ---
-title: UCI 성인 소득 예측 데이터 집합을 활용하여 Azure에서 데이터 과학 코드 테스트 - Team Data Science Process 및 Azure DevOps Services
+title: UCI 성인 소득 예측 데이터 세트를 활용하여 Azure에서 데이터 과학 코드 테스트 - Team Data Science Process 및 Azure DevOps Services
 description: UCI 성인 소득 예측 데이터를 활용한 데이터 과학 코드 테스트
 services: machine-learning
 author: marktab
@@ -18,8 +18,8 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/28/2018
 ms.locfileid: "52443953"
 ---
-# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>UCI 성인 소득 예측 데이터 집합을 활용한 데이터 과학 코드 테스트
-이 문서에서는 데이터 과학 워크플로에서 코드를 테스트하기 위한 예비 지침을 제공합니다. 이러한 테스트를 통해 데이터 과학자는 체계적이며 효율적인 방식으로 품질 및 예상되는 코드의 결과를 확인할 수 있습니다. 코드 테스트가 어떻게 수행되는지 보여 주기 위해 이전에 게시한 [UCI 성인 소득 데이터 집합을 사용하는 TDSP(Team Data Science Process) 프로젝트](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 사용합니다. 
+# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>UCI 성인 소득 예측 데이터 세트를 활용한 데이터 과학 코드 테스트
+이 문서에서는 데이터 과학 워크플로에서 코드를 테스트하기 위한 예비 지침을 제공합니다. 이러한 테스트를 통해 데이터 과학자는 체계적이며 효율적인 방식으로 품질 및 예상되는 코드의 결과를 확인할 수 있습니다. 코드 테스트가 어떻게 수행되는지 보여 주기 위해 이전에 게시한 [UCI 성인 소득 데이터 세트를 사용하는 TDSP(Team Data Science Process) 프로젝트](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 사용합니다. 
 
 ## <a name="introduction-on-code-testing"></a>코드 테스트 소개
 “단위 테스트”는 소프트웨어 개발을 위한 오랜 관행입니다. 단, 데이터 과학의 경우 무엇을 의미하는지, 그리고 데이터 과학 수명 주기의 다른 단계에서 코드를 어떻게 테스트해야 하는지는 종종 명확하지 않습니다.
@@ -79,7 +79,7 @@ ms.locfileid: "52443953"
       ![누락된 속도에 대한 코드](./media/code-test/check_missing_rate.PNG)
 
 
-1. 데이터 처리 및 기능 엔지니어링 작업을 완료했고 우수한 모델을 학습한 후에는 학습한 모델이 새 데이터 집합을 올바르게 계산하는지 확인합니다. 다음 두 가지 테스트를 사용하여 예측 수준 및 레이블 값의 분포를 확인할 수 있습니다.
+1. 데이터 처리 및 기능 엔지니어링 작업을 완료했고 우수한 모델을 학습한 후에는 학습한 모델이 새 데이터 세트를 올바르게 계산하는지 확인합니다. 다음 두 가지 테스트를 사용하여 예측 수준 및 레이블 값의 분포를 확인할 수 있습니다.
 
     * 예측 수준을 확인합니다.
     

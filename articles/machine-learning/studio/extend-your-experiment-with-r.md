@@ -26,7 +26,7 @@ ms.locfileid: "52311011"
 # <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: R을 사용하여 실험 확장 
 [R 스크립트 실행][execute-r-script] 모듈을 사용하여 R 언어를 통해 Azure Machine Learning Studio의 기능을 확장할 수 있습니다.
 
-이 모듈에서는 여러 입력 데이터 집합을 허용하고 출력으로 단일 데이터 집합을 생성합니다. [R 스크립트 실행][execute-r-script] 모듈의 **R 스크립트** 매개 변수에 R 스크립트를 입력할 수 있습니다.
+이 모듈에서는 여러 입력 데이터 세트를 허용하고 출력으로 단일 데이터 세트를 생성합니다. [R 스크립트 실행][execute-r-script] 모듈의 **R 스크립트** 매개 변수에 R 스크립트를 입력할 수 있습니다.
 
 다음과 비슷한 코드를 사용하여 모듈의 각 입력 포트에 액세스합니다.
 

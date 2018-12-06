@@ -133,12 +133,12 @@ ms.locfileid: "52314987"
 *그림 8: Machine Learning Studio에서 모델 만들기*  
 
 ### <a name="scoring-methods"></a>점수 매기기 방법
-레이블이 지정된 학습 데이터 집합을 사용하여 네 가지 모델의 점수를 매겼습니다.  
+레이블이 지정된 학습 데이터 세트를 사용하여 네 가지 모델의 점수를 매겼습니다.  
 
-또한 데스크톱 버전의 SAS Enterprise Miner 12를 사용하여 빌드한 비교 가능한 모델에 점수 매기기 데이터 집합을 제출했습니다. SAS 모델과 네 가지 Machine Learning Studio 모델 모두의 정확도를 측정했습니다.  
+또한 데스크톱 버전의 SAS Enterprise Miner 12를 사용하여 빌드한 비교 가능한 모델에 점수 매기기 데이터 세트를 제출했습니다. SAS 모델과 네 가지 Machine Learning Studio 모델 모두의 정확도를 측정했습니다.  
 
 ## <a name="results"></a>결과
-이 섹션에서는 점수 데이터 집합에 따라 모델 정확도에 대한 결과를 제공합니다.  
+이 섹션에서는 점수 데이터 세트에 따라 모델 정확도에 대한 결과를 제공합니다.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>점수 매기기의 정확도 및 정밀도
 일반적으로 Azure Machine Learning의 구현은 정확도가 SAS보다 10~15%(AUC(Area Under Curve)) 정도 낮습니다.  
@@ -155,7 +155,7 @@ AUC(Area Under Curve)는 긍정적 및 부정적 모집단에 대한 점수 분�
 AUC 값을 통해 모델을 비교할 수 있으므로 일반적으로 AUC는 다양한 알고리즘(또는 다양한 시스템)에 대한 가치의 측정값으로 사용됩니다. 이는 기상학 및 생물공학과 같은 산업에서 일반적인 접근법입니다. 따라서 AUC는 분류자 성능을 평가하는 데 널리 사용되는 대표적인 도구입니다.  
 
 ### <a name="comparing-misclassification-rates"></a>오분류 비율 비교
-8,000여 개 구독에 대한 CRM 데이터를 사용하여 해당 데이터 집합에 대한 오분류 비율을 비교했습니다.  
+8,000여 개 구독에 대한 CRM 데이터를 사용하여 해당 데이터 세트에 대한 오분류 비율을 비교했습니다.  
 
 * SAS 오분류 비율은 10~15%였습니다.
 * Machine Learning Studio 오분류 비율은 상위 200~300명의 이탈자에 대해 15~20%였습니다.  

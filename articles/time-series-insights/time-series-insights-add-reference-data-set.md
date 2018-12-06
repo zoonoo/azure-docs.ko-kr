@@ -93,7 +93,7 @@ ms.locfileid: "46364740"
 
    ![업로드](media/add-reference-data-set/upload_rows.png)
 
-   이 페이지에서는 완료된 업로드를 확인하고 **데이터 집합이 업로드됨** 메시지를 표시합니다.
+   이 페이지에서는 완료된 업로드를 확인하고 **데이터 세트가 업로드됨** 메시지를 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 프로그래밍 방식으로 [참조 데이터를 관리](time-series-insights-manage-reference-data-csharp.md)합니다.

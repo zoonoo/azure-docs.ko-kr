@@ -108,7 +108,7 @@ Machine Learning 웹 서비스에 연결하려면 **Microsoft.AspNet.WebApi.Clie
 
 **코드 샘플을 실행하려면**
 
-1. Machine Learning 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드” 실험 부분을 게시합니다.
+1. Machine Learning 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 세트에서 데이터 세트 다운로드” 실험 부분을 게시합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 위의 **Azure Machine Learning 권한 부여 키 가져오기** 를 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다.
 
@@ -204,7 +204,7 @@ Machine Learning 웹 서비스에 연결하려면 Python 2.X의 경우 **urllib2
 
 **코드 샘플을 실행하려면**
 
-1. Machine Learning 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드” 실험 부분을 배포합니다.
+1. Machine Learning 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 세트에서 데이터 세트 다운로드” 실험 부분을 배포합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. 이 문서의 시작 부분 가까이에 있는 **Azure Machine Learning 권한 부여 키 가져오기** 섹션을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다.
 

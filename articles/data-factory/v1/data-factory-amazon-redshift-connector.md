@@ -70,7 +70,7 @@ Azure Portal, Visual Studio, Azure PowerShell 또는 다른 도구를 사용하�
 | **사용자 이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
 | **암호** |사용자 계정의 암호입니다. |예 |
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
 데이터 집합을 정의하는 데 사용할 수 있는 섹션 및 속성 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. **structure**, **availability** 및 **policy** 섹션은 모든 데이터 집합 형식에 대해 유사합니다. 데이터 집합 형식의 예로 Azure SQL, Azure Blob Storage 및 Azure Table Storage가 있습니다.
 

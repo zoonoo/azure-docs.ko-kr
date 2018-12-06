@@ -48,7 +48,7 @@ Swagger 엔드포인트는 [AutoRest](https://github.com/Azure/AutoRest) 또는 
 * **가격표** - [가격표 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet)는 지정된 등록 및 청구 기간에 대한 각 측정기에 적용할 수 있는 가격을 제공합니다. 
 
 ## <a name="data-freshness"></a>데이터 새로 고침
-Etag는 위의 모든 API의 응답에서 반환됩니다. Etag의 변경 내용은 데이터를 새로 고칠 것을 나타냅니다.  동일한 매개 변수를 사용하는 동일한 API에 대한 후속 호출에서는 http 요청의 헤더에서 "If-None-Match" 키를 가진 캡처된 Etag를 전달니다. 데이터가 더 이상 새로 고쳐지지 않고 데이터가 반환되지 않는 경우 응답 상태 코드는 "NotModified"입니다. Etag가 변경될 때마다 API는 필수 기간 동안 전체 데이터 집합을 반환합니다.
+Etag는 위의 모든 API의 응답에서 반환됩니다. Etag의 변경 내용은 데이터를 새로 고칠 것을 나타냅니다.  동일한 매개 변수를 사용하는 동일한 API에 대한 후속 호출에서는 http 요청의 헤더에서 "If-None-Match" 키를 가진 캡처된 Etag를 전달니다. 데이터가 더 이상 새로 고쳐지지 않고 데이터가 반환되지 않는 경우 응답 상태 코드는 "NotModified"입니다. Etag가 변경될 때마다 API는 필수 기간 동안 전체 데이터 세트를 반환합니다.
 
 ## <a name="helper-apis"></a>도우미 API
  **청구 기간 나열** - [청구 기간 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)는 지정된 등록에 대한 사용량 데이터를 역방향 시간 순서로 표시한 청구 기간 목록을 반환합니다. 각 기간에는 4개의 데이터 집합(잔액 요약, 사용량 세부 정보, Marketplace 요금 및 가격표)에 대한 API 경로를 가리키는 속성이 포함되어 있습니다.

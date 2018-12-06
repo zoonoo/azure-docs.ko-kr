@@ -51,7 +51,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
     | where * matches regex @'\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b' //RegEx originally provided on https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
     | summarize count() by $table
     ```
-* *사용자 ID*: 사용자 ID는 매우 다양한 솔루션과 테이블에서 찾을 수 있습니다. 검색 명령을 사용하여 전체 데이터 집합에서 특정 사용자 이름을 찾을 수 있습니다.
+* *사용자 ID*: 사용자 ID는 매우 다양한 솔루션과 테이블에서 찾을 수 있습니다. 검색 명령을 사용하여 전체 데이터 세트에서 특정 사용자 이름을 찾을 수 있습니다.
     ```
     search "[username goes here]"
     ```

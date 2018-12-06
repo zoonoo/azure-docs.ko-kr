@@ -110,11 +110,11 @@ SQL Server 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 집합 문서를 참조하세요. 이 섹션에서는 SQL Server 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 집합 문서를 참조하세요. 이 섹션에서는 SQL Server 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-SQL Server 데이터베이스 간에 데이터를 복사하려면 데이터 집합의 type 속성을**SqlServerTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+SQL Server 데이터베이스 간에 데이터를 복사하려면 데이터 세트의 type 속성을**SqlServerTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -446,7 +446,7 @@ SQL Server 데이터베이스로 데이터를 복사할 때 사용자 지정 저
 }
 ```
 
-데이터베이스에서  SqlWriterStoredProcedureName과 동일한 이름으로 저장 프로시저를 정의합니다. 지정된 원본에서 입력 데이터를 처리하고 출력 테이블에 병합합니다. 저장 프로시저에서 테이블 형식의 매개 변수 이름은 데이터 집합에 정의된 "tableName"과 동일해야 합니다.
+데이터베이스에서  SqlWriterStoredProcedureName과 동일한 이름으로 저장 프로시저를 정의합니다. 지정된 원본에서 입력 데이터를 처리하고 출력 테이블에 병합합니다. 저장 프로시저에서 테이블 형식의 매개 변수 이름은 데이터 세트에 정의된 "tableName"과 동일해야 합니다.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

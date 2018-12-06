@@ -103,7 +103,7 @@ Recovery Services 자격 증명 모음을 사용하여 보고서용 저장소 �
     
     ![콘텐츠 팩 가져오기 성공](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. 데이터 가져오기가 정상 완료되면 **Azure Backup** 콘텐츠 팩이 탐색 창의 **앱**에 표시됩니다. 이제 **대시보드**, **보고서**, **데이터 집합** 아래의 목록에 Azure Backup이 표시됩니다.
+7. 데이터 가져오기가 정상 완료되면 **Azure Backup** 콘텐츠 팩이 탐색 창의 **앱**에 표시됩니다. 이제 **대시보드**, **보고서**, **데이터 세트** 아래의 목록에 Azure Backup이 표시됩니다.
      
 8. **대시보드**에서 **Azure Backup**을 선택합니다. 그러면 고정 키 보고서 집합이 표시됩니다.
 

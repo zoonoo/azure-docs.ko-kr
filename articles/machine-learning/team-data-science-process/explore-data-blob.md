@@ -31,7 +31,7 @@ ms.locfileid: "52441589"
 * Azure Blob 저장소 계정에 데이터를 저장합니다. 지침이 필요한 경우 [Azure Storage에서 데이터 이동](../../storage/common/storage-moving-data.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>pandas DataFrame에 데이터 로드
-데이터 집합을 탐색 및 조작하려면 먼저 Blob 원본에서 로컬 파일로 다운로드한 다음 pandas DataFrame에 로드해야 합니다. 이 절차를 수행하는 단계는 다음과 같습니다.
+데이터 세트를 탐색 및 조작하려면 먼저 Blob 원본에서 로컬 파일로 다운로드한 다음, pandas DataFrame에 로드해야 합니다. 이 절차를 수행하는 단계는 다음과 같습니다.
 
 1. blob 서비스를 사용하여 다음 Python 코드 샘플로 Azure blob에서 데이터를 다운로드합니다. 다음 코드의 변수를 사용자가 원하는 값으로 대체합니다. 
    
@@ -55,7 +55,7 @@ ms.locfileid: "52441589"
         #LOCALFILE is the file path    
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-이제 데이터를 탐색하고 이 데이터 집합에 기능을 생성할 준비가 완료되었습니다.
+이제 데이터를 탐색하고 이 데이터 세트에 기능을 생성할 준비가 완료되었습니다.
 
 ## <a name="blob-dataexploration"></a>pandas를 사용 하 여 데이터 탐색의 예
 다음은 pandas를 사용하여 데이터를 탐색하는 방식의 예입니다.

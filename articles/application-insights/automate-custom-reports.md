@@ -47,7 +47,7 @@ ms.locfileid: "50962217"
     ![Azure 함수 템플릿](./media/automate-custom-reports/azure-function-template.png)
 
 ## <a name="sample-query-for-a-weekly-digest-email"></a>주간 다이제스트 이메일에 대한 샘플 쿼리
-다음 쿼리는 보고서처럼 주간 다이제스트 이메일에 대한 여러 데이터 집합 가입을 표시합니다. 주간 보고서를 자동화하려면 위에 나열된 옵션 중 하나를 사용하고 필요에 따라 사용자 지정합니다.   
+다음 쿼리는 보고서처럼 주간 다이제스트 이메일에 대한 여러 데이터 세트 가입을 표시합니다. 주간 보고서를 자동화하려면 위에 나열된 옵션 중 하나를 사용하고 필요에 따라 사용자 지정합니다.   
 
 ```AIQL
 let period=7d;

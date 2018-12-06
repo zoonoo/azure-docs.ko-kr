@@ -244,7 +244,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 
 2. 작업 출력 시작 시간으로 **지금**을 선택하고 **시작**을 선택합니다. 알림 표시줄에서 작업 상태를 볼 수 있습니다.  
 
-3. 작업이 성공하면 [Power BI](https://powerbi.com/)로 이동하여 회사 또는 학교 계정으로 로그인합니다. Stream Analytics 작업 쿼리가 결과를 출력 중이면 앞에서 만든 *ASAdataset* 데이터 집합이 **데이터 집합** 탭에 있는 것입니다.  
+3. 작업이 성공하면 [Power BI](https://powerbi.com/)로 이동하여 회사 또는 학교 계정으로 로그인합니다. Stream Analytics 작업 쿼리가 결과를 출력 중이면 앞에서 만든 *ASAdataset* 데이터 세트가 **데이터 세트** 탭에 있는 것입니다.  
 
 4. Power BI 작업 영역에서 **+ 만들기**를 선택하여 *사기성 호출*이라는 새 대시보드를 만듭니다.  
 

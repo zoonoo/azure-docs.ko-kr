@@ -114,7 +114,7 @@ Copy and paste this URL into your browser when you connect for the first time, t
 
 ## <a name="use-magic-commands-to-manage-experiments"></a>매직 명령을 사용하여 실험 관리
 
-노트북 셀에서 [매직 명령](http://ipython.readthedocs.io/en/stable/interactive/magics.html)을 사용하여 실행 기록을 추적하고 모델 또는 데이터 집합과 같은 출력을 저장할 수 있습니다.
+노트북 셀에서 [매직 명령](http://ipython.readthedocs.io/en/stable/interactive/magics.html)을 사용하여 실행 기록을 추적하고 모델 또는 데이터 세트와 같은 출력을 저장할 수 있습니다.
 
 개별 노트북 셀 실행을 추적하려면 `%azureml history on` 매직 명령을 사용합니다. 기록을 켜면 각 셀 실행이 실행 기록의 항목으로 표시됩니다.
 

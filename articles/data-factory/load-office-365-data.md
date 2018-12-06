@@ -58,29 +58,29 @@ ms.locfileid: "49944564"
 
 1. 파이프라인 > **원본 탭**으로 이동한 다음 **+ 새로 만들기**를 클릭하여 원본 데이터 집합을 만듭니다. 
 
-2. 새 데이터 집합 창에서 **Office 365**를 선택한 다음 **마침**을 선택합니다.
+2. 새 데이터 세트 창에서 **Office 365**를 선택한 다음, **마침**을 선택합니다.
 
-    ![새 Office 365 데이터 집합](./media/load-office-365-data/new-office-365-dataset.png)
+    ![새 Office 365 데이터 세트](./media/load-office-365-data/new-office-365-dataset.png)
  
-3. Office 365 데이터 집합의 새 탭이 열립니다. 속성 창 아래쪽의 **일반** 탭에서 이름으로 "SourceOffice365Dataset"를 입력합니다.
+3. Office 365 데이터 세트의 새 탭이 열립니다. 속성 창 아래쪽의 **일반** 탭에서 이름으로 "SourceOffice365Dataset"를 입력합니다.
 
-    ![Office 365 데이터 집합 일반 정보 구성](./media/load-office-365-data/config-office-365-dataset-general.png)
+    ![Office 365 데이터 세트 일반 정보 구성](./media/load-office-365-data/config-office-365-dataset-general.png)
  
 4. 속성 창의 **연결 탭**으로 이동합니다. 연결된 서비스 텍스트 상자 옆에 있는 **+ 새로 만들기**를 클릭합니다.
  
-    ![Office 365 데이터 집합 연결 구성](./media/load-office-365-data/config-office-365-dataset-connection.png)
+    ![Office 365 데이터 세트 연결 구성](./media/load-office-365-data/config-office-365-dataset-connection.png)
 
 5. 새로 연결된 서비스 창에서 이름으로 "Office365LinkedService"를 입력하고 서비스 주체 ID 및 서비스 주체 키를 입력한 다음 저장을 선택하여 연결된 서비스를 배포합니다.
 
     ![새 Office 365 연결된 서비스](./media/load-office-365-data/new-office-365-linked-service.png)
  
-6. 연결된 서비스를 만든 후에 데이터 집합 설정으로 돌아갑니다. "테이블" 옆의 아래쪽 화살표를 선택하여 사용 가능한 Office 365 데이터 집합 목록을 확장한 다음 드롭다운 목록에서 "BasicDataSet_v0.Contact_v0"을 선택합니다.
+6. 연결된 서비스를 만든 후에 데이터 세트 설정으로 돌아갑니다. "테이블" 옆의 아래쪽 화살표를 선택하여 사용 가능한 Office 365 데이터 세트 목록을 확장한 다음, 드롭다운 목록에서 "BasicDataSet_v0.Contact_v0"을 선택합니다.
 
-    ![Office 365 데이터 집합 테이블 구성](./media/load-office-365-data/config-office-365-dataset-table.png)
+    ![Office 365 데이터 세트 테이블 구성](./media/load-office-365-data/config-office-365-dataset-table.png)
  
-7. 속성 창의 **스키마 탭**으로 이동하여 **스키마 가져오기**를 선택합니다.  연락처 데이터 집합의 스키마와 샘플 값이 표시됩니다.
+7. 속성 창의 **스키마 탭**으로 이동하여 **스키마 가져오기**를 선택합니다.  연락처 데이터 세트의 스키마와 샘플 값이 표시됩니다.
 
-    ![Office 365 데이터 집합 스키마 구성](./media/load-office-365-data/config-office-365-dataset-schema.png)
+    ![Office 365 데이터 세트 스키마 구성](./media/load-office-365-data/config-office-365-dataset-schema.png)
 
 8. 이제 파이프라인 > 원본 탭으로 돌아와 SourceBlobDataset가 선택되어 있는지 확인합니다.
  
@@ -88,23 +88,23 @@ ms.locfileid: "49944564"
 
 1. 파이프라인 > **싱크 탭**으로 이동한 다음 **+ 새로 만들기**를 선택하여 싱크 데이터 집합을 만듭니다.
  
-2. Office 365에서 복사할 때는 새 데이터 집합 창에서 지원되는 대상만 선택됩니다. **Azure Blob Storage**, **마침**을 차례로 선택합니다.  이 자습서에서는 Office 365 데이터를 Azure Blob Storage에 복사합니다.
+2. Office 365에서 복사할 때는 새 데이터 세트 창에서 지원되는 대상만 선택됩니다. **Azure Blob Storage**, **마침**을 차례로 선택합니다.  이 자습서에서는 Office 365 데이터를 Azure Blob Storage에 복사합니다.
 
-    ![새 Blob 데이터 집합](./media/load-office-365-data/new-blob-dataset.png)
+    ![새 Blob 데이터 세트](./media/load-office-365-data/new-blob-dataset.png)
 
 4. 속성 창의 **일반 탭**에서 이름에 "OutputBlobDataset"를 입력합니다.
 
 5. 속성 창의 **연결 탭**으로 이동합니다. 연결된 서비스 텍스트 상자 옆에 있는 **+ 새로 만들기**를 선택합니다.
 
-    ![Blob 데이터 집합 연결 구성](./media/load-office-365-data/config-blob-dataset-connection.png) 
+    ![Blob 데이터 세트 연결 구성](./media/load-office-365-data/config-blob-dataset-connection.png) 
 
 6. 새로 연결된 서비스 창에서 이름으로 "AzureStorageLinkedService"를 입력하고 인증 방법 드롭다운 목록에서 "서비스 주체"를 선택한 다음 서비스 엔드포인트, 테넌트 서비스 주체 ID 및 서비스 주체 키를 입력하고 저장을 클릭하여 연결된 서비스를 배포합니다.  Azure Blob Storage용 서비스 주체 인증을 설정하는 방법은 [여기](connector-azure-blob-storage.md#service-principal-authentication)를 참조하세요.
 
     ![새 Blob 연결된 서비스](./media/load-office-365-data/new-blob-linked-service.png)
 
-7. 연결된 서비스를 만든 후에 데이터 집합 설정으로 돌아갑니다. 파일 경로 옆에 있는 **찾아보기**를 선택하여 Office 365 데이터를 추출할 출력 폴더를 선택합니다.  "파일 형식 설정" 아래 파일 형식 옆에서 "**JSON 형식**"을 선택하고 파일 패턴 옆에서 "**개체 집합**"을 선택합니다.
+7. 연결된 서비스를 만든 후에 데이터 세트 설정으로 돌아갑니다. 파일 경로 옆에 있는 **찾아보기**를 선택하여 Office 365 데이터를 추출할 출력 폴더를 선택합니다.  "파일 형식 설정" 아래 파일 형식 옆에서 "**JSON 형식**"을 선택하고 파일 패턴 옆에서 "**개체 집합**"을 선택합니다.
 
-    ![Blob 데이터 집합 경로 및 형식 구성](./media/load-office-365-data/config-blob-dataset-path-and-format.png) 
+    ![Blob 데이터 세트 경로 및 형식 구성](./media/load-office-365-data/config-blob-dataset-path-and-format.png) 
 
 8. 파이프라인 -> 싱크 탭으로 돌아와 OutputBlobDataset가 선택되어 있는지 확인합니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "49944564"
 
 ## <a name="publish-the-pipeline"></a>파이프라인 게시
 
-위쪽 도구 모음에서 **모두 게시**를 선택합니다. 이 작업은 사용자가 만든 엔터티(데이터 집합 및 파이프라인)를 Data Factory에 게시합니다.
+위쪽 도구 모음에서 **모두 게시**를 선택합니다. 이 작업은 사용자가 만든 엔터티(데이터 세트 및 파이프라인)를 Data Factory에 게시합니다.
 
 ![변경 내용 게시](./media/load-office-365-data/publish-changes.png) 
 

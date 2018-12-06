@@ -144,7 +144,7 @@ df.show()
 
 * Python을 사용하려고 합니다.  
 
-* 비교적 작은 결과 집합을 Azure Cosmos DB에서 Spark로 반환합니다. Azure Cosmos DB의 기본 데이터 집합이 매우 클 수 있고, Azure Cosmos DB 원본에 필터를 적용하거나 조건자 필터를 실행하고 있습니다.
+* 비교적 작은 결과 집합을 Azure Cosmos DB에서 Spark로 반환합니다. Azure Cosmos DB의 기본 데이터 세트가 매우 클 수 있고, Azure Cosmos DB 원본에 필터를 적용하거나 조건자 필터를 실행하고 있습니다.
 
 ## <a name="connect-by-using-the-java-sdk"></a>Java SDK를 사용하여 연결
 
@@ -317,7 +317,7 @@ Java SDK는 구성 매핑에 다음 값을 지원합니다.
 |changefeedcheckpointlocation  |   노드 오류가 발생할 경우, 연속 토큰을 지속할 로컬 파일 저장소의 경로입니다.      |
 |changefeedstartfromthebeginning  |  변경 피드가 시작(true) 또는 현재(false) 지점에서 시작되어야 하는지 여부를 설정합니다. 기본적으로 현재(false)에서 시작됩니다.       |
 |rollingchangefeed  |   변경 피드를 마지막 쿼리에서 가져와야 하는지 여부를 나타내는 부울 값입니다. 기본값은 false이며, 이는 변경 내용이 컬렉션의 첫 번째 읽기부터 계산됨을 의미합니다.      |
-|changefeedusenexttoken  |   실패 시나리오 처리를 지원하는 부울 값입니다. 현재 변경 피드 일괄 처리가 정상적으로 처리되었음을 나타냅니다. 탄력적인 분산 데이터 집합은 변경 내용의 이후 일괄 처리를 가져오는 데 다음 연속 토큰을 사용해야 합니다.      |
+|changefeedusenexttoken  |   실패 시나리오 처리를 지원하는 부울 값입니다. 현재 변경 피드 일괄 처리가 정상적으로 처리되었음을 나타냅니다. 탄력적인 분산 데이터 세트는 변경 내용의 이후 일괄 처리를 가져오는 데 다음 연속 토큰을 사용해야 합니다.      |
 | InferStreamSchema | 스트리밍 데이터의 스키마를 스트리밍 시작 시 샘플링해야 하는지 여부를 나타내는 부울 값입니다. 기본적으로 이 값은 true로 설정됩니다. 이 매개 변수가 true로 설정되고 스트리밍 데이터의 스키마가 데이터가 샘플링된 후 변경되면 새로 추가된 속성이 스트리밍 데이터 프레임에서 삭제됩니다. <br/><br/> 스트리밍 데이터 프레임을 스키마에 종속되지 않게 하려면 이 매개 변수를 false로 설정합니다. 이 모드에서 Azure Cosmos DB 변경 피드에서 읽은 문서의 본문은 본문 속성으로 래핑됩니다. 이 속성은 시스템 속성 값과 별개로 결과 스트리밍 데이터 프레임에 있습니다.
  |
 
@@ -513,4 +513,4 @@ Java SDK는 구성 매핑에 다음 값을 지원합니다.
 * [집계 예제](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [샘플 스크립트 및 노트북](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-또한 [Apache Spark SQL, DataFrame 및 데이터 집합 가이드](http://spark.apache.org/docs/latest/sql-programming-guide.html) 및 [Azure HDInsight의 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 문서를 검토할 수도 있습니다.
+또한 [Apache Spark SQL, DataFrame 및 데이터 세트 가이드](http://spark.apache.org/docs/latest/sql-programming-guide.html) 및 [Azure HDInsight의 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 문서를 검토할 수도 있습니다.

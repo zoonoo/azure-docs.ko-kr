@@ -66,7 +66,7 @@ ms.locfileid: "39055018"
   
 ### <a name="examples"></a>예
 
-#### <a name="a-dataset-with-a-parameter"></a>매개 변수가 포함된 데이터 집합
+#### <a name="a-dataset-with-a-parameter"></a>매개 변수가 포함된 데이터 세트
 다음 예제에서는 BlobDataset은 **경로**라는 매개 변수를 사용합니다. `@{dataset().path}` 식을 사용하여 **folderPath** 속성에 대한 값을 설정하도록 해당 값을 사용합니다. 
 
 ```json
@@ -91,7 +91,7 @@ ms.locfileid: "39055018"
 ```
 
 #### <a name="a-pipeline-with-a-parameter"></a>매개 변수가 포함된 파이프라인
-다음 예에서 파이프라인은 **inputPath** 및 **outputPath** 매개 변수를 사용합니다. 매개 변수가 있는 Blob 데이터 집합의 **경로**는 이러한 매개 변수의 값을 사용하여 설정됩니다. 여기에 사용된 구문은 `pipeline().parameters.parametername`입니다. 
+다음 예에서 파이프라인은 **inputPath** 및 **outputPath** 매개 변수를 사용합니다. 매개 변수가 있는 Blob 데이터 세트의 **경로**는 이러한 매개 변수의 값을 사용하여 설정됩니다. 여기에 사용된 구문은 `pipeline().parameters.parametername`입니다. 
 
 ```json
 {

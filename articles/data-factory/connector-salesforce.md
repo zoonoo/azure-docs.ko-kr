@@ -133,11 +133,11 @@ Salesforce 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Salesforce 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Salesforce 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Salesforce 간에 데이터를 복사하려면 데이터 집합의 형식 속성을 **SalesforceObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Salesforce 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **SalesforceObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -168,11 +168,11 @@ Salesforce 간에 데이터를 복사하려면 데이터 집합의 형식 속성
 ```
 
 >[!NOTE]
->이전 버전과의 호환성을 위해, Salesforce에서 데이터를 복사할 때 이전 "RelationalTable" 형식 데이터 집합을 사용할 경우 이 형식도 그대로 작동하지만 "SalesforceObject" 형식으로 전환하는 것이 좋습니다.
+>이전 버전과의 호환성을 위해, Salesforce에서 데이터를 복사할 때 이전 "RelationalTable" 형식 데이터 세트를 사용할 경우 이 형식도 그대로 작동하지만 "SalesforceObject" 형식으로 전환하는 것이 좋습니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **RelationalTable**로 설정해야 합니다. | yes |
+| 형식 | 데이터 세트의 type 속성을 **RelationalTable**로 설정해야 합니다. | yes |
 | tableName | Salesforce에 있는 테이블의 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
@@ -186,7 +186,7 @@ Salesforce에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 형식 속성을 **SalesforceSource**로 설정해야 합니다. | yes |
-| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 또는 SQL-92 쿼리를 사용할 수 있습니다. [쿼리 팁](#query-tips) 섹션에서 더 많은 팁을 참조하세요. 쿼리를 지정하지 않으면 데이터 집합의 “objectApiName”에 지정된 Salesforce 개체의 모든 데이터가 검색됩니다. | 아니요(데이터 집합의 “objectApiName”이 지정된 경우) |
+| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리 또는 SQL-92 쿼리를 사용할 수 있습니다. [쿼리 팁](#query-tips) 섹션에서 더 많은 팁을 참조하세요. 쿼리를 지정하지 않으면 데이터 세트의 “objectApiName”에 지정된 Salesforce 개체의 모든 데이터가 검색됩니다. | 아니요(데이터 세트의 “objectApiName”이 지정된 경우) |
 | readBehavior | 기존 레코드를 쿼리할지, 아니면 삭제된 항목을 포함하여 모든 레코드를 쿼리할지 여부를 나타냅니다. 지정하지 않으면 기본 동작은 전자입니다. <br>허용되는 값: **query**(기본값), **queryAll**입니다.  | 아니요 |
 
 > [!IMPORTANT]

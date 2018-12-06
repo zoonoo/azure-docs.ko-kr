@@ -207,7 +207,7 @@ ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합�
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>매개 변수화된 Azure Blob 데이터 집합(BlobDataset.json)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>매개 변수화된 Azure Blob 데이터 세트(BlobDataset.json)
 파이프라인은 **folderPath**를 파이프라인의 **outputPath1** 또는 **outputPath2** 매개 변수 중 하나의 값으로 설정합니다. 
 
 ```json

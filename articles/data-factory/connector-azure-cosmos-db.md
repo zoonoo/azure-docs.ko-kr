@@ -36,7 +36,7 @@ Azure Cosmos DB 커넥터를 사용하여 다음을 수행할 수 있습니다.
 
 - Azure Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) 간에 데이터를 복사합니다.
 - **insert** 또는 **upsert**로 Azure Cosmos DB에 씁니다.
-- JSON 문서를 있는 그대로 가져오고 내보내거나 데이터를 테이블 형식 데이터 집합 간에 복사합니다. 예로는 SQL 데이터베이스 및 CSV 파일이 있습니다. JSON 파일 간 또는 다른 Azure Cosmos DB 컬렉션 간에 문서를 있는 그대로 복사하려면 [JSON 문서 가져오기 또는 내보내기](#importexport-json-documents)를 참조하세요.
+- JSON 문서를 있는 그대로 가져오고 내보내거나 데이터를 테이블 형식 데이터 세트 간에 복사합니다. 예로는 SQL 데이터베이스 및 CSV 파일이 있습니다. JSON 파일 간 또는 다른 Azure Cosmos DB 컬렉션 간에 문서를 있는 그대로 복사하려면 [JSON 문서 가져오기 또는 내보내기](#importexport-json-documents)를 참조하세요.
 
 Data Factory는 Azure Cosmos DB에 쓸 때 최상의 성능을 제공하기 위해 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)와 통합됩니다.
 
@@ -80,17 +80,17 @@ Azure Cosmos DB 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-이 섹션에서는 Azure Cosmos DB 데이터 집합에서 지원하는 속성 목록을 제공합니다. 
+이 섹션에서는 Azure Cosmos DB 데이터 세트에서 지원하는 속성 목록을 제공합니다. 
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. 
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. 
 
-Azure Cosmos DB 간 데이터를 복사하려면 데이터 집합의 **type** 속성을 **DocumentDbCollection**으로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Azure Cosmos DB 간 데이터를 복사하려면 데이터 세트의 **type** 속성을 **DocumentDbCollection**으로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 **type** 속성을 **DocumentDbCollection**으로 설정해야 합니다. |yes |
+| 형식 | 데이터 세트의 **type** 속성을 **DocumentDbCollection**으로 설정해야 합니다. |yes |
 | collectionName |Azure Cosmos DB 문서 컬렉션의 이름입니다. |yes |
 
 **예제**
@@ -115,10 +115,10 @@ Azure Cosmos DB 간 데이터를 복사하려면 데이터 집합의 **type** �
 
 Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 복사 작업은 다음 목록에 설명한 방법 중 하나로 스키마를 유추합니다. [JSON 문서를 있는 그대로 가져오기/내보내기](#import-or-export-json-documents)하려는 경우가 아닌 한 **구조** 섹션에서 데이터의 구조를 지정하는 것이 좋습니다.
 
-* 데이터 집합 정의에서 **structure** 속성을 사용하여 데이터 구조를 지정하는 경우 Data Factory는 이 구조를 스키마로 인식합니다. 
+* 데이터 세트 정의에서 **structure** 속성을 사용하여 데이터 구조를 지정하는 경우 Data Factory는 이 구조를 스키마로 인식합니다. 
 
     행에 열 값이 포함되어 있지 않으면 열 값을 위해 null 값이 제공됩니다.
-* 데이터 집합 정의에서 **structure** 속성을 사용하여 데이터의 구조를 지정하지 않는 경우 Data Factory 서비스는 데이터의 첫 번째 행을 사용하여 스키마를 유추합니다. 
+* 데이터 세트 정의에서 **structure** 속성을 사용하여 데이터의 구조를 지정하지 않는 경우 Data Factory 서비스는 데이터의 첫 번째 행을 사용하여 스키마를 유추합니다. 
 
     첫 번째 행에 전체 스키마가 포함되어 있지 않으면 일부 열이 복사 작업의 결과에서 누락됩니다.
 
@@ -183,7 +183,7 @@ Azure Cosmos DB로 데이터를 복사하려면 복사 작업의 **sink** 형식
 | 형식 | 복사 작업 싱크의 **type** 속성을 **DocumentDbCollectionSink**로 설정해야 합니다. |yes |
 | writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert**입니다.<br/><br/>**upsert**의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: ID가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 ID를 자동으로 생성합니다. 즉, **upsert**가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |아니요<br />(기본값: **insert**) |
 | writeBatchSize | Data Factory는 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Azure Cosmos DB에 데이터를 씁니다. **writeBatchSize** 속성은 라이브러리에 제공하는 문서의 크기를 제어합니다. 성능을 개선하기 위해 **writeBatchSize**에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄이도록 시도할 수 있습니다. 아래 팁을 참조하세요. |아니요<br />(기본값: **10,000**) |
-| nestingSeparator |중첩된 해당 문서를 나타내는 **source** 열 이름에 특수 문자가 필요합니다. <br/><br/>예를 들어, 출력 데이터 집합 구조에서 `Name.First`는 **nestedSeparator**가 **.** (점)인 경우 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다. `"Name": {"First": "[value maps to this column from source]"}`  |아니요<br />(기본값: **.** (점)) |
+| nestingSeparator |중첩된 해당 문서를 나타내는 **source** 열 이름에 특수 문자가 필요합니다. <br/><br/>예를 들어, 출력 데이터 세트 구조에서 `Name.First`는 **nestedSeparator**가 **.** (점)인 경우 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다. `"Name": {"First": "[value maps to this column from source]"}`  |아니요<br />(기본값: **.** (점)) |
 
 >[!TIP]
 >Cosmos DB는 단일 요청의 크기를 2MB로 제한합니다. 수식은 요청 크기 = 단일 문서 크기 * 쓰기 일괄 처리 크기입니다. **"요청 크기가 너무 큽니다."** 라는 오류가 발생하는 경우 **복사 싱크 구성에서 `writeBatchSize` 값**을 줄입니다.
@@ -231,7 +231,7 @@ Azure Cosmos DB로 데이터를 복사하려면 복사 작업의 **sink** 형식
 스키마 중립적 복사를 수행하려면 다음을 수행합니다.
 
 * 데이터 복사 도구를 사용하는 경우, **JSON 파일 또는 Cosmos DB 컬렉션으로 있는 그대로 내보내기** 옵션을 선택합니다.
-* 작업 작성을 사용하는 경우 Azure Cosmos DB 데이터 집합에서 **structure**(schema라고도 함) 섹션을 지정하지 마세요. 또한 Azure Cosmos DB 원본 또는 복사 작업의 싱크에서 **nestingSeparator** 속성을 지정하지 마세요. JSON 파일에서 가져오거나 파일로 내보낼 때 [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format) 섹션의 설명대로 해당 파일 저장소 데이터 집합에서 **format** 형식을 **JsonFormat**으로 지정하고 **filePattern**을 구성합니다. 그런 다음 **structure** 섹션을 지정하지 않고 나머지 형식 설정을 건너뜁니다.
+* 작업 작성을 사용하는 경우 Azure Cosmos DB 데이터 세트에서 **structure**(schema라고도 함) 섹션을 지정하지 마세요. 또한 Azure Cosmos DB 원본 또는 복사 작업의 싱크에서 **nestingSeparator** 속성을 지정하지 마세요. JSON 파일에서 가져오거나 파일로 내보낼 때 [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format) 섹션의 설명대로 해당 파일 저장소 데이터 세트에서 **format** 형식을 **JsonFormat**으로 지정하고 **filePattern**을 구성합니다. 그런 다음 **structure** 섹션을 지정하지 않고 나머지 형식 설정을 건너뜁니다.
 
 ## <a name="next-steps"></a>다음 단계
 

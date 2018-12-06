@@ -309,7 +309,7 @@ PdM의 다른 유용한 기술은 데이터에서 이상을 감지하는 알고�
 
 가장 일반적인 방법은 예제를 _k_ 접기로 임의 분할하는 _K 접기 교차 유효성 검사_입니다. 각 하이퍼 매개 변수 값 집합에서 학습 알고리즘을 _k_번 실행합니다. 반복 시마다 현재 접기의 예제를 유효성 검사 집합으로 사용하고 나머지 예제를 학습 집합으로 사용합니다. 학습 예제를 통해 알고리즘을 학습하고 유효성 검사 예제를 통해 성능 메트릭을 계산합니다. 이 루프의 끝에서 _k_ 성능 메트릭의 평균을 계산합니다. 하이퍼 매개 변수 값의 각 집합에서 최상의 평균 성능을 제공하는 값을 선택합니다. 하이퍼 매개 변수를 선택하는 작업은 본질적으로 실험적 경우가 많습니다.
 
-PdM 문제에서 데이터는 여러 데이터 원본에서 가져온 이벤트의 시계열로 기록됩니다. 이러한 레코드는 레이블이 지정된 시간에 따라 정렬할 수 있습니다. 따라서 데이터 집합을 학습 및 유효성 검사 집합으로 _임의_ 분할하는 경우 _일부 학습 예제는 일부 유효성 검사 예제보다 시간상 뒤에 있게 됩니다_. 모델을 학습하기 _전에_ 도착한 일부 데이터를 기반으로 하이퍼 매개 변수 값의 향후 성능이 예측됩니다. 특히 시계열이 고정되지 않고 시간에 따라 변화하는 경우 이러한 예측은 지나치게 낙관적일 수 있습니다. 결과적으로 선택된 하이퍼 매개 변수 값은 최적이 아닐 수 있습니다.
+PdM 문제에서 데이터는 여러 데이터 원본에서 가져온 이벤트의 시계열로 기록됩니다. 이러한 레코드는 레이블이 지정된 시간에 따라 정렬할 수 있습니다. 따라서 데이터 세트를 학습 및 유효성 검사 집합으로 _임의_ 분할하는 경우 _일부 학습 예제는 일부 유효성 검사 예제보다 시간상 뒤에 있게 됩니다_. 모델을 학습하기 _전에_ 도착한 일부 데이터를 기반으로 하이퍼 매개 변수 값의 향후 성능이 예측됩니다. 특히 시계열이 고정되지 않고 시간에 따라 변화하는 경우 이러한 예측은 지나치게 낙관적일 수 있습니다. 결과적으로 선택된 하이퍼 매개 변수 값은 최적이 아닐 수 있습니다.
 
 권장된 방법은 예제를 학습 및 유효성 검사 집합으로 _시간 종속_ 방식으로 분할하는 것입니다. 이 경우에 모든 유효성 검사 예제가 모든 학습 예제보다 시간상 뒤에 있게 됩니다. 하이퍼 매개 변수 값의 각 집합에서 학습 데이터 집합에 대한 알고리즘을 학습합니다. 동일한 유효성 검사 집합에 대한 모델의 성능을 측정합니다. 최고의 성능을 보여주는 하이퍼 매개 변수 값을 선택합니다. 학습/유효성 검사 분할에 의해 선택된 하이퍼 매개 변수 값은 교차 유효성 검사에 의해 임의 선택된 값보다 향후 모델 성능이 더 우수합니다.
 
@@ -344,9 +344,9 @@ RUL을 예측하는 데 사용되는 회귀 모델은 유출 문제의 영향을
 ### <a name="handling-imbalanced-data"></a>불균형 데이터 처리
 분류 문제에서 한 클래스에 다른 클래스보다 더 많은 예제가 있는 경우 이 데이터 집합을 _불균형_하다고 합니다. 이상적으로 서로 다른 클래스를 구분할 수 있으려면 학습 데이터의 각 클래스에 충분한 대표값이 있는 것이 좋습니다. 한 클래스가 데이터의 10% 미만이면 데이터는 불균형이라고 간주됩니다. 대표값이 부족한 클래스는 _소수 클래스_라고 합니다.
 
-PdM에서는 하나의 클래스가 다른 클래스에 비해 심각하게 대표값이 부족한 불균형 데이터 집합 문제에 직면하게 됩니다. 경우에 따라 소수 클래스는 총 데이터 요소의 0.001%만을 구성할 수 있습니다. 클래스 불균형은 PdM에서만 발생하지 않습니다. 오류 및 잘못된 부분이 드물게 발생하는 다른 도메인의 경우 비슷한 문제(예: 부정 행위 감지 및 네트워크 침입)가 발생합니다. 이러한 오류는 소수 클래스 예제를 구성합니다.
+PdM에서는 하나의 클래스가 다른 클래스에 비해 심각하게 대표값이 부족한 불균형 데이터 세트 문제에 직면하게 됩니다. 경우에 따라 소수 클래스는 총 데이터 요소의 0.001%만을 구성할 수 있습니다. 클래스 불균형은 PdM에서만 발생하지 않습니다. 오류 및 잘못된 부분이 드물게 발생하는 다른 도메인의 경우 비슷한 문제(예: 부정 행위 감지 및 네트워크 침입)가 발생합니다. 이러한 오류는 소수 클래스 예제를 구성합니다.
 
-데이터의 클래스 불균형이 발생하면 전체 오류율을 최소화하는 것을 목표로 하므로 대부분의 표준 학습 알고리즘의 성능이 저하됩니다. 99% 음수와 1% 양수 예제를 포함한 데이터 집합의 경우 모든 인스턴스의 레이블을 음수로 지정하여 99% 정확도를 가진 모델을 보여줄 수 있습니다. 하지만 해당 모델은 모든 양수 예제를 잘못 분류합니다. 따라서 정확도가 높더라도 알고리즘은 유용하지 않습니다. 따라서 _오류율에 대한 전체 정확도_와 같은 기존의 평가 메트릭만으로는 불균형 학습에서 충분하지 않습니다. 불균형 데이터 집합이 존재하는 경우 다른 메트릭을 모델 평가에 사용합니다.
+데이터의 클래스 불균형이 발생하면 전체 오류율을 최소화하는 것을 목표로 하므로 대부분의 표준 학습 알고리즘의 성능이 저하됩니다. 99% 음수와 1% 양수 예제를 포함한 데이터 집합의 경우 모든 인스턴스의 레이블을 음수로 지정하여 99% 정확도를 가진 모델을 보여줄 수 있습니다. 하지만 해당 모델은 모든 양수 예제를 잘못 분류합니다. 따라서 정확도가 높더라도 알고리즘은 유용하지 않습니다. 따라서 _오류율에 대한 전체 정확도_와 같은 기존의 평가 메트릭만으로는 불균형 학습에서 충분하지 않습니다. 불균형 데이터 세트가 존재하는 경우 다른 메트릭을 모델 평가에 사용합니다.
 - 자릿수
 - 회수
 - F1 점수
@@ -401,7 +401,7 @@ PdM에서 정상 예제보다 소수 클래스를 구성하는 오류에 더 관
 
 앞서 설명한 대로 PdM에 대한 모델 운영화는 다른 기능과 다릅니다. 일반적으로 변칙 검색 및 오류 감지가 포함된 시나리오에서는 _온라인 점수 매기기_(_실시간 점수 매기기_라고도 함)를 구현합니다. 여기에서 모델은 들어오는 각 레코드의 _점수를 매기고_ 예측을 반환합니다. 변칙 검색의 경우 예측은 비정상적으로 발생했음을 나타냅니다(예: 1클래스 SVM). 오류 검색의 경우 오류의 형식이나 클래스가 검색됩니다.
 
-반면, PdM은 _일괄 처리 점수 매기기_를 포함합니다. 모델 서명을 준수하기 위해 새 데이터의 기능은 학습 데이터와 같은 방식으로 설계되어야 합니다. 새 데이터에 일반적인 대량 데이터 집합의 경우 기능은 기간 동안 집계되고 일괄 처리로 점수가 매겨집니다. 일괄 처리 점수 매기기는 [Spark](http://spark.apache.org/) 또는 [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)와 같은 분산된 시스템에서 일반적으로 수행됩니다. 최적이 아닌 몇 가지 대안이 있습니다.
+반면, PdM은 _일괄 처리 점수 매기기_를 포함합니다. 모델 서명을 준수하기 위해 새 데이터의 기능은 학습 데이터와 같은 방식으로 설계되어야 합니다. 새 데이터에 일반적인 대량 데이터 세트의 경우 기능은 기간 동안 집계되고 일괄 처리로 점수가 매겨집니다. 일괄 처리 점수 매기기는 [Spark](http://spark.apache.org/) 또는 [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics)와 같은 분산된 시스템에서 일반적으로 수행됩니다. 최적이 아닌 몇 가지 대안이 있습니다.
 - 스트리밍 데이터 엔진은 기간 동안 메모리를 집계하도록 지원합니다. 따라서 온라인 점수 매기기를 지원한다고 할 수 있습니다. 하지만 이러한 시스템은 짧은 기간에 집중된 데이터 또는 긴 기간 동안 희소한 요소에 적합합니다. PdM 시나리오에서와 볼 수 있듯이 긴 기간 동안 집중된 데이터를 측정할 수 없습니다.
 - 일괄 처리 점수 매기기가 지원되지 않는 경우 한 번에 작은 일괄 처리로 새 데이터를 처리하도록 온라인 점수 매기기를 조정하는 방법이 있습니다.
 
@@ -418,7 +418,7 @@ PdM에서 정상 예제보다 소수 클래스를 구성하는 오류에 더 관
 | 6 | [Azure AI Toolkit for IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | TensorFlow를 사용하는 IoT Edge의 AI입니다. 도구 모음은 Azure IoT Edge와 호환 가능한 Docker 컨테이너에 있는 도구 모음 패키지 딥 러닝 모델이며 REST API로 해당 모델을 노출합니다.
 | 7 | [Azure IoT 예측 유지 관리](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - 미리 구성된 솔루션입니다. IoT Suite를 사용하는 비행기 유지 관리 PdM 템플릿입니다. 동일한 프로젝트와 연결된 [다른 문서](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) 및 [연습](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough)입니다. |
 | 8 | [SQL Server R Services를 사용한 예측 유지 관리 템플릿](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | R 서비스에 기반한 잔여 수명 시나리오의 데모입니다. |
-| 9 | [예측 유지 관리 모델링 가이드](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | AzureML v1.0에서 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) 및 [데이터 집합](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) 및 [Azure Notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) 및 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)에서 R을 사용하여 엔지니어링된 비행기 유지 관리 데이터 집합 기능|
+| 9 | [예측 유지 관리 모델링 가이드](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | AzureML v1.0에서 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) 및 [데이터 세트](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) 및 [Azure Notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) 및 [실험](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)에서 R을 사용하여 엔지니어링된 비행기 유지 관리 데이터 세트 기능|
 
 ## <a name="training-resources-for-predictive-maintenance"></a>예측 유지 관리에 대한 교육 리소스
 

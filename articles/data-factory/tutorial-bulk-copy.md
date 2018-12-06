@@ -28,7 +28,7 @@ ms.locfileid: "43090936"
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage 연결된 서비스를 만듭니다.
-> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 집합을 만듭니다.
+> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 세트를 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.
@@ -229,11 +229,11 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
 
-## <a name="create-datasets"></a>데이터 집합 만들기
+## <a name="create-datasets"></a>데이터 세트 만들기
 
 이 자습서에서는 데이터가 저장되는 위치를 지정하는 원본 및 싱크 데이터 집합을 만듭니다.
 
-### <a name="create-a-dataset-for-source-sql-database"></a>원본 SQL Database에 대한 데이터 집합 만들기
+### <a name="create-a-dataset-for-source-sql-database"></a>원본 SQL Database에 대한 데이터 세트 만들기
 
 1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDatabaseDataset.json**이라는 JSON 파일을 만듭니다. "tableName"은 나중의 복사 작업에서 SQL 쿼리를 사용하여 데이터를 검색할 때의 더미 데이터입니다.
 
@@ -587,7 +587,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage 연결된 서비스를 만듭니다.
-> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 집합을 만듭니다.
+> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 세트를 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.

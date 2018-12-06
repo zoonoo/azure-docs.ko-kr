@@ -49,11 +49,11 @@ WAImportExport 도구는 [Microsoft Azure Import/Export 서비스](../storage-im
 
 다음 작업은 CSV 파일을 만드는 것입니다.
 
-## <a name="prepare-the-dataset-csv-file"></a>데이터 집합 CSV 파일 준비
+## <a name="prepare-the-dataset-csv-file"></a>데이터 세트 CSV 파일 준비
 
-### <a name="what-is-dataset-csv"></a>데이터 집합 CSV 정의
+### <a name="what-is-dataset-csv"></a>데이터 세트 CSV 정의
 
-데이터 집합 CSV 파일은 /dataset 플래그의 값으로 대상 드라이브에 복사할 디렉터리 목록 및/또는 파일 목록을 포함하고 있는 CSV 파일입니다. 가져오기 작업을 만드는 첫 번째 단계는 가져올 디렉터리와 파일을 결정하는 것입니다. 디렉터리 목록, 고유한 파일 목록 또는 그 둘의 조합일 수 있습니다. 디렉터리가 포함되는 경우 디렉터리 및 하위 디렉터리의 모든 파일이 가져오기 작업의 일부가 됩니다.
+데이터 세트 CSV 파일은 /dataset 플래그의 값으로 대상 드라이브에 복사할 디렉터리 목록 및/또는 파일 목록을 포함하고 있는 CSV 파일입니다. 가져오기 작업을 만드는 첫 번째 단계는 가져올 디렉터리와 파일을 결정하는 것입니다. 디렉터리 목록, 고유한 파일 목록 또는 그 둘의 조합일 수 있습니다. 디렉터리가 포함되는 경우 디렉터리 및 하위 디렉터리의 모든 파일이 가져오기 작업의 일부가 됩니다.
 
 가져올 각 디렉터리 또는 파일의 경우 Azure Blob service에서 대상 가상 디렉터리 또는 Blob을 식별해야 합니다. 이러한 대상을 WAImportExport 도구의 입력으로 사용합니다. 디렉터리는 "/"(슬래시) 문자로 구분해야 합니다.
 
@@ -74,7 +74,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 "F:\50M_original\","containername/",BlockBlob,rename,"None",None
 ```
 
-### <a name="dataset-csv-file-fields"></a>데이터 집합 CSV 파일 필드
+### <a name="dataset-csv-file-fields"></a>데이터 세트 CSV 파일 필드
 
 | 필드 | 설명 |
 | --- | --- |
@@ -91,7 +91,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 /InitialDriveSet 또는 /AdditionalDriveSet 플래그의 값은 도구에서 준비할 디스크 목록을 정확하게 선택할 수 있도록 드라이브 문자가 매핑된 디스크 목록을 포함하고 있는 CSV 파일입니다. 데이터 크기가 단일 디스크 크기보다 큰 경우 WAImportExport 도구는 이 CSV 파일에 참여된 여러 디스크에 데이터를 최적화된 방식으로 분산합니다.
 
-단일 세션에서 데이터를 쓸 수 있는 디스크의 수는 제한되지 않습니다. 이 도구는 디스크 크기와 폴더 크기에 따라 데이터를 분산합니다. 개체 크기에 가장 최적화된 디스크를 선택합니다. 저장소 계정에 업로드된 데이터는 데이터 집합 파일에 지정한 디렉터리 구조로 다시 정리됩니다. 드라이브 집합 CSV를 만들려면 다음 단계를 수행합니다.
+단일 세션에서 데이터를 쓸 수 있는 디스크의 수는 제한되지 않습니다. 이 도구는 디스크 크기와 폴더 크기에 따라 데이터를 분산합니다. 개체 크기에 가장 최적화된 디스크를 선택합니다. 저장소 계정에 업로드된 데이터는 데이터 세트 파일에 지정한 디렉터리 구조로 다시 정리됩니다. 드라이브 집합 CSV를 만들려면 다음 단계를 수행합니다.
 
 ### <a name="create-basic-volume-and-assign-drive-letter"></a>기본 볼륨 만들기 및 드라이브 문자 할당
 
@@ -384,11 +384,11 @@ BitLocker에서 TPM을 사용하지 않도록 설정하려면 다음 단계를 �
 
 #### <a name="what-will-be-the-hierarchy-of-my-data-when-it-appears-in-the-storage-account"></a>내 데이터의 계층 구조가 저장소 계정에 표시되면 어떻게 됩니까?
 
-데이터가 여러 디스크에 분산되어 있지만 저장소 계정에 업로드된 데이터는 데이터 집합 CSV 파일에 지정한 디렉터리 구조로 다시 정리됩니다.
+데이터가 여러 디스크에 분산되어 있지만 저장소 계정에 업로드된 데이터는 데이터 세트 CSV 파일에 지정한 디렉터리 구조로 다시 정리됩니다.
 
 #### <a name="how-many-of-the-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>복사가 진행 중일 때 활성 IO를 병렬로 갖추게 되는 입력 디스크는 몇 개입니까?
 
-도구에서는 입력 파일의 크기에 따라 입력 디스크에 데이터를 분산합니다. 즉 병렬로 연결되는 활성 디스크의 수는 입력 데이터의 특성에 따라 다릅니다. 입력 데이터 집합의 개별 파일 크기에 따라 하나 이상의 디스크에 활성 IO가 병렬로 표시될 수 있습니다. 자세한 내용은 다음 질문을 참조하세요.
+도구에서는 입력 파일의 크기에 따라 입력 디스크에 데이터를 분산합니다. 즉 병렬로 연결되는 활성 디스크의 수는 입력 데이터의 특성에 따라 다릅니다. 입력 데이터 세트의 개별 파일 크기에 따라 하나 이상의 디스크에 활성 IO가 병렬로 표시될 수 있습니다. 자세한 내용은 다음 질문을 참조하세요.
 
 #### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>도구에서 어떻게 파일을 디스크에 분산합니까?
 

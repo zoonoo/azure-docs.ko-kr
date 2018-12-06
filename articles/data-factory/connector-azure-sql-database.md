@@ -199,18 +199,18 @@ MSI 기반 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) 문서를 참조하세요. 이 섹션에서는 Azure SQL Database 데이터 집합에서 지원하는 속성 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) 문서를 참조하세요. 이 섹션에서는 Azure SQL Database 데이터 세트에서 지원하는 속성 목록을 제공합니다.
 
-Azure SQL Database에서 데이터를 복사하려면 데이터 집합의 **type** 속성을 **AzureSqlTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Azure SQL Database에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 **AzureSqlTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | yes |
+| 형식 | 데이터 세트의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | yes |
 | tableName | 연결된 서비스가 참조하는 Azure SQL Database 인스턴스의 테이블 또는 뷰 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
-#### <a name="dataset-properties-example"></a>데이터 집합 속성 예제
+#### <a name="dataset-properties-example"></a>데이터 세트 속성 예제
 
 ```json
 {
@@ -247,7 +247,7 @@ Azure SQL Database에서 데이터를 복사하려면 복사 작업 원본의 **
 ### <a name="points-to-note"></a>주의할 사항
 
 - **sqlReaderQuery**가 **SqlSource**에 대해 지정된 경우, 복사 작업은 Azure SQL Database 원본에 대해 이 쿼리를 실행하여 데이터를 가져옵니다. 또는 저장 프로시저를 지정할 수 있습니다. 저장 프로시저가 매개 변수를 사용하는 경우, **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정합니다.
-- **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 집합 JSON의 **structure** 섹션에 정의된 열이 쿼리()를 생성하는 데 사용됩니다. `select column1, column2 from mytable`은 Azure SQL Database에 대해 실행됩니다. 데이터 집합 정의에 **structure**가 없는 경우, 테이블에서 모든 열이 선택됩니다.
+- **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 집합 JSON의 **structure** 섹션에 정의된 열이 쿼리()를 생성하는 데 사용됩니다. `select column1, column2 from mytable`은 Azure SQL Database에 대해 실행됩니다. 데이터 세트 정의에 **structure**가 없는 경우, 테이블에서 모든 열이 선택됩니다.
 
 #### <a name="sql-query-example"></a>SQL 쿼리 예제
 
@@ -452,7 +452,7 @@ create table dbo.TargetTbl
 > [!NOTE]
 > 대상 테이블에 ID 열이 있습니다.
 
-#### <a name="source-dataset-json-definition"></a>원본 데이터 집합 JSON 정의
+#### <a name="source-dataset-json-definition"></a>원본 데이터 세트 JSON 정의
 
 ```json
 {
@@ -470,7 +470,7 @@ create table dbo.TargetTbl
 }
 ```
 
-#### <a name="destination-dataset-json-definition"></a>대상 데이터 집합 JSON 정의
+#### <a name="destination-dataset-json-definition"></a>대상 데이터 세트 JSON 정의
 
 ```json
 {
@@ -495,7 +495,7 @@ create table dbo.TargetTbl
 > [!NOTE]
 > 원본 및 대상 테이블의 스키마가 서로 다릅니다. 
 
-대상에 ID를 포함하는 추가 열이 있습니다. 이 시나리오에서는 ID 열을 포함하지 않는 대상 데이터 집합 정의의 **structure** 속성을 지정해야 합니다.
+대상에 ID를 포함하는 추가 열이 있습니다. 이 시나리오에서는 ID 열을 포함하지 않는 대상 데이터 세트 정의의 **structure** 속성을 지정해야 합니다.
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> SQL 싱크에서 저장된 프로시저 호출
 
@@ -539,7 +539,7 @@ create table dbo.TargetTbl
 }
 ```
 
-데이터베이스에서 **SqlWriterStoredProcedureName**과 동일한 이름의 저장 프로시저를 정의합니다. 지정된 원본의 입력 데이터를 처리하고 출력 테이블에 병합합니다. 저장 프로시저에서 테이블 형식의 매개 변수 이름은 데이터 집합에 정의된 **tableName**과 동일해야 합니다.
+데이터베이스에서 **SqlWriterStoredProcedureName**과 동일한 이름의 저장 프로시저를 정의합니다. 지정된 원본의 입력 데이터를 처리하고 출력 테이블에 병합합니다. 저장 프로시저에서 테이블 형식의 매개 변수 이름은 데이터 세트에 정의된 **tableName**과 동일해야 합니다.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

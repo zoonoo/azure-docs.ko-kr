@@ -225,7 +225,7 @@ Stream Analytics 작업 입력은 이벤트 허브로부터의 신용 카드 거
 
    **출력 별칭**: **contosooutputs**를 사용합니다. 이 필드는 출력에 대한 고유 별칭입니다. 
 
-   **데이터 집합 이름**: **contosoehdataset**를 사용합니다. 이 필드는 Power BI에 사용할 데이터 집합의 이름입니다. 
+   **데이터 집합 이름**: **contosoehdataset**를 사용합니다. 이 필드는 Power BI에 사용할 데이터 세트의 이름입니다. 
 
    **테이블 이름**: **contosoehtable**을 사용합니다. 이 필드는 Power BI에 사용할 테이블의 이름입니다. 
 
@@ -294,7 +294,7 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
 
 4. **데이터 집합**을 클릭합니다.
 
-   Stream Analytics 작업에 대한 출력을 만들 때 지정한 데이터 집합이 표시됩니다(**contosoehdataset**). 데이터 집합을 처음 표시할 때는 5-10분이 걸릴 수 있습니다.
+   Stream Analytics 작업에 대한 출력을 만들 때 지정한 데이터 세트가 표시됩니다(**contosoehdataset**). 데이터 세트를 처음 표시할 때는 5-10분이 걸릴 수 있습니다.
 
 5. **대시보드**를 클릭한 다음, **만들기**를 클릭하고 **대시보드**를 선택합니다.
 
@@ -308,9 +308,9 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
 
    ![타일 원본을 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 
-8. 데이터 집합(**contosoehdataset**)을 선택하고 **다음**을 클릭합니다.
+8. 데이터 세트(**contosoehdataset**)를 선택하고 **다음**을 클릭합니다.
 
-   ![데이터 집합을 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
+   ![데이터 세트를 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
 9. 시각화 형식으로 **카드**를 선택합니다. **필드** 아래에서 **값 추가**를 선택한 다음, **fraudulentuses**를 선택합니다.
 
@@ -327,7 +327,7 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
    * **타일 추가**를 클릭합니다.
    * **사용자 지정 스트리밍 데이터**를 선택합니다. 
    * **다음**을 클릭합니다.
-   * 데이터 집합을 선택하고 **다음**을 클릭합니다. 
+   * 데이터 세트를 선택하고 **다음**을 클릭합니다. 
 
 12. **시각화 형식**에서 **꺾은선형 차트**를 선택합니다.
 

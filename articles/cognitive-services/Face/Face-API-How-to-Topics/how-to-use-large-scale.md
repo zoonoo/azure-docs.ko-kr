@@ -294,7 +294,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 이 가이드에서는 기존 PersonGroup/FaceList 코드(데이터가 아닌)를 LargePersonGroup/LargeFaceList로 마이그레이션하는 방법을 배웠습니다.
 
 - LargePersonGroup 및 LargeFaceList는 LargeFaceList에 학습 작업이 필요한 것을 제외하고 PersonGroup/FaceList와 유사하게 작동합니다.
-- 대규모 데이터 집합에 대한 동적 데이터 업데이트에 적절한 학습 전략을 사용합니다.
+- 대규모 데이터 세트에 대한 동적 데이터 업데이트에 적절한 학습 전략을 사용합니다.
 
 ## <a name="related-topics"></a>관련 항목
 

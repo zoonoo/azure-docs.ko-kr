@@ -64,7 +64,7 @@ Microsoft의 TDSP 팀은 Azure HDInsight Spark Clusters를 사용하여 Python�
 
 ##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
-Azure SQL Data Warehouse를 사용하면 과도하게 프로비전하거나 요금을 과도하게 지급하지 않고 계산 리소스를 몇 초 만에 쉽게 크기 조정할 수 있습니다. 또한 계산 리소스의 사용을 일시 중지하는 고유한 옵션을 제공하므로 클라우드 비용을 자유롭게 더 효율적으로 관리할 수 있습니다. 확장 가능한 계산 리소스를 배포하는 기능을 사용하면 모든 데이터를 Azure SQL Data Warehouse로 가져올 수 있습니다. 저장소 비용은 최소화되며, 분석하려는 데이터 집합 부분에 대해서만 계산을 실행할 수 있습니다. 
+Azure SQL Data Warehouse를 사용하면 과도하게 프로비전하거나 요금을 과도하게 지급하지 않고 계산 리소스를 몇 초 만에 쉽게 크기 조정할 수 있습니다. 또한 계산 리소스의 사용을 일시 중지하는 고유한 옵션을 제공하므로 클라우드 비용을 자유롭게 더 효율적으로 관리할 수 있습니다. 확장 가능한 계산 리소스를 배포하는 기능을 사용하면 모든 데이터를 Azure SQL Data Warehouse로 가져올 수 있습니다. 저장소 비용은 최소화되며, 분석하려는 데이터 세트 부분에 대해서만 계산을 실행할 수 있습니다. 
 
 Azure SQL Data Warehouse에 대한 자세한 내용은 [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) 웹 사이트를 참조하세요. SQL Data Warehouse를 사용하여 종단 간 고급 분석 솔루션을 빌드하는 방법은 [실행 중인 Team Data Science Process: SQL Data Warehouse 사용](sqldw-walkthrough.md)을 참조하세요.
 

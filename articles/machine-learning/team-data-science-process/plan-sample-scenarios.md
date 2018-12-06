@@ -44,8 +44,8 @@ ms.locfileid: "52444837"
 
 #### <a name="additional-azure-resources-none"></a>추가 Azure 리소스: 없음
 1. [Azure Machine Learning Studio](https://studio.azureml.net/)에 로그인합니다.
-1. 데이터 집합을 업로드합니다.
-1. 데이터 집합을 업로드한 Azure Machine Learning 실험 흐름을 작성합니다.
+1. 데이터 세트를 업로드합니다.
+1. 데이터 세트를 업로드한 Azure Machine Learning 실험 흐름을 작성합니다.
 
 ## <a name="smalllocalprocess"></a>시나리오 \#2: 처리를 요구하는 로컬 파일의 보통 데이터 집합보다 작음
 ![처리 중인 중간 로컬 파일보다 작음][2]
@@ -58,7 +58,7 @@ ms.locfileid: "52444837"
 1. Azure Blob에 변환된 데이터를 저장합니다.
 1. [Azure Machine Learning Studio](https://studio.azureml.net/)에 로그인합니다.
 1. [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
-1. 수집된 데이터 집합으로 시작하여 Azure Machine Learning 실험 흐름을 작성합니다.
+1. 수집된 데이터 세트로 시작하여 Azure Machine Learning 실험 흐름을 작성합니다.
 
 ## <a name="largelocal"></a>시나리오 \#3: 로컬 파일에서 큰 데이터 집합, Azure Blob을 대상으로 함
 ![큰 로컬 파일][3]
@@ -93,7 +93,7 @@ ms.locfileid: "52444837"
    * 데이터베이스 및 대상 테이블을 만듭니다.
    * 대량 가져오기 방법 중 하나를 사용하여 VM-로컬 파일의 데이터를 로드합니다.
    
-   옵션 \#2: IPython Notebook 사용 – 중간 및 대규모 데이터 집합을 권장하지 않음
+   옵션 \#2: IPython Notebook 사용 – 중간 및 대규모 데이터 세트를 권장하지 않음
    
    <!-- -->    
    * ODBC 연결 스트링을 사용하여 VM의 SQL 서버에 액세스합니다.
@@ -180,7 +180,7 @@ ms.locfileid: "52444837"
 1. 필요하거나 원하는 경우 데이터 샘플 크기를 결정합니다.
 1. [Azure Machine Learning Studio](https://studio.azureml.net/)에 로그인합니다.
 1. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
-1. 업로드 데이터 집합으로 단순 Azure Machine Learning 실험 흐름 시작
+1. 업로드 데이터 세트로 단순 Azure Machine Learning 실험 흐름 시작
 
 ### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises--sql-server-to-azure-sql-database"></a>온-프레미스에서 Azure SQL Database로 전체 데이터베이스를 복사하는 대체 메서드
 ![로컬 DB를 분리하고 Azure의 SQL DB에 첨부][7]
@@ -236,7 +236,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 1. 필요하거나 원하는 경우, Azure Machine Learning Studio에 맞게 데이터를 샘플링합니다.
 1. [Azure Machine Learning Studio](https://studio.azureml.net/)에 로그인합니다.
 1. [데이터 가져오기][import-data] 모듈을 사용하여 `Hive Queries`에서 데이터를 직접 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
-1. 업로드 데이터 집합으로 단순 Azure Machine Learning 실험 흐름 시작
+1. 업로드 데이터 세트로 단순 Azure Machine Learning 실험 흐름 시작
 
 ## <a name="decisiontree"></a>시나리오 선택 의사 결정 트리
 - - -
@@ -245,7 +245,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 ![샘플 DS 프로세스 연습 시나리오][8]
 
 ### <a name="advanced-analytics-in-action-examples"></a>고급 분석 작동 예제
-공용 데이터 집합에서 고급 분석 프로세스 및 기술을 사용하는 종단 간 Azure Machine Learning 연습에 대한 자세한 내용은 다음을 참조하세요.
+공용 데이터 세트에서 고급 분석 프로세스 및 기술을 사용하는 종단 간 Azure Machine Learning 연습에 대한 자세한 내용은 다음을 참조하세요.
 
 * [실행 중인 팀 데이터 과학 프로세스: SQL Server 사용](sql-walkthrough.md)
 * [실행 중인 팀 데이터 과학 프로세스: HDInsight Hadoop 클러스터 사용](hive-walkthrough.md)

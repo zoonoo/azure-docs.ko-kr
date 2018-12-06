@@ -23,7 +23,7 @@ ms.locfileid: "52333499"
 
 <a name="batch-testing"></a>
 
-## <a name="import-a-dataset-file-for-batch-testing"></a>일괄 테스트용 데이터 집합 파일 가져오기
+## <a name="import-a-dataset-file-for-batch-testing"></a>일괄 테스트용 데이터 세트 파일 가져오기
 
 1. 위쪽 막대에서 **테스트**를 선택한 다음, **일괄 테스트 패널**을 선택합니다.
 
@@ -31,25 +31,25 @@ ms.locfileid: "52333499"
 
 2. **데이터 집합 가져오기**를 선택합니다. **새 데이터 집합 가져오기** 대화 상자가 표시됩니다. **파일 선택**을 선택하고 테스트할 *1,000개 이하* 발언을 포함하는 올바른 [JSON 형식](luis-concept-batch-test.md#batch-file-format)의 JSON 파일을 찾습니다.
 
-    가져오기 오류는 브라우저 위쪽의 빨간색 알림 표시줄에 보고됩니다. 가져오기에 오류가 있으면 데이터 집합이 생성되지 않습니다. 자세한 내용은 [일반 오류](luis-concept-batch-test.md#common-errors-importing-a-batch)를 참조하세요.
+    가져오기 오류는 브라우저 위쪽의 빨간색 알림 표시줄에 보고됩니다. 가져오기에 오류가 있으면 데이터 세트가 생성되지 않습니다. 자세한 내용은 [일반 오류](luis-concept-batch-test.md#common-errors-importing-a-batch)를 참조하세요.
 
-3. **데이터 집합 이름** 필드에 데이터 집합 파일의 이름을 입력합니다. 데이터 집합 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다. 구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다. 
+3. **데이터 집합 이름** 필드에 데이터 집합 파일의 이름을 입력합니다. 데이터 세트 파일에는 ‘레이블이 지정된 의도’ 및 ‘엔터티’를 포함하는 **발화 배열**이 포함되어 있습니다. 구문의 [예제 일괄 처리 파일](luis-concept-batch-test.md#batch-file-format)을 검토합니다. 
 
-4. **완료**를 선택합니다. 데이터 집합 파일이 추가됩니다.
+4. **완료**를 선택합니다. 데이터 세트 파일이 추가됩니다.
 
-## <a name="run-rename-export-or-delete-dataset"></a>데이터 집합 실행, 이름 바꾸기, 내보내기 또는 삭제
+## <a name="run-rename-export-or-delete-dataset"></a>데이터 세트 실행, 이름 바꾸기, 내보내기 또는 삭제
 
-데이터 집합을 실행하거나, 이름을 바꾸거나, 내보내거나 삭제하려면 데이터 집합 행 끝에 있는 줄임표(***...***) 단추를 사용합니다.
+데이터 세트를 실행하거나, 이름을 바꾸거나, 내보내거나 삭제하려면 데이터 세트 행 끝에 있는 줄임표(***...***) 단추를 사용합니다.
 
-![데이터 집합 작업](./media/luis-how-to-batch-test/batch-testing-options.png)
+![데이터 세트 작업](./media/luis-how-to-batch-test/batch-testing-options.png)
 
 ## <a name="run-a-batch-test-on-your-trained-app"></a>학습된 앱에서 일괄 테스트 실행
 
-테스트를 실행하려면 데이터 집합 이름을 선택합니다. 테스트가 완료되면 이 행에 데이터 집합의 테스트 결과가 표시됩니다.
+테스트를 실행하려면 데이터 세트 이름을 선택합니다. 테스트가 완료되면 이 행에 데이터 세트의 테스트 결과가 표시됩니다.
 
 ![일괄 테스트 결과](./media/luis-how-to-batch-test/run-test.png)
 
-다운로드 가능한 데이터 집합은 일괄 테스트용으로 업로드된 파일과 동일합니다.
+다운로드 가능한 데이터 세트는 일괄 테스트용으로 업로드된 파일과 동일합니다.
 
 |시스템 상태|의미|
 |--|--|

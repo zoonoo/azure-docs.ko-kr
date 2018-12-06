@@ -26,7 +26,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 |영역|제한|
 |--|:--|--|
 | [앱 이름][luis-get-started-create-app] | *기본 문자 최댓값 |
-| [일괄 테스트][batch-testing]| 10개 데이터 집합, 데이터 집합당 1000개 발화|
+| [일괄 테스트][batch-testing]| 10개 데이터 세트, 데이터 세트당 1000개 발화|
 | **[복합](./luis-concept-entity-types.md)|최대 10개의 자식이 있는 100개 |
 | 명시적 목록 | 응용 프로그램당 50개|
 | **[계층적](./luis-concept-entity-types.md) |최대 10개의 자식이 있는 100개 |

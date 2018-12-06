@@ -90,11 +90,11 @@ Cassandra 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 집합 문서를 참조하세요. 이 섹션에서는 Cassandra 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
 
-Cassandra에서 데이터를 복사하려면 데이터 집합의 type 속성을 **CassandraTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Cassandra에서 데이터를 복사하려면 데이터 세트의 type 속성을 **CassandraTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |

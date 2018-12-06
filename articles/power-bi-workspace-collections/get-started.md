@@ -79,7 +79,7 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Power BI Desktop을 사용하여 앱에 포함할 Power BI 데이터 집합 및 보고서 만들기
 
-이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **선택키**가 있으므로 포함하려는 Power BI 데이터 집합 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://go.microsoft.com/fwlink/?LinkId=521662)다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
+이제 응용 프로그램에 대한 Power BI의 인스턴스를 만들었고 **선택키**가 있으므로 포함하려는 Power BI 데이터 세트 및 보고서를 만들어야 합니다. 데이터 집합 및 보고서는 **Power BI 데스크톱**을 사용하여 만들 수 있습니다. [Power BI 데스크톱은 무료로](https://go.microsoft.com/fwlink/?LinkId=521662)다운로드할 수 있습니다. 또는 빠르게 시작하려면 [소매 분석 샘플 PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
 
 > [!NOTE]
 > **Power BI Desktop**을 사용하는 방법에 대해 알아보려면 [Power BI Desktop 시작](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop)을 참조하세요.
@@ -90,11 +90,11 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 | 가져오기 | DirectQuery |
 | --- | --- |
-| 테이블, 열 *및 데이터* 를 **Power BI 데스크톱**으로 가져오거나 복사합니다. 시각화로 작업하면서 **Power BI 데스크톱** 으로 데이터의 복사본을 쿼리합니다. 기본 데이터에서 발생한 모든 변경 내용을 보려면 현재 데이터 집합을 다시 새로 고치거나 가져오거나 완료해야 합니다. |*테이블 및 열* 만 **Power BI 데스크톱**으로 가져오거나 복사합니다. 시각화로 작업하면서 **Power BI 데스크톱** 으로 기본 데이터 원본을 쿼리하므로 항상 최신 데이터가 표시됩니다. |
+| 테이블, 열 *및 데이터* 를 **Power BI 데스크톱**으로 가져오거나 복사합니다. 시각화로 작업하면서 **Power BI 데스크톱** 으로 데이터의 복사본을 쿼리합니다. 기본 데이터에서 발생한 모든 변경 내용을 보려면 현재 데이터 세트를 다시 새로 고치거나 가져오거나 완료해야 합니다. |*테이블 및 열* 만 **Power BI 데스크톱**으로 가져오거나 복사합니다. 시각화로 작업하면서 **Power BI 데스크톱** 으로 기본 데이터 원본을 쿼리하므로 항상 최신 데이터가 표시됩니다. |
 
 데이터 원본에 연결하는 방법에 대 한 자세한 내용은 [데이터 원본에 연결](connect-datasource.md)을 참조하세요.
 
-**Power BI 데스크톱**에 작업을 저장하면 PBIX 파일이 만들어집니다. 이 파일에는 보고서가 포함됩니다. 또한 데이터를 가져오는 경우 PBIX에 전체 데이터 집합이 포함되고 **DirectQuery**를 사용하는 경우 PBIX에 데이터 집합 스키마만 포함됩니다. [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배포합니다.
+**Power BI 데스크톱**에 작업을 저장하면 PBIX 파일이 만들어집니다. 이 파일에는 보고서가 포함됩니다. 또한 데이터를 가져오는 경우 PBIX에 전체 데이터 세트가 포함되고 **DirectQuery**를 사용하는 경우 PBIX에 데이터 세트 스키마만 포함됩니다. [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx)를 사용하여 프로그래밍 방식으로 PBIX를 작업 영역에 배포합니다.
 
 > [!NOTE]
 > **Power BI 작업 영역 컬렉션**에는 데이터 집합이 가리키는 서버 및 데이터베이스를 변경하고 데이터 집합에서 데이터베이스에 연결하는 데 사용할 서비스 계정 자격 증명을 설정하기 위한 추가 API가 있습니다. [SetAllConnections 게시](https://msdn.microsoft.com/library/mt711505.aspx) 및 [게이트웨이 데이터 원본 패치](https://msdn.microsoft.com/library/mt711498.aspx)를 참조하세요.
@@ -103,11 +103,11 @@ Power BI REST API를 호출하는 데 필요한 정보의 가장 중요한 부�
 
 ### <a name="datasets"></a>데이터 집합
 
-REST API를 사용하여 Power BI 작업 영역 컬렉션 내에 데이터 집합을 만들 수 있습니다. 그런 다음 데이터를 데이터 집합에 푸시할 수 있습니다. 이렇게 하면 Power BI Desktop 없이도 데이터 작업을 수행할 수 있습니다. 자세한 내용은 [데이터 집합 게시](https://msdn.microsoft.com/library/azure/mt778875.aspx)를 참조하세요.
+REST API를 사용하여 Power BI 작업 영역 컬렉션 내에 데이터 세트를 만들 수 있습니다. 그런 다음 데이터를 데이터 집합에 푸시할 수 있습니다. 이렇게 하면 Power BI Desktop 없이도 데이터 작업을 수행할 수 있습니다. 자세한 내용은 [데이터 세트 게시](https://msdn.microsoft.com/library/azure/mt778875.aspx)를 참조하세요.
 
 ### <a name="reports"></a>보고서
 
-JavaScript API를 사용하여 데이터 집합으로부터 응용 프로그램에 직접 보고서를 만들 수 있습니다. 자세한 내용은 [Power BI 작업 영역 컬렉션의 데이터 집합에서 새 보고서 만들기](create-report-from-dataset.md)를 참조하세요.
+JavaScript API를 사용하여 데이터 집합으로부터 응용 프로그램에 직접 보고서를 만들 수 있습니다. 자세한 내용은 [Power BI 작업 영역 컬렉션의 데이터 세트에서 새 보고서 만들기](create-report-from-dataset.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

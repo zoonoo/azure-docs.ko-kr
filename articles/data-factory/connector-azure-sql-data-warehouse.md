@@ -208,18 +208,18 @@ MSI 기반 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) 문서를 참조하세요. 이 섹션에서는 Azure SQL Data Warehouse 데이터 집합에서 지원하는 속성 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) 문서를 참조하세요. 이 섹션에서는 Azure SQL Data Warehouse 데이터 세트에서 지원하는 속성 목록을 제공합니다.
 
-Azure SQL Data Warehouse에서/로 데이터를 복사하려면 데이터 집합의 **type** 속성을 **AzureSqlDWTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Azure SQL Data Warehouse에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 **AzureSqlDWTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 **type** 속성을 **AzureSqlDWTable**로 설정해야 합니다. | 예 |
+| type | 데이터 세트의 **type** 속성을 **AzureSqlDWTable**로 설정해야 합니다. | 예 |
 | tableName | 연결된 서비스가 참조하는 Azure SQL Data Warehouse 인스턴스의 테이블 또는 뷰 이름입니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
-#### <a name="dataset-properties-example"></a>데이터 집합 속성 예제
+#### <a name="dataset-properties-example"></a>데이터 세트 속성 예제
 
 ```json
 {
@@ -256,7 +256,7 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하려면 복사 작업 �
 ### <a name="points-to-note"></a>주의할 사항
 
 - **sqlReaderQuery**가 **SqlSource**에 대해 지정된 경우, 복사 작업은 Azure SQL Data Warehouse 원본에 대해 이 쿼리를 실행하여 데이터를 가져옵니다. 또는 저장 프로시저를 지정할 수 있습니다. 저장 프로시저가 매개 변수를 사용하는 경우, **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정합니다.
-- **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 집합 JSON의 **structure** 섹션에 정의된 열이 쿼리를 생성하는 데 사용됩니다. `select column1, column2 from mytable`은 Azure SQL Data Warehouse에 대해 실행됩니다. 데이터 집합 정의에 **structure**가 없는 경우, 테이블에서 모든 열이 선택됩니다.
+- **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 집합 JSON의 **structure** 섹션에 정의된 열이 쿼리를 생성하는 데 사용됩니다. `select column1, column2 from mytable`은 Azure SQL Data Warehouse에 대해 실행됩니다. 데이터 세트 정의에 **structure**가 없는 경우, 테이블에서 모든 열이 선택됩니다.
 
 #### <a name="sql-query-example"></a>SQL 쿼리 예제
 
@@ -520,7 +520,7 @@ PolyBase는 1MB보다 작은 행으로 제한됩니다. VARCHR(MAX), NVARCHAR(MA
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 **tableName**
 
-다음 표에서는 JSON 데이터 집합의 **tableName** 속성을 지정하는 방법에 대한 예를 제공합니다. 스키마 및 테이블 이름의 여러 조합을 보여 줍니다.
+다음 표에서는 JSON 데이터 세트의 **tableName** 속성을 지정하는 방법에 대한 예를 제공합니다. 스키마 및 테이블 이름의 여러 조합을 보여 줍니다.
 
 | DB 스키마 | 테이블 이름 | **tableName** JSON 속성 |
 | --- | --- | --- |
@@ -537,13 +537,13 @@ Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account
 
 ### <a name="columns-with-default-values"></a>기본값이 있는 열
 
-현재, Data Factory의 PolyBase 기능은 대상 테이블과 동일한 열 수만 허용합니다. 예를 들어, 네 개의 열이 있고 그 중 한 열이 기본값으로 정의된 테이블이 있다고 가정합니다. 이 경우, 입력 데이터에 네 개의 열이 있어야 합니다. 3열 입력 데이터 집합을 제공하면 다음 메시지와 비슷한 오류가 발생합니다.
+현재, Data Factory의 PolyBase 기능은 대상 테이블과 동일한 열 수만 허용합니다. 예를 들어, 네 개의 열이 있고 그 중 한 열이 기본값으로 정의된 테이블이 있다고 가정합니다. 이 경우, 입력 데이터에 네 개의 열이 있어야 합니다. 3열 입력 데이터 세트를 제공하면 다음 메시지와 비슷한 오류가 발생합니다.
 
 ```
 All columns of the table must be specified in the INSERT BULK statement.
 ```
 
-NULL 값은 특별한 형태의 기본값입니다. 열이 Null을 허용하는 경우, 해당 열에 대한 Blob의 입력 데이터가 비어 있을 수 있습니다. 그러나 입력 데이터 집합에서는 누락할 수 없습니다. PolyBase는 Azure SQL Data Warehouse에서 누락된 값에 대해 NULL을 삽입합니다.
+NULL 값은 특별한 형태의 기본값입니다. 열이 Null을 허용하는 경우, 해당 열에 대한 Blob의 입력 데이터가 비어 있을 수 있습니다. 그러나 입력 데이터 세트에서는 누락할 수 없습니다. PolyBase는 Azure SQL Data Warehouse에서 누락된 값에 대해 NULL을 삽입합니다.
 
 ## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 데이터 형식 매핑
 

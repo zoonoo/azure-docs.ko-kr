@@ -54,7 +54,7 @@ Excel 회귀에서는 Excel 분석 도구에 있는 표준 선형 회귀 모델�
 ### <a name="create-comparable-experiment-in-azure-machine-learning"></a>Azure Machine Learning에서 비교 가능한 실험 만들기
 다음 단계에 따라 Machine Learning Studio에서 실험을 만들었습니다. 
 
-1. 데이터 집합을 csv 파일(매우 작은 파일)로 Machine Learning Studio에 업로드했습니다.
+1. 데이터 세트를 csv 파일(매우 작은 파일)로 Machine Learning Studio에 업로드했습니다.
 2. 새 실험을 만들고 [데이터 집합의 열 선택][select-columns] 모듈을 사용하여 Excel에서 사용되는 동일한 데이터 기능을 선택했습니다. 
 3. [데이터 분할][split] 모듈(*상대 식* 모드)을 사용하여 데이터를 Excel에서 수행한 것과 동일한 학습 데이터 집합으로 나누었습니다. 
 4. [Linear Regression][linear-regression] 모듈(기본 옵션만)로 실험하고 기록하여 결과를 Excel 회귀 모델과 비교했습니다.
@@ -74,7 +74,7 @@ Excel 모델의 성능이 Machine Learning Studio 모델보다 분명히 뛰어�
 
 * Machine Learning Studio에서 [선형 회귀][linear-regression] 모듈을 사용할 경우 두 가지 방법이 제공됩니다.
   * 온라인 기울기 하강: 보다 큰 규모의 문제에 적합할 수 있습니다.
-  * 최소 자승법: 대부분의 사람들이 선형 회귀에 대해 떠올리는 방법입니다. 데이터 집합이 작은 경우 최소 자승법이 보다 적합할 수 있습니다.
+  * 최소 자승법: 대부분의 사람들이 선형 회귀에 대해 떠올리는 방법입니다. 데이터 세트가 작은 경우 최소 자승법이 보다 적합할 수 있습니다.
 * L2 정규화 가중치 매개 변수를 조정하여 성능을 개선하는 것이 좋습니다. 기본적으로 0.001로 설정되지만 작은 데이터 집합에서는 성능 향상을 위해 0.005로 설정했습니다. 
 
 ### <a name="mystery-solved"></a>문제 해결!
@@ -124,7 +124,7 @@ Excel 모델을 사용하여 기준을 만들었으므로 이제 Machine Learnin
 
 다음에는 [Bayesian][bayesian-linear-regression] 또는 [Boosted Decision Trees][boosted-decision-tree-regression]와 같은 추가 알고리즘을 포함하여 성능을 비교할 계획입니다. 
 
-회귀를 사용하여 실험하려는 경우 많은 숫자 특성이 포함된 Energy Efficiency Regression 샘플 데이터 집합을 사용하는 것이 좋습니다. 이 데이터 집합은 Machine Learning Studio에서 샘플 데이터 집합의 일부로 제공됩니다. 다양한 학습 모듈을 사용하여 난방 부하 또는 냉방 부하를 예측할 수 있습니다. 아래 차트에는 대상 변수 Cooling Load를 예측하여 Energy Efficiency 데이터 집합에 대해 다양한 회귀에서 학습한 결과의 성능이 비교되어 있습니다. 
+회귀를 사용하여 실험하려는 경우 많은 숫자 특성이 포함된 Energy Efficiency Regression 샘플 데이터 집합을 사용하는 것이 좋습니다. 이 데이터 세트는 Machine Learning Studio에서 샘플 데이터 세트의 일부로 제공됩니다. 다양한 학습 모듈을 사용하여 난방 부하 또는 냉방 부하를 예측할 수 있습니다. 아래 차트에는 대상 변수 Cooling Load를 예측하여 Energy Efficiency 데이터 세트에 대해 다양한 회귀에서 학습한 결과의 성능이 비교되어 있습니다. 
 
 | 모델 | 평균 절대 오류 | 제곱 평균 오차 | 상대 절대 오차 | 상대 제곱 오차 | 결정 계수 |
 | --- | --- | --- | --- | --- | --- |

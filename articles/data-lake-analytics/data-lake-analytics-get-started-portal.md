@@ -43,7 +43,7 @@ ms.locfileid: "46295760"
 
 ## <a name="your-first-u-sql-script"></a>첫 번째 U-SQL 스크립트
 
-다음 텍스트는 매우 간단한 U-SQL 스크립트입니다. 스크립트 내에서 작은 데이터 집합을 정의한 다음, 해당 데이터 집합을 `/data.csv`라는 파일로 기본 Data Lake Storage Gen1 계정에 기록하는 것이 전부입니다.
+다음 텍스트는 매우 간단한 U-SQL 스크립트입니다. 스크립트 내에서 작은 데이터 세트를 정의한 다음, 해당 데이터 세트를 `/data.csv`라는 파일로 기본 Data Lake Storage Gen1 계정에 기록하는 것이 전부입니다.
 
 ```
 @a  = 

@@ -28,7 +28,7 @@ Spark Streaming은 데이터에 변환을 적용한 다음, 해당 결과를 파
 
 Spark Streaming은 *불연속화 스트림*(DStream)을 사용하여 데이터의 연속 스트림을 나타냅니다. 이 DStream은 Event Hubs 또는 Kafka와 같은 입력 원본에서 또는 다른 DStream에 변환을 적용하여 만들 수 있습니다. 이벤트가 Spark Streaming 응용 프로그램에 도착하면 이벤트는 신뢰할 수 있는 방식으로 저장됩니다. 즉, 이벤트 데이터는 복제되어 여러 노드에 저장됩니다. 따라서 단일 노드 실패로 인한 이벤트 손실이 발생되지 않게 됩니다.
 
-Spark 코어는 RDD(*복원력 있는 분산 데이터 집합*)를 사용합니다. RDD는 클러스터의 여러 노드에 걸쳐 데이터를 배포하여, 각 노드가 최상의 성능을 위해 메모리 내에 데이터를 완전한 상태로 유지하도록 합니다. 각 RDD는 일괄 처리 간격 동안 수집된 이벤트를 나타냅니다. 일괄 처리 간격이 지나면 Spark Streaming은 해당 간격의 모든 데이터를 포함하는 새 RDD을 생성합니다. RDD의 연속 집합은 DStream으로 수집됩니다. Spark Streaming 응용 프로그램은 각 일괄 처리의 RDD에 저장된 데이터를 처리합니다.
+Spark 코어는 RDD(*복원력 있는 분산 데이터 세트*)를 사용합니다. RDD는 클러스터의 여러 노드에 걸쳐 데이터를 배포하여, 각 노드가 최상의 성능을 위해 메모리 내에 데이터를 완전한 상태로 유지하도록 합니다. 각 RDD는 일괄 처리 간격 동안 수집된 이벤트를 나타냅니다. 일괄 처리 간격이 지나면 Spark Streaming은 해당 간격의 모든 데이터를 포함하는 새 RDD을 생성합니다. RDD의 연속 집합은 DStream으로 수집됩니다. Spark Streaming 응용 프로그램은 각 일괄 처리의 RDD에 저장된 데이터를 처리합니다.
 
 ![Spark DStream](./media/apache-spark-streaming-high-availability/DStream.png)
 

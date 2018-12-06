@@ -41,7 +41,7 @@ ms.locfileid: "43090094"
 
 이 자습서에는 한 가지 작업 즉, 복사 작업이 포함된 파이프라인을 만듭니다. 복사 작업은 지원되는 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사합니다. 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)를 참조하세요. 이 작업은 다양한 데이터 저장소 간에 데이터를 안전하고 안정적이며 확장성 있는 방법으로 복사할 수 있는 전역적으로 사용 가능한 서비스를 통해 이루어집니다. 복사 작업에 대한 자세한 내용은 [데이터 이동 작업](data-factory-data-movement-activities.md)을 참조하세요.
 
-파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [파이프라인의 여러 작업](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요. 
+파이프라인 하나에는 활동이 둘 이상 있을 수 있습니다. 한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정함으로써 두 활동을 연결하여 활동을 하나씩 차례로 실행할 수 있습니다. 자세한 내용은 [파이프라인의 여러 작업](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)을 참조하세요. 
 
 > [!NOTE] 
 > 이 자습서에서 데이터 파이프라인은 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사합니다. Azure Data Factory를 사용하여 데이터를 변환하는 방법에 대한 자습서는 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하도록 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요. 
@@ -59,8 +59,8 @@ ms.locfileid: "43090094"
 | Azure Storage 연결된 서비스 |Azure Storage 계정을 데이터 팩터리에 연결합니다. Azure Storage는 원본 데이터 저장소이고 Azure SQL Database는 자습서의 복사 작업에 대한 싱크 데이터 저장소입니다. 복사 작업을 위한 입력 데이터가 포함된 저장소 계정을 지정합니다. |
 | Azure SQL Database 연결된 서비스 |Azure SQL Database를 데이터 팩터리에 연결합니다. 복사 작업에 대한 출력 데이터를 보유하는 Azure SQL Database를 지정합니다. |
 | Azure Blob 입력 데이터 집합 |Azure Storage 연결된 서비스를 참조하세요. 연결된 서비스는 Azure Storage 계정을 말하며 Azure Blob 데이터 집합은 입력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다. |
-| Azure SQL 출력 데이터 집합 |Azure SQL 연결된 서비스를 참조하세요. Azure SQL 연결된 서비스는 Azure SQL Server를 말하며 Azure SQL 데이터 집합은 출력 데이터를 가진 테이블의 이름을 지정합니다. |
-| 데이터 파이프라인 |파이프라인에는 입력으로 Azure Blob 데이터 집합을 사용하고 출력으로 Azure SQL 데이터 집합을 사용하는 복사 유형의 작업이 하나 포함됩니다. 복사 작업은 Azure Blob의 데이터를 Azure SQL Database의 테이블에 복사합니다. |
+| Azure SQL 출력 데이터 세트 |Azure SQL 연결된 서비스를 참조하세요. Azure SQL 연결된 서비스는 Azure SQL Server를 말하며 Azure SQL 데이터 세트는 출력 데이터를 가진 테이블의 이름을 지정합니다. |
+| 데이터 파이프라인 |파이프라인에는 입력으로 Azure Blob 데이터 세트를 사용하고 출력으로 Azure SQL 데이터 세트를 사용하는 복사 유형의 작업이 하나 포함됩니다. 복사 작업은 Azure Blob의 데이터를 Azure SQL Database의 테이블에 복사합니다. |
 
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인에는 하나 이상의 작업이 있을 수 있습니다. 이러한 두 가지 유형의 활동은 [데이터 이동 활동](data-factory-data-movement-activities.md) 및 [데이터 변환 활동](data-factory-data-transformation-activities.md)입니다. 이 자습서에는 한 가지 활동(복사 활동)이 있는 파이프라인을 만듭니다.
 
@@ -350,11 +350,11 @@ Azure Resource Manager 템플릿에 대한 매개 변수를 포함하는 **ADFCo
 4. Azure Data Factory를 클릭합니다. 데이터 팩터리의 홈 페이지가 표시됩니다.
    
     ![데이터 팩터리의 홈 페이지](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. 이 자습서에서 만든 파이프라인과 데이터 집합을 모니터링하려면 [데이터 집합 및 파이프라인 모니터링](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline)의 지침을 참조하세요. Visual Studio는 현재 Data Factory 파이프라인 모니터링을 지원하지 않습니다.
+6. 이 자습서에서 만든 파이프라인과 데이터 세트를 모니터링하려면 [데이터 세트 및 파이프라인 모니터링](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline)의 지침을 참조하세요. Visual Studio는 현재 Data Factory 파이프라인 모니터링을 지원하지 않습니다.
 7. 조각이 **준비** 상태일 때 데이터가 Azure SQL Database의 **emp** 테이블에 복사되는지 확인합니다.
 
 
-이 자습서에서 만든 파이프라인과 데이터집합을 Azure Portal 블레이드를 사용하여 모니터링하는 방법은 [데이터 집합 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)을 참조하세요.
+이 자습서에서 만든 파이프라인과 데이터 세트를 Azure Portal 블레이드를 사용하여 모니터링하는 방법은 [데이터 세트 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)을 참조하세요.
 
 모니터링 및 관리 응용 프로그램을 사용하여 데이터 파이프라인을 모니터링하는 방법에 대한 자세한 내용은 [모니터링 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
 
@@ -435,8 +435,8 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
 
 connectionString은 sqlServerName, databaseName, sqlServerUserName, sqlServerPassword 매개 변수를 사용하며 해당 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에서 azureSqlLinkedServiceName, dataFactoryName 변수를 사용합니다.
 
-#### <a name="azure-blob-dataset"></a>Azure Blob 데이터 집합
-Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. Azure Blob 데이터 집합 정의에서 입력 데이터를 포함하는 Blob 컨테이너, 폴더 및 파일의 이름을 지정합니다. Azure Blob 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](data-factory-azure-blob-connector.md#dataset-properties)을 참조하세요. 
+#### <a name="azure-blob-dataset"></a>Azure Blob 데이터 세트
+Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. Azure Blob 데이터 세트 정의에서 입력 데이터를 포함하는 Blob 컨테이너, 폴더 및 파일의 이름을 지정합니다. Azure Blob 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](data-factory-azure-blob-connector.md#dataset-properties)을 참조하세요. 
 
 ```json
 {
@@ -477,8 +477,8 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 }
 ```
 
-#### <a name="azure-sql-dataset"></a>Azure SQL 데이터 집합
-Azure Blob 저장소에서 복사된 데이터를 보유하는 Azure SQL Database의 테이블 이름을 지정합니다. Azure SQL 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](data-factory-azure-sql-connector.md#dataset-properties)을 참조하세요. 
+#### <a name="azure-sql-dataset"></a>Azure SQL 데이터 세트
+Azure Blob 저장소에서 복사된 데이터를 보유하는 Azure SQL Database의 테이블 이름을 지정합니다. Azure SQL 데이터 세트를 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 세트 속성](data-factory-azure-sql-connector.md#dataset-properties)을 참조하세요. 
 
 ```json
 {
@@ -514,7 +514,7 @@ Azure Blob 저장소에서 복사된 데이터를 보유하는 Azure SQL Databas
 ```
 
 #### <a name="data-pipeline"></a>데이터 파이프라인
-Azure Blob 데이터 집합에서Azure SQL 데이터 집합으로 데이터를 복사하는 파이프라인을 정의합니다. 이 예에서 파이프라인을 정의하는 데 사용된 JSON 요소에 대한 자세한 설명은 [파이프라인 JSON](data-factory-create-pipelines.md#pipeline-json)을 참조하세요. 
+Azure Blob 데이터 세트에서Azure SQL 데이터 세트로 데이터를 복사하는 파이프라인을 정의합니다. 이 예에서 파이프라인을 정의하는 데 사용된 JSON 요소에 대한 자세한 설명은 [파이프라인 JSON](data-factory-create-pipelines.md#pipeline-json)을 참조하세요. 
 
 ```json
 {

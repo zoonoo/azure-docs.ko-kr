@@ -52,7 +52,7 @@ Microsoft Cortana Intelligence 대회는 전 세계의 데이터 전문가 커�
 
 **오픈 소스 도구를 사용하여 이 대회에 참가할 수 있나요?**
 
-대회 참가자는 데이터 과학 모델 개발을 위한 Cortana Intelligence Suite의 클라우드 기반 서비스인 Azure Machine Learning Studio를 사용하여 대회에 제출할 응모작을 만들어야 합니다. Machine Learning Studio는 기계 학습 실험을 만들기 위한 GUI 인터페이스를 제공할 뿐 아니라 네이티브 실행을 위한 참가자 고유의 R 및/또는 Python 스크립트를 가져올 수 있습니다. Studio의 R 및 Python 런타임에는 다양한 오픈 소스 R/Python 패키지가 포함되어 있습니다. 자체 패키지를 실험의 일부로 가져올 수도 있습니다. 또한 자유롭게 데이터를 탐색할 수 있도록 Studio에 Jupyter Notebook 서비스가 내장되어 있습니다. 물론, 언제든지 대회에 사용되는 데이터 집합을 다운로드하고 Machine Learning Studio 이외의 선호하는 도구에서 살펴볼 수 있습니다. 
+대회 참가자는 데이터 과학 모델 개발을 위한 Cortana Intelligence Suite의 클라우드 기반 서비스인 Azure Machine Learning Studio를 사용하여 대회에 제출할 응모작을 만들어야 합니다. Machine Learning Studio는 기계 학습 실험을 만들기 위한 GUI 인터페이스를 제공할 뿐 아니라 네이티브 실행을 위한 참가자 고유의 R 및/또는 Python 스크립트를 가져올 수 있습니다. Studio의 R 및 Python 런타임에는 다양한 오픈 소스 R/Python 패키지가 포함되어 있습니다. 자체 패키지를 실험의 일부로 가져올 수도 있습니다. 또한 자유롭게 데이터를 탐색할 수 있도록 Studio에 Jupyter Notebook 서비스가 내장되어 있습니다. 물론, 언제든지 대회에 사용되는 데이터 세트를 다운로드하고 Machine Learning Studio 이외의 선호하는 도구에서 살펴볼 수 있습니다. 
 
 **참가하려면 데이터 과학자여야 하나요?**
 

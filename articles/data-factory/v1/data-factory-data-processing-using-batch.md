@@ -1,5 +1,5 @@
 ---
-title: Data Factory 및 Batch를 사용하여 대규모 데이터 집합 처리 | Microsoft Docs
+title: Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리 | Microsoft Docs
 description: Azure Batch의 병렬 처리 기능을 사용하여 Azure Data Factory 파이프라인에서 대용량 데이터를 처리하는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -21,15 +21,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2018
 ms.locfileid: "51976862"
 ---
-# <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 집합 처리
+# <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
 > 이 문서는 일반 공급되는 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용하는 경우, [Data Factory의 사용자 지정 작업](../transform-data-using-dotnet-custom-activity.md)을 참조하세요.
 
-이 문서에서는 예약된 자동 방식으로 대규모 데이터 집합을 이동 및 처리하는 샘플 솔루션의 아키텍처에 대해 설명합니다. 또한 Data Factory 및 Azure Batch를 사용하여 솔루션을 구현하는 종합적인 연습 과정을 제공합니다.
+이 문서에서는 예약된 자동 방식으로 대규모 데이터 세트를 이동 및 처리하는 샘플 솔루션의 아키텍처에 대해 설명합니다. 또한 Data Factory 및 Azure Batch를 사용하여 솔루션을 구현하는 종합적인 연습 과정을 제공합니다.
 
 이 문서는 전체 샘플 솔루션의 연습을 포함하기 때문에 일반적인 문서보다 깁니다. Batch 및 Data Factory를 처음 사용하는 경우 이러한 서비스 및 작동 방식에 대해 알아볼 수 있습니다. 서비스에 대한 정보를 알고 있으며 솔루션을 디자인/구성하는 경우 문서의 [아키텍처 섹션](#architecture-of-sample-solution)에 집중할 수 있습니다. 프로토타입 또는 솔루션을 개발하는 경우 [연습](#implementation-of-sample-solution)에서 단계별 지침을 사용하려고 할 수 있습니다. 이 콘텐츠 및 사용 방법에 대한 사용자의 의견을 환영합니다.
 
-첫째, Data Factory 및 Batch 서비스가 클라우드에서 대용량 데이터 집합을 처리할 수 있는 방법을 살펴보겠습니다.     
+첫째, Data Factory 및 Batch 서비스가 클라우드에서 대용량 데이터 세트를 처리할 수 있는 방법을 살펴보겠습니다.     
 
 ## <a name="why-azure-batch"></a>Azure Batch를 사용해야 하는 이유
  클라우드에서 Batch를 사용하여 대규모 병렬 및 HPC(고성능 컴퓨팅) 응용 프로그램을 효율적으로 실행할 수 있습니다. Batch는 계산 집약적 작업이 관리되는 VM(가상 머신) 컬렉션에서 실행되도록 예약하는 플랫폼 서비스입니다. 작업의 요구 사항을 충족하기 위해 계산 리소스의 크기를 조정할 수 있습니다.
@@ -82,7 +82,7 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 * 앱을 통해 배포하거나 다른 도구에서 추가로 처리하기 위한 목적으로 **Data Factory는 최종 결과를 세 번째 위치로 이동시킵니다**.
 
 ## <a name="implementation-of-the-sample-solution"></a>샘플 솔루션의 구현
-샘플 솔루션은 의도적으로 간단합니다. Data Factory와 Batch를 사용하여 데이터 집합을 처리하는 방법을 알려주도록 디자인되었습니다. 솔루션은 시계열에 구성된 입력 파일에서 검색 단어 "Microsoft"의 발생 수를 계산합니다. 그러면 출력 파일에 개수를 출력합니다.
+샘플 솔루션은 의도적으로 간단합니다. Data Factory와 Batch를 사용하여 데이터 세트를 처리하는 방법을 알려주도록 디자인되었습니다. 솔루션은 시계열에 구성된 입력 파일에서 검색 단어 "Microsoft"의 발생 수를 계산합니다. 그러면 출력 파일에 개수를 출력합니다.
 
 **시간**: Azure, Data Factory 및 Batch의 기본 사항에 익숙하고 다음과 같은 필수 구성 요소를 완료했다면 이 솔루션이 완료되는 데 1~2시간이 소요됩니다.
 
@@ -170,7 +170,7 @@ public IDictionary<string, string> Execute(
 * 이 메서드는 다음과 같은 네 개의 매개 변수를 사용합니다.
 
   * **linkedServices**. 이 매개 변수는 입/출력 데이터 원본(예: Blob Storage)을 데이터 팩터리에 연결하는 연결된 서비스의 열거형 목록입니다. 이 샘플에서는 입력 및 출력 모두에 사용되는 Azure Storage 형식의 연결된 서비스가 하나만 있습니다.
-  * **datasets**. 이 매개 변수는 데이터 집합의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 집합에 정의된 위치 및 스키마를 가져올 수 있습니다.
+  * **datasets**. 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
   * **activity**. 이 매개 변수는 현재 계산 엔터티를 나타냅니다. 이 경우 Batch 서비스입니다.
   * **logger**. 로거를 사용하여 파이프라인에서 "사용자" 로그로 노출할 디버그 주석을 기록할 수 있습니다.
 * 이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
@@ -439,7 +439,7 @@ public IDictionary<string, string> Execute(
     ```csharp
     output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
     ```
-1. **Calculate** 메서드가 작업을 완료한 후에 새 Blob에 작성되어야 합니다. 처리된 모든 BLOB 집합에 대해 결과를 새 BLOB에 작성할 수 있습니다. 새 BLOB를 작성하려면 먼저 출력 데이터 집합을 찾습니다.
+1. **Calculate** 메서드가 작업을 완료한 후에 새 Blob에 작성되어야 합니다. 처리된 모든 BLOB 집합에 대해 결과를 새 BLOB에 작성할 수 있습니다. 새 BLOB를 작성하려면 먼저 출력 데이터 세트를 찾습니다.
 
     ```csharp
     // Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
@@ -482,7 +482,7 @@ public IDictionary<string, string> Execute(
 ### <a name="create-the-data-factory"></a>데이터 팩터리 만들기
 [사용자 지정 작업 만들기](#create-the-custom-activity) 섹션에서 사용자 지정 작업을 만들고 이진 파일과 함께 zip 파일을 업로드하고 PDB 파일을 Blob 컨테이너에 업로드했습니다. 이 섹션에서는 사용자 지정 작업을 사용하는 파이프라인으로 Data Factory를 만듭니다.
 
-사용자 지정 작업에 대한 입력 데이터 집합은 Blob 저장소에서 입력 폴더(`mycontainer\\inputfolder`)의 Blob(파일)을 나타냅니다. 이 작업에 대한 출력 데이터 집합은 Blob 저장소에서 출력 폴더(`mycontainer\\outputfolder`)의 출력 Blob을 나타냅니다.
+사용자 지정 작업에 대한 입력 데이터 세트는 Blob 저장소에서 입력 폴더(`mycontainer\\inputfolder`)의 Blob(파일)을 나타냅니다. 이 작업에 대한 출력 데이터 세트는 Blob 저장소에서 출력 폴더(`mycontainer\\outputfolder`)의 출력 Blob을 나타냅니다.
 
 입력 폴더에 있는 하나 이상의 파일을 삭제합니다.
 
@@ -598,8 +598,8 @@ test custom activity Microsoft test custom activity Microsoft
 #### <a name="step-3-create-datasets"></a>3단계: 데이터 집합 만들기
 이 단계에서는 입력 및 출력 데이터를 나타낼 데이터 집합을 만듭니다.
 
-#### <a name="create-the-input-dataset"></a>입력 데이터 집합 만들기
-1. Data Factory 편집기의 도구 모음에서 **새 데이터 집합** 단추를 선택합니다. 드롭 다운 목록에서 **Azure Blob Storage**를 선택합니다.
+#### <a name="create-the-input-dataset"></a>입력 데이터 세트 만들기
+1. Data Factory 편집기의 도구 모음에서 **새 데이터 세트** 단추를 선택합니다. 드롭 다운 목록에서 **Azure Blob Storage**를 선택합니다.
 
 1. 오른쪽 창의 JSON 스크립트를 다음 JSON 코드 조각으로 바꿉니다.
 
@@ -661,7 +661,7 @@ test custom activity Microsoft test custom activity Microsoft
 
     이 연습에서는 나중에 시작 시간 2015-11-16T00:00:00Z 및 종료 시간 2015-11-16T05:00:00Z로 파이프라인을 만듭니다. 매시간 데이터를 생성하도록 예약됩니다. 따라서 5개의 입/출력 조각이 있습니다(**00**:00:00 -\> **05**:00:00 사이).
 
-    입력 데이터 집합의 **빈도** 및 **간격**은 **시간** 및 **1**로 설정되며 이는 입력 조각이 매시간 제공됨을 의미합니다.
+    입력 데이터 세트의 **빈도** 및 **간격**은 **시간** 및 **1**로 설정되며 이는 입력 조각이 매시간 제공됨을 의미합니다.
 
     각 조각에 대한 시작 시간은 이전의 JSON 코드 조각에서 **SliceStart** 시스템 변수로 표시됩니다. 각 조각에 대한 시작 시간은 다음과 같습니다.
 
@@ -685,10 +685,10 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. 도구 모음에서 **배포**를 선택하여 **InputDataset** 테이블을 만들고 배포합니다.
 
-#### <a name="create-the-output-dataset"></a>출력 데이터 집합 만들기
-이 단계에서는 출력 데이터를 나타내는 다른 AzureBlob 형식의 데이터 집합을 만듭니다.
+#### <a name="create-the-output-dataset"></a>출력 데이터 세트 만들기
+이 단계에서는 출력 데이터를 나타내는 다른 AzureBlob 형식의 데이터 세트를 만듭니다.
 
-1. Data Factory 편집기의 도구 모음에서 **새 데이터 집합** 단추를 선택합니다. 드롭 다운 목록에서 **Azure Blob Storage**를 선택합니다.
+1. Data Factory 편집기의 도구 모음에서 **새 데이터 세트** 단추를 선택합니다. 드롭 다운 목록에서 **Azure Blob Storage**를 선택합니다.
 
 1. 오른쪽 창의 JSON 스크립트를 다음 JSON 코드 조각으로 바꿉니다.
 
@@ -925,7 +925,7 @@ Data Factory 서비스는 Batch에 `adf-poolname:job-xxx`라는 이름으로 작
    >
 1. 사용자 지정 작업은 패키지에서 **app.config** 파일을 사용하지 않습니다. 따라서 코드가 구성 파일에서 연결 문자열을 읽는 경우 런타임 시 작동하지 않습니다. Batch를 사용하는 경우 모범 사례는 Azure Key Vault에서 암호를 보유하는 것입니다. 그런 다음 인증서 기반 서비스 주체를 사용하여 키 자격 증명 모음을 보호하고 인증서를 Batch 풀에 배포합니다. .NET 사용자 지정 활동은 런타임에 키 자격 증명 모음의 암호에 액세스할 수 있습니다. 이 일반 솔루션은 연결 문자열뿐 아니라 모든 형식의 암호로 확장될 수 있습니다.
 
-    쉬운 해결 방법이 있지만 가장 좋은 방법은 아닙니다. 연결 문자열 설정을 사용하여 SQL 데이터베이스 연결된 서비스를 만들 수 있습니다. 그런 다음 연결된 서비스를 사용하는 데이터 집합을 만들고 사용자 지정 .NET 작업에 더미 입력 데이터 집합으로 데이터 집합을 연결할 수 있습니다. 그런 다음 사용자 지정 활동 코드에서 연결된 서비스의 연결 문자열에 액세스할 수 있습니다. 런타임 시 제대로 작동해야 합니다.  
+    쉬운 해결 방법이 있지만 가장 좋은 방법은 아닙니다. 연결 문자열 설정을 사용하여 SQL 데이터베이스 연결된 서비스를 만들 수 있습니다. 그런 다음, 연결된 서비스를 사용하는 데이터 세트를 만들고 사용자 지정 .NET 작업에 더미 입력 데이터 세트로 데이터 세트를 연결할 수 있습니다. 그런 다음 사용자 지정 활동 코드에서 연결된 서비스의 연결 문자열에 액세스할 수 있습니다. 런타임 시 제대로 작동해야 합니다.  
 
 #### <a name="extend-the-sample"></a>샘플 확장
 Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플을 확장할 수 있습니다. 예를 들어 서로 다른 시간 범위에서 조각을 처리하려면 다음 단계를 수행합니다.

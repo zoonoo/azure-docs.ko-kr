@@ -29,7 +29,7 @@ ms.locfileid: "50093652"
 + _이 환자의 망막 스캔을 통해 안과 질환에 대해 어떤 종류의 심각도가 표시됩니까?_
 
 AMLPCV를 사용하여 이 모델을 구축하고 배포하는 경우 다음 단계를 수행하십시오.
-1. 데이터 집합 만들기
+1. 데이터 세트 만들기
 2. 이미지 시각화 및 주석
 3. 이미지 증강
 4. DNN(심층 신경망) 모델 정의
@@ -64,9 +64,9 @@ AMLPCV를 사용하여 이 모델을 구축하고 배포하는 경우 다음 단
 
 ### <a name="load-the-sample-data"></a>샘플 데이터 로드
 
-다음 예제에서는 63개의 식기류 이미지로 구성된 데이터 집합을 사용합니다. 각 이미지에는 4 개의 다른 클래스(bowl, cup, cutlery, plate) 중 하나에 속한 것으로 레이블이 지정됩니다. 이 예제에서는 샘플을 신속하게 실행할 수 있도록 이미지 수가 작습니다. 실제로는 클래스당 100개 이상의 이미지가 제공되어야 합니다. 모든 이미지는 "bowl", "cup", "cutlery", "plate"라는 하위 디렉터리의 *"../sample_data/imgs_recycling/"* 에 있습니다.
+다음 예제에서는 63개의 식기류 이미지로 구성된 데이터 세트를 사용합니다. 각 이미지에는 4 개의 다른 클래스(bowl, cup, cutlery, plate) 중 하나에 속한 것으로 레이블이 지정됩니다. 이 예제에서는 샘플을 신속하게 실행할 수 있도록 이미지 수가 작습니다. 실제로는 클래스당 100개 이상의 이미지가 제공되어야 합니다. 모든 이미지는 "bowl", "cup", "cutlery", "plate"라는 하위 디렉터리의 *"../sample_data/imgs_recycling/"* 에 있습니다.
 
-![Azure Machine Learning 데이터 집합](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
+![Azure Machine Learning 데이터 세트](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -554,7 +554,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL 분석의 탐색 메뉴에�
 
 [SQL Server 오류 메시지에 대해 자세히 알아봅니다](https://msdn.microsoft.com/library/cc645603.aspx).
 
-### <a name="database-wait-statistics-dataset"></a>데이터베이스 대기 통계 데이터 집합
+### <a name="database-wait-statistics-dataset"></a>데이터베이스 대기 통계 데이터 세트
 
 |자산|설명|
 |---|---|
@@ -583,7 +583,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL 분석의 탐색 메뉴에�
 
 [데이터베이스 대기 통계에 대해 자세히 알아봅니다.](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)
 
-### <a name="time-outs-dataset"></a>제한 시간 데이터 집합 
+### <a name="time-outs-dataset"></a>제한 시간 데이터 세트
 
 |자산|설명|
 |---|---|
@@ -630,7 +630,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL 분석의 탐색 메뉴에�
 |blocked_process_filtered_s|차단된 프로세스 보고서 XML.|
 |duration_d|잠금 기간(밀리초).|
 
-### <a name="deadlocks-dataset"></a>교착 상태 데이터 집합
+### <a name="deadlocks-dataset"></a>교착 상태 데이터 세트
 
 |자산|설명|
 |---|---|
@@ -651,7 +651,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL 분석의 탐색 메뉴에�
 |ResourceId|리소스 URI |
 |deadlock_xml_s|교착 상태 보고서 XML.|
 
-### <a name="automatic-tuning-dataset"></a>자동 조정 데이터 집합
+### <a name="automatic-tuning-dataset"></a>자동 조정 데이터 세트
 
 |자산|설명|
 |---|---|

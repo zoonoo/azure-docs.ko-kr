@@ -53,7 +53,7 @@ ms.locfileid: "45734255"
     이 자습서에는 두 가지 연결된 서비스 **Azure Storage** 및 **Azure HDInsight**를 만듭니다. Azure Storage 연결된 서비스는 데이터 팩터리에 대한 입력/출력 데이터를 보유하는 Azure Storage 계정을 연결합니다. Azure HDInsight 연결된 서비스는 데이터 팩터리에 대한 데이터를 변환하는 데 사용된 Azure HDInsight 클러스터를 연결합니다. 
 3. 입력 및 출력 **데이터 집합**을 만듭니다. 입력 데이터 집합은 파이프라인의 작업에 대한 입력을 나타내고 출력 데이터 집합은 작업에 대한 출력을 나타냅니다.
 
-    이 자습서에서 입력 및 출력 데이터 집합은 Azure Blob Storage에서 입력 및 출력 데이터의 위치를 지정합니다. Azure Storage 연결된 서비스는 어떤 Azure Storage 계정이 사용되는지를 지정합니다. 입력 데이터 집합은 입력 파일의 위치를 지정하고 출력 데이터 집합은 출력 파일이 있는 위치를 지정합니다. 
+    이 자습서에서 입력 및 출력 데이터 세트는 Azure Blob Storage에서 입력 및 출력 데이터의 위치를 지정합니다. Azure Storage 연결된 서비스는 어떤 Azure Storage 계정이 사용되는지를 지정합니다. 입력 데이터 세트는 입력 파일의 위치를 지정하고 출력 데이터 세트는 출력 파일이 있는 위치를 지정합니다. 
 
 
 Azure Data Factory에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.

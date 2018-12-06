@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: b8494150a060e02145eab3674bdd2dd62cdda225
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277293"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499271"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark 클러스터를 사용하여 Azure SQL Database에서 데이터 읽기 및 쓰기
 
-Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 다음 SQL Database에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다. 이 문서의 지침은 Jupyter 노트를 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에 독립 실행형 응용 프로그램을 만들고 동일한 작업을 수행할 수 있습니다. 
+Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 다음 SQL Database에서 데이터를 읽고 쓰고 스트리밍하는 방법을 알아봅니다. 이 문서의 지침은 [Jupyter Notebook](https://jupyter.org/)을 사용하여 Scala 코드 조각을 실행합니다. 그러나 Scala 또는 Python에 독립 실행형 응용 프로그램을 만들고 동일한 작업을 수행할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -32,19 +32,14 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
 
 * **SQL Server Management Studio**. [SSMS를 사용하여 데이터 연결 및 쿼리](../../sql-database/sql-database-connect-query-ssms.md)의 지침을 따릅니다.
 
-## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기
+## <a name="create-a-jupyter-notebook"></a>Jupyter Notebook 만들기 
 
-먼저 Spark 클러스터와 연결된 Jupyter 노트를 만듭니다. 이 노트를 사용해서 이 문서에 사용된 코드 조각을 실행합니다. 
+먼저 Spark 클러스터와 연결된 [Jupyter Notebook](https://jupyter.org/)을 만듭니다. 이 노트를 사용해서 이 문서에 사용된 코드 조각을 실행합니다. 
 
-1. [Azure Portal](https://portal.azure.com/)에서 클러스터를 엽니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 클러스터를 엽니다.
+1. 오른쪽에 있는 **클러스터 대시보드** 아래에서 **Jupyter Notebook**을 선택합니다.  **클러스터 대시보드**가 표시되지 않으면 블레이드의 왼쪽 메뉴에서 **개요**를 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-1. **빠른 링크** 섹션에서 **클러스터 대시보드**를 클릭하여 **클러스터 대시보드** 보기를 엽니다.  **빠른 링크**가 표시되지 않으면 블레이드의 왼쪽 메뉴에서 **개요**를 클릭합니다.
-
-    ![Spark의 클러스터 대시보드](./media/apache-spark-connect-to-sql-database/hdinsight-cluster-dashboard-on-spark.png "Spark의 클러스터 대시보드") 
-
-1. **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
-
-    ![Spark의 Jupyter 노트북](./media/apache-spark-connect-to-sql-database/hdinsight-jupyter-notebook-on-spark.png "Spark의 Jupyter 노트북")
+    ![Spark의 Jupyter 노트북](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark의 Jupyter 노트북")
    
    > [!NOTE]
    > 또한 브라우저에서 다음 URL을 열어 Spark 클러스터의 Jupyter 노트에 액세스할 수도 있습니다. **CLUSTERNAME** 을 클러스터의 이름으로 바꿉니다.
@@ -110,7 +105,7 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
 
        sqlTableDF.show(10)
 
-1. 또는 데이터 집합에서 특정 열을 검색합니다.
+1. 또는 데이터 세트에서 특정 열을 검색합니다.
 
        sqlTableDF.select("AddressLine1", "City").show(10)
 
@@ -242,4 +237,4 @@ Azure HDInsight의 Apache Spark 클러스터를 Azure SQL Database에 연결한 
 
 * [HDInsight Spark 클러스터를 사용하여 Data Lake Store의 데이터 분석](apache-spark-use-with-data-lake-store.md)
 * [EventHub를 사용하여 구조적 스트리밍 이벤트 처리](apache-spark-eventhub-structured-streaming.md)
-* [HDInsight의 Kafka에서 Spark Structured Streaming 사용](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [HDInsight에서 Apache Kafka의 Apache Spark 정형 스트림 사용](../hdinsight-apache-kafka-spark-structured-streaming.md)

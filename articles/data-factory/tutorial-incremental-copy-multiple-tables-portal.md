@@ -31,7 +31,7 @@ ms.locfileid: "51614524"
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * Integration Runtime을 설치합니다. 
 > * 연결된 서비스 만들기. 
-> * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
+> * 원본, 싱크 및 워터마크 데이터 세트를 만듭니다.
 > * 파이프라인을 만들고 실행하고 모니터링합니다.
 > * 결과를 검토합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
@@ -338,61 +338,61 @@ END
    
     ![두 개의 연결된 서비스](./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png) 
 
-## <a name="create-datasets"></a>데이터 집합 만들기
-이 단계에서는 데이터 원본, 데이터 대상 및 워터마크를 저장할 위치를 나타내는 데이터 집합을 만듭니다.
+## <a name="create-datasets"></a>데이터 세트 만들기
+이 단계에서는 데이터 원본, 데이터 대상 및 워터마크를 저장할 위치를 나타내는 데이터 세트를 만듭니다.
 
-### <a name="create-a-source-dataset"></a>원본 데이터 집합 만들기
+### <a name="create-a-source-dataset"></a>원본 데이터 세트 만들기
 
-1. 왼쪽 창에서 **+(더하기)**, **데이터 집합**을 차례로 클릭합니다.
+1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
 
-   ![새 데이터 집합 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
+   ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. **새 데이터 집합** 창에서 **SQL Server**를 선택하고 **마침**을 클릭합니다. 
 
    ![SQL Server 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-sql-server-for-dataset.png)
-1. 웹 브라우저에 데이터 집합을 구성하기 위해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 집합이 표시됩니다. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **SourceDataset**를 입력합니다. 
+1. 웹 브라우저에 데이터 세트를 구성하기 위해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **SourceDataset**를 입력합니다. 
 
-   ![원본 데이터 집합 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-general.png)
+   ![원본 데이터 세트 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-general.png)
 1. 속성 창에서 **연결** 탭으로 전환하고, **연결된 서비스**에 대해 **SqlServerLinkedService**를 선택합니다. 여기에서 테이블을 선택하지 마십시오. 파이프라인의 복사 작업은 전체 테이블을 로드하는 대신 SQL 쿼리를 사용하여 데이터를 로드합니다.
 
-   ![원본 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png)
+   ![원본 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png)
 
 
-### <a name="create-a-sink-dataset"></a>싱크 데이터 집합 만들기
-1. 왼쪽 창에서 **+(더하기)**, **데이터 집합**을 차례로 클릭합니다.
+### <a name="create-a-sink-dataset"></a>싱크 데이터 세트 만들기
+1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
 
-   ![새 데이터 집합 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
+   ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. **새 데이터 집합** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
 
    ![Azure SQL Database 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
-1. 웹 브라우저에 데이터 집합을 구성하기 위해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 집합이 표시됩니다. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **SinkDataset**를 입력합니다.
+1. 웹 브라우저에 데이터 세트를 구성하기 위해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **SinkDataset**를 입력합니다.
 
-   ![싱크 데이터 집합 - 일반](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
+   ![싱크 데이터 세트 - 일반](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
 1. 속성 창에서 **매개 변수** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **Create/update 매개 변수** 섹션에서 **새로 만들기**를 클릭합니다. 
-    1. **이름**에 대해 **SinkTableName**을 입력하고 **형식**에 대해 **문자열**을 입력합니다. 이 데이터 집합은 매개 변수로 **SinkTableName**을 사용합니다. SinkTableName 매개 변수는 런타임에 동적으로 파이프라인에 의해 설정됩니다. 파이프라인의 ForEach 작업은 테이블 이름 목록을 반복하고 반복할 때마다 테이블 이름을 이 데이터 집합에 전달합니다.
+    1. **이름**에 대해 **SinkTableName**을 입력하고 **형식**에 대해 **문자열**을 입력합니다. 이 데이터 세트는 매개 변수로 **SinkTableName**을 사용합니다. SinkTableName 매개 변수는 런타임에 동적으로 파이프라인에 의해 설정됩니다. 파이프라인의 ForEach 작업은 테이블 이름 목록을 반복하고 반복할 때마다 테이블 이름을 이 데이터 세트에 전달합니다.
    
-       ![싱크 데이터 집합 - 속성](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+       ![싱크 데이터 세트 - 속성](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
 1. 속성 창에서 **연결** 탭으로 전환하고, **연결된 서비스**에 대해 **AzureSqlLinkedService**를 선택합니다. **테이블** 속성에서 **동적 콘텐츠 추가**를 클릭합니다. 
 
-   ![싱크 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+   ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
     
     
 1. **매개 변수** 섹션에서 **SinkTableName**을 선택합니다.
    
-   ![싱크 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+   ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
  1. **마침**을 클릭하면 **@dataset().SinkTableName**이 테이블 이름으로 표시됩니다.
    
-   ![싱크 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
+   ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
-### <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 집합 만들기
-이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 집합을 만듭니다. 
+### <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 세트 만들기
+이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 세트를 만듭니다. 
 
-1. 왼쪽 창에서 **+(더하기)**, **데이터 집합**을 차례로 클릭합니다.
+1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
 
-   ![새 데이터 집합 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
+   ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. **새 데이터 집합** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
 
    ![Azure SQL Database 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
@@ -402,7 +402,7 @@ END
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
     1. **테이블**에 대해 **[dbo].[watermarktable]** 을 선택합니다.
 
-       ![워터마크 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
+       ![워터마크 데이터 세트 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. ForEach 작업은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
@@ -729,7 +729,7 @@ project_table   2017-10-01 00:00:00.000
 > * 자체 호스팅 IR(통합 런타임)을 만듭니다.
 > * Integration Runtime을 설치합니다.
 > * 연결된 서비스 만들기. 
-> * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
+> * 원본, 싱크 및 워터마크 데이터 세트를 만듭니다.
 > * 파이프라인을 만들고 실행하고 모니터링합니다.
 > * 결과를 검토합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.

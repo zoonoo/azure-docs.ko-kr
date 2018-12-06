@@ -84,11 +84,11 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Presto 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Presto 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Presto에서 데이터를 복사하려면 데이터 집합의 type 속성을 **PrestoObject**로 설정합니다. 이 형식의 데이터 집합에는 추가적인 형식별 속성이 없습니다.
+Presto에서 데이터를 복사하려면 데이터 세트의 type 속성을 **PrestoObject**로 설정합니다. 이 형식의 데이터 세트에는 추가적인 형식별 속성이 없습니다.
 
 **예제**
 

@@ -127,15 +127,15 @@ Oracle 연결 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 Oracle 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에는 Oracle 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Oracle 간에 데이터를 복사하려면 데이터 집합의 형식 속성을 **OracleTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Oracle 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **OracleTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **OracleTable**로 설정해야 합니다. | yes |
+| 형식 | 데이터 세트의 type 속성을 **OracleTable**로 설정해야 합니다. | yes |
 | tableName |연결된 서비스가 참조하는 Oracle 데이터베이스에 있는 테이블의 이름입니다. | yes |
 
 **예제:**
@@ -170,7 +170,7 @@ Oracle에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Or
 | 형식 | 복사 작업 원본의 형식 속성을 **OracleSource**로 설정해야 합니다. | yes |
 | oracleReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `"SELECT * FROM MyTable"`입니다. | 아니요 |
 
-“oracleReaderQuery”를 지정하지 않으면 데이터 집합의 “structure” 섹션에 정의된 열은 쿼리(`select column1, column2 from mytable`)를 생성하는 데 사용되어 Oracle 데이터베이스에 대해 실행합니다. 데이터 집합 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
+“oracleReaderQuery”를 지정하지 않으면 데이터 세트의 “structure” 섹션에 정의된 열은 쿼리(`select column1, column2 from mytable`)를 생성하는 데 사용되어 Oracle 데이터베이스에 대해 실행합니다. 데이터 세트 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
 
 **예제:**
 

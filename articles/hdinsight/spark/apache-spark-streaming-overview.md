@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 229c3eff0db4f3689f4e2e3fd457410ecccb8ba7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041525"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583216"
 ---
-# <a name="overview-of-spark-streaming"></a>Spark 스트리밍 개요
+# <a name="overview-of-apache-spark-streaming"></a>Apache Spark Streaming 개요
 
-Spark 스트리밍은 노드 실패가 발생하는 경우에도 입력 이벤트가 정확히 한 번 처리되도록 보장하여 HDInsight Spark 클러스터에서 데이터 스트림 처리를 제공합니다. Spark 스트림은 Azure Event Hubs, Azure IoT Hub, Kafka, Flume, Twitter, ZeroMQ, raw TCP 소켓을 포함한 다양한 원본 또는 HDFS 파일 시스템 모니터링에서 입력 작업을 수신하는 장기 실행 작업입니다. 단독 이벤트 기반 프로세스와는 달리 Spark 스트림은 2초 조각과 같은 시간 창으로 입력 데이터를 일괄 처리한 다음 맵을 사용하여 데이터의 각 일괄 처리를 변환하고, 작업을 줄이고 조인하고 추출합니다. 그런 다음 Spark Stream은 변환된 데이터를 파일 시스템, 데이터베이스, 대시보드 및 콘솔에 기록합니다.
+[Apache Spark](https://spark.apache.org/) Streaming은 노드 실패가 발생하는 경우에도 입력 이벤트가 정확히 한 번 처리되도록 보장하여 HDInsight Spark 클러스터에서 데이터 스트림 처리를 제공합니다. Spark Stream은 Azure Event Hubs, an Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), 원시 TCP 소켓을 포함한 다양한 원본 또는 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 파일 시스템 모니터링에서 입력 데이터를 수신하는 장기 실행 작업입니다. 단독 이벤트 기반 프로세스와는 달리 Spark 스트림은 2초 조각과 같은 시간 창으로 입력 데이터를 일괄 처리한 다음 맵을 사용하여 데이터의 각 일괄 처리를 변환하고, 작업을 줄이고 조인하고 추출합니다. 그런 다음 Spark Stream은 변환된 데이터를 파일 시스템, 데이터베이스, 대시보드 및 콘솔에 기록합니다.
 
 ![HDInsight 및 Spark 스트리밍을 사용하여 스트림 처리](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
@@ -30,7 +30,7 @@ Spark 스트리밍은 DStream이라는 *불연속화 스트림*을 사용하여 
 
 DStream은 원시 이벤트 데이터를 기반으로 하는 추상화 계층을 제공합니다. 
 
-단일 이벤트로 시작하고, 연결된 자동 온도 조절기에서 읽는 온도를 말합니다. 이 이벤트가 Spark Streaming 응용 프로그램에 도착하면 이벤트는 신뢰할 수 있는 방식으로, 즉 여러 노드에 복제되어 저장됩니다. 이 내결함성을 통해 단일 노드 실패로 인해 이벤트 손실이 발생되지 않도록 합니다. Spark 코어는 각 노드가 최상의 성능을 위해 자체 메모리 내 데이터를 일반적으로 유지하는 클러스터의 여러 노드에 걸쳐 데이터를 배포하는 데이터 구조를 사용합니다. 이 데이터 구조는 RDD(*복원력 있는 분산 데이터 집합*)라고 합니다.
+단일 이벤트로 시작하고, 연결된 자동 온도 조절기에서 읽는 온도를 말합니다. 이 이벤트가 Spark Streaming 응용 프로그램에 도착하면 이벤트는 신뢰할 수 있는 방식으로, 즉 여러 노드에 복제되어 저장됩니다. 이 내결함성을 통해 단일 노드 실패로 인해 이벤트 손실이 발생되지 않도록 합니다. Spark 코어는 각 노드가 최상의 성능을 위해 자체 메모리 내 데이터를 일반적으로 유지하는 클러스터의 여러 노드에 걸쳐 데이터를 배포하는 데이터 구조를 사용합니다. 이 데이터 구조는 RDD(*복원력 있는 분산 데이터 세트*)라고 합니다.
 
 각 RDD는 *일괄 처리 간격*이라는 사용자 정의 시간 프레임을 통해 수집된 이벤트를 나타냅니다. 각 일괄 처리 간격이 지나면 해당 간격에서 모든 데이터를 포함하는 새 RDD가 생성됩니다. RDD의 연속 집합은 DStream으로 수집됩니다. 예를 들어 일괄 처리 간격이 1초 긴 경우 DStream에서 해당 초 동안 수집된 모든 데이터를 포함하는 하나의 RDD를 포함하는 일괄 처리를 매 초 내보냅니다. DStream을 처리할 때 이러한 일괄 처리 중 하나에 온도 이벤트가 나타납니다. Spark 스트리밍 응용 프로그램은 이벤트를 포함하는 일괄 처리를 처리하고 각 RDD에 저장된 데이터에서 궁극적으로 작업을 수행합니다.
 
@@ -86,7 +86,7 @@ DStream에 변환을 적용하여 처리를 구현합니다. 이 응용 프로�
     ssc.start()            
     ssc.awaitTermination()
 
-Spark Stream API 및 지원되는 이벤트 원본, 변환 및 출력 작업에 대한 자세한 내용은 [Spark Streaming 프로그래밍 가이드](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)를 참조하세요.
+Spark Stream API와 지원되는 이벤트 원본, 변환 및 출력 작업에 대한 자세한 내용은 [Apache Spark Streaming 프로그래밍 가이드](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)를 참조하세요.
 
 다음 샘플 응용 프로그램은 자체 포함되어 있으므로 [Jupyter Notebook](apache-spark-jupyter-notebook-kernels.md) 내에서 실행할 수 있습니다. 이 예제에서는 카운터의 값 및 5초마다 현재 시간(밀리초)을 출력하는 클래스 DummySource에서 모의 데이터 원본을 만듭니다. 새 StreamingContext 개체에는 30초의 일괄 처리 간격이 지정됩니다. 일괄 처리를 만들 때마다 스트리밍 응용 프로그램은 생성된 RDD를 검사하여 Spark DataFrame으로 변환하고, DataFrame을 통해 임시 테이블을 만듭니다.
 
@@ -211,10 +211,10 @@ DummySource는 5초마다 하나의 값을 만들고 응용 프로그램이 30�
 
 ![Spark Streaming 응용 프로그램 배포](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-또한 LIVY 엔드포인트에 대한 GET 요청으로 모든 응용 프로그램의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 응용 프로그램을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
+또한 LIVY 엔드포인트에 대한 GET 요청으로 모든 응용 프로그램의 상태를 확인할 수 있습니다. 마지막으로 LIVY 엔드포인트에 대한 DELETE 요청을 실행하여 실행 중인 응용 프로그램을 종료할 수 있습니다. LIVY API에 대한 자세한 내용은 [Apache LIVY를 사용하는 원격 작업](apache-spark-livy-rest-interface.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [HDInsight에서 Apache Spark 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Spark 스트리밍 프로그래밍 가이드](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
-* [LIVY를 사용하여 원격으로 Spark 작업 시작](apache-spark-livy-rest-interface.md)
+* [Apache Spark Streaming 프로그래밍 가이드](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
+* [Apache LIVY를 사용하여 원격으로 Apache Spark 작업 시작](apache-spark-livy-rest-interface.md)

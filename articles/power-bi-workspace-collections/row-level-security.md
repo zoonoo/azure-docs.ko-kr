@@ -18,7 +18,7 @@ ms.locfileid: "51258853"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 행 수준 보안
 
-보고서 또는 데이터 집합 내의 특정 데이터에 대한 사용자 액세스를 제한하는 데 RLS(행 수준 보안)를 사용하여 여러 다양한 사용자가 모두 서로 다른 데이터를 보면서 동일한 보고서를 사용할 수 있도록 합니다. Power BI 작업 영역 컬렉션은 RLS로 구성된 데이터 집합을 지원합니다.
+보고서 또는 데이터 집합 내의 특정 데이터에 대한 사용자 액세스를 제한하는 데 RLS(행 수준 보안)를 사용하여 여러 다양한 사용자가 모두 서로 다른 데이터를 보면서 동일한 보고서를 사용할 수 있도록 합니다. Power BI 작업 영역 컬렉션은 RLS로 구성된 데이터 세트를 지원합니다.
 
 ![Power BI 작업 영역 컬렉션의 행 수준 보안 흐름](media/row-level-security/flow-1.png)
 

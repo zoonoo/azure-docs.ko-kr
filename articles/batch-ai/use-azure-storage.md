@@ -26,13 +26,13 @@ ms.locfileid: "51615606"
 
 Azure Storage는 Microsoft의 클라우드 저장소 솔루션입니다. Batch AI는 Azure Blob 컨테이너 및 Azure 파일 공유를 Batch AI 작업 또는 클러스터에 탑재를 지원하면서 마치 파일이 네이티브 파일 시스템에 있는 것처럼 작업에서 파일에 액세스할 수 있습니다. Batch AI는 [blobfuse](https://github.com/Azure/azure-storage-fuse)를 사용하여 Azure Blob 컨테이너를, SMB 프로토콜을 통해 Azure 파일 공유를 탑재합니다. Azure Storage에 대한 자세한 내용은 [Azure Storage 소개](../storage/common/storage-introduction.md)를 참조하세요.
 
-## <a name="store-datasets-and-input-scripts-in-azure-storage"></a>Azure Storage에 데이터 집합 및 입력 스크립트 저장
+## <a name="store-datasets-and-input-scripts-in-azure-storage"></a>Azure Storage에 데이터 세트 및 입력 스크립트 저장
 
-Batch AI 환경으로 Azure Storage를 선택하는 경우 더 높은 처리량의 Blob 컨테이너에 입력 파일(예: 데이터 집합)을 저장하고, 스트리밍을 지원(작업이 동시에 실행되는 동안 출력 로그 읽기 허용)하는 파일 공유에 학습 출력을 저장하는 것이 좋습니다. 
+Batch AI 환경으로 Azure Storage를 선택하는 경우 더 높은 처리량의 Blob 컨테이너에 입력 파일(예: 데이터 세트)을 저장하고, 스트리밍을 지원(작업이 동시에 실행되는 동안 출력 로그 읽기 허용)하는 파일 공유에 학습 출력을 저장하는 것이 좋습니다. 
 
 Azure Storage를 사용하기 전에 [Azure Storage 계정을 만들](../storage/common/storage-quickstart-create-account.md)어야 합니다. Batch AI는 범용 v1(GPv1) 및 범용 v2(GPv2) Azure Storage 계정 모두에서 볼륨을 탑재하는 것을 지원합니다. Azure Storage 계정은 여러 Blob 컨테이너 또는 파일 공유 인스턴스를 보관할 수 있습니다. 만들 저장소 계정 형식을 선택할 때 비용 및 성능 요구 사항을 고려해야 합니다. 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요. 
 
-Blob 컨테이너를 만들고 Azure Blob 컨테이너에 데이터 집합을 업로드하려면 다음 방법 중 하나를 선택합니다.
+Blob 컨테이너를 만들고 Azure Blob 컨테이너에 데이터 세트를 업로드하려면 다음 방법 중 하나를 선택합니다.
 - [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) - 웹 기반 GUI를 통해 업로드합니다. 적은 수의 파일을 업로드하기 위해 Azure Portal은 가장 간단한 작업을 제공합니다.
 - [Azure Storage CLI](../storage/blobs/storage-quickstart-blobs-cli.md) - 명령줄을 통해 업로드(디렉터리 업로드 지원)합니다. 파일의 디렉터리를 업로드하려면 `az storage blob upload-batch`를 사용합니다.
 - [기타 기술](../storage/common/storage-moving-data.md) - 응용 프로그램 SDK를 사용하는 것이 포함됩니다.

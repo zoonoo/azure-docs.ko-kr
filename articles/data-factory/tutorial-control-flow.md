@@ -30,7 +30,7 @@ ms.locfileid: "51262151"
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure Storage 연결된 서비스 만들기
-> * Azure Blob 데이터 집합 만들기
+> * Azure Blob 데이터 세트 만들기
 > * 복사 작업 및 웹 작업이 포함된 파이프라인 만들기
 > * 후속 작업에 작업 출력 보내기
 > * 매개 변수 전달 및 시스템 변수 활용
@@ -195,14 +195,14 @@ static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagemen
 client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, StorageLinkedServiceDefinition(client));
 ```
 
-## <a name="create-datasets"></a>데이터 집합 만들기
+## <a name="create-datasets"></a>데이터 세트 만들기
 
 이 섹션에서는 원본과 싱크 각각에 대해 하나씩, 두 개의 데이터 집합을 만듭니다. 
 
-### <a name="create-a-dataset-for-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 집합 만들기
-**Main** 메서드에 **Azure Blob 데이터 집합**을 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보는 [Azure Blob 데이터 집합 속성](connector-azure-blob-storage.md#dataset-properties)에서 자세히 알아보세요.
+### <a name="create-a-dataset-for-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 세트 만들기
+**Main** 메서드에 **Azure Blob 데이터 집합**을 만드는 다음 코드를 추가합니다. 지원되는 속성 및 세부 정보는 [Azure Blob 데이터 세트 속성](connector-azure-blob-storage.md#dataset-properties)에서 자세히 알아보세요.
 
-Azure Blob의 원본 데이터를 나타내는 데이터 집합을 정의합니다. 이 Blob 데이터 집합은 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조하며 다음을 설명합니다.
+Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니다. 이 Blob 데이터 세트는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조하며 다음을 설명합니다.
 
 - 복사할 Blob의 원본 위치: **FolderPath** 및 **FileName**
 - FolderPath에 대한 매개 변수 사용을 확인합니다. "sourceBlobContainer"는 매개 변수의 이름이고, 식은 파이프라인 실행에서 전달된 값으로 바뀝니다. 매개 변수를 정의하는 구문은 `@pipeline().parameters.<parameterName>`입니다.
@@ -580,7 +580,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="run-the-code"></a>코드 실행
 응용 프로그램을 빌드하고 시작한 다음 파이프라인 실행을 확인합니다.
-콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 집합, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 Azure Storage 탐색기와 같은 도구를 사용하여 변수에 지정한 대로 Blob이 "inputBlobPath"에서 "outputBlobPath"로 복사되었는지 확인합니다.
+콘솔에서 데이터 팩터리, 연결된 서비스, 데이터 세트, 파이프라인 및 파이프라인 실행 만들기에 대한 진행 상황을 출력합니다. 그런 다음 파이프라인 실행 상태를 확인합니다. 데이터를 읽고/쓴 크기가 있는 복사 작업 실행 세부 정보가 표시될 때까지 기다립니다. 그런 다음 Azure Storage 탐색기와 같은 도구를 사용하여 변수에 지정한 대로 Blob이 "inputBlobPath"에서 "outputBlobPath"로 복사되었는지 확인합니다.
 
 **샘플 출력:**
 
@@ -740,7 +740,7 @@ Press any key to exit...
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure Storage 연결된 서비스 만들기
-> * Azure Blob 데이터 집합 만들기
+> * Azure Blob 데이터 세트 만들기
 > * 복사 작업 및 웹 작업이 포함된 파이프라인 만들기
 > * 후속 작업에 작업 출력 보내기
 > * 매개 변수 전달 및 시스템 변수 활용

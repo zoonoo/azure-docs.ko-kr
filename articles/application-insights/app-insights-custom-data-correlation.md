@@ -23,7 +23,7 @@ ms.locfileid: "45577774"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>사용자 지정 데이터 원본을 사용하여 Application Insights 데이터 상호 연결
 
-Application Insights는 여러 다른 데이터 형식을 수집합니다(예외, 추적, 페이지 보기 및 기타). 응용 프로그램의 성능, 안정성 및 사용량을 조사하기에 충분하지만 Application Insights에서 저장된 데이터를 완전히 사용자 지정 데이터 집합에 상호 연결하는 것이 유용한 경우도 있습니다.
+Application Insights는 여러 다른 데이터 형식을 수집합니다(예외, 추적, 페이지 보기 및 기타). 응용 프로그램의 성능, 안정성 및 사용량을 조사하기에 충분하지만 Application Insights에서 저장된 데이터를 완전히 사용자 지정 데이터 세트에 상호 연결하는 것이 유용한 경우도 있습니다.
 
 사용자 지정 데이터를 사용하려는 상황은 다음과 같습니다.
 

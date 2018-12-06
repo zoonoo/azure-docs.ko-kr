@@ -74,15 +74,15 @@ Azure Database for MySQL 연결된 서비스에 다음 속성이 지원됩니다
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Azure Database for MySQL 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Azure Database for MySQL 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-Azure Database for MySQL에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **AzureMySqlTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Azure Database for MySQL에서 데이터를 복사하려면 데이터 세트의 형식 속성을 **AzureMySqlTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 형식 속성을 **AzureMySqlTable**로 설정해야 합니다. | 예 |
+| 형식 | 데이터 세트의 형식 속성을 **AzureMySqlTable**로 설정해야 합니다. | 예 |
 | tableName | MySQL 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**

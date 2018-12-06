@@ -54,7 +54,7 @@ UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 �
 
 
 ## <a name="convert-the-dataset-format"></a>데이터 집합 형식 변환
-원래 데이터 집합은 공백으로 구분된 형식을 사용합니다. Machine Learning Studio는 CSV(쉼표로 구분된 값) 파일에서 더 원활하게 작동하므로 공백을 쉼표로 바꿔서 데이터 집합을 변환합니다.  
+원래 데이터 집합은 공백으로 구분된 형식을 사용합니다. Machine Learning Studio는 CSV(쉼표로 구분된 값) 파일에서 더 원활하게 작동하므로 공백을 쉼표로 바꿔서 데이터 세트를 변환합니다.  
 
 여러 가지 방법으로 이 데이터를 변환할 수 있습니다. 한 가지 방법은 다음 Windows PowerShell 명령을 사용하는 것입니다.   
 
@@ -66,7 +66,7 @@ UCI 웹 사이트에서는 이 데이터에 대한 기능 벡터의 특성을 �
 
 이 두 방법에서는 모두 실험에서 사용할 수 있는 쉼표로 구분된 데이터 버전인 **german.csv** 파일을 만들었습니다.
 
-## <a name="upload-the-dataset-to-machine-learning-studio"></a>Machine Learning Studio에 데이터 집합 업로드
+## <a name="upload-the-dataset-to-machine-learning-studio"></a>Machine Learning Studio에 데이터 세트 업로드
 데이터를 CSV 형식으로 변환한 후 Machine Learning Studio에 업로드해야 합니다. 
 
 1. Machine Learning Studio 홈페이지([https://studio.azureml.net](https://studio.azureml.net))를 엽니다. 

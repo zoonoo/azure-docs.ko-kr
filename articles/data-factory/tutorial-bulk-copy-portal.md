@@ -31,7 +31,7 @@ ms.locfileid: "43098031"
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage 연결된 서비스를 만듭니다.
-> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 집합을 만듭니다.
+> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 세트를 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.
@@ -159,18 +159,18 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     1. **저장**을 클릭합니다.
 
 
-## <a name="create-datasets"></a>데이터 집합 만들기
-이 자습서에서는 데이터가 저장되는 위치를 지정하는 원본 및 싱크 데이터 집합을 만듭니다. 
+## <a name="create-datasets"></a>데이터 세트 만들기
+이 자습서에서는 데이터가 저장되는 위치를 지정하는 원본 및 싱크 데이터 세트를 만듭니다. 
 
-**AzureSqlDatabaseDataset** 입력 데이터 집합은 **AzureSqlDatabaseLinkedService**를 참조합니다. 연결된 서비스에서 데이터베이스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 집합은 원본 데이터가 포함된 데이터베이스와 테이블의 이름을 지정합니다. 
+**AzureSqlDatabaseDataset** 입력 데이터 집합은 **AzureSqlDatabaseLinkedService**를 참조합니다. 연결된 서비스에서 데이터베이스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 세트는 원본 데이터가 포함된 데이터베이스와 테이블의 이름을 지정합니다. 
 
-**AzureSqlDWDataset** 출력 데이터 집합은 **AzureSqlDWLinkedService**를 참조합니다. 연결된 서비스에서 데이터 웨어하우스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 집합은 데이터가 복사될 데이터베이스와 테이블을 지정합니다. 
+**AzureSqlDWDataset** 출력 데이터 집합은 **AzureSqlDWLinkedService**를 참조합니다. 연결된 서비스에서 데이터 웨어하우스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 세트는 데이터가 복사될 데이터베이스와 테이블을 지정합니다. 
 
-이 자습서에서는 원본 및 대상 SQL 테이블이 데이터 집합 정의에 하드 코드되지 않습니다. 대신 ForEach 활동에서 런타임에 테이블의 이름을 복사 활동으로 전달합니다. 
+이 자습서에서는 원본 및 대상 SQL 테이블이 데이터 세트 정의에 하드 코드되지 않습니다. 대신 ForEach 활동에서 런타임에 테이블의 이름을 복사 활동으로 전달합니다. 
 
-### <a name="create-a-dataset-for-source-sql-database"></a>원본 SQL Database에 대한 데이터 집합 만들기
+### <a name="create-a-dataset-for-source-sql-database"></a>원본 SQL Database에 대한 데이터 세트 만들기
 
-1. 왼쪽 창에서 **+(더하기)**, **데이터 집합**을 차례로 클릭합니다. 
+1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
 
     ![새 데이터 집합 메뉴](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
 1. **새 데이터 집합** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. **AzureSqlTable1**이라는 새 탭이 표시됩니다. 
@@ -181,19 +181,19 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 1. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
-    1. **테이블**에 대해 임의의 테이블을 선택합니다. 이 테이블은 더미 테이블입니다. 파이프라인을 만들 때 원본 데이터 집합에 대한 쿼리를 지정합니다. 이 쿼리는 Azure SQL Database에서 데이터를 추출하는 데 사용됩니다. 또는 **편집** 확인란을 클릭하고 **dummyName**을 테이블 이름으로 입력할 수 있습니다. 
+    1. **테이블**에 대해 임의의 테이블을 선택합니다. 이 테이블은 더미 테이블입니다. 파이프라인을 만들 때 원본 데이터 세트에 대한 쿼리를 지정합니다. 이 쿼리는 Azure SQL Database에서 데이터를 추출하는 데 사용됩니다. 또는 **편집** 확인란을 클릭하고 **dummyName**을 테이블 이름으로 입력할 수 있습니다. 
 
-    ![원본 데이터 집합 연결 페이지](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
+    ![원본 데이터 세트 연결 페이지](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>싱크 SQL Data Warehouse에 대한 데이터 집합 만들기
 
-1. 왼쪽 창에서 **+(더하기)**, **데이터 집합**을 차례로 클릭합니다. 
+1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
 1. **새 데이터 집합** 창에서 **Azure SQL Data Warehouse**를 선택하고 **마침**을 클릭합니다. **AzureSqlDWTable1**이라는 새 탭이 표시됩니다. 
 1. 아래쪽의 속성 창에서 **이름**에 대해 **AzureSqlDWDataset**를 입력합니다.
 1. **매개 변수** 탭으로 전환하고, **+ 새로 만들기**를 클릭하고, 매개 변수 이름에 **DWTableName**을 입력합니다. 페이지에서 이 이름을 복사/붙여넣는 경우 **DWTableName** 끝에 **후행 공백 문자**가 없는지 확인합니다. 
 
-    ![원본 데이터 집합 연결 페이지](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter.png)
+    ![원본 데이터 세트 연결 페이지](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter.png)
 
 1. **연결** 탭으로 전환합니다. 
 
@@ -203,9 +203,9 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     
     ![매개 변수 이름](./media/tutorial-bulk-copy-portal/table-name-parameter.png)
 
-    다. **동적 콘텐츠 추가** 페이지의 **매개 변수**에서 **DWTAbleName**을 클릭합니다. 그러면 자동으로 위쪽 식 텍스트 상자 `@dataset().DWTableName`을 채운 다음, **마침**을 클릭합니다. 데이터 집합의 **tableName** 속성은 **DWTableName** 매개 변수에 대한 인수로 전달되는 값으로 설정됩니다. ForEach 활동은 테이블 목록을 반복하여 복사 활동에 값을 하나씩 전달합니다. 
+    다. **동적 콘텐츠 추가** 페이지의 **매개 변수**에서 **DWTAbleName**을 클릭합니다. 그러면 자동으로 위쪽 식 텍스트 상자 `@dataset().DWTableName`을 채운 다음, **마침**을 클릭합니다. 데이터 세트의 **tableName** 속성은 **DWTableName** 매개 변수에 대한 인수로 전달되는 값으로 설정됩니다. ForEach 활동은 테이블 목록을 반복하여 복사 활동에 값을 하나씩 전달합니다. 
 
-    ![데이터 집합 매개 변수 작성기](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
+    ![데이터 세트 매개 변수 작성기](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>파이프라인 만들기
 이 자습서에서는 **IterateAndCopySQLTables** 및 **GetTableListAndTriggerCopyData**라는 두 개의 파이프라인을 만듭니다. 
@@ -329,7 +329,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     ![조회 활동 및 파이프라인 실행 활동 연결](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 1. 파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서**를 닫으려면 **>>** 를 클릭합니다.
 
-1. 엔터티(데이터 집합, 파이프라인 등)를 Data Factory 서비스에 게시하려면 창의 위쪽에서 **모두 게시**를 클릭합니다. 게시가 성공적으로 완료될 때까지 기다립니다. 
+1. 엔터티(데이터 세트, 파이프라인 등)를 Data Factory 서비스에 게시하려면 창의 위쪽에서 **모두 게시**를 클릭합니다. 게시가 성공적으로 완료될 때까지 기다립니다. 
 
 ## <a name="trigger-a-pipeline-run"></a>파이프라인 실행 트리거
 
@@ -411,7 +411,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 > [!div class="checklist"]
 > * 데이터 팩터리를 만듭니다.
 > * Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage 연결된 서비스를 만듭니다.
-> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 집합을 만듭니다.
+> * Azure SQL Database 및 Azure SQL Data Warehouse 데이터 세트를 만듭니다.
 > * 복사할 테이블을 조회하는 파이프라인을 만들고, 실제 복사 작업을 수행하는 다른 파이프라인을 만듭니다. 
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 및 작업 실행을 모니터링합니다.

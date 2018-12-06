@@ -550,7 +550,7 @@ Power BI 보고서를 설정하려면 장치를 만들고 장치 시뮬레이션
 
 3. **데이터 집합**을 클릭합니다.
 
-   Stream Analytics 작업에 대한 출력을 만들 때 지정한 나열된 데이터 집합이 표시됩니다. 이 자습서에서는 **contosodataset**을 사용합니다. (데이터 집합을 처음 표시할 때는 5-10분이 걸릴 수 있습니다.)
+   Stream Analytics 작업에 대한 출력을 만들 때 지정한 나열된 데이터 세트가 표시됩니다. 이 자습서에서는 **contosodataset**을 사용합니다. (데이터 세트를 처음 표시할 때는 5-10분이 걸릴 수 있습니다.)
 
 4. **작업**에서 첫 번째 아이콘을 클릭하여 보고서를 만듭니다.
 
@@ -590,7 +590,7 @@ Power BI 창 위쪽의 새로 고침 단추를 클릭하면 차트를 새로 고
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Power BI 시각화에서 리소스 정리
 
-[Power BI](https://powerbi.microsoft.com/) 계정에 로그인합니다. 작업 영역으로 이동합니다. 이 자습서에서는 **My Workspace**를 사용합니다. Power BI 시각화를 제거하려면 데이터 집합으로 이동하고 휴지통 아이콘을 클릭하여 데이터 집합을 삭제합니다. 이 자습서에서는 **contosodataset**을 사용합니다. 데이터 집합을 제거하면 보고서도 제거됩니다.
+[Power BI](https://powerbi.microsoft.com/) 계정에 로그인합니다. 작업 영역으로 이동합니다. 이 자습서에서는 **My Workspace**를 사용합니다. Power BI 시각화를 제거하려면 데이터 세트로 이동하고 휴지통 아이콘을 클릭하여 데이터 세트를 삭제합니다. 이 자습서에서는 **contosodataset**을 사용합니다. 데이터 세트를 제거하면 보고서도 제거됩니다.
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Azure CLI를 사용하여 리소스 정리
 

@@ -187,7 +187,7 @@ CaffeOnSpark는 MNIST 학습을 위한 몇 가지 네트워크 토폴로지를 �
 
 ![Caffe 구성](./media/apache-spark-deep-learning-caffe/Caffe-2.png)
 
-네트워크를 정의하는 방법에 대한 자세한 내용은 [MNIST 데이터 집합에 대한 Caffe 설명서](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)를 확인하세요.
+네트워크를 정의하는 방법에 대한 자세한 내용은 [MNIST 데이터 세트에 대한 Caffe 설명서](http://caffe.berkeleyvision.org/gathered/examples/mnist.html)를 확인하세요.
 
 이 문서의 목적에 맞게 다음 MNIST 예제를 사용합니다. 헤드 노드에서 다음 명령을 실행합니다.
 

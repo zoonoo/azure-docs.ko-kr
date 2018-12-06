@@ -28,7 +28,7 @@ ms.locfileid: "52584049"
 + _이 환자의 망막 스캔을 통해 안과 질환에 대해 어떤 종류의 심각도가 표시됩니까?_
 
 AMLPCV를 사용하여 이 모델을 구축하고 배포하는 경우 다음 단계를 수행하십시오.
-1. 데이터 집합 만들기
+1. 데이터 세트 만들기
 2. 이미지 시각화 및 주석
 3. 이미지 증강
 4. DNN(심층 신경망) 모델 정의
@@ -63,9 +63,9 @@ AMLPCV를 사용하여 이 모델을 구축하고 배포하는 경우 다음 단
 
 ### <a name="load-the-sample-data"></a>샘플 데이터 로드
 
-다음 예제에서는 63개의 식기류 이미지로 구성된 데이터 집합을 사용합니다. 각 이미지에는 4 개의 다른 클래스(bowl, cup, cutlery, plate) 중 하나에 속한 것으로 레이블이 지정됩니다. 이 예제에서는 샘플을 신속하게 실행할 수 있도록 이미지 수가 작습니다. 실제로는 클래스당 100개 이상의 이미지가 제공되어야 합니다. 모든 이미지는 "bowl", "cup", "cutlery", "plate"라는 하위 디렉터리의 *"../sample_data/imgs_recycling/"* 에 있습니다.
+다음 예제에서는 63개의 식기류 이미지로 구성된 데이터 세트를 사용합니다. 각 이미지에는 4 개의 다른 클래스(bowl, cup, cutlery, plate) 중 하나에 속한 것으로 레이블이 지정됩니다. 이 예제에서는 샘플을 신속하게 실행할 수 있도록 이미지 수가 작습니다. 실제로는 클래스당 100개 이상의 이미지가 제공되어야 합니다. 모든 이미지는 "bowl", "cup", "cutlery", "plate"라는 하위 디렉터리의 *"../sample_data/imgs_recycling/"* 에 있습니다.
 
-![Azure Machine Learning 데이터 집합](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
+![Azure Machine Learning 데이터 세트](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
 
 ```python
@@ -97,16 +97,16 @@ ToolkitLogger.getInstance().setEnabled(False)
 
 ## <a name="create-a-dataset"></a>데이터 집합 만들기
 
-종속성을 가져오고 저장소 컨텍스트를 설정한 후에는 데이터 집합 개체를 만들 수 있습니다.
+종속성을 가져오고 저장소 컨텍스트를 설정한 후에는 데이터 세트 개체를 만들 수 있습니다.
 
-Azure Machine Learning Package for Computer Vision을 사용하여 이 개체를 만들려면 로컬 디스크에 이미지의 루트 디렉터리를 제공합니다. 디렉터리는 식기류 데이터 집합과 동일한 일반 구조를 따라야 합니다. 즉, 실제 이미지가 있는 하위 디렉터리가 있어야 합니다.
+Azure Machine Learning Package for Computer Vision을 사용하여 이 개체를 만들려면 로컬 디스크에 이미지의 루트 디렉터리를 제공합니다. 디렉터리는 식기류 데이터 세트와 동일한 일반 구조를 따라야 합니다. 즉, 실제 이미지가 있는 하위 디렉터리가 있어야 합니다.
 - root
     - 레이블 1
     - 레이블 2
     - ...
     - 레이블 n
   
-다양한 데이터 집합에 대해 이미지 분류 모델을 학습시키는 것은 아래 코드의 루트 경로인 `dataset_location`을 다른 이미지를 가리키도록 변경하는 것만큼 쉽습니다.
+다양한 데이터 세트에 대해 이미지 분류 모델을 학습시키는 것은 아래 코드의 루트 경로인 `dataset_location`을 다른 이미지를 가리키도록 변경하는 것만큼 쉽습니다.
 
 
 ```python
@@ -125,7 +125,7 @@ print("Select information for image 2: name={}, label={}, unique id={}.".format(
     Dataset consists of 63 images with 4 labels.
     Select information for image 2: name=msft-plastic-bowl20170725152154282.jpg, label=bowl, unique id=3.
 
-데이터 집합 개체는 [Bing Image Search API](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)를 사용하여 이미지를 다운로드하는 기능을 제공합니다. 
+데이터 세트 개체는 [Bing Image Search API](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)를 사용하여 이미지를 다운로드하는 기능을 제공합니다. 
 
 두 가지 유형의 검색 쿼리가 지원됩니다. 
 + 일반 텍스트 쿼리
@@ -160,7 +160,7 @@ print("Select information for image 2: name={}, label={}, unique id={}.".format(
 
 ## <a name="visualize-and-annotate-images"></a>이미지 시각화 및 주석 달기
 
-다음 위젯을 사용하여 데이터 집합 개체의 이미지를 시각화하고 레이블을 수정할 수 있습니다. 
+다음 위젯을 사용하여 데이터 세트 개체의 이미지를 시각화하고 레이블을 수정할 수 있습니다. 
 
 "Widget Javascript not detected" 오류가 발생하면 아래 명령을 실행하여 문제를 해결합니다.
 <br>`jupyter nbextension enable --py --sys-prefix widgetsnbextension`
@@ -171,7 +171,7 @@ annotation_ui = AnnotationUI(dataset, Context.get_global_context())
 display(annotation_ui.ui)
 ```
 
-![Azure Machine Learning 데이터 집합](media/how-to-build-deploy-image-classification-models/image_annotation.png)
+![Azure Machine Learning 데이터 세트](media/how-to-build-deploy-image-classification-models/image_annotation.png)
 
 ## <a name="augment-images"></a>증강 이미지
 
@@ -179,7 +179,7 @@ display(annotation_ui.ui)
 
 다른 보강 단계를 별도로 적용하거나 다른 방식으로 적용하려면 여러 파이프라인을 정의하고 여기에 *augment_dataset* 함수를 전달할 수 있습니다. 이미지 증강에 대한 자세한 내용과 예제는 [imgaug 설명서](https://github.com/aleju/imgaug)를 참조하세요.
 
-증강된 이미지를 학습 집합에 추가하면 작은 데이터 집합에 특히 유용합니다. 학습 이미지의 수가 증가하면 DNN 학습 프로세스가 느려지기 때문에 증강 없이 실험을 시작하는 것이 좋습니다.
+증강된 이미지를 학습 집합에 추가하면 작은 데이터 세트에 특히 유용합니다. 학습 이미지의 수가 증가하면 DNN 학습 프로세스가 느려지기 때문에 증강 없이 실험을 시작하는 것이 좋습니다.
 
 
 ```python
@@ -342,7 +342,7 @@ if classifier_name == "dnn":
 
 ## <a name="evaluate-and-visualize-model-performance"></a>모델 성능 평가 및 시각화
 
-평가 모듈을 사용하여 독립적인 테스트 데이터 집합에서 학습된 모델의 성능을 평가할 수 있습니다. 계산되는 평가 메트릭 중 일부는 다음과 같습니다.
+평가 모듈을 사용하여 독립적인 테스트 데이터 세트에서 학습된 모델의 성능을 평가할 수 있습니다. 계산되는 평가 메트릭 중 일부는 다음과 같습니다.
  
 + 정확도(기본적으로 클래스 평균)
 + PR 곡선
@@ -395,7 +395,7 @@ results_ui = ResultsUI(test_set, Context.get_global_context(), pred_scores, pred
 display(results_ui.ui)
 ```
 
-![Azure Machine Learning 데이터 집합](media/how-to-build-deploy-image-classification-models/Image_Classification_Results.png)
+![Azure Machine Learning 데이터 세트](media/how-to-build-deploy-image-classification-models/Image_Classification_Results.png)
 
 
 ```python
@@ -407,7 +407,7 @@ pr_ui = PrecisionRecallUI(100*precisions[::-1], 100*recalls[::-1], thresholds[::
 display(pr_ui.ui) 
 ```
 
-![Azure Machine Learning 데이터 집합](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
+![Azure Machine Learning 데이터 세트](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
 
 ## <a name="operationalization-deploy-and-consume"></a>운영화: 배포 및 소비
 

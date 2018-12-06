@@ -148,22 +148,22 @@ Power BI 계정의 인증을 설정하면 사용자가 Power BI 출력에 대한
 | --- | --- |
 | 출력 별칭 |쿼리 출력을 이 PowerBI 출력으로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | 그룹 작업 영역 |다른 Power BI 사용자와 데이터를 공유할 수 있게 하려면 Power BI 계정 내에서 그룹을 선택하거나 그룹에 작성하지 않으려면 “내 작업 영역”을 선택할 수 있습니다.  기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
-| 데이터 집합 이름 |Power BI 출력에 사용할 데이터 집합 이름을 제공합니다. |
-| 테이블 이름 |Power BI 출력의 데이터 집합 아래에 테이블 이름을 제공합니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다. |
+| 데이터 집합 이름 |Power BI 출력에 사용할 데이터 세트 이름을 제공합니다. |
+| 테이블 이름 |Power BI 출력의 데이터 세트 아래에 테이블 이름을 제공합니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 세트에 하나의 테이블만 있을 수 있습니다. |
 
 Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure Stream Analytics 및 Power BI](stream-analytics-power-bi-dashboard.md) 문서를 참조하세요.
 
 > [!NOTE]
-> Power BI 대시보드에 명시적으로 데이터 집합 및 테이블을 만들지 마세요. 작업을 시작하고 작업이 Power BI에 출력을 보내기 시작하면 데이터 집합 및 테이블은 자동으로 채워집니다. 한편, 작업 쿼리에서 결과를 생성하지 않으면 데이터 집합 및 테이블은 생성되지 않습니다. 이 Stream Analytics 작업에서 제공한 것과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어쓰므로 주의합니다.
+> Power BI 대시보드에 명시적으로 데이터 세트 및 테이블을 만들지 마세요. 작업을 시작하고 작업이 Power BI에 출력을 보내기 시작하면 데이터 세트 및 테이블은 자동으로 채워집니다. 한편, 작업 쿼리에서 결과를 생성하지 않으면 데이터 세트 및 테이블은 생성되지 않습니다. 이 Stream Analytics 작업에서 제공한 것과 동일한 이름의 데이터 세트와 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어쓰므로 주의합니다.
 > 
 
 ### <a name="schema-creation"></a>스키마 생성
-Azure Stream Analytics는 사용자를 대신하여 Power BI 데이터 집합 및 테이블을 만듭니다(아직 없는 경우). 다른 모든 경우에는 테이블이 새 값으로 업데이트됩니다. 현재 데이터 집합 내에 테이블이 하나만 존재할 수 있다는 제한이 있습니다.
+Azure Stream Analytics는 사용자를 대신하여 Power BI 데이터 세트 및 테이블을 만듭니다(아직 없는 경우). 다른 모든 경우에는 테이블이 새 값으로 업데이트됩니다. 현재 데이터 세트 내에 테이블이 하나만 존재할 수 있다는 제한이 있습니다.
 
 ### <a name="data-type-conversion-from-stream-analytics-to-power-bi"></a>Stream Analytics에서 Power BI로 데이터 형식 변환
 Azure Stream Analytics는 출력 스키마가 변경되면 런타임 시 동적으로 데이터 모델을 업데이트합니다. 열 이름 변경, 열 형식 변경 및 열 추가 또는 제거 작업이 모두 추적됩니다.
 
-다음 표는 POWER BI 데이터 집합 및 테이블이 존재하지 않는 경우 [Stream Analytics 데이터 형식](https://msdn.microsoft.com/library/azure/dn835065.aspx)에서 Power BI [EDM(엔터티 데이터 모델) 형식](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/)으로의 데이터 형식 변환을 보여 줍니다.
+다음 표는 POWER BI 데이터 세트 및 테이블이 존재하지 않는 경우 [Stream Analytics 데이터 형식](https://msdn.microsoft.com/library/azure/dn835065.aspx)에서 Power BI [EDM(엔터티 데이터 모델) 형식](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/)으로의 데이터 형식 변환을 보여 줍니다.
 
 Stream Analytics에서 | Power BI로
 -----|-----|------------

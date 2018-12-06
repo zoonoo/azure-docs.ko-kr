@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d58e72c4487a3ab6d7b562fd328098d98761da5e
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406178"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620339"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -43,7 +43,10 @@ Dynamics 365(Common Data Service) 또는 Dynamics CRM에서 지원되는 모든 
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
 
-Operations & Finance, Talent 등, 다른 응용 프로그래밍 유형은 지원되지 않습니다.
+다른 애플리케이션 유형(예: Finance and Operations, Talent 등)은 이 커넥터에서 지원되지 않습니다.
+
+>[!TIP]
+>**Dynamics 365 Finance and Operations**에서 데이터를 복사하려면 [Dynamics AX 커넥터](connector-dynamics-ax.md)를 사용할 수 있습니다.
 
 ## <a name="get-started"></a>시작하기
 
@@ -146,21 +149,21 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Dynamics 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Dynamics 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
 
-Dynamics 간에 데이터를 복사하려면 데이터 집합의 type 속성을 **DynamicsEntity**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Dynamics 간에 데이터를 복사하려면 데이터 세트의 type 속성을 **DynamicsEntity**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **DynamicsEntity**로 설정해야 합니다. |yes |
+| 형식 | 데이터 세트의 type 속성을 **DynamicsEntity**로 설정해야 합니다. |yes |
 | entityName | 검색할 엔터티의의 논리적 이름입니다. | 원본에는 아니요(작업 원본에서 "query"가 지정된 경우)이고 싱크에는 예입니다. |
 
 > [!IMPORTANT]
->- Dynamics에서 데이터를 복사할 때 "structure" 섹션은 필요한 경우에만 포함하면 되지만, Dynamics 데이터 집합에 해당 섹션이 있으면 데이터를 확실하게 복사할 수 있으므로 포함하는 것이 좋습니다. 이것은 복사하려는 Dynamics 데이터의 열 이름과 데이터 형식을 정의합니다. 자세한 내용은 [데이터 집합 구조](concepts-datasets-linked-services.md#dataset-structure) 및 [Dynamics에 대한 데이터 형식 매핑](#data-type-mapping-for-dynamics)을 참조하세요.
->- UI 작성 과정에서 스키마를 가져올 때 ADF는 Dynamics 쿼리 결과의 맨 위 행을 샘플링하여 스키마를 유추해 구조 생성을 초기화합니다. 이 경우 값이 없는 열은 생략됩니다. 필요에 따라 열을 검토하여 더 많은 열을 Dynamics 데이터 집합 스키마/구조에 추가할 수 있습니다. 그러면 복사 런타임에 해당 열이 유지됩니다.
->- Dynamics에 데이터를 복사하는 경우 Dynamics 데이터 집합에서 "structure" 섹션은 선택 사항입니다. 어떤 열에 복사할 것인지는 원본 데이터 스키마에 따라 결정됩니다. 입력 데이터 집합에서 원본이 헤더 없는 CSV 파일인 경우 열 이름과 데이터 형식으로 "구조"를 지정합니다. CSV 파일의 필드에 순서대로 일대일로 매핑됩니다.
+>- Dynamics에서 데이터를 복사할 때 "structure" 섹션은 필요한 경우에만 포함하면 되지만, Dynamics 데이터 세트에 해당 섹션이 있으면 데이터를 확실하게 복사할 수 있으므로 포함하는 것이 좋습니다. 이것은 복사하려는 Dynamics 데이터의 열 이름과 데이터 형식을 정의합니다. 자세한 내용은 [데이터 세트 구조](concepts-datasets-linked-services.md#dataset-structure) 및 [Dynamics에 대한 데이터 형식 매핑](#data-type-mapping-for-dynamics)을 참조하세요.
+>- UI 작성 과정에서 스키마를 가져올 때 ADF는 Dynamics 쿼리 결과의 맨 위 행을 샘플링하여 스키마를 유추해 구조 생성을 초기화합니다. 이 경우 값이 없는 열은 생략됩니다. 필요에 따라 열을 검토하여 더 많은 열을 Dynamics 데이터 세트 스키마/구조에 추가할 수 있습니다. 그러면 복사 런타임에 해당 열이 유지됩니다.
+>- Dynamics에 데이터를 복사하는 경우 Dynamics 데이터 세트에서 "structure" 섹션은 선택 사항입니다. 어떤 열에 복사할 것인지는 원본 데이터 스키마에 따라 결정됩니다. 입력 데이터 세트에서 원본이 헤더 없는 CSV 파일인 경우 열 이름과 데이터 형식으로 "구조"를 지정합니다. CSV 파일의 필드에 순서대로 일대일로 매핑됩니다.
 
 **예제:**
 
@@ -209,7 +212,7 @@ Dynamics에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 형식 속성을 **DynamicsSource**로 설정해야 합니다. | yes |
-| 쿼리 | FetchXML은 Dynamics에 사용되는 전용 쿼리 언어(온라인 및 온-프레미스)입니다. 다음 예제를 참조하세요. 자세한 내용은 [FeachXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)을 참조하세요. | 아니요(데이터 집합의 "entityName"이 지정된 경우) |
+| 쿼리 | FetchXML은 Dynamics에 사용되는 전용 쿼리 언어(온라인 및 온-프레미스)입니다. 다음 예제를 참조하세요. 자세한 내용은 [FeachXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)을 참조하세요. | 아니요(데이터 세트의 "entityName"이 지정된 경우) |
 
 >[!NOTE]
 >PK 열은 FetchXML 쿼리에서 구성한 열 프로젝트에 포함되지 않은 경우에도 항상 복사됩니다.
@@ -322,7 +325,7 @@ Dynamics 365 Online의 경우 [조직당 동시 일괄 처리 호출 2개](https
 
 Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 데이터 팩터리 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 활동에서 원본 스키마와 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
-다음 매핑 테이블을 사용하여 원본 Dynamics 데이터 형식에 따라 데이터 집합 구조에 해당 데이터 팩터리 데이터 형식을 구성합니다.
+다음 매핑 테이블을 사용하여 원본 Dynamics 데이터 형식에 따라 데이터 세트 구조에 해당 데이터 팩터리 데이터 형식을 구성합니다.
 
 | Dynamics 데이터 형식 | Data Factory 중간 데이터 형식 | 원본으로 지원됨 | 싱크로 지원됨 |
 |:--- |:--- |:--- |:--- |

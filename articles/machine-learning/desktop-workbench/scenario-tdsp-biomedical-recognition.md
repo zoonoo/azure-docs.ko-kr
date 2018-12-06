@@ -86,7 +86,7 @@ ms.locfileid: "52262095"
 
 ### <a name="2-lstm-model-training-data"></a>2. LSTM 모델 학습 데이터
 
-신경망 엔터티 추출 모델은 공개적으로 사용 가능한 데이터 집합에 대해 학습 및 평가되었습니다. 이러한 데이터 집합에 대한 자세한 설명을 보려면 다음 소스를 참조하세요.
+신경망 엔터티 추출 모델은 공개적으로 사용 가능한 데이터 세트에 대해 학습 및 평가되었습니다. 이러한 데이터 집합에 대한 자세한 설명을 보려면 다음 소스를 참조하세요.
  * [BioNLP/NLPBA 2004에서의 생명 과학 엔터티 인식 작업](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR 작업 모음](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - 작업 9.1(약품 인식)](https://www.cs.york.ac.uk/semeval-2013/task9/)
@@ -153,7 +153,7 @@ XML 파일을 구문 분석한 후의 데이터 형식은 다음과 같습니다
 
 ![데이터 샘플](./media/scenario-tdsp-biomedical-recognition/datasample.png)
 
-신경망 엔터티 추출 모델은 공개적으로 사용 가능한 데이터 집합에 대해 학습 및 평가되었습니다. 이러한 데이터 집합에 대한 자세한 설명을 보려면 다음 소스를 참조하세요.
+신경망 엔터티 추출 모델은 공개적으로 사용 가능한 데이터 세트에 대해 학습 및 평가되었습니다. 이러한 데이터 집합에 대한 자세한 설명을 보려면 다음 소스를 참조하세요.
  * [BioNLP/NLPBA 2004에서의 생명 과학 엔터티 인식 작업](http://www.nactem.ac.uk/tsujii/GENIA/ERtask/report.html)
  * [BioCreative V CDR 작업 모음](http://www.biocreative.org/tasks/biocreative-v/track-3-cdr/)
  * [Semeval 2013 - 작업 9.1(약품 인식)](https://www.cs.york.ac.uk/semeval-2013/task9/)

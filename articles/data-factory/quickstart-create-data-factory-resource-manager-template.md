@@ -357,7 +357,7 @@ DeploymentDebugLogLevel :
 템플릿은 다음 Data Factory 엔터티를 배포합니다. 
 
 - Azure Storage 연결된 서비스
-- Azure Blob 데이터 집합(입력 및 출력)
+- Azure Blob 데이터 세트(입력 및 출력)
 - 복사 작업이 포함된 파이프라인
 - 파이프라인을 트리거하는 트리거
 
@@ -494,7 +494,7 @@ AzureStorageLinkedService는 Azure 저장소 계정을 데이터 팩터리에 �
 connectionString은 storageAccountName 및 storageAccountKey 매개 변수를 사용합니다. 이러한 매개 변수의 값은 구성 파일을 사용하여 전달됩니다. 정의 또한 템플릿에 정의된 azureStroageLinkedService 및 dataFactoryName 변수를 사용합니다. 
 
 #### <a name="azure-blob-input-dataset"></a>Azure Blob 입력 데이터 집합
-Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. Azure Blob 데이터 집합 정의에서 입력 데이터를 포함하는 Blob 컨테이너, 폴더 및 파일의 이름을 지정합니다. Azure Blob 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](connector-azure-blob-storage.md#dataset-properties)을 참조하세요. 
+Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. Azure Blob 데이터 세트 정의에서 입력 데이터를 포함하는 Blob 컨테이너, 폴더 및 파일의 이름을 지정합니다. Azure Blob 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](connector-azure-blob-storage.md#dataset-properties)을 참조하세요. 
 
 ```json
 {
@@ -520,7 +520,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 
 ```
 
-#### <a name="azure-blob-output-dataset"></a>Azure Blob 출력 데이터 집합
+#### <a name="azure-blob-output-dataset"></a>Azure Blob 출력 데이터 세트
 입력 폴더에서 복사한 데이터를 저장하는 Azure Blob Storage의 폴더 이름을 지정합니다. Azure Blob 데이터 집합을 정의하는 데 사용되는 JSON 속성에 대한 자세한 내용은 [Azure Blob 데이터 집합 속성](connector-azure-blob-storage.md#dataset-properties)을 참조하세요. 
 
 ```json
@@ -547,7 +547,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 ```
 
 #### <a name="data-pipeline"></a>데이터 파이프라인
-한 Azure BLOB 데이터 집합에서 다른 Azure BLOB 데이터 집합으로 데이터를 복사하는 파이프라인을 정의합니다. 이 예에서 파이프라인을 정의하는 데 사용된 JSON 요소에 대한 자세한 설명은 [파이프라인 JSON](concepts-pipelines-activities.md#pipeline-json)을 참조하세요. 
+한 Azure BLOB 데이터 세트에서 다른 Azure BLOB 데이터 세트로 데이터를 복사하는 파이프라인을 정의합니다. 이 예에서 파이프라인을 정의하는 데 사용된 JSON 요소에 대한 자세한 설명은 [파이프라인 JSON](concepts-pipelines-activities.md#pipeline-json)을 참조하세요. 
 
 ```json
 {

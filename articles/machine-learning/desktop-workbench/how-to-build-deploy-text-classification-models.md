@@ -71,9 +71,9 @@ AMLPTA를 사용하는 모델의 텍스트 분류 모델 작성 및 배포 워�
 > [Jupyter Notebook 가져오기](https://aka.ms/aml-packages/text/notebooks/text_classification_sentiment_data)
 
 ### <a name="download-and-explore-the-sample-data"></a>샘플 데이터 다운로드 및 탐색
-다음 예제는 scikit-learn 라이브러리를 통해 사용할 수 있는 [20개 뉴스 그룹 데이터 집합](http://qwone.com/~jason/20Newsgroups/)을 사용하여 Azure Machine Learning Package for Text Analytics로 텍스트 분류자를 만드는 방법을 보여줍니다. 
+다음 예제는 scikit-learn 라이브러리를 통해 사용할 수 있는 [20개 뉴스 그룹 데이터 세트](http://qwone.com/~jason/20Newsgroups/)를 사용하여 Azure Machine Learning Package for Text Analytics로 텍스트 분류자를 만드는 방법을 보여줍니다. 
 
-20개 뉴스 그룹 데이터 집합에는 다양한 20개의 주제에 관해 약 18,000개의 뉴스 그룹 게시물이 있으며 학습용과 성능 평가용이라는 두 가지 하위 집합으로 나뉘어 있습니다. 학습 및 테스트 분할은 특정 날짜 전이나 후의 각 메시지 게시 날짜를 기반으로 합니다.
+20개 뉴스 그룹 데이터 세트에는 다양한 20개의 주제에 관해 약 18,000개의 뉴스 그룹 게시물이 있으며 학습용과 성능 평가용이라는 두 가지 하위 집합으로 나뉘어 있습니다. 학습 및 테스트 분할은 특정 날짜 전이나 후의 각 메시지 게시 날짜를 기반으로 합니다.
 
 ```python
 # Import Packages 
@@ -95,7 +95,7 @@ pip.main(["show", "azureml-tatk"])
 ```
 
 ### <a name="set-the-location-of-the-data"></a>데이터 위치 설정
-데이터 디렉터리 매개 변수에 데이터를 다운로드한 위치를 설정합니다. 자신의 데이터를 사용할 수도 있으며 입력 데이터 집합은 *.tsv 파일 형식이어야 합니다.
+데이터 디렉터리 매개 변수에 데이터를 다운로드한 위치를 설정합니다. 자신의 데이터를 사용할 수도 있으며 입력 데이터 세트는 *.tsv 파일 형식이어야 합니다.
 
 ```python
 import os
@@ -545,7 +545,7 @@ text_classifier.export_params(params_file_path)
 
 ## <a name="apply-the-classifier"></a>분류자 적용
 
-테스트 데이터 집합에 학습된 텍스트 분류기를 적용하여 클래스 예측을 생성합니다.
+테스트 데이터 세트에 학습된 텍스트 분류기를 적용하여 클래스 예측을 생성합니다.
 
 ```python
  df_test = text_classifier.predict(df_test)
@@ -734,7 +734,7 @@ char_ngram_vocab = NGramsVectorizer.load_vocabulary(char_vocab_file_path)
 
 ## <a name="test-the-pipeline"></a>파이프라인 테스트
 
-테스트 데이터 집합을 평가하려면 로드된 텍스트 분류 파이프라인을 적용합니다.
+테스트 데이터 세트를 평가하려면 로드된 텍스트 분류 파이프라인을 적용합니다.
 
 ```python
 predictions = loaded_text_classifier.predict(df_test)
@@ -810,7 +810,7 @@ loaded_evaluator.get_metrics('macro_f1')
                           working_directory= working_directory)  
    ```
 
-1. 학습된 모델이 성공적으로 배포되었다는 가정 하에 새로운 데이터 집합에서 채점 웹 서비스를 호출합니다.
+1. 학습된 모델이 성공적으로 배포되었다는 가정 하에 새로운 데이터 세트에서 채점 웹 서비스를 호출합니다.
 
    ```python
    print("Service URL: {}".format(web_service._service_url))
@@ -826,7 +826,7 @@ loaded_evaluator.get_metrics('macro_f1')
    web_service = CsiWebService(url, key)
    ```
 
-1. 20개 뉴스 그룹 데이터 집합에서 가져온 두 개의 이메일 본문으로 웹 서비스를 테스트합니다.
+1. 20개 뉴스 그룹 데이터 세트에서 가져온 두 개의 이메일 본문으로 웹 서비스를 테스트합니다.
 
    ```python
    # Example input data for scoring

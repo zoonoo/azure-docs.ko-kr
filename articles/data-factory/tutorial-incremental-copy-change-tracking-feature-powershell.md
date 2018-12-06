@@ -29,7 +29,7 @@ ms.locfileid: "43090728"
 > * 원본 데이터 저장소를 준비합니다.
 > * 데이터 팩터리를 만듭니다.
 > * 연결된 서비스 만들기. 
-> * 원본, 싱크 및 변경 내용 추적 데이터 집합을 만듭니다.
+> * 원본, 싱크 및 변경 내용 추적 데이터 세트를 만듭니다.
 > * 전체 복사 파이프라인을 생성, 실행 및 모니터링합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
 > * 증분 복사 파이프라인을 생성, 실행 및 모니터링합니다.
@@ -264,11 +264,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlDatabaseLinkedService
     ```
 
-## <a name="create-datasets"></a>데이터 집합 만들기
-이 단계에서는 데이터 원본, 데이터 대상을 나타내는 데이터 집합을 만듭니다. 그리고 SYS_CHANGE_VERSION을 저장할 곳을 만듭니다.
+## <a name="create-datasets"></a>데이터 세트 만들기
+이 단계에서는 데이터 원본, 데이터 대상을 나타내는 데이터 세트를 만듭니다. 그리고 SYS_CHANGE_VERSION을 저장할 곳을 만듭니다.
 
-### <a name="create-a-source-dataset"></a>원본 데이터 집합 만들기
-이 단계에서는 원본 데이터를 나타내는 데이터 집합을 만듭니다. 
+### <a name="create-a-source-dataset"></a>원본 데이터 세트 만들기
+이 단계에서는 원본 데이터를 나타내는 데이터 세트를 만듭니다. 
 
 1. 동일한 폴더에 다음 내용이 포함된 SourceDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -288,7 +288,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     }   
     ```
 
-2.  Set-AzureRmDataFactoryV2Dataset cmdlet을 실행하여 SourceDataset 데이터 집합을 만듭니다.
+2.  Set-AzureRmDataFactoryV2Dataset cmdlet을 실행하여 SourceDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -304,8 +304,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-sink-dataset"></a>싱크 데이터 집합 만들기
-이 단계에서는 원본 데이터 저장소에서 복사된 데이터를 나타내는 데이터 집합을 만듭니다. 
+### <a name="create-a-sink-dataset"></a>싱크 데이터 세트 만들기
+이 단계에서는 원본 데이터 저장소에서 복사된 데이터를 나타내는 데이터 세트를 만듭니다. 
 
 1. 동일한 폴더에 다음 내용이 포함된 SinkDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -330,7 +330,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 
     요구 사항의 일부로 Azure Blob Storage에 adftutorial 컨테이너를 만듭니다. 아직 없는 경우 컨테이너를 만들거나 기존 컨테이너의 이름으로 설정합니다. 이 자습서에서 출력 파일 이름은 @CONCAT('Incremental-', pipeline().RunId, '.txt')식을 사용하여 동적으로 생성됩니다.
-2.  Set-AzureRmDataFactoryV2Dataset cmdlet을 실행하여 SinkDataset 데이터 집합을 만듭니다.
+2.  Set-AzureRmDataFactoryV2Dataset cmdlet을 실행하여 SinkDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -346,8 +346,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset
     ```
 
-### <a name="create-a-change-tracking-dataset"></a>변경 내용 추적 데이터 집합 만들기
-이 단계에서는 변경 내용 추적 버전을 저장하기 위한 데이터 집합을 만듭니다.  
+### <a name="create-a-change-tracking-dataset"></a>변경 내용 추적 데이터 세트 만들기
+이 단계에서는 변경 내용 추적 버전을 저장하기 위한 데이터 세트를 만듭니다.  
 
 1. 동일한 폴더에 다음 내용이 포함된 ChangeTrackingDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -368,7 +368,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```
 
     요구 사항의 일부로 table_store_ChangeTracking_version 테이블을 만듭니다.
-2.  Set-AzureRmDataFactoryV2Dataset cmdlet을 실행하여 WatermarkDataset 데이터 집합을 만듭니다.
+2.  Set-AzureRmDataFactoryV2Dataset cmdlet을 실행하여 WatermarkDataset 데이터 세트를 만듭니다.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"

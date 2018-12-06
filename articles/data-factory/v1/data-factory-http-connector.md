@@ -151,17 +151,17 @@ ms.locfileid: "49167480"
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-구조, 가용성 및 정책과 같은 데이터 집합 JSON 파일의 일부 섹션은 모든 데이터 집합 형식(예: Azure SQL Database, Azure Blob Storage 및 Azure Table Storage)에 대해 유사합니다.
+구조, 가용성 및 정책과 같은 데이터 세트 JSON 파일의 일부 섹션은 모든 데이터 세트 형식(예: Azure SQL Database, Azure Blob Storage 및 Azure Table Storage)에 대해 유사합니다.
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md)를 참조하세요.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md)를 참조하세요.
 
 **typeProperties** 섹션은 데이터 집합의 각 형식마다 다릅니다. **typeProperties** 섹션은 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **Http** 형식의 데이터 집합에 대한 **typeProperties** 섹션에는 다음과 같은 속성이 있습니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 **type**을 **Http**로 설정해야 합니다. | yes |
+| 형식 | 데이터 세트의 **type**을 **Http**로 설정해야 합니다. | yes |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 구성하려면 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다. 예제: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | 아니요 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 및 **POST**입니다. | 아니요 <br />(기본값: **GET**) |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
@@ -303,7 +303,7 @@ ms.locfileid: "49167480"
 
 ```
 
-### <a name="azure-blob-output-dataset"></a>Azure Blob 출력 데이터 집합
+### <a name="azure-blob-output-dataset"></a>Azure Blob 출력 데이터 세트
 
 데이터는 1시간마다 새 blob에 기록됩니다(**frequency**: **hour**, **interval**: **1**).
 

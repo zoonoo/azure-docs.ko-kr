@@ -93,7 +93,7 @@ Machine Learning Studio는 데이터 과학, 예측 분석, 클라우드 리소�
 
 실험을 빌드할 때 캔버스의 왼쪽에서 사용할 수 있는 데이터 집합의 목록에서 선택할 수 있습니다.
 
-Machine Learning Studio에 포함된 샘플 데이터 집합의 목록은 [Azure Machine Learning Studio에서 예제 데이터 집합 사용](use-sample-datasets.md)을 참조하세요.
+Machine Learning Studio에 포함된 샘플 데이터 세트의 목록은 [Azure Machine Learning Studio에서 예제 데이터 세트 사용](use-sample-datasets.md)을 참조하세요.
 
 ### <a name="modules"></a>모듈
 모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다. Machine Learning Studio에는 데이터 가져오기 함수부터 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 다양한 모듈이 있습니다. 포함된 모듈의 몇 가지 예제는 다음과 같습니다.

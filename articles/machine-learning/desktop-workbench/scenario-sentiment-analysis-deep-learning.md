@@ -58,7 +58,7 @@ ms.locfileid: "46947774"
 
 ## <a name="data-description"></a>데이터 설명
 
-이 샘플에 사용되는 데이터 집합은 소규모의 수작업 데이터 집합이며 [데이터 폴더](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/tree/master/data)에 있습니다.
+이 샘플에 사용되는 데이터 세트는 소규모의 수작업 데이터 세트이며 [데이터 폴더](https://github.com/Azure/MachineLearningSamples-SentimentAnalysis/tree/master/data)에 있습니다.
 
 첫 번째 열에는 영화 리뷰가 포함되고 두 번째 열에는 해당 감정(0 - 부정, 1 - 긍정)이 포함됩니다. 데이터 집합은 단순히 데모 용도로 사용되지만 일반적으로 강력한 감정 점수를 얻으려면 대규모 데이터 집합이 필요합니다. 예를 들어 Keras의 [IMDB 영화 리뷰 감정 분류 문제](https://keras.io/datasets/#datasets )는 25,000개의 IMDB 영화 리뷰 데이터 집합으로 구성되며 감정별로(긍정 또는 부정) 레이블이 지정됩니다. 이 교육에서는 AML Workbench에서 심층 학습을 사용하여 감정 분석을 수행하는 방법을 보여주려고 합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "46947774"
 폴더 구조는 다음과 같이 정렬됩니다.
 
 1. AML Workbench를 사용하는 감정 분석에 관련된 모든 코드는 루트 폴더에 있습니다.
-2. data: 솔루션에 사용된 데이터 집합을 포함합니다.
+2. data: 솔루션에 사용된 데이터 세트를 포함합니다.
 3. docs: 모든 실습 교육을 포함합니다.
 
 솔루션을 수행하는 실습 교육의 순서는 다음과 같습니다.

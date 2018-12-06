@@ -83,11 +83,11 @@ SAP ECC 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SAP ECC 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SAP ECC 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-SAP ECC에서 데이터를 복사하려면 데이터 집합의 type 속성을 **SapEccResource**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+SAP ECC에서 데이터를 복사하려면 데이터 세트의 type 속성을 **SapEccResource**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -122,7 +122,7 @@ SAP ECC에서 데이터를 복사하려면 복사 활동의 원본 형식을 **S
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 활동 원본의 type 속성을 **SapEccSource**로 설정해야 합니다. | 예 |
-| 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예제: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 커넥터는 결합된 URL(연결된 서비스에 지정된 URL)/(데이터 집합에 지정된 경로)?(복사 활동 원본에 지정된 쿼리)의 데이터를 복사합니다. [OData URL 구성 요소](http://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니오 |
+| 쿼리 | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예제: "$select=Name,Description&$top=10".<br/><br/>SAP ECC 커넥터는 결합된 URL(연결된 서비스에 지정된 URL)/(데이터 세트에 지정된 경로)?(복사 활동 원본에 지정된 쿼리)의 데이터를 복사합니다. [OData URL 구성 요소](http://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니오 |
 
 **예제:**
 

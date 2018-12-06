@@ -32,7 +32,7 @@ ms.locfileid: "51614024"
 > * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Azure Storage 연결된 서비스를 만듭니다. 
-> * SQL Server 및 Azure Blob 데이터 집합을 만듭니다.
+> * SQL Server 및 Azure Blob 데이터 세트를 만듭니다.
 > * 데이터를 이동하는 복사 작업으로 파이프라인을 만듭니다.
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 실행을 모니터링합니다.
@@ -171,17 +171,17 @@ ms.locfileid: "51614024"
 
    ![원본 탭](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
 
-1. **새 데이터 집합** 창에서 **SQL Server**를 검색합니다. **SQL Server**를 선택한 다음, **마침**을 선택합니다. **SqlServerTable1**이라는 제목의 새 탭이 표시됩니다. 또한 왼쪽의 트리 뷰에도 **SqlServerTable1** 데이터 집합이 표시됩니다. 
+1. **새 데이터 집합** 창에서 **SQL Server**를 검색합니다. **SQL Server**를 선택한 다음, **마침**을 선택합니다. **SqlServerTable1**이라는 제목의 새 탭이 표시됩니다. 또한 왼쪽의 트리 뷰에도 **SqlServerTable1** 데이터 세트가 표시됩니다. 
 
    ![SQL Server 선택](./media/tutorial-hybrid-copy-portal/select-sql-server.png)
 
 1. **속성** 창의 아래쪽에 있는 **일반** 탭의 **이름**에서 **SqlServerDataset**를 입력합니다.
 
-   ![원본 데이터 집합 이름](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
+   ![원본 데이터 세트 이름](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
 
 1. **연결** 탭으로 이동하고 **+ 새로 만들기**를 선택합니다. 이 단계에서는 원본 데이터 저장소(SQL Server 데이터베이스)에 대한 연결을 만듭니다. 
 
-   ![원본 데이터 집합에 연결](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
+   ![원본 데이터 세트에 연결](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
 
 1. **새 연결된 서비스** 창에서 **이름**을 **SqlServerLinkedService**로 추가합니다. **통합 런타임을 통해 연결**에서 **새로 만들기**를 선택합니다. 이 섹션에서는 자체 호스팅 Integration Runtime을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅 통합 런타임은 컴퓨터의 SQL Server 데이터베이스에서 Blob 저장소로 데이터를 복사하는 구성 요소입니다. 
 
@@ -227,13 +227,13 @@ ms.locfileid: "51614024"
 
        
 
-1. 원본 데이터 집합이 열려 있는 창으로 다시 전환됩니다. **속성** 창의 **연결**에서 다음 단계를 수행합니다. 
+1. 원본 데이터 세트가 열려 있는 창으로 다시 전환됩니다. **속성** 창의 **연결**에서 다음 단계를 수행합니다. 
 
     a. **연결된 서비스**에서 **SqlServerLinkedService**가 표시되는지 확인합니다.
 
     b. **테이블**에서 **[dbo].[emp]** 를 선택합니다.
 
-    ![원본 데이터 집합 연결 정보](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
+    ![원본 데이터 세트 연결 정보](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
 
 1. **SQLServerToBlobPipeline**이 있는 탭으로 이동하거나 트리 뷰에서 **SQLServerToBlobPipeline**을 선택합니다. 
 
@@ -243,13 +243,13 @@ ms.locfileid: "51614024"
 
     ![싱크 탭](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
 
-1. **새 데이터 집합** 창에서 **Azure Blob Storage**를 선택합니다. 그런 다음, **마침**을 선택합니다. 데이터 집합에 대해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 집합이 표시됩니다. 
+1. **새 데이터 집합** 창에서 **Azure Blob Storage**를 선택합니다. 그런 다음, **마침**을 선택합니다. 데이터 세트에 대해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. 
 
     ![Blob 저장소 선택](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
 
 1. **이름**에서 **AzureBlobDataset**를 입력합니다.
 
-    ![싱크 데이터 집합 이름](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
+    ![싱크 데이터 세트 이름](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
 
 1. **속성** 창의 아래쪽에 있는 **연결** 탭으로 이동합니다. **연결된 서비스** 옆에 있는 **+ 새로 만들기**를 선택합니다. 
 
@@ -267,7 +267,7 @@ ms.locfileid: "51614024"
 
     ![Storage 연결된 서비스 설정](./media/tutorial-hybrid-copy-portal/azure-storage-linked-service-settings.png) 
 
-1. 싱크 데이터 집합이 열려 있는 창으로 다시 전환됩니다. **연결** 탭에서 다음 단계를 수행합니다. 
+1. 싱크 데이터 세트가 열려 있는 창으로 다시 전환됩니다. **연결** 탭에서 다음 단계를 수행합니다. 
 
     a. **연결된 서비스**에서 **AzureStorageLinkedService**가 선택되어 있는지 확인합니다.
 
@@ -281,11 +281,11 @@ ms.locfileid: "51614024"
 
     ![파일 이름을 확인하기 위한 동적 식](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
 
-    ![싱크 데이터 집합에 연결](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+    ![싱크 데이터 세트에 연결](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
 
 1. 파이프라인이 열려 있는 탭으로 이동하거나 트리 뷰에서 파이프라인을 선택합니다. **싱크 데이터 집합**에서 **AzureBlobDataset**가 선택되어 있는지 확인합니다. 
 
-    ![싱크 데이터 집합 선택](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
+    ![싱크 데이터 세트 선택](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
 
 1. 파이프라인 설정에 대한 유효성을 검사하려면 파이프라인에 대한 도구 모음에서 **유효성 검사**를 선택합니다. **파이프 유효성 검사 보고서**를 닫으려면 **닫기**를 선택합니다. 
 
@@ -327,7 +327,7 @@ ms.locfileid: "51614024"
 > * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Storage 연결된 서비스를 만듭니다. 
-> * SQL Server 및 Blob 저장소 데이터 집합을 만듭니다.
+> * SQL Server 및 Blob 저장소 데이터 세트를 만듭니다.
 > * 데이터를 이동하는 복사 작업으로 파이프라인을 만듭니다.
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 실행을 모니터링합니다.

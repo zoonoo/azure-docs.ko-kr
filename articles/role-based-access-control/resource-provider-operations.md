@@ -1575,13 +1575,13 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.DataFactory/datafactories/datapipelines/resume/action | 모든 파이프라인을 다시 시작합니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/datapipelines/update/action | 모든 파이프라인을 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/datapipelines/write | 모든 파이프라인을 만들거나 업데이트합니다. |
-> | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/activitywindows/read | 지정된 매개 변수를 사용하여 데이터 집합에 대한 활동 창을 읽습니다. |
-> | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/delete | 모든 데이터 집합을 삭제합니다. |
-> | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/read | 모든 데이터 집합을 읽습니다. |
-> | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/sliceruns/read | 지정된 시작 시간을 사용하여 지정된 데이터 집합에 대한 데이터 조각 실행을 읽습니다. |
+> | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/activitywindows/read | 지정된 매개 변수를 사용하여 데이터 세트에 대한 활동 창을 읽습니다. |
+> | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/delete | 모든 데이터 세트를 삭제합니다. |
+> | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/read | 모든 데이터 세트를 읽습니다. |
+> | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/sliceruns/read | 지정된 시작 시간을 사용하여 지정된 데이터 세트에 대한 데이터 조각 실행을 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/slices/read | 지정된 기간의 데이터 조각을 가져옵니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/slices/write | 데이터 조각의 상태를 업데이트합니다. |
-> | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/write | 모든 데이터 집합을 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.DataFactory/datafactories/datasets/write | 모든 데이터 세트를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/delete | Data Factory를 삭제합니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/gateways/connectioninfo/action | 모든 게이트웨이에 대한 연결 정보를 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/gateways/delete | 모든 게이트웨이를 삭제합니다. |
@@ -1594,14 +1594,14 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.DataFactory/datafactories/linkedServices/write | 모든 연결된 서비스를 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.DataFactory/datafactories/read | Data Factory를 읽습니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/runs/loginfo/read | 로그가 포함된 Blob 컨테이너에 대한 SAS URI를 읽습니다. |
-> | 액션(Action) | Microsoft.DataFactory/datafactories/tables/delete | 모든 데이터 집합을 삭제합니다. |
-> | 액션(Action) | Microsoft.DataFactory/datafactories/tables/read | 모든 데이터 집합을 읽습니다. |
-> | 액션(Action) | Microsoft.DataFactory/datafactories/tables/write | 모든 데이터 집합을 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.DataFactory/datafactories/tables/delete | 모든 데이터 세트를 삭제합니다. |
+> | 액션(Action) | Microsoft.DataFactory/datafactories/tables/read | 모든 데이터 세트를 읽습니다. |
+> | 액션(Action) | Microsoft.DataFactory/datafactories/tables/write | 모든 데이터 세트를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataFactory/datafactories/write | Data Factory를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/cancelpipelinerun/action | 실행 ID로 지정된 파이프라인 실행을 취소합니다. |
-> | 액션(Action) | Microsoft.DataFactory/factories/datasets/delete | 모든 데이터 집합을 삭제합니다. |
-> | 액션(Action) | Microsoft.DataFactory/factories/datasets/read | 모든 데이터 집합을 읽습니다. |
-> | 액션(Action) | Microsoft.DataFactory/factories/datasets/write | 모든 데이터 집합을 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.DataFactory/factories/datasets/delete | 모든 데이터 세트를 삭제합니다. |
+> | 액션(Action) | Microsoft.DataFactory/factories/datasets/read | 모든 데이터 세트를 읽습니다. |
+> | 액션(Action) | Microsoft.DataFactory/factories/datasets/write | 모든 데이터 세트를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/delete | 데이터 팩터리를 삭제합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/integrationruntimes/delete | 모든 Integration Runtime을 삭제합니다. |
 > | 액션(Action) | Microsoft.DataFactory/factories/integrationruntimes/getconnectioninfo/read | Integration Runtime 연결 정보를 읽습니다. |

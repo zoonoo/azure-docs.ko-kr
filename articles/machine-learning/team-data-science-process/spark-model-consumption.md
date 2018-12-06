@@ -20,7 +20,7 @@ ms.locfileid: "52442508"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 
-이 항목에서는 HDInsight Spark 클러스터에서 Python을 사용하여 저장된 Machine Learning 모델(ML)을 운영하는 방법을 보여줍니다. 이 항목에서는 Spark MLlib를 사용하여 만들어진 Azure Blob Storage(WASB)에 저장된 Machine Learning 모델을 로드하는 방법 및 WASB에도 저장된 데이터 집합을 사용하여 해당 모델의 점수를 매기는 방법을 설명합니다. 입력 데이터를 전처리하고 MLlib 도구 키트의 인덱싱 및 인코딩 기능을 사용하여 기능을 변환하는 방법, 그리고 ML 모델에서 점수를 매기기 위한 입력으로 사용할 수 있는 레이블이 지정된 점수 데이터 개체를 만드는 방법을 보여 줍니다. 점수 매기기에 사용되는 모델은 선형 회귀, 로지스틱 회귀, 임의 포리스트 모델 및 점진적 향상 트리 모델을 포함합니다.
+이 항목에서는 HDInsight Spark 클러스터에서 Python을 사용하여 저장된 Machine Learning 모델(ML)을 운영하는 방법을 보여줍니다. 이 항목에서는 Spark MLlib를 사용하여 만들어진 Azure Blob Storage(WASB)에 저장된 Machine Learning 모델을 로드하는 방법 및 WASB에도 저장된 데이터 세트를 사용하여 해당 모델의 점수를 매기는 방법을 설명합니다. 입력 데이터를 전처리하고 MLlib 도구 키트의 인덱싱 및 인코딩 기능을 사용하여 기능을 변환하는 방법, 그리고 ML 모델에서 점수를 매기기 위한 입력으로 사용할 수 있는 레이블이 지정된 점수 데이터 개체를 만드는 방법을 보여 줍니다. 점수 매기기에 사용되는 모델은 선형 회귀, 로지스틱 회귀, 임의 포리스트 모델 및 점진적 향상 트리 모델을 포함합니다.
 
 ## <a name="spark-clusters-and-jupyter-notebooks"></a>Spark 클러스터 및 Jupyter Notebook
 HDInsight Spark 1.6 클러스터 및 Spark 2.0 클러스터 사용을 위한 설정 단계 및 ML 모델을 운영하는 코드가 이 연습에 제공됩니다. 이러한 절차에 대한 코드가 Jupyter Notebook에도 제공됩니다.
@@ -36,7 +36,7 @@ HDInsight Spark 2.0 클러스터와 함께 사용하도록 Spark 1.6용 Jupyter 
 
 1. 이 연습을 완료하려면 Azure 계정과 Spark 1.6(또는 Spark 2.0) HDInsight 클러스터가 필요합니다. 이러한 요구 사항을 충족시키는 방법에 대한 자세한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. 이 항목에는 여기에서 사용된 NYC 2013 Taxi 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 대한 지침이 포함되어 있습니다. 
 2. 또한 Spark 1.6 클러스터 또는 the Spark 2.0 Notebook에 대한 [Spark로 데이터 탐색 및 모델링](spark-data-exploration-modeling.md) 항목을 통해 작업하여 여기서 점수를 매길 Machine Learning 모델을 만들어야 합니다. 
-3. Spark 2.0 Notebook은 분류 태스크에 대한 추가 데이터 집합인 인 2011년부터 2012까지 유명 항공사 정시 출발 데이터 집합을 사용합니다. 노트북과 이에 연결된 링크의 설명은 이들을 포함하는 GitHub 리포지토리의 [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md)에 제공됩니다. 그뿐 아니라 여기에 있는 코드와 연결된 Notebook에 있는 코드는 일반적이므로 아무 Spark 클러스터에서나 작동할 것입니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 여기에 나오는 내용과 약간 다를 수 있습니다. 
+3. Spark 2.0 Notebook은 분류 태스크에 대한 추가 데이터 세트인 2011년부터 2012까지 유명 항공사 정시 출발 데이터 세트를 사용합니다. 노트북과 이에 연결된 링크의 설명은 이들을 포함하는 GitHub 리포지토리의 [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md)에 제공됩니다. 그뿐 아니라 여기에 있는 코드와 연결된 Notebook에 있는 코드는 일반적이므로 아무 Spark 클러스터에서나 작동할 것입니다. HDInsight Spark를 사용하지 않는 경우 클러스터 설치 및 관리 단계가 여기에 나오는 내용과 약간 다를 수 있습니다. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 

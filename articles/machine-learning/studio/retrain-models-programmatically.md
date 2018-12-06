@@ -36,7 +36,7 @@ ms.locfileid: "52313388"
 기존의 새 Azure Resource Manager 기반 웹 서비스로 시작하려는 경우 [기존 예측 웹 서비스 재학습](retrain-existing-resource-manager-based-web-service.md)을 참조하세요.
 
 ## <a name="create-a-training-experiment"></a>학습 실험 만들기
-이 예의 경우 Microsoft Azure Machine Learning 샘플의 "샘플 5: 이진 분류에 대한 학습, 테스트, 평가: 성인 데이터 집합"을 사용합니다. 
+이 예의 경우 Microsoft Azure Machine Learning 샘플의 "샘플 5: 이진 분류에 대한 학습, 테스트, 평가: 성인 데이터 세트"를 사용합니다. 
 
 실험을 만들려면:
 

@@ -1,6 +1,6 @@
 ---
 title: '자습서: HDInsight에서 Hive를 사용하여 ETL(추출, 변환, 로드) 작업 수행 - Azure '
-description: 원시 CSV 데이터 집합에서 데이터를 추출하고, HDInsight에서 Hive를 사용하여 변환한 다음, Apache Sqoop을 사용하여 변환된 데이터를 Azure SQL 데이터베이스로 로드하는 방법을 알아봅니다.
+description: 원시 CSV 데이터 세트에서 데이터를 추출하고, HDInsight에서 Hive를 사용하여 변환한 다음, Apache Sqoop을 사용하여 변환된 데이터를 Azure SQL 데이터베이스로 로드하는 방법을 알아봅니다.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh

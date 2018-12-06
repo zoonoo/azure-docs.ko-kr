@@ -55,7 +55,7 @@ Azure Storage는 &mdash;블록 Blob, 추가 Blob 및 [페이지 Blob](../article
 
 모든 BLOB은 컨테이너에 상주합니다. 컨테이너는 파일 시스템의 폴더와 비슷합니다. BLOB을 가상 디렉터리에 추가로 정리하고 파일 시스템과 동일한 방법으로 탐색할 수 있습니다. 
 
-대규모 데이터 집합 및 네트워크 제약 조건으로 인해 유선으로 Blob Storage에 데이터를 업로드할 수 없는 경우가 있을 수 있습니다. [Azure Data Box Disk](../articles/databox/data-box-disk-overview.md)를 사용하여 Microsoft의 SSD(Solid-State Disk)를 요청할 수 있습니다. 그런 다음, 해당 디스크에 데이터를 복사하고, Microsoft에 다시 제공하여 Blob Storage에 업로드할 수 있습니다.
+대규모 데이터 세트 및 네트워크 제약 조건으로 인해 유선으로 Blob Storage에 데이터를 업로드할 수 없는 경우가 있을 수 있습니다. [Azure Data Box Disk](../articles/databox/data-box-disk-overview.md)를 사용하여 Microsoft의 SSD(Solid-State Disk)를 요청할 수 있습니다. 그런 다음, 해당 디스크에 데이터를 복사하고, Microsoft에 다시 제공하여 Blob Storage에 업로드할 수 있습니다.
 
 저장소 계정에서 다량의 데이터를 내보내야 하는 경우 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage로 데이터 전송](../articles/storage/common/storage-import-export-service.md)을 참조하세요.
   

@@ -60,7 +60,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 - 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다.
 - Kerberos 인증이 가능한 플랫폼 및 브라우저에서 [최신 인증](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016)을 지원하는 웹 브라우저 기반 클라이언트 및 Office 클라이언트에서 지원됩니다.
 
-| OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |윈도우 10|예\*|아니요|yes|예\*\*\*|해당 없음
 |Windows 8.1|예\*|해당 없음|yes|예\*\*\*|해당 없음

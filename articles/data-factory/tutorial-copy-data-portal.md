@@ -118,10 +118,10 @@ ms.locfileid: "44299203"
 이 단계에서는 복사 활동이 있는 파이프라인을 데이터 팩터리에 만듭니다. 복사 활동은 Blob 저장소에서 SQL Database로 데이터를 복사합니다. [빠른 시작 자습서](quickstart-create-data-factory-portal.md)에서 다음 단계에 따라 파이프라인을 만들었습니다.
 
 1. 연결된 서비스를 만듭니다. 
-1. 입력 및 출력 데이터 집합을 만듭니다.
+1. 입력 및 출력 데이터 세트를 만듭니다.
 1. 파이프라인을 만듭니다.
 
-이 자습서에서는 파이프라인을 만드는 것부터 시작합니다. 그런 다음, 파이프라인을 구성해야 할 때 연결된 서비스와 데이터 집합을 만듭니다. 
+이 자습서에서는 파이프라인을 만드는 것부터 시작합니다. 그런 다음, 파이프라인을 구성해야 할 때 연결된 서비스와 데이터 세트를 만듭니다. 
 
 1. **시작** 페이지에서 **파이프라인 만들기**를 선택합니다. 
 
@@ -136,11 +136,11 @@ ms.locfileid: "44299203"
 
 1. **원본** 탭으로 이동합니다. **+ 새로 만들기**를 선택하여 원본 데이터 집합을 만듭니다. 
 
-1. **새 데이터 집합** 창에서 **Azure Blob Storage**를 선택한 다음, **마침**을 선택합니다. 원본 데이터는 Blob 저장소에 있으므로 원본 데이터 집합으로 **Azure Blob Storage**를 선택합니다. 
+1. **새 데이터 집합** 창에서 **Azure Blob Storage**를 선택한 다음, **마침**을 선택합니다. 원본 데이터는 Blob 저장소에 있으므로 원본 데이터 세트로 **Azure Blob Storage**를 선택합니다. 
 
     ![저장소 선택](./media/tutorial-copy-data-portal/select-azure-blob-dataset.png)
 
-1. Blob 데이터 집합에 대해 열린 새 탭이 표시됩니다. **속성** 창의 아래쪽에 있는 **일반** 탭의 **이름**에 대해 **SourceBlobDataset**을 입력합니다.
+1. Blob 데이터 세트에 대해 열린 새 탭이 표시됩니다. **속성** 창의 아래쪽에 있는 **일반** 탭의 **이름**에 대해 **SourceBlobDataset**을 입력합니다.
 
     ![데이터 집합 이름](./media/tutorial-copy-data-portal/dataset-name.png)
 
@@ -152,7 +152,7 @@ ms.locfileid: "44299203"
 
     ![새 연결된 서비스](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
 
-1. 연결된 서비스를 만든 후에 데이터 집합 설정으로 돌아갑니다. **파일 경로** 옆에 있는 **찾아보기**를 선택합니다.
+1. 연결된 서비스를 만든 후에 데이터 세트 설정으로 돌아갑니다. **파일 경로** 옆에 있는 **찾아보기**를 선택합니다.
 
     ![파일 경로에 대한 찾아보기 단추](./media/tutorial-copy-data-portal/file-browse-button.png)
 
@@ -170,20 +170,20 @@ ms.locfileid: "44299203"
 
 1. 이제 다시 파이프라인 -> **원본** 탭으로 이동하고 **SourceBlobDataset**을 선택했는지 확인합니다. 이 페이지에서 데이터를 미리 보려면 **데이터 미리 보기**를 선택합니다. 
     
-    ![원본 데이터 집합](./media/tutorial-copy-data-portal/source-dataset-selected.png)
+    ![원본 데이터 세트](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
 ### <a name="configure-sink"></a>싱크 구성
 
 1. **싱크** 탭으로 이동하고, **+ 새로 만들기**를 선택하여 싱크 데이터 집합을 만듭니다. 
 
-    ![싱크 데이터 집합](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
+    ![싱크 데이터 세트](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
 1. **새 데이터 집합** 창에서 검색 상자에 "SQL"을 입력하고, **Azure SQL Database**를 선택한 다음, **마침**을 선택합니다. 이 자습서에서는 데이터를 SQL 데이터베이스에 복사합니다. 
 
     ![SQL 데이터베이스 선택](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. **속성** 창에 있는 **일반** 탭의 **이름**에서 **OutputSqlDataset**를 설정합니다. 
     
-    ![출력 데이터 집합 이름](./media/tutorial-copy-data-portal/output-dataset-name.png)
-1. **연결** 탭으로 이동하여 **연결된 서비스** 옆에 있는 **+ 새로 만들기**를 선택합니다. 데이터 집합은 연결된 서비스와 연결되어야 합니다. 연결된 서비스에는 런타임에 Data Factory에서 SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열 있습니다. 데이터 집합은 데이터가 복사될 컨테이너, 폴더 및 파일(선택 사항)을 지정합니다. 
+    ![출력 데이터 세트 이름](./media/tutorial-copy-data-portal/output-dataset-name.png)
+1. **연결** 탭으로 이동하여 **연결된 서비스** 옆에 있는 **+ 새로 만들기**를 선택합니다. 데이터 세트는 연결된 서비스와 연결되어야 합니다. 연결된 서비스에는 런타임에 Data Factory에서 SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열 있습니다. 데이터 세트는 데이터가 복사될 컨테이너, 폴더 및 파일(선택 사항)을 지정합니다. 
     
     ![연결된 서비스](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
 1. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
@@ -213,7 +213,7 @@ ms.locfileid: "44299203"
 1. **ID** 열을 선택한 다음, **삭제**를 선택합니다. **ID** 열은 SQL 데이터베이스의 ID 열이므로 복사 활동에서 이 열에 데이터를 삽입할 필요가 없습니다.
 
     ![ID 열 삭제](./media/tutorial-copy-data-portal/delete-id-column.png)
-1. 파이프라인이 있는 탭으로 이동하고, **싱크 데이터 집합**에서 **OutputSqlDataset**가 선택되어 있는지 확인합니다.
+1. 파이프라인이 있는 탭으로 이동하고, **싱크 데이터 세트**에서 **OutputSqlDataset**가 선택되어 있는지 확인합니다.
 
     ![파이프라인 탭](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
 
@@ -229,11 +229,11 @@ ms.locfileid: "44299203"
 오른쪽 위에서 **코드**를 클릭하여 파이프라인과 연결된 JSON 코드를 볼 수 있습니다.
 
 ## <a name="debug-and-publish-the-pipeline"></a>파이프라인 디버그 및 게시
-아티팩트(연결된 서비스, 데이터 집합 및 파이프라인)를 Data Factory 또는 고유한 Azure Repos Git 리포지토리에 게시하기 전에 파이프라인을 디버그할 수 있습니다. 
+아티팩트(연결된 서비스, 데이터 세트 및 파이프라인)를 Data Factory 또는 고유한 Azure Repos Git 리포지토리에 게시하기 전에 파이프라인을 디버그할 수 있습니다. 
 
 1. 파이프라인을 디버그하려면 도구 모음에서 **디버그**를 선택합니다. 창의 아래쪽에 있는 **출력** 탭에서 파이프라인 실행 상태가 표시됩니다. 
 
-1. 파이프라인이 성공적으로 실행될 수 있다면 최상위 도구 모음에서 **모두 게시**를 선택합니다. 이 작업은 사용자가 만든 엔터티(데이터 집합 및 파이프라인)를 Data Factory에 게시합니다.
+1. 파이프라인이 성공적으로 실행될 수 있다면 최상위 도구 모음에서 **모두 게시**를 선택합니다. 이 작업은 사용자가 만든 엔터티(데이터 세트 및 파이프라인)를 Data Factory에 게시합니다.
 
     ![게시](./media/tutorial-copy-data-portal/publish-button.png)
 

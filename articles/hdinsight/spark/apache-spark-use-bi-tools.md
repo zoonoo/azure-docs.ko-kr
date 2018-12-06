@@ -84,7 +84,7 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
 3. 클러스터 URL을 입력하고(`mysparkcluster.azurehdinsight.net` 양식으로), **DirectQuery**를 선택한 다음 **확인**을 클릭합니다.
 
-    Spark와 함께 데이터 연결 모드 중 하나를 사용할 수 있습니다. DirectQuery를 사용하는 경우 변경 내용은 전체 데이터 집합을 새로 고치지 않고 보고서에 반영됩니다. 데이터를 가져오는 경우 변경 내용을 보려면 데이터 집합을 새로 고쳐야 합니다. DirectQuery를 사용하는 방법 및 경우에 대한 자세한 내용은 [Power BI에서 DirectQuery 사용](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/)을 참조하세요. 
+    Spark와 함께 데이터 연결 모드 중 하나를 사용할 수 있습니다. DirectQuery를 사용하는 경우 변경 내용은 전체 데이터 세트를 새로 고치지 않고 보고서에 반영됩니다. 데이터를 가져오는 경우 변경 내용을 보려면 데이터 집합을 새로 고쳐야 합니다. DirectQuery를 사용하는 방법 및 경우에 대한 자세한 내용은 [Power BI에서 DirectQuery 사용](https://powerbi.microsoft.com/documentation/powerbi-desktop-directquery-about/)을 참조하세요. 
 
 4. HDInsight 로그인 계정 정보를 입력한 다음 **연결**을 클릭합니다. 기본 계정 이름은 *admin*입니다.
 
@@ -119,14 +119,14 @@ Spark를 사용하는 첫 번째 단계는 Power BI Desktop에서 클러스터�
 
 ### <a name="publish-the-report-to-the-power-bi-service-optional"></a>Power BI 서비스에 보고서 게시(선택 사항)
 
-Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보드를 공유할 수 있습니다. 이 섹션에서는 먼저 데이터 집합과 보고서를 게시합니다. 그런 다음 보고서를 대시보드에 고정합니다. 대시보드는 보고서에 있는 데이터 하위 집합에 집중하는 데 일반적으로 사용되며 보고서에 하나의 시각화만이 있지만 단계를 수행하는 데 여전히 유용합니다.
+Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보드를 공유할 수 있습니다. 이 섹션에서는 먼저 데이터 세트와 보고서를 게시합니다. 그런 다음 보고서를 대시보드에 고정합니다. 대시보드는 보고서에 있는 데이터 하위 집합에 집중하는 데 일반적으로 사용되며 보고서에 하나의 시각화만이 있지만 단계를 수행하는 데 여전히 유용합니다.
 
 1. Power BI Desktop을 엽니다.
 2. **홈** 탭에서 **게시**를 클릭합니다.
 
     ![Power BI Desktop에서 게시](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Power BI Desktop에서 게시")
 
-2. 데이터 집합 및 보고서를 게시하려는 작업 영역을 선택한 다음 **선택**을 클릭합니다. 다음 이미지에서 기본 **내 작업 영역**이 선택됩니다.
+2. 데이터 세트 및 보고서를 게시하려는 작업 영역을 선택한 다음, **선택**을 클릭합니다. 다음 이미지에서 기본 **내 작업 영역**이 선택됩니다.
 
     ![데이터 집합 및 보고서를 게시하려는 작업 영역 선택](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "데이터 집합 및 보고서를 게시하려는 작업 영역 선택") 
 
@@ -150,7 +150,7 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
     ![왼쪽 창의 보고서 아래에 나열된 보고서](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "왼쪽 창의 보고서 아래에 나열된 보고서")
 
-    왼쪽 창의 **데이터 집합** 아래에 나열된 **BuildingTemperature**도 표시됩니다.
+    왼쪽 창의 **데이터 세트** 아래에 나열된 **BuildingTemperature**도 표시됩니다.
 
     이제 Power BI Desktop에서 만든 시각적 개체를 Power BI 서비스에서 사용할 수 있습니다. 
 

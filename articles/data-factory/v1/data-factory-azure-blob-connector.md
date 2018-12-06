@@ -60,8 +60,8 @@ ms.locfileid: "42142524"
 
 1. **데이터 팩터리**를 만듭니다. 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 
 2. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스**를 만듭니다. 예를 들어 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 경우 Azure Storage 계정 및 Azure SQL Database를 데이터 팩터리에 연결하는 두 개의 연결된 서비스를 만듭니다. Azure Blob Storage와 관련된 연결된 서비스 속성은 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요. 
-2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 집합**을 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 집합을 만듭니다. 그리고 Blob Storage에서 복사한 데이터를 포함하는 Azure SQL Database의 SQL 테이블을 지정하는 또 다른 데이터 집합을 만듭니다. Azure Blob Storage와 관련된 데이터 집합 속성은 [데이터 집합 속성](#dataset-properties) 섹션을 참조하세요.
-3. 입력으로 데이터 집합을, 출력으로 데이터 집합을 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 앞에서 언급한 예에서는 BlobSource를 원본으로, SqlSink를 복사 작업의 싱크로 사용합니다. 마찬가지로, Azure SQL Database에서 Azure Blob Storage로 복사하는 경우 복사 작업에 SqlSource 및 BlobSink를 사용합니다. Azure Blob Storage와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대 한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요.  
+2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 세트를 만듭니다. 그리고 Blob Storage에서 복사한 데이터를 포함하는 Azure SQL Database의 SQL 테이블을 지정하는 또 다른 데이터 세트를 만듭니다. Azure Blob Storage와 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties) 섹션을 참조하세요.
+3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 앞에서 언급한 예에서는 BlobSource를 원본으로, SqlSink를 복사 작업의 싱크로 사용합니다. 마찬가지로, Azure SQL Database에서 Azure Blob Storage로 복사하는 경우 복사 작업에 SqlSource 및 BlobSink를 사용합니다. Azure Blob Storage와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대 한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요.  
 
 마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  다른 곳에서 Azure Blob Storage로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-blob-storage  ) 섹션을 참조하세요.
 
@@ -72,8 +72,8 @@ Azure Storage를 Azure Data Factory에 연결하는 데 사용할 수 있는 두
 
 [!INCLUDE [data-factory-azure-storage-linked-services](../../../includes/data-factory-azure-storage-linked-services.md)]
 
-## <a name="dataset-properties"></a>데이터 집합 속성
-Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 집합을 지정하려면 데이터 집합의 형식 속성을 **AzureBlob**으로 설정합니다. 데이터 집합의 **linkedServiceName** 속성을 Azure Storage 또는 Azure Storage SAS 연결된 서비스의 이름으로 설정합니다.  데이터 집합의 형식 속성은 Blob Storage에서 **Blob 컨테이너**와 **폴더**를 지정합니다.
+## <a name="dataset-properties"></a>데이터 세트 속성
+Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 세트를 지정하려면 데이터 세트의 형식 속성을 **AzureBlob**으로 설정합니다. 데이터 세트의 **linkedServiceName** 속성을 Azure Storage 또는 Azure Storage SAS 연결된 서비스의 이름으로 설정합니다.  데이터 세트의 형식 속성은 Blob Storage에서 **Blob 컨테이너**와 **폴더**를 지정합니다.
 
 데이터 집합 정의에 사용할 수 있는 JSON 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
@@ -84,7 +84,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | folderPath |blob 저장소에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |yes |
-| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 집합에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>**fileName**이 출력 데이터 집합에 대해 지정되지 않았고 **preserveHierarchy**가 활동 싱크에 지정되지 않은 경우 생성된 파일의 이름은 다음 형식을 사용합니다. Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
+| fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>**fileName**이 출력 데이터 집합에 대해 지정되지 않았고 **preserveHierarchy**가 활동 싱크에 지정되지 않은 경우 생성된 파일의 이름은 다음 형식을 사용합니다. Data.<Guid>.txt(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |아니요 |
 | partitionedBy |partitionedBy는 선택적 속성입니다. 동적 folderPath 및 시계열 데이터에 대한 filename을 지정하는 데 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 [partitionedBy 속성 사용 섹션](#using-partitionedBy-property)을 참조하세요. |아니요 |
 | format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 집합 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
@@ -146,7 +146,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 
 * **blobWriterAddHeader**: 출력 데이터 집합에 쓰는 동안 열 정의의 헤더를 추가할지 여부를 지정합니다.
 
-이제 데이터 집합은 동일한 기능을 구현하는 다음 속성을 지원합니다. **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**
+이제 데이터 세트는 동일한 기능을 구현하는 다음 속성을 지원합니다. **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**
 
 다음 표에서는 Blob 원본/싱크 속성 대신 새 데이터 집합 속성을 사용하는 지침을 제공합니다.
 
@@ -333,13 +333,13 @@ Azure Blob 저장소 간에 데이터를 빠르게 복사하는 방법을 살펴
 Azure Storage 링크된 서비스에 대한 자세한 내용은 [연결된 서비스 속성](#linked-service-properties) 섹션을 참조하세요. 
 
 #### <a name="datasets"></a>데이터 집합
-입력 데이터 집합과 출력 데이터 집합의 두 가지 데이터 집합이 있습니다. 데이터 집합의 유형은 둘 다 **AzureBlob**으로 설정됩니다. 
+입력 데이터 집합과 출력 데이터 집합의 두 가지 데이터 집합이 있습니다. 데이터 세트의 유형은 둘 다 **AzureBlob**으로 설정됩니다. 
 
-입력 데이터 집합은 **adfblobconnector** Blob 컨테이너의 **input** 폴더를 가리킵니다. 이 데이터 집합을 입력으로 사용하는 복사 활동으로 파이프라인에서 데이터를 생성하지 않으므로 이 데이터 집합에 대해 **external** 속성이 **true**로 설정됩니다. 
+입력 데이터 세트는 **adfblobconnector** Blob 컨테이너의 **input** 폴더를 가리킵니다. 이 데이터 세트를 입력으로 사용하는 복사 활동으로 파이프라인에서 데이터를 생성하지 않으므로 이 데이터 세트에 대해 **external** 속성이 **true**로 설정됩니다. 
 
-출력 데이터 집합은 동일한 Blob 컨테이너의 **output** 폴더를 가리킵니다. 출력 데이터 집합은 **SliceStart** 시스템 변수의 년, 월, 일을 사용하여 출력 파일의 경로를 동적으로 평가합니다. Data Factory에서 지원하는 함수 및 시스템 변수 목록은 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 참조하세요. 이 데이터 집합이 파이프라인에 의해 생성되기 때문에 **external** 속성은 **false**(기본값)로 설정됩니다. 
+출력 데이터 세트는 동일한 Blob 컨테이너의 **output** 폴더를 가리킵니다. 출력 데이터 세트는 **SliceStart** 시스템 변수의 년, 월, 일을 사용하여 출력 파일의 경로를 동적으로 평가합니다. Data Factory에서 지원하는 함수 및 시스템 변수 목록은 [Data Factory 함수 및 시스템 변수](data-factory-functions-variables.md)를 참조하세요. 이 데이터 세트가 파이프라인에 의해 생성되기 때문에 **external** 속성은 **false**(기본값)로 설정됩니다. 
 
-Azure Blob 데이터 집합이 지원하는 속성에 대한 자세한 내용은 [데이터 집합 속성](#dataset-properties) 섹션을 참조하세요.
+Azure Blob 데이터 세트가 지원하는 속성에 대한 자세한 내용은 [데이터 세트 속성](#dataset-properties) 섹션을 참조하세요.
 
 ##### <a name="input-dataset"></a>입력 데이터 집합
 

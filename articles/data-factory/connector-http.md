@@ -155,22 +155,22 @@ ClientCertificate 인증을 사용하려면 **authenticationType** 속성을 **C
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-이 섹션에서는 HTTP 데이터 집합에서 지원하는 속성의 목록을 제공합니다. 
+이 섹션에서는 HTTP 데이터 세트에서 지원하는 속성의 목록을 제공합니다. 
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. 
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. 
 
-HTTP에서 데이터를 복사하려면 데이터 집합의 **type** 속성을 **HttpFile**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+HTTP에서 데이터를 복사하려면 데이터 세트의 **type** 속성을 **HttpFile**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 **type** 속성을 **HttpFile**로 설정해야 합니다. | yes |
+| 형식 | 데이터 세트의 **type** 속성을 **HttpFile**로 설정해야 합니다. | yes |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 아니요 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니요 |
 | requestBody | HTTP 요청의 본문입니다. | 아니요 |
-| format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 있는 그대로 검색하고 파일 기반 저장소에 복사하려면 입력 및 출력 데이터 집합 정의 모두에서 **형식** 섹션을 건너뜁니다.<br/><br/>복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. **형식**에서 **type** 속성을 이러한 값 중 하나로 설정합니다. 자세한 내용은 [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format), [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format)을 참조하세요. |아니요 |
+| format | 데이터를 구문 분석하지 않고 HTTP 엔드포인트에서 데이터를 있는 그대로 검색하고 파일 기반 저장소에 복사하려면 입력 및 출력 데이터 세트 정의 모두에서 **형식** 섹션을 건너뜁니다.<br/><br/>복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. **형식**에서 **type** 속성을 이러한 값 중 하나로 설정합니다. 자세한 내용은 [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format), [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format)을 참조하세요. |아니요 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 자세한 내용은 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md#compression-support)을 참조하세요.<br/><br/>지원되는 형식: **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**.<br/>지원되는 수준: **Optimal** 및 **Fastest**. |아니요 |
 
 > [!NOTE]

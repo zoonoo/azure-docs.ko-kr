@@ -25,7 +25,7 @@ ms.lasthandoff: 11/26/2018
 ms.locfileid: "52312030"
 ---
 # <a name="powershell-module-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio용 PowerShell 모듈
-Azure Machine Learning용 PowerShell 모듈은 Windows PowerShell을 사용하여 작업 영역, 실험, 데이터 집합, 기존 웹 서비스 등을 관리할 수 있는 강력한 도구입니다.
+Azure Machine Learning용 PowerShell 모듈은 Windows PowerShell을 사용하여 작업 영역, 실험, 데이터 세트, 기존 웹 서비스 등을 관리할 수 있는 강력한 도구입니다.
 
 [https://aka.ms/amlps](https://aka.ms/amlps)에서 설명서를 보고 전체 소스 코드와 함께 모듈을 다운로드할 수 있습니다. 
 
@@ -33,7 +33,7 @@ Azure Machine Learning용 PowerShell 모듈은 Windows PowerShell을 사용하�
 > Azure Machine Learning PowerShell 모듈은 현재 미리 보기 모드입니다. 모듈은 이 미리 보기 기간 중에 계속 개선되고 확장됩니다. 뉴스 및 정보는 [Cortana Intelligence 및 Machine Learning 블로그](https://blogs.technet.microsoft.com/machinelearning/)를 확인하세요.
 
 ## <a name="what-is-the-machine-learning-powershell-module"></a>Machine Learning PowerShell 모듈이란?
-Machine Learning PowerShell 모듈은 Windows PowerShell에서 Azure Machine Learning 작업 영역, 실험, 데이터 집합, 기존 웹 서비스 및 기존 웹 서비스 엔드포인트를 완벽하게 관리할 수 있는 .NET 기반 DLL 모듈입니다. 
+Machine Learning PowerShell 모듈은 Windows PowerShell에서 Azure Machine Learning 작업 영역, 실험, 데이터 세트, 기존 웹 서비스 및 기존 웹 서비스 엔드포인트를 완벽하게 관리할 수 있는 .NET 기반 DLL 모듈입니다. 
 
 모듈과 함께 명확하게 구분된 [C# API 계층](https://github.com/hning86/azuremlps/blob/master/code/AzureMLSDK.cs)을 포함하는 전체 소스 코드를 다운로드할 수 있습니다. 고유한 .NET 프로젝트에서 이 DLL을 참조하고 .NET 코드를 통해 Azure Machine Learning을 관리할 수 있습니다. 또한 DLL은 자주 사용하는 클라이언트에서 직접 활용할 수 있는 기본 REST API에 따라 달라집니다.
 

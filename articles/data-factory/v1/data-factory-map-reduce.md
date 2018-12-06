@@ -156,7 +156,7 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 
 ### <a name="datasets"></a>데이터 집합
 #### <a name="output-dataset"></a>출력 데이터 집합
-이 예제의 파이프라인은 input을 포함하지 않습니다. HDInsight MapReduce 작업에 대한 출력 데이터 집합을 지정합니다. 이 데이터 집합은 파이프라인 일정을 진행하는데 필요한 더미 데이터 집합입니다.  
+이 예제의 파이프라인은 input을 포함하지 않습니다. HDInsight MapReduce 작업에 대한 출력 데이터 세트를 지정합니다. 이 데이터 세트는 파이프라인 일정을 진행하는데 필요한 더미 데이터 세트입니다.  
 
 ```JSON
 {
@@ -190,7 +190,7 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 | jarFilePath  |클래스를 포함하는 jar 파일의 경로입니다. 다음 코드를 복사하여 붙여넣는 경우 클러스터의 이름을 변경해야 합니다. |
 | jarLinkedService |jar 파일을 포함하는 Azure Storage 연결된 서비스입니다. 이 연결된 서비스는 HDInsight 클러스터와 연결되는 저장소를 지칭합니다. |
 | arguments |Wordcount 프로그램에서는 input과 output의 두 가지 인수를 사용합니다. input 파일은 davinci.txt 파일입니다. |
-| frequency/interval |이러한 속성의 값은 출력 데이터 집합과 일치합니다. |
+| frequency/interval |이러한 속성의 값은 출력 데이터 세트와 일치합니다. |
 | linkedServiceName |이전에 만든 HDInsight 연결된 서비스를 말합니다. |
 
 ```JSON

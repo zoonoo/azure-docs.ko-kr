@@ -29,7 +29,7 @@ ms.locfileid: "43092045"
 > * 워터마크 값을 저장할 데이터 저장소를 준비합니다.
 > * 데이터 팩터리를 만듭니다.
 > * 연결된 서비스 만들기. 
-> * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
+> * 원본, 싱크 및 워터마크 데이터 세트를 만듭니다.
 > * 파이프라인을 만듭니다.
 > * 파이프라인을 실행합니다.
 > * 파이프라인 실행을 모니터링합니다. 
@@ -263,10 +263,10 @@ END
     ProvisioningState :
     ```
 
-## <a name="create-datasets"></a>데이터 집합 만들기
+## <a name="create-datasets"></a>데이터 세트 만들기
 이 단계에서는 원본 및 싱크 데이터를 나타내는 데이터 집합을 만듭니다. 
 
-### <a name="create-a-source-dataset"></a>원본 데이터 집합 만들기
+### <a name="create-a-source-dataset"></a>원본 데이터 세트 만들기
 
 1. 동일한 폴더에 다음 내용이 포함된 SourceDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -304,7 +304,7 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-sink-dataset"></a>싱크 데이터 집합 만들기
+### <a name="create-a-sink-dataset"></a>싱크 데이터 세트 만들기
 
 1. 동일한 폴더에 다음 내용이 포함된 SinkDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -347,8 +347,8 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobDataset    
     ```
 
-## <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 집합 만들기
-이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 집합을 만듭니다. 
+## <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 세트 만들기
+이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 세트를 만듭니다. 
 
 1. 동일한 폴더에 다음 내용이 포함된 WatermarkDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -729,7 +729,7 @@ END
 > * 워터마크 값을 저장할 데이터 저장소를 준비합니다. 
 > * 데이터 팩터리를 만듭니다.
 > * 연결된 서비스 만들기. 
-> * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
+> * 원본, 싱크 및 워터마크 데이터 세트를 만듭니다.
 > * 파이프라인을 만듭니다.
 > * 파이프라인을 실행합니다.
 > * 파이프라인 실행을 모니터링합니다. 

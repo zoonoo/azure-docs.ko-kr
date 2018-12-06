@@ -123,7 +123,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 
 1. 연결된 서비스를 만들어 [자체적인 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 **HDInsightLinkedService**라고 하겠습니다.
 2. 데이터를 호스팅하는 Azure Blob 저장소로의 연결을 구성하기 위해 [연결된 서비스](data-factory-azure-blob-connector.md) 를 만듭니다. 이 연결된 서비스를 **StorageLinkedService**라고 하겠습니다.
-3. 입력 및 출력 데이터를 가리키는 [데이터 집합](data-factory-create-datasets.md)을 만듭니다. 입력 데이터 집합을 **PigSampleIn**이라고 하고, 출력 데이터 집합을 **PigSampleOut**이라고 하겠습니다.
+3. 입력 및 출력 데이터를 가리키는 [데이터 세트](data-factory-create-datasets.md)를 만듭니다. 입력 데이터 세트를 **PigSampleIn**이라고 하고, 출력 데이터 세트를 **PigSampleOut**이라고 하겠습니다.
 4. 2단계에서 구성한 Azure Blob Storage의 파일에 Pig 쿼리를 복사합니다. 데이터를 호스트하는 Azure Storage가 쿼리 파일을 호스트하는 Azure Storage와 다른 경우에는 별도의 Azure Storage 연결된 서비스를 만듭니다. 활동 구성에서 연결된 서비스를 참조할 수 있습니다. 그런 다음 **scriptPath**를 사용하여 Pig 스크립트 파일 및 **scriptLinkedService**의 경로를 지정합니다. 
    
    > [!NOTE]

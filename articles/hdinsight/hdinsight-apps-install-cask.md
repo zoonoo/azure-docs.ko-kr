@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 377dbadd7b696e62d8464258d22d0dd5ed926208
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ef61ee9f15253c6a270cd4089625776a458df2ee
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106106"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499334"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>게시된 응용 프로그램 설치 - CDAP(Cask Data Application Platform)
 
-이 문서에서는 게시된 Hadoop 응용 프로그램 [CDAP](http://cask.co/products/cdap/)를 Azure HDInsight에 설치하고 실행하는 방법을 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 Azure HDInsight에 [CDAP](http://cask.co/products/cdap/)에서 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 설치하고 실행하는 방법을 설명합니다. HDInsight 애플리케이션 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor)에서 게시된 애플리케이션 목록은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-cdap"></a>CDAP 정보
 
@@ -114,7 +114,7 @@ CDAP는 응용 프로그램을 통해 이동하는 데이터를 시각적으로 
 
 14. 샘플 SQL 쿼리가 표시됩니다. 원하는 대로 자유롭게 수정한 다음, **실행**을 선택합니다.
 
-    ![액세스 로그 샘플 - 쿼리로 데이터 집합 탐색](./media/hdinsight-apps-install-cask/log-query.png)
+    ![액세스 로그 샘플 - 쿼리로 데이터 세트 탐색](./media/hdinsight-apps-install-cask/log-query.png)
 
 15. 쿼리가 완료되면 [작업] 열 아래에서 **보기** 아이콘을 선택합니다.
 

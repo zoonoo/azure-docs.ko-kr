@@ -659,7 +659,7 @@ StormEvents
 | summarize percentiles(duration, 5, 20, 50, 80, 95) by State
 ```
 
-### <a name="cross-dataset"></a>데이터 집합 간 요소
+### <a name="cross-dataset"></a>데이터 세트 간 요소
 
 이 섹션에서는 더 복잡한 쿼리를 작성하고, 테이블 간에 데이터를 조인하고, 여러 데이터베이스와 클러스터를 쿼리하는 데 사용할 수 있는 요소에 대해 설명합니다.
 
@@ -819,7 +819,7 @@ range _day from _start to _end step 1d
 
 [**activity_metrics 플러그 인**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin): 이전 기간과 비교한 현재 기간을 기준으로 하여 유용한 활동 메트릭(고유 개수 값, 새 값의 고유 개수, 보유율, 변동률)을 계산합니다.
 
-다음 쿼리는 지정된 데이터 집합의 변동률과 보유율을 계산합니다.
+다음 쿼리는 지정된 데이터 세트의 변동률과 보유율을 계산합니다.
 
 **\[**[**쿼리를 실행하려면 클릭**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAG2SwW7CMAyG70i8g2%2bk0KoNE%2bIwscsOe4hpqqLGQFjaVKkLVNrDLw7RxjRyqBTr%2fz%2f3t1OW8IYdekUIXnXataAVKXB7GAf0oBoyZ0MGh%2fnMIkE9kPIEO1YhmRbFupLbopJFtc6ekwY7%2fV%2bxKZ4kK0KXA0Kt1QR7H9olIrmbbyDsQer57AvwSlxhFjnruoMQ0VYkT1ZKnd0JfRByBpGt5F255iDDLvYVCaSXm2rpsxz%2b3FfrKnwLGeoygtszXvtABKN3Nwz%2fJ009ur1gYwbWtIZAVvGw53JEn%2fK9PJwSi3rvTthQlOWBPp%2bVJbwq24yWN3FB%2fLQTeAwByLgOeD8x0lnZkRVpL1PdInnTDOJ9YfTiI0%2fE24DyONIctvpB0x94zfBlSJBDcxz97509PgDCM%2bAMzTEgvwEO44wSMAIAAA%3d%3d)**\]**
 

@@ -31,7 +31,7 @@ ms.locfileid: "48868397"
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * Integration Runtime을 설치합니다. 
 > * 연결된 서비스 만들기. 
-> * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
+> * 원본, 싱크 및 워터마크 데이터 세트를 만듭니다.
 > * 파이프라인을 만들고 실행하고 모니터링합니다.
 > * 결과를 검토합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
@@ -385,10 +385,10 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlDatabaseLinkedService
     ```
 
-## <a name="create-datasets"></a>데이터 집합 만들기
-이 단계에서는 데이터 원본, 데이터 대상 및 워터마크를 저장할 위치를 나타내는 데이터 집합을 만듭니다.
+## <a name="create-datasets"></a>데이터 세트 만들기
+이 단계에서는 데이터 원본, 데이터 대상 및 워터마크를 저장할 위치를 나타내는 데이터 세트를 만듭니다.
 
-### <a name="create-a-source-dataset"></a>원본 데이터 집합 만들기
+### <a name="create-a-source-dataset"></a>원본 데이터 세트 만들기
 
 1. 동일한 폴더에 다음 내용이 포함된 SourceDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -427,9 +427,9 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
     ```
 
-### <a name="create-a-sink-dataset"></a>싱크 데이터 집합 만들기
+### <a name="create-a-sink-dataset"></a>싱크 데이터 세트 만들기
 
-1. 동일한 폴더에 다음 내용이 포함된 SinkDataset.json이라는 JSON 파일을 만듭니다. tableName 요소는 런타임에 동적으로 파이프라인에 의해 설정됩니다. 파이프라인의 ForEach 작업은 테이블 이름 목록을 반복하고 반복할 때마다 테이블 이름을 이 데이터 집합에 전달합니다. 
+1. 동일한 폴더에 다음 내용이 포함된 SinkDataset.json이라는 JSON 파일을 만듭니다. tableName 요소는 런타임에 동적으로 파이프라인에 의해 설정됩니다. 파이프라인의 ForEach 작업은 테이블 이름 목록을 반복하고 반복할 때마다 테이블 이름을 이 데이터 세트에 전달합니다. 
 
     ```json
     {
@@ -471,8 +471,8 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 집합 만들기
-이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 집합을 만듭니다. 
+### <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 세트 만들기
+이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 세트를 만듭니다. 
 
 1. 동일한 폴더에 다음 내용이 포함된 WatermarkDataset.json이라는 JSON 파일을 만듭니다. 
 
@@ -878,7 +878,7 @@ project_table   2017-10-01 00:00:00.000
 > * 자체 호스팅 IR(통합 런타임)을 만듭니다.
 > * Integration Runtime을 설치합니다.
 > * 연결된 서비스 만들기. 
-> * 원본, 싱크 및 워터마크 데이터 집합을 만듭니다.
+> * 원본, 싱크 및 워터마크 데이터 세트를 만듭니다.
 > * 파이프라인을 만들고 실행하고 모니터링합니다.
 > * 결과를 검토합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.

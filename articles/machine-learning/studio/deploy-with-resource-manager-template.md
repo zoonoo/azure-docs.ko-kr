@@ -31,7 +31,7 @@ Azure Resource Manager 배포 템플릿을 사용하면 유효성 검사와 상�
 Azure 리소스 그룹을 만든 다음 리소스 관리자 템플릿을 사용하여 새 Azure 저장소 계정 및 새 Azure Machine Learning 작업 영역을 배포합니다. 배포가 완료되면 생성된 작업 영역에 대한 중요한 정보를 인쇄합니다(기본 키, workspaceID 및 작업 영역에 대한 URL).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
-Machine Learning 작업 영역은 연결된 데이터 집합을 저장하려면 Azure 저장소 계정이 필요합니다.
+Machine Learning 작업 영역은 연결된 데이터 세트를 저장하려면 Azure 저장소 계정이 필요합니다.
 다음 템플릿은 리소스 그룹의 이름을 사용하여 저장소 계정 이름 및 작업 영역 이름을 생성합니다.  또한 작업 영역을 만들 때 속성으로 저장소 계정 이름을 사용합니다.
 
 ```

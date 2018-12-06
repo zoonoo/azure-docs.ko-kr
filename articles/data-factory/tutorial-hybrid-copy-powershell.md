@@ -32,7 +32,7 @@ ms.locfileid: "51615707"
 > * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Azure Storage 연결된 서비스를 만듭니다. 
-> * SQL Server 및 Azure Blob 데이터 집합을 만듭니다.
+> * SQL Server 및 Azure Blob 데이터 세트를 만듭니다.
 > * 데이터를 이동하는 복사 작업으로 파이프라인을 만듭니다.
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 실행을 모니터링합니다.
@@ -438,11 +438,11 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
    ```
 
 
-## <a name="create-datasets"></a>데이터 집합 만들기
-이 단계에서는 입력 및 출력 데이터 집합을 만듭니다. 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 복사 작업에 입력 및 출력 데이터를 나타냅니다.
+## <a name="create-datasets"></a>데이터 세트 만들기
+이 단계에서는 입력 및 출력 데이터 세트를 만듭니다. 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 복사 작업에 입력 및 출력 데이터를 나타냅니다.
 
-### <a name="create-a-dataset-for-the-source-sql-server-database"></a>원본 SQL Server 데이터베이스에 대한 데이터 집합 만들기
-이 단계에서는 SQL Server 데이터베이스 인스턴스에 있는 데이터를 나타내는 데이터 집합을 정의합니다. 데이터 집합은 SqlServerTable 형식입니다. 이 데이터 집합은 이전 단계에서 만든 SQL Server 연결된 서비스를 참조합니다. 연결된 서비스에는 Data Factory 서비스가 런타임 시 SQL Server 인스턴스에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 집합은 데이터가 포함된 데이터베이스에 SQL 테이블을 지정합니다. 이 자습서에서 **emp** 테이블에는 원본 데이터가 포함됩니다. 
+### <a name="create-a-dataset-for-the-source-sql-server-database"></a>원본 SQL Server 데이터베이스에 대한 데이터 세트 만들기
+이 단계에서는 SQL Server 데이터베이스 인스턴스에 있는 데이터를 나타내는 데이터 세트를 정의합니다. 데이터 세트는 SqlServerTable 형식입니다. 이 데이터 집합은 이전 단계에서 만든 SQL Server 연결된 서비스를 참조합니다. 연결된 서비스에는 Data Factory 서비스가 런타임 시 SQL Server 인스턴스에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 데이터가 포함된 데이터베이스에 SQL 테이블을 지정합니다. 이 자습서에서 **emp** 테이블에는 원본 데이터가 포함됩니다. 
 
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerDataset.json*이라는 JSON 파일을 만듭니다.  
 
@@ -476,7 +476,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     }
     ```
 
-1. SqlServerDataset 데이터 집합을 만들려면 `Set-AzureRmDataFactoryV2Dataset` cmdlet을 실행합니다.
+1. SqlServerDataset 데이터 세트를 만들려면 `Set-AzureRmDataFactoryV2Dataset` cmdlet을 실행합니다.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
@@ -492,10 +492,10 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
     ```
 
-### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Azure Blob Storage(싱크)에 대한 데이터 집합 만들기
-이 단계에서는 Azure Blob Storage에 복사될 데이터를 나타내는 데이터 집합을 정의합니다. 데이터 집합은 AzureBlob 형식입니다. 이 데이터 집합은 이 자습서의 앞부분에서 만든 Azure Storage 연결된 서비스를 참조합니다. 
+### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Azure Blob Storage(싱크)에 대한 데이터 세트 만들기
+이 단계에서는 Azure Blob Storage에 복사될 데이터를 나타내는 데이터 세트를 정의합니다. 데이터 세트는 AzureBlob 형식입니다. 이 데이터 집합은 이 자습서의 앞부분에서 만든 Azure Storage 연결된 서비스를 참조합니다. 
 
-연결된 서비스에는 Data Factory가 런타임 시 Azure Storage Account에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 집합은 SQL Server 데이터베이스에서 데이터를 복사할 Azure Storage의 폴더를 지정합니다. 이 자습서에서 폴더는 `adftutorial`가 Blob 컨테이너이며, `fromonprem`이 폴더인 *adftutorial/fromonprem*입니다. 
+연결된 서비스에는 Data Factory가 런타임 시 Azure Storage Account에 연결하는 데 사용하는 연결 정보가 있습니다. 이 데이터 세트는 SQL Server 데이터베이스에서 데이터를 복사할 Azure Storage의 폴더를 지정합니다. 이 자습서에서 폴더는 `adftutorial`가 Blob 컨테이너이며, `fromonprem`이 폴더인 *adftutorial/fromonprem*입니다. 
 
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *AzureBlobDataset.json*이라는 JSON 파일을 만듭니다.
 
@@ -518,7 +518,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     }
     ```
 
-1. AzureBlobDataset 데이터 집합을 만들려면 `Set-AzureRmDataFactoryV2Dataset` cmdlet을 실행합니다.
+1. AzureBlobDataset 데이터 세트를 만들려면 `Set-AzureRmDataFactoryV2Dataset` cmdlet을 실행합니다.
 
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
@@ -535,7 +535,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     ```
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
-이 자습서에서는 복사 활동을 사용하여 파이프라인을 만듭니다. 복사 작업은 SqlServerDataset을 입력 데이터 집합으로 사용하고 AzureBlobDataset을 출력 데이터 집합으로 사용합니다. 원본 형식은 *SqlSource*로 설정되고 싱크 형식은 *BlobSink*로 설정됩니다.
+이 자습서에서는 복사 활동을 사용하여 파이프라인을 만듭니다. 복사 작업은 SqlServerDataset을 입력 데이터 세트로 사용하고 AzureBlobDataset을 출력 데이터 세트로 사용합니다. 원본 형식은 *SqlSource*로 설정되고 싱크 형식은 *BlobSink*로 설정됩니다.
 
 1. 다음 코드를 사용하여 *C:\ADFv2Tutorial* 폴더에 *SqlServerToBlobPipeline.json*이라는 JSON 파일을 만듭니다.
 
@@ -675,7 +675,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
 > * 데이터 팩터리를 만듭니다.
 > * 자체 호스팅 통합 런타임을 만듭니다.
 > * SQL Server 및 Azure Storage 연결된 서비스를 만듭니다. 
-> * SQL Server 및 Azure Blob 데이터 집합을 만듭니다.
+> * SQL Server 및 Azure Blob 데이터 세트를 만듭니다.
 > * 데이터를 이동하는 복사 작업으로 파이프라인을 만듭니다.
 > * 파이프라인 실행을 시작합니다.
 > * 파이프라인 실행을 모니터링합니다.

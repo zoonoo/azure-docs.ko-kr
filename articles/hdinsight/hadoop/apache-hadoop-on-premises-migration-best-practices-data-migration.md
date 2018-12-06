@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6b06b8eb8d5e18acd3107ec5cccac79fc7be7edc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418180"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584709"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 데이터 마이그레이션 모범 사례
 
@@ -25,20 +25,12 @@ ms.locfileid: "50418180"
 온-프레미스에서 Azure 환경으로 데이터를 마이그레이션하는 두 가지 주요 옵션이 있습니다.
 
 1.  TLS를 사용하여 네트워크를 통해 데이터 전송
-    1.  인터넷을 통해
-    2.  Express 경로
-2.  데이터 운송
-    1.  가져오기/내보내기 서비스
-        - 내부 SATA HDD 또는 SDD만
-        - 미사용 데이터 암호화(AES-128/AES-256)
-        - 가져오기 작업에 디스크를 10개까지 사용 가능
-        - 모든 공용 지역 및 GA에서 사용 가능
-    1.  Data Box
-        - Data Box당 최대 80TB 데이터
-        - 미사용 데이터 암호화(AES-256)
-        - NAS 프로토콜을 사용하고 일반적인 데이터 복사 도구 지원
-        - 견고한 하드웨어
-        - 미국에서만 공개 미리 보기로 사용 가능
+    1. 인터넷 - Azure Storage 탐색기, AzCopy, Azure Powershell, Azure CLI 등의 여러 도구 중 하나를 사용하여 일반 인터넷 연결을 통해 데이터를 Azure Storage로 전송할 수 있습니다.  자세한 내용은 [Azure Storage의 데이터 이동](../../storage/common/storage-moving-data.md)을 참조하세요.
+    2. ExpressRoute - ExpressRoute는 온-프레미스 또는 공동 장소 시설에 있는 인프라와 Microsoft 데이터 센터 간에 비공개 연결을 만들어 주는 Azure 서비스입니다. ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다. 자세한 내용은 [ExpressRoute 회로 만들기 및 수정](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)을 참조하세요.
+    1. Data Box 온라인 데이터 전송 - Data Box Edge 및 Data Box Gateway는 사용자 사이트와 Azure 간에 데이터를 관리하는 네트워크 스토리지 게이트웨이로 작동하는 온라인 데이터 전송 제품입니다. 온-프레미스 네트워크 장치인 Data Box Edge는 Azure와 데이터를 주고받으며 AI(인공 지능) 지원 에지 컴퓨팅을 사용하여 데이터를 처리합니다. Data Box Gateway는 저장소 게이트웨이 기능이 포함된 가상 어플라이언스입니다. 자세한 내용은 [Azure Data Box 설명서 - 온라인 전송](https://docs.microsoft.com/azure/databox-online/)을 참조하세요.
+1.  오프라인 데이터 배송
+    1. 가져오기/내보내기 서비스 - 물리적 디스크를 Azure에 보내 업로드되도록 할 수 있습니다. 자세한 내용은 [Azure Import/Export 서비스란?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)을 참조하세요.
+    1. Data Box 오프라인 데이터 전송 - 네트워크를 사용할 수 없는 경우 Data Box, Data Box Disk 및 Data Box Heavy 디바이스를 통해 대량 데이터를 Azure로 전송할 수 있습니다. 이러한 오프라인 데이터 전송 디바이스는 사용자 조직과 Azure 데이터 센터 간에 배송됩니다. 이러한 장치는 AES 암호화를 사용하여 전송 중인 데이터를 보호할 수 있고, 철저한 업로드 후 삭제 프로세스를 진행하여 장치에서 데이터를 삭제합니다. 자세한 내용은 [Azure Data Box 설명서 - 오프라인 전송](https://docs.microsoft.com/azure/databox/)을 참조하세요.
 
 다음 표에는 데이터 볼륨 및 네트워크 대역폭에 따른 대략적인 데이터 전송 기간이 정리되어 있습니다. 데이터 마이그레이션 예상 시간이 3주를 초과하는 경우 Data Box를 사용합니다.
 
@@ -70,7 +62,7 @@ DistCp는 각 복사본의 바이트 수가 거의 비슷하도록 맵 작업을
 
 ### <a name="use-more-than-one-distcp-job"></a>2개 이상의 DistCp 작업 사용
 
-이동할 데이터 집합의 크기가 1TB를 초과하는 경우 2개 이상의 DistCp 작업을 사용합니다. 2개 이상의 작업을 사용하면 오류의 영향이 제한됩니다. 작업이 실패하면 모든 작업이 아닌 해당 작업만 다시 시작하면 됩니다.
+이동할 데이터 세트의 크기가 1TB를 초과하는 경우 2개 이상의 DistCp 작업을 사용합니다. 2개 이상의 작업을 사용하면 오류의 영향이 제한됩니다. 작업이 실패하면 모든 작업이 아닌 해당 작업만 다시 시작하면 됩니다.
 
 ### <a name="consider-splitting-files"></a>파일 분할을 고려
 

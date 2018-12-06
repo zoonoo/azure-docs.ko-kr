@@ -29,7 +29,7 @@ ms.locfileid: "43095513"
 > * 원본 데이터 저장소를 준비합니다.
 > * 데이터 팩터리를 만듭니다.
 > * 연결된 서비스 만들기. 
-> * 원본, 싱크 및 변경 내용 추적 데이터 집합을 만듭니다.
+> * 원본, 싱크 및 변경 내용 추적 데이터 세트를 만듭니다.
 > * 전체 복사 파이프라인을 생성, 실행 및 모니터링합니다.
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
 > * 증분 복사 파이프라인을 생성, 실행 및 모니터링합니다.
@@ -220,21 +220,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     
        ![Azure SQL Database 연결된 서비스 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-sql-database-linked-service-settings.png)
 
-## <a name="create-datasets"></a>데이터 집합 만들기
-이 단계에서는 데이터 원본, 데이터 대상을 나타내는 데이터 집합을 만듭니다. 그리고 SYS_CHANGE_VERSION을 저장할 곳을 만듭니다.
+## <a name="create-datasets"></a>데이터 세트 만들기
+이 단계에서는 데이터 원본, 데이터 대상을 나타내는 데이터 세트를 만듭니다. 그리고 SYS_CHANGE_VERSION을 저장할 곳을 만듭니다.
 
-### <a name="create-a-dataset-to-represent-source-data"></a>원본 데이터를 나타내는 데이터 집합 만들기 
-이 단계에서는 원본 데이터를 나타내는 데이터 집합을 만듭니다. 
+### <a name="create-a-dataset-to-represent-source-data"></a>원본 데이터를 나타내는 데이터 세트 만들기 
+이 단계에서는 원본 데이터를 나타내는 데이터 세트를 만듭니다. 
 
-1. 트리 뷰에서 **+(더하기)**, **데이터 집합**을 차례로 클릭합니다. 
+1. 트리 뷰에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
 
-   ![새 데이터 집합 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
+   ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 2. **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
 
-   ![원본 데이터 집합 유형 - Azure SQL Database](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-sql-database.png)
-3. 데이터 집합을 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 집합이 표시됩니다. **속성** 창에서 데이터 집합의 이름을 **SourceDataset**로 변경합니다.
+   ![원본 데이터 세트 유형 - Azure SQL Database](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-sql-database.png)
+3. 데이터 세트를 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. **속성** 창에서 데이터 집합의 이름을 **SourceDataset**로 변경합니다.
 
-   ![원본 데이터 집합 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
+   ![원본 데이터 세트 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
 4. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
     
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다. 
@@ -242,32 +242,32 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![원본 연결](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png)
 
-### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>싱크 데이터 저장소에 복사되는 데이터를 나타내는 데이터 집합을 만듭니다. 
-이 단계에서는 원본 데이터 저장소에서 복사된 데이터를 나타내는 데이터 집합을 만듭니다. 필수 구성 요소의 일부로 adftutorial 컨테이너를 Azure Blob Storage에 만들었습니다. 아직 없는 경우 컨테이너를 만들거나 기존 컨테이너의 이름으로 설정합니다. 이 자습서에서 출력 파일 이름은 `@CONCAT('Incremental-', pipeline().RunId, '.txt')` 식을 사용하여 동적으로 생성됩니다.
+### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>싱크 데이터 저장소에 복사된 데이터를 나타내는 데이터 세트 만들기 
+이 단계에서는 원본 데이터 저장소에서 복사된 데이터를 나타내는 데이터 세트를 만듭니다. 필수 구성 요소의 일부로 adftutorial 컨테이너를 Azure Blob Storage에 만들었습니다. 아직 없는 경우 컨테이너를 만들거나 기존 컨테이너의 이름으로 설정합니다. 이 자습서에서 출력 파일 이름은 `@CONCAT('Incremental-', pipeline().RunId, '.txt')` 식을 사용하여 동적으로 생성됩니다.
 
-1. 트리 뷰에서 **+(더하기)**, **데이터 집합**을 차례로 클릭합니다. 
+1. 트리 뷰에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
 
-   ![새 데이터 집합 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
+   ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 2. **Azure Blob Storage**를 선택하고 **마침**을 클릭합니다. 
 
-   ![싱크 데이터 집합 유형 - Azure Blob Storage](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-type.png)
-3. 데이터 집합을 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 집합이 표시됩니다. **속성** 창에서 데이터 집합의 이름을 **SinkDataset**로 변경합니다.
+   ![싱크 데이터 세트 유형 - Azure Blob Storage](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-type.png)
+3. 데이터 세트를 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. **속성** 창에서 데이터 집합의 이름을 **SinkDataset**로 변경합니다.
 
-   ![싱크 데이터 집합 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png)
+   ![싱크 데이터 세트 - 이름](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png)
 4. [속성] 창에서 **연결** 탭으로 전환하고 다음 단계를 수행합니다.
 
     1. **연결된 서비스**에 대해 **AzureStorageLinkedService**를 선택합니다.
     2. **파일 경로**의 **폴더** 부분에 대해 **adftutorial/incchgtracking**을 입력합니다.
     3. **파일 경로**의 **파일** 부분에 대해 **@CONCAT('Incremental-', pipeline().RunId, '.txt')** 를 입력합니다.  
 
-       ![싱크 데이터 집합 - 연결](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
+       ![싱크 데이터 세트 - 연결](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
-### <a name="create-a-dataset-to-represent-change-tracking-data"></a>변경 내용 추적 데이터를 나타내는 데이터 집합 만들기 
-이 단계에서는 변경 내용 추적 버전을 저장하기 위한 데이터 집합을 만듭니다.  필수 구성 요소의 일부로 table_store_ChangeTracking_version 테이블을 만들었습니다.
+### <a name="create-a-dataset-to-represent-change-tracking-data"></a>변경 내용 추적 데이터를 나타내는 데이터 세트 만들기 
+이 단계에서는 변경 내용 추적 버전을 저장하기 위한 데이터 세트를 만듭니다.  필수 구성 요소의 일부로 table_store_ChangeTracking_version 테이블을 만들었습니다.
 
-1. 트리 뷰에서 **+(더하기)**, **데이터 집합**을 차례로 클릭합니다. 
+1. 트리 뷰에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
 2. **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
-3. 데이터 집합을 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 집합이 표시됩니다. **속성** 창에서 데이터 집합의 이름을 **ChangeTrackingDataset**로 변경합니다.
+3. 데이터 세트를 구성하기 위한 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. **속성** 창에서 데이터 집합의 이름을 **ChangeTrackingDataset**로 변경합니다.
 4. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
     
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다. 
@@ -294,7 +294,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 6. 파이프라인 정의에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>** 를 클릭하여 **파이프라인 유효성 검사 보고서**를 닫습니다. 
 
     ![파이프라인 유효성 검사](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
-7. 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 게시하려면 **게시**를 클릭합니다. 게시가 성공적으로 완료될 때까지 기다립니다. 
+7. 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 게시하려면 **게시**를 클릭합니다. 게시가 성공적으로 완료될 때까지 기다립니다. 
 
     ![게시 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
 8. **게시됨** 메시지가 표시될 때까지 기다립니다. 

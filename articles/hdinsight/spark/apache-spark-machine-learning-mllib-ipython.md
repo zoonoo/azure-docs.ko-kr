@@ -67,7 +67,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
 원시 데이터가 CSV 형식이기 때문에 Spark 컨텍스트를 사용하여 파일을 메모리에 구조화되지 않은 데이터로 가져온 다음, Python의 CSV 라이브러리를 사용하여 데이터의 각 줄을 구문 분석할 수 있습니다.
 
-1. 다음 줄을 실행하여 입력 데이터를 가져오고 구문 분석하여 RDD(복원 분산 데이터 집합)를 만듭니다.
+1. 다음 줄을 실행하여 입력 데이터를 가져오고 구문 분석하여 RDD(복원 분산 데이터 세트)를 만듭니다.
 
     ```PySpark
     def csvParse(s):
@@ -149,7 +149,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 
 ## <a name="understand-the-data"></a>데이터 이해
 
-데이터 집합에 무엇이 들어 있는지 알아보겠습니다. 
+데이터 세트에 무엇이 들어 있는지 알아보겠습니다. 
 
 1. 다음 코드를 실행하여 **results** 열에 고유 값을 표시합니다.
 
@@ -267,9 +267,9 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 model = pipeline.fit(labeledData)
 ```
 
-## <a name="evaluate-the-model-using-another-dataset"></a>다른 데이터 집합을 사용하여 모델 평가
+## <a name="evaluate-the-model-using-another-dataset"></a>다른 데이터 세트를 사용하여 모델 평가
 
-앞에 만든 모델을 사용하여 관찰된 위반을 기반으로 새 검사의 결과를 *예측* 할 수 있습니다. **Food_Inspections1.csv** 데이터 집합에서 이 모델을 학습했습니다. 두 번째 데이터 집합인 **Food_Inspections2.csv**를 사용하여 새 데이터에서 이 모델의 강도를 *평가*할 수 있습니다. 이 두 번째 데이터 집합(**Food_Inspections2.csv**)은 클러스터와 연결된 기본 저장소 컨테이너에 있습니다.
+앞에 만든 모델을 사용하여 관찰된 위반을 기반으로 새 검사의 결과를 *예측* 할 수 있습니다. **Food_Inspections1.csv** 데이터 집합에서 이 모델을 학습했습니다. 두 번째 데이터 세트인 **Food_Inspections2.csv**를 사용하여 새 데이터에서 이 모델의 강도를 *평가*할 수 있습니다. 이 두 번째 데이터 집합(**Food_Inspections2.csv**)은 클러스터와 연결된 기본 저장소 컨테이너에 있습니다.
 
 1. 다음 코드를 실행하여 모델에서 생성한 예측을 포함하는 새 데이터 프레임 **predictionsDf**를 만듭니다. 이 조각은 데이터 프레임을 기반으로 **Predictions**라는 임시 테이블도 만듭니다.
 
