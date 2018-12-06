@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6dc003473ed228fa8e10bd6a10d5b4b9a3d0ac49
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ef0ecc7a9e89168ed57c75ab24c3233692d77151
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621363"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863570"
 documentType: LandingData
 title: Azure Machine Learning 설명서
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/31/2018
+  ms.date: 12/04/2018
   ms.author: jmartens
 abstract:
   description: 다음 Azure Machine Learning 제품을 사용하여 앱 및 웹 사이트에 지능형 알고리즘을 빌드하는 방법을 알아봅니다.  자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.
@@ -32,52 +32,41 @@ sections:
       html: <p>이 서비스에서 데이터 과학자가 CLI/Python 도구 및 라이브러리와 다양한 Azure 데이터 및 계산 서비스를<br/> 함께 사용하여 AI 솔루션을 개발하고 관리하도록 지원하는 방법을 알아봅니다. 자세히 알아보기...</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning 서비스(미리 보기)
-    - href: /azure/machine-learning/studio/
-      html: <p>이 공동 작업을 위한 끌어서 놓기 도구를 사용하여 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 방법을 알아봅니다. 자세히 알아보기... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-      image:
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-      title: Azure Machine Learning Studio
+      title: Azure Machine Learning 서비스
 - title: 빠른 시작 및 자습서
   items:
   - type: paragraph
-    text: Azure Machine Learning 서비스(미리 보기) 및 Studio를 빠르게 설정하고 사용하는 방법을 알아봅니다.
+    text: Azure Machine Learning 서비스를 빠르게 설정하고 사용하는 방법을 알아봅니다.
   - type: table
     style: dataMatrix
     columns:
     - image:
         src: media/index/i_machine-learning.svg
-    - image:
-        src: media/index/machine-learning-studio.svg
     rows:
-    - title: 서비스 시작
+    - title: Azure Portal에서 서비스 시작
       values:
       - href: /azure/machine-learning/service/quickstart-get-started
-      - href: /azure/machine-learning/studio/create-workspace
+    - title: Python에서 서비스 시작
+      values:
+      - href: /azure/machine-learning/service/quickstart-create-workspace-with-python
     - title: 모델링을 위한 데이터 준비
       values:
-      - href: /azure/machine-learning/service/how-to-data-prep
-      - href: /azure/machine-learning/studio/walkthrough-2-upload-data
+      - href: /azure/machine-learning/service/tutorial-data-prep
     - title: 고유한 기계 학습 모델 빌드
       values:
       - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-      - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
     - title: 자동으로 알고리즘 생성 및 조정
       values:
       - href: /azure/machine-learning/service/tutorial-auto-train-models
-      - href: 
     - title: 모델을 웹 서비스로 배포
       values:
       - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-      - href: /azure/machine-learning/studio/walkthrough-5-publish-web-service
     - title: 기계 학습 모델 사용
       values:
       - href: /azure/machine-learning/service/how-to-consume-web-service
-      - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
-    - title: ML 파이프라인 빌드, 최적화 및 관리
+    - title: 기계 학습 파이프라인 구축 및 관리
       values:
-      - href: /azure/machine-learning/service/concept-ml-pipelines
-      - href: 
+      - href: /azure/machine-learning/service/how-to-create-your-first-pipeline
 - title: 기타 Microsoft Machine Learning 기술
   items:
   - type: list
@@ -90,11 +79,11 @@ sections:
       image:
         src: /azure/machine-learning/media/index/cognitive-services.png
       title: Cognitive Services
-    - href: /azure/batch-ai/
-      html: <p>관리 서비스는 사용자가 프레임워크를 사용하여 AI 모델과 동시에 실험하도록 도움을 주며, 클러스터링된 GPU에 걸친 규모로 해당 모델을 교육합니다.</p>
+    - href: /azure/machine-learning/studio/
+      html: <p>이 공동 작업을 위한 끌어서 놓기 도구를 사용하여 데이터에 대한 예측 분석 솔루션을 빌드, 테스트 및 배포하는 방법을 알아봅니다. 자세히 알아보기... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
       image:
-        src: /azure/machine-learning/media/index/batch.png
-      title: 일괄 처리 AI 교육
+        src: /azure/machine-learning/media/index/machine-learning-studio.svg
+      title: Azure Machine Learning Studio
     - href: /sql/advanced-analytics/r/r-services
       html: <p>R 및 Python 둘 다에 대한 지원을 포함하는 데이터베이스 내 분석입니다.</p>
       image:
