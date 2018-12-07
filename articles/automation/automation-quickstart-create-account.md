@@ -63,7 +63,7 @@ https://portal.azure.com에서 Azure에 로그인
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 리소스 그룹, Automation 계정 및 모든 관련 리소스를 삭제합니다. 이렇게 하려면 Automation 계정이 있는 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+이 빠른 시작에서는 Automation 계정을 만들었으며 Runbook 작업을 시작하고, 작업 결과를 확인했습니다. Azure Automation에 대한 자세한 내용을 알아보려면 다음의 **Automation 빠른 시작 - Runbook 만들기** 링크를 클릭해 계속 진행하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
