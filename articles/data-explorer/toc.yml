@@ -37,7 +37,7 @@ items:
       href: power-bi-sql-query.md
 - name: 자습서
   items:
-  - name: 데이터 시각화 - Power BI
+  - name: Power BI에서 데이터 시각화
     href: visualize-power-bi.md
 - name: 개념
   items:
@@ -55,6 +55,8 @@ items:
     href: write-queries.md
   - name: 샘플 데이터 수집
     href: ingest-sample-data.md
+  - name: Grafana의 데이터 시각화
+    href: grafana.md
   - name: 데이터 삭제
     href: delete-data.md
   - name: 데이터베이스 권한 관리
@@ -103,9 +105,9 @@ items:
     href: http://aka.ms/adecostestimator
   - name: 서비스 업데이트
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 904a61591935a7a1b648b1582e4f1ccdc155cf35
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 31b588167d4a136f54df248225fd718128a7421c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425057"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958221"

@@ -114,6 +114,10 @@ items:
     items:
     - name: 데이터베이스, 컨테이너 및 항목 작업
       href: databases-containers-items.md
+    - name: SQL 언어 참조
+      href: sql-api-sql-query-reference.md
+    - name: SQL 쿼리 예제
+      href: how-to-sql-query.md
     - name: 인덱싱
       items:
       - name: 개요
@@ -262,8 +266,6 @@ items:
         href: /rest/api/cosmos-db/
       - name: REST 리소스 공급자
         href: /rest/api/cosmos-db-resource-provider/
-      - name: SQL 언어 구문
-        href: sql-api-sql-query-reference.md
   - name: MongoDB API 문서
     items:
     - name: 소개
@@ -445,8 +447,6 @@ items:
       href: how-to-create-container.md
     - name: 컨테이너 쿼리
       href: how-to-query-container.md
-    - name: SQL 쿼리를 사용하여 데이터 쿼리
-      href: how-to-sql-query.md
   - name: 인덱싱
     items:
     - name: 인덱싱 구성
@@ -583,9 +583,9 @@ items:
       href: use-cases.md
     - name: 소셜 미디어 앱
       href: social-media-apps.md
-ms.openlocfilehash: b3094d99c13b228a4a4165a1a1a49a97a7517cb0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 413ec7cc09f748948cab92dd10495b667be06f40
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833723"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961232"
