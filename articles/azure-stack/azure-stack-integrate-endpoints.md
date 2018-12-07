@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 1800ab19e2d99eb639ef4064e64d7bc475aa0c36
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996707"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014874"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -86,7 +86,7 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 > 아웃 바운드 Url은 부하가 분산 된 Azure traffic manager를 사용 하 여 지리적 위치에 따라 가능한 최적의 연결을 제공 합니다. 부하 분산된 Url을 Microsoft에서 업데이트 하 고 고객에 게 영향을 주지 않고 백 엔드 끝점을 변경할 수 있습니다. Microsoft는 부하 분산 Url에 대 한 IP 주소 목록을 공유 하지 않습니다. IP 대신 하 여 URL 필터링을 지 원하는 장치를 사용 해야 합니다.
 
 > [!Note]  
-> 1809, 인프라 백업 서비스는 외부 파일 서버에 공용 VIP 네트워크에서 통신합니다. 1809를 하기 전에 서비스는 공용 인프라 네트워크를 통해 통신합니다. 환경 액세스 인프라 리소스에 공용 VIP 네트워크에서 허용 하지 않으면 Azure Stack에 대 한 최신 1809 핫픽스를 적용 합니다. 이 핫픽스 공용 인프라 네트워크에 인프라 백업 서비스를 다시 이동 됩니다. 1811 1809 핫픽스를 적용 한 경우 인프라 백업 서비스는 공용 인프라 네트워크에 유지 됩니다. 핫픽스를 적용 하지 않은 경우 업데이트는 서비스 다시 이동 공용 인프라 네트워크에 있습니다.
+> 1809, 인프라 백업 서비스는 외부 파일 서버에 공용 VIP 네트워크에서 통신합니다. 1809를 하기 전에 서비스는 공용 인프라 네트워크를 통해 통신 합니다. 환경 액세스 인프라 리소스에 공용 VIP 네트워크에서 허용 하지 않으면 적용 최신 [1809 핫픽스](azure-stack-update-1809.md#post-update-steps) Azure Stack에 대 한 합니다. 이 핫픽스 공용 인프라 네트워크에 인프라 백업 서비스를 다시 이동 됩니다. 1811에서 1809 핫픽스를 적용 하는 경우 인프라 백업 서비스는 공용 인프라 네트워크에 남아 있습니다. 핫픽스를 적용 하지 않는 경우 업데이트를 다시 이동 공용 인프라 네트워크에 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

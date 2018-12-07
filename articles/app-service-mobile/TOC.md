@@ -21,7 +21,7 @@
 ### [Azure App Service에 대한 모범 사례](../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service 세부 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [고밀도 호스팅](../app-service/environment/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [App Service 환경](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [App Service Environment](../app-service/environment/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## 개발
 ### Android
@@ -173,7 +173,7 @@
 ## [가격](https://azure.microsoft.com/pricing/details/app-service/)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [서비스 업데이트](https://azure.microsoft.com/updates/?product=mobile-services)
-## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-mobile-services)
+## [스택 오버플로](https://stackoverflow.com/questions/tagged/azure-mobile-services)
 ## [비디오](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services)
 ## 샘플
 ### [현장 엔지니어](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)

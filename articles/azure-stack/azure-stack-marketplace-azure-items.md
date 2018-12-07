@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e4f15da8464c2103b5f6540d342cb7c741a67c5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620696"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994836"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -88,7 +88,6 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![CoreOS에서 Linux 컨테이너](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS에서 Linux 컨테이너](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Linux 컨테이너는 컨테이너를 실행, 클러스터 관리 및 원활한 서버 업데이트 하는 쉬운 방법을 제공 현대적이 고 최소한의 Linux 배포판,-웨어하우스 규모를 사용 하도록 설정 하는 모든 구성 요소를 계산 합니다. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server는 클라우드 환경에 세계적으로 가장 많이 사용되는 Linux입니다. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux는 가장 많이 사용되는 Linux 배포 중 하나입니다. | credativ |
-| ![Debian 9 "Stretch"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux는 가장 많이 사용되는 Linux 배포 중 하나입니다. | credativ |
 | ![Centos 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [Centos 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic)  |
 | ![CentOS 기반 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic)  |
 | ![CentOS 기반 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | 이 배포의 Linux CentOS 기반으로 하 고 Rogue Wave Software에서 제공 됩니다. | Rogue Wave Software (이전의 OpenLogic) |
@@ -236,7 +235,6 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 제어, 모니터링 및 쉽고 안정적으로 Vm을 암호화 합니다. **CloudLink SecureVM 항목을 모두 다운로드 합니다.** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM에 포괄적인 보안 플랫폼을 제공 하는 고급 감사 준비 규정 준수 기능을 사용 하 여 보안 도구입니다. | EventTracker |
 | ![f5 키](media/azure-stack-marketplace-azure-items/f5.png) | [f5 BIG-IP 가상 버전](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | 부하 분산, GSLB, 네트워크 방화벽, DNS, WAF 및 응용 프로그램 액세스 고급입니다. | F5 Networks |
-| ![FortiGate 차세대 방화벽](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate 차세대 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | 종합적인 강력한 보안 기능을 사용 하 여 전체 콘텐츠 및 네트워크 보호 기능을 제공 하는 방화벽 기술입니다. 응용 프로그램 제어, 바이러스 백신, IPS, 웹 필터링, 취약성 관리와 같은 고급 기능과 함께 VPN 식별 하 고 최신 복잡 한 보안 위협을 완화 하기 위해 함께에서 작동 합니다. | Fortinet |
 | ![Hortonworks Data Platform (HDP) 샌드박스](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 샌드박스](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 연결 된 HDP 2.5 100% 오픈 소스 플랫폼 Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari에 대 한 합니다. | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky 하이브리드 클라우드 보안](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky 하이브리드 클라우드 보안을 통해 원활 하 게 조정 되 고 적응 사이버 보안 에코 시스템을 수 있습니다. | Kaspersky 랩 |
 | ![KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 부하 분산 장치 ADC 콘텐츠 스위치](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 계층 4-7 응용 프로그램 배달 컨트롤러 (ADC) 부하 분산, 콘텐츠 스위치 및 Traffic Manager. | KEMP Technologies Inc. |

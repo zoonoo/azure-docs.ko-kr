@@ -67,7 +67,7 @@ https://portal.azure.com에서 Azure에 로그인
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Automation 계정을 만들었으며 Runbook 작업을 시작하고, 작업 결과를 확인했습니다. Azure Automation에 대한 자세한 내용을 알아보려면 다음의 **Automation 빠른 시작 - Runbook 만들기** 링크를 클릭해 계속 진행하세요.
+이 빠른 시작에서는 Automation 계정을 배포하고, Runbook 작업을 시작하고, 작업 결과를 확인했습니다. Azure Automation에 대한 자세한 내용을 알아보려면 첫 번째 Runbook을 만드는 빠른 시작으로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Automation 빠른 시작 - Runbook 만들기](./automation-quickstart-create-runbook.md)
