@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986458"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993834"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>자습서: 항상 사용 가능한 MySQL 데이터베이스를 제공 합니다.
 
@@ -46,7 +46,7 @@ Azure Stack 운영자로 호스트 MySQL Server 데이터베이스 서버 Vm을 
 > 다음의 모든 MySQL 클러스터를 만드는 데 필요한 합니다.
 
 - [복제를 사용 하 여 MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster)합니다. 이 MySQL 클러스터 배포에 사용할 Bitnami 솔루션 템플릿입니다.
-- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview)합니다. Debian 8 "Jessie" backports 커널을 사용 하 여 Microsoft Azure에 대 한 credativ에서 제공합니다. Debian GNU/Linux는 가장 많이 사용되는 Linux 배포 중 하나입니다.
+- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian)합니다. Debian 8 "Jessie" backports 커널을 사용 하 여 Microsoft Azure에 대 한 credativ에서 제공합니다. Debian GNU/Linux는 가장 많이 사용되는 Linux 배포 중 하나입니다.
 - [Linux 2.0에 대 한 사용자 지정 스크립트](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview)합니다. 사용자 지정 스크립트 확장은에 VM 사용자 지정 작업 후 VM 프로 비전을 실행 하는 도구입니다. 이 확장은 가상 컴퓨터에 추가 되 면 Azure storage에서 스크립트를 다운로드 하 고 VM에서 실행 수 있습니다. Azure PowerShell cmdlet 및 Azure 플랫폼 간 명령줄 인터페이스 (xPlat CLI)를 사용 하 여 사용자 지정 스크립트 확장 태스크를 자동화할 수도 있습니다.
 - Linux 확장 1.4.7에 대 한 VM 액세스 합니다. VM 액세스 확장을 사용 하면 VM에 대 한 액세스를 다시 사용할 수 있도록 암호, SSH 키 또는 SSH 구성을 다시 설정할 수 있습니다. 암호 또는 SSH 키를 가진 새 사용자를 추가 하거나이 확장을 사용 하 여 사용자를 삭제할 수도 있습니다. 이 확장 Linux Vm을 대상 으로합니다.
 

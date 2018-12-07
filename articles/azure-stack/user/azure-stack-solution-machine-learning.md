@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 7c92b2a060e73484b73a60f9215425cba40ea3f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e503a394eed7d5c4bdd4c93037dc86442097f72e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966724"
+ms.locfileid: "53002164"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 솔루션을 학습 하는 edge 컴퓨터 만들기
 
@@ -81,9 +81,8 @@ Azure 및 Azure Stack에 대 한 사전 지식이 필요합니다. 계속 하기
 
  -  배포 [Azure 컨테이너 서비스 (ACS) Kubernetes Azure에서](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
- -  Azure Machine Learning 서비스 (미리 보기)의 배포 [4 부분으로 이루어진 자습서](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1)
+ -  Azure Machine Learning 서비스의 배포 [두 부분으로 이루어진 자습서](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
 
- -  Azure Machine Learning 실험 [계정](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/experimentation-service-template)
 
 **Azure Stack**
 
@@ -358,7 +357,7 @@ Azure Machine Learning Workbench를 이제 Windows나 macOS에서 사용할 수 
     | 프로젝트 이름 | myIris | 계정을 식별 하는 고유한 이름을 입력 합니다. 부서를 사용 하 여 또는 프로젝트 실험을 가장 잘 식별 하는 이름입니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다. |
     | 프로젝트 디렉터리 | c:\Temp\ | 프로젝트가 만들어지는 디렉터리를 지정합니다. |
     | 프로젝트 설명 | 비워 둡니다. | 프로젝트를 설명하기에 유용한 선택적 필드입니다. |
-    | Visualstudio.com GIT 리포지토리 URL | 비워 둡니다. | 선택적 필드입니다. 소스 제어 및 공동 작업에 대 한 Visual Studio Team Services에서 Git 리포지토리를 사용 하 여 프로젝트를 연결 합니다. [리포지토리를 설정 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project)합니다. |
+    | Visualstudio.com GIT 리포지토리 URL | 비워 둡니다. | 선택적 필드입니다. 소스 제어 및 공동 작업에 대 한 Visual Studio Team Services에서 Git 리포지토리를 사용 하 여 프로젝트를 연결 합니다. |
     | 선택한 작업 영역 | IrisGarden(있는 경우) | Azure portal에서 실험 계정에 대해 만든 작업 영역을 선택 합니다. <br>빠른 시작을 사용 하 여, IrisGarden의 이름으로 작업 영역에 나열 됩니다. 실험 계정 이름 또는 기본 계정 이름을 사용 하 여 작업 영역을 사용 하십시오. |
     | 프로젝트 템플릿 | 아이리스 분류 | 템플릿에 제품을 탐색 하는 데 사용 되는 데이터 및 스크립트에 포함 됩니다. 이 템플릿은 스크립트 및이 설명서 사이트에서이 빠른 시작 및 기타 자습서에 필요한 데이터를 포함 합니다. |
 

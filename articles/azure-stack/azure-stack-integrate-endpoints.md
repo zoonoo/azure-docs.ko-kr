@@ -10,12 +10,12 @@ ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: MT
+ms.openlocfilehash: a2c08c541c3726579d57d99141a147d98bf45849
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298758"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996707"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 
@@ -54,7 +54,7 @@ Azure Stack 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 |저장소 Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 |SQL 리소스 공급자|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
 |MySQL 리소스 공급자|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|앱 서비스|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
 |  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
 |  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (azure Resource Manager)|
 |  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-10100 (FTP)<br>990 (FTPS)|
@@ -74,15 +74,19 @@ Azure Stack은 투명 프록시 서버만 지원 합니다. 배포의 경우 기
 |마켓플레이스 배포|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |패치 및 업데이트|https://&#42;.azureedge.net|HTTPS|443|
 |등록|https://management.azure.com|HTTPS|443|
-|사용법|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
+|사용 현황|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
 |Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|(IP의 NTP 서버 배포에 대 한 제공)|UDP|123|
 |DNS|(배포에 대해 제공 된 IP의 DNS 서버)|TCP<br>UDP|53|
 |CRL|(인증서에 CRL 배포 지점 URL)|HTTP|80|
+|인프라 백업|(IP 또는 FQDN 외부 대상 파일 서버)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > 아웃 바운드 Url은 부하가 분산 된 Azure traffic manager를 사용 하 여 지리적 위치에 따라 가능한 최적의 연결을 제공 합니다. 부하 분산된 Url을 Microsoft에서 업데이트 하 고 고객에 게 영향을 주지 않고 백 엔드 끝점을 변경할 수 있습니다. Microsoft는 부하 분산 Url에 대 한 IP 주소 목록을 공유 하지 않습니다. IP 대신 하 여 URL 필터링을 지 원하는 장치를 사용 해야 합니다.
+
+> [!Note]  
+> 1809, 인프라 백업 서비스는 외부 파일 서버에 공용 VIP 네트워크에서 통신합니다. 1809를 하기 전에 서비스는 공용 인프라 네트워크를 통해 통신합니다. 환경 액세스 인프라 리소스에 공용 VIP 네트워크에서 허용 하지 않으면 Azure Stack에 대 한 최신 1809 핫픽스를 적용 합니다. 이 핫픽스 공용 인프라 네트워크에 인프라 백업 서비스를 다시 이동 됩니다. 1811 1809 핫픽스를 적용 한 경우 인프라 백업 서비스는 공용 인프라 네트워크에 유지 됩니다. 핫픽스를 적용 하지 않은 경우 업데이트는 서비스 다시 이동 공용 인프라 네트워크에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
