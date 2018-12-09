@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 5860d828a4edffa130ecfd2f5cf37c236b3cf3fc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c7babd4a6f5a62bb3d284bc37086e908613eb429
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963796"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017803"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -458,9 +458,9 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis Cache</p>
+                                                <p>Azure Cache for Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3095,7 +3095,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3105,7 +3105,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis Cache</h3>
+                                                    <h3>Azure Cache for Redis</h3>
                                                     <p>높은 처리량과 짧은 대기 시간으로 응용 프로그램에 강력한 성능 부여</p>
                                                 </div>
                                             </div>
@@ -3163,7 +3163,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Table Storage</h3>
-                                                    <p>반구조화된 데이터 집합을 사용하는 NoSQL 키-값 저장소</p>
+                                                    <p>반구조화된 데이터 세트를 사용하는 NoSQL 키-값 저장소</p>
                                                 </div>
                                             </div>
                                         </div>

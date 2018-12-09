@@ -125,8 +125,6 @@ items:
         href: sql-database-connectivity-architecture.md
       - name: T-SQL 차이점
         href: sql-database-transact-sql-information.md
-      - name: 트랜잭션 복제 - 단일 DB 및 탄력적 풀
-        href: replication-to-sql-database.md
     - name: 탄력적 풀
       items:
       - name: 탄력적 풀
@@ -171,8 +169,6 @@ items:
         href: sql-database-managed-instance-connect-app.md
     - name: T-SQL 차이점
       href: sql-database-managed-instance-transact-sql-information.md
-    - name: 트랜잭션 복제
-      href: replication-with-sql-database-managed-instance.md
   - name: 서비스로서의 플랫폼
     items:
     - name: 서비스로서의 플랫폼
@@ -231,10 +227,8 @@ items:
         href: sql-database-data-discovery-and-classification.md
       - name: 취약점 평가
         href: sql-vulnerability-assessment.md
-      - name: 위협 감지 - SQL Database
-        href: sql-database-threat-detection.md
-      - name: 위협 감지 - Managed Instance
-        href: sql-database-managed-instance-threat-detection.md
+      - name: 위협 감지
+        href: sql-database-threat-detection-overview.md
     - name: 방화벽 규칙
       items:
       - name: 만들기 및 관리
@@ -473,16 +467,30 @@ items:
       href: sql-database-in-memory-oltp-migration.md
 - name: 방법 가이드
   items:
-  - name: SQL Database로 마이그레이션
+  - name: 단일 데이터베이스
     items:
     - name: SQL Database로 마이그레이션
       href: sql-database-cloud-migrate.md
+    - name: 마이그레이션 후 SQL Database 관리
+      href: sql-database-manage-after-migration.md
+    - name: 트랜잭션 복제 구성
+      href: replication-to-sql-database.md
+    - name: 위협 감지 구성
+      href: sql-database-threat-detection.md
+    - name: 파일 공간 관리
+      href: sql-database-file-space-management.md
+    - name: 연결 문제에 대해 Resource Health 사용
+      href: sql-database-resource-health.md
+  - name: 관리되는 인스턴스
+    items:
     - name: Managed Instance로 마이그레이션
       href: sql-database-managed-instance-migrate.md
     - name: Managed Instance로 TDE 인증서 마이그레이션
       href: sql-database-managed-instance-migrate-tde-certificate.md
-    - name: 마이그레이션 후 SQL Database 관리
-      href: sql-database-manage-after-migration.md
+    - name: 트랜잭션 복제
+      href: replication-with-sql-database-managed-instance.md
+    - name: 위협 감지 구성
+      href: sql-database-managed-instance-threat-detection.md
   - name: 데이터 로드 및 이동
     items:
     - name: Azure 내에서 DB 복사
@@ -509,10 +517,6 @@ items:
       href: sql-database-load-from-csv-with-bcp.md
     - name: ADF를 사용하여 데이터 로드
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-  - name: 파일 공간 관리
-    href: sql-database-file-space-management.md
-  - name: 연결 문제에 대해 Resource Health 사용
-    href: sql-database-resource-health.md
   - name: 앱 개발
     items:
     - name: 연결
@@ -662,9 +666,9 @@ items:
     href: /azure/architecture/
   - name: 고객 사례
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 8c32468bf7b21cd2545f85226758879cc5b657e8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6ae879edcd2b835cb52e20f070d6d8c0998ba610
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961980"
+ms.locfileid: "52994563"

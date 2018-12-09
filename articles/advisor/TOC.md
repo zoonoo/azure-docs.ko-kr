@@ -19,7 +19,7 @@
 # 관련 항목
 ## [보안 센터](https://azure.microsoft.com/services/security-center/)
 ## [SQL DB Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
-## [Redis Cache](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
+## [Azure Cache for Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # 리소스
