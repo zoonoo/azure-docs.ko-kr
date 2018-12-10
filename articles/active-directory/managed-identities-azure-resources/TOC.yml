@@ -97,6 +97,14 @@ items:
       href: how-to-use-vm-sign-in.md
     - name: Azure SDK와 함께 사용
       href: how-to-use-vm-sdk.md
+  - name: 다른 Azure 리소스에 관리 ID 액세스 권한 할당
+    items:
+    - name: 포털
+      href: howto-assign-access-portal.md
+    - name: CLI
+      href: howto-assign-access-cli.md
+    - name: PowerShell
+      href: howto-assign-access-powershell.md
   - name: 사용자 할당 관리 ID 관리
     items:
     - name: 포털
@@ -145,9 +153,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-msi
   - name: AAD 개발자 포럼
     href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
-ms.openlocfilehash: 77b31df1de1b39d6d53bd343adfd7c428d5f4e51
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 488481d3f7ba19f7d08c6a16443405ec58b5d462
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873481"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104317"

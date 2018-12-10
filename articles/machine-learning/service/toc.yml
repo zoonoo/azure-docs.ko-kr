@@ -83,13 +83,12 @@ items:
       href: how-to-set-up-training-targets.md
     - name: 학습에서 데이터에 액세스
       href: how-to-access-data.md
-    - name: 추정 만들기
+    - name: 학습에서 추정 만들기
       href: how-to-train-ml-models.md
-      items:
-      - name: PyTorch
-        href: how-to-train-pytorch.md
-      - name: TensorFlow
-        href: how-to-train-tensorflow.md
+    - name: PyTorch 사용
+      href: how-to-train-pytorch.md
+    - name: TensorFlow 사용
+      href: how-to-train-tensorflow.md
     - name: hyperparameters 조정
       displayName: parameter
       href: how-to-tune-hyperparameters.md
@@ -110,18 +109,10 @@ items:
   - name: 모델 배포
     items:
     - name: 모델 배포 위치
-      displayName: publish
+      displayName: publish, azure kubernetes, azure container instances
       href: how-to-deploy-and-where.md
-    - name: ACI에 배포
-      displayName: Azure Container Instances
-      href: how-to-deploy-to-aci.md
-    - name: AKS에 배포
-      displayName: Azure Kubernetes
-      href: how-to-deploy-to-aks.md
     - name: FPGA에 배포
       href: how-to-deploy-fpga-web-service.md
-    - name: IoT Edge에 배포
-      href: how-to-deploy-to-iot.md
     - name: 문제 해결
       href: how-to-troubleshoot-deployment.md
     - name: SSL을 통한 보안
@@ -175,7 +166,7 @@ items:
     href: how-to-export-delete-data.md
   - name: 사용되지 않는 문서
     items:
-    - name: 마이그레이션하는 방법
+    - name: Workbench에서 마이그레이션
       displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md
     - name: 계정 데이터 내보내기 또는 삭제(사용되지 않음)
@@ -374,9 +365,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 이전 문제
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 087d101a655d87bdb4c8f7de2b39a5358c21e00e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a5c26bd2ef020ca737907c8a66776a3769bfeefd
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962548"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101248"

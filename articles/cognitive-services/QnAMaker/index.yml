@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b6765fea8087a21d92a349244f883dbaeb1e730f
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a4402d33bda8ece965608a19c8150ec616118b1c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273550"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105974"
 documentType: LandingData
 title: QnA Maker 설명서
 metadata:
   title: QnA Maker 설명서 - Microsoft Cognitive Services | Microsoft Docs
-  description: QnA Maker 및 작동 방법에 대해 알아봅니다.
+  description: QnA Maker 서비스 및 질문 및 답변에서 이 서비스의 기술 자료를 사용하는 방법에 대해 알아봅니다.
   services: cognitive-services
   author: tulasim88
   manager: cgronlun

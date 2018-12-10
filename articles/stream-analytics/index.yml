@@ -1,22 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 439ac4e49941e425601124f2209eb67faa74cd43
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: f004aa82b7fb5cd85ca0054622010f956d056baf
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687167"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084229"
 documentType: LandingData
 title: Stream Analytics 설명서
 metadata:
   title: Azure Stream Analytics 설명서 - 자습서, API 참조
   meta.description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
   services: stream-analytics
-  author: jasonwhowell
+  author: mamccrea
   ms.author: mamccrea
-  manager: kfile
   ms.service: stream-analytics
   ms.topic: landing-page
-  ms.date: 04/25/2018
+  ms.date: 12/06/2018
+  ms.custom: seodec18
 abstract:
   description: 완전히 관리되는 이벤트 처리 엔진인 Stream Analytics를 사용하여 클라우드에서 사물 인터넷(IoT) 분석을 실행하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 응용 프로그램, 센서, 장치, 소셜 미디어 등에서 실시간으로 데이터를 분석하는 방법을 보여 줍니다.
   aside:
@@ -25,7 +25,7 @@ abstract:
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: Azure Stream Analytics를 사용하여 클라우드 및 IoT Edge에서 실시간 분석 및 ML 모델을 사용하도록 설정합니다. (1:15:05)
+    title: Azure Stream Analytics를 사용한 실시간 분석 및 기계 학습 | Microsoft Azure (1:15:05)
     href: https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor
     width: 250
 sections:
