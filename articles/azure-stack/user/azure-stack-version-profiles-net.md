@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 35329468ee01d5b70d654c1eb4a908db9d3fcb5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: cfebbdb9b88a1de6a05f06e6ed72ebc9cddddcf6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184991"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074454"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Azure Stack에서.NET API 버전 프로필 사용
 
@@ -193,7 +193,9 @@ public override void InitializeServiceClient<T>(ServiceClient<T> client)
 
 1.  다음 명령을 사용 하 여 리포지토리를 복제 합니다.
 
-    `git clone <https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject>`
+    ```shell
+    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
+    ```
 
 2.  Azure 서비스 주체 만들기 및 구독에 액세스 하는 역할을 할당 합니다. 서비스 주체를 만드는 방법에 지침은 [Azure PowerShell을 사용 하 여 인증서를 사용 하 여 서비스 주체를 만들려면][]입니다.
 
