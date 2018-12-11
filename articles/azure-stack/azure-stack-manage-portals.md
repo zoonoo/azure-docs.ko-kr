@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 58856875fa7d7bb3ba63c489fb17790e68f99aec
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085830"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872189"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>관리자 포털을 사용 하 여 Azure Stack에서
 
@@ -86,6 +86,10 @@ Azure Stack 연산자 설명서에 액세스 하려면 도움말을 사용 하 �
 
 - 통합된 시스템을 사용 하는 경우이 작업에 열 수 있는 직접 지원 티켓을 사용 하 여 Microsoft 고객 지원 서비스 (CSS) 사이트를 엽니다. 가리킵니다 [지원을 받을 수 있는 위치](azure-stack-manage-basics.md#where-to-get-support) Microsoft 지원을 통해 또는 프로그램 원래 장비 제조업체 (OEM) 하드웨어 공급 업체 지원을 통해 이동 해야 하면 알아야 합니다.
 - 개발 키트를 사용 하는 경우이 작업 직접 Azure Stack 포럼 사이트를 엽니다. 이러한 포럼을 정기적으로 모니터링 합니다. 개발 키트는 평가 환경, 이므로 Microsoft CSS를 통해 제공 되는 공식 지원 되지 않습니다.
+
+### <a name="quick-access-to-the-azure-roadmap"></a>Azure 로드맵에 대 한 빠른 액세스
+
+선택 하는 경우 **도움말 및 지원** (물음표) 한 다음 선택한 포털 관리자의 오른쪽 위 모서리에서 **Azure 로드맵**, 새 브라우저 탭이 열리고 Azure 로드맵 안내 합니다. 입력 하 여 **Azure Stack** 에 **제품** 검색 상자에서 모든 Azure Stack 로드맵 업데이트를 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
