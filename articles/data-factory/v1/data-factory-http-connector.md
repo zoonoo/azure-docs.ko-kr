@@ -279,7 +279,7 @@ ms.locfileid: "49167480"
 }
 ```
 
-### <a name="http-input-dataset"></a>HTTP 데이터 집합
+### <a name="http-input-dataset"></a>HTTP 데이터 세트
 
 **external**을 **true**로 설정하면 데이터 집합이 Data Factory의 외부에 있으며 Data Factory의 활동에 의해 생성되지 않는다는 사실을 Data Factory 서비스에 전달합니다.
 
@@ -329,7 +329,7 @@ ms.locfileid: "49167480"
 
 ### <a name="pipeline-that-uses-a-copy-activity"></a>복사 작업을 사용하는 파이프라인
 
-파이프라인은 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 활동을 포함합니다. 복사 작업은 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **HttpSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다.
+파이프라인은 입력 및 출력 데이터 세트를 사용하도록 구성된 복사 활동을 포함합니다. 복사 작업은 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **HttpSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다.
 
 **HttpSource**에서 지원하는 속성 목록은 [HttpSource](#copy-activity-properties)를 참조하세요.
 
@@ -380,7 +380,7 @@ ms.locfileid: "49167480"
 ```
 
 > [!NOTE]
-> 원본 데이터 집합의 열을 싱크 데이터 집합의 열로 매핑하려면 [Azure Data Factory의 데이터 집합 열 매핑](data-factory-map-columns.md)을 참조하세요.
+> 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑하려면 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 

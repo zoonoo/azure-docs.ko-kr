@@ -32,7 +32,7 @@ Windows DSVM(데이터 과학 Virtual Machine)은 다양한 데이터 탐색 및
 2. Jupyter Notebook에서 Python 2, Python 3 그리고 성능 위주로 설계된 R의 엔터프라이즈급 버전인 Microsoft R을 사용하여 브라우저에서 데이터 실험
 3. 클라이언트 응용 프로그램이 간단한 웹 서비스 인터페이스를 사용하여 모델에 액세스할 수 있도록 Azure Machine Learning에서 R 및 Python을 사용하여 구축된 모델 배포
 4. Azure Portal 또는 Powershell을 사용하여 Azure 리소스 관리
-5. Azure File Storage를 DSVM에 탑재 가능한 드라이브로 만들어 저장소 공간을 확장하고 전체 팀에서 대규모 데이터 집합/코드 공유
+5. Azure File Storage를 DSVM에 탑재 가능한 드라이브로 만들어 저장소 공간을 확장하고 전체 팀에서 대규모 데이터 세트/코드 공유
 6. GitHub를 사용하여 팀과 코드를 공유하고 사전 설치된 Git 클라이언트(Git Bash Git GUI)를 사용하여 리포지토리에 액세스
 7. Azure Blob Storage, Azure Data Lake, Azure HDInsight(Hadoop), Azure Cosmos DB, Azure SQL Data Warehouse, 데이터베이스 등의 다양한 Azure 데이터 및 분석 서비스에 액세스
 8. DSVM에 사전 설치된 Power BI Desktop을 사용하여 보고서 및 대시보드를 구축하여 클라우드에 배포
@@ -199,7 +199,7 @@ Azure 구독 및 클라우드 리소스를 관리하려는 경우 브라우저�
 바탕 화면의 바로 가기 또는 시작 메뉴의 "Microsoft Azure Powershell"을 사용하여 Azure Powershell을 실행할 수 있습니다. Windows Powershell 스크립트를 사용하여 Azure 구독 및 리소스를 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Powershell 설명서](../../powershell-azure-resource-manager.md) 를 참조하세요.
 
 ## <a name="5-extend-your-storage-space-with-a-shared-file-system"></a>5. 공유 파일 시스템으로 저장소 공간 확장
-데이터 과학자는 팀 내에서 대용량 데이터 집합, 코드 또는 기타 리소스를 공유할 수 있습니다. DSVM 자체에는 약 45GB의 사용 가능한 공간이 있습니다. 저장소를 확장하려면 Azure 파일 서비스를 사용하여 하나 이상의 DSVM 인스턴스에 파일을 탑재하거나 REST API를 통해 액세스하면 됩니다.  [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) 또는 [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md)을 사용하여 추가 전용 데이터 디스크를 추가할 수도 있습니다. 
+데이터 과학자는 팀 내에서 대용량 데이터 세트, 코드 또는 기타 리소스를 공유할 수 있습니다. DSVM 자체에는 약 45GB의 사용 가능한 공간이 있습니다. 저장소를 확장하려면 Azure 파일 서비스를 사용하여 하나 이상의 DSVM 인스턴스에 파일을 탑재하거나 REST API를 통해 액세스하면 됩니다.  [Azure Portal](../../virtual-machines/windows/attach-managed-disk-portal.md) 또는 [Azure Powershell](../../virtual-machines/windows/attach-disk-ps.md)을 사용하여 추가 전용 데이터 디스크를 추가할 수도 있습니다. 
 
 > [!NOTE]
 > Azure 파일 서비스 공유의 최대 공간은 5TB이고 개별 파일 크기 제한은 1TB입니다. 
@@ -433,7 +433,7 @@ Visual Studio에서 다음 U-SQL 쿼리를 사용할 수 있습니다.
 
 **Data Lake의 데이터 쿼리: U SQL**
 
-Azure Data Lake에 데이터 집합이 수집되면 [U-SQL 언어](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md)를 사용하여 데이터를 쿼리하고 탐색할 수 있습니다. U-SQL 언어는 T-SQL과 비슷하지만 C#의 일부 기능이 결합되어 사용자가 사용자 지정 모듈, 사용자 정의 함수 등을 작성할 수 있습니다. 이전 단계의 스크립트를 사용할 수 있습니다.
+Azure Data Lake에 데이터 세트가 수집되면 [U-SQL 언어](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md)를 사용하여 데이터를 쿼리하고 탐색할 수 있습니다. U-SQL 언어는 T-SQL과 비슷하지만 C#의 일부 기능이 결합되어 사용자가 사용자 지정 모듈, 사용자 정의 함수 등을 작성할 수 있습니다. 이전 단계의 스크립트를 사용할 수 있습니다.
 
 서버에 쿼리가 제출되면 잠시 후 **Azure Data Lake 탐색기**에서 tripdata_summary.CSV 파일이 표시되며, 이 파일을 마우스 오른쪽 단추로 클릭하여 데이터를 미리 볼 수 있습니다.
 
@@ -452,7 +452,7 @@ Azure HDInsight는 클라우드에서 관리되는 Apache Hadoop, Spark, HBase �
 
 ![Azure Blob Storage 계정 만들기](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* [Azure 포털](../team-data-science-process/customize-hadoop-cluster.md)
+*  [Azure 포털](../team-data-science-process/customize-hadoop-cluster.md)
   
   * HDInsight 클러스터를 만들 때 만든 저장소 계정을 HDInsight 클러스터와 연결합니다. 이 저장소 계정은 클러스터 내에서 처리할 수 있는 데이터에 액세스하는 데 사용됩니다.
 
@@ -790,9 +790,9 @@ Machine Learning Studio의 **판독기** 모듈을 사용하여 Hadoop 클러스
 
 ![판독기 모듈 속성](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
 
-그러면 채점된 데이터 집합을 볼 수 있습니다.
+그러면 채점된 데이터 세트를 볼 수 있습니다.
 
-![채점된 데이터 집합 보기](./media/vm-do-ten-things/AML_Model_Results.PNG)
+![채점된 데이터 세트 보기](./media/vm-do-ten-things/AML_Model_Results.PNG)
 
 ### <a name="azure-sql-data-warehouse--databases"></a>Azure SQL Data Warehouse 및 데이터베이스
 Azure SQL Data Warehouse는 엔터프라이즈급 SQL Server 환경의 서비스로 탄력적인 데이터 웨어하우스입니다.

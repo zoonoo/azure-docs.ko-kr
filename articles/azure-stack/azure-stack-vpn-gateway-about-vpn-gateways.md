@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 86fcec0321e8f1b92fdc554532cb8f949b1b1569
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496209"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081392"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure Stack에 대 한 VPN gateway 정보
 
@@ -108,9 +108,9 @@ SKU를 선택 하는 경우 다음을 고려 합니다.
 
 |   | VPN Gateway 처리량 *(1)* | VPN Gateway 최대 IPsec 터널 *(2)* |
 |-------|-------|-------|
-|**기본 SKU** ***(3)***    | 100Mbps  | 10    |
-|**표준 SKU**       | 100Mbps  | 10    |
-|**고성능 SKU** | 200Mbps    | 5 |
+|**기본 SKU** ***(3)***    | 100Mbps  | 20    |
+|**표준 SKU**       | 100Mbps  | 20    |
+|**고성능 SKU** | 200Mbps    | 10    |
 
 **테이블 정보:**
 

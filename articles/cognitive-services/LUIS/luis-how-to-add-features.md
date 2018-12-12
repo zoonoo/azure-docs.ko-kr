@@ -8,18 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830993"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580964"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>단어 목록의 신호를 강화하는 구 사용
 
 정확성을 개선하기 위해 LUIS 앱에 기능을 추가할 수 있습니다. 기능은 특정 단어와 구가 앱 도메인 용어의 일부라는 힌트를 제공하여 LUIS를 지원합니다. 
+
+[구문 목록](luis-concept-feature.md)에는 동일한 클래스에 속하고 비슷하게 처리되어야 하는 값(단어 또는 구문) 그룹이 포함됩니다(예: 도시 또는 제품의 이름). LUIS가 이러한 값 중 하나에 대해 학습하는 내용이 다른 값에도 자동으로 적용됩니다. 이 목록은 일치하는 단어의 닫힌 목록 엔터티(정확한 텍스트 일치)가 아닙니다.
+
+구문 목록은 해당 단어와 관련된 LUIS에 대한 두 번째 신호로 앱 도메인의 어휘에 추가됩니다.
 
 ## <a name="add-phrase-list"></a>구 목록 추가
 
@@ -47,9 +51,6 @@ ms.locfileid: "48830993"
 
 > [!Note]
 > **구 목록** 페이지의 상황에 맞는 도구 모음에서 구 목록을 삭제하거나 비활성화할 수 있습니다.
-
-## <a name="pattern-regular-expression-feature"></a>패턴(정규식) 기능 
-**이 기능은 더 이상 사용되지 않습니다**. 새 패턴 기능은 LUIS에 추가할 수 없습니다. 모든 기존 패턴 기능은 2018년 5월까지 지원됩니다. PR을 사용한 표준 LUIS 정규식 일치의 경우 [Recognizers-Text Github 리포지토리](https://github.com/Microsoft/Recognizers-Text)에서 도움을 주세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

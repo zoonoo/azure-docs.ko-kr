@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 537ae87fa694a8b0e82cb2830dd8ad1f62986093
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283413"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496419"
 ---
-# <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>자습서: HDInsight에서 Azure Event Hubs 및 Spark를 사용하여 트윗 처리
+# <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>자습서: HDInsight에서 Azure Event Hubs 및 Apache Spark를 사용하여 트윗 처리
 
-이 자습서에서는 Apache Spark 스트리밍 응용 프로그램을 만들어 Azure 이벤트 허브로 트윗을 보내고, 다른 응용 프로그램을 만들어 이벤트 허브에서 트윗을 읽는 방법을 알아봅니다. Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개요](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)를 참조하세요. HDInsight는 Azure에서 Spark 클러스터에 동일한 스트리밍 기능을 제공합니다.
+이 자습서에서는 [Apache Spark](https://spark.apache.org/) 스트리밍 애플리케이션을 만들어 Azure 이벤트 허브로 트윗을 보내고, 다른 애플리케이션을 만들어 이벤트 허브에서 트윗을 읽는 방법을 알아봅니다. Spark 스트리밍에 대한 자세한 내용은 [Apache Spark 스트리밍 개요](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)를 참조하세요. HDInsight는 Azure에서 Spark 클러스터에 동일한 스트리밍 기능을 제공합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -102,7 +102,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Jupyter 노트북을 만들고, **SendTweetsToEventHub**라는 이름을 지정해야 합니다. 
 
-1. 다음 코드를 실행하여 외부 Maven 라이브러리를 추가합니다.
+1. 다음 코드를 실행하여 외부 Apache Maven 라이브러리를 추가합니다.
 
     ```
     %%configure
@@ -184,7 +184,7 @@ Jupyter 노트북을 만들고, **SendTweetsToEventHub**라는 이름을 지정�
 
 다른 Jupyter 노트북을 만들고, **ReadTweetsFromEventHub**라는 이름을 지정해야 합니다. 
 
-1. 다음 코드를 실행하여 외부 Maven 라이브러리를 추가합니다.
+1. 다음 코드를 실행하여 외부 Apache Maven 라이브러리를 추가합니다.
 
     ```
     %%configure -f

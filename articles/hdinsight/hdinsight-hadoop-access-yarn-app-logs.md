@@ -9,26 +9,26 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 62499c35fd71d83f80a60e0511e6a27ce0109275
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035648"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495858"
 ---
-# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache YARN 애플리케이션 로그에 액세스
-이 문서에서는 Azure HDInsight의 Windows 기반 Hadoop 클러스터에서 완료된 Apache YARN 애플리케이션에 대한 로그에 액세스하는 방법에 대해 설명
+# <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
+이 문서에서는 Azure HDInsight의 Windows 기반 Apache Hadoop 클러스터에서 완료된 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 애플리케이션에 대한 로그에 액세스하는 방법에 대해 설명합니다.
 
 > [!IMPORTANT]
-> 이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 HDInsight 클러스터에서 YARN 로그에 액세스하는 방법은 [HDInsight의 Linux 기반 Hadoop에서 Apache YARN 애플리케이션 로그 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md) 참조
+> 이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. Linux 기반 HDInsight 클러스터에서 YARN 로그에 액세스하는 방법에 대한 자세한 내용은 [HDInsight의 Linux 기반 Apache Hadoop에서 Apache Hadoop YARN 애플리케이션 로그에 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)를 참조하세요.
 >
 
 
 ### <a name="prerequisites"></a>필수 조건
-* Windows 기반 HDInsight 클러스터입니다.  [HDInsight에서 Windows 기반 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+* Windows 기반 HDInsight 클러스터입니다.  [HDInsight에서 Windows 기반 Apache Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline Server
-<a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> (영문)는 두 가지 다른 인터페이스를 통해 완료된 응용 프로그램에 대한 제네릭 정보 및 프레임워크별 응용 프로그램 정보를 제공합니다. 구체적으로 살펴보면 다음과 같습니다.
+<a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline Server</a>는 두 가지 다른 인터페이스를 통해 완료된 애플리케이션에 대한 제네릭 정보 및 프레임워크별 애플리케이션 정보를 제공합니다. 구체적으로 살펴보면 다음과 같습니다.
 
 * 3.1.1.374 이상 버전에서는 HDInsight 클러스터에서 제네릭 응용 프로그램 정보를 저장하고 검색할 수 있습니다.
 * Timeline Server의 프레임워크별 응용 프로그램 정보 구성 요소는 HDInsight 클러스터에서 현재 사용할 수 없습니다.
@@ -53,7 +53,7 @@ YARN은 여러 프로그래밍 모델을 지원하여 리소스 관리를 응용
 * 컨테이너는 기본 작업 단위에 대한 컨텍스트를 제공합니다. 
 * 컨테이너의 컨텍스트 내에서 수행되는 작업은 컨테이너가 할당되는 단일 작업자 노드에서 수행됩니다. 
 
-자세한 내용은 [YARN 개념][YARN-concepts]을 참조하세요.
+자세한 내용은 [Apache Hadoop YARN 개념][YARN-concepts]을 참조하세요.
 
 응용 프로그램 로그(및 연관된 컨테이너 로그)는 문제가 있는 Hadoop 응용 프로그램을 디버깅하는 데 매우 중요합니다. YARN은 [로그 집계][log-aggregation] 기능을 사용하여 응용 프로그램 로그를 수집, 집계 및 저장하기 위한 유용한 프레임워크를 제공합니다. 로그 집계 기능은 응용 프로그램이 완료된 후 작업자 노드의 모든 컨테이너에서 로그를 집계하고 이를 작업자 노드별 하나의 집계 파일로 기본 파일 시스템에 저장하므로 응용 프로그램 로그에 더 명확하게 액세스할 수 있도록 지원합니다. 응용 프로그램은 수백 수천 개의 컨테이너를 사용할 수 있지만 단일 작업자 노드에서 실행되는 모든 컨테이너에 대한 로그는 단일 파일로 집계되므로, 응용 프로그램에서 작업자 노드당 하나의 파일만 사용합니다. 로그 집계는 HDInsight 클러스터(버전 3.0 이상)에서 기본적으로 사용하도록 설정되며 집계된 로그는 클러스터의 기본 컨테이너인 다음 위치에 있습니다.
 

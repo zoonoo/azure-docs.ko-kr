@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: cwatson
 ms.reviewer: sngun
-ms.openlocfilehash: 5b15b5f8188f2077b3e9cb17ab3794e881a4deb3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: de7b0a2746c79242cb6538595ca3205455a2cc5c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353439"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582750"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Azure Cosmos DB에 예약 할인이 적용되는 방식 이해
 
@@ -115,7 +115,7 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 * [엔터프라이즈 등록의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage-ea.md)  
 * [CSP 구독의 예약 사용량 이해](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
-계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

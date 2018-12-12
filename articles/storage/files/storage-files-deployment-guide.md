@@ -57,14 +57,14 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
 
         ![디스크 관리 MMC의 새 단순 볼륨 마법사 스크린샷](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 
-4. 데이터 집합 CSV 파일을 만듭니다. 데이터 집합 CSV 파일은 온-프레미스 데이터 경로와 데이터를 복사해야 하는 원하는 Azure 파일 공유 간 매핑입니다. 예를 들어 다음 데이터 집합 CSV 파일은 온-프레미스 파일 공유("F:\shares\scratch")를 Azure 파일 공유("MyAzureFileShare")에 매핑합니다.
+4. 데이터 세트 CSV 파일을 만듭니다. 데이터 세트 CSV 파일은 온-프레미스 데이터 경로와 데이터를 복사해야 하는 원하는 Azure 파일 공유 간 매핑입니다. 예를 들어 다음 데이터 세트 CSV 파일은 온-프레미스 파일 공유("F:\shares\scratch")를 Azure 파일 공유("MyAzureFileShare")에 매핑합니다.
     
     ```
     BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    한 저장소 계정으로 여러 공유를 지정할 수 있습니다. 자세한 내용은 [데이터 집합 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file)를 참조하세요.
+    한 저장소 계정으로 여러 공유를 지정할 수 있습니다. 자세한 내용은 [데이터 세트 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file)를 참조하세요.
 
 5. 드라이브 집합 CSV 파일을 만듭니다. 드라이브 집합 CSV 파일에는 온-프레미스 내보내기 에이전트에 사용할 수 있는 디스크가 나열됩니다. 예를 들어 다음 드라이브 집합 CSV 파일에는 온-프레미스 내보내기 작업에 사용되는 `X:`, `Y:` 및 `Z:` 드라이브가 나열됩니다.
 
@@ -129,7 +129,7 @@ AzCopy는 간단한 명령과 최적의 성능으로 데이터를 Azure Files �
 > [!Note]  
 > Azure 파일 공유를 탑재하려면 저장소 계정 키를 암호로 사용해야 하므로 신뢰할 수 있는 환경의 탑재만 권장합니다. 
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 PowerShell을 사용하여 여러 PC에서 탑재 명령을 실행할 수 있습니다. 다음 예제에서 `$computers`는 수동으로 채워지지만 자동으로 탑재할 컴퓨터 목록을 생성할 수 있습니다. 예를 들어 이 변수를 Active Directory의 결과로 채울 수 있습니다.
 
 ```PowerShell

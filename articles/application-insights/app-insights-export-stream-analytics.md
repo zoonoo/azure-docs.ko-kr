@@ -124,7 +124,7 @@ ms.locfileid: "44719430"
 
 ![새 채널을 선택하고, 출력, 추가, Power BI를 클릭합니다.](./media/app-insights-export-stream-analytics/SA010.png)
 
-**회사 또는 학교 계정** 을 제공하여 Stream Analytics에 Power BI 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 출력 및 대상 Power BI 데이터 집합과 테이블의 이름을 지정합니다.
+**회사 또는 학교 계정** 을 제공하여 Stream Analytics에 Power BI 리소스에 대한 액세스 권한을 부여합니다. 그런 다음, 출력 및 대상 Power BI 데이터 세트와 테이블의 이름을 지정합니다.
 
 ## <a name="set-the-query"></a>쿼리 설정
 쿼리는 입력에서 출력으로 번역을 제어합니다.
@@ -203,13 +203,13 @@ Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다.
 > 
 > 
 
-회사 또는 학교 계정을 사용하여 Power BI를 열고 Stream Analytics 작업의 출력으로 정의된 데이터 집합 및 테이블을 선택합니다.
+회사 또는 학교 계정을 사용하여 Power BI를 열고 Stream Analytics 작업의 출력으로 정의된 데이터 세트 및 테이블을 선택합니다.
 
-![Power BI에서 데이터 집합과 필드를 선택합니다.](./media/app-insights-export-stream-analytics/200.png)
+![Power BI에서 데이터 세트와 필드를 선택합니다.](./media/app-insights-export-stream-analytics/200.png)
 
-이제 [Power BI](https://powerbi.microsoft.com)의 보고서 및 대시보드에서 이 데이터 집합을 사용할 수 있습니다.
+이제 [Power BI](https://powerbi.microsoft.com)의 보고서 및 대시보드에서 이 데이터 세트를 사용할 수 있습니다.
 
-![Power BI에서 데이터 집합과 필드를 선택합니다.](./media/app-insights-export-stream-analytics/210.png)
+![Power BI에서 데이터 세트와 필드를 선택합니다.](./media/app-insights-export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>데이터가 없나요?
 * [날짜 형식](#set-path-prefix-pattern) 을 YYYY-MM-DD(대시 사용)로 정확하게 설정했는지 확인합니다.

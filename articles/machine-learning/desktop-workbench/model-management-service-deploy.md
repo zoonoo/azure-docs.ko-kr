@@ -50,7 +50,7 @@ CLI를 사용하여 웹 서비스를 배포하여 로컬 컴퓨터 또는 클러
 ### <a name="1-save-your-model"></a>1. 모델 저장
 학습되고 저장된 모델 파일(예: mymodel.pkl)로 시작합니다. 파일 확장명은 모델을 학습하고 저장하는 데 사용하는 플랫폼에 따라 다릅니다. 
 
-예를 들어 Python의 Pickle 라이브러리를 사용하여 학습된 모델을 파일에 저장할 수 있습니다. 다음은 아이리스 데이터 집합을 사용하는 [예제](http://scikit-learn.org/stable/modules/model_persistence.html)입니다.
+예를 들어 Python의 Pickle 라이브러리를 사용하여 학습된 모델을 파일에 저장할 수 있습니다. 다음은 아이리스 데이터 세트를 사용하는 [예제](http://scikit-learn.org/stable/modules/model_persistence.html)입니다.
 
 ```python
 import pickle

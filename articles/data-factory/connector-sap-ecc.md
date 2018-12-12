@@ -85,7 +85,7 @@ SAP ECC 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SAP ECC 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 SAP ECC 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
 SAP ECC에서 데이터를 복사하려면 데이터 세트의 type 속성을 **SapEccResource**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 

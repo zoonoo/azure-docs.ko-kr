@@ -57,7 +57,7 @@ Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HD
 ## <a name="machine-learning-activities"></a>Machine Learning 작업
 Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [배치 실행 작업](transform-data-using-machine-learning.md)을 사용하여 Machine Learning 웹 서비스를 호출하고 배치에 있는 데이터에 대한 예측을 할 수 있습니다.
 
-시간이 지남에 따라 Machine Learning 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. [업데이트 리소스 작업](update-machine-learning-models.md)을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
+시간이 지남에 따라 Machine Learning 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. [업데이트 리소스 작업](update-machine-learning-models.md)을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
 
 이러한 Machine Learning 작업에 대한 자세한 내용은 [Machine Learning 작업 사용](transform-data-using-machine-learning.md)을 참조하세요. 
 

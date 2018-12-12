@@ -193,7 +193,7 @@ items:
     items:
     - name: 샘플 실험
       href: sample-experiments.md
-    - name: 샘플 데이터 집합
+    - name: 샘플 데이터 세트
       href: use-sample-datasets.md
     - name: 고객 이탈 예
       href: azure-ml-customer-churn-scenario.md

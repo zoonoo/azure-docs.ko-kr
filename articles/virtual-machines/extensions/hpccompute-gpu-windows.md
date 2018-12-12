@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144646"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495984"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
 ## <a name="overview"></a>개요
 
-이 확장은 Windows N 시리즈 VM에 NVIDIA GPU 드라이버를 설치합니다. 확장은 VM 제품군에 따라 CUDA 또는 GRID 드라이버를 설치합니다. 이 확장을 사용하여 NVIDIA 드라이버를 설치하면 NVIDIA 최종 사용자 사용권 계약을 수락하고 이에 동의하게 됩니다. 설치 프로세스 중에 가상 머신을 다시 부팅하여 드라이버 설치가 완료될 수 있습니다.
+이 확장은 Windows N 시리즈 VM에 NVIDIA GPU 드라이버를 설치합니다. 확장은 VM 제품군에 따라 CUDA 또는 GRID 드라이버를 설치합니다. 이 확장을 사용하여 NVIDIA 드라이버를 설치하면 [NVIDIA 최종 사용자 사용권 계약](https://go.microsoft.com/fwlink/?linkid=874330)을 수락하고 이에 동의하게 됩니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
 
 또한 [Linux N 시리즈 VM](hpccompute-gpu-linux.md)에 NVIDIA GPU 드라이버를 설치할 수 있는 확장도 제공됩니다.
-
-NVIDIA 최종 사용자 사용권 계약의 사용 약관은 https://go.microsoft.com/fwlink/?linkid=874330에 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -45,7 +43,7 @@ NVIDIA 최종 사용자 사용권 계약의 사용 약관은 https://go.microsof
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 가상 머신이 인터넷에 연결되어 있고 액세스 권한이 있어야 합니다.
+NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM이 인터넷에 연결되어 있고 액세스 권한이 있어야 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -71,15 +69,23 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 가�
 }
 ```
 
-### <a name="property-values"></a>속성 값
+### <a name="properties"></a>properties
 
-| Name | 값/예제 | 데이터 형식 |
+| 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | 형식 | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
+### <a name="settings"></a>설정
+
+모든 설정은 선택 사항입니다. 기본 동작은 지원되는 해당하는 최신 드라이버를 설치하는 것입니다.
+
+| 이름 | 설명 | 기본값 | 유효한 값 | 데이터 형식 |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 드라이버 버전 | 최신 | GRID: “411.81”, “391.81”, “391.58”, “391.03”<br> CUDA: “398.75”, “397.44”, “390.85” | string |
+| installGridND | ND 시리즈 VM에 GRID 드라이버 설치 | false | true, false | 부울 |
 
 ## <a name="deployment"></a>배포
 
@@ -129,6 +135,8 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
+다음 예제에서는 위의 ARM 및 PowerShell 예제를 미러링하고 사용자 지정 설정을 기본이 아닌 드라이버 설치의 예제로 추가합니다. 특히 ND 시리즈 VM이 프로비전되는 경우에도 특정 GRID 드라이버를 설치합니다.
+
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -137,6 +145,8 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 

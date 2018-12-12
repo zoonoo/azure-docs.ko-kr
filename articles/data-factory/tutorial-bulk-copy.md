@@ -231,7 +231,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
 
-이 자습서에서는 데이터가 저장되는 위치를 지정하는 원본 및 싱크 데이터 집합을 만듭니다.
+이 자습서에서는 데이터가 저장되는 위치를 지정하는 원본 및 싱크 데이터 세트를 만듭니다.
 
 ### <a name="create-a-dataset-for-source-sql-database"></a>원본 SQL Database에 대한 데이터 세트 만들기
 
@@ -269,7 +269,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureSqlTableDataset
     ```
 
-### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>싱크 SQL Data Warehouse에 대한 데이터 집합 만들기
+### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>싱크 SQL Data Warehouse에 대한 데이터 세트 만들기
 
 1. **C:\ADFv2TutorialBulkCopy** 폴더에 다음 내용이 포함된 **AzureSqlDWDataset.json**이라는 JSON 파일을 만듭니다. "tableName"이 매개 변수로 설정되며, 나중에 이 데이터 집합을 참조하는 복사 작업에서 실제 값을 데이터 집합으로 전달합니다.
 

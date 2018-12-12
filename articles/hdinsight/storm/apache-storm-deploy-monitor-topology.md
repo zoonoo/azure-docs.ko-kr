@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53f729e23ced00bd0acb5674308f8c610bff8868
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce39e3ffce0b7721bde84254c7e5a35ec28465dc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005379"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583162"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
-Storm 대시보드를 사용하면 사용자의 웹 브라우저를 사용하는 HDInsight 클러스터에 Apache Storm 토폴로지를 쉽게 배포 및 실행할 수 있습니다. 실행 중인 토폴로지를 모니터링 및 관리하기 위해 대시보드를 사용할 수도 있습니다. Visual Studio를 사용하는 경우 Visual Studio용 HDInsight 도구는 Visual Studio에서 유사한 기능을 제공합니다.
+[Apache Storm](http://storm.apache.org/) 대시보드를 사용하면 웹 브라우저를 통해 HDInsight 클러스터에 Apache Storm 토폴로지를 쉽게 배포하고 실행할 수 있습니다. 실행 중인 토폴로지를 모니터링 및 관리하기 위해 대시보드를 사용할 수도 있습니다. Visual Studio를 사용하는 경우 Visual Studio용 HDInsight 도구는 Visual Studio에서 유사한 기능을 제공합니다.
 
 Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 모니터링 및 관리 솔루션을 만들기 위해 사용할 수 있는 Storm REST API를 필요로 합니다.
 
@@ -88,7 +88,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
   * **균형 다시 맞추기**- 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 이렇게 하면 토폴로지가 병렬 처리를 조정하여 클러스터에서 증가하거나 감소한 노드 수를 보충할 수 있습니다.
 
-      자세한 내용은 [Storm 토폴로지의 병렬 처리 이해](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
+      자세한 내용은 [Apache Storm 토폴로지의 병렬 처리 이해](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
 
   * **중단**- 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
 
@@ -118,7 +118,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 ## <a name="hdinsight-tools-for-visual-studio"></a>Visual Studio용 HDInsight 도구
 
-HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지를 제출하는 데 사용할 수 있습니다. 다음 단계는 샘플 응용 프로그램을 사용합니다. HDInsight 도구를 사용하여 자신만의 토폴로지 만들기에 대한 자세한 내용은 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
+[HDInsight 도구](https://azure.microsoft.com/resources/videos/hdinsight-tools-for-visual-studio/)는 Storm 클러스터에 C# 또는 하이브리드 토폴로지를 제출하는 데 사용할 수 있습니다. 다음 단계는 샘플 응용 프로그램을 사용합니다. HDInsight 도구를 사용하여 자신만의 토폴로지 만들기에 대한 자세한 내용은 [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
 다음 단계를 통해 HDInsight 클러스터에서 Storm에 샘플을 배포한 다음 토폴로지를 보고 관리할 수 있습니다.
 
@@ -159,7 +159,7 @@ HDInsight 도구는 Storm 클러스터에 C# 또는 하이브리드 토폴로지
 
 Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하여 유사한 관리 및 모니터링 기능을 수행할 수 있습니다. REST API를 사용하여 Storm 토폴로지를 관리 및 모니터링하는 사용자 지정 도구를 만들 수 있습니다.
 
-자세한 내용은 [Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md)를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
+자세한 내용은 [Apache Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md)를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
 
 ### <a name="base-uri"></a>기본 URI
 
@@ -174,7 +174,7 @@ REST API 요청에서는 **기본 인증**을 사용해야 하므로 HDInsight �
 
 ### <a name="return-values"></a>반환 값
 
-REST API에서 반환되는 정보는 클러스터와 동일한 Azure Virtual Network에 있는 클러스터 또는 가상 머신 내에서만 사용할 수 있습니다. 예를 들어, Zookeeper 서버에 대해 반환된 FQDN(정규화된 도메인 이름)은 인터넷에서 액세스할 수 없습니다.
+REST API에서 반환되는 정보는 클러스터와 동일한 Azure Virtual Network에 있는 클러스터 또는 가상 머신 내에서만 사용할 수 있습니다. 예를 들어 [Apache ZooKeeper](https://zookeeper.apache.org/) 서버에 대해 반환된 FQDN(정규화된 도메인 이름)은 인터넷에서 액세스할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -182,9 +182,9 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 
 * [Visual Studio용 HDInsight 도구를 사용하여 C# 토폴로지 개발](apache-storm-develop-csharp-visual-studio-topology.md)
 
-* [Maven을 사용하여 Java 기반 토폴로지 개발](apache-storm-develop-java-topology.md)
+* [Apache Maven을 사용하여 Java 기반 토폴로지 개발](apache-storm-develop-java-topology.md)
 
-추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)를 참조하세요.
+추가 예제 토폴로지 목록은 [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)를 참조하세요.
 
 [hdinsight-dashboard]: ./media/apache-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/apache-storm-deploy-monitor-topology/submit.png

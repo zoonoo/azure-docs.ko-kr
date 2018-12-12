@@ -59,7 +59,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 | authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. |예 |
 | 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
 | 암호 |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(기본 인증을 사용하는 경우) |
-| authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |아니요. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
+| authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. | 아니요. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
 | enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
 | allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
@@ -89,15 +89,15 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-## <a name="dataset-properties"></a>데이터 집합 속성
+## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 집합 문서를 참조하세요. 이 섹션에서는 MongoDB 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 MongoDB 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-MongoDB에서 데이터를 복사하려면 데이터 집합의 type 속성을 **MongoDbCollection**으로 설정합니다. 다음과 같은 속성이 지원됩니다.
+MongoDB에서 데이터를 복사하려면 데이터 세트의 type 속성을 **MongoDbCollection**으로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **MongoDbCollection**으로 설정해야 합니다. | 예 |
+| 형식 | 데이터 세트의 type 속성을 **MongoDbCollection**으로 설정해야 합니다. | 예 |
 | collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |예 |
 
 **예제:**
@@ -129,7 +129,7 @@ MongoDB에서 데이터를 복사하려면 복사 작업의 원본 형식을 **M
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 type 속성을 **MongoDbSource**로 설정해야 합니다. | 예 |
-| 쿼리 |사용자 지정 SQL-92 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 집합의 "collectionName"이 지정된 경우) |
+| 쿼리 |사용자 지정 SQL-92 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 세트의 "collectionName"이 지정된 경우) |
 
 **예제:**
 

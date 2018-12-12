@@ -1,6 +1,6 @@
 ---
 title: HDInsight의 Spark MLlib를 사용한 Machine Learning 예제 - Azure
-description: 로지스틱 회귀를 통해 분류를 사용하여 데이터 집합을 분석하는 Machine Learning 앱을 만드는 데 Spark MLlib를 사용하는 방법에 대해 알아봅니다.
+description: 로지스틱 회귀를 통해 분류를 사용하여 데이터 세트를 분석하는 Machine Learning 앱을 만드는 데 Spark MLlib를 사용하는 방법에 대해 알아봅니다.
 keywords: Spark Machine Learning, Spark Machine Learning 예제
 services: hdinsight
 author: hrasheed-msft
@@ -43,7 +43,7 @@ MLlib은 다음 작업에 적합한 유틸리티를 비롯하여 Machine Learnin
 요약하자면, 로지스틱 회귀 프로세스는 입력 벡터가 한 그룹 또는 다른 그룹에 속할 확률을 예측할 수 있는 *로지스틱 함수* 를 만듭니다.  
 
 ## <a name="predictive-analysis-example-on-food-inspection-data"></a>식품 검사 데이터에 대한 예측 분석 예제
-이 예제에서는 [시카고 데이터 포털](https://data.cityofchicago.org/)을 통해 획득한 식품 검사 데이터(**Food_Inspections1.csv**)에 대한 예측 분석을 수행하기 위해 Spark를 사용합니다. 이 데이터 집합에는 각 식품 회사에 대한 정보, 발견된 위반 사항(있는 경우), 검사 결과를 포함하여 시카고에서 수행한 식품 회사 검사에 대한 정보가 포함되어 있습니다. CSV 데이터 파일은 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**에 있는 클러스터와 연결된 저장소 계정에서 이미 사용할 수 있습니다.
+이 예제에서는 [시카고 데이터 포털](https://data.cityofchicago.org/)을 통해 획득한 식품 검사 데이터(**Food_Inspections1.csv**)에 대한 예측 분석을 수행하기 위해 Spark를 사용합니다. 이 데이터 세트에는 각 식품 회사에 대한 정보, 발견된 위반 사항(있는 경우), 검사 결과를 포함하여 시카고에서 수행한 식품 회사 검사에 대한 정보가 포함되어 있습니다. CSV 데이터 파일은 **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**에 있는 클러스터와 연결된 저장소 계정에서 이미 사용할 수 있습니다.
 
 아래 단계에서는 음식 검사에 합격 또는 불합격하는 조건을 볼 수 있는 모델을 개발할 것입니다.
 

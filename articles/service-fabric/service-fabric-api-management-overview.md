@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205164"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423646"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 및 API Management 개요
 
@@ -27,7 +27,13 @@ ms.locfileid: "34205164"
 
 이 문서에서는 Service Fabric 응용 프로그램에 대한 게이트웨이로 Azure API Management를 사용하는 것을 소개합니다. API Management는 Service Fabric과 직접 통합되므로 다양한 라우팅 규칙 집합을 사용하여 백 엔드 Service Fabric 서비스에 API를 게시할 수 있습니다. 
 
+## <a name="availability"></a>가용성
+
+> [!IMPORTANT]
+> 이 기능은 필수 가상 네트워크 지원으로 인해 API Management의 **프리미엄** 및 **개발자** 계층에서 사용할 수 있습니다.
+
 ## <a name="architecture"></a>아키텍처
+
 공통 Service Fabric 아키텍처는 HTTP API를 노출하는 백 엔드 서비스에 HTTP 호출을 수행하는 단일 페이지 웹 응용 프로그램을 사용합니다. [Service Fabric 시작 응용 프로그램 예제](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)는 이 아키텍처의 예를 보여 줍니다.
 
 이 시나리오에서는 상태 비저장 웹 서비스가 Service Fabric 응용 프로그램에 대한 게이트웨이로 작동합니다. 이 방법에서는 다음 다이어그램에 표시된 것처럼 HTTP 요청을 백 엔드 서비스로 프록시할 수 있는 웹 서비스를 작성해야 합니다.
@@ -42,7 +48,7 @@ ms.locfileid: "34205164"
 
 ## <a name="application-scenarios"></a>응용 프로그램 시나리오
 
-Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있으며 단일 항목, int-64 범위 및 이름 지정(named)의 3가지 체계 중 하나를 사용하여 분할될 수 있습니다. 서비스 끝점 확인을 사용하려면 특정 서비스 인스턴스의 특정 파티션을 식별해야 합니다. 서비스 끝점을 확인할 때는 서비스 인스턴스 이름(예: `fabric:/myapp/myservice`)과 서비스의 특정 파티션을 지정해야 합니다(단, 단일 파티션인 경우는 제외).
+Service Fabric의 서비스는 상태 비저장 또는 상태 저장일 수 있으며 단일 항목, int-64 범위 및 이름 지정(named)의 3가지 체계 중 하나를 사용하여 분할될 수 있습니다. 서비스 엔드포인트 확인을 사용하려면 특정 서비스 인스턴스의 특정 파티션을 식별해야 합니다. 서비스 엔드포인트를 확인할 때는 서비스 인스턴스 이름(예: `fabric:/myapp/myservice`)과 서비스의 특정 파티션을 지정해야 합니다(단, 단일 파티션인 경우는 제외).
 
 상태 비저장 서비스, 상태 저장 서비스 및 모든 파티션 체계를 조합하여 Azure API Management를 사용할 수 있습니다.
 

@@ -55,11 +55,11 @@ ms.locfileid: "46951970"
 
      **문제 해결**: Azure 구독에는 사용할 수 있는 코어 수에 할당량이 있을 수 있습니다. Azure Portal에서는 총 코어 수가 할당량을 초과하는 클러스터를 만들 수 없습니다. 할당량을 찾으려면 Azure Portal에서 구독 섹션으로 이동하고 클러스터를 배포하는 데 사용되는 구독을 클릭하고 **사용량+할당량**을 클릭합니다. 일반적으로 할당량은 Azure 지역별로 정의되고 충분한 코어를 사용 가능한 지역에서 Spark 클러스터를 배포하도록 선택할 수 있습니다. 
 
-* 데이터 집합을 저장하는 데 사용되는 Azure Storage 계정을 만듭니다. [지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 저장소 계정을 만듭니다.
+* 데이터 세트를 저장하는 데 사용되는 Azure Storage 계정을 만듭니다. [지침](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에 따라 저장소 계정을 만듭니다.
 
 ## <a name="data-description"></a>데이터 설명
 
-[TalkingData 데이터 집합](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)을 사용합니다. 이 데이터 집합에는 휴대폰에 있는 앱의 이벤트가 있습니다. 휴대폰 및 최근에 사용자가 생성한 이벤트의 종류에 따라 휴대폰 사용자의 성별 및 연령 범주를 예측하는 것이 목표입니다.  
+[TalkingData 데이터 집합](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)을 사용합니다. 이 데이터 세트에는 휴대폰에 있는 앱의 이벤트가 있습니다. 휴대폰 및 최근에 사용자가 생성한 이벤트의 종류에 따라 휴대폰 사용자의 성별 및 연령 범주를 예측하는 것이 목표입니다.  
 
 ## <a name="scenario-structure"></a>시나리오 구조
 이 시나리오는 GitHub 리포지토리에 여러 폴더가 있습니다. 코드 및 구성 파일은 **코드** 폴더에 있고 모든 설명서는 **문서** 폴더에 있고 모든 이미지는 **이미지** 폴더에 있습니다. 루트 폴더에는 이 시나리오에 대한 간단한 요약을 포함하는 추가 정보 파일이 있습니다.
@@ -151,18 +151,18 @@ spark-sklearn 패키지를 사용하여 하이퍼 매개 변수의 분산 튜닝
 ### <a name="data-ingestion"></a>데이터 수집
 이 시나리오의 코드는 데이터가 Azure Blob Storage에 저장되었다고 가정합니다. 데이터를 Kaggle 사이트에서 컴퓨터에 다운로드하고 Blob Storage에 업로드하는 방법을 보여줍니다. 그런 다음 Blob Storage에서 데이터를 읽는 방법을 보여줍니다. 
 
-Kaggle에서 데이터를 다운로드하려면 [데이터 집합 페이지](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)로 이동하고 다운로드 단추를 클릭합니다. Kaggle에 로그인하라는 요청을 받습니다. 로그인한 후에 데이터 집합 페이지로 다시 리디렉션됩니다. 처음 7개의 파일을 선택하고 다운로드 단추를 클릭하여 왼쪽 열에서 다운로드합니다. 다운로드한 파일의 전체 크기는 289MB입니다. Blob Storage에 이러한 파일을 업로드하려면 저장소 계정에 blob Storage 컨테이너 '데이터 집합'을 만듭니다. 저장소 계정의 Azure 페이지로 이동하고 Blob을 클릭하고 +컨테이너를 클릭하여 수행할 수 있습니다. '데이터 집합'을 이름으로 입력하고 확인을 클릭합니다. 다음 스크린샷에서는 다음과 같은 단계를 보여줍니다.
+Kaggle에서 데이터를 다운로드하려면 [데이터 세트 페이지](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)로 이동하고 다운로드 단추를 클릭합니다. Kaggle에 로그인하라는 요청을 받습니다. 로그인한 후에 데이터 세트 페이지로 다시 리디렉션됩니다. 처음 7개의 파일을 선택하고 다운로드 단추를 클릭하여 왼쪽 열에서 다운로드합니다. 다운로드한 파일의 전체 크기는 289MB입니다. Blob Storage에 이러한 파일을 업로드하려면 저장소 계정에 blob Storage 컨테이너 '데이터 세트'를 만듭니다. 저장소 계정의 Azure 페이지로 이동하고 Blob을 클릭하고 +컨테이너를 클릭하여 수행할 수 있습니다. '데이터 세트'를 이름으로 입력하고 확인을 클릭합니다. 다음 스크린샷에서는 다음과 같은 단계를 보여줍니다.
 
 ![Blob 열기](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![컨테이너 열기](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
 
-그런 후에 목록에서 데이터 세트 컨테이너를 선택하고 업로드 단추를 클릭합니다. Azure Portal에서는 여러 파일을 동시에 업로드할 수 있습니다. "Blob 업로드" 섹션에서 폴더 단추를 클릭하고, 데이터 집합의 모든 파일을 선택하고, 열기를 클릭한 후 업로드를 클릭합니다. 다음 스크린샷은 이러한 단계를 보여 줍니다.
+그런 후에 목록에서 데이터 세트 컨테이너를 선택하고 업로드 단추를 클릭합니다. Azure Portal에서는 여러 파일을 동시에 업로드할 수 있습니다. "Blob 업로드" 섹션에서 폴더 단추를 클릭하고, 데이터 세트의 모든 파일을 선택하고, 열기를 클릭한 후 업로드를 클릭합니다. 다음 스크린샷은 이러한 단계를 보여 줍니다.
 
 ![Blob 업로드](media/scenario-distributed-tuning-of-hyperparameters/upload_blob.png) 
 
 인터넷 연결에 따라 파일을 업로드하는 데 몇 분이 걸립니다. 
 
-코드에서 [Azure Storage SDK](https://docs.microsoft.com/python/azure/)를 사용하여 Blob Storage에서 현재 실행 환경으로 데이터 집합을 다운로드합니다. 다운로드는 load_data.py 파일의 load\_data() 함수에서 수행됩니다. 이 코드를 사용하려면 <ACCOUNT_NAME> 및 <ACCOUNT_KEY>를 데이터 집합을 호스트하는 저장소 계정의 이름 및 기본 키로 바꿔야 합니다. 저장소 계정의 Azure 페이지에서 왼쪽 위 모서리에 계정 이름이 표시됩니다. 계정 키를 가져오려면 저장소 계정의 Azure 페이지에서 선택키를 선택하고(데이터 수집 섹션의 첫 번째 스크린샷 참조) 키 열의 첫 번째 행에서 긴 문자열을 복사합니다.
+코드에서 [Azure Storage SDK](https://docs.microsoft.com/python/azure/)를 사용하여 Blob Storage에서 현재 실행 환경으로 데이터 세트를 다운로드합니다. 다운로드는 load_data.py 파일의 load\_data() 함수에서 수행됩니다. 이 코드를 사용하려면 <ACCOUNT_NAME> 및 <ACCOUNT_KEY>를 데이터 집합을 호스트하는 저장소 계정의 이름 및 기본 키로 바꿔야 합니다. 저장소 계정의 Azure 페이지에서 왼쪽 위 모서리에 계정 이름이 표시됩니다. 계정 키를 가져오려면 저장소 계정의 Azure 페이지에서 선택키를 선택하고(데이터 수집 섹션의 첫 번째 스크린샷 참조) 키 열의 첫 번째 행에서 긴 문자열을 복사합니다.
  
 ![선택키](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

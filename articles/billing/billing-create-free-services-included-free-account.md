@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: ab0b48f8c8579af8a3314bad14dafbe79f9a9781
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 77022b442a78c8d14284e06af4f156302c1e6ffc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393743"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584403"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Azure 무료 계정에 포함된 서비스 만들기
 
@@ -34,6 +34,6 @@ Azure 무료 계정에는 12개월 동안 사용할 수 있는 제한 수량의 
 ## <a name="multiple-instances-of-services-can-be-created-within-allowed-limits"></a>허용된 제한 내에서 서비스의 여러 인스턴스를 만들 수 있음
 사용량 합계가 사용 한도를 벗어나지만 않으면 서비스의 여러 인스턴스를 만들 수 있습니다. 예를 들어 Azure 무료 계정을 사용하여 매월 750시간 동안 B1S Windows 가상 머신을 무료로 사용할 수 있습니다. 원하는 어떤 조합이든 750시간을 사용할 수 있습니다. 예를 들어 B1S Windows 가상 머신을 5개 만들고 각각 150시간씩 사용할 수 있습니다. 
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
-도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

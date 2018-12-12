@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
-ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23109681"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333567"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 작업 보기
 ## <a name="overview"></a>개요
@@ -59,7 +59,7 @@ ms.locfileid: "23109681"
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>가상 머신이 하이퍼바이저에서 일시 중지되는 경우 작업 실패
 StorSimple 가상 배열에서 작업이 진행 중인 경우 장치(하이퍼바이저에 프로비전된 가상 컴퓨터)가 15분 넘게 일시 중지되면 작업이 실패합니다. 이는 StorSimple 가상 배열 시간과 Microsoft Azure 시간이 동기화 해제되기 때문입니다. 
 
-다음과 같은 오류가 표시됩니다. "장치 시간이 15분 넘게 Microsoft Azure와 동기화가 끊어졌습니다. 하이퍼바이저와 장치 시간이 NTP 서비스와 동기화되어 있는지 확인합니다. 연결 문제가 없는지 확인합니다. 연결 문제를 해결하려면 가상 장치의 로컬 웹 UI에서 진단 테스트를 실행하세요."
+다음과 같은 오류가 표시됩니다. "장치 시간이 15분 넘게 Microsoft Azure와 동기화가 끊어졌습니다. 하이퍼바이저와 디바이스 시간이 NTP 서버와 동기화되어 있는지 확인합니다. 연결 문제가 없는지 확인합니다. 연결 문제를 해결하려면 가상 장치의 로컬 웹 UI에서 진단 테스트를 실행하세요."
 
 이러한 실패는 백업, 복원, 업데이트 및 장애 조치(failover) 작업에 적용됩니다. 가상 머신이 Hyper-V에 프로비전된 경우 이 컴퓨터는 최종적으로 하이퍼바이저와 시간을 동기화합니다. 이러한 동기화 후 작업을 다시 시작할 수 있습니다.
 

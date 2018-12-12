@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 09ecd46837a12f5f1a8278b1644dc099701bcd00
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227370"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584726"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>청구 및 비용 관리 자동화 시나리오
 
@@ -122,4 +122,4 @@ ms.locfileid: "47227370"
 
 - Azure API를 사용하여 Azure 사용량에 대한 정보를 프로그래밍 방식으로 얻는 방법에 대한 자세한 내용은 [Azure 소비량 API 개요](billing-consumption-api-overview.md) 및 [Azure 청구 API 개요](billing-usage-rate-card-overview.md)를 참조하세요.
 - 청구서를 자세한 일별 사용 현황 파일 및 Azure Portal의 비용 관리 보고서와 비교하려면 [Microsoft Azure 요금 청구 방식 이해](billing-understand-your-bill.md)를 참조하세요.
-- 계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+- 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

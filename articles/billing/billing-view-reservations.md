@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: cwatson
-ms.openlocfilehash: 2ae30ca55f3ca03a64438025960ddd807e288216
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4506d65d173ea483558a772d89fe7cbc8cd84944
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48272619"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584590"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Azure Portal에서 Azure 예약 보기
 
@@ -71,6 +71,6 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [엔터프라이즈 등록의 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 - [CSP 구독의 예약 사용량 이해](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
-계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

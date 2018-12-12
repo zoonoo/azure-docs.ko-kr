@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 72a8a09d04dc009598dafc35b65304662b7b8915
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 58bec272733d0ad83665f4e06f37ae528eb2f8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955918"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499652"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 [RBAC(역할 기반 액세스 제어)](overview.md)에는 사용자, 그룹 및 서비스 주체를 할당할 수 있는 여러 기본 제공 역할 정의가 있습니다. 역할 할당은 Azure의 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
@@ -39,7 +39,7 @@ ms.locfileid: "49955918"
 | [AcrImageSigner](#acrimagesigner) | acr 이미지 서명자 |
 | [AcrQuarantineReader](#acrquarantinereader) | acr 격리 데이터 판독기 |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr 격리 데이터 작성자 |
-| [API Management 서비스 참가자](#api-management-service-contributor) | API Management를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [API Management 서비스 참가자](#api-management-service-contributor) | 서비스 및 API를 관리할 수 있습니다. |
 | [API Management 서비스 운영자 역할](#api-management-service-operator-role) | 서비스를 관리할 수 있지만 API는 관리할 수 없습니다. |
 | [Azure API Management 읽기 권한자 역할](#api-management-service-reader-role) | 서비스 및 API에 대한 읽기 전용 액세스 |
 | [Application Insights 구성 요소 기여자](#application-insights-component-contributor) | Application Insights 구성 요소를 관리할 수 있음 |
@@ -53,8 +53,8 @@ ms.locfileid: "49955918"
 | [Backup 기여자](#backup-contributor) | 백업 서비스를 관리할 수 있지만, 자격 증명 모음을 만들고 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [Backup 운영자](#backup-operator) | 백업 제거를 제외한 백업 서비스를 관리하고 자격 증명 모음 만들고 다른 사람에게 액세스 권한을 부여할 수 있습니다. |
 | [Backup 읽기 권한자](#backup-reader) | 백업 서비스를 볼 수 있지만 변경할 수는 없습니다. |
-| [청구 읽기 권한자](#billing-reader) | 청구 데이터를 읽을 수 있습니다. |
-| [BizTalk 참가자](#biztalk-contributor) | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [청구 읽기 권한자](#billing-reader) | 결제 데이터에 대해 읽기 권한 허용 |
+| [BizTalk 기여자](#biztalk-contributor) | BizTalk Services를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [CDN 엔드포인트 기여자](#cdn-endpoint-contributor) | CDN 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
 | [CDN 엔드포인트 독자](#cdn-endpoint-reader) | CDN 엔드포인트를 볼 수 있지만 변경할 수는 없습니다. |
 | [CDN 프로필 기여자](#cdn-profile-contributor) | CDN 프로필과 해당 엔드포인트를 관리할 수 있지만 다른 사용자에게 액세스 권한을 부여할 수는 없습니다. |
@@ -70,12 +70,14 @@ ms.locfileid: "49955918"
 | [Cost Management 읽기 권한자](#cost-management-reader) | 비용 데이터 및 구성(예: 예산, 내보내기)을 확인할 수 있음 |
 | [Data Box 기여자](#data-box-contributor) | 다른 사람에게 액세스 권한을 부여하는 것을 제외한 모든 항목을 Data Box 서비스에서 관리할 수 있습니다. |
 | [Data Box 읽기 권한자](#data-box-reader) | 주문하기나 주문 세부 정보 편집 및 다른 사용자에게 액세스 권한 부여 외에 Data Box 서비스를 관리할 수 있습니다. |
-| [Data Factory 참가자](#data-factory-contributor) | 데이터 팩터리를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [Data Factory 참가자](#data-factory-contributor) | 데이터 팩터리를 만들고 관리하며 해당 하위 리소스도 만들고 관리합니다. |
 | [Data Lake Analytics 개발자](#data-lake-analytics-developer) | 사용자 자신의 작업을 제출, 모니터링 및 관리할 수 있지만 Data Lake Analytics 계정을 만들거나 삭제할 수는 없습니다. |
 | [데이터 제거자](#data-purger) | 분석 데이터를 제거할 수 있습니다. |
 | [DevTest Lab 사용자](#devtest-labs-user) | Azure DevTest Labs의 가상 머신을 연결, 시작, 다시 시작 및 종료할 수 있습니다. |
-| [DNS 영역 참가자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
+| [DNS 영역 기여자](#dns-zone-contributor) | Azure DNS의 DNS 영역과 레코드 집합을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [DocumentDB 계정 기여자](#documentdb-account-contributor) | Azure Cosmos DB 계정을 관리할 수 있습니다. Azure Cosmos DB는 이전의 DocumentDB입니다. |
+| [EventGrid EventSubscription contributor(미리 보기)](#eventgrid-eventsubscription-contributor-preview) | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
+| [EventGrid EventSubscription 읽기 권한자(미리 보기)](#eventgrid-eventsubscription-reader-preview) | EventGrid 이벤트 구독을 읽을 수 있습니다. |
 | [HDInsight 도메인 서비스 기여자](#hdinsight-domain-services-contributor) | HDInsight Enterprise Security Package에 필요한 도메인 서비스 관련 작업을 읽고, 만들고, 수정하고, 삭제할 수 있음 |
 | [지능형 시스템 계정 기여자](#intelligent-systems-account-contributor) | 인텔리전트 시스템 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [키 자격 증명 모음 기여자](#key-vault-contributor) | 키 자격 증명 모음을 관리할 수 있지만 액세스할 수는 없습니다. |
@@ -100,8 +102,8 @@ ms.locfileid: "49955918"
 | [리소스 정책 참가자(미리 보기)](#resource-policy-contributor-preview) | (미리 보기) 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 EA의 백필된 사용자입니다. |
 | [Scheduler 작업 컬렉션 참가자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. |
-| [보안 관리자](#security-admin) | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제 |
-| [보안 관리자](#security-manager) | 보안 구성 요소, 보안 정책 및 가상 머신을 관리할 수 있습니다. |
+| [보안 관리자](#security-admin) | Security Center에서만 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
+| [보안 관리자(레거시)](#security-manager-legacy) | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. |
 | [보안 판독기](#security-reader) | Security Center에서만: 권장 사항 및 경고 보기, 보안 정책 보기, 보안 상태 보기 가능, 변경 불가 |
 | [Site Recovery 기여자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. |
 | [Site Recovery 운영자](#site-recovery-operator) | 장애 조치(failover) 및 장애 복구(failback)를 수행할 수 있지만 다른 Site Recovery 관리 작업은 수행할 수 없습니다. |
@@ -146,7 +148,7 @@ ms.locfileid: "49955918"
 > | Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |
 > | Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 |
 > | Microsoft.Authorization/elevateAccess/Action | 테넌트 범위에서 호출자에게 사용자 액세스 관리자 액세스 권한을 부여합니다. |
-> | Microsoft.Blueprint/blueprintAssignments/write | 청사진 아티팩트 만들기 및 업데이트 |
+> | Microsoft.Blueprint/blueprintAssignments/write | 청사진 아티팩트 만들기 또는 업데이트 |
 > | Microsoft.Blueprint/blueprintAssignments/delete | 청사진 아티팩트 삭제 |
 
 ## <a name="reader"></a>읽기 권한자
@@ -165,8 +167,7 @@ ms.locfileid: "49955918"
 > | **설명** | acr 이미지 서명자 |
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
+> | Microsoft.ContainerRegistry/registries/sign/write | 컨테이너 레지스트리에 대한 콘텐츠 신뢰 메타데이터를 푸시/풀합니다. |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -175,7 +176,7 @@ ms.locfileid: "49955918"
 > | **설명** | acr 격리 데이터 읽기 권한자 |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -184,14 +185,14 @@ ms.locfileid: "49955918"
 > | **설명** | acr 격리 데이터 작성자 |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | 컨테이너 레지스트리에서 격리된 이미지를 끌어오거나 가져옵니다. |
+> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | 격리된 이미지의 격리 상태를 작성/수정합니다. |
 
 ## <a name="api-management-service-contributor"></a>API Management 서비스 참가자
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | API Management를 관리할 수 있지만 액세스할 수는 없습니다. |
+> | **설명** | 서비스 및 API를 관리할 수 있습니다. |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Actions** |  |
 > | Microsoft.ApiManagement/service/* | API Management 서비스 만들기 및 관리 |
@@ -536,7 +537,7 @@ ms.locfileid: "49955918"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 청구 데이터를 읽을 수 있습니다. |
+> | **설명** | 결제 데이터에 대해 읽기 권한 허용 |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -813,7 +814,7 @@ ms.locfileid: "49955918"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 데이터 팩터리를 관리할 수 있지만 액세스할 수는 없습니다. |
+> | **설명** | 데이터 팩터리를 만들고 관리하며 해당 하위 리소스도 만들고 관리합니다. |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -883,13 +884,14 @@ ms.locfileid: "49955918"
 > | Microsoft.Compute/virtualMachines/restart/action | 가상 머신을 다시 시작합니다. |
 > | Microsoft.Compute/virtualMachines/start/action | 가상 머신을 시작합니다. |
 > | Microsoft.DevTestLab/*/read | 랩의 속성 읽기 |
-> | Microsoft.DevTestLab/labs/createEnvironment/action | 랩에 가상 머신을 만듭니다. |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | 랩에서 임의 클레임 가능 가상 머신을 클레임합니다. |
+> | Microsoft.DevTestLab/labs/createEnvironment/action | 랩에 가상 머신을 만듭니다. |
 > | Microsoft.DevTestLab/labs/formulas/delete | 수식을 삭제합니다. |
 > | Microsoft.DevTestLab/labs/formulas/read | 수식을 읽습니다. |
 > | Microsoft.DevTestLab/labs/formulas/write | 수식을 추가하거나 수정합니다. |
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | 랩 정책을 평가합니다. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | 기존 가상 머신의 소유권을 가져옵니다. |
+> | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | 해당 시작/중지 일정이 있는 경우 이를 나열합니다. |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 부하 분산 장치 백 엔드 주소 풀을 연결합니다. |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 부하 분산 장치 인바운드 NAT 규칙을 연결합니다. |
 > | Microsoft.Network/networkInterfaces/*/read | 네트워크 인터페이스(예: 네트워크 인터페이스의 일부인 모든 부하 분산 장치)의 속성 읽기 |
@@ -936,6 +938,37 @@ ms.locfileid: "49955918"
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓을 만들고 관리합니다. |
+
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription 기여자(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | EventGrid 이벤트 구독 작업을 관리할 수 있습니다. |
+> | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | **Actions** |  |
+> | Microsoft.Authorization/*/read | 역할 및 역할 할당을 읽습니다. |
+> | Microsoft.EventGrid/eventSubscriptions/* |  |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 항목 유형별로 전역 이벤트 구독을 나열합니다. |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | 지역 이벤트 구독을 나열합니다. |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | 항목 유형별로 지역 이벤트 구독을 나열합니다. |
+> | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
+> | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | Microsoft.Support/* | 지원 티켓을 만들고 관리합니다. |
+
+## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription 읽기 권한자(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | EventGrid 이벤트 구독을 읽을 수 있습니다. |
+> | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | **Actions** |  |
+> | Microsoft.Authorization/*/read | 역할 및 역할 할당을 읽습니다. |
+> | Microsoft.EventGrid/eventSubscriptions/read | eventSubscription을 읽습니다. |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 항목 유형별로 전역 이벤트 구독을 나열합니다. |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | 지역 이벤트 구독을 나열합니다. |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | 항목 유형별로 지역 이벤트 구독을 나열합니다. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 
 ## <a name="hdinsight-domain-services-contributor"></a>HDInsight 도메인 서비스 기여자
 > [!div class="mx-tableFixed"]
@@ -1089,6 +1122,7 @@ ms.locfileid: "49955918"
 > | **설명** | 관리되는 응용 프로그램 리소스에서 작업을 읽고 수행할 수 있습니다. |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **Actions** |  |
+> | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.Solutions/applications/read | 응용 프로그램 목록을 검색합니다. |
 
 ## <a name="managed-applications-reader"></a>Managed Applications 읽기 권한자
@@ -1185,7 +1219,6 @@ ms.locfileid: "49955918"
 > | Microsoft.Support/* | 지원 티켓을 만들고 관리합니다. |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
-> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>모니터링 메트릭 게시자
 > [!div class="mx-tableFixed"]
@@ -1332,15 +1365,17 @@ ms.locfileid: "49955918"
 > | Microsoft.Security/locations/tasks/activate/action | 보안 권장 사항을 활성화합니다. |
 > | Microsoft.Security/locations/tasks/dismiss/action | 보안 권장 사항을 해제합니다. |
 > | Microsoft.Security/policies/write | 보안 규칙을 업데이트합니다. |
-> | Microsoft.Security/securityContacts/write | 보안 연락처를 업데이트합니다. |
+> | Microsoft.Security/pricings/write | 범위에 대한 가격 책정 설정을 업데이트합니다. |
+> | Microsoft.Security/pricings/delete | 범위에 대한 가격 책정 설정을 삭제합니다. |
 > | Microsoft.Security/securityContacts/delete | 보안 연락처를 삭제합니다. |
-> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | Microsoft.Security/securityContacts/write | 보안 연락처를 업데이트합니다. |
+> | Microsoft.Support/* | 지원 티켓을 만들고 관리합니다. |
 
-## <a name="security-manager"></a>보안 관리자
+## <a name="security-manager-legacy"></a>보안 관리자(레거시)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 보안 구성 요소, 보안 정책 및 가상 머신을 관리할 수 있습니다. |
+> | **설명** | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -1559,11 +1594,13 @@ ms.locfileid: "49955918"
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | SQL 서버 감사 정책 만들기 및 관리 |
 > | Microsoft.Sql/servers/auditingSettings/* | SQL 서버 감사 설정 만들기 및 관리 |
+> | Microsoft.Sql/servers/extendedAuditingSettings/read | 지정된 서버에 구성된 확장 서버 Blob 감사 정책의 세부 정보를 검색합니다. |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | SQL 서버 데이터베이스 감사 정책 만들기 및 관리 |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | SQL 서버 데이터베이스 감사 설정 만들기 및 관리 |
 > | Microsoft.Sql/servers/databases/auditRecords/read | 감사 레코드 읽기 |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | SQL 서버 데이터베이스 연결 정책 만들기 및 관리 |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | SQL 서버 데이터베이스 데이터 마스킹 정책 만들기 및 관리 |
+> | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | 지정된 데이터베이스에 구성된 확장 Blob 감사 정책의 세부 정보를 검색합니다. |
 > | Microsoft.Sql/servers/databases/read | 데이터베이스 목록을 가져오거나 지정된 데이터베이스에 대한 속성을 가져옵니다. |
 > | Microsoft.Sql/servers/databases/schemas/read | 데이터베이스의 스키마 목록을 검색합니다. |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/read | 테이블의 열 목록을 검색합니다. |

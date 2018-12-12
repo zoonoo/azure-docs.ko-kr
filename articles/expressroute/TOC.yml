@@ -104,9 +104,9 @@ items:
     href: expressroute-howto-coexist-resource-manager.md
   - name: ExpressRoute Direct 구성
     items:
-    - name: ExpressRoute Direct 구성 - PowerShell
+    - name: Azure PowerShell
       href: expressroute-howto-erdirect.md
-    - name: ExpressRoute Direct 구성 - CLI
+    - name: Azure CLI
       href: expressroute-howto-expressroute-direct-cli.md
   - name: Microsoft 피어링에 대한 경로 필터 구성
     items:
@@ -225,9 +225,9 @@ items:
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: 회로에 대해 공용 피어링 설정
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: a078613e1aa94ea5410e6d3bc69e46deb67eb27d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9980b405670b3fee0d1aa47c746e8f33001ba335
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879225"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083991"

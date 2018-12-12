@@ -76,14 +76,14 @@ REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법�
 
 세 가지 방법으로 Machine Learning Studio 실험으로 데이터를 다운로드할 수 있습니다.
 
-- 데이터 집합으로 로컬 파일 업로드
+- 데이터 세트로 로컬 파일 업로드
 - 모듈을 사용하여 클라우드 데이터 서비스에서 데이터 가져오기
-- 다른 실험에서 저장된 데이터 집합 가져오기
+- 다른 실험에서 저장된 데이터 세트 가져오기
 
 지원된 파일 형식에 대한 자세한 내용은 [Machine Learning Studio로 학습 데이터 가져오기](import-data.md)를 참조하세요.
 
 #### <a id="ModuleLimit"></a>모듈에 대해 설정할 수 있는 데이터 집합의 크기는 어느 정도인가요?
-Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 집합을 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력 크기의 합계 값이 10GB입니다. Hive 또는 Azure SQL Database 쿼리를 사용하여 더 큰 데이터 집합을 샘플링하거나 수집하기 전에 Learning by Counts 전처리를 사용할 수 있습니다.  
+Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 세트를 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력 크기의 합계 값이 10GB입니다. Hive 또는 Azure SQL Database 쿼리를 사용하여 더 큰 데이터 세트를 샘플링하거나 수집하기 전에 Learning by Counts 전처리를 사용할 수 있습니다.  
 
 다음 데이터 형식은 기능 정규화 중에 확장할 수 있으며 10GB 미만으로 제한됩니다.
 
@@ -92,7 +92,7 @@ Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대
 * 문자열
 * 이진 데이터
 
-다음 모듈은 10GB 미만의 데이터 집합으로 제한됩니다.
+다음 모듈은 10GB 미만의 데이터 세트로 제한됩니다.
 
 * Recommender 모듈
 * SMOTE(Synthetic Minority Oversampling Technique) 모듈
@@ -101,7 +101,7 @@ Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대
 * Cross-validation, Tune Model Hyperparameters, Ordinal Regression 및 One-vs-All Multiclass(반복 횟수가 매우 많은 경우)
 
 #### <a id="UploadLimit"></a>데이터 업로드에 대한 제한 사항은 무엇인가요?
-몇 GB보다 큰 데이터 집합의 경우 로컬 파일에서 직접 업로드하지 않고 Azure Storage 또는 Azure SQL Database에 데이터를 업로드하거나 Azure HDInsight를 사용합니다.
+몇 GB보다 큰 데이터 세트의 경우 로컬 파일에서 직접 업로드하지 않고 Azure Storage 또는 Azure SQL Database에 데이터를 업로드하거나 Azure HDInsight를 사용합니다.
 
 **Amazon S3에서 데이터를 읽을 수 있나요?**
 
@@ -250,7 +250,7 @@ RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입
 
 **학습에 사용할 수 있는 데이터의 양은 얼마인가요?**
 
-Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 집합을 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력에 대한 총 크기가 10GB입니다. Hive 쿼리 또는 Azure SQL Database 쿼리를 통하거나 수집 전에 [개수로 알아보기][counts] 모듈로 전처리하여 더 큰 데이터 집합을 샘플링할 수도 있습니다.  
+Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대 10GB 숫자 데이터의 데이터 세트를 지원합니다. 모듈에서 둘 이상의 입력을 사용하는 경우에는 모든 입력에 대한 총 크기가 10GB입니다. Hive 쿼리 또는 Azure SQL Database 쿼리를 통하거나 수집 전에 [개수로 알아보기][counts] 모듈로 전처리하여 더 큰 데이터 세트를 샘플링할 수도 있습니다.  
 
 다음 데이터 형식은 기능 정규화 중에 확장할 수 있으며 10GB 미만으로 제한됩니다.
 
@@ -259,7 +259,7 @@ Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대
 * 문자열
 * 이진 데이터
 
-다음 모듈은 10GB 미만의 데이터 집합으로 제한됩니다.
+다음 모듈은 10GB 미만의 데이터 세트로 제한됩니다.
 
 * Recommender 모듈
 * SMOTE(Synthetic Minority Oversampling Technique) 모듈
@@ -267,7 +267,7 @@ Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대
 * 출력 데이터 크기가 입력 데이터 크기보다 클 수 있는 모듈(예: Join 또는 Feature Hashing)
 * Cross-Validate, Tune Model Hyperparameters, Ordinal Regression 및 One-vs-All Multiclass(반복 횟수가 매우 많은 경우)
 
-몇 GB보다 큰 데이터 집합의 경우 로컬 파일에서 직접 업로드하지 않고 Azure Storage 또는 Azure SQL Database에 데이터를 업로드하거나 HDInsight를 사용합니다.
+몇 GB보다 큰 데이터 세트의 경우 로컬 파일에서 직접 업로드하지 않고 Azure Storage 또는 Azure SQL Database에 데이터를 업로드하거나 HDInsight를 사용합니다.
 
 **벡터 크기 제한이 있나요?**
 
@@ -528,7 +528,7 @@ Microsoft 계정만 있으면 됩니다. [Azure Machine Learning 홈](https://az
 2. 표준 작업 영역에 있는 경우 무료 작업 영역으로 전환합니다.
 3. 실험 목록 보기에서 복사하려는 실험을 선택하고 **복사** 명령 단추를 클릭합니다.
 4. 팝업 대화 상자에서 표준 작업 영역을 선택하고 **복사** 단추를 클릭합니다.
-   연결된 데이터 집합, 학습한 모델 등이 모두 실험과 함께 표준 작업 영역에 복사됩니다.
+   연결된 데이터 세트, 학습한 모델 등이 모두 실험과 함께 표준 작업 영역에 복사됩니다.
 5. 실험을 다시 실행하고 표준 작업 영역에 웹 서비스를 다시 게시해야 합니다.
 
 ### <a name="studio-workspace"></a>스튜디오 작업 영역
@@ -543,7 +543,7 @@ Machine Learning 서비스는 다중 테넌트 서비스입니다. 백 엔드에
 ### <a name="guest-access"></a>게스트 액세스
 **Azure Machine Learning Studio의 게스트 액세스란?**
 
-게스트 액세스는 제한적인 체험 서비스입니다. Azure Machine Learning Studio에서 인증 없이 무료로 실험을 만들어 실행할 수 있습니다. 게스트 세션은 저장할 수 없으며 임시로 유지되고, 8시간으로 제한됩니다. 또한 R 및 Python이 제대로 지원되지 않고 스테이징 API가 충분하지 않으며 데이터 집합 크기와 저장소 용량도 제한됩니다. 하지만 Microsoft 계정으로 로그인한 사용자는 저장이 가능한 작업 영역과 보다 포괄적인 기능이 포함되어 있는 이전에 설명된 Machine Learning Studio의 무료 계층에 모두 액세스할 수 있습니다. 무료 Machine Learning 환경을 선택하려면 [https://studio.azureml.net](https://studio.azureml.net)에서 **시작하기**를 클릭하고 **게스트 액세스**를 선택하거나 Microsoft 계정으로 로그인합니다.
+게스트 액세스는 제한적인 체험 서비스입니다. Azure Machine Learning Studio에서 인증 없이 무료로 실험을 만들어 실행할 수 있습니다. 게스트 세션은 저장할 수 없으며 임시로 유지되고, 8시간으로 제한됩니다. 또한 R 및 Python이 제대로 지원되지 않고 스테이징 API가 충분하지 않으며 데이터 세트 크기와 저장소 용량도 제한됩니다. 하지만 Microsoft 계정으로 로그인한 사용자는 저장이 가능한 작업 영역과 보다 포괄적인 기능이 포함되어 있는 이전에 설명된 Machine Learning Studio의 무료 계층에 모두 액세스할 수 있습니다. 무료 Machine Learning 환경을 선택하려면 [https://studio.azureml.net](https://studio.azureml.net)에서 **시작하기**를 클릭하고 **게스트 액세스**를 선택하거나 Microsoft 계정으로 로그인합니다.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/

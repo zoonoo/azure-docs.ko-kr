@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: b961fac00ba43eb1b44acc46c6f60fa0f3a10877
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1f9d5325522f8ec40af99059651a00f6cdc0e8e0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957081"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089626"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Operator 자격으로 PowerShell 사용 하 여 Azure Stack에 연결
 
@@ -34,32 +34,51 @@ Azure Stack PowerShell을 사용 하 여 제안, 계획, 할당량 및 경고 �
  - 설치할 [Azure Stack 호환 Azure PowerShell 모듈](azure-stack-powershell-install.md)합니다.  
  - 일관 된 [azure storage: 차이점 및 고려 사항](azure-stack-powershell-download.md).  
 
-## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>운영자 환경을 구성 하 고 Azure Stack에 로그인
+## <a name="connect-with-azure-ad"></a>Azure AD를 사용 하 여 연결
 
-PowerShell을 사용 하 여 Azure Stack 운영자 환경을 구성 합니다. 다음 스크립트 중 하나를 실행 합니다: 사용자 고유의 환경 구성을 사용 하 여 Azure AD tenantName, GraphAudience 끝점 및 ArmEndpoint 값을 바꿔야 합니다.
+PowerShell을 사용 하 여 Azure Stack 운영자 환경을 구성 합니다. 다음 스크립트 중 하나를 실행 합니다: 고유한 환경 구성을 사용 하 여 Azure Active Directory (Azure AD) tenantName 및 Azure Resource Manager 끝점 값을 바꿉니다. <!-- GraphAudience endpoint -->
 
-````PowerShell  
-    # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external.
-    # To get this value for Azure Stack integrated systems, contact your service provider.
-    $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
-
+```PowerShell  
+    # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+    $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
-
-    $TenantID = Get-AzsDirectoryTenantId `
-      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-      -EnvironmentName AzureStackAdmin
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $tenantId
-````
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
+```
+
+## <a name="connect-with-ad-fs"></a>AD FS를 사용 하 여 연결
+
+Azure Active Directory Federated Services (Azure AD FS)를 사용 하 여 PowerShell 사용 하 여 Azure Stack 운영자 환경에 연결 합니다. Azure Stack development kit를이 Azure Resource Manager 끝점으로 설정 됩니다 `https://adminmanagement.local.azurestack.external`합니다. Azure Stack 통합 시스템에 대 한 Azure Resource Manager 끝점을 가져오려고 서비스 공급자에 게 문의 합니다.
+
+<!-- GraphAudience endpoint -->
+
+  ```PowerShell  
+  # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
+  Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+
+  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
+
+  # Sign in to your environment
+
+  $cred = get-credential
+
+  Login-AzureRmAccount `
+    -EnvironmentName "AzureStackAdmin" `
+    -TenantId $tenantId `
+    -Credential $cred
+  ```
+
+
 
 ## <a name="test-the-connectivity"></a>연결 테스트
 
 모든 항목을 가져온 했으므로 설정 PowerShell을 사용 하 여 Azure Stack에서 리소스를 만듭니다. 예를 들어, 응용 프로그램에 대 한 리소스 그룹을 만들고 가상 머신 추가 수 있습니다. 다음 명령을 사용 하 여 명명 된 리소스 그룹을 만듭니다 **MyResourceGroup**합니다.
 
-```powershell
+```PowerShell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 

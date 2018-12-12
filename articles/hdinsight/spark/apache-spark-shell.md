@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 5aaf169418962c08f5f45413f53d4c92588a98bd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041485"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581428"
 ---
-# <a name="run-spark-from-the-spark-shell"></a>Spark 셸에서 Spark 실행
+# <a name="run-apache-spark-from-the-spark-shell"></a>Spark 셸에서 Apache Spark 실행
 
-대화형 Spark 셸은 한 번에 하나의 Spark 명령을 실행하고 결과를 보기 위한 REPL(읽기 실행 인쇄 반복) 환경을 제공합니다. 이 프로세스는 개발 및 디버깅에 유용합니다. Spark는 지원되는 각 언어, Scala, Python 및 R에 대한 하나의 셸을 제공합니다.
+대화형 [Apache Spark](https://spark.apache.org/) 셸은 한 번에 하나의 Spark 명령을 실행하고 결과를 보기 위한 REPL(읽기 실행 인쇄 반복) 환경을 제공합니다. 이 프로세스는 개발 및 디버깅에 유용합니다. Spark는 지원되는 각 언어, Scala, Python 및 R에 대한 하나의 셸을 제공합니다.
 
-## <a name="get-to-a-spark-shell-with-ssh"></a>SSH를 사용하여 Spark 셸로 가져오기
+## <a name="get-to-an-apache-spark-shell-with-ssh"></a>SSH를 사용하여 Apache Spark 셸로 가져오기
 
-SSH를 사용하여 클러스터의 주 헤드 노드에 연결하여 HDInsight의 Spark 셸에 액세스합니다.
+SSH를 사용해서 클러스터의 주 헤드 노드에 연결하여 HDInsight의 Apache Spark 셸에 액세스합니다.
 
      ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
 
@@ -40,7 +40,7 @@ Azure Portal에서 클러스터에 대한 전체 SSH 명령을 얻을 수 있습
 
 SSH를 사용하여 HDInsight에 연결에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-## <a name="run-a-spark-shell"></a>Spark 셸 실행
+## <a name="run-an-apache-spark-shell"></a>Apache Spark 셸 실행
 
 Spark는 Scala(spark 셸), Python(pyspark) 및 R(sparkR)에 대한 셸을 제공합니다. HDInsight 클러스터 헤드 노드의 SSH 세션에서 다음 명령 중 하나를 입력합니다.
 
@@ -69,7 +69,7 @@ Spark 셸 명령(`spark-shell`, `pyspark` 또는 `sparkR`)은 여러 명령줄 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 개요는 [Azure HDInsight의 Spark 소개](apache-spark-overview.md)를 참조하세요.
+- 개요는 [Azure HDInsight의 Apache Spark 소개](apache-spark-overview.md)를 참조하세요.
 - Spark 클러스터 및 SparkSQL을 사용하려면 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
-- Spark로 스트리밍 데이터를 처리하는 응용 프로그램을 작성하려면 [Spark 구조적 스트리밍이란?](apache-spark-streaming-overview.md)을 참조하세요.
+- Spark로 스트리밍 데이터를 처리하는 애플리케이션을 작성하려면 [Apache Spark 구조적 스트리밍이란?](apache-spark-streaming-overview.md)을 참조하세요.
 

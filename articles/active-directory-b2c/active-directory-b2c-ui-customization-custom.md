@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625797"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583452"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 응용 프로그램의 사용자 인터페이스 사용자 지정
 
@@ -100,7 +100,7 @@ Blob 저장소에 공용 컨테이너를 만들려면 다음을 수행합니다.
 다음을 수행하여 CORS(원본 간 리소스 공유)에 Blob 저장소를 구성합니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
-2. **허용된 원본**에 `your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `fabrikam.b2clogin.com`
+2. **허용된 원본**에 `your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `fabrikam.b2clogin.com` 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
 3. **허용된 메소드**에서 `GET`과 `OPTIONS`를 모두 선택합니다.
 4. **허용된 헤더**에 별표(*)를 입력합니다.
 5. **노출된 헤더**에 별표(*)를 입력합니다.

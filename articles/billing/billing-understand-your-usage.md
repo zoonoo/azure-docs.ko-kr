@@ -4,7 +4,7 @@ description: Azure 구독에 대한 세부 사용량 CSV 섹션을 읽고 이해
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: 83891e1abdb58b4fdae65cee3689195b8f35df12
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c5b41d86133bbcafcc61423b4d60e59846edc2f2
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230464"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580918"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure 세부 사용 요금 조건 이해 
 
@@ -88,5 +88,6 @@ CSV 파일의 일일 사용량 섹션에는 청구 요금에 영향을 주는 �
 ## <a name="external"></a>외부 서비스 요금은 어떤가요?
 외부 서비스(또는 Marketplace 주문)는 독립 서비스 공급업체에서 제공하며 별도로 청구됩니다. Azure 청구서에 요금이 표시되지 않습니다. 자세한 내용은 [Azure 외부 서비스 요금의 이해](billing-understand-your-azure-marketplace-charges.md)를 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
-추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?)하여 문제를 신속하게 해결하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
+
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

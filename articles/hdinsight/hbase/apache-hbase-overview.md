@@ -26,7 +26,7 @@ ms.locfileid: "52315412"
 
 ## <a name="how-is-apache-hbase-implemented-in-azure-hdinsight"></a>Azure HDInsight에서 Apache HBase를 구현하는 방법
 
-HDInsight HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 [Azure Storage](./../hdinsight-hadoop-use-blob-storage.md)에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능 및 비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다. HBase 및 Hadoop은 Azure의 빅데이터 프로젝트에 유용한 시작점이며, 특히 실시간 응용 프로그램이 대형 데이터 세트로 작동하도록 할 수 있습니다.
+HDInsight HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 [Azure Storage](./../hdinsight-hadoop-use-blob-storage.md)에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능 및 비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 세트로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 엔드포인트에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다. HBase 및 Hadoop은 Azure의 빅데이터 프로젝트에 유용한 시작점이며, 특히 실시간 응용 프로그램이 대형 데이터 세트로 작동하도록 할 수 있습니다.
 
 HDInsight 구현은 HBase의 규모 확장 아키텍처를 활용하여 테이블 자동 분할, 읽기 및 쓰기에 대한 강력한 일관성 및 자동 장애 조치(Failover)를 제공합니다. 읽기를 위한 메모리 내 캐싱과 쓰기를 위한 높은 처리량 스트리밍을 통해 성능이 향상됩니다. HBase 클러스터는 가상 네트워크 내에 만들 수 있습니다. 자세한 내용은 [Azure Virtual Network에 HDInsight 클러스터 만들기](./apache-hbase-provision-vnet.md)를 참조하세요.
 

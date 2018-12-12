@@ -169,13 +169,13 @@ Power BI Desktop 보고서 보기에서는 데이터를 시각화하는 보고�
 ## <a name="create-a-dashboard-in-powerbicom"></a>PowerBI.com에서 대시보드 만들기
 이제 보고서가 있으니 PowerBI.com에서 공유하겠습니다.
 
-보고서를 Power BI 데스크톱에서 PowerBI.com에 게시하는 경우 PowerBI.com 테넌트에 **보고서** 및 **데이터 집합**을 생성합니다. 예를 들어 **PowerBITutorial**이라는 보고서를 PowerBI.com에 게시한 후 PowerBI.com의 **보고서** 및 **데이터 집합** 섹션 모두에서 PowerBITutorial이 표시됩니다.
+보고서를 Power BI 데스크톱에서 PowerBI.com에 게시하는 경우 PowerBI.com 테넌트에 **보고서** 및 **데이터 세트**를 생성합니다. 예를 들어 **PowerBITutorial**이라는 보고서를 PowerBI.com에 게시한 후 PowerBI.com의 **보고서** 및 **데이터 세트** 섹션 모두에서 PowerBITutorial이 표시됩니다.
 
-   ![PowerBI.com에서 새 보고서 및 데이터 집합의 스크린샷](./media/powerbi-visualize/powerbi-reports-datasets.png)
+   ![PowerBI.com에서 새 보고서 및 데이터 세트의 스크린샷](./media/powerbi-visualize/powerbi-reports-datasets.png)
 
 공유할 수 있는 대시보드를 만들려면 PowerBI.com 보고서의 **라이브 페이지 고정** 단추를 클릭합니다.
 
-   ![PowerBI.com에서 새 보고서 및 데이터 집합의 스크린샷](./media/powerbi-visualize/power-bi-pin-live-tile.png)
+   ![PowerBI.com에서 새 보고서 및 데이터 세트의 스크린샷](./media/powerbi-visualize/power-bi-pin-live-tile.png)
 
 그런 다음 [보고서에서 타일을 고정](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) 의 지침을 따라 새 대시보드를 만듭니다. 
 

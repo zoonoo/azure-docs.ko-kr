@@ -111,13 +111,13 @@ PostgreSQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 집합 문서를 참조하세요. 이 섹션에서는 PostgreSQL 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 PostgreSQL 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
-PostgreSQL에서 데이터를 복사하려면 데이터 집합의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+PostgreSQL에서 데이터를 복사하려면 데이터 세트의 type 속성을 **RelationalTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **RelationalTable**로 설정해야 합니다. | yes |
+| 형식 | 데이터 세트의 type 속성을 **RelationalTable**로 설정해야 합니다. | yes |
 | tableName | PostgreSQL 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -148,7 +148,7 @@ PostgreSQL에서 데이터를 복사하려면 복사 작업의 원본 형식을 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""` | 아니요(데이터 집합의 "tableName"이 지정된 경우) |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 > [!NOTE]
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리에서 `""`(큰따옴표)로 묶습니다.

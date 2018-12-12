@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/01/2018
+ms.date: 11/27/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 372670a482ec984fcc9bd9c28ca3a8625e959a77
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 393b90395698c18fdbd4fc8ba4d8bc79bd6287be
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320665"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495192"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
 
@@ -36,7 +36,7 @@ ms.locfileid: "49320665"
 | Azure Multi-Factor Authentication | 대개 "전체" 버전이라고 하는 Azure Multi-factor Authentication은 가장 다양한 기능을 제공합니다. [Azure Portal](https://portal.azure.com), 고급 보고, 다양한 온-프레미스 및 클라우드 응용 프로그램 지원을 통해 추가 구성 옵션을 제공합니다. Azure Multi-Factor Authentication은 [Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features)의 기능이며 클라우드 또는 온-프레미스에 배포할 수 있습니다. |
 
 > [!NOTE]
-> 신규 고객은 2018년 9월 1일부터 제공되는 독립 제품 형태의 Azure Multi-Factor Authentication을 더 이상 구매할 수 없습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
+> 신규 고객은 2018년 9월 1일부터 제공되는 독립 제품 형태의 Azure Multi-Factor Authentication을 더 이상 구매할 수 없습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스의 기능으로 계속 사용할 수 있게 지원됩니다.
 
 ## <a name="feature-comparison-of-versions"></a>버전 기능 비교
 
@@ -63,14 +63,13 @@ ms.locfileid: "49320665"
 | 전화 통화에 대한 사용자 지정 발신자 번호 | | |● |
 | 신뢰할 수 있는 IP | | |● |
 | 신뢰할 수 있는 장치에 대한 MFA 기억 |● |● |● |
-| MFA SDK | | |● (사용되지 않음) | 
 | 온-프레미스 응용 프로그램에 대한 MFA | | |● |
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Azure AD 관리자에 Azure Multi-Factor Authentication을 설정하는 방법
 
 Azure AD 테넌트에서 전역 관리자 역할이 할당된 사용자는 추가 비용 없이 Azure AD 전역 관리자 계정에 2단계 인증을 사용하도록 설정할 수 있습니다. Microsoft 계정을 사용하는 경우 Microsoft 계정 지원 문서 [2단계 인증 정보](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)의 지침에 따라 다단계 인증을 등록할 수 있습니다. Microsoft 계정을 사용하지 않는 경우 [사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md) 문서의 지침에 따라 전역 관리자에게 다단계 인증을 사용합니다.
 
-## <a name="how-to-get-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 획득 방법
+## <a name="how-to-purchase-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication을 구매하는 방법
 
 Azure Multi-Factor Authentication에서 제공하는 전체 기능을 사용하려는 경우 몇 가지 옵션이 있습니다.
 
@@ -78,14 +77,11 @@ Azure Multi-Factor Authentication에서 제공하는 전체 기능을 사용하�
 
 Azure Active Directory Premium 또는 Azure AD Premium이 포함된 라이선스 번들처럼 Azure Multi-Factor Authentication이 포함되는 라이선스를 구매하여 Azure Active Directory의 사용자에게 할당합니다.
 
-이 옵션을 사용하면 라이선스가 없는 일부 사용자를 위해 두 단계 인증을 제공해야 하는 경우에만 Azure Multi-Factor Authentication 공급자를 만들어야 합니다. 그렇지 않으면 두 번 청구될 수 있습니다.
-
 ### <a name="option-2---mfa-consumption-based-model"></a>옵션 2 - MFA 사용량 기반 모델
 
-> [!NOTE]
-> 2018년 9월 1일부터, 새 인증 공급자는 더 이상 생성되지 않을 수 있습니다. 기존 인증 공급자는 계속 사용하고 업데이트할 수 있습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
+2018년 9월 1일부터 이 옵션은 더 이상 신규 고객에게 제공되지 않습니다.
 
-Azure 구독 내에서 Azure Multi-Factor Authentication 공급자를 만듭니다. Azure MFA 공급자는 모든 다른 Azure 리소스처럼 기업계약, Azure 약정 금액 또는 신용 카드에 대해 청구되는 Azure 리소스입니다. 이러한 공급자는 전체 Azure 구독에만 만들 수 있으며 $0 지출 한도를 포함하는 Azure 구독으로 제한되지 않습니다. 옵션 1처럼 라이선스를 활성화하면 제한된 구독이 만들어집니다.
+2018년 9월 1일부터, 새 인증 공급자는 더 이상 생성되지 않을 수 있습니다. 기존 인증 공급자는 계속 사용하고 업데이트할 수 있습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
 
 Azure Multi-Factor Authentication 제공자를 사용하는 경우 Azure 구독을 통해 청구되는 두 가지 사용 모델을 사용할 수 있습니다.
 

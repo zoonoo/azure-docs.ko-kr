@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 6cb3102206174422a3d8b4a0fb18f989d875e093
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61f5f0d0b9e88174f82e960eb5d92db99d0cae71
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259057"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582851"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리 
 
-이 문서에서는 HDInsight 클러스터의 Storm에서 실행되는 Storm 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
+이 문서에서는 HDInsight의 Storm 클러스터에서 실행되는 [Apache Storm](http://storm.apache.org/) 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계에는 HDInsight 클러스터의 Linux 기반 Storm이 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요. 
@@ -186,7 +186,7 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
   * **비활성화**- 실행 중인 토폴로지를 일시 중지합니다.
   * **균형 다시 맞추기**- 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 이 작업을 사용하면 토폴로지가 병렬 처리를 조정하여 클러스터에서 증가하거나 감소한 노드 수를 보충할 수 있습니다.
 
-    자세한 내용은 <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Storm 토폴로지의 병렬 처리 이해</a>를 참조하세요.
+    자세한 내용은 <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Apache Storm 토폴로지의 병렬 처리 이해</a>를 참조하세요.
   * **중단**- 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
 * **토폴로지 통계**: 토폴로지에 대한 통계입니다. 페이지에서 나머지 항목에 대한 시간 프레임을 설정하려면 **창** 열에 있는 링크를 사용합니다.
 * **Spout**: 토폴로지에서 사용하는 Spout입니다. 이 섹션의 링크를 사용하면 특정 Spout에 대한 자세한 내용을 볼 수 있습니다.
@@ -208,10 +208,10 @@ Storm UI의 기본 페이지에서는 다음 정보를 제공합니다.
 
 Storm UI는 REST API의 맨 위에 기본 제공되므로 REST API를 사용하여 유사한 관리 및 모니터링 기능을 수행할 수 있습니다. REST API를 사용하여 Storm 토폴로지를 관리 및 모니터링하는 사용자 지정 도구를 만들 수 있습니다.
 
-자세한 내용은 [Storm UI REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html)를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
+자세한 내용은 [Apache Storm UI REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html)를 참조하세요. 다음 정보는 HDInsight에서 Apache Storm과 REST API 사용하기에 관한 것입니다.
 
 > [!IMPORTANT]
-> Storm REST API는 인터넷을 통해 공개적으로 사용할 수 없고 HDInsight 클러스터 헤드 노드에 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 생성 및 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie 및 기타 웹 UI에 액세스](../hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
+> Storm REST API는 인터넷을 통해 공개적으로 사용할 수 없고 HDInsight 클러스터 헤드 노드에 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널을 만들고 사용하는 방법에 대한 자세한 내용은 [SSH 터널링을 사용하여 Apache Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Apache Oozie 및 기타 웹 UI에 액세스](../hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 ### <a name="base-uri"></a>기본 URI
 
@@ -232,10 +232,10 @@ REST API 요청에서는 **기본 인증**을 사용해야 하므로 HDInsight �
 
 ### <a name="return-values"></a>반환 값
 
-REST API에서 반환되는 정보는 클러스터 내에서만 사용할 수 있습니다. 예를 들어, Zookeeper 서버에 대해 반환된 FQDN(정규화된 도메인 이름)은 인터넷에서 액세스할 수 없습니다.
+REST API에서 반환되는 정보는 클러스터 내에서만 사용할 수 있습니다. 예를 들어 [Apache ZooKeeper](https://zookeeper.apache.org/) 서버에 대해 반환된 FQDN(정규화된 도메인 이름)은 인터넷에서 액세스할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Maven을 사용하여 Java 기반 토폴로지를 개발하는 방법](apache-storm-develop-java-topology.md)에 대해 알아봅니다.
+[Apache Maven을 사용하여 Java 기반 토폴로지를 개발](apache-storm-develop-java-topology.md)하는 방법을 알아봅니다.
 
-추가 예제 토폴로지 목록은 [HDInsight의 Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)를 참조하세요.
+추가 예제 토폴로지 목록은 [HDInsight의 Apache Storm에 대한 예제 토폴로지](apache-storm-example-topology.md)를 참조하세요.

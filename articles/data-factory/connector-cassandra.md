@@ -92,13 +92,13 @@ Cassandra 연결된 서비스에 다음 속성이 지원됩니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 집합 문서를 참조하세요. 이 섹션에서는 Cassandra 데이터 집합에서 지원하는 속성의 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 데이터 세트 문서를 참조하세요. 이 섹션에서는 Cassandra 데이터 세트에서 지원하는 속성의 목록을 제공합니다.
 
 Cassandra에서 데이터를 복사하려면 데이터 세트의 type 속성을 **CassandraTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **CassandraTable**로 설정해야 합니다. | 예 |
+| 형식 | 데이터 세트의 type 속성을 **CassandraTable**로 설정해야 합니다. | 예 |
 | keyspace |Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. |아니요("CassandraSource"에 대해 "query"가 지정되지 않은 경우) |
 | tableName |Cassandra 데이터베이스에 있는 테이블의 이름입니다. |아니요("CassandraSource"에 대해 "query"가 지정되지 않은 경우) |
 
@@ -133,7 +133,7 @@ Cassandra에서 데이터를 복사하려면 복사 작업의 원본 형식을 *
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 type 속성을 **CassandraSource**로 설정해야 합니다. | 예 |
-| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 CQL 쿼리입니다. [CQL 참조](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)를 참조하세요. <br/><br/>SQL 쿼리를 사용할 경우 **keyspace name.table name** 을 지정하여 쿼리하려는 테이블을 나타냅니다. |아니요(데이터 집합의 "tableName" 및 "keyspace"가 정의된 경우). |
+| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 CQL 쿼리입니다. [CQL 참조](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)를 참조하세요. <br/><br/>SQL 쿼리를 사용할 경우 **keyspace name.table name** 을 지정하여 쿼리하려는 테이블을 나타냅니다. |아니요(데이터 세트의 "tableName" 및 "keyspace"가 정의된 경우). |
 | consistencyLevel |일관성 수준은 클라이언트 응용 프로그램에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. 자세한 내용은 [데이터 일관성 구성](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요.<br/><br/>허용되는 값은 **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** 및 **LOCAL_ONE**입니다. |아니요(기본값: `ONE`) |
 
 **예제:**

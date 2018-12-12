@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262338"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584879"
 ---
 # <a name="api-management-advanced-policies"></a>API Management 고급 정책
 이 항목에서는 다음 API Management 정책에 대한 참조를 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](https://go.microsoft.com/fwlink/?LinkID=398186)을 참조하세요.
@@ -253,7 +253,7 @@ ms.locfileid: "51262338"
 -   **정책 범위:** 모든 범위
 
 ##  <a name="LimitConcurrency"></a> 동시성 제한
- `limit-concurrency` 정책이 한 번에 지정된 요청 수를 초과해서 실행하지 못하게 합니다. 해당 숫자를 초과할 경우 새 요청이 “429 요청이 너무 많음” 상태 코드를 나타내며 즉시 실패합니다.
+ `limit-concurrency` 정책은 포함된 정책이 한 번에 지정된 개수보다 많은 요청을 실행할 수 없도록 차단합니다. 해당 숫자를 초과할 경우 새 요청이 “429 요청이 너무 많음” 상태 코드를 나타내며 즉시 실패합니다.
 
 ###  <a name="LimitConcurrencyStatement"></a> 정책 문
 
@@ -649,7 +649,7 @@ status code and media type. If no example or schema found, the content is empty.
 |특성|설명|필수|기본값|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|새 요청인지 현재 요청의 복사본인지 여부를 결정합니다. 아웃바운드 모드에서 mode=copy는 요청 본문을 초기화하지 않습니다.|아니요|새로 만들기|
-|response-variable-name="string"|응답 개체를 받을 컨텍스트 변수의 이름입니다. 변수가 없는 경우 정책이 성공하는 즉시 변수가 새로 생성되며 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) 컬렉션을 통해 액세스할 수 있습니다.|yes|해당 없음|
+|response-variable-name="string"|응답 개체를 받을 컨텍스트 변수의 이름입니다. 변수가 없는 경우 정책 실행이 성공하는 즉시 변수가 생성되며 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) 컬렉션을 통해 액세스할 수 있습니다.|yes|해당 없음|
 |timeout="integer"|URL 호출이 실패하는 시간 초과 간격(초)입니다.|아니요|60|
 |ignore-error|true인 경우 요청 결과 오류가 발생합니다.<br /><br /> -   response-variable-name이 지정된 경우 null 값을 포함합니다.<br />-   response-variable-name이 지정되지 않은 경우 context.Request가 업데이트되지 않습니다.|아니요|false|
 |이름|설정할 헤더의 이름을 지정합니다.|yes|해당 없음|
@@ -876,7 +876,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

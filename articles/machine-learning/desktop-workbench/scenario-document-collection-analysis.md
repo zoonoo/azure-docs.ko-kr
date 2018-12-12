@@ -76,11 +76,11 @@ ms.locfileid: "46947220"
 2.  **프로젝트** 페이지에서 **+** 기호를 클릭하고 **새 프로젝트**를 선택합니다.
 3.  **새 프로젝트 만들기** 창에서 새 프로젝트에 대한 정보를 입력합니다.
 4.  **프로젝트 검색 템플릿** 검색 상자에서 "문서 컬렉션 분석"을 입력하고 템플릿을 선택합니다.
-5.  **만들기**
+5.   **만들기**
 
 ## <a name="data-description"></a>데이터 설명
 
-이 시나리오에 사용된 데이터 집합은 미국 의회가 취한 각 입법 조치에 대한 텍스트 요약 및 관련된 메타 데이터를 포함합니다. 데이터는 미국 의회의 활동을 추적하고 미국인이 국가 입법 과정에 참여하도록 돕는 [GovTrack.us](https://www.govtrack.us/)에서 수집됩니다. 대량 데이터는 이 시나리오에 포함되지 않은 수동 스크립트를 사용하여 [이 링크](https://www.govtrack.us/data/congress/)를 통해 다운로드할 수 있습니다. 데이터를 다운로드하는 방법에 대한 세부 정보는 [GovTrack API 설명서](https://www.govtrack.us/developers)에서 찾을 수 있습니다.
+이 시나리오에 사용된 데이터 세트는 미국 의회가 취한 각 입법 조치에 대한 텍스트 요약 및 관련된 메타 데이터를 포함합니다. 데이터는 미국 의회의 활동을 추적하고 미국인이 국가 입법 과정에 참여하도록 돕는 [GovTrack.us](https://www.govtrack.us/)에서 수집됩니다. 대량 데이터는 이 시나리오에 포함되지 않은 수동 스크립트를 사용하여 [이 링크](https://www.govtrack.us/data/congress/)를 통해 다운로드할 수 있습니다. 데이터를 다운로드하는 방법에 대한 세부 정보는 [GovTrack API 설명서](https://www.govtrack.us/developers)에서 찾을 수 있습니다.
 
 ### <a name="data-source"></a>데이터 원본
 
@@ -134,7 +134,7 @@ ms.locfileid: "46947220"
 
 ### <a name="data-ingestion-and-transformation"></a>데이터 수집 및 변환
 
-컴파일된 데이터 집합 `CongressionalDataAll_Jun_2017.tsv`은 Blob Storage에 저장되고 노트북 및 Python 스크립트 내에서 모두 액세스 가능합니다. 데이터 수집 및 변환을 위한 두 단계는 텍스트 데이터 전처리와 구 학습입니다.
+컴파일된 데이터 세트 `CongressionalDataAll_Jun_2017.tsv`은 Blob Storage에 저장되고 노트북 및 Python 스크립트 내에서 모두 액세스 가능합니다. 데이터 수집 및 변환을 위한 두 단계는 텍스트 데이터 전처리와 구 학습입니다.
 
 #### <a name="preprocess-text-data"></a>텍스트 데이터 전처리
 

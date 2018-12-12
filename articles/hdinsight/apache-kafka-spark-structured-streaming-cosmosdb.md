@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 159d3d1576ab3a38baaba94594b3abf04ef3ad56
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b1a4354db23cdfdc6201decbb793a3f9a3ad8206
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287985"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496149"
 ---
-# <a name="use-apache-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Kafka 및 Azure Cosmos DB에서 Apache Spark 구조적 스트림 사용
+# <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용
 
-Apache Spark 구조적 스트림을 사용하여 Azure HDInsight의 Apache Kafka에서 데이터를 읽은 다음, Azure Cosmos DB로 저장하는 방법을 알아봅니다.
+[Apache Spark](https://spark.apache.org/) [정형 스트리밍](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 사용하여 Azure HDInsight의 [Apache Kafka](https://kafka.apache.org/)에서 데이터를 읽은 다음, Azure Cosmos DB로 저장하는 방법을 알아봅니다.
 
-Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스입니다. 이 예제에서는 SQL API 데이터베이스 모델을 사용합니다. 자세한 내용은 [Azure Cosmos DB 시작](../cosmos-db/introduction.md) 문서를 참조하세요.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전 세계에 배포된 다중 모델 데이터베이스입니다. 이 예제에서는 SQL API 데이터베이스 모델을 사용합니다. 자세한 내용은 [Azure Cosmos DB 시작](../cosmos-db/introduction.md) 문서를 참조하세요.
 
 Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진입니다. 정적 데이터에 대한 일괄 처리 계산과 동일하게 스트리밍 계산을 표현할 수 있습니다. 구조적 스트림에 대한 자세한 내용은 Apache.org에서 [구조적 스트림 프로그래밍 가이드](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html)를 참조하세요.
 
@@ -143,7 +143,7 @@ az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query p
 > [!IMPORTANT]
 > Jupyter Notebooks에 필요한 엔드포인트 및 키 값을 저장합니다.
 
-## <a name="get-the-kafka-brokers"></a>Kafka broker를 가져옵니다.
+## <a name="get-the-apache-kafka-brokers"></a>Apache Kafka broker 가져오기
 
 이 예제의 코드는 Kafka 클러스터에 있는 Kafka broker 호스트에 연결합니다. 두 Kafka broker 호스트의 주소를 찾으려면 다음 PowerShell 또는 Bash 예제를 사용합니다.
 
@@ -201,12 +201,12 @@ curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUST
 
 ## <a name="process-taxi-data-using-spark-structured-streaming"></a>Spark 구조적 스트림을 사용하여 택시 데이터 처리
 
-Jupyter Notebook 홈페이지에서 __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ 항목을 선택합니다. Notebook의 단계를 따라 Spark 구조적 스트림을 사용하여 Kafka에서 Azure Cosmos DB로 데이터를 스트리밍합니다.
+[Jupyter Notebook](https://jupyter.org/) 홈페이지에서 __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ 항목을 선택합니다. Notebook의 단계를 따라 Spark 구조적 스트림을 사용하여 Kafka에서 Azure Cosmos DB로 데이터를 스트리밍합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Spark 구조적 스트림을 사용하는 방법을 배웠으므로 Spark, Kafka 및 Azure Cosmos DB에서 작업하는 방법에 대한 자세한 내용을 보려면 다음 문서를 참조하세요.
+이제 Apache Spark 정형 스트리밍을 사용하는 방법을 알아보았으므로 Apache Spark, Apache Kafka 및 Azure Cosmos DB에서 작업하는 방법에 대한 자세한 내용을 보려면 다음 문서를 참조하세요.
 
-* [Kafka에서 Spark 스트림(DStream)을 사용하는 방법](hdinsight-apache-spark-with-kafka.md)
-* [Jupyter Notebook 및 HDInsight의 Spark 시작](spark/apache-spark-jupyter-spark-sql.md)
+* [Apache Kafka에서 Apache Spark 스트리밍(DStream)을 사용하는 방법](hdinsight-apache-spark-with-kafka.md)
+* [Jupyter Notebook 및 HDInsight의 Apache Spark 시작](spark/apache-spark-jupyter-spark-sql.md)
 * [Azure Cosmos DB 시작](../cosmos-db/introduction.md)

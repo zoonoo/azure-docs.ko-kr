@@ -91,7 +91,7 @@ from matplotlib import pyplot as plt
 %matplotlib inline
 ```
 
-## <a name="create-a-dataset"></a>데이터 집합 만들기
+## <a name="create-a-dataset"></a>데이터 세트 만들기
 
 해당하는 경계 상자 주석을 사용하여 이미지 집합으로 구성된 CVTK 데이터 세트를 만듭니다. 이 예제에서는 "../sample_data/foods/training" 폴더에서 제공되는 냉장고 이미지를 사용합니다. JPEG 이미지만 사용할 수 있습니다.
 

@@ -32,7 +32,7 @@ Team Data Science Process를 실행하는 추가 데이터 과학 연습은 사�
 - 팁 지불 여부 
 - 팁 금액의 분포
 
-시나리오는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)와 함께 Hive를 사용하여 구현됩니다. 공개적으로 사용할 수 있는 NYC Taxi Trip 및 요금 데이터 집합에서 데이터를 저장, 탐색 및 기능 엔지니어링하는 방법을 배웁니다. 또한 Azure Machine Learning을 사용하여 모델을 빌드 및 배포할 수 있습니다.
+시나리오는 [Azure HDInsight Hadoop 클러스터](https://azure.microsoft.com/services/hdinsight/)와 함께 Hive를 사용하여 구현됩니다. 공개적으로 사용할 수 있는 NYC Taxi Trip 및 요금 데이터 세트에서 데이터를 저장, 탐색 및 기능 엔지니어링하는 방법을 배웁니다. 또한 Azure Machine Learning을 사용하여 모델을 빌드 및 배포할 수 있습니다.
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>HDInsight Hadoop와 함께 Hive를 사용하여 광고 클릭 예측
 

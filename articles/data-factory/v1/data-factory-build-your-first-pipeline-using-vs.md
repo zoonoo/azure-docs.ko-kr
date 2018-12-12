@@ -35,7 +35,7 @@ ms.locfileid: "50243149"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용하는 경우 [빠른 시작: Azure Data Factory를 사용하여 데이터 팩터리 만들기](../quickstart-create-data-factory-dot-net.md)를 참조하세요.
 
-이 자습서에서는 Visual Studio를 사용하여 Azure Data Factory를 만드는 방법을 보여 줍니다. 데이터 팩터리 프로젝트 템플릿을 사용하여 Visual Studio 프로젝트를 만들고 JSON 형식으로 데이터 팩터리 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 정의한 다음 이 엔터티를 이러한 클라우드에 게시하고 배포합니다. 
+이 자습서에서는 Visual Studio를 사용하여 Azure Data Factory를 만드는 방법을 보여 줍니다. 데이터 팩터리 프로젝트 템플릿을 사용하여 Visual Studio 프로젝트를 만들고 JSON 형식으로 데이터 팩터리 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 정의한 다음, 이 엔터티를 이러한 클라우드에 게시하고 배포합니다. 
 
 이 자습서의 파이프라인에는 **HDInsight Hive 작업**이라는 하나의 작업이 있습니다. 이 작업은 Azure HDInsight 클러스터에서 입력 데이터를 변환하여 출력 데이터를 생성하는 Hive 스크립트를 실행합니다. 파이프라인은 지정된 시작 및 종료 시간 사이, 한 달에 한 번 실행되도록 예약됩니다. 
 
@@ -51,9 +51,9 @@ ms.locfileid: "50243149"
 1. 2개의 연결된 서비스인 **AzureStorageLinkedService1** 및 **HDInsightOnDemandLinkedService1**을 만듭니다. 
    
     이 자습서에서는 Hive 작업의 입력 및 출력 데이터가 모두 동일한 Azure Blob Storage에 있습니다. 주문형 HDInsight 클러스터를 사용하여 출력 데이터를 생성하는 기존 입력 데이터를 처리합니다. 입력 데이터를 처리할 준비가 된 경우 런타임 시 주문형 HDInsight 클러스터가 Azure Data Factory에 의해 자동으로 만들어집니다. 런타임 시 데이터 팩터리 서비스가 연결할 수 있도록 데이터 저장소 또는 계산을 데이터 팩터리에 연결해야 합니다. 따라서 AzureStorageLinkedService1을 사용하여 Azure Storage 계정을 데이터 팩터리에 연결하고 HDInsightOnDemandLinkedService1을 사용하여 주문형 HDInsight 클러스터를 연결합니다. 만들려는 데이터 팩터리 또는 기존 데이터 팩터리를 게시할 때 이름을 지정합니다.  
-2. Azure Blob Storage에 저장된 입출력 데이터를 나타내는 2개의 데이터 집합인 **InputDataset** 및 **OutputDataset**을 만듭니다. 
+2. Azure Blob Storage에 저장된 입출력 데이터를 나타내는 2개의 데이터 세트인 **InputDataset** 및 **OutputDataset**을 만듭니다. 
    
-    이러한 데이터 집합 정의는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조하세요. InputDataset의 경우 Blob 컨테이너(adfgetstarted)와 입력 데이터와 함께 Blob을 포함하는 폴더(inptutdata)를 지정합니다. OutputDataset의 경우 Blob 컨테이너(adfgetstarted)와 출력 데이터를 포함하는 폴더(partitioneddata)를 지정합니다. 구조, 가용성 및 정책과 같은 기타 속성도 지정합니다.
+    이러한 데이터 세트 정의는 이전 단계에서 만든 Azure Storage 연결된 서비스를 참조하세요. InputDataset의 경우 Blob 컨테이너(adfgetstarted)와 입력 데이터와 함께 Blob을 포함하는 폴더(inptutdata)를 지정합니다. OutputDataset의 경우 Blob 컨테이너(adfgetstarted)와 출력 데이터를 포함하는 폴더(partitioneddata)를 지정합니다. 구조, 가용성 및 정책과 같은 기타 속성도 지정합니다.
 3. **MyFirstPipeline**이라는 파이프라인을 만듭니다. 
   
     이 자습서에서 파이프라인에는 **HDInsight Hive 작업**이라는 하나의 작업이 있습니다. 이 작업은 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하여 출력 데이터를 생성하는 입력 데이터를 변환합니다. Hive 작업에 대한 자세한 내용은 [Hive 작업](data-factory-hive-activity.md)을 참조하세요. 
@@ -135,9 +135,9 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 4. **HDInsightOnDemandLinkedService1.json** 파일을 저장합니다.
 
 ### <a name="create-datasets"></a>데이터 세트 만들기
-이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다. 이러한 데이터 집합은 이 자습서의 앞부분에서 만든 **AzureStorageLinkedService1** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 집합은 입력 및 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다.   
+이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 **AzureStorageLinkedService1** 를 참조합니다. 연결된 서비스는 Azure Storage 계정을 가리키고 데이터 세트는 입력 및 출력 데이터를 가진 저장소의 컨테이너, 폴더, 파일 이름을 지정합니다.   
 
-#### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
+#### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 1. **솔루션 탐색기**에서 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. 목록에서 **Azure Blob**을 선택하고 파일의 이름을 **InputDataSet.json**로 변경한 다음 **추가**를 클릭합니다.
 3. 편집기에서 **JSON**을 다음 JSON 조각으로 바꿉니다.
@@ -165,7 +165,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
         }
     }
     ```
-    이 JSON 코드 조각에서는 파이프라인의 Hive 작업에 대한 입력 데이터를 나타내는 **AzureBlobInput**라는 데이터 집합을 정의합니다. 입력 데이터가 `adfgetstarted`라는 Blob 컨테이너 및 `inputdata` 폴더에 저장되도록 지정합니다.
+    이 JSON 코드 조각에서는 파이프라인의 Hive 작업에 대한 입력 데이터를 나타내는 **AzureBlobInput**라는 데이터 세트를 정의합니다. 입력 데이터가 `adfgetstarted`라는 Blob 컨테이너 및 `inputdata` 폴더에 저장되도록 지정합니다.
 
     다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
 
@@ -177,11 +177,11 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
     형식 | 로그 파일이 텍스트 형식이므로 TextFormat을 사용합니다. |
     columnDelimiter | 로그 파일의 열은 쉼표(`,`)로 구분됩니다.
     frequency/interval | 월 및 간격을 설정한 빈도가 1인 경우 입력 조각은 매월 제공됩니다.
-    external | 작업의 입력 데이터가 파이프라인에서 생성되지 않는 경우 이 속성은 true로 설정됩니다. 이 속성은 입력 데이터 집합에서만 지정됩니다. 첫 번째 작업의 입력 데이터 집합의 경우 항상 true로 설정합니다.
+    external | 작업의 입력 데이터가 파이프라인에서 생성되지 않는 경우 이 속성은 true로 설정됩니다. 이 속성은 입력 데이터 세트에서만 지정됩니다. 첫 번째 작업의 입력 데이터 세트의 경우 항상 true로 설정합니다.
 4. **InputDataset.json** 파일을 저장합니다.
 
-#### <a name="create-output-dataset"></a>출력 데이터 집합 만들기
-이제 Azure Blob Storage에 저장된 출력 데이터를 나타내는 출력 데이터 집합을 만듭니다.
+#### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
+이제 Azure Blob Storage에 저장된 출력 데이터를 나타내는 출력 데이터 세트를 만듭니다.
 
 1. **솔루션 탐색기**에서 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. 목록에서 **Azure Blob**을 선택하고 파일의 이름을 **OutputDataset.json**로 변경한 다음 **추가**를 클릭합니다.
@@ -207,15 +207,15 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
         }
     }
     ```
-    JSON 코드 조각에서는 파이프라인의 Hive 작업에서 생성한 출력 데이터를 나타내는 **AzureBlobOutput**이라는 데이터 집합을 정의합니다. Hive 작업에서 생성된 출력 데이터가 `adfgetstarted`라는 Blob 컨테이너 및 `partitioneddata` 폴더에 배치되도록 지정합니다. 
+    JSON 코드 조각에서는 파이프라인의 Hive 작업에서 생성한 출력 데이터를 나타내는 **AzureBlobOutput**이라는 데이터 세트를 정의합니다. Hive 작업에서 생성된 출력 데이터가 `adfgetstarted`라는 Blob 컨테이너 및 `partitioneddata` 폴더에 배치되도록 지정합니다. 
     
-    **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다. 출력 데이터 집합은 파이프라인의 일정을 결정합니다. 파이프라인은 해당 시작 및 종료 시간 사이에 매월 실행됩니다. 
+    **가용성** 섹션은 출력 데이터 집합이 월 단위로 생성되도록 지정합니다. 출력 데이터 세트는 파이프라인의 일정을 결정합니다. 파이프라인은 해당 시작 및 종료 시간 사이에 매월 실행됩니다. 
 
-    이러한 속성에 대한 설명은 **입력 데이터 집합 만들기** 섹션을 참조하세요. 파이프라인에서 데이터 집합이 생성되므로 출력 데이터 집합에 외부 속성을 설정하지 않습니다.
+    이러한 속성에 대한 설명은 **입력 데이터 세트 만들기** 섹션을 참조하세요. 파이프라인에서 데이터 세트가 생성되므로 출력 데이터 세트에 외부 속성을 설정하지 않습니다.
 4. **OutputDataset.json** 파일을 저장합니다.
 
 ### <a name="create-pipeline"></a>파이프라인 만들기
-지금까지 Azure Storage 연결된 서비스와 입력 및 출력 데이터 집합을 만들었습니다. 이제 **HDInsightHive** 작업이 포함된 파이프라인을 만듭니다. Hive 작업에 대한 **입력**을 **AzureBlobInput**으로 설정하고 작업에 대한 **출력**을 **AzureBlobOutput**으로 설정합니다. 입력 데이터 집합의 조각은 매월 사용 가능(빈도: 월, 간격: 1)하고 출력 조각도 매월 생성됩니다. 
+지금까지 Azure Storage 연결된 서비스와 입력 및 출력 데이터 세트를 만들었습니다. 이제 **HDInsightHive** 작업이 포함된 파이프라인을 만듭니다. Hive 작업에 대한 **입력**을 **AzureBlobInput**으로 설정하고 작업에 대한 **출력**을 **AzureBlobOutput**으로 설정합니다. 입력 데이터 세트의 조각은 매월 사용 가능(빈도: 월, 간격: 1)하고 출력 조각도 매월 생성됩니다. 
 
 1. **솔루션 탐색기**에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. 목록에서 **Hive 변환 파이프라인**을 선택하고 **추가**를 클릭합니다.
@@ -280,7 +280,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     `defines` 섹션은 Hive 스크립트에 Hive 구성 값(예: `${hiveconf:inputtable}`, `${hiveconf:partitionedtable})`)으로 전달되는 런타임 설정을 지정하는 데 사용됩니다.
 
-    파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다. 데이터 집합이 매월 생성되도록 구성했으므로 파이프라인에서 한 번만 조각이 생성됩니다(매월 시작 및 종료 날짜가 동일하기 때문).
+    파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다. 데이터 세트가 매월 생성되도록 구성했으므로 파이프라인에서 한 번만 조각이 생성됩니다(매월 시작 및 종료 날짜가 동일하기 때문).
 
     작업 JSON에서 **linkedServiceName** – **HDInsightOnDemandLinkedService**에서 지정한 계산에 대해 Hive 스크립트가 실행되도록 지정합니다.
 4. **HiveActivity1.json** 파일을 저장합니다.
@@ -292,7 +292,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 다음 단계에서 솔루션을 게시할 때 **partitionweblogs.hql** 파일은 `adfgetstarted` Blob 컨테이너의 **스크립트** 폴더에 업로드됩니다.   
 
 ### <a name="publishdeploy-data-factory-entities"></a>데이터 팩터리 엔터티 게시/배포
-이 단계에서는 Azure Data Factory 서비스에 프로젝트의 데이터 팩터리 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 게시합니다. 게시 과정에서 데이터 팩터리의 이름을 지정합니다. 
+이 단계에서는 Azure Data Factory 서비스에 프로젝트의 데이터 팩터리 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 게시합니다. 게시 과정에서 데이터 팩터리의 이름을 지정합니다. 
 
 1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다.
 2. **Microsoft 계정에 로그인** 대화 상자가 표시되면 Azure 구독이 있는 계정의 자격 증명을 입력하고 **로그인**을 클릭합니다.
@@ -352,7 +352,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 2. 데이터 팩터리에 대한 홈페이지에서 **다이어그램**을 클릭합니다.
 
     ![다이어그램 타일](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
-3. 다이어그램 보기에 파이프라인의 개요와 이 자습서에 사용된 데이터 집합이 표시됩니다.
+3. 다이어그램 보기에 파이프라인의 개요와 이 자습서에 사용된 데이터 세트가 표시됩니다.
 
     ![다이어그램 뷰](./media/data-factory-build-your-first-pipeline-using-vs/diagram-view-2.png)
 4. 파이프라인의 모든 작업을 보려면 다이어그램에서 파이프라인을 마우스 오른쪽 단추로 클릭하고 파이프라인 열기를 클릭합니다.
@@ -363,19 +363,19 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
     ![파이프라인 보기 열기](./media/data-factory-build-your-first-pipeline-using-vs/open-pipeline-view.png)
 
     이전 보기를 탐색하려면 맨 위에서 breadcrumb 메뉴의 **데이터 팩터리** 를 클릭합니다.
-6. **다이어그램 보기**에서 **AzureBlobInput** 데이터 집합을 두 번 클릭합니다. 조각이 **준비** 상태인지 확인합니다. 조각이 준비 상태로 표시되려면 몇 분이 걸릴 수 있습니다. 잠시 대기한 후에 표시되지 않는 경우 오른쪽 컨테이너(`adfgetstarted`) 및 폴더(`inputdata`)에 배치된 입력 파일(input.log)이 있는지 확인합니다. 입력 데이터 집합의 **외부** 속성을 **true**로 설정했는지 확인합니다. 
+6. **다이어그램 보기**에서 **AzureBlobInput** 데이터 집합을 두 번 클릭합니다. 조각이 **준비** 상태인지 확인합니다. 조각이 준비 상태로 표시되려면 몇 분이 걸릴 수 있습니다. 잠시 대기한 후에 표시되지 않는 경우 오른쪽 컨테이너(`adfgetstarted`) 및 폴더(`inputdata`)에 배치된 입력 파일(input.log)이 있는지 확인합니다. 입력 데이터 세트의 **외부** 속성을 **true**로 설정했는지 확인합니다. 
 
    ![준비 상태인 입력 조각](./media/data-factory-build-your-first-pipeline-using-vs/input-slice-ready.png)
 7. **X**를 닫아서 **AzureBlobInput** 블레이드를 닫습니다.
 8. **다이어그램 보기**에서 **AzureBlobOutput** 데이터 집합을 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
 
-   ![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
+   ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. 처리가 완료되면 **준비** 상태인 조각이 표시됩니다.
 
    > [!IMPORTANT]
    > 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다.(대략 20분) 따라서 파이프라인이 조각을 처리하는 데 **약 30분**이 걸릴 수 있습니다.  
    
-    ![데이터 집합](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
+    ![데이터 세트](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
 10. 조각이 **준비** 상태이면 Blob Storage의 `adfgetstarted` 컨테이너에 있는 `partitioneddata` 폴더에서 출력 데이터를 확인합니다.  
 
     ![출력 데이터](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
@@ -388,7 +388,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
     로그 파일에서 실행되는 Hive 쿼리 및 상태 정보를 볼 수 있습니다. 이러한 로그는 문제를 해결하는 데 유용합니다.  
 
-Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.
+Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 세트를 모니터링하는 방법에 대한 지침은 [데이터 세트 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md) 을 참조하세요.
 
 #### <a name="monitor-pipeline-using-monitor--manage-app"></a>앱 모니터링 및 관리를 사용하여 파이프라인 모니터링
 응용 프로그램 모니터링 및 관리를 사용하여 파이프라인을 모니터링할 수도 있습니다. 이 응용 프로그램을 사용하는 방법에 대한 자세한 내용은 [앱 모니터링 및 관리를 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요.
@@ -414,7 +414,7 @@ Azure 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데�
 - HDInsight 클러스터는 JSON(linkedServiceName)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(timeToLive)가 없는 경우 슬라이스를 처리할 때마다 HDInsight 클러스터가 만들어집니다. 클러스터는 처리가 완료되면 자동으로 삭제됩니다.
     
     많은 조각이 처리될수록 Azure Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 저장소 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft 저장소 탐색기](http://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob Storage에서 컨테이너를 삭제합니다.
-- 현재 출력 데이터 집합이 일정을 결정하므로 작업이 출력을 생성하지 않는 경우 출력 데이터 집합을 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 집합 만들기를 건너뛸 수 있습니다. 
+- 현재 출력 데이터 세트가 일정을 결정하므로 작업이 출력을 생성하지 않는 경우 출력 데이터 세트를 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 세트 만들기를 건너뛸 수 있습니다. 
 - 이 자습서에서는 Azure Data Factory를 사용하여 데이터를 복사하는 방법을 표시하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 
@@ -553,20 +553,20 @@ VS에서 Azure 데이터 팩터리 엔터티를 게시하는 경우 해당 게�
 2. 두 개의 **연결된 서비스**를 만들었습니다.
    1. **Azure Storage** 연결된 서비스입니다.
    2. **Azure HDInsight** 주문형 연결된 서비스입니다. Azure 데이터 팩터리는 입력 데이터를 처리하고 출력 데이터를 생성하기 위해 적시에 HDInsight Hadoop 클러스터를 만듭니다.
-3. 파이프라인에서 HDInsight Hive 작업에 대한 입력 및 출력 데이터를 설명하는 두 개의 **데이터 집합**을 만들었습니다.
+3. 파이프라인에서 HDInsight Hive 작업에 대한 입력 및 출력 데이터를 설명하는 두 개의 **데이터 세트**를 만들었습니다.
 4. **HDInsight Hive** 작업으로 **파이프라인**을 만들었습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
-한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
+한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
 
 
 ## <a name="see-also"></a>참고 항목
 | 항목 | 설명 |
 |:--- |:--- |
 | [파이프라인](data-factory-create-pipelines.md) |이 문서는 Azure Data Factory의 파이프라인 및 시나리오 또는 비즈니스를 위한 활동과 데이터 기반 워크플로를 활용하는 방법을 이해하는 데 도움이 됩니다. |
-| [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 집합을 이해하는 데 도움이 됩니다. |
+| [데이터 집합](data-factory-create-datasets.md) |이 문서는 Azure Data Factory의 데이터 세트를 이해하는 데 도움이 됩니다. |
 | [데이터 변환 활동](data-factory-data-transformation-activities.md) |이 문서에서는 Azure Data Factory에서 지원되는 데이터 변환 활동(예: 이 자습서에 사용된 HDInsight Hive 변환)의 목록을 제공합니다. |
 | [예약 및 실행](data-factory-scheduling-and-execution.md) |이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. |
 | [모니터링 앱을 사용하여 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md) |이 문서는 모니터링 및 관리 앱을 사용하여 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. |

@@ -1,5 +1,5 @@
 ---
-title: 제목 | Microsoft Docs
+title: Azure Marketplace에서 Azure 애플리케이션 제품을 라이브로 전환 | Microsoft Docs
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 643b7d674de3d51f98b69d6f0659478c9893e3b1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 18a8e6ae8ab3bd4299c6a014f938e73a2a021492
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807780"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263594"
 ---
 <a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Azure Marketplace에서 Azure 응용 프로그램 제품을 라이브로 전환 
 ===========================================================
@@ -33,19 +33,22 @@ ms.locfileid: "48807780"
 <a name="publishing-process"></a>게시 프로세스 
 ------------------
 
-편집기 탭 아래의 \"게시\"를 클릭하여 게시 프로세스를 시작합니다.
+**편집기** 탭에서 \"게시\"를 클릭하여 게시 프로세스를 시작합니다.
 
 ![제품 라이브 전환 시퀀스 1 - 게시](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
 
-상태 탭 아래에 게시 단계 및 현재 제품에서 진행되고 있는 단계가 표시됩니다.
+**상태** 탭에서 게시 단계 및 현재 제품이 있는 단계가 표시됩니다.
 
 ![제품 라이브 전환 시퀀스 2 - 워크플로](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_workflow.png)
 
-게시 프로세스의 어느 시점에서든지 로그인한 다음 모든 제품 탭을 클릭하면 모든 제품의 최신 상태를 확인할 수 있습니다. 제품에 대한 상태를 직접 클릭하여 제품이 게시 프로세스에서 어느 위치인지 세부 정보를 확인할 수 있습니다.
+게시 프로세스의 어느 시점에서든지 로그인한 다음 **모든 제품** 탭을 클릭하면 모든 제품의 최신 상태를 확인할 수 있습니다. 제품에 대한 상태를 직접 클릭하여 제품이 게시 프로세스에서 어느 위치인지 세부 정보를 확인할 수 있습니다.
 
-아래에서는 각 게시 단계, 각 단계에서 수행되는 작업 및 각 단계의 예상 소요 시간에 대해 설명합니다.
+> [!WARNING]
+> 고객 사용량 특성을 사용하도록 설정하지 않은 경우 게시 프로세스 중에 다음과 같은 오류 메시지가 표시됩니다. “하나 이상의 Azure Resource Manager 템플릿에 Azure 파트너 고객 사용량 특성이 누락되었습니다. 해결하려면 servicenow 계획에 대한 mainTemplate.json 패키지의 Azure Resource Manager 템플릿에 추적 GUID를 추가하세요. 자세한 내용은 http://aka.ms/customerusageattribution을 참조하세요.” 
 
-### <a name="validate-pre-requisites-1-day"></a>필수 구성 요소 유효성 검사(1일 미만) 
+각 게시 단계, 각 단계에서 수행되는 작업 및 각 단계의 예상 소요 시간에 대해 살펴보겠습니다.
+
+### <a name="validate-prerequisites-1-day"></a>필수 구성 요소 유효성 검사(1일 미만)\< 
 
 \"게시\"를 클릭하면 자동화된 검사가 수행되어 제품의 모든 필수 필드에 정보를 입력했는지를 확인합니다. 정보를 입력하지 않은 필드가 있으면 해당 필드 옆에 경고가 표시되며, 그러면 필드의 내용을 정확하게 입력한 후에 \'게시\'를 다시 클릭해야 합니다.
 
@@ -59,11 +62,11 @@ ms.locfileid: "48807780"
 
 이 단계는 며칠이 소요될 수 있으며 클라우드 파트너 포털에서 로그아웃할 수 있습니다. 오류가 있는 경우 전자 메일 알림이 전송됩니다. 모든 항목이 성공으로 통과된 경우 프로세스가 프로비전 단계로 자동으로 넘어갑니다.
 
-### <a name="packaging-and-lead-generation-registration-1-hour"></a>패키징 및 잠재 고객 생성 등록(1시간 미만) 
+### <a name="packaging-and-lead-generation-registration-1-hour"></a>패키징 및 잠재 고객 생성 등록(1시간 미만)\< 
 
 이 단계에서는 기술 및 마케팅 콘텐츠를 웹 사이트의 제품 페이지가 될 내용과 결합합니다.
 
-### <a name="offer-available-in-preview"></a>미리 보기로 제품 제공 
+### <a name="offer-available-in-preview"></a>미리 보기로 제공되는 제품 
 
 제품에서 미리 보기 상태의 제품에 액세스하는 데 필요한 단계를 성공적으로 완료했다는 알림 이메일을 받게 됩니다. 이 단계에서는 제품을 미리 보고 모든 사항이 적절하게 표시되는지 확인합니다. 그리고 스테이징 환경에서 VM이 올바르게 배포되는지 확인합니다.
 

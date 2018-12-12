@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: b4704e9f078b248ef1835babb3b63c378b011c4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516588"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445024"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Azure Active Directory의 ID 작업별 관리자 역할
 
@@ -147,7 +147,7 @@ Task | 최소 권한 역할 | 추가 역할
 그룹 만들기 | 사용자 계정 관리자 | 
 그룹 또는 앱의 액세스 검토 만들기, 업데이트 또는 삭제 | 사용자 계정 관리자 | 
 그룹 만료 관리 | 사용자 계정 관리자 | 
-그룹 설정 관리 | 사용자 계정 관리자 | 
+그룹 설정 관리 | 전역 관리자 | 
 모든 구성 읽기(숨겨진 멤버 자격 제외) | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 숨겨진 멤버 자격 읽기 | 그룹 멤버 | 그룹 소유자, 암호 관리자, Exchange 관리자, SharePoint 관리자, 팀 관리자, 사용자 계정 관리자
 숨겨진 구성원이 있는 그룹의 멤버 자격 읽기 | 기술 지원팀 관리자 | 사용자 계정 관리자, 팀 관리자

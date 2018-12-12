@@ -9,17 +9,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tyfox
-ms.openlocfilehash: d5d4c951bb104159730814f9b1b5820cb17f9f1a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4de4674d8a4c2b573df12648739971e460531636
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234785"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495098"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Azure Classic CLI를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-[Azure Classic CLI](../cli-install-nodejs.md)를 사용하여 Azure HDInsight의 Apache Hadoop 클러스터를 관리하는 방법을 알아봅니다. Classic CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다.
+[Azure Classic CLI](../cli-install-nodejs.md)를 사용하여 Azure HDInsight의 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 관리하는 방법을 알아봅니다. Classic CLI는 Node.js로 구현되며 Windows, Mac, Linux를 포함하여 Node.js를 지원하는 플랫폼에서 사용할 수 있습니다.
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -74,7 +74,7 @@ azure group delete <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>클러스터 크기 조정
-Hadoop 클러스터 크기를 변경하려면
+Apache Hadoop 클러스터 크기를 변경하려면:
 
 ```cli
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>

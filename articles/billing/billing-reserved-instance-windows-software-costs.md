@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: cwatson
-ms.openlocfilehash: 6ec1d0e1b8a768dd61a42c8e9284a93aee3c9337
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0328f90eb1cb9c316eea76a0f36c123fd556d25e
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392537"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584421"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
 
@@ -62,9 +62,9 @@ Azure 예약에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [종량제 구독의 예약 사용량 이해](billing-understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
-계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 
 

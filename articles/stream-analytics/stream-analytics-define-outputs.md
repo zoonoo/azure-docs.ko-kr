@@ -148,7 +148,7 @@ Power BI 계정의 인증을 설정하면 사용자가 Power BI 출력에 대한
 | --- | --- |
 | 출력 별칭 |쿼리 출력을 이 PowerBI 출력으로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
 | 그룹 작업 영역 |다른 Power BI 사용자와 데이터를 공유할 수 있게 하려면 Power BI 계정 내에서 그룹을 선택하거나 그룹에 작성하지 않으려면 “내 작업 영역”을 선택할 수 있습니다.  기존 그룹을 업데이트하려면 Power BI 인증을 갱신해야 합니다. |
-| 데이터 집합 이름 |Power BI 출력에 사용할 데이터 세트 이름을 제공합니다. |
+| 데이터 세트 이름 |Power BI 출력에 사용할 데이터 세트 이름을 제공합니다. |
 | 테이블 이름 |Power BI 출력의 데이터 세트 아래에 테이블 이름을 제공합니다. 현재, Stream Analytics 작업의 Power BI 출력에는 하나의 데이터 세트에 하나의 테이블만 있을 수 있습니다. |
 
 Power BI 출력 및 대시보드 구성에 대한 연습은 [Azure Stream Analytics 및 Power BI](stream-analytics-power-bi-dashboard.md) 문서를 참조하세요.

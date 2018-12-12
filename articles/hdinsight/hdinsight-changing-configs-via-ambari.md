@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 82995f2cc8facac9bef6f8c84c9667775ac81463
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038521"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498662"
 ---
-# <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Ambari를 사용하여 HDInsight 클러스터 구성 최적화
+# <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
-HDInsight는 대규모 데이터 처리 응용 프로그램을 위한 Apache Hadoop 클러스터를 제공합니다. 이렇게 복잡한 다중 노드 클러스터를 관리, 모니터링 및 최적화하는 작업은 어려울 수 있습니다. [Apache Ambari](http://ambari.apache.org/)는 HDInsight Linux 클러스터를 관리하고 모니터링하는 웹 인터페이스입니다.  Windows 클러스터의 경우 Ambari [REST API](hdinsight-hadoop-manage-ambari-rest-api.md)를 사용합니다.
+HDInsight는 대규모 데이터 처리 애플리케이션을 위한 [Apache Hadoop](https://hadoop.apache.org/) 클러스터를 제공합니다. 이렇게 복잡한 다중 노드 클러스터를 관리, 모니터링 및 최적화하는 작업은 어려울 수 있습니다. [Apache Ambari](http://ambari.apache.org/)는 HDInsight Linux 클러스터를 관리하고 모니터링하는 웹 인터페이스입니다.  Windows 클러스터의 경우 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)를 사용합니다.
 
-Ambari 웹 UI 사용에 대한 소개는 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+Ambari Web UI 사용에 대한 소개는 [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
 `https://CLUSTERNAME.azurehdidnsight.net`에서 클러스터 자격 증명을 사용하여 Ambari에 로그인합니다. 초기 화면에 개요 대시보드가 표시됩니다.
 
@@ -59,16 +59,16 @@ NameNode Java 힙 크기를 수정하려면:
 
     ![변경 내용 저장](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
-## <a name="hive-optimization"></a>Hive 최적화
+## <a name="apache-hive-optimization"></a>Apache Hive 최적화
 
-다음 섹션에서는 전반적인 Hive 성능 최적화를 위해 옵션을 구성하는 내용을 설명합니다.
+다음 섹션에서는 전반적인 Apache Hive 성능을 최적화하기 위한 구성 옵션을 설명합니다.
 
 1. Hive 구성 매개 변수를 수정하려면 서비스 사이드바에서 **Hive**를 선택합니다.
 1. **Configs**(구성) 탭으로 이동합니다.
 
 ### <a name="set-the-hive-execution-engine"></a>Hive 실행 엔진 설정
 
-Hive는 MapReduce 및 Tez라는 두 가지 실행 엔진을 제공합니다. Tez는 MapReduce보다 빠릅니다. HDInsight Linux 클러스터에는 Tez가 기본 실행 엔진으로 있습니다. 실행 엔진을 변경하려면:
+Hive는 두 개의 실행 엔진인 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 및 [Apache TEZ](https://tez.apache.org/)를 제공합니다. Tez는 MapReduce보다 빠릅니다. HDInsight Linux 클러스터에는 Tez가 기본 실행 엔진으로 있습니다. 실행 엔진을 변경하려면:
 
 1. Hive **Configs**(구성) 탭의 필터 상자에 **실행 엔진**을 입력합니다.
 
@@ -99,7 +99,7 @@ Hadoop은 단일 파일을 여러 파일로 분할(*매핑*)하여 생성되는 
 
 ### <a name="tune-reducers"></a>리듀서 조정
 
-ORC와 Snappy는 모두 고성능을 제공합니다. 하지만 Hive는 기본적으로 리듀서가 너무 적어서 이로 인해 병목 상태가 발생합니다.
+[Apache ORC](https://orc.apache.org/) 및 [Snappy](https://google.github.io/snappy/)는 모두 고성능을 제공합니다. 하지만 Hive는 기본적으로 리듀서가 너무 적어서 이로 인해 병목 상태가 발생합니다.
 
 예를 들어 입력 데이터 크기가 50GB라고 가정하겠습니다. Snappy 압축을 통한 ORC 형식의 해당 데이터는 1GB입니다. Hive는 필요한 리듀서 수를 매퍼에 입력되는 바이트 수/`hive.exec.reducers.bytes.per.reducer`로 추정합니다.
 
@@ -287,9 +287,9 @@ Hive 실행 엔진 최적화를 위한 추가 권장 사항:
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
 
-## <a name="pig-optimization"></a>Pig 최적화
+## <a name="apache-pig-optimization"></a>Apache Pig 최적화
 
-Pig 속성을 Ambari 웹 UI에서 수정하여 Pig 쿼리를 조정할 수 있습니다. Pig 속성을 Ambari에서 직접 수정하면 `/etc/pig/2.4.2.0-258.0/pig.properties` 파일의 Pig 속성이 수정됩니다.
+[Apache Pig](https://pig.apache.org/) 속성을 Ambari Web UI에서 수정하여 Pig 쿼리를 조정할 수 있습니다. Pig 속성을 Ambari에서 직접 수정하면 `/etc/pig/2.4.2.0-258.0/pig.properties` 파일의 Pig 속성이 수정됩니다.
 
 1. Pig 속성을 수정하려면 Pig **Configs**(구성) 탭으로 이동한 다음 **Advanced pig-properties**(고급 Pig 속성) 창을 확장합니다.
 
@@ -344,7 +344,7 @@ Pig는 작업 실행 중에 임시 파일을 생성합니다. 임시 파일을 �
 
 * `pig.tmpfilecompression`: true이면 임시 파일 압축이 사용됩니다. 기본값은 False입니다.
 
-* `pig.tmpfilecompression.codec`: 임시 파일을 압축하는 데 사용하는 압축 코덱입니다. CPU 사용률을 낮추기 위해 권장되는 압축 코덱은 LZO 및 Snappy입니다.
+* `pig.tmpfilecompression.codec`: 임시 파일을 압축하는 데 사용하는 압축 코덱입니다. CPU 사용률을 낮추기 위해 권장되는 압축 코덱은 [LZO](https://www.oberhumer.com/opensource/lzo/) 및 Snappy입니다.
 
 ### <a name="enable-split-combining"></a>분할 결합 사용
 
@@ -361,9 +361,9 @@ Pig는 작업 실행 중에 임시 파일을 생성합니다. 임시 파일을 �
 리듀서 수는 `pig.exec.reducers.bytes.per.reducer` 매개 변수를 기반으로 계산됩니다. 이 매개 변수는 리듀서당 처리되는 바이트 수를 지정하며 기본값은 1GB입니다. 최대 리듀서 수를 제한하려면 `pig.exec.reducers.max` 속성을 설정합니다. 기본값은 999입니다.
 
 
-## <a name="hbase-optimization-with-the-ambari-web-ui"></a>Ambari 웹 UI로 HBase 최적화
+## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Ambari Web UI로 Apache HBase 최적화
 
-HBase 구성은 **HBase Configs** 탭에서 수정됩니다. 다음 섹션에서는 HBase 성능에 영향을 주는 중요한 구성 설정 중 일부를 설명합니다.
+[Apache HBase](https://hbase.apache.org/) 구성은 **HBase Configs** 탭에서 수정됩니다. 다음 섹션에서는 HBase 성능에 영향을 주는 중요한 구성 설정 중 일부를 설명합니다.
 
 ### <a name="set-hbaseheapsize"></a>HBASE_HEAPSIZE 설정
 
@@ -453,5 +453,5 @@ Memstore 로컬 할당 버퍼 사용은 `hbase.hregion.memstore.mslab.enabled` �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Ambari 웹 UI로 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
-* [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari Web UI로 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

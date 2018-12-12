@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 602ea8028cf89b23df692d5c2fb9b781f64bcad4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341687"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333482"
 ---
 # <a name="categorizing-images"></a>이미지 분류
 
@@ -25,7 +25,7 @@ Computer Vision은 태그 지정 및 설명 외에도 이전 버전에서 정의
 
 다음 다이어그램에 표시된 86개 개념 목록에 따라 이미지는 대분류에서 소분류로 분류될 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
 
-![범주 분석](./Images/analyze_categories.png)
+![범주 분류에 있는 모든 범주의 그룹화된 목록](./Images/analyze_categories-v2.png)
 
 ## <a name="image-categorization-examples"></a>이미지 분류 예제
 

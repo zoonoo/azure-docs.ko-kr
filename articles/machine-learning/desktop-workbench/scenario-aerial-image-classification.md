@@ -45,7 +45,7 @@ ms.locfileid: "51260553"
 
 분류자 모델을 교육하고 유효성 검사를 한 후, 우리는 이러한 모델이 도시 개발에서 추세를 연구하는 데 어떻게 사용될 수 있는지 보여주기 위해 Microsoft의 뉴 잉글랜드 연구 및 개발(NERD) 센터가 위치한 메사추세츠 미들섹스 카운티의 항공 사진에 적용할 것입니다.
 
-전이 학습을 사용하는 이미지 분류자를 생성하기 위해 데이터 과학자는 흔히 다양한 메서드로 여러 모델을 생성한 후 가장 성능이 좋은 모델을 선택합니다. 데이터 과학자는 Azure Machine Learning Workbench를 활용하여 여러 다른 컴퓨팅 환경에 걸쳐 교육을 조정하고, 여러 모델의 성능을 추적 및 비교하여, 선택한 모델을 클라우드에 있는 큰 데이터 집합에 적용할 수 있습니다.
+전이 학습을 사용하는 이미지 분류자를 생성하기 위해 데이터 과학자는 흔히 다양한 메서드로 여러 모델을 생성한 후 가장 성능이 좋은 모델을 선택합니다. 데이터 과학자는 Azure Machine Learning Workbench를 활용하여 여러 다른 컴퓨팅 환경에 걸쳐 교육을 조정하고, 여러 모델의 성능을 추적 및 비교하여, 선택한 모델을 클라우드에 있는 큰 데이터 세트에 적용할 수 있습니다.
 
 ## <a name="scenario-structure"></a>시나리오 구조
 
@@ -93,7 +93,7 @@ ms.locfileid: "51260553"
 2.  **프로젝트** 페이지에서 **+** 기호를 클릭하고 **새 프로젝트**를 선택합니다.
 3.  **새 프로젝트 만들기** 창에서 새 프로젝트에 대한 정보를 입력합니다.
 4.  **Search Project Templates** 검색 상자에서 "Aerial Image Classification(항공 이미지 분류)"을 입력하고 템플릿을 선택합니다.
-5.  **만들기**
+5.   **만들기**
  
 #### <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
@@ -316,7 +316,7 @@ HDInsight 클러스터를 만들고 나면 다음과 같이 클러스터를 프�
 
     이 명령은 두 파일(`myhdi.runconfig` 및 `myhdi.compute`)을 프로젝트의 `aml_config` 폴더에 추가합니다.
 
-1. 원하는 텍스트 편집기에서 `myhdi.compute` 파일을 엽니다. `yarnDeployMode: cluster` 줄을 수정하여 `yarnDeployMode: client`를 읽은 다음 저장하고 파일을 닫습니다.
+1. 원하는 텍스트 편집기에서 `myhdi.compute` 파일을 엽니다.  `yarnDeployMode: cluster` 줄을 수정하여 `yarnDeployMode: client`를 읽은 다음 저장하고 파일을 닫습니다.
 1. 다음 명령을 실행하여 HDInsight 환경을 사용하도록 준비합니다.
    ```
    az ml experiment prepare -c myhdi
@@ -369,7 +369,7 @@ Microsoft Azure Machine Learning 실행을 완료하는 데 30분 정도 소요�
 
 ### <a name="training-models-with-mmlspark"></a>MMLSpark를 통한 모델 교육
 
-워크벤치 프로젝트의 "Code\02_Modeling" 하위 폴더에 있는 `run_mmlspark.py` 스크립트를 사용하여 이미지 분류를 위해 [MMLSpark](https://github.com/Azure/mmlspark) 모델을 교육합니다. 이 스크립트는 먼저 ImageNet 데이터 집합(AlexNet 또는 18레이어 ResNet)에서 미리 학습된 이미지 분류자 DNN을 사용하여 학습 집합 이미지를 특성화합니다. 그런 다음 특성화된 이미지를 사용하여 이미지를 분류하도록 MMLSpark 모델을 교육합니다(임의 포리스트 또는 논리적 회귀 모델). 그러면 테스트 이미지 집합이 특성화되고 학습된 모델과 함께 채점됩니다. 테스트 집합의 모델 예측 정확도가 계산되어 Azure Machine Learning Workbench 실행 기록 특징에 기록됩니다. 마지막으로, 학습된 MMLSpark 모델 및 테스트 집합에 대한 예측이 BLOB Storage에 저장됩니다.
+워크벤치 프로젝트의 "Code\02_Modeling" 하위 폴더에 있는 `run_mmlspark.py` 스크립트를 사용하여 이미지 분류를 위해 [MMLSpark](https://github.com/Azure/mmlspark) 모델을 교육합니다. 이 스크립트는 먼저 ImageNet 데이터 세트(AlexNet 또는 18레이어 ResNet)에서 미리 학습된 이미지 분류자 DNN을 사용하여 학습 집합 이미지를 특성화합니다. 그런 다음 특성화된 이미지를 사용하여 이미지를 분류하도록 MMLSpark 모델을 교육합니다(임의 포리스트 또는 논리적 회귀 모델). 그러면 테스트 이미지 집합이 특성화되고 학습된 모델과 함께 채점됩니다. 테스트 집합의 모델 예측 정확도가 계산되어 Azure Machine Learning Workbench 실행 기록 특징에 기록됩니다. 마지막으로, 학습된 MMLSpark 모델 및 테스트 집합에 대한 예측이 BLOB Storage에 저장됩니다.
 
 학습된 모델, 미리 학습된 모델 형식 및 MMLSpark 모델 형식에 대해 고유한 출력 모델 이름을 선택합니다. 다음 명령 템플릿의 표시된 위치에 선택을 기입한 다음 Azure ML 명령줄 인터페이스에서 명령을 실행하여 재교육을 시작합니다.
 
@@ -417,7 +417,7 @@ az ml experiment submit -c myhdi Code\03_Deployment\batch_score_spark.py --confi
 ## <a name="references"></a>참조
 
 - [상세 병렬 이미지 분류 리포지토리](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification)
-   - 무료로 제공되는 이미지 및 레이블을 통해 데이터 집합 구성 설명
+   - 무료로 제공되는 이미지 및 레이블을 통해 데이터 세트 구성 설명
 - [MMLSpark](https://github.com/Azure/mmlspark) GitHub 리포지토리
    - MMLSpark를 통한 모델 교육 및 평가의 추가적인 예제 제공
 

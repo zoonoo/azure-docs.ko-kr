@@ -224,7 +224,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDbLinkedService, client.Ser
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
 
-이 섹션에서는 원본과 싱크 각각에 대해 하나씩, 두 개의 데이터 집합을 만듭니다. 
+이 섹션에서는 원본과 싱크 각각에 대해 하나씩, 두 개의 데이터 세트를 만듭니다. 
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>원본 Azure Blob에 대한 데이터 세트 만들기
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4e5561c4846889f53723ed8df82d7c6268aee180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241619"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495151"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "51241619"
 ### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 응용 프로그램에 대해 다음 리소스를 쉽게 만들 수 있습니다.
 * HDInsight 클러스터 및 해당 종속 리소스(예: 기본 저장소 계정)
-* 기타 리소스(예: Apache Sqoop을 사용하는 Azure SQL Database)
+* 기타 리소스(예: [Apache Sqoop](http://sqoop.apache.org/)을 사용하는 Azure SQL Database)
 
 템플릿에서 응용 프로그램에 필요한 리소스를 정의합니다. 또한 다양한 환경에 대한 값을 입력하기 위한 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용하는 JSON과 식으로 구성됩니다.
 

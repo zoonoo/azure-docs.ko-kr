@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: c85ad59acc8e307de05f41365855f3a9669ac2b5
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034679"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494964"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>HDInsight에서 Apache Ambari Tez 뷰를 사용하여 Tez 작업 디버깅
 
-HDInsight의 Apache Ambari Web UI에는 Apache Tez를 사용하는 작업을 이해 및 디버깅하는 데 사용할 수 있는 Tez 보기가 포함되어 있습니다. Tez 뷰를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
+HDInsight의 [Apache Ambari](https://ambari.apache.org/) Web UI에는 Tez를 사용하는 작업을 이해 및 디버그하는 데 사용할 수 있는 [Apache TEZ](https://tez.apache.org/) 보기가 포함되어 있습니다. Tez 뷰를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 문서의 단계에는 Linux를 사용하는 HDInsight 클러스터가 필요합니다. Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
@@ -101,8 +101,8 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Tez 뷰를 사용하는 방법을 배웠으므로 [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)에 대해 자세히 알아봅니다.
+이제 Apache Tez 보기를 사용하는 방법을 알아보았으므로 [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)에 대해 자세히 알아봅니다.
 
-Tez에서 자세한 기술 정보는 [Hortonworks의 Tez 페이지](http://hortonworks.com/hadoop/tez/)를 참조하세요.
+Apache Tez의 자세한 기술 정보는 [Hortonworks의 Apache Tez 페이지](http://hortonworks.com/hadoop/tez/)를 참조하세요.
 
-HDInsight과 함께 Ambari를 사용하는 방법에 대한 자세한 내용은 [Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
+HDInsight과 함께 Apache Ambari를 사용하는 방법에 대한 자세한 내용은 [Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.

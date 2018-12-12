@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory에서 데이터 집합 열 매핑 | Microsoft Docs
+title: Azure Data Factory에서 데이터 세트 열 매핑 | Microsoft Docs
 description: 원본 열을 대상 열에 매핑하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 06/27/2018
 ms.locfileid: "37045887"
 ---
-# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>원본 데이터 집합 열을 대상 데이터 집합 열에 매핑
+# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>원본 데이터 세트 열을 대상 데이터 세트 열에 매핑
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 
 
@@ -28,8 +28,8 @@ ms.locfileid: "37045887"
 
 열 매핑에서는 다음과 같은 시나리오가 지원됩니다.
 
-* 원본 데이터 집합 구조에 있는 모든 열이 싱크 데이터 집합 구조의 모든 열에 매핑됩니다.
-* 원본 데이터 집합 구조에 있는 열의 하위 집합이 싱크 데이터 집합 구조의 모든 열에 매핑됩니다.
+* 원본 데이터 세트 구조에 있는 모든 열이 싱크 데이터 세트 구조의 모든 열에 매핑됩니다.
+* 원본 데이터 세트 구조에 있는 열의 하위 집합이 싱크 데이터 세트 구조의 모든 열에 매핑됩니다.
 
 다음은 예외가 발생하는 오류 조건입니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "37045887"
 * SQL 쿼리 결과에는 매개 변수 매핑에서 지정한 열 이름이 없습니다.
 
 > [!NOTE]
-> 다음 샘플은 Azure SQL 및 Azure Blob에 대한 것이지만, 직사각 데이터 집합을 지원하는 모든 데이터 저장소에 적용할 수 있습니다. 예에서 관련 데이터 원본의 데이터를 가리키도록 데이터 집합과 연결 서비스를 조정합니다.
+> 다음 샘플은 Azure SQL 및 Azure Blob에 대한 것이지만, 직사각 데이터 세트를 지원하는 모든 데이터 저장소에 적용할 수 있습니다. 예에서 관련 데이터 원본의 데이터를 가리키도록 데이터 세트와 연결 서비스를 조정합니다.
 
 ## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>예제 1 – Azure SQL에서 Azure Blob으로의 열 매핑
 이 예제에서 입력 테이블에는 구조가 있고 그 구조가 Azure SQL 데이터베이스에 있는 SQL 테이블을 가리킵니다.

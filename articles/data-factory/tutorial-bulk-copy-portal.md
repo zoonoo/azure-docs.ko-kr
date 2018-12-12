@@ -172,7 +172,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 
 1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
 
-    ![새 데이터 집합 메뉴](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
+    ![새 데이터 세트 메뉴](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
 1. **새 데이터 집합** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. **AzureSqlTable1**이라는 새 탭이 표시됩니다. 
     
     ![Azure SQL Database 선택](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
@@ -186,7 +186,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
     ![원본 데이터 세트 연결 페이지](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
 
-### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>싱크 SQL Data Warehouse에 대한 데이터 집합 만들기
+### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>싱크 SQL Data Warehouse에 대한 데이터 세트 만들기
 
 1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다. 
 1. **새 데이터 집합** 창에서 **Azure SQL Data Warehouse**를 선택하고 **마침**을 클릭합니다. **AzureSqlDWTable1**이라는 새 탭이 표시됩니다. 

@@ -176,12 +176,12 @@ ms.locfileid: "45732229"
     ![연결된 서비스와 트리 뷰](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
-이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 집합을 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 AzureStorageLinkedService를 참조합니다. 연결된 서비스는 저장소 계정으로 연결됩니다. 데이터 세트는 입력 및 출력 데이터가 있는 저장소의 컨테이너, 폴더 및 파일 이름을 지정합니다.   
+이 단계에서는 Hive 처리에 대한 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 이러한 데이터 세트는 이 자습서의 앞부분에서 만든 AzureStorageLinkedService를 참조합니다. 연결된 서비스는 저장소 계정으로 연결됩니다. 데이터 세트는 입력 및 출력 데이터가 있는 저장소의 컨테이너, 폴더 및 파일 이름을 지정합니다.   
 
 ### <a name="create-the-input-dataset"></a>입력 데이터 세트 만들기
 1. Data Factory Editor에서 **자세히** > **새 데이터 세트** > **Azure Blob Storage**를 선택합니다.
 
-    ![새 데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
+    ![새 데이터 세트](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
 1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각에서 파이프라인의 활동에 대한 입력 데이터를 나타내는 **AzureBlobInput**이라는 데이터 세트를 만듭니다. 또한 입력 데이터가 **adfgetstarted**라는 Blob 컨테이너 및 **inputdata**라는 폴더에 있도록 지정합니다.
 
@@ -256,12 +256,12 @@ ms.locfileid: "45732229"
 
 1. 명령 모음에서 **배포**를 선택하여 새로 만든 데이터 세트를 배포합니다.
 
-1. 데이터 집합이 성공적으로 만들어졌는지 확인합니다.
+1. 데이터 세트가 성공적으로 만들어졌는지 확인합니다.
 
     ![연결된 서비스와 트리 뷰](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
-이 단계에서는 HDInsight Hive 작업을 사용하여 첫 번째 파이프라인을 만듭니다. 입력 조각은 매월 사용할 수 있습니다(주파수가 월, 간격은 1). 출력 조각은 매월 생성됩니다. 작업에 대한 스케줄러 속성도 매월로 설정됩니다. 출력 데이터 집합 및 작업 스케줄러에 대한 설정이 일치해야 합니다. 현재 출력 데이터 세트가 일정을 결정하므로 작업이 출력을 생성하지 않는 경우에도 출력 데이터 세트를 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 집합 만들기를 건너뛸 수 있습니다. 다음 JSON 코드 조각에서 사용되는 속성은 이 섹션의 마지막에 설명되어 있습니다.
+이 단계에서는 HDInsight Hive 작업을 사용하여 첫 번째 파이프라인을 만듭니다. 입력 조각은 매월 사용할 수 있습니다(주파수가 월, 간격은 1). 출력 조각은 매월 생성됩니다. 작업에 대한 스케줄러 속성도 매월로 설정됩니다. 출력 데이터 세트 및 작업 스케줄러에 대한 설정이 일치해야 합니다. 현재 출력 데이터 세트가 일정을 결정하므로 작업이 출력을 생성하지 않는 경우에도 출력 데이터 세트를 만들어야 합니다. 활동이 입력을 가져오지 않으면 입력 데이터 세트 만들기를 건너뛸 수 있습니다. 다음 JSON 코드 조각에서 사용되는 속성은 이 섹션의 마지막에 설명되어 있습니다.
 
 1. Data Factory Editor에서 **자세히** > **새 파이프라인**을 선택합니다.
 

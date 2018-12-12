@@ -10,23 +10,23 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 75ec0e17e9866d2cd3420ff6ecf648bf22a8ae8e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 035e70eef88d5d5dae08c329017430db25c20464
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277956"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494836"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리 실행 
 
-HDInsight 대화형 쿼리 클러스터에는 대화형 Hive 쿼리를 실행하는 데 사용할 수 있는 Apache Zeppelin 노트북이 포함되어 있습니다. 이 문서에서는 Azure HDInsight에서 Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다. 
+HDInsight 대화형 쿼리 클러스터에는 대화형 Hive 쿼리를 실행하는 데 사용할 수 있는 [Apache Zeppelin](https://zeppelin.apache.org/) Notebook이 포함되어 있습니다. 이 문서에서는 Azure HDInsight에서 Apache Zeppelin을 사용하여 [Apache Hive](https://hive.apache.org/) 쿼리를 실행하는 방법을 알아봅니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **HDInsight 대화형 쿼리 클러스터**. HDInsight 클러스터를 만들려면 [클러스터 만들기](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.  대화형 쿼리 형식을 선택해야 합니다. 
 
-## <a name="create-a-apache-zeppelin-note"></a>Apache Zeppelin 노트 만들기
+## <a name="create-an-apache-zeppelin-note"></a>Apache Zeppelin 노트 만들기
 
 1. 다음 URL로 이동합니다.
 
@@ -69,12 +69,12 @@ HDInsight 대화형 쿼리 클러스터에는 대화형 Hive 쿼리를 실행하
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Power BI를 사용하여 HDInsight에서 데이터를 시각화하는 방법을 알아보았습니다.  자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 [Microsoft Power BI](https://powerbi.microsoft.com/)를 사용하여 HDInsight에서 데이터를 시각화하는 방법을 알아보았습니다.  자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure HDInsight에서 Microsoft Power BI를 사용하여 Hive 데이터 시각화](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
+* [Azure HDInsight에서 Microsoft Power BI를 사용하여 Apache Hive 데이터 시각화](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Apache Hive 데이터 시각화](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 * [Microsoft Hive ODBC Driver로 HDInsight에 Excel 연결](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
-* [파워 쿼리를 사용하여 Hadoop에 Excel 연결](hadoop/apache-hadoop-connect-excel-power-query.md)
-* [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결하고 Hive 쿼리 실행](hadoop/apache-hadoop-visual-studio-tools-get-started.md)
+* [파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결](hadoop/apache-hadoop-connect-excel-power-query.md)
+* [Data Lake Tools for Visual Studio를 사용하여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행](hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 * [Azure HDInsight Tool for Visual Studio Code 사용](hdinsight-for-vscode.md)
 * [HDInsight에 데이터 업로드](./hdinsight-upload-data.md)

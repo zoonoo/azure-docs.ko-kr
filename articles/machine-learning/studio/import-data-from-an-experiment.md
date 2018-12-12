@@ -26,7 +26,7 @@ ms.locfileid: "52308040"
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>다른 실험에서 얻은 사용자의 데이터를 Azure Machine Learning Studio로 가져오기
 
-한 실험의 중간 결과를 다른 실험의 일부로 사용하려는 경우가 있습니다. 이렇게 하려면 모듈을 데이터 집합으로 저장합니다.
+한 실험의 중간 결과를 다른 실험의 일부로 사용하려는 경우가 있습니다. 이렇게 하려면 모듈을 데이터 세트로 저장합니다.
 
 1. 데이터 세트로 저장할 모듈의 출력을 클릭합니다.
 2. **데이터 집합으로 저장**을 클릭합니다.

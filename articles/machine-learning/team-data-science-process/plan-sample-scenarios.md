@@ -73,7 +73,7 @@ ms.locfileid: "52444837"
 1. Azure Blob에 샘플링된 데이터를 저장합니다.
 1. [Azure Machine Learning Studio](https://studio.azureml.net/)에 로그인합니다.
 1. [데이터 가져오기][import-data] 모듈을 사용하여 Azure Blob에서 데이터를 읽습니다.
-1. 수집된 데이터 집합으로 시작하여 Azure Machine Learning 실험 흐름을 작성합니다.
+1. 수집된 데이터 세트로 시작하여 Azure Machine Learning 실험 흐름을 작성합니다.
 
 ## <a name="smalllocaltodb"></a>시나리오 \#4: 로컬 파일의 보통 데이터 집합보다 작음, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
 ![Azure에서 SQL DB보다 중간인 로컬 파일보다 작음][4]
@@ -103,7 +103,7 @@ ms.locfileid: "52444837"
 1. 필요하거나 원하는 경우 데이터 샘플 크기를 결정합니다.
 1. [Azure Machine Learning Studio](https://studio.azureml.net/)에 로그인합니다.
 1. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
-1. 수집된 데이터 집합으로 시작하여 Azure Machine Learning 실험 흐름을 작성합니다.
+1. 수집된 데이터 세트로 시작하여 Azure Machine Learning 실험 흐름을 작성합니다.
 
 ## <a name="largelocaltodb"></a>시나리오 \#5: 로컬 파일의 큰 데이터 집합, Azure VM의 SQL Server를 대상으로 함
 ![Azure의 SQL DB보다 큰 로컬 파일][5]
@@ -144,7 +144,7 @@ ms.locfileid: "52444837"
 1. 필요하거나 원하는 경우 데이터 샘플 크기를 결정합니다.
 1. [Azure Machine Learning Studio](https://studio.azureml.net/)에 로그인합니다.
 1. [데이터 가져오기][import-data] 모듈을 사용하여 SQL Server에서 직접 데이터를 읽습니다. [데이터 가져오기][import-data] 쿼리에서 직접 필요한 경우, 필드를 추출하는 데 필요한 쿼리를 붙여넣고, 기능을 만들고 데이터를 샘플링합니다.
-1. 업로드 데이터 집합으로 단순 Azure Machine Learning 실험 흐름 시작
+1. 업로드 데이터 세트로 단순 Azure Machine Learning 실험 흐름 시작
 
 ## <a name="largedbtodb"></a>시나리오 \#6: 온-프레미스의 SQL 서버 데이터베이스의 큰 데이터 집합, Azure 가상 컴퓨터의 SQL Server를 대상으로 함
 ![Azure의 SQL DB보다 큰 SQL DB 온-프레미스][6]

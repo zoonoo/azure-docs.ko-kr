@@ -57,11 +57,11 @@ ms.locfileid: "46973207"
 2.  **프로젝트** 페이지에서 **+** 기호를 클릭하고 **새 프로젝트**를 선택합니다.
 3.  **새 프로젝트 만들기** 창에서 새 프로젝트에 대한 정보를 입력합니다.
 4.  **프로젝트 템플릿 검색** 검색 상자에 "Q & A 일치"를 입력하고 템플릿을 선택합니다.
-5.  **만들기**
+5.   **만들기**
 
 ## <a name="data-description"></a>데이터 설명
 
-이 예제에서 사용된 데이터 집합은 [archive.org](https://archive.org/details/stackexchange)에 저장된 스택 교환 데이터 덤프입니다. 이 데이터는 [스택 교환 네트워크](https://stackexchange.com/)에서 사용자가 제공한 모든 콘텐츠의 익명 처리된 덤프입니다. 네트워크의 각 사이트는 bzip2 압축을 사용하여 7-zip을 통해 압축된 XML 파일로 구성되는 별도 아카이브로 형식이 지정됩니다. 각 사이트 보관 파일에는 Posts, Users, Votes, Comments, PostHistory 및 PostLinks가 포함됩니다. 
+이 예제에서 사용된 데이터 세트는 [archive.org](https://archive.org/details/stackexchange)에 저장된 스택 교환 데이터 덤프입니다. 이 데이터는 [스택 교환 네트워크](https://stackexchange.com/)에서 사용자가 제공한 모든 콘텐츠의 익명 처리된 덤프입니다. 네트워크의 각 사이트는 bzip2 압축을 사용하여 7-zip을 통해 압축된 XML 파일로 구성되는 별도 아카이브로 형식이 지정됩니다. 각 사이트 보관 파일에는 Posts, Users, Votes, Comments, PostHistory 및 PostLinks가 포함됩니다. 
 
 ### <a name="data-source"></a>데이터 원본
 
@@ -69,7 +69,7 @@ ms.locfileid: "46973207"
 
 게시물 데이터의 `PostTypeId` 필드는 게시물이 `Question`인지 또는 `Answer`인지를 나타냅니다. PostLinks 데이터의 `PostLinkTypeId` 필드는 두 개의 게시물이 연결되었는지 또는 중복되었는지 여부를 나타냅니다. 질문 게시물에는 일반적으로 다른 유사/중복 질문과 함께 질문을 분류하는 키워드인 일부 태그가 포함됩니다. `javascript`, `java`, `c#`, `php` 등과 같이 높은 빈도를 갖는 태그가 많으며 많은 수의 질문 게시물로 구성됩니다. 이 예제에서는 `javascript` 태그가 있는 질문 및 답변 쌍의 하위 집합이 추출됩니다.
 
-또한 질문 게시물은 여러 개의 답변 게시물 또는 중복 질문 게시물과 관련될 수 있습니다. 이 두 데이터 집합에서 FAQ 목록을 작성하려면 일부 데이터 수집 기준을 고려해야 합니다. 이 예제에 포함되지 않은 SQL 스크립트를 사용하여 세 개의 컴파일된 데이터 집합이 선택됩니다. 결과 데이터 설명은 다음과 같습니다.
+또한 질문 게시물은 여러 개의 답변 게시물 또는 중복 질문 게시물과 관련될 수 있습니다. 이 두 데이터 세트에서 FAQ 목록을 작성하려면 일부 데이터 수집 기준을 고려해야 합니다. 이 예제에 포함되지 않은 SQL 스크립트를 사용하여 세 개의 컴파일된 데이터 집합이 선택됩니다. 결과 데이터 설명은 다음과 같습니다.
 
 - `Original Questions (Q)`: 질문 게시물을 Stack Overflow 사이트에서 질문하고 답변합니다.
 - `Duplications (D)`: 질문 게시물이 원래 질문인 기존 질문(`PostLinkTypeId = 3`)과 중복됩니다. 중복은 원래 질문에 제공된 대답이 새로운 중복 질문에 대한 대답도 된다는 의미에서 원래 질문과 의미상 동등한 것으로 간주됩니다.
@@ -81,9 +81,9 @@ ms.locfileid: "46973207"
 
 ### <a name="data-structure"></a>데이터 구조
 
-세 가지 데이터 집합의 데이터 스키마 및 직접 다운로드 링크는 다음 표에서 볼 수 있습니다.
+세 가지 데이터 세트의 데이터 스키마 및 직접 다운로드 링크는 다음 표에서 볼 수 있습니다.
 
-| 데이터 집합 | 필드 | type | 설명
+| 데이터 세트 | 필드 | type | 설명
 | ----------|------------|------------|--------
 | [questions](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | Id | 문자열 | 고유 질문 ID(기본 키)
 |  | AnswerId | 문자열 | 질문당 고유 답변 ID
@@ -109,7 +109,7 @@ ms.locfileid: "46973207"
 | `notebooks` | 폴더 | Jupyter Notebook 폴더
 | `modules` | 폴더 | Python 모듈 폴더
 | `scripts` | 폴더 | Python 파일 폴더
-| `notebooks/Part_1_Data_Preparation.ipynb` | Jupyter 노트북 | 샘플 데이터에 액세스하고 텍스트를 전처리하고 교육 및 테스트 데이터 집합 준비
+| `notebooks/Part_1_Data_Preparation.ipynb` | Jupyter 노트북 | 샘플 데이터에 액세스하고 텍스트를 전처리하고 교육 및 테스트 데이터 세트 준비
 | `notebooks/Part_2_Phrase_Learning.ipynb` | Jupyter 노트북 | 정보 문구를 배우고 BOW(Bag-of-Words) 표현으로 텍스트 토큰화
 | `notebooks/Part_3_Model_Training_and_Evaluation.ipynb` | Jupyter 노트북 | 기능 추출, 텍스트 분류 모델 학습 및 모델 성능 평가
 | `modules/__init__.py` | Python 파일 | Python 패키지 init 파일
@@ -125,7 +125,7 @@ ms.locfileid: "46973207"
 
 ### <a name="data-ingestion-and-transformation"></a>데이터 수집 및 변환
 
-세 개의 컴파일된 데이터 집합은 Blob Storage에 저장되며 `Part_1_Data_Preparation.ipynb` Notebook에서 검색됩니다.  
+세 개의 컴파일된 데이터 세트는 Blob Storage에 저장되며 `Part_1_Data_Preparation.ipynb` Notebook에서 검색됩니다.  
 
 텍스트 분류 모델을 학습하기 전에 질문의 텍스트를 정리하고 전처리하여 코드 조각을 제외합니다. 교육 자료를 통해 감독되지 않은 구문 학습을 적용하여 정보를 제공하는 여러 단어 시퀀스를 학습합니다. 이러한 구문은 텍스트 분류 모델에서 사용되는 다운스트림 BOW(Batch-of-Words) 기능화에서 단일 복합 단어 단위로 표현됩니다.
 

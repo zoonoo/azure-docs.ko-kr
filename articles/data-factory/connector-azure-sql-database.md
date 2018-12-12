@@ -505,7 +505,7 @@ create table dbo.TargetTbl
 
 다음 샘플에서는 저장 프로시저를 사용하여 Azure SQL Database의 테이블에 upsert(업데이트/삽입)를 수행하는 방법을 보여 줍니다. 입력 데이터와 싱크 **Marketing** 테이블에 각기 **ProfileID**, **State** 및 **Category**의 세 열이 있다고 가정합니다. **ProfileID** 열을 기준으로 upsert(업데이트/삽입)를 수행하고 특정 범주에 대해서만 적용합니다.
 
-#### <a name="output-dataset"></a>출력 데이터 집합
+#### <a name="output-dataset"></a>출력 데이터 세트
 
 ```json
 {

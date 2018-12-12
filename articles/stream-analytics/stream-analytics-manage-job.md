@@ -182,7 +182,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
    |**설정**  |**제안 값**  |
    |---------|---------|---------|
    |출력 별칭  |  MyPBIoutput  |
-   |데이터 집합 이름  |   ASAdataset  | 
+   |데이터 세트 이름  |   ASAdataset  | 
    |테이블 이름 |  ASATable  | 
 
    ![출력 구성](media/stream-analytics-manage-job/configure-output.png)  

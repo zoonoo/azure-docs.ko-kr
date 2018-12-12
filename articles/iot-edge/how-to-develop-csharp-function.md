@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 343264f90ecf067786db9c0096625b87b2dbd319
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 40b8dfef3100ff8440165de74fb41f6b36afe37a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51004411"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315106"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 Azure Functions 개발 및 배포
 
@@ -71,6 +71,7 @@ VS Code는 입력한 정보를 사용하고, Azure Functions 프로젝트로 IoT
    >환경 파일은 모듈에 대한 이미지 리포지토리를 제공하는 경우에만 생성됩니다. localhost 기본값을 로컬로 테스트하고 디버그하도록 수락하는 경우 환경 변수를 선언할 필요가 없습니다. 
 
 * **deployment.template.json** 파일은 테스트에 사용할 수 있는 데이터를 시뮬레이션하는 샘플 **tempSensor** 모듈과 함께 새 모듈을 나열합니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요.
+* **deployment.debug.template.json** 파일에는 적절한 컨테이너 옵션이 있는 디버그 버전의 모듈 이미지가 포함됩니다.
 
 ## <a name="develop-your-module"></a>모듈 개발
 
@@ -79,12 +80,10 @@ VS Code는 입력한 정보를 사용하고, Azure Functions 프로젝트로 IoT
 고유한 코드를 사용하여 Azure Function 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
 
 ## <a name="build-your-module-for-debugging"></a>디버깅을 위한 모듈 빌드
-1. 디버깅을 시작하려면 **Dockerfile.amd64.debug**를 사용하여 Docker 이미지를 다시 빌드하고 Edge 솔루션을 배포합니다. VS Code 탐색기에서 `deployment.template.json` 파일로 이동합니다. 끝에 `.debug`를 추가하여 함수 이미지 URL을 업데이트합니다.
-
-    ![디버그 이미지 빌드](./media/how-to-debug-csharp-function/build-debug-image.png)
-
+1. 디버깅을 시작하려면 **Dockerfile.amd64.debug**를 사용하여 Docker 이미지를 다시 빌드하고 Edge 솔루션을 배포합니다. VS Code 탐색기에서 `deployment.debug.template.json` 파일로 이동합니다.
 2. 솔루션을 다시 빌드합니다. VS Code 명령 팔레트에서 **Azure IoT Edge: IoT Edge 솔루션 빌드** 명령을 입력하고 실행합니다.
-3. Azure IoT Hub 장치 탐색기에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭한 다음, **Edge 장치에 대한 배포 만들기**를 선택합니다. `config` 폴더에서 `deployment.json` 파일을 선택합니다. VS Code 통합 터미널에서 배포 ID를 사용하여 생성된 배포가 표시됩니다.
+3. 명령 팔레트에서 솔루션의 `deployment.debug.template.json` 파일을 선택합니다. 
+4. Azure IoT Hub 장치 탐색기에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭한 다음, **Edge 장치에 대한 배포 만들기**를 선택합니다. `config` 폴더에서 `deployment.debug.amd64.json` 파일을 선택합니다. VS Code 통합 터미널에서 배포 ID를 사용하여 생성된 배포가 표시됩니다.
 
 VS Code Docker 탐색기를 사용하거나 터미널에서 `docker ps` 명령을 실행하여 컨테이너 상태를 확인합니다.
 

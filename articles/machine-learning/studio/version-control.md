@@ -46,7 +46,7 @@ Azure Machine Learning Studio 학습 실험의 실행 모델에서 실험 편집
 ### <a name="exportimport-experiment-in-json-format"></a>JSON 형식으로 실험 내보내기/가져오기
 실행 기록 스냅숏은 실행을 위해 제출될 때마다 Azure Machine Learning Studio에서 변경할 수 없는 실험 버전을 유지합니다. 실험의 로컬 복사본을 저장한 후 Team Foundation Server와 같은 즐겨 찾는 소스 제어 시스템에 체크 인하거나 나중에 해당 로컬 파일에서 실험을 다시 만들 수도 있습니다. 이를 위해 [Azure Machine Learning PowerShell](https://aka.ms/amlps) commandlet인 [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 및 [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph)를 사용할 수 있습니다.
 
-JSON 파일이 실험 그래프를 텍스트로 표현하지만 작업 영역에서 데이터 집합 또는 학습된 모델과 같은 자산에 대한 참조를 포함할 수 있습니다. 직렬화된 자산 버전은 포함되지 않습니다. JSON 문서를 작업 영역에 다시 가져오려는 경우 참조된 자산은 실험에서 참조된 것과 동일한 자산 ID로 이미 존재해야 합니다. 그렇지 않으면 가져온 실험에 액세스할 수 없습니다.
+JSON 파일이 실험 그래프를 텍스트로 표현하지만 작업 영역에서 데이터 세트 또는 학습된 모델과 같은 자산에 대한 참조를 포함할 수 있습니다. 직렬화된 자산 버전은 포함되지 않습니다. JSON 문서를 작업 영역에 다시 가져오려는 경우 참조된 자산은 실험에서 참조된 것과 동일한 자산 ID로 이미 존재해야 합니다. 그렇지 않으면 가져온 실험에 액세스할 수 없습니다.
 
 ## <a name="versioning-trained-model"></a>학습된 모델 버전 관리
 Azure Machine Learning에서 학습된 모델은 iLearner 파일(`.iLearner`)이라는 형식으로 직렬화되고 작업 영역과 연결된 Azure Blob Storage 계정에 저장됩니다. 재학습 API를 통해 iLearner 파일의 사본을 얻을 수 있습니다. [이 문서](retrain-models-programmatically.md)에서는 재학습 API의 작동 방법을 설명합니다. 대략적인 단계는 다음과 같습니다.

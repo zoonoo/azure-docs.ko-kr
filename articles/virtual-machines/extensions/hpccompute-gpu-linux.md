@@ -12,40 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: 307bdb5fa7a5d14a77c71d0ea40634a55d8507b6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e36390bbdc243237c97d605d4721fc1ad2cbe0ea
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144365"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498877"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
 ## <a name="overview"></a>개요
 
-이 확장은 Linux N 시리즈 VM에서 NVIDIA GPU 드라이버를 설치합니다. VM 패밀리에 따라 확장은 CUDA 또는 GRID 드라이버를 설치합니다. 이 확장을 사용하여 NVIDIA 드라이버를 설치하면 NVIDIA 최종 사용자 사용권 계약을 수락하고 이에 동의하게 됩니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 가상 머신이 재부팅될 수 있습니다.
+이 확장은 Linux N 시리즈 VM에서 NVIDIA GPU 드라이버를 설치합니다. 확장은 VM 제품군에 따라 CUDA 또는 GRID 드라이버를 설치합니다. 이 확장을 사용하여 NVIDIA 드라이버를 설치하면 [NVIDIA 최종 사용자 사용권 계약](https://go.microsoft.com/fwlink/?linkid=874330)을 수락하고 이에 동의하게 됩니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 VM이 다시 부팅될 수 있습니다.
 
 확장은 [Windows N 시리즈 VM](hpccompute-gpu-windows.md)에서 NVIDIA GPU 드라이버를 설치하는 데 지원됩니다.
-
-NVIDIA 최종 사용자 사용권 계약의 사용 약관은 https://go.microsoft.com/fwlink/?linkid=874330에 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 ### <a name="operating-system"></a>운영 체제
 
-확장에서 지원하는 OS는 다음과 같습니다.
+이 확장은 특정 OS 버전의 드라이버 지원에 따라 다음 OS 배포판을 지원합니다.
 
 | 배포 | 버전 |
 |---|---|
-| Linux: Ubuntu | 16.04 LTS |
-| Linux: Red Hat Enterprise Linux | 7.3, 7.4 |
-| Linux: CentOS | 7.3, 7.4 |
+| Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5 |
+| Linux: CentOS | 7.3, 7.4, 7.5 |
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 가상 머신이 인터넷에 연결되어 있고 액세스 권한이 있어야 합니다.
+NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM이 인터넷에 연결되어 있고 액세스 권한이 있어야 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -63,7 +61,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 가�
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -71,14 +69,24 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 가�
 }
 ```
 
-### <a name="property-values"></a>속성 값
+### <a name="properties"></a>properties
 
-| Name | 값/예제 | 데이터 형식 |
+| 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | 형식 | NvidiaGpuDriverLinux | string |
-| typeHandlerVersion | 1.1 | int |
+| typeHandlerVersion | 1.2 | int |
+
+### <a name="settings"></a>설정
+
+모든 설정은 선택 사항입니다. 기본 동작은 드라이버 설치에 필요하지 않은 경우 커널을 업데이트하지 않고, 지원되는 최신 드라이버 및 CUDA 도구 키트(해당하는 경우)를 설치하는 것입니다.
+
+| 이름 | 설명 | 기본값 | 유효한 값 | 데이터 형식 |
+| ---- | ---- | ---- | ---- | ---- |
+| updateOS | 드라이버 설치에 필요하지 않은 경우에도 커널을 업데이트합니다. | false | true, false | 부울 |
+| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전입니다. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | GRID: “410.71”, “390.75”, “390.57”, “390.42”<br> CUDA: “10.0.130”, “9.2.88”, “9.1.85” | string |
+| installCUDA | CUDA 도구 키트를 설치합니다. NC/ND 시리즈 VM에만 관련됩니다. | true | true, false | 부울 |
 
 
 ## <a name="deployment"></a>배포
@@ -104,7 +112,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -122,12 +130,14 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.1 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
+
+다음 예제에서는 위의 Azure Resource Manager 및 PowerShell 예제를 미러링하고 사용자 지정 설정을 기본이 아닌 드라이버 설치의 예제로 추가합니다. 특히, OS 커널을 업데이트하고 특정 CUDA 도구 키트 버전 드라이버를 설치합니다.
 
 ```azurecli
 az vm extension set `
@@ -135,8 +145,10 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.1 `
+  --version 1.2 `
   --settings '{ `
+    "updateOS": true, `
+    "driverVersion": "9.1.85", `
   }'
 ```
 
@@ -165,13 +177,12 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 종료 코드 | 의미 | 가능한 작업 |
 | :---: | --- | --- |
 | 0 | 작업이 성공했습니다. |
-| 1 | 확장의 사용이 잘못되었습니다. | 실행 출력 로그와 관련된 지원을 문의하세요. |
+| 1 | 확장의 사용이 잘못되었습니다. | 실행 출력 로그를 확인합니다. |
 | 10 | Hyper-V 및 Azure에 대한 Linux Integration Services를 사용하거나 설치할 수 없습니다. | lspci의 출력을 확인합니다. |
 | 11 | NVIDIA GPU는 이 VM 크기에서 찾을 수 없습니다. | [지원되는 VM 크기 및 OS](../linux/n-series-driver-setup.md)를 사용합니다. |
 | 12 | 지원되지 않는 이미지 제품 |
 | 13 | 지원되지 않는 VM 크기 | 배포하려면 N 시리즈 VM 사용 |
-| 14 | 작업 실패 | |
-| 21 | Ubuntu에 대한 업데이트에 실패했습니다. | "sudo apt-get update"의 출력을 검사합니다. |
+| 14 | 작업 실패 | 실행 출력 로그를 확인합니다. |
 
 
 ### <a name="support"></a>지원

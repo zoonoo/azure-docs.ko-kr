@@ -117,7 +117,7 @@ Azure Machine Learning Workbench를 이제 Windows나 macOS에서 사용할 수 
    
    | |Azure Machine Learning Workbench 설치 경로|
    |--------|------------------------------------------------|
-   |Windows|C:\Users\\<user\>\AppData\Local\AmlWorkbench|
+   | Windows|C:\Users\\<user\>\AppData\Local\AmlWorkbench|
    |macOS|/Applications/Azure ML Workbench.app|
 
    설치 관리자에서 Python, Miniconda 및 기타 관련 라이브러리와 같은 필요한 모든 종속성을 다운로드하고 설치합니다. 이 설치에는 Azure 플랫폼 간 명령줄 도구 또는 Azure CLI도 포함됩니다.
@@ -139,7 +139,7 @@ Azure Machine Learning Workbench를 이제 Windows나 macOS에서 사용할 수 
 
 Azure Machine Learning에서 프로젝트는 문제를 해결하기 위해 수행되는 모든 작업에 대한 논리적 컨테이너입니다. 로컬 디스크의 단일 폴더에 매핑되며, 파일이나 하위 폴더를 추가할 수 있습니다. 
 
-여기에서는 [아이리스 꽃 데이터 집합](https://en.wikipedia.org/wiki/Iris_flower_data_set)이 포함된 템플릿을 사용하여 새 Workbench 프로젝트를 만듭니다. 이 빠른 시작을 수행하는 자습서는 이 데이터에 따라 일부 물리적 특징을 기반으로 아이리스의 유형을 예측하는 모델을 구축합니다.  
+여기에서는 [아이리스 꽃 데이터 세트](https://en.wikipedia.org/wiki/Iris_flower_data_set)가 포함된 템플릿을 사용하여 새 Workbench 프로젝트를 만듭니다. 이 빠른 시작을 수행하는 자습서는 이 데이터에 따라 일부 물리적 특징을 기반으로 아이리스의 유형을 예측하는 모델을 구축합니다.  
 
 1. Azure Machine Learning Workbench를 열고 **프로젝트** 창에서 더하기 기호(+)를 선택하고 **새 프로젝트**를 선택합니다.  
 

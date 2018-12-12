@@ -78,7 +78,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
     ![데이터 팩터리로 돌아가기](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
 
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>파이프라인 내부의 각 작업 상태 보기
-작업에 의해 생성되는 데이터 집합의 상태를 보면 작업의 현재 상태를 볼 수 있습니다.
+작업에 의해 생성되는 데이터 세트의 상태를 보면 작업의 현재 상태를 볼 수 있습니다.
 
 **다이어그램**에서 **OutputBlobTable**을 두 번 클릭하면 파이프라인 내부에서 실행되는 다양한 작업에 의해 생성되는 모든 조각이 표시됩니다. 복사 작업이 지난 8시간 동안 성공적으로 실행되었고 **준비** 상태의 조각을 생성했다는 것을 확인할 수 있습니다.  
 

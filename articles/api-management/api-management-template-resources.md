@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 212e7ea7bb2ffea63c7ba210195df0da38aa8f0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22983788"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444770"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management 템플릿 리소스
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 종류의 리소스를 제공합니다.  
@@ -27,6 +27,8 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 -   [문자열 리소스](#strings)  
   
 -   [문자 모양 리소스](#glyphs)  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="strings"></a> 문자열 리소스  
  API Management는 개발자 포털에서 사용할 포괄적인 문자열 리소스 집합을 제공합니다. 이러한 리소스는 API Management에서 지원하는 모든 언어로 지역화되어 있습니다. 기본 템플릿 집합은 개발자 포털에 표시되는 페이지 머리글, 레이블 및 상수 문자열에 대해 이러한 리소스를 사용합니다. 템플릿에서 문자열 리소스를 사용하려면 다음 예제와 같이 문자열 이름 뒤에 리소스 문자열 접두사를 제공합니다.  
@@ -145,7 +147,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |PagerButtonLabelLast|마지막|  
 |PagerButtonLabelNext|다음|  
 |PagerButtonLabelPrevious|이전|  
-|PagerLabelPageNOfM|{0} / {1} 페이지|  
+|PagerLabelPageNOfM|{0}/{1}페이지|  
 |PasswordTooShort|암호가 너무 짧습니다.|  
 |EmailAsPassword|전자 메일을 암호로 사용하지 마세요.|  
 |PasswordSameAsUserName|암호에는 사용자 이름을 포함할 수 없습니다.|  
@@ -161,20 +163,20 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 |이름|텍스트|  
 |----------|----------|  
-|WebDocumentationInvalidHeaderErrorMessage|잘못된 헤더 '{0}'|  
+|WebDocumentationInvalidHeaderErrorMessage|잘못된 헤더 ‘{0}’|  
 |WebDocumentationInvalidRequestErrorMessage|잘못된 요청 URL|  
 |TextboxLabelAccessToken|액세스 토큰 *|  
-|DropdownOptionPrimaryKeyFormat|기본-{0}|  
-|DropdownOptionSecondaryKeyFormat|보조-{0}|  
+|DropdownOptionPrimaryKeyFormat|Primary-{0}|  
+|DropdownOptionSecondaryKeyFormat|Secondary-{0}|  
 |WebDocumentationSubscriptionKeyText|구독 키|  
 |WebDocumentationTemplatesAddHeaders|필수 HTTP 헤더를 추가합니다.|  
 |WebDocumentationTemplatesBasicAuthSample|기본 권한 부여 샘플|  
 |WebDocumentationTemplatesCurlForBasicAuth|기본 권한 부여를 사용할 경우: --user {username}:{password}|  
 |WebDocumentationTemplatesCurlValuesForPath|경로 매개 변수 값({...}로 표시), 구독 키 및 쿼리 매개 변수 값을 지정합니다.|  
 |WebDocumentationTemplatesDeveloperKey|구독 키를 지정합니다.|  
-|WebDocumentationTemplatesJavaApache|이 샘플에서는 HTTP 구성 요소(http://hc.apache.org/httpcomponents-client-ga/)의 Apache HTTP 클라이언트를 사용합니다.|  
+|WebDocumentationTemplatesJavaApache|이 샘플에서는 HTTP 구성 요소의 Apache HTTP 클라이언트를 사용합니다(http://hc.apache.org/httpcomponents-client-ga/)).|  
 |WebDocumentationTemplatesOptionalParams|필요에 따라 선택적 매개 변수 값을 지정합니다.|  
-|WebDocumentationTemplatesPhpPackage|이 샘플에서는 HTTP_Request2 패키지를 사용합니다. (자세한 내용: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|이 샘플에서는 HTTP_Request2 패키지를 사용합니다. (추가 정보: http://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|경로 매개 변수 값({...}로 표시)을 지정하고 필요한 경우 본문을 요청합니다.|  
 |WebDocumentationTemplatesRequestBody|요청 본문을 지정합니다.|  
 |WebDocumentationTemplatesRequiredParams|다음 필수 매개 변수 값을 지정합니다.|  
@@ -273,7 +275,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |OAuth2TokenType_ImplicitGrant_AuthorizationResponse|필수. 발급되는 토큰의 형식입니다.|  
 |OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|필수. 발급되는 토큰의 형식입니다.|  
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|필수. 리소스 소유자 사용자 이름입니다.|  
-|OAuth2UnsupportedTokenType|"{0}" 토큰 형식은 지원되지 않습니다.|  
+|OAuth2UnsupportedTokenType|토큰 형식 ‘{0}’은(는) 지원되지 않습니다.|  
 |OAuth2InvalidState|잘못된 권한 부여 서버 응답|  
 |OAuth2GrantType_AuthorizationCode|인증 코드|  
 |OAuth2GrantType_Implicit|암시적|  
@@ -292,7 +294,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |TextblockContentTypeHeaderDescription|API로 전송되는 본문의 미디어 유형입니다.|  
 |ErrorMessageApiNotAccessible|현재 호출하려는 API에 액세스할 수 없습니다. API 게시자(<a href="/issues"\>여기</a\>)에게 문의하세요.|  
 |ErrorMessageApiTimedout|호출하려는 API에서 응답을 다시 가져오는 데 시간이 평소보다 더 오래 걸립니다. API 게시자(<a href="/issues"\>여기</a\>)에게 문의하세요.|  
-|BadRequestParameterExpected|"'{0}'매개 변수가 필요합니다."|  
+|BadRequestParameterExpected|“‘{0}’매개 변수가 필요합니다.”|  
 |TooltipTextDoubleClickToSelectAll|두 번 클릭하여 모두 선택합니다.|  
 |TooltipTextHideRevealSecret|표시/숨기기|  
 |ButtonLinkOpenConsole|시도|  
@@ -393,14 +395,14 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ErrorSsoAuthenticationFailed|SSO 인증에 실패했습니다.|  
 |ErrorSsoAuthenticationFailedDetailed|잘못된 토큰이 제공되었거나 서명을 확인할 수 없습니다.|  
 |ErrorSsoTokenInvalid|SSO 토큰이 잘못되었습니다.|  
-|ValidationErrorSpecificEmailAlreadyExists|'{0}' 전자 메일은 이미 등록되어 있습니다.|  
-|ValidationErrorSpecificEmailInvalid|'{0}' 전자 메일이 잘못되었습니다.|  
+|ValidationErrorSpecificEmailAlreadyExists|메일 ‘{0}’이(가) 이미 등록되었습니다.|  
+|ValidationErrorSpecificEmailInvalid|메일 ‘{0}’이(가) 잘못되었습니다.|  
 |ValidationErrorPasswordInvalid|암호가 잘못되었습니다. 오류를 수정하고 다시 시도해 보세요.|  
 |PropertyTooShort|{0}이(가) 너무 짧습니다.|  
 |WebAuthenticationAddresserEmailInvalidErrorMessage|잘못된 전자 메일 주소입니다.|  
 |ValidationMessageNewPasswordConfirmationRequired|새 암호 확인|  
 |ValidationErrorPasswordConfirmationRequired|암호 확인이 비어 있습니다.|  
-|WebAuthenticationEmailChangeNotice|변경 확인 전자 메일이 {0}(으)로 가는 중입니다. 그 안에 있는 지침에 따라 새 전자 메일 주소를 확인하세요. 전자 메일이 몇 분 내에 받은 편지함에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
+|WebAuthenticationEmailChangeNotice|변경 확인 메일이 {0}(으)로 가는 중입니다. 그 안에 있는 지침에 따라 새 전자 메일 주소를 확인하세요. 전자 메일이 몇 분 내에 받은 편지함에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
 |WebAuthenticationEmailChangeNoticeHeader|전자 메일 변경 요청이 성공적으로 처리되었습니다.|  
 |WebAuthenticationEmailChangeNoticeTitle|전자 메일 변경 요청됨|  
 |WebAuthenticationEmailHasBeenRevertedNotice|전자 메일이 이미 있습니다. 요청이 되돌려졌습니다.|  
@@ -434,13 +436,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ValidationErrorPasswordInvalidDetailed|암호가 너무 약합니다.|  
 |WebAuthenticationPasswordLabel|암호|  
 |ValidationErrorPasswordRequired|암호는 필수입니다.|  
-|WebAuthenticationPasswordResetSendNotice|암호 변경 확인 전자 메일이 {0}(으)로 가는 중입니다. 전자 메일의 지침에 따라 암호 변경 프로세스를 계속하세요.|  
+|WebAuthenticationPasswordResetSendNotice|암호 변경 확인 메일이 {0}(으)로 가는 중입니다. 전자 메일의 지침에 따라 암호 변경 프로세스를 계속하세요.|  
 |WebAuthenticationPasswordResetSendNoticeHeader|암호 재설정 요청이 성공적으로 처리되었습니다.|  
 |WebAuthenticationPasswordResetSendNoticeTitle|암호 재설정 요청됨|  
 |WebAuthenticationRequestNotFoundNotice|요청을 찾을 수 없음|  
 |WebAuthenticationSenderEmailRequiredErrorMessage|알림 보낸 사람 전자 메일이 비어 있습니다.|  
 |WebAuthenticationSigninPasswordLabel|암호를 입력하여 변경 내용을 확인하세요.|  
-|WebAuthenticationSignupConfirmNotice|등록 확인 전자 메일이 {0}(으)로 가는 중입니다.<br /\> 전자 메일에 있는 지침에 따라 계정을 활성화하세요.<br /\> 전자 메일이 몇 분 내에 받은 편지함에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
+|WebAuthenticationSignupConfirmNotice|등록 확인 메일이 {0}(으)로 가는 중입니다.<br /\> 메일에 있는 지침에 따라 계정을 활성화하세요.<br /\> 메일이 몇 분 내에 받은 편지함에 도착하지 않으면 정크 메일 폴더를 확인하세요.|  
 |WebAuthenticationSignupConfirmNoticeHeader|계정이 성공적으로 만들어졌습니다.|  
 |WebAuthenticationSignupConfirmNoticeRepeatHeader|등록 확인 전자 메일을 다시 보냈습니다.|  
 |WebAuthenticationSignupConfirmNoticeTitle|만든 계정|  
@@ -455,13 +457,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ValidationErrorCredentialsInvalid|전자 메일 또는 암호가 잘못되었습니다. 오류를 수정하고 다시 시도해 보세요.|  
 |WebAuthenticationRequestIsNotValid|요청이 잘못되었습니다.|  
 |WebAuthenticationUserIsNotConfirm|로그인을 시도하기 전에 등록을 확인하세요.|  
-|WebAuthenticationInvalidEmailFormated|잘못된 전자 메일: {0}|  
+|WebAuthenticationInvalidEmailFormated|잘못된 메일: {0}|  
 |WebAuthenticationUserNotFound|사용자를 찾을 수 없음|  
 |WebAuthenticationTenantNotRegistered|계정이 이 포털에 액세스할 수 있는 권한이 없는 Azure Active Directory 테넌트에 속합니다.|  
 |WebAuthenticationAuthenticationFailed|인증에 실패했습니다.|  
 |WebAuthenticationGooglePlusNotEnabled|인증에 실패했습니다. 응용 프로그램에 권한을 부여한 경우 관리자에게 문의하여 Google 인증이 올바르게 구성되었는지 확인하세요.|  
 |ValidationErrorAllowedTenantIsRequired|허용된 테넌트는 필수입니다.|  
-|ValidationErrorTenantIsNotValid|'{0}' Azure Active Directory 테넌트가 유효하지 않습니다.|  
+|ValidationErrorTenantIsNotValid|‘{0}’ Azure Active Directory 테넌트가 유효하지 않습니다.|  
 |WebAuthenticationActiveDirectoryTitle|Azure Active Directory|  
 |WebAuthenticationLoginUsingYourProvider|{0} 계정을 사용하여 로그인합니다.|  
 |WebAuthenticationUserLimitNotice|이 서비스는 허용되는 최대 사용자 수에 도달했습니다. `<a href="mailto:{0}"\>contact the administrator</a\>`하여 서비스를 업그레이드하고 사용자 등록을 사용하도록 다시 설정하세요.|  
@@ -470,11 +472,11 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebAuthenticationUserRegistrationDisabledNotice|사용자 등록은 관리자에 의해 사용하지 않도록 설정되어 있습니다. 외부 ID 공급자를 통해 로그인합니다.|  
 |WebAuthenticationUserRegistrationDisabledNoticeHeader|사용자 등록 사용 해제됨|  
 |WebAuthenticationUserRegistrationDisabledNoticeTitle|사용자 등록 사용 해제됨|  
-|WebAuthenticationSignupPendingConfirmationNotice|먼저 전자 메일 주소를 확인해야 계정 만들기를 완료할 수 있습니다. {0}(으)로 전자 메일을 보냈습니다. 전자 메일의 지침에 따라 계정을 활성화합니다. 전자 메일이 몇 분 내에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
-|WebAuthenticationSignupPendingConfirmationAccountFoundNotice|{0} 전자 메일 주소에 확인되지 않는 계정이 있습니다. 계정 만들기를 완료하려면 전자 메일 주소를 확인해야 합니다. {0}(으)로 전자 메일을 보냈습니다. 전자 메일의 지침에 따라 계정을 활성화합니다. 전자 메일이 몇 분 내에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
+|WebAuthenticationSignupPendingConfirmationNotice|먼저 전자 메일 주소를 확인해야 계정 만들기를 완료할 수 있습니다. {0}(으)로 메일을 보냈습니다. 전자 메일의 지침에 따라 계정을 활성화합니다. 전자 메일이 몇 분 내에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
+|WebAuthenticationSignupPendingConfirmationAccountFoundNotice|{0} 메일 주소에 확인되지 않는 계정이 있습니다. 계정 만들기를 완료하려면 전자 메일 주소를 확인해야 합니다. {0}(으)로 메일을 보냈습니다. 전자 메일의 지침에 따라 계정을 활성화합니다. 전자 메일이 몇 분 내에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
 |WebAuthenticationSignupConfirmationAlmostDone|거의 완료됨|  
-|WebAuthenticationSignupConfirmationEmailSent|{0}(으)로 전자 메일을 보냈습니다. 전자 메일의 지침에 따라 계정을 활성화합니다. 전자 메일이 몇 분 내에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
-|WebAuthenticationEmailSentNotificationMessage|{0}(으)로 전자 메일을 성공적으로 보냈습니다.|  
+|WebAuthenticationSignupConfirmationEmailSent|{0}(으)로 메일을 보냈습니다. 전자 메일의 지침에 따라 계정을 활성화합니다. 전자 메일이 몇 분 내에 도착하지 않으면 정크 전자 메일 폴더를 확인하세요.|  
+|WebAuthenticationEmailSentNotificationMessage|{0}(으)로 메일을 성공적으로 보냈습니다.|  
 |WebAuthenticationNoAadTenantConfigured|서비스에 구성된 Azure Active Directory 테넌트가 없습니다.|  
 |CheckboxLabelUserRegistrationTermsConsentRequired|`<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use</a\>`에 동의합니다.|  
 |TextblockUserRegistrationTermsProvided|`<a data-toggle="modal" href="#" data-target="#terms"\>Terms of Use.</a\>`을(를) 검토하세요.|  

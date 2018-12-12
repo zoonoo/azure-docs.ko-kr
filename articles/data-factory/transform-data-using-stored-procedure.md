@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: e8e0f8352404892ea8af6a0fa176c336dd2c1659
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 54d0ce39ea511958824acb753bcf7102d33a6c90
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054027"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444031"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server 저장 프로시저 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -69,12 +69,16 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 
 | 자산                  | 설명                              | 필수 |
 | ------------------------- | ---------------------------------------- | -------- |
-| 이름                      | 작업의 이름                     | 예      |
-| description               | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니오       |
-| 형식                      | 저장 프로시저 작업의 경우 활동 형식은 **SqlServerStoredProcedure**입니다. | 예      |
-| linkedServiceName         | **Azure SQL Database**나 **Azure SQL Data Warehouse** 또는 Data Factory에 연결된 서비스로 등록된 **SQL Server**를 참조하세요. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | 예      |
-| storedProcedureName       | 호출할 저장 프로시저의 이름을 지정합니다. | 예      |
-| storedProcedureParameters | 저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수 값 및 데이터 원본에서 지원하는 해당 형식을 전달하기 위해 `"param1": { "value": "param1Value","type":"param1Type" }`를 사용합니다. 매개 변수에 null을 전달해야 하는 경우 `"param1": { "value": null }`(모두 소문자)을 사용합니다. | 아니오       |
+| 이름                      | 작업의 이름                     | yes      |
+| description               | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요       |
+| 형식                      | 저장 프로시저 작업의 경우 활동 형식은 **SqlServerStoredProcedure**입니다. | yes      |
+| linkedServiceName         | **Azure SQL Database**나 **Azure SQL Data Warehouse** 또는 Data Factory에 연결된 서비스로 등록된 **SQL Server**를 참조하세요. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요. | yes      |
+| storedProcedureName       | 호출할 저장 프로시저의 이름을 지정합니다. | yes      |
+| storedProcedureParameters | 저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수 값 및 데이터 원본에서 지원하는 해당 형식을 전달하기 위해 `"param1": { "value": "param1Value","type":"param1Type" }`를 사용합니다. 매개 변수에 null을 전달해야 하는 경우 `"param1": { "value": null }`(모두 소문자)을 사용합니다. | 아니요       |
+
+## <a name="error-info"></a>오류 정보
+
+저장 프로시저가 실패하고 오류 세부 정보를 반환하면 작업 출력에서 직접 오류 정보를 캡처할 수 없습니다. 그러나 Data Factory는 모두 작업 실행 이벤트를 Azure Monitor에 주입합니다. Data Factory가 Azure Monitor에 주입하는 이벤트로 오류 세부 정보를 푸시합니다. 예를 들어 해당 이벤트에서 메일 경고를 설정할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 데이터 팩터리 경고 및 모니터링](monitor-using-azure-monitor.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다른 방법으로 데이터를 변환하는 방법을 설명하는 다음 문서를 참조하세요. 

@@ -154,8 +154,8 @@ HDInsight MapReduce 작업을 사용하는 샘플은 [GitHub의 데이터 팩터
 }
 ```
 
-### <a name="datasets"></a>데이터 집합
-#### <a name="output-dataset"></a>출력 데이터 집합
+### <a name="datasets"></a>데이터 세트
+#### <a name="output-dataset"></a>출력 데이터 세트
 이 예제의 파이프라인은 input을 포함하지 않습니다. HDInsight MapReduce 작업에 대한 출력 데이터 세트를 지정합니다. 이 데이터 세트는 파이프라인 일정을 진행하는데 필요한 더미 데이터 세트입니다.  
 
 ```JSON

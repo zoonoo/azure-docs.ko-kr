@@ -135,7 +135,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 ## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>샘플: Azure Machine Learning 모델 재학습 및 업데이트
 
-이 섹션에서는 **Azure ML Batch 실행 작업** 을 사용하여 모델을 재학습하는 샘플 파이프라인을 제공합니다. 파이프라인은 또한 **Azure ML 업데이트 리소스 작업** 을 사용하여 점수 매기기 웹 서비스에서 모델을 업데이트합니다. 섹션에서는 또한 모든 연결된 서비스, 데이터 집합 및 파이프라인에 대한 JSON 코드 조각 예제도 제공합니다.
+이 섹션에서는 **Azure ML Batch 실행 작업** 을 사용하여 모델을 재학습하는 샘플 파이프라인을 제공합니다. 파이프라인은 또한 **Azure ML 업데이트 리소스 작업** 을 사용하여 점수 매기기 웹 서비스에서 모델을 업데이트합니다. 섹션에서는 또한 모든 연결된 서비스, 데이터 세트 및 파이프라인에 대한 JSON 코드 조각 예제도 제공합니다.
 
 ### <a name="azure-blob-storage-linked-service"></a>Azure Blob 저장소 연결된 서비스:
 Azure Storage는 다음 데이터를 보관합니다.

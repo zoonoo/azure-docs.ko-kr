@@ -176,7 +176,7 @@ Microsoft Azure는 Mobile Apps Node.js 백 엔드를 Azure 서비스에 게시�
 Azure App Service에는 백 엔드를 게시하기 전에 검토해야 하는 Node.js 응용 프로그램에 대한 구체적인 조언이 있습니다.
 
 * [노드 버전을 지정]하는 방법
-* [노드 모듈 사용]
+*  [노드 모듈 사용]
 
 ### <a name="howto-enable-homepage"></a>응용 프로그램에 대한 홈페이지 사용
 
@@ -906,7 +906,7 @@ Node.js 응용 프로그램은 넓은 범위의 진단 로그 도구에 액세�
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Azure Portal에서 쉬운 테이블 작업
 
-쉬운 테이블을 사용하여 포털에서 테이블을 만들고 작업할 수 있습니다. 데이터 집합을 CSV 형식의 쉬운 테이블로 업로드할 수 있습니다. Mobile Apps 백 엔드의 시스템 속성 이름과 충돌하는 속성 이름(CSV 데이터 집합)은 사용할 수 없습니다. 시스템 속성 이름은 다음과 같습니다.
+쉬운 테이블을 사용하여 포털에서 테이블을 만들고 작업할 수 있습니다. 데이터 세트를 CSV 형식의 쉬운 테이블로 업로드할 수 있습니다. Mobile Apps 백 엔드의 시스템 속성 이름과 충돌하는 속성 이름(CSV 데이터 세트)은 사용할 수 없습니다. 시스템 속성 이름은 다음과 같습니다.
 * createdAt
 * updatedAt
 * deleted

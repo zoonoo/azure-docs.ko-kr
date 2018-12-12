@@ -525,7 +525,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL 분석의 탐색 메뉴에�
 
 [쿼리 저장소 대기 통계 데이터를 자세히 알아봅니다.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql)
 
-### <a name="errors-dataset"></a>오류 데이터 집합
+### <a name="errors-dataset"></a>오류 데이터 세트
 
 |자산|설명|
 |---|---|
@@ -606,7 +606,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL 분석의 탐색 메뉴에�
 |query_hash_s|쿼리 해시(있는 경우)|
 |query_plan_hash_s|쿼리 계획 해시(있는 경우)|
 
-### <a name="blockings-dataset"></a>차단 데이터 집합
+### <a name="blockings-dataset"></a>차단 데이터 세트
 
 |자산|설명|
 |---|---|
@@ -681,7 +681,7 @@ Azure SQL Analytics를 사용하는 경우 Azure SQL 분석의 탐색 메뉴에�
 |Event_s|자동 조정 이벤트의 형식.|
 |Timestamp_t|마지막으로 업데이트한 타임스탬프.|
 
-### <a name="intelligent-insights-dataset"></a>Intelligent Insights 데이터 집합
+### <a name="intelligent-insights-dataset"></a>Intelligent Insights 데이터 세트
 [Intelligent Insights 로그 형식에 대해 자세히 알아봅니다.](sql-database-intelligent-insights-use-diagnostics-log.md)
 
 ## <a name="next-steps"></a>다음 단계

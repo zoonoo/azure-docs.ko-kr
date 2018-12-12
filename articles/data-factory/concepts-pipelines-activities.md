@@ -32,11 +32,11 @@ ms.locfileid: "43109442"
 
 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 활동을 사용하여 온-프레미스 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 Blob Storage의 데이터를 처리/변환함으로써 출력 데이터를 생성합니다. 마지막으로 두 번째 복사 활동을 사용하여 BI(비즈니스 인텔리전스) 보고 솔루션의 구축 기반이 되는 Azure SQL Data Warehouse로 출력 데이터를 복사합니다.
 
-Data Factory는 [데이터 이동 작업](copy-activity-overview.md), [데이터 변환 작업](transform-data.md) 및 [제어 작업](control-flow-web-activity.md)이라는 세 종류의 작업을 지원합니다. 활동은 0개 이상의 입력 [데이터 집합](concepts-datasets-linked-services.md)을 받고 하나 이상의 출력 [데이터 집합](concepts-datasets-linked-services.md)을 생성할 수 있습니다. 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 집합 간 관계를 보여 줍니다.
+Data Factory는 [데이터 이동 작업](copy-activity-overview.md), [데이터 변환 작업](transform-data.md) 및 [제어 작업](control-flow-web-activity.md)이라는 세 종류의 작업을 지원합니다. 활동은 0개 이상의 입력 [데이터 세트](concepts-datasets-linked-services.md)를 받고 하나 이상의 출력 [데이터 세트](concepts-datasets-linked-services.md)를 생성할 수 있습니다. 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 세트 간 관계를 보여 줍니다.
 
-![데이터 집합, 작업 및 파이프라인 간 관계](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
+![데이터 세트, 작업 및 파이프라인 간 관계](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
-입력 데이터 집합은 파이프라인의 작업에 대한 입력을 나타내고 출력 데이터 집합은 작업에 대한 출력을 나타냅니다. 데이터 집합은 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 데이터 집합을 만든 후 파이프라인의 작업에 사용할 수 있습니다. 예를 들어 데이터 집합은 복사 작업 또는 HDInsightHive 작업의 입력/출력 데이터 집합일 수 있습니다. 데이터 집합에 대한 자세한 내용은 [Azure Data Factory의 데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요.
+입력 데이터 세트는 파이프라인의 작업에 대한 입력을 나타내고 출력 데이터 세트는 작업에 대한 출력을 나타냅니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 데이터 세트를 만든 후 파이프라인의 작업에 사용할 수 있습니다. 예를 들어 데이터 세트는 복사 작업 또는 HDInsightHive 작업의 입력/출력 데이터 세트일 수 있습니다. 데이터 세트에 대한 자세한 내용은 [Azure Data Factory의 데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요.
 
 ## <a name="data-movement-activities"></a>데이터 이동 활동
 데이터 팩터리의 복사 활동은 원본 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사합니다. Data Factory는 이 섹션의 테이블에 나열한 데이터 소스를 지원합니다. 모든 소스의 데이터를 모든 싱크에 쓸 수 있습니다. 데이터 저장소를 클릭하면 해당 저장소에서/저장소로 데이터를 복사하는 방법을 확인할 수 있습니다.
@@ -70,7 +70,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 ---------------- | -----------
 [파이프라인 실행 작업](control-flow-execute-pipeline-activity.md) | 파이프라인 실행 작업을 사용하면 하나의 Data Factory 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
 [ForEachActivity](control-flow-for-each-activity.md) | ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 작업의 루프 구현은 프로그래밍 언어에서 구조를 반복하는 Foreach와 비슷합니다.
-[WebActivity](control-flow-web-activity.md) | 웹 작업을 사용하면 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 집합 및 연결된 서비스를 전달할 수 있습니다.
+[WebActivity](control-flow-web-activity.md) | 웹 작업을 사용하면 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다.
 [조회 작업](control-flow-lookup-activity.md) | 조회 작업을 사용하면 모든 외부 소스에서 레코드/테이블 이름/값을 읽거나 조회할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다.
 [메타데이터 작업 가져오기](control-flow-get-metadata-activity.md) | GetMetadata 작업을 사용하면 Azure Data Factory에 있는 모든 데이터의 메타데이터를 검색할 수 있습니다.
 [Until 작업](control-flow-until-activity.md) | 프로그래밍 언어의 Do-Until 루핑 구조와 유사한 Do-Until 루프를 구현합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다.
@@ -170,10 +170,10 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 ```
 JSON 이름 | 설명 | 허용되는 값 | 필수
 --------- | ----------- | -------------- | --------
-시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아니요. 기본 시간 제한은 7일입니다.
-retry | 최대 다시 시도 횟수 | 정수  | 아니요. 기본값은 0입니다.
-retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수  | 아니요. 기본값은 20초
-secureOutput | true로 설정된 경우 작업의 출력은 안전하다고 여기고 모니터링에 기록되지 않습니다. | BOOLEAN | 아니요. 기본값은 false입니다.
+시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan |  아니요. 기본 시간 제한은 7일입니다.
+retry | 최대 다시 시도 횟수 | 정수  |  아니요. 기본값은 0입니다.
+retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수  |  아니요. 기본값은 20초
+secureOutput | true로 설정된 경우 작업의 출력은 안전하다고 여기고 모니터링에 기록되지 않습니다. | BOOLEAN |  아니요. 기본값은 false입니다.
 
 ### <a name="control-activity"></a>제어 작업
 제어 작업에는 다음과 같은 최상위 수준 구조가 있습니다.
@@ -297,7 +297,7 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 다음 사항에 유의하세요.
 
 - 작업 섹션에는 **형식**이 **복사**로 설정된 작업만 있습니다.
-- 작업에 대한 입력을 **InputDataset**으로 설정하고 작업에 대한 출력을 **OutputDataset**으로 설정합니다. JSON의 데이터 집합 정의에 대해서는 [데이터 집합](concepts-datasets-linked-services.md) 문서를 참조하세요.
+- 작업에 대한 입력을 **InputDataset**으로 설정하고 작업에 대한 출력을 **OutputDataset**으로 설정합니다. JSON의 데이터 세트 정의에 대해서는 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요.
 - **typeProperties** 섹션에서 **BlobSource**를 원본 유형으로 지정하고 **SqlSink**를 싱크 유형으로 지정합니다. [데이터 이동 작업](#data-movement-activities) 섹션에서 소스 또는 싱크로 사용할 데이터 저장소를 클릭하여 해당 데이터 저장소로/부터 데이터를 이동하는 방법을 알아봅니다.
 
 이 파이프라인 만드는 전체 연습은 [빠른 시작: 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.

@@ -379,7 +379,7 @@ public IDictionary<string, string> Execute(
        return output;
     }
     ```
-    GetFolderPath 메서드는 데이터 집합이 가리키는 폴더로 경로를 반환하고 GetFileName 메서드는 데이터 집합이 가리키는 BLOB/파일의 이름을 반환합니다.
+    GetFolderPath 메서드는 데이터 세트가 가리키는 폴더로 경로를 반환하고 GetFileName 메서드는 데이터 세트가 가리키는 BLOB/파일의 이름을 반환합니다.
 
     ```csharp
 
@@ -595,8 +595,8 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 
-#### <a name="step-3-create-datasets"></a>3단계: 데이터 집합 만들기
-이 단계에서는 입력 및 출력 데이터를 나타낼 데이터 집합을 만듭니다.
+#### <a name="step-3-create-datasets"></a>3단계: 데이터 세트 만들기
+이 단계에서는 입력 및 출력 데이터를 나타낼 데이터 세트를 만듭니다.
 
 #### <a name="create-the-input-dataset"></a>입력 데이터 세트 만들기
 1. Data Factory 편집기의 도구 모음에서 **새 데이터 세트** 단추를 선택합니다. 드롭 다운 목록에서 **Azure Blob Storage**를 선택합니다.

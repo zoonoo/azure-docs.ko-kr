@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: e1c694847a1ec16d4d7a7b1118df71cb06396186
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165933"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496439"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>원격 모니터링 솔루션 가속기 웹 UI에 사용자 지정 그리드 추가
 
@@ -239,7 +239,7 @@ npm start
     ```js
     doSomething = () => {
       //Just for demo purposes. Don't console log in a real grid.
-      console.log('hard selected rows', this.gridApi.getSelectedRows());
+      console.log('Hard selected rows', this.gridApi.getSelectedRows());
     };
     ```
 
@@ -263,16 +263,16 @@ npm start
 1. 소프트 선택 링크를 클릭하면 **onSoftSelectChange** 이벤트가 트리거됩니다. 세부 정보 플라이아웃 열기와 같이 해당 행에 대해 필요한 모든 작업을 수행합니다. 이 예제에서는 간단히 콘솔에 작성합니다.
 
     ```js
-    onSoftSelectChange = (rowId, rowEvent) => {
+    onSoftSelectChange = (rowId, rowData) => {
+      //Note: only the Id is reliable, rowData may be out of date
       const { onSoftSelectChange } = this.props;
-      const obj = (this.gridApi.getDisplayedRowAtIndex(rowId) || {}).data;
-      if (obj) {
+      if (rowId) {
         //Just for demo purposes. Don't console log a real grid.
-        console.log('Soft selected', obj);
-        this.setState({ softSelectedObj: obj });
+        console.log('Soft selected', rowId);
+        this.setState({ softSelectedId: rowId });
       }
       if (isFunc(onSoftSelectChange)) {
-        onSoftSelectChange(obj, rowEvent);
+        onSoftSelectChange(rowId, rowData);
       }
     }
     ```

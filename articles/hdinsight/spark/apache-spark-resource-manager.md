@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 166d52322504e57e01a4bd798252fc956c1a3e44
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3536fb21d50dd54ec71615eba25c2d60fc727f34
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014587"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583298"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터용 리소스 관리 
 
-Ambari UI, YARN UI 및 Spark 클러스터와 관련된 Spark 기록 서버와 같은 인터페이스에 액세스하는 방법과 최적의 성능을 위해 클러스터 구성을 튜닝하는 방법을 알아봅니다.
+[Apache Ambari](https://ambari.apache.org/) UI, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI 및 [Apache Spark](https://spark.apache.org/) 클러스터와 관련된 Spark 기록 서버와 같은 인터페이스에 액세스하는 방법과 최적의 성능을 위해 클러스터 구성을 튜닝하는 방법을 알아봅니다.
 
 **필수 조건:**
 
@@ -26,7 +26,7 @@ Ambari UI, YARN UI 및 Spark 클러스터와 관련된 Spark 기록 서버와 �
 
 ## <a name="open-the-ambari-web-ui"></a>Ambari 웹 UI 열기
 
-Apache Ambari를 사용하여 클러스터를 모니터링하고 구성을 변경할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리](../hdinsight-administer-use-portal-linux.md#open-the-ambari-web-ui)를 참조하세요.
+Apache Ambari를 사용하여 클러스터를 모니터링하고 구성을 변경할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](../hdinsight-administer-use-portal-linux.md#open-the-apache-ambari-web-ui)를 참조하세요.
 
 ## <a name="open-the-spark-history-server"></a>Spark 기록 서버 열기
 
@@ -158,19 +158,19 @@ Spark 동적 할당 때문에 Thrift 서버에서 사용되는 리소스만이 �
 
 ### <a name="for-data-analysts"></a>데이터 분석가
 
-* [Machine Learning과 Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning과 Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
-* [HDInsight의 Spark를 사용하여 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
-* [HDInsight에서 Spark를 사용하는 Application Insight 원격 분석 데이터 분석](apache-spark-analyze-application-insight-logs.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: 음식 검사 결과를 예측하는 데 HDInsight의 Spark 사용](apache-spark-machine-learning-mllib-ipython.md)
+* [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
+* [HDInsight의 Apache Spark를 사용한 Application Insight 원격 분석 데이터 분석](apache-spark-analyze-application-insight-logs.md)
 * [분산 심층 학습을 위해 Azure HDInsight Spark에서 Caffe 사용](apache-spark-deep-learning-caffe.md)
 
-### <a name="for-spark-developers"></a>Spark 개발자
+### <a name="for-apache-spark-developers"></a>Apache Spark 개발자의 경우
 
 * [Scala를 사용하여 독립 실행형 응용 프로그램 만들기](apache-spark-create-standalone-application.md)
-* [Livy를 사용하여 Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
+* [Livy를 사용하여 Apache Spark 클러스터에서 원격으로 작업 실행](apache-spark-livy-rest-interface.md)
 * [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark Scala 응용 프로그램 만들기 및 제출](apache-spark-intellij-tool-plugin.md)
-* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Spark 응용 프로그램을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [HDInsight에서 Spark 클러스터와 함께 Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
-* [HDInsight의 Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
+* [IntelliJ IDEA용 HDInsight 도구 플러그 인을 사용하여 Apache Spark 애플리케이션을 원격으로 디버그](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용](apache-spark-zeppelin-notebook.md)
+* [HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)

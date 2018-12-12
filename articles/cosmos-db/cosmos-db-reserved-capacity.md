@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 79b3b84695bd547d6a4b12665aff822b21dfb781
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d389b3b7e50c83246542fd6b446827055a5a002a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354226"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583469"
 ---
 # <a name="prepay-for-azure-cosmos-db-resources-with-reserved-capacity"></a>예약 용량을 통해 Azure Cosmos DB 리소스에 대한 선불 결제
 
@@ -85,7 +85,7 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
    * [종량제 구독의 예약 사용량 이해](../billing/billing-understand-reserved-instance-usage.md)
    * [파트너 센터 CSP 프로그램에서 Azure 예약](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
-계속해서 다른 질문이 있는 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

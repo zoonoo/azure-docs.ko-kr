@@ -426,9 +426,9 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
 
 Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 세트(AzureBlobInput)는 입력 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
 
-마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 출력 SQL 테이블 데이터 집합(OututDataset)은 Blob 저장소의 데이터가 복사되는 데이터베이스의 테이블을 지정합니다. 
+마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 출력 SQL 테이블 데이터 세트(OututDataset)는 Blob 저장소의 데이터가 복사되는 데이터베이스의 테이블을 지정합니다. 
 
-### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
+### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 이 단계에서는 AzureStorageLinkedService 연결된 서비스에서 나타내는 Azure Storage의 Blob 컨테이너(adftutorial)의 루트 폴더에 있는 Blob 파일(emp.txt)을 가리키는 AzureBlobInput이라는 데이터 세트를 만듭니다. fileName 값을 지정하지 않거나 건너뛰면 입력 폴더에 있는 모든 Blob의 데이터가 대상에 복사됩니다. 이 자습서에서는 fileName 값을 지정합니다. 
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다. 
@@ -441,13 +441,13 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
     ```PowerShell
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 집합이 성공적으로 생성된 경우 데이터 집합에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
    
     ```PowerShell
     Write-Host $results
     ```
 
-### <a name="create-output-dataset"></a>출력 데이터 집합 만들기
+### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL Database에 연결하는 데 사용하는 연결 문자열을 지정합니다. 이 단계에서 만든 출력 SQL 테이블 데이터 세트(OututDataset)는 Blob Storage의 데이터가 복사되는 데이터베이스의 테이블을 지정합니다.
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다.
@@ -460,7 +460,7 @@ Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에
     ```PowerShell   
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 집합이 성공적으로 생성된 경우 데이터 집합에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
+3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.
    
     ```PowerShell
     Write-Host $results
@@ -469,7 +469,7 @@ Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에
 ## <a name="create-pipeline"></a>파이프라인 만들기
 이 단계에서는 **AzureBlobInput**을 입력으로 사용하고 **AzureSqlOutput**을 출력으로 사용하는 **복사 작업**을 포함하는 파이프라인을 만듭니다.
 
-현재 출력 데이터 집합은 일정을 작동하는 것입니다. 이 자습서에서는 출력 데이터 집합이 한 시간에 한 번씩 조각을 생성하도록 구성됩니다. 이 파이프라인은 하루 24시간 간격, 즉 24시간 동안에 걸친 시작 시간과 종료 시간을 갖습니다. 따라서 24개의 출력 데이터 세트가 파이프라인에 의해 생성됩니다. 
+현재 출력 데이터 세트는 일정을 작동하는 것입니다. 이 자습서에서는 출력 데이터 세트가 한 시간에 한 번씩 조각을 생성하도록 구성됩니다. 이 파이프라인은 하루 24시간 간격, 즉 24시간 동안에 걸친 시작 시간과 종료 시간을 갖습니다. 따라서 24개의 출력 데이터 세트가 파이프라인에 의해 생성됩니다. 
 
 1. 이 명령을 **cmd**라는 변수에 할당합니다.
 
@@ -481,7 +481,7 @@ Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에
     ```PowerShell   
     $results = Invoke-Command -scriptblock $cmd;
     ```
-3. 결과를 확인합니다. 데이터 집합이 성공적으로 생성된 경우 데이터 집합에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.  
+3. 결과를 확인합니다. 데이터 세트가 성공적으로 생성된 경우 데이터 세트에 대한 JSON이 **결과**에 표시되고, 그렇지 않으면 오류 메시지가 나타납니다.  
 
     ```PowerShell   
     Write-Host $results

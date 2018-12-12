@@ -154,7 +154,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
     ```
-6. **DataPipelineManagementClient** 클래스의 인스턴스를 만드는 다음 코드를 **Main** 메서드에 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 입력 및 출력 데이터 집합과 파이프라인을 만듭니다. 또한 이 개체를 사용하여 런타임 시 데이터 집합의 조각을 모니터링합니다.
+6. **DataPipelineManagementClient** 클래스의 인스턴스를 만드는 다음 코드를 **Main** 메서드에 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 입력 및 출력 데이터 세트와 파이프라인을 만듭니다. 또한 이 개체를 사용하여 런타임 시 데이터 세트의 조각을 모니터링합니다.
 
     ```csharp
     // create data factory management client
@@ -456,7 +456,7 @@ Azure Active Directory 응용 프로그램을 만든 다음 응용 프로그램�
 17. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
 18. Azure 포털을 사용하여 데이터 팩터리 **APITutorialFactory** 가 다음 아티팩트로 생성되었는지 확인합니다.
     * 연결된 서비스: **AzureStorageLinkedService**
-    * 데이터 집합: **DatasetBlobSource** 및 **DatasetBlobDestination**
+    * 데이터 세트: **DatasetBlobSource** 및 **DatasetBlobDestination**
     * 파이프라인: **PipelineBlobSample**
 19. 출력 파일이 **adftutorial** 컨테이너의 "**apifactoryoutput**" 폴더에 만들어졌는지 확인합니다.
 

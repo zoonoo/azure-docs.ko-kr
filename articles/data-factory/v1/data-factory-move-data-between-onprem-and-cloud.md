@@ -41,7 +41,7 @@ ms.locfileid: "51242843"
 1. 데이터 팩터리를 만듭니다.
 2. 데이터 관리 게이트웨이를 만듭니다. 
 3. 원본 및 싱크 데이터 저장소에 대한 연결된 서비스를 만듭니다.
-4. 입력 및 출력 데이터를 나타낼 데이터 집합을 만듭니다.
+4. 입력 및 출력 데이터를 나타낼 데이터 세트를 만듭니다.
 5. 데이터를 이동하는 복사 작업으로 파이프라인을 만듭니다.
 
 ## <a name="prerequisites-for-the-tutorial"></a>자습서의 필수 조건
@@ -210,9 +210,9 @@ ms.locfileid: "51242843"
     INSERT INTO emp VALUES ('Jane', 'Doe')
     ```
 
-### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
+### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
 
-1. **데이터 팩터리 편집기**의 명령 모음에서 **... 추가**, **새 데이터 집합**을 차례로 클릭하고 **SQL Server 테이블**을 클릭합니다.
+1. **데이터 팩터리 편집기**의 명령 모음에서 **... 추가**, **새 데이터 세트**를 차례로 클릭하고 **SQL Server 테이블**을 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
     ```JSON   
@@ -244,12 +244,12 @@ ms.locfileid: "51242843"
    * **type**을 **SqlServerTable**로 설정합니다.
    * **tableName**을 **emp**로 설정합니다.
    * **linkedServiceName**을 **SqlServerLinkedService**(연결된 서비스는 이 연습의 앞부분에서 만들었음)로 설정합니다.
-   * Azure Data Factory의 다른 파이프라인에서 생성하지 않은 입력 데이터 집합의 경우 **external**을 **true**로 설정해야 합니다. 이 섹션은 입력 데이터가 Azure Data Factory 서비스 외부에서 생성되었음을 나타냅니다. **Policy** 섹션에서 **externalData** 요소를 사용하여 외부 데이터 정책을 선택적으로 지정할 수 있습니다.    
+   * Azure Data Factory의 다른 파이프라인에서 생성하지 않은 입력 데이터 세트의 경우 **external**을 **true**로 설정해야 합니다. 이 섹션은 입력 데이터가 Azure Data Factory 서비스 외부에서 생성되었음을 나타냅니다. **Policy** 섹션에서 **externalData** 요소를 사용하여 외부 데이터 정책을 선택적으로 지정할 수 있습니다.    
 
    JSON 속성에 대한 자세한 내용은 [SQL Server 간 데이터 이동 데이터 이동](data-factory-sqlserver-connector.md)을 참조하세요.
-3. 명령 모음에서 **배포** 를 클릭하여 데이터 집합을 배포합니다.  
+3. 명령 모음에서 **배포** 를 클릭하여 데이터 세트를 배포합니다.  
 
-### <a name="create-output-dataset"></a>출력 데이터 집합 만들기
+### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
 
 1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure Blob Storage**를 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
@@ -299,7 +299,7 @@ ms.locfileid: "51242843"
     ```
 
     JSON 속성에 대한 자세한 내용은 [Azure Blob Storage 간의 데이터 이동](data-factory-azure-blob-connector.md)을 참조하세요.
-3. 명령 모음에서 **배포** 를 클릭하여 데이터 집합을 배포합니다. 트리 보기에서 두 데이터 집합이 모두 표시되는지 확인합니다.  
+3. 명령 모음에서 **배포** 를 클릭하여 데이터 세트를 배포합니다. 트리 보기에서 두 데이터 세트가 모두 표시되는지 확인합니다.  
 
 ## <a name="create-pipeline"></a>파이프라인 만들기
 이 단계에서는 **EmpOnPremSQLTable**을 입력으로, **OutputBlobTable**을 출력으로 사용하는 **복사 작업**을 포함하는 **파이프라인**을 만듭니다.
@@ -367,13 +367,13 @@ ms.locfileid: "51242843"
 
    **종료** 속성 값을 지정하지 않는 경우 "**시작 + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **종료** 속성 값으로 **9/9/9999**를 지정합니다.
 
-   각 Azure Data Factory 데이터 집합에 정의된 **가용성** 속성을 기준으로 데이터 조각이 처리되는 기간을 정의하고 있습니다.
+   각 Azure Data Factory 데이터 세트에 정의된 **가용성** 속성을 기준으로 데이터 조각이 처리되는 기간을 정의하고 있습니다.
 
    예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.        
-3. 명령 모음에서 **배포**를 클릭하여 데이터 집합을 배포합니다(테이블은 사각형 데이터 집합임). **파이프라인** 노드의 트리 보기에서 파이프라인이 표시되는지 확인합니다.  
+3. 명령 모음에서 **배포**를 클릭하여 데이터 세트를 배포합니다(테이블은 사각형 데이터 세트임). **파이프라인** 노드의 트리 보기에서 파이프라인이 표시되는지 확인합니다.  
 4. 이제 **X**를 두 번 클릭하여 페이지를 닫고 **ADFTutorialOnPremDF**의 **데이터 팩터리** 페이지로 돌아갑니다.
 
-**축하합니다.** Azure 데이터 팩터리, 연결된 서비스, 데이터 집합 및 파이프라인을 성공적으로 만들고 해당 파이프라인을 예약했습니다.
+**축하합니다.** Azure 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 성공적으로 만들고 해당 파이프라인을 예약했습니다.
 
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>다이어그램 뷰에서 데이터 팩터리 보기
 1. **Azure Portal**에서 **ADFTutorialOnPremDF** 데이터 팩터리의 홈페이지에 있는 **다이어그램** 타일을 클릭합니다. :
@@ -383,16 +383,16 @@ ms.locfileid: "51242843"
 
     ![다이어그램 뷰](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
-    확대, 축소, 100% 확대, 크기에 맞게, 자동으로 파이프라인 및 데이터 집합 위치 지정, 계보 정보 표시(선택한 항목의 업스트림/다운스트림 항목 강조 표시)를 수행할 수 있습니다.  개체(입출력 데이터 집합 또는 파이프라인)를 두 번 클릭하면 해당 속성을 볼 수 있습니다.
+    확대, 축소, 100% 확대, 크기에 맞게, 자동으로 파이프라인 및 데이터 세트 위치 지정, 계보 정보 표시(선택한 항목의 업스트림/다운스트림 항목 강조 표시)를 수행할 수 있습니다.  개체(입출력 데이터 세트 또는 파이프라인)를 두 번 클릭하면 해당 속성을 볼 수 있습니다.
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
-이 단계에서는 Azure Portal을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 집합과 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 자세한 내용은 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 서를 참조하세요.
+이 단계에서는 Azure Portal을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 세트와 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 자세한 내용은 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 서를 참조하세요.
 
 1. 다이어그램에서 **EmpOnPremSQLTable**을 두 번 클릭합니다.  
 
     ![EmpOnPremSQLTable 조각](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 2. 파이프라인 기간(시작 시간에서 종료 시간까지)이 과거이기 때문에 모든 데이터 조각이 **준비** 상태에 있습니다. 또한 SQL Server 데이터베이스에 데이터를 삽입했기 때문이며 항상 데이터베이스에 데이터가 있습니다. 맨 아래의 **Problem slices(문제 조각)** 섹션에 표시되는 조각이 없는지 확인합니다. 모든 조각을 보려면 조각 목록의 맨 아래에 있는 **자세히 보기**를 클릭합니다.
-3. 이제 **데이터 집합** 페이지에서 **OutputBlobTable**을 클릭합니다.
+3. 이제 **데이터 세트** 페이지에서 **OutputBlobTable**을 클릭합니다.
 
     ![OputputBlobTable 조각](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
 4. 목록에서 아무 데이터 조각이나 클릭하면 **데이터 조각** 페이지가 표시됩니다. 해당 조각에 대한 작업 실행이 표시됩니다. 일반적으로 하나의 작업 실행만 표시됩니다.  
@@ -407,7 +407,7 @@ ms.locfileid: "51242843"
    처리량, 기간 및 데이터를 전송하는 데 사용하는 게이트웨이와 같은 정보가 표시됩니다.
 6. **X**를 클릭하여 모든 페이지를 닫아
 7. **ADFTutorialOnPremDF**의 홈페이지로 돌아갑니다.
-8. (선택 사항) **파이프라인**, **ADFTutorialOnPremDF**를 차례로 클릭한 다음 입력 데이터 집합(**Consumed**) 또는 출력 데이터 집합(**Produced**)을 드릴스루합니다.
+8. (선택 사항) **파이프라인**, **ADFTutorialOnPremDF**를 차례로 클릭한 다음, 입력 데이터 세트(**Consumed**) 또는 출력 데이터 세트(**Produced**)를 드릴스루합니다.
 9. [Microsoft 저장소 탐색기](http://storageexplorer.com/)와 같은 도구를 사용하여 매 시간마다 Blob/파일이 만들어졌는지 확인합니다.
 
    ![Azure Storage 탐색기](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)

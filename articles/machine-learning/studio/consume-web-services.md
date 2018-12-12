@@ -102,7 +102,7 @@ Machine Learning 웹 서비스에 연결하려면 **Microsoft.AspNet.WebApi.Clie
 
 **Visual Studio에서 Microsoft.AspNet.WebApi.Client NuGet 설치**
 
-1. UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드 웹 서비스를 게시합니다.
+1. UCI: Adult 2 클래스 데이터 세트에서 데이터 세트 다운로드 웹 서비스를 게시합니다.
 2. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭합니다.
 3. **Install-Package Microsoft.AspNet.WebApi.Client**를 선택합니다.
 

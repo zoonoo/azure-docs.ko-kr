@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse를 이용한 Fivetran 빠른 시작 | Microsoft Docs
+title: Azure SQL Data Warehouse에 대한 Fivetran 빠른 시작 | Microsoft Docs
 description: Fivetran 및 Azure SQL Data Warehouse로 빨리 시작합니다.
 services: sql-data-warehouse
 author: hirokib
@@ -10,69 +10,75 @@ ms.component: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 8e738becfe356908af5baffc0ebf225916b2616e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 50f5f813444ddf38d15863d028b1f61bb9b0d55c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355295"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580535"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Fivetran 및 SQL Data Warehouse로 빠른 시작
 
-이 빠른 SQL Data Warehouse의 기존 인스턴스가 이미 있다고 가정합니다.
+이 빠른 시작에서는 Azure SQL Data Warehouse를 사용하도록 새 Fivetran 사용자를 설정하는 방법을 설명합니다. 이 문서에서는 기존 SQL Data Warehouse 인스턴스가 있다고 가정합니다.
 
-## <a name="setup-connection"></a>연결 설정
+## <a name="set-up-a-connection"></a>연결 설정
 
-1. Azure SQL Data Warehouse에 연결하기 위한 정규화된 서버 이름 및 데이터베이스 이름을 찾습니다.
+1. SQL Data Warehouse에 연결하는 데 사용하는 정규화된 서버 이름 및 데이터베이스 이름을 찾습니다.
+    
+    이 정보를 찾는 데 도움이 필요한 경우 [Azure SQL Data Warehouse에 연결](sql-data-warehouse-connect-overview.md)을 참조하세요.
 
-   [포털에서 서버 이름과 데이터베이스 이름을 찾는 방법?](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connect-overview)
+2. 설정 마법사에서 데이터베이스를 직접 연결할지 또는 SSH 터널을 통해 연결할지 선택합니다.
 
-2. 설치 마법사에서 데이터베이스를 직접 연결할지 또는 SSH 터널을 통해 연결할지 결정합니다.
+   데이터베이스에 직접 연결을 선택하는 경우 액세스를 허용하는 방화벽 규칙을 만들어야 합니다. 이 방법이 가장 간단하고 가장 안전한 방법입니다.
 
-   데이터베이스에 직접 연결하기로 결정하는 경우 액세스를 허용하는 방화벽 규칙을 만들어야 합니다. 이 방법이 가장 간단하고 가장 안전한 방법입니다.
+   SSH 터널을 통한 연결을 선택하면 Fivetran이 네트워크의 별도 서버에 연결합니다. 해당 서버에서 데이터베이스에 대한 SSH 터널을 제공합니다. 데이터베이스가 가상 네트워크에서 액세스할 수 없는 서브넷에 있는 경우 이 방법을 사용해야 합니다.
 
-   SSH 터널을 통해 연결하기로 결정하는 경우 Fivetran은 네트워크 내에서 데이터베이스에 SSH 터널을 제공하는 별도의 서버에 연결합니다. 이 방법은 데이터베이스가 가상 네트워크에서 액세스할 수 없는 서브넷에 있는 경우 필요합니다.
+3. Fivetran에서 SQL Data Warehouse 인스턴스에 들어오는 연결을 허용하도록 서버 수준 방화벽에 IP 주소 **52.0.2.4**를 추가합니다.
 
-3. Fivetran에서 Azure SQL Data Warehouse에 들어오는 연결을 허용하도록 서버 수준 방화벽에서 IP 주소 "52.0.2.4"를 추가합니다.
+   자세한 내용은 [서버 수준 방화벽 규칙 만들기](create-data-warehouse-portal.md#create-a-server-level-firewall-rule)를 참조하세요.
 
-   [서버 수준 방화벽을 추가하는 방법?](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal#create-a-server-level-firewall-rule)
+## <a name="set-up-user-credentials"></a>사용자 자격 증명 설정
 
-## <a name="setup-user-credentials"></a>SSH 사용자 자격 증명
+1. SQL Server Management Studio 또는 원하는 도구를 사용하여 Azure SQL Data Warehouse에 연결합니다. 서버 관리 사용자로 로그인합니다. 그런 후에, 다음 SQL 명령을 실행하여 Fivetran의 사용자를 만듭니다.
+    - master 데이터베이스의 경우: 
+    
+      ```
+      CREATE LOGIN fivetran WITH PASSWORD = '<password>'; 
+      ```
 
-SQL Server Management Studio 또는 선택한 도구를 서버 관리 사용자로 사용하여 Azure SQL Data Warehouse에 연결하고 다음 SQL 문을 실행하여 Fivetran에 대한 사용자를 만듭니다.
+    - SQL Data Warehouse 데이터베이스의 경우:
 
-master 데이터베이스의 경우: ` CREATE LOGIN fivetran WITH PASSWORD = '<password>'; `
+      ```
+      CREATE USER fivetran_user_without_login without login;
+      CREATE USER fivetran FOR LOGIN fivetran;
+      GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
+      ```
 
-SQL Data Warehouse 데이터베이스의 경우:
+2. Fivetran 사용자에게 웨어하우스에 대한 다음 사용 권한을 부여합니다.
 
-```
-CREATE USER fivetran_user_without_login without login;
-CREATE USER fivetran FOR LOGIN fivetran;
-GRANT IMPERSONATE on USER::fivetran_user_without_login to fivetran;
-```
+    ```
+    GRANT CONTROL to fivetran;
+    ```
 
-사용자 Fivetran이 만들어진 후 웨어하우스에 다음 사용 권한을 부여합니다.
+    사용자가 PolyBase를 사용하여 Azure Blob Storage에서 파일을 로드할 때 사용되는 데이터베이스 범위 자격 증명을 만들려면 CONTROL 권한이 필요합니다.
 
-```
-GRANT CONTROL to fivetran;
-```
+3. Fivetran 사용자에게 적합한 리소스 클래스를 추가합니다. 사용하는 리소스 클래스는 columnstore 인덱스를 만드는 데 필요한 메모리에 따라 다릅니다. 예를 들어 Marketo, Salesforce 등의 제품과 통합하려면 해당 제품이 사용하는 대량 데이터와 다수의 열 때문에 상위 리소스 클래스가 필요합니다. 상위 리소스 클래스에서 columnstore 인덱스를 만들려면 더 많은 메모리가 필요합니다.
 
-columnstore 인덱스 생성을 위한 메모리 요구 사항에 따라 만들어진 사용자에게 적합한 리소스 클래스를 추가합니다. 예를 들어 Marketo 및 Salesforce와 같은 통합에는 다수의 열/더 많은 양의 데이터 때문에 columnstore 인덱스를 만들려면 더 많은 메모리가 요구되므로 더 높은 리소스 클래스가 필요합니다.
+    정적 리소스 클래스를 사용하는 것이 좋습니다. `staticrc20` 리소스 클래스로 시작할 수 있습니다. `staticrc20` 리소스 클래스는 사용하는 성능 수준에 관계없이 각 사용자에 대해 200MB를 할당합니다. columnstore 인덱싱이 초기 리소스 클래스 수준에서 실패하면 리소스 클래스를 늘립니다.
 
-정적 리소스 클래스를 사용하는 것이 좋습니다. 사용하는 성능 수준과 상관없이 사용자에게 200 MB를 할당하는 리소스 클래스 `staticrc20`으로 시작할 수 있습니다. 현재 리소스 클래스로 columnstore 인덱싱이 실패하면 리소스 클래스를 늘려야 합니다.
+    ```
+    EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
+    ```
 
-```
-EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
-```
+    자세한 내용은 [메모리 및 동시성 한도](memory-and-concurrency-limits.md) 및 [리소스 클래스](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory)를 참조하세요.
 
-자세한 내용은 [메모리 및 동시성 한도](https://docs.microsoft.com/azure/sql-data-warehouse/memory-and-concurrency-limits#data-warehouse-limits) 및 [리소스 클래스](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression#ways-to-allocate-more-memory)에 대한 문서를 참조하세요.
 
-PolyBase를 사용하여 Blob Storage에서 파일을 로드하는 동안 사용할 데이터베이스 범위 자격 증명을 만들려면 CONTROL 사용 권한이 필요합니다.
+## <a name="sign-in-to-fivetran"></a>Fivetran에 로그인
 
-Azure SQL Data Warehouse에 액세스할 자격 증명 입력
+Fivetran에 로그인하려면 SQL Data Warehouse에 액세스하는 데 사용하는 자격 증명을 입력합니다. 
 
-1. 호스트(서버 이름)
-2. 포트
-3. 데이터베이스
-4. 사용자(사용자 이름은 `fivetran@<server_name>`이어야 하며, 여기서 `<server_name>`은 Azure 호스트 URI의 일부인: `<server_name>.database.windows.net`입니다.)
-5. 암호
+* 호스트(서버 이름).
+* 포트.
+* 데이터베이스.
+* 사용자(사용자 이름은 **fivetran@_server_name_** 이어야 하며, *server_name*은 Azure 호스트 URI인 ***server_name*.database.windows.net**의 일부임).
+* Password.

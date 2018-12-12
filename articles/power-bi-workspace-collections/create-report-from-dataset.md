@@ -24,7 +24,7 @@ Power BI 작업 영역 컬렉션 보고서를 이제 자체 응용 프로그램�
 > [!IMPORTANT]
 > Power BI 작업 영역 컬렉션은 2018년 6월 또는 계약에서 명시한 때까지만 사용할 수 있으며 이후에는 사용되지 않습니다. 응용 프로그램에서 중단을 방지하기 위해 Power BI Embedded에 대한 마이그레이션을 계획하는 것이 좋습니다. Power BI Embedded에 데이터를 마이그레이션하는 방법에 대한 자세한 내용은 [Power BI Embedded에 Power BI 작업 영역 컬렉션 콘텐츠를 마이그레이션하는 방법](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)을 참조하세요.
 
-인증 방법은 보고서를 포함의 방법과 유사합니다. 이 방법은 특정 데이터 집합에만 적용되는 액세스 토큰을 기반으로 합니다. PowerBI.com에 사용되는 토큰은 AAD(Azure Active Directory)에서 발급됩니다. Power BI 작업 영역 컬렉션 토큰은 사용자의 응용 프로그램에서 발급됩니다.
+인증 방법은 보고서를 포함의 방법과 유사합니다. 이 방법은 특정 데이터 세트에만 적용되는 액세스 토큰을 기반으로 합니다. PowerBI.com에 사용되는 토큰은 AAD(Azure Active Directory)에서 발급됩니다. Power BI 작업 영역 컬렉션 토큰은 사용자의 응용 프로그램에서 발급됩니다.
 
 포함된 보고서를 만드는 경우 발급되는 토큰은 특정 데이터 세트에 대한 것입니다. 각각이 고유한 토큰을 갖도록 하기 위해 토큰을 같은 요소의 Embed URL에 연결해야 합니다. 포함된 보고서를 만들기 위해 액세스 토큰에 *Dataset.Read 및 Workspace.Report.Create* 범위를 제공해야 합니다.
 
@@ -108,7 +108,7 @@ var embedCreateConfiguration = {
 ```
 
 > [!IMPORTANT]
-> **다른 이름으로 저장**을 호출해야만 새 보고서가 만들어집니다. 저장을 해도 캔버스에는 보고서가 아닌 편집 모드의 데이터 집합이 계속 표시됩니다. 다른 보고서의 경우처럼 새 보고서를 다시 로드해야 합니다.
+> **다른 이름으로 저장**을 호출해야만 새 보고서가 만들어집니다. 저장을 해도 캔버스에는 보고서가 아닌 편집 모드의 데이터 세트가 계속 표시됩니다. 다른 보고서의 경우처럼 새 보고서를 다시 로드해야 합니다.
 
 ![파일 메뉴 - 다른 이름으로 저장](media/create-report-from-dataset/save-new-report.png)
 

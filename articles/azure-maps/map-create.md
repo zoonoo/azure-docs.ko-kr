@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 659f6def7e6bb045606b7214a4b8b4cab693117b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 97b94cf54454a83510c5be2cf0d71281dbf5b004
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248170"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424242"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "50248170"
 <iframe height='500' scrolling='no' title='CameraOptions를 통해 맵 만들기' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>의 Pen <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Azure Location Based Services에서 제공되는 `CameraOptions` </a>를 통해 맵 만들기(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 참조하세요.
 </iframe>
 
-위의 코드에서 [맵 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)는 `new atlas.Map()`을 통해 만들어지고 중심 및 확대/축소가 설정됩니다. 중심 및 확대/축소 수준과 같은 맵 속성은 [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraoptions?view=azure-iot-typescript-latest)의 일부입니다.
+위의 코드에서 [맵 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)는 `new atlas.Map()`을 통해 만들어지고 중심 및 확대/축소가 설정됩니다. 중심 및 확대/축소 수준과 같은 맵 속성은 [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)의 일부입니다.
 
 <a id="setCameraBoundsOptions"></a>
 
@@ -47,9 +47,9 @@ ms.locfileid: "50248170"
 <iframe height='500' scrolling='no' title='맵 보기 애니메이션' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>의 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 제공되는 Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>맵 보기 애니메이션</a>을 참조하세요.
 </iframe>
 
-위의 코드에서 첫 번째 코드 블록은 `new atlas.Map()`을 통해 [맵 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)를 만듭니다. 중심 및 확대/축소 수준과 같은 맵 속성은 [CameraOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraoptions?view=azure-iot-typescript-latest)의 일부입니다. `CameraOptions`는 맵 생성자에서 정의하거나 맵 클래스의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) 함수를 통해 정의할 수 있습니다. [맵 스타일](https://review.docs.microsoft.com/azure/azure-maps/supported-map-styles?branch=pr-en-us-54960)은 `road`로 설정됩니다.
+위의 코드에서 첫 번째 코드 블록은 `new atlas.Map()`을 통해 [맵 개체](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)를 만듭니다. 중심 및 확대/축소 수준과 같은 맵 속성은 [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)의 일부입니다. `CameraOptions`는 맵 생성자에서 정의하거나 맵 클래스의 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) 함수를 통해 정의할 수 있습니다. [맵 스타일](https://docs.microsoft.com/azure/azure-maps/supported-map-styles)은 `road`로 설정됩니다.
 
-두 번째 코드 블록은 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) 함수를 통해 [AnimateOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.animationoptions?view=azure-iot-typescript-latest)를 정의하여 맵 보기에서 변경 내용을 애니메이션하는 애니메이션 맵 함수를 만듭니다. 함수는 각 클릭 시 임의의 확대/축소 수준을 생성하는 '맵 애니메이션' 단추에서 트리거됩니다.
+두 번째 코드 블록은 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera) 함수를 통해 [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions)를 정의하여 맵 보기에서 변경 내용에 애니메이션을 적용하는 애니메이션 맵 함수를 만듭니다. 함수는 각 클릭 시 임의의 확대/축소 수준을 생성하는 '맵 애니메이션' 단추에서 트리거됩니다.
 
 ## <a name="try-out-the-code"></a>코드 사용해 보기
 

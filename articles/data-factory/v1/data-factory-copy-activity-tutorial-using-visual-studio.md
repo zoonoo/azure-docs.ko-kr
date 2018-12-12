@@ -65,9 +65,9 @@ ms.locfileid: "50240837"
     AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 연결합니다. Blob 저장소에서 복사된 데이터는 이 데이터베이스에 저장됩니다. [필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)의 일부로 이 데이터베이스에서 SQL 테이블을 만들었습니다.     
 2. 데이터 팩터리에서 입력 및 출력 **데이터 세트**를 만듭니다.  
     
-    Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 집합은 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
+    Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 세트는 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
 
-    마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 출력 SQL 테이블 데이터 집합은 Blob 저장소의 데이터가 복사되는 데이터베이스의 테이블을 지정합니다.
+    마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 출력 SQL 테이블 데이터 세트는 Blob 저장소의 데이터가 복사되는 데이터베이스의 테이블을 지정합니다.
 3. 데이터 팩터리에서 **파이프라인**을 만듭니다. 이 단계에서는 복사 활동을 사용하여 파이프라인을 만듭니다.   
     
     복사 활동은 Azure Blob 저장소의 Blob에서 Azure SQL 데이터베이스의 테이블로 데이터를 복사합니다. 파이프라인의 복사 활동을 사용하여 지원되는 모든 원본의 데이터를 지원되는 모든 대상으로 복사할 수 있습니다. 지원되는 데이터 저장소 목록은 [데이터 이동 활동](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 문서를 참조하세요. 
@@ -115,16 +115,16 @@ Azure SQL 연결된 서비스는 Azure SQL 데이터베이스를 데이터 팩�
 
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
-이전 단계에서는 Azure Storage 계정과 Azure SQL Database를 데이터 팩터리에 연결하는 연결된 서비스를 만들었습니다. 이 단계에서는 AzureStorageLinkedService1 및 AzureSqlLinkedService1에서 각각 참조하는 데이터 저장소에 저장된 입력 및 출력 데이터를 나타내는 InputDataset 및 OutputDataset이라는 두 개의 데이터 집합을 정의합니다.
+이전 단계에서는 Azure Storage 계정과 Azure SQL Database를 데이터 팩터리에 연결하는 연결된 서비스를 만들었습니다. 이 단계에서는 AzureStorageLinkedService1 및 AzureSqlLinkedService1에서 각각 참조하는 데이터 저장소에 저장된 입력 및 출력 데이터를 나타내는 InputDataset 및 OutputDataset이라는 두 개의 데이터 세트를 정의합니다.
 
-Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 집합(InputDataset)은 입력 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
+Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure 저장소 계정에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 입력 Blob 데이터 세트(InputDataset)는 입력 데이터가 포함된 컨테이너와 폴더를 지정합니다.  
 
-마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 출력 SQL 테이블 데이터 집합(OututDataset)은 Blob 저장소의 데이터가 복사되는 데이터베이스의 테이블을 지정합니다. 
+마찬가지로 Azure SQL Database 연결된 서비스는 런타임에 Data Factory 서비스에서 Azure SQL 데이터베이스에 연결하는 데 사용하는 연결 문자열을 지정합니다. 그리고 출력 SQL 테이블 데이터 세트(OututDataset)는 Blob 저장소의 데이터가 복사되는 데이터베이스의 테이블을 지정합니다. 
 
-### <a name="create-input-dataset"></a>입력 데이터 집합 만들기
-이 단계에서는 AzureStorageLinkedService1 연결된 서비스에서 나타내는 Azure Storage의 Blob 컨테이너(adftutorial)의 루트 폴더에 있는 Blob 파일(emp.txt)을 가리키는 InputDataset이라는 데이터 집합을 만듭니다. fileName 값을 지정하지 않거나 건너뛰면 입력 폴더에 있는 모든 Blob의 데이터가 대상에 복사됩니다. 이 자습서에서는 fileName 값을 지정합니다. 
+### <a name="create-input-dataset"></a>입력 데이터 세트 만들기
+이 단계에서는 AzureStorageLinkedService1 연결된 서비스에서 나타내는 Azure Storage의 Blob 컨테이너(adftutorial)의 루트 폴더에 있는 Blob 파일(emp.txt)을 가리키는 InputDataset이라는 데이터 세트를 만듭니다. fileName 값을 지정하지 않거나 건너뛰면 입력 폴더에 있는 모든 Blob의 데이터가 대상에 복사됩니다. 이 자습서에서는 fileName 값을 지정합니다. 
 
-여기서는 "데이터 집합" 대신 "테이블"이라는 용어를 사용합니다. 테이블은 사각형 데이터 집합이며 현재 지원되는 유일한 데이터 집합 유형입니다. 
+여기서는 "데이터 세트" 대신 "테이블"이라는 용어를 사용합니다. 테이블은 사각형 데이터 세트이며 현재 지원되는 유일한 데이터 세트 유형입니다. 
 
 1. **솔루션 탐색기**에서 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
 2. **새 항목 추가** 대화 상자에서 **Azure Blob**을 선택하고 **추가**를 클릭합니다.   
@@ -176,7 +176,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 
     이러한 JSON 속성에 대한 자세한 내용은 [Azure Blob 커넥터 문서](data-factory-azure-blob-connector.md#dataset-properties)를 참조하세요.   
 
-### <a name="create-output-dataset"></a>출력 데이터 집합 만들기
+### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
 이 단계에서는 **OutputDataset**이라는 출력 데이터 세트를 만듭니다. 이 데이터 세트는 **AzureSqlLinkedService1**이 나타내는 Azure SQL Database에서 SQL 테이블을 가리킵니다. 
 
 1. **솔루션 탐색기**에서 다시 **테이블**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.
@@ -225,7 +225,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 ## <a name="create-pipeline"></a>파이프라인 만들기
 이 단계에서는 **InputDataset**을 입력으로 사용하고 **OutputDataset**을 출력으로 사용하는 **복사 활동**을 포함한 파이프라인을 만듭니다.
 
-현재 출력 데이터 집합은 일정을 작동하는 것입니다. 이 자습서에서는 출력 데이터 집합이 한 시간에 한 번씩 조각을 생성하도록 구성됩니다. 이 파이프라인은 하루 24시간 간격, 즉 24시간 동안에 걸친 시작 시간과 종료 시간을 갖습니다. 따라서 24개의 출력 데이터 세트가 파이프라인에 의해 생성됩니다. 
+현재 출력 데이터 세트는 일정을 작동하는 것입니다. 이 자습서에서는 출력 데이터 세트가 한 시간에 한 번씩 조각을 생성하도록 구성됩니다. 이 파이프라인은 하루 24시간 간격, 즉 24시간 동안에 걸친 시작 시간과 종료 시간을 갖습니다. 따라서 24개의 출력 데이터 세트가 파이프라인에 의해 생성됩니다. 
 
 1. **솔루션 탐색기**에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.  
 2. **새 항목 추가** 대화 상자에서 **데이터 파이프라인 복사**를 선택하고 **추가**를 클릭합니다. 
@@ -290,7 +290,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
     파이프라인 정의의 JSON 속성에 대한 설명은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 복사 활동 정의의 JSON 속성에 대한 설명은 [데이터 이동 활동](data-factory-data-movement-activities.md)을 참조하세요. BlobSource에서 지원하는 JSON 속성에 대한 설명은 [Azure Blob 커넥터 문서](data-factory-azure-blob-connector.md)를 참조하세요. SqlSink에서 지원하는 JSON 속성에 대한 설명은 [Azure SQL Database 커넥터 문서](data-factory-azure-sql-connector.md)를 참조하세요.
 
 ## <a name="publishdeploy-data-factory-entities"></a>데이터 팩터리 엔터티 게시/배포
-이 단계에서는 이전에 만든 Data Factory 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 게시합니다. 이러한 엔터티를 저장하기 위해 만들어진 새 데이터 팩터리의 이름을 지정할 수도 있습니다.  
+이 단계에서는 이전에 만든 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)를 게시합니다. 이러한 엔터티를 저장하기 위해 만들어진 새 데이터 팩터리의 이름을 지정할 수도 있습니다.  
 
 1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 클릭합니다. 
 2. **Microsoft 계정에 로그인** 대화 상자가 표시되면 Azure 구독이 있는 계정의 자격 증명을 입력하고 **로그인**을 클릭합니다.
@@ -363,7 +363,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 5. 이 자습서에서 만든 파이프라인과 데이터 세트를 모니터링하려면 [데이터 세트 및 파이프라인 모니터링](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline)의 지침을 참조하세요. Visual Studio는 현재 Data Factory 파이프라인 모니터링을 지원하지 않습니다. 
 
 ## <a name="summary"></a>요약
-이 자습서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 Azure Data Factory를 만들었습니다. Visual Studio를 사용하여 데이터 팩터리, 연결된 서비스, 데이터 집합 및 파이프라인을 만들었습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.  
+이 자습서에서는 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 Azure Data Factory를 만들었습니다. Visual Studio를 사용하여 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 만들었습니다. 이 자습서에서 수행한 단계를 요약하면 다음과 같습니다.  
 
 1. Azure **Data Factory**를 만들었습니다.
 2. **연결된 서비스**를 만들었습니다.
@@ -374,7 +374,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
 
 Azure HDInsight 클러스터를 사용하여 HDInsight Hive 활동을 통해 데이터를 변환하는 방법을 알아보려면 [자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 첫 번째 파이프라인 빌드](data-factory-build-your-first-pipeline.md)를 참조하세요.
 
-한 활동의 출력 데이터 집합을 다른 활동의 입력 데이터 집합으로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
+한 활동의 출력 데이터 세트를 다른 활동의 입력 데이터 세트로 설정하여 두 활동을 연결하면 해당 활동을 차례로 실행할 수 있습니다. 자세한 정보는 [데이터 팩터리의 예약 및 실행](data-factory-scheduling-and-execution.md)을 참조하세요. 
 
 ## <a name="view-all-data-factories-in-server-explorer"></a>서버 탐색기에서 모든 데이터 팩터리 보기
 이 섹션에서는 Visual Studio의 [서버 탐색기]를 사용하여 Azure 구독의 모든 데이터 팩터리를 보고 기존 데이터 팩터리에 기반한 Visual Studio 프로젝트를 만드는 방법에 대해 설명합니다. 

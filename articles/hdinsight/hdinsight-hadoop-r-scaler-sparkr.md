@@ -27,7 +27,7 @@ ms.locfileid: "51013278"
 
 이 문서의 단계에서는 사용자가 R 및 ML Server의 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 라이브러리에 대한 중간 수준의 지식을 보유하고 있다고 가정합니다. 이 시나리오를 진행하는 동안 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)도 소개됩니다.
 
-## <a name="the-airline-and-weather-datasets"></a>항공사 및 날씨 데이터 집합
+## <a name="the-airline-and-weather-datasets"></a>항공사 및 날씨 데이터 세트
 
 항공편 데이터는 [미국 정부 아카이브](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236)에서 사용할 수 있습니다. [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip)에서 zip 파일로도 사용 가능합니다.
 
@@ -349,7 +349,7 @@ rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 
 ## <a name="import-to-xdf-for-use-by-scaler"></a>ScaleR에서 사용할 XDF로 가져오기
 
-ScaleR 텍스트 데이터 원본을 통해 모델링하기 위해 조인된 항공사 및 날짜 데이터의 CSV 파일을 그대로 사용합니다. 하지만 데이터 집합에서 여러 작업 실행 시 더 효율적이므로 먼저 XDF로 가져옵니다.
+ScaleR 텍스트 데이터 원본을 통해 모델링하기 위해 조인된 항공사 및 날짜 데이터의 CSV 파일을 그대로 사용합니다. 하지만 데이터 세트에서 여러 작업 실행 시 더 효율적이므로 먼저 XDF로 가져옵니다.
 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>다른 곳에서 점수 매기기
 
-또한, 다른 플랫폼의 데이터에 점수를 매기기 위해 이 모델을 사용할 수도 있습니다. RDS 파일로 저장한 다음 전송하여 해당 RDS를 SQL Server R 서비스 등의 대상 점수 매기기 환경으로 가져옵니다. 모델이 빌드된 요소 수준과 점수를 매길 데이터의 요소 수준이 일치하는지 확인하는 것이 중요합니다. 이러한 일치는 ScaleR의 `rxCreateColInfo()` 함수를 통해 모델링 데이터와 관련된 열 정보를 추출하고 저장한 다음, 해당 열 정보를 입력 데이터 원본에 적용하여 예측함으로써 구현할 수 있습니다. 다음 예제에서는 테스트 데이터 집합의 몇 개 행만 저장하고 예측 스크립트에서 이 샘플의 열 정보를 추출하여 사용합니다.
+또한, 다른 플랫폼의 데이터에 점수를 매기기 위해 이 모델을 사용할 수도 있습니다. RDS 파일로 저장한 다음 전송하여 해당 RDS를 SQL Server R 서비스 등의 대상 점수 매기기 환경으로 가져옵니다. 모델이 빌드된 요소 수준과 점수를 매길 데이터의 요소 수준이 일치하는지 확인하는 것이 중요합니다. 이러한 일치는 ScaleR의 `rxCreateColInfo()` 함수를 통해 모델링 데이터와 관련된 열 정보를 추출하고 저장한 다음, 해당 열 정보를 입력 데이터 원본에 적용하여 예측함으로써 구현할 수 있습니다. 다음 예제에서는 테스트 데이터 세트의 몇 개 행만 저장하고 예측 스크립트에서 이 샘플의 열 정보를 추출하여 사용합니다.
 
 ```
 # save the model and a sample of the test dataset 

@@ -95,7 +95,7 @@ ToolkitLogger.getInstance().setEnabled(False)
 
 
 
-## <a name="create-a-dataset"></a>데이터 집합 만들기
+## <a name="create-a-dataset"></a>데이터 세트 만들기
 
 종속성을 가져오고 저장소 컨텍스트를 설정한 후에는 데이터 세트 개체를 만들 수 있습니다.
 

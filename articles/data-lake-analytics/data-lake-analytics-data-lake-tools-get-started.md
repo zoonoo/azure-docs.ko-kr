@@ -62,7 +62,7 @@ Azure Data Lake 및 Stream Analytics Tools는 두 가지 Azure 서비스, Azure 
 
 ## <a name="write-your-first-u-sql-script"></a>첫 번째 U-SQL 스크립트 작성
 
-다음 텍스트는 간단한 U-SQL 스크립트입니다. 작은 데이터 집합을 정의하고 이 데이터 집합을 `/data.csv`라는 파일로 기본 Data Lake Store에 기록합니다.
+다음 텍스트는 간단한 U-SQL 스크립트입니다. 작은 데이터 세트를 정의하고 이 데이터 세트를 `/data.csv`라는 파일로 기본 Data Lake Store에 기록합니다.
 
 ```
 USE DATABASE master;

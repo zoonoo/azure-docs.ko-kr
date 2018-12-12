@@ -30,13 +30,13 @@ ms.locfileid: "37048457"
 ## <a name="data-factory-system-variables"></a>데이터 팩터리 시스템 변수
 | 변수 이름 | 설명 | 개체 범위 | JSON 범위 및 사용 사례 |
 | --- | --- | --- | --- |
-| WindowStart |현재 작업 실행 창에 대한 시간 간격의 시작 |활동 |<ol><li>데이터 선택 쿼리를 지정합니다. [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 참조되는 커넥터 문서 참조)</li> |
+| WindowStart |현재 작업 실행 창에 대한 시간 간격의 시작 |활동 |<ol><li>데이터 선택 쿼리를 지정합니다.  [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 참조되는 커넥터 문서 참조)</li> |
 | WindowEnd |현재 작업 실행 창에 대한 시간 간격의 끝 |작업 |WindowStart와 동일 |
 | SliceStart |생성되는 데이터 조각에 대한 시간 간격 시작 |활동<br/>dataset |<ol><li>[Azure Blob](data-factory-azure-blob-connector.md) 및 [파일 시스템 데이터 집합](data-factory-onprem-file-system-connector.md)과 작업하는 동안 동적 폴더 경로 및 파일 이름을 지정합니다.</li><li>작업 입력 컬렉션에서 데이터 팩터리 함수에 입력 종속성을 지정합니다.</li></ol> |
 | SliceEnd |현재 데이터 조각에 대한 시간 간격 끝 |활동<br/>dataset |SliceStart와 동일 |
 
 > [!NOTE]
-> 현재 데이터 팩터리에서는 작업에 지정된 일정이 출력 데이터 집합의 가용성에 지정된 일정과 정확히 일치해야 합니다. 따라서 WindowStart, WindowEnd, SliceStart 및 SliceEnd가 항상 같은 기간과 단일 출력 조각으로 매핑됩니다.
+> 현재 데이터 팩터리에서는 작업에 지정된 일정이 출력 데이터 세트의 가용성에 지정된 일정과 정확히 일치해야 합니다. 따라서 WindowStart, WindowEnd, SliceStart 및 SliceEnd가 항상 같은 기간과 단일 출력 조각으로 매핑됩니다.
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>시스템 변수 사용 예제
@@ -59,7 +59,7 @@ ms.locfileid: "37048457"
 
 1. 데이터 선택 쿼리 지정([데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 참조되는 커넥터 문서 참조)
    
-   데이터 팩터리 함수를 호출하는 구문은 데이터 선택 쿼리와 작업 및 데이터 집합의 기타 속성에 대해 **$$<function>** 입니다.  
+   데이터 팩터리 함수를 호출하는 구문은 데이터 선택 쿼리와 작업 및 데이터 세트의 기타 속성에 대해 **$$<function>** 입니다.  
 2. 작업 입력 컬렉션에서 데이터 팩터리 함수에 입력 종속성 지정
    
     $$는 입력 종속성 식을 지정할 때는 필요하지 않습니다.     

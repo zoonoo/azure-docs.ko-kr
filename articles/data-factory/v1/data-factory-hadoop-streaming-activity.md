@@ -149,8 +149,8 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
 }
 ```
 
-### <a name="datasets"></a>데이터 집합
-#### <a name="output-dataset"></a>출력 데이터 집합
+### <a name="datasets"></a>데이터 세트
+#### <a name="output-dataset"></a>출력 데이터 세트
 이 예제의 파이프라인은 input을 포함하지 않습니다. HDInsight 스트리밍 작업에 대한 출력 데이터 세트를 지정합니다. 이 데이터 세트는 파이프라인 일정을 진행하는데 필요한 더미 데이터 세트입니다. 
 
 ```JSON

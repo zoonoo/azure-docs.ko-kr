@@ -142,7 +142,7 @@ ms.locfileid: "44299203"
 
 1. Blob 데이터 세트에 대해 열린 새 탭이 표시됩니다. **속성** 창의 아래쪽에 있는 **일반** 탭의 **이름**에 대해 **SourceBlobDataset**을 입력합니다.
 
-    ![데이터 집합 이름](./media/tutorial-copy-data-portal/dataset-name.png)
+    ![데이터 세트 이름](./media/tutorial-copy-data-portal/dataset-name.png)
 
 1. **속성** 창의 **연결** 탭으로 이동합니다. **연결된 서비스** 텍스트 상자 옆에 있는 **+ 새로 만들기**를 선택합니다. 
 

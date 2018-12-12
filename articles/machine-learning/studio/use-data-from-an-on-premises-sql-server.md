@@ -27,7 +27,7 @@ ms.locfileid: "52310959"
 
 온-프레미스 데이터로 작업하는 기업에서는 종종 기계 학습 워크로드를 위해 클라우드의 규모와 민첩성을 활용하려고 합니다. 하지만 클라우드로 온-프레미스 데이터를 이동하여 현재 비즈니스 프로세스 및 워크플로를 중단하지 않으려고 합니다. 이제 Azure Machine Learning은 온-프레미스 SQL Server 데이터베이스의 데이터를 읽은 다음, 이 데이터를 사용하여 교육을 하고 모델 점수를 매길 수 있도록 지원합니다. 더 이상 클라우드 및 온-프레미스 서버 간에 데이터를 수동으로 복사하고 동기화할 필요가 없습니다. 대신 Azure Machine Learning Studio의 **데이터 가져오기** 모듈은 교육 및 점수 매기기 작업을 위해 온-프레미스 SQL Server 데이터베이스에서 직접 데이터를 읽을 수 있습니다.
 
-이 문서에서는 온-프레미스 SQL Server 데이터를 Azure Machine Learning Studio로 수신하는 방법을 대략적으로 설명합니다. 여기서는 사용자가 작업 영역, 모듈, 데이터 집합, 실험 *등*의 Azure Machine Learning 개념에 익숙하다고 가정하겠습니다.
+이 문서에서는 온-프레미스 SQL Server 데이터를 Azure Machine Learning Studio로 수신하는 방법을 대략적으로 설명합니다. 여기서는 사용자가 작업 영역, 모듈, 데이터 세트, 실험 *등*의 Azure Machine Learning 개념에 익숙하다고 가정하겠습니다.
 
 > [!NOTE]
 > 이 기능을 무료 작업 영역에서는 사용할 수 없습니다. Machine Learning 가격 책정 및 계층에 대한 자세한 내용은 [Azure Machine Learning 가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)을 참조하세요.

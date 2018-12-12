@@ -82,7 +82,7 @@ Contoso는 산업용 자동화 공간의 회사로, 제조 프로세스를 완�
 3. 오른쪽에 열리는 결과 창에서 다운로드 위치에 있는 HelloWorldASA InputStream.json 데이터 파일을 선택하고 창 맨 아래의 **확인**을 클릭합니다.
    
     ![입력 스트림 테스트](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
-4. 그런 다음 창의 왼쪽 위에 있는 **테스트** 기어를 클릭하여 샘플 데이터 집합에 대한 테스트 쿼리를 처리합니다. 처리가 완료되면 쿼리 아래에 결과 창이 열립니다.
+4. 그런 다음, 창의 왼쪽 위에 있는 **테스트** 기어를 클릭하여 샘플 데이터 세트에 대한 테스트 쿼리를 처리합니다. 처리가 완료되면 쿼리 아래에 결과 창이 열립니다.
    
     ![테스트 결과](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 

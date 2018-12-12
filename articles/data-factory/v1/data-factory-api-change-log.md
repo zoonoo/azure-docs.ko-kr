@@ -26,7 +26,7 @@ ms.locfileid: "37051402"
 > [!NOTE]
 > 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 
 
-이 문서에서는 특정 버전의 Azure Data Factory SDK 변경 내용에 대해 설명합니다. [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
+이 문서에서는 특정 버전의 Azure Data Factory SDK 변경 내용에 대해 설명합니다.  [여기](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
 ## <a name="version-4110"></a>버전 4.11.0
 기능 추가 사항:
@@ -35,7 +35,7 @@ ms.locfileid: "37051402"
   * [OnPremisesMongoDbLinkedService](https://msdn.microsoft.com/library/mt765129.aspx)
   * [AmazonRedshiftLinkedService](https://msdn.microsoft.com/library/mt765121.aspx)
   * [AwsAccessKeyLinkedService](https://msdn.microsoft.com/library/mt765144.aspx)
-* 다음과 같은 데이터 집합이 추가 되었습니다.
+* 다음과 같은 데이터 세트가 추가 되었습니다.
   * [MongoDbCollectionDataset](https://msdn.microsoft.com/library/mt765145.aspx)
   * [AmazonS3Dataset](https://msdn.microsoft.com/library/mt765112.aspx)
 * 다음과 같은 원본 복사 형식이 추가되었습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "37051402"
 * 다음에 링크된 서비스 유형이 추가 되었습니다.
   * [OnPremisesCassandraLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice.aspx)
   * [SalesforceLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.salesforcelinkedservice.aspx)
-* 다음과 같은 데이터 집합이 추가 되었습니다.
+* 다음과 같은 데이터 세트가 추가 되었습니다.
   * [OnPremisesCassandraTableDataset](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandratabledataset.aspx)
 * 다음과 같은 원본 복사 형식이 추가되었습니다.
   * [CassandraSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.cassandrasource.aspx)
@@ -93,15 +93,15 @@ ms.locfileid: "37051402"
   * [데이터 집합](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.pipelineproperties.datasets.aspx)
 * 다음 속성이 [PipelineRuntimeInfo](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.aspx)에 추가되었습니다.
   * [PipelineState](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.common.models.pipelineruntimeinfo.pipelinestate.aspx)
-* 데이터가 JSON 형식인 데이터 집합을 정의하는 [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) 유형 [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) 유형이 새로 추가되었습니다.
+* 데이터가 JSON 형식인 데이터 세트를 정의하는 [StorageFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.storageformat.aspx) 유형 [JsonFormat](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.jsonformat.aspx) 유형이 새로 추가되었습니다.
 
 ## <a name="version-450"></a>버전 4.5.0
 ### <a name="feature-additions"></a>기능 추가 사항
 * [작업 창에 대한 작업 목록](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.activitywindowoperationsextensions.aspx)이 추가되었습니다.
-  * 엔터티 형식(즉, 데이터 팩터리, 데이터 집합, 파이프라인 및 작업)을 기준으로 필터를 사용하여 작업 창을 검색하는 메서드가 추가되었습니다.
+  * 엔터티 형식(즉, 데이터 팩터리, 데이터 세트, 파이프라인 및 작업)을 기준으로 필터를 사용하여 작업 창을 검색하는 메서드가 추가되었습니다.
 * 다음에 링크된 서비스 유형이 추가 되었습니다.
   * [ODataLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odatalinkedservice.aspx), [WebLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.weblinkedservice.aspx)
-* 다음과 같은 데이터 집합이 추가 되었습니다.
+* 다음과 같은 데이터 세트가 추가 되었습니다.
   * [ODataResourceDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.odataresourcedataset.aspx), [WebTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.webtabledataset.aspx)
 * 다음과 같은 원본 복사 형식이 추가되었습니다.     
   * [WebSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.websource.aspx)
@@ -131,7 +131,7 @@ ms.locfileid: "37051402"
   * [AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
 * 다음 활동 유형이 추가 되었습니다.
   * [DataLakeAnalyticsUSQLActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datalakeanalyticsusqlactivity.aspx)
-* 다음과 같은 데이터 집합이 추가 되었습니다.
+* 다음과 같은 데이터 세트가 추가 되었습니다.
   * [AzureDataLakeStoreDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoredataset.aspx)
 * 다음 복사 작업에 대한 원본 및 싱크 유형은 추가 되었습니다.
   * [AzureDataLakeStoreSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresource.aspx)

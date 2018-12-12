@@ -52,7 +52,7 @@ ms.locfileid: "51246687"
 
     ![Azure Portal 내의 작업 영역 ID](media/get-started-sample/workspace-id.png)
 9. PBIX 파일을 **작업 영역**으로 가져오려면 옵션 **6, 기존 작업 영역**에 PBIX Desktop 파일을 가져옵니다. 사용할 수 있는 PBIX 파일이 없는 경우 [소매점 분석 샘플 PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)를 다운로드할 수 있습니다.
-10. 메시지가 표시되면 **데이터 집합**의 식별 이름을 입력합니다.
+10. 메시지가 표시되면 **데이터 세트**의 식별 이름을 입력합니다.
 
 다음과 같은 응답이 표시됩니다.
 
