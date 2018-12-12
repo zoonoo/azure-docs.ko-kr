@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 �
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 176f8bb6fbb7a1a6bb81525cd3833d57bf9a5086
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1df09a885d6c636ff6bd4bcbec03d27ff7b44ff9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568804"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836987"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0a46344893c8ad62bd85f9abb84d434c0331d507
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 61562450d484f34385b4e6e111bf62326eaca159
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984199"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888378"
 ---
 # <a name="validate-azure-identity"></a>Azure id의 유효성을 검사합니다 
 Azure Active Directory (Azure AD) Azure Stack과 함께 사용할 준비가 되었는지 유효성을 검사 하려면 (AzsReadinessChecker) Azure Stack 준비 검사기 도구를 사용 합니다. Azure Stack 배포를 시작 하기 전에 Azure id 솔루션의 유효성을 검사 합니다.  
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) Azure Stack과 함께 사용할 준비가 되�
 **Azure Active Directory 환경:**
  - Azure Stack에 대 한 사용 되며, Azure Active Directory 전역 관리자가 Azure AD 계정을 식별 합니다.
  - Azure AD 테 넌 트 이름을 식별 합니다. 테 넌 트 이름 이어야 합니다는 *기본* Azure Active Directory에 대 한 도메인 이름입니다. 예를 들어 *contoso.onmicrosoft.com*합니다. 
- - 사용 하 여 AzureEnvironement 식별: *AzureCloud*를 *AzureGermanCloud*, 또는 *AzureChinaCloud*합니다.
+ - 사용 하 여 AzureEnvironement를 식별 합니다. 환경 이름 매개 변수에 대해 지원 되는 값 AzureCloud, AzureChinaCloud, AzureUSGovernment를 사용 하는 Azure 구독에 따라 됩니다.
 
 ## <a name="validate-azure-identity"></a>Azure id의 유효성을 검사합니다 
 1. 필수 구성 요소를 충족 하는 컴퓨터에서 관리자 PowerShell 프롬프트를 열고 AzsReadinessChecker를 설치 하려면 다음 명령을 실행:  
@@ -59,10 +59,10 @@ Azure Active Directory (Azure AD) Azure Stack과 함께 사용할 준비가 되�
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. PowerShell 프롬프트에서 Azure AD의 유효성 검사를 시작 하려면 다음을 실행 합니다. 
-   - AzureEnvironment으로 값을 지정 *AzureCloud*를 *AzureGermanCloud*, 또는 *AzureChinaCloud*합니다.  
+   - AzureEnvironment 환경 이름 값을 지정 합니다. 환경 이름 매개 변수에 대해 지원 되는 값 AzureCloud, AzureChinaCloud, AzureUSGovernment를 사용 하는 Azure 구독에 따라 됩니다.  
    - Azure Active Directory 테 넌 트 이름을 바꾸려면 지정할 *contoso.onmicrosoft.com*합니다. 
 
-   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
+   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. 도구를 실행 한 후 출력을 검토 합니다. 상태 확인 **확인** 설치 요구 사항에 대 한 합니다. 다음 이미지와 같이 유효성 검사를 성공적으로 표시 됩니다. 
  
 ````PowerShell

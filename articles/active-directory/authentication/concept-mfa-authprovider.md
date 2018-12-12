@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8e77a33667bd6794f667348958e0edb9c6a8fb0d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 41edbc621baede92c548f43ad2730b73f59756c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094980"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496093"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Azure Multi-Factor Authentication 공급자를 사용하는 시기
 
@@ -26,13 +26,11 @@ Azure Multi-Factor Auth 공급자는 Azure Multi-Factor Authentication에서 **�
 조직 내 모든 사용자가 범위에 포함되는 라이선스를 보유한 경우 Azure Multi-Factor Auth 공급자가 필요 없습니다. 라이선스가 없는 일부 사용자를 위해 2단계 인증을 제공해야 하는 경우에만 Azure Multi-Factor Authentication 공급자를 만들면 됩니다.
 
 > [!NOTE]
-> 2018년 9월 1일부터, 새 인증 공급자는 더 이상 생성되지 않을 수 있습니다. 기존 인증 공급자는 계속 사용하고 업데이트할 수 있습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스에서 계속 사용할 수 있게 지원됩니다.
+> 2018년 9월 1일부터, 새 인증 공급자는 더 이상 생성되지 않을 수 있습니다. 기존 인증 공급자는 계속 사용하고 업데이트할 수 있습니다. Multi-Factor Authentication은 Azure AD Premium 라이선스의 기능으로 계속 사용할 수 있게 지원됩니다.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Azure MFA SDK와 관련된 제한 사항
 
-SDK를 다운로드하려면 Azure Multi-Factor Auth 공급자가 필요합니다. SDK는 더 이상 사용되지 않습니다. 더 이상 신규 고객에게 지원되지 않으며 2018년 11월 14일까지만 작동합니다. 해당 시점 이후에는 SDK에 대한 호출에 실패합니다.
-
-SDK를 다운로드하려면 Azure MFA, AAD Premium 또는 다른 번들 라이선스가 있더라도 Azure Multi-Factor Auth 공급자를 만들어야 합니다. 이를 위해 Azure Multi-Factor Auth 공급자를 만들고 이미 라이선스를 보유한 경우 공급자는 반드시 **활성화된 사용자당** 모델을 사용하도록 합니다. 그런 다음, Azure MFA, Azure AD Premium 또는 다른 번들 라이선스를 포함하는 디렉터리에 공급자를 연결합니다. 이 구성을 사용하면 사용자가 소유한 라이선스 수보다는 2단계 인증을 수행하는 고유 사용자가 더 많은 경우에만 요금이 청구됩니다.
+SDK는 더 이상 사용되지 않으며 2018년 11월 14일까지만 작동합니다. 해당 시점 이후에는 SDK에 대한 호출에 실패합니다.
 
 ## <a name="what-is-an-mfa-provider"></a>MFA 공급자란?
 

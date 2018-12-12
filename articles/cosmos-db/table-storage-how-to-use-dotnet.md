@@ -22,7 +22,7 @@ ms.locfileid: "52880202"
 
 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 NoSQL 데이터를 저장하고, 스키마 없이 디자인된 키/특성 저장소를 제공할 수 있습니다. Table Storage 및 Azure Cosmos DB Table API는 모두 스키마가 없기 때문에 응용 프로그램의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. Table Storage 데이터 및 Azure Cosmos DB Table API에 대한 액세스는 많은 응용 프로그램 유형에 대해 빠르고 비용 효율적이며 비슷한 양의 데이터일 때 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
-Table Storage 또는 Azure Cosmos DB Table API를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정 또는 Table API 계정에 포함할 수 있는 테이블의 수에는 저장소 계정 또는 Table API 계정의 최대 용량 한도까지 제한이 없습니다.
+Table Storage 또는 Azure Cosmos DB Table API를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 세트를 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정 또는 Table API 계정에 포함할 수 있는 테이블의 수에는 저장소 계정 또는 Table API 계정의 최대 용량 한도까지 제한이 없습니다.
 
 ### <a name="about-this-sample"></a>이 샘플 정보
 이 샘플에서는 몇 가지 일반적인 Azure Table Storage 및 Table API 시나리오에서 [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)을 사용하는 방법을 보여 줍니다. 패키지의 이름은 Azure Cosmos DB에 사용할 것임을 의미하지만 이 패키지는 Azure Cosmos DB Table API와 Azure Tables 저장소 모두에서 작동하며 각 서비스에 고유한 엔드포인트가 있습니다. 다음 방법을 설명하는 C# 예제를 통해 이러한 시나리오를 살펴보겠습니다.

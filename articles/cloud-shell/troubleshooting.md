@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 089c623ff2c53a59c60c3fe1a53876c16a5353dd
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 72f85761db08652f0dff7f36fbcb2ef90654e078
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159025"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334400"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -70,6 +70,8 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 - **해결 방법**: 셸을 닫고 다시 엽니다.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Azure VM의 원격 관리 문제 해결
+> [!NOTE]
+> Azure VM에는 공용 연결 IP 주소가 있어야 합니다.
 
 - **세부 정보**: WinRM에 대한 기본 Windows 방화벽 설정으로 인해 사용자가 다음 오류를 보게 될 수도 있습니다.`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
 - **해결 방법**: `Enable-AzureRmVMPSRemoting`을 실행하여 대상 컴퓨터에서 PowerShell 원격 기능의 모든 측면을 사용하도록 설정합니다.
