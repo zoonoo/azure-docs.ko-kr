@@ -104,7 +104,7 @@ Azure Portal의 **그룹 - 모든 그룹** 페이지에서 조직의 모든 그�
 ## <a name="view-group-members"></a>그룹 멤버 보기
 그룹을 찾았으므로 모든 할당된 멤버를 볼 수 있습니다.
 
-- **관리** 영역에서 **멤버**를 선택한 다음, _Alain Charon_을 포함하여 특정 그룹에 할당된 전체 멤버 이름 목록을 검토합니다.
+- **관리** 영역에서 **멤버**를 선택한 다음, _Alain Charon_ 을 포함하여 특정 그룹에 할당된 전체 멤버 이름 목록을 검토합니다.
 
     ![MDM policy – West 그룹에 할당된 멤버 목록](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
