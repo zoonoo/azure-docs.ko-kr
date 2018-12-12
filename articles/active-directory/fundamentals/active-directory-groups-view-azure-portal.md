@@ -45,7 +45,7 @@ _MDM policy - West_ 라는 이름의 새 그룹을 만듭니다. 그룹 만들�
     
     - **그룹 유형:** **보안** 선택
     
-    - **그룹 이름:** _MDM policy - West_ 
+    - **그룹 이름:** _MDM policy - West_
     
     - **멤버 자격 유형:** **할당됨** 선택
 
@@ -58,9 +58,9 @@ _Alain Charon_ 이라는 새 사용자를 만듭니다. 사용자는 그룹 멤�
 
 2. **사용자** 페이지를 완료합니다.
 
-    - **이름:** _Alain Charon_ 
+    - **이름:** _Alain Charon_
 
-    - **사용자 이름:** *alain@contoso.com* 
+    - **사용자 이름:** *alain@contoso.com*
 
 3. **암호** 상자에 제공된 자동 생성된 암호를 복사한 다음, **만들기**를 선택합니다.
 
@@ -104,7 +104,7 @@ Azure Portal의 **그룹 - 모든 그룹** 페이지에서 조직의 모든 그�
 ## <a name="view-group-members"></a>그룹 멤버 보기
 그룹을 찾았으므로 모든 할당된 멤버를 볼 수 있습니다.
 
-- **관리** 영역에서 **멤버**를 선택한 다음, _Alain Charon_ 을 포함하여 특정 그룹에 할당된 전체 멤버 이름 목록을 검토합니다.
+- **관리** 영역에서 **멤버**를 선택한 다음, _Alain Charon_을 포함하여 특정 그룹에 할당된 전체 멤버 이름 목록을 검토합니다.
 
     ![MDM policy – West 그룹에 할당된 멤버 목록](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
