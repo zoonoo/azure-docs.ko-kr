@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: 6354212eb95fbefb217dd5339613d050da55f4ba
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 2f300e496873c0b048ccc1acc078bf1650e6bd9c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688202"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166288"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL 리소스 공급자 1.1.30.0 릴리스 정보
 
@@ -62,7 +62,20 @@ ms.locfileid: "51688202"
 
     **해결 방법**: 동일한 구독에서 새 로그인을 만들 때 다른 사용자를 사용 하거나 다른 구독에서 동일한 사용자 이름을 사용 하 여 로그인을 만듭니다.
 
+- **TLS 1.2 지원 요구 사항**합니다. 배포 또는 TLS 1.2 해제 되어 없는 컴퓨터에서 MySQL 리소스 공급자를 업데이트 하려고 하면 작업이 실패할 수 있습니다. 배포 또는 지원 되는 TLS 1.2가 반환 되는 확인 하려면 리소스 공급자를 업데이트 하는 데 사용 되는 컴퓨터에서 다음 PowerShell 명령을 실행 합니다.
 
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  하는 경우 **Tls12** 은 명령의 출력에 포함 되지 않습니다, TLS 1.2가 사용 되지 않습니다 컴퓨터.
+
+    **해결 방법**: TLS 1.2를 사용 하도록 설정 하 고 다음 리소스 공급자 배포를 시작 또는 동일한 PowerShell 세션에서 스크립트를 업데이트 하려면 다음 PowerShell 명령을 실행 합니다.
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
+ 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Azure Stack을 운영 하는 클라우드 관리자에 대 한 알려진된 문제
 설명서를 참조 합니다 [Azure Stack 릴리스](azure-stack-servicing-policy.md)합니다.
 

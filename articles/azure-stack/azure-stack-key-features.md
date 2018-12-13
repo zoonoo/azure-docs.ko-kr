@@ -12,38 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 21a6eeb4b0a83574be4c5c996e43d9867c3249d0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959029"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185735"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack의 주요 기능 및 개념
 Microsoft Azure Stack을 처음 접하는 경우 이러한 용어와 기능 설명은 도움이 될 수 있습니다.
 
 ## <a name="personas"></a>가상 사용자
-Microsoft Azure Stack에는 클라우드 운영자(공급자)와 테넌트(소비자)라는 두 가지 유형의 사용자가 있습니다.
+Microsoft Azure Stack, 연산자 및 사용자에 대 한 사용자가 다양 한 두 가지 있습니다.
 
-* **클라우드 운영자** 는 Azure Stack을 구성하고 제안, 계획, 서비스, 할당량 및 가격을 관리하여 테넌트에게 리소스를 제공할 수 있습니다.  또한 클라우드 운영자는 용량을 관리하고 경고에 응답합니다.  
-* A **테 넌 트** (사용자 라고도 함) 클라우드 관리자가 제공 하는 서비스를 사용 합니다. 테넌트는 Web Apps, Storage 및 Virtual Machines와 같은 구독하는 서비스를 프로비전, 모니터링 및 관리할 수 있습니다.
+* Azure Stack **연산자** 제안, 계획, 서비스, 할당량 관리 및 가격 책정을 사용자 테 넌 트에 대 한 리소스를 제공 하 여 Azure Stack을 구성할 수 있습니다. 연산자는 또한 용량을 관리 하 고 경고에 응답 합니다.  
+* Azure Stack **사용자** (테 넌 트 라고도 함) 연산자를 제공 하는 서비스를 사용 합니다. 사용자 프로 비전, 모니터링 및 서비스는 구독에 웹 앱, 저장소 및 가상 머신과 같은 관리할 수 있습니다.
 
 ## <a name="portal"></a>포털
-Microsoft Azure Stack과 상호 작용 기본 방법이 관리자 포털, 사용자 포털 및 PowerShell입니다.
+Microsoft Azure Stack과 상호 작용의 기본 메서드에서 관리 포털, 사용자 포털 및 PowerShell 됩니다.
 
-Azure Stack 포털은 각각 별도 Azure Resource Manager의 인스턴스에서 지원 됩니다.  Azure Stack을 관리 하 고 제품 테 넌 트를 만들어야 하는 등 작업을 수행 하는 클라우드 운영자 관리자 포털을 사용 합니다.  가상 머신, 저장소 계정 및 Web Apps와 같은 클라우드 리소스의 소비에 대 한 셀프 서비스 환경을 제공 하는 사용자 포털 (테 넌 트 포털 라고도 함). 자세한 내용은 [Azure Stack 관리자 및 사용자 포털을 사용 하 여](azure-stack-manage-portals.md)입니다.
+Azure Stack 포털은 각각 별도 Azure Resource Manager의 인스턴스에서 지원 됩니다. 운영자는 Azure Stack을 관리 하 고 제품 테 넌 트를 만들어야 하는 등 작업을 수행 하는 관리 포털을 사용 합니다. 가상 머신, 저장소 계정 및 web apps와 같은 클라우드 리소스의 소비에 대 한 셀프 서비스 환경을 제공 하는 사용자 포털 (테 넌 트 포털 라고도 함). 자세한 내용은 [Azure Stack 관리자 및 사용자 포털을 사용 하 여](azure-stack-manage-portals.md)입니다.
 
 ## <a name="identity"></a>ID 
-Azure Stack을 id 공급자로 Azure Active Directory (AAD) 또는 Active Directory Federation Services (AD FS)를 사용합니다.  
+Azure Stack을 id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용합니다.  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory는 Microsoft의 클라우드 기반 다중 테 넌 트 id 공급자입니다.  대부분의 하이브리드 id 저장소로 Azure Active Directory를 사용 합니다.
+Azure AD는 Microsoft의 클라우드 기반, 다중 테 넌 트 id 공급자입니다. 대부분의 하이브리드 id 저장소로 Azure AD를 사용합니다.
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federation Services
-Active Directory Federation Services (AD FS) Azure Stack의 연결이 끊긴된 배포에 사용 하도록 선택할 수 있습니다.  Azure Stack, 리소스 공급자 및 기타 프로그램와 Azure Active Directory를 사용 하 여 AD FS 사용 하 여 비슷하게를 작동 합니다. Azure Stack에는 자체 AD FS 및 Active Directory 인스턴스를 Active Directory Graph API를 포함합니다. Azure Stack 개발 키트에는 다음 AD FS 시나리오를 지원합니다.
+Active Directory Federation Services (AD FS) Azure Stack의 연결이 끊긴된 배포에 사용 하도록 선택할 수 있습니다. Azure Stack 리소스 공급자 및 기타 응용 프로그램을 Azure AD와 마찬가지로 AD FS 사용 하 여 비슷하게를 작동 합니다. Azure Stack에 자체 Active Directory 인스턴스 및 Active Directory Graph API를 포함합니다. Azure Stack 개발 키트에는 다음 AD FS 시나리오를 지원합니다.
 
 - AD FS를 사용 하 여 배포에 로그인 합니다.
 - Key Vault의 암호를 사용 하 여 가상 머신 만들기
@@ -93,9 +93,9 @@ Microsoft Azure Stack에는 다양 한 서비스 및 virtual machines, SQL Serve
 Azure Resource Manager를 사용 하 여 템플릿에 기반 하 고 선언적인 모델에서 인프라 리소스를 사용 하 여 작업할 수 있습니다.   배포 및 관리 솔루션 구성 요소를 사용할 수 있는 단일 인터페이스를 제공 합니다. 전체 정보 및 지침은 [Azure 리소스 관리자 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
 ### <a name="resource-groups"></a>리소스 그룹
-리소스 그룹은 컬렉션인 리소스, 서비스 및 응용 프로그램-각 리소스에 가상 머신, 가상 네트워크, 공용 Ip, 저장소 계정 및 웹 사이트와 같은 형식이 고 합니다. 각 리소스는 리소스 그룹에 포함 될 하 고 리소스 그룹을 통해 논리적으로 하므로 리소스를 구성 같은 워크 로드 또는 위치 해야 합니다.  또한 Microsoft Azure Stack에서 계획 및 제안과 같은 리소스는 리소스 그룹에서 관리됩니다.
+리소스 그룹은 컬렉션인 리소스, 서비스 및 응용 프로그램-각 리소스에 가상 머신, 가상 네트워크, 공용 Ip, 저장소 계정 및 웹 사이트와 같은 형식이 고 합니다. 각 리소스는 리소스 그룹에 포함 될 하 고 리소스 그룹을 통해 논리적으로 하므로 리소스를 구성 같은 워크 로드 또는 위치 해야 합니다. Azure Stack에서 계획 및 제품과 같은 리소스는 리소스 그룹에도 관리 됩니다.
 
-와 달리 [Azure](../azure-resource-manager/resource-group-move-resources.md), 리소스 그룹 간에 리소스를 이동할 수 없습니다. Azure Stack 관리 포털에서 리소스 또는 리소스 그룹의 속성을 볼 때 합니다 *이동* 단추는 흐리게 표시를 사용할 수 없습니다. 
+와 달리 [Azure](../azure-resource-manager/resource-group-move-resources.md), 리소스 그룹 간에 Azure Stack 리소스를 이동할 수 없습니다. Azure Stack 관리 포털에서 리소스 또는 리소스 그룹의 속성을 볼 때 합니다 *이동* 단추는 흐리게 표시를 사용할 수 없습니다. 또한 사용 합니다 **리소스 그룹 변경** 또는 **구독을 변경할** 작업 리소스 그룹 또는 리소스 그룹 항목 속성에서 지원 되지 않습니다. 시도한 모든 이동 작업이 실패 합니다.
  
 ### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 Azure Resource Manager로 응용 프로그램의 배포 및 구성을 정의 하는 JSON 형식으로 템플릿을 만들 수 있습니다. 이 템플릿은 Azure 리소스 관리자 템플릿이며 배포를 정의하는 선언적 방법을 제공합니다. 서식 파일을 사용하여 수명 주기 내내 응용 프로그램을 반복적으로 배포하며 안심하고 일관된 상태로 리소스가 배포할 수 있습니다.
@@ -103,7 +103,7 @@ Azure Resource Manager로 응용 프로그램의 배포 및 구성을 정의 하
 ## <a name="resource-providers-rps"></a>리소스 공급자 (Rp)
 리소스 공급자는 모든 Azure 기반 IaaS및 PaaS 서비스에 대한 기초를 형성하는 웹 서비스입니다. Azure Resource Manager 서비스에 대 한 액세스를 제공 하는 다양 한 Rp에 의존 합니다.
 
-기본 4 개 Rp는: 네트워크, 저장소, 계산 및 KeyVault 합니다. 각각의 이러한 RP는 해당하는 리소스를 구성하고 제어하도록 돕습니다. 서비스 관리자는 새 사용자 지정 리소스 공급자를 추가할 수도 있습니다.
+기본 4 개 Rp 가지가 있습니다. 네트워크, 저장소, 계산 및 KeyVault 합니다. 각각의 이러한 RP는 해당하는 리소스를 구성하고 제어하도록 돕습니다. 서비스 관리자는 새 사용자 지정 리소스 공급자를 추가할 수도 있습니다.
 
 ### <a name="compute-rp"></a>Compute RP
 CRP(Compute 리소스 공급자)를 사용하면 Azure Stack 테넌트가 고유의 가상 머신을 만들 수 있습니다. CRP는 Virtual Machine을 확장할 뿐만 아니라 가상 머신을 만드는 기능을 포함합니다. Virtual Machine 확장 서비스는 Windows 및 Linux 가상 머신에 IaaS 기능을 제공합니다.  예를 들어 Linux 가상 머신 프로 비전 배포 VM을 구성 하는 동안 Bash 스크립트를 실행 하는 CRP를 사용할 수 있습니다.
@@ -150,7 +150,7 @@ Virtual machine scale sets에 대 한 가용성 집합은 내부적으로 사용
 ## <a name="role-based-access-control-rbac"></a>역할 기반 Access Control(RBAC)
 구독, 리소스 그룹 또는 개별 리소스 수준에서 역할을 할당하여 시스템 액세스에 권한이 있는 사용자, 그룹 및 서비스를 허용하도록 RBAC를 사용할 수 있습니다. 각 역할은 사용자, 그룹 또는 서비스가 Microsoft Azure Stack 리소스에 가진 액세스 수준을 정의합니다.
 
-Azure RBAC에 모든 리소스 유형에 적용 되는 세 가지 기본 역할: 소유자, 참가자 및 판독기입니다. 소유자는 액세스 권한을 다른 사용자에게 위임할 수 있는 권한을 포함하여 모든 리소스에 대한 전체 액세스 권한을 보유합니다. 참여자는 모든 유형의 Azure 리소스를 만들고 관리할 수 있으나 다른 사용자에게 액세스 권한을 부여할 수 없습니다. 읽기 권한자는 기존 Azure 리소스만 볼 수 있습니다. Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어, Virtual Machine 참여자 역할은 가상 머신 만들기 및 관리를 허용하지만 가상 머신이 연결되는 가상 네트워크 또는 서브넷의 관리는 허용하지 않습니다.
+Azure RBAC에는 모든 리소스 유형에 적용되는 3가지 기본 역할이 있습니다. 소유자, 참가자 및 판독기입니다. 소유자는 액세스 권한을 다른 사용자에게 위임할 수 있는 권한을 포함하여 모든 리소스에 대한 전체 액세스 권한을 보유합니다. 참여자는 모든 유형의 Azure 리소스를 만들고 관리할 수 있으나 다른 사용자에게 액세스 권한을 부여할 수 없습니다. 읽기 권한자는 기존 Azure 리소스만 볼 수 있습니다. Azure의 나머지 RBAC 역할은 특정 Azure 리소스의 관리를 허용합니다. 예를 들어, Virtual Machine 참여자 역할은 가상 머신 만들기 및 관리를 허용하지만 가상 머신이 연결되는 가상 네트워크 또는 서브넷의 관리는 허용하지 않습니다.
 
 ## <a name="usage-data"></a>사용 데이터
 Microsoft Azure Stack 모든 리소스 공급자에서 사용 현황 데이터를 집계 및 전송 azure 처리를 위해 Azure에서 수집 합니다. REST API를 통해 Azure Stack에서 수집한 사용량 데이터를 볼 수 있습니다. Azure에 일관된 테넌트 API 뿐만 아니라 테넌트 구독 전체에서 사용 현황을 가져오는 공급자 및 위임된 공급자 API가 있습니다. 이 데이터는 대금 청구 또는 차지백을 위한 외부 도구 또는 서비스와 통합하는 데 사용될 수 있습니다. Azure에서 사용량을 처리 한 후에 Azure 청구 포털에서 볼 수 있습니다.

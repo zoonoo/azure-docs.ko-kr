@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7582c578e91fb3e36d7a0ecc1da7ede0cefc0f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 941e914e6ce99082abdd920bd7171644f3575a38
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623781"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849397"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍(미리 보기)
 
@@ -77,7 +77,7 @@ ms.locfileid: "51623781"
 * **지원되는 SIEM 도구를 구성합니다**. 이벤트 허브에서 데이터를 읽기 위해 대부분의 도구는 이벤트 허브 연결 문자열과 Azure 구독을 읽을 수 있는 특정 권한을 요구합니다. Azure Monitor와 통합된 타사 도구도 포함되지만 이에 국한되지는 않습니다.
     * **Splunk**: Splunk와 Azure AD 로그를 통합하는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 Splunk와 Azure AD 로그 통합](tutorial-integrate-activity-logs-with-splunk.md)을 참조하세요.
     
-    * **IBM QRadar**: DSM 및 Azure 이벤트 허브 프로토콜은 [IBM 지원](http://www.ibm.com/support)에서 다운로드할 수 있습니다. Azure와 통합하는 방법에 대한 자세한 내용은 [IBM QRadar 보안 인텔리전스 플랫폼 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) 사이트를 참조하세요.
+    * **IBM QRadar**: DSM 및 Azure 이벤트 허브 프로토콜은 [IBM 지원](https://www.ibm.com/support)에서 다운로드할 수 있습니다. Azure와 통합하는 방법에 대한 자세한 내용은 [IBM QRadar 보안 인텔리전스 플랫폼 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) 사이트를 참조하세요.
     
     * **Sumo Logic**: 이벤트 허브의 데이터를 사용하도록 Sumo Logic을 설정하는 방법은 [Azure AD 앱을 설치하고 대시보드 보기](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards)를 참조하세요. 
 

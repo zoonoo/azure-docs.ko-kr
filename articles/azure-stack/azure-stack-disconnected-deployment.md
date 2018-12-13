@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 5714257fce53fafa148b8ae4d5a3addf3b872c6f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035478"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276254"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack에 대 한 결정을 계획 하는 azure 연결이 끊긴된 배포 통합 시스템
 결정 한 다음 [하이브리드 클라우드 환경에 Azure Stack에서는 통합 하는 방법을](azure-stack-connection-models.md), Azure Stack 배포 관련 결정 사항을 완료 후 수 있습니다.
 
-배포 하 고 인터넷에 연결 하지 않고 Azure Stack를 사용할 수 있습니다. 그러나 연결이 끊긴된 배포는 AD FS id 저장소 및 용량 기반 청구 모델에 제한 됩니다. 
+배포 하 고 인터넷에 연결 하지 않고 Azure Stack를 사용할 수 있습니다. 그러나 연결이 끊긴된 배포는 AD FS id 저장소 및 용량 기반 청구 모델에 제한 됩니다. Azure AD 사용 해야 하는 다중 테 넌 트, 때문에 연결이 끊어진된 배포에 대 한 다중 테 넌 트 지원 되지 않습니다. 
 
 이 옵션을 선택 하면:
 - 보안 또는 인터넷에 연결 되지 않은 환경에서 Azure Stack을 배포 해야 할 다른 제한이 있어야 합니다.
@@ -58,7 +58,7 @@ Azure Stack 기능 중 일부를 손상 또는 연결이 끊어진된 모드에�
 
 ## <a name="learn-more"></a>자세한 정보
 - 사용 사례, 구매, 파트너 및 OEM 하드웨어 공급 업체에 대 한 내용은 참조는 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 제품 페이지입니다.
-- 통합된 시스템을 Azure Stack에 대 한 로드맵 및 지역 가용성에 대 한 자세한 백서를 참조 합니다. [Azure Stack: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
+- 통합된 시스템, Azure Stack에 대 한 로드맵 및 지역 가용성에 대 한 자세한 백서를 참조 합니다. [Azure 스택: Azure의 확장](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)합니다. 
 - Microsoft Azure Stack 패키징 및 가격 책정에 대해 자세히 알아보려면 [는.pdf 다운로드](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)합니다. 
 
 ## <a name="next-steps"></a>다음 단계
