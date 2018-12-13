@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 8d737c9fbf149051a8142f5ff546ea88e648541b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976369"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890554"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure를 사용 하 여 Azure Stack 등록
 
@@ -121,8 +121,8 @@ Run: get-azurestackstampinformation
 
 2. Azure Stack 등록을 사용 하는 Azure 계정을 추가 합니다. 실행 계정을 추가 합니다 **Add-azurermaccount** cmdlet. Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다 하 고 계정 구성에 따라 2 단계 인증을 사용 해야 합니다.
 
-   ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+   ```PowerShell
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | 매개 변수 | 설명 |  
@@ -147,11 +147,15 @@ Run: get-azurestackstampinformation
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. 다음으로, 동일한 PowerShell 세션에서 올바른 Azure PowerShell 컨텍스트에 로그인를 확인 합니다. 이 위의 Azure Stack 리소스 공급자를 등록 하는 데 사용 된 azure 계정입니다. Powershell 실행:
+6. 다음으로, 동일한 PowerShell 세션에서 올바른 Azure PowerShell 컨텍스트에 로그인를 확인 합니다. 이 위의 Azure Stack 리소스 공급자를 등록 하는 데 사용 된 Azure 계정입니다. Powershell 실행:
 
    ```PowerShell  
-   Add-AzureRmAccount -Environment "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
+
+   | 매개 변수 | 설명 |  
+   |-----|-----|
+   | EnvironmentName | Azure 클라우드 구독 환경 이름입니다. 지원 되는 환경 이름은 **AzureCloud**를 **AzureUSGovernment**, 중국 Azure 구독을 사용 하는 경우 또는 **AzureChinaCloud**합니다.  |
 
 7. 동일한 PowerShell 세션에서 실행 합니다 **집합 AzsRegistration** cmdlet. PowerShell 실행:  
 
@@ -182,7 +186,7 @@ Run: get-azurestackstampinformation
 2. Azure Stack 등록을 사용 하는 Azure 계정을 추가 합니다. 실행 계정을 추가 합니다 **Add-azurermaccount** cmdlet. Azure 계정 자격 증명을 입력 하 라는 메시지가 표시 됩니다 하 고 계정 구성에 따라 2 단계 인증을 사용 해야 합니다.
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | 매개 변수 | 설명 |  
@@ -298,7 +302,7 @@ Get-AzsActivationKey에서 만든 정품 인증 키에서 파일 또는 텍스�
 
 이러한 단계를 사용 하 여 Azure를 사용 하 여 Azure Stack이 성공적으로 등록 되었는지 확인 합니다.
 
-1. Azure Stack에 로그인 [관리자 포털](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;지역 >. &lt;fqdn >* 합니다.
+1. Azure Stack에 로그인 [관리 포털](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;지역 >. &lt;fqdn >* 합니다.
 2. 선택 **모든 서비스**를 선택한 다음는 **관리** 범주를 선택한 **Marketplace 관리** > **Azure에서추가**.
 
 (예: WordPress)는 Azure에서 사용할 수 있는 항목의 목록을 표시를 활성화가 했습니다. 그러나 연결이 끊어진된 환경에서 표시 되지 않습니다 Azure Stack marketplace에서 Azure marketplace 항목.

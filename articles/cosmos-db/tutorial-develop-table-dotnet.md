@@ -1,10 +1,8 @@
 ---
-title: 'Azure Cosmos DB: .NET의 Table API를 사용하여 개발 | Microsoft Docs'
+title: 'Azure Cosmos DB: .NET의 Table API를 사용하여 개발'
 description: .NET을 사용하는 Azure Cosmos DB의 Table API를 통해 개발하는 방법에 대해 알아봅니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
@@ -12,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e198a85d1c04cbc437ad23dadfa3005a72eaa2ce
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161636"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877738"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
 

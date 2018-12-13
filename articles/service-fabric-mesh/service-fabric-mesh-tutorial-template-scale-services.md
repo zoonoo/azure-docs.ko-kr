@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: af733b75780787f07ec28ff45bda6810c3d96baa
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165984"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888123"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>자습서: Service Fabric Mesh에서 실행 중인 응용 프로그램 크기 조정
 
@@ -47,7 +47,7 @@ ms.locfileid: "49165984"
 
 * Azure 구독이 아직 없으면 시작하기 전에 [무료 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
-* [로컬에 Azure CLI 및 Service Fabric Mesh CLI를 설치합니다](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [로컬에 Azure CLI 및 Service Fabric Mesh CLI를 설치합니다](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli).
 
 ## <a name="manually-scale-your-services-in-or-out"></a>수동으로 서비스 확대 또는 축소
 
