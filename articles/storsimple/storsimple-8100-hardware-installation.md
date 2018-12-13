@@ -39,7 +39,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 다음 단계를 따라 장치의 포장을 풉니다.
 
 #### <a name="to-unpack-your-device"></a>장치를 개봉하려면
-1. 상자와 포장 발포 폼에 찌그러짐, 자르기, 물에 의한 손상 또는 기타 손상이 없는지 검사합니다. 상자나 포장이 심각하게 손상된 경우에는 상자를 열지 마세요. 장치가 올바르게 작동하는지 여부를 평가하려면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md) 하세요.
+1. 상자와 포장 발포 폼에 찌그러짐, 자르기, 물에 의한 손상 또는 기타 손상이 없는지 검사합니다. 상자나 포장이 심각하게 손상된 경우에는 상자를 열지 마세요. 디바이스가 올바르게 작동하는지 여부를 평가하려면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요.
 2. 상자를 개봉합니다. 다음 이미지는 StorSimple 장치의 개봉된 모습을 보여 줍니다.
    
      ![저장소 장치 개봉하기](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
@@ -152,7 +152,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
    | --- | --- |
    |   1 |인클로저 잠금 나사 |
 
-다음 단계는 장치를 전원, 네트워크 및 직렬 액세스에 케이블로 연결하는 것입니다.
+다음 단계는 디바이스를 전원, 네트워크 및 직렬 액세스에 케이블로 연결하는 것입니다.
 
 ## <a name="cable-your-storsimple-8100-device"></a>StorSimple 8100 장치 케이블 연결
 다음 절차는 StorSimple 8100 장치를 전원, 네트워크 및 직렬 연결을 위해 케이블로 연결하는 방법을 설명합니다.
@@ -170,7 +170,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 * [StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### <a name="power-cabling"></a>전원 케이블 연결
-장치에는 예비 전원 및 냉각 모듈(PCM)이 포함됩니다. 두 PCM을 모두 설치하고 다른 전원 공급 장치에 연결하여 높은 가용성을 보장해야 합니다.
+디바이스에는 예비 전원 및 냉각 모듈(PCM)이 포함됩니다. 두 PCM을 모두 설치하고 다른 전원 공급 장치에 연결하여 높은 가용성을 보장해야 합니다.
 
 다음 단계를 수행하여 케이블로 장치를 전원에 연결하세요.
 
@@ -179,7 +179,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 ### <a name="network-cabling"></a>네트워크 케이블 연결
 장치는 활성-대기 구성입니다. 항상 하나의 컨트롤러 모듈이 활성 상태이고 모든 디스크와 네트워크 작업을 처리하는 동안 다른 컨트롤러 모듈은 대기 상태입니다. 하나의 컨트롤러에 장애가 발생하면 대기 컨트롤러가 즉시 활성화되어 모든 디스크 및 네트워킹 작업을 계속 진행합니다.
 
-이러한 예비 컨트롤러 장애 조치를 지원하려면 다음 단계에 표시된 것처럼 장치 네트워크를 케이블로 연결해야 합니다.
+이러한 예비 컨트롤러 장애 조치를 지원하려면 다음 단계에 표시된 것처럼 디바이스 네트워크를 케이블로 연결해야 합니다.
 
 #### <a name="to-cable-for-network-connection"></a>케이블로 네트워크를 연결하려면
 1. 장치에는 각 컨트롤러에 4개의 1Gbps 이더넷 포트와 2개의 10Gbps 이더넷 포트, 모두 6개의 네트워크 인터페이스가 있습니다. 장치의 백플레인에서 다양한 데이터 포트를 구별합니다.
@@ -221,10 +221,10 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 * 가능하면 각 컨트롤러에서 클라우드 액세스(1GbE)에 대한 네트워크 인터페이스의 쌍 및 iSCSI(10GbE 권장)에 대한 다른 쌍을 구성합니다.
 * 가능하면 각 컨트롤러의 네트워크 인터페이스를 2개의 다른 스위치에 연결하여 스위치 장애 시 가용성을 보장합니다. 이 그림은 2개의 다른 스위치에 연결된 각 컨트롤러에서 2개의 10GbE 네트워크 인터페이스, DATA 2 및 DATA 3을 나타냅니다.
 
-자세한 정보는 **StorSimple 장치에 대한 고가용성 요구 사항** 아래의 [네트워크 인터페이스](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple)를 참조하세요.
+자세한 정보는 **StorSimple 디바이스에 대한 고가용성 요구 사항** 아래의 [네트워크 인터페이스](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple)를 참조하세요.
 
 > [!NOTE]
-> 10GbE 네트워크 인터페이스로 SFP+ 트랜시버를 사용하는 경우 제공된 QSFP-SFP+ 어댑터를 사용합니다. 자세한 내용은 [StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)로 이동합니다.
+> 10GbE 네트워크 인터페이스로 SFP+ 트랜시버를 사용하는 경우 제공된 QSFP-SFP+ 어댑터를 사용합니다. 자세한 내용은 [StorSimple 디바이스의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)로 이동합니다.
 > 
 > 
 
@@ -235,7 +235,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 1. 장치에는 각 컨트롤러에 렌치 아이콘으로 식별되는 직렬 포트가 있습니다. [네트워크 케이블 연결](#network-cabling) 섹션의 그림을 참조하여 장치의 백플레인에서 직렬 포트를 찾으세요.
 2. 장치 백플레인에서 활성 컨트롤러를 찾으세요. 파란색 LED가 깜빡이면 컨트롤러가 활성 상태인 것입니다.
 3. 제공된 직렬 케이블(필요한 경우 노트북용 USB-직렬 변환기 사용)을 사용하여 콘솔 또는 컴퓨터(장치에 터미널 에뮬레이션이 있는)를 활성 컨트롤러의 직렬 포트에 연결합니다.
-4. 컴퓨터에 (장치와 함께 제공된) 직렬-USB 드라이버를 설치합니다.
+4. 컴퓨터에 (디바이스와 함께 제공된) 직렬-USB 드라이버를 설치합니다.
 5. 직렬 연결을 다음과 같이 설정합니다. 115,200 baud, 8 데이터 비트, 1 정지 비트, 패리티 없음, 흐름 제어를 없음으로 설정
 6. 콘솔에서 Enter 키를 눌러 연결이 작동하는지 확인합니다. 그러면 직렬 콘솔 메뉴가 나타납니다.
 

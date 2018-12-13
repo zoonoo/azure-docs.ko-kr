@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 시리즈 백업 정책 관리 | Microsoft Docs
-description: StorSimple 장치 관리자 서비스를 사용하여 StorSimple 8000 시리즈 장치에서 수동 백업, 백업 일정 및 백업 보존을 만들고 관리하는 방법을 설명합니다.
+description: StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 8000 시리즈 디바이스에서 수동 백업, 백업 일정 및 백업 보존을 만들고 관리하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -21,12 +21,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/11/2018
 ms.locfileid: "38681591"
 ---
-# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Azure Portal에서 StorSimple 장치 관리자 서비스를 사용하여 백업 정책 관리
+# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Azure Portal에서 StorSimple 디바이스 관리자 서비스를 사용하여 백업 정책 관리
 
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 StorSimple 장치 관리자 서비스 **Backup 정책** 블레이드를 사용하여 StorSimple 볼륨에 대한 백업 프로세스 및 백업 보존을 제어하는 방법을 설명합니다. 수동 백업을 완료하는 방법도 설명합니다.
+이 자습서에서는 StorSimple 디바이스 관리자 서비스 **Backup 정책** 블레이드를 사용하여 StorSimple 볼륨에 대한 백업 프로세스 및 백업 보존을 제어하는 방법을 설명합니다. 수동 백업을 완료하는 방법도 설명합니다.
 
 볼륨을 백업할 때 로컬 스냅숏 또는 클라우드 스냅숏을 만들도록 선택할 수 있습니다. 로컬로 고정된 볼륨을 백업하는 경우 클라우드 스냅숏을 지정하는 것이 좋습니다. 이탈 수가 많은 데이터 집합과 결합하여 로컬로 고정된 볼륨의 로컬 스냅숏을 많이 만들면 로컬 공간이 빨리 소진될 수 있습니다. 로컬 스냅숏을 만들기로 선택한 경우 가장 최근 상태를 백업하는 일일 스냅숏을 더 적게 만들어 하루 동안 유지한 다음 삭제하는 것이 좋습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "38681591"
 
 ## <a name="the-backup-policy-blade"></a>Backup 정책 블레이드
 
-StorSimple 장치에 대한 **Backup 정책** 블레이드에서는 백업 정책을 관리하고 로컬과 클라우드 스냅숏을 예약할 수 있습니다. Backup 정책이 볼륨의 컬렉션에 대한 백업 보존 및 백업 일정을 구성하는데 사용됩니다. Backup 정책을 통해 동시에 여러 볼륨의 스냅숏을 사용할 수 있습니다. 이 백업 정책에서 생성된 백업은 크래시 일관성이 있는 복사본임을 의미합니다.
+StorSimple 디바이스에 대한 **Backup 정책** 블레이드에서는 백업 정책을 관리하고 로컬과 클라우드 스냅숏을 예약할 수 있습니다. Backup 정책이 볼륨의 컬렉션에 대한 백업 보존 및 백업 일정을 구성하는데 사용됩니다. Backup 정책을 통해 동시에 여러 볼륨의 스냅숏을 사용할 수 있습니다. 이 백업 정책에서 생성된 백업은 크래시 일관성이 있는 복사본임을 의미합니다.
 
 백업 정책 테이블 형식 목록에서 다음 필드 중 하나 이상의 기존 백업 정책을 필터링할 수도 있습니다.
 
@@ -66,7 +66,7 @@ StorSimple 장치에 대한 **Backup 정책** 블레이드에서는 백업 정�
 
 자동 백업을 예약하려면 백업 정책을 추가합니다. 볼륨을 처음 만들 때는 볼륨과 연결된 기본 백업 정책이 없습니다. 볼륨 데이터를 보호하기 위해 백업 정책을 추가하고 할당해야 합니다.
 
-StorSimple 장치에 대한 백업 정책을 추가하려면 Azure Portal에서 아래 단계를 수행합니다. 정책을 추가한 후 일정을 정의할 수 있습니다( [일정 추가 또는 수정](#add-or-modify-a-schedule)참조).
+StorSimple 디바이스에 대한 백업 정책을 추가하려면 Azure Portal에서 아래 단계를 수행합니다. 정책을 추가한 후 일정을 정의할 수 있습니다( [일정 추가 또는 수정](#add-or-modify-a-schedule)참조).
 
 [!INCLUDE [storsimple-8000-add-backup-policy-u2](../../includes/storsimple-8000-add-backup-policy-u2.md)]
 
@@ -79,14 +79,14 @@ StorSimple 장치의 기존 백업 정책에 첨부된 일정을 추가하거나
 
 ## <a name="add-or-remove-a-volume"></a>볼륨 추가 또는 제거
 
-StorSimple 장치에서 백업 정책에 할당된 볼륨을 추가하거나 제거할 수 있습니다. 볼륨을 추가하거나 제거하려면 Azure Portal에서 다음 단계를 수행합니다.
+StorSimple 디바이스에서 백업 정책에 할당된 볼륨을 추가하거나 제거할 수 있습니다. 볼륨을 추가하거나 제거하려면 Azure Portal에서 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-8000-add-volume-backup-policy-u2](../../includes/storsimple-8000-add-remove-volume-backup-policy-u2.md)]
 
 
 ## <a name="delete-a-backup-policy"></a>백업 정책 삭제
 
-StorSimple 장치에서 백업 정책을 삭제하려면 Azure Portal에서 다음 단계를 수행합니다.
+StorSimple 디바이스에서 백업 정책을 삭제하려면 Azure Portal에서 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-8000-delete-backup-policy](../../includes/storsimple-8000-delete-backup-policy.md)]
 
