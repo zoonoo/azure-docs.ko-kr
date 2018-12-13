@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 9526385eaea8a88f0c22e6420ba39a33f7166f96
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 4d7d1407ff57c5adcc4790db4d2f47b70737fece
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633727"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250494"
 ---
-## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>클라우드 서비스 공급자에 대 한 보고 인프라 사용
+# <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>클라우드 서비스 공급자에 대 한 보고 인프라 사용
 
 Azure Stack 발생 하 고 Azure로 전달의 사용량을 추적 하는 데 필요한 인프라를 포함 합니다. Azure에서 Azure 상거래 사용 현황 데이터를 처리 하 고 적절 한 Azure 구독에 대 한 사용량 요금. 전역 Azure 클라우드에서 사용 현황 추적 모니터링은으로 동일한 방식으로 발생 합니다.
 
