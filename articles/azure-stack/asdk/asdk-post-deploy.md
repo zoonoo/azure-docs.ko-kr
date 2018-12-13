@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e099240d3f8670032ff2d6c0fad295c5f14f6e70
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cfc191830ddadbbe3258fc1b61fcd4bcc45fdd8c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969365"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186755"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
 
-이후에 [는 Azure Stack 개발 키트 ASDK ()를 설치](asdk-install.md), 몇 가지 권장 되는 설치 후 구성을 변경 해야 합니다.
+후 [설치 된 Azure Stack 개발 키트 ASDK ()](asdk-install.md), 몇 가지 권장 되는 설치 후 구성 ASDK 호스트 컴퓨터의 AzureStack\AzureStackAdmin로 로그인 하는 동안 변경할 수 있도록 해야 합니다. 
 
 ## <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell 설치
 
