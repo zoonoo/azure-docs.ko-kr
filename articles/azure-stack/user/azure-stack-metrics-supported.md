@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: f8ef54393f3de00ae231c45c117e3a16a8d1aad1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7ebb9d683803a6c5a5a0fa25308b348eeea586c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725610"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097899"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Azure Stack에서 Azure Monitor를 사용 하 여 지원 되는 메트릭
 
@@ -26,7 +26,7 @@ ms.locfileid: "52725610"
 
 Azure에서 메트릭을 검색할 수 있습니다와 같은 전역 Azure로 Azure Stack에서 모니터링 합니다. 포털에서 사용자 측정값 만들기, REST API에서 가져와야 하 하거나 PowerShell 또는 CLI를 사용 하 여 쿼리할 수 있습니다.
 
-다음 표에서 Azure Stack에서 Azure Monitor의 메트릭 파이프라인을 사용 하 여 사용할 수 있는 메트릭을 보여 줍니다. 쿼리하고 이러한 메트릭에 액세스 해야 합니다 **2018-01-01** API 프로필의 api 버전입니다. 프로필 API 및 Azure Stack에 대 한 자세한 내용은 참조 하세요. [Azure Stack에서 관리 하는 API 버전 프로필](azure-stack-version-profiles.md)합니다.
+다음 표에서 Azure Stack에서 Azure Monitor의 메트릭 파이프라인을 사용 하 여 사용할 수 있는 메트릭을 보여 줍니다. 쿼리 및 이러한 메트릭에 액세스를 사용 해야 합니다 **2018-01-01** API 프로필의 api 버전입니다. 프로필 API 및 Azure Stack에 대 한 자세한 내용은 참조 하세요. [Azure Stack에서 관리 하는 API 버전 프로필](azure-stack-version-profiles.md)합니다.
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: ef9c096989eeb37159d0deb705e7870afe2eff8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 70641084d2213b50803800a64000611d139facec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975399"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075779"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Azure Stack Role-Based Access Control을 사용한 리소스에 대 한 액세스 관리
 
@@ -91,9 +91,9 @@ Azure [역할 할당](https://docs.microsoft.com/azure/role-based-access-control
 1. 관리하려는 리소스에 대한 소유자 권한이 있는 계정으로 로그인합니다.
 2. 왼쪽의 탐색 창에서 **리소스 그룹**을 선택합니다.
 3. 사용 권한을 설정 하려는 리소스 그룹의 이름을 선택 합니다.
-4. 리소스 그룹 탐색 창에서 선택 **액세스 제어 (IAM)** 합니다. 합니다 **액세스 제어** 보기 리소스 그룹에 대 한 액세스 권한이 있는 항목을 나열 합니다. 이러한 결과 필터링 하 고 메뉴 막대를 사용 하 여 권한을 추가 하거나 제거할 수 있습니다.
-5. 에 **액세스 제어** 메뉴 모음에서 **+ 추가**합니다.
-6. 온 **권한 추가**:
+4. 리소스 그룹 탐색 창에서 선택 **액세스 제어 (IAM)** 합니다. 합니다 **역할 할당** 보기 리소스 그룹에 대 한 액세스 권한이 있는 항목을 나열 합니다. 필터링 및 결과 그룹화 수 있습니다.
+5. 에 **액세스 제어** 메뉴 모음에서 **역할 할당 추가**합니다.
+6. 온 **역할 할당 추가** 창:
 
    * 할당 하려는 역할을 선택 합니다 **역할** 드롭 다운 목록.
    * 할당 하려는 리소스를 선택 합니다 **에 대 한 액세스 할당** 드롭 다운 목록.

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce4adface65237ec6f4ed0ef8f8ba9bbdf72355c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c5889d89ec8c913d9300fa85318a16b4eb452d3b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421053"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633761"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code를 사용하여 첫 번째 함수 만들기
 
@@ -49,39 +49,9 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="install-the-azure-function-extension"></a>Azure Function 확장 설치
+[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
-Azure Functions 확장은 함수를 Azure에 만들고, 테스트 및 배포하는 데 사용됩니다.
-
-1. Visual Studio Code에서 **확장**을 열고 `azure functions`를 검색하거나 [Visual Studio Code에서 이 링크를 엽니다](vscode:extension/ms-azuretools.vscode-azurefunctions).
-
-1. **설치**를 선택하여 Visual Studio Code에 확장을 설치합니다. 
-
-    ![Azure Functions에 대한 확장 설치](./media/functions-create-first-function-vs-code/vscode-install-extension.png)
-
-1. Visual Studio Code를 다시 시작하고 작업 표시줄에서 Azure 아이콘을 선택합니다. 사이드바에 Azure Functions 영역이 표시됩니다.
-
-    ![사이드바에 있는 Azure Functions 영역](./media/functions-create-first-function-vs-code/azure-functions-window-vscode.png)
-
-## <a name="create-an-azure-functions-project"></a>Azure Functions 프로젝트 만들기
-
-Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 통해 함수를 논리적 단위로 그룹화하여 관리, 배포 및 리소스를 공유할 수 있습니다.
-
-1. Visual Studio Code에서 **Azure: Functions** 영역을 표시하도록 Azure 로고를 선택한 다음, 새 프로젝트 만들기 아이콘을 선택합니다.
-
-    ![함수 앱 프로젝트 만들기](./media/functions-create-first-function-vs-code/create-function-app-project.png)
-
-1. 프로젝트 작업 영역에 대한 위치를 선택하고 **선택**을 선택합니다.
-
-    > [!NOTE]
-    > 이 문서는 작업 영역 외부에서 완료하도록 설계되었습니다. 이 경우 작업 영역에 포함된 프로젝트 폴더를 선택하지 마십시오.
-
-1. 함수 앱 프로젝트에 대한 언어를 선택합니다. 이 문서에서는 JavaScript가 사용됩니다.
-    ![프로젝트 언어 선택](./media/functions-create-first-function-vs-code/create-function-app-project-language.png)
-
-1. 메시지가 표시되면 **작업 영역에 추가**를 선택합니다.
-
-Visual Studio Code는 새 작업 영역에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](functions-host-json.md) 및 [local.settings.json](functions-run-local.md#local-settings-file) 구성 파일과 언어별 프로젝트 파일이 포함됩니다. 또한 프로젝트 폴더에 새 Git 리포지토리를 가져올 수 있습니다.
+[!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
 ## <a name="create-an-http-triggered-function"></a>HTTP 트리거 함수 만들기
 
@@ -127,57 +97,9 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 
 함수가 로컬 컴퓨터에서 제대로 실행되는지 확인한 후에 해당 프로젝트를 Azure에 게시해야 합니다.
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-앱을 게시하기 전에 Azure에 로그인해야 합니다.
-
-1. **Azure: Functions** 영역에서 **Azure에 로그인...** 을 선택합니다. 계정이 없는 경우 **무료 Azure 계정 만들기**를 수행할 수 있습니다.
-
-    ![브라우저의 localhost 함수 응답](./media/functions-create-first-function-vs-code/functions-sign-into-azure.png)
-
-1. 메시지가 표시되면 **복사 및 열기**를 선택하거나, 표시된 코드를 복사하고 브라우저에서 <https://aka.ms/devicelogin>을 엽니다.
-
-1. 복사한 코드를 **장치 로그인** 페이지에 붙여넣고, Visual Studio Code에 대한 로그인을 확인한 다음, **계속**을 선택합니다.  
-
-1. Azure 계정 자격 증명을 사용하여 로그인을 완료합니다. 성공적으로 로그인한 후에 브라우저를 닫을 수 있습니다.
-
-## <a name="publish-the-project-to-azure"></a>Azure에 프로젝트 게시
-
-Visual Studio Code를 사용하면 Azure에 직접 함수 프로젝트를 게시할 수 있습니다. 프로세스를 통해 함수 앱 및 관련된 리소스를 Azure 구독에서 만듭니다. 함수 앱은 함수를 위한 실행 컨텍스트를 제공합니다. 프로젝트는 패키지되어 Azure 구독에서 새 함수 앱에 배포됩니다. 
-
-이 문서에서는 새 함수 앱을 만든다고 가정합니다. 기존 함수 앱에 게시하면 Azure에서 해당 앱의 콘텐츠를 덮어씁니다.
-
-1. **Azure: Functions** 영역에서 함수 앱에 배포 아이콘을 선택합니다.
-
-    ![함수 앱 설정](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
-
-1. 현재 작업 영역인 프로젝트 폴더를 선택합니다.
-
-1. 둘 이상의 구독이 있는 경우 함수 앱을 호스트하려는 것을 선택한 다음, **+ 새 함수 앱 만들기**를 선택합니다.
-
-1. 함수 앱을 식별하는 전역적으로 고유한 이름을 입력하고 Enter 키를 누릅니다. 함수 앱 이름에 대한 유효한 문자는 `a-z`, `0-9` 및 `-`입니다.
-
-1. **+ 새 리소스 그룹 만들기**를 선택하고 `myResourceGroup`과 같은 리소스 그룹 이름을 입력한 후 Enter 키를 누릅니다. 기존 리소스 그룹을 사용할 수도 있습니다.
-
-1. **+ 새 저장소 계정 만들기**를 선택하고, 함수 앱에서 사용되는 전역적으로 고유한 새 저장소 계정의 이름을 입력한 후 Enter 키를 누릅니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다.
-
-1. 사용자 근처 또는 함수가 액세스할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 위치를 선택합니다.
-
-    사용자의 위치를 선택한 후 함수 앱 만들기를 시작합니다. 함수 앱을 만들고 배포 패키지가 적용되면 알림이 표시됩니다.
-
-1. 알림에서 **출력 보기**를 선택하여 사용자가 만든 Azure 리소스를 포함한 만들기 및 배포 결과를 표시합니다.
-
-    ![함수 앱 만들기 출력](./media/functions-create-first-function-vs-code/function-create-notifications.png)
-
-1. Azure에서 새 함수 앱의 URL을 기록해 둡니다. 이는 프로젝트가 Azure에 게시된 후 함수를 테스트하는 데 사용합니다.
-
-    ![함수 앱 만들기 출력](./media/functions-create-first-function-vs-code/function-create-output.png)
-
-1. **Azure: Functions** 영역으로 돌아가면 사용자 구독 아래에 새 함수 앱이 표시됩니다. 이 노드를 확장하면 응용 프로그램 설정 및 함수 프록시와 함께 함수 앱의 함수가 표시됩니다.
-
-    ![함수 앱 설정](./media/functions-create-first-function-vs-code/function-app-project-settings.png)
-
-    함수 앱 노드에서 Ctrl 키와 함께 마우스 오른쪽 단추를 클릭하여 Azure에서 함수 앱에 대한 다양한 관리 및 구성 작업을 수행하도록 선택합니다. 또한 Azure Portal에서 함수 앱을 보도록 선택할 수 있습니다.
+[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
 ## <a name="test-your-function-in-azure"></a>Azure에서 함수 테스트
 

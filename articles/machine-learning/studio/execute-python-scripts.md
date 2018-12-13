@@ -71,7 +71,7 @@ Azure ML Studio의 [Python 스크립트 실행][execute-python-script] 모듈에
 2. *로컬 및 클라우드 실행 간의 충실도가 높아야 합니다.* Python 코드를 실행하는 데 사용하는 백 엔드는 널리 사용되는 플랫폼 간 과학 Python 배포인 [Anaconda](https://store.continuum.io/cshop/anaconda/)를 기반으로 합니다. 가장 일반적인 Python 패키지가 거의 200개 포함되어 있습니다. 따라서 데이터 과학자는 자신의 로컬 Azure Machine Learning 호환 Anaconda 환경에서 코드를 디버그하고 한정할 수 있습니다. 그런 후에 [IPython](http://ipython.org/) Notebook 또는 [Visual Studio용 Python 도구](https://aka.ms/ptvs)와 같은 기존 개발 환경을 사용하여 코드를 Azure ML 실험의 일부분으로 실행할 수 있습니다. `azureml_main` 진입점은 바닐라 Python 함수이며 Azure ML 관련 코드 또는 SDK가 설치되어 있지 않아도 ****작성할 수 있습니다.
 3. *다른 Azure Machine Learning 모듈로 원활하게 구성할 수 있어야 합니다.* [Python 스크립트 실행][execute-python-script] 모듈이 입력 및 출력으로 표준 Azure Machine Learning 데이터 집합을 허용합니다. 기본 프레임워크는 Azure ML 및 Python 런타임을 효율적이며 투명한 방식으로 연결합니다. 따라서 Python을 기존 Azure ML 워크플로(R 및 SQLite를 호출하는 워크플로 포함)와 함께 사용할 수 있습니다. 이를 통해 데이터 과학자는 다음과 같은 워크플로를 작성할 수 있습니다.
    * 데이터 전처리 및 정리에 Python 및 Pandas를 사용하는 워크플로
-   * SQL 변환으로 데이터를 공급해 여러 데이터 집합을 연결하여 기능을 생성하는 워크플로
+   * SQL 변환으로 데이터를 공급해 여러 데이터 세트를 연결하여 기능을 생성하는 워크플로
    * Azure Machine Learning의 알고리즘을 사용하여 모델 학습을 수행하는 워크플로 
    * R을 사용하여 결과 평가 및 사후 처리.
 
@@ -99,11 +99,11 @@ Python Pandas에 대한 자세한 내용 및 Python Pandas를 사용하여 효�
 
 
 ## <a name="translation-of-input-and-output-types"></a>입력 및 출력 유형 변환 
-Azure ML의 입력 데이터 집합은 Pandas에서 데이터 프레임으로 변환됩니다. 출력 데이터 프레임은 Azure ML 데이터 집합으로 다시 변환됩니다. 다음과 같은 변환이 수행됩니다.
+Azure ML의 입력 데이터 세트는 Pandas에서 데이터 프레임으로 변환됩니다. 출력 데이터 프레임은 Azure ML 데이터 세트로 다시 변환됩니다. 다음과 같은 변환이 수행됩니다.
 
-1. 문자열과 숫자 열은 현상태 그대로 변환되고, 데이터 집합의 누락된 값은 Pandas에서 ‘NA’ 값으로 변환됩니다. 그 반대의 경우에도 마찬가지로 변환됩니다(Pandas의 NA 값은 Azure ML의 누락된 값으로 변환됨).
+1. 문자열과 숫자 열은 현상태 그대로 변환되고, 데이터 세트의 누락된 값은 Pandas에서 ‘NA’ 값으로 변환됩니다. 그 반대의 경우에도 마찬가지로 변환됩니다(Pandas의 NA 값은 Azure ML의 누락된 값으로 변환됨).
 2. Pandas의 인덱스 벡터는 Azure ML에서 지원되지 않습니다. Python 함수의 모든 입력 데이터 프레임에는 항상 0부터 시작하여 행 수에서 1을 뺀 인덱스까지 64비트의 숫자 인덱스가 있습니다. 
-3. Azure ML 데이터 집합에는 중복된 열 이름과 문자열이 아닌 열 이름이 있을 수 없습니다. 출력 데이터 프레임에 숫자가 아닌 열이 포함된 경우 프레임워크를 통해 해당 열에서 `str` 을 호출합니다. 마찬가지로 중복된 모든 열 이름은 손상된 것으로 자동 처리하여 이름을 고유하게 유지합니다. 접미사(2)는 첫 번째 중복 항목에 추가되고 (3)은 두 번째 중복 항목에 추가되는 식입니다.
+3. Azure ML 데이터 세트에는 중복된 열 이름과 문자열이 아닌 열 이름이 있을 수 없습니다. 출력 데이터 프레임에 숫자가 아닌 열이 포함된 경우 프레임워크를 통해 해당 열에서 `str` 을 호출합니다. 마찬가지로 중복된 모든 열 이름은 손상된 것으로 자동 처리하여 이름을 고유하게 유지합니다. 접미사(2)는 첫 번째 중복 항목에 추가되고 (3)은 두 번째 중복 항목에 추가되는 식입니다.
 
 
 ## <a name="operationalizing-python-scripts"></a>Python 스크립트 운영 가능화
@@ -139,7 +139,7 @@ Azure ML의 입력 데이터 집합은 Pandas에서 데이터 프레임으로 �
 
 그림 5. 사용자 정의 Python 코드가 포함된 Zip 파일.
 
-zip 파일을 데이터 집합으로 Azure Machine Learning Studio에 업로드합니다. 그런 다음 이 그림에 표시된 대로 **Python 스크립트 실행** 모듈의 세 번째 입력 포트에 Hello.zip 파일을 연결하여 해당 파일에서 Python 코드를 사용하는 실험을 만들어서 실행합니다.
+zip 파일을 데이터 세트로 Azure Machine Learning Studio에 업로드합니다. 그런 다음 이 그림에 표시된 대로 **Python 스크립트 실행** 모듈의 세 번째 입력 포트에 Hello.zip 파일을 연결하여 해당 파일에서 Python 코드를 사용하는 실험을 만들어서 실행합니다.
 
 ![image8](./media/execute-python-scripts/figure6a.png)
 
@@ -184,7 +184,7 @@ Pandas에서 scatter_matrix 함수를 사용하여 산점도 행렬을 생성하
 
 ## <a name="advanced-examples"></a>고급 예제
 
-Azure Machine Learning에서 설치되는 Anaconda 환경에는 NumPy, SciPy, Scikits-Learn 등의 일반 패키지가 포함되어 있습니다. 이러한 패키지는 기계 학습 파이프라인의 여러 데이터 처리 작업에 효율적으로 사용할 수 있습니다. 예를 들어 다음 실험과 스크립트에서는 데이터 집합의 기능 중요도 점수를 계산하기 위한 Scikits-Learn의 앙상블 학습자 사용에 대해 설명합니다. 점수는 다른 ML 모델에 공급하기 전에 감독 모드 기능 선택을 수행하는 데 사용할 수 있습니다.
+Azure Machine Learning에서 설치되는 Anaconda 환경에는 NumPy, SciPy, Scikits-Learn 등의 일반 패키지가 포함되어 있습니다. 이러한 패키지는 기계 학습 파이프라인의 여러 데이터 처리 작업에 효율적으로 사용할 수 있습니다. 예를 들어 다음 실험과 스크립트에서는 데이터 세트의 기능 중요도 점수를 계산하기 위한 Scikits-Learn의 앙상블 학습자 사용에 대해 설명합니다. 점수는 다른 ML 모델에 공급하기 전에 감독 모드 기능 선택을 수행하는 데 사용할 수 있습니다.
 
 중요도 점수를 계산한 다음 이 점수에 따라 기능의 순서를 지정하는 데 사용되는 Python 함수는 다음과 같습니다.
 
@@ -197,7 +197,7 @@ Azure Machine Learning에서 설치되는 Anaconda 환경에는 NumPy, SciPy, Sc
 ![image12](./media/execute-python-scripts/figure9a.png)
 ![image13](./media/execute-python-scripts/figure9b.png)    
 
-그림 11. Pima Indian Diabetes 데이터 집합에서 기능의 순위를 지정하는 실험.
+그림 11. Pima Indian Diabetes 데이터 세트에서 기능의 순위를 지정하는 실험.
 
 ## <a name="limitations"></a>제한 사항
 [Python 스크립트 실행][execute-python-script]에는 현재 다음과 같은 제한 사항이 있습니다.

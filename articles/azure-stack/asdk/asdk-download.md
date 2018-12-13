@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: dc301f218855139cfb3a5faa30109dd5a301eb07
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139712"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871203"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>다운로드 하 고 Azure Stack 개발 키트 (ASDK)를 추출 합니다.
 개발 키트 호스트 컴퓨터를 ASDK를 설치 하기 위한 기본 요구를 충족 하는지 확인에 한 후 다음 단계 다운로드는 Cloudbuilder.vhdx 가져오려는 ASDK 배포 패키지를 추출 하는 것입니다.
@@ -29,7 +29,7 @@ ms.locfileid: "42139712"
 1. 다운로드를 시작 하기 전에 컴퓨터가 다음 필수 조건을 충족 하는지 확인 합니다.
 
   - 컴퓨터에는 적어도 60GB의 사용 가능한 디스크 공간 네 개의 별도 동일한 논리 하드 드라이브에 또한 운영 체제 디스크에 있어야 합니다.
-  - [.NET framework 4.6 (또는 이후 버전)](https://aka.ms/r6mkiy) 설치 해야 합니다.
+  - [.NET framework 4.6 (또는 이후 버전)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) 설치 해야 합니다.
 
 2. [시작 페이지로 이동](https://azure.microsoft.com/overview/azure-stack/try/?v=try) 고 수 있는 Azure Stack 개발 키트 다운로드, 세부 정보를 제공 클릭 **제출**합니다.
 3. 다운로드 및 실행 합니다 [Azure Stack 개발 키트에 대 한 배포 검사](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) 필수 구성 요소 검사기 스크립트입니다. 이 독립 실행형 스크립트 Azure Stack 개발 키트에 대 한 설치 하면 필수 조건 검사를 거칩니다. Azure Stack 개발 키트에 대 한 더 큰 패키지를 다운로드 하기 전에 하드웨어 및 소프트웨어 요구 사항을 충족 확인 하는 방법을 제공 합니다.

@@ -2,20 +2,20 @@
 title: Azure Backup이란?
 description: Azure Backup을 사용하여 Windows Servers, Windows 워크스테이션, System Center DPM 서버 및 Azure Virtual Machines의 데이터 및 워크로드를 백업 및 복원합니다.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: 백업 및 복원; 복구 서비스; 백업 솔루션
 ms.service: backup
 ms.topic: overview
 ms.date: 8/2/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0a5b9e6cdb5329705cb3c6d4676dfc8d987119e4
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480976"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878333"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup의 기능에 대한 개요
 Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스이며, 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 여러 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계 없이 모든 Azure Backup 구성 요소는 Azure에서 Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 특정 데이터, 응용 프로그램 또는 워크로드 보호하는 데 사용할 구성 요소에 대한 내용은 이 문서의 뒷부분에 있는 [Azure Backup 구성 요소 표](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)를 참조하세요.
@@ -23,7 +23,7 @@ Azure Backup은 Microsoft 클라우드에서 데이터를 백업(또는 보호)�
 [Azure Backup의 비디오 개요 시청](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
 
 ## <a name="why-use-azure-backup"></a>Azure Backup을 사용하는 이유
-기존의 백업 솔루션은 클라우드를 디스크 또는 테이프와 유사한 끝점 또는 정적 저장소 대상으로 간주하도록 발전했습니다. 이 방법은 단순하지만 제한적이며, 고가의 비효율적 인 솔루션으로 전환하는 기본 클라우드 플랫폼을 완전히 활용하지 않습니다. 다른 솔루션은 필요하지 않은 잘못된 저장소 형식 또는 저장소를 위해 지불하게 되어 비용이 많이 들고, 필요한 저장소의 형식이나 크기를 제공하지 않고 관리 작업에 너무 많은 시간이 소모되어 종종 비효율적입니다. 반면 Azure Backup은 다음과 같은 주요 이점을 제공합니다.
+기존의 백업 솔루션은 클라우드를 디스크 또는 테이프와 유사한 엔드포인트 또는 정적 저장소 대상으로 간주하도록 발전했습니다. 이 방법은 단순하지만 제한적이며, 고가의 비효율적 인 솔루션으로 전환하는 기본 클라우드 플랫폼을 완전히 활용하지 않습니다. 다른 솔루션은 필요하지 않은 잘못된 저장소 형식 또는 저장소를 위해 지불하게 되어 비용이 많이 들고, 필요한 저장소의 형식이나 크기를 제공하지 않고 관리 작업에 너무 많은 시간이 소모되어 종종 비효율적입니다. 반면 Azure Backup은 다음과 같은 주요 이점을 제공합니다.
 
 **자동 저장소 관리** - 일부는 온-프레미스, 일부는 클라우드인 하이브리드 환경에는 종종 다른 유형의 저장소가 필요합니다. Azure Backup을 사용하면 온-프레미스 저장소 장치를 사용하기 위한 비용이 들지 않습니다. Azure Backup은 백업 저장소를 자동으로 할당하고 관리하며 사용한 만큼 지불(pay-as-you-use) 모델을 사용합니다. ‘사용한 만큼 지불’은 사용하는 저장소에 대한 요금만 지불한다는 의미입니다. 자세한 내용은 [Azure 가격 책정](https://azure.microsoft.com/pricing/details/backup)을 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services를 사용하는 라이브 스트리밍 개요 | Microsoft Docs
-description: 이 항목에서는 Azure Media Services v3를 사용하는 라이브 스트리밍 개요를 제공합니다.
+description: 이 문서에서는 Azure Media Services v3를 사용하는 라이브 스트리밍 개요를 제공합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,153 +11,123 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 634563a2010562e20691abae132dc7540ef8faf2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344980"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632707"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
-Azure Media Services를 사용하여 라이브 스트리밍 이벤트를 제공할 때 다음 구성 요소가 일반적으로 포함됩니다.
+Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라이브 이벤트를 전달할 수 있습니다. Media Services로 라이브 이벤트를 스트리밍하려면 다음이 필요합니다.  
 
-* 이벤트를 브로드캐스트하는 데 사용되는 카메라
-* 카메라(또는 노트북과 같은 다른 디바이스)의 신호를 라이브 스트리밍 서비스로 보내는 스트림으로 변환하는 라이브 비디오 인코더입니다. 신호에는 SCTE-35 및 Ad-cues 광고가 포함될 수도 있습니다. 
-* Media Services 라이브 스트리밍 서비스를 사용하면 콘텐츠를 수집, 미리 보기, 패키지화, 기록, 암호화할 수 있으며 고객 또는 CDN(추가 배포를 위해)에 브로드캐스트할 수 있습니다.
+- 라이브 이벤트를 캡처하는 데 사용되는 카메라.
+- 카메라(또는 노트북과 같은 다른 디바이스)의 신호를 Media Services로 전송되는 기여 피드로 변환하는 라이브 비디오 인코더. 기여 피드에는 SCTE-35 마커와 같은 광고 관련 신호가 포함될 수 있습니다.
+- Media Services의 구성 요소. 이러한 구성 요소를 사용하여 라이브 이벤트를 수집, 미리 보기, 패키지화, 기록, 암호화할 수 있으며 고객 또는 CDN(추가 배포를 위해)에 브로드캐스트할 수 있습니다.
 
-이 문서에서는 Media Services의 라이브 스트리밍과 관련된 주요 구성 요소의 다이어그램과 자세한 개요를 제공합니다.
+이 문서에서는 Media Services의 라이브 스트리밍과 관련된 기본 구성 요소의 다이어그램과 자세한 개요 및 지침을 제공합니다.
 
 ## <a name="overview-of-main-components"></a>미디어 구성 요소 개요
 
-[LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents)는 Media Services에서 라이브 스트리밍 콘텐츠 처리를 담당합니다. LiveEvent는 온-프레미스 라이브 인코더에 제공할 입력 엔드포인트(수집 URL)를 제공합니다. LiveEvent는 라이브 인코더에서 RTMP 또는 부드러운 스트리밍 형식으로 라이브 입력 스트림을 수신하여 하나 이상의 [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 스트리밍하는 데 사용할 수 있도록 합니다. [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 사용하면 라이브 스트림의 게시, 기록 및 DVR 창 설정을 제어할 수 있습니다. 또한 LiveEvent는 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다. 
+Media Services를 사용하여 주문형 또는 라이브 스트림을 제공하려면 최소한 하나의 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)가 있어야 합니다. Media Services 계정이 만들어지면 **기본** StreamingEndpoint가 계정에 **중지됨** 상태로 추가됩니다. 뷰어에 콘텐츠를 스트리밍할 StreamingEndpoint를 시작해야 합니다. 기본 **StreamingEndpoint**를 사용하거나 원하는 구성 및 CDN 설정으로 사용자 지정된 다른 **StreamingEndpoint**를 만들 수 있습니다. 각각이 서로 다른 CDN을 대상으로 하는 여러 개의 StreamingEndpoint를 사용하도록 지정하고 콘텐츠 전달을 위한 고유한 호스트 이름을 제공할 수도 있습니다. 
 
-Media Services는 **동적 패키징**을 제공하며 이는 콘텐츠를 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 수동으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 합니다. HLS, DASH 또는 Smooth 호환 플레이어로 재생할 수 있습니다. [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 스트림을 테스트할 수도 있습니다.
+Media Services에서 [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 비디오 피드 수집 및 처리를 담당합니다. LiveEvent를 만들면 원격 인코더에서 라이브 신호를 보내는 데 사용할 수 있는 입력 엔드포인트가 생성됩니다. 원격 라이브 인코더는 [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) 또는 [부드러운 스트리밍](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming)(조각난 MP4) 프로토콜을 사용하여 이 입력 엔드포인트에 기여 피드를 전송합니다.  
 
-Media Services를 사용하면 AES-128(Advanced Encryption Standard) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 **동적 암호화**된 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다.
+**LiveEvent**가 기여 피드를 수신하기 시작하면 미리 보기 엔드포인트(미리 보기 URL)를 사용하여 추가 게시 전에 라이브 스트림을 수신하고 있음을 미리 보고 확인할 수 있습니다. 미리 보기 스트림이 양호한지 확인한 후에는 LiveEvent를 사용하여 하나 이상의 (미리 생성된) **StreamingEndpoint**를 통해 라이브 스트림을 전달 가능하도록 만들 수 있습니다. 이를 수행하려면 **LiveEvent**에 새 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 만듭니다. 
 
-원하는 경우 **동적 필터링**을 적용하여 플레이어에 전송되는 트랙 번호, 형식, 비트 전송률을 제어할 수 있습니다. Media Services는 광고 삽입도 지원합니다.
+**LiveOutput** 개체는 테이프 레코더처럼 라이브 스트림을 포착하고 Media Services 계정의 자산에 기록합니다. 기록된 콘텐츠는 계정에 연결된 Azure Storage 계정뿐 아니라 자산 리소스에서 정의한 컨테이너에서도 유지됩니다.  **LiveOuput**을 사용하면 보관 기록에 유지되는 스트림의 양(예: 클라우드 DVR의 용량)을 비롯하여, 나가는 라이브 스트림의 일부 속성을 제어할 수도 있습니다. 디스크의 보관은 **LiveOutput**의 **archiveWindowLength** 속성에 지정된 양의 콘텐츠만 보유하는 순환식 보관 “기간”입니다. 이 기간을 벗어나는 콘텐츠는 스토리지 컨테이너에서 자동으로 삭제되며 복구할 수 없습니다. LiveEvent에서 보관 기간 및 설정이 서로 다른 여러 개의 LiveOutput(최대 3개)을 만들 수 있습니다.  
 
-### <a name="new-live-encoding-improvements"></a>새로운 라이브 인코딩의 향상된 기능
+Media Services를 사용하면 기여 피드에서 서비스로 전송하는 라이브 스트림을 미리 보고 [MPEG DASH, HLS 및 부드러운 스트리밍 형식](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)으로 브로드캐스트할 수 있는 **동적 패키징**을 활용할 수 있습니다. 뷰어는 HLS, DASH 또는 부드러운 스트리밍이 호환되는 플레이어를 사용해 라이브 스트림을 재생할 수 있습니다. 웹 또는 모바일 애플리케이션에서 [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 이러한 프로토콜 중 하나로 스트림을 전달할 수 있습니다.
 
-최신 릴리스에서는 다음과 같은 기능이 새롭게 향상되었습니다.
+Media Services를 사용하면 AES-128(Advanced Encryption Standard) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 **동적 암호화**된 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에 AES 키 및 DRM 라이선스를 전달하는 서비스를 제공합니다. Media Services로 콘텐츠를 암호화하는 방법에 대한 자세한 내용은 [콘텐츠 보호 개요](content-protection-overview.md)를 참조하세요.
 
-- 새로운 짧은 대기 시간 모드 자세한 내용은 [대기 시간](#latency)을 참조하세요.
+원하는 경우 동적 필터링을 적용하여 플레이어에 전송되는 트랙 번호, 형식, 비트 전송률 및 프레젠테이션 창을 제어할 수 있습니다. 
+
+### <a name="new-capabilities-for-live-streaming-in-v3"></a>v3의 라이브 스트리밍을 위한 새로운 기능
+
+Media Services의 v3 API를 사용하면 다음과 같은 새로운 기능을 활용할 수 있습니다.
+
+- 새로운 짧은 대기 시간 모드 자세한 내용은 [대기 시간](live-event-latency.md)을 참조하세요.
 - RTMP 지원 향상(향상된 안정성 및 더 많은 소스 인코더 지원)
-- RTMPS 보안 수집
-
-    LiveEvent를 만들면 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다.   
-- 24시간 코드 변환 지원 
-- SCTE35를 통한 RTMP의 광고 신호 지원 향상
+- RTMPS 보안 수집<br/>LiveEvent를 만들면 수집 URL이 4개 생성됩니다. 4개의 수집 URL은 거의 동일하며 스트리밍 토큰(AppId)이 동일하고 포트 번호 부분만 다릅니다. URL 중 두 개는 RTMPS에 대한 기본 및 백업용입니다.   
+- 단일 비트 전송률 기여 피드를 다중 비트 전송률이 있는 출력 스트림으로 코드 변환하기 위해 Media Services를 사용할 때 최대 24시간 분량의 라이브 이벤트를 스트리밍할 수 있습니다. 
 
 ## <a name="liveevent-types"></a>LiveEvent 형식
 
-[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 인코딩 및 통과라는 두 가지 형식 중 하나일 수 있습니다. 
-
-### <a name="live-encoding-with-media-services"></a>Media Services를 사용하여 라이브 인코딩
-
-![라이브 인코딩](./media/live-streaming/live-encoding.png)
-
-온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 Media Services를 통해 RTMP 또는 부드러운 스트리밍(조각화된 MP4) 프로토콜 중 하나로 라이브 인코딩할 수 있는 LiveEvent에 전송합니다. 그러면 LiveEvent는 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 Media Services는 고객에게 스트림을 배달합니다.
-
-이 형식의 LiveEvent를 만들 경우 **기본**(LiveEventEncodingType.Basic)을 지정합니다.
+[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents)는 통과 및 라이브 인코딩의 두 가지 형식 중 하나일 수 있습니다. 
 
 ### <a name="pass-through"></a>통과
 
 ![통과](./media/live-streaming/pass-through.png)
 
-통과는 온-프레미스 라이브 인코더를 사용한 장기 실행 라이브 스트림 또는 연중 무휴 선형 라이브 인코딩에 최적화되어 있습니다. 온-프레미스 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 **통과** 전달을 위해 구성된 LiveEvent에 보냅니다. 어떠한 추가적인 처리 없이 수집된 스트림이 **LiveEvent**를 통과하는 경우를 **통과** 전달이라고 합니다. 
+통과 LiveEvent를 사용하는 경우 온-프레미스 라이브 인코더에 의존하여 다중 비트 전송률이 있는 비디오 스트림을 생성하고 이 스트림을 기여 피드로 하여 LiveEvent에 전송(RTMP 또는 조각난 MP4 프로토콜 사용)할 수 있습니다. 그러면 LiveEvent는 들어오는 비디오 스트림을 추가 처리 없이 제공합니다. 이러한 통과 LiveEvent는 장기 실행 라이브 이벤트 또는 연중무휴 선형 라이브 스트리밍에 최적화되어 있습니다. 이 형식의 LiveEvent를 만들 경우 None(LiveEventEncodingType.None)을 지정합니다.
 
-통과 LiveEvent는 최대 4K 해상도를 지원할 수 있으며 HEVC는 부드러운 스트리밍 수집 프로토콜과 함께 사용될 때 통과합니다. 
-
-이 형식의 LiveEvent를 만들 경우 **없음**(LiveEventEncodingType.None)을 지정합니다.
+H.264/AVC 또는 H.265/HEVC 비디오 코덱 및 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 코덱을 사용하여 최대 4K의 해상도 및 초당 60프레임의 프레임 속도로 기여 피드를 전송할 수 있습니다.  자세한 내용은 [LiveEvent types comparison and limitations](live-event-types-comparison.md)(LiveEvent 형식 비교 및 제한 사항) 문서를 참조하세요.
 
 > [!NOTE]
 > 통과 방법을 사용하면 긴 기간 동안 여러 이벤트를 수행하고 온-프레미스 인코더에 이미 투자한 경우 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다. [가격 책정](https://azure.microsoft.com/pricing/details/media-services/) 세부 정보를 참조하세요.
 > 
 
-## <a name="liveevent-types-comparison"></a>LiveEvent 형식 비교 
+[MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126)의 예제를 참조하세요.
 
-다음 테이블에서는 두 가지 LiveEvent 형식의 기능을 비교합니다.
+### <a name="live-encoding"></a>라이브 인코딩  
 
-| 기능 | 통과 LiveEvent | 표준 LiveEvent |
-| --- | --- | --- |
-| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니요 |yes |
-| 최대 해상도, 계층 수 |4Kp30  |720p, 6계층, 30fps |
-| 입력 프로토콜 |RTMP, 부드러운 스트리밍 |RTMP, 부드러운 스트리밍 |
-| 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 | [가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
-| 최대 실행 시간 |연중 무휴 |연중 무휴 |
-| 슬레이트 삽입 지원 |아니요 |yes |
-| API를 통한 광고 신호 지원|아니요 |yes |
-| SCTE35 인밴드를 통한 광고 신호 지원|yes |yes |
-| 통과 CEA 608/708 캡션 |yes |yes |
-| 기여 피드의 일시 정지에서 복구하는 기능 |yes |아니요(LiveEvent는 입력 데이터가 6초 이상 없으면 슬레이팅을 시작함)|
-| 균일하지 않은 입력 GOP에 대한 지원 |yes |아니요 - 입력은 고정된 2초 GOP여야 함 |
-| 변수 프레임 속도 입력에 대한 지원 |yes |아니요 - 입력은 고정된 프레임 속도여야 함.<br/>예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 하지만 인코더는 10프레임/초까지 떨어질 수 없습니다. |
-| 입력 피드가 손실될 경우 LiveEvent 자동 차단 |아니요 |12시간 동안 LiveOutput 실행이 없는 경우 |
+![라이브 인코딩](./media/live-streaming/live-encoding.png)
 
-## <a name="liveevent-states"></a>LiveEvent 상태 
+Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 전송률 비디오를 기여 피드로 하여 LiveEvent에 전송(RTMP 또는 조각난 Mp4 프로토콜 사용)하도록 온-프레미스 라이브 인코더를 구성합니다. LiveEvent는 들어오는 단일 비트 전송률 스트림을 [다중 비트 전송률이 있는 비디오 스트림](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)으로 인코딩하고 MPEG-DASH, HLS, 부드러운 스트리밍 등과 같은 프로토콜을 통해 디바이스를 재생하도록 이 스트림을 전달 가능하게 만듭니다. 이 형식의 LiveEvent를 만들 경우 인코딩 형식을 **기본**(LiveEventEncodingType.Basic)으로 지정합니다.
 
-LiveEvent의 현재 상태입니다. 가능한 값은 다음과 같습니다.
+H.264/AVC 비디오 코덱과 AAC(AAC-LC, HE-AACv1 또는 HE-AACv2) 오디오 코덱을 사용하여 최대 1080p의 해상도 및 초당 30프레임의 프레임 속도로 기여 피드를 전송할 수 있습니다. 자세한 내용은 [LiveEvent types comparison and limitations](live-event-types-comparison.md)(LiveEvent 형식 비교 및 제한 사항) 문서를 참조하세요.
 
-|시스템 상태|설명|
-|---|---|
-|**중지**| 이는 LiveEvent를 만든 후 초기 상태입니다(지정된 위치에서 자동 시작을 선택하지 않은 경우). 이 상태에서는 요금이 청구되지 않습니다. 이 상태에서 LiveEvent 속성을 업데이트할 수 있지만 스트리밍은 허용되지 않습니다.|
-|**시작 중**| LiveEvent가 시작됩니다. 이 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다. 오류가 발생하면 LiveEvent가 중지 상태로 돌아갑니다.|
-|**실행 중**| 라이브 스트림 처리에 LiveEvent를 사용할 수 있습니다. 이제 사용 요금이 청구됩니다. 추가 요금 청구를 방지하기 위해 LiveEvent를 중지해야 합니다.|
-|**중지 중**| LiveEvent가 중지됩니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.|
-|**삭제 중**| LiveEvent가 삭제됩니다. 이 일시적인 상태에서는 요금이 청구되지 않습니다. 이 상태에서는 업데이트 또는 스트리밍이 허용되지 않습니다.|
+## <a name="liveevent-types-comparison"></a>LiveEvent 형식 비교
+
+[비교](live-event-types-comparison.md) 문서에는 두 LiveEvent 형식의 기능을 비교하는 표가 나와 있습니다.
 
 ## <a name="liveoutput"></a>LiveOutput
 
-[LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 사용하면 라이브 스트림의 게시, 기록 및 DVR 창 설정을 제어할 수 있습니다. LiveEvent 및 LiveOutput 관계는 기존 미디어와 유사하여 채널(LiveEvent)에는 일정한 콘텐츠 스트림이 있고 프로그램(LiveOutput) 범위는 해당 LiveEvent에 있는 일부 시간 제한 이벤트로 지정됩니다.
-**ArchiveWindowLength** 속성을 설정하여 LiveOutput에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. **ArchiveWindowLength**는 보관 창 길이(디지털 비디오 레코더 또는 DVR)의 ISO 8601 timespan 기간입니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 
+[LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 통해 기록되는 스트림 양(예: 클라우드 DVR의 용량), 시청자가 라이브 스트림을 보기 시작할 수 있는지 여부 등, 보내는 라이브 스트림의 속성을 제어할 수 있습니다. **LiveEvent**와 **LiveOutput** 간 관계는 채널(**LiveEvent**)이 일정한 비디오 스트림을 나타내고 기록(**LiveOutput**)이 특정 시간 구간으로 한정(예: 오후 6시 30분부터 7시까지 저녁 뉴스)된다는 점에서 기존 TV 방송과 유사합니다. 디지털 비디오 레코더(DVR)를 사용하여 TV를 기록할 수 있으며, LiveEvent에서는 이와 동등한 기능이 ArchiveWindowLength 속성을 통해 관리됩니다. 이 속성은 DVR의 용량을 지정하는 ISO-8601 타임스팬 기간(예: PTHH:MM:SS)이며, 최소 3분에서 최대 25시간까지 설정할 수 있습니다.
 
-또한 **ArchiveWindowLength**는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. LiveOutput은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.
 
-각 LiveOutput은 [자산](https://docs.microsoft.com/rest/api/media/assets)과 연결되어 있으며 Media Services 계정에 연결된 Azure 저장소의 컨테이너에 데이터를 기록합니다. LiveOutput을 게시하려면 연결된 자산에 대한 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)를 만들어야 합니다. 이 로케이터가 있으면 클라이언트에 제공할 수 있는 스트리밍 URL을 작성할 수 있습니다.
+> [!NOTE]
+> **LiveOutput**은 생성 시 시작하고 삭제되면 중지합니다. **LiveOutput**을 삭제할 경우 기본 **자산**과 자산의 콘텐츠는 삭제되지 않습니다.  
 
-LiveEvent는 동시 실행 LiveOutput을 최대 세 개까지 지원하므로 동일한 수신 스트림의 보관 파일을 여러 개 만들 수 있습니다. 따라서 이벤트의 여러 부분을 필요에 따라 게시하고 보관할 수 있습니다. 예를 들어 비즈니스 요구 사항은 연중 무휴 라이브 선형 피드를 브로드캐스트하는 것이지만, 하루 동안의 프로그램 "기록"을 만들어 다시 보기 용도의 주문형 콘텐츠를 고객에게 제공하고 싶습니다.  이 시나리오에서는 먼저 고객이 기본 라이브 스트림으로 튜닝할 수 있도록 1시간 이하의 짧은 보관 창을 사용하여 기본 LiveOutput을 만듭니다. 이 LiveOutput용 StreamingLocator를 만들어 응용 프로그램 또는 웹 사이트에 “라이브” 피드로 게시합니다.  피드가 실행되면, 쇼 시작 부분에 두 번째 동시 LiveOutput을 프로그래밍 방식으로 만들 수 있습니다(또는 나중에 잘라낼 핸들을 제공하기 위해 5분 일찍). 이 두 번째 LiveOutput은 프로그램이나 이벤트가 끝나고 5분 후에 중지될 수 있습니다. 그러면 새 StreamingLocator를 만들어 이 프로그램을 응용 프로그램 카탈로그의 주문형 자산으로 게시할 수 있습니다.  첫 번째 LiveOutput의 “라이브” 피드가 선형 피드를 계속 브로드캐스트하는 동안, 주문 시 즉시 공유하려는 다른 프로그램 경계 또는 하이라이트에 대해 이 프로세스를 여러 번 반복할 수 있습니다.  또한 동적 필터 지원을 활용하여 프로그램 간 “다중 보안”을 위해 도입한 LiveOutput에서 보관의 시작과 끝 부분을 잘라내어 보다 정확하게 콘텐츠의 시작과 끝을 보관할 수 있습니다. 보관된 콘텐츠는 다른 서비스로의 배포로 사용할 여러 출력 형식으로 정확히 서브클리핑되는 인코딩 또는 프레임을 위해 [변환](https://docs.microsoft.com/rest/api/media/transforms)에 제출될 수도 있습니다.
+자세한 내용은 [클라우드 DVR 사용](live-event-cloud-dvr.md)을 참조하세요.
 
 ## <a name="streamingendpoint"></a>StreamingEndpoint
 
-LiveEvent로 들어오는 스트림이 있으면 자산, LiveOutput 및 StreamingLocator를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 이렇게 하면 스트림이 보관되고 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 시청자가 스트림을 사용할 수 있게 됩니다.
+**LiveEvent**로 들어오는 스트림이 있으면 **자산**, **LiveOutput** 및 **StreamingLocator**를 만들어 스트리밍 이벤트를 시작할 수 있습니다. 이렇게 하면 스트림이 보관되고 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 시청자가 스트림을 사용할 수 있게 됩니다.
 
 Azure Media Services 계정이 만들어지면, 기본 스트리밍 엔드포인트가 중지됨 상태의 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 실행 상태에 있어야 합니다.
 
+## <a name="a-idbilling-liveevent-states-and-billing"></a><a id="billing" />LiveEvent 상태 및 청구
+
+LiveEvent는 상태가 **실행 중**으로 전환되면 그 즉시 청구되기 시작됩니다. LiveEvent가 청구되지 않도록 하려면 LiveEvent를 중지해야 합니다.
+
+자세한 내용은 [상태 및 청구](live-event-states-billing.md)를 참조하세요.
+
 ## <a name="latency"></a>대기 시간
 
-이 섹션에서는 짧은 대기 시간 설정 및 다양한 플레이어를 사용하는 경우 표시되는 일반적인 결과에 대해 설명합니다. 그 결과는 CDN 및 네트워크 대기 시간에 따라 다릅니다.
+LiveEvents 대기 시간에 대한 자세한 내용은 [대기 시간](live-event-latency.md)을 참조하세요.
 
-새로운 LowLatency 기능을 사용하려면 LiveEvent에서 **StreamOptionsFlag**를 **LowLatency**로 설정할 수 있습니다. 스트림이 실행되면 [Azure Media Player](http://ampdemo.azureedge.net/)(AMP) 데모 페이지를 사용할 수 있으며, 재생 옵션을 설정하여 "짧은 대기 시간 추론 프로필"을 사용할 수 있습니다.
+## <a name="live-streaming-workflow"></a>라이브 스트리밍 워크플로
 
-### <a name="pass-through-liveevents"></a>통과 LiveEvent
+라이브 스트리밍 워크플로의 단계는 다음과 같습니다.
 
-||2초 GOP 짧은 대기 시간 사용|1초 GOP 짧은 대기 시간 사용|
-|---|---|---|
-|AMP의 DASH|10초|8초|
-|기본 iOS 플레이어의 HLS|14초|10초|
-|Mixer 플레이어의 HLS.JS|30초|16초|
+1. LiveEvent를 만듭니다.
+2. 새 자산 개체를 만듭니다.
+3. LiveOutput을 만들고 만든 자산 이름을 사용합니다.
+4. DRM을 사용하여 콘텐츠를 암호화하려는 경우 스트리밍 정책 및 콘텐츠 키를 만듭니다.
+5. DRM을 사용하지 않는 경우에는 스트리밍 정책 유형이 내장된 스트리밍 로케이터를 만듭니다.
+6. 스트리밍 정책의 경로를 나열하여 사용할 URL(이 URL은 결정적임)을 다시 가져옵니다.
+7. 스트리밍을 내보낼 스트리밍 엔드포인트의 호스트 이름을 가져옵니다. 
+8. 6단계의 URL을 7단계의 호스트 이름과 결합하여 전체 URL을 구합니다.
 
-## <a name="billing"></a>결제
-
-LiveEvent는 상태가 “실행 중”으로 전환되면 그 즉시 청구되기 시작됩니다. LiveEvent가 청구되지 않도록 하려면 LiveEvent를 중지해야 합니다.
-
-> [!NOTE]
-> [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents)에서 **LiveEventEncodingType**이 기본으로 설정되면 Media Services는 입력 피드가 손실된 후 12시간 동안 실행 중인 LiveOutput이 없으면 "실행 중" 상태인 모든 LiveEvent를 자동 차단합니다. 그러나 LiveEvent가 “실행 중” 상태였던 시간에 대한 요금은 청구됩니다.
->
-
-다음 표에서는 LiveEvent 상태가 청구 모드에 매핑되는 방식을 보여 줍니다.
-
-| LiveEvent 상태 | 요금이 청구됩니까? |
-| --- | --- |
-| 시작 중 |없음(일시적인 상태) |
-| 실행 중 |예 |
-| 중지 중 |없음(일시적인 상태) |
-| 중지됨 |아니요 |
+자세한 내용은 라이브 [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) 샘플을 기반으로 하는 [라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)
+- [LiveEvent 형식 비교](live-event-types-comparison.md)
+- [상태 및 청구](live-event-states-billing.md)
+- [대기 시간](live-event-latency.md)

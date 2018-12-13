@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241320"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581003"
 ---
-# <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기
+# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Apache Spark 스트리밍 작업 만들기
 
 스트림 처리 응용 프로그램은 시스템에 일부 오류가 발생한 후에 재처리 메시지를 어떻게 다룰지에 대해 여러 다른 방법을 취합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "51241320"
 
 이 아티클은 정확히 한 번만 처리하도록 하기 위해 Spark Streaming을 구성하는 방법을 보여줍니다.
 
-## <a name="exactly-once-semantics-with-spark-streaming"></a>Spark Streaming을 사용하여 정확히 한 번만 처리하는 의미 체계
+## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>Apache Spark Streaming을 사용하여 정확히 한 번만 처리하는 의미 체계
 
 먼저, 모든 시스템의 오류 발생 시점에 문제가 발생한 후 어떻게 다시 시작하는지와 데이터 손실을 어떻게 방지할 수 있는지에 대해 고려합니다. Spark 스트리밍 응용 프로그램에는 다음과 같은 구성 성분이 있습니다.
 
@@ -41,11 +41,11 @@ ms.locfileid: "51241320"
 
 Spark Streaming 응용 프로그램이 이벤트를 읽어 들이는 원본은 *재생 가능*해야 합니다. 즉, 메시지가 검색되지만 메시지를 유지하거나 처리할 수 있기도 전에 시스템이 실패하는 경우 원본은 같은 메시지를 다시 제공해야 합니다.
 
-Azure에서 HDInsight의 Azure Event Hubs와 Kafka는 재생 가능한 원본을 제공합니다. 재생 가능한 원본의 또 다른 예는 HDFS, Azure Storage Blob 또는 Azure Data Lake Store와 같은 내결함성 파일 시스템으로, 이곳에 모든 데이터가 영원히 보관되고 언제든지 데이터 전체를 다시 읽을 수 있습니다.
+Azure에서 HDInsight의 Azure Event Hubs와 [Apache Kafka](https://kafka.apache.org/)는 재생 가능한 원본을 제공합니다. 재생 가능한 원본의 또 다른 예는 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure Storage Blob 또는 Azure Data Lake Store와 같은 내결함성 파일 시스템으로, 이곳에 모든 데이터가 영원히 보관되고 언제든지 데이터 전체를 다시 읽을 수 있습니다.
 
 ### <a name="reliable-receivers"></a>신뢰할 수 있는 수신기
 
-Spark 스트리밍에서 Event Hubs나 Kafka 같은 원본에는 *신뢰할 수 있는 수신기*가 있으며, 각 수신기는 원본을 읽는 진행을 추적합니다. 신뢰할 수 있는 수신기는 그 상태를 HDFS에 기록되는 ZooKeeper 또는 Spark Streaming 검사점 내에 있는 내결함성 저장소에 유지합니다. 그같은 수신기가 실패하고 나중에 다시 시작된다면 중지된 부분으로 계속할 수 있습니다.
+Spark 스트리밍에서 Event Hubs나 Kafka 같은 원본에는 *신뢰할 수 있는 수신기*가 있으며, 각 수신기는 원본을 읽는 진행을 추적합니다. 신뢰할 수 있는 수신기는 HDFS에 기록되는 [Apache ZooKeeper](https://zookeeper.apache.org/) 또는 Spark Streaming 검사점 내에 있는 내결함성 스토리지에 그 상태를 유지합니다. 그같은 수신기가 실패하고 나중에 다시 시작된다면 중지된 부분으로 계속할 수 있습니다.
 
 ### <a name="use-the-write-ahead-log"></a>Write-Ahead Log 사용
 
@@ -89,5 +89,5 @@ Spark 스트리밍은 Write-Ahead Log의 사용을 지원하는데 받은 이벤
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Spark Streaming 개요](apache-spark-streaming-overview.md)
-* [YARN에서 항상 사용 가능한 Spark 스트리밍 작업 만들기](apache-spark-streaming-high-availability.md)
+* [Apache Spark Streaming 개요](apache-spark-streaming-overview.md)
+* [Apache Hadoop YARN에서 고가용성 Apache Spark Streaming 작업 만들기](apache-spark-streaming-high-availability.md)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 12/08/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 88041cf185aeb6ae5cb27f2405b62401cae069d9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964256"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098103"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 업데이트
 
@@ -275,6 +275,12 @@ Azure Stack 1808 업데이트 빌드 번호는 **1.1808.0.97**합니다.
 <!-- 3179561 - IS --> 
 - 에 설명 된 대로 관리 되는 디스크 사용량이 시간에 보고 합니다 [Azure Stack 사용 FAQ](azure-stack-usage-related-faq.md#managed-disks)합니다. 그러나 Azure Stack 청구의 월별 가격 대신 사용 될 수 있습니다 가져오기 올바르게 비용이 청구 되지 않습니다 또는 그 27 년 9 월 이전에 Managed Disks 사용량에 대 한 합니다. 에서는 일시적으로 일시 중지 했 요금 Managed Disks에 대 한 청구 문제가 해결 될 때까지 27를 년 9 월 후. 하면 요금이 청구 되지 올바르게 Managed Disks 사용량에 대 한, Microsoft 대금 청구 지원에 문의 하세요.
 Azure Stack 사용량 Api에서에서 생성 된 사용 현황 보고서 올바른 수량을 표시 하 고 사용할 수 있습니다.
+
+<!-- 3507629 - IS, ASDK --> 
+- Managed Disks에서는 두 개의 새 [계산 할당량 형식](azure-stack-quota-types.md#compute-quota-types) 프로 비전 할 수 있는 관리 되는 디스크의 최대 용량을 제한 합니다. 기본적으로 각 관리 되는 디스크 할당량 형식에 대 한 2048 GiB 할당 됩니다. 그러나 다음과 같은 문제가 발생할 수 있습니다.
+
+   - 할당량의 1808 업데이트 이전에 만든 경우 Managed Disks 할당량에에서 표시 됩니다 0 값 관리자 포털을 2048 GiB 할당 됩니다. 늘리거나 실제 요구 사항 및 새로 설정에 따라 값을 줄일 수 할당량 값 2048 GiB 기본값을 재정의 합니다.
+   - 0으로 할당량 값을 업데이트 하는 경우 기본값인 2048 GiB 같습니다. 대 안으로 할당량 값을 1로 설정 합니다.
 
 <!-- 2869209 – IS, ASDK --> 
 - 사용 하는 경우는 [ **추가 AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0)를 사용 해야 합니다는 **-OsUri** storage 계정과 디스크 업로드 되는 URI 매개 변수입니다. 다음 오류로 인해 cmdlet이 실패 하면 디스크의 로컬 경로 사용 하는 경우: *장기 실행 작업 상태 '실패'를 사용 하 여 실패 한*합니다. 

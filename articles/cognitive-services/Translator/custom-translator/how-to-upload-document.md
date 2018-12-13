@@ -9,16 +9,18 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bb84a3ddfba54c47cdf91aa72889a960722cdbd3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627951"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633251"
 ---
 # <a name="upload-a-document"></a>문서 업로드
 
 [Custom Translator](https://portal.customtranslator.azure.ai)에서 번역 모델을 훈련하는 데 사용할 병렬 문서를 업로드할 수 있습니다. [병렬 문서](what-are-parallel-documents.md)는 서로가 서로의 번역인 문서 쌍입니다. 이 쌍에 포함된 한 문서에는 원본 언어의 문장이 포함되어 있고, 다른 문서에는 이 문장을 대상 언어로 번역한 문장이 포함되어 있습니다.
+
+문서를 업로드하기 전에 [문서 형식 및 명명 규칙 지침](document-formats-naming-convention.md)을 검토하여 Custom Translator에서 파일 형식이 지원되는지 확인하세요.
 
 ## <a name="how-to-upload-document"></a>문서를 업로드하는 방법
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238629"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864981"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 배포의 계획 고려 사항
 Azure Stack 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트 컴퓨터에는이 문서에 설명 된 요구 사항을 충족 해야 합니다.
@@ -121,7 +121,7 @@ IPv4만 지원됩니다. IPv6 네트워크를 만들 수 없습니다.
 NIC가 연결하는 네트워크에서 사용 가능한 DHCP 서버가 있는지 확인합니다. DHCP를 사용할 수 없는 경우 호스트에서 사용하는 것 외에도 추가 정적 IPv4 네트워크를 준비해야 합니다. 해당 IP 주소를 제공 해야 및 배포 매개 변수로 게이트웨이.
 
 ### <a name="internet-access"></a>인터넷 액세스
-Azure Stack 직접적으로 또는 투명 프록시를 통해 인터넷 액세스를 해야합니다. Azure Stack에는 인터넷에 액세스할 수 있도록 웹 프록시 구성을 지원 하지 않습니다. 호스트 IP 및 DHCP 또는 고정 IP) (여 MAS-BGPNAT01에 할당 된 새 IP를 인터넷에 액세스할 수 있어야 합니다. 포트 80 및 443은 graph.windows.net 및 login.microsoftonline.com 도메인에서 사용 됩니다.
+Azure Stack 직접적으로 또는 투명 프록시를 통해 인터넷 액세스를 해야합니다. Azure Stack에는 인터넷에 액세스할 수 있도록 웹 프록시 구성을 지원 하지 않습니다. 호스트 IP 및 DHCP 또는 고정 IP) (여 AzS-BGPNAT01에 할당 된 새 IP를 인터넷에 액세스할 수 있어야 합니다. 포트 80 및 443은 graph.windows.net 및 login.microsoftonline.com 도메인에서 사용 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: b6aa2dd16b1731c24b5f24068fa825500589a2e2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: fe405416e166b69ebe6b72e519ace4930c3062d8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711177"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871730"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>빠른 시작: Azure 데이터 탐색기 Python 라이브러리를 사용하여 데이터 수집
 
@@ -36,8 +36,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 *azure-kusto-data* 및 *azure-kusto-ingest*를 설치합니다.
 
 ```
-pip install azure-kusto-data==0.0.13
-pip install azure-kusto-ingest==0.0.13
+pip install azure-kusto-data
+pip install azure-kusto-ingest
 ```
 
 ## <a name="add-import-statements-and-constants"></a>import 문 및 상수 추가
