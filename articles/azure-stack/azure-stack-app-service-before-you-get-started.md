@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615877"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275672"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack에서 App Service를 사용 하 여 시작 하기 전에
 
@@ -152,6 +152,12 @@ Id에 대 한 인증서는 다음 형식과 일치 하는 주체를 포함 해�
 | 형식 | 예 |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
+
+
+### <a name="validate-certificates"></a>인증서의 유효성 검사
+App service 리소스 공급자를 배포 하기 전에 수행 해야 합니다 [사용할 인증서의 유효성 검사](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) 에서 사용할 수 있는 Azure Stack 준비 상태 검사기 도구를 사용 하는 [PowerShell 갤러리](https://aka.ms/AzsReadinessChecker)합니다. Azure Stack 준비 검사 도구는 생성 된 PKI 인증서를 사용 하 여 app services 배포에 적합 한 인지를 확인 합니다. 
+
+모범 사례로, 필요한 중 하나를 사용 하 여 작업 하는 경우 [Azure Stack PKI 인증서](azure-stack-pki-certs.md), 시간을 충분히 테스트 하 고 필요한 경우 인증서를 다시 발급 해야 합니다. 
 
 ## <a name="virtual-network"></a>가상 네트워크
 
@@ -347,7 +353,7 @@ Azure App Service on Azure Stack에 대 한 SQL Server 인스턴스를 모든 Ap
 | AzureStackAdminCredential | 필수 | Null | Azure AD 서비스 관리자 자격 증명입니다. |
 | CertificateFilePath | 필수 | Null | **전체 경로** identity 응용 프로그램 인증서 파일 이전에 생성 합니다. |
 | CertificatePassword | 필수 | Null | 인증서 개인 키를 보호 하는 암호입니다. |
-| Environment | 옵션 | AzureCloud | 대상 Azure Active Directory 그래프 서비스를 사용할 수 있는 지원 되는 클라우드 환경의 이름입니다.  허용 되는 값: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
+| Environment | 옵션 | AzureCloud | 대상 Azure Active Directory 그래프 서비스를 사용할 수 있는 지원 되는 클라우드 환경의 이름입니다.  허용되는 값은 다음과 같습니다. 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'를 선택 합니다.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory Federation Services 응용 프로그램 만들기
 

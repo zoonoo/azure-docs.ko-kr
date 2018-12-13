@@ -56,16 +56,8 @@ items:
         href: storage-secure-access-application.md
       - name: 4 - 저장소 모니터링 및 문제 해결
         href: storage-monitor-troubleshoot-storage-application.md
-    - name: 클라우드 저장소에서 고가용성을 위한 디자인
-      items:
-      - name: 1 - 고가용성 응용 프로그램 만들기
-        href: storage-create-geo-redundant-storage.md
-      - name: 2 - RA-GRS 저장소를 사용하여 오류 시뮬레이션
-        href: storage-simulate-failure-ragrs-account-app.md
     - name: AzCopy를 사용하여 클라우드로 데이터 마이그레이션
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 클라우드 저장소의 구조화되지 않은 데이터 검색
-      href: storage-unstructured-search.md
     - name: 저장소 응용 프로그램 성능 및 확장성 최적화
       items:
       - name: 1 - VM 및 저장소 계정 만들기
@@ -76,6 +68,20 @@ items:
         href: storage-blob-scalable-app-download-files.md
       - name: 4 - 처리량 및 대기 시간 메트릭 확인
         href: storage-blob-scalable-app-verify-metrics.md
+    - name: 정적 웹 사이트 호스트
+      items:
+      - name: 1 - 정적 웹 사이트 만들기
+        href: storage-blob-static-website-host.md
+      - name: 2 - SSL에서 사용자 지정 도메인 사용
+        href: storage-blob-static-website-custom-domain.md
+    - name: 클라우드 저장소에서 고가용성을 위한 디자인
+      items:
+      - name: 1 - 고가용성 응용 프로그램 만들기
+        href: storage-create-geo-redundant-storage.md
+      - name: 2 - RA-GRS 저장소를 사용하여 오류 시뮬레이션
+        href: storage-simulate-failure-ragrs-account-app.md
+    - name: 클라우드 저장소의 구조화되지 않은 데이터 검색
+      href: storage-unstructured-search.md
   - name: 샘플
     items:
     - name: .NET
@@ -558,8 +564,6 @@ items:
         items:
         - name: RBAC를 사용하여 액세스 권한 관리
           href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Data Lake Storage Gen2 평가
-      href: ../blobs/data-lake-storage-evaluation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: 방법
     items:
     - name: Azure Storage 탐색기를 사용하여 사용 권한 설정
@@ -616,9 +620,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: 동영상
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: dc45425a3e20d18bbe43e4a41ca40bd6c2fe6b9a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fb4a261b19f08e5dcf4bedda60eacca42e97c7e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013648"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099616"

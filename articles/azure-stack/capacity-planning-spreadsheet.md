@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 3b07485d4168e38736c12a74b0d36bcc8a276748
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7b8276281b8b550492fed17adc516e9539380987
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233068"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269739"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner 스프레드시트 Azure Stack 리소스 용량 계획에 사용 되는 경우 Capacity planner 컴퓨팅 리소스의 다양 한 할당을 디자인 하 고 어떻게 이러한 적합 한 다양 한 하드웨어 제품에서 참조 하는 기능을 제공 합니다. Azure Stack 계산기의 사용에 대 한 자세한 지침은 아래 제공 됩니다.
@@ -61,7 +61,7 @@ Azure Stack planner 내에서 모델링 하는 리소스에 사용 되는 기본
 3. 이제 모델에 다양 한 크기의 Vm을 추가 시작할 준비가 되었습니다. 특정 VM 유형을 포함 하려면 해당 VM 항목의 왼쪽에 파란색 윤곽선이 있는 상자에 수량 값을 입력 합니다.
 
   > [!NOTE]
-  > 각 VM을 처음에 할당 된 저장소 크기를 사용 하 여 시작합니다. 저장소 크기 목록 상자를 사용 하 여 표시 되 고 각 Azure Stack VM에 대 한 저장소 리소스의 원하는 수준에 맞게 수정할 수 있습니다. 사용 하려는 저장소 크기를 지정 하지 않은 경우에 페이지의 오른쪽에 있는 "사용 가능한 저장소 구성" 목록에 포함 된 10 초기 크기 중 하나를 수정 하 여 추가할 수 있습니다.<br><br>각 VM을 처음에 할당 된 로컬 임시 저장소를 사용 하 여 시작합니다. 임시 저장소의 씬 프로 비전을 반영 하도록 로컬 temp 수를 최대 허용 되는 임시 저장소 용량을 포함 하 여 메뉴 드롭다운에 아무 것도 변경할 수 있습니다.
+  > 총 VM 저장소 VM의 데이터 디스크의 총 용량을 가리킵니다. (지원 되는 디스크 수 * 1TB 단일 디스크의 최대 용량). 각 Azure Stack VM에 대 한 원하는 수준의 저장소 리소스를 선택할 수 있도록 구성 지표에 따른에서는 사용 가능한 저장소 구성 테이블을 입력 했습니다. 그러나 것에 추가 하거나 필요에 따라 사용 가능한 저장소 구성 테이블을 변경할 수 있습니다.<br><br>각 VM을 처음에 할당 된 로컬 임시 저장소를 사용 하 여 시작합니다. 임시 저장소의 씬 프로 비전을 반영 하도록 로컬 temp 수를 최대 허용 되는 임시 저장소 용량을 포함 하 여 메뉴 드롭다운에 아무 것도 변경할 수 있습니다.
 
 4. Vm에 추가한 대로 변경 하는 사용 가능한 SKU 리소스를 보여주는 차트에 표시 됩니다. 이 옵션을 사용 하면 모델링 프로세스 동안 다양 한 크기 및 Vm의 수량을 추가 하는 효과 볼 수 있습니다. 변경의 결과 표시 하는 다른 방법은 직접 사용할 수 있는 Vm 목록 아래에 나열 된 사용 및 계속 사용할 수 있는 번호를 시청 하려면 것입니다. 이러한 번호는 현재 선택 된 하드웨어 SKU 기반으로 하는 예상된 값을 반영 합니다.
 5. Vm 집합을 만든 후에 "현재 SKU" 레이블 바로 아래 페이지의 오른쪽 위 모서리에 있는 "제안 된 SKU" 단추를 클릭 하 여 제안 된 하드웨어 SKU를 찾을 수 있습니다. 이 단추를 사용 하 여 다음 VM 구성을 수정 고 볼 수 있습니다 하드웨어 각 구성을 지원 합니다.

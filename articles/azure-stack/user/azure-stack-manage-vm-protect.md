@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 87ba13334b037f7eb47264a120bb91b2be5f8a79
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963916"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191532"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure Stack에 배포 된 가상 컴퓨터를 보호 합니다.
 
@@ -55,8 +55,8 @@ Azure Stack 클라우드 운영자는 기본 Azure Stack 인프라 및 서비스
 
 |  | 전역 Azure | Azure Stack CSP 데이터 센터에 배포 된 후 CSP에서 작동 | Azure Stack 고객 데이터 센터에 배포 하 여 고객이 운영 |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack CSP 데이터 센터에 배포 된 후 CSP에서 작동** | 사용자 Vm 작업을 수행할 CSP Azure Stack에 배포 됩니다. 사용자 Vm 백업에서 복원 기능은 직접 Azure로 장애 조치 합니다. | CSP는 자체 데이터 센터에서 Azure Stack의 기본 및 보조 인스턴스를 작동합니다. 사용자 Vm 복원 기능은 두 Azure Stack 인스턴스 간의 장애 조치 합니다. | CSP의 Azure Stack 기본 사이트에서 작동합니다. 고객의 데이터 센터는 복원 또는 장애 조치 대상입니다. |
-| **Azure Stack 고객 데이터 센터에 배포 하 여 고객이 운영** | 사용자 Vm에 배포 된 Azure Stack을 운영 하는 고객. 사용자 Vm 백업에서 복원 기능은 직접 Azure로 장애 조치 합니다. | 고객은 자체 데이터 센터에서 Azure Stack의 기본 및 보조 인스턴스를 작동합니다. 사용자 Vm 복원 기능은 두 Azure Stack 인스턴스 간의 장애 조치 합니다. | 고객의 Azure Stack 기본 사이트에서 작동합니다. CSP의 데이터 센터는 복원 또는 장애 조치 대상입니다. |
+| **Azure Stack CSP 데이터 센터에 배포 된 후 CSP에서 작동** | 사용자 Vm 작업을 수행할 CSP Azure Stack에 배포 됩니다.<br><br>사용자 Vm 백업에서 복원 기능은 직접 Azure로 장애 조치 합니다. | CSP는 자체 데이터 센터에서 Azure Stack의 기본 및 보조 인스턴스를 작동합니다.<br><br>사용자 Vm 복원 기능은 두 Azure Stack 인스턴스 간의 장애 조치 합니다. | CSP의 Azure Stack 기본 사이트에서 작동합니다.<br><br>고객의 데이터 센터는 복원 또는 장애 조치 대상입니다. |
+| **Azure Stack 고객 데이터 센터에 배포 하 여 고객이 운영** | 사용자 Vm에 배포 된 Azure Stack을 운영 하는 고객.<br><br>사용자 Vm 백업에서 복원 기능은 직접 Azure로 장애 조치 합니다. | 고객의 Azure Stack 기본 사이트에서 작동합니다.<br><br>CSP의 데이터 센터는 복원 또는 장애 조치 대상입니다. | 고객은 자체 데이터 센터에서 Azure Stack의 기본 및 보조 인스턴스를 작동합니다.<br><br>사용자 Vm 복원 기능은 두 Azure Stack 인스턴스 간의 장애 조치 합니다. |
 
 ![원본-대상 조합](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
@@ -81,9 +81,9 @@ VM 기반 응용 프로그램에 대 한 가장 일반적인 보호 체계 백�
 
 응용 프로그램 복구 같은 클라우드 또는 새 클라우드를 하나 이상의 Vm을 복원 해야 합니다. 데이터 센터 또는 공용 클라우드에서 클라우드를 대상 지정할 수 있습니다. 선택한 컨트롤 내에서 전적으로 클라우드와 데이터 개인 정보 보호 및 주권 요구 사항에 기반 합니다.
  
- - 시간 단위로 측정 된 RTO: 가동 중지 시간
- - (백업 빈도)에 따라 변수 데이터 손실이 RPO:
- - 배포 토폴로지: 능동/수동
+ - RTO: 시간 단위로 측정 된 가동 중지 시간
+ - RPO: 변수 데이터 손실 (빈도 따라 백업)
+ - 배포 토폴로지: 활성/수동
 
 #### <a name="planning-your-backup-strategy"></a>백업 전략 계획
 
@@ -110,8 +110,8 @@ Azure Stack에서 Vm을 백업 하는 것에 대 한 중요 고려 사항:
 ![복제-수동 장애 조치](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: 가동 중지 시간 (분)
- - (복제 빈도)에 따라 변수 데이터 손실이 RPO:
- - 배포 토폴로지: 능동/수동 대기에서
+ - RPO: 변수 데이터 손상 (복제 빈도)에 따라 다름
+ - 배포 토폴로지: 활성/수동 대기에서
  
 ### <a name="high-availabilityautomatic-failover"></a>높은 가용성/자동 장애 조치
 
@@ -122,7 +122,7 @@ Azure Stack에서 Vm을 백업 하는 것에 대 한 중요 고려 사항:
 이 방법을 사용 응용 프로그램 에서만 활성 상태인 한 클라우드 하지만 소프트웨어는 여러 클라우드에 배포 합니다. 다른 클라우드 대기 모드에서 장애 조치가 트리거될 때 응용 프로그램을 시작할 준비가 됩니다.
 
  - RTO: 가동 중지 시간 (초)
- - 최소한의 데이터 손실이 RPO:
+ - RPO: 데이터 손실을 최소화
  - 배포 토폴로지: 능동/능동 독립 별
 
 ### <a name="fault-tolerance"></a>내결함성
@@ -134,7 +134,7 @@ Azure Stack 물리적 중복성 및 인프라 서비스 가용성 하드웨어�
 각 Azure Stack 클라우드는 서로 독립적 클라우드 항상 인프라 측면에서에서 활성 것으로 간주 됩니다 것을 염두에 두십시오. 이 경우 응용 프로그램의 여러 활성 인스턴스를 하나 이상의 활성 클라우드에 배포 됩니다.
 
  - RTO: 가동 중지 시간 없이
- - 데이터 손실 없이 RPO:
+ - RPO: 데이터 손실 없음
  - 배포 토폴로지: 활성/활성
 
 ### <a name="no-recovery"></a>복구 안 함

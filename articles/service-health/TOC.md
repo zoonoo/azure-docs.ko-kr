@@ -5,7 +5,7 @@
 ## [Service Health란?](service-health-overview.md)
 ## [Resource Health란?](resource-health-overview.md)
 # 방법
-## [서비스 상태 이벤트에 대한 경고 구성](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+## [서비스 상태 이벤트에 대한 경고 구성](../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ### [Azure Portal을 사용하여 서비스 상태 알림 보기](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [웹후크를 사용하여 서비스 상태 알림 구성](service-health-alert-webhook-guide.md)
 ### [ServiceNow를 사용하여 구성](service-health-alert-webhook-servicenow.md)

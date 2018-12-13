@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300713"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257379"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -26,8 +26,8 @@ Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federa
 |---------|---------|---------|
 |결제|용량 이어야 합니다.<br> EA (기업 계약)만|용량 또는 지불으로-사용<br>EA 또는 CSP (클라우드 솔루션 공급자)|
 |ID|AD FS 여야 합니다.|Azure AD 또는 AD FS|
-|마켓플레이스 |지원됨<br>BYOL 라이선싱|지원됨<br>BYOL 라이선싱|
-|등록|권장 되는, 이동식 미디어 필요<br> 와 별도 연결 된 장치입니다.|자동화|
+|Marketplace |지원됨<br>BYOL 라이선싱|지원됨<br>BYOL 라이선싱|
+|등록|권장 되는, 이동식 미디어 필요<br> 와 별도 연결 된 장치입니다.|자동|
 |패치 및 업데이트|필수, 이동식 미디어에 필요<br> 와 별도 연결 된 장치입니다.|업데이트 패키지를 직접 다운로드할 수 있습니다.<br> 인터넷에서 Azure Stack에.|
 
 > [!IMPORTANT]
@@ -118,7 +118,7 @@ Azure Stack에서 그래프 서비스 키 배포 센터 (KDC) Active Directory �
 
 Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 다음 프로토콜 및 포트를 사용 합니다.
 
-|종류|포트|프로토콜|
+|type|포트|프로토콜|
 |---------|---------|---------|
 |LDAP|389|TCP 및 UDP|
 |LDAP SSL|636|TCP|
@@ -131,7 +131,7 @@ Azure Stack에서 그래프 서비스 대상 Active Directory와 통신 하는 �
 
 |매개 변수|설명|예|
 |---------|---------|---------|
-|CustomAdfsName|클레임 공급자의 이름입니다. <cr>이런 방식으로 AD FS 방문 페이지에 표시 됩니다.|Contoso|
+|CustomAdfsName|클레임 공급자의 이름입니다.<br>이런 방식으로 AD FS 방문 페이지에 표시 됩니다.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|페더레이션 메타 데이터 링크|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
