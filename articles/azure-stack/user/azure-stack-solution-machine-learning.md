@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 5a1f0c0ee8a9f6ef6871e19e7722e09f4e96ba7f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: MT
+ms.openlocfilehash: 057df4260da267254cb764e58fdac749bee3b842
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142073"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106756"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>자습서: Azure 및 Azure Stack을 사용 하 여 솔루션을 학습 하는 edge 컴퓨터 만들기
 
@@ -135,13 +135,13 @@ Azure 및 Azure Stack에 대 한 사전 지식이 필요합니다. 계속 하기
 
  -  **호스 티 드 VSTS Linux 빌드 에이전트 풀입니다.** 신속 하 게 빌드, 테스트 및 응용 프로그램을 배포할 Microsoft 관리 및 유지 관리를 사용 하 여 호스트 된 에이전트. VSTS 빌드 호스트에 대 한 자세한 내용은 에이전트 참조 [호스트 에이전트](https://docs.microsoft.com/vsts/build-release/concepts/agents/hosted?view=vsts) 설명서.
 
-## <a name="step-1-create-a-storage-account"></a>1단계: 저장소 계정 만들기
+## <a name="step-1-create-a-storage-account"></a>1 단계: 저장소 계정 만들기
 
 저장소 계정 및 상주할 데이터 정리에 대 한 컨테이너를 만듭니다.
 
 1.  에 로그인 합니다 [ *Azure portal*](https://portal.azure.com/)합니다.
 
-2.  Azure portal에서 서비스의 메뉴를 열고 왼쪽의 메뉴 확장 **모든 서비스**합니다. 아래로 스크롤하여 **저장소** 선택한 **저장소 계정**합니다. 에 **Storage 계정** 창 **추가**합니다.
+2.  Azure portal에서 서비스의 메뉴를 열고 왼쪽의 메뉴 확장 **모든 서비스**합니다. 아래로 스크롤하여 **저장소** 선택한 **저장소 계정**합니다. 에 * * 저장소 계정 * * 창 **추가**합니다.
 
 3.  저장소 계정의 이름을 입력합니다.
 
@@ -150,7 +150,7 @@ Azure 및 Azure Stack에 대 한 사전 지식이 필요합니다. 계속 하기
 
 4.  사용할 배포 모델을 지정 합니다. **Resource Manager**합니다.
 
-5.  저장소 계정 유형을 선택 합니다. **범용 V1**, 성능 계층을 지정 합니다. **Standard**.
+5.  저장소 계정 유형을 선택 합니다. **범용 V1**, 성능 계층을 지정 합니다: **표준**합니다.
 
 6.  저장소 계정의 복제 옵션을 선택 합니다. **GRS**합니다.
 
@@ -162,7 +162,7 @@ Azure 및 Azure Stack에 대 한 사전 지식이 필요합니다. 계속 하기
 
 10. **만들기**를 선택하여 저장소 계정을 만듭니다.
 
-    ![대체 텍스트](media/azure-stack-solution-machine-learning/image1.png)
+    ![대체 텍스트](/media/azure-stack-solution-machine-learning/image1.png)
 
 11.  최근에 만든 저장소 계정을 선택 합니다.
 
@@ -180,7 +180,7 @@ Azure 및 Azure Stack에 대 한 사전 지식이 필요합니다. 계속 하기
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image4.png)
 
-## <a name="step-2-create-a-data-science-virtual-machine"></a>2단계: 데이터 과학 가상 머신 만들기
+## <a name="step-2-create-a-data-science-virtual-machine"></a>2 단계: 데이터 과학 Virtual Machine 만들기
 
 Azure portal에서 Ubuntu 데이터 과학 Virtual Machine (DSVM)을 만듭니다.
 
@@ -194,8 +194,8 @@ Azure portal에서 Ubuntu 데이터 과학 Virtual Machine (DSVM)을 만듭니�
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image6.png)
 
-> [!Important]  
-> 선택할 **암호** 으로 **인증 유형을**합니다.
+> ! [중요]  
+> **선택할** 암호 * *으로*인증 유형*합니다.
 
 새로 만든된 저장소 계정으로 동일한 리소스 그룹에 새 DSVM을 배치 합니다. 모든 가장자리 ML 개체는이 리소스 그룹 내에서 Azure에 배포 됩니다.
 
@@ -209,8 +209,7 @@ Azure portal에서 Ubuntu 데이터 과학 Virtual Machine (DSVM)을 만듭니�
 
     d.  에 대 한 합니다 **진단 저장소 계정이**, 이전에 만든 저장소 계정을 선택 합니다.
 
-    > [!Note]  
-    > 활성화 되 고 Azure 구독에 대 한 구성 AAD를 사용 하 여 Azure 리소스에 대 한 관리 되는 id도 사용할 수 있습니다.
+    e.  참고:을 사용 하도록 설정 하 고 Azure 구독에 대해 구성 된 AAD에 Azure 리소스에 대 한 관리 되는 id 수도 함께 활성화 합니다.
 
 2.  **확인**을 선택합니다.
 
@@ -236,7 +235,7 @@ apt-get -y dist-upgrade
 apt-get -y autoremove
 ```
 
-## <a name="step-3-deploy-azure-machine-learning-services"></a>3단계: Azure Machine Learning 서비스를 배포 합니다.
+## <a name="step-3-deploy-azure-machine-learning-services"></a>3 단계: Azure Machine Learning 서비스 배포
 
 Azure Machine Learning에서 Azure 서비스를 배포 합니다.
 
@@ -313,8 +312,7 @@ Azure Machine Learning 계정을 프로 비전 하려면 Azure portal을 사용 
 
 Azure Machine Learning Workbench를 이제 Windows나 macOS에서 사용할 수 있습니다. [지원되는 플랫폼](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation) 목록을 참조하세요.
 
-> [!Warning]  
-> 설치를 완료 하려면 약 1 걸릴 수 있습니다.
+**경고:** 설치를 완료 하는 데 약 1 걸릴 수 있습니다.
 
 1.  최신 Workbench 설치 관리자를 다운로드하여 시작합니다.
 
@@ -323,7 +321,7 @@ Azure Machine Learning Workbench를 이제 Windows나 macOS에서 사용할 수 
 
 1.  에 따라는 화면의 완료 될 때까지 설치 관리자의 지침입니다.
 
-    **설치 완료 하려면 만큼 30 분 정도 걸릴 수 있습니다.**
+    * * 설치 만큼 30 분 정도 걸릴 수 있습니다. **
     
     `Windows: C:\\Users\\<user>\\AppData\\Local\\AmlWorkbench`
     
@@ -495,7 +493,7 @@ DSVM이 만들어지면 Azure ML 프로젝트에 연결 합니다.
 
     3.  선택 **값 개수** 합니다.
 
-        데이터 아래에 **검사기** 창이 열립니다. 네 개의 막대가 있는 히스토그램에 표시 됩니다. 대상 열에는 4 개의 고유 값: **Iris_virginica**, **iris_versicolor**합니다**iris-setosa**, 및 **(null)** 값입니다.
+        데이터 아래에 **검사기** 창이 열립니다. 네 개의 막대가 있는 히스토그램에 표시 됩니다. 대상 열에는 4 개의 고유 값: **iris_virginica**를 **iris_versicolor**합니다**iris-setosa**, 및 **(null)** 값입니다.
 
     ![값 개수 선택](media/azure-stack-solution-machine-learning/image34.png)
 
@@ -867,7 +865,7 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
     ```yaml  
     Framework: Python
     ```
-1.  대상을 사용 하 여 CLI 창에서 이전과 동일한 명령을 실행할*<DSVM>* 이 이번 원격 Docker 컨테이너에서 iris_sklearn.py를 실행 하려면: (대체는 <DSVM> 이름의 데이터 과학 VM은 대괄호가 없어도).
+1.  대상을 사용 하 여 CLI 창에서 이전과 동일한 명령을 실행할*<DSVM>* 원격 Docker 컨테이너에서 iris_sklearn.py를 실행 하려면이 이번: (대체는 <DSVM> 이름의 데이터 과학 VM은 대괄호가 없어도).
 
     ```CLI
         az ml experiment submit -c <DSVM> iris_sklearn.py
@@ -887,7 +885,7 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
 
 4.  **iris_sklearn.py** 파일을 검토하여 pickle 파일이 생성된 위치를 확인합니다. Ctrl+F를 선택하여 **찾기** 대화 상자를 연 다음 Python 코드에서 **pickle**이라는 단어를 찾습니다.
 
-    이 코드 조각에서는 pickle 처리된 출력 파일이 생성된 방법을 보여 줍니다. 디스크에서 출력 pickle 파일의 이름은 **model.pkl**입니다.
+이 코드 조각에서는 pickle 처리된 출력 파일이 생성된 방법을 보여 줍니다. 디스크에서 출력 pickle 파일의 이름은 **model.pkl**입니다.
 
     ```Python
         print("Export the model to model.pkl")
@@ -925,7 +923,7 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
 
     이 스크립트에서 JSON 파일을 생성 합니다 **출력** 모델에 필요한 입력된 데이터 스키마를 캡처하는 섹션입니다.
 
-1.  **프로젝트 대시보드** 창의 오른쪽에서 **작업** 창을 확인합니다. 최신 **score_iris.py** 작업에 녹색 **완료됨** 상태가 표시될 때까지 기다립니다. 그런 다음, 최신 작업 실행에 대한 **score_iris.py** 하이퍼링크를 선택하여 실행 세부 정보를 확인합니다.
+1.  **프로젝트 대시보드** 창의 오른쪽에서 **작업** 창을 확인합니다. 녹색 표시 하려면 최신 * * score_iris.py** 작업에 대 한 대기 **Completed** 상태입니다. 그런 다음, 최신 작업 실행에 대한 **score_iris.py** 하이퍼링크를 선택하여 실행 세부 정보를 확인합니다.
 
 2.  **실행 속성** 창의 **출력** 섹션에서 새로 만든 **service_schema.json** 파일을 선택합니다. 파일 이름 옆의 확인란을 선택한 다음 **다운로드**를 선택합니다. 프로젝트 루트 폴더에 파일을 저장 합니다.
 
@@ -954,23 +952,23 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
 
 이제 모델 운영 화 하도록 환경을 준비 합니다.
 
-## <a name="step-5-deploy-and-use-azure-container-registry"></a>5 단계: Azure Container Registry 배포 및 사용
+## <a name="step-5-deploy-and-use-azure-container-registry"></a>5 단계: 배포 하 고 Azure Container Registry를 사용 합니다.
 
 배포 하 고 Azure Container Registry를 사용 합니다.
 
 **az acr create** 명령으로 Azure Container Registry를 만듭니다. 레지스트리 이름은 Azure 내에서 고유해야 하며, 5-50자의 영숫자만 포함해야 합니다. 리소스 그룹은 동일 합니다.
 
-```CLI
-    az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
-```
+    ```CLI
+        az acr create --resource-group <ResourceGroup> --name  <acrName> --sku Basic
+    ```
 
 ### <a name="container-registry-login"></a>컨테이너 레지스트리 로그인
 
 **az acr login** 명령을 사용하여 ACR 인스턴스에 로그인합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력합니다.
 
-```CLI
-    az acr login --name <acrName>
-```
+    ```CLI
+        az acr login --name <acrName>
+    ```
 
 명령에서 반환 된 ' 완료 되 면 로그인 했습니다. 메시지입니다.
 
@@ -980,11 +978,11 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
 
 다음 단계를 수행하여 모델을 조작하려면 Docker 엔진이 로컬로 실행되어야 합니다. 사용 하 여는 `-h` 해당 도움말 메시지를 표시 하는 각 명령 후에는 플래그입니다.
 
-> [!Note]  
-> Docker 엔진이 로컬로 사용할 수 없는 경우 Azure에서 배포용 클러스터를 만들어 계속 다시 사용 하기 위해 클러스터를 유지 하거나 지속적으로 요금을 방지 하려면 자습서 완료 후 삭제 합니다.
+    > [!Note]  
+    > If Docker engine is not locally available, proceed by creating a cluster in Azure for deployment and keep the cluster for re-use, or delete it after the tutorial to avoid ongoing charges.
 
-> [!Note]  
-> 로컬로 배포 된 웹 서비스는 Azure Portal의 서비스 목록에 나타나지 않습니다. 웹 서비스는 로컬 컴퓨터의 Docker에서 실행됩니다.
+    > [!Note]  
+    > Web services deployed locally do not appear in Azure Portal's list of services. They will be running in Docker on the local machine.
 
 1.  CLI(명령줄 인터페이스)를 엽니다. Machine Learning Workbench 응용 프로그램의 **파일** 메뉴에서 **명령 프롬프트 열기**를 선택합니다.
 
@@ -1019,7 +1017,7 @@ Azure Machine Learning Workbench에서 스크립트를 실행할 때마다 실�
     az provider show -n Microsoft.ContainerRegistry
     ```
 
-    출력 표시의 세 번째 줄 **"registrationState": "등록"** 합니다. 몇 분 정도 대기 하 고 반복 합니다 **표시** 명령 출력에 표시 될 때까지 **"registrationState": "등록 합니다.**
+    출력의 세 번째 줄에 **“registrationState”: “Registering”** 이 표시됩니다. 몇 분 정도 대기 하 고 반복 합니다 **표시** 명령 출력에 표시 될 때까지 **"registrationState": "등록 합니다.**
 
 1.  환경을 만듭니다. 환경당 한 번씩이 단계를 실행 합니다.
 
@@ -1220,9 +1218,9 @@ Linux 세션에 대 한 Windows 하위 시스템 내에서 명령을 사용 하 
 
     ![솔루션 템플릿 배포](media/azure-stack-solution-machine-learning/image59.png)
 
-10. 선택 **기본 사항** 에 Kubernetes 클러스터를 만듭니다.
+10\ 합니다. 선택 **기본 사항** 에 Kubernetes 클러스터를 만듭니다.
 
-    ![솔루션 템플릿 배포](media/azure-stack-solution-machine-learning/image60.png)
+    ![Deploy Solution Template](media/azure-stack-solution-machine-learning/image60.png)
 
 11. 입력 된 **Linux VM Admin Username**합니다. Kubernetes 클러스터의 일부인 Linux Virtual Machines 및 dvm이 대 한 사용자 이름입니다.
 
@@ -1263,7 +1261,7 @@ WSL 환경 내에서 WSL 환경에 kubectl을 설치 하려면 다음 명령을 
 
 ```PowerShell  
 Install-script -name install-kubectl -scope CurrentUser -force
-Install-kubectl.ps1 -downloadlocation "C:\Users\<Current User>\Documents\Kube"
+Install-kubectl.ps1 -downloadlocation “C:\Users\<Current User>\Documents\Kube
 ```
 
 ### <a name="install-kubectl-on-the-windows-subsystem-for-linux-environment"></a>Linux 환경에 대 한 Windows 하위 시스템에 kubectl 설치
@@ -1303,7 +1301,7 @@ The connection to the server <server-name:port> was refused -  did you specify t
 Kubectl 클러스터 정보를 반환 하는 경우 url 응답 하지만 클러스터가 여전히 확인 되지 않습니다에 액세스할 수 적절 한 구성을 사용 하 여:
 
 ```Bash  
-    kubectl cluster-info dump
+> kubectl cluster-info dump
 ```
 
 ### <a name="enable-shell-autocompletion"></a>셸 자동 완성을 사용 하도록 설정
@@ -1351,7 +1349,7 @@ sudo cat  /var/lib/waagent/custom-script/download/0/acs-engine/_output/edgemlsta
     kubectl proxy
     kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
     kubectl proxy
-    set KUBECONFIG="/mnt/c/users/<current user>/documents/Kube/kubeconfig.json"
+    set KUBECONFIG=”/mnt/c/users/<current user>/documents/Kube/kubeconfig.json”
     kubectl.exe config view
 ```
 
@@ -1410,7 +1408,7 @@ kubectl create secret docker-registry azuremlcr --docker-server=<your-registry-s
 kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deployment.yaml
 ```
 
-![대체 텍스트](media/azure-stack-solution-machine-learning/image67.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image67.png)
 
 배포의 상태를 확인 합니다.
 
@@ -1418,7 +1416,7 @@ kubectl.exe create -f /mnt/c/users/<current  user>/documents/Kube/iris_deploymen
 Kubectl get deployments
 ```
 
-![대체 텍스트](media/azure-stack-solution-machine-learning/image68.png)
+    ![Alt text](media/azure-stack-solution-machine-learning/image68.png)
 
 배포에는 약간의 시간이 걸릴 수 있습니다.
 
@@ -1555,7 +1553,7 @@ VSTS 서비스 끝점 구성의 일부로 필요 합니다 **테 넌 트 ID** Az
 
 Azure Stack 구독에 리소스를 배포 하려면 서비스 주체 권한 부여
 
-구독에서 리소스에 액세스 하려면 응용 프로그램 역할을 할당 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대 한 자세한 참조 [RBAC: 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)입니다.
+구독에서 리소스에 액세스 하려면 응용 프로그램 역할을 할당 합니다. 응용 프로그램에 적합한 사용 권한을 나타내는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 참조하세요.
 
 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정 합니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어, 리소스 그룹에 대 한 읽기 권한자 역할에 응용 프로그램을 추가할 수 있도록 리소스 그룹 및 포함 된 모든 리소스 읽기.
 
@@ -1828,7 +1826,7 @@ Azure 역할 기반 Access Control (RBAC)에 Azure 및 Azure Stack에 대 한 �
 
 2.  **연결 이름**: 연결 이름을 제공 합니다.
 
-3.  **서버 URL**: formathttp에서 컨테이너 서비스 주소를 제공 합니다. / / {API 서버 주소}
+3.  **서버 URL**:는 formathttp에서 컨테이너 서비스 주소를 제공 합니다. / / {API 서버 주소}
 
 4.  **Kubeconfig**: Kubeconfig 값을 가져오려면 관리자 권한으로 시작 하는 명령 프롬프트에서 다음 Azure 명령을 실행 합니다.
 
@@ -1857,7 +1855,7 @@ az aks 자격 증명 가져오기 리소스 그룹 <yourResourceGroup> 이름 <y
 
 ![Kubernetes 서비스 끝점](media/azure-stack-solution-machine-learning/image123.png)
 
-1.  로 이동 합니다 **.kube**홈 디렉터리에 있는 폴더 (예: C:\\사용자가\\<user>\\문서\\Kube)
+1.  로 이동 합니다 **.kube**홈 디렉터리에 있는 폴더 (예: c:\\사용자가\\<user>\\문서\\Kube)
 
 2.  내용을 복사 합니다**config**파일 및 Kubernetes 연결 창에 붙여 넣습니다. 선택 된**확인**단추입니다.
 
@@ -1916,7 +1914,7 @@ Kubernetes UI 실행 되 면 배포 이동할 [ **https://localhost:8001/** ](ht
 
     ```Bash  
     git add .
-    git commit -m "Added Service YAML" 
+    git commit -m “Added Service YAML” 
     git push
     ```
 
@@ -1961,7 +1959,8 @@ Kubernetes UI 실행 되 면 배포 이동할 [ **https://localhost:8001/** ](ht
 1.  앞에서 만든 Azure Stack 연결 Kubernates 서비스 연결을 설정 하 고 다음을 선택 합니다 **구성 파일을 사용 하 여** 구성 파일을 추가 하려면 확인란을 선택 합니다. 연결 된 아티팩트에 iris_service.yaml 파일을 찾습니다.
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image135.png)
-    <!-- -->
+
+
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image136.png)
 
 1.  릴리스 정의를 저장합니다.
@@ -2014,7 +2013,7 @@ Kubernetes UI를 찾은 다음로 이동 **배포** -> **아이리스 배포** -
 
 함수 앱은 각 함수의 실행을 호스트 해야 합니다. 함수 앱을 쉽게 관리, 배포 및 공유 리소스를 논리 단위로 그룹화 하는 함수를 허용 합니다.
 
-1.  Azure Stack 사용자 포털에서 선택 합니다 **+ 새로 만들기** 단추 왼쪽 위에 있는, 선택한 **웹 + 모바일** >**함수 앱**합니다.
+1.  Azure Stack 사용자 포털에서 선택 합니다 **+ 새로 만들기** 단추 왼쪽 위에 있는, 선택한**웹 + 모바일** >**함수 앱**합니다.
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image141.png)
 
@@ -2022,13 +2021,13 @@ Kubernetes UI를 찾은 다음로 이동 **배포** -> **아이리스 배포** -
 
     ![새 함수 앱 설정 정의](media/azure-stack-solution-machine-learning/image142.png)
 
-1.  선택 **만들기**프로 비전 하 고 함수 앱을 배포 합니다.
+1.  선택**만들기**프로 비전 하 고 함수 앱을 배포 합니다.
 
-2.  포털의 오른쪽 위 모서리에 있는 [알림] 아이콘을 선택하고 **배포 성공** 메시지가 표시될 때까지 기다립니다.
+2.  포털의 오른쪽 위 모서리에 있는 알림 아이콘을 선택 하 고 확인 합니다**배포 성공** 메시지입니다.
 
     ![새 함수 앱 설정 정의](media/azure-stack-solution-machine-learning/image143.png)
 
-1.  선택 **리소스로 이동** 새 함수 앱을 볼 수 있습니다.
+1.  선택**리소스로 이동** 새 함수 앱을 볼 수 있습니다.
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image144.png)
 
@@ -2104,13 +2103,13 @@ Kbernetes 및 함수를 설정한 후 확인 올바르게 사용할 수 있습�
 
 6.  선택 **로컬** 저장소 계정의 위치에 대 한 합니다.
 
-7.  선택 **만들기**저장소 계정을 만들어야 합니다.
+7.  선택**만들기**저장소 계정을 만들어야 합니다.
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image156.png)
 
 1.  최근에 만든 저장소 계정을 선택 합니다.
 
-2.  선택 **큐**합니다.
+2.  선택**큐**합니다.
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image157.png)
 
@@ -2130,7 +2129,7 @@ Kbernetes 및 함수를 설정한 후 확인 올바르게 사용할 수 있습�
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image161.png)
 
-1.  저장소 계정의 이름을 입력 합니다 **이름** 끝에 추가 필드 `_STORAGE`합니다.
+1.  저장소 계정 이름을 입력 합니다 **이름을** 끝에 추가 필드에; (_s)
 
 이렇게 하면 저장소 계정 끝점을 이해 하려면 응용 프로그램.
 
@@ -2160,7 +2159,7 @@ Kbernetes 및 함수를 설정한 후 확인 올바르게 사용할 수 있습�
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image166.png)
 
-## <a name="step-8-create-a-function-to-handle-clean-data"></a>8 단계: 데이터 정리를 처리 하기 위한 함수 만들기
+## <a name="step-8-create-a-function-to-handle-clean-data"></a>8 단계: 데이터 정리를 처리 하는 함수 만들기
 
 Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함수를 만듭니다.
 
@@ -2230,7 +2229,7 @@ Azure Stack에서 데이터 정리를 Azure로 이동 하는 새 Azure Stack 함
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image178.png)
 
-1.  Azure 호스트 된 저장소 계정을 Azure에서 클라우드까지 데이터를 구문 분석에 참조를 확인 합니다. 성공 비슷합니다는 아래.
+1.  Azure에서 클라우드까지 구문 분석 데이터를 보려면 Azure 호스트 된 저장소 계정에 확인: 성공 비슷합니다는 아래.
 
     ![대체 텍스트](media/azure-stack-solution-machine-learning/image179.png)
 
