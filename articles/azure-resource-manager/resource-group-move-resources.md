@@ -263,7 +263,7 @@ Authorization: Bearer <access-token>
 * Azure의 SAP HANA
 * 보안
 * Site Recovery
-* StorSimple 장치 관리자
+* StorSimple 디바이스 관리자
 * Virtual Networks(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>Virtual Machines 제한 사항

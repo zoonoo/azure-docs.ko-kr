@@ -23,7 +23,7 @@ ms.locfileid: "26374205"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 
-Azure VPN Gateway를 사용하여 온-프레미스 네트워크와 Azure 가상 네트워크 간의 보안 연결에 대한 필요성을 해결하는 하이브리드 솔루션을 만들 수 있습니다. 요구 사항이 고유하므로 온-프레미스 VPN 장치의 선택도 고유합니다. Azure는 현재 장치 공급 업체와 협력하여 지속적으로 유효성이 검사되는 [여러 VPN 장치](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)를 지원합니다. 온-프레미스 VPN 장치를 구성하기 전에 장치 관련 구성 설정을 검토합니다. 마찬가지로 Azure VPN Gateway는 연결을 설정하는 데 사용되는 [지원되는 IPsec 매개 변수](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)의 집합으로 구성됩니다. 현재 Azure VPN Gateway에서 IPsec 매개 변수의 특정 조합을 지정하거나 선택하는 방법이 없습니다. 온-프레미스와 Azure 간의 성공적인 연결 설정을 위해 온-프레미스 VPN 장치 설정은 Azure VPN Gateway에서 지정한 IPsec 매개 변수를 따라야 합니다. 설정이 정확하지 않으면 연결이 손실되고 현재까지 해당 문제에 대한 해결은 간단하지 않았으며 보통 문제를 식별하고 해결하는 데 시간이 걸렸습니다.
+Azure VPN Gateway를 사용하여 온-프레미스 네트워크와 Azure 가상 네트워크 간의 보안 연결에 대한 필요성을 해결하는 하이브리드 솔루션을 만들 수 있습니다. 요구 사항이 고유하므로 온-프레미스 VPN 디바이스의 선택도 고유합니다. Azure는 현재 디바이스 공급 업체와 협력하여 지속적으로 유효성이 검사되는 [여러 VPN 디바이스](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)를 지원합니다. 온-프레미스 VPN 디바이스를 구성하기 전에 디바이스 관련 구성 설정을 검토합니다. 마찬가지로 Azure VPN Gateway는 연결을 설정하는 데 사용되는 [지원되는 IPsec 매개 변수](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)의 집합으로 구성됩니다. 현재 Azure VPN Gateway에서 IPsec 매개 변수의 특정 조합을 지정하거나 선택하는 방법이 없습니다. 온-프레미스와 Azure 간의 성공적인 연결 설정을 위해 온-프레미스 VPN 디바이스 설정은 Azure VPN Gateway에서 지정한 IPsec 매개 변수를 따라야 합니다. 설정이 정확하지 않으면 연결이 손실되고 현재까지 해당 문제에 대한 해결은 간단하지 않았으며 보통 문제를 식별하고 해결하는 데 시간이 걸렸습니다.
 
 Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 연결로 모든 문제를 진단하고 몇 분 안에 문제를 해결하기 위해 정보를 바탕으로 결정을 내릴 수 있는 충분한 정보를 얻을 수 있습니다.
 

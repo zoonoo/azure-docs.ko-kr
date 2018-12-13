@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/27/2018
 ms.locfileid: "39285649"
 ---
-## <a name="the-parts-of-the-device-model-schema"></a>장치 모델 스키마 파트
+## <a name="the-parts-of-the-device-model-schema"></a>디바이스 모델 스키마 파트
 
-냉각기 또는 트럭과 같은 장치 모델 각각은 시뮬레이션 서비스가 시뮬레이션할 수 있는 장치의 종류를 정의합니다. 각 장치 모델은 다음 최상위 스키마를 사용하여 JSON 파일에 저장됩니다.
+냉각기 또는 트럭과 같은 장치 모델 각각은 시뮬레이션 서비스가 시뮬레이션할 수 있는 장치의 종류를 정의합니다. 각 디바이스 모델은 다음 최상위 스키마를 사용하여 JSON 파일에 저장됩니다.
 
 ```json
 {
@@ -42,33 +42,33 @@ ms.locfileid: "39285649"
 }
 ```
 
-GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels)에서 기본 시뮬레이션된 장치의 스키마 파일을 볼 수 있습니다.
+GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels)에서 기본 시뮬레이션된 디바이스의 스키마 파일을 볼 수 있습니다.
 
 다음 표에서는 최상위 스키마 항목에 대해 설명합니다.
 
 | 스키마 항목 | 설명 |
 | -- | --- |
 | `SchemaVersion` | 스키마 버전은 항상 `1.0.0`이며 이 파일의 형식에 고유합니다. |
-| `Id` | 이 장치 모델의 고유 ID입니다. |
-| `Version` | 장치 모델의 버전을 식별합니다. |
-| `Name` | 장치 모델의 식별 이름입니다. |
-| `Description` | 장치 모델에 대한 설명입니다. |
-| `Protocol` | 장치가 사용하는 연결 프로토콜입니다. `AMQP`, `MQTT` 및 `HTTP` 중 하나일 수 있습니다. |
+| `Id` | 이 디바이스 모델의 고유 ID입니다. |
+| `Version` | 디바이스 모델의 버전을 식별합니다. |
+| `Name` | 디바이스 모델의 식별 이름입니다. |
+| `Description` | 디바이스 모델에 대한 설명입니다. |
+| `Protocol` | 디바이스가 사용하는 연결 프로토콜입니다. `AMQP`, `MQTT` 및 `HTTP` 중 하나일 수 있습니다. |
 
 다음 섹션에서는 JSON 스키마의 다른 섹션에 대해 설명합니다.
 
 ## <a name="simulation"></a>시뮬레이션
 
-`Simulation` 섹션에서는 시뮬레이션된 장치의 내부 상태를 정의합니다. 장치에서 전송하는 모든 원격 분석 값은 이 장치 상태의 일부여야 합니다.
+`Simulation` 섹션에서는 시뮬레이션된 장치의 내부 상태를 정의합니다. 디바이스에서 전송하는 모든 원격 분석 값은 이 디바이스 상태의 일부여야 합니다.
 
-장치 상태의 정의에는 다음 두 가지 요소가 있습니다.
+디바이스 상태의 정의에는 다음 두 가지 요소가 있습니다.
 
 * `InitialState`는 장치 상태 개체의 모든 속성에 대한 초기 값을 정의합니다.
-* `Script`는 장치 상태를 업데이트하기 위해 일정에 따라 실행되는 JavaScript 파일을 식별합니다. 이 스크립트 파일을 사용하여 장치에서 전송되는 원격 분석 값을 임의로 지정할 수 있습니다.
+* `Script`는 장치 상태를 업데이트하기 위해 일정에 따라 실행되는 JavaScript 파일을 식별합니다. 이 스크립트 파일을 사용하여 디바이스에서 전송되는 원격 분석 값을 임의로 지정할 수 있습니다.
 
-장치 상태 개체를 업데이트하는 JavaScript 파일에 대한 자세한 내용은 [장치 모델 동작 이해](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md)를 참조하세요.
+디바이스 상태 개체를 업데이트하는 JavaScript 파일에 대한 자세한 내용은 [디바이스 모델 동작 이해](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md)를 참조하세요.
 
-다음 예제에서는 시뮬레이션된 냉각기 장치에 대한 장치 상태 개체의 정의를 보여 줍니다.
+다음 예제에서는 시뮬레이션된 냉각기 디바이스에 대한 디바이스 상태 개체의 정의를 보여줍니다.
 
 ```json
 "Simulation": {
@@ -90,11 +90,11 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 }
 ```
 
-시뮬레이션 서비스는 5초마다 **chiller-01-state.js** 파일을 실행하여 장치 상태를 업데이트합니다. GitHub의 [scripts 폴더](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts)에서 기본 시뮬레이션된 장치의 JavaScript 파일을 볼 수 있습니다. 규칙에 따라 이러한 JavaScript 파일에는 메서드 동작을 구현하는 파일과 구분하기 위해 **-state** 접미사가 있습니다.
+시뮬레이션 서비스는 5초마다 **chiller-01-state.js** 파일을 실행하여 디바이스 상태를 업데이트합니다. GitHub의 [scripts 폴더](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts)에서 기본 시뮬레이션된 디바이스의 JavaScript 파일을 볼 수 있습니다. 규칙에 따라 이러한 JavaScript 파일에는 메서드 동작을 구현하는 파일과 구분하기 위해 **-state** 접미사가 있습니다.
 
 ## <a name="properties"></a>properties
 
-스키마의 `Properties` 섹션에서는 장치가 솔루션에 보고하는 속성 값을 정의합니다. 예: 
+스키마의 `Properties` 섹션에서는 디바이스가 솔루션에 보고하는 속성 값을 정의합니다. 예: 
 
 ```json
 "Properties": {
@@ -105,7 +105,7 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 }
 ```
 
-솔루션이 시작되면 모든 시뮬레이션된 장치를 쿼리하여 UI에서 사용할 `Type` 값 목록을 작성합니다. 솔루션은 `Latitiude` 및 `Longitude` 속성을 사용하여 대시보드의 맵에 장치 위치를 추가합니다.
+솔루션이 시작되면 모든 시뮬레이션된 디바이스를 쿼리하여 UI에서 사용할 `Type` 값 목록을 작성합니다. 솔루션은 `Latitiude` 및 `Longitude` 속성을 사용하여 대시보드의 맵에 디바이스 위치를 추가합니다.
 
 ## <a name="telemetry"></a>원격 분석
 
@@ -181,14 +181,14 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-시뮬레이션된 장치는 IoT Hub에서 호출된 클라우드-장치 메서드에 응답할 수 있습니다. 장치 모델 스키마 파일의 `CloudToDeviceMethods` 섹션은 다음을 수행합니다.
+시뮬레이션된 장치는 IoT Hub에서 호출된 클라우드-장치 메서드에 응답할 수 있습니다. 디바이스 모델 스키마 파일의 `CloudToDeviceMethods` 섹션은 다음을 수행합니다.
 
-* 시뮬레이션된 장치가 응답할 수 있는 메서드를 정의합니다.
+* 시뮬레이션된 디바이스가 응답할 수 있는 메서드를 정의합니다.
 * 실행할 논리를 포함하는 JavaScript 파일을 식별합니다.
 
 시뮬레이션된 장치는 지원하는 메서드 목록을 연결된 IoT Hub에 전송합니다.
 
-장치의 동작을 구현하는 JavaScript 파일에 대한 자세한 내용은 [장치 모델 동작 이해](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md)를 참조하세요.
+디바이스의 동작을 구현하는 JavaScript 파일에 대한 자세한 내용은 [디바이스 모델 동작 이해](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md)를 참조하세요.
 
 다음 예제에서는 세 가지 지원되는 메서드 및 해당 메서드를 구현하는 JavaScript 파일을 지정합니다.
 
@@ -209,4 +209,4 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 }
 ```
 
-GitHub의 [scripts 폴더](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts)에서 기본 시뮬레이션된 장치의 JavaScript 파일을 볼 수 있습니다. 규칙에 따라 이러한 JavaScript 파일에는 상태 동작을 구현하는 파일과 구분하기 위해 **-method** 접미사가 있습니다.
+GitHub의 [scripts 폴더](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts)에서 기본 시뮬레이션된 디바이스의 JavaScript 파일을 볼 수 있습니다. 규칙에 따라 이러한 JavaScript 파일에는 상태 동작을 구현하는 파일과 구분하기 위해 **-method** 접미사가 있습니다.

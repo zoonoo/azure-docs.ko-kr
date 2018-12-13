@@ -109,7 +109,7 @@ ms.locfileid: "42816233"
     }
     ```
 
-    이 메서드는 반환된 GCM 등록 ID를 사용하여 푸시 알림을 위해 Azure에 등록합니다. 생성된 후 등록에 태그만 추가할 수 있습니다. 자세한 내용은 [방법: 태그에 푸시를 사용하도록 설정하기 위해 장치 설치에 태그 추가](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)를 참조하세요.
+    이 메서드는 반환된 GCM 등록 ID를 사용하여 푸시 알림을 위해 Azure에 등록합니다. 생성된 후 등록에 태그만 추가할 수 있습니다. 자세한 내용은 [방법: 태그에 푸시를 사용하도록 설정하기 위해 디바이스 설치에 태그 추가](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)를 참조하세요.
 
 7. **PushHandlerService**의 **OnMessage** 메서드를 다음 코드로 재정의합니다.
 

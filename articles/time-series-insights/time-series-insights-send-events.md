@@ -73,7 +73,7 @@ Time Series Insights에서 참조 데이터를 관리하는 방법에 대한 자
 
   ![MySendPolicy 연결 문자열 복사](media/send-events/sample-code-connection-string.png)
 
-2. 세 개의 각 장치마다 600개의 이벤트를 보내는 다음 코드를 실행합니다. 연결 문자열로 `eventHubConnectionString`을 업데이트합니다.
+2. 세 개의 각 디바이스마다 600개의 이벤트를 보내는 다음 코드를 실행합니다. 연결 문자열로 `eventHubConnectionString`을 업데이트합니다.
 
 ```csharp
 using System;

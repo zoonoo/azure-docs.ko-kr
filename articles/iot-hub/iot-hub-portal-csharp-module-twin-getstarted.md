@@ -29,7 +29,7 @@ ms.locfileid: "51514403"
 2. .NET 디바이스 SDK를 사용하여 디바이스에서 모듈 쌍을 업데이트하는 방법
 
 > [!NOTE]
-> 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK][lnk-hub-sdks]를 참고하세요.
+> 디바이스와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK][lnk-hub-sdks]를 참조하세요.
 >
 
 이 자습서를 완료하려면 다음이 필요합니다.
@@ -53,11 +53,11 @@ ms.locfileid: "51514403"
 
 하나의 장치 ID 내에 최대 20개의 모듈 ID를 만들 수 있습니다. 위쪽의 **모듈 ID 추가** 단추를 클릭하여 **myFirstModule**이라는 첫 번째 모듈 ID를 만듭니다. 
 
-  ![장치 세부 정보][9]
+  ![디바이스 세부 정보][9]
 
 방금 만든 모듈 ID를 저장하고 클릭합니다. 모듈 ID 세부 정보를 볼 수 있습니다. 연결 문자열 - 기본 키를 저장합니다. 장치에서 모듈을 설정한 경우 다음 섹션에서 사용됩니다.
 
-  ![장치 세부 정보][12]
+  ![디바이스 세부 정보][12]
 
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>.NET 장치 SDK를 사용하여 모듈 쌍 업데이트
 
@@ -69,7 +69,7 @@ Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사
 
   ![Visual Studio 프로젝트 만들기][13]
 
-## <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>최신 Azure IoT Hub .NET 장치 SDK 설치
+## <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>최신 Azure IoT Hub .NET 디바이스 SDK 설치
 
 모듈 ID 및 모듈 쌍은 공개 미리 보기로 제공됩니다. IoT Hub 시험판 장치 SDK에서만 사용할 수 있습니다. Visual Studio에서 도구 > Nuget 패키지 관리자 > 솔루션용 Nuget 패키지 관리를 차례로 엽니다. Microsoft.Azure.Devices.Client를 검색합니다. 시험판 포함 확인란이 선택되었는지 확인합니다. 최신 버전을 선택하고 설치합니다. 이제 모든 모듈 기능에 액세스할 수 있습니다. 
 

@@ -46,7 +46,7 @@ Oozie를 사용하여 Java 프로그램이나 셸 스크립트와 같은 시스�
 
 ![워크플로 다이어그램][img-workflow-diagram]
 
-1. Hive 동작은 HiveQL을 실행하여 HDInsight에 포함된 **hivesampletable** 에서 레코드를 추출합니다. 데이터의 각 행은 특정 모바일 장치에서의 방문을 설명합니다. 레코드 형식은 다음 텍스트와 유사하게 표시됩니다.
+1. Hive 동작은 HiveQL을 실행하여 HDInsight에 포함된 **hivesampletable** 에서 레코드를 추출합니다. 데이터의 각 행은 특정 모바일 디바이스에서의 방문을 설명합니다. 레코드 형식은 다음 텍스트와 유사하게 표시됩니다.
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0

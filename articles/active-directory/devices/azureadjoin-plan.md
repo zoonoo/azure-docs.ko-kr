@@ -119,7 +119,7 @@ ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD �
 
 ## <a name="assess-your-device-management"></a>디바이스 관리 평가
 
-### <a name="supported-devices"></a>지원되는 장치
+### <a name="supported-devices"></a>지원되는 디바이스
 
 Azure AD 조인:
 

@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB Gremlin API 소개 | Microsoft Docs
+title: Azure Cosmos DB Gremlin API 소개
 description: Azure Cosmos DB를 사용하여 Apache TinkerPop의 Gremlin 그래프 쿼리 언어로 대기 시간을 단축하면서 대량의 그래프를 저장하고 쿼리하고 트래버스하는 방법을 알아봅니다.
 services: cosmos-db
 author: LuisBosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 809dead23a12f761d46c1be6a24951b8762dc1e1
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f2ca118e137104c6dddd2945b7b88b2f535621eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092221"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849235"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB: Gremlin API 소개
 
@@ -34,7 +32,7 @@ ms.locfileid: "49092221"
 
 * **속성** -  속성은 꼭짓점 및 에지에 대한 정보를 나타냅니다. 예제 속성에는 이름 및 처리 기간이 있는 꼭짓점이 포함됩니다. 에지에는 타임스탬프 및/또는 가중치가 지정됩니다. 공식적으로 이 모델을 [속성 그래프](http://tinkerpop.apache.org/docs/current/reference/#intro)라고 합니다. Azure Cosmos DB는 속성 그래프 모델을 지원합니다.
 
-예를 들어 다음 샘플 그래프는 사람, 모바일 장치, 관심 분야 및 운영 체제 간 관계를 보여줍니다.
+예를 들어 다음 샘플 그래프는 사람, 모바일 디바이스, 관심 분야 및 운영 체제 간 관계를 보여줍니다.
 
 ![사람, 장치 및 관심 분야를 보여 주는 샘플 데이터베이스](./media/graph-introduction/sample-graph.png)
 
@@ -138,7 +136,7 @@ Azure Cosmos DB 그래프 지원을 사용할 수 있는 몇 가지 시나리오
 
 * 사물 인터넷
 
- IoT 장치 간의 네트워크 및 연결을 그래프로 모델링하여 장치 및 자산의 상태를 보다 잘 이해할 수 있습니다. 또한 한 네트워크 부분의 변경이 다른 부분에 어떤 영향을 미칠 수 있는지도 알 수 있습니다.
+ IoT 디바이스 간의 네트워크 및 연결을 그래프로 모델링하여 디바이스 및 자산의 상태를 보다 잘 이해할 수 있습니다. 또한 한 네트워크 부분의 변경이 다른 부분에 어떤 영향을 미칠 수 있는지도 알 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Cosmos DB의 그래프 지원에 대해 자세히 알아보려면 다음을 참조하세요.

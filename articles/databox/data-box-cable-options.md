@@ -28,7 +28,7 @@ ms.locfileid: "50091592"
 - MGMT용 RJ45 이더넷 케이블.
 - [지원되는 OS](data-box-system-requirements.md#supported-operating-systems-for-clients)를 실행 중인 데이터 원본.
 
-다음 단계를 수행하여 장치에 케이블을 연결합니다.
+다음 단계를 수행하여 디바이스에 케이블을 연결합니다.
 
 1. RJ45 케이블을 사용하여 데이터가 있는 서버에 MGMT 포트를 연결합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "50091592"
     - **IP 주소**를 192.168.100.5로 설정
     - **서브넷**을 255.255.255.0으로 설정
 
-3. 192.168.100.10에서 장치의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
+3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 
 
 ## <a name="transfer-via-data-port-with-static-ips"></a>고정 IP를 사용하여 DATA 포트를 통해 전송
@@ -56,7 +56,7 @@ ms.locfileid: "50091592"
 
 ### <a name="option-1---initial-setup-via-server"></a>옵션 1 - 서버를 통한 초기 설치
 
-다음 단계를 수행하여 장치에 케이블을 연결합니다.
+다음 단계를 수행하여 디바이스에 케이블을 연결합니다.
 
 1. 서버의 RJ45 이더넷 케이블을 구성할 MGMT 포트에 바로 사용합니다.
 2. DATA 3용 RJ45나 SFP+ 케이블을 통해 데이터 원본 역할을 하는 서버에 DATA 1 또는 DATA 2를 연결합니다. 성능 향상을 위해 10GbE DATA 1 또는 DATA 2 포트를 사용하는 것이 좋습니다.
@@ -67,23 +67,23 @@ ms.locfileid: "50091592"
 
     ![2개 포트 설치](media/data-box-cable-options/cabling-2-port-setup.png)
 
-3. 192.168.100.10에서 장치의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
+3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 4. 구성한 데이터 포트에 고정 IP를 할당합니다.
 
 ### <a name="option-2---initial-setup-via-separate-computer"></a>옵션 2 - 별도의 컴퓨터를 통한 초기 설치
 
-다음 단계를 수행하여 장치에 케이블을 연결합니다.
+다음 단계를 수행하여 디바이스에 케이블을 연결합니다.
 
 1. 서버의 RJ45 이더넷 케이블을 구성할 MGMT 포트에 바로 사용합니다.
 2. DATA 3용 RJ45나 SFP+ 케이블을 통해 서버에 DATA 1 또는 DATA 2를 연결합니다. 성능 향상을 위해 10GbE DATA 1 또는 DATA 2 포트를 사용하는 것이 좋습니다. 데이터 포트는 10GbE 스위치를 통해 데이터가 있는 서버에 연결됩니다.
-3. 장치에 연결하는 데 사용할 노트북의 이더넷 어댑터에 다음을 구성합니다.
+3. 디바이스에 연결하는 데 사용할 노트북의 이더넷 어댑터에 다음을 구성합니다.
 
     - **IP 주소**를 192.168.100.5로 설정
     - **서브넷**을 255.255.255.0으로 설정
 
     ![스위치를 사용하여 2개 포트 설치](media/data-box-cable-options/cabling-with-static-ip.png)
 
-3. 192.168.100.10에서 장치의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
+3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 4. DHCP 서버에서 할당한 IP 주소를 식별합니다.
 
 ## <a name="transfer-via-data-port-with-static-ips-using-a-switch"></a>스위치로 고정 IP를 사용하여 DATA 포트를 통해 전송 
@@ -96,24 +96,24 @@ ms.locfileid: "50091592"
 - 연결하려는 각 10GbE 데이터 포트당 10GbE SFP+ Twinax 동 케이블 하나.
 - [지원되는 OS](data-box-system-requirements.md#supported-operating-systems-for-clients)를 실행 중인 하나 이상의 데이터 원본. 이러한 데이터 원본은 1GbE 또는 10GbE 네트워크 같은 여러 네트워크에 있을 수 있습니다.
 
-다음 단계를 수행하여 장치에 케이블을 연결합니다.
+다음 단계를 수행하여 디바이스에 케이블을 연결합니다.
 
 1. 서버의 RJ45 이더넷 케이블을 구성할 MGMT 포트에 바로 사용합니다.
 2. DATA 3용 RJ45나 SFP+ 케이블을 통해 서버에 DATA 1 또는 DATA 2를 연결합니다. 성능 향상을 위해 10GbE DATA 1 또는 DATA 2 포트를 사용하는 것이 좋습니다.
-3. 장치에 연결하는 데 사용할 노트북의 이더넷 어댑터에 다음을 구성합니다.
+3. 디바이스에 연결하는 데 사용할 노트북의 이더넷 어댑터에 다음을 구성합니다.
 
     - **IP 주소**를 192.168.100.5로 설정
     - **서브넷**을 255.255.255.0으로 설정
 
     ![스위치를 사용하여 2개 포트 설치](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
-3. 192.168.100.10에서 장치의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
+3. 192.168.100.10에서 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 4. 구성한 데이터 포트에 고정 IP를 할당합니다.
 
 
 ## <a name="transfer-via-data-port-in-a-dhcp-environment"></a>DHCP 환경에서 DATA 포트를 통해 전송
 
-장치가 DHCP 환경에 있는 경우 이 구성을 사용하세요.
+디바이스가 DHCP 환경에 있는 경우 이 구성을 사용하세요.
 
 시작하기 전에 다음을 확인합니다.
 
@@ -121,14 +121,14 @@ ms.locfileid: "50091592"
 - 연결하려는 각 10GbE 데이터 포트당 10GbE SFP+ Twinax 동 케이블 하나.
 - [지원되는 OS](data-box-system-requirements.md#supported-operating-systems-for-clients)를 실행 중인 하나 이상의 데이터 원본. 이러한 데이터 원본은 1GbE 또는 10GbE 네트워크 같은 여러 네트워크에 있을 수 있습니다.
 
-다음 단계를 수행하여 장치에 케이블을 연결합니다.
+다음 단계를 수행하여 디바이스에 케이블을 연결합니다.
 
 1. DHCP 서버에 액세스할 수 있는 스위치를 통해 RJ45 또는 SFP+ 케이블을 서버에 연결합니다.
 
     ![스위치를 사용하여 2개 포트 설치](media/data-box-cable-options/cabling-dhcp-data-only.png)
 2. IP 주소를 식별하려면 DHCP 서버 또는 DNS 서버를 사용합니다.
-3. 동일한 네트워크의 서버에서 DHCP 서버가 할당한 IP 주소를 사용하는 장치의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
+3. 동일한 네트워크의 서버에서 DHCP 서버가 할당한 IP 주소를 사용하는 디바이스의 로컬 웹 UI에 액세스합니다. Azure Portal에서 잠금 해제 암호를 사용하여 Data Box에 로그인하고 잠금을 해제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 장치를 케이블로 연결했으므로 [Azure Data Box에 데이터 복사](data-box-deploy-copy-data.md)로 이동합니다.
+- 디바이스를 케이블로 연결했으므로 [Azure Data Box에 데이터 복사](data-box-deploy-copy-data.md)로 이동합니다.

@@ -90,7 +90,7 @@ Microsoft 볼륨 라이선싱 플랜을 통해 가져오려는 라이선스 수�
    
     ![환영 전자 메일](media/active-directory-get-started-premium/AADEmail.png)
 
-2. 성공적으로 로그인한 후 모바일 장치를 사용하여 2단계 확인을 거칩니다.
+2. 성공적으로 로그인한 후 모바일 디바이스를 사용하여 2단계 확인을 거칩니다.
    
     ![모바일 확인](media/active-directory-get-started-premium/SignUppage.png)
 

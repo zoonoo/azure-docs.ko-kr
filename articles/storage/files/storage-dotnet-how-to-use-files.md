@@ -39,7 +39,7 @@ Azure Files는 클라이언트 응용 프로그램에 SMB(서버 메시지 블�
 
 API | 사용하는 경우 | 메모
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 응용 프로그램의 경우: <ul><li>SMB를 통해 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 장치에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통한 Azure Files를 사용하여 파일 I/O를 코딩하는 작업은 일반적으로 네트워크 파일 공유 또는 로컬 저장소 장치를 사용하여 I/O를 코딩하는 작업과 동일합니다. 파일 I/O를 비롯한 다양한 .NET 기능에 대한 소개는 [이 자습서](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)를 참조하세요.
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 응용 프로그램의 경우: <ul><li>SMB를 통해 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 디바이스에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통한 Azure Files를 사용하여 파일 I/O를 코딩하는 작업은 일반적으로 네트워크 파일 공유 또는 로컬 저장소 디바이스를 사용하여 I/O를 코딩하는 작업과 동일합니다. 파일 I/O를 비롯한 다양한 .NET 기능에 대한 소개는 [이 자습서](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)를 참조하세요.
 [WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | 사용자 응용 프로그램의 경우: <ul><li>방화벽이나 ISP 제약 조건으로 인해 SMB를 통해 포트 445에서 Azure Files에 액세스할 수 없습니다.</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서는 (SMB 대신) REST 및 파일 공유의 관리를 사용하여 파일 I/O에서 `WindowsAzure.Storage`를 사용하는 방법을 보여줍니다.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>콘솔 응용 프로그램 만들기 및 어셈블리 가져오기

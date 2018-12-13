@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box 보안 개요 | Microsoft Docs
-description: 장치의 Azure Data Box 보안 기능, 서비스 및 Data Box에 있는 데이터에 대해 설명합니다.
+description: 디바이스의 Azure Data Box 보안 기능, 서비스 및 Data Box에 있는 데이터에 대해 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -38,17 +38,17 @@ Microsoft Azure Data Box 솔루션은 서로 상호 작용 하는 네 가지 기
 
 Data Box는 인증된 엔터티만 데이터를 확인, 수정 또는 삭제할 수 있도록 하는 방식으로 데이터 보호용 보안 솔루션을 제공합니다. 이 솔루션에 대한 보안 기능은 저장된 데이터의 보안을 보장하는 디스크 및 연결된 서비스를 위한 것입니다. 
 
-### <a name="data-box-device-protection"></a>Data Box 장치 보호
+### <a name="data-box-device-protection"></a>Data Box 디바이스 보호
 
-Data Box 장치는 다음 기능을 통해 보호됩니다.
+Data Box 디바이스는 다음 기능을 통해 보호됩니다.
 
-- 충격, 운송 과정의 부적절한 취급 및 환경 상황으로부터 장치를 보호하는 견고한 장치 케이스 
-- 운송 중의 장치 변조를 확인할 수 있는 봉인(변조 시 훼손됨)
-- 추가적인 장치 작동을 방지하는 하드웨어 및 소프트웨어 변조 검색 기능
+- 충격, 운송 과정의 부적절한 취급 및 환경 상황으로부터 디바이스를 보호하는 견고한 디바이스 케이스 
+- 운송 중의 디바이스 변조를 확인할 수 있는 봉인(변조 시 훼손됨)
+- 추가적인 디바이스 작동을 방지하는 하드웨어 및 소프트웨어 변조 검색 기능
 - Data Box용 소프트웨어만 실행 가능
 - 잠긴 상태로 부팅됨
-- 장치 잠금 해제 암호를 통해 장치 액세스 제어
-- 장치 내부에서/외부로 데이터를 복사하는 데 필요한 액세스 자격 증명
+- 디바이스 잠금 해제 암호를 통해 디바이스 액세스 제어
+- 디바이스 내부에서/외부로 데이터를 복사하는 데 필요한 액세스 자격 증명
 
 ### <a name="data-box-data-protection"></a>Data Box 데이터 보호
 
@@ -56,7 +56,7 @@ Data Box 내부에서/외부로 전송되는 데이터는 다음 기능을 통�
 
 - 미사용 데이터용 AES 256비트 암호화 
 - 처리 중인 데이터에 암호화된 프로토콜 사용 가능
-- Azure로의 업로드가 완료되면 장치에서 안전한 데이터 지우기 수행 데이터 지우기는 NIST 800-88r1 표준을 따릅니다.
+- Azure로의 업로드가 완료되면 디바이스에서 안전한 데이터 지우기 수행 데이터 지우기는 NIST 800-88r1 표준을 따릅니다.
 
 ### <a name="data-box-service-protection"></a>Data Box 서비스 보호
 
@@ -64,7 +64,7 @@ Data Box 서비스는 다음 기능을 통해 보호됩니다.
 
 - Data Box 서비스에 액세스하려면 조직에 Data Box를 포함하는 Azure 구독이 있어야 합니다. 구독은 Azure Portal에서 액세스할 수 있는 기능을 제어합니다.
 - Data Box Disk 서비스는 Azure에서 호스팅되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://www.microsoft.com/TrustCenter/Security/default.aspx)로 이동합니다. 
-- Data Box 서비스는 서비스에서 장치를 잠금 해제하는 데 사용되는 잠금 해제 암호를 저장합니다. 
+- Data Box 서비스는 서비스에서 디바이스를 잠금 해제하는 데 사용되는 잠금 해제 암호를 저장합니다. 
 - Data Box 서비스에는 주문 세부 정보 및 상태가 저장됩니다. 이 정보는 주문이 삭제될 때 삭제됩니다. 
 
 ## <a name="managing-personal-data"></a>개인 데이터 관리

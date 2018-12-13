@@ -33,7 +33,7 @@ Host: api.cognitive.microsoft.com
 
 > [!IMPORTANT]
 > * 모든 요청은 클라이언트가 아닌 서버에서 이뤄져야 합니다.
-> * Bing Search API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 사용자 및 장치 조합에 대한 클라이언트 ID를 반환한 Bing API를 호출한 경우에만 클라이언트 ID를 포함합니다.
+> * Bing Search API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 Bing API를 호출한 경우에만 클라이언트 ID를 포함합니다.
 > * 응답에 제공된 순서대로 이미지를 표시해야 합니다.
 
 ## <a name="get-images-from-a-specific-web-domain"></a>특정 웹 도메인에서 이미지 가져오기

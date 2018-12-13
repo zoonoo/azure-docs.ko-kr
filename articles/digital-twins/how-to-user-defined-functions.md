@@ -547,7 +547,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-### <a name="device-methods"></a>장치 메서드
+### <a name="device-methods"></a>디바이스 메서드
 
 #### <a name="parent--space"></a>Parent() ⇒ `space`
 

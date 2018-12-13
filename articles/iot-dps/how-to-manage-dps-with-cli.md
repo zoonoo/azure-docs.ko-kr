@@ -19,7 +19,7 @@ ms.locfileid: "46992867"
 
 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)는 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. Azure CLI는 Windows, Linux 및 MacOS에서 사용할 수 있습니다. Azure CLI를 사용하면 Azure IoT Hub 리소스, Device Provisioning 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다.
 
-IoT 확장은 장치 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
+IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
 
 이 자습서에서는 먼저 Azure CLI 및 IoT 확장을 설치하는 단계를 완료합니다. 그런 다음 CLI 명령을 실행하여 기본 Device Provisioning 서비스 작업을 수행하는 방법을 배웁니다. 
 
@@ -97,8 +97,8 @@ IoT 확장은 장치 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 장치 등록
-> * 장치 시작
+> * 디바이스 등록
+> * 디바이스 시작
 > * 장치가 등록되어 있는지 확인
 
 부하가 분산된 허브 간 여러 장치를 프로비전하는 방법에 알아보려면 다음 자습서를 진행합니다. 

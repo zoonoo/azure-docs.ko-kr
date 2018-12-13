@@ -40,7 +40,7 @@ Azure IoT 솔루션 가속기는 사용자 지정이 가능한 PaaS 솔루션으
     - 원격 모니터링
     - 연결된 공장
     - 예측 유지 관리
-    - 장치 시뮬레이션
+    - 디바이스 시뮬레이션
 - 몇 분 안에 배포하는 기능
 - 가치 창출 시간 단축
 - 궁극의 제어 기능을 제공하는 솔루션 
@@ -75,7 +75,7 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 | 기본 PaaS 서비스에 대한 액세스          | 기본 Azure 서비스에 액세스하여 이를 관리하거나 필요에 따라 바꿀 수 있습니다. | SaaS - 완벽하게 관리되는 솔루션이며, 기본 서비스가 노출되지 않습니다. |
 | 유연성            | 높음. 마이크로 서비스에 대한 코드는 오픈 소스이며, 원하는 대로 적절히 수정할 수 있습니다. 또한 배포 인프라를 사용자 지정할 수 있습니다.| 중간. 기본 제공 브라우저 기반 사용자 환경을 사용하여 솔루션 모델 및 UI 측면을 사용자 지정할 수 있습니다. 다른 구성 요소가 노출되지 않기 때문에 인프라는 사용자 지정할 수 없습니다.|
 | 기술 수준                 | 약간 높음 - 솔루션 백 엔드를 사용자 지정하려면 Java 또는 .NET 기술이 필요합니다. 시각화를 사용자 지정하려면 JavaScript 기술이 필요합니다. | 낮음. 솔루션을 사용자 지정하려면 모델링 기술이 필요합니다. 코딩 기술은 필요하지 않습니다. |
-| 시작 환경 | 솔루션 가속기에서 일반적인 IoT 시나리오를 구현합니다. 몇 분 안에 배포할 수 있습니다. | 응용 프로그램 템플릿 및 장치 템플릿은 미리 빌드된 모델을 제공합니다. 몇 분 안에 배포할 수 있습니다. |
+| 시작 환경 | 솔루션 가속기에서 일반적인 IoT 시나리오를 구현합니다. 몇 분 안에 배포할 수 있습니다. | 응용 프로그램 템플릿 및 디바이스 템플릿은 미리 빌드된 모델을 제공합니다. 몇 분 안에 배포할 수 있습니다. |
 | 가격                | 비용을 제어하기 위해 서비스를 자세히 튜닝할 수 있습니다. | 간단하고 예측 가능한 가격 책정 구조입니다. |
 
 궁극적으로 IoT 솔루션을 빌드하는 데 사용할 제품은 다음 조건에 따라 결정할 수 있습니다.
@@ -91,16 +91,16 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 ### <a name="device-support"></a>장치 지원
 
 [Azure IoT 시작 키트](https://catalog.azureiotsuite.com/kits)를 활용하거나 [장치 카탈로그](http://catalog.azureiotsuite.com/)에 있는 수백 대의 IoT용 Certified 장치 중에서 선택하여 자신 있게 IoT 프로젝트를 시작하세요. 모든 장치는 플랫폼의 제약을 받지 않으며 IoT Hub에 원활하게 연결되도록 테스트를 마쳤습니다.
-오픈 소스 [장치 SDK](/azure/iot-hub/iot-hub-devguide-sdks)를 사용하여 모든 장치를 Azure IoT에 연결하세요. SDK는 [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) 및 [Python](https://github.com/Azure/azure-iot-sdk-python) 같은 여러 프로그래밍 언어뿐 아니라 Linux, Windows 및 실시간 운영 체제 같은 여러 운영 체제도 지원합니다.
+오픈 소스 [디바이스 SDK](/azure/iot-hub/iot-hub-devguide-sdks)를 사용하여 모든 디바이스를 Azure IoT에 연결하세요. SDK는 [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) 및 [Python](https://github.com/Azure/azure-iot-sdk-python) 같은 여러 프로그래밍 언어뿐 아니라 Linux, Windows 및 실시간 운영 체제 같은 여러 운영 체제도 지원합니다.
 
 ### <a name="iot"></a>IoT 
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 수백만 대의 IoT 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스입니다. Azure IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적시에 올바른 IoT Hub에 무인 프로비전이 가능하므로 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 장치를 프로비전할 수 있습니다.
 
 ### <a name="edge"></a>Edge
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)는 IoT 서비스입니다. 이 서비스는 클라우드가 아닌 장치에서 즉, "에지"의 데이터를 관리하려는 고객을 대상으로 합니다. 워크로드의 일부를 에지로 이동하면 대기 시간이 단축되고 오프라인 시나리오에 대한 옵션이 제공됩니다.
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)는 IoT 서비스입니다. 이 서비스는 클라우드가 아닌 디바이스에서 즉, "에지"의 데이터를 관리하려는 고객을 대상으로 합니다. 워크로드의 일부를 에지로 이동하면 대기 시간이 단축되고 오프라인 시나리오에 대한 옵션이 제공됩니다.
 
 ### <a name="spatial-intelligence"></a>공간 인텔리전스
-[Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/)는 물리적 환경의 모델을 만들 수 있는 IoT 서비스입니다. 사람, 공간, 장치 간의 관계를 모델링하는 공간 인텔리전스 그래프를 제공합니다. 디지털 세계와 실제 세계의 데이터 간에 상관 관계를 지정하여 컨텍스트 인식 솔루션을 만들 수 있습니다.  
+[Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/)는 물리적 환경의 모델을 만들 수 있는 IoT 서비스입니다. 사람, 공간, 디바이스 간의 관계를 모델링하는 공간 인텔리전스 그래프를 제공합니다. 디지털 세계와 실제 세계의 데이터 간에 상관 관계를 지정하여 컨텍스트 인식 솔루션을 만들 수 있습니다.  
 
 ### <a name="data-and-analytics"></a>데이터 및 분석
 Azure Machine Learning을 사용하여 클라우드 인텔리전스를 에지로 가져오고, Azure Data Lake를 사용하여 IoT 장치 데이터를 비용 효율적인 방법으로 저장하고, [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)를 사용하여 IoT 장치의 데이터를 대량으로 시각화하는 등 IoT 솔루션에서 제공하는 다양한 Azure 데이터 및 분석 PaaS 서비스를 활용해 보세요.

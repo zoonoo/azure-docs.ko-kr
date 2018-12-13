@@ -26,15 +26,15 @@ ms.locfileid: "50415392"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 승인된 클라이언트 앱 필요 
 
-직원은 개인 및 회사 작업에 대해 모바일 장치를 사용합니다. 직원이 생산적이 될 수 있도록 하는 반면 데이터 손실을 방지하려고 합니다. Azure AD(Azure Active Directory) 조건부 액세스를 사용하여 클라우드 앱에 대한 액세스를 회사 데이터를 보호할 수 있는 승인된 클라이언트 앱으로 제한할 수 있습니다.  
+직원은 개인 및 회사 작업에 대해 모바일 디바이스를 사용합니다. 직원이 생산적이 될 수 있도록 하는 반면 데이터 손실을 방지하려고 합니다. Azure AD(Azure Active Directory) 조건부 액세스를 사용하여 클라우드 앱에 대한 액세스를 회사 데이터를 보호할 수 있는 승인된 클라이언트 앱으로 제한할 수 있습니다.  
 
 이 항목에서는 승인된 클라이언트 앱을 필요로 하는 조건부 액세스 정책을 구성하는 방법을 설명합니다.
 
 ## <a name="overview"></a>개요
 
-[Azure AD 조건부 액세스](overview.md)를 사용하여 권한 있는 사용자가 리소스를 액세스하는 방법을 미세 조정할 수 있습니다. 예를 들어 클라우드 앱에 대한 액세스를 신뢰할 수 있는 장치로 제한할 수 있습니다.
+[Azure AD 조건부 액세스](overview.md)를 사용하여 권한 있는 사용자가 리소스를 액세스하는 방법을 미세 조정할 수 있습니다. 예를 들어 클라우드 앱에 대한 액세스를 신뢰할 수 있는 디바이스로 제한할 수 있습니다.
 
-[Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 회사의 데이터를 보호할 수 있습니다. Intune 앱 보호 정책은 장치 관리 솔루션에 장치를 등록하거나 등록하지 않고 회사의 데이터를 보호할 수 있도록 하는 MDM(모바일 장치 관리) 솔루션이 필요하지 않습니다.
+[Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 회사의 데이터를 보호할 수 있습니다. Intune 앱 보호 정책은 디바이스 관리 솔루션에 디바이스를 등록하거나 등록하지 않고 회사의 데이터를 보호할 수 있도록 하는 MDM(모바일 디바이스 관리) 솔루션이 필요하지 않습니다.
 
 Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 액세스를 Intune 앱 보호 정책을 지원하는 클라이언트 앱으로 제한할 수 있습니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다.
 
@@ -47,7 +47,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 승인된 클라이언트 앱의 목록은 [승인된 클라이언트 앱 요구 사항](technical-reference.md#approved-client-app-requirement)을 참조하세요.
 
 
-앱 기반 조건부 액세스 정책을 [장치 기반 조건부 액세스 정책](require-managed-devices.md)과 같은 다른 정책과 결합하여 개인 및 회사 장치 모두에 대한 데이터를 보호하는 방법에 유연성을 제공할 수 있습니다.
+앱 기반 조건부 액세스 정책을 [디바이스 기반 조건부 액세스 정책](require-managed-devices.md)과 같은 다른 정책과 결합하여 개인 및 회사 디바이스 모두에 대한 데이터를 보호하는 방법에 유연성을 제공할 수 있습니다.
 
  
 
@@ -92,7 +92,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 - 응용 프로그램을 설치하고 Outlook 앱으로 돌아가서 계속할 수 있습니다.
 
-- 장치를 등록하라는 메시지가 표시되었습니다.
+- 디바이스를 등록하라는 메시지가 표시되었습니다.
 
 - 전자 메일에 액세스할 수 있습니다.
 
@@ -247,20 +247,20 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 자세한 정보는 [Microsoft Intune으로 앱 및 데이터 보호](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)를 참조하세요.
 
 
-## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대한 앱 기반 또는 준수 장치 정책
+## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대한 앱 기반 또는 준수 디바이스 정책
 
-이 시나리오는 Exchange Online에 액세스하기 위한 앱 기반 또는 준수 장치 조건부 액세스 정책으로 구성됩니다.
+이 시나리오는 Exchange Online에 액세스하기 위한 앱 기반 또는 준수 디바이스 조건부 액세스 정책으로 구성됩니다.
 
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
 
 이 시나리오는 다음을 가정합니다.
  
-- 일부 사용자가 이미 등록되어 있습니다(회사 장치 포함 또는 제외).
+- 일부 사용자가 이미 등록되어 있습니다(회사 디바이스 포함 또는 제외).
 
-- 앱 보호 응용 프로그램을 사용하여 Azure AD에 등록되지 않은 사용자는 리소스에 액세스하려면 장치를 등록해야 합니다.
+- 앱 보호 응용 프로그램을 사용하여 Azure AD에 등록되지 않은 사용자는 리소스에 액세스하려면 디바이스를 등록해야 합니다.
 
-- 앱 보호 응용 프로그램을 사용하는 등록된 사용자는 장치에 다시 등록할 필요가 없습니다.
+- 앱 보호 응용 프로그램을 사용하는 등록된 사용자는 디바이스에 다시 등록할 필요가 없습니다.
 
 
 ### <a name="configuration"></a>구성
@@ -339,9 +339,9 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 
 
 
-## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대한 앱 기반 및 준수 장치 정책
+## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 및 SharePoint Online에 대한 앱 기반 및 준수 디바이스 정책
 
-이 시나리오는 Exchange Online에 액세스하기 위한 앱 기반 및 준수 장치 조건부 액세스 정책으로 구성됩니다.
+이 시나리오는 Exchange Online에 액세스하기 위한 앱 기반 및 준수 디바이스 조건부 액세스 정책으로 구성됩니다.
 
 
 ### <a name="scenario-playbook"></a>시나리오 플레이 북
@@ -349,7 +349,7 @@ Azure Active Directory 조건부 액세스를 통해 클라우드 앱에 대한 
 이 시나리오는 다음과 같이 사용자를 가정합니다.
  
 -   iOS 또는 Android에는 기본 메일 응용 프로그램을 사용하여 Exchange에 연결하도록 전자 메일을 구성합니다.
--   액세스하려면 장치를 등록해야 함을 알리는 전자 메일을 수신합니다.
+-   액세스하려면 디바이스를 등록해야 함을 알리는 전자 메일을 수신합니다.
 -   회사 포털을 다운로드하고 회사 포털에 로그인합니다.
 -   메일을 확인하고 Outlook 앱을 사용하도록 요청받았습니다.
 -   Outlook 앱을 다운로드합니다.

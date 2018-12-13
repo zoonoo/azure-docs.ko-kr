@@ -17,13 +17,13 @@ ms.locfileid: "50024718"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 장치 SDK
 
-**Azure IoT 장치 SDK**는 **Azure IoT Hub** 서비스와 메시지를 보내고 받는 프로세스를 간소화하도록 설계된 라이브러리 집합입니다. 각각 특정 플랫폼을 대상으로 하는 다양하게 변형된 SDK가 제공되지만 이 문서에서는 **C용 Azure IoT 장치 SDK**를 설명합니다.
+**Azure IoT 장치 SDK**는 **Azure IoT Hub** 서비스와 메시지를 보내고 받는 프로세스를 간소화하도록 설계된 라이브러리 집합입니다. 각각 특정 플랫폼을 대상으로 하는 다양하게 변형된 SDK가 제공되지만 이 문서에서는 **C용 Azure IoT 디바이스 SDK**를 설명합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 C용 Azure IoT 장치 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 작성됩니다. 이 기능은 다양한 플랫폼과 장치에서 작동하기에 적합한 라이브러리를 만들며, 특히 디스크 및 메모리 사용 공간을 최소화하는 것을 우선적으로 처리합니다.
 
-이 SDK는 광범위한 플랫폼에서 테스트되었습니다(자세한 내용은 [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/) 참조). 이 문서에는 Windows 플랫폼에서 실행되는 샘플 코드 연습이 포함되어 있지만, 여기서 설명하는 코드는 지원되는 플랫폼 범위 전반에 걸쳐 정확히 동일합니다.
+이 SDK는 광범위한 플랫폼에서 테스트되었습니다(자세한 내용은 [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsuite.com/) 참조). 이 문서에는 Windows 플랫폼에서 실행되는 샘플 코드 연습이 포함되어 있지만, 여기서 설명하는 코드는 지원되는 플랫폼 범위 전반에 걸쳐 정확히 동일합니다.
 
 다음 비디오는 C:에 대한 Azure IoT SDK의 개요를 제공합니다.
 
@@ -103,7 +103,7 @@ IoT Hub를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구가 
 
 1. **만들기** 단추를 클릭하여 장치를 만듭니다. 미리 채워진 키 집합(기본 및 보조)을 포함한 대화 상자가 표시됩니다. **장치 ID**를 입력한 다음 **만들기**를 클릭합니다.
 
-  ![장치 만들기 스크린샷](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
+  ![디바이스 만들기 스크린샷](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
 1. 장치를 만들었으면 방금 만든 장치를 포함하여 등록된 모든 장치로 [장치] 목록이 업데이트됩니다. 새 장치를 마우스 오른쪽 단추로 클릭하면 다음 메뉴가 표시됩니다.
 
@@ -410,7 +410,7 @@ END_NAMESPACE(WeatherStation);
 
 **BEGIN\_NAMESPACE** 및 **END\_NAMESPACE** 매크로 모두 인수로 모델의 네임스페이스를 사용합니다. 이러한 매크로에는 모델의 정의와 모델에서 사용하는 데이터 구조가 필요합니다.
 
-이 예에서는 **ContosoAnemometer**라는 단일 모델이 있습니다. 이 모델은 장치에서 IoT Hub로 보낼 수 있는 두 가지 데이터, 즉 **DeviceId** 및 **WindSpeed**를 정의합니다. 또한 장치에서 수신할 수 있는 세 가지 동작(메시지)으로 **TurnFanOn**, **TurnFanOff** 및 **SetAirResistance**를 정의합니다. 각 데이터 요소에는 형식이 있고, 각 작업에는 이름(필요에 따라 매개 변수 집합)이 있습니다.
+이 예에서는 **ContosoAnemometer**라는 단일 모델이 있습니다. 이 모델은 장치에서 IoT Hub로 보낼 수 있는 두 가지 데이터, 즉 **DeviceId** 및 **WindSpeed**를 정의합니다. 또한 디바이스에서 수신할 수 있는 세 가지 동작(메시지)으로 **TurnFanOn**, **TurnFanOff** 및 **SetAirResistance**를 정의합니다. 각 데이터 요소에는 형식이 있고, 각 작업에는 이름(필요에 따라 매개 변수 집합)이 있습니다.
 
 모델에 정의된 이벤트 및 작업은 메시지를 IoT Hub로 보내고 장치로 보낸 메시지에 응답하는 데 사용할 수 있는 API 표면을 정의합니다. 이 모델의 사용은 예제를 통해 가장 잘 이해할 수 있습니다.
 
@@ -576,7 +576,7 @@ serializer_deinit();
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 **C용 Azure IoT 장치 SDK**에서 라이브러리 사용에 대한 기본 사항을 다룹니다. SDK에 포함된 내용, 아키텍처 및 Windows 샘플 작업을 시작하는 방법을 이해하기에 충분한 정보를 제공했습니다. 다음 문서에서는 [IoTHubClient 라이브러리에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)를 설명하여 SDK를 계속 설명합니다.
+이 문서에서는 **C용 Azure IoT 디바이스 SDK**에서 라이브러리 사용에 대한 기본 사항을 다룹니다. SDK에 포함된 내용, 아키텍처 및 Windows 샘플 작업을 시작하는 방법을 이해하기에 충분한 정보를 제공했습니다. 다음 문서에서는 [IoTHubClient 라이브러리에 대한 자세한 정보](iot-hub-device-sdk-c-iothubclient.md)를 설명하여 SDK를 계속 설명합니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 

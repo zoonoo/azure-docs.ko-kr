@@ -186,7 +186,7 @@ ms.locfileid: "41924797"
     }
     ```
        
-    이 클래스는 로컬 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
+    이 클래스는 로컬 저장소를 사용하여, 이 디바이스에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
 4. **MainActivity** 클래스에서 **NotificationHub** 및 **GoogleCloudMessaging**에 대한 Private 필드를 제거하고 **Notifications**에 대한 필드를 추가합니다.
 
     ```java   
@@ -297,7 +297,7 @@ ms.locfileid: "41924797"
    
     이 코드는 이전에 저장한 범주의 상태를 기반으로 기본 활동을 업데이트합니다.
 
-이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 장치의 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
+이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 디바이스의 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
 
 ## <a name="send-tagged-notifications"></a>태그가 지정된 알림 보내기
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]

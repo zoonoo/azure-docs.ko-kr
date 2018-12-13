@@ -24,7 +24,7 @@ ms.locfileid: "51621091"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>네이티브 클라이언트 앱을 사용하여 프록시 응용 프로그램과 상호 작용하는 방법
 
-웹 응용 프로그램뿐만 아니라 ADAL(Azure AD Authentication Library)로 구성된 네이티브 클라이언트 앱을 게시하는 데 Azure Active Directory 응용 프로그램 프록시를 사용할 수도 있습니다. 네이티브 클라이언트 앱은 장치에 설치되는 반면 웹앱은 브라우저를 통해 액세스되므로 웹앱과 다릅니다. 
+웹 응용 프로그램뿐만 아니라 ADAL(Azure AD Authentication Library)로 구성된 네이티브 클라이언트 앱을 게시하는 데 Azure Active Directory 응용 프로그램 프록시를 사용할 수도 있습니다. 네이티브 클라이언트 앱은 디바이스에 설치되는 반면 웹앱은 브라우저를 통해 액세스되므로 웹앱과 다릅니다. 
 
 응용 프로그램 프록시는 헤더에 전송된 Azure AD가 발급한 토큰을 수락하여 네이티브 클라이언트 앱을 지원합니다. 응용 프로그램 프록시 서비스는 사용자를 대신해서 인증을 수행합니다. 이 솔루션은 인증에 대해 응용 프로그램 토큰을 사용하지 않습니다. 
 

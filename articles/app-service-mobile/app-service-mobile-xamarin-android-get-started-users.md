@@ -48,7 +48,7 @@ ms.locfileid: "47063543"
 ## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다. 이 예외는 앱이 인증되지 않은 사용자로 모바일 앱 백 엔드에 액세스하려고 시도합니다. *TodoItem* 테이블에서 이제 인증을 요구합니다.
+Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 디바이스 또는 에뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다. 이 예외는 앱이 인증되지 않은 사용자로 모바일 앱 백 엔드에 액세스하려고 시도합니다. *TodoItem* 테이블에서 이제 인증을 요구합니다.
 
 다음으로 클라이언트 앱을 업데이트하여 모바일 앱 백엔드에서 인증된 된 사용자를 사용하여 리소스를 요청합니다.
 
@@ -124,7 +124,7 @@ Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치
           </intent-filter>
         </activity>
 
-6. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행하고 선택된 ID 공급자로 로그인합니다. 성공적으로 로그인하면 앱이 로그인 ID 및 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
+6. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 디바이스 또는 에뮬레이터에서 실행하고 선택된 ID 공급자로 로그인합니다. 성공적으로 로그인하면 앱이 로그인 ID 및 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

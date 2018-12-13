@@ -233,8 +233,8 @@ HomeAutomation 도메인은 조명 및 어플라이언스와 같은 스마트 �
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| 장치 | 켜거나 끌 수 있는 장치 유형입니다.|커피 메이커<br/>자동 온도 조절기<br/>조명|
-| 작업(Operation) | 장치의 설정 상태입니다.|lock<br/>open<br/>on<br/>끄기|
+| 장치 | 켜거나 끌 수 있는 디바이스 유형입니다.|커피 메이커<br/>자동 온도 조절기<br/>조명|
+| 작업(Operation) | 디바이스의 설정 상태입니다.|lock<br/>open<br/>on<br/>끄기|
 | 공간 | 장치가 있는 위치 또는 방입니다.|거실<br/>침실<br/>주방|
 
 ## <a name="movietickets"></a>MovieTickets 
@@ -354,7 +354,7 @@ Can you make the screen brighter?
 |PowerOff | 장치를 끕니다.|내 컴퓨터를 종료할 수 있나요?<br/>Shutdown<br/>내 휴대폰 끄기|
 |QueryBattery|배터리 수명에 대한 정보를 얻습니다.|배터리 수명을 표시합니다.<br/>내 배터리 상태<br/>남아 있는 배터리 용량은 얼마나 되나요?<br/>배터리 표시|
 |QueryWifi|WiFi에 대한 정보를 얻습니다.|WiFi 정보를 얻습니다.|
-|다시 시작|장치를 다시 시작합니다.|다시 시작하세요.|
+|다시 시작|디바이스를 다시 시작합니다.|다시 시작하세요.|
 |RingDevice| 장치를 분실한 경우 찾기 위해 벨소리를 내도록 요청합니다.|휴대폰이 울리도록 합니다.| 
 |SetBrightness|장치 밝기를 설정합니다.|밝기를 중간으로 설정<br/>밝기를 높음으로 설정<br/>밝기를 낮음으로 설정|
 |SetupDevice|장치 설치를 시작합니다.|OS 설치 프로그램을 설치합니다.<br/>설치하세요.<br/>자동으로 설치|
@@ -364,7 +364,7 @@ Can you make the screen brighter?
 |SwitchApplication|장치에서 사용하도록 응용 프로그램을 전환합니다.|내 미디어 플레이어로 전환합니다.|
 |TurnDownBrightness|장치 밝기를 줄입니다.|화면을 흐리게 표시합니다.|
 |TurnOffSetting|장치 설정을 해제합니다.|Bluetooth 비활성화<br/>데이터 사용 안 함<br/>Bluetooth 연결 끊기|
-|TurnOnSetting|장치 설정을 켭니다.|다른 <br/> 꺼짐|
+|TurnOnSetting|디바이스 설정을 켭니다.|다른 <br/> 꺼짐|
 |TurnUpBrightness|장치 밝기를 높입니다.|화면을 더 밝게 만들 수 있나요?|
 
 ### <a name="entities"></a>엔터티

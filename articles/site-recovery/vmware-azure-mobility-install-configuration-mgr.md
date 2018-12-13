@@ -29,7 +29,7 @@ ms.locfileid: "51012278"
 ## <a name="prerequisites"></a>필수 조건
 
 1. Configuration Manager와 같은 소프트웨어 배포 도구가 사용자 환경에 이미 배포되어 있어야 합니다.
-2. Site Recovery를 사용하여 보호하려는 모든 **Windows 서버**와 모든 **Linux 서버**에 각각 하나씩, 총 두 개의 [장치 컬렉션](https://technet.microsoft.com/library/gg682169.aspx)을 만들어야 합니다.
+2. Site Recovery를 사용하여 보호하려는 모든 **Windows 서버**와 모든 **Linux 서버**에 각각 하나씩, 총 두 개의 [디바이스 컬렉션](https://technet.microsoft.com/library/gg682169.aspx)을 만들어야 합니다.
 3. Recovery Services 자격 증명 모음에 이미 구성 서버가 등록되어 있어야 합니다.
 4. Configuration Manager 컴퓨터가 액세스할 수 있는 보안 네트워크 파일 공유(SMB 공유)가 있어야 합니다.
 

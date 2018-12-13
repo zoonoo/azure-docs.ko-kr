@@ -241,4 +241,4 @@ ms.locfileid: "43307001"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [IoT Hub 작업 모니터링 소개](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
-| **단계** | <p>IoT Hub 작업 모니터링을 통해 모은 감사 데이터를 수집하고 저장하도록 설계합니다. 다음 모니터링 범주를 사용하도록 설정합니다.</p><ul><li>장치 ID 작업</li><li>장치-클라우드 통신</li><li>클라우드-장치 통신</li><li>연결</li><li>파일 업로드</li></ul>|
+| **단계** | <p>IoT Hub 작업 모니터링을 통해 모은 감사 데이터를 수집하고 저장하도록 설계합니다. 다음 모니터링 범주를 사용하도록 설정합니다.</p><ul><li>디바이스 ID 작업</li><li>장치-클라우드 통신</li><li>클라우드-장치 통신</li><li>연결</li><li>파일 업로드</li></ul>|

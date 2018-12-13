@@ -17,7 +17,7 @@ ms.locfileid: "51577501"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Azure Portal에서 새 Azure IoT Edge 장치 등록
 
-Azure IoT Edge에서 IoT 장치를 사용하려면 먼저 IoT Hub에 등록해야 합니다. 장치를 등록하면 Edge 워크로드에 대해 장치를 설정하는 데 사용할 수 있는 연결 문자열을 받게 됩니다. 
+Azure IoT Edge에서 IoT 디바이스를 사용하려면 먼저 IoT Hub에 등록해야 합니다. 디바이스를 등록하면 Edge 워크로드에 대해 디바이스를 설정하는 데 사용할 수 있는 연결 문자열을 받게 됩니다. 
 
 이 문서에서는 Azure Portal을 사용하여 새 IoT Edge 장치를 등록하는 방법을 보여 줍니다.
 
@@ -25,7 +25,7 @@ Azure IoT Edge에서 IoT 장치를 사용하려면 먼저 IoT Hub에 등록해�
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) 
 
-## <a name="create-a-device"></a>장치 만들기
+## <a name="create-a-device"></a>디바이스 만들기
 
 Azure Portal에서 IoT Edge 장치는 IoT Hub에 연결되지만 에지를 사용할 수 없는 장치와 별도로 만들어지고 관리됩니다. 
 
@@ -35,7 +35,7 @@ Azure Portal에서 IoT Edge 장치는 IoT Hub에 연결되지만 에지를 사�
 4. 설명이 포함된 장치 ID를 제공합니다. 
 5. **저장**을 선택합니다. 
 
-## <a name="view-all-devices"></a>모든 장치 보기
+## <a name="view-all-devices"></a>모든 디바이스 보기
 
 IoT Hub에 연결된 에지를 사용할 수 있는 모든 장치는 **IoT Edge** 페이지에 나열되어 있습니다. 
 

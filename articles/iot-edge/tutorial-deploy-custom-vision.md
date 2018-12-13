@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge 장치에 Custom Vision 배포 | Microsoft Docs
+title: Azure IoT Edge 디바이스에 Custom Vision 배포 | Microsoft Docs
 description: Custom Vision 및 IoT Edge를 사용하여 컴퓨터 비전 모델을 컨테이너로 실행하는 방법을 알아봅니다.
 services: iot-edge
 author: kgremban
@@ -20,14 +20,14 @@ ms.locfileid: "51566485"
 
 Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하여 IoT 솔루션의 효율성을 높일 수 있습니다. 이 기능은 컴퓨터 비전 모델과 같은 많은 데이터를 처리하는 서비스에 적합합니다. [Custom Vision Service](../cognitive-services/custom-vision-service/home.md)를 통해 사용자 지정 이미지 분류자를 빌드하고 컨테이너로 장치에 배포할 수 있습니다. 이러한 두 서비스를 함께 사용하여 먼저 모든 데이터를 사이트에서 전송하지 않고도 이미지 또는 비디오 스트림에서 정보를 찾을 수 있습니다. Custom Vision은 이미지를 정보를 생성하는 학습된 모델과 비교하는 분류자를 제공합니다. 
 
-예를 들어 IoT Edge 장치의 Custom Vision은 고속도로에서 정상보다 높거나 낮은 트래픽이 발생하는지 여부 또는 주차장에 사용 가능한 주차 공간이 연달아 있는지 여부를 확인할 수 있습니다. 작업을 수행하기 위해 다른 서비스와 이러한 정보를 공유할 수 있습니다. 
+예를 들어 IoT Edge 디바이스의 Custom Vision은 고속도로에서 정상보다 높거나 낮은 트래픽이 발생하는지 여부 또는 주차장에 사용 가능한 주차 공간이 연달아 있는지 여부를 확인할 수 있습니다. 작업을 수행하기 위해 다른 서비스와 이러한 정보를 공유할 수 있습니다. 
 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 
 > [!div class="checklist"]
 > * Custom Vision을 사용하여 이미지 분류자 빌드
-> * 장치에서 Custom Vision 웹 서버를 쿼리하는 IoT Edge 모듈 개발
+> * 디바이스에서 Custom Vision 웹 서버를 쿼리하는 IoT Edge 모듈 개발
 > * IoT Hub에 이미지 분류자의 결과 전송
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -58,7 +58,7 @@ Azure IoT Edge 장치:
 
 이미지 분류자를 빌드하려면 Custom Vision 프로젝트를 만들고 교육 이미지를 제공해야 합니다. 이 섹션에서 수행하는 단계에 대한 자세한 내용은 [Custom Vision을 사용하여 분류자를 빌드하는 방법](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md)을 참조하세요.
 
-이미지 분류자를 빌드 및 학습하면 Docker 컨테이너로 내보내고 IoT Edge 장치에 배포할 수 있습니다. 
+이미지 분류자를 빌드 및 학습하면 Docker 컨테이너로 내보내고 IoT Edge 디바이스에 배포할 수 있습니다. 
 
 ### <a name="create-a-new-project"></a>새 프로젝트 만들기
 
@@ -137,7 +137,7 @@ Azure IoT Edge 장치:
 
 ### <a name="create-a-new-solution"></a>새 솔루션 만들기
 
-솔루션은 단일 IoT Edge 배포에 대해 여러 모듈을 개발 및 구성하는 논리적 방법입니다. 솔루션은 하나 이상의 모듈에 대한 코드 및 IoT Edge 장치에서 구성하는 방법을 선언하는 배포 매니페스트를 포함합니다. 
+솔루션은 단일 IoT Edge 배포에 대해 여러 모듈을 개발 및 구성하는 논리적 방법입니다. 솔루션은 하나 이상의 모듈에 대한 코드 및 IoT Edge 디바이스에서 구성하는 방법을 선언하는 배포 매니페스트를 포함합니다. 
 
 1. Visual Studio Code에서 **보기** > **터미널**을 선택하여 VS Code 통합 터미널을 엽니다.
 
@@ -355,7 +355,7 @@ Visual Studio 코드의 Python 모듈 템플릿은 IoT Edge를 테스트하도�
 
 ### <a name="prepare-a-deployment-manifest"></a>배포 매니페스트 준비
 
-지금까지 이 자습서에서는 트리의 이미지를 분류하는 Custom Vision 모델을 학습하고, IoT Edge 모듈로 모델을 패키지했습니다. 그런 다음, 이미지 분류 서버를 쿼리하고 IoT Hub에 결과를 다시 보고할 수 있는 두 번째 모듈을 만들었습니다. 이제 이러한 두 모듈을 함께 시작하고 실행하는 방법을 IoT Edge 장치를 알려주는 배포 매니페스트를 만들 준비가 되었습니다. 
+지금까지 이 자습서에서는 트리의 이미지를 분류하는 Custom Vision 모델을 학습하고, IoT Edge 모듈로 모델을 패키지했습니다. 그런 다음, 이미지 분류 서버를 쿼리하고 IoT Hub에 결과를 다시 보고할 수 있는 두 번째 모듈을 만들었습니다. 이제 이러한 두 모듈을 함께 시작하고 실행하는 방법을 IoT Edge 디바이스를 알려주는 배포 매니페스트를 만들 준비가 되었습니다. 
 
 Visual Studio Code용 IoT Edge 확장은 배포 매니페스트를 만들 수 있도록 각 IoT Edge 솔루션에서 템플릿을 제공합니다. 
 
@@ -389,7 +389,7 @@ Visual Studio Code용 IoT Edge 확장은 배포 매니페스트를 만들 수 �
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
-이 자습서의 필수 구성 요소는 사용자가 만든 모듈에 대한 컨테이너 이미지를 저장하는 데 필요한 컨테이너 레지스트리를 나열했습니다. 두 위치(이미지를 레지스트리에 빌드 및 푸시할 수 있도록 Visual Studio Code와 IoT Edge 장치와 이미지를 끌어오고 배포할 수 있도록 배포 매니페스트에서)에서 레지스트리에 대한 액세스 자격 증명을 제공해야 합니다. 
+이 자습서의 필수 구성 요소는 사용자가 만든 모듈에 대한 컨테이너 이미지를 저장하는 데 필요한 컨테이너 레지스트리를 나열했습니다. 두 위치(이미지를 레지스트리에 빌드 및 푸시할 수 있도록 Visual Studio Code와 IoT Edge 디바이스와 이미지를 끌어오고 배포할 수 있도록 배포 매니페스트에서)에서 레지스트리에 대한 액세스 자격 증명을 제공해야 합니다. 
 
 Azure Container Registry를 사용하는 경우 [관리자 계정](../container-registry/container-registry-authentication.md#admin-account)에 대한 사용자 이름, 로그인 서버 및 암호를 알고 있어야 합니다. 
 
@@ -413,7 +413,7 @@ Azure Container Registry를 사용하는 경우 [관리자 계정](../container-
 
 모듈이 생성되고 배포 매니페스트 템플릿이 구성되면 컨테이너 이미지를 빌드하고 컨테이너 레지스트리에 푸시할 준비가 되었습니다. 
 
-이미지가 레지스트리에 있으면 솔루션을 IoT Edge 장치에 배포할 수 있습니다. IoT Hub를 통해 장치에서 모듈을 설정할 수 있지만 Visual Studio Code를 통해 IoT Hub 및 장치에 액세스할 수도 있습니다. 이 섹션에서는 IoT Hub에 대한 액세스 권한을 설정한 다음, VS Code를 사용하여 IoT Edge 장치에 솔루션을 배포합니다.
+이미지가 레지스트리에 있으면 솔루션을 IoT Edge 디바이스에 배포할 수 있습니다. IoT Hub를 통해 장치에서 모듈을 설정할 수 있지만 Visual Studio Code를 통해 IoT Hub 및 장치에 액세스할 수도 있습니다. 이 섹션에서는 IoT Hub에 대한 액세스 권한을 설정한 다음, VS Code를 사용하여 IoT Edge 장치에 솔루션을 배포합니다.
 
 먼저 솔루션을 컨테이너 레지스트리에 빌드 및 푸시합니다. 
 
@@ -427,15 +427,15 @@ Azure Container Registry를 사용하는 경우 [관리자 계정](../container-
 2. 표시되는 메시지에 따라 Azure 계정에 로그인합니다. 
 3. 명령 팔레트에서 Azure 구독을 선택한 다음, IoT Hub를 선택합니다. 
 
-마지막으로 장치를 선택하고 솔루션을 배포합니다.
+마지막으로 디바이스를 선택하고 솔루션을 배포합니다.
 
 1. VS Code 탐색기에서 **Azure IoT Hub 장치** 섹션을 펼칩니다. 
-2. 배포에서 대상으로 지정하려는 장치를 마우스 오른쪽 단추로 클릭하고, **단일 장치 배포 만들기**를 선택합니다. 
+2. 배포에서 대상으로 지정하려는 디바이스를 마우스 오른쪽 단추로 클릭하고, **단일 디바이스 배포 만들기**를 선택합니다. 
 3. 파일 탐색기에서는 솔루션 내의 **config** 폴더로 이동하고, **deployment.json**을 선택합니다. **에지 배포 매니페스트 선택**을 클릭합니다. 
 
-배포가 성공하는 경우 VS Code 출력에 확인 메시지가 출력됩니다. VS Code 탐색기에서 이 배포에 사용한 IoT Edge 장치에 대한 세부 정보를 확장합니다. 커서로 **Azure IoT Hub 장치** 헤더를 가리켜 모듈이 즉시 표시되지 않는 경우 새로 고침 단추를 활성화합니다. 모듈을 시작하고 IoT Hub에 다시 보고하는 데 몇 분 정도 걸릴 수 있습니다. 
+배포가 성공하는 경우 VS Code 출력에 확인 메시지가 출력됩니다. VS Code 탐색기에서 이 배포에 사용한 IoT Edge 디바이스에 대한 세부 정보를 확장합니다. 커서로 **Azure IoT Hub 디바이스** 헤더를 가리켜 모듈이 즉시 표시되지 않는 경우 새로 고침 단추를 활성화합니다. 모듈을 시작하고 IoT Hub에 다시 보고하는 데 몇 분 정도 걸릴 수 있습니다. 
 
-모든 모듈이 장치 자체에서 실행되는지를 확인할 수도 있습니다. IoT Edge 장치에서 다음 명령을 실행하여 모듈의 상태를 확인합니다. 모듈을 시작하는 데 몇 분 정도 걸릴 수 있습니다.
+모든 모듈이 디바이스 자체에서 실행되는지를 확인할 수도 있습니다. IoT Edge 장치에서 다음 명령을 실행하여 모듈의 상태를 확인합니다. 모듈을 시작하는 데 몇 분 정도 걸릴 수 있습니다.
 
    ```bash
    iotedge list
@@ -443,22 +443,22 @@ Azure Container Registry를 사용하는 경우 [관리자 계정](../container-
 
 ## <a name="view-classification-results"></a>분류 결과 보기
 
-모듈의 결과를 보는 두 가지 방법이 있습니다. 메시지가 생성 및 전송되는 대로 장치 자체에서 보거나 메시지가 IoT Hub에 도착하는 대로 Visual Studio Code에서 볼 수 있습니다. 
+모듈의 결과를 보는 두 가지 방법이 있습니다. 메시지가 생성 및 전송되는 대로 디바이스 자체에서 보거나 메시지가 IoT Hub에 도착하는 대로 Visual Studio Code에서 볼 수 있습니다. 
 
-장치에서 cameraCapture 모듈의 로그를 확인하여 전송되는 메시지 및 IoT Hub에서 수신했음을 확인합니다. 
+디바이스에서 cameraCapture 모듈의 로그를 확인하여 전송되는 메시지 및 IoT Hub에서 수신했음을 확인합니다. 
 
    ```bash
    iotedge logs cameraCapture
    ```
 
-Visual Studio Code에서 IoT Edge 장치의 이름을 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다. 
+Visual Studio Code에서 IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다. 
 
 cameraCapture 모듈에서 메시지로 전송되는 Custom Vision 모듈의 결과는 이미지가 hemlock 또는 cherry 트리일 가능성을 포함합니다. 이미지는 hemlock이므로 확률은 1.0으로 표시됩니다. 
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 
@@ -470,7 +470,7 @@ cameraCapture 모듈에서 메시지로 전송되는 Custom Vision 모듈의 결
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Custom Vision 모델을 학습하고 이를 모듈로 IoT Edge 장치에 배포했습니다. 그런 다음, 이미지 분류 서비스를 쿼리하고 IoT Hub에 결과를 다시 보고할 수 있는 모듈을 빌드했습니다. 
+이 자습서에서는 Custom Vision 모델을 학습하고 이를 모듈로 IoT Edge 디바이스에 배포했습니다. 그런 다음, 이미지 분류 서비스를 쿼리하고 IoT Hub에 결과를 다시 보고할 수 있는 모듈을 빌드했습니다. 
 
 라이브 카메라 피드를 사용하여 이 시나리오의 보다 심층적인 버전을 시도하려는 경우 [Raspberry Pi 3의 Custom Vision 및 Azure IoT Edge](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) GitHub 프로젝트를 참조하세요. 
 

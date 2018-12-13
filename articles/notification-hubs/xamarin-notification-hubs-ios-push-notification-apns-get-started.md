@@ -51,7 +51,7 @@ ms.locfileid: "42917706"
 - [Mac용 Visual Studio]
   
   > [!NOTE]
-  > iOS 푸시 알림에 대한 구성 요구 사항 때문에 시뮬레이터 대신 실제 iOS 장치(iPhone 또는 iPad)에서 응용 프로그램 예제를 배포 및 테스트해야 합니다.
+  > iOS 푸시 알림에 대한 구성 요구 사항 때문에 시뮬레이터 대신 실제 iOS 디바이스(iPhone 또는 iPad)에서 응용 프로그램 예제를 배포 및 테스트해야 합니다.
 
 먼저 이 자습서를 완료해야 Xamarin.iOS 앱에 대한 다른 모든 Notification Hubs 자습서를 진행할 수 있습니다.
 
@@ -218,7 +218,7 @@ ms.locfileid: "42917706"
     > [!NOTE]
     > 네트워크 연결이 없는 경우를 처리하도록 **FailedToRegisterForRemoteNotifications()** 를 재정의할 수 있습니다. 이는 사용자가 응용 프로그램을 오프라인 모드(예: 비행기)에서 시작할 수 있고 앱에 특정한 푸시 메시지 시나리오를 처리하려는 경우에 특히 중요합니다.
 
-13. 장치에서 앱을 실행합니다.
+13. 디바이스에서 앱을 실행합니다.
 
 ## <a name="send-test-push-notifications"></a>테스트 푸시 알림 보내기
 

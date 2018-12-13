@@ -23,7 +23,7 @@ ms.locfileid: "27862199"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Azure Automation을 사용하여 작업 트리거
 
-이 문서에서는 StorSimple 데이터 관리자 서비스 내에서 데이터 변환 기능을 사용하여 StorSimple 장치 데이터를 변환하는 방법에 대해 설명합니다. 두 가지 방법으로 데이터 변환 작업을 시작할 수 있습니다. 
+이 문서에서는 StorSimple 데이터 관리자 서비스 내에서 데이터 변환 기능을 사용하여 StorSimple 디바이스 데이터를 변환하는 방법에 대해 설명합니다. 두 가지 방법으로 데이터 변환 작업을 시작할 수 있습니다. 
 
  - .NET SDK 사용
  - Azure Automation Runbook 사용

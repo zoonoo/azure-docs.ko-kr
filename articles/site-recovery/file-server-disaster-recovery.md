@@ -87,7 +87,7 @@ Azure IaaS VM에 호스팅되는 파일 서버의 재해 복구를 관리하는 
 
 ## <a name="use-file-sync-to-replicate-files-hosted-on-an-iaas-virtual-machine"></a>파일 동기화를 사용하여 IaaS 가상 머신에서 호스팅되는 파일 복제
 
-Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 장치를 완전히 바꾸거나 보완하는 데 사용할 수 있습니다. Azure 파일 공유는 사용되는 데이터의 성능 및 분산 캐싱을 위해 파일 동기화를 사용하여 온-프레미스 또는 클라우드의 Windows 서버에 복제될 수도 있습니다. 다음 단계에서는 기존의 파일 서버와 동일한 기능을 수행하는 Azure VM에 대한 재해 복구 권장 사항을 설명합니다.
+Azure Files는 기존의 온-프레미스 파일 서버 또는 NAS 디바이스를 완전히 바꾸거나 보완하는 데 사용할 수 있습니다. Azure 파일 공유는 사용되는 데이터의 성능 및 분산 캐싱을 위해 파일 동기화를 사용하여 온-프레미스 또는 클라우드의 Windows 서버에 복제될 수도 있습니다. 다음 단계에서는 기존의 파일 서버와 동일한 기능을 수행하는 Azure VM에 대한 재해 복구 권장 사항을 설명합니다.
 * Site Recovery를 사용하여 컴퓨터를 보호합니다. [다른 Azure 지역에 Azure VM 복제](azure-to-azure-quickstart.md)의 단계를 따릅니다.
 * 파일 동기화를 사용하여 파일 서버 역할을 하는 VM에서 클라우드로 파일을 복제합니다.
 * Site Recovery의 [복구 계획](site-recovery-create-recovery-plans.md) 기능을 사용하여 [Azure 파일 공유를 탑재](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)하고 가상 머신에서 공유 권한에 액세스하는 스크립트를 추가합니다.

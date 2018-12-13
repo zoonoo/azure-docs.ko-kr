@@ -14,7 +14,7 @@ ms.locfileid: "52279778"
 | 계층: | 무료 | BASIC | 표준 |
 | --- | --- | --- | --- |
 | API 호출 |500 K |1.5 M / 단위 |15 M / 단위 |
-| 활성 장치 |500 |Unlimited |Unlimited |
+| 활성 디바이스 |500 |Unlimited |Unlimited |
 | 크기 조정 |해당 없음 |최대 6개 |무제한 단위 |
 | 푸시 알림 |Notification Hubs 무료 계층 포함, 최대 1 M 밀어넣기 |Notification Hubs 기본 계층 포함, 최대 10 M 밀어넣기 |Notification Hubs 표준 계층 포함, 최대 10 M 밀어넣기 |
 | 실시간 메시징 /<br/>웹 소켓 |제한적 |350 / 모바일 서비스 |Unlimited |

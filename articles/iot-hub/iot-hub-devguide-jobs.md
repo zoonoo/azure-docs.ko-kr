@@ -17,7 +17,7 @@ ms.locfileid: "48884227"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 장치에서 작업 예약
 
-Azure IoT Hub를 통해 [장치 쌍 속성 및 태그](iot-hub-devguide-device-twins.md) 및 [직접 메서드](iot-hub-devguide-direct-methods.md)와 같은 다양한 구성 요소를 사용할 수 있습니다. 일반적으로, 백 엔드 앱을 사용하면 장치 관리자와 운영자는 IoT 장치를 대량으로 예약된 시간에 업데이트하고 상호 작용할 수 있습니다. 작업은 예약된 시간에 장치 집합에 대해 장치 쌍 업데이트 및 직접 메서드를 실행합니다. 예를 들어 운영자는 빌딩 운영에 지장을 주지 않는 시간에 빌딩 43 및 3층에서 장치 집합을 재부팅하기 위해 작업을 시작 및 추적하는 백 엔드 앱을 사용합니다.
+Azure IoT Hub를 통해 [디바이스 쌍 속성 및 태그](iot-hub-devguide-device-twins.md) 및 [직접 메서드](iot-hub-devguide-direct-methods.md)와 같은 다양한 구성 요소를 사용할 수 있습니다. 일반적으로, 백 엔드 앱을 사용하면 장치 관리자와 운영자는 IoT 장치를 대량으로 예약된 시간에 업데이트하고 상호 작용할 수 있습니다. 작업은 예약된 시간에 장치 집합에 대해 장치 쌍 업데이트 및 직접 메서드를 실행합니다. 예를 들어 운영자는 빌딩 운영에 지장을 주지 않는 시간에 빌딩 43 및 3층에서 장치 집합을 재부팅하기 위해 작업을 시작 및 추적하는 백 엔드 앱을 사용합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -36,7 +36,7 @@ Azure IoT Hub를 통해 [장치 쌍 속성 및 태그](iot-hub-devguide-device-t
 
 ## <a name="jobs-to-execute-direct-methods"></a>직접 메서드를 실행할 작업
 
-다음 코드 조각은 작업을 사용하여 장치 집합에서 [직접 메서드](iot-hub-devguide-direct-methods.md)를 실행하기 위한 HTTPS 1.1 요청 세부 정보를 보여 줍니다.
+다음 코드 조각은 작업을 사용하여 디바이스 집합에서 [직접 메서드](iot-hub-devguide-direct-methods.md)를 실행하기 위한 HTTPS 1.1 요청 세부 정보를 보여 줍니다.
 
 ```
 PUT /jobs/v2/<jobId>?api-version=2018-06-30
@@ -60,7 +60,7 @@ User-Agent: <sdk-name>/<sdk-version>
 }
 ```
 
-쿼리 조건은 다음 예제와 같이 단일 장치 ID 또는 장치 ID 목록에 있을 수도 있습니다.
+쿼리 조건은 다음 예제와 같이 단일 디바이스 ID 또는 디바이스 ID 목록에 있을 수도 있습니다.
 
 ```
 "queryCondition" = "deviceId = 'MyDevice1'"
@@ -72,7 +72,7 @@ User-Agent: <sdk-name>/<sdk-version>
 
 ## <a name="jobs-to-update-device-twin-properties"></a>장치 쌍 속성을 업데이트하는 작업
 
-다음 코드 조각은 작업을 사용하여 장치 쌍 속성을 업데이트하는 HTTPS 1.1 요청 세부 정보를 나타냅니다.
+다음 코드 조각은 작업을 사용하여 디바이스 쌍 속성을 업데이트하는 HTTPS 1.1 요청 세부 정보를 나타냅니다.
 
 ```
 PUT /jobs/v2/<jobId>?api-version=2018-06-30
@@ -146,7 +146,7 @@ User-Agent: <sdk-name>/<sdk-version>
 
 * [Azure IoT 장치 및 서비스 SDK](iot-hub-devguide-sdks.md)는 IoT Hub와 상호 작용하는 장치 및 서비스 앱 모두를 개발할 때 사용할 수 있는 다양한 언어 SDK를 나열합니다.
 
-* [장치 쌍, 작업 및 메시지 라우팅용 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에서는 IoT Hub 쿼리 언어를 설명합니다. 이 쿼리 언어를 사용하여 IoT Hub에서 장치 쌍 및 작업에 대한 정보를 검색합니다.
+* [장치 쌍, 작업 및 메시지 라우팅용 IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에서는 IoT Hub 쿼리 언어를 설명합니다. 이 쿼리 언어를 사용하여 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색합니다.
 
 * [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
 

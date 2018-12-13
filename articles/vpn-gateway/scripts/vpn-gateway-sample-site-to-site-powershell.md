@@ -18,7 +18,7 @@ ms.locfileid: "51976930"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>PowerShell을 사용하여 VPN Gateway를 만들고 사이트 간 연결 추가
 
-이 스크립트는 경로 기반 VPN Gateway를 만들고 사이트 간 구성을 추가합니다. 연결을 만들기 위해 VPN 장치를 구성해야 합니다. 자세한 내용은 [사이트 간 VPN Gateway 연결에 대한 VPN 장치 및 IPsec/IKE 매개 변수 정보](../vpn-gateway-about-vpn-devices.md)를 참조하세요.
+이 스크립트는 경로 기반 VPN Gateway를 만들고 사이트 간 구성을 추가합니다. 연결을 만들기 위해 VPN 디바이스를 구성해야 합니다. 자세한 내용은 [사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보](../vpn-gateway-about-vpn-devices.md)를 참조하세요.
 
 
 ```azurepowershell-interactive

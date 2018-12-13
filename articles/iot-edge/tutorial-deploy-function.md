@@ -18,7 +18,7 @@ ms.locfileid: "52165623"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 
-비즈니스 논리를 직접 Azure IoT Edge 장치에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 IoT Edge 장치에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md) 빠른 시작의 시뮬레이션된 장치에 Azure IoT Edge 배포에서 만든 시뮬레이션된 IoT Edge 장치를 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.     
+비즈니스 논리를 직접 Azure IoT Edge 장치에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 IoT Edge 장치에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md) 빠른 시작의 시뮬레이션된 디바이스에 Azure IoT Edge 배포에서 만든 시뮬레이션된 IoT Edge 디바이스를 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.     
 
 > [!div class="checklist"]
 > * Visual Studio Code를 사용하여 Azure 함수를 만듭니다.
@@ -57,7 +57,7 @@ Azure IoT Edge 장치:
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
+이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 디바이스에서 실행되도록 레지스트리의 이미지를 배포합니다.  
 
 임의 Docker 호환 레지스트리를 사용하여 컨테이너 이미지를 유지할 수 있습니다. 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
 
@@ -181,7 +181,7 @@ Azure IoT Edge 장치:
 
 이전 섹션에서는 IoT Edge 솔루션을 만들고 **CSharpFunction**에 코드를 추가하여 보고된 컴퓨터 온도가 허용 가능한 임계값 이하인 메시지를 필터링했습니다. 이제 솔루션을 컨테이너 이미지로 빌드하고 컨테이너 레지스트리로 푸시해야 합니다.
 
-이 섹션에서는 컨테이너 레지스트리의 자격 증명을 두 번 입력합니다. 첫 번째는 Visual Studio Code가 레지스트리에 이미지를 푸시할 수 있도록 개발 머신에서 로컬로 로그인할 때입니다. 두 번째는 레지스트리에서 이미지를 풀하는 권한을 IoT Edge 장치에 제공하는 IoT Edge 솔루션의 **.env** 파일입니다. 
+이 섹션에서는 컨테이너 레지스트리의 자격 증명을 두 번 입력합니다. 첫 번째는 Visual Studio Code가 레지스트리에 이미지를 푸시할 수 있도록 개발 머신에서 로컬로 로그인할 때입니다. 두 번째는 레지스트리에서 이미지를 풀하는 권한을 IoT Edge 디바이스에 제공하는 IoT Edge 솔루션의 **.env** 파일입니다. 
 
 1. **보기** > **터미널**을 차례로 선택하여 VS Code 통합 터미널을 엽니다. 
 
@@ -233,7 +233,7 @@ Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge �
 
 5. VS Code 탐색기에서 **Azure IoT Hub 장치** 섹션을 펼칩니다. 
 
-6. IoT Edge 장치의 이름을 마우스 오른쪽 단추로 클릭한 다음, **단일 장치용 배포 만들기**를 선택합니다. 
+6. IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭한 다음, **단일 디바이스용 배포 만들기**를 선택합니다. 
 
 7. **CSharpFunction**이 포함된 솔루션 폴더를 찾습니다. config 폴더를 열고 **deployment.json** 파일을 선택한 다음, **Edge 배포 매니페스트 선택**을 클릭합니다.
 
@@ -252,7 +252,7 @@ Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 

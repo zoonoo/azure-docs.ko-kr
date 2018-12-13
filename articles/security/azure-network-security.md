@@ -31,7 +31,7 @@ Microsoft Azure는 고객 데이터의 기밀성, 무결성 및 가용성을 제
 
 ## <a name="azure-platform"></a>Azure 플랫폼
 
-Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 장치를 지원하는 공용 클라우드 서비스 플랫폼입니다.  Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 장치용 백 엔드를 빌드할 수 있습니다. Azure 클라우드 서비스는 수백만의 개발자 및 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
+Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 디바이스를 지원하는 공용 클라우드 서비스 플랫폼입니다.  Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 디바이스용 백 엔드를 빌드할 수 있습니다. Azure 클라우드 서비스는 수백만의 개발자 및 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
 
 IT 자산을 만들거나 공용 클라우드 서비스 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 응용 프로그램과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
 
@@ -163,7 +163,7 @@ VNet을 네트워크와 Azure 간의 개인 네트워크 연결을 통해 또는
 
 - **지점-사이트 간 VPN(가상 사설망):** 네트워크에 연결된 단일 PC와 VNet 간에 설정됩니다. 이 연결 유형은 기존 네트워크를 거의 변경할 필요가 없으므로 Azure을 이제 막 시작하는 사용자나 개발자에게 적합합니다. 이 연결은 SSTP 프로토콜을 사용하여 PC 및 VNet 간에 인터넷을 통한 암호화된 통신을 제공합니다. 트래픽이 인터넷을 통과하므로 지점 및 사이트 간 VPN의 대기 시간은 예측할 수 없습니다.
 
-- **사이트 간 VPN:** VPN 장치와 Azure VPN Gateway 간에 설정됩니다. 이 연결 유형에서는 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 장치와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
+- **사이트 간 VPN:** VPN 장치와 Azure VPN Gateway 간에 설정됩니다. 이 연결 유형에서는 권한을 부여한 모든 온-프레미스 리소스에서 VNet에 액세스할 수 있습니다. 이 연결은 온-프레미스 디바이스와 Azure VPN Gateway 간에 인터넷을 통한 암호화된 통신을 제공하는 IPSec/IKE VPN입니다. 트래픽이 인터넷을 통과하므로 사이트 간 연결의 대기 시간은 예측 가능하지 않습니다.
 
 - **Azure ExpressRoute:** ExpressRoute 파트너를 통해 네트워크와 Azure 간에 설정됩니다. 이 연결은 사설 전용입니다. 트래픽이 인터넷을 통과하지 않습니다. 트래픽이 인터넷을 통과하지 않으므로 ExpressRoute 연결에 대한 대기 시간을 예측할 수 있습니다. 모든 이전 연결 옵션에 대한 자세한 내용은 [연결 토폴로지 다이어그램](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json)을 읽어보세요.
 
@@ -205,7 +205,7 @@ Azure는 VNet의 모든 서브넷에 연결된 리소스가 서로 통신할 수
 이 시나리오에서는 인터넷에 공개되어야 하고, 작업의 구성에 따라 어디에서든지 또는 특정 위치에서만 액세스할 수 있어야 하는 응용 프로그램을 노출할 수 있습니다.
 
 #### <a name="point-to-site-vpn-or-site-to-site-vpn"></a>지점 및 사이트 간 VPN 또는 사이트 간 VPN
-이러한 두 가지 방식은 같은 범주에 속합니다. 두 방식 모두 VNet에 VPN Gateway가 필요하며, [지점-사이트 간 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)의 일부로 워크스테이션에 대한 VPN 클라이언트를 사용하여 연결하거나 사이트 간 VPN을 종료할 수 있게 온-프레미스 [VPN 장치](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)를 구성할 수 있습니다. 이러한 방식으로 온-프레미스 장치는 VNet 내에서 리소스에 연결할 수 있습니다.
+이러한 두 가지 방식은 같은 범주에 속합니다. 두 방식 모두 VNet에 VPN Gateway가 필요하며, [지점-사이트 간 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)의 일부로 워크스테이션에 대한 VPN 클라이언트를 사용하여 연결하거나 사이트 간 VPN을 종료할 수 있게 온-프레미스 [VPN 디바이스](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)를 구성할 수 있습니다. 이러한 방식으로 온-프레미스 디바이스는 VNet 내에서 리소스에 연결할 수 있습니다.
 
 지점 및 사이트 간(P2S) 구성을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 안전한 연결을 만들 수 있습니다. P2S는 SSTP를 통한 VPN 연결입니다(보안 소켓 터널링 프로토콜).
 
@@ -213,7 +213,7 @@ Azure는 VNet의 모든 서브넷에 연결된 리소스가 서로 통신할 수
 
 지점 및 사이트 간 연결은 집 또는 회의 센터와 같은 원격 위치에서 VNet에 연결하려는 경우 또는 몇 명의 클라이언트만 가상 네트워크에 연결해야 하는 경우 유용합니다.
 
-P2S 연결에는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다. 클라이언트 컴퓨터에서 VPN 연결을 설정합니다. 따라서 여러 온-프레미스 장치 및 컴퓨터에서 Azure 네트워크로의 영구 연결이 필요한 경우에는 Azure에 연결하는 데 P2S가 권장되지 않습니다.
+P2S 연결에는 VPN 디바이스 또는 공용 IP 주소가 필요하지 않습니다. 클라이언트 컴퓨터에서 VPN 연결을 설정합니다. 따라서 여러 온-프레미스 디바이스 및 컴퓨터에서 Azure 네트워크로의 영구 연결이 필요한 경우에는 Azure에 연결하는 데 P2S가 권장되지 않습니다.
 
 ![사이트 간 VPN](media/azure-network-security/azure-network-security-fig-6.png)
 
@@ -222,7 +222,7 @@ P2S 연결에는 VPN 장치 또는 공용 IP 주소가 필요하지 않습니다
 
 사이트 간 VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터널을 통해 온-프레미스 네트워크를 Azure Virtual Network에 연결하는 데 사용됩니다.
 
-이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 장치를 필요로 합니다. 이 연결은 인터넷을 통해 발생하며 네트워크와 Azure 사이의 암호화된 링크 내부에서 정보를 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포해 온 안전하고 완성도 높은 기술입니다. 터널 암호화는 [IPsec 터널 모드](https://technet.microsoft.com/library/cc786385.aspx)를 사용하여 수행됩니다.
+이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 디바이스를 필요로 합니다. 이 연결은 인터넷을 통해 발생하며 네트워크와 Azure 사이의 암호화된 링크 내부에서 정보를 "터널링"할 수 있습니다. 사이트 간 VPN은 수십 년 동안 모든 규모의 기업에서 배포해 온 안전하고 완성도 높은 기술입니다. 터널 암호화는 [IPsec 터널 모드](https://technet.microsoft.com/library/cc786385.aspx)를 사용하여 수행됩니다.
 
 사이트 간 VPN이 신뢰할 수 있고 안정적이며 인정받은 기술이지만 터널 내부 트래픽은 인터넷을 트래버스합니다. 뿐만 아니라 대역폭이 약 200Mbps로 제한됩니다.
 

@@ -953,7 +953,7 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/write | Express 경로 교차 연결 피어링을 추가합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/expressroutecrossconnections/read | Express 경로 교차 연결을 가져옵니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/expressroutecrossconnections/write | Express 경로 교차 연결을 추가합니다. |
-> | 액션(Action) | Microsoft.ClassicNetwork/gatewaySupportedDevices/read | 지원되는 장치 목록을 검색합니다. |
+> | 액션(Action) | Microsoft.ClassicNetwork/gatewaySupportedDevices/read | 지원되는 디바이스 목록을 검색합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/networkSecurityGroups/delete | 네트워크 보안 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read | 네트워크 보안 그룹의 작업 상태를 읽습니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read | 네트워크 보안 그룹 진단 설정을 가져옵니다. |
@@ -992,7 +992,7 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/read | 연결 목록을 검색합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/test/action | 사이트 간 게이트웨이 연결을 테스트합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/delete | 가상 네트워크 게이트웨이를 삭제합니다. |
-> | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/downloadDeviceConfigurationScript/action | 장치 구성 스크립트를 다운로드합니다. |
+> | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/downloadDeviceConfigurationScript/action | 디바이스 구성 스크립트를 다운로드합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/downloadDiagnostics/action | 게이트웨이 진단을 다운로드합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/listCircuitServiceKey/action | 회로 서비스 키를 검색합니다. |
 > | 액션(Action) | Microsoft.ClassicNetwork/virtualNetworks/gateways/listPackage/action | 가상 네트워크 게이트웨이 패키지를 나열합니다. |
@@ -1501,16 +1501,16 @@ ms.locfileid: "52499691"
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | 대역폭 일정을 나열하거나 가져오기 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/read | 대역폭 일정을 나열하거나 가져오기 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/bandwidthSchedules/write | 대역폭 일정을 만들거나 업데이트 |
-> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Data Box Edge 장치를 삭제 |
-> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | 장치에서 업데이트를 다운로드 |
+> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Data Box Edge 디바이스를 삭제 |
+> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | 디바이스에서 업데이트를 다운로드 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | 리소스 확장 정보를 검색 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/write | 리소스 확장 정보를 만들거나 업데이트 |
-> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | 장치에 업데이트를 설치 |
+> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | 디바이스에 업데이트를 설치 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | 작업을 나열하거나 가져오기 |
-> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | 장치 네트워크 설정을 나열하거나 가져오기 |
-> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Data Box Edge 장치를 나열하거나 가져오기 |
-> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Data Box Edge 장치를 나열하거나 가져오기 |
-> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Data Box Edge 장치를 나열하거나 가져오기 |
+> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | 디바이스 네트워크 설정을 나열하거나 가져오기 |
+> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Data Box Edge 디바이스를 나열하거나 가져오기 |
+> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Data Box Edge 디바이스를 나열하거나 가져오기 |
+> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Data Box Edge 디바이스를 나열하거나 가져오기 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | ArmApiRes_roles를 삭제 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | ArmApiRes_roles를 나열하거나 가져오기 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | ArmApiRes_roles를 나열하거나 가져오기 |
@@ -1527,13 +1527,13 @@ ms.locfileid: "52499691"
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | 저장소 계정 자격 증명을 나열하거나 가져오기 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | 저장소 계정 자격 증명을 만들거나 업데이트 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | 업데이트 요약을 나열하거나 가져오기 |
-> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | 장치 등록에 대한 인증서를 업로드 |
+> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | 디바이스 등록에 대한 인증서를 업로드 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | 공유 사용자를 삭제 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | 공유 사용자를 나열하거나 가져오기 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | 공유 사용자를 나열하거나 가져오기 |
 > | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/write | 공유 사용자를 만들거나 업데이트 |
-> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/write | Data Box Edge 장치를 만들거나 업데이트 |
-> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/write | Data Box Edge 장치를 만들거나 업데이트 |
+> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/write | Data Box Edge 디바이스를 만들거나 업데이트 |
+> | 조치 | Microsoft.DataBoxEdge/dataBoxEdgeDevices/write | Data Box Edge 디바이스를 만들거나 업데이트 |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
@@ -1845,9 +1845,9 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Delete | EventHub 소비자 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Read | EventHub 소비자 그룹을 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Write | EventHub 소비자 그룹을 만듭니다. |
-> | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/exportDevices/Action | 장치를 내보냅니다. |
+> | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/exportDevices/Action | 디바이스를 내보냅니다. |
 > | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/getStats/Read | IotHub 테넌트 통계 리소스를 가져옵니다. |
-> | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/importDevices/Action | 장치를 가져옵니다. |
+> | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/importDevices/Action | 디바이스를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/iotHubKeys/listkeys/Action | IotHub 테넌트 키를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/jobs/Read | 지정된 IotHub에 대해 제출된 작업 세부 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/elasticPools/iotHubTenants/listKeys/Action | IotHub 테넌트 키를 가져옵니다. |
@@ -1874,8 +1874,8 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.Devices/iotHubs/eventHubEndpoints/consumerGroups/Delete | EventHub 소비자 그룹을 삭제합니다. |
 > | 액션(Action) | Microsoft.Devices/iotHubs/eventHubEndpoints/consumerGroups/Read | EventHub 소비자 그룹을 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/iotHubs/eventHubEndpoints/consumerGroups/Write | EventHub 소비자 그룹을 만듭니다. |
-> | 액션(Action) | Microsoft.Devices/iotHubs/exportDevices/Action | 장치를 내보냅니다. |
-> | 액션(Action) | Microsoft.Devices/iotHubs/importDevices/Action | 장치를 가져옵니다. |
+> | 액션(Action) | Microsoft.Devices/iotHubs/exportDevices/Action | 디바이스를 내보냅니다. |
+> | 액션(Action) | Microsoft.Devices/iotHubs/importDevices/Action | 디바이스를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/iotHubs/iotHubKeys/listkeys/Action | 지정된 이름의 IotHub 키를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/iotHubs/iotHubStats/Read | IotHub 통계를 가져옵니다. |
 > | 액션(Action) | Microsoft.Devices/iotHubs/jobs/Read | 지정된 IotHub에 대해 제출된 작업 세부 정보를 가져옵니다. |
@@ -3265,7 +3265,7 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.Network/connections/sharedkey/action | VirtualNetworkGatewayConnection SharedKey를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/connections/sharedKey/read | VirtualNetworkGatewayConnection SharedKey를 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/connections/sharedKey/write | VirtualNetworkGatewayConnection SharedKey를 만들거나 기존 VirtualNetworkGatewayConnection SharedKey를 업데이트합니다. |
-> | 액션(Action) | Microsoft.Network/connections/vpndeviceconfigurationscript/action | VirtualNetworkGatewayConnection의 Vpn 장치 구성을 가져옵니다. |
+> | 액션(Action) | Microsoft.Network/connections/vpndeviceconfigurationscript/action | VirtualNetworkGatewayConnection의 Vpn 디바이스 구성을 가져옵니다. |
 > | 액션(Action) | Microsoft.Network/connections/write | VirtualNetworkGatewayConnection을 만들거나 기존 VirtualNetworkGatewayConnection을 업데이트합니다. |
 > | 조치 | Microsoft.Network/ddosCustomPolicies/delete | DDoS 사용자 지정 정책 삭제 |
 > | 조치 | Microsoft.Network/ddosCustomPolicies/read | DDoS 사용자 지정 정책 정의 가져오기 |
@@ -3558,7 +3558,7 @@ ms.locfileid: "52499691"
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/reset/action | virtualNetworkGateway를 다시 설정합니다. |
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/resetvpnclientsharedkey/action | VirtualNetworkGateway P2S 클라이언트에 대한 Vpnclient 공유 키를 다시 설정합니다. |
 > | 액션(Action) | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | VirtualNetworkGateway P2S 클라이언트에 대한 Vpnclient Ipsec 매개 변수를 설정합니다. |
-> | 액션(Action) | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | 지원되는 Vpn 장치를 나열합니다. |
+> | 액션(Action) | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | 지원되는 Vpn 디바이스를 나열합니다. |
 > | 액션(Action) | Microsoft.Network/virtualNetworkGateways/write | VirtualNetworkGateway를 만들거나 업데이트합니다. |
 > | 조치 | Microsoft.Network/virtualNetworks/BastionHosts/action | Virtual Network의 요새 호스트 참조를 가져옵니다. |
 > | 조치 | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | IP 주소를 지정된 가상 네트워크에서 사용할 수 있는지 확인합니다. |
@@ -4912,15 +4912,15 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.StorSimple/managers/bandwidthSettings/write | 새 대역폭 설정을 만들거나 대역폭 설정을 업데이트합니다(8000 시리즈만 해당). |
 > | 액션(Action) | Microsoft.StorSimple/managers/certificates/write | 인증서를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.StorSimple/Managers/certificates/write | 리소스 인증서 업데이트 작업은 리소스/저장소 자격 증명 인증서를 업데이트합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/clearAlerts/action | 장치 관리자와 관련된 모든 경고를 선택 취소합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/clearAlerts/action | 디바이스 관리자와 관련된 모든 경고를 선택 취소합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/cloudApplianceConfigurations/read | 클라우드 어플라이언스 지원 구성을 나열합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/configureDevice/action | 장치를 구성합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/delete | 장치 관리자를 삭제합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/configureDevice/action | 디바이스를 구성합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/delete | 디바이스 관리자를 삭제합니다. |
 > | 액션(Action) | Microsoft.StorSimple/Managers/delete | 자격 증명 모음 삭제 작업에서는 '자격 증명 모음' 형식의 지정된 Azure 리소스를 삭제합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/alertSettings/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/alertSettings/read | 경고 설정을 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/alertSettings/write | 경고 설정을 만들거나 업데이트합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/authorizeForServiceEncryptionKeyRollover/action | 장치의 서비스 암호화 키 롤오버에 대한 권한을 부여합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/authorizeForServiceEncryptionKeyRollover/action | 디바이스의 서비스 암호화 키 롤오버에 대한 권한을 부여합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/backupPolicies/backup/action | 정책으로 보호되는 모든 볼륨의 요청 시 백업을 만들기 위해 수동 백업을 수행합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/backupPolicies/delete | 기존 Backup 정책을 삭제합니다(8000 시리즈만 해당). |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/backupPolicies/operationResults/read | 작업 결과를 나열합니다. |
@@ -4944,13 +4944,13 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/chapSettings/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/chapSettings/read | CHAP 설정을 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/chapSettings/write | CHAP 설정을 만들거나 업데이트합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/deactivate/action | 장치를 비활성화합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/delete | 장치를 삭제합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/deactivate/action | 디바이스를 비활성화합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/delete | 디바이스를 삭제합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/disks/read | 디스크를 나열하거나 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/download/action | 장치에 대한 업데이트를 다운로드합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/failover/action | 장치의 장애 조치(Failover)입니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/download/action | 디바이스에 대한 업데이트를 다운로드합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/failover/action | 디바이스의 장애 조치(Failover)입니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/failover/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/failoverTargets/read | 장치의 장애 조치(Failover) 대상을 나열하거나 가져옵니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/failoverTargets/read | 디바이스의 장애 조치(Failover) 대상을 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/fileservers/backup/action | 파일 서버 백업을 수행합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/fileservers/delete | 파일 서버를 삭제합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/fileservers/metrics/read | 메트릭을 나열하거나 가져옵니다. |
@@ -4967,8 +4967,8 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/hardwareComponentGroups/changeControllerPowerState/action | 하드웨어 구성 요소 그룹의 컨트롤러 전원 상태를 변경합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/hardwareComponentGroups/operationResults/read | 작업 결과를 나열합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/hardwareComponentGroups/read | 하드웨어 구성 요소 그룹을 나열합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/install/action | 장치에 업데이트를 설치합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/installUpdates/action | 장치에 업데이트를 설치합니다(8000 시리즈만). |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/install/action | 디바이스에 업데이트를 설치합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/installUpdates/action | 디바이스에 업데이트를 설치합니다(8000 시리즈만). |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/iscsiservers/backup/action | ISCSI 서버 백업을 수행합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/iscsiservers/delete | ISCSI 서버를 삭제합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/iscsiservers/disks/delete | 디스크를 삭제합니다. |
@@ -4985,8 +4985,8 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/jobs/cancel/action | 실행 중인 작업을 취소합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/jobs/operationResults/read | 작업 결과를 나열합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/jobs/read | 작업을 나열하거나 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/listFailoverSets/action | 기존 장치에 대한 장애 조치(failover) 집합을 나열합니다(8000 시리즈만). |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/listFailoverTargets/action | 장치의 장애 조치(failover) 대상을 나열합니다(8000 시리즈만). |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/listFailoverSets/action | 기존 디바이스에 대한 장애 조치(failover) 집합을 나열합니다(8000 시리즈만). |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/listFailoverTargets/action | 디바이스의 장애 조치(failover) 대상을 나열합니다(8000 시리즈만). |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/metrics/read | 메트릭을 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/metricsDefinitions/read | 메트릭 정의를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/migrationSourceConfigurations/confirmMigration/action | 성공적인 마이그레이션을 확인하고 커밋합니다. |
@@ -5004,13 +5004,13 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/networkSettings/read | 네트워크 설정을 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/networkSettings/write | 새 네트워크 설정을 만들거나 네트워크 설정을 업데이트합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/publicEncryptionKey/action | 장치 관리자의 공용 암호화 키를 나열합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/publishSupportPackage/action | Microsoft 지원 문제 해결을 위해 장치의 지원 패키지를 게시합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/read | 장치를 나열하거나 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/scanForUpdates/action | 장치에서 업데이트를 검색합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/publicEncryptionKey/action | 디바이스 관리자의 공용 암호화 키를 나열합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/publishSupportPackage/action | Microsoft 지원 문제 해결을 위해 디바이스의 지원 패키지를 게시합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/read | 디바이스를 나열하거나 가져옵니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/scanForUpdates/action | 디바이스에서 업데이트를 검색합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/securitySettings/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/securitySettings/read | 보안 설정을 나열합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/securitySettings/syncRemoteManagementCertificate/action | 장치에 대한 원격 관리 인증서를 동기화합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/securitySettings/syncRemoteManagementCertificate/action | 디바이스에 대한 원격 관리 인증서를 동기화합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/securitySettings/update/action | 보안 설정을 업데이트합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/securitySettings/write | 새 보안 설정을 만들거나 보안 설정을 업데이트합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/sendTestAlertEmail/action | 구성된 전자 메일 받는 사람에게 테스트 경고 전자 메일을 보냅니다. |
@@ -5033,7 +5033,7 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/volumeContainers/volumes/write | 새 볼륨을 만들거나 볼륨을 업데이트합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/volumeContainers/write | 새 볼륨 컨테이너를 만들거나 볼륨 컨테이너를 업데이트합니다(8000 시리즈만 해당). |
 > | 액션(Action) | Microsoft.StorSimple/managers/devices/volumes/read | 볼륨을 나열합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/devices/write | 장치를 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/devices/write | 디바이스를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/encryptionSettings/read | 암호화 설정을 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/extendedInformation/delete | 확장 자격 증명 모음 정보를 삭제합니다. |
 > | 액션(Action) | Microsoft.StorSimple/Managers/extendedInformation/delete | 확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다. |
@@ -5043,22 +5043,22 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.StorSimple/Managers/extendedInformation/write | 확장 정보 가져오기 작업에서는 ‘자격 증명 모음’ 형식의 Azure 리소스를 나타내는 개체의 확장 정보를 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/features/read | 기능을 나열합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/fileservers/read | 파일 서버를 나열하거나 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/getActivationKey/action | 장치 관리자에 대한 활성화 키를 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/getEncryptionKey/action | 장치 관리자에 대한 암호화 키를 가져옵니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/getActivationKey/action | 디바이스 관리자에 대한 활성화 키를 가져옵니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/getEncryptionKey/action | 디바이스 관리자에 대한 암호화 키를 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/iscsiservers/read | iSCSI 서버를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/jobs/read | 작업을 나열하거나 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/listActivationKey/action | StorSimple 장치 관리자의 활성화 키를 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/listPublicEncryptionKey/action | StorSimple 장치 관리자의 공용 암호화 키를 나열합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/listActivationKey/action | StorSimple 디바이스 관리자의 활성화 키를 가져옵니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/listPublicEncryptionKey/action | StorSimple 디바이스 관리자의 공용 암호화 키를 나열합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/metrics/read | 메트릭을 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/metricsDefinitions/read | 메트릭 정의를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/migrateClassicToResourceManager/action | 클래식을 관리자의 리소스 관리자로 마이그레이션합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/migrationSourceConfigurations/read | 마이그레이션 원본 구성을 나열합니다(8000 시리즈만). |
 > | 액션(Action) | Microsoft.StorSimple/managers/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/provisionCloudAppliance/action | 새 클라우드 어플라이언스를 만듭니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/read | 장치 관리자를 나열하거나 가져옵니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/read | 디바이스 관리자를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/Managers/read | 자격 증명 모음 가져오기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 나타내는 개체를 가져옵니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/regenarateRegistationCertificate/action | 장치 관리자에 대한 등록 인증서를 다시 생성합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/regenerateActivationKey/action | 장치 관리자에 대한 활성화 키를 다시 생성합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/regenarateRegistationCertificate/action | 디바이스 관리자에 대한 등록 인증서를 다시 생성합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/regenerateActivationKey/action | 디바이스 관리자에 대한 활성화 키를 다시 생성합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/storageAccountCredentials/delete | Storage 계정 자격 증명을 삭제합니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/storageAccountCredentials/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/storageAccountCredentials/read | Storage 계정 자격 증명을 나열하거나 가져옵니다. |
@@ -5067,7 +5067,7 @@ ms.locfileid: "52499691"
 > | 액션(Action) | Microsoft.StorSimple/managers/storageDomains/operationResults/read | 작업 결과를 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/storageDomains/read | 저장소 도메인을 나열하거나 가져옵니다. |
 > | 액션(Action) | Microsoft.StorSimple/managers/storageDomains/write | 저장소 도메인을 만들거나 업데이트합니다. |
-> | 액션(Action) | Microsoft.StorSimple/managers/write | 장치 관리자를 만들거나 업데이트합니다. |
+> | 액션(Action) | Microsoft.StorSimple/managers/write | 디바이스 관리자를 만들거나 업데이트합니다. |
 > | 액션(Action) | Microsoft.StorSimple/Managers/write | 자격 증명 모음 만들기 작업에서는 '자격 증명 모음' 형식의 Azure 리소스를 만듭니다. |
 > | 조치 | Microsoft.StorSimple/register/action | Microsoft.StorSimple 공급자를 등록합니다. |
 

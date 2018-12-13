@@ -43,7 +43,7 @@ A cyber-attack, if successful, can shut down operations not just for a few hours
 does the article really start here?-->
 대부분의 조직에서 비즈니스 자산의 보안은 IT 시스템을 운영하고 관리하는 권한 있는 계정의 무결성에 따라 달라집니다. 사이버 공격자는 조직의 중요한 데이터에 액세스하기 위해 인프라 시스템(예: Active Directory 및 Azure Active Directory)에 대한 권한 있는 액세스에 집중하고 있습니다. 
 
-인터넷에서 SaaS 앱 및 개인 장치의 사용이 증가함에 따라 기본 보안 경계로 네트워크의 입구 및 출구 지점을 보호하는 데 초점을 맞춘 전통적인 접근 방식은 그다지 효과적이지 않습니다. 복잡한 현대 엔터프라이즈에서 네트워크 보안 경계를 자연스럽게 대체하는 것은 조직의 ID 계층에 있는 인증 및 권한 부여 제어입니다. 
+인터넷에서 SaaS 앱 및 개인 디바이스의 사용이 증가함에 따라 기본 보안 경계로 네트워크의 입구 및 출구 지점을 보호하는 데 초점을 맞춘 전통적인 접근 방식은 그다지 효과적이지 않습니다. 복잡한 현대 엔터프라이즈에서 네트워크 보안 경계를 자연스럽게 대체하는 것은 조직의 ID 계층에 있는 인증 및 권한 부여 제어입니다. 
 
 권한 있는 관리 계정은 새로운 이 "보안 경계"를 효과적으로 제어합니다. 환경이 온-프레미스, 클라우드 또는 하이브리드 온-프레미스 및 클라우드 호스팅 서비스인지 여부에 관계없이 권한 있는 액세스를 보호하는 것이 중요합니다. 결정된 악의적 사용자에 대한 관리 액세스를 보호하려면 조직의 시스템을 위험으로부터 격리하기 위한 완벽하고 신중한 방법을 사용해야 합니다. 
 
@@ -133,7 +133,7 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 #### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>서비스, 소유자 및 관리자의 인벤토리 수행
 
-BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 무선 연결이 확장됨에 따라 네트워크에 연결된 사용자를 모니터링하는 것이 중요합니다. 효과적인 보안 감사의 경우 네트워크에서 실행되지만 IT에서 지원하지 않아 안전하지 않을 수 있는 장치, 응용 프로그램 및 프로그램이 표시되는 경우가 많습니다. 자세한 내용은 [Azure 보안 관리 및 모니터링 개요](../../security/security-management-and-monitoring-overview.md)를 참조하세요. 인벤토리 프로세스에는 다음 작업이 모두 포함되어야 합니다. 
+BYOD(Bring-Your-Own-Device) 및 재택 근무 정책이 증가하고 기업의 무선 연결이 확장됨에 따라 네트워크에 연결된 사용자를 모니터링하는 것이 중요합니다. 효과적인 보안 감사의 경우 네트워크에서 실행되지만 IT에서 지원하지 않아 안전하지 않을 수 있는 디바이스, 응용 프로그램 및 프로그램이 표시되는 경우가 많습니다. 자세한 내용은 [Azure 보안 관리 및 모니터링 개요](../../security/security-management-and-monitoring-overview.md)를 참조하세요. 인벤토리 프로세스에는 다음 작업이 모두 포함되어야 합니다. 
 
 * 관리 역할과 관리할 수 있는 서비스가 있는 사용자를 식별합니다.
 * Azure AD PIM을 사용하여 Azure AD에 대한 관리자 액세스 권한(1단계에 나열된 역할 외의 추가 역할 포함)이 있는 조직의 사용자를 확인합니다.
@@ -217,7 +217,7 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 #### <a name="configure-conditional-access-policies"></a>조건부 액세스 정책 구성
 
-온-프레미스 및 클라우드 호스팅 응용 프로그램에 대한 조건부 액세스 정책을 준비합니다. 사용자 작업 공간 가입 장치가 있는 경우 [Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)에서 자세한 정보를 얻을 수 있습니다.
+온-프레미스 및 클라우드 호스팅 응용 프로그램에 대한 조건부 액세스 정책을 준비합니다. 사용자 작업 공간 가입 디바이스가 있는 경우 [Azure Active Directory 디바이스 등록을 사용하여 온-프레미스 조건부 액세스 설정](../active-directory-device-registration-on-premises-setup.md)에서 자세한 정보를 얻을 수 있습니다.
 
 
 ## <a name="stage-3-build-visibility-and-take-full-control-of-admin-activity"></a>3단계: 가시성 빌드 및 관리자 활동에 대한 완전한 제어
@@ -263,7 +263,7 @@ Azure AD Privileged Identity Management를 이미 사용하고 있는 경우 필
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>암호 기반 로그인 프로토콜에 대한 노출 확인(Exchange Online을 사용하는 경우)
 
-과거에는 프로토콜에서 사용자 이름/암호 조합이 장치, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제는 클라우드에서 사이버 공격에 대한 위험이 있으므로, 자격 증명이 손상된 경우 조직에 치명적일 수 있는 모든 잠재적 사용자를 식별하고, 강력한 인증 요구 사항 및 조건부 액세스를 구현하여 사용자 이름/암호를 통해 이메일에 로그인할 수 없도록 차단하는 것이 좋습니다. 
+과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제는 클라우드에서 사이버 공격에 대한 위험이 있으므로, 자격 증명이 손상된 경우 조직에 치명적일 수 있는 모든 잠재적 사용자를 식별하고, 강력한 인증 요구 사항 및 조건부 액세스를 구현하여 사용자 이름/암호를 통해 이메일에 로그인할 수 없도록 차단하는 것이 좋습니다. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Office 365 역할에 대한 역할 검토 평가 수행(Office 365를 사용하는 경우)
 
@@ -329,7 +329,7 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 로드맵의 4단계는 3단계의 가시성을 기반으로 하며, 6개월 정도에 걸쳐 구현되도록 설계되었습니다. 로드맵을 완성하면 현재 알려져 있고 사용 가능한 잠재적 공격으로부터 강력한 권한 있는 액세스 보호를 개발할 수 있습니다. 그러나 보안 위협은 지속적으로 진화하고 변화하므로 비용을 높이고 환경을 대상으로 하는 악의적 사용자의 성공률을 줄이는 데 초점을 맞춘 지속적인 프로세스로 보안을 확인하는 것이 좋습니다.
 
-권한 있는 액세스 보호는 현대 조직에서 비즈니스 자산에 대한 보안 보장을 확립하는 중요한 첫 번째 단계이지만, 정책, 운영, 정보 보안, 서버, 응용 프로그램, PC, 장치, 클라우드 패브릭 및 기타 구성 요소와 같은 요소가 포함된 완전한 보안 프로그램의 유일한 부분이 아니며, 지속적인 보안 보장을 제공합니다. 
+권한 있는 액세스 보호는 현대 조직에서 비즈니스 자산에 대한 보안 보장을 확립하는 중요한 첫 번째 단계이지만, 정책, 운영, 정보 보안, 서버, 응용 프로그램, PC, 디바이스, 클라우드 패브릭 및 기타 구성 요소와 같은 요소가 포함된 완전한 보안 프로그램의 유일한 부분이 아니며, 지속적인 보안 보장을 제공합니다. 
 
 권한 있는 액세스 계정을 관리하는 것 외에도 다음 사항을 지속적으로 검토하는 것이 좋습니다.
 
@@ -347,9 +347,9 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 현재 기본 제공되는 Azure AD 관리자 역할이 최신 상태인지 확인하고, 사용자가 해당 권한에 필요한 역할 및 위임에만 있는지 확인합니다. Azure AD를 사용하면 별도의 관리자를 지정하여 다른 기능을 제공할 수 있습니다. 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](directory-assign-admin-roles.md)을 참조하세요.
 
-#### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Azure AD 가입 장치를 관리하는 사용자 검토
+#### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Azure AD 가입 디바이스를 관리하는 사용자 검토
 
-자세한 내용은 [하이브리드 Azure Active Directory 가입 장치를 구성하는 방법](../device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요.
+자세한 내용은 [하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법](../device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요.
 
 #### <a name="review-members-of-built-in-office-365-admin-roleshttpssupportofficecomarticleabout-office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d"></a>[기본 제공 Office 365 관리자 역할](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)의 멤버 검토
 Office 365를 사용하는 경우

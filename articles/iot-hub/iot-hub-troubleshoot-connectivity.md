@@ -93,7 +93,7 @@ IoT 장치의 연결 문제는 가능한 실패 지점이 많기 때문에 문�
 ## <a name="next-steps"></a>다음 단계
 
 * 일시적인 문제 해결에 대한 자세한 내용은 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)를 참조하세요.
-* Azure IoT SDK 및 재시도 관리에 대한 자세한 내용은 [Azure IoT Hub 장치 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징을 관리하는 방법](iot-hub-reliability-features-in-sdks.md#connection-and-retry)을 참조하세요.
+* Azure IoT SDK 및 재시도 관리에 대한 자세한 내용은 [Azure IoT Hub 디바이스 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징을 관리하는 방법](iot-hub-reliability-features-in-sdks.md#connection-and-retry)을 참조하세요.
 
 <!-- Images -->
 [1]: ../../includes/media/iot-hub-diagnostics-settings/turnondiagnostics.png

@@ -22,7 +22,7 @@ ms.locfileid: "51612223"
 ---
 # <a name="quickstart-stream-video-files---net"></a>빠른 시작: 비디오 파일 스트리밍 - .NET
 
-이 빠른 시작은 Azure Media Services를 사용하여 다양한 브라우저 및 장치에서 비디오 스트리밍을 인코딩하고 시작하는 것이 얼마나 쉬운지 보여줍니다. 입력 내용은 HTTPS URL, SAS URL 또는 Azure Blob 저장소에 있는 파일 경로를 사용하여 지정할 수 있습니다.
+이 빠른 시작은 Azure Media Services를 사용하여 다양한 브라우저 및 디바이스에서 비디오 스트리밍을 인코딩하고 시작하는 것이 얼마나 쉬운지 보여 줍니다. 입력 내용은 HTTPS URL, SAS URL 또는 Azure Blob 저장소에 있는 파일 경로를 사용하여 지정할 수 있습니다.
 이 항목의 샘플에서는 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 현재 AMS v3은 HTTPS URL을 통한 청크 분할 전송 인코딩을 지원하지 않습니다.
 
 빠른 시작이 끝나면 비디오를 스트리밍 할 수 있습니다.  

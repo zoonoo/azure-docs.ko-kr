@@ -32,8 +32,8 @@ sections:
     columns: 3
     items:
     - href: /azure/azure-preview-portal-supported-browsers-devices
-      html: <p>모든 최신 데스크톱, 태블릿 장치 및 브라우저에서 Azure Portal을 실행하세요.</p>
-      title: 지원되는 브라우저 및 장치
+      html: <p>모든 최신 데스크톱, 태블릿 디바이스 및 브라우저에서 Azure Portal을 실행하세요.</p>
+      title: 지원되는 브라우저 및 디바이스
     - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
       html: <p>Azure Portal에서 대비 또는 색 구성표를 변경하세요.</p>
       title: 고대비 켜기

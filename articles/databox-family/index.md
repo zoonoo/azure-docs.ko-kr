@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box 설명서
-description: Azure Data Box 제품군은 테라바이트 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure로 보내는 데 도움이 되는 다양한 저장 용량의 제품을 제공합니다. Microsoft는 오프라인 데이터 전송 또는 네트워크를 통한 데이터 전송을 지원하는 전용 저장 장치를 제공하여 보안 데이터 전송을 가속화합니다.
+description: Azure Data Box 제품군은 테라바이트 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure로 보내는 데 도움이 되는 다양한 저장 용량의 제품을 제공합니다. Microsoft는 오프라인 데이터 전송 또는 네트워크를 통한 데이터 전송을 지원하는 전용 저장 디바이스를 제공하여 보안 데이터 전송을 가속화합니다.
 services: databox
 author: alkohli
 manager: twooley
@@ -19,7 +19,7 @@ ms.lasthandoff: 09/24/2018
 ms.locfileid: "46977709"
 ---
 <h1>Azure Data Box</h1>
-<p>Azure Data Box 제품군은 TB(테라바이트) 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure로 보내는 데 도움이 되는 다양한 저장 용량의 제품을 제공합니다. Microsoft는 오프라인 데이터 전송 또는 네트워크를 통한 데이터 전송을 지원하는 전용 저장 장치를 제공하여 보안 데이터 전송을 가속화합니다.</p>
+<p>Azure Data Box 제품군은 TB(테라바이트) 단위의 데이터를 빠르고, 저렴하고, 신뢰할 수 있는 방식으로 Azure로 보내는 데 도움이 되는 다양한 저장 용량의 제품을 제공합니다. Microsoft는 오프라인 데이터 전송 또는 네트워크를 통한 데이터 전송을 지원하는 전용 저장 디바이스를 제공하여 보안 데이터 전송을 가속화합니다.</p>
 
 <h2>오프라인 데이터 전송</h2>
 <p>네트워크 대역폭 제한 없음</p>
@@ -53,7 +53,7 @@ ms.locfileid: "46977709"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box</b>(데이터 크기가 40-500TB인 경우). Microsoft에서 데이터를 복사하고 반송하도록 100TB 용량의 견고한 저장 장치를 배송합니다.</p>
+                            <p><b>Data Box</b>(데이터 크기가 40-500TB인 경우). Microsoft에서 데이터를 복사하고 반송하도록 100TB 용량의 견고한 저장 디바이스를 배송합니다.</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ ms.locfileid: "46977709"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy<SUP>미리 보기</SUP></b>(데이터 크기가 500TB를 초과하는 경우). Microsoft에서 데이터를 복사하고 반송하도록 1PB(페타바이트) 장치 하나를 화물로 배송합니다.</p>
+                            <p><b>Data Box Heavy<SUP>미리 보기</SUP></b>(데이터 크기가 500TB를 초과하는 경우). Microsoft에서 데이터를 복사하고 반송하도록 1PB(페타바이트) 디바이스 하나를 화물로 배송합니다.</p>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ ms.locfileid: "46977709"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Gateway <SUP>미리 보기</SUP></b> 가상 장치(저장 용량 지원). 네트워크를 통해 Azure로 데이터를 보내려면 이 장치를 사용하세요.</p>
+                            <p><b>Data Box Gateway <SUP>미리 보기</SUP></b> 가상 장치(저장 용량 지원). 네트워크를 통해 Azure로 데이터를 보내려면 이 디바이스를 사용하세요.</p>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@ ms.locfileid: "46977709"
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Edge <SUP>미리 보기</SUP></b> 물리적 장치(저장 및 계산 용량 지원). 데이터를 Azure로 이동할 때 데이터를 분석, 변환 또는 필터링하려면 이 장치를 사용하세요.</p>
+                            <p><b>Data Box Edge <SUP>미리 보기</SUP></b> 물리적 장치(저장 및 계산 용량 지원). 데이터를 Azure로 이동할 때 데이터를 분석, 변환 또는 필터링하려면 이 디바이스를 사용하세요.</p>
                         </div>
                     </div>
                 </div>

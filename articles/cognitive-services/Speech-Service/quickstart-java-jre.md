@@ -24,7 +24,7 @@ ms.locfileid: "51218579"
 이 문서에서는 [Speech Service SDK](speech-sdk.md)를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. PC에서 마이크를 사용하여 실시간으로 음성을 텍스트로 변환합니다. 응용 프로그램은 Speech SDK Maven 패키지와 64비트 Windows 또는 Ubuntu Linux 16.04 기반의 Eclipse Java IDE(v4.8)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
 > [!NOTE]
-> Speech Devices SDK 및 Roobo 장치에 대한 내용은 [Speech Devices SDK](speech-devices-sdk.md)를 참조하세요.
+> Speech Devices SDK 및 Roobo 디바이스에 대한 내용은 [Speech Devices SDK](speech-devices-sdk.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

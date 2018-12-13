@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub Device Provisioning Service를 위한 장치 설정
-description: 장치 제조 프로세스 중 IoT Hub Device Provisioning Service를 통해 프로비전할 장치 설정
+description: 디바이스 제조 프로세스 중 IoT Hub Device Provisioning Service를 통해 프로비전할 디바이스 설정
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/02/2018
@@ -18,7 +18,7 @@ ms.locfileid: "45633404"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 장치 프로비전
 
-이전 자습서에서 장치를 IoT Hub에 자동으로 프로비전하도록 Azure IoT Hub Device Provisioning Service를 설정하는 방법을 배웠습니다. 이 자습서에서는 IoT Hub가 자동으로 프로비전되도록 제조 과정에서 장치를 설정하는 방법을 보여줍니다. 장치를 처음으로 부팅하고 프로비전 서비스에 연결할 때 장치의 [증명 메커니즘](concepts-device.md#attestation-mechanism)에 따라 장치가 프로비전됩니다. 이 자습서에서 다루는 작업은 다음과 같습니다.
+이전 자습서에서 디바이스를 IoT Hub에 자동으로 프로비전하도록 Azure IoT Hub Device Provisioning Service를 설정하는 방법을 배웠습니다. 이 자습서에서는 IoT Hub가 자동으로 프로비전되도록 제조 과정에서 장치를 설정하는 방법을 보여줍니다. 장치를 처음으로 부팅하고 프로비전 서비스에 연결할 때 장치의 [증명 메커니즘](concepts-device.md#attestation-mechanism)에 따라 장치가 프로비전됩니다. 이 자습서에서 다루는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 플랫폼별 장치 프로비전 서비스 클라이언트 SDK 빌드
@@ -106,14 +106,14 @@ Device Provisioning Service 클라이언트 SDK는 장치 등록 소프트웨어
 
 물리적 TPM/HSM에 증명을 사용하도록 SDK를 빌드했는지 아니면 X.509 인증서를 사용했는지에 따라 보안 아티팩트를 수집하는 방법은 다음과 같습니다.
 
-- TPM 장치의 경우 TPM 칩 제조업체로부터 해당 장치에 연결되어 있는 **인증 키**를 확인해야 합니다. 등록 키를 해시하여 사용자 TPM 장치에 대한 고유한 **등록 ID**를 얻을 수 있습니다.  
+- TPM 장치의 경우 TPM 칩 제조업체로부터 해당 장치에 연결되어 있는 **인증 키**를 확인해야 합니다. 등록 키를 해시하여 사용자 TPM 디바이스에 대한 고유한 **등록 ID**를 얻을 수 있습니다.  
 
 - X.509 장치의 경우 장치에 발급된 인증서를 가져와야 합니다. 프로비전 서비스는 X.509 증명 메커니즘을 사용하는 장치에 대한 액세스를 제어하는 두 가지 유형의 등록 항목을 공개합니다. 필요한 인증서는 사용할 등록 유형에 따라 다릅니다.
 
     1. 개별 등록: 특정 단일 장치를 등록합니다. 이 유형의 등록 항목은 [최종 엔터티, "리프", 인증서](concepts-security.md#end-entity-leaf-certificate)가 필요합니다.
     1. 등록 그룹: 이 유형의 등록 항목은 중간 또는 루트 인증서가 필요합니다. 자세한 내용은 [X.509 인증서를 사용하여 프로비전 서비스에 대한 장치 액세스 제어](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)를 참조하세요.
 
-### <a name="simulated-devices"></a>시뮬레이션된 장치
+### <a name="simulated-devices"></a>시뮬레이션된 디바이스
 
 시뮬레이션된 장치에 증명을 사용하도록 SDK를 빌드하기 위해 TPM을 사용했는지 아니면 X.509 인증서를 사용했는지에 따라 보안 아티팩트를 수집하는 방법은 다음과 같습니다.
 
@@ -142,7 +142,7 @@ Device Provisioning Service 클라이언트 SDK는 장치 등록 소프트웨어
 
   1. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Tools** 폴더로 이동합니다. **dice\_device\_enrollment** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다. 
   
-  1. "디버그" 메뉴에서 "시작" 명령 중 하나를 사용하여 솔루션을 실행합니다. 메시지가 표시되면 출력 창에서 개별 등록에 대해 **i**를 입력합니다. 출력 창에는 시뮬레이션된 장치에 대해 로컬로 생성된 X.509 인증서가 표시됩니다. *-----BEGIN CERTIFICATE-----* 에서 시작하여 첫 번째 *-----END CERTIFICATE-----* 에서 끝나는 출력(이 두 줄 모두 포함)을 클립보드에 복사합니다. 출력 창의 첫 번째 인증서만 필요합니다.
+  1. "디버그" 메뉴에서 "시작" 명령 중 하나를 사용하여 솔루션을 실행합니다. 메시지가 표시되면 출력 창에서 개별 등록에 대해 **i**를 입력합니다. 출력 창에는 시뮬레이션된 디바이스에 대해 로컬로 생성된 X.509 인증서가 표시됩니다. *-----BEGIN CERTIFICATE-----* 에서 시작하여 첫 번째 *-----END CERTIFICATE-----* 에서 끝나는 출력(이 두 줄 모두 포함)을 클립보드에 복사합니다. 출력 창의 첫 번째 인증서만 필요합니다.
  
   1. **_X509testcert.pem_** 이라는 파일을 만들어 원하는 텍스트 편집기에서 연 다음, 클립보드의 내용을 이 파일에 복사합니다. 나중에 장치를 등록할 때 사용해야 하므로 파일을 저장해 둡니다. 등록 소프트웨어를 실행하면 자동 프로비전과 동일한 인증서를 사용합니다.    
 
@@ -157,7 +157,7 @@ Device Provisioning Service 클라이언트 SDK는 장치 등록 소프트웨어
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 블레이드를 선택하고 **_ID 범위_** 값을 복사합니다. *ID 범위*는 서비스에 의해 생성되고 고유성이 보장됩니다. 이는 변경할 수 없으며 등록 ID를 고유하게 식별하는 데 사용됩니다.
 
-    ![포털 블레이드에서 장치 프로비저닝 서비스 엔드포인트 정보 추출](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+    ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
 1. 컴퓨터의 Visual Studio *솔루션 탐색기*에서 **Provision\_Samples** 폴더로 이동합니다. **prov\_dev\_client\_sample**이라는 샘플 프로젝트를 선택하고, **prov\_dev\_client\_sample.c** 원본 파일을 엽니다.
 
@@ -205,13 +205,13 @@ void Prov_Device_LL_DoWork(PROV_DEVICE_LL_HANDLE handle)
 PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const char* optionName, const void* value)
 ```
 
-처음에는 시뮬레이션된 장치를 사용하고, 그 다음에는 테스트 서비스 설정을 사용하여 Device Provisioning Service 클라이언트 등록 응용 프로그램을 구체화해야 할 수도 있습니다. 응용 프로그램이 테스트 환경에서 작동되면 특정 장치에 대해 빌드하고, 실행 파일을 사용자 장치 이미지에 복사할 수 있습니다. 
+처음에는 시뮬레이션된 장치를 사용하고, 그 다음에는 테스트 서비스 설정을 사용하여 Device Provisioning Service 클라이언트 등록 응용 프로그램을 구체화해야 할 수도 있습니다. 응용 프로그램이 테스트 환경에서 작동되면 특정 디바이스에 대해 빌드하고, 실행 파일을 사용자 디바이스 이미지에 복사할 수 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
 현재 포털에서 Device Provisioning 및 IoT Hub 서비스가 실행 중일 것입니다. 장치 프로비전 설정을 중단하고/하거나 이 자습서 시리즈의 완료 시기를 미루려면 불필요한 비용이 발생하지 않도록 서비스를 종료하는 것이 좋습니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. **모든 리소스** 블레이드 위쪽에서 **삭제**를 클릭합니다.  
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 사용자의 Device Provisioning Service를 선택합니다. **모든 리소스** 블레이드 위쪽에서 **삭제**를 클릭합니다.  
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. **모든 리소스** 블레이드 위쪽에서 **삭제**를 클릭합니다.  
 
 ## <a name="next-steps"></a>다음 단계
@@ -222,7 +222,7 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 > * 보안 아티팩트 추출
 > * 장치 등록 소프트웨어 만들기
 
-자동 프로비전을 위한 Azure IoT Hub Device Provisioning Service에 등록하여 IoT Hub에 장치를 프로비전하는 방법을 알아보려면 다음 자습서로 이동합니다.
+자동 프로비전을 위한 Azure IoT Hub Device Provisioning Service에 등록하여 IoT Hub에 디바이스를 프로비전하는 방법을 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
 > [IoT Hub에 장치 프로비전](tutorial-provision-device-to-hub.md)

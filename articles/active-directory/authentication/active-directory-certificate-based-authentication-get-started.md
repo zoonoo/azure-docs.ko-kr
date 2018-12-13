@@ -24,7 +24,7 @@ ms.locfileid: "50242418"
 - Microsoft Outlook 및 Microsoft Word와 같은 Microsoft 모바일 응용 프로그램
 - EAS(Exchange ActiveSync) 클라이언트
 
-이 기능을 구성하면 모바일 장치의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다.
+이 기능을 구성하면 모바일 디바이스의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다.
 
 항목 내용:
 
@@ -40,17 +40,17 @@ ms.locfileid: "50242418"
 - 각 인증 기관에는 인터넷 연결 URL을 통해 참조될 수 있는 CRL(인증서 해지 목록)이 있어야 합니다.
 - Azure Active Directory에 해당 인증 기관이 하나 이상 구성되어 있어야 합니다. [인증 기관 구성](#step-2-configure-the-certificate-authorities) 섹션에서 관련 단계를 찾을 수 있습니다.
 - Exchange ActiveSync 클라이언트의 경우, 보안 주체 이름 또는 주체 대체 이름 필드의 RFC822 이름 값에 Exchange Online 사용자가 라우팅할 수 있는 전자 메일 주소가 있어야 합니다. Azure Active Directory는 디렉터리의 프록시 주소 특성에 RFC822 값을 매핑합니다.
-- 클라이언트 장치는 클라이언트 인증서를 발급하는 하나 이상의 인증 기관에 액세스해야 합니다.
+- 클라이언트 디바이스는 클라이언트 인증서를 발급하는 하나 이상의 인증 기관에 액세스해야 합니다.
 - 클라이언트 인증을 위한 클라이언트 인증서가 클라이언트에 발급되어야 합니다.
 
-## <a name="step-1-select-your-device-platform"></a>1단계: 장치 플랫폼 선택
+## <a name="step-1-select-your-device-platform"></a>1단계: 디바이스 플랫폼 선택
 
-첫 번째 단계로 대상 장치 플랫폼에 대해 다음을 검토해야 합니다.
+첫 번째 단계로 대상 디바이스 플랫폼에 대해 다음을 검토해야 합니다.
 
 - Office 모바일 응용 프로그램 지원
 - 특정 구현 요구 사항
 
-다음 장치 플랫폼에 대한 관련 정보가 있습니다.
+다음 디바이스 플랫폼에 대한 관련 정보가 있습니다.
 
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -137,7 +137,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 클라이언트 인증서를 해지할 수 있게 Azure Active Directory는 인증 기관 정보의 일부로 업로드된 URL에서 CRL(인증서 해지 목록)을 가져온 후 캐시합니다. CRL의 마지막 게시 타임스탬프(**개시 날짜** 속성)는 CRL이 여전히 유효한지 확인하는 데 사용됩니다. CRL은 목록의 일부인 인증서에 대한 액세스 권한을 해지하기 위해 주기적으로 참조됩니다.
 
-추가 인스턴트 해지가 필요하면(예: 사용자가 장치를 분실한 경우) 사용자의 권한 부여 토큰이 무효화될 수 있습니다. 권한 부여 토큰을 무효화하려면 Windows PowerShell을 사용하여 이 특정 사용자에 대한 **StsRefreshTokenValidFrom** 필드를 설정합니다. 액세스 권한을 해지하려는 각 사용자에 대한 **StsRefreshTokenValidFrom** 필드를 업데이트해야 합니다.
+추가 인스턴트 해지가 필요하면(예: 사용자가 디바이스를 분실한 경우) 사용자의 권한 부여 토큰이 무효화될 수 있습니다. 권한 부여 토큰을 무효화하려면 Windows PowerShell을 사용하여 이 특정 사용자에 대한 **StsRefreshTokenValidFrom** 필드를 설정합니다. 액세스 권한을 해지하려는 각 사용자에 대한 **StsRefreshTokenValidFrom** 필드를 업데이트해야 합니다.
 
 해지가 지속되도록 하려면 **개시 날짜**를 **StsRefreshTokenValidFrom**으로 설정한 값 이후의 날짜로 설정하고 문제의 인증서가 CRL에 있는지 확인해야 합니다.
 
@@ -169,7 +169,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 로그인에 성공했으면 다음을 의미합니다.
 
-- 테스트 장치에 사용자 인증서가 프로비전되었습니다.
+- 테스트 디바이스에 사용자 인증서가 프로비전되었습니다.
 - AD FS가 올바르게 구성되었습니다.
 
 ### <a name="testing-office-mobile-applications"></a>Office 모바일 응용 프로그램 테스트
@@ -192,7 +192,7 @@ EAS 프로필은 다음 정보를 포함해야 합니다.
 
 - EAS 엔드포인트(예: outlook.office365.com)
 
-Intune과 같은 MDM(모바일 장치 관리)을 활용하거나 장치의 EAS 프로필에 인증서를 수동으로 배치하여 장치에서 EAS 프로필을 구성하고 배치할 수 있습니다.
+Intune과 같은 MDM(모바일 디바이스 관리)을 활용하거나 디바이스의 EAS 프로필에 인증서를 수동으로 배치하여 디바이스에서 EAS 프로필을 구성하고 배치할 수 있습니다.
 
 ### <a name="testing-eas-client-applications-on-android"></a>Android에서 EAS 클라이언트 응용 프로그램 테스트
 

@@ -58,7 +58,7 @@ ms.locfileid: "48807225"
 -   **새 제안**을 선택한 후 **IoT Edge 모듈**을 선택합니다.
 
 >[!NOTE]
->IoT Edge 모듈은 IoT Edge에서 실행되도록 특수하게 고안된 컨테이너입니다. IoT Edge 모듈로 처리되는 시나리오는 IoT Edge 컨텍스트에서 타당해야 합니다. 또한 IoT Edge 장치에 간편하게 배포할 수 있도록 하는 기본 구성 설정을 포함합니다. 이 컨테이너는 Edge 허브 및 IoT Hub와 통신할 수 있도록 하는 IoT Edge 모듈 SDK를 포함할 수도 있습니다.
+>IoT Edge 모듈은 IoT Edge에서 실행되도록 특수하게 고안된 컨테이너입니다. IoT Edge 모듈로 처리되는 시나리오는 IoT Edge 컨텍스트에서 타당해야 합니다. 또한 IoT Edge 디바이스에 간편하게 배포할 수 있도록 하는 기본 구성 설정을 포함합니다. 이 컨테이너는 Edge 허브 및 IoT Hub와 통신할 수 있도록 하는 IoT Edge 모듈 SDK를 포함할 수도 있습니다.
 
 ### <a name="define-your-offer-settings"></a>제안 설정 정의
 

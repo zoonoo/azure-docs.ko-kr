@@ -18,7 +18,7 @@ ms.locfileid: "50239087"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Node.js를 사용하여 Azure Event Hubs에서 이벤트 수신
 
-Azure Event Hubs는 초당 수백만 개의 이벤트를 처리할 수 있는 확장성이 뛰어난 이벤트 관리 시스템으로, 연결된 장치와 기타 시스템에서 생성되는 대량의 데이터를 처리 및 분석할 수 있습니다. 이벤트 허브에 이벤트가 수집되면 In Process 처리기를 사용하여 또는 다른 분석 시스템으로 전달하여 이벤트를 받아서 처리할 수 있습니다. 이벤트 데이터가 처리되기 전에 Azure Storage 또는 Azure Data Lake Store에서 캡처할 수도 있습니다.  
+Azure Event Hubs는 초당 수백만 개의 이벤트를 처리할 수 있는 확장성이 뛰어난 이벤트 관리 시스템으로, 연결된 디바이스와 기타 시스템에서 생성되는 대량의 데이터를 처리 및 분석할 수 있습니다. 이벤트 허브에 이벤트가 수집되면 In Process 처리기를 사용하여 또는 다른 분석 시스템으로 전달하여 이벤트를 받아서 처리할 수 있습니다. 이벤트 데이터가 처리되기 전에 Azure Storage 또는 Azure Data Lake Store에서 캡처할 수도 있습니다.  
 
 Event Hubs에 대해 자세히 알아보려면 [Event Hubs 개요](event-hubs-about.md)를 참조하세요.
 

@@ -161,13 +161,13 @@ DNS 도메인은 단일 Azure AD 테넌트에만 등록할 수 있습니다. 온
 이 토폴로지는 그 외의 지원되는 시나리오에 대해 다음과 같은 제한 사항이 있습니다.
 
 * 하나의 Azure AD 테넌트만 온-프레미스 Active Directory 인스턴스를 사용하여 Exchange 하이브리드를 활성화할 수 있습니다.
-* Windows 10 장치는 하나의 Azure AD 테넌트에만 연결할 수 있습니다.
+* Windows 10 디바이스는 하나의 Azure AD 테넌트에만 연결할 수 있습니다.
 * 암호 해시 동기화 및 통과 인증에 대한 SSO(Single Sign-On) 옵션은 하나의 Azure AD 테넌트에만 사용할 수 있습니다.
 
 상호 배타적인 집합 개체에 대한 요구 사항은 쓰기 저장에도 적용됩니다. 이 토폴로지는 단일 온-프레미스 구성을 전제로 하기 때문에 일부 쓰기 저장 기능이 지원되지 않습니다. 이러한 기능으로는 다음이 포함됩니다.
 
 * 기본 구성으로 쓰기 저장 그룹화.
-* 장치 쓰기 저장.
+* 디바이스 쓰기 저장.
 
 ### <a name="each-object-multiple-times-in-an-azure-ad-tenant"></a>Azure AD 테넌트에서 각 개체가 여러 번
 ![단일 포리스트 및 다중 테넌트를 지원하지 않는 토폴로지](./media/plan-connect-topologies/SingleForestMultiDirectoryUnsupported.png) ![단일 포리스트 및 다중 커넥터를 지원하지 않는 토폴로지](./media/plan-connect-topologies/SingleForestMultiConnectorsUnsupported.png)

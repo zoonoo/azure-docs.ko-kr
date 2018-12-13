@@ -18,13 +18,13 @@ ms.locfileid: "51566944"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포(미리 보기)
 
-많은 IoT 솔루션에서는 분석 서비스를 사용하여 IoT 장치에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 얻습니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) 논리를 가져와서 장치 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
+많은 IoT 솔루션에서는 분석 서비스를 사용하여 IoT 장치에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 얻습니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) 논리를 가져와서 디바이스 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
 
 Azure IoT Edge와 Azure Stream Analytics가 통합되어 Azure Portal에서 Azure Stream Analytics 작업을 만든 다음, 추가 코드 없이 IoT Edge 모듈로 배포할 수 있습니다.  
 
-ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 장치 둘 다에서 데이터 분석을 위한 풍부하게 구조화된 쿼리 구문을 제공합니다. IoT Edge의 Azure Stream Analytics에 대한 자세한 내용은 [Azure Stream Analytics 설명서](../stream-analytics/stream-analytics-edge.md)를 참조하세요.
+ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 디바이스 둘 다에서 데이터 분석을 위한 풍부하게 구조화된 쿼리 구문을 제공합니다. IoT Edge의 Azure Stream Analytics에 대한 자세한 내용은 [Azure Stream Analytics 설명서](../stream-analytics/stream-analytics-edge.md)를 참조하세요.
 
-이 자습서의 Stream Analytics 모듈은 순환하는 30초 시간 범위에 걸친 평균 온도를 계산합니다. 이 평균 온도가 70에 도달하면 모듈은 장치에서 조치를 취하도록 경고를 보냅니다. 이 경우, 그 동작은 시뮬레이션된 온도 센서를 다시 설정하는 것입니다. 프로덕션 환경에서 이 기능을 사용하여 온도가 위험 수준에 도달하면 컴퓨터를 종료하거나 예방 조치를 취할 수 있습니다. 
+이 자습서의 Stream Analytics 모듈은 순환하는 30초 시간 범위에 걸친 평균 온도를 계산합니다. 이 평균 온도가 70에 도달하면 모듈은 디바이스에서 조치를 취하도록 경고를 보냅니다. 이 경우, 그 동작은 시뮬레이션된 온도 센서를 다시 설정하는 것입니다. 프로덕션 환경에서 이 기능을 사용하여 온도가 위험 수준에 도달하면 컴퓨터를 종료하거나 예방 조치를 취할 수 있습니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -59,7 +59,7 @@ Azure IoT Edge 장치:
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
-IoT Edge 장치에서 실행되는 Azure Stream Analytics 작업을 만들 때 장치에서 호출할 수 있는 방식으로 작업을 저장해야 합니다. 기존 Azure 저장소 계정을 사용해도 되고, 지금 새로 만들어도 됩니다. 
+IoT Edge 디바이스에서 실행되는 Azure Stream Analytics 작업을 만들 때 디바이스에서 호출할 수 있는 방식으로 작업을 저장해야 합니다. 기존 Azure 저장소 계정을 사용해도 되고, 지금 새로 만들어도 됩니다. 
 
 1. Azure Portal에서 **리소스 만들기** > **Storage** > **Storage 계정 - BLOB, 파일, 테이블, 큐**로 이동합니다. 
 
@@ -94,7 +94,7 @@ IoT Edge 장치에서 실행되는 Azure Stream Analytics 작업을 만들 때 �
 
 Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데이터에 대해 실행되는 입력, 출력 및 쿼리를 사용하여 작업을 구성할 수 있습니다. 
 
-이 섹션에서는 입력, 출력, 쿼리의 세 가지 요소를 사용하여 IoT Edge 장치에서 온도 데이터를 수신하는 작업을 만듭니다. 이 작업은 순환하는 30초 동안의 데이터를 분석합니다. 이 시간의 평균 온도가 70도를 초과하면 IoT Edge 장치로 경고가 전송됩니다. 그 다음 섹션에서는 작업을 배포할 때 데이터가 들어오고 나오는 위치를 정확하게 지정할 것입니다.  
+이 섹션에서는 입력, 출력, 쿼리의 세 가지 요소를 사용하여 IoT Edge 디바이스에서 온도 데이터를 수신하는 작업을 만듭니다. 이 작업은 순환하는 30초 동안의 데이터를 분석합니다. 이 시간의 평균 온도가 70도를 초과하면 IoT Edge 디바이스로 경고가 전송됩니다. 그 다음 섹션에서는 작업을 배포할 때 데이터가 들어오고 나오는 위치를 정확하게 지정할 것입니다.  
 
 1. Azure Portal에서 Stream Analytics 작업으로 이동합니다. 
 
@@ -137,7 +137,7 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
 
 ### <a name="configure-iot-edge-settings"></a>IoT Edge 설정 구성
 
-IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업을 저장소 계정의 컨테이너에 연결해야 합니다. 작업을 배포하려고 이동하면 작업 정의가 저장소 컨테이너로 내보내집니다. 
+IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 작업을 저장소 계정의 컨테이너에 연결해야 합니다. 작업을 배포하려고 이동하면 작업 정의가 저장소 컨테이너로 내보내집니다. 
 
 1. **구성**에서 **저장소 계정 설정**을 선택합니다.
 
@@ -151,9 +151,9 @@ IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업�
 
 ## <a name="deploy-the-job"></a>작업 배포
 
-이제 IoT Edge 장치에 Azure Stream Analytics 작업을 배포할 준비가 되었습니다. 
+이제 IoT Edge 디바이스에 Azure Stream Analytics 작업을 배포할 준비가 되었습니다. 
 
-이 섹션에서는 Azure Portal의 **모듈 설정** 마법사를 사용하여 *배포 매니페스트*를 만듭니다. 배포 매니페스트는 장치에 배포될 모든 모듈, 모듈 이미지를 저장하는 컨테이너 레지스트리, 모듈을 관리하는 방법, 모듈이 서로 통신하는 방법을 설명하는 JSON 파일입니다. IoT Edge 장치는 IoT Hub에서 배포 매니페스트를 수신한 다음, 그 안에 들어 있는 정보를 사용하여 할당된 모든 모듈을 배포하고 구성합니다. 
+이 섹션에서는 Azure Portal의 **모듈 설정** 마법사를 사용하여 *배포 매니페스트*를 만듭니다. 배포 매니페스트는 디바이스에 배포될 모든 모듈, 모듈 이미지를 저장하는 컨테이너 레지스트리, 모듈을 관리하는 방법, 모듈이 서로 통신하는 방법을 설명하는 JSON 파일입니다. IoT Edge 디바이스는 IoT Hub에서 배포 매니페스트를 수신한 다음, 그 안에 들어 있는 정보를 사용하여 할당된 모든 모듈을 배포하고 구성합니다. 
 
 이 자습서에서는 두 개의 모듈을 배포합니다. 첫 번째는 온도 및 습도 센서를 시뮬레이션하는 **tempSensor** 모듈입니다. 두 번째는 Stream Analytics 작업입니다. 센서 모듈은 작업 쿼리에서 분석할 데이터 스트림을 제공합니다. 
 
@@ -161,7 +161,7 @@ IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업�
 
 1. **모듈 설정**을 선택합니다.  
 
-1. 이전에 이 장치에 tempSensor 모듈을 배포한 경우 자동으로 입력될 수 있습니다. 자동으로 입력되지 않으면 다음 단계에 따라 모듈을 추가합니다.
+1. 이전에 이 디바이스에 tempSensor 모듈을 배포한 경우 자동으로 입력될 수 있습니다. 자동으로 입력되지 않으면 다음 단계에 따라 모듈을 추가합니다.
 
    1. **추가**를 클릭하고 **IoT Edge 모듈**을 선택합니다.
    1. 이름으로 **tempSensor**를 입력합니다.
@@ -176,7 +176,7 @@ IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업�
 
 1. 앞에서 만든 저장소 컨테이너에 Stream Analytics 작업이 게시되면 모듈 이름을 클릭하여 Stream Analytics 모듈이 어떻게 구성되어 있는지 살펴봅니다. 
 
-   이미지 URI는 표준 Azure Stream Analytics 이미지를 가리킵니다. IoT Edge 장치에 배포되는 모든 작업에 사용되는 이미지와 동일한 이미지입니다. 
+   이미지 URI는 표준 Azure Stream Analytics 이미지를 가리킵니다. IoT Edge 디바이스에 배포되는 모든 작업에 사용되는 이미지와 동일한 이미지입니다. 
 
    모듈 쌍은 **ASAJobInfo**라고 하는 desired 속성을 사용하여 구성됩니다. 이 속성의 값은 저장소 컨테이너의 작업 정의를 가리킵니다. 이 속성은 특정 작업 정보를 사용하여 Stream Analytics 이미지를 구성하는 방법을 지정합니다. 
 
@@ -197,13 +197,13 @@ IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업�
     }
     ```
 
-   여기에 선언하는 경로는 IoT Edge 장치를 통과하는 데이터 흐름을 정의합니다. tempSensor의 원격 분석 데이터는 IoT Hub 및 Stream Analytics 작업에서 구성한 **온도** 입력으로 전송됩니다. **경고** 출력 메시지는 IoT Hub 및 tempSensor 모듈로 전송되어 다시 설정 명령을 트리거합니다. 
+   여기에 선언하는 경로는 IoT Edge 디바이스를 통과하는 데이터 흐름을 정의합니다. tempSensor의 원격 분석 데이터는 IoT Hub 및 Stream Analytics 작업에서 구성한 **온도** 입력으로 전송됩니다. **경고** 출력 메시지는 IoT Hub 및 tempSensor 모듈로 전송되어 다시 설정 명령을 트리거합니다. 
 
 1. **다음**을 선택합니다.
 
 1. **배포 검토** 단계에서 **제출**을 선택합니다.
 
-1. 장치 세부 정보 페이지로 돌아가서 **새로 고침**을 선택합니다.  
+1. 디바이스 세부 정보 페이지로 돌아가서 **새로 고침**을 선택합니다.  
 
     IoT Edge 에이전트 모듈 및 IoT Edge Hub와 함께 실행되는 새로운 Stream Analytics 모듈이 표시됩니다.
 
@@ -211,7 +211,7 @@ IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업�
 
 ## <a name="view-data"></a>데이터 보기
 
-이제 IoT Edge 장치로 가서 Azure Stream Analytics 모듈과 tempSensor 모듈 간의 상호 작용을 확인할 수 있습니다.
+이제 IoT Edge 디바이스로 가서 Azure Stream Analytics 모듈과 tempSensor 모듈 간의 상호 작용을 확인할 수 있습니다.
 
 1. Docker에서 모든 모듈이 실행되는지 확인합니다.
 
@@ -233,7 +233,7 @@ IoT Edge 장치에 배포할 Stream Analytics 작업을 준비하려면 작업�
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
  

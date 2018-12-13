@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge Java 자습서 | Microsoft Docs
-description: 이 자습서에서는 Java 코드를 사용하여 IoT Edge 모듈을 만들고, 에지 장치에 배포하는 방법을 보여 줍니다.
+description: 이 자습서에서는 Java 코드를 사용하여 IoT Edge 모듈을 만들고, 에지 디바이스에 배포하는 방법을 보여 줍니다.
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -16,12 +16,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2018
 ms.locfileid: "52312319"
 ---
-# <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: Java IoT Edge 모듈 개발 및 시뮬레이션된 장치에 배포
+# <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: Java IoT Edge 모듈 개발 및 시뮬레이션된 디바이스에 배포
 
-비즈니스 논리를 직접 Azure IoT Edge 장치에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md) 빠른 시작의 시뮬레이션된 장치에 Azure IoT Edge 배포에서 만든 시뮬레이션된 IoT Edge 장치를 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.    
+비즈니스 논리를 직접 Azure IoT Edge 장치에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 센서 데이터를 필터링하는 IoT Edge 모듈을 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md) 빠른 시작의 '시뮬레이션된 디바이스에 Azure IoT Edge 배포'에서 만든 시뮬레이션된 IoT Edge 디바이스를 사용합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.    
 
 > [!div class="checklist"]
-> * Visual Studio Code를 사용하여 Azure IoT Edge maven 템플릿 패키지와 Azure IoT Java 장치 SDK를 기반으로 하는 IoT Edge Java 모듈을 만듭니다.
+> * Visual Studio Code를 사용하여 Azure IoT Edge maven 템플릿 패키지와 Azure IoT Java 디바이스 SDK를 기반으로 하는 IoT Edge Java 모듈을 만듭니다.
 > * Visual Studio Code 및 Docker를 사용하여 docker 이미지를 만들어 레지스트리에 게시합니다.
 > * 모듈을 IoT Edge 장치에 배포합니다.
 > * 생성된 데이터를 봅니다.
@@ -37,7 +37,7 @@ ms.locfileid: "52312319"
 Azure IoT Edge 장치:
 
 * [Linux](quickstart-linux.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
-* IoT Edge용 Java 모듈은 Windows 장치를 지원하지 않습니다.
+* IoT Edge용 Java 모듈은 Windows 디바이스를 지원하지 않습니다.
 
 클라우드 리소스:
 
@@ -51,12 +51,12 @@ Azure IoT Edge 장치:
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks)(JDK 설치를 가리키도록 [`JAVA_HOME` 환경 변수](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) 설정)
 * [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
-   * Windows 장치에서 개발하는 경우 Docker가 [Linux 컨테이너를 사용하도록 구성](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)되어 있는지 확인합니다. 
+   * Windows 디바이스에서 개발하는 경우 Docker가 [Linux 컨테이너를 사용하도록 구성](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)되어 있는지 확인합니다. 
 
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
+이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 디바이스에서 실행되도록 레지스트리의 이미지를 배포합니다.  
 
 임의 Docker 호환 레지스트리를 사용하여 컨테이너 이미지를 유지할 수 있습니다. 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
 
@@ -82,7 +82,7 @@ Azure IoT Edge 장치:
 7. **로그인 서버**, **사용자 이름** 및 **암호**의 값을 복사합니다. 나중에 자습서의 뒷부분에서 이러한 값을 사용하여 컨테이너 레지스트리에 대한 액세스를 제공합니다. 
 
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge 모듈 프로젝트 만들기
-다음 단계에서는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 Azure IoT Edge maven 템플릿 패키지와 Azure IoT Java 장치 SDK를 기반으로 하는 IoT Edge 모듈 프로젝트를 만듭니다.
+다음 단계에서는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 Azure IoT Edge maven 템플릿 패키지와 Azure IoT Java 디바이스 SDK를 기반으로 하는 IoT Edge 모듈 프로젝트를 만듭니다.
 
 ### <a name="create-a-new-solution"></a>새 솔루션 만들기
 
@@ -257,19 +257,19 @@ VS Code 통합 터미널에 태그와 함께 전체 컨테이너 이미지 주�
 
 ## <a name="deploy-and-run-the-solution"></a>솔루션 배포 및 실행
 
-IoT Edge 장치를 설정할 때 사용한 빠른 시작 문서에서는 Azure Portal을 사용하여 모듈을 배포했습니다. Visual Studio Code용 Azure IoT 도구 키트 확장을 사용하여 모듈을 배포할 수도 있습니다. 여러분의 시나리오를 위한 배포 매니페스트인 **deployment.json** 파일이 이미 준비되어 있습니다. 이제 배포를 받을 장치를 선택하기만 하면 됩니다.
+IoT Edge 디바이스를 설정할 때 사용한 빠른 시작 문서에서는 Azure Portal을 사용하여 모듈을 배포했습니다. Visual Studio Code용 Azure IoT 도구 키트 확장을 사용하여 모듈을 배포할 수도 있습니다. 여러분의 시나리오를 위한 배포 매니페스트인 **deployment.json** 파일이 이미 준비되어 있습니다. 이제 배포를 받을 디바이스를 선택하기만 하면 됩니다.
 
 1. VS Code 명령 팔레트에서 **Azure: 로그인** 명령을 실행하고, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
 
 2. VS Code 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택**을 실행합니다. 
 
-3. 구성하려는 IoT Edge 장치가 포함된 구독 및 IoT Hub를 선택합니다. 
+3. 구성하려는 IoT Edge 디바이스가 포함된 구독 및 IoT Hub를 선택합니다. 
 
 4. VS Code 탐색기에서 **Azure IoT Hub 장치** 섹션을 펼칩니다. 
 
-5. IoT Edge 장치의 이름을 마우스 오른쪽 단추로 클릭한 다음, **단일 장치용 배포 만들기**를 선택합니다. 
+5. IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭한 다음, **단일 디바이스용 배포 만들기**를 선택합니다. 
 
-   ![단일 장치용 배포 만들기](./media/tutorial-java-module/create-deployment.png)
+   ![단일 디바이스용 배포 만들기](./media/tutorial-java-module/create-deployment.png)
 
 6. **config** 폴더에서 **deployment.json** 파일을 선택한 다음, **에지 배포 매니페스트 선택**을 클릭합니다. deployment.template.json 파일을 사용하지 마세요. 
 
@@ -277,11 +277,11 @@ IoT Edge 장치를 설정할 때 사용한 빠른 시작 문서에서는 Azure P
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
-IoT Edge 장치에 배포 매니페스트를 적용한 후에는 장치의 IoT Edge 런타임이 새 배포 정보를 수집하고 그에 따라 실행하기 시작합니다. 배포 매니페스트에 포함되지 않는 장치에서 실행되는 모든 모듈은 중지됩니다. 장치에서 누락된 모든 모듈이 시작됩니다. 
+IoT Edge 디바이스에 배포 매니페스트를 적용한 후에는 디바이스의 IoT Edge 런타임이 새 배포 정보를 수집하고 그에 따라 실행하기 시작합니다. 배포 매니페스트에 포함되지 않는 디바이스에서 실행되는 모든 모듈은 중지됩니다. 디바이스에서 누락된 모든 모듈이 시작됩니다. 
 
-Visual Studio Code Explorer의 **Azure IoT Hub 장치** 섹션을 통해 IoT Edge 장치 상태를 확인할 수 있습니다. 배포되어 실행 중인 모듈의 목록을 보려면 장치 상세 정보를 확장합니다. 
+Visual Studio Code Explorer의 **Azure IoT Hub 디바이스** 섹션을 통해 IoT Edge 디바이스 상태를 확인할 수 있습니다. 배포되어 실행 중인 모듈의 목록을 보려면 디바이스 상세 정보를 확장합니다. 
 
-IoT Edge 장치 자체에서 `iotedge list` 명령을 사용하여 배포 모듈 상태를 확인할 수 있습니다. 두 IoT Edge 런타임 모듈과 tempSensor, 이 자습서에서 만든 사용자 지정 모듈 등, 4개 모듈이 표시됩니다. 모든 모듈이 시작되려면 몇 분 정도 걸릴 수 있으므로 처음에 일부가 표시되지 않는다면 명령을 다시 실행합니다. 
+IoT Edge 디바이스 자체에서 `iotedge list` 명령을 사용하여 배포 모듈 상태를 확인할 수 있습니다. 두 IoT Edge 런타임 모듈과 tempSensor, 이 자습서에서 만든 사용자 지정 모듈 등, 4개 모듈이 표시됩니다. 모든 모듈이 시작되려면 몇 분 정도 걸릴 수 있으므로 처음에 일부가 표시되지 않는다면 명령을 다시 실행합니다. 
 
 모든 모듈에서 생성되는 메시지를 보려면 `iotedge logs <module name>` 명령을 사용합니다. 
 
@@ -295,7 +295,7 @@ IoT Edge 장치 자체에서 `iotedge list` 명령을 사용하여 배포 모듈
  
 ## <a name="clean-up-resources"></a>리소스 정리 
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 

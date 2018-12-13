@@ -53,7 +53,7 @@ Azure Government 클라우드의 경우 StorSimple Device Manager 서비스는 �
 
 StorSimple 데이터는 Azure 저장소 계정에 물리적으로 저장되며 이러한 계정은 모든 Azure 지역에서 사용할 수 있습니다. Azure 저장소 계정을 만들 때 저장소 계정의 기본 위치를 선택하고 데이터가 있는 지역을 결정합니다.
 
-먼저 StorSimple Device Manager 서비스를 만들고 저장소 계정을 연결하면 StorSimple Device Manager 서비스와 Azure 저장소가 별도의 위치에 있을 수 있습니다. 이 경우, StorSimple 장치 관리자 및 Azure Storage 계정을 별도로 만들어야 합니다.
+먼저 StorSimple Device Manager 서비스를 만들고 저장소 계정을 연결하면 StorSimple Device Manager 서비스와 Azure 저장소가 별도의 위치에 있을 수 있습니다. 이 경우, StorSimple 디바이스 관리자 및 Azure Storage 계정을 별도로 만들어야 합니다.
 
 일반적으로 저장소 계정에 대한 서비스에 가장 가까운 지역을 선택합니다. 그러나 가장 가까운 Microsoft Azure 지역이 실제로는 대기 시간이 가장 낮은 지역이 아닐 수 있습니다. 네트워크 서비스 성능을 결정하고 그에 따라 솔루션의 성능도 결정하는 것이 대기 시간입니다. 따라서 다른 지역의 저장소 계정을 선택하는 경우, 사용자의 서비스와 저장소 계정에 연결된 지역 간의 대기 시간에 알아야 합니다.
 
@@ -65,7 +65,7 @@ StorSimple Cloud Appliance를 사용하는 경우는 서비스 및 연결된 저
 
 ### <a name="storsimple-physical-device-models-81008600"></a>StorSimple 물리적 장치(모델 8100/8600)
 
-StorSimple 8100 또는 8600 물리적 장치를 사용하는 경우 다음과 같은 국가에서 장치를 사용할 수 있습니다.
+StorSimple 8100 또는 8600 물리적 디바이스를 사용하는 경우 다음과 같은 국가에서 디바이스를 사용할 수 있습니다.
 
 | #  | 국가        | #  | 국가     | #  | 국가      | #  | 국가              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|

@@ -115,7 +115,7 @@ ms.locfileid: "51235210"
     이 코드는 MPNS에서 앱의 채널 URI를 검색한 후 해당 채널 URI를 알림 허브에 등록합니다. 또한 이 코드는 응용 프로그램이 시작될 때마다 채널 URI가 알림 허브에 등록되도록 보장합니다.
    
    > [!NOTE]
-   > 이 자습서에서는 알림 메시지를 장치로 보냅니다. 타일 알림을 보내는 경우 채널에서 **BindToShellTile** 메서드를 대신 호출해야 합니다. 알림 메시지와 타일 알림을 둘 다 지원하려면 **BindToShellTile** 및 **BindToShellToast**를 둘 다 호출합니다.
+   > 이 자습서에서는 알림 메시지를 디바이스로 보냅니다. 타일 알림을 보내는 경우 채널에서 **BindToShellTile** 메서드를 대신 호출해야 합니다. 알림 메시지와 타일 알림을 둘 다 지원하려면 **BindToShellTile** 및 **BindToShellToast**를 둘 다 호출합니다.
    > 
    > 
 6. 솔루션 탐색기에서 **속성**을 확장하고 `WMAppManifest.xml` 파일을 연 후 **기능** 탭을 클릭하고 **ID_CAP_PUSH_NOTIFICATION** 기능이 선택되었는지 확인합니다. 앱은 이제 푸시 알림을 받을 수 있습니다. 
@@ -148,7 +148,7 @@ ms.locfileid: "51235210"
     ![Windows 휴대폰의 알림](./media/notification-hubs-windows-phone-get-started/notification-on-windows-phone.png)
 
 ## <a name="next-steps"></a>다음 단계
-이 간단한 예제에서는 모든 Windows Phone 8 장치로 푸시 알림을 브로드캐스트했습니다. 특정 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
+이 간단한 예제에서는 모든 Windows Phone 8 디바이스로 푸시 알림을 브로드캐스트했습니다. 특정 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 >[특정 장치에 알림 푸시](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)

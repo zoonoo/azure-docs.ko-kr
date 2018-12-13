@@ -26,7 +26,7 @@ ms.locfileid: "52632588"
 이 문서에서는 리소스 관리자 배포 모델 및 PowerShell을 사용하여 프레미스 간 S2S(사이트 간) VPN 연결 및 VNet 간 연결에서 BGP를 사용하도록 설정하는 단계를 안내합니다.
 
 ## <a name="about-bgp"></a>BGP 정보
-BGP는 두 개 이상의 네트워크 간에 라우팅 및 연결 정보를 교환하도록 인터넷에서 일반적으로 사용하는 표준 라우팅 프로토콜입니다. BGP를 통해 Azure VPN Gateway 및 온-프레미스 VPN 장치(BGP 피어 또는 인접이라고 함)는 관련된 게이트웨이 또는 라우터를 거치도록 해당 접두사의 가용성 및 연결 가능성에 대한 정보를 두 게이트웨이에 제공하는 "경로"를 교환할 수 있습니다. BGP 게이트웨이가 하나의 BGP 피어에서 파악한 경로를 다른 모든 BGP 피어로 전파하여 BGP를 통해 여러 네트워크 간에 전송 라우팅을 사용할 수도 있습니다.
+BGP는 두 개 이상의 네트워크 간에 라우팅 및 연결 정보를 교환하도록 인터넷에서 일반적으로 사용하는 표준 라우팅 프로토콜입니다. BGP를 통해 Azure VPN Gateway 및 온-프레미스 VPN 디바이스(BGP 피어 또는 인접이라고 함)는 관련된 게이트웨이 또는 라우터를 거치도록 해당 접두사의 가용성 및 연결 가능성에 대한 정보를 두 게이트웨이에 제공하는 "경로"를 교환할 수 있습니다. BGP 게이트웨이가 하나의 BGP 피어에서 파악한 경로를 다른 모든 BGP 피어로 전파하여 BGP를 통해 여러 네트워크 간에 전송 라우팅을 사용할 수도 있습니다.
 
 BGP의 이점에 대한 자세한 설명과 BGP 사용의 기술 요구 사항 및 고려 사항을 이해하려면 [Azure VPN Gateway에서의 BGP 개요](vpn-gateway-bgp-overview.md)를 참조하세요.
 
@@ -142,7 +142,7 @@ $vnet1gw.BgpSettingsText
 
 ## <a name ="crossprembbgp"></a>2부 - BGP를 사용하여 프레미스 간 연결 설정
 
-프레미스 간 연결을 설정하려면 온-프레미스 VPN 장치를 나타내는 로컬 네트워크 게이트웨이를 만들고 VPN 게이트웨이와 로컬 네트워크 게이트웨이를 연결하는 연결을 만들어야 합니다. 이러한 단계를 안내하는 문서가 있지만 이 문서는 BGP 구성 매개 변수를 지정하는 데 필요한 추가 속성을 포함합니다.
+프레미스 간 연결을 설정하려면 온-프레미스 VPN 디바이스를 나타내는 로컬 네트워크 게이트웨이를 만들고 VPN 게이트웨이와 로컬 네트워크 게이트웨이를 연결하는 연결을 만들어야 합니다. 이러한 단계를 안내하는 문서가 있지만 이 문서는 BGP 구성 매개 변수를 지정하는 데 필요한 추가 속성을 포함합니다.
 
 ![프레미스 간에 대한 BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crossprem.png)
 
@@ -199,7 +199,7 @@ $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
-다음 예제에서 이 연습을 위해 온-프레미스 VPN 장치의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
+다음 예제에서 이 연습을 위해 온-프레미스 VPN 디바이스의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
 
 ```
 

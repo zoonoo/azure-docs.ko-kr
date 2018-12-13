@@ -177,7 +177,7 @@ Azure 명령줄 인터페이스는 명령줄에서 Azure 리소스를 만들고 
 
 #### <a name="rest-apis"></a>REST API
 
-Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 장치에서 Azure 리소스와 앱을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 자세한 내용은 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/index)를 참조하세요.
+Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 디바이스에서 Azure 리소스와 앱을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 자세한 내용은 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/index)를 참조하세요.
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
@@ -405,7 +405,7 @@ Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하
 
 #### <a name="queue-storage"></a>큐 저장소
 
-Azure Queue storage는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. Queue storage는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 장치에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. Queue storage는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
+Azure Queue storage는 응용 프로그램 구성 요소 간에 클라우드 메시징을 제공합니다. 규모를 고려하여 응용 프로그램을 디자인할 때는 응용 프로그램 구성 요소를 개별적으로 확장할 수 있도록 각 구성 요소를 분리하는 경우가 많습니다. Queue storage는 클라우드, 데스크톱, 온-프레미스 서버 또는 모바일 디바이스에서 실행 중인지와 관계 없이 응용 프로그램 구성 요소 간에 통신을 위한 비동기 메시징을 제공합니다. Queue storage는 또한 비동기 작업 관리와 프로세스 워크플로 작성을 지원합니다.
 
 자세한 내용은 [Azure Queue Storage 시작](../../storage/queues/storage-dotnet-how-to-use-queues.md)을 참조하세요.
 

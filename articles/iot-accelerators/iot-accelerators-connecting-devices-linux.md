@@ -1,5 +1,5 @@
 ---
-title: C로 Linux 장치를 원격 모니터링에 프로비전 - Azure | Microsoft Docs
+title: C로 Linux 디바이스를 원격 모니터링에 프로비전 - Azure | Microsoft Docs
 description: C로 작성한 응용 프로그램을 Linux에서 실행하여 원격 모니터링 솔루션 가속기에 장치를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
@@ -25,7 +25,7 @@ ms.locfileid: "48829837"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 방법 가이드의 단계를 완료하려면 Ubuntu 버전 15.04 이상을 실행하는 장치가 필요합니다. 계속하기 전에 [Linux 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux)을 수행하세요.
+이 방법 가이드의 단계를 완료하려면 Ubuntu 버전 15.04 이상을 실행하는 디바이스가 필요합니다. 계속하기 전에 [Linux 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux)을 수행하세요.
 
 ## <a name="view-the-code"></a>코드 보기
 

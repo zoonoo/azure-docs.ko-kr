@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central Explorer를 사용하여 장치 연결 모니터링
-description: 장치 메시지를 모니터링하고 IoT Central Explorer CLI를 통해 장치 쌍 변경 내용을 관찰합니다.
+title: Azure IoT Central Explorer를 사용하여 디바이스 연결 모니터링
+description: 디바이스 메시지를 모니터링하고 IoT Central Explorer CLI를 통해 디바이스 쌍 변경 내용을 관찰합니다.
 author: viv-liu
 ms.author: viviali
 ms.date: 09/12/2018
@@ -15,11 +15,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/18/2018
 ms.locfileid: "45987244"
 ---
-# <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Azure IoT Central Explorer를 사용하여 장치 연결 모니터링
+# <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Azure IoT Central Explorer를 사용하여 디바이스 연결 모니터링
 
 ‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
 
-IoT Central Explorer CLI를 사용하여 장치가 IoT Central에 보내고 있는 메시지를 확인하고 IoT Hub 쌍에서 변경 내용을 관찰합니다. 이 오픈 소스 도구를 사용하여 장치 연결 상태에 대한 자세한 인사이트를 얻고 장치 메시지가 클라우드에 도달하지 않거나 장치가 쌍 변경 내용에 응답하지 않는 문제를 진단할 수 있습니다.
+IoT Central Explorer CLI를 사용하여 디바이스가 IoT Central에 보내고 있는 메시지를 확인하고 IoT Hub 쌍에서 변경 내용을 관찰합니다. 이 오픈 소스 도구를 사용하여 디바이스 연결 상태에 대한 자세한 인사이트를 얻고 디바이스 메시지가 클라우드에 도달하지 않거나 디바이스가 쌍 변경 내용에 응답하지 않는 문제를 진단할 수 있습니다.
 
 ## <a name="visit-the-iotc-explorer-repo-in-githubhttpsakamsiotciotcexplorercligithub"></a>[GitHub의 iotc-explorer 리포지토리 방문](https://aka.ms/iotciotcexplorercligithub)
 
@@ -67,18 +67,18 @@ iotc-explorer login "<Token value>"
 iotc-explorer login
 ```
 
-### <a name="monitor-device-messages"></a>장치 메시지 모니터링
+### <a name="monitor-device-messages"></a>디바이스 메시지 모니터링
 
 `monitor-messages` 명령을 사용하여 응용 프로그램의 특정 장치 또는 모든 장치에서 나오는 메시지를 감시할 수 있습니다. 그러면 새 메시지가 들어올 때 지속적으로 새 메시지를 출력하는 Watcher가 시작됩니다.
 
-응용 프로그램의 모든 장치를 감시하려면 다음 명령을 실행합니다.
+애플리케이션의 모든 디바이스를 감시하려면 다음 명령을 실행합니다.
 
 ```
 iotc-explorer monitor-messages
 ```
 출력: ![monitor-messages command output](media/howto-use-iotc-explorer/monitormessages.PNG)
 
-특정 장치를 감시하려면 명령의 끝에 장치 ID를 추가하면 됩니다.
+특정 디바이스를 감시하려면 명령의 끝에 디바이스 ID를 추가하면 됩니다.
 
 ```
 iotc-explorer monitor-messages <your-device-id>
@@ -90,7 +90,7 @@ iotc-explorer monitor-messages <your-device-id>
 iotc-explorer monitor-messages --raw
 ```
 
-### <a name="get-device-twin"></a>장치 쌍 가져오기
+### <a name="get-device-twin"></a>디바이스 쌍 가져오기
 
 `get-twin` 명령을 사용하여 IoT Central 장치 쌍의 콘텐츠를 가져올 수 있습니다. 이렇게 하려면 다음 명령을 실행합니다.
 
@@ -107,4 +107,4 @@ iotc-explorer get-twin <your-device-id> --raw
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이제 IoT Central Explorer를 사용하는 방법을 알아보았으므로 제안된 다음 단계는 [장치 IoT Central 관리](howto-manage-devices.md)를 살펴보는 것입니다.
+이제 IoT Central Explorer를 사용하는 방법을 알아보았으므로 제안된 다음 단계는 [디바이스 IoT Central 관리](howto-manage-devices.md)를 살펴보는 것입니다.

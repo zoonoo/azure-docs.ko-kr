@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory를 사용하여 그룹 멤버를 추가하거나 제거하는 방법 | Microsoft Docs
-description: Azure Active Directory를 사용하여 그룹에서 사용자 및 장치를 추가하거나 제거하는 방법을 알아봅니다.
+description: Azure Active Directory를 사용하여 그룹에서 사용자 및 디바이스를 추가하거나 제거하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
 manager: mtillman

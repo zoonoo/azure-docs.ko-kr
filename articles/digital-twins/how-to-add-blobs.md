@@ -118,7 +118,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 아래에는 핵심 엔드포인트와 해당 특정 기능에 대한 연습이 제공됩니다.
 
-### <a name="devices"></a>장치
+### <a name="devices"></a>디바이스
 
 Blob은 디바이스에 연결할 수 있습니다. 아래 이미지(관리 API에 대한 Swagger 참조 설명서의 표현)에는 Blob 사용에 대한 디바이스 관련 API 엔드포인트 및 이 엔드포인트에 전달하는 데 필요한 경로 매개 변수가 나와 있습니다.
 

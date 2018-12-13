@@ -46,17 +46,17 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 ![게이트웨이가 실행 중인지 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
-가상 네트워크의 경우 가상 네트워크에 대한 **개요** 페이지로 이동합니다. 가상 네트워크 게이트웨이에 대한 **연결된 장치**를 확인합니다.
+가상 네트워크의 경우 가상 네트워크에 대한 **개요** 페이지로 이동합니다. 가상 네트워크 게이트웨이에 대한 **연결된 디바이스**를 확인합니다.
 
-![연결된 장치 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![연결된 디바이스 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
 게이트웨이를 제거하려면 먼저 게이트웨이에서 **연결** 개체를 제거해야 합니다. 
 
 ### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>가상 네트워크에서 응용 프로그램 게이트웨이가 실행 중인지 확인
 
-가상 네트워크에 대한 **개요** 페이지로 이동합니다. 응용 프로그램 게이트웨이에 대한 **연결된 장치**를 확인합니다.
+가상 네트워크에 대한 **개요** 페이지로 이동합니다. 응용 프로그램 게이트웨이에 대한 **연결된 디바이스**를 확인합니다.
 
-![연결된 장치 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![연결된 디바이스 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 응용 프로그램 게이트웨이가 있는 경우 이를 제거해야 가상 네트워크를 삭제할 수 있습니다.
 
@@ -64,7 +64,7 @@ Microsoft Azure에서 가상 네트워크를 삭제하려고 할 때 오류가 �
 
 Active Directory Domain Service가 사용하도록 설정되어 있고 가상 네트워크에 연결되어 있다면 이 가상 네트워크를 삭제할 수 없습니다. 
 
-![연결된 장치 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![연결된 디바이스 확인](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
 서비스를 사용하지 않도록 설정하려면 [Azure Portal을 사용하여 Azure Active Directory Domain Services 비활성화](../active-directory-domain-services/active-directory-ds-disable-aadds.md)를 참조하세요.
 

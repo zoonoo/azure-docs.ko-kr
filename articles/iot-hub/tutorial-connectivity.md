@@ -137,7 +137,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 개발 컴퓨터의 터미널 창에서 다운로드한 Node.js 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Tutorials\ConnectivityTests\simulated-device** 폴더로 이동합니다.
 
-터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 응용 프로그램을 실행합니다.
+터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
 
 ```cmd/sh
 npm install
@@ -178,7 +178,7 @@ az iot hub device-identity show-connection-string --device-id MyTestDevice --out
 
 메시지를 보내는 시뮬레이션된 장치를 실행하려면 다운로드한 코드의 **iot-hub\Tutorials\ConnectivityTests\simulated-device** 폴더로 이동합니다.
 
-터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 응용 프로그램을 실행합니다.
+터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
 
 ```cmd/sh
 npm install

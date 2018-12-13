@@ -26,7 +26,7 @@ ms.locfileid: "46958257"
 Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안을 유지하고 서비스를 보호하는 데 사용할 수 있는 여러 가지 방법 중 하나를 제공합니다. 조건부 액세스를 통해 개발자 및 기업 고객은 다음과 같은 다양한 방법으로 서비스를 보호할 수 있습니다.
 
 * Multi-Factor Authentication
-* Intune 등록 장치만 특정 서비스에 액세스할 수 있도록 허용
+* Intune 등록 디바이스만 특정 서비스에 액세스할 수 있도록 허용
 * 사용자 위치 및 IP 범위 제한
 
 조건부 액세스의 전체 기능에 자세한 내용은 [Azure Active Directory의 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 참조하세요. 

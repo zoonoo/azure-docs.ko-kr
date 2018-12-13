@@ -46,7 +46,7 @@ Azure Active Directory ID보호를 사용하여 로그인 위험 정책 또는 �
 ## <a name="unblocking-suspicious-sign-ins"></a>의심스러운 로그인 차단 해제
 의심스러운 로그인을 차단 해제하기 위해 다음 옵션이 있습니다.
 
-1. **친숙한 위치 또는 장치에서 로그인** - 차단된 의심스러운 로그인에 대한 일반적인 이유는 알 수 없는 위치 또는 장치에서의 로그인 시도입니다. 사용자는 친숙한 위치 또는 장치에서 로그인을 시도하여 차단 이유인지 여부를 빠르게 확인할 수 있습니다.
+1. **친숙한 위치 또는 장치에서 로그인** - 차단된 의심스러운 로그인에 대한 일반적인 이유는 알 수 없는 위치 또는 장치에서의 로그인 시도입니다. 사용자는 친숙한 위치 또는 디바이스에서 로그인을 시도하여 차단 이유인지 여부를 빠르게 확인할 수 있습니다.
 2. **정책에서 제외** - 로그인 정책의 현재 구성이 특정 사용자에 대해 문제를 일으킨다고 생각하는 경우 여기에서 사용자를 제외할 수 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
 3. **정책 비활성화** - 정책 구성이 모든 사용자에 대해 문제를 일으킨다고 생각하는 경우 정책을 비활성화할 수 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
 

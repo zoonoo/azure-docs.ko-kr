@@ -95,7 +95,7 @@ Azure IoT Central 응용 프로그램에 장치를 추가하려면:
  >   [!NOTE] 
     장치가 템플릿과 연결되면 다른 템플릿과 연결되거나 연결 해제될 수 없습니다.
 
-## <a name="export-devices"></a>내보내기 장치
+## <a name="export-devices"></a>내보내기 디바이스
 
 장치를 프로비전하여 IoT Central에 연결하려면 IoT Central에서 생성되는 장치의 연결 문자열이 필요합니다. 내보내기 기능을 사용하여 응용 프로그램에서 대량으로 장치의 연결 문자열 및 다른 속성을 가져올 수 있습니다. 내보내기를 수행하면 선택한 모든 장치에 대한 장치 ID, 장치 이름 및 기본 연결 문자열이 포함된 CSV 파일이 생성됩니다.
 
@@ -116,7 +116,7 @@ Azure IoT Central 응용 프로그램에 장치를 추가하려면:
 
     [![내보내기 성공](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. 내보낸 CSV 파일에는 다음의 열 정보(**장치 ID, 장치 이름, 장치 기본/보조 키, 및 기본/보조 인증서 지문**)가 있습니다.
+1. 내보낸 CSV 파일에는 다음의 열 정보(**디바이스 ID, 디바이스 이름, 디바이스 기본/보조 키, 및 기본/보조 인증서 지문**)가 있습니다.
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY
@@ -124,7 +124,7 @@ Azure IoT Central 응용 프로그램에 장치를 추가하려면:
     *   IOTC_X509THUMBPRINT_PRIMARY 
     *   IOTC_X509THUMBPRINT_SECONDARY
 
-## <a name="delete-a-device"></a>장치 삭제
+## <a name="delete-a-device"></a>디바이스 삭제
 
 Azure IoT Central 응용 프로그램에서 실제 장치 또는 시뮬레이션된 장치를 삭제하려면:
 

@@ -31,15 +31,15 @@ ms.locfileid: "29972343"
 가상 장치를 프로비전하고 연결하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
 ## <a name="provisioning-prerequisites"></a>프로비전 필수 조건
-VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 장치를 프로비전하기 위한 필수 조건은 다음과 같습니다.
+VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 디바이스를 프로비전하기 위한 필수 조건은 다음과 같습니다.
 
-### <a name="for-the-storsimple-device-manager-service"></a>StorSimple 장치 관리자 서비스의 경우
+### <a name="for-the-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스의 경우
 시작하기 전에 다음 사항을 확인합니다.
 
 * [StorSimple 가상 배열용 포털 준비](storsimple-virtual-array-deploy1-portal-prep.md)의 모든 단계를 완료했습니다.
 * Azure 포털에서 VMware용 가상 장치 이미지를 다운로드했습니다. 자세한 내용은 [StorSimple 가상 배열을 위한 포털 준비 가이드](storsimple-virtual-array-deploy1-portal-prep.md)의 **3단계: 가상 장치 이미지 다운로드**를 참조하세요.
 
-### <a name="for-the-storsimple-virtual-device"></a>StorSimple 가상 장치의 경우
+### <a name="for-the-storsimple-virtual-device"></a>StorSimple 가상 디바이스의 경우
 가상 장치를 배포하기 전에 다음 사항을 확인해야 합니다.
 
 * 장치 프로비전에 사용될 수 있는 Hyper-V(2008 R2 이상)를 실행하는 호스트 시스템에 액세스할 수 있습니다.
@@ -76,7 +76,7 @@ VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 �
 ## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>2단계: 하이퍼바이저에서 가상 장치를 프로비전합니다.
 하이퍼바이저에서 가상 장치를 프로비전하려면 다음 단계를 수행합니다.
 
-1. 시스템에서 가상 장치 이미지를 복사합니다. Azure Portal을 통해 이 가상 이미지를 다운로드합니다.
+1. 시스템에서 가상 디바이스 이미지를 복사합니다. Azure Portal을 통해 이 가상 이미지를 다운로드합니다.
 
    1. 최신 이미지 파일을 다운로드했는지 확인합니다. 이전에 이미지를 다운로드한 경우 최신 이미지인지 확인하기 위해 다시 다운로드합니다. 최신 이미지에는 하나가 아니라 두 개의 파일이 있습니다.
    2. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
@@ -191,11 +191,11 @@ VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 �
 ## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>3단계: 가상 장치를 시작하고 IP를 가져옵니다.
 가상 장치를 시작하여 연결하려면 다음 단계를 수행합니다.
 
-#### <a name="to-start-the-virtual-device"></a>가상 장치를 시작하려면
+#### <a name="to-start-the-virtual-device"></a>가상 디바이스를 시작하려면
 1. 가상 장치를 시작합니다. vSphere 구성 관리자의 왼쪽 창에서 장치를 선택하고 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 표시합니다. **전원**을 선택한 후 **전원 켜기**를 선택합니다. 이렇게 하면 가상 컴퓨터의 전원이 켜집니다. vSphere 클라이언트의 아래쪽 **최근 태스크** 창에서 상태를 볼 수 있습니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
-2. 설정 태스크를 완료하려면 몇 분 정도 걸립니다. 장치가 실행되면 **콘솔** 탭으로 이동합니다. Ctrl+Alt+Delete 키를 눌러서 장치에 로그온합니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
+2. 설정 태스크를 완료하려면 몇 분 정도 걸립니다. 디바이스가 실행되면 **콘솔** 탭으로 이동합니다. Ctrl+Alt+Delete 키를 눌러서 장치에 로그온합니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. 보안상의 이유로 장치 관리자 암호는 처음 로그인하면 만료됩니다. 암호를 변경하라는 메시지가 표시됩니다.
@@ -204,7 +204,7 @@ VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 �
 4. 8자 이상을 포함하는 암호를 입력합니다. 암호는 4가지 요구 사항(대문자, 소문자, 숫자 및 특수 문자) 중 3가지를 포함해야 합니다. 확인을 위해 암호를 다시 입력합니다. 암호가 변경되었다는 메시지가 표시됩니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image40.png)
-5. 암호 변경이 완료되면 가상 장치가 다시 부팅될 수 있습니다. 재부팅이 완료될 때가지 기다립니다. 장치의 Windows PowerShell 콘솔이 진행률 표시줄과 함께 표시될 수 있습니다.
+5. 암호 변경이 완료되면 가상 장치가 다시 부팅될 수 있습니다. 재부팅이 완료될 때가지 기다립니다. 디바이스의 Windows PowerShell 콘솔이 진행률 표시줄과 함께 표시될 수 있습니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)
 6. 6-8단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우에는 이 단계를 건너뛰고 9단계로 이동하세요. DHCP 환경이 아닌 곳에서 장치를 부팅하는 경우에는 다음 화면이 표시됩니다.
@@ -212,7 +212,7 @@ VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 �
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image42m.png)
 
    다음으로 네트워크를 구성합니다.
-7. `Get-HcsIpAddress` 명령을 사용하여 가상 장치에 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 장치에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
+7. `Get-HcsIpAddress` 명령을 사용하여 가상 장치에 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image43m.png)
 8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 아래에 예가 나와 있습니다.
@@ -220,7 +220,7 @@ VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 �
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image44.png)
-9. 초기 설정이 완료된 후 장치가 부팅되면 장치 배너 텍스트가 표시됩니다. 장치 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 장치의 웹 UI를 연결하고 로컬 설정 및 등록을 완료합니다.
+9. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 장치 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 장치의 웹 UI를 연결하고 로컬 설정 및 등록을 완료합니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image45.png)
 10. (선택 사항) 이 단계는 정부 클라우드에서 장치를 배포하는 경우에만 수행합니다. 이제 장치에서 미국 FIPS(Federal Information Processing Standard) 모드를 사용할 수 있습니다. FIPS 140 표준은 중요한 데이터의 보호를 위해 미국 연방 정부 컴퓨터 시스템에서 사용할 수 있도록 승인된 암호화 알고리즘을 정의합니다.
@@ -235,7 +235,7 @@ VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 �
        >
        >
 
-장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정해야 합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
+장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
 

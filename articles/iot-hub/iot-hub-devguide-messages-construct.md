@@ -17,11 +17,11 @@ ms.locfileid: "49319577"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
-프로토콜을 통해 원활한 상호 운용성을 지원하기 위해 IoT Hub는 모든 장치 지향 프로토콜에 대한 일반적인 메시지 형식을 정의합니다. 이 메시지 형식은 [장치-클라우드 라우팅](iot-hub-devguide-messages-d2c.md) 및 [클라우드-장치](iot-hub-devguide-messages-c2d.md) 메시지에 둘 다 사용됩니다. 
+프로토콜을 통해 원활한 상호 운용성을 지원하기 위해 IoT Hub는 모든 디바이스 지향 프로토콜에 대한 일반적인 메시지 형식을 정의합니다. 이 메시지 형식은 [디바이스-클라우드 라우팅](iot-hub-devguide-messages-d2c.md) 및 [클라우드-디바이스](iot-hub-devguide-messages-c2d.md) 메시지에 둘 다 사용됩니다. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub는 스트리밍 메시징 패턴을 사용하여 장치-클라우드 메시징을 구현합니다. IoT Hub의 장치 - 클라우드 메시지는 여러 독자가 읽을 수 있는 서비스를 통과하는 많은 양의 이벤트가 있다는 점에서 [Service Bus](/azure/service-bus-messaging/) ‘메시지’보다는 [Event Hubs](/azure/event-hubs/) ‘이벤트’에 가깝습니다.
+IoT Hub는 스트리밍 메시징 패턴을 사용하여 디바이스-클라우드 메시징을 구현합니다. IoT Hub의 장치 - 클라우드 메시지는 여러 독자가 읽을 수 있는 서비스를 통과하는 많은 양의 이벤트가 있다는 점에서 [Service Bus](/azure/service-bus-messaging/) ‘메시지’보다는 [Event Hubs](/azure/event-hubs/) ‘이벤트’에 가깝습니다.
 
 IoT Hub 메시지는 다음으로 구성됩니다.
 
@@ -31,7 +31,7 @@ IoT Hub 메시지는 다음으로 구성됩니다.
 
 * 불투명한 이진 본문.
 
-HTTPS 프로토콜을 사용하여 장치-클라우드 메시지를 보내거나 클라우드-장치 메시지를 보낼 때 속성 이름과 값에는 ASCII 영숫자 문자와 `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`만 포함할 수 있습니다.
+HTTPS 프로토콜을 사용하여 디바이스-클라우드 메시지를 보내거나 클라우드-디바이스 메시지를 보낼 때 속성 이름과 값에는 ASCII 영숫자 문자와 `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`만 포함할 수 있습니다.
 
 IoT Hub를 사용한 장치-클라우드 메시징의 특징은 다음과 같습니다.
 
@@ -50,17 +50,17 @@ IoT Hub를 사용한 장치-클라우드 메시징의 특징은 다음과 같습
 | 자산 | 설명 | 사용자가 설정 가능한지 여부 |
 | --- | --- | --- |
 | message-id |사용자가 설정할 수 있는 메시지에 대한 식별자는 요청-회신 패턴에 사용됩니다. 형식: ASCII 7 비트 영숫자 문자 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`의 대/소문자 구분 문자열(최대 128자 길이)입니다. | yes |
-| sequence-number |숫자(장치 큐 별로 고유함)는 IoT Hub에서 각 클라우드-장치 메시지에 할당됩니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| sequence-number |숫자(디바이스 큐 별로 고유함)는 IoT Hub에서 각 클라우드-디바이스 메시지에 할당됩니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | to |[클라우드-장치](iot-hub-devguide-c2d-guidance.md) 메시지에 지정된 대상입니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | absolute-expiry-time |메시지 만료 날짜 및 시간입니다. | yes |
 | iothub-enqueuedtime |IoT Hub에서 [클라우드-장치](iot-hub-devguide-c2d-guidance.md) 메시지를 수신한 날짜 및 시간입니다. | C2D 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | correlation-id |일반적으로 요청-응답 패턴으로 요청의 MessageId가 포함된 응답 메시지의 String 속성입니다. | yes |
 | user-id |메시지의 원본을 지정하는 데 사용되는 ID입니다. 메시지가 IoT Hub에서 생성되면 `{iot hub name}`로 설정합니다. | 아니요 |
-| iothub-ack |피드백 메시지 생성기입니다. 이 속성은 장치에서 소비하는 메시지의 결과로 피드백 메시지를 생성하는 IoT Hub를 요청하기 위해 클라우드-장치 메시지에서 사용됩니다. 가능한 값: **none**(기본값): 피드백 메시지가 생성되지 않습니다. **positive**: 메시지가 완료된 경우 피드백 메시지를 받습니다. **negative**: 장치에서 완료되지 않고 메시지가 만료(또는 최대 전달 횟수에 도달)되면 피드백 메시지를 받습니다. **full**: positive 및 negative 모두입니다. 
+| iothub-ack |피드백 메시지 생성기입니다. 이 속성은 디바이스에서 소비하는 메시지의 결과로 피드백 메시지를 생성하는 IoT Hub를 요청하기 위해 클라우드-디바이스 메시지에서 사용됩니다. 가능한 값: **none**(기본값): 피드백 메시지가 생성되지 않습니다. **positive**: 메시지가 완료된 경우 피드백 메시지를 받습니다. **negative**: 디바이스에서 완료되지 않고 메시지가 만료(또는 최대 전달 횟수에 도달)되면 피드백 메시지를 받습니다. **full**: positive 및 negative 모두입니다. 
 <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | yes |
-| iothub-connection-device-id |IoT Hub에서 장치-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 장치의 **deviceId** 를 포함합니다. | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
-| iothub-connection-auth-generation-id |IoT Hub에서 장치-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 장치의 **generationId** 를 포함합니다.( [장치 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)당) | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
-| iothub-connection-auth-method |IoT Hub에서 장치-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 장치를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| iothub-connection-device-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **deviceId** 를 포함합니다. | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| iothub-connection-auth-generation-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **generationId**를 포함합니다([디바이스 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)당). | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
+| iothub-connection-auth-method |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 디바이스를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | iothub-creation-time-utc | 장치에서 메시지를 만든 날짜 및 시간입니다. 장치는 명시적으로 이 값을 설정해야 합니다. | yes |
 
 ## <a name="message-size"></a>메시지 크기
@@ -81,7 +81,7 @@ IoT Hub는 실제 페이로드만을 고려하여 프로토콜 진단 방식으�
 * **iothub-connection-auth-generation-id**
 * **iothub-connection-auth-method**
 
-처음 두 가지는 [장치 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)에 따라 원래 장치의 **deviceId** 및 **generationId**를 포함합니다.
+처음 두 가지는 [디바이스 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)에 따라 원래 디바이스의 **deviceId** 및 **generationId**를 포함합니다.
 
 **iothub-connection-auth-method** 속성은 다음 속성을 가진 JSON으로 직렬화된 개체를 포함합니다.
 

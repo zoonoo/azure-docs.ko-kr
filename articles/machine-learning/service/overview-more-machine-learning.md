@@ -8,13 +8,13 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
-ms.openlocfilehash: 182504373795b3cb0f2794acbed5e253ac6bc95c
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.date: 12/04/2018
+ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419562"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872555"
 ---
 # <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Microsoft의 기계 학습 제품 옵션이란?
 
@@ -22,22 +22,22 @@ Microsoft에서는 다양한 제품 옵션을 제공하여 기계 학습 모델�
 
 | 기계 학습 제품 | 정의 | 수행할 수 있는 작업 |
 |-|-|-|
-| 클라우드 | | |
+| ***클라우드*** | | |
 | [Azure Machine Learning 서비스](#azure-machine-learning-services) | ML(Machine Learning)에 대해 관리되는 클라우드 서비스  | Python 및 CLI를 사용하여 Azure에서 모델을 학습, 배포 및 관리 |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | ML에 대한 끌어서 놓기 시각적 인터페이스 | 미리 구성된 알고리즘을 사용하여 모델을 빌드, 실험 및 배포 |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | ML에 대한 끌어&ndash;서&ndash; 놓기 시각적 인터페이스 | 미리 구성된 알고리즘을 사용하여 모델을 빌드, 실험 및 배포 |
 | [Azure Databricks](#azure-databricks) | Spark 기반 분석 플랫폼 | 모델 및 데이터 워크플로를 빌드 및 배포 |
 | [Azure Cognitive Services](#azure-cognitive-services) | 미리 빌드된 AI 및 ML 모델을 사용한 Azure 서비스 | 앱에 지능형 기능을 쉽게 추가 |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | 미리 설치된 데이터 과학 도구를 사용한 가상 머신 | 미리 구성된 환경에서 ML 솔루션을 개발 |
-| 온-프레미스 | | |
+| ***온-프레미스***<br>*(온-프레미스 서버도 클라우드의 가상 머신에서 실행할 수 있습니다)* | | |
 | [SQL Server Machine Learning 서비스](#sql-server-machine-learning-services) | SQL에 포함된 Analytics 엔진 | SQL Server 내에 모델을 빌드 및 배포 |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | 예측 분석에 대한 독립 실행형 엔터프라이즈 서버 | R 및 Python을 사용하여 모델을 빌드 및 배포 |
-| 개발자 도구 | | |
+| ***개발자 도구*** | | |
 | [ML.NET](#mlnet) | 오픈 소스, 플랫폼 간 ML SDK | .NET 응용 프로그램에 대한 ML 솔루션 개발 |
-| [Windows ML](#windows-ml) | Windows 10 ML 플랫폼 | Windows 10 장치에서 학습된 모델을 평가 |
+| [Windows ML](#windows-ml) | Windows 10 ML 플랫폼 | Windows 10 디바이스에서 학습된 모델을 평가 |
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning 서비스
 
-[Azure Machine Learning 서비스](overview-what-is-azure-ml.md)(미리 보기)는 대규모로 ML 모델을 학습, 배포 및 관리하는 데 사용되는 완벽히 관리되는 클라우드 서비스입니다. 이 서비스는 오픈 소스 기술을 완벽히 지원하여 TensorFlow, PyTorch 및 scikit-learn 등의 수많은 오픈 소스 Python 패키지를 사용할 수 있습니다. [Azure 노트북](https://notebooks.azure.com/), [Jupyter 노트북](http://jupyter.org) 또는 [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/)와 같이 다양한 도구도 제공되어 데이터를 쉽게 탐색하고 변환하게 한 다음, 모델을 학습 및 배포합니다. Azure Machine Learning 서비스에는 간편하고 효율적이고 정확한 모델 생성 및 튜닝을 자동화하는 기능이 포함됩니다.
+[Azure Machine Learning 서비스](overview-what-is-azure-ml.md)는 대규모로 ML 모델을 학습, 배포 및 관리하는 데 사용되는 완벽한 관리형 클라우드 서비스입니다. 이 서비스는 오픈 소스 기술을 완벽히 지원하여 TensorFlow, PyTorch 및 scikit-learn 등의 수많은 오픈 소스 Python 패키지를 사용할 수 있습니다. [Azure 노트북](https://notebooks.azure.com/), [Jupyter 노트북](http://jupyter.org) 또는 [Visual Studio Code용 Azure Machine Learning](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/)와 같이 다양한 도구도 제공되어 데이터를 쉽게 검색하고 변환하게 한 다음, 모델을 학습 및 배포합니다. Azure Machine Learning 서비스에는 간편하고 효율적이고 정확한 모델 생성 및 튜닝을 자동화하는 기능이 포함됩니다.
 
 클라우드 규모의 Python 및 CLI를 통해 ML 모델을 학습, 배포 및 관리하려면 Azure Machine Learning 서비스를 사용합니다.
 
@@ -55,7 +55,7 @@ Microsoft에서는 다양한 제품 옵션을 제공하여 기계 학습 모델�
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
-[Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)는 Microsoft Azure 클라우드 서비스 플랫폼에 최적화된 Apache Spark 기반 분석 플랫폼입니다. Databricks는 Azure와 통합되어 데이터 과학자, 데이터 엔지니어, 비즈니스 분석가가 공동 작업할 수 있도록 하는 대화형 작업 영역, 간소화된 워크플로 및 원클릭 설정을 제공합니다.
+[Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화된 Apache Spark 기반 분석 플랫폼입니다. Databricks는 Azure와 통합되어 데이터 과학자, 데이터 엔지니어, 비즈니스 분석가가 공동 작업할 수 있도록 하는 대화형 작업 영역, 간소화된 워크플로 및 원클릭 설정을 제공합니다.
 웹 기반 노트북에서 Python, R, Scala 및 SQL 코드를 사용하여 데이터를 쿼리, 시각화 및 모델링합니다.
 
 Apache Spark에서 기계 학습 솔루션을 빌드하는 데 공동 작업하려는 경우 Databricks를 사용합니다.
@@ -69,14 +69,15 @@ Apache Spark에서 기계 학습 솔루션을 빌드하는 데 공동 작업하�
 - LUIS(언어 해석)
 - 지식 및 검색
 
-Cognitive Services를 사용하여 장치 및 플랫폼에서 앱을 개발합니다. API는 끊임없이 개선되며, 설치하기가 매우 쉽습니다.
+Cognitive Services를 사용하여 디바이스 및 플랫폼에서 앱을 개발합니다. API는 끊임없이 개선되며, 설치하기가 매우 쉽습니다.
 
 ## <a name="azure-data-science-virtual-machine"></a>Azure 데이터 과학 가상 머신
 
 [Data Science Virtual Machine](../data-science-virtual-machine/overview.md)은 데이터 과학을 수행하기 위해 특별히 빌드된 Microsoft Azure 클라우드에서 사용자 지정된 가상 머신 환경입니다. 여기에는 고급 분석을 위한 지능형 응용 프로그램 구축에 바로 뛰어들 수 있도록 다수의 유명한 데이터 과학 및 기타 도구가 미리 설치 및 구성되어 있습니다.
-Data Science Virtual Machine은 Windows와 Linux Ubuntu용 버전에서 사용할 수 있습니다(CentOS Linux에서는 Azure Machine Learning 서비스를 지원하지 않습니다).
-특정 버전 정보 및 포함된 항목 목록은 [Azure Data Science Virtual Machine 소개](../data-science-virtual-machine/overview.md)를 참조하세요.
+
 Data Science Virtual Machine은 Azure Machine Learning 서비스의 대상으로 지원됩니다.
+또한 Windows와 Linux Ubuntu용 버전에서도 사용할 수 있습니다(Linux CentOS에서는 Azure Machine Learning 서비스를 지원하지 않습니다).
+특정 버전 정보 및 포함된 항목 목록은 [Azure Data Science Virtual Machine 소개](../data-science-virtual-machine/overview.md)를 참조하세요.
 
 단일 노드에서 작업을 실행하거나 호스트해야 하는 경우 데이터 과학 VM을 사용하세요. 또는 단일 컴퓨터에서 처리를 원격으로 강화해야 하는 경우에 사용합니다.
 

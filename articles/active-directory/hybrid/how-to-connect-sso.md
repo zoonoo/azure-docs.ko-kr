@@ -26,7 +26,7 @@ ms.locfileid: "50913934"
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On이란?
 
-Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 장치에 있을 때 사용자를 자동으로 서명합니다. 이 기능을 사용하도록 설정되면 사용자가 Azure AD에 로그인하는 데 암호를 입력할 필요가 없고, 일반적으로 사용자 이름으로도 입력할 수 있습니다. 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 응용 프로그램에 쉽게 액세스할 수 있습니다.
+Azure AD Seamless SSO(Azure Active Directory Seamless Single Sign-On)는 회사 네트워크에 연결된 회사 디바이스에 있을 때 사용자를 자동으로 서명합니다. 이 기능을 사용하도록 설정되면 사용자가 Azure AD에 로그인하는 데 암호를 입력할 필요가 없고, 일반적으로 사용자 이름으로도 입력할 수 있습니다. 추가 온-프레미스 구성 요소가 없어도 사용자가 클라우드 기반 응용 프로그램에 쉽게 액세스할 수 있습니다.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
@@ -46,7 +46,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
   - 이 작업을 수행하기 위해 온-프레미스에 필요한 추가 구성 요소가 없습니다.
   - 모든 클라우드 인증 방법, 즉 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md) 또는 [통과 인증](how-to-connect-pta.md)과 함께 작동합니다.
   - 그룹 정책을 사용하여 일부 또는 모든 사용자에게 배포할 수 있습니다.
-  - AD FS 인프라에 대한 필요 없이 Azure AD로 비-Windows 10 장치를 등록합니다. 이 기능을 사용하기 위해 [작업 공간 연결 클라이언트](https://www.microsoft.com/download/details.aspx?id=53554) 버전 2.1 이상이 필요합니다.
+  - AD FS 인프라에 대한 필요 없이 Azure AD로 비-Windows 10 디바이스를 등록합니다. 이 기능을 사용하기 위해 [작업 공간 연결 클라이언트](https://www.microsoft.com/download/details.aspx?id=53554) 버전 2.1 이상이 필요합니다.
 
 ## <a name="feature-highlights"></a>주요 기능
 

@@ -29,7 +29,7 @@ Azure IoT Edge는 조직에서 데이터 관리 대신 비즈니스 통찰력에
 Azure IoT Edge는 다음과 같은 세 가지 구성 요소로 구성됩니다.
 * IoT Edge 모듈은 Azure 서비스, 타사 서비스 또는 개발자 고유의 코드를 실행하는 컨테이너입니다. IoT Edge 장치에 배포되어 해당 장치에서 로컬로 실행됩니다. 
 * IoT Edge 런타임은 각 IoT Edge 장치에서 실행되며 각 장치에 배포된 모듈을 관리합니다. 
-* 클라우드 기반 인터페이스를 사용하여 IoT Edge 장치를 원격으로 모니터링 및 관리할 수 있습니다.
+* 클라우드 기반 인터페이스를 사용하여 IoT Edge 디바이스를 원격으로 모니터링 및 관리할 수 있습니다.
 
 ## <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -71,7 +71,7 @@ Azure IoT Edge는 Azure IoT 솔루션 가속기와 원활하게 통합되어 솔
 * 장치 집합에 워크로드를 보냅니다.
 * 현장의 장치에서 실행되는 워크로드를 모니터링합니다.
 
-![장치의 원격 분석, 통찰력 및 작업을 클라우드에 맞게 조정](./media/about-iot-edge/cloud-interface.png)
+![디바이스의 원격 분석, 통찰력 및 작업을 클라우드에 맞게 조정](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -21,7 +21,7 @@ ms.locfileid: "51567658"
 
 ## <a name="standard-diagnostic-steps"></a>표준 진단 단계 
 
-문제가 발생하는 경우 장치 간에 전달되는 메시지 및 컨테이너 로그를 검토하여 IoT Edge 장치의 상태를 자세히 알아봅니다. 이 섹션의 명령 및 도구를 사용하여 정보를 수집합니다. 
+문제가 발생하는 경우 디바이스 간에 전달되는 메시지 및 컨테이너 로그를 검토하여 IoT Edge 디바이스의 상태를 자세히 알아봅니다. 이 섹션의 명령 및 도구를 사용하여 정보를 수집합니다. 
 
 ### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>IoT Edge 보안 관리자의 상태 및 해당 로그를 확인합니다.
 
@@ -265,7 +265,7 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
 Raspberry Pi와 같이 제한된 장치를 사용하는 경우, 특히 이 장치를 게이트웨이로 사용하는 경우에는 안정성 문제가 발생할 수 있습니다. 증상에는 에지 허브 모듈의 메모리 부족 예외가 있으며, 다운스트림 장치를 연결할 수 없거나 몇 시간 후 장치가 원격 분석 메시지를 보내지 않습니다.
 
 ### <a name="root-cause"></a>근본 원인
-에지 런타임에 속하는 에지 허브는 기본적으로 성능에 최적화되어 있으며 많은 양의 메모리를 할당하려고 합니다. 이 최적화는 제한된 에지 장치에 대해 이상적이지 않으며 안정성 문제를 유발할 수 있습니다.
+에지 런타임에 속하는 에지 허브는 기본적으로 성능에 최적화되어 있으며 많은 양의 메모리를 할당하려고 합니다. 이 최적화는 제한된 에지 디바이스에 대해 이상적이지 않으며 안정성 문제를 유발할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 에지 허브에 대해 환경 변수 **OptimizeForPerformance**를 **false**로 설정합니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
@@ -327,7 +327,7 @@ IoT Edge 디먼은 보안상의 이유로 edgeHub에 연결하는 모든 모듈�
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>IoT Edge 배포에 대한 방화벽 및 포트 구성 규칙
-Azure IoT Edge는 지원되는 IoT Hub 프로토콜을 사용하여 온-프레미스 Edge 서버에서 Azure 클라우드로의 통신을 허용합니다. [통신 프로토콜 선택](../iot-hub/iot-hub-devguide-protocols.md)을 참조하세요. 보안 향상된을 위해 Azure IoT Edge 및 Azure IoT Hub 간의 통신 채널은 항상 아웃바운드되도록 구성됩니다. 이 구성은 [서비스 보조 통신 패턴](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)을 기반으로 합니다. 그러면 탐색할 악의적인 엔터티에 대한 공격 노출 영역을 최소화합니다. 인바운드 통신은 Azure IoT Hub에서 메시지를 Azure IoT Edge 장치에 푸시해야 하는 특정 시나리오에만 필요합니다. 클라우드-장치 메시지는 보안 TLS 채널을 사용하여 보호되고 X.509 인증서 및 TPM 장치 모듈을 사용하여 추가로 보호될 수 있습니다. Azure IoT Edge 보안 관리자는 이 통신을 설정하는 방법을 관리합니다. [IoT Edge 보안 관리자](../iot-edge/iot-edge-security-manager.md)를 참조하세요.
+Azure IoT Edge는 지원되는 IoT Hub 프로토콜을 사용하여 온-프레미스 Edge 서버에서 Azure 클라우드로의 통신을 허용합니다. [통신 프로토콜 선택](../iot-hub/iot-hub-devguide-protocols.md)을 참조하세요. 보안 향상된을 위해 Azure IoT Edge 및 Azure IoT Hub 간의 통신 채널은 항상 아웃바운드되도록 구성됩니다. 이 구성은 [서비스 보조 통신 패턴](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)을 기반으로 합니다. 그러면 탐색할 악의적인 엔터티에 대한 공격 노출 영역을 최소화합니다. 인바운드 통신은 Azure IoT Hub에서 메시지를 Azure IoT Edge 디바이스에 푸시해야 하는 특정 시나리오에만 필요합니다. 클라우드-디바이스 메시지는 보안 TLS 채널을 사용하여 보호되고 X.509 인증서 및 TPM 디바이스 모듈을 사용하여 추가로 보호될 수 있습니다. Azure IoT Edge 보안 관리자는 이 통신을 설정하는 방법을 관리합니다. [IoT Edge 보안 관리자](../iot-edge/iot-edge-security-manager.md)를 참조하세요.
 
 IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해 향상된 구성을 제공하지만, 기본 컴퓨터 및 네트워크 구성에 여전히 종속됩니다. 따라서 보안 Edge-클라우드 통신을 위해 적절한 네트워크 및 방화벽 규칙을 설정해야 합니다. Azure IoT Edge 런타임이 호스트되는 기본 서버의 방화벽 규칙을 구성할 때 다음을 참조할 수 있습니다.
 
@@ -335,7 +335,7 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 |--|--|--|--|--|
 |MQTT|8883|BLOCKED(기본값)|BLOCKED(기본값)|<ul> <li>통신 프로토콜로 MQTT를 사용하는 경우 발신(아웃바운드)이 Open이 되도록 구성합니다.<li>MQTT에 대한 1883은 IoT Edge에서 지원되지 않습니다. <li>수신(인바운드) 연결을 차단해야 합니다.</ul>|
 |AMQP|5671|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge의 기본 통신 프로토콜입니다. <li> Azure IoT Edge는 지원되는 다른 프로토콜에 대해 구성되지 않았거나 AMQP가 원하는 통신 프로토콜인 경우 Open으로 구성해야 합니다.<li>AMQP에 대한 5672는 IoT Edge에서 지원되지 않습니다.<li>Azure IoT Edge가 다른 IoT Hub 지원 프로토콜을 사용하는 경우 이 포트를 차단합니다.<li>수신(인바운드) 연결을 차단해야 합니다.</ul></ul>|
-|HTTPS|443|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge 프로비전을 위해 443에서 발신(아웃바운드)을 보내는 열기로 구성합니다. 수동 스크립트 또는 Azure IoT DPS(장치 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다. <li>다음과 같은 특정 시나리오의 경우에만 수신(인바운드) 연결이 Open 상태여야 합니다. <ul> <li>  메서드 요청을 보낼 수 있는 리프 장치에 대한 투명 게이트웨이가 있는 경우. 이 경우 IoTHub에 연결하거나 Azure IoT Edge를 통해 IoTHub 서비스를 제공하기 위해 포트 443을 외부 네트워크로 열어둘 필요가 없습니다. 따라서 수신 규칙은 내부 네트워크에서의 수신(인바운드)만 열도록 제한될 수 있습니다. <li> 클라이언트-장치(C2D) 시나리오의 경우</ul><li>HTTP에 대한 80은 IoT Edge에서 지원되지 않습니다.<li>비 HTTP 프로토콜(예: AMQP 또는 MQTT)을 엔터프라이즈에서 구성할 수 없는 경우 WebSockets을 통해 메시지를 보낼 수 있습니다. 이 경우 WebSocket 통신에 포트 443이 사용됩니다.</ul>|
+|HTTPS|443|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge 프로비전을 위해 443에서 발신(아웃바운드)을 보내는 열기로 구성합니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다. <li>다음과 같은 특정 시나리오의 경우에만 수신(인바운드) 연결이 Open 상태여야 합니다. <ul> <li>  메서드 요청을 보낼 수 있는 리프 디바이스에 대한 투명 게이트웨이가 있는 경우. 이 경우 IoTHub에 연결하거나 Azure IoT Edge를 통해 IoTHub 서비스를 제공하기 위해 포트 443을 외부 네트워크로 열어둘 필요가 없습니다. 따라서 수신 규칙은 내부 네트워크에서의 수신(인바운드)만 열도록 제한될 수 있습니다. <li> 클라이언트-디바이스(C2D) 시나리오의 경우</ul><li>HTTP에 대한 80은 IoT Edge에서 지원되지 않습니다.<li>비 HTTP 프로토콜(예: AMQP 또는 MQTT)을 엔터프라이즈에서 구성할 수 없는 경우 WebSockets을 통해 메시지를 보낼 수 있습니다. 이 경우 WebSocket 통신에 포트 443이 사용됩니다.</ul>|
 
 
 ## <a name="next-steps"></a>다음 단계

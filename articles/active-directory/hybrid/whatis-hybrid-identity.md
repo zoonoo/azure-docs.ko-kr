@@ -47,7 +47,7 @@ Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사
 
 ## <a name="pass-through-authentication"></a>통과 인증
 
-[Azure AD 통과 인증](how-to-connect-pta.md)은 온-프레미스 Active Directory를 사용하여 Azure AD 기반 서비스에 대한 간단한 암호 유효성 검사 솔루션을 제공합니다. 조직의 보안 및 규정 준수 정책에서 사용자의 암호(해시된 형태로도) 전송을 허용하지 않고 도메인에 연결된 장치에 대해 데스크톱 SSO를 지원하기만 하면 되는 경우 통과 인증 사용을 평가하는 것이 좋습니다. 통과 인증은 DMZ에서 어떠한 배포도 요구하지 않으므로, AD FS와 비교할 경우 배포 인프라가 간소화됩니다. 사용자가 Azure AD를 사용하여 로그인할 때 이 인증 방법은 온-프레미스 Active Directory에 대해 직접 사용자 암호의 유효성을 검사합니다.
+[Azure AD 통과 인증](how-to-connect-pta.md)은 온-프레미스 Active Directory를 사용하여 Azure AD 기반 서비스에 대한 간단한 암호 유효성 검사 솔루션을 제공합니다. 조직의 보안 및 규정 준수 정책에서 사용자의 암호(해시된 형태로도) 전송을 허용하지 않고 도메인에 연결된 디바이스에 대해 데스크톱 SSO를 지원하기만 하면 되는 경우 통과 인증 사용을 평가하는 것이 좋습니다. 통과 인증은 DMZ에서 어떠한 배포도 요구하지 않으므로, AD FS와 비교할 경우 배포 인프라가 간소화됩니다. 사용자가 Azure AD를 사용하여 로그인할 때 이 인증 방법은 온-프레미스 Active Directory에 대해 직접 사용자 암호의 유효성을 검사합니다.
 
 ![통과 인증](./media/whatis-hybrid-identity/pass-through-authentication.png)
 

@@ -27,7 +27,7 @@ items:
   items:
   - name: Digital Twins 개체 모델 및 공간 인텔리전스 그래프
     href: concepts-objectmodel-spatialgraph.md
-  - name: 장치 연결 및 원격 분석 수신
+  - name: 디바이스 연결 및 원격 분석 수신
     href: concepts-device-ingress.md
   - name: 데이터 처리 및 사용자 정의 함수
     href: concepts-user-defined-functions.md
@@ -75,7 +75,7 @@ items:
     items:
     - name: IoT Hub
       href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning 서비스
+    - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: IoT 서비스 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks

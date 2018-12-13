@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 95041ca77930d87bff6ea31e2eab89a6634cfcf5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b0d26704d287f2e02541cc667250af8e8005f864
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442967"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833996"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -36,7 +36,7 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
 Azure IoT Edge 장치:
 
-* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
+* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다. 
 
 클라우드 리소스:
 
@@ -52,7 +52,7 @@ Azure IoT Edge 장치:
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
+이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 디바이스에서 실행되도록 레지스트리의 이미지를 배포합니다.  
 
 임의 Docker 호환 레지스트리를 사용하여 컨테이너 이미지를 유지할 수 있습니다. 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
 
@@ -97,9 +97,13 @@ Azure IoT Edge 장치:
    | 모듈 이름 제공 | 모듈의 이름을 **sqlFunction**으로 지정합니다. |
    | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/sqlFunction과 같습니다. |
 
-   VS Code 창은 \.vscode 폴더, 모듈 폴더, 배포 매니페스트 템플릿 파일 등 IoT Edge 솔루션 작업 영역을 로드합니다. \.env 파일입니다. 
+   VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다. 
    
-4. 새 IoT Edge 솔루션을 만들 때마다 VS Code에서 \.env 파일에 레지스트리 자격 증명을 제공하라는 메시지를 표시합니다. 이 파일은 git에서 무시되며, IoT Edge 확장은 나중에 이 파일을 사용하여 IoT Edge 디바이스에 레지스트리 액세스를 제공합니다. \..env 파일을 엽니다. 
+4. IoT Edge 솔루션에서 \.env 파일을 엽니다. 
+
+   새 IoT Edge 솔루션을 만들 때마다 VS Code에서 \.env 파일에 레지스트리 자격 증명을 제공하라는 메시지를 표시합니다. 이 파일은 git에서 무시되며, IoT Edge 확장은 나중에 이 파일을 사용하여 IoT Edge 디바이스에 레지스트리 액세스를 제공합니다. 
+
+   이전 단계에서 컨테이너 레지스트리를 제공하지 않았지만 기본 localhost:5000을 허용한 경우 \.env 파일이 없습니다.
 
 5. .env 파일에서 모듈 이미지에 액세스할 수 있도록 IoT Edge 런타임에 레지스트리 자격 증명을 제공합니다. **CONTAINER_REGISTRY_USERNAME** 및 **CONTAINER_REGISTRY_PASSWORD** 섹션을 찾고 등호 기호 뒤에 자격 증명을 삽입합니다. 
 
@@ -207,6 +211,16 @@ Azure IoT Edge 장치:
 
 7. **sqlFunction.cs** 파일을 저장합니다. 
 
+8. **sqlFunction.csproj** 파일을 엽니다.
+
+9. 패키지 참조 그룹을 찾고, SqlClient include에 대한 새 참조 그룹을 추가합니다. 
+
+   ```csproj
+   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
+   ```
+
+10. **sqlFunction.csproj** 파일을 저장합니다.
+
 ## <a name="add-a-sql-server-container"></a>SQL Server 컨테이너 추가
 
 [배포 매니페스트](module-composition.md)는 IoT Edge 런타임이 IoT Edge 장치에 설치할 모듈을 선언합니다. 이전 섹션에서 사용자 지정된 함수 모듈을 만드는 코드를 제공했지만 SQL Server 모듈이 이미 구성되어 있습니다. IoT Edge 런타임에서 해당 모듈을 포함한 다음에 다음 장치에서 구성하도록 알리기만 하면 됩니다. 
@@ -225,15 +239,15 @@ Azure IoT Edge 장치:
 
    ```json
    "sql": {
-       "version": "1.0",
-       "type": "docker",
-       "status": "running",
-       "restartPolicy": "always",
-       "env":{},
-       "settings": {
-           "image": "",
-           "createOptions": ""
-       }
+     "version": "1.0",
+     "type": "docker",
+     "status": "running",
+     "restartPolicy": "always",
+     "env":{},
+     "settings": {
+       "image": "",
+       "createOptions": ""
+     }
    }
    ```
 
@@ -244,19 +258,19 @@ Azure IoT Edge 장치:
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "microsoft/mssql-server-windows-developer",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "microsoft/mssql-server-windows-developer",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -264,19 +278,19 @@ Azure IoT Edge 장치:
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "mcr.microsoft.com/mssql/server:latest",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "mcr.microsoft.com/mssql/server:latest",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -295,7 +309,7 @@ Azure IoT Edge 장치:
     docker login -u <ACR username> <ACR login server>
     ```
     
-    암호를 입력하라는 메시지가 나타납니다. 확인 메시지에 암호를 붙여넣고(암호는 보안을 위해 숨겨짐) **Enter** 키를 누릅니다. 
+    암호를 입력하라는 메시지가 나타납니다. 암호를 프롬프트에 붙여넣고(암호는 보안을 위해 숨겨짐), **Enter** 키를 누릅니다. 
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
@@ -318,15 +332,15 @@ IoT Hub를 통해 장치에서 모듈을 설정할 수 있지만 Visual Studio C
 
 4. VS Code 탐색기에서 **Azure IoT Hub 장치** 섹션을 펼칩니다. 
 
-5. 배포에서 대상으로 지정하려는 장치를 마우스 오른쪽 단추로 클릭하고, **단일 장치 배포 만들기**를 선택합니다. 
+5. 배포에서 대상으로 지정하려는 디바이스를 마우스 오른쪽 단추로 클릭하고, **단일 디바이스 배포 만들기**를 선택합니다. 
 
-   ![단일 장치용 배포 만들기](./media/tutorial-store-data-sql-server/create-deployment.png)
+   ![단일 디바이스용 배포 만들기](./media/tutorial-store-data-sql-server/create-deployment.png)
 
-6. 파일 탐색기에서는 솔루션 내의 **config** 폴더로 이동하고, **deployment.json**을 선택합니다. **에지 배포 매니페스트 선택**을 클릭합니다. 
+6. 파일 탐색기에서는 솔루션 내의 **config** 폴더로 이동하고, **deployment.amd64**를 선택합니다. **에지 배포 매니페스트 선택**을 클릭합니다. 
 
 배포가 성공하는 경우 VS Code 출력에 확인 메시지가 출력됩니다. 
 
-모든 모듈이 장치에서 실행되는지를 확인할 수도 있습니다. IoT Edge 장치에서 다음 명령을 실행하여 모듈의 상태를 확인합니다. 몇 분이 걸릴 수 있습니다.
+VS Code의 Azure IoT Hub Devices 섹션에서 디바이스의 상태를 새로 고칩니다. 새 모듈이 나열되고, 컨테이너가 설치되고 시작됨에 따라 다음 몇 분 동안 '실행 중'이라고 보고되기 시작합니다. 모든 모듈이 장치에서 실행되는지를 확인할 수도 있습니다. IoT Edge 장치에서 다음 명령을 실행하여 모듈의 상태를 확인합니다. 
 
    ```cmd/sh
    iotedge list
@@ -334,11 +348,11 @@ IoT Hub를 통해 장치에서 모듈을 설정할 수 있지만 Visual Studio C
 
 ## <a name="create-the-sql-database"></a>SQL 데이터베이스 만들기
 
-장치에 배포 매니페스트를 적용할 때 세 개의 모듈이 실행됩니다. tempSensor 모듈은 시뮬레이션된 환경 데이터를 생성합니다. sqlFunction 모듈은 데이터를 선택하고 데이터베이스에 대한 형식을 지정합니다. 
+장치에 배포 매니페스트를 적용할 때 세 개의 모듈이 실행됩니다. tempSensor 모듈은 시뮬레이션된 환경 데이터를 생성합니다. sqlFunction 모듈은 데이터를 선택하고 데이터베이스에 대한 형식을 지정합니다. 이 섹션에서는 온도 데이터를 저장하도록 SQL 데이터베이스를 설정하는 방법을 설명합니다. 
 
-이 섹션에서는 온도 데이터를 저장하도록 SQL 데이터베이스를 설정하는 방법을 설명합니다. 
+IoT Edge 디바이스에서 다음 명령을 실행합니다. 이러한 명령은 디바이스에서 실행 중인 **sql** 모듈에 연결하고, 해당 모듈에 전송되는 온도 데이터를 보관할 데이터베이스와 테이블을 만듭니다. 
 
-1. 명령줄 도구에서 데이터베이스에 연결합니다. 
+1. IoT Edge 디바이스의 명령줄 도구에서 데이터베이스에 연결합니다. 
    * Windows 컨테이너:
    
       ```cmd
@@ -408,7 +422,7 @@ SQL 명령 도구 내에서 다음 명령을 실행하여 형식이 지정된 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 

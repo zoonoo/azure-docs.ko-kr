@@ -35,7 +35,7 @@ Azure Disk Encryption이 지원되는 운영 체제는 다음과 같습니다.
 ## <a name="bkmk_LinuxPrereq"></a> Linux IaaS VM에 대한 추가 필수 구성 요소 
 
 - Linux용 Azure Disk Encryption에는 [지원되는 이미지](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)에서 OS 디스크 암호화를 사용하도록 설정하기 위해 VM에 7GB의 RAM이 필요합니다. OS 디스크 암호화 프로세스가 완료되면 VM을 적은 메모리로 실행하도록 구성할 수 있습니다.
-- 암호화를 사용하도록 설정하기 전에 암호화할 데이터 디스크를 /etc/fstab에 올바르게 나열해야 합니다. "/dev/sdX" 형식의 장치 이름은 특히 암호화가 적용된 후 다시 부팅할 때 동일한 디스크에 연결될 수 없으므로 이 항목에 영구 블록 장치 이름을 사용합니다. 이 동작에 대한 자세한 내용은 [Linux VM 장치 이름 변경 문제 해결](../virtual-machines/linux/troubleshoot-device-names-problems.md)을 참조하세요.
+- 암호화를 사용하도록 설정하기 전에 암호화할 데이터 디스크를 /etc/fstab에 올바르게 나열해야 합니다. "/dev/sdX" 형식의 디바이스 이름은 특히 암호화가 적용된 후 다시 부팅할 때 동일한 디스크에 연결될 수 없으므로 이 항목에 영구 블록 디바이스 이름을 사용합니다. 이 동작에 대한 자세한 내용은 [Linux VM 장치 이름 변경 문제 해결](../virtual-machines/linux/troubleshoot-device-names-problems.md)을 참조하세요.
 - /etc/fstab 설정이 탑재에 대해 올바르게 구성되었는지 확인합니다. 이러한 설정을 구성하려면 mount -a 명령을 실행하거나 VM을 다시 부팅하고 다시 탑재를 트리거합니다. 이러한 작업이 완료되면 lsblk 명령의 출력을 확인하여 드라이브가 여전히 탑재되어 있는지 확인합니다. 
     - 암호화를 사용하도록 설정하기 전에 /etc/fstab 파일에서 드라이브를 올바르게 탑재하지 않으면 Azure Disk Encryption에서 해당 드라이브를 올바르게 탑재할 수 없습니다.
     - Azure Disk Encryption 프로세스는 암호화 프로세스의 일환으로 탑재 정보를 /etc/fstab에서 자체의 구성 파일로 이동합니다. 데이터 드라이브 암호화가 완료된 후 /etc/fstab에서 누락된 항목을 보고 놀라지 마세요.

@@ -50,7 +50,7 @@ ms.locfileid: "39343069"
 3. 로그인 페이지에 제공된 상자에 코드를 입력합니다.
 
 ## <a name="signing-in-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 로그인
-다음 정보는 2단계 확인을 위해 Microsoft Authenticator 앱을 사용하는 환경을 설명합니다. 앱을 사용하는 두 가지 다른 방법이 있습니다. 장치에서 푸시 알림을 받거나 앱을 열어 확인 코드를 가져올 수 있습니다.
+다음 정보는 2단계 확인을 위해 Microsoft Authenticator 앱을 사용하는 환경을 설명합니다. 앱을 사용하는 두 가지 다른 방법이 있습니다. 디바이스에서 푸시 알림을 받거나 앱을 열어 확인 코드를 가져올 수 있습니다.
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱의 인증으로 로그인하려면
 1. 사용자 이름 및 암호를 사용하여 Office 365와 같은 응용 프로그램 또는 서비스에 로그인합니다.

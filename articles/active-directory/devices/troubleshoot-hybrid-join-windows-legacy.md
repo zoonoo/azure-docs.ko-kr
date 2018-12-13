@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/05/2018
 ms.locfileid: "48800862"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
 이 문서는 다음 장치에만 적용됩니다. 
 
@@ -33,26 +33,26 @@ ms.locfileid: "48800862"
 - Windows Server 2012 R2 
  
 
-Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2016 장치에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-current.md)을 참조하세요.
+Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-current.md)을 참조하세요.
 
 이 문서에서는 다음 시나리오를 지원하도록 [장치에 조인된 하이브리드 Azure Active Directory를 구성](hybrid-azuread-join-plan.md)했다고 가정합니다.
 
-- 장치 기반 조건부 액세스
+- 디바이스 기반 조건부 액세스
 
 
 이 문서에서는 잠재적인 문제를 해결하는 방법에 대한 문제 해결 지침을 제공합니다.  
 
 **알아야 할 사항:** 
 
-- 하위 수준 Windows 장치용 하이브리드 Azure AD 가입이 Windows 10의 경우와 약간 다르게 작동합니다. 대부분의 고객은 AD FS(페더레이션된 도메인용)가 필요한지 또는 Seamless SSO를 구성해야 하는지(관리되는 도메인용)를 잘 모릅니다.
+- 하위 수준 Windows 디바이스용 하이브리드 Azure AD 가입이 Windows 10의 경우와 약간 다르게 작동합니다. 대부분의 고객은 AD FS(페더레이션된 도메인용)가 필요한지 또는 Seamless SSO를 구성해야 하는지(관리되는 도메인용)를 잘 모릅니다.
 
-- 페더레이션된 도메인을 사용하는 고객의 경우 SCP(서비스 연결 지점)가 관리되는 도메인 이름(예: contoso.com 대신 contoso.onmicrosoft.com)을 가리키도록 구성된 경우 하위 수준 Windows 장치에 대한 하이브리드 Azure AD 가입이 작동하지 않습니다.
+- 페더레이션된 도메인을 사용하는 고객의 경우 SCP(서비스 연결 지점)가 관리되는 도메인 이름(예: contoso.com 대신 contoso.onmicrosoft.com)을 가리키도록 구성된 경우 하위 수준 Windows 디바이스에 대한 하이브리드 Azure AD 가입이 작동하지 않습니다.
 
-- 사용자당 최대 장치 수가 현재 하위 수준 하이브리드 Azure AD 가입 장치에도 적용됩니다. 
+- 사용자당 최대 디바이스 수가 현재 하위 수준 하이브리드 Azure AD 가입 디바이스에도 적용됩니다. 
 
-- 여러 도메인 사용자가 하위 수준 하이브리드 Azure AD 가입 장치에 로그인하면 동일한 물리적 장치가 Azure AD에 여러 번 나타납니다.  예를 들어 *jdoe* 및 *jharnett*가 장치에 로그인하는 경우 **사용자** 정보 탭에 각각에 대해 별도 등록(DeviceID)이 만들어집니다. 
+- 여러 도메인 사용자가 하위 수준 하이브리드 Azure AD 가입 디바이스에 로그인하면 동일한 물리적 디바이스가 Azure AD에 여러 번 나타납니다.  예를 들어 *jdoe* 및 *jharnett*가 디바이스에 로그인하는 경우 **사용자** 정보 탭에 각각에 대해 별도 등록(DeviceID)이 만들어집니다. 
 
-- 운영 체제 재설치 또는 수동 재등록으로 인해 사용자 정보 탭에 장치에 대한 여러 항목이 있을 수도 있습니다.
+- 운영 체제 재설치 또는 수동 재등록으로 인해 사용자 정보 탭에 디바이스에 대한 여러 항목이 있을 수도 있습니다.
 
 - 초기 장치 등록/조인은 로그온 또는 잠금/잠금 해제 상태에서 시도를 수행하도록 구성됩니다. 작업 스케줄러 작업에 의해 트리거되는 5분 지연이 있을 수 있습니다. 
 
@@ -75,7 +75,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>2단계: 하이브리드 Azure AD 조인 상태 평가 
 
-하이브리드 Azure AD 가입 장치가 아니면 "가입" 단추를 클릭하여 하이브리드 Azure AD 가입을 시도할 수 있습니다. 하이브리드 Azure AD 가입 시도가 실패하면 실패 세부 사항이 표시됩니다.
+하이브리드 Azure AD 가입 디바이스가 아니면 "가입" 단추를 클릭하여 하이브리드 Azure AD 가입을 시도할 수 있습니다. 하이브리드 Azure AD 가입 시도가 실패하면 실패 세부 사항이 표시됩니다.
 
 
 **가장 일반적인 문제는 다음과 같습니다.**
@@ -136,4 +136,4 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 
 ## <a name="next-steps"></a>다음 단계
 
-질문은 [장치 관리 FAQ](faq.md)를 참조하세요.  
+질문은 [디바이스 관리 FAQ](faq.md)를 참조하세요.  

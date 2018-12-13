@@ -23,7 +23,7 @@ ms.locfileid: "49988342"
 ---
 ## <a name="test-your-app"></a>앱 테스트
 
-1. 장치/에뮬레이터로 코드를 실행하는 방법을 설명합니다.
+1. 디바이스/에뮬레이터로 코드를 실행하는 방법을 설명합니다.
 2. Azure Active Directory 계정(회사 또는 학교 계정) 또는 Microsoft 계정(live.com, outlook.com)을 사용하여 로그인해 봅니다. 
 
     ![응용 프로그램 테스트](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)

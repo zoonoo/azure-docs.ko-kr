@@ -215,7 +215,7 @@ VPN 터널 내의 트래픽은 사이트 간 VPN을 사용하여 인터넷을 �
 •   고객 VPN 개시 장치는 PFS(Perfect Forward Secrecy)를 구성해야 합니다.
 •   고객 VPN 개시 장치는 HMAC-SHA256 이상을 사용하도록 구성해야 합니다.
 
-VPN 장치 및 IPSec/IKE 매개 변수의 구성 옵션을 [검토](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)할 수 있습니다.
+VPN 디바이스 및 IPSec/IKE 매개 변수의 구성 옵션을 [검토](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)할 수 있습니다.
 
 ### <a name="azure-active-directory-setup"></a>Azure Active Directory 설정
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)는 환경과 상호 작용하는 직원에 대한 배포 및 프로비전 액세스를 관리하는 데 필수적입니다. 기존의 Windows Server Active Directory는 [네 번의 클릭](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express)으로 Azure Active Directory와 통합될 수 있습니다.

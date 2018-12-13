@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 장치의 Azure Blob Storage | Microsoft Docs
-description: 에지에 데이터를 저장하도록 IoT Edge 장치에 Azure Blob Storage 모듈을 배포합니다.
+title: Azure IoT Edge 디바이스의 Azure Blob Storage | Microsoft Docs
+description: 에지에 데이터를 저장하도록 IoT Edge 디바이스에 Azure Blob Storage 모듈을 배포합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -18,11 +18,11 @@ ms.locfileid: "51567284"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IoT Edge(미리 보기)에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
-IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 저장소 솔루션을 제공합니다. IoT Edge 장치의 Blob 저장소 모듈은 Azure 블록 Blob 서비스처럼 작동하지만, 블록 Blob은 IoT Edge 장치에 로컬로 저장됩니다. 동일한 Azure 저장소 SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다. 
+IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 저장소 솔루션을 제공합니다. IoT Edge 디바이스의 Blob 저장소 모듈은 Azure 블록 Blob 서비스처럼 작동하지만, 블록 Blob은 IoT Edge 디바이스에 로컬로 저장됩니다. 동일한 Azure 저장소 SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다. 
 
 비디오, 이미지, 재무 데이터, 병원 데이터 또는 로컬에 저장해야 하는 모든 데이터 관련 시나리오는 이 모듈을 사용하여 나중에 로컬로 처리하거나 클라우드로 전송할 수 있는 좋은 예입니다.
 
-이 문서에서는 IoT Edge 장치에서 Blob service를 실행하는 Azure Blob Storage를 IoT Edge 컨테이너에 배포하기 위한 지침을 제공합니다. 
+이 문서에서는 IoT Edge 디바이스에서 Blob service를 실행하는 Azure Blob Storage를 IoT Edge 컨테이너에 배포하기 위한 지침을 제공합니다. 
 
 >[!NOTE]
 >IoT Edge의 Azure Blob Storage는 현재 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)입니다. 
@@ -32,7 +32,7 @@ IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft
 Azure IoT Edge 장치:
 
 * [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
-* IoT Edge 모듈의 Azure Blob Storage는 다음 장치 구성을 지원합니다.
+* IoT Edge 모듈의 Azure Blob Storage는 다음 디바이스 구성을 지원합니다.
 
    | 운영 체제 | 아키텍처 |
    | ---------------- | ------------ |
@@ -48,9 +48,9 @@ Azure IoT Edge 장치:
 * Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
 
 
-## <a name="deploy-blob-storage-to-your-device"></a>장치에 Blob 저장소 배포
+## <a name="deploy-blob-storage-to-your-device"></a>디바이스에 Blob 저장소 배포
 
-IoT Edge 장치에 모듈을 배포하는 여러 가지 방법이 있는데, 모든 방법이 IoT Edge 모듈의 Azure Blob Storage에서 작동합니다. 가장 간단한 두 가지 방법은 Azure Portal 또는 Visual Studio Code 템플릿을 사용하는 것입니다. 
+IoT Edge 디바이스에 모듈을 배포하는 여러 가지 방법이 있는데, 모든 방법이 IoT Edge 모듈의 Azure Blob Storage에서 작동합니다. 가장 간단한 두 가지 방법은 Azure Portal 또는 Visual Studio Code 템플릿을 사용하는 것입니다. 
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -67,7 +67,7 @@ IoT Edge 장치에 모듈을 배포하는 여러 가지 방법이 있는데, 모
 
 1. IoT Hub가 배포되는 "구독"을 선택합니다.
 2. 해당하는 "IoT Hub"를 선택합니다.
-3. 이 모듈을 배포할 "IoT Edge 장치 이름"을 입력합니다. "장치 찾기"를 사용하도록 선택하여 장치를 찾을 수 있습니다.
+3. 이 모듈을 배포할 "IoT Edge 디바이스 이름"을 입력합니다. "디바이스 찾기"를 사용하도록 선택하여 디바이스를 찾을 수 있습니다.
 4. **만들기**를 클릭합니다.
 
 **모듈 설정**
@@ -97,7 +97,7 @@ IoT Edge 장치에 모듈을 배포하는 여러 가지 방법이 있는데, 모
    
     * `<your storage account name>`를 업데이트합니다. 계정 이름은 3~24자 사이여야 하고 소문자와 숫자만 사용해야 합니다.
     * `<your storage account key>`를 64바이트 base64 키로 업데이트합니다. [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) 같은 도구를 사용하여 키를 생성할 수 있습니다. 다른 모듈에서 Blob 저장소에 액세스하려면 이러한 자격 증명을 사용합니다.
-    * `<storage directory bind>`를 업데이트합니다. 컨테이너 운영 체제에 따라 다릅니다. IoT Edge 장치에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다.  
+    * `<storage directory bind>`를 업데이트합니다. 컨테이너 운영 체제에 따라 다릅니다. IoT Edge 디바이스에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다.  
 
        * Linux 컨테이너: **\<storage path>:/blobroot**. 예: /srv/containerdata:/blobroot. 또는 my-volume:/blobroot. 
        * Windows 컨테이너: **\<storage path>:C:/BlobRoot**. 예: C:/ContainerData:C:/BlobRoot. 또는 my-volume:C:/blobroot.
@@ -111,7 +111,7 @@ IoT Edge 장치에 모듈을 배포하는 여러 가지 방법이 있는데, 모
 7. "모듈 설정" 섹션에서 **다음**을 클릭합니다.
 8. "경로 지정" 섹션에서 **다음**을 클릭합니다.
 9. 검토 후 "배포 검토" 섹션에서 **제출**을 클릭합니다.
-10. IoT Hub에서 장치가 Blob 저장소 모듈을 실행하고 있는지 확인합니다. 
+10. IoT Hub에서 디바이스가 Blob 저장소 모듈을 실행하고 있는지 확인합니다. 
 
 ### <a name="visual-studio-code-templates"></a>Visual Studio Code 템플릿
 
@@ -151,7 +151,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 
    ![모듈 만들기 옵션 업데이트](./media/how-to-store-data-blob/create-options.png)
 
-4. 만들기 옵션 JSON에서 컨테이너 운영 체제에 따라 `<storage directory bind>`를 업데이트합니다. IoT Edge 장치에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다.  
+4. 만들기 옵션 JSON에서 컨테이너 운영 체제에 따라 `<storage directory bind>`를 업데이트합니다. IoT Edge 디바이스에서 Blob 모듈이 데이터를 저장할 [볼륨](https://docs.docker.com/storage/volumes/) 이름 또는 디렉터리 절대 경로를 제공합니다.  
 
    * Linux 컨테이너: **\<storage path>:/blobroot**. 예: /srv/containerdata:/blobroot. 또는 my-volume:/blobroot.
    * Windows 컨테이너: **\<storage path>:C:/BlobRoot**. 예: C:/ContainerData:C:/BlobRoot. 또는 my-volume:C:/blobroot.
@@ -180,12 +180,12 @@ Visual Studio Code는 deployment.template.json 및 .env에 제공된 정보를 �
 
 ## <a name="connect-to-your-blob-storage-module"></a>Blob 저장소 모듈에 연결
 
-모듈에 대해 구성한 계정 이름 및 계정 키를 사용하여 IoT Edge 장치의 Blob 저장소에 액세스할 수 있습니다. 
+모듈에 대해 구성한 계정 이름 및 계정 키를 사용하여 IoT Edge 디바이스의 Blob 저장소에 액세스할 수 있습니다. 
 
-만드는 저장소 요청의 Blob 엔드포인트로 IoT Edge 장치를 지정합니다. 구성한 IoT Edge 장치 정보 및 계정 이름을 사용하여 [명시적 저장소 엔드포인트에 대한 연결 문자열을 만들 수 있습니다](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint). 
+만드는 저장소 요청의 Blob 엔드포인트로 IoT Edge 디바이스를 지정합니다. 구성한 IoT Edge 디바이스 정보 및 계정 이름을 사용하여 [명시적 저장소 엔드포인트에 대한 연결 문자열을 만들 수 있습니다](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint). 
 
-1. "IoT Edge에서 Azure Blob 저장소"가 실행되는 동일한 에지 장치에 배포되는 모듈의 경우 Blob 엔드포인트는 `http://<Module Name>:11002/<account name>`입니다. 
-2. "IoT Edge의 Azure Blob 저장소"가 실행되는 에지 장치가 아닌 다른 에지 장치에 배포되는 모듈의 경우 설정에 따라 Blob 엔드포인트는 `http://<device IP >:11002/<account name>`, `http://<IoT Edge device hostname>:11002/<account name>` 또는 `http://<FQDN>:11002/<account name>`입니다.
+1. "IoT Edge에서 Azure Blob Storage"가 실행되는 동일한 에지 디바이스에 배포되는 모듈의 경우 Blob 엔드포인트는 `http://<Module Name>:11002/<account name>`입니다. 
+2. "IoT Edge에서 Azure Blob Storage"가 실행되는 에지 디바이스가 아닌 다른 에지 디바이스에 배포되는 모듈의 경우 설정에 따라 Blob 엔드포인트는 `http://<device IP >:11002/<account name>`, `http://<IoT Edge device hostname>:11002/<account name>` 또는 `http://<FQDN>:11002/<account name>`입니다.
 
 ## <a name="logs"></a>로그
 

@@ -23,7 +23,7 @@ ms.locfileid: "51514879"
 
 이 자습서에서는 Raspberry Pi 온라인 시뮬레이터 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](about-iot-hub.md)를 사용하여 Pi 시뮬레이터를 클라우드에 원활하게 연결하는 방법을 알아봅니다. 
 
-물리적 장치가 있는 경우 시작하려면 [Azure IoT Hub에 Raspberry Pi 연결](iot-hub-raspberry-pi-kit-node-get-started.md)을 방문하세요. 
+물리적 디바이스가 있는 경우 시작하려면 [Azure IoT Hub에 Raspberry Pi 연결](iot-hub-raspberry-pi-kit-node-get-started.md)을 방문하세요. 
 
 <p>
 <div id="diag" style="width:100%; text-align:center">
@@ -40,14 +40,14 @@ ms.locfileid: "51514879"
 
 * Raspberry Pi 온라인 시뮬레이터의 기본 사항을 알아봅니다.
 * IoT Hub를 만듭니다.
-* IoT Hub에 Pi용 장치를 등록합니다.
+* IoT Hub에 Pi용 디바이스를 등록합니다.
 * Pi에서 샘플 응용 프로그램을 실행하여 IoT Hub로 시뮬레이션된 센서 데이터를 보냅니다.
 
 앞에서 만든 IoT Hub에 시뮬레이션된 Raspberry Pi를 연결합니다. 그런 다음 시뮬레이터에서 샘플 응용 프로그램을 실행하여 센서 데이터를 생성합니다. 마지막으로 센서 데이터를 IoT Hub로 보냅니다.
 
 ## <a name="what-you-learn"></a>학습 내용
 
-* Azure IoT Hub를 만들고 새 장치 연결 문자열을 가져오는 방법 Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
+* Azure IoT Hub를 만들고 새 디바이스 연결 문자열을 가져오는 방법. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
 * Raspberry Pi 온라인 시뮬레이터를 사용하는 방법
 * IoT Hub로 센서 데이터를 보내는 방법.
 
@@ -62,7 +62,7 @@ ms.locfileid: "51514879"
 
 1. 어셈블리 영역 - 기본 회로에서는 Pi가 BME280 센서 및 LED에 연결됩니다. 미리 보기 버전에서는 이 영역이 잠겨 있으므로 지금은 사용자 지정을 수행할 수 없습니다.
 
-2. 코딩 영역 - Raspberry Pi를 사용하여 코딩할 수 있는 온라인 코드 편집기입니다. 기본 샘플 응용 프로그램을 사용하여 BME280 센서에서 센서 데이터를 손쉽게 수집한 후 Azure IoT Hub로 보낼 수 있습니다. 응용 프로그램은 실제 Pi 장치와 완벽하게 호환됩니다. 
+2. 코딩 영역 - Raspberry Pi를 사용하여 코딩할 수 있는 온라인 코드 편집기입니다. 기본 샘플 응용 프로그램을 사용하여 BME280 센서에서 센서 데이터를 손쉽게 수집한 후 Azure IoT Hub로 보낼 수 있습니다. 응용 프로그램은 실제 Pi 디바이스와 완벽하게 호환됩니다. 
 
 3. 통합 콘솔 창 - 코드의 출력을 표시합니다. 이 창의 맨 위에는 세 개의 단추가 있습니다.
 
@@ -89,7 +89,7 @@ Raspberry Pi 웹 시뮬레이터는 현재 미리 보기 버전으로 제공됩�
 
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>Pi 웹 시뮬레이터에서 샘플 응용 프로그램 실행
 
-1. 코딩 영역에서 기본 샘플 응용 프로그램으로 작업 중인지 확인합니다. 15행의 자리 표시자를 Azure IoT Hub 장치 연결 문자열로 대체합니다.
+1. 코딩 영역에서 기본 샘플 응용 프로그램으로 작업 중인지 확인합니다. 15행의 자리 표시자를 Azure IoT Hub 디바이스 연결 문자열로 대체합니다.
    ![장치 연결 문자열 바꾸기](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
 2. **실행**을 클릭하거나 `npm start`를 입력하여 응용 프로그램을 실행합니다.

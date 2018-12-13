@@ -25,7 +25,7 @@ ms.locfileid: "49343677"
 
 ### <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
 
-IoT Edge의 Azure Stream Analytics를 통해 개발자는 거의 실시간으로 IoT Edge 장치에 분석을 배포할 수 있습니다. 자세한 내용은 [IoT Edge의 Azure Stream Analytics](stream-analytics-edge.md) 설명서를 참조하세요.
+IoT Edge의 Azure Stream Analytics를 통해 개발자는 거의 실시간으로 IoT Edge 디바이스에 분석을 배포할 수 있습니다. 자세한 내용은 [IoT Edge의 Azure Stream Analytics](stream-analytics-edge.md) 설명서를 참조하세요.
 
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning과 통합
 

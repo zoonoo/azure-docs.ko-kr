@@ -1,6 +1,6 @@
 ---
 title: 사용자 지정 이벤트 및 메트릭용 Application Insights API | Microsoft Docs
-description: 장치 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다.
+description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -22,7 +22,7 @@ ms.locfileid: "49405245"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
-응용 프로그램에 몇 줄의 코드를 삽입하여 사용자가 해당 응용 프로그램으로 어떤 작업을 하는지 살펴보거나 진단 문제를 지원할 수 있습니다. 장치 및 데스크톱 앱, 웹 클라이언트, 웹 서버에서 원격 분석을 보낼 수 있습니다. [Azure Application Insights](app-insights-overview.md) 코어 원격 분석 API를 사용하여 사용자 지정 이벤트 및 메트릭 그리고 고유한 버전의 표준 원격 분석을 보냅니다. 이 API는 표준 Application Insights 데이터 수집기에서 사용하는 동일한 API입니다.
+응용 프로그램에 몇 줄의 코드를 삽입하여 사용자가 해당 응용 프로그램으로 어떤 작업을 하는지 살펴보거나 진단 문제를 지원할 수 있습니다. 디바이스 및 데스크톱 앱, 웹 클라이언트, 웹 서버에서 원격 분석을 보낼 수 있습니다. [Azure Application Insights](app-insights-overview.md) 코어 원격 분석 API를 사용하여 사용자 지정 이벤트 및 메트릭 그리고 고유한 버전의 표준 원격 분석을 보냅니다. 이 API는 표준 Application Insights 데이터 수집기에서 사용하는 동일한 API입니다.
 
 > [!NOTE]
 > `TrackMetric()`은 더 이상 .NET 기반 응용 프로그램에 대한 사용자 지정 메트릭을 보내기 위해 선호되는 메서드가 아닙니다. Application Insights .NET SDK [버전 2.60-베타 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3)에서는 새로운 메서드인 [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)이 도입되었습니다. Application Insights .NET SDK [버전 2.72](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet)를 기준으로 이 기능은 안정적인 릴리스에 포함됩니다.
@@ -302,7 +302,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ## <a name="page-views"></a>페이지 보기
 
-장치 또는 웹 페이지 앱에서 각 화면 또는 페이지가 로드되면 기본적으로 페이지 보기 원격 분석이 전송됩니다. 하지만 추가 시간에 또는 다른 시간에 페이지 보기를 추적하도록 변경할 수 있습니다. 예를 들어 탭 또는 블레이드를 표시하는 앱에서 사용자가 새 블레이드를 열 때마다 "페이지"를 추적할 수 있습니다.
+디바이스 또는 웹 페이지 앱에서 각 화면 또는 페이지가 로드되면 기본적으로 페이지 보기 원격 분석이 전송됩니다. 하지만 추가 시간에 또는 다른 시간에 페이지 보기를 추적하도록 변경할 수 있습니다. 예를 들어 탭 또는 블레이드를 표시하는 앱에서 사용자가 새 블레이드를 열 때마다 "페이지"를 추적할 수 있습니다.
 
 사용자 및 세션 데이터는 페이지 보기와 함께 속성으로 전송됩니다. 따라서 페이지 보기 원격 분석이 있으면 사용자 및 세션 차트가 실시간으로 표시됩니다.
 
@@ -1127,7 +1127,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
 이러한 값을 직접 설정하는 경우 사용자의 값과 표준 값이 혼동되지 않도록 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 관련 줄을 제거해야 합니다.
 
 * **Component**: 앱 및 앱 버전입니다.
-* **Device**: 앱이 실행되는 장치에 대한 데이터입니다. (웹앱에서 원격 분석이 전송되는 서버 또는 클라이언트 장치입니다.)
+* **Device**: 앱이 실행되는 장치에 대한 데이터입니다. (웹앱에서 원격 분석이 전송되는 서버 또는 클라이언트 디바이스입니다.)
 * **InstrumentationKey**: Azure에서 원격 분석이 표시되는 Application Insights 리소스입니다. 일반적으로 ApplicationInsights.config에서 선택합니다.
 * **Location**: 장치의 지리적 위치입니다.
 * **Operation**: 웹앱에서 현재 HTTP 요청입니다. 다른 유형의 앱에서는 이 값을 설정하여 이벤트를 그룹화할 수 있습니다.

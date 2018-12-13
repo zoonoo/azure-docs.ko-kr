@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central 응용 프로그램에 DevKit 장치 연결 | Microsoft Docs
-description: 장치 개발자로서 Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치를 연결하는 방법을 알아봅니다.
+description: 디바이스 개발자로서 Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스를 연결하는 방법을 알아봅니다.
 author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
@@ -43,20 +43,20 @@ ms.locfileid: "51255730"
 
 ## <a name="add-a-real-device"></a>실제 장치 추가
 
-Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 정보(**범위 ID, 장치 ID 및 기본 키**)를 기록해 둡니다.
+Azure IoT Central 애플리케이션에서 **MXChip** 디바이스 템플릿으로 실제 디바이스를 추가하고 디바이스 연결 정보(**범위 ID, 디바이스 ID 및 기본 키**)를 기록해 둡니다.
 
 1. Device Explorer에서 **실제 장치**를 추가하고 **+새로 만들기 > 실제 장치**를 클릭하여 실제 장치를 추가합니다.
-    * 장치 ID**<span style="color:Red">(소문자여야 함)</span>** 를 입력하거나 제안된 장치 ID를 사용합니다.
-    * 장치 이름을 입력하거나 제안된 이름을 사용합니다.
+    * 디바이스 ID**<span style="color:Red">(소문자여야 함)</span>** 를 입력하거나 제안된 디바이스 ID를 사용합니다.
+    * 디바이스 이름을 입력하거나 제안된 이름을 사용합니다.
     
-    ![장치 추가](media\concepts-connectivity\add-device.png)
+    ![디바이스 추가](media\concepts-connectivity\add-device.png)
 
 
-1. 장치 페이지에서 **연결**을 클릭하여 추가 장치의 **범위 ID, 장치 ID 및 기본 키** 같은 연결 정보를 가져옵니다.
+1. 디바이스 페이지에서 **연결**을 클릭하여 추가 디바이스의 **범위 ID, 디바이스 ID 및 기본 키** 같은 연결 정보를 가져옵니다.
  
     ![연결 정보](media\concepts-connectivity\device-connect.PNG)
 
-3. DevKit 장치를 준비할 때 일시적으로 인터넷 연결이 끊어지므로 이러한 세부 정보를 저장해야 합니다. 
+3. DevKit 디바이스를 준비할 때 일시적으로 인터넷 연결이 끊어지므로 이러한 세부 정보를 저장해야 합니다. 
 
 
 ### <a name="prepare-the-devkit-device"></a>DevKit 장치 준비
@@ -83,7 +83,7 @@ Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿으로 �
     ```
 
     > [!NOTE]
-    > 화면이 다른 요소를 표시하는 경우 장치를 다시 설정하고 장치에서 **A** 및 **B** 단추를 동시에 눌러 장치를 다시 부팅합니다. 
+    > 화면이 다른 요소를 표시하는 경우 디바이스를 다시 설정하고 디바이스에서 **A** 및 **B** 단추를 동시에 눌러 디바이스를 다시 부팅합니다. 
 
 1. 이제 장치가 AP(액세스 지점) 모드에 있습니다. 컴퓨터 또는 모바일 장치에서 이 WiFi 액세스 지점에 연결할 수 있습니다.
 
@@ -97,7 +97,7 @@ Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿으로 �
     - WiFi 네트워크 이름 
     - WiFi 네트워크 암호
     - LCD 장치에 표시된 PIN 코드 
-    - 장치의 연결 정보 **범위 ID, 장치 ID 및 기본 키**(단계에 따라 이 정보를 이미 저장했어야 함)      
+    - 디바이스의 연결 정보 **범위 ID, 디바이스 ID 및 기본 키**(단계에 따라 이 정보를 이미 저장했어야 함)      
     - 사용 가능한 모든 원격 분석 측정값을 선택합니다. 
 
 1. **장치 구성**을 선택하면 이 페이지가 표시됩니다.
@@ -116,7 +116,7 @@ DevKit 장치가 다시 시작되면 장치에 다음과 같은 화면이 표시
 * 받은 desired 속성 수 및 보낸 reported 속성 수.
 
 > [!NOTE]
-> 장치가 연결 중에 반복되는 것으로 나타나면 장치가 IoT Central에서 ‘차단’되어 있는지 확인하고 앱에 연결할 수 있도록 장치를 ‘차단 해제’합니다.
+> 디바이스가 연결 중에 반복되는 것으로 나타나면 디바이스가 IoT Central에서 ‘차단’되어 있는지 확인하고 앱에 연결할 수 있도록 디바이스를 ‘차단 해제’합니다.
 
 장치를 흔들면 보낸 reported 속성 수가 증가합니다. 장치에서 **다이 번호** 장치 속성으로 임의의 숫자를 보냅니다.
 

@@ -15,7 +15,7 @@ items:
   items:
   - name: 바로 가기 키
     href: azure-portal-keyboard-shortcuts.md
-  - name: 지원되는 브라우저 및 장치
+  - name: 지원되는 브라우저 및 디바이스
     href: ../azure-preview-portal-supported-browsers-devices.md
   - name: 고대비 켜기 및 테마 변경
     href: azure-portal-change-theme-high-contrast.md

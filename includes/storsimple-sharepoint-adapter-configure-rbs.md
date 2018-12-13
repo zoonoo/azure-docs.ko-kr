@@ -57,7 +57,7 @@ ms.locfileid: "50165137"
    
    1. SharePoint에 문서를 업로드합니다. 
    2. 구성한 UNC 경로를 찾습니다. RBS 디렉터리 구조가 만들어지고 업로드된 개체가 포함되어있는지 확인합니다.
-6. (선택 사항) SharePoint에 포함된 Microsoft RBS `Migrate()` PowerShell cmdlet을 사용하여 기존 BLOB 콘텐츠를 StorSimple 장치로 마이그레이션할 수 있습니다. 자세한 내용은 [SharePoint 2013에서 RBS 내부 또는 외부로 콘텐츠 마이그레이션][6] 또는 [RBS(SharePoint Foundation 2010) 내부 또는 외부로 콘텐츠 마이그레이션][7]을 참조하세요.
+6. (선택 사항) SharePoint에 포함된 Microsoft RBS `Migrate()` PowerShell cmdlet을 사용하여 기존 BLOB 콘텐츠를 StorSimple 디바이스로 마이그레이션할 수 있습니다. 자세한 내용은 [SharePoint 2013에서 RBS 내부 또는 외부로 콘텐츠 마이그레이션][6] 또는 [RBS(SharePoint Foundation 2010) 내부 또는 외부로 콘텐츠 마이그레이션][7]을 참조하세요.
 7. (선택 사항) 테스트 설치에서 다음과 같이 BLOB이 콘텐츠 데이터베이스 외부로 이동되었는지를 확인할 수 있습니다. 
    
    1. SQL Management Studio를 시작합니다.

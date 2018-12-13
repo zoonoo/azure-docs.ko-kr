@@ -14,9 +14,9 @@ ms.locfileid: "50164807"
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### <a name="to-cable-your-device-for-power"></a>장치에 전원 케이블을 연결하려면
+#### <a name="to-cable-your-device-for-power"></a>디바이스에 전원 케이블을 연결하려면
 > [!NOTE]
-> StorSimple 장치의 두 엔클로저 모두가 중복 PCM을 포함합니다. 각 엔클로저에 대해 PCM을 설치하고 서로 다른 전원에 연결하여 높은 가용성을 보장해야 합니다.
+> StorSimple 디바이스의 두 엔클로저 모두가 중복 PCM을 포함합니다. 각 엔클로저에 대해 PCM을 설치하고 서로 다른 전원에 연결하여 높은 가용성을 보장해야 합니다.
 > 
 > 
 
@@ -28,15 +28,15 @@ ms.locfileid: "50164807"
 6. 각 PCM의 전원 스위치를 ON 위치로 눌러 EBOD 엔클로저를 켭니다.
 7. EBOD 컨트롤러 뒷면의 녹색 LED가 ON 상태인지 확인하여 EBOD 엔클로저가 켜져 있는지 확인합니다.
 8. 각 PCM 스위치를 ON 위치로 눌러 기본 엔클로저의 전원을 켭니다.
-9. 장치 컨트롤러 LED가 ON 상태인지 확인하여 시스템이 가동 중인지 확인합니다.
-10. EBOD 컨트롤러의 SAS 포트 옆에 4개의 LED가 녹색인지 확인하여 EBOD 컨트롤러와 장치 컨트롤러 사이의 연결이 활성 상태인지 확인합니다.
+9. 디바이스 컨트롤러 LED가 ON 상태인지 확인하여 시스템이 가동 중인지 확인합니다.
+10. EBOD 컨트롤러의 SAS 포트 옆에 4개의 LED가 녹색인지 확인하여 EBOD 컨트롤러와 디바이스 컨트롤러 사이의 연결이 활성 상태인지 확인합니다.
     
     > [!IMPORTANT]
     > 시스템의 고가용성을 보장하려면 다음 다이어그램에 표시된 것처럼 전원 케이블 연결 방식을 엄격히 준수하는 것이 좋습니다.
     > 
     > 
     
-    ![전원에 4U 장치를 케이블로 연결](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
+    ![전원에 4U 디바이스를 케이블로 연결](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
     
     **전원 케이블 연결**
     

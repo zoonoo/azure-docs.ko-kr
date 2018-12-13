@@ -1,6 +1,6 @@
 ---
 title: IoT Edge의 Azure Stream Analytics(미리 보기)
-description: Azure Stream Analytics에서 Edge 작업을 만들고 Azure IoT Edge가 실행되는 장치에 배포합니다.
+description: Azure Stream Analytics에서 Edge 작업을 만들고 Azure IoT Edge가 실행되는 디바이스에 배포합니다.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -21,7 +21,7 @@ ms.locfileid: "51687438"
 > [!IMPORTANT]
 > 이 기능은 미리 보기이며 프로덕션에서 사용하지 않는 것이 좋습니다.
  
-IoT Edge의 ASA(Azure Stream Analytics)는 개발자가 IoT 장치에 보다 가깝게 거의 실시간으로 분석 인텔리전스를 배포하여 장치 생성 데이터의 가치를 극대화할 수 있도록 합니다. Azure Stream Analytics는 짧은 대기 시간, 복원력, 대역폭의 효율적 사용 및 규정 준수를 위해 고안되었습니다. 이제 기업에서는 업계 운영과 밀접한 컨트롤 논리를 배포하고, 클라우드에서 수행된 빅 데이터 분석을 보완할 수 있습니다.  
+IoT Edge의 ASA(Azure Stream Analytics)는 개발자가 IoT 디바이스에 보다 가깝게 거의 실시간으로 분석 인텔리전스를 배포하여 디바이스 생성 데이터의 가치를 극대화할 수 있도록 합니다. Azure Stream Analytics는 짧은 대기 시간, 복원력, 대역폭의 효율적 사용 및 규정 준수를 위해 고안되었습니다. 이제 기업에서는 업계 운영과 밀접한 컨트롤 논리를 배포하고, 클라우드에서 수행된 빅 데이터 분석을 보완할 수 있습니다.  
 
 IoT Edge의 Azure Stream Analytics는 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 프레임워크 내에서 실행됩니다. ASA에서 작업을 만든 후, IoT Hub를 사용하여 ASA 작업을 배포 및 관리할 수 있습니다. 이 기능은 미리 보기 상태입니다. 질문이나 의견이 있는 경우 [이 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)를 사용하여 제품 팀에 문의할 수 있습니다. 
 
@@ -40,7 +40,7 @@ ASA Edge 작업은 [Azure IoT Edge 런타임](https://docs.microsoft.com/azure/i
 1.  작업 정의를 담당하는 클라우드 부분: 사용자가 클라우드의 입력, 출력, 쿼리 및 기타 설정(잘못된 이벤트 등)을 정의합니다.
 2.  로컬로 실행되는 IoT Edge 모듈의 ASA. 이 부분은 ASA 복합 이벤트 처리 엔진을 포함하며 클라우드에서 작업 정의를 수신합니다. 
 
-ASA는 IoT Hub를 사용하여 장치에 Edge 작업을 배포합니다. [IoT Edge 배포에 대한 추가 정보는 여기에서 확인할 수 있습니다](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+ASA는 IoT Hub를 사용하여 디바이스에 Edge 작업을 배포합니다. [IoT Edge 배포에 대한 추가 정보는 여기에서 확인할 수 있습니다](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 ![Edge 작업](media/stream-analytics-edge/ASAedge_job.png)
 
@@ -49,11 +49,11 @@ ASA는 IoT Hub를 사용하여 장치에 Edge 작업을 배포합니다. [IoT Ed
 다음 표에는 간단한 단계가 설명되어 있습니다. 더 자세한 내용은 다음 섹션에 제공됩니다.
 |      |단계   | 위치     | 메모   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **저장소 컨테이너 만들기**   | Azure portal       | 저장소 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 장치에서 액세스할 수 있습니다. <br>  모든 기존 저장소 컨테이너를 다시 사용할 수 있습니다.     |
-| 2   | **ASA Edge 작업 만들기**   | Azure portal      |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 장치에서 실행됩니다.     |
-| 3   | **장치에서 IoT Edge 환경 설정**   | 장치      | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침          |
+| 1   | **저장소 컨테이너 만들기**   | Azure portal       | 저장소 컨테이너는 작업 정의를 저장하는 데 사용되며 IoT 디바이스에서 액세스할 수 있습니다. <br>  모든 기존 저장소 컨테이너를 다시 사용할 수 있습니다.     |
+| 2   | **ASA Edge 작업 만들기**   | Azure portal      |  새 작업을 선택하고 **Edge**를 **호스팅 환경**으로 선택합니다. <br> 이러한 작업은 클라우드에서 생성/관리되며 사용자 고유의 IoT Edge 디바이스에서 실행됩니다.     |
+| 3   | **장치에서 IoT Edge 환경 설정**   | 디바이스      | [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 지침          |
 | 4   | **IoT Edge 장치에 ASA 배포**   | Azure portal      |  ASA 작업 정의는 이전에 만든 저장소 컨테이너로 내보내집니다.       |
-[이 단계별 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)에 따라 IoT Edge에 첫 번째 ASA 작업을 배포할 수 있습니다. 다음 비디오는 IoT Edge 장치에서 Stream Analytics 작업을 실행하는 프로세스를 이해하는 데 도움이 됩니다.  
+[이 단계별 자습서](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)에 따라 IoT Edge에 첫 번째 ASA 작업을 배포할 수 있습니다. 다음 비디오는 IoT Edge 디바이스에서 Stream Analytics 작업을 실행하는 프로세스를 이해하는 데 도움이 됩니다.  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
@@ -92,8 +92,8 @@ ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 저장소 컨테이
 > 배포가 생성되면 ASA는 저장소 컨테이너로 작업 정의를 내보냅니다. 이 작업 정의는 배포 기간 동안 동일하게 유지됩니다. 결과적으로 Edge에서 실행되는 작업을 업데이트하려는 경우 ASA에서 작업을 편집하고 IoT Hub에서 새 배포를 만들어야 합니다.
 
 
-#### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>장치에서 IoT Edge 환경 설정
-Edge 작업은 Azure IoT Edge를 실행하는 장치에 배포할 수 있습니다.
+#### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>디바이스에서 IoT Edge 환경 설정
+Edge 작업은 Azure IoT Edge를 실행하는 디바이스에 배포할 수 있습니다.
 이를 위해 다음 단계를 수행해야 합니다.
 - IoT Hub를 만듭니다.
 - Edge 장치에 Docker 및 IoT Edge 런타임을 설치합니다.
@@ -102,7 +102,7 @@ Edge 작업은 Azure IoT Edge를 실행하는 장치에 배포할 수 있습니�
 이러한 단계는 [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 IoT Edge 설명서에 나와 있습니다.  
 
 
-####  <a name="deployment-asa-on-your-iot-edge-devices"></a>IoT Edge 장치에 ASA 배포
+####  <a name="deployment-asa-on-your-iot-edge-devices"></a>IoT Edge 디바이스에 ASA 배포
 ##### <a name="add-asa-to-your-deployment"></a>배포에 ASA 추가
 - Azure Portal에서 IoT Hub를 열고 **IoT Edge**로 이동한 후, 이 배포에 대상을 지정할 장치를 클릭합니다.
 - **모듈 설정**을 선택한 다음, **+ 추가**를 선택하고 **Azure Stream Analytics 모듈**을 선택합니다.
@@ -112,7 +112,7 @@ Edge 작업은 Azure IoT Edge를 실행하는 장치에 배포할 수 있습니�
 
 > [!Note]
 > 이 단계 동안 ASA는 저장소 컨테이너에서 “EdgeJobs”라는 폴더를 만듭니다(아직 존재하지 않은 경우). 각 배포에 대해 "EdgeJobs" 폴더에 새 하위 폴더가 만들어집니다.
-> 작업에 Edge 장치에 배포하기 위해 ASA는 작업 정의 파일에 대한 SAS(공유 액세스 서명)를 만듭니다. SAS 키는 장치 쌍을 사용하여 IoT Edge 장치에 안전하게 전송됩니다. 이 키의 만료 기간은 만든 날로부터 3년입니다.
+> 작업에 Edge 디바이스에 배포하기 위해 ASA는 작업 정의 파일에 대한 SAS(공유 액세스 서명)를 만듭니다. SAS 키는 디바이스 쌍을 사용하여 IoT Edge 디바이스에 안전하게 전송됩니다. 이 키의 만료 기간은 만든 날로부터 3년입니다.
 
 
 IoT Edge 배포에 대한 자세한 내용은 [이 페이지](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)를 참조하세요.
@@ -174,7 +174,7 @@ IoT Edge의 ASA는 x86-64 또는 Azure Resource Manager 아키텍처 모두에�
 
 ### <a name="input-and-output"></a>입력 및 출력
 #### <a name="input-and-output-streams"></a>입력 및 출력 스트림
-ASA Edge 작업은 IoT Edge 장치에서 실행되는 다른 모듈에서 입/출력을 가져올 수 있습니다. 특정 모듈과 연결하려면 배포 시에 라우팅 구성을 설정할 수 있습니다. 자세한 내용은 [IoT Edge 모듈 컴퍼지션 설명서](https://docs.microsoft.com/azure/iot-edge/module-composition)를 참조하세요.
+ASA Edge 작업은 IoT Edge 디바이스에서 실행되는 다른 모듈에서 입/출력을 가져올 수 있습니다. 특정 모듈과 연결하려면 배포 시에 라우팅 구성을 설정할 수 있습니다. 자세한 내용은 [IoT Edge 모듈 컴퍼지션 설명서](https://docs.microsoft.com/azure/iot-edge/module-composition)를 참조하세요.
 
 입/출력 모두에서 CSV 및 JSON 형식이 지원됩니다.
 

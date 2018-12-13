@@ -37,7 +37,7 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 * __유니버설 Windows 플랫폼 개발__ 워크로드가 사용하도록 설정된 Visual Studio 2017 버전 15.7 이상.
 
-* 사용하도록 설정된 개발자 모드. 자세한 내용은 [개발을 위해 장치를 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) 문서를 참조하세요.
+* 사용하도록 설정된 개발자 모드. 자세한 내용은 [개발을 위해 디바이스를 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) 문서를 참조하세요.
 
 ## <a name="about-the-example-app"></a>예제 앱 정보
 
@@ -49,7 +49,7 @@ Windows ML을 사용하여 Custom Vision Service에서 내보낸 ONNX 모델을 
 
 ## <a name="run-the-example"></a>예제 실행
 
-1. `F5` 키를 사용하여 Visual Studio에서 응용 프로그램을 시작합니다. 개발자 모드를 사용하도록 설정하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발을 위해 장치를 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) 문서를 참조하세요.
+1. `F5` 키를 사용하여 Visual Studio에서 응용 프로그램을 시작합니다. 개발자 모드를 사용하도록 설정하라는 메시지가 표시될 수 있습니다. 자세한 내용은 [개발을 위해 디바이스를 사용하도록 설정](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) 문서를 참조하세요.
 
 2. 응용 프로그램이 시작되면 단추를 사용하여 채점할 이미지를 선택합니다.
 

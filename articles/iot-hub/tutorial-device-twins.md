@@ -189,7 +189,7 @@ node ServiceClient.js "{your service connection string}"
 
 다음 스크린샷에서는 시뮬레이션된 장치 응용 프로그램의 출력을 보여 주고, **maxTemperature** desired 속성에 대한 업데이트를 처리하는 방법을 강조 표시하고 있습니다. 최상위 처리기와 climate component(기후 구성 요소) 처리기가 모두 실행되는 방식을 확인할 수 있습니다.
 
-![시뮬레이션된 장치](./media/tutorial-device-twins/SimulatedDevice1.png)
+![시뮬레이션된 디바이스](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 다음 스크린샷에서는 백 엔드 응용 프로그램의 출력을 보여 주고, **maxTemperature** desired 속성에 대한 업데이트를 보내는 방법을 강조 표시하고 있습니다.
 
@@ -239,7 +239,7 @@ node ServiceClient.js "{your service connection string}"
 
 다음 스크린샷에서는 시뮬레이션된 장치 응용 프로그램의 출력을 보여 주고, reported 속성 업데이트를 허브로 보내는 방법을 강조 표시하고 있습니다.
 
-![시뮬레이션된 장치](./media/tutorial-device-twins/SimulatedDevice2.png)
+![시뮬레이션된 디바이스](./media/tutorial-device-twins/SimulatedDevice2.png)
 
 다음 스크린샷에서는 백 엔드 응용 프로그램의 출력을 보여 주고, 장치에서 reported 속성 업데이트를 받고 처리하는 방법을 강조 표시하고 있습니다.
 

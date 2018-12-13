@@ -27,7 +27,7 @@ ms.locfileid: "51227759"
 
 ## <a name="understanding-iot-edge-modules-and-getting-started"></a>IoT Edge 모듈 이해 및 시작
 
-IoT Edge 모듈은 IoT Edge 장치에서 실행하도록 만들어진 Docker 호환 컨테이너입니다.
+IoT Edge 모듈은 IoT Edge 디바이스에서 실행하도록 만들어진 Docker 호환 컨테이너입니다.
 
 - IoT Edge 모듈에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules)를 참조하세요.
 - IoT Edge 모듈 개발을 시작하려면 [IoT Edge 모듈 개발을 위한 요구 사항 및 도구](https://docs.microsoft.com/azure/iot-edge/module-development)를 참조하세요.
@@ -45,7 +45,7 @@ IoT Edge 모듈은 다음 플랫폼 옵션 중 하나를 지원해야 합니다.
 IoT Edge에서 지원되는 모든 계층 1 플랫폼을 지원합니다([Azure IoT Edge 지원](https://docs.microsoft.com/azure/iot-edge/support)에 기록된 대로). 더 나은 고객 경험을 제공하기 때문에 이 옵션을 권장합니다. 이 조건을 충족하는 모듈이 소개됩니다. 이 플랫폼 옵션을 사용하는 모듈은 다음을 수행해야 합니다.
 
 - GitHub [매니페스트 도구](https://github.com/estesp/manifest-tool)를 사용하여 빌드된 매니페스트 태그인 `latest` 태그 및 버전 태그(예: `1.0.1`)를 제공합니다.
-- [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [호환 IoT Edge 인증 장치](https://aka.ms/iot-edge-certified)에 링크를 추가합니다. 이 링크는 고객이 인증된 장치를 찾거나 검색할 수 있는 웹 사이트인 `http://aka.ms/iot-edge-certified`로 이동합니다. 이 웹 사이트는 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 장치 카탈로그라고도 합니다.
+- [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [호환 IoT Edge 인증 장치](https://aka.ms/iot-edge-certified)에 링크를 추가합니다. 이 링크는 고객이 인증된 디바이스를 찾거나 검색할 수 있는 웹 사이트인 `http://aka.ms/iot-edge-certified`로 이동합니다. 이 웹 사이트는 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그라고도 합니다.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합
   
@@ -54,11 +54,11 @@ IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합(하나 이상)�
 - 둘 이상의 플랫폼이 지원되는 경우 GitHub [매니페스트 도구](https://github.com/estesp/manifest-tool)를 사용하여 빌드된 매니페스트 태그인 `latest` 태그 및 버전 태그(예: `1.0.1`)를 제공합니다. 하나의 플랫폼이 지원되는 경우에만 매니페스트 태그는 선택 사항입니다.
 - [Marketplace 탭](./cpp-marketplace-tab.md)을 사용하여 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 장치 카탈로그의 하나 이상의 IoT Edge 장치에 링크를 제공합니다.
 
-### <a name="device-dimensions"></a>장치 차원
+### <a name="device-dimensions"></a>디바이스 차원
 
-대상 IoT Edge 장치의 IoT Edge 모듈 차원(CPU/RAM/저장소/GPU/등)은 다음 요구 사항을 충족해야 합니다.
+대상 IoT Edge 디바이스의 IoT Edge 모듈 차원(CPU/RAM/저장소/GPU/등)은 다음 요구 사항을 충족해야 합니다.
 
-- 모듈은 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 장치 카탈로그에서 **하나 이상의 IoT Edge 인증** 장치를 사용하여 작업해야 합니다.
+- 모듈은 [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/) 디바이스 카탈로그에서 **하나 이상의 IoT Edge 인증** 디바이스를 사용하여 작업해야 합니다.
 - **최소 하드웨어 요구 사항**은 제품의 설명에서 마지막 단락으로 문서화되어야 합니다([Marketplace 탭](./cpp-marketplace-tab.md) 아래). 필요에 따라 크게 다를 경우 권장되는 하드웨어 요구 사항을 나열할 수도 있습니다. 예를 들어 제품 설명의 끝에 다음 섹션을 추가합니다.
 
  ```html
@@ -67,7 +67,7 @@ IoT Edge에서 지원되는 계층 1 플랫폼의 하위 집합(하나 이상)�
 
 ### <a name="configuration"></a>구성
 
-또한 IoT Edge 장치에 가능한 간편하게 배포할 수 있도록 하는 기본 구성 설정을 포함합니다. 이 컨테이너는 Edge 허브 및 IoT Hub와 통신할 수 있도록 하는 IoT Edge 모듈 SDK를 포함할 수도 있습니다.
+또한 IoT Edge 디바이스에 가능한 간편하게 배포할 수 있도록 하는 기본 구성 설정을 포함합니다. 이 컨테이너는 Edge 허브 및 IoT Hub와 통신할 수 있도록 하는 IoT Edge 모듈 SDK를 포함할 수도 있습니다.
 
 #### <a name="default-configuration"></a>기본 구성
 

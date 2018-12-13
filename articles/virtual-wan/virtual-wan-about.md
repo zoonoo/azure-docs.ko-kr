@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: fedb41f6538e0c65114c4a28c8aa43ffc7ef6d7f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c2edb821eb8bd9a5da7a6cce81269e7d3f611722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957603"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869894"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
-Azure Virtual WAN은 Azure를 통해 최적화 및 자동화된 분기 간 연결을 제공하는 네트워킹 서비스입니다. Virtual WAN을 사용하여 Azure와 통신하도록 분기 장치를 연결 및 구성할 수 있습니다. 수동으로 또는 Virtual WAN 파트너를 통해 선호 파트너 장치를 사용하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [선호 파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615) 문서를 참조하세요. 선호 파트너 장치는 쉽게 사용할 수 있고, 간편하게 연결할 수 있으며, 구성을 관리할 수 있습니다. Azure WAN 기본 제공 대시보드는 시간을 절약하는 데 도움이 되는 문제 해결 정보를 즉시 제공하며, 대규모 연결을 확인하는 간편한 방법도 제공합니다.
+Azure Virtual WAN은 Azure를 통해 최적화 및 자동화된 분기 간 연결을 제공하는 네트워킹 서비스입니다. Virtual WAN을 사용하여 Azure와 통신하도록 분기 디바이스를 연결 및 구성할 수 있습니다. 수동으로 또는 Virtual WAN 파트너를 통해 선호 파트너 디바이스를 사용하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [선호 파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615) 문서를 참조하세요. 선호 파트너 디바이스는 쉽게 사용할 수 있고, 간편하게 연결할 수 있으며, 구성을 관리할 수 있습니다. Azure WAN 기본 제공 대시보드는 시간을 절약하는 데 도움이 되는 문제 해결 정보를 즉시 제공하며, 대규모 연결을 확인하는 간편한 방법도 제공합니다.
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwan.png)
 
@@ -29,15 +29,15 @@ Azure Virtual WAN은 Azure를 통해 최적화 및 자동화된 분기 간 연�
 
 ## <a name="s2s"></a>사이트 간 연결
 
-Virtual WAN을 사용하여 사이트 간 연결을 만들려면 [Virtual WAN 파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615)를 통해 이동하거나 수동으로 연결을 만들 수 있습니다.
+Virtual WAN을 사용하여 사이트 간 연결을 만들려면 [Virtual WAN 파트너](virtual-wan-locations-partners.md)를 통해 이동하거나 수동으로 연결을 만들 수 있습니다.
 
 ### <a name="s2spartner"></a>Virtual WAN 파트너와 작업
 
 Virtual WAN 파트너 사용 시의 프로세스는 다음과 같습니다.
 
-1. 분기 장치(VPN/SDWAN) 컨트롤러가 [Azure 서비스 주체](../active-directory/develop/howto-create-service-principal-portal.md)를 사용하여 Azure에 사이트 중심 정보를 내보내도록 인증됩니다.
-2. 분기 장치(VPN/SDWAN) 컨트롤러는 Azure 연결 구성을 가져오고 로컬 장치를 업데이트합니다. 구성 다운로드, 온-프레미스 VPN 장치의 편집 및 업데이트를 자동화합니다.
-3. 장치에 올바른 Azure 구성이 적용되면 Azure WAN에 대한 사이트 간 연결(활성 터널 2개)이 설정됩니다. Azure는 IKEv1 및 IKEv2를 둘 다 지원합니다. BGP는 선택 사항입니다.
+1. 분기 디바이스(VPN/SDWAN) 컨트롤러가 [Azure 서비스 주체](../active-directory/develop/howto-create-service-principal-portal.md)를 사용하여 Azure에 사이트 중심 정보를 내보내도록 인증됩니다.
+2. 분기 디바이스(VPN/SDWAN) 컨트롤러는 Azure 연결 구성을 가져오고 로컬 디바이스를 업데이트합니다. 구성 다운로드, 온-프레미스 VPN 디바이스의 편집 및 업데이트를 자동화합니다.
+3. 디바이스에 올바른 Azure 구성이 적용되면 Azure WAN에 대한 사이트 간 연결(활성 터널 2개)이 설정됩니다. Azure는 IKEv1 및 IKEv2를 둘 다 지원합니다. BGP는 선택 사항입니다.
 
 
 선호 파트너를 사용하지 않으려는 경우 연결을 수동으로 구성할 수 있습니다. [Virtual WAN을 사용하여 사이트 간 연결 만들기](virtual-wan-site-to-site-portal.md)를 참조하세요.
@@ -46,11 +46,11 @@ Virtual WAN 파트너 사용 시의 프로세스는 다음과 같습니다.
 
 P2S(지점 및 사이트 간) 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 허브에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다.
 
-연결을 수동으로 만들려면 [Virtual WAN을 사용하여 지점 및 사이트 간 연결 만들기](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid)를 참조하세요.
+연결을 수동으로 만들려면 [Virtual WAN을 사용하여 지점 및 사이트 간 연결 만들기](virtual-wan-point-to-site-portal.md)를 참조하세요.
 
 ## <a name="er"></a>ExpressRoute 연결(미리 보기)
 
-연결을 수동으로 만들려면 [Virtual WAN을 사용하여 ExpressRoute 연결 만들기](https://go.microsoft.com/fwlink/p/?linkid=2020148&clcid)를 참조하세요.
+연결을 수동으로 만들려면 [Virtual WAN을 사용하여 ExpressRoute 연결 만들기](virtual-wan-expressroute-portal.md)를 참조하세요.
 
 
 ## <a name="resources"></a>Virtual WAN 리소스
@@ -76,4 +76,4 @@ P2S(지점 및 사이트 간) 연결을 사용하면 개별 클라이언트 컴�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Virtual WAN 파트너 및 위치](https://aka.ms/virtualwan)를 확인합니다.
+[Virtual WAN 파트너 및 위치](virtual-wan-locations-partners.md) 페이지를 확인합니다.

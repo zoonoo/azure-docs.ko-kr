@@ -69,7 +69,7 @@ Azure CDN(Content Delivery Network)은 **Microsoft의 Azure CDN 표준**, **Akam
 | [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) 또는 [PowerShell](cdn-manage-powershell.md)을 통한 관리  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진](cdn-rules-engine.md)  |  | | |**&#x2713;** |
 | URL 리디렉션/다시 쓰기([규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
-| 모바일 장치 규칙( [규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
+| 모바일 디바이스 규칙([규칙 엔진](cdn-rules-engine.md) 사용)  |  | | |**&#x2713;** |
 
 \* Microsoft 및 Verizon은 일반 웹 배달 최적화를 통해 큰 파일 및 미디어를 배달하도록 직접 지원합니다.
 

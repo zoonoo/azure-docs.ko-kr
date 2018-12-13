@@ -9,7 +9,7 @@ documentType: LandingData
 title: Azure Notification Hubs 설명서
 metadata:
   title: Azure Notification Hubs 설명서 - 자습서, API 참조 | Microsoft Docs
-  description: Notification Hubs를 통해 백 엔드에서 모바일 장치에 푸시 알림을 전송하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다.
+  description: Notification Hubs를 통해 백 엔드에서 모바일 디바이스에 푸시 알림을 전송하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다.
   services: notification-hubs
   author: spelluru
   manager: 
@@ -20,7 +20,7 @@ metadata:
   ms.date: 03/01/2017
   ms.author: spelluru
 abstract:
-  description: 다중 플랫폼의 확장 가능한 푸시 알림 엔진인 Notification Hubs를 사용하여 다양한 유형의 장치(Android, iOS, Windows, Windows Phone, Baidu, Kindle)에서 실행되는 응용 프로그램에 수백만 개의 메시지를 빠르게 보내는 방법을 알아봅니다. <p>자습서, API 참조 및 기타 설명서에서는 백 엔드에서 모바일 장치에 푸시 알림을 설정하고 보내는 방법을 보여 줍니다.</p>
+  description: 다중 플랫폼의 확장 가능한 푸시 알림 엔진인 Notification Hubs를 사용하여 다양한 유형의 장치(Android, iOS, Windows, Windows Phone, Baidu, Kindle)에서 실행되는 응용 프로그램에 수백만 개의 메시지를 빠르게 보내는 방법을 알아봅니다. <p>자습서, API 참조 및 기타 설명서에서는 백 엔드에서 모바일 디바이스에 푸시 알림을 설정하고 보내는 방법을 보여 줍니다.</p>
   aside:
     image:
       alt: 

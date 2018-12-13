@@ -79,7 +79,7 @@ StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이�
 유지 관리 모드 업데이트를 적용해야 하는 경우  설치해야 하는 업데이트가 있다는 경고를 Azure 클래식 포털을 통해 수신합니다. 이 경고는 StorSimple용 Windows PowerShell을 사용하여 업데이트를 설치하기 위한 지침을 포함합니다. 장치를 업데이트한 후, 동일한 절차에 따라 장치를 일반 모드로 변경합니다. 단계별 지침은 [4단계: 유지 관리 모드를 종료](#step4)를 참조하세요.
 
 > [!IMPORTANT]
-> * 유지 관리 모드에 들어가기 전에 Azure 클래식 포털의 **유지 관리** 페이지에서 **하드웨어 상태**를 확인하여 두 장치 컨트롤러 모두가 정상 상태인지 확인합니다. 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 Microsoft 지원에 문의로 이동합니다. 
+> * 유지 관리 모드에 들어가기 전에 Azure 클래식 포털의 **유지 관리** 페이지에서 **하드웨어 상태**를 확인하여 두 디바이스 컨트롤러 모두가 정상 상태인지 확인합니다. 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 Microsoft 지원에 문의로 이동합니다. 
 > * 유지 관리 모드에 있는 경우, 업데이트를 먼저 하나의 컨트롤러에 적용한 다음 다른 컨트롤러에 적용해야 합니다.
 > 
 > 
@@ -117,7 +117,7 @@ Microsoft Azure StorSimple에 대한 업데이트와 달리 핫픽스는 공유 
 [!INCLUDE [storsimple-install-maintenance-mode-hotfixes](../../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
 ## <a name="what-happens-to-updates-if-you-perform-a-factory-reset-of-the-device"></a>장치를 공장 재설정하는 경우 업데이트에 미치는 영향
-장치를 공장 기본 설정으로 다시 설정하는 경우 업데이트가 모두 손실됩니다. 공장 재설정 장치를 등록하고 구성한 후, StorSimple용 Windows PowerShell 및/또는 Azure 클래식 포털을 통해 수동으로 업데이트를 설치해야 합니다. 공장 재설정에 대한 자세한 내용은 [장치를 공장 기본 설정으로 재설정](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings)을 참조하세요.
+장치를 공장 기본 설정으로 다시 설정하는 경우 업데이트가 모두 손실됩니다. 공장 재설정 장치를 등록하고 구성한 후, StorSimple용 Windows PowerShell 및/또는 Azure 클래식 포털을 통해 수동으로 업데이트를 설치해야 합니다. 공장 재설정에 대한 자세한 내용은 [디바이스를 공장 기본 설정으로 재설정](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치를 관리](storsimple-windows-powershell-administration.md)하는 방법을 자세히 알아봅니다.

@@ -37,7 +37,7 @@ Microsoft Translator는 번역, 음차, 언어 감지 및 사전에 다국어 �
 
 핵심 Microsoft Translator 서비스의 확장인 Custom Translator는 Translator Text API와 함께 사용하여 신경망 번역 시스템을 사용자 지정하고 특정 용어 및 스타일에 맞게 번역을 향상시킬 수 있습니다.
 
-Custom Translator를 사용하면 고유한 비즈니스 및 업계에서 사용되는 용어를 처리하는 번역 시스템을 구축할 수 있습니다. 사용자 지정 번역 시스템은 범주 매개 변수를 사용하여 일반 Microsoft Translator Text API를 통해 여러 유형의 장치에서 기존 응용 프로그램, 워크플로 및 웹 사이트에 쉽게 통합됩니다.
+Custom Translator를 사용하면 고유한 비즈니스 및 업계에서 사용되는 용어를 처리하는 번역 시스템을 구축할 수 있습니다. 사용자 지정 번역 시스템은 범주 매개 변수를 사용하여 일반 Microsoft Translator Text API를 통해 여러 유형의 디바이스에서 기존 애플리케이션, 워크플로 및 웹 사이트에 쉽게 통합됩니다.
 
 [언어 사용자 지정](customization.md)에 대한 자세한 정보
 

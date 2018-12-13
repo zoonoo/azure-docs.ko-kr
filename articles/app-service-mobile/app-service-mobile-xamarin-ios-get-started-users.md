@@ -48,7 +48,7 @@ ms.locfileid: "39224768"
 ## <a name="restrict-permissions-to-authenticated-users"></a>사용 권한을 인증된 사용자로 제한
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 장치 또는 에뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다. 오류는 디버거의 콘솔에 기록됩니다. 따라서 Visual Studio의 출력 창에 오류가 표시됩니다.
+&nbsp;&nbsp;4. Visual Studio 또는 Xamarin Studio에서 클라이언트 프로젝트를 디바이스 또는 에뮬레이터에서 실행합니다. 앱 시작 후 상태 코드가 401(권한이 부여되지 않음)인 처리되지 않은 예외가 발생했는지 확인합니다. 오류는 디버거의 콘솔에 기록됩니다. 따라서 Visual Studio의 출력 창에 오류가 표시됩니다.
 
 &nbsp;&nbsp;이 권한 없음 오류는 앱이 인증되지 않은 사용자로 모바일 앱 백엔드에 액세스하려고 하기 때문에 발생합니다. *TodoItem* 테이블에서 이제 인증을 요구합니다.
 

@@ -48,7 +48,7 @@ ms.locfileid: "42143598"
 
 ### <a name="open-the-arduino-examples-folder"></a>Arduino 예제 폴더 열기
 
-왼쪽의 **ARDUINO 예제 > MXCHIP AZ3166에 대한 예제 > AzureIoT**를 확장하고 **DevKitTranslator**를 선택합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다. MXCHIP AZ3166 섹션에 대한 예제를 볼 수 없다면 장치가 제대로 연결되었는지 확인하고 VS Code를 다시 시작합니다.  
+왼쪽의 **ARDUINO 예제 > MXCHIP AZ3166에 대한 예제 > AzureIoT**를 확장하고 **DevKitTranslator**를 선택합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다. MXCHIP AZ3166 섹션에 대한 예제를 볼 수 없다면 디바이스가 제대로 연결되었는지 확인하고 VS Code를 다시 시작합니다.  
 
 ![IoT DevKit 샘플](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 
@@ -75,7 +75,7 @@ Azure Function이 성공적으로 배포된 후에 함수 앱 이름으로 azure
 > [!NOTE]
 > Azure Function이 제대로 작동하지 않는 경우 [IoT DevKit FAQ의 "Azure Function에 대한 문제 오류" 페이지](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function)를 확인하여 해결합니다.
 
-## <a name="build-and-upload-the-device-code"></a>장치 코드 빌드 및 업로드
+## <a name="build-and-upload-the-device-code"></a>디바이스 코드 빌드 및 업로드
 
 1. `Ctrl+P`(macOS: `Cmd+P`)를 사용하여 `task config-device-connection`을 실행합니다.
 
@@ -121,7 +121,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
-Arduino 스케치는 음성을 기록한 다음, HTTP 요청을 게시하여 Azure Function을 트리거합니다. Azure Function은 Cognitive Service 음성 변환기 API를 호출하여 변환 작업을 수행합니다. Azure Function이 변환 텍스트를 가져온 후에 장치에 C2D(클라우드-장치) 메시지를 보냅니다. 그런 다음, 변환이 화면에 표시됩니다.
+Arduino 스케치는 음성을 기록한 다음, HTTP 요청을 게시하여 Azure Function을 트리거합니다. Azure Function은 Cognitive Service 음성 변환기 API를 호출하여 변환 작업을 수행합니다. Azure Function이 변환 텍스트를 가져온 후에 디바이스에 C2D(클라우드-디바이스) 메시지를 보냅니다. 그런 다음, 변환이 화면에 표시됩니다.
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 
@@ -136,7 +136,7 @@ Azure Functions 및 Cognitive Services를 사용하여 IoT DevKit를 번역기�
 
 > [!div class="checklist"]
 > * Visual Studio Code 작업을 사용하여 클라우드 프로비전 자동화
-> * Azure IoT 장치 연결 문자열 구성
+> * Azure IoT 디바이스 연결 문자열 구성
 > * Azure Function 배포
 > * 음성 메시지 변환 테스트
 

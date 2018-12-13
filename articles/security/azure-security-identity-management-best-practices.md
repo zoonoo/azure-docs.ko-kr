@@ -23,7 +23,7 @@ ms.locfileid: "51245734"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
-많은 사람이 ID를 기존 네트워크 중심 관점에서 역할을 대신하는 보안에 대한 새로운 경계 계층으로 생각하고 있습니다. 보안 주의 및 투자를 중심으로 하는 이러한 진화는 네트워크 경계에 점점 더 많은 구멍이 생기고 경계 방어가 [BYOD](https://aka.ms/byodcg) 장치 및 클라우드 응용 프로그램이 급증하기 전만큼 효과적일 수 없다는 사실에 기인합니다.
+많은 사람이 ID를 기존 네트워크 중심 관점에서 역할을 대신하는 보안에 대한 새로운 경계 계층으로 생각하고 있습니다. 보안 주의 및 투자를 중심으로 하는 이러한 진화는 네트워크 경계에 점점 더 많은 구멍이 생기고 경계 방어가 [BYOD](https://aka.ms/byodcg) 디바이스 및 클라우드 애플리케이션이 급증하기 전만큼 효과적일 수 없다는 사실에 기인합니다.
 
 이 문서에서는 Azure ID 관리 및 액세스 제어 보안 모범 사례 컬렉션에 대해 설명합니다. 이러한 모범 사례는 [Azure AD](../active-directory/fundamentals/active-directory-whatis.md)에 대한 Microsoft의 경험 그리고 여러분 같은 고객의 경험에서 얻은 것입니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "51245734"
 
 ## <a name="treat-identity-as-the-primary-security-perimeter"></a>기본 보안 경계로 ID 처리
 
-다수가 ID를 보안에 대한 기본 경계라고 간주합니다. 기존 네트워크 보안에서 집중한 부분에서 전환되었습니다. 네트워크 경계에 더 많은 더 구멍이 생기고, 해당 경계 방어가 [BYOD](https://aka.ms/byodcg) 장치 및 클라우드 응용 프로그램이 급증하기 전처럼 효과적일 수 없습니다.
+다수가 ID를 보안에 대한 기본 경계라고 간주합니다. 기존 네트워크 보안에서 집중한 부분에서 전환되었습니다. 네트워크 경계에 더 많은 더 구멍이 생기고, 해당 경계 방어가 [BYOD](https://aka.ms/byodcg) 디바이스 및 클라우드 애플리케이션이 급증하기 전처럼 효과적일 수 없습니다.
 [Azure AD(Azure Active Directory)](../active-directory/active-directory-whatis.md)는 ID 및 액세스 관리를 위한 Azure 솔루션입니다. Azure AD는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. 여기에서는 핵심 디렉터리 서비스, 응용 프로그램 액세스 관리 및 ID 보호를 하나의 솔루션으로 결합합니다.
 
 다음 섹션에서는 Azure AD를 사용하여 ID 및 액세스 보안에 대한 모범 사례를 나열합니다.
@@ -75,12 +75,12 @@ AD FS(Active Directory Federation Service) 또는 다른 ID 공급자에서 페�
 
 ## <a name="enable-single-sign-on"></a>Single Sign-On 사용
 
-사용자가 어디서나 언제나 생산성을 높일 수 있도록 모바일 우선, 클라우드 우선 환경에서 장치, 앱 및 서비스에 SSO(Single Sign-On)를 사용할 수 있도록 합니다. 관리할 ID 솔루션이 여러 개인 경우 이는 IT뿐만 아니라 여러 암호를 기억해야 하는 사용자에게도 관리 문제가 될 수 있습니다.
+사용자가 어디서나 언제나 생산성을 높일 수 있도록 모바일 우선, 클라우드 우선 환경에서 디바이스, 앱 및 서비스에 SSO(Single Sign-On)를 사용할 수 있도록 합니다. 관리할 ID 솔루션이 여러 개인 경우 이는 IT뿐만 아니라 여러 암호를 기억해야 하는 사용자에게도 관리 문제가 될 수 있습니다.
 
 모든 앱 및 리소스에 동일한 ID 솔루션을 사용하여 SSO를 설정할 수 있습니다. 사용자가 리소스가 온-프레미스 또는 클라우드에 있는지와 관계 없이 동일한 자격 증명 집합을 사용하여 로그인하고 필요한 리소스에 액세스할 수 있습니다.
 
 **모범 사례**: SSO 사용하도록 설정  
-**세부 정보**: Azure AD는 [온-프레미스 Active Directory](../active-directory/connect/active-directory-aadconnect.md)를 클라우드로 확장합니다. 사용자가 작업을 수행하는 데 필요한 도메인에 조인된 장치, 회사 리소스 및 모든 웹 및 SaaS 응용 프로그램에 대해 해당하는 기본 회사 또는 학교 계정을 사용할 수 있습니다. 사용자는 여러 사용자 이름과 암호들을 기억할 필요가 없고, 사용자의 응용 프로그램 액세스는 조직 그룹 구성원 혹은 구성원의 상태에 따라 자동으로 프로비전되거나 프로비전이 해제될 수 있습니다. 그리고 [Azure AD Application Proxy](../active-directory/active-directory-application-proxy-get-started.md)를 통해 개발 및 게시된 사용자 고유의 온-프레미스 앱이나 갤러리 앱에 대한 액세스를 제어할 수 있습니다.
+**세부 정보**: Azure AD는 [온-프레미스 Active Directory](../active-directory/connect/active-directory-aadconnect.md)를 클라우드로 확장합니다. 사용자가 작업을 수행하는 데 필요한 도메인에 조인된 디바이스, 회사 리소스 및 모든 웹 및 SaaS 애플리케이션에 대해 해당하는 기본 회사 또는 학교 계정을 사용할 수 있습니다. 사용자는 여러 사용자 이름과 암호들을 기억할 필요가 없고, 사용자의 응용 프로그램 액세스는 조직 그룹 구성원 혹은 구성원의 상태에 따라 자동으로 프로비전되거나 프로비전이 해제될 수 있습니다. 그리고 [Azure AD Application Proxy](../active-directory/active-directory-application-proxy-get-started.md)를 통해 개발 및 게시된 사용자 고유의 온-프레미스 앱이나 갤러리 앱에 대한 액세스를 제어할 수 있습니다.
 
 SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 기반으로 해당 [SaaS 응용 프로그램](../active-directory/active-directory-appssoaccess-whatis.md)에 액세스할 수 있습니다. 이 방법은 Microsoft SaaS 앱뿐만 아니라 [Google Apps](../active-directory/active-directory-saas-google-apps-tutorial.md) 및 [Salesforce](../active-directory/active-directory-saas-salesforce-tutorial.md) 등 다른 앱에도 적용할 수 있습니다. Azure AD를 [SAML 기반 ID](../active-directory/fundamentals-identity.md) 공급자로 사용하도록 응용 프로그램을 구성할 수 있습니다. 보안 컨트롤인 Azure AD는 Azure AD를 통해 액세스 권한을 부여한 경우가 아니면 사용자가 응용 프로그램에 로그인하도록 허용하는 토큰을 발급하지 않습니다. 직접적으로 또는 사용자가 멤버인 그룹을 통해 액세스를 부여할 수 있습니다.
 
@@ -88,7 +88,7 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 
 ## <a name="turn-on-conditional-access"></a>조건부 액세스 설정
 
-사용자가 다양한 장치와 앱을 사용하여 어디서나 조직의 리소스에 액세스할 수 있습니다. IT 관리자로서 이러한 장치가 보안 및 규정 준수에 대한 표준을 충족하는지 확인하려고 합니다. 리소스에 액세스할 수 있는 사용자에게만 초점을 맞추는 것은 더 이상 충분하지 않습니다.
+사용자가 다양한 디바이스와 앱을 사용하여 어디서나 조직의 리소스에 액세스할 수 있습니다. IT 관리자로서 이러한 디바이스가 보안 및 규정 준수에 대한 표준을 충족하는지 확인하려고 합니다. 리소스에 액세스할 수 있는 사용자에게만 초점을 맞추는 것은 더 이상 충분하지 않습니다.
 
 보안과 생산성을 조정하려면 액세스 제어를 결정하기 전에 리소스에 액세스하는 방법에 대해 고려해야 합니다. Azure AD 조건부 액세스를 사용하면 이 요구 사항을 처리할 수 있습니다. 조건부 액세스를 사용하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자를 결정하는 자동 액세스 제어 결정 시스템을 만들 수 있습니다.
 
@@ -117,7 +117,7 @@ SSO를 사용하여 사용자가 Azure AD에서 회사 또는 학교 계정을 �
 **혜택**: 2단계 인증을 요구하는 기존 방법입니다. 이 기능은 [클라우드의 Azure Multi-Factor Authentication 및 Azure Multi-Factor Authentication 서버](../active-directory/authentication/concept-mfa-whichversion.md)에서 작동합니다. 이 방법을 사용할 경우 사용자는 로그인할 때마다 2단계 인증을 수행해야 하며, 조건부 액세스 정책을 재정의합니다.
 
 **옵션 2**: [조건부 액세스 정책을 사용하여 Multi-Factor Authentication을 사용하도록 설정합니다](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
-**혜택**: 이 옵션을 사용하면 [조건부 액세스](../active-directory/active-directory-conditional-access-azure-portal.md)를 사용하여 특정 조건에서 2단계 인증을 묻는 메시지를 표시할 수 있습니다. 특정 조건이란 위험한 것으로 간주하는 다른 위치, 신뢰할 수 없는 장치 또는 응용 프로그램에서 사용자 로그인이 될 수 있습니다. 2단계 인증이 필요한 특정 조건을 정의하면 번거로운 사용자 환경일 수 있는 지속적인 메시지를 사용자에게 표시하지 않도록 할 수 있습니다.
+**혜택**: 이 옵션을 사용하면 [조건부 액세스](../active-directory/active-directory-conditional-access-azure-portal.md)를 사용하여 특정 조건에서 2단계 인증을 묻는 메시지를 표시할 수 있습니다. 특정 조건이란 위험한 것으로 간주하는 다른 위치, 신뢰할 수 없는 디바이스 또는 애플리케이션에서 사용자 로그인이 될 수 있습니다. 2단계 인증이 필요한 특정 조건을 정의하면 번거로운 사용자 환경일 수 있는 지속적인 메시지를 사용자에게 표시하지 않도록 할 수 있습니다.
 
 이것이 사용자에게 2단계 인증을 사용하도록 설정하는 가장 유연한 방법입니다. 조건부 액세스 정책을 사용하도록 설정하는 방법은 클라우드의 Azure Multi-Factor Authentication에서만 가능하며, Azure AD의 프리미엄 기능입니다. [클라우드 기반 Azure Multi-factor Authentication 배포](../active-directory/authentication/howto-mfa-getstarted.md)에서 이 방법에 대한 자세한 내용을 확인할 수 있습니다.
 

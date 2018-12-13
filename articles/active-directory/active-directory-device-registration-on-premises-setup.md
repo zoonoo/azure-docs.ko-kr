@@ -35,7 +35,7 @@ ms.locfileid: "51248761"
 
 이러한 기능은 Azure Active Directory Premium 라이선스를 구입한 고객에게 제공됩니다.
 
-## <a name="supported-devices"></a>지원되는 장치
+## <a name="supported-devices"></a>지원되는 디바이스
 
 * Windows 7 도메인 가입 장치
 * Windows 8.1 개인 및 도메인 가입 장치
@@ -183,7 +183,7 @@ Azure Active Directory 장치 등록은 iOS 장치에 대한 공중파 프로필
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 Windows 7 장치 연결
 
-Windows 7 도메인 가입 장치를 등록하려면 [장치 등록 소프트웨어 패키지](https://www.microsoft.com/download/details.aspx?id=53554)를 배포해야 합니다.
+Windows 7 도메인 가입 디바이스를 등록하려면 [디바이스 등록 소프트웨어 패키지](https://www.microsoft.com/download/details.aspx?id=53554)를 배포해야 합니다.
 
 패키지를 사용하는 방법에 대한 지침은 [비 Windows 10 컴퓨터용 Windows Installer 패키지](devices/hybrid-azuread-join-control.md#control-windows-down-level-devices)를 참조하십시오.
 

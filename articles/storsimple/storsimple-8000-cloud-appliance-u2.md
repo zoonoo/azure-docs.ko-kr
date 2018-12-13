@@ -29,7 +29,7 @@ StorSimple 8000 Series Cloud Appliance는 Microsoft Azure StorSimple 솔루션�
 
 이 문서에서는 Azure에서 StorSimple Cloud Appliance를 배포하고 관리하기 위한 단계별 프로세스에 대해 설명합니다. 이 문서를 읽고 나면:
 
-* 클라우드 어플라이언스와 물리적 장치의 차이를 이해하게 됩니다.
+* 클라우드 어플라이언스와 물리적 디바이스의 차이를 이해하게 됩니다.
 * 클라우드 어플라이언스를 만들고 구성할 수 있게 됩니다.
 * 클라우드 어플라이언스에 연결하게 됩니다.
 * 클라우드 어플라이언스로 작업하는 방법을 알아봅니다.
@@ -40,7 +40,7 @@ StorSimple 8000 Series Cloud Appliance는 Microsoft Azure StorSimple 솔루션�
 
 StorSimple Cloud Appliance는 두 가지 모델 즉, 표준 8010(이전의 1100) 및 프리미엄 8020(업데이트 2에 도입된)으로 사용할 수 있습니다. 다음 표는 두 가지 모델을 비교하여 표시합니다.
 
-| 장치 모델 | 8010<sup>1</sup> | 8020 |
+| 디바이스 모델 | 8010<sup>1</sup> | 8020 |
 | --- | --- | --- |
 | **최대 용량** |30TB |64TB |
 | **Azure VM** |Standard_A3(4 코어, 7GB 메모리)| Standard_DS3 (4 코어, 14GB 메모리)|
@@ -52,20 +52,20 @@ StorSimple Cloud Appliance는 두 가지 모델 즉, 표준 8010(이전의 1100)
 
 <sup>2</sup>*8010와 8020은 모두 클라우드 계층에 Azure Standard Storage를 사용합니다. 차이점은 장치* 내의 로컬 계층에만 존재한다는 것입니다.
 
-## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>클라우드 어플라이언스와 물리적 장치의 차이
+## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>클라우드 어플라이언스와 물리적 디바이스의 차이
 
-StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드에서 실행되는 StorSimple의 소프트웨어 전용 버전입니다. 클라우드 어플라이언스는 물리적 장치를 사용할 수 없는 재해 복구 시나리오를 지원합니다. 클라우드 어플라이언스는 백업, 온-프레미스 재해 복구 및 클라우드 개발/테스트 시나리오의 항목 수준 검색에서 사용하기에 적합합니다.
+StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드에서 실행되는 StorSimple의 소프트웨어 전용 버전입니다. 클라우드 어플라이언스는 물리적 디바이스를 사용할 수 없는 재해 복구 시나리오를 지원합니다. 클라우드 어플라이언스는 백업, 온-프레미스 재해 복구 및 클라우드 개발/테스트 시나리오의 항목 수준 검색에서 사용하기에 적합합니다.
 
 #### <a name="differences-from-the-physical-device"></a>물리적 장치와의 차이점
 
-다음 표는 StorSimple Cloud Appliance와 StorSimple 물리적 장치 간의 몇 가지 주요 차이점을 보여줍니다
+다음 표는 StorSimple Cloud Appliance와 StorSimple 물리적 디바이스 간의 몇 가지 주요 차이점을 보여줍니다
 
-|  | 물리적 장치 | 클라우드 어플라이언스 |
+|  | 물리적 디바이스 | 클라우드 어플라이언스 |
 | --- | --- | --- |
 | **위치**: |데이터 센터에 상주합니다. |Azure에서 실행됩니다. |
 | **네트워크 인터페이스** |네트워크 인터페이스가 여섯 개(DATA 0에서 DATA 5까지 ) 있습니다. |네트워크 인터페이스가 하나만(DATA 0) 있습니다. |
 | **등록** |초기 구성 단계 중에 등록됩니다. |등록은 별도의 작업입니다. |
-| **서비스 데이터 암호화 키** |물리적 장치에서 다시 생성된 후 새 키로 클라우드 어플라이언스를 업데이트합니다. |클라우드 어플라이언스에서 다시 생성할 수 없습니다. |
+| **서비스 데이터 암호화 키** |물리적 디바이스에서 다시 생성된 후 새 키로 클라우드 어플라이언스를 업데이트합니다. |클라우드 어플라이언스에서 다시 생성할 수 없습니다. |
 | **지원되는 볼륨 유형** |로컬로 고정된 볼륨과 계층화된 볼륨을 모두 지원합니다. |계층화된 볼륨만 지원합니다. |
 
 ## <a name="prerequisites-for-the-cloud-appliance"></a>클라우드 어플라이언스에 대한 필수 구성 요소
@@ -78,7 +78,7 @@ StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드�
 
 클라우드 어플라이언스를 프로비전하기 전에 Azure 환경에서 다음 준비를 확인해야 합니다.
 
-* 데이터 센터에 StorSimple 8000 시리즈 물리적 장치(8100 또는 8600 모델)가 배포되어 실행되고 있는지 확인합니다. StorSimple Cloud Appliance를 만들려는 동일한 StorSimple 장치 관리자 서비스에 이 장치를 등록합니다.
+* 데이터 센터에 StorSimple 8000 시리즈 물리적 디바이스(8100 또는 8600 모델)가 배포되어 실행되고 있는지 확인합니다. StorSimple Cloud Appliance를 만들려는 동일한 StorSimple 디바이스 관리자 서비스에 이 디바이스를 등록합니다.
 * 클라우드 어플라이언스의 경우, [Azure에서 가상 네트워크를 구성](../virtual-network/manage-virtual-network.md#create-a-virtual-network)합니다. Premium Storage를 사용하는 경우 Premium Storage를 지원하는 Azure 지역에 가상 네트워크를 만들어야 합니다. Premium Storage 지역은 [지역별 Azure 서비스 목록](https://azure.microsoft.com/regions/services/)에서 디스크 저장소의 행에 해당하는 지역입니다.
 * 사용자 고유의 DNS 서버 이름을 지정하는 대신 Azure에서 제공하는 기본 DNS 서버를 사용하는 것이 좋습니다. DNS 서버 이름이 유효하지 않거나 DNS 서버가 IP 주소를 제대로 확인할 수 없으면 클라우드 어플라이언스 만들기에 실패합니다.
 * 지점 대 사이트간 및 사이트 대 사이트는 선택적이지만 필수는 아닙니다. 원하는 경우, 고급 시나리오에 대해 이 옵션을 구성할 수 있습니다.
@@ -91,7 +91,7 @@ StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드�
 
 #### <a name="storsimple-requirements"></a>StorSimple 요구 사항
 
-클라우드 어플라이언스를 만들기 전에 StorSimple 장치 관리자 서비스에 대한 다음 업데이트를 확인합니다.
+클라우드 어플라이언스를 만들기 전에 StorSimple 디바이스 관리자 서비스에 대한 다음 업데이트를 확인합니다.
 
 * 클라우드 어플라이언스에 대해 호스트 서버가 될 VM에 대해 [액세스 제어 레코드](storsimple-8000-manage-acrs.md)를 추가합니다.
 * 클라우드 어플라이언스와 동일한 지역에 [저장소 계정](storsimple-8000-manage-storage-accounts.md#add-a-storage-account)을 사용합니다. 다른 영역의 Storage 계정으로 성능이 저하될 수 있습니다. 클라우드 어플라이언스에 Standard 또는 Premium Storage 계정을 사용할 수 있습니다. 자세한 내용은 [Standard Storage 계정](../storage/common/storage-create-storage-account.md) 또는 [Premium Storage 계정](../virtual-machines/windows/premium-storage.md)을 만드는 방법을 참조하세요.
@@ -100,7 +100,7 @@ StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드�
 시작하기 전에 다음 정보가 있는지 확인합니다.
 
 * 액세스 자격 증명이 있는 Azure Portal 계정
-* StorSimple 장치 관리자 서비스에 등록된 물리적 장치에서 서비스 데이터 암호화 키의 복사본
+* StorSimple 디바이스 관리자 서비스에 등록된 물리적 디바이스에서 서비스 데이터 암호화 키의 복사본
 
 ## <a name="create-and-configure-the-cloud-appliance"></a>클라우드 어플라이언스 만들기 및 구성
 
@@ -118,7 +118,7 @@ StorSimple Cloud Appliance를 만들려면 다음 단계를 수행합니다.
 
 ### <a name="step-2-configure-and-register-the-cloud-appliance"></a>2단계: 클라우드 어플라이언스 구성 및 등록
 
-이 절차를 시작하기 전에 서비스 데이터 암호화 키의 복사본을 가지고 있는지 확인합니다. 서비스 데이터 암호화 키는 StorSimple 장치 관리자 서비스에 첫 번째 StorSimple 물리적 장치를 등록할 때 생성됩니다. 안전한 위치에 저장하라는 메시지가 표시되었습니다. 서비스 데이터 암호화 키의 복사본이 없는 경우 Microsoft 지원에 문의해야 합니다.
+이 절차를 시작하기 전에 서비스 데이터 암호화 키의 복사본을 가지고 있는지 확인합니다. 서비스 데이터 암호화 키는 StorSimple 디바이스 관리자 서비스에 첫 번째 StorSimple 물리적 디바이스를 등록할 때 생성됩니다. 안전한 위치에 저장하라는 메시지가 표시되었습니다. 서비스 데이터 암호화 키의 복사본이 없는 경우 Microsoft 지원에 문의해야 합니다.
 
 다음 단계에 따라 StorSimple Cloud Appliance를 구성하고 등록합니다.
 
@@ -126,11 +126,11 @@ StorSimple Cloud Appliance를 만들려면 다음 단계를 수행합니다.
 
 ### <a name="step-3-optional-modify-the-device-configuration-settings"></a>3단계: (선택 사항) 장치 구성 설정 수정
 
-다음 섹션에서는 CHAP 또는 StorSimple Snapshot Manager를 사용하거나 장치 관리자 암호를 변경하려는 경우 StorSimple Cloud Appliance에 필요한 장치 구성 설정을 설명합니다.
+다음 섹션에서는 CHAP 또는 StorSimple Snapshot Manager를 사용하거나 디바이스 관리자 암호를 변경하려는 경우 StorSimple Cloud Appliance에 필요한 디바이스 구성 설정을 설명합니다.
 
 #### <a name="configure-the-chap-initiator"></a>CHAP 시작자 구성
 
-이 매개 변수는 볼륨 액세스를 시도 중인 개시 장치(서버)에서 클라우드 어플라이언스(대상)가 예상하는 자격 증명을 포함합니다. 개시 장치는 CHAP 사용자 이름 및 CHAP 암호를 제공하여 인증 중 장치를 자체적으로 식별합니다. 자세한 단계를 보려면 [장치에 CHAP 구성](storsimple-8000-configure-chap.md#unidirectional-or-one-way-authentication)으로 이동합니다.
+이 매개 변수는 볼륨 액세스를 시도 중인 개시 장치(서버)에서 클라우드 어플라이언스(대상)가 예상하는 자격 증명을 포함합니다. 개시 디바이스는 CHAP 사용자 이름 및 CHAP 암호를 제공하여 인증 중 디바이스를 자체적으로 식별합니다. 자세한 단계를 보려면 [장치에 CHAP 구성](storsimple-8000-configure-chap.md#unidirectional-or-one-way-authentication)으로 이동합니다.
 
 #### <a name="configure-the-chap-target"></a>CHAP 대상 구성
 
@@ -148,11 +148,11 @@ StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하
 > [!NOTE]
 > 클라우드 어플라이언스의 경우, Windows 호스트는 Azure 가상 머신입니다.
 
-StorSimple Snapshot Manager에서 장치를 구성하면, StorSimple 장치 IP 주소 및 암호를 입력하여 저장소 장치를 인증하라는 메시지가 표시됩니다. 자세한 단계를 보려면 [StorSimple 스냅숏 관리자 암호 구성](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)으로 이동합니다.
+StorSimple Snapshot Manager에서 디바이스를 구성하면, StorSimple 디바이스 IP 주소 및 암호를 입력하여 저장소 디바이스를 인증하라는 메시지가 표시됩니다. 자세한 단계를 보려면 [StorSimple 스냅숏 관리자 암호 구성](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)으로 이동합니다.
 
 #### <a name="change-the-device-administrator-password"></a>장치 관리자 암호 구성
 
-Windows PowerShell 인터페이스를 사용하여 클라우드 어플라이언스에 액세스할 때 장치 관리자 암호를 입력해야 합니다. 데이터의 보안을 위해, 클라우드 어플라이언스를 사용하려면 먼저 이 암호를 변경해야 합니다. 자세한 단계를 보려면 [장치 관리자 암호 구성](../storsimple/storsimple-8000-change-passwords.md#change-the-device-administrator-password)으로 이동합니다.
+Windows PowerShell 인터페이스를 사용하여 클라우드 어플라이언스에 액세스할 때 디바이스 관리자 암호를 입력해야 합니다. 데이터의 보안을 위해, 클라우드 어플라이언스를 사용하려면 먼저 이 암호를 변경해야 합니다. 자세한 단계를 보려면 [장치 관리자 암호 구성](../storsimple/storsimple-8000-change-passwords.md#change-the-device-administrator-password)으로 이동합니다.
 
 ## <a name="connect-remotely-to-the-cloud-appliance"></a>클라우드 어플라이언스에 원격으로 연결
 
@@ -199,7 +199,7 @@ Windows PowerShell 인터페이스를 통한 클라우드 어플라이언스에 
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>StorSimple Cloud Appliance 작업
 
-StorSimple Cloud Appliance를 만들고 구성했으므로 작업을 시작할 준비가 되었습니다. 물리적 StorSimple 장치에서처럼 클라우드 어플라이언스에 볼륨 컨테이너, 볼륨 및 백업 정책으로 작업할 수 있습니다. 유일한 차이점은 장치 목록에서 클라우드 어플라이언스를 선택했는지 확인해야 한다는 점입니다. 클라우드 어플라이언스에 대한 다양한 관리 작업의 단계별 절차는 [StorSimple 장치 관리자 서비스를 사용하여 클라우드 어플라이언스 관리](storsimple-8000-manager-service-administration.md)를 참조하세요.
+StorSimple Cloud Appliance를 만들고 구성했으므로 작업을 시작할 준비가 되었습니다. 물리적 StorSimple 디바이스에서처럼 클라우드 어플라이언스에 볼륨 컨테이너, 볼륨 및 백업 정책으로 작업할 수 있습니다. 유일한 차이점은 디바이스 목록에서 클라우드 어플라이언스를 선택했는지 확인해야 한다는 점입니다. 클라우드 어플라이언스에 대한 다양한 관리 작업의 단계별 절차는 [StorSimple 디바이스 관리자 서비스를 사용하여 클라우드 어플라이언스 관리](storsimple-8000-manager-service-administration.md)를 참조하세요.
 
 다음 섹션에서는 클라우드 어플라이언스를 작업할 때 발생하는 차이점 중 일부에 대해 설명합니다.
 
@@ -212,7 +212,7 @@ StorSimple Cloud Appliance를 만들고 구성했으므로 작업을 시작할 �
 
 ### <a name="storage-accounts-for-a-cloud-appliance"></a>클라우드 어플라이언스에 대한 Storage 계정
 
-Storage 계정은 StorSimple 장치 관리자 서비스, 클라우드 어플라이언스 및 물리적 장치에서 사용하기 위해 만듭니다. 저장소 계정을 만들 때는 친숙한 이름의 지역 식별자를 사용하는 것이 좋습니다. 이렇게 하면 지역은 모든 시스템 구성 요소 전체에 걸쳐 일관성이 보장됩니다. 클라우드 어플라이언스의 경우, 성능 문제를 방지하도록 모든 구성 요소가 동일한 지역에 있는 것이 중요합니다.
+Storage 계정은 StorSimple 디바이스 관리자 서비스, 클라우드 어플라이언스 및 물리적 디바이스에서 사용하기 위해 만듭니다. 저장소 계정을 만들 때는 친숙한 이름의 지역 식별자를 사용하는 것이 좋습니다. 이렇게 하면 지역은 모든 시스템 구성 요소 전체에 걸쳐 일관성이 보장됩니다. 클라우드 어플라이언스의 경우, 성능 문제를 방지하도록 모든 구성 요소가 동일한 지역에 있는 것이 중요합니다.
 
 단계별 절차를 보려면 [저장소 계정 추가](storsimple-8000-manage-storage-accounts.md#add-a-storage-account)로 이동하세요.
 
@@ -229,10 +229,10 @@ Storage 계정은 StorSimple 장치 관리자 서비스, 클라우드 어플라�
 
 단계별 절차는 [StorSimple 장치 비활성화 및 삭제](storsimple-8000-deactivate-and-delete-device.md)를 참조하세요.
 
-StorSimple 장치 관리자 서비스 블레이드에서 비활성화된 클라우드 어플라이언스로 표시되면 **장치** 블레이드의 장치 목록에서 해당 클라우드 어플라이언스를 즉시 삭제할 수 있습니다.
+StorSimple 디바이스 관리자 서비스 블레이드에서 비활성화된 클라우드 어플라이언스로 표시되면 **디바이스** 블레이드의 디바이스 목록에서 해당 클라우드 어플라이언스를 즉시 삭제할 수 있습니다.
 
 ### <a name="start-stop-and-restart-a-cloud-appliance"></a>클라우드 어플라이언스 시작, 중지 및 다시 시작
-StorSimple 물리적 장치와 달리, StorSimple Cloud Appliance에서 누를 전원 켜짐 또는 꺼짐 단추가 없습니다. 그러나 어플라이언스를 중지하고 다시 시작해야 하는 경우가 있을 수 있습니다.
+StorSimple 물리적 디바이스와 달리, StorSimple Cloud Appliance에서 누를 전원 켜짐 또는 꺼짐 단추가 없습니다. 그러나 어플라이언스를 중지하고 다시 시작해야 하는 경우가 있을 수 있습니다.
 
 클라우드 어플라이언스를 시작, 중지 및 다시 시작하는 가장 쉬운 방법은 Virtual Machines 서비스 블레이드를 사용하는 것입니다. Virtual Machine 서비스로 이동합니다. VM 목록에서 클라우드 어플라이언스에 해당하는 VM을 식별(같은 이름)하고 VM 이름을 클릭합니다. 가상 머신 블레이드를 보면 클라우드 어플라이언스 상태가 생성된 후 시작되기 때문에 상태는 **실행 중**입니다. 언제든지 가상 머신을 시작하고 중지하고 다시 시작할 수 있습니다.
 
@@ -242,7 +242,7 @@ StorSimple 물리적 장치와 달리, StorSimple Cloud Appliance에서 누를 �
 클라우드 어플라이언스로 다시 시작하려는지를 결정한 경우 비활성화 및 삭제한 후 새로 만들면 됩니다.
 
 ## <a name="fail-over-to-the-cloud-appliance"></a>클라우드 어플라이언스로 장애 조치(failover)
-DR(재해 복구)는 StorSimple Cloud Appliance가 설계된 주요 시나리오 중 하나입니다. 이 시나리오에서는 StorSimple 물리적 장치 또는 전체 데이터 센터를 사용하지 못할 수 있습니다. 다행스럽게도 클라우드 어플라이언스를 사용하여 다른 위치에서 작업을 복원할 수 있습니다. DR 중, 원본 장치의 볼륨 컨테이너는 소유권을 변경하고 클라우드 어플라이언스로 전송됩니다.
+DR(재해 복구)는 StorSimple Cloud Appliance가 설계된 주요 시나리오 중 하나입니다. 이 시나리오에서는 StorSimple 물리적 디바이스 또는 전체 데이터 센터를 사용하지 못할 수 있습니다. 다행스럽게도 클라우드 어플라이언스를 사용하여 다른 위치에서 작업을 복원할 수 있습니다. DR 중, 원본 디바이스의 볼륨 컨테이너는 소유권을 변경하고 클라우드 어플라이언스로 전송됩니다.
 
 DR의 필수 조건은 다음과 같습니다.
 
@@ -251,7 +251,7 @@ DR의 필수 조건은 다음과 같습니다.
 * 장애 조치하려는 볼륨 컨테이너에 연결된 클라우드 스냅숏이 있어야 합니다.
 
 > [!NOTE]
-> * DR에 대한 보조 장치로 클라우드 어플라이언스를 사용하는 경우에는 8010에 30TB의 Standard Storage가 있고 8020에 64TB의 Premium Storage가 있다는 것을 기억합니다. 높은 용량의 8020 클라우드 어플라이언스가 DR 시나리오에 보다 적합할 수 있습니다.
+> * DR에 대한 보조 디바이스로 클라우드 어플라이언스를 사용하는 경우에는 8010에 30TB의 Standard Storage가 있고 8020에 64TB의 Premium Storage가 있다는 것을 기억합니다. 높은 용량의 8020 클라우드 어플라이언스가 DR 시나리오에 보다 적합할 수 있습니다.
 
 단계별 절차를 보려면 [클라우드 어플라이언스로 장애 조치](storsimple-8000-device-failover-cloud-appliance.md)로 이동합니다.
 

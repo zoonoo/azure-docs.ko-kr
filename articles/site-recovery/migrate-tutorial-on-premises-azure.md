@@ -39,7 +39,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 ## <a name="prerequisites"></a>필수 조건
 
-반가상화 드라이버에서 내보낸 장치는 지원되지 않습니다.
+반가상화 드라이버에서 내보낸 디바이스는 지원되지 않습니다.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기

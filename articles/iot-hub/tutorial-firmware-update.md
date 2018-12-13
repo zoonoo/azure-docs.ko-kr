@@ -176,7 +176,7 @@ node ServiceClient.js "{your service connection string}"
 
 다음 스크린샷에서는 시뮬레이션된 장치 응용 프로그램의 출력을 보여주고, 백 엔드 응용 프로그램의 펌웨어 desired 속성 업데이트에 응답하는 방법을 보여줍니다.
 
-![시뮬레이션된 장치](./media/tutorial-firmware-update/SimulatedDevice.png)
+![시뮬레이션된 디바이스](./media/tutorial-firmware-update/SimulatedDevice.png)
 
 다음 스크린샷에서는 백 엔드 응용 프로그램의 출력을 보여주고, 펌웨어 desired 속성을 업데이트하도록 구성을 만드는 방법을 강조 표시합니다.
 

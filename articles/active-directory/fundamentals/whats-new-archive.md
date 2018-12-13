@@ -565,7 +565,7 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 
 - Azure AD 상태 데이터 - 관리자가 상태 포털을 방문하여 상태 설정을 제어해야 합니다. 서비스 정책이 변경되고 나면 에이전트에서 읽고 적용합니다.
 
-- 장치 쓰기 저장 구성 작업 및 페이지 초기화에 대한 진행률 표시줄이 추가되었습니다.
+- 디바이스 쓰기 저장 구성 작업 및 페이지 초기화에 대한 진행률 표시줄이 추가되었습니다.
 
 - ZIP 텍스트/HTML 보고서에서 HTML 보고서 및 전체 데이터 수집을 통해 일반 진단 기능이 향상되었습니다.
 
@@ -616,7 +616,7 @@ Azure AD Connect는 Windows Server Active Directory 및 LDAP를 포함하여 Azu
 **서비스 범주:** 사용 약관  
 **제품 기능:** 규정 준수
 
-사용 약관이 표시되면 **보는 데 문제가 있나요? 여기를 클릭하세요.** 를 클릭할 수 있습니다. 이 링크를 클릭하면 장치에서 기본적으로 사용 약관이 열립니다. 문서의 글꼴 크기 또는 장치의 화면 크기에 관계없이 필요에 따라 문서를 확대/축소하고 읽을 수 있습니다. 
+사용 약관이 표시되면 **보는 데 문제가 있나요? 여기를 클릭하세요.** 를 클릭할 수 있습니다. 이 링크를 클릭하면 디바이스에서 기본적으로 사용 약관이 열립니다. 문서의 글꼴 크기 또는 디바이스의 화면 크기에 관계없이 필요에 따라 문서를 확대/축소하고 읽을 수 있습니다. 
 
 ---
  
@@ -964,34 +964,34 @@ Intune Managed Browser를 승인된 앱으로 사용하면 Office 365 및 기타
  
 ---
 
-### <a name="manage-azure-ad-devices-in-the-azure-portal"></a>Azure Portal에서 Azure AD 장치 관리
+### <a name="manage-azure-ad-devices-in-the-azure-portal"></a>Azure Portal에서 Azure AD 디바이스 관리
 
 **유형:** 새로운 기능  
 **서비스 범주:** 장치 등록 및 관리  
 **제품 기능:** ID 보안 및 보호
 
-이제 Azure AD에 연결된 장치와 장치 관련 활동을 모두 한 곳에서 확인할 수 있습니다. Microsoft는 Azure Portal에서 모든 장치 ID와 설정을 한 번에 관리할 수 있는 새로운 관리 환경을 선보입니다. 이 릴리스에서는 다음과 같은 기능을 수행할 수 있습니다.
+이제 Azure AD에 연결된 디바이스와 디바이스 관련 활동을 모두 한 곳에서 확인할 수 있습니다. Microsoft는 Azure Portal에서 모든 디바이스 ID와 설정을 한 번에 관리할 수 있는 새로운 관리 환경을 선보입니다. 이 릴리스에서는 다음과 같은 기능을 수행할 수 있습니다.
 
-- Azure AD의 조건부 액세스에 사용할 수 있는 모든 장치 보기
-- 하이브리드 Azure AD 가입 장치를 비롯한 속성 보기
-- Azure AD 가입 장치의 BitLocker 키 찾기, Intune을 사용하여 장치 관리하기
-- Azure AD 장치 관련 설정 관리하기
+- Azure AD의 조건부 액세스에 사용할 수 있는 모든 디바이스를 봅니다.
+- 하이브리드 Azure AD 조인 디바이스를 비롯한 속성 보기
+- Azure AD 조인 디바이스의 BitLocker 키 찾기, Intune을 사용하여 디바이스 관리하기
+- Azure AD 디바이스 관련 설정을 관리합니다.
 
-자세한 내용은 [Azure Portal을 사용하여 장치 관리](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)를 참조하세요.
+자세한 내용은 [Azure Portal을 사용하여 디바이스 관리](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal)를 참조하세요.
 
 ---
 
-### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Azure AD 조건부 액세스의 장치 플랫폼으로서 macOS 지원 
+### <a name="support-for-macos-as-a-device-platform-for-azure-ad-conditional-access"></a>Azure AD 조건부 액세스의 디바이스 플랫폼으로서 macOS 지원 
 
 **유형:** 새로운 기능    
 **서비스 범주:** 조건부 액세스  
 **제품 기능:** ID 보안 및 보호 
 
-이제 Azure AD 조건부 액세스 정책에서 장치 플랫폼 조건으로서 macOS를 추가 또는 제외할 수 있습니다. 지원되는 장치 플랫폼에 macOS가 추가되어 다음과 같은 기능이 지원됩니다.
+이제 Azure AD 조건부 액세스 정책에서 디바이스 플랫폼 조건으로서 macOS를 추가 또는 제외할 수 있습니다. 지원되는 디바이스 플랫폼에 macOS가 추가되어 다음과 같은 기능이 지원됩니다.
 
-- **Intune을 사용하여 macOS 장치를 등록하고 관리합니다.** iOS, Android와 같은 여타 플랫폼과 마찬가지로 macOS의 경우에도 통합 등록을 수행하는 기업 포털 응용 프로그램이 제공됩니다. 새로운 macOS용 기업 포털 앱을 이용하면 Intune을 사용하여 장치를 등록하고 등록한 장치를 Azure AD에 등록할 수 있습니다.
-- **macOS 장치가 Intune에 정의된 조직의 준수 정책을 준수하는지 확인합니다.** 이제 Azure Portal의 Intune에서 macOS 장치에 대한 준수 정책을 설정할 수 있습니다. 
-- **Azure AD에서 응용 프로그램에 대한 액세스를 호환 가능한 macOS 장치로 제한합니다.** 조건부 액세스 정책에는 macOS가 별도의 장치 플랫폼 옵션으로 있습니다. 이제 Azure에 설정된 대상 응용 프로그램에 대해 macOS 전용 조건부 액세스 정책을 작성할 수 있습니다.
+- **Intune을 사용하여 macOS 장치를 등록하고 관리합니다.** iOS, Android와 같은 여타 플랫폼과 마찬가지로 macOS의 경우에도 통합 등록을 수행하는 기업 포털 응용 프로그램이 제공됩니다. 새로운 macOS용 기업 포털 앱을 이용하면 Intune을 사용하여 디바이스를 등록하고 등록한 디바이스를 Azure AD에 등록할 수 있습니다.
+- **macOS 장치가 Intune에 정의된 조직의 준수 정책을 준수하는지 확인합니다.** 이제 Azure Portal의 Intune에서 macOS 디바이스에 대한 준수 정책을 설정할 수 있습니다. 
+- **Azure AD에서 응용 프로그램에 대한 액세스를 호환 가능한 macOS 장치로 제한합니다.** 조건부 액세스 정책에는 macOS가 별도의 디바이스 플랫폼 옵션으로 있습니다. 이제 Azure에 설정된 대상 응용 프로그램에 대해 macOS 전용 조건부 액세스 정책을 작성할 수 있습니다.
 
 자세한 내용은 다음을 참조하세요.
 

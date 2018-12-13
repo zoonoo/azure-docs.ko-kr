@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins를 사용한 장치 연결 및 원격 분석 수신 | Microsoft Docs
+title: Azure Digital Twins를 사용한 디바이스 연결 및 원격 분석 수신 | Microsoft Docs
 description: Azure Digital Twins를 사용한 디바이스 온보딩 개요
 author: alinamstanciu
 manager: bertvanhoof
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/14/2018
 ms.locfileid: "51636716"
 ---
-# <a name="device-connectivity-and-telemetry-ingress"></a>장치 연결 및 원격 분석 수신
+# <a name="device-connectivity-and-telemetry-ingress"></a>디바이스 연결 및 원격 분석 수신
 
 디바이스 및 센서가 보낸 원격 분석 데이터는 모든 IoT 솔루션의 백본을 형성합니다. 이러한 여러 리소스를 나타내고 위치 컨텍스트 내에서 관리하는 방법은 IoT 앱 개발의 주요 고려 사항입니다. Azure Digital Twins는 디바이스와 센서를 공간 인텔리전스 그래프와 통합하여 IoT 솔루션 개발 프로세스를 단순화합니다.
 
@@ -35,11 +35,11 @@ ms.locfileid: "51636716"
 
 다음 섹션에서는 Digital Twins 관리 API에서 IoT Hub 디바이스 연결 문자열을 가져오는 방법을 알아봅니다. IoT Hub 원격 분석 메시지 형식을 사용하여 센서 기반 원격 분석을 보내는 방법도 배웁니다. Digital Twins는 수신하는 각 원격 분석을 공간 그래프 내의 센서와 연결해야 합니다. 이는 데이터를 적절한 공간 컨텍스트 내에서 처리 및 라우팅하기 위한 요구 사항입니다.
 
-## <a name="get-the-iot-hub-device-connection-string-from-the-management-api"></a>관리 API에서 IoT Hub 장치 연결 문자열 가져오기
+## <a name="get-the-iot-hub-device-connection-string-from-the-management-api"></a>관리 API에서 IoT Hub 디바이스 연결 문자열 가져오기
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-IoT Hub 장치 연결 문자열을 가져오려면 `includes=ConnectionString` 매개 변수를 사용하여 장치 API에서 GET 호출을 수행합니다. 디바이스 GUID 또는 하드웨어 ID로 필터링하여 지정된 디바이스를 찾습니다.
+IoT Hub 디바이스 연결 문자열을 가져오려면 `includes=ConnectionString` 매개 변수를 사용하여 디바이스 API에서 GET 호출을 수행합니다. 디바이스 GUID 또는 하드웨어 ID로 필터링하여 지정된 디바이스를 찾습니다.
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
@@ -47,7 +47,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 
 | 매개 변수 | 다음 항목으로 교체 |
 | --- | --- |
-| *YOUR_DEVICE_GUID* | 장치 ID |
+| *YOUR_DEVICE_GUID* | 디바이스 ID |
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
@@ -55,13 +55,13 @@ YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
 | 매개 변수 값 | 다음 항목으로 교체 |
 | --- | --- |
-| *YOUR_DEVICE_HARDWARE_ID* | 장치 하드웨어 ID |
+| *YOUR_DEVICE_HARDWARE_ID* | 디바이스 하드웨어 ID |
 
 응답 페이로드에서 디바이스의 **connectionString** 속성을 복사합니다. Digital Twins에 데이터를 보내기 위해 Azure IoT 디바이스 SDK를 호출할 때 사용합니다.
 
 ## <a name="device-to-cloud-message"></a>디바이스-클라우드 메시지
 
-장치의 메시지 형식과 페이로드를 솔루션 요구 사항에 맞게 사용자 지정할 수 있습니다. [Azure IoT 디바이스 클라이언트 메시지 클래스 Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___)에서 지원하는 바이트 배열 또는 스트림으로 직렬화할 수 있는 모든 데이터 계약을 사용할 수 있습니다. 해당 사용자 정의 함수에서 데이터 계약을 디코드하는 경우, 메시지는 선택한 사용자 지정 이진 형식일 수 있습니다. 디바이스-클라우드 메시지에 대한 요구 사항은 하나밖에 없습니다. 메시지가 처리 엔진으로 적절하게 라우팅되도록 속성 집합을 유지해야 합니다.
+디바이스의 메시지 형식과 페이로드를 솔루션 요구 사항에 맞게 사용자 지정할 수 있습니다. [Azure IoT 디바이스 클라이언트 메시지 클래스 Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___)에서 지원하는 바이트 배열 또는 스트림으로 직렬화할 수 있는 모든 데이터 계약을 사용할 수 있습니다. 해당 사용자 정의 함수에서 데이터 계약을 디코드하는 경우, 메시지는 선택한 사용자 지정 이진 형식일 수 있습니다. 디바이스-클라우드 메시지에 대한 요구 사항은 하나밖에 없습니다. 메시지가 처리 엔진으로 적절하게 라우팅되도록 속성 집합을 유지해야 합니다.
 
 ### <a name="telemetry-properties"></a>원격 분석 속성
 

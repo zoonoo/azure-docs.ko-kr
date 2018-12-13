@@ -103,7 +103,7 @@ Azure AD에 직접 인증하도록 응용 프로그램을 구성하는 조직은
 
 ### <a name="block-invalid-authentication-entry-points"></a>잘못된 인증 진입점 차단
 
-위반이 발생할 때 가상 위반 사고방식을 사용하여 손상된 사용자 자격 증명의 영향을 줄여야 합니다. 사용자 환경의 각 앱의 경우 권한이 있는 그룹, 네트워크, 장치 및 기타 요소가 무엇인지 유효한 사용 사례를 고려한 다음, 나머지를 차단합니다. [Azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 사용하면 정의하는 특정 조건에 따라 자신의 앱 및 리소스에 권한이 부여된 사용자가 액세스하는 방법을 제어할 수 있습니다.
+위반이 발생할 때 가상 위반 사고방식을 사용하여 손상된 사용자 자격 증명의 영향을 줄여야 합니다. 사용자 환경의 각 앱의 경우 권한이 있는 그룹, 네트워크, 디바이스 및 기타 요소가 무엇인지 유효한 사용 사례를 고려한 다음, 나머지를 차단합니다. [Azure AD 조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)를 사용하면 정의하는 특정 조건에 따라 자신의 앱 및 리소스에 권한이 부여된 사용자가 액세스하는 방법을 제어할 수 있습니다.
 
 ### <a name="block-end-user-consent"></a>최종 사용자 동의 차단
 
@@ -156,7 +156,7 @@ Microsoft Azure 서비스 및 기능은 구성 가능한 보안 감사 및 로�
 
 ### <a name="monitor-azure-ad-identity-protection-events"></a>Azure AD ID Identity Protection 이벤트 모니터링
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 조직의 ID에 영향을 주는 잠재적 취약성을 검색하는 데 사용할 수 있는 알림, 모니터링 및 보고 도구입니다. 유출된 자격 증명, 불가능한 이동 및 감염된 장치, 익명 IP 주소, 의심스러운 활동 및 알 수 없는 위치에 연결된 IP 주소에서의 로그인과 같은 위험 이벤트를 검색합니다. 위험한 사용자의 이메일을 수신 및/또는 주 단위 요약 이메일을 수신하는 알림 경고를 사용하도록 설정합니다.
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)은 조직의 ID에 영향을 주는 잠재적 취약성을 검색하는 데 사용할 수 있는 알림, 모니터링 및 보고 도구입니다. 유출된 자격 증명, 불가능한 이동 및 감염된 디바이스, 익명 IP 주소, 의심스러운 활동 및 알 수 없는 위치에 연결된 IP 주소에서의 로그인과 같은 위험 이벤트를 검색합니다. 위험한 사용자의 이메일을 수신 및/또는 주 단위 요약 이메일을 수신하는 알림 경고를 사용하도록 설정합니다.
 
 Azure AD Identity Protection은 매일 모니터링해야 하는 두 가지 중요한 보고서를 제공합니다.
 1. 위험한 로그인 보고서는 로그인한 사람이 정당한 소유자가 아닐 가능성이 있으므로 조사가 필요한 사용자 로그인 활동을 보여줍니다.

@@ -73,7 +73,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE  = "<DatabaseName>"
 ```
 
-이제 연결 문자열을 구성합니다. 이 예제에서는 장치 인증을 사용하여 클러스터에 액세스합니다. 또한 AAD 응용 프로그램 인증서, AAD 응용 프로그램 키 및 AAD 사용자와 암호를 사용할 수 있습니다.
+이제 연결 문자열을 구성합니다. 이 예제에서는 디바이스 인증을 사용하여 클러스터에 액세스합니다. 또한 AAD 응용 프로그램 인증서, AAD 응용 프로그램 키 및 AAD 사용자와 암호를 사용할 수 있습니다.
 
 이후 단계에서 대상 테이블 및 매핑을 만듭니다.
 

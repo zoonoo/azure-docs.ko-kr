@@ -1,6 +1,6 @@
 ---
-title: Azure IoT 장치 SDK 플랫폼 지원 | Microsoft Docs
-description: 개념 - Azure IoT 장치 SDK에서 지원하는 플랫폼 목록
+title: Azure IoT 디바이스 SDK 플랫폼 지원 | Microsoft Docs
+description: 개념 - Azure IoT 디바이스 SDK에서 지원하는 플랫폼 목록
 author: yzhong94
 ms.service: iot-hub
 services: iot-hub
@@ -88,7 +88,7 @@ Microsoft는 다양한 운영 체제/플랫폼/프레임워크를 지원하며, 
 
 고객은 Azure IoT C SDK를 이식하여, 특히 SDK의 PAL(플랫폼 추상화 계층)을 만들어서 플랫폼 지원을 확장할 수 있습니다. Microsoft는 파트너와 협력하여 확장된 지원을 제공합니다. 파트너 목록은 C SDK를 더 많은 플랫폼에 이식하고 PAL을 유지 관리합니다.
 
-| 파트너             | 장치                            | 링크                     | 지원 |
+| 파트너             | 디바이스                            | 링크                     | 지원 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

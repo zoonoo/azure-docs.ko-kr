@@ -83,7 +83,7 @@ SELECT
 FROM input  
 ```  
 
-속성 이름을 알 수 없는 경우 [GetRecordPropertyValue](https://msdn.microsoft.com/azure/stream-analytics/reference/getrecordpropertyvalue-azure-stream-analytics) 함수를 사용합니다. 예를 들어 샘플 데이터 스트림을 각 장치 센서에 대한 임계값이 포함된 참조 데이터와 조인해야 한다고 가정해 보겠습니다.  
+속성 이름을 알 수 없는 경우 [GetRecordPropertyValue](https://msdn.microsoft.com/azure/stream-analytics/reference/getrecordpropertyvalue-azure-stream-analytics) 함수를 사용합니다. 예를 들어 샘플 데이터 스트림을 각 디바이스 센서에 대한 임계값이 포함된 참조 데이터와 조인해야 한다고 가정해 보겠습니다.  
 
 ```json  
 {  

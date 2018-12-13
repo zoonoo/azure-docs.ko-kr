@@ -214,7 +214,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupNa
 ```
 
 #### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. 온-프레미스 VPN 장치에 대한 VPN 및 BGP 매개 변수
-아래 예제에서 이 연습을 위해 온-프레미스 VPN 장치의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
+아래 예제에서 이 연습을 위해 온-프레미스 VPN 디바이스의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
 
 ```
 - Site5 ASN            : 65050
@@ -261,7 +261,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupNa
 ```
 
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. 두 번째 온-프레미스 VPN 장치에 대한 VPN 및 BGP 매개 변수
-마찬가지로 아래에는 두 번째 VPN 장치에 입력하는 매개 변수가 나와 있습니다.
+마찬가지로 아래에는 두 번째 VPN 디바이스에 입력하는 매개 변수가 나와 있습니다.
 
 ```
 - Site5 ASN            : 65050

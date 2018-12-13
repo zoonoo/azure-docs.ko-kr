@@ -65,7 +65,7 @@ ETL(추출, 변환 및 로드)은 구조화되지 않았거나 구조화된 데�
 
 ### <a name="internet-of-things-iot"></a>IoT(사물 인터넷)
 
-다양한 장치에서 실시간으로 수신된 스트리밍 데이터를 처리하는 데 HDInsight를 사용할 수 있습니다. 자세한 내용은 [Azure에서 HDInsight에서 Azure Managed Disks를 통한 Apache Kafka의 공개 미리 보기를 알려주는 이 블로그 게시물을 읽어 보세요](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
+다양한 디바이스에서 실시간으로 수신된 스트리밍 데이터를 처리하는 데 HDInsight를 사용할 수 있습니다. 자세한 내용은 [Azure에서 HDInsight에서 Azure Managed Disks를 통한 Apache Kafka의 공개 미리 보기를 알려주는 이 블로그 게시물을 읽어 보세요](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
 ![HDInsight 아키텍처: 사물 인터넷](./media/apache-hadoop-introduction/hdinsight-architecture-iot.png "HDInsight IoT 아키텍처") 
 

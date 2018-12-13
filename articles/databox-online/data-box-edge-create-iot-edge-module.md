@@ -17,24 +17,24 @@ ms.locfileid: "49465893"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>C# IoT Edg 모듈을 개발하여 Data Box Edge에서 파일 이동(미리 보기)
 
-이 문서에서는 Data Box Edge 장치를 사용하여 배포를 위해 IoT Edge 모듈을 만드는 방법을 단계별로 안내합니다. Azure Data Box Edge는 데이터를 처리하여 네트워크를 통해 Azure로 전송할 수 있는 저장소 솔루션입니다.
+이 문서에서는 Data Box Edge 디바이스를 사용하여 배포를 위해 IoT Edge 모듈을 만드는 방법을 단계별로 안내합니다. Azure Data Box Edge는 데이터를 처리하여 네트워크를 통해 Azure로 전송할 수 있는 저장소 솔루션입니다.
 
-Data Box Edge로 Azure IoT Edge 모듈을 사용하여 데이터를 Azure로 이동할 수 있습니다. 이 문서에서 사용되는 모듈은 Data Box Edge 장치의 로컬 공유에서 클라우드 공유로 파일을 복사하는 논리를 구현합니다.
+Data Box Edge로 Azure IoT Edge 모듈을 사용하여 데이터를 Azure로 이동할 수 있습니다. 이 문서에서 사용되는 모듈은 Data Box Edge 디바이스의 로컬 공유에서 클라우드 공유로 파일을 복사하는 논리를 구현합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 모듈을 저장하고 관리하는 컨테이너 레지스트리를 만듭니다(Docker 이미지).
-> * Data Box Edge 장치에 배포하는 IoT Edge 모듈을 만듭니다.
+> * Data Box Edge 디바이스에 배포하는 IoT Edge 모듈을 만듭니다.
 
 > [!IMPORTANT]
 > Data Box Edge는 미리 보기로 있습니다. 이 솔루션을 주문하고 배포하기 전에 [미리 보기에 대한 Azure 서비스 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요. 
 
 ## <a name="about-the-iot-edge-module"></a>IoT Edge 모듈 정보
 
-Data Box Edge 장치는 IoT Edge 모듈을 배포 및 실행할 수 있습니다. Edge 모듈은 기본적으로 장치에서 메시지를 수집하고, 메시지를 변환하거나 IoT Hub에 메시지를 전송하는 등의 특정 작업을 수행하는 Docker 컨테이너입니다. 이 문서에서는 Data Box Edge 장치의 로컬 공유에서 클라우드 공유로 파일을 복사하는 모듈을 만듭니다.
+Data Box Edge 디바이스는 IoT Edge 모듈을 배포 및 실행할 수 있습니다. Edge 모듈은 기본적으로 디바이스에서 메시지를 수집하고, 메시지를 변환하거나 IoT Hub에 메시지를 전송하는 등의 특정 작업을 수행하는 Docker 컨테이너입니다. 이 문서에서는 Data Box Edge 디바이스의 로컬 공유에서 클라우드 공유로 파일을 복사하는 모듈을 만듭니다.
 
-1. 파일은 Data Box Edge 장치의 로컬 공유에 작성됩니다.
+1. 파일은 Data Box Edge 디바이스의 로컬 공유에 작성됩니다.
 2. 파일 이벤트 생성기는 로컬 공유에 작성된 각 파일에 대한 파일 이벤트를 만듭니다. 그런 다음, 파일 이벤트는 IoT Edge 허브에 전송됩니다(IoT Edge 런타임).
 
    > [!IMPORTANT]
@@ -50,10 +50,10 @@ Data Box Edge 장치는 IoT Edge 모듈을 배포 및 실행할 수 있습니다
 
 시작하기 전에 다음을 확인합니다.
 
-- 실행 중인 Data Box Edge 장치
+- 실행 중인 Data Box Edge 디바이스
 
-    - 장치에는 연결된 IoT Hub 리소스가 있습니다. 자세한 내용은 Data Box Edge에 대한 [IoT Hub 리소스 만들기](data-box-edge-deploy-configure-compute.md#create-an-iot-hub-resource)로 이동합니다.
-    - 장치에 Edge 컴퓨팅 역할이 구성되어 있습니다. 자세한 내용은 Data Box Edge에서 [컴퓨팅 역할 설정](data-box-edge-deploy-configure-compute.md#set-up-compute-role)으로 이동합니다.
+    - 디바이스에는 연결된 IoT Hub 리소스가 있습니다. 자세한 내용은 Data Box Edge에 대한 [IoT Hub 리소스 만들기](data-box-edge-deploy-configure-compute.md#create-an-iot-hub-resource)로 이동합니다.
+    - 디바이스에 Edge 컴퓨팅 역할이 구성되어 있습니다. 자세한 내용은 Data Box Edge에서 [컴퓨팅 역할 설정](data-box-edge-deploy-configure-compute.md#set-up-compute-role)으로 이동합니다.
 
 - 다음 개발 리소스:
 

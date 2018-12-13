@@ -18,14 +18,14 @@ ms.locfileid: "51567846"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Visual Studio Code에서 Azure IoT Edge 모듈 배포
 
-비즈니스 논리를 사용하여 IoT Edge 모듈을 만들면 장치에 배포하여 에지에서 작동시킵니다. 데이터를 수집하고 처리하기 위해 다중 모듈을 사용한 경우 한 번에 모두 배포하고 여기에 연결된 회람 규칙을 선언할 수 있습니다. 
+비즈니스 논리를 사용하여 IoT Edge 모듈을 만들면 디바이스에 배포하여 에지에서 작동시킵니다. 데이터를 수집하고 처리하기 위해 다중 모듈을 사용한 경우 한 번에 모두 배포하고 여기에 연결된 회람 규칙을 선언할 수 있습니다. 
 
-이 아티클에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 장치에 배포를 푸시하는 방법을 보여줍니다. 해당 공유 태그에 따라 다중 장치를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
+이 문서에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여 줍니다. 해당 공유 태그에 따라 다중 장치를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) 
-* IoT Edge 런타임이 설치된 [IoT Edge 장치](how-to-register-device-portal.md) 
+* IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device-portal.md) 
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Visual Studio Code에 대한 [Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 
@@ -107,9 +107,9 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 
 1. Visual Studio Code에서 **탐색기** 보기를 엽니다.
 
-2. Explorer의 맨 아래에서 **Azure IoT Hub 장치** 섹션을 확장합니다. 
+2. Explorer의 맨 아래에서 **Azure IoT Hub 디바이스** 섹션을 확장합니다. 
 
-   ![Azure IoT Hub 장치 확장](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Azure IoT Hub 디바이스 확장](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. **Azure IoT Hub 장치** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 마우스로 가리킵니다. 
 
@@ -122,9 +122,9 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 7. IoT Hub를 선택합니다. 
 
 
-## <a name="deploy-to-your-device"></a>새 장치에 배포
+## <a name="deploy-to-your-device"></a>새 디바이스에 배포
 
-모듈 정보를 사용하여 구성한 배포 매니페스트를 적용하여 장치에 모듈을 배포합니다. 
+모듈 정보를 사용하여 구성한 배포 매니페스트를 적용하여 디바이스에 모듈을 배포합니다. 
 
 1. Visual Studio Code 탐색기 보기에서 **Azure IoT Hub 장치** 섹션을 확장합니다. 
 
@@ -139,7 +139,7 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 
 배포의 결과는 VS Code 출력으로 인쇄됩니다. 대상 장치가 실행되고 인터넷에 연결된 경우 몇 분 안에 성공한 배포가 적용됩니다. 
 
-## <a name="view-modules-on-your-device"></a>장치에서 모듈 보기
+## <a name="view-modules-on-your-device"></a>디바이스에서 모듈 보기
 
 장치에 모듈을 배포하면 **Azure IoT Hub 장치** 섹션에서 모두 볼 수 있습니다. 확장하려는 IoT Edge 장치 옆에 있는 화살표를 선택합니다. 현재 실행 중인 모듈이 모두 표시됩니다. 
 

@@ -44,7 +44,7 @@ ms.locfileid: "46984282"
 | Azure Storage Blob |<ul> <li>[Azure 데이터 팩터리](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 클러스터에서 실행되는 DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>스트리밍된 데이터
-응용 프로그램, 장치, 센서 등 다양한 원본을 통해 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 통해 Data Lake Storage Gen1에 수집할 수 있습니다. 이러한 도구는 일반적으로 데이터를 이벤트별로 실시간으로 캡처하고 처리한 다음, 이벤트를 추가로 처리할 수 있도록 해당 이벤트를 일괄 처리 방식으로 Data Lake Storage Gen1에 씁니다.
+응용 프로그램, 디바이스, 센서 등 다양한 원본을 통해 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 통해 Data Lake Storage Gen1에 수집할 수 있습니다. 이러한 도구는 일반적으로 데이터를 이벤트별로 실시간으로 캡처하고 처리한 다음, 이벤트를 추가로 처리할 수 있도록 해당 이벤트를 일괄 처리 방식으로 Data Lake Storage Gen1에 씁니다.
 
 다음은 사용할 수 있는 도구입니다.
 

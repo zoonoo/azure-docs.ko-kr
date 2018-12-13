@@ -147,7 +147,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
   $localAddressPrefix = $localBGPPeeringIP + "/32"
   $localVpn = New-AzureRmLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress $localVPNPublicIP -AddressPrefix $localAddressPrefix -BgpPeeringAddress $localBGPPeeringIP -Asn $localBGPASN
   ```
-6. 새 Azure VPN Gateway에 연결할 로컬 VPN 장치를 구성합니다. VPN 장치 구성에 대한 자세한 내용은 [VPN 장치 구성](../vpn-gateway/vpn-gateway-about-vpn-devices.md)을 참조하세요.
+6. 새 Azure VPN Gateway에 연결할 로컬 VPN 장치를 구성합니다. VPN 디바이스 구성에 대한 자세한 내용은 [VPN 디바이스 구성](../vpn-gateway/vpn-gateway-about-vpn-devices.md)을 참조하세요.
 
 7. Azure의 사이트 간 VPN Gateway를 로컬 게이트웨이에 연결합니다.
 

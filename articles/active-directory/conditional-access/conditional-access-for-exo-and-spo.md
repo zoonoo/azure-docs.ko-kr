@@ -76,9 +76,9 @@ Exchange Online에 대한 조건부 액세스 정책을 설정할 때 다음을 
 
 Exchange Active Sync는 최신 인증을 지원하지만 조건부 액세스 시나리오에 대한 지원과 관련된 몇 가지 제한 사항이 있습니다.
 
-- 장치 플랫폼 조건만을 구성할 수 있습니다.  
+- 디바이스 플랫폼 조건만을 구성할 수 있습니다.  
 
-    ![장치 플랫폼](./media/conditional-access-for-exo-and-spo/05.png)
+    ![디바이스 플랫폼](./media/conditional-access-for-exo-and-spo/05.png)
 
 - 다단계 인증 요구 사항 설정을 지원하지 않습니다.  
 
@@ -94,7 +94,7 @@ Exchange ActiveSync에서 Exchange Online에 대한 액세스를 효과적으로
 
     b. **클라이언트 앱**으로 **Exchange Active Sync**를 선택한 다음 **지원되는 플랫폼에만 정책 적용**을 선택합니다.  
 
-    ![장치 플랫폼](./media/conditional-access-for-exo-and-spo/03.png)
+    ![디바이스 플랫폼](./media/conditional-access-for-exo-and-spo/03.png)
 
 - AD FS(Active Directory Federation Services) 규칙을 사용하여 Exchange ActiveSync를 차단합니다.
 

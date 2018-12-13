@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub(Java)를 사용한 클라우드-장치 메시지 | Microsoft Docs
-description: Java용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 장치로 클라우드-장치 메시지를 보내는 방법입니다. 클라우드-장치 메시지를 받는 시뮬레이트된 장치 앱을 수정하고 클라우드-장치 메시지를 보내는 백 엔드 앱을 수정합니다.
+description: Java용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 디바이스로 클라우드-디바이스 메시지를 보내는 방법입니다. 클라우드-디바이스 메시지를 받는 시뮬레이트된 디바이스 앱을 수정하고 클라우드-디바이스 메시지를 보내는 백 엔드 앱을 수정합니다.
 author: dominicbetts
 ms.service: iot-hub
 services: iot-hub
@@ -19,17 +19,17 @@ ms.locfileid: "51227708"
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [장치에서 허브로 원격 분석 데이터 보내기(Java)](quickstart-send-telemetry-java.md) 문서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여줍니다.
+Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [장치에서 허브로 원격 분석 데이터 보내기(Java)](quickstart-send-telemetry-java.md) 문서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여줍니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서는 [장치에서 IoT Hub로 원격 분석 데이터 보내기(Java)](quickstart-send-telemetry-java.md)를 기반으로 합니다. 다음을 수행하는 방법을 보여줍니다.
+이 자습서는 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기(Java)](quickstart-send-telemetry-java.md)를 기반으로 합니다. 다음을 수행하는 방법을 보여줍니다.
 
-* 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-장치 메시지를 단일 장치로 보냅니다.
+* 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-디바이스 메시지를 단일 디바이스로 보냅니다.
 
-* 장치에서 클라우드-장치 메시지를 받습니다.
+* 디바이스에서 클라우드-디바이스 메시지를 받습니다.
 
-* 솔루션 백 엔드에서, IoT Hub에서 장치로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
+* 솔루션 백 엔드에서, IoT Hub에서 디바이스로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
 
 [IoT Hub 개발자 가이드에서 클라우드-장치 메시지](iot-hub-devguide-messaging.md)에 대한 자세한 내용을 찾아볼 수 있습니다.
 
@@ -40,7 +40,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 * **send-c2d-messages**는 IoT Hub를 통해 시뮬레이션된 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신합니다.
 
 > [!NOTE]
-> IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 장치 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 장치를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot)를 참조하세요.
+> IoT Hub는 많은 디바이스 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 디바이스 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot)를 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -52,13 +52,13 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>시뮬레이션된 장치 앱에서 메시지 수신
+## <a name="receive-messages-in-the-simulated-device-app"></a>시뮬레이션된 디바이스 앱에서 메시지 수신
 
-이 섹션에서는 [장치에서 허브로 원격 분석 데이터 보내기(Java)](quickstart-send-telemetry-java.md)에서 만든 시뮬레이션된 장치 앱을 수정하고 IoT Hub로부터 클라우드-장치 메시지를 수신합니다.
+이 섹션에서는 [디바이스에서 허브로 원격 분석 데이터 보내기(Java)](quickstart-send-telemetry-java.md)에서 만든 시뮬레이션된 디바이스 앱을 수정하고 IoT Hub로부터 클라우드-디바이스 메시지를 수신합니다.
 
 1. 텍스트 편집기를 사용하여 simulated-device\src\main\java\com\mycompany\app\App.java 파일을 엽니다.
 
-2. **App** 클래스 안에 중첩 클래스로 다음과 같은 **MessageCallback** 클래스를 추가합니다. 장치가 IoT Hub에서 메시지를 받을 때 **execute** 메서드가 호출됩니다. 이 예제에서 장치는 항상 IoT Hub에 메시지를 완료했음을 알립니다.
+2. **App** 클래스 안에 중첩 클래스로 다음과 같은 **MessageCallback** 클래스를 추가합니다. 디바이스가 IoT Hub에서 메시지를 받을 때 **execute** 메서드가 호출됩니다. 이 예제에서 디바이스는 항상 IoT Hub에 메시지를 완료했음을 알립니다.
 
     ```java
     private static class AppMessageCallback implements MessageCallback {
@@ -91,7 +91,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
 
-이 섹션에서는 클라우드-장치 메시지를 시뮬레이트된 장치 앱으로 보내는 Java 콘솔 응용 프로그램을 만듭니다. [장치에서 허브로 원격 분석 데이터 보내기(Java)](quickstart-send-telemetry-java.md) 빠른 시작에서 추가한 장치의 장치 ID가 필요합니다. [Azure Portal](https://portal.azure.com)에서 찾을 수 있는 허브에 대한 IoT Hub 연결 문자열도 필요합니다.
+이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이트된 디바이스 앱으로 보내는 Java 콘솔 응용 프로그램을 만듭니다. [장치에서 허브로 원격 분석 데이터 보내기(Java)](quickstart-send-telemetry-java.md) 빠른 시작에서 추가한 장치의 장치 ID가 필요합니다. [Azure Portal](https://portal.azure.com)에서 찾을 수 있는 허브에 대한 IoT Hub 연결 문자열도 필요합니다.
 
 1. 명령 프롬프트에서 다음 명령을 사용하여 **send-c2d-messages**라는 Maven 프로젝트를 만듭니다. 이 명령은 긴 단일 명령입니다.
 
@@ -135,7 +135,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
         IotHubServiceClientProtocol.AMQPS;
     ```
 
-8. **main** 메서드를 다음 코드로 바꿉니다. 이 코드는 IoT hub에 연결하고 장치에 메시지를 보낸 다음 장치가 메시지를 수신하고 처리했다는 승인을 기다립니다.
+8. **main** 메서드를 다음 코드로 바꿉니다. 이 코드는 IoT hub에 연결하고 디바이스에 메시지를 보낸 다음 디바이스가 메시지를 수신하고 처리했다는 승인을 기다립니다.
    
     ```java
     public static void main(String[] args) throws IOException,
@@ -187,7 +187,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![시뮬레이션된 장치 앱 실행](./media/iot-hub-java-java-c2d/receivec2d.png)
+    ![시뮬레이션된 디바이스 앱 실행](./media/iot-hub-java-java-c2d/receivec2d.png)
 
 2. 명령 프롬프트의 send-c2d-messages 폴더에서 다음 명령을 실행하여 클라우드-장치 메시지를 보내고 피드백 승인을 대기합니다.
 

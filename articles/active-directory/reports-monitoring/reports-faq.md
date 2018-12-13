@@ -30,7 +30,7 @@ ms.locfileid: "51623471"
 
 **Q: 현재 https://graph.windows.net/&lt;tenant-name&gt;/reports/ 엔드포인트 API를 사용하여 Azure AD 감사 및 통합 애플리케이션 사용 보고서를 프로그래밍 방식으로 보고 시스템에 끌어오고 있습니다. 어떤 방식으로 전환해야 하나요?**
 
-**A:** [API 참조](https://developer.microsoft.com/graph/)에서 [API를 사용하여 작업 보고서에 액세스하는 방법](concept-reporting-api.md)을 알아보세요. 이 엔드포인트에는 이전 API 엔드포인트에서 가져온 모든 데이터를 확인할 수 있는 두 개의 보고서(**감사** 및 **로그인**)가 있습니다. 이 새 엔드포인트에는 앱 사용, 장치 사용 및 사용자 로그인 정보를 가져오는 데 사용할 수 있는 Azure AD Premium 라이선스가 있는 로그인 보고서도 있습니다.
+**A:** [API 참조](https://developer.microsoft.com/graph/)에서 [API를 사용하여 작업 보고서에 액세스하는 방법](concept-reporting-api.md)을 알아보세요. 이 엔드포인트에는 이전 API 엔드포인트에서 가져온 모든 데이터를 확인할 수 있는 두 개의 보고서(**감사** 및 **로그인**)가 있습니다. 이 새 엔드포인트에는 앱 사용, 디바이스 사용 및 사용자 로그인 정보를 가져오는 데 사용할 수 있는 Azure AD Premium 라이선스가 있는 로그인 보고서도 있습니다.
 
 --- 
 

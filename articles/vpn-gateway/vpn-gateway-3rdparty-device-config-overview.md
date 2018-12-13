@@ -23,13 +23,13 @@ ms.lasthandoff: 11/15/2018
 ms.locfileid: "51685211"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>파트너 VPN 장치 구성의 개요
-이 문서에서는 Azure VPN Gateway에 연결하기 위한 온-프레미스 VPN 장치를 구성하는 개요를 제공합니다. 동일한 매개 변수를 사용하여 다양한 온-프레미스 VPN 장치 구성에 연결하는 방법을 보여주는 데 샘플 Azure Virtual Network 및 VPN Gateway 설정을 사용합니다.
+이 문서에서는 Azure VPN Gateway에 연결하기 위한 온-프레미스 VPN 장치를 구성하는 개요를 제공합니다. 동일한 매개 변수를 사용하여 다양한 온-프레미스 VPN 디바이스 구성에 연결하는 방법을 보여주는 데 샘플 Azure Virtual Network 및 VPN Gateway 설정을 사용합니다.
 
-## <a name="device-requirements"></a>장치 요구 사항
-Azure VPN Gateway는 표준 IPsec/IKE 프로토콜 도구 모음을 사용하여 S2S(사이트 간) VPN 터널을 설정합니다. Azure VPN Gateway에 대한 IPsec/IKE 매개 변수 및 암호화 알고리즘 목록은 [VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. 또한 [암호화 요구 사항 정보](vpn-gateway-about-compliance-crypto.md)에 설명된 대로 특정 연결에 대한 정확한 알고리즘 및 주요 장점을 지정할 수 있습니다.
+## <a name="device-requirements"></a>디바이스 요구 사항
+Azure VPN Gateway는 표준 IPsec/IKE 프로토콜 도구 모음을 사용하여 S2S(사이트 간) VPN 터널을 설정합니다. Azure VPN Gateway에 대한 IPsec/IKE 매개 변수 및 암호화 알고리즘 목록은 [VPN 디바이스 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. 또한 [암호화 요구 사항 정보](vpn-gateway-about-compliance-crypto.md)에 설명된 대로 특정 연결에 대한 정확한 알고리즘 및 주요 장점을 지정할 수 있습니다.
 
 ## <a name ="singletunnel"></a>단일 VPN 터널
-샘플의 첫 번째 구성은 Azure VPN Gateway와 온-프레미스 VPN 장치 간에 단일 S2S VPN 터널로 구성됩니다. 필요에 따라 [VPN 터널에 BGP(경계 게이트웨이 프로토콜)](#bgp)를 구성할 수 있습니다.
+샘플의 첫 번째 구성은 Azure VPN Gateway와 온-프레미스 VPN 디바이스 간에 단일 S2S VPN 터널로 구성됩니다. 필요에 따라 [VPN 터널에 BGP(경계 게이트웨이 프로토콜)](#bgp)를 구성할 수 있습니다.
 
 ![단일 S2S VPN 터널의 다이어그램](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
@@ -43,7 +43,7 @@ Azure VPN Gateway는 표준 IPsec/IKE 프로토콜 도구 모음을 사용하여
 | 가상 네트워크 주소 접두사        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Azure VPN 게이트웨이 IP         | Azure VPN Gateway IP         |
 | 온-프레미스 주소 접두사 | 10.51.0.0/16<br>10.52.0.0/16 |
-| 온-프레미스 VPN 장치 IP    | 온-프레미스 VPN 장치 IP    |
+| 온-프레미스 VPN 디바이스 IP    | 온-프레미스 VPN 디바이스 IP    |
 | *가상 네트워크 BGP ASN                | 65010                        |
 | *Azure BGP 피어 IP           | 10.12.255.30                 |
 | *온-프레미스 BGP ASN         | 65050                        |
@@ -118,7 +118,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupNam
 ```
 
 ### <a name ="policybased"></a>(선택 사항)UsePolicyBasedTrafficSelectors로 사용자 지정 IPsec/IKE 정책 사용
-VPN 장치에서 임의 트래픽 선택기(예: 경로 기반/VTI 기반 구성)를 지원하지 않는 경우 [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md) 옵션을 사용하여 사용자 지정 IPsec/IKE 정책을 만듭니다.
+VPN 디바이스에서 임의 트래픽 선택기(예: 경로 기반/VTI 기반 구성)를 지원하지 않는 경우 [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md) 옵션을 사용하여 사용자 지정 IPsec/IKE 정책을 만듭니다.
 
 > [!IMPORTANT]
 > 연결에서 **UsePolicyBasedTrafficSelectors** 옵션을 사용하기 위해 IPsec/IKE 정책을 만들어야 합니다.

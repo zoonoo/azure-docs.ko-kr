@@ -33,7 +33,7 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 응용 프로그�
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-* [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나에 [Visual Studio Code](https://code.visualstudio.com/)를 설치합니다. 이 문서는 macOS(High Sierra)를 실행하는 장치에서 개발되고 테스트되었습니다.
+* [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나에 [Visual Studio Code](https://code.visualstudio.com/)를 설치합니다. 이 문서는 macOS(High Sierra)를 실행하는 디바이스에서 개발되고 테스트되었습니다.
 
 * 아직 미리 보기 상태인 [Azure Functions 핵심 도구](functions-run-local.md#v2)의 2.x 버전을 설치합니다.
 

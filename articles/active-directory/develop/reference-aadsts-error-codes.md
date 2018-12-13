@@ -50,7 +50,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50001 | InvalidResource - 리소스를 사용할 수 없거나 존재하지 않습니다. 앱 코드를 확인하여 액세스하려는 리소스의 정확한 리소스 URL을 지정했는지 확인하세요.  |
 | AADSTS50002 | NotAllowedTenant - 테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 이 문제를 해결할 수 있습니다. |
 | AADSTS50003 | MissingSigningKey - 서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 앱에 구성된 서명 키가 없기 때문일 수 있습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)에 설명된 해결 방법을 확인하세요. 그래도 문제가 계속되면 앱 소유자 또는 앱 관리자에게 문의하세요. |
-| AADSTS50005 | DevicePolicyError - 사용자가 현재 조건부 액세스 정책을 통해 지원되지 않는 플랫폼에서 장치에 로그인하려고 했습니다. |
+| AADSTS50005 | DevicePolicyError - 사용자가 현재 조건부 액세스 정책을 통해 지원되지 않는 플랫폼에서 디바이스에 로그인하려고 했습니다. |
 | AADSTS50006 | InvalidSignature - 잘못된 서명으로 인해 서명을 확인하지 못했습니다. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - 이 앱에 대한 파트너 암호화 인증서를 찾을 수 없습니다. 이 문제를 해결하려면 Microsoft에서 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS50008 | InvalidSamlToken - 토큰에서 SAML 어설션이 누락되었거나 잘못 구성되었습니다. 페더레이션 공급자에게 문의하세요. |
@@ -91,7 +91,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50086 | SasNonRetryableError |
 | AADSTS50087 | SasRetryableError - 서비스를 일시적으로 사용할 수 없습니다. 다시 시도하세요. |
 | AADSTS50089 | 흐름 토큰이 만료되었습니다. 인증에 실패했습니다. 사용자가 사용자 이름-암호를 사용하여 다시 로그인하도록 하세요. |
-| AADSTS50097 | DeviceAuthenticationRequired - 장치 인증이 필요합니다. |
+| AADSTS50097 | DeviceAuthenticationRequired - 디바이스 인증이 필요합니다. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized - JWT 서명이 잘못되었습니다. |
 | AADSTS50105 | EntitlementGrantsNotFound - 로그인한 사용자가 로그인한 앱의 역할에 할당되지 않았습니다. 앱에 사용자를 할당하세요. 자세한 정보:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role). |
 | AADSTS50107 | InvalidRealmUri - 요청된 페더레이션 영역 개체가 존재하지 않습니다. 테넌트 관리자에게 문의하세요. |
@@ -101,8 +101,8 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50126 | InvalidUserNameOrPassword - 잘못된 사용자 이름 또는 암호로 인해 자격 증명 유효성 검사 오류가 발생했습니다. |
 | AADSTS50127 | BrokerAppNotInstalled - 사용자는 이 콘텐츠에 액세스하기 위해 broker 앱을 설치해야 합니다. |
 | AADSTS50128 | 도메인 이름이 잘못되었습니다. 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다. |
-| AADSTS50129 | DeviceIsNotWorkplaceJoined - 작업 공간 연결에는 장치를 등록해야 합니다. |
-| AADSTS50131 | ConditionalAccessFailed - Windows 장치 상태 불량, 의심스러운 활동으로 인해 차단된 요청, 액세스 정책 또는 보안 정책 결정과 같은 다양한 조건부 액세스 오류를 나타냅니다. |
+| AADSTS50129 | DeviceIsNotWorkplaceJoined - 작업 공간 연결에는 디바이스를 등록해야 합니다. |
+| AADSTS50131 | ConditionalAccessFailed - Windows 디바이스 상태 불량, 의심스러운 활동으로 인해 차단된 요청, 액세스 정책 또는 보안 정책 결정과 같은 다양한 조건부 액세스 오류를 나타냅니다. |
 | AADSTS50132 | SsoArtifactInvalidOrExpired - 암호 만료 또는 최근 암호 변경으로 인해 세션이 유효하지 않습니다. |
 | AADSTS50133 | SsoArtifactRevoked - 암호 만료 또는 최근 암호 변경으로 인해 세션이 유효하지 않습니다. |
 | AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter - 데이터 센터가 잘못되었습니다. OAuth 2.0 디바이스 흐름에서 앱이 시작한 요청을 승인하려면 권한 부여 파티가 원래 요청이 있는 동일한 데이터 센터에 있어야 합니다. |
@@ -114,7 +114,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword - 사용자의 Active Directory 암호가 만료되었습니다. 사용자에 대한 새 암호를 생성하거나 사용자가 셀프 서비스 재설정 도구를 사용하여 암호를 다시 설정하도록 합니다. |
 | AADSTS50146 | MissingCustomSigningKey - 이 앱은 앱별 서명 키로 구성해야 합니다. 응용 프로그램이 키로 구성되지 않았거나, 키가 만료되었거나 아직 유효하지 않습니다. |
 | AADSTS50147 | MissingCodeChallenge - 코드 챌린지 매개 변수의 크기가 잘못되었습니다. |
-| AADSTS50155 | DeviceAuthenticationFailed - 이 사용자에 대한 장치 인증에 실패했습니다. |
+| AADSTS50155 | DeviceAuthenticationFailed - 이 사용자에 대한 디바이스 인증에 실패했습니다. |
 | AADSTS50158 | ExternalSecurityChallenge - 외부 보안 챌린지가 충족되지 않았습니다. |
 | AADSTS50161 | InvalidExternalSecurityChallengeConfiguration - 외부 공급자가 보낸 클레임이 충분하지 않거나 외부 공급자에게 요청된 클레임이 누락되었습니다. |
 | AADSTS50166 | ExternalClaimsProviderThrottled - 클레임 공급자에게 요청을 보내지 못했습니다. |
@@ -131,8 +131,8 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS51005 | TemporaryRedirect - 요청된 정보가 위치 헤더에 지정된 URI에 있음을 나타내는 HTTP 상태 307과 동일합니다. 이 상태를 수신하면 응답과 관련된 위치 헤더 뒤에 나옵니다. 원래의 요청 메서드가 POST인 경우 리디렉션된 요청도 POST 메서드를 사용합니다. |
 | AADSTS51006 | ForceReauthDueToInsufficientAuth - 통합 Windows 인증이 필요합니다. 사용자가 통합 Windows 인증 클레임이 누락된 세션 토큰을 사용하여 로그인했습니다. 사용자가 다시 로그인하도록 요청합니다. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn - 사용자가 LinkedIn 리소스에 대한 액세스 동의를 제공하지 않았습니다. |
-| AADSTS53000 | DeviceNotCompliant - 조건부 액세스 정책에는 준수 장치가 필요하고 장치는 규정을 준수하지 않습니다. 사용자가 Intune과 같이 승인된 MDM 공급자에 자신의 장치를 등록해야 합니다. |
-| AADSTS53001 | DeviceNotDomainJoined - 조건부 액세스 정책에 도메인 가입 장치가 필요하며 장치가 도메인에 가입되어 있지 않습니다. 사용자가 도메인 가입 장치를 사용하도록 합니다. |
+| AADSTS53000 | DeviceNotCompliant - 조건부 액세스 정책에는 준수 디바이스가 필요하고 디바이스는 규정을 준수하지 않습니다. 사용자가 Intune과 같이 승인된 MDM 공급자에 자신의 디바이스를 등록해야 합니다. |
+| AADSTS53001 | DeviceNotDomainJoined - 조건부 액세스 정책에 도메인 가입 디바이스가 필요하며 디바이스가 도메인에 가입되어 있지 않습니다. 사용자가 도메인 가입 디바이스를 사용하도록 합니다. |
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - 사용된 앱이 조건부 액세스에 대해 승인된 앱이 아닙니다. 사용자가 액세스 권한을 부여받으려면 사용하도록 승인된 앱 목록에 있는 앱 중 하나를 사용해야 합니다. |
 | AADSTS53003 | BlockedByConditionalAccess - 조건부 액세스 정책에 의해 액세스가 차단되었습니다. 액세스 정책에 따라 토큰 발급을 허용하지 않습니다. |
 | AADSTS53004 | ProofUpBlockedDueToRisk - 사용자는 이 콘텐츠에 액세스하기 전에 다단계 인증 등록 프로세스를 완료해야 합니다. 사용자가 다단계 인증을 등록해야 합니다. |
@@ -151,8 +151,8 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS70008 | ExpiredOrRevokedGrant - 비활성 상태로 인해 새로 고침 토큰이 만료되었습니다. 토큰이 XXX에서 발행되었으며 일정 기간 동안 비활성 상태였습니다. |
 | AADSTS70011 | InvalidScope - 앱에서 요청한 범위가 잘못되었습니다. |
 | AADSTS70012 | MsaServerError - MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 오류가 계속되면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
-| AADSTS70016 | AuthorizationPending - OAuth 2.0 장치 흐름 오류입니다. 권한 부여 보류 중입니다. 장치가 요청 폴링을 다시 시도합니다. |
-| AADSTS70018 | BadVerificationCode - 사용자가 장치 코드 흐름에 대해 잘못된 사용자 코드를 입력했기 때문에 확인 코드가 잘못되었습니다. 권한 부여가 승인되지 않았습니다. |
+| AADSTS70016 | AuthorizationPending - OAuth 2.0 디바이스 흐름 오류입니다. 권한 부여 보류 중입니다. 디바이스가 요청 폴링을 다시 시도합니다. |
+| AADSTS70018 | BadVerificationCode - 사용자가 디바이스 코드 흐름에 대해 잘못된 사용자 코드를 입력했기 때문에 확인 코드가 잘못되었습니다. 권한 부여가 승인되지 않았습니다. |
 | AADSTS70019 | CodeExpired - 확인 코드가 만료되었습니다. 사용자가 로그인을 다시 시도해야 합니다. |
 | AADSTS75001 | BindingSerializationError - SAML 메시지를 바인딩하는 동안 오류가 발생했습니다. |
 | AADSTS75003 | UnsupportedBindingError - 앱에서 지원되지 않는 바인딩 관련 오류를 반환했습니다. SAML 프로토콜 응답은 HTTP POST 이외의 바인딩을 통해 보낼 수 없습니다. |
@@ -174,7 +174,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS81009 | DesktopSsoAuthorizationHeaderValueWithBadFormat - 사용자의 Kerberos 티켓에 대한 유효성을 검사할 수 없습니다. |
 | AADSTS81010 | DesktopSsoAuthTokenInvalid - 사용자의 Kerberos 티켓이 만료되었거나 잘못되었으므로 Seamless SSO가 실패했습니다. |
 | AADSTS81011 | DesktopSsoLookupUserBySidFailed - 사용자의 Kerberos 티켓 정보에 기반하여 사용자 개체를 찾을 수 없습니다. |
-| AADSTS81012 | DesktopSsoMismatchBetweenTokenUpnAndChosenUpn - Azure AD에 로그인하려는 사용자가 장치에 로그인한 사용자와 다릅니다. |
+| AADSTS81012 | DesktopSsoMismatchBetweenTokenUpnAndChosenUpn - Azure AD에 로그인하려는 사용자가 디바이스에 로그인한 사용자와 다릅니다. |
 | AADSTS90002 | InvalidTenantName - 데이터 저장소에서 테넌트 이름을 찾을 수 없습니다. 올바른 테넌트 ID가 있는지 확인하세요. |
 | AADSTS90004 | InvalidRequestFormat - 요청 형식이 잘못되었습니다. |
 | AADSTS90005 | InvalidRequestWithMultipleRequirements - 요청을 완료할 수 없습니다. 식별자와 로그인 힌트를 함께 사용할 수 없으므로 요청이 잘못되었습니다.  |
@@ -251,7 +251,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS165900 | InvalidApiRequest - 잘못된 요청입니다. |
 | AADSTS220450 | UnsupportedAndroidWebViewVersion - Chrome WebView 버전은 지원되지 않습니다. |
 | AADSTS220501 | InvalidCrlDownload |
-| AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - 장치 전용 토큰을 수락하도록 리소스가 구성되어 있지 않습니다. |
+| AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - 디바이스 전용 토큰을 수락하도록 리소스가 구성되어 있지 않습니다. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - 사용자에게 Azure AD에 디바이스를 등록할 수 있는 권한이 없습니다. |
 | AADSTS240002 | RequiredClaimIsMissing - id_token을 `urn:ietf:params:oauth:grant-type:jwt-bearer` 권한 부여로 사용할 수 없습니다.|
 | AADSTS700020 | InteractionRequired - 액세스 권한 부여에는 상호 작용이 필요합니다. |

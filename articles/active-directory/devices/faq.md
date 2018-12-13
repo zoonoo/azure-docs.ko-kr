@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 장치 관리 FAQ | Microsoft Docs
-description: Azure Active Directory 장치 관리 FAQ
+title: Azure Active Directory 디바이스 관리 FAQ | Microsoft Docs
+description: Azure Active Directory 디바이스 관리 FAQ
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -22,11 +22,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/26/2018
 ms.locfileid: "52309347"
 ---
-# <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
+# <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
 **Q: 최근에 장치를 등록했습니다. Azure Portal에서 내 사용자 정보에 디바이스가 표시되지 않는 이유는 무엇인가요? 또는 하이브리드 Azure AD 조인된 디바이스에 대해 디바이스 소유자가 해당 없음으로 표시되는 이유는 무엇인가요?**
 **A:** 하이브리드 Azure AD 조인된 Windows 10 디바이스는 사용자 디바이스 아래 표시되지 않습니다.
-Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 사용할 수도 있습니다.
+Azure Portal에서 모든 디바이스 보기를 사용해야 합니다. PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 사용할 수도 있습니다.
 
 다음 장치만 사용자 장치 아래에 나열됩니다.
 
@@ -40,7 +40,7 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 **A:** Azure Portal에서 모든 장치로 이동한 다음, 장치 ID를 사용하여 장치를 검색할 수 있습니다. 조인 유형 열 아래의 값을 확인합니다. 경우에 따라 디바이스를 다시 설정하거나 이미지로 다시 설치할 수 있습니다. 따라서 디바이스에서도 디바이스 등록 상태를 반드시 확인해야 합니다.
 
-- Windows 10 및 Windows Server 2016 이상 장치의 경우, dsregcmd.exe /status를 실행합니다.
+- Windows 10 및 Windows Server 2016 이상 디바이스의 경우, dsregcmd.exe /status를 실행합니다.
 - 하위 수준 OS 버전의 경우 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"를 실행합니다.
 
 ---
@@ -101,9 +101,9 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 **Q: 장치에서 Azure AD 조인 장치를 로컬로 조인 해제하려면 어떻게 하나요?**
 
 **A:** 
-- 하이브리드 Azure AD 조인 장치의 경우, 예약된 작업이 장치를 다시 등록하지 않도록 자동 등록을 꺼야 합니다. 그런 다음, 관리자 권한으로 명령 프롬프트를 열고 `dsregcmd.exe /debug /leave`를 입력합니다. 또는 여러 장치에서 이 명령을 스크립트로 실행하여 대량으로 조인 해제할 수 있습니다.
+- 하이브리드 Azure AD 조인 디바이스의 경우, 예약된 작업이 디바이스를 다시 등록하지 않도록 자동 등록을 꺼야 합니다. 그런 다음, 관리자 권한으로 명령 프롬프트를 열고 `dsregcmd.exe /debug /leave`를 입력합니다. 또는 여러 디바이스에서 이 명령을 스크립트로 실행하여 대량으로 조인 해제할 수 있습니다.
 
-- 순수한 Azure AD 조인 장치의 경우, Azure AD 사용자 자격 증명으로 로그인할 수 없으므로 오프라인 로컬 관리자 계정이 있는지 확인하거나 계정을 만들어야 합니다. 그런 다음, **설정** > **계정** > **회사 또는 학교 액세스**로 이동합니다. 계정을 선택하고 **연결 끊기**를 클릭합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 장치를 다시 부팅하여 조인 해제 프로세스를 완료합니다.
+- 순수한 Azure AD 조인 디바이스의 경우, Azure AD 사용자 자격 증명으로 로그인할 수 없으므로 오프라인 로컬 관리자 계정이 있는지 확인하거나 계정을 만들어야 합니다. 그런 다음, **설정** > **계정** > **회사 또는 학교 액세스**로 이동합니다. 계정을 선택하고 **연결 끊기**를 클릭합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 디바이스를 다시 부팅하여 조인 해제 프로세스를 완료합니다.
 
 ---
 
@@ -200,6 +200,6 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 - 조건부 액세스 정책에 포함된 사용자는 리소스에 액세스할 수 있는 [macOS에 대해 지원되는 버전의 Office](../conditional-access/technical-reference.md#client-apps-condition)가 필요합니다. 
 
-- 첫 번째 액세스를 시도하는 동안 사용자가 회사 포털을 사용하여 장치를 등록하라는 메시지가 표시됩니다.
+- 첫 번째 액세스를 시도하는 동안 사용자가 회사 포털을 사용하여 디바이스를 등록하라는 메시지가 표시됩니다.
 
 ---

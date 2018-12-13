@@ -21,14 +21,14 @@ ms.locfileid: "51515678"
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-이 자습서에서는 Raspbian을 실행하는 Raspberry Pi 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](about-iot-hub.md)를 사용하여 장치를 클라우드에 원활하게 연결하는 방법을 알아봅니다. Windows 10 IoT Core 샘플이 필요하면 [Windows 개발자 센터](http://www.windowsondevices.com/)로 이동하세요.
+이 자습서에서는 Raspbian을 실행하는 Raspberry Pi 작업의 기초부터 학습합니다. 그런 다음 [Azure IoT Hub](about-iot-hub.md)를 사용하여 디바이스를 클라우드에 원활하게 연결하는 방법을 알아봅니다. Windows 10 IoT Core 샘플이 필요하면 [Windows 개발자 센터](http://www.windowsondevices.com/)로 이동하세요.
 
 아직 키트가 없으세요? [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md)를 사용해 보세요. 또는 새 키트를 [여기](https://azure.microsoft.com/develop/iot/starter-kits)에서 구입합니다.
 
 ## <a name="what-you-do"></a>수행할 작업
 
 * IoT Hub를 만듭니다.
-* IoT Hub에 Pi용 장치를 등록합니다.
+* IoT Hub에 Pi용 디바이스를 등록합니다.
 * Raspberry Pi를 설치합니다.
 * Pi에서 샘플 응용 프로그램을 실행하여 IoT Hub로 센서 데이터를 보냅니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "51515678"
 
 ## <a name="what-you-learn"></a>학습 내용
 
-* Azure IoT Hub를 만들고 새 장치 연결 문자열을 가져오는 방법.
+* Azure IoT Hub를 만들고 새 디바이스 연결 문자열을 가져오는 방법.
 * Pi를 BME280 센서와 연결하는 방법.
 * Pi에서 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하는 방법.
 * IoT Hub로 센서 데이터를 보내는 방법.
@@ -115,7 +115,7 @@ Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 ![Raspberry Pi와 센서 연결](./media/iot-hub-raspberry-pi-kit-c-get-started/3_raspberry-pi-sensor-connection.png)
 
-BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 그리고 장치와 클라우드 간에 통신이 있으면 LED가 깜박입니다. 
+BME280 센서는 온도 및 습도 데이터를 수집할 수 있습니다. 그리고 디바이스와 클라우드 간에 통신이 있으면 LED가 깜박입니다. 
 
 센서 핀의 경우 다음 배선을 사용합니다.
 
@@ -200,7 +200,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    ```
 
    > [!NOTE] 
-   > 장치 연결 문자열을 복사하여 작은따옴표 안에 붙여 넣습니다.
+   > 디바이스 연결 문자열을 복사하여 작은따옴표 안에 붙여 넣습니다.
    >
 
 IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 출력이 표시됩니다.
@@ -209,6 +209,6 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ## <a name="next-steps"></a>다음 단계
 
-샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다. Raspberry Pi가 IoT Hub로 보낸 메시지를 보거나 Raspberry Pi에 메시지를 보내려면 [Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 장치와 IoT Hub 간에 메시지 주고받기](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)를 참조하세요.
+샘플 응용 프로그램을 실행하여 센서 데이터를 수집하고 IoT Hub로 전송했습니다. Raspberry Pi가 IoT Hub로 보낸 메시지를 보거나 Raspberry Pi에 메시지를 보내려면 [Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 디바이스와 IoT Hub 간에 메시지 주고받기](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)를 참조하세요.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

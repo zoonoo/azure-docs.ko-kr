@@ -1,6 +1,6 @@
 ---
 title: Log Analytics 게이트웨이를 사용하여 컴퓨터 연결 | Microsoft Docs
-description: Azure Automation 및 Log Analytics 서비스가 인터넷에 연결되어 있지 않을 때 데이터를 보내기 위해 장치 및 Operations Manager 모니터링 컴퓨터를 Log Analytics 게이트웨이와 연결합니다.
+description: Azure Automation 및 Log Analytics 서비스가 인터넷에 연결되어 있지 않을 때 데이터를 보내기 위해 디바이스 및 Operations Manager 모니터링 컴퓨터를 Log Analytics 게이트웨이와 연결합니다.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -32,7 +32,7 @@ Log Analytics 게이트웨이는 다음을 지원합니다.
 * Log Analytics 작업 영역에 직접 연결된 Linux용 Log Analytics 에이전트가 있는 Linux 컴퓨터  
 * Log Analytics와 통합된 System Center Operations Manager 2012 SP1(UR7 포함), Operations Manager 2012 R2(UR3 포함), Operations Manager 2016 및 Operations Manager 버전 1801 관리 그룹.  
 
-IT 보안 정책에 따라 네트워크상의 컴퓨터가 POS(Point of Sale) 장치 또는 IT 서비스를 지원하는 서버처럼 인터넷에 연결할 수 없지만 Azure Automation 또는 Log Analytics에 연결하여 관리하고 모니터링해야 하는 경우에는, Log Analytics 게이트웨이와 직접 통신하여 구성을 수신하고 대신 데이터를 전달하도록 구성할 수 있습니다.  이러한 컴퓨터가 Log Analytics 에이전트와 함께 구성되어 Log Analytics 작업 영역에 직접 연결하면 모든 컴퓨터에서 Log Analytics 게이트웨이와 대신 통신합니다.  게이트웨이는 데이터를 에이전트에서 서비스로 직접 전송하며, 전송되는 어떠한 데이터도 분석하지 않습니다.
+IT 보안 정책에 따라 네트워크상의 컴퓨터가 POS(Point of Sale) 디바이스 또는 IT 서비스를 지원하는 서버처럼 인터넷에 연결할 수 없지만 Azure Automation 또는 Log Analytics에 연결하여 관리하고 모니터링해야 하는 경우에는, Log Analytics 게이트웨이와 직접 통신하여 구성을 수신하고 대신 데이터를 전달하도록 구성할 수 있습니다.  이러한 컴퓨터가 Log Analytics 에이전트와 함께 구성되어 Log Analytics 작업 영역에 직접 연결하면 모든 컴퓨터에서 Log Analytics 게이트웨이와 대신 통신합니다.  게이트웨이는 데이터를 에이전트에서 서비스로 직접 전송하며, 전송되는 어떠한 데이터도 분석하지 않습니다.
 
 Operations Manager 관리 그룹이 Log Analytics와 통합되면, Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다.  Operations Manager 에이전트는 Operations Manager 경고, 구성 평가, 인스턴스 공간, 용량 데이터와 같은 일부 데이터를 관리 서버로 보냅니다. IIS 로그, 성능, 보안 이벤트와 같은 기타 대용량 데이터는 Log Analytics 게이트웨이로 직접 전송됩니다.  신뢰할 수 없는 시스템을 모니터링하기 위해 하나 이상의 Operations Manager 게이트웨이 서버를 DMZ 또는 격리된 다른 네트워크에 배포한 경우에는 Log Analytics 게이트웨이와 통신할 수 없습니다.  Operations Manager 게이트웨이 서버는 관리 서버에만 보고할 수 있습니다.  Log Analytics 게이트웨이와 통신하도록 Operations Manager 관리 그룹을 구성하면, 설정이 비어 있더라도 프록시 구성 정보가 Log Analytics를 위해 데이터를 수집하도록 구성된 모든 에이전트 관리 컴퓨터에 자동으로 배포됩니다.    
 

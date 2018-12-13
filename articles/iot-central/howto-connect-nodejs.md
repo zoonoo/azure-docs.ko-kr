@@ -43,7 +43,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정값 및 장치 속성�
 > [!NOTE]
   원격 분석 측정값의 데이터 형식은 부동 소수점 숫자입니다.
 
-테이블에 표시된 필드 이름을 장치 템플릿에 똑같이 입력합니다. 필드 이름이 해당 장치 코드의 속성 이름과 일치하지 않는 경우 응용 프로그램에 원격 분석 데이터를 표시할 수 없습니다.
+테이블에 표시된 필드 이름을 장치 템플릿에 똑같이 입력합니다. 필드 이름이 해당 디바이스 코드의 속성 이름과 일치하지 않는 경우 애플리케이션에 원격 분석 데이터를 표시할 수 없습니다.
 
 ### <a name="state-measurements"></a>상태 측정값
 
@@ -56,7 +56,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정값 및 장치 속성�
 > [!NOTE]
   상태 측정값의 데이터 형식은 문자열입니다.
 
-테이블에 표시된 필드 이름을 장치 템플릿에 똑같이 입력합니다. 필드 이름이 해당 장치 코드의 속성 이름과 일치하지 않는 경우 응용 프로그램에 상태를 표시할 수 없습니다.
+테이블에 표시된 필드 이름을 장치 템플릿에 똑같이 입력합니다. 필드 이름이 해당 디바이스 코드의 속성 이름과 일치하지 않는 경우 애플리케이션에 상태를 표시할 수 없습니다.
 
 ### <a name="event-measurements"></a>이벤트 측정값
 
@@ -78,7 +78,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정값 및 장치 속성�
 | 일련 번호       | serialNumber      | text      |
 | 장치 제조업체 | manufacturer      | text      |
 
-테이블에 표시된 필드 이름을 장치 템플릿에 똑같이 입력합니다. 필드 이름이 해당 장치 코드의 속성 이름과 일치하지 않는 경우 응용 프로그램은 장치 속성 값을 표시할 수 없습니다.
+테이블에 표시된 필드 이름을 장치 템플릿에 똑같이 입력합니다. 필드 이름이 해당 디바이스 코드의 속성 이름과 일치하지 않는 경우 애플리케이션은 디바이스 속성 값을 표시할 수 없습니다.
 
 ### <a name="settings"></a>설정
 
@@ -89,7 +89,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정값 및 장치 속성�
 | 팬 속도       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | 온도 설정 | setTemperature | F     | 0        | 20  | 200  | 80      |
 
-테이블에 표시된 필드 이름을 장치 템플릿에 똑같이 입력합니다. 필드 이름이 해당 장치 코드의 속성 이름과 일치하지 않는 경우 장치는 설정 값을 수신할 수 없습니다.
+테이블에 표시된 필드 이름을 장치 템플릿에 똑같이 입력합니다. 필드 이름이 해당 디바이스 코드의 속성 이름과 일치하지 않는 경우 디바이스는 설정 값을 수신할 수 없습니다.
 
 ## <a name="add-a-real-device"></a>실제 장치 추가
 
@@ -97,7 +97,7 @@ Azure IoT Central 응용 프로그램에서, 자신이 만든 장치 템플릿�
 
 ### <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
 
-다음 단계에서는 응용 프로그램에 추가한 실제 장치를 구현하는 클라이언트 응용 프로그램을 만드는 방법을 보여줍니다. Node.js 응용 프로그램은 실제 물리적 장치를 나타냅니다. 
+다음 단계에서는 응용 프로그램에 추가한 실제 장치를 구현하는 클라이언트 응용 프로그램을 만드는 방법을 보여줍니다. Node.js 애플리케이션은 실제 물리적 디바이스를 나타냅니다. 
 
 1. 컴퓨터에 `connected-air-conditioner-adv`이라는 폴더를 만듭니다. 명령줄 환경에서 해당 폴더로 이동합니다.
 
@@ -130,7 +130,7 @@ Azure IoT Central 응용 프로그램에서, 자신이 만든 장치 템플릿�
     ```
 
   > [!NOTE]
-  > Azure IoT Central은 모든 장치 연결에 Azure IoT Hub DPS(Device Provisioning Service)를 사용하도록 전환되었으므로, 다음 지침에 따라 [장치 연결 문자열을 가져오고](concepts-connectivity.md#getting-device-connection-string) 자습서의 나머지 부분을 계속합니다. 자세한 도움말은 자습서 > 장치 추가의 [클라이언트 코드 준비](tutorial-add-device.md#prepare-the-client-code)에서 자세한 지침 집합을 참조할 수 있습니다.
+  > Azure IoT Central은 모든 디바이스 연결에 Azure IoT Hub DPS(Device Provisioning Service)를 사용하도록 전환되었으므로, 다음 지침에 따라 [디바이스 연결 문자열을 가져오고](concepts-connectivity.md#getting-device-connection-string) 자습서의 나머지 부분을 계속합니다. 자세한 도움말은 자습서 > 장치 추가의 [클라이언트 코드 준비](tutorial-add-device.md#prepare-the-client-code)에서 자세한 지침 집합을 참조할 수 있습니다.
 
 
   `{your device connection string}` 자리 표시자를 장치 연결 문자열로 업데이트합니다. 이 샘플에서는 `targetTemperature`를 0으로 초기화할 것이며, 필요에 따라 장치의 현재 판독값 또는 장치 쌍의 값을 사용할 수 있습니다. 
@@ -269,7 +269,7 @@ node connectedAirConditionerAdv.js
 
     ![원격 분석 보기](media/howto-connect-nodejs/viewtelemetry.png)
 
-* **속성** 페이지에서, 장치에서 보낸 장치 속성 값을 봅니다. 연결이 성공하는 경우 장치 속성 타일이 업데이트됩니다. 
+* **속성** 페이지에서, 장치에서 보낸 장치 속성 값을 봅니다. 연결이 성공하는 경우 디바이스 속성 타일이 업데이트됩니다. 
 
     ![장치 속성 보기](media/howto-connect-nodejs/viewproperties.png)
 

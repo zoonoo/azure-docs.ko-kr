@@ -27,7 +27,7 @@ IoT 솔루션 가속기에 대한 일반 [FAQ](iot-accelerators-faq.md)도 참�
 
 ### <a name="what-is-opc-ua"></a>OPC UA란?
 
-2008년에 발표된 OPC UA(통합 아키텍처)는 플랫폼 독립적이며 서비스 지향 상호 운용성 표준입니다. OPC UA는 산업 PC, PLC 및 센서와 같은 다양한 산업 시스템 및 장치에서 사용됩니다. OPC UA는 OPC 클래식 사양의 기능을 보안이 기본적으로 제공되는 확장 가능한 단일 프레임워크에 통합합니다. 이 표준은 OPC Foundation에서 운영합니다. [OPC Foundation](http://opcfoundation.org/)은 440명 이상의 구성원이 있는 비영리 조직입니다. 조직의 목표는 OPC 사양을 사용하여 다음을 통해 다중 공급업체, 다중 플랫폼, 안전하고 신뢰할 수 있는 상호 운용성을 지원하는 것입니다.
+2008년에 발표된 OPC UA(통합 아키텍처)는 플랫폼 독립적이며 서비스 지향 상호 운용성 표준입니다. OPC UA는 산업 PC, PLC 및 센서와 같은 다양한 산업 시스템 및 디바이스에서 사용됩니다. OPC UA는 OPC 클래식 사양의 기능을 보안이 기본적으로 제공되는 확장 가능한 단일 프레임워크에 통합합니다. 이 표준은 OPC Foundation에서 운영합니다. [OPC Foundation](http://opcfoundation.org/)은 440명 이상의 구성원이 있는 비영리 조직입니다. 조직의 목표는 OPC 사양을 사용하여 다음을 통해 다중 공급업체, 다중 플랫폼, 안전하고 신뢰할 수 있는 상호 운용성을 지원하는 것입니다.
 
 * 인프라
 * 사양
@@ -96,7 +96,7 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 
 ### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>연결된 팩터리 시뮬레이션에서 어떤 IoT Hub 장치를 사용하나요?
 
-시뮬레이션은 다음 장치를 자체 등록합니다.
+시뮬레이션은 다음 디바이스를 자체 등록합니다.
 
 * proxy.beijing.corp.contoso
 * proxy.capetown.corp.contoso
@@ -111,7 +111,7 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-[DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 또는 [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 도구를 사용하여 솔루션이 사용 중인 IoT Hub에 등록된 장치를 확인할 수 있습니다. 장치 탐색기를 사용하려면 배포에서 IoT Hub에 대한 연결 문자열이 필요합니다. Azure CLI용 IoT 확장을 사용하려면 IoT Hub 이름이 필요합니다.
+[DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 또는 [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension) 도구를 사용하여 솔루션이 사용 중인 IoT Hub에 등록된 장치를 확인할 수 있습니다. 디바이스 탐색기를 사용하려면 배포에서 IoT Hub에 대한 연결 문자열이 필요합니다. Azure CLI용 IoT 확장을 사용하려면 IoT Hub 이름이 필요합니다.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>시뮬레이션 구성 요소에서 로그 데이터는 어떻게 얻을 수 있나요?
 
@@ -127,7 +127,7 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 
 [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) 또는 [Azure IoT CLI Extension monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) 명령을 사용하여 특정 장치에서 IoT Hub로 전송된 데이터를 검사할 수 있습니다. 이러한 도구를 사용하려면 배포에서 IoT 허브에 대한 연결 문자열을 알아야 합니다. [내 솔루션에서 사용하는 IoT 허브의 연결 문자열을 어떻게 찾나요?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)를 참조하세요.
 
-게시자 장치 중 하나를 통해 보낸 데이터를 검사합니다.
+게시자 디바이스 중 하나를 통해 보낸 데이터를 검사합니다.
 
 * publisher.beijing.corp.contoso
 * publisher.capetown.corp.contoso

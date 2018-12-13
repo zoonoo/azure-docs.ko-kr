@@ -1,6 +1,6 @@
 ---
 title: Android에서 Azure Active Directory 인증서 기반 인증
-description: Android 장치에서 솔루션의 인증서 기반 인증을 구성하는 데 지원되는 시나리오 및 요구 사항에 대한 자세한 정보
+description: Android 디바이스에서 솔루션의 인증서 기반 인증을 구성하는 데 지원되는 시나리오 및 요구 사항에 대한 자세한 정보
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -24,9 +24,9 @@ Android 장치는 연결할 때 자신의 장치에서 클라이언트 인증서
 * Microsoft Outlook 및 Microsoft Word와 같은 Office 모바일 응용 프로그램
 * EAS(Exchange ActiveSync) 클라이언트
 
-이 기능을 구성하면 모바일 장치의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다.
+이 기능을 구성하면 모바일 디바이스의 특정 메일 및 Microsoft Office 응용 프로그램에 사용자 이름 및 암호 조합을 입력해야 합니다.
 
-이 항목에서는 Office 365 Enterprise, Business, Education, 미국 정부, 중국 및 독일 계획의 테넌트 사용자를 위해 iOS(Android) 장치에서 CBA를 구성하기 위한 요구 사항 및 지원되는 시나리오를 설명합니다.
+이 항목에서는 Office 365 Enterprise, Business, Education, 미국 정부, 중국 및 독일 계획의 테넌트 사용자를 위해 iOS(Android) 디바이스에서 CBA를 구성하기 위한 요구 사항 및 지원되는 시나리오를 설명합니다.
 
 이 기능은 Office 365 미국 국방부 및 연방 정부 계획에서 미리 보기 상태로 제공됩니다.
 

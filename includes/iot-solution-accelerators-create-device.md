@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/28/2018
 ms.locfileid: "47435115"
 ---
-첫 번째 시나리오에서 Contoso의 기존 **냉각기** 장치 유형에 새 원격 분석 유형을 추가합니다.
+첫 번째 시나리오에서 Contoso의 기존 **냉각기** 디바이스 유형에 새 원격 분석 유형을 추가합니다.
 
-두 번째 시나리오에서 Contoso는 새 스마트 전구 장치를 테스트하려고 합니다. 테스트를 실행하려면 다음 특징을 가진 시뮬레이션된 새 장치를 만듭니다.
+두 번째 시나리오에서 Contoso는 새 스마트 전구 디바이스를 테스트하려고 합니다. 테스트를 실행하려면 다음 특징을 가진 시뮬레이션된 새 디바이스를 만듭니다.
 
 *속성*
 
@@ -42,7 +42,7 @@ ms.locfileid: "47435115"
 
 *메서드*
 
-다음 표는 새 장치에서 지원하는 작업을 보여 줍니다.
+다음 표는 새 디바이스에서 지원하는 작업을 보여줍니다.
 
 | 이름        |
 | ----------- |
@@ -51,7 +51,7 @@ ms.locfileid: "47435115"
 
 *초기 상태*
 
-다음 표는 장치의 초기 상태를 보여 줍니다.
+다음 표는 디바이스의 초기 상태를 보여줍니다.
 
 | 이름                     | 값 |
 | ------------------------ | -------|
@@ -82,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 개발 환경을 준비하려면 다음 작업을 완료합니다.
 
-* 장치 시뮬레이션 마이크로 서비스에 대한 소스를 다운로드합니다.
+* 디바이스 시뮬레이션 마이크로 서비스에 대한 소스를 다운로드합니다.
 * 저장소 어댑터 마이크로 서비스에 대한 소스를 다운로드합니다.
 * 저장소 어댑터 마이크로 서비스를 로컬로 실행합니다.
 
@@ -92,7 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [원격 모니터링 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip)를 GitHub에서 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다. 이 문서에서는 이 폴더의 이름이 **remote-monitoring-services-dotnet-master**라고 가정합니다.
 
-GitHub에서 [장치 시뮬레이션 마이크로 서비스](https://github.com/Azure/device-simulation-dotnet/archive/master.zip)를 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다. 이 문서에서는 이 폴더의 이름이 **device-simulation-dotnet-master**라고 가정합니다.
+GitHub에서 [디바이스 시뮬레이션 마이크로 서비스](https://github.com/Azure/device-simulation-dotnet/archive/master.zip)를 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다. 이 문서에서는 이 폴더의 이름이 **device-simulation-dotnet-master**라고 가정합니다.
 
 ### <a name="run-the-storage-adapter-microservice"></a>저장소 어댑터 마이크로 서비스 실행
 
@@ -110,11 +110,11 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
 ## <a name="modify-the-chiller"></a>냉각기 수정
 
-이 섹션에서는 새 **내부 온도** 원격 분석 유형을 기존 **냉각기** 장치 유형에 추가합니다.
+이 섹션에서는 새 **내부 온도** 원격 분석 유형을 기존 **냉각기** 디바이스 유형에 추가합니다.
 
 1. 로컬 머신에 새 폴더 **C:\temp\devicemodels**를 만듭니다.
 
-1. 장치 시뮬레이션 마이크로 서비스의 다운로드된 복사본에서 새 폴더로 다음 파일을 복사합니다.
+1. 디바이스 시뮬레이션 마이크로 서비스의 다운로드된 복사본에서 새 폴더로 다음 파일을 복사합니다.
 
     | 원본 | 대상 |
     | ------ | ----------- |
@@ -198,7 +198,7 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
 ## <a name="create-the-lightbulb"></a>전구 만들기
 
-이 섹션에서는 새 **전구** 장치 유형을 정의합니다.
+이 섹션에서는 새 **전구** 디바이스 유형을 정의합니다.
 
 1. **C:\temp\devicemodels\lightbulb-01.json** 파일을 만들고 다음 콘텐츠를 추가합니다.
 
@@ -409,11 +409,11 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
 **냉각기** 장치 유형의 사용자 지정된 버전을 만들고 새 **전구** 장치 유형을 만들었습니다.
 
-## <a name="test-the-devices"></a>장치 테스트
+## <a name="test-the-devices"></a>디바이스 테스트
 
-이 섹션에서는 이전 섹션에서 만든 장치 유형을 로컬로 테스트합니다.
+이 섹션에서는 이전 섹션에서 만든 디바이스 유형을 로컬로 테스트합니다.
 
-### <a name="run-the-device-simulation-microservice"></a>장치 시뮬레이션 마이크로 서비스 실행
+### <a name="run-the-device-simulation-microservice"></a>디바이스 시뮬레이션 마이크로 서비스 실행
 
 Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-simulation-dotnet-master** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
@@ -433,11 +433,11 @@ device_models_scripts_folder = C:\temp\devicemodels\scripts\
 
 Visual Studio Code에서 **터미널** 창은 실행 중인 마이크로 서비스에서 출력을 표시합니다.
 
-다음 단계를 완료하는 동안 Visual Studio Code의 이 인스턴스에서 실행되는 장치 시뮬레이션 마이크로 서비스를 유지합니다.
+다음 단계를 완료하는 동안 Visual Studio Code의 이 인스턴스에서 실행되는 디바이스 시뮬레이션 마이크로 서비스를 유지합니다.
 
-### <a name="set-up-a-monitor-for-device-events"></a>장치 이벤트에 대한 모니터 설정
+### <a name="set-up-a-monitor-for-device-events"></a>디바이스 이벤트에 대한 모니터 설정
 
-이 섹션에서는 Azure CLI를 사용하여 IoT 허브에 연결된 장치에서 보낸 원격 분석을 보도록 이벤트 모니터를 설정합니다.
+이 섹션에서는 Azure CLI를 사용하여 IoT 허브에 연결된 디바이스에서 보낸 원격 분석을 보도록 이벤트 모니터를 설정합니다.
 
 다음 스크립트에서는 IoT 허브의 이름이 **device-simulation-test**라고 가정합니다.
 
@@ -449,11 +449,11 @@ az extension add --name azure-cli-iot-ext
 az iot hub monitor-events --hub-name device-simulation-test
 ```
 
-시뮬레이션된 장치를 테스트하는 동안 이벤트 모니터가 실행되도록 둡니다.
+시뮬레이션된 디바이스를 테스트하는 동안 이벤트 모니터가 실행되도록 둡니다.
 
-### <a name="create-a-simulation-with-the-updated-chiller-device-type"></a>업데이트된 냉각기 장치 유형으로 시뮬레이션 만들기
+### <a name="create-a-simulation-with-the-updated-chiller-device-type"></a>업데이트된 냉각기 디바이스 유형으로 시뮬레이션 만들기
 
-이 섹션에서는 Postman 도구를 사용하여 업데이트된 냉각기 장치 유형을 사용하여 시뮬레이션을 실행하도록 장치 시뮬레이션 마이크로 서비스를 요청합니다. Postman은 웹 서비스에 REST 요청을 보낼 수 있는 도구입니다. 필요한 Postman 구성 파일은 **device-simulation-dotnet** 리포지토리의 로컬 복사본에 있습니다.
+이 섹션에서는 Postman 도구를 사용하여 업데이트된 냉각기 디바이스 유형을 사용하여 시뮬레이션을 실행하도록 디바이스 시뮬레이션 마이크로 서비스를 요청합니다. Postman은 웹 서비스에 REST 요청을 보낼 수 있는 도구입니다. 필요한 Postman 구성 파일은 **device-simulation-dotnet** 리포지토리의 로컬 복사본에 있습니다.
 
 Postman을 설정하려면:
 
@@ -467,23 +467,23 @@ Postman을 설정하려면:
 
 1. **환경 없음**을 클릭하고 **Azure IoT 장치 시뮬레이션 솔루션 가속기**를 선택합니다.
 
-이제 장치 시뮬레이션 마이크로 서비스와 상호 작용하는 데 사용할 수 있는 Postman 작업 영역에 로드된 컬렉션 및 환경이 있습니다.
+이제 디바이스 시뮬레이션 마이크로 서비스와 상호 작용하는 데 사용할 수 있는 Postman 작업 영역에 로드된 컬렉션 및 환경이 있습니다.
 
 시뮬레이션을 구성 및 실행하려면:
 
-1. Postman 컬렉션에서 **수정된 냉각기 시뮬레이션 만들기**를 선택하고 **보내기**를 클릭합니다. 이 요청에서는 네 개의 시뮬레이션된 냉각기 장치 유형의 인스턴스를 만듭니다.
+1. Postman 컬렉션에서 **수정된 냉각기 시뮬레이션 만들기**를 선택하고 **보내기**를 클릭합니다. 이 요청에서는 네 개의 시뮬레이션된 냉각기 디바이스 유형의 인스턴스를 만듭니다.
 
-1. Azure CLI 창의 이벤트 모니터 출력은 새 **internal_temperature** 값을 포함하여 시뮬레이션된 장치의 원격 분석을 보여줍니다.
+1. Azure CLI 창의 이벤트 모니터 출력은 새 **internal_temperature** 값을 포함하여 시뮬레이션된 디바이스의 원격 분석을 보여 줍니다.
 
 시뮬레이션을 중지하려면 Postman에서 **시뮬레이션 중지** 요청을 선택하고 **보내기**를 클릭합니다.
 
-### <a name="create-a-simulation-with-the-lightbulb-device-type"></a>전구 장치 유형으로 시뮬레이션 만들기
+### <a name="create-a-simulation-with-the-lightbulb-device-type"></a>전구 디바이스 유형으로 시뮬레이션 만들기
 
-이 섹션에서는 Postman 도구를 사용하여 전구 장치 유형을 사용하여 시뮬레이션을 실행하도록 장치 시뮬레이션 마이크로 서비스를 요청합니다. Postman은 웹 서비스에 REST 요청을 보낼 수 있는 도구입니다.
+이 섹션에서는 Postman 도구를 사용하여 전구 디바이스 유형을 사용하여 시뮬레이션을 실행하도록 디바이스 시뮬레이션 마이크로 서비스를 요청합니다. Postman은 웹 서비스에 REST 요청을 보낼 수 있는 도구입니다.
 
 시뮬레이션을 구성 및 실행하려면:
 
-1. Postman 컬렉션에서 **전구 시뮬레이션 만들기**를 선택하고 **보내기**를 클릭합니다. 이 요청에서는 두 개의 시뮬레이션된 전구 장치 유형의 인스턴스를 만듭니다.
+1. Postman 컬렉션에서 **전구 시뮬레이션 만들기**를 선택하고 **보내기**를 클릭합니다. 이 요청에서는 두 개의 시뮬레이션된 전구 디바이스 유형의 인스턴스를 만듭니다.
 
 1. Azure CLI 창의 이벤트 모니터 출력은 시뮬레이션된 전구의 원격 분석을 보여줍니다.
 

@@ -110,7 +110,7 @@ Azure AD Domain Services 인스턴스 만들기 | 전역 관리자 |
 모든 Azure AD Domain Services 작업 수행 | Azure AD DC 관리자 그룹([설명서 참조](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 모든 구성 읽기 | AD DS 서비스를 포함하는 Azure 구독에 대한 읽기 권한자 | 
 
-## <a name="devices"></a>장치
+## <a name="devices"></a>디바이스
 
 Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------

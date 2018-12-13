@@ -1,5 +1,5 @@
 ---
-title: Node.js에서 원격 모니터링으로 장치 프로비전 - Azure | Microsoft Docs
+title: Node.js에서 원격 모니터링으로 디바이스 프로비전 - Azure | Microsoft Docs
 description: Node.js로 작성한 응용 프로그램을 사용하여 원격 모니터링 솔루션 가속기에 장치를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
@@ -80,7 +80,7 @@ ms.locfileid: "38481884"
     var deviceOnline = true;
     ```
 
-1. 다음 변수를 추가하여 솔루션에 보내는 reported 속성을 정의합니다. 이러한 속성은 장치에서 사용하는 메서드 및 원격 분석을 설명하는 메타데이터를 포함합니다.
+1. 다음 변수를 추가하여 솔루션에 보내는 reported 속성을 정의합니다. 이러한 속성은 디바이스에서 사용하는 메서드 및 원격 분석을 설명하는 메타데이터를 포함합니다.
 
     ```nodejs
     var reportedProperties = {
@@ -152,7 +152,7 @@ ms.locfileid: "38481884"
     }
     ```
 
-1. 다음 제네릭 함수를 추가하여 솔루션에서 직접 메서드 호출을 처리합니다. 함수는 호출된 직접 메서드에 대한 정보를 표시하지만, 이 샘플에서는 어떤 방식으로도 장치를 수정하지 않습니다. 솔루션은 직접 메서드를 사용하여 장치에서 작동합니다.
+1. 다음 제네릭 함수를 추가하여 솔루션에서 직접 메서드 호출을 처리합니다. 함수는 호출된 직접 메서드에 대한 정보를 표시하지만, 이 샘플에서는 어떤 방식으로도 장치를 수정하지 않습니다. 솔루션은 직접 메서드를 사용하여 디바이스에서 작동합니다.
 
     ```nodejs
     function onDirectMethod(request, response) {

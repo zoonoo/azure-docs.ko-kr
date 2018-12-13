@@ -74,7 +74,7 @@ Azure Machine Learning 모델 관리에서 사용하는 정보는 다음과 같�
 - [Kubernetes 기반 Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
 - 온-프레미스 컨테이너 서비스
 - 개발 환경
-- IoT 장치
+- IoT 디바이스
 
 이러한 Docker 기반 컨테이너 이미지는 예측을 생성하는 데 필요한 모든 종속성을 자체적으로 포함하고 있습니다. 
 

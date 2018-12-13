@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0c5554ca929cbd5231c99e568e987e6e0b7cf6eb
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277769"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844841"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "51277769"
 
 Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도록 설정하는 가장 유연한 방법은 구성 변경을 배포하는 것입니다. Intune을 사용하면 여러분이 정의하는 특정 머신 그룹에 구성 변경 내용을 배포할 수 있습니다. 이 메서드는 장치의 Intune 등록이 필요합니다.
 
-### <a name="create-a-device-configuration-policy-in-intune"></a>Intune에서 장치 구성 정책 만들기
+### <a name="create-a-device-configuration-policy-in-intune"></a>Intune에서 디바이스 구성 정책 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 **Intune** 클릭
 2. **장치 구성** > **프로필** > **프로필 만들기**로 이동하여 새 장치 구성 프로필 만들기
@@ -57,9 +57,9 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
    * **확인**
 4. **만들기**
 
-### <a name="assign-a-device-configuration-policy-in-intune"></a>Intune에서 장치 구성 정책 할당
+### <a name="assign-a-device-configuration-policy-in-intune"></a>Intune에서 디바이스 구성 정책 할당
 
-#### <a name="create-a-group-to-apply-device-configuration-policy-to"></a>장치 구성 정책을 적용할 그룹 만들기
+#### <a name="create-a-group-to-apply-device-configuration-policy-to"></a>디바이스 구성 정책을 적용할 그룹 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 **Azure Active Directory** 클릭
 2. **사용자 및 그룹** > **모든 그룹** > **새 그룹**으로 이동
@@ -70,11 +70,11 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
 
 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../fundamentals/active-directory-manage-groups.md) 문서에서 찾을 수 있습니다.
 
-#### <a name="assign-device-configuration-policy-to-device-group"></a>장치 그룹에 장치 구성 정책 할당
+#### <a name="assign-device-configuration-policy-to-device-group"></a>디바이스 그룹에 디바이스 구성 정책 할당
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 **Intune** 클릭
 2. **장치 구성** > **프로필**로 이동한 후 앞에서 만든 프로필을 클릭하여 앞에서 만든 장치 구성 프로필 찾기
-3. 해당 프로필을 장치 그룹에 할당 
+3. 해당 프로필을 디바이스 그룹에 할당 
    * **포함** > **포함할 그룹 선택** 아래에서 **할당** 클릭
    * 앞에서 만든 그룹을 선택하고 **선택** 클릭
    * 설정 메뉴에서 **저장**
@@ -97,27 +97,33 @@ Intune을 사용하여 로그인 화면에 암호 재설정 링크를 사용하�
 
 ![로그인 화면][LoginScreen]
 
-이제 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 암호 재설정 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 장치를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
+이제 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 암호 재설정 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 디바이스를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
 
 이 기능을 사용하는 방법에 대한 지침은 [회사 또는 학교 암호 재설정](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)에서 찾을 수 있습니다.
 
-## <a name="common-issues"></a>일반적인 문제
+Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 ClientType에 대한 정보가 포함됩니다.
+
+![예제 로그온 화면 Azure AD 감사 로그의 암호 재설정](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="limitations"></a>제한 사항
 
 Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 링크가 표시되지 않습니다.
 
 * 테스트에 사용하는 VM으로 이동하여 **보기**를 클릭한 다음 **고급 세션**을 선택 취소합니다.
 
-원격 데스크톱을 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 링크가 표시되지 않습니다.
+원격 데스크톱 또는 고급 VM 세션을 사용하여 이 기능을 테스트할 때에는 “암호 재설정” 링크가 표시되지 않습니다.
 
 * 현재 원격 데스크톱에서는 암호 재설정이 지원되지 않습니다.
 
-레지스트리 키 또는 그룹 정책을 사용하여 Windows 잠금 화면을 사용하지 않도록 설정하면 **암호 재설정**을 사용할 수 없습니다.
-
 정책에서 Ctrl+Alt+Del을 요구하거나 잠금 화면 알림이 꺼진 경우 **암호 재설정**이 작동하지 않습니다.
 
-Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 ClientType에 대한 정보가 포함됩니다.
+다음 정책 설정은 암호를 재설정하는 기능을 방해하는 것으로 알려져 있습니다.
 
-![예제 로그온 화면 Azure AD 감사 로그의 암호 재설정](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+   * HideFastUserSwitching이 사용하도록 설정 또는 1로 설정됨
+   * DontDisplayLastUserName이 사용하도록 설정 또는 1로 설정됨
+   * NoLockScreen이 사용하도록 설정 또는 1로 설정됨
+   * EnableLostMode가 디바이스에서 설정됨
+   * Explorer.exe는 사용자 지정 셸로 바뀜
 
 Windows 10 머신이 프록시 서버 또는 방화벽 뒤에 있는 경우 passwordreset.microsoftonline.com 및 ajax.aspnetcdn.com에 대한 HTTPS 트래픽(443)을 허용해야 합니다.
 

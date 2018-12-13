@@ -58,7 +58,7 @@ items:
       href: module-deployment-monitoring.md
   - name: 오프라인 기능
     href: offline-capabilities.md
-  - name: IoT Edge 장치를 게이트웨이로
+  - name: IoT Edge 디바이스를 게이트웨이로
     href: iot-edge-as-gateway.md
   - name: 보안
     items:
@@ -142,7 +142,7 @@ items:
     items:
     - name: 투명 게이트웨이 구성
       href: how-to-create-transparent-gateway.md
-    - name: 다운스트림 장치 연결
+    - name: 다운스트림 디바이스 연결
       href: how-to-connect-downstream-device.md
     - name: Modbus 프로토콜 게이트웨이
       href: deploy-modbus-gateway.md
@@ -172,7 +172,7 @@ items:
     items:
     - name: IoT Hub
       href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning 서비스
+    - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: 지도
       href: /azure/azure-maps
@@ -198,7 +198,7 @@ items:
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
   - name: iOS 플랫폼용 Azure IoT 샘플
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: IoT용 Azure Certified 장치 카탈로그
+  - name: IoT용 Azure Certified 디바이스 카탈로그
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT 개발자 센터
     href: https://azure.microsoft.com/develop/iot/

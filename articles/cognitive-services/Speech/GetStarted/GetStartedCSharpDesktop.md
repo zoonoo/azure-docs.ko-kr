@@ -23,7 +23,7 @@ ms.locfileid: "49342333"
 
 이 페이지에서는 Speech Recognition API를 사용하여 음성 오디오를 텍스트로 변환하는 기본 Windows 응용 프로그램을 개발하는 방법을 보여 줍니다. 클라이언트 라이브러리를 사용하면 실시간 스트리밍이 가능합니다. 즉, 클라이언트 응용 프로그램에서 오디오를 서비스로 보낼 때 부분 인식 결과를 동시에 비동기적으로 다시 받습니다.
 
-모든 장치에서 실행되는 응용 프로그램에서 Speech Service를 사용하려는 개발자는 C# 데스크톱 라이브러리를 사용할 수 있습니다. 라이브러리를 사용하려면 32비트 플랫폼의 경우 [Microsoft.ProjectOxford.SpeechRecognition-x86 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/)를 설치하고, 64비트 플랫폼의 경우 [Microsoft.ProjectOxford.SpeechRecognition-x64 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/)를 설치합니다. 클라이언트 라이브러리 API 참조는 [Microsoft Speech C# 데스크톱 라이브러리](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)를 참조하세요.
+모든 디바이스에서 실행되는 애플리케이션에서 Speech Service를 사용하려는 개발자는 C# 데스크톱 라이브러리를 사용할 수 있습니다. 라이브러리를 사용하려면 32비트 플랫폼의 경우 [Microsoft.ProjectOxford.SpeechRecognition-x86 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x86/)를 설치하고, 64비트 플랫폼의 경우 [Microsoft.ProjectOxford.SpeechRecognition-x64 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ProjectOxford.SpeechRecognition-x64/)를 설치합니다. 클라이언트 라이브러리 API 참조는 [Microsoft Speech C# 데스크톱 라이브러리](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-Windows/master/docs/SpeechSDK/index.html)를 참조하세요.
 
 다음 섹션에서는 C# 데스크톱 라이브러리를 사용하여 C# 샘플 응용 프로그램을 설치, 빌드 및 실행하는 방법에 대해 설명합니다.
 

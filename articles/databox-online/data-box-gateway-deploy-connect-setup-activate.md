@@ -1,6 +1,6 @@
 ---
 title: Azure Portal에서 Azure Data Box Gateway에 연결하고, 구성하고, 활성화 | Microsoft Docs
-description: Data Box Gateway 배포에 대한 세 번째 자습서에서는 가상 장치에 연결하고, 설정하고, 활성화하는 방법을 안내합니다.
+description: Data Box Gateway 배포에 대한 세 번째 자습서에서는 가상 디바이스에 연결하고, 설정하고, 활성화하는 방법을 안내합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -19,15 +19,15 @@ ms.locfileid: "49166749"
 
 ## <a name="introduction"></a>소개
 
-이 자습서에는 로컬 웹 UI를 사용하여 Data Box Gateway 장치에 연결하고, 설정하고, 활성화하는 방법을 설명합니다. 
+이 자습서에는 로컬 웹 UI를 사용하여 Data Box Gateway 디바이스에 연결하고, 설정하고, 활성화하는 방법을 설명합니다. 
 
 설정 및 활성화 프로세스를 완료하는 데 10분 정도가 소요됩니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 가상 장치에 연결
-> * 가상 장치 설정 및 활성화
+> * 가상 디바이스에 연결
+> * 가상 디바이스 설정 및 활성화
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합니다.
 
 * [Hyper-V에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-hyperv.md) 또는 [VMware에서 Data Box Gateway 프로비전](data-box-gateway-deploy-provision-vmware.md)에서 설명한 대로 가상 장치를 프로비전하고 가상 장치에 연결된 URL을 가져왔습니다.
-* Data Box Gateway 장치를 관리하기 위해 만든 Data Box Gateway 서비스의 활성화 키를 갖고 있습니다. 자세한 내용은 [Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md)를 참조하세요.
+* Data Box Gateway 디바이스를 관리하기 위해 만든 Data Box Gateway 서비스의 활성화 키를 갖고 있습니다. 자세한 내용은 [Azure Data Box Gateway 배포 준비](data-box-gateway-deploy-prep.md)를 참조하세요.
 
 <!--* If this is the second or subsequent virtual device that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
 
@@ -55,19 +55,19 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
    
     ![](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
-2. 가상 장치의 웹 UI에 로그인합니다. 기본 암호는 *Password1*입니다. 
+2. 가상 디바이스의 웹 UI에 로그인합니다. 기본 암호는 *Password1*입니다. 
    
     ![](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
-3. 장치 관리자 암호를 변경하라는 메시지가 표시됩니다. 8~16자 길이의 새 암호를 입력합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다.
+3. 디바이스 관리자 암호를 변경하라는 메시지가 표시됩니다. 8~16자 길이의 새 암호를 입력합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다.
 
     ![](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
-이제 장치의 **대시보드**에 있습니다.
+이제 디바이스의 **대시보드**에 있습니다.
 
-## <a name="set-up-and-activate-the-virtual-device"></a>가상 장치 설정 및 활성화
+## <a name="set-up-and-activate-the-virtual-device"></a>가상 디바이스 설정 및 활성화
  
-1. 대시보드에서, 가상 장치를 구성하고 Data Box Gateway 서비스에 등록하는 데 필요한 다양한 설정으로 이동할 수 있습니다. **네트워크 설정**, **웹 프록시 설정**, **시간 설정**은 선택 사항입니다. 유일한 필수 설정은 **장치 이름** 및 **클라우드 설정**입니다.
+1. 대시보드에서, 가상 디바이스를 구성하고 Data Box Gateway 서비스에 등록하는 데 필요한 다양한 설정으로 이동할 수 있습니다. **네트워크 설정**, **웹 프록시 설정**, **시간 설정**은 선택 사항입니다. 유일한 필수 설정은 **디바이스 이름** 및 **클라우드 설정**입니다.
    
     ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
@@ -75,7 +75,7 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
 
     ![](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
-3. (선택 사항) **네트워크 설정**을 구성합니다. 기본 가상 머신에서 구성한 수에 따라 1개 이상의 네트워크 인터페이스가 표시됩니다. 아래와 같이 네트워크 인터페이스 하나가 설정된 가상 장치의 **네트워크 설정** 페이지가 표시됩니다.
+3. (선택 사항) **네트워크 설정**을 구성합니다. 기본 가상 머신에서 구성한 수에 따라 1개 이상의 네트워크 인터페이스가 표시됩니다. 아래와 같이 네트워크 인터페이스 하나가 설정된 가상 디바이스의 **네트워크 설정** 페이지가 표시됩니다.
     
     ![](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
@@ -102,8 +102,8 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
     
     **시간 설정** 페이지에서:
     
-    1. 드롭다운 목록에서 장치가 배포되는 지리적 위치를 기반으로 **표준 시간대** 를 설정합니다. 장치의 기본 표준 시간대는 PST입니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
-    2. 장치에 **기본 NTP 서버** 를 지정하거나 time.windows.com의 기본값을 적용합니다. 네트워크에서 NTP 트래픽이 데이터 센터에서 인터넷으로 전달되도록 허용하는지 확인합니다.
+    1. 드롭다운 목록에서 디바이스가 배포되는 지리적 위치를 기반으로 **표준 시간대**를 설정합니다. 디바이스의 기본 표준 시간대는 PST입니다. 장치는 모든 예약된 작업에 대해 이 표준 시간대를 사용합니다.
+    2. 디바이스에 **기본 NTP 서버**를 지정하거나 time.windows.com의 기본값을 적용합니다. 네트워크에서 NTP 트래픽이 데이터 센터에서 인터넷으로 전달되도록 허용하는지 확인합니다.
     3. 선택적으로 장치에 대한 **보조 NTP 서버**를 지정합니다.
     4. **Apply**를 클릭합니다. 구성된 시간 설정의 유효성을 검사하고 적용합니다.
 
@@ -115,7 +115,7 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
        
          ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
     
-    3. 장치가 활성화될 때까지 1분 정도 기다려야 할 수 있습니다. 활성화가 완료되면 페이지가 업데이트되어 장치가 성공적으로 활성화된 것으로 나타납니다.
+    3. 디바이스가 활성화될 때까지 1분 정도 기다려야 할 수 있습니다. 활성화가 완료되면 페이지가 업데이트되어 디바이스가 성공적으로 활성화된 것으로 나타납니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -123,8 +123,8 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
 이 자습서에서는 다음과 같은 Data Box Gateway 토픽에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 가상 장치에 연결
-> * 가상 장치 설정 및 활성화
+> * 가상 디바이스에 연결
+> * 가상 디바이스 설정 및 활성화
 
 
 다음 자습서로 넘어가서 Data Box Gateway를 사용하여 데이터를 전송하는 방법을 알아보세요.

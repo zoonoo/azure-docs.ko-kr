@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/13/2018
 ms.locfileid: "42146659"
 ---
-# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>Azure Portal을 사용하여 대규모 IoT 장치 구성 및 모니터링
+# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>Azure Portal을 사용하여 대규모 IoT 디바이스 구성 및 모니터링
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
@@ -33,11 +33,11 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 
 ## <a name="implement-device-twins-to-configure-devices"></a>장치 쌍 구현으로 장치를 구성
 
-자동 장치 구성은 클라우드와 장치 간의 상태를 동기화하는 장치 쌍을 사용해야 합니다. 장치 쌍 사용에 대한 지침은 [IoT Hub에서 장치 쌍 이해 및 사용](iot-hub-devguide-device-twins.md)을 참조하세요.
+자동 장치 구성은 클라우드와 장치 간의 상태를 동기화하는 장치 쌍을 사용해야 합니다. 디바이스 쌍 사용에 대한 지침은 [IoT Hub에서 디바이스 쌍 이해 및 사용](iot-hub-devguide-device-twins.md)을 참조하세요.
 
-## <a name="identify-devices-using-tags"></a>태그를 사용하여 장치 식별
+## <a name="identify-devices-using-tags"></a>태그를 사용하여 디바이스 식별
 
-배포를 만들려면 먼저 적용할 장치를 지정해야 합니다. Azure IoT Hub는 장치 쌍의 태그를 사용하여 장치를 식별합니다. 각 장치는 여러 개의 태그를 갖출 수 있으며 솔루션에 적합한 방식으로 이러한 태그를 정의할 수 있습니다. 예를 들어 다른 위치에 있는 장치를 관리하는 경우 장치 쌍에 다음 태그를 추가할 수 있습니다.
+배포를 만들려면 먼저 적용할 장치를 지정해야 합니다. Azure IoT Hub는 장치 쌍의 태그를 사용하여 장치를 식별합니다. 각 디바이스는 여러 개의 태그를 갖출 수 있으며 솔루션에 적합한 방식으로 이러한 태그를 정의할 수 있습니다. 예를 들어 다른 위치에 있는 장치를 관리하는 경우 장치 쌍에 다음 태그를 추가할 수 있습니다.
 
 ```json
 "tags": {
@@ -72,7 +72,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 
 ![장치 쌍 경로 및 콘텐츠 설정](./media/iot-hub-auto-device-config/create-configuration-full-browser.png)
 
-또한 장치 쌍 경로의 전체 경로 및 콘텐츠의 값을 대괄호를 사용하지 않고 지정하여 개별 설정을 지정할 수 있습니다. 예를 들어, 장치 쌍 경로를 `properties.desired.chiller-water.temperature`로 설정하고 콘텐츠를 `66`으로 설정합니다.
+또한 장치 쌍 경로의 전체 경로 및 콘텐츠의 값을 대괄호를 사용하지 않고 지정하여 개별 설정을 지정할 수 있습니다. 예를 들어, 디바이스 쌍 경로를 `properties.desired.chiller-water.temperature`로 설정하고 콘텐츠를 `66`으로 설정합니다.
 
 두 개 이상의 구성이 동일한 장치 쌍 경로를 대상으로 하는 경우 가장 높은 우선 순위 구성의 콘텐츠가 적용됩니다(우선 순위는 4단계에서에서 정의됨).
 
@@ -103,7 +103,7 @@ SELECT deviceId FROM devices
   WHERE configurations.[[yourconfigname]].status='Applied'
 ```
 
-### <a name="target-devices"></a>대상 장치
+### <a name="target-devices"></a>대상 디바이스
 
 장치 쌍의 태그 속성을 사용하여 이 구성을 받아야 하는 특정 장치를 대상으로 지정합니다.  또한 보고된 장치 쌍 속성을 기준으로 장치를 대상으로 지정할 수 있습니다.
 
@@ -111,7 +111,7 @@ SELECT deviceId FROM devices
 
 1. 구성 **우선 순위**에 대해 양의 정수를 입력합니다. 가장 높은 숫자 값이 우선 순위가 가장 높은 것으로 간주됩니다. 두 구성의 우선 순위 번호가 동일한 경우 가장 최근에 만든 구성이 먼저 적용됩니다. 
 
-2. **대상 조건**을 입력하여 이 구성의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 보고되는 장치 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.reported.chillerProperties.model='4000x'`과 같습니다. 모든 장치를 대상으로 지정하도록 `*`를 지정할 수 있습니다.
+2. **대상 조건**을 입력하여 이 구성의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 보고되는 장치 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.reported.chillerProperties.model='4000x'`과 같습니다. 모든 디바이스를 대상으로 지정하도록 `*`를 지정할 수 있습니다.
 
 3. **다음**을 선택하여 최종 단계로 이동합니다.
 
@@ -143,7 +143,7 @@ SELECT deviceId FROM devices
    
 4. 모니터링하려는 구성을 선택합니다.  
 
-5. 구성 세부 정보를 검사합니다. 탭을 사용하여 구성을 받은 장치에 대한 특정 세부 정보를 볼 수 있습니다.
+5. 구성 세부 정보를 검사합니다. 탭을 사용하여 구성을 받은 디바이스에 대한 특정 세부 정보를 볼 수 있습니다.
 
    * **대상 조건** - 대상 조건과 일치하는 장치입니다. 
 
@@ -211,6 +211,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
 * [Azure IoT Edge를 사용하여 에지 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
 
-IoT Hub Device Provisioning 서비스를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
+IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 
 * [Azure IoT Hub Device Provisioning 서비스](/azure/iot-dps)

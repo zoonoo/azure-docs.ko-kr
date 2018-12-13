@@ -20,7 +20,7 @@ ms.lasthandoff: 09/18/2018
 ms.locfileid: "45984089"
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>방법: Azure Active Directory에 Azure 구독 연결 또는 추가
-Azure 구독에는 Azure AD(Active Directory)와의 트러스트 관계가 설정되어 있습니다. 즉, 구독은 Azure AD의 사용자/서비스/장치 인증을 신뢰합니다. 여러 구독이 동일한 Azure AD 디렉터리를 신뢰할 수는 있지만 각 구독은 디렉터리를 하나만 신뢰할 수 있습니다.
+Azure 구독에는 Azure AD(Active Directory)와의 트러스트 관계가 설정되어 있습니다. 즉, 구독은 Azure AD의 사용자/서비스/디바이스 인증을 신뢰합니다. 여러 구독이 동일한 Azure AD 디렉터리를 신뢰할 수는 있지만 각 구독은 디렉터리를 하나만 신뢰할 수 있습니다.
 
 구독이 만료되면 구독과 연결된 기타 모든 리소스에 대한 액세스 권한도 손실됩니다. 그러나 Azure AD 디렉터리는 Azure에 남아 있으므로 다른 Azure 구독을 사용하여 디렉터리를 연결하고 관리할 수 있습니다.
 

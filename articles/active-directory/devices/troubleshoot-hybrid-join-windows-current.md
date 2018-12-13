@@ -1,6 +1,6 @@
 ---
-title: Windows 10 및 Windows Server 2016 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 | Microsoft Docs
-description: Windows 10 및 Windows Server 2016 장치에 조인된 하이브리드 Azure Active Directory 문제 해결
+title: Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 | Microsoft Docs
+description: Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -22,18 +22,18 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43050568"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Windows 10 및 Windows Server 2016 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
 이 아티클은 다음 클라이언트에 적용됩니다.
 
 -   윈도우 10
 -   Windows Server 2016
 
-다른 Windows 클라이언트의 경우 [하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)을 참조하세요.
+다른 Windows 클라이언트의 경우 [하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)을 참조하세요.
 
 이 문서에서는 다음 시나리오를 지원하도록 [장치에 조인된 하이브리드 Azure Active Directory를 구성](hybrid-azuread-join-plan.md)했다고 가정합니다.
 
-- 장치 기반 조건부 액세스
+- 디바이스 기반 조건부 액세스
 
 - [엔터프라이즈 설정 로밍](../active-directory-windows-enterprise-state-roaming-overview.md)
 
@@ -79,7 +79,7 @@ Windows 10 및 Windows Server 2016의 경우 하이브리드 Azure Active Direct
 
 ### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
 
-이 필드는 장치가 Azure AD에 조인되어 있는지 여부를 나타냅니다. 값이 **아니요**인 경우 Azure AD에 대한 조인은 아직 완료되지 않았습니다. 
+이 필드는 디바이스가 Azure AD에 조인되어 있는지 여부를 나타냅니다. 값이 **아니요**인 경우 Azure AD에 대한 조인은 아직 완료되지 않았습니다. 
 
 **가능한 원인:**
 
@@ -105,19 +105,19 @@ Windows 10 및 Windows Server 2016의 경우 하이브리드 Azure Active Direct
 
 ### <a name="domainjoined--yes"></a>DomainJoined : YES  
 
-이 필드는 장치가 온-프레미스 Active Directory에 조인되는지 여부를 나타냅니다. 값이 **아니요**인 경우 장치는 하이브리드 Azure AD 조인을 수행할 수 없습니다.  
+이 필드는 디바이스가 온-프레미스 Active Directory에 조인되는지 여부를 나타냅니다. 값이 **아니요**인 경우 디바이스는 하이브리드 Azure AD 조인을 수행할 수 없습니다.  
 
 ---
 
 ### <a name="workplacejoined--no"></a>WorkplaceJoined : NO  
 
-이 필드는 장치가 Azure AD에 개인 장치로 등록되어 있는지 여부를 나타냅니다(*작업 영역 조인*으로 표시). 이 값은 하이브리드 Azure AD 조인된 도메인에 가입된 컴퓨터에 대해 **아니요**이어야 합니다. 값이 **예**인 경우 하이브리드 Azure AD 조인을 완료하기 전에 회사 또는 학교 계정이 추가되었습니다. 이 경우 Windows 10 버전의 1주년 업데이트(1607)를 사용하는 경우 계정은 무시됩니다.
+이 필드는 디바이스가 Azure AD에 개인 디바이스로 등록되어 있는지 여부를 나타냅니다(*작업 영역 조인*으로 표시). 이 값은 하이브리드 Azure AD 조인된 도메인에 가입된 컴퓨터에 대해 **아니요**이어야 합니다. 값이 **예**인 경우 하이브리드 Azure AD 조인을 완료하기 전에 회사 또는 학교 계정이 추가되었습니다. 이 경우 Windows 10 버전의 1주년 업데이트(1607)를 사용하는 경우 계정은 무시됩니다.
 
 ---
 
 ### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet : YES 및 AzureADPrt : YES
   
-이러한 필드는 사용자가 장치에 로그인 시 Azure AD에서 성공적으로 인증되었는지 여부를 나타냅니다. 값이 **아니요**인 경우 다음의 원인 때문일 수 있습니다.
+이러한 필드는 사용자가 디바이스에 로그인 시 Azure AD에서 성공적으로 인증되었는지 여부를 나타냅니다. 값이 **아니요**인 경우 다음의 원인 때문일 수 있습니다.
 
 - 등록 시 장치에 연결된 TPM에 잘못된 저장소 키(STK)가 있습니다(상승된 권한으로 실행하면서 KeySignTest 확인).
 
@@ -127,4 +127,4 @@ Windows 10 및 Windows Server 2016의 경우 하이브리드 Azure Active Direct
 
 ## <a name="next-steps"></a>다음 단계
 
-질문은 [장치 관리 FAQ](faq.md)를 참조하세요. 
+질문은 [디바이스 관리 FAQ](faq.md)를 참조하세요. 

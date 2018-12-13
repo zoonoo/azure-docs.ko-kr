@@ -52,7 +52,7 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
 - Azure Key Vault와 Azure SQL Database는 동일한 테넌트에 있어야 합니다.  테넌트 간 키 자격 증명 모음 및 서버 상호 작용은 **지원되지 않습니다**.
 - 필요한 리소스에 사용할 구독을 결정합니다. 나중에 구독 간에 서버를 이동하려면 BYOK 기반 TDE를 새로 설정해야 합니다. [리소스 이동](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)에 대해 자세히 알아보세요.
 - BYOK 기반 TDE를 구성하는 경우 반복되는 래핑/래핑 해제 작업을 통해 자격 증명 모음에 배치되는 로드를 고려해야 합니다. 예를 들어 논리 서버와 연결된 모든 데이터베이스에서 동일한 TDE 보호기를 사용하므로 해당 서버의 장애 조치는 서버에 있는 데이터베이스만큼 자격 증명 모음에 대한 많은 키 작업을 트리거합니다. 경험과 문서화된 [키 자격 증명 모음 서비스 제한](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)을 기반으로 하여 단일 구독에서 최대 500개의 표준/범용 또는 200개의 프리미엄/중요 비즈니스용 데이터베이스를 하나의 Azure Key Vault에 연결하여 자격 증명 모음의 TDE 보호기에 액세스할 때 고가용성을 일관되게 보장하는 것이 좋습니다.
-- 권장 사항: 온-프레미스에 TDE 보호기 복사본을 유지합니다.  이렇게 하려면 HSM 장치에서 TDE 보호기를 로컬로 만들고, 키 에스크로 시스템에서 TDE 보호기의 로컬 복사본을 저장해야 합니다.  [로컬 HSM에서 Azure Key Vault로 키를 전송하는 방법](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)을 알아봅니다.
+- 권장 사항: 온-프레미스에 TDE 보호기 복사본을 유지합니다.  이렇게 하려면 HSM 디바이스에서 TDE 보호기를 로컬로 만들고, 키 에스크로 시스템에서 TDE 보호기의 로컬 복사본을 저장해야 합니다.  [로컬 HSM에서 Azure Key Vault로 키를 전송하는 방법](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)을 알아봅니다.
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Azure Key Vault 구성 지침
 
@@ -77,7 +77,7 @@ TDE가 처음으로 Key Vault에서 TDE 보호기를 사용하도록 구성되�
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>TDE 보호기(비대칭 키) 구성을 위한 지침
 
-- 로컬 HSM 장치에 로컬로 암호화 키를 만듭니다. Azure Key Vault에 저장할 수 있도록 비대칭 RSA 2048 키인지 확인합니다.
+- 로컬 HSM 디바이스에 로컬로 암호화 키를 만듭니다. Azure Key Vault에 저장할 수 있도록 비대칭 RSA 2048 키인지 확인합니다.
 - 키 에스크로 시스템에서 키를 에스크로합니다.  
 - 암호화 키 파일(.pfx, .byok 또는 .backup)을 Azure Key Vault로 가져옵니다.
 

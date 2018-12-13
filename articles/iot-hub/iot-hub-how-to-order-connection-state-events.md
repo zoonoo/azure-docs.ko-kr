@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB를 사용하여 Azure IoT Hub의 장치 연결 이벤트 정렬 | Microsoft Docs
-description: 이 문서에서는 최신 연결 상태를 유지하기 위해 Azure Cosmos DB를 사용하여 Azure IoT Hub의 장치 연결 이벤트를 정렬하고 기록하는 방법을 설명합니다.
+title: Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬 | Microsoft Docs
+description: 이 문서에서는 최신 연결 상태를 유지하기 위해 Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트를 정렬하고 기록하는 방법을 설명합니다.
 services: iot-hub
 ms.service: iot-hub
 author: ash2017
@@ -14,11 +14,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/29/2018
 ms.locfileid: "52582455"
 ---
-# <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 장치 연결 이벤트 정렬
+# <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
 
-Azure Event Grid를 사용하면 이벤트 기반 응용 프로그램을 빌드하고 비즈니스 솔루션에서 IoT 이벤트를 쉽게 통합할 수 있습니다. 이 문서에서는 Cosmos DB에 최신 장치 연결 상태를 저장하고 추적하는 데 사용할 수 있는 설정을 설명합니다. 장치 연결됨 및 장치 연결 끊김 이벤트에 사용할 수 있는 시퀀스 번호를 사용하고 Cosmos DB에 최신 상태를 저장합니다. Cosmos DB의 컬렉션에 대해 실행되는 응용 프로그램 논리인 저장 프로시저를 사용하려고 합니다.
+Azure Event Grid를 사용하면 이벤트 기반 응용 프로그램을 빌드하고 비즈니스 솔루션에서 IoT 이벤트를 쉽게 통합할 수 있습니다. 이 문서에서는 Cosmos DB에 최신 디바이스 연결 상태를 저장하고 추적하는 데 사용할 수 있는 설정을 설명합니다. 디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 사용할 수 있는 시퀀스 번호를 사용하고 Cosmos DB에 최신 상태를 저장합니다. Cosmos DB의 컬렉션에 대해 실행되는 응용 프로그램 논리인 저장 프로시저를 사용하려고 합니다.
 
-시퀀스 번호는 16진수 숫자에 대한 문자열 표현입니다. 문자열 비교를 사용하여 더 큰 숫자를 식별할 수 있습니다. 문자열을 16진수로 변환하면 숫자는 256비트 숫자가 됩니다. 시퀀스 번호는 절대적으로 증가하며 최신 이벤트는 다른 이벤트보다 번호가 높습니다. Azure Event Grid에서는 이벤트 정렬이 지원되지 않기 때문에 시퀀스 번호는 장치를 자주 연결하고 연결을 끊는 경우, 다운 스트림 작업을 트리거하는 데 최신 이벤트만 사용되도록 하려는 경우에 유용합니다.
+시퀀스 번호는 16진수 숫자에 대한 문자열 표현입니다. 문자열 비교를 사용하여 더 큰 숫자를 식별할 수 있습니다. 문자열을 16진수로 변환하면 숫자는 256비트 숫자가 됩니다. 시퀀스 번호는 절대적으로 증가하며 최신 이벤트는 다른 이벤트보다 번호가 높습니다. Azure Event Grid에서는 이벤트 정렬이 지원되지 않기 때문에 시퀀스 번호는 디바이스를 자주 연결하고 연결을 끊는 경우, 다운 스트림 작업을 트리거하는 데 최신 이벤트만 사용되도록 하려는 경우에 유용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -32,13 +32,13 @@ Azure Event Grid를 사용하면 이벤트 기반 응용 프로그램을 빌드�
 
 ## <a name="create-a-stored-procedure"></a>저장 프로시저 만들기
 
-먼저 저장 프로시저를 만들어서 들어오는 이벤트의 시퀀스 번호를 비교하고 데이터베이스의 장치마다 최신 이벤트를 기록하는 논리를 실행하도록 설정합니다.
+먼저 저장 프로시저를 만들어서 들어오는 이벤트의 시퀀스 번호를 비교하고 데이터베이스의 디바이스마다 최신 이벤트를 기록하는 논리를 실행하도록 설정합니다.
 
 1. Cosmos DB SQL API에서 **데이터 탐색기** > **항목** > **새 저장 프로시저**를 선택합니다.
 
    ![저장 프로시저 만들기](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2. 저장 프로시저 ID를 입력하고 "저장 프로시저 본문"에 다음을 붙여넣습니다. 이 코드가 저장 프로시저 본문에 있는 기존 코드를 대체해야 합니다. 이 코드는 가장 높은 시퀀스 번호를 식별하여 장치 ID당 하나의 행을 유지하고 해당 장치 ID의 최신 연결 상태를 기록합니다. 
+2. 저장 프로시저 ID를 입력하고 "저장 프로시저 본문"에 다음을 붙여넣습니다. 이 코드가 저장 프로시저 본문에 있는 기존 코드를 대체해야 합니다. 이 코드는 가장 높은 시퀀스 번호를 식별하여 디바이스 ID당 하나의 행을 유지하고 해당 디바이스 ID의 최신 연결 상태를 기록합니다. 
 
     ```javascript
     // SAMPLE STORED PROCEDURE
@@ -194,11 +194,11 @@ Azure Event Grid를 사용하면 이벤트 기반 응용 프로그램을 빌드�
 
 ### <a name="create-a-condition"></a>조건 만들기
 
-논리 앱 워크플로에서 조건은 특정 조건을 통과한 후에 특정 작업을 실행하는 데 도움이 됩니다. 조건이 충족되면 원하는 작업을 정의할 수 있습니다. 이 자습서에서는 eventType이 장치 연결됨인지 또는 장치 연결 끊김인지를 확인하는 것이 조건입니다. 작업은 데이터베이스에 저장된 프로시저를 실행하는 것입니다. 
+논리 앱 워크플로에서 조건은 특정 조건을 통과한 후에 특정 작업을 실행하는 데 도움이 됩니다. 조건이 충족되면 원하는 작업을 정의할 수 있습니다. 이 자습서에서는 eventType이 디바이스 연결됨인지 또는 디바이스 연결 끊김인지를 확인하는 것이 조건입니다. 작업은 데이터베이스에 저장된 프로시저를 실행하는 것입니다. 
 
 1. **새 단계**를 선택한 다음, **기본 제공 항목** 및 **조건**을 선택합니다. 
 
-2. 장치 연결됨 및 장치 연결 끊김 이벤트에 대해서만 실행하도록 아래에 표시된 대로 조건을 채웁니다.
+2. 디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대해서만 실행하도록 아래에 표시된 대로 조건을 채웁니다.
 
   * 값 **eventType**을 선택합니다.
   * "다음과 같음"을 **다음으로 끝남**으로 변경합니다.
@@ -263,9 +263,9 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 ## <a name="observe-events"></a>이벤트 관찰
 
-이벤트 구독을 설정했으면 장치를 연결하여 테스트해 보겠습니다.
+이벤트 구독을 설정했으면 디바이스를 연결하여 테스트해 보겠습니다.
 
-### <a name="register-a-device-in-iot-hub"></a>IoT Hub에 장치 등록
+### <a name="register-a-device-in-iot-hub"></a>IoT Hub에 디바이스 등록
 
 1. IoT 허브에서 **IoT 장치**를 선택합니다. 
 
@@ -275,7 +275,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 4. **저장**을 선택합니다. 
 
-5. 다른 장치 ID로 여러 장치를 추가할 수 있습니다.
+5. 다른 디바이스 ID로 여러 디바이스를 추가할 수 있습니다.
 
    ![결과를 내는 방법](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
 
@@ -285,15 +285,15 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 ### <a name="start-raspberry-pi-simulator"></a>Raspberry Pi 시뮬레이터 시작
 
-1. Raspberry Pi 웹 시뮬레이터를 사용하여 장치 연결을 시뮬레이션해 보겠습니다.
+1. Raspberry Pi 웹 시뮬레이터를 사용하여 디바이스 연결을 시뮬레이션해 보겠습니다.
 
 [Raspberry Pi 시뮬레이터 시작](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
 ### <a name="run-a-sample-application-on-the-raspberry-pi-web-simulator"></a>Raspberry Pi 웹 시뮬레이터에서 샘플 응용 프로그램 실행
 
-그러면 장치 연결됨 이벤트가 트리거됩니다.
+그러면 디바이스 연결됨 이벤트가 트리거됩니다.
 
-1. 코드 영역에서 15행의 자리 표시자를 Azure IoT Hub 장치 연결 문자열로 대체합니다.
+1. 코드 영역에서 15행의 자리 표시자를 Azure IoT Hub 디바이스 연결 문자열로 대체합니다.
 
    ![결과를 내는 방법](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
 
@@ -309,13 +309,13 @@ IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 �
 
 ### <a name="observe-events-in-cosmos-db"></a>Cosmos DB에서 이벤트 관찰
 
-Cosmos DB 문서에서 실행된 저장 프로시저의 결과를 볼 수 있습니다. 모양은 다음과 같습니다. 각 행에는 장치당 최신 장치 연결 상태가 포함됩니다.
+Cosmos DB 문서에서 실행된 저장 프로시저의 결과를 볼 수 있습니다. 모양은 다음과 같습니다. 각 행에는 디바이스당 최신 디바이스 연결 상태가 포함됩니다.
 
    ![결과를 내는 방법](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-outcome.png)
 
 ## <a name="use-the-azure-cli"></a>Azure CLI 사용
 
-[Azure Portal](http://portal.azure.com)을 사용하는 대신 Azure CLI를 사용하여 IoT Hub 단계를 설정할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) 및 [IoT 장치 만들기](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
+[Azure Portal](http://portal.azure.com)을 사용하는 대신 Azure CLI를 사용하여 IoT Hub 단계를 설정할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) 및 [IoT 디바이스 만들기](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

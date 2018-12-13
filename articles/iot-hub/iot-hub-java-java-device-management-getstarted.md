@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 관리 시작(Java) | Microsoft Docs
-description: Azure IoT Hub 장치 관리를 사용하여 원격 장치 재부팅을 시작하는 방법입니다. Java용 Azure IoT 장치 SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 장치 앱을 구현하며 Java용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다.
+title: Azure IoT Hub 디바이스 관리 시작(Java) | Microsoft Docs
+description: Azure IoT Hub 장치 관리를 사용하여 원격 장치 재부팅을 시작하는 방법입니다. Java용 Azure IoT 디바이스 SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 디바이스 앱을 구현하며 Java용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다.
 author: dominicbetts
 ms.service: iot-hub
 services: iot-hub
@@ -15,23 +15,23 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2018
 ms.locfileid: "51515287"
 ---
-# <a name="get-started-with-device-management-java"></a>장치 관리 시작(Java)
+# <a name="get-started-with-device-management-java"></a>디바이스 관리 시작(Java)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 장치 ID를 만듭니다.
+* Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 디바이스 ID를 만듭니다.
 
-* 장치를 다시 부팅하는 직접 메서드를 구현하는 시뮬레이트된 장치 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
+* 디바이스를 다시 부팅하는 직접 메서드를 구현하는 시뮬레이트된 디바이스 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
 
-* IoT Hub를 통해 시뮬레이트된 장치 앱에서 재부팅 직접 메서드를 호출하는 앱을 만듭니다. 그러면 이 앱이 장치에서 보고된 속성을 모니터링하여 재부팅 작업이 완료되는 시간을 확인합니다.
+* IoT Hub를 통해 시뮬레이트된 디바이스 앱에서 재부팅 직접 메서드를 호출하는 앱을 만듭니다. 그러면 이 앱이 디바이스에서 보고된 속성을 모니터링하여 재부팅 작업이 완료되는 시간을 확인합니다.
 
 이 자습서를 마치면 다음 두 가지 Java 콘솔 앱이 만들어집니다.
 
 **simulated-device**. 이 앱의 기능:
 
-* IoT Hub를 앞에서 만든 장치 ID에 연결합니다.
+* IoT Hub를 앞에서 만든 디바이스 ID에 연결합니다.
 
 * 재부팅 직접 메서드 호출을 수신합니다.
 
@@ -41,14 +41,14 @@ ms.locfileid: "51515287"
 
 **trigger-reboot**. 이 앱의 기능:
 
-* 시뮬레이트된 장치 앱에서 직접 메서드를 호출합니다.
+* 시뮬레이트된 디바이스 앱에서 직접 메서드를 호출합니다.
 
-* 시뮬레이션된 장치에서 보낸 직접 메서드 호출에 대한 응답을 표시합니다.
+* 시뮬레이션된 디바이스에서 보낸 직접 메서드 호출에 대한 응답을 표시합니다.
 
 * 업데이트된 보고된 속성을 표시합니다.
 
 > [!NOTE]
-> 장치와 솔루션 백 엔드에서 실행할 응용 프로그램을 빌드하는 데 사용할 수 있는 SDK에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
+> 디바이스와 솔루션 백 엔드에서 실행할 애플리케이션을 빌드하는 데 사용할 수 있는 SDK에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -68,15 +68,15 @@ ms.locfileid: "51515287"
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>직접 메서드를 사용하여 장치에서 원격 재부팅 트리거
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>직접 메서드를 사용하여 디바이스에서 원격 재부팅 트리거
 
 이 섹션에서는 다음을 수행하는 Java 콘솔 앱을 만듭니다.
 
-1. 시뮬레이트된 장치 앱에서 재부팅 직접 메서드를 호출합니다.
+1. 시뮬레이트된 디바이스 앱에서 재부팅 직접 메서드를 호출합니다.
 
 2. 응답을 표시합니다.
 
-3. 장치에서 보낸 보고된 속성을 폴링하여 재부팅이 완료되는 시간을 확인합니다.
+3. 디바이스에서 보낸 보고된 속성을 폴링하여 재부팅이 완료되는 시간을 확인합니다.
 
 이 콘솔 앱은 IoT Hub에 연결하여 직접 메서드를 호출하고 보고된 속성을 읽습니다.
 
@@ -177,7 +177,7 @@ ms.locfileid: "51515287"
     public static void main(String[] args) throws IOException
     ```
 
-12. 시뮬레이트된 장치에서 재부팅 직접 메서드를 호출하려면 **main** 메서드에 다음 코드를 추가합니다.
+12. 시뮬레이트된 디바이스에서 재부팅 직접 메서드를 호출하려면 **main** 메서드에 다음 코드를 추가합니다.
 
     ```java
     System.out.println("Starting sample...");
@@ -202,7 +202,7 @@ ms.locfileid: "51515287"
     }
     ```
 
-13. 시뮬레이트된 장치에서 보고된 속성을 스레드가 폴링을 시작하도록 하려면 **main** 메서드에 다음 코드를 추가합니다.
+13. 시뮬레이트된 디바이스에서 보고된 속성을 스레드가 폴링을 시작하도록 하려면 **main** 메서드에 다음 코드를 추가합니다.
 
     ```java
     ShowReportedProperties showReportedProperties = new ShowReportedProperties();
@@ -225,9 +225,9 @@ ms.locfileid: "51515287"
 
     `mvn clean package -DskipTests`
 
-## <a name="create-a-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
+## <a name="create-a-simulated-device-app"></a>시뮬레이션된 디바이스 앱 만들기
 
-이 섹션에서는 장치를 시뮬레이트하는 Java 콘솔 앱을 만듭니다. 이 앱은 IoT Hub의 재부팅 직접 메서드 호출을 수신하고 그 즉시 해당 호출에 응답합니다. 그런 다음 잠시 유휴 상태로 전환하여 재부팅 프로세스를 시뮬레이트한 후 보고된 속성을 사용하여 **trigger-reboot** 백 엔드 앱에 재부팅이 완료되었음을 알립니다.
+이 섹션에서는 디바이스를 시뮬레이트하는 Java 콘솔 앱을 만듭니다. 이 앱은 IoT Hub의 재부팅 직접 메서드 호출을 수신하고 그 즉시 해당 호출에 응답합니다. 그런 다음 잠시 유휴 상태로 전환하여 재부팅 프로세스를 시뮬레이트한 후 보고된 속성을 사용하여 **trigger-reboot** 백 엔드 앱에 재부팅이 완료되었음을 알립니다.
 
 1. 명령 프롬프트에서 다음 명령을 사용하여 dm-get-started 폴더에 **simulated-device**라는 Maven 프로젝트를 만듭니다. 다음은 긴 단일 명령입니다.
 
@@ -307,7 +307,7 @@ ms.locfileid: "51515287"
     }
     ```
 
-9. 장치 쌍 상태 이벤트에 대한 콜백 처리기를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다.
+9. 디바이스 쌍 상태 이벤트에 대한 콜백 처리기를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다.
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -332,7 +332,7 @@ ms.locfileid: "51515287"
     }
     ```
 
-11. 장치 재부팅을 시뮬레이트하는 스레드를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다. 이 스레드는 5초 동안 유휴 상태를 유지한 후 **lastReboot** 보고된 속성을 설정합니다.
+11. 디바이스 재부팅을 시뮬레이트하는 스레드를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다. 이 스레드는 5초 동안 유휴 상태를 유지한 후 **lastReboot** 보고된 속성을 설정합니다.
 
     ```java
     protected static class RebootDeviceThread implements Runnable {
@@ -353,7 +353,7 @@ ms.locfileid: "51515287"
     }
     ```
 
-12. 장치에서 직접 메서드를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다. 시뮬레이트된 앱은 **재부팅** 직접 메서드에 대한 호출을 수신하면 호출자에게 수신 확인을 반환한 후 재부팅을 처리하기 위한 스레드를 시작합니다.
+12. 디바이스에서 직접 메서드를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다. 시뮬레이트된 앱은 **재부팅** 직접 메서드에 대한 호출을 수신하면 호출자에게 수신 확인을 반환한 후 재부팅을 처리하기 위한 스레드를 시작합니다.
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -416,7 +416,7 @@ ms.locfileid: "51515287"
     }
     ```
 
-16. 장치 시뮬레이터를 종료하려면 **main** 메서드에 다음 코드를 추가합니다.
+16. 디바이스 시뮬레이터를 종료하려면 **main** 메서드에 다음 코드를 추가합니다.
 
     ```java
     System.out.println("Press any key to exit...");
@@ -441,16 +441,16 @@ ms.locfileid: "51515287"
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![재부팅 직접 메서드 호출을 수신 대기할 Java IoT Hub 시뮬레이트된 장치 앱](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
+    ![재부팅 직접 메서드 호출을 수신 대기할 Java IoT Hub 시뮬레이트된 디바이스 앱](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
 
-2. trigger-reboot 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub의 시뮬레이트된 장치에 대해 재부팅 메서드를 호출합니다.
+2. trigger-reboot 폴더의 명령 프롬프트에서 다음 명령을 실행하여 IoT Hub의 시뮬레이트된 디바이스에 대해 재부팅 메서드를 호출합니다.
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
     ![재부팅 직접 메서드를 호출할 Java IoT Hub 서비스 앱](./media/iot-hub-java-java-device-management-getstarted/triggerreboot.png)
 
-3. 시뮬레이트된 장치는 재부팅 직접 메서드 호출에 응답합니다.
+3. 시뮬레이트된 디바이스는 재부팅 직접 메서드 호출에 응답합니다.
 
-    ![Java IoT Hub 시뮬레이트된 장치 앱은 직접 메서드 호출에 응답합니다.](./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png)
+    ![Java IoT Hub 시뮬레이트된 디바이스 앱은 직접 메서드 호출에 응답합니다.](./media/iot-hub-java-java-device-management-getstarted/respondtoreboot.png)
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

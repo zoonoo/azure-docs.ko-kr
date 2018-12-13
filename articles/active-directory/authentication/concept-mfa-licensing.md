@@ -62,7 +62,7 @@ ms.locfileid: "52495192"
 | 전화 통화에 대한 사용자 지정 인사말 | | |● |
 | 전화 통화에 대한 사용자 지정 발신자 번호 | | |● |
 | 신뢰할 수 있는 IP | | |● |
-| 신뢰할 수 있는 장치에 대한 MFA 기억 |● |● |● |
+| 신뢰할 수 있는 디바이스에 대한 MFA 기억 |● |● |● |
 | 온-프레미스 응용 프로그램에 대한 MFA | | |● |
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Azure AD 관리자에 Azure Multi-Factor Authentication을 설정하는 방법

@@ -21,11 +21,11 @@ ms.locfileid: "52427625"
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub는 IoT 장치에서 클라우드로 다량의 원격 분석 데이터를 수집하고 클라우드에서 장치를 관리할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 *직접 메서드*를 사용하여 IoT 허브에 연결된 시뮬레이션된 장치를 제어합니다. 직접 메서드를 사용하여 IoT 허브에 연결된 장치의 동작을 원격으로 변경할 수 있습니다.
+IoT Hub는 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집하고 클라우드에서 디바이스를 관리할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 *직접 메서드*를 사용하여 IoT 허브에 연결된 시뮬레이션된 장치를 제어합니다. 직접 메서드를 사용하여 IoT 허브에 연결된 디바이스의 동작을 원격으로 변경할 수 있습니다.
 
 빠른 시작에서는 미리 작성된 두 개의 Java 응용 프로그램을 사용합니다.
 
-* 백 엔드 서비스 애플리케이션에서 호출된 직접 메서드에 응답하는 시뮬레이션된 디바이스 애플리케이션입니다. 직접 메서드 호출을 수신하기 위해 이 응용 프로그램을 IoT 허브의 장치별 엔드포인트에 연결합니다.
+* 백 엔드 서비스 애플리케이션에서 호출된 직접 메서드에 응답하는 시뮬레이션된 디바이스 애플리케이션입니다. 직접 메서드 호출을 수신하기 위해 이 애플리케이션을 IoT 허브의 디바이스별 엔드포인트에 연결합니다.
 
 * Android 디바이스에서 직접 메서드를 호출하는 서비스 애플리케이션입니다. 장치에서 직접 메서드를 호출하려면 이 응용 프로그램을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
 
@@ -53,9 +53,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이전 [빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 전송](quickstart-send-telemetry-android.md)을 완료한 경우 이 단계를 건너뛰고 이전 빠른 시작에서 등록한 것과 동일한 디바이스를 사용할 수 있습니다.
 
-연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 장치를 등록합니다.
+연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
-1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. 
+1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 디바이스 ID를 만듭니다. 
 
    **YourIoTHubName**: 이 자리 표시자를 IoT Hub용으로 선택한 이름으로 바꿉니다.
 
@@ -67,7 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
       --hub-name YourIoTHubName --device-id MyAndroidDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
@@ -78,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
       --output table
     ```
 
-    다음과 같은 장치 연결 문자열을 기록해 둡니다.
+    다음과 같은 디바이스 연결 문자열을 기록해 둡니다.
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -98,11 +98,11 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
 `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
 
-이 값은 빠른 시작의 뒷부분에서 사용합니다. 서비스 연결 문자열은 장치 연결 문자열과는 다릅니다.
+이 값은 빠른 시작의 뒷부분에서 사용합니다. 서비스 연결 문자열은 디바이스 연결 문자열과는 다릅니다.
 
 ## <a name="listen-for-direct-method-calls"></a>직접 메서드 호출 수신 대기
 
-디바이스 SDK 샘플 애플리케이션은 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행됩니다. 이 샘플은 IoT 허브의 디바이스별 엔드포인트에 연결하고, 시뮬레이션된 원격 분석 데이터를 전송하고, 허브에서 직접 메서드 호출을 수신 대기합니다. 이 빠른 시작에서 허브의 직접 메서드 호출은 장치에 원격 분석을 보내는 간격을 변경하도록 지시합니다. 시뮬레이션된 장치는 직접 메서드를 실행한 후 승인을 다시 허브로 보냅니다.
+디바이스 SDK 샘플 애플리케이션은 물리적 Android 디바이스 또는 Android 에뮬레이터에서 실행됩니다. 이 샘플은 IoT 허브의 디바이스별 엔드포인트에 연결하고, 시뮬레이션된 원격 분석 데이터를 전송하고, 허브에서 직접 메서드 호출을 수신 대기합니다. 이 빠른 시작에서 허브의 직접 메서드 호출은 디바이스에 원격 분석을 보내는 간격을 변경하도록 지시합니다. 시뮬레이션된 디바이스는 직접 메서드를 실행한 후 승인을 다시 허브로 보냅니다.
 
 1. Android Studio에서 github 샘플 Android 프로젝트를 엽니다. 프로젝트는 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 리포지토리의 복제된 또는 다운로드된 사본인 다음 디렉터리에 있습니다.
 
@@ -138,14 +138,14 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
     ```
     다음 스크린샷은 Android 디바이스가 보낸 원격 분석 데이터를 IoT 허브가 수신할 때 출력을 보여줍니다.
 
-      ![Azure CLI를 사용하여 장치 메시지 읽기](media/quickstart-send-telemetry-android/read-data.png)
+      ![Azure CLI를 사용하여 디바이스 메시지 읽기](media/quickstart-send-telemetry-android/read-data.png)
 
 기본적으로 원격 분석 앱은 Android 디바이스에서 5초마다 원격 분석 데이터를 보냅니다. 다음 섹션에서는 직접 메서드 호출을 사용하여 Android IoT 디바이스의 원격 분석 간격을 업데이트합니다.
 
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
-서비스 애플리케이션은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 응용 프로그램은 IoT 허브를 통해 장치에 직접 메서드 호출을 하고 승인을 수신 대기합니다. 
+서비스 애플리케이션은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 애플리케이션은 IoT 허브를 통해 디바이스에 직접 메서드 호출을 하고 승인을 수신 대기합니다. 
 
 별도의 물리적 Android 디바이스 또는 Android 에뮬레이터에서 이 앱을 실행합니다.
 
@@ -186,7 +186,7 @@ IoT Hub 백엔드 서비스 애플리케이션은 일반적으로 IoT Hub의 모
 
 이 빠른 시작에서는 백 엔드 애플리케이션에서 디바이스에 직접 메서드를 호출하고, 시뮬레이션된 디바이스 애플리케이션에서 직접 메서드 호출에 응답했습니다.
 
-장치-클라우드 메시지를 클라우드의 다른 대상으로 라우팅하는 방법을 알아보려면 다음 자습서로 계속 진행합니다.
+디바이스-클라우드 메시지를 클라우드의 다른 대상으로 라우팅하는 방법을 알아보려면 다음 자습서로 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 > [자습서: 처리를 위해 다른 엔드포인트로 원격 분석 라우팅](tutorial-routing.md)

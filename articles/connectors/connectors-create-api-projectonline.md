@@ -27,7 +27,7 @@ Azure Logic Apps 및 Project Online 커넥터를 사용하면 Office 365를 통�
 * 기존 프로젝트 또는 작업을 나열합니다.
 * 프로젝트를 체크 아웃, 체크 인 및 게시합니다.
 
-Project Online을 사용하면 강력한 프로젝트 관리 기능을 제공하여 어디서든지 거의 모든 장치에서 프로젝트와 프로젝트 포트폴리오 투자를 계획하고, 우선 순위를 정하며, 관리할 수 있습니다. Project Online 트리거를 사용하여 Project Online에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 작업을 사용하여 Project Online에서 다양한 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+Project Online을 사용하면 강력한 프로젝트 관리 기능을 제공하여 어디서든지 거의 모든 디바이스에서 프로젝트와 프로젝트 포트폴리오 투자를 계획하고, 우선 순위를 정하며, 관리할 수 있습니다. Project Online 트리거를 사용하여 Project Online에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 작업을 사용하여 Project Online에서 다양한 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

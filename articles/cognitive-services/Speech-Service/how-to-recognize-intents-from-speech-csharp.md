@@ -26,7 +26,7 @@ Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/spe
 > [!NOTE]
 > LUIS 응용 프로그램은 인식할 의도와 엔터티를 정의합니다. 음성 서비스를 사용하는 C# 응용 프로그램과는 다릅니다. 이 문서에서 "앱"은 LUIS 앱을 의미하고, "응용 프로그램"은 C# 코드를 의미합니다.
 
-이 자습서에서는 Speech SDK를 사용하여 장치의 마이크를 통해 사용자의 말에서 의도를 추론하는 C# 콘솔 응용 프로그램을 개발합니다. 이 문서에서 배울 내용은 다음과 같습니다.
+이 자습서에서는 Speech SDK를 사용하여 디바이스의 마이크를 통해 사용자의 말에서 의도를 추론하는 C# 콘솔 애플리케이션을 개발합니다. 이 문서에서 배울 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Speech SDK NuGet 패키지를 참조하는 Visual Studio 프로젝트 만들기
@@ -138,7 +138,7 @@ static async Task RecognizeIntentAsync()
 |intentName |LUIS 앱에서 정의된 의도의 이름입니다. LUIS 의도 이름과 정확히 일치해야 합니다.|
 |intentID    |Speech SDK가 인식한 의도에 할당되는 ID입니다. 개발자가 원하는 대로 할 수 있으며, LUIS 앱에서 정의된 의도 이름과 일치하지 않아도 됩니다. 예를 들어 여러 의도가 동일한 코드를 통해 처리되는 경우 동일한 ID를 사용해도 됩니다.|
 
-홈 자동화 LUIS 앱에는 두 가지 의도가 있는데, 하나는 장치를 켜는 용도로, 다른 하나는 장치를 끄는 용도로 사용됩니다. 아래는 이러한 의도를 인식기에 추가하는 코드 줄입니다. `RecognizeIntentAsync()` 메서드의 세 `AddIntent` 줄을 이 코드로 바꾸세요.
+홈 자동화 LUIS 앱에는 두 가지 의도가 있는데, 하나는 디바이스를 켜는 용도로, 다른 하나는 디바이스를 끄는 용도로 사용됩니다. 아래는 이러한 의도를 인식기에 추가하는 코드 줄입니다. `RecognizeIntentAsync()` 메서드의 세 `AddIntent` 줄을 이 코드로 바꾸세요.
 
 ```csharp
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");

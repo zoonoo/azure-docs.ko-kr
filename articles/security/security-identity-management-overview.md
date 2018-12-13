@@ -28,7 +28,7 @@ ms.locfileid: "51255884"
  
 Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수행할 수 있습니다.
 
-* 하이브리드 엔터프라이즈에서 사용자, 그룹 및 장치의 동기화를 유지하도록 각 사용자에 대한 단일 ID 만들기 및 관리 
+* 하이브리드 엔터프라이즈에서 사용자, 그룹 및 디바이스의 동기화를 유지하도록 각 사용자에 대한 단일 ID 만들기 및 관리 
 * 수천 개의 미리 통합된 SaaS 앱을 포함한 응용 프로그램에 대한 SSO 액세스를 제공합니다.
 * 온-프레미스 및 클라우드 응용 프로그램 모두에 대해 규칙 기반 Multi-Factor Authentication을 적용하여 응용 프로그램 액세스 보안을 사용하도록 설정
 * Azure AD 응용 프로그램 프록시를 통해 온-프레미스 웹 응용 프로그램에 대한 보안 원격 액세스 프로비전
@@ -43,7 +43,7 @@ Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수�
 * RBAC(역할 기반 액세스 제어)
 * 보안 모니터링, 경고 및 기계 학습 기반 보고서
 * 소비자 ID 및 액세스 관리
-* 장치 등록
+* 디바이스 등록
 * Privileged Identity Management
 * ID 보호
 * 하이브리드 ID 관리/Azure AD Connect
@@ -127,7 +127,7 @@ Azure AD B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google,
 * [Azure Active Directory B2C 미리 보기: 응용 프로그램에 소비자 등록 및 로그인](../active-directory-b2c/active-directory-b2c-overview.md)
 * [Azure Active Directory B2C 미리 보기: 응용 프로그램 유형](../active-directory-b2c/active-directory-b2c-apps.md)
 
-## <a name="device-registration"></a>장치 등록
+## <a name="device-registration"></a>디바이스 등록
 
 Azure AD Device Registration은 장치 기반 [조건부 액세스](../active-directory/active-directory-conditional-access-device-registration-overview.md) 시나리오의 기초입니다. 장치가 등록되면 Azure AD 장치 등록은 사용자가 로그인할 때 장치를 인증하는 데 사용하는 ID와 함께 장치를 제공합니다. 그런 다음, 인증된 장치 및 그 장치의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 응용 프로그램에 조건부 액세스 정책을 적용할 수 있습니다.
 

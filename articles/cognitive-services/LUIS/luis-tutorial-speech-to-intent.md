@@ -57,8 +57,8 @@ Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-h
 
 4. 맨 위 오른쪽 막대에 있는 **게시** 단추를 선택하여 LUIS 앱을 게시합니다. 
 
-## <a name="audio-device"></a>오디오 장치
-이 문서에서는 컴퓨터의 오디오 장치를 사용합니다. 마이크가 있는 헤드셋이거나 기본 제공 오디오 장치일 수 있습니다. 오디오 입력 수준을 확인하여 오디오 장치에서 음성이 감지되기 위해 평소보다 더 크게 말해야 하는지 알아봅니다. 
+## <a name="audio-device"></a>오디오 디바이스
+이 문서에서는 컴퓨터의 오디오 디바이스를 사용합니다. 마이크가 있는 헤드셋이거나 기본 제공 오디오 디바이스일 수 있습니다. 오디오 입력 수준을 확인하여 오디오 디바이스에서 음성이 감지되기 위해 평소보다 더 크게 말해야 하는지 알아봅니다. 
 
 ## <a name="download-the-luis-sample-project"></a>LUIS 샘플 프로젝트 다운로드
  [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) 리포지토리를 복제하고 다운로드합니다. Visual Studio에서 [음성 의도 변환 프로젝트](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition)를 열고 NuGet 패키지를 복원합니다. VS 솔루션 파일은 .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln입니다.

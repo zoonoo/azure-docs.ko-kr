@@ -1,5 +1,5 @@
 ---
-title: '여러 온-프레미스 정책 기반 VPN 장치에 Azure VPN Gateway 연결: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: '여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: Azure Resource Manager 및 PowerShell을 사용하여 여러 정책 기반 VPN 장치에 대해 Azure 경로 기반 VPN 게이트웨이를 구성합니다.
 services: vpn-gateway
 documentationcenter: na
@@ -22,15 +22,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
 ms.locfileid: "31601936"
 ---
-# <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 장치에 Azure VPN Gateway 연결
+# <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결
 
-이 문서에서는 S2S VPN 연결에서 사용자 지정 IPsec/IKE 정책을 활용하여 여러 온-프레미스 정책 기반 VPN 장치에 연결하도록 Azure 경로 기반 VPN Gateway를 구성하는 방법을 설명합니다.
+이 문서에서는 S2S VPN 연결에서 사용자 지정 IPsec/IKE 정책을 활용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 연결하도록 Azure 경로 기반 VPN Gateway를 구성하는 방법을 설명합니다.
 
 ## <a name="about-policy-based-and-route-based-vpn-gateways"></a>정책 기반 및 경로 기반 VPN Gateway 정보
 
-정책 기반 *대* 경로 기반 VPN 장치는 연결에서 IPsec 트래픽 선택기가 설정되는 방식이 서로 다릅니다.
+정책 기반 *대* 경로 기반 VPN 디바이스는 연결에서 IPsec 트래픽 선택기가 설정되는 방식이 서로 다릅니다.
 
-* **정책 기반** VPN 장치는 두 네트워크의 접두사 조합을 사용하여 트래픽이 IPsec 터널을 통해 암호화/암호 해독되는 방법을 정의합니다. 이는 일반적으로 패킷 필터링을 수행하는 방화벽 장치에 구축됩니다. IPsec 터널 암호화 및 암호 해독이 패킷 필터링 및 처리 엔진에 추가됩니다.
+* **정책 기반** VPN 장치는 두 네트워크의 접두사 조합을 사용하여 트래픽이 IPsec 터널을 통해 암호화/암호 해독되는 방법을 정의합니다. 이는 일반적으로 패킷 필터링을 수행하는 방화벽 디바이스에 구축됩니다. IPsec 터널 암호화 및 암호 해독이 패킷 필터링 및 처리 엔진에 추가됩니다.
 * **경로 기반** VPN 장치는 임의(와일드 카드) 트래픽 선택기를 사용하며, 라우팅/전달 테이블이 서로 다른 IPsec 터널로 트래픽을 전달하도록 합니다. 이는 일반적으로 각 IPsec 터널이 네트워크 인터페이스 또는 VTI(가상 터널 인터페이스)로 모델링되는 라우터 플랫폼에 구축됩니다.
 
 다음 다이어그램은 두 모델을 강조 표시합니다.
@@ -51,11 +51,11 @@ ms.locfileid: "31601936"
 | **최대 S2S 연결** | **1**                       | Basic/Standard: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
 
-이제 사용자 지정 IPsec/IKE 정책을 사용하여 "**PolicyBasedTrafficSelectors**" 옵션과 함께 접두사 기반 트래픽 선택기를 사용하여 온-프레미스 정책 기반 VPN 장치에 연결하도록 Azure 경로 기반 VPN Gateway를 구성할 수 있습니다. 이 기능을 사용하면 Azure Virtual Network 및 VPN Gateway에서 여러 온-프레미스 정책 기반 VPN/방화벽 장치에 연결할 수 있으므로 현재 Azure 정책 기반 VPN Gateway에서 단일 연결 제한이 제거됩니다.
+이제 사용자 지정 IPsec/IKE 정책을 사용하여 "**PolicyBasedTrafficSelectors**" 옵션과 함께 접두사 기반 트래픽 선택기를 사용하여 온-프레미스 정책 기반 VPN 장치에 연결하도록 Azure 경로 기반 VPN Gateway를 구성할 수 있습니다. 이 기능을 사용하면 Azure Virtual Network 및 VPN Gateway에서 여러 온-프레미스 정책 기반 VPN/방화벽 디바이스에 연결할 수 있으므로 현재 Azure 정책 기반 VPN Gateway에서 단일 연결 제한이 제거됩니다.
 
 > [!IMPORTANT]
-> 1. 이 연결을 사용하려면 온-프레미스 정책 기반 VPN 장치가 Azure 경로 기반 VPN Gateway에 연결하도록 **IKEv2**를 지원해야 합니다. VPN 장치 사양을 확인하세요.
-> 2. 이 메커니즘을 사용하여 정책 기반 VPN 장치를 통해 연결되는 온-프레미스 네트워크는 Azure Virtual Network에 연결할 수 있습니다. **동일한 Azure VPN Gateway를 통해 다른 온-프레미스 네트워크 또는 가상 네트워크로 전송할 수는 없습니다**.
+> 1. 이 연결을 사용하려면 온-프레미스 정책 기반 VPN 디바이스가 Azure 경로 기반 VPN Gateway에 연결하도록 **IKEv2**를 지원해야 합니다. VPN 디바이스 사양을 확인하세요.
+> 2. 이 메커니즘을 사용하여 정책 기반 VPN 디바이스를 통해 연결되는 온-프레미스 네트워크는 Azure Virtual Network에 연결할 수 있습니다. **동일한 Azure VPN Gateway를 통해 다른 온-프레미스 네트워크 또는 가상 네트워크로 전송할 수는 없습니다**.
 > 3. 구성 옵션은 사용자 지정 IPsec/IKE 연결 정책의 일부입니다. 정책 기반 트래픽 선택기 옵션을 사용하는 경우 전체 정책(IPsec/IKE 암호화 및 무결성 알고리즘, 키 수준 및 SA 수명)을 지정해야 합니다.
 
 아래 다이어그램에서는 Azure VPN Gateway를 통한 전송 라우팅이 정책 기반 옵션에서 작동하지 않는 이유를 보여 줍니다.

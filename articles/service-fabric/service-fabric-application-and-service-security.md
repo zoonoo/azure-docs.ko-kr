@@ -44,7 +44,7 @@ ASP.NET Core의 경우 [사용자를 인증](/dotnet/standard/microservices-arch
 [ASP.NET Core 권한 부여](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications)는 사용자의 역할 또는 사용자 지정 정책을 기준으로 수행될 수 있으며, 클레임 또는 기타 추론 검사가 포함될 수 있습니다.
 
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>API 게이트웨이를 사용하여 액세스 제한 및 보안 유지
-일반적으로 클라우드 응용 프로그램에는 사용자, 장치 또는 기타 응용 프로그램 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. [API 게이트웨이](/azure/architecture/microservices/gateway)는 클라이언트와 서비스 간에 위치하며, 응용 프로그램이 제공하는 모든 서비스에 대한 진입점이 됩니다. 역방향 프록시로 작동하면서 클라이언트에서 서비스로 요청을 라우팅합니다. 또한 인증, 권장 부여, SSL 종료 및 속도 제한과 같은 다양한 교차 작업을 수행할 수도 있습니다. 게이트웨이를 배포하지 않으면 클라이언트는 프런트 엔드 서비스로 직접 요청을 보내야 합니다.
+일반적으로 클라우드 애플리케이션에는 사용자, 디바이스 또는 기타 애플리케이션 수신을 위한 단일 지점을 제공하는 프런트 엔드 게이트웨이가 필요합니다. [API 게이트웨이](/azure/architecture/microservices/gateway)는 클라이언트와 서비스 간에 위치하며, 응용 프로그램이 제공하는 모든 서비스에 대한 진입점이 됩니다. 역방향 프록시로 작동하면서 클라이언트에서 서비스로 요청을 라우팅합니다. 또한 인증, 권장 부여, SSL 종료 및 속도 제한과 같은 다양한 교차 작업을 수행할 수도 있습니다. 게이트웨이를 배포하지 않으면 클라이언트는 프런트 엔드 서비스로 직접 요청을 보내야 합니다.
 
 Service Fabric에서 게이트웨이는 [ASP.NET Core 응용 프로그램](service-fabric-reliable-services-communication-aspnetcore.md)과 같은 상태 비저장 서비스 또는 트래픽 수신을 위해 설계된 기타 서비스(예: [Træfik](https://docs.traefik.io/), [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure API Management](https://docs.microsoft.com/azure/api-management))일 수 있습니다.
 

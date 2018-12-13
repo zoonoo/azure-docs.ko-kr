@@ -16,7 +16,7 @@ ms.locfileid: "49339756"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Azure IoT SDK를 사용하여 모바일 장치용 솔루션 개발
 
-사물 인터넷에는 센서, 마이크로컨트롤러, 스마트 장치, 산업용 게이트웨이, 모바일 장치 등 여러 가지 용량의 다양한 장치가 사용될 수 있습니다.  모바일 장치는 장치-클라우드 원격 분석 데이터를 전송하고 클라우드를 통해 관리되는 IoT 장치가 될 수 있습니다.  백 엔드 서비스 응용 프로그램을 실행하고 다른 IoT 장치를 관리하는 장치가 될 수도 있습니다.  두 경우 모두 [Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)를 사용하여 모바일 장치에서 작동하는 응용 프로그램을 개발할 수 있습니다.  
+사물 인터넷에는 센서, 마이크로컨트롤러, 스마트 장치, 산업용 게이트웨이, 모바일 장치 등 여러 가지 용량의 다양한 장치가 사용될 수 있습니다.  모바일 장치는 장치-클라우드 원격 분석 데이터를 전송하고 클라우드를 통해 관리되는 IoT 장치가 될 수 있습니다.  백 엔드 서비스 응용 프로그램을 실행하고 다른 IoT 장치를 관리하는 장치가 될 수도 있습니다.  두 경우 모두 [Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)를 사용하여 모바일 디바이스에서 작동하는 애플리케이션을 개발할 수 있습니다.  
 
 ## <a name="develop-for-native-ios-platform"></a>네이티브 iOS 플랫폼용 개발
 

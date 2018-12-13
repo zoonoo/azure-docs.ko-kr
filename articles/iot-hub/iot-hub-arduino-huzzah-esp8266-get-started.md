@@ -31,7 +31,7 @@ ms.locfileid: "51515474"
 
 ## <a name="what-you-learn"></a>학습 내용
 
-* IoT Hub를 만들고 장치를 Feather HUZZAH ESP8266으로 등록하는 방법
+* IoT Hub를 만들고 디바이스를 Feather HUZZAH ESP8266으로 등록하는 방법
 * 센서와 컴퓨터에 Feather HUZZAH ESP8266을 연결하는 방법
 * Feather HUZZAH ESP8266에서 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하는 방법
 * 센서 데이터를 IoT Hub로 보내는 방법
@@ -76,7 +76,7 @@ ms.locfileid: "51515474"
 
 ## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Feather HUZZAH ESP8266을 센서와 컴퓨터에 연결
 
-이 섹션에서는 센서를 보드에 연결합니다. 그런 다음 장치를 나중에 사용할 컴퓨터에 연결합니다.
+이 섹션에서는 센서를 보드에 연결합니다. 그런 다음 디바이스를 나중에 사용할 컴퓨터에 연결합니다.
 
 ### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266"></a>Feather HUZZAH ESP8266에 DHT22 온도 및 습도 센서 연결
 
@@ -240,7 +240,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
    * Wi-Fi SSID
    * Wi-Fi 암호
-   * 장치 연결 문자열
+   * 디바이스 연결 문자열
 
 > [!Note]
 > 자격 증명 정보는 Feather HUZZAH ESP8266의 EEPROM에 저장됩니다. Feather HUZZAH ESP8266 보드에서 리셋 단추를 클릭하면 샘플 응용 프로그램에서 정보를 지울 것인지 묻는 메시지가 표시됩니다. 정보를 지우려면 `Y`를 입력합니다. 정보를 다시 제공하라는 메시지가 표시됩니다.

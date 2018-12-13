@@ -17,7 +17,7 @@ ms.locfileid: "42145228"
 ---
 # <a name="tpm-attestation"></a>TPM 증명
 
-IoT Hub Device Provisioning 서비스는 지정된 IoT 허브에 대한 제로 터치 장치 프로비전을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. 장치 프로비저닝 서비스를 사용하여 안전한 방식으로 수백만 개의 장치를 프로비전할 수 있습니다.
+IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터치 디바이스 프로비저닝을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. 장치 프로비저닝 서비스를 사용하여 안전한 방식으로 수백만 개의 장치를 프로비전할 수 있습니다.
 
 이 문서에서는 [TPM](./concepts-device.md)을 사용하는 경우 ID 증명 프로세스를 설명합니다. TPM은 신뢰할 수 있는 플랫폼 모듈을 의미하고 HSM(하드웨어 보안 모듈)의 형식입니다. 이 문서에서는 불연속, 펌웨어 또는 통합 TPM을 사용한다고 가정합니다. 소프트웨어 에뮬레이트된 TPM은 프로토타이핑 또는 테스트에 적합하지만 불연속, 펌웨어 또는 통합 TPM이 제공하는 것과 동일한 수준의 보안을 제공하지 않습니다. 프로덕션 환경에서 TPM 소프트웨어를 사용하는 것은 좋지 않습니다. TPM 유형에 대한 자세한 내용은 [TPM에 대한 간략한 소개](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf)를 참조하세요.
 
@@ -61,7 +61,7 @@ TPM이 있는 장치를 장치 프로비저닝 서비스에 처음 연결하면 
 
 장치는 암호가 해독된 nonce를 사용하여 SAS 토큰에 서명하고 서명된 SAS 토큰을 사용하여 장치 프로비저닝 서비스에 연결을 다시 설정할 수 있습니다. Nonce 챌린지가 완료되면 서비스는 장치에서 프로비전을 허용합니다.
 
-![장치에서 EK 소유권의 유효성을 검사하도록 Device Provisioning 서비스에 연결 다시 설정](./media/concepts-tpm-attestation/step-three-validation.png)
+![디바이스에서 EK 소유권의 유효성을 검사하도록 Device Provisioning 서비스에 연결 다시 설정](./media/concepts-tpm-attestation/step-three-validation.png)
 
 ## <a name="next-steps"></a>다음 단계
 

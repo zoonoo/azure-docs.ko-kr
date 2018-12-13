@@ -42,7 +42,7 @@ items:
     href: policy-migration.md
   - name: 승인된 클라이언트 앱 필요
     href: app-based-conditional-access.md
-  - name: 관리 장치 필요
+  - name: 관리 디바이스 필요
     href: require-managed-devices.md
   - name: 신뢰할 수 없는 네트워크의 액세스 시도에 대한 MFA 필요
     href: untrusted-networks.md

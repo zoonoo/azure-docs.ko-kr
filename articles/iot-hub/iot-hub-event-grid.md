@@ -16,7 +16,7 @@ ms.locfileid: "48249471"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
-Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합됩니다. 안전하고 안정적이며 확장성 있는 방식으로 중요한 이벤트에 대응할 수 있도록 IoT Hub 이벤트를 수신 대기 할 수 있게 비즈니스 응용 프로그램을 구성합니다. 예를 들어 새 IoT 장치가 IoT 허브에 등록될 때마다 데이터베이스를 업데이트하고, 티켓을 만들고, 이메일 알림을 전달하는 것과 같은 여러 작업을 수행하는 응용 프로그램을 빌드합니다. 
+Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합됩니다. 안전하고 안정적이며 확장성 있는 방식으로 중요한 이벤트에 대응할 수 있도록 IoT Hub 이벤트를 수신 대기 할 수 있게 비즈니스 응용 프로그램을 구성합니다. 예를 들어 새 IoT 디바이스가 IoT 허브에 등록될 때마다 데이터베이스를 업데이트하고, 티켓을 만들고, 이메일 알림을 전달하는 것과 같은 여러 작업을 수행하는 응용 프로그램을 빌드합니다. 
 
 [Azure Event Grid](../event-grid/overview.md)는 게시-구독 모델을 사용하여 완전히 관리되는 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](../azure-functions/functions-overview.md) 및 [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)와 같은 Azure 서비스에 대한 기본 제공 지원이 있어 웹후크를 사용하여 외부 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요. 
 
@@ -32,20 +32,20 @@ IoT Hub는 다음과 같은 이벤트 유형을 게시합니다.
 
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |
-| Microsoft.Devices.DeviceCreated | IoT 허브에 장치를 등록하는 경우 게시합니다. |
-| Microsoft.Devices.DeviceDeleted | IoT 허브에서 장치를 삭제하는 경우 게시합니다. |
-| Microsoft.Devices.DeviceConnected | IoT Hub에 장치가 연결되는 경우 게시합니다. |
-| Microsoft.Devices.DeviceDisconnected | IoT Hub와 장치의 연결이 해제되는 경우 게시합니다. |
+| Microsoft.Devices.DeviceCreated | IoT 허브에 디바이스를 등록하는 경우 게시합니다. |
+| Microsoft.Devices.DeviceDeleted | IoT 허브에서 디바이스를 삭제하는 경우 게시합니다. |
+| Microsoft.Devices.DeviceConnected | IoT Hub에 디바이스가 연결되는 경우 게시합니다. |
+| Microsoft.Devices.DeviceDisconnected | IoT Hub와 디바이스의 연결이 해제되는 경우 게시합니다. |
 
 Azure Portal 또는 Azure 명령줄 인터페이스를 사용하여 각 IoT 허브에서 어떤 이벤트를 게시할지 구성할 수 있습니다. 한 예로 자습서 [Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기](../event-grid/publish-iot-hub-events-to-logic-apps.md)를 시도해 봅니다.
 
 ## <a name="event-schema"></a>이벤트 스키마
 
-IoT Hub 이벤트에는 장치 수명 주기 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. EventType 속성이 **Microsoft.Devices**로 시작하는지 확인하면 IoT Hub 이벤트인지 식별할 수 있습니다. Event Grid 이벤트 속성을 사용하는 방법에 대한 자세한 내용은 [Event Grid 이벤트 스키마](../event-grid/event-schema.md)를 참조하세요.
+IoT Hub 이벤트에는 디바이스 수명 주기 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. EventType 속성이 **Microsoft.Devices**로 시작하는지 확인하면 IoT Hub 이벤트인지 식별할 수 있습니다. Event Grid 이벤트 속성을 사용하는 방법에 대한 자세한 내용은 [Event Grid 이벤트 스키마](../event-grid/event-schema.md)를 참조하세요.
 
-### <a name="device-connected-schema"></a>장치 연결됨 스키마
+### <a name="device-connected-schema"></a>디바이스 연결됨 스키마
 
-다음 예제는 장치 연결됨 이벤트의 스키마를 보여줍니다. 
+다음 예제는 디바이스 연결됨 이벤트의 스키마를 보여 줍니다. 
 
 ```json
 [{  
@@ -68,9 +68,9 @@ IoT Hub 이벤트에는 장치 수명 주기 변경에 대응하는 데 필요�
 }]
 ```
 
-### <a name="device-created-schema"></a>스키마를 생성한 장치
+### <a name="device-created-schema"></a>스키마를 생성한 디바이스
 
-다음 예제는 장치가 생성된 이벤트의 스키마를 보여줍니다. 
+다음 예제는 디바이스가 생성된 이벤트의 스키마를 보여줍니다. 
 
 ```json
 [{
@@ -122,18 +122,18 @@ IoT Hub 이벤트에는 장치 수명 주기 변경에 대응하는 데 필요�
 
 ## <a name="filter-events"></a>이벤트 필터링
 
-IoT Hub 이벤트 구독은 이벤트 유형 및 장치 이름을 기반으로 이벤트를 필터링할 수 있습니다. Event Grid의 제목 필터는 **시작 문자**(접두사) 및 **끝 문자**(접미사) 일치를 기반으로 작동합니다. 필터는 `AND` 연산자를 사용하므로 접두사와 접미사가 둘 다 일치하는 제목의 이벤트가 구독자에게 전달됩니다. 
+IoT Hub 이벤트 구독은 이벤트 유형 및 디바이스 이름을 기반으로 이벤트를 필터링할 수 있습니다. Event Grid의 제목 필터는 **시작 문자**(접두사) 및 **끝 문자**(접미사) 일치를 기반으로 작동합니다. 필터는 `AND` 연산자를 사용하므로 접두사와 접미사가 둘 다 일치하는 제목의 이벤트가 구독자에게 전달됩니다. 
 
 IoT 이벤트의 제목은 다음 형식을 사용합니다.
 
 ```json
 devices/{deviceId}
 ```
-## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>장치 연결됨 및 장치 연결 끊김 이벤트에 대한 제한
+## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대한 제한
 
-장치 연결됨 및 장치 연결 끊김 이벤트를 받으려면 장치에 대한 C2D 링크 또는 D2C 링크를 열어야 합니다. 장치가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)를 호출하여 C2D 링크를 열 수 있습니다. 
+디바이스 연결됨 및 디바이스 연결 끊김 이벤트를 받으려면 디바이스에 대한 C2D 링크 또는 D2C 링크를 열어야 합니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)를 호출하여 C2D 링크를 열 수 있습니다. 
 
-원격 분석 데이터를 보내는 경우 D2C 링크가 열려 있습니다. 장치 연결이 불안정하면(예: 장치가 자주 연결되고 연결이 끊어짐) 단일 연결 상태를 모두 전송하지 않지만 1분마다 스냅샷이 생성된 연결 상태를 게시합니다. IoT Hub가 중단되는 경우에는 중단이 끝나는 즉시 장치 연결 상태를 게시합니다. 중단된 상태에서 장치 연결이 끊기면 장치 연결 끊김 이벤트가 10분 내에 게시됩니다.
+원격 분석 데이터를 보내는 경우 D2C 링크가 열려 있습니다. 디바이스 연결이 불안정하면(예: 디바이스가 자주 연결되고 연결이 끊어짐) 단일 연결 상태를 모두 전송하지 않지만 1분마다 스냅샷이 생성된 연결 상태를 게시합니다. IoT Hub가 중단되는 경우에는 중단이 끝나는 즉시 디바이스 연결 상태를 게시합니다. 중단된 상태에서 디바이스 연결이 끊기면 디바이스 연결 끊김 이벤트가 10분 내에 게시됩니다.
 
 ## <a name="tips-for-consuming-events"></a>이벤트 사용하기 위한 팁
 

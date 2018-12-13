@@ -23,7 +23,7 @@ ms.locfileid: "40209174"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>자습서: 자동으로 구성원 추가 또는 제거
 
-Azure AD(Azure Active Directory)에서 자동으로 보안 그룹 또는 Office 365 그룹에 사용자를 추가하거나 제거할 수 있으므로, 항상 수동으로 할 필요가 없습니다. 사용자 또는 장치의 속성이 변경될 때마다 Azure AD는 테넌트의 모든 동적 그룹 규칙을 평가하여 변경 내용에 구성원을 추가 또는 제거해야 하는지 확인합니다.
+Azure AD(Azure Active Directory)에서 자동으로 보안 그룹 또는 Office 365 그룹에 사용자를 추가하거나 제거할 수 있으므로, 항상 수동으로 할 필요가 없습니다. 사용자 또는 디바이스의 속성이 변경될 때마다 Azure AD는 테넌트의 모든 동적 그룹 규칙을 평가하여 변경 내용에 구성원을 추가 또는 제거해야 하는지 확인합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 먼저, 모두 단일 파트너 회사 소속인 게스트 사용자 그룹을 만들겠습니다. 이들에게는 특별한 라이선스가 필요하므로, 이 용도에 사용할 그룹을 따로 만드는 것이 종종 더 효율적입니다.
 
-1. 테넌트의 글로벌 관리자인 계정으로 Azure Portalhttps://portal.azure.com)에 로그인합니다.
+1. 테넌트의 글로벌 관리자인 계정으로 Azure Portal https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **그룹** > **새 그룹**을 선택합니다.
   ![새 그룹 명령 선택](./media/groups-dynamic-tutorial/new-group.png)
 3. **그룹** 블레이드에서:

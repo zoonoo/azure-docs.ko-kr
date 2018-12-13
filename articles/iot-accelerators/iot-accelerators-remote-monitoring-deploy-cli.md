@@ -76,7 +76,7 @@ pcs login
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | 사용자 ID 및 보안 관리 |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | 자산 위치 보기 |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3개 단위              | 실시간 분석 사용 |
-| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 대규모 장치 프로비저닝 |
+| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 대규모 디바이스 프로비저닝 |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1개 단위              | 메시지 데이터용 저장 영역이며 심도 있는 원격 분석 사용 |
 
 ### <a name="standard"></a>Standard
@@ -95,7 +95,7 @@ pcs login
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | 사용자 ID 및 보안 관리 |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | 자산 위치 보기 |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3개 단위              | 실시간 분석 사용 |
-| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 대규모 장치 프로비저닝 |
+| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 대규모 디바이스 프로비저닝 |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1개 단위              | 메시지 데이터용 저장 영역이며 심도 있는 원격 분석 사용 |
 
 > [!NOTE]

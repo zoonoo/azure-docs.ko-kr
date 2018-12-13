@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 시리즈용 지원 티켓 또는 사례 만들기 | Microsoft 문서
-description: StorSimple 8000 시리즈 장치에서 지원 요청을 로깅하고 지원 세션을 시작하는 방법을 알아봅니다.
+description: StorSimple 8000 시리즈 디바이스에서 지원 요청을 로깅하고 지원 세션을 시작하는 방법을 알아봅니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -23,11 +23,11 @@ ms.locfileid: "27743054"
 ---
 # <a name="contact-microsoft-support"></a>Microsoft 지원에 문의
 
-StorSimple 장치 관리자는 서비스 요약 블레이드 내에서 **새로운 지원 요청을 기록**하는 기능을 제공합니다. StorSimple 솔루션에 문제가 발생하는 경우 기술 지원을 위해 서비스 요청을 할 수 있습니다. 지원 엔지니어와 함께 온라인 세션에서 StorSimple 장치에 지원 세션을 시작해야 할 수도 있습니다. 이 문서에서는 다음을 안내합니다.
+StorSimple 장치 관리자는 서비스 요약 블레이드 내에서 **새로운 지원 요청을 기록**하는 기능을 제공합니다. StorSimple 솔루션에 문제가 발생하는 경우 기술 지원을 위해 서비스 요청을 할 수 있습니다. 지원 엔지니어와 함께 온라인 세션에서 StorSimple 디바이스에 지원 세션을 시작해야 할 수도 있습니다. 이 문서에서는 다음을 안내합니다.
 
 * 지원 요청을 만드는 방법
 * 포털 내에서 지원 요청 주기를 관리하는 방법
-* StorSimple 장치의 Windows PowerShell 인터페이스에서 지원 세션을 시작하는 방법
+* StorSimple 디바이스의 Windows PowerShell 인터페이스에서 지원 세션을 시작하는 방법
 
 지원 요청을 만들기 전에 [StorSimple 8000 시리즈 지원 SLA 및 정보](https://msdn.microsoft.com/library/mt433077.aspx) 를 검토하십시오.
 
@@ -37,13 +37,13 @@ StorSimple 장치 관리자는 서비스 요약 블레이드 내에서 **새로�
 
 #### <a name="to-create-a-support-request"></a>지원 요청을 만들려면
 
-1. StorSimple 장치 관리자 서비스로 이동합니다. 서비스 요약 블레이드 설정에서 **지원 + 문제 해결** 섹션으로 이동한 다음 **새 지원 요청**을 클릭합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동합니다. 서비스 요약 블레이드 설정에서 **지원 + 문제 해결** 섹션으로 이동한 다음 **새 지원 요청**을 클릭합니다.
      
     ![새 포털을 통한 MS 지원 문의](./media/storsimple-8000-contact-microsoft-support/contactsupport1.png)
    
 2. **새 지원 요청 블레이드**에서 **기본**을 선택합니다. **기본** 블레이드에서 다음 단계를 수행합니다.
    1. **문제점 유형** 드롭다운 목록에서 **기술**을 선택합니다.
-   2. 현재 **구독**, **서비스** 유형 및 **리소스**(StorSimple 장치 관리자 서비스)가 자동으로 선택됩니다. 
+   2. 현재 **구독**, **서비스** 유형 및 **리소스**(StorSimple 디바이스 관리자 서비스)가 자동으로 선택됩니다. 
    3. 구독과 관련된 여러 계획이 있는 경우 드롭다운에서 **지원 계획**을 선택합니다. 기술 지원을 사용하도록 설정하기 위해 유료 지원 계획이 필요합니다.
    4. **다음**을 클릭합니다.
 
@@ -52,7 +52,7 @@ StorSimple 장치 관리자는 서비스 요약 블레이드 내에서 **새로�
 3. **새 지원 요청** 블레이드에서 **2단계 문제**를 선택합니다. **문제** 블레이드에서 다음 단계를 수행합니다.
     
     1. **심각도**를 선택합니다.
-    2. 문제가 어플라이언스 또는 StorSimple 장치 관리자 서비스에 관련되어 있는지를 지정합니다.
+    2. 문제가 어플라이언스 또는 StorSimple 디바이스 관리자 서비스에 관련되어 있는지를 지정합니다.
     3. 이 문제의 **범주**를 선택하고 문제에 대한 추가 **세부 정보**를 제공합니다.
     4. 문제의 시작 날짜 및 시간을 제공합니다.
     5. **파일 업로드**에서 폴더 아이콘을 클릭하여 지원 패키지를 찾아봅니다.
@@ -92,13 +92,13 @@ StorSimple 장치 관리자는 서비스 요약 블레이드 내에서 **새로�
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell에서 지원 세션 시작
 
-StorSimple 장치에서 발생할 수 있는 문제를 해결하려면 Microsoft 기술 지원 서비스 팀과 연계해야 합니다. Microsoft 기술 지원 서비스 팀은 장치에 로그온하기 위해 지원 세션을 사용해야 합니다.
+StorSimple 디바이스에서 발생할 수 있는 문제를 해결하려면 Microsoft 기술 지원 서비스 팀과 연계해야 합니다. Microsoft 기술 지원 서비스 팀은 디바이스에 로그온하기 위해 지원 세션을 사용해야 합니다.
 
 지원 세션을 시작하려면 다음 단계를 수행합니다.
 
 #### <a name="to-start-a-support-session"></a>지원 세션을 시작하려면
 
-1. 직렬 콘솔을 사용하여 직접 또는 원격 컴퓨터에서 텔넷 세션을 통해 장치에 액세스합니다. 이렇게 하려면 [PuTTY를 사용하여 장치 직렬 콘솔에 연결](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)의 단계를 따르세요.
+1. 직렬 콘솔을 사용하여 직접 또는 원격 컴퓨터에서 텔넷 세션을 통해 디바이스에 액세스합니다. 이렇게 하려면 [PuTTY를 사용하여 디바이스 직렬 콘솔에 연결](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)의 단계를 따르세요.
 2. 열린 세션에서 **Enter** 키를 눌러 명령 프롬프트를 엽니다.
 3. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
 4. 프롬프트에 다음 암호를 입력합니다.
@@ -111,7 +111,7 @@ StorSimple 장치에서 발생할 수 있는 문제를 해결하려면 Microsoft
 7. 이 문자열을 저장하고 Microsoft 기술 지원 서비스에 전자 메일 메시지로 보냅니다.
 
 > [!IMPORTANT]
-> `Disable-HcsSupportAccess`를 실행하여 지원 액세스를 비활성화할 수 있습니다. StorSimple 장치는 세션이 시작된 8시간 후에 지원 액세스를 비활성화하려고 합니다. 지원 세션을 시작한 후에 StorSimple 장치 자격 증명을 변경하는 것이 좋습니다.
+> `Disable-HcsSupportAccess`를 실행하여 지원 액세스를 비활성화할 수 있습니다. StorSimple 디바이스는 세션이 시작된 8시간 후에 지원 액세스를 비활성화하려고 합니다. 지원 세션을 시작한 후에 StorSimple 장치 자격 증명을 변경하는 것이 좋습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

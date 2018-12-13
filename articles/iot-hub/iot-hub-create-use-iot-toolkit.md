@@ -32,9 +32,9 @@ ms.locfileid: "43047236"
 
 1. Visual Studio Code에서 **탐색기** 보기를 엽니다.
 
-2. Explorer의 맨 아래에서 **Azure IoT Hub 장치** 섹션을 확장합니다. 
+2. Explorer의 맨 아래에서 **Azure IoT Hub 디바이스** 섹션을 확장합니다. 
 
-   ![Azure IoT Hub 장치 확장](./media/iot-hub-create-use-iot-toolkit/azure-iot-hub-devices.png)
+   ![Azure IoT Hub 디바이스 확장](./media/iot-hub-create-use-iot-toolkit/azure-iot-hub-devices.png)
 
 3. **Azure IoT Hub 장치** 섹션 헤더에서 **...** 를 클릭합니다. 줄임표가 표시되지 않으면 헤더를 마우스로 가리킵니다. 
 

@@ -45,7 +45,7 @@ IoT Edge 솔루션을 디버그, 실행 및 테스트하기 위한 로컬 개발
    pip install --upgrade iotedgehubdev
    ```
 
-장치에서 모듈을 테스트하려면 하나 이상의 IoT Edge 장치 ID가 생성된 활성 IoT 허브가 필요합니다. 개발 머신에서 IoT Edge 디먼을 실행하는 경우 다음 단계로 이동하기 전에 EdgeHub 및 EdgeAgent를 중지해야 합니다. 
+디바이스에서 모듈을 테스트하려면 하나 이상의 IoT Edge 디바이스 ID가 생성된 활성 IoT 허브가 필요합니다. 개발 머신에서 IoT Edge 디먼을 실행하는 경우 다음 단계로 이동하기 전에 EdgeHub 및 EdgeAgent를 중지해야 합니다. 
 
 
 ## <a name="create-a-new-solution-template"></a>새 솔루션 템플릿 만들기
@@ -86,18 +86,18 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만들고 새 
 
 솔루션과 함께 제공되는 기본 Java 코드는 **modules > [모듈 이름] > src > main > java > com > edgemodulemodules > App.java**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
-고유한 코드를 사용하여 Java 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 필요 사항을 해결하는 모듈을 빌드합니다. 
+고유한 코드를 사용하여 Java 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 디바이스 관리 및 안정성 등 IoT 솔루션에 대한 주요 필요 사항을 해결하는 모듈을 빌드합니다. 
 
 Visual Studio Code는 Java를 지원합니다. [VS Code에서 Java로 작업하는 방법](https://code.visualstudio.com/docs/java/java-tutorial)에 대해 자세히 알아보세요.
 
 ## <a name="launch-and-debug-module-code-without-container"></a>컨테이너 없이 모듈 코드 시작 및 디버그
-IoT Edge Java 모듈은 Azure IoT Java 장치 SDK에 따라 달라집니다. 기본 모듈 코드에서 환경 설정 및 입력 이름을 사용하여 **ModuleClient**를 초기화합니다. 즉, IoT Edge Java 모듈에는 시작 및 실행을 위한 환경 설정이 필요하므로 입력 채널로 메시지를 전송하거나 라우팅해야 합니다. 기본 Java 모듈은 하나의 입력 채널만 포함하며 이름은 **input1**입니다.
+IoT Edge Java 모듈은 Azure IoT Java 디바이스 SDK에 따라 달라집니다. 기본 모듈 코드에서 환경 설정 및 입력 이름을 사용하여 **ModuleClient**를 초기화합니다. 즉, IoT Edge Java 모듈에는 시작 및 실행을 위한 환경 설정이 필요하므로 입력 채널로 메시지를 전송하거나 라우팅해야 합니다. 기본 Java 모듈은 하나의 입력 채널만 포함하며 이름은 **input1**입니다.
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>IoT Edge 솔루션에 대한 IoT Edge 시뮬레이터 설치
 
 개발 머신에서 IoT Edge 보안 디먼을 설치하는 대신 IoT Edge 시뮬레이터를 시작하여 IoT Edge 솔루션을 실행할 수 있습니다. 
 
-1. 왼쪽의 장치 탐색기에서 마우스 오른쪽 단추로 IoT Edge 장치 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 장치 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
+1. 왼쪽의 디바이스 탐색기에서 마우스 오른쪽 단추로 IoT Edge 디바이스 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 디바이스 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
 
 2. 통합 터미널에서 IoT Edge 시뮬레이터가 성공적으로 설치된 것을 확인할 수 있습니다.
 
@@ -148,7 +148,7 @@ IoT Edge Java 모듈은 Azure IoT Java 장치 SDK에 따라 달라집니다. 기
 
 개발 머신에서 IoT Edge 보안 디먼을 설치하는 대신 IoT Edge 시뮬레이터를 시작하여 IoT Edge 솔루션을 실행할 수 있습니다. 
 
-1. 왼쪽의 장치 탐색기에서 마우스 오른쪽 단추로 IoT Edge 장치 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 장치 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
+1. 왼쪽의 디바이스 탐색기에서 마우스 오른쪽 단추로 IoT Edge 디바이스 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 디바이스 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
 
 2. 통합 터미널에서 IoT Edge 시뮬레이터가 성공적으로 설치된 것을 확인할 수 있습니다.
 
@@ -173,4 +173,4 @@ IoT Edge Java 모듈은 Azure IoT Java 장치 SDK에 따라 달라집니다. 기
 
 모듈이 빌드되면 [Visual Studio Code에서 Azure IoT Edge 모듈을 배포](how-to-deploy-modules-vscode.md)하는 방법을 알아봅니다.
 
-IoT Edge 장치의 모듈을 개발하려면 [Azure IoT Hub SDK를 이해하고 사용](../iot-hub/iot-hub-devguide-sdks.md)합니다.
+IoT Edge 디바이스의 모듈을 개발하려면 [Azure IoT Hub SDK를 이해하고 사용](../iot-hub/iot-hub-devguide-sdks.md)합니다.

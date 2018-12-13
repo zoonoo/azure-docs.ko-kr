@@ -1,6 +1,6 @@
 ---
 title: VMware에서 Azure Data Box Gateway 프로비전 자습서 | Microsoft Docs
-description: Azure Data Box Gateway를 배포하는 두 번째 자습서에는 VMware에서 가상 장치를 프로비전하는 작업이 포함됩니다.
+description: Azure Data Box Gateway를 배포하는 두 번째 자습서에는 VMware에서 가상 디바이스를 프로비전하는 작업이 포함됩니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -26,9 +26,9 @@ ms.locfileid: "49167157"
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 호스트가 최소 장치 요구 사항을 충족하는지 확인
-> * VMware에서 가상 장치 프로비전
-> * 가상 장치 시작 및 IP 주소 가져오기
+> * 호스트가 최소 디바이스 요구 사항을 충족하는지 확인
+> * VMware에서 가상 디바이스 프로비전
+> * 가상 디바이스 시작 및 IP 주소 가져오기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장치를 프로비전하기 위한 필수 구성 요소는 다음과 같습니다.
+VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 디바이스를 프로비전하기 위한 필수 구성 요소는 다음과 같습니다.
 
 ### <a name="for-the-data-box-gateway-resource"></a>Data Box Gateway 리소스의 경우
 
@@ -49,11 +49,11 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
   > [!IMPORTANT]
   > Data Box Gateway에서 실행되는 소프트웨어는 Data Box Gateway 리소스에서만 사용할 수 있습니다.
 
-### <a name="for-the-data-box-gateway-virtual-device"></a>Data Box Gateway 가상 장치의 경우
+### <a name="for-the-data-box-gateway-virtual-device"></a>Data Box Gateway 가상 디바이스의 경우
 
 가상 장치를 배포하기 전에 다음 사항을 확인해야 합니다.
 
-* 장치를 프로비전하는 데 사용될 수 있는 VMware(ESXi 6.0 또는 6.5)를 실행하는 호스트 시스템에 액세스할 수 있습니다.
+* 디바이스를 프로비전하는 데 사용될 수 있는 VMware(ESXi 6.0 또는 6.5)를 실행하는 호스트 시스템에 액세스할 수 있습니다.
 * 가상 디스크 프로비전을 위해 호스트 시스템에서 다음 리소스를 전용할 수 있습니다.
 
   * 코어 4개 이상
@@ -67,11 +67,11 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 시작하기 전에
 
 - Data Box Gateway를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Data Box Gateway 네트워킹 요구 사항](data-box-gateway-system-requirements.md#networking-requirements)을 참조하세요.
-- 장치가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
+- 디바이스가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
 
 ## <a name="check-the-host-system"></a>호스트 시스템 확인
 
-가상 장치를 만들려면 다음이 필요합니다.
+가상 디바이스를 만들려면 다음이 필요합니다.
 
 * VMware ESXi Server 6.0 또는 6.5를 실행하는 호스트 시스템에 대한 액세스 호스트 시스템에서는 다음 리소스를 가상 디스크에 전용으로 사용할 수 있습니다.
  
@@ -83,11 +83,11 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 * ESXi 호스트를 관리하기 위한 시스템의 VMware vSphere 클라이언트
 
 
-## <a name="provision-a-virtual-device-in-hypervisor"></a>하이퍼바이저에서 가상 장치 프로비전
+## <a name="provision-a-virtual-device-in-hypervisor"></a>하이퍼바이저에서 가상 디바이스 프로비전
 
 하이퍼바이저에서 가상 장치를 프로비전하려면 다음 단계를 수행합니다.
 
-1. 시스템에서 가상 장치 이미지를 복사합니다. Azure Portal을 통해 이 가상 이미지(두 개 파일)를 다운로드했습니다. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
+1. 시스템에서 가상 디바이스 이미지를 복사합니다. Azure Portal을 통해 이 가상 이미지(두 개 파일)를 다운로드했습니다. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
 
 2. vSphere 웹 클라이언트를 사용하여 ESXi 서버에 로그인합니다. 가상 머신을 만들려면 관리자 권한이 필요합니다.
 
@@ -165,14 +165,14 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 다음 단계는 이 컴퓨터의 전원을 켜고 IP 주소를 가져오는 것입니다.
 
 > [!NOTE]
-> 가상 장치에는 VMware 도구를 설치하지 않는 것이 좋습니다(위에서 프로비전됨). VMware 도구를 설치하면 지원되지 않는 구성이 설정됩니다.
+> 가상 디바이스에는 VMware 도구를 설치하지 않는 것이 좋습니다(위에서 프로비전됨). VMware 도구를 설치하면 지원되지 않는 구성이 설정됩니다.
 
-## <a name="start-the-virtual-device-and-get-the-ip"></a>가상 장치 시작 및 IP 가져오기
+## <a name="start-the-virtual-device-and-get-the-ip"></a>가상 디바이스 시작 및 IP 가져오기
 
 가상 장치를 시작하여 연결하려면 다음 단계를 수행합니다.
 
-#### <a name="to-start-the-virtual-device"></a>가상 장치를 시작하려면
-1. 가상 장치를 시작합니다. 오른쪽 창의 VM 목록에서 장치를 선택하고 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시합니다. **전원**을 선택한 후 **전원 켜기**를 선택합니다. 이렇게 하면 가상 머신의 전원이 켜집니다. 웹 클라이언트의 아래쪽 창에서 상태를 볼 수 있습니다.
+#### <a name="to-start-the-virtual-device"></a>가상 디바이스를 시작하려면
+1. 가상 장치를 시작합니다. 오른쪽 창의 VM 목록에서 디바이스를 선택하고 마우스 오른쪽 단추로 클릭하여 상황에 맞는 메뉴를 표시합니다. **전원**을 선택한 후 **전원 켜기**를 선택합니다. 이렇게 하면 가상 머신의 전원이 켜집니다. 웹 클라이언트의 아래쪽 창에서 상태를 볼 수 있습니다.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image19.png)
 
@@ -184,7 +184,7 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image21.png)
 
-4. 장치가 실행되면 콘솔 창의 위쪽 가운데 부분에 있는 탭에서 커서를 가리키고 클릭합니다. **게스트 OS > 키 받기 > Ctrl+Alt+Delete**를 선택합니다. 그러면 VM의 잠금을 해제합니다.
+4. 디바이스가 실행되면 콘솔 창의 위쪽 가운데 부분에 있는 탭에서 커서를 가리키고 클릭합니다. **게스트 OS > 키 받기 > Ctrl+Alt+Delete**를 선택합니다. 그러면 VM의 잠금을 해제합니다.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image22.png)
 
@@ -192,19 +192,19 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뛰고 8단계로 이동하세요. 비 DHCP 환경에서 장치를 부팅하는 경우 결과에 대한 메시지가 표시됩니다. **Set-HcsIPAddress cmdlet을 사용하여 네트워크를 구성합니다**. 
+6. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뛰고 8단계로 이동하세요. 비 DHCP 환경에서 디바이스를 부팅하는 경우 결과에 대한 메시지가 표시됩니다. **Set-HcsIPAddress cmdlet을 사용하여 네트워크를 구성합니다**. 
    
-7. 네트워크를 구성하려면 명령 프롬프트에서 `Get-HcsIpAddress` 명령을 사용하여 가상 장치에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 장치에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
+7. 네트워크를 구성하려면 명령 프롬프트에서 `Get-HcsIpAddress` 명령을 사용하여 가상 디바이스에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
 8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 아래에 예가 나와 있습니다.
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-9. 초기 설정이 완료된 후 장치가 부팅되면 장치 배너 텍스트가 표시됩니다. 장치 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 장치의 웹 UI에 연결하고 로컬 설정 및 활성화를 완료하겠습니다.
+9. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 장치 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 디바이스의 웹 UI에 연결하고 로컬 설정 및 활성화를 완료하겠습니다.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정해야 합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [호스트 시스템이 최소 가상 장치 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
+장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [호스트 시스템이 최소 가상 장치 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -216,11 +216,11 @@ VMware ESXi 6.0 또는 6.5를 실행하는 호스트 시스템에서 가상 장�
 이 자습서에서는 다음과 같은 Data Box Gateway 토픽에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 호스트가 최소 장치 요구 사항을 충족하는지 확인
-> * VMware에서 가상 장치 프로비전
-> * 가상 장치 시작 및 IP 주소 가져오기
+> * 호스트가 최소 디바이스 요구 사항을 충족하는지 확인
+> * VMware에서 가상 디바이스 프로비전
+> * 가상 디바이스 시작 및 IP 주소 가져오기
 
-다음 자습서로 이동하여 가상 장치를 연결하고, 설정하고, 활성화하는 방법을 알아보세요.
+다음 자습서로 이동하여 가상 디바이스를 연결하고, 설정하고, 활성화하는 방법을 알아보세요.
 
 * [Data Box Gateway에서 공유로 설정 및 연결](data-box-gateway-deploy-connect-setup-activate.md)
 

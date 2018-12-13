@@ -139,7 +139,7 @@ items:
     items:
     - name: IoT Hub
       href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning 서비스
+    - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: 지도
       href: /azure/azure-maps

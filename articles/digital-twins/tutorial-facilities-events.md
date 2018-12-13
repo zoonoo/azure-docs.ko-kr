@@ -180,7 +180,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. **Logic App 디자이너** 창의 맨 위에서 **저장** 단추를 선택합니다.
 
-1. 명령 창에서 Digital Twin 샘플의 **device-connectivity** 폴더로 이동하고 `dotnet run` 명령을 실행하여 센서 데이터를 시뮬레이션합니다.
+1. 명령 창에서 Digital Twins 샘플의 **device-connectivity** 폴더로 이동하고 `dotnet run` 명령을 실행하여 센서 데이터를 시뮬레이션합니다.
 
 잠시 후 이 Logic Apps 리소스로부터 이메일 알림을 받기 시작합니다. 
 

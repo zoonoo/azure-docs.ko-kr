@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 쌍 시작(Java) | Microsoft Docs
-description: Azure IoT Hub 장치 쌍을 사용하여 태그를 추가한 다음 IoT Hub 쿼리를 사용하는 방법입니다. Java용 Azure IoT 장치 SDK를 사용하여 장치 앱을 구현하고 Java용 Azure IoT 서비스 SDK를 사용하여 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
+title: Azure IoT Hub 디바이스 쌍 시작(Java) | Microsoft Docs
+description: Azure IoT Hub 장치 쌍을 사용하여 태그를 추가한 다음 IoT Hub 쿼리를 사용하는 방법입니다. Java용 Azure IoT 디바이스 SDK를 사용하여 디바이스 앱을 구현하고 Java용 Azure IoT 서비스 SDK를 사용하여 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
 author: dominicbetts
 ms.service: iot-hub
 services: iot-hub
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2018
 ms.locfileid: "51514488"
 ---
-# <a name="get-started-with-device-twins-java"></a>장치 쌍 시작(Java)
+# <a name="get-started-with-device-twins-java"></a>디바이스 쌍 시작(Java)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
@@ -49,7 +49,7 @@ ms.locfileid: "51514488"
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
 
-이 섹션에서는 **myDeviceId**와 연결된 IoT Hub의 장치 쌍에 태그로 위치 메타데이터를 추가하는 Java 앱을 만듭니다. 먼저 앱은 미국에 있는 장치에 대한 IoT 허브를 쿼리한 다음 셀룰러 네트워크 연결을 보고하는 장치에 대한 IoT 허브를 쿼리합니다.
+이 섹션에서는 **myDeviceId**와 연결된 IoT Hub의 디바이스 쌍에 태그로 위치 메타데이터를 추가하는 Java 앱을 만듭니다. 먼저 앱은 미국에 있는 디바이스에 대한 IoT 허브를 쿼리한 다음 셀룰러 네트워크 연결을 보고하는 디바이스에 대한 IoT 허브를 쿼리합니다.
 
 1. 개발 컴퓨터에서 `iot-java-twin-getstarted`라는 빈 폴더를 만듭니다.
 
@@ -144,7 +144,7 @@ ms.locfileid: "51514488"
     }
     ```
 
-13. 장치 쌍에서 **region** 및 **plant** 장치 쌍 태그를 업데이트하려면 `try` 블록에 다음 코드를 추가합니다.
+13. 디바이스 쌍에서 **region** 및 **plant** 디바이스 쌍 태그를 업데이트하려면 `try` 블록에 다음 코드를 추가합니다.
 
     ```java
     // Get the device twin from IoT Hub
@@ -173,7 +173,7 @@ ms.locfileid: "51514488"
     System.out.println(device);
     ```
 
-14. IoT 허브에서 장치 쌍을 쿼리하려면 이전 단계에서 추가한 코드 뒤의 `try` 블록에 다음 코드를 추가합니다. 코드는 두 개의 쿼리를 실행합니다. 각 쿼리는 최대 100대의 장치를 반환합니다.
+14. IoT 허브에서 디바이스 쌍을 쿼리하려면 이전 단계에서 추가한 코드 뒤의 `try` 블록에 다음 코드를 추가합니다. 코드는 두 개의 쿼리를 실행합니다. 각 쿼리는 최대 100대의 디바이스를 반환합니다.
 
     ```java
     // Query the device twins in IoT Hub
@@ -210,7 +210,7 @@ ms.locfileid: "51514488"
     mvn clean package -DskipTests
     ```
 
-## <a name="create-a-device-app"></a>장치 앱 만들기
+## <a name="create-a-device-app"></a>디바이스 앱 만들기
 
 이 섹션에서는 IoT Hub로 전송되는 reported 속성 값을 설정하는 Java 콘솔 앱을 만듭니다.
 
@@ -279,7 +279,7 @@ ms.locfileid: "51514488"
     이 샘플 앱은 **DeviceClient** 개체를 인스턴스화할 때 **프로토콜** 변수를 사용합니다. 
 
 9. **main** 메서드에 다음 코드를 추가합니다.
-    * IoT Hub와 통신하는 장치 클라이언트를 만듭니다.
+    * IoT Hub와 통신하는 디바이스 클라이언트를 만듭니다.
     * **Device** 개체를 만들어 장치 쌍 속성을 저장합니다.
 
     ```java
@@ -345,17 +345,17 @@ ms.locfileid: "51514488"
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![태그 값을 업데이트하고 장치 쿼리를 실행하는 Java IoT Hub 서비스 앱](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![태그 값을 업데이트하고 디바이스 쿼리를 실행하는 Java IoT Hub 서비스 앱](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
-    장치 쌍에 추가된 **plant** 및 **region** 태그를 볼 수 있습니다. 첫 번째 쿼리에서 장치를 반환하지만 두 번째는 그렇지 않습니다.
+    디바이스 쌍에 추가된 **plant** 및 **region** 태그를 볼 수 있습니다. 첫 번째 쿼리에서 디바이스를 반환하지만 두 번째는 그렇지 않습니다.
 
-2. 명령 프롬프트의 `simulated-device` 폴더에서 다음 명령을 실행하여 **connectivityType** reported 속성을 장치 쌍에 추가합니다.
+2. 명령 프롬프트의 `simulated-device` 폴더에서 다음 명령을 실행하여 **connectivityType** reported 속성을 디바이스 쌍에 추가합니다.
 
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![장치 클라이언트는 **connectivityType** reported 속성을 추가합니다.](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![디바이스 클라이언트는 **connectivityType** reported 속성을 추가합니다.](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. 명령 프롬프트의 `add-tags-query` 폴더에서 다음 명령을 실행하여 **add-tags-query** 서비스 앱을 두 번째로 실행합니다.
 
@@ -363,13 +363,13 @@ ms.locfileid: "51514488"
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![태그 값을 업데이트하고 장치 쿼리를 실행하는 Java IoT Hub 서비스 앱](./media/iot-hub-java-java-twin-getstarted/service-app-2.png)
+    ![태그 값을 업데이트하고 디바이스 쿼리를 실행하는 Java IoT Hub 서비스 앱](./media/iot-hub-java-java-twin-getstarted/service-app-2.png)
 
-    이제 장치는 **connectivityType** 속성을 IoT Hub에 전송했고 두 번째 쿼리에서 장치를 반환합니다.
+    이제 디바이스는 **connectivityType** 속성을 IoT Hub에 전송했고 두 번째 쿼리에서 디바이스를 반환합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 장치 ID를 만들었습니다. 백 엔드 앱에서 태그로 장치 메타데이터를 추가하고, 장치 쌍에서 장치 연결 정보를 보고하는 장치 앱을 작성했습니다. 또한 SQL과 유사한 IoT Hub 쿼리 언어를 사용하여 장치 쌍 정보를 쿼리하는 방법도 살펴보았습니다.
+이 자습서에서는 Azure Portal에서 새 IoT Hub를 구성한 다음, IoT Hub의 ID 레지스트리에서 디바이스 ID를 만들었습니다. 백 엔드 앱에서 태그로 디바이스 메타데이터를 추가하고, 디바이스 쌍에서 디바이스 연결 정보를 보고하는 디바이스 앱을 작성했습니다. 또한 SQL과 유사한 IoT Hub 쿼리 언어를 사용하여 디바이스 쌍 정보를 쿼리하는 방법도 살펴보았습니다.
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 

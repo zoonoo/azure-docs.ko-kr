@@ -18,15 +18,15 @@ ms.locfileid: "51239460"
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [장치에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-ios.md) 문서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여줍니다.
+Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [장치에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-ios.md) 문서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여줍니다.
 
 이 문서에서는 다음 방법을 안내합니다.
 
-* 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-장치 메시지를 단일 장치로 보냅니다.
+* 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-디바이스 메시지를 단일 디바이스로 보냅니다.
 
-* 장치에서 클라우드-장치 메시지를 받습니다.
+* 디바이스에서 클라우드-디바이스 메시지를 받습니다.
 
-* 솔루션 백 엔드에서, IoT Hub에서 장치로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
+* 솔루션 백 엔드에서, IoT Hub에서 디바이스로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
 
 [IoT Hub 개발자 가이드의 메시징 섹션](iot-hub-devguide-messaging.md)에서 클라우드-장치 메시지에 대한 자세한 내용을 찾아볼 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 * **sample-service** - IoT Hub를 통해 시뮬레이션된 장치 앱에 클라우드-장치 메시지를 보낸 후 배달 승인을 수신합니다.
 
 > [!NOTE]
-> IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 장치 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 장치를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](http://www.azure.com/develop/iot)를 참조하세요.
+> IoT Hub는 많은 디바이스 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 디바이스 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터](http://www.azure.com/develop/iot)를 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -77,7 +77,7 @@ pod install
 
 ### <a name="run-the-sample-device-application"></a>샘플 장치 응용 프로그램 실행 
 
-1. 장치의 연결 문자열을 검색합니다. 장치 세부 정보 블레이드에서 [Azure Portal](https://portal.azure.com)을 통해 이 문자열을 복사하거나 다음 CLI 명령을 사용하여 검색할 수 있습니다. 
+1. 장치의 연결 문자열을 검색합니다. 디바이스 세부 정보 블레이드에서 [Azure Portal](https://portal.azure.com)을 통해 이 문자열을 복사하거나 다음 CLI 명령을 사용하여 검색할 수 있습니다. 
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id {YourDeviceID} --output table
@@ -161,7 +161,7 @@ pod install
 
    ![샘플 IoT 장치 앱 보기](media/iot-hub-ios-swift-c2d/view-d2c.png)
 
-2. 시뮬레이션된 서비스 장치에서 실행되는 **IoTHub 서비스 클라이언트 샘플** 앱에서 메시지를 보내고 싶은 IoT 장치의 ID를 입력합니다. 
+2. 시뮬레이션된 서비스 디바이스에서 실행되는 **IoTHub 서비스 클라이언트 샘플** 앱에서 메시지를 보내고 싶은 IoT 디바이스의 ID를 입력합니다. 
 
 3. 일반 텍스트 메시지를 작성한 다음, **보내기**를 클릭합니다. 
 

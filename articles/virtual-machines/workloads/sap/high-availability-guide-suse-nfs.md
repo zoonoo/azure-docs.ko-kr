@@ -318,7 +318,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    <pre><code>sudo vi /etc/drbd.d/<b>NW1</b>-nfs.res
    </code></pre>
 
-   새 drbd 장치용 구성을 삽입하고 명령을 종료합니다.
+   새 drbd 디바이스용 구성을 삽입하고 명령을 종료합니다.
 
    <pre><code>resource <b>NW1</b>-nfs {
         protocol     C;
@@ -343,7 +343,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    <pre><code>sudo vi /etc/drbd.d/<b>NW2</b>-nfs.res
    </code></pre>
 
-   새 drbd 장치용 구성을 삽입하고 명령을 종료합니다.
+   새 drbd 디바이스용 구성을 삽입하고 명령을 종료합니다.
 
    <pre><code>resource <b>NW2</b>-nfs {
         protocol     C;
@@ -365,7 +365,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    }
    </code></pre>
 
-   drbd 장치를 만들어 시작합니다.
+   drbd 디바이스를 만들어 시작합니다.
 
    <pre><code>sudo drbdadm create-md <b>NW1</b>-nfs
    sudo drbdadm create-md <b>NW2</b>-nfs

@@ -23,7 +23,7 @@ ms.locfileid: "33776168"
 ---
 # <a name="routing-and-tag-expressions"></a>라우팅 및 태그 식
 ## <a name="overview"></a>개요
-태그 식을 사용하면 Notification Hubs를 통해 푸시 알림을 보내는 경우에 특정한 장치 집합, 보다 구체적으로는 등록을 대상으로 지정할 수 있습니다.
+태그 식을 사용하면 Notification Hubs를 통해 푸시 알림을 보내는 경우에 특정한 디바이스 집합, 보다 구체적으로는 등록을 대상으로 지정할 수 있습니다.
 
 ## <a name="targeting-specific-registrations"></a>특정 등록을 대상으로 지정
 특정한 알림 등록을 대상으로 지정하는 유일한 방법은 등록에 태그를 연결한 후에 해당 태그를 대상으로 지정하는 것입니다. [등록 관리](notification-hubs-push-notification-registration-management.md)의 설명처럼, 푸시 알림을 받으려면 앱은 장치 핸들을 알림 허브에 등록해야 합니다. 알림 허브에 등록이 생성되면, 응용 프로그램 백 엔드는 등록에 푸시 알림을 보낼 수 있습니다.
@@ -70,7 +70,7 @@ ms.locfileid: "33776168"
 태그를 사용하여 흥미가 있는 그룹에 알림을 보내는 방법에 대한 단계별 전체 자습서는 [속보](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)를 참조하세요.
 
 ## <a name="using-tags-to-target-users"></a>태그를 사용하여 사용자를 대상으로 지정하기
-태그를 사용하는 또 다른 방법은 특정 사용자의 모든 장치를 식별하는 것입니다. 등록에 대해 다음 그림과 같이 사용자 ID를 포함하는 태그를 지정할 수 있습니다.
+태그를 사용하는 또 다른 방법은 특정 사용자의 모든 디바이스를 식별하는 것입니다. 등록에 대해 다음 그림과 같이 사용자 ID를 포함하는 태그를 지정할 수 있습니다.
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 

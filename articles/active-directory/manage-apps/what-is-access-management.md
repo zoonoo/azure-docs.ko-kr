@@ -51,7 +51,7 @@ Azure AD를 사용하여 Single Sign-On(SSO) 및 자동화된 프로비전에 Sa
 
 이 경우 해당 역할 할당이 Salesforce에서 업데이트된 다른 그룹에 추가되면서 모든 할당된 사용자는 자동으로 Salesforce에 프로비전됩니다. 사용자는 Microsoft 응용 프로그램 액세스 패널, Office 웹 클라이언트를 통하거나 해당 조직의 Salesforce 로그인 페이지로 이동하여 Salesforce를 검색하고 액세스할 수 있습니다. 관리자는 Azure AD 보고를 사용하여 사용 및 할당 상태를 쉽게 볼 수 있습니다.
 
-관리자는 [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md) 를 채택하여 특정 역할에 대한 액세스 정책을 설정할 수 있습니다. 이러한 정책은 기업 환경 외부 및 Multi-Factor Authentication 또는 장치 요구에 액세스가 허용되는지 여부를 포함하여 다양한 경우에 액세스를 달성할 수 있습니다.
+관리자는 [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md) 를 채택하여 특정 역할에 대한 액세스 정책을 설정할 수 있습니다. 이러한 정책은 기업 환경 외부 및 Multi-Factor Authentication 또는 디바이스 요구에 액세스가 허용되는지 여부를 포함하여 다양한 경우에 액세스를 달성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [조건부 액세스를 사용한 앱 보호](../active-directory-conditional-access-azure-portal.md)

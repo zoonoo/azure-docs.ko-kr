@@ -27,7 +27,7 @@ ms.locfileid: "41919552"
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 특정 Windows Phone 8 또는 Windows Phone 8.1 장치에 푸시 알림을 보내는 방법을 보여줍니다. Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 이 자습서의 [Windows 범용](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 버전을 참조하세요.
 
-알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하여 이 시나리오를 활성화합니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그에 대한 자세한 내용은 [등록의 태그](notification-hubs-tags-segment-push-message.md)를 참조하세요.
+알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하여 이 시나리오를 활성화합니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 디바이스에서 알림을 받게 됩니다. 태그에 대한 자세한 내용은 [등록의 태그](notification-hubs-tags-segment-push-message.md)를 참조하세요.
 
 > [!NOTE]
 > Notification Hubs Windows Phone SDK에서는 Windows Phone 8.1 Silverlight 앱에서의 WNS(Windows 푸시 알림 서비스) 사용을 지원하지 않습니다. Windows Phone 8.1 Silverlight 앱에서 MPNS 대신 WNS를 사용하려면 REST API를 사용하는 [Notification Hubs - Windows Phone Silverlight 자습서]를 따릅니다.
@@ -279,7 +279,7 @@ ms.locfileid: "41919552"
    
     이 코드는 전에 저장한 범주의 상태를 기반으로 기본 페이지를 업데이트합니다.
 
-이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 장치의 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
+이제 앱이 완료되며, 사용자가 범주 선택을 변경할 때마다 알림 허브 등록에 사용된 디바이스의 로컬 저장소에 범주 집합을 저장할 수 있습니다. 다음에는 범주 알림을 이 앱에 보낼 수 있는 백 엔드를 정의합니다.
 
 ## <a name="send-tagged-notifications"></a>태그가 지정된 알림 보내기
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]

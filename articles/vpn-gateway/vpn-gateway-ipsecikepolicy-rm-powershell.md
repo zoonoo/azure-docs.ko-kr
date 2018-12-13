@@ -43,7 +43,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 >    * ***Standard*** 및 ***HighPerformance***(경로 기반)
 > 2. 지정된 연결에 대해 ***하나의*** 정책 조합만 지정할 수 있습니다.
 > 3. IKE(주 모드)와 IPsec(빠른 모드) 둘 다에 대한 모든 알고리즘 및 매개 변수를 지정해야 합니다. 부분 정책 지정은 허용되지 않습니다.
-> 4. 해당 VPN 장치 공급업체 사양을 참조하여 정책이 해당 온-프레미스 VPN 장치에서 지원되는지 확인하세요. 정책이 호환되지 않는 경우 S2S 또는 VNet 간 연결을 설정할 수 없습니다.
+> 4. 해당 VPN 디바이스 공급업체 사양을 참조하여 정책이 해당 온-프레미스 VPN 디바이스에서 지원되는지 확인하세요. 정책이 호환되지 않는 경우 S2S 또는 VNet 간 연결을 설정할 수 없습니다.
 
 ## <a name ="workflow"></a>1부 - IPsec/IKE 정책을 만들고 설정하는 워크플로
 이 섹션에서는 S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책을 만들고 업데이트하는 워크플로를 설명합니다.
@@ -97,7 +97,7 @@ IPsec 및 IKE 프로토콜 표준은 다양하게 결합된 다양한 암호화 
 >    * 10.2.0.0/16 <====> 192.168.0.0/16
 >    * 10.2.0.0/16 <====> 172.16.0.0/16
 
-정책 기반 트래픽 선택기에 대한 자세한 내용은 [여러 온-프레미스 정책 기반 VPN 장치 연결](vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
+정책 기반 트래픽 선택기에 대한 자세한 내용은 [여러 온-프레미스 정책 기반 VPN 디바이스 연결](vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
 
 다음 표에는 사용자 지정 정책에서 지원하는 해당 Diffie-hellman 그룹이 나열되어 있습니다.
 
@@ -215,10 +215,10 @@ $lng6 = Get-AzureRmLocalNetworkGateway  -Name $LNGName6 -ResourceGroupName $RG1
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'AzureA1b2C3'
 ```
 
-필요한 경우 “-UsePolicyBasedTrafficSelectors $True”를 추가하여 연결 cmdlet을 만듦으로써 Azure VPN Gateway가 위에 설명된 대로 온-프레미스의 정책 기반 VPN 장치에 연결하도록 할 수 있습니다.
+필요한 경우 “-UsePolicyBasedTrafficSelectors $True”를 추가하여 연결 cmdlet을 만듦으로써 Azure VPN Gateway가 위에 설명된 대로 온-프레미스의 정책 기반 VPN 디바이스에 연결하도록 할 수 있습니다.
 
 > [!IMPORTANT]
-> 연결에 IPsec/IKE 정책이 지정되고 나면 Azure VPN Gateway는 해당 특정 연결에 지정된 암호화 알고리즘 및 키 수준으로 된 IPsec/IKE 제안만 보내거나 수락합니다. 연결에 대한 온-프레미스 VPN 장치에서 정확한 정책 조합을 사용하거나 수락하는지 확인합니다. 그러지 않으면 S2S VPN 터널이 설정되지 않습니다.
+> 연결에 IPsec/IKE 정책이 지정되고 나면 Azure VPN Gateway는 해당 특정 연결에 지정된 암호화 알고리즘 및 키 수준으로 된 IPsec/IKE 제안만 보내거나 수락합니다. 연결에 대한 온-프레미스 VPN 디바이스에서 정확한 정책 조합을 사용하거나 수락하는지 확인합니다. 그러지 않으면 S2S VPN 터널이 설정되지 않습니다.
 
 
 ## <a name ="vnet2vnet"></a>4부 - IPsec/IKE 정책을 사용하여 새 VNet 간 연결 만들기
@@ -346,7 +346,7 @@ DhGroup             : DHGroup24
 PfsGroup            : PFS24
 ```
 
-구성된 IPsec/IKE 정책이 없는 경우 명령(PS> $connection6.policy)을 실행한 결과로 반환되는 내용이 없습니다. 반환되는 내용이 없다고 해서 연결에 대해 IPsec/IKE 정책이 구성되지 않았다는 의미는 아니며, 사용자 지정 IPsec/IKE 정책이 없는 것입니다. 실제 연결은 온-프레미스 VPN 장치 및 Azure VPN Gateway 간에 협상된 기본 정책을 사용합니다.
+구성된 IPsec/IKE 정책이 없는 경우 명령(PS> $connection6.policy)을 실행한 결과로 반환되는 내용이 없습니다. 반환되는 내용이 없다고 해서 연결에 대해 IPsec/IKE 정책이 구성되지 않았다는 의미는 아니며, 사용자 지정 IPsec/IKE 정책이 없는 것입니다. 실제 연결은 온-프레미스 VPN 디바이스 및 Azure VPN Gateway 간에 협상된 기본 정책을 사용합니다.
 
 #### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. 연결에 대한 IPsec/IKE 정책 추가 또는 업데이트
 
@@ -362,7 +362,7 @@ $newpolicy6   = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
 
-온-프레미스 정책 기반 VPN 장치에 연결할 때 “UsePolicyBasedTrafficSelectors”를 사용하도록 설정하려면 cmdlet에 “-UsePolicyBaseTrafficSelectors” 매개 변수를 추가하거나, 이 매개 변수를 $False로 설정하여 옵션을 사용하지 않도록 설정합니다.
+온-프레미스 정책 기반 VPN 디바이스에 연결할 때 “UsePolicyBasedTrafficSelectors”를 사용하도록 설정하려면 cmdlet에 “-UsePolicyBaseTrafficSelectors” 매개 변수를 추가하거나, 이 매개 변수를 $False로 설정하여 옵션을 사용하지 않도록 설정합니다.
 
 ```powershell
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6 -UsePolicyBasedTrafficSelectors $True
@@ -390,7 +390,7 @@ PfsGroup            : None
 
 #### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. 연결에서 IPsec/IKE 정책 제거
 
-연결에서 사용자 지정 정책을 제거하고 나면 Azure VPN Gateway는 [IPsec/IKE 제안의 기본 목록](vpn-gateway-about-vpn-devices.md)으로 되돌려지고 온-프레미스 VPN 장치와 다시 협상합니다.
+연결에서 사용자 지정 정책을 제거하고 나면 Azure VPN Gateway는 [IPsec/IKE 제안의 기본 목록](vpn-gateway-about-vpn-devices.md)으로 되돌려지고 온-프레미스 VPN 디바이스와 다시 협상합니다.
 
 ```powershell
 $RG1           = "TestPolicyRG1"

@@ -23,7 +23,7 @@ ms.locfileid: "50094679"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
-Azure Cloud를 통해 지원되는 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 플랫폼에서  사용자는 IoT 장치에서 직접 실행할 클라우드 워크로드를 배포할 수 있습니다.  IoT Edge 모듈은 오프라인 워크로드를 실행할 수 있으며 로컬에서 데이터 분석을 수행합니다. 이러한 유형의 플랫폼을 사용하면 대역폭을 절약하고 로컬 데이터와 중요한 데이터를 보호할 수 있으며 응답 시의 대기 시간을 줄일 수 있습니다.  이제는 미리 작성된 워크로드를 활용하는 옵션이 제공됩니다. 지금까지는 소수의 Microsoft 솔루션만 제공되었습니다.  그러므로 시간과 리소스를 투자하여 사용자 지정 IoT 솔루션을 직접 빌드해야 했습니다.
+Azure Cloud를 통해 지원되는 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 플랫폼에서  사용자는 IoT 디바이스에서 직접 실행할 클라우드 워크로드를 배포할 수 있습니다.  IoT Edge 모듈은 오프라인 워크로드를 실행할 수 있으며 로컬에서 데이터 분석을 수행합니다. 이러한 유형의 플랫폼을 사용하면 대역폭을 절약하고 로컬 데이터와 중요한 데이터를 보호할 수 있으며 응답 시의 대기 시간을 줄일 수 있습니다.  이제는 미리 작성된 워크로드를 활용하는 옵션이 제공됩니다. 지금까지는 소수의 Microsoft 솔루션만 제공되었습니다.  그러므로 시간과 리소스를 투자하여 사용자 지정 IoT 솔루션을 직접 빌드해야 했습니다.
 
 하지만 이제는 [Azure Marketplace에서 IoT Edge 모듈](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1)이 제공되므로 게시자는 하나의 플랫폼에서 IoT 고객을 대상으로 솔루션을 알리고 판매할 수 있습니다. 그리고 IoT 개발자는 솔루션을 신속하게 개발하는 데 사용할 수 있는 기능을 찾아서 구매할 수 있습니다.  
 
@@ -41,7 +41,7 @@ Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 모듈 형태
 
 **컨테이너 제품 유형과 IoT Edge 모듈 제품 유형 간의 차이점**
 
-IoT Edge 모듈 제품 유형은 IoT Edge 장치에서 실행되는 특정 유형의 컨테이너로, IoT Edge 컨텍스트에서 실행하기 위한 기본 구성 설정이 적용된 상태로 제공되며 필요에 따라 IoT Edge 런타임과의 통합을 위해 IoT Edge 모듈 SDK를 사용합니다.
+IoT Edge 모듈 제품 유형은 IoT Edge 디바이스에서 실행되는 특정 유형의 컨테이너로, IoT Edge 컨텍스트에서 실행하기 위한 기본 구성 설정이 적용된 상태로 제공되며 필요에 따라 IoT Edge 런타임과의 통합을 위해 IoT Edge 모듈 SDK를 사용합니다.
 
 ## <a name="publishing-your-iot-edge-module"></a>IoT Edge 모듈 게시
 

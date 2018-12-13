@@ -227,7 +227,7 @@ Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거�
 
 ### <a name="rest-apis"></a>REST API
 
-Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 장치에서 Azure 리소스와 응용 프로그램을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 전체 REST API 설명서를 보려면 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/)를 참조하세요.
+Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 디바이스에서 Azure 리소스와 응용 프로그램을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 전체 REST API 설명서를 보려면 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/)를 참조하세요.
 
 ### <a name="apis"></a>API
 
@@ -263,7 +263,7 @@ JSON 형식 문서인 Azure Resource Manager 템플릿을 사용하여 이러한
 
 Azure 구독을 만들거나 작업하려면 Azure 계정이 있어야 합니다. Azure 계정은 Azure AD 또는 회사나 학교 조직과 같은 디렉터리의 단순한 ID로, Azure AD에서 신뢰할 수 있는 것입니다. 이러한 조직에 속해 있지 않은 경우 Azure AD에서 신뢰할 수 있는 Microsoft 계정을 사용하여 항상 구독을 만들 수 있습니다. 온-프레미스 Windows Server Active Directory를 Azure AD와 통합하는 방법에 대해 알아보려면 [온-프레미스 ID를 Azure Active Directory와 통합](../../active-directory/hybrid/whatis-hybrid-identity.md)을 참조하세요.
 
-모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 장치를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 디바이스를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
 개별 Azure 계정 ID(*사용자*라고도 함)뿐만 아니라 Azure AD에서 *그룹*을 정의할 수도 있습니다. RBAC(역할 기반 액세스 제어)를 사용하여 구독의 리소스에 대한 액세스를 관리하려면 사용자 그룹을 만드는 것이 좋습니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
 

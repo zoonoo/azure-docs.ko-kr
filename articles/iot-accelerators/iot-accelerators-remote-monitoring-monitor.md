@@ -27,7 +27,7 @@ ms.locfileid: "51824747"
 >[!div class="checklist"]
 > * 대시보드에서 장치 필터링
 > * 실시간 원격 분석 보기
-> * 장치 세부 정보 보기
+> * 디바이스 세부 정보 보기
 > * 장치에서 경고 보기
 > * 시스템 KPI 보기
 
@@ -35,13 +35,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-## <a name="choose-the-devices-to-display"></a>표시할 장치 선택
+## <a name="choose-the-devices-to-display"></a>표시할 디바이스 선택
 
 **대시보드** 페이지에 표시할 연결된 장치를 선택하려면 필터를 사용합니다. **트럭** 장치만 표시하려면 필터 드롭다운 목록에서 기본 제공 **트럭** 필터를 선택합니다.
 
 [![대시보드의 트럭에 대한 필터](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-필터를 적용하는 경우 필터 조건과 일치하는 장치만 맵과 원격 분석 패널에 대시보드 페이지의 맵에 표시됩니다. truck-02를 포함한 트럭 두 대가 솔루션 가속기에 연결된 것을 볼 수 있습니다.
+필터를 적용하는 경우 필터 조건과 일치하는 디바이스만 맵과 원격 분석 패널에 대시보드 페이지의 맵에 표시됩니다. truck-02를 포함한 트럭 두 대가 솔루션 가속기에 연결된 것을 볼 수 있습니다.
 
 [![맵에 트럭만 표시됩니다.](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 truck-02의 세부 정보를 보려면 맵을 이동하고 확대/축소하여 truck-02를 찾은 다음, 맵에서 트럭을 선택합니다. 그런 다음, 장치 레이블을 클릭하여 **장치 세부 정보** 패널을 엽니다. 장치 세부 정보에는 다음이 포함됩니다.
 
 * 최근 원격 분석 값
-* 장치에서 지원하는 메서드
+* 디바이스에서 지원하는 메서드
 * 장치 속성
 
 [![대시보드에서 장치 세부 정보 보기](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-expanded.png#lightbox)

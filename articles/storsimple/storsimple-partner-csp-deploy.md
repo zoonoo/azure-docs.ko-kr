@@ -25,7 +25,7 @@ ms.locfileid: "51238933"
 
 ## <a name="overview"></a>개요
 
-고객에게 CSP(클라우드 솔루션 공급자) 파트너를 통해 StorSimple 가상 배열을 배포할 수 있습니다. CSP 파트너는 StorSimple 장치 관리자 서비스를 만들 수 있습니다. StorSimple 가상 배열 및 연결된 공유, 볼륨 및 백업을 배포하고 관리하는 데 이 서비스를 사용할 수 있습니다.
+고객에게 CSP(클라우드 솔루션 공급자) 파트너를 통해 StorSimple 가상 배열을 배포할 수 있습니다. CSP 파트너는 StorSimple 디바이스 관리자 서비스를 만들 수 있습니다. StorSimple 가상 배열 및 연결된 공유, 볼륨 및 백업을 배포하고 관리하는 데 이 서비스를 사용할 수 있습니다.
 
 이 문서에서는 CSP 파트너가 고객을 추가하거나 기존 고객에 새 구독을 추가한 다음 CSP에서 StorSimple 가상 배열을 배포하는 서비스를 만들 수 있는 방법을 설명합니다.
 
@@ -68,9 +68,9 @@ ms.locfileid: "51238933"
 
     ![Azure Portal에 로그인](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. StorSimple 장치 관리자를 만들려면 **+ 새로 만들기**를 클릭하고 **StorSimple 가상 장치 시리즈**를 검색하거나 이동합니다. 자세한 내용은 [StorSimple 장치 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동하세요.
+8. StorSimple 디바이스 관리자를 만들려면 **+ 새로 만들기**를 클릭하고 **StorSimple 가상 디바이스 시리즈**를 검색하거나 이동합니다. 자세한 내용은 [StorSimple 디바이스 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동하세요.
 
-    ![StorSimple 장치 관리자 서비스 만들기](./media/storsimple-partner-csp-deploy/image8.png)
+    ![StorSimple 디바이스 관리자 서비스 만들기](./media/storsimple-partner-csp-deploy/image8.png)
 
 
 ## <a name="add-a-subscription"></a>구독 추가
@@ -97,9 +97,9 @@ ms.locfileid: "51238933"
 
     ![Azure Portal에 로그인](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. StorSimple 장치 관리자를 만들려면 **+ 새로 만들기**를 클릭하고 **StorSimple 가상 장치 시리즈**를 검색하거나 이동합니다. 자세한 내용은 [StorSimple 장치 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동하세요.
+8. StorSimple 디바이스 관리자를 만들려면 **+ 새로 만들기**를 클릭하고 **StorSimple 가상 디바이스 시리즈**를 검색하거나 이동합니다. 자세한 내용은 [StorSimple 디바이스 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동하세요.
 
-    ![StorSimple 장치 관리자 서비스 만들기](./media/storsimple-partner-csp-deploy/image8.png)
+    ![StorSimple 디바이스 관리자 서비스 만들기](./media/storsimple-partner-csp-deploy/image8.png)
 
 ## <a name="next-steps"></a>다음 단계
 

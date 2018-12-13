@@ -1,6 +1,6 @@
 ---
-title: 이 빠른 시작에서는 C와 함께 대칭 키를 사용하여 Azure IoT Hub에 시뮬레이션된 장치를 프로비전하는 방법을 보여줍니다. | Microsoft Docs
-description: 이 빠른 시작에서는 C 장치 SDK를 사용하여 Azure IoT Hub Device Provisioning Service로 대칭 키를 사용하는 시뮬레이션된 장치를 만듭니다.
+title: 이 빠른 시작에서는 C와 함께 대칭 키를 사용하여 Azure IoT Hub에 시뮬레이션된 디바이스를 프로비전하는 방법을 보여 줍니다. | Microsoft Docs
+description: 이 빠른 시작에서는 C 디바이스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service로 대칭 키를 사용하는 시뮬레이션된 디바이스를 만듭니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/29/2018
@@ -16,11 +16,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2018
 ms.locfileid: "49456937"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 시뮬레이션된 장치 프로비전
+# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전
 
-이 빠른 시작에서는 Windows 개발 머신에서 장치 시뮬레이터를 만들고 실행하는 방법을 알아봅니다. 대칭 키를 사용하여 Device Provisioning Service 인스턴스로 인증하고 IoT 허브에 할당되도록 이 시뮬레이션된 장치를 구성합니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플 코드는 프로비전을 시작하는 장치에 대한 부팅 시퀀스를 시뮬레이션하는 데 사용됩니다. 장치는 프로비전 서비스 인스턴스의 개별 등록을 기반으로 인식되고 IoT 허브에 할당됩니다.
+이 빠른 시작에서는 Windows 개발 머신에서 디바이스 시뮬레이터를 만들고 실행하는 방법을 알아봅니다. 대칭 키를 사용하여 Device Provisioning Service 인스턴스로 인증하고 IoT 허브에 할당되도록 이 시뮬레이션된 디바이스를 구성합니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플 코드는 프로비전을 시작하는 장치에 대한 부팅 시퀀스를 시뮬레이션하는 데 사용됩니다. 디바이스는 프로비전 서비스 인스턴스의 개별 등록을 기반으로 인식되고 IoT 허브에 할당됩니다.
 
-이 문서에서는 개별 등록을 사용하여 프로비전을 보여주지만 등록 그룹을 사용하여 동일한 절차를 사용할 수 있습니다. 유일한 차이점은 장치에 대한 고유한 등록 ID로 파생된 장치 키를 사용해야 한다는 점입니다. 등록 그룹을 사용하면 등록에서 대칭 키가 직접 사용되지 않습니다. 대칭 키 등록 그룹은 레거시 장치로 제한되지 않지만 [대칭 키 증명을 사용하여 레거시 장치를 프로비전하는 방법](how-to-legacy-device-symm-key.md)은 등록 그룹 예제를 제공합니다. 자세한 내용은 [대칭 키 증명에 대한 그룹 등록](concepts-symmetric-key-attestation.md#group-enrollments)을 참조하세요.
+이 문서에서는 개별 등록을 사용하여 프로비전을 보여주지만 등록 그룹을 사용하여 동일한 절차를 사용할 수 있습니다. 유일한 차이점은 디바이스에 대한 고유한 등록 ID로 파생된 디바이스 키를 사용해야 한다는 점입니다. 등록 그룹을 사용하면 등록에서 대칭 키가 직접 사용되지 않습니다. 대칭 키 등록 그룹은 레거시 디바이스로 제한되지 않지만 [대칭 키 증명을 사용하여 레거시 디바이스를 프로비전하는 방법](how-to-legacy-device-symm-key.md)은 등록 그룹 예제를 제공합니다. 자세한 내용은 [대칭 키 증명에 대한 그룹 등록](concepts-symmetric-key-attestation.md#group-enrollments)을 참조하세요.
 
 자동 프로비전 프로세스에 익숙하지 않은 경우 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요. 
 
@@ -44,7 +44,7 @@ ms.locfileid: "49456937"
 
 이 섹션에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 빌드하는 데 사용되는 개발 환경을 준비합니다. 
 
-SDK에는 시뮬레이션된 장치의 샘플 코드가 포함되어 있습니다. 이 시뮬레이트된 장치는 장치의 부팅 시퀀스 중에 프로비저닝을 시도합니다.
+SDK에는 시뮬레이션된 디바이스의 샘플 코드가 포함되어 있습니다. 이 시뮬레이트된 디바이스는 디바이스의 부팅 시퀀스 중에 프로비저닝을 시도합니다.
 
 1. [CMake 빌드 시스템](https://cmake.org/download/)의 버전 3.11.4를 다운로드합니다. 해당하는 암호화 해시 값을 사용하여 다운로드된 이진 파일을 확인합니다. 다음 예제에서는 Windows PowerShell을 사용하여 x64 MSI 배포의 3.11.4 버전에 대한 암호화 해시를 확인했습니다.
 
@@ -106,7 +106,7 @@ SDK에는 시뮬레이션된 장치의 샘플 코드가 포함되어 있습니�
 
 
 
-## <a name="create-a-device-enrollment-entry-in-the-portal"></a>포털에서 장치 등록 항목 만들기
+## <a name="create-a-device-enrollment-entry-in-the-portal"></a>포털에서 디바이스 등록 항목 만들기
 
 1. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, Device Provisioning Service를 엽니다.
 
@@ -124,7 +124,7 @@ SDK에는 시뮬레이션된 장치의 샘플 코드가 포함되어 있습니�
 
     ![포털에서 대칭 키 증명에 대한 개별 등록 추가](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
-4. 등록을 저장하면 **기본 키** 및 **보조 키**가 생성되고 등록 항목에 추가됩니다. 대칭 키 장치 등록이 *개별 등록* 탭의 *등록 ID* 열에 **symm-key-device-007**로 표시됩니다. 
+4. 등록을 저장하면 **기본 키** 및 **보조 키**가 생성되고 등록 항목에 추가됩니다. 대칭 키 디바이스 등록이 *개별 등록* 탭의 *등록 ID* 열에 **symm-key-device-007**로 표시됩니다. 
 
     등록을 열고 생성된 **기본 키**의 값을 복사합니다.
 
@@ -132,7 +132,7 @@ SDK에는 시뮬레이션된 장치의 샘플 코드가 포함되어 있습니�
 
 <a id="firstbootsequence"></a>
 
-## <a name="simulate-first-boot-sequence-for-the-device"></a>장치에 대한 첫 번째 부팅 시퀀스 시뮬레이션
+## <a name="simulate-first-boot-sequence-for-the-device"></a>디바이스에 대한 첫 번째 부팅 시퀀스 시뮬레이션
 
 이 섹션에서는 장치의 부팅 시퀀스를 Device Provisioning Service 인스턴스에 보내도록 샘플 코드를 업데이트합니다. 이 부팅 시퀀스를 사용하면 장치를 인식하고 Device Provisioning Service 인스턴스에 연결된 IoT Hub에 할당합니다.
 
@@ -140,7 +140,7 @@ SDK에는 시뮬레이션된 장치의 샘플 코드가 포함되어 있습니�
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 기록해 둡니다.
 
-    ![포털 블레이드에서 장치 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
 2. Visual Studio에서 CMake를 실행하여 생성된 **azure_iot_sdks.sln** 솔루션 파일을 엽니다. 솔루션 파일은 다음 위치에 있습니다.
 
@@ -182,7 +182,7 @@ SDK에는 시뮬레이션된 장치의 샘플 코드가 포함되어 있습니�
 
 7. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
-    다음 출력은 시뮬레이션된 장치를 성공적으로 부팅하고, IoT 허브에 할당할 프로비저닝 서비스 인스턴스에 연결하는 예제입니다.
+    다음 출력은 시뮬레이션된 디바이스를 성공적으로 부팅하고, IoT 허브에 할당할 프로비저닝 서비스 인스턴스에 연결하는 예제입니다.
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -198,22 +198,22 @@ SDK에는 시뮬레이션된 장치의 샘플 코드가 포함되어 있습니�
     Press enter key to exit:
     ```
 
-8. 포털에서 시뮬레이션된 장치가 할당된 IoT 허브로 이동하고 **IoT 장치** 탭을 클릭합니다. 시뮬레이션된 장치가 허브에 성공적으로 프로비전되면 *상태*가 **사용**인 장치 ID가 **IoT 장치** 블레이드에 표시됩니다. 위쪽에서 **새로 고침** 단추를 클릭해야 할 수 있습니다. 
+8. 포털에서 시뮬레이션된 디바이스가 할당된 IoT 허브로 이동하고 **IoT 디바이스** 탭을 클릭합니다. 시뮬레이션된 디바이스가 허브에 성공적으로 프로비전되면 *상태*가 **사용**인 디바이스 ID가 **IoT 디바이스** 블레이드에 표시됩니다. 위쪽에서 **새로 고침** 단추를 클릭해야 할 수 있습니다. 
 
-    ![장치가 IoT Hub에 등록됨](./media/quick-create-simulated-device/hub-registration.png) 
+    ![디바이스가 IoT Hub에 등록됨](./media/quick-create-simulated-device/hub-registration.png) 
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-장치 클라이언트 샘플을 계속해서 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
+디바이스 클라이언트 샘플을 계속해서 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
 1. 컴퓨터에서 장치 클라이언트 샘플 출력 창을 닫습니다.
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리**를 연 다음, **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 장치의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리**를 연 다음, **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 디바이스의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. 허브에 대한 **IoT 장치**를 열고, 이 빠른 시작에서 등록한 장치의 *장치 ID*를 선택한 다음, 위쪽의 **삭제** 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 시뮬레이션된 장치를 Windows 머신에 만들고, 포털에서 Azure IoT Hub Device Provisioning Service로 대칭 키를 사용하여 IoT 허브에 이 장치를 프로비전했습니다. 프로그래밍 방식으로 장치를 등록하는 방법을 알아보려면 프로그래밍 방식으로 X.509 장치를 등록하는 빠른 시작으로 계속 진행하세요. 
+이 빠른 시작에서는 시뮬레이션된 디바이스를 Windows 머신에 만들고, 포털에서 Azure IoT Hub Device Provisioning Service로 대칭 키를 사용하여 IoT 허브에 이 디바이스를 프로비전했습니다. 프로그래밍 방식으로 디바이스를 등록하는 방법을 알아보려면 프로그래밍 방식으로 X.509 디바이스를 등록하는 빠른 시작으로 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
 > [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 X.509 장치 등록](quick-enroll-device-x509-java.md)

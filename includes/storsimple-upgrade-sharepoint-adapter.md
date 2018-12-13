@@ -31,7 +31,7 @@ ms.locfileid: "50166296"
 > 다음과 같은 이유로 계획된 유지 관리 기간 동안 이 업그레이드가 발생하도록 예약해야 합니다.
 > 
 > * 어댑터를 다시 설치할 때까지 이전에 구체화된 콘텐츠를 사용할 수 없습니다.
-> * 하지만, SharePoint 용 StorSimple 어댑터의 이전 버전을 제거한 후 새 버전을 설치 하기 전에 사이트에 업로드된 모든 콘텐츠는 콘텐츠 데이터베이스에 저장됩니다. 새 어댑터를 설치한 후 해당 콘텐츠를 StorSimple 장치로 이동해야 합니다. 또는 SharePoint에 포함된 Microsoft` RBS Migrate()` PowerShell cmdlet을 사용하여 콘텐츠를 마이그레이션할 수 있습니다. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요. 
+> * 하지만, SharePoint 용 StorSimple 어댑터의 이전 버전을 제거한 후 새 버전을 설치 하기 전에 사이트에 업로드된 모든 콘텐츠는 콘텐츠 데이터베이스에 저장됩니다. 새 어댑터를 설치한 후 해당 콘텐츠를 StorSimple 디바이스로 이동해야 합니다. 또는 SharePoint에 포함된 Microsoft` RBS Migrate()` PowerShell cmdlet을 사용하여 콘텐츠를 마이그레이션할 수 있습니다. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요. 
 > 
 > 
 
@@ -39,7 +39,7 @@ ms.locfileid: "50166296"
 1. SharePoint 용 StorSimple 어댑터의 이전 버전을 제거합니다.
    
    > [!NOTE]
-   > RBS는 콘텐츠 데이터베이스에서 자동으로 해제됩니다. 그러나 기존 BLOB은 StorSimple 장치에서 유지됩니다. RBS를 사용하지 않도록 설정하고 BLOB을 콘텐츠 데이터베이스로 다시 마이그레이션되지 않기 때문에 해당 BLOB에 대한 모든 요청이 실패합니다. 
+   > RBS는 콘텐츠 데이터베이스에서 자동으로 해제됩니다. 그러나 기존 BLOB은 StorSimple 디바이스에서 유지됩니다. RBS를 사용하지 않도록 설정하고 BLOB을 콘텐츠 데이터베이스로 다시 마이그레이션되지 않기 때문에 해당 BLOB에 대한 모든 요청이 실패합니다. 
    > 
    > 
 2. SharePoint용 새 StorSimple 어댑터 설치 새 어댑터는 이전에 사용하도록 설정하거나 RBS에 대해 사용하지 않도록 설정하는 콘텐츠 데이터베이스를 자동으로 인식하여 이전 설정을 사용합니다.

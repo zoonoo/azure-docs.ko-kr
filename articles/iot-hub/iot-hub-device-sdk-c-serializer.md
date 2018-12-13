@@ -1,5 +1,5 @@
 ---
-title: C용 Azure IoT 장치 SDK - 직렬 변환기 | Microsoft Docs
+title: C용 Azure IoT 디바이스 SDK - 직렬 변환기 | Microsoft Docs
 description: C용 Azure IoT 장치 SDK에서 Serializer 라이브러리를 사용하여 IoT Hub와 통신하는 장치 앱을 만드는 방법입니다.
 author: yzhong94
 ms.service: iot-hub
@@ -17,7 +17,7 @@ ms.locfileid: "50024869"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>C용 Azure IoT 장치 SDK - 직렬 변환기에 대한 자세한 정보
 
-이 시리즈의 첫 번째 문서에서는 [C용 Azure IoT 장치 SDK에 대해 소개](iot-hub-device-sdk-c-intro.md)했습니다. 다음 문서에서는 [C용 Azure IoT 장치 SDK -- IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)에 대해 보다 자세히 설명했습니다. 이 문서에서는 나머지 구성 요소인 **serializer** 라이브러리에 대한 보다 자세한 설명을 제공하여 SDK의 범위를 보완합니다.
+이 시리즈의 첫 번째 문서에서는 [C용 Azure IoT 디바이스 SDK에 대해 소개](iot-hub-device-sdk-c-intro.md)했습니다. 다음 문서에서는 [C용 Azure IoT 디바이스 SDK -- IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)에 대해 보다 자세히 설명했습니다. 이 문서에서는 나머지 구성 요소인 **serializer** 라이브러리에 대한 보다 자세한 설명을 제공하여 SDK의 범위를 보완합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -25,13 +25,13 @@ ms.locfileid: "50024869"
 
 마지막으로 메시지 및 속성 처리와 같은 이전 문서에서 다루는 일부 항목을 다시 상기시키는 것으로 마무리합니다. 알다시피, **IoTHubClient** 라이브러리로 작업할 때와 마찬가지로 **serializer** 라이브러리를 사용할 때 해당 기능이 동일하게 작동합니다.
 
-이 문서에 설명된 모든 내용은 **serializer** SDK 샘플을 기반으로 합니다. 따라하려면 C용 Azure IoT 장치 SDK에 포함된 **simplesample\_amqp** 및 **simplesample\_http** 응용 프로그램을 참조하세요.
+이 문서에 설명된 모든 내용은 **serializer** SDK 샘플을 기반으로 합니다. 따라하려면 C용 Azure IoT 디바이스 SDK에 포함된 **simplesample\_amqp** 및 **simplesample\_http** 애플리케이션을 참조하세요.
 
 GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
 
 ## <a name="the-modeling-language"></a>모델링 언어
 
-이 시리즈의 [C용 Azure IoT 장치 SDK](iot-hub-device-sdk-c-intro.md)에서는 **simplesample\_amqp** 응용 프로그램에 제공된 예제를 통해 **C용 Azure IoT 장치 SDK** 모델링 언어를 소개했습니다.
+이 시리즈의 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)에서는 **simplesample\_amqp** 애플리케이션에 제공된 예제를 통해 **C용 Azure IoT 디바이스 SDK** 모델링 언어를 소개했습니다.
 
 ```C
 BEGIN_NAMESPACE(WeatherStation);
@@ -49,14 +49,14 @@ END_NAMESPACE(WeatherStation);
 
 여기에서 볼 수 있듯이 모델링 언어는 C 매크로를 기반으로 합니다. 항상 **BEGIN\_NAMESPACE**로 사용자 정의를 시작하고 **END\_NAMESPACE**로 끝냅니다. 회사에 해당하는 네임스페이스로 이름을 지정하는 것이 일반적입니다(이 예제에서는 작업 중인 프로젝트에 해당하는 이름을 지정).
 
-네임스페이스 내부에는 모델 정의가 나옵니다. 이 경우 풍력계에 대한 단일 모델이 있습니다. 이 모델에도 아무 이름이나 지정할 수 있지만 일반적으로는 IoT Hub와 교환하려는 데이터 형식이나 장치에 해당하는 이름을 지정합니다.  
+네임스페이스 내부에는 모델 정의가 나옵니다. 이 경우 풍력계에 대한 단일 모델이 있습니다. 이 모델에도 아무 이름이나 지정할 수 있지만 일반적으로는 IoT Hub와 교환하려는 데이터 형식이나 디바이스에 해당하는 이름을 지정합니다.  
 
 모델에는 IoT Hub로 들어오는 이벤트(*데이터*)와 IoT Hub로부터 수신할 수 있는 메시지(*동작*)에 대한 정의가 포합됩니다. 예제에서 볼 수 있듯이, 이벤트에는 형식 및 이름이, 동작에는 이름 및 선택적 매개 변수(각각 형식 포함)가 포함됩니다.
 
 이 샘플에서는 SDK에서 지원되는 추가 데이터 형식은 다루지 않습니다. 다음에 설명합니다.
 
 > [!NOTE]
-> IoT Hub는 장치에서 보내는 데이터를 *이벤트*로 참조하는 반면 모델링 언어는 *데이터*(**WITH_DATA**를 사용하여 정의됨)로 참조합니다. 마찬가지로 IoT Hub는 사용자가 장치로 보내는 데이터를 *메시지*로 참조하는 반면 모델링 언어는 *동작*(**WITH_ACTION**을 사용하여 정의됨)으로 참조합니다. 이 문서에서는 이러한 용어가 같은 의미로 사용될 수 있습니다.
+> IoT Hub는 디바이스에서 보내는 데이터를 *이벤트*로 참조하는 반면 모델링 언어는 *데이터*(**WITH_DATA**를 사용하여 정의됨)로 참조합니다. 마찬가지로 IoT Hub는 사용자가 디바이스로 보내는 데이터를 *메시지*로 참조하는 반면 모델링 언어는 *동작*(**WITH_ACTION**을 사용하여 정의됨)으로 참조합니다. 이 문서에서는 이러한 용어가 같은 의미로 사용될 수 있습니다.
 > 
 > 
 
@@ -408,7 +408,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-이 모델을 개체 지향 용어로 생각해봅니다. 이 경우 실제 장치(자동 온도 조절기)를 모델링하고 해당 장치가 **온도** 및 **습도**와 같은 특성을 포함합니다.
+이 모델을 개체 지향 용어로 생각해봅니다. 이 경우 실제 디바이스(자동 온도 조절기)를 모델링하고 해당 디바이스가 **온도** 및 **습도**와 같은 특성을 포함합니다.
 
 다음과 같은 코드를 사용하여 모델의 전체 상태를 전송할 수 있습니다.
 
@@ -443,7 +443,7 @@ if (SERIALIZE(&destination, &destinationSize, thermostat->Temperature, thermosta
 
 ## <a name="message-handling"></a>메시지 처리
 
-지금까지 이 문서에서는 이벤트를 IoT Hub에 전송하는 것에 대해서만 다루었으며 수신 메시지에 대해서는 다루지 않았습니다. 수신 메시지에 대해 알아야 하는 내용은 [C용 Azure IoT 장치 SDK](iot-hub-device-sdk-c-intro.md) 문서에서 폭넓게 다뤘기 때문입니다. 메시지 콜백 함수를 등록하여 메시지를 처리하는 문서를 상기해보겠습니다.
+지금까지 이 문서에서는 이벤트를 IoT Hub에 전송하는 것에 대해서만 다루었으며 수신 메시지에 대해서는 다루지 않았습니다. 수신 메시지에 대해 알아야 하는 내용은 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md) 문서에서 폭넓게 다뤘기 때문입니다. 메시지 콜백 함수를 등록하여 메시지를 처리하는 문서를 상기해보겠습니다.
 
 ```C
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
@@ -506,7 +506,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 **SetAirResistance** 가 호출됩니다.
 
-직렬화된 버전의 메시지가 어떤 모습인지는 아직 설명하지 않았습니다. 즉, **SetAirResistance** 메시지를 장치로 전송하는 경우 어떤 모습일까요?
+직렬화된 버전의 메시지가 어떤 모습인지는 아직 설명하지 않았습니다. 즉, **SetAirResistance** 메시지를 디바이스로 전송하는 경우 어떤 모습일까요?
 
 메시지를 장치로 전송하는 경우 Azure IoT 서비스 SDK를 통해 수행할 것입니다. 특정 동작을 호출하기 위해 어떤 문자열을 전송하는지 여전히 알아야 합니다. 메시지 전송을 위한 일반적인 형식은 다음과 같습니다.
 
@@ -516,7 +516,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 다음 두 속성으로 직렬화된 JSON 개체를 전송합니다. **Name**은 작업(메시지)의 이름이고 **Parameters**는 해당 작업의 매개 변수를 포함합니다.
 
-예를 들어 **SetAirResistance** 를 호출하려면 다음 메시지를 장치에 보낼 수 있습니다.
+예를 들어 **SetAirResistance**를 호출하려면 다음 메시지를 디바이스에 보낼 수 있습니다.
 
 ```C
 {"Name" : "SetAirResistance", "Parameters" : { "Position" : 5 }}
@@ -641,7 +641,7 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 이벤트가 **serializer** 라이브러리에서 생성되었든, 직접 작성되었든, **IoTHubClient** 라이브러리 사용은 문제가 되지 않습니다.
 
-대체 장치 자격 증명의 경우 **IoTHubClient\_LL\_Create**를 사용하는 것은 **IOTHUB\_CLIENT\_HANDLE**을 할당하기 위한 **IoTHubClient\_CreateFromConnectionString** 만큼이나 잘 작동합니다.
+대체 디바이스 자격 증명의 경우 **IoTHubClient\_LL\_Create**를 사용하는 것은 **IOTHUB\_CLIENT\_HANDLE**을 할당하기 위한 **IoTHubClient\_CreateFromConnectionString** 만큼이나 잘 작동합니다.
 
 마지막으로, **serializer** 라이브러리를 사용하는 경우 **IoTHubClient** 라이브러리를 사용할 때 했던 것처럼 **IoTHubClient\_LL\_SetOption**으로 구성 옵션을 설정할 수 있습니다.
 
@@ -663,10 +663,10 @@ serializer_deinit();
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서는 **C용 Azure IoT 장치 SDK**에 포함된 **serializer** 라이브러리의 고유한 측면에 대해 자세히 설명합니다. 제공된 정보로 모델을 사용하여 이벤트를 전송하고 IoT Hub에서 메시지를 수신하는 방법을 잘 이해할 수 있습니다.
+이 문서는 **C용 Azure IoT 디바이스 SDK**에 포함된 **serializer** 라이브러리의 고유한 측면에 대해 자세히 설명합니다. 제공된 정보로 모델을 사용하여 이벤트를 전송하고 IoT Hub에서 메시지를 수신하는 방법을 잘 이해할 수 있습니다.
 
-또한 **C용 Azure IoT 장치 SDK**로 응용 프로그램을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. [Azure IoT SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 리소스에서도 유용한 추가 정보가 제공됩니다.
+또한 **C용 Azure IoT 디바이스 SDK**로 애플리케이션을 개발하는 방법에 대한 3부로 구성된 시리즈를 완료합니다. API를 시작하는 방법뿐만 아니라 API의 작동 방식을 매우 정확하게 이해할 수 있는 충분한 정보를 제공합니다. 자세한 정보를 위해 여기에서 다루지 않은 몇 가지 샘플이 SDK에 제공됩니다. [Azure IoT SDK 설명서](https://github.com/Azure/azure-iot-sdk-c) 리소스에서도 유용한 추가 정보가 제공됩니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-IoT Hub의 기능을 더 자세히 살펴보려면 [Azure IoT Edge를 사용하여 Edge 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)를 참조하세요.
+IoT Hub의 기능을 더 자세히 살펴보려면 [Azure IoT Edge를 사용하여 Edge 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)를 참조하세요.

@@ -27,7 +27,7 @@ ms.locfileid: "51240140"
 이 목표를 위해 다음을 수행할 수 있습니다.
 
 * 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다. 이렇게 하면 품질 및 네트워크 상태가 관리됩니다.
-* Microsoft Azure Media Services [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 이렇게 하면 여러 장치의 스트리밍이 관리됩니다. Media Services서 다음과 같은 적응 비트 전송률 스트리밍 기술 제공을 지원합니다. <br/>
+* Microsoft Azure Media Services [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 이렇게 하면 여러 디바이스의 스트리밍이 관리됩니다. Media Services서 다음과 같은 적응 비트 전송률 스트리밍 기술 제공을 지원합니다. <br/>
     * **HLS**(HTTP 라이브 스트리밍) - URL의 "/Manifest" 부분에 "(format=m3u8-aapl)" 경로를 추가하여 스트리밍 원본 서버에 **Apple iOS** 네이티브 장치에서 사용할 수 있게 HLS 콘텐츠를 반환하도록 지정합니다(자세한 내용은 [로케이터](#locators) 및 [URL](#URLs) 참조).
     * **MPEG-DASH** - URL의 "/Manifest" 부분에 "(format=mpd-time-csf)" 경로를 추가하여 스트리밍 원본 서버에 MPEG-DASH를 반환하도록 지시합니다(자세한 내용은 [로케이터](#locators) 및 [URL](#URLs) 참조).
     * **부드러운 스트리밍**.

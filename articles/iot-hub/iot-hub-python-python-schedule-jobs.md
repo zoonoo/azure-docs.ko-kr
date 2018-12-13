@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub(Python)를 사용하여 작업 예약 | Microsoft Docs
-description: 여러 장치에서 직접 메서드를 호출하여 Azure IoT Hub 작업을 예약하는 방법입니다. Python용 Azure IoT SDK를 사용하여 시뮬레이션된 장치 앱 및 작업을 실행하는 서비스 앱을 구현합니다.
+description: 여러 디바이스에서 직접 메서드를 호출하여 Azure IoT Hub 작업을 예약하는 방법입니다. Python용 Azure IoT SDK를 사용하여 시뮬레이션된 장치 앱 및 작업을 실행하는 서비스 앱을 구현합니다.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -26,11 +26,11 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
 * tags 업데이트
 * 직접 메서드 호출
 
-개념적으로 작업(job)은 이러한 작업(action) 중 하나를 래핑하고 장치 쌍 쿼리로 정의된 장치 집합에 대해 실행 진행 상태를 추적합니다.  예를 들어 백 엔드 앱은 작업을 사용하여 장치 쌍 쿼리로 지정되고 향후에 예약된 10,000개 장치에서 다시 부팅 메서드를 호출할 수 있습니다.  그런 다음 응용 프로그램은 해당하는 각 장치에서 재부팅 메서드를 수신 및 실행함에 따라 진행 상태를 추적할 수 있습니다.
+개념적으로 작업(job)은 이러한 작업(action) 중 하나를 래핑하고 디바이스 쌍 쿼리로 정의된 디바이스 집합에 대해 실행 진행 상태를 추적합니다.  예를 들어 백 엔드 앱은 작업을 사용하여 디바이스 쌍 쿼리로 지정되고 향후에 예약된 10,000개 디바이스에서 다시 부팅 메서드를 호출할 수 있습니다.  그런 다음 애플리케이션은 해당하는 각 디바이스에서 재부팅 메서드를 수신 및 실행함에 따라 진행 상태를 추적할 수 있습니다.
 
 이러한 기능에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* 장치 쌍 및 속성: [장치 쌍 시작][lnk-get-started-twin] 및 [자습서: 장치 쌍 속성을 사용하는 방법][lnk-twin-props]
+* 디바이스 쌍 및 속성: [디바이스 쌍 시작][lnk-get-started-twin] 및 [자습서: 디바이스 쌍 속성을 사용하는 방법][lnk-twin-props]
 * 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드][lnk-dev-methods] 및 [자습서: 직접 메서드][lnk-c2d-methods]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
@@ -69,7 +69,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## <a name="create-a-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
+## <a name="create-a-simulated-device-app"></a>시뮬레이션된 디바이스 앱 만들기
 이 섹션에서는 클라우드에서 호출한 메서드에 응답하는 Python 콘솔 앱을 만듭니다. 이 메서드는 시뮬레이션된 **LockDoor** 메서드를 트리거합니다.
 
 1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-device-client** 패키지를 설치합니다.
@@ -161,7 +161,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
 > 
 
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>직접 메서드를 호출하고 장치 쌍의 속성을 업데이트하기 위한 작업 예약
+## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>직접 메서드를 호출하고 디바이스 쌍의 속성을 업데이트하기 위한 작업 예약
 이 섹션에서는 직접 메서드를 사용하여 장치에서 원격 **LockDoor**를 시작하는 Python 콘솔 앱을 만들고 장치 쌍의 속성을 업데이트합니다.
 
 1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-service-client** 패키지를 설치합니다.
@@ -322,7 +322,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 장치를 예약 및 업�
 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 장치에 대한 직접 메서드를 예약하고 장치 쌍의 속성을 업데이트하는 데 작업을 사용했습니다.
+이 자습서에서는 디바이스에 대한 직접 메서드를 예약하고 디바이스 쌍의 속성을 업데이트하는 데 작업을 사용했습니다.
 
 IoT Hub 및 장치 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 다음을 참조하세요
 

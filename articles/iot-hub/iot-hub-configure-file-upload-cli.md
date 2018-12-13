@@ -58,7 +58,7 @@ Azure 계정에 로그인하고 구독을 선택합니다.
 
 다음 단계에서는 **클래식** 배포 모델이 아니라 **Resource Manager** 배포 모델을 사용하여 저장소 계정을 만들었다고 가정합니다.
 
-장치에서 파일 업로드를 구성하려면 Azure 저장소 계정에 대한 연결 문자열이 필요합니다. 저장소 계정은 IoT Hub와 동일한 구독 내에 있어야 합니다. 또한 저장소 계정에 Blob 컨테이너의 이름도 필요합니다. 다음 명령을 사용하여 저장소 계정 키를 검색합니다.
+디바이스에서 파일 업로드를 구성하려면 Azure 저장소 계정에 대한 연결 문자열이 필요합니다. 저장소 계정은 IoT Hub와 동일한 구독 내에 있어야 합니다. 또한 저장소 계정에 Blob 컨테이너의 이름도 필요합니다. 다음 명령을 사용하여 저장소 계정 키를 검색합니다.
 
 ```azurecli
 az storage account show-connection-string --name {your storage account name} \
@@ -132,7 +132,7 @@ az iot hub show --name {your iot hub name}
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 [장치에서 파일 업로드](iot-hub-devguide-file-upload.md)를 참조하세요.
+IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 [디바이스에서 파일 업로드](iot-hub-devguide-file-upload.md)를 참조하세요.
 
 Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 

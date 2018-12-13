@@ -344,7 +344,7 @@ Azure Portal, PowerShell, REST API 또는 Azure Resource Manager나 IoT Hub Devi
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 IoT Hub 및 Device Provisioning Service 인스턴스를 배포한 후 두 리소스를 연결했습니다. 시뮬레이션된 장치를 프로비전하도록 설정하는 방법에 대해 알아보려면 시뮬레이션된 장치 만들기를 위한 빠른 시작을 진행하세요.
+이 빠른 시작에서는 IoT Hub 및 Device Provisioning Service 인스턴스를 배포한 후 두 리소스를 연결했습니다. 시뮬레이션된 디바이스를 프로비전하도록 설정하는 방법에 대해 알아보려면 시뮬레이션된 디바이스 만들기를 위한 빠른 시작을 진행하세요.
 
 > [!div class="nextstepaction"]
 > [시뮬레이션된 장치를 만들기 위한 빠른 시작](./quick-create-simulated-device.md)

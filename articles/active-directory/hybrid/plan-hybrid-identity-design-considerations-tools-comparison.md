@@ -63,7 +63,7 @@ PP = 공개 미리 보기 상태
 ## <a name="cloud-to-on-premises-synchronization"></a>클라우드와 온-프레미스 간 동기화
 | 기능 | Azure Active Directory 연결 | Azure Active Directory 동기화 서비스 - 더 이상 지원되지 않음  | Azure Active Directory 동기화 도구(DirSync) - 더 이상 지원되지 않음  | Forefront Identity Manager(FIM) 2010 R2 | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
-| 장치의 쓰기 저장 |● | |● | | |
+| 디바이스의 쓰기 저장 |● | |● | | |
 | 특성 쓰기 저장(Exchange 하이브리드 배포) |● |● |● |● |● |
 | 그룹 개체의 쓰기 저장 |● | | | | |
 | 암호의 쓰기 저장(SSPR(셀프 서비스 암호 재설정) 및 암호 변경에서) |● |● | | | |

@@ -31,7 +31,7 @@ DevKit가 아직 없으세요? [DevKit 시뮬레이터](https://azure-samples.gi
 ## <a name="what-you-learn"></a>학습 내용
 
 * IoT DevKit를 무선 액세스 지점에 연결하고 개발 환경을 준비하는 방법
-* IoT Hub를 만들고 MXChip IoT DevKit용 장치를 등록하는 방법
+* IoT Hub를 만들고 MXChip IoT DevKit용 디바이스를 등록하는 방법
 * MXChip IoT DevKit에서 샘플 응용 프로그램을 실행하여 센서 데이터를 수집하는 방법
 * IoT Hub로 센서 데이터를 보내는 방법
 
@@ -72,7 +72,7 @@ IoT 프로젝트는 인터넷 연결을 사용합니다. 다음 지침을 사용
 
 ### <a name="connect-to-devkit-ap"></a>DevKit AP에 연결
 
-이제 다른 Wi-Fi 사용 장치(컴퓨터 또는 휴대폰)를 사용하여 DevKit SSID(위의 이미지에 강조 표시됨)에 연결합니다. 암호를 비워 둡니다.
+이제 다른 Wi-Fi 사용 디바이스(컴퓨터 또는 휴대폰)를 사용하여 DevKit SSID(위의 이미지에 강조 표시됨)에 연결합니다. 암호를 비워 둡니다.
 
 ![네트워크 정보 및 연결 단추](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connect-ssid.png)
 
@@ -89,7 +89,7 @@ IoT 프로젝트는 인터넷 연결을 사용합니다. 다음 지침을 사용
 > [!NOTE] 
 > 사진에 표시된 IP 주소는 DevKit 화면에 할당되고 표시되는 실제 IP 주소와 일치하지 않을 수 있습니다. Wi-Fi가 DHCP를 사용하여 동적으로 IP를 할당하므로 이는 일반적입니다.
 
-Wi-Fi를 구성한 후 장치가 분리되는 경우에도 자격 증명은 해당 연결에 대해 장치에서 유지됩니다. 예를 들어 집에서 Wi-Fi에 대해 DevKit를 구성한 다음 DevKit를 사무실에 가져간 경우 AP 모드를 다시 구성하여("AP 모드로 전환" 섹션의 단계에서 시작) DevKit를 사무실 Wi-Fi에 연결해야 합니다. 
+Wi-Fi를 구성한 후 디바이스가 분리되는 경우에도 자격 증명은 해당 연결에 대해 디바이스에서 유지됩니다. 예를 들어 집에서 Wi-Fi에 대해 DevKit를 구성한 다음 DevKit를 사무실에 가져간 경우 AP 모드를 다시 구성하여("AP 모드로 전환" 섹션의 단계에서 시작) DevKit를 사무실 Wi-Fi에 연결해야 합니다. 
 
 ## <a name="start-using-the-devkit"></a>DevKit를 사용하여 시작
 
@@ -119,7 +119,7 @@ DevKit에서 실행 중인 기본 앱은 최신 버전의 펌웨어를 확인하
 
 DevKit에서 개발하려면 Visual Studio Code용 [Azure IoT Workbench](https://aka.ms/iot-workbench) 확장을 사용하는 것이 좋습니다.
 
-Azure IoT Workbench는 IoT 솔루션을 개발하는 통합 환경을 제공합니다. Azure IoT와 기타 서비스를 사용하는 장치 및 클라우드 개발에 도움이 됩니다. 이 [Channel9 비디오](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)를 통해 기능의 개요를 알아볼 수 있습니다.
+Azure IoT Workbench는 IoT 솔루션을 개발하는 통합 환경을 제공합니다. Azure IoT와 기타 서비스를 사용하는 디바이스 및 클라우드 개발에 도움이 됩니다. 이 [Channel9 비디오](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)를 통해 기능의 개요를 알아볼 수 있습니다.
 
 다음 단계를 따라 DevKit에서 개발 환경을 준비하세요.
 
@@ -160,7 +160,7 @@ Azure IoT Workbench는 IoT 솔루션을 개발하는 통합 환경을 제공합�
 
 ### <a name="install-st-link-drivers"></a>ST-Link 드라이버 설치
 
-[ST-Link/V2](http://www.st.com/en/development-tools/st-link-v2.html)는 IoT DevKit가 개발 머신과 통신하는 데 사용하는 USB 인터페이스입니다. 해당 OS의 단계에 따라 머신이 장치에 액세스할 수 있도록 허용합니다.
+[ST-Link/V2](http://www.st.com/en/development-tools/st-link-v2.html)는 IoT DevKit가 개발 머신과 통신하는 데 사용하는 USB 인터페이스입니다. 해당 OS의 단계에 따라 머신이 디바이스에 액세스할 수 있도록 허용합니다.
 
 * **Windows**: [STMicroelectronics 웹 사이트](http://www.st.com/en/development-tools/stsw-link009.html)에서 USB 드라이버를 다운로드하여 설치합니다.
 * **macOS**: macOS는 드라이버가 필요 없습니다.
@@ -192,7 +192,7 @@ Azure IoT Workbench는 IoT 솔루션을 개발하는 통합 환경을 제공합�
 1. VS Code에서 Arduino 확장을 설치하지 않은 경우 알림 창에서 **설치**를 클릭합니다.
     ![Arduino 확장 설치](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-arduino-ext.png)
 
-1. 새로 열린 프로젝트 창에서 `F1` 키를 클릭하여 명령 팔레트를 열고, **IoT Workbench: 클라우드**를 입력하여 선택하고, **Azure 프로비전**을 선택합니다. 단계별 지침에 따라 Azure IoT Hub 프로비전을 완료하고 장치를 만듭니다.
+1. 새로 열린 프로젝트 창에서 `F1` 키를 클릭하여 명령 팔레트를 열고, **IoT Workbench: 클라우드**를 입력하여 선택하고, **Azure 프로비전**을 선택합니다. 단계별 지침에 따라 Azure IoT Hub 프로비전을 완료하고 디바이스를 만듭니다.
     ![클라우드 프로비전](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
 
 1. `F1` 키를 클릭하여 명령 팔레트를 열고 **IoT Workbench: 디바이스**를 입력하여 선택한 다음, **디바이스 설정 구성 > 디바이스 연결 문자열 구성 > IoT Hub 디바이스 연결 문자열 선택**을 선택합니다.
@@ -233,7 +233,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 1. **공유 액세스 정책** 창에서 **iothubowner** 정책을 클릭하고, IoT Hub의 연결 문자열을 기록해 둡니다.
     ![Azure IoT Hub 연결 문자열](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-portal-conn-string.png)
 
-1. Visual Studio Code의 왼쪽 하단 모서리에서 **AZURE IOT HUB 장치**를 확장하고, **IoT Hub 연결 문자열 설정**을 클릭합니다.
+1. Visual Studio Code의 왼쪽 하단 모서리에서 **AZURE IOT HUB 디바이스**를 확장하고, **IoT Hub 연결 문자열 설정**을 클릭합니다.
     ![Azure IoT Hub 연결 문자열 설정](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-toolkit-conn-string.png)
 
 1. 팝업 메뉴에서 **IoT: D2C 메시지 모니터링 시작**을 클릭합니다.

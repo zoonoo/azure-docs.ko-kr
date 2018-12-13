@@ -57,26 +57,26 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
 
 ## <a name="register-a-device"></a>장치 등록
 
-연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 장치를 등록합니다.
+연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
-1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 장치 ID를 만듭니다. 
+1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 디바이스 ID를 만듭니다. 
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyJavaDevice** : 등록된 장치에 지정된 이름입니다. 표시된 것처럼 MyJavaDevice를 사용합니다. 다른 장치 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 응용 프로그램에서 장치 이름을 업데이트한 후 실행해야 합니다.
+   **MyJavaDevice** : 등록된 장치에 지정된 이름입니다. 표시된 것처럼 MyJavaDevice를 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 장치의 _장치 연결 문자열_을 가져옵니다. **YourIoTHubName**: 아래의 이 자리 표시자를 IoT 허브에 대해 선택하는 이름으로 바꿉니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다. **YourIoTHubName**: 아래의 이 자리 표시자를 IoT 허브에 대해 선택하는 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table
     ```
 
-    다음과 같은 장치 연결 문자열을 기록해 둡니다.
+    다음과 같은 디바이스 연결 문자열을 기록해 둡니다.
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -106,13 +106,13 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
 
     `connString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 내용을 **SimulatedDevice.java** 파일에 저장합니다.
 
-3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 장치 응용 프로그램을 빌드합니다.
+3. 로컬 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고 시뮬레이션된 디바이스 애플리케이션을 빌드합니다.
 
     ```cmd/sh
     mvn clean package
     ```
 
-4. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 실행합니다.
+4. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 디바이스 애플리케이션을 실행합니다.
 
     ```cmd/sh
     java -jar target/simulated-device-1.0.0-with-deps.jar

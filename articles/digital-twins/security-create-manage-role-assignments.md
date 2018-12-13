@@ -37,12 +37,12 @@ Azure Digital Twins는 [RBAC](./security-role-based-access-control.md)(역할 �
 | --- | --- |
 | 공간 관리자 | 98e44ad7-28d4-4007-853b-b9968ad132d1 |
 | 사용자 관리자| dfaac54c-f583-4dd2-b45d-8d4bbc0aa1ac |
-| 장치 관리자 | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
+| 디바이스 관리자 | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
 | 키 관리자 | 5a0b1afc-e118-4068-969f-b50efb8e5da6 |
 | 토큰 관리자 | 38a3bb21-5424-43b4-b0bf-78ee228840c3 |
 | 사용자 | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
 | 지원 전문가 | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
-| 장치 설치 관리자 | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
+| 디바이스 설치 관리자 | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
 | 게이트웨이 디바이스 | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
 
 ## <a name="supported-objectidtypes"></a>지원되는 ObjectIdTypes

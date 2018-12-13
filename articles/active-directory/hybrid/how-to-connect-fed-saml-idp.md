@@ -35,7 +35,7 @@ Microsoft는 Office 365와 같은 Microsoft 클라우드 서비스를 올바르�
 >- Outlook Web Access 및 SharePoint Online과 같은 웹 기반 클라이언트
 - 기본 인증 및 IMAP, POP, Active Sync, MAPI 등의 지원되는 Exchange 액세스 방법을 사용하는 풍부한 전자 메일 기능을 제공하는 클라이언트(향상된 클라이언트 프로토콜 끝점을 배포해야 함). 여기에는 다음이 포함됩니다.
     - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone(다양한 iOS 버전)
-    - 다양한 Google Android 장치
+    - 다양한 Google Android 디바이스
     - Windows Phone 7, Windows Phone 7.8 및 Windows Phone 8.0
     - Windows 8 메일 클라이언트 및 Windows 8.1 메일 클라이언트
     - Windows 10 메일 클라이언트

@@ -214,7 +214,7 @@ ms.locfileid: "52284985"
 | dataFactories/metricDefinitions | 아니요 | 
 | dataFactorySchema | 아니요 | 
 
-## <a name="devices"></a>장치
+## <a name="devices"></a>디바이스
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | IotHubs | yes | 

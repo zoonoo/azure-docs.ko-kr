@@ -47,7 +47,7 @@ items:
     href: tutorial-connectivity.md
 - name: 개념
   items:
-  - name: 장치 관리 개요
+  - name: 디바이스 관리 개요
     href: iot-hub-device-management-overview.md
   - name: IoT Hub와 Event Hubs 비교
     href: iot-hub-compare-event-hubs.md
@@ -73,7 +73,7 @@ items:
     - name: 메시지 보내기 및 받기
       href: iot-hub-devguide-messaging.md
       items:
-      - name: 이 메시지 라우팅을 사용하여 장치-클라우드 간 메시지 보내기
+      - name: 이 메시지 라우팅을 사용하여 디바이스-클라우드 간 메시지 보내기
         href: iot-hub-devguide-messages-d2c.md
         items:
         - name: IoT Hub 메시지 만들기 및 읽기
@@ -90,17 +90,17 @@ items:
         href: iot-hub-devguide-messages-c2d.md
       - name: 통신 프로토콜 선택
         href: iot-hub-devguide-protocols.md
-    - name: 장치에서 파일 업로드
+    - name: 디바이스에서 파일 업로드
       href: iot-hub-devguide-file-upload.md
-    - name: 장치 ID 관리
+    - name: 디바이스 ID 관리
       href: iot-hub-devguide-identity-registry.md
     - name: IoT Hub에 대한 액세스 제어
       href: iot-hub-devguide-security.md
-    - name: 쌍 장치 이해
+    - name: 쌍 디바이스 이해
       href: iot-hub-devguide-device-twins.md
     - name: 모듈 쌍 이해
       href: iot-hub-devguide-module-twins.md
-    - name: 장치에서 직접 메서드 호출
+    - name: 디바이스에서 직접 메서드 호출
       href: iot-hub-devguide-direct-methods.md
     - name: 여러 장치에서 작업 예약
       href: iot-hub-devguide-jobs.md
@@ -112,7 +112,7 @@ items:
       href: iot-hub-devguide-quotas-throttling.md
     - name: 가격 책정 예제
       href: iot-hub-devguide-pricing.md
-    - name: 장치 및 서비스 SDK
+    - name: 디바이스 및 서비스 SDK
       href: iot-hub-devguide-sdks.md
     - name: MQTT 지원
       href: iot-hub-mqtt-support.md
@@ -158,7 +158,7 @@ items:
         href: iot-hub-reliability-features-in-sdks.md
     - name: 허브 경로에서 Avro 데이터 쿼리
       href: iot-hub-query-avro-data.md
-    - name: Event Grid에서 장치 연결 상태 이벤트 정렬
+    - name: Event Grid에서 디바이스 연결 상태 이벤트 정렬
       href: iot-hub-how-to-order-connection-state-events.md
     - name: 클라우드-장치 메시지 보내기
       items:
@@ -172,7 +172,7 @@ items:
         href: iot-hub-python-python-c2d.md
       - name: iOS
         href: iot-hub-ios-swift-c2d.md
-    - name: 장치에서 파일 업로드
+    - name: 디바이스에서 파일 업로드
       items:
       - name: .NET
         href: iot-hub-csharp-csharp-file-upload.md
@@ -182,7 +182,7 @@ items:
         href: iot-hub-node-node-file-upload.md
       - name: Python
         href: iot-hub-python-python-file-upload.md
-    - name: 쌍 장치 시작
+    - name: 쌍 디바이스 시작
       items:
       - name: Node.js
         href: iot-hub-node-node-twin-getstarted.md
@@ -204,7 +204,7 @@ items:
         href: iot-hub-c-c-module-twin-getstarted.md
       - name: 노드
         href: iot-hub-node-node-module-twin-getstarted.md
-    - name: 장치 관리 시작
+    - name: 디바이스 관리 시작
       items:
       - name: Node.js
         href: iot-hub-node-node-device-management-get-started.md
@@ -271,7 +271,7 @@ items:
         href: iot-hub-auto-device-config.md
       - name: Azure CLI 사용
         href: iot-hub-auto-device-config-cli.md
-    - name: IoT 장치 대량 관리
+    - name: IoT 디바이스 대량 관리
       href: iot-hub-bulk-identity-mgmt.md
   - name: 실제 장치 사용
     items:
@@ -310,7 +310,7 @@ items:
         href: iot-hub-weather-forecast-machine-learning.md
       - name: VS Code용 Azure IoT Toolkit를 사용하여 장치 관리
         href: iot-hub-device-management-iot-toolkit.md
-      - name: Azure CLI용 IoT 확장을 사용하여 장치 관리
+      - name: Azure CLI용 IoT 확장을 사용하여 디바이스 관리
         href: iot-hub-device-management-iot-extension-azure-cli-2-0.md
       - name: Logic Apps를 사용하여 원격 모니터링 및 알림
         href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
@@ -324,11 +324,11 @@ items:
     href: /cli/azure/iot
   - name: .NET(서비스)
     href: /dotnet/api/microsoft.azure.devices
-  - name: .NET(장치)
+  - name: .NET(디바이스)
     href: /dotnet/api/microsoft.azure.devices.client
   - name: Java(서비스)
     href: /java/api/com.microsoft.azure.sdk.iot.service
-  - name: Java(장치)
+  - name: Java(디바이스)
     href: /java/api/com.microsoft.azure.sdk.iot.device
   - name: Node.js(장치)
     href: https://docs.microsoft.com/javascript/api/azure-iot-device/
@@ -358,7 +358,7 @@ items:
     items:
     - name: IoT Hub
       href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning 서비스
+    - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: IoT 서비스 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
@@ -384,7 +384,7 @@ items:
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
   - name: iOS 플랫폼용 Azure IoT 샘플
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: IoT용 Azure Certified 장치 카탈로그
+  - name: IoT용 Azure Certified 디바이스 카탈로그
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT 개발자 센터
     href: https://azure.microsoft.com/develop/iot/

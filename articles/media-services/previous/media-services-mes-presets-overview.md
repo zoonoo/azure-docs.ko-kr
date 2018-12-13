@@ -32,7 +32,7 @@ Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위�
 >  4k 인코드에 대한 미리 설정을 사용하는 경우 `S3` 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [Encoding 크기를 조정하는 방법](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)을 참조하세요.  
 
 #### <a name="video-rotation-default-setting-in-presets"></a>미리 설정의 비디오 회전 기본 설정:
-Media Encoder Standard로 작업할 때 기본적으로 비디오 회전이 사용됩니다. 비디오를 세로 모드의 모바일 장치로 녹화한 경우 이러한 미리 설정에 따라 인코딩 전에 비디오가 가로 모드로 회전됩니다.
+Media Encoder Standard로 작업할 때 기본적으로 비디오 회전이 사용됩니다. 비디오를 세로 모드의 모바일 디바이스로 녹화한 경우 이러한 미리 설정에 따라 인코딩 전에 비디오가 가로 모드로 회전됩니다.
  
 ## <a name="available-presets"></a>사용 가능한 사전 설정: 
 

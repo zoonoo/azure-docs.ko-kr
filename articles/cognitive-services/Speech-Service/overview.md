@@ -67,7 +67,7 @@ Speech 서비스에는 Speech to Text와 Speech Translation을 스트림하기 �
 
 ### <a name="speech-devices-sdk"></a>Speech Devices SDK
 
-[Speech Devices SDK](speech-devices-sdk.md)는 음성 지원 장치 개발자를 위한 통합 하드웨어 및 소프트웨어 플랫폼입니다. 하드웨어 파트너는 참조 디자인 및 개발 단위를 제공합니다. Microsoft는 하드웨어 기능을 최대한 활용하는 장치에 최적화된 SDK를 제공합니다.
+[Speech Devices SDK](speech-devices-sdk.md)는 음성 지원 장치 개발자를 위한 통합 하드웨어 및 소프트웨어 플랫폼입니다. 하드웨어 파트너는 참조 디자인 및 개발 단위를 제공합니다. Microsoft는 하드웨어 기능을 최대한 활용하는 디바이스에 최적화된 SDK를 제공합니다.
 
 
 ## <a name="speech-scenarios"></a>음성 시나리오

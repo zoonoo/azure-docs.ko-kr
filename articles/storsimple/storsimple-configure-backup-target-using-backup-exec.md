@@ -169,7 +169,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
 ### <a name="deploy-storsimple"></a>StorSimple 배포
 
-단계별 StorSimple 배포 지침은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
+단계별 StorSimple 배포 지침은 [온-프레미스 StorSimple 디바이스 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
 
 ### <a name="deploy-backup-exec"></a>Backup Exec 배포
 
@@ -277,7 +277,7 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
     ![Backup Exec 관리 콘솔 - 이름 및 설명 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
-4.  디스크 저장소 장치를 만들 디스크를 선택한 후 **다음**을 선택합니다.
+4.  디스크 저장소 디바이스를 만들 디스크를 선택한 후 **다음**을 선택합니다.
 
     ![Backup Exec 관리 콘솔 - 저장소 디스크 선택 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image9.png)
 
@@ -289,9 +289,9 @@ Backup Exec 설치 모범 사례는 [Backup Exec 설치에 대한 모범 사례]
 
     ![Backup Exec 관리 콘솔 - 저장소 구성 요약 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image11.png)
 
-7.  각 볼륨 할당의 끝에서 [StorSimple 및 Backup Exec에 대한 모범 사례](#best-practices-for-storsimple-and-backup-exec)에서 권장하는 설정과 일치하도록 저장소 장치 설정을 변경합니다.
+7.  각 볼륨 할당의 끝에서 [StorSimple 및 Backup Exec에 대한 모범 사례](#best-practices-for-storsimple-and-backup-exec)에서 권장하는 설정과 일치하도록 저장소 디바이스 설정을 변경합니다.
 
-    ![Backup Exec 관리 콘솔 - 저장소 장치 설정 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image12.png)
+    ![Backup Exec 관리 콘솔 - 저장소 디바이스 설정 페이지](./media/storsimple-configure-backup-target-using-backup-exec/image12.png)
 
 8.  Backup Exec에 대한 StorSimple 볼륨 할당을 마칠 때까지 1-7단계를 반복합니다.
 
@@ -471,8 +471,8 @@ StorSimple 장치에서 복원하면 모든 블록 저장소 장치에서 복원
 
 | 시나리오 | 영향 | 복구 방법 | 메모 |
 |---|---|---|---|
-| StorSimple 장치 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 장치를 교체하고 [StorSimple 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행합니다. | 장치 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 장치로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱싱 및 카탈로그 작업 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 장치 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
-| Backup Exec 서버 오류 | Backup 및 복원 작업이 중단됩니다. | [BEDB(Backup Exec 데이터베이스)의 수동 백업 및 복원을 수행하는 방법](http://www.veritas.com/docs/000041083)에 설명된 대로 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 Backup Exec 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 Backup Exec 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그 작업이 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 장치 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
+| StorSimple 장치 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 장치를 교체하고 [StorSimple 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행합니다. | 장치 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 장치로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱싱 및 카탈로그 작업 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
+| Backup Exec 서버 오류 | Backup 및 복원 작업이 중단됩니다. | [BEDB(Backup Exec 데이터베이스)의 수동 백업 및 복원을 수행하는 방법](http://www.veritas.com/docs/000041083)에 설명된 대로 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 Backup Exec 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 Backup Exec 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그 작업이 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
 | 백업 서버와 StorSimple이 모두 손실되는 사이트 오류 | Backup 및 복원 작업이 중단됩니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. | 먼저 StorSimple을 복원한 다음 Backup Exec을 복원합니다. 장치 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 장치로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. |
 
 ## <a name="references"></a>참조

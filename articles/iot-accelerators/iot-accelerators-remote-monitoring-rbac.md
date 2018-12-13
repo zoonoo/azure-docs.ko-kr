@@ -30,12 +30,12 @@ ms.locfileid: "51820225"
 | 솔루션 보기         | yes   | yes       |
 | 알람 업데이트         | yes   | 아니요        |
 | 알람 삭제         | yes   | 아니요        |
-| 장치 만들기        | yes   | 아니요        |
-| 장치 업데이트        | yes   | 아니요        |
-| 장치 삭제        | yes   | 아니요        |
-| 장치 그룹 만들기  | yes   | 아니요        |
-| 장치 그룹 업데이트  | yes   | 아니요        |
-| 장치 그룹 삭제  | yes   | 아니요        |
+| 디바이스 만들기        | yes   | 아니요        |
+| 디바이스 업데이트        | yes   | 아니요        |
+| 디바이스 삭제        | yes   | 아니요        |
+| 디바이스 그룹 만들기  | yes   | 아니요        |
+| 디바이스 그룹 업데이트  | yes   | 아니요        |
+| 디바이스 그룹 삭제  | yes   | 아니요        |
 | 규칙 만들기          | yes   | 아니요        |
 | 규칙 업데이트          | yes   | 아니요        |
 | 규칙 삭제          | yes   | 아니요        |
@@ -87,7 +87,7 @@ Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용
 
 ### <a name="define-a-custom-role-in-the-azure-portal"></a>Azure Portal에서 사용자 지정 역할 정의
 
-다음 단계에서는 Azure Active Directory에서 응용 프로그램에 역할을 추가하는 방법을 설명합니다. 이 예제에서는 원격 모니터링 솔루션에서 멤버가 장치를 만들고 업데이트하고 삭제할 수 있는 새 역할을 만듭니다.
+다음 단계에서는 Azure Active Directory에서 응용 프로그램에 역할을 추가하는 방법을 설명합니다. 이 예제에서는 원격 모니터링 솔루션에서 멤버가 디바이스를 만들고 업데이트하고 삭제할 수 있는 새 역할을 만듭니다.
 
 1. Azure Portal에서 솔루션에 대한 **앱 등록**을 찾습니다. 응용 프로그램 이름은 원격 모니터링 솔루션의 이름입니다. 다음 스크린샷에서 솔루션과 응용 프로그램 표시 이름은 **contoso-rm4**입니다.
 
@@ -138,11 +138,11 @@ Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용
 
 ### <a name="define-a-policy-for-the-new-role"></a>새 역할에 대한 정책 정의
 
-Azure Portal에서 앱에 역할을 추가한 후에는, 장치 관리에 필요한 권한을 할당하는 역할에 대해 [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json)에 정책을 정의해야 합니다.
+Azure Portal에서 앱에 역할을 추가한 후에는, 디바이스 관리에 필요한 권한을 할당하는 역할에 대해 [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json)에 정책을 정의해야 합니다.
 
 1. GitHub의 [원격 모니터링 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet) 리포지토리를 로컬 머신으로 복제합니다.
 
-1. 다음 코드 조각처럼 **auth/Services/data/policies/roles.json** 파일을 편집하여 **ManageDevices** 역할에 대한 정책을 추가합니다. **ID**와 **역할** 값은 이전 섹션의 앱 매니페스트에 있는 역할 정의와 일치해야 합니다. 허용된 작업 목록을 통해 **ManageDevices** 역할에 해당하는 사람이 솔루션에 연결된 장치를 만들고, 업데이트하고 삭제할 수 있습니다.
+1. 다음 코드 조각처럼 **auth/Services/data/policies/roles.json** 파일을 편집하여 **ManageDevices** 역할에 대한 정책을 추가합니다. **ID**와 **역할** 값은 이전 섹션의 앱 매니페스트에 있는 역할 정의와 일치해야 합니다. 허용된 작업 목록을 통해 **ManageDevices** 역할에 해당하는 사람이 솔루션에 연결된 디바이스를 만들고, 업데이트하고 삭제할 수 있습니다.
 
     ```json
     {

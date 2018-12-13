@@ -1,6 +1,6 @@
 ---
-title: 조직의 네트워크에 개인 장치 등록 - Azure Active Directory | Microsoft Docs
-description: 조직의 보호된 리소스에 액세스할 수 있도록 조직의 네트워크에서 개인 장치를 등록하는 방법을 알아봅니다.
+title: 조직의 네트워크에 개인 디바이스 등록 - Azure Active Directory | Microsoft Docs
+description: 조직의 보호된 리소스에 액세스할 수 있도록 조직의 네트워크에서 개인 디바이스를 등록하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -19,26 +19,26 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/17/2018
 ms.locfileid: "40180691"
 ---
-# <a name="register-your-personal-device-on-your-organizations-network"></a>조직의 네트워크에 개인 장치 등록
-일반적으로 휴대폰이나 태블릿에 해당하는 개인 장치를 조직의 네트워크에 등록합니다. 장치가 등록되면 조직의 제한된 리소스에 액세스할 수 있게 됩니다.
+# <a name="register-your-personal-device-on-your-organizations-network"></a>조직의 네트워크에 개인 디바이스 등록
+일반적으로 휴대폰이나 태블릿에 해당하는 개인 디바이스를 조직의 네트워크에 등록합니다. 디바이스가 등록되면 조직의 제한된 리소스에 액세스할 수 있게 됩니다.
 
 >[!Note]
->이 문서에서는 데모용으로 Windows 장치를 사용하지만 iOS, Android 또는 macOS를 실행하는 장치를 등록할 수도 있습니다.
+>이 문서에서는 데모용으로 Windows 디바이스를 사용하지만 iOS, Android 또는 macOS를 실행하는 디바이스를 등록할 수도 있습니다.
 
-## <a name="what-happens-when-you-register-your-device"></a>장치를 등록할 때 나타나는 결과
-조직의 네트워크에 장치를 등록하는 동안 다음 작업이 발생합니다.
+## <a name="what-happens-when-you-register-your-device"></a>디바이스를 등록할 때 나타나는 결과
+조직의 네트워크에 디바이스를 등록하는 동안 다음 작업이 발생합니다.
 
-- Windows에서 조직의 네트워크에 장치를 등록합니다.
+- Windows에서 조직의 네트워크에 디바이스를 등록합니다.
 
 - 조직의 선택에 따라, [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보](user-help-security-info-overview.md)를 통해 2단계 인증을 설정하도록 요구될 수 있습니다.
 
-- 조직의 선택에 따라, Microsoft Intune과 같은 모바일 장치 관리 기능에 자동으로 등록될 수도 있습니다. Microsoft Intune에 등록하는 방법에 대한 자세한 내용은 [Intune에서 장치 등록](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all)을 참조하세요.
+- 조직의 선택에 따라, Microsoft Intune과 같은 모바일 디바이스 관리 기능에 자동으로 등록될 수도 있습니다. Microsoft Intune에 등록하는 방법에 대한 자세한 내용은 [Intune에서 디바이스 등록](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all)을 참조하세요.
 
 - 개인 Microsoft 계정의 사용자 이름 및 암호를 사용하여 로그인 프로세스가 진행됩니다.
 
-## <a name="to-register-your-windows-device"></a>Windows 장치를 등록하려면
+## <a name="to-register-your-windows-device"></a>Windows 디바이스를 등록하려면
 
-네트워크에서 개인 장치를 등록하려면 다음 단계를 수행합니다.
+네트워크에서 개인 디바이스를 등록하려면 다음 단계를 수행합니다.
 
 1. **설정**을 열고 **계정**을 선택합니다.
 
@@ -70,9 +70,9 @@ ms.locfileid: "40180691"
     ![연결된 contoso 계정을 사용하여 회사 또는 학교 액세스 화면](./media/user-help-register-device-on-network/register-device-verify-account.png)
 
 ## <a name="next-steps"></a>다음 단계
-조직의 네트워크에 개인 장치를 등록한 후에는 대부분의 리소스에 액세스할 수 있어야 합니다.
+조직의 네트워크에 개인 디바이스를 등록한 후에는 대부분의 리소스에 액세스할 수 있어야 합니다.
 
-- 조직이 회사 장치의 가입을 원할 경우 [조직의 네트워크에 회사 장치 가입](user-help-join-device-on-network.md)을 참조하세요.
+- 조직이 회사 디바이스의 가입을 원할 경우 [조직의 네트워크에 회사 디바이스 가입](user-help-join-device-on-network.md)을 참조하세요.
 
 
 

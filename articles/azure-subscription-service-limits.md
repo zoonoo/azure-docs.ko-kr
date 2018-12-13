@@ -278,7 +278,7 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 ### <a name="iot-hub-limits"></a>IoT Hub 제한
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
-### <a name="iot-hub-device-provisioning-service-limits"></a>IoT Hub Device Provisioning 서비스 제한
+### <a name="iot-hub-device-provisioning-service-limits"></a>IoT Hub Device Provisioning Service 제한
 [!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
 
 ### <a name="data-factory-limits"></a>데이터 팩터리 제한

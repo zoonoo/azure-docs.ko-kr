@@ -64,9 +64,9 @@ ms.locfileid: "47055903"
 | 81004 | Kerberos 인증 시도가 실패했습니다. | [문제 해결 검사 목록](#troubleshooting-checklist) 참조
 | 81008 | 사용자의 Kerberos 티켓에 대한 유효성을 검사할 수 없습니다. | [문제 해결 검사 목록](#troubleshooting-checklist) 참조
 | 81009 | 사용자의 Kerberos 티켓에 대한 유효성을 검사할 수 없습니다. | [문제 해결 검사 목록](#troubleshooting-checklist) 참조
-| 81010 | 사용자의 Kerberos 티켓이 만료되었거나 잘못되었으므로 Seamless SSO가 실패했습니다. | 사용자는 회사 네트워크 내부의 도메인 조인 장치에서 로그인해야 합니다.
+| 81010 | 사용자의 Kerberos 티켓이 만료되었거나 잘못되었으므로 Seamless SSO가 실패했습니다. | 사용자는 회사 네트워크 내부의 도메인 조인 디바이스에서 로그인해야 합니다.
 | 81011 | 사용자의 Kerberos 티켓 정보에 기반하여 사용자 개체를 찾을 수 없습니다. | Azure AD Connect를 사용하여 사용자 정보를 Azure AD에 동기화합니다.
-| 81012 | Azure AD에 로그인하려는 사용자가 장치에 로그인한 사용자와 다릅니다. | 사용자가 다른 장치에서 로그인해야 합니다.
+| 81012 | Azure AD에 로그인하려는 사용자가 디바이스에 로그인한 사용자와 다릅니다. | 사용자가 다른 디바이스에서 로그인해야 합니다.
 | 81013 | 사용자의 Kerberos 티켓 정보에 기반하여 사용자 개체를 찾을 수 없습니다. |Azure AD Connect를 사용하여 사용자 정보를 Azure AD에 동기화합니다. 
 
 ## <a name="troubleshooting-checklist"></a>문제 해결 검사 목록
@@ -76,13 +76,13 @@ ms.locfileid: "47055903"
 - Azure AD Connect에서 Seamless SSO 기능을 사용할 수 있는지 확인합니다. 차단된 포트 등과 같은 이유로 기능을 사용할 수 없으면 모든 [필수 구성 요소](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites)가 제대로 갖추어져 있는지 확인합니다.
 - 테넌트에서 [Azure AD Join](../active-directory-azureadjoin-overview.md) 및 Seamless SSO를 둘 다 사용하도록 설정한 경우에는 Azure AD Join의 문제는 아닌지 확인합니다. 장치가 Azure AD에 등록되고 도메인에 가입된 경우 Azure AD Join의 SSO가 Seamless SSO보다 우선합니다. Azure AD Join의 SSO를 사용하면 "Windows에 연결됨"이라는 로그인 타일이 표시됩니다.
 - Azure AD URL( https://autologon.microsoftazuread-sso.com) )이 사용자의 인트라넷 영역 설정에 속하는지 확인합니다.
-- 회사 장치가 Active Directory 도메인에 조인되어 있는지 확인합니다. Seamless SSO가 작동하려면 장치가 [Azure AD에 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
-- 사용자가 Active Directory 도메인 계정을 통해 장치에 로그온되어 있는지 확인합니다.
+- 회사 디바이스가 Active Directory 도메인에 조인되어 있는지 확인합니다. Seamless SSO가 작동하려면 장치가 [Azure AD에 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
+- 사용자가 Active Directory 도메인 계정을 통해 디바이스에 로그온되어 있는지 확인합니다.
 - Seamless SSO가 설정된 Active Directory 포리스트에 사용자의 계정이 있는지 확인합니다.
-- 장치가 회사 네트워크에 연결되어 있는지 확인합니다.
-- 장치의 시간이 Active Directory 및 도메인 컨트롤러의 시간과 동기화되고 서로 5분 이내에 있는지 확인합니다.
+- 디바이스가 회사 네트워크에 연결되어 있는지 확인합니다.
+- 디바이스의 시간이 Active Directory 및 도메인 컨트롤러의 시간과 동기화되고 서로 5분 이내에 있는지 확인합니다.
 - `AZUREADSSOACCT` 컴퓨터 계정이 있으며, Seamless SSO를 설정하려는 각 AD 포리스트에서 사용되도록 설정되어 있는지 확인합니다. 컴퓨터 계정이 삭제되었거나 누락된 경우 [PowerShell cmdlet](#manual-reset-of-the-feature)을 사용하여 다시 만들 수 있습니다.
-- 명령 프롬프트에서 `klist` 명령을 사용하여 장치의 기존 Kerberos 티켓을 나열합니다. `AZUREADSSOACCT` 컴퓨터 계정에 대해 발급된 티켓이 있는지 확인합니다. 사용자의 Kerberos 티켓은 일반적으로 10시간 동안 유효합니다. Active Directory에 다른 설정이 있을 수 있습니다.
+- 명령 프롬프트에서 `klist` 명령을 사용하여 디바이스의 기존 Kerberos 티켓을 나열합니다. `AZUREADSSOACCT` 컴퓨터 계정에 대해 발급된 티켓이 있는지 확인합니다. 사용자의 Kerberos 티켓은 일반적으로 10시간 동안 유효합니다. Active Directory에 다른 설정이 있을 수 있습니다.
 - 테넌트에서 Seamless SSO를 사용하지 않도록 설정했다가 다시 사용하도록 설정하면, 캐시된 Kerberos 티켓이 만료될 때까지 Single Sign-On 환경을 사용할 수 없게 됩니다.
 - `klist purge` 명령을 사용하여 장치에서 기존 Kerberos 티켓을 제거한 다음 다시 시도합니다.
 - JavaScript 관련 문제가 있는지 확인하려면 브라우저의 콘솔 로그(**개발자 도구** 아래)를 검토합니다.

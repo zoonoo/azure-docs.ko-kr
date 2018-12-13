@@ -1,6 +1,6 @@
 ---
 title: StorSimple 가상 배열 작업 보기 및 관리 | Microsoft Docs
-description: StorSimple 장치 관리자 서비스 작업 페이지에 대해 설명하고 이 페이지를 사용하여 StorSimple 가상 배열에 대한 최근 및 현재 작업을 추적하는 방법을 설명합니다.
+description: StorSimple 디바이스 관리자 서비스 작업 페이지에 대해 설명하고 이 페이지를 사용하여 StorSimple 가상 배열에 대한 최근 및 현재 작업을 추적하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -21,9 +21,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/27/2018
 ms.locfileid: "52333567"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 작업 보기
+# <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 가상 배열에 대한 작업 보기
 ## <a name="overview"></a>개요
-**작업** 블레이드에서는 StorSimple 장치 관리자 서비스에 연결된 가상 배열에서 시작한 작업을 보고 관리하기 위한 단일 중앙 포털을 제공합니다. 여러 가상 장치에 대한 실행, 완료 및 실패한 작업을 볼 수 있습니다. 결과는 표 형식으로 나타납니다.
+**작업** 블레이드에서는 StorSimple 장치 관리자 서비스에 연결된 가상 배열에서 시작한 작업을 보고 관리하기 위한 단일 중앙 포털을 제공합니다. 여러 가상 디바이스에 대한 실행, 완료 및 실패한 작업을 볼 수 있습니다. 결과는 표 형식으로 나타납니다.
 
 ![작업 블레이드](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
 
@@ -57,9 +57,9 @@ ms.locfileid: "52333567"
     ![작업 세부 정보](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
 
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>가상 머신이 하이퍼바이저에서 일시 중지되는 경우 작업 실패
-StorSimple 가상 배열에서 작업이 진행 중인 경우 장치(하이퍼바이저에 프로비전된 가상 컴퓨터)가 15분 넘게 일시 중지되면 작업이 실패합니다. 이는 StorSimple 가상 배열 시간과 Microsoft Azure 시간이 동기화 해제되기 때문입니다. 
+StorSimple 가상 배열에서 작업이 진행 중인 경우 디바이스(하이퍼바이저에 프로비전된 가상 컴퓨터)가 15분 넘게 일시 중지되면 작업이 실패합니다. 이는 StorSimple 가상 배열 시간과 Microsoft Azure 시간이 동기화 해제되기 때문입니다. 
 
-다음과 같은 오류가 표시됩니다. "장치 시간이 15분 넘게 Microsoft Azure와 동기화가 끊어졌습니다. 하이퍼바이저와 디바이스 시간이 NTP 서버와 동기화되어 있는지 확인합니다. 연결 문제가 없는지 확인합니다. 연결 문제를 해결하려면 가상 장치의 로컬 웹 UI에서 진단 테스트를 실행하세요."
+다음과 같은 오류가 표시됩니다. "디바이스 시간이 15분 넘게 Microsoft Azure와 동기화가 끊어졌습니다. 하이퍼바이저와 디바이스 시간이 NTP 서버와 동기화되어 있는지 확인합니다. 연결 문제가 없는지 확인합니다. 연결 문제를 해결하려면 가상 디바이스의 로컬 웹 UI에서 진단 테스트를 실행하세요."
 
 이러한 실패는 백업, 복원, 업데이트 및 장애 조치(failover) 작업에 적용됩니다. 가상 머신이 Hyper-V에 프로비전된 경우 이 컴퓨터는 최종적으로 하이퍼바이저와 시간을 동기화합니다. 이러한 동기화 후 작업을 다시 시작할 수 있습니다.
 

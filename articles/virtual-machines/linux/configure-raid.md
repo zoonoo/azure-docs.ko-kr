@@ -112,7 +112,7 @@ zypper install mdadm
     ```
 
 ## <a name="create-the-raid-array"></a>RAID 배열 만들기
-1. 다음 예는 3개의 별도 데이터 디스크(sdc1, sdd1, sde1)에 위치한 3개의 파티션을 "스트라이프"합니다(RAID 수준 0).  이 명령을 실행하면 **/dev/md127** 이라는 새 RAID 장치가 만들어집니다. 이 데이터 디스크가 이전에 작동하지 않는 다른 RAID 배열의 일부였다면 `--force` 매개 변수를 `mdadm` 명령에 추가해야 합니다.
+1. 다음 예는 3개의 별도 데이터 디스크(sdc1, sdd1, sde1)에 위치한 3개의 파티션을 "스트라이프"합니다(RAID 수준 0).  이 명령을 실행하면 **/dev/md127**이라는 새 RAID 디바이스가 만들어집니다. 이 데이터 디스크가 이전에 작동하지 않는 다른 RAID 배열의 일부였다면 `--force` 매개 변수를 `mdadm` 명령에 추가해야 합니다.
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
@@ -154,7 +154,7 @@ zypper install mdadm
     ```bash
     sudo mkdir /data
     ```
-1. /etc/fstab를 편집할 때는 파일 시스템을 참조하는 데 장치 이름 대신 **UUID** 를 사용해야 합니다.  `blkid` 유틸리티를 사용하여 새 파일 시스템의 UUID를 확인합니다.
+1. /etc/fstab를 편집할 때는 파일 시스템을 참조하는 데 디바이스 이름 대신 **UUID**를 사용해야 합니다.  `blkid` 유틸리티를 사용하여 새 파일 시스템의 UUID를 확인합니다.
 
     ```bash   
     sudo /sbin/blkid

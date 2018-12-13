@@ -103,7 +103,7 @@ TSI에 이벤트를 보내는 방식이 프로비전하는 환경의 크기를 �
 TSI에서 참조 데이터를 만들고 업로드하고 관리하는 방법에 대한 자세한 내용은 [참조 데이터 집합 설명서](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
 
 ## <a name="business-disaster-recovery"></a>비즈니스 재해 복구
-Azure 서비스로 Time Series Insights는 Azure 지역 수준에서 중복을 사용하여 솔루션의 추가 작업 없이도 HA(고가용성)를 제공합니다. Microsoft Azure Platform에는 재해 복구(DR) 기능 또는 지역 간 가용성을 포함하는 솔루션을 빌드하도록 도와주는 기능도 포함되어 있습니다. 장치 또는 사용자에게 전역, 지역 간 고가용성을 제공하려면 이러한 Azure DR 기능을 활용합니다. [Azure 비즈니스 연속성 기술 지침](../resiliency/resiliency-technical-guidance.md) 문서에서는 비즈니스 연속성 및 DR에 대한 Azure의 기본 제공 기능을 설명합니다. [Azure 응용 프로그램에 대한 재해 복구 및 고가용성](https://docs.microsoft.com/azure/architecture/resiliency/index) 문서는 Azure 응용 프로그램에서 HA 및 DR을 달성하기 위한 전략에 대한 아키텍처 지침을 제공합니다.
+Azure 서비스로 Time Series Insights는 Azure 지역 수준에서 중복을 사용하여 솔루션의 추가 작업 없이도 HA(고가용성)를 제공합니다. Microsoft Azure Platform에는 재해 복구(DR) 기능 또는 지역 간 가용성을 포함하는 솔루션을 빌드하도록 도와주는 기능도 포함되어 있습니다. 디바이스 또는 사용자에게 전역, 지역 간 고가용성을 제공하려면 이러한 Azure DR 기능을 활용합니다. [Azure 비즈니스 연속성 기술 지침](../resiliency/resiliency-technical-guidance.md) 문서에서는 비즈니스 연속성 및 DR에 대한 Azure의 기본 제공 기능을 설명합니다. [Azure 응용 프로그램에 대한 재해 복구 및 고가용성](https://docs.microsoft.com/azure/architecture/resiliency/index) 문서는 Azure 응용 프로그램에서 HA 및 DR을 달성하기 위한 전략에 대한 아키텍처 지침을 제공합니다.
 
 Azure Time Series Insights에서는 BCDR(비즈니스 재해 복구) 기능이 기본 제공되지 않습니다.
 기본적으로 Azure IoT Hub와 Event Hubs에서는 모두 복구 기능이 기본 제공됩니다.

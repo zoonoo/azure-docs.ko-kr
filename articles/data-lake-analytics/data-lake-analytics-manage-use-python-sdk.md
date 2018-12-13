@@ -99,7 +99,7 @@ import logging, getpass, pprint, uuid, time
 
 이 메서드는 지원되지 않습니다.
 
-### <a name="interactive-user-authentication-with-a-device-code"></a>장치 코드로 대화형 사용자 인증
+### <a name="interactive-user-authentication-with-a-device-code"></a>디바이스 코드로 대화형 사용자 인증
 
 ```python
 user = input('Enter the user to authenticate with that has permission to subscription: ')

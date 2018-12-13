@@ -112,7 +112,7 @@ IoT Hub에서 실시간 온도 및 습도 데이터를 볼 수 있습니다.
 ![실시간 온도 및 습도를 보여 주는 웹앱 페이지](./media/iot-hub-live-data-visualization-in-web-apps/8_web-app-page-show-real-time-temperature-humidity-azure.png)
 
 > [!NOTE]
-> 응용 프로그램 예제가 사용자 장치에서 실행 중인지 확인합니다. 그렇지 않은 경우 빈 차트를 받습니다. [사용자 장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md)에 있는 자습서를 참조할 수 있습니다.
+> 응용 프로그램 예제가 사용자 장치에서 실행 중인지 확인합니다. 그렇지 않은 경우 빈 차트를 받습니다. [사용자 디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md)에 있는 자습서를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

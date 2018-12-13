@@ -36,7 +36,7 @@ Azure는 Windows Server 2016을 실행하는 인프라의 지원을 받습니다
 
 컴퓨터 시계의 정확도는 컴퓨터 시계가 UTC(협정 세계시) 표준 시간에 근접한 정도로 측정됩니다. UTC는 300년에 1초밖에 차이가 나지 않는 여러 국가의 정밀한 원자 시계 샘플로 정의됩니다. 그러나 UTC를 직접 읽으려면 특수화된 하드웨어가 필요합니다. 대신 시간 서버가 UTC로 동기화되고 다른 컴퓨터에서 액세스되어 확장성 및 안정성을 제공합니다. 모든 컴퓨터에는 사용할 시간 서버를 알고 있으며 주기적으로 컴퓨터 시계를 수정해야 하는지 여부를 확인하고 필요한 경우 시간을 조정하는 시간 동기화 서비스가 실행되고 있습니다. 
 
-Azure 호스트는 GPS 안테나가 있는 Microsoft 소유의 Stratum 1 장치에서 시간을 사용하는 내부 Microsoft 시간 서버에 동기화됩니다. Azure의 가상 머신은 정확한 시간(*호스트 시간*)을 VM에 전달하기 위해 호스트에 의존할 수 있거나, VM이 직접 시간 서버 또는 둘의 조합에서 시간을 가져올 수 있습니다. 
+Azure 호스트는 GPS 안테나가 있는 Microsoft 소유의 Stratum 1 디바이스에서 시간을 사용하는 내부 Microsoft 시간 서버에 동기화됩니다. Azure의 가상 머신은 정확한 시간(*호스트 시간*)을 VM에 전달하기 위해 호스트에 의존할 수 있거나, VM이 직접 시간 서버 또는 둘의 조합에서 시간을 가져올 수 있습니다. 
 
 독립 실행형 하드웨어에서 Linux OS는 부팅 시 호스트 하드웨어 시계만 읽습니다. 그 이후에는 Linux 커널의 인터럽트 타이머를 사용하여 시계를 유지 관리합니다. 이 구성에서 시계는 시간이 지나면서 변경됩니다. Azure의 최신 Linux 배포에서 VM은 LIS(Linux 통합 서비스)에 포함된 VMICTimeSync 공급자를 사용하여 호스트에서 시계 업데이트를 더 자주 쿼리할 수 있습니다.
 
@@ -64,7 +64,7 @@ Azure 호스트는 GPS 안테나가 있는 Microsoft 소유의 Stratum 1 장치�
 기본적으로 Linux의 대부분 Azure Marketplace 이미지는 두 가지 원본에서 동기화하도록 구성됩니다. 
 
 - NTP 서버에서 시간을 가져오는 1차로서 NTP. 예를 들어 Ubuntu 16.04 LTS Marketplace 이미지는 **ntp.ubuntu.com**을 사용합니다.
-- VM이 유지 관리를 위해 일시 중지된 후 VM에 호스트 시간을 통신하고 수정하는 데 사용되는 2차로서 VMICTimeSync 서비스. Azure 호스트는 정확한 시간을 유지하기 위해 Microsoft 소유의 Stratum 1 장치를 사용합니다.
+- VM이 유지 관리를 위해 일시 중지된 후 VM에 호스트 시간을 통신하고 수정하는 데 사용되는 2차로서 VMICTimeSync 서비스. Azure 호스트는 정확한 시간을 유지하기 위해 Microsoft 소유의 Stratum 1 디바이스를 사용합니다.
 
 최신 Linux 배포에서 VMICTimeSync 서비스는 PTP(Precision Time Protocol)를 사용하지만, 이전 배포는 PTP를 지원하지 않을 수 있고 호스트에서 시간을 가져오기 위해 NTP로 대체됩니다.
 
@@ -116,7 +116,7 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 
 ### <a name="check-for-ptp"></a>PTP 확인
 
-최신 버전의 Linux, PTP(Precision Time Protocol) 시계 원본은 VMICTimeSync 공급자의 일부로 사용할 수 있습니다. 이전 버전의 Red Hat Enterprise Linux 또는 CentOS 7.x에서 [Linux 통합 서비스](https://github.com/LIS/lis-next)를 다운로드하여 업데이트된 드라이버를 설치하는 데 사용할 수 있습니다. PTP를 사용할 경우 Linux 장치는 /dev/ptp*x* 형식입니다. 
+최신 버전의 Linux, PTP(Precision Time Protocol) 시계 원본은 VMICTimeSync 공급자의 일부로 사용할 수 있습니다. 이전 버전의 Red Hat Enterprise Linux 또는 CentOS 7.x에서 [Linux 통합 서비스](https://github.com/LIS/lis-next)를 다운로드하여 업데이트된 드라이버를 설치하는 데 사용할 수 있습니다. PTP를 사용할 경우 Linux 디바이스는 /dev/ptp*x* 형식입니다. 
 
 사용 가능한 PTP 시계 원본을 확인합니다.
 
@@ -124,7 +124,7 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 ls /sys/class/ptp
 ```
 
-이 예제에서 반환된 값은 *ptp0*이므로 이를 사용하여 시계 이름을 확인합니다. 장치를 확인하려면 시계 이름을 확인합니다.
+이 예제에서 반환된 값은 *ptp0*이므로 이를 사용하여 시계 이름을 확인합니다. 디바이스를 확인하려면 시계 이름을 확인합니다.
 
 ```bash
 cat /sys/class/ptp/ptp0/clock_name

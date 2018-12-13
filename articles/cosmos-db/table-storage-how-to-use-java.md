@@ -1,21 +1,20 @@
 ---
-title: Java에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법 | Microsoft Docs
+title: Java에서 Azure Table 스토리지 또는 Azure Cosmos DB Table API를 사용하는 방법
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: f4ebcf51ab6682009190e467ca9dbf67caf1c182
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7be0ed8d59063f75b3d4fadbf69237bdb2d0d13
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797899"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863689"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Java에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -25,7 +24,7 @@ ms.locfileid: "34797899"
 이 문서에서는 Azure Table Storage 서비스 및 Azure Cosmos DB를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Azure Storage SDK for Java](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
 
 > [!NOTE]
-> SDK는 Android 장치에서 Azure Storage를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Azure Storage SDK for Android]를 참조하세요.
+> SDK는 Android 디바이스에서 Azure Storage를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][Azure Storage SDK for Android]를 참조하세요.
 >
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
@@ -53,7 +52,7 @@ import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
 ## <a name="add-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 추가
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우 *AccountName*과 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 저장소 계정의 이름과 기본 선택키를 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. 
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우 *AccountName*과 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 저장소 계정의 이름과 기본 선택키를 사용하여 다음 형식의 저장소 연결 문자열을 제공해야 합니다. 
 
 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
@@ -66,7 +65,7 @@ public static final String storageConnectionString =
 ```
 
 ## <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Azure Cosmos DB Table API 연결 문자열 추가
-Azure Cosmos DB 계정은 연결 문자열을 사용하여 테이블 끝점과 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우, *AccountName*과 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 Azure Cosmos DB 계정의 이름과 기본 선택키를 사용하여 다음 형식의 Azure Cosmos DB 연결 문자열을 제공해야 합니다. 
+Azure Cosmos DB 계정은 연결 문자열을 사용하여 테이블 엔드포인트와 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우, *AccountName*과 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 Azure Cosmos DB 계정의 이름과 기본 선택키를 사용하여 다음 형식의 Azure Cosmos DB 연결 문자열을 제공해야 합니다. 
 
 이 예제에서는 고정 필드가 Azure Cosmos DB 연결 문자열을 보유하도록 선언하는 방법을 보여줍니다.
 

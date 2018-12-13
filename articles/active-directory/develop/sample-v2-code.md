@@ -92,11 +92,11 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 
 ## <a name="headless-applications"></a>헤드리스 응용 프로그램
 
-다음 샘플은 웹 브라우저가 없는 장치에서 실행되는 공용 클라이언트 응용 프로그램을 보여 줍니다. 앱은 명령줄 도구이거나 Linux/Mac 또는 IoT 응용 프로그램에서 실행될 수 있습니다. 샘플에는 다른 장치(예: 휴대폰)에서 대화형으로 로그인하는 사용자 이름으로 Microsoft Graph API에 액세스하는 앱이 있습니다. 이 클라이언트 응용 프로그램은 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
+다음 샘플은 웹 브라우저가 없는 디바이스에서 실행되는 공용 클라이언트 애플리케이션을 보여 줍니다. 앱은 명령줄 도구이거나 Linux/Mac 또는 IoT 응용 프로그램에서 실행될 수 있습니다. 샘플에는 다른 디바이스(예: 휴대폰)에서 대화형으로 로그인하는 사용자 이름으로 Microsoft Graph API에 액세스하는 앱이 있습니다. 이 클라이언트 응용 프로그램은 MSAL(Microsoft 인증 라이브러리)을 사용합니다.
 
 클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출
 ------------------ | -------- |  ----------| ----------
-데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NETcore.png) | 장치 코드 흐름 |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2)
+데스크톱(콘솔)   | ![.NET/C#(데스크톱)](media/sample-v2-code/logo_NETcore.png) | 디바이스 코드 흐름 |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2)
 
 ## <a name="web-apis"></a>Web API
 

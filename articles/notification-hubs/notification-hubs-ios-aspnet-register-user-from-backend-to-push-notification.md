@@ -104,7 +104,7 @@ ms.locfileid: "42140332"
    
         self.deviceInfo.deviceToken = deviceToken;
    
-    이 코드는 요청에 대한 장치 토큰을 설정합니다.
+    이 코드는 요청에 대한 디바이스 토큰을 설정합니다.
    
    > [!NOTE]
    > 이때 이 메서드에 다른 코드가 있어서는 안 됩니다. **Notification Hubs 시작** 자습서를 완료할 때 추가된 [registerNativeWithDeviceToken](notification-hubs-ios-apple-push-notification-apns-get-started.md) 메서드에 대한 호출이 이미 있는 경우 해당 호출을 주석으로 처리하거나 제거해야 합니다.
@@ -207,7 +207,7 @@ ms.locfileid: "42140332"
                 }
             }];
     
-    이 메서드는 푸시 알림에 대한 설치 ID와 채널을 모두 가져온 다음, Notification Hubs에서 등록을 만드는 인증된 웹 API 메서드에 장치 유형과 함께 보냅니다. 이 웹 API는 [Notification Hubs를 통해 사용자에게 알림]에서 정의했습니다.
+    이 메서드는 푸시 알림에 대한 설치 ID와 채널을 모두 가져온 다음, Notification Hubs에서 등록을 만드는 인증된 웹 API 메서드에 디바이스 유형과 함께 보냅니다. 이 웹 API는 [Notification Hubs를 통해 사용자에게 알림]에서 정의했습니다.
 
 클라이언트 앱이 업데이트되었으므로 [Notification Hubs를 통해 사용자에게 알림] 으로 돌아가서 Notification Hubs를 사용하여 알림을 보내도록 모바일 서비스를 업데이트합니다.
 

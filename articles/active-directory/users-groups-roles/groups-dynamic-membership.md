@@ -23,12 +23,12 @@ ms.locfileid: "51633532"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
-Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사용하기 위해 복합 특성 기준 규칙을 만들 수 있습니다. 동적 그룹 멤버 자격은 사용자를 추가하고 제거하는 관리 오버헤드를 줄입니다. 이 문서에서는 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 속성과 구문에 대해 자세히 설명합니다. 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
+Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사용하기 위해 복합 특성 기준 규칙을 만들 수 있습니다. 동적 그룹 멤버 자격은 사용자를 추가하고 제거하는 관리 오버헤드를 줄입니다. 이 문서에서는 사용자 또는 디바이스에 대한 동적 멤버 자격 규칙을 만드는 속성과 구문에 대해 자세히 설명합니다. 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
 
-사용자 또는 장치의 특성이 변경될 때 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자 또는 장치가 그룹에 대한 규칙을 만족하면 해당 그룹의 멤버로 추가됩니다. 규칙을 더 이상 만족하지 않는 경우 제거됩니다. 동적 그룹의 멤버를 수동으로 추가하거나 제거할 수 없습니다.
+사용자 또는 디바이스의 특성이 변경될 때 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자 또는 디바이스가 그룹에 대한 규칙을 만족하면 해당 그룹의 멤버로 추가됩니다. 규칙을 더 이상 만족하지 않는 경우 제거됩니다. 동적 그룹의 멤버를 수동으로 추가하거나 제거할 수 없습니다.
 
 * 장치 또는 사용자에 대한 동적 그룹은 만들 수 있지만 사용자 및 장치를 모두 포함하는 규칙은 만들 수 없습니다.
-* 장치 소유자의 특성을 기반으로 하는 장치 그룹은 만들 수 없습니다. 장치 멤버 자격 규칙은 장치 특성만 참조할 수 있습니다.
+* 디바이스 소유자의 특성을 기반으로 하는 디바이스 그룹은 만들 수 없습니다. 디바이스 멤버 자격 규칙은 디바이스 특성만 참조할 수 있습니다.
 
 > [!NOTE]
 > 이 기능을 사용하려면 하나 이상의 동적 그룹의 멤버인 고유한 각 사용자에 대해 Azure AD Premium P1 라이선스가 필요합니다. 사용자에게 동적 그룹의 멤버가 될 수 있는 라이선스를 지정할 필요는 없지만, 이러한 사용자를 모두 포함하려면 테넌트에 최소 개수의 라이선스는 있어야 합니다. 예를 들어, 테넌트의 모든 동적 그룹에 고유한 사용자가 총 1,000명 있는 경우, 라이선스 요구 사항을 충족하려면 Azure AD Premium P1에 대해 1,000개 이상의 라이선스가 필요합니다.
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사�
 
 ## <a name="constructing-the-body-of-a-membership-rule"></a>멤버 자격 규칙 본문 구성
 
-사용자 또는 장치를 그룹에 자동으로 채우는 멤버 자격 규칙은 참 또는 거짓 결과를 가져오는 이진 식입니다. 간단한 규칙의 세 부분은 다음과 같습니다.
+사용자 또는 디바이스를 그룹에 자동으로 채우는 멤버 자격 규칙은 참 또는 거짓 결과를 가져오는 이진 식입니다. 간단한 규칙의 세 부분은 다음과 같습니다.
 
 * 자산
 * 연산자
@@ -111,7 +111,7 @@ user.department -eq "Sales"
 | otherMails |임의의 문자열 값입니다. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
-장치 규칙에 사용되는 속성은 [장치에 대한 규칙](#rules-for-devices)을 참조하세요.
+디바이스 규칙에 사용되는 속성은 [디바이스에 대한 규칙](#rules-for-devices)을 참조하세요.
 
 ## <a name="supported-operators"></a>지원되는 연산자
 
@@ -306,11 +306,11 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 user.objectid -ne null
 ```
 
-### <a name="create-an-all-devices-rule"></a>"모든 장치" 규칙 만들기
+### <a name="create-an-all-devices-rule"></a>"모든 디바이스" 규칙 만들기
 
-멤버 자격 규칙을 사용하여 테넌트 내의 모든 장치가 포함된 그룹을 만들 수 있습니다. 나중에 테넌트에서 장치를 추가하거나 제거하면 그룹의 멤버 자격이 자동으로 조정됩니다.
+멤버 자격 규칙을 사용하여 테넌트 내의 모든 디바이스가 포함된 그룹을 만들 수 있습니다. 나중에 테넌트에서 디바이스를 추가하거나 제거하면 그룹의 멤버 자격이 자동으로 조정됩니다.
 
-"모든 장치" 규칙은 -ne 연산자와 null 값을 사용하는 단일 식을 사용하여 구성됩니다.
+"모든 디바이스" 규칙은 -ne 연산자와 null 값을 사용하는 단일 식을 사용하여 구성됩니다.
 
 ```
 device.objectid -ne null
@@ -337,27 +337,27 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 사용자 지정 속성 이름은 [Graph 탐색기]를 사용하여 사용자 속성을 쿼리하고 속성 이름을 검색하여 디렉터리에서 찾을 수 있습니다. 또한 동적 사용자 그룹 규칙 작성기에서 **사용자 지정 확장 속성 가져오기**를 선택하여 고유한 앱 ID를 입력하고 동적 구성원 규칙을 만들 때 사용할 사용자 지정 확장 속성 전체 목록을 받을 수 있습니다. 이 목록을 새로 고침하여 해당 앱에 대한 새로운 사용자 지정 확장 속성을 가져올 수도 있습니다.
 
-## <a name="rules-for-devices"></a>장치에 대한 규칙
+## <a name="rules-for-devices"></a>디바이스에 대한 규칙
 
-또한 그룹의 멤버 자격에 대한 장치 개체를 선택하는 규칙을 만들 수 있습니다. 사용자와 장치는 모두 그룹 멤버로 사용할 수 없습니다. **organizationalUnit** 특성은 더 이상 나열되지 않고 사용할 수 없습니다. 이 문자열은 특정 사례에서 Intune에 의해 설정되지만 Azure AD에서 인식되지 않습니다. 따라서 디바이스는 이 특성을 기반으로 하는 그룹에 추가됩니다.
+또한 그룹의 멤버 자격에 대한 디바이스 개체를 선택하는 규칙을 만들 수 있습니다. 사용자와 디바이스는 모두 그룹 멤버로 사용할 수 없습니다. **organizationalUnit** 특성은 더 이상 나열되지 않고 사용할 수 없습니다. 이 문자열은 특정 사례에서 Intune에 의해 설정되지만 Azure AD에서 인식되지 않습니다. 따라서 디바이스는 이 특성을 기반으로 하는 그룹에 추가됩니다.
 
-다음과 같은 장치 특성을 사용할 수 있습니다.
+다음과 같은 디바이스 특성을 사용할 수 있습니다.
 
- 장치 특성  | 값 | 예
+ 디바이스 특성  | 값 | 예
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | 임의의 문자열 값입니다. |(device.displayName -eq "Rob Iphone”)
  deviceOSType | 임의의 문자열 값입니다. | (device.deviceOSType -eq "iPad") -또는 (device.deviceOSType -eq "iPhone")
  deviceOSVersion | 임의의 문자열 값입니다. | (device.OSVersion -eq "9.1")
- deviceCategory | 유효한 장치 범주 이름 | (device.deviceCategory -eq "BYOD")
+ deviceCategory | 유효한 디바이스 범주 이름 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 임의의 문자열 값입니다. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | 임의의 문자열 값입니다. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | 개인, 회사, 알 수 없음 | (device.deviceOwnership -eq "Corporate")
  domainName | 임의의 문자열 값입니다. | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple 장치 등록 프로필 또는 Windows Autopilot 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
- managementType | MDM(모바일 장치)<br>PC(Intune PC 에이전트에 의해 관리되는 컴퓨터) | (device.managementType -eq "MDM")
- deviceId | 유효한 Azure AD 장치 ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ managementType | MDM(모바일 디바이스)<br>PC(Intune PC 에이전트에 의해 관리되는 컴퓨터) | (device.managementType -eq "MDM")
+ deviceId | 유효한 Azure AD 디바이스 ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 유효한 Azure AD 개체 ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
  systemLabels | 최신 작업 공간 디바이스의 태그를 지정하는 Intune 디바이스 속성과 일치하는 문자열 | (device.systemLabels -contains “M365Managed”)
 

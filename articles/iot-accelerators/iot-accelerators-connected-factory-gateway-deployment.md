@@ -37,11 +37,11 @@ ms.locfileid: "50139227"
 > [!NOTE]
 > 두 구성 요소는  [Azure IoT Edge](https://github.com/Azure/iot-edge)에서 모듈로 사용할 수 있습니다.
 
-## <a name="choose-a-gateway-device"></a>게이트웨이 장치 선택
+## <a name="choose-a-gateway-device"></a>게이트웨이 디바이스 선택
 
-게이트웨이 장치가 아직 없는 경우 파트너로부터 상용 게이트웨이를 구입하는 것이 좋습니다.  [Azure IoT 장치 카탈로그](https://catalog.azureiotsuite.com/?q=opc)에서 연결된 팩터리 솔루션과 호환되는 게이트웨이 장치 목록을 확인하세요. 장치와 함께 제공되는 지침에 따라 게이트웨이를 설정합니다.
+게이트웨이 디바이스가 아직 없는 경우 파트너로부터 상용 게이트웨이를 구입하는 것이 좋습니다.  [Azure IoT 장치 카탈로그](https://catalog.azureiotsuite.com/?q=opc)에서 연결된 팩터리 솔루션과 호환되는 게이트웨이 장치 목록을 확인하세요. 디바이스와 함께 제공되는 지침에 따라 게이트웨이를 설정합니다.
 
-기존 게이트웨이 장치를 수동으로 구성해야 할 경우 다음 지침을 사용합니다.
+기존 게이트웨이 디바이스를 수동으로 구성해야 할 경우 다음 지침을 사용합니다.
 
 ## <a name="install-and-configure-docker"></a>Docker 설치 및 구성
 
@@ -122,7 +122,7 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - OPC UA는 인증 및 암호화에 X.509 인증서를 사용합니다. OPC 게시자 인증서를 연결할 OPC UA 서버에 배치하여 OPC 게시자를 신뢰하도록 합니다. OPC 게시자 인증서 저장소는 `<SharedFolder>/CertificateStores` 폴더에 있습니다. OPC 게시자 인증서는 `CertificateStores` 폴더의 `trusted/certs` 폴더에서 찾을 수 있습니다.
 
-  OPC UA 서버를 구성하는 단계는 사용 중인 장치에 따라 다릅니다. 이러한 단계는 일반적으로 OPC UA 서버의 설명서에 문서화되어 있습니다.
+  OPC UA 서버를 구성하는 단계는 사용 중인 디바이스에 따라 다릅니다. 이러한 단계는 일반적으로 OPC UA 서버의 설명서에 문서화되어 있습니다.
 
 OPC 프록시를 설치하려면 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -165,7 +165,7 @@ OPC 프록시는 설치하는 동안 연결 문자열을 저장합니다. 다음
 
 1. OPC UA 서버의 OPC UA 노드 트리로 이동한 후 연결된 팩터리로 값을 전송할 OPC 노드를 마우스 오른쪽 단추로 클릭하고  **게시**를 선택합니다.
 
-1. 이제 원격 분석이 게이트웨이 장치로 진행됩니다.  **새 팩터리** 아래에 있는 연결된 팩터리 포털의  **팩터리 위치** 보기에서 원격 분석을 볼 수 있습니다.
+1. 이제 원격 분석이 게이트웨이 디바이스로 진행됩니다.  **새 팩터리** 아래에 있는 연결된 팩터리 포털의  **팩터리 위치** 보기에서 원격 분석을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

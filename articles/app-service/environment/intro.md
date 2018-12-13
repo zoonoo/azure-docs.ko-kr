@@ -47,7 +47,7 @@ ASE는 단일 고객의 응용 프로그램만을 실행하도록 격리되며 �
 * [App Service Environments v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment)는 네트워크의 서브넷에서 앱을 보호하는 환경을 제공하고, Azure App Service의 자체 비공개 배포를 지원합니다.
 * 여러 ASE를 수평적 크기 조정에 사용할 수 있습니다. 자세한 내용은 [지리적으로 분산된 앱 설치 공간 설정 방법](app-service-app-service-environment-geo-distributed-scale.md)을 참조하세요.
 * AzureCon 심층 분석에 표시된 대로 ASE는 보안 아키텍처를 구성하는 데 사용할 수 있습니다. AzureCon 심층 분석에 표시된 보안 아키텍처가 어떻게 구성되었는지 확인하려면 App Service Environment를 사용하여 [계층화된 보안 아키텍처를 구현하는 방법에 대한 문서](app-service-app-service-environment-layered-security.md)를 참조하세요.
-* ASE에서 실행 중인 앱은 WAF(웹 응용 프로그램 방화벽) 등의 업스트림 장치에서 제어된 액세스를 가질 수 있습니다. 자세한 내용은 [웹 응용 프로그램 방화벽(WAF)][AppGW]을 참조하세요.
+* ASE에서 실행 중인 앱은 WAF(웹 응용 프로그램 방화벽) 등의 업스트림 디바이스에서 제어된 액세스를 가질 수 있습니다. 자세한 내용은 [웹 응용 프로그램 방화벽(WAF)][AppGW]을 참조하세요.
 
 ## <a name="dedicated-environment"></a>전용 환경 ##
 
@@ -71,7 +71,7 @@ ASE 기능은 고객의 Azure Resource Manager 가상 네트워크에 직접 Azu
 
 ASE는 공개 IP 주소가 있는 인터넷 연결이거나 Azure ILB(내부 부하 분산 장치) 주소만 있는 내부 연결일 수 있습니다.
 
-[네트워크 보안 그룹][NSGs]은 ASE가 있는 서브넷에 대한 인바운드 네트워크 통신을 제한합니다. NSG를 사용하여 WAF 및 네트워크 SaaS 공급자와 같은 업스트림 장치 및 서비스 뒤에서 앱을 실행할 수 있습니다.
+[네트워크 보안 그룹][NSGs]은 ASE가 있는 서브넷에 대한 인바운드 네트워크 통신을 제한합니다. NSG를 사용하여 WAF 및 네트워크 SaaS 공급자와 같은 업스트림 디바이스 및 서비스 뒤에서 앱을 실행할 수 있습니다.
 
 또한 앱에서는 내부 데이터베이스 및 웹 서비스와 같은 회사 리소스에 자주 액세스해야 합니다. 온-프레미스 네트워크에 VPN이 연결되어 있는 가상 네트워크에 ASE를 배포하는 경우 ASE의 앱은 온-프레미스 리소스에 액세스할 수 있습니다. 이 기능은 VPN이 [사이트 간](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site)이든 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) VPN이든 마찬가지입니다.
 

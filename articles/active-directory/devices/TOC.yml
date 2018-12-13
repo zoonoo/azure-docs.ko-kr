@@ -1,9 +1,9 @@
 items:
-- name: 장치 관리 설명서
+- name: 디바이스 관리 설명서
   href: index.yml
 - name: 개요
   items:
-  - name: Azure AD에서 장치 관리란?
+  - name: Azure AD에서 디바이스 관리란?
     href: overview.md
   - name: 엔터프라이즈 상태 로밍이란?
     href: enterprise-state-roaming-overview.md
@@ -25,23 +25,23 @@ items:
   expanded: false
 - name: 방법 가이드
   items:
-  - name: Azure Portal을 사용하여 장치 관리
+  - name: Azure Portal을 사용하여 디바이스 관리
     href: device-management-azure-portal.md
-  - name: 부실 장치 관리
+  - name: 부실 디바이스 관리
     href: manage-stale-devices.md
   - name: Azure AD 조인 구현 계획
     href: azureadjoin-plan.md
   - name: 하이브리드 Azure AD 조인 구현 계획
     href: hybrid-azuread-join-plan.md
-  - name: 장치의 하이브리드 Azure AD 조인 제어
+  - name: 디바이스의 하이브리드 Azure AD 조인 제어
     href: hybrid-azuread-join-control.md
-  - name: Azure AD 조인 장치에 로컬 관리자 할당
+  - name: Azure AD 조인 디바이스에 로컬 관리자 할당
     href: assign-local-admin.md
   - name: 엔터프라이즈 상태 로밍 사용
     href: enterprise-state-roaming-enable.md
-  - name: 하이브리드 Azure AD 조인 Windows 현재 장치 문제 해결
+  - name: 하이브리드 Azure AD 조인 Windows 현재 디바이스 문제 해결
     href: troubleshoot-hybrid-join-windows-current.md
-  - name: 하이브리드 Azure AD 조인 레거시 Windows 장치 문제 해결
+  - name: 하이브리드 Azure AD 조인 레거시 Windows 디바이스 문제 해결
     href: troubleshoot-hybrid-join-windows-legacy.md
   - name: 엔터프라이즈 상태 로밍 문제 해결
     href: enterprise-state-roaming-troubleshooting.md

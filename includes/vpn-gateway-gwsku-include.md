@@ -33,7 +33,7 @@ ms.locfileid: "51285705"
 | **VpnGw1, VpnGw2 및 VpnGw3** | **경로 기반 VPN**: 최대 30개의 터널( * ),P2S, BGP, 활성-활성, 사용자 지정 IPsec/IKE 정책, ExpressRoute/VPN 공존 |
 |        |             |
 
-( * ) 경로 기반 VPN 게이트웨이(VpnGw1, VpnGw2, VpnGw3)를 여러 온-프레미스 정책 기반 방화벽 장치에 연결하도록 "PolicyBasedTrafficSelectors"를 구성할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 VPN Gateway를 여러 온-프레미스 정책 기반 VPN 장치에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
+( * ) 경로 기반 VPN Gateway(VpnGw1, VpnGw2, VpnGw3)를 여러 온-프레미스 정책 기반 방화벽 디바이스에 연결하도록 “PolicyBasedTrafficSelectors”를 구성할 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 VPN Gateway를 여러 온-프레미스 정책 기반 VPN 디바이스에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
 
 (\*\*) 기본 SKU는 레거시 SKU로 간주됩니다. Basic SKU에는 몇 가지 기능이 제한됩니다. 새 게이트웨이 SKU 중 하나에 대한 기본 SKU를 사용하는 게이트웨이의 크기를 조정할 수 없습니다. 대신 VPN Gateway를 삭제하고 다시 만드는 작업이 포함된 새 SKU로 변경해야 합니다.
 

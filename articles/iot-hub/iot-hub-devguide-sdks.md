@@ -29,7 +29,7 @@ IoT Hub를 사용하기 위한 SDK(소프트웨어 개발 키트)의 범주에�
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="azure-iot-device-sdks"></a>Azure IoT 장치 SDK
+## <a name="azure-iot-device-sdks"></a>Azure IoT 디바이스 SDK
 
 Microsoft Azure IoT 장치 SDK에는 Azure IoT Hub 서비스에 연결되고 Azure IoT Hub 서비스에서 관리하는 장치와 응용 프로그램의 빌드를 용이하게 하는 코드가 포함되어 있습니다.
 
@@ -40,7 +40,7 @@ Microsoft Azure IoT 장치 SDK에는 Azure IoT Hub 서비스에 연결되고 Azu
 * [API 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices?view=azure-dotnet)
 * [모듈 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
-C용 Azure IoT Hub 장치 SDK, 이식성과 광범위한 플랫폼 호환성을 위해 ANSI C(C99)로 작성됨:
+C용 Azure IoT Hub 디바이스 SDK, 이식성과 광범위한 플랫폼 호환성을 위해 ANSI C(C99)로 작성됨:
 
 * [apt-get, MBED, Arduino IDE 또는 Nuget](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)에서 설치
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-c)
@@ -82,7 +82,7 @@ iOS용 Azure IoT Hub 장치 SDK:
 
 SDK에 지원되는 플랫폼은 [Azure IoT SDK 플랫폼 지원](iot-hub-device-sdk-platform-support.md)에서 찾을 수 있습니다.
 
-특정 하드웨어 장치와 SDK 호환성에 대한 자세한 내용은 [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/) 또는 개별 리포지토리를 참조하세요.
+특정 하드웨어 디바이스와 SDK 호환성에 대한 자세한 내용은 [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsuite.com/) 또는 개별 리포지토리를 참조하세요.
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 서비스 SDK
 
@@ -125,31 +125,31 @@ iOS용 Azure IoT Hub 서비스 SDK:
 > [!NOTE]
 > 언어 및 플랫폼 특정 패키지 관리자를 사용하여 개발 컴퓨터에서 이진 파일 및 종속성을 설치하는 방법에 대한 정보는 GitHub 리포지토리의 추가 정보 파일을 참조하세요.
 
-## <a name="device-provisioning-sdks"></a>장치 프로비저닝 SDK
+## <a name="device-provisioning-sdks"></a>디바이스 프로비저닝 SDK
 
 **Microsoft Azure 프로비저닝 SDK**를 사용하면 [장치 프로비저닝 서비스](../iot-dps/about-iot-dps.md)를 통해 장치를 IoT Hub에 프로비전할 수 있습니다.
 
-C#용 Azure 프로비저닝 장치 및 서비스 SDK:
+C#용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 * [프로비저닝 장치 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/device)
 * [프로비저닝 서비스 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/service)
 
-Java용 Azure 프로비저닝 장치 및 서비스 SDK:
+Java용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 * [프로비저닝 장치 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning/provisioning-device-client)
 * [프로비저닝 서비스 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning/provisioning-service-client)
 
-Node.js용 Azure 프로비저닝 장치 및 서비스 SDK:
+Node.js용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 * [프로비저닝 장치 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device)
 * [프로비저닝 서비스 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service)
 
-Python용 Azure 프로비저닝 장치 및 서비스 SDK:
+Python용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 * [프로비저닝 장치 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-python/blob/master/provisioning_device_client)
 * [프로비저닝 서비스 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)
 
-C용 Azure 프로비저닝 장치 및 서비스 SDK:
+C용 Azure 프로비저닝 디바이스 및 서비스 SDK:
 
 * [프로비저닝 장치 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client)
 * [프로비저닝 서비스 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_service_client)

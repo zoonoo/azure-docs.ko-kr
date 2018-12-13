@@ -62,7 +62,7 @@ ms.locfileid: "50961758"
 > - UDF 정의에 대한 업데이트
 > - 처음으로 원격 분석을 전송한 디바이스
 
-## <a name="device-telemetry-limits"></a>장치 원격 분석 제한
+## <a name="device-telemetry-limits"></a>디바이스 원격 분석 제한
 
 다음 제한은 디바이스가 Azure Digital Twins 인스턴스에 보낼 수 있는 모든 메시지의 총 수를 제한합니다.
 

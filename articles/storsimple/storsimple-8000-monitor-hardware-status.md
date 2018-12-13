@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 시리즈 하드웨어 구성 요소 및 상태 | Microsoft Docs
-description: StorSimple 장치 관리자 서비스를 통해 StorSimple 장치의 하드웨어 구성 요소를 모니터링하는 방법에 대해 알아봅니다.
+description: StorSimple 디바이스 관리자 서비스를 통해 StorSimple 디바이스의 하드웨어 구성 요소를 모니터링하는 방법에 대해 알아봅니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -21,10 +21,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "42142190"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>StorSimple 장치 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링
+# <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>StorSimple 디바이스 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링
 
 ## <a name="overview"></a>개요
-이 문서에서는 온-프레미스 StorSimple 8000 시리즈 장치에서 다양한 물리적 및 논리적 구성 요소를 설명합니다. StorSimple 장치 관리자 서비스의 **상태 및 하드웨어 상태** 블레이드를 사용하여 장치 구성 요소 상태를 모니터링하는 방법도 설명합니다.
+이 문서에서는 온-프레미스 StorSimple 8000 시리즈 디바이스에서 다양한 물리적 및 논리적 구성 요소를 설명합니다. StorSimple 디바이스 관리자 서비스의 **상태 및 하드웨어 상태** 블레이드를 사용하여 디바이스 구성 요소 상태를 모니터링하는 방법도 설명합니다.
 
 **상태 및 하드웨어 상태** 블레이드는 모든 StorSimple 장치 구성 요소의 하드웨어 상태를 보여 줍니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "42142190"
 * **컨트롤러 0 구성 요소** – 컨트롤러, SAS 확장기 및 커넥터, 컨트롤러 온도 센서, 다양 한 네트워크 인터페이스와 같은 컨트롤러 0에 상주하는 구성 요소입니다.
 * **컨트롤러 1 구성 요소** – 컨트롤러 0에 대한 설명과 유사한 컨트롤러 1을 구성하는 구성 요소입니다.
 
-8600 장치에는 EBOD(Extended Bunch of Disks) 인클로저에 해당하는 추가 구성 요소가 있습니다. 구성 요소 목록에는 5개의 섹션이 있습니다. 이 중, 8100에 대해 설명된 내용과 동일하며 기본 인클로저의 구성 요소를 포함하는 3개의 섹션이 있습니다. 다음을 설명하는 EBOD 인클로저의 2개의 추가 섹션이 있습니다.
+8600 디바이스에는 EBOD(Extended Bunch of Disks) 인클로저에 해당하는 추가 구성 요소가 있습니다. 구성 요소 목록에는 5개의 섹션이 있습니다. 이 중, 8100에 대해 설명된 내용과 동일하며 기본 인클로저의 구성 요소를 포함하는 3개의 섹션이 있습니다. 다음을 설명하는 EBOD 인클로저의 2개의 추가 섹션이 있습니다.
 
 * **EBOD 컨트롤러 0 구성 요소** – EBOD 컨트롤러, SAS 확장기 및 커넥터, 컨트롤러 온도 센서와 같은 EBOD 인클로저 0에 상주하는 구성 요소입니다.
 * **EBOD 컨트롤러 1 구성 요소** – EBOD 0에 대한 설명과 유사한 EBOD 인클로저 1을 구성하는 구성 요소입니다.
@@ -45,13 +45,13 @@ ms.locfileid: "42142190"
 
 
 ## <a name="monitor-the-hardware-status"></a>하드웨어 상태 모니터링
-장치 구성 요소의 하드웨어 상태를 보려면 다음 단계를 수행합니다.
+디바이스 구성 요소의 하드웨어 상태를 보려면 다음 단계를 수행합니다.
 
 1. **장치**로 이동하여 특정 StorSimple 장치를 선택합니다. **모니터 > 하드웨어 상태**로 이동합니다.
 
     ![](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
-2. **하드웨어 구성 요소** 섹션을 찾고 사용 가능한 구성 요소를 선택합니다. 구성 요소 레이블을 클릭하여 목록을 확장하고 다양한 장치 구성 요소의 상태를 봅니다. [기본 엔클로저에 대한 자세한 구성 요소 목록](#component-list-for-primary-enclosure-of-storsimple-device) 및 [EBOD 엔클로저에 대한 자세한 구성 요소](#component-list-for-ebod-enclosure-of-storsimple-device)를 참조하세요.
+2. **하드웨어 구성 요소** 섹션을 찾고 사용 가능한 구성 요소를 선택합니다. 구성 요소 레이블을 클릭하여 목록을 확장하고 다양한 디바이스 구성 요소의 상태를 봅니다. [기본 엔클로저에 대한 자세한 구성 요소 목록](#component-list-for-primary-enclosure-of-storsimple-device) 및 [EBOD 엔클로저에 대한 자세한 구성 요소](#component-list-for-ebod-enclosure-of-storsimple-device)를 참조하세요.
 
     ![](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
 
@@ -62,7 +62,7 @@ ms.locfileid: "42142190"
    * **빨간색 느낌표** – **오류** 상태의 실패한 구성 요소를 나타냅니다.
    * **검정 텍스트에 흰색** – 존재하지 않는 구성 요소를 표시합니다.
    
-   다음 스크린샷은 **정상**, **경고** 및 **오류** 상태의 구성 요소가 있는 장치를 보여 줍니다.
+   다음 스크린샷은 **정상**, **경고** 및 **오류** 상태의 구성 요소가 있는 디바이스를 보여 줍니다.
        
    ![](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
 
@@ -74,10 +74,10 @@ ms.locfileid: "42142190"
 
    ![](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
-4. **정상** 상태가 아닌 구성 요소가 있는 경우 Microsoft 지원에 문의하세요. 장치에서 경고를 설정한 경우, 메일 경고를 받게 됩니다. 실패한 하드웨어 구성 요소를 교체해야 하는 경우 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
+4. **정상** 상태가 아닌 구성 요소가 있는 경우 Microsoft 지원에 문의하세요. 디바이스에서 경고를 설정한 경우, 메일 경고를 받게 됩니다. 실패한 하드웨어 구성 요소를 교체해야 하는 경우 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
 
-## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>StorSimple 장치의 기본 인클로저에 대한 구성 요소 목록
-다음 표에서 온-프레미스 StorSimple 장치의 기본 인클로저(8100 및 8600 둘 다에 있음)에 포함된 물리적 및 논리적 구성 요소를 간략하게 설명합니다.
+## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>StorSimple 디바이스의 기본 인클로저에 대한 구성 요소 목록
+다음 표에서 온-프레미스 StorSimple 디바이스의 기본 인클로저(8100 및 8600 둘 다에 있음)에 포함된 물리적 및 논리적 구성 요소를 간략하게 설명합니다.
 
 | 구성 요소 | 모듈 | type | 위치 | FRU(Field replaceable unit)? | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -90,7 +90,7 @@ ms.locfileid: "42142190"
 | 정격 전압 센서 |PCM |물리적 |공유됨 |아니요 |다양한 정격 전압 센서는 허용 오차 내에서 측정된 전압인지 여부를 나타내는 상태를 표시합니다. |
 | 정격 전류 센서 |PCM |물리적 |공유됨 |아니요 |다양한 정격 전류 센서는 허용 오차 내에서 측정된 전류인지 여부를 나타내는 상태를 표시합니다. |
 | PCM의 온도 센서 |PCM |물리적 |공유됨 |아니요 |입구 온도 센서 및 핫스팟 센서와 같은 여러 온도 센서는 허용 오차 내에서 측정된 온도인지를 나타내는 상태를 표시합니다. |
-| 전원 공급 장치 [0-1] |PCM |물리적 |공유됨 |yes |각 장치 뒷면에 두 PCM의 전원 공급 장치에 대한 한 줄이 표시됩니다. |
+| 전원 공급 장치 [0-1] |PCM |물리적 |공유됨 |yes |각 디바이스 뒷면에 두 PCM의 전원 공급 디바이스에 대한 한 줄이 표시됩니다. |
 | 냉각 장치 [0-1] |PCM |물리적 |공유됨 |yes |두 PCM에 있는 4개의 냉각팬 각각에 대해 한 줄이 표시됩니다. |
 | 배터리 [0-1] |PCM |물리적 |공유됨 |yes |PCM에 장착된 백업 배터리 모듈 각각에 대한 한 줄이 표시됩니다. |
 | Metis |해당 없음 |논리 |공유됨 |해당 없음 |충전이 필요한 지 및 수명 종료에 도달했는지의 배터리 상태를 표시합니다. |
@@ -103,8 +103,8 @@ ms.locfileid: "42142190"
 | HDD 교체 공간 |해당 없음 |논리 |공유됨 |해당 없음 |컨트롤러 교체를 위해 HDD 저장소 풀에 예약된 공간입니다. |
 | SSD 데이터 공간 |해당 없음 |논리 |공유됨 |해당 없음 |솔리드 스테이트 드라이브(SSD) 저장소 풀의 데이터에 사용되는 저장소 공간입니다. |
 | SSD NVRAM 공간 |해당 없음 |논리 |공유됨 |해당 없음 |NVRAM 논리에 전용인 SSD 저장소 풀의 저장소 공간입니다. |
-| HDD 저장소 풀 |해당 없음 |논리 |공유됨 |해당 없음 |HDD 장치에서 생성되는 논리 저장소 풀의 상태가 표시됩니다. |
-| SSD 저장소 풀 |해당 없음 |논리 |공유됨 |해당 없음 |SSD 장치에서 생성되는 논리 저장소 풀의 상태가 표시됩니다. |
+| HDD 저장소 풀 |해당 없음 |논리 |공유됨 |해당 없음 |HDD 디바이스에서 생성되는 논리 저장소 풀의 상태가 표시됩니다. |
+| SSD 저장소 풀 |해당 없음 |논리 |공유됨 |해당 없음 |SSD 디바이스에서 생성되는 논리 저장소 풀의 상태가 표시됩니다. |
 | 컨트롤러 [0-1] [state] |I/O |물리적 |Controller |yes |컨트롤러의 상태 및 섀시 내에서 활성 모드인지 또는 대기 모드인지를 표시합니다. |
 | 컨트롤러의 온도 센서 |I/O |물리적 |Controller |아니요 |I/O 모듈, CPU 온도, DIMM 및 PCIe 센서와 같은 다양한 온도 센서는 허용 오차 내에서 발생하는 온도인지 여부를 나타내는 상태를 표시합니다. |
 | SAS 확장기 |I/O |물리적 |Controller |아니요 |직렬 연결된 SCSI(SAS) 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
@@ -118,7 +118,7 @@ ms.locfileid: "42142190"
 | NVRAM |I/O |물리적 |Controller |아니요 |전원 오류가 발생할 경우 응용 프로그램에 중요한 정보를 유지하기 위해 사용되는 배터리에서 백업된 비휘발성 임의 액세스 메모리, NVRAM의 상태를 나타냅니다. |
 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>StorSimple 장치의 EBOD 인클로저에 대한 구성 요소 목록
-다음 표에서 온-프레미스 StorSimple 장치의 EBOD 인클로저(8600 모델에만 있음)에 포함된 물리적 및 논리적 구성 요소를 간략하게 설명합니다.
+다음 표에서 온-프레미스 StorSimple 디바이스의 EBOD 인클로저(8600 모델에만 있음)에 포함된 물리적 및 논리적 구성 요소를 간략하게 설명합니다.
 
 | 구성 요소 | 모듈 | type | 위치 | FRU? | 설명 |
 | --- | --- | --- | --- | --- | --- |
@@ -131,9 +131,9 @@ ms.locfileid: "42142190"
 | 정격 전압 센서 |PCM |물리적 |공유됨 |아니요 |다양한 정격 전압 센서는 허용 오차 내에서 측정된 전압인지 여부를 나타내는 상태를 표시합니다. |
 | 정격 전류 센서 |PCM |물리적 |공유됨 |아니요 |다양한 정격 전류 센서는 허용 오차 내에서 측정된 전류인지 여부를 나타내는 상태를 표시합니다. |
 | PCM의 온도 센서 |PCM |물리적 |공유됨 |아니요 |입구 온도 센서 및 핫스팟 센서와 같은 여러 온도 센서는 허용 오차 내에서 측정된 온도인지를 나타내는 상태를 표시합니다. |
-| 전원 공급 장치 [0-1] |PCM |물리적 |공유됨 |yes |각 장치 뒷면에 두 PCM의 전원 공급 장치에 대한 한 줄이 표시됩니다. |
+| 전원 공급 장치 [0-1] |PCM |물리적 |공유됨 |yes |각 디바이스 뒷면에 두 PCM의 전원 공급 디바이스에 대한 한 줄이 표시됩니다. |
 | 냉각 장치 [0-1] |PCM |물리적 |공유됨 |yes |두 PCM에 있는 4개의 냉각팬 각각에 대해 한 줄이 표시됩니다. |
-| 로컬 저장소 [HDD] |해당 없음 |논리 |공유됨 |해당 없음 |HDD 장치에서 생성되는 논리 저장소 풀의 상태가 표시됩니다. |
+| 로컬 저장소 [HDD] |해당 없음 |논리 |공유됨 |해당 없음 |HDD 디바이스에서 생성되는 논리 저장소 풀의 상태가 표시됩니다. |
 | 컨트롤러 [0-1] [state] |I/O |물리적 |Controller |yes |EBOD 모듈의 컨트롤러 상태를 표시합니다. |
 | EBOD의 온도 센서 |I/O |물리적 |Controller |아니요 |각 컨트롤러의 여러 온도 센서는 허용 오차 내에서 측정된 온도인지를 나타내는 상태를 표시합니다. |
 | SAS 확장기 |I/O |물리적 |Controller |아니요 |SAS 확장기의 상태를 표시하며, 통합된 저장소를 컨트롤러에 연결하는 데 사용됩니다. |
@@ -141,11 +141,11 @@ ms.locfileid: "42142190"
 | SBB 중간 평면 상호 연결 |I/O |물리적 |Controller |아니요 |각 컨트롤러에서 중간 평면에 연결하는데 사용되는 중간 평면 커넥터의 상태를 나타냅니다. |
 | 인클로저 전자 기기 전원 |I/O |물리적 |Controller |아니요 |인클로저에에서 사용된 전원 시스템의 상태를 나타냅니다. |
 | 인클로저 전자 기기 진단 |I/O |물리적 |Controller |아니요 |컨트롤러에서 제공된 진단 하위 시스템의 상태를 나타냅니다. |
-| 장치 컨트롤러에 연결 |I/O |물리적 |Controller |아니요 |EBOD I/O 모듈 및 장치 컨트롤러 간의 연결 상태를 나타냅니다. |
+| 디바이스 컨트롤러에 연결 |I/O |물리적 |Controller |아니요 |EBOD I/O 모듈 및 디바이스 컨트롤러 간의 연결 상태를 나타냅니다. |
 
 ## <a name="next-steps"></a>다음 단계
-* StorSimple 장치 관리자 서비스를 사용하여 장치를 관리하려면 [StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치 관리](storsimple-8000-manager-service-administration.md)로 이동하세요.
-* 성능 저하 또는 실패 상태의 장치 구성 요소 문제를 해결해야 하는 경우 [StorSimple 모니터링 표시기](storsimple-monitoring-indicators.md)를 참조하세요.
+* StorSimple 디바이스 관리자 서비스를 사용하여 디바이스를 관리하려면 [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 디바이스 관리](storsimple-8000-manager-service-administration.md)로 이동하세요.
+* 성능 저하 또는 실패 상태의 디바이스 구성 요소 문제를 해결해야 하는 경우 [StorSimple 모니터링 표시기](storsimple-monitoring-indicators.md)를 참조하세요.
 * 오류가 발생한 하드웨어 구성 요소를 교체하려면 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
-* 장치 문제가 계속되면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요.
+* 디바이스 문제가 계속되면 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요.
 

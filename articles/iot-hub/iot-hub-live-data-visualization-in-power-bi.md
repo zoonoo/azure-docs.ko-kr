@@ -37,7 +37,7 @@ Azure IoT Hub에서 Power BI를 통해 받는 실시간 센서 데이터를 시�
 
 ## <a name="what-you-need"></a>필요한 항목
 
- * 다음 요구 사항을 다루는 자습서 [장치 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
+ * 다음 요구 사항을 다루는 자습서 [디바이스 설정](iot-hub-raspberry-pi-kit-node-get-started.md) 완료:
 
    * 활성 Azure 구독.
    * 구독 중인 Azure IoT Hub

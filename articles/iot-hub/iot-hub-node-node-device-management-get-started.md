@@ -21,7 +21,7 @@ ms.locfileid: "51514285"
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 장치 ID를 만듭니다.
+* Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 디바이스 ID를 만듭니다.
 * 장치를 다시 시작하는 직접 메서드가 포함된 시뮬레이트된 장치 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
 * IoT Hub를 통해 시뮬레이션된 장치 앱에서 재부팅 직접 메서드를 호출하는 Node.js 콘솔 앱을 만듭니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "51514285"
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-a-simulated-device-app"></a>시뮬레이션된 장치 앱 만들기
+## <a name="create-a-simulated-device-app"></a>시뮬레이션된 디바이스 앱 만들기
 이 섹션에서는 다음을 수행합니다.
 
 * 클라우드에서 호출하는 직접 메서드에 응답하는 Node.js 콘솔 앱 만들기
@@ -72,7 +72,7 @@ ms.locfileid: "51514285"
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  연결 문자열을 장치 연결 문자열로 바꿉니다.  
+5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다.  연결 문자열을 디바이스 연결 문자열로 바꿉니다.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -136,7 +136,7 @@ ms.locfileid: "51514285"
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 문서 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에서 제시한 대로 다시 시도 정책(예: 지수 백오프)을 구현해야 합니다.
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>직접 메서드를 사용하여 장치에서 원격 재부팅 트리거
+## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>직접 메서드를 사용하여 디바이스에서 원격 재부팅 트리거
 이 섹션에서는 장치에서 직접 메서드를 사용하여 원격 다시 시작을 시작하는 Node.js 콘솔 앱을 만듭니다. 앱은 장치 쌍 쿼리를 사용하여 해당 장치에 대한 마지막 다시 시작 시간을 검색합니다.
 
 1. **triggerrebootondevice**라는 빈 폴더를 만듭니다.  **triggerrebootondevice** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.

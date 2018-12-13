@@ -35,10 +35,10 @@ ms.locfileid: "50962795"
 
 ### <a name="measurements"></a>측정값
 
-장치에서 보내는 측정값은 1분에 한 번 저장소 계정으로 내보내집니다. 데이터에는 해당 시간에 IoT Central이 모든 장치에서 받은 모든 새 메시지가 포함되어 있습니다. 내보낸 AVRO 파일은 [IoT Hub 메시지 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)에서 Blob 저장소로 내보낸 메시지 파일과 동일한 형식을 사용합니다.
+디바이스에서 보내는 측정값은 1분에 한 번 저장소 계정으로 내보내집니다. 데이터에는 해당 시간에 IoT Central이 모든 디바이스에서 받은 모든 새 메시지가 포함되어 있습니다. 내보낸 AVRO 파일은 [IoT Hub 메시지 라우팅](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)에서 Blob 저장소로 내보낸 메시지 파일과 동일한 형식을 사용합니다.
 
 > [!NOTE]
-> 측정값을 보내는 장치는 장치 ID로 표시됩니다(아래 섹션 참조). 장치 이름을 가져오려면 장치 스냅숏을 내보냅니다. 장치 레코드의 **deviceId**와 일치하는 **connectionDeviceId**를 사용하여 각 메시지 레코드의 상관 관계를 지정합니다.
+> 측정값을 보내는 디바이스는 디바이스 ID로 표시됩니다(아래 섹션 참조). 디바이스 이름을 가져오려면 디바이스 스냅숏을 내보냅니다. 디바이스 레코드의 **deviceId**와 일치하는 **connectionDeviceId**를 사용하여 각 메시지 레코드의 상관 관계를 지정합니다.
 
 다음 예제에서는 디코딩된 AVRO 파일의 레코드를 보여줍니다.
 
@@ -56,25 +56,25 @@ ms.locfileid: "50962795"
 }
 ```
 
-### <a name="devices"></a>장치
+### <a name="devices"></a>디바이스
 
-연속 데이터 내보내기를 처음으로 켜면 모든 장치가 포함된 단일 스냅숏이 내보내집니다. 각 장치에는 다음 항목이 포함됩니다.
+연속 데이터 내보내기를 처음으로 켜면 모든 디바이스가 포함된 단일 스냅숏이 내보내집니다. 각 디바이스에는 다음 항목이 포함됩니다.
 - IoT Central의 장치 `id`
 - 장치의 `name`
 - [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)의 `deviceId`
-- 장치 템플릿 정보
+- 디바이스 템플릿 정보
 - 속성 값
 - 설정 값
 
 새 스냅숏이 1분에 한 번씩 기록됩니다. 스냅숏에는 다음이 포함됩니다.
 
-- 마지막 스냅숏 이후에 추가된 새 장치
-- 마지막 스냅숏 이후에 속성 및 설정 값이 변경된 장치
+- 마지막 스냅숏 이후에 추가된 새 디바이스
+- 마지막 스냅숏 이후에 속성 및 설정 값이 변경된 디바이스
 
 > [!NOTE]
-> 마지막 스냅숏 이후에 삭제된 장치는 내보내지지 않습니다. 현재는 삭제된 장치를 나타내는 표시기가 스냅숏에 없습니다.
+> 마지막 스냅숏 이후에 삭제된 디바이스는 내보내지지 않습니다. 현재는 삭제된 디바이스를 나타내는 표시기가 스냅숏에 없습니다.
 >
-> 각 장치가 속하는 장치 템플릿은 장치 템플릿 ID로 표시됩니다. 장치 템플릿 이름을 가져오려면 장치 템플릿 스냅숏을 내보내야 합니다.
+> 각 장치가 속하는 장치 템플릿은 장치 템플릿 ID로 표시됩니다. 디바이스 템플릿 이름을 가져오려면 디바이스 템플릿 스냅숏을 내보내야 합니다.
 
 디코딩된 AVRO 파일의 A 레코드는 다음과 같을 수 있습니다.
 
@@ -108,7 +108,7 @@ ms.locfileid: "50962795"
 
 ### <a name="device-templates"></a>장치 템플릿
 
-연속 데이터 내보내기를 처음으로 켜면 모든 장치 템플릿이 포함된 단일 스냅숏이 내보내집니다. 각 장치 템플릿에는 다음 항목이 포함됩니다.
+연속 데이터 내보내기를 처음으로 켜면 모든 디바이스 템플릿이 포함된 단일 스냅숏이 내보내집니다. 각 디바이스 템플릿에는 다음 항목이 포함됩니다.
 - 장치 템플릿의 `id`
 - 장치 템플릿의 `name`
 - 장치 템플릿의 `version`
@@ -118,11 +118,11 @@ ms.locfileid: "50962795"
 
 새 스냅숏이 1분에 한 번씩 기록됩니다. 스냅숏에는 다음이 포함됩니다.
 
-- 마지막 스냅숏 이후에 추가된 새 장치 템플릿
-- 마지막 스냅숏 이후에 측정값, 속성 및 설정 정의가 변경된 장치 템플릿
+- 마지막 스냅숏 이후에 추가된 새 디바이스 템플릿
+- 마지막 스냅숏 이후에 측정값, 속성 및 설정 정의가 변경된 디바이스 템플릿
 
 > [!NOTE]
-> 마지막 스냅숏 이후에 삭제된 장치 템플릿은 내보내지지 않습니다. 현재는 삭제된 장치 템플릿을 나타내는 표시기가 스냅숏에 없습니다.
+> 마지막 스냅숏 이후에 삭제된 디바이스 템플릿은 내보내지지 않습니다. 현재는 삭제된 디바이스 템플릿을 나타내는 표시기가 스냅숏에 없습니다.
 
 디코딩된 AVRO 파일의 A 레코드는 다음과 같을 수 있습니다.
 
@@ -223,12 +223,12 @@ ms.locfileid: "50962795"
 
 7. 몇 분 후 저장소 계정에 데이터가 나타납니다. 저장소 계정을 찾습니다. **Blob 찾아보기** > 컨테이너를 선택합니다. 데이터 내보내기용 폴더 세 개가 보일 것입니다. 데이터 내보내기를 사용하는 AVRO 파일의 기본 경로는 다음과 같습니다.
     - 메시지: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - 장치: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - 장치 템플릿: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - 디바이스: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - 디바이스 템플릿: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ## <a name="read-exported-avro-files"></a>내보낸 AVRO 파일 읽기
 
-AVRO는 이진 형식이므로 해당 원시 상태에서 파일을 읽을 수 없습니다. 파일을 JSON 형식으로 디코딩할 수 있습니다. 다음 예제에서는 측정값, 장치 및 장치 템플릿 AVRO 파일을 구문 분석하는 방법을 보여줍니다. 이 예제는 이전 섹션에서 설명한 예제와 동일합니다.
+AVRO는 이진 형식이므로 해당 원시 상태에서 파일을 읽을 수 없습니다. 파일을 JSON 형식으로 디코딩할 수 있습니다. 다음 예제에서는 측정값, 디바이스 및 디바이스 템플릿 AVRO 파일을 구문 분석하는 방법을 보여 줍니다. 이 예제는 이전 섹션에서 설명한 예제와 동일합니다.
 
 ### <a name="read-avro-files-by-using-python"></a>Python을 사용하여 AVRO 파일 읽기
 
@@ -269,7 +269,7 @@ def parse(filePath):
 
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>장치 AVRO 파일 구문 분석
+#### <a name="parse-a-devices-avro-file"></a>디바이스 AVRO 파일 구문 분석
 
 ```python
 import json
@@ -303,7 +303,7 @@ def parse(filePath):
 
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>장치 템플릿 AVRO 파일 구문 분석
+#### <a name="parse-a-device-templates-avro-file"></a>디바이스 템플릿 AVRO 파일 구문 분석
 
 ```python
 import json
@@ -380,7 +380,7 @@ public static async Task Run(string filePath)
 }
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>장치 AVRO 파일 구문 분석
+#### <a name="parse-a-devices-avro-file"></a>디바이스 AVRO 파일 구문 분석
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -431,7 +431,7 @@ public static async Task Run(string filePath)
 
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>장치 템플릿 AVRO 파일 구문 분석
+#### <a name="parse-a-device-templates-avro-file"></a>디바이스 템플릿 AVRO 파일 구문 분석
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -520,7 +520,7 @@ function load(filePath) {
 }
 ```
 
-#### <a name="parse-a-devices-avro-file"></a>장치 AVRO 파일 구문 분석
+#### <a name="parse-a-devices-avro-file"></a>디바이스 AVRO 파일 구문 분석
 
 ```javascript
 const avro = require('avsc');
@@ -558,7 +558,7 @@ function load(filePath) {
 }
 ```
 
-#### <a name="parse-a-device-templates-avro-file"></a>장치 템플릿 AVRO 파일 구문 분석
+#### <a name="parse-a-device-templates-avro-file"></a>디바이스 템플릿 AVRO 파일 구문 분석
 
 ```javascript
 const avro = require('avsc');

@@ -29,8 +29,8 @@ C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합
 
 | 의도 | 예제 발화 | 봇 기능 |
 |:----:|:----------:|---|
-| HomeAutomation.TurnOn | 조명을 켭니다. | LUIS 의도 `HomeAutomation.TurnOn`이 검색되면 봇이 `OnIntent` 대화 상자 처리기를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 장치를 켜고 장치가 켜졌다는 것을 사용자에게 알립니다. |
-| HomeAutomation.TurnOff | 침실 조명을 끕니다. | LUIS 의도 `HomeAutomation.TurnOff`이 검색되면 봇이 `OffIntent` 대화 상자 처리기를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 장치를 끄고 장치가 꺼졌다는 것을 사용자에게 알립니다. |
+| HomeAutomation.TurnOn | 조명을 켭니다. | LUIS 의도 `HomeAutomation.TurnOn`이 검색되면 봇이 `OnIntent` 대화 상자 처리기를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 디바이스를 켜고 디바이스가 켜졌다는 것을 사용자에게 알립니다. |
+| HomeAutomation.TurnOff | 침실 조명을 끕니다. | LUIS 의도 `HomeAutomation.TurnOff`이 검색되면 봇이 `OffIntent` 대화 상자 처리기를 호출합니다. 이 대화 상자에서는 IoT 서비스를 호출하여 디바이스를 끄고 디바이스가 꺼졌다는 것을 사용자에게 알립니다. |
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>Bot Service를 사용하여 Language Understanding 봇 만들기
 

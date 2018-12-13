@@ -23,7 +23,7 @@ ms.locfileid: "50164714"
    > 
    > 
    
-    ![전원에 2U 장치를 케이블로 연결](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    ![전원에 2U 디바이스를 케이블로 연결](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
    
     **8100 장치에서 전원 케이블 연결**
    

@@ -35,7 +35,7 @@ ms.locfileid: "51685398"
 
 Azure에서 Pacemaker 클러스터를 설정하는 옵션에는 두 가지가 있습니다. Azure API를 통해 실패한 노드를 다시 시작하는 펜싱 에이전트를 사용하거나 SBD 장치를 사용할 수 있습니다.
 
-SBD 장치에는 iSCSI 대상 서버 역할을 하고 SBD 장치를 제공하는 추가 가상 머신이 하나 이상 필요합니다. 단, 이러한 iSCSI 대상 서버를 다른 Pacemaker 클러스터와 공유할 수 있습니다. SBD 장치를 사용하는 이점은 빠른 장애 조치(failover) 시간이며 온-프레미스에서 SBD 장치를 사용하는 경우에는 pacemaker 클러스터 작동 방식을 변경할 필요가 없습니다. 예를 들어, iSCSI 대상 서버의 OS 패치 동안 Pacemaker 클러스터에서 SBD 장치를 사용할 수 없게 하도록 하려면 최대 3개의 SBD 장치를 사용할 수 있습니다. Pacemaker당 2개 이상의 SBD 장치를 사용하려는 경우 여러 iSCSI 대상 서버를 배포하고 각 iSCSI 대상 서버에서 하나의 SBD를 연결해야 합니다. SBD 장치를 1개 또는 3개 사용하는 것이 좋습니다. SBD 장치를 2개만 구성한 상태에서 하나를 사용할 수 없게 되면 Pacemaker는 클러스터 노드를 자동으로 방어할 수 없게 됩니다. 하나의 iSCSI 대상 서버가 다운되었을 때 방어하려면 3개의 SBD 장치, 즉 3개의 iSCSI 대상 서버를 사용해야 합니다.
+SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 제공하는 추가 가상 머신이 하나 이상 필요합니다. 단, 이러한 iSCSI 대상 서버를 다른 Pacemaker 클러스터와 공유할 수 있습니다. SBD 장치를 사용하는 이점은 빠른 장애 조치(failover) 시간이며 온-프레미스에서 SBD 장치를 사용하는 경우에는 pacemaker 클러스터 작동 방식을 변경할 필요가 없습니다. 예를 들어, iSCSI 대상 서버의 OS 패치 동안 Pacemaker 클러스터에서 SBD 디바이스를 사용할 수 없게 하도록 하려면 최대 3개의 SBD 디바이스를 사용할 수 있습니다. Pacemaker당 2개 이상의 SBD 디바이스를 사용하려는 경우 여러 iSCSI 대상 서버를 배포하고 각 iSCSI 대상 서버에서 하나의 SBD를 연결해야 합니다. SBD 디바이스를 1개 또는 3개 사용하는 것이 좋습니다. SBD 디바이스를 2개만 구성한 상태에서 하나를 사용할 수 없게 되면 Pacemaker는 클러스터 노드를 자동으로 방어할 수 없게 됩니다. 하나의 iSCSI 대상 서버가 다운되었을 때 방어하려면 3개의 SBD 디바이스, 즉 3개의 iSCSI 대상 서버를 사용해야 합니다.
 
 가상 머신 하나를 추가로 투자하지 않으려면 Azure 펜스 에이전트를 사용할 수도 있습니다. 단점은 리소스 중지가 실패하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 장애 조치(failover)에 10~15분이 걸릴 수 있습니다.
 
@@ -82,7 +82,7 @@ SBD 장치에는 iSCSI 대상 서버 역할을 하고 SBD 장치를 제공하는
 
 ### <a name="create-iscsi-device-on-iscsi-target-server"></a>iSCSI 대상 서버에 iSCSI 장치 만들기
 
-모든 **iSCSI 대상 가상 머신**에 대해 다음 명령을 실행하여 SAP 시스템에서 사용하는 클러스터에 대해 iSCSI 디스크를 만듭니다. 다음 예제에서는 여러 클러스터에 대한 SBD 장치가 만들어집니다. 또한 여러 클러스터에 대해 하나의 iSCSI 대상 서버를 사용하는 방법을 보여 줍니다. SBD 장치는 OS 디스크에 배치됩니다. 충분한 공간이 있는지 확인합니다.
+모든 **iSCSI 대상 가상 머신**에 대해 다음 명령을 실행하여 SAP 시스템에서 사용하는 클러스터에 대해 iSCSI 디스크를 만듭니다. 다음 예제에서는 여러 클러스터에 대한 SBD 디바이스가 만들어집니다. 또한 여러 클러스터에 대해 하나의 iSCSI 대상 서버를 사용하는 방법을 보여 줍니다. SBD 디바이스는 OS 디스크에 배치됩니다. 충분한 공간이 있는지 확인합니다.
 
 **nfs**는 NFS 클러스터를 식별하는 데 사용되고, **ascsnw1**은 **NW1**의 ASCS 클러스터를 식별하는 데 사용되고, **dbnw1**은 **NW1**의 데이터베이스 클러스터를 식별하는 데 사용되고, **nfs-0** 및 **nfs-1**은 NFS 클러스터 노드의 호스트 이름이고, **nw1-xscs-0** 및 **nw1-xscs-1**은 **NW1** ASCS 클러스터 노드의 호스트 이름이고, **nw1-db-0** 및 **nw1-db-1**은 데이터베이스 클러스터 노드의 호스트 이름입니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
 
@@ -192,7 +192,7 @@ o- / ...........................................................................
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   iSCSI 대상 서버에서 iSCSI 장치를 만들 때 사용한 ACL과 일치하도록 파일의 콘텐츠를 변경합니다(예: NFS 서버).
+   iSCSI 대상 서버에서 iSCSI 디바이스를 만들 때 사용한 ACL과 일치하도록 파일의 콘텐츠를 변경합니다(예: NFS 서버).
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-0.local:nfs-0</b>
    </code></pre>
@@ -232,7 +232,7 @@ o- / ...........................................................................
    sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
-   iSCSI 장치를 사용할 수 있는지 확인하고 장치 이름을 기록합니다(다음 예제의 경우 /dev/sde)
+   iSCSI 디바이스를 사용할 수 있는지 확인하고 디바이스 이름을 기록합니다(다음 예제의 경우 /dev/sde)
 
    <pre><code>lsscsi
    
@@ -245,7 +245,7 @@ o- / ...........................................................................
    # <b>[8:0:0:0]    disk    LIO-ORG  sbdnfs           4.0   /dev/sdf</b>
    </code></pre>
 
-   이제 iSCSI 장치의 ID를 검색합니다.
+   이제 iSCSI 디바이스의 ID를 검색합니다.
 
    <pre><code>ls -l /dev/disk/by-id/scsi-* | grep <b>sdd</b>
    
@@ -266,7 +266,7 @@ o- / ...........................................................................
    # lrwxrwxrwx 1 root root  9 Aug  9 13:32 /dev/disk/by-id/scsi-SLIO-ORG_sbdnfs_f88f30e7-c968-4678-bc87-fe7bfcbdb625 -> ../../sdf
    </code></pre>
 
-   이 명령은 모든 SBD 장치의 세 가지 장치 ID를 나열합니다. scsi-3으로 시작하는 ID를 사용하는 것이 좋습니다. 위의 예에서 해당 ID는 다음과 같습니다.
+   이 명령은 모든 SBD 디바이스의 세 가지 디바이스 ID를 나열합니다. scsi-3으로 시작하는 ID를 사용하는 것이 좋습니다. 위의 예에서 해당 ID는 다음과 같습니다.
 
    * **/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03**
    * **/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df**
@@ -274,7 +274,7 @@ o- / ...........................................................................
 
 1. **[1]** SBD 장치 만들기
 
-   iSCSI 장치의 장치 ID를 사용하여 첫 번째 클러스터 노드에 새 SBD 장치를 만듭니다.
+   iSCSI 디바이스의 디바이스 ID를 사용하여 첫 번째 클러스터 노드에 새 SBD 디바이스를 만듭니다.
 
    <pre><code>sudo sbd -d <b>/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03</b> -1 60 -4 120 create
 
@@ -477,9 +477,9 @@ o- / ...........................................................................
    <pre><code>sudo service corosync restart
    </code></pre>
 
-## <a name="create-azure-fence-agent-stonith-device"></a>Azure Fence 에이전트 STONITH 장치 만들기
+## <a name="create-azure-fence-agent-stonith-device"></a>Azure Fence 에이전트 STONITH 디바이스 만들기
 
-STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
+STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
 1. <https://portal.azure.com>으로 이동합니다.
 1. Azure Active Directory 블레이드 열기  
@@ -536,7 +536,7 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
 
 ### <a name="1-create-the-stonith-devices"></a>**[1]** STONITH 장치 만들기
 
-가상 머신의 권한을 편집하고 나면 클러스터의 STONITH 장치를 구성할 수 있습니다.
+가상 머신의 권한을 편집하고 나면 클러스터의 STONITH 디바이스를 구성할 수 있습니다.
 
 <pre><code># replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \

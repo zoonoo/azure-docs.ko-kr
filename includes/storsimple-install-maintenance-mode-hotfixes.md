@@ -19,7 +19,7 @@ ms.locfileid: "50165603"
 > 
 > 
 
-1. 장치를 유지 관리 모드로 설정합니다. 유지 관리 모드로 전환하는 방법에 대한 지침은 [2단계: 유지 관리 모드 전환](../articles/storsimple/storsimple-update-device.md#step2) 을 참조하세요.
+1. 디바이스를 유지 관리 모드로 설정합니다. 유지 관리 모드로 전환하는 방법에 대한 지침은 [2단계: 유지 관리 모드 전환](../articles/storsimple/storsimple-update-device.md#step2) 을 참조하세요.
 2. 핫픽스를 적용하려면 다음을 입력합니다.
    
      `Start-HcsHotfix` 

@@ -95,7 +95,7 @@ ms.locfileid: "51004122"
 장치 템플릿에서 위치 속성을 구성한 장치 집합 대시보드에 위치 맵을 추가하려면 [Azure Maps에서 제공하는 위치 속성 만들기](howto-set-up-template.md)를 참조합니다.
 
 
-1. 장치 집합 대시보드의 라이브러리에서 맵을 선택합니다.
+1. 디바이스 집합 대시보드의 라이브러리에서 맵을 선택합니다.
 
     ![장치 집합 대시보드 맵](media/howto-use-device-sets/LocationMaps1.png)
 

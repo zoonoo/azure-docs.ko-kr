@@ -30,7 +30,7 @@ ms.locfileid: "52636968"
 
 ## <a name="example"></a>예
 
-다음 예제에서는 프로비전해야 하는 여러 장치가 있는 IoT("사물 인터넷") 시나리오를 보여 줍니다. 다음과 같이 각 장치마다 수행해야 하는 특정 오케스트레이션이 있습니다.
+다음 예제에서는 프로비전해야 하는 여러 디바이스가 있는 IoT("사물 인터넷") 시나리오를 보여줍니다. 다음과 같이 각 디바이스마다 수행해야 하는 특정 오케스트레이션이 있습니다.
 
 #### <a name="c"></a>C#
 
@@ -74,7 +74,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-이 오케스트레이터 함수는 일회용 장치 프로비전을 위해 그대로 사용하거나 더 큰 오케스트레이션의 일부로 포함될 수 있습니다. 후자의 경우 부모 오케스트레이터 함수는 `CallSubOrchestratorAsync`(C#) 또는 `callSubOrchestrator`(JS) API를 사용하여 `DeviceProvisioningOrchestration` 인스턴스를 예약할 수 있습니다.
+이 오케스트레이터 함수는 일회용 디바이스 프로비전을 위해 그대로 사용하거나 더 큰 오케스트레이션의 일부로 포함될 수 있습니다. 후자의 경우 부모 오케스트레이터 함수는 `CallSubOrchestratorAsync`(C#) 또는 `callSubOrchestrator`(JS) API를 사용하여 `DeviceProvisioningOrchestration` 인스턴스를 예약할 수 있습니다.
 
 다음은 여러 오케스트레이터 함수를 병렬로 실행하는 방법을 보여 주는 예제입니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub를 사용하여 대규모로 IoT 장치 구성 및 모니터링(CLI) | Microsoft Docs
+title: Azure IoT Hub를 사용하여 대규모로 IoT 디바이스 구성 및 모니터링(CLI) | Microsoft Docs
 description: Azure IoT Hub 자동 장치 구성을 사용하여 여러 장치에 구성을 할당합니다
 author: ChrisGMsft
 manager: bruz
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46971912"
 ---
-# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모로 IoT 장치 구성 및 모니터링
+# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모로 IoT 디바이스 구성 및 모니터링
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
@@ -39,11 +39,11 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 
 ## <a name="implement-device-twins-to-configure-devices"></a>장치 쌍 구현으로 장치를 구성
 
-자동 장치 구성은 클라우드와 장치 간의 상태를 동기화하는 장치 쌍을 사용해야 합니다.  장치 쌍 사용에 대한 지침은 [IoT Hub에서 장치 쌍 이해 및 사용](iot-hub-devguide-device-twins.md)을 참조하세요.
+자동 장치 구성은 클라우드와 장치 간의 상태를 동기화하는 장치 쌍을 사용해야 합니다.  디바이스 쌍 사용에 대한 지침은 [IoT Hub에서 디바이스 쌍 이해 및 사용](iot-hub-devguide-device-twins.md)을 참조하세요.
 
-## <a name="identify-devices-using-tags"></a>태그를 사용하여 장치 식별
+## <a name="identify-devices-using-tags"></a>태그를 사용하여 디바이스 식별
 
-배포를 만들려면 먼저 적용할 장치를 지정해야 합니다. Azure IoT Hub는 장치 쌍의 태그를 사용하여 장치를 식별합니다. 각 장치는 여러 개의 태그를 갖출 수 있으며 솔루션에 적합한 방식으로 이러한 태그를 정의할 수 있습니다. 예를 들어 다른 위치에 있는 장치를 관리하는 경우 장치 쌍에 다음 태그를 추가할 수 있습니다.
+배포를 만들려면 먼저 적용할 장치를 지정해야 합니다. Azure IoT Hub는 장치 쌍의 태그를 사용하여 장치를 식별합니다. 각 디바이스는 여러 개의 태그를 갖출 수 있으며 솔루션에 적합한 방식으로 이러한 태그를 정의할 수 있습니다. 예를 들어 다른 위치에 있는 장치를 관리하는 경우 장치 쌍에 다음 태그를 추가할 수 있습니다.
 
 ```json
 "tags": {
@@ -56,7 +56,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 
 ## <a name="define-the-target-content-and-metrics"></a>대상 콘텐츠 및 메트릭 정의
 
-대상 콘텐츠 및 메트릭 쿼리는 설정할 원하는 장치 쌍 속성과 측정할 보고된 속성을 설명하는 JSON 문서로 지정됩니다.  Azure CLI를 사용하여 자동 장치 구성을 만들려면 대상 콘텐츠와 메트릭을 로컬에 .txt 파일로 저장합니다. 이후 섹션에서 명령을 실행하여 장치에 구성을 적용할 때 파일 경로를 사용합니다. 
+대상 콘텐츠 및 메트릭 쿼리는 설정할 원하는 디바이스 쌍 속성과 측정할 보고된 속성을 설명하는 JSON 문서로 지정됩니다.  Azure CLI를 사용하여 자동 디바이스 구성을 만들려면 대상 콘텐츠와 메트릭을 로컬에 .txt 파일로 저장합니다. 이후 섹션에서 명령을 실행하여 디바이스에 구성을 적용할 때 파일 경로를 사용합니다. 
 
 다음은 기본 대상 콘텐츠 샘플입니다.
 
@@ -86,7 +86,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 
 ## <a name="create-a-configuration"></a>구성 만들기
 
-대상 콘텐츠 및 메트릭으로 구성된 구성을 만들어 대상 장치를 구성합니다. 
+대상 콘텐츠 및 메트릭으로 구성된 구성을 만들어 대상 디바이스를 구성합니다. 
 
 다음 명령을 사용하여 구성을 만듭니다.
 
@@ -105,9 +105,9 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 
 * --**hub-name** - 구성을 만들 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
 
-* --**target-condition** - 대상 조건을 입력하여 이 구성의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 원하는 장치 쌍 속성을 기반으로 하며, 식 형식과 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.desired.devicemodel='4000x'`과 같습니다. 
+* --**target-condition** - 대상 조건을 입력하여 이 구성의 대상으로 지정할 장치를 결정합니다. 조건은 디바이스 쌍 태그 또는 원하는 디바이스 쌍 속성을 기반으로 하며, 식 형식과 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.desired.devicemodel='4000x'`과 같습니다. 
 
-* --**priority** - 양의 정수입니다. 둘 이상의 구성이 동일한 장치를 대상으로 하는 경우, Priority의 숫자 값이 가장 큰 구성이 적용됩니다.
+* --**priority** - 양의 정수입니다. 둘 이상의 구성이 동일한 디바이스를 대상으로 하는 경우, Priority의 숫자 값이 가장 큰 구성이 적용됩니다.
 
 * --**metrics** - 메트릭 쿼리의 파일 경로입니다. 메트릭은 장치가 구성 콘텐츠를 적용한 결과로 다시 보고할 수 있는 다양한 상태의 요약 수를 제공합니다. 예를 들어 보류 중인 설정 변경에 대한 메트릭, 오류에 대한 메트릭 및 성공적인 설정 변경에 대한 메트릭을 만들 수 있습니다. 
 
@@ -132,7 +132,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * **사용자 지정 메트릭** - 사용자가 정의한 모든 메트릭은 사용자 메트릭으로 간주됩니다.
 
-다음 명령을 사용하여 각 메트릭에 대한 장치 ID 또는 개체 목록을 표시할 수 있습니다.
+다음 명령을 사용하여 각 메트릭에 대한 디바이스 ID 또는 개체 목록을 표시할 수 있습니다.
 
 ```cli
 az iot hub configuration show-metric --config-id [configuration id] \
@@ -205,6 +205,6 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 * [IoT Hub 개발자 가이드](iot-hub-devguide.md)
 * [Azure IoT Edge를 사용하여 에지 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)
 
-IoT Hub Device Provisioning 서비스를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
+IoT Hub Device Provisioning Service를 사용하여 무인 Just-In-Time 프로비저닝을 수행하는 방법을 알아보려면 다음을 참조하세요. 
 
 * [Azure IoT Hub Device Provisioning 서비스](/azure/iot-dps)

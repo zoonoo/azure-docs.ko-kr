@@ -18,14 +18,14 @@ ms.locfileid: "51564938"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
-비즈니스 논리를 사용하여 IoT Edge 모듈을 만들면 장치에 배포하여 에지에서 작동시킵니다. 데이터를 수집하고 처리하기 위해 다중 모듈을 사용한 경우 한 번에 모두 배포하고 여기에 연결된 회람 규칙을 선언할 수 있습니다. 
+비즈니스 논리를 사용하여 IoT Edge 모듈을 만들면 디바이스에 배포하여 에지에서 작동시킵니다. 데이터를 수집하고 처리하기 위해 다중 모듈을 사용한 경우 한 번에 모두 배포하고 여기에 연결된 회람 규칙을 선언할 수 있습니다. 
 
 이 아티클에서는 배포 매니페스트를 만들고 IoT Edge 장치에 배포를 푸시하는 방법을 Azure Portal에서 어떻게 설명하는지를 보여줍니다. 해당 공유 태그에 따라 다중 장치를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) 
-* IoT Edge 런타임이 설치된 [IoT Edge 장치](how-to-register-device-portal.md) 
+* IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device-portal.md) 
 
 ## <a name="select-your-device"></a>장치 선택
 
@@ -68,7 +68,7 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 배포 정보를 검토한 다음 **제출**을 선택합니다. 
 
-## <a name="view-modules-on-your-device"></a>장치에서 모듈 보기
+## <a name="view-modules-on-your-device"></a>디바이스에서 모듈 보기
 
 장치에 모듈을 배포하면 포털의 **장치 세부 정보** 페이지에서 모두 볼 수 있습니다. 이 페이지에서는 배포 상태 및 종료 코드와 같은 유용한 정보뿐만 아니라 배포된 각 모듈의 이름을 표시합니다. 
 

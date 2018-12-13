@@ -1,6 +1,6 @@
 ---
 title: Baidu를 사용하여 Azure Notification Hubs 시작 | Microsoft Docs
-description: 이 자습서에서 Baidu를 사용하여 Azure Notification Hubs에서 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서 Baidu를 사용하여 Azure Notification Hubs에서 Android 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
 author: dimazaid
@@ -24,7 +24,7 @@ ms.locfileid: "51246772"
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu를 사용하여 Notification Hubs 시작
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Baidu 클라우드 푸시는 모바일 장치로 푸시 알림을 보내는 데 사용할 수 있는 중국어 클라우드 서비스입니다. 
+Baidu 클라우드 푸시는 모바일 디바이스로 푸시 알림을 보내는 데 사용할 수 있는 중국어 클라우드 서비스입니다. 
 
 Google Play 및 FCM(Firebase Cloud Messaging)은 중국에서 사용할 수 없으므로 다른 앱 스토어 및 푸시 서비스를 사용해야 합니다. Baidu는 그 중 하나이며 현재 알림 허브에서 사용하는 것입니다.
 
@@ -528,7 +528,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
 앱이 Baidu 푸시 알림 서비스에서 `userId` 및 `channelId`를 검색하고 알림 허브에 등록합니다.
 
-테스트 알림을 보내려면 [Azure Portal]의 디버그 탭을 사용할 수 있습니다. Visual Studio에 대해 .NET 콘솔 응용 프로그램을 빌드한 경우 Visual Studio에서 F5 키를 눌러 응용 프로그램을 실행합니다. 응용 프로그램은 장치 또는 에뮬레이터의 상위 알림 영역에 표시되는 알림을 전송합니다.
+테스트 알림을 보내려면 [Azure Portal]의 디버그 탭을 사용할 수 있습니다. Visual Studio에 대해 .NET 콘솔 응용 프로그램을 빌드한 경우 Visual Studio에서 F5 키를 눌러 응용 프로그램을 실행합니다. 응용 프로그램은 디바이스 또는 에뮬레이터의 상위 알림 영역에 표시되는 알림을 전송합니다.
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409

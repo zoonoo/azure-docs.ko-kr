@@ -333,7 +333,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 |:--- |:--- |
 | 휴대폰에 전화 걸기 |자동 음성 전화를 겁니다. 사용자가 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. 이 전화 번호는 온-프레미스 Active Directory와 동기화되지 않습니다. |
 | 휴대폰에 문자 메시지 전송 |확인 코드를 포함하는 문자 메시지를 보냅니다. 로그인 인터페이스에 이 확인 코드를 입력하라는 메시지가 표시됩니다. 이 프로세스를 단방향 SMS라고 합니다. 양방향 SMS는 사용자가 특정 코드를 다시 문자로 보내야 함을 의미합니다. 양방향 SMS는 2018년 11월 14일 이후 사용되지 않으며 지원되지 않습니다. 이때 양방향 SMS로 구성된 사용자는 _휴대폰에 전화 걸기_ 인증으로 자동 전환됩니다.|
-| 모바일 앱을 통한 알림 |휴대폰이나 등록된 장치로 푸시 알림을 보냅니다. 사용자는 알림을 보고 **확인**을 선택하여 인증을 완료합니다. [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
+| 모바일 앱을 통한 알림 |휴대폰이나 등록된 디바이스로 푸시 알림을 보냅니다. 사용자는 알림을 보고 **확인**을 선택하여 인증을 완료합니다. [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
 | 모바일 앱 또는 하드웨어 토큰의 확인 코드 |Microsoft Authenticator 앱은 30초마다 새로운 OATH 확인 코드를 생성합니다. 사용자는 로그인 인터페이스에 확인 코드를 입력합니다. [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
 
 ### <a name="enable-and-disable-verification-methods"></a>인증 방법 사용 및 사용 안 함
@@ -352,7 +352,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 사용자가 신뢰할 수 있는 장치 및 브라우저용 _Multi-Factor Authentication 저장_ 기능은 모든 Multi-Factor Authentication 사용자에 대한 무료 기능입니다. 사용자는 Multi-Factor Authentication을 사용하여 장치에 성공적으로 로그인한 후 지정된 일 수 동안 이후 인증을 바이패스할 수 있습니다. 이 기능은 사용자가 동일한 장치에서 2단계 인증을 수행해야 하는 횟수를 최소화함으로써 유용성을 향상시킵니다.
 
 >[!IMPORTANT]
->계정 또는 장치가 손상된 경우 신뢰할 수 있는 장치의 Multi-Factor Authentication을 저장해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 장치를 분실 또는 도난당한 경우 [모든 장치에서 Multi-Factor Authentication을 복원](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user)해야 합니다.
+>계정 또는 장치가 손상된 경우 신뢰할 수 있는 장치의 Multi-Factor Authentication을 저장해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 디바이스를 분실 또는 도난당한 경우 [모든 디바이스에서 Multi-Factor Authentication을 복원](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user)해야 합니다.
 >
 >복원 작업은 모든 장치에서 신뢰할 수 있는 상태를 해지하며, 사용자는 2단계 인증을 다시 수행해야 합니다. [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)의 내용에 따라 사용자에게 자신의 장치에서 Multi-Factor Authentication을 복원하도록 지시할 수도 있습니다.
 >
@@ -381,6 +381,6 @@ Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 �
 6. 신뢰할 수 있는 장치가 2단계 인증을 바이패스할 수 있는 일 수를 설정합니다. 기본값은 14일입니다.
 7. **저장**을 선택합니다.
 
-### <a name="mark-a-device-as-trusted"></a>장치를 신뢰할 수 있음으로 표시
+### <a name="mark-a-device-as-trusted"></a>디바이스를 신뢰할 수 있음으로 표시
 
 Multi-Factor Authentication 저장 기능을 사용하도록 설정한 후 사용자가 **다시 묻지 않음**을 선택하여 로그인할 때 장치를 신뢰할 수 있는 장치로 표시할 수 있습니다.

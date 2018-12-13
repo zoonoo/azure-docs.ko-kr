@@ -51,7 +51,7 @@ https://api.cognitive.microsoft.com/bing/v5.0/spellcheck
 
 ## <a name="the-request"></a>요청
 
-다음은 모든 제안된 쿼리 매개 변수 및 헤더를 포함하는 요청을 보여줍니다. Bing API 중 하나를 처음으로 호출하는 경우 클라이언트 ID 헤더를 포함하지 마세요. 이전에 Bing API를 호출했고 Bing이 사용자 및 장치 조합에 대한 클라이언트 ID를 반환한 경우 클라이언트 ID만 포함하세요. 
+다음은 모든 제안된 쿼리 매개 변수 및 헤더를 포함하는 요청을 보여줍니다. Bing API 중 하나를 처음으로 호출하는 경우 클라이언트 ID 헤더를 포함하지 마세요. 이전에 Bing API를 호출했고 Bing이 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우 클라이언트 ID만 포함하세요. 
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1  

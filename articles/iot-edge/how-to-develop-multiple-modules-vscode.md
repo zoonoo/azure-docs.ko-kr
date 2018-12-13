@@ -18,7 +18,7 @@ ms.locfileid: "51568763"
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>Visual Studio Code에서 여러 모듈을 사용하여 IoT Edge 솔루션 개발
 
-Visual Studio Code의 여러 모듈을 사용하여 Azure IoT Edge 솔루션을 개발할 수 있습니다. 이 문서에서는 VS Code의 시뮬레이션된 IoT Edge 장치에서 센서 데이터를 파이핑하는 IoT Edge 솔루션을 만들고, 업데이트하고, 배포하는 방법을 보여줍니다. 
+Visual Studio Code의 여러 모듈을 사용하여 Azure IoT Edge 솔루션을 개발할 수 있습니다. 이 문서에서는 VS Code의 시뮬레이션된 IoT Edge 디바이스에서 센서 데이터를 파이핑하는 IoT Edge 솔루션을 만들고, 업데이트하고, 배포하는 방법을 보여 줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -61,7 +61,7 @@ Visual Studio Code의 여러 모듈을 사용하여 Azure IoT Edge 솔루션을 
 
 1. VS Code **명령 팔레트**에서 **Azure IoT Edge: IoT Edge 솔루션 빌드** 명령을 입력하고 실행합니다. 이 명령은 각 모듈 폴더에 있는 module.json 파일에 따라 각 모듈 Docker 이미지를 빌드, 컨테이너화 및 푸시하기 시작합니다. 그런 다음, deployment.template.json 파일에 필요한 값을 전달하고 config 폴더의 정보를 사용하여 deployment.json 파일을 생성합니다. VS Code의 통합 터미널은 빌드 진행률을 보여줍니다. 
 
-2. Azure IoT Hub **Device Explorer**에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭한 다음, **Edge 장치에 대한 배포 만들기** 명령을 선택합니다. config 폴더에서 deployment.json 파일을 선택합니다. VS Code의 통합 터미널은 배포 ID를 사용하여 성공적으로 생성된 배포를 보여줍니다.
+2. Azure IoT Hub **Device Explorer**에서 IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭한 다음, **Edge 디바이스에 대한 배포 만들기** 명령을 선택합니다. config 폴더에서 deployment.json 파일을 선택합니다. VS Code의 통합 터미널은 배포 ID를 사용하여 성공적으로 생성된 배포를 보여줍니다.
 
 3. 개발 컴퓨터에서 IoT Edge 장치를 시뮬레이션하는 경우 몇 분 안에 모든 모듈 이미지 컨테이너가 시작되는 것을 확인할 수 있습니다.
 
@@ -77,4 +77,4 @@ Visual Studio Code에서 Azure IoT Edge를 개발하는 다른 시나리오에 �
 * [C#](how-to-develop-csharp-module.md) 또는 [Node.js](how-to-develop-node-module.md)를 사용하여 VS Code에서 모듈을 개발합니다.
 * [C#](how-to-develop-csharp-function.md)을 사용하여 VS Code에서 Azure Functions를 개발합니다.
 
-IoT Edge 장치의 모듈을 개발하려면 [Azure IoT Hub SDK를 이해하고 사용](../iot-hub/iot-hub-devguide-sdks.md)합니다.
+IoT Edge 디바이스의 모듈을 개발하려면 [Azure IoT Hub SDK를 이해하고 사용](../iot-hub/iot-hub-devguide-sdks.md)합니다.

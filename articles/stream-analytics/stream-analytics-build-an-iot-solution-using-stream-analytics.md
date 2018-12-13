@@ -19,7 +19,7 @@ ms.locfileid: "50978794"
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics를 사용하여 IoT 솔루션 빌드
 
 ## <a name="introduction"></a>소개
-이 솔루션에서는 Azure Stream Analytics를 사용하여 데이터에서 실시간 정보를 얻는 방법을 알아봅니다. 개발자는 클릭 스트림, 로그 및 장치에서 생성된 이벤트와 같은 데이터 스트림을 기록 레코드 또는 참조 데이터와 조합하여 비즈니스 통찰력을 얻을 수 있습니다. Azure Stream Analytics는 Microsoft Azure에 호스트된 완전히 관리되는 실시간 스트림 계산 서비스로, 기본 제공 복원력, 낮은 대기 시간 및 확장성을 제공하여 몇 분 안에 실행할 수 있습니다.
+이 솔루션에서는 Azure Stream Analytics를 사용하여 데이터에서 실시간 정보를 얻는 방법을 알아봅니다. 개발자는 클릭 스트림, 로그 및 디바이스에서 생성된 이벤트와 같은 데이터 스트림을 기록 레코드 또는 참조 데이터와 조합하여 비즈니스 통찰력을 얻을 수 있습니다. Azure Stream Analytics는 Microsoft Azure에 호스트된 완전히 관리되는 실시간 스트림 계산 서비스로, 기본 제공 복원력, 낮은 대기 시간 및 확장성을 제공하여 몇 분 안에 실행할 수 있습니다.
 
 이 솔루션을 완료한 후에 다음을 수행할 수 있습니다.
 

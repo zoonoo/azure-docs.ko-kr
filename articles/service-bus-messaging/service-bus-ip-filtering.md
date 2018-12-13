@@ -45,7 +45,7 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 예를 들어 70.37.104.0/24 범위의 주소를 수락하고 그 외의 주소는 거부하려는 경우 그리드에 있는 첫 번째 규칙이 주소 범위 70.37.104.0/24를 수락해야 합니다. 다음 규칙은 0.0.0.0/0 범위를 사용하여 모든 주소를 거부해야 합니다.
 
 > [!NOTE]
-> IP 주소를 거부하면 다른 Azure 서비스(예: Azure Stream Analytics, Azure Virtual Machines 또는 포털의 장치 탐색기)가 Service Bus와 상호 작용하는 것을 막을 수 있습니다.
+> IP 주소를 거부하면 다른 Azure 서비스(예: Azure Stream Analytics, Azure Virtual Machines 또는 포털의 Device Explorer)가 Service Bus와 상호 작용하는 것을 막을 수 있습니다.
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 가상 네트워크 규칙 만들기
 

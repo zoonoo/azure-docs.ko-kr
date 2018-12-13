@@ -38,9 +38,9 @@ Azure Site Recovery, 가상 머신 복제 및 StorSimple 클라우드 스냅숏 
 StorSimple 저장소에서 호스트되는 파일 공유에 Azure Site Recovery를 사용하는 원클릭 재해 복구 솔루션을 구현할 경우 다음과 같은 필수 조건이 있습니다.
 
    - Hyper-V 또는 VMware나 물리적 컴퓨터에서 호스트되는 온-프레미스 Windows Server 2012 R2 파일 서버 VM
-   - Azure StorSimple Manager에 등록된 온-프레미스 StorSimple 저장소 장치
+   - Azure StorSimple Manager에 등록된 온-프레미스 StorSimple 저장소 디바이스
    - Azure StorSimple Manager에서 만들어진 StorSimple Cloud Appliance 어플라이언스를 종료 상태로 유지할 수 있습니다.
-   - StorSimple 저장소 장치에 구성된 볼륨에서 호스트되는 파일 공유
+   - StorSimple 저장소 디바이스에 구성된 볼륨에서 호스트되는 파일 공유
    - [Azure Site Recovery 서비스 자격 증명 모음](../site-recovery/site-recovery-vmm-to-vmm.md) 
 
 또한 Azure가 복구 사이트인 경우 VM에서 [Azure Virtual Machine 준비 평가 도구](https://azure.microsoft.com/downloads/vm-readiness-assessment/)를 실행하여 Azure VM 및 Azure Site Recovery 서비스와 호환되는지 확인합니다.
@@ -101,8 +101,8 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
    1. 볼륨 컨테이너를 만든 다음 볼륨을 만듭니다. (이러한 볼륨은 파일 서버 VM의 파일 공유용입니다.) 초기자 이름을 복사하고 볼륨을 만들 때 Access Control 레코드에 적절한 이름을 지정합니다.
    1. **구성** 탭을 선택하고 장치의 IP 주소를 적어둡니다.
    1. 온-프레미스 VM에서 다시 **iSCSI 초기자** 로 이동하여 빠른 연결 섹션에 IP를 입력합니다. **빠른 연결** 을 클릭합니다(이제 장치가 연결됨).
-   1. Azure 포털을 열고 **볼륨 및 장치** 탭을 선택합니다. **자동 구성**을 클릭합니다. 만든 볼륨이 표시됩니다.
-   1. 포털에서 **장치** 탭을 선택한 다음 **Create a New Virtual Device(새 가상 장치 만들기)** 를 선택합니다. 를 선택합니다. (이 가상 장치는 장애 조치(failover)가 발생하는 경우 사용됩니다.) 이 새 가상 장치는 추가 비용을 방지하기 위해 오프라인 상태로 유지될 수 있습니다. 가상 장치를 오프라인 상태로 전환하려면 포털에서 **Virtual Machines** 섹션으로 이동하여 해당 가상 장치를 종료합니다.
+   1. Azure 포털을 열고 **볼륨 및 디바이스** 탭을 선택합니다. **자동 구성**을 클릭합니다. 만든 볼륨이 표시됩니다.
+   1. 포털에서 **디바이스** 탭을 선택한 다음, **Create a New Virtual Device(새 가상 디바이스 만들기)** 를 선택합니다. 장애 조치(Failover)가 발생할 때 이 가상 디바이스가 사용됩니다. (이 가상 디바이스는 장애 조치(failover)가 발생하는 경우 사용됩니다.) 이 새 가상 디바이스는 추가 비용을 방지하기 위해 오프라인 상태로 유지될 수 있습니다. 가상 디바이스를 오프라인 상태로 전환하려면 포털에서 **Virtual Machines** 섹션으로 이동하여 해당 가상 디바이스를 종료합니다.
    1. 온-프레미스 VM으로 돌아가 디스크 관리를 엽니다(Windows 키+X를 누르고 **디스크 관리**를 선택).
    1. 만든 볼륨 수에 따라 몇 가지 추가 디스크가 표시될 수 있습니다. 첫 번째 디스크를 마우스 오른쪽 단추로 클릭하고 **디스크 초기화**를 선택한 다음 **확인**을 선택합니다. **할당되지 않음** 섹션에서 마우스 오른쪽 단추를 클릭하고 **새 단순 볼륨**을 선택한 다음 드라이브 문자를 할당하고 마법사를 마칩니다.
    1. 모든 디스크에 대해 l단계를 반복합니다. 이제 Windows 탐색기에서 **내 PC** 의 모든 디스크를 볼 수 있습니다.
@@ -116,13 +116,13 @@ DR 사이트에서 도메인 컨트롤러를 사용할 수 있도록 설정하�
    
    1. Windows 키+Q를 누르고 **iSCSI**를 검색합니다.
    1. **iSCSI 초기자 설정**을 선택합니다.
-   1. 이전에 연결한 StorSimple 장치의 연결을 끊습니다. 또는 보호를 사용하도록 설정할 때 몇 분간 파일 서버를 끌 수 있습니다.
+   1. 이전에 연결한 StorSimple 디바이스의 연결을 끊습니다. 또는 보호를 사용하도록 설정할 때 몇 분간 파일 서버를 끌 수 있습니다.
       
    > [!NOTE]
    > 이렇게 하면 파일 공유를 일시적으로 사용할 수 없게 됩니다.
    
 1. Azure Site Recovery 포털에서 파일 서버 VM의 [가상 머신 보호를 사용](../site-recovery/site-recovery-hyper-v-site-to-azure.md)하도록 설정합니다.
-1. 초기 동기화가 시작되면 대상을 다시 연결할 수 있습니다. iSCSI 초기자로 이동하여 StorSimple 장치를 선택한 다음 **연결**을 클릭합니다.
+1. 초기 동기화가 시작되면 대상을 다시 연결할 수 있습니다. iSCSI 초기자로 이동하여 StorSimple 디바이스를 선택한 다음, **연결**을 클릭합니다.
 1. 동기화가 완료되고 VM 상태가 **보호됨**이면 VM을 선택하고 **구성** 탭을 선택한 다음 VM 네트워크(장애 조치(failover)된 VM이 속할 네트워크)를 적절하게 업데이트합니다. 네트워크가 표시되지 않으면 동기화가 아직 진행되고 있는 것입니다.
 
 ### <a name="enable-protection-of-storsimple-volumes"></a>StorSimple 볼륨의 보호 사용
@@ -155,7 +155,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
    
    - TFO(테스트 장애 조치(failover)) 후 StorSimple 볼륨 정리
    - StorSimple 볼륨 컨테이너 장애 조치(failover)
-   - 장애 조치(failover) 후 StorSimple 장치에서 볼륨 탑재
+   - 장애 조치(failover) 후 StorSimple 디바이스에서 볼륨 탑재
    - Azure VM에서 사용자 지정 스크립트 확장 제거
    - StorSimple 가상 어플라이언스 시작
    
@@ -169,10 +169,10 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
 
    - **BaseUrl**: Azure Cloud에 대한 Resource Manager URL. **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet를 사용하여 가져옵니다.
    - *RecoveryPlanName* **-ResourceGroupName**: StorSimple 리소스가 포함된 Resource Manager 그룹입니다.
-   - *RecoveryPlanName* **-ManagerName**: StorSimple 장치가 있는 StorSimple 리소스입니다.
-   - *RecoveryPlanName* **-DeviceName**: 장애 조치(failover)되어야 하는 StorSimple 장치입니다.
+   - *RecoveryPlanName* **-ManagerName**: StorSimple 디바이스가 있는 StorSimple 리소스입니다.
+   - *RecoveryPlanName* **-DeviceName**: 장애 조치(failover)되어야 하는 StorSimple 디바이스입니다.
    - *RecoveryPlanName* **-DeviceIpAddress**: 장치의 IP 주소(StorSimple Device Manager 섹션 &gt; **설정** &gt; **네트워크** &gt; **DNS 설정** 그룹의 **장치** 탭에서 확인할 수 있음)입니다.
-   - *RecoveryPlanName* **-VolumeContainers**: 장애 조치(failover)해야 할 장치에 있는 볼륨 컨테이너의 쉼표로 구분된 문자열입니다(예: volcon1,volcon2, volcon3).
+   - *RecoveryPlanName* **-VolumeContainers**: 장애 조치(failover)해야 할 디바이스에 있는 볼륨 컨테이너의 쉼표로 구분된 문자열입니다(예: volcon1,volcon2, volcon3).
    - *RecoveryPlanName* **-TargetDeviceName**: 컨테이너를 장애 조치(failover)할 StorSimple Cloud Appliance입니다.
    - *RecoveryPlanName* **-TargetDeviceIpAddress**: 대상 장치의 IP 주소(**Virtual Machine** 섹션 &gt; **설정** 그룹 &gt; **네트워크** 탭에서 확인할 수 있음)입니다.
    - *RecoveryPlanName* **-StorageAccountName**: 스크립트(장애 조치(failover)된 VM에서 실행해야 함)를 저장할 저장소 계정 이름입니다. 이 계정 이름은 스크립트를 임시로 저장할 공간이 있는 모든 저장소 계정일 수 있습니다.
@@ -264,7 +264,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
    - 수동 작업 뒤에 다른 Runbook에 사용한 것과 동일한 절차를 사용하여 **정리** 스크립트를 추가합니다. 복구 계획을 **저장**합니다.
     
    > [!NOTE]
-   > 테스트 장애 조치(failover)를 실행할 때, 대상 장치에 복제된 StorSimple 볼륨이 수동 작업이 완료된 후 정리의 일부로 삭제되므로 수동 작업 단계에서 모든 항목을 확인해야 합니다.
+   > 테스트 장애 조치(failover)를 실행할 때, 대상 디바이스에 복제된 StorSimple 볼륨이 수동 작업이 완료된 후 정리의 일부로 삭제되므로 수동 작업 단계에서 모든 항목을 확인해야 합니다.
        
       ![복구 계획](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
 
@@ -285,7 +285,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
 1. 작업이 완료되면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. 참고에서 테스트 장애 조치와 연관된 모든 관측 내용을 기록하고 저장합니다. 그러면 테스트 장애 조치 중에 생성된 가상 머신이 삭제됩니다.
 
 ## <a name="perform-a-planned-failover"></a>계획된 장애 조치(failover) 수행
-   계획된 장애 조치(failover) 중에 온-프레미스 파일 서버 VM은 정상적으로 종료되고 StorSimple 장치에서 볼륨의 클라우드 백업 스냅숏이 만들어집니다. StorSimple 볼륨이 가상 장치에 장애 조치(failover)되고, 복제본 VM이 Azure에서 온라인 상태가 되며, 볼륨이 VM에 연결됩니다.
+   계획된 장애 조치(failover) 중에 온-프레미스 파일 서버 VM은 정상적으로 종료되고 StorSimple 디바이스에서 볼륨의 클라우드 백업 스냅숏이 만들어집니다. StorSimple 볼륨이 가상 디바이스에 장애 조치(failover)되고, 복제본 VM이 Azure에서 온라인 상태가 되며, 볼륨이 VM에 연결됩니다.
 
 #### <a name="to-perform-a-planned-failover"></a>계획된 장애 조치(failover)를 수행하려면
 1. Azure 포털에서 파일 서버 VM에 대해 만들어진 **복구 서비스** 자격 증명 모음 &gt; **복구 계획(사이트 복구)** &gt; **recoveryplan_name**을 선택합니다.
@@ -297,7 +297,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
 1. 복제가 완료되면 보조 위치에서 가상 머신이 시작됩니다.
 
 ## <a name="perform-a-failover"></a>장애 조치 수행
-계획되지 않은 장애 조치(failover) 중에 StorSimple 볼륨이 가상 장치에 장애 조치(failover)되고, 복제본 VM이 Azure에서 온라인 상태가 되며, 볼륨이 VM에 연결됩니다.
+계획되지 않은 장애 조치(failover) 중에 StorSimple 볼륨이 가상 디바이스에 장애 조치(failover)되고, 복제본 VM이 Azure에서 온라인 상태가 되며, 볼륨이 VM에 연결됩니다.
 
 #### <a name="to-perform-a-failover"></a>장애 조치를 수행하려면
 1. Azure 포털에서 파일 서버 VM에 대해 만들어진 **복구 서비스** 자격 증명 모음 &gt; **복구 계획(사이트 복구)** &gt; **recoveryplan_name**을 선택합니다.
@@ -308,7 +308,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
 
 
 ## <a name="perform-a-failback"></a>장애 복구(failback) 수행
-장애 복구(failback) 중에 StorSimple 볼륨 컨테이너는 백업이 만들어진 후 물리적 장치에 장애 복구(failback)됩니다.
+장애 복구(failback) 중에 StorSimple 볼륨 컨테이너는 백업이 만들어진 후 물리적 디바이스에 장애 복구(failback)됩니다.
 
 #### <a name="to-perform-a-failback"></a>장애 복구(failback)를 수행하려면
 1. Azure 포털에서 파일 서버 VM에 대해 만들어진 **복구 서비스** 자격 증명 모음 &gt; **복구 계획(사이트 복구)** &gt; **recoveryplan_name**을 선택합니다.
@@ -332,7 +332,7 @@ VM에서 [Azure Virtual Machine 준비 평가 도구](https://azure.microsoft.co
    - 필요한 인터넷 대역폭 확인
 
 ## <a name="limitations"></a>제한 사항
-   - .현재는 StorSimple 장치 1개만 장애 조치(failover)할 수 있습니다(단일 StorSimple Cloud Appliance에). 여러 StorSimple 장치에 걸쳐 있는 파일 서버 시나리오는 아직 지원되지 않습니다.
+   - .현재는 StorSimple 디바이스 1개만 장애 조치(failover)할 수 있습니다(단일 StorSimple Cloud Appliance에). 여러 StorSimple 디바이스에 걸쳐 있는 파일 서버 시나리오는 아직 지원되지 않습니다.
    - VM에 대한 보호를 사용하도록 설정하는 동안 오류가 발생하는 경우 iSCSI 대상의 연결을 끊었는지 확인합니다.
    - 볼륨 컨테이너에 걸쳐 있는 백업 정책으로 인해 함께 그룹화된 모든 볼륨 컨테이너는 함께 장애 조치(failover)됩니다.
    - 선택한 볼륨 컨테이너에 있는 모든 볼륨은 장애 조치(failover)됩니다.

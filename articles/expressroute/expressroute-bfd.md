@@ -23,17 +23,17 @@ ms.locfileid: "51631662"
 ---
 # <a name="configure-bfd-over-expressroute"></a>ExpressRoute를 통해 BFD 구성
 
-ExpressRoute는 비공개 피어링을 통해 BFD(양방향 전달 검색)를 지원합니다. ExpressRoute를 통해 BFD를 활성화하면 ExpressRoute 회로(PE)를 종단시킬 Microsoft Enterprise 에지(MSEE) 기기와 라우터 사이에 연결 오류 감지를 촉진할 수 있습니다. Customer Edge 라우팅 장치 또는 Partner Edge 라우팅 장치를 통해 ExpressRoute를 종단시킬 수 있습니다(관리형 Layer 3 연결 서비스에 동의한 경우). 이 문서에서는 BFD의 필요성과 ExpressRoute를 통해 BFD를 활성화하는 방법을 안내합니다.
+ExpressRoute는 비공개 피어링을 통해 BFD(양방향 전달 검색)를 지원합니다. ExpressRoute를 통해 BFD를 활성화하면 ExpressRoute 회로(PE)를 종단시킬 Microsoft Enterprise 에지(MSEE) 기기와 라우터 사이에 연결 오류 감지를 촉진할 수 있습니다. Customer Edge 라우팅 디바이스 또는 Partner Edge 라우팅 디바이스를 통해 ExpressRoute를 종료할 수 있습니다(관리형 Layer 3 연결 서비스에 동의한 경우). 이 문서에서는 BFD의 필요성과 ExpressRoute를 통해 BFD를 활성화하는 방법을 안내합니다.
 
 ## <a name="need-for-bfd"></a>BFD의 필요성
 
 다음 다이어그램에서는 ExpressRoute 회로를 통해 BFD를 활성화할 경우의 장점을 보여줍니다. [ ![1]][1]
 
-Layer 2 연결 또는 관리형 Layer 3 연결을 사용하여 ExpressRoute 회로를 활성화할 수 있습니다. 두 경우 모두, ExpressRoute 연결 경로에 하나 이상의 Layer-2 장치가 있는 경우 경로의 연결 오류를 감지하는 역할은 상위 BGP에서 수행합니다.
+Layer 2 연결 또는 관리형 Layer 3 연결을 사용하여 ExpressRoute 회로를 활성화할 수 있습니다. 두 경우 모두, ExpressRoute 연결 경로에 하나 이상의 Layer-2 디바이스가 있는 경우 경로의 연결 오류를 감지하는 역할은 상위 BGP에서 수행합니다.
 
-MSEE 장치에서 BGP keepalive 및 hold-time은 일반적으로 각각 60초와 180초로 구성됩니다. 따라서 연결 오류 후에 연결 오류를 감지하고 대체 연결로 트래픽을 전환하는 데 최대 3분이 걸립니다.
+MSEE 디바이스에서 BGP keepalive 및 hold-time은 일반적으로 각각 60초와 180초로 구성됩니다. 따라서 연결 오류 후에 연결 오류를 감지하고 대체 연결로 트래픽을 전환하는 데 최대 3분이 걸립니다.
 
-Customer Edge 피어링 장치에서 하위 BGP keepalive 및 hold-time을 구성하여 BGP 타이머를 제어할 수 있습니다. 두 피어링 장치 간에 BGP 타이머가 일치하지 않으면 피어 간의 BGP 세션에서 하위 타이머 값을 사용합니다. BGP는 최소 3초까지 설정할 수 있고, hold-time은 10초 단위로 설정할 수 있습니다. 그러나 BGP 타이머를 공격적으로 설정하는 것은 좋지 않습니다. 프로토콜이 프로세스를 많이 사용하기 때문입니다.
+Customer Edge 피어링 디바이스에서 하위 BGP keepalive 및 hold-time을 구성하여 BGP 타이머를 제어할 수 있습니다. 두 피어링 디바이스 간에 BGP 타이머가 일치하지 않으면 피어 간의 BGP 세션에서 하위 타이머 값을 사용합니다. BGP는 최소 3초까지 설정할 수 있고, hold-time은 10초 단위로 설정할 수 있습니다. 그러나 BGP 타이머를 공격적으로 설정하는 것은 좋지 않습니다. 프로토콜이 프로세스를 많이 사용하기 때문입니다.
 
 이 시나리오에서는 BFD가 도움이 될 수 있습니다. BFD는 초 단위 미만의 시간 간격으로 오버헤드가 낮은 연결 오류 감지를 지원합니다. 
 

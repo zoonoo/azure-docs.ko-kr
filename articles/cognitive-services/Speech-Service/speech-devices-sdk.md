@@ -23,14 +23,14 @@ ms.locfileid: "49464100"
 
 Speech Devices SDK는 다음을 수행하는 데 유용합니다.
 * 새 음성 시나리오를 신속하게 테스트합니다.
-* 클라우드 기반 음성 서비스를 장치에 더 쉽게 통합합니다.
+* 클라우드 기반 Speech Service를 디바이스에 더 쉽게 통합합니다.
 * 고객을 위한 탁월한 사용자 환경을 만듭니다. 
 
-음성 장치 SDK는 [Speech SDK](speech-sdk.md)를 사용합니다. Speech SDK를 사용하여 장치의 마이크 배열에서 고급 오디오 처리 알고리즘에 의해 처리되는 오디오를 [Speech 서비스](overview.md)에 보냅니다. 다중 채널 오디오를 사용하여 잡음 제거, 반향 제거, 빔 형성 및 탈반향을 통해 더 정확한 원거리 [음성 인식](speech-to-text.md)을 제공합니다.
+Speech Devices SDK는 [Speech SDK](speech-sdk.md)를 사용합니다. Speech SDK를 사용하여 디바이스의 마이크 배열에서 고급 오디오 처리 알고리즘에 의해 처리되는 오디오를 [Speech Service](overview.md)에 보냅니다. 다중 채널 오디오를 사용하여 잡음 제거, 반향 제거, 빔 형성 및 탈반향을 통해 더 정확한 원거리 [음성 인식](speech-to-text.md)을 제공합니다.
 
-Speech Devices SDK를 사용하면 사용자 고유의 [사용자 지정 절전 모드 해제 단어](speech-devices-sdk-create-kws.md)가 포함된 앰비언트 장치를 빌드할 수 있으므로 사용자 조작을 시작하는 큐는 브랜드에 고유합니다. 
+Speech Devices SDK를 사용하면 사용자 고유의 [사용자 지정 절전 모드 해제 단어](speech-devices-sdk-create-kws.md)가 포함된 앰비언트 디바이스를 빌드할 수 있으므로 사용자 조작을 시작하는 큐는 브랜드에 고유합니다. 
 
-음성 장치 SDK를 통해 드라이브스루 주문 시스템, 창고 내부 또는 집 내부 지원, 스마트 스피커와 같은 다양한 음성 지원 시나리오를 구현할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](how-to-customize-voice-font.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
+Speech Devices SDK를 통해 드라이브스루 주문 시스템, 창고 내부 또는 집 내부 지원, 스마트 스피커와 같은 다양한 음성 지원 시나리오를 구현할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](how-to-customize-voice-font.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
 
 ## <a name="development-kit-providers"></a>개발 키트 공급자
 

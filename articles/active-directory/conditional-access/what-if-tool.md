@@ -81,11 +81,11 @@ Azure Portal의 **[조건부 액세스 - 정책](https://portal.azure.com/#blade
 
 ### <a name="ip-address"></a>IP 주소
 
-IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단일 IPv4 주소입니다. 이 주소는 사용자가 로그인하는 데 사용하는 장치의 인터넷 연결 주소를 나타냅니다. 예를 들어 [What is my IP address](https://whatismyipaddress.com)(내 IP 주소)로 이동하여 장치의 IP 주소를 확인할 수 있습니다.    
+IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단일 IPv4 주소입니다. 이 주소는 사용자가 로그인하는 데 사용하는 디바이스의 인터넷 연결 주소를 나타냅니다. 예를 들어 [What is my IP address](https://whatismyipaddress.com)(내 IP 주소)로 이동하여 디바이스의 IP 주소를 확인할 수 있습니다.    
 
-### <a name="device-platforms"></a>장치 플랫폼
+### <a name="device-platforms"></a>디바이스 플랫폼
 
-이 설정은 [장치 플랫폼 조건](conditions.md#device-platforms)을 모방하며, **모든 플랫폼(비지원 플랫폼 포함)** 과 같은 설정을 나타냅니다. 
+이 설정은 [디바이스 플랫폼 조건](conditions.md#device-platforms)을 모방하며, **모든 플랫폼(비지원 플랫폼 포함)** 과 같은 설정을 나타냅니다. 
 ### <a name="client-apps"></a>클라이언트 앱
 
 이 설정은 [클라이언트 앱 조건](conditions.md#client-apps)을 모방합니다.

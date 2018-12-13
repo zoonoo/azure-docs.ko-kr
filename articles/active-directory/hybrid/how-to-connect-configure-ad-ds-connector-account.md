@@ -131,7 +131,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 
 |type |이름 |Access |적용 대상| 
 |-----|-----|-----|-----|
-|허용 |AD DS 커넥터 계정 |모든 속성 읽기 |하위 장치 개체| 
+|허용 |AD DS 커넥터 계정 |모든 속성 읽기 |하위 디바이스 개체| 
 |허용 |AD DS 커넥터 계정|모든 속성 읽기 |하위 InetOrgPerson 개체| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기 |하위 Computer 개체| 
 |허용 |AD DS 커넥터 계정 |모든 속성 읽기 |하위 foreignSecurityPrincipal 개체| 

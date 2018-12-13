@@ -70,7 +70,7 @@ PM 자습서를 위한 Cortana Intelligence Gallery는 문제를 보고하고 �
 az login
 ``` 
 
-이 명령은 https:\\aka.ms\devicelogin URL에서 사용할 인증 키를 제공합니다. CLI는 장치 로그인 작업이 반환되고 일부 연결 정보를 제공할 때까지 기다립니다. 그런 다음 로컬 [Docker](https://www.docker.com/get-docker)가 설치되어 있는 경우 다음 명령을 사용하여 로컬 계산 환경을 준비합니다.
+이 명령은 https:\\aka.ms\devicelogin URL에서 사용할 인증 키를 제공합니다. CLI는 디바이스 로그인 작업이 반환되고 일부 연결 정보를 제공할 때까지 기다립니다. 그런 다음 로컬 [Docker](https://www.docker.com/get-docker)가 설치되어 있는 경우 다음 명령을 사용하여 로컬 계산 환경을 준비합니다.
 
 ```
 az ml experiment prepare --target docker --run-configuration docker

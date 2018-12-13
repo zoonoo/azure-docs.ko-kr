@@ -30,7 +30,7 @@ ms.locfileid: "51035216"
 다음은 사용 가능한 정책을 설명하는 테이블입니다.
 
 ## <a name="mdm-settings"></a>MDM 설정
-MDM 정책 설정은 Windows 10 및 Windows 10 Mobile에 모두 적용됩니다.  Windows 10 Mobile 지원은 사용자의 OneDrive 계정을 통한 Microsoft 계정 기반의 로밍에 대해서만 제공됩니다.  Microsoft Azure Active Directory 기반 동기화가 지원되는 장치에 대한 자세한 내용은 [장치 및 엔드포인트](enterprise-state-roaming-windows-settings-reference.md)를 참조하세요.
+MDM 정책 설정은 Windows 10 및 Windows 10 Mobile에 모두 적용됩니다.  Windows 10 Mobile 지원은 사용자의 OneDrive 계정을 통한 Microsoft 계정 기반의 로밍에 대해서만 제공됩니다.  Microsoft Azure Active Directory 기반 동기화가 지원되는 디바이스에 대한 자세한 내용은 [디바이스 및 엔드포인트](enterprise-state-roaming-windows-settings-reference.md)를 참조하세요.
 
 | 이름 | 설명 |
 | --- | --- |
@@ -38,7 +38,7 @@ MDM 정책 설정은 Windows 10 및 Windows 10 Mobile에 모두 적용됩니다.
 | 내 설정 동기화 허용 |사용자가 Windows 설정 및 앱 데이터 로밍 가능: 이 정책을 사용하지 않도록 설정하면 모바일 장치의 동기화 및 백업이 모두 사용되지 않도록 설정됩니다. |
 
 ## <a name="group-policy-settings"></a>그룹 정책 설정
-그룹 정책 설정은 Active Directory 도메인에 가입된 Windows 10 장치에 적용됩니다. 이 테이블에는 동기화 설정을 관리하지만 Windows 10의 엔터프라이즈 상태 로밍을 지원하지 않는(설명에 ‘사용 안 함'으로 표시) 기존 설정도 포함되어 있습니다.
+그룹 정책 설정은 Active Directory 도메인에 가입된 Windows 10 디바이스에 적용됩니다. 이 테이블에는 동기화 설정을 관리하지만 Windows 10의 엔터프라이즈 상태 로밍을 지원하지 않는(설명에 ‘사용 안 함'으로 표시) 기존 설정도 포함되어 있습니다.
 
 이러한 설정은 `Computer Configuration > Administrative Templates > Windows Components > Sync your settings`에 있습니다. 
 

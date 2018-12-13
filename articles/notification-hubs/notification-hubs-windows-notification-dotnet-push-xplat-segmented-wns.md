@@ -30,7 +30,7 @@ ms.locfileid: "41918384"
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 UWP(유니버설 Windows 플랫폼) 응용 프로그램을 실행하는 특정 Windows 장치에 알림을 푸시하는 방법을 알아봅니다. 이 자습서를 완료한 후에는 관심 있는 속보 범주를 등록하고 해당 카테고리에 대해서만 푸시 알림을 받아볼 수 있습니다. 
 
-브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 장치에서 알림을 받게 됩니다. 태그에 대한 자세한 내용은 [등록의 태그](notification-hubs-tags-segment-push-message.md)를 참조하세요.
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 디바이스에서 알림을 받게 됩니다. 태그에 대한 자세한 내용은 [등록의 태그](notification-hubs-tags-segment-push-message.md)를 참조하세요.
 
 > [!NOTE]
 > Windows 스토어 및 Windows Phone 프로젝트 버전 8.1 및 이전 버전은 Visual Studio 2017에서 지원되지 않습니다. 자세한 내용은 [Visual Studio 2017 플랫폼 대상 지정 및 호환성](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)을 참조하세요. 

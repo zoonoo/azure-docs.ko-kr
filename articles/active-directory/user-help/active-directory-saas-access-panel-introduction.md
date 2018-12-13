@@ -33,7 +33,7 @@ MyApps 포털은 Azure Portal과 별개입니다. Azure 구독이 필요하지 �
 
 - 다단계 인증과 관련된 연락처 및 기본 설정을 편집합니다 (관리자가 사용해야 하는 계정의 경우).
 
-- 사용자 ID, 대체 이메일, 휴대폰과 사무실 전화 번호 및 장치와 같은 계정 세부 정보를 봅니다.
+- 사용자 ID, 대체 이메일, 휴대폰과 사무실 전화 번호 및 디바이스와 같은 계정 세부 정보를 봅니다.
 
 - Azure AD 관리자로부터 액세스 권한을 부여받은 클라우드 기반 응용 프로그램을 보거나 시작합니다. 
 
@@ -61,7 +61,7 @@ Azure 또는 Office 365에 대한 구독이 있고 Azure Portal 또는 Office 36
 
 MyApps 포털에는 최소한 JavaScript를 지원하고 CSS를 사용하도록 설정된 브라우저가 필요합니다. 암호 기반 SSO(Single Sign-On)를 통해 응용 프로그램에 로그인하려면 브라우저에 MyApps 포털 확장이 설치되어 있어야 합니다. 암호 기반 SSO에 구성된 응용 프로그램을 선택할 때 확장이 자동으로 다운로드됩니다.
 
-설치 관리자는 아키텍처마다 다릅니다. 다운로드 링크를 클릭하면 현재 실행 중인 OS 아키텍처에 대한 설치 관리자만 가져옵니다. 응용 프로그램 배포 관리자인 경우 64비트 및 32비트 장치에서 다운로드 링크를 방문하여 두 설치 관리자를 모두 가져와야 합니다.
+설치 관리자는 아키텍처마다 다릅니다. 다운로드 링크를 클릭하면 현재 실행 중인 OS 아키텍처에 대한 설치 관리자만 가져옵니다. 응용 프로그램 배포 관리자인 경우 64비트 및 32비트 디바이스에서 다운로드 링크를 방문하여 두 설치 관리자를 모두 가져와야 합니다.
 
 
 MyApps 포털 확장은 현재 다음과 같은 경우 사용할 수 있습니다.
@@ -105,10 +105,10 @@ MyApps 포털 확장은 현재 다음과 같은 경우 사용할 수 있습니�
 
 ## <a name="mobile-app-support"></a>모바일 앱 지원
 
-Azure Active Directory 팀은 My Apps 모바일 앱을 게시합니다. 앱을 설치하면 iOS 및 Android 장치의 암호 기반 SSO 응용 프로그램에 로그인할 수 있습니다.
+Azure Active Directory 팀은 My Apps 모바일 앱을 게시합니다. 앱을 설치하면 iOS 및 Android 디바이스의 암호 기반 SSO 응용 프로그램에 로그인할 수 있습니다.
 
 > [!NOTE]
-> 플러그 인이나 모바일 앱 없이 모든 장치의 거의 모든 웹 브라우저(Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 및 기타 70개 이상 포함)에서 Azure AD를 사용하여 페더레이션을 지원하는 응용 프로그램에 로그인할 수 있습니다. 모바일 장치에서 사용하기 위해, 다른 [MyApps 포털 환경](https://myapps.microsoft.com/)에도 My Apps 모바일 앱이 필요하지 않습니다.
+> 플러그 인이나 모바일 앱 없이 모든 디바이스의 거의 모든 웹 브라우저(Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 및 기타 70개 이상 포함)에서 Azure AD를 사용하여 페더레이션을 지원하는 응용 프로그램에 로그인할 수 있습니다. 모바일 디바이스에서 사용하기 위해, 다른 [MyApps 포털 환경](https://myapps.microsoft.com/)에도 My Apps 모바일 앱이 필요하지 않습니다.
 
 ### <a name="my-apps-for-iphone-and-ipad"></a>iPhone 및 iPad 용 My Apps
 
@@ -121,7 +121,7 @@ iOS용 My Apps는 iOS 버전 7 이상을 실행하는 iPhone 또는 iPad에서 �
 
 ## <a name="intune-managed-browser-for-my-apps"></a>My Apps용 Intune Managed Browser
 
-My Apps는 Intune Managed Browser에도 통합되어 있습니다. iOS 및 Android 장치에 Intune Managed Browser를 사용하면 회사 정보가 포함된 웹 페이지를 더 안전하게 보고 탐색할 수 있으므로 더 안전한 웹 브라우징 환경을 제공할 수 있습니다.  
+My Apps는 Intune Managed Browser에도 통합되어 있습니다. iOS 및 Android 디바이스에 Intune Managed Browser를 사용하면 회사 정보가 포함된 웹 페이지를 더 안전하게 보고 탐색할 수 있으므로 더 안전한 웹 브라우징 환경을 제공할 수 있습니다.  
 
 Managed Browser 홈페이지와 책갈피 모두에서 My Apps에 액세스할 수 있습니다. 즉 앱에 도달하기 위해 클릭해야 하는 횟수가 줄어듭니다.
 

@@ -122,7 +122,7 @@ ms.locfileid: "35294897"
 | context.data.eventTime |string |UTC |
 | context.data.isSynthetic |부울 |요청이 봇 또는 웹 테스트에서 들어오는 것 같습니다. |
 | context.data.samplingRate |number |포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
-| context.device |object |클라이언트 장치 |
+| context.device |object |클라이언트 디바이스 |
 | context.device.browser |string |IE, Chrome, ... |
 | context.device.browserVersion |string |Chrome 48.0, ... |
 | context.device.deviceModel |string | |

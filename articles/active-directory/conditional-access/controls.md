@@ -77,15 +77,15 @@ ms.locfileid: "50092307"
 
 ### <a name="compliant-device"></a>규정 준수 장치
 
-장치 기반인 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목적은 [관리 장치](require-managed-devices.md)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 장치를 정의해야 하는 한 가지 옵션은 준수 장치가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](../devices/overview.md)되어 있고 Intune(모든 장치 OS) 또는 Windows 10 장치에 대한 타사 MDM 시스템 규격으로 표시되는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 장치 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다.
+디바이스 기반인 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목적은 [관리 장치](require-managed-devices.md)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 장치를 정의해야 하는 한 가지 옵션은 준수 장치가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](../devices/overview.md)되어 있고 Intune(모든 장치 OS) 또는 Windows 10 장치에 대한 타사 MDM 시스템 규격으로 표시되는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 디바이스 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다.
 
-자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조하세요.
 
 ### <a name="hybrid-azure-ad-joined-device"></a>하이브리드 Azure AD 조인 장치
 
 장치 기반 조건부 액세스 정책을 구성할 때 또 다른 옵션은 하이브리드 Azure AD 조인 장치를 요구하는 것입니다. 즉, Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿을 온-프레미스 Active Directory에 조인해야 합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 온-프레미스 Active Directory 및 Azure Active Directory에 조인되어 있는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다.  
 
-자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조하세요.
 
 
 
@@ -93,7 +93,7 @@ ms.locfileid: "50092307"
 
 ### <a name="approved-client-app"></a>승인된 클라이언트 앱
 
-직원이 개인 및 회사 작업 모두에 모바일 장치를 사용하므로 관리되지 않는 경우에도 장치를 사용하여 액세스되는 회사 데이터를 보호하는 기능이 있어야 합니다.
+직원이 개인 및 회사 작업 모두에 모바일 디바이스를 사용하므로 관리되지 않는 경우에도 디바이스를 사용하여 액세스되는 회사 데이터를 보호하는 기능이 있어야 합니다.
 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 모든 MDM(모바일 장치 관리) 솔루션과는 별도로 회사의 데이터를 보호할 수 있습니다.
 
 
@@ -166,7 +166,7 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 ### <a name="use-app-enforced-restrictions"></a>앱에서 적용된 제한 사항 사용
 
-이 컨트롤을 사용하여 Azure AD가 장치 정보를 선택한 클라우드 앱에 전달하도록 할 수 있습니다. 장치 정보를 사용하면 클라우드 앱이 규정 준수 또는 도메인 조인 장치에서 연결이 초기화되는지 여부를 알 수 있습니다. 이 컨트롤은 선택한 클라우드 앱으로 SharePoint Online 및 Exchange Online만 지원합니다. 선택하면 클라우드 앱에서는 장치 정보를 사용하여 사용자에게 장치 상태에 따라 제한된 환경이나 전체 환경을 제공합니다.
+이 컨트롤을 사용하여 Azure AD가 디바이스 정보를 선택한 클라우드 앱에 전달하도록 할 수 있습니다. 디바이스 정보를 사용하면 클라우드 앱이 규정 준수 또는 도메인 조인 디바이스에서 연결이 초기화되는지 여부를 알 수 있습니다. 이 컨트롤은 선택한 클라우드 앱으로 SharePoint Online 및 Exchange Online만 지원합니다. 선택하면 클라우드 앱에서는 디바이스 정보를 사용하여 사용자에게 디바이스 상태에 따라 제한된 환경이나 전체 환경을 제공합니다.
 
 자세한 내용은 다음을 참조하세요.
 

@@ -31,6 +31,6 @@ IoT Hub 및 장치 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 �
 
 [자습서: 펌웨어 업데이트를 수행하는 방법](../articles/iot-hub/tutorial-firmware-update.md)
 
-IoT 솔루션을 확장하고 여러 장치에서 메서드 호출을 예약하는 방법을 알아보려면 [jobs 예약 및 브로드캐스트](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) 자습서를 참조하세요.
+IoT 솔루션을 확장하고 여러 디바이스에서 메서드 호출을 예약하는 방법을 알아보려면 [jobs 예약 및 브로드캐스트](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) 자습서를 참조하세요.
 
 계속해서 IoT Hub를 시작하려면 [IoT Edge 시작](../articles/iot-edge/tutorial-simulate-device-linux.md)을 참조하세요.

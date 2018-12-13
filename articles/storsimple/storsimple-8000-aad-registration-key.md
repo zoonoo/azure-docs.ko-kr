@@ -25,7 +25,7 @@ ms.locfileid: "49387041"
 
 ## <a name="overview"></a>개요
 
-StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 장치에 연결됩니다. 현재까지 StorSimple 장치 관리자 서비스는 ACS(Access Control Service)를 사용하여 StorSimple 장치에 대한 서비스를 인증했습니다. ACS 메커니즘은 조만간 사용되지 않고 AAD(Azure Active Directory) 인증으로 대체될 예정입니다. 자세한 내용은 ACS 사용 중단 및 AAD 인증 사용에 대한 다음 공지 사항을 참조하세요.
+StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 디바이스에 연결됩니다. 현재까지 StorSimple 장치 관리자 서비스는 ACS(Access Control Service)를 사용하여 StorSimple 장치에 대한 서비스를 인증했습니다. ACS 메커니즘은 조만간 사용되지 않고 AAD(Azure Active Directory) 인증으로 대체될 예정입니다. 자세한 내용은 ACS 사용 중단 및 AAD 인증 사용에 대한 다음 공지 사항을 참조하세요.
 
 - [Azure ACS의 미래는 Azure Active Directory입니다.](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/)
 - [Microsoft Access Control Service의 향후 변경 사항](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/)

@@ -25,7 +25,7 @@ ms.locfileid: "37109191"
 
 ## <a name="overview"></a>개요
 
-StorSimple 장치 관리자 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 가상 배열에 연결됩니다. 현재까지 StorSimple 장치 관리자 서비스는 ACS(Access Control Service)를 사용하여 StorSimple 장치에 대한 서비스를 인증했습니다. ACS 메커니즘은 조만간 사용되지 않고 AAD(Azure Active Directory) 인증으로 대체될 예정입니다.
+StorSimple 디바이스 관리자 서비스는 Microsoft Azure에서 실행되며 여러 StorSimple 가상 배열에 연결됩니다. 현재까지 StorSimple 장치 관리자 서비스는 ACS(Access Control Service)를 사용하여 StorSimple 장치에 대한 서비스를 인증했습니다. ACS 메커니즘은 조만간 사용되지 않고 AAD(Azure Active Directory) 인증으로 대체될 예정입니다.
 
 이 문서에 포함된 정보는 StorSimple 1200 시리즈 Virtual Array이에만 적용됩니다. 이 문서에서는 StorSimple 장치에 적용할 수 있는 방화벽 규칙에 대한 수정과 AAD 인증 및 연결된 신규 서비스 등록 키에 대해 자세히 설명합니다.
 

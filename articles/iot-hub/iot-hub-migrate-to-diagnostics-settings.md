@@ -43,7 +43,7 @@ Azure Portal에서 IoT Hub를 업데이트하려면 먼저 진단 설정을 켠 
 또한 진단 설정은 5개의 새 범주를 추적할 수 있습니다. 기존 스키마에 대한 응용 프로그램을 업데이트한 후에는 새 범주를 추가합니다.
 
 * 클라우드-장치 쌍 작업
-* 장치-클라우드 쌍 작업
+* 디바이스-클라우드 쌍 작업
 * 쌍 쿼리
 * 작업 연산
 * 직접 메서드
@@ -52,7 +52,7 @@ Azure Portal에서 IoT Hub를 업데이트하려면 먼저 진단 설정을 켠 
 
 ## <a name="monitoring-device-connect-and-disconnect-events-with-low-latency"></a>디바이스 연결 모니터링 및 낮은 대기 시간을 사용하여 이벤트 연결 해제
 
-디바이스 연결을 모니터링하고 이벤트의 연결을 해제하려면 Event Grid에서 [**디바이스 연결 끊김** 이벤트](iot-hub-event-grid.md#event-types)를 구독하여 경고를 받고 디바이스 연결 상태를 모니터링하는 것이 좋습니다. 이 [자습서](iot-hub-how-to-order-connection-state-events.md)를 사용하여 IoT 솔루션에서 IoT Hub의 장치 연결된 이벤트 및 장치 연결 해제된 이벤트를 통합하는 방법을 알아봅니다.
+디바이스 연결을 모니터링하고 이벤트의 연결을 해제하려면 Event Grid에서 [**디바이스 연결 끊김** 이벤트](iot-hub-event-grid.md#event-types)를 구독하여 경고를 받고 디바이스 연결 상태를 모니터링하는 것이 좋습니다. 이 [자습서](iot-hub-how-to-order-connection-state-events.md)를 사용하여 IoT 솔루션에서 IoT Hub의 디바이스 연결된 이벤트 및 디바이스 연결 해제된 이벤트를 통합하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

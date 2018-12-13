@@ -26,7 +26,7 @@ ms.locfileid: "39627188"
 ---
 # <a name="how-to-configure-conditional-access-policies-for-access-attempts-from-untrusted-networks"></a>방법: 신뢰할 수 없는 네트워크의 액세스 시도에 대한 조건부 액세스 정책 구성   
 
-모바일 우선, 클라우드 우선 세계에서 Azure AD(Active Directory)는 어디에서나 장치, 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. 결과적으로 사용자는 조직의 네트워크에서 뿐만 아니라 신뢰할 수 없는 인터넷 위치에서 클라우드 앱에 액세스할 수 있습니다. [Azure AD(Azure Active Directory) 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 이 컨텍스트에서 한 가지 일반적인 요구 사항은 신뢰할 수 없는 네트워크에서 시작된 액세스 시도를 제어하는 것입니다. 이 문서에서는 이 요구 사항을 처리하는 조건부 액세스 정책을 구성하는 데 필요한 정보를 제공합니다. 
+모바일 우선, 클라우드 우선 세계에서 Azure AD(Active Directory)는 어디에서나 디바이스, 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. 결과적으로 사용자는 조직의 네트워크에서 뿐만 아니라 신뢰할 수 없는 인터넷 위치에서 클라우드 앱에 액세스할 수 있습니다. [Azure AD(Azure Active Directory) 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 이 컨텍스트에서 한 가지 일반적인 요구 사항은 신뢰할 수 없는 네트워크에서 시작된 액세스 시도를 제어하는 것입니다. 이 문서에서는 이 요구 사항을 처리하는 조건부 액세스 정책을 구성하는 데 필요한 정보를 제공합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 

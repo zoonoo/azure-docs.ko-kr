@@ -29,7 +29,7 @@ Batch AI를 독립 실행형으로 사용하거나 좀 더 큰 개발 워크플�
 
 * 자체적으로 Batch AI를 사용하여 [GPU](../virtual-machines/linux/sizes-gpu.md) 또는 CPU 클러스터에서 기계 학습 및 AI 모델을 학습 및 테스트하고 일괄로 채점할 수 있습니다. 
 
-* [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) 또는 다른 [Azure AI 플랫폼 도구](https://azure.microsoft.com/overview/ai-platform/)를 사용하여 워크플로의 Batch AI 클러스터를 대상으로 지정할 수 있습니다. Azure ML은 데이터 준비, 실험 및 작업 기록에 대한 풍부한 환경을 제공합니다. 또한 Azure ML은 학습된 모델을 컨테이터에 패키지하고, 유추를 위해 모델을 배포하거나 IoT 장치에 배포할 수도 있습니다.  
+* [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) 또는 다른 [Azure AI 플랫폼 도구](https://azure.microsoft.com/overview/ai-platform/)를 사용하여 워크플로의 Batch AI 클러스터를 대상으로 지정할 수 있습니다. Azure ML은 데이터 준비, 실험 및 작업 기록에 대한 풍부한 환경을 제공합니다. 또한 Azure ML은 학습된 모델을 컨테이터에 패키지하고, 유추를 위해 모델을 배포하거나 IoT 디바이스에 배포할 수도 있습니다.  
 
 ## <a name="train-machine-learning-and-ai-models"></a>기계 학습 및 AI 모델 학습
 

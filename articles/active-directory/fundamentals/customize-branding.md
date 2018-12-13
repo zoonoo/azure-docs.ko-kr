@@ -69,7 +69,7 @@ ms.locfileid: "46367563"
 
         - **로그인 페이지 배경색** 낮은 대역폭 연결 상황에서 배경 이미지 대신 표시되는 16진수 색(예: 흰색 #FFFFFF)을 지정합니다. 배너 로고 또는 조직 색의 기본 색을 사용하는 것이 좋습니다.
 
-        - **사각형 로고 이미지** 기본 설정된 .png 또는.jpg 이미지의 조직 로고를 선택하여 새 Windows 10 Enterprise 장치에 대한 설정 프로세스 중에 사용자에게 표시합니다. 이 이미지는 Windows 인증에만 사용하고, 다른 Windows 10 환경의 배포 또는 암호 항목 페이지에 [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)을 사용하는 테넌트에만 나타납니다.
+        - **사각형 로고 이미지** 기본 설정된 .png 또는.jpg 이미지의 조직 로고를 선택하여 새 Windows 10 Enterprise 디바이스에 대한 설정 프로세스 중에 사용자에게 표시합니다. 이 이미지는 Windows 인증에만 사용하고, 다른 Windows 10 환경의 배포 또는 암호 항목 페이지에 [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)을 사용하는 테넌트에만 나타납니다.
         
             이미지는 크기가 240x240픽셀보다 클 수 없고 파일 크기가 10KB 미만이어야 합니다. 배경이 로고 배경과 일치하지 않을 수 있으므로 투명 이미지를 사용하는 것이 좋습니다. 이미지 주위에 패딩을 추가하지 않는 것이 좋습니다. 그렇지 않으면 로고가 작게 보입니다.
     

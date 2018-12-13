@@ -40,7 +40,7 @@ Speech Service는 Bing Speech와 매우 비슷하지만, 다음과 같은 차이
 기능 | Bing Speech | Speech Service | 세부 정보
 -|-|-|-
 C++ SDK | :heavy_minus_sign: | :heavy_check_mark: | Speech Service는 Windows와 Linux를 지원합니다.
-Java SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Service는 Android와 음성 장치를 지원합니다.
+Java SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Service는 Android와 음성 디바이스를 지원합니다.
 C# SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Service는 Windows 10, UWP(유니버설 Windows 플랫폼) 및 .NET Standard 2.0을 지원합니다.
 연속 음성 인식 | 10분 | 무제한(SDK 사용) | Bing Speech와 Speech Service WebSocket 프로토콜은 호출당 최대 10분을 지원합니다. 그러나 Speech SDK는 시간 초과 또는 연결 해제 시 자동으로 다시 연결합니다.
 부분 또는 중간 결과 | :heavy_check_mark: | :heavy_check_mark: | WebSocket 프로토콜 또는 SDK 사용.
@@ -69,7 +69,7 @@ Speech Service [REST API](rest-apis.md)는 Bing Speech API와 호환됩니다. �
 
 특정 프로그래밍 언어에 대해 Bing Speech 클라이언트 라이브러리를 사용하는 경우 API가 다르기 때문에 [Speech SDK](speech-sdk.md)에서 사용 중인 응용 프로그램으로 변경해야 합니다. Speech SDK는 새 기능에 액세스하면서 코드를 좀 더 간단히 만들어줄 수 있습니다.
 
-현재, Speech SDK는 C#(Windows 10, UWP, .NET Standard), Java(Android 및 사용자 지정 장치), Objective C(iOS), C++(Windows 및 Linux), JavaScript를 지원합니다. 모든 플랫폼의 API는 비슷하며, 다중 플랫폼 개발을 용이하게 수행할 수 있습니다.
+현재, Speech SDK는 C#(Windows 10, UWP, .NET 표준), Java(Android 및 사용자 지정 디바이스), Objective C(iOS), C++(Windows 및 Linux), JavaScript를 지원합니다. 모든 플랫폼의 API는 비슷하며, 다중 플랫폼 개발을 용이하게 수행할 수 있습니다.
 
 Speech Service는 현재 전역 엔드포인트를 제공하지 않습니다. 응용 프로그램이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다. 사용하는 각 지역에 별도의 Speech Service 구독이 필요합니다.
 

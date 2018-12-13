@@ -34,7 +34,7 @@ Stream Analytics는 모든 데이터 스트림 입력 원본에서 압축을 지
 
 ## <a name="stream-data-from-event-hubs"></a>이벤트 허브에서 데이터 스트리밍
 
-Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공합니다. 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있으므로 연결된 장치와 응용 프로그램이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. Event Hubs 및 Stream Analytics는 실시간 분석을 위한 종단간 솔루션을 함께 제공합니다. Event Hubs를 사용하면 이벤트를 실시간으로 Azure에 공급할 수 있으며 Stream Analytics 작업은 해당 이벤트를 실시간으로 처리할 수 있습니다. 예를 들어 Event Hubs에 웹 클릭, 센서 판독값 또는 온라인 로그 이벤트를 보낼 수 있습니다. 그런 다음 실시간 필터링, 집계 및 상관 관계에 대한 입력 데이터 스트림으로 Event Hubs를 사용하도록 Stream Analytics 작업을 만들 수 있습니다.
+Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공합니다. 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있으므로 연결된 디바이스와 응용 프로그램이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. Event Hubs 및 Stream Analytics는 실시간 분석을 위한 종단간 솔루션을 함께 제공합니다. Event Hubs를 사용하면 이벤트를 실시간으로 Azure에 공급할 수 있으며 Stream Analytics 작업은 해당 이벤트를 실시간으로 처리할 수 있습니다. 예를 들어 Event Hubs에 웹 클릭, 센서 판독값 또는 온라인 로그 이벤트를 보낼 수 있습니다. 그런 다음 실시간 필터링, 집계 및 상관 관계에 대한 입력 데이터 스트림으로 Event Hubs를 사용하도록 Stream Analytics 작업을 만들 수 있습니다.
 
 `EventEnqueuedUtcTime`은 이벤트 허브에서 이벤트 도착의 타임스탬프이며 Stream Analytics의 Event Hubs에서 오는 이벤트의 기본 타임스탬프입니다. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
 
@@ -113,7 +113,7 @@ IoT Hub에서 스트림 데이터를 사용하는 경우 Stream Analytics 쿼리
 | **IoTHub.MessageId** | IoT Hub에서 양방향 통신을 상호 연결하는 데 사용되는 ID입니다. |
 | **IoTHub.CorrelationId** | IoT Hub에서 메시지 응답 및 피드백에 사용되는 ID입니다. |
 | **IoTHub.ConnectionDeviceId** | 이 메시지를 보내는 데 사용된 인증 ID입니다. 이 값은 IoT Hub에서 서비스 바운드 메시지에 자동 삽입됩니다. |
-| **IoTHub.ConnectionDeviceGenerationId** | 이 메시지를 보내는 데 사용된 인증된 장치의 생성 ID입니다. 이 값은 IoT Hub에서 서비스 바운드 메시지에 자동 삽입됩니다. |
+| **IoTHub.ConnectionDeviceGenerationId** | 이 메시지를 보내는 데 사용된 인증된 디바이스의 생성 ID입니다. 이 값은 IoT Hub에서 서비스 바운드 메시지에 자동 삽입됩니다. |
 | **IoTHub.EnqueuedTime** | IoT Hub에서 메시지가 수신된 시간입니다. |
 
 

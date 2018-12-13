@@ -23,12 +23,12 @@ ms.locfileid: "27862260"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Azure Portal에서 StorSimple 데이터 관리자 서비스 관리
 
-이 문서에서는 StorSimple 데이터 관리자 UI를 사용하여 StorSimple 8000 시리즈 장치에 있는 데이터를 변환하는 방법을 설명합니다. 그러면 Azure Media Services, Azure HDInsight, Azure Machine Learning 및 Azure Search와 같은 다른 Azure 서비스에서 변환된 데이터를 사용할 수 있습니다.
+이 문서에서는 StorSimple 데이터 관리자 UI를 사용하여 StorSimple 8000 시리즈 디바이스에 있는 데이터를 변환하는 방법을 설명합니다. 그러면 Azure Media Services, Azure HDInsight, Azure Machine Learning 및 Azure Search와 같은 다른 Azure 서비스에서 변환된 데이터를 사용할 수 있습니다.
 
 
 ## <a name="use-storsimple-data-transformation"></a>StorSimple 데이터 변환 사용
 
-StorSimple 데이터 관리자는 데이터 변환이 인스턴스화되는 리소스입니다. 데이터 변환 서비스를 사용하여 StorSimple 형식에서 Blob 또는 Azure Files의 네이티브 형식으로 데이터를 변환할 수 있습니다. StorSimple 네이티브 형식 데이터를 변환하려면 StorSimple 8000 시리즈 장치에 대한 세부 정보와 변환하려는 관심 있는 데이터에 대한 세부 정보를 지정해야 합니다.
+StorSimple 데이터 관리자는 데이터 변환이 인스턴스화되는 리소스입니다. 데이터 변환 서비스를 사용하여 StorSimple 형식에서 Blob 또는 Azure Files의 네이티브 형식으로 데이터를 변환할 수 있습니다. StorSimple 네이티브 형식 데이터를 변환하려면 StorSimple 8000 시리즈 디바이스에 대한 세부 정보와 변환하려는 관심 있는 데이터에 대한 세부 정보를 지정해야 합니다.
 
 ### <a name="create-a-storsimple-data-manager-service"></a>StorSimple 데이터 관리자 서비스 만들기
 
@@ -52,7 +52,7 @@ StorSimple 데이터 관리자 서비스를 만들려면 다음 단계를 수행
 
     3. 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다. 자세한 내용은 [Azure 리소스 그룹](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)을 참조하세요.
 
-    4. 저장소 계정 및 StorSimple 데이터 관리자 서비스를 저장하는 서비스의 **위치**를 지정합니다. StorSimple 장치 관리자 서비스, 데이터 관리자 서비스 및 연결된 저장소 계정은 모두 지원되는 지역에 있어야 합니다.
+    4. 저장소 계정 및 StorSimple 데이터 관리자 서비스를 저장하는 서비스의 **위치**를 지정합니다. StorSimple 디바이스 관리자 서비스, 데이터 관리자 서비스 및 연결된 저장소 계정은 모두 지원되는 지역에 있어야 합니다.
     
     5. 이 서비스에 대한 링크를 대시보드로 가져오려면 **대시보드에 고정**을 선택합니다.
     
@@ -84,7 +84,7 @@ StorSimple 데이터 관리자 서비스 내에서 데이터 변환 작업 정�
 
 6. 새 데이터 관리자 서비스이기 때문에 데이터 리포지토리가 구성되지 않습니다. **데이터 원본 구성**에서 StorSimple 8000 시리즈 장치 및 관심 있는 데이터에 대한 세부 정보를 지정합니다.
 
-   StorSimple 장치 관리자를 데이터 리포지토리로 추가하려면 데이터 리포지토리 드롭다운에서 **새로 추가**를 클릭한 다음에 **데이터 리포지토리 추가**를 클릭합니다.
+   StorSimple 디바이스 관리자를 데이터 리포지토리로 추가하려면 데이터 리포지토리 드롭다운에서 **새로 추가**를 클릭한 다음에 **데이터 리포지토리 추가**를 클릭합니다.
 
     ![새 데이터 리포지토리 추가](./media/storsimple-data-manager-ui/create-job-definition-3.png)
   
@@ -92,21 +92,21 @@ StorSimple 데이터 관리자 서비스 내에서 데이터 변환 작업 정�
     
     2. 원본 데이터 리포지토리에 대한 이름을 입력합니다.
     
-    3. 드롭다운 목록에서 StorSimple 장치 관리자 서비스와 연결된 구독을 선택합니다.
+    3. 드롭다운 목록에서 StorSimple 디바이스 관리자 서비스와 연결된 구독을 선택합니다.
     
     4. **리소스**에 대한 StorSimple 장치 관리자의 이름을 제공합니다.
 
-    5. StorSimple 장치 관리자 서비스에 대한 **서비스 데이터 암호화** 키를 입력합니다. 
+    5. StorSimple 디바이스 관리자 서비스에 대한 **서비스 데이터 암호화** 키를 입력합니다. 
 
     ![원본 데이터 리포지토리 구성 1](./media/storsimple-data-manager-ui/create-job-definition-4.png)
 
-    완료되면 **확인**을 클릭합니다. 데이터 저장소가 저장됩니다. 이러한 매개 변수를 다시 입력하지 않고도 다른 작업 정의에서 이 StorSimple 장치 관리자를 다시 사용합니다. **확인**을 클릭한 후에 새로 만든 원본 데이터 리포지토리가 드롭다운에 표시되는 데 몇 초 정도가 걸립니다.
+    완료되면 **확인**을 클릭합니다. 데이터 저장소가 저장됩니다. 이러한 매개 변수를 다시 입력하지 않고도 다른 작업 정의에서 이 StorSimple 디바이스 관리자를 다시 사용합니다. **확인**을 클릭한 후에 새로 만든 원본 데이터 리포지토리가 드롭다운에 표시되는 데 몇 초 정도가 걸립니다.
 
 7. **데이터 리포지토리**에 대한 드롭다운 목록에서 만든 데이터 리포지토리를 선택합니다. 
 
-    1. 관심 있는 데이터를 포함하는 StorSimple 8000 시리즈 장치 이름을 입력합니다.
+    1. 관심 있는 데이터를 포함하는 StorSimple 8000 시리즈 디바이스 이름을 입력합니다.
 
-    2. 관심 있는 데이터가 있는 StorSimple 장치의 볼륨 이름을 지정합니다.
+    2. 관심 있는 데이터가 있는 StorSimple 디바이스의 볼륨 이름을 지정합니다.
 
     3. **필터** 하위 섹션에서 관심 있는 데이터를 포함하는 루트 디렉터리를 _\MyRootDirectory\Data_ 형식으로 입력합니다. _\C:\Data_와 같은 드라이브 문자는 지원되지 않습니다. 여기에서 파일 필터를 추가할 수 있습니다.
 

@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
-2. 검색 상자에 **장치 프로비전**을 입력합니다. 
+2. 검색 상자에 **디바이스 프로비저닝**을 입력합니다. 
 
 3. **IoT Hub Device Provisioning Service**를 클릭합니다.
 
@@ -87,7 +87,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     * **액세스 정책:** IoT Hub에 연결하는 데 사용할 자격 증명으로 **iothubowner**를 선택합니다.
 
-   ![포털에서 Device Provisioning Service에 연결하도록 허브 이름을 연결합니다.](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+   ![포털에서 Device Provisioning Service에 연결하도록 허브 이름 연결](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Device Provisioning Service에서 할당 정책 설정
 

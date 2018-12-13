@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 Device Provisioning 설정 | Microsoft Docs
+title: Azure Portal에서 디바이스 프로비저닝 설정 | Microsoft Docs
 description: Azure 빠른 시작 - Azure Portal에서 Azure IoT Hub Device Provisioning Service 설정
 author: wesmc7777
 ms.author: wesmc
@@ -16,9 +16,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2018
 ms.locfileid: "51515202"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Azure Portal에서 IoT Hub Device Provisioning 서비스 설정
+# <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Azure Portal에서 IoT Hub Device Provisioning Service 설정
 
-이러한 단계는 장치를 프로비전하기 위해 포털에서 Azure 클라우드 리소스를 설정하는 방법을 보여 줍니다. 이 문서는 IoT Hub를 만들고 새 IoT Hub Device Provisioning Service를 만들어 두 서비스를 함께 연결하는 단계를 포함합니다. 
+이러한 단계는 디바이스를 프로비전하기 위해 포털에서 Azure 클라우드 리소스를 설정하는 방법을 보여 줍니다. 이 문서는 IoT Hub를 만들고 새 IoT Hub Device Provisioning Service를 만들어 두 서비스를 함께 연결하는 단계를 포함합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     * **Iot Hub:** 새 Device Provisioning Service 인스턴스에 연결할 IoT Hub를 선택합니다.
     * **액세스 정책:** IoT 허브로 연결을 설정하기 위한 자격 증명으로 **iothubowner**를 선택합니다.  
 
-    ![포털 블레이드에서 Device Provisioning Service 인스턴스에 연결하도록 허브 이름을 연결합니다.](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+    ![포털 블레이드에서 Device Provisioning Service 인스턴스에 연결하도록 허브 이름 연결](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. 이제 선택한 허브가 **연결된 IoT Hub** 블레이드 아래에 표시됩니다. **연결된 IoT 허브**를 표시하려면 **새로 고침**을 클릭해야 할 수도 있습니다.
 
@@ -71,12 +71,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 컬렉션의 다른 빠른 시작은 이 빠른 시작을 기반으로 구성됩니다. 다음 빠른 시작 또는 자습서를 사용하여 계속하려는 경우 이 빠른 시작에서 만든 리소스를 정리하지 않습니다. 계속하지 않으려는 경우 다음 단계에 따라 이 빠른 시작에서 만든 모든 리소스를 Azure Portal에서 삭제합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 Device Provisioning Service를 선택합니다. **모든 리소스** 블레이드 위쪽에서 **삭제**를 클릭합니다.  
+1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 사용자의 Device Provisioning Service를 선택합니다. **모든 리소스** 블레이드 위쪽에서 **삭제**를 클릭합니다.  
 2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. **모든 리소스** 블레이드 위쪽에서 **삭제**를 클릭합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 IoT Hub 및 Device Provisioning Service 인스턴스를 배포하고, 두 리소스를 연결했습니다. 시뮬레이션된 장치를 프로비전하도록 설정하는 방법에 대해 알아보려면 시뮬레이션된 장치 만들기를 위한 빠른 시작을 진행하세요.
+이 빠른 시작에서는 IoT Hub 및 Device Provisioning Service 인스턴스를 배포하고, 두 리소스를 연결했습니다. 시뮬레이션된 디바이스를 프로비전하도록 설정하는 방법에 대해 알아보려면 시뮬레이션된 디바이스 만들기를 위한 빠른 시작을 진행하세요.
 
 > [!div class="nextstepaction"]
 > [시뮬레이션된 장치를 만들기 위한 빠른 시작](./quick-create-simulated-device.md)

@@ -104,11 +104,11 @@ Linux 호스트 컴퓨터를 사용하는 경우 다음 단계에 따라 NFS 클
 
 2. Linux 호스트 컴퓨터에 [지원되는 버전](data-box-system-requirements.md)의 NFS 클라이언트를 설치합니다. 해당 Linux 배포판에 맞는 버전을 사용하세요. 
 
-3. NFS 클라이언트가 설치되면 다음 명령을 사용하여 Data Box 장치에 NFS 공유를 탑재합니다.
+3. NFS 클라이언트가 설치되면 다음 명령을 사용하여 Data Box 디바이스에 NFS 공유를 탑재합니다.
 
     `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
 
-    다음 예제에서는 NFS를 통해 Data Box 공유에 연결하는 방법을 보여줍니다. Data Box 장치 IP는 `10.161.23.130`이고, `Mystoracct_Blob` 공유는 ubuntuVM에 탑재되며, 탑재 지점은 `/home/databoxubuntuhost/databox`입니다.
+    다음 예제에서는 NFS를 통해 Data Box 공유에 연결하는 방법을 보여줍니다. Data Box 디바이스 IP는 `10.161.23.130`이고, `Mystoracct_Blob` 공유는 ubuntuVM에 탑재되며, 탑재 지점은 `/home/databoxubuntuhost/databox`입니다.
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
@@ -219,7 +219,7 @@ Robocopy 명령에 대한 자세한 내용은 [Robocopy 및 몇 가지 예제](h
 
 대상 폴더를 열어 복사된 파일을 보고 확인합니다. 복사 프로세스 중 오류가 있는 경우 문제 해결을 위해 오류 파일을 다운로드하세요.
 
-데이터 무결성을 보장하기 위해, 데이터가 복사될 때 체크섬이 인라인으로 계산됩니다. 복사가 완료되면 장치에서 사용 중인 공간과 여유 공간을 확인합니다.
+데이터 무결성을 보장하기 위해, 데이터가 복사될 때 체크섬이 인라인으로 계산됩니다. 복사가 완료되면 디바이스에서 사용 중인 공간과 여유 공간을 확인합니다.
     
    ![대시보드에서 여유 공간 및 사용 중인 공간 확인](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
@@ -265,17 +265,17 @@ Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 �
 
 ## <a name="prepare-to-ship"></a>배송 준비
 
-마지막 단계는 배송할 장치를 준비하는 것입니다. 이 단계에서는 모든 장치 공유가 오프라인 상태가 됩니다. 장치 배송 준비를 시작한 후에는 공유에 액세스할 수 없습니다.
+마지막 단계는 배송할 디바이스를 준비하는 것입니다. 이 단계에서는 모든 디바이스 공유가 오프라인 상태가 됩니다. 디바이스 배송 준비를 시작한 후에는 공유에 액세스할 수 없습니다.
 1. **배송 준비**로 이동하여 **준비 시작**을 클릭합니다. 
    
     ![배송 준비 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
 2. 기본적으로 체크섬은 배송을 준비하는 동안 계산된 인라인입니다. 체크섬 계산은 데이터의 크기에 따라 다소 시간이 걸릴 수 있습니다. **준비 시작**을 클릭합니다.
-    1. 배송을 준비하면 장치 공유가 오프라인으로 전환되고 장치가 잠깁니다.
+    1. 배송을 준비하면 디바이스 공유가 오프라인으로 전환되고 디바이스가 잠깁니다.
         
         ![배송 준비 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
    
-    2. 장치 준비가 완료되면 장치 상태가 *배송 준비 완료*로 업데이트됩니다. 
+    2. 디바이스 준비가 완료되면 디바이스 상태가 *배송 준비 완료*로 업데이트됩니다. 
         
         ![배송 준비 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
 
@@ -283,8 +283,8 @@ Linux 호스트 컴퓨터를 사용하는 경우 Robocopy와 비슷한 복사 �
         
         ![배송 준비 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
 
-3. 장치를 종료합니다. **종료하거나 다시 시작** 페이지로 이동하여 **종료**를 클릭합니다. 확인을 요청하는 메시지가 표시되면 **확인**을 클릭하여 계속 진행합니다.
-4. 케이블을 분리합니다. 다음 단계는 장치를 Microsoft로 보내는 것입니다.
+3. 디바이스를 종료합니다. **종료하거나 다시 시작** 페이지로 이동하여 **종료**를 클릭합니다. 확인을 요청하는 메시지가 표시되면 **확인**을 클릭하여 계속 진행합니다.
+4. 케이블을 분리합니다. 다음 단계는 디바이스를 Microsoft로 보내는 것입니다.
 
  
 <!--## Appendix - robocopy parameters

@@ -169,7 +169,7 @@ StorSimple은 Azure 클라우드와 통합된 솔루션이기 때문에 StorSimp
 
 ### <a name="deploy-storsimple"></a>StorSimple 배포
 
-단계별 StorSimple 배포 지침은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
+단계별 StorSimple 배포 지침은 [온-프레미스 StorSimple 디바이스 배포](storsimple-deployment-walkthrough-u2.md)를 참조하세요.
 
 ### <a name="deploy-netbackup"></a>NetBackup 배포
 
@@ -528,7 +528,7 @@ StorSimple 장치에서 복원하면 모든 블록 저장소 장치에서 복원
 | 시나리오 | 영향 | 복구 방법 | 메모 |
 |---|---|---|---|
 | StorSimple 장치 오류 | Backup 및 복원 작업이 중단됩니다. | 실패한 장치를 교체하고 [StorSimple 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)를 수행합니다. | 장치 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 장치로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 장치 계층으로 가져오므로 많은 시간이 소요될 수 있습니다. |
-| NetBackup 서버 오류 | Backup 및 복원 작업이 중단됩니다. | 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 NetBackup 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 NetBackup 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그가 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 장치 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
+| NetBackup 서버 오류 | Backup 및 복원 작업이 중단됩니다. | 백업 서버를 다시 빌드하고 데이터베이스 복원을 수행합니다. | 재해 복구 사이트에서 NetBackup 서버를 다시 빌드하거나 복원해야 합니다. 데이터베이스를 가장 최근의 지점으로 복원합니다. 복원된 NetBackup 데이터베이스가 최신 백업 작업과 동기화되지 않은 경우 인덱싱 및 카탈로그가 필요합니다. 이 인덱스 및 카탈로그 재검색 프로세스로 인해 모든 백업 세트를 검색하고 클라우드 계층에서 로컬 디바이스 계층으로 가져올 수 있습니다. 그러면 더욱 시간이 많이 걸립니다. |
 | 백업 서버와 StorSimple이 모두 손실되는 사이트 오류 | Backup 및 복원 작업이 중단됩니다. | 먼저 StorSimple을 복원한 다음 NetBackup을 복원합니다. | 먼저 StorSimple을 복원한 다음 NetBackup을 복원합니다. 장치 복구 후에 복원을 수행해야 하는 경우 전체 데이터 작업 집합이 클라우드에서 새 장치로 검색됩니다. 모든 작업이 클라우드 속도로 수행됩니다. |
 
 ## <a name="references"></a>참조

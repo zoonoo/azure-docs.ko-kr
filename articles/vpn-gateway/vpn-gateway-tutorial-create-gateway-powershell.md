@@ -90,7 +90,7 @@ $vnet   = New-AzureRmVirtualNetwork `
 
 ## <a name="request-a-public-ip-address-for-the-vpn-gateway"></a>VPN 게이트웨이에 대한 공용 IP 주소 요청
 
-Azure VPN 게이트웨이는 인터넷을 통해 온-프레미스 VPN 장치와 통신하여 IKE(Internet Key Exchange) 협상을 수행하고 IPsec 터널을 설정합니다. [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 및 [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) 명령을 사용하여 아래 예제와 같이 공용 IP 주소를 만들어서 VPN 게이트웨이에 할당합니다.
+Azure VPN Gateway는 인터넷을 통해 온-프레미스 VPN 디바이스와 통신하여 IKE(Internet Key Exchange) 협상을 수행하고 IPsec 터널을 설정합니다. [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 및 [New-AzureRmVirtualNetworkGatewayIpConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) 명령을 사용하여 아래 예제와 같이 공용 IP 주소를 만들어서 VPN 게이트웨이에 할당합니다.
 
 > [!IMPORTANT]
 > 현재는 게이트웨이에 동적 공용 IP 주소만 사용할 수 있습니다. 고정 IP 주소는 Azure VPN 게이트웨이에서 지원되지 않습니다.
@@ -116,7 +116,7 @@ New-AzureRmVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 
 키 매개 변수 값:
 * GatewayType: 사이트 간 연결 및 VNet-VNet 연결에 **Vpn**을 사용합니다.
-* VpnType: **RouteBased**를 사용하여 더 넓은 범위의 VPN 장치 및 더 많은 라우팅 기능과 상호 작용합니다.
+* VpnType: **RouteBased**를 사용하여 더 넓은 범위의 VPN 디바이스 및 더 많은 라우팅 기능과 상호 작용합니다.
 * GatewaySku: 기본값은 **VpnGw1**입니다. 더 높은 처리량 또는 더 많은 연결이 필요한 경우 VpnGw2 또는 VpnGw3로 변경합니다. 자세한 내용은 [게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
 
 게이트웨이 만들기가 완료되면 가상 네트워크와 다른 VNet 간에 연결을 만들거나 가상 네트워크와 온-프레미스 위치 간에 연결을 만들 수 있습니다. 클라이언트 컴퓨터에서 VNet으로 P2S 연결을 구성할 수도 있습니다.

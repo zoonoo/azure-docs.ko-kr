@@ -18,11 +18,11 @@ ms.locfileid: "39521903"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 장치를 프로비전
 
-이전 자습서에서 Device Provisioning Service에 연결하기 위해 장치를 설정하는 방법을 배웠습니다. 이 자습서에서는 이 서비스를 사용하여 자동 프로비전 및 **_등록 목록_** 을 사용하는 단일 IoT Hub에 장치를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이전 자습서에서 Device Provisioning Service에 연결하기 위해 디바이스를 설정하는 방법을 배웠습니다. 이 자습서에서는 이 서비스를 사용하여 자동 프로비전 및 **_등록 목록_** 을 사용하는 단일 IoT Hub에 장치를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 > [!div class="checklist"]
-> * 장치 등록
-> * 장치 시작
+> * 디바이스 등록
+> * 디바이스 시작
 > * 장치가 등록되어 있는지 확인
 
 ## <a name="prerequisites"></a>필수 조건
@@ -32,7 +32,7 @@ ms.locfileid: "39521903"
 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요.
 
 <a id="enrolldevice"></a>
-## <a name="enroll-the-device"></a>장치 등록
+## <a name="enroll-the-device"></a>디바이스 등록
 
 이 단계에서는 Device Provisioning Service에 장치의 고유 보안 아티팩트를 추가하는 것이 포함됩니다. 이러한 보안 아티팩트는 다음과 같은 장치의 [증명 메커니즘](concepts-device.md#attestation-mechanism)을 기반으로 합니다.
 
@@ -53,7 +53,7 @@ Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 �
 
     [![포털에 X.509 증명에 대한 그룹 등록 추가](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
-- **개별 등록** Device Provisioning Service에 등록할 수도 있는 단일 장치에 대한 항목을 나타냅니다. 개별 등록은 증명 메커니즘으로 x509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 고유한 초기 구성이 필요한 장치 및 증명 메커니즘으로 TPM 또는 가상 TPM을 통해 SAS 토큰만을 사용할 수 있는 장치의 경우 개별 등록을 사용하는 것이 좋습니다. 개별 등록에는 원하는 IoT Hub 장치 ID가 지정될 수 있습니다.
+- **개별 등록** Device Provisioning Service에 등록할 수도 있는 단일 장치에 대한 항목을 나타냅니다. 개별 등록은 증명 메커니즘으로 x509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 고유한 초기 구성이 필요한 장치 및 증명 메커니즘으로 TPM 또는 가상 TPM을 통해 SAS 토큰만을 사용할 수 있는 장치의 경우 개별 등록을 사용하는 것이 좋습니다. 개별 등록은 지정된 원하는 IoT Hub 디바이스 ID가 있을 수 있습니다.
 
 이제 장치의 증명 메커니즘에 따라 필요한 보안 아티팩트를 사용하여 장치를 Device Provisioning Service 인스턴스에 등록합니다. 
 
@@ -79,12 +79,12 @@ TPM 및 X.509 증명을 사용하여 시뮬레이션된 장치 예제가 C, Java
 
 ## <a name="verify-the-device-is-registered"></a>장치가 등록되어 있는지 확인
 
-장치가 부팅되면 다음 작업을 수행해야 합니다.
+디바이스가 부팅되면 다음 작업을 수행해야 합니다.
 
 1. 장치가 Device Provisioning Service에 등록 요청을 보냅니다.
-2. TPM 장치의 경우 Device Provisioning Service에서 장치가 응답하는 등록 챌린지를 다시 보냅니다. 
-3. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 장치 ID 및 암호화된 키를 장치로 다시 보냅니다. 
-4. 그러면 장치의 IoT Hub 클라이언트 응용 프로그램이 사용자 허브에 연결됩니다. 
+2. TPM 디바이스의 경우 Device Provisioning Service에서 디바이스가 응답하는 등록 챌린지를 다시 보냅니다. 
+3. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 디바이스 ID 및 암호화된 키를 디바이스로 다시 보냅니다. 
+4. 그러면 디바이스의 IoT Hub 클라이언트 응용 프로그램이 사용자 허브에 연결됩니다. 
 5. 허브에 성공적으로 연결되면 IoT Hub의 **IoT 장치** 탐색기에 장치가 표시됩니다. 
 
     ![포털에서 허브에 연결 성공](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
@@ -95,8 +95,8 @@ TPM 및 X.509 증명을 사용하여 시뮬레이션된 장치 예제가 C, Java
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 장치 등록
-> * 장치 시작
+> * 디바이스 등록
+> * 디바이스 시작
 > * 장치가 등록되어 있는지 확인
 
 부하가 분산된 허브 간 여러 장치를 프로비전하는 방법에 알아보려면 다음 자습서를 진행합니다. 

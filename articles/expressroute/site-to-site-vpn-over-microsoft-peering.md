@@ -46,9 +46,9 @@ VPN Gateway를 사용하거나 Azure Marketplace를 통해 사용할 수 있는 
 1. ExpressRoute 회로에 Microsoft 피어링을 구성합니다.
 2. Microsoft 피어링을 통해 온-프레미스 네트워크에 선택한 Azure 지역 공용 접두사를 보급합니다.
 3. VPN Gateway를 구성하고 IPsec 터널을 설정합니다.
-4. 온-프레미스 VPN 장치를 구성합니다.
+4. 온-프레미스 VPN 디바이스를 구성합니다.
 5. 사이트 간 IPsec/IKE 연결을 만듭니다.
-6. (선택 사항) 온-프레미스 VPN 장치에서 방화벽/필터링을 구성합니다.
+6. (선택 사항) 온-프레미스 VPN 디바이스에서 방화벽/필터링을 구성합니다.
 7. ExpressRoute 회로를 통해 IPsec 통신을 테스트하고 유효성을 검사합니다.
 
 ## <a name="peering"></a>1. Microsoft 피어링 구성
@@ -79,7 +79,7 @@ ExpressRoute를 통해 사이트 간 VPN 연결을 구성하려면 ExpressRoute 
 
 ### <a name="verifybgp"></a>2.2 BGP 경로 확인
 
-ExpressRoute 회로를 통해 Microsoft 피어링을 성공적으로 만들고 경로 필터를 해당 회로에 연결하면 MSEE와 피어링된 PE 장치의 MSEE에서 수신된 BGP 경로를 확인할 수 있습니다. 유효성 검사 명령은 PE 장치의 운영 체제에 따라 달라집니다.
+ExpressRoute 회로를 통해 Microsoft 피어링을 성공적으로 만들고 경로 필터를 해당 회로에 연결하면 MSEE와 피어링된 PE 디바이스의 MSEE에서 수신된 BGP 경로를 확인할 수 있습니다. 유효성 검사 명령은 PE 디바이스의 운영 체제에 따라 달라집니다.
 
 #### <a name="cisco-examples"></a>Cisco 예제
 
@@ -112,9 +112,9 @@ Get-AzureRmBgpServiceCommunity
 
 ## <a name="vpngateway"></a>3. VPN Gateway 및 IPsec 터널 구성
 
-이 섹션에서는 Azure VPN Gateway와 온-프레미스 VPN 장치 간에 IPsec VPN 터널을 만듭니다. 예제에서는 Cisco 클라우드 서비스 라우터(CSR1000) VPN 장치를 사용합니다.
+이 섹션에서는 Azure VPN Gateway와 온-프레미스 VPN 디바이스 간에 IPsec VPN 터널을 만듭니다. 예제에서는 Cisco 클라우드 서비스 라우터(CSR1000) VPN 디바이스를 사용합니다.
 
-다음 다이어그램에서는 온-프레미스 VPN 장치 1과 Azure VPN Gateway 인스턴스 쌍 간에 설정된 IPsec VPN 터널을 보여줍니다. 온-프레미스 VPN 장치 2와 Azure VPN Gateway 인스턴스 쌍 간에 설정된 두 개의 IPsec VPN 터널은 다이어그램에 표시되지 않고 구성 세부 정보도 나열되지 않습니다. 그러나 추가 VPN 터널이 있다면 고가용성이 향상됩니다.
+다음 다이어그램에서는 온-프레미스 VPN 디바이스 1과 Azure VPN Gateway 인스턴스 쌍 간에 설정된 IPsec VPN 터널을 보여 줍니다. 온-프레미스 VPN 디바이스 2와 Azure VPN Gateway 인스턴스 쌍 간에 설정된 두 개의 IPsec VPN 터널은 다이어그램에 표시되지 않고 구성 세부 정보도 나열되지 않습니다. 그러나 추가 VPN 터널이 있다면 고가용성이 향상됩니다.
 
   ![VPN 터널](./media/site-to-site-vpn-over-microsoft-peering/EstablishTunnels.png)
 
@@ -237,7 +237,7 @@ VPN Gateway의 각 인스턴스에 공용 IP 주소를 할당합니다.
 
 ### <a name="termination"></a>3.4 온-프레미스 VPN 터널 종료 지정(로컬 네트워크 게이트웨이)
 
-온-프레미스 VPN 장치는 **로컬 네트워크 게이트웨이**라고 합니다. 다음 json 코드 조각은 원격 BGP 피어 세부 정보를 지정합니다.
+온-프레미스 VPN 디바이스는 **로컬 네트워크 게이트웨이**라고 합니다. 다음 json 코드 조각은 원격 BGP 피어 세부 정보를 지정합니다.
 
 ```json
 {
@@ -265,7 +265,7 @@ VPN Gateway의 각 인스턴스에 공용 IP 주소를 할당합니다.
 템플릿의 이 섹션은 활성-활성 구성에 대한 필수 설정으로 VPN Gateway를 구성합니다. 다음 요구 사항을 고려하세요.
 
 * **"RouteBased"** VpnType을 사용하여 VPN Gateway를 만듭니다. 이 설정은 VPN Gateway와 VPN 온-프레미스 간에 BGP 라우팅을 사용하도록 설정하려는 경우에 필수입니다.
-* 활성-활성 모드에서 VPN Gateway의 두 인스턴스와 지정된 온-프레미스 장치 간에 VPN 터널을 설정하려면 Resource Manager 템플릿에서 **"activeActive"** 매개 변수를 **true**로 설정합니다. 고가용성 VPN Gateway에 대한 자세한 정보를 이해하려면 [고가용성 VPN Gateway 연결](../vpn-gateway/vpn-gateway-highlyavailable.md)을 참조하세요.
+* 활성-활성 모드에서 VPN Gateway의 두 인스턴스와 지정된 온-프레미스 디바이스 간에 VPN 터널을 설정하려면 Resource Manager 템플릿에서 **"activeActive"** 매개 변수를 **true**로 설정합니다. 고가용성 VPN Gateway에 대한 자세한 정보를 이해하려면 [고가용성 VPN Gateway 연결](../vpn-gateway/vpn-gateway-highlyavailable.md)을 참조하세요.
 * VPN 터널 간에 eBGP 세션을 구성하려면 양쪽에 두 개의 다른 ASN을 지정해야 합니다. 개인 ASN 번호를 지정하는 것이 좋습니다. 자세한 내용은 [BGP 및 Azure VPN Gateway 개요](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
 
 ```json
@@ -324,7 +324,7 @@ VPN Gateway의 각 인스턴스에 공용 IP 주소를 할당합니다.
 
 ### <a name="ipsectunnel"></a>3.6 IPsec 터널 설정
 
-스크립트의 최종 작업에서는 Azure VPN Gateway와 온-프레미스 VPN 장치 간에 IPsec 터널을 만듭니다.
+스크립트의 최종 작업에서는 Azure VPN Gateway와 온-프레미스 VPN 디바이스 간에 IPsec 터널을 만듭니다.
 
 ```json
 {
@@ -352,11 +352,11 @@ VPN Gateway의 각 인스턴스에 공용 IP 주소를 할당합니다.
   }
 ```
 
-## <a name="device"></a>4. 온-프레미스 VPN 장치 구성
+## <a name="device"></a>4. 온-프레미스 VPN 디바이스 구성
 
-Azure VPN Gateway는 여러 공급 업체의 여러 VPN 장치와 호환됩니다. 구성 정보 및 VPN Gateway에서 작동하도록 확인된 장치는 [VPN 장치 정보](../vpn-gateway/vpn-gateway-about-vpn-devices.md)를 참조하세요.
+Azure VPN Gateway는 여러 공급 업체의 여러 VPN 디바이스와 호환됩니다. 구성 정보 및 VPN Gateway에서 작동하도록 확인된 디바이스는 [VPN 디바이스 정보](../vpn-gateway/vpn-gateway-about-vpn-devices.md)를 참조하세요.
 
-VPN 장치를 구성할 때 다음 항목이 필요합니다.
+VPN 디바이스를 구성할 때 다음 항목이 필요합니다.
 
 * 공유 키 - 사이트 간 VPN 연결을 만들 때 지정하는 것과 동일한 공유 키입니다. 이 예제에서는 기본적인 공유 키를 사용합니다. 실제로 사용할 키는 좀 더 복잡하게 생성하는 것이 좋습니다.
 * VPN Gateway의 공용 IP 주소 - Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다. Azure Portal을 사용하여 VPN Gateway의 공용 IP 주소를 찾으려면 가상 네트워크 게이트웨이로 이동한 다음, 게이트웨이의 이름을 클릭합니다.
@@ -365,7 +365,7 @@ VPN 장치를 구성할 때 다음 항목이 필요합니다.
 
 ### <a name="cisco1"></a>Cisco CSR1000 예제
 
-다음 예제에서는 온-프레미스 VPN 장치인 Hyper-V 가상 머신에서 Cisco CSR1000에 대한 구성을 보여줍니다.
+다음 예제에서는 온-프레미스 VPN 디바이스인 Hyper-V 가상 머신에서 Cisco CSR1000에 대한 구성을 보여 줍니다.
 
 ```
 !
@@ -473,7 +473,7 @@ ip route 10.2.0.229 255.255.255.255 Tunnel1
 !
 ```
 
-## <a name="firewalls"></a>5. VPN 장치 필터링 및 방화벽 구성(선택 사항)
+## <a name="firewalls"></a>5. VPN 디바이스 필터링 및 방화벽 구성(선택 사항)
 
 요구 사항에 따라 방화벽 및 필터링을 구성합니다.
 
@@ -515,7 +515,7 @@ EgressBytesTransferred           : 8980589
 LastConnectionEstablishedUtcTime : 11/04/2017 17:03:13
 ```
 
-또한 온-프레미스 VPN 장치에서 터널 상태를 확인할 수 있습니다.
+또한 온-프레미스 VPN 디바이스에서 터널 상태를 확인할 수 있습니다.
 
 Cisco CSR1000 예제:
 

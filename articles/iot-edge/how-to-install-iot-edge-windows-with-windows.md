@@ -18,7 +18,7 @@ ms.locfileid: "51565040"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
 
-Azure IoT Edge 런타임은 장치를 IoT Edge 장치로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 장치 또는 산업용 서버처럼 큰 장치에 배포할 수 있습니다. IoT Edge 런타임을 사용하여 장치를 구성하면 클라우드에서 장치에 비즈니스 논리를 배포할 수 있습니다. 
+Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. IoT Edge 런타임을 사용하여 디바이스를 구성하면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다. 
 
 IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
@@ -36,7 +36,7 @@ Azure IoT Edge 및 Windows 컨테이너는 다음에서 사용할 수 있습니�
 ## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치 
 
 >[!NOTE]
->Windows IoT Core에서 컨테이너 엔진을 설치하는 경우 [IoT Core 장치 프로비전 문서](how-to-install-iot-core.md)의 단계를 따른 다음, 아래 지침을 계속 진행합니다.
+>Windows IoT Core에서 컨테이너 엔진을 설치하는 경우 [IoT Core 디바이스 프로비전 문서](how-to-install-iot-core.md)의 단계를 따른 다음, 아래 지침을 계속 진행합니다.
 
 Azure IoT Edge는 [OCI 호환](https://www.opencontainers.org/) 컨테이너 런타임(예: Docker)을 사용합니다. 개발 및 테스트에는 [Windows용 Docker](https://www.docker.com/docker-windows)를 사용할 수 있습니다. 
 
@@ -47,7 +47,7 @@ Windows용 Docker가 [Windows 컨테이너를 사용하도록](https://docs.dock
 >[!NOTE]
 >Azure IoT Edge 소프트웨어 패키지에는 패키지(LICENSE 디렉터리)에 있는 사용 조건이 적용됩니다. 패키지를 사용하기 전에 사용 조건을 읽어보시기 바랍니다. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
 
-IoT Hub에서 제공하는 장치 연결 문자열을 사용하여 단일 IoT Edge 장치를 수동으로 프로비전할 수 있습니다. 또는 Device Provisioning Service를 사용하여 자동으로 장치를 프로비전할 수 있습니다. 이는 많은 장치를 프로비전할 때 유용합니다. 프로비전 선택 사항에 따라 적절한 설치 스크립트를 선택합니다. 
+IoT Hub에서 제공하는 디바이스 연결 문자열을 사용하여 단일 IoT Edge 디바이스를 수동으로 프로비전할 수 있습니다. 또는 Device Provisioning Service를 사용하여 자동으로 디바이스를 프로비전할 수 있습니다. 이는 많은 디바이스를 프로비전할 때 유용합니다. 프로비전 선택 사항에 따라 적절한 설치 스크립트를 선택합니다. 
 
 ### <a name="install-and-manually-provision"></a>설치 및 수동으로 프로비전
 
@@ -66,7 +66,7 @@ IoT Hub에서 제공하는 장치 연결 문자열을 사용하여 단일 IoT Ed
 
 ### <a name="install-and-automatically-provision"></a>설치 및 자동으로 프로비전
 
-1. [Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전](how-to-auto-provision-simulated-device-windows.md)의 단계를 따라 Device Provisioning Service를 설정하고 해당 **범위 ID**를 검색하고, TPM 장치를 시뮬레이션하고 해당 **등록 ID**를 검색한 다음, 개별 등록을 만듭니다. 장치가 IoT Hub에 등록되면 설치를 계속합니다.  
+1. [Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전](how-to-auto-provision-simulated-device-windows.md)의 단계를 따라 Device Provisioning Service를 설정하고 해당 **범위 ID**를 검색하고, TPM 장치를 시뮬레이션하고 해당 **등록 ID**를 검색한 다음, 개별 등록을 만듭니다. 디바이스가 IoT Hub에 등록되면 설치를 계속합니다.  
 
    >[!TIP]
    >설치 및 테스트를 수행하는 동안 TPM 시뮬레이터를 실행하는 창을 열린 상태로 유지합니다. 
@@ -80,7 +80,7 @@ IoT Hub에서 제공하는 장치 연결 문자열을 사용하여 단일 IoT Ed
    Install-SecurityDaemon -Dps -ContainerOs Windows
    ```
 
-4. 메시지가 표시되면 프로비저닝 서비스 및 장치에 대한 **ScopeID** 및 **RegistrationID**를 제공합니다. 
+4. 메시지가 표시되면 프로비저닝 서비스 및 디바이스에 대한 **ScopeID** 및 **RegistrationID**를 제공합니다. 
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
@@ -112,10 +112,10 @@ iotedge list
 
 ## <a name="tips-and-suggestions"></a>팁 및 제안 사항
 
-네트워크에 프록시 서버가 있는 경우 [프록시 서버를 통해 통신하도록 IoT Edge 장치 구성](how-to-configure-proxy-support.md)의 단계를 수행하여 IoT Edge 런타임을 설치하고 시작합니다.
+네트워크에 프록시 서버가 있는 경우 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)의 단계를 수행하여 IoT Edge 런타임을 설치하고 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-런타임을 설치하여 IoT Edge 장치를 프로비전했으므로 [IoT Edge 모듈을 배포](how-to-deploy-modules-portal.md)할 수 있습니다.
+런타임을 설치하여 IoT Edge 디바이스를 프로비전했으므로 [IoT Edge 모듈을 배포](how-to-deploy-modules-portal.md)할 수 있습니다.
 
 Edge 런타임을 제대로 설치하는 데 문제가 있는 경우 [문제 해결](troubleshoot.md) 페이지를 체크 아웃하세요.

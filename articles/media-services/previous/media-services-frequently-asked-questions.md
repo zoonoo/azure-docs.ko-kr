@@ -26,7 +26,7 @@ ms.locfileid: "51685721"
 
 ## <a name="general-ams-faqs"></a>일반 AMS FAQ
 
-Q: Apple iOS 장치에 스트리밍하려면 어떻게 하나요?
+Q: Apple iOS 디바이스에 스트리밍하려면 어떻게 하나요?
 
 A: URL의 "/Manifest" 부분에 "(format=m3u8-aapl)" 경로를 추가하여 스트리밍 원본 서버에 Apple iOS 네이티브 디바이스에서 사용할 수 있게 HLS 콘텐츠를 다시 반환하도록 지시합니다(자세한 내용은 [콘텐츠 전달](media-services-deliver-content-overview.md) 참조).
 

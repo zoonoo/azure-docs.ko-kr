@@ -51,7 +51,7 @@ ms.locfileid: "51230371"
 2. **응용 프로그램 키**를 복사합니다.
    
     ![][1]
-3. 포털에서 앱의 이름을 클릭한 다음 **Device Messaging** 탭을 클릭합니다.
+3. 포털에서 앱의 이름을 클릭한 다음, **Device Messaging** 탭을 클릭합니다.
    
     ![][2]
 4. **Create a New Security Profile**을 클릭한 다음 새 보안 프로필(예: **TestAdm 보안 프로필**)을 만듭니다. 그런 다음 **Save**를 클릭합니다.

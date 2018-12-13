@@ -28,7 +28,7 @@ ms.locfileid: "46967526"
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Xamarin을 사용하면 iOS, Android 및 Windows(모바일 장치 및 PC)에서 실행할 수 있는 Mobile Apps를 C#으로 작성할 수 있습니다. Xamarin을 사용하여 앱을 빌드하는 경우 Azure AD(Azure Active Directory)를 사용하면 간단하게 Azure AD 계정으로 사용자를 인증할 수 있습니다. 또한 앱에서 Office 365 API 또는 Azure API 같은 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
+Xamarin을 사용하면 iOS, Android 및 Windows(모바일 디바이스 및 PC)에서 실행할 수 있는 Mobile Apps를 C#으로 작성할 수 있습니다. Xamarin을 사용하여 앱을 빌드하는 경우 Azure AD(Azure Active Directory)를 사용하면 간단하게 Azure AD 계정으로 사용자를 인증할 수 있습니다. 또한 앱에서 Office 365 API 또는 Azure API 같은 Azure AD를 통해 보호되는 웹 API를 안전하게 사용할 수 있습니다.
 
 보호된 리소스에 액세스해야 하는 Xamarin 앱의 경우 Azure AD는 ADAL(Active Directory 인증 라이브러리)을 제공합니다. ADAL의 유일한 용도는 앱이 쉽게 액세스 토큰을 가져오도록 하는 것입니다. 이 작업이 얼마나 쉬운지 보여 드리기 위해 이 문서에서는 다음 작업을 수행하는 DirectorySearcher 앱을 빌드해 보겠습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Visual Studio Code용 Azure IoT Toolkit 확장을 사용한 Azure IoT 장치 관리 | Microsoft Docs
-description: Direct 메서드와 Twin의 desired 속성 관리 옵션을 제공하는 Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 Azure IoT Hub 장치를 관리합니다.
+title: Visual Studio Code용 Azure IoT Toolkit 확장을 사용한 Azure IoT 디바이스 관리 | Microsoft Docs
+description: Direct 메서드와 Twin의 desired 속성 관리 옵션을 제공하는 Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 Azure IoT Hub 디바이스를 관리합니다.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/02/2018
 ms.locfileid: "48040136"
 ---
-# <a name="use-azure-iot-toolkit-extension-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 Azure IoT Hub 장치 관리
+# <a name="use-azure-iot-toolkit-extension-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 Azure IoT Hub 디바이스 관리
 
 ![종단 간 다이어그램](media/iot-hub-get-started-e2e-diagram/2.png)
 
@@ -25,14 +25,14 @@ ms.locfileid: "48040136"
 
 | 관리 옵션          | Task                    |
 |----------------------------|--------------------------------|
-| 직접 메서드             | 메시지 보내기 시작 또는 중지, 장치 다시 부팅 등의 장치 작업을 수행합니다.                                        |
-| 장치 쌍 읽기           | 장치의 보고된 상태를 가져옵니다. 예를 들어 장치에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
-| 장치 쌍 업데이트         | 장치를 특정 상태(예: LED를 녹색으로 설정 또는 원격 분석 전송 간격을 30 분으로 설정)로 지정합니다.         |
-| 클라우드-장치 메시지   | 장치에 알림을 보냅니다. 예를 들어 "오늘 비가 올 가능성이 매우 높습니다. 반드시 우산을 챙기세요."              |
+| 직접 메서드             | 메시지 보내기 시작 또는 중지, 디바이스 다시 부팅 등의 디바이스 작업을 수행합니다.                                        |
+| 디바이스 쌍 읽기           | 디바이스의 보고된 상태를 가져옵니다. 예를 들어 디바이스에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
+| 디바이스 쌍 업데이트         | 디바이스를 특정 상태(예: LED를 녹색으로 설정 또는 원격 분석 전송 간격을 30 분으로 설정)로 지정합니다.         |
+| 클라우드-장치 메시지   | 디바이스에 알림을 보냅니다. 예를 들어 "오늘 비가 올 가능성이 매우 높습니다. 반드시 우산을 챙기세요."              |
 
-이러한 옵션을 사용하는 방법에 대한 차이점과 지침에 대한 자세한 내용은 [장치-클라우드 통신 지침](iot-hub-devguide-d2c-guidance.md) 및 [클라우드-장치 통신 지침](iot-hub-devguide-c2d-guidance.md)을 참조하세요.
+이러한 옵션을 사용하는 방법에 대한 차이점과 지침에 대한 자세한 내용은 [디바이스-클라우드 통신 지침](iot-hub-devguide-d2c-guidance.md) 및 [클라우드-디바이스 통신 지침](iot-hub-devguide-c2d-guidance.md)을 참조하세요.
 
-장치 쌍은 장치의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 장치에 대해 하나의 장치 쌍을 유지합니다. 장치 쌍에 대한 자세한 내용은 [장치 쌍 시작](iot-hub-node-node-twin-getstarted.md)을 참조하세요.
+장치 쌍은 장치의 상태 정보(메타데이터, 상태 및 조건)를 저장하는 JSON 문서입니다. IoT Hub는 여기에 연결하는 각 디바이스에 대해 하나의 디바이스 쌍을 유지합니다. 디바이스 쌍에 대한 자세한 내용은 [디바이스 쌍 시작](iot-hub-node-node-twin-getstarted.md)을 참조하세요.
 
 ## <a name="what-you-learn"></a>학습 내용
 
@@ -66,19 +66,19 @@ ms.locfileid: "48040136"
 
 ## <a name="direct-methods"></a>직접 메서드
 
-1. 장치를 마우스 오른쪽 단추로 클릭하고 **직접 메서드 호출**을 선택합니다. 
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **직접 메서드 호출**을 선택합니다. 
 
 2. 입력 상자에 메서드 이름 및 페이로드를 입력합니다.
 
 3. 결과가 **OUTPUT** > **Azure IoT Toolkit** 보기에 표시됩니다.
 
-## <a name="read-device-twin"></a>장치 쌍 읽기
+## <a name="read-device-twin"></a>디바이스 쌍 읽기
 
-1. 장치를 마우스 오른쪽 단추로 클릭하고 **장치 쌍 편집**을 선택합니다. 
+1. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스 쌍 편집**을 선택합니다. 
 
 2. **azure-iot-device-twin.json** 파일은 장치 쌍의 콘텐츠를 사용해 열립니다.
 
-## <a name="update-device-twin"></a>장치 쌍 업데이트
+## <a name="update-device-twin"></a>디바이스 쌍 업데이트
 
 1. **태그** 또는 **properties.desired** 필드의 일부를 편집합니다.
 

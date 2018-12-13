@@ -78,7 +78,7 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com
 > ```
 
-Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 Bing API를 호출했으며 Bing에서 사용자 및 장치 조합에 대한 클라이언트 ID를 반환한 경우에만 클라이언트 ID 헤더를 포함합니다.
+Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 Bing API를 호출했으며 Bing에서 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우에만 클라이언트 ID 헤더를 포함합니다.
 
 다음은 이전 요청에 대한 응답을 보여 줍니다. 응답에는 검색 쿼리 제안 목록을 포함하는 웹 제안 그룹이 포함됩니다. 각 제안에는 `displayText`, `query` 및 `url` 필드가 포함됩니다.
 

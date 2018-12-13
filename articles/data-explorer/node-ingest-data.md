@@ -58,7 +58,7 @@ const kustoIngestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:
 const kustoDatabase  = "<DatabaseName>"
 ```
 
-이제 연결 문자열을 구성합니다. 이 예제에서는 장치 인증을 사용하여 클러스터에 액세스합니다. 또한 Azure Active Directory 응용 프로그램 인증서, 응용 프로그램 키, 사용자와 암호를 사용할 수 있습니다.
+이제 연결 문자열을 구성합니다. 이 예제에서는 디바이스 인증을 사용하여 클러스터에 액세스합니다. 또한 Azure Active Directory 응용 프로그램 인증서, 응용 프로그램 키, 사용자와 암호를 사용할 수 있습니다.
 
 이후 단계에서 대상 테이블 및 매핑을 만듭니다.
 

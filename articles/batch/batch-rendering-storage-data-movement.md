@@ -25,7 +25,7 @@ ms.locfileid: "40036757"
   * 이 옵션은 아주 비용 효과적인 장점이 있습니다. 파일 시스템에 대한 VM이 필요하지 않고, VM의 blobfuse 캐싱을 통해 여러 작업 및 태스크에 대해 동일한 파일을 반복적으로 다운로드하지 않도록 방지합니다.  파일이 Blob이면 데이터 이동도 간단하며 표준 API 및 도구(예: azcopy)를 사용하여 온-프레미스 파일 시스템과 Azure Storage 간에 파일을 복사할 수 있습니다.
 * 파일 시스템 또는 파일 공유:
   * VM 운영 체제 및 성능/크기 조정 요구 사항에 따라 옵션에는 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)가 포함되어 NFS에서 연결된 디스크와 VM을 사용하거나, GlusterFS와 같은 분산 파일 시스템에서 여러 VM을 사용하거나, 타사 제품을 사용합니다.
-  * [Avere 시스템](http://www.averesystems.com/)은 이제 Microsoft의 일부이며, 가까운 장래에 대규모의 고성능 렌더링에 적합한 솔루션을 포함합니다.  Avere 솔루션을 사용하면 Azure 기반 NFS 또는 SMB 캐시를 Blob Storage 또는 온-프레미스 NAS 장치와 함께 작동하도록 만들 수 있습니다.
+  * [Avere 시스템](http://www.averesystems.com/)은 이제 Microsoft의 일부이며, 가까운 장래에 대규모의 고성능 렌더링에 적합한 솔루션을 포함합니다.  Avere 솔루션을 사용하면 Azure 기반 NFS 또는 SMB 캐시를 Blob Storage 또는 온-프레미스 NAS 디바이스와 함께 작동하도록 만들 수 있습니다.
   * 파일 시스템에서 파일을 읽고 파일 시스템에 직접 복사하거나, 파일 시스템과 풀 VM 간에 복사할 수 있습니다.
   * 공유 파일 시스템을 사용하면 필수 항목에 액세스하는 렌더링 작업에서 함께 프로젝트와 작업 간에 공유된 다수의 자산을 활용할 수 있습니다.
 

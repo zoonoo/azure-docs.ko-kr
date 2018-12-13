@@ -19,8 +19,8 @@ ms.locfileid: "51824271"
 
 Azure IoT 원격 모니터링 솔루션 가속기는 오픈 소스, MIT 사용이 허가된 솔루션 가속기입니다. 이 기능은 IoT 개발 프로세스의 속도를 높이기 위한 다음과 같은 일반적인 IoT 시나리오를 보여 줍니다.
 
-- 장치 연결
-- 장치 관리
+- 디바이스 연결
+- 디바이스 관리
 - 스트림 처리
 
 원격 모니터링 솔루션은 권장되는 [Azure IoT 참조 아키텍처](https://aka.ms/iotrefarchitecture)를 따릅니다.
@@ -60,7 +60,7 @@ IoT 디바이스 연결을 위해 다음을 사용할 수 있습니다.
 
 ### <a name="storage"></a>Storage
 
-저장소의 경우 원격 모니터링 솔루션 가속기는 Azure Time Series Insights 및 Azure Cosmos DB를 모두 사용합니다. Azure Time Series Insights는 연결된 장치에서 IoT Hub를 통해 들어오는 메시지를 저장합니다. 솔루션 가속기는 Azure Cosmos DB를 콜드 저장소, 규칙 정의, 경보 및 구성 설정과 같은 다른 모든 저장소에 사용합니다.
+저장소의 경우 원격 모니터링 솔루션 가속기는 Azure Time Series Insights 및 Azure Cosmos DB를 모두 사용합니다. Azure Time Series Insights는 연결된 디바이스에서 IoT Hub를 통해 들어오는 메시지를 저장합니다. 솔루션 가속기는 Azure Cosmos DB를 콜드 저장소, 규칙 정의, 경보 및 구성 설정과 같은 다른 모든 저장소에 사용합니다.
 
 Azure Time Series Insights 및 Azure Data Lake와 같은 솔루션이 많은 사용 사례에 적합하긴 하지만, Azure Cosmos DB는 IoT 응용 프로그램에 권장되는 범용 웜 저장소 솔루션입니다. Azure Time Series Insights를 사용하면 추세와 이상 현상을 파악하여 시계열 센서 데이터에 대한 심층적 인사이트를 얻을 수 있습니다. 이를 통해 근본 원인을 분석하고 비용이 많이 드는 가동 중지 시간을 방지할 수 있습니다.
 

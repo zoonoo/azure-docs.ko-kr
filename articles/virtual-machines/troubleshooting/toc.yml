@@ -118,7 +118,7 @@ items:
     href: troubleshoot-deploy-vm-linux.md
   - name: Windows
     href: troubleshoot-deploy-vm-windows.md
-- name: 장치 이름이 변경됨
+- name: 디바이스 이름이 변경됨
   href: troubleshoot-device-names-problems.md
 - name: VM 복구 액세스
   items:

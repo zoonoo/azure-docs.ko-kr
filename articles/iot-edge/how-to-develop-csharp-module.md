@@ -22,7 +22,7 @@ ms.locfileid: "52443895"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용할 수 있습니다. IoT Edge 장치는 다른 물리적 장치일 수 있습니다.
+Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용할 수 있습니다. IoT Edge 디바이스는 다른 물리적 디바이스일 수 있습니다.
 
 VS Code에서 C# 모듈을 디버그하는 방법은 두 가지가 있습니다. 한 방법은 모듈 컨테이너에서 프로세스를 연결하는 것이고, 다른 방법은 디버그 모드에서 모듈 코드를 시작하는 것입니다. Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다.
 
@@ -44,7 +44,7 @@ IoT Edge 솔루션을 디버그, 실행 및 테스트하기 위한 로컬 개발
    pip install --upgrade iotedgehubdev
    ```
 
-장치에서 모듈을 테스트하려면 하나 이상의 IoT Edge 장치 ID가 생성된 활성 IoT 허브가 필요합니다. 개발 머신에서 IoT Edge 디먼을 실행하는 경우 다음 단계로 이동하기 전에 EdgeHub 및 EdgeAgent를 중지해야 합니다. 
+디바이스에서 모듈을 테스트하려면 하나 이상의 IoT Edge 디바이스 ID가 생성된 활성 IoT 허브가 필요합니다. 개발 머신에서 IoT Edge 디먼을 실행하는 경우 다음 단계로 이동하기 전에 EdgeHub 및 EdgeAgent를 중지해야 합니다. 
 
 ## <a name="create-a-new-solution-with-c-module"></a>C# 모듈을 사용하여 새 솔루션 만들기
 
@@ -97,14 +97,14 @@ IoT Edge C# 모듈은 .NET Core 응용 프로그램입니다. 또한 Azure IoT C
 
 개발 머신에서 IoT Edge 보안 디먼을 설치하는 대신 IoT Edge 시뮬레이터를 시작하여 IoT Edge 솔루션을 실행할 수 있습니다. 
 
-1. 왼쪽의 장치 탐색기에서 마우스 오른쪽 단추로 IoT Edge 장치 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 장치 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
+1. 왼쪽의 디바이스 탐색기에서 마우스 오른쪽 단추로 IoT Edge 디바이스 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 디바이스 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
 
 2. 통합 터미널에서 IoT Edge 시뮬레이터가 성공적으로 설치된 것을 확인할 수 있습니다.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>단일 모듈 앱에 대한 IoT Edge 시뮬레이터 설치
 개발 머신에서 IoT Edge 보안 디먼을 설치하는 대신 IoT Edge 시뮬레이터를 시작하여 IoT Edge 솔루션을 실행할 수 있습니다. 
 
-1. 왼쪽의 장치 탐색기에서 마우스 오른쪽 단추로 IoT Edge 장치 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 장치 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
+1. 왼쪽의 디바이스 탐색기에서 마우스 오른쪽 단추로 IoT Edge 디바이스 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 디바이스 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
 
 2. 통합 터미널에서 IoT Edge 시뮬레이터가 성공적으로 설치된 것을 확인할 수 있습니다.
 
@@ -165,7 +165,7 @@ IoT Edge C# 모듈은 .NET Core 응용 프로그램입니다. 또한 Azure IoT C
 
 개발 머신에서 IoT Edge 보안 디먼을 설치하는 대신 IoT Edge 시뮬레이터를 시작하여 IoT Edge 솔루션을 실행할 수 있습니다. 
 
-1. 왼쪽의 장치 탐색기에서 마우스 오른쪽 단추로 IoT Edge 장치 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 장치 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
+1. 왼쪽의 디바이스 탐색기에서 마우스 오른쪽 단추로 IoT Edge 디바이스 ID를 클릭하고 **Setup IoT Edge Simulator**(IoT Edge 시뮬레이터 설치)를 선택하여 디바이스 연결 문자열을 사용하여 시뮬레이터를 시작합니다.
 
 2. 통합 터미널에서 IoT Edge 시뮬레이터가 성공적으로 설치된 것을 확인할 수 있습니다.
 
@@ -195,4 +195,4 @@ IoT Edge C# 모듈은 .NET Core 응용 프로그램입니다. 또한 Azure IoT C
 
 모듈을 빌드한 후에 [Visual Studio Code에서 Azure IoT Edge 모듈을 배포](how-to-deploy-modules-vscode.md)하는 방법을 알아봅니다.
 
-IoT Edge 장치의 모듈을 개발하려면 [Azure IoT Hub SDK를 이해하고 사용](../iot-hub/iot-hub-devguide-sdks.md)합니다.
+IoT Edge 디바이스의 모듈을 개발하려면 [Azure IoT Hub SDK를 이해하고 사용](../iot-hub/iot-hub-devguide-sdks.md)합니다.

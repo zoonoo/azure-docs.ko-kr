@@ -1,6 +1,6 @@
 ---
 title: Hyper-V에서 Azure Data Box Gateway 프로비전 자습서 | Microsoft Docs
-description: Azure Data Box Gateway 배포의 두 번째 자습서에서는 Hyper-V에서 가상 장치를 프로비전합니다.
+description: Azure Data Box Gateway 배포의 두 번째 자습서에서는 Hyper-V에서 가상 디바이스를 프로비전합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -21,14 +21,14 @@ ms.locfileid: "49166460"
 
 이 자습서에서는 Windows Server 2016, Windows Server 2012 R2 또는 Windows Server 2012에서 Hyper-V를 실행하는 호스트 시스템에 Data Box Gateway를 프로비전하는 방법을 설명합니다. 
 
-가상 장치를 프로비전하고 구성하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
+가상 디바이스를 프로비전하고 구성하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 호스트가 최소 장치 요구 사항을 충족하는지 확인
-> * 하이퍼바이저에서 가상 장치 프로비전
-> * 가상 장치 시작 및 IP 주소 가져오기
+> * 호스트가 최소 디바이스 요구 사항을 충족하는지 확인
+> * 하이퍼바이저에서 가상 디바이스 프로비전
+> * 가상 디바이스 시작 및 IP 주소 가져오기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 호스트 시스템에 가상 장치를 프로비전하기 위한 필수 조건은 다음과 같습니다.
+Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 호스트 시스템에 가상 디바이스를 프로비전하기 위한 필수 조건은 다음과 같습니다.
 
 ### <a name="for-the-data-box-gateway-resource"></a>Data Box Gateway 리소스의 경우
 
@@ -49,11 +49,11 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
   > [!IMPORTANT]
   > Data Box Gateway에서 실행되는 소프트웨어는 Data Box Gateway 리소스에만 사용할 수 있습니다.
  
-### <a name="for-the-data-box-gateway-virtual-device"></a>Data Box Gateway 가상 장치의 경우
+### <a name="for-the-data-box-gateway-virtual-device"></a>Data Box Gateway 가상 디바이스의 경우
 
-장치를 배포하기 전에 다음 사항을 확인합니다.
+디바이스를 배포하기 전에 다음 사항을 확인합니다.
 
-* 장치 프로비전에 사용할 수 있는, Windows Server 2012 R2 이상에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
+* 디바이스 프로비전에 사용할 수 있는, Windows Server 2012 R2 이상에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
 * 가상 디스크 프로비전을 위해 호스트 시스템에서 다음 리소스를 전용할 수 있습니다.
 
   * 코어 4개 이상
@@ -67,16 +67,16 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 시작하기 전에
 
 - Data Box Gateway를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Data Box Gateway 네트워킹 요구 사항](data-box-gateway-system-requirements.md#networking-requirements)을 참조하세요.
-- 장치가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
+- 디바이스가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
 
 
 ## <a name="check-the-host-system"></a>호스트 시스템 확인
 
-가상 장치를 만들려면 다음이 필요합니다.
+가상 디바이스를 만들려면 다음이 필요합니다.
 
 * Windows Server 2016, Windows Server 2012 R2 또는 Windows Server 2012에 설치되어 있는 Hyper-V 역할
 * 호스트에 연결된 Microsoft Windows 클라이언트의 Microsoft Hyper-V 관리자
-* 가상 장치를 만드는 기본 하드웨어(호스트 시스템)에서 가상 장치에 대해 다음 리소스를 전용으로 사용할 수 있는지 확인합니다.
+* 가상 디바이스를 만드는 기본 하드웨어(호스트 시스템)에서 가상 디바이스에 대해 다음 리소스를 전용으로 사용할 수 있는지 확인합니다.
 
     * 코어 4개 이상
     * RAM 8GB 이상
@@ -84,7 +84,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
     * 250GB OS 디스크
     * 시스템 데이터용 가상 디스크 2TB
 
-## <a name="provision-a-virtual-device-in-hypervisor"></a>하이퍼바이저에서 가상 장치 프로비전
+## <a name="provision-a-virtual-device-in-hypervisor"></a>하이퍼바이저에서 가상 디바이스 프로비전
 
 하이퍼바이저에서 장치를 프로비전하려면 다음 단계를 수행합니다.
 
@@ -149,33 +149,33 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
-## <a name="start-the-virtual-device-and-get-the-ip"></a>가상 장치 시작 및 IP 가져오기
+## <a name="start-the-virtual-device-and-get-the-ip"></a>가상 디바이스 시작 및 IP 가져오기
 가상 장치를 시작하여 연결하려면 다음 단계를 수행합니다.
 
-#### <a name="to-start-the-virtual-device"></a>가상 장치를 시작하려면
+#### <a name="to-start-the-virtual-device"></a>가상 디바이스를 시작하려면
 1. 가상 장치를 시작합니다.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
-2. 장치가 실행된 후에 장치를 선택하고 마우스 오른쪽 단추를 클릭하여 **연결**을 선택합니다.
+2. 디바이스가 실행된 후에 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 **연결**을 선택합니다.
 
-3. 장치가 준비되기까지 10~15분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 장치가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete`를 눌러 가상 장치에 로그인합니다. 기본 사용자는 *EdgeUser*이고, 기본 암호는 *Password1*입니다.
+3. 디바이스가 준비되기까지 10~15분 정도 걸릴 수 있습니다. 콘솔에 진행률을 나타내는 상태 메시지가 표시됩니다. 디바이스가 준비되면 **작업**으로 이동합니다. `Ctrl + Alt + Delete`를 눌러 가상 장치에 로그인합니다. 기본 사용자는 *EdgeUser*이고, 기본 암호는 *Password1*입니다.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
    
-6. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뜁니다. DHCP 환경이 아닌 곳에서 장치를 부팅한 경우에는 다음 메시지가 표시됩니다.
+6. 5-7단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우 이 단계를 건너뜁니다. DHCP 환경이 아닌 곳에서 디바이스를 부팅한 경우에는 다음 메시지가 표시됩니다.
     
-7. 네트워크를 구성하려면 `Get-HcsIpAddress` 명령을 사용하여 가상 장치에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 장치에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
+7. 네트워크를 구성하려면 `Get-HcsIpAddress` 명령을 사용하여 가상 디바이스에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
 8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 다음 예제를 참조하세요.
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
     
-9. 초기 설정이 완료된 후 장치가 부팅되면 장치 배너 텍스트가 표시됩니다. 장치 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 장치의 웹 UI에 연결하고 로컬 설정 및 활성화를 완료합니다.
+9. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 장치 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 디바이스의 웹 UI에 연결하고 로컬 설정 및 활성화를 완료합니다.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-장치가 최소 구성 요구 사항을 충족하지 않으면 배너 텍스트에 오류가 표시됩니다. 컴퓨터가 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [호스트 시스템이 최소 가상 장치 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
+디바이스가 최소 구성 요구 사항을 충족하지 않으면 배너 텍스트에 오류가 표시됩니다. 컴퓨터가 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 장치 구성을 수정합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [호스트 시스템이 최소 가상 장치 요구 사항을 충족하는지 확인](#check-the-host-system)의 최소 구성 요구 사항을 참조하세요.
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -187,11 +187,11 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 이 자습서에서는 다음과 같은 Data Box Gateway 토픽에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 호스트가 최소 장치 요구 사항을 충족하는지 확인
-> * 하이퍼바이저에서 가상 장치 프로비전
-> * 가상 장치 시작 및 IP 주소 가져오기
+> * 호스트가 최소 디바이스 요구 사항을 충족하는지 확인
+> * 하이퍼바이저에서 가상 디바이스 프로비전
+> * 가상 디바이스 시작 및 IP 주소 가져오기
 
-가상 장치를 연결, 설정 및 활성화하는 방법을 알아보려면 다음 자습서로 이동합니다.
+가상 디바이스를 연결, 설정 및 활성화하는 방법을 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
 > [Data Box Gateway 연결 및 설정](./data-box-gateway-deploy-connect-setup-activate.md)

@@ -41,7 +41,7 @@ ms.locfileid: "42144904"
 
 ## <a name="next-steps"></a>다음 단계
 
-IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 IoT Hub 개발자 가이드의 [장치에서 파일 업로드](iot-hub-devguide-file-upload.md)를 참조하세요.
+IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 IoT Hub 개발자 가이드의 [디바이스에서 파일 업로드](iot-hub-devguide-file-upload.md)를 참조하세요.
 
 Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 

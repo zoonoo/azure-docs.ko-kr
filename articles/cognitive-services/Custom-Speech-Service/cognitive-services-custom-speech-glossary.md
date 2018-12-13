@@ -84,7 +84,7 @@ ms.locfileid: "49344254"
 
 ### <a name="search-and-dictate-model"></a>검색 및 받아쓰기 모델
 
-명령 처리에 적합한 음향 모델. Microsoft 검색 및 받아쓰기 AM은 명령처럼 응용 프로그램 또는 장치에서 지시하는 음성에 적합합니다.
+명령 처리에 적합한 음향 모델. Microsoft 검색 및 받아쓰기 AM은 명령처럼 애플리케이션 또는 디바이스에서 지시하는 음성에 적합합니다.
 
 ### <a name="subscription-key"></a>구독 키
 

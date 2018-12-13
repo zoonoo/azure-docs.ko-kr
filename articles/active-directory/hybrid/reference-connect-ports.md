@@ -71,7 +71,7 @@ ms.locfileid: "46306822"
 
 | 프로토콜 | 포트 | 설명 |
 | --- | --- | --- |
-| HTTPS |443(TCP/UDP) |장치 인증에 사용합니다. |
+| HTTPS |443(TCP/UDP) |디바이스 인증에 사용합니다. |
 | TCP |49443(TCP) |인증서 인증에 사용합니다. |
 
 ## <a name="table-6a--6b---pass-through-authentication-with-single-sign-on-sso-and-password-hash-sync-with-single-sign-on-sso"></a>테이블 6a / 6b - Single Sign-on(SSO)으로 통과 인증 및 Single Sign-on(SSO)와 암호 해시 동기화

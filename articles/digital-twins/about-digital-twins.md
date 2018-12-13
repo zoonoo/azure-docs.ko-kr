@@ -92,7 +92,7 @@ Azure Digital Twins는 실제 세계와 해당하는 많은 관계를 나타내�
 
 ## <a name="azure-digital-twins-in-the-context-of-other-iot-services"></a>다른 IoT 서비스 컨텍스트의 Azure Digital Twins
 
-Azure Digital Twins는 Azure IoT Hub를 사용하여 실제 세계에 맞춰 모든 항목을 최신으로 유지하는 IoT 장치 및 센서를 연결합니다. 다음 다이어그램에서는 Azure Digital Twins가 다른 Azure IoT 서비스와 설정된 관계를 보여 줍니다.
+Azure Digital Twins는 Azure IoT Hub를 사용하여 실제 세계에 맞춰 모든 항목을 최신으로 유지하는 IoT 디바이스 및 센서를 연결합니다. 다음 다이어그램에서는 Azure Digital Twins가 다른 Azure IoT 서비스와 설정된 관계를 보여 줍니다.
 
 ![Azure Digital Twins는 Azure IoT Hub를 바탕으로 빌드된 서비스입니다.](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
 

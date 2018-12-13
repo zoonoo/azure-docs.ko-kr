@@ -217,7 +217,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 > * 허브 만들기
 > * 사이트에 허브 연결
 > * 허브에 VNet 연결
-> * VPN 장치 구성 다운로드 및 적용
+> * VPN 디바이스 구성 다운로드 및 적용
 > * 가상 WAN 보기
 > * 리소스 상태 보기
 > * 연결 모니터링

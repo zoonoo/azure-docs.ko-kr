@@ -39,7 +39,7 @@ items:
     items:
     - name: 시뮬레이션 만들기 및 실행
       href: iot-accelerators-device-simulation-create-simulation.md
-    - name: 사용자 지정 시뮬레이션된 장치 만들기
+    - name: 사용자 지정 시뮬레이션된 디바이스 만들기
       href: iot-accelerators-device-simulation-create-custom-device.md
 - name: 개념
   items:
@@ -89,7 +89,7 @@ items:
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: 시뮬레이션된 장치 만들기
       href: iot-accelerators-remote-monitoring-create-simulated-device.md
-    - name: 시뮬레이션된 장치 배포
+    - name: 시뮬레이션된 디바이스 배포
       href: iot-accelerators-remote-monitoring-deploy-simulated-device.md
     - name: UI 사용자 지정
       href: iot-accelerators-remote-monitoring-customize.md
@@ -143,7 +143,7 @@ items:
     items:
     - name: 기존 IoT Hub 사용
       href: iot-accelerators-device-simulation-choose-hub.md
-    - name: 고급 시뮬레이션된 장치 만들기
+    - name: 고급 시뮬레이션된 디바이스 만들기
       href: iot-accelerators-device-simulation-advanced-device.md
     - name: Time Series Insights를 사용하여 원격 분석 시각화
       href: iot-accelerators-device-simulation-time-series-insights.md
@@ -185,7 +185,7 @@ items:
     items:
     - name: IoT Hub
       href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning 서비스
+    - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: IoT 서비스 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks  azure-iot-service-sdks

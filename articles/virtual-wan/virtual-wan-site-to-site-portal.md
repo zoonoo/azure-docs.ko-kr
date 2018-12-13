@@ -17,10 +17,10 @@ ms.locfileid: "51236859"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
-이 자습서에서는 가상 WAN을 사용하여 IPsec/IKE(IKEv1 및 IKEv2) VPN 연결을 통해 Azure에서 리소스를 연결하는 방법을 보여줍니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 장치를 필요로 합니다. 가상 WAN에 대한 자세한 내용은 [가상 WAN 개요](virtual-wan-about.md)를 참조하세요.
+이 자습서에서는 가상 WAN을 사용하여 IPsec/IKE(IKEv1 및 IKEv2) VPN 연결을 통해 Azure에서 리소스를 연결하는 방법을 보여줍니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 디바이스를 필요로 합니다. 가상 WAN에 대한 자세한 내용은 [가상 WAN 개요](virtual-wan-about.md)를 참조하세요.
 
 > [!NOTE]
-> 사이트가 많은 경우 일반적으로 [가상 WAN 파트너](https://aka.ms/virtualwan)를 사용하여 이러한 구성을 만듭니다. 하지만 네트워킹에 익숙하고 자신의 VPN 장치를 구성하는 데 능숙한 경우에는 구성을 직접 만들 수 있습니다.
+> 사이트가 많은 경우 일반적으로 [가상 WAN 파트너](https://aka.ms/virtualwan)를 사용하여 이러한 구성을 만듭니다. 하지만 네트워킹에 익숙하고 자신의 VPN 디바이스를 구성하는 데 능숙한 경우에는 구성을 직접 만들 수 있습니다.
 >
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwan.png)
@@ -33,7 +33,7 @@ ms.locfileid: "51236859"
 > * 허브 만들기
 > * 사이트에 허브 연결
 > * 허브에 VNet 연결
-> * VPN 장치 구성 다운로드 및 적용
+> * VPN 디바이스 구성 다운로드 및 적용
 > * 가상 WAN 보기
 > * 리소스 상태 보기
 > * 연결 모니터링
@@ -54,7 +54,7 @@ ms.locfileid: "51236859"
 
 ## <a name="site"></a>3. 사이트 만들기
 
-물리적 위치에 해당하는 사이트를 필요한 만큼 만듭니다. 예를 들어 NY에 지사가 있고, 런던에 지사가 있고, LA에 지사가 있는 경우 3개의 사이트를 별도로 만들 수 있습니다. 이 사이트에는 온-프레미스 VPN 장치 엔드포인트가 포함됩니다. 이 때, 사이트에 대한 개인 주소 공간은 하나만 지정할 수 있습니다.
+물리적 위치에 해당하는 사이트를 필요한 만큼 만듭니다. 예를 들어 NY에 지사가 있고, 런던에 지사가 있고, LA에 지사가 있는 경우 3개의 사이트를 별도로 만들 수 있습니다. 이 사이트에는 온-프레미스 VPN 디바이스 엔드포인트가 포함됩니다. 이 때, 사이트에 대한 개인 주소 공간은 하나만 지정할 수 있습니다.
 
 1. 만든 WAN을 클릭합니다. WAN 페이지의 **WAN 아키텍처**에서 **VPN 사이트**를 클릭하여 VPN 사이트 페이지를 엽니다.
 2. **VPN 사이트** 페이지에서 **+사이트 만들기**를 클릭합니다.
@@ -100,18 +100,18 @@ ms.locfileid: "51236859"
 
 ## <a name="device"></a>7. VPN 구성 다운로드
 
-VPN 장치 구성을 사용하여 온-프레미스 VPN 장치를 구성합니다.
+VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구성합니다.
 
 1. 가상 WAN에 대한 페이지에서 **개요**를 클릭합니다.
-2. 개요 페이지의 맨 위에서 **VPN 구성 다운로드**를 클릭합니다. Azure는 'microsoft-network-[location]' 리소스 그룹에 저장소 계정을 만듭니다. 여기서 위치는 WAN의 위치입니다. VPN 장치에 구성을 적용한 후에는 이 저장소 계정을 삭제할 수 있습니다.
+2. 개요 페이지의 맨 위에서 **VPN 구성 다운로드**를 클릭합니다. Azure는 'microsoft-network-[location]' 리소스 그룹에 저장소 계정을 만듭니다. 여기서 위치는 WAN의 위치입니다. VPN 디바이스에 구성을 적용한 후에는 이 저장소 계정을 삭제할 수 있습니다.
 3. 파일 만들기가 끝나면 링크를 클릭하여 다운로드할 수 있습니다.
-4. VPN 장치에 구성을 적용합니다.
+4. VPN 디바이스에 구성을 적용합니다.
 
-### <a name="understanding-the-vpn-device-configuration-file"></a>VPN 장치 구성 파일 이해
+### <a name="understanding-the-vpn-device-configuration-file"></a>VPN 디바이스 구성 파일 이해
 
-장치 구성 파일은 온-프레미스 VPN 장치를 구성할 때 사용할 설정을 포함합니다. 이 파일을 볼 때 다음 정보를 확인합니다.
+디바이스 구성 파일은 온-프레미스 VPN 디바이스를 구성할 때 사용할 설정을 포함합니다. 이 파일을 볼 때 다음 정보를 확인합니다.
 
-* **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 장치 정보를 나타냅니다. 여기에는 분기 장치의 이름 및 공용 IP 주소가 포함됩니다.
+* **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 장치 정보를 나타냅니다. 여기에는 분기 디바이스의 이름 및 공용 IP 주소가 포함됩니다.
 * **vpnSiteConnections -** 이 섹션은 다음 항목에 대한 정보를 제공합니다.
 
     * 가상 허브 VNet의 **주소 공간**<br>예제:
@@ -132,7 +132,7 @@ VPN 장치 구성을 사용하여 온-프레미스 VPN 장치를 구성합니다
         ```
     * BGP, 미리 공유한 키 등의 **Vpngateway 연결 구성 세부 정보**. PSK는 자동으로 생성되는 미리 공유한 키입니다. 사용자 지정 PSK의 개요 페이지에서 연결을 언제든지 편집할 수 있습니다.
   
-### <a name="example-device-configuration-file"></a>예제 장치 구성 파일
+### <a name="example-device-configuration-file"></a>예제 디바이스 구성 파일
 
   ```
   { 
@@ -237,16 +237,16 @@ VPN 장치 구성을 사용하여 온-프레미스 VPN 장치를 구성합니다
    }
   ```
 
-### <a name="configuring-your-vpn-device"></a>VPN 장치 구성
+### <a name="configuring-your-vpn-device"></a>VPN 디바이스 구성
 
 >[!NOTE]
-> 가상 WAN 파트너 솔루션을 사용하여 작업하는 경우 VPN 장치 구성이 자동으로 수행됩니다. 장치 컨트롤러는 Azure에서 구성 파일을 가져오고 Azure에 대한 연결을 설정하는 장치에 적용합니다. 따라서 VPN 장치를 수동으로 구성하는 방법을 알 필요가 없습니다.
+> Virtual WAN 파트너 솔루션을 사용하여 작업하는 경우 VPN 디바이스 구성이 자동으로 수행됩니다. 디바이스 컨트롤러는 Azure에서 구성 파일을 가져오고 Azure에 대한 연결을 설정하는 디바이스에 적용합니다. 따라서 VPN 디바이스를 수동으로 구성하는 방법을 알 필요가 없습니다.
 >
 
-장치를 구성하는 지침이 필요한 경우에는 [VPN 장치 구성 스크립트 페이지](~/articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts)의 지침을 다음 주의 사항과 함께 사용하면 됩니다.
+디바이스를 구성하는 지침이 필요한 경우에는 [VPN 디바이스 구성 스크립트 페이지](~/articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts)의 지침을 다음 주의 사항과 함께 사용하면 됩니다.
 
-* VPN 장치 페이지의 지침은 가상 WAN용으로 작성되지 않았지만 구성 파일의 가상 WAN 값을 사용하여 VPN 장치를 수동으로 구성할 수 있습니다. 
-* VPN Gateway용 다운로드 가능한 장치 구성 스크립트는 구성이 다르기 때문에 가상 WAN에서는 작동하지 않습니다.
+* VPN 디바이스 페이지의 지침은 Virtual WAN용으로 작성되지 않았지만 구성 파일의 Virtual WAN 값을 사용하여 VPN 디바이스를 수동으로 구성할 수 있습니다. 
+* VPN Gateway용 다운로드 가능한 디바이스 구성 스크립트는 구성이 다르기 때문에 Virtual WAN에서는 작동하지 않습니다.
 * 새 가상 WAN은 IKEv1 및 IKEv2를 모두 지원할 수 있습니다.
 * 가상 WAN은 경로 기반 VPN 장치와 장치 지침만 사용할 수 있습니다.
 
@@ -283,7 +283,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 > * 허브 만들기
 > * 사이트에 허브 연결
 > * 허브에 VNet 연결
-> * VPN 장치 구성 다운로드 및 적용
+> * VPN 디바이스 구성 다운로드 및 적용
 > * 가상 WAN 보기
 > * 리소스 상태 보기
 > * 연결 모니터링

@@ -481,7 +481,7 @@ TotalRxErrors | 부팅 이후 수신 오류 수
 TotalTxErrors | 부팅 이후 전송 오류 수
 TotalCollisions | 부팅 이후 네트워크 포트에서 보고되는 충돌 수
 
- 이 클래스가 인스턴스화되더라도 LAD는 모든 네트워크 장치에서 집계되는 네트워크 메트릭을 캡처하지 않습니다. 특정 인터페이스(예: eth0)에 대한 메트릭을 가져오려면 `"condition": "InstanceID=\\"eth0\\""`를 설정합니다.
+ 이 클래스가 인스턴스화되더라도 LAD는 모든 네트워크 디바이스에서 집계되는 네트워크 메트릭을 캡처하지 않습니다. 특정 인터페이스(예: eth0)에 대한 메트릭을 가져오려면 `"condition": "InstanceID=\\"eth0\\""`를 설정합니다.
 
 ### <a name="builtin-metrics-for-the-filesystem-class"></a>파일 시스템 클래스의 기본 제공 메트릭
 
@@ -506,7 +506,7 @@ TransfersPerSecond | 초당 읽기 또는 쓰기 작업
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>디스크 클래스의 기본 제공 메트릭
 
-메트릭의 디스크 클래스는 디스크 장치 사용량에 대한 정보를 제공합니다. 이러한 통계는 전체 드라이브에 적용됩니다. 장치에 여러 파일 시스템이 있는 경우 해당 장치의 카운터가 전체 시스템에 걸쳐 효과적으로 집계됩니다.
+메트릭의 디스크 클래스는 디스크 디바이스 사용량에 대한 정보를 제공합니다. 이러한 통계는 전체 드라이브에 적용됩니다. 디바이스에 여러 파일 시스템이 있는 경우 해당 디바이스의 카운터가 전체 시스템에 걸쳐 효과적으로 집계됩니다.
 
 counter | 의미
 ------- | -------
@@ -521,7 +521,7 @@ ReadBytesPerSecond | 초당 읽은 바이트 수
 WriteBytesPerSecond | 초당 쓴 바이트 수
 초당 바이트 수 | 초당 읽거나 쓴 바이트 수
 
-`"condition": "IsAggregate=True"`로 설정하면 모든 디스크에서 집계된 값을 얻을 수 있습니다. 특정 장치(예: /dev/sdf1)에 대한 정보를 얻으려면 `"condition": "Name=\\"/dev/sdf1\\""`를 설정합니다.
+`"condition": "IsAggregate=True"`로 설정하면 모든 디스크에서 집계된 값을 얻을 수 있습니다. 특정 디바이스(예: /dev/sdf1)에 대한 정보를 얻으려면 `"condition": "Name=\\"/dev/sdf1\\""`를 설정합니다.
 
 ## <a name="installing-and-configuring-lad-30-via-cli"></a>CLI를 통해 LAD 3.0 설치 및 구성
 

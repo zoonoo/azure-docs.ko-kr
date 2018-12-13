@@ -16,9 +16,9 @@ ms.locfileid: "49165320"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>Azure Data Box Gateway(미리 보기)란? 
 
-Azure Data Box Gateway는 Azure로 데이터를 원활하게 전송하는 데 사용할 수 있는 저장소 솔루션입니다. 이 문서에서는 Azure Data Box Gateway 솔루션의 개요, 이점, 주요 기능 및 이 장치를 배포할 수 있는 시나리오를 소개합니다. 
+Azure Data Box Gateway는 Azure로 데이터를 원활하게 전송하는 데 사용할 수 있는 저장소 솔루션입니다. 이 문서에서는 Azure Data Box Gateway 솔루션의 개요, 이점, 주요 기능 및 이 디바이스를 배포할 수 있는 시나리오를 소개합니다. 
 
-Data Box Gateway는 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 머신을 기반으로 하는 가상 장치입니다. 가상 장치는 온-프레미스에 있으며, NFS 및 SMB 프로토콜을 사용하여 해당 장치에 데이터를 씁니다. 그러면 장치가 Azure 블록 Blob, 페이지 Blob 또는 Azure Files로 데이터를 전송합니다. 
+Data Box Gateway는 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 머신을 기반으로 하는 가상 디바이스입니다. 가상 디바이스는 온-프레미스에 있으며, NFS 및 SMB 프로토콜을 사용하여 해당 디바이스에 데이터를 씁니다. 그러면 디바이스가 Azure 블록 Blob, 페이지 Blob 또는 Azure Files로 데이터를 전송합니다. 
 
 > [!IMPORTANT]
 > Data Box Gateway는 미리 보기로 제공되고 있습니다. 이 솔루션을 배포하기 전에 [미리 보기에 대한 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 검토하세요.
@@ -51,7 +51,7 @@ Data Box Gateway의 기능은 다음과 같습니다.
 |속도     | 고도로 최적화된 완전 자동 데이터 전송 기능과 대역폭이 제공됩니다.|
 |지원되는 프로토콜     | 데이터 수집을 위한 표준 SMB 및 NFS 프로토콜이 지원됩니다. <br> 지원되는 버전에 대한 자세한 내용을 확인하려면 [Data Box Gateway 시스템 요구 사항](data-box-gateway-system-requirements.md)을 방문하세요.|
 |데이터 액세스     | 클라우드 API를 사용하여 Azure Storage Blob 및 Azure Files에서 데이터에 직접 액세스해 클라우드에서 데이터를 추가로 처리할 수 있습니다.|
-|빠른 액세스     | 가장 최근에 사용한 파일에 빠르게 액세스할 수 있도록 장치에 로컬 캐시가 생성됩니다.|
+|빠른 액세스     | 가장 최근에 사용한 파일에 빠르게 액세스할 수 있도록 디바이스에 로컬 캐시가 생성됩니다.|
 |오프라인 업로드     | 연결 끊김 모드에서도 오프라인 업로드 시나리오가 지원됩니다.|
 |데이터 새로 고침     | 클라우드의 최신 데이터로 로컬 파일을 새로 고칠 수 있습니다.|
 |암호화    | *https*를 통해 클라우드로 안전하게 데이터를 전송하고 로컬에서 데이터를 암호화할 수 있도록 BitLocker가 지원됩니다.       |
@@ -60,7 +60,7 @@ Data Box Gateway의 기능은 다음과 같습니다.
 
 ## <a name="specifications"></a>사양
 
-Data Box Gateway 가상 장치의 사양은 다음과 같습니다.
+Data Box Gateway 가상 디바이스의 사양은 다음과 같습니다.
 
 | 사양                                          | 설명              |
 |---------------------------------------------------------|--------------------------|
@@ -70,17 +70,17 @@ Data Box Gateway 가상 장치의 사양은 다음과 같습니다.
 | 디스크| OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB(씬 프로비저닝), SSD를 통해 지원해야 함|
 | 네트워크 인터페이스|가상 네트워크 인터페이스 하나 이상|
 | 기본 파일 공유 프로토콜|SMB 및 NFS  |
-| 보안| 인증을 통해 장치와 데이터 액세스 잠금 해제 <br> AES-256 비트 암호화를 사용하여 처리 중 데이터 암호화|
-| 관리| 로컬 웹 UI - 장치 초기 설치, 진단 및 전원 관리 <br> Azure Portal - Data Box Gateway 장치의 일상적인 관리       |
+| 보안| 인증을 통해 디바이스와 데이터 액세스 잠금 해제 <br> AES-256 비트 암호화를 사용하여 처리 중 데이터 암호화|
+| 관리| 로컬 웹 UI - 디바이스 초기 설치, 진단 및 전원 관리 <br> Azure Portal - Data Box Gateway 디바이스의 일상적인 관리       |
 
 
 ## <a name="components"></a>구성 요소
 
-Data Box Gateway 솔루션은 Data Box Gateway 리소스, Data Box Gateway 가상 장치 및 로컬 웹 UI로 구성되어 있습니다.
+Data Box Gateway 솔루션은 Data Box Gateway 리소스, Data Box Gateway 가상 디바이스 및 로컬 웹 UI로 구성되어 있습니다.
 
 * **Data Box Gateway 가상 장치** - 가상화된 환경 또는 하이퍼바이저에 프로비전된 가상 머신을 기반으로 하며, Azure에 데이터를 전송하는 데 사용할 수 있는 장치입니다. 
     
-* **Data Box Gateway 리소스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Data Box Gateway 장치를 관리할 수 있는 Azure Portal의 리소스입니다. Data Box Gateway 리소스를 사용하여 리소스를 작성/관리하고, 장치와 경고를 확인/관리하고, 공유를 관리합니다.  
+* **Data Box Gateway 리소스** – 다양한 지리적 위치에서 액세스할 수 있는 웹 인터페이스에서 Data Box Gateway 장치를 관리할 수 있는 Azure Portal의 리소스입니다. Data Box Gateway 리소스를 사용하여 리소스를 작성/관리하고, 디바이스와 경고를 확인/관리하고, 공유를 관리합니다.  
 
     <!--![The Data Box Gateway service in Azure portal](media/data-box-overview/data-box-Gateway-service1.png)-->
 
@@ -95,7 +95,7 @@ Data Box Gateway 솔루션은 Data Box Gateway 리소스, Data Box Gateway 가�
 
 ## <a name="region-availability"></a>지역 가용성
 
-데이터를 전송하는 Data Box Edge 물리적 장치, Azure 리소스 및 대상 저장소 계정이 모두 같은 지역에 있지 않아도 됩니다.
+데이터를 전송하는 Data Box Edge 물리적 디바이스, Azure 리소스 및 대상 저장소 계정이 모두 같은 지역에 있지 않아도 됩니다.
 
 - **리소스 가용성** - 이 릴리스의 경우 다음 지역에서 Data Box Edge 리소스를 사용할 수 있습니다.
     - **미국** - 미국 서부 2 및 미국 동부
@@ -104,7 +104,7 @@ Data Box Gateway 솔루션은 Data Box Gateway 리소스, Data Box Gateway 가�
 
 - **대상 저장소 계정** - 데이터를 저장하는 저장소 계정은 모든 Azure 지역에서 사용할 수 있습니다. 
 
-    성능을 최적화하려면 저장소 계정이 Data Box 데이터를 저장하는 지역이 장치를 사용하는 지역 근처여야 합니다. 저장소 계정의 지역과 장치의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다. 
+    성능을 최적화하려면 저장소 계정이 Data Box 데이터를 저장하는 지역이 디바이스를 사용하는 지역 근처여야 합니다. 저장소 계정의 지역과 디바이스의 지역 간 거리가 멀면 대기 시간이 길어지고 성능이 저하됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

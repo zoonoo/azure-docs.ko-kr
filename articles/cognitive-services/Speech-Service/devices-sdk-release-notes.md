@@ -35,7 +35,7 @@ ms.locfileid: "52633744"
 **주요 변경 내용** 
 
 * 이 릴리스에는 몇 가지 주요한 변경 내용이 도입되었습니다. API와 관련된 자세한 내용은 [이 페이지](https://aka.ms/csspeech/breakingchanges_1_0_0)를 확인하세요. 
-* KWS 모델 파일은 Speech Devices SDK 1.0.1과 호환되지 않습니다. 새로운 절전 모드 해제 단어 파일이 장치에 기록되면 기존의 절전 모드 해제 단어 파일이 삭제됩니다. 
+* KWS 모델 파일은 Speech Devices SDK 1.0.1과 호환되지 않습니다. 새로운 절전 모드 해제 단어 파일이 디바이스에 기록되면 기존의 절전 모드 해제 단어 파일이 삭제됩니다. 
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>Cognitive Services Speech Devices SDK 0.5.0: 2018년 8월 릴리스
 

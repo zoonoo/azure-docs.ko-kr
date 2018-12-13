@@ -27,7 +27,7 @@ ms.locfileid: "42140326"
 * **UpdateModuleTwinReportedProperties**: 업데이트된 모듈 쌍 reported 속성을 IoT Hub에 보냅니다.
 
 > [!NOTE]
-> 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK][lnk-hub-sdks]를 참고하세요.
+> 디바이스와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK][lnk-hub-sdks]를 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "42140326"
 
 이제 IoT Hub가 만들어졌고 이 자습서 나머지 부분을 완료하는 데 필요한 호스트 이름과 IoT Hub 연결 문자열을 갖게 되었습니다.
 
-## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>IoT Hub에서 장치 ID 및 모듈 ID 만들기
+## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>IoT Hub에서 디바이스 ID 및 모듈 ID 만들기
 
 이 섹션에서는 IoT Hub의 ID 레지스트리에 장치 ID 및 모듈 ID를 만드는 Node.js 앱을 만듭니다. ID 레지스트리에 항목이 없는 경우 장치 또는 모듈을 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 "ID 레지스트리" 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 장치 및 모듈은 IoT Hub에 장치-클라우드 메시지를 보낼 때 이러한 값을 사용하여 자신을 식별합니다. ID는 대/소문자를 구분합니다.
 
@@ -106,12 +106,12 @@ ms.locfileid: "42140326"
 
     ```
 
-이 앱은 ID가 **myFirstDevice**인 장치 ID와 ID가 **myFirstModule**인 모듈 ID를 **myFirstDevice** 장치 아래에 만듭니다. ID 레지스트리에 해당 모듈 ID가 이미 있는 경우 코드는 기존 모듈 정보만 검색합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 이 키를 시뮬레이션된 모듈 앱에서 사용하여 IoT Hub에 연결합니다.
+이 앱은 ID가 **myFirstDevice**인 디바이스 ID와 ID가 **myFirstModule**인 모듈 ID를 **myFirstDevice** 디바이스 아래에 만듭니다. ID 레지스트리에 해당 모듈 ID가 이미 있는 경우 코드는 기존 모듈 정보만 검색합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 이 키를 시뮬레이션된 모듈 앱에서 사용하여 IoT Hub에 연결합니다.
 
 5. node add.js를 사용하여 실행합니다. 그러면 장치 ID에 대한 연결 문자열과 모듈 ID에 대한 다른 연결 문자열이 제공됩니다.
 
     > [!NOTE]
-    > IoT Hub ID 레지스트리는 장치 및 모듈 ID만 저장하여 IoT Hub에 보안 액세스를 사용합니다. ID 레지스트리는 보안 자격 증명으로 사용할 장치 ID 및 키를 저장합니다. 또한 ID 레지스트리는 각 장치에 대한 액세스를 사용하지 않도록 설정하는 데 사용할 수 있는 해당 장치에 대한 enabled/disabled 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 할 경우 응용 프로그램별 저장소를 사용해야 합니다. 모듈 ID에 대한 enabled/disabled 플래그는 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
+    > IoT Hub ID 레지스트리는 장치 및 모듈 ID만 저장하여 IoT Hub에 보안 액세스를 사용합니다. ID 레지스트리는 보안 자격 증명으로 사용할 디바이스 ID 및 키를 저장합니다. 또한 ID 레지스트리는 각 디바이스에 대한 액세스를 사용하지 않도록 설정하는 데 사용할 수 있는 해당 디바이스에 대한 enabled/disabled 플래그를 저장합니다. 애플리케이션이 다른 디바이스별 메타데이터를 저장해야 할 경우 애플리케이션별 저장소를 사용해야 합니다. 모듈 ID에 대한 enabled/disabled 플래그는 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.
 
 ## <a name="update-the-module-twin-using-nodejs-device-sdk"></a>Node.js 장치 SDK를 사용하여 모듈 쌍 업데이트
 

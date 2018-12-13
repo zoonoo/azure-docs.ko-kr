@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub Device Provisioning Service에서 다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 | Microsoft Docs
-description: 장치 프로비저닝 서비스 인스턴스를 사용하여 다중 테넌트를 지원하기 위해 장치를 프로비저닝하는 방법
+title: Azure IoT Hub Device Provisioning Service에서 다중 테넌트를 지원하기 위해 디바이스를 프로비전하는 방법 | Microsoft Docs
+description: 디바이스 프로비저닝 서비스 인스턴스를 사용하여 다중 테넌트를 지원하기 위해 디바이스를 프로비저닝하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/15/2018
@@ -19,19 +19,19 @@ ms.locfileid: "49457394"
 
 프로비저닝 서비스에 정의된 할당 정책은 다양한 할당 시나리오를 지원합니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다.
 
-* **지리적 위치/지리적 대기 시간**: 여러 위치 간에 장치를 이동하면서, 각 위치에 가장 가까운 IoT Hub로 장치를 프로비전하여 네트워크 대기 시간이 짧아집니다. 이 시나리오에서는 지역에 걸쳐 있는 IoT Hub 그룹이 등록을 위해 선택됩니다. 이러한 등록에 대해 **최저 대기 시간** 할당 정책이 선택되었습니다. 이 정책에 따라 Device Provisioning Service는 장치 대기 시간을 평가하고 IoT Hub 그룹 중에서 가장 가까운 IoT Hub를 확인합니다. 
+* **지리적 위치/지리적 대기 시간**: 여러 위치 간에 장치를 이동하면서, 각 위치에 가장 가까운 IoT Hub로 장치를 프로비전하여 네트워크 대기 시간이 짧아집니다. 이 시나리오에서는 지역에 걸쳐 있는 IoT Hub 그룹이 등록을 위해 선택됩니다. 이러한 등록에 대해 **최저 대기 시간** 할당 정책이 선택되었습니다. 이 정책에 따라 Device Provisioning Service는 디바이스 대기 시간을 평가하고 IoT Hub 그룹 중에서 가장 가까운 IoT Hub를 확인합니다. 
 
-* **다중 테넌시**: IoT 솔루션 내에서 사용되는 장치를 특정 IoT Hub 또는 IoT Hub 그룹에 할당해야 할 수 있습니다. 이 솔루션은 특정 테넌트의 모든 장치가 특정 IoT Hub 그룹과 통신하도록 요구할 수 있습니다. 일부 경우에는 테넌트가 자신의 IoT Hub를 소유하고 장치를 IoT Hub에 할당하도록 요구할 수 있습니다.
+* **다중 테넌시**: IoT 솔루션 내에서 사용되는 장치를 특정 IoT Hub 또는 IoT Hub 그룹에 할당해야 할 수 있습니다. 이 솔루션은 특정 테넌트의 모든 디바이스가 특정 IoT Hub 그룹과 통신하도록 요구할 수 있습니다. 일부 경우에는 테넌트가 자신의 IoT Hub를 소유하고 디바이스를 IoT Hub에 할당하도록 요구할 수 있습니다.
 
-이러한 두 시나리오를 결합하는 것이 일반적입니다. 예를 들어 다중 테넌트 IoT 솔루션은 일반적으로 지역에 분산된 IoT Hub 그룹을 사용하여 테넌트 장치를 할당합니다. 이러한 테넌트 장치는 해당 그룹에서 지리적 위치에 따라 대기 시간이 가장 낮은 IoT Hub에 할당될 수 있습니다.
+이러한 두 시나리오를 결합하는 것이 일반적입니다. 예를 들어 다중 테넌트 IoT 솔루션은 일반적으로 지역에 분산된 IoT Hub 그룹을 사용하여 테넌트 디바이스를 할당합니다. 이러한 테넌트 디바이스는 해당 그룹에서 지리적 위치에 따라 대기 시간이 가장 낮은 IoT Hub에 할당될 수 있습니다.
 
-이 문서에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 시뮬레이트된 장치 샘플을 사용하여 여러 지역의 다중 테넌트 시나리오에서 장치를 프로비전하는 방법을 보여 줍니다. 이 문서에서는 다음 단계를 수행합니다.
+이 문서에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 시뮬레이트된 디바이스 샘플을 사용하여 여러 지역의 다중 테넌트 시나리오에서 디바이스를 프로비전하는 방법을 보여 줍니다. 이 문서에서는 다음 단계를 수행합니다.
 
 * Azure CLI를 사용하여 두 개의 지역별 IoT Hub(**미국 서부** 및 **미국 동부**)를 만듭니다.
 * 다중 테넌트 등록 만들기
-* Azure CLI를 사용하여 같은 지역의 장치로 작동할 두 개의 지역별 Linux VM을 만듭니다(**미국 서부** 및 **미국 동부**).
+* Azure CLI를 사용하여 같은 지역의 디바이스로 작동할 두 개의 지역별 Linux VM을 만듭니다(**미국 서부** 및 **미국 동부**).
 * 두 Linux VM에서 Azure IoT C SDK에 대한 개발 환경 준비
-* 장치를 시뮬레이트하여 가장 가까운 지역의 동일한 테넌트에 대해 프로비전되는지 확인합니다.
+* 디바이스를 시뮬레이트하여 가장 가까운 지역의 동일한 테넌트에 대해 프로비전되는지 확인합니다.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -82,7 +82,7 @@ ms.locfileid: "49457394"
 
 ## <a name="create-the-multitenant-enrollment"></a>다중 테넌트 등록 만들기
 
-이 섹션에서는 테넌트 장치에 대한 새 등록 그룹을 만듭니다.  
+이 섹션에서는 테넌트 디바이스에 대한 새 등록 그룹을 만듭니다.  
 
 간단한 설명을 위해 이 문서에서는 등록에 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 사용합니다. 더 안전한 솔루션을 위해 신뢰 체인과 함께 [X.509 인증서 증명](concepts-security.md#x509-certificates)을 사용하는 것이 좋습니다.
 
@@ -119,12 +119,12 @@ ms.locfileid: "49457394"
     ![등록에 대한 지역별 허브 그룹 만들기](./media/how-to-provision-multitenant/enrollment-regional-hub-group.png)
 
 
-6. 등록을 저장한 후 등록을 다시 열고 **기본 키**를 기록해 두세요. 키를 생성하려면 먼저 등록을 저장해야 합니다. 이 키는 나중에 시뮬레이트된 장치에 대한 고유한 장치 키를 생성하는 데 사용됩니다.
+6. 등록을 저장한 후 등록을 다시 열고 **기본 키**를 기록해 두세요. 키를 생성하려면 먼저 등록을 저장해야 합니다. 이 키는 나중에 시뮬레이트된 디바이스에 대한 고유한 디바이스 키를 생성하는 데 사용됩니다.
 
 
 ## <a name="create-regional-linux-vms"></a>지역별 Linux VM 만들기
 
-이 섹션에서는 두 개의 지역별 Linux VM(가상 머신)을 만듭니다. 이러한 VM은 각 지역에서 장치 시뮬레이션 샘플을 실행하여 두 지역의 테넌트 장치에 대한 장치 프로비저닝을 보여 줍니다.
+이 섹션에서는 두 개의 지역별 Linux VM(가상 머신)을 만듭니다. 이러한 VM은 각 지역에서 디바이스 시뮬레이션 샘플을 실행하여 두 지역의 테넌트 디바이스에 대한 디바이스 프로비저닝을 보여 줍니다.
 
 보다 쉽게 정리하기 위해 이러한 VM은 만들어진 IoT Hub *contoso-us-resource-group*을 포함하는 동일한 리소스 그룹에 추가됩니다. 그러나 이러한 VM은 별도의 지역(**미국 서부** 및 **미국 동부**)에서 실행됩니다.
 
@@ -190,7 +190,7 @@ ms.locfileid: "49457394"
 
 ## <a name="prepare-the-azure-iot-c-sdk-development-environment"></a>Azure IoT C SDK 개발 환경 준비
 
-이 섹션에서는 각 VM에서 Azure IoT C SDK를 복제합니다. SDK에는 각 지역의 테넌트 장치 프로비저닝을 시뮬레이트하는 샘플이 포함되어 있습니다.
+이 섹션에서는 각 VM에서 Azure IoT C SDK를 복제합니다. SDK에는 각 지역의 테넌트 디바이스 프로비저닝을 시뮬레이트하는 샘플이 포함되어 있습니다.
 
 
 1. 각 VM에 대해 다음 명령을 사용하여 **Cmake**, **g++**, **gcc** 및 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)을 설치합니다.
@@ -245,15 +245,15 @@ ms.locfileid: "49457394"
     ```    
 
 
-## <a name="derive-unique-device-keys"></a>고유한 장치 키 파생
+## <a name="derive-unique-device-keys"></a>고유한 디바이스 키 파생
 
-그룹 등록과 함께 대칭 키 증명을 사용할 때는 등록 그룹 키를 직접 사용하지 않습니다. 대신 각 장치에 대해 고유한 파생 키를 만듭니다. 이 내용은 [대칭 키를 사용하여 그룹 등록](concepts-symmetric-key-attestation.md#group-enrollments)에 설명되어 있습니다.
+그룹 등록과 함께 대칭 키 증명을 사용할 때는 등록 그룹 키를 직접 사용하지 않습니다. 대신 각 디바이스에 대해 고유한 파생 키를 만듭니다. 이 내용은 [대칭 키를 사용하여 그룹 등록](concepts-symmetric-key-attestation.md#group-enrollments)에 설명되어 있습니다.
 
-장치 키를 생성하려면 그룹 마스터 키를 사용하여 장치에 대한 고유한 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)을 계산하고 결과를 Base64 형식으로 변환합니다.
+디바이스 키를 생성하려면 그룹 마스터 키를 사용하여 디바이스에 대한 고유한 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)을 계산하고 결과를 Base64 형식으로 변환합니다.
 
-장치 코드에 그룹 마스터 키는 포함하지 않습니다.
+디바이스 코드에 그룹 마스터 키는 포함하지 않습니다.
 
-Bash 셸 예제를 사용하여 **openssl**을 통해 각 장치에 대해 파생된 장치 키를 만듭니다.
+Bash 셸 예제를 사용하여 **openssl**을 통해 각 디바이스에 대해 파생된 디바이스 키를 만듭니다.
 
 - **KEY**의 값을 등록을 위해 이전에 적어 둔 **기본 키**로 바꿉니다.
 
@@ -288,21 +288,21 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 ```
 
 
-테넌트 장치는 각각 파생된 장치 키와 고유한 등록 ID를 사용하여 테넌트 IoT Hub으로 프로비전하는 동안 등록 그룹과의 대칭 키 증명을 수행합니다.
+테넌트 디바이스는 각각 파생된 디바이스 키와 고유한 등록 ID를 사용하여 테넌트 IoT Hub로 프로비전하는 동안 등록 그룹과의 대칭 키 증명을 수행합니다.
 
 
 
 
-## <a name="simulate-the-devices-from-each-region"></a>각 지역에서 장치 시뮬레이트
+## <a name="simulate-the-devices-from-each-region"></a>각 지역에서 디바이스 시뮬레이트
 
 
 이 섹션에서는 두 개의 지역별 VM에 대해 Azure IoT C SDK의 프로비전 샘플을 업데이트합니다. 
 
-이 샘플 코드는 프로비전 요청을 Device Provisioning Service 인스턴스에 보내는 장치 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 장치가 인식되고 대기 시간에 따라 가장 가까운 IoT Hub에 할당됩니다.
+이 샘플 코드는 프로비전 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 디바이스가 인식되고 대기 시간에 따라 가장 가까운 IoT Hub에 할당됩니다.
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 기록해 둡니다.
 
-    ![포털 블레이드에서 장치 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
 1. 두 VM에서 편집하기 위해 **~/azure-iot-sdk-c/provisioning\_client/samples/prov\_dev\_client\_sample/prov\_dev\_client\_sample.c**를 엽니다.
 
@@ -357,7 +357,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
     cmake --build . --target prov_dev_client_sample --config Debug
     ```
 
-1. 빌드가 성공적으로 수행되면 두 VM에서 **prov\_dev\_client\_sample.exe**를 실행하여 각 지역에서 테넌트 장치를 시뮬레이트합니다. 각 장치는 시뮬레이트된 장치 지역에 가장 가까운 테넌트 IoT Hub에 할당됩니다.
+1. 빌드가 성공적으로 수행되면 두 VM에서 **prov\_dev\_client\_sample.exe**를 실행하여 각 지역에서 테넌트 디바이스를 시뮬레이트합니다. 각 디바이스는 시뮬레이트된 디바이스 지역에 가장 가까운 테넌트 IoT Hub에 할당됩니다.
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -412,8 +412,8 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다시 프로비전에 대한 자세한 내용은 [IoT Hub 장치 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
-- 프로비전 해제에 대한 자세한 내용은 [이전에 자동으로 프로비전된 장치의 프로비전을 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요. 
+- 다시 프로비전에 대한 자세한 내용은 [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
+- 프로비전 해제에 대한 자세한 내용은 [이전에 자동 프로비전된 디바이스를 프로비전 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요. 
 
 
 

@@ -19,9 +19,9 @@ ms.locfileid: "46971793"
 
 이 문서에서는 Device Provisioning Service에서 대칭 키를 사용하는 경우 ID 증명 프로세스에 대해 설명합니다. 
 
-대칭 키 증명은 Device Provisioning Service 인스턴스로 장치를 인증하는 간단한 방법입니다. 이 증명 방법은 장치 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](concepts-tpm-attestation.md) 또는 [X.509 인증서](concepts-security.md#x509-certificates)를 사용하는 장치 증명은 더욱 안전하며, 보다 엄격한 보안 요구 사항에 사용해야 합니다.
+대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](concepts-tpm-attestation.md) 또는 [X.509 인증서](concepts-security.md#x509-certificates)를 사용하는 장치 증명은 더욱 안전하며, 보다 엄격한 보안 요구 사항에 사용해야 합니다.
 
-대칭 키 등록은 레거시 장치에 대한 유용한 방법을 제공하며 Azure IoT를 통해 클라우드로 부트스트랩할 수 있는 보안 기능이 제한됩니다. 레거시 장치에서 대칭 키 증명에 대한 자세한 내용은 [레거시 장치에서 대칭 키를 사용하는 방법](how-to-legacy-device-symm-key.md)을 참조하세요.
+대칭 키 등록은 레거시 디바이스에 대한 유용한 방법을 제공하며 Azure IoT를 통해 클라우드로 부트스트랩할 수 있는 보안 기능이 제한됩니다. 레거시 디바이스에서 대칭 키 증명에 대한 자세한 내용은 [레거시 디바이스에서 대칭 키를 사용하는 방법](how-to-legacy-device-symm-key.md)을 참조하세요.
 
 
 ## <a name="symmetric-key-creation"></a>대칭 키 만들기
@@ -36,7 +36,7 @@ ms.locfileid: "46971793"
 
 ## <a name="detailed-attestation-process"></a>자세한 증명 프로세스
 
-Device Provisioning Service의 대칭 키 증명은 IoT 허브에서 지원하는 것과 동일한 [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-token-structure)을 사용하여 수행되어 장치를 식별합니다. 이러한 보안 토큰은 [SAS(공유 액세스 서명) 토큰](../service-bus-messaging/service-bus-sas.md)입니다. 
+Device Provisioning Service의 대칭 키 증명은 IoT 허브에서 지원하는 것과 동일한 [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-token-structure)을 사용하여 수행되어 디바이스를 식별합니다. 이러한 보안 토큰은 [SAS(공유 액세스 서명) 토큰](../service-bus-messaging/service-bus-sas.md)입니다. 
 
 SAS 토큰에는 대칭 키를 사용하여 생성된 해시된 서명이 있습니다. 서명은 Device Provisioning Service에서 다시 생성되어 증명 중에 제시되는 보안 토큰의 진위 여부를 확인합니다.
 
@@ -54,26 +54,26 @@ SAS 토큰은 다음과 같은 형식입니다.
 | {URL-encoded-resourceURI} |소문자 URL-소문자 리소스 URI의 인코딩 |
 | {policyName} |이 토큰을 참조하는 공유 액세스 정책의 이름입니다. 대칭 키 증명이 있는 프로비저닝이 **등록**인 경우 사용되는 정책 이름입니다. |
 
-장치가 개별 등록으로 증명하는 경우 장치는 개별 등록 항목에 정의된 대칭 키를 사용하여 SAS 토큰에 대해 해시된 서명을 만듭니다.
+디바이스가 개별 등록으로 증명하는 경우 디바이스는 개별 등록 항목에 정의된 대칭 키를 사용하여 SAS 토큰에 대해 해시된 서명을 만듭니다.
 
 SAS 토큰을 만드는 코드 예제는 [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-token-structure)을 참조하세요.
 
-대칭 키 증명을 위한 보안 토큰 생성은 Azure IoT C SDK에서 지원됩니다. Azure IoT C SDK를 사용하여 개별 등록으로 증명하는 예제는 [대칭 키를 사용하여 시뮬레이션된 장치 프로비전](quick-create-simulated-device-symm-key.md)을 참조하세요.
+대칭 키 증명을 위한 보안 토큰 생성은 Azure IoT C SDK에서 지원됩니다. Azure IoT C SDK를 사용하여 개별 등록으로 증명하는 예제는 [대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)을 참조하세요.
 
 
 ## <a name="group-enrollments"></a>그룹 등록
 
-그룹 등록을 위한 대칭 키는 프로비전할 때 장치에서 직접 사용되지 않습니다. 대신 등록 그룹에 속하는 장치는 파생된 장치 키를 사용하여 프로비전합니다. 
+그룹 등록을 위한 대칭 키는 프로비전할 때 디바이스에서 직접 사용되지 않습니다. 대신 등록 그룹에 속하는 디바이스는 파생된 디바이스 키를 사용하여 프로비전합니다. 
 
-먼저 등록 그룹으로 증명하는 각 장치에 대해 고유한 등록 ID가 정의됩니다. 등록 ID로 유효한 문자는 소문자 영숫자 및 대시('-')입니다. 이 등록 ID는 장치를 식별하는 고유한 ID여야 합니다. 예를 들어, 레거시 장치는 다양한 보안 기능을 지원하지 않을 수 있습니다. 레거시 장치에는 이 장치를 고유하게 식별할 수 있는 MAC 주소 또는 일련 번호만 있을 수 있습니다. 이런 경우 등록 ID는 다음과 비슷한 MAC 주소와 일련 번호로 구성될 수 있습니다.
+먼저 등록 그룹으로 증명하는 각 디바이스에 대해 고유한 등록 ID가 정의됩니다. 등록 ID로 유효한 문자는 소문자 영숫자 및 대시('-')입니다. 이 등록 ID는 디바이스를 식별하는 고유한 ID여야 합니다. 예를 들어, 레거시 디바이스는 다양한 보안 기능을 지원하지 않을 수 있습니다. 레거시 디바이스에는 이 디바이스를 고유하게 식별할 수 있는 MAC 주소 또는 일련 번호만 있을 수 있습니다. 이런 경우 등록 ID는 다음과 비슷한 MAC 주소와 일련 번호로 구성될 수 있습니다.
 
 ```
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-이와 일치하는 예제가 [대칭 키를 사용하여 레거시 장치를 프로비전하는 방법](how-to-legacy-device-symm-key.md) 문서에 사용되었습니다.
+이와 일치하는 예제가 [대칭 키를 사용하여 레거시 디바이스를 프로비전하는 방법](how-to-legacy-device-symm-key.md) 문서에 사용되었습니다.
 
-장치에 대한 등록 ID가 정의되면, 등록 그룹에 대한 대칭 키는 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) 해시를 계산하여 파생 장치 키를 생성하는 데 사용됩니다. 등록 ID의 해시는 다음 C# 코드를 사용하여 수행할 수 있습니다.
+디바이스에 대한 등록 ID가 정의되면, 등록 그룹에 대한 대칭 키는 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) 해시를 계산하여 파생 디바이스 키를 생성하는 데 사용됩니다. 등록 ID의 해시는 다음 C# 코드를 사용하여 수행할 수 있습니다.
 
 ```C#
 using System; 
@@ -96,19 +96,19 @@ public static class Utils
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 
-생성된 장치 키는 증명에 사용될 SAS 토큰을 생성하는 데 사용됩니다. 등록 그룹의 각 장치는 고유한 파생 키에서 생성된 보안 토큰을 사용하여 증명하는 데 필요합니다. 등록 그룹 대칭 키는 증명에 직접 사용될 수 없습니다.
+생성된 디바이스 키는 증명에 사용될 SAS 토큰을 생성하는 데 사용됩니다. 등록 그룹의 각 디바이스는 고유한 파생 키에서 생성된 보안 토큰을 사용하여 증명하는 데 필요합니다. 등록 그룹 대칭 키는 증명에 직접 사용될 수 없습니다.
 
-#### <a name="installation-of-the-derived-device-key"></a>파생된 장치 키 설치
+#### <a name="installation-of-the-derived-device-key"></a>파생된 디바이스 키 설치
 
-장치 키는 파생되어 공장에 설치되는 것이 이상적입니다. 이 방법을 사용하면 장치에 배포된 모든 소프트웨어에 그룹 키가 절대 포함되지 않습니다. 장치에 MAC 주소 또는 일련 번호가 할당되면 키가 파생되어 장치에 삽입될 수 있지만 제조업체가 저장하도록 선택합니다.
+디바이스 키는 파생되어 공장에 설치되는 것이 이상적입니다. 이 방법을 사용하면 디바이스에 배포된 모든 소프트웨어에 그룹 키가 절대 포함되지 않습니다. 디바이스에 MAC 주소 또는 일련 번호가 할당되면 키가 파생되어 디바이스에 삽입될 수 있지만 제조업체가 저장하도록 선택합니다.
 
-각 장치 등록 ID를 그룹 등록 키(**K**)로 해싱하여 공장에서 생성 된 장치 키 테이블을 보여주는 다음 다이어그램을 고려해보십시오. 
+각 디바이스 등록 ID를 그룹 등록 키(**K**)로 해싱하여 공장에서 생성된 디바이스 키 테이블을 보여주는 다음 다이어그램을 고려해보십시오. 
 
-![공장에서 할당된 장치 키](./media/concepts-symmetric-key-attestation/key-diversification.png)
+![공장에서 할당된 디바이스 키](./media/concepts-symmetric-key-attestation/key-diversification.png)
 
-각 장치의 ID는 공장에서 설치된 등록 ID 및 파생 장치 키로 표시됩니다. 장치 키는 다른 위치로 절대 복사되지 않으며 그룹 키는 장치에 절대 저장되지 않습니다.
+각 디바이스의 ID는 공장에서 설치된 등록 ID 및 파생 디바이스 키로 표시됩니다. 디바이스 키는 다른 위치로 절대 복사되지 않으며 그룹 키는 디바이스에 절대 저장되지 않습니다.
 
-장치 키가 공장에서 설치되지 않은 경우, [하드웨어 보안 모듈 HSM](concepts-security.md#hardware-security-module)을 사용하여 장치 ID를 안전하게 저장해야 합니다.
+디바이스 키가 공장에서 설치되지 않은 경우, [하드웨어 보안 모듈 HSM](concepts-security.md#hardware-security-module)을 사용하여 디바이스 ID를 안전하게 저장해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

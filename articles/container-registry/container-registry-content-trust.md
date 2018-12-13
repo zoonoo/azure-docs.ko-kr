@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: 1f1e7ce41c00078c0181fc5f32c43b7e5885eef8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6db5bb4ee1995e08bd00588203db1fdba87a3db5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857672"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727345"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Azure Container Registry의 콘텐츠 신뢰
 
@@ -77,7 +77,7 @@ Azure Portal 및 Azure CLI에서 `AcrImageSigner` 역할을 부여하는 자세�
 
 ### <a name="azure-portal"></a>Azure portal
 
-Azure Portal에서 레지스트리로 이동한 다음, **Access Control (IAM)** > **추가**를 선택합니다. **권한 추가**의 **역할** 아래에서 `AcrImageSigner`를 선택하고, 한 명 이상의 사용자 또는 서비스 주체를 **선택**한 다음, **저장**을 선택합니다.
+Azure Portal에서 레지스트리로 이동한 다음, **액세스 제어(IAM)** > **역할 할당 추가**를 차례로 선택합니다. **역할 할당 추가**의 **역할** 아래에서 `AcrImageSigner`를 선택하고, 한 명 이상의 사용자 또는 서비스 주체를 **선택**한 다음, **저장**합니다.
 
 이 예제에서는 두 엔터티, 즉, "service-principal"이라는 서비스 사용자 이름과 "Azure User"라는 사용자에게 `AcrImageSigner` 역할을 할당했습니다.
 
@@ -169,7 +169,7 @@ No valid trust data for unsigned
 ~/.docker/trust/private
 ```
 
-루트 및 저장소 키를 아카이브에 압축하고 오프라인으로 안전하게 저장하여(USB 저장 장치 등에) 백업해 두세요. 예를 들어 Bash에서는 다음과 같습니다.
+루트 및 저장소 키를 아카이브에 압축하고 오프라인으로 안전하게 저장하여(USB 저장 디바이스 등에) 백업해 두세요. 예를 들어 Bash에서는 다음과 같습니다.
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022

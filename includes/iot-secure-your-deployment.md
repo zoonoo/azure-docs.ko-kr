@@ -29,15 +29,15 @@ Azure IoT 배포 보안 유지 과정은 다음과 같은 세 가지 보안 영�
 
 ![세 가지 보안 영역](./media/iot-secure-your-deployment/overview.png)
 
-## <a name="secure-device-provisioning-and-authentication"></a>보안 장치를 프로비전 및 인증
+## <a name="secure-device-provisioning-and-authentication"></a>보안 디바이스를 프로비전 및 인증
 
-IoT 솔루션 가속기는 다음 두 가지 방법으로 IoT 장치를 보호합니다.
+IoT 솔루션 가속기는 다음 두 가지 방법으로 IoT 디바이스를 보호합니다.
 
-* 각 장치에 대해 IoT Hub와 통신하는 데 사용할 수 있는 고유한 ID 키(보안 토큰) 제공
+* 각 디바이스에 대해 IoT Hub와 통신하는 데 사용할 수 있는 고유한 ID 키(보안 토큰) 제공
 
-* 장치 기반(on-device) [X.509 인증서](http://www.itu.int/rec/T-REC-X.509-201210-I/en) 및 개인 키를 IoT Hub에 장치를 인증하는 수단으로 사용합니다. 이 인증 방법은 장치의 개인 키를 장치 외부에서 항상 알 수 없도록 하여 더 높은 수준의 보안을 제공합니다.
+* 디바이스 기반(on-device) [X.509 인증서](http://www.itu.int/rec/T-REC-X.509-201210-I/en) 및 개인 키를 IoT Hub에 디바이스를 인증하는 수단으로 사용합니다. 이 인증 방법은 디바이스의 개인 키를 디바이스 외부에서 항상 알 수 없도록 하여 더 높은 수준의 보안을 제공합니다.
 
-보안 토큰 방법은 대칭 키를 각 호출에 연결하여 장치에서 IoT Hub에 대해 수행한 각 호출에 대한 인증을 제공합니다. X.509 기반 인증은 TLS 연결 설정의 일부로 물리적 레이어에서 IoT 장치 인증을 허용합니다. 보안 토큰 기반 방법은 X.509 인증 없이 사용할 수 있으므로 덜 안전한 패턴입니다. 두 방법 중에서 선택할 때는 우선, 개인 키를 안전하게 저장하는 데 필요한 장치 인증의 보안 수준 및 장치에 있는 보안 저장소의 가용성을 고려해야 합니다.
+보안 토큰 방법은 대칭 키를 각 호출에 연결하여 디바이스에서 IoT Hub에 대해 수행한 각 호출에 대한 인증을 제공합니다. X.509 기반 인증은 TLS 연결 설정의 일부로 물리적 레이어에서 IoT 장치 인증을 허용합니다. 보안 토큰 기반 방법은 X.509 인증 없이 사용할 수 있으므로 덜 안전한 패턴입니다. 두 방법 중에서 선택할 때는 우선, 개인 키를 안전하게 저장하는 데 필요한 장치 인증의 보안 수준 및 장치에 있는 보안 저장소의 가용성을 고려해야 합니다.
 
 ## <a name="iot-hub-security-tokens"></a>IoT Hub 보안 토큰
 
@@ -49,25 +49,25 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 * [장치로 SAS 토큰 사용](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)
 
-각 IoT Hub에는 진행 중인 클라우드-장치 메시지를 포함하는 큐와 같은 서비스에 장치 단위 리소스를 만들고 장치 지향 엔드포인트에 대한 액세스를 허용하는 데 사용할 수 있는 [ID 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)가 있습니다. IoT Hub ID 레지스트리는 장치 ID에 대한 보안 저장소와 솔루션을 위한 보안 키를 제공합니다. 개별 또는 그룹 장치 ID를 허용 목록 또는 차단 목록에 추가하여 장치 액세스를 완벽하게 제어할 수 있습니다. 다음 문서에서는 ID 레지스트리의 구조 및 지원되는 작업에 대한 자세한 내용을 제공합니다.
+각 IoT Hub에는 진행 중인 클라우드-디바이스 메시지를 포함하는 큐와 같은 서비스에 디바이스 단위 리소스를 만들고 디바이스 지향 엔드포인트에 대한 액세스를 허용하는 데 사용할 수 있는 [ID 레지스트리](../articles/iot-hub/iot-hub-devguide-identity-registry.md)가 있습니다. IoT Hub ID 레지스트리는 디바이스 ID에 대한 보안 저장소와 솔루션을 위한 보안 키를 제공합니다. 개별 또는 그룹 디바이스 ID를 허용 목록 또는 차단 목록에 추가하여 디바이스 액세스를 완벽하게 제어할 수 있습니다. 다음 문서에서는 ID 레지스트리의 구조 및 지원되는 작업에 대한 자세한 내용을 제공합니다.
 
-[IoT Hub는 MQTT, AMQP 및 HTTP와 같은 프로토콜을 지원합니다](../articles//iot-hub/iot-hub-devguide-security.md). 이러한 각 프로토콜은 IoT 장치에서 IoT Hub로의 보안 토큰을 다음과 같이 다르게 사용합니다.
+[IoT Hub는 MQTT, AMQP 및 HTTP와 같은 프로토콜을 지원합니다](../articles//iot-hub/iot-hub-devguide-security.md). 이러한 각 프로토콜은 IoT 디바이스에서 IoT Hub로의 보안 토큰을 다음과 같이 다르게 사용합니다.
 
-* AMQP: SASL PLAIN 및 AMQP 클레임 기반 보안(IoT 허브 수준 토큰의 경우 `{policyName}@sas.root.{iothubName}`, 장치 범위 토큰의 경우 `{deviceId}`)
+* AMQP: SASL PLAIN 및 AMQP 클레임 기반 보안(IoT 허브 수준 토큰의 경우 `{policyName}@sas.root.{iothubName}`, 디바이스 범위 토큰의 경우 `{deviceId}`)
 
 * MQTT: CONNECT 패킷은 **사용자 이름** 필드에서는 `{deviceId}`를 `{ClientId}`, `{IoThubhostname}/{deviceId}`로 사용하고, **암호** 필드에서는 SAS 토큰을 사용합니다.
 
 * HTTP: 올바른 토큰은 권한 부여 요청 헤더에 있습니다.
 
-IoT Hub ID 레지스트리를 사용하여 장치별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. 그러나 [사용자 지정 장치 ID 레지스트리 및/또는 인증 체계](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication)에 이미 상당한 투자를 한 IoT 솔루션의 경우 토큰 서비스를 만들어 IoT Hub가 있는 기존 인프라로 통합할 수 있습니다.
+IoT Hub ID 레지스트리를 사용하여 장치별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. 그러나 [사용자 지정 디바이스 ID 레지스트리 및/또는 인증 체계](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication)에 이미 상당한 투자를 한 IoT 솔루션의 경우 토큰 서비스를 만들어 IoT Hub가 있는 기존 인프라로 통합할 수 있습니다.
 
-### <a name="x509-certificate-based-device-authentication"></a>X.509 인증서 기반 장치 인증
+### <a name="x509-certificate-based-device-authentication"></a>X.509 인증서 기반 디바이스 인증
 
 [장치 기반 X.509 인증서](../articles/iot-hub/iot-hub-devguide-security.md) 및 연결된 개인/공개 키 쌍을 사용하면 물리적 계층에서 추가 인증이 수행될 수 있습니다. 개인 키는 장치에 안전하게 저장되며 장치 외부에서 검색할 수 없습니다. X.509 인증서에는 장치 ID와 같은 장치 정보와 기타 조직 세부 정보가 포함되어 있습니다. 인증서의 서명은 개인 키를 사용하여 생성됩니다.
 
 고급 장치 프로비전 흐름:
 
-* 물리적 장치에 식별자 연결 - 장치 ID 및/또는 장치 제조 또는 위임 동안 장치에 연결된 X.509 인증서
+* 물리적 디바이스에 식별자 연결 - 디바이스 ID 및/또는 디바이스 제조 또는 위임 동안 디바이스에 연결된 X.509 인증서
 
 * IoT Hub에서 해당 ID 항목 만들기 – 장치 ID 및 IoT Hub ID 레지스트리의 연결된 장치 정보
 
@@ -75,7 +75,7 @@ IoT Hub ID 레지스트리를 사용하여 장치별 보안 자격 증명 및 �
 
 ### <a name="root-certificate-on-device"></a>장치의 루트 인증서
 
-IoT Hub와의 보안 TLS 연결을 설정하는 동안 IoT 장치는 장치 SDK의 일부인 루트 인증서를 사용하여 IoT Hub를 인증합니다. C 클라이언트 SDK의 경우 인증서는 repo의 루트 아래에 있는 "\\c\\certs" 폴더 아래에 있습니다. 이러한 루트 인증서는 수명이 길지만 만료되거나 해지될 수 있습니다. 장치의 인증서를 업데이트할 수 없는 경우 나중에 장치를 IoT Hub(또는 다른 클라우드 서비스)에 연결하지 못할 수 있습니다. IoT 장치가 배포된 후에 루트 인증서를 업데이트하는 방법을 유지하면 이러한 위험을 효과적으로 완화하는 데 도움이 됩니다.
+IoT Hub와의 보안 TLS 연결을 설정하는 동안 IoT 디바이스는 디바이스 SDK의 일부인 루트 인증서를 사용하여 IoT Hub를 인증합니다. C 클라이언트 SDK의 경우 인증서는 repo의 루트 아래에 있는 "\\c\\certs" 폴더 아래에 있습니다. 이러한 루트 인증서는 수명이 길지만 만료되거나 해지될 수 있습니다. 장치의 인증서를 업데이트할 수 없는 경우 나중에 장치를 IoT Hub(또는 다른 클라우드 서비스)에 연결하지 못할 수 있습니다. IoT 디바이스가 배포된 후에 루트 인증서를 업데이트하는 방법을 유지하면 이러한 위험을 효과적으로 완화하는 데 도움이 됩니다.
 
 ## <a name="securing-the-connection"></a>연결 보안
 
@@ -91,9 +91,9 @@ Azure IoT Hub에서는 각 보안 키에 대해 [액세스 제어 정책](../art
 
 * **ServiceConnect**. 클라우드 서비스 지향 통신 및 모니터링 중인 엔드포인트에 대한 액세스를 부여합니다. 예를 들어 장치-클라우드 메시지를 받고 클라우드-장치 메시지를 보내며 해당 전달 승인을 검색할 수 있는 권한을 백 엔드 클라우드 서비스에 부여합니다.
 
-* **DeviceConnect**. 장치 지향 엔드포인트에 대한 액세스를 부여합니다. 예를 들어 장치-클라우드 메시지를 보내고 클라우드-장치 메시지를 받을 수 있는 권한을 클라우드에 부여합니다. 이 권한은 장치에서 사용됩니다.
+* **DeviceConnect**. 장치 지향 엔드포인트에 대한 액세스를 부여합니다. 예를 들어 장치-클라우드 메시지를 보내고 클라우드-장치 메시지를 받을 수 있는 권한을 클라우드에 부여합니다. 이 권한은 디바이스에서 사용됩니다.
 
-장치 ID 키를 사용하거나 공유 액세스 키를 사용하는 등 두 가지 방법으로 [보안 토큰](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)과 함께 IoT Hub에서 **DeviceConnect** 권한을 얻을 수 있습니다. 또한 장치에서 액세스할 수 있는 모든 기능이 `/devices/{deviceId}`접두사가 있는 엔드포인트에서 디자인 시 노출되는 것을 유념해야 합니다.
+디바이스 ID 키를 사용하거나 공유 액세스 키를 사용하는 등 두 가지 방법으로 [보안 토큰](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)과 함께 IoT Hub에서 **DeviceConnect** 권한을 얻을 수 있습니다. 또한 디바이스에서 액세스할 수 있는 모든 기능이 `/devices/{deviceId}`접두사가 있는 엔드포인트에서 디자인 시 노출되는 것을 유념해야 합니다.
 
 [서비스 구성 요소는 적절한 권한을 부여하는 공유 액세스 정책을 사용하여 보안 토큰을 생성할 수 있습니다](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components).
 

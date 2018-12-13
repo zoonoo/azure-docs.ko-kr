@@ -72,11 +72,11 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Microsoft Graph 또는 Web API를 호출하는 데스크톱 및 모바일 공용 클라이언트의 응용 프로그램
 
-다음 샘플은 사용자 이름으로 Microsoft Graph 또는 Web API에 액세스하는 공용 클라이언트 응용 프로그램(데스크톱/모바일 응용 프로그램)을 보여 줍니다. 장치 및 플랫폼에 따라 응용 프로그램에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다. 
+다음 샘플은 사용자 이름으로 Microsoft Graph 또는 Web API에 액세스하는 공용 클라이언트 응용 프로그램(데스크톱/모바일 응용 프로그램)을 보여 줍니다. 디바이스 및 플랫폼에 따라 애플리케이션에서 다른 방식(흐름/권한 부여)으로 사용자를 로그인할 수 있습니다. 
 
 - 대화형으로
 - 자동으로(Windows의 Windows 통합 인증 또는 사용자 이름/암호 사용) 
-- 또는 다른 장치에 대화형 로그인을 위임하여(웹 컨트롤을 제공하지 않는 장치에서 사용되는 장치 코드 흐름)
+- 또는 다른 디바이스에 대화형 로그인을 위임하여(웹 컨트롤을 제공하지 않는 디바이스에서 사용되는 디바이스 코드 흐름)
 
 클라이언트 응용 프로그램 | 플랫폼 | 흐름/권한 부여 | Microsoft Graph 호출 | ASP.NET 또는 ASP.NET Core 2.x Web API 호출
 ------------------ | -------- | ---------- | -------------------- | -------------------------
@@ -87,7 +87,7 @@ GitHub에서 샘플에 참여할 수도 있습니다. 자세한 방법은 [Micro
 모바일(iOS)           | ![iOS/Objective C 또는 swift](media/sample-v2-code/logo_iOS.png) | 대화형 |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
 데스크톱(콘솔)          | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 사용자 이름/암호 </p>  Windows 통합 인증 | | [dotnet-native-headless](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 데스크톱(콘솔)          | ![Java 콘솔](media/sample-v2-code/logo_Java.png) | 사용자 이름/암호 | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-데스크톱(콘솔)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | 장치 코드 흐름 | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+데스크톱(콘솔)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | 디바이스 코드 흐름 | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>디먼 응용 프로그램(응용 프로그램 ID를 사용하여 Web API에 액세스)
 

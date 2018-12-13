@@ -100,7 +100,7 @@ Azure App Service 앱으로 사용자 지정 도메인을 등록하는 요점은
 ## <a name="trying-out-the-distributed-topology"></a>배포된 토폴로지 사용
 Traffic Manager 및 DNS 구성의 최종 결과는 *www.scalableasedemo.com* 에 대한 요청이 다음 시퀀스를 통과하는 것입니다.
 
-1. 브라우저 또는 장치는 *www.scalableasedemo.com*
+1. 브라우저 또는 디바이스는 *www.scalableasedemo.com*에 대한 DNS 조회를 만듭니다.
 2. 도메인 등록 기관에서 CNAME 항목은 DNS를 조회하여 Azure Traffic Manager로 리디렉션됩니다.
 3. DNS 조회는 Azure Traffic Manager DNS 서버 중 하나에 대한 *scalable-ase-demo.trafficmanager.net* 에 대해 수행합니다.
 4. 부하 분산 정책에 따라(Traffic Manager 프로필을 만들 때 이전에 사용된 *TrafficRoutingMethod* 매개 변수) Traffic Manager는 구성된 끝점 중 하나를 선택하고 브라우저 또는 장치에 해당 끝점의 FQDN을 반환합니다.

@@ -21,7 +21,7 @@ ms.locfileid: "48247810"
 Azure Stream Analytics는 이벤트 데이터 스트림에서 변환과 계산을 수행하기 위해 SQL 방식 쿼리 언어를 제공합니다. 많은 기본 제공 함수가 있지만 일부 복잡한 시나리오에는 추가적인 유연성이 필요합니다. .NET Standard UDF(사용자 정의 함수)를 사용하면 .NET 표준 언어(C#, F# 등)로 작성된 사용자 고유의 함수를 호출하여 Stream Analytics 쿼리 언어를 확장할 수 있습니다. UDF를 사용하면 복잡한 수학 계산을 수행하고, ML.NET을 사용하여 사용자 지정 ML 모델을 가져오며, 누락된 데이터에 사용자 지정 대체 논리를 사용할 수 있습니다. Stream Analytics Edge 작업용 UDF 함수는 현재 미리 보기로 제공되며 프로덕션 워크로드에는 사용해서는 안 됩니다.
 
 ## <a name="overview"></a>개요
-Azure Stream Analytics용 Visual Studio 도구를 사용하면 UDF를 쉽게 작성하고, 작업을 로컬로(심지어 오프라인으로) 테스트하고, Stream Analytics 작업을 Azure에 게시할 수 있습니다. Azure에 게시되면 IoT Hub를 사용하여 작업을 IoT 장치에 배포할 수 있습니다.
+Azure Stream Analytics용 Visual Studio 도구를 사용하면 UDF를 쉽게 작성하고, 작업을 로컬로(심지어 오프라인으로) 테스트하고, Stream Analytics 작업을 Azure에 게시할 수 있습니다. Azure에 게시되면 IoT Hub를 사용하여 작업을 IoT 디바이스에 배포할 수 있습니다.
 
 UDF를 구현하는 다음 세 가지 방법이 있습니다.
 

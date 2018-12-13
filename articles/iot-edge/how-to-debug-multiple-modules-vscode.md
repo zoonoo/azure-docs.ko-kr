@@ -22,10 +22,10 @@ ms.locfileid: "37049594"
 [Visual Studio Code에서 여러 모듈을 사용하여 IoT Edge 솔루션 개발](tutorial-multiple-modules-in-vscode.md) 자습서를 완료하고 IoT Edge 장치에서 두 개 이상의 모듈이 실행되고 있는지 확인합니다.
 
 ## <a name="multi-target-and-remote-debugging-in-vs-code"></a>VS Code의 다중 대상 및 원격 디버깅
-VS Code 및 Azure IoT Edge 확장을 사용하는 경우, 컨테이너가 개발 머신에서 실행 중인지 또는 원격 물리적 IoT Edge 장치에서 실행 중인지에 관계없이 컨테이너에 모듈 프로세스를 연결할 수 있습니다. 컨테이너에서 실행되는 여러 모듈 디버그는 실제로 개별 컨테이너에 두 개 이상의 프로세스를 연결하는 것입니다. VS Code [다중 대상 디버깅](https://code.visualstudio.com/docs/editor/debugging#_multitarget-debugging)은 여러 모듈을 디버그할 때 사용할 수 있습니다.
+VS Code 및 Azure IoT Edge 확장을 사용하는 경우, 컨테이너가 개발 머신에서 실행 중인지 또는 원격 물리적 IoT Edge 디바이스에서 실행 중인지에 관계없이 컨테이너에 모듈 프로세스를 연결할 수 있습니다. 컨테이너에서 실행되는 여러 모듈 디버그는 실제로 개별 컨테이너에 두 개 이상의 프로세스를 연결하는 것입니다. VS Code [다중 대상 디버깅](https://code.visualstudio.com/docs/editor/debugging#_multitarget-debugging)은 여러 모듈을 디버그할 때 사용할 수 있습니다.
 
    > [!TIP]
-   > 모듈 컨테이너가 원격 물리적 IoT Edge 장치에서 실행 중인 경우, 개발 머신의 Docker 엔진이 원격 Docker 호스트와 통신할 수 있도록 [Docker 머신](https://docs.docker.com/machine/overview/)를 설정해야 할 수 있습니다.
+   > 모듈 컨테이너가 원격 물리적 IoT Edge 디바이스에서 실행 중인 경우, 개발 머신의 Docker 엔진이 원격 Docker 호스트와 통신할 수 있도록 [Docker 머신](https://docs.docker.com/machine/overview/)를 설정해야 할 수 있습니다.
 
 ### <a name="build-your-iot-edge-modules-for-debugging-purpose"></a>디버깅을 위한 IoT Edge 모듈 빌드
 1. 여러 모듈 디버깅을 시작하려면 **Dockerfile.amd64.debug**를 사용하여 Docker 이미지를 다시 빌드하고 Edge 솔루션을 다시 배포해야 합니다. VS Code 탐색기에서 `deployment.template.json` 파일로 이동합니다. 끝에 `.debug`를 추가하여 이미지 URL을 업데이트합니다. `.debug`가 있는 모듈 이미지가 두 개 이상 필요합니다. 이전 자습서의 솔루션에서 작업 중인 경우, C# 함수 모듈과 C# 모듈이 있어야 합니다. 끝에 `.debug`를 추가하여 이러한 두 이미지 URL을 업데이트하고 이 파일을 저장합니다. 

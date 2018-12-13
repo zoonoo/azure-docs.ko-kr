@@ -53,7 +53,7 @@ Azure AD의 기능을 사용하려는 모든 응용프로그램이 먼저 Azure 
 
     - **이름:** 의미 있는 응용 프로그램 이름을 입력합니다.
     - **응용 프로그램 형식:**
-      - 장치에 로컬로 설치된 [클라이언트 응용 프로그램](developer-glossary.md#client-application)의 경우 **네이티브**를 선택합니다. 이 설정은 OAuth 공개 [네이티브 클라이언트](developer-glossary.md#native-client)에 사용됩니다.
+      - 디바이스에 로컬로 설치된 [클라이언트 애플리케이션](developer-glossary.md#client-application)의 경우 **네이티브**를 선택합니다. 이 설정은 OAuth 공개 [네이티브 클라이언트](developer-glossary.md#native-client)에 사용됩니다.
       - 보안 서버에 설치된 [클라이언트 응용 프로그램](developer-glossary.md#client-application) 및 [리소스/API 응용 프로그램](developer-glossary.md#resource-server)의 경우 **웹앱/API**를 선택합니다. 이 설정은 OAuth 기밀 [웹 클라이언트](developer-glossary.md#web-client) 및 공용 [사용자 에이전트 기반 클라이언트](developer-glossary.md#user-agent-based-client)에 사용됩니다. 동일한 응용 프로그램이 클라이언트와 리소스/API를 모두 노출할 수도 있습니다.
     - **로그온 URL:** "웹앱/API" 응용 프로그램에서 앱의 기준 URL을 제공합니다. 예를 들어 `http://localhost:31544`은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 응용 프로그램에 로그인합니다. 
     - **리디렉션 URI:** "네이티브" 응용 프로그램의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 응용 프로그램에 고유하게 해당되는 값을 입력합니다(예: `http://MyFirstAADApp`).

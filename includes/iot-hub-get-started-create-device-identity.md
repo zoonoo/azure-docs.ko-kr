@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2018
 ms.locfileid: "52156798"
 ---
-## <a name="create-a-device-identity"></a>장치 ID 만들기
+## <a name="create-a-device-identity"></a>디바이스 ID 만들기
 
-이 섹션에서는 Azure CLI를 사용하여 이 자습서의 장치 ID를 만듭니다. Azure CLI는 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)에 사전 설치되어 있거나 [로컬로 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)할 수 있습니다. 장치 ID는 대/소문자를 구분합니다.
+이 섹션에서는 Azure CLI를 사용하여 이 자습서의 디바이스 ID를 만듭니다. Azure CLI는 [Azure Cloud Shell](~/articles/cloud-shell/overview.md)에 사전 설치되어 있거나 [로컬로 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)할 수 있습니다. 장치 ID는 대/소문자를 구분합니다.
 
 1. Azure CLI를 사용하여 IoT 확장을 설치하는 명령줄 환경에서 다음 명령을 실행합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "52156798"
     az login
     ```
 
-1. 마지막으로 `myDeviceId`라는 새 장치 ID를 만들고 다음 명령으로 장치 연결 문자열을 검색합니다.
+1. 마지막으로 `myDeviceId`라는 새 디바이스 ID를 만들고 다음 명령으로 디바이스 연결 문자열을 검색합니다.
 
     ```cmd/sh
     az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}

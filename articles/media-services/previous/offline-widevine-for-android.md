@@ -28,7 +28,7 @@ ms.locfileid: "33786052"
 - 일부 콘텐츠 공급자는 해당 국가의 국경 너머로 DRM 라이선스 배달을 허용하지 않을 수도 있습니다. 사용자를 해외 여행을 하면서 콘텐츠를 보려 할 경우 오프 라인 다운로드가 필요합니다.
 - 일부 국가에서는 인터넷 가용성 및/또는 대역폭이 제한됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 볼 수 있도록 콘텐츠를 다운로드하도록 선택할 수도 있습니다.
 
-이 문서에서는 Android 장치에서 Widevine에 의해 보호되는 DASH 콘텐츠에 대해 오프라인 모드 재생을 구현하는 방법을 설명합니다. 오프라인 DRM은 콘텐츠에 대해 구독, 임대 및 구매 모델을 제공하여, 서비스 고객이 인터넷에 연결되어 있지 않을 때도 콘텐츠를 쉽게 사용하도록 할 수 있습니다.
+이 문서에서는 Android 디바이스에서 Widevine에 의해 보호되는 DASH 콘텐츠에 대해 오프라인 모드 재생을 구현하는 방법을 설명합니다. 오프라인 DRM은 콘텐츠에 대해 구독, 임대 및 구매 모델을 제공하여, 서비스 고객이 인터넷에 연결되어 있지 않을 때도 콘텐츠를 쉽게 사용하도록 할 수 있습니다.
 
 Android 플레이어 앱을 빌드하는 경우 다음 세 가지 옵션을 사용할 수 있습니다.
 
@@ -41,7 +41,7 @@ Android 플레이어 앱을 빌드하는 경우 다음 세 가지 옵션을 사�
 
 ## <a name="requirements"></a>요구 사항 
 
-Android 장치에서 Widevine에 대한 오프라인 DRM을 구현하기 전에 먼저 다음을 수행해야 합니다.
+Android 디바이스에서 Widevine에 대한 오프라인 DRM을 구현하기 전에 먼저 다음을 수행해야 합니다.
 
 - Widevine DRM을 사용하는 온라인 콘텐츠 보호를 위해 도입된 개념을 숙지합니다. 이 내용은 다음 문서/샘플에서 자세히 다룹니다.
     - [Azure Media Services를 사용하여 DRM 라이선스 또는 AES 키 제공](media-services-deliver-keys-and-licenses.md)
@@ -100,7 +100,7 @@ private static string ConfigureWidevineLicenseTemplateOffline(Uri keyDeliveryUrl
 
 ## <a name="configuring-the-android-player-for-offline-playback"></a>오프라인 재생을 위한 Android 플레이어 구성
 
-Android 장치용 네이티브 플레이어 앱을 개발하는 가장 쉬운 방법은 오픈 소스 비디오 플레이어 SDK인 [Google ExoPlayer SDK](https://github.com/google/ExoPlayer)를 사용하는 것입니다. ExoPlayer는 MPEG-DASH 및 Microsoft 부드러운 스트리밍 배달 프로토콜을 포함하여 Android의 네이티브 MediaPlayer API에서 현재 지원하지 않는 기능을 지원합니다.
+Android 디바이스용 네이티브 플레이어 앱을 개발하는 가장 쉬운 방법은 오픈 소스 비디오 플레이어 SDK인 [Google ExoPlayer SDK](https://github.com/google/ExoPlayer)를 사용하는 것입니다. ExoPlayer는 MPEG-DASH 및 Microsoft 부드러운 스트리밍 배달 프로토콜을 포함하여 Android의 네이티브 MediaPlayer API에서 현재 지원하지 않는 기능을 지원합니다.
 
 ExoPlayer 버전 2.6 이상에는 오프라인 Widevine DRM 재생을 지원하는 여러 클래스가 포함되어 있습니다. 특히, OfflineLicenseHelper 클래스는 DefaultDrmSessionManager를 사용하여 오프라인 라이선스 다운로드, 갱신 및 해제를 용이하게 수행하도록 하는 유틸리티 함수를 제공합니다. SDK 폴더 "library/core/src/main/java/com/google/android/exoplayer2/offline/"에 제공되는 클래스는 오프라인 비디오 콘텐츠 다운로드를 지원합니다.
 
@@ -119,9 +119,9 @@ ExoPlayer 버전 2.6 이상에는 오프라인 Widevine DRM 재생을 지원하�
 
 개발자는 응용 프로그램 개발 중에 [ExoPlayer 개발자 가이드](https://google.github.io/ExoPlayer/guide.html) 및 해당 [개발자 블로그](https://medium.com/google-exoplayer)를 참조하는 것이 좋습니다. Google은 현재, Widevine 오프라인을 지원하는 ExoPlayer 앱의 완전히 문서화된 참조 구현 또는 샘플 코드를 출시하지 않았으므로, 정보가 개발자 가이드 및 블로그로 제한됩니다. 
 
-### <a name="working-with-older-android-devices"></a>이전 Android 장치 사용
+### <a name="working-with-older-android-devices"></a>이전 Android 디바이스 사용
 
-일부 이전 Android 장치의 경우, 다음 **policy_overrides** 속성([Widevine 라이선스 템플릿](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds** 및 **license_duration_seconds**)에 대한 값을 설정해야 합니다. 또는 무한/무제한 기간을 의미하는 0으로 설정할 수도 있습니다.  
+일부 이전 Android 디바이스의 경우, 다음 **policy_overrides** 속성([Widevine 라이선스 템플릿](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds** 및 **license_duration_seconds**)에 대한 값을 설정해야 합니다. 또는 무한/무제한 기간을 의미하는 0으로 설정할 수도 있습니다.  
 
 정수 오버플로 버그를 방지하도록 해당 값을 설정해야 합니다. 문제에 대한 자세한 설명은 https://github.com/google/ExoPlayer/issues/3150 및 https://github.com/google/ExoPlayer/issues/3112를 참조하세요. <br/>값을 명시적으로 설정하지 않으면 **PlaybackDurationRemaining** 및 **LicenseDurationRemaining** 값으로 매우 큰 값(예: 64비트 정수에 대한 최대 양수인 9223372036854775807)이 할당됩니다. 결과적으로, Widevine 라이선스는 만료된 것으로 나타나며, 암호 해독은 발생하지 않습니다. 
 
@@ -181,7 +181,7 @@ Google의 [Widevine DRM 아키텍처 개요](https://storage.googleapis.com/wvdo
 
 1.  보안 수준 1: 모든 콘텐츠 처리, 암호화 및 제어가 TEE(신뢰할 수 있는 실행 환경)에서 수행됩니다. 일부 구현 모델에서 보안 처리는 다른 칩에서 수행될 수 있습니다.
 2.  보안 수준 2: TEE 내에서 암호화(비디오 처리는 아님)를 수행합니다. 암호 해독된 버퍼는 응용 프로그램 도메인으로 반환되고 별도의 비디오 하드웨어 또는 소프트웨어를 통해 처리됩니다. 그러나 수준 2에서 암호화 정보는 여전히 TEE 내에서만 처리됩니다.
-3.  보안 수준 3: 장치에 TEE가 없습니다. 호스트 운영 체제의 암호화 정보 및 암호 해독된 콘텐츠를 보호하기 위해 적절한 조치가 수행될 수 있습니다. 수준 3 구현에도 하드웨어 암호화 엔진이 포함될 수 있지만 보안이 아닌 성능만 향상시킵니다.
+3.  보안 수준 3: 디바이스에 TEE가 없습니다. 호스트 운영 체제의 암호화 정보 및 암호 해독된 콘텐츠를 보호하기 위해 적절한 조치가 수행될 수 있습니다. 수준 3 구현에도 하드웨어 암호화 엔진이 포함될 수 있지만 보안이 아닌 성능만 향상시킵니다.
 
 동시에, [Widevine 라이선스 템플릿에 대한 Azure Media Services 설명서](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview)에서 content_key_specs의 security_level 속성은 다음과 같은 5가지 값(재생을 위한 클라이언트 견고성 요구 사항)을 가질 수 있습니다.
 
@@ -214,4 +214,4 @@ Google의 [Widevine DRM 아키텍처 개요](https://storage.googleapis.com/wvdo
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 Android 장치에서 Widevine에 의해 보호되는 DASH 콘텐츠에 대해 오프라인 모드 재생을 구현하는 방법을 설명합니다.  Widevine 보호 콘텐츠의 오프라인 스트리밍과 관련된 몇 가지 일반적인 질문에 대한 답변도 제공되어 있습니다.
+이 문서에서는 Android 디바이스에서 Widevine에 의해 보호되는 DASH 콘텐츠에 대해 오프라인 모드 재생을 구현하는 방법을 설명합니다.  Widevine 보호 콘텐츠의 오프라인 스트리밍과 관련된 몇 가지 일반적인 질문에 대한 답변도 제공되어 있습니다.

@@ -189,7 +189,7 @@ HDInsight와 함께 Azure Virtual Network를 사용하면 다음 시나리오가
 HDInsight를 새 또는 기존 Azure Virtual Network에 추가할 수 있습니다. HDInsight가 기존 Virtual Network에 추가되는 경우 기존 네트워크 보안 그룹 및 사용자 정의 경로는 Azure 데이터 센터에서 [여러 개의 IP 주소](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip-1)에 대한 무제한 액세스를 허용하도록 업데이트되어야 합니다. 또한 HDInsight 서비스에서 사용되는 [포트](../hdinsight-extend-hadoop-virtual-network.md#hdinsight-ports)에 대한 트래픽을 차단하지 않도록 해야 합니다.
 
 > [!Note]
-> HDInsight는 현재 강제 터널링을 지원하지 않습니다. 강제 터널링은 검사 및 로깅을 위해 장치에 아웃바운드 인터넷 트래픽을 적용하는 서브넷 설정입니다. 서브넷에 HDInsight를 설치하기 전에 강제 터널링을 제거하거나 HDInsight에 대해 새 서브넷을 만듭니다. HDInsight는 또한 아웃바운드 네트워크 연결 제한을 지원하지 않습니다.
+> HDInsight는 현재 강제 터널링을 지원하지 않습니다. 강제 터널링은 검사 및 로깅을 위해 디바이스에 아웃바운드 인터넷 트래픽을 적용하는 서브넷 설정입니다. 서브넷에 HDInsight를 설치하기 전에 강제 터널링을 제거하거나 HDInsight에 대해 새 서브넷을 만듭니다. HDInsight는 또한 아웃바운드 네트워크 연결 제한을 지원하지 않습니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 

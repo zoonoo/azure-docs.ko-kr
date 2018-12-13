@@ -27,7 +27,7 @@ ms.locfileid: "50956726"
 
 * 개발 컴퓨터에 [.NET Core 2](https://www.microsoft.com/net)가 설치되어 있어야 합니다. 또한 [Visual Studio Code](https://code.visualstudio.com/) 같은 적절한 코드 편집기가 있어야 합니다.
 * **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
-* Raspbian 운영 체제를 실행하는 Raspberry Pi 장치.
+* Raspbian 운영 체제를 실행하는 Raspberry Pi 디바이스.
 
 
 ## <a name="sample-devkits-application"></a>**샘플 Devkits** 응용 프로그램
@@ -55,7 +55,7 @@ ms.locfileid: "50956726"
 
 ## <a name="add-a-real-device"></a>실제 장치 추가
 
-Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 응용 프로그램에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
+Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 디바이스 추가](tutorial-add-device.md)를 참조하세요.
 
 ### <a name="create-your-net-application"></a>.NET 응용 프로그램 만들기
 
@@ -275,7 +275,7 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 장치가 Azure IoT Central에 인증할 장치 관련 연결 문자열을 코드에 추가합니다. Azure IoT Central 응용 프로그램에 실제 장치를 추가할 때 이 연결 문자열을 기록해 두었습니다.
 
   > [!NOTE]
-   > Azure IoT Central은 모든 장치 연결에 Azure IoT Hub DPS(Device Provisioning Service)를 사용하도록 전환되었습니다. 다음 지침에 따라 [장치 연결 문자열을 가져오고](concepts-connectivity.md#getting-device-connection-string) 자습서의 나머지 부분을 계속합니다.
+   > Azure IoT Central은 모든 디바이스 연결에 Azure IoT Hub DPS(Device Provisioning Service)를 사용하도록 전환되었습니다. 다음 지침에 따라 [디바이스 연결 문자열을 가져오고](concepts-connectivity.md#getting-device-connection-string) 자습서의 나머지 부분을 계속합니다.
 
 1. **Program.cs** 파일의 `{your device connection string}`을 앞에서 기록해 둔 연결 문자열로 바꿉니다.
 
@@ -313,7 +313,7 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 
 1. Azure IoT Central 응용 프로그램에서, Raspberry Pi에서 실행되는 코드가 응용 프로그램과 상호 작용하는 방식을 살펴볼 수 있습니다.
 
-    * 실제 장치의 **측정값** 페이지에서 원격 분석 데이터를 볼 수 있습니다.
+    * 실제 디바이스의 **측정값** 페이지에서 원격 분석 데이터를 볼 수 있습니다.
     * **속성** 페이지에서, 보고된 **다이 번호** 속성 값을 볼 수 있습니다.
     * **설정** 페이지에서, 전압, 팬 속도 등 Raspberry Pi의 다양한 설정을 변경할 수 있습니다.
 

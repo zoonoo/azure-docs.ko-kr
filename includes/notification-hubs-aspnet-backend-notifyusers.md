@@ -326,7 +326,7 @@ ms.locfileid: "33835800"
    
     이 코드는 PNS(Platform Notification Service) `pns` 매개 변수를 기반으로 알림 유형을 보냅니다. `to_tag` 값은 메시지에서 *사용자 이름* 태그를 지정하는 데 사용됩니다. 이 태그는 활성 알림 허브 등록의 사용자 이름 태그와 일치해야 합니다. 알림 메시지는 POST 요청의 본문에서 가져오고 대상 PNS에 맞게 형식이 지정됩니다. 
    
-    알림을 수신하기 위해 지원되는 장치가 사용하는 PNS에 따라 다양한 형식으로 알림을 지원합니다. 예를 들어 Windows 장치에서 다른 PNS에서 직접 지원되지 않는 [WNS로 알림](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)을 사용할 수 있습니다. 이러한 상황에서 백 엔드는 알림을 지원하려는 장치의 PNS에 지원되는 알림으로 포맷해야 합니다. 그런 다음 [NotificationHubClient 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)에서 적절한 보내기 API를 사용합니다.
+    알림을 수신하기 위해 지원되는 장치가 사용하는 PNS에 따라 다양한 형식으로 알림을 지원합니다. 예를 들어 Windows 디바이스에서 다른 PNS에서 직접 지원되지 않는 [WNS로 알림](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)을 사용할 수 있습니다. 이러한 상황에서 백 엔드는 알림을 지원하려는 장치의 PNS에 지원되는 알림으로 포맷해야 합니다. 그런 다음 [NotificationHubClient 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)에서 적절한 보내기 API를 사용합니다.
    
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)

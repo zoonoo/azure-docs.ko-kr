@@ -21,7 +21,7 @@ ms.locfileid: "52441260"
 비즈니스 논리를 Azure IoT Edge용 모듈로 전환할 수 있습니다. 이 문서에서는 VS Code(Visual Studio Code)를 기본 도구로 사용하여 Python 모듈을 개발하고 디버그하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 아티클에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. 또한 IoT Edge 보안 디먼을 사용하여 개발 머신에서 IoT Edge 장치를 시뮬레이트합니다.
+이 아티클에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. 또한 IoT Edge 보안 디먼을 사용하여 개발 머신에서 IoT Edge 디바이스를 시뮬레이트합니다.
 
 > [!NOTE]
 > 이 디버깅 아티클에서는 모듈 컨테이너에서 프로세스를 연결하고 VS Code로 디버그하는 방법을 설명합니다. Linux amd64 컨테이너에서만 Python 모듈을 디버그할 수 있습니다. Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다. 
@@ -44,7 +44,7 @@ ms.locfileid: "52441260"
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다. 
 
-장치에서 모듈을 테스트하려면 하나 이상의 IoT Edge 장치가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 장치로 사용하려면 [Linux](quickstart-linux.md)용 빠른 시작의 단계에 따릅니다. 
+장치에서 모듈을 테스트하려면 하나 이상의 IoT Edge 장치가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 디바이스로 사용하려면 [Linux](quickstart-linux.md)용 빠른 시작의 단계에 따릅니다. 
 
 ## <a name="create-a-new-solution-template"></a>새 솔루션 템플릿 만들기
 
@@ -87,7 +87,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 
 솔루션과 함께 제공되는 기본 Python 모듈 코드는 **modules** > [모듈 이름] > **main.py**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
-고유한 코드를 사용하여 Python 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 필요 사항을 해결하는 모듈을 빌드합니다. 
+고유한 코드를 사용하여 Python 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 디바이스 관리 및 안정성 등 IoT 솔루션에 대한 주요 필요 사항을 해결하는 모듈을 빌드합니다. 
 
 ## <a name="build-and-deploy-your-module-for-debugging"></a>디버그를 위해 모듈 빌드 및 배포
 
@@ -128,7 +128,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 
 2. VS Code 명령 팔레트에서 **Azure IoT Edge: IoT Edge 솔루션 빌드 및 푸시** 명령을 입력하고 실행합니다.
 3. 명령 팔레트에서 솔루션의 `deployment.debug.template.json` 파일을 선택합니다. 
-4. Azure IoT Hub Device Explorer에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭합니다. 그런 후 **단일 장치용 배포 만들기**를 선택합니다. 
+4. Azure IoT Hub Device Explorer에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭합니다. 그런 후 **단일 디바이스용 배포 만들기**를 선택합니다. 
 5. 솔루션의 **config** 폴더를 엽니다. 그런 다음, `deployment.debug.amd64.json` 파일을 선택합니다. **Edge 배포 매니페스트 선택**을 선택합니다. 
 
 VS Code 통합 터미널에서 배포 ID를 사용하여 생성된 배포가 표시됩니다.
@@ -152,4 +152,4 @@ VS Code는 작업 영역의 `.vscode` 폴더에 위치한 `launch.json` 파일�
 
 모듈을 빌드한 후에 [Visual Studio Code에서 Azure IoT Edge 모듈을 배포](how-to-deploy-modules-vscode.md)하는 방법을 알아봅니다.
 
-IoT Edge 장치의 모듈을 개발하려면 [Azure IoT Hub SDK를 이해하고 사용](../iot-hub/iot-hub-devguide-sdks.md)합니다.
+IoT Edge 디바이스의 모듈을 개발하려면 [Azure IoT Hub SDK를 이해하고 사용](../iot-hub/iot-hub-devguide-sdks.md)합니다.

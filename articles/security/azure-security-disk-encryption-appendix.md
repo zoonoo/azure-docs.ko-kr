@@ -224,7 +224,7 @@ OS 파티션을 압축하고 BitLocker용 머신을 준비하려면 필요한 �
 2. 필요에 따라 VM을 구성합니다. 모든(OS + 데이터) 드라이브를 암호화하려는 경우 데이터 드라이브를 지정하고 /etc/fstab에서 탑재할 수 있어야 합니다.
 
  > [!NOTE]
- > 블록 장치 이름(예: /dev/sdb1)을 지정하는 대신, UUID=...를 사용하여 /etc/fstab에서 데이터 드라이브를 지정합니다. 암호화하는 동안 드라이브의 순서는 VM에서 변경됩니다. VM이 블록 장치의 특정 순서에 의존하는 경우 암호화 후 탑재하지 못합니다.
+ > 블록 디바이스 이름(예: /dev/sdb1)을 지정하는 대신, UUID=...를 사용하여 /etc/fstab에서 데이터 드라이브를 지정합니다. 암호화하는 동안 드라이브의 순서는 VM에서 변경됩니다. VM이 블록 디바이스의 특정 순서에 의존하는 경우 암호화 후 탑재하지 못합니다.
 
 3. SSH 세션에서 로그아웃합니다.
 
@@ -423,7 +423,7 @@ to:
 ```
     if [ 1 ]; then
 ```
-4. /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh를 편집하고 "# Open LUKS device"에 추가합니다.
+4. /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh를 편집하고 “# Open LUKS device”에 추가합니다.
 
     ```
     MountPoint=/tmp-keydisk-mount

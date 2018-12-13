@@ -23,9 +23,9 @@ ms.locfileid: "50024772"
 
 이전 문서에서는 **IoTHubClient** 라이브러리를 사용하여 이벤트를 IoT Hub로 전송하고 메시지를 수신하는 방법을 설명했습니다. 이 문서에서는 *하위 수준 API* 를 소개하여 데이터를 전송 및 수신하는 **시간**을 보다 정확하게 관리하는 방법에 대한 설명으로 논의를 확대합니다. 또한 **IoTHubClient** 라이브러리의 속성 처리 기능을 사용하여 이벤트에 속성을 첨부하고 메시지에서 검색하는 방법도 설명합니다. 마지막으로 IoT Hub에서 수신한 메시지를 처리하는 다양한 방법에 대한 추가 설명을 제공합니다.
 
-장치 자격 증명에 대한 자세한 정보 및 구성 옵션을 통해 **IoTHubClient** 의 동작을 변경하는 방법 등 몇 가지 기타 항목을 다루는 것으로 문서를 마무리합니다.
+디바이스 자격 증명에 대한 자세한 정보 및 구성 옵션을 통해 **IoTHubClient**의 동작을 변경하는 방법 등 몇 가지 기타 항목을 다루는 것으로 문서를 마무리합니다.
 
-이 항목을 설명하기 위해 **IoTHubClient** SDK 샘플을 사용하겠습니다. 따라서 따라하려면 C용 Azure IoT 장치 SDK에 포함된 **iothub\_client\_sample\_http** 및 **iothub\_client\_sample\_amqp** 응용 프로그램을 참조하세요. 다음 섹션에 설명된 모든 내용은 이 샘플에 나와 있습니다.
+이 항목을 설명하기 위해 **IoTHubClient** SDK 샘플을 사용하겠습니다. 따라서 따라하려면 C용 Azure IoT 디바이스 SDK에 포함된 **iothub\_client\_sample\_http** 및 **iothub\_client\_sample\_amqp** 애플리케이션을 참조하세요. 다음 섹션에 설명된 모든 내용은 이 샘플에 나와 있습니다.
 
 GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
 
@@ -102,7 +102,7 @@ while (1)
 IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext)
 ```
 
-루프에서 **IoTHubClient\_LL\_DoWork**를 자주 호출하는 이유는 호출할 때마다 *일부* 버퍼링된 이벤트를 IoT Hub로 전송하고 장치에 대해 대기 상태인 *다음* 메시지를 가져오기 때문입니다. 호출 시마다 버퍼링된 모든 이벤트를 전송하거나 대기 상태인 모든 메시지를 가져온다고 보장할 수 없습니다. 버퍼의 모든 이벤트를 전송한 후 다른 처리를 진행하려면 다음과 같은 코드로 이 루프를 바꾸면 됩니다.
+루프에서 **IoTHubClient\_LL\_DoWork**를 자주 호출하는 이유는 호출할 때마다 *일부* 버퍼링된 이벤트를 IoT Hub로 전송하고 디바이스에 대해 대기 상태인 *다음* 메시지를 가져오기 때문입니다. 호출 시마다 버퍼링된 모든 이벤트를 전송하거나 대기 상태인 모든 메시지를 가져온다고 보장할 수 없습니다. 버퍼의 모든 이벤트를 전송한 후 다른 처리를 진행하려면 다음과 같은 코드로 이 루프를 바꾸면 됩니다.
 
 ```C
 IOTHUB_CLIENT_STATUS status;
@@ -133,7 +133,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 반대의 경우도 마찬가지입니다. **IoTHubClient\_CreateFromConnectionString**으로 시작한 후 비-LL API를 사용하여 추가 처리를 계속합니다.
 
-C용 Azure IoT 장치 SDK에서 하위 수준 API에 대한 전체 예제는 **iothub\_client\_sample\_http** 응용 프로그램을 참조하세요. 비-LL API의 전체 예제는 **iothub\_client\_sample\_amqp** 응용 프로그램을 참조하면 됩니다.
+C용 Azure IoT 디바이스 SDK에서 하위 수준 API에 대한 전체 예제는 **iothub\_client\_sample\_http** 애플리케이션을 참조하세요. 비-LL API의 전체 예제는 **iothub\_client\_sample\_amqp** 응용 프로그램을 참조하면 됩니다.
 
 ## <a name="property-handling"></a>속성 처리
 
@@ -214,7 +214,7 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 
 * **IOTHUBMESSAGE\_ABANDONED** – 메시지가 성공적으로 처리되지 않았지만 **IoTHubClient** 라이브러리는 같은 메시지로 콜백 함수를 다시 호출해야 합니다.
 
-처음 두 반환 코드에서 **IoTHubClient** 라이브러리는 IoT Hub에 메시지를 전송하며 해당 메시지를 장치의 큐에서 삭제하고 다시 전달하지 않아야 함을 나타냅니다. 최종 결과는 동일하지만(장치의 큐에서 메시지가 삭제됨) 메시지를 수락 또는 거부할지 여부는 계속 기록됩니다.  이러한 구분을 기록하는 것은 피드백을 수신 대기하고 장치가 특정 메시지를 수락 또는 거부했는지를 파악하는 메시지 보낸 사람에게 유용합니다.
+처음 두 반환 코드에서 **IoTHubClient** 라이브러리는 IoT Hub에 메시지를 전송하며 해당 메시지를 디바이스의 큐에서 삭제하고 다시 전달하지 않아야 함을 나타냅니다. 최종 결과는 동일하지만(장치의 큐에서 메시지가 삭제됨) 메시지를 수락 또는 거부할지 여부는 계속 기록됩니다.  이러한 구분을 기록하는 것은 피드백을 수신 대기하고 장치가 특정 메시지를 수락 또는 거부했는지를 파악하는 메시지 보낸 사람에게 유용합니다.
 
 마지막 경우에서 메시지는 IoT Hub로 전송되지만 메시지를 다시 전달해야 함을 나타냅니다. 일반적으로 일부 오류가 발생하지만 메시지를 다시 처리하려는 경우 메시지를 중단합니다. 이와 반대로, 복구할 수 없는 메시지가 발생하는 메시지를 거부하는 것이 적합합니다(또는 메시지를 처리하지 않기로 결정한 경우).
 
@@ -235,7 +235,7 @@ iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, A
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-이 문자열에는 IoT Hub 이름, IoT Hub 접미사, 장치 ID 및 공유 액세스 키의 네 가지 정보가 있습니다. Azure 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. 장치를 IoT Hub에 등록할 때 장치 ID 및 공유 액세스 키를 가져옵니다([이전 문서](iot-hub-device-sdk-c-intro.md)에서 설명).
+이 문자열에는 IoT Hub 이름, IoT Hub 접미사, 디바이스 ID 및 공유 액세스 키의 네 가지 정보가 있습니다. Azure 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. 장치를 IoT Hub에 등록할 때 장치 ID 및 공유 액세스 키를 가져옵니다([이전 문서](iot-hub-device-sdk-c-intro.md)에서 설명).
 
 **IoTHubClient\_CreateFromConnectionString**은 라이브러리를 초기화하는 한 가지 방법을 제공합니다. 원하는 경우 장치 연결 문자열 대신 개별 매개 변수를 사용하여 새 **IOTHUB\_CLIENT\_HANDLE**을 만들 수 있습니다. 다음 코드로 이 작업을 수행합니다.
 
@@ -272,8 +272,8 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 **C용 Azure IoT 장치 SDK**에 있는 **IoTHubClient** 라이브러리의 동작에 대해 자세히 설명했습니다. 이 정보로 **IoTHubClient** 라이브러리의 기능에 대해 제대로 이해해야 합니다. 이 시리즈의 두 번째 문서는 [C용 Azure IoT 장치 SDK - 직렬 변환기](iot-hub-device-sdk-c-serializer.md)로, **직렬 변환기** 라이브러리에 대한 유사한 세부 정보를 제공합니다.
+이 문서에서는 **C용 Azure IoT 디바이스 SDK**에 있는 **IoTHubClient** 라이브러리의 동작에 대해 자세히 설명했습니다. 이 정보로 **IoTHubClient** 라이브러리의 기능에 대해 제대로 이해해야 합니다. 이 시리즈의 두 번째 문서는 [C용 Azure IoT 디바이스 SDK - 직렬 변환기](iot-hub-device-sdk-c-serializer.md)로, **직렬 변환기** 라이브러리에 대한 유사한 세부 정보를 제공합니다.
 
 IoT Hub를 개발하는 방법에 대한 자세한 내용은 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-IoT Hub의 기능을 더 자세히 살펴보려면 [Azure IoT Edge를 사용하여 Edge 장치에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)를 참조하세요.
+IoT Hub의 기능을 더 자세히 살펴보려면 [Azure IoT Edge를 사용하여 Edge 디바이스에 AI 배포](../iot-edge/tutorial-simulate-device-linux.md)를 참조하세요.

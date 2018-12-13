@@ -28,7 +28,7 @@ ms.locfileid: "47095364"
 
 Application Insights에서 Java 및 ASP.NET 웹 응용 프로그램과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 머신에서 또는 Microsoft Azure 웹 사이트로 호스트할 수 있습니다. 
 
-Application Insights는 클라이언트 쪽에서 iOS, Android 및 Windows 스토어 앱을 포함한 다양한 장치 및 웹 페이지에서 원격 분석을 수행할 수 있습니다.
+Application Insights는 클라이언트 쪽에서 iOS, Android 및 Windows 스토어 앱을 포함한 다양한 디바이스 및 웹 페이지에서 원격 분석을 수행할 수 있습니다.
 
 ## <a name="setup"></a>성능 모니터링 설정
 Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로젝트에 ApplicationInsights.config가 없음) 다음 방법 중 하나를 선택하여 작업을 시작합니다.

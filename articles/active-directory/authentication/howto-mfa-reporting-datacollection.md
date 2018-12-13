@@ -59,7 +59,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 인증됨
 - 결과
 - IP 주소 시작 중
-- 장치
+- 디바이스
 - 장치 토큰
 - 장치 유형
 - 모바일 앱 버전

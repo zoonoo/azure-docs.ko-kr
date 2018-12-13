@@ -139,7 +139,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-다음으로 Description 속성을 새 값인 “Intune 장치 관리자”로 변경합니다.
+다음으로 Description 속성을 새 값인 “Intune 디바이스 관리자”로 변경합니다.
 
     PS C:\Windows\system32> Set-AzureADGroup -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -Description "Intune Device Administrators"
 

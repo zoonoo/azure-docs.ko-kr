@@ -26,7 +26,7 @@ ms.locfileid: "50164881"
     
         ![StorSimple Cloud Appliance 장치 구성](./media/storsimple-8000-configure-register-cloud-appliance/sca-configure1.png)
 
-구성 및 등록이 완료된 후에 장치가 온라인 상태가 됩니다. 장치가 온라인 상태로 전환되는 데 몇 분 정도 걸릴 수 있습니다.
+구성 및 등록이 완료된 후에 디바이스가 온라인 상태가 됩니다. 디바이스가 온라인 상태로 전환되는 데 몇 분 정도 걸릴 수 있습니다.
 
 ![StorSimple Cloud Appliance 온라인 단계](./media/storsimple-8000-configure-register-cloud-appliance/sca-configure2.png)
 

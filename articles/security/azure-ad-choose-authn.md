@@ -128,7 +128,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **활동**. 페더레이션 인증 시스템은 신뢰할 수 있는 외부 시스템을 통해 사용자를 인증합니다. 일부 기업은 Azure AD 하이브리드 ID 솔루션과 함께 자사의 기존 페더레이션 시스템 투자를 재사용하려고 합니다. 페더레이션 시스템의 유지 및 관리는 Azure AD의 제어를 벗어납니다. 페더레이션 시스템이 안전하게 배포되어 인증 부하를 처리할 수 있도록 하는 것은 해당 페더레이션 시스템을 사용하는 조직의 책임입니다. 
 
-* **사용자 환경**. 페더레이션 인증의 사용자 환경은 기능, 토폴로지 및 페더레이션 팜 구성의 구현 방식에 따라 달라집니다. 일부 조직에서는 페더레이션 팜에 대한 액세스를 보안 요구 사항에 맞춰 적용 및 구성할 수 있는 유연성이 필요합니다. 예를 들어 자격 증명을 확인하지 않고 사용자가 자동으로 로그인되도록 내부적으로 연결된 사용자 및 장치를 구성할 수 있는데, 이 구성은 해당 사용자는 이미 장치에 로그인되었기 때문에 작동합니다. 필요한 경우 일부 고급 보안 기능을 사용하면 사용자의 로그인 프로세스가 더 어려워집니다.
+* **사용자 환경**. 페더레이션 인증의 사용자 환경은 기능, 토폴로지 및 페더레이션 팜 구성의 구현 방식에 따라 달라집니다. 일부 조직에서는 페더레이션 팜에 대한 액세스를 보안 요구 사항에 맞춰 적용 및 구성할 수 있는 유연성이 필요합니다. 예를 들어 자격 증명을 확인하지 않고 사용자가 자동으로 로그인되도록 내부적으로 연결된 사용자 및 디바이스를 구성할 수 있는데, 이 구성은 해당 사용자는 이미 디바이스에 로그인되었기 때문에 작동합니다. 필요한 경우 일부 고급 보안 기능을 사용하면 사용자의 로그인 프로세스가 더 어려워집니다.
 
 * **고급 시나리오**. 페더레이션 인증 솔루션은 일반적으로 고객에게 Azure AD에서 기본적으로 지원되지 않는 인증 요구 사항이 있는 경우 필요합니다. 자세한 내용은 [올바른 로그인 옵션 선택](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/)을 참조하세요. 고려할 일반적인 요구 사항은 다음과 같습니다.
 
@@ -143,7 +143,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 * **고려 사항**. 페더레이션 시스템에는 일반적으로 온-프레미스 인프라에 더 많은 투자를 해야 합니다. 대부분의 조직은 온-프레미스 페더레이션 투자가 이미 되어 있고 단일 ID 공급자를 사용해야 하는 강력한 비즈니스 요구 사항이 있는 경우에 이 옵션을 선택합니다. 페더레이션은 클라우드 인증 솔루션에 비해 작동 및 문제 해결이 더 복잡합니다.
 
-Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 사용자 ID 로그인을 구현하려면 추가 구성이 필요합니다. 이 요구 사항을 대체 로그인 ID 지원이라고 합니다. 제한 사항 및 요구 사항에 대해서는 [대체 로그인 ID 구성](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요. 페더레이션에 타사 다단계 인증 공급자를 사용하도록 선택하는 경우, 장치에서 Azure AD에 가입할 수 있도록 공급자가 WS-Trust를 지원하는지 확인합니다.
+Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 사용자 ID 로그인을 구현하려면 추가 구성이 필요합니다. 이 요구 사항을 대체 로그인 ID 지원이라고 합니다. 제한 사항 및 요구 사항에 대해서는 [대체 로그인 ID 구성](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요. 페더레이션에 타사 다단계 인증 공급자를 사용하도록 선택하는 경우, 디바이스에서 Azure AD에 가입할 수 있도록 공급자가 WS-Trust를 지원하는지 확인합니다.
 
 배포 단계에 대해서는 [페더레이션 서버 배포](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers)를 참조하세요.
 
@@ -175,7 +175,7 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |프로비저닝 시스템 이외의 온-프레미스 인터넷 및 네트워킹 요구 사항은 무엇인가요?|없음|인증 에이전트를 실행하는 서버의[아웃바운드 인터넷 액세스](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start)|경계에 있는 WAP 서버에 대한 [인바운드 인터넷 액세스](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements)<br><br>경계에 있는 WAP 서버에서 AD FS 서버로의 인바운드 네트워크 액세스<br><br>네트워크 부하 분산|
 |SSL 인증서 요구 사항이 있나요?|아니오|아니요|예|
 |상태 모니터링 솔루션이 있나요?|필요하지 않음|[Azure Active Directory 관리 센터](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)에서 제공한 에이전트 상태|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
-|사용자가 회사 네트워크 내의 도메인 가입 장치에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)의 경우 예|[원활한 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)의 경우 예|예|
+|사용자가 회사 네트워크 내의 도메인 가입 디바이스에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)의 경우 예|[원활한 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)의 경우 예|예|
 |지원되는 로그인 유형은 무엇인가요?|UserPrincipalName + 암호<br><br>[원활한 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + 암호<br><br>[원활한 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + 암호<br><br>sAMAccountName + 암호<br><br>Windows 통합 인증<br><br>[인증서 및 스마트 카드 인증](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[대체 로그인 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |비즈니스용 Windows Hello가 지원되나요?|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Intune을 사용하는 인증서 신뢰 모델](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Intune을 사용하는 인증서 신뢰 모델](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[인증서 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |다단계 인증 옵션은 무엇인가요?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스를 사용하는 사용자 지정 컨트롤*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스를 사용하는 사용자 지정 컨트롤*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA 서버](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[타사 MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[조건부 액세스를 사용하는 사용자 지정 컨트롤*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-1)|
@@ -186,7 +186,7 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |지원되는 고급 시나리오는 무엇인가요?|[스마트 암호 잠금](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[유출된 자격 증명 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[스마트 암호 잠금](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|다중 사이트 낮은 대기 시간 인증 시스템<br><br>[AD FS 엑스트라넷 잠금](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[타사 ID 시스템과 통합](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 
 > [!NOTE] 
-> 현재, Azure AD 조건부 액세스의 사용자 지정 컨트롤은 장치 등록을 지원하지 않습니다.
+> 현재, Azure AD 조건부 액세스의 사용자 지정 컨트롤은 디바이스 등록을 지원하지 않습니다.
 
 ## <a name="recommendations"></a>권장 사항
 ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도록 만든 클라우드 앱 및 LOB(기간 업무) 앱에 사용자가 액세스할 수 있도록 해줍니다. 권한 있는 사용자가 생산성을 유지하고 악의적인 행위자가 조직의 중요한 데이터에 접근하지 못하도록 하기 위해 인증은 앱에 대한 액세스를 제어합니다.
@@ -205,7 +205,7 @@ ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도
 
 3. **ID 보호**. Azure AD ID 보호는 클라우드에서 사용자를 보호하는 가장 좋은 방법 중 하나입니다. Microsoft는 악의적인 행위자가 판매하고 다크 웹에서 사용할 수 있도록 만드는 사용자 및 암호 목록에 대해 인터넷을 지속적으로 검사합니다. Azure AD는 이 정보를 사용하여 사용자 조직의 사용자 이름 및 암호가 훼손되었는지 확인할 수 있습니다. 따라서 사용하는 인증 방법이 페더레이션 인증이든 또는 통과 인증이든 관계없이 암호 해시 동기화를 사용하도록 설정하는 것이 매우 중요합니다. 유출된 자격 증명은 보고서로 제공되므로 사용자가 유출된 암호로 로그인하려고 할 때 이 정보를 사용하여 해당 사용자를 차단하거나 유출된 암호를 변경하도록 할 수 있습니다.
 
-마지막으로 [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html)에 따르면, Microsoft는 가장 완전하게 갖추어진 ID 및 액세스 관리 기능을 제공합니다. Microsoft는 거의 모든 장치에서 Office 365와 같은 수천 개의 SaaS 응용 프로그램에 액세스할 수 있도록 매달 [4500억 개의 인증 요청](https://www.microsoft.com/en-us/security/intelligence-report)을 처리합니다. 
+마지막으로 [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html)에 따르면, Microsoft는 가장 완전하게 갖추어진 ID 및 액세스 관리 기능을 제공합니다. Microsoft는 거의 모든 디바이스에서 Office 365와 같은 수천 개의 SaaS 애플리케이션에 액세스할 수 있도록 매달 [4500억 개의 인증 요청](https://www.microsoft.com/en-us/security/intelligence-report)을 처리합니다. 
 
 ## <a name="conclusion"></a>결론
 

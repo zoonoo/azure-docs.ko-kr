@@ -30,7 +30,7 @@ VPN Gateway 연결은 다양 한 이유로 실패할 수 있습니다. 이 문�
 
 * [VNet에 대한 VPN 처리량의 유효성 검사](vpn-gateway-validate-throughput-to-vnet.md)<br>VPN Gateway 연결을 통해 Azure 내 Virtual Network와 온-프레미스 IT 인프라 사이에 안전한 프레미스 간 연결을 설정할 수 있습니다. 이 문서에서는 온-프레미스 리소스에서 Azure VM(가상 컴퓨터)으로의 네트워크 처리량을 유효성 검사하는 방법을 보여줍니다. 문제 해결 지침도 제공합니다.
 
-* [VPN 및 방화벽 장치 설정](vpn-gateway-third-party-settings.md)<br>이 문서에서는 VPN Gateway와 함께 사용되는 타사 VPN 또는 방화벽 장치에 대해 제안된 몇 가지 솔루션을 제공합니다. 타사 VPN 또는 방화벽 장치에 대한 기술 지원은 장치 공급업체에서 제공합니다.
+* [VPN 및 방화벽 장치 설정](vpn-gateway-third-party-settings.md)<br>이 문서에서는 VPN Gateway와 함께 사용되는 타사 VPN 또는 방화벽 디바이스에 대해 제안된 몇 가지 솔루션을 제공합니다. 타사 VPN 또는 방화벽 장치에 대한 기술 지원은 장치 공급업체에서 제공합니다.
 
 * [지점 및 사이트 간 연결](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)<br>이 문서에서는 발생할 수 있는 일반적인 지점 및 사이트 간 연결 문제를 나열합니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 설명합니다.
 

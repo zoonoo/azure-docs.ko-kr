@@ -1,6 +1,6 @@
 ---
 title: IoT Core에 Azure IoT Edge 설치 | Microsoft Docs
-description: Windows IoT Core 장치에 Azure IoT Edge 런타임을 설치합니다.
+description: Windows IoT Core 디바이스에 Azure IoT Edge 런타임을 설치합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -18,7 +18,7 @@ ms.locfileid: "51564829"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Windows IoT Core에 IoT Edge 런타임 설치 - 미리 보기
 
-Azure IoT Edge 및 [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/)가 함께 작동하여 소형 장치에서 에지를 계산할 수 있습니다. Azure IoT Edge 런타임은 IoT 업계에서 매우 널리 사용되는 아주 작은 SBC(단일 보드 컴퓨터) 장치에서도 실행할 수 있습니다. 
+Azure IoT Edge 및 [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/)가 함께 작동하여 소형 장치에서 에지를 계산할 수 있습니다. Azure IoT Edge 런타임은 IoT 업계에서 매우 널리 사용되는 아주 작은 SBC(단일 보드 컴퓨터) 디바이스에서도 실행할 수 있습니다. 
 
 이 문서에서는 Windows IoT Core를 실행하는 개발 보드에서 런타임을 프로비전하는 과정을 단계별로 안내합니다. 
 
@@ -27,7 +27,7 @@ Azure IoT Edge 및 [Windows IoT Core](https://docs.microsoft.com/windows/iot-cor
 ## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치
 
 1. **빌드 17134(RS4)** IoT Core 이미지로 보드를 구성합니다. 
-1. 장치를 켠 다음, [PowerShell을 사용하여 원격으로 로그인](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell)합니다.
+1. 디바이스를 켠 다음, [PowerShell을 사용하여 원격으로 로그인](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell)합니다.
 1. PowerShell 콘솔에서 컨테이너 런타임을 설치합니다. 
 
    ```powershell
@@ -49,4 +49,4 @@ IoT Edge 보안 디먼을 설치하고 [이 문서](how-to-install-iot-edge-wind
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 IoT Edge 런타임을 실행하는 장치가 있으므로 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 수행하는 방법을 알아봅니다.
+이제 IoT Edge 런타임을 실행하는 디바이스가 있으므로 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 수행하는 방법을 알아봅니다.

@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights로 장치 시뮬레이션 원격 분석 시각화 | Microsoft Docs
-description: 장치 시뮬레이션 솔루션 가속기에서 생성된 원격 분석을 탐색하고 분석하도록 Time Series Insights 환경을 구성하는 방법을 알아봅니다.
+title: Azure Time Series Insights로 디바이스 시뮬레이션 원격 분석 시각화 | Microsoft Docs
+description: 디바이스 시뮬레이션 솔루션 가속기에서 생성된 원격 분석을 탐색하고 분석하도록 Time Series Insights 환경을 구성하는 방법을 알아봅니다.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -15,15 +15,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/01/2018
 ms.locfileid: "43383042"
 ---
-# <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights를 사용하여 장치 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화
+# <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화
 
-장치 시뮬레이션 솔루션 가속기를 사용하여 IoT 솔루션을 테스트하도록 시뮬레이션된 장치에서 원격 분석을 생성할 수 있습니다. 이 방법 가이드에서는 Time Series Insights 환경을 사용하여 시뮬레이션된 원격 분석을 시각화 및 분석하는 방법을 보여줍니다.
+디바이스 시뮬레이션 솔루션 가속기를 사용하여 IoT 솔루션을 테스트하도록 시뮬레이션된 디바이스에서 원격 분석을 생성할 수 있습니다. 이 방법 가이드에서는 Time Series Insights 환경을 사용하여 시뮬레이션된 원격 분석을 시각화 및 분석하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드의 단계를 수행하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 방법 가이드의 단계에서는 Azure 구독에 장치 시뮬레이션 솔루션 가속기를 배포했다고 가정합니다. 솔루션 가속기를 배포하지 않은 경우 [클라우드 기반 장치 시뮬레이션 솔루션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작의 단계를 수행합니다.
+이 방법 가이드의 단계에서는 Azure 구독에 디바이스 시뮬레이션 솔루션 가속기를 배포했다고 가정합니다. 솔루션 가속기를 배포하지 않은 경우 [클라우드 기반 디바이스 시뮬레이션 솔루션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작의 단계를 수행합니다.
 
 이 문서에서는 솔루션 가속기의 이름이 **contoso-simulation**이라고 가정합니다. **contoso-simulation**을 다음 단계를 완료할 때 솔루션 가속기의 이름으로 바꿉니다.
 
@@ -33,9 +33,9 @@ ms.locfileid: "43383042"
 
 ## <a name="start-a-simulation"></a>시뮬레이션 시작
 
-Time Series Insights 탐색기를 사용하기 전에 일부 원격 분석을 생성하도록 장치 시뮬레이션 솔루션 가속기를 구성합니다. 다음 스크린샷에서는 10개의 냉각기 장치를 사용하여 실행 중인 시뮬레이션을 보여줍니다.
+Time Series Insights 탐색기를 사용하기 전에 일부 원격 분석을 생성하도록 디바이스 시뮬레이션 솔루션 가속기를 구성합니다. 다음 스크린샷에서는 10개의 냉각기 디바이스를 사용하여 실행 중인 시뮬레이션을 보여 줍니다.
 
-![장치 시뮬레이션 실행](./media/iot-accelerators-device-simulation-time-series-insights/running-simulation.png)
+![디바이스 시뮬레이션 실행](./media/iot-accelerators-device-simulation-time-series-insights/running-simulation.png)
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights 탐색기
 
@@ -75,7 +75,7 @@ Time Series Insights 탐색기는 원격 분석을 시각화하는 데 사용할
 
     ![Time Series Insights 탐색기 쿼리](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query2.png)
 
-1. 큐브 뷰 보기 단추를 클릭하여 장치 원격 분석 대시보드를 봅니다.
+1. 큐브 뷰 보기 단추를 클릭하여 디바이스 원격 분석 대시보드를 봅니다.
 
     ![Time Series Insights 탐색기 대시보드](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-dashboard.png)
 

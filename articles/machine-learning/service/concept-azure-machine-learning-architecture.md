@@ -45,7 +45,7 @@ ms.locfileid: "51706809"
 
 작업 영역은 모델을 학습시키는 데 사용할 수 있는 계산 대상 목록을 유지합니다. 또한 스크립트의 로그, 메트릭, 출력 및 스냅숏을 포함하는 학습 실행 기록을 유지합니다. 이 정보는 최고의 모델을 생성하는 학습 실행을 판별하는 데 사용됩니다.
 
-모델은 작업 영역에 등록됩니다. 등록된 모델 및 점수 매기기 스크립트는 이미지를 만드는 데 사용됩니다. 이미지는 REST 기반 HTTP 엔드포인트로 Azure Container Instances 또는 Azure Kubernetes Service에 배포하거나 FPGA(Field-Programmable Gate Array)에 배포할 수 있습니다. Azure IoT Edge 장치에 모듈로 배포할 수도 있습니다.
+모델은 작업 영역에 등록됩니다. 등록된 모델 및 점수 매기기 스크립트는 이미지를 만드는 데 사용됩니다. 이미지는 REST 기반 HTTP 엔드포인트로 Azure Container Instances 또는 Azure Kubernetes Service에 배포하거나 FPGA(Field-Programmable Gate Array)에 배포할 수 있습니다. Azure IoT Edge 디바이스에 모듈로 배포할 수도 있습니다.
 
 여러 작업 영역을 만들 수 있고 각 작업 영역을 여러 사용자와 공유할 수 있습니다. 작업 영역을 공유하는 경우 사용자에게 다음 역할을 할당하여 작업 영역에 대한 액세스를 제어합니다.
 
@@ -110,7 +110,7 @@ Azure Machine Learning에서 만들 수 있는 두 가지 유형의 이미지는
 
 ## <a name="deployment"></a>배포
 
-배포는 통합형 클라우드에서 호스트될 수 있는 웹 서비스 또는 장치 배포를 위한 IoT 모듈로 이미지를 인스턴스화하는 것입니다. 
+배포는 통합형 클라우드에서 호스트될 수 있는 웹 서비스 또는 디바이스 배포를 위한 IoT 모듈로 이미지를 인스턴스화하는 것입니다. 
 
 ### <a name="web-service"></a>웹 서비스
 
@@ -125,11 +125,11 @@ Azure에서는 이 기능을 사용하도록 선택한 경우 Application Insigh
 
 ### <a name="iot-module"></a>IoT 모듈
 
-배포된 IoT 모듈은 모델 및 연결된 스크립트나 응용 프로그램과 모든 추가 종속성을 포함하는 Docker 컨테이너입니다. 이러한 모듈은 에지 장치에서 Azure IoT Edge를 사용하여 배포됩니다. 
+배포된 IoT 모듈은 모델 및 연결된 스크립트나 응용 프로그램과 모든 추가 종속성을 포함하는 Docker 컨테이너입니다. 이러한 모듈은 에지 디바이스에서 Azure IoT Edge를 사용하여 배포됩니다. 
 
 모니터링을 사용하도록 설정한 경우 Azure는 Azure IoT Edge 모듈 내의 모델에서 원격 분석 데이터를 수집합니다. 원격 분석 데이터는 관련 사용자에게만 제공되고 저장소 계정 인스턴스에 저장됩니다.
 
-Azure IoT Edge 모듈은 모듈이 실행 중인지 확인하고 모듈을 호스트 중인 장치를 모니터링합니다.
+Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 중인 디바이스를 모니터링합니다.
 
 ## <a name="datastore"></a>데이터 저장소
 

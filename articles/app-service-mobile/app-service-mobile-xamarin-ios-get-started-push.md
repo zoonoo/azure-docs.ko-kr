@@ -27,14 +27,14 @@ ms.locfileid: "42819025"
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 푸시 알림을 [Xamarin.iOS 빠른 시작](app-service-mobile-xamarin-ios-get-started.md) 프로젝트에 추가하여 레코드가 삽입될 때마다 장치에 푸시 알림이 전송됩니다.
+이 자습서에서는 푸시 알림을 [Xamarin.iOS 빠른 시작](app-service-mobile-xamarin-ios-get-started.md) 프로젝트에 추가하여 레코드가 삽입될 때마다 디바이스에 푸시 알림이 전송됩니다.
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * [Xamarin.iOS 빠른 시작 자습서](app-service-mobile-xamarin-ios-get-started.md) 를 완료합니다.
-* 실제 iOS 장치. 푸시 알림은 iOS 시뮬레이터에서 지원되지 않습니다.
+* 실제 iOS 디바이스. 푸시 알림은 iOS 시뮬레이터에서 지원되지 않습니다.
 
 ## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Apple 개발자 포털의 푸시 알림에 대한 앱 등록
 

@@ -174,9 +174,9 @@ ms.locfileid: "45636799"
    <pre><code>sudo pcs quorum expected-votes 2
    </code></pre>
 
-## <a name="create-stonith-device"></a>STONITH 장치 만들기
+## <a name="create-stonith-device"></a>STONITH 디바이스 만들기
 
-STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
+STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
 1. <https://portal.azure.com>으로 이동합니다.
 1. Azure Active Directory 블레이드 열기  
@@ -233,13 +233,13 @@ STONITH 장치에서는 서비스 주체를 사용하여 Microsoft Azure에 대�
 
 ### <a name="1-create-the-stonith-devices"></a>**[1]** STONITH 장치 만들기
 
-가상 머신의 권한을 편집하고 나면 클러스터의 STONITH 장치를 구성할 수 있습니다.
+가상 머신의 권한을 편집하고 나면 클러스터의 STONITH 디바이스를 구성할 수 있습니다.
 
 <pre><code>
 sudo pcs property set stonith-timeout=900
 </code></pre>
 
-다음 명령을 사용하여 펜스 장치를 구성합니다.
+다음 명령을 사용하여 펜스 디바이스를 구성합니다.
 
 > [!NOTE]
 > RHEL 호스트 이름 및 Azure 노드 이름이 동일하지 않은 경우에만 ‘pcmk_host_map’ 옵션이 명령에 필요합니다. 명령에서 굵은 섹션을 참조하세요.

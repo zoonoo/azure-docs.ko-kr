@@ -19,11 +19,11 @@ ms.locfileid: "51568923"
 
 Edge 에이전트 및 Edge 허브는 IoT Edge 런타임을 구성하는 두 가지 모듈입니다. 각 모듈이 수행하는 역할에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 아키텍처의 이해](iot-edge-runtime.md)를 참조하세요. 
 
-이 문서에서는 런타임 모듈 트윈스의 desired 속성 및 reported 속성을 제공합니다. IoT Edge 장치에 모듈을 배포하는 방법에 대한 자세한 내용은 [배포 및 모니터링](module-deployment-monitoring.md)을 참조하세요.
+이 문서에서는 런타임 모듈 트윈스의 desired 속성 및 reported 속성을 제공합니다. IoT Edge 디바이스에 모듈을 배포하는 방법에 대한 자세한 내용은 [배포 및 모니터링](module-deployment-monitoring.md)을 참조하세요.
 
 ## <a name="edgeagent-desired-properties"></a>Edge 에이전트 desired 속성
 
-Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 장치에서 실행 중인 Edge 에이전트와 IoT Hub 간의 통신을 조정합니다. 단일 장치 또는 대규모 배포의 일부로 특정 장치에 배포 매니페스트를 적용할 때 desired 속성이 설정됩니다. 
+Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 디바이스에서 실행 중인 Edge 에이전트와 IoT Hub 간의 통신을 조정합니다. 단일 디바이스 또는 대규모 배포의 일부로 특정 디바이스에 배포 매니페스트를 적용할 때 desired 속성이 설정됩니다. 
 
 | 자산 | 설명 | 필수 |
 | -------- | ----------- | -------- |
@@ -57,13 +57,13 @@ Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 장치에�
 Edge 에이전트 reported 속성에는 다음 세 가지 주요 정보가 포함됩니다.
 
 1. 마지막으로 desired 속성이 표시된 응용 프로그램의 상태
-2. Edge 에이전트에서 보고한 현재 장치에서 실행 중인 모듈의 상태
-3. 현재 장치에서 실행 중인 desired 속성의 복사본
+2. Edge 에이전트에서 보고한 현재 디바이스에서 실행 중인 모듈의 상태
+3. 현재 디바이스에서 실행 중인 desired 속성의 복사본
 
-이 마지막 정보는 런타임에서 마지막 desired 속성이 성공적으로 적용되지 않고 장치에서 이전 배포 매니페스트를 계속 실행하는 경우에 유용합니다.
+이 마지막 정보는 런타임에서 마지막 desired 속성이 성공적으로 적용되지 않고 디바이스에서 이전 배포 매니페스트를 계속 실행하는 경우에 유용합니다.
 
 > [!NOTE]
-> 보고된 Edge 에이전트의 속성은 [IoT Hub 쿼리 언어](../iot-hub/iot-hub-devguide-query-language.md)로 쿼리하여 대규모 배포의 상태를 조사할 수 있으므로 유용합니다. 상태에 대해 Edge 에이전트 속성을 사용하는 방법에 대한 자세한 내용은 [단일 장치 또는 대규모 IoT Edge 배포에 대한 이해](module-deployment-monitoring.md)를 참조하세요.
+> 보고된 Edge 에이전트의 속성은 [IoT Hub 쿼리 언어](../iot-hub/iot-hub-devguide-query-language.md)로 쿼리하여 대규모 배포의 상태를 조사할 수 있으므로 유용합니다. 상태에 대해 Edge 에이전트 속성을 사용하는 방법에 대한 자세한 내용은 [단일 디바이스 또는 대규모 IoT Edge 배포에 대한 이해](module-deployment-monitoring.md)를 참조하세요.
 
 다음 표에는 desired 속성에서 복사한 정보가 포함되어 있지 않습니다.
 
@@ -74,8 +74,8 @@ Edge 에이전트 reported 속성에는 다음 세 가지 주요 정보가 포�
 | lastDesiredStatus.description | 상태에 대한 텍스트 설명입니다. |
 | deviceHealth | 모든 모듈의 런타임 상태가 `running` 또는 `stopped`이면 `healthy`, 그렇지 않으면 `unhealthy`입니다 |
 | configurationHealth.{deploymentId}.health | {deploymentId} 배포에서 설정한 모든 모듈의 런타임 상태가 `running` 또는 `stopped`이면 `healthy`이고, 그렇지 않으면 `unhealthy`입니다. |
-| runtime.platform.OS | 장치에서 실행 중인 OS를 보고합니다. |
-| runtime.platform.architecture | 장치의 CPU 아키텍처를 보고합니다. |
+| runtime.platform.OS | 디바이스에서 실행 중인 OS를 보고합니다. |
+| runtime.platform.architecture | 디바이스의 CPU 아키텍처를 보고합니다. |
 | systemModules.edgeAgent.runtimeStatus | Edge 에이전트의 보고된 상태: {“running” \| “unhealthy”} |
 | systemModules.edgeAgent.statusDescription | Edge 에이전트의 reported 상태에 대한 텍스트 설명입니다. |
 | systemModules.edgeHub.runtimeStatus | Edge 허브의 현재 상태: { “running” \| “stopped” \| “failed” \| “backoff” \| “unhealthy” } |
@@ -95,7 +95,7 @@ Edge 에이전트 reported 속성에는 다음 세 가지 주요 정보가 포�
 
 ## <a name="edgehub-desired-properties"></a>Edge 허브 desired 속성
 
-Edge 허브에 대한 모듈 쌍은 `$edgeHub`라고 하며, 장치에서 실행 중인 Edge 허브와 IoT Hub 간의 통신을 조정합니다. 단일 장치 또는 대규모 배포의 일부로 특정 장치에 배포 매니페스트를 적용할 때 desired 속성이 설정됩니다. 
+Edge 허브에 대한 모듈 쌍은 `$edgeHub`라고 하며, 디바이스에서 실행 중인 Edge 허브와 IoT Hub 간의 통신을 조정합니다. 단일 디바이스 또는 대규모 배포의 일부로 특정 디바이스에 배포 매니페스트를 적용할 때 desired 속성이 설정됩니다. 
 
 | 자산 | 설명 | 배포 매니페스트에 필요합니다. |
 | -------- | ----------- | -------- |
@@ -110,9 +110,9 @@ Edge 허브에 대한 모듈 쌍은 `$edgeHub`라고 하며, 장치에서 실행
 | lastDesiredVersion | 이 정수는 Edge 허브에서 처리하는 desired 속성의 마지막 버전을 나타냅니다. |
 | lastDesiredStatus.code | Edge 허브에서 마지막으로 표시한 desired 속성을 나타내는 상태 코드입니다. 허용되는 값: `200` 성공, `400` 잘못된 구성, `500` 실패 |
 | lastDesiredStatus.description | 상태에 대한 텍스트 설명입니다. |
-| clients.{device or moduleId}.status | 이 장치 또는 모듈의 연결 상태입니다. 가능한 값 {“connected” \| “disconnected”}. 모듈 ID만 연결이 끊긴 상태가 될 수 있습니다. 연결된 경우에만 Edge 허브에 연결된 다운스트림 장치가 표시됩니다. |
-| clients.{device or moduleId}.lastConnectTime | 장치 또는 모듈이 마지막으로 연결된 시간입니다. |
-| clients.{device or moduleId}.lastDisconnectTime | 장치 또는 모듈의 연결이 마지막으로 끊긴 시간입니다. |
+| clients.{device or moduleId}.status | 이 디바이스 또는 모듈의 연결 상태입니다. 가능한 값 {“connected” \| “disconnected”}. 모듈 ID만 연결이 끊긴 상태가 될 수 있습니다. 연결된 경우에만 Edge 허브에 연결된 다운스트림 디바이스가 표시됩니다. |
+| clients.{device or moduleId}.lastConnectTime | 디바이스 또는 모듈이 마지막으로 연결된 시간입니다. |
+| clients.{device or moduleId}.lastDisconnectTime | 디바이스 또는 모듈의 연결이 마지막으로 끊긴 시간입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

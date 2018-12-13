@@ -31,7 +31,7 @@ ms.locfileid: "42918626"
 
 이 시나리오는 두 부분으로 분류됩니다.
 
-* iOS 앱을 통해 클라이언트 장치는 언어를 지정하고 다른 속보 범주를 구독할 수 있습니다.
+* iOS 앱을 통해 클라이언트 디바이스는 언어를 지정하고 다른 속보 범주를 구독할 수 있습니다.
 * 백 엔드에서 Azure Notification Hubs의 **태그** 및 **템플릿** 기능을 사용하여 알림을 브로드캐스트합니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "42918626"
 > [!NOTE]
 > 지역화된 알림을 보내는 한 가지 방법은 각 태그의 여러 버전을 만드는 것입니다. 예를 들어 영어, 프랑스어 및 북경어를 지원하려면 세계 뉴스에 대한 3가지 태그 즉, "world_en", "world_fr" 및 "world_ch"가 필요합니다. 그런 다음, 이러한 각 태그로 세계 뉴스의 지역화된 버전을 보내야 합니다. 이 항목에서는 템플릿을 사용하여 태그의 확산을 방지하고 여러 메시지를 보낼 필요가 없도록 합니다.
 
-높은 수준의 템플릿을 사용하면 특정 장치에서 알림을 받는 방법을 지정할 수 있습니다. 템플릿은 앱에서 백 엔드로 보낸 메시지에 포함된 속성을 참조하여 정확한 페이로드 형식을 지정합니다. 여기서는 모든 지원되는 언어를 포함하는 로캘을 알 수 없는 메시지를 보냅니다.
+높은 수준의 템플릿을 사용하면 특정 디바이스에서 알림을 받는 방법을 지정할 수 있습니다. 템플릿은 앱에서 백 엔드로 보낸 메시지에 포함된 속성을 참조하여 정확한 페이로드 형식을 지정합니다. 여기서는 모든 지원되는 언어를 포함하는 로캘을 알 수 없는 메시지를 보냅니다.
 
 ```json
 {
@@ -190,9 +190,9 @@ ms.locfileid: "42918626"
 
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
-## <a name="optional-send-localized-template-notifications-from-the-device"></a>(선택 사항) 장치에서 지역화된 템플릿 알림 보내기
+## <a name="optional-send-localized-template-notifications-from-the-device"></a>(선택 사항) 디바이스에서 지역화된 템플릿 알림 보내기
 
-Visual Studio에 액세스할 수 없거나 장치의 앱에서 직접 지역화된 템플릿 알림을 보내는 테스트만 하기를 원하는 경우입니다. 이전 자습서에 정의한 `SendNotificationRESTAPI` 메서드에 지역화된 템플릿 매개 변수를 추가할 수 있습니다.
+Visual Studio에 액세스할 수 없거나 디바이스의 앱에서 직접 지역화된 템플릿 알림을 보내는 테스트만 하기를 원하는 경우입니다. 이전 자습서에 정의한 `SendNotificationRESTAPI` 메서드에 지역화된 템플릿 매개 변수를 추가할 수 있습니다.
 
 ```objc
 - (void)SendNotificationRESTAPI:(NSString*)categoryTag

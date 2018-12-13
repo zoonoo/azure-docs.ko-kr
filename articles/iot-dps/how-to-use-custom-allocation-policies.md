@@ -18,27 +18,27 @@ ms.locfileid: "49458194"
 # <a name="how-to-use-custom-allocation-policies"></a>사용자 지정 할당 정책을 사용하는 방법
 
 
-사용자 지정 할당 정책을 사용하면 IoT Hub에 장치를 할당하는 방법을 더 구체적으로 제어할 수 있습니다. 이 작업을 수행하려면 [Azure 함수](../azure-functions/functions-overview.md)에서 사용자 지정 코드를 사용하여 IoT Hub에 장치를 할당합니다. 장치 프로비저닝 서비스는 Azure 함수 코드를 호출하여 장치 및 등록과 관련된 모든 정보를 제공합니다. 실행된 함수 코드는 장치를 프로비전하는 데 사용된 IoT Hub 정보를 반환합니다.
+사용자 지정 할당 정책을 사용하면 IoT Hub에 디바이스를 할당하는 방법을 더 구체적으로 제어할 수 있습니다. 이 작업을 수행하려면 [Azure 함수](../azure-functions/functions-overview.md)에서 사용자 지정 코드를 사용하여 IoT Hub에 디바이스를 할당합니다. 디바이스 프로비저닝 서비스는 Azure 함수 코드를 호출하여 디바이스 및 등록과 관련된 모든 정보를 제공합니다. 실행된 함수 코드는 디바이스를 프로비전하는 데 사용된 IoT Hub 정보를 반환합니다.
 
 사용자 지정 할당 정책을 사용하면 Device Provisioning Service에서 제공하는 정책이 시나리오의 요구 사항을 충족하지 않을 경우 사용자가 고유한 할당 정책을 정의합니다.
 
-예를 들어 프로비전 중에 장치에서 사용하는 인증서를 검사하고 해당 장치를 인증서 속성에 따라 IoT Hub에 할당하려고 할 수 있습니다. 장치에 대한 정보가 데이터베이스에 저장되어 있고 데이터베이스를 쿼리하여 장치에 할당해야 하는 IoT Hub를 확인해야 할 수 있습니다.
+예를 들어 프로비전 중에 디바이스에서 사용하는 인증서를 검사하고 해당 디바이스를 인증서 속성에 따라 IoT Hub에 할당하려고 할 수 있습니다. 디바이스에 대한 정보가 데이터베이스에 저장되어 있고 데이터베이스를 쿼리하여 디바이스에 할당해야 하는 IoT Hub를 확인해야 할 수 있습니다.
 
 
-이 문서에서는 C#으로 작성된 Azure 함수를 사용하는 사용자 지정 할당 정책에 대해 설명합니다. *Contoso Toasters Division* 및 *Contoso Heat Pumps Division*을 나타내는 두 개의 새로운 IoT Hub가 생성됩니다. 프로비저닝을 요청하는 장치에는 프로비저닝을 위해 허용되는 다음 접미사 중 하나가 포함된 등록 ID가 있어야 합니다.
+이 문서에서는 C#으로 작성된 Azure 함수를 사용하는 사용자 지정 할당 정책에 대해 설명합니다. *Contoso Toasters Division* 및 *Contoso Heat Pumps Division*을 나타내는 두 개의 새로운 IoT Hub가 생성됩니다. 프로비저닝을 요청하는 디바이스에는 프로비저닝을 위해 허용되는 다음 접미사 중 하나가 포함된 등록 ID가 있어야 합니다.
 
 - **-contoso-tstrsd-007**: Contoso Toasters Division
 - **-contoso-hpsd-088**: Contoso Heat Pumps Division
 
-장치는 등록 ID에 있는 이러한 필수 접미사 중 하나를 기반으로 프로비전됩니다. 이러한 장치는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)에 포함된 프로비저닝 샘플을 사용하여 시뮬레이트됩니다. 
+디바이스는 등록 ID에 있는 이러한 필수 접미사 중 하나를 기반으로 프로비전됩니다. 이러한 디바이스는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)에 포함된 프로비저닝 샘플을 사용하여 시뮬레이트됩니다. 
 
 이 문서에서는 다음 단계를 수행합니다.
 
 * Azure CLI를 사용하여 두 개의 Contoso 부서 IoT Hub(**Contoso Toasters Division** 및 **Contoso Heat Pumps Division**) 만들기
 * 사용자 지정 할당 정책에 Azure 함수를 사용하여 새 그룹 등록 만들기
-* 두 개의 장치 시뮬레이션을 위한 장치 키 만들기
+* 두 개의 디바이스 시뮬레이션을 위한 디바이스 키 만들기
 * Azure IoT C SDK에 대한 개발 환경 준비
-* 장치를 시뮬레이트하여 사용자 지정 할당 정책의 예제 코드에 따라 프로비전되었는지 확인합니다.
+* 디바이스를 시뮬레이트하여 사용자 지정 할당 정책의 예제 코드에 따라 프로비전되었는지 확인합니다.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -273,23 +273,23 @@ ms.locfileid: "49458194"
     ![마지막으로 등록 그룹 저장](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
 
 
-12. 등록을 저장한 후 등록을 다시 열고 **기본 키**를 기록해 두세요. 키를 생성하려면 먼저 등록을 저장해야 합니다. 이 키는 나중에 시뮬레이트된 장치에 대한 고유한 장치 키를 생성하는 데 사용됩니다.
+12. 등록을 저장한 후 등록을 다시 열고 **기본 키**를 기록해 두세요. 키를 생성하려면 먼저 등록을 저장해야 합니다. 이 키는 나중에 시뮬레이트된 디바이스에 대한 고유한 디바이스 키를 생성하는 데 사용됩니다.
 
 
-## <a name="derive-unique-device-keys"></a>고유한 장치 키 파생
+## <a name="derive-unique-device-keys"></a>고유한 디바이스 키 파생
 
-이 섹션에서는 두 개의 고유한 장치 키를 만듭니다. 하나의 키는 시뮬레이트된 토스터 장치에 사용됩니다. 다른 키는 시뮬레이트된 열 펌프 장치에 사용됩니다.
+이 섹션에서는 두 개의 고유한 디바이스 키를 만듭니다. 하나의 키는 시뮬레이트된 토스터 디바이스에 사용됩니다. 다른 키는 시뮬레이트된 열 펌프 디바이스에 사용됩니다.
 
-장치 키를 생성하려면 이전에 적어 둔 **기본 키**를 사용하여 각 장치에 대한 장치 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)을 계산하고 결과를 Base64 형식으로 변환합니다. 등록 그룹을 사용하여 파생된 장치 키를 만드는 방법에 대한 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)의 그룹 등록 섹션을 참조하세요.
+디바이스 키를 생성하려면 이전에 적어 둔 **기본 키**를 사용하여 각 디바이스에 대한 디바이스 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)을 계산하고 결과를 Base64 형식으로 변환합니다. 등록 그룹을 사용하여 파생된 디바이스 키를 만드는 방법에 대한 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)의 그룹 등록 섹션을 참조하세요.
 
-이 문서의 예제에서는 다음 두 장치 등록 ID를 사용하여 두 장치의 장치 키를 계산합니다. 두 등록 ID에는 모두 사용자 지정 할당 정책에 대한 예제 코드에서 작동하는 유효한 접미사가 있습니다.
+이 문서의 예제에서는 다음 두 디바이스 등록 ID를 사용하여 두 디바이스의 디바이스 키를 계산합니다. 두 등록 ID에는 모두 사용자 지정 할당 정책에 대한 예제 코드에서 작동하는 유효한 접미사가 있습니다.
 
 - **breakroom499-contoso-tstrsd-007**
 - **mainbuilding167-contoso-hpsd-088**
 
 #### <a name="linux-workstations"></a>Linux 워크스테이션
 
-Linux 워크스테이션을 사용하는 경우 openssl을 사용하여 다음 예제에 표시된 대로 파생된 장치 키를 생성할 수 있습니다.
+Linux 워크스테이션을 사용하는 경우 openssl을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
 
 1. **KEY**의 값을 이전에 적어 둔 **기본 키**로 바꿉니다.
 
@@ -314,7 +314,7 @@ Linux 워크스테이션을 사용하는 경우 openssl을 사용하여 다음 �
 
 #### <a name="windows-based-workstations"></a>Windows 기반 워크스테이션
 
-Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하여 다음 예제에 표시된 대로 파생된 장치 키를 생성할 수 있습니다.
+Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
 
 1. **KEY**의 값을 이전에 적어 둔 **기본 키**로 바꿉니다.
 
@@ -340,14 +340,14 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
     ```
 
 
-시뮬레이트된 장치는 각 등록 ID와 함께 파생된 장치 키를 사용하여 대칭 키 증명을 수행합니다.
+시뮬레이트된 디바이스는 각 등록 ID와 함께 파생된 디바이스 키를 사용하여 대칭 키 증명을 수행합니다.
 
 
 
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Azure IoT C SDK 개발 환경 준비
 
-이 섹션에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 빌드하는 데 사용되는 개발 환경을 준비합니다. SDK에는 시뮬레이트된 장치의 샘플 코드가 포함되어 있습니다. 이 시뮬레이트된 장치는 장치의 부팅 시퀀스 중에 프로비저닝을 시도합니다.
+이 섹션에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 빌드하는 데 사용되는 개발 환경을 준비합니다. SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있습니다. 이 시뮬레이트된 디바이스는 디바이스의 부팅 시퀀스 중에 프로비저닝을 시도합니다.
 
 이 섹션은 Windows 기반 워크스테이션에 적용됩니다. Linux 예제를 보려면 [다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법](how-to-provision-multitenant.md)에서 VM 설정을 참조하세요.
 
@@ -414,15 +414,15 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
 
 
-## <a name="simulate-the-devices"></a>장치 시뮬레이트
+## <a name="simulate-the-devices"></a>디바이스 시뮬레이트
 
 이 섹션에서는 이전에 설정한 Azure IoT C SDK에 있는 **prov\_dev\_client\_sample**이라는 프로비저닝 샘플을 업데이트합니다. 
 
-이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 장치 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 토스터 장치가 인식되고 사용자 지정 할당 정책을 통해 IoT Hub에 할당됩니다.
+이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 토스터 디바이스가 인식되고 사용자 지정 할당 정책을 통해 IoT Hub에 할당됩니다.
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 기록해 둡니다.
 
-    ![포털 블레이드에서 장치 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
 2. Visual Studio에서 이전에 CMake를 실행하여 생성된 **azure_iot_sdks.sln** 솔루션 파일을 엽니다. 솔루션 파일은 다음 위치에 있습니다.
 
@@ -449,15 +449,15 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
 6. **prov\_dev\_client\_sample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 선택합니다. 
 
-#### <a name="simulate-the-contoso-toaster-device"></a>Contoso 토스터 장치 시뮬레이트
+#### <a name="simulate-the-contoso-toaster-device"></a>Contoso 토스터 디바이스 시뮬레이트
 
 1. Visual Studio의 *솔루션 탐색기* 창에서 **hsm\_security\_client** 프로젝트로 이동하고 프로젝트를 확장합니다. **원본 파일**을 확장하고 **hsm\_client\_key.c**를 엽니다. 
 
     `REGISTRATION_NAME` 및 `SYMMETRIC_KEY_VALUE` 상수의 선언을 찾습니다. 파일을 다음과 같이 변경한 후 저장합니다.
 
-    토스터 장치 **breakroom499-contoso-tstrsd-007**의 등록 ID를 사용하여 `REGISTRATION_NAME` 상수의 값을 업데이트합니다.
+    토스터 디바이스 **breakroom499-contoso-tstrsd-007**의 등록 ID를 사용하여 `REGISTRATION_NAME` 상수의 값을 업데이트합니다.
     
-    토스터 장치에 생성한 장치 키를 사용하여 `SYMMETRIC_KEY_VALUE` 상수를 값을 업데이트합니다. **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** 값은 예제로만 제공됩니다.
+    토스터 디바이스에 생성한 디바이스 키를 사용하여 `SYMMETRIC_KEY_VALUE` 상수를 값을 업데이트합니다. **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** 값은 예제로만 제공됩니다.
 
     ```c
     static const char* const REGISTRATION_NAME = "breakroom499-contoso-tstrsd-007";
@@ -466,7 +466,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
 2. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
-    다음 출력은 시뮬레이트된 토스터 장치를 성공적으로 부팅하고, 사용자 지정 정책을 통해 토스터 IoT Hub에 할당할 Provisioning Service 인스턴스에 연결하는 예제입니다.
+    다음 출력은 시뮬레이트된 토스터 디바이스를 성공적으로 부팅하고, 사용자 지정 정책을 통해 토스터 IoT Hub에 할당할 Provisioning Service 인스턴스에 연결하는 예제입니다.
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -483,15 +483,15 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
     ```
 
 
-#### <a name="simulate-the-contoso-heat-pump-device"></a>Contoso 열 펌프 장치 시뮬레이트
+#### <a name="simulate-the-contoso-heat-pump-device"></a>Contoso 열 펌프 디바이스 시뮬레이트
 
 1. Visual Studio의 *솔루션 탐색기* 창으로 돌아가 **hsm\_security\_client** 프로젝트로 이동하고 프로젝트를 확장합니다. **원본 파일**을 확장하고 **hsm\_client\_key.c**를 엽니다. 
 
     `REGISTRATION_NAME` 및 `SYMMETRIC_KEY_VALUE` 상수의 선언을 찾습니다. 파일을 다음과 같이 변경한 후 저장합니다.
 
-    열 펌프 장치 **mainbuilding167-contoso-hpsd-088**의 등록 ID를 사용하여 `REGISTRATION_NAME` 상수의 값을 업데이트합니다.
+    열 펌프 디바이스 **mainbuilding167-contoso-hpsd-088**의 등록 ID를 사용하여 `REGISTRATION_NAME` 상수의 값을 업데이트합니다.
     
-    토스터 장치에 생성한 장치 키를 사용하여 `SYMMETRIC_KEY_VALUE` 상수를 값을 업데이트합니다. **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** 값은 예제로만 제공됩니다.
+    토스터 디바이스에 생성한 디바이스 키를 사용하여 `SYMMETRIC_KEY_VALUE` 상수를 값을 업데이트합니다. **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=** 값은 예제로만 제공됩니다.
 
     ```c
     static const char* const REGISTRATION_NAME = "mainbuilding167-contoso-hpsd-088";
@@ -500,7 +500,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
 7. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
-    다음 출력은 시뮬레이트된 열 펌프 장치를 성공적으로 부팅하고, 사용자 지정 정책을 통해 Contoso 열 펌프 IoT Hub에 할당할 Provisioning Service 인스턴스에 연결하는 예제입니다.
+    다음 출력은 시뮬레이트된 열 펌프 디바이스를 성공적으로 부팅하고, 사용자 지정 정책을 통해 Contoso 열 펌프 IoT Hub에 할당할 Provisioning Service 인스턴스에 연결하는 예제입니다.
 
     ```cmd
     Provisioning API Version: 1.2.9
@@ -529,7 +529,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 | 웹후크가 ‘iotHubHostName’이 유효한 IoT Hub 호스트 이름으로 설정된 200 OK을 반환함 | 결과 상태: 할당됨  | SDK가 허브 정보와 함께 PROV_DEVICE_RESULT_OK을 반환함 |
 | 웹후크가 ‘iotHubHostName’이 응답에 있고 빈 문자열이나 Null로 설정된 200 OK을 반환함 | 결과 상태: 실패<br><br> 오류 코드: CustomAllocationIotHubNotSpecified(400208) | SDK가 PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED를 반환함 |
 | 웹후크가 401 권한 없음을 반환함 | 결과 상태: 실패<br><br>오류 코드: CustomAllocationUnauthorizedAccess(400209) | SDK가 PROV_DEVICE_RESULT_UNAUTHORIZED를 반환함 |
-| 장치를 사용하지 않도록 설정하기 위한 개별 등록이 생성됨 | 결과 상태: 사용 안 함 | SDK가 PROV_DEVICE_RESULT_DISABLED를 반환함 |
+| 디바이스를 사용하지 않도록 설정하기 위한 개별 등록이 생성됨 | 결과 상태: 사용 안 함 | SDK가 PROV_DEVICE_RESULT_DISABLED를 반환함 |
 | 웹후크가 오류 코드 >= 429를 반환함 | DPS의 오케스트레이션이 여러 번 재시도함 현재 재시도 정책:<br><br>&nbsp;&nbsp;- 재시도 횟수: 10<br>&nbsp;&nbsp;- 초기 간격: 1초<br>&nbsp;&nbsp;- 증분: 9초 | SDK가 오류를 무시하고 지정된 시간에 다른 상태 가져오기 메시지를 제출함 |
 | 웹후크가 다른 모든 상태 코드를 반환함 | 결과 상태: 실패<br><br>오류 코드: CustomAllocationFailed(400207) | SDK가 PROV_DEVICE_RESULT_DEV_AUTH_ERROR를 반환함 |
 
@@ -556,8 +556,8 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다시 프로비전에 대한 자세한 내용은 [IoT Hub 장치 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
-- 프로비전 해제에 대한 자세한 내용은 [이전에 자동으로 프로비전된 장치의 프로비전을 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요. 
+- 다시 프로비전에 대한 자세한 내용은 [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)을 참조하세요. 
+- 프로비전 해제에 대한 자세한 내용은 [이전에 자동 프로비전된 디바이스를 프로비전 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요. 
 
 
 

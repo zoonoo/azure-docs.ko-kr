@@ -37,7 +37,7 @@ Visual Studio에서 만든 C# UDF(사용자 정의 함수)를 사용하면 원�
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Azure 저장소 계정에 컨테이너 만들기
 
-여기서 만드는 컨테이너는 컴파일된 C# 패키지를 저장하고 IoT Edge 장치에 해당 패키지를 배포하는 데 사용됩니다. 각 Stream Analytics 작업 전용 컨테이너를 사용하세요. 여러 Stream Analytics Edge 작업에 같은 컨테이너를 다시 사용할 수는 없습니다. 기존 컨테이너가 포함된 저장소 계정이 이미 있는 경우에는 해당 컨테이너를 사용하면 됩니다. 그렇지 않은 경우에는 [새 컨테이너를 만드세요](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
+여기서 만드는 컨테이너는 컴파일된 C# 패키지를 저장하고 IoT Edge 디바이스에 해당 패키지를 배포하는 데 사용됩니다. 각 Stream Analytics 작업 전용 컨테이너를 사용하세요. 여러 Stream Analytics Edge 작업에 같은 컨테이너를 다시 사용할 수는 없습니다. 기존 컨테이너가 포함된 저장소 계정이 이미 있는 경우에는 해당 컨테이너를 사용하면 됩니다. 그렇지 않은 경우에는 [새 컨테이너를 만드세요](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 ## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>Visual Studio에서 Stream Analytics Edge 프로젝트 만들기
 
@@ -145,12 +145,12 @@ CodeBehind 파일은 ASA Edge 쿼리 스크립트 하나와 연결된 C# 파일�
 
 ![Visual Studio에서 Azure에 Stream Analytics Edge 작업 제출](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
-## <a name="deploy-to-iot-edge-devices"></a>IoT Edge 장치에 배포
+## <a name="deploy-to-iot-edge-devices"></a>IoT Edge 디바이스에 배포
 이제 Stream Analytics 작업을 IoT Edge 모듈로 배포할 준비가 되었습니다. [IoT Edge 빠른 시작](https://docs.microsoft.com/azure/iot-edge/quickstart)의 설명에 따라 IoT Hub를 만들고, IoT Edge 장치를 등록하고, 장치에서 IoT Edge 런타임을 설치 및 시작합니다. 그런 다음 [작업 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) 자습서의 설명에 따라 Stream Analytics 작업을 IoT Edge 모듈로 배포합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 CodeBehind를 사용하여 간단한 C# 사용자 정의 함수를 만들고, Azure에 작업을 게시하고, IoT Hub 포털을 사용하여 IoT Edge 장치에 작업을 배포했습니다. 
+이 자습서에서는 CodeBehind를 사용하여 간단한 C# 사용자 정의 함수를 만들고, Azure에 작업을 게시하고, IoT Hub 포털을 사용하여 IoT Edge 디바이스에 작업을 배포했습니다. 
 
 Stream Analytics Edge 작업에 C# 사용자 정의 함수를 사용하는 여러 방법에 대해 자세히 알아보려면 다음 문서를 계속 확인하세요.
 

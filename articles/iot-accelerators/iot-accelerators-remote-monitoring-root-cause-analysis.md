@@ -19,7 +19,7 @@ ms.locfileid: "52284568"
 
 이 자습서에서는 원격 모니터링 솔루션 가속기를 사용하여 경고의 근본 원인을 진단하는 방법을 알아봅니다. 원격 모니터링 솔루션 대시보드에서 경고가 트리거되었음을 확인한 다음, Azure Time Series Insights 탐색기를 사용하여 근본 원인을 조사합니다.
 
-이 자습서에서는 위치, 고도, 속도 및 화물 온도 원격 분석을 전송하는 두 개의 시뮬레이션된 배달 트럭 장치를 사용합니다. 트럭은 Contoso라는 조직에서 관리하고 원격 모니터링 솔루션 가속기에 연결됩니다. Contoso 기사의 경우 트럭 중 하나(delivery-truck-02)가 온도 저하 경고를 기록한 이유를 이해해야 합니다.
+이 자습서에서는 위치, 고도, 속도 및 화물 온도 원격 분석을 전송하는 두 개의 시뮬레이션된 배달 트럭 디바이스를 사용합니다. 트럭은 Contoso라는 조직에서 관리하고 원격 모니터링 솔루션 가속기에 연결됩니다. Contoso 기사의 경우 트럭 중 하나(delivery-truck-02)가 온도 저하 경고를 기록한 이유를 이해해야 합니다.
 
 이 자습서에서는 다음을 수행했습니다.
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-## <a name="choose-the-devices-to-display"></a>표시할 장치 선택
+## <a name="choose-the-devices-to-display"></a>표시할 디바이스 선택
 
 **대시보드** 페이지에 표시할 연결된 장치를 선택하려면 필터를 사용합니다. **트럭** 장치만 표시하려면 필터 드롭다운 목록에서 기본 제공 **트럭** 필터를 선택합니다.
 
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [![TSI 링크가 강조 표시되어 있는 RM 대시보드](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-expanded.png#lightbox)
 
-탐색기가 실행되면 나열된 모든 장치가 표시됩니다.
+탐색기가 실행되면 나열된 모든 디바이스가 표시됩니다.
 
 [![TSI 탐색기 초기 보기](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-expanded.png#lightbox)
 
@@ -74,7 +74,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [![새 분할 창이 있는 TSI 탐색기](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-expanded.png#lightbox)
 
-새 분할 창에서 새 레이블의 이름을 **장치**로 변경하여 이전 레이블과 일치하도록 하세요. **측정값**으로 **고도**를, **분할 기준**으로 **iothub-connection-device-id**를 선택하여 고도 원격 분석을 보기에 추가합니다.
+새 분할 창에서 새 레이블의 이름을 **디바이스**로 변경하여 이전 레이블과 일치하도록 하세요. **측정값**으로 **고도**를, **분할 기준**으로 **iothub-connection-device-id**를 선택하여 고도 원격 분석을 보기에 추가합니다.
 
 [![온도 및 고도가 표시된 TSI 탐색기](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
 
@@ -82,7 +82,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 현재 보기에서 스트림을 보면 두 트럭에 대한 고도 프로필이 서로 다르다는 것을 확인할 수 있습니다. 또한 트럭이 높은 고도로 도달하면 **delivery-truck-02**의 온도 저하가 발생합니다. 트럭들은 동일한 경로를 사용하도록 예정되었기 때문에 이 발견은 놀랍습니다.
 
-트럭이 서로 다른 이동 경로를 사용했다는 의혹을 확인하려면 **추가** 단추를 사용하여 가로 패널에 다른 창을 추가합니다. 새 분할 창에서 새 레이블의 이름을 **장치**로 변경하여 이전 레이블과 일치하도록 하세요. **측정값**으로 **경도**를, **분할 기준**으로 **iothub-connection-device-id**를 선택하여 경도 원격 분석을 보기에 추가합니다. **경도** 스트림 간의 차이를 보고 서로 다른 이동 경로를 따랐음을 알 수 있습니다.
+트럭이 서로 다른 이동 경로를 사용했다는 의혹을 확인하려면 **추가** 단추를 사용하여 가로 패널에 다른 창을 추가합니다. 새 분할 창에서 새 레이블의 이름을 **디바이스**로 변경하여 이전 레이블과 일치하도록 하세요. **측정값**으로 **경도**를, **분할 기준**으로 **iothub-connection-device-id**를 선택하여 경도 원격 분석을 보기에 추가합니다. **경도** 스트림 간의 차이를 보고 서로 다른 이동 경로를 따랐음을 알 수 있습니다.
 
 [![온도, 고도 및 경도가 표시된 TSI 탐색기](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-expanded.png#lightbox)
 
@@ -92,7 +92,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [![원격 모니터링 규칙 탭 설정 고도 규칙](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 
-규칙을 작성하고 편집하는 방법을 알려면 [장치 문제 검색](iot-accelerators-remote-monitoring-automate.md)에 대한 이전 자습서를 확인하세요.
+규칙을 작성하고 편집하는 방법을 알려면 [디바이스 문제 검색](iot-accelerators-remote-monitoring-automate.md)에 대한 이전 자습서를 확인하세요.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

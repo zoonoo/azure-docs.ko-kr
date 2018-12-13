@@ -53,7 +53,7 @@ Azure IoT Central은 장치에 대한 알림을 이메일 메시지로 보냅니
 
 장치에 대한 정보를 보려면 **대시보드** 보기를 선택합니다.
 
-![장치 대시보드](media/tutorial-monitor-devices/initial_screen.png)
+![디바이스 대시보드](media/tutorial-monitor-devices/initial_screen.png)
 
 대시보드의 차트에는 장치 온도 플롯이 표시됩니다. **대상 온도 설정** 타일에서 장치에 대한 현재 대상 온도를 볼 수 있습니다. 대상 온도가 너무 높다고 판단합니다.
 

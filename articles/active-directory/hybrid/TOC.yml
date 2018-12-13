@@ -165,9 +165,9 @@ items:
         href: plan-hybrid-identity-design-considerations-tools-comparison.md
   - name: Azure AD Connect 관리
     items:
-    - name: 장치 쓰기 저장 사용
+    - name: 디바이스 쓰기 저장 사용
       href: how-to-connect-device-writeback.md
-    - name: 장치 옵션
+    - name: 디바이스 옵션
       href: how-to-connect-device-options.md
     - name: Azure AD Connect에서 추가 기능
       href: how-to-connect-preview.md

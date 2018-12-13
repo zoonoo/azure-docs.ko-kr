@@ -42,7 +42,7 @@ VM에서는 GRID 드라이버 설치 후 다시 시작해야 합니다. CUDA 드
 
 ## <a name="verify-driver-installation"></a>드라이버 설치 확인
 
-장치 관리자에서 드라이버 설치를 확인할 수 있습니다. 다음 예제에서는 Azure NC VM에서 Tesla K80 카드의 성공적인 구성을 보여 줍니다.
+디바이스 관리자에서 드라이버 설치를 확인할 수 있습니다. 다음 예제에서는 Azure NC VM에서 Tesla K80 카드의 성공적인 구성을 보여 줍니다.
 
 ![GPU 드라이버 속성](./media/n-series-driver-setup/GPU_driver_properties.png)
 
@@ -52,11 +52,11 @@ GPU 장치 상태를 쿼리하려면 드라이버와 설치된 [nvidia-smi](http
 
 2. `nvidia-smi`을 실행합니다. 드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 작업을 실행 중이지 않으면 **GPU-Util**에 **0%** 가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
 
-![NVIDIA 장치 상태](./media/n-series-driver-setup/smi.png)  
+![NVIDIA 디바이스 상태](./media/n-series-driver-setup/smi.png)  
 
 ## <a name="rdma-network-connectivity"></a>RDMA 네트워크 연결
 
-동일한 가용성 집합 또는 가상 머신 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 연결에 필요한 Windows 네트워크 장치 드라이버를 설치하는 HpcVmDrivers 확장을 추가해야 합니다. RDMA 지원 N 시리즈에 VM 확장을 추가하려면 Azure Resource Manager용 [Azure PowerShell](/powershell/azure/overview) cmdlet을 사용합니다.
+동일한 가용성 집합 또는 가상 머신 확장 집합의 단일 배치 그룹에 배포된 NC24r과 같은 RDMA 지원 N 시리즈 VM에서 RDMA 네트워크 연결을 사용할 수 있습니다. RDMA 연결에 필요한 Windows 네트워크 디바이스 드라이버를 설치하는 HpcVmDrivers 확장을 추가해야 합니다. RDMA 지원 N 시리즈에 VM 확장을 추가하려면 Azure Resource Manager용 [Azure PowerShell](/powershell/azure/overview) cmdlet을 사용합니다.
 
 미국 서부 하위 지역에서 이름이 myVM인 기존 RDMA 지원 VM에 최신 버전 1.1 HpcVMDrivers 확장을 설치하려면
   ```PowerShell

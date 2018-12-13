@@ -62,7 +62,7 @@ ms.locfileid: "27591949"
 
     `https://login.microsoftonline.com`을 위 표의 OAuth 호스트로 바꿉니다.  content-security-policy 메타 태그에 대한 자세한 내용은 [Content-Security-Policy 설명서]를 참조하세요.
 
-    일부 인증 공급자에서는 적절한 모바일 장치에서 사용하는 경우 Content-Security-Policy 변경이 필요하지 않습니다.  예를 들어 Android 장치에서 Google 인증을 사용하는 경우 Content-Security-Policy를 변경하지 않아도 됩니다.
+    일부 인증 공급자에서는 적절한 모바일 디바이스에서 사용하는 경우 Content-Security-Policy 변경이 필요하지 않습니다.  예를 들어 Android 디바이스에서 Google 인증을 사용하는 경우 Content-Security-Policy를 변경하지 않아도 됩니다.
 
 3. 편집을 위해 `www/js/index.js` 파일을 열고 `onDeviceReady()` 메서드를 찾아 클라이언트 생성 코드에서 다음 코드를 추가합니다.
 

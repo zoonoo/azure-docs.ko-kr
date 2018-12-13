@@ -43,7 +43,7 @@ ms.locfileid: "49384890"
 |서비스|설명|
 |------|--------|
 | [Azure&nbsp;Storage&nbsp;서비스&nbsp;암호화](../storage/common/storage-service-encryption.md)|Azure Storage의 데이터를 자동으로 암호화하는 보안 기능입니다.   |
-|[StorSimple 암호화된 하이브리드 저장소](../storsimple/storsimple-ova-overview.md)| 온-프레미스 장치 및 Azure 클라우드 저장소 간의 저장소 태스크를 관리하는 통합된 저장소 솔루션입니다.|
+|[StorSimple 암호화된 하이브리드 저장소](../storsimple/storsimple-ova-overview.md)| 온-프레미스 디바이스 및 Azure 클라우드 저장소 간의 저장소 태스크를 관리하는 통합된 저장소 솔루션입니다.|
 |[Azure 클라이언트 쪽 암호화](../storage/common/storage-client-side-encryption.md)| Azure Storage에 업로드하기 전에 클라이언트 응용 프로그램 내의 데이터를 암호화하고, 다운로드하는 동안 데이터를 해독하는 클라이언트 쪽 암호화 솔루션입니다. |
 | [Azure Storage 공유 액세스 서명](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다.  |
 |[Azure Storage 계정 키](../storage/common/storage-create-storage-account.md)| 저장소 계정에 액세스할 때 인증에 사용되는 Azure Storage에 대한 액세스 제어 방법입니다. |
@@ -82,7 +82,7 @@ ms.locfileid: "49384890"
 |서비스|설명|
 |------|--------|
 | [네트워크&nbsp;보안&nbsp;그룹](../virtual-network/virtual-networks-nsg.md)| 5튜플을 사용하여 의사 결정을 허용하거나 거부하는 네트워크 기반 액세스 제어 기능입니다.  |
-| [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)| Azure 가상 네트워크에 대한 크로스-프레미스 액세스를 허용하기 위해 VPN 엔드포인트로 사용되는 네트워크 장치입니다.  |
+| [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)| Azure 가상 네트워크에 대한 크로스-프레미스 액세스를 허용하기 위해 VPN 엔드포인트로 사용되는 네트워크 디바이스입니다.  |
 | [Azure Application Gateway](../application-gateway/application-gateway-introduction.md)|URL을 기반으로 라우팅하고 SSL 오프로딩을 수행할 수 있는 고급 웹 응용 프로그램 부하 분산 장치입니다. |
 | [Azure Load Balancer](../load-balancer/load-balancer-overview.md)|TCP/UDP 응용 프로그램 네트워크 부하 분산 장치입니다. |
 | [Azure ExpressRoute](../expressroute/expressroute-introduction.md)| 온-프레미스 네트워크와 Azure 가상 네트워크 간의 전용 WAN 링크입니다. |

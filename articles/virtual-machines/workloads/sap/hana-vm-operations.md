@@ -475,4 +475,4 @@ SAPRouter는 Jumpbox VM이 아니라 별도의 VM에 설치해야 합니다. 별
 SAProuter를 통해 원격 지원 연결을 설정하고 유지 관리하는 방법에 대한 자세한 내용은 [SAP documentation](https://support.sap.com/en/tools/connectivity-tools/remote-support.html)(SAP 설명서)을 참조하세요.
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Azure 네이티브 VM의 SAP HANA 고가용성
-SAP Applications 12 SP1 이상용 SUSE Linux Enterprise Server를 실행 중인 경우 STONITH 장치를 포함하는 Pacemaker 클러스터를 설정할 수 있습니다. 이 장치를 사용하면 HANA 시스템 복제를 통한 동기 복제와 자동 장애 조치(failover)를 사용하는 SAP HANA 구성을 설정할 수 있습니다. 설정 절차에 대한 자세한 내용은 [Azure 가상 머신에 대한 SAP HANA 고가용성 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)를 참조하세요.
+SAP Applications 12 SP1 이상용 SUSE Linux Enterprise Server를 실행 중인 경우 STONITH 디바이스를 포함하는 Pacemaker 클러스터를 설정할 수 있습니다. 이 장치를 사용하면 HANA 시스템 복제를 통한 동기 복제와 자동 장애 조치(failover)를 사용하는 SAP HANA 구성을 설정할 수 있습니다. 설정 절차에 대한 자세한 내용은 [Azure 가상 머신에 대한 SAP HANA 고가용성 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)를 참조하세요.

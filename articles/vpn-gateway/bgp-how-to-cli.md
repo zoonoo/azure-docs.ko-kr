@@ -21,7 +21,7 @@ ms.locfileid: "49471359"
 
 ## <a name="about-bgp"></a>BGP 정보
 
-BGP는 두 개 이상의 네트워크 간에 라우팅 및 연결 정보를 교환하도록 인터넷에서 일반적으로 사용하는 표준 라우팅 프로토콜입니다. BGP를 사용하여 BGP 피어 또는 인접 항목이라는 온-프레미스 VPN 장치들이 경로를 교환할 수 있습니다. 경로는 접두사의 가용성 및 연결에 관하여 두 게이트웨이가 모두 관련 게이트웨이 또는 라우터를 통과하도록 지정합니다. BGP 게이트웨이가 하나의 BGP 피어에서 파악한 경로를 다른 모든 BGP 피어로 전파하여 BGP를 통해 여러 네트워크 간에 전송 라우팅을 사용할 수도 있습니다.
+BGP는 두 개 이상의 네트워크 간에 라우팅 및 연결 정보를 교환하도록 인터넷에서 일반적으로 사용하는 표준 라우팅 프로토콜입니다. BGP를 사용하여 BGP 피어 또는 인접 항목이라는 온-프레미스 VPN 디바이스들이 경로를 교환할 수 있습니다. 경로는 접두사의 가용성 및 연결에 관하여 두 게이트웨이가 모두 관련 게이트웨이 또는 라우터를 통과하도록 지정합니다. BGP 게이트웨이가 하나의 BGP 피어에서 파악한 경로를 다른 모든 BGP 피어로 전파하여 BGP를 통해 여러 네트워크 간에 전송 라우팅을 사용할 수도 있습니다.
 
 BGP의 이점에 대한 자세한 내용 및 BGP 사용의 기술 요구 사항과 고려 사항을 이해하려면 [Azure VPN Gateway에서의 BGP 개요](vpn-gateway-bgp-overview.md)를 참조하세요.
 
@@ -102,7 +102,7 @@ az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address GWPubIP 
 
 #### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Azure BGP 피어 IP 주소 가져오기
 
-게이트웨이를 만든 후 Azure VPN Gateway에서 BGP 피어 IP 주소를 가져와야 합니다. 온-프레미스 VPN 장치에 대해 VPN Gateway를 BGP 피어로 구성하려면 이 주소가 필요합니다.
+게이트웨이를 만든 후 Azure VPN Gateway에서 BGP 피어 IP 주소를 가져와야 합니다. 온-프레미스 VPN 디바이스에 대해 VPN Gateway를 BGP 피어로 구성하려면 이 주소가 필요합니다.
 
 다음 명령을 실행하고 출력의 위쪽에 있는 `bgpSettings` 섹션 확인
 
@@ -121,7 +121,7 @@ az network vnet-gateway list -g TestBGPRG1
 
 ## <a name ="crossprembgp"></a>BGP를 사용하여 프레미스 간 연결 설정
 
-프레미스 간 연결을 설정하려면 온-프레미스 VPN 장치를 나타내는 로컬 네트워크 게이트웨이를 만들어야 합니다. 그런 후 Azure VPN Gateway를 로컬 네트워크 게이트웨이와 연결합니다. 이러한 단계는 다른 연결을 만들 때와 유사하지만 BGP 구성 매개 변수를 지정하는 데 필요한 추가 속성을 포함합니다.
+프레미스 간 연결을 설정하려면 온-프레미스 VPN 디바이스를 나타내는 로컬 네트워크 게이트웨이를 만들어야 합니다. 그런 후 Azure VPN Gateway를 로컬 네트워크 게이트웨이와 연결합니다. 이러한 단계는 다른 연결을 만들 때와 유사하지만 BGP 구성 매개 변수를 지정하는 데 필요한 추가 속성을 포함합니다.
 
 ![프레미스 간에 대한 BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crossprem.png)
 
@@ -131,8 +131,8 @@ az network vnet-gateway list -g TestBGPRG1
 이 연습에서는 다이어그램에 표시된 구성을 계속 빌드합니다. 값을 구성에 사용할 값으로 바꾸어야 합니다. 로컬 네트워크 게이트웨이로 작업하는 경우 다음 사항을 염두에 두어야 합니다.
 
 * 로컬 네트워크 게이트웨이는 VPN 게이트웨이와 같은 위치 및 리소스 그룹에 있을 수도 있고 다른 위치 및 리소스 그룹에 있을 수도 있습니다. 이 예제에서는 다른 위치의 다른 리소스 그룹에 게이트웨이를 표시됩니다.
-* 로컬 네트워크 게이트웨이에 대해 선언해야 하는 최소 접두사는 VPN 장치의 BGP 피어 IP 주소의 호스트 주소입니다. 이 경우에는 10.52.255.254/32의 접두사 /32입니다.
-* 다시 확인하면 온-프레미스 네트워크와 Azure Virtual Network 간에는 서로 다른 BGP ASN을 사용해야 합니다. 동일한 경우 온-프레미스 VPN 장치가 이미 다른 BGP 인접과의 피어에 ASN을 사용하고 있으면 VNet ASN을 변경해야 합니다.
+* 로컬 네트워크 게이트웨이에 대해 선언해야 하는 최소 접두사는 VPN 디바이스의 BGP 피어 IP 주소의 호스트 주소입니다. 이 경우에는 10.52.255.254/32의 접두사 /32입니다.
+* 다시 확인하면 온-프레미스 네트워크와 Azure Virtual Network 간에는 서로 다른 BGP ASN을 사용해야 합니다. 동일한 경우 온-프레미스 VPN 디바이스가 이미 다른 BGP 인접과의 피어에 ASN을 사용하고 있으면 VNet ASN을 변경해야 합니다.
 
 계속하기 전에 이 연습의 [VPN Gateway에 대해 BGP를 사용하도록 설정](#enablebgp) 섹션을 완료했는지 그리고 구독 1에 여전히 연결되어 있는지 확인합니다. 참고로 이 예제에서는 새 리소스 그룹 만듭니다. 또한 로컬 네트워크 게이트웨이에 대한 두 개의 추가 매개 변수(`Asn` 및 `BgpPeerAddress`)를 확인합니다.
 
@@ -197,7 +197,7 @@ az network local-gateway show -n Site5 -g TestBGPRG5
 az network vpn-connection create -n VNet1ToSite5 -g TestBGPRG1 --vnet-gateway1 /subscriptions/<subscription ID>/resourceGroups/TestBGPRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW --enable-bgp -l eastus --shared-key "abc123" --local-gateway2 /subscriptions/<subscription ID>/resourceGroups/TestBGPRG5/providers/Microsoft.Network/localNetworkGateways/Site5 --no-wait
 ```
 
-이 연습을 위해 다음 예제에서 온-프레미스 VPN 장치의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
+이 연습을 위해 다음 예제에서 온-프레미스 VPN 디바이스의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
 
 ```
 Site5 ASN            : 65050

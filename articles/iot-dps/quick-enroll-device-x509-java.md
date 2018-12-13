@@ -1,6 +1,6 @@
 ---
 title: 이 빠른 시작에서는 Java를 사용하여 Azure Device Provisioning Service에 X.509 장치를 등록하는 방법을 보여줌 | Microsoft Docs
-description: 이 빠른 시작에서는 두 그룹과 개별 등록을 사용합니다. 이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 장치를 등록합니다.
+description: 이 빠른 시작에서는 두 그룹과 개별 등록을 사용합니다. 이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -167,7 +167,7 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
 
 ## <a name="modifications-to-enroll-a-single-x509-device"></a>단일 X.509 장치 등록 수정
 
-단일 X.509 장치를 등록하려면 다음과 같이 [Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 장치 등록](quick-enroll-device-tpm-java.md#javasample)에서 사용된 *개별 등록* 샘플 코드를 수정합니다.
+단일 X.509 디바이스를 등록하려면 다음과 같이 [Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록](quick-enroll-device-tpm-java.md#javasample)에서 사용된 *개별 등록* 샘플 코드를 수정합니다.
 
 1. X.509 클라이언트 인증서의 *일반 이름*을 클립보드에 복사합니다. [앞의 샘플 코드 섹션](#javasample)에서 표시한 대로 _X.509 인증서 생성기_ 도구를 사용하려면, 인증서에 대한 _일반 이름_을 입력하거나 기본 **microsoftriotcore**를 사용합니다. 이 **일반 이름**을 *REGISTRATION_ID* 변수의 값으로 사용합니다. 
 
@@ -207,10 +207,10 @@ Java 서비스 샘플을 탐색하려면 이 빠른 시작에서 만든 리소�
 
 1. 컴퓨터에서 Java 샘플 출력 창을 닫습니다.
 1. 컴퓨터에서 _X509 인증서 생성기_ 창을 닫습니다.
-1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 클릭한 다음, **등록 그룹** 탭을 선택합니다. 이 빠른 시작을 사용하여 등록한 X.509 장치에 대한 *그룹 이름*을 선택하고, 블레이드 위쪽의 **삭제** 단추를 클릭합니다.  
+1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 클릭한 다음, **등록 그룹** 탭을 선택합니다. 이 빠른 시작을 사용하여 등록한 X.509 디바이스에 대한 *그룹 이름*을 선택하고, 블레이드 위쪽의 **삭제** 단추를 클릭합니다.  
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 시뮬레이션된 X.509 장치 그룹을 Device Provisioning Service에 등록했습니다. 장치 프로비전에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 
+이 빠른 시작에서는 시뮬레이션된 X.509 디바이스 그룹을 Device Provisioning Service에 등록했습니다. 디바이스 프로비저닝에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 
 
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning 서비스 자습서](./tutorial-set-up-cloud.md)

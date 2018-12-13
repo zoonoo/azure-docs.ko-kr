@@ -56,7 +56,7 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
    az group create --name IoTEdgeResources --location westus
    ```
 
-IoT Edge 장치:
+IoT Edge 디바이스:
 
 * IoT Edge 장치 역할을 하는 Windows 컴퓨터 또는 가상 머신입니다. 지원되는 Windows 버전을 사용하세요.
   * Windows 10 이상
@@ -101,7 +101,7 @@ IoT Edge 디바이스는 일반적인 IoT 디바이스와 다르게 작동하며
 
    iothubowner 정책 키에 대한 오류가 표시될 경우 Cloud Shell에서 최신 버전의 azure-cli-iot-ext 확장이 실행 중인지 확인합니다. 
 
-2. IoT Hub에서 물리적 장치를 해당 ID에 연결하는 장치에 대한 연결 문자열을 검색합니다.
+2. IoT Hub에서 물리적 디바이스를 해당 ID에 연결하는 디바이스에 대한 연결 문자열을 검색합니다.
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
@@ -116,7 +116,7 @@ IoT Edge 장치에 Azure IoT Edge 런타임을 설치하고 장치 연결 문자
 
 IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 Edge 장치가 부팅되고 IoT Edge 에이전트를 시작하여 장치를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 장치에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다.
 
-런타임을 설치하는 동안 장치 연결 문자열을 요청하라는 메시지가 나타납니다. Azure CLI에서 검색한 문자열을 사용합니다. 이 문자열은 물리적 장치를 Azure의 IoT Edge 장치 ID에 연결합니다.
+런타임을 설치하는 동안 디바이스 연결 문자열을 요청하라는 메시지가 나타납니다. Azure CLI에서 검색한 문자열을 사용합니다. 이 문자열은 물리적 디바이스를 Azure의 IoT Edge 디바이스 ID에 연결합니다.
 
 이 섹션의 지침은 Linux 컨테이너를 사용하여 IoT Edge 런타임을 구성합니다. Windows 컨테이너를 사용하려는 경우 [Windows 컨테이너를 사용하려면 Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows-with-windows.md)를 참조하세요.
 
@@ -126,11 +126,11 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
 
 ### <a name="download-and-install-the-iot-edge-service"></a>IoT Edge 서비스 다운로드 및 설치
 
-PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니다. IoT Hub에서 검색한 장치 연결 문자열을 사용하여 장치를 구성합니다.
+PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니다. IoT Hub에서 검색한 디바이스 연결 문자열을 사용하여 디바이스를 구성합니다.
 
 1. IoT Edge 장치에서 관리자 권한으로 PowerShell을 실행합니다.
 
-2. IoT Edge 서비스를 장치에 다운로드하여 설치합니다.
+2. IoT Edge 서비스를 디바이스에 다운로드하여 설치합니다.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -162,7 +162,7 @@ PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니
     format-table -autosize -wrap
    ```
 
-3. IoT Edge 장치에서 실행되는 모든 모듈을 봅니다. 서비스를 처음 시작했으므로 **edgeAgent** 모듈이 실행되는 것을 확인해야 합니다. edgeAgent 모듈은 기본적으로 실행되며, 장치에 배포하는 추가 모듈을 설치하고 시작하는 데 도움이 됩니다.
+3. IoT Edge 디바이스에서 실행되는 모든 모듈을 봅니다. 서비스를 처음 시작했으므로 **edgeAgent** 모듈이 실행되는 것을 확인해야 합니다. edgeAgent 모듈은 기본적으로 실행되며, 디바이스에 배포하는 추가 모듈을 설치하고 시작하는 데 도움이 됩니다.
 
    ```powershell
    iotedge list

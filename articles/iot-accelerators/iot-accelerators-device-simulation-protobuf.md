@@ -47,7 +47,7 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 
 개발 환경을 준비하려면 다음 작업을 완료합니다.
 
-* 장치 시뮬레이션 마이크로 서비스에 대한 소스를 다운로드합니다.
+* 디바이스 시뮬레이션 마이크로 서비스에 대한 소스를 다운로드합니다.
 * 저장소 어댑터 마이크로 서비스에 대한 소스를 다운로드합니다.
 * 저장소 어댑터 마이크로 서비스를 로컬로 실행합니다.
 
@@ -57,7 +57,7 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 
 [원격 모니터링 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip)를 GitHub에서 로컬 머신의 적절한 위치에 다운로드하고 압축을 풉니다. 이 리포지토리에는 이 방법에 필요한 스토리지 어댑터 마이크로 서비스가 포함되어 있습니다.
 
-GitHub에서 [장치 시뮬레이션 마이크로 서비스](https://github.com/Azure/device-simulation-dotnet/archive/master.zip)를 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다.
+GitHub에서 [디바이스 시뮬레이션 마이크로 서비스](https://github.com/Azure/device-simulation-dotnet/archive/master.zip)를 로컬 머신의 적합한 위치에 다운로드하고 압축을 풉니다.
 
 ### <a name="run-the-storage-adapter-microservice"></a>저장소 어댑터 마이크로 서비스 실행
 
@@ -186,7 +186,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 이 섹션에서는 이전 섹션에서 만든 자산 추적기 디바이스를 로컬로 테스트합니다.
 
-### <a name="run-the-device-simulation-microservice"></a>장치 시뮬레이션 마이크로 서비스 실행
+### <a name="run-the-device-simulation-microservice"></a>디바이스 시뮬레이션 마이크로 서비스 실행
 
 **.vscode/launch.json** 파일을 열고 다음을 할당합니다.
 
@@ -221,11 +221,11 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 Visual Studio Code에서 **터미널** 창은 실행 중인 마이크로 서비스에서 출력을 표시합니다.
 
-다음 단계를 완료하는 동안 Visual Studio Code의 이 인스턴스에서 실행되는 장치 시뮬레이션 마이크로 서비스를 유지합니다.
+다음 단계를 완료하는 동안 Visual Studio Code의 이 인스턴스에서 실행되는 디바이스 시뮬레이션 마이크로 서비스를 유지합니다.
 
-### <a name="set-up-a-monitor-for-device-events"></a>장치 이벤트에 대한 모니터 설정
+### <a name="set-up-a-monitor-for-device-events"></a>디바이스 이벤트에 대한 모니터 설정
 
-이 섹션에서는 Azure CLI를 사용하여 IoT 허브에 연결된 장치에서 보낸 원격 분석을 보도록 이벤트 모니터를 설정합니다.
+이 섹션에서는 Azure CLI를 사용하여 IoT 허브에 연결된 디바이스에서 보낸 원격 분석을 보도록 이벤트 모니터를 설정합니다.
 
 다음 스크립트에서는 IoT 허브의 이름이 **device-simulation-test**라고 가정합니다.
 
@@ -237,7 +237,7 @@ az extension add --name azure-cli-iot-ext
 az iot hub monitor-events --hub-name device-simulation-test
 ```
 
-시뮬레이션된 장치를 테스트하는 동안 이벤트 모니터가 실행되도록 둡니다.
+시뮬레이션된 디바이스를 테스트하는 동안 이벤트 모니터가 실행되도록 둡니다.
 
 ### <a name="create-a-simulation-with-the-asset-tracker-device-type"></a>자산 추적기 디바이스 유형으로 시뮬레이션 만들기
 
@@ -255,7 +255,7 @@ Postman을 설정하려면:
 
 1. **환경 없음**을 클릭하고, **Azure IoT 디바이스 시뮬레이션 솔루션 가속기**를 선택합니다.
 
-이제 장치 시뮬레이션 마이크로 서비스와 상호 작용하는 데 사용할 수 있는 Postman 작업 영역에 로드된 컬렉션 및 환경이 있습니다.
+이제 디바이스 시뮬레이션 마이크로 서비스와 상호 작용하는 데 사용할 수 있는 Postman 작업 영역에 로드된 컬렉션 및 환경이 있습니다.
 
 시뮬레이션을 구성 및 실행하려면:
 

@@ -22,7 +22,7 @@ ms.locfileid: "35250225"
 볼륨 컨테이너에 연결된 볼륨, 백업 정책 및 클라우드 스냅숏이 있는 경우 삭제할 수 있습니다. 볼륨 컨테이너를 삭제하려면 다음 절차를 수행합니다.
 
 #### <a name="to-delete-a-volume-container"></a>볼륨 컨테이너를 삭제하려면
-1. StorSimple 장치 관리자 서비스로 이동한 다음 **장치**를 클릭합니다. 장치를 선택하여 클릭하고 **설정 > 관리 > 볼륨 컨테이너**로 이동합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동한 다음 **디바이스**를 클릭합니다. 장치를 선택하여 클릭하고 **설정 > 관리 > 볼륨 컨테이너**로 이동합니다.
 
     ![볼륨 컨테이너 블레이드](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
 

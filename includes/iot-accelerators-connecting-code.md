@@ -19,12 +19,12 @@ ms.locfileid: "48831690"
 
 이 섹션에서는 샘플 코드의 몇 가지 주요 부분 및 원격 모니터링 솔루션 가속기와의 관계에 대해 설명합니다.
 
-다음 코드 조각은 장치의 기능을 설명하는 보고된 속성이 정의된 방식을 보여 줍니다. 이러한 속성은 다음과 같습니다.
+다음 코드 조각은 디바이스의 기능을 설명하는 보고된 속성이 정의된 방식을 보여 줍니다. 이러한 속성은 다음과 같습니다.
 
-- 솔루션 가속기가 장치를 맵에 추가할 수 있도록 하는 장치의 위치입니다.
+- 솔루션 가속기가 디바이스를 맵에 추가할 수 있도록 하는 디바이스의 위치입니다.
 - 현재 펌웨어 버전입니다.
-- 장치에서 지원하는 메서드 목록입니다.
-- 장치에서 보낸 원격 분석 메시지의 스키마입니다.
+- 디바이스에서 지원하는 메서드 목록입니다.
+- 디바이스에서 보낸 원격 분석 메시지의 스키마입니다.
 
 [!code-cpp[Define data structures for Chiller](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=datadefinition "Define data structures for Chiller")]
 
@@ -54,7 +54,7 @@ ms.locfileid: "48831690"
 - SDK 하위 시스템을 초기화하고 종료합니다.
 - **Chiller** 데이터 구조를 초기화합니다.
 - 보고된 속성을 솔루션 가속기에 보냅니다.
-- 장치 메서드 콜백 함수를 구성합니다.
+- 디바이스 메서드 콜백 함수를 구성합니다.
 - 시뮬레이션된 원격 분석값을 솔루션 가속기에 보냅니다.
 
 [!code-cpp[Main](~/iot-samples-c/samples/solutions/remote_monitoring_client/remote_monitoring.c?name=main "Main")]

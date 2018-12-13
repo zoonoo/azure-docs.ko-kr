@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 기본 제공 엔드포인트 이해 | Microsoft Docs
-description: 개발자 가이드에서는 기본 제공 Event Hub 호환 엔드포인트를 사용하여 장치-클라우드 메시지를 읽는 방법을 설명합니다.
+description: 개발자 가이드에서는 기본 제공 Event Hub 호환 엔드포인트를 사용하여 디바이스-클라우드 메시지를 읽는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -22,7 +22,7 @@ ms.locfileid: "51242418"
 
 | 자산            | 설명 |
 | ------------------- | ----------- |
-| **분할 개수** | 이 속성은 생성 시 설정하여 장치-클라우드 이벤트 수집에 대한 [파티션](../event-hubs/event-hubs-features.md#partitions) 수를 정의합니다. |
+| **분할 개수** | 이 속성은 생성 시 설정하여 디바이스-클라우드 이벤트 수집에 대한 [파티션](../event-hubs/event-hubs-features.md#partitions) 수를 정의합니다. |
 | **보존 시간**  | 이 속성은 IoT Hub에서 메시지를 보존할 일 수를 지정합니다. 기본값은 1일이지만 7일로 늘릴 수 있습니다. |
 
 또한 IoT Hub를 사용하면 기본 제공 장치-클라우드 수신 엔드포인트에서 소비자 그룹을 관리할 수 있습니다.
@@ -31,7 +31,7 @@ ms.locfileid: "51242418"
 
 [IoT Hub 리소스 공급자 REST API](/rest/api/iothub/iothubresource)를 사용하여 또는 [Azure Portal](https://portal.azure.com)을 사용하여 프로그래밍 방식으로 보존 시간을 수정할 수 있습니다.
 
-IoT Hub는 허브에서 수신한 장치-클라우드 메시지를 읽도록 백 엔드 서비스의 기본 제공 엔드포인트인 **messages/events**를 공개합니다. 이 엔드포인트는 Event Hub와 호환되기 때문에 Event Hubs 서비스가 메시지 읽기에 대해 지원하는 모든 메커니즘을 사용할 수 있습니다.
+IoT Hub는 허브에서 수신한 디바이스-클라우드 메시지를 읽도록 백 엔드 서비스의 기본 제공 엔드포인트인 **messages/events**를 공개합니다. 이 엔드포인트는 Event Hub와 호환되기 때문에 Event Hubs 서비스가 메시지 읽기에 대해 지원하는 모든 메커니즘을 사용할 수 있습니다.
 
 ## <a name="read-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 읽기
 
@@ -69,6 +69,6 @@ IoT Hub를 노출하는 이벤트 허브와 호환 가능한 엔드포인트로 
 
 * [빠른 시작](quickstart-send-telemetry-node.md)에서는 시뮬레이트된 장치에서 장치-클라우드 메시지를 보내고 기본 제공 엔드포인트에서 메시지를 읽는 방법을 보여 줍니다. 
 
-자세한 내용은 [경로를 사용하여 IoT Hub 장치-클라우드 메시지 처리](tutorial-routing.md) 자습서를 참조하세요.
+자세한 내용은 [경로를 사용하여 IoT Hub 디바이스-클라우드 메시지 처리](tutorial-routing.md) 자습서를 참조하세요.
 
-* 장치-클라우드 메시지를 사용자 지정 엔드포인트로 라우팅하려면 [장치-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 엔드포인트 사용](iot-hub-devguide-messages-read-custom.md)을 참조하세요.
+* 디바이스-클라우드 메시지를 사용자 지정 엔드포인트로 라우팅하려면 [디바이스-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 엔드포인트 사용](iot-hub-devguide-messages-read-custom.md)을 참조하세요.

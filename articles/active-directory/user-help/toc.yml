@@ -67,9 +67,9 @@ items:
   items:
   - name: 개요
     href: user-help-device-mgmt-overview.md
-  - name: 작업 장치 조인
+  - name: 작업 디바이스 조인
     href: user-help-join-device-on-network.md
-  - name: 작업할 개인 장치 등록
+  - name: 작업할 개인 디바이스 등록
     href: user-help-register-device-on-network.md
   - name: "\"연결할 수 없습니다\" 메시지 문제 해결"
     href: user-help-device-remediation.md

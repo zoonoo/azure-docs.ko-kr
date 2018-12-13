@@ -56,7 +56,7 @@ ms.locfileid: "51244443"
 
    ![추가 보안 확인 화면](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
 
-3. 휴대폰이나 태블릿에서 앱을 열고 **+** 를 선택하여 계정을 추가합니다. (Android 장치에서 세 개의 점을 선택한 후 **계정 추가**를 선택합니다.)
+3. 휴대폰이나 태블릿에서 앱을 열고 **+** 를 선택하여 계정을 추가합니다. (Android 디바이스에서 세 개의 점을 선택한 후 **계정 추가**를 선택합니다.)
 4. 회사 또는 학교 계정을 추가할지 지정합니다. 휴대폰에서 QR 코드 스캐너를 엽니다. 카메라가 제대로 작동하지 않는 경우 회사 정보를 수동으로 입력할 수 있습니다. 자세한 내용은 [수동으로 계정 추가](#add-an-account-manually)를 참조하세요.  
 5. 모바일 앱 구성 화면에 표시되는 QR 코드 그림을 스캔합니다.  **완료** 를 선택하여 QR 코드 화면을 닫습니다.  
 
@@ -105,5 +105,5 @@ QR 판독기를 사용하는 대신 모바일 앱에 수동으로 계정을 추�
 
 ## <a name="next-steps"></a>다음 단계
 * 기본 옵션 변경 및 [2단계 인증을 위한 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
-* 2단계 인증을 지원하지 않는 네이티브 장치 앱에 대해 [앱 암호](multi-factor-authentication-end-user-app-passwords.md)를 설정합니다.
+* 2단계 인증을 지원하지 않는 네이티브 디바이스 앱에 대해 [앱 암호](multi-factor-authentication-end-user-app-passwords.md)를 설정합니다.
 * 휴대폰 서비스가 없는 경우에도 빠르고 안전한 인증을 위해서는 [Microsoft Authenticator 앱](microsoft-authenticator-app-how-to.md)을 확인하세요.

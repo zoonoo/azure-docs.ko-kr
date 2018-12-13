@@ -17,7 +17,7 @@ ms.locfileid: "49166001"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 대역폭 일정 관리  
 
-이 문서에서는 Azure Data Box Gateway에서 사용자를 관리하는 방법을 설명합니다. 대역폭 일정을 사용하면 여러 시간대의 일정에 대해 네트워크 대역폭 사용량을 구성할 수 있습니다. 이러한 일정은 장치에서 클라우드로 업로드 및 다운로드 작업에 적용할 수 있습니다. 
+이 문서에서는 Azure Data Box Gateway에서 사용자를 관리하는 방법을 설명합니다. 대역폭 일정을 사용하면 여러 시간대의 일정에 대해 네트워크 대역폭 사용량을 구성할 수 있습니다. 이러한 일정은 디바이스에서 클라우드로 업로드 및 다운로드 작업에 적용할 수 있습니다. 
 
 Azure Portal을 통해 Data Box Gateway에 대한 대역폭 일정을 추가, 수정 또는 삭제할 수 있습니다.
 
@@ -73,7 +73,7 @@ Azure Portal을 통해 Data Box Gateway에 대한 대역폭 일정을 추가, �
 
 ## <a name="delete-a-schedule"></a>일정 삭제
 
-Data Box Gateway 장치와 연결된 대역폭 일정을 삭제하려면 다음 단계를 수행합니다.
+Data Box Gateway 디바이스와 연결된 대역폭 일정을 삭제하려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 Data Box Gateway 리소스로 이동한 다음, **대역폭**으로 이동합니다.  
 

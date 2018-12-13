@@ -127,7 +127,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
 5. 테스트에 사용할 **Devices**를 선택하고 **Continue**를 클릭합니다.
 
-    ![장치 선택](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
+    ![디바이스 선택](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
 6. 마지막으로, **Profile Name**에서 프로필의 이름을 선택하고 **Generate**를 클릭합니다.
 

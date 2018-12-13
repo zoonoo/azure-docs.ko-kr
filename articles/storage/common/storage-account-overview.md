@@ -168,13 +168,13 @@ Blob에 사용자 지정 도메인 이름을 사용하도록 저장소 계정을
 
 ## <a name="copying-data-into-a-storage-account"></a>저장소 계정에 데이터 복사
 
-Microsoft는 온-프레미스 저장소 장치나 타사 클라우드 저장소 공급자에서 데이터를 가져오기 위한 유틸리티와 라이브러리를 제공합니다. 사용하는 솔루션은 전송 데이터의 크기에 따라 다릅니다. 
+Microsoft는 온-프레미스 저장소 디바이스나 타사 클라우드 저장소 공급자에서 데이터를 가져오기 위한 유틸리티와 라이브러리를 제공합니다. 사용하는 솔루션은 전송 데이터의 크기에 따라 다릅니다. 
 
 범용 v1 또는 Blob 저장소 계정에서 범용 v2 계정으로 업그레이드할 경우 데이터가 자동으로 마이그레이션됩니다. 이 경로로 계정을 업그레이드하는 것이 좋습니다. 그러나 범용 v1 계정에서 Blob 저장소 계정으로 데이터를 이동할 경우 아래에서 설명하는 도구 및 라이브러리를 사용하여 수동으로 데이터를 마이그레이션해야 합니다. 
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. AzCopy를 사용하여 기존 범용 저장소 계정의 데이터를 Blob 저장소 계정으로 복사하거나, 온-프레미스 저장소 장치의 데이터를 업로드할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
+AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계된 Windows 명령줄 유틸리티입니다. AzCopy를 사용하여 기존 범용 저장소 계정의 데이터를 Blob 저장소 계정으로 복사하거나, 온-프레미스 저장소 디바이스의 데이터를 업로드할 수 있습니다. 자세한 내용은 [AzCopy 명령줄 유틸리티를 사용하여 데이터 전송](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)을 참조하세요.
 
 ### <a name="data-movement-library"></a>데이터 이동 라이브러리
 

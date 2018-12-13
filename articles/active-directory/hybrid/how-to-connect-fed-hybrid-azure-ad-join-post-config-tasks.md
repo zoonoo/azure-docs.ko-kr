@@ -81,7 +81,7 @@ Windows 하위 수준 장치를 등록하려면 사용자가 장치를 등록할
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Windows 하위 수준 장치에 Microsoft Workplace Join을 설치합니다.
 
-이 설치 관리자는 장치 시스템에 사용자 컨텍스트에서 실행되도록 예약된 작업을 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 통합 Windows 인증을 사용하여 인증한 후 사용자 자격 증명을 사용하여 장치를 Azure AD에 자동으로 가입합니다. 다운로드 센터는 https://www.microsoft.com/download/details.aspx?id=53554에 있습니다. 
+이 설치 관리자는 장치 시스템에 사용자 컨텍스트에서 실행되도록 예약된 작업을 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 통합 Windows 인증을 사용하여 인증한 후 사용자 자격 증명을 사용하여 디바이스를 Azure AD에 자동으로 가입합니다. 다운로드 센터는 https://www.microsoft.com/download/details.aspx?id=53554에 있습니다. 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. 장치 등록을 허용하도록 그룹 정책을 구성합니다.
 

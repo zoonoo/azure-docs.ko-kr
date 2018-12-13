@@ -38,7 +38,7 @@ ms.locfileid: "50139495"
 > [!TIP]
 > 마이크로 서비스 아키텍처에 대한 자세한 내용은 [.NET 응용 프로그램 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로 서비스: 클라우드에서 제공하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
 
-## <a name="device-connectivity"></a>장치 연결
+## <a name="device-connectivity"></a>디바이스 연결
 
 이 솔루션은 논리적 구조의 장치 연결 부분에 다음과 같은 구성 요소를 포함합니다.
 
@@ -48,9 +48,9 @@ ms.locfileid: "50139495"
 
 물리적 장치를 솔루션 포털의 대시보드에서 프로비전할 수 있습니다.
 
-### <a name="device-simulation-microservice"></a>장치 시뮬레이션 마이크로 서비스
+### <a name="device-simulation-microservice"></a>디바이스 시뮬레이션 마이크로 서비스
 
-솔루션에는 솔루션 포털에서 시뮬레이션된 장치 풀을 관리하여 솔루션의 종단 간 흐름을 테스트할 수 있게 하는 [장치 시뮬레이션 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation)가 포함됩니다. 시뮬레이션된 장치는:
+솔루션에는 솔루션 포털에서 시뮬레이션된 디바이스 풀을 관리하여 솔루션의 종단 간 흐름을 테스트할 수 있게 하는 [디바이스 시뮬레이션 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation)가 포함됩니다. 시뮬레이션된 장치는:
 
 * 장치-클라우드 원격 분석을 생성합니다.
 * IoT Hub의 클라우드-장치 메서드 호출에 응답합니다.
@@ -66,7 +66,7 @@ ms.locfileid: "50139495"
 또한 솔루션에서 IoT Hub는:
 
 * 포털에 연결하도록 허용되는 모든 장치의 ID 및 인증 키를 저장하는 ID 레지스트리를 유지 관리합니다.
-* 솔루션 가속기를 대신하여 장치에서 메서드를 호출합니다.
+* 솔루션 가속기를 대신하여 디바이스에서 메서드를 호출합니다.
 * 등록된 모든 장치에 대한 장치 쌍을 유지 관리합니다. 장치 쌍은 장치에서 보고한 속성 값을 저장합니다. 또한 장치 쌍은 다음에 연결할 때 검색하는 장치에 대해 솔루션 포털에서 설정한 desired 속성을 저장합니다.
 * 여러 장치에 대한 속성을 설정하거나 여러 장치에서 메서드를 호출하는 작업을 예약합니다.
 
@@ -87,7 +87,7 @@ ms.locfileid: "50139495"
 
 마이크로 서비스는 장치와 장치 쌍을 관리하고 메서드를 호출하며 IoT Hub 쿼리를 실행하는 RESTful 엔드포인트를 제공합니다.
 
-### <a name="device-telemetry-microservice"></a>장치 원격 분석 마이크로 서비스
+### <a name="device-telemetry-microservice"></a>디바이스 원격 분석 마이크로 서비스
 
 [장치 원격 분석 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry)는 Time Series Insights에 저장된 장치 원격 분석에 대한 읽기 액세스를 위한 RESTful 엔드포인트를 제공합니다. 또한 RESTful 엔드포인트를 사용하면 규칙의 CRUD 작업 및 저장소의 경보 정의에 대한 읽기/쓰기 액세스를 수행할 수 있습니다.
 
@@ -107,11 +107,11 @@ ms.locfileid: "50139495"
 
 [Azure Stream Analytics 관리자 마이크로 서비스](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager)는 구성 설정, 시작 및 중지, 상태 모니터링을 포함한 ASA(Azure Stream Analytics) 작업을 관리합니다.
 
-ASA 작업은 두 개의 참조 데이터 집합에서 지원됩니다. 한 데이터 집합은 규칙을 정의하고, 다른 하나는 장치 그룹을 정의합니다. 규칙 참조 데이터는 장치 원격 분석 마이크로 서비스에서 관리되는 정보로부터 생성됩니다. Azure Stream Analytics 관리자 마이크로 서비스는 원격 분석 규칙을 스트림 처리 논리로 변환합니다.
+ASA 작업은 두 개의 참조 데이터 집합에서 지원됩니다. 한 데이터 집합은 규칙을 정의하고, 다른 하나는 디바이스 그룹을 정의합니다. 규칙 참조 데이터는 디바이스 원격 분석 마이크로 서비스에서 관리되는 정보로부터 생성됩니다. Azure Stream Analytics 관리자 마이크로 서비스는 원격 분석 규칙을 스트림 처리 논리로 변환합니다.
 
-장치 그룹 참조 데이터는 들어오는 원격 분석 메시지에 적용할 규칙 그룹을 식별하는 데 사용됩니다. 장치 그룹은 구성 마이크로 서비스에서 관리되며, Azure IoT Hub 장치 쌍 쿼리를 사용합니다.
+디바이스 그룹 참조 데이터는 들어오는 원격 분석 메시지에 적용할 규칙 그룹을 식별하는 데 사용됩니다. 디바이스 그룹은 구성 마이크로 서비스에서 관리되며, Azure IoT Hub 디바이스 쌍 쿼리를 사용합니다.
 
-ASA 작업은 저장소 및 분석을 위해 원격 분석을 연결된 장치에서 Time Series Insight로 전달합니다.
+ASA 작업은 저장소 및 분석을 위해 원격 분석을 연결된 디바이스에서 Time Series Insight로 전달합니다.
 
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
@@ -119,7 +119,7 @@ ASA 작업은 저장소 및 분석을 위해 원격 분석을 연결된 장치�
 
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/)는 솔루션 가속기에 연결된 장치의 원격 분석을 저장합니다. 또한 솔루션 웹 UI에서 장치 원격 분석을 시각화하고 쿼리할 수 있습니다.
+[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/)는 솔루션 가속기에 연결된 장치의 원격 분석을 저장합니다. 또한 솔루션 웹 UI에서 디바이스 원격 분석을 시각화하고 쿼리할 수 있습니다.
 
 > [!NOTE]
 > Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 저장소에 Cosmos DB를 사용합니다.
@@ -149,9 +149,9 @@ ASA 작업은 저장소 및 분석을 위해 원격 분석을 연결된 장치�
 사용자 인터페이스는 모든 솔루션 가속기 기능을 제공하고, 다음과 같은 다른 마이크로 서비스와 상호 작용합니다.
 
 * 사용자 데이터를 보호하는 인증 및 권한 부여 마이크로 서비스
-* IoT 장치를 나열하고 관리하는 IoT Hub 관리자 마이크로 서비스
+* IoT 디바이스를 나열하고 관리하는 IoT Hub 관리자 마이크로 서비스
 
-사용자 인터페이스는 Azure Time Series Insights 탐색기를 통합하여 장치 원격 분석에 대한 쿼리 및 분석을 수행할 수 있습니다.
+사용자 인터페이스는 Azure Time Series Insights 탐색기를 통합하여 디바이스 원격 분석에 대한 쿼리 및 분석을 수행할 수 있습니다.
 
 구성 마이크로 서비스를 사용하면 사용자 인터페이스로 구성 설정을 저장하고 검색할 수 있습니다.
 

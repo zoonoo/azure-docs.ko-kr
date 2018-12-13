@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central 응용 프로그램에서 장치 데이터 분석 | Microsoft Docs
-description: Azure IoT Central 응용 프로그램에서 장치 데이터를 분석하는 방법을 설명합니다.
+title: Azure IoT Central 애플리케이션에서 디바이스 데이터 분석 | Microsoft Docs
+description: Azure IoT Central 애플리케이션에서 디바이스 데이터를 분석하는 방법을 설명합니다.
 author: lmasieri
 ms.author: lmasieri
 ms.date: 09/18/2018
@@ -21,7 +21,7 @@ ms.locfileid: "50156326"
 *이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
 
-Azure IoT Central은 장치에서 들어오는 대량의 데이터를 이해하는 풍부한 분석 기능을 제공합니다. 시작하려면 왼쪽 탐색 메뉴에서 **분석**으로 이동합니다. 
+Azure IoT Central은 디바이스에서 들어오는 대량의 데이터를 이해하는 풍부한 분석 기능을 제공합니다. 시작하려면 왼쪽 탐색 메뉴에서 **분석**으로 이동합니다. 
 
   ![IoT Central에서 분석으로 이동](media\howto-create-analytics\analytics-navigation.png)
 
@@ -44,9 +44,9 @@ to-do: do we need to explain how fiters work?
 
 ## <a name="visualizing-your-data"></a>데이터 시각화
 
-데이터를 쿼리하면 시각화를 시작할 수 있습니다. 단위를 표시하거나 숨기고, 데이터 집계 방식을 변경하고, 다른 장치 속성을 사용하여 데이터를 추가로 분할할 수 있습니다.  
+데이터를 쿼리하면 시각화를 시작할 수 있습니다. 단위를 표시하거나 숨기고, 데이터 집계 방식을 변경하고, 다른 디바이스 속성을 사용하여 데이터를 추가로 분할할 수 있습니다.  
 
-* **분할 기준:** 장치 속성에 따라 데이터를 분할하면 데이터를 자세히 드릴다운할 수 있습니다. 예를 들어 장치 ID 또는 위치별로 결과를 분할할 수 있습니다.
+* **분할 기준:** 장치 속성에 따라 데이터를 분할하면 데이터를 자세히 드릴다운할 수 있습니다. 예를 들어 디바이스 ID 또는 위치별로 결과를 분할할 수 있습니다.
 <!---
 to-do: confirm if 10 is the max number of measurements
 --->

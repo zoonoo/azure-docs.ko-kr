@@ -90,7 +90,7 @@ The following shows an example of how you might display the webpage in a search 
 }, ...
 ```
 
-사용자의 장치에 따라 일반적으로 사용자가 나머지 이미지를 볼 수 있는 옵션을 사용하여 썸네일의 하위 집합을 표시할 수 있습니다.
+사용자의 디바이스에 따라 일반적으로 사용자가 나머지 이미지를 볼 수 있는 옵션을 사용하여 썸네일의 하위 집합을 표시할 수 있습니다.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -160,7 +160,7 @@ The following shows an example of how you might display the webpage in a search 
 }, ...
 ```
 
-사용자의 장치에 따라 일반적으로 사용자가 나머지 비디오를 볼 수 있는 옵션을 사용하여 비디오의 하위 집합을 표시할 수 있습니다. 비디오의 길이, 설명(이름) 및 특성(게시자)을 사용하여 비디오의 썸네일을 표시할 수 있습니다.
+사용자의 디바이스에 따라 일반적으로 사용자가 나머지 비디오를 볼 수 있는 옵션을 사용하여 비디오의 하위 집합을 표시할 수 있습니다. 비디오의 길이, 설명(이름) 및 특성(게시자)을 사용하여 비디오의 썸네일을 표시할 수 있습니다.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of video thumbnails](./media/cognitive-services-bing-web-api/bing-web-video-thumbnails.PNG)
@@ -205,7 +205,7 @@ The following shows an example of how you might display the webpage in a search 
 }, ...
 ```
 
-사용자의 장치에 따라 일반적으로 사용자가 나머지 기사를 볼 수 있는 옵션을 사용하여 뉴스 기사의 하위 집합을 표시할 수 있습니다. 호스트의 사이트에 있는 기사로 사용자를 이동시키는 하이퍼링크를 만들려면 `name` 및 `url`을 사용합니다. 기사가 이미지를 포함하는 경우 `url`을 사용하여 이미지를 클릭할 수 있도록 만듭니다. `provider`를 사용하여 기사의 특성을 확인합니다.
+사용자의 디바이스에 따라 일반적으로 사용자가 나머지 기사를 볼 수 있는 옵션을 사용하여 뉴스 기사의 하위 집합을 표시할 수 있습니다. 호스트의 사이트에 있는 기사로 사용자를 이동시키는 하이퍼링크를 만들려면 `name` 및 `url`을 사용합니다. 기사가 이미지를 포함하는 경우 `url`을 사용하여 이미지를 클릭할 수 있도록 만듭니다. `provider`를 사용하여 기사의 특성을 확인합니다.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display articles in a search results page.

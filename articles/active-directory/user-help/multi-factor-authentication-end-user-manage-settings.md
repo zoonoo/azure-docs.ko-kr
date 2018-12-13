@@ -1,6 +1,6 @@
 ---
 title: 2단계 인증 설정 관리 - Azure Active Directory | Microsoft Docs
-description: 연락처 정보를 변경하거나 장치를 구성하는 등 Azure Multi-Factor Authentication을 사용하는 방법을 관리합니다.
+description: 연락처 정보를 변경하거나 디바이스를 구성하는 등 Azure Multi-Factor Authentication을 사용하는 방법을 관리합니다.
 services: active-directory
 keywords: 다단계 인증 클라이언트, 인증 문제, 상관관계 ID
 author: eross-msft
@@ -66,15 +66,15 @@ ms.locfileid: "39345092"
 2. 텍스트 상자에 기타 전화 번호를 입력합니다.  
 3. **저장**을 선택하면 변경 내용이 완료됩니다.  
 
-## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>신뢰할 수 있는 것으로 표시된 장치에서 2단계 인증이 다시 필요
+## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>신뢰할 수 있는 것으로 표시된 디바이스에서 2단계 인증이 다시 필요
 
-조직 설정에 따라 브라우저에서 2단계 인증을 수행할 때 "**X**일 동안 다시 묻지 않음"이라는 확인란이 포함될 수 있습니다. 이 확인란을 선택한 후 장치를 분실하거나 계정이 손상된 것으로 생각되는 경우 2단계 인증을 모든 장치로 복원해야 합니다.
+조직 설정에 따라 브라우저에서 2단계 인증을 수행할 때 "**X**일 동안 다시 묻지 않음"이라는 확인란이 포함될 수 있습니다. 이 확인란을 선택한 후 디바이스를 분실하거나 계정이 손상된 것으로 생각되는 경우 2단계 인증을 모든 디바이스로 복원해야 합니다.
 
-1. 추가 보안 확인 페이지에서 **이전에 신뢰할 수 있는 장치에서 Multi-Factor Authentication 복원**을 선택합니다.
-2. 장치에 다음에 로그인하면 2단계 인증을 수행하라는 메시지가 표시됩니다.
+1. 추가 보안 확인 페이지에서 **이전에 신뢰할 수 있는 디바이스에서 Multi-Factor Authentication 복원**을 선택합니다.
+2. 디바이스에 다음에 로그인하면 2단계 인증을 수행하라는 메시지가 표시됩니다.
 
-## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>이전 장치에서 Microsoft Authenticator를 제거하고 새 장치로 이동하려는 경우
-장치에서 앱을 제거하거나 장치를 재설정하는 경우 백 엔드에서 정품 인증을 제거하지 않습니다. 자세한 내용은 [Microsoft Authenticator](microsoft-authenticator-app-how-to.md)를 참조하세요.
+## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>이전 디바이스에서 Microsoft Authenticator를 제거하고 새 디바이스로 이동하려는 경우
+디바이스에서 앱을 제거하거나 디바이스를 재설정하는 경우 백 엔드에서 정품 인증을 제거하지 않습니다. 자세한 내용은 [Microsoft Authenticator](microsoft-authenticator-app-how-to.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [2단계 인증에 문제 발생](multi-factor-authentication-end-user-troubleshoot.md)에 대한 문제 해결 팁 및 도움말 얻기

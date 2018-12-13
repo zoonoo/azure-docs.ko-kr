@@ -16,7 +16,7 @@ ms.locfileid: "50747918"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>장치 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
-IoT Hub는 [장치 쌍](iot-hub-devguide-device-twins.md) 및 [작업](iot-hub-devguide-jobs.md) 그리고 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)과 관련된 정보를 검색할 수 있는 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
+IoT Hub는 [디바이스 쌍](iot-hub-devguide-device-twins.md) 및 [작업](iot-hub-devguide-jobs.md) 그리고 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)과 관련된 정보를 검색할 수 있는 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
 
 * IoT Hub 쿼리 언어의 주요 기능 소개 및
 * 언어에 대한 자세한 설명 메시지 라우팅의 쿼리 언어에 대한 자세한 내용은 [메시지 라우팅의 쿼리](../iot-hub/iot-hub-devguide-routing-query-syntax.md)를 참조하세요.
@@ -79,9 +79,9 @@ IoT Hub는 [장치 쌍](iot-hub-devguide-device-twins.md) 및 [작업](iot-hub-d
 }
 ```
 
-### <a name="device-twin-queries"></a>장치 쌍 쿼리
+### <a name="device-twin-queries"></a>디바이스 쌍 쿼리
 
-IoT Hub는 **devices**라는 문서 컬렉션으로 장치 쌍을 노출합니다. 예를 들어 다음 쿼리는 장치 쌍 전체 집합을 검색합니다.
+IoT Hub는 **devices**라는 문서 컬렉션으로 디바이스 쌍을 노출합니다. 예를 들어 다음 쿼리는 디바이스 쌍 전체 집합을 검색합니다.
 
 ```sql
 SELECT * FROM devices
@@ -97,7 +97,7 @@ SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-부울 연산자 및 산술 비교도 지원됩니다. 예를 들어 미국에 있으며 1분 이하를 주기로 원격 분석 데이터를 보내도록 구성된 장치 쌍을 검색하려면 다음 쿼리를 사용합니다.
+부울 연산자 및 산술 비교도 지원됩니다. 예를 들어 미국에 있으며 1분 이하를 주기로 원격 분석 데이터를 보내도록 구성된 디바이스 쌍을 검색하려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT * FROM devices
@@ -121,7 +121,7 @@ SELECT * FROM devices
 
 필터링 기능에 대한 전체 참조는 [WHERE 절](iot-hub-devguide-query-language.md#where-clause) 섹션을 참조하세요.
 
-그룹화 및 집계도 지원됩니다. 예를 들어 각 원격 분석 구성 상태에서 장치 수를 찾으려면 다음 쿼리를 사용합니다.
+그룹화 및 집계도 지원됩니다. 예를 들어 각 원격 분석 구성 상태에서 디바이스 수를 찾으려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
@@ -149,9 +149,9 @@ SELECT properties.reported.telemetryConfig.status AS status,
 ]
 ```
 
-이 예제에서는 세 장치는 성공적인 구성을 보고하고 두 장치는 구성을 계속 적용하고 있으며 하나는 오류를 보고했습니다.
+이 예제에서는 세 디바이스는 성공적인 구성을 보고하고 두 디바이스는 구성을 계속 적용하고 있으며 하나는 오류를 보고했습니다.
 
-개발자는 프로젝션 쿼리를 사용하여 관심 있는 속성만 반환할 수 있습니다. 예를 들어, 연결된 모든 장치의 마지막 작업 시간을 검색하려면 다음 쿼리를 사용합니다.
+개발자는 프로젝션 쿼리를 사용하여 관심 있는 속성만 반환할 수 있습니다. 예를 들어, 연결된 모든 디바이스의 마지막 작업 시간을 검색하려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
@@ -159,19 +159,19 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>모듈 쌍 쿼리
 
-모듈 쌍에 대한 쿼리는 장치 쌍에 대한 쿼리와 유사하지만, "장치에서"가 아니라 다른 컬렉션/네임스페이스를 사용하여 device.modules를 쿼리할 수 있습니다.
+모듈 쌍에 대한 쿼리는 디바이스 쌍에 대한 쿼리와 유사하지만, "디바이스에서"가 아니라 다른 컬렉션/네임스페이스를 사용하여 device.modules를 쿼리할 수 있습니다.
 
 ```sql
 SELECT * FROM devices.modules
 ```
 
-장치 및 devices.modules 컬렉션 간의 조인을 허용하지 않습니다. 장치 간에 모듈 쌍을 쿼리하려는 경우 태그에 따라 수행합니다. 이 쿼리는 검색 상태와 함께 모든 장치에서 모든 모듈 쌍을 반환합니다.
+장치 및 devices.modules 컬렉션 간의 조인을 허용하지 않습니다. 디바이스 간에 모듈 쌍을 쿼리하려는 경우 태그에 따라 수행합니다. 이 쿼리는 검색 상태와 함께 모든 장치에서 모든 모듈 쌍을 반환합니다.
 
 ```sql
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-이 쿼리는 검색 상태와 함께 모든 모듈 쌍을 반환하지만, 지정된 하위 집합의 장치에서만 반환합니다.
+이 쿼리는 검색 상태와 함께 모든 모듈 쌍을 반환하지만, 지정된 하위 집합의 디바이스에서만 반환합니다.
 
 ```sql
 Select * from devices.modules 
@@ -199,7 +199,7 @@ while (query.HasMoreResults)
 
 **query** 개체는 페이지 크기로 인스턴스화됩니다(최대 100). 그런 후 **GetNextAsTwinAsync** 메서드를 여러 번 호출하여 여러 페이지가 검색됩니다.
 
-query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 **Next** 값을 노출합니다. 프로젝션을 사용할 경우의 장치 쌍이나 작업 개체 또는 일반 JSON을 예로 들 수 있습니다.
+query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 **Next** 값을 노출합니다. 프로젝션을 사용할 경우의 디바이스 쌍이나 작업 개체 또는 일반 JSON을 예로 들 수 있습니다.
 
 ### <a name="nodejs-example"></a>Node.js 예제
 
@@ -228,18 +228,18 @@ query.nextAsTwin(onResults);
 
 **query** 개체는 페이지 크기로 인스턴스화됩니다(최대 100). 그런 후 **nextAsTwin** 메서드를 여러 번 호출하여 여러 페이지가 검색됩니다.
 
-query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 **Next** 값을 노출합니다. 프로젝션을 사용할 경우의 장치 쌍이나 작업 개체 또는 일반 JSON을 예로 들 수 있습니다.
+query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 **Next** 값을 노출합니다. 프로젝션을 사용할 경우의 디바이스 쌍이나 작업 개체 또는 일반 JSON을 예로 들 수 있습니다.
 
 ### <a name="limitations"></a>제한 사항
 
 > [!IMPORTANT]
-> 쿼리 결과는 장치 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID별로 개별 장치 쌍을 쿼리하는 경우 장치 쌍 검색 API를 사용합니다. 이 API는 항상 최신 값을 포함하며 더 높은 제한을 적용합니다.
+> 쿼리 결과는 장치 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID별로 개별 디바이스 쌍을 쿼리하는 경우 디바이스 쌍 검색 API를 사용합니다. 이 API는 항상 최신 값을 포함하며 더 높은 제한을 적용합니다.
 
 현재 비교는 기본 형식(개체 없음) 간에만 지원됩니다. 예를 들어 `... WHERE properties.desired.config = properties.reported.config`는 해당 속성에 기본 값이 있는 경우에만 지원됩니다.
 
 ## <a name="get-started-with-jobs-queries"></a>작업 쿼리 시작
 
-[작업](iot-hub-devguide-jobs.md)은 장치 집합에 대해 작업을 실행하는 방법을 제공합니다. 각 장치 쌍은 작업에 대한 정보를 포함하며 이것은 **jobs**라는 컬렉션에 속합니다.
+[작업](iot-hub-devguide-jobs.md)은 장치 집합에 대해 작업을 실행하는 방법을 제공합니다. 각 디바이스 쌍은 작업에 대한 정보를 포함하며 이것은 **jobs**라는 컬렉션에 속합니다.
 
 ```json
 {
@@ -273,11 +273,11 @@ query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 
 현재 이 컬렉션은 IoT Hub 쿼리 언어를 사용하여 **devices.jobs**로 쿼리할 수 있습니다.
 
 > [!IMPORTANT]
-> 현재 jobs 속성은 장치 쌍을 쿼리하는 경우에는 반환되지 않습니다. 'FROM devices'를 포함하는 쿼리가 여기에 해당합니다. 작업 속성은 `FROM devices.jobs`를 사용하여 쿼리를 통해서만 직접 액세스할 수 있습니다.
+> 현재 jobs 속성은 디바이스 쌍을 쿼리하는 경우에는 반환되지 않습니다. ‘FROM devices’를 포함하는 쿼리가 여기에 해당합니다. 작업 속성은 `FROM devices.jobs`를 사용하여 쿼리를 통해서만 직접 액세스할 수 있습니다.
 >
 >
 
-예를 들어 단일 장치에 영향을 미치는 모든 작업(지난 작업 및 예정된 작업)을 가져오려면 다음 쿼리를 사용합니다.
+예를 들어 단일 디바이스에 영향을 미치는 모든 작업(지난 작업 및 예정된 작업)을 가져오려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT * FROM devices.jobs
@@ -361,9 +361,9 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 예제는 [장치 쌍 쿼리 시작](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) 섹션에서 찾을 수 있습니다.
+**Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다. SELECT 절에 대한 예제는 [디바이스 쌍 쿼리 시작](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) 섹션에서 찾을 수 있습니다.
 
-현재 **SELECT** \*와 다른 선택 절은 장치 쌍에 대한 집계 쿼리에서만 지원됩니다.
+현재 **SELECT** \*와 다른 선택 절은 디바이스 쌍에 대한 집계 쿼리에서만 지원됩니다.
 
 ## <a name="group-by-clause"></a>GROUP BY 절
 **GROUP BY <group_specification>** 절은 WHERE 절에 지정된 필터 뒤에서, 그리고 SELECT에 지정된 프로젝션 앞에서 실행되는 선택적 단계입니다. 특성의 값을 기반으로 문서를 그룹화합니다. 이러한 그룹은 SELECT 절에 지정된 대로 집계된 값을 생성하는 데 사용됩니다.

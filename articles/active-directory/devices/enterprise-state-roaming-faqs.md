@@ -44,7 +44,7 @@ Windows 8.1에서는 설정 동기화에 항상 소비자 Microsoft 계정이 �
 
 기본 계정이란 Windows에 로그인하는 데 사용되는 계정으로, Microsoft 계정, Azure Active Directory(Azure AD) 계정, 온-프레미스 Active Directory 계정 또는 로컬 계정일 수 있습니다. 기본 계정 외에도 Windows 10 사용자는 장치에 하나 이상의 보조 클라우드 계정을 추가할 수 있습니다. 보조 계정은 일반적으로 Microsoft 계정, Azure AD 계정 또는 Gmail이나 Facebook과 같은 기타 계정입니다. 이러한 보조 계정은 Single Sign-On, Windows 스토어 등의 추가 서비스에 대한 액세스를 제공하지만 설정 동기화는 지원하지 않습니다.
 
-Windows 10에서 장치의 기본 계정만 설정 동기화에 사용할 수 있습니다([Windows 8의 Microsoft 계정 설정 동기화에서 Windows 10의 Azure AD 설정 동기화로 업그레이드하려면 어떻게 해야 하나요?](enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10) 참조).
+Windows 10에서 디바이스의 기본 계정만 설정 동기화에 사용할 수 있습니다([Windows 8의 Microsoft 계정 설정 동기화에서 Windows 10의 Azure AD 설정 동기화로 업그레이드하려면 어떻게 해야 하나요?](enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10) 참조).
 
 데이터는 장치의 서로 다른 사용자 계정 간에 절대로 혼합되지 않습니다. 설정 동기화에는 두 가지 규칙이 있습니다.
 
@@ -76,7 +76,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 
 1. 각 Azure AD 테넌트에 대한 GUID를 확인합니다. Azure Portal을 열고 Azure AD 테넌트를 선택합니다. 테넌트의 GUID는 선택한 테넌트, 레이블이 지정된 **Directory ID**에 대한 속성 페이지(https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties)에 있습니다. 
 2. GUID를 확인한 후에는 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<테넌트 ID GUID>** 를 추가해야 합니다.
-   **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 장치에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
+   **테넌트 ID GUID** 키에서 **AllowedRMSServerUrls**라는 새 다중 문자열 값(REG-MULTI-SZ)을 만듭니다. 해당 데이터에 대해 디바이스에서 액세스하는 다른 Azure 테넌트의 라이선스 배포 지점 URL을 지정합니다.
 3. AADRM 모듈에서 **Get-AadrmConfiguration** cmdlet을 실행하여 라이선싱 배포 지점 URL을 찾을 수 있습니다. **LicensingIntranetDistributionPointUrl** 및 **LicensingExtranetDistributionPointUrl**의 값이 다르면 두 값을 모두 지정합니다. 값이 같으면 값을 한 번만 지정합니다.
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications"></a>기존 Windows 데스크톱 응용 프로그램의 로밍 설정 옵션은 무엇인가요?

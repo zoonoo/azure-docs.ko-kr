@@ -94,7 +94,7 @@ echo $hubConnectionString
 
 [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create) 명령을 사용하여 IoT 허브와 프로비전 서비스를 연결합니다. 
 
-다음 예제에서는 *westus* 위치에 있는 *my-sample-hub*라는 IoT 허브와 *my-sample-dps*라는 장치 프로비전 서비스를 연결합니다. 이전 단계의 *hubConnectionString* 변수에 저장된 *my-sample-hub*에 대한 연결 문자열을 사용합니다.
+다음 예제에서는 *westus* 위치에 있는 *my-sample-hub*라는 IoT 허브와 *my-sample-dps*라는 디바이스 프로비전 서비스를 연결합니다. 이전 단계의 *hubConnectionString* 변수에 저장된 *my-sample-hub*에 대한 연결 문자열을 사용합니다.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus
@@ -133,7 +133,7 @@ az group delete --name my-sample-resource-group
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 IoT Hub 및 Device Provisioning Service 인스턴스를 배포한 후 두 리소스를 연결했습니다. 시뮬레이션된 장치를 프로비전하도록 설정하는 방법에 대해 알아보려면 시뮬레이션된 장치 만들기를 위한 빠른 시작을 진행하세요.
+이 빠른 시작에서는 IoT Hub 및 Device Provisioning Service 인스턴스를 배포한 후 두 리소스를 연결했습니다. 시뮬레이션된 디바이스를 프로비전하도록 설정하는 방법에 대해 알아보려면 시뮬레이션된 디바이스 만들기를 위한 빠른 시작을 진행하세요.
 
 > [!div class="nextstepaction"]
 > [시뮬레이션된 장치를 만들기 위한 빠른 시작](./quick-create-simulated-device.md)

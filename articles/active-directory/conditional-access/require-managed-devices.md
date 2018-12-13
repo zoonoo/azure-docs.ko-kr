@@ -1,6 +1,6 @@
 ---
-title: 방법 - Azure Active Directory 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 장치 필요 | Microsoft Docs
-description: 클라우드 앱 액세스에 대한 관리 장치가 필요한 Azure AD(Azure Active Directory) 장치 기반 조건부 액세스 정책을 구성하는 방법을 알아봅니다.
+title: 방법 - Azure Active Directory 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스 필요 | Microsoft Docs
+description: 클라우드 앱 액세스에 대한 관리 디바이스가 필요한 Azure AD(Azure Active Directory) 디바이스 기반 조건부 액세스 정책을 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -23,16 +23,16 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/08/2018
 ms.locfileid: "39630486"
 ---
-# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 장치 필요
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스 필요
 
-모바일 우선, 클라우드 우선 세계에서 Azure AD(Active Directory)는 어디에서나 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. 권한 있는 사용자는 모바일 및 개인 장치를 포함하여 광범위한 장치에서 클라우드 앱에 액세스할 수 있습니다. 하지만 여러 환경에는 보안 및 준수를 위해 표준을 충족하는 장치에 의해서만 액세스되어야 하는 몇 가지 앱이 있습니다. 이러한 장치는 관리 장치라고도 합니다. 
+모바일 우선, 클라우드 우선 세계에서 Azure AD(Active Directory)는 어디에서나 앱 및 서비스에 대한 Single Sign-On을 가능하게 합니다. 권한 있는 사용자는 모바일 및 개인 디바이스를 포함하여 광범위한 디바이스에서 클라우드 앱에 액세스할 수 있습니다. 하지만 여러 환경에는 보안 및 준수를 위해 표준을 충족하는 디바이스에 의해서만 액세스되어야 하는 몇 가지 앱이 있습니다. 이러한 디바이스는 관리 디바이스라고도 합니다. 
 
-이 아티클에서는 환경에서 특정 클라우드 앱에 액세스하기 위해 관리 장치가 필요한 조건부 액세스 정책을 구성할 수 있는 방법을 설명합니다. 
+이 아티클에서는 환경에서 특정 클라우드 앱에 액세스하기 위해 관리 디바이스가 필요한 조건부 액세스 정책을 구성할 수 있는 방법을 설명합니다. 
 
 
 ## <a name="prerequisites"></a>필수 조건
 
-클라우드 앱 액세스에 대해 관리 장치가 필요하면 **Azure AD 조건부 액세스**와 **Azure AD 장치 관리**를 함께 연결합니다. 이러한 내용에 익숙하지 않은 경우 먼저 다음 항목을 읽어보세요.
+클라우드 앱 액세스에 대해 관리 디바이스가 필요하면 **Azure AD 조건부 액세스**와 **Azure AD 디바이스 관리**를 함께 연결합니다. 이러한 내용에 익숙하지 않은 경우 먼저 다음 항목을 읽어보세요.
 
 - **[Azure Active Directory의 조건부 액세스](../active-directory-conditional-access-azure-portal.md)** - 이 아티클에서는 조건부 액세스 및 관련 용어에 대한 개념적 개요를 제공합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "39630486"
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-보안과 생산성 간의 균형을 유지하기가 어렵습니다. 클라우드 리소스에 액세스하도록 지원되는 장치의 범위가 넓어지면 사용자의 생산성을 개선할 수 있습니다. 반대로 환경에서 특정 리소스에 알려지지 않은 보호 수준을 가진 장치가 액세스하지 않도록 하는 것이 좋습니다. 영향을 받는 리소스의 경우 사용자가 관리 장치를 사용해서만 액세스할 수 있도록 해야 합니다. 
+보안과 생산성 간의 균형을 유지하기가 어렵습니다. 클라우드 리소스에 액세스하도록 지원되는 디바이스의 범위가 넓어지면 사용자의 생산성을 개선할 수 있습니다. 반대로 환경에서 특정 리소스에 알려지지 않은 보호 수준을 가진 디바이스가 액세스하지 않도록 하는 것이 좋습니다. 영향을 받는 리소스의 경우 사용자가 관리 디바이스를 사용해서만 액세스할 수 있도록 해야 합니다. 
 
 Azure AD 조건부 액세스를 사용하면 액세스 권한을 부여하는 단일 정책으로 이 요구 사항을 처리할 수 있습니다.
 
@@ -49,7 +49,7 @@ Azure AD 조건부 액세스를 사용하면 액세스 권한을 부여하는 �
 
 - 선택한 사용자 및 그룹에 대해
 
-- 관리 장치 필요
+- 관리 디바이스 필요
 
 
 ## <a name="managed-devices"></a>관리되는 장치  
@@ -66,7 +66,7 @@ Azure AD에 등록된 장치를 가져오는 데는 세 가지 옵션이 있습�
 
 - **[Azure AD 조인 장치](../devices/overview.md#hybrid-azure-ad-joined-devices)** - Azure AD에 등록된 온-프레미스 AD에 조인된 Windows 10 또는 지원되는 하위 수준 장치를 가져옵니다.
 
-관리되는 장치가 되려면, 등록된 장치는 **하이브리드 Azure AD 조인 장치** 또는 **준수 상태로 표시된 장치**여야 합니다.  
+관리되는 디바이스가 되려면, 등록된 디바이스는 **하이브리드 Azure AD 조인 디바이스** 또는 **준수 상태로 표시된 디바이스**여야 합니다.  
 
 ![장치 기반 조건](./media/require-managed-devices/47.png)
 
@@ -93,7 +93,7 @@ Azure AD에 등록된 장치를 가져오는 데는 세 가지 옵션이 있습�
 이 옵션을 사용하려면 장치를 Azure AD에 등록해야 하며 다음과 같이 준수 상태로도 표시되어야 합니다.
          
 - Intune
-- Azure AD 통합을 통해 Windows 10 장치를 관리하는 타사 MDM(모바일 장치 관리) 시스템입니다. Windows 10 이외의 장치 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다.
+- Azure AD 통합을 통해 Windows 10 디바이스를 관리하는 타사 MDM(모바일 디바이스 관리) 시스템입니다. Windows 10 이외의 디바이스 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다.
  
 ![장치 기반 조건](./media/require-managed-devices/46.png)
 
@@ -111,5 +111,5 @@ Azure AD에 등록된 장치를 가져오는 데는 세 가지 옵션이 있습�
 
 ## <a name="next-steps"></a>다음 단계
 
-환경에서 장치 기반 조건부 액세스 정책을 구성하기 전에 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)를 확인해야 합니다.
+환경에서 디바이스 기반 조건부 액세스 정책을 구성하기 전에 [Azure Active Directory의 조건부 액세스 모범 사례](best-practices.md)를 확인해야 합니다.
 

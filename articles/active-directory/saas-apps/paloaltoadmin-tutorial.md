@@ -154,7 +154,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
 
 1. **장치** 탭을 선택합니다.
 
-    ![장치 탭](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
+    ![디바이스 탭](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_admin1.png)
 
 1. 왼쪽 창에서 **SAML ID 공급자**를 선택한 후 **가져오기**를 선택하여 메타데이터 파일을 가져옵니다.
 
@@ -186,7 +186,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
   
     나. **확인**을 선택합니다.
 
-1. Palo Alto Networks Firewall의 Admin UI에서 **장치**를 선택한 후 **관리자 역할**을 선택합니다.
+1. Palo Alto Networks Firewall의 Admin UI에서 **디바이스**를 선택한 후 **관리자 역할**을 선택합니다.
 
 1. **추가** 단추를 선택합니다. 
 
@@ -195,7 +195,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
 
     ![Palo Alto Networks 관리자 역할 구성](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
   
-1. Firewall의 Admin UI에서 **장치**를 선택한 후 **인증 프로필**을 선택합니다.
+1. Firewall의 Admin UI에서 **디바이스**를 선택한 후 **인증 프로필**을 선택합니다.
 
 1. **추가** 단추를 선택합니다. 
 
@@ -222,7 +222,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
 
     g. **확인**을 선택합니다.
 
-1. 관리자가 Azure를 통해 SAML SSO를 사용하도록 허용하려면 **장치** > **설정**을 선택합니다. **설정** 창에서 **관리** 탭을 선택한 후 **인증 설정**에서 **설정** ("기어") 단추를 선택합니다. 
+1. 관리자가 Azure를 통해 SAML SSO를 사용하도록 허용하려면 **디바이스** > **설정**을 선택합니다. **설정** 창에서 **관리** 탭을 선택한 후 **인증 설정**에서 **설정** ("기어") 단추를 선택합니다. 
 
  ![설정 단추](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 

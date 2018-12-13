@@ -18,13 +18,13 @@ ms.locfileid: "50209448"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning Services를 사용하여 모델 배포
 
-Azure Machine Learning Services는 학습된 모델을 배포할 수 있는 몇 가지 방법을 제공합니다. 이 문서에서는 모델을 Azure 클라우드에서 또는 IoT Edge 장치에 웹 서비스로 배포하는 방법을 알아봅니다.
+Azure Machine Learning Services는 학습된 모델을 배포할 수 있는 몇 가지 방법을 제공합니다. 이 문서에서는 모델을 Azure 클라우드에서 또는 IoT Edge 디바이스에 웹 서비스로 배포하는 방법을 알아봅니다.
 
 모델은 다음과 같은 계산 대상에 배포할 수 있습니다.
 
 - [ACI(Azure Container Instances)](#aci): 빠른 배포. 개발 또는 테스트에 적합합니다.
 - [AKS(Azure Kubernetes Service)](#aks): 대규모 프로덕션 워크로드에 적합합니다. 자동 크기 조정 및 빠른 응답 시간을 제공합니다.
-- [Azure IoT Edge](#iotedge): IoT 장치에서 모델을 배포합니다. 장치에서 추론이 발생합니다.
+- [Azure IoT Edge](#iotedge): IoT 장치에서 모델을 배포합니다. 디바이스에서 추론이 발생합니다.
 - [FPGA(Field-programmable Gate Array)](#fpga): 실시간 추론에 따른 대기 시간이 매우 짧습니다.
 
 이 문서의 나머지 부분에서는 각각의 옵션에 대한 세부 사항을 설명합니다.
@@ -56,10 +56,10 @@ AKS 클러스터를 만드는 프로세스는 약 20분이 걸립니다.
 
 ## <a id="iotedge"></a>Azure IoT Edge
 
-IoT 장치를 사용하면 채점을 위해 데이터를 클라우드로 보내는 대신 장치에서 채점을 수행하는 것이 더 빠릅니다. Azure IoT Edge를 사용하면 Edge 장치에서 모델을 호스트할 수 있습니다. 다음 기능 중 하나 이상이 필요한 경우 IoT Edge에 모델을 배포합니다.
+IoT 디바이스를 사용하면 채점을 위해 데이터를 클라우드로 보내는 대신 디바이스에서 채점을 수행하는 것이 더 빠릅니다. Azure IoT Edge를 사용하면 Edge 디바이스에서 모델을 호스트할 수 있습니다. 다음 기능 중 하나 이상이 필요한 경우 IoT Edge에 모델을 배포합니다.
 - 클라우드에 연결하지 않고 우선 순위 작업을 로컬에서 처리
 - 너무 커서 클라우드에서 신속하게 끌어오기에 어려운 생성된 데이터로 작업
-- 로컬 장치 내 또는 근처의 인텔리전스를 통해 실 시간 처리를 사용하도록 설정
+- 로컬 디바이스 내 또는 근처의 인텔리전스를 통해 실시간 처리를 사용하도록 설정
 - 데이터 프라이버시 관련 요구 사항에 맞게 조정 
 
 자세한 내용은 [Azure IoT Edge에 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) 문서를 참조하세요.

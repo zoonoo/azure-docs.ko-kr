@@ -1361,7 +1361,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                         <li>
                                             <a href="/azure/iot-dps/">
                                                 <img src="media/index/dps.svg" alt="" />
-                                                <p>IoT Hub Device Provisioning 서비스</p>
+                                                <p>IoT Hub Device Provisioning Service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2510,7 +2510,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Box 제품군</h3>
-                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 저장소 장치 제품군</p>
+                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 저장소 디바이스 제품군</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4015,7 +4015,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>클라우드로부터 에지 장치까지 인텔리전스 확장</p>
+                                                    <p>클라우드로부터 Edge 디바이스까지 인텔리전스 확장</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4071,7 +4071,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Hub Device Provisioning 서비스</h3>
+                                                    <h3>IoT Hub Device Provisioning Service</h3>
                                                     <p>Azure IoT Hub에 대한 Just-In-Time 무인 프로비전</p>
                                                 </div>
                                             </div>

@@ -99,7 +99,7 @@ Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트
 
 이제 푸시 플러그 인이 설치되었습니다.
 
-#### <a name="install-the-device-plugin"></a>장치 플러그 인 설치
+#### <a name="install-the-device-plugin"></a>디바이스 플러그 인 설치
 
 푸시 플러그 인을 설치할 때 사용한 것과 동일한 절차를 따릅니다. 코어 플러그 인 목록에서 장치 플러그 인을 추가합니다. (**플러그 인** > **코어**를 선택해 찾습니다.) 플랫폼 이름을 가져오려면 이 플러그 인이 필요합니다.
 
@@ -240,13 +240,13 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
 이제 앱을 실행하고 TodoItem 테이블에 항목을 삽입하여 푸시 알림을 테스트할 수 있습니다. 동일한 백 엔드를 사용하는 한, 같은 장치에서 테스트해도 되고 두 번째 장치에서 테스트해도 됩니다. 다음 방법 중 하나로 Android 플랫폼에서 Cordova 앱을 테스트합니다.
 
-* *실제 장치에서:* USB 케이블을 사용하여 Android 장치를 개발 컴퓨터에 연결합니다.  **Google Android 에뮬레이터** 대신 **장치**를 선택합니다. Visual Studio에서 장치에 응용 프로그램을 배포하고 응용 프로그램을 실행합니다. 이제 장치에서 응용 프로그램과 상호 작용할 수 있습니다.
+* *실제 장치에서:* USB 케이블을 사용하여 Android 장치를 개발 컴퓨터에 연결합니다.  **Google Android 에뮬레이터** 대신 **장치**를 선택합니다. Visual Studio에서 장치에 응용 프로그램을 배포하고 응용 프로그램을 실행합니다. 이제 디바이스에서 응용 프로그램과 상호 작용할 수 있습니다.
 
   [Mobizen] [ 20]과 같은 화면 공유 응용 프로그램을 사용하면 Android 응용 프로그램을 개발하는 데 도움이 될 수 있습니다. Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
 
 * *Android 에뮬레이터에서:* 에뮬레이터를 사용할 때 필요한 추가 구성 단계가 있습니다.
 
-    아래와 같이 AVD(Android 가상 장치) 관리자에서 대상으로 설정된 Google API가 있는 가상 장치에 배포해야 합니다.
+    아래와 같이 AVD(Android 가상 디바이스) 관리자에서 대상으로 설정된 Google API가 있는 가상 디바이스에 배포해야 합니다.
 
     ![Android Virtual Device Manager](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
@@ -262,7 +262,7 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
 ## <a name="optional-configure-and-run-on-ios"></a>(선택 사항) iOS에서 구성 및 실행
 
-이 섹션은 iOS 장치에서 Cordova 프로젝트를 실행하기 위한 것입니다. iOS 장치로 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션은 iOS 디바이스에서 Cordova 프로젝트를 실행하기 위한 것입니다. iOS 장치로 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 #### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Mac 또는 클라우드 서비스에서 iOS remotebuild 에이전트를 설치하고 실행합니다.
 
@@ -321,7 +321,7 @@ Apple 개발자 계정에서 만든 앱 ID가 config.xml 파일의 위젯 요소
 
 ## <a name="optional-configure-and-run-on-windows"></a>(선택 사항) Windows에서 구성 및 실행
 
-이 섹션은 Windows 10 장치에서 Apache Cordova 앱 프로젝트를 실행하는 방법을 설명하기 위해 작성되었습니다(PhoneGap 푸시 플러그 인은 Windows 10에서 지원됨). Windows 장치로 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션은 Windows 10 장치에서 Apache Cordova 앱 프로젝트를 실행하는 방법을 설명하기 위해 작성되었습니다(PhoneGap 푸시 플러그 인은 Windows 10에서 지원됨). Windows 디바이스로 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 #### <a name="register-your-windows-app-for-push-notifications-with-wns"></a>WNS를 사용하여 푸시 알림에 대해 Windows 앱 등록
 

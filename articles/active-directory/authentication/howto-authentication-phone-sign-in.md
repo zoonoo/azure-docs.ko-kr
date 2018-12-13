@@ -33,7 +33,7 @@ Microsoft Authenticator 앱에서 휴대폰 로그인을 사용하도록 설정�
 
 * Azure Active Directory
 * Azure Multi-Factor Authentication이 가능한 최종 사용자
-* 사용자가 장치를 등록할 수 있습니다.
+* 사용자가 디바이스를 등록할 수 있습니다.
 
 ### <a name="steps-to-enable"></a>사용하도록 설정하는 단계
 
@@ -57,7 +57,7 @@ Azure Active Directory V2 PowerShell 모듈 공개 미리 보기 릴리스의 �
 >
 
 1. Azure Multi-Factor Authentication에 등록
-1. iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 장치에 설치된 최신 버전의 Microsoft Authenticator
+1. iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
 1. 앱에 푸시 알림이 추가된 직장 또는 학교 계정. 최종 사용자 설명서는 [https://aka.ms/authappstart](https://aka.ms/authappstart)에서 확인할 수 있습니다.
 
 사용자가 Microsoft Authenticator 앱에 푸시 알림이 설정된 MFA 계정을 가지고 있으면 [암호가 아닌 휴대폰을 사용하여 로그인](../user-help/microsoft-authenticator-app-phone-signin-faq.md) 문서의 단계를 수행하여 휴대폰 로그인 등록을 완료할 수 있습니다.
@@ -72,9 +72,9 @@ Azure Active Directory V2 PowerShell 모듈 공개 미리 보기 릴리스의 �
 
 조직의 온-프레미스 Azure MFA 서버를 통해 MFA를 사용할 수 있는 최종 사용자는 단일 암호 없는 휴대폰 로그인 자격 증명을 만들고 사용할 수 있습니다. 사용자가 자격 증명으로 Microsoft Authenticator의 여러 설치(5개 이상)를 업그레이드하려고 시도하면 이 변경으로 인해 오류가 발생할 수 있습니다.  
 
-### <a name="device-registration"></a>장치 등록
+### <a name="device-registration"></a>디바이스 등록
 
-이 새롭고 강력한 자격 증명을 만들기 위한 필구 요건 중 하나는 상주하는 장치가 Azure AD 테넌트 내에 개별 사용자에 대해 등록되어 있어야 합니다. 장치 등록 제한으로 인해 장치는 단일 테넌트에만 등록할 수 있습니다. 이 제한은 Microsoft Authenticator 앱에서 휴대폰 로그인에 대해 하나의 회사 또는 학교 계정만 설정할 수 있음을 의미합니다.
+이 새롭고 강력한 자격 증명을 만들기 위한 필수 구성 요소 중 하나는 상주하는 디바이스가 Azure AD 테넌트 내에 개별 사용자에 대해 등록되어 있어야 합니다. 디바이스 등록 제한으로 인해 디바이스는 단일 테넌트에만 등록할 수 있습니다. 이 제한은 Microsoft Authenticator 앱에서 휴대폰 로그인에 대해 하나의 회사 또는 학교 계정만 설정할 수 있음을 의미합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

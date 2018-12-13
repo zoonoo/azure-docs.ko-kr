@@ -35,7 +35,7 @@ ms.locfileid: "49094522"
 
 원격 모니터링 솔루션 가속기 UI 코드는 [React](https://reactjs.org/) JavaScript 프레임워크를 사용하여 구현됩니다. [원격 모니터링 웹 UI](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub 리포지토리에서 소스 코드를 찾을 수 있습니다.
 
-UI를 변경하고 UI 변경 내용을 테스트하려면 로컬 개발 머신에서 UI를 실행하면 됩니다. 필요한 경우 로컬 복사본을 솔루션 가속기의 배포된 인스턴스에 연결하면 로컬 복사본이 실제 또는 시뮬레이트된 장치와 상호 작용할 수 있습니다.
+UI를 변경하고 UI 변경 내용을 테스트하려면 로컬 개발 머신에서 UI를 실행하면 됩니다. 필요한 경우 로컬 복사본을 솔루션 가속기의 배포된 인스턴스에 연결하면 로컬 복사본이 실제 또는 시뮬레이트된 디바이스와 상호 작용할 수 있습니다.
 
 로컬 개발 환경을 준비하려면 Git을 사용하여 [원격 모니터링 웹 UI](https://github.com/Azure/pcs-remote-monitoring-webui) 리포지토리를 로컬 머신에 복제합니다.
 

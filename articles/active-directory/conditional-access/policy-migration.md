@@ -154,7 +154,7 @@ Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치�
 
 
 
-### <a name="device-platforms"></a>장치 플랫폼
+### <a name="device-platforms"></a>디바이스 플랫폼
 
 [앱 기반 제어](technical-reference.md#approved-client-app-requirement)를 사용하는 클래식 정책은 iOS 및 Android에 [장치 플랫폼 조건](technical-reference.md#device-platform-condition)으로 미리 구성되어 있습니다. 
 

@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 시리즈 장치에 대한 CHAP 구성 | Microsoft Docs
-description: StorSimple 장치에 CHAP(Challenge Handshake 인증 프로토콜)를 구성하는 방법을 설명합니다.
+description: StorSimple 디바이스에 CHAP(Challenge Handshake 인증 프로토콜)를 구성하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
 ms.locfileid: "34012661"
 ---
-# <a name="configure-chap-for-your-storsimple-device"></a>StorSimple 장치에 대한 CHAP 구성
+# <a name="configure-chap-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 CHAP 구성
 
 이 자습서에서는 StorSimple 장치에 대한 CHAP를 구성하는 방법에 대해 설명합니다. 이 문서에서 설명하는 절차는 StorSimple 8000 시리즈 장치에 적용됩니다.
 
@@ -103,13 +103,13 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
     ![CHAP 대상](./media/storsimple-8000-configure-chap/configure-chap5.png)
 2. 이 페이지에서 아래로 스크롤하고 **CHAP 대상** 섹션에서 다음을 수행합니다.
    
-   1. 장치에 대한 **역방향 CHAP 사용자 이름** 을 입력합니다.
-   2. 장치에 대한 **역방향 CHAP 암호** 를 입력합니다.
+   1. 디바이스에 대한 **역방향 CHAP 사용자 이름** 을 입력합니다.
+   2. 디바이스에 대한 **역방향 CHAP 암호** 를 입력합니다.
    3. 암호를 확인합니다.
 3. **CHAP 초기자** 섹션에서 다음을 수행합니다.
    
-   1. 장치에 대한 **사용자 이름** 을 입력합니다.
-   2. 장치에 대한 **암호** 를 입력합니다.
+   1. 디바이스에 대한 **사용자 이름** 을 입력합니다.
+   2. 디바이스에 대한 **암호** 를 입력합니다.
    3. 암호를 확인합니다.
 
        ![CHAP 초기자](./media/storsimple-8000-configure-chap/configure-chap11.png)

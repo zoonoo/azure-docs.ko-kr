@@ -41,7 +41,7 @@ Azure Functions를 사용하여 이러한 이벤트를 Azure SignalR Service와 
 
 Azure Functions 및 SignalR Service로 구현할 수 있는 실시간 서버리스 메시징의 일반적인 시나리오는 다음과 같습니다.
 
-* 실시간 대시보드 또는 지도에 IoT 장치 원격 분석 데이터 시각화
+* 실시간 대시보드 또는 지도에 IoT 디바이스 원격 분석 데이터 시각화
 * Cosmos DB에서 문서가 업데이트되면 응용 프로그램의 데이터 업데이트
 * Salesforce에서 새 주문이 생성되면 앱 내 알림 보내기
 

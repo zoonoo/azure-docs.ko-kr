@@ -66,7 +66,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE  = "Samples"
 ```
 
-이제 연결 문자열을 구성합니다. 이 예제에서는 장치 인증을 사용하여 클러스터에 액세스합니다. 또한 AAD 응용 프로그램 인증서, AAD 응용 프로그램 키 및 AAD 사용자와 암호를 사용할 수 있습니다.
+이제 연결 문자열을 구성합니다. 이 예제에서는 디바이스 인증을 사용하여 클러스터에 액세스합니다. 또한 AAD 응용 프로그램 인증서, AAD 응용 프로그램 키 및 AAD 사용자와 암호를 사용할 수 있습니다.
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)

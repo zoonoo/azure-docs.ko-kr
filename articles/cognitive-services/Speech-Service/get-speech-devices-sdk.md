@@ -19,18 +19,18 @@ ms.locfileid: "49468775"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK 가져오기
 
-Speech 장치 SDK는 제한된 미리 보기로 있으므로 프로그램에 등록해야 합니다. 현재 Microsoft는 이 제품에 액세스할 수 있는 후보로 대기업을 선호합니다.
+Speech Devices SDK는 제한된 미리 보기로 있으므로 프로그램에 등록해야 합니다. 현재 Microsoft는 이 제품에 액세스할 수 있는 후보로 대기업을 선호합니다.
 
 ## <a name="request-access"></a>액세스 요청
 
-Speech 장치 SDK에 액세스하려면 다음을 수행합니다.
+Speech Devices SDK에 액세스하려면 다음을 수행합니다.
 
 1. Microsoft Speech Devices SDK [등록 양식](https://aka.ms/sdsdk-signup)으로 이동합니다.
 1. [사용권 계약](speech-devices-sdk-license.md)을 검토하세요.
 1. 사용권 계약 조건에 동의하는 경우 **동의함**을 선택합니다.
 1. 양식의 질문에 대답합니다.
 1. 양식을 제출합니다. 
-1. 이메일 주소가 아직 Azure AD(Active Directory)에 포함되지 않은 경우 액세스가 승인되면 다음 예제와 같은 초대 이메일을 받게 됩니다. 이메일 주소가 Azure AD에 이미 있는 경우 액세스가 승인되면 Microsoft Speech 팀으로부터 이메일 메시지를 받고 [Speech 장치 SDK 다운로드](#download-the-speech-devices-sdk)로 건너뛸 수 있습니다.
+1. 이메일 주소가 아직 Azure AD(Active Directory)에 포함되지 않은 경우 액세스가 승인되면 다음 예제와 같은 초대 이메일을 받게 됩니다. 이메일 주소가 Azure AD에 이미 있는 경우 액세스가 승인되면 Microsoft Speech 팀으로부터 이메일 메시지를 받고 [Speech Devices SDK 다운로드](#download-the-speech-devices-sdk)로 건너뛸 수 있습니다.
 
 ## <a name="approval-e-mail"></a>승인 메일
 
@@ -43,7 +43,7 @@ Subject: You're invited to the Microsoft organization
 
 ## <a name="accept-access"></a>액세스 허용
 
-다음 단계를 수행하여 등록 시 제공한 이메일 주소를 Azure AD와 결합합니다. 이 프로세스는 Speech 장치 SDK [다운로드 사이트](https://shares.datatransfer.microsoft.com/)에 대한 액세스 권한을 부여합니다.
+다음 단계를 수행하여 등록 시 제공한 이메일 주소를 Azure AD와 결합합니다. 이 프로세스는 Speech Devices SDK [다운로드 사이트](https://shares.datatransfer.microsoft.com/)에 대한 액세스 권한을 부여합니다.
 
 1. 받은 이메일 메시지에서 **시작**을 선택합니다. 조직이 이미 Office 365 고객이면 로그인하라는 메시지가 표시되며 8단계로 건너뛸 수 있습니다.
 
@@ -71,7 +71,7 @@ Subject: You're invited to the Microsoft organization
 
 ![SDK 다운로드 사이트](media/speech-devices-sdk/get-sdk-7.png)
 
-Speech 장치 SDK, 관련 샘플 코드 및 참조 자료를 다운로드하려면 다음을 수행합니다.
+Speech Devices SDK, 관련 샘플 코드 및 참조 자료를 다운로드하려면 다음을 수행합니다.
 
 1. 브라우저에 메시지가 표시되면 Aspera Connect 도구를 다운로드하여 설치합니다.
 

@@ -41,7 +41,7 @@ items:
         href: data-box-portal-admin.md
       - name: 로컬 웹 UI를 통해 관리
         href: data-box-local-web-ui-admin.md
-      - name: 장치에 케이블 연결
+      - name: 디바이스에 케이블 연결
         href: data-box-cable-options.md
       - name: 지원에 문의
         href: data-box-disk-contact-microsoft-support.md

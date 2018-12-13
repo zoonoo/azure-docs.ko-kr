@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub와 Azure Event Hubs 비교 | Microsoft 문서
-description: IoT Hub 및 Event Hubs Azure의 비교는 강조 표시된 기능 차이 및 사용 사례를 제공합니다. 비교는 지원되는 프로토콜, 장치 관리, 모니터링 및 파일 업로드를 포함합니다.
+description: IoT Hub 및 Event Hubs Azure의 비교는 강조 표시된 기능 차이 및 사용 사례를 제공합니다. 비교는 지원되는 프로토콜, 디바이스 관리, 모니터링 및 파일 업로드를 포함합니다.
 author: kgremban
 manager: timlt
 ms.service: iot-hub

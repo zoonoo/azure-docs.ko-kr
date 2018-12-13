@@ -110,9 +110,9 @@ ms.locfileid: "51280524"
 |Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL Server 로그|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 서버 로그|
 |Microsoft.Devices/IotHubs|연결|연결|
-|Microsoft.Devices/IotHubs|DeviceTelemetry|장치 원격 분석|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|디바이스 원격 분석|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 명령|
-|Microsoft.Devices/IotHubs|DeviceIdentityOperations|장치 ID 작업|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|디바이스 ID 작업|
 |Microsoft.Devices/IotHubs|FileUploadOperations|파일 업로드 작업|
 |Microsoft.Devices/IotHubs|경로|경로|
 |Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
@@ -122,7 +122,7 @@ ms.locfileid: "51280524"
 |Microsoft.Devices/IotHubs|DirectMethods|직접 메서드|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|E2E 진단(미리 보기)|
 |Microsoft.Devices/IotHubs|구성|구성|
-|Microsoft.Devices/provisioningServices|DeviceOperations|장치 작업|
+|Microsoft.Devices/provisioningServices|DeviceOperations|디바이스 작업|
 |Microsoft.Devices/provisioningServices|ServiceOperations|서비스 작동|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|

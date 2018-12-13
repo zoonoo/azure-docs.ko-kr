@@ -17,20 +17,20 @@ ms.locfileid: "52497609"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
-IoT Hub를 사용하면 다음을 사용하여 IoT Hub 장치 엔드포인트와 통신할 수 있습니다.
+IoT Hub를 사용하면 다음을 사용하여 IoT Hub 디바이스 엔드포인트와 통신할 수 있습니다.
 
 * 포트 8883에서 [MQTT v3.1.1][lnk-mqtt-org] 
 * 포트 443에서 WebSocket을 통해 MQTT v3.1.1
 
-IoT Hub는 모든 기능을 갖춘 MQTT broker가 아니며 MQTT v3.1.1 표준에 지정된 모든 동작을 지원하지는 않습니다. 이 문서에서는 장치에서 지원되는 MQTT 동작을 사용하여 IoT Hub와 통신하는 방법을 설명합니다.
+IoT Hub는 모든 기능을 갖춘 MQTT broker가 아니며 MQTT v3.1.1 표준에 지정된 모든 동작을 지원하지는 않습니다. 이 문서에서는 디바이스에서 지원되는 MQTT 동작을 사용하여 IoT Hub와 통신하는 방법을 설명합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-IoT Hub와 통신하는 모든 장치는 TLS/SSL을 사용하여 보호되어야 합니다. 따라서 IoT Hub는 1883 포트를 통한 비보안 연결을 지원하지 않습니다.
+IoT Hub와 통신하는 모든 디바이스는 TLS/SSL을 사용하여 보호되어야 합니다. 따라서 IoT Hub는 1883 포트를 통한 비보안 연결을 지원하지 않습니다.
 
 ## <a name="connecting-to-iot-hub"></a>IoT Hub에 연결
 
-장치는 다음을 통해 MQTT 프로토콜을 사용하여 IoT 허브에 연결할 수 있습니다.
+디바이스는 다음을 통해 MQTT 프로토콜을 사용하여 IoT 허브에 연결할 수 있습니다.
 
 * [Azure IoT Sdk][lnk-device-sdks]의 라이브러리
 * 또는 MQTT 프로토콜 직접 사용
@@ -39,7 +39,7 @@ IoT Hub와 통신하는 모든 장치는 TLS/SSL을 사용하여 보호되어야
 
 MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js, C, C# 및 Python에서 사용할 수 있습니다. 장치 SDK는 표준 IoT Hub 연결 문자열을 사용하여 IoT Hub에 대한 연결을 설정합니다. MQTT 프로토콜을 사용하려면 클라이언트 프로토콜 매개 변수를 **MQTT**에 설정해야 합니다. 기본적으로는 장치 SDK는 **CleanSession** 플래그가 **0**으로 설정된 IoT Hub에 연결되고 **QoS 1**을 사용하여 IoT Hub와 메시지를 교환합니다.
 
-장치가 IoT Hub에 연결되면 장치 SDK는 IoT Hub와 메시지를 교환할 수 있게 하는 메서드를 제공합니다.
+디바이스가 IoT Hub에 연결되면 디바이스 SDK는 IoT Hub와 메시지를 교환할 수 있게 하는 메서드를 제공합니다.
 
 다음 테이블에는 지원되는 각 언어에 대한 코드 샘플에 대 한 링크가 있고 MQTT 프로토콜을 사용하여 IoT Hub에 연결하는 데 사용하는 매개 변수를 지정합니다.
 
@@ -51,7 +51,7 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 | [C#][lnk-sample-csharp] |TransportType.Mqtt |
 | [Python][lnk-sample-python] |IoTHubTransportProvider.MQTT |
 
-### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>장치 앱을 AMQP에서 MQTT로 마이그레이션
+### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>디바이스 앱을 AMQP에서 MQTT로 마이그레이션
 
 [장치 SDK][lnk-device-sdks]를 사용하는 경우 이전에 언급한 대로 AMQP 사용에서 MQTT로 전환하려면 클라이언트 초기화에서 프로토콜 매개 변수를 변경해야 합니다.
 
@@ -68,7 +68,7 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
 * **Username** 필드에 `{iothubhostname}/{device_id}/api-version=2018-06-30`를 사용합니다. 여기서 `{iothubhostname}`은 IoT Hub의 전체 CName입니다.
 
-    예를 들어, IoT Hub의 이름이 **contoso.azure devices.net**이고 장치의 이름이 **MyDevice01**이면 전체 **Username** 필드에 다음이 포함되어야 합니다.
+    예를 들어, IoT Hub의 이름이 **contoso.azure devices.net**이고 디바이스의 이름이 **MyDevice01**이면 전체 **Username** 필드에 다음이 포함되어야 합니다.
 
     `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
 
@@ -79,7 +79,7 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
   > [!NOTE]
   > X.509 인증서 인증을 사용하는 경우 SAS 토큰 암호는 필요하지 않습니다. 자세한 내용은 [Azure IoT Hub의 X.509 보안 설정][lnk-x509]을 참조하세요.
 
-  SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰 사용][lnk-sas-tokens]의 장치 섹션을 참조하세요.
+  SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰 사용][lnk-sas-tokens]의 디바이스 섹션을 참조하세요.
 
   테스트할 때 플랫폼 간 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 또는 [Device Explorer][lnk-device-explorer]를 사용하여 복사한 후 자체 코드에 붙여넣을 수 있는 SAS 토큰을 빠르게 생성할 수도 있습니다.
 
@@ -107,7 +107,7 @@ Azure IoT Toolkit의 경우
 
 MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채널의 이벤트를 발행합니다. 이 이벤트에에는 연결 문제 해결에 도움이 되는 추가 정보가 있습니다.
 
-장치 앱은 **CONNECT** 패킷에 **Will** 메시지를 지정할 수 있습니다. 장치 앱은 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **Will** 항목 이름으로 사용하여 원격 분석 메시지로서 전달할 **Will** 메시지를 정의할 수 있습니다. 이 경우 네트워크 연결이 닫혀 있지만 **DISCONNECT** 패킷이 이전에 장치에서 수신되지 않은 경우 IoT Hub는 **CONNECT** 패킷에 제공된 **Will** 메시지를 원격 분석 채널로 전송합니다. 원격 분석 채널은 기본 **이벤트** 엔드포인트 또는 IoT Hub 라우팅으로 정의되는 사용자 지정 엔드포인트일 수 있습니다. 메시지에는 **Will** 값이 할당된 **iothub MessageType** 속성이 지정됩니다.
+디바이스 앱은 **CONNECT** 패킷에 **Will** 메시지를 지정할 수 있습니다. 디바이스 앱은 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **Will** 항목 이름으로 사용하여 원격 분석 메시지로서 전달할 **Will** 메시지를 정의할 수 있습니다. 이 경우 네트워크 연결이 닫혀 있지만 **DISCONNECT** 패킷이 이전에 디바이스에서 수신되지 않은 경우 IoT Hub는 **CONNECT** 패킷에 제공된 **Will** 메시지를 원격 분석 채널로 전송합니다. 원격 분석 채널은 기본 **이벤트** 엔드포인트 또는 IoT Hub 라우팅으로 정의되는 사용자 지정 엔드포인트일 수 있습니다. 메시지에는 **Will** 값이 할당된 **iothub MessageType** 속성이 지정됩니다.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL 구성
 
@@ -165,7 +165,7 @@ client.loop_forever()
 
 ### <a name="sending-device-to-cloud-messages"></a>장치-클라우드 메시지 보내기
 
-성공적인 연결을 구축한 후 장치는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 장치를 사용할 수 있습니다. 예: 
+성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 장치를 사용할 수 있습니다. 예: 
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -177,16 +177,16 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 다음은 IoT Hub 구현 관련 동작의 목록입니다.
 
 * IoT Hub에서는 QoS 2 메시지를 지원하지 않습니다. 장치 앱이 **QoS 2**의 메시지를 게시하는 경우, IoT Hub는 네트워크 연결을 닫습니다.
-* IoT Hub에서는 보관 메시지가 지속되지 않습니다. 장치가 **RETAIN** 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 응용 프로그램 속성을 메시지에 추가합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
+* IoT Hub에서는 보관 메시지가 지속되지 않습니다. 디바이스가 **RETAIN** 플래그가 1로 설정된 메시지를 게시하는 경우, IoT Hub는 **x-opt-retain** 애플리케이션 속성을 메시지에 추가합니다. 이 경우에 IoT Hub는 보관 메시지를 유지하지 않고 백 엔드 앱에 전달합니다.
 * IoT Hub는 장치 당 하나의 활성 MQTT 연결만을 지원합니다. 동일한 장치 ID를 대신하는 모든 새 MQTT 연결로 인해 IoT Hub가 기존 연결을 삭제하게 됩니다.
 
 자세한 내용은 [메시징 개발자 가이드][lnk-messaging]를 참조하세요.
 
 ### <a name="receiving-cloud-to-device-messages"></a>클라우드-장치 메시지 수신
 
-IoT Hub에서 메시지를 수신하려면 장치는 `devices/{device_id}/messages/devicebound/#` 을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 장치가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
+IoT Hub에서 메시지를 수신하려면 디바이스는 `devices/{device_id}/messages/devicebound/#`을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 장치가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
 
-장치는 `devices/{device_id}/messages/devicebound/#` 항목 필터로 표시되는 장치 특정 엔드포인트를 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 설정된 후에는 장치가 구독 시간 이후 전송된 클라우드-장치 메시지를 수신합니다. 장치가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 장치가 **CleanSession 0**으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 장치가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 장치-끝점을 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
+장치는 `devices/{device_id}/messages/devicebound/#` 항목 필터로 표시되는 장치 특정 엔드포인트를 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 설정된 후에는 디바이스가 구독 시간 이후 전송된 클라우드-디바이스 메시지를 수신합니다. 장치가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 디바이스가 **CleanSession 0**으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 장치가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 장치-끝점을 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
 
 IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_id}/messages/devicebound/`, 또는 `devices/{device_id}/messages/devicebound/{property_bag}`와 함께 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 응용 프로그램 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 응용 프로그램 속성은 접두사가 없는 원래 속성 이름을 사용합니다.
 
@@ -198,7 +198,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 요청 ID는 [IoT Hub 메시징 개발자 가이드][lnk-messaging]에 따라 메시지 속성 값에 대한 유효한 값이며 status는 정수로 확인됩니다.
 
-응답 본문은 장치 쌍의 properties 섹션을 포함합니다. 다음 코드 조각에서는 “properties” 구성원으로 제한된 ID 레지스트리 항목의 본문을 보여 줍니다. 예:
+응답 본문은 디바이스 쌍의 properties 섹션을 포함합니다. 다음 코드 조각에서는 “properties” 구성원으로 제한된 ID 레지스트리 항목의 본문을 보여 줍니다. 예:
 
 ```json
 {
@@ -228,7 +228,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 ### <a name="update-device-twins-reported-properties"></a>장치 쌍의 reported 속성 업데이트
 
-reported 속성을 업데이트하기 위해 장치는 지정된 MQTT 토픽에서 게시를 통해 IoT Hub에 요청을 발급합니다. IoT Hub는 요청을 처리한 후에 다른 항목에 대한 게시를 통해 업데이트 작업의 성공 또는 실패 상태를 응답합니다. 해당 쌍 업데이트 요청의 결과에 대해 알리기 위해 장치에서 이 토픽을 구독할 수 있습니다. MQTT에서 이 형식의 요청/응답 상호 작용을 구현하려면 해당 업데이트 요청의 장치에서 처음 제공된 요청 ID(`$rid`)의 개념을 활용합니다. 이 요청 ID는 IoT Hub의 응답에도 포함되어 장치가 이전의 특정 요청에 대한 응답을 상호 연결하도록 합니다.
+reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토픽에서 게시를 통해 IoT Hub에 요청을 발급합니다. IoT Hub는 요청을 처리한 후에 다른 항목에 대한 게시를 통해 업데이트 작업의 성공 또는 실패 상태를 응답합니다. 해당 쌍 업데이트 요청의 결과에 대해 알리기 위해 디바이스에서 이 토픽을 구독할 수 있습니다. MQTT에서 이 형식의 요청/응답 상호 작용을 구현하려면 해당 업데이트 요청의 디바이스에서 처음 제공된 요청 ID(`$rid`)의 개념을 활용합니다. 이 요청 ID는 IoT Hub의 응답에도 포함되어 디바이스가 이전의 특정 요청에 대한 응답을 상호 연결하도록 합니다.
 
 다음 시퀀스에서는 장치가 IoT Hub의 장치 쌍에서 보고된 속성을 업데이트하는 방법을 설명합니다.
 
@@ -268,7 +268,7 @@ twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
 client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
 ```
 
-위의 쌍 reported 속성 업데이트 작업이 성공하면 IoT Hub의 게시 메시지에는 다음 토픽이 포함됩니다. `$iothub/twin/res/204/?$rid=1&$version=6` 여기서 `204`는 성공을 나타내는 상태 코드이고, `$rid=1`은 해당 코드에서 장치에 의해 제공된 요청 ID에 해당하고, `$version`은 업데이트 후에 장치 쌍의 reported 속성 섹션 버전에 해당합니다.
+위의 쌍 reported 속성 업데이트 작업이 성공하면 IoT Hub의 게시 메시지에는 다음 토픽이 포함됩니다. `$iothub/twin/res/204/?$rid=1&$version=6` 여기서 `204`는 성공을 나타내는 상태 코드이고, `$rid=1`은 해당 코드에서 디바이스에 의해 제공된 요청 ID에 해당하고, `$version`은 업데이트 후에 디바이스 쌍의 reported 속성 섹션 버전에 해당합니다.
 
 자세한 내용은 [장치 쌍 개발자 가이드][lnk-devguide-twin]를 참조하세요.
 
@@ -300,7 +300,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 ### <a name="additional-considerations"></a>추가 고려 사항
 
-최종 고려 사항에서 클라이언트 쪽에서 MQTT 프로토콜 동작을 사용자 지정해야 하는 경우 [Azure IoT 프로토콜 게이트웨이][lnk-azure-protocol-gateway]를 검토해야 합니다. 이 소프트웨어를 통해 IoT Hub와 직접 인터페이스되는 고성능 사용자 지정 프로토콜을 배포할 수 있습니다. Azure IoT 프로토콜 게이트웨이를 사용하면 brownfield MQTT 배포를 수용하는 장치 프로토콜 또는 기타 사용자 지정 프로토콜을 사용자 지정할 수 있습니다. 그렇지만 이 방법을 사용하는 경우 사용자 지정 프로토콜 게이트웨이를 실행하고 작동해야 합니다.
+최종 고려 사항에서 클라이언트 쪽에서 MQTT 프로토콜 동작을 사용자 지정해야 하는 경우 [Azure IoT 프로토콜 게이트웨이][lnk-azure-protocol-gateway]를 검토해야 합니다. 이 소프트웨어를 통해 IoT Hub와 직접 인터페이스되는 고성능 사용자 지정 프로토콜을 배포할 수 있습니다. Azure IoT 프로토콜 게이트웨이를 사용하면 brownfield MQTT 배포를 수용하는 디바이스 프로토콜 또는 기타 사용자 지정 프로토콜을 사용자 지정할 수 있습니다. 그렇지만 이 방법을 사용하는 경우 사용자 지정 프로토콜 게이트웨이를 실행하고 작동해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

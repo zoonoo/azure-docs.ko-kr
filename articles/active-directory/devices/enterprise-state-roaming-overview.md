@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory의 엔터프라이즈 상태 로밍이란? | Microsoft Docs
-description: Windows 장치의 엔터프라이즈 상태 로밍 설정에 대한 정보를 제공합니다. 엔터프라이즈 상태 로밍은 사용자의 모든 Windows 장치에 통합된 환경을 제공하고 새 장치 구성에 드는 시간을 줄여 줍니다.
+description: Windows 디바이스의 Enterprise State Roaming 설정에 대한 정보를 제공합니다. 엔터프라이즈 상태 로밍은 사용자의 모든 Windows 장치에 통합된 환경을 제공하고 새 장치 구성에 드는 시간을 줄여 줍니다.
 services: active-directory
 keywords: 엔터프라이즈 상태 로밍이란, 엔터프라이즈 동기화, windows 클라우드
 documentationcenter: ''

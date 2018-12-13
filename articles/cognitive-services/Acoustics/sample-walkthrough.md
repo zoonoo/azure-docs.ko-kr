@@ -44,7 +44,7 @@ Unity 편집기에서 재생 단추를 클릭하여 장면에 어떤 소리가 �
 ![VR 사용](media/VRSupport.png)  
 
 VR 헤드셋을 PC에 연결합니다. **파일 > 빌드 설정**으로 이동한 후 **빌드 및 실행**을 클릭하여 VR 헤드셋에 샘플을 배포합니다. 헤드셋의 동작 컨트롤러를 사용하여 장면을 탐색하거나, 키보드의 W, A, S, D를 사용합니다.    
-Android 및 Oculus Go를 대상으로 지정하려면 **빌드 설정** 메뉴에서 Android를 선택합니다. **대상 전환**을 클릭하고 **빌드 및 실행**을 클릭합니다. 이렇게 하면 연결된 Android 장치에 샘플 장면이 배포됩니다. Android에 대한 Unity 개발 관련 내용은 [Unity 설명서](https://docs.unity3d.com/Manual/android-GettingStarted.html)를 참조하세요.
+Android 및 Oculus Go를 대상으로 지정하려면 **빌드 설정** 메뉴에서 Android를 선택합니다. **대상 전환**을 클릭하고 **빌드 및 실행**을 클릭합니다. 이렇게 하면 연결된 Android 디바이스에 샘플 장면이 배포됩니다. Android에 대한 Unity 개발 관련 내용은 [Unity 설명서](https://docs.unity3d.com/Manual/android-GettingStarted.html)를 참조하세요.
 
 ![Android를 대상으로 지정](media/TargetAndroid.png)  
 

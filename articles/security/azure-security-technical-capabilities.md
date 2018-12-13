@@ -47,7 +47,7 @@ Microsoft Azure를 사용하면 다음과 같은 작업을 수행할 수 있습�
 
 이러한 공유 책임 모델을 이해하는 것은 클라우드로 전환하려는 고객에게 필수적입니다. 클라우드 공급자는 보안 및 규정 준수 활동에 대해 상당한 이점을 제공하지만 이러한 장점만으로 고객이 데이터, 응용 프로그램 및 서비스 제품을 보호하지 않아도 되는 것은 아닙니다.
 
-IaaS 솔루션의 경우 고객은 운영 체제, 네트워크 구성, 응용 프로그램, ID, 클라이언트 및 데이터의 보호와 관리에 대해 책임 또는 공동 책임을 갖습니다.  IaaS 배포를 토대로 구축되는 PaaS 솔루션의 경우 고객은 응용 프로그램, ID, 클라이언트 및 데이터의 보호와 관리에 대해 책임 또는 공동 책임을 갖습니다. 그렇지만 SaaS 솔루션의 경우 고객이 계속해서 책임을 져야 합니다. 데이터가 올바르게 분류되는지 확인하고, 해당 사용자 및 끝점 장치를 관리하는 책임을 공유해야 합니다.
+IaaS 솔루션의 경우 고객은 운영 체제, 네트워크 구성, 응용 프로그램, ID, 클라이언트 및 데이터의 보호와 관리에 대해 책임 또는 공동 책임을 갖습니다.  IaaS 배포를 토대로 구축되는 PaaS 솔루션의 경우 고객은 응용 프로그램, ID, 클라이언트 및 데이터의 보호와 관리에 대해 책임 또는 공동 책임을 갖습니다. 그렇지만 SaaS 솔루션의 경우 고객이 계속해서 책임을 져야 합니다. 데이터가 올바르게 분류되는지 확인하고, 해당 사용자 및 끝점 디바이스를 관리하는 책임을 공유해야 합니다.
 
 이 문서에서 Azure 웹 사이트, Azure Active Directory, HDInsight, Media Services 등의 관련된 Microsoft Azure 플랫폼 구성 요소와 핵심 구성 요소 위에 계층화되는 기타 서비스를 자세히 다루지는 않습니다. 최소 수준의 일반 정보가 제공되지만, 사용자가 Microsoft에서 제공하고 이 백서에 제공된 링크에 포함되어 있는 기타 참조에 설명된 Azure 기본 개념에 익숙하다고 가정합니다.
 
@@ -67,7 +67,7 @@ Microsoft ID 및 액세스 관리 솔루션은 IT가 다중 요소 인증 및 �
 
 Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을 포함합니다.
 
-- 하이브리드 엔터프라이즈에서 사용자, 그룹 및 장치의 동기화를 유지하도록 각 사용자에 대한 단일 ID 만들기 및 관리
+- 하이브리드 엔터프라이즈에서 사용자, 그룹 및 디바이스의 동기화를 유지하도록 각 사용자에 대한 단일 ID 만들기 및 관리
 
 - 수천 개의 미리 통합된 SaaS 앱을 포함한 응용 프로그램에 대한 Single Sign-On 액세스 제공
 
@@ -89,7 +89,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 - 소비자 ID 및 액세스 관리
 
-- 장치 등록
+- 디바이스 등록
 
 - Privileged Identity Management
 
@@ -121,7 +121,7 @@ Azure Portal 또는 [Azure Active Directory 포털](http://aad.portal.azure.com/
 
 - 오류 보고서 – 외부 응용 프로그램에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
 
-- 사용자별 보고서 – 특정 사용자에 대한 장치/로그인 활동 데이터를 표시합니다.
+- 사용자별 보고서 – 특정 사용자에 대한 디바이스/로그인 활동 데이터를 표시합니다.
 
 - 활동 로그 - 최근 24시간, 최근 7일 또는 최근 30일 이내에 감사된 모든 이벤트의 레코드와 그룹 활동 변경 사항, 암호 재설정 및 등록 활동이 포함됩니다.
 
@@ -133,11 +133,11 @@ Azure Portal 또는 [Azure Active Directory 포털](http://aad.portal.azure.com/
 
 Azure Active Directory B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google, Amazon, LinkedIn)을 사용하거나 새 자격 증명(전자 메일 주소 및 암호 또는 사용자 이름 및 암호)을 만들어서 응용 프로그램을 등록할 수 있습니다.
 
-#### <a name="device-registration"></a>장치 등록
+#### <a name="device-registration"></a>디바이스 등록
 
-[Azure AD Device Registration](https://docs.microsoft.com/azure/active-directory/device-management-introduction)은 장치 기반 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) 시나리오의 기초입니다. 장치가 등록되면 Azure AD 장치 등록은 사용자가 로그인할 때 장치를 인증하는 데 사용되는 ID와 함께 장치를 제공합니다. 그런 다음 인증된 장치 및 그 장치의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 응용 프로그램에 조건부 액세스 정책을 적용할 수 있습니다.
+[Azure AD Device Registration](https://docs.microsoft.com/azure/active-directory/device-management-introduction)은 장치 기반 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-on-premises-setup) 시나리오의 기초입니다. 디바이스가 등록되면 Azure AD 디바이스 등록은 사용자가 로그인할 때 디바이스를 인증하는 데 사용되는 ID와 함께 디바이스를 제공합니다. 그런 다음 인증된 디바이스 및 그 디바이스의 특성을 사용하여 클라우드 및 온-프레미스에 호스트되는 애플리케이션에 조건부 액세스 정책을 적용할 수 있습니다.
 
-Intune과 같은 [MDM(모바일 장치 관리)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) 솔루션과 함께 사용할 경우 Azure Active Directory의 장치 특성이 장치에 대한 추가 정보로 업데이트됩니다. 이렇게 하면 장치의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다.
+Intune과 같은 [MDM(모바일 디바이스 관리)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) 솔루션과 함께 사용할 경우 Azure Active Directory의 디바이스 특성이 디바이스에 대한 추가 정보로 업데이트됩니다. 이렇게 하면 장치의 액세스를 적용하여 보안 및 규정 준수에 대한 표준을 충족하는 조건부 액세스 규칙을 만들 수 있습니다.
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 
@@ -272,7 +272,7 @@ Azure VPN 옵션에 대한 자세한 내용은 [VPN Gateway 계획 및 설계](h
 
 ### <a name="enforce-file-level-data-encryption"></a>파일 수준 데이터 암호화 적용
 
-[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx)는 암호화, ID 및 권한 부여 정책을 사용하여 파일 및 전자 메일을 보호합니다. Azure RMS는 조직 내부와 조직 외부에서 휴대폰, 태블릿 및 PC와 같은 여러 장치를 보호합니다. Azure RMS는 데이터가 조직의 경계를 벗어나는 경우에도 데이터를 유지하는 보호 수준을 추가하기 때문에 이 기능이 가능한 것입니다.
+[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx)는 암호화, ID 및 권한 부여 정책을 사용하여 파일 및 전자 메일을 보호합니다. Azure RMS는 조직 내부와 조직 외부에서 휴대폰, 태블릿 및 PC와 같은 여러 디바이스를 보호합니다. Azure RMS는 데이터가 조직의 경계를 벗어나는 경우에도 데이터를 유지하는 보호 수준을 추가하기 때문에 이 기능이 가능한 것입니다.
 
 Azure RMS를 사용하여 파일을 보호하면 [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html)를 완벽하게 지원하는 업계 표준 암호화를 사용하는 것입니다. Azure RMS를 활용하여 데이터를 보호하면 클라우드 저장소 서비스처럼 IT의 제어를 받지 않는 저장소로 파일이 복사되더라도 파일 보호가 유지되므로 안심할 수 있습니다. 전자 메일을 통해 공유되는 파일도 마찬가지입니다. 파일이 전자 메일 메시지의 첨부 파일로 보호되며 보호되는 첨부 파일을 여는 방법에 대한 지침이 함께 제공됩니다.
 Azure RMS 도입 계획을 세울 때 다음 사항을 권장합니다.

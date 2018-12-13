@@ -124,7 +124,7 @@ Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 
 위임된 로그인 ID가 사용되는 경우 값은 조직 내의 모든 도메인 또는 포리스트에 대해 고유하지 않을 수도 있습니다. 다른 두 가지 커넥터 그룹을 사용하여 이러한 응용 프로그램을 두 번 게시함으로써 이 문제를 방지할 수 있습니다. 각 응용 프로그램에는 다른 사용자 대상 그룹이 있으므로 다른 도메인에 해당 커넥터를 조인할 수 있습니다.
 
 ### <a name="configure-sso-for-different-identities"></a>다른 ID에 대한 SSO 구성
-1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office 365, Windows 10 장치 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  
+1. 주 ID가 전자 메일 주소가 되도록 Azure AD Connect 설정을 구성합니다(mail). 이 작업은 동기화 설정에서 **사용자 계정 이름** 필드를 변경하여 사용자 지정 프로세스의 일부로 수행됩니다. 또한 이러한 설정은 사용자가 ID 저장소로 Azure AD를 사용하는 Office 365, Windows 10 디바이스 및 다른 응용 프로그램에 로그인하는 방법을 결정합니다.  
    ![사용자 식별 스크린샷 - 사용자 계정 이름 드롭다운](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. 수정하려는 응용 프로그램에 대한 응용 프로그램 구성 설정에서 사용할 **위임된 로그인 ID** 를 선택합니다.
 

@@ -92,7 +92,7 @@ VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프�
 
 ![Azure 리소스 프로비전](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/provision.png)
 
-## <a name="build-and-upload-the-device-code"></a>장치 코드 빌드 및 업로드
+## <a name="build-and-upload-the-device-code"></a>디바이스 코드 빌드 및 업로드
 
 1. `Ctrl+P`(macOS: `Cmd + P`)를 사용하고 **task config-device-connection**을 입력합니다.
 
@@ -120,7 +120,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 ## <a name="change-device-id"></a>장치 ID 변경
 
-코드에서 사용자 지정된 장치 ID로 하드코딩된 **AZ3166**을 변경하려는 경우 [원격 모니터링 예제](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23)에 표시된 코드 줄을 수정합니다.
+코드에서 사용자 지정된 디바이스 ID로 하드코딩된 **AZ3166**을 변경하려는 경우 [원격 모니터링 예제](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23)에 표시된 코드 줄을 수정합니다.
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 

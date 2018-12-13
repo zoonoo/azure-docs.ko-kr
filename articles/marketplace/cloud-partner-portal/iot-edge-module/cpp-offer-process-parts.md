@@ -23,7 +23,7 @@ ms.locfileid: "51242556"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>IoT Edge 모듈 제품 게시 개요
 
-<table> <tr> <td>이 섹션에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>에 새로운 Azure IoT Edge 모듈 제안을 게시하는 방법을 설명합니다. IoT Edge 모듈은 IoT Edge 장치에서 실행하도록 만들어진 Docker 호환 컨테이너입니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스 또는 사용자 지정 솔루션 코드를 포함할 수 있습니다. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
+<table> <tr> <td>이 섹션에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>에 새로운 Azure IoT Edge 모듈 제안을 게시하는 방법을 설명합니다. IoT Edge 모듈은 IoT Edge 디바이스에서 실행하도록 만들어진 Docker 호환 컨테이너입니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스 또는 사용자 지정 솔루션 코드를 포함할 수 있습니다. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
 
 ## <a name="publishing-process"></a>게시 프로세스
 

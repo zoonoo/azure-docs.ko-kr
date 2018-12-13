@@ -25,7 +25,7 @@ ms.locfileid: "47451989"
 
 이 문서에서는 PaaS 웹 및 모바일 응용 프로그램 보안을 위한 [Azure App Services](../app-service/app-service-web-overview.md) 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
 
-Azure App Service는 플랫폼이나 장치를 위한 웹 및 모바일 앱을 만들고 어디서나 클라우드 또는 온-프레미스에 있는 데이터에 연결할 수 있는 PaaS(Platform as a Service) 서비스 제품군입니다. 앱 서비스는 이전에 개별적으로 Azure 웹 사이트 및 Azure Mobile Services로 전달한 웹 및 모바일 기능을 포함합니다. 또한 비즈니스 프로세스를 자동화하고 클라우드 API를 호스팅하는 새 기능을 포함합니다. App Service는 단일 통합 서비스로서 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다.
+Azure App Service는 플랫폼이나 디바이스를 위한 웹 및 모바일 앱을 만들고 어디서나 클라우드 또는 온-프레미스에 있는 데이터에 연결할 수 있는 PaaS(Platform as a Service) 서비스 제품군입니다. 앱 서비스는 이전에 개별적으로 Azure 웹 사이트 및 Azure Mobile Services로 전달한 웹 및 모바일 기능을 포함합니다. 또한 비즈니스 프로세스를 자동화하고 클라우드 API를 호스팅하는 새 기능을 포함합니다. App Service는 단일 통합 서비스로서 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다.
 
 ## <a name="authenticate-through-azure-active-directory-ad"></a>Azure AD(Active Directory)를 통해 인증
 App Service는 ID 공급자를 위한 OAuth 2.0 서비스를 제공합니다. OAuth 2.0은 클라이언트 개발자의 단순성에 기반하여 웹 응용 프로그램, 데스크톱 응용 프로그램 및 휴대폰에 대한 특정 권한 부여 흐름을 제공합니다. Azure AD는 OAuth 2.0을 사용하여 모바일 및 웹 응용 프로그램에 대한 액세스 권한을 부여합니다. 자세히 알아보려면 [Azure App Service에서 인증 및 권한 부여](../app-service/app-service-authentication-overview.md)를 참조하세요.

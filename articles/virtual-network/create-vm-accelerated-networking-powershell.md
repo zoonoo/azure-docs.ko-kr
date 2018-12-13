@@ -209,7 +209,7 @@ Azure에서 VM을 만들면 VM에 연결하고 Windows에서 드라이버가 설
 3. [가상 머신 만들기](#create-the-virtual-machine)에서 입력한 사용자 이름과 암호를 입력합니다. Azure에서 Windows VM에 연결된 적이 없는 경우 [가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine)을 참조하세요.
 4. [Windows 시작] 단추를 마우스 오른쪽 단추로 클릭한 다음 **장치 관리자**를 클릭합니다. **네트워크 어댑터** 노드를 펼칩니다. 다음 그림과 같이 **Mellanox ConnectX-3 Virtual Function Ethernet Adapter**가 나타나는지 확인합니다.
 
-    ![장치 관리자](./media/create-vm-accelerated-networking/device-manager.png)
+    ![디바이스 관리자](./media/create-vm-accelerated-networking/device-manager.png)
 
 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.
 

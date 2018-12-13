@@ -117,7 +117,7 @@ items:
     items:
     - name: Azure portal
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
-  - name: 여러 정책 기반 VPN 장치 연결
+  - name: 여러 정책 기반 VPN 디바이스 연결
     items:
     - name: Azure PowerShell
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md

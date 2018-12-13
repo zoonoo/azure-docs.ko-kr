@@ -177,7 +177,7 @@ NAME                          READY   STATUS      RESTARTS   AGE
 samples-tf-mnist-demo-smnr6   0/1     Completed   0          3m
 ```
 
-이제 [kubectl logs][kubectl-logs] 명령을 사용하여 Pod 로그를 봅니다. 다음 Pod 로그 예제에서 적절한 GPU 장치 `Tesla K80`이 발견되었음을 확인합니다. 자체 Pod의 이름을 입력합니다.
+이제 [kubectl logs][kubectl-logs] 명령을 사용하여 Pod 로그를 봅니다. 다음 Pod 로그 예제에서 적절한 GPU 디바이스 `Tesla K80`이 발견되었음을 확인합니다. 자체 Pod의 이름을 입력합니다.
 
 ```
 $ kubectl logs samples-tf-mnist-demo-smnr6
@@ -264,7 +264,7 @@ kubectl delete jobs samples-tf-mnist-demo
 
 ## <a name="troubleshoot-gpu-availability"></a>GPU 가용성 문제 해결
 
-GPU를 노드에서 사용할 수 없는 경우 nVidia 장치 플러그 인에 대한 DaemonSet를 배포해야 할 수도 있습니다. 이 DaemonSet는 각 노드에서 Pod를 실행하여 GPU에 필요한 드라이버를 제공합니다.
+GPU를 노드에서 사용할 수 없는 경우 nVidia 디바이스 플러그 인에 대한 DaemonSet를 배포해야 할 수도 있습니다. 이 DaemonSet는 각 노드에서 Pod를 실행하여 GPU에 필요한 드라이버를 제공합니다.
 
 먼저, *gpu-resources* 같은 [kubectl create namespace][kubectl-create] 명령을 사용하여 네임스페이스를 만듭니다.
 

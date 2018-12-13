@@ -151,7 +151,7 @@ ms.locfileid: "43306148"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [SQL Server EKM(확장 가능 키 관리)](https://msdn.microsoft.com/library/bb895340), [Azure Key Vault(SQL Server)를 사용한 확장 가능 키 관리](https://msdn.microsoft.com/library/dn198405) |
-| **단계** | SQL Server EKM(확장 가능 키 관리)을 사용하면 데이터베이스 파일을 보호하는 암호화 키를 스마트 카드, USB 장치 또는 EKM/HSM 모듈과 같은 외부 장치에 저장할 수 있습니다. 또한 데이터베이스 관리자(sysadmin 그룹의 멤버 제외)로부터 데이터를 보호할 수 있습니다. 데이터베이스 사용자만 외부 EKM/HSM 모듈에 액세스할 수 있는 암호화 키를 사용하여 데이터를 암호화할 수 있습니다. |
+| **단계** | SQL Server EKM(확장 가능 키 관리)을 사용하면 데이터베이스 파일을 보호하는 암호화 키를 스마트 카드, USB 디바이스 또는 EKM/HSM 모듈과 같은 외부 디바이스에 저장할 수 있습니다. 또한 데이터베이스 관리자(sysadmin 그룹의 멤버 제외)로부터 데이터를 보호할 수 있습니다. 데이터베이스 사용자만 외부 EKM/HSM 모듈에 액세스할 수 있는 암호화 키를 사용하여 데이터를 암호화할 수 있습니다. |
 
 ## <a id="keys-engine"></a>데이터베이스 엔진에 암호화 키를 공개하지 않아야 하는 경우 AlwaysEncrypted 기능 사용
 
@@ -171,7 +171,7 @@ ms.locfileid: "43306148"
 | **구성 요소**               | IoT 장치 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
-| **특성**              | 장치 OS - Windows IoT Core, 장치 연결 - Azure IoT 장치 SDK |
+| **특성**              | 디바이스 OS - Windows IoT Core, 디바이스 연결 - Azure IoT 디바이스 SDK |
 | **참조**              | [Windows IoT Core의 TPM](https://developer.microsoft.com/windows/iot/docs/tpm)(영문), [Windows IoT Core에서 TPM 설정](https://developer.microsoft.com/windows/iot/win10/setuptpm)(영문), [Azure IoT 장치 SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM)(영문) |
 | **단계** | 대칭 또는 인증서 개인 키는 TPM 또는 스마트 카드 칩과 같은 하드웨어로 보호된 저장소에 안전하게 보관됩니다. Windows 10 IoT Core는 TPM의 사용자를 지원하며, 사용할 수 있는 몇 가지 호환 가능한 TPM이 있습니다. https://developer.microsoft.com/windows/iot/win10/tpm 펌웨어 또는 불연속 TPM을 사용하는 것이 좋습니다. 소프트웨어 TPM은 개발 및 테스트 용도로만 사용해야 합니다. TPM을 사용할 수 있고 이 TPM에 키를 프로비전하는 경우 토큰을 생성하는 코드는 중요한 정보를 하드 코딩하지 않고 작성해야 합니다. | 
 
@@ -196,7 +196,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 게이트웨이 선택 - Azure IoT Hub |
 | **참조**              | 해당 없음  |
-| **단계** | IoT Hub는 장치 ID 레지스트리를 포함하고, 장치를 프로비전하는 동안 임의 대칭 키를 자동으로 생성합니다. Azure IoT Hub ID 레지스트리의 이 기능을 사용하여 인증에 사용되는 키를 생성하는 것이 좋습니다. 또한 IoT Hub를 사용하면 장치를 만드는 동안 키를 지정할 수 있습니다. 장치 프로비전 중에 IoT Hub 외부에서 키를 생성하는 경우 임의 대칭 키 또는 256비트 이상의 키를 만드는 것이 좋습니다. |
+| **단계** | IoT Hub는 디바이스 ID 레지스트리를 포함하고, 디바이스를 프로비전하는 동안 임의 대칭 키를 자동으로 생성합니다. Azure IoT Hub ID 레지스트리의 이 기능을 사용하여 인증에 사용되는 키를 생성하는 것이 좋습니다. 또한 IoT Hub를 사용하면 장치를 만드는 동안 키를 지정할 수 있습니다. 장치 프로비전 중에 IoT Hub 외부에서 키를 생성하는 경우 임의 대칭 키 또는 256비트 이상의 키를 만드는 것이 좋습니다. |
 
 ## <a id="pin-remote"></a>PIN 사용이 필요하고 원격 지우기를 허용하는 장치 관리 정책이 있는지 확인
 
@@ -207,7 +207,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | PIN 사용이 필요하고 원격 지우기를 허용하는 장치 관리 정책이 있는지 확인합니다. |
+| **단계** | PIN 사용이 필요하고 원격 지우기를 허용하는 디바이스 관리 정책이 있는지 확인합니다. |
 
 ## <a id="bitlocker"></a>PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: Bitlocker)하는 장치 관리 정책이 있는지 확인
 
@@ -218,7 +218,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: Bitlocker)하는 장치 관리 정책이 있는지 확인합니다. |
+| **단계** | PIN/암호/자동 잠금이 필요하고 모든 데이터를 암호화(예: Bitlocker)하는 디바이스 관리 정책이 있는지 확인합니다. |
 
 ## <a id="rolled-server"></a>Identity Server를 사용할 때 서명 키가 롤오버되는지 확인
 

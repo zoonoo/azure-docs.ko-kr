@@ -77,7 +77,7 @@ SUSE의 지원이 필요한 경우 [가이드][suse-pacemaker-support-log-files]
 | 사이트 2의 작업자 노드 2 | hso-hana-vm-s2-2  | 10.0.0.42 |
 | | | |
 | 주 결정자 노드 | hso-hana-dm | 10.0.0.13 |
-| SBD 장치 서버 | hso-hana-sbd | 10.0.0.19 |
+| SBD 디바이스 서버 | hso-hana-sbd | 10.0.0.19 |
 | | | |
 | NFS 서버 1 | hso-nfs-vm-0 | 10.0.0.15 |
 | NFS 서버 2 | hso-nfs-vm-1 | 10.0.0.14 |
@@ -278,7 +278,7 @@ systemctl restart corosync
 
 
 
-## <a name="sbd-device"></a>SBD 장치
+## <a name="sbd-device"></a>SBD 디바이스
 
 Azure VM에서 SBD 디바이스를 설정하는 방법은 [SBD 펜싱](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing)에 설명되어 있습니다.
 

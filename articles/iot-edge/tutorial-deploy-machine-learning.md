@@ -18,16 +18,16 @@ ms.locfileid: "51977213"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
-비즈니스 논리를 직접 IoT Edge 장치에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 장치가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure ML에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/service/how-to-deploy-to-iot.md)를 참조하세요.
+비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 장치가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure ML에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/service/how-to-deploy-to-iot.md)를 참조하세요.
 
-이 자습서에서 만드는 Azure Machine Learning 모듈은 장치에서 생성된 환경 데이터를 읽고, 메시지에 비정상 레이블을 지정하기도 합니다.
+이 자습서에서 만드는 Azure Machine Learning 모듈은 디바이스에서 생성된 환경 데이터를 읽고, 메시지에 비정상 레이블을 지정하기도 합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Machine Learning 모듈 만들기
 > * Azure 컨테이너 레지스트리에 모듈 컨테이너 푸시
-> * Azure Machine Learning 모듈을 IoT Edge 장치에 배포
+> * Azure Machine Learning 모듈을 IoT Edge 디바이스에 배포
 > * 생성된 데이터 보기
 
 >[!NOTE]
@@ -105,7 +105,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 6. **machinelearningmodule** 선택
 7. 이제 컨테이너의 전체 이미지 경로가 있습니다. 다음 섹션에서 사용하기 위해 이 이미지 경로를 적어둡니다. **<registry_name>.azurecr.io/machinelearningmodule:1**처럼 표시됩니다.
 
-## <a name="deploy-to-your-device"></a>새 장치에 배포
+## <a name="deploy-to-your-device"></a>새 디바이스에 배포
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub로 이동합니다.
 
@@ -117,7 +117,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
    ![레지스트리 자격 증명 추가](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
-1. 이전에 IoT Edge 장치에 tempSensor 모듈을 배포한 경우 자동으로 입력될 수 있습니다. 모듈 목록에 없는 경우 모듈을 추가합니다.
+1. 이전에 IoT Edge 디바이스에 tempSensor 모듈을 배포한 경우 자동으로 입력될 수 있습니다. 모듈 목록에 없는 경우 모듈을 추가합니다.
 
     1. **추가**를 클릭하고 **IoT Edge 모듈**을 선택합니다.
     2. **이름** 필드에 `tempSensor`을 입력합니다.
@@ -148,7 +148,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 1. **배포 검토** 단계에서 **제출**을 선택합니다.
 
-1. 장치 세부 정보 페이지로 돌아가서 **새로 고침**을 선택합니다.  **tempSensor** 모듈 및 IoT Edge 런타임 모듈과 함께 실행되는 새로운 **machinelearningmodule**이 표시됩니다.
+1. 디바이스 세부 정보 페이지로 돌아가서 **새로 고침**을 선택합니다.  **tempSensor** 모듈 및 IoT Edge 런타임 모듈과 함께 실행되는 새로운 **machinelearningmodule**이 표시됩니다.
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
@@ -178,7 +178,7 @@ Linux 장치에서 이러한 명령을 수행하는 경우 승격된 권한에 �
 
 다음 단계에서는 IoT 허브에 도착한 장치-클라우드 메시지를 모니터링하도록 Visual Studio Code를 설정하는 방법을 보여 줍니다. 
 
-1. Visual Studio Code에서 **IoT Hub 장치**를 선택합니다.
+1. Visual Studio Code에서 **IoT Hub 디바이스**를 선택합니다.
 
 2. **...** 를 선택하고 나서 메뉴에서 **IoT Hub 연결 문자열 설정**을 선택합니다.
 
@@ -194,7 +194,7 @@ Linux 장치에서 이러한 명령을 수행하는 경우 승격된 권한에 �
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 

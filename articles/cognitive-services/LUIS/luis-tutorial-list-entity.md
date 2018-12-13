@@ -40,7 +40,7 @@ ms.locfileid: "47036782"
 이 자습서에서는 모든 코드를 [LUIS 샘플 github 리포지토리](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity)에서 사용할 수 있습니다. 
 
 ## <a name="use-homeautomation-app"></a>HomeAutomation 앱 사용
-HomeAutomation 앱은 조명, 엔터테인먼트 시스템 및 환경 제어(예: 냉난방)와 같은 장치 제어 기능을 제어합니다. 이러한 시스템은 제조업체 이름, 애칭, 머리글자어 및 속어를 포함할 수 있는 여러 개의 다른 이름이 있습니다. 
+HomeAutomation 앱은 조명, 엔터테인먼트 시스템 및 환경 제어(예: 냉난방)와 같은 디바이스 제어 기능을 제어합니다. 이러한 시스템은 제조업체 이름, 애칭, 머리글자어 및 속어를 포함할 수 있는 여러 개의 다른 이름이 있습니다. 
 
 서로 다른 문화권 및 인구 통계에서 많은 이름을 갖는 하나의 시스템은 thermostat(자동 온도 조절기)입니다. thermostat은 집이나 빌딩의 냉난방 시스템을 제어할 수 있습니다.
 
@@ -52,12 +52,12 @@ HomeAutomation 앱은 조명, 엔터테인먼트 시스템 및 환경 제어(예
 |2|turn up the heat|HomeAutomation.Device - “heat”|0.784990132|
 |3|make it colder|||
 
-처음 두 발언은 다른 장치에 매핑됩니다. 세 번째 발언 “make it colder”는 장치에 매핑되지 않고 결과를 요청합니다. LUIS는 “colder”라는 용어를 알지 못합니다. 즉, thermostat이 요청된 장치입니다. 이상적으로 LUIS는 동일한 장치에 대한 이러한 모든 발언을 해결해야 합니다. 
+처음 두 발언은 다른 디바이스에 매핑됩니다. 세 번째 발언 “make it colder”는 디바이스에 매핑되지 않고 결과를 요청합니다. LUIS는 “colder”라는 용어를 알지 못합니다. 즉, thermostat이 요청된 디바이스입니다. 이상적으로 LUIS는 동일한 디바이스에 대한 이러한 모든 발언을 해결해야 합니다. 
 
 ## <a name="use-a-list-entity"></a>목록 엔터티 사용
-HomeAutomation.Device 엔터티는 적은 수의 장치 또는 이름 변형이 적은 경우에 적합합니다. 사무실 건물 또는 캠퍼스의 경우 장치 이름은 HomeAutomation.Device 엔터티의 유용성 이상으로 증가합니다. 
+HomeAutomation.Device 엔터티는 적은 수의 디바이스 또는 이름 변형이 적은 경우에 적합합니다. 사무실 건물 또는 캠퍼스의 경우 디바이스 이름은 HomeAutomation.Device 엔터티의 유용성 이상으로 증가합니다. 
 
-건물 또는 캠퍼스 내 장치에 대한 용어 집합이 알려진 집합이므로 그것이 거대한 집합인 경우라도 **목록 엔터티**는 이 시나리오에 적합합니다. 목록 엔터티를 사용하면 LUIS가 thermostat에 대한 집합에서 가능한 값을 수신하고, 단일 장치 “thermostat”에서 해결할 수 있습니다. 
+건물 또는 캠퍼스 내 디바이스에 대한 용어 집합이 알려진 집합이므로 그것이 거대한 집합인 경우라도 **목록 엔터티**는 이 시나리오에 적합합니다. 목록 엔터티를 사용하면 LUIS가 thermostat에 대한 집합에서 가능한 값을 수신하고, 단일 디바이스 “thermostat”에서 해결할 수 있습니다. 
 
 이 자습서에서는 thermostat으로 엔터티 목록을 만듭니다. 이 자습서에서 thermostat에 대한 대체 이름은 다음과 같습니다. 
 
@@ -149,7 +149,7 @@ node publish.js
 ```
 
 ## <a name="query-the-app"></a>앱 쿼리 
-LUIS가 장치 유형을 확인하는 데 목록 엔터티가 유용하다는 점을 증명하기 위해 엔드포인트에서 앱을 쿼리합니다.
+LUIS가 디바이스 유형을 확인하는 데 목록 엔터티가 유용하다는 점을 증명하기 위해 엔드포인트에서 앱을 쿼리합니다.
 
 Node.js 파일을 만들고 다음 코드를 복사합니다. endpointKey, appId 및 지역 값을 변경합니다. 할당량 제한을 초과하여 이 파일을 호출하지 않을 경우 사용자의 authoringKey를 사용할 수 있습니다.
 
@@ -219,4 +219,4 @@ node train.js
 
 ## <a name="next-steps"></a>다음 단계
 
-다른 목록 엔터티를 만들어 장치 위치를 방, 층 또는 건물로 확장할 수 있습니다. 
+다른 목록 엔터티를 만들어 디바이스 위치를 방, 층 또는 건물로 확장할 수 있습니다. 
