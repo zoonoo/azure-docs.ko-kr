@@ -1,6 +1,6 @@
 ---
 layout: LandingPage
-description: 문제 해결 가상 머신 배포를 만드는 방법을 알아봅니다.
+description: 가상 머신 배포 문제를 해결하는 방법을 알아봅니다.
 title: Azure Virtual Machines 설명서 문제 해결 | Microsoft Docs
 services: virtual-machines
 author: genlin
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: fadff0e3cab98f7b0aa69a6fe29c3d9ace31face
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 493c8053af1648e415fc774dd0031e18554e0458
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465494"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877433"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Azure 가상 머신 문제 해결
 
@@ -61,7 +61,7 @@ ms.locfileid: "49465494"
     - [Windows](troubleshoot-deploy-vm-windows.md)
 - [장치 이름이 변경됨](troubleshoot-device-names-problems.md)
 - VM 복구 액세스
-    - Windows
+    -  Windows
         - [PowerShell](troubleshoot-recovery-disks-windows.md)
         - [Azure Portal](troubleshoot-recovery-disks-portal-windows.md)
     - Linux

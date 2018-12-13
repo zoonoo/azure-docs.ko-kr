@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: d65c8653bc039b591f1c0fb711dfe68e3fbacd88
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353564"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888514"
 ---
 # <a name="configure-deployment-sources"></a>배포 원본 구성
 
@@ -38,7 +38,8 @@ Azure Stack에서 app Service는 여러 소스 제어 공급자 로부터 주문
 ## <a name="view-deployment-sources-in-app-service-administration"></a>App Service 관리에서 배포 원본 보기
 
 1. Azure Stack 관리 포털에 로그인 (https://adminportal.local.azurestack.external) 서비스 관리자로 합니다.
-2. **리소스 공급자**로 이동하여 **App Service 리소스 공급자 관리**를 선택합니다.  ![App Service 리소스 공급자 관리][1]
+2. 이동할 **모든 서비스** 선택 합니다 **App Service**합니다.
+    ![App Service 리소스 공급자 관리][1]
 3. **소스 제어 구성**을 클릭합니다. 모든 구성 된 배포 원본 목록이 볼 수 있습니다.
     ![App Service 리소스 공급자 관리 소스 제어 구성][2]
 
@@ -49,7 +50,7 @@ Azure Stack에서 app Service는 여러 소스 제어 공급자 로부터 주문
 1. GitHub에 로그인, 이동할 https://www.github.com/settings/developers를 클릭 하 고 **새 응용 프로그램을 등록**합니다.
     ![GitHub-새 응용 프로그램 등록][3]
 2. 입력을 **응용 프로그램 이름**; 예를 들어 **App Service on Azure Stack**합니다.
-3. **홈 페이지 URL**을 입력합니다. 홈 페이지 URL에는 Azure Stack portal 주소 여야 합니다. 예: https://portal.local.azurestack.external.
+3. **홈 페이지 URL**을 입력합니다. 홈 페이지 URL에는 Azure Stack portal 주소 여야 합니다. 예: https://portal.local.azurestack.external
 4. 입력을 **응용 프로그램 설명**합니다.
 5. **권한 부여 콜백 URL**을 입력합니다. 기본 Azure Stack 배포의 경우 URL은 형태로 https://portal.local.azurestack.external/TokenAuthorize합니다. 다른 도메인에서 실행 하는 경우에 local.azurestack.external에 대 한 도메인 이름으로를 바꿉니다.
 6. **응용 프로그램 등록**을 클릭합니다. 나열 된 페이지가 표시 됩니다는 **클라이언트 ID** 하 고 **클라이언트 비밀** 응용 프로그램에 대 한 합니다.

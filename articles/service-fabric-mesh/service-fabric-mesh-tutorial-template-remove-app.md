@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/15/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f366413ae5f758601dfebc2a29ff848feb756083
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9b72ca2a166e805d960eab47835f449e0f5b991e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960433"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889517"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>자습서: 응용 프로그램 및 리소스 제거
 
@@ -47,7 +47,7 @@ ms.locfileid: "46960433"
 
 * Azure 구독이 아직 없으면 시작하기 전에 [무료 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
-* [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md)을 열거나 [Azure CLI 및 Service Fabric Mesh CLI를 로컬에 설치](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally)합니다.
+* [Azure Cloud Shell](service-fabric-mesh-howto-setup-cli.md)을 열거나 [Azure CLI 및 Service Fabric Mesh CLI를 로컬에 설치](service-fabric-mesh-howto-setup-cli.md#install-the-azure-service-fabric-mesh-cli)합니다.
 
 ## <a name="delete-the-resource-group-and-all-the-resources"></a>리소스 그룹 및 모든 리소스 삭제
 

@@ -3,7 +3,7 @@ title: PowerShell 예제 - 활성 지역 복제 - 풀된 Azure SQL Database | Mi
 description: 풀된 Azure SQL Database에 활성 지역 복제를 설정하고 장애 조치(Failover)하는 Azure PowerShell 예제 스크립트
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: 727333f07d5ab09714b866851b21909e03f9ebfc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: cb1460b6d0858a5d7fce795e845095b2bb8943f0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056056"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879862"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-pooled-azure-sql-database"></a>PowerShell을 사용하여 풀된 Azure SQL Database에 대한 활성 지역 복제 구성
 

@@ -126,13 +126,13 @@
 ### [장기 실행 작업 처리](media-services-dotnet-long-operations.md)
 ### [분할된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 
-## [클립 콘텐츠](media-services-azure-media-clipper-overview.md)
-### [시작](media-services-azure-media-clipper-getting-started.md)
-### [비디오 로드](media-services-azure-media-clipper-load-assets.md)
-### [바로 가기 키 구성](media-services-azure-media-clipper-keyboard-shortcuts.md)
-### [지역화 구성](media-services-azure-media-clipper-localization.md)
-### [잘라내기 작업 제출](media-services-azure-media-clipper-submit-job.md)
-### [Azure Portal](media-services-azure-media-clipper-portal.md)
+<!-- ## [Clip content](media-services-azure-media-clipper-overview.md)
+### [Getting started](media-services-azure-media-clipper-getting-started.md)
+### [Load videos](media-services-azure-media-clipper-load-assets.md)
+### [Configure keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Configure localization](media-services-azure-media-clipper-localization.md)
+### [Submit clipping jobs](media-services-azure-media-clipper-submit-job.md)
+### [Azure portal](media-services-azure-media-clipper-portal.md) -->
 
 ## [콘텐츠 보호](media-services-content-protection-overview.md)
 ### [저장소 암호화](media-services-rest-storage-encryption.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 249e286b16b78643c33b567f705a4c92991f5553
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b2243851d62cc17dc52407dce051cc2e0f4bcb12
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404871"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889211"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Log Analytics를 사용하여 Kubernetes 클러스터 모니터링
 
@@ -143,7 +143,7 @@ omsagent   3         3         3         0            3           <none>        
 
 ## <a name="access-monitoring-data"></a>모니터링 데이터 액세스
 
-Log Analytics 포털 또는 Azure Portal의 [컨테이너 솔루션](../../log-analytics/log-analytics-containers.md)을 통해 컨테이너 모니터링 데이터를 보고 분석합니다.
+Log Analytics 포털 또는 Azure Portal의 [컨테이너 솔루션](../../azure-monitor/insights/containers.md)을 통해 컨테이너 모니터링 데이터를 보고 분석합니다.
 
 [Log Analytics 포털](https://mms.microsoft.com)을 사용하여 컨테이너 솔루션을 설치하려면 **솔루션 갤러리**로 이동합니다. 그런 다음 **컨테이너 솔루션**을 추가합니다. 또는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.containersoms?tab=Overview)에서 컨테이너 솔루션을 추가합니다.
 
@@ -153,7 +153,7 @@ Log Analytics 포털의 대시보드에서 **컨테이너** 요약 타일을 찾
 
 마찬가지로 Azure Portal에서 **Log Analytics**로 이동하고 작업 영역 이름을 선택합니다. **컨테이너** 요약 타일을 보려면 **솔루션** > **컨테이너**를 클릭합니다. 세부 정보를 보려면 타일을 클릭합니다.
 
-모니터링 데이터 쿼리 및 분석에 대한 자세한 지침은 [Azure Log Analytics 설명서](../../log-analytics/log-analytics-queries.md)를 참조하세요.
+모니터링 데이터 쿼리 및 분석에 대한 자세한 지침은 [Azure Log Analytics 설명서](../../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

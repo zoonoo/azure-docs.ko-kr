@@ -79,7 +79,7 @@ items:
     - name: 로그 데이터 수집 시간
       href: platform/data-ingestion-time.md
     - name: 메트릭 저장소에 대한 사용자 지정 메트릭
-      href: ../monitoring-and-diagnostics/metrics-custom-overview.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-custom-overview.md
     - name: 데이터 보안
       items:
       - name: 로그 데이터
@@ -123,17 +123,17 @@ items:
     - name: 경고
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
     - name: 클래식 경고
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-classic.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-classic.overview.md
     - name: 스마트 그룹
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json
     - name: 자동 크기 조정
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
     - name: 메트릭 경고
-      href: ../monitoring-and-diagnostics/alert-metric-overview.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-metric-overview.md
     - name: 로그 경고
-      href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-unified-log.md
     - name: 활동 로그 경고
-      href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/activity-log-alerts.md
   - name: 데이터 가상화
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: 파트너 통합
@@ -207,27 +207,27 @@ items:
       - name: Azure 진단 확장
         items:
         - name: 개요
-          href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-overview.md
         - name: Azure Storage에 보내기
-          href: ../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-to-storage.md
         - name: Application Insights로 보내기
-          href: ../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-to-application-insights.md
         - name: Event Hubs로 보내기
-          href: ../monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-stream-event-hubs.md
         - name: 문제 해결
-          href: ../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-troubleshooting.md
         - name: Resource Manager 템플릿을 사용하여 진단 설정을 사용하도록 설정
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: JSON 줄 진단 로그 형식에 대한 준비
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
         - name: 메트릭 저장소에 대한 VM 게스트
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
         - name: 메트릭 저장소에 대한 VM 확장 집합 게스트
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
         - name: 메트릭 저장소에 대한 VM 클래식 게스트
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-custom-metrics-guestos-vm-classic.md
         - name: 메트릭 저장소에 대한 클라우드 서비스 게스트
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
       - name: 문제 해결
         items:
         - name: Log Analytics VM 확장
@@ -431,7 +431,7 @@ items:
       - name: 메트릭 저장소 REST API
         href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
       - name: 메트릭 저장소 Linux VM(Telegraf)에 대한 GuestOS
-        href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-custom-metrics-linux-telegraf.md
     - name: System Center
       items:
       - name: 구성 관리자
@@ -734,11 +734,11 @@ items:
       - name: 메트릭 경고 사용
         items:
         - name: Azure Monitor에서 메트릭 경고 만들기, 보기 및 관리
-          href: ../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric.md
         - name: Azure Monitor에서 클래식 메트릭 경고 만들기, 보기 및 관리
-          href: ../monitoring-and-diagnostics/alert-metric-classic.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-classic-portal.md
         - name: 동적 임계값을 사용하여 경고
-          href: ../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-dynamic-thresholds.md
         - name: 로그에 대한 메트릭 경고 구성
           href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
         - name: Resource Manager 템플릿을 사용하여 새로운 메트릭 경고 만들기
@@ -746,23 +746,23 @@ items:
         - name: Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
           href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: 메트릭 경고에 웹후크 호출 설정
-          href: ../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-webhooks.md
       - name: 로그 경고 사용
         items:
         - name: 분석 쿼리에 대한 경고 구성
-          href: ../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-log.md
         - name: 로그 경고에 대한 웹후크 작업
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-log-webhook.md
         - name: 로그 경고 문제 해결
           href: ../monitoring-and-diagnostics/alert-log-troubleshoot.md?toc=/azure/azure-monitor/toc.json
       - name: 활동 로그 경고 사용
         items:
         - name: 활동 로그 이벤트에 대한 경고 구성
-          href: ../monitoring-and-diagnostics/alert-activity-log.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-activity-log.md
         - name: 활동 로그 경고로 마이그레이션
           href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
         - name: 서비스 알림에 대한 경고 구성
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-activity-log-service-notifications.md
       - name: 응용 프로그램 경고 사용
         items:
         - name: 가용성
@@ -772,9 +772,9 @@ items:
       - name: 경고가 있는 작업 그룹 사용
         items:
         - name: 작업 그룹 만들기
-          href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups.md
         - name: 웹후크 스키마에 대해 알아보기
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md?toc=/azure/azure-monitor/toc.json
+          href: platform/activity-log-alerts-webhook.md
         - name: SMS 경고 동작
           href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
         - name: 경고 속도 제한
@@ -782,13 +782,13 @@ items:
         - name: Resource Manager로 작업 그룹 만들기
           href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
         - name: 논리 앱 작업 구현
-          href: ../monitoring-and-diagnostics/monitoring-action-groups-logic-app.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups-logic-app.md
       - name: Operations Manager의 경고
         href: platform/alert-management-solution.md
       - name: 경고 관리
         items:
         - name: 경고 인스턴스 관리
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-instances.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-alert-instances.md
         - name: 스마트 그룹 관리
           href: ../monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md?toc=/azure/azure-monitor/toc.json
         - name: 경고 및 스마트 그룹 상태 관리
@@ -802,25 +802,25 @@ items:
       - name: 자동 크기 조정 설정 이해
         href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
       - name: 모범 사례
-        href: ../monitoring-and-diagnostics/insights-autoscale-best-practices.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-best-practices.md
       - name: 일반적인 메트릭
-        href: ../monitoring-and-diagnostics/insights-autoscale-common-metrics.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-common-metrics.md
       - name: 일반적인 패턴
         href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
       - name: 사용자 지정 메트릭을 사용하여 자동 크기 조정
         href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
       - name: Resource Manager 템플릿을 사용하여 VM 확장 집합 자동 크기 조정
-        href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-virtual-machine-scale-sets.md
       - name: VM 확장 집합에서 자동으로 컴퓨터 크기 조정
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
       - name: 자동 크기 조정의 웹후크 및 메일 알림 구성
-        href: ../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-webhook-email.md
     - name: 서비스 알림
       items:
       - name: 서비스 알림 보기
         href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
       - name: 서비스 알림에 대한 경고 구성
-        href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+        href: platform/alerts-activity-log-service-notifications.md
     - name: IT 서비스 관리
       items:
       - name: IT Service Management Connector
@@ -860,7 +860,7 @@ items:
         - name: Azure 진단 가져오기
           href: ../application-insights/app-insights-powershell-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
     - name: Azure CLI 샘플
-      href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
+      href: platform/cli-samples.md
     - name: 리소스 관리자 템플릿
       href: platform/template-workspace-configuration.md
     - name: API
@@ -962,14 +962,14 @@ items:
     - name: 활동 로그 이벤트 스키마
       href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
     - name: Azure 진단 확장 스키마
-      href: ../monitoring-and-diagnostics/azure-diagnostics-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/diagnostics-extension-schema.md
       items:
       - name: 1.3 이상
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostics-extension-schema-1dot3.md
       - name: "1.2"
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostics-extension-schema-1dot2.md
       - name: "1"
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostics-extension-schema-1dot0.md
   - name: 기능 및 API 사용 중지
     items:
     - name: 클래식 자동 크기 조정 및 메트릭 API
@@ -977,9 +977,9 @@ items:
     - name: 클래식 경고 및 모니터링
       href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
     - name: Log Analytics에서 Azure로 경고 확장
-      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-extend.md
     - name: OMS 포털에서 Azure Portal에 경고 복사
-      href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-extend-tool.md
 - name: 리소스
   items:
   - name: Azure 로드맵
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 코드 샘플
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 84203f76d998b197fca3834857881f0a347f2cca
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 06ea6e43343a0cf9982a6161fbd60d5bfce6b0ba
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106739"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322553"
