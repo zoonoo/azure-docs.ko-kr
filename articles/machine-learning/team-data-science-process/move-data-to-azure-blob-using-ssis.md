@@ -54,8 +54,8 @@ SSIS에 대한 교육 자료는 [SSIS에 대한 실습 교육](https://www.micro
 
 SISS를 사용하여 간단한 ETL(추출, 변환 및 로드) 패키지를 빌드하는 방법에 대한 자세한 내용은 [SSIS 자습서: 간단한 ETL 패키지 만들기](https://msdn.microsoft.com/library/ms169917.aspx)를 참조하세요.
 
-## <a name="download-nyc-taxi-dataset"></a>NYC Taxi 데이터 집합 다운로드
-여기에 설명된 예제에서는 공개적으로 제공되는 데이터 집합인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합을 사용합니다. 이 데이터 집합은 2013년 뉴욕 시의 1억 7,300만 건에 달하는 택시 승차 기록으로 구성됩니다. 데이터는 여정 정보 데이터와 요금 데이터의 두 종류가 있습니다. 월별로 하나의 파일씩 총 24개의 파일이 있으며, 각 파일은 압축되지 않은 크기가 약 2GB입니다.
+## <a name="download-nyc-taxi-dataset"></a>NYC Taxi 데이터 세트 다운로드
+여기에 설명된 예제에서는 공개적으로 제공되는 데이터 세트인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 세트를 사용합니다. 이 데이터 세트는 2013년 뉴욕 시의 1억 7,300만 건에 달하는 택시 승차 기록으로 구성됩니다. 데이터는 여정 정보 데이터와 요금 데이터의 두 종류가 있습니다. 월별로 하나의 파일씩 총 24개의 파일이 있으며, 각 파일은 압축되지 않은 크기가 약 2GB입니다.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob 저장소에 데이터 업로드
 SSIS 기능 팩을 사용하여 온-프레미스에서 Azure blob 저장소로 데이터를 이동하려면 여기에 표시된 대로 [**Azure Blob 업로드 작업**](https://msdn.microsoft.com/library/mt146776.aspx)의 인스턴스를 사용합니다.

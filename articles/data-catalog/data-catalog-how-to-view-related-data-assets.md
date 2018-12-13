@@ -29,7 +29,7 @@ Azure Data Catalog를 사용하면 선택한 데이터 자산과 관련된 데�
 > 데이터 카탈로그에서 두 데이터 자산 간의 관계를 가져오려면 동시에 두 자산을 등록해야 합니다. 그 중 하나를 별도로 추가한 경우 해당 자산 및 다른 데이터 자산을 다시 추가하여 둘 간의 관계를 가져옵니다.
 
 ## <a name="view-related-data-assets"></a>관련된 데이터 자산 보기
-선택한 데이터 집합과 관련된 데이터 자산을 보려면 다음 그림과 같이 **관계** 탭을 사용합니다. 
+선택한 데이터 세트와 관련된 데이터 자산을 보려면 다음 그림과 같이 **관계** 탭을 사용합니다. 
 
 ![Azure Data Catalog - 관련 데이터 자산 보기](media\data-catalog-how-to-view-related-data-assets\relationships-tab.png)
 

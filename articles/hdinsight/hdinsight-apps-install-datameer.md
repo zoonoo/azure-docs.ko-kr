@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 97d99aa59c490cf2dcdd4a69f32411a051942d36
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 9e9ccb1ba3d19e0240df869dfea1e27ac4124c34
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037807"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498778"
 ---
 # <a name="install-published-application---datameer"></a>게시된 응용 프로그램 설치 - Datameer
 
-이 문서에서는 Azure HDInsight에 게시된 [Datameer](https://www.datameer.com/) Apache Hadoop 애플리케이션을 설치하고 실행하는 방법에 대해 설명합니다. HDInsight 응용 프로그램 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor) 게시된 응용 프로그램 목록은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
+이 문서에서는 Azure HDInsight에 [Datameer](https://www.datameer.com/)에서 게시된 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 설치하고 실행하는 방법에 대해 설명합니다. HDInsight 애플리케이션 플랫폼 개요 및 사용 가능한 ISV(Independent Software Vendor)에서 게시된 애플리케이션 목록은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요. 사용자 고유의 응용 프로그램을 설치하는 방법에 대한 지침은 [사용자 지정 HDInsight 응용 프로그램 설치](hdinsight-apps-install-custom-applications.md)를 참조하세요.
 
 ## <a name="about-datameer"></a>Datameer 정보
 
@@ -34,7 +34,7 @@ Datameer는 Hadoop 플랫폼을 위한 네이티브 응용 프로그램으로, �
 
 ## <a name="install-the-datameer-published-application"></a>게시된 Datameer 응용 프로그램 설치
 
-이 버전 및 사용 가능한 다른 ISV 응용 프로그램을 설치하는 단계별 지침은 [타사 Hadoop 응용 프로그램 설치](hdinsight-apps-install-applications.md)를 참조하세요.
+이 애플리케이션 및 사용 가능한 다른 ISV 애플리케이션을 설치하는 단계별 지침은 [타사 Apache Hadoop 애플리케이션 설치](hdinsight-apps-install-applications.md)를 참조하세요.
 
 ## <a name="launch-datameer"></a>Datameer 시작
 

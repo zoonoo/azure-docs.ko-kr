@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 6e14ce19d691cc60cb65353bdb025dfa741e1eca
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 11e1a6d8c0a21c64c38ca1d9cb0583c75056dd08
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636529"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620509"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 데이터베이스 보안
 
@@ -80,7 +80,7 @@ ms.locfileid: "51636529"
 |휴지 상태의 암호화|Azure Cosmos DB에 저장된 모든 데이터는 미사용 암호화됩니다. 자세한 내용은 [Azure Cosmos DB 미사용 암호화](.\database-encryption-at-rest.md)를 참조하세요.|
 |패치된 서버|관리되는 데이터베이스인 Azure Cosmos DB를 사용하면 직접 서버를 관리하고 패치를 적용하지 않아도 자동으로 처리됩니다.|
 |강력한 암호를 사용하는 관리 계정|이 요구 사항은 당연하게 여겨질 수 있지만, 일부 경쟁업체와 달리 Azure Cosmos DB에서는 관리 계정에 반드시 암호가 있어야 합니다.<br><br> SSL 및 HMAC 비밀 기반 인증을 통한 보안이 기본적으로 반영됩니다.|
-|보안 및 데이터 보호 인증서|가장 최신의 인증서 목록의 경우 모든 인증서가 포함된(Cosmos 검색) 최신 [Azure Compliance 문서](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)와 더불어 전체 [Azure Compliance 사이트](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)를 참조하세요. 더 중점적인 내용은 SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPPAA, FedRAMP High 등을 포함한 2018년 4월 25일 게시물 [Azure #CosmosDB: 보안, 개인, 준수](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/)를 확인하세요.
+|보안 및 데이터 보호 인증서|가장 최신의 인증서 목록의 경우 모든 인증서가 포함된(Cosmos 검색) 최신 [Azure Compliance 문서](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)와 더불어 전체 [Azure Compliance 사이트](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)를 참조하세요. 더 중점적인 내용은 SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High 등을 포함한 2018년 4월 25일 게시물 [Azure #CosmosDB: 보안, 개인, 준수](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/)를 확인하세요.
 
 다음 스크린샷은 Azure Portal에서 액세스 제어(IAM)를 사용하는 Active Directory 통합(RBAC)을 보여 줍니다. ![Azure Portal에서 액세스 제어(IAM) - 데이터베이스 보안 설명](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 

@@ -82,7 +82,7 @@ Microsoft에는 무료로 사용해 볼 수 있는 [Azure Machine Learning Studi
 
 ![Open in Studio 단추](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-이 링크를 클릭하면 **Azure Machine Learning Studio**로 바로 이동됩니다. 실험 복사본이 만들어진 후 내 작업 영역에 배치됩니다. 여기에는 참여자의 데이터 집합, 수행된 모든 처리, 사용된 모든 알고리즘 및 결과 저장 방법이 포함됩니다.
+이 링크를 클릭하면 **Azure Machine Learning Studio**로 바로 이동됩니다. 실험 복사본이 만들어진 후 내 작업 영역에 배치됩니다. 여기에는 참여자의 데이터 세트, 수행된 모든 처리, 사용된 모든 알고리즘 및 결과 저장 방법이 포함됩니다.
 
 ![Machine Learning Studio-클러스터링 알고리즘 예제에서 갤러리 실험을 엽니다.](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 

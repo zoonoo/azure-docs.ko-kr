@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 93bc3db2b7cf3002efc93f1e8006c5362eddab9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d60053de98e93d7414b1df3d80aff41ffe1e4756
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959974"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620169"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
 
@@ -41,7 +41,7 @@ Azure AD는 두 종류의 권한을 정의합니다.
 
 효과적인 권한은 앱이 API를 요청할 때 갖게 될 권한입니다. 
 
-* 위임된 권한의 경우 앱의 효과적인 권한은 (동의를 통해) 앱에 부여한 위임된 권한과 현재 로그인한 사용자의 권한의 최소 권한 교집합입니다. 앱은 로그인한 사용자보다 더 많은 권한을 가질 수 없습니다. 조직 내에서 로그인한 사용자의 권한은 정책 또는 관리자 역할 하나 이상의 멤버 자격에 의해 결정될 수 있습니다. 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+* 위임된 권한의 경우 앱의 효과적인 권한은 (동의를 통해) 앱에 부여한 위임된 권한과 현재 로그인한 사용자의 권한의 최소 권한 교집합입니다. 앱은 로그인한 사용자보다 더 많은 권한을 가질 수 없습니다. 조직 내에서 로그인한 사용자의 권한은 정책 또는 관리자 역할 하나 이상의 멤버 자격에 의해 결정될 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
     예를 들어 사용자의 앱에 Microsoft Graph의 `User.ReadWrite.All` 위임된 권한을 부여한 것으로 가정합니다. 이 권한은 일반적으로 조직에 있는 모든 사용자의 프로필을 읽고 업데이트하는 앱 권한을 부여합니다. 로그인한 사용자가 전역 관리자인 경우 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있게 됩니다. 그러나 로그인한 사용자가 관리자 역할이 아니면 앱은 로그인한 사용자의 프로필만 업데이트할 수 있게 됩니다. 즉, 대신 행동할 권한을 가진 사용자가 조직에 있는 다른 사용자의 프로필에 대한 권한을 가지고 있지 않으므로 해당 다른 사용자의 프로필을 업데이트할 수 없습니다.
 * 응용 프로그램 권한의 경우 앱의 효과적인 권한은 권한이 암시하는 권한의 전체 수준입니다. 예를 들어 `User.ReadWrite.All` 응용 프로그램 권한을 가진 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있습니다.
 

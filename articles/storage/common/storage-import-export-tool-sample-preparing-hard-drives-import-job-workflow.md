@@ -112,7 +112,7 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-더 많은 데이터를 추가해야 하는 경우 Initialdataset과 동일한 형식의 다른 데이터 집합 파일을 만듭니다.
+더 많은 데이터를 추가해야 하는 경우 Initialdataset과 동일한 형식의 다른 데이터 세트 파일을 만듭니다.
 
 **두 번째 세션의 경우:**
 

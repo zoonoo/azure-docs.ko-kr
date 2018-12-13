@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 0f17cf7f2ef655f482b08b5c7163c0d85be77ce5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: d1b7b5baeba88ec0209abff60e9327031afa8b66
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068704"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633778"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 개요
 
@@ -27,14 +27,14 @@ Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석 �
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## <a name="overview"></a>개요
-다음 다이어그램은 Azure Monitor에 대한 개요를 제공합니다. 다이어그램의 중심에는 Azure Monitor의 두 가지 데이터 사용 기본 유형인 메트릭 및 로그를 저장하는 데이터 저장소가 있습니다. 왼쪽에는 [모니터링되는 여러 리소스에서 원격 분석 데이터를 수집](../monitoring/monitoring-data-sources.md)하고 [데이터 저장소를 채우는 원본](../monitoring/monitoring-data-collection.md)이 있습니다. 오른쪽에는 이렇게 수집된 데이터를 사용하여 Azure Monitor가 수행하는 분석, 경고, 외부 시스템으로 스트리밍 등의 여러 함수가 있습니다.
+다음 다이어그램은 Azure Monitor에 대한 개요를 제공합니다. 다이어그램의 중심에는 Azure Monitor의 두 가지 데이터 사용 기본 유형인 메트릭 및 로그를 저장하는 데이터 저장소가 있습니다. 왼쪽에는 [모니터링되는 여러 리소스에서 원격 분석 데이터를 수집](../azure-monitor/platform/data-sources.md)하고 [데이터 저장소를 채우는 원본](../azure-monitor/platform/data-collection.md)이 있습니다. 오른쪽에는 이렇게 수집된 데이터를 사용하여 Azure Monitor가 수행하는 분석, 경고, 외부 시스템으로 스트리밍 등의 여러 함수가 있습니다.
 
 
 ![Azure Monitor 개요](media/overview/overview.png)
 
 
 ## <a name="monitoring-data-platform"></a>데이터 플랫폼 모니터링
-Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [메트릭 및 로그](../monitoring/monitoring-data-collection.md) 중 한 쪽에 적합합니다. [메트릭](../monitoring/monitoring-data-collection.md#metrics)은 시간상 특정 지점에서 시스템의 일부 측면을 설명하는 숫자 값입니다. 메트릭은 간단하며 실시간에 가까운 시나리오를 지원할 수 있습니다. [로그](../monitoring/monitoring-data-collection.md#logs)에는 각 형식에 대해 다양한 속성 집합이 포함된 레코드로 구성된 다양한 데이터 형식이 포함됩니다. 이벤트 및 추적과 같은 원격 분석은 분석을 위해 모두 결합될 수 있도록 성능 데이터 외에 로그로 저장됩니다.
+Azure Monitor가 수집하는 모든 데이터는 두 가지 기본 유형인 [메트릭 및 로그](../azure-monitor/platform/data-collection.md) 중 한 쪽에 적합합니다. [메트릭](../azure-monitor/platform/data-collection.md#metrics)은 시간상 특정 지점에서 시스템의 일부 측면을 설명하는 숫자 값입니다. 메트릭은 간단하며 실시간에 가까운 시나리오를 지원할 수 있습니다. [로그](../azure-monitor/platform/data-collection.md#logs)에는 각 형식에 대해 다양한 속성 집합이 포함된 레코드로 구성된 다양한 데이터 형식이 포함됩니다. 이벤트 및 추적과 같은 원격 분석은 분석을 위해 모두 결합될 수 있도록 성능 데이터 외에 로그로 저장됩니다.
 
 많은 Azure 리소스의 경우 Azure Monitor가 수집한 데이터는 Azure Portal의 [개요] 페이지에서 바로 볼 수 있습니다. 예를 들어 아무 가상 머신을 살펴보면 성능 메트릭을 표시하는 여러 차트를 볼 수 있습니다. 아무 그래프를 클릭하면 Azure Portal의 [메트릭 탐색기](../monitoring-and-diagnostics/monitoring-metric-charts.md)에서 데이터가 열리고, 시간에 따른 여러 메트릭의 값을 차트로 볼 수 있습니다.  대화형으로 차트를 보거나 다른 시각화 요소를 사용하여 보려는 대시보드에 고정할 수 있습니다.
 
@@ -47,7 +47,7 @@ Log Analytics 쿼리 언어는 단순 로그 쿼리에 적합하지만 집계, �
 ![로그](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Azure Monitor는 어떤 데이터를 수집하나요?
-Azure Monitor는 다양한 원본에서 데이터를 수집할 수 있습니다. 응용 프로그램, 응용 프로그램에서 사용하는 운영 체제 및 서비스부터 플랫폼 자체까지, 계정의 응용 프로그램에 대한 모든 데이터를 모니터링한다고 생각하시면 됩니다. Azure Monitor는 다음과 같은 각 계층에서 데이터를 수집합니다.
+Azure Monitor는 다양한 원본에서 데이터를 수집할 수 있습니다. 애플리케이션, 애플리케이션에서 사용하는 운영 체제 및 서비스부터 플랫폼 자체까지, 계정의 애플리케이션에 대한 모든 데이터를 모니터링한다고 생각하시면 됩니다. Azure Monitor는 다음과 같은 각 계층에서 데이터를 수집합니다.
 
 - **응용 프로그램 모니터링 데이터:** 플랫폼에 관계없이, 작성한 코드의 성능 및 기능에 대한 데이터입니다.
 - **게스트 OS 모니터링 데이터:** 응용 프로그램이 실행되고 있는 운영 체제에 대한 데이터입니다. Azure, 다른 클라우드 또는 온-프레미스에서 실행될 수 있습니다. 
@@ -57,7 +57,7 @@ Azure Monitor는 다양한 원본에서 데이터를 수집할 수 있습니다.
 
 Azure 구독을 만들고 가상 머신이나 웹앱 같은 리소스 추가를 시작하는 즉시, Azure Monitor가 데이터 수집을 시작합니다.  리소스가 생성되거나 수정되면 [활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)가 기록됩니다. [메트릭](../monitoring-and-diagnostics/monitoring-overview-metrics.md)은 리소스가 수행되는 방법 및 사용되는 리소스를 알려줍니다. 
 
-[진단을 사용하도록 설정](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)하고 계산 리소스에 [에이전트를 추가](../log-analytics/log-analytics-agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](../log-analytics/log-analytics-data-sources.md)을 구성할 수 있습니다. 
+[진단을 사용하도록 설정](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)하고 계산 리소스에 [에이전트를 추가](../azure-monitor/platform/agent-windows.md)하여 수집하는 데이터를 실제 리소스 작업으로 확장할 수 있습니다. 이렇게 하면 리소스의 내부 작업에 대한 원격 분석 데이터가 수집되며, Windows 및 Linux 게스트 운영 체제에서 로그 및 메트릭을 수집하도록 여러 [데이터 원본](../azure-monitor/platform/agent-data-sources.md)을 구성할 수 있습니다. 
 
 [응용 프로그램에 계측 패키지를 추가](../application-insights/app-insights-azure-web-apps.md)하고 페이지 보기, 응용 프로그램 요청 및 예외를 포함하여 응용 프로그램에 대한 자세한 정보를 수집하도록 Application Insights를 설정하세요. 사용자 트래픽을 시뮬레이션하도록 [가용성 테스트](../application-insights/app-insights-monitor-web-app-availability.md)를 구성하여 응용 프로그램의 가용성을 추가로 확인하세요.
 
@@ -67,7 +67,7 @@ Azure Monitor는 [데이터 수집기 API](../log-analytics/log-analytics-data-c
 
 
 ## <a name="insights"></a>자세한 정보
-데이터 모니터링은 계산 환경의 작업에 대한 가시성을 높일 수 있는 경우에만 유용합니다. Azure Monitor는 응용 프로그램 및 응용 프로그램에서 사용하는 다른 리소스에 대한 소중한 인사이트를 제공하는 여러 기능과 도구를 포함하고 있습니다. [Application Insights](../application-insights/app-insights-overview.md) 및 Container Insights 같은 [모니터링 솔루션](../monitoring/monitoring-solutions.md)과 여러 기능은 응용 프로그램 및 특정 Azure 서비스의 다양한 측면에 대한 심층 정보를 제공합니다. 
+데이터 모니터링은 계산 환경의 작업에 대한 가시성을 높일 수 있는 경우에만 유용합니다. Azure Monitor는 응용 프로그램 및 응용 프로그램에서 사용하는 다른 리소스에 대한 소중한 인사이트를 제공하는 여러 기능과 도구를 포함하고 있습니다. [Application Insights](../application-insights/app-insights-overview.md) 및 Container Insights 같은 [모니터링 솔루션](../azure-monitor/insights/solutions.md)과 여러 기능은 응용 프로그램 및 특정 Azure 서비스의 다양한 측면에 대한 심층 정보를 제공합니다. 
 
 ### <a name="application-insights"></a>Application Insights
 [Application Insights](../application-insights/app-insights-overview.md)는 클라우드 또는 온-프레미스에 호스트되는 웹 응용 프로그램의 가용성, 성능 및 사용량을 모니터링할 수 있습니다. Log Analytics의 강력한 데이터 분석 플랫폼을 활용하여 응용 프로그램의 작업에 대한 심층 인사이트를 제공하고, 사용자가 오류를 보고할 때까지 기다리지 않고 오류를 진단합니다. Application Insights는 다양한 개발 도구에 대한 연결점을 포함하고 있으며 Visual Studio와 통합되어 DevOps 프로세스를 지원합니다.
@@ -86,9 +86,9 @@ Azure Monitor VM 인사이트는 Windows 및 Linux VM의 성능과 상태를 분
 ![VM 인사이트](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>모니터링 솔루션
-Azure Monitor의 [관리 솔루션](../monitoring/monitoring-solutions.md)은 특정 응용 프로그램이나 서비스를 깊이 있게 이해하도록 하는 패키지된 논리 집합입니다. 이러한 솔루션은 분석용 [쿼리](../log-analytics/log-analytics-queries.md)와 시각화용 [보기](../log-analytics/log-analytics-view-designer.md)를 사용하여 다른 모니터링 데이터와 함께 Log Analytics로 데이터를 수집합니다. 모니터링 솔루션은 다양한 Azure 서비스 및 다른 응용 프로그램에 대한 모니터링이 가능하도록 [Microsoft](../monitoring/monitoring-solutions-inventory.md) 및 파트너 업체에서 제공합니다.
+Azure Monitor의 [관리 솔루션](../azure-monitor/insights/solutions.md)은 특정 응용 프로그램이나 서비스를 깊이 있게 이해하도록 하는 패키지된 논리 집합입니다. 이러한 솔루션은 분석용 [쿼리](../log-analytics/log-analytics-queries.md)와 시각화용 [보기](../azure-monitor/platform/view-designer.md)를 사용하여 다른 모니터링 데이터와 함께 Log Analytics로 데이터를 수집합니다. 모니터링 솔루션은 다양한 Azure 서비스 및 다른 응용 프로그램에 대한 모니터링이 가능하도록 [Microsoft](../azure-monitor/insights/solutions-inventory.md) 및 파트너 업체에서 제공합니다.
 
-![모니터링 솔루션](../monitoring/media/monitoring-solutions/overview.png)
+![모니터링 솔루션](media/overview/solutions-overview.png)
 
 ## <a name="responding-to-critical-situations"></a>중요한 상황에 대응
 효과적인 모니터링 솔루션이라면 대화형으로 모니터링 데이터를 분석하는 기능 외에도 수집한 데이터에서 식별된 위험 조건에 선제적으로 대응할 수 있어야 합니다. 예를 들어 문제를 조사할 책임이 있는 관리자에게 텍스트 또는 이메일을 보낼 수 있습니다. 또는 오류 상태를 해결하려고 시도하는 자동화 프로세스를 시작할 수 있습니다.
@@ -115,7 +115,7 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 ![대시보드](media/overview/dashboard.png)
 
 ### <a name="views"></a>뷰
-[Azure Monitor의 보기](../log-analytics/log-analytics-view-designer.md)는 Log Analytics의 로그 데이터를 시각적으로 표시합니다.  각 보기에는 중요한 데이터를 요약하는 목록 외에도 막대형 차트 및 꺾은선형 차트 같은 시각화 조합으로 드릴다운하는 단일 타일이 포함되어 있습니다.  모니터링 솔루션은 특정 응용 프로그램에 대한 데이터를 요약하는 보기를 포함하며, Log Analytics 로그 검색에서 데이터를 표시하기 위해 자신만의 보기를 만들 수 있습니다. Azure Monitor의 다른 요소와 마찬가지로, 보기를 Azure 대시보드에 추가할 수 있습니다.
+[Azure Monitor의 보기](../azure-monitor/platform/view-designer.md)는 Log Analytics의 로그 데이터를 시각적으로 표시합니다.  각 보기에는 중요한 데이터를 요약하는 목록 외에도 막대형 차트 및 꺾은선형 차트 같은 시각화 조합으로 드릴다운하는 단일 타일이 포함되어 있습니다.  모니터링 솔루션은 특정 응용 프로그램에 대한 데이터를 요약하는 보기를 포함하며, Log Analytics 로그 검색에서 데이터를 표시하기 위해 자신만의 보기를 만들 수 있습니다. Azure Monitor의 다른 요소와 마찬가지로, 보기를 Azure 대시보드에 추가할 수 있습니다.
 
 ![Log Analytics 보기](media/overview/view.png)
 
@@ -145,6 +145,6 @@ Azure Monitor를 다른 시스템과 통합하여 모니터링 데이터를 사�
 ## <a name="next-steps"></a>다음 단계
 다음에 대해 자세히 알아봅니다.
 
-* Azure Monitor에서 수집한 데이터에 대한 [메트릭 및 로그](../monitoring/monitoring-data-collection.md).
-* 응용 프로그램의 다양한 구성 요소가 원격 분석을 전송하는 방법에 대한 [데이터 원본](../monitoring/monitoring-data-sources.md).
+* Azure Monitor에서 수집한 데이터에 대한 [메트릭 및 로그](../azure-monitor/platform/data-collection.md).
+* 응용 프로그램의 다양한 구성 요소가 원격 분석을 전송하는 방법에 대한 [데이터 원본](../azure-monitor/platform/data-sources.md).
 * 수집한 데이터를 분석하기 위한 [Log Analytics](../log-analytics/log-analytics-queries.md).

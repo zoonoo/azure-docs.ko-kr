@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB에 대한 SQL 쿼리 | Microsoft Docs
+title: Azure Cosmos DB에 대한 SQL 쿼리
 description: Azure Cosmos DB에 대한 SQL 구문, 데이터베이스 개념 및 SQL 쿼리를 알아봅니다. SQL은 Azure Cosmos DB에서 JSON 쿼리 언어로 사용될 수 있습니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: f7b3826e1e77933b49f0a742ebf8dfb994bf7ea9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444447"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848734"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>SQL 쿼리를 사용하여 Azure Cosmos DB 데이터 쿼리
 

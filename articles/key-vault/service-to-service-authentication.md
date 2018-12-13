@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 09/05/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: d9fc845316d6e785d8215ac738b893ebc080d911
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1eadea53dda60ef5ac8bbbc3d9e9cfe4b5b373dc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300973"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423595"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -183,18 +183,16 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
 
 1. [서비스 주체 인증서](/azure/azure-resource-manager/resource-group-authenticate-service-principal)를 만듭니다. 
 
-2. _LocalMachine_ 또는 _CurrentUser_ 저장소에 인증서를 배포합니다. 
+2. *LocalMachine* 또는 *CurrentUser* 저장소에 인증서를 배포합니다. 
 
 3. **AzureServicesAuthConnectionString**이라는 환경 변수를 설정하여 다음을 수행합니다.
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}
+          CertificateStoreLocation={CertificateStore}
     ```
  
-    _{AppId}_, _{TenantId}_ 및 _{Thumbprint}_ 를 1단계에서 생성된 값으로 바꿉니다.
-
-    **CertificateStoreLocation**은 배포 계획에 따라 _CurrentUser_ 또는 _LocalMachine_이어야 합니다.
+    *{AppId}*, *{TenantId}* 및 *{Thumbprint}* 를 1단계에서 생성된 값으로 바꿉니다. 배포 계획에 따라 *{CertificateStore}* 를 `LocalMachine` 또는 `CurrentUser`로 바꿉니다.
 
 4. 응용 프로그램을 실행합니다. 
 

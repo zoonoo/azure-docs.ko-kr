@@ -40,7 +40,7 @@ ms.locfileid: "46969511"
 
 
 ### <a name="parquet"></a>Parquet 
-데이터 집합을 Parquet으로 저장소에 기록합니다.
+데이터 세트를 Parquet으로 저장소에 기록합니다.
 
 Parquet은 형식으로써 저장소에서 다양한 형태를 취할 수 있습니다. 작은 데이터 세트의 경우 단일 .parquet 파일이 사용되기도 합니다. 다양한 Python 라이브러리가 단일 .parquet 파일에 대한 읽기와 쓰기를 지원합니다. 
 

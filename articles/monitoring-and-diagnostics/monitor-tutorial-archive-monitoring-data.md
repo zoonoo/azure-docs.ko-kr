@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: ac8be998a70b31af9829eeeab24902c62fd2fe37
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ab91ac3eb115504727e5ee9e912d070262027cc7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961515"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834080"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Azure Storage를 사용하여 Azure 메트릭 보관 및 데이터 기록
 
@@ -198,4 +198,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 데이터를 좀 더 잘 활용하고 추가 정보를 얻기 위해 Log Analytics로 데이터를 보낼 수도 있습니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics 시작](../log-analytics/log-analytics-queries.md)
+> [Log Analytics 시작](../azure-monitor/log-query/log-query-overview.md)

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091720"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498752"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정
 
@@ -42,7 +42,7 @@ Microsoft Azure에서는 Azure Storage에서 클라우드에 데이터를 저장
 |엔드포인트|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |디렉터리|단일 구조 네임스페이스|실제 디렉터리 개체|  
 |이름 대/소문자 구분|대/소문자 구분|대/소문자 구분 안 함, 대/소문자 유지|  
-|용량|최대 500TiB 컨테이너|5TiB 파일 공유|  
+|용량|PiB 계정 제한 최대 2개 |5TiB 파일 공유|  
 |처리량|블록 Blob당 최대 60MiB/s|공유당 최대 60MiB/s|  
 |개체 크기|블록 Blob당 최대 약 4.75TiB|파일당 최대 1TiB|  
 |요금 청구 용량|기록된 바이트 기준|파일 크기 기준|  

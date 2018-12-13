@@ -11,12 +11,12 @@ ms.service: automation
 ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ad9fc7deb73cdcbcf83cc10b9b28f7d7e4ac7661
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6ff8bccc7037782b2709340312f0602b4cd7ab1f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283794"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834335"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Azure 및 비Azure 컴퓨터에 설치된 소프트웨어 검색
 
@@ -70,7 +70,7 @@ Automation 계정에서 **구성 관리** 아래의 **인벤토리**로 이동�
 
 ## <a name="onboard-a-non-azure-machine"></a>비Azure 컴퓨터 등록
 
-비 Azure 컴퓨터를 추가하려면 운영 체제에 따라 [Windows](../log-analytics/log-analytics-agent-windows.md) 또는 [Linux](automation-linux-hrw-install.md)에 대한 에이전트를 설치합니다. 에이전트가 설치되면 Automation 계정으로 이동하고 **구성 관리** 아래에서 **인벤토리**로 이동합니다. **관리 컴퓨터**를 클릭하면 솔루션이 활성화되지 않은 Log Analytics 작업 영역에 보고하는 컴퓨터의 목록이 표시됩니다. 사용자 환경에 적합한 옵션을 선택합니다.
+비 Azure 컴퓨터를 추가하려면 운영 체제에 따라 [Windows](../azure-monitor/platform/agent-windows.md) 또는 [Linux](automation-linux-hrw-install.md)에 대한 에이전트를 설치합니다. 에이전트가 설치되면 Automation 계정으로 이동하고 **구성 관리** 아래에서 **인벤토리**로 이동합니다. **관리 컴퓨터**를 클릭하면 솔루션이 활성화되지 않은 Log Analytics 작업 영역에 보고하는 컴퓨터의 목록이 표시됩니다. 사용자 환경에 적합한 옵션을 선택합니다.
 
 * **사용 가능한 모든 컴퓨터에서 사용하도록 설정** - 이 옵션은 이 시점에 Log Analytics 작업 영역에 보고하는 모든 컴퓨터에서 솔루션을 활성화합니다.
 * **사용 가능한 모든 컴퓨터 및 이후 컴퓨터에서 사용하도록 설정** - 이 옵션은 Log Analytics 작업 영역에 보고하는 모든 컴퓨터와 이후에 작업 영역에 추가되는 향후 모든 컴퓨터에서 솔루션을 활성화합니다.
@@ -113,7 +113,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Log Analytics](../log-analytics/log-analytics-queries.md)를 참조하세요.
+Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 자세한 내용은 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
 
 ### <a name="single-machine-inventory"></a>단일 컴퓨터 인벤토리
 
