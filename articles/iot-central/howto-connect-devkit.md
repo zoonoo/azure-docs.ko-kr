@@ -24,7 +24,7 @@ ms.locfileid: "51255730"
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 1. **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
-1. DevKit 장치. DevKit 디바이스를 구매하려면 [MXChip IoT DevKit](http://mxchip.com/az3166)를 방문하세요.
+1. DevKit 디바이스. DevKit 디바이스를 구매하려면 [MXChip IoT DevKit](http://mxchip.com/az3166)를 방문하세요.
 
 
 ## <a name="sample-devkits-application"></a>**샘플 Devkits** 응용 프로그램
@@ -59,7 +59,7 @@ Azure IoT Central 애플리케이션에서 **MXChip** 디바이스 템플릿으�
 3. DevKit 디바이스를 준비할 때 일시적으로 인터넷 연결이 끊어지므로 이러한 세부 정보를 저장해야 합니다. 
 
 
-### <a name="prepare-the-devkit-device"></a>DevKit 장치 준비
+### <a name="prepare-the-devkit-device"></a>DevKit 디바이스 준비
 
 > [!NOTE]
 > 이전에 디바이스를 사용했고 WiFi 자격 증명을 저장했으며 다른 WiFi 네트워크, 연결 문자열 또는 원격 분석 측정값을 사용하도록 디바이스를 다시 구성하려면 보드의 **A** 및 **B** 단추를 동시에 누릅니다. 이 방법이 작동하지 않으면 **재설정** 단추를 눌러 다시 시도합니다.
@@ -70,10 +70,10 @@ Azure IoT Central 애플리케이션에서 **MXChip** 디바이스 템플릿으�
 
 
 1. GitHub의 [릴리스](https://aka.ms/iotcentral-docs-MXChip-releases) 페이지에서 MXChip의 최신 사전 빌드 Azure IoT Central 펌웨어를 다운로드합니다.
-1. USB 케이블을 사용하여 DevKit 장치를 개발 컴퓨터에 연결합니다. Windows에서, DevKit 장치의 저장소에 매핑된 드라이브에서 파일 탐색기 창이 열립니다. 예를 들어 드라이브 이름이 **AZ3166 (D:)** 일 수 있습니다.
+1. USB 케이블을 사용하여 DevKit 디바이스를 개발 컴퓨터에 연결합니다. Windows에서, DevKit 디바이스의 저장소에 매핑된 드라이브에서 파일 탐색기 창이 열립니다. 예를 들어 드라이브 이름이 **AZ3166 (D:)** 일 수 있습니다.
 1. **iotCentral.bin** 파일을 드라이브 창으로 끌어다 놓습니다. 복사가 완료되면 새 펌웨어를 사용하여 디바이스가 다시 부팅됩니다.
 
-1. DevKit 장치가 다시 시작되면 다음 화면이 표시됩니다.
+1. DevKit 디바이스가 다시 시작되면 다음 화면이 표시됩니다.
 
     ```
     Connect HotSpot:
@@ -85,9 +85,9 @@ Azure IoT Central 애플리케이션에서 **MXChip** 디바이스 템플릿으�
     > [!NOTE]
     > 화면이 다른 요소를 표시하는 경우 디바이스를 다시 설정하고 디바이스에서 **A** 및 **B** 단추를 동시에 눌러 디바이스를 다시 부팅합니다. 
 
-1. 이제 장치가 AP(액세스 지점) 모드에 있습니다. 컴퓨터 또는 모바일 디바이스에서 이 WiFi 액세스 지점에 연결할 수 있습니다.
+1. 이제 디바이스가 AP(액세스 지점) 모드에 있습니다. 컴퓨터 또는 모바일 디바이스에서 이 WiFi 액세스 지점에 연결할 수 있습니다.
 
-1. 컴퓨터, 휴대폰 또는 태블릿에서 장치 화면에 표시된 WiFi 네트워크 이름에 연결합니다. 이 네트워크에 연결하면 인터넷에 액세스할 수 없습니다. 이 상태는 예상된 동작이며, 장치를 구성할 때까지 잠깐 동안 이 네트워크에만 연결됩니다.
+1. 컴퓨터, 휴대폰 또는 태블릿에서 디바이스 화면에 표시된 WiFi 네트워크 이름에 연결합니다. 이 네트워크에 연결하면 인터넷에 액세스할 수 없습니다. 이 상태는 예상된 동작이며, 디바이스를 구성할 때까지 잠깐 동안 이 네트워크에만 연결됩니다.
 
 1. 웹 브라우저를 열고 [http://192.168.0.1/start](http://192.168.0.1/start)로 이동합니다. 다음 웹 페이지가 표시됩니다.
 
@@ -102,9 +102,9 @@ Azure IoT Central 애플리케이션에서 **MXChip** 디바이스 템플릿으�
 
 1. **장치 구성**을 선택하면 이 페이지가 표시됩니다.
 
-    ![구성된 장치](media/howto-connect-devkit/deviceconfigured.png)
+    ![구성된 디바이스](media/howto-connect-devkit/deviceconfigured.png)
 
-1. 장치의 **재설정** 단추를 누릅니다.
+1. 디바이스의 **재설정** 단추를 누릅니다.
 
 
 ## <a name="view-the-telemetry"></a>원격 분석 보기
@@ -118,17 +118,17 @@ DevKit 디바이스가 다시 시작되면 디바이스에 다음과 같은 화�
 > [!NOTE]
 > 디바이스가 연결 중에 반복되는 것으로 나타나면 디바이스가 IoT Central에서 ‘차단’되어 있는지 확인하고 앱에 연결할 수 있도록 디바이스를 ‘차단 해제’합니다.
 
-디바이스를 흔들면 보낸 reported 속성 수가 증가합니다. 장치에서 **다이 번호** 장치 속성으로 임의의 숫자를 보냅니다.
+디바이스를 흔들면 보낸 reported 속성 수가 증가합니다. 디바이스에서 **다이 번호** 디바이스 속성으로 임의의 숫자를 보냅니다.
 
 원격 분석 측정값 및 reported 속성 값을 확인하고, Azure IoT Central에서 설정을 구성할 수 있습니다.
 
 1. **Device Explorer**를 사용하여 추가한 실제 MXChip 장치에 대한 **측정값** 페이지로 이동합니다.
 
-    ![실제 장치로 이동](media/howto-connect-devkit/realdevicenew.png)
+    ![실제 디바이스로 이동](media/howto-connect-devkit/realdevicenew.png)
 
 1. **측정값** 페이지에서 MXChip 장치에서 보낸 원격 분석 데이터를 볼 수 있습니다.
 
-    ![실제 장치의 원격 분석 데이터 보기](media/howto-connect-devkit/devicetelemetrynew.png)
+    ![실제 디바이스의 원격 분석 데이터 보기](media/howto-connect-devkit/devicetelemetrynew.png)
 
 1. **속성** 페이지에서는 장치에서 보고된 마지막 다이 번호 및 장치 위치를 볼 수 있습니다.
 
@@ -136,7 +136,7 @@ DevKit 디바이스가 다시 시작되면 디바이스에 다음과 같은 화�
 
 1. **설정** 페이지에서 MXChip 장치의 설정을 업데이트할 수 있습니다.
 
-    ![장치 설정 보기](media/howto-connect-devkit/devicesettingsnew.png)
+    ![디바이스 설정 보기](media/howto-connect-devkit/devicesettingsnew.png)
 
 1. **대시보드** 페이지에서는 위치 지도를 볼 수 있습니다.
 
@@ -145,7 +145,7 @@ DevKit 디바이스가 다시 시작되면 디바이스에 다음과 같은 화�
 
 ## <a name="download-the-source-code"></a>소스 코드 다운로드
 
-장치 코드를 탐색하고 수정하려는 경우 GitHub에서 장치 코드를 다운로드하면 됩니다. 코드를 수정하려는 경우 다음 지침에 따라 사용 중인 데스크톱 운영 체제의 [개발 환경을 준비](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/#step-5-prepare-the-development-environment)해야 합니다.
+디바이스 코드를 탐색하고 수정하려는 경우 GitHub에서 디바이스 코드를 다운로드하면 됩니다. 코드를 수정하려는 경우 다음 지침에 따라 사용 중인 데스크톱 운영 체제의 [개발 환경을 준비](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/#step-5-prepare-the-development-environment)해야 합니다.
 
 소스 코드를 다운로드하려면 데스크톱 컴퓨터에서 다음 명령을 실행합니다.
 
@@ -176,7 +176,7 @@ Azure IoT Central 응용 프로그램으로 속성 값이 보고되는 원리를
 
 **iotHubClient.cpp** 원본 파일의 코드는 [C용 Microsoft Azure IoT SDK 및 라이브러리](https://github.com/Azure/azure-iot-sdk-c)의 함수를 사용하여 IoT Hub와 상호 작용합니다.
 
-샘플 코드를 수정하고, 빌드하고, 장치에 업로드하는 방법은 `AZ3166` 폴더에 있는 **readme.md** 파일을 참조하세요.
+샘플 코드를 수정하고, 빌드하고, 디바이스에 업로드하는 방법은 `AZ3166` 폴더에 있는 **readme.md** 파일을 참조하세요.
 
 ## <a name="mxchip-device-template-details"></a>MXChip 디바이스 템플릿 세부 정보 
 
@@ -232,8 +232,8 @@ Azure IoT Central 응용 프로그램으로 속성 값이 보고되는 원리를
 
 | type            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
-| 장치 속성 | 다이 번호   | dieNumber  | number    |
-| 장치 속성 | 디바이스 위치   | location  | location    |
+| 디바이스 속성 | 다이 번호   | dieNumber  | number    |
+| 디바이스 속성 | 디바이스 위치   | location  | location    |
 | 텍스트            | 제조 일자     | manufacturedIn   | 해당 없음       |
 
 

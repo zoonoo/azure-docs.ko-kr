@@ -529,7 +529,7 @@ function process(telemetry, executionContext) {
 | ------ | ------------------- | ------------ |
 | *payload* | `string` | 알림에 포함할 JSON 페이로드입니다. |
 
-### <a name="device"></a>장치
+### <a name="device"></a>디바이스
 
 ```JSON
 {

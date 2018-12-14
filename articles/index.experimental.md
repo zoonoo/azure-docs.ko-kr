@@ -2123,7 +2123,7 @@ ms.locfileid: "52426337"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>수백만 개의 IoT 장치에서 실시간 데이터 스트림 처리</p>
+                                                    <p>수백만 개의 IoT 디바이스에서 실시간 데이터 스트림 처리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2356,7 +2356,7 @@ ms.locfileid: "52426337"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>수백만 개의 IoT 장치에서 실시간 데이터 스트림 처리</p>
+                                                    <p>수백만 개의 IoT 디바이스에서 실시간 데이터 스트림 처리</p>
                                                 </div>
                                             </div>
                                         </div>

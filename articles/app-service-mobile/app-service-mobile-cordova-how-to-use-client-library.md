@@ -27,7 +27,7 @@ ms.locfileid: "38467889"
 이 가이드에서는 최신 [Azure Mobile Apps용 Apache Cordova 플러그 인]을 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. Azure Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작] 을 완료하여 백 엔드를 만들고, 테이블을 만든 다음 미리 빌드된 Apache Cordova 프로젝트를 다운로드합니다. 이 가이드에서는 클라이언트 쪽 Apache Cordova 플러그 인에 초점을 둡니다.
 
 ## <a name="supported-platforms"></a>지원되는 플랫폼
-이 SDK는 iOS, Android 및 Windows 장치에서 Apache Cordova v6.0.0 이상을 지원합니다.  지원되는 플랫폼은 다음과 같습니다.
+이 SDK는 iOS, Android 및 Windows 디바이스에서 Apache Cordova v6.0.0 이상을 지원합니다.  지원되는 플랫폼은 다음과 같습니다.
 
 * Android API 19-24(Nougat를 통한 KitKat)
 * iOS 버전 8.0 이상.

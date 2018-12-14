@@ -18,7 +18,7 @@ ms.locfileid: "51564829"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Windows IoT Core에 IoT Edge 런타임 설치 - 미리 보기
 
-Azure IoT Edge 및 [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/)가 함께 작동하여 소형 장치에서 에지를 계산할 수 있습니다. Azure IoT Edge 런타임은 IoT 업계에서 매우 널리 사용되는 아주 작은 SBC(단일 보드 컴퓨터) 디바이스에서도 실행할 수 있습니다. 
+Azure IoT Edge 및 [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/)가 함께 작동하여 소형 디바이스에서 에지를 계산할 수 있습니다. Azure IoT Edge 런타임은 IoT 업계에서 매우 널리 사용되는 아주 작은 SBC(단일 보드 컴퓨터) 디바이스에서도 실행할 수 있습니다. 
 
 이 문서에서는 Windows IoT Core를 실행하는 개발 보드에서 런타임을 프로비전하는 과정을 단계별로 안내합니다. 
 

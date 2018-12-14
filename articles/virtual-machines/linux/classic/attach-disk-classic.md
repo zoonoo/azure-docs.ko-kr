@@ -39,9 +39,9 @@ ms.locfileid: "37929154"
 
 ## <a name="initialize-a-new-data-disk-in-linux"></a>Linux에서 새 데이터 디스크 초기화
 1. VM에 SSH를 사용합니다. 자세한 내용은 [Linux를 실행하는 가상 머신에 로그온하는 방법][Logon]을 참조하세요.
-2. 이제 초기화할 데이터 디스크의 장치 식별자를 찾아야 합니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
+2. 이제 초기화할 데이터 디스크의 디바이스 식별자를 찾아야 합니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
    
-    a) 다음 명령과 같이 로그에서 SCSI 장치를 grep합니다.
+    a) 다음 명령과 같이 로그에서 SCSI 디바이스를 grep합니다.
    
     ```bash
     sudo grep SCSI /var/log/messages
@@ -138,7 +138,7 @@ ms.locfileid: "37929154"
 
 11. /etc/fstab에 새 드라이브를 추가합니다.
    
-    다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 /etc/fstab 파일에 추가해야 합니다. 또한 /etc/fstab에 UUID(Universally Unique IDentifier)를 사용하여 장치 이름(즉, /dev/sdc1) 대신 드라이브를 가리키는 것이 좋습니다. UUID를 사용하면 운영 체제에서 부팅하는 동안 디스크 오류를 감지하므로 올바르지 않은 디스크가 지정된 위치에 탑재되지 않으며 나머지 데이터 디스크는 해당 장치 ID에 할당됩니다. 새 드라이브의 UUID를 찾으려면 **blkid** 유틸리티를 사용할 수 있습니다.
+    다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 /etc/fstab 파일에 추가해야 합니다. 또한 /etc/fstab에 UUID(Universally Unique IDentifier)를 사용하여 디바이스 이름(즉, /dev/sdc1) 대신 드라이브를 가리키는 것이 좋습니다. UUID를 사용하면 OS에서 부팅하는 동안 디스크 오류를 감지하므로 올바르지 않은 디스크가 지정된 위치에 탑재되지 않으며 나머지 데이터 디스크는 해당 디바이스 ID에 할당됩니다. 새 드라이브의 UUID를 찾으려면 **blkid** 유틸리티를 사용할 수 있습니다.
    
     ```bash
     sudo -i blkid

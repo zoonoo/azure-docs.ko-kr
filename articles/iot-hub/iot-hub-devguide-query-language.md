@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 쿼리 언어 | Microsoft Docs
-description: 개발자 가이드 - IoT Hub에서 장치/모듈 쌍 및 작업에 대한 정보를 검색하는 데 사용되는 SQL 유형의 IoT Hub 쿼리 언어에 대한 설명
+description: 개발자 가이드 - IoT Hub에서 디바이스/모듈 쌍 및 작업에 대한 정보를 검색하는 데 사용되는 SQL 유형의 IoT Hub 쿼리 언어에 대한 설명
 author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/01/2018
 ms.locfileid: "50747918"
 ---
-# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>장치 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>디바이스 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
 IoT Hub는 [디바이스 쌍](iot-hub-devguide-device-twins.md) 및 [작업](iot-hub-devguide-jobs.md) 그리고 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)과 관련된 정보를 검색할 수 있는 강력한 SQL 유형의 언어를 제공합니다. 이 문서에 제공되는 내용:
 
@@ -23,11 +23,11 @@ IoT Hub는 [디바이스 쌍](iot-hub-devguide-device-twins.md) 및 [작업](iot
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="device-and-module-twin-queries"></a>장치 및 모듈 쌍 쿼리
+## <a name="device-and-module-twin-queries"></a>디바이스 및 모듈 쌍 쿼리
 
-[장치 쌍](iot-hub-devguide-device-twins.md) 및 모듈 쌍은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 장치 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
+[장치 쌍](iot-hub-devguide-device-twins.md) 및 모듈 쌍은 임의의 JSON 개체를 태그와 속성으로 포함할 수 있습니다. IoT Hub를 사용하면 모든 쌍 정보를 포함하는 단일 JSON 문서로 디바이스 쌍 및 모듈 쌍을 쿼리할 수 있습니다.
 
-예를 들어 IoT 허브 장치 쌍에 다음 구조가 있다고 가정합니다(모듈 쌍은 추가 moduleId와 유사함).
+예를 들어 IoT 허브 디바이스 쌍에 다음 구조가 있다고 가정합니다(모듈 쌍은 추가 moduleId와 유사함).
 
 ```json
 {
@@ -112,7 +112,7 @@ SELECT * FROM devices
   WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-특정 속성을 포함하는 모든 장치 쌍을 식별해야 하는 경우가 종종 있습니다. IoT Hub는 이러한 용도로 `is_defined()` 함수를 지원합니다. 예를 들어 `connectivity` 속성을 정의하는 디바이스 쌍을 검색하려면 다음 쿼리를 사용합니다.
+특정 속성을 포함하는 모든 디바이스 쌍을 식별해야 하는 경우가 종종 있습니다. IoT Hub는 이러한 용도로 `is_defined()` 함수를 지원합니다. 예를 들어 `connectivity` 속성을 정의하는 디바이스 쌍을 검색하려면 다음 쿼리를 사용합니다.
 
 ```SQL
 SELECT * FROM devices
@@ -165,7 +165,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 SELECT * FROM devices.modules
 ```
 
-장치 및 devices.modules 컬렉션 간의 조인을 허용하지 않습니다. 디바이스 간에 모듈 쌍을 쿼리하려는 경우 태그에 따라 수행합니다. 이 쿼리는 검색 상태와 함께 모든 장치에서 모든 모듈 쌍을 반환합니다.
+디바이스 및 devices.modules 컬렉션 간의 조인을 허용하지 않습니다. 디바이스 간에 모듈 쌍을 쿼리하려는 경우 태그에 따라 수행합니다. 이 쿼리는 검색 상태와 함께 모든 디바이스에서 모든 모듈 쌍을 반환합니다.
 
 ```sql
 Select * from devices.modules where properties.reported.status = 'scanning'
@@ -399,7 +399,7 @@ GROUP BY <group_by_element>
 높은 수준에서 *식*은:
 
 * JSON 형식(예: 부울, 숫자, 문자열, 배열 또는 개체)의 인스턴스로 평가됩니다.
-* 기본 제공되는 연산자와 함수를 사용하여 상수 및 장치 JSON 문서에서 오는 조작 데이터에 의해 정의됩니다.
+* 기본 제공되는 연산자와 함수를 사용하여 상수 및 디바이스 JSON 문서에서 오는 조작 데이터에 의해 정의됩니다.
 
 *조건*은 부울 값으로 평가되는 식입니다. 부울 **true**와는 다른 상수는 **false**로 간주됩니다. 이 규칙에는 **null**, **정의되지 않음**, 개체 또는 배열 인스턴스, 문자열 및 부울 **false**가 포함됩니다.
 

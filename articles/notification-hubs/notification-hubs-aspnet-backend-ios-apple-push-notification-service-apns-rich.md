@@ -33,10 +33,10 @@ ms.locfileid: "51244290"
 
 1. 앱 백 엔드:
    * 백 엔드 데이터베이스/로컬 저장소에 풍부한 페이로드(이 경우 이미지)를 저장합니다.
-   * 이 풍부한 알림의 ID를 장치에 보냅니다.
-2. 장치의 앱:
+   * 이 풍부한 알림의 ID를 디바이스에 보냅니다.
+2. 디바이스의 앱:
    * 받은 ID로 풍부한 페이로드를 요청하는 백 엔드에 연결합니다.
-   * 데이터 검색이 완료되면 장치에서 사용자에게 알림을 보내고 사용자가 자세한 내용을 보기 위해 탭하면 즉시 페이로드를 표시합니다.
+   * 데이터 검색이 완료되면 디바이스에서 사용자에게 알림을 보내고 사용자가 자세한 내용을 보기 위해 탭하면 즉시 페이로드를 표시합니다.
 
 ## <a name="webapi-project"></a>WebAPI 프로젝트
 1. Visual Studio에서 **사용자에게 알림** 자습서에서 만든 [AppBackend](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) 프로젝트를 엽니다.
@@ -97,7 +97,7 @@ ms.locfileid: "51244290"
    > (선택 사항) 프로젝트 리소스를 추가하고 얻는 방법에 대한 자세한 내용은 [Visual C#을 사용하여 리소스를 포함 및 액세스하는 방법](https://support.microsoft.com/kb/319292)을 참조하세요.
    > 
    > 
-7. **NotificationsController.cs**에서 **NotificationsController**를 다음 조각으로 다시 정의합니다. 그러면 초기 자동 풍부한 알림 ID가 장치에 전송되고 클라이언트 쪽에서 이미지를 검색할 수 있습니다.
+7. **NotificationsController.cs**에서 **NotificationsController**를 다음 조각으로 다시 정의합니다. 그러면 초기 자동 풍부한 알림 ID가 디바이스에 전송되고 클라이언트 쪽에서 이미지를 검색할 수 있습니다.
    
         // Return http response with image binary
         public HttpResponseMessage Get(int id) {

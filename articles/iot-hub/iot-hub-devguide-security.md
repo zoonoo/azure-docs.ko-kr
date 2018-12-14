@@ -52,7 +52,7 @@ IoT Hub 엔드포인트에 액세스하려면 적절한 권한이 있어야 합�
 * 디바이스 관리 구성 요소가 *registryReadWrite* 정책을 사용합니다.
 * 이벤트 프로세서 구성 요소는 *서비스* 정책을 사용합니다.
 * 런타임 디바이스 비즈니스 논리 구성 요소는 *서비스* 정책을 사용합니다.
-* 개별 장치는 IoT Hub의 ID 레지스트리에 저장된 자격 증명을 사용하여 연결합니다.
+* 개별 디바이스는 IoT 허브의 ID 레지스트리에 저장된 자격 증명을 사용하여 연결합니다.
 
 > [!NOTE]
 > 자세한 내용은 [사용 권한](#iot-hub-permissions)을 참조하세요.
@@ -231,7 +231,7 @@ public static string generateSasToken(string resourceUri, string key, string pol
 > [!NOTE]
 > IoT Hub 컴퓨터에서 토큰의 유효 기간이 확인되므로 토큰을 생성하는 컴퓨터의 시계에서 편차가 최소여야 합니다.
 
-### <a name="use-sas-tokens-in-a-device-app"></a>장치 앱에서 SAS 토큰 사용
+### <a name="use-sas-tokens-in-a-device-app"></a>디바이스 앱에서 SAS 토큰 사용
 
 보안 토큰을 사용하여 IoT Hub에 **DeviceConnect** 권한을 확보하는 방법은 두 가지입니다. [ID 레지스트리의 대칭 디바이스 키](#use-a-symmetric-key-in-the-identity-registry)를 사용하거나 [공유 액세스 키](#use-a-shared-access-policy)를 사용합니다.
 
@@ -342,7 +342,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 ## <a name="supported-x509-certificates"></a>지원되는 X.509 인증서
 
-인증서 지문 또는 CA(인증 기관)를 Azure IoT Hub에 업로드하면 모든 X.509 인증서를 사용하여 IoT Hub로 장치를 인증할 수 있습니다. 인증서 지문을 사용하는 인증은 제공된 지문이 구성된 지문과 일치하는 지만 확인합니다. 인증 기관을 사용하는 인증은 인증서 체인의 유효성을 검사합니다. 
+인증서 지문 또는 CA(인증 기관)를 Azure IoT Hub에 업로드하면 모든 X.509 인증서를 사용하여 IoT Hub로 디바이스를 인증할 수 있습니다. 인증서 지문을 사용하는 인증은 제공된 지문이 구성된 지문과 일치하는 지만 확인합니다. 인증 기관을 사용하는 인증은 인증서 체인의 유효성을 검사합니다. 
 
 지원되는 인증서는 다음과 같습니다.
 
@@ -366,7 +366,7 @@ CLI 확장 명령 [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/
 
 **RegistryManager** 클래스는 장치를 등록하는 프로그래밍 방식을 제공합니다. 특히 **AddDeviceAsync** 및 **UpdateDeviceAsync** 메서드를 사용하면 IoT Hub ID 레지스트리에서 디바이스를 등록하고 업데이트할 수 있습니다. 이러한 두 메서드는 입력으로 **Device** 인스턴스를 수락합니다. **Device** 클래스에는 사용자가 기본 및 보조 X.509 인증서 지문을 지정할 수 있도록 하는 **Authentication** 속성이 포함되어 있습니다. 지문은 X.509 인증서의 SHA256 해시(이진 DER 인코딩 사용)를 나타냅니다. 기본 지문이나 보조 지문 또는 둘 다를 지정하는 옵션이 제공됩니다. 인증서 롤오버 시나리오를 처리하기 위해 기본 및 보조 지문이 지원됩니다.
 
-X.509 인증서 지문을 사용하여 장치를 등록하는 샘플 C\# 코드 조각은 다음과 같습니다.
+X.509 인증서 지문을 사용하여 디바이스를 등록하는 샘플 C\# 코드 조각은 다음과 같습니다.
 
 ```csharp
 var device = new Device(deviceId)
@@ -399,11 +399,11 @@ var authMethod = new DeviceAuthenticationWithX509Certificate("<device id>", x509
 var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ```
 
-## <a name="custom-device-and-module-authentication"></a>사용자 지정 장치 및 모듈 인증
+## <a name="custom-device-and-module-authentication"></a>사용자 지정 디바이스 및 모듈 인증
 
 IoT Hub [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 사용하여 [토큰](iot-hub-devguide-security.md#security-tokens)을 통해 장치/모듈별 보안 자격 증명 및 액세스 제어를 구성할 수 있습니다. IoT 솔루션에 이미 사용자 지정 ID 레지스트리 및/또는 인증 체계가 있는 경우 *토큰 서비스*를 만들어 이 인프라를 IoT Hub와 통합할 수 있습니다. 이러한 방식으로 솔루션에서 다른 IoT 기능을 사용할 수 있습니다.
 
-토큰 서비스는 사용자 지정 클라우드 서비스입니다. **DeviceConnect** 또는 **ModuleConnect** 권한으로 IoT Hub *공유 액세스 정책*을 사용하여 *device-scoped* 또는 *module-scoped* 토큰을 만듭니다. 이러한 토큰은 장치 및 모듈에서 IoT Hub에 연결할 수 있게 해줍니다.
+토큰 서비스는 사용자 지정 클라우드 서비스입니다. **DeviceConnect** 또는 **ModuleConnect** 권한으로 IoT Hub *공유 액세스 정책*을 사용하여 *device-scoped* 또는 *module-scoped* 토큰을 만듭니다. 이러한 토큰은 디바이스 및 모듈에서 IoT Hub에 연결할 수 있게 해줍니다.
 
 ![토큰 서비스 패턴의 단계](./media/iot-hub-devguide-security/tokenservice.png)
 
@@ -411,16 +411,16 @@ IoT Hub [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 사용하
 
 1. IoT Hub에 대한 **DeviceConnect** 또는 **ModuleConnect** 권한으로 IoT Hub 공유 액세스 정책을 만듭니다. [Azure Portal](https://portal.azure.com)에서 또는 프로그래밍 방식으로 이 정책을 만들 수 있습니다. 토큰 서비스는 이 정책을 사용하여 만들어지는 토큰을 서명합니다.
 
-2. 장치/모듈에서 IoT Hub에 액세스해야 하는 경우 토큰 서비스에 서명된 토큰을 요청합니다. 장치는 사용자 지정 ID 레지스트리/인증 체계로 인증하여 토큰 서비스가 토큰을 만드는 데 사용하는 장치/모듈 ID를 확인할 수 있습니다.
+2. 디바이스/모듈에서 IoT Hub에 액세스해야 하는 경우 토큰 서비스에 서명된 토큰을 요청합니다. 디바이스는 사용자 지정 ID 레지스트리/인증 체계로 인증하여 토큰 서비스가 토큰을 만드는 데 사용하는 디바이스/모듈 ID를 확인할 수 있습니다.
 
-3. 토큰 서비스는 토큰을 반환합니다. 토큰은 인증되는 장치의 `deviceId` 또는 인증되는 모듈의 `moduleId`와 함께 `/devices/{deviceId}` 또는 `/devices/{deviceId}/module/{moduleId}`를 `resourceURI`로 사용하여 생성됩니다. 토큰 서비스는 공유 액세스 정책을 사용하여 토큰을 생성합니다.
+3. 토큰 서비스는 토큰을 반환합니다. 토큰은 인증되는 디바이스의 `deviceId` 또는 인증되는 모듈의 `moduleId`와 함께 `/devices/{deviceId}` 또는 `/devices/{deviceId}/module/{moduleId}`를 `resourceURI`로 사용하여 생성됩니다. 토큰 서비스는 공유 액세스 정책을 사용하여 토큰을 생성합니다.
 
-4. 장치/모듈은 IoT Hub에서 직접 토큰을 사용합니다.
+4. 디바이스/모듈은 IoT Hub에서 직접 토큰을 사용합니다.
 
 > [!NOTE]
 > .NET 클래스 [SharedAccessSignatureBuilder](https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx) 또는 Java 클래스 [IotHubServiceSasToken](/java/api/com.microsoft.azure.sdk.iot.service.auth._iot_hub_service_sas_token)을 사용하여 토큰 서비스에서 토큰을 만들 수 있습니다.
 
-토큰 서비스는 토큰 만료를 원하는 대로 설정할 수 있습니다. 토큰이 만료되면 IoT Hub가 장치/모듈 연결을 끊습니다. 이렇게 되면 장치/모듈이 토큰 서비스에 새 토큰을 요청해야 합니다. 만료 시간이 짧으면 장치/모듈 및 토큰 서비스에 대한 부하가 증가합니다.
+토큰 서비스는 토큰 만료를 원하는 대로 설정할 수 있습니다. 토큰이 만료되면 IoT Hub가 디바이스/모듈 연결을 끊습니다. 이렇게 되면 디바이스/모듈이 토큰 서비스에 새 토큰을 요청해야 합니다. 만료 시간이 짧으면 디바이스/모듈 및 토큰 서비스에 대한 부하가 증가합니다.
 
 허브에 연결하는 디바이스/모듈의 경우, 연결에 키가 아니라 토큰을 사용하더라도 IoT Hub ID 레지스트리에 디바이스/모듈을 추가해야 합니다. 그러므로 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에서 디바이스/모듈 ID를 사용하지 않도록 설정하여 디바이스별/모듈별 액세스 제어를 계속 사용할 수 있습니다. 이 방법은 긴 만료 시간으로 토큰을 사용하는 위험을 완화합니다.
 
@@ -441,7 +441,7 @@ IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 
 | **RegistryRead** |ID 레지스트리에 대한 읽기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 참조하세요. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
 | **RegistryReadWrite** |ID 레지스트리에 대한 읽기 및 쓰기 액세스 권한을 부여합니다. 자세한 내용은 [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 참조하세요. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
 | **ServiceConnect** |클라우드 서비스 지향 통신 및 모니터링 중인 엔드포인트에 대한 액세스를 부여합니다. <br/>디바이스-클라우드 메시지를 받고 클라우드-디바이스 메시지를 보내며 해당 전달 승인을 검색할 권한을 부여합니다. <br/>파일 업로드에 대한 전달 승인을 검색할 권한을 부여합니다. <br/>태그 및 원하는 속성을 업데이트하고, 보고된 속성을 검색하고, 쿼리를 실행하기 위해 쌍에 액세스할 권한을 부여합니다. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
-| **DeviceConnect** |장치 지향 엔드포인트에 대한 액세스를 부여합니다. <br/>디바이스-클라우드 메시지를 보내고 클라우드-디바이스 메시지를 받을 권한을 부여합니다. <br/>디바이스에서 파일 업로드를 수행할 권한을 부여합니다. <br/>디바이스 쌍의 원하는 속성 알림을 받고 디바이스 쌍의 보고된 속성을 업데이트할 권한을 부여합니다. <br/>파일 업로드를 수행할 권한을 부여합니다. <br/>이 권한은 디바이스에서 사용됩니다. |
+| **DeviceConnect** |디바이스 지향 엔드포인트에 대한 액세스를 부여합니다. <br/>디바이스-클라우드 메시지를 보내고 클라우드-디바이스 메시지를 받을 권한을 부여합니다. <br/>디바이스에서 파일 업로드를 수행할 권한을 부여합니다. <br/>디바이스 쌍의 원하는 속성 알림을 받고 디바이스 쌍의 보고된 속성을 업데이트할 권한을 부여합니다. <br/>파일 업로드를 수행할 권한을 부여합니다. <br/>이 권한은 디바이스에서 사용됩니다. |
 
 ## <a name="additional-reference-material"></a>추가 참조 자료
 

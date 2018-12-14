@@ -86,11 +86,11 @@ Contoso에 App2가 아닌 App1에 대해서만 설정된 MFA 정책이 있는 �
 
 따라서 B2B 사용자의 경우 항상 초대하는 테넌트의 MFA를 요구하는 것이 좋습니다. 이렇게 하면 MFA가 2개가 될 수도 있지만 초대하는 테넌트에 액세스할 때마다 최종 사용자 경험을 예측할 수 있습니다. Sally는 초대하는 테넌트를 사용하여 MFA에 등록해야 합니다.
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B 사용자에 대한 장치 기반, 위치 기반 및 위험 기반 조건부 액세스
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>B2B 사용자에 대한 디바이스 기반, 위치 기반 및 위험 기반 조건부 액세스
 
-Contoso에서 회사 데이터에 대한 장치 기반 조건부 액세스 정책을 적용할 수 있으면 Contoso에서 관리되지 않고 Contoso 장치 정책을 준수하지 않는 장치에서는 액세스할 수 없습니다.
+Contoso에서 회사 데이터에 대한 디바이스 기반 조건부 액세스 정책을 적용할 수 있으면 Contoso에서 관리되지 않고 Contoso 디바이스 정책을 준수하지 않는 디바이스에서는 액세스할 수 없습니다.
 
-B2B 사용자의 장치가 Contoso에서 관리되지 않는 경우 이러한 정책이 적용된 컨텍스트가 무엇이든 파트너 조직 B2B 사용자의 액세스는 차단됩니다. 그렇지만 Contoso는 장치 기반 조건부 액세스 정책에서 제외할 특정 파트너 사용자가 포함된 제외 목록을 만들 수 있습니다.
+B2B 사용자의 디바이스가 Contoso에서 관리되지 않는 경우 이러한 정책이 적용된 컨텍스트가 무엇이든 파트너 조직 B2B 사용자의 액세스는 차단됩니다. 그렇지만 Contoso는 디바이스 기반 조건부 액세스 정책에서 제외할 특정 파트너 사용자가 포함된 제외 목록을 만들 수 있습니다.
 
 #### <a name="location-based-conditional-access-for-b2b"></a>B2B에 대한 위치 기반 조건부 액세스
 

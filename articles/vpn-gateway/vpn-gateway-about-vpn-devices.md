@@ -18,7 +18,7 @@ ms.locfileid: "51687540"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보
 
-VPN Gateway를 사용하여 S2S(사이트 간) 크로스-프레미스 VPN 연결을 구성하려면 VPN 장치가 필요합니다. 온-프레미스 네트워크와 가상 네트워크 간의 보안 연결을 만들려고 할 때마다 또는 하이브리드 솔루션을 만드는 데 사이트 간 연결을 사용할 수 있습니다. 이 문서에서는 유효성이 검사된 VPN 디바이스 목록과 VPN 게이트웨이의 IPsec/IKE 매개 변수 목록을 제공합니다.
+VPN 게이트웨이를 사용하여 S2S(사이트 간) 프레미스 간 VPN 연결을 구성하려면 VPN 디바이스가 필요합니다. 온-프레미스 네트워크와 가상 네트워크 간의 보안 연결을 만들려고 할 때마다 또는 하이브리드 솔루션을 만드는 데 사이트 간 연결을 사용할 수 있습니다. 이 문서에서는 유효성이 검사된 VPN 디바이스 목록과 VPN 게이트웨이의 IPsec/IKE 매개 변수 목록을 제공합니다.
 
 > [!IMPORTANT]
 > 온-프레미스 VPN 디바이스와 VPN 게이트웨이 간에 연결 문제가 있는 경우 [알려진 디바이스 호환성 문제](#known)를 참조하세요.
@@ -34,7 +34,7 @@ VPN Gateway를 사용하여 S2S(사이트 간) 크로스-프레미스 VPN 연결
 ## <a name="devicetable"></a>확인된 VPN 장치 및 장치 구성 가이드
 
 > [!NOTE]
-> 사이트 간 연결을 구성할 때 VPN 장치에 공용 IPv4 IP 주소가 필요합니다.
+> 사이트 간 연결을 구성할 때 VPN 디바이스에 공용 IPv4 IP 주소가 필요합니다.
 >
 
 디바이스 공급업체와 협력하여 표준 VPN 디바이스 집합의 유효성을 검사했습니다. 다음 목록에 포함된 디바이스 제품군의 모든 디바이스는 VPN 게이트웨이에서 작동합니다. 구성하려는 VPN Gateway 솔루션의 VPN 유형(정책 기반 또는 경로 기반)을 이해하려면 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)를 참조하세요.
@@ -78,9 +78,9 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 
 ## <a name="configscripts"></a>Azure에서 VPN 장치 구성 스크립트 다운로드
 
-특정 장치의 경우 Azure에서 직접 구성 스크립트를 다운로드할 수 있습니다. 자세한 내용 및 다운로드 지침은 [VPN 장치 구성 스크립트 다운로드](vpn-gateway-download-vpndevicescript.md)를 참조하세요.
+특정 디바이스의 경우 Azure에서 직접 구성 스크립트를 다운로드할 수 있습니다. 자세한 내용 및 다운로드 지침은 [VPN 디바이스 구성 스크립트 다운로드](vpn-gateway-download-vpndevicescript.md)를 참조하세요.
 
-### <a name="devices-with-available-configuration-scripts"></a>사용 가능한 구성 스크립트가 있는 장치
+### <a name="devices-with-available-configuration-scripts"></a>사용 가능한 구성 스크립트가 있는 디바이스
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 

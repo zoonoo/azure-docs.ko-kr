@@ -51,7 +51,7 @@ Microsoft Azure Linux 에이전트(waagent)는 Linux 및 FreeBSD 프로비저닝
   
   * 가상 NUMA 구성(`2.6.37` 미만 커널에는 사용 안 함)
   * /dev/random의 Hyper-V 엔트로피 이용
-  * 루트 장치(원격일 수 있음)에 대한 SCSI 시간 제한 구성
+  * 루트 디바이스(원격일 수 있음)에 대한 SCSI 시간 제한 구성
 * **진단**
   
   * 직렬 포트로 콘솔 리디렉션

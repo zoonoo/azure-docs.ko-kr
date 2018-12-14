@@ -1,6 +1,6 @@
 ---
-title: Python을 사용하여 장치에서 Azure IoT Hub로 파일 업로드 | Microsoft Docs
-description: Python용 Azure IoT 장치 SDK를 사용하여 장치에서 클라우드로 파일을 업로드 하는 방법입니다. 업로드된 파일은 Azure Storage blob 컨테이너에 저장됩니다.
+title: Python을 사용하여 디바이스에서 Azure IoT Hub로 파일 업로드 | Microsoft Docs
+description: Python용 Azure IoT 디바이스 SDK를 사용하여 디바이스에서 클라우드로 파일을 업로드 하는 방법입니다. 업로드된 파일은 Azure Storage blob 컨테이너에 저장됩니다.
 author: kgremban
 manager: timlt
 ms.service: iot-hub

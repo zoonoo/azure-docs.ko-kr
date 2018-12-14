@@ -1,5 +1,5 @@
 ---
-title: 관리자가 사용자 및 장치 관리 - Azure MFA | Microsoft Docs
+title: 관리자가 사용자 및 디바이스 관리 - Azure MFA | Microsoft Docs
 description: 사용자가 증명 프로세스를 다시 수행하도록 하는 등의 사용자 설정을 변경하는 방법에 대해 설명합니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -19,11 +19,11 @@ ms.locfileid: "52496905"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리
 
-관리자는 다음 사용자 및 장치 설정을 관리할 수 있습니다.
+관리자는 다음 사용자 및 디바이스 설정을 관리할 수 있습니다.
 
 * 사용자가 연락 방법을 다시 제공하도록 요청
 * 앱 암호 삭제
-* 모든 신뢰할 수 있는 장치에서 MFA 요청 
+* 모든 신뢰할 수 있는 디바이스에서 MFA 요청 
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>사용자가 연락 방법을 다시 제공하도록 요청
 이 설정은 사용자가 등록 프로세스를 다시 완료하도록 합니다. 비브라우저 앱은 사용자에게 해당 앱 암호가 있는 경우 계속 작동됩니다.  또한 **선택한 사용자에 의해 생성된 모든 기존 앱 암호 삭제**를 선택하여 사용자 앱 암호를 삭제할 수 있습니다.
@@ -53,14 +53,14 @@ ms.locfileid: "52496905"
 9. **저장**을 클릭합니다.
 10. **닫기**를 클릭합니다.
 
-## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>사용자에 대해 기억된 모든 장치에서 MFA 복원
-Azure Multi-Factor Authentication의 구성 가능한 기능 중 하나는 사용자에게 장치를 신뢰할 수 있는 것으로 표시하는 옵션을 제공하는 것입니다. 자세한 내용은 [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md#remember-multi-factor-authentication)을 참조하세요.
+## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>사용자에 대해 기억된 모든 디바이스에서 MFA 복원
+Azure Multi-Factor Authentication의 구성 가능한 기능 중 하나는 사용자에게 디바이스를 신뢰할 수 있는 것으로 표시하는 옵션을 제공하는 것입니다. 자세한 내용은 [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md#remember-multi-factor-authentication)을 참조하세요.
 
-사용자는 일반 장치에서 구성 가능한 일 수 동안 2단계 인증을 옵트아웃(opt out)할 수 있습니다. 계정이 손상되거나 신뢰할 수 있는 장치를 분실한 경우 신뢰할 수 있는 상태를 제거할 수 있어야 하고 다시 2단계 인증이 필요합니다.
+사용자는 일반 디바이스에서 구성 가능한 일 수 동안 2단계 인증을 옵트아웃할 수 있습니다. 계정이 손상되거나 신뢰할 수 있는 디바이스를 분실한 경우 신뢰할 수 있는 상태를 제거할 수 있어야 하고 다시 2단계 인증이 필요합니다.
 
 **모든 저장된 장치에서 Multi-Factor Authentication 복원** 설정은 사용자가 장치를 신뢰할 수 있는 것으로 표시하도록 선택했는지 여부에 관계없이 다음에 로그인할 때 2단계 인증을 수행해야 하는 문제에 직면한다는 것을 의미합니다. 
 
-### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>사용자에 대해 일시 중단된 모든 장치에서 MFA를 복원하는 방법
+### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>사용자에 대해 일시 중단된 모든 디바이스에서 MFA를 복원하는 방법
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **사용자 및 그룹** > **모든 사용자**를 선택합니다.
 3. **Multi-Factor Authentication**을 선택합니다. 다단계 인증 페이지가 열립니다. 

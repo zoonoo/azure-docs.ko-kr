@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 앱에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다.
+description: 이 자습서에서 Azure Notification Hubs 및 Google Firebase Cloud Messaging을 사용하여 Android 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: android
 keywords: 푸시 알림,푸시알림,android 푸시 알림
@@ -23,7 +23,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2018
 ms.locfileid: "51616268"
 ---
-# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 장치에 알림 푸시
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>개요
@@ -438,11 +438,11 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 1. 앱을 실행하고 등록에 성공한 경우 등록 ID가 보고되는지 확인합니다.
    
       ![Android에서 테스트 - 채널 등록][18]
-2. 허브에 등록된 모든 Android 장치로 보낼 알림 메시지를 입력합니다.
+2. 허브에 등록된 모든 Android 디바이스로 보낼 알림 메시지를 입력합니다.
    
       ![Android에서 테스트 - 메시지 보내기][19]
 
-3. **알림 보내기**를 누릅니다. 앱을 실행 중인 모든 장치에는 푸시 알림 메시지가 있는 `AlertDialog` 인스턴스가 표시됩니다. 앱이 실행되지는 않지만 이전에 푸시 알림이 등록된 장치는 Android 알림 관리자에서 알림을 받습니다. 왼쪽 위 모서리에서 아래로 살짝 밀어 알림 메시지를 볼 수 있습니다.
+3. **알림 보내기**를 누릅니다. 앱을 실행 중인 모든 디바이스에는 푸시 알림 메시지가 있는 `AlertDialog` 인스턴스가 표시됩니다. 앱이 실행되지는 않지만 이전에 푸시 알림이 등록된 디바이스는 Android 알림 관리자에서 알림을 받습니다. 왼쪽 위 모서리에서 아래로 살짝 밀어 알림 메시지를 볼 수 있습니다.
    
       ![Android에서 테스트 - 알림][21]
 
@@ -452,7 +452,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
 1. **문제 해결** 섹션에서 **테스트 보내기**를 선택합니다. 
 2. **플랫폼**에 대해 **Android**를 선택합니다.
 3. **보내기**를 선택하여 테스트 알림을 보냅니다. 
-4. Android 장치에서 알림 메시지가 표시되는지 확인합니다. 
+4. Android 디바이스에서 알림 메시지가 표시되는지 확인합니다. 
 
     ![Azure Notification Hubs - 전송 테스트](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
@@ -693,7 +693,7 @@ GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 
     ```
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 백 엔드에 등록된 모든 Android 장치로 브로드캐스트 알림을 보냈습니다. 특정 Android 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.  
+이 자습서에서는 백 엔드에 등록된 모든 Android 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 Android 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.  
 
  > [!div class="nextstepaction"] 
  > [특정 장치에 알림 푸시](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md) 

@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 작업 이해 | Microsoft 문서
-description: 개발자 가이드 - IoT 허브에 연결된 여러 장치에서 실행할 작업 예약 작업은 태그와 원하는 속성을 업데이트하고 여러 장치에서 직접 메서드를 호출할 수 있습니다.
+description: 개발자 가이드 - IoT 허브에 연결된 여러 디바이스에서 실행할 작업 예약 작업은 tags와 desired 속성을 업데이트하고 여러 디바이스에서 직접 메서드를 호출할 수 있습니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/09/2018
 ms.locfileid: "48884227"
 ---
-# <a name="schedule-jobs-on-multiple-devices"></a>여러 장치에서 작업 예약
+# <a name="schedule-jobs-on-multiple-devices"></a>여러 디바이스에서 작업 예약
 
-Azure IoT Hub를 통해 [디바이스 쌍 속성 및 태그](iot-hub-devguide-device-twins.md) 및 [직접 메서드](iot-hub-devguide-direct-methods.md)와 같은 다양한 구성 요소를 사용할 수 있습니다. 일반적으로, 백 엔드 앱을 사용하면 장치 관리자와 운영자는 IoT 장치를 대량으로 예약된 시간에 업데이트하고 상호 작용할 수 있습니다. 작업은 예약된 시간에 디바이스 집합에 대해 디바이스 쌍 업데이트 및 직접 메서드를 실행합니다. 예를 들어 운영자는 빌딩 운영에 지장을 주지 않는 시간에 빌딩 43 및 3층에서 디바이스 집합을 재부팅하기 위해 작업을 시작 및 추적하는 백 엔드 앱을 사용합니다.
+Azure IoT Hub를 통해 [디바이스 쌍 속성 및 태그](iot-hub-devguide-device-twins.md) 및 [직접 메서드](iot-hub-devguide-direct-methods.md)와 같은 다양한 구성 요소를 사용할 수 있습니다. 일반적으로, 백 엔드 앱을 사용하면 디바이스 관리자와 운영자는 IoT 디바이스를 대량으로 예약된 시간에 업데이트하고 상호 작용할 수 있습니다. 작업은 예약된 시간에 디바이스 집합에 대해 디바이스 쌍 업데이트 및 직접 메서드를 실행합니다. 예를 들어 운영자는 빌딩 운영에 지장을 주지 않는 시간에 빌딩 43 및 3층에서 디바이스 집합을 재부팅하기 위해 작업을 시작 및 추적하는 백 엔드 앱을 사용합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -70,7 +70,7 @@ User-Agent: <sdk-name>/<sdk-version>
 
 [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)에 IoT Hub 쿼리 언어의 더 자세한 설명이 나와 있습니다.
 
-## <a name="jobs-to-update-device-twin-properties"></a>장치 쌍 속성을 업데이트하는 작업
+## <a name="jobs-to-update-device-twin-properties"></a>디바이스 쌍 속성을 업데이트하는 작업
 
 다음 코드 조각은 작업을 사용하여 디바이스 쌍 속성을 업데이트하는 HTTPS 1.1 요청 세부 정보를 나타냅니다.
 

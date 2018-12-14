@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central에서 장치 연결 | Microsoft Docs
-description: 이 문서에서는 Azure IoT Central의 장치 연결과 관련된 주요 개념을 소개합니다.
+title: Azure IoT Central에서 디바이스 연결 | Microsoft Docs
+description: 이 문서에서는 Azure IoT Central의 디바이스 연결과 관련된 주요 개념을 소개합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51238739"
 ---
-# <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 장치 연결 | Microsoft Docs
+# <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central의 디바이스 연결 | Microsoft Docs
 
-이 문서에서는 Microsoft Azure IoT Central의 장치 연결과 관련된 주요 개념을 소개합니다.
+이 문서에서는 Microsoft Azure IoT Central의 디바이스 연결과 관련된 주요 개념을 소개합니다.
 
 Azure IoT Central은 [Azure IoT Hub DPS(Device Provisioning service)](https://docs.microsoft.com/azure/iot-dps/about-iot-dps)를 사용하여 IoT Central이 대규모로 장치의 온보딩 및 연결을 지원할 수 있도록 설정합니다.
 
@@ -79,7 +79,7 @@ SAS를 사용하여 IoT Central에서 대규모로 디바이스를 연결하려�
 
 **장치 등록**
 
-대량의 장치를 응용 프로그램에 연결할 수 있도록 Azure IoT Central은 CSV 파일을 통해 장치 대량 가져오기 기능을 제공합니다. 
+대량의 디바이스를 응용 프로그램에 연결할 수 있도록 Azure IoT Central은 CSV 파일을 통해 디바이스 대량 가져오기 기능을 제공합니다. 
 
 CSV 파일 요구 사항: CSV 파일에는 다음 열(및 헤더)가 있어야 함
 1.  IOTC_DeviceID**<span style="color:Red">(소문자여야 함)</span>**
@@ -89,12 +89,12 @@ CSV 파일 요구 사항: CSV 파일에는 다음 열(및 헤더)가 있어야 �
 
 애플리케이션에 등록하려면 디바이스를 가져오기
 1.  왼쪽 탐색 메뉴에서 **Explorer**를 선택합니다.
-1.  왼쪽 패널에서 장치를 대량으로 만들 장치 템플릿을 선택합니다. 
+1.  왼쪽 패널에서 디바이스를 대량으로 만들 디바이스 템플릿을 선택합니다. 
 1.  **가져오기**를 클릭하고, 가져올 장치 ID 목록이 들어 있는 CSV 파일을 선택합니다.
 CSV 파일에는 다음 열(및 헤더)가 있어야 합니다.
     *   IOTC_DeviceID**<span style="color:Red">(소문자여야 함)</span>**
     *   IOTC_DeviceName(선택 사항)
-1.  가져오기가 완료되면 장치 그리드에 성공 메시지가 표시됩니다.
+1.  가져오기가 완료되면 디바이스 그리드에 성공 메시지가 표시됩니다.
 
 디바이스 연결 세부 정보를 가져오기 위해 디바이스를 내보냅니다. [내보내기]는 디바이스 ID, 디바이스 이름 및 디바이스 키를 사용하여 CSV 파일을 만듭니다. 이러한 정보를 사용하여 IoT Central에 디바이스를 연결합니다.
 응용 프로그램에서 디바이스를 대량으로 내보내려면 다음을 수행합니다.
@@ -130,7 +130,7 @@ CSV 파일에는 다음 열(및 헤더)가 있어야 합니다.
 
 ## <a name="connect-devices-using-x509-certificates"></a>X509 인증서를 사용하여 디바이스 연결
 
-X.509 인증서를 증명 메커니즘으로 사용하면 **프로덕션**의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. X.509 인증서는 일반적으로 체인의 각 인증서가 다음으로 높고, 그 다음으로 높은 등등의 우선 순위에 있는 인증서의 개인 키로 서명되는 신뢰의 인증서 체인에 정렬되며, 자체 서명된 루트 인증서에서 종료됩니다. 이렇게 하면 신뢰할 수 있는 루트 CA(인증 기관)에서 생성한 루트 인증서에서 각각의 중간 CA를 거쳐 장치에 설치된 최종 엔터티 “리프” 인증서로 위임된 신뢰 체인을 설정합니다. 자세한 내용은 [X.509 CA 인증서를 사용하여 디바이스 인증](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview)을 참조하세요. 
+X.509 인증서를 증명 메커니즘으로 사용하면 **프로덕션**의 크기를 조정하고 디바이스 프로비전을 간소화할 수 있습니다. X.509 인증서는 일반적으로 체인의 각 인증서가 다음으로 높고, 그 다음으로 높은 등등의 우선 순위에 있는 인증서의 개인 키로 서명되는 신뢰의 인증서 체인에 정렬되며, 자체 서명된 루트 인증서에서 종료됩니다. 이렇게 하면 신뢰할 수 있는 루트 CA(인증 기관)에서 생성한 루트 인증서에서 각각의 중간 CA를 거쳐 디바이스에 설치된 최종 엔터티 “리프” 인증서로 위임된 신뢰 체인을 설정합니다. 자세한 내용은 [X.509 CA 인증서를 사용하여 디바이스 인증](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview)을 참조하세요. 
 
 X509 인증서를 사용하여 IoT Central에 디바이스를 연결하려면 다음과 같이 세 가지 주요 단계가 있음 
 1. **연결 설정 구성**: 장치 인증서를 생성하는 데 사용되는 X509 루트/중간 인증서를 추가/확인하여 IoT Central 앱에서 연결 설정을 구성합니다.  X509 인증서에 대한 연결 설정을 구성하기 위한 두 단계가 있습니다.  
@@ -250,7 +250,7 @@ IoT Central이 사용하는 주요 시나리오 중 하나는 OEM이 디바이�
 
 ## <a name="sdk-support"></a>SDK 지원
 
-Azure 장치 SDK는 장치에서 Azure IoT Central 응용 프로그램에 연결하는 코드를 구현하는 가장 쉬운 방법을 제공합니다. 현재 다음과 같은 장치 SDK를 사용할 수 있습니다.
+Azure 디바이스 SDK는 디바이스에서 Azure IoT Central 응용 프로그램에 연결하는 코드를 구현하는 가장 쉬운 방법을 제공합니다. 현재 다음과 같은 디바이스 SDK를 사용할 수 있습니다.
 
 - [C용 Azure IoT SDK](https://github.com/azure/azure-iot-sdk-c)
 - [Python용 Azure IoT SDK](https://github.com/azure/azure-iot-sdk-python)
@@ -258,24 +258,24 @@ Azure 장치 SDK는 장치에서 Azure IoT Central 응용 프로그램에 연결
 - [Java용 Azure IoT SDK](https://github.com/azure/azure-iot-sdk-java)
 - [.NET용 Azure IoT SDK](https://github.com/azure/azure-iot-sdk-csharp)
 
-각 장치는 장치를 식별하는 고유한 연결 문자열을 사용하여 연결합니다. 장치는 등록된 IoT Hub에만 연결할 수 있습니다. Azure IoT Central 응용 프로그램에 실제 장치를 만들면 응용 프로그램에서는 사용할 연결 문자열을 생성합니다.
+각 디바이스는 디바이스를 식별하는 고유한 연결 문자열을 사용하여 연결합니다. 디바이스는 등록된 IoT Hub에만 연결할 수 있습니다. Azure IoT Central 응용 프로그램에 실제 디바이스를 만들면 응용 프로그램에서는 사용할 연결 문자열을 생성합니다.
 
 ## <a name="sdk-features-and-iot-hub-connectivity"></a>SDK 기능 및 IoT Hub 연결
 
-IoT Hub와의 모든 장치 통신에 다음 IoT Hub 연결 옵션이 사용됩니다.
+IoT Hub와의 모든 디바이스 통신에 다음 IoT Hub 연결 옵션이 사용됩니다.
 
 - [장치-클라우드 메시지](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)
 - [장치 쌍](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
 
-다음 표에는 Azure IoT Central 장치 기능이 IoT Hub 기능에 매핑되는 방식이 요약되어 있습니다.
+다음 표에는 Azure IoT Central 디바이스 기능이 IoT Hub 기능에 매핑되는 방식이 요약되어 있습니다.
 
 | Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
 | 측정값: 원격 분석 | 디바이스-클라우드 메시징 |
-| 장치 속성 | 디바이스 쌍 reported 속성 |
-| 설정 | 장치 쌍 desired 및 reported 속성 |
+| 디바이스 속성 | 디바이스 쌍 reported 속성 |
+| 설정 | 디바이스 쌍 desired 및 reported 속성 |
 
-장치 SDK 사용에 대해 자세히 알아보려면 다음 문서 중 하나에서 코드 예제를 참조하세요.
+디바이스 SDK 사용에 대해 자세히 알아보려면 다음 문서 중 하나에서 코드 예제를 참조하세요.
 
 - [Azure IoT Central 응용 프로그램에 일반 Node.js 클라이언트 연결](howto-connect-nodejs.md)
 - [Azure IoT Central 응용 프로그램에 Raspberry Pi 장치 연결](howto-connect-raspberry-pi-python.md)
@@ -284,7 +284,7 @@ IoT Hub와의 모든 장치 통신에 다음 IoT Hub 연결 옵션이 사용됩�
 
 ## <a name="protocols"></a>프로토콜
 
-장치 SDK는 IoT Hub에 연결하기 위한 다음과 같은 네트워크 프로토콜을 지원합니다.
+디바이스 SDK는 IoT Hub에 연결하기 위한 다음과 같은 네트워크 프로토콜을 지원합니다.
 
 - MQTT
 - AMQP
@@ -292,18 +292,18 @@ IoT Hub와의 모든 장치 통신에 다음 IoT Hub 연결 옵션이 사용됩�
 
 프로토콜 간 차이점 및 프로토콜 선택 방법에 대한 지침은 [통신 프로토콜 선택](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols)을 참조하세요.
 
-지원되는 프로토콜을 장치에서 사용할 수 없는 경우 Azure IoT Edge를 사용하여 프로토콜을 변환하면 됩니다. IoT Edge는 Azure IoT Central 응용 프로그램의 에지로 프로세싱을 오프로드하는 에지의 인텔리전스 시나리오를 지원합니다.
+지원되는 프로토콜을 디바이스에서 사용할 수 없는 경우 Azure IoT Edge를 사용하여 프로토콜을 변환하면 됩니다. IoT Edge는 Azure IoT Central 응용 프로그램의 에지로 프로세싱을 오프로드하는 에지의 인텔리전스 시나리오를 지원합니다.
 
 ## <a name="security"></a>보안
 
-장치와 Azure IoT Central 간에 교환되는 모든 데이터는 암호화됩니다. IoT Hub는 장치 연결 IoT Hub 엔드포인트 중 하나에 연결하는 장치의 모든 요청을 인증합니다. 유선으로 자격 증명을 교환하지 못하도록 방지하기 위해 장치에서는 서명된 토큰을 사용하여 인증합니다. 자세한 내용은 [IoT Hub에 대한 액세스 제어](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security)를 참조하세요.
+디바이스와 Azure IoT Central 간에 교환되는 모든 데이터는 암호화됩니다. IoT Hub는 디바이스 연결 IoT Hub 엔드포인트 중 하나에 연결하는 디바이스의 모든 요청을 인증합니다. 유선으로 자격 증명을 교환하지 못하도록 방지하기 위해 디바이스에서는 서명된 토큰을 사용하여 인증합니다. 자세한 내용은 [IoT Hub에 대한 액세스 제어](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security)를 참조하세요.
 
 > [!NOTE]
-> 현재 Azure IoT Central에 연결하는 장치는 SAS 토큰을 사용해야 합니다. X.509 인증서는 Azure IoT Central에 연결하는 장치에서 지원되지 않습니다.
+> 현재 Azure IoT Central에 연결하는 디바이스는 SAS 토큰을 사용해야 합니다. X.509 인증서는 Azure IoT Central에 연결하는 디바이스에서 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central의 장치 연결에 대해 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
+Azure IoT Central의 디바이스 연결에 대해 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 - [DevKit 장치 준비 및 연결](howto-connect-devkit.md)
 - [Raspberry Pi 준비 및 연결](howto-connect-raspberry-pi-python.md)

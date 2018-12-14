@@ -17,14 +17,14 @@ ms.locfileid: "51974758"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Windows IoT Core 디바이스 연결
 
-이 문서에서는 장치 개발자로서 Windows IoT Core 장치를 Microsoft Azure IoT Central 응용 프로그램에 연결하는 방법을 설명합니다.
+이 문서에서는 디바이스 개발자로서 Windows IoT Core 디바이스를 Microsoft Azure IoT Central 응용 프로그램에 연결하는 방법을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 1. **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 참조는 [애플리케이션 빠른 시작 만들기](quick-deploy-iot-central.md)를 참조하세요.
-2. Windows 10 IoT Core 운영 체제를 실행하는 장치. 이 연습에서는 Raspberry Pi를 사용합니다.
+2. Windows 10 IoT Core 운영 체제를 실행하는 디바이스. 이 연습에서는 Raspberry Pi를 사용합니다.
 
 
 ## <a name="sample-devkits-application"></a>**샘플 Devkits** 응용 프로그램
@@ -53,7 +53,7 @@ Azure IoT Central 애플리케이션에서 **Windows IoT Core** 디바이스 템
  > [!NOTE]
    > Azure IoT Central은 모든 디바이스 연결에 Azure IoT Hub DPS(Device Provisioning Service)를 사용하도록 전환되었습니다. 다음 지침에 따라 [디바이스 연결 문자열을 가져오고](concepts-connectivity.md#getting-device-connection-string) 자습서의 나머지 부분을 계속합니다.
 
-## <a name="prepare-the-windows-10-iot-core-device"></a>Windows 10 IoT Core 장치 준비
+## <a name="prepare-the-windows-10-iot-core-device"></a>Windows 10 IoT Core 디바이스 준비
 
 ### <a name="what-youll-need"></a>필요한 항목
 
@@ -121,5 +121,5 @@ Azure IoT Central에서, Raspberry Pi에서 실행되는 코드가 응용 프로
 
 | type            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
-| 장치 속성 | 다이 번호   | dieNumber  | number    |
+| 디바이스 속성 | 다이 번호   | dieNumber  | number    |
 | 텍스트            | 위치     | location   | 해당 없음       |

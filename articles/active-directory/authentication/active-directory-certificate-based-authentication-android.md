@@ -19,7 +19,7 @@ ms.locfileid: "47106662"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android에서 Azure Active Directory 인증서 기반 인증
 
-Android 장치는 연결할 때 자신의 장치에서 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증하는 데 CBA(인증서 기반 인증)을 사용할 수 있습니다.
+Android 디바이스는 연결할 때 자신의 디바이스에서 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증하는 데 CBA(인증서 기반 인증)을 사용할 수 있습니다.
 
 * Microsoft Outlook 및 Microsoft Word와 같은 Office 모바일 응용 프로그램
 * EAS(Exchange ActiveSync) 클라이언트
@@ -47,7 +47,7 @@ Android 장치는 연결할 때 자신의 장치에서 클라이언트 인증서
 
 ### <a name="implementation-requirements"></a>구현 요구 사항
 
-장치 OS 버전은 Android 5.0(Lollipop) 이상이어야 합니다.
+디바이스 OS 버전은 Android 5.0(Lollipop) 이상이어야 합니다.
 
 페더레이션 서버가 구성되어야 합니다.
 

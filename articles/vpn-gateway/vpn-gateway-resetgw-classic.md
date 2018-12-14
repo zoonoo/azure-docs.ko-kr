@@ -24,7 +24,7 @@ ms.locfileid: "45573907"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway 다시 설정
 
-Azure VPN Gateway 재설정은 하나 이상의 사이트 간 VPN 터널에서 크로스-프레미스 VPN 연결이 손실되는 경우에 유용합니다. 이 상황에서 온-프레미스 VPN 장치는 모두 올바르게 작동하지만 Azure VPN 게이트웨이와 IPsec 터널을 설정할 수 없습니다. 이 문서는 VPN Gateway를 다시 설정하도록 도와줍니다.
+Azure VPN Gateway 재설정은 하나 이상의 사이트 간 VPN 터널에서 크로스-프레미스 VPN 연결이 손실되는 경우에 유용합니다. 이 상황에서 온-프레미스 VPN 디바이스는 모두 올바르게 작동하지만 Azure VPN 게이트웨이와 IPsec 터널을 설정할 수 없습니다. 이 문서는 VPN Gateway를 다시 설정하도록 도와줍니다.
 
 ### <a name="what-happens-during-a-reset"></a>다시 설정하는 동안 어떻게 되나요?
 

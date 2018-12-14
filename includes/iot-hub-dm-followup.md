@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43100228"
 ---
-## <a name="customize-and-extend-the-device-management-actions"></a>장치 관리 작업 사용자 지정 및 확장
+## <a name="customize-and-extend-the-device-management-actions"></a>디바이스 관리 작업 사용자 지정 및 확장
 
 IoT 솔루션에서 정의된 디바이스 관리 패턴 집합을 확장하거나 디바이스 쌍 및 클라우드-디바이스 메서드 기본 형식을 사용하여 사용자 지정 패턴을 활성화하도록 설정할 수 있습니다. 디바이스 관리 작업의 다른 예로 공장 재설정, 펌웨어 업데이트, 소프트웨어 업데이트, 전원 관리, 네트워크 및 연결 관리, 데이터 암호화가 있습니다.
 

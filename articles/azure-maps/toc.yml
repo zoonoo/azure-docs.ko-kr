@@ -151,7 +151,7 @@ items:
     items:
     - name: IoT Edge
       href: /azure/iot-edge
-    - name: IoT 장치 SDK
+    - name: IoT 디바이스 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: 리소스
   items:

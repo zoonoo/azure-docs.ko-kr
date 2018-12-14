@@ -117,7 +117,7 @@ ms.locfileid: "42142190"
 | 이더넷 |I/O |물리적 |Controller |아니요 |각 네트워크 인터페이스, 즉, 컨트롤러에서 제공하는 관리 및 데이터 포트의 상태를 나타냅니다. |
 | NVRAM |I/O |물리적 |Controller |아니요 |전원 오류가 발생할 경우 응용 프로그램에 중요한 정보를 유지하기 위해 사용되는 배터리에서 백업된 비휘발성 임의 액세스 메모리, NVRAM의 상태를 나타냅니다. |
 
-## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>StorSimple 장치의 EBOD 인클로저에 대한 구성 요소 목록
+## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>StorSimple 디바이스의 EBOD 인클로저에 대한 구성 요소 목록
 다음 표에서 온-프레미스 StorSimple 디바이스의 EBOD 인클로저(8600 모델에만 있음)에 포함된 물리적 및 논리적 구성 요소를 간략하게 설명합니다.
 
 | 구성 요소 | 모듈 | type | 위치 | FRU? | 설명 |

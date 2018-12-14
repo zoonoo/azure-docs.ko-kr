@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 직접 메서드 이해 | Microsoft Docs
-description: 개발자 가이드 - 직접 메서드를 사용하여 서비스 앱의 장치에서 코드 호출
+description: 개발자 가이드 - 직접 메서드를 사용하여 서비스 앱의 디바이스에서 코드 호출
 author: nberdy
 ms.service: iot-hub
 services: iot-hub
@@ -16,7 +16,7 @@ ms.locfileid: "52265265"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 
-IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 방법은 즉각적인 조치 과정이 디바이스의 응답 여부에 따라 달라지는 시나리오에서 유용합니다.
+IoT Hub를 사용하면 클라우드의 디바이스에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 방법은 즉각적인 조치 과정이 디바이스의 응답 여부에 따라 달라지는 시나리오에서 유용합니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

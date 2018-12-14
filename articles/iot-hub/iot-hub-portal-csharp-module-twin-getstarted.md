@@ -16,10 +16,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2018
 ms.locfileid: "51514403"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 장치를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
 > [!NOTE]
-> [모듈 ID 및 모듈 쌍](iot-hub-devguide-module-twins.md)은 Azure IoT Hub 장치 ID 및 장치 쌍과 비슷하지만 더 자세한 세분성을 제공합니다. Azure IoT Hub 장치 ID와 장치 쌍은 백 엔드 응용 프로그램에서 장치를 구성할 수 있도록 하고 장치 상태에 대한 가시성을 제공하지만, 모듈 ID와 모듈 쌍은 장치의 개별 구성 요소에 대해 이러한 기능을 제공합니다. 운영 체제 기반 장치 또는 펌웨어 장치와 같이 여러 구성 요소가 있는 가능한 장치에서 각 구성 요소에 대해 격리된 구성과 조건을 허용합니다.
+> [모듈 ID 및 모듈 쌍](iot-hub-devguide-module-twins.md)은 Azure IoT Hub 장치 ID 및 장치 쌍과 비슷하지만 더 자세한 세분성을 제공합니다. Azure IoT Hub 디바이스 ID와 디바이스 쌍은 백 엔드 응용 프로그램에서 디바이스를 구성할 수 있도록 하고 디바이스 상태에 대한 가시성을 제공하지만, 모듈 ID와 모듈 쌍은 디바이스의 개별 구성 요소에 대해 이러한 기능을 제공합니다. 운영 체제 기반 디바이스 또는 펌웨어 디바이스와 같이 여러 구성 요소가 있는 가능한 디바이스에서 각 구성 요소에 대해 격리된 구성과 조건을 허용합니다.
 >
 
 이 자습서에서는 다음에 대해 알아봅니다.
@@ -51,17 +51,17 @@ ms.locfileid: "51514403"
 
 ## <a name="create-a-module-identity-in-the-portal"></a>포털에서 모듈 ID 만들기
 
-하나의 장치 ID 내에 최대 20개의 모듈 ID를 만들 수 있습니다. 위쪽의 **모듈 ID 추가** 단추를 클릭하여 **myFirstModule**이라는 첫 번째 모듈 ID를 만듭니다. 
+하나의 디바이스 ID 내에 최대 20개의 모듈 ID를 만들 수 있습니다. 위쪽의 **모듈 ID 추가** 단추를 클릭하여 **myFirstModule**이라는 첫 번째 모듈 ID를 만듭니다. 
 
   ![디바이스 세부 정보][9]
 
-방금 만든 모듈 ID를 저장하고 클릭합니다. 모듈 ID 세부 정보를 볼 수 있습니다. 연결 문자열 - 기본 키를 저장합니다. 장치에서 모듈을 설정한 경우 다음 섹션에서 사용됩니다.
+방금 만든 모듈 ID를 저장하고 클릭합니다. 모듈 ID 세부 정보를 볼 수 있습니다. 연결 문자열 - 기본 키를 저장합니다. 디바이스에서 모듈을 설정한 경우 다음 섹션에서 사용됩니다.
 
   ![디바이스 세부 정보][12]
 
-## <a name="update-the-module-twin-using-net-device-sdk"></a>.NET 장치 SDK를 사용하여 모듈 쌍 업데이트
+## <a name="update-the-module-twin-using-net-device-sdk"></a>.NET 디바이스 SDK를 사용하여 모듈 쌍 업데이트
 
-IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트된 장치에서 클라우드와 통신해 보겠습니다. 모듈 ID가 만들어지면 모듈 쌍이 IoT Hub에서 암시적으로 생성됩니다. 이 섹션에서는 시뮬레이션된 장치에 모듈 쌍 reported 속성을 업데이트하는 .NET 콘솔 앱을 만듭니다.
+IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트된 디바이스에서 클라우드와 통신해 보겠습니다. 모듈 ID가 만들어지면 모듈 쌍이 IoT Hub에서 암시적으로 생성됩니다. 이 섹션에서는 시뮬레이션된 디바이스에 모듈 쌍 reported 속성을 업데이트하는 .NET 콘솔 앱을 만듭니다.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
@@ -71,13 +71,13 @@ Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사
 
 ## <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>최신 Azure IoT Hub .NET 디바이스 SDK 설치
 
-모듈 ID 및 모듈 쌍은 공개 미리 보기로 제공됩니다. IoT Hub 시험판 장치 SDK에서만 사용할 수 있습니다. Visual Studio에서 도구 > Nuget 패키지 관리자 > 솔루션용 Nuget 패키지 관리를 차례로 엽니다. Microsoft.Azure.Devices.Client를 검색합니다. 시험판 포함 확인란이 선택되었는지 확인합니다. 최신 버전을 선택하고 설치합니다. 이제 모든 모듈 기능에 액세스할 수 있습니다. 
+모듈 ID 및 모듈 쌍은 공개 미리 보기로 제공됩니다. IoT Hub 시험판 디바이스 SDK에서만 사용할 수 있습니다. Visual Studio에서 도구 > Nuget 패키지 관리자 > 솔루션용 Nuget 패키지 관리를 차례로 엽니다. Microsoft.Azure.Devices.Client를 검색합니다. 시험판 포함 확인란이 선택되었는지 확인합니다. 최신 버전을 선택하고 설치합니다. 이제 모든 모듈 기능에 액세스할 수 있습니다. 
 
   ![Azure IoT Hub .NET 서비스 SDK V1.16.0-preview-005 설치][14]
 
 ## <a name="get-your-module-connection-string"></a>모듈 연결 문자열 가져오기
 
-[Azure Portal][lnk-portal]에 로그인합니다. IoT Hub로 이동하고 IoT 장치를 클릭합니다. myFirstDevice를 찾아서 열면 성공적으로 만들어진 myFirstModule이 표시됩니다. 모듈 연결 문자열을 복사합니다. 이는 다음 단계에서 필요합니다.
+[Azure Portal][lnk-portal]에 로그인합니다. IoT Hub로 이동하고 IoT 디바이스를 클릭합니다. myFirstDevice를 찾아서 열면 성공적으로 만들어진 myFirstModule이 표시됩니다. 모듈 연결 문자열을 복사합니다. 이는 다음 단계에서 필요합니다.
 
   ![Azure Portal 모듈 세부 정보][15]
 

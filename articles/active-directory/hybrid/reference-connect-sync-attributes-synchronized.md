@@ -401,7 +401,7 @@ ms.locfileid: "51251801"
 ## <a name="windows-10"></a>윈도우 10
 Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD에 동기화합니다. 이 시나리오에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 가입된 디바이스 연결](../active-directory-azureadjoin-devices-group-policy.md)을 참조하세요. 이 특성은 항상 동기화되며 Windows 10은 선택 취소할 수 있는 앱으로 표시되지 않습니다. Windows 10 도메인에 가입된 컴퓨터는 특성 userCertificate를 채우는 것으로 식별됩니다.
 
-| 특성 이름 | 장치 | 주석 |
+| 특성 이름 | 디바이스 | 주석 |
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |도메인에 가입된 컴퓨터에 대해 하드 코딩된 값입니다. |
@@ -448,10 +448,10 @@ Windows 10 도메인에 가입된 컴퓨터(장치)는 일부 특성을 Azure AD
 | proxyAddresses | X |  |
 | targetAddress | X |  |
 
-## <a name="device-writeback"></a>장치 쓰기 저장
-Active Directory에 장치 개체를 만듭니다. 이러한 개체는 Azure AD에 가입된 장치이거나 도메인에 가입된 Windows 10 컴퓨터일 수 있습니다.
+## <a name="device-writeback"></a>디바이스 쓰기 저장
+Active Directory에 디바이스 개체를 만듭니다. 이러한 개체는 Azure AD에 조인된 디바이스이거나 도메인에 조인된 Windows 10 컴퓨터일 수 있습니다.
 
-| 특성 이름 | 장치 | 주석 |
+| 특성 이름 | 디바이스 | 주석 |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |

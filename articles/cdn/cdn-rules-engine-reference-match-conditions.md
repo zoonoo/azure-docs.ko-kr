@@ -41,7 +41,7 @@ Name | 목적
 
 ## <a name="device-match-condition"></a>디바이스 일치 조건
 
-장치 일치 조건은 속성에 따라 모바일 장치에서 생성되는 요청을 식별합니다.  
+디바이스 일치 조건은 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다.  
 
 Name | 목적
 -----|--------
@@ -285,9 +285,9 @@ AS 숫자 네트워크는 해당 ASN(자치 시스템 번호)으로 정의됩니
 </br>
 
 ---
-### <a name="device"></a>장치
+### <a name="device"></a>디바이스
 
-장치 일치 조건은 속성에 따라 모바일 장치에서 생성되는 요청을 식별합니다. 모바일 장치 검색은 [WURFL](http://wurfl.sourceforge.net/)을 통해 이루어집니다. 
+디바이스 일치 조건은 속성에 따라 모바일 디바이스에서 생성되는 요청을 식별합니다. 모바일 디바이스 검색은 [WURFL](http://wurfl.sourceforge.net/)을 통해 이루어집니다. 
 
 **일치**/**일치하지 않음** 옵션은 장치 일치 조건이 충족되는 조건을 결정합니다.
 - **일치**: 요청자의 장치가 지정된 값과 일치해야 합니다. 
@@ -322,26 +322,26 @@ WURFL 기능은 모바일 디바이스를 설명하는 범주를 나타냅니다
 
 기능 | 변수 | 설명 | 샘플 값
 -----------|----------|-------------|----------------
-브랜드 이름 | %{wurfl_cap_brand_name} | 장치의 브랜드 이름을 나타내는 문자열입니다. | Samsung
-장치 OS | %{wurfl_cap_device_os} | 장치에 설치된 운영 체제를 나타내는 문자열입니다. | IOS
-장치 OS 버전 | %{wurfl_cap_device_os_version} | 디바이스에 설치된 운영 체제의 버전 번호를 나타내는 문자열입니다. | 1.0.1
-이중 방향 | %{wurfl_cap_dual_orientation} | 장치가 이중 방향을 지원하는지 여부를 나타내는 부울입니다. | true
-HTML 기본 DTD | %{wurfl_cap_html_preferred_dtd} | HTML 콘텐츠에 대한 모바일 장치의 기본 DTD(문서 종류 정의)를 나타내는 문자열입니다. | 없음<br/>xhtml_basic<br/>html5
-이미지 인라인 처리 | %{wurfl_cap_image_inlining} | 장치가 Base64로 인코딩된 이미지를 지원하는지 여부를 나타내는 부울입니다. | false
-Android 여부 | %{wurfl_vcap_is_android} | 장치가 Android OS를 사용하는지 여부를 나타내는 부울입니다. | true
-IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부를 나타내는 부울입니다. | false
-스마트 TV 여부 | %{wurfl_cap_is_smarttv} | 장치가 스마트 TV인지 여부를 나타내는 부울입니다. | false
-스마트폰 여부 | %{wurfl_vcap_is_smartphone} | 장치가 스마트폰인지 여부를 나타내는 부울입니다. | true
-태블릿 여부 | %{wurfl_cap_is_tablet} | 장치가 태블릿인지 여부를 나타내는 부울입니다. 이 설명은 OS와 별개입니다. | true
-무선 장치 여부 | %{wurfl_cap_is_wireless_device} | 장치가 무선 장치로 간주되는지 여부를 나타내는 부울입니다. | true
-마케팅 이름 | %{wurfl_cap_marketing_name} | 장치의 마케팅 이름을 나타내는 문자열입니다. | BlackBerry 8100 Pearl
+브랜드 이름 | %{wurfl_cap_brand_name} | 디바이스의 브랜드 이름을 나타내는 문자열입니다. | Samsung
+디바이스 OS | %{wurfl_cap_device_os} | 디바이스에 설치된 운영 체제를 나타내는 문자열입니다. | IOS
+디바이스 OS 버전 | %{wurfl_cap_device_os_version} | 디바이스에 설치된 운영 체제의 버전 번호를 나타내는 문자열입니다. | 1.0.1
+이중 방향 | %{wurfl_cap_dual_orientation} | 디바이스가 이중 방향을 지원하는지 여부를 나타내는 부울입니다. | true
+HTML 기본 DTD | %{wurfl_cap_html_preferred_dtd} | HTML 콘텐츠에 대한 모바일 디바이스의 기본 DTD(문서 종류 정의)를 나타내는 문자열입니다. | 없음<br/>xhtml_basic<br/>html5
+이미지 인라인 처리 | %{wurfl_cap_image_inlining} | 디바이스가 Base64로 인코딩된 이미지를 지원하는지 여부를 나타내는 부울입니다. | false
+Android 여부 | %{wurfl_vcap_is_android} | 디바이스가 Android OS를 사용하는지 여부를 나타내는 부울입니다. | true
+IOS 여부 | %{wurfl_vcap_is_ios} | 디바이스에서 iOS를 사용하는지 여부를 나타내는 부울입니다. | false
+스마트 TV 여부 | %{wurfl_cap_is_smarttv} | 디바이스가 스마트 TV인지 여부를 나타내는 부울입니다. | false
+스마트폰 여부 | %{wurfl_vcap_is_smartphone} | 디바이스가 스마트폰인지 여부를 나타내는 부울입니다. | true
+태블릿 여부 | %{wurfl_cap_is_tablet} | 디바이스가 태블릿인지 여부를 나타내는 부울입니다. 이 설명은 OS와 별개입니다. | true
+무선 디바이스 여부 | %{wurfl_cap_is_wireless_device} | 디바이스가 무선 디바이스로 간주되는지 여부를 나타내는 부울입니다. | true
+마케팅 이름 | %{wurfl_cap_marketing_name} | 디바이스의 마케팅 이름을 나타내는 문자열입니다. | BlackBerry 8100 Pearl
 모바일 브라우저 | %{wurfl_cap_mobile_browser} | 디바이스에서 콘텐츠를 요청하는 데 사용되는 브라우저를 나타내는 문자열입니다. | Chrome
 모바일 브라우저 버전 | %{wurfl_cap_mobile_browser_version} | 디바이스에서 콘텐츠를 요청하는 데 사용되는 브라우저의 버전을 나타내는 문자열입니다. | 31
-모델 이름 | %{wurfl_cap_model_name} | 장치의 모델 이름을 나타내는 문자열입니다. | s3
+모델 이름 | %{wurfl_cap_model_name} | 디바이스의 모델 이름을 나타내는 문자열입니다. | s3
 점진적 다운로드 | %{wurfl_cap_progressive_download} | 디바이스가 오디오 및 비디오를 다운로드하는 중에 오디오 및 비디오 재생을 지원하는지 여부를 나타내는 부울입니다. | true
-릴리스 날짜 | %{wurfl_cap_release_date} | 장치가 WURFL 데이터베이스에 추가된 연도와 월을 나타내는 문자열입니다.<br/><br/>형식: `yyyy_mm` | 2013_december
-해상도 높이 | %{wurfl_cap_resolution_height} | 장치의 높이(픽셀)를 나타내는 정수입니다. | 768
-해상도 너비 | %{wurfl_cap_resolution_width} | 장치의 너비(픽셀)를 나타내는 정수입니다. | 1024
+릴리스 날짜 | %{wurfl_cap_release_date} | 디바이스가 WURFL 데이터베이스에 추가된 연도와 월을 나타내는 문자열입니다.<br/><br/>형식: `yyyy_mm` | 2013_december
+해상도 높이 | %{wurfl_cap_resolution_height} | 디바이스의 높이(픽셀)를 나타내는 정수입니다. | 768
+해상도 너비 | %{wurfl_cap_resolution_width} | 디바이스의 너비(픽셀)를 나타내는 정수입니다. | 1024
 
 [맨 위로 이동](#match-conditions-for-the-azure-cdn-rules-engine)
 

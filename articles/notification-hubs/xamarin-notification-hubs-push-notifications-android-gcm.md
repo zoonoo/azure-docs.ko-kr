@@ -26,7 +26,7 @@ ms.locfileid: "41918511"
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure Notification Hubs를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트합니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 사용할 수 있습니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 Xamarin.Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. FCM(Firebase Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Xamarin.Android 앱을 만듭니다. 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트합니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 사용할 수 있습니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -246,7 +246,7 @@ ms.locfileid: "41918511"
 푸시 알림은 일반적으로 Mobile Services 또는 ASP.NET과 같은 백 엔드 서비스에서 호환되는 라이브러리를 통해 보내집니다. 백 엔드에서 라이브러리를 사용할 수 없는 경우 REST API를 직접 사용하여 알림 메시지를 보낼 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 백 엔드에 등록된 모든 Android 장치로 브로드캐스트 알림을 보냈습니다. 특정 Android 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+이 자습서에서는 백 엔드에 등록된 모든 Android 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 Android 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
 > [!div class="nextstepaction"]
 >[특정 장치에 알림 푸시](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)

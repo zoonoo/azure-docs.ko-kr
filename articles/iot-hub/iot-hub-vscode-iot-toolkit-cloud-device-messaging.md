@@ -50,7 +50,7 @@ ms.locfileid: "39206688"
    > [!Note]
    > **IoT Hub 연결 문자열 설정**을 선택하여 설정을 완료할 수도 있습니다. 팝업 창에서 IoT 디바이스를 연결할 IoT Hub의 연결 문자열을 입력합니다.
    
-## <a name="monitor-device-to-cloud-messages"></a>장치-클라우드 메시지 모니터링
+## <a name="monitor-device-to-cloud-messages"></a>디바이스-클라우드 메시지 모니터링
 
 디바이스에서 IoT Hub로 보낸 메시지를 모니터링하려면 다음 단계를 수행합니다.
 

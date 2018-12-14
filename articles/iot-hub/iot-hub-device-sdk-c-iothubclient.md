@@ -27,7 +27,7 @@ ms.locfileid: "50024772"
 
 이 항목을 설명하기 위해 **IoTHubClient** SDK 샘플을 사용하겠습니다. 따라서 따라하려면 C용 Azure IoT 디바이스 SDK에 포함된 **iothub\_client\_sample\_http** 및 **iothub\_client\_sample\_amqp** 애플리케이션을 참조하세요. 다음 섹션에 설명된 모든 내용은 이 샘플에 나와 있습니다.
 
-GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
+GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
 
 ## <a name="the-lower-level-apis"></a>하위 수준 API
 

@@ -105,7 +105,7 @@ Traffic Manager 및 DNS 구성의 최종 결과는 *www.scalableasedemo.com* 에
 3. DNS 조회는 Azure Traffic Manager DNS 서버 중 하나에 대한 *scalable-ase-demo.trafficmanager.net* 에 대해 수행합니다.
 4. 부하 분산 정책에 따라(Traffic Manager 프로필을 만들 때 이전에 사용된 *TrafficRoutingMethod* 매개 변수) Traffic Manager는 구성된 끝점 중 하나를 선택하고 브라우저 또는 장치에 해당 끝점의 FQDN을 반환합니다.
 5. 끝점의 FQDN가 App Service Environment에서 실행 중인 앱 인스턴스의 URL이기 때문에 브라우저 또는 장치는 Microsoft Azure DNS 서버에 요청하여 FQDN을 IP 주소로 해결합니다. 
-6. 브라우저 또는 장치는 IP 주소에 HTTP/S 요청을 보냅니다.  
+6. 브라우저 또는 디바이스는 IP 주소에 HTTP/S 요청을 보냅니다.  
 7. 요청은 App Service Environment 중 하나에서 실행 중인 앱 인스턴스 중 하나에 도착합니다.
 
 아래 그림의 콘솔에서는 세 개의 샘플 App Service Environment 중 하나에서 실행 중인 앱 인스턴스를 성공적으로 해결하는 샘플 앱의 사용자 지정 도메인에 대한 DNS 조회를 보여줍니다.(이 경우 세 개의 App Service Environments 중 두 번째) 

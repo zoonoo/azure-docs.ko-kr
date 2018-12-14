@@ -69,7 +69,7 @@ Logic Apps를 사용하여 이벤트에 응답하는 비즈니스 프로세스�
 |제목  |설명  |
 |---------|---------|
 | [자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 내용 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md) | 논리 앱은 가상 머신의 변경 내용을 모니터링하고 이러한 변경에 대한 이메일을 보냅니다. |
-| [자습서: Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기](publish-iot-hub-events-to-logic-apps.md) | 논리 앱은 사용자의 IoT Hub에 장치가 추가될 때마다 알림 이메일을 보냅니다. |
+| [자습서: Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기](publish-iot-hub-events-to-logic-apps.md) | 논리 앱은 사용자의 IoT Hub에 디바이스가 추가될 때마다 알림 이메일을 보냅니다. |
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
 
 ## <a name="queue-storage"></a>Queue Storage

@@ -16,7 +16,7 @@ ms.locfileid: "47452193"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>디바이스-클라우드 통신 지침
 
-장치 앱에서 솔루션 백 엔드로 정보를 전송할 때 IoT Hub은 다음 세 가지 옵션을 공개합니다.
+디바이스 앱에서 솔루션 백 엔드로 정보를 전송할 때 IoT Hub은 다음 세 가지 옵션을 공개합니다.
 
 * 시계열 원격 분석 및 경고의 경우 [장치-클라우드 메시지](iot-hub-devguide-messages-d2c.md)
 

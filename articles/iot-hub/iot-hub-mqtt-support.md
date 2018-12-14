@@ -184,7 +184,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 ### <a name="receiving-cloud-to-device-messages"></a>클라우드-장치 메시지 수신
 
-IoT Hub에서 메시지를 수신하려면 디바이스는 `devices/{device_id}/messages/devicebound/#`을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 장치가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
+IoT Hub에서 메시지를 수신하려면 디바이스는 `devices/{device_id}/messages/devicebound/#`을 **토픽 필터**로 사용하여 구독해야 합니다. 토픽 필터에 다중 레벨 와일드카드 `#`는 디바이스가 토픽 이름에 추가 속성을 수신하도록 하려는 경우에만 사용됩니다. IoT Hub는 하위 토픽의 필터링을 위한 `#` 또는 `?` 와일드카드의 사용을 허용하지 않습니다. IoT Hub는 범용 발행-구독 메시징 브로커가 아니므로 문서화된 토픽 이름 및 토픽 필터만 지원합니다.
 
 디바이스는 `devices/{device_id}/messages/devicebound/#` 항목 필터로 표시되는 디바이스 특정 엔드포인트를 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 설정된 후에는 디바이스가 구독 시간 이후 전송된 클라우드-디바이스 메시지를 수신합니다. 디바이스가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 디바이스가 **CleanSession 0**으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 디바이스가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 디바이스-엔드포인트를 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
 
@@ -194,7 +194,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 ### <a name="retrieving-a-device-twins-properties"></a>디바이스 쌍 속성 검색
 
-먼저 작업의 응답을 수신하기 위해 디바이스가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 **요청 ID**에 채워진 값을 사용하여 빈 메시지를 `$iothub/twin/GET/?$rid={request id}` 항목에 보냅니다. 그러면 서비스는 요청과 동일한 **요청 ID**를 사용하여 `$iothub/twin/res/{status}/?$rid={request id}` 항목에 대한 장치 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
+먼저 작업의 응답을 수신하기 위해 디바이스가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 **요청 ID**에 채워진 값을 사용하여 빈 메시지를 `$iothub/twin/GET/?$rid={request id}` 항목에 보냅니다. 그러면 서비스는 요청과 동일한 **요청 ID**를 사용하여 `$iothub/twin/res/{status}/?$rid={request id}` 항목에 대한 디바이스 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
 
 요청 ID는 [IoT Hub 메시징 개발자 가이드][lnk-messaging]에 따라 메시지 속성 값에 대한 유효한 값이며 status는 정수로 확인됩니다.
 
@@ -226,7 +226,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 자세한 내용은 [디바이스 쌍 개발자 가이드][lnk-devguide-twin]를 참조하세요.
 
-### <a name="update-device-twins-reported-properties"></a>장치 쌍의 reported 속성 업데이트
+### <a name="update-device-twins-reported-properties"></a>디바이스 쌍의 reported 속성 업데이트
 
 reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토픽에서 게시를 통해 IoT Hub에 요청을 발급합니다. IoT Hub는 요청을 처리한 후에 다른 항목에 대한 게시를 통해 업데이트 작업의 성공 또는 실패 상태를 응답합니다. 해당 쌍 업데이트 요청의 결과에 대해 알리기 위해 디바이스에서 이 토픽을 구독할 수 있습니다. MQTT에서 이 형식의 요청/응답 상호 작용을 구현하려면 해당 업데이트 요청의 디바이스에서 처음 제공된 요청 ID(`$rid`)의 개념을 활용합니다. 이 요청 ID는 IoT Hub의 응답에도 포함되어 디바이스가 이전의 특정 요청에 대한 응답을 상호 연결하도록 합니다.
 
@@ -274,7 +274,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 ### <a name="receiving-desired-properties-update-notifications"></a>desired 속성 업데이트 알림 수신
 
-장치가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예: 
+디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예: 
 
 ```json
 {
@@ -294,7 +294,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 
 먼저 디바이스가 `$iothub/methods/POST/#`을 구독해야 합니다. IoT Hub는 `$iothub/methods/POST/{method name}/?$rid={request id}` 항목에 유효한 JSON 또는 빈 본문으로 메서드 요청을 보냅니다.
 
-응답하기 위해 장치는 올바른 JSON 또는 빈 본문이 있는 메시지를 `$iothub/methods/res/{status}/?$rid={request id}` 토픽에 보냅니다. 이 메시지에서 **요청 ID**는 요청 메시지의 것과 일치하고 **상태**는 정수여야 합니다.
+응답하기 위해 디바이스는 올바른 JSON 또는 빈 본문이 있는 메시지를 `$iothub/methods/res/{status}/?$rid={request id}` 토픽에 보냅니다. 이 메시지에서 **요청 ID**는 요청 메시지의 것과 일치하고 **상태**는 정수여야 합니다.
 
 자세한 내용은 [직접 메서드 개발자 가이드][lnk-methods]를 참조하세요.
 

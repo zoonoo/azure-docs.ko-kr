@@ -92,7 +92,7 @@ cat /sys/block/sda/queue/scheduler
 noop [deadline] cfq
 ```
 
-### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>I/O 일정 알고리즘의 현재 장치(/dev/sda) 변경
+### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>I/O 일정 알고리즘의 현재 디바이스(/dev/sda) 변경
 다음 명령을 사용합니다.  
 
 ```bash

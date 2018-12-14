@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51242418"
 ---
-# <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 장치-클라우드 메시지 읽기
+# <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기
 
 기본적으로 메시지는 [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/
 )와 호환되는 기본 제공 서비스 연결 엔드포인트(**messages/events**)로 라우팅됩니다. 이 엔드포인트는 현재 [AMQP](https://www.amqp.org/) 프로토콜을 통해서만 포트 5671에 노출됩니다. IoT Hub는 다음 속성을 노출하여 기본 제공 Event Hub와 호환되는 메시징 엔드포인트 **messages/events**를 제어할 수 있게 합니다.
@@ -25,7 +25,7 @@ ms.locfileid: "51242418"
 | **분할 개수** | 이 속성은 생성 시 설정하여 디바이스-클라우드 이벤트 수집에 대한 [파티션](../event-hubs/event-hubs-features.md#partitions) 수를 정의합니다. |
 | **보존 시간**  | 이 속성은 IoT Hub에서 메시지를 보존할 일 수를 지정합니다. 기본값은 1일이지만 7일로 늘릴 수 있습니다. |
 
-또한 IoT Hub를 사용하면 기본 제공 장치-클라우드 수신 엔드포인트에서 소비자 그룹을 관리할 수 있습니다.
+또한 IoT Hub를 사용하면 기본 제공 디바이스-클라우드 수신 엔드포인트에서 소비자 그룹을 관리할 수 있습니다.
 
 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 사용하고 [대체 경로](iot-hub-devguide-messages-d2c.md#fallback-route)가 사용하도록 설정된 경우 경로의 쿼리와 일치하지 않는 모든 메시지가 기본 제공 엔드포인트에 기록됩니다. 이 대체 경로를 사용하지 않도록 설정하면 쿼리와 일치하지 않는 메시지가 삭제됩니다.
 
@@ -45,7 +45,7 @@ IoT Hub를 인식하지 않는 SDK(또는 제품 통합)를 사용하는 경우 
 
 3. **이벤트** 섹션에는 **Event Hub 호환 엔드포인트**, **Event Hub 호환 이름**, **파티션**, **보존 시간** 및 **소비자 그룹** 값이 포함됩니다.
 
-    ![장치-클라우드 설정](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
+    ![디바이스-클라우드 설정](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 IoT Hub SDK에는 **엔드포인트**에서 보여 주듯이 IoT Hub 엔드포인트 이름으로 **messages/events**가 필요합니다.
 

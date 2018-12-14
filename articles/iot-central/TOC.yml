@@ -18,15 +18,15 @@ items:
   expanded: true
 - name: 자습서
   items:
-  - name: 1 - 새 장치 유형 정의
+  - name: 1 - 새 디바이스 유형 정의
     href: tutorial-define-device-type.md
   - name: 2 - 규칙 구성
     href: tutorial-configure-rules.md
   - name: 3 - 연산자의 뷰 사용자 지정.
     href: tutorial-customize-operator.md
-  - name: 4 - 장치 모니터링
+  - name: 4 - 디바이스 모니터링
     href: tutorial-monitor-devices.md
-  - name: 5 - 장치 추가
+  - name: 5 - 디바이스 추가
     href: tutorial-add-device.md
 - name: 개념
   items:
@@ -46,7 +46,7 @@ items:
       href: howto-connect-raspberry-pi-python.md
     - name: Raspberry Pi(C#) 준비 및 연결
       href: howto-connect-raspberry-pi-csharp.md
-    - name: Windows IoT Core 장치 준비 및 연결
+    - name: Windows IoT Core 디바이스 준비 및 연결
       href: howto-connect-windowsiotcore.md
     - name: 명령줄을 사용하여 장치 연결 모니터링
       href: howto-use-iotc-explorer.md
@@ -58,9 +58,9 @@ items:
       href: howto-manage-devices.md
     - name: 작업 실행
       href: howto-run-a-job.md
-    - name: 장치 설정 사용
+    - name: 디바이스 설정 사용
       href: howto-use-device-sets.md
-    - name: 버전 장치 템플릿
+    - name: 버전 디바이스 템플릿
       href: howto-version-devicetemplate.md
   - name: 모니터링 및 분석
     items:
@@ -125,7 +125,7 @@ items:
     items:
     - name: IoT Edge
       href: /azure/iot-edge
-    - name: IoT 장치 SDK
+    - name: IoT 디바이스 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: 리소스
   items:

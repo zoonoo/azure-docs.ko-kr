@@ -150,7 +150,7 @@ IoT Edge 허브는 모듈, IoT Hub 및 리프 디바이스 간의 통신을 관�
 ### <a name="condition"></a>조건
 조건은 경로 선언의 선택 사항입니다. 싱크에서 원본으로 모든 메시지를 전달하려는 경우 전체 **WHERE** 절을 그대로 둡니다. 또는 [IoT Hub 쿼리 언어](../iot-hub/iot-hub-devguide-routing-query-syntax.md)를 사용하여 조건을 만족하는 특정 메시지 또는 메시지 유형에 대해 필터링할 수 있습니다. IoT Edge 경로는 쌍 태그 또는 속성을 기반으로 하는 메시지 필터링을 지원하지 않습니다. 
 
-IoT Edge의 모듈 간에 전달되는 메시지는 장치와 Azure IoT Hub 간에 전달되는 메시지와 동일한 서식이 지정됩니다. 모든 메시지는 JSON으로 서식이 지정되고 **systemProperties**, **appProperties** 및 **body** 매개 변수를 포함합니다. 
+IoT Edge의 모듈 간에 전달되는 메시지는 디바이스와 Azure IoT Hub 간에 전달되는 메시지와 동일한 서식이 지정됩니다. 모든 메시지는 JSON으로 서식이 지정되고 **systemProperties**, **appProperties** 및 **body** 매개 변수를 포함합니다. 
 
 다음 구문을 사용하여 3개 매개 변수 중 하나를 중심으로 쿼리를 작성할 수 있습니다. 
 
@@ -158,9 +158,9 @@ IoT Edge의 모듈 간에 전달되는 메시지는 장치와 Azure IoT Hub 간�
 * 응용 프로그램 속성: `<propertyName>`
 * 본문 속성: `$body.<propertyName>` 
 
-메시지 속성에 대한 쿼리를 만드는 방법에 대한 예제는 [장치-클라우드 메시지 경로에 대한 쿼리 식](../iot-hub/iot-hub-devguide-routing-query-syntax.md)을 참조하세요.
+메시지 속성에 대한 쿼리를 만드는 방법에 대한 예제는 [디바이스-클라우드 메시지 경로에 대한 쿼리 식](../iot-hub/iot-hub-devguide-routing-query-syntax.md)을 참조하세요.
 
-IoT Edge에 특정되는 예제는 리프 장치에서 게이트웨이 장치에 도착하는 메시지를 필터링하려는 경우입니다. 모듈에서 발생한 메시지에는 **connectionModuleId**라는 시스템 속성이 포함되어 있습니다. 따라서 리프 장치에서 IoT Hub로 직접 메시지를 라우팅하려는 경우 다음 경로를 사용하여 모듈 메시지를 제외합니다.
+IoT Edge에 특정되는 예제는 리프 디바이스에서 게이트웨이 디바이스에 도착하는 메시지를 필터링하려는 경우입니다. 모듈에서 발생한 메시지에는 **connectionModuleId**라는 시스템 속성이 포함되어 있습니다. 따라서 리프 디바이스에서 IoT Hub로 직접 메시지를 라우팅하려는 경우 다음 경로를 사용하여 모듈 메시지를 제외합니다.
 
 ```query
 FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
@@ -186,7 +186,7 @@ Edge 허브는 [Edge 허브 원하는 속성](module-edgeagent-edgehub.md)의 `s
 
 배포 매니페스트에서 모듈 쌍의 원하는 속성을 지정하지 않으면, IoT Hub는 어떤 방식으로든 모듈 쌍을 수정하지 않습니다. 대신, 원하는 속성을 프로그래밍 방식으로 설정할 수 있습니다.
 
-장치 쌍을 수정할 수 있게 해주는 동일한 메커니즘이 모듈 쌍을 수정하는 데 사용됩니다. 자세한 내용은 [모듈 쌍 개발자 가이드](../iot-hub/iot-hub-devguide-module-twins.md)를 참조하세요.   
+디바이스 쌍을 수정할 수 있게 해주는 동일한 메커니즘이 모듈 쌍을 수정하는 데 사용됩니다. 자세한 내용은 [모듈 쌍 개발자 가이드](../iot-hub/iot-hub-devguide-module-twins.md)를 참조하세요.   
 
 ## <a name="deployment-manifest-example"></a>배포 매니페스트 예제
 

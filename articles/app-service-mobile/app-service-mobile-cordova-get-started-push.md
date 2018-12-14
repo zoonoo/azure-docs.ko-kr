@@ -27,13 +27,13 @@ ms.locfileid: "42817959"
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 푸시 알림을 [Apache Cordova 빠른 시작][5] 프로젝트에 추가하여 레코드가 삽입될 때마다 장치에 푸시 알림이 전송됩니다.
+이 자습서에서는 푸시 알림을 [Apache Cordova 빠른 시작][5] 프로젝트에 추가하여 레코드가 삽입될 때마다 디바이스에 푸시 알림이 전송됩니다.
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Mobile Apps용 .NET 백 엔드 서버 SDK 사용][1]을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 Visual Studio 2015를 사용하여 개발 된 Apache Cordova 응용 프로그램이 있다고 가정합니다. 이 장치는 Google Android Emulator, Android 장치, Windows 장치 또는 iOS 장치에서 실행해야 합니다.
+이 자습서에서는 Visual Studio 2015를 사용하여 개발 된 Apache Cordova 응용 프로그램이 있다고 가정합니다. 이 디바이스는 Google Android Emulator, Android 디바이스, Windows 디바이스 또는 iOS 디바이스에서 실행해야 합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "42817959"
 * [활성 Azure 계정][3]
 * 완료된 [Apache Cordova 빠른 시작][5] 프로젝트
 * (Android)검증된 메일 주소를 사용하는 [Google 계정][6]
-* (iOS)[Apple 개발자 프로그램 멤버 자격][7] 및 iOS 장치(iOS 시뮬레이터는 푸시 알림을 지원하지 않음)
+* (iOS)[Apple 개발자 프로그램 멤버 자격][7] 및 iOS 디바이스(iOS 시뮬레이터는 푸시 알림을 지원하지 않음)
 * (Windows) [Microsoft Store 개발자 계정][8] 및 Windows 10 디바이스
 
 ## <a name="configure-hub"></a>알림 허브 구성
@@ -70,7 +70,7 @@ Apache Cordova 앱 프로젝트가 푸시 알림을 처리할 준비가 되었�
 
 #### <a name="install-the-push-plugin"></a>푸시 플러그 인 설치
 
-Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트워크 기능을 처리하지 않습니다.  이러한 기능은 [npm][10] 또는 GitHub에 게시된 플러그 인에서 제공됩니다. `phonegap-plugin-push` 플러그 인은 네트워크 푸시 알림을 처리합니다.
+Apache Cordova 응용 프로그램에서는 기본적으로 디바이스 또는 네트워크 기능을 처리하지 않습니다.  이러한 기능은 [npm][10] 또는 GitHub에 게시된 플러그 인에서 제공됩니다. `phonegap-plugin-push` 플러그 인은 네트워크 푸시 알림을 처리합니다.
 
 다음 방법 중 하나로 푸시 플러그 인을 설치할 수 있습니다.
 
@@ -101,9 +101,9 @@ Apache Cordova 응용 프로그램에서는 기본적으로 장치 또는 네트
 
 #### <a name="install-the-device-plugin"></a>디바이스 플러그 인 설치
 
-푸시 플러그 인을 설치할 때 사용한 것과 동일한 절차를 따릅니다. 코어 플러그 인 목록에서 장치 플러그 인을 추가합니다. (**플러그 인** > **코어**를 선택해 찾습니다.) 플랫폼 이름을 가져오려면 이 플러그 인이 필요합니다.
+푸시 플러그 인을 설치할 때 사용한 것과 동일한 절차를 따릅니다. 코어 플러그 인 목록에서 디바이스 플러그 인을 추가합니다. (**플러그 인** > **코어**를 선택해 찾습니다.) 플랫폼 이름을 가져오려면 이 플러그 인이 필요합니다.
 
-#### <a name="register-your-device-when-the-application-starts"></a>응용 프로그램 시작 시 장치 등록 
+#### <a name="register-your-device-when-the-application-starts"></a>응용 프로그램 시작 시 디바이스 등록 
 
 처음에 Android에 대한 최소한의 코드를 포함합니다. 나중에 iOS 또는 Windows 10에서 실행되도록 앱을 수정할 수 있습니다.
 
@@ -215,7 +215,7 @@ pushRegistration = PushNotification.init({
 
 #### <a name="configure-device"></a>USB 디버깅을 위해 Android 장치 구성
 
-Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을 사용하도록 설정해야 합니다. Android 휴대폰에서 다음 단계를 수행합니다.
+Android 디바이스에 응용 프로그램을 배포하려면 먼저 USB 디버깅을 사용하도록 설정해야 합니다. Android 휴대폰에서 다음 단계를 수행합니다.
 
 1. **설정** > **전화 정보**로 이동합니다. 그런 다음, 개발자 모드가 사용하도록 설정될 때까지 **빌드 번호**를 누릅니다(약 7회).
 2. 다시 **설정** > **개발자 옵션**에서 **USB 디버깅**을 활성화합니다. 그런 다음, Android 휴대폰을 USB 케이블을 사용해 개발 PC에 연결합니다.
@@ -238,9 +238,9 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
 #### <a name="test-push-notifications-in-the-app-on-android"></a>Android 앱에서 푸시 알림 테스트
 
-이제 앱을 실행하고 TodoItem 테이블에 항목을 삽입하여 푸시 알림을 테스트할 수 있습니다. 동일한 백 엔드를 사용하는 한, 같은 장치에서 테스트해도 되고 두 번째 장치에서 테스트해도 됩니다. 다음 방법 중 하나로 Android 플랫폼에서 Cordova 앱을 테스트합니다.
+이제 앱을 실행하고 TodoItem 테이블에 항목을 삽입하여 푸시 알림을 테스트할 수 있습니다. 동일한 백 엔드를 사용하는 한, 같은 디바이스에서 테스트해도 되고 두 번째 디바이스에서 테스트해도 됩니다. 다음 방법 중 하나로 Android 플랫폼에서 Cordova 앱을 테스트합니다.
 
-* *실제 장치에서:* USB 케이블을 사용하여 Android 장치를 개발 컴퓨터에 연결합니다.  **Google Android 에뮬레이터** 대신 **장치**를 선택합니다. Visual Studio에서 장치에 응용 프로그램을 배포하고 응용 프로그램을 실행합니다. 이제 디바이스에서 응용 프로그램과 상호 작용할 수 있습니다.
+* *실제 장치에서:* USB 케이블을 사용하여 Android 장치를 개발 컴퓨터에 연결합니다.  **Google Android 에뮬레이터** 대신 **장치**를 선택합니다. Visual Studio에서 디바이스에 응용 프로그램을 배포하고 응용 프로그램을 실행합니다. 이제 디바이스에서 응용 프로그램과 상호 작용할 수 있습니다.
 
   [Mobizen] [ 20]과 같은 화면 공유 응용 프로그램을 사용하면 Android 응용 프로그램을 개발하는 데 도움이 될 수 있습니다. Mobizen은 PC의 웹 브라우저에 Android 화면을 투영합니다.
 
@@ -254,7 +254,7 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
     **앱** > **설정** > **계정 추가**를 선택하여 Android 장치에 Google 계정을 추가합니다. 그런 다음, 표시되는 메시지를 따릅니다.
 
-    ![Android 장치에 Google 계정 추가](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
+    ![Android 디바이스에 Google 계정 추가](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
     이전처럼 todolist 앱을 실행하고 새 todo 항목을 삽입합니다. 이때 알림 아이콘이 알림 영역에 표시됩니다. 알림 서랍을 열어서 전체 알림 텍스트를 볼 수 있습니다.
 
@@ -262,7 +262,7 @@ Android 장치에 응용 프로그램을 배포하려면 먼저 USB 디버깅을
 
 ## <a name="optional-configure-and-run-on-ios"></a>(선택 사항) iOS에서 구성 및 실행
 
-이 섹션은 iOS 디바이스에서 Cordova 프로젝트를 실행하기 위한 것입니다. iOS 장치로 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션은 iOS 디바이스에서 Cordova 프로젝트를 실행하기 위한 것입니다. iOS 디바이스로 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 #### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Mac 또는 클라우드 서비스에서 iOS remotebuild 에이전트를 설치하고 실행합니다.
 
@@ -307,11 +307,11 @@ Apple 개발자 계정에서 만든 앱 ID가 config.xml 파일의 위젯 요소
 
 ##### <a name="test-push-notifications-in-your-ios-app"></a>iOS 앱에서 푸시 알림 테스트
 
-1. Visual Studio에서 **iOS**가 배포 대상으로 선택되도록 확인합니다. 다음 선택 **장치**를 선택해 연결된 iOS 장치에서 푸시 알림을 실행합니다.
+1. Visual Studio에서 **iOS**가 배포 대상으로 선택되도록 확인합니다. 다음 선택 **디바이스**를 선택해 연결된 iOS 디바이스에서 푸시 알림을 실행합니다.
 
-    ITunes를 사용해 PC에 연결된 iOS 장치에서 푸시 알림을 실행할 수 있습니다. iOS 시뮬레이터는 푸시 알림을 지원하지 않습니다.
+    ITunes를 사용해 PC에 연결된 iOS 디바이스에서 푸시 알림을 실행할 수 있습니다. iOS 시뮬레이터는 푸시 알림을 지원하지 않습니다.
 
-2. Visual Studio에서 **실행** 단추 또는 **F5** 키를 선택해 프로젝트를 빌드하고 iOS 장치에서 앱을 시작합니다. 그런 다음, **확인**을 선택하여 푸시 알림을 허용하도록 합니다.
+2. Visual Studio에서 **실행** 단추 또는 **F5** 키를 선택해 프로젝트를 빌드하고 iOS 디바이스에서 앱을 시작합니다. 그런 다음, **확인**을 선택하여 푸시 알림을 허용하도록 합니다.
 
    > [!NOTE]
    > 앱은 첫 번째 실행 동안 푸시 알림에 대한 확인을 요청합니다.
@@ -321,7 +321,7 @@ Apple 개발자 계정에서 만든 앱 ID가 config.xml 파일의 위젯 요소
 
 ## <a name="optional-configure-and-run-on-windows"></a>(선택 사항) Windows에서 구성 및 실행
 
-이 섹션은 Windows 10 장치에서 Apache Cordova 앱 프로젝트를 실행하는 방법을 설명하기 위해 작성되었습니다(PhoneGap 푸시 플러그 인은 Windows 10에서 지원됨). Windows 디바이스로 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션은 Windows 10 디바이스에서 Apache Cordova 앱 프로젝트를 실행하는 방법을 설명하기 위해 작성되었습니다(PhoneGap 푸시 플러그 인은 Windows 10에서 지원됨). Windows 디바이스로 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 #### <a name="register-your-windows-app-for-push-notifications-with-wns"></a>WNS를 사용하여 푸시 알림에 대해 Windows 앱 등록
 

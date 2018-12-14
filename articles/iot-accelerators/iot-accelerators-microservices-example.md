@@ -187,7 +187,7 @@ Remote Monitoring 솔루션의 로컬 인스턴스를 재배포하고 Postman에
 > * 새로운 도커 이미지 가져오기
 > * 변경 사항 시각화 
 
-다음으로 시도할 것은 [Remote Monitoring 솔루션에서 장치 시뮬레이터 마이크로 서비스를 사용자 지정](iot-accelerators-microservices-example.md)하는 것입니다.
+다음으로 시도할 것은 [Remote Monitoring 솔루션에서 디바이스 시뮬레이터 마이크로 서비스를 사용자 지정](iot-accelerators-microservices-example.md)하는 것입니다.
 
 원격 모니터링 솔루션에 대한 자세한 개발자 정보는 다음을 참조하세요.
 

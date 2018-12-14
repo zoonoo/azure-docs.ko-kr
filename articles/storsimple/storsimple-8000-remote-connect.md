@@ -26,17 +26,17 @@ ms.locfileid: "28103958"
 
 ## <a name="overview"></a>개요
 
-Windows PowerShell을 통해 디바이스에 원격으로 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. 장치의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다.
+Windows PowerShell을 통해 디바이스에 원격으로 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. 디바이스의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다.
 
 Windows PowerShell 원격을 사용하여 디바이스를 관리하는 방법에 대한 자세한 내용은 [StorSimple용 Windows PowerShell을 사용하여 StorSimple 디바이스 관리](storsimple-8000-windows-powershell-administration.md)를 참조하세요.
 
 이 자습서에서는 원격 관리를 위해 디바이스를 구성하는 방법 및 StorSimple용 Windows PowerShell에 연결하는 방법을 설명합니다. HTTP 또는 HTTPS를 사용하여 Windows PowerShell을 통해 원격으로 연결할 수 있습니다. 그러나 StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 다음 정보를 고려하세요.
 
-* 장치 직렬 콘솔에 직접 연결하는 것은 안전하지만 네트워크 스위치를 통해 직렬 콘솔에 연결하는 것은 안전하지 않습니다. 네트워크 스위치를 통해 디바이스 직렬 콘솔에 연결할 때는 보안 위험에 주의하세요.
+* 디바이스 직렬 콘솔에 직접 연결하는 것은 안전하지만 네트워크 스위치를 통해 직렬 콘솔에 연결하는 것은 안전하지 않습니다. 네트워크 스위치를 통해 디바이스 직렬 콘솔에 연결할 때는 보안 위험에 주의하세요.
 * HTTP 세션을 통해 연결하는 경우 네트워크에서 직렬 콘솔을 통해 연결하는 것보다 보안이 강화될 수 있습니다. 가장 안전한 방법은 아니지만 신뢰할 수 있는 네트워크에서는 적합합니다.
 * 가장 안전하고 권장되는 옵션은 자체 서명된 인증서를 사용하여 HTTPS 세션을 통해 연결하는 것입니다.
 
-Windows PowerShell 인터페이스에 원격으로 연결할 수 있습니다. 그러나 Windows PowerShell 인터페이스를 통한 StorSimple 장치에 대한 원격 액세스는 기본적으로 사용되지 않습니다. 먼저, 디바이스에서 원격 관리를 사용하도록 설정한 다음 디바이스에 액세스하는 데 사용되는 클라이언트에서 사용하도록 설정해야 합니다.
+Windows PowerShell 인터페이스에 원격으로 연결할 수 있습니다. 그러나 Windows PowerShell 인터페이스를 통한 StorSimple 디바이스에 대한 원격 액세스는 기본적으로 사용되지 않습니다. 먼저, 디바이스에서 원격 관리를 사용하도록 설정한 다음 디바이스에 액세스하는 데 사용되는 클라이언트에서 사용하도록 설정해야 합니다.
 
 이 문서에 설명된 단계는 Windows Server 2012 R2를 실행하는 호스트 시스템에서 수행되었습니다.
 
@@ -240,7 +240,7 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 5. 형식:
    
      `Enter-PSSession $session`
-6. 몇 분 정도 기다리면 HTTPS over SSL을 통해 장치에 연결됩니다. 디바이스에 연결되었음을 나타내는 메시지가 표시됩니다.
+6. 몇 분 정도 기다리면 HTTPS over SSL을 통해 디바이스에 연결됩니다. 디바이스에 연결되었음을 나타내는 메시지가 표시됩니다.
    
     ![HTTPS 및 SSL을 사용한 PowerShell 원격](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 

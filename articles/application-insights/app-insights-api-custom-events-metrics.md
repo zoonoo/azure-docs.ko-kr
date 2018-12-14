@@ -54,7 +54,7 @@ Application Insights SDK에 대한 참조가 아직 없는 경우:
   * [Java 프로젝트](app-insights-java-get-started.md)
   * [Node.js 프로젝트](app-insights-nodejs.md)
   * [각 웹 페이지의 JavaScript](app-insights-javascript.md) 
-* 장치 또는 웹 서버 코드에 다음을 포함합니다.
+* 디바이스 또는 웹 서버 코드에 다음을 포함합니다.
 
     *C#:* `using Microsoft.ApplicationInsights;`
 

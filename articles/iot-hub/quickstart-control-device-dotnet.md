@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub 빠른 시작(.NET)에서 장치 제어 | Microsoft Docs
+title: Azure IoT Hub 빠른 시작(.NET)에서 디바이스 제어 | Microsoft Docs
 description: 이 빠른 시작에서 두 개의 샘플 C# 응용 프로그램을 실행합니다. 하나의 애플리케이션은 허브에 연결된 디바이스를 원격으로 제어할 수 있는 백 엔드 애플리케이션입니다. 또 다른 애플리케이션은 원격으로 제어할 수 있는 허브에 연결된 디바이스를 시뮬레이션 합니다.
 author: dominicbetts
 manager: timlt
@@ -17,17 +17,17 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2018
 ms.locfileid: "51514747"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>빠른 시작: IoT 허브(.NET)에 연결된 장치 제어
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>빠른 시작: IoT 허브(.NET)에 연결된 디바이스 제어
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub는 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집하고 클라우드에서 디바이스를 관리할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 *직접 메서드*를 사용하여 IoT 허브에 연결된 시뮬레이션된 장치를 제어합니다. 직접 메서드를 사용하여 IoT 허브에 연결된 디바이스의 동작을 원격으로 변경할 수 있습니다.
+IoT Hub는 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집하고 클라우드에서 디바이스를 관리할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 *직접 메서드*를 사용하여 IoT 허브에 연결된 시뮬레이션된 디바이스를 제어합니다. 직접 메서드를 사용하여 IoT 허브에 연결된 디바이스의 동작을 원격으로 변경할 수 있습니다.
 
 빠른 시작은 두 가지 미리 작성된 .NET 응용 프로그램을 사용합니다.
 
 * 백 엔드 애플리케이션에서 호출된 직접 메소드에 응답하는 시뮬레이션된 디바이스 애플리케이션입니다. 직접 메서드 호출을 수신하기 위해 이 애플리케이션을 IoT 허브의 디바이스별 엔드포인트에 연결합니다.
 
-* 시뮬레이션된 디바이스에서 직접 메서드를 호출하는 백 엔드 애플리케이션입니다. 장치에서 직접 메서드를 호출하려면 이 응용 프로그램을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
+* 시뮬레이션된 디바이스에서 직접 메서드를 호출하는 백 엔드 애플리케이션입니다. 디바이스에서 직접 메서드를 호출하려면 이 응용 프로그램을 IoT 허브의 서비스 측 엔드포인트에 연결합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -49,15 +49,15 @@ dotnet --version
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-이전 [빠른 시작: 원격 분석을 장치에서 IoT 허브로 전송](quickstart-send-telemetry-dotnet.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
+이전 [빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 전송](quickstart-send-telemetry-dotnet.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>디바이스 등록
 
-이전 [빠른 시작: 원격 분석을 장치에서 IoT 허브로 전송](quickstart-send-telemetry-dotnet.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
+이전 [빠른 시작: 원격 분석을 디바이스에서 IoT 허브로 전송](quickstart-send-telemetry-dotnet.md)을 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
-연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
+연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 디바이스 ID를 만듭니다. 
 
@@ -124,9 +124,9 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
     dotnet run
     ```
 
-    다음 스크린샷에서는 시뮬레이션된 장치 응용 프로그램에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
+    다음 스크린샷에서는 시뮬레이션된 디바이스 응용 프로그램에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여줍니다.
 
-    ![시뮬레이션된 장치 실행](./media/quickstart-control-device-dotnet/SimulatedDevice-1.png)
+    ![시뮬레이션된 디바이스 실행](./media/quickstart-control-device-dotnet/SimulatedDevice-1.png)
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 

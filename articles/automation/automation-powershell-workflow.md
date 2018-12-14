@@ -20,7 +20,7 @@ ms.locfileid: "51239426"
 
 Azure Automation의 Runbook은 Windows PowerShell 워크플로로 구현됩니다.  Windows PowerShell 워크플로는 Windows PowerShell 스크립트와 비슷해 보이지만 신규 사용자가 혼동할 수 있는 중요한 차이점이 있습니다.  이 문서는 PowerShell 워크플로를 사용하여 runbook을 작성하는 데 도움을 주기 위해 작성되었으나 검사점이 필요한 경우가 아니면 PowerShell을 사용하여 runbook을 작성하는 것이 좋습니다.  PowerShell 워크플로 runbook을 작성할 경우 몇 가지 구문 차이가 있으며 이러한 차이점으로 인해 효과적인 워크플로를 작성하기 위해 좀 더 많은 작업이 필요합니다.
 
-워크플로는 장기 실행 작업을 수행하거나 여러 디바이스 또는 관리 노드에서 여러 단계를 조정해야 하는 프로그래밍 방식으로 연결된 일련의 단계입니다. 워크플로는 일반적인 스크립트에 비해 여러 장치에서 작업을 동시에 수행하고 오류로부터 자동으로 복구할 수 있다는 장점이 있습니다. Windows PowerShell 워크플로는 Windows Workflow Foundation을 활용하는 Windows PowerShell 스크립트입니다. 워크플로는 Windows PowerShell 구문으로 작성되고 Windows PowerShell에서 시작되지만 Windows Workflow Foundation에서 처리됩니다.
+워크플로는 장기 실행 작업을 수행하거나 여러 디바이스 또는 관리 노드에서 여러 단계를 조정해야 하는 프로그래밍 방식으로 연결된 일련의 단계입니다. 워크플로는 일반적인 스크립트에 비해 여러 디바이스에서 작업을 동시에 수행하고 오류로부터 자동으로 복구할 수 있다는 장점이 있습니다. Windows PowerShell 워크플로는 Windows Workflow Foundation을 활용하는 Windows PowerShell 스크립트입니다. 워크플로는 Windows PowerShell 구문으로 작성되고 Windows PowerShell에서 시작되지만 Windows Workflow Foundation에서 처리됩니다.
 
 이 기사의 항목에 대한 자세한 내용은 [Windows PowerShell 워크플로 시작](https://technet.microsoft.com/library/jj134242.aspx)을 참조하세요.
 

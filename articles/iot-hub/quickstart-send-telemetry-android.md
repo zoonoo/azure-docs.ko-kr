@@ -21,7 +21,7 @@ ms.locfileid: "52427651"
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-IoT Hub는 저장 또는 처리를 위해 IoT 장치에서 클라우드로 다량의 원격 분석 데이터를 수집할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 실제 또는 시뮬레이션된 디바이스에서 실행 중인 Android 애플리케이션에서 IoT Hub로 원격 분석 데이터를 보냅니다.
+IoT Hub는 저장 또는 처리를 위해 IoT 디바이스에서 클라우드로 다량의 원격 분석 데이터를 수집할 수 있게 해주는 Azure 서비스입니다. 이 빠른 시작에서는 실제 또는 시뮬레이션된 디바이스에서 실행 중인 Android 애플리케이션에서 IoT Hub로 원격 분석 데이터를 보냅니다.
 
 이 빠른 시작에서는 미리 작성된 Android 애플리케이션을 사용하여 원격 분석 데이터를 보냅니다. Azure Cloud Shell을 사용하여 IoT Hub에서 원격 분석 데이터가 읽힙니다. 애플리케이션을 실행하기 전에 IoT 허브를 만들고 허브에 디바이스를 등록합니다.
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="register-a-device"></a>디바이스 등록
 
-연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
+연결을 위해 디바이스를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 
 1. Azure Cloud Shell에서 다음 명령을 실행하여 IoT Hub CLI 확장을 추가하고 디바이스 ID를 만듭니다. 
 
@@ -117,7 +117,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 빠른 시작에서 IoT 허브를 설치하고, 디바이스를 등록하고, Android 애플리케이션을 사용하여 허브에 시뮬레이션된 원격 분석 데이터를 보내고, Azure Cloud Shell을 사용하여 허브에서 원격 분석 데이터를 읽었습니다.
 
-백 엔드 응용 프로그램에서 시뮬레이션된 장치를 제어하는 방법을 알아보려면 다음 빠른 시작을 계속합니다.
+백 엔드 응용 프로그램에서 시뮬레이션된 디바이스를 제어하는 방법을 알아보려면 다음 빠른 시작을 계속합니다.
 
 > [!div class="nextstepaction"]
 > [빠른 시작: IoT 허브에 연결된 장치 제어](quickstart-control-device-android.md)

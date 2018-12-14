@@ -25,7 +25,7 @@ ms.locfileid: "42144904"
 
 ![포털에서 IoT Hub 파일 보기 설정 보기](./media/iot-hub-configure-file-upload/file-upload-settings.png)
 
-* **저장소 컨테이너**: Azure Portal을 사용하여 현재 Azure 구독의 Azure Storage 계정에서 Blob 컨테이너를 선택하고 IoT Hub와 연결합니다. 필요에 따라 **Storage 계정** 블레이드에 Azure Storage 계정을 만들고 **컨테이너** 블레이드에 Blob 컨테이너를 만들 수 있습니다. IoT Hub는 파일을 업로드하는 경우에 사용할 장치에 대한 이 Blob 컨테이너에 쓰기 권한이 있는 SAS URI를 자동으로 생성합니다.
+* **저장소 컨테이너**: Azure Portal을 사용하여 현재 Azure 구독의 Azure Storage 계정에서 Blob 컨테이너를 선택하고 IoT Hub와 연결합니다. 필요에 따라 **Storage 계정** 블레이드에 Azure Storage 계정을 만들고 **컨테이너** 블레이드에 Blob 컨테이너를 만들 수 있습니다. IoT Hub는 파일을 업로드하는 경우에 사용할 디바이스에 대한 이 Blob 컨테이너에 쓰기 권한이 있는 SAS URI를 자동으로 생성합니다.
 
    ![포털에서 파일 업로드에 대한 저장소 컨테이너 보기](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 

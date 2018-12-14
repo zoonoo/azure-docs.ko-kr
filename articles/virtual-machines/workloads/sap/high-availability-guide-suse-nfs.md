@@ -422,7 +422,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. **[A]** drbd 분할 브레인(split-brain) 검색 설정
 
-   drbd를 사용하여 한 호스트에서 다른 호스트로 데이터를 동기화 할 때 소위 분할 브레인(split-brain)이 발생할 수 있습니다. 분할 브레인(split-brain)은 두 클러스터 노드가 drbd 장치를 기본 장치로 승격시키고 동기화되지 않는 시나리오입니다. 드문 상황이지만 분할 브레인(split-brain)을 가능한 한 빨리 처리하고 해결해야 합니다. 따라서 분할 브레인(split-brain)이 발생하면 알림을 받는 것이 중요합니다.
+   drbd를 사용하여 한 호스트에서 다른 호스트로 데이터를 동기화 할 때 소위 분할 브레인(split-brain)이 발생할 수 있습니다. 분할 브레인(split-brain)은 두 클러스터 노드가 drbd 디바이스를 기본 디바이스로 승격시키고 동기화되지 않는 시나리오입니다. 드문 상황이지만 분할 브레인(split-brain)을 가능한 한 빨리 처리하고 해결해야 합니다. 따라서 분할 브레인(split-brain)이 발생하면 알림을 받는 것이 중요합니다.
 
    분할 브레인(split-brain) 알림을 설정하는 방법은 [공식 drbd 설명서](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification)를 참조하세요.
 

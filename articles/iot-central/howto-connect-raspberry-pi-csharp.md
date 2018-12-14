@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi를 Azure IoT Central 응용 프로그램에 연결(C#) | Microsoft Docs
-description: 장치 개발자로서 C#을 사용하여 Raspberry Pi를 Azure IoT Central 응용 프로그램에 연결하는 방법을 알아봅니다.
+description: 디바이스 개발자로서 C#을 사용하여 Raspberry Pi를 Azure IoT Central 응용 프로그램에 연결하는 방법을 알아봅니다.
 author: viv-liu
 ms.author: viviali
 ms.date: 10/31/2018
@@ -19,7 +19,7 @@ ms.locfileid: "50956726"
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
 
-이 문서에서는 장치 개발자로서 C# 프로그래밍 언어를 사용하여 Raspberry Pi를 Microsoft Azure IoT Central 응용 프로그램에 연결하는 방법을 설명합니다.
+이 문서에서는 디바이스 개발자로서 C# 프로그래밍 언어를 사용하여 Raspberry Pi를 Microsoft Azure IoT Central 응용 프로그램에 연결하는 방법을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -55,11 +55,11 @@ ms.locfileid: "50956726"
 
 ## <a name="add-a-real-device"></a>실제 디바이스 추가
 
-Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 디바이스 추가](tutorial-add-device.md)를 참조하세요.
+Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 디바이스 템플릿으로 실제 디바이스를 추가하고 디바이스 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 디바이스 추가](tutorial-add-device.md)를 참조하세요.
 
 ### <a name="create-your-net-application"></a>.NET 응용 프로그램 만들기
 
-데스크톱 컴퓨터에서 장치 응용 프로그램을 만들고 테스트합니다.
+데스크톱 컴퓨터에서 디바이스 응용 프로그램을 만들고 테스트합니다.
 
 Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 자세한 내용은 [C# 사용](https://code.visualstudio.com/docs/languages/csharp)을 참조하세요.
 
@@ -272,7 +272,7 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 
 ## <a name="run-your-net-application"></a>.NET 응용 프로그램 실행
 
-장치가 Azure IoT Central에 인증할 장치 관련 연결 문자열을 코드에 추가합니다. Azure IoT Central 응용 프로그램에 실제 장치를 추가할 때 이 연결 문자열을 기록해 두었습니다.
+디바이스가 Azure IoT Central에 인증할 디바이스 관련 연결 문자열을 코드에 추가합니다. Azure IoT Central 응용 프로그램에 실제 디바이스를 추가할 때 이 연결 문자열을 기록해 두었습니다.
 
   > [!NOTE]
    > Azure IoT Central은 모든 디바이스 연결에 Azure IoT Hub DPS(Device Provisioning Service)를 사용하도록 전환되었습니다. 다음 지침에 따라 [디바이스 연결 문자열을 가져오고](concepts-connectivity.md#getting-device-connection-string) 자습서의 나머지 부분을 계속합니다.
@@ -294,7 +294,7 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 
     자세한 내용은 [Raspberry Pi 원격 액세스](https://www.raspberrypi.org/documentation/remote-access/)를 참조하세요.
 
-1. Raspberry Pi 장치에 로그인하여 셸에서 다음 명령을 실행합니다.
+1. Raspberry Pi 디바이스에 로그인하여 셸에서 다음 명령을 실행합니다.
 
     ```cmd/sh
     sudo apt-get update
@@ -363,7 +363,7 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
 
 | type            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
-| 장치 속성 | 다이 번호   | dieNumber  | number    |
+| 디바이스 속성 | 다이 번호   | dieNumber  | number    |
 | 텍스트            | 위치     | location   | 해당 없음       |
 
 ## <a name="next-steps"></a>다음 단계

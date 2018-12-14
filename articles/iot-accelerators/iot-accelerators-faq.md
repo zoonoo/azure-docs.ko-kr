@@ -28,11 +28,11 @@ ms.locfileid: "51253346"
 * [예측 유지 관리 솔루션 가속기](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [연결된 팩터리 솔루션 가속기](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>솔루션 가속기에 대한 장치 클라이언트를 개발하는 데 어떤 SDK를 사용할 수 있나요?
+### <a name="what-sdks-can-i-use-to-develop-device-clients-for-the-solution-accelerators"></a>솔루션 가속기에 대한 디바이스 클라이언트를 개발하는 데 어떤 SDK를 사용할 수 있나요?
 
 [Microsoft Azure IoT SDK](https://github.com/Azure/azure-iot-sdks) GitHub 리포지토리에서 다른 언어(C, .NET, Java, Node.js, Python) IoT 장치 SDK에 대한 링크를 확인할 수 있습니다.
 
-DevKit 장치를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub 리포지토리에서 리소스 및 샘플을 확인할 수 있습니다.
+DevKit 디바이스를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microsoft/devkit-sdk) GitHub 리포지토리에서 리소스 및 샘플을 확인할 수 있습니다.
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>세 가지 솔루션 가속기 모두에 새로운 마이크로 서비스 아키텍처를 사용할 수 있나요?
 

@@ -201,8 +201,8 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 `takeown /f %programdata%\Microsoft\Crypto\RSA\MachineKeys /a /r`  
 ### <a name="grant-ntfs-permissions-to-a-folder-recursively"></a>재귀적으로 폴더에 NTFS 소유권 부여하기
 `icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"`  
-## <a name="manage-devices"></a>장치 관리
-### <a name="remove-non-present-pnp-devices"></a>없는 PNP 장치 제거
+## <a name="manage-devices"></a>디바이스 관리
+### <a name="remove-non-present-pnp-devices"></a>없는 PNP 디바이스 제거
 `%windir%\System32\RUNDLL32.exe %windir%\System32\pnpclean.dll,RunDLL_PnpClean /Devices /Maxclean`
 ## <a name="manage-group-policy"></a>그룹 정책 관리
 ### <a name="force-group-policy-update"></a>그룹 정책 업데이트 강제

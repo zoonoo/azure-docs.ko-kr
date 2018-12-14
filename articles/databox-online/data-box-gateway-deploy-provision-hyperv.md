@@ -88,7 +88,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 
 하이퍼바이저에서 디바이스를 프로비전하려면 다음 단계를 수행합니다.
 
-1. Windows Server 호스트에서 로컬 드라이브에 가상 장치 이미지를 복사합니다. Azure Portal을 통해 이 VHDX 이미지를 다운로드합니다. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
+1. Windows Server 호스트에서 로컬 드라이브에 가상 디바이스 이미지를 복사합니다. Azure Portal을 통해 이 VHDX 이미지를 다운로드합니다. 나중에 절차에서 이 이미지를 사용하므로 이미지를 복사한 위치를 적어 둡니다.
 2. **서버 관리자**를 엽니다. 오른쪽 위 모서리에서 **도구**를 클릭하고 **Hyper-V 관리자**를 선택합니다.
 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
@@ -150,10 +150,10 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
     ![](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>가상 디바이스 시작 및 IP 가져오기
-가상 장치를 시작하여 연결하려면 다음 단계를 수행합니다.
+가상 디바이스를 시작하여 연결하려면 다음 단계를 수행합니다.
 
 #### <a name="to-start-the-virtual-device"></a>가상 디바이스를 시작하려면
-1. 가상 장치를 시작합니다.
+1. 가상 디바이스를 시작합니다.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
 2. 디바이스가 실행된 후에 디바이스를 선택하고 마우스 오른쪽 단추를 클릭하여 **연결**을 선택합니다.

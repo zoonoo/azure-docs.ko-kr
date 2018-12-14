@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 관리 시작(Python) | Microsoft Docs
-description: IoT Hub 디바이스 관리를 사용하여 원격 디바이스 재부팅을 시작하는 방법입니다. Python용 Azure IoT SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 장치 앱 및 직접 메서드를 호출하는 서비스 앱을 구현합니다.
+title: Azure IoT Hub 디바이스 관리 시작(Python) | Microsoft Docs
+description: IoT Hub 디바이스 관리를 사용하여 원격 디바이스 재부팅을 시작하는 방법입니다. Python용 Azure IoT SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 디바이스 앱 및 직접 메서드를 호출하는 서비스 앱을 구현합니다.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2018
 ms.locfileid: "51514386"
 ---
-# <a name="get-started-with-device-management-python"></a>장치 관리 시작(Python)
+# <a name="get-started-with-device-management-python"></a>디바이스 관리 시작(Python)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
@@ -24,7 +24,7 @@ ms.locfileid: "51514386"
 
 * Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 디바이스 ID를 만듭니다.
 * 디바이스를 다시 시작하는 직접 메서드가 포함된 시뮬레이트된 디바이스 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
-* IoT Hub를 통해 시뮬레이션된 장치 앱에서 재부팅 직접 메서드를 호출하는 Python 콘솔 앱을 만듭니다.
+* IoT Hub를 통해 시뮬레이션된 디바이스 앱에서 재부팅 직접 메서드를 호출하는 Python 콘솔 앱을 만듭니다.
 
 이 자습서의 끝 부분에 다음의 두 Python 콘솔 앱이 설치됩니다.
 
@@ -52,7 +52,7 @@ ms.locfileid: "51514386"
 이 섹션에서는 다음을 수행합니다.
 
 * 클라우드에서 호출하는 직접 메서드에 응답하는 Python 콘솔 앱 만들기
-* 장치 다시 부팅 시뮬레이션
+* 디바이스 다시 부팅 시뮬레이션
 * reported 속성을 사용하여 디바이스 및 해당 디바이스가 마지막으로 재부팅한 시간을 확인하는 디바이스 쌍 쿼리를 사용하도록 설정
 
 1. 텍스트 편집기를 사용하여 **dmpatterns_getstarted_device.py** 파일을 만듭니다.
@@ -85,7 +85,7 @@ ms.locfileid: "51514386"
     METHOD_CALLBACKS = 0
     ```
 
-1. 장치에서 직접 메서드를 구현하도록 다음 함수 콜백을 추가합니다.
+1. 디바이스에서 직접 메서드를 구현하도록 다음 함수 콜백을 추가합니다.
    
     ```python
     def send_reported_state_callback(status_code, user_context):
@@ -156,7 +156,7 @@ ms.locfileid: "51514386"
 
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>직접 메서드를 사용하여 디바이스에서 원격 재부팅 트리거
-이 섹션에서는 장치에서 직접 메서드를 사용하여 원격 다시 부팅을 시작하는 Python 콘솔 앱을 만듭니다. 앱은 디바이스 쌍 쿼리를 사용하여 해당 디바이스에 대한 마지막 다시 시작 시간을 검색합니다.
+이 섹션에서는 디바이스에서 직접 메서드를 사용하여 원격 다시 부팅을 시작하는 Python 콘솔 앱을 만듭니다. 앱은 디바이스 쌍 쿼리를 사용하여 해당 디바이스에 대한 마지막 다시 시작 시간을 검색합니다.
 
 1. 텍스트 편집기를 사용하여 **dmpatterns_getstarted_service.py** 파일을 만듭니다.
 
@@ -181,7 +181,7 @@ ms.locfileid: "51514386"
     WAIT_COUNT = 10
     ```
 
-1. 장치 메서드를 호출하여 대상 장치를 다시 부팅한 다음, 장치 쌍을 쿼리하고 마지막 다시 부팅 시간을 가져오도록 다음 함수를 추가합니다.
+1. 디바이스 메서드를 호출하여 대상 디바이스를 다시 부팅한 다음, 디바이스 쌍을 쿼리하고 마지막 다시 부팅 시간을 가져오도록 다음 함수를 추가합니다.
    
     ```python
     def iothub_devicemethod_sample_run():
@@ -244,13 +244,13 @@ ms.locfileid: "51514386"
     python dmpatterns_getstarted_device.py
     ```
 
-1. 다른 명령 프롬프트에서 다음 명령을 실행하여 원격 다시 부팅을 트리거하고 장치 쌍을 쿼리하여 마지막 다시 부팅 시간을 찾습니다.
+1. 다른 명령 프롬프트에서 다음 명령을 실행하여 원격 다시 부팅을 트리거하고 디바이스 쌍을 쿼리하여 마지막 다시 부팅 시간을 찾습니다.
    
     ```
     python dmpatterns_getstarted_service.py
     ```
 
-1. 콘솔에서 직접 메서드에 대한 장치 응답을 확인합니다.
+1. 콘솔에서 직접 메서드에 대한 디바이스 응답을 확인합니다.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 

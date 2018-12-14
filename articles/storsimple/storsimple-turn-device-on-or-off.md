@@ -25,7 +25,7 @@ ms.locfileid: "38670969"
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스 켜기 또는 끄기
 
 ## <a name="overview"></a>개요
-Microsoft Azure StorSimple 디바이스 종료는 정상적인 시스템 작업의 일환으로 필요하지 않습니다. 그러나 새 디바이스 또는 종료할 디바이스의 전원을 켜야 할 수도 있습니다. 일반적으로 오류가 발생한 하드웨어를 교체, 물리적으로 디바이스를 이동하거나 디바이스의 서비스를 중단해야 하는 경우 종료가 필요합니다. 이 자습서는 다양한 시나리오에서 StorSimple 장치를 켜고 종료하는데 필요한 절차에 대해 설명합니다.
+Microsoft Azure StorSimple 디바이스 종료는 정상적인 시스템 작업의 일환으로 필요하지 않습니다. 그러나 새 디바이스 또는 종료할 디바이스의 전원을 켜야 할 수도 있습니다. 일반적으로 오류가 발생한 하드웨어를 교체, 물리적으로 디바이스를 이동하거나 디바이스의 서비스를 중단해야 하는 경우 종료가 필요합니다. 이 자습서는 다양한 시나리오에서 StorSimple 디바이스를 켜고 종료하는데 필요한 절차에 대해 설명합니다.
 
 ## <a name="turn-on-a-new-device"></a>새 디바이스 켜기
 처음으로 StorSimple 디바이스를 켜는 단계는 디바이스가 8100인지 8600 모델인지에 따라 다릅니다. 8100에는 단일 기본 엔클로저가 있는 반면 8600은 기본 엔클로저와 EBOD 엔클로저가 있는 이중 엔클로저 디바이스입니다. 두 모델에 대한 자세한 단계는 다음 섹션에서 다룹니다.
@@ -36,7 +36,7 @@ Microsoft Azure StorSimple 디바이스 종료는 정상적인 시스템 작업�
 ### <a name="new-device-with-primary-enclosure-only"></a>기본 인클로저만 있는 새 디바이스
 StorSimple 8100 모델은 단일 인클로저 디바이스입니다. 디바이스에는 예비 전원 및 냉각 모듈(PCM)이 포함됩니다. 두 PCM을 모두 설치하고 다른 전원 공급 장치에 연결하여 높은 가용성을 보장해야 합니다.
 
-다음 단계를 수행하여 케이블로 장치를 전원에 연결하세요.
+다음 단계를 수행하여 케이블로 디바이스를 전원에 연결하세요.
 
 [!INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
@@ -48,7 +48,7 @@ StorSimple 8100 모델은 단일 인클로저 디바이스입니다. 디바이�
 ### <a name="new-device-with-ebod-enclosure"></a>EBOD 인클로저가 있는 새 디바이스
 StorSimple 8600 모델에는 기본 인클로저 및 EBOD 인클로저가 있습니다. 장치를 Serial Attached SCSI(SAS) 연결 및 전원에 모두 케이블 연결해야 합니다.
 
-처음으로 이 장치를 설정할 때 SAS 케이블 연결을 먼저 수행한 다음 전원 케이블 연결에 대한 단계를 완료합니다.
+처음으로 이 디바이스를 설정할 때 SAS 케이블 연결을 먼저 수행한 다음, 전원 케이블 연결에 대한 단계를 완료합니다.
 
 [!INCLUDE [storsimple-sas-cable-8600](../../includes/storsimple-sas-cable-8600.md)]
 

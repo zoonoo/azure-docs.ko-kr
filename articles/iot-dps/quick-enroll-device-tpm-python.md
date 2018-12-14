@@ -1,5 +1,5 @@
 ---
-title: Python을 사용하여 Azure Device Provisioning Service에 TPM 장치 등록 | Microsoft Docs
+title: Python을 사용하여 Azure Device Provisioning Service에 TPM 디바이스 등록 | Microsoft Docs
 description: Azure 빠른 시작 - Python 프로비전 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 TPM 디바이스 등록. 이 빠른 시작에서는 개별 등록을 사용합니다.
 author: wesmc7777
 ms.author: wesmc
@@ -17,10 +17,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51249067"
 ---
-# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Python 프로비전 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 장치 등록
+# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Python 프로비전 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-다음 단계에서는 샘플 Python 응용 프로그램을 통해 [Python 프로비전 서비스 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)를 사용하여 Azure IoT Hub Device Provisioning Service에서 TPM 장치에 대한 개별 등록을 프로그래밍 방식으로 만드는 방법을 보여 줍니다. Python 서비스 SDK는 Windows 및 Linux 컴퓨터에서 모두 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.
+다음 단계에서는 샘플 Python 응용 프로그램을 통해 [Python 프로비전 서비스 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)를 사용하여 Azure IoT Hub Device Provisioning Service에서 TPM 디바이스에 대한 개별 등록을 프로그래밍 방식으로 만드는 방법을 보여줍니다. Python 서비스 SDK는 Windows 및 Linux 컴퓨터에서 모두 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.
 
 계속 진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service를 설정](./quick-setup-auto-provision.md)해야 합니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "51249067"
         pip install azure-iothub-provisioningserviceclient
         ```
 
-1. 장치에 대한 인증 키가 필요합니다. [시뮬레이션된 장치 만들기 및 프로비전](quick-create-simulated-device.md) 빠른 시작을 수행하여 시뮬레이션된 TPM 장치를 만든 경우 해당 장치에 대해 만든 키를 사용합니다. 그렇지 않으면 SDK와 함께 제공되는 다음 인증 키를 사용할 수 있습니다.
+1. 디바이스에 대한 인증 키가 필요합니다. [시뮬레이션된 장치 만들기 및 프로비전](quick-create-simulated-device.md) 빠른 시작을 수행하여 시뮬레이션된 TPM 장치를 만든 경우 해당 장치에 대해 만든 키를 사용합니다. 그렇지 않으면 SDK와 함께 제공되는 다음 인증 키를 사용할 수 있습니다.
 
     ```
     AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAtW6MOyCu/Nih47atIIoZtlYkhLeCTiSrtRN3q6hqgOllA979No4BOcDWF90OyzJvjQknMfXS/Dx/IJIBnORgCg1YX/j4EEtO7Ase29Xd63HjvG8M94+u2XINu79rkTxeueqW7gPeRZQPnl1xYmqawYcyzJS6GKWKdoIdS+UWu6bJr58V3xwvOQI4NibXKD7htvz07jLItWTFhsWnTdZbJ7PnmfCa2vbRH/9pZIow+CcAL9mNTNNN4FdzYwapNVO+6SY/W4XU0Q+dLMCKYarqVNH5GzAWDfKT8nKzg69yQejJM8oeUWag/8odWOfbszA+iFjw3wVNrA5n8grUieRkPQ==
@@ -99,7 +99,7 @@ ms.locfileid: "51249067"
 
 1. 성공적으로 등록되는지 확인하기 위해 결과를 관찰합니다.
 
-1. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. 앞에서 만든 이름(`registrationid`)이 있는 TPM 장치가 **개별 등록** 탭 아래에 표시됩니다. 
+1. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. 앞에서 만든 이름(`registrationid`)이 있는 TPM 디바이스가 **개별 등록** 탭 아래에 표시됩니다. 
 
     ![포털에서 성공적인 TPM 등록 확인](./media/quick-enroll-device-tpm-python/1.png)  
 

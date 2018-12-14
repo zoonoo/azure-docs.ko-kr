@@ -24,7 +24,7 @@ ms.locfileid: "39422997"
 
 [App Service Environment](./intro.md)는 고객의 Azure 가상 네트워크 서브넷에 Azure App Service를 배포한 환경입니다. 앱 액세스를 위해 공용 또는 개인 끝점으로 배포할 수 있습니다. 개인 끝점(즉, 내부 부하 분산 장치)을 사용하여 App Service Environment를 배포하는 것을 ILB App Service Environment라고 합니다.  
 
-웹 응용 프로그램 방화벽을 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 응용 프로그램 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램을 보호할 수 있습니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. Azure 마켓플레이스에서 WAF 장치를 얻을 수 있거나 [Azure Application Gateway][appgw]를 사용할 수 있습니다.
+웹 응용 프로그램 방화벽을 통해 SQL 삽입, 사이트 간 스크립팅, 맬웨어 업로드 및 응용 프로그램 DDoS와 기타 공격을 차단하기 위해 인바운드 웹 트래픽을 검사하여 웹 응용 프로그램을 보호할 수 있습니다. 데이터 손실 방지 DLP (Data Loss Prevention)에 대한 백엔드 웹 서버로부터의 응답도 검사합니다. Azure 마켓플레이스에서 WAF 디바이스를 얻을 수 있거나 [Azure Application Gateway][appgw]를 사용할 수 있습니다.
 
 Azure Application Gateway는 7계층 부하 분산, SSL 오프로딩 및 WAF(웹 응용 프로그램 방화벽) 보호를 제공하는 가상 어플라이언스입니다. 공용 IP 주소에서 수신 대기하고, 트래픽을 응용 프로그램 끝점으로 라우팅할 수 있습니다. 여기서는 WAF가 구성된 Application Gateway를 ILB App Service Environment의 앱과 통합하는 방법에 대해 설명합니다.  
 

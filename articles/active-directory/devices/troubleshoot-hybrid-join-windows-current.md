@@ -31,7 +31,7 @@ ms.locfileid: "43050568"
 
 다른 Windows 클라이언트의 경우 [하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)을 참조하세요.
 
-이 문서에서는 다음 시나리오를 지원하도록 [장치에 조인된 하이브리드 Azure Active Directory를 구성](hybrid-azuread-join-plan.md)했다고 가정합니다.
+이 문서에서는 다음 시나리오를 지원하도록 [디바이스에 조인된 하이브리드 Azure Active Directory를 구성](hybrid-azuread-join-plan.md)했다고 가정합니다.
 
 - 디바이스 기반 조건부 액세스
 
@@ -119,7 +119,7 @@ Windows 10 및 Windows Server 2016의 경우 하이브리드 Azure Active Direct
   
 이러한 필드는 사용자가 디바이스에 로그인 시 Azure AD에서 성공적으로 인증되었는지 여부를 나타냅니다. 값이 **아니요**인 경우 다음의 원인 때문일 수 있습니다.
 
-- 등록 시 장치에 연결된 TPM에 잘못된 저장소 키(STK)가 있습니다(상승된 권한으로 실행하면서 KeySignTest 확인).
+- 등록 시 디바이스에 연결된 TPM에 잘못된 스토리지 키(STK)가 있습니다(상승된 권한으로 실행하면서 KeySignTest 확인).
 
 - 대체 로그인 ID
 

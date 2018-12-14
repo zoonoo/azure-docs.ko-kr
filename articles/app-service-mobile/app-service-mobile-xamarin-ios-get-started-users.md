@@ -117,7 +117,7 @@ ms.locfileid: "39224768"
             return ResumeWithURL != null && ResumeWithURL(url);
         }
 6. **Info.plist** 파일을 열고 **고급** 섹션의 **URL 형식**으로 이동합니다. 이제 URL 형식의 **식별자** 및 **URL 스키마**를 구성하고 **URL 형식 추가**를 클릭합니다. **URL 스키마**는 {url_scheme_of_your_app}와 동일해야 합니다.
-7. Mac 호스트에 연결된 Visual Studio 또는 Mac용 Visual Studio에서 장치 또는 에뮬레이터를 대상으로 하는 클라이언트 프로젝트를 실행합니다. 앱이 데이터를 표시하지 않는지 확인합니다.
+7. Mac 호스트에 연결된 Visual Studio 또는 Mac용 Visual Studio에서 디바이스 또는 에뮬레이터를 대상으로 하는 클라이언트 프로젝트를 실행합니다. 앱이 데이터를 표시하지 않는지 확인합니다.
    
     항목 목록을 아래로 끌어서 새로 고침 제스처를 수행하고 로그인 화면이 나타나도록 합니다. 유효한 자격 증명을 성공적으로 입력하면 앱이 todo 항목 목록을 표시하고 사용자가 데이터를 업데이트할 수 있습니다.
 

@@ -41,15 +41,15 @@ ms.locfileid: "49361072"
 ## <a name="part-1-install-azure-ad-connect"></a>1부: Azure AD Connect 설치
 사용자 지정 또는 Express 설정을 사용하여 Azure AD Connect를 설치합니다. Microsoft는 디바이스 쓰기 저장을 사용하도록 설정하기 전에 모든 사용자 및 그룹을 성공적으로 동기화하고 시작할 것을 권장합니다.
 
-## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>2부: Azure AD Connect에서 장치 쓰기 저장 사용
-1. 설치 마법사를 다시 실행합니다. [추가 작업] 페이지에서 **장치 옵션 구성**을 선택하고 **다음**을 클릭합니다. 
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>2부: Azure AD Connect에서 디바이스 쓰기 저장 사용
+1. 설치 마법사를 다시 실행합니다. [추가 작업] 페이지에서 **디바이스 옵션 구성**을 선택하고 **다음**을 클릭합니다. 
 
-    ![장치 옵션 구성](./media/how-to-connect-device-writeback/deviceoptions.png)
+    ![디바이스 옵션 구성](./media/how-to-connect-device-writeback/deviceoptions.png)
 
     >[!NOTE]
-    > 새로운 장치 구성 옵션은 버전 1.1.819.0 이상에서만 사용할 수 있습니다.
+    > 새로운 디바이스 구성 옵션은 버전 1.1.819.0 이상에서만 사용할 수 있습니다.
 
-2. 장치 옵션 페이지에서 **장치 쓰기 저장 구성**을 선택합니다. **장치 쓰기 저장을 사용하지 않도록 설정** 옵션은 장치 쓰기 저장을 사용하기 전에는 사용할 수 없습니다. **다음**을 클릭하여 마법사의 다음 페이지로 이동합니다.
+2. 디바이스 옵션 페이지에서 **디바이스 쓰기 저장 구성**을 선택합니다. **장치 쓰기 저장을 사용하지 않도록 설정** 옵션은 장치 쓰기 저장을 사용하기 전에는 사용할 수 없습니다. **다음**을 클릭하여 마법사의 다음 페이지로 이동합니다.
     ![장치 작업 선택](./media/how-to-connect-device-writeback/configuredevicewriteback1.png)
 
 3. 쓰기 저장 페이지에서 기본 디바이스 쓰기 저장 포리스트로 제공된 도메인이 표시됩니다.
@@ -59,7 +59,7 @@ ms.locfileid: "49361072"
 
     a. **엔터프라이즈 관리자 자격 증명 제공**: 장치를 다시 써야 하는 포리스트에 대한 엔터프라이즈 관리자 자격 증명을 제공하면 Azure AD Connect는 장치 쓰기 저장을 구성하는 동안 자동으로 포리스트를 준비합니다.
 
-    b. **PowerShell 스크립트 다운로드**: Azure AD Connect는 장치 쓰기 저장에 대한 active directory를 준비할 수 있는 PowerShell 스크립트를 자동으로 생성합니다. Azure AD Connect에서 엔터프라이즈 관리자 자격 증명을 제공할 수 없는 경우 PowerShell 스크립트를 다운로드하면 됩니다. 장치를 다시 써야 하는 포리스트의 엔터프라이즈 관리자에게 다운로드한 **CreateDeviceContainer.psq** PowerShell 스크립트를 제공합니다.
+    b. **PowerShell 스크립트 다운로드**: Azure AD Connect는 장치 쓰기 저장에 대한 active directory를 준비할 수 있는 PowerShell 스크립트를 자동으로 생성합니다. Azure AD Connect에서 엔터프라이즈 관리자 자격 증명을 제공할 수 없는 경우 PowerShell 스크립트를 다운로드하면 됩니다. 디바이스를 다시 써야 하는 포리스트의 엔터프라이즈 관리자에게 다운로드한 **CreateDeviceContainer.psq** PowerShell 스크립트를 제공합니다.
     ![active diretory 포리스트 준비](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     active directory 포리스트를 준비하기 위해 다음 작업이 수행됩니다.

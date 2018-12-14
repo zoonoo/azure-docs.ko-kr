@@ -1,5 +1,5 @@
 ---
-title: Node.js를 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 장치 프로비전 | Microsoft Docs
+title: Node.js를 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 디바이스 프로비전 | Microsoft Docs
 description: Azure IoT Hub Device Provisioning Service용 Node.js 디바이스 SDK를 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전. 이 빠른 시작에서는 개별 등록을 사용합니다.
 author: wesmc7777
 ms.author: wesmc
@@ -17,10 +17,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50158502"
 ---
-# <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Node.js 장치 SDK를 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
+# <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Node.js 디바이스 SDK를 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-다음 단계에서는 Device Provisioning Service에서 등록 항목을 만들고, 개발 컴퓨터에서 X.509 장치를 시뮬레이션하며, 시뮬레이션된 장치를 Device Provisioning Service와 연결하고, [Azure IoT Hub Node.js 장치 SDK](https://github.com/Azure/azure-iot-sdk-node)를 사용하여 장치를 IoT 허브에 등록하는 방법을 보여 줍니다.
+다음 단계에서는 Device Provisioning Service에서 등록 항목을 만들고, 개발 컴퓨터에서 X.509 디바이스를 시뮬레이션하며, 시뮬레이션된 디바이스를 Device Provisioning Service와 연결하고, [Azure IoT Hub Node.js 디바이스 SDK](https://github.com/Azure/azure-iot-sdk-node)를 사용하여 디바이스를 IoT 허브에 등록하는 방법을 보여줍니다.
 
 자동 프로비전 프로세스에 익숙하지 않은 경우 [자동 프로비전 개념](concepts-auto-provisioning.md)도 검토하세요. 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 
 
@@ -46,7 +46,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     > _루트_, _중간_ 및/또는 _리프_ X.509 인증서를 이미 만들었으면, 이 단계 및 다음에 이어지는 생성과 관련된 모든 단계를 건너뛸 수 있습니다.
     >
 
-## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>자체 서명된 X.509 장치 인증서 및 개별 등록 항목 만들기
+## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>자체 서명된 X.509 디바이스 인증서 및 개별 등록 항목 만들기
 
 이 섹션에서는 자체 서명된 X.509 인증서를 사용하고 다음에 유의해야 합니다.
 
@@ -84,19 +84,19 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     - *기본 인증서 .pem 또는 .cer 파일* 아래에서 *파일 선택*을 클릭하여 이전 단계에서 만든 **{certificate-name}_cert.pem** 인증서 파일을 선택합니다.  
     - 필요에 따라 다음 정보를 입력합니다.
       - 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
-      - 고유한 장치 ID를 입력합니다. 장치 이름을 지정할 때 중요한 데이터가 포함되지 않도록 합니다. 
+      - 고유한 디바이스 ID를 입력합니다. 디바이스 이름을 지정할 때 중요한 데이터가 포함되지 않도록 합니다. 
       - 디바이스에 대해 원하는 초기 구성으로 **초기 디바이스 쌍 상태**를 업데이트합니다.
    - 완료되면 **저장** 단추를 클릭합니다. 
 
     [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
-    성공적으로 등록되면 X.509 장치가 *개별 등록* 탭의 *등록 ID* 열 아래에 **{certificatename}** 으로 표시됩니다. 나중에 사용하기 위해 이 값을 적어 둡니다.
+    성공적으로 등록되면 X.509 디바이스가 *개별 등록* 탭의 *등록 ID* 열 아래에 **{certificatename}** 으로 표시됩니다. 나중에 사용하기 위해 이 값을 적어 둡니다.
 
 ## <a name="simulate-the-device"></a>디바이스 시뮬레이션
 
 [Azure IoT Hub Node.js 장치 SDK](https://github.com/Azure/azure-iot-sdk-node)는 장치를 시뮬레이션하는 쉬운 방법을 제공합니다. 자세한 내용은 [디바이스 개념](https://docs.microsoft.com/azure/iot-dps/concepts-device)을 참조하세요.
 
-1. Azure Portal에서 Device Provisioning Service에 대한 **개요** 블레이드를 선택하고, **_전역 장치 엔드포인트_** 및 **_ID 범위_** 값을 적어 둡니다.
+1. Azure Portal에서 Device Provisioning Service에 대한 **개요** 블레이드를 선택하고, **_전역 디바이스 엔드포인트_** 및 **_ID 범위_** 값을 적어 둡니다.
 
     ![포털 블레이드에서 디바이스 프로비저닝 서비스 엔드포인트 정보 추출](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
 
@@ -107,7 +107,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     copy .\{certificate-name}_key.pem ..\device\samples\{certificate-name}_key.pem
     ```
 
-3. 장치 테스트 스크립트로 이동하고 프로젝트를 빌드합니다. 
+3. 디바이스 테스트 스크립트로 이동하고 프로젝트를 빌드합니다. 
 
     ```cmd/sh
     cd ..\device\samples
@@ -120,7 +120,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     - `registration id`를 이전 섹션에서 적어 둔 **_등록 ID_** 로 바꿉니다.
     - `cert filename` 및 `key filename`을 위의 **2단계**에서 복사한 파일로 바꿉니다. 
 
-5. 스크립트를 실행하고 장치가 성공적으로 프로비전되었는지 확인합니다.
+5. 스크립트를 실행하고 디바이스가 성공적으로 프로비전되었는지 확인합니다.
 
     ```cmd/sh
     node register_x509.js
@@ -137,14 +137,14 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 디바이스 클라이언트 샘플을 계속해서 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
-1. 컴퓨터에서 장치 클라이언트 샘플 출력 창을 닫습니다.
+1. 컴퓨터에서 디바이스 클라이언트 샘플 출력 창을 닫습니다.
 2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리** 블레이드를 연 다음, **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 디바이스의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
 3. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. 허브에 대한 **IoT 디바이스** 블레이드를 열고, 이 빠른 시작에서 등록한 디바이스의 *디바이스 ID*를 선택한 다음, 위쪽의 **삭제** 단추를 클릭합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 포털에서 Azure IoT Hub Device Provisioning Service를 사용하여 시뮬레이션된 X.509 장치를 만들고 IoT Hub에 프로비전했습니다. 프로그래밍 방식으로 X.509 장치를 등록하는 방법을 알아보려면 프로그래밍 방식으로 X.509 장치를 등록하는 빠른 시작으로 계속 진행하세요. 
+이 빠른 시작에서는 포털에서 Azure IoT Hub Device Provisioning Service를 사용하여 시뮬레이션된 X.509 디바이스를 만들고 IoT Hub에 프로비전했습니다. 프로그래밍 방식으로 X.509 디바이스를 등록하는 방법을 알아보려면 프로그래밍 방식으로 X.509 디바이스를 등록하는 빠른 시작으로 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
 > [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 X.509 장치 등록](quick-enroll-device-x509-node.md)

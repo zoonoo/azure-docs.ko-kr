@@ -163,7 +163,7 @@ Event Hubs 표준 계층은 최대 7일 동안 24시간을 초과하는 메시�
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>조정된 연결 요금이 Event Hubs에 적용됩니까?
 
-AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 시스템 또는 장치 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. AMQP를 사용하려는 경우(예: 보다 효율적인 이벤트 스트리밍을 달성하거나 IoT 명령 및 제어 시나리오에서 양방향 통신 설정), 각 서비스 계층에 포함된 연결 수에 대한 자세한 내용은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/) 페이지를 참조하세요.
+AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. 시스템 또는 디바이스 수에 관계 없이 HTTP를 사용하여 이벤트를 보내는 데에는 연결 요금이 부과되지 않습니다. AMQP를 사용하려는 경우(예: 보다 효율적인 이벤트 스트리밍을 달성하거나 IoT 명령 및 제어 시나리오에서 양방향 통신 설정), 각 서비스 계층에 포함된 연결 수에 대한 자세한 내용은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/) 페이지를 참조하세요.
 
 ### <a name="how-is-event-hubs-capture-billed"></a>Event Hubs 캡처는 어떻게 청구되나요?
 

@@ -120,7 +120,7 @@ Azure IoT Central 애플리케이션에서 **Raspberry Pi** 디바이스 템플�
 
 | type            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
-| 장치 속성 | 다이 번호   | dieNumber  | number    |
+| 디바이스 속성 | 다이 번호   | dieNumber  | number    |
 | 텍스트            | 위치     | location   | 해당 없음       |
 
 ## <a name="next-steps"></a>다음 단계

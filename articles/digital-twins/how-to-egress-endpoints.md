@@ -37,7 +37,7 @@ Azure Digital Twins는 **엔드포인트** 개념을 지원합니다. 각 엔드
 
 **TopologyOperation**은 그래프 변경 내용에 적용됩니다. **subject** 속성은 영향받는 개체의 유형을 지정합니다. 다음 유형의 개체는 이 이벤트를 트리거할 수 있습니다. 
 
-- 장치
+- 디바이스
 - DeviceBlobMetadata
 - DeviceExtendedProperty
 - ExtendedPropertyKey

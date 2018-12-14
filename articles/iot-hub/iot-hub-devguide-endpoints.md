@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 엔드포인트 이해 | Microsoft Docs
-description: 개발자 가이드 - IoT Hub 장치 지향 및 서비스 지향 엔드포인트에 대한 참조 정보
+description: 개발자 가이드 - IoT Hub 디바이스 지향 및 서비스 지향 엔드포인트에 대한 참조 정보
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub

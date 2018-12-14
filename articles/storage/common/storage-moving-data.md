@@ -61,7 +61,7 @@ Azure Storage에 데이터를 백업해야 하는 경우 Azure Backup을 사용�
 자세한 내용은 [Azure Backup](../../backup/backup-introduction-to-azure-backup.md) 을 참조하세요.
 
 ## <a name="accessing-your-data-on-premises-and-from-the-cloud"></a>온-프레미스 및 클라우드 데이터에 액세스
-온-프레미스 및 클라우드 데이터에 액세스하기 위한 솔루션이 필요한 경우 Azure의 하이브리드 클라우드 저장소 솔루션인 StorSimple을 고려해 보세요. 이 솔루션은 자주 사용되는 데이터는 SSD에, 가끔 사용되는 데이터는 HDD에, 비활성/백업/보관 데이터는 Azure Storage에 지능적으로 저장하는 물리적 StorSimple 장치로 구성됩니다.
+온-프레미스 및 클라우드 데이터에 액세스하기 위한 솔루션이 필요한 경우 Azure의 하이브리드 클라우드 저장소 솔루션인 StorSimple을 고려해 보세요. 이 솔루션은 자주 사용되는 데이터는 SSD에, 가끔 사용되는 데이터는 HDD에, 비활성/백업/보관 데이터는 Azure Storage에 지능적으로 저장하는 물리적 StorSimple 디바이스로 구성됩니다.
 
 자세한 내용은 [StorSimple](../../storsimple/storsimple-overview.md) 을 참조하세요.
 

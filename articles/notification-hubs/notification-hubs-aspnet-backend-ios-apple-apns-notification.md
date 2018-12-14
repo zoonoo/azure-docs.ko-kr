@@ -25,7 +25,7 @@ ms.locfileid: "42918967"
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. [앱 백 엔드에서 등록](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) 지침 항목에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. [앱 백 엔드에서 등록](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) 지침 항목에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -314,7 +314,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
     > [!NOTE]
     > 다음 코드 조각은 보안 인증 체계가 아닙니다. **createAndSetAuthenticationHeaderWithUsername:AndPassword:** 구현을 레지스터 클라이언트 클래스(예: OAuth, Active Directory)에서 사용할 인증 토큰을 생성하는 특정 인증 메커니즘으로 대체해야 합니다.
 
-10. 그런 다음, `ViewController.m`의 `@implementation` 섹션에 장치 토큰 및 인증 헤더 설정을 위한 구현을 추가하는 다음 코드를 추가합니다.
+10. 그런 다음, `ViewController.m`의 `@implementation` 섹션에 디바이스 토큰 및 인증 헤더 설정을 위한 구현을 추가하는 다음 코드를 추가합니다.
 
     ```objc
     -(void) setDeviceToken: (NSData*) deviceToken
@@ -341,7 +341,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
     }
     ```
 
-    장치 토큰 설정이 어떻게 로그인 단추를 활성화하는지에 주목하세요. 이는 로그인 작업 중에 보기 컨트롤러가 푸시 알림을 앱 백 엔드에 등록하기 때문입니다. 따라서 장치 토큰이 제대로 설정되기 전에는 로그인 작업에 액세스하지 못하게 해야 합니다. 로그인 작업이 토큰 설정 전에 발생하는 경우 푸시 등록에서 로그인을 분리할 수 있습니다.
+    디바이스 토큰 설정이 어떻게 로그인 단추를 활성화하는지에 주목하세요. 이는 로그인 작업 중에 보기 컨트롤러가 푸시 알림을 앱 백 엔드에 등록하기 때문입니다. 따라서 디바이스 토큰이 제대로 설정되기 전에는 로그인 작업에 액세스하지 못하게 해야 합니다. 로그인 작업이 토큰 설정 전에 발생하는 경우 푸시 등록에서 로그인을 분리할 수 있습니다.
 
 11. ViewController.m에서 다음 스니펫을 사용하여 **로그인** 단추에 대한 작업 메소드 및 ASP.NET 백엔드를 사용하여 알림 메시지를 보내는 메서드를 구현합니다.
 
@@ -453,7 +453,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
     self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
     ```
 
-14. 이제 **AppDelegate.m**에서 `application:didRegisterForPushNotificationWithDeviceToken:` 메서드의 모든 콘텐츠를 제거하고 다음으로 바꾸어 보기 컨트롤러에 APN에서 검색된 최신 장치 토큰이 포함되게 합니다.
+14. 이제 **AppDelegate.m**에서 `application:didRegisterForPushNotificationWithDeviceToken:` 메서드의 모든 콘텐츠를 제거하고 다음으로 바꾸어 보기 컨트롤러에 APN에서 검색된 최신 디바이스 토큰이 포함되게 합니다.
 
     ```objc
     // Add import to the top of the file
@@ -478,7 +478,7 @@ Mobile Apps을 백 엔드 서비스로 사용하려는 경우 [Mobile Apps 푸�
 
 ## <a name="test-the-application"></a>응용 프로그램 테스트
 
-1. XCode에서는 실제 iOS 장치에서 앱을 실행합니다(푸시 알림은 시뮬레이터에서 작동하지 않음).
+1. XCode에서는 실제 iOS 디바이스에서 앱을 실행합니다(푸시 알림은 시뮬레이터에서 작동하지 않음).
 2. iOS 앱 UI에서 사용자 이름과 암호에 동일한 값을 입력합니다. 그런 다음 **Log In**을 클릭합니다.
 
     ![iOS 테스트 응용 프로그램][2]

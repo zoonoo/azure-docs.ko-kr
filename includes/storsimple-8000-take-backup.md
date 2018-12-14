@@ -15,7 +15,7 @@ ms.locfileid: "50164260"
 
 ### <a name="to-take-a-backup"></a>백업을 수행하려면
 
-1. StorSimple 디바이스 관리자 서비스로 이동합니다. 테이블 형식 장치 목록에서 장치를 선택하고 클릭한 후 **모든 설정**을 클릭합니다. **설정** 블레이드에서 **설정 > 관리 > Backup 정책**으로 이동합니다.
+1. StorSimple 디바이스 관리자 서비스로 이동합니다. 테이블 형식 디바이스 목록에서 디바이스를 선택하고 클릭한 후 **모든 설정**을 클릭합니다. **설정** 블레이드에서 **설정 > 관리 > Backup 정책**으로 이동합니다.
 
     ![Add-backup-policy](./media/storsimple-8000-take-backup/step8takebu1.png)
 

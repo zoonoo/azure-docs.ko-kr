@@ -69,7 +69,7 @@ pcs login
 | 개수 | 리소스                       | type         | 용도 |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux 가상 머신](https://azure.microsoft.com/services/virtual-machines/) | 표준 D1 V2  | 마이크로 서비스 호스트 |
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 - 표준 계층 | 장치 관리 및 통신 |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 - 표준 계층 | 디바이스 관리 및 통신 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | 구성 데이터, 규칙, 경보 및 기타 콜드 스토리지 저장 |  
 | 1     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | VM 및 스트리밍 검사점에 대한 저장소 |
 | 1     | [웹 응용 프로그램](https://azure.microsoft.com/services/app-service/web/)        |                 | 프런트 엔드 웹 응용 프로그램 호스트 |
@@ -88,8 +88,8 @@ pcs login
 | 개수 | 리소스                                     | SKU/크기      | 용도 |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| 완전 관리형 Kubernetes 컨테이너 오케스트레이션 서비스를 사용하세요. 기본값은 에이전트 3개입니다.|
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 - 표준 계층 | 장치 관리, 명령 및 제어 |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | 구성 데이터와 규칙, 경보 및 메시지와 같은 장치 원격 분석 저장 |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 - 표준 계층 | 디바이스 관리, 명령 및 제어 |
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | 구성 데이터와 규칙, 경보 및 메시지와 같은 디바이스 원격 분석 저장 |
 | 5     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | VM 저장소용 4개, 스트리밍 검사점용 1개 |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 표준     | SSL을 통한 Application Gateway |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | 사용자 ID 및 보안 관리 |

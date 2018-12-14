@@ -51,9 +51,9 @@ B2B(Business-to-Business) 공동 작업 사용자에 대한 정책이 적용됩�
 
 현재는 사용할 수 없습니다. 
 
-## <a name="what-is-the-default-exclusion-policy-for-unsupported-device-platforms"></a>지원되지 않는 장치 플랫폼에 대한 기본 제외 정책은 무엇인가요?
+## <a name="what-is-the-default-exclusion-policy-for-unsupported-device-platforms"></a>지원되지 않는 디바이스 플랫폼에 대한 기본 제외 정책은 무엇인가요?
 
-현재 iOS 및 Android 장치의 사용자에 대해 선택적으로 조건부 액세스 정책이 적용됩니다. 다른 장치 플랫폼의 응용 프로그램은 기본적으로 iOS 및 Android 장치에 대한 조건부 액세스 정책의 영향을 받지 않습니다. 테넌트 관리자는 지원되지 않는 플랫폼의 사용자에 대해 액세스를 차단하도록 전역 정책을 재정의할 수 있습니다.
+현재 iOS 및 Android 디바이스의 사용자에 대해 선택적으로 조건부 액세스 정책이 적용됩니다. 다른 디바이스 플랫폼의 애플리케이션은 기본적으로 iOS 및 Android 디바이스에 대한 조건부 액세스 정책의 영향을 받지 않습니다. 테넌트 관리자는 지원되지 않는 플랫폼의 사용자에 대해 액세스를 차단하도록 전역 정책을 재정의할 수 있습니다.
 
 
 ## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Microsoft Teams에 대해 조건부 액세스 정책이 어떻게 작동하나요?

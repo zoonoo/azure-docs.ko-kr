@@ -133,7 +133,7 @@ Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치�
 ![Azure Active Directory](./media/policy-migration/16.png)
  
 
-**Exchange Active Sync**가 클라이언트 앱 조건으로 포함된 Office 365 Exchange Online의 [앱 기반](technical-reference.md#approved-client-app-requirement) 클래식 정책에서는 **지원되는** 장치 플랫폼과 **지원되지 않는** [장치 플랫폼](technical-reference.md#device-platform-condition)이 허용됩니다. 관련된 새 정책에서는 개별 장치 플랫폼을 구성할 수 없으며 [지원되는 장치 플랫폼](technical-reference.md#device-platform-condition)으로만 지원을 제한할 수 있습니다. 
+**Exchange Active Sync**가 클라이언트 앱 조건으로 포함된 Office 365 Exchange Online의 [앱 기반](technical-reference.md#approved-client-app-requirement) 클래식 정책에서는 **지원되는** 장치 플랫폼과 **지원되지 않는** [장치 플랫폼](technical-reference.md#device-platform-condition)이 허용됩니다. 관련된 새 정책에서는 개별 디바이스 플랫폼을 구성할 수 없으며 [지원되는 디바이스 플랫폼](technical-reference.md#device-platform-condition)으로만 지원을 제한할 수 있습니다. 
 
 ![Azure Active Directory](./media/policy-migration/65.png)
 
@@ -145,7 +145,7 @@ Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치�
 
 한 가지 일반적인 시나리오는 다음과 같은 통합입니다.
 
-- Azure 클래식 포털에서 장치 기반 클래식 정책 통합 
+- Azure 클래식 포털에서 디바이스 기반 클래식 정책 통합 
 - Intune 앱 보호 포털에서 앱 기반 클래식 정책 통합 
  
 이 경우 두 요구 사항이 모두 선택된 하나의 새 정책으로 클래식 정책을 통합할 수 있습니다.
@@ -158,7 +158,7 @@ Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치�
 
 [앱 기반 제어](technical-reference.md#approved-client-app-requirement)를 사용하는 클래식 정책은 iOS 및 Android에 [장치 플랫폼 조건](technical-reference.md#device-platform-condition)으로 미리 구성되어 있습니다. 
 
-새 정책에서는 개별적으로 지원할 [장치 플랫폼](technical-reference.md#device-platform-condition)을 선택해야 합니다.
+새 정책에서는 개별적으로 지원할 [디바이스 플랫폼](technical-reference.md#device-platform-condition)을 선택해야 합니다.
 
 ![Azure Active Directory](./media/policy-migration/41.png)
 

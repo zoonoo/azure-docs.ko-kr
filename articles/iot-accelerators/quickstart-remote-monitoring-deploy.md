@@ -65,7 +65,7 @@ Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 
 
 [![솔루션 대시보드](./media/quickstart-remote-monitoring-deploy/solutiondashboard-inline.png)](./media/quickstart-remote-monitoring-deploy/solutiondashboard-expanded.png#lightbox)
 
-## <a name="view-your-devices"></a>장치 보기
+## <a name="view-your-devices"></a>디바이스 보기
 
 솔루션 대시보드에 Contoso의 시뮬레이션된 디바이스에 대한 다음 정보가 표시됩니다.
 

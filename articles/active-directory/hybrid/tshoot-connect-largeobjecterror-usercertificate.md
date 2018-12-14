@@ -50,7 +50,7 @@ LargeObject 오류가 해결될 때까지 동일한 개체에 대한 다른 특�
  * Azure AD Connect를 구성하여 userCertificate 특성이 Azure AD로 내보내지지 않도록 제외하십시오. 일반적으로 특정 시나리오를 사용하기 위해 Microsoft Online Services에서 특성을 사용할 수 있으므로 이 옵션을 사용하지 않는 것이 좋습니다. 특히 다음과 같습니다.
     * User 개체의 userCertificate 특성은 Exchange Online 및 Outlook 클라이언트에서 메시지 서명 및 암호화에 사용됩니다. 이 기능에 대해 자세히 알아보려면 [메시지 서명 및 암호화를 위한 S/MIME](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx) 문서를 참조하세요.
 
-    * Computer 개체의 userCertificate 특성은 Windows 10 온-프레미스 도메인에 가입된 장치가 Azure AD에 연결할 수 있도록 하기 위해 Azure AD에서 사용됩니다. 이 기능에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 가입된 장치 연결](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy)을 참조하세요.
+    * Computer 개체의 userCertificate 특성은 Windows 10 온-프레미스 도메인에 조인된 디바이스가 Azure AD에 연결할 수 있도록 하기 위해 Azure AD에서 사용됩니다. 이 기능에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 조인된 디바이스 연결](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy)을 참조하세요.
 
 ## <a name="implementing-sync-rule-to-limit-export-of-usercertificate-attribute"></a>userCertificate 특성의 내보내기를 제한하는 동기화 규칙 구현
 userCertificate 특성으로 인해 발생한 LargeObject 오류를 해결하기 위해 Azure AD Connect에서 **15개 이상의 인증서 값을 포함하는 개체의 실제 값 대신 null 값**을 내보내는 아웃바운드 동기화 규칙을 구현할 수 있습니다. 이 섹션에서는 **User** 개체에 대한 동기화 규칙을 구현하는 데 필요한 단계를 설명합니다. 이 단계는 **Contact** 및 **Computer** 개체에 대해 적용할 수 있습니다.

@@ -54,7 +54,7 @@ ms.locfileid: "39343069"
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱의 인증으로 로그인하려면
 1. 사용자 이름 및 암호를 사용하여 Office 365와 같은 응용 프로그램 또는 서비스에 로그인합니다.
-2. Microsoft는 사용자 장치의 Microsoft Authenticator 앱에 알림을 보냅니다.
+2. Microsoft는 사용자 디바이스의 Microsoft Authenticator 앱에 알림을 보냅니다.
 
   ![Microsoft가 알림을 보냄](./media/multi-factor-authentication-end-user-signin/notify.png)
 
@@ -73,7 +73,7 @@ Microsoft Authenticator 앱을 사용하여 확인 코드를 가져오는 경우
 3. 휴대폰에서 Microsoft Authenticator 앱을 열고 로그인 위치에 제공되는 상자에 코드를 입력합니다.
 
 ## <a name="signing-in-with-an-alternate-method"></a>다른 방법을 사용하여 로그인
-경우에 따라 기본 확인 방법으로 설정한 휴대폰이나 장치가 없는 경우도 있습니다. 계정에 대해 백업 방법을 설정하도록 권장하는 것도 이 때문입니다. 다음 섹션에서는 기본 방법을 사용할 수 없을 때 대체 방법을 사용하여 로그인하는 방법을 보여 줍니다.
+경우에 따라 기본 확인 방법으로 설정한 휴대폰이나 디바이스가 없는 경우도 있습니다. 계정에 대해 백업 방법을 설정하도록 권장하는 것도 이 때문입니다. 다음 섹션에서는 기본 방법을 사용할 수 없을 때 대체 방법을 사용하여 로그인하는 방법을 보여 줍니다.
 
 1. 사용자 이름 및 암호를 사용하여 Office 365와 같은 응용 프로그램 또는 서비스에 로그인합니다.
 2. **다른 확인 옵션 사용**을 선택합니다. 설정한 수에 따라 다른 확인 옵션이 표시됩니다.

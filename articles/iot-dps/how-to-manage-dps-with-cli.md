@@ -99,9 +99,9 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 > [!div class="checklist"]
 > * 디바이스 등록
 > * 디바이스 시작
-> * 장치가 등록되어 있는지 확인
+> * 디바이스가 등록되어 있는지 확인
 
-부하가 분산된 허브 간 여러 장치를 프로비전하는 방법에 알아보려면 다음 자습서를 진행합니다. 
+부하가 분산된 허브 간 여러 디바이스를 프로비전하는 방법에 알아보려면 다음 자습서를 진행합니다. 
 
 > [!div class="nextstepaction"]
 > [부하가 분산된 IoT Hub 간 장치 프로비전](./tutorial-provision-multiple-hubs.md)

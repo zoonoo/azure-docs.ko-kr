@@ -24,7 +24,7 @@ ms.locfileid: "48800862"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
-이 문서는 다음 장치에만 적용됩니다. 
+이 문서는 다음 디바이스에만 적용됩니다. 
 
 - Windows 7 
 - Windows 8.1 
@@ -35,7 +35,7 @@ ms.locfileid: "48800862"
 
 Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2016 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결](troubleshoot-hybrid-join-windows-current.md)을 참조하세요.
 
-이 문서에서는 다음 시나리오를 지원하도록 [장치에 조인된 하이브리드 Azure Active Directory를 구성](hybrid-azuread-join-plan.md)했다고 가정합니다.
+이 문서에서는 다음 시나리오를 지원하도록 [디바이스에 조인된 하이브리드 Azure Active Directory를 구성](hybrid-azuread-join-plan.md)했다고 가정합니다.
 
 - 디바이스 기반 조건부 액세스
 
@@ -96,7 +96,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
      
      - **Autoworkplace.exe**를 사용하려면 클라이언트에서 조직의 온-프레미스 AD 도메인 컨트롤러로 직접 가시권이 형성되어야 합니다. 즉, 하이브리드 Azure AD 가입은 클라이언트가 조직의 인트라넷에 연결된 경우에만 성공적으로 수행됩니다.
      
-     - 조직에서 Azure AD Seamless Single Sign-On을 사용하고, 장치의 IE 인트라넷 설정에 `https://autologon.microsoftazuread-sso.com` 또는 `https://aadg.windows.net.nsatc.net`이 없고, 인트라넷 영역에 **스크립트를 통한 상태 표시줄 업데이트 허용**이 활성화되어 있지 않습니다.
+     - 조직에서 Azure AD Seamless Single Sign-On을 사용하고, 디바이스의 IE 인트라넷 설정에 `https://autologon.microsoftazuread-sso.com` 또는 `https://aadg.windows.net.nsatc.net`이 없고, 인트라넷 영역에 **스크립트를 통한 상태 표시줄 업데이트 허용**이 활성화되어 있지 않습니다.
 
 - 도메인 사용자로 로그온되지 않음
 
@@ -104,7 +104,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
     
     발생할 수 있는 몇 가지 다른 이유가 있습니다.
     
-    - 로그인한 사용자가 도메인 사용자(예: 로컬 사용자)가 아닙니다. 도메인 사용자에 대해 하위 수준 장치의 하이브리드 Azure AD 조인만 지원됩니다.
+    - 로그인한 사용자가 도메인 사용자(예: 로컬 사용자)가 아닙니다. 도메인 사용자에 대해 하위 수준 디바이스의 하이브리드 Azure AD 조인만 지원됩니다.
     
     - 클라이언트가 도메인 컨트롤러에 연결할 수 없습니다.    
 
@@ -132,7 +132,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
   
   - 또는 도메인이 관리되는 경우 Seamless SSO가 구성되지 않았거나 작동하지 않습니다.
 
-  - 장치 제한에 도달했습니다. 
+  - 디바이스 제한에 도달했습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

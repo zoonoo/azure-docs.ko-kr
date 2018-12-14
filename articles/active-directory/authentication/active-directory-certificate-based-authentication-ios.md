@@ -19,7 +19,7 @@ ms.locfileid: "43346405"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS에서 Azure Active Directory 인증서 기반 인증
 
-iOS 장치는 연결할 때 자신의 장치에서 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증하는 데 CBA(인증서 기반 인증)을 사용할 수 있습니다.
+iOS 디바이스는 연결할 때 자신의 디바이스에서 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증하는 데 CBA(인증서 기반 인증)을 사용할 수 있습니다.
 
 * Microsoft Outlook 및 Microsoft Word와 같은 Office 모바일 응용 프로그램
 * EAS(Exchange ActiveSync) 클라이언트

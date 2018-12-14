@@ -80,7 +80,7 @@ Azure AD Connect는 필요에 따라 기본적으로 키거나 사용할 수 있
 |암호 해시 동기화 | [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)|
 |통과 인증 | [통과 인증](how-to-connect-pta.md)
 |비밀번호 쓰기 저장 | [암호 관리 시작](../authentication/quickstart-sspr.md)|
-|장치 쓰기 저장 | [Azure AD Connect에서 장치 쓰기 저장 사용](how-to-connect-device-writeback.md)|
+|디바이스 쓰기 저장 | [Azure AD Connect에서 장치 쓰기 저장 사용](how-to-connect-device-writeback.md)|
 |실수로 인한 삭제 방지 | [Azure AD Connect 동기화: 실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md)|
 |자동 업그레이드 | [Azure AD Connect: 자동 업그레이드](how-to-connect-install-automatic-upgrade.md)|
 

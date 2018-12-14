@@ -21,7 +21,7 @@ items:
     href: vpn-gateway-plan-design.md
   - name: VPN Gateway 설정 정보
     href: vpn-gateway-about-vpn-gateway-settings.md
-  - name: VPN 장치 정보
+  - name: VPN 디바이스 정보
     href: vpn-gateway-about-vpn-devices.md
   - name: 암호화 요구 사항 정보
     href: vpn-gateway-about-compliance-crypto.md
@@ -55,7 +55,7 @@ items:
       href: vpn-gateway-create-site-to-site-rm-powershell.md
     - name: Azure CLI
       href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-  - name: VPN 장치 구성 스크립트 다운로드
+  - name: VPN 디바이스 구성 스크립트 다운로드
     href: vpn-gateway-download-vpndevicescript.md
   - name: 지점 및 사이트 간 연결 구성 - 네이티브 Azure 인증서 인증
     items:
@@ -175,16 +175,16 @@ items:
       href: vpn-gateway-delete-vnet-gateway-powershell.md
   - name: 게이트웨이 SKU(기존)
     href: vpn-gateway-about-skus-legacy.md
-  - name: 타사 VPN 장치 구성
+  - name: 타사 VPN 디바이스 구성
     items:
     - name: 개요 및 Azure 구성
       href: vpn-gateway-3rdparty-device-config-overview.md
-    - name: '샘플: Cisco ASA 장치(IKEv2/BGP 아님)'
+    - name: '샘플: Cisco ASA 디바이스(IKEv2/BGP 아님)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
   - name: 문제 해결
     href: vpn-gateway-troubleshoot.md
     items:
-    - name: 커뮤니티에서 제안한 VPN 또는 방화벽 장치 설정
+    - name: 커뮤니티에서 제안한 VPN 또는 방화벽 디바이스 설정
       href: vpn-gateway-third-party-settings.md
     - name: VNet 또는 VPN 연결 구성 및 유효성 검사
       href: https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections

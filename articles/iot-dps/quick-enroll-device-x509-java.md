@@ -52,7 +52,7 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
 
 다음 단계에서는 X.509 디바이스에 대한 프로비전 세부 정보를 샘플 코드에 추가하는 방법을 보여줍니다. 
 
-1. 명령 프롬프트를 엽니다. Java 서비스 SDK를 사용하여 장치 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
+1. 명령 프롬프트를 엽니다. Java 서비스 SDK를 사용하여 디바이스 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -73,7 +73,7 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    2. 장치 그룹에 대한 루트 인증서를 추가합니다. 샘플 루트 인증서가 필요하면 다음과 같이 _X.509 인증서 생성기_ 도구를 사용합니다.
+    2. 디바이스 그룹에 대한 루트 인증서를 추가합니다. 샘플 루트 인증서가 필요하면 다음과 같이 _X.509 인증서 생성기_ 도구를 사용합니다.
         1. 명령 창에서 **_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_** 폴더로 이동합니다.
         2. 다음 명령을 실행하여 도구를 빌드합니다.
 
@@ -165,7 +165,7 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
 
     ![포털에서 성공적인 X.509 등록 확인](./media/quick-enroll-device-x509-java/verify-x509-enrollment.png)  
 
-## <a name="modifications-to-enroll-a-single-x509-device"></a>단일 X.509 장치 등록 수정
+## <a name="modifications-to-enroll-a-single-x509-device"></a>단일 X.509 디바이스 등록 수정
 
 단일 X.509 디바이스를 등록하려면 다음과 같이 [Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록](quick-enroll-device-tpm-java.md#javasample)에서 사용된 *개별 등록* 샘플 코드를 수정합니다.
 

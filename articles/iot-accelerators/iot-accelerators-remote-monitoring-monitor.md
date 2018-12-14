@@ -28,7 +28,7 @@ ms.locfileid: "51824747"
 > * 대시보드에서 디바이스 필터링
 > * 실시간 원격 분석 보기
 > * 디바이스 세부 정보 보기
-> * 장치에서 경고 보기
+> * 디바이스에서 경고 보기
 > * 시스템 KPI 보기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -65,7 +65,7 @@ truck-02의 세부 정보를 보려면 맵을 이동하고 확대/축소하여 t
 
 * 최근 원격 분석 값
 * 디바이스에서 지원하는 메서드
-* 장치 속성
+* 디바이스 속성
 
 [![대시보드에서 장치 세부 정보 보기](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboarddevicedetail-expanded.png#lightbox)
 

@@ -1,5 +1,5 @@
 ---
-title: C#을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 장치 프로비전 | Microsoft Docs
+title: C#을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 디바이스 프로비전 | Microsoft Docs
 description: Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service용 C# 디바이스 SDK를 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전. 이 빠른 시작에서는 개별 등록을 사용합니다.
 author: wesmc7777
 ms.author: wesmc
@@ -17,7 +17,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50156462"
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 C# 장치 SDK를 사용하여 시뮬레이션된 X.509 장치 만들기 및 프로비전
+# <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 C# 디바이스 SDK를 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 다음 단계에서는 Windows OS를 실행하는 개발 머신에서 [Azure IoT Hub C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) 시뮬레이션된 X.509 디바이스 샘플을 빌드하고, 이 시뮬레이션된 디바이스를 Device Provisioning Service 및 IoT Hub와 연결하는 방법을 보여줍니다.
@@ -45,7 +45,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     git clone --recursive https://github.com/Azure/azure-iot-sdk-csharp.git
     ```
 
-## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>자체 서명된 X.509 장치 인증서 및 개별 등록 항목 만들기
+## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>자체 서명된 X.509 디바이스 인증서 및 개별 등록 항목 만들기
 
 이 섹션에서는 자체 서명된 X.509 인증서를 사용하고 다음에 유의해야 합니다.
 
@@ -55,7 +55,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 [.NET용 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-csharp.git)의 샘플 코드를 사용하여 시뮬레이션된 장치에 대한 개별 등록 항목에서 사용될 인증서를 만듭니다.
 
 
-1. 명령 프롬프트에서 디렉터리를 X.509 장치 프로비전 샘플에 대한 프로젝트 디렉터리로 변경합니다.
+1. 명령 프롬프트에서 디렉터리를 X.509 디바이스 프로비전 샘플에 대한 프로젝트 디렉터리로 변경합니다.
 
     ```cmd
     cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientX509
@@ -79,7 +79,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 6. **등록 추가** 패널 아래에 다음 정보를 입력합니다.
     - ID 증명 *메커니즘*으로 **X.509**를 선택합니다.
     - *기본 인증서 .pem 또는 .cer 파일* 아래에서 *파일 선택*을 클릭하여 이전 단계에서 만든 **certificate.cer** 인증서 파일을 선택합니다.
-    - **장치 ID**를 비워 둡니다. 장치 ID가 **iothubx509device1**(X.509 인증서의 CN(일반 이름))로 설정된 장치가 프로비전됩니다. 또한 이 이름은 개별 등록 항목에 대한 등록 ID에도 사용됩니다. 
+    - **장치 ID**를 비워 둡니다. 디바이스 ID가 **iothubx509device1**(X.509 인증서의 CN(일반 이름))로 설정된 디바이스가 프로비전됩니다. 또한 이 이름은 개별 등록 항목에 대한 등록 ID에도 사용됩니다. 
     - 필요에 따라 다음 정보를 입력합니다.
         - 프로비전 서비스와 연결된 IoT Hub를 선택합니다.
         - 디바이스에 대해 원하는 초기 구성으로 **초기 디바이스 쌍 상태**를 업데이트합니다.
@@ -117,14 +117,14 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 디바이스 클라이언트 샘플을 계속해서 작업하고 탐색할 계획인 경우 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 리소스를 삭제합니다.
 
-1. 컴퓨터에서 장치 클라이언트 샘플 출력 창을 닫습니다.
+1. 컴퓨터에서 디바이스 클라이언트 샘플 출력 창을 닫습니다.
 1. 컴퓨터에서 TPM 시뮬레이터 창을 닫습니다.
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 사용자의 Device Provisioning Service를 선택합니다. **모든 리소스** 블레이드 위쪽에서 **삭제**를 클릭합니다.  
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. **모든 리소스** 블레이드 위쪽에서 **삭제**를 클릭합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 시뮬레이션된 X.509 디바이스를 Windows 머신에 만들고, 포털에서 Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 이 디바이스를 프로비전했습니다. 프로그래밍 방식으로 X.509 장치를 등록하는 방법을 알아보려면 프로그래밍 방식으로 X.509 장치를 등록하는 빠른 시작으로 계속 진행하세요. 
+이 빠른 시작에서는 시뮬레이션된 X.509 디바이스를 Windows 머신에 만들고, 포털에서 Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 이 디바이스를 프로비전했습니다. 프로그래밍 방식으로 X.509 디바이스를 등록하는 방법을 알아보려면 프로그래밍 방식으로 X.509 디바이스를 등록하는 빠른 시작으로 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
 > [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 X.509 장치 등록](quick-enroll-device-x509-csharp.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure 장치 쌍을 사용하여 MXChip IoT DevKit 사용자 LED 제어 | Microsoft Docs
-description: 이 자습서에서는 Azure IoT Hub 장치 쌍으로 DevKit 상태를 모니터링하고 사용자 LED를 제어하는 방법을 설명합니다.
+title: Azure 디바이스 쌍을 사용하여 MXChip IoT DevKit 사용자 LED 제어 | Microsoft Docs
+description: 이 자습서에서는 Azure IoT Hub 디바이스 쌍으로 DevKit 상태를 모니터링하고 사용자 LED를 제어하는 방법을 설명합니다.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -18,13 +18,13 @@ ms.locfileid: "39343154"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
-이 예제를 사용하여 MXChip IoT DevKit WiFi 정보 및 센서 상태를 모니터링하고 Azure IoT Hub 장치 쌍을 사용하여 사용자 LED의 색상을 제어할 수 있습니다.
+이 예제를 사용하여 MXChip IoT DevKit WiFi 정보 및 센서 상태를 모니터링하고 Azure IoT Hub 디바이스 쌍을 사용하여 사용자 LED의 색상을 제어할 수 있습니다.
 
 ## <a name="what-you-learn"></a>학습 내용
 
 - MXChip IoT DevKit 센서 상태를 모니터링하는 방법
 
-- Azure 장치 쌍을 사용하여 DevKit의 RGB LED 색을 제어하는 방법
+- Azure 디바이스 쌍을 사용하여 DevKit의 RGB LED 색을 제어하는 방법
 
 ## <a name="what-you-need"></a>필요한 항목
 
@@ -63,7 +63,7 @@ ms.locfileid: "39343154"
 
 2. 함수 앱 코드 업로드 프로세스를 마칠 때까지 기다립니다. *function app deploys: Done*(함수 앱 배포: 완료) 메시지가 표시됩니다.
 
-## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>DevKit에서 IoT Hub 장치 연결 문자열 구성
+## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>DevKit에서 IoT Hub 디바이스 연결 문자열 구성
 
 1. MXChip IoT DevKit를 컴퓨터에 연결합니다.
 
@@ -111,8 +111,8 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 ## <a name="next-steps"></a>다음 단계
 
 다음 방법에 대해 알아보았습니다.
-- MXChip IoT DevKit 장치를 Azure IoT 원격 모니터링 솔루션 가속기에 연결합니다.
-- Azure IoT 장치 쌍 함수를 사용하여 DevKit의 RGB LED 색상을 감지하고 제어합니다.
+- MXChip IoT DevKit 디바이스를 Azure IoT 원격 모니터링 솔루션 가속기에 연결합니다.
+- Azure IoT 디바이스 쌍 함수를 사용하여 DevKit의 RGB LED 색상을 감지하고 제어합니다.
 
 권장되는 단계는 다음과 같습니다.
 

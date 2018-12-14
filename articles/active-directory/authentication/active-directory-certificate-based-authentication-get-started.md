@@ -19,7 +19,7 @@ ms.locfileid: "50242418"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
 
-인증서 기반 인증을 사용하면 Exchange Online 계정을 다음에 연결할 때 Windows, Android 또는 iOS 장치의 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증을 받을 수 있습니다.
+인증서 기반 인증을 사용하면 Exchange Online 계정을 다음에 연결할 때 Windows, Android 또는 iOS 디바이스의 클라이언트 인증서를 사용하여 Azure Active Directory에서 인증을 받을 수 있습니다.
 
 - Microsoft Outlook 및 Microsoft Word와 같은 Microsoft 모바일 응용 프로그램
 - EAS(Exchange ActiveSync) 클라이언트
@@ -176,7 +176,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 **모바일 Office 응용 프로그램에서 인증서 인증을 테스트하려면**
 
-1. 테스트 장치에서 Office 모바일 응용 프로그램(예: OneDrive)을 설치합니다.
+1. 테스트 디바이스에서 Office 모바일 응용 프로그램(예: OneDrive)을 설치합니다.
 3. 응용 프로그램을 시작합니다.
 4. 사용자 이름을 입력하고 사용하려는 사용자 인증서를 선택합니다.
 

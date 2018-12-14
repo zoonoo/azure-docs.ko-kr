@@ -1,5 +1,5 @@
 ---
-title: C#을 사용하여 Azure Device Provisioning Service에 TPM 장치 등록 | Microsoft Docs
+title: C#을 사용하여 Azure Device Provisioning Service에 TPM 디바이스 등록 | Microsoft Docs
 description: Azure 빠른 시작 - C# 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 TPM 디바이스 등록. 이 빠른 시작에서는 개별 등록을 사용합니다.
 author: wesmc7777
 ms.author: wesmc
@@ -60,7 +60,7 @@ ms.locfileid: "50155037"
     
 5. **Program** 클래스에 다음 필드를 추가합니다.  
    - **ProvisioningConnectionString** 자리 표시자 값을 등록을 만들려는 프로비전 서비스의 연결 문자열로 바꿉니다.
-   - 필요에 따라 등록 ID, 인증 키, 장치 ID 및 프로비전 상태를 변경할 수 있습니다. 
+   - 필요에 따라 등록 ID, 인증 키, 디바이스 ID 및 프로비전 상태를 변경할 수 있습니다. 
    - 시뮬레이션된 디바이스를 프로비전하기 위해 [C# 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스 만들기 및 프로비전](quick-create-simulated-device-tpm-csharp.md)에서 이 빠른 시작을 사용하는 경우 빠른 시작 인증 키 및 등록 ID를 해당 빠른 시작에서 다운로드한 값으로 바꿉니다. 디바이스 ID를 해당 빠른 시작에서 제안한 값으로 바꾸거나, 고유한 값을 사용하거나, 이 샘플의 기본값을 사용할 수 있습니다.
         
    ```csharp
@@ -144,8 +144,8 @@ C# 서비스 샘플을 탐색하려면 이 빠른 시작에서 만든 리소스�
 2. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 클릭한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID*를 선택하고, 블레이드 위쪽의 **삭제** 단추를 클릭합니다. 
 3. [C# 장치 SDK를 사용하여 시뮬레이션된 TPM 장치 만들기 및 프로비전](quick-create-simulated-device-tpm-csharp.md) 빠른 시작의 단계를 수행하여 시뮬레이션된 TPM 장치를 만든 경우 다음을 수행합니다. 
 
-    1. TPM 시뮬레이터 창 및 시뮬레이션된 장치에 대한 샘플 출력 창을 닫습니다.
-    2. Azure Portal에서 장치가 프로비전된 IoT Hub로 이동합니다. **탐색기**의 왼쪽 메뉴에서 **IoT 장치**를 클릭하고, 장치 옆의 확인란을 선택하고, 창의 위쪽에서 **삭제**를 클릭합니다.
+    1. TPM 시뮬레이터 창 및 시뮬레이션된 디바이스에 대한 샘플 출력 창을 닫습니다.
+    2. Azure Portal에서 디바이스가 프로비전된 IoT Hub로 이동합니다. **탐색기**의 왼쪽 메뉴에서 **IoT 장치**를 클릭하고, 장치 옆의 확인란을 선택하고, 창의 위쪽에서 **삭제**를 클릭합니다.
  
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 TPM 디바이스에 대한 개별 등록 항목을 프로그래밍 방식으로 만들고, 필요에 따라 머신에 시뮬레이션된 TPM 디바이스를 만들고, Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 이 디바이스를 프로비전했습니다. 디바이스 프로비저닝에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 

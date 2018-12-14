@@ -20,15 +20,15 @@ ms.locfileid: "50416888"
 
 [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 사용하면 원격 분석 데이터를 IoT 장치에서 기본 제공된 Event Hub 호환 엔드포인트 또는 Blob Storage, Service Bus 큐, Service Bus 토픽 및 Event Hubs와 같은 사용자 지정 엔드포인트에 전송할 수 있습니다. 사용자는 메시지 라우팅을 구성하는 동안 특정 조건에 일치하는 경로를 사용자 지정할 수 있도록 [라우팅 쿼리](iot-hub-devguide-routing-query-syntax.md)를 만들 수 있습니다. 한 번 설정하면 들어오는 데이터가 자동으로 IoT Hub에 의해 엔드포인트로 라우팅됩니다. 
 
-이 자습서에서는 IoT Hub로 라우팅 쿼리를 설정하고 사용하는 방법에 대해 알아봅니다. IoT 장치에서 Blob 저장소 및 Service Bus 큐를 포함한 여러 서비스 중 하나로 메시지를 라우팅합니다. Service Bus 큐로 보내는 메시지는 Logic App에 의해 선택되며 이메일을 통해 전송됩니다. 특별히 설정된 라우팅이 없는 메시지는 기본 엔드포인트에 전송되고 Power BI 시각화에 표시됩니다.
+이 자습서에서는 IoT Hub로 라우팅 쿼리를 설정하고 사용하는 방법에 대해 알아봅니다. IoT 디바이스에서 Blob 저장소 및 Service Bus 큐를 포함한 여러 서비스 중 하나로 메시지를 라우팅합니다. Service Bus 큐로 보내는 메시지는 Logic App에 의해 선택되며 이메일을 통해 전송됩니다. 특별히 설정된 라우팅이 없는 메시지는 기본 엔드포인트에 전송되고 Power BI 시각화에 표시됩니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
-> * Azure CLI 또는 PowerShell을 사용하여 IoT Hub, 저장소 계정, Service Bus 큐 및 시뮬레이션된 장치와 같은 기본 리소스를 설정합니다.
+> * Azure CLI 또는 PowerShell을 사용하여 IoT Hub, 저장소 계정, Service Bus 큐 및 시뮬레이션된 디바이스와 같은 기본 리소스를 설정합니다.
 > * 저장소 계정 및 Service Bus 큐에 대한 IoT Hub에서 엔드포인트 및 경로를 구성합니다.
 > * 메시지가 Service Bus 큐에 추가될 때 트리거되어 이메일을 전송하는 Logic App을 만듭니다.
-> * 다양한 라우팅 옵션에 대한 허브로 메시지를 전송하는 IoT 장치를 시뮬레이션하는 앱을 다운로드하여 실행합니다.
+> * 다양한 라우팅 옵션에 대한 허브로 메시지를 전송하는 IoT 디바이스를 시뮬레이션하는 앱을 다운로드하여 실행합니다.
 > * 기본 엔드포인트에 전송된 데이터에 대한 Power BI 시각화를 만듭니다.
 > * 다음에서 결과를 확인합니다.
 > * ...Service Bus 큐 및 이메일에서
@@ -61,7 +61,7 @@ ms.locfileid: "50416888"
 
 4. Service Bus 네임스페이스 및 큐를 만듭니다. 
 
-5. 허브에 메시지를 보내는 시뮬레이션된 장치에 사용할 장치 ID를 만듭니다. 테스트 단계에 대한 키를 저장합니다.
+5. 허브에 메시지를 보내는 시뮬레이션된 디바이스에 사용할 디바이스 ID를 만듭니다. 테스트 단계에 대한 키를 저장합니다.
 
 ### <a name="set-up-your-resources-using-azure-cli"></a>Azure CLI를 사용하여 리소스 설정
 
@@ -240,25 +240,25 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 ```
 
-다음으로 장치 ID를 만들고 나중에 사용할 키를 저장합니다. 이 장치 ID는 IoT Hub에 메시지를 보내는 시뮬레이션 응용 프로그램에서 사용됩니다. 이 기능은 PowerShell에서는 사용할 수 없지만, [Azure Portal](https://portal.azure.com)에서 장치를 만들 수는 있습니다.
+다음으로 디바이스 ID를 만들고 나중에 사용할 키를 저장합니다. 이 디바이스 ID는 IoT Hub에 메시지를 보내는 시뮬레이션 응용 프로그램에서 사용됩니다. 이 기능은 PowerShell에서는 사용할 수 없지만, [Azure Portal](https://portal.azure.com)에서 디바이스를 만들 수는 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)을 열고 사용자의 Azure 계정에 로그인합니다.
 
 2. **리소스 그룹**을 클릭하고 사용자의 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다.
 
-3. 리소스 목록에서 사용자의 IoT Hub를 클릭합니다. 이 자습서에서는 **ContosoTestHub**를 사용합니다. 허브 창에서 **IoT 장치**를 선택합니다.
+3. 리소스 목록에서 사용자의 IoT Hub를 클릭합니다. 이 자습서에서는 **ContosoTestHub**를 사용합니다. 허브 창에서 **IoT 디바이스**를 선택합니다.
 
-4. **+ 추가**를 클릭합니다. 추가 장치 창에서 장치 ID를 입력합니다. 이 자습서에서는 **Contoso-Test-Device**를 사용합니다. 키를 비워 두고 **키 자동 생성**을 선택합니다. **IoT Hub에 장치 연결**이 사용하도록 설정되어 있는지 확인합니다. **저장**을 클릭합니다.
+4. **+ 추가**를 클릭합니다. 추가 디바이스 창에서 디바이스 ID를 입력합니다. 이 자습서에서는 **Contoso-Test-Device**를 사용합니다. 키를 비워 두고 **키 자동 생성**을 선택합니다. **IoT Hub에 장치 연결**이 사용하도록 설정되어 있는지 확인합니다. **저장**을 클릭합니다.
 
    ![장치 추가 화면을 보여주는 스크린샷.](./media/tutorial-routing/add-device.png)
 
-5. 만든 후 장치를 클릭하여 생성된 키를 확인합니다. 기본 키에서 복사 아이콘을 클릭하고 이 자습서의 테스트 단계를 위해 메모장 등에 저장합니다.
+5. 만든 후 디바이스를 클릭하여 생성된 키를 확인합니다. 기본 키에서 복사 아이콘을 클릭하고 이 자습서의 테스트 단계를 위해 메모장 등에 저장합니다.
 
-   ![키를 포함한 장치 세부 정보를 보여주는 스크린샷.](./media/tutorial-routing/device-details.png)
+   ![키를 포함한 디바이스 세부 정보를 보여주는 스크린샷.](./media/tutorial-routing/device-details.png)
 
 ## <a name="set-up-message-routing"></a>메시지 라우팅 설정
 
-시뮬레이션된 장치에 의해 메시지에 연결된 속성에 따라 다양한 리소스에 메시지를 라우팅합니다. 사용자 지정 라우팅되지 않은 메시지는 기본 엔드포인트로 전송됩니다(메시지/이벤트). 
+시뮬레이션된 디바이스에 의해 메시지에 연결된 속성에 따라 다양한 리소스에 메시지를 라우팅합니다. 사용자 지정 라우팅되지 않은 메시지는 기본 엔드포인트로 전송됩니다(메시지/이벤트). 
 
 |값 |결과|
 |------|------|
@@ -498,13 +498,13 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 
 Power BI 보고서를 설정하려면 디바이스를 만들고 디바이스 시뮬레이션 응용 프로그램을 실행한 후 Power BI를 설정하기 위한 데이터가 필요합니다.
 
-## <a name="run-simulated-device-app"></a>시뮬레이션된 장치 앱 실행
+## <a name="run-simulated-device-app"></a>시뮬레이션된 디바이스 앱 실행
 
-앞서 스크립트 설정 섹션에서 IoT 장치를 사용하여 시뮬레이션하도록 장치를 설정했습니다. 이 섹션에서는 IoT Hub로 장치-클라우드 메시지를 전송하는 장치를 시뮬레이션하는 .NET 콘솔 앱을 다운로드합니다. 이 응용 프로그램은 다양한 라우팅 메서드에 대해 메시지를 보냅니다. 
+앞서 스크립트 설정 섹션에서 IoT 디바이스를 사용하여 시뮬레이션하도록 디바이스를 설정했습니다. 이 섹션에서는 IoT Hub로 디바이스-클라우드 메시지를 전송하는 디바이스를 시뮬레이션하는 .NET 콘솔 앱을 다운로드합니다. 이 응용 프로그램은 다양한 라우팅 메서드에 대해 메시지를 보냅니다. 
 
 [IoT 장치 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에 대한 솔루션을 다운로드합니다. 그러면 여러 응용 프로그램을 사용한 리포지토리가 다운로드됩니다. 원하는 솔루션은 iot-hub/Tutorials/Routing/SimulatedDevice/에 있습니다.
 
-솔루션 파일(SimulatedDevice.sln)을 두 번 클릭하여 Visual Studio에서 코드를 연 다음, Program.cs를 엽니다. `{iot hub hostname}`을 IoT Hub 호스트 이름으로 대체합니다. IoT Hub 호스트 이름의 형식은 **{iot-hub-name}.azure-devices.net**입니다. 이 자습서의 경우 허브 호스트 이름은 **ContosoTestHub.azure-devices.net**입니다. 다음으로, `{device key}`를 이전에 시뮬레이션된 장치를 설정할 때 저장했던 장치 키로 대체합니다. 
+솔루션 파일(SimulatedDevice.sln)을 두 번 클릭하여 Visual Studio에서 코드를 연 다음, Program.cs를 엽니다. `{iot hub hostname}`을 IoT Hub 호스트 이름으로 대체합니다. IoT Hub 호스트 이름의 형식은 **{iot-hub-name}.azure-devices.net**입니다. 이 자습서의 경우 허브 호스트 이름은 **ContosoTestHub.azure-devices.net**입니다. 다음으로, `{device key}`를 이전에 시뮬레이션된 디바이스를 설정할 때 저장했던 디바이스 키로 대체합니다. 
 
    ```csharp
         static string myDeviceId = "contoso-test-device";
@@ -518,7 +518,7 @@ Power BI 보고서를 설정하려면 디바이스를 만들고 디바이스 시
 
 콘솔 응용 프로그램을 실행합니다. 잠시 기다립니다. 응용 프로그램의 콘솔 화면에서 전송되는 메시지를 볼 수 있습니다.
 
-앱은 1초마다 새로운 장치-클라우드 메시지를 IoT Hub에 보냅니다. 메시지에는 장치 ID, 온도, 습도 및 메시지 수준(기본값이 `normal`)과 함께 JSON 직렬화된 개체가 포함됩니다. `critical` 또는 `storage` 수준을 임의로 할당하므로 메시지는 저장소 계정 또는 Service Bus 큐로 라우팅됩니다(이메일을 보내도록 Logic App을 트리거). 기본값(`normal`) 판독값이 다음에 설정하는 BI 보고서에 표시됩니다.
+앱은 1초마다 새로운 디바이스-클라우드 메시지를 IoT Hub에 보냅니다. 메시지에는 디바이스 ID, 온도, 습도 및 메시지 수준(기본값이 `normal`)과 함께 JSON 직렬화된 개체가 포함됩니다. `critical` 또는 `storage` 수준을 임의로 할당하므로 메시지는 저장소 계정 또는 Service Bus 큐로 라우팅됩니다(이메일을 보내도록 Logic App을 트리거). 기본값(`normal`) 판독값이 다음에 설정하는 BI 보고서에 표시됩니다.
 
 모든 설정이 올바르면 다음과 같은 결과가 표시됩니다.
 
@@ -612,17 +612,17 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 이 자습서에서는 다음 작업을 수행하여 여러 대상에 IoT Hub 메시지를 라우팅하는 메시지 라우팅을 사용하는 방법을 배웠습니다.  
 
 > [!div class="checklist"]
-> * Azure CLI 또는 PowerShell을 사용하여 IoT Hub, 저장소 계정, Service Bus 큐 및 시뮬레이션된 장치와 같은 기본 리소스를 설정합니다.
+> * Azure CLI 또는 PowerShell을 사용하여 IoT Hub, 저장소 계정, Service Bus 큐 및 시뮬레이션된 디바이스와 같은 기본 리소스를 설정합니다.
 > * 저장소 계정 및 Service Bus 큐에 대한 IoT Hub에서 엔드포인트 및 경로를 구성합니다.
 > * 메시지가 Service Bus 큐에 추가될 때 트리거되어 이메일을 전송하는 Logic App을 만듭니다.
-> * 다양한 라우팅 옵션에 대한 허브로 메시지를 전송하는 IoT 장치를 시뮬레이션하는 앱을 다운로드하여 실행합니다.
+> * 다양한 라우팅 옵션에 대한 허브로 메시지를 전송하는 IoT 디바이스를 시뮬레이션하는 앱을 다운로드하여 실행합니다.
 > * 기본 엔드포인트에 전송된 데이터에 대한 Power BI 시각화를 만듭니다.
 > * 다음에서 결과를 확인합니다.
 > * ...Service Bus 큐 및 이메일에서
 > * ...저장소 계정에서
 > * ...Power BI 시각화에서
 
-IoT 장치의 상태를 관리하는 방법에 대해 알아보려면 다음 자습서로 이동합니다. 
+IoT 디바이스의 상태를 관리하는 방법에 대해 알아보려면 다음 자습서로 이동합니다. 
 
 > [!div class="nextstepaction"]
 [백 엔드 서비스에서 장치 구성](tutorial-device-twins.md)

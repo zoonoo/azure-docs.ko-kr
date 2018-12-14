@@ -77,13 +77,13 @@ ms.locfileid: "50092307"
 
 ### <a name="compliant-device"></a>규정 준수 디바이스
 
-디바이스 기반인 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목적은 [관리 장치](require-managed-devices.md)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 장치를 정의해야 하는 한 가지 옵션은 준수 장치가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](../devices/overview.md)되어 있고 Intune(모든 디바이스 OS) 또는 Windows 10 디바이스에 대한 타사 MDM 시스템 규격으로 표시되는 디바이스의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 디바이스 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다.
+디바이스 기반인 조건부 액세스 정책을 구성할 수 있습니다. 디바이스 기반 조건부 액세스 정책의 목적은 [관리 디바이스](require-managed-devices.md)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 디바이스를 정의해야 하는 한 가지 옵션은 준수 디바이스가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](../devices/overview.md)되어 있고 Intune(모든 디바이스 OS) 또는 Windows 10 디바이스에 대한 타사 MDM 시스템 규격으로 표시되는 디바이스의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 디바이스 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다.
 
 자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조하세요.
 
-### <a name="hybrid-azure-ad-joined-device"></a>하이브리드 Azure AD 조인 장치
+### <a name="hybrid-azure-ad-joined-device"></a>하이브리드 Azure AD 조인 디바이스
 
-장치 기반 조건부 액세스 정책을 구성할 때 또 다른 옵션은 하이브리드 Azure AD 조인 장치를 요구하는 것입니다. 즉, Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿을 온-프레미스 Active Directory에 조인해야 합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 온-프레미스 Active Directory 및 Azure Active Directory에 조인되어 있는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다.  
+디바이스 기반 조건부 액세스 정책을 구성할 때 또 다른 옵션은 하이브리드 Azure AD 조인 디바이스를 요구하는 것입니다. 즉, Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿을 온-프레미스 Active Directory에 조인해야 합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 온-프레미스 Active Directory 및 Azure Active Directory에 조인되어 있는 디바이스의 액세스 시도에 액세스할 수 있는 권한을 부여합니다.  
 
 자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조하세요.
 

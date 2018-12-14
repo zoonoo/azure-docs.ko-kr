@@ -15,7 +15,7 @@ ms.locfileid: "50165392"
 
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Azure 포털에서 업데이트를 설치하려면
 
-1. StorSimple 서비스 페이지에서 장치를 선택합니다.
+1. StorSimple 서비스 페이지에서 디바이스를 선택합니다.
 
     ![디바이스 선택](./media/storsimple-8000-install-update5-via-portal/update1.png)
 

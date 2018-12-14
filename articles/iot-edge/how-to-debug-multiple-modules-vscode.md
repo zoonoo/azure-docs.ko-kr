@@ -30,7 +30,7 @@ VS Code 및 Azure IoT Edge 확장을 사용하는 경우, 컨테이너가 개발
 ### <a name="build-your-iot-edge-modules-for-debugging-purpose"></a>디버깅을 위한 IoT Edge 모듈 빌드
 1. 여러 모듈 디버깅을 시작하려면 **Dockerfile.amd64.debug**를 사용하여 Docker 이미지를 다시 빌드하고 Edge 솔루션을 다시 배포해야 합니다. VS Code 탐색기에서 `deployment.template.json` 파일로 이동합니다. 끝에 `.debug`를 추가하여 이미지 URL을 업데이트합니다. `.debug`가 있는 모듈 이미지가 두 개 이상 필요합니다. 이전 자습서의 솔루션에서 작업 중인 경우, C# 함수 모듈과 C# 모듈이 있어야 합니다. 끝에 `.debug`를 추가하여 이러한 두 이미지 URL을 업데이트하고 이 파일을 저장합니다. 
 2. 솔루션을 다시 빌드합니다. VS Code 명령 팔레트에서 **Azure IoT Edge: Build IoT Edge solution** 명령을 입력하고 실행합니다.
-3. Azure IoT Hub 장치 탐색기에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭한 다음, **Edge 장치에 대한 배포 만들기**를 선택합니다. `config` 폴더 아래에서 `deployment.json` 파일을 선택합니다. 그런 다음, VS Code 통합 터미널에서 배포 ID로 배포가 생성되었는지 확인할 수 있습니다.
+3. Azure IoT Hub 디바이스 탐색기에서 IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭한 다음, **Edge 디바이스에 대한 배포 만들기**를 선택합니다. `config` 폴더 아래에서 `deployment.json` 파일을 선택합니다. 그런 다음, VS Code 통합 터미널에서 배포 ID로 배포가 생성되었는지 확인할 수 있습니다.
 
 VS Code Docker 탐색기를 사용하거나 터미널에서 `docker ps` 명령을 실행하여 컨테이너 상태를 확인할 수 있습니다.
 

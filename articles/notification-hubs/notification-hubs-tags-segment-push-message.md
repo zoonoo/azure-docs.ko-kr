@@ -74,7 +74,7 @@ ms.locfileid: "33776168"
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 
-이 그림에서 uid:Alice 태그가 적용된 메시지는 uid:Alice 태그가 적용된 모든 등록에 전송되므로 Alice의 모든 장치에도 전송됩니다.
+이 그림에서 uid:Alice 태그가 적용된 메시지는 uid:Alice 태그가 적용된 모든 등록에 전송되므로 Alice의 모든 디바이스에도 전송됩니다.
 
 ## <a name="tag-expressions"></a>태그 식
 알림이 단일 태그가 아니라 태그에 대한 부울 식으로 식별되는 등록 집합을 대상으로 지정해야 하는 경우가 있습니다.

@@ -30,7 +30,7 @@ StorSimple Device Manager 서비스는 Microsoft Azure에서 실행되며 여러
 이 자습서에서는 서비스 만들기, 삭제, 마이그레이션 및 서비스 등록 키 관리에 필요한 단계를 설명합니다. 이 문서에 포함된 정보는 StorSimple 8000 시리즈 디바이스에만 적용됩니다. StorSimple 가상 배열에 대한 자세한 내용은 [StorSimple 가상 배열에 StorSimple 디바이스 관리자 서비스 배포](storsimple-virtual-array-manage-service.md)로 이동합니다.
 
 > [!NOTE]
-> -  Azure Portal은 업데이트 5.0 이상을 실행하는 장치를 지원합니다. 디바이스가 최신 상태가 아니면 즉시 업데이트 5를 설치합니다. 자세한 내용은 [업데이트 5 설치](storsimple-8000-install-update-5.md)를 참조하세요. 
+> -  Azure Portal은 업데이트 5.0 이상을 실행하는 디바이스를 지원합니다. 디바이스가 최신 상태가 아니면 즉시 업데이트 5를 설치합니다. 자세한 내용은 [업데이트 5 설치](storsimple-8000-install-update-5.md)를 참조하세요. 
 > - StorSimple Cloud Appliance(8010/8020)를 사용하는 경우 클라우드 어플라이언스를 업데이트할 수 없습니다. 최신 버전의 소프트웨어를 사용하여 업데이트 5.0으로 새 클라우드 어플라이언스를 만든 다음 만들어진 새 클라우드 어플라이언스로 장애 조치(failover)합니다. 
 > - 업데이트 4.0 이하를 실행하는 디바이스는 [관리 기능이 축소됩니다](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
@@ -119,13 +119,13 @@ StorSimple 디바이스 관리자 서비스를 만들려면 다음 항목이 필
 
 
 ## <a name="change-the-service-data-encryption-key"></a>서비스 데이터 암호화 키 변경
-서비스 데이터 암호화 키는 StorSimple 관리자 서비스에서 StorSimple 디바이스로 전송된 저장소 계정 자격 증명 등의 기밀 고객 데이터를 암호화하는 데 사용됩니다. IT 조직에 저장 디바이스에 대한 키 회전 정책이 있는 경우 이러한 키를 주기적으로 변경해야 합니다. 키 변경 프로세스는 StorSimple 관리자 서비스에서 관리하는 장치가 단일 장치인지, 여러 장치인지에 따라 약간 달라질 수 있습니다. 자세한 내용은 [StorSimple 보안 및 데이터 보호](storsimple-8000-security.md)로 이동합니다.
+서비스 데이터 암호화 키는 StorSimple 관리자 서비스에서 StorSimple 디바이스로 전송된 저장소 계정 자격 증명 등의 기밀 고객 데이터를 암호화하는 데 사용됩니다. IT 조직에 저장 디바이스에 대한 키 회전 정책이 있는 경우 이러한 키를 주기적으로 변경해야 합니다. 키 변경 프로세스는 StorSimple Manager 서비스에서 관리하는 디바이스가 단일 디바이스인지, 여러 디바이스인지에 따라 약간 달라질 수 있습니다. 자세한 내용은 [StorSimple 보안 및 데이터 보호](storsimple-8000-security.md)로 이동합니다.
 
 서비스 데이터 암호화 키는 3단계 프로세스에 따라 변경됩니다.
 
 1. Azure Resource Manager에 Windows PowerShell 스크립트를 사용하여 서비스 데이터 암호화 키를 변경하도록 디바이스에 권한을 부여합니다.
 2. StorSimple용 Windows PowerShell을 사용하여 서비스 데이터 암호화 키 변경을 시작합니다.
-3. 둘 이상의 StorSimple 장치를 사용하는 경우에는 다른 장치에서 서비스 데이터 암호화 키를 업데이트합니다.
+3. 둘 이상의 StorSimple 디바이스를 사용하는 경우에는 다른 디바이스에서 서비스 데이터 암호화 키를 업데이트합니다.
 
 ### <a name="step-1-use-windows-powershell-script-to-authorize-a-device-to-change-the-service-data-encryption-key"></a>1단계: Windows PowerShell 스크립트를 사용하여 디바이스에 서비스 데이터 암호화 키를 변경할 권한을 부여합니다.
 일반적으로 디바이스 관리자는 서비스 관리자가 디바이스에 서비스 데이터 암호화 키를 변경할 수 있는 권한을 부여하도록 요청합니다. 그러면 서비스 관리자는 디바이스에 키를 변경할 수 있는 권한을 부여합니다.

@@ -92,7 +92,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 Log Analytics �
 
 | 필드 이름 | 설명 |
 | --- | --- |
-| Device_s |VMware 저장소 장치 |
+| Device_s |VMware 저장 디바이스 |
 | ESXIFailure_s |오류 유형 |
 | EventTime_t |이벤트가 발생한 시간 |
 | HostName_s |ESXi 호스트 이름 |

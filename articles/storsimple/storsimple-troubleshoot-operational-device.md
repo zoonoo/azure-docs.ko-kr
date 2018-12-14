@@ -23,10 +23,10 @@ ms.locfileid: "32187337"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>작동 StorSimple 디바이스 문제 해결
 > [!NOTE]
-> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 장치 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
+> StorSimple의 클래식 포털은 사용되지 않습니다. StorSimple 디바이스 관리자는 사용 중단 일정에 따라 자동으로 새 Azure Portal로 이동합니다. 이 이동에 대한 메일 및 포털 알림을 받게 됩니다. 이 문서도 곧 사용 중지됩니다. 이동과 관련된 자세한 내용은 [FAQ: Azure Portal로 이동](storsimple-8000-move-azure-portal-faq.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
-이 문서에서는 StorSimple 디바이스가 배포되고 작동된 후 발생할 수 있는 구성 문제를 해결하기 위한 유용한 문제 해결 지침을 제공합니다. 일반 문제, 가능한 원인 및 Microsoft Azure StorSimple을 실행할 때 발생할 수 있는 문제를 해결할 수 있는 권장 단계를 설명합니다. 이 정보는 StorSimple 온-프레미스 물리적 장치 및 StorSimple 가상 장치 모두에 적용됩니다.
+이 문서에서는 StorSimple 디바이스가 배포되고 작동된 후 발생할 수 있는 구성 문제를 해결하기 위한 유용한 문제 해결 지침을 제공합니다. 일반 문제, 가능한 원인 및 Microsoft Azure StorSimple을 실행할 때 발생할 수 있는 문제를 해결할 수 있는 권장 단계를 설명합니다. 이 정보는 StorSimple 온-프레미스 물리적 디바이스 및 StorSimple 가상 디바이스 모두에 적용됩니다.
 
 이 문서의 끝에서 Microsoft Azure StorSimple 작업 중 발생할 수 있는 오류 코드 목록 및 오류를 해결하기 위해 취할 수 있는 단계를 찾을 수 있습니다. 
 

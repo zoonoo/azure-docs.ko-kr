@@ -32,7 +32,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 **장치 시뮬레이션** 타일을 클릭합니다.
 
-![장치 시뮬레이션 선택](./media/quickstart-device-simulation-deploy/devicesimulation.png)
+![디바이스 시뮬레이션 선택](./media/quickstart-device-simulation-deploy/devicesimulation.png)
 
 디바이스 시뮬레이션 설명 페이지에서 **지금 사용해보기**를 클릭합니다.
 

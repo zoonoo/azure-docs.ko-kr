@@ -23,7 +23,7 @@ ms.locfileid: "51514285"
 
 * Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 디바이스 ID를 만듭니다.
 * 디바이스를 다시 시작하는 직접 메서드가 포함된 시뮬레이트된 디바이스 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
-* IoT Hub를 통해 시뮬레이션된 장치 앱에서 재부팅 직접 메서드를 호출하는 Node.js 콘솔 앱을 만듭니다.
+* IoT 허브를 통해 시뮬레이션된 디바이스 앱에서 재부팅 직접 메서드를 호출하는 Node.js 콘솔 앱을 만듭니다.
 
 이 자습서를 마치면 두 가지 Node.js 콘솔 앱이 만들어집니다.
 
@@ -229,7 +229,7 @@ ms.locfileid: "51514285"
     ```
     node dmpatterns_getstarted_service.js
     ```
-3. 콘솔에서 직접 메서드에 대한 장치 응답을 확인합니다.
+3. 콘솔에서 직접 메서드에 대한 디바이스 응답을 확인합니다.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 

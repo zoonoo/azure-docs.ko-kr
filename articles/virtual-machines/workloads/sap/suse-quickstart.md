@@ -80,7 +80,7 @@ SAP "향상된 모니터링"은 Azure에서 SAP를 실행하기 위한 필수 �
 ## <a name="attaching-azure-data-disks-to-an-azure-linux-vm"></a>Azure Linux VM에 Azure 데이터 디스크 연결
 디바이스 ID를 사용하여 Azure 데이터 디스크를 Azure Linux VM에 탑재해서는 안됩니다. 대신 UUID(Universally Unique Identifier)를 사용합니다. 예를 들어 Azure 데이터 디스크를 탑재하기 위해 그래픽 도구를 사용하는 경우 주의해야 합니다. /etc/fstab의 항목을 재차 확인하세요.
 
-장치 ID의 문제점은 변경될 가능성이 있고 그렇게 되면 Azure VM이 부팅 프로세스에 머무를 수 있다는 점입니다. 문제를 완화시키려면 /etc/fstab에 nofail 매개 변수를 추가할 수 있습니다. 하지만 응용 프로그램이 전과 같이 탑재 지점을 사용할 수 있고, 외부 Azure 데이터 디스크가 부팅 중에 탑재되지 않은 경우에 루트 파일 시스템에 작성할 수 있기 때문에 nofail에 유의합니다.
+디바이스 ID의 문제점은 변경될 가능성이 있고 그렇게 되면 Azure VM이 부팅 프로세스에 머무를 수 있다는 점입니다. 문제를 완화시키려면 /etc/fstab에 nofail 매개 변수를 추가할 수 있습니다. 하지만 응용 프로그램이 전과 같이 탑재 지점을 사용할 수 있고, 외부 Azure 데이터 디스크가 부팅 중에 탑재되지 않은 경우에 루트 파일 시스템에 작성할 수 있기 때문에 nofail에 유의합니다.
 
 UUID를 통한 탑재에서 유일한 예외는 다음 섹션에 설명된 대로 문제 해결을 위해 OS 디스크를 연결하는 것입니다.
 
@@ -101,7 +101,7 @@ Azure에서 SUSE VM 부팅 프로세스가 중지되는 상황이 발생할 수 
 
 예를 들면, 기존 SAP 설치는 물론 호스트 이름을 유지하기 위해서 마지막에 프로비전 해제 단계 없이 VM을 업로드하려면 다음 항목을 확인합니다.
 
-* 장치 ID가 아닌 UUID를 사용하여 OS 디스크가 탑재되어야 합니다. /etc/fstab에서만 UUID로 변경하는 것은 OS 디스크에 충분하지 않습니다. 또한, YaST를 통해 또는 /boot/grub/menu.lst를 편집하여 부팅 로더를 적용하는 것도 잊지 말아야 합니다.
+* 디바이스 ID가 아닌 UUID를 사용하여 OS 디스크가 탑재되어야 합니다. /etc/fstab에서만 UUID로 변경하는 것은 OS 디스크에 충분하지 않습니다. 또한, YaST를 통해 또는 /boot/grub/menu.lst를 편집하여 부팅 로더를 적용하는 것도 잊지 말아야 합니다.
 * SUSE OS 디스크에 VHDX 형식을 사용하고 Azure에 업로드하기 위해서 이를 VHD로 변환하면 네트워크 디바이스가 eth0에서 eth1로 변경될 가능성이 높습니다. 나중에 Azure에서 부팅할 때 문제를 방지하려면 [복제된 SLES 11 VMware에서 eth0 수정](https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/)에 설명된 것처럼 eth0으로 다시 변경해야 합니다.
 
 문서에 설명된 내용 외에 다음 파일을 삭제하는 것이 좋습니다.

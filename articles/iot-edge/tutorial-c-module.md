@@ -23,7 +23,7 @@ ms.locfileid: "52317707"
 > [!div class="checklist"]
 > * Visual Studio Code를 사용하여 C로 IoT Edge 모듈 만들기
 > * Visual Studio Code 및 Docker를 사용하여 Docker 이미지를 만들고 컨테이너 레지스트리 게시 
-> * 모듈을 IoT Edge 장치에 배포합니다.
+> * 모듈을 IoT Edge 디바이스에 배포합니다.
 > * 생성된 데이터 보기
 
 

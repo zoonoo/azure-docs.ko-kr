@@ -168,7 +168,7 @@ ms.locfileid: "51251562"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Event Hubs 인증 및 보안 모델 개요](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **단계** | <p>Event Hubs 보안 모델은 공유 액세스 서명(SAS) 토큰 및 이벤트 게시자의 조합을 기반으로 합니다. 게시자 이름은 토큰을 받는 장치의 ID를 나타냅니다. 해당 장치를 사용하여 생성된 토큰을 연결하는 데 도움이 됩니다.</p><p>모든 메시지에는 서비스 쪽 송신자로 태그가 지정되어 페이로드 내 원본 스푸핑 시도를 검색할 수 있습니다. 장치를 인증할 경우 고유 게시자로 범위가 지정된 장치당 SaS 토큰을 생성합니다.</p>|
+| **단계** | <p>Event Hubs 보안 모델은 공유 액세스 서명(SAS) 토큰 및 이벤트 게시자의 조합을 기반으로 합니다. 게시자 이름은 토큰을 받는 DeviceID를 나타냅니다. 해당 디바이스를 사용하여 생성된 토큰을 연결하는 데 도움이 됩니다.</p><p>모든 메시지에는 서비스 쪽 송신자로 태그가 지정되어 페이로드 내 원본 스푸핑 시도를 검색할 수 있습니다. 디바이스를 인증할 경우 고유 게시자로 범위가 지정된 디바이스당 SaS 토큰을 생성합니다.</p>|
 
 ## <a id="multi-factor-azure-admin"></a>Azure 관리자에 Azure Multi-Factor Authentication을 사용하도록 설정
 
@@ -179,7 +179,7 @@ ms.locfileid: "51251562"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Azure Multi-Factor Authentication 정의](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
-| **단계** | <p>Multi-Factor Authentication(MFA)에는 두 개 이상의 검증 방법이 필요하며 사용자 로그인 및 트랜잭션에 중요한 두 번째 계층을 추가하는 인증 방법입니다. 이러한 인증에서는 다음 중 두 가지 이상의 검증 방법을 요구합니다.</p><ul><li>사용자가 알고 있는 정보(일반적으로 암호)</li><li>사용자가 보유한 장치(예: 휴대폰과 같이 쉽게 복제되지 않는 신뢰할 수 있는 장치)</li><li>사용자의 신원 정보(생체 인식)</li><ul>|
+| **단계** | <p>Multi-Factor Authentication(MFA)에는 두 개 이상의 검증 방법이 필요하며 사용자 로그인 및 트랜잭션에 중요한 두 번째 계층을 추가하는 인증 방법입니다. 이러한 인증에서는 다음 중 두 가지 이상의 검증 방법을 요구합니다.</p><ul><li>사용자가 알고 있는 정보(일반적으로 암호)</li><li>사용자가 보유한 디바이스(예: 휴대폰과 같이 쉽게 복제되지 않는 신뢰할 수 있는 디바이스)</li><li>사용자의 신원 정보(생체 인식)</li><ul>|
 
 ## <a id="anon-access-cluster"></a>Service Fabric 클러스터에 익명 액세스 제한
 
@@ -444,7 +444,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| **단계** | 각 장치가 데이터를 받기 전에 클라우드 게이트웨이와 업스트림 통신을 용이하게 하려면 필드 게이트웨이로 인증되었는지 확인합니다. 또한 장치가 장치별 자격 증명에 연결되었는지 확인하여 개별 장치를 고유하게 식별할 수 있도록 합니다.|
+| **단계** | 각 디바이스가 데이터를 받기 전에 클라우드 게이트웨이와 업스트림 통신을 용이하게 하려면 필드 게이트웨이로 인증되었는지 확인합니다. 또한 디바이스가 디바이스별 자격 증명에 연결되었는지 확인하여 개별 디바이스를 고유하게 식별할 수 있도록 합니다.|
 
 ## <a id="authn-devices-cloud"></a>클라우드 게이트웨이에 연결되는 장치가 인증되는지 확인
 
@@ -455,7 +455,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **적용 가능한 기술** | 일반, C#, Node.JS,  |
 | **특성**              | 해당 없음, 게이트웨이 선택 - Azure IoT Hub |
 | **참조**              | 해당 없음, [Azure IoT Hub 및 .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [IoT Hub 및 Node JS 시작](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [SAS 및 인증서로 IoT 보호](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git 리포지토리](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
-| **단계** | <ul><li>**일반:** TLS(전송 계층 보안) 또는 IPSec을 사용하여 장치를 인증합니다. 전체 비대칭 암호화를 처리할 수 없는 PSK(미리 공유한 키)를 해당 장치에서 사용할 수 있도록 인프라가 지원해야 합니다. Azure AD, Oauth를 활용하세요.</li><li>**C#:** DeviceClient 인스턴스를 만들 때, 기본적으로 Create 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 DeviceClient 인스턴스를 만듭니다. HTTPS 프로토콜을 사용하려면 프로토콜을 지정할 수 있도록 해주는 Create 메서드의 재정의를 사용합니다. HTTPS 프로토콜을 사용하려면 `Microsoft.AspNet.WebApi.Client` NuGet 패키지를 프로젝트에 추가하여 `System.Net.Http.Formatting` 네임스페이스를 포함해야 합니다.</li></ul>|
+| **단계** | <ul><li>**일반:** TLS(전송 계층 보안) 또는 IPSec을 사용하여 장치를 인증합니다. 전체 비대칭 암호화를 처리할 수 없는 PSK(미리 공유한 키)를 해당 디바이스에서 사용할 수 있도록 인프라가 지원해야 합니다. Azure AD, Oauth를 활용하세요.</li><li>**C#:** DeviceClient 인스턴스를 만들 때, 기본적으로 Create 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 DeviceClient 인스턴스를 만듭니다. HTTPS 프로토콜을 사용하려면 프로토콜을 지정할 수 있도록 해주는 Create 메서드의 재정의를 사용합니다. HTTPS 프로토콜을 사용하려면 `Microsoft.AspNet.WebApi.Client` NuGet 패키지를 프로젝트에 추가하여 `System.Net.Http.Formatting` 네임스페이스를 포함해야 합니다.</li></ul>|
 
 ### <a name="example"></a>예
 ```csharp
@@ -476,13 +476,13 @@ await deviceClient.SendEventAsync(message);
 **Node.JS: 인증**
 #### <a name="symmetric-key"></a>대칭 키
 * azure에서 IoT Hub 만들기
-* 장치 ID 레지스트리에서 항목 만들기
+* 디바이스 ID 레지스트리에서 항목 만들기
     ```javascript
     var device = new iothub.Device(null);
     device.deviceId = <DeviceId >
     registry.create(device, function(err, deviceInfo, res) {})
     ```
-* 시뮬레이션된 장치 만들기
+* 시뮬레이션된 디바이스 만들기
     ```javascript
     var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
@@ -516,7 +516,7 @@ await deviceClient.SendEventAsync(message);
     ```
 #### <a name="certificates"></a>인증서
 * OpenSSL과 같은 도구를 사용하여 자체 서명된 X509 인증서를 생성하고 인증서 및 키를 저장할 .cert 및 .key 파일을 각각 생성합니다.
-* 인증서를 사용하여 보안 연결을 허용하는 장치 프로비전
+* 인증서를 사용하여 보안 연결을 허용하는 디바이스 프로비전
     ```javascript
     var connectionString = '<connectionString>';
     var registry = iothub.Registry.fromConnectionString(connectionString);
@@ -530,7 +530,7 @@ await deviceClient.SendEventAsync(message);
     var device = deviceJSON;
     registry.create(device, function (err) {});
     ```
-* 인증서를 사용하여 장치 연결
+* 인증서를 사용하여 디바이스 연결
     ```javascript
     var Protocol = require('azure-iot-device-http').Http;
     var Client = require('azure-iot-device').Client;
@@ -555,7 +555,7 @@ await deviceClient.SendEventAsync(message);
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 게이트웨이 선택 - Azure IoT Hub |
 | **참조**              | [Azure IoT Hub 보안 토큰](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
-| **단계** | IoT Hub 수준 공유 액세스 정책 대신, 장치 키 또는 클라이언트 인증서를 기반으로 SaS 토큰을 사용하여 장치당 인증 자격 증명을 사용합니다. 이렇게 하면 장치 또는 필드 게이트웨이의 인증 토큰을 재사용하는 것을 방지합니다. |
+| **단계** | IoT Hub 수준 공유 액세스 정책 대신, 디바이스 키 또는 클라이언트 인증서를 기반으로 SaS 토큰을 사용하여 디바이스당 인증 자격 증명을 사용합니다. 이렇게 하면 디바이스 또는 필드 게이트웨이의 인증 토큰을 재사용하는 것을 방지합니다. |
 
 ## <a id="req-containers-anon"></a>필요한 컨테이너 및 Blob에만 익명 읽기 권한이 지정되었는지 확인
 

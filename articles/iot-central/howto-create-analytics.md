@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50156326"
 ---
-# <a name="how-to-use-analytics-to-analyze-your-device-data"></a>분석을 사용하여 장치 데이터를 분석하는 방법
+# <a name="how-to-use-analytics-to-analyze-your-device-data"></a>분석을 사용하여 디바이스 데이터를 분석하는 방법
 
 
 *이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*

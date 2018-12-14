@@ -39,7 +39,7 @@ items:
   items:
   - name: 서비스 SDK
     href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-  - name: IoT 장치 SDK
+  - name: IoT 디바이스 SDK
     href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 ms.openlocfilehash: 82b04e5f6db3142180b1a10264342862793740eb
 ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a

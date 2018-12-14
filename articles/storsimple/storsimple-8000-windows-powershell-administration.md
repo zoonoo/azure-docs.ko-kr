@@ -117,7 +117,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 디바이스를 �
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>StorSimple용 Windows PowerShell을 사용하여 StorSimple에 원격으로 연결
 
-Windows PowerShell 원격을 사용하여 StorSimple 장치에 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. (디바이스의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. 원격으로 연결하면 직렬 콘솔의 "옵션 1 - 모든 권한"에 해당하는 권한을 직접 갖습니다.) Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다.
+Windows PowerShell 원격을 사용하여 StorSimple 디바이스에 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. (디바이스의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. 원격으로 연결하면 직렬 콘솔의 "옵션 1 - 모든 권한"에 해당하는 권한을 직접 갖습니다.) Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다.
 
 표시 언어는 직렬 콘솔 메뉴에서 **언어 변경** 옵션을 사용하여 설정하는 언어와 독립적입니다. 지정되지 않은 경우 원격 PowerShell은 연결에 사용되는 디바이스의 로캘을 자동으로 선택합니다.
 
@@ -134,7 +134,7 @@ HTTP 또는 HTTPS를 사용하여 Windows PowerShell 원격을 통해 연결할 
 
 StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 다음 사항을 고려하세요.
 
-* 장치 직렬 콘솔에 직접 연결하는 것은 안전하지만 네트워크 스위치를 통해 직렬 콘솔에 연결하는 것은 안전하지 않습니다. 네트워크 스위치를 통해 디바이스 직렬에 연결할 때는 보안 위험에 주의하세요.
+* 디바이스 직렬 콘솔에 직접 연결하는 것은 안전하지만 네트워크 스위치를 통해 직렬 콘솔에 연결하는 것은 안전하지 않습니다. 네트워크 스위치를 통해 디바이스 직렬에 연결할 때는 보안 위험에 주의하세요.
 * HTTP 세션을 통해 연결하는 경우 네트워크에서 직렬 콘솔을 통해 연결하는 것보다 보안이 강화될 수 있습니다. 가장 안전한 방법은 아니지만 신뢰할 수 있는 네트워크에서는 적합합니다.
 * HTTPS 세션을 통해 연결하는 것이 가장 안전하고 권장되는 옵션입니다.
 

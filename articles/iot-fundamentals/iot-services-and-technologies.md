@@ -34,7 +34,7 @@ Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록
 
 Azure IoT 솔루션 가속기는 사용자 지정이 가능한 PaaS 솔루션으로 IoT 솔루션을 보다 철저하게 제어할 수 있습니다. 연결된 작업을 위한 IoT를 구현하려는 기업 또는 연결된 제품에 대한 구체적인 사용자 지정 요구 사항을 갖고 있는 기업을 위해 Azure IoT 솔루션 가속기는 고객에게 필요한 제어 기능을 제공합니다. 
 
-장치 또는 장치 모델의 수가 많은 조직, 그리고 연결된 팩터리 솔루션을 찾는 제조업체는 IoT 솔루션 가속기의 혜택을 볼 수 있는 대표적인 예입니다. 복잡한 요구 사항에 적합하도록 고도로 사용자 지정 가능한 솔루션을 만드는 IoT 솔루션 가속기는 다음 기능을 제공합니다. 
+디바이스 또는 디바이스 모델의 수가 많은 조직, 그리고 연결된 팩터리 솔루션을 찾는 제조업체는 IoT 솔루션 가속기의 혜택을 볼 수 있는 대표적인 예입니다. 복잡한 요구 사항에 적합하도록 고도로 사용자 지정 가능한 솔루션을 만드는 IoT 솔루션 가속기는 다음 기능을 제공합니다. 
 
 - 미리 작성된 솔루션
     - 원격 모니터링
@@ -86,15 +86,15 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 
 ## <a name="technologies-paas"></a>기술(PaaS)
 
-가장 포괄적인 IoT 플랫폼 서비스 포트폴리오를 제공하고 Azure 플랫폼을 아우르는 PaaS(Platform-as-a-Service) 기술을 사용하면 IoT 솔루션의 모든 측면을 간편하게 만들고, 사용자 지정하고, 제어할 수 있습니다. 수십 억 대의 IoT 디바이스로 양방향 통신을 설정하고 IoT 디바이스를 대규모로 관리할 수 있습니다. 그리고 IoT 장치 데이터를 Azure Cosmos DB 및 Azure Time Series Insights 같은 다른 플랫폼 서비스와 통합하여 솔루션에 대한 인사이트를 강화할 수 있습니다. 
+가장 포괄적인 IoT 플랫폼 서비스 포트폴리오를 제공하고 Azure 플랫폼을 아우르는 PaaS(Platform-as-a-Service) 기술을 사용하면 IoT 솔루션의 모든 측면을 간편하게 만들고, 사용자 지정하고, 제어할 수 있습니다. 수십 억 대의 IoT 디바이스로 양방향 통신을 설정하고 IoT 디바이스를 대규모로 관리할 수 있습니다. 그리고 IoT 디바이스 데이터를 Azure Cosmos DB 및 Azure Time Series Insights 같은 다른 플랫폼 서비스와 통합하여 솔루션에 대한 인사이트를 강화할 수 있습니다. 
 
-### <a name="device-support"></a>장치 지원
+### <a name="device-support"></a>디바이스 지원
 
 [Azure IoT 시작 키트](https://catalog.azureiotsuite.com/kits)를 활용하거나 [장치 카탈로그](http://catalog.azureiotsuite.com/)에 있는 수백 대의 IoT용 Certified 장치 중에서 선택하여 자신 있게 IoT 프로젝트를 시작하세요. 모든 디바이스는 플랫폼의 제약을 받지 않으며 IoT Hub에 원활하게 연결되도록 테스트를 마쳤습니다.
 오픈 소스 [디바이스 SDK](/azure/iot-hub/iot-hub-devguide-sdks)를 사용하여 모든 디바이스를 Azure IoT에 연결하세요. SDK는 [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) 및 [Python](https://github.com/Azure/azure-iot-sdk-python) 같은 여러 프로그래밍 언어뿐 아니라 Linux, Windows 및 실시간 운영 체제 같은 여러 운영 체제도 지원합니다.
 
 ### <a name="iot"></a>IoT 
-[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 수백만 대의 IoT 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스입니다. Azure IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적시에 올바른 IoT Hub에 무인 프로비전이 가능하므로 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 장치를 프로비전할 수 있습니다.
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 수백만 대의 IoT 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스입니다. Azure IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적시에 올바른 IoT Hub에 무인 프로비전이 가능하므로 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 디바이스를 프로비전할 수 있습니다.
 
 ### <a name="edge"></a>Edge
 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)는 IoT 서비스입니다. 이 서비스는 클라우드가 아닌 디바이스에서 즉, "에지"의 데이터를 관리하려는 고객을 대상으로 합니다. 워크로드의 일부를 에지로 이동하면 대기 시간이 단축되고 오프라인 시나리오에 대한 옵션이 제공됩니다.
@@ -103,7 +103,7 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/)는 물리적 환경의 모델을 만들 수 있는 IoT 서비스입니다. 사람, 공간, 디바이스 간의 관계를 모델링하는 공간 인텔리전스 그래프를 제공합니다. 디지털 세계와 실제 세계의 데이터 간에 상관 관계를 지정하여 컨텍스트 인식 솔루션을 만들 수 있습니다.  
 
 ### <a name="data-and-analytics"></a>데이터 및 분석
-Azure Machine Learning을 사용하여 클라우드 인텔리전스를 에지로 가져오고, Azure Data Lake를 사용하여 IoT 장치 데이터를 비용 효율적인 방법으로 저장하고, [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)를 사용하여 IoT 장치의 데이터를 대량으로 시각화하는 등 IoT 솔루션에서 제공하는 다양한 Azure 데이터 및 분석 PaaS 서비스를 활용해 보세요.
+Azure Machine Learning을 사용하여 클라우드 인텔리전스를 에지로 가져오고, Azure Data Lake를 사용하여 IoT 디바이스 데이터를 비용 효율적인 방법으로 저장하고, [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)를 사용하여 IoT 디바이스의 데이터를 대량으로 시각화하는 등 IoT 솔루션에서 제공하는 다양한 Azure 데이터 및 분석 PaaS 서비스를 활용해 보세요.
 
 ### <a name="visualization-and-integration"></a>시각화 및 통합
 Microsoft Azure는 지속적으로 증가하는 통합 클라우드 서비스 컬렉션을 업계 최고의 데이터 보호 및 개인 정보 보호 노력과 결합하는 완전한 클라우드 솔루션을 제공합니다. [Microsoft Azure](https://azure.microsoft.com/)에 대해 자세히 알아보세요.

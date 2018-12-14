@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000 시리즈 디바이스 비활성화 및 삭제 | Microsoft Docs
-description: 먼저 StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법을 설명합니다.
+description: 먼저 StorSimple 디바이스를 비활성화한 후 삭제하여 서비스에서 제거하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli

@@ -289,7 +289,7 @@ IoT Hub와 작동하도록 싱크 연결을 구성하려면 SSH 연결에서 에
 /usr/hdp/current/kafka-broker/bin/connect-standalone.sh /usr/hdp/current/kafka-broker/config/connect-standalone.properties /usr/hdp/current/kafka-broker/config/connect-iothub-source.properties
 ```
 
-커넥터가 시작하면 해당 장치에서 IoT Hub로 메시지를 보냅니다. 커넥터는 IoT Hub에서 메시지를 읽고 Kafka 항목에 저장하므로 콘솔에 정보를 기록합니다.
+커넥터가 시작하면 해당 디바이스에서 IoT Hub로 메시지를 보냅니다. 커넥터는 IoT Hub에서 메시지를 읽고 Kafka 항목에 저장하므로 콘솔에 정보를 기록합니다.
 
 ```text
 [2017-08-29 20:15:46,112] INFO Polling for data - Obtained 5 SourceRecords from IotHub (com.microsoft.azure.iot.kafka.co
@@ -344,10 +344,10 @@ t.runtime.WorkerSinkTask:262)
 
     이 명령은 기본 Bash 프롬프트로 반환하지 않습니다. 대신 `iotout` 항목에 키보드 입력을 보냅니다.
 
-3. 장치에 메시지를 보내려면 `kafka-console-producer`에 대한 SSH 세션에 JSON 문서를 붙여넣습니다.
+3. 디바이스에 메시지를 보내려면 `kafka-console-producer`에 대한 SSH 세션에 JSON 문서를 붙여넣습니다.
 
     > [!IMPORTANT]
-    > 장치 ID에 `"deviceId"` 항목 값을 설정해야 합니다. 다음 예제에서 장치는 `fakepi`이라고 합니다.
+    > 디바이스 ID에 `"deviceId"` 항목 값을 설정해야 합니다. 다음 예제에서 디바이스는 `fakepi`이라고 합니다.
 
     ```text
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
@@ -355,13 +355,13 @@ t.runtime.WorkerSinkTask:262)
 
     이 JSON 문서에 대한 스키마는 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)에 자세히 설명되어 있습니다.
 
-    시뮬레이션된 Raspberry Pi 장치를 사용하고 장치가 실행 중인 경우 해당 장치에서 다음 메시지를 기록합니다.
+    시뮬레이션된 Raspberry Pi 디바이스를 사용하고 디바이스가 실행 중인 경우 해당 디바이스에서 다음 메시지를 기록합니다.
 
     ```text
     Receive message: Turn On
     ```
 
-    JSON 문서를 다시 보내지만 `"message"` 항목 값을 변경합니다. 장치에서 새 값을 기록합니다.
+    JSON 문서를 다시 보내지만 `"message"` 항목 값을 변경합니다. 디바이스에서 새 값을 기록합니다.
 
 싱크 커넥터 사용에 대한 자세한 내용은 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)을 참조하세요.
 

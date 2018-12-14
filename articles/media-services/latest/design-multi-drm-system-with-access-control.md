@@ -62,8 +62,8 @@ OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지�
 
 선택할 때는 다음 사항에 유의하세요.
 
-* PlayReady는 모든 Windows 장치와 일부 Android 장치에서 고유하게 구현되며 거의 모든 플랫폼에서 소프트웨어 SDK를 통해 사용할 수 있습니다.
-* Widevine은 모든 Android 장치, Chrome 및 일부 다른 장치에서 고유하게 구현됩니다. Widevine은 또한 DASH를 통해 Firefox 및 Opera 브라우저에서 지원됩니다.
+* PlayReady는 모든 Windows 디바이스와 일부 Android 디바이스에서 고유하게 구현되며 거의 모든 플랫폼에서 소프트웨어 SDK를 통해 사용할 수 있습니다.
+* Widevine은 모든 Android 디바이스, Chrome 및 일부 다른 디바이스에서 고유하게 구현됩니다. Widevine은 또한 DASH를 통해 Firefox 및 Opera 브라우저에서 지원됩니다.
 * FairPlay는 iOS, macOS 및 tvOS에서 사용할 수 있습니다.
 
 
@@ -422,9 +422,9 @@ Windows 8.1 이상의 Internet Explorer 11, Windows 10의 Microsoft Edge 브라�
 
 ![PlayReady용 플레이어 플러그 인](./media/design-multi-drm-system-with-access-control/media-services-eme-for-playready2.png)
 
-Windows 10의 Microsoft Edge 및 Internet Explorer 11에 있는 EME를 통해 이를 지원하는 Windows 10 장치에서 [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/)을 호출할 수 있습니다. PlayReady SL3000은 향상된 프리미엄 콘텐츠(4K, HDR) 흐름 및 새 콘텐츠 배달 모델(향상된 콘텐츠용)의 잠금을 해제합니다.
+Windows 10의 Microsoft Edge 및 Internet Explorer 11에 있는 EME를 통해 이를 지원하는 Windows 10 디바이스에서 [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/)을 호출할 수 있습니다. PlayReady SL3000은 향상된 프리미엄 콘텐츠(4K, HDR) 흐름 및 새 콘텐츠 배달 모델(향상된 콘텐츠용)의 잠금을 해제합니다.
 
-Windows 장치에 집중: PlayReady는 Windows 장치(PlayReady SL3000)에서 사용 가능한 하드웨어의 유일한 DRM입니다. 스트리밍 서비스는 EME 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 PlayReady를 사용하고 PlayReady SL3000을 사용하여 다른 DRM보다 더 높은 화질을 제공할 수 있습니다. 일반적으로 2K 이내의 콘텐츠는 Chrome 또는 Firefox를 통해 흐르고, 4K 이내의 콘텐츠는 동일한 장치의 Microsoft Edge/Internet Explorer 11 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 흐릅니다. 그 양은 서비스 설정 및 구현에 따라 다릅니다.
+Windows 디바이스에 집중: PlayReady는 Windows 디바이스(PlayReady SL3000)에서 사용 가능한 하드웨어의 유일한 DRM입니다. 스트리밍 서비스는 EME 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 PlayReady를 사용하고 PlayReady SL3000을 사용하여 다른 DRM보다 더 높은 화질을 제공할 수 있습니다. 일반적으로 2K 이내의 콘텐츠는 Chrome 또는 Firefox를 통해 흐르고, 4K 이내의 콘텐츠는 동일한 디바이스의 Microsoft Edge/Internet Explorer 11 또는 유니버설 Windows 플랫폼 응용 프로그램을 통해 흐릅니다. 그 양은 서비스 설정 및 구현에 따라 다릅니다.
 
 #### <a name="use-eme-for-widevine"></a>Widevine에 EME 사용
 Windows 10, Windows 8.1, Mac OSX Yosemite의 Chrome 41 이상, Android 4.4.4의 Chrome과 같이 EME/Widevine을 지원하는 최신 브라우저에서는 Google Widevine이 EME 뒤의 DRM입니다.

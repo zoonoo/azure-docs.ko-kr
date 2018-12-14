@@ -275,7 +275,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupNa
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-연결(터널)이 설정되면 이중 중복 VPN 장치와 터널을 통해 온-프레미스 네트워크와 Azure가 연결됩니다.
+연결(터널)이 설정되면 이중 중복 VPN 디바이스와 터널을 통해 온-프레미스 네트워크와 Azure가 연결됩니다.
 
 ![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 

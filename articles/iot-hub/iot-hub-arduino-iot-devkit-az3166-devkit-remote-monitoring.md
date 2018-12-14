@@ -42,7 +42,7 @@ ms.locfileid: "42144641"
    ![Azure IoT 솔루션 가속기 유형 선택](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
 
    > [!WARNING]
-   > 기본적으로 이 샘플은 하나의 IoT 원격 모니터링 솔루션 가속기를 만든 후 S2 IoT Hub를 만듭니다. 이 IoT Hub가 다수의 장치에 사용되지 않는 경우 S2에서 S1로 다운그레이드하고 더 이상 필요 없는 관련 IoT Hub도 삭제되도록 IoT 원격 모니터션 솔루션 가속기를 삭제하는 것이 좋습니다. 
+   > 기본적으로 이 샘플은 하나의 IoT 원격 모니터링 솔루션 가속기를 만든 후 S2 IoT Hub를 만듭니다. 이 IoT Hub가 다수의 디바이스에 사용되지 않는 경우 S2에서 S1로 다운그레이드하고 더 이상 필요 없는 관련 IoT Hub도 삭제되도록 IoT 원격 모니터션 솔루션 가속기를 삭제하는 것이 좋습니다. 
 
 2. **원격 모니터링**을 선택합니다.
 
@@ -96,7 +96,7 @@ VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프�
 
 1. `Ctrl+P`(macOS: `Cmd + P`)를 사용하고 **task config-device-connection**을 입력합니다.
 
-2. `task cloud-provision`단계에서 검색하는 연결 문자열을 사용할지 묻는 메시지가 터미널에 표시됩니다. '새로 만들기...'를 클릭하여 자체 장치 연결 문자열을 입력할 수도 있습니다.
+2. `task cloud-provision`단계에서 검색하는 연결 문자열을 사용할지 묻는 메시지가 터미널에 표시됩니다. '새로 만들기...'를 클릭하여 자체 디바이스 연결 문자열을 입력할 수도 있습니다.
 
 3. 터미널에서 구성 모드를 입력하라는 메시지를 표시합니다. 이렇게 하려면 단추 A를 누르고 있다가 다시 설정 단추를 밀어서 놓습니다. 화면에 DevKit ID와 '구성'이 표시됩니다.
 
@@ -118,7 +118,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
    ![Azure IoT 원격 모니터링 솔루션 가속기의 센서 데이터](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
 
-## <a name="change-device-id"></a>장치 ID 변경
+## <a name="change-device-id"></a>디바이스 ID 변경
 
 코드에서 사용자 지정된 디바이스 ID로 하드코딩된 **AZ3166**을 변경하려는 경우 [원격 모니터링 예제](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23)에 표시된 코드 줄을 수정합니다.
 
@@ -131,7 +131,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-DevKit 장치를 Azure IoT 원격 모니터션 솔루션 가속기에 연결하고 센서 데이터를 시각화하는 방법을 알아보았습니다. 다음 제안 단계는 다음과 같습니다.
+DevKit 디바이스를 Azure IoT 원격 모니터션 솔루션 가속기에 연결하고 센서 데이터를 시각화하는 방법을 알아보았습니다. 다음 제안 단계는 다음과 같습니다.
 
 * [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
 

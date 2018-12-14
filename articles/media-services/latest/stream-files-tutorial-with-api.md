@@ -101,7 +101,7 @@ Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 ### <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>로드된 파일을 인코딩하는 Transform 및 Job 만들기
-Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 새로운 비디오에 대해 새 Job을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Job](transform-concept.md)을 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 장치로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
+Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job**을 제출합니다. 새로운 비디오에 대해 새 Job을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform**이라고 합니다. 자세한 내용은 [Transform 및 Job](transform-concept.md)을 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
 
 #### <a name="transform"></a>변환
 

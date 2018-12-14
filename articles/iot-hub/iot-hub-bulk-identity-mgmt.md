@@ -340,7 +340,7 @@ while(true)
 
 ## <a name="import-devices-example--bulk-deletion"></a>디바이스 가져오기 예제 – 대량 삭제
 
-다음 코드 샘플은 이전 코드 샘플을 사용하여 추가한 장치를 삭제하는 방법을 보여 줍니다.
+다음 코드 샘플은 이전 코드 샘플을 사용하여 추가한 디바이스를 삭제하는 방법을 보여 줍니다.
 
 ```csharp
 // Step 1: Update each device's ImportMode to be Delete

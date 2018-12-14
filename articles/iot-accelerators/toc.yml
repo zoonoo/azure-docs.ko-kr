@@ -89,7 +89,7 @@ items:
       href: iot-accelerators-remote-monitoring-import-adm-package.md
     - name: SIM 데이터 통합
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
-    - name: 시뮬레이션된 장치 만들기
+    - name: 시뮬레이션된 디바이스 만들기
       href: iot-accelerators-remote-monitoring-create-simulated-device.md
     - name: 시뮬레이션된 디바이스 배포
       href: iot-accelerators-remote-monitoring-deploy-simulated-device.md
@@ -199,7 +199,7 @@ items:
     items:
     - name: IoT Edge
       href: /azure/iot-edge
-    - name: IoT 장치 SDK
+    - name: IoT 디바이스 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
   - name: Stream Analytics
     href: /azure/stream-analytics/

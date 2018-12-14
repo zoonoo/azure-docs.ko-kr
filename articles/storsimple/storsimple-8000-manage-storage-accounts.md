@@ -60,7 +60,7 @@ StorSimple 디바이스에서 사용할 수 있는 저장소 계정에는 다음
 
 ## <a name="add-a-storage-account"></a>저장소 계정 추가
 
-저장소 계정(지정된 클라우드 서비스 공급자를 통해)에 연결된 액세스 자격 증명 및 친숙한 고유 이름을 제공하여 저장소 계정을 추가할 수 있습니다. 장치와 클라우드 사이에서 네트워크 통신을 위한 보안 채널을 만들기 위해 SSL(Secure Sockets Layer) 모드를 사용하는 옵션도 있습니다.
+저장소 계정(지정된 클라우드 서비스 공급자를 통해)에 연결된 액세스 자격 증명 및 친숙한 고유 이름을 제공하여 저장소 계정을 추가할 수 있습니다. 디바이스와 클라우드 사이에서 네트워크 통신을 위한 보안 채널을 만들기 위해 SSL(Secure Sockets Layer) 모드를 사용하는 옵션도 있습니다.
 
 특정 클라우드 서비스 공급자에 대해 여러 계정을 만들 수 있습니다. 하지만 저장소 계정을 만든 후에는 클라우드 서비스 공급자를 변경할 수 없습니다.
 
@@ -69,14 +69,14 @@ StorSimple 디바이스에서 사용할 수 있는 저장소 계정에는 다음
 Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합니다.
 
 * 디바이스 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
-* 장치 관리자 서비스 구독 외부에 있는 Azure Storage 계정 자격 증명을 추가하려면
+* Device Manager 서비스 구독 외부에 있는 Azure 스토리지 계정 자격 증명을 추가하려면
 
 [!INCLUDE [add-a-storage-account-update2](../../includes/storsimple-8000-configure-new-storage-account-u2.md)]
 
 #### <a name="to-add-an-azure-storage-account-credential-outside-of-the-storsimple-device-manager-service-subscription"></a>StorSimple 디바이스 관리자 서비스 구독 외부에 있는 Azure Storage 계정 자격 증명을 추가하려면
 
 1. StorSimple 디바이스 관리자 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
-2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다. 그러면 StorSimple 장치 관리자 서비스와 연결된 모든 기존 저장소 계정 자격 증명을 나열합니다.
+2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다. 그러면 StorSimple Device Manager 서비스와 연결된 모든 기존 스토리지 계정 자격 증명을 나열합니다.
 3. **추가**를 클릭합니다.
 4. **저장소 계정 자격 증명 추가** 블레이드에서 다음을 수행합니다.
    
@@ -90,7 +90,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
    
     5. **추가**를 클릭합니다. 저장소 계정 자격 증명이 성공적으로 만들어진 후 알림이 표시됩니다.
 
-5. 새로 만든 Storage 계정 자격 증명은 **Storage 계정 자격 증명**의 StorSimple 구성 장치 관리자 서비스 블레이드에 표시됩니다.
+5. 새로 만든 스토리지 계정 자격 증명은 **Storage 계정 자격 증명**의 StorSimple Configure Device Manager 서비스 블레이드에 표시됩니다.
    
 
 
@@ -161,7 +161,7 @@ StorSimple 디바이스 관리자 서비스에 변경을 알리려면 StorSimple
 
     ![키 동기화](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 
-4. StorSimple 장치 관리자 서비스에서 이전에 Microsoft Azure Storage 서비스에서 변경된 키를 업데이트해야 합니다. 기본 액세스 키가 변경(다시 생성)된 경우 **기본** 키를 선택합니다. 보조 키가 변경된 경우 **보조** 키를 선택합니다. **키 동기화**를 클릭합니다.
+4. StorSimple Device Manager 서비스에서 이전에 Microsoft Azure Storage 서비스에서 변경된 키를 업데이트해야 합니다. 기본 액세스 키가 변경(다시 생성)된 경우 **기본** 키를 선택합니다. 보조 키가 변경된 경우 **보조** 키를 선택합니다. **키 동기화**를 클릭합니다.
       
       ![키 동기화](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 

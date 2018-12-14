@@ -17,7 +17,7 @@ ms.locfileid: "39185434"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>원격 모니터링 솔루션에 SIM 데이터 통합
 
-IoT 장치는 어디에서나 데이터 스트림을 보낼 수 있는 SIM 카드를 사용하여 클라우드에 연결하는 경우가 많습니다. Azure IoT 원격 모니터링 솔루션은 IoT 관리되는 연결 데이터의 통합이 가능하기 때문에 IoT SIM에서 제공되는 데이터를 통해 장치 상태를 추적할 수도 있습니다.
+IoT 디바이스는 어디에서나 데이터 스트림을 보낼 수 있는 SIM 카드를 사용하여 클라우드에 연결하는 경우가 많습니다. Azure IoT 원격 모니터링 솔루션은 IoT 관리되는 연결 데이터의 통합이 가능하기 때문에 IoT SIM에서 제공되는 데이터를 통해 디바이스 상태를 추적할 수도 있습니다.
 
 원격 모니터링은 Telefónica IoT Connectivity와의 통합을 기본 제공하기 때문에 해당사의 IoT 연결 플랫폼을 사용하는 고객은 자신의 디바이스 SIM 연결 데이터와 솔루션을 동기화할 수 있습니다. 이 솔루션은 GitHub [리포지토리](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)를 통해 다른 IoT 연결 공급자를 지원하도록 확장될 수 있습니다.
 
@@ -46,9 +46,9 @@ Telefónica SIM과 Azure 쌍 장치 ID 연결은 Telefónica IoT SIM "alias" 속
 
 ![Telefónica 업데이트](./media/iot-accelerators-remote-monitoring-telefonica-sim/telefonica_site.png)
 
-장치를 원격 모니터링에 연결하려면, [C](iot-accelerators-connecting-devices-linux.md) 또는 [Node](iot-accelerators-connecting-devices-node.md)를 사용하여 자습서를 수행합니다. 
+디바이스를 원격 모니터링에 연결하려면, [C](iot-accelerators-connecting-devices-linux.md) 또는 [Node](iot-accelerators-connecting-devices-node.md)를 사용하여 자습서를 수행합니다. 
 
-## <a name="view-device-telemetry-and-sim-properties"></a>장치 원격 분석 및 SIM 속성 보기
+## <a name="view-device-telemetry-and-sim-properties"></a>디바이스 원격 분석 및 SIM 속성 보기
 
 Telefónica 계정이 올바르게 구성되고 디바이스가 연결되면 디바이스 정보와 SIM 데이터를 볼 수 있습니다.
 

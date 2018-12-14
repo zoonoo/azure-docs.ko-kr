@@ -1,6 +1,6 @@
 ---
-title: Azure Notification Hubs를 사용하여 특정 iOS 장치에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서는 Azure Notification Hubs를 사용하여 특정 iOS 장치로 푸시 알림을 보내는 방법을 알아봅니다.
+title: Azure Notification Hubs를 사용하여 특정 iOS 디바이스에 알림 푸시 | Microsoft Docs
+description: 이 자습서에서는 Azure Notification Hubs를 사용하여 특정 iOS 디바이스로 푸시 알림을 보내는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: ios
 author: dimazaid
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/24/2018
 ms.locfileid: "42918065"
 ---
-# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 iOS 장치에 알림 푸시
+# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 iOS 디바이스에 알림 푸시
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -29,14 +29,14 @@ ms.locfileid: "42918065"
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 앱에 속보 알림을 브로드캐스트하는 방법을 보여줍니다. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
 
-브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 장치에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [Notification Hubs 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 디바이스에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [Notification Hubs 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 앱에 범주 선택 추가
 > * 태그가 지정된 알림 보내기
-> * 장치에서 알림 보내기
+> * 디바이스에서 알림 보내기
 > * 앱 실행 및 알림 생성
 
 ## <a name="prerequisites"></a>필수 조건
@@ -45,7 +45,7 @@ ms.locfileid: "42918065"
 
 ## <a name="add-category-selection-to-the-app"></a>앱에 범주 선택 추가
 
-첫 번째 단계는 기존의 스토리보드에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 장치에 저장됩니다. 앱을 시작하면 장치 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.
+첫 번째 단계는 기존의 스토리보드에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 디바이스에 저장됩니다. 앱을 시작하면 디바이스 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.
 
 1. **MainStoryboard_iPhone.storyboard**의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
 
@@ -133,7 +133,7 @@ ms.locfileid: "42918065"
     }
     ```
 
-    이 클래스는 로컬 저장소를 사용하여 이 장치에서 받을 뉴스의 범주를 저장하고 검색합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 등록을 사용하여 이러한 범주에 등록하는 메서드도 포함되어 있습니다.
+    이 클래스는 로컬 저장소를 사용하여 이 디바이스에서 받을 뉴스의 범주를 저장하고 검색합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 등록을 사용하여 이러한 범주에 등록하는 메서드도 포함되어 있습니다.
 
 7. AppDelegate.h 파일에서 Notifications.h에 대한 import 문을 추가하고 알림 클래스의 인스턴스에 대한 속성을 추가합니다.
 
@@ -345,11 +345,11 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 
     ![iOS의 알림 기본 설정 변경][2]
 
-3. 속보를 구독하는 각 장치에서 방금 보낸 속보 알림을 받게 됩니다.
+3. 속보를 구독하는 각 디바이스에서 방금 보낸 속보 알림을 받게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 범주에 등록한 특정 iOS 장치에 브로드캐스트 알림을 보냈습니다. 지역화된 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+이 자습서에서는 범주에 등록한 특정 iOS 디바이스에 브로드캐스트 알림을 보냈습니다. 지역화된 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
 > [!div class="nextstepaction"]
 >[지역화된 알림 푸시](notification-hubs-ios-xplat-localized-apns-push-notification.md)

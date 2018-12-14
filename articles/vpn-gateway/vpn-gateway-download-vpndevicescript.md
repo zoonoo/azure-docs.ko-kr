@@ -28,7 +28,7 @@ ms.locfileid: "30317775"
 
 ![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
 
-다음 장치는 사용 가능한 스크립트를 포함하고 있습니다.
+다음 디바이스는 사용 가능한 스크립트를 포함하고 있습니다.
 
 [!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 

@@ -94,7 +94,7 @@ www.azureiotsolutions.com에서 솔루션을 배포한 경우 VM에 로그인할
 
 Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배포의 리소스 그룹의 IoT Hub 리소스에서 연결 문자열 설정을 찾습니다.
 
-### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>연결된 팩터리 시뮬레이션에서 어떤 IoT Hub 장치를 사용하나요?
+### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>연결된 팩터리 시뮬레이션에서 어떤 IoT Hub 디바이스를 사용하나요?
 
 시뮬레이션은 다음 디바이스를 자체 등록합니다.
 
@@ -164,9 +164,9 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 대시보드의 홈페이지에서 표시되는 고정 이미지를 변경하려면 `WebApp\Content\img\world.jpg` 이미지를 바꿉니다. 그러면 WebApp을 다시 빌드하고 다시 배포합니다.
 
-### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>연결된 팩터리에서 비 OPC UA 장치를 사용하려면 어떻게 할까요?
+### <a name="how-do-i-use-non-opc-ua-devices-with-connected-factory"></a>연결된 팩터리에서 비 OPC UA 디바이스를 사용하려면 어떻게 할까요?
 
-비 OPC UA 장치에서 연결된 팩터리에 원격 분석 데이터를 보내려면:
+비 OPC UA 디바이스에서 연결된 팩터리에 원격 분석 데이터를 보내려면:
 
 1. `ContosoTopologyDescription.json` 파일에서 [연결된 팩터리 토폴로지의 새 스테이션을 구성](iot-accelerators-connected-factory-configure.md)합니다.
 

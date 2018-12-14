@@ -1,6 +1,6 @@
 ---
 title: C로 Linux 디바이스를 원격 모니터링에 프로비전 - Azure | Microsoft Docs
-description: C로 작성한 응용 프로그램을 Linux에서 실행하여 원격 모니터링 솔루션 가속기에 장치를 연결하는 방법을 설명합니다.
+description: C로 작성한 응용 프로그램을 Linux에서 실행하여 원격 모니터링 솔루션 가속기에 디바이스를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators

@@ -33,9 +33,9 @@ ms.locfileid: "51685398"
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-Azure에서 Pacemaker 클러스터를 설정하는 옵션에는 두 가지가 있습니다. Azure API를 통해 실패한 노드를 다시 시작하는 펜싱 에이전트를 사용하거나 SBD 장치를 사용할 수 있습니다.
+Azure에서 Pacemaker 클러스터를 설정하는 옵션에는 두 가지가 있습니다. Azure API를 통해 실패한 노드를 다시 시작하는 펜싱 에이전트를 사용하거나 SBD 디바이스를 사용할 수 있습니다.
 
-SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 제공하는 추가 가상 머신이 하나 이상 필요합니다. 단, 이러한 iSCSI 대상 서버를 다른 Pacemaker 클러스터와 공유할 수 있습니다. SBD 장치를 사용하는 이점은 빠른 장애 조치(failover) 시간이며 온-프레미스에서 SBD 장치를 사용하는 경우에는 pacemaker 클러스터 작동 방식을 변경할 필요가 없습니다. 예를 들어, iSCSI 대상 서버의 OS 패치 동안 Pacemaker 클러스터에서 SBD 디바이스를 사용할 수 없게 하도록 하려면 최대 3개의 SBD 디바이스를 사용할 수 있습니다. Pacemaker당 2개 이상의 SBD 디바이스를 사용하려는 경우 여러 iSCSI 대상 서버를 배포하고 각 iSCSI 대상 서버에서 하나의 SBD를 연결해야 합니다. SBD 디바이스를 1개 또는 3개 사용하는 것이 좋습니다. SBD 디바이스를 2개만 구성한 상태에서 하나를 사용할 수 없게 되면 Pacemaker는 클러스터 노드를 자동으로 방어할 수 없게 됩니다. 하나의 iSCSI 대상 서버가 다운되었을 때 방어하려면 3개의 SBD 디바이스, 즉 3개의 iSCSI 대상 서버를 사용해야 합니다.
+SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 제공하는 추가 가상 머신이 하나 이상 필요합니다. 단, 이러한 iSCSI 대상 서버를 다른 Pacemaker 클러스터와 공유할 수 있습니다. SBD 디바이스를 사용하는 이점은 빠른 장애 조치(failover) 시간이며 온-프레미스에서 SBD 디바이스를 사용하는 경우에는 pacemaker 클러스터 작동 방식을 변경할 필요가 없습니다. 예를 들어, iSCSI 대상 서버의 OS 패치 동안 Pacemaker 클러스터에서 SBD 디바이스를 사용할 수 없게 하도록 하려면 최대 3개의 SBD 디바이스를 사용할 수 있습니다. Pacemaker당 2개 이상의 SBD 디바이스를 사용하려는 경우 여러 iSCSI 대상 서버를 배포하고 각 iSCSI 대상 서버에서 하나의 SBD를 연결해야 합니다. SBD 디바이스를 1개 또는 3개 사용하는 것이 좋습니다. SBD 디바이스를 2개만 구성한 상태에서 하나를 사용할 수 없게 되면 Pacemaker는 클러스터 노드를 자동으로 방어할 수 없게 됩니다. 하나의 iSCSI 대상 서버가 다운되었을 때 방어하려면 3개의 SBD 디바이스, 즉 3개의 iSCSI 대상 서버를 사용해야 합니다.
 
 가상 머신 하나를 추가로 투자하지 않으려면 Azure 펜스 에이전트를 사용할 수도 있습니다. 단점은 리소스 중지가 실패하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 장애 조치(failover)에 10~15분이 걸릴 수 있습니다.
 
@@ -47,7 +47,7 @@ SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 
 
 ## <a name="sbd-fencing"></a>SBD 펜싱
 
-펜싱에 SBD 장치를 사용하려면 다음 단계를 수행하세요.
+펜싱에 SBD 디바이스를 사용하려면 다음 단계를 수행하세요.
 
 ### <a name="set-up-iscsi-target-servers"></a>iSCSI 대상 서버 설정
 
@@ -80,7 +80,7 @@ SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 
    sudo systemctl start targetcli
    </code></pre>
 
-### <a name="create-iscsi-device-on-iscsi-target-server"></a>iSCSI 대상 서버에 iSCSI 장치 만들기
+### <a name="create-iscsi-device-on-iscsi-target-server"></a>iSCSI 대상 서버에 iSCSI 디바이스 만들기
 
 모든 **iSCSI 대상 가상 머신**에 대해 다음 명령을 실행하여 SAP 시스템에서 사용하는 클러스터에 대해 iSCSI 디스크를 만듭니다. 다음 예제에서는 여러 클러스터에 대한 SBD 디바이스가 만들어집니다. 또한 여러 클러스터에 대해 하나의 iSCSI 대상 서버를 사용하는 방법을 보여 줍니다. SBD 디바이스는 OS 디스크에 배치됩니다. 충분한 공간이 있는지 확인합니다.
 
@@ -172,9 +172,9 @@ o- / ...........................................................................
   o- xen-pvscsi ........................................................................................ [Targets: 0]
 </code></pre>
 
-### <a name="set-up-sbd-device"></a>SBD 장치 설정
+### <a name="set-up-sbd-device"></a>SBD 디바이스 설정
 
-클러스터의 마지막 단계에서 만든 iSCSI 장치에 연결합니다.
+클러스터의 마지막 단계에서 만든 iSCSI 디바이스에 연결합니다.
 새로 만들 클러스터의 노드에서 다음 명령을 실행합니다.
 다음 항목에는 접두사 **[A]**(모든 노드에 적용됨), **[1]**(노드 1에만 적용됨), **[2]**(노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
@@ -202,7 +202,7 @@ o- / ...........................................................................
    <pre><code>sudo vi /etc/iscsi/initiatorname.iscsi
    </code></pre>
 
-   iSCSI 대상 서버에서 iSCSI 장치를 만들 때 사용한 ACL과 일치하도록 파일의 콘텐츠 변경
+   iSCSI 대상 서버에서 iSCSI 디바이스를 만들 때 사용한 ACL과 일치하도록 파일의 콘텐츠 변경
 
    <pre><code>InitiatorName=<b>iqn.2006-04.nfs-1.local:nfs-1</b>
    </code></pre>
@@ -215,7 +215,7 @@ o- / ...........................................................................
    sudo systemctl restart iscsi
    </code></pre>
 
-   iSCSI 장치를 연결합니다. 아래 예에서 10.0.0.17은 iSCSI 대상 서버의 IP 주소이고 3260은 기본 포트입니다. <b>iqn.2006-04.nfs.local:nfs</b>는 아래의 첫 번째 명령(iscsiadm -m discovery)을 실행할 때 나열되는 대상 이름 중 하나입니다.
+   iSCSI 디바이스를 연결합니다. 아래 예에서 10.0.0.17은 iSCSI 대상 서버의 IP 주소이고 3260은 기본 포트입니다. <b>iqn.2006-04.nfs.local:nfs</b>는 아래의 첫 번째 명령(iscsiadm -m discovery)을 실행할 때 나열되는 대상 이름 중 하나입니다.
 
    <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.17:3260</b>
@@ -290,7 +290,7 @@ o- / ...........................................................................
    <pre><code>sudo vi /etc/sysconfig/sbd
    </code></pre>
 
-   SBD 장치의 속성을 변경하고, Pacemaker 통합을 활성화하고, SBD의 시작 모드를 변경합니다.
+   SBD 디바이스의 속성을 변경하고, Pacemaker 통합을 활성화하고, SBD의 시작 모드를 변경합니다.
 
    <pre><code>[...]
    <b>SBD_DEVICE="/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf"</b>

@@ -26,7 +26,7 @@ ms.locfileid: "47390054"
 [Azure Portal](https://portal.azure.com)은 모든 최신 데스크톱, 태블릿 장치 및 브라우저에서 실행할 수 있습니다.
 
 ### <a name="supported-devices"></a>지원되는 디바이스
-Azure Portal은 최신 PC, Mac 및 태블릿에서 우수하게 실행됩니다. 모바일 장치에서 Azure 리소스를 관리해야 하는 경우 iPhone 및 Android에서 제공되는 Azure 모바일 앱을 사용해 보세요. 자세한 내용은 [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)을 참조하세요.
+Azure Portal은 최신 PC, Mac 및 태블릿에서 우수하게 실행됩니다. 모바일 디바이스에서 Azure 리소스를 관리해야 하는 경우 iPhone 및 Android에서 제공되는 Azure 모바일 앱을 사용해 보세요. 자세한 내용은 [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)을 참조하세요.
 
 ### <a name="supported-browsers"></a>지원되는 브라우저
 운영 체제와 호환되는 가장 최신 브라우저를 사용하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.

@@ -38,7 +38,7 @@ Azure AD Connect 기본 설치의 경우, 필요한 모든 권한을 사용하�
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
 | 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/howto-sspr-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
-| 장치 쓰기 저장 |[장치 쓰기 저장](how-to-connect-device-writeback.md)에서 설명하는 장치 개체 및 컨테이너에 대한 쓰기 권한입니다 |
+| 디바이스 쓰기 저장 |[장치 쓰기 저장](how-to-connect-device-writeback.md)에서 설명하는 장치 개체 및 컨테이너에 대한 쓰기 권한입니다 |
 | 그룹 쓰기 저장 |동기화된 **Office 365 그룹**에 대해 그룹 개체를 읽기, 만들기, 업데이트 및 삭제합니다.  자세한 내용은 [그룹 쓰기 저장](how-to-connect-preview.md#group-writeback)을 참조하세요.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>ADSyncConfig PowerShell 모듈 사용 

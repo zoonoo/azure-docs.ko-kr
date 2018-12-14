@@ -1,6 +1,6 @@
 ---
 title: '여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결: Azure Resource Manager: PowerShell | Microsoft Docs'
-description: Azure Resource Manager 및 PowerShell을 사용하여 여러 정책 기반 VPN 장치에 대해 Azure 경로 기반 VPN 게이트웨이를 구성합니다.
+description: Azure Resource Manager 및 PowerShell을 사용하여 여러 정책 기반 VPN 디바이스에 대해 Azure 경로 기반 VPN 게이트웨이를 구성합니다.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -51,7 +51,7 @@ ms.locfileid: "31601936"
 | **최대 S2S 연결** | **1**                       | Basic/Standard: 10<br> HighPerformance: 30 |
 |                          |                             |                                          |
 
-이제 사용자 지정 IPsec/IKE 정책을 사용하여 "**PolicyBasedTrafficSelectors**" 옵션과 함께 접두사 기반 트래픽 선택기를 사용하여 온-프레미스 정책 기반 VPN 장치에 연결하도록 Azure 경로 기반 VPN Gateway를 구성할 수 있습니다. 이 기능을 사용하면 Azure Virtual Network 및 VPN Gateway에서 여러 온-프레미스 정책 기반 VPN/방화벽 디바이스에 연결할 수 있으므로 현재 Azure 정책 기반 VPN Gateway에서 단일 연결 제한이 제거됩니다.
+이제 사용자 지정 IPsec/IKE 정책을 사용하여 "**PolicyBasedTrafficSelectors**" 옵션과 함께 접두사 기반 트래픽 선택기를 사용하여 온-프레미스 정책 기반 VPN 디바이스에 연결하도록 Azure 경로 기반 VPN 게이트웨이를 구성할 수 있습니다. 이 기능을 사용하면 Azure Virtual Network 및 VPN Gateway에서 여러 온-프레미스 정책 기반 VPN/방화벽 디바이스에 연결할 수 있으므로 현재 Azure 정책 기반 VPN Gateway에서 단일 연결 제한이 제거됩니다.
 
 > [!IMPORTANT]
 > 1. 이 연결을 사용하려면 온-프레미스 정책 기반 VPN 디바이스가 Azure 경로 기반 VPN Gateway에 연결하도록 **IKEv2**를 지원해야 합니다. VPN 디바이스 사양을 확인하세요.
@@ -164,7 +164,7 @@ $lng6 = Get-AzureRmLocalNetworkGateway  -Name $LNGName6 -ResourceGroupName $RG1
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -UsePolicyBasedTrafficSelectors $True -IpsecPolicies $ipsecpolicy6 -SharedKey 'AzureA1b2C3'
 ```
 
-단계를 완료하면 S2S VPN 연결에서 정의된 IPsec/IKE 정책을 사용하며 연결에서 정책 기반 트래픽 선택기를 활성화합니다. 동일한 단계를 반복하여 동일한 Azure VPN Gateway에서 추가 온-프레미스 정책 기반 VPN 장치에 연결을 더 추가할 수 있습니다.
+단계를 완료하면 S2S VPN 연결에서 정의된 IPsec/IKE 정책을 사용하며 연결에서 정책 기반 트래픽 선택기를 활성화합니다. 동일한 단계를 반복하여 동일한 Azure VPN 게이트웨이에서 추가 온-프레미스 정책 기반 VPN 디바이스에 연결을 더 추가할 수 있습니다.
 
 ## <a name="update-policy-based-traffic-selectors-for-a-connection"></a>연결에 대한 정책 기반 트래픽 선택기 업데이트
 마지막 섹션에서는 기존 S2S VPN 연결에 대한 정책 기반 트래픽 선택기 옵션을 업데이트하는 방법을 보여 줍니다.

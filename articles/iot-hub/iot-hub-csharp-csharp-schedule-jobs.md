@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub(.NET/.NET)를 사용하여 작업 예약 | Microsoft Docs
-description: 여러 디바이스에서 직접 메서드를 호출하여 Azure IoT Hub 작업을 예약하는 방법입니다. .NET용 Azure IoT 장치 SDK를 사용하여 시뮬레이션된 장치 앱 및 작업을 실행하는 서비스 앱을 구현합니다.
+description: 여러 디바이스에서 직접 메서드를 호출하여 Azure IoT Hub 작업을 예약하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 시뮬레이션된 디바이스 앱 및 작업을 실행하는 서비스 앱을 구현합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -37,9 +37,9 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
-* 백 엔드 앱에 의해 호출될 수 있는 **LockDoor**라는 직접 메서드를 구현하는 장치 앱을 만듭니다.
+* 백 엔드 앱에 의해 호출될 수 있는 **LockDoor**라는 직접 메서드를 구현하는 디바이스 앱을 만듭니다.
 
-* 여러 장치에 대해 **LockDoor** 직접 메서드를 호출하는 작업을 만드는 백 엔드 앱을 만듭니다. 다른 작업이 여러 디바이스로 원하는 속성 업데이트를 보냅니다.
+* 여러 디바이스에 대해 **LockDoor** 직접 메서드를 호출하는 작업을 만드는 백 엔드 앱을 만듭니다. 다른 작업이 여러 디바이스로 원하는 속성 업데이트를 보냅니다.
 
 이 자습서를 마치면 다음과 같은 두 개의 .NET(C#) 콘솔 앱이 생깁니다.
 
@@ -86,7 +86,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
     using Newtonsoft.Json;
     ```
 
-5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 메모한 장치 연결 문자열로 대체합니다.
+5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 이전 섹션에서 메모한 디바이스 연결 문자열로 대체합니다.
 
     ```csharp
     static string DeviceConnectionString = "<yourDeviceConnectionString>";
@@ -153,7 +153,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>직접 메서드를 호출하고 디바이스 쌍의 업데이트를 전송하기 위한 작업 예약
 
-이 섹션에서는 작업을 사용하여 **LockDoor** 직접 메서드를 호출하고 원하는 속성 업데이트를 여러 장치에 전송하는 .NET 콘솔 앱(C# 사용)을 만듭니다.
+이 섹션에서는 작업을 사용하여 **LockDoor** 직접 메서드를 호출하고 원하는 속성 업데이트를 여러 디바이스에 전송하는 .NET 콘솔 앱(C# 사용)을 만듭니다.
 
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **ScheduleJob**으로 지정합니다.
 
@@ -179,7 +179,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
     using System.Threading.Tasks;
     ```
 
-6. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자를 이전 섹션에서 만든 허브 및 장치 이름의 IoT Hub 연결 문자열로 바꿉니다.
+6. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자를 이전 섹션에서 만든 허브 및 디바이스 이름의 IoT Hub 연결 문자열로 바꿉니다.
 
     ```csharp
     static JobClient jobClient;
@@ -283,7 +283,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 2. **시작**을 클릭하거나 **디버그** 메뉴로 이동하여 **디버깅 시작**을 클릭하여 프로젝트를 실행합니다.
 
-3. 장치 및 백 엔드 앱 모두에서 출력이 표시됩니다.
+3. 디바이스 및 백 엔드 앱 모두에서 출력이 표시됩니다.
 
     ![작업을 예약하는 앱 실행](./media/iot-hub-csharp-csharp-schedule-jobs/schedulejobs.png)
 

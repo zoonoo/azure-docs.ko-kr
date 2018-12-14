@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 디바이스 쌍 시작(.NET/.NET) | Microsoft Docs
-description: Azure IoT Hub 장치 쌍을 사용하여 태그를 추가한 다음 IoT Hub 쿼리를 사용하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 시뮬레이트된 디바이스 앱을 구현하고 .NET용 Azure IoT 서비스 SDK를 사용하여 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
+description: Azure IoT Hub 디바이스 쌍을 사용하여 태그를 추가한 다음, IoT Hub 쿼리를 사용하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 시뮬레이트된 디바이스 앱을 구현하고 .NET용 Azure IoT 서비스 SDK를 사용하여 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -105,7 +105,7 @@ ms.locfileid: "51514862"
     }
     ```
    
-    **RegistryManager** 클래스는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **registryManager** 개체를 초기화한 다음 **myDeviceId**에 대한 장치 쌍을 검색하고, 마지막으로 원하는 위치 정보로 tags를 업데이트합니다.
+    **RegistryManager** 클래스는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드에서는 **registryManager** 개체를 초기화한 다음, **myDeviceId**에 대한 디바이스 쌍을 검색하고, 마지막으로 원하는 위치 정보로 태그를 업데이트합니다.
    
     업데이트한 후 두 개의 쿼리를 실행합니다. 첫 번째는 **Redmond43** 공장에 위치한 디바이스의 디바이스 쌍만을 선택하고, 두 번째는 또한 셀룰러 네트워크를 통해서 연결된 디바이스만을 선택하기 위해 쿼리를 구체화합니다.
    
@@ -230,7 +230,7 @@ ms.locfileid: "51514862"
    
     ![디바이스 앱을 실행하여 연결 보고](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
        
-11. 장치가 연결 정보를 보고했으므로 두 쿼리 모두에 나타나야 합니다. .NET **AddTagsAndQuery** 앱을 실행하여 쿼리를 다시 실행합니다. 이번에는 **myDeviceId**가 두 쿼리 결과에 모두 나타나야 합니다.
+11. 디바이스가 연결 정보를 보고했으므로 두 쿼리 모두에 나타나야 합니다. .NET **AddTagsAndQuery** 앱을 실행하여 쿼리를 다시 실행합니다. 이번에는 **myDeviceId**가 두 쿼리 결과에 모두 나타나야 합니다.
    
     ![디바이스 연결이 성공적으로 보고됨](./media/iot-hub-csharp-csharp-twin-getstarted/tagappsuccess.png)
 

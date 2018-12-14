@@ -83,7 +83,7 @@ Notification Hubs는 기본적으로 모바일 앱에 알림을 보내도록 디
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>Notification Hubs를 통해 푸시 알림을 보낼 경우 얼마나 많은 디바이스를 지원할 수 있나요?
 지원되는 디바이스 수에 대한 내용은 [Notification Hubs 가격 책정] 페이지를 참조하세요.
 
-천만 개 이상의 등록된 장치에 대한 지원이 필요한 경우 직접 [문의](https://azure.microsoft.com/overview/contact-us/)하여 솔루션을 확장하도록 합니다.
+천만 개 이상의 등록된 디바이스에 대한 지원이 필요한 경우 직접 [문의](https://azure.microsoft.com/overview/contact-us/)하여 솔루션을 확장하도록 합니다.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>보낼 수 있는 푸시 알림 수는 몇 개인가요?
 선택한 계층에 따라 Azure Notification Hubs는 시스템에서 전송되는 알림 수에 따라 알림 허브가 자동으로 확장합니다.
@@ -115,7 +115,7 @@ PNS는 알림 배달에 대한 SLA를 보장하지 않습니다. 그러나 대�
 * 환경당 모바일 앱마다 알림 허브를 하나씩 사용합니다.
 * 다중 테넌트 시나리오에서는 각 테넌트에 별도의 허브가 있어야 합니다.
 * 프로덕션 및 테스트 환경에 대해 동일한 알림 허브를 공유하지 마세요. 이 경우 알림을 보낼 때 문제를 일으킬 수 있습니다. (Apple에서는 각기 별도의 자격 증명을 사용하는 샌드박스 및 프로덕션 푸시 엔드포인트를 제공합니다.)
-* 기본적으로 Azure Portal 또는 Visual Studio의 Azure 통합 구성 요소를 통해 등록된 디바이스에 테스트 알림을 보낼 수 있습니다. 임계값은 등록 풀에서 임의로 선택된 10개의 장치에 설정됩니다.
+* 기본적으로 Azure Portal 또는 Visual Studio의 Azure 통합 구성 요소를 통해 등록된 디바이스에 테스트 알림을 보낼 수 있습니다. 임계값은 등록 풀에서 임의로 선택된 10개의 디바이스에 설정됩니다.
 
 > [!NOTE]
 > 원래 Apple 샌드박스 인증서를 사용하여 허브를 구성했다가 Apple 프로덕션 인증서를 사용하도록 허브를 다시 구성하면 원래 디바이스 토큰이 무효화됩니다. 잘못된 토큰으로 푸시가 실패합니다. 프로덕션 환경과 테스트 환경을 분리하고 각기 환경에 서로 다른 허브를 사용합니다.

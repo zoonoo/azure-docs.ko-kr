@@ -443,7 +443,7 @@ HTTP Large 플랫폼의 기본 구성을 그대로 유지하세요. 고객 원�
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
 - 국가
-- 장치
+- 디바이스
 - 에지 Cname
 - 참조 도메인
 - 요청 헤더 리터럴
@@ -567,7 +567,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
 - 국가
-- 장치
+- 디바이스
 - 에지 Cname
 - 참조 도메인
 - 요청 헤더 리터럴
@@ -683,7 +683,7 @@ X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
 - 국가
-- 장치
+- 디바이스
 - 에지 Cname
 - 참조 도메인
 - 요청 헤더 리터럴
@@ -760,7 +760,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
 - 국가
-- 장치
+- 디바이스
 - 에지 Cname
 - 참조 도메인
 - 요청 헤더 리터럴
@@ -823,7 +823,7 @@ no-cache 요청은 HTTP 클라이언트에서 HTTP 요청에 `Cache-Control: no-
 - 쿠키 매개 변수
 - 쿠키 매개 변수 Regex
 - 국가
-- 장치
+- 디바이스
 - 에지 Cname
 - 참조 도메인
 - 요청 헤더 리터럴

@@ -213,11 +213,11 @@ GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템은 빌드 에이
 
 ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 이 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **Essentials** 및 **속성**)에서 표시됩니다. 하위 도메인이 *contoso.net*인 ILB ASE 및 *mytest*라는 앱이 있는 경우 FTP에 *mytest.contoso.net*을 사용하고 웹 배포에 *mytest.scm.contoso.net*을 사용합니다.
 
-## <a name="couple-an-ilb-ase-with-a-waf-device"></a>WAF 장치로 ILB ASE 연결 ##
+## <a name="couple-an-ilb-ase-with-a-waf-device"></a>WAF 디바이스로 ILB ASE 연결 ##
 
 Azure App Service는 시스템을 보호하는 많은 보안 조치를 제공합니다. 앱이 해킹되었는지를 확인할 수도 있습니다. 웹 응용 프로그램을 보호하기 위해 WAF(웹 응용 프로그램 방화벽)를 사용하여 Azure App Service와 같은 호스팅 플랫폼을 결합해야 합니다. ILB ASE에 네트워크 격리 응용 프로그램 엔드포인트가 있기 때문에 사용하기에 적합합니다.
 
-WAF 장치를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 내용은 [App Service Environment를 사용하여 웹 응용 프로그램 방화벽 구성][ASEWAF]을 참조하세요. 이 문서에서는 ASE를 사용하여 Barracuda 가상 어플라이언스를 사용하는 방법을 보여줍니다. 다른 방법은 Azure Application Gateway를 사용하는 것입니다. Application Gateway는 이후에 배치할 모든 응용 프로그램을 보호하기 위해 OWASP 핵심 규칙을 사용합니다. Application Gateway에 대한 자세한 내용은 [Azure 웹 응용 프로그램 방화벽 소개][AppGW]를 참조하세요.
+WAF 디바이스를 사용하여 ILB ASE를 구성하는 방법에 대한 자세한 내용은 [App Service Environment를 사용하여 웹 응용 프로그램 방화벽 구성][ASEWAF]을 참조하세요. 이 문서에서는 ASE를 사용하여 Barracuda 가상 어플라이언스를 사용하는 방법을 보여줍니다. 다른 방법은 Azure Application Gateway를 사용하는 것입니다. Application Gateway는 이후에 배치할 모든 응용 프로그램을 보호하기 위해 OWASP 핵심 규칙을 사용합니다. Application Gateway에 대한 자세한 내용은 [Azure 웹 응용 프로그램 방화벽 소개][AppGW]를 참조하세요.
 
 ## <a name="get-started"></a>시작하기 ##
 

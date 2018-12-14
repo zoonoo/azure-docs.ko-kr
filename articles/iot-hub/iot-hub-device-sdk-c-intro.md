@@ -21,7 +21,7 @@ ms.locfileid: "50024718"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-C용 Azure IoT 장치 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 작성됩니다. 이 기능은 다양한 플랫폼과 디바이스에서 작동하기에 적합한 라이브러리를 만들며, 특히 디스크 및 메모리 사용 공간을 최소화하는 것을 우선적으로 처리합니다.
+C용 Azure IoT 디바이스 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 작성됩니다. 이 기능은 다양한 플랫폼과 디바이스에서 작동하기에 적합한 라이브러리를 만들며, 특히 디스크 및 메모리 사용 공간을 최소화하는 것을 우선적으로 처리합니다.
 
 이 SDK는 광범위한 플랫폼에서 테스트되었습니다(자세한 내용은 [IoT용 Azure Certified 디바이스 카탈로그](https://catalog.azureiotsuite.com/) 참조). 이 문서에는 Windows 플랫폼에서 실행되는 샘플 코드 연습이 포함되어 있지만, 여기서 설명하는 코드는 지원되는 플랫폼 범위 전반에 걸쳐 정확히 동일합니다.
 
@@ -33,7 +33,7 @@ C용 Azure IoT 장치 SDK는 이식성을 최대화하기 위해 ANSI C(C99)로 
 
 ## <a name="sdk-architecture"></a>SDK 아키텍처
 
-GitHub 리포지토리에서 [**C용 Azure IoT 장치 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
+GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://github.com/Azure/azure-iot-sdk-c)를 찾고 [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)에서 API의 세부 정보를 볼 수 있습니다.
 
 최신 버전의 라이브러리는 이 리포지토리의 **master** 분기에서 찾을 수 있습니다.
 
@@ -557,7 +557,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 함수의 이름이 모델의 작업 이름과 일치하고, 함수의 매개 변수가 작업에 대해 지정된 매개 변수와 일치하는지 확인합니다. 첫 번째 매개 변수는 항상 필수이며, 모델 인스턴스에 대한 포인터를 포함합니다.
 
-장치에서 이 서명과 일치하는 메시지를 수신하면 해당 함수가 호출됩니다. 따라서 **IoTHubMessage**의 상용구 코드를 포함해야 하는 것 외에도 메시지 수신은 모델에 정의된 각 작업에 대한 간단한 함수를 정의하는 정도의 문제입니다.
+디바이스에서 이 서명과 일치하는 메시지를 수신하면 해당 함수가 호출됩니다. 따라서 **IoTHubMessage**의 상용구 코드를 포함해야 하는 것 외에도 메시지 수신은 모델에 정의된 각 작업에 대한 간단한 함수를 정의하는 정도의 문제입니다.
 
 ### <a name="uninitialize-the-library"></a>라이브러리 초기화 취소
 

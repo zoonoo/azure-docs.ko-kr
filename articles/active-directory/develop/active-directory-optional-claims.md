@@ -62,7 +62,7 @@ ms.locfileid: "51345490"
 | `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
 | `home_oid`                 | 게스트 사용자의 경우 사용자의 홈 테넌트에 있는 사용자의 개체 ID입니다.| JWT        |           | |
 | `sid`                      | 세션 기준 사용자 로그아웃에 사용되는 세션 ID입니다. | JWT        |           |         |
-| `platf`                    | 장치 플랫폼입니다.    | JWT        |           | 장치 유형을 확인할 수 있는 관리 장치로 제한됩니다.|
+| `platf`                    | 디바이스 플랫폼    | JWT        |           | 디바이스 유형을 확인할 수 있는 관리 디바이스로 제한됩니다.|
 | `verified_primary_email`   | 사용자의 PrimaryAuthoritativeEmail에서 소싱됩니다.      | JWT        |           |         |
 | `verified_secondary_email` | 사용자의 SecondaryAuthoritativeEmail에서 소싱됩니다.   | JWT        |           |        |
 | `enfpolids`                | 강제 적용된 정책 ID입니다. 현재 사용자에 대해 평가된 정책 ID의 목록입니다. | JWT |  |  |

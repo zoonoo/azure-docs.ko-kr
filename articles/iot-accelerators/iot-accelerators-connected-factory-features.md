@@ -23,7 +23,7 @@ ms.locfileid: "34626499"
 
 연결된 팩터리의 특징은 다음과 같습니다.
 
-## <a name="industrial-device-interoperability"></a>산업용 장치 상호 운용성
+## <a name="industrial-device-interoperability"></a>산업용 디바이스 상호 운용성
 
 - 산업 자산을 OPC UA 인터페이스에 연결합니다.
 - 시뮬레이션된 생산 라인(Docker 컨테이너에서 OPC UA 서버를 실행하는)을 사용하여 원격 분석을 봅니다.
@@ -45,7 +45,7 @@ ms.locfileid: "34626499"
 ## <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
 - [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md)는 대량의 시계열 데이터를 저장하고, 시각화하고, 쿼리하기 위해 구축되었습니다. 연결된 팩터리는 이 서비스를 활용합니다.
-- 연결된 팩터리는 이 서비스와 통합되어 장치 데이터의 실시간 심층 분석을 가능하게 합니다.
+- 연결된 팩터리는 이 서비스와 통합되어 디바이스 데이터의 실시간 심층 분석을 가능하게 합니다.
 
 ## <a name="rules-and-alerts"></a>규칙 및 경고
 

@@ -37,7 +37,7 @@ ms.locfileid: "49320563"
     ![개요](./media/how-to-connect-device-options/deviceoverview.png)
 
     >[!NOTE]
-    > 새로운 장치 구성 옵션은 버전 1.1.819.0 이상에서만 사용할 수 있습니다.
+    > 새로운 디바이스 구성 옵션은 버전 1.1.819.0 이상에서만 사용할 수 있습니다.
 
 2.  Azure AD의 자격 증명을 제공한 후에는 [디바이스 옵션] 페이지에서 수행할 작업을 선택할 수 있습니다.
     ![장치 작업](./media/how-to-connect-device-options/deviceoptionsselection.png)

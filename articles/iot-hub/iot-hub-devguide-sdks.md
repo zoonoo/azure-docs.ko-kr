@@ -1,6 +1,6 @@
 ---
 title: Azure IoT SDK 이해 | Microsoft Docs
-description: 개발자 가이드 - 장치 및 백 엔드 앱을 빌드하는데 사용할 수 있는 다양한 Azure IoT 장치 및 서비스 SDK에 대한 링크 정보입니다.
+description: 개발자 가이드 - 디바이스 및 백 엔드 앱을 빌드하는데 사용할 수 있는 다양한 Azure IoT 디바이스 및 서비스 SDK에 대한 링크 정보입니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -31,9 +31,9 @@ IoT Hub를 사용하기 위한 SDK(소프트웨어 개발 키트)의 범주에�
 
 ## <a name="azure-iot-device-sdks"></a>Azure IoT 디바이스 SDK
 
-Microsoft Azure IoT 장치 SDK에는 Azure IoT Hub 서비스에 연결되고 Azure IoT Hub 서비스에서 관리하는 장치와 응용 프로그램의 빌드를 용이하게 하는 코드가 포함되어 있습니다.
+Microsoft Azure IoT 디바이스 SDK에는 Azure IoT Hub 서비스에 연결되고 Azure IoT Hub 서비스에서 관리하는 디바이스와 애플리케이션의 빌드를 용이하게 하는 코드가 포함되어 있습니다.
 
-.NET용 Azure IoT Hub 장치 SDK: 
+.NET용 Azure IoT Hub 디바이스 SDK: 
 
 * [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/)에서 설치
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-csharp)
@@ -47,21 +47,21 @@ C용 Azure IoT Hub 디바이스 SDK, 이식성과 광범위한 플랫폼 호환�
 * [API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [모듈 참조](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
-Java용 Azure IoT Hub 장치 SDK: 
+Java용 Azure IoT Hub 디바이스 SDK: 
 
 * [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk) 프로젝트에 추가
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-java)
 * [API 참조](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device)
 * [모듈 참조](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable)
 
-Node.js용 Azure IoT Hub 장치 SDK: 
+Node.js용 Azure IoT Hub 디바이스 SDK: 
 
 * [npm](https://www.npmjs.com/package/azure-iot-device)에서 설치
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-node)
 * [API 참조](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest)
 * [모듈 참조](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
 
-Python용 Azure IoT Hub 장치 SDK: 
+Python용 Azure IoT Hub 디바이스 SDK: 
 
 * [pip](https://pypi.python.org/pypi/azure-iothub-device-client/)에서 설치
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-python)
@@ -86,7 +86,7 @@ SDK에 지원되는 플랫폼은 [Azure IoT SDK 플랫폼 지원](iot-hub-device
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 서비스 SDK
 
-Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 IoT Hub 서비스를 직접 조작하는 응용 프로그램의 빌드를 용이하게 하는 코드가 포함되어 있습니다.
+Azure IoT 서비스 SDK에는 디바이스와 보안을 관리하기 위해 IoT Hub 서비스를 직접 조작하는 애플리케이션의 빌드를 용이하게 하는 코드가 포함되어 있습니다.
 
 .NET용 Azure IoT Hub 서비스 SDK:
 

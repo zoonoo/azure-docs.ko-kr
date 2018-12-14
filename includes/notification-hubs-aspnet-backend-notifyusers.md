@@ -147,7 +147,7 @@ ms.locfileid: "33835800"
 6. 변경 내용을 저장합니다.
 
 ## <a name="register-for-notifications-by-using-the-webapi-backend"></a>WebAPI 백 엔드를 사용하여 알림 등록
-이 섹션에서는 알림 허브에 클라이언트 라이브러리를 사용하여 알림을 위한 사용자 및 장치 등록 요청을 처리하는 새 컨트롤러를 WebAPI 백 엔드에 추가합니다. 이 컨트롤러는 `AuthenticationTestHandler`에 의해 인증되고 HttpContext에 연결된 사용자에 대한 사용자 태그를 추가합니다. 태그의 문자열 형식은 `"username:<actual username>"`입니다.
+이 섹션에서는 알림 허브에 클라이언트 라이브러리를 사용하여 알림을 위한 사용자 및 디바이스 등록 요청을 처리하는 새 컨트롤러를 WebAPI 백 엔드에 추가합니다. 이 컨트롤러는 `AuthenticationTestHandler`에 의해 인증되고 HttpContext에 연결된 사용자에 대한 사용자 태그를 추가합니다. 태그의 문자열 형식은 `"username:<actual username>"`입니다.
 
 1. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리**를 선택합니다.
 
@@ -311,7 +311,7 @@ ms.locfileid: "33835800"
 12. 변경 내용을 저장합니다.
 
 ## <a name="send-notifications-from-the-webapi-backend"></a>WebAPI 백 엔드에서 알림 보내기
-이 섹션에서는 클라이언트 장치에서 알림을 보내기 위한 방법을 노출하는 새 컨트롤러를 추가합니다. 알림은 ASP.NET WebAPI 백 엔드에서 Azure Notification Hubs .NET 라이브러리를 사용하는 사용자 이름 태그를 기반으로 합니다.
+이 섹션에서는 클라이언트 디바이스에서 알림을 보내기 위한 방법을 노출하는 새 컨트롤러를 추가합니다. 알림은 ASP.NET WebAPI 백 엔드에서 Azure Notification Hubs .NET 라이브러리를 사용하는 사용자 이름 태그를 기반으로 합니다.
 
 1. 이전 섹션에서 **RegisterController**를 만들었던 동일한 방식으로 **NotificationsController**라는 다른 새 컨트롤러를 만듭니다.
 
@@ -326,7 +326,7 @@ ms.locfileid: "33835800"
    
     이 코드는 PNS(Platform Notification Service) `pns` 매개 변수를 기반으로 알림 유형을 보냅니다. `to_tag` 값은 메시지에서 *사용자 이름* 태그를 지정하는 데 사용됩니다. 이 태그는 활성 알림 허브 등록의 사용자 이름 태그와 일치해야 합니다. 알림 메시지는 POST 요청의 본문에서 가져오고 대상 PNS에 맞게 형식이 지정됩니다. 
    
-    알림을 수신하기 위해 지원되는 장치가 사용하는 PNS에 따라 다양한 형식으로 알림을 지원합니다. 예를 들어 Windows 디바이스에서 다른 PNS에서 직접 지원되지 않는 [WNS로 알림](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)을 사용할 수 있습니다. 이러한 상황에서 백 엔드는 알림을 지원하려는 장치의 PNS에 지원되는 알림으로 포맷해야 합니다. 그런 다음 [NotificationHubClient 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)에서 적절한 보내기 API를 사용합니다.
+    알림을 수신하기 위해 지원되는 디바이스가 사용하는 PNS에 따라 다양한 형식으로 알림을 지원합니다. 예를 들어 Windows 디바이스에서 다른 PNS에서 직접 지원되지 않는 [WNS로 알림](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)을 사용할 수 있습니다. 이러한 상황에서 백 엔드는 알림을 지원하려는 디바이스의 PNS에 지원되는 알림으로 포맷해야 합니다. 그런 다음 [NotificationHubClient 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)에서 적절한 보내기 API를 사용합니다.
    
     ```csharp
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)

@@ -17,7 +17,7 @@ ms.locfileid: "50164772"
 
 1. **StorSimple 장치 관리자** 블레이드에서 작성한 서비스를 클릭합니다. 오른쪽에 새 블레이드가 열립니다.
    
-     ![StorSimple 장치 관리자 블레이드](./media/storsimple-8000-get-service-registration-key/createssdevman5.png)
+     ![StorSimple Device Manager 블레이드](./media/storsimple-8000-get-service-registration-key/createssdevman5.png)
 
 2.  **관리 > 키**로 이동합니다.
    
@@ -26,6 +26,6 @@ ms.locfileid: "50164772"
 3.  열리는 블레이드에서 복사 아이콘을 클릭하여 서비스 등록 키를 복사한 다음 나중에 사용할 수 있도록 저장합니다.
 
 > [!NOTE]
-> 서비스 등록 키는 StorSimple 장치 관리자 서비스에 등록해야 하는 모든 장치를 등록하는 데 사용됩니다.
+> 서비스 등록 키는 StorSimple Device Manager 서비스에 등록해야 하는 모든 디바이스를 등록하는 데 사용됩니다.
 
 

@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2018
 ms.locfileid: "51977400"
 ---
-Azure IoT Edge의 주요 기능 중 하나는 클라우드에서 IoT Edge 장치에 모듈을 배포할 수 있다는 것입니다. IoT Edge 모듈은 컨테이너로 구현되는 실행 가능한 패키지입니다. 이 섹션에서는 시뮬레이트된 디바이스에 대한 원격 분석을 생성하는 모듈을 배포합니다.
+Azure IoT Edge의 주요 기능 중 하나는 클라우드에서 IoT Edge 디바이스에 모듈을 배포할 수 있다는 것입니다. IoT Edge 모듈은 컨테이너로 구현되는 실행 가능한 패키지입니다. 이 섹션에서는 시뮬레이트된 디바이스에 대한 원격 분석을 생성하는 모듈을 배포합니다.
 
 1. Azure Portal에서 IoT Hub로 이동합니다.
 

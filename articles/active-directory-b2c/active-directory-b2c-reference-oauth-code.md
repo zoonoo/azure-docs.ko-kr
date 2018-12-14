@@ -18,7 +18,7 @@ ms.lasthandoff: 11/08/2018
 ms.locfileid: "51282648"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0 인증 코드 흐름
-장치에 설치된 앱에서 OAuth 2.0 인증 코드 권한 부여를 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. OAuth 2.0의 Azure AD B2C(Azure Active Directory B2C) 구현을 사용하면 모바일 및 데스크톱 앱에 등록, 로그인 및 기타 ID 관리 작업을 추가할 수 있습니다. 이 문서는 언어 독립적입니다. 이 문서에서는 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
+디바이스에 설치된 앱에서 OAuth 2.0 인증 코드 권한 부여를 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. OAuth 2.0의 Azure AD B2C(Azure Active Directory B2C) 구현을 사용하면 모바일 및 데스크톱 앱에 등록, 로그인 및 기타 ID 관리 작업을 추가할 수 있습니다. 이 문서는 언어 독립적입니다. 이 문서에서는 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
 
 OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](http://tools.ietf.org/html/rfc6749)에서 설명합니다. 웹 응용 프로그램 및 기본적으로 설치된 응용 프로그램을 포함하여 대부분의 [응용 프로그램 형식](active-directory-b2c-apps.md)에서 인증 및 권한 부여에 사용할 수 있습니다. OAuth 2.0 인증 코드 흐름을 사용하여 [권한 부여 서버](active-directory-b2c-reference-protocols.md)를 통해 보호되는 리소스에 액세스하는 데 사용할 수 있는 응용 프로그램에 대한 액세스 토큰 및 새로 고침 토큰을 안전하게 획득할 수 있습니다.  새로 고침 토큰을 사용하면 일반적으로 1시간 후 액세스 토큰이 만료되면 클라이언트가 새 액세스(및 새로 고침) 토큰을 획득할 수 있습니다.
 

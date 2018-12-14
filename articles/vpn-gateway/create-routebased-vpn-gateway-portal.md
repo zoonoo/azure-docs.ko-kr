@@ -82,11 +82,11 @@ ms.locfileid: "49470305"
 
 ## <a name="viewgw"></a>VPN 게이트웨이 보기
 
-1. 게이트웨이가 생성된 후 포털에서 VNet1로 이동합니다. VPN 게이트웨이가 개요 페이지에 연결된 장치로 나타납니다.
+1. 게이트웨이가 생성된 후 포털에서 VNet1로 이동합니다. VPN 게이트웨이가 개요 페이지에 연결된 디바이스로 나타납니다.
 
   ![연결된 장치](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "연결된 장치")
 
-2. 장치 목록에서 **VNet1GW**를 클릭하여 자세한 정보를 확인합니다.
+2. 디바이스 목록에서 **VNet1GW**를 클릭하여 자세한 정보를 확인합니다.
 
   ![VPN 게이트웨이 보기](./media/create-routebased-vpn-gateway-portal/view-gateway.png "VPN 게이트웨이 보기")
 

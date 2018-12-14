@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-## <a name="add-a-simulated-device"></a>시뮬레이트된 장치 추가
+## <a name="add-a-simulated-device"></a>시뮬레이트된 디바이스 추가
 
 솔루션의 **디바이스** 페이지로 이동한 다음, **+새 디바이스**를 클릭합니다.
 

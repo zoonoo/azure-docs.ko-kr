@@ -99,7 +99,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 디바이스는 먼저 PNS에서 PNS 핸들을 검색한 다음 알림 허브에 직접 등록합니다. 등록이 성공한 후 앱 백 엔드는 해당 등록을 대상으로 지정하는 알림을 보낼 수 있습니다. 알림을 보내는 방법에 대한 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
-이 경우 수신 권한만 사용하여 장치에서 사용자의 알림 허브에 액세스합니다. 자세한 내용은 [보안](notification-hubs-push-notification-security.md)을 참조하세요.
+이 경우 수신 권한만 사용하여 디바이스에서 사용자의 알림 허브에 액세스합니다. 자세한 내용은 [보안](notification-hubs-push-notification-security.md)을 참조하세요.
 
 디바이스에서 등록은 가장 간단한 방법이지만 몇 가지 단점이 있습니다.
 첫 번째 단점은 클라이언트 앱이 활성 상태일 때에만 태그를 업데이트할 수 있다는 것입니다. 예를 들어 사용자가 스포츠 팀과 관련된 태그를 등록하는 디바이스 두 개를 가지고 있는 경우 첫 번째 디바이스가 추가 태그(예: Seahawks)에 대해 등록하면 두 번째 디바이스는 두 번째 디바이스의 앱이 두 번째로 실행될 때까지 Seahawks에 관한 알림을 받지 않습니다. 더 일반적으로 태그가 여러 디바이스의 영향을 받는 경우 백 엔드에서 태그 관리가 바람직한 옵션입니다.
@@ -293,7 +293,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
     }
 
 
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>등록 ID를 사용하여 장치에서 알림 허브에 등록하는 예제 코드
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>등록 ID를 사용하여 디바이스에서 알림 허브에 등록하는 예제 코드
 앱 백 엔드에서 등록에 대해 기본 CRUDS 작업을 수행할 수 있습니다. 예: 
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");

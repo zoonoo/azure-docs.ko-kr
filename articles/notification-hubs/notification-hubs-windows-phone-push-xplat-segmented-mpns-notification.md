@@ -1,6 +1,6 @@
 ---
 title: Azure Notification Hubs를 사용하여 특정 Windows 휴대폰에 알림 푸시 | Microsoft Docs
-description: 이 자습서에서는 Azure Notification Hubs를 사용하여 응용 프로그램 백 엔드로 등록된 특정(모두는 아님) Windows Phone 8 또는 Windows Phone 8.1 장치에 알림을 푸시하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Notification Hubs를 사용하여 응용 프로그램 백 엔드로 등록된 특정(모두는 아님) Windows Phone 8 또는 Windows Phone 8.1 디바이스에 알림을 푸시하는 방법을 알아봅니다.
 services: notification-hubs
 documentationcenter: windows
 author: dimazaid
@@ -22,10 +22,10 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/15/2018
 ms.locfileid: "41919552"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Windows Phone 장치에 알림 푸시
+# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Windows Phone 디바이스에 알림 푸시
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 특정 Windows Phone 8 또는 Windows Phone 8.1 장치에 푸시 알림을 보내는 방법을 보여줍니다. Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 이 자습서의 [Windows 범용](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 버전을 참조하세요.
+이 자습서에서는 Azure Notification Hubs를 사용하여 특정 Windows Phone 8 또는 Windows Phone 8.1 디바이스에 푸시 알림을 보내는 방법을 보여줍니다. Windows Phone 8.1(비 Silverlight)을 대상으로 하는 경우 이 자습서의 [Windows 범용](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) 버전을 참조하세요.
 
 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하여 이 시나리오를 활성화합니다. 태그에 알림이 전송되면 태그에 대해 등록된 모든 디바이스에서 알림을 받게 됩니다. 태그에 대한 자세한 내용은 [등록의 태그](notification-hubs-tags-segment-push-message.md)를 참조하세요.
 
@@ -44,7 +44,7 @@ ms.locfileid: "41919552"
 [자습서: Azure Notification Hubs를 사용하여 Windows Phone 앱에 알림 푸시](notification-hubs-windows-mobile-push-notifications-mpns.md)를 완료합니다. 이 자습서에서는 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있도록 모바일 응용 프로그램을 업데이트합니다. 
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>모바일 앱에 범주 선택 추가
-첫 번째 단계는 기존의 기본 페이지에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 장치에 저장됩니다. 앱을 시작하면 장치 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.
+첫 번째 단계는 기존의 기본 페이지에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 디바이스에 저장됩니다. 앱을 시작하면 디바이스 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.
 
 1. MainPage.xaml 프로젝트 파일을 열고 `TitlePanel` 및 `ContentPanel`이라는 **Grid** 요소를 다음 코드로 바꿉니다.
    
@@ -199,7 +199,7 @@ ms.locfileid: "41919552"
     }
     ```
     
-    이 클래스는 격리된 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림 등록을 사용하여 이러한 범주에 등록하는 메서드가 포함됩니다.
+    이 클래스는 격리된 저장소를 사용하여, 이 디바이스에서 받아야 할 뉴스의 범주를 저장합니다. 또한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림 등록을 사용하여 이러한 범주에 등록하는 메서드가 포함됩니다.
 1. App.xaml.cs 프로젝트 파일에서 **App** 클래스에 다음 속성을 추가합니다. `<hub name>`과 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
    
     ```csharp
@@ -237,7 +237,7 @@ ms.locfileid: "41919552"
    
     이 메서드는 범주 목록을 만들고 **Notifications** 클래스를 사용하여, 로컬 저장소에 목록을 저장하고 알림 허브에 해당 태그를 등록합니다. 범주가 변경되면 새 범주로 등록이 다시 생성됩니다.
 
-이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 장치의 로컬 저장소에 저장하고 알림 허브에 등록할 수 있습니다.
+이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 디바이스의 로컬 저장소에 저장하고 알림 허브에 등록할 수 있습니다.
 
 ## <a name="register-for-notifications"></a>알림 등록
 다음 단계에서는 로컬 저장소에 저장된 범주를 사용하여 시작 시 알림 허브에 등록합니다.
@@ -292,7 +292,7 @@ ms.locfileid: "41919552"
     앱 UI는 구독할 범주를 선택하도록 하는 토글 집합을 제공합니다.
 2. 하나 이상의 범주 토글을 사용하도록 설정한 후 **구독**을 클릭합니다.
    
-    앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 장치 등록을 요청합니다. 등록된 범주가 반환되어 대화 상자에 표시됩니다.
+    앱은 선택한 범주를 태그로 변환하고 알림 허브에서 선택한 태그에 대한 새로운 디바이스 등록을 요청합니다. 등록된 범주가 반환되어 대화 상자에 표시됩니다.
    
     ![구독된 메시지][2]
 3. 범주가 구독 완료되었다는 확인을 받은 후 각 범주에 대한 알림을 보내는 콘솔 앱을 실행합니다. 구독한 범주에 대한 알림만 받는지 확인합니다.
@@ -300,7 +300,7 @@ ms.locfileid: "41919552"
     ![알림 메시지][3]
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 등록에 태그가 연결된 특정 장치에 알림을 푸시하는 방법을 배웠습니다. 여러 장치를 사용할 수 있는 특정 사용자에게 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+이 자습서에서는 등록에 태그가 연결된 특정 디바이스에 알림을 푸시하는 방법을 배웠습니다. 여러 디바이스를 사용할 수 있는 특정 사용자에게 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
 > [!div class="nextstepaction"]
 >[특정 사용자에 알림 푸시](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)

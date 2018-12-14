@@ -18,7 +18,7 @@ ms.locfileid: "43696251"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio 도구를 사용하여 Stream Analytics Edge 작업 개발
 
-이 자습서에서는 Visual Studio용 Stream Analytics 도구를 사용하여 Stream Analytics Edge 작업을 작성하고, 디버그하고, 만드는 방법에 대해 알아봅니다. 작업을 만들고 테스트한 후에는 Azure Portal로 이동하여 장치에 배포할 수 있습니다. 
+이 자습서에서는 Visual Studio용 Stream Analytics 도구를 사용하여 Stream Analytics Edge 작업을 작성하고, 디버그하고, 만드는 방법에 대해 알아봅니다. 작업을 만들고 테스트한 후에는 Azure Portal로 이동하여 디바이스에 배포할 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -109,7 +109,7 @@ FROM EdgeInput
 
    ![Azure에 제출](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-to-azure.png)
  
-   이제 Stream Analytics Edge 작업이 만들어졌으므로 [IoT Edge에서 작업 실행 자습서](stream-analytics-edge.md)를 참조하여 장치에 장치를 배포하는 방법을 알아볼 수 있습니다. 
+   이제 Stream Analytics Edge 작업이 만들어졌으므로 [IoT Edge에서 작업 실행 자습서](stream-analytics-edge.md)를 참조하여 디바이스에 디바이스를 배포하는 방법을 알아볼 수 있습니다. 
 
 ## <a name="manage-the-job"></a>작업 관리 
 

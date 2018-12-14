@@ -135,7 +135,7 @@ Azure AD 자격 증명을 사용하여 Azure Linux 가상 머신에 로그인합
 ssh -l azureuser@contoso.onmicrosoft.com publicIps
 ```
 
-[https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)에서 일회용 코드를 사용하여 Azure AD에 로그인하라는 메시지가 표시됩니다. 다음 예제와 같이 일회용 코드를 복사하고, 장치 로그인 페이지에 붙여넣습니다.
+[https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)에서 일회용 코드를 사용하여 Azure AD에 로그인하라는 메시지가 표시됩니다. 다음 예제와 같이 일회용 코드를 복사하고, 디바이스 로그인 페이지에 붙여넣습니다.
 
 ```bash
 ~$ ssh -l azureuser@contoso.onmicrosoft.com 13.65.237.247

@@ -354,7 +354,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  deviceModel | 임의의 문자열 값입니다. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | 개인, 회사, 알 수 없음 | (device.deviceOwnership -eq "Corporate")
  domainName | 임의의 문자열 값입니다. | (device.domainName -eq "contoso.com")
- enrollmentProfileName | Apple 장치 등록 프로필 또는 Windows Autopilot 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Apple 디바이스 등록 프로필 또는 Windows Autopilot 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM(모바일 디바이스)<br>PC(Intune PC 에이전트에 의해 관리되는 컴퓨터) | (device.managementType -eq "MDM")
  deviceId | 유효한 Azure AD 디바이스 ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

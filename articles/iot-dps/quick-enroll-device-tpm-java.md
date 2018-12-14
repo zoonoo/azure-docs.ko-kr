@@ -57,7 +57,7 @@ ms.locfileid: "50420492"
 
 이 섹션에서는 TPM 디바이스에 대한 프로비전 세부 정보를 샘플 코드에 추가하는 방법을 보여줍니다. 
 
-1. 명령 프롬프트를 엽니다. Java 서비스 SDK를 사용하여 장치 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
+1. 명령 프롬프트를 엽니다. Java 서비스 SDK를 사용하여 디바이스 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive

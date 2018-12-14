@@ -207,10 +207,10 @@ Microsoft Office 2013 클라이언트 이상에 대해 최신 인증이 지원�
 
 ### <a name="guidance-for-app-password-names"></a>앱 암호 이름에 대한 지침
 
-앱 암호 이름은 해당 이름이 사용될 장치를 반영해야 합니다. Outlook, Word 및 Excel 등의 비 브라우저 응용 프로그램이 있는 노트북을 가지고 있는 경우 이러한 앱에 대해 **Laptop**이라는 하나의 앱 암호를 만듭니다. 그런 다음 데스크톱 컴퓨터에서 실행하는 동일한 응용 프로그램에 대해 **Desktop**이라는 다른 앱 암호를 만듭니다.
+앱 암호 이름은 해당 이름이 사용될 디바이스를 반영해야 합니다. Outlook, Word 및 Excel 등의 비 브라우저 응용 프로그램이 있는 노트북을 가지고 있는 경우 이러한 앱에 대해 **Laptop**이라는 하나의 앱 암호를 만듭니다. 그런 다음 데스크톱 컴퓨터에서 실행하는 동일한 응용 프로그램에 대해 **Desktop**이라는 다른 앱 암호를 만듭니다.
 
 >[!NOTE]
->응용 프로그램별로 하나의 앱 암호보다는 장치별로 하나의 앱 암호를 만드는 것이 좋습니다.
+>응용 프로그램별로 하나의 앱 암호보다는 디바이스별로 하나의 앱 암호를 만드는 것이 좋습니다.
 
 ### <a name="federated-or-single-sign-on-app-passwords"></a>페더레이션된 또는 Single Sign-On 앱 암호
 
@@ -349,17 +349,17 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 ## <a name="remember-multi-factor-authentication"></a>Multi-Factor Authentication 저장
 
-사용자가 신뢰할 수 있는 장치 및 브라우저용 _Multi-Factor Authentication 저장_ 기능은 모든 Multi-Factor Authentication 사용자에 대한 무료 기능입니다. 사용자는 Multi-Factor Authentication을 사용하여 장치에 성공적으로 로그인한 후 지정된 일 수 동안 이후 인증을 바이패스할 수 있습니다. 이 기능은 사용자가 동일한 장치에서 2단계 인증을 수행해야 하는 횟수를 최소화함으로써 유용성을 향상시킵니다.
+사용자가 신뢰할 수 있는 디바이스 및 브라우저용 _Multi-Factor Authentication 저장_ 기능은 모든 Multi-Factor Authentication 사용자에 대한 무료 기능입니다. 사용자는 Multi-Factor Authentication을 사용하여 디바이스에 성공적으로 로그인한 후 지정된 일 수 동안 이후 인증을 바이패스할 수 있습니다. 이 기능은 사용자가 동일한 디바이스에서 2단계 인증을 수행해야 하는 횟수를 최소화함으로써 유용성을 향상시킵니다.
 
 >[!IMPORTANT]
->계정 또는 장치가 손상된 경우 신뢰할 수 있는 장치의 Multi-Factor Authentication을 저장해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 디바이스를 분실 또는 도난당한 경우 [모든 디바이스에서 Multi-Factor Authentication을 복원](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user)해야 합니다.
+>계정 또는 디바이스가 손상된 경우 신뢰할 수 있는 디바이스의 Multi-Factor Authentication을 저장해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 디바이스를 분실 또는 도난당한 경우 [모든 디바이스에서 Multi-Factor Authentication을 복원](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user)해야 합니다.
 >
->복원 작업은 모든 장치에서 신뢰할 수 있는 상태를 해지하며, 사용자는 2단계 인증을 다시 수행해야 합니다. [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)의 내용에 따라 사용자에게 자신의 장치에서 Multi-Factor Authentication을 복원하도록 지시할 수도 있습니다.
+>복원 작업은 모든 디바이스에서 신뢰할 수 있는 상태를 해지하며, 사용자는 2단계 인증을 다시 수행해야 합니다. [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)의 내용에 따라 사용자에게 자신의 장치에서 Multi-Factor Authentication을 복원하도록 지시할 수도 있습니다.
 >
 
 ### <a name="how-the-feature-works"></a>기능의 작동 원리
 
-Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 동안 다시 묻지 않음** 상자를 선택한 경우 브라우저에서 영구 쿠키를 설정합니다. 그러면 쿠키가 만료될 때까지 동일한 브라우저에서 사용자에게 Multi-Factor Authentication 메시지가 다시 표시되지 않습니다. 사용자가 동일한 장치에서 다른 브라우저를 열거나 쿠키를 지우는 경우 다시 확인하라는 메시지가 표시됩니다.
+Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 동안 다시 묻지 않음** 상자를 선택한 경우 브라우저에서 영구 쿠키를 설정합니다. 그러면 쿠키가 만료될 때까지 동일한 브라우저에서 사용자에게 Multi-Factor Authentication 메시지가 다시 표시되지 않습니다. 사용자가 동일한 디바이스에서 다른 브라우저를 열거나 쿠키를 지우는 경우 다시 확인하라는 메시지가 표시됩니다.
 
 비 브라우저 응용 프로그램에는 앱이 최신 인증을 지원하는지 여부와 상관없이 **X일 동안 다시 묻지 않음** 옵션이 표시되지 않습니다. 이러한 앱에서는 1시간마다 새로운 액세스 토큰을 제공하는 _새로 고침 토큰_을 사용합니다. 새로 고침 토큰의 유효성이 확인되면 Azure AD가 마지막 2단계 인증이 지정된 일 수 내에 발생했는지 확인합니다.
 
@@ -368,7 +368,7 @@ Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 �
 >[!IMPORTANT]
 >사용자가 Azure Multi-Factor Authentication 서버 또는 제3자 다단계 인증 솔루션을 통해 AD FS에 대해 2단계 인증을 수행하는 경우 **Multi-Factor Authentication 저장** 기능은 AD FS의 **로그인 유지** 기능과 호환되지 않습니다.
 >
->사용자가 AD FS에서 **로그인 유지**를 선택하고 자신의 장치를 Multi-Factor Authentication에 대해 신뢰할 수 있는 것으로 표시하는 경우 해당 사용자는 **Multi-Factor Authentication 저장** 일 수가 만료된 후 자동으로 인증되지 않습니다. Azure AD는 새로운 2단계 인증을 요청하지만 AD FS는 2단계 인증을 다시 수행하는 대신, 원본 Multi-Factor Authentication 클레임 및 날짜와 함께 토큰을 반환합니다. **이 반응으로 Azure AD 및 AD FS 간의 확인 루프가 시작됩니다.**
+>사용자가 AD FS에서 **로그인 유지**를 선택하고 자신의 디바이스를 Multi-Factor Authentication에 대해 신뢰할 수 있는 것으로 표시하는 경우 해당 사용자는 **Multi-Factor Authentication 저장** 일 수가 만료된 후 자동으로 인증되지 않습니다. Azure AD는 새로운 2단계 인증을 요청하지만 AD FS는 2단계 인증을 다시 수행하는 대신, 원본 Multi-Factor Authentication 클레임 및 날짜와 함께 토큰을 반환합니다. **이 반응으로 Azure AD 및 AD FS 간의 확인 루프가 시작됩니다.**
 >
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Multi-Factor Authentication 저장 사용
@@ -378,9 +378,9 @@ Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 �
 3. **Multi-Factor Authentication**을 선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
 5. **서비스 설정** 페이지의 **Multi-Factor Authentication 저장 관리**에서 **사용자가 신뢰하는 디바이스에 대한 다단계 인증을 저장하도록 허용** 옵션을 선택합니다.
-6. 신뢰할 수 있는 장치가 2단계 인증을 바이패스할 수 있는 일 수를 설정합니다. 기본값은 14일입니다.
+6. 신뢰할 수 있는 디바이스가 2단계 인증을 바이패스할 수 있는 일 수를 설정합니다. 기본값은 14일입니다.
 7. **저장**을 선택합니다.
 
 ### <a name="mark-a-device-as-trusted"></a>디바이스를 신뢰할 수 있음으로 표시
 
-Multi-Factor Authentication 저장 기능을 사용하도록 설정한 후 사용자가 **다시 묻지 않음**을 선택하여 로그인할 때 장치를 신뢰할 수 있는 장치로 표시할 수 있습니다.
+Multi-Factor Authentication 저장 기능을 사용하도록 설정한 후 사용자가 **다시 묻지 않음**을 선택하여 로그인할 때 디바이스를 신뢰할 수 있는 디바이스로 표시할 수 있습니다.

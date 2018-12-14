@@ -49,7 +49,7 @@ Azure Active Directory Connect 동기화 서비스(Azure AD Connect 동기화)�
 | [실수로 인한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md) |*실수로 인한 삭제 방지* 기능과 이를 구성하는 방법을 설명합니다. |
 | [Scheduler](how-to-connect-sync-feature-scheduler.md) |데이터를 가져오고 동기화하고 내보내는 기본 제공 스케줄러를 설명합니다. |
 | [암호 해시 동기화 구현](how-to-connect-password-hash-synchronization.md) |암호 동기화의 작동 방식, 구현 방법, 작동 및 문제 해결 방법에 대해 설명합니다. |
-| [장치 쓰기 저장](how-to-connect-device-writeback.md) |Azure AD Connect에서 장치 쓰기 저장이 작동하는 방식에 대해 설명합니다. |
+| [장치 쓰기 저장](how-to-connect-device-writeback.md) |Azure AD Connect에서 디바이스 쓰기 저장이 작동하는 방식에 대해 설명합니다. |
 | [디렉터리 확장](how-to-connect-sync-feature-directory-extensions.md) |자체 사용자 지정 특성을 사용하여 Azure AD 스키마를 확장하는 방법에 대해 설명합니다. |
 | [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |사용자의 Office 365 리소스를 사용자와 동일한 지역에 배치하는 방법을 설명합니다. |
 | **동기화 서비스** | |

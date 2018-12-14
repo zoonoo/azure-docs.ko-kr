@@ -185,7 +185,7 @@ string sasToken = myDevice.GetSASToken();
 
 var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. CreateAuthenticationWithToken(deviceId, sasToken), TransportType.Amqp); 
 ```
-여기서 보여 주듯이 장치 기본 키는 코드에 없지만 TPM의 슬롯 0에 저장됩니다. TPM 장치는 IoT Hub에 연결하는 데 사용되는 수명이 짧은 SAS 토큰을 생성합니다. 
+여기서 보여주듯이 디바이스 기본 키는 코드에 없지만 TPM의 슬롯 0에 저장됩니다. TPM 디바이스는 IoT Hub에 연결하는 데 사용되는 수명이 짧은 SAS 토큰을 생성합니다. 
 
 ## <a id="random-hub"></a>IoT Hub 인증에 충분한 길이의 임의 대칭 키 생성
 
@@ -196,7 +196,7 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 게이트웨이 선택 - Azure IoT Hub |
 | **참조**              | 해당 없음  |
-| **단계** | IoT Hub는 디바이스 ID 레지스트리를 포함하고, 디바이스를 프로비전하는 동안 임의 대칭 키를 자동으로 생성합니다. Azure IoT Hub ID 레지스트리의 이 기능을 사용하여 인증에 사용되는 키를 생성하는 것이 좋습니다. 또한 IoT Hub를 사용하면 장치를 만드는 동안 키를 지정할 수 있습니다. 장치 프로비전 중에 IoT Hub 외부에서 키를 생성하는 경우 임의 대칭 키 또는 256비트 이상의 키를 만드는 것이 좋습니다. |
+| **단계** | IoT Hub는 디바이스 ID 레지스트리를 포함하고, 디바이스를 프로비전하는 동안 임의 대칭 키를 자동으로 생성합니다. Azure IoT Hub ID 레지스트리의 이 기능을 사용하여 인증에 사용되는 키를 생성하는 것이 좋습니다. 또한 IoT Hub를 사용하면 디바이스를 만드는 동안 키를 지정할 수 있습니다. 디바이스 프로비전 중에 IoT Hub 외부에서 키를 생성하는 경우 임의 대칭 키 또는 256비트 이상의 키를 만드는 것이 좋습니다. |
 
 ## <a id="pin-remote"></a>PIN 사용이 필요하고 원격 지우기를 허용하는 장치 관리 정책이 있는지 확인
 

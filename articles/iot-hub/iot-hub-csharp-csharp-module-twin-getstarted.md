@@ -18,7 +18,7 @@ ms.locfileid: "51514318"
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>.NET 백 엔드 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
 > [!NOTE]
-> [모듈 ID 및 모듈 쌍](iot-hub-devguide-module-twins.md)은 Azure IoT Hub 장치 ID 및 장치 쌍과 비슷하지만 더 자세한 세분성을 제공합니다. Azure IoT Hub 장치 ID와 장치 쌍은 백 엔드 응용 프로그램에서 장치를 구성할 수 있도록 하고 장치 상태에 대한 가시성을 제공하지만, 모듈 ID와 모듈 쌍은 장치의 개별 구성 요소에 대해 이러한 기능을 제공합니다. 운영 체제 기반 장치 또는 펌웨어 장치와 같이 여러 구성 요소가 있는 가능한 장치에서 각 구성 요소에 대해 격리된 구성과 조건을 허용합니다.
+> [모듈 ID 및 모듈 쌍](iot-hub-devguide-module-twins.md)은 Azure IoT Hub 장치 ID 및 장치 쌍과 비슷하지만 더 자세한 세분성을 제공합니다. Azure IoT Hub 디바이스 ID와 디바이스 쌍은 백 엔드 응용 프로그램에서 디바이스를 구성할 수 있도록 하고 디바이스 상태에 대한 가시성을 제공하지만, 모듈 ID와 모듈 쌍은 디바이스의 개별 구성 요소에 대해 이러한 기능을 제공합니다. 운영 체제 기반 디바이스 또는 펌웨어 디바이스와 같이 여러 구성 요소가 있는 가능한 디바이스에서 각 구성 요소에 대해 격리된 구성과 조건을 허용합니다.
 
 이 자습서를 마치면 다음과 같은 두 개의 .NET 콘솔 앱이 생깁니다.
 
@@ -48,19 +48,19 @@ ms.locfileid: "51514318"
 [!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
 
 
-## <a name="update-the-module-twin-using-net-device-sdk"></a>.NET 장치 SDK를 사용하여 모듈 쌍 업데이트
+## <a name="update-the-module-twin-using-net-device-sdk"></a>.NET 디바이스 SDK를 사용하여 모듈 쌍 업데이트
 
-이 섹션에서는 시뮬레이션된 장치에 모듈 쌍 reported 속성을 업데이트하는 .NET 콘솔 앱을 만듭니다.
+이 섹션에서는 시뮬레이션된 디바이스에 모듈 쌍 reported 속성을 업데이트하는 .NET 콘솔 앱을 만듭니다.
 
 1. **Visual Studio 프로젝트 만들기:** Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 기존 솔루션에 추가합니다. .NET Framework 버전이 4.6.1 이상인지 확인합니다. 프로젝트 이름을 **UpdateModuleTwinReportedProperties**로 지정합니다.
 
     ![Visual Studio 프로젝트 만들기](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG)
 
-2. **최신 Azure IoT Hub .NET 장치 SDK 설치:** 모듈 ID 및 모듈 쌍은 공개 미리 보기로 있습니다. IoT Hub 시험판 장치 SDK에서만 사용할 수 있습니다. Visual Studio에서 도구 > Nuget 패키지 관리자 > 솔루션용 Nuget 패키지 관리를 차례로 엽니다. Microsoft.Azure.Devices.Client를 검색합니다. 시험판 포함 확인란이 선택되었는지 확인합니다. 최신 버전을 선택하고 설치합니다. 이제 모든 모듈 기능에 액세스할 수 있습니다. 
+2. **최신 Azure IoT Hub .NET 장치 SDK 설치:** 모듈 ID 및 모듈 쌍은 공개 미리 보기로 있습니다. IoT Hub 시험판 디바이스 SDK에서만 사용할 수 있습니다. Visual Studio에서 도구 > Nuget 패키지 관리자 > 솔루션용 Nuget 패키지 관리를 차례로 엽니다. Microsoft.Azure.Devices.Client를 검색합니다. 시험판 포함 확인란이 선택되었는지 확인합니다. 최신 버전을 선택하고 설치합니다. 이제 모든 모듈 기능에 액세스할 수 있습니다. 
 
     ![Azure IoT Hub .NET 서비스 SDK V1.16.0-preview-005 설치](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
-3. **모듈 연결 문자열 가져오기** - 이제 [Azure Portal](https://portal.azure.com/)에 로그인합니다. IoT Hub로 이동하고 IoT 장치를 클릭합니다. myFirstDevice를 찾아서 열면 성공적으로 만들어진 myFirstModule이 표시됩니다. 모듈 연결 문자열을 복사합니다. 이는 다음 단계에서 필요합니다.
+3. **모듈 연결 문자열 가져오기** - 이제 [Azure Portal](https://portal.azure.com/)에 로그인합니다. IoT Hub로 이동하고 IoT 디바이스를 클릭합니다. myFirstDevice를 찾아서 열면 성공적으로 만들어진 myFirstModule이 표시됩니다. 모듈 연결 문자열을 복사합니다. 이는 다음 단계에서 필요합니다.
 
     ![Azure Portal 모듈 세부 정보](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 

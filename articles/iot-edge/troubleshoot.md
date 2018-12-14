@@ -146,7 +146,7 @@ Windows에서:
 
 파일을 저장하고 IoT Edge 보안 관리자를 다시 시작합니다.
 
-IoT Hub 및 IoT Edge 장치 간에 전송되는 메시지를 확인할 수도 있습니다. Visual Studio Code용 [Azure IoT 도구 키트](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 확장을 사용하여 이러한 메시지를 확인합니다. 자세한 내용은 [Azure IoT로 개발할 때 사용할 수 있는 편리한 도구](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)를 참조하세요.
+IoT Hub 및 IoT Edge 디바이스 간에 전송되는 메시지를 확인할 수도 있습니다. Visual Studio Code용 [Azure IoT 도구 키트](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 확장을 사용하여 이러한 메시지를 확인합니다. 자세한 내용은 [Azure IoT로 개발할 때 사용할 수 있는 편리한 도구](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)를 참조하세요.
 
 ### <a name="restart-containers"></a>컨테이너 다시 시작
 로그 및 메시지에서 정보를 검토한 후에는 컨테이너를 다시 시작할 수 있습니다.
@@ -195,7 +195,7 @@ Edge Agent는 시작되고 약 1분 동안 실행되다가 중지됩니다. 로�
 ### <a name="root-cause"></a>근본 원인
 호스트 네트워크의 네트워킹 구성 때문에 Edge Agent가 네트워크에 연결하지 못합니다. 에이전트는 AMQP(포트 5671)를 통해 먼저 연결을 시도합니다. 이 연결이 실패하면 WebSockets(포트 443)을 시도합니다.
 
-IoT Edge 런타임은 각 모듈이 통신할 네트워크를 설정합니다. Linux에서 이 네트워크는 브리지 네트워크입니다. Windows에서는 NAT를 사용합니다. 이 문제는 NAT 네트워크를 사용하는 Windows 컨테이너를 사용하는 Windows 장치에서 좀 더 자주 발생합니다. 
+IoT Edge 런타임은 각 모듈이 통신할 네트워크를 설정합니다. Linux에서 이 네트워크는 브리지 네트워크입니다. Windows에서는 NAT를 사용합니다. 이 문제는 NAT 네트워크를 사용하는 Windows 컨테이너를 사용하는 Windows 디바이스에서 좀 더 자주 발생합니다. 
 
 ### <a name="resolution"></a>해결 방법
 이 브리지/NAT 네트워크에 할당된 IP 주소가 인터넷에 연결되는 경로가 있는지 확인합니다. 경우에 따라 호스트의 VPN 구성은 IoT Edge 네트워크를 재정의합니다. 

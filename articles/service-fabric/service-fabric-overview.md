@@ -54,7 +54,7 @@ Windows 개발을 위해 Service Fabric .NET SDK는 Visual Studio 및 Powershell
 클러스터를 만드는 방법에 대한 자세한 내용은 [Windows Server 또는 Linux에서 클러스터 만들기](service-fabric-deploy-anywhere.md) 또는 Azure의 경우 [Azure Portal을 통해](service-fabric-cluster-creation-via-portal.md) 클러스터 만들기를 참조하세요.
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric용 상태 비저장 및 상태 저장 마이크로 서비스
-Service Fabric을 사용하면 마이크로 서비스 또는 컨테이너로 구성된 응용 프로그램을 빌드할 수 있습니다. 상태 비저장 마이크로 서비스(프로토콜 게이트웨이, 웹 프록시 등)는 서비스의 요청 및 응답 이외에 변경 가능한 상태를 관리하지 않습니다. Azure Cloud Services 작업자 역할이 상태 비저장 서비스의 예입니다. 상태 저장 마이크로 서비스(사용자 계정, 데이터베이스, 장치, 쇼핑 카트, 큐 등)는 요청 및 응답 이외에 변경 가능하고 신뢰할 수 있는 상태를 관리합니다. 오늘날 인터넷 범위의 서비스는 상태 비저장 및 상태 저장 마이크로 서비스의 조합으로 구성됩니다. 
+Service Fabric을 사용하면 마이크로 서비스 또는 컨테이너로 구성된 응용 프로그램을 빌드할 수 있습니다. 상태 비저장 마이크로 서비스(프로토콜 게이트웨이, 웹 프록시 등)는 서비스의 요청 및 응답 이외에 변경 가능한 상태를 관리하지 않습니다. Azure Cloud Services 작업자 역할이 상태 비저장 서비스의 예입니다. 상태 저장 마이크로 서비스(사용자 계정, 데이터베이스, 디바이스, 쇼핑 카트, 큐 등)는 요청 및 응답 이외에 변경 가능하고 신뢰할 수 있는 상태를 관리합니다. 오늘날 인터넷 범위의 서비스는 상태 비저장 및 상태 저장 마이크로 서비스의 조합으로 구성됩니다. 
 
 Service Fabric의 주요 차이점은 [기본 제공 프로그래밍 모델](service-fabric-choose-framework.md) 또는 컨테이너화된 상태 저장 서비스 중 하나를 사용하여 상태 저장 서비스를 빌드하는 데 집중한다는 것입니다. [응용 프로그램 시나리오](service-fabric-application-scenarios.md)는 상태 저장 서비스를 사용하는 시나리오를 설명합니다.
 

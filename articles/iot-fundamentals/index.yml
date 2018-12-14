@@ -52,7 +52,7 @@ sections:
     - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
     - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT 서비스 SDK</a>
   - type: paragraph
-    text: IoT 장치 및 에지 컴퓨팅을 사용하여 솔루션을 빌드합니다.
+    text: IoT 디바이스 및 에지 컴퓨팅을 사용하여 솔루션을 빌드합니다.
   - type: list
     style: unordered
     items:
@@ -61,7 +61,7 @@ sections:
 - title: 샘플
   items:
   - type: paragraph
-    text: 일반적인 장치 및 언어에 대한 샘플을 찾습니다.
+    text: 일반적인 디바이스 및 언어에 대한 샘플을 찾습니다.
   - type: list
     style: unordered
     items:

@@ -1,6 +1,6 @@
 ---
 title: C를 사용하여 원격 모니터링으로 Raspberry Pi 프로비전 - Azure | Microsoft Docs
-description: C에 작성된 응용 프로그램을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 장치를 연결하는 방법을 설명합니다.
+description: C에 작성된 응용 프로그램을 사용하여 원격 모니터링 솔루션 가속기에 Raspberry Pi 디바이스를 연결하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators

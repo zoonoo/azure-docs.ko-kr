@@ -27,7 +27,7 @@ ms.locfileid: "42915190"
 
 ### <a name="send-notifications-using-a-c-console-app"></a>C# 콘솔 앱을 사용한 알림 보내기
 
-이 섹션에서는 콘솔 앱을 사용하여 알림을 보내는 방법을 보여 줍니다. 코드는 Windows 스토어 및 iOS 장치 모두에 알림을 전파합니다. 이전에 다음 코드를 사용하여 만든 콘솔 앱에서 `SendTemplateNotificationAsync` 메서드를 수정합니다.
+이 섹션에서는 콘솔 앱을 사용하여 알림을 보내는 방법을 보여 줍니다. 코드는 Windows 스토어 및 iOS 디바이스 모두에 알림을 전파합니다. 이전에 다음 코드를 사용하여 만든 콘솔 앱에서 `SendTemplateNotificationAsync` 메서드를 수정합니다.
 
 ```csharp
 private static async void SendTemplateNotificationAsync()
@@ -64,7 +64,7 @@ private static async void SendTemplateNotificationAsync()
 }
 ```
 
-SendTemplateNotificationAsync 메서드는 플랫폼에 관계 없이 **모든** 사용자 장치에 지역화된 뉴스를 제공합니다. 알림 허브는 올바른 네이티브 페이로드를 빌드하여 특정 태그를 구독하는 모든 장치에 제공합니다.
+SendTemplateNotificationAsync 메서드는 플랫폼에 관계 없이 **모든** 사용자 디바이스에 지역화된 뉴스를 제공합니다. 알림 허브는 올바른 네이티브 페이로드를 빌드하여 특정 태그를 구독하는 모든 디바이스에 제공합니다.
 
 ### <a name="sending-notification-with-mobile-services"></a>Mobile Services로 알림 보내기
 

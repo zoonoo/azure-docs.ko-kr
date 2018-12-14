@@ -145,7 +145,7 @@ grant_type=authorization_code
 | grant_type |필수 |인증 코드 흐름에 대한 `authorization_code` 여야 합니다. |
 | 코드 |필수 |이전 섹션에서 획득한 `authorization_code` 입니다. |
 | redirect_uri |필수 |`authorization_code`를 획득하는 데 사용된 동일한 `redirect_uri` 값입니다. |
-| client_secret |웹앱에 필요하지만 공용 클라이언트에 허용되지 않습니다. |**키** 아래에 있는 앱에 대해 Azure Portal에서 만든 응용 프로그램 비밀입니다. 장치에 client_secret을 안정적으로 저장할 수 없으므로 네이티브 앱(공용 클라이언트)에서는 사용할 수 없습니다. 서버 쪽에서 `client_secret`을 안전하게 저장할 수 있는 웹앱 및 Web API(모두 기밀 클라이언트)에 필요합니다. client_secret는 전송되기 전에 인코딩된 URL이어야 합니다. |
+| client_secret |웹앱에 필요하지만 공용 클라이언트에 허용되지 않습니다. |**키** 아래에 있는 앱에 대해 Azure Portal에서 만든 응용 프로그램 비밀입니다. 디바이스에 client_secret을 안정적으로 저장할 수 없으므로 네이티브 앱(공용 클라이언트)에서는 사용할 수 없습니다. 서버 쪽에서 `client_secret`을 안전하게 저장할 수 있는 웹앱 및 Web API(모두 기밀 클라이언트)에 필요합니다. client_secret는 전송되기 전에 인코딩된 URL이어야 합니다. |
 | resource | 권장 |대상 웹 API의 앱 ID URI(보안 리소스)입니다. 앱 ID URI을 찾으려면 Azure Portal에서 **Azure Active Directory**, **응용 프로그램 등록**을 차례로 클릭하고, 서비스 응용 프로그램의 **설정** 페이지를 연 다음, **속성**을 클릭합니다. `https://graph.microsoft.com`과 같은 외부 리소스일 수도 있습니다. 이는 권한 부여 또는 토큰 요청 중 하나에서 필요합니다. 인증 프롬프트의 수를 줄이기 위해 사용자의 동의를 받을 수 있도록 하는 권한 부여 요청에 배치합니다. 권한 부여 요청과 토큰 요청 모두에서 리소스의 매개 변수가 일치해야 합니다. | 
 | code_verifier | 선택 사항 | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다. 인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요.   |
 

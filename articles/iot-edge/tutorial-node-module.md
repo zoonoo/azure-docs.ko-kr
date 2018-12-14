@@ -23,7 +23,7 @@ ms.locfileid: "52309575"
 > [!div class="checklist"]
 > * Visual Studio Code를 사용하여 IoT Edge Node.js 모듈 만들기
 > * Visual Studio Code 및 Docker를 사용하여 docker 이미지를 만들어 레지스트리에 게시합니다. 
-> * 모듈을 IoT Edge 장치에 배포합니다.
+> * 모듈을 IoT Edge 디바이스에 배포합니다.
 > * 생성된 데이터 보기
 
 

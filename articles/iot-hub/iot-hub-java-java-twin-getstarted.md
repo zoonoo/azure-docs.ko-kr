@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 디바이스 쌍 시작(Java) | Microsoft Docs
-description: Azure IoT Hub 장치 쌍을 사용하여 태그를 추가한 다음 IoT Hub 쿼리를 사용하는 방법입니다. Java용 Azure IoT 디바이스 SDK를 사용하여 디바이스 앱을 구현하고 Java용 Azure IoT 서비스 SDK를 사용하여 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
+description: Azure IoT Hub 디바이스 쌍을 사용하여 태그를 추가한 다음, IoT Hub 쿼리를 사용하는 방법입니다. Java용 Azure IoT 디바이스 SDK를 사용하여 디바이스 앱을 구현하고 Java용 Azure IoT 서비스 SDK를 사용하여 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
 author: dominicbetts
 ms.service: iot-hub
 services: iot-hub

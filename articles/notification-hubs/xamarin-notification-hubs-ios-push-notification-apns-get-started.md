@@ -31,7 +31,7 @@ ms.locfileid: "42917706"
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. [APNs(Apple Push Notification service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html)를 사용하여 푸시 알림을 받는 빈 Xamarin.iOS 앱을 만듭니다.
 
-완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 사용할 수 있습니다.
+완료하면 알림 허브를 사용하여 앱을 실행하는 모든 디바이스로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 사용할 수 있습니다.
 
 이 자습서에서는 다음 작업을 수행하는 코드를 생성/업데이트합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "42917706"
 
 - **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 최신 버전의 [Xcode][Install Xcode]
-- iOS 10 이상 호환 장치
+- iOS 10 이상 호환 디바이스
 - [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
 - [Mac용 Visual Studio]
   
@@ -230,7 +230,7 @@ ms.locfileid: "42917706"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 백 엔드에 등록된 모든 iOS 장치로 브로드캐스트 알림을 보냈습니다. 특정 iOS 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
+이 자습서에서는 백 엔드에 등록된 모든 iOS 디바이스로 브로드캐스트 알림을 보냈습니다. 특정 iOS 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 >[특정 장치에 알림 푸시](notification-hubs-ios-xplat-segmented-apns-push-notification.md)

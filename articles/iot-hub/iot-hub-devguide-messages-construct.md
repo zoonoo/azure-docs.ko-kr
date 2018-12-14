@@ -61,7 +61,7 @@ IoT Hub를 사용한 디바이스-클라우드 메시징의 특징은 다음과 
 | iothub-connection-device-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **deviceId** 를 포함합니다. | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | iothub-connection-auth-generation-id |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 ID입니다. 메시지를 보낸 디바이스의 **generationId**를 포함합니다([디바이스 ID 속성](iot-hub-devguide-identity-registry.md#device-identity-properties)당). | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
 | iothub-connection-auth-method |IoT Hub에서 디바이스-클라우드 메시지에 설정하는 인증 방법입니다. 이 속성에는 메시지를 보내는 디바이스를 인증하는 데 사용되는 인증 방법에 대한 정보가 포함됩니다. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | D2C 메시지의 경우는 사용자가 설정할 수 없고 다른 경우는 사용자가 설정할 수 있습니다. |
-| iothub-creation-time-utc | 장치에서 메시지를 만든 날짜 및 시간입니다. 장치는 명시적으로 이 값을 설정해야 합니다. | yes |
+| iothub-creation-time-utc | 디바이스에서 메시지를 만든 날짜 및 시간입니다. 디바이스는 명시적으로 이 값을 설정해야 합니다. | yes |
 
 ## <a name="message-size"></a>메시지 크기
 

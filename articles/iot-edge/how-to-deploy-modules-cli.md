@@ -123,7 +123,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
 
 디바이스에 모듈을 배포하면 다음 명령을 사용하여 모두 볼 수 있습니다. 
 
-IoT Edge 장치의 모듈보기:
+IoT Edge 디바이스의 모듈 보기:
     
    ```cli
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]

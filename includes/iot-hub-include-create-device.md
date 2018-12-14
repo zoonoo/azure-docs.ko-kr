@@ -23,14 +23,14 @@ ms.locfileid: "51516119"
 
     ![포털에서 디바이스 ID 만들기](./media/iot-hub-include-create-device/create-identity-portal.png)
 
-1. **myDeviceId**와 같은 새 장치의 이름을 입력하고 **저장**을 클릭합니다. 이 작업은 IoT Hub에 대한 새 장치 ID를 만듭니다.
+1. **myDeviceId**와 같은 새 장치의 이름을 입력하고 **저장**을 클릭합니다. 이 작업은 IoT Hub에 대한 새 디바이스 ID를 만듭니다.
 
-   ![새 장치 추가](./media/iot-hub-include-create-device/create-a-device.png)
+   ![새 디바이스 추가](./media/iot-hub-include-create-device/create-a-device.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 
-1. 장치가 만들어진 후 **IoT 장치** 창의 목록에서 장치를 엽니다. 나중에 사용하기 위해 **연결 문자열---기본 키**를 복사합니다.
+1. 디바이스가 만들어진 후 **IoT 디바이스** 창의 목록에서 디바이스를 엽니다. 나중에 사용하기 위해 **연결 문자열---기본 키**를 복사합니다.
 
     ![디바이스 연결 문자열](./media/iot-hub-include-create-device/device-details.png)
 

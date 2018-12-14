@@ -23,10 +23,10 @@ ms.lasthandoff: 08/02/2018
 ms.locfileid: "39434546"
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux에서 소프트웨어 RAID 구성
-Azure에서 Linux 가상 머신의 소프트웨어 RAID를 사용하여 연결된 여러 데이터 디스크를 단일 RAID 장치로 나타내는 것이 일반적인 시나리오입니다. 일반적으로 이 시나리오는 단일 디스크만 사용하는 경우와 비교하여 성능을 개선하고 처리량을 향상하기 위해 사용할 수 있습니다.
+Azure에서 Linux 가상 머신의 소프트웨어 RAID를 사용하여 연결된 여러 데이터 디스크를 단일 RAID 디바이스로 나타내는 것이 일반적인 시나리오입니다. 일반적으로 이 시나리오는 단일 디스크만 사용하는 경우와 비교하여 성능을 개선하고 처리량을 향상하기 위해 사용할 수 있습니다.
 
 ## <a name="attaching-data-disks"></a>데이터 디스크 연결
-RAID 장치를 구성하는 데 두 개 이상의 빈 데이터 디스크가 필요합니다.  RAID 장치를 만드는 주된 이유는 디스크 IO의 성능을 개선하기 위한 것입니다.  IO 요구 사항에 따라 Standard Storage에 저장된 디스크(디스크당 최대 500IO/ps) 또는 Premium Storage에 저장된 디스크(디스크당 최대 5000IO/ps)를 연결할 수 있습니다. Linux 가상 머신에 데이터 디스크를 프로비전 및 연결하는 방법은 이 문서에서 자세히 다루지 않습니다.  Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+RAID 디바이스를 구성하는 데 두 개 이상의 빈 데이터 디스크가 필요합니다.  RAID 디바이스를 만드는 주된 이유는 디스크 IO의 성능을 개선하기 위한 것입니다.  IO 요구 사항에 따라 Standard Storage에 저장된 디스크(디스크당 최대 500IO/ps) 또는 Premium Storage에 저장된 디스크(디스크당 최대 5000IO/ps)를 연결할 수 있습니다. Linux 가상 머신에 데이터 디스크를 프로비전 및 연결하는 방법은 이 문서에서 자세히 다루지 않습니다.  Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 ## <a name="install-the-mdadm-utility"></a>mdadm 유틸리티 설치
 * **Ubuntu**
@@ -119,7 +119,7 @@ zypper install mdadm
         /dev/sdc1 /dev/sdd1 /dev/sde1
     ```
 
-1. 새 RAID 장치에서 파일 시스템 만들기
+1. 새 RAID 디바이스에서 파일 시스템 만들기
    
     a. **CentOS, Oracle Linux, SLES 12, openSUSE 및 Ubuntu**
 

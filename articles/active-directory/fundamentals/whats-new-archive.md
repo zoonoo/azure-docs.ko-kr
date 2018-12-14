@@ -383,7 +383,7 @@ Workday에서 Active Directory 및 Azure AD로의 인바운드 프로비전에 �
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
  
-이전에는 사용자가 Azure AD로 보호되는 응용 프로그램에서 명시적으로 로그아웃하더라도 도메인에 가입된 장치에서 corpnet 내의 Azure AD 응용 프로그램에 다시 액세스하려고 하면 Seamless SSO를 사용하여 자동으로 다시 로그인되었습니다. 이러한 변경으로 인해 이제 로그아웃이 지원됩니다.  따라서 사용자는 Seamless SSO를 사용하여 자동으로 로그인되는 대신, 다시 로그인하는 데 사용할 같거나 다른 Azure AD 계정을 선택할 수 있습니다.
+이전에는 사용자가 Azure AD로 보호되는 응용 프로그램에서 명시적으로 로그아웃하더라도 도메인에 가입된 디바이스에서 corpnet 내의 Azure AD 응용 프로그램에 다시 액세스하려고 하면 Seamless SSO를 사용하여 자동으로 다시 로그인되었습니다. 이러한 변경으로 인해 이제 로그아웃이 지원됩니다.  따라서 사용자는 Seamless SSO를 사용하여 자동으로 로그인되는 대신, 다시 로그인하는 데 사용할 같거나 다른 Azure AD 계정을 선택할 수 있습니다.
 
 자세한 내용은 [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)을 참조하세요.
  

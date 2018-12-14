@@ -99,7 +99,7 @@ az iot hub device-twin update -n <your hub name> \
 az iot hub device-twin show -n <your hub name> -d <your device id>
 ```
 
-쌍 reported 속성 중 하나는 $metadata.$lastUpdated로서 장치 앱이 해당 reported 속성 집합을 업데이트한 마지막 시간을 나타냅니다.
+쌍 reported 속성 중 하나는 $metadata.$lastUpdated로서 디바이스 앱이 해당 reported 속성 집합을 업데이트한 마지막 시간을 나타냅니다.
 
 ## <a name="device-twin-tags"></a>디바이스 쌍 태그
 

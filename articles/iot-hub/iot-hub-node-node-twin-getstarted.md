@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 쌍 시작(노드) | Microsoft Docs
-description: Azure IoT Hub 장치 쌍을 사용하여 태그를 추가한 다음 IoT Hub 쿼리를 사용하는 방법입니다. Node.js용 Azure IoT SDK를 사용하여 시뮬레이션된 장치 앱 및 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
+title: Azure IoT Hub 디바이스 쌍 시작(Node) | Microsoft Docs
+description: Azure IoT Hub 디바이스 쌍을 사용하여 태그를 추가한 다음, IoT Hub 쿼리를 사용하는 방법입니다. Node.js용 Azure IoT SDK를 사용하여 시뮬레이션된 디바이스 앱 및 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
 author: fsautomata
 manager: ''
 ms.service: iot-hub
@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2018
 ms.locfileid: "51514422"
 ---
-# <a name="get-started-with-device-twins-node"></a>장치 쌍 시작(노드)
+# <a name="get-started-with-device-twins-node"></a>디바이스 쌍 시작(Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 이 자습서의 끝 부분에 다음 두 개의 Node.js 콘솔 앱이 제공됩니다.
@@ -45,7 +45,7 @@ ms.locfileid: "51514422"
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>서비스 응용 프로그램 만들기
-이 섹션에서는 **myDeviceId**와 연결된 장치 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음, IoT Hub에 저장된 디바이스 쌍을 쿼리하여 미국에 있는 디바이스를 선택한 다음, 셀룰러 연결을 보고하는 디바이스를 선택합니다.
+이 섹션에서는 **myDeviceId**와 연결된 디바이스 쌍에 위치 메타데이터를 추가하는 Node.js 콘솔 앱을 만듭니다. 그런 다음, IoT Hub에 저장된 디바이스 쌍을 쿼리하여 미국에 있는 디바이스를 선택한 다음, 셀룰러 연결을 보고하는 디바이스를 선택합니다.
 
 1. **addtagsandqueryapp**라는 빈 폴더를 새로 만듭니다. **addtagsandqueryapp** 폴더의 명령 프롬프트에 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
    
@@ -89,7 +89,7 @@ ms.locfileid: "51514422"
             }
         });
    
-    **레지스트리** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **Registry** 개체를 초기화한 다음 **myDeviceId**에 대한 장치 쌍을 검색하고, 마지막으로 원하는 위치 정보를 사용해 태그를 업데이트합니다.
+    **레지스트리** 개체는 서비스의 장치 쌍을 조작하는 데 필요한 모든 메서드를 표시합니다. 이전 코드는 **Registry** 개체를 초기화한 다음, **myDeviceId**에 대한 디바이스 쌍을 검색하고, 마지막으로 원하는 위치 정보를 사용해 태그를 업데이트합니다.
    
     태그를 업데이트한 후에는 **queryTwins** 함수를 호출합니다.
 5. 다음 코드를 **queryTwins** 함수를 구현할 **AddTagsAndQuery.js** 끝 부분에 추가합니다.
@@ -128,7 +128,7 @@ ms.locfileid: "51514422"
 다음 섹션에서는 연결 정보를 보고하고 이전 섹션의 쿼리 결과를 변경하는 디바이스 앱을 만듭니다.
 
 ## <a name="create-the-device-app"></a>디바이스 앱 만들기
-이 섹션에서는 **myDeviceId**로 허브에 연결하는 Node.js 콘솔 앱을 만들고 셀룰러 네트워크를 사용하여 연결된 정보를 포함하도록 장치 쌍의 reported 속성을 업데이트합니다.
+이 섹션에서는 **myDeviceId**로 허브에 연결하는 Node.js 콘솔 앱을 만들고 셀룰러 네트워크를 사용하여 연결된 정보를 포함하도록 디바이스 쌍의 reported 속성을 업데이트합니다.
 
 
 1. **reportconnectivity**라는 빈 폴더를 새로 만듭니다. **reportconnectivity** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
@@ -142,7 +142,7 @@ ms.locfileid: "51514422"
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. 텍스트 편집기를 사용하여 **reportconnectivity** 폴더에 새 **ReportConnectivity.js** 파일을 만듭니다.
-4. 다음 코드를 **ReportConnectivity.js** 파일에 추가하고 **myDeviceId** 장치 ID를 만들 때 복사한 장치 연결 문자열을 사용해 **{장치 연결 문자열}** 자리 표시자를 대체합니다.
+4. 다음 코드를 **ReportConnectivity.js** 파일에 추가하고 **myDeviceId** 디바이스 ID를 만들 때 복사한 디바이스 연결 문자열을 사용해 **{디바이스 연결 문자열}** 자리 표시자를 대체합니다.
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -186,7 +186,7 @@ ms.locfileid: "51514422"
         node ReportConnectivity.js
    
     메시지 `twin state reported`이 표시되어야 합니다.
-6. 장치가 연결 정보를 보고했으므로 두 쿼리 모두에 나타나야 합니다. **addtagsandqueryapp** 폴더로 돌아가 쿼리를 다시 실행합니다.
+6. 디바이스가 연결 정보를 보고했으므로 두 쿼리 모두에 나타나야 합니다. **addtagsandqueryapp** 폴더로 돌아가 쿼리를 다시 실행합니다.
    
         node AddTagsAndQuery.js
    

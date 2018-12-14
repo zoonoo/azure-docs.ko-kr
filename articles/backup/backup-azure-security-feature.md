@@ -50,9 +50,9 @@ Recovery Services 자격 증명 모음을 만드는 경우 모든 보안 기능�
     ![Recovery Services 자격 증명 모음 속성의 스크린샷](./media/backup-azure-security-feature/security-settings-update.png)
 
     업데이트 링크를 클릭하면 해당 기능을 사용하도록 설정하고 요약을 볼 수 있는 **보안 설정** 블레이드가 열립니다.
-5. **Azure Multi-Factor Authentication을 구성했습니까?** 드롭다운 목록에서 값을 선택하여 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)을 사용하도록 설정했는지 확인합니다. 이 기능을 사용하도록 설정했으면 Azure Portal에 로그인하는 동안 다른 장치(예: 휴대폰)에서 인증을 받을지 묻는 메시지가 표시됩니다.
+5. **Azure Multi-Factor Authentication을 구성했습니까?** 드롭다운 목록에서 값을 선택하여 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)을 사용하도록 설정했는지 확인합니다. 이 기능을 사용하도록 설정했으면 Azure Portal에 로그인하는 동안 다른 디바이스(예: 휴대폰)에서 인증을 받을지 묻는 메시지가 표시됩니다.
 
-   Backup에서 중요한 작업을 수행할 때 Azure Portal에서 사용할 수 있는 보안 PIN을 입력해야 합니다. Azure Multi-Factor Authentication을 사용하도록 설정하면 보안 계층이 추가됩니다. 유효한 Azure 자격 증명을 가지며 두 번째 장치에서 인증을 받은 인증된 사용자만 Azure Portal에 액세스할 수 있습니다.
+   Backup에서 중요한 작업을 수행할 때 Azure Portal에서 사용할 수 있는 보안 PIN을 입력해야 합니다. Azure Multi-Factor Authentication을 사용하도록 설정하면 보안 계층이 추가됩니다. 유효한 Azure 자격 증명을 가지며 두 번째 디바이스에서 인증을 받은 인증된 사용자만 Azure Portal에 액세스할 수 있습니다.
 6. 보안 설정을 저장하려면 **사용**을 선택하고 **저장**을 클릭합니다. 이전 단계에서 **Azure Multi-Factor Authentication을 구성했습니까?** 목록에서 값을 선택한 후에만 **사용**을 선택할 수 있습니다.
 
     ![보안 설정의 스크린샷](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)

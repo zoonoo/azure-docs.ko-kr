@@ -3352,7 +3352,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>수백만 개의 IoT 장치에서 실시간 데이터 스트림 처리</p>
+                                                    <p>수백만 개의 IoT 디바이스에서 실시간 데이터 스트림 처리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4224,7 +4224,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>수백만 개의 IoT 장치에서 실시간 데이터 스트림 처리</p>
+                                                    <p>수백만 개의 IoT 디바이스에서 실시간 데이터 스트림 처리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5532,7 +5532,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Live and on-demand streaming</h3>
-                                                    <p>사실상 모든 장치에 비즈니스 요구에 맞는 규모로 콘텐츠 전송</p>
+                                                    <p>사실상 모든 디바이스에 비즈니스 요구에 맞는 규모로 콘텐츠 전송</p>
                                                 </div>
                                             </div>
                                         </div>

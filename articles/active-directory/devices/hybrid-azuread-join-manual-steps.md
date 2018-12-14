@@ -59,7 +59,7 @@ Azure AD(Active Directory)의 디바이스 관리를 사용하면 보안 및 규
 -  [장치의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)
 
 
-조직에서 하이브리드 Azure AD 가입 장치를 사용하도록 설정하기 전에 다음을 확인해야 합니다.
+조직에서 하이브리드 Azure AD 가입 디바이스를 사용하도록 설정하기 전에 다음을 확인해야 합니다.
 
 - 최신 버전의 Azure AD Connect를 실행합니다.
 

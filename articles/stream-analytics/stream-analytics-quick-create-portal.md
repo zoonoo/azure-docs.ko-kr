@@ -93,7 +93,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
    |리소스 그룹   |   asaquickstart-resourcegroup  |   IoT Hub와 동일한 리소스 그룹을 선택합니다. |
    |위치  |  \<사용자와 가장 가까운 지역 선택\> | Stream Analytics 작업을 호스트할 수 있는 지리적 위치를 선택합니다. 성능을 향상하고 데이터 전송 비용을 줄이기 위해 사용자에게 가장 가까운 위치를 사용합니다. |
    |스트리밍 단위  | 1  |   스트리밍 단위는 작업을 실행하는 데 필요한 컴퓨팅 리소스를 나타냅니다. 기본적으로 이 값은 1로 설정됩니다. 스트리밍 단위 크기를 조정하는 방법에 대한 자세한 내용은 [스트리밍 단위의 이해 및 크기 조정](stream-analytics-streaming-unit-consumption.md) 문서를 참조하세요.   |
-   |호스팅 환경  |  클라우드  |   Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure Cloud에 배포할 수 있고, 에지를 사용하면 IoT 에지 장치에 배포할 수 있습니다. |
+   |호스팅 환경  |  클라우드  |   Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure 클라우드에 배포할 수 있고, 에지를 사용하면 IoT 에지 디바이스에 배포할 수 있습니다. |
 
    ![작업 만들기](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 

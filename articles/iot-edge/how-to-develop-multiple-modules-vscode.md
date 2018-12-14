@@ -29,7 +29,7 @@ Visual Studio Code의 여러 모듈을 사용하여 Azure IoT Edge 솔루션을 
 - [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 - [Docker](https://docs.docker.com/engine/installation/)
 - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
-- 하나 이상의 IoT Edge 장치가 있는 활성 IoT Hub
+- 하나 이상의 IoT Edge 디바이스가 있는 활성 IoT Hub
 
 또한 이미지 및 컨테이너를 관리하려면 [Docker for VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)와 Azure IoT Hub Device Explorer를 통합해야 합니다.
 
