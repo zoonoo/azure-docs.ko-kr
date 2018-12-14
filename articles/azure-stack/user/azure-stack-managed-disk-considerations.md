@@ -15,20 +15,23 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 4bd36744cc417e85f49e58f9a08d2b9006da9fe4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 9eed4c4bd8cd6290bd2126c91bcf4e37c1b0fa0b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284032"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341952"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack의 Managed Disks: 차이점 및 고려 사항
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack에 Managed Disks: 차이점 및 고려 사항
 이 문서에서는 Azure Stack의 Managed Disks 및 azure Managed Disks의 알려진된 차이점을 요약 합니다. Azure Stack 및 Azure 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
 
 Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니다 [저장소 계정](/azure/azure-stack/azure-stack-manage-storage-accounts) 는 VM 디스크와 연결 합니다.
+
+> [!Note]  
+> Azure Stack에 managed Disks는 1808에서 사용할 수 있습니다.
   
 
-## <a name="cheat-sheet-managed-disk-differences"></a>치트 시트: 관리 디스크 차이점
+## <a name="cheat-sheet-managed-disk-differences"></a>참고 자료: 관리 디스크 차이점
 
 | 기능 | Azure (전역) | Azure Stack |
 | --- | --- | --- |
@@ -40,9 +43,13 @@ Managed Disks를 관리 하 여 IaaS Vm 용 디스크 관리를 간소화 합니
 |프리미엄 디스크  |완전하게 지원 |성능 제한이 있지만 프로비저닝할 수 있습니다 또는 보장  |
 |프리미엄 디스크 IOPs  |디스크 크기에 따라 달라 집니다.  |디스크당 IOPs는 2300까지 |
 |프리미엄 디스크 처리량 |디스크 크기에 따라 달라 집니다. |디스크당 초당 145 MB |
-|디스크 크기  |Azure Premium 디스크: P4 (32 GiB) P80를 (32 TiB)<br>Azure 표준 SSD 디스크: e 10 (128 GiB) E80를 (32 TiB)<br>Azure 표준 HDD 디스크: S4 (32 GiB) S80를 (32 TiB) |32 M4: GiB<br>64 M6: GiB<br>128 M10: GiB<br>256 M15: GiB<br>512 M20: GiB<br>M30: 1024 GiB |
+|디스크 크기  |Azure Premium 디스크: P4 (32 GiB) P80를 (32 TiB)<br>Azure 표준 SSD 디스크: E 10 (128 GiB) E80를 (32 TiB)<br>Azure 표준 HDD 디스크: S4 (32 GiB) S80를 (32 TiB) |M4: 32GiB<br>M6: 64GiB<br>M10: 128GiB<br>M15: 256GiB<br>M20: 512GiB<br>M30: 1024GiB |
+|디스크 스냅숏 복사|Azure 스냅숏 지원 되는 실행 중인 VM에 연결 된 디스크를 관리 합니다.|아직 지원 되지 않음 |
 |디스크 성능 분석 |메트릭을 집계 하 고 지원 되는 디스크 메트릭 당 |아직 지원 되지 않음 |
 |마이그레이션      |VM을 다시 만들 필요 없이 기존 관리 되지 않는 Azure Resource Manager Vm에서 마이그레이션하는 도구를 제공 합니다.  |아직 지원 되지 않음 |
+
+> [!Note]  
+> 관리 되는 디스크 IOPs 및 처리량이 Azure Stack 하드웨어 및 Azure Stack에서 실행 중인 워크 로드에 영향을 받이 있습니다 프로 비전 된 숫자가 대신 cap 숫자입니다.
 
 
 ## <a name="metrics"></a>메트릭

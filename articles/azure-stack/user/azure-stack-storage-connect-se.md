@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ab498a108eba39088aa610188918934dd4ec1d3e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078956"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386777"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Storage 탐색기는 Azure Stack 구독 또는 저장소 계정에 연결
 
@@ -45,9 +45,16 @@ Azure Stack 개발 키트에 대 한 Azure Stack 기관 루트 인증서 내보�
 
 2. **파일**를 선택 **스냅인 추가/제거**를 추가한 다음 **인증서** 관리 하 **내 사용자 계정**합니다.
 
-3. 아래 **콘솔 Root\Certificated (Local Computer) \Trusted Root Certification Authorities\Certificates** 찾을 **AzureStackSelfSignedRootCert**합니다.
+3.  아래 **Root\Certificated (Local Computer) \Trusted Root Certification Authorities\Certificates 콘솔**합니다.
 
-    ![mmc.exe를 통해 Azure Stack 루트 인증서 로드](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+    - ASDK, 찾습니다 **AzureStackSelfSignedRootCert**합니다.
+
+        ![mmc.exe를 통해 Azure Stack 루트 인증서 로드](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+
+    - 통합된 시스템에 대 한 외부 인증서의 루트 인증서를 찾습니다. 
+    
+        ![mmc.exe를 통해 Azure Stack 루트 인증서 로드](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
+        
 
 4. 인증서를 마우스 오른쪽 단추로 클릭 한 다음를 선택 합니다 **모든 작업** > **내보내기**를 사용 하 여 인증서를 내보내려면 지침에 따라 **Base-64로 인코딩된 X.509 (. CER)** 합니다.
 

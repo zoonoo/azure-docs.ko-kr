@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802324"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341901"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 저장소: 차이점 및 고려 사항
 
@@ -29,7 +29,7 @@ Azure Stack 저장소는 Microsoft Azure Stack의 storage 클라우드 서비스
 
 이 문서는 Azure Storage 서비스에서 알려진된 Azure Stack 저장소의 차이 요약합니다. 또한 Azure Stack을 배포 하는 경우를 고려해 야 할 사항을 나열 합니다. 전역 Azure 및 Azure Stack 간의 대략적인 차이 대 한 자세한 내용은 참조는 [고려 사항 키](azure-stack-considerations.md) 문서.
 
-## <a name="cheat-sheet-storage-differences"></a>치트 시트: 저장소의 차이
+## <a name="cheat-sheet-storage-differences"></a>참고 자료: 저장소의 차이
 
 | 기능 | Azure (전역) | Azure Stack |
 | --- | --- | --- |
@@ -41,6 +41,7 @@ Azure Stack 저장소는 Microsoft Azure Stack의 storage 클라우드 서비스
 |관리 디스크|프리미엄 및 표준 지원|1808 이상 버전을 사용할 때 지원 됩니다.
 |Blob 이름|1,024 자 (2,048 바이트)|880 문자 (1,760 바이트)
 |블록 blob의 최대 크기|4.75TB (100 X 50,000 개 블록)|4.75TB 1802 업데이트 또는 최신 버전 (100 x 50,000 개 블록) 추가 합니다. 50,000 X 4MB((약 195GB) 이전 버전에 대 한 합니다.
+|페이지 blob 스냅숏 복사|지원 되는 실행 중인 VM에 연결 된 백업 Azure 관리 되지 않는 VM 디스크|아직 지원 되지 않습니다.
 |페이지 blob 증분 스냅숏 복사|Premium 및 지원 되는 표준 Azure 페이지 blob|아직 지원 되지 않습니다.
 |Blob storage에 대 한 저장소 계층|핫, 쿨 및 보관 저장소 계층입니다.|아직 지원 되지 않습니다.
 Blob storage에 대 한 일시 삭제|미리 보기|아직 지원 되지 않습니다.
@@ -62,21 +63,21 @@ Azure Storage 서비스 Api:
 
 업데이트 1802 이상:
 
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 이전 버전:
 
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure Storage 서비스 관리 Api:
 
- - [2015-05-01-미리 보기](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-미리 보기](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 ## <a name="sdk-versions"></a>SDK 버전
 
@@ -84,10 +85,10 @@ Azure Stack 저장소 클라이언트 라이브러리를 지원합니다.
 
 | 클라이언트 라이브러리 | Azure Stack 지원 되는 버전 | 링크                                                                                                                                                                                                                                                                                                                                     | 끝점 지정       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET           | 6.2.0 8.7.0 하 합니다.          | Nuget 패키지:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | app.config 파일              |
+| .NET           | 6.2.0 8.7.0 하 합니다.          | NuGet 패키지:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | app.config 파일              |
 | 자바           | 6.1.0 4.1.0에서           | Maven 패키지:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | 연결 문자열 설정      |
-| Node.js        | 2.7.0 1.1.0에서           | NPM 링크:<br>https://www.npmjs.com/package/azure-storage<br>(예: 실행 "npm 설치 azure-storage@2.7.0")<br> <br>Github 릴리스:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | 서비스 인스턴스 선언 |
-| C++            | 3.1.0 2.4.0에서           | Nuget 패키지:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | 연결 문자열 설정      |
+| Node.js        | 2.7.0 1.1.0에서           | NPM 링크:<br>https://www.npmjs.com/package/azure-storage<br>(예: 실행 "npm 설치 azure-storage@2.7.0")<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | 서비스 인스턴스 선언 |
+| C++            | 3.1.0 2.4.0에서           | NuGet 패키지:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | 연결 문자열 설정      |
 | PHP            | 1.0.0 0.15.0에서          | GitHub 릴리스:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>작성기를 통해 설치 (아래 세부 정보 참조)                                                                                                                                                                                                                  | 연결 문자열 설정      |
 | Python         | 1.0.0 0.30.0에서          | GitHub 릴리스:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | 서비스 인스턴스 선언 |
 | Ruby           | 1.0.1 0.12.1에서          | RubyGems 패키지:<br>일반적인:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>큐: https://rubygems.org/gems/azure-storage-queue/<br>테이블: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub 릴리스:<br>https://github.com/Azure/azure-storage-ruby/releases | 연결 문자열 설정      |
