@@ -1,7 +1,7 @@
 items:
 - name: Azure IoT 기본 사항
   href: ../iot-fundamentals/index.yml
-- name: Azure IoT Hub Device Provisioning 서비스 설명서
+- name: Azure IoT Hub Device Provisioning Service 설명서
   href: index.yml
 - name: 개요
   items:
@@ -72,15 +72,15 @@ items:
   items:
   - name: 1 - 클라우드 리소스 설정
     href: tutorial-set-up-cloud.md
-  - name: 2 - 장치 설정
+  - name: 2 - 디바이스 설정
     href: tutorial-set-up-device.md
-  - name: 3 - IoT Hub에 장치 프로비전
+  - name: 3 - IoT Hub에 디바이스 프로비전
     items:
     - name: C
       href: tutorial-provision-device-to-hub.md
     - name: C#
       href: tutorial-net-provision-device-to-hub.md
-  - name: 4 - 여러 허브에 장치 프로비전
+  - name: 4 - 여러 허브에 디바이스 프로비전
     href: tutorial-provision-multiple-hubs.md
   - name: 5 - 그룹 등록 프로비전
     href: tutorial-group-enrollments.md
@@ -90,7 +90,7 @@ items:
     href: concepts-auto-provisioning.md
   - name: 다시 프로비전
     href: concepts-device-reprovision.md
-  - name: 장치
+  - name: 디바이스
     href: concepts-device.md
   - name: 보안
     href: concepts-security.md
@@ -112,9 +112,9 @@ items:
       href: how-to-manage-enrollments-sdks.md
     - name: 확인된 CA 인증서 구성
       href: how-to-verify-certificates.md
-    - name: 장치 인증서 롤링
+    - name: 디바이스 인증서 롤링
       href: how-to-roll-certificates.md
-    - name: 장치 다시 프로비전
+    - name: 디바이스 다시 프로비전
       href: how-to-reprovision.md
     - name: 등록 취소 관리
       href: how-to-revoke-device-access-portal.md
@@ -131,7 +131,7 @@ items:
     - name: Linux
       href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
       maintainContext: true
-    - name: Windows
+    - name: " Windows"
       href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
       maintainContext: true
   - name: SDK를 통한 증명 메커니즘 사용
@@ -140,7 +140,7 @@ items:
     href: how-to-provision-multitenant.md
   - name: 사용자 지정 할당 정책 사용
     href: how-to-use-custom-allocation-policies.md
-  - name: 레거시 장치에서 대칭 키 사용
+  - name: 레거시 디바이스에서 대칭 키 사용
     href: how-to-legacy-device-symm-key.md
   - name: 개발에 SDK 도구 사용
     href: how-to-use-sdk-tools.md
@@ -170,7 +170,7 @@ items:
     items:
     - name: IoT Hub
       href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning 서비스
+    - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: 지도
       href: /azure/azure-maps
@@ -198,7 +198,7 @@ items:
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure IoT Hub
     href: https://azure.microsoft.com/services/iot-hub/
-  - name: IoT용 Azure Certified 장치 카탈로그
+  - name: IoT용 Azure Certified 디바이스 카탈로그
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT 개발자 센터
     href: https://azure.microsoft.com/develop/iot/

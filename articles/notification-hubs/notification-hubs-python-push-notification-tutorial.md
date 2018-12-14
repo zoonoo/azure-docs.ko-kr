@@ -319,7 +319,7 @@ Notification Hubs 클라이언트를 초기화합니다( [시작 자습서]에 �
     }
     hub.send_baidu_notification(baidu_payload)
 
-Python 코드를 실행하면 대상 장치에 나타나는 알림이 생성됩니다.
+Python 코드를 실행하면 대상 디바이스에 나타나는 알림이 생성됩니다.
 
 ## <a name="examples"></a>예제:
 ### <a name="enabling-debug-property"></a>디버그 속성 사용
@@ -375,8 +375,8 @@ HTTP 요청에 추가되는 태그 HTTP 헤더를 확인합니다. 아래 예제
 이 문서에서는 Notification Hubs에 대한 Python REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.
 
 * 이 문서의 모든 코드가 포함된 전체 [Python REST 래퍼 샘플]을 다운로드합니다.
-* [속보 자습서]
-* [지역화 뉴스 자습서]
+*  [속보 자습서]
+*  [지역화 뉴스 자습서]
 
 <!-- URLs -->
 [Python REST 래퍼 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-python

@@ -88,7 +88,7 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ## <a name="optional-run-the-android-project"></a>(선택 사항) Android 프로젝트 실행
 
-이 섹션에서는 Xamarin.Android 프로젝트를 실행합니다. Android 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션에서는 Xamarin.Android 프로젝트를 실행합니다. Android 디바이스를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -120,7 +120,7 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ## <a name="optional-run-the-ios-project"></a>(선택 사항) iOS 프로젝트 실행
 
-이 섹션에서는 iOS 장치용 Xamarin.iOS 프로젝트를 실행합니다. iOS 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션에서는 iOS 장치용 Xamarin.iOS 프로젝트를 실행합니다. iOS 디바이스를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 ### <a name="visual-studio"></a>Visual Studio
 
@@ -152,7 +152,7 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ## <a name="optional-run-the-windows-project"></a>(선택 사항) Windows 프로젝트 실행
 
-이 섹션에서는 Windows 장치에 대한 Xamarin.Forms UWP(유니버설 Windows 플랫폼) 프로젝트를 실행합니다. Windows 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션에서는 Windows 장치에 대한 Xamarin.Forms UWP(유니버설 Windows 플랫폼) 프로젝트를 실행합니다. Windows 디바이스를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 ### <a name="visual-studio"></a>Visual Studio
 

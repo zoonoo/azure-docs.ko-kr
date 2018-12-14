@@ -86,7 +86,7 @@ IKEv2에 대해 Windows 10 또는 Server 2016을 준비하려면:
 
 ### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>P2S VPN 연결에 대해 SSTP 및 IKEv2를 모두 구성되면 어떻게 되나요?
 
-혼합된 환경(Windows 및 Mac 장치로 구성)에서 SSTP 및 IKEv2 모두를 구성하는 경우 Windows VPN 클라이언트는 항상 IKEv2 터널을 먼저 시도하지만 IKEv2 연결이 실패하는 경우 SSTP로 대체합니다. MacOSX는 IKEv2를 통해서만 연결합니다.
+혼합된 환경(Windows 및 Mac 디바이스로 구성)에서 SSTP 및 IKEv2 모두를 구성하는 경우 Windows VPN 클라이언트는 항상 IKEv2 터널을 먼저 시도하지만 IKEv2 연결이 실패하는 경우 SSTP로 대체합니다. MacOSX는 IKEv2를 통해서만 연결합니다.
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Azure는 P2S VPN에 대해 Windows나 Mac 이외에 다른 어떤 플랫폼을 지원합니까?
 

@@ -30,7 +30,7 @@ ms.locfileid: "52619642"
 
 - 클라우드 응용 프로그램 할당
 
-- 장치 플랫폼 조건 
+- 디바이스 플랫폼 조건 
 
 - 클라이언트 응용 프로그램 조건
 
@@ -84,9 +84,9 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 - Azure AD 응용 프로그램 프록시를 사용하는 응용 프로그램
 
 
-## <a name="device-platform-condition"></a>장치 플랫폼 조건
+## <a name="device-platform-condition"></a>디바이스 플랫폼 조건
 
-조건부 액세스 정책에서 정책을 클라이언트의 운영 체제에 연결하는 장치 플랫폼 조건을 구성할 수 있습니다. Azure AD 조건부 액세스에서는 다음과 같은 장치 플랫폼을 지원합니다.
+조건부 액세스 정책에서 정책을 클라이언트의 운영 체제에 연결하는 디바이스 플랫폼 조건을 구성할 수 있습니다. Azure AD 조건부 액세스에서는 다음과 같은 디바이스 플랫폼을 지원합니다.
 
 - Android
 
@@ -120,7 +120,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 
 ![지원되는 브라우저의 액세스 제어](./media/technical-reference/05.png)
 
-이 설정은 모든 브라우저에서 작동합니다. 하지만 호환 장치 요구 사항과 같은 장치 정책을 충족하기 위해 다음 운영 체제와 브라우저가 지원됩니다.
+이 설정은 모든 브라우저에서 작동합니다. 하지만 호환 디바이스 요구 사항과 같은 디바이스 정책을 충족하기 위해 다음 운영 체제와 브라우저가 지원됩니다.
 
 
 | OS                     | 브라우저                            | 지원     |
@@ -161,7 +161,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |type | REG_SZ (String) |
 |Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
-이러한 브라우저는 장치 인증을 지원하므로 정책에 대해 장치 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이면 장치 검사가 실패합니다. 
+이러한 브라우저는 디바이스 인증을 지원하므로 정책에 대해 디바이스 유효성을 검사하고 식별하는 것이 가능합니다. 브라우저가 개인 모드로 실행 중이면 디바이스 검사가 실패합니다. 
 
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>지원되는 모바일 응용 프로그램 및 데스크톱 클라이언트
@@ -180,7 +180,7 @@ Microsoft 클라우드 앱 외에도 다음과 같은 형식의 클라우드 앱
 |Azure 원격 앱|Azure 원격 앱 서비스|Windows 10, Windows 8.1, Windows 7, iOS, Android 및 Mac OS X|
 |Dynamics CRM 앱|Dynamics CRM|Windows 10, Windows 8.1, iOS 및 Android|
 |메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)|Office 365 Exchange Online|윈도우 10|
-|앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원되지 않습니다. |모든 My Apps 앱 서비스|Android 및 iOS|
+|앱에 대한 MFA 및 위치 정책입니다. 디바이스 기반 정책은 지원되지 않습니다. |모든 My Apps 앱 서비스|Android 및 iOS|
 |Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다.|Microsoft 팀|Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
 |Office 2016 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조)|Office 365 SharePoint Online|Windows 8.1, Windows 7|
 |Office 2016 앱, Universal Office 앱, Office 2013(최신 인증 사용), OneDrive 동기화 클라이언트([참고](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) 참조), Office 그룹 지원은 나중에 지원될 예정입니다. SharePoint 앱 지원은 나중에 지원될 예정입니다.|Office 365 SharePoint Online|윈도우 10|

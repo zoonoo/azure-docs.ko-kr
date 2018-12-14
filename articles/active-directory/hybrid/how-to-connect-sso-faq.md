@@ -65,11 +65,11 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 ## <a name="what-is-the-difference-between-the-single-sign-on-experience-provided-by-azure-ad-joinactive-directory-azureadjoin-overviewmd-and-seamless-sso"></a>[Azure AD 조인](../active-directory-azureadjoin-overview.md) 및 Seamless SSO에서 제공하는 Single Sign-On 환경 간에 차이점은 무엇인가요?
 
-[Azure AD 조인](../active-directory-azureadjoin-overview.md)에서는 Azure AD에서 해당 장치를 등록한 경우 사용자에게 SSO를 제공합니다. 이러한 장치를 반드시 도메인에 가입할 필요는 없습니다. *기본 새로 고침 토큰*이나 *PRT* 및 Kerberos를 사용하여 SSO를 제공하지 않습니다. 사용자 환경은 Windows 10 장치에서 가장 적합합니다. SSO는 Edge 브라우저에서 자동으로 실행됩니다. 또한 브라우저 확장을 사용하여 Chrome에서 작동합니다.
+[Azure AD 조인](../active-directory-azureadjoin-overview.md)에서는 Azure AD에서 해당 장치를 등록한 경우 사용자에게 SSO를 제공합니다. 이러한 디바이스를 반드시 도메인에 가입할 필요는 없습니다. *기본 새로 고침 토큰*이나 *PRT* 및 Kerberos를 사용하여 SSO를 제공하지 않습니다. 사용자 환경은 Windows 10 디바이스에서 가장 적합합니다. SSO는 Edge 브라우저에서 자동으로 실행됩니다. 또한 브라우저 확장을 사용하여 Chrome에서 작동합니다.
 
 테넌트에서 Azure AD 조인 및 Seamless SSO를 사용할 수 있습니다. 이러한 두 기능은 상호 보완적입니다. 두 기능이 모두 설정되어 있으면 Azure AD Join에서 SSO는 Seamless SSO보다 우선합니다.
 
-## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>AD FS를 사용하지 않고 비Windows 10 장치를 Azure AD에 등록하려고 합니다. Seamless SSO를 대신 사용할 수 있나요?
+## <a name="i-want-to-register-non-windows-10-devices-with-azure-ad-without-using-ad-fs-can-i-use-seamless-sso-instead"></a>AD FS를 사용하지 않고 비Windows 10 디바이스를 Azure AD에 등록하려고 합니다. Seamless SSO를 대신 사용할 수 있나요?
 
 예, 이 시나리오에는 [작업 공간 연결 클라이언트](https://www.microsoft.com/download/details.aspx?id=53554) 버전 2.1 이상이 필요합니다.
 

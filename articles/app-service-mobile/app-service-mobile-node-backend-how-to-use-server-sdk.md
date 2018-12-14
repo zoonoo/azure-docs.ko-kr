@@ -687,11 +687,11 @@ var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' })
 
 ## <a name="a-namepushpush-notifications"></a><a name="push"/>푸시 알림
 
-Mobile Apps는 수많은 모든 주요 플랫폼의 장치에 대상 푸시 알림을 보낼 수 있도록 Azure Notification Hubs와 통합됩니다. Notification Hubs를 사용하여 iOS, Android 및 Windows 장치에 푸시 알림을 보낼 수 있습니다. Notification Hubs를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [Notification Hubs 개요](../notification-hubs/notification-hubs-push-notification-overview.md)를 참조하세요.
+Mobile Apps는 수많은 모든 주요 플랫폼의 디바이스에 대상 푸시 알림을 보낼 수 있도록 Azure Notification Hubs와 통합됩니다. Notification Hubs를 사용하여 iOS, Android 및 Windows 디바이스에 푸시 알림을 보낼 수 있습니다. Notification Hubs를 통해 수행할 수 있는 모든 것에 대한 자세한 내용은 [Notification Hubs 개요](../notification-hubs/notification-hubs-push-notification-overview.md)를 참조하세요.
 
 ### <a name="send-push"></a>푸시 알림 보내기
 
-다음 코드는 등록된 iOS 장치에 브로드캐스트 푸시 알림을 보내기 위해 `push` 개체를 사용하는 방법을 보여 줍니다.
+다음 코드는 등록된 iOS 디바이스에 브로드캐스트 푸시 알림을 보내기 위해 `push` 개체를 사용하는 방법을 보여줍니다.
 
 ```javascript
 // Create an APNS payload.
@@ -708,7 +708,7 @@ if (context.push) {
 }
 ```
 
-클라이언트에서 템플릿 푸시 등록을 만들면 지원되는 모든 플랫폼의 장치에 템플릿 푸시 메시지를 대신 보낼 수 있습니다. 다음 코드는 템플릿 알림을 보내는 방법을 보여 줍니다.
+클라이언트에서 템플릿 푸시 등록을 만들면 지원되는 모든 플랫폼의 디바이스에 템플릿 푸시 메시지를 대신 보낼 수 있습니다. 다음 코드는 템플릿 알림을 보내는 방법을 보여 줍니다.
 
 ```javascript
 // Define the template payload.
@@ -726,7 +726,7 @@ if (context.push) {
 ```
 
 ### <a name="push-user"></a>태그를 사용하여 인증된 사용자에게 푸시 알림 보내기
-인증된 사용자가 푸시 알림에 등록하면 사용자 ID 태그가 등록에 자동으로 추가됩니다. 이 태그를 사용하여 특정 사용자가 등록된 모든 장치에 푸시 알림을 보낼 수 있습니다. 다음 코드는 요청을 만드는 사용자의 SID를 가져오고 해당 사용자에 대한 모든 장치 등록에 템플릿 푸시 알림을 보냅니다.
+인증된 사용자가 푸시 알림에 등록하면 사용자 ID 태그가 등록에 자동으로 추가됩니다. 이 태그를 사용하여 특정 사용자가 등록된 모든 디바이스에 푸시 알림을 보낼 수 있습니다. 다음 코드는 요청을 만드는 사용자의 SID를 가져오고 해당 사용자에 대한 모든 디바이스 등록에 템플릿 푸시 알림을 보냅니다.
 
 ```javascript
 // Only do the push if configured.

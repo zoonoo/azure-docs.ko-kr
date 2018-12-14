@@ -41,7 +41,7 @@ ms.locfileid: "51241578"
 
 ## <a name="sdk-usage"></a>SDK 사용
 ### <a name="compile-and-build"></a>컴파일 및 빌드
-[Maven]
+ [Maven]
 
 빌드하려면 다음 코드를 사용합니다.
 
@@ -141,7 +141,7 @@ ms.locfileid: "51241578"
 모든 컬렉션 쿼리는 $top 및 연속 토큰을 지원합니다.
 
 ### <a name="installation-api-usage"></a>설치 API 사용
-설치 API는 등록 관리 대신 사용할 수 있는 메커니즘입니다. 올바르지 않거나 비효율적인 방식으로 수행하기 쉬운 중요한 등록을 여러 개 유지 관리하는 대신 이제는 단일 설치 개체를 사용할 수 있습니다. 이 경우 설치에는 푸시 채널(장치 토큰), 태그, 템플릿, 보조 타일(WNS 및 APNS의 경우) 등 필요한 모든 항목이 포함됩니다. 더 이상 ID를 가져오기 위해 서비스를 호출할 필요가 없으며 GUID나 다른 식별자를 생성하여 장치에 저장한 다음 푸시 채널(장치 토큰)과 함께 백 엔드로 전송하기만 하면 됩니다. 백 엔드에서는 CreateOrUpdateInstallation만 단일 호출하면 됩니다. 이 호출은 완전 멱등 방식이므로 필요한 경우 다시 시도해도 됩니다.
+설치 API는 등록 관리 대신 사용할 수 있는 메커니즘입니다. 올바르지 않거나 비효율적인 방식으로 수행하기 쉬운 중요한 등록을 여러 개 유지 관리하는 대신 이제는 단일 설치 개체를 사용할 수 있습니다. 이 경우 설치에는 푸시 채널(디바이스 토큰), 태그, 템플릿, 보조 타일(WNS 및 APNS의 경우) 등 필요한 모든 항목이 포함됩니다. 더 이상 ID를 가져오기 위해 서비스를 호출할 필요가 없으며 GUID나 다른 식별자를 생성하여 장치에 저장한 다음 푸시 채널(장치 토큰)과 함께 백 엔드로 전송하기만 하면 됩니다. 백 엔드에서는 CreateOrUpdateInstallation만 단일 호출하면 됩니다. 이 호출은 완전 멱등 방식이므로 필요한 경우 다시 시도해도 됩니다.
 
 Amazon Kindle Fire의 경우 예제:
 
@@ -274,7 +274,7 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
         Notification n = Notification.createTemplateNotification(prop);
         hub.sendNotification(n);
 
-이제 Java 코드를 실행하면 대상 장치에 나타나는 알림이 생성되어야 합니다.
+이제 Java 코드를 실행하면 대상 디바이스에 나타나는 알림이 생성되어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 항목에서는 Notification Hubs에 대한 단순한 Java REST 클라이언트를 만드는 방법을 알아보았습니다. 여기에서 다음을 할 수 있습니다.

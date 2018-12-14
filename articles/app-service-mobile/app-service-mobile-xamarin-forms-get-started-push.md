@@ -33,7 +33,7 @@ ms.locfileid: "42818161"
 
 ## <a name="prerequisites"></a>필수 조건
 
-iOS의 경우 [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/) 및 실제 iOS 장치가 필요합니다. [iOS 시뮬레이터는 푸시 알림을 지원하지 않습니다](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
+iOS의 경우 [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/) 및 실제 iOS 디바이스가 필요합니다. [iOS 시뮬레이터는 푸시 알림을 지원하지 않습니다](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
 ## <a name="configure-hub"></a>알림 허브 구성
 
@@ -163,7 +163,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
     }
     ```
 
-    `RegisterAsync` 메서드는 JSON으로 간단한 알림 메시지 템플릿을 만들고, Firebase 등록 토큰을 사용하여 알림 허브에서 템플릿 알림을 수신하도록 등록합니다. 이렇게 하면 Azure 알림 허브에서 보낸 알림은 등록 토큰이 나타내는 장치를 대상으로 합니다.
+    `RegisterAsync` 메서드는 JSON으로 간단한 알림 메시지 템플릿을 만들고, Firebase 등록 토큰을 사용하여 알림 허브에서 템플릿 알림을 수신하도록 등록합니다. 이렇게 하면 Azure 알림 허브에서 보낸 알림은 등록 토큰이 나타내는 디바이스를 대상으로 합니다.
 
 #### <a name="displaying-the-contents-of-a-push-notification"></a>푸시 알림의 콘텐츠 표시
 
@@ -222,14 +222,14 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 
     응용 프로그램이 FCM에서 알림을 받을 때 호출되는 `OnMessageReceived` 메서드는 메시지 콘텐츠를 추출하고 `SendNotification` 메서드를 호출합니다. 이 메서드는 메시지 콘텐츠를 알림 영역에 표시되는 알림과 함께 응용 프로그램이 실행되는 동안 시작되는 로컬 알림으로 변환합니다.
 
-이제 Android 장치 또는 에뮬레이터에서 실행 중인 앱에서 푸시 알림을 테스트할 준비가 되었습니다.
+이제 Android 디바이스 또는 에뮬레이터에서 실행 중인 앱에서 푸시 알림을 테스트할 준비가 되었습니다.
 
 ### <a name="test-push-notifications-in-your-android-app"></a>Android 앱에서 푸시 알림 테스트
 
 처음 두 단계는 에뮬레이터에서 테스트할 때만 필요합니다.
 
-1. Google Play 서비스를 사용하여 구성된 장치 또는 에뮬레이터에서 배포하거나 디버깅하는지를 확인합니다. **재생** 앱이 장치 또는 에뮬레이터에 설치되었는지 보고 확인할 수 있습니다.
-2. **앱** > **설정** > **계정 추가**를 클릭하여 Android 장치에 Google 계정을 추가합니다. 그런 후 화면 지시에 따라 장치에 기존 Google 계정을 추가하거나 새 계정을 만듭니다.
+1. Google Play 서비스를 사용하여 구성된 디바이스 또는 에뮬레이터에서 배포하거나 디버깅하는지를 확인합니다. **재생** 앱이 장치 또는 에뮬레이터에 설치되었는지 보고 확인할 수 있습니다.
+2. **앱** > **설정** > **계정 추가**를 클릭하여 Android 장치에 Google 계정을 추가합니다. 그런 후 화면 지시에 따라 디바이스에 기존 Google 계정을 추가하거나 새 계정을 만듭니다.
 3. Visual Studio 또는 Xamarin Studio에서 **Droid** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭합니다.
 4. **실행**을 클릭하여 프로젝트를 빌드하고 Android 장치 또는 에뮬레이터에서 앱을 시작합니다.
 5. 앱에서 작업을 입력한 다음 더하기(**+**) 아이콘을 클릭합니다.
@@ -237,7 +237,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>iOS 프로젝트 구성 및 실행(선택 사항)
 
-이 섹션에서는 iOS 장치용 Xamarin iOS 프로젝트를 실행합니다. iOS 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션에서는 iOS 디바이스용 Xamarin iOS 프로젝트를 실행합니다. iOS 디바이스를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -321,7 +321,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 #### <a name="test-push-notifications-in-your-ios-app"></a>iOS 앱에서 푸시 알림 테스트
 
 1. iOS 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 클릭합니다.
-2. Visual Studio에서 **실행** 단추 또는 **F5** 키를 눌러 프로젝트를 빌드하고 iOS 장치에서 앱을 시작합니다. 그런 다음 **확인**을 클릭하여 푸시 알림을 허용하도록 합니다.
+2. Visual Studio에서 **실행** 단추 또는 **F5** 키를 눌러 프로젝트를 빌드하고 iOS 디바이스에서 앱을 시작합니다. 그런 다음 **확인**을 클릭하여 푸시 알림을 허용하도록 합니다.
 
    > [!NOTE]
    > 앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
@@ -331,7 +331,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Windows 프로젝트 구성 및 실행(선택 사항)
 
-이 섹션에서는 Windows 장치용 Xamarin.Forms WinApp 및 WinPhone81 프로젝트를 실행합니다. 이 단계에서는 UWP(범용 Windows 플랫폼) 프로젝트도 지원합니다. Windows 장치를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
+이 섹션에서는 Windows 디바이스용 Xamarin.Forms WinApp 및 WinPhone81 프로젝트를 실행합니다. 이 단계에서는 UWP(범용 Windows 플랫폼) 프로젝트도 지원합니다. Windows 디바이스를 작업하지 않는 경우 이 섹션을 건너뛸 수 있습니다.
 
 #### <a name="register-your-windows-app-for-push-notifications-with-windows-notification-service-wns"></a>WNS(Windows 알림 서비스)를 통한 푸시 알림에 Windows 앱 등록
 
@@ -409,12 +409,12 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
 * [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
 * [Firebase Cloud Messaging을 사용하여 원격 알림](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/)
 * [푸시 알림 문제 진단](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-  장치에서 알림이 삭제되거나 끝나지 않는 다양한 이유가 있습니다. 이 항목에서는 푸시 알림 실패의 근본 원인을 분석 및 파악하는 방법을 보여 줍니다.
+  디바이스에서 알림이 삭제되거나 끝나지 않는 다양한 이유가 있습니다. 이 항목에서는 푸시 알림 실패의 근본 원인을 분석 및 파악하는 방법을 보여 줍니다.
 
 다음 자습서 중 하나를 계속 진행할 수도 있습니다.
 
 * [앱에 인증 추가](app-service-mobile-xamarin-forms-get-started-users.md)  
-  ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+   ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 * [앱에 오프라인 동기화 사용](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Mobile Apps 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다.
 

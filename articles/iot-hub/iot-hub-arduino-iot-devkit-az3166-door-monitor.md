@@ -150,11 +150,11 @@ VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프�
 > [!NOTE]
 > Azure에 로그인하려고 시도할 때 페이지가 로딩 상태에서 중지되는 경우 [IoT DevKit FAQ의 “페이지가 로딩 상태에서 중지됨” 섹션](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure)을 참조하세요. 
 
-### <a name="build-and-upload-the-device-code"></a>장치 코드 빌드 및 업로드
+### <a name="build-and-upload-the-device-code"></a>디바이스 코드 빌드 및 업로드
 
-다음으로 장치에 대한 코드를 업로드합니다.
+다음으로 디바이스에 대한 코드를 업로드합니다.
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 1. `Ctrl+P`를 사용하여 `task device-upload`를 실행합니다.
 
@@ -198,7 +198,7 @@ DevKit가 안정적인 자기 필드가 있는 경우 프로그램이 먼저 초
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 장치를 연결하는 방법에 대해 알아보고 SendGrid 서비스를 사용하여 이메일을 보냈습니다. 권장되는 단계는 다음과 같습니다.
+Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 디바이스를 연결하는 방법에 대해 알아보고 SendGrid 서비스를 사용하여 이메일을 보냈습니다. 권장되는 단계는 다음과 같습니다.
 
 * [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
 * [Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

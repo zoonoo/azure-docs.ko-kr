@@ -70,7 +70,7 @@ azure login
 
 앞의 예제를 입력하면 코드가 제공됩니다. 브라우저에서 https://aka.ms/devicelogin으로 이동하여 로그인 프로세스를 계속 진행합니다.
 
-![장치 로그인을 보여 주는 cmd][1]
+![디바이스 로그인을 보여 주는 cmd][1]
 
 브라우저에서 받은 코드를 입력합니다. 로그인 페이지로 리디렉션됩니다.
 
@@ -151,9 +151,9 @@ azure network application-gateway create \
 
 ## <a name="next-steps"></a>다음 단계
 
-[사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)
+ [사용자 지정 상태 프로브 만들기](application-gateway-create-probe-portal.md)
 
-[SSL 오프로드 구성](application-gateway-ssl-arm.md)
+ [SSL 오프로드 구성](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

@@ -20,15 +20,15 @@ ms.locfileid: "47221811"
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>소개
-Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여 줍니다.
+Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여 줍니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 이 자습서는 [IoT Hub 시작]를 토대로 작성되었습니다. 이 항목에서는 다음 방법을 설명합니다.
 
-* 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-장치 메시지를 단일 장치로 보냅니다.
-* 장치에서 클라우드-장치 메시지를 받습니다.
-* 솔루션 백 엔드에서, IoT Hub에서 장치로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
+* 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-디바이스 메시지를 단일 디바이스로 보냅니다.
+* 디바이스에서 클라우드-디바이스 메시지를 받습니다.
+* 솔루션 백 엔드에서, IoT Hub에서 디바이스로 보낸 메시지에 대한 배달 확인(*피드백*)을 요청합니다.
 
 클라우드-장치 메시지에 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub developer guide - C2D]에서 찾아볼 수 있습니다.
 
@@ -38,7 +38,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 * **SendCloudToDeviceMessage**, IoT Hub를 통해 시뮬레이션된 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신합니다.
 
 > [!NOTE]
-> IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 장치 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 장치를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
+> IoT Hub는 많은 디바이스 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 디바이스 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
 > 
 > 
 
@@ -47,11 +47,11 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 * Node.js 버전 4.0.x 이상
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
-## <a name="receive-messages-in-the-simulated-device-app"></a>시뮬레이션된 장치 앱에서 메시지 수신
+## <a name="receive-messages-in-the-simulated-device-app"></a>시뮬레이션된 디바이스 앱에서 메시지 수신
 이 섹션에서는 [IoT Hub 시작]에서 만든 시뮬레이션된 장치 앱을 수정하여 IoT Hub로부터 클라우드-장치 메시지를 수신합니다.
 
 1. 텍스트 편집기를 사용하여 SimulatedDevice.js 파일을 엽니다.
-2. IoT Hub에서 전송된 메시지를 처리하도록 **connectCallback** 함수를 수정합니다. 이 예제에서는 장치가 항상 **complete** 함수를 호출하여 메시지를 처리했음을 IoT Hub에 알립니다. **connectCallback** 함수의 새 버전은 다음 코드 조각과 같이 표시됩니다.
+2. IoT Hub에서 전송된 메시지를 처리하도록 **connectCallback** 함수를 수정합니다. 이 예제에서는 디바이스가 항상 **complete** 함수를 호출하여 메시지를 처리했음을 IoT Hub에 알립니다. **connectCallback** 함수의 새 버전은 다음 코드 조각과 같이 표시됩니다.
    
     ```javascript
     var connectCallback = function (err) {
@@ -83,7 +83,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
    > 
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
-이 섹션에서는 클라우드-장치 메시지를 시뮬레이트된 장치 앱으로 보내는 Node.js 콘솔 앱을 만듭니다. [IoT Hub 시작] 자습서에서 추가한 장치의 장치 ID가 필요합니다. [Azure Portal]에서 찾을 수 있는 허브에 대한 IoT Hub 연결 문자열도 필요합니다.
+이 섹션에서는 클라우드-디바이스 메시지를 시뮬레이트된 디바이스 앱으로 보내는 Node.js 콘솔 앱을 만듭니다. [IoT Hub 시작] 자습서에서 추가한 장치의 장치 ID가 필요합니다. [Azure Portal]에서 찾을 수 있는 허브에 대한 IoT Hub 연결 문자열도 필요합니다.
 
 1. **sendcloudtodevicemessage**라는 빈 폴더를 만듭니다. **sendcloudtodevicemessage** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다. 모든 기본값을 수락합니다.
    
@@ -160,7 +160,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
     node SimulatedDevice.js 
     ```
    
-    ![시뮬레이션된 장치 앱 실행][img-simulated-device]
+    ![시뮬레이션된 디바이스 앱 실행][img-simulated-device]
 2. 명령 프롬프트의 **sendcloudtodevicemessage** 폴더에서 다음 명령을 실행하여 클라우드-장치 메시지를 보내고 승인 피드백을 대기합니다.
    
     ```shell

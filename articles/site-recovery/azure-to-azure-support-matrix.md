@@ -137,7 +137,7 @@ SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default에�
 
 * 파일 시스템: ext3, ext4, ReiserFS(Suse Linux Enterprise Server만), XFS
 * 볼륨 관리자: LVM2
-* 다중 경로 소프트웨어: 장치 매퍼
+* 다중 경로 소프트웨어: 디바이스 매퍼
 
 
 ## <a name="replicated-machines---compute-settings"></a>복제된 컴퓨터 - 계산 설정

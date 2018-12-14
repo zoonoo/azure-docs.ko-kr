@@ -195,7 +195,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 3. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
 4. 패키지 배포 작업이 완료되면 패키지를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다.
   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
-5. 필수 구성 요소 섹션에서 만든 Widows Server 장치 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
+5. 필수 구성 요소 섹션에서 만든 Widows Server 디바이스 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
 
   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
 
@@ -418,7 +418,7 @@ cd /tmp
 3. 마법사를 완료합니다. 그러면 패키지가 지정된 배포 지점에 복제를 시작합니다.
 4. 패키지 배포 작업이 완료되면 패키지를 마우스 오른쪽 단추로 클릭하고 **배포**를 선택합니다.
   ![Configuration Manager 콘솔의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
-5. 전제 조건 섹션에서 만든 Linux Server 장치 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
+5. 전제 조건 섹션에서 만든 Linux Server 디바이스 컬렉션을 배포의 대상 컬렉션으로 선택합니다.
 
   ![소프트웨어 배포 마법사의 스크린샷](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
 
@@ -430,7 +430,7 @@ cd /tmp
 8. **이 배포에 대한 일정 지정** 페이지에서 일정을 지정합니다. 자세한 내용은 [패키지 일정 예약](https://technet.microsoft.com/library/gg682178.aspx)을 참조하세요.
 9. **배포 지점** 페이지에서 데이터 센터 요구 사항에 따라 속성을 구성합니다. 그런 다음 마법사를 완료합니다.
 
-사용자가 구성한 일정에 따라 Linux Server 장치 컬렉션에 모바일 서비스가 설치됩니다.
+사용자가 구성한 일정에 따라 Linux Server 디바이스 컬렉션에 모바일 서비스가 설치됩니다.
 
 
 ## <a name="uninstall-the-mobility-service"></a>모바일 서비스 설치 제거

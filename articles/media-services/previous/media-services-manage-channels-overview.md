@@ -43,7 +43,7 @@ Azure Media Services를 사용하여 라이브 스트리밍 이벤트를 제공�
 
 **Microsoft Azure Media Services**(AMS)에서는 라이브 스트리밍 콘텐츠를 수집, 인코딩, 미리 보기, 저장 및 배달하는 기능을 제공합니다.
 
-콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 이를 위해 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다.  여러 장치에서 스트리밍을 관리하려면 Media Services [동적 패키징](media-services-dynamic-packaging-overview.md) 을 사용하여 스트림을 여러 프로토콜에 동적으로 다시 패키징합니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
+콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 이를 위해 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다.  여러 디바이스에서 스트리밍을 관리하려면 Media Services [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 스트림을 여러 프로토콜에 동적으로 다시 패키징합니다. Media Services에서 지원하는 적응 비트 전송률 스트리밍은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍 및 MPEG-DASH입니다.
 
 Azure Media Services에서 **채널**, **프로그램** 및 **스트리밍 끝점**은 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
 
@@ -70,7 +70,7 @@ Media Services 2.10 릴리스부터, 채널을 만들 때 채널이 입력 스�
 | 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아니요 |yes |
 | 최대 해상도, 계층 수 |1080p, 8계층, 60+fps |720p, 6계층, 30fps |
 | 입력 프로토콜 |RTMP, 부드러운 스트리밍 |RTMP, 부드러운 스트리밍 |
-| 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
+| 가격 |[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭 | [가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) |
 | 최대 실행 시간 |연중 무휴 |8시간 |
 | 슬레이트 삽입 지원 |아니요 |yes |
 | 광고 신호 지원 |아니요 |yes |

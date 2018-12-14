@@ -37,7 +37,7 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. 다
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
         ...
-* */hive/warehouse/hivesampletable*에 있는 데이터 파일을 참조하는 *hivesampletable*이라는 이름의 Hive 테이블. 이 테이블에는 일부 모바일 장치 데이터가 포함되어 있습니다. 
+* */hive/warehouse/hivesampletable*에 있는 데이터 파일을 참조하는 *hivesampletable*이라는 이름의 Hive 테이블. 이 테이블에는 일부 모바일 디바이스 데이터가 포함되어 있습니다. 
   
   | 필드 | 데이터 형식 |
   | --- | --- |

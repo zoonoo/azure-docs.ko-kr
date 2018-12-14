@@ -44,7 +44,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 | --- | --- | --- | --- |
 | 1. |**Azure Portal 설정** |StorSimple 가상 배열을 프로비전하기 전에 StorSimple 장치 관리자 서비스를 만들고 구성합니다. |[포털 준비](storsimple-virtual-array-deploy1-portal-prep.md) |
 | 2. |**가상 배열 프로비전** |Hyper-V의 경우 Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2에서 Hyper-V를 실행하는 호스트 시스템의 StorSimple 가상 배열을 프로비전하고 연결합니다. <br></br> <br></br> VMware의 경우, VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에서 StorSimple 가상 배열에 프로비전하고 연결합니다.<br></br> |[Hyper-V에서 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [VMware에서 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md) |
-| 3. |**가상 배열 설정** |파일 서버에 대해 초기 설정을 수행하고 StorSimple 파일 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다. <br></br> <br></br> iSCSI 서버에 대해 초기 설정을 수행하고 StorSimple iSCSI 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 iSCSI 볼륨을 프로비전할 수 있습니다. |[파일 서버로 가상 배열 설정](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[iSCSI 서버로 가상 배열 설정](storsimple-virtual-array-deploy3-iscsi-setup.md) |
+| 3. |**가상 배열 설정** |파일 서버에 대해 초기 설정을 수행하고 StorSimple 파일 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 SMB 공유를 프로비전할 수 있습니다. <br></br> <br></br>  iSCSI 서버에 대해 초기 설정을 수행하고 StorSimple iSCSI 서버를 등록하고 장치 설정을 완료합니다. 그런 다음 iSCSI 볼륨을 프로비전할 수 있습니다. |[파일 서버로 가상 배열 설정](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[iSCSI 서버로 가상 배열 설정](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 이제 Azure Portal 설치를 시작할 수 있습니다.
 
@@ -59,7 +59,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 
 여기에는 StorSimple 장치 관리자 서비스, StorSimple 가상 배열, 데이터 센터 네트워크에 대한 필수 조건이 제공됩니다.
 
-### <a name="for-the-storsimple-device-manager-service"></a>StorSimple 장치 관리자 서비스의 경우
+### <a name="for-the-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스의 경우
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -71,7 +71,7 @@ StorSimple 가상 배열을 배포하려면 다음 문서를 지정된 순서대
 
 가상 배열을 배포하기 전에 다음 사항을 확인해야 합니다.
 
-* 장치 프로비전에 사용될 수 있는 Windows Server 2008 R2 이상 또는 VMware(ESXi 5.0, 5.5 또는 6.0)에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
+* 디바이스 프로비전에 사용될 수 있는 Windows Server 2008 R2 이상 또는 VMware(ESXi 5.0, 5.5 또는 6.0)에서 Hyper-V를 실행하는 호스트 시스템에 액세스할 수 있습니다.
 * 가상 배열을 프로비전하려면 호스트 시스템에서 다음 리소스를 전용으로 사용할 수 있습니다.
   
   * 코어 4개 이상
@@ -106,7 +106,7 @@ StorSimple 장치 관리자 서비스 단일 인스턴스는 여러 StorSimple �
 
 ## <a name="step-2-get-the-service-registration-key"></a>2단계: 서비스 등록 키 받기
 
-StorSimple 장치 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 장치를 서비스에 등록 및 연결하는 데 사용됩니다.
+StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 장치를 서비스에 등록 및 연결하는 데 사용됩니다.
 
 [Azure Portal](https://portal.azure.com/)에서 다음 단계를 수행합니다.
 

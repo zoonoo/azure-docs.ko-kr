@@ -24,11 +24,11 @@ ms.locfileid: "27593717"
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Cordova 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-이 자습서에서는 Cordova용 Azure Mobile Apps의 오프라인 동기화 기능을 소개합니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다.  장치가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 서비스와 동기화됩니다.
+이 자습서에서는 Cordova용 Azure Mobile Apps의 오프라인 동기화 기능을 소개합니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다.  디바이스가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 서비스와 동기화됩니다.
 
 이 자습서는 [Apache Cordova 빠른 시작]자습서를 완료할 때 만든 Mobile Apps에 대한 Cordova 빠른 시작 솔루션을 기반으로 합니다. 이 자습서에서는 빠른 시작 솔루션을 업데이트하여 Azure Mobile Apps의 오프라인 기능을 추가합니다.  또한 앱에서 오프라인 관련 코드를 중점적으로 다루겠습니다.
 
-오프라인 동기화 기능에 대한 자세한 내용은 [증분 동기화]항목을 참조하세요. API 사용에 대한 자세한 내용은 [API 설명서](https://azure.github.io/azure-mobile-apps-js-client)를 참조하세요.
+오프라인 동기화 기능에 대한 자세한 내용은 [Azure Mobile Apps에서 오프라인 데이터 동기화]항목을 참조하세요. API 사용에 대한 자세한 내용은 [API 설명서](https://azure.github.io/azure-mobile-apps-js-client)를 참조하세요.
 
 ## <a name="add-offline-sync-to-the-quickstart-solution"></a>오프라인 동기화를 빠른 시작 솔루션에 추가
 오프라인 동기화 코드를 앱에 추가해야 합니다. 오프라인 동기화에는 cordova-sqlite-storage 플러그 인이 필요하며 이는 Azure Mobile Apps 플러그 인이 프로젝트에 포함될 때 앱에 자동으로 추가됩니다. 빠른 시작 프로젝트에는 이러한 플러그 인이 모두 포함됩니다.
@@ -136,7 +136,7 @@ ms.locfileid: "27593717"
 
 끌어오기가 컨텍스트에 의해 추적되는 로컬 업데이트를 보류 중인 테이블에 대해 실행되는 경우 끌어오기 작업은 자동으로 푸시를 트리거합니다. 이 샘플에서 항목을 새로 고침, 추가 및 완료하는 경우 명시적인 **push** 호출이 중복될 수 있으므로 생략할 수 있습니다.
 
-제공된 코드에서 원격 todoItem 테이블에 있는 모든 레코드를 쿼리하지만 쿼리 ID 및 쿼리를 **푸시**로 전달하여 레코드를 필터링할 수도 있습니다. 자세한 내용은 *Azure Mobile Apps에서 오프라인 데이터 동기화* 에서 [증분 동기화]섹션을 참조하세요.
+제공된 코드에서 원격 todoItem 테이블에 있는 모든 레코드를 쿼리하지만 쿼리 ID 및 쿼리를 **푸시**로 전달하여 레코드를 필터링할 수도 있습니다. 자세한 내용은 *Azure Mobile Apps에서 오프라인 데이터 동기화* 에서 [Azure Mobile Apps에서 오프라인 데이터 동기화]섹션을 참조하세요.
 
 ## <a name="optional-disable-authentication"></a>(선택 사항)인증 사용 안 함
 
@@ -187,7 +187,7 @@ ms.locfileid: "27593717"
     데이터베이스와 로컬 저장소 간에 데이터가 동기화되었으며 앱의 연결이 끊어진 동안 추가한 항목을 포함합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
-* [증분 동기화]
+* [Azure Mobile Apps에서 오프라인 데이터 동기화]
 * [Visual Studio Tools for Apache Cordova]
 
 ## <a name="next-steps"></a>다음 단계
@@ -201,7 +201,7 @@ ms.locfileid: "27593717"
 <!-- URLs. -->
 [Apache Cordova 빠른 시작]: app-service-mobile-cordova-get-started.md
 [오프라인 동기화 샘플]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
-[증분 동기화]: app-service-mobile-offline-data-sync.md
+[Azure Mobile Apps에서 오프라인 데이터 동기화]: app-service-mobile-offline-data-sync.md
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [authentication]: app-service-mobile-cordova-get-started-users.md

@@ -537,7 +537,7 @@ Update
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager와 상호 작용
 
-PC, 서버 및 모바일 장치를 관리하기 위해 System Center Configuration Manager에 투자하는 고객들은 소프트웨어 업데이트 관리에 도움을 얻기 위해 Configuration Manager의 강점과 완성도에 의존합니다. Configuration Manager는 해당 SUM(소프트웨어 업데이트 관리) 주기에 속합니다.
+PC, 서버 및 모바일 디바이스를 관리하기 위해 System Center Configuration Manager에 투자하는 고객들은 소프트웨어 업데이트 관리에 도움을 얻기 위해 Configuration Manager의 강점과 완성도에 의존합니다. Configuration Manager는 해당 SUM(소프트웨어 업데이트 관리) 주기에 속합니다.
 
 System Center Configuration Manager와 관리 솔루션을 통합하는 방법을 알아보려면 [업데이트 관리와 System Center Configuration Manager 통합](oms-solution-updatemgmt-sccmintegration.md)을 참조하세요.
 

@@ -19,7 +19,7 @@ ms.locfileid: "42143914"
 
 이 문서에서는 Azure IoT Hub Device Provisioning 서비스 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 Azure IoT Hub에 MXChip IoT DevKit을 등록하는 방법을 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
-* 장치에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
+* 디바이스에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
 * UDS(고유 장치 비밀)를 사용하여 X.509 인증서를 생성합니다.
 * 개별 장치를 등록합니다.
 * 장치가 등록되었는지 확인합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "42143914"
 
 만든 Device Provisioning Service 인스턴스에 DevKit를 연결하려면 다음을 수행합니다.
 
-1. Azure Portal에서 Device Provisioning Service에 대한 **개요** 창을 선택하고, **글로벌 장치 엔드포인트** 및 **ID 범위** 값을 적어둡니다.
+1. Azure Portal에서 Device Provisioning Service에 대한 **개요** 창을 선택하고, **글로벌 디바이스 엔드포인트** 및 **ID 범위** 값을 적어둡니다.
   ![Device Provisioning Service 글로벌 엔드포인트 및 ID 범위](./media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
 2. 컴퓨터에 `git`이 설치되어 있고 명령 창에서 액세스할 수 있는 환경 변수에 추가되었는지 확인합니다. 최신 버전을 설치하려면 [Software Freedom Conservancy의 Git 클라이언트 도구](https://git-scm.com/download/)를 참조하세요.
@@ -51,7 +51,7 @@ ms.locfileid: "42143914"
 4. Visual Studio Code를 시작하고, DevKit를 컴퓨터에 연결한 후 복제한 코드가 포함된 폴더를 엽니다.
 
 5. **DevKitDPS.ino**를 엽니다. `[Global Device Endpoint]` 및 `[ID Scope]`를 찾아 방금 적어둔 값으로 바꿉니다.
-  ![Device Provisioning Service 엔드포인트](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) **registrationId**는 비워 두어도 됩니다. 응용 프로그램에서 MAC 주소와 펌웨어 버전에 따라 하나를 생성합니다. 등록 ID를 사용자 지정하려면 최대 128자의 영숫자, 소문자 및 하이픈 조합만 사용해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 장치 등록 관리](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments)를 참조하세요.
+  ![Device Provisioning Service 엔드포인트](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) **registrationId**는 비워 두어도 됩니다. 응용 프로그램에서 MAC 주소와 펌웨어 버전에 따라 하나를 생성합니다. 등록 ID를 사용자 지정하려면 최대 128자의 영숫자, 소문자 및 하이픈 조합만 사용해야 합니다. 자세한 내용은 [Azure Portal을 사용하여 디바이스 등록 관리](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments)를 참조하세요.
 
 6. VS Code(Windows: `Ctrl+P`, macOS: `Cmd+P`)에서 Quick Open을 사용하고, *task device-upload*를 입력하여 코드를 DevKit에 빌드하고 업로드합니다.
 
@@ -90,7 +90,7 @@ DevKit에 고유 장치 암호를 저장하려면 다음을 수행합니다.
 
 이제 X.609 인증서를 생성해야 합니다. 
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 1. 파일 탐색기를 열고 이전에 복제한 Device Provisioning Service 샘플 코드를 포함하는 폴더로 이동합니다. **.build** 폴더에서 **DPS.ino.bin** 및 **DPS.ino.map**을 찾아서 복사합니다.
   ![생성된 파일](./media/how-to-connect-mxchip-iot-devkit/generated-files.png)
@@ -104,7 +104,7 @@ DevKit에 고유 장치 암호를 저장하려면 다음을 수행합니다.
 
 4. X.509 인증서가 생성된 후 **.pem** 인증서가 동일한 폴더에 저장됩니다.
 
-## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Device Provisioning Service에서 장치 등록 항목 만들기
+## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Device Provisioning Service에서 디바이스 등록 항목 만들기
 
 1. Azure Portal에서 Device Provisioning Service 인스턴스로 이동합니다. **등록 관리**를 선택하고 **개별 등록** 탭을 선택합니다. ![개별 등록](./media/how-to-connect-mxchip-iot-devkit/individual-enrollments.png)
 
@@ -144,8 +144,8 @@ DevKit에서 Device Provisioning Service에 등록하는 과정을 시작합니�
 장치가 부팅되면 다음 작업이 수행됩니다.
 
 1. 장치가 Device Provisioning Service에 등록 요청을 보냅니다.
-2. Device Provisioning Service에서 장치가 응답하는 등록 챌린지를 다시 보냅니다.
-3. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 장치 ID 및 암호화된 키를 장치로 다시 보냅니다.
+2. Device Provisioning Service에서 디바이스가 응답하는 등록 챌린지를 다시 보냅니다.
+3. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 디바이스 ID 및 암호화된 키를 디바이스로 다시 보냅니다.
 4. 장치의 IoT Hub 클라이언트 응용 프로그램이 사용자 허브에 연결됩니다.
 5. 허브에 성공적으로 연결되면 IoT Hub의 Device Explorer에 장치가 표시됩니다.
   ![등록된 장치](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
@@ -159,12 +159,12 @@ DevKit에서 Device Provisioning Service에 등록하는 과정을 시작합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 장치가 Azure IoT Hub에 자동으로 등록될 수 있도록 Device Identity Composition Engine을 사용하여 장치를 Device Provisioning Service에 안전하게 등록하는 방법을 알아보았습니다. 
+이 자습서에서는 디바이스가 Azure IoT Hub에 자동으로 등록될 수 있도록 Device Identity Composition Engine을 사용하여 디바이스를 Device Provisioning Service에 안전하게 등록하는 방법을 알아보았습니다. 
 
 요약하면 다음 방법을 배웠습니다.
 
 > [!div class="checklist"]
-> * 장치에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
+> * 디바이스에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
 > * 고유 장치 비밀을 사용하여 X.509 인증서를 생성합니다.
 > * 개별 장치를 등록합니다.
 > * 장치가 등록되었는지 확인합니다.

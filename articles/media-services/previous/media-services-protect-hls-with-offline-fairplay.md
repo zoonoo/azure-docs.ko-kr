@@ -41,7 +41,7 @@ ms.locfileid: "51251835"
 이 문서에서는 iOS 10 이상을 실행하는 장치를 대상으로 하는 FairPlay 스트리밍(FPS) 오프라인 모드 지원에 대해 설명합니다. 이 기능은 watchOS, tvOS, 또는 macOS의 Safari와 같은 다른 Apple 플랫폼을 지원하지 않습니다.
 
 ## <a name="preliminary-steps"></a>준비 단계
-iOS 10+ 장치에서 FairPlay에 대한 오프라인 DRM을 구현하기 전에 다음을 수행합니다.
+iOS 10+ 디바이스에서 FairPlay에 대한 오프라인 DRM을 구현하기 전에 다음을 수행합니다.
 
 * FairPlay에 대한 온라인 콘텐츠 보호를 숙지하도록 합니다. 자세한 내용은 다음 문서 및 샘플을 참조하세요.
 
@@ -159,7 +159,7 @@ FPS 오프라인 모드 지원은 iOS 10 이상에서만 제공됩니다. FPS Se
     return ckcData
 ```
 
-HLSCatalog\Shared\Managers\ContentKeyDelegate.swift에서 `requestApplicationCertificate()` 메서드를 구현합니다. 이 구현은 장치에 인증서(공개 키만)를 포함 또는 웹에 인증서를 호스트하는지 여부에 달려 있습니다. 다음은 테스트 샘플에서 사용된 호스트된 응용 프로그램 인증서를 사용합니다. "certUrl"을 응용 프로그램 인증서 URL을 포함하는 변수로 사용합니다.
+HLSCatalog\Shared\Managers\ContentKeyDelegate.swift에서 `requestApplicationCertificate()` 메서드를 구현합니다. 이 구현은 디바이스에 인증서(공개 키만)를 포함 또는 웹에 인증서를 호스트하는지 여부에 달려 있습니다. 다음은 테스트 샘플에서 사용된 호스트된 응용 프로그램 인증서를 사용합니다. "certUrl"을 응용 프로그램 인증서 URL을 포함하는 변수로 사용합니다.
 
 ```swift
 func requestApplicationCertificate() throws -> Data {
@@ -198,13 +198,13 @@ FPS Server SDK의 버전 3 또는 버전 4 샘플을 사용하여 마스터 재�
 
 - **왜 오프라인 모드에서는 오디오만 재생되고 비디오는 재생되지 않나요?** 이 동작은 의도적으로 샘플 앱의 것입니다. 대체 오디오 트랙이 존재할 때(HLS에 대한 경우임), 오프라인 모드 동안 iOS 10과 iOS 11은 모두 기본 설정에 따라 대체 오디오 트랙을 사용합니다. FPS 오프라인 모드에 대한 이 동작을 보완하려면 스트림에서 대체 오디오 트랙을 제거합니다. Media Services에서 이를 실행하기 위해 동적 매니페스트 필터 "audio-only=false"를 추가합니다. 즉, HLS URL은 .ism/manifest(format=m3u8-aapl,audio-only=false)로 끝납니다. 
 - **audio-only=false를 추가한 후에도 왜 여전히 오프라인 모드에서 동영상 없이 오디오만 재생되나요?** CDN(콘텐츠 배달 네트워크) 캐시 키 디자인에 따라, 콘텐츠가 캐시될 수 있습니다. 캐시를 제거합니다.
-- **FPS 오프라인 모드 또한 iOS 10 외에도 iOS 11에서 지원됩니까?** 예. FPS 오프라인 모드는 iOS 10과 iOS 11 모두에서 지원됩니다.
+- **FPS 오프라인 모드 또한 iOS 10 외에도 iOS 11에서 지원됩니까?**  예. FPS 오프라인 모드는 iOS 10과 iOS 11 모두에서 지원됩니다.
 - **FPS Server SDK에서 “FairPlay 스트리밍 및 HTTP 라이브 스트리밍을 사용하여 오프라인 재생” 문서를 찾을 수 없는 이유는 무엇인가요?** FPS Server SDK 버전 4부터 이 문서는 “FairPlay Streaming Programming Guide”에 병합되었습니다.
 - **마지막 매개변수는 FPS 오프라인 모드에 대한 다음 API에서 무엇을 의미합니까?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     이 API에 대한 설명서를 보려면 [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration 메서드](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet)를 참조하세요. 이 매개 변수는 오프라인 임대 기간(시간 단위)을 나타냅니다.
-- **iOS 장치에서 다운로드된/오프라인 파일 구조체는 무엇입니까?** iOS 장치에 다운로드된 파일 구조체는 다음 스크린샷과 같습니다. `_keys` 폴더에는 다운로드된 FPS 라이선스가 저징됩니다(각 라이선스 서비스 호스트당 하나의 저장소 파일). `.movpkg` 폴더에는 오디오 및 동영상 콘텐츠가 저장됩니다. 대시에 이어 숫자로 끝나는 이름의 첫 번째 폴더는 동영상 콘텐츠를 포함합니다. 숫자 값은 동영상 변환의 PeakBandwidth입니다. 대시에 이어 0으로 끝나는 이름의 두 번째 폴더는 오디오 콘텐츠를 포함합니다. "Data"라는 이름의 세 번째 폴더는 FPS 콘텐츠의 마스터 재생 목록을 포함합니다. 마지막으로, boot.xml은 `.movpkg` 폴더 내용에 대한 전체 설명을 제공합니다. 
+- **iOS 장치에서 다운로드된/오프라인 파일 구조체는 무엇입니까?** iOS 디바이스에 다운로드된 파일 구조체는 다음 스크린샷과 같습니다. `_keys` 폴더에는 다운로드된 FPS 라이선스가 저징됩니다(각 라이선스 서비스 호스트당 하나의 저장소 파일). `.movpkg` 폴더에는 오디오 및 동영상 콘텐츠가 저장됩니다. 대시에 이어 숫자로 끝나는 이름의 첫 번째 폴더는 동영상 콘텐츠를 포함합니다. 숫자 값은 동영상 변환의 PeakBandwidth입니다. 대시에 이어 0으로 끝나는 이름의 두 번째 폴더는 오디오 콘텐츠를 포함합니다. "Data"라는 이름의 세 번째 폴더는 FPS 콘텐츠의 마스터 재생 목록을 포함합니다. 마지막으로, boot.xml은 `.movpkg` 폴더 내용에 대한 전체 설명을 제공합니다. 
 
 ![오프라인 FairPlay iOS 샘플 앱 파일 구조체](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
 

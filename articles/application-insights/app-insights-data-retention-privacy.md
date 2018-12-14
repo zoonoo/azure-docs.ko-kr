@@ -44,7 +44,7 @@ Application Insights 서비스는 원격 분석 데이터를 저장하고 분석
 
 예를 들어 데이터베이스 또는 외부 도구에 Application Insights 서비스에서 내보낸 데이터가 있을 수 있습니다. 서비스에서 가져와야 하는 특수 키를 사용하여 각 도구를 제공합니다. 필요한 경우 키를 해지할 수 있습니다. 
 
-Application Insights SDK는 다음과 같은 응용 프로그램 형식에 사용할 수 있습니다. 고유한 J2EE 또는 ASP.NET 서버 또는 Azure에서 호스팅된 웹 서비스, 웹 클라이언트 즉, 웹 페이지에서 실행되는 코드, 데스크톱 앱 및 서비스, Windows Phone, iOS 및 Android 같은 장치 앱. 모두 동일한 서비스에 원격 분석을 보냅니다.
+Application Insights SDK는 다음과 같은 응용 프로그램 형식에 사용할 수 있습니다. 고유한 J2EE 또는 ASP.NET 서버 또는 Azure에서 호스팅된 웹 서비스, 웹 클라이언트 즉, 웹 페이지에서 실행되는 코드, 데스크톱 앱 및 서비스, Windows Phone, iOS 및 Android 같은 디바이스 앱. 모두 동일한 서비스에 원격 분석을 보냅니다.
 
 ## <a name="what-data-does-it-collect"></a>어떤 데이터를 수집하나요?
 ### <a name="how-is-the-data-is-collected"></a>데이터는 어떻게 수집되나요?
@@ -63,7 +63,7 @@ Application Insights SDK는 다음과 같은 응용 프로그램 형식에 사�
 * [웹 서버 원격 분석](app-insights-asp-net.md) - HTTP가 요청합니다.  URI, 요청, 응답 코드, 클라이언트 IP 주소를 처리하는 데 걸린 시간입니다. 세션 ID.
 * [웹 페이지](app-insights-javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. Ajax 호출.
 * 성능 카운터 - 메모리, CPU, IO, 네트워크 선점입니다.
-* 클라이언트 및 서버 컨텍스트 - OS, 로캘, 장치 형식, 브라우저, 화면 해상도입니다.
+* 클라이언트 및 서버 컨텍스트 - OS, 로캘, 디바이스 형식, 브라우저, 화면 해상도입니다.
 * [예외](app-insights-asp-net-exceptions.md) 및 작동 중단 - **스택 덤프**, 작성 ID, CPU 형식입니다. 
 * [종속성](app-insights-asp-net-dependencies.md) - REST, SQL, AJAX와 같은 외부 서비스를 호출합니다. URI 또는 연결 문자열, 시간, 성공, 명령입니다.
 * [가용성 테스트](app-insights-monitor-web-app-availability.md) - 테스트, 단계, 응답의 기간입니다.
@@ -105,7 +105,7 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>내 앱을 미국, 유럽 또는 동남 아시아에서 호스트해야 한다는 뜻인가요?
-* 아니요. 응용 프로그램은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
+*  아니요. 응용 프로그램은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
 
 ## <a name="how-secure-is-my-data"></a>내 데이터는 어느 정도 안전한가요?
 Application Insights는 Azure 서비스입니다. 보안 정책은 [Azure 보안, 개인 정보 보호 및 규정 준수 백서](https://go.microsoft.com/fwlink/?linkid=392408)에 설명되어 있습니다.
@@ -127,7 +127,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 모든 데이터는 데이터 센터 간에 이동할 때 암호화됩니다.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>내 응용 프로그램에서 Application Insights 서버로 전송 중에 데이터가 암호화되나요?
-예. 웹 서버, 장치 및 HTTPS 웹 페이지를 포함하여 거의 모든 SDK에서 https를 사용하여 포털로 데이터를 보냅니다. 유일한 예외는 일반 HTTP 웹 페이지에서 전송된 데이터입니다.
+예. 웹 서버, 디바이스 및 HTTPS 웹 페이지를 포함하여 거의 모든 SDK에서 https를 사용하여 포털로 데이터를 보냅니다. 유일한 예외는 일반 HTTP 웹 페이지에서 전송된 데이터입니다.
 
 ## <a name="does-the-sdk-create-temporary-local-storage"></a>SDK에서 임시 로컬 저장소를 작성하나요?
 
@@ -212,7 +212,7 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 | Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원됨, 하지만 기본적으로 활성화되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 | Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
-|Windows Vista | 지원되지 않습니다. | 해당 없음
+|Windows Vista |  지원되지 않습니다. | 해당 없음
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Linux 배포에서 실행 중인 OpenSSL 버전을 확인합니다.
 
@@ -261,10 +261,10 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | 수집되는 데이터 클래스 | 포함(전체 목록 아님) |
 | --- | --- |
 | **속성** |**임의 데이터 - 코드에 의해 결정됨** |
-| DeviceContext |ID, IP, 로캘, 장치 모델, 네트워크, 네트워크 종류, OEM 이름, 화면 해상도, 역할 인스턴스, 역할 이름, 장치 유형 |
+| DeviceContext |ID, IP, 로캘, 디바이스 모델, 네트워크, 네트워크 종류, OEM 이름, 화면 해상도, 역할 인스턴스, 역할 이름, 디바이스 유형 |
 | ClientContext  |OS, 로캘, 언어, 네트워크, 창 해상도 |
 | 세션 |세션 ID |
-| ServerContext |컴퓨터 이름, 로캘, OS, 장치, 사용자 세션, 사용자 컨텍스트, 작업 |
+| ServerContext |컴퓨터 이름, 로캘, OS, 디바이스, 사용자 세션, 사용자 컨텍스트, 작업 |
 | 유추 |IP 주소, 타임스탬프, OS, 브라우저에서 지리적 위치 유추 |
 | 메트릭 |메트릭 이름 및 값 |
 | 이벤트 |이벤트 이름 및 값 |

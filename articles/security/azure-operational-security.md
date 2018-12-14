@@ -30,7 +30,7 @@ ms.locfileid: "51256224"
 고객 관점과 Microsoft 운영 관점 모두에서 Microsoft Azure에서 구현된 일련의 보안 제어를 보다 잘 이해할 수 있도록 Microsoft Azure에서 제공되는 운영 보안을 포괄적으로 살펴볼 수 있는 "Azure 운영 보안" 백서가 작성되었습니다.
 
 ### <a name="azure-platform"></a>Azure 플랫폼
-Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 장치를 지원하는 공용 클라우드 서비스 플랫폼입니다. Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 장치용 백 엔드를 빌드할 수 있습니다. Azure 클라우드 서비스는 수백만의 개발자와 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
+Azure는 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 디바이스를 지원하는 공용 클라우드 서비스 플랫폼입니다. Docker 통합으로 Linux 컨테이너를 실행할 수 있습니다. JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드할 수 있습니다. iOS, Android 및 Windows 디바이스용 백 엔드를 빌드할 수 있습니다. Azure 클라우드 서비스는 수백만의 개발자와 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
 
 IT 자산을 만들거나 공용 클라우드 서비스 공급자로 마이그레이션하는 경우 조직에서 제공하는 서비스와 제어를 통해 응용 프로그램과 데이터를 보호할 수 있는 해당 조직의 능력에 의존하여 클라우드 기반 자산의 보안을 관리합니다.
 
@@ -273,7 +273,7 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 | 로그 만들기/삭제 등 저장소 분석 자체에서 수행한 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) 항목에 나와 있습니다. | 기타 모든 실패한 익명 요청은 기록되지 않습니다. 기록되는 데이터의 전체 목록은 [저장소 분석에서 기록한 작업 및 상태 메시지](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) 및 [저장소 분석 로그 형식](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format)에서 설명하고 있습니다. |
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-Azure AD에는 다단계 인증, 장치 등록, 셀프 서비스 암호 관리, 셀프 서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 광범위한 감사, 보안 모니터링 및 경고를 포함한 완벽한 ID 관리 기능이 포함되어 있습니다.
+Azure AD에는 다단계 인증, 디바이스 등록, 셀프 서비스 암호 관리, 셀프 서비스 그룹 관리, 권한 있는 계정 관리, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 광범위한 감사, 보안 모니터링 및 경고를 포함한 완벽한 ID 관리 기능이 포함되어 있습니다.
 
 -   Azure AD 다단계 인증 및 조건부 액세스를 사용하여 응용 프로그램 보안을 개선합니다.
 
@@ -290,7 +290,7 @@ Azure AD(Azure Active Directory)에는 디렉터리에 대한 보안, 활동 및
 |여러 지역에서의 로그인 | 응용 프로그램 대시보드 |  |
 |의심스러운 작업이 있는 IP 주소에서 로그인 |계정 프로비전 오류 |  |
 |비정상적인 로그인 작업 |개별 사용자 장치 |  |
-|감염 가능성이 있는 장치에서 로그인 |개별 사용자 활동 |   |
+|감염 가능성이 있는 디바이스에서 로그인 |개별 사용자 활동 |   |
 |비정상적인 로그인 활동을 포함하는 사용자 |그룹 활동 보고서 |   |
 | |암호 재설정 등록 활동 보고서 |   |
 | |암호 재설정 활동 |   | |
@@ -308,7 +308,7 @@ Azure AD 감사 보고서의 이벤트는 180일 동안 보존됩니다.
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 개인 정보와 데이터를 보호하는 동시에 조직의 IT 인프라를 관리하는 데 유용한 소프트웨어와 서비스를 제공합니다. Microsoft는 데이터를 다른 사람에게 맡길 때 해당 신뢰에는 엄격한 보안이 필요하다는 것을 알고 있습니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다. 데이터 보안 및 보호는 Microsoft의 최우선 과제입니다.
+이 문서에서는 개인 정보와 데이터를 보호하는 동시에 조직의 IT 인프라를 관리하는 데 유용한 소프트웨어와 서비스를 제공합니다. Microsoft는 데이터를 다른 사람에게 맡길 때 해당 신뢰에는 엄격한 보안이 필요하다는 것을 알고 있습니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.  데이터 보안 및 보호는 Microsoft의 최우선 과제입니다.
 
 이 문서에서 설명하는 내용은 다음과 같습니다.
 

@@ -17,9 +17,9 @@ ms.locfileid: "40047078"
 ---
 ### <a name="delete-local-resources"></a>로컬 리소스 삭제
 
-장치에서 IoT Edge 런타임 및 관련 리소스를 제거하려는 경우 장치 운영 체제에 대한 적절한 명령을 사용합니다. 
+디바이스에서 IoT Edge 런타임 및 관련 리소스를 제거하려는 경우 디바이스 운영 체제에 대한 적절한 명령을 사용합니다. 
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 IoT Edge 런타임을 제거합니다.
 
@@ -34,7 +34,7 @@ IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 장치
    docker ps -a
    ```
 
-장치에서 만들어진 런타임 컨테이너를 삭제합니다.
+디바이스에서 만들어진 런타임 컨테이너를 삭제합니다.
 
    ```powershell
    docker rm -f edgeHub
@@ -57,7 +57,7 @@ IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 장치
    sudo docker ps -a
    ```
 
-장치에서 만들어진 런타임 컨테이너를 삭제합니다.
+디바이스에서 만들어진 런타임 컨테이너를 삭제합니다.
 
    ```bash
    docker rm -f edgeHub

@@ -388,12 +388,12 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
         NotificationHubClient hub = NotificationHubClient
             .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-이제 등록된 장치에 푸시 알림을 보내는 데 Notification Hubs 클라이언트를 사용할 수 있습니다. 자세한 내용은 [앱에 푸시 알림 추가](app-service-mobile-ios-get-started-push.md)를 참조하세요. Notification Hubs에 대한 자세한 내용은 [Notification Hubs 개요](../notification-hubs/notification-hubs-push-notification-overview.md)를 참조하세요.
+이제 등록된 디바이스에 푸시 알림을 보내는 데 Notification Hubs 클라이언트를 사용할 수 있습니다. 자세한 내용은 [앱에 푸시 알림 추가](app-service-mobile-ios-get-started-push.md)를 참조하세요. Notification Hubs에 대한 자세한 내용은 [Notification Hubs 개요](../notification-hubs/notification-hubs-push-notification-overview.md)를 참조하세요.
 
 ## <a name="tags"></a>방법: 태그를 사용하여 대상 지정 푸시 활성화
 Notification Hubs를 사용하면 태그를 사용하여 특정 등록에 대상이 지정된 알림을 보낼 수 있습니다. 여러 태그가 자동으로 만들어집니다.
 
-* 설치 ID는 특정 장치를 식별합니다.
+* 설치 ID는 특정 디바이스를 식별합니다.
 * 인증된 SID에 따라 사용자 ID는 특정 사용자를 식별합니다.
 
 **MobileServiceClient**의 **installationId** 속성에서 설치 ID에 액세스할 수 있습니다.  다음 예제에서는 설치 ID를 사용하여 Notification Hubs에서 특정 설치에 태그를 추가하는 방법을 보여 줍니다.
@@ -413,7 +413,7 @@ Notification Hubs를 사용하면 태그를 사용하여 특정 등록에 대상
 예제는 App Service Mobile Apps 완료된 빠른 시작 샘플에서 [클라이언트 추가 푸시 알림 태그][5]를 참조하세요.
 
 ## <a name="push-user"></a>방법: 인증된 사용자에게 푸시 알림 보내기
-인증된 사용자가 푸시 알림에 등록하면 사용자 ID 태그가 등록에 자동으로 추가됩니다. 이 태그를 사용하여 해당 사용자로 등록된 모든 장치에 푸시 알림을 보낼 수 있습니다. 다음 코드는 요청을 만드는 사용자의 SID를 가져오고 해당 사용자에 대한 모든 장치 등록에 템플릿 푸시 알림을 보냅니다.
+인증된 사용자가 푸시 알림에 등록하면 사용자 ID 태그가 등록에 자동으로 추가됩니다. 이 태그를 사용하여 해당 사용자로 등록된 모든 디바이스에 푸시 알림을 보낼 수 있습니다. 다음 코드는 요청을 만드는 사용자의 SID를 가져오고 해당 사용자에 대한 모든 디바이스 등록에 템플릿 푸시 알림을 보냅니다.
 
     // Get the current user SID and create a tag for the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -469,7 +469,7 @@ Azure App Service는 ASP.NET 응용 프로그램에 대한 여러 디버깅 및 
 앞의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 *authAudience* 및 *authIssuer* 응용 프로그램 설정을 응용 프로그램 루트의 URL로 구성해야 합니다. 마찬가지로 *authSigningKey* 를 응용 프로그램의 서명 키의 값으로 설정해야 합니다.
 서명 키를 가져오려면:
 
-1. [Azure Portal]
+1.  [Azure Portal]
 2. **도구**, **Kudu**, **이동**을 클릭합니다.
 3. Kudu 관리 사이트에서 **환경**을 클릭합니다.
 4. *WEBSITE\_AUTH\_SIGNING\_KEY*에 대한 값을 찾습니다.

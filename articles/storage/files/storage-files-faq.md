@@ -27,7 +27,7 @@ ms.locfileid: "51976828"
 ## <a name="general"></a>일반
 * <a id="why-files-useful"></a>
 **Azure Files는 어떻게 유용한가요?**  
-   Azure Files를 사용하여 물리적 서버, 장치 또는 어플라이언스의 오버 헤드를 관리하지 않고도 클라우드에서 파일 공유를 만들 수 있습니다. OS 업데이트 적용 및 잘못된 디스크 교체를 포함한 사용자를 위한 단조로운 작업을 수행합니다. Azure Files를 유용하게 사용할 수 있는 시나리오에 대한 자세한 내용은 [Azure Files가 유용한 이유](storage-files-introduction.md#why-azure-files-is-useful)를 참조하세요.
+   Azure Files를 사용하여 물리적 서버, 디바이스 또는 어플라이언스의 오버 헤드를 관리하지 않고도 클라우드에서 파일 공유를 만들 수 있습니다. OS 업데이트 적용 및 잘못된 디스크 교체를 포함한 사용자를 위한 단조로운 작업을 수행합니다. Azure Files를 유용하게 사용할 수 있는 시나리오에 대한 자세한 내용은 [Azure Files가 유용한 이유](storage-files-introduction.md#why-azure-files-is-useful)를 참조하세요.
 
 * <a id="file-access-options"></a>
 **Azure Files에서 파일에 액세스하는 다른 방법은 무엇인가요?**  

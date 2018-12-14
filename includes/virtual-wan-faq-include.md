@@ -29,7 +29,7 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>원하는 파트너 장치를 사용해야 하나요?
 
-아니요. IKEv2/IKEv1 IPsec 지원에 대한 Azure 요구 사항을 준수하는 모든 VPN 지원 장치를 사용할 수 있습니다.
+ 아니요. IKEv2/IKEv1 IPsec 지원에 대한 Azure 요구 사항을 준수하는 모든 VPN 지원 디바이스를 사용할 수 있습니다.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Virtual WAN 파트너는 Azure Virtual WAN과 연결을 어떻게 자동화하나요?
 
@@ -43,17 +43,17 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
   
 예, Virtual WAN은 새 Resource Manager 리소스를 소개합니다. 자세한 내용은 [개요](https://go.microsoft.com/fwlink/p/?LinkId=2004389)를 참조하세요.
 
-### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>단일 허브에 연결할 수 있는 VPN 장치의 수는 몇 개인가요?
+### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>단일 허브에 연결할 수 있는 VPN 디바이스의 수는 몇 개인가요?
 
 가상 허브당 최대 1,000개의 연결이 지원됩니다. 각 연결은 활성-활성 구성에 있는 두 개 터널로 구성됩니다. 터널은 Azure Virtual Hub vpngateway에서 종료합니다.
 
-### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>온-프레미스 VPN 장치가 여러 허브에 연결할 수 있나요?
+### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>온-프레미스 VPN 디바이스가 여러 허브에 연결할 수 있나요?
 
-예. 처음에는 트래픽이 온-프레미스 장치에서 가장 가까운 Microsoft Edge를 통해 가상 허브로 이동합니다.
+예. 처음에는 트래픽이 온-프레미스 디바이스에서 가장 가까운 Microsoft Edge를 통해 가상 허브로 이동합니다.
 
 ### <a name="is-global-vnet-peering-supported-with-azure-virtual-wan"></a>글로벌 VNet 피어링은 Azure Virtual WAN을 사용하여 지원되나요? 
 
- 아니요.
+  아니요.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>가상 허브에 연결된 VNet 스포크는 서로 통신할 수 있나요?
 
@@ -65,7 +65,7 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 
 ### <a name="can-an-nva-vnet-have-a-virtual-network-gateway"></a>NVA VNet에서 가상 네트워크 게이트웨이를 가질 수 있나요?
 
-아니요. 가상 허브에 연결되어 있는 경우 NVA VNet에서 가상 네트워크 게이트웨이를 가질 수 없습니다. 
+ 아니요. 가상 허브에 연결되어 있는 경우 NVA VNet에서 가상 네트워크 게이트웨이를 가질 수 없습니다. 
 
 ### <a name="is-there-support-for-bgp"></a>BGP에 대한 지원이 있습니까?
 
@@ -81,7 +81,7 @@ Virtual WAN은 대규모 사이트 간 연결을 제공하며 처리량, 확장�
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>출시 파트너 목록에 없는 새 파트너는 어떻게 온보딩하나요?
 
-azurevirtualwan@microsoft.com에 전자 메일을 보냅니다. IKEv1 또는 IKEv2 IPsec 연결용으로 프로비전 가능한 장치가 있는 파트너가 적합합니다.
+azurevirtualwan@microsoft.com에 전자 메일을 보냅니다. IKEv1 또는 IKEv2 IPsec 연결용으로 프로비전 가능한 디바이스가 있는 파트너가 적합합니다.
 
 ### <a name="is-it-possible-to-construct-azure-virtual-wan-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure Virtual WAN을 만들 수 있나요?
 
@@ -97,7 +97,7 @@ azurevirtualwan@microsoft.com에 전자 메일을 보냅니다. IKEv1 또는 IKE
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Virtual WAN은 기존 Azure Virtual Network 게이트웨이와 어떻게 다른가요?
 
-Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결에는 대규모 VPN을 위한 Virtual WAN을 사용해야 합니다. 중서부 지역을 제외한 모든 지역의 허브에서 2Gbps의 최대 1,000개 분기 연결을 연결할 수 있습니다. 중서부 지역의 경우 20Gbps를 사용할 수 있습니다. 앞으로 추가 지역에는 20Gbps로 출시됩니다. 연결은 온-프레미스 VPN 장치에서 가상 허브로의 활성-활성 터널입니다. 지역당 하나의 허브만 있을 수 있습니다. 즉 허브에서 1,000개가 넘는 분기를 연결할 수 있습니다.
+Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결에는 대규모 VPN을 위한 Virtual WAN을 사용해야 합니다. 중서부 지역을 제외한 모든 지역의 허브에서 2Gbps의 최대 1,000개 분기 연결을 연결할 수 있습니다. 중서부 지역의 경우 20Gbps를 사용할 수 있습니다. 앞으로 추가 지역에는 20Gbps로 출시됩니다. 연결은 온-프레미스 VPN 디바이스에서 가상 허브로의 활성-활성 터널입니다. 지역당 하나의 허브만 있을 수 있습니다. 즉 허브에서 1,000개가 넘는 분기를 연결할 수 있습니다.
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>이 Virtual WAN은 각 사이트의 ExpressRoute가 필요한가요?
 
@@ -117,4 +117,4 @@ Virtual Network 게이트웨이 VPN은 터널 30개로 제한됩니다. 연결�
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>이 모델은 각 사이트에서 무엇이 필요합니까? 인터넷 연결만 있으면 되나요?
 
-예. 인터넷 연결과 물리적 장치(Microsoft의 통합 [파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615)가 제공하는 장치 권장)만 있으면 됩니다. 필요한 경우 선호 장치에서 Azure로의 연결과 구성을 수동으로 관리할 수 있습니다.
+예. 인터넷 연결과 물리적 디바이스(Microsoft의 통합 [파트너](https://go.microsoft.com/fwlink/p/?linkid=2019615)가 제공하는 디바이스 권장)만 있으면 됩니다. 필요한 경우 선호 디바이스에서 Azure로의 연결과 구성을 수동으로 관리할 수 있습니다.

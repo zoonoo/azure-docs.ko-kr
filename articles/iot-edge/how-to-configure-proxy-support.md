@@ -1,5 +1,5 @@
 ---
-title: 네트워크 프록시용 Azure IoT Edge 장치 구성 | Microsoft Docs
+title: 네트워크 프록시용 Azure IoT Edge 디바이스 구성 | Microsoft Docs
 description: 프록시 서버를 통해 통신하도록 Azure IoT Edge 런타임과 인터넷 연결 IoT Edge 모듈을 구성하는 방법을 설명합니다.
 author: kgremban
 manager: ''
@@ -15,15 +15,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/02/2018
 ms.locfileid: "50913226"
 ---
-# <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 장치 구성
+# <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
-IoT Edge 장치는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다. 장치가 프록시 서버를 사용하는 네트워크에 연결되어 있는 경우에는 해당 서버를 통해 통신하도록 IoT Edge 런타임을 구성해야 합니다. 또한 프록시 서버는 Edge 허브를 통해 라우팅되지 않는 HTTP 또는 HTTPS 요청을 수행하는 개별 IoT Edge 모듈에도 영향을 줄 수 있습니다. 
+IoT Edge 디바이스는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다. 디바이스가 프록시 서버를 사용하는 네트워크에 연결되어 있는 경우에는 해당 서버를 통해 통신하도록 IoT Edge 런타임을 구성해야 합니다. 또한 프록시 서버는 Edge 허브를 통해 라우팅되지 않는 HTTP 또는 HTTPS 요청을 수행하는 개별 IoT Edge 모듈에도 영향을 줄 수 있습니다. 
 
-프록시 서버를 사용하도록 IoT Edge 장치를 구성할 때는 다음과 같은 기본적인 단계를 수행합니다. 
+프록시 서버를 사용하도록 IoT Edge 디바이스를 구성할 때는 다음과 같은 기본적인 단계를 수행합니다. 
 
-1. IoT Edge 런타임을 장치에 설치합니다. 
-2. 장치의 Docker 디먼과 IoT Edge 디먼이 프록시 서버를 사용하도록 구성합니다.
-3. 장치의 config.yaml 파일에서 edgeAgent 속성을 구성합니다.
+1. IoT Edge 런타임을 디바이스에 설치합니다. 
+2. 디바이스의 Docker 디먼과 IoT Edge 디먼이 프록시 서버를 사용하도록 구성합니다.
+3. 디바이스의 config.yaml 파일에서 edgeAgent 속성을 구성합니다.
 4. 배포 매니페스트에서 IoT Edge 런타임 및 기타 IoT Edge 모듈용 환경 변수를 설정합니다. 
 
 ## <a name="know-your-proxy-url"></a>프록시 URL 파악
@@ -40,9 +40,9 @@ IoT Edge 장치는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다. 장�
 
 ## <a name="install-the-runtime"></a>런타임 설치
 
-Linux 장치에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동하도록 패키지 관리자를 구성합니다. 예를 들어 [http-proxy를 사용하도록 apt-get을 설정](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)합니다. 패키지 관리자를 구성하면 일반적으로 [Linux에서 Azure IoT Edge 런타임 설치(ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) 또는 [Linux에서 Azure IoT Edge 런타임 설치(x64)](how-to-install-iot-edge-linux.md)의 지침을 따릅니다. 
+Linux 디바이스에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동하도록 패키지 관리자를 구성합니다. 예를 들어 [http-proxy를 사용하도록 apt-get을 설정](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)합니다. 패키지 관리자를 구성하면 일반적으로 [Linux에서 Azure IoT Edge 런타임 설치(ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) 또는 [Linux에서 Azure IoT Edge 런타임 설치(x64)](how-to-install-iot-edge-linux.md)의 지침을 따릅니다. 
 
-Windows 장치에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동해야 합니다. Windows 설정에서 프록시 정보를 구성하거나 설치 스크립트에 직접 프록시 정보를 포함할 수 있습니다. 다음 PowerShell 스크립트는 `-proxy` 인수를 사용하여 Windows를 설치하는 예제입니다
+Windows 디바이스에서 IoT Edge 런타임을 설치 중인 경우 설치 패키지에 액세스하기 위해 프록시 서버로 이동해야 합니다. Windows 설정에서 프록시 정보를 구성하거나 설치 스크립트에 직접 프록시 정보를 포함할 수 있습니다. 다음 PowerShell 스크립트는 `-proxy` 인수를 사용하여 Windows를 설치하는 예제입니다
 
 ```powershell
 . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -55,7 +55,7 @@ IoT Edge 런타임이 설치되면 다음 섹션을 사용하여 프록시 정�
 
 ## <a name="configure-the-daemons"></a>디먼 구성
 
-IoT Edge 장치에서 실행되는 Docker 및 IoT Edge 디먼이 프록시 서버를 사용하도록 구성해야 합니다. Docker 디먼은 웹 요청을 수행하여 컨테이너 레지스트리에서 컨테이너 이미지를 끌어옵니다. IoT Edge 디먼은 웹 요청을 전송하여 IoT Hub와 통신합니다.
+IoT Edge 디바이스에서 실행되는 Docker 및 IoT Edge 디먼이 프록시 서버를 사용하도록 구성해야 합니다. Docker 디먼은 웹 요청을 수행하여 컨테이너 레지스트리에서 컨테이너 이미지를 끌어옵니다. IoT Edge 디먼은 웹 요청을 전송하여 IoT Hub와 통신합니다.
 
 ### <a name="docker-daemon"></a>Docker 디먼
 
@@ -103,7 +103,7 @@ sudo systemctl restart iotedge
 systemctl show --property=Environment iotedge
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 관리자 권한으로 PowerShell 창을 연 후에 다음 명령을 실행해 새 환경 변수를 사용하여 레지스트리를 편집합니다. **\<proxy url>** 은 실제 프록시 서버 주소와 포트로 바꾸세요. 
 
@@ -119,9 +119,9 @@ Restart-Service iotedge
 
 ## <a name="configure-the-edge-agent"></a>Edge 에이전트 구성
 
-Edge 에이전트는 모든 IoT Edge 장치에서 처음으로 시작되는 모듈로, IoT Edge config.yaml 파일의 정보에 따라 처음으로 시작됩니다. 그런 후에 IoT Hub에 연결하여 배포 매니페스트를 검색합니다. 배포 매니페스트는 장치에서 배포해야 하는 다른 모듈을 선언합니다.
+Edge 에이전트는 모든 IoT Edge 디바이스에서 처음으로 시작되는 모듈로, IoT Edge config.yaml 파일의 정보에 따라 처음으로 시작됩니다. 그런 후에 IoT Hub에 연결하여 배포 매니페스트를 검색합니다. 배포 매니페스트는 디바이스에서 배포해야 하는 다른 모듈을 선언합니다.
 
-IoT Edge 장치에서 config.yaml 파일을 엽니다. Linux 시스템에서 이 파일의 위치는 **/etc/iotedge/config.yaml**입니다. Windows 시스템에서 이 파일의 위치는 **C:\ProgramData\iotedge\config.yaml**입니다. 구성 파일은 보호되어 있으므로 관리 권한이 있어야 액세스할 수 있습니다. Linux 시스템에서는 원하는 텍스트 편집기에서 파일을 열기 전에 `sudo` 명령을 사용해야 합니다. Windows에서는 메모장 등의 텍스트 편집기를 관리자로 실행하도록 연 다음 파일을 열어야 합니다. 
+IoT Edge 디바이스에서 config.yaml 파일을 엽니다. Linux 시스템에서 이 파일의 위치는 **/etc/iotedge/config.yaml**입니다. Windows 시스템에서 이 파일의 위치는 **C:\ProgramData\iotedge\config.yaml**입니다. 구성 파일은 보호되어 있으므로 관리 권한이 있어야 액세스할 수 있습니다. Linux 시스템에서는 원하는 텍스트 편집기에서 파일을 열기 전에 `sudo` 명령을 사용해야 합니다. Windows에서는 메모장 등의 텍스트 편집기를 관리자로 실행하도록 연 다음 파일을 열어야 합니다. 
 
 config.yaml 파일에서 **Edge Agent module spec** 섹션을 찾습니다. Edge 에이전트 정의에는 **env** 매개 변수가 포함되어 있으며, 이 매개 변수에 환경 변수를 추가할 수 있습니다. 
 
@@ -159,7 +159,7 @@ config.yaml의 변경 내용을 저장하고 편집기를 닫습니다. IoT Edge
 
 ## <a name="configure-deployment-manifests"></a>배포 매니페스트 구성  
 
-IoT Edge 장치가 프록시 서버를 사용하도록 구성한 후에는 이후의 모든 배포 매니페스트에서도 환경 변수를 선언해야 합니다. IoT Hub와 계속 통신하려면 edgeAgent와 edgeHub의 두 런타임 모듈에는 항상 프록시 서버가 구성되어 있어야 합니다. 모든 IoT Edge 모듈이 프록시 서버를 통해 통신하도록 구성할 수는 있지만, edgeHub를 통해 메시지를 라우팅하는 모듈이나 장치의 다른 모듈과만 통신하는 모듈의 경우에는 이렇게 구성할 필요가 없습니다. 
+IoT Edge 디바이스가 프록시 서버를 사용하도록 구성한 후에는 이후의 모든 배포 매니페스트에서도 환경 변수를 선언해야 합니다. IoT Hub와 계속 통신하려면 edgeAgent와 edgeHub의 두 런타임 모듈에는 항상 프록시 서버가 구성되어 있어야 합니다. 모든 IoT Edge 모듈이 프록시 서버를 통해 통신하도록 구성할 수는 있지만, edgeHub를 통해 메시지를 라우팅하는 모듈이나 디바이스의 다른 모듈과만 통신하는 모듈의 경우에는 이렇게 구성할 필요가 없습니다. 
 
 Azure Portal을 사용하거나 JSON 파일을 직접 편집하여 배포 매니페스트를 만들 수 있습니다. 
 
@@ -171,7 +171,7 @@ Edge 에이전트 및 Edge 허브 모듈을 구성하려면 마법사의 첫 단
 
 ![고급 Edge 런타임 설정 구성](./media/how-to-configure-proxy-support/configure-runtime.png)
 
-Edge 에이전트 및 Edge 허브 모듈 정의에 모두 **https_proxy** 환경 변수를 추가합니다. IoT Edge 장치의 config.yaml 파일에 **UpstreamProtocol** 환경 변수를 포함한 경우에는 Edge 에이전트 모듈 정의에도 해당 환경 변수를 포함합니다. 
+Edge 에이전트 및 Edge 허브 모듈 정의에 모두 **https_proxy** 환경 변수를 추가합니다. IoT Edge 디바이스의 config.yaml 파일에 **UpstreamProtocol** 환경 변수를 포함한 경우에는 Edge 에이전트 모듈 정의에도 해당 환경 변수를 포함합니다. 
 
 ![환경 변수 설정](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
@@ -179,7 +179,7 @@ Edge 에이전트 및 Edge 허브 모듈 정의에 모두 **https_proxy** 환경
 
 ### <a name="json-deployment-manifest-files"></a>JSON 배포 매니페스트 파일
 
-Visual Studio Code에서 템플릿을 사용하거나 JSON 파일을 직접 만들어 IoT Edge 장치용 배포를 만든 경우에는 각 모듈 정의에 환경 변수를 직접 추가할 수 있습니다. 
+Visual Studio Code에서 템플릿을 사용하거나 JSON 파일을 직접 만들어 IoT Edge 디바이스용 배포를 만든 경우에는 각 모듈 정의에 환경 변수를 직접 추가할 수 있습니다. 
 
 다음 JSON 형식을 사용합니다. 
 
@@ -210,7 +210,7 @@ Visual Studio Code에서 템플릿을 사용하거나 JSON 파일을 직접 만�
 }
 ```
 
-IoT Edge 장치의 config.yaml 파일에 **UpstreamProtocol** 환경 변수를 포함한 경우에는 Edge 에이전트 모듈 정의에도 해당 환경 변수를 포함합니다. 
+IoT Edge 디바이스의 config.yaml 파일에 **UpstreamProtocol** 환경 변수를 포함한 경우에는 Edge 에이전트 모듈 정의에도 해당 환경 변수를 포함합니다. 
 
 ```json
 "env": {

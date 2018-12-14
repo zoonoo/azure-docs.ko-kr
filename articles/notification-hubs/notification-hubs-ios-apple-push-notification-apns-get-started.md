@@ -46,12 +46,12 @@ ms.locfileid: "49353971"
 
 - 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [평가판 계정](https://azure.microsoft.com/free)을 만들 수 있습니다. 
 - [Windows Azure Messaging 프레임워크]
-- [Xcode]
+-  [Xcode]
 - iOS 10 이상 지원 장치
 - [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
   
   > [!NOTE]
-  > 푸시 알림에 대한 구성 요구 사항 때문에 iOS 시뮬레이터 대신 실제 iOS 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+  > 푸시 알림에 대한 구성 요구 사항 때문에 iOS 시뮬레이터 대신 실제 iOS 디바이스(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
   
 이 자습서를 완료해야 다른 모든 iOS 앱용 Notification Hubs 자습서를 진행할 수 있습니다.
 
@@ -118,7 +118,7 @@ ms.locfileid: "49353971"
     #import <UserNotifications/UserNotifications.h> 
     #import "HubInfo.h"
     ```
-8. **AppDelegate.m 파일**에서 iOS 버전에 따라 **didFinishLaunchingWithOptions** 메서드에 다음 코드를 추가합니다. 이 코드는 APNS로 장치 핸들을 등록합니다.
+8. **AppDelegate.m 파일**에서 iOS 버전에 따라 **didFinishLaunchingWithOptions** 메서드에 다음 코드를 추가합니다. 이 코드는 APNS로 디바이스 핸들을 등록합니다.
 
     ```objc
     UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
@@ -177,7 +177,7 @@ ms.locfileid: "49353971"
 
 ## <a name="verify-that-your-app-receives-push-notifications"></a>앱에 푸시 알림이 수신되는지 확인
 
-iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포해야 합니다. iOS 시뮬레이터를 사용하여 Apple 푸시 알림을 보낼 수 없습니다.
+iOS에서 푸시 알림을 테스트하려면 실제 iOS 디바이스에 앱을 배포해야 합니다. iOS 시뮬레이터를 사용하여 Apple 푸시 알림을 보낼 수 없습니다.
 
 1. 앱을 실행하고 등록이 성공했는지 확인한 다음 **확인**을 누릅니다.
 
@@ -185,13 +185,13 @@ iOS에서 푸시 알림을 테스트하려면 실제 iOS 장치에 앱을 배포
 
 2. 다음으로, 이전 섹션에 설명한 대로 [Azure Portal]에서 테스트 푸시 알림을 보냅니다.
 
-3. 특정 알림 허브에서 보내는 알림을 수신하도록 등록된 모든 장치에 푸시 알림이 전송됩니다.
+3. 특정 알림 허브에서 보내는 알림을 수신하도록 등록된 모든 디바이스에 푸시 알림이 전송됩니다.
 
     ![iOS 앱 푸시 알림 수신 테스트][35]
 
 ## <a name="next-steps"></a>다음 단계
 
-이 간단한 예제에서는 등록된 모든 iOS 장치로 포시 알림을 브로드캐스트합니다. 특정 iOS 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
+이 간단한 예제에서는 등록된 모든 iOS 디바이스로 푸시 알림을 브로드캐스트합니다. 특정 iOS 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 
 
 > [!div class="nextstepaction"]
 >[특정 장치에 알림 푸시](notification-hubs-ios-xplat-segmented-apns-push-notification.md)

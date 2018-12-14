@@ -49,7 +49,7 @@ ms.locfileid: "42143683"
 
 ### <a name="open-the-arduino-examples-folder"></a>Arduino 예제 폴더 열기
 
-왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **ShakeShake**를 선택합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다. MXCHIP AZ3166 섹션을 볼 수 없다면 장치가 제대로 연결되었는지 확인하고 Visual Studio Code를 다시 시작합니다.  
+왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **ShakeShake**를 선택합니다. 프로젝트 폴더를 표시하는 새 VS Code 창이 열립니다. MXCHIP AZ3166 섹션을 볼 수 없다면 디바이스가 제대로 연결되었는지 확인하고 Visual Studio Code를 다시 시작합니다.  
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
 명령 팔레트에서 샘플 프로젝트를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 클릭하여 명령 팔레트를 열고, **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
@@ -84,11 +84,11 @@ static const char* iot_event = "{\"topic\":\"iot\"}";
 > [!NOTE]
 > 경우에 따라 Azure 함수가 제대로 작동하지 않을 수 있습니다. 문제가 발생하는 경우 이를 해결하려면 [IoT DevKit FAQ의 "컴파일 오류" 섹션](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#compilation-error-for-azure-function)을 확인합니다.
 
-## <a name="build-and-upload-the-device-code"></a>장치 코드 빌드 및 업로드
+## <a name="build-and-upload-the-device-code"></a>디바이스 코드 빌드 및 업로드
 
-다음으로 장치 코드를 빌드 및 업로드합니다.
+다음으로 디바이스 코드를 빌드 및 업로드합니다.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 1. `Ctrl+P`를 사용하여 `task device-upload`를 실행합니다.
 

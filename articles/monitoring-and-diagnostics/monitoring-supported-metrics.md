@@ -579,13 +579,13 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|d2c.telemetry.ingress.allProtocol|원격 분석 메시지 보내기 시도|개수|합계|IoT Hub로 보내려 한 장치-클라우드 원격 분석 메시지 수|차원 없음|
-|d2c.telemetry.ingress.success|보낸 원격 분석 메시지|개수|합계|IoT Hub로 보내기 성공한 장치-클라우드 원격 분석 메시지 수|차원 없음|
-|c2d.commands.egress.complete.success|완료된 명령|개수|합계|장치에서 성공적으로 완료한 클라우드-장치 명령 수|차원 없음|
-|c2d.commands.egress.abandon.success|중단된 명령|개수|합계|장치에서 중단한 클라우드-장치 명령 수|차원 없음|
-|c2d.commands.egress.reject.success|거부된 명령|개수|합계|장치에서 거부한 클라우드-장치 명령 수|차원 없음|
-|devices.totalDevices|총 장치(사용되지 않음)|개수|합계|IoT 허브에 등록된 장치 수|차원 없음|
-|devices.connectedDevices.allProtocol|연결된 장치(사용되지 않음) |개수|합계|IoT 허브에 연결된 장치 수|차원 없음|
+|d2c.telemetry.ingress.allProtocol|원격 분석 메시지 보내기 시도|개수|합계|IoT Hub로 보내려 한 디바이스-클라우드 원격 분석 메시지 수|차원 없음|
+|d2c.telemetry.ingress.success|보낸 원격 분석 메시지|개수|합계|IoT Hub로 보내기 성공한 디바이스-클라우드 원격 분석 메시지 수|차원 없음|
+|c2d.commands.egress.complete.success|완료된 명령|개수|합계|디바이스에서 성공적으로 완료한 클라우드-디바이스 명령 수|차원 없음|
+|c2d.commands.egress.abandon.success|중단된 명령|개수|합계|디바이스에서 중단한 클라우드-디바이스 명령 수|차원 없음|
+|c2d.commands.egress.reject.success|거부된 명령|개수|합계|디바이스에서 거부한 클라우드-디바이스 명령 수|차원 없음|
+|devices.totalDevices|총 디바이스(사용되지 않음)|개수|합계|IoT 허브에 등록된 디바이스 수|차원 없음|
+|devices.connectedDevices.allProtocol|연결된 디바이스(사용되지 않음) |개수|합계|IoT 허브에 연결된 장치 수|차원 없음|
 |d2c.telemetry.egress.success|라우팅: 배달된 원격 분석 메시지|개수|합계|IoT Hub 라우팅을 사용하여 모든 엔드포인트에 메시지가 성공적으로 배달된 횟수입니다. 메시지가 여러 엔드포인트로 라우팅되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다. 메시지가 동일한 엔드포인트로 여러 번 배달되는 경우 이 값은 각 성공적인 배달에 대해 하나씩 증가합니다.|차원 없음|
 |d2c.telemetry.egress.dropped|라우팅: 삭제된 원격 분석 메시지 |개수|합계|데드 엔드포인트로 인해 IoT Hub 라우팅에서 메시지가 삭제된 횟수입니다. 삭제된 메시지는 배달되지 않으므로 이 값은 대체 경로에 배달된 메시지를 계산에 넣지 않습니다.|차원 없음|
 |d2c.telemetry.egress.orphaned|라우팅: 분리된 원격 분석 메시지 |개수|합계|메시지가 라우팅 규칙(대체 규칙 포함)과 일치하지 않았으므로 IoT Hub 라우팅에 의해 분리된 횟수입니다. |차원 없음|
@@ -603,12 +603,12 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |d2c.endpoints.latency.storage|라우팅: 저장소에 대한 메시지 대기 시간|밀리초|평균|IoT Hub에 대한 메시지 수신과 저장소 엔드포인트에 대한 원격 분석 메시지 수신 간의 평균 대기 시간(밀리초)입니다.|차원 없음|
 |d2c.endpoints.egress.storage.bytes|라우팅: 저장소에 배달된 데이터|바이트|합계|IoT Hub 라우팅에서 저장소 엔드포인트에 배달된 데이터 양입니다(바이트).|차원 없음|
 |d2c.endpoints.egress.storage.blobs|라우팅: 저장소에 배달된 Blob|개수|합계|IoT Hub 라우팅에서 저장소 엔드포인트에 Blob을 배달한 횟수입니다.|차원 없음|
-|d2c.twin.read.success|장치에서의 성공한 쌍 읽기|개수|합계|성공한 모든 장치 시작 쌍 읽기 수입니다.|차원 없음|
-|d2c.twin.read.failure|장치에서의 실패한 쌍 읽기|개수|합계|실패한 모든 장치 시작 쌍 읽기 수입니다.|차원 없음|
-|d2c.twin.read.size|장치에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 장치 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|차원 없음|
-|d2c.twin.update.success|장치에서의 성공한 쌍 업데이트|개수|합계|성공한 모든 장치 시작 쌍 업데이트 수입니다.|차원 없음|
-|d2c.twin.update.failure|장치에서의 실패한 쌍 업데이트|개수|합계|실패한 모든 장치 시작 쌍 업데이트 수입니다.|차원 없음|
-|d2c.twin.update.size|장치에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 장치 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|차원 없음|
+|d2c.twin.read.success|디바이스에서의 성공한 쌍 읽기|개수|합계|성공한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
+|d2c.twin.read.failure|디바이스에서의 실패한 쌍 읽기|개수|합계|실패한 모든 디바이스 시작 쌍 읽기 수입니다.|차원 없음|
+|d2c.twin.read.size|디바이스에서의 쌍 읽기 응답 크기|바이트|평균|성공한 모든 디바이스 시작 쌍 읽기 수의 평균, 최소값 및 최대값입니다.|차원 없음|
+|d2c.twin.update.success|디바이스에서의 성공한 쌍 업데이트|개수|합계|성공한 모든 디바이스 시작 쌍 업데이트 수입니다.|차원 없음|
+|d2c.twin.update.failure|디바이스에서의 실패한 쌍 업데이트|개수|합계|실패한 모든 디바이스 시작 쌍 업데이트 수입니다.|차원 없음|
+|d2c.twin.update.size|디바이스에서의 쌍 업데이트 크기|바이트|평균|성공한 모든 디바이스 시작 쌍 업데이트 수의 평균, 최소 및 최대 크기입니다.|차원 없음|
 |c2d.methods.success|성공한 직접 메서드 호출|개수|합계|성공한 모든 직접 메서드 호출의 수입니다.|차원 없음|
 |c2d.methods.failure|실패한 직접 메서드 호출|개수|합계|실패한 모든 직접 메서드 호출의 수입니다.|차원 없음|
 |c2d.methods.requestSize|직접 메서드 호출의 요청 크기|바이트|평균|성공한 모든 직접 메서드 요청의 평균, 최소값, 최대값입니다.|차원 없음|
@@ -634,21 +634,21 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |jobs.queryJobs.failure|실패한 작업 쿼리|개수|합계|쿼리 작업에 대한 실패한 모든 호출 수입니다.|차원 없음|
 |jobs.completed|완료된 작업|개수|합계|완료된 모든 작업의 수입니다.|차원 없음|
 |jobs.failed|실패한 작업|개수|합계|실패한 모든 작업의 수입니다.|차원 없음|
-|d2c.telemetry.ingress.sendThrottle|제한 오류 수|개수|합계|장치 처리량 제한으로 인한 제한 오류 수|차원 없음|
+|d2c.telemetry.ingress.sendThrottle|제한 오류 수|개수|합계|디바이스 처리량 제한으로 인한 제한 오류 수|차원 없음|
 |dailyMessageQuotaUsed|사용된 전체 메시지 수|개수|평균|오늘 사용된 전체 메시지 수입니다. 매일 00:00 UTC에 0으로 다시 설정되는 누적 값입니다.|차원 없음|
-|deviceDataUsage|총 장치 데이터 사용(사용되지 않음)|바이트|합계|IotHub에 연결된 모든 장치에서 전송된 바이트|차원 없음|
-|deviceDataUsageV2|총 장치 데이터 사용(미리 보기)|바이트|합계|IotHub에 연결된 모든 장치에서 전송된 바이트|차원 없음|
-|totalDeviceCount|총 장치(미리 보기)|개수|평균|IoT 허브에 등록된 장치 수|차원 없음|
-|connectedDeviceCount|연결된 장치(미리 보기)|개수|평균|IoT 허브에 연결된 장치 수|차원 없음|
+|deviceDataUsage|총 디바이스 데이터 사용(사용되지 않음)|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|
+|deviceDataUsageV2|총 디바이스 데이터 사용(미리 보기)|바이트|합계|IotHub에 연결된 모든 디바이스에서 전송된 바이트|차원 없음|
+|totalDeviceCount|총 디바이스(미리 보기)|개수|평균|IoT 허브에 등록된 디바이스 수|차원 없음|
+|connectedDeviceCount|연결된 디바이스(미리 보기)|개수|평균|IoT 허브에 연결된 장치 수|차원 없음|
 |구성|구성 메트릭|개수|합계|구성 작업에 대한 메트릭|차원 없음|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|설명|차원|
 |---|---|---|---|---|---|
-|RegistrationAttempts|등록 시도|개수|합계|장치 등록 시도 수|ProvisioningServiceName, IotHubName, 상태|
-|DeviceAssignments|할당된 장치|개수|합계|IoT Hub에 할당된 장치 수|ProvisioningServiceName, IotHubName|
-|AttestationAttempts|증명 시도|개수|합계|장치 증명 시도 수|ProvisioningServiceName, 상태, 프로토콜|
+|RegistrationAttempts|등록 시도|개수|합계|디바이스 등록 시도 수|ProvisioningServiceName, IotHubName, 상태|
+|DeviceAssignments|할당된 디바이스|개수|합계|IoT Hub에 할당된 디바이스 수|ProvisioningServiceName, IotHubName|
+|AttestationAttempts|증명 시도|개수|합계|디바이스 증명 시도 수|ProvisioningServiceName, 상태, 프로토콜|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 

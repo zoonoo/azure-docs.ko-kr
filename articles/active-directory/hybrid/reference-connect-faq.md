@@ -62,7 +62,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 
 ## <a name="network"></a>네트워크
 **Q: 방화벽, 네트워크 장치 또는 네트워크에서 열려 있는 상태로 유지할 수 있는 연결 시간을 제한하는 다른 요소가 있습니다. Azure AD Connect를 사용하는 경우 클라이언트 쪽 시간 제한 임계값은 어떻게 되나요?**  
-모든 네트워킹 소프트웨어, 물리적 장치 또는 열린 상태로 유지할 수 있는 최대 연결 시간을 제한하는 다른 요소는 Azure AD Connect 클라이언트를 설치한 서버와 Azure Active Directory 간의 연결에 대해 최소 5분(300초)의 임계값을 사용해야 합니다. 이 권장 사항은 이전에 릴리스된 모든 Microsoft ID 동기화 도구에도 적용됩니다.
+모든 네트워킹 소프트웨어, 물리적 디바이스 또는 열린 상태로 유지할 수 있는 최대 연결 시간을 제한하는 다른 요소는 Azure AD Connect 클라이언트를 설치한 서버와 Azure Active Directory 간의 연결에 대해 최소 5분(300초)의 임계값을 사용해야 합니다. 이 권장 사항은 이전에 릴리스된 모든 Microsoft ID 동기화 도구에도 적용됩니다.
 
 **Q: SLD(단일 레이블 도메인)가 지원되나요?**  
 이 네트워크 구성에 대해 적극 권장하며([문서 참조](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)) 단일 수준 도메인에 대한 네트워크 구성이 올바르게 작동하는 한 단일 레이블 도메인으로 Azure AD Connect 동기화 사용이 지원됩니다.
@@ -88,7 +88,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 
 ## <a name="environment"></a>Environment
 **Q: Azure AD Connect를 설치한 후에 서버 이름을 변경하는 것이 지원되나요?**  
-아니요. 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스 인스턴스에 연결할 수 없으므로 서비스를 시작할 수 없습니다.
+ 아니요. 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스 인스턴스에 연결할 수 없으므로 서비스를 시작할 수 없습니다.
 
 ## <a name="identity-data"></a>ID 데이터
 **Q: Azure AD의 userPrincipalName(UPN) 특성이 온-프레미스 UPN과 일치하지 않는 이유는 무엇인가요?**  
@@ -110,7 +110,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 이 사이트에서 설명하는 cmdlet을 제외하고 Azure AD Connect에 있는 다른 PowerShell cmdlet은 고객이 사용할 수 없습니다.
 
 **Q: Synchronization Service Manager에 있는 "서버 내보내기/서버 가져오기" 옵션을 사용하여 서버 간에 구성을 이동할 수 있나요?**  
-아니요. 이 옵션은 모든 구성 설정을 검색하는 것이 아니므로 사용하면 안됩니다. 그 대신 마법사를 사용하여 두 번째 서버에서 기본 구성을 만들고, 동기화 규칙 편집기를 사용하여 서버 간에 사용자 지정 규칙을 이동하도록 PowerShell 스크립트를 생성합니다. 자세한 내용은 [스윙 마이그레이션](how-to-upgrade-previous-version.md#swing-migration)을 참조하세요.
+ 아니요. 이 옵션은 모든 구성 설정을 검색하는 것이 아니므로 사용하면 안됩니다. 그 대신 마법사를 사용하여 두 번째 서버에서 기본 구성을 만들고, 동기화 규칙 편집기를 사용하여 서버 간에 사용자 지정 규칙을 이동하도록 PowerShell 스크립트를 생성합니다. 자세한 내용은 [스윙 마이그레이션](how-to-upgrade-previous-version.md#swing-migration)을 참조하세요.
 
 **Q: Azure 로그인 페이지에 대해 암호를 캐시할 수 있지만 *autocomplete = "false"* 특성이 있는 암호 입력 요소를 포함하고 있어 이 캐싱을 방지할 수 있나요?**  
 현재 autocomplete 태그를 포함하여 **암호** 필드의 HTML 특성을 수정하는 기능은 지원되지 않습니다. 현재 **암호** 필드에 특성을 추가할 수 있는 사용자 지정 JavaScript를 허용하는 기능을 개발하고 있습니다.
@@ -119,7 +119,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 현재 autocomplete 태그를 포함하여 **암호** 입력 필드의 HTML 특성을 수정하는 기능은 지원되지 않습니다. 현재 **암호** 필드에 특성을 추가할 수 있는 사용자 지정 JavaScript를 허용하는 기능을 개발하고 있습니다.
 
 **Q: 동시 세션을 방지하는 방법이 있나요?**  
-아니요.
+ 아니요.
 
 ## <a name="auto-upgrade"></a>자동 업그레이드
 

@@ -28,9 +28,9 @@ ms.locfileid: "49319255"
 
 장치 제조자로써, 사용자는 먼저 지원되는 형식 중 하나를 기반으로 하는 증명 메커니즘을 선택해야 합니다. 현재 [C용 Device Provisioning 서비스 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client)는 다음과 같은 증명 메커니즘을 지원합니다. 
 
-- [TPM(신뢰할 수 있는 플랫폼 모듈)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM은 몇 개의 Linux/Ubuntu 기반 장치뿐만 아니라 대부분의 Windows 기반 장치 플랫폼에 대해 설정된 표준입니다. 장치 제조자로써, 사용자는 장치에서 이러한 OS 중 하나가 실행되는 경우 및 설정된 표준을 찾는 경우 이 증명 메커니즘을 선택할 수 있습니다. TPM 칩을 사용하면 Device Provisioning Service에 개별적으로 각 장치를 등록할 수 있습니다. 개발을 위해 Windows 또는 Linux 개발 컴퓨터에서 TPM 시뮬레이터를 사용할 수 있습니다.
+- [TPM(신뢰할 수 있는 플랫폼 모듈)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM은 몇 개의 Linux/Ubuntu 기반 장치뿐만 아니라 대부분의 Windows 기반 장치 플랫폼에 대해 설정된 표준입니다. 장치 제조자로써, 사용자는 장치에서 이러한 OS 중 하나가 실행되는 경우 및 설정된 표준을 찾는 경우 이 증명 메커니즘을 선택할 수 있습니다. TPM 칩을 사용하면 Device Provisioning Service에 개별적으로 각 디바이스를 등록할 수 있습니다. 개발을 위해 Windows 또는 Linux 개발 컴퓨터에서 TPM 시뮬레이터를 사용할 수 있습니다.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509 인증서를 [HSM(하드웨어 보안 모듈)](concepts-security.md#hardware-security-module)이라는 비교적 최신 칩에 저장할 수 있습니다. X.509 인증서를 구현하는 RIoT 또는 DICE에 대한 작업이 Microsoft 내에서 진행 중입니다. X.509 칩을 사용하면 포털에서 장치 등록을 대량으로 수행할 수 있습니다. 또한 임베디드 OS와 같은 특정 비Windows OS를 지원합니다. 개발 목적을 위해 Device Provisioning Service 클라이언트 SDK는 X.509 장치 시뮬레이터를 지원합니다. 
+- [X.509](https://cryptography.io/en/latest/x509/): X.509 인증서를 [HSM(하드웨어 보안 모듈)](concepts-security.md#hardware-security-module)이라는 비교적 최신 칩에 저장할 수 있습니다. X.509 인증서를 구현하는 RIoT 또는 DICE에 대한 작업이 Microsoft 내에서 진행 중입니다. X.509 칩을 사용하면 포털에서 장치 등록을 대량으로 수행할 수 있습니다. 또한 임베디드 OS와 같은 특정 비Windows OS를 지원합니다. 개발 목적을 위해 Device Provisioning Service 클라이언트 SDK는 X.509 디바이스 시뮬레이터를 지원합니다. 
 
 자세한 내용은 IoT Hub Device Provisioning 서비스 [보안 개념](concepts-security.md) 및 [자동 프로비전 개념](/azure/iot-dps/concepts-auto-provisioning)을 참조하세요.
 
@@ -62,14 +62,14 @@ cmake -Ddps_auth_type=tpm ..
 
 ### <a name="use-tpm-with-simulator"></a>시뮬레이터를 통해 TPM 사용
 
-TPM 칩이 있는 장치가 없으면 개발 용도로 Windows OS에서 시뮬레이터를 사용할 수 있습니다. TPM 인증을 사용하도록 설정하고 TPM 시뮬레이터를 실행하려면 다음 명령을 실행합니다.
+TPM 칩이 있는 디바이스가 없으면 개발 용도로 Windows OS에서 시뮬레이터를 사용할 수 있습니다. TPM 인증을 사용하도록 설정하고 TPM 시뮬레이터를 실행하려면 다음 명령을 실행합니다.
 
 ```
 cmake -Ddps_auth_type=tpm_simulator ..
 ```
 
 ## <a name="build-the-sdk"></a>SDK 빌드
-먼저 SDK를 빌드한 후에 장치 등록을 만들어야 합니다.
+먼저 SDK를 빌드한 후에 디바이스 등록을 만들어야 합니다.
 
 ### <a name="linux"></a>Linux
 - Linux에서 SDK를 빌드하려면 다음을 수행합니다.
@@ -96,7 +96,7 @@ cmake -Ddps_auth_type=tpm_simulator ..
     ctest -C "debug" -V
     ```
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 - Windows에서 SDK를 빌드하려면 다음 단계를 수행하여 프로젝트 파일을 생성합니다.
     - "VS2015용 개발자 명령 프롬프트"를 엽니다.
     - 리포지토리의 루트에서 다음의 CMake 명령을 실행합니다.
@@ -144,7 +144,7 @@ TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용
 
 ### <a name="x509"></a>X **.** 509
 
-1. 프로비전 서비스에 장치를 등록하려면 클라이언트 SDK에서 제공하는 프로비전 도구에 표시된 각 장치에 대한 인증 키와 등록 ID를 기록해 둡니다. 다음 명령을 실행하여 루트 CA 인증서(그룹 등록의 경우) 및 리프 인증서(개별 등록의 경우)를 출력합니다.
+1. 프로비전 서비스에 디바이스를 등록하려면 클라이언트 SDK에서 제공하는 프로비전 도구에 표시된 각 디바이스에 대한 인증 키와 등록 ID를 기록해 둡니다. 다음 명령을 실행하여 루트 CA 인증서(그룹 등록의 경우) 및 리프 인증서(개별 등록의 경우)를 출력합니다.
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
@@ -159,7 +159,7 @@ TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용
 
 먼저 사용자 지정 증명 메커니즘에 대한 리포지토리 및 라이브러리를 개발해야 합니다.
 
-1. 증명 메커니즘에 액세스하는 라이브러리를 개발합니다. 이 프로젝트에서는 사용할 Device Provisioning SDK에 대한 정적 라이브러리를 생성해야 합니다.
+1. 증명 메커니즘에 액세스하는 라이브러리를 개발합니다. 이 프로젝트에서는 사용할 디바이스 프로비저닝 SDK에 대한 정적 라이브러리를 생성해야 합니다.
 
 2. 라이브러리에서 다음 헤더 파일에 정의된 함수를 구현합니다. 
 

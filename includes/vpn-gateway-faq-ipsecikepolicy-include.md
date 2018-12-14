@@ -46,7 +46,7 @@ ms.locfileid: "48240218"
 > 4. QM SA 수명은 선택적 매개 변수입니다. 지정되지 않으면 기본값인 27,000초(7.5시간) 및 102,400,000KB(102GB)가 사용됩니다.
 > 5. UsePolicyBasedTrafficSelector는 연결에 대한 옵션 매개 변수입니다. "UsePolicyBasedTrafficSelectors"에 대한 다음 FAQ 항목을 참조하세요.
 
-### <a name="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>Azure VPN Gateway 정책과 온-프레미스 VPN 장치 구성 간에 모든 항목이 일치해야 하나요?
+### <a name="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>Azure VPN Gateway 정책과 온-프레미스 VPN 디바이스 구성 간에 모든 항목이 일치해야 하나요?
 온-프레미스 VPN 장치 구성은 Azure IPsec/IKE 정책에서 지정한 다음 알고리즘 및 매개 변수가 일치하거나 포함해야 합니다.
 
 * IKE 암호화 알고리즘
@@ -65,7 +65,7 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 * 10.2.0.0/16 <====> 192.168.0.0/16
 * 10.2.0.0/16 <====> 172.16.0.0/16
 
-자세한 내용은 [여러 온-프레미스 정책 기반 VPN 장치 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
+자세한 내용은 [여러 온-프레미스 정책 기반 VPN 디바이스 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
 
 ### <a name ="DH"></a>어떤 Diffie-Hellman 그룹이 지원됩니까?
 아래 표에는 IKE(DHGroup) 및 IPsec(PFSGroup)에 지원되는 Diffie-Hellman 그룹이 나열되어 있습니다.
@@ -86,10 +86,10 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 예, 연결에 사용자 지정 정책이 지정되면 Azure VPN Gateway는 IKE 개시 장치 및 IKE 응답기로의 연결에만 정책을 사용합니다.
 
 ### <a name="if-i-remove-a-custom-ipsecike-policy-does-the-connection-become-unprotected"></a>사용자 지정 IPsec/IKE 정책을 제거하면 연결이 보호되지 않나요?
-아니요, 연결은 IPsec/IKE로 계속 보호됩니다. 연결에서 사용자 지정 정책을 제거하면 Azure VPN Gateway는 [IPsec/IKE 제안의 기본 목록](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md)으로 다시 되돌아와서 온-프레미스 VPN 장치에서 IKE 핸드셰이크를 다시 시작합니다.
+아니요, 연결은 IPsec/IKE로 계속 보호됩니다. 연결에서 사용자 지정 정책을 제거하면 Azure VPN Gateway는 [IPsec/IKE 제안의 기본 목록](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md)으로 다시 되돌아와서 온-프레미스 VPN 디바이스에서 IKE 핸드셰이크를 다시 시작합니다.
 
 ### <a name="would-adding-or-updating-an-ipsecike-policy-disrupt-my-vpn-connection"></a>IPsec/IKE 정책을 추가 또는 업데이트하는 것이 VPN 연결에 방해가 될까요?
-예, Azure VPN Gateway가 기존 연결을 삭제하고 IKE 핸드셰이크를 다시 시작하여 새로운 암호화 알고리즘 및 매개 변수로 IPsec 터널을 다시 설정하므로 약간의 서비스 중단(몇 초)이 발생할 수 있습니다. 중단을 최소화하려면 온-프레미스 VPN 장치가 일치하는 알고리즘 및 키 강도로 구성되었는지도 확인하세요.
+예, Azure VPN Gateway가 기존 연결을 삭제하고 IKE 핸드셰이크를 다시 시작하여 새로운 암호화 알고리즘 및 매개 변수로 IPsec 터널을 다시 설정하므로 약간의 서비스 중단(몇 초)이 발생할 수 있습니다. 중단을 최소화하려면 온-프레미스 VPN 디바이스가 일치하는 알고리즘 및 키 강도로 구성되었는지도 확인하세요.
 
 ### <a name="can-i-use-different-policies-on-different-connections"></a>다른 연결에 다른 정책을 사용할 수 있나요?
 예. 사용자 지정 정책은 각 연결 단위로 적용됩니다. 다른 연결에 서로 다른 IPsec/IKE 정책을 만들어 적용할 수 있습니다. 또한 연결의 하위 집합에 대해 사용자 지정 정책을 적용하도록 선택할 수도 있습니다. 나머지는 Azure 기본 IPsec/IKE 정책 집합을 사용합니다.
@@ -101,4 +101,4 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 예. Azure에서 VNet 간 터널은 두 개의 연결 리소스(각 방향당 하나씩)로 구성됩니다. 두 연결 리소스에 동일한 정책이 있어야 합니다. 그렇지 않으면 VNet 간 연결이 설정되지 않습니다.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>ExpressRoute 연결에서 사용자 지정 IPsec/IKE 정책이 작동하나요?
-아니요. IPsec/IKE 정책은 Azure VPN Gateway를 통해 S2S VPN 및 VNet 간 연결에서만 작동합니다.
+ 아니요. IPsec/IKE 정책은 Azure VPN Gateway를 통해 S2S VPN 및 VNet 간 연결에서만 작동합니다.

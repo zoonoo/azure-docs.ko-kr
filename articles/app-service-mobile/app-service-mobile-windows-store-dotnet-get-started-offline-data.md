@@ -25,7 +25,7 @@ ms.locfileid: "37060310"
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure 모바일 앱 백 엔드를 사용하여 UWP(유니버설 Windows 플랫폼) 앱에 오프라인 지원을 추가하는 방법을 보여 줍니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 장치가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 백 엔드와 동기화됩니다.
+이 자습서에서는 Azure 모바일 앱 백 엔드를 사용하여 UWP(유니버설 Windows 플랫폼) 앱에 오프라인 지원을 추가하는 방법을 보여 줍니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 디바이스가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 백 엔드와 동기화됩니다.
 
 이 자습서에서는 Azure Mobile Apps의 오프라인 기능을 지원하도록 자습서 [Windows 앱 만들기]의 UWP 앱 프로젝트를 업데이트합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 데이터 액세스 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
@@ -40,7 +40,7 @@ ms.locfileid: "37060310"
 * [유니버설 Windows 플랫폼용 SQLite 개발](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>오프라인 기능을 지원하도록 클라이언트 앱 업데이트
-Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리오에서 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 [SyncContext][synccontext]를 초기화합니다. 그런 다음 [IMobileServiceSyncTable][IMobileServiceSyncTable] 인터페이스를 통해 테이블을 참조합니다. SQLite는 장치의 로컬 저장소로 사용됩니다.
+Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리오에서 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 [SyncContext][synccontext]를 초기화합니다. 그런 다음 [IMobileServiceSyncTable][IMobileServiceSyncTable] 인터페이스를 통해 테이블을 참조합니다. SQLite는 디바이스의 로컬 저장소로 사용됩니다.
 
 1. [유니버설 Windows 플랫폼용 SQLite 런타임](http://sqlite.org/2016/sqlite-uwp-3120200.vsix)을 설치합니다.
 2. Visual Studio에서 [Windows 앱 만들기] 자습서에서 완료한 UWP 앱용 NuGet 패키지 관리자 프로젝트를 엽니다.
@@ -58,7 +58,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
          public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
 
-    장치에서 Wi-Fi 및 셀룰러 네트워크를 사용하지 않도록 설정하여 오프라인 동작을 시연하거나 비행기 모드를 사용할 수 있습니다.
+    디바이스에서 Wi-Fi 및 셀룰러 네트워크를 사용하지 않도록 설정하여 오프라인 동작을 시연하거나 비행기 모드를 사용할 수 있습니다.
 2. **F5** 를 눌러 응용 프로그램을 빌드 및 실행합니다. 앱을 시작하는 경우 동기화는 새로 고침에 실패합니다.
 3. 새 항목을 입력하고 [MobileServicePushFailedException] 을 클릭할 때마다 푸시가 **CancelledByNetworkError**상태로 실패하는지 확인합니다. 그러나 새 todo 항목은 모바일 앱 백 엔드에 푸시할 수 있을 때까지 로컬 저장소에 위치합니다.  프로덕션 앱에서 이러한 예외를 무시하는 경우 클라이언트 앱은 모바일 앱 백 엔드에 연결된 것처럼 작동합니다.
 4. 앱을 닫았다가 다시 시작하여 만든 새 항목이 로컬 저장소에 유지되는지 확인합니다.

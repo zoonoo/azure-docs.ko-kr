@@ -25,7 +25,7 @@ ms.locfileid: "32156498"
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>개요
-이 자습서는 iOS용 Azure App Service의 Mobile Apps 기능을 사용한 오프라인 동기화를 설명합니다. 오프라인 동기화를 사용하면 네트워크에 연결되지 않은 경우에도 최종 사용자가 모바일 앱을 사용하여 데이터를 보거나, 추가하거나 수정할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 장치가 다시 온라인 상태가 되면 변경 내용이 원격 백 엔드와 동기화됩니다.
+이 자습서는 iOS용 Azure App Service의 Mobile Apps 기능을 사용한 오프라인 동기화를 설명합니다. 오프라인 동기화를 사용하면 네트워크에 연결되지 않은 경우에도 최종 사용자가 모바일 앱을 사용하여 데이터를 보거나, 추가하거나 수정할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 디바이스가 다시 온라인 상태가 되면 변경 내용이 원격 백 엔드와 동기화됩니다.
 
 Mobile Apps를 처음 사용하는 경우, 먼저 [iOS 앱 만들기]자습서를 완료해야 합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 데이터 액세스 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
@@ -272,7 +272,7 @@ Mobile Apps에 대한 정상적인 만들기, 읽기, 업데이트 및 삭제(CR
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Mobile Apps에서 오프라인 데이터 동기화]
-* [클라우드 커버: Azure Mobile Services에서 오프라인 동기화] \(비디오는 Mobile Services에 대한 내용이지만 Mobile Apps 오프라인 동기화도 유사한 방식으로 작동합니다.\)
+* [클라우드 표지: Azure Mobile Services에서 오프라인 동기화] \(비디오는 Mobile Services에 대한 내용이지만 Mobile Apps 오프라인 동기화도 유사한 방식으로 작동합니다.\)
 
 <!-- URLs. -->
 
@@ -285,5 +285,5 @@ Mobile Apps에 대한 정상적인 만들기, 읽기, 업데이트 및 삭제(CR
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[클라우드 커버: Azure Mobile Services에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[클라우드 표지: Azure Mobile Services에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

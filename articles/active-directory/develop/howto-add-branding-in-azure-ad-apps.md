@@ -39,8 +39,8 @@ Azure AD(Azure Active Directory)를 사용하여 응용 프로그램을 개발�
 
 Microsoft는 두 종류의 사용자 계정을 관리합니다.
 
-- **개인 계정** (이전의 Windows Live ID). 이 계정은 *개인* 사용자와 Microsoft 사이의 관계를 나타내며 Microsoft의 소비자 장치 및 서비스에 액세스하는 데 사용됩니다. 이 계정은 개인적인 용도를 위한 것입니다.
-- **회사 또는 학교 계정.** 이 계정은 Azure Active Directory를 사용하는 조직을 대신하여 Microsoft에서 관리합니다. 이 계정은 Office 365 및 Microsoft의 다른 비즈니스 서비스에 로그인하는 데 사용됩니다.
+- **개인 계정** (이전의 Windows Live ID). 이 계정은 *개인* 사용자와 Microsoft 사이의 관계를 나타내며 Microsoft의 소비자 디바이스 및 서비스에 액세스하는 데 사용됩니다. 이 계정은 개인적인 용도를 위한 것입니다.
+- **회사 또는 학교 계정.**  이 계정은 Azure Active Directory를 사용하는 조직을 대신하여 Microsoft에서 관리합니다. 이 계정은 Office 365 및 Microsoft의 다른 비즈니스 서비스에 로그인하는 데 사용됩니다.
 
 Microsoft 회사 또는 학교 계정은 일반적으로 회사, 학교, 정부 기관 등의 조직이 직원, 학생, 연방 직원 등의 최종 사용자에게 할당합니다. 이 계정은 Azure AD 플랫폼의 클라우드에서 직접 마스터되거나 Windows Server Active Directory와 같은 온-프레미스 디렉터리에서 Azure AD로 동기화됩니다. Microsoft는 회사 또는 학교 계정의 *보유자* 이지만, 이 계정을 소유하고 제어하는 것은 조직입니다.
 

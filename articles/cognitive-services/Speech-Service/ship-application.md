@@ -23,7 +23,7 @@ ms.locfileid: "49469421"
 
 플랫폼에 따라 응용 프로그램을 실행하기 위한 다양한 종속성이 존재합니다.
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 Cognitive Services Speech SDK는 Windows 10 및 Windows Server 2016에서 테스트되었습니다.
 
@@ -34,7 +34,7 @@ Cognitive Services Speech SDK에는 [Visual Studio 2017용 Microsoft Visual C++ 
 
 응용 프로그램에서 관리 코드를 사용하는 경우, 대상 머신에 `.NET Framework 4.6.1` 이상이 필요합니다.
 
-마이크 입력을 위해 미디어 파운데이션 라이브러리를 설치해야 합니다. 이러한 라이브러리는 Windows 10 및 Windows Server 2016에 포함됩니다. 마이크를 오디오 입력 장치로 사용하지 않는 경우에는 이러한 라이브러리 없이 Speech SDK를 사용할 수 있습니다.
+마이크 입력을 위해 미디어 파운데이션 라이브러리를 설치해야 합니다. 이러한 라이브러리는 Windows 10 및 Windows Server 2016에 포함됩니다. 마이크를 오디오 입력 디바이스로 사용하지 않는 경우에는 이러한 라이브러리 없이 Speech SDK를 사용할 수 있습니다.
 
 필요한 Speech SDK 파일은 응용 프로그램과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 응용 프로그램이 라이브러리에 직접 액세스할 수 있습니다. 응용 프로그램과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 

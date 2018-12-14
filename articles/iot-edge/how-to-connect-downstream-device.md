@@ -88,7 +88,7 @@ sudo update-ca-certificates
 
 다음과 같은 메시지가 표시됩니다. “/etc/ssl/certs에 인증서 업데이트 중... 1개 추가됨, 0개 제거됨. 완료."
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 다음 단계는 Windows 호스트에 CA 인증서를 설치하는 방법의 예제입니다. 이 샘플은 필수 구성 요소 문서의 **azure-iot-test-only.root.ca.cert.pem** 인증서를 사용하고 다운스트림 디바이스에 있는 위치에 인증서를 복사한 것으로 가정합니다.  
 
@@ -117,7 +117,7 @@ sudo update-ca-certificates
 
     최종 문자열은 다음과 같습니다. `HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com`
 
-2. 복사하고 다운스트림 디바이스에서의 위치를 복사 및 저장한 루트 CA 인증서에 대한 전체 경로.
+2. 다운스트림 디바이스의 어딘가에 복사 및 저장한 루트 CA 인증서에 대한 전체 경로.
 
     예: `<path>/azure-iot-test-only.root.ca.cert.pem` 
 

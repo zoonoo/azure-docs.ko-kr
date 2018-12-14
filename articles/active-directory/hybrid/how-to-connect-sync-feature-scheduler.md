@@ -35,7 +35,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 스케줄러는 두 작업을 수행합니다.
 
 * **동기화 주기**. 변경 내용 가져오기, 동기화 및 내보내기 프로세스입니다.
-* **유지 관리 작업**. 암호 재설정 및 DRS(장치 등록 서비스)에 대한 키와 인증서를 갱신합니다. 작업 로그의 이전 항목을 삭제합니다.
+* **유지 관리 작업**. 암호 재설정 및 DRS(Device Registration Service)에 대한 키와 인증서를 갱신합니다. 작업 로그의 이전 항목을 삭제합니다.
 
 스케줄러 자체가 항상 실행되지만 이러한 작업 중 하나만 실행되도록 구성하거나 하나도 실행되지 않도록 구성할 수 있습니다. 예를 들어 고유한 동기화 주기 프로세스가 필요한 경우 스케줄러에서 이 작업을 사용하지 않도록 설정할 수 있지만 유지 관리 작업은 여전히 실행됩니다.
 
@@ -71,7 +71,7 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 구문: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
-d -일, HH - 시간, mm - 분, ss - 초
+ d -일, HH - 시간, mm - 분, ss - 초
 
 예제: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 3시간마다 실행되도록 스케줄러를 변경합니다.
@@ -92,7 +92,7 @@ d -일, HH - 시간, mm - 분, ss - 초
 스케줄러는 기본적으로 30분마다 실행됩니다. 경우에 따라 예약된 주기 사이에서 동기화 주기를 실행하려고 하거나 다른 유형을 실행해야 할 수도 있습니다.
 
 **델타 동기화 주기**  
-델타 동기화 주기에는 다음 단계가 포함됩니다.
+ 델타 동기화 주기에는 다음 단계가 포함됩니다.
 
 * 모든 커넥터에서 델타 가져오기
 * 모든 커넥터에서 델타 동기화

@@ -61,7 +61,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - 호스트된 음성 메일이 예상대로 작동하도록 특성 쓰기 저장 기능이 변경되었습니다.  특정 시나리오에서 Azure AD는 null 값을 사용하여 쓰기 저장하는 동안 msExchUcVoicemailSettings 특성을 덮어썼습니다.  이제 클라우드 값이 설정되지 않으면 Azure AD는 이 특성의 온-프레미스 값을 더 이상 지우지 않습니다.
 - Azure AD 연결 문제를 조사하고 식별하는 진단 기능이 Azure AD Connect 마법사에 추가되었습니다. 이러한 진단 기능은 Test- AdSyncAzureServiceConnectivity Cmdlet을 사용하여 Powershell을 통해 직접 실행할 수도 있습니다. 
 - AD 연결 문제를 조사하고 식별하는 진단 기능이 Azure AD Connect 마법사에 추가되었습니다. 이러한 진단 기능은 ADConnectivityTools Powershell 모듈의 Start-ConnectivityValidation 함수를 사용하여 Powershell을 통해 직접 실행할 수도 있습니다.  자세한 내용은 [ADConnectivityTool PowerShell 모듈이란?](how-to-connect-adconnectivitytools.md)을 참조하세요.
-- 하이브리드 Azure Active Directory 조인 및 장치 쓰기 저장에 대한 AD 스키마 버전 사전 검사가 추가되었습니다. 
+- 하이브리드 Azure Active Directory 조인 및 디바이스 쓰기 저장에 대한 AD 스키마 버전 사전 검사가 추가되었습니다. 
 - 디렉터리 확장 페이지 특성 검색이 대/소문자를 구분하지 않도록 변경되었습니다.
 -   TLS 1.2에 대한 전체 지원이 추가되었습니다. 이 릴리스는 사용되지 않는 다른 모든 프로토콜을 지원하며, Azure AD Connect가 설치된 머신에서 오직 TLS 1.2만 사용됩니다.  자세한 내용은 [Azure AD Connect에 대한 TLS 1.2 적용](reference-connect-tls-enforcement.md)을 참조하세요.
 
@@ -77,7 +77,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - Azure AD Connect가 잘못된 파티션 및 컨테이너 선택을 허용하는 버그가 수정되었습니다. 
 - 데스크톱 SSO를 사용할 때 "잘못된 암호" 오류 메시지가 표시되는 오류가 수정되었습니다. 
 - AD FS 신뢰 관리에 대한 다양한 버그 수정  
-- 장치 쓰기 저장을 구성할 때 - msDs-DeviceContainer 개체 클래스를 검색하도록 스키마 검사 수정(WS2012 R2에 도입)
+- 디바이스 쓰기 저장을 구성할 때 - msDs-DeviceContainer 개체 클래스를 검색하도록 스키마 검사 수정(WS2012 R2에 도입)
 
  
 ## <a name="118820"></a>1.1.882.0  
@@ -142,7 +142,7 @@ SQL Always On 가용성이 ADSync DB에 대해 구성된 경우 Azure AD Connect
 - 장치 쓰기 저장 구성은 이제 Azure AD Connect 마법사에서만 관리됩니다.
 - SQL 연결 문제 및 다양한 다른 문제 해결 유틸리티 문제를 해결하는 데 사용할 수 있는 ADSyncTools.psm1이라는 새 PowerShell 모듈이 추가되었습니다. ADSyncTools 모듈에 대한 자세한 내용은 [여기](tshoot-connect-tshoot-sql-connectivity.md)를 참조하세요. 
 - 새 "장치 옵션 구성" 추가 작업이 추가되었습니다. 이 작업을 사용하여 구성할 수 있는 두 가지 작업은 다음과 같습니다. 
-    -   **하이브리드 Azure AD 조인**: 사용자의 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 이점도 활용하려는 경우 하이브리드 Azure AD 조인 장치를 구현할 수 있습니다. 이는 온-프레미스 Azure Active Directory 및 Azure Active Directory에 모두 가입되어 있는 장치입니다.
+    -   **하이브리드 Azure AD 조인**: 사용자의 환경에 온-프레미스 AD 공간이 있고 Azure Active Directory에서 제공하는 기능의 이점도 활용하려는 경우 하이브리드 Azure AD 조인 장치를 구현할 수 있습니다. 이는 온-프레미스 Azure Active Directory 및 Azure Active Directory에 모두 가입되어 있는 디바이스입니다.
     -   **장치 쓰기 저장**: 장치 쓰기 저장은 AD FS(2012 R2 이상) 보호 장치에 대한 장치에 따라 조건부 액세스를 사용하도록 설정하는 데 사용됩니다.
 
    >[!NOTE] 
@@ -495,7 +495,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
 * [자동 업그레이드 기능](how-to-connect-install-automatic-upgrade.md)은 다음과 같은 구성 사용하는 고객을 지원하도록 확장되었습니다.
-  * 장치 쓰기 저장 기능을 사용하도록 설정했습니다.
+  * 디바이스 쓰기 저장 기능을 사용하도록 설정했습니다.
   * 그룹 쓰기 저장 기능을 사용하도록 설정했습니다.
   * 설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다.
   * 메타버스에 10만 개가 넘는 개체가 있습니다.
@@ -523,7 +523,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
 * [자동 업그레이드 기능](how-to-connect-install-automatic-upgrade.md)은 다음과 같은 구성 사용하는 고객을 지원하도록 확장되었습니다.
-  * 장치 쓰기 저장 기능을 사용하도록 설정했습니다.
+  * 디바이스 쓰기 저장 기능을 사용하도록 설정했습니다.
   * 그룹 쓰기 저장 기능을 사용하도록 설정했습니다.
   * 설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다.
   * 메타버스에 10만 개가 넘는 개체가 있습니다.
@@ -600,7 +600,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
   * 이 옵션은 objectGuid를 sourceAnchor 특성으로 사용하는 기존 배포에만 표시됩니다.
   * 옵션을 구성할 때 마법사는 온-프레미스 Active Directory의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 사용자 개체에 구성되어 있지 않으면, 마법사는 ms-DS-ConsistencyGuid를 sourceAnchor 특성으로 사용합니다. 특성이 디렉터리에 있는 하나 이상의 사용자 개체에 구성되어 있으면, 마법사는 특성이 다른 응용 프로그램에서 사용되고 있으며 sourceAnchor 특성으로 적합하지 않다고 결정하고 원본 앵커 변경이 진행되지 않도록 합니다. 기존 응용 프로그램에서 특성을 사용하지 않는다고 확신하는 경우, 오류를 표시하지 않는 방법에 대한 정보를 얻기 위해 지원에 문의해야 합니다.
 
-* 장치 개체의 **userCertificate** 특성과 관련해서, Azure AD Connect는 이제 [Windows 10 환경용 Azure AD에 도메인 가입 장치를 연결](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy)하는 데 필요한 인증서 값을 찾은 다음 Azure AD에 동기화하기 전에 나머지 값을 필터링합니다. 이 동작을 사용하도록 설정하기 위해 기본 제공 동기화 규칙 "Out to AAD - Device Join SOAInAD"가 업데이트되었습니다.
+* 디바이스 개체의 **userCertificate** 특성과 관련해서, Azure AD Connect는 이제 [Windows 10 환경용 Azure AD에 도메인 가입 디바이스를 연결](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy)하는 데 필요한 인증서 값을 찾은 다음 Azure AD에 동기화하기 전에 나머지 값을 필터링합니다. 이 동작을 사용하도록 설정하기 위해 기본 제공 동기화 규칙 "Out to AAD - Device Join SOAInAD"가 업데이트되었습니다.
 
 * 이제 Azure AD Connect에서 Exchange Online **cloudPublicDelegates** 특성을 온-프레미스 AD **publicDelegates** 특성에 쓰기 저장하는 기능을 지원합니다. 이렇게 하면 Exchange Online 사서함에 온-프레미스 Exchange 사서함이 있는 사용자에 대한 SendOnBehalfTo 권한을 부여할 수 있는 시나리오가 가능합니다. 이 기능을 지원하기 위해 새로운 기본 제공 동기화 규칙 “Out to AD – User Exchange Hybrid PublicDelegates writeback”이 추가되었습니다. 이 동기화 규칙은 Exchange 하이브리드 기능이 사용되는 경우에만 Azure AD Connect에 추가됩니다.
 
@@ -701,7 +701,7 @@ Azure AD Connect 동기화
 * 6900 이벤트 ID 및 *"동일한 키가 있는 항목이 이미 추가되었습니다."* 라는 오류 메시지와 함께 암호 동기화 프로세스가 시작되지 않는 문제를 해결했습니다. AD 구성 파티션을 포함하도록 OU 필터링 구성을 업데이트하면 이 문제가 발생합니다. 이 문제를 해결하기 위해 암호 동기화 프로세스는 이제 AD 도메인 파티션의 암호 변경만 동기화합니다. 구성 파티션과 같은 비도메인 파티션은 건너뜁니다.
 * Azure AD Connect는 기본 설치 중에 AD 커넥터에서 온-프레미스 AD와 통신하는 데 사용할 온-프레미스 AD DS 계정을 만듭니다. 이전에는 user-Account-Control 특성에 설정된 PASSWD_NOTREQD 플래그가 있는 계정을 만들어 이 계정에 임의의 암호를 설정했습니다. 이제 Azure AD Connect는 계정에 암호를 설정한 후에 PASSWD_NOTREQD 플래그를 명시적으로 제거합니다.
 * mailNickname 특성이 온-프레미스 AD 스키마에 있지만 AD User 개체 클래스에 바인딩되지 않으면 *"응용 프로그램 잠금을 획득하려고 하는 SQL 서버에서 교착 상태가 발생했습니다."* 라는 오류 메시지와 함께 DirSync 업그레이드가 실패하는 문제를 해결했습니다.
-* 관리자가 Azure AD Connect 마법사를 사용하여 Azure AD Connect 동기화 구성을 업데이트할 때 장치 쓰기 저장 기능을 자동으로 비활성화하는 문제를 해결했습니다. 이 문제는 마법사에서 온-프레미스 AD의 기존 장치 쓰기 저장 구성에 대한 필수 조건 확인을 수행함으로써 발생하는 것이며, 이 확인은 실패합니다. 이제 장치 쓰기 저장을 사용하도록 이미 설정되어 있는지 확인하는 것을 건너뛰도록 했습니다.
+* 관리자가 Azure AD Connect 마법사를 사용하여 Azure AD Connect 동기화 구성을 업데이트할 때 디바이스 쓰기 저장 기능을 자동으로 비활성화하는 문제를 해결했습니다. 이 문제는 마법사에서 온-프레미스 AD의 기존 장치 쓰기 저장 구성에 대한 필수 조건 확인을 수행함으로써 발생하는 것이며, 이 확인은 실패합니다. 이제 디바이스 쓰기 저장을 사용하도록 이미 설정되어 있는지 확인하는 것을 건너뛰도록 했습니다.
 * OU 필터링을 구성하려면 Azure AD Connect 마법사 또는 동기화 서비스 관리자를 사용하면 됩니다. 이전에는 Azure AD Connect 마법사를 사용하여 OU 필터링을 구성하는 경우 그 후에 만든 새 OU가 디렉터리 동기화에 포함되었습니다. 새 OU를 포함하지 않도록 하려면 동기화 서비스 관리자를 사용하여 OU 필터링을 구성해야 합니다. 이제는 Azure AD Connect 마법사를 사용하여 동일한 동작을 수행할 수 있습니다.
 * Azure AD Connect에 필요한 저장 프로시저를 dbo 스키마 대신 설치 관리자 스키마에서 만드는 문제를 해결했습니다.
 * Azure AD에서 반환한 TrackingId 특성이 AAD Connect 서버 이벤트 로그에서 생략되는 문제를 해결했습니다. Azure AD Connect에서 Azure AD로부터 리디렉션 메시지를 받고 제공된 엔드포인트에 연결할 수 없는 경우에 이 문제가 발생합니다. TrackingId는 지원 엔지니어가 문제를 해결하는 동안 서비스 쪽 로그와 상호 연결하는 데 사용됩니다.
@@ -1024,7 +1024,7 @@ AD FS 관리
 * 초기 설치 후 그룹 필터링에 사용된 그룹을 변경할 수 없습니다.
 * 비밀번호 쓰기 저장을 활성화하고 암호 변경을 수행하는 모든 사용자에 대해 더 이상 Azure AD Connect 서버에 새로운 사용자 프로필을 만들지 않습니다.
 * 동기화 규칙 범위 내 정수(Long) 값을 사용할 수 없습니다.
-* 연결할 수 없는 도메인 컨트롤러가 있는 경우 "장치 쓰기 저장" 확인란이 비활성화된 상태로 유지됩니다.
+* 연결할 수 없는 도메인 컨트롤러가 있는 경우 "디바이스 쓰기 저장" 확인란이 비활성화된 상태로 유지됩니다.
 
 ## <a name="1086670"></a>1.0.8667.0
 릴리스 날짜: 2015년 8월
@@ -1112,7 +1112,7 @@ Azure AD Sync에서 Azure AD Connect로 이름을 변경했습니다.
 
 * 암호 동기화는 특성 필터링에 사용되는 cloudFiltered 특성을 인식합니다. 필터링된 개체는 더 이상 암호 동기화 범위에 속하지 않습니다.
 * 드문 경우지만 토폴로지에 도메인 컨트롤러가 여러 개 있으면 암호 동기화가 작동하지 않습니다.
-* Azure AD/Intune에서 장치 관리가 활성화된 후 Azure AD Connector로부터 가져오기 시 “중지된-서버"가 발생합니다.
+* Azure AD/Intune에서 디바이스 관리가 활성화된 후 Azure AD Connector로부터 가져오기 시 “중지된-서버"가 발생합니다.
 * 동일한 포리스트 내 여러 도메인으로부터 외부 보안 주체(FSP)를 조인하면 모호한 오류가 발생합니다.
 
 ## <a name="104751202"></a>1.0.475.1202

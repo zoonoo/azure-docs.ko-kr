@@ -81,9 +81,9 @@ ms.locfileid: "51238151"
 
 | 콘텐츠 관리 옵션 | 장점 | 단점 |
 | --- | --- | --- |
-| 중앙 집중화된 온-프레미스(Active Directory Rights Management Server) |데이터의 분류를 담당하는 서버 인프라에 대한 모든 권한  <br> Windows Server의 기본 제공 기능은 추가 라이선스 또는 구독에 필요하지 않습니다. <br> 하이브리드 시나리오에서 Azure AD와 통합될 수 있습니다. <br> Exchange Online, SharePoint Online, Office 365와 같은 Microsoft 온라인 서비스에서 정보 권한 관리(IRM) 기능을 지원합니다. <br> Exchange Server, SharePoint Server 및 Windows Server 및 파일 분류 인프라 (FCI)를 실행하는 파일 서버와 같은 온-프레미스 Microsoft 서버 제품을 지원합니다. |IT가 서버를 소유하기에 높은 유지 관리(업데이트, 구성 및 잠재적인 업그레이드를 수행)  <br> 서버 인프라 온-프레미스가 필요합니다.<br> Azure 기능을 기본적으로 활용하지 않습니다 |
-| 클라우드에서 중앙 집중화됨(Azure RMS) |온-프레미스 솔루션에 비해 관리가 쉽습니다  <br> 하이브리드 시나리오에서 AD DS와 통합될 수 있습니다. <br>  Azure AD와 완벽하게 통합 <br> 서비스를 배포하는 데 서버 온-프레미스가 필요하지 않습니다. <br> Exchange Server, SharePoint Server 및 Windows Server 및 파일 분류 인프라 (FCI)를 실행하는 파일 서버와 같은 온-프레미스 Microsoft 서버 제품을 지원합니다. <br> IT는 BYOK 기능을 가진 테넌트의 키를 완전히 제어할 수 있습니다. |조직에는 RMS를 지원하는 클라우드 구독이 있어야 합니다  <br> 조직에는 RMS에 대한 사용자 인증을 지원하는 Azure AD 디렉터리가 있어야 합니다 |
-| 하이브리드(온-프레미스 Active Directory Rights Management Server와 통합된 Azure RMS) |이 시나리오는 중앙 집중화된 온-프레미스 및 클라우드 모두에서 장점을 누적합니다. |조직에는 RMS를 지원하는 클라우드 구독이 있어야 합니다  <br> 조직에는 RMS에 대한 사용자 인증을 지원하는 Azure AD 디렉터리가 있어야 합니다 <br> Azure 클라우드 서비스와 온-프레미스 인프라 간의 연결이 필요합니다 |
+| 중앙 집중화된 온-프레미스(Active Directory Rights Management Server) |데이터의 분류를 담당하는 서버 인프라에 대한 모든 권한  <br> Windows Server의 기본 제공 기능은 추가 라이선스 또는 구독에 필요하지 않습니다. <br> 하이브리드 시나리오에서 Azure AD와 통합될 수 있습니다. <br> Exchange Online, SharePoint Online, Office 365와 같은 Microsoft 온라인 서비스에서 정보 권한 관리(IRM) 기능을 지원합니다. <br>  Exchange Server, SharePoint Server 및 Windows Server 및 파일 분류 인프라 (FCI)를 실행하는 파일 서버와 같은 온-프레미스 Microsoft 서버 제품을 지원합니다. |IT가 서버를 소유하기에 높은 유지 관리(업데이트, 구성 및 잠재적인 업그레이드를 수행)  <br> 서버 인프라 온-프레미스가 필요합니다.<br> Azure 기능을 기본적으로 활용하지 않습니다 |
+| 클라우드에서 중앙 집중화됨(Azure RMS) |온-프레미스 솔루션에 비해 관리가 쉽습니다  <br> 하이브리드 시나리오에서 AD DS와 통합될 수 있습니다. <br>  Azure AD와 완벽하게 통합 <br> 서비스를 배포하는 데 서버 온-프레미스가 필요하지 않습니다. <br>  Exchange Server, SharePoint Server 및 Windows Server 및 파일 분류 인프라 (FCI)를 실행하는 파일 서버와 같은 온-프레미스 Microsoft 서버 제품을 지원합니다. <br>  IT는 BYOK 기능을 가진 테넌트의 키를 완전히 제어할 수 있습니다. |조직에는 RMS를 지원하는 클라우드 구독이 있어야 합니다  <br>  조직에는 RMS에 대한 사용자 인증을 지원하는 Azure AD 디렉터리가 있어야 합니다 |
+| 하이브리드(온-프레미스 Active Directory Rights Management Server와 통합된 Azure RMS) |이 시나리오는 중앙 집중화된 온-프레미스 및 클라우드 모두에서 장점을 누적합니다. |조직에는 RMS를 지원하는 클라우드 구독이 있어야 합니다  <br> 조직에는 RMS에 대한 사용자 인증을 지원하는 Azure AD 디렉터리가 있어야 합니다 <br>  Azure 클라우드 서비스와 온-프레미스 인프라 간의 연결이 필요합니다 |
 
 ## <a name="define-access-control-options"></a>액세스 제어 옵션 정의
 다음 그림에 표시된 것처럼 사용자와 파트너가 Single Sign-On(SSO)를 사용하는 동안 Azure AD에서 사용할 수 있는 인증, 권한 부여 및 액세스 제어 기능을 활용하여 회사는 중앙 ID 리포지토리를 사용할 수 있게 됩니다.
@@ -108,7 +108,7 @@ Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레�
 Azure AD 지원을 사용하여 직원이 해당 회사 Active Directory 자격 증명으로 모바일 응용 프로그램에 로그인할 수 있도록 모바일 비즈니스 응용 프로그램은 동일하게 쉬운 Mobile Services 인증 환경을 사용할 수 있습니다. 이 기능을 사용하여 Azure AD는 이미 지원한 다른 ID 공급자와 함께 Mobile Services에서 ID 공급자로 지원됩니다(Microsoft 계정, Facebook ID, Google ID 및 Twitter ID 포함). 온-프레미스 앱이 회사의 AD DS에 있는 사용자의 자격 증명을 사용하는 경우 클라우드에서 들어오는 파트너 및 사용자로부터의 액세스는 투명해야 합니다. (클라우드 기반) 웹 응용 프로그램, Web API, Microsoft 클라우드 서비스, 타사 SaaS 응용 프로그램 및 네이티브(모바일) 클라이언트 응용 프로그램에 사용자의 조건부 액세스 제어를 관리할 수 있으며 한 곳에서 보안, 감사, 보고의 이점을 가질 수 있습니다. 그러나 비-프로덕션 환경에서 또는 제한된 양의 사용자로 이 구현의 유효성을 검사하는 것이 좋습니다.
 
 > [!TIP]
-> Azure AD에는 AD DS만큼 그룹 정책이 없다는 사실에 주목합니다. 장치에 정책을 적용하기 위해 [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx)과 같은 모바일 장치 관리 솔루션이 필요합니다.
+> Azure AD에는 AD DS만큼 그룹 정책이 없다는 사실에 주목합니다. 디바이스에 정책을 적용하기 위해 [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx)과 같은 모바일 디바이스 관리 솔루션이 필요합니다.
 >
 >
 

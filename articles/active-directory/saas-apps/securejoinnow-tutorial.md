@@ -49,7 +49,7 @@ SecureW2 JoinNow Connector와 Azure AD의 통합을 구성하려면 다음 항�
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 SecureW2 JoinNow Connector 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -194,7 +194,7 @@ SecureW2 JoinNow Connector에서 Azure AD Single Sign-On을 구성하고 테스�
 
 **응용 프로그램을 테스트하려면 다음 단계를 수행합니다.** 
 
-a. SecureW2 JoinNow Connector 클라이언트를 열고 목록에서 해당 장치를 선택한 후 **로그인** 단추를 클릭합니다.
+a. SecureW2 JoinNow Connector 클라이언트를 열고 목록에서 해당 디바이스를 선택한 후 **로그인** 단추를 클릭합니다.
 
 나. 기본 브라우저가 열리고 인증을 위해 Azure Portal로 리디렉션되어야 합니다.
 
