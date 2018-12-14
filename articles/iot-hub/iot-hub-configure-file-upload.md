@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 파일 업로드 구성 | Microsoft Docs
-description: Azure Portal을 사용하여 연결된 장치에서 파일 로드를 사용하도록 IoT Hub를 구성하는 방법입니다. 대상 Azure Storage 계정 구성에 대한 정보가 포함됩니다.
+description: Azure Portal을 사용하여 연결된 디바이스에서 파일 로드를 사용하도록 IoT Hub를 구성하는 방법입니다. 대상 Azure Storage 계정 구성에 대한 정보가 포함됩니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub

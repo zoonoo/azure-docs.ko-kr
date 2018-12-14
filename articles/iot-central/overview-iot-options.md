@@ -31,7 +31,7 @@ Azure IoT Hub는 Azure IoT Central 및 Azure IoT 솔루션 가속기 모두에�
 * 대용량 장치 연결 및 관리
 * 대용량 원격 분석 수집
 * 장치 명령 및 제어
-* 장치 보안 강화
+* 디바이스 보안 강화
 
 ## <a name="compare-azure-iot-central-and-azure-iot-solution-accelerators"></a>Azure IoT Central과 Azure IoT 솔루션 가속기 비교
 

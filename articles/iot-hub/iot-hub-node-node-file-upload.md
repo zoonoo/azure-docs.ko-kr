@@ -1,6 +1,6 @@
 ---
-title: Node.js를 사용하여 장치에서 Azure IoT Hub로 파일 업로드 | Microsoft Docs
-description: Node.js용 Azure IoT 장치 SDK를 사용하여 장치에서 클라우드로 파일을 업로드 하는 방법입니다. 업로드된 파일은 Azure Storage blob 컨테이너에 저장됩니다.
+title: Node.js를 사용하여 디바이스에서 Azure IoT Hub로 파일 업로드 | Microsoft Docs
+description: Node.js용 Azure IoT 디바이스 SDK를 사용하여 디바이스에서 클라우드로 파일을 업로드 하는 방법입니다. 업로드된 파일은 Azure Storage blob 컨테이너에 저장됩니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -40,7 +40,7 @@ ms.locfileid: "51234452"
 * **ReadFileUploadNotification** - IoT Hub에서 파일 업로드 알림을 받습니다.
 
 > [!NOTE]
-> IoT Hub는 Azure IoT 장치 SDK를 통해 많은 장치 플랫폼 및 언어(C, .NET, Javascript, Python 및 Java 포함)를 지원합니다. Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
+> IoT Hub는 Azure IoT 디바이스 SDK를 통해 많은 디바이스 플랫폼 및 언어(C, .NET, Javascript, Python 및 Java 포함)를 지원합니다. Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "51234452"
 
 ## <a name="upload-a-file-from-a-device-app"></a>디바이스 앱에서 파일 업로드
 
-이 섹션에서는 IoT Hub에 파일을 업로드하는 장치 앱을 만듭니다.
+이 섹션에서는 IoT Hub에 파일을 업로드하는 디바이스 앱을 만듭니다.
 
 1. ```simulateddevice```라는 빈 폴더를 만듭니다.  ```simulateddevice``` 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
 

@@ -111,8 +111,8 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 | --- | --- |
 | Azure Active Directory 장치 등록을 사용하여 일부 장치를 작업 공간에 연결합니다. iOS, Windows 및 Android 장치를 연결할 수 있습니다. |[Azure Active Directory 장치 등록 서비스를 사용하여 작업 공간에 장치 연결](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
 | 관리자 포털을 사용하여 등록된 장치를 보고 사용하거나 사용하지 않도록 설정할 수 있습니다. 이 작업에서는 관리자 포털을 사용하여 등록된 장치 일부를 확인합니다. |[Azure Active Directory 장치 등록 서비스 개요](active-directory-device-registration-get-started.md) |
-| Azure Active Directory에서 Windows Server Active Directory로 장치 개체가 다시 기록되었는지 확인합니다. |[등록된 장치가 Active Directory에 쓰기 저장되는지 확인](#verify-registered-devices-are-written-back-to-active-directory) |
-| 이제 사용자가 장치를 등록할 수 있으므로 등록된 장치만 허용하도록 AD FS에서 응용 프로그램 액세스 정책을 만들 수 있습니다. 이 작업에서는 응용 프로그램 액세스 규칙과 사용자 지정 액세스 거부 메시지를 만듭니다. |[응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#create-an-application-access-policy-and-custom-access-denied-message) |
+| Azure Active Directory에서 Windows Server Active Directory로 디바이스 개체가 다시 기록되었는지 확인합니다. |[등록된 장치가 Active Directory에 쓰기 저장되는지 확인](#verify-registered-devices-are-written-back-to-active-directory) |
+| 이제 사용자가 디바이스를 등록할 수 있으므로 등록된 디바이스만 허용하도록 AD FS에서 응용 프로그램 액세스 정책을 만들 수 있습니다. 이 작업에서는 응용 프로그램 액세스 규칙과 사용자 지정 액세스 거부 메시지를 만듭니다. |[응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>온-프레미스 Active Directory와 Azure Active Directory 통합
 
@@ -136,7 +136,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 ## <a name="prepare-your-active-directory-to-support-devices"></a>장치를 지원하도록 Active Directory 준비
 
 > [!NOTE]
-> 장치를 지원하도록 Active Directory 포리스트를 준비하기 위해 실행해야 하는 일회성 작업입니다. 이 절차를 완료하려면 엔터프라이즈 관리자 권한으로 로그인해야 하며 Active Directory 포리스트에 Windows Server 2012 R2 스키마가 있어야 합니다.
+> 디바이스를 지원하도록 Active Directory 포리스트를 준비하기 위해 실행해야 하는 일회성 작업입니다. 이 절차를 완료하려면 엔터프라이즈 관리자 권한으로 로그인해야 하며 Active Directory 포리스트에 Windows Server 2012 R2 스키마가 있어야 합니다.
 > 
 
 
@@ -152,7 +152,7 @@ Multi-Factor Authentication을 위한 여러 옵션 중 하나를 구성하는 �
 1. **장치 인증 사용**을 선택한 다음 **확인**을 선택합니다.
 1. 기본적으로 AD FS는 Active Directory에서 사용하지 않은 장치를 정기적으로 제거합니다. Azure에서 장치를 관리할 수 있도록 Azure Active Directory 장치 등록 서비스를 사용하는 경우 이 작업을 비활성화합니다.
 
-### <a name="disable-unused-device-cleanup"></a>사용하지 않은 장치 정리 사용 안 함
+### <a name="disable-unused-device-cleanup"></a>사용하지 않은 디바이스 정리 사용 안 함
 
 페더레이션 서버에서 Windows PowerShell 명령 창을 연 다음 **Set-AdfsDeviceRegistration -MaximumInactiveDays 0**을 입력합니다.
 
@@ -179,7 +179,7 @@ Azure Active Directory 장치 등록은 iOS 장치에 대한 공중파 프로필
 1. Windows 8.1 장치에서 **PC 설정** > **네트워크** > **작업 공간**을 차례로 선택합니다.
 1. 사용자 이름을 UPN 형식(예: **dan@contoso.com**)으로 입력합니다.
 1. **연결**을 선택합니다.
-1. 메시지가 표시되면 자격 증명으로 로그인합니다. 이제 장치가 연결되었습니다.
+1. 메시지가 표시되면 자격 증명으로 로그인합니다. 이제 디바이스가 연결되었습니다.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 Windows 7 장치 연결
 
@@ -197,7 +197,7 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 ## <a name="create-an-application-access-policy-and-custom-access-denied-message"></a>응용 프로그램 액세스 정책 및 사용자 지정 액세스 거부 메시지 만들기
 
-다음 시나리오를 고려합니다. AD FS에서 응용 프로그램 신뢰 당사자 트러스트를 만들고 등록된 장치만 허용하는 발급 권한 부여 규칙을 구성합니다. 이제 등록된 장치만 응용 프로그램에 액세스할 수 있습니다. 
+다음 시나리오를 고려합니다. AD FS에서 응용 프로그램 신뢰 당사자 트러스트를 만들고 등록된 디바이스만 허용하는 발급 권한 부여 규칙을 구성합니다. 이제 등록된 장치만 응용 프로그램에 액세스할 수 있습니다. 
 
 사용자가 응용 프로그램에 쉽게 액세스할 수 있게 하려면 장치를 연결하는 방법에 대한 지침이 포함된 사용자 지정 액세스 거부 메시지를 구성합니다. 이제 사용자는 응용 프로그램에 액세스할 수 있도록 해당 장치를 원활하게 등록할 수 있습니다.
 
@@ -232,7 +232,7 @@ LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 
 
 `https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/yourdomain.com`
 
-이 iOS 장치를 작업 공간에 연결합니다.
+이 iOS 디바이스를 작업 공간에 연결합니다.
 
 Windows 8.1 장치를 사용하는 경우 **PC 설정**> **네트워크** > **작업 공간**을 차례로 선택하여 장치를 연결할 수 있습니다.
 
@@ -240,4 +240,4 @@ Windows 8.1 장치를 사용하는 경우 **PC 설정**> **네트워크** > **�
 그리고 **yourdomain.com**은 Azure Active Directory로 구성한 도메인 이름(예: contoso.com)입니다.
 **Set-AdfsRelyingPartyWebContent** cmdlet에 전달하는 HTML 콘텐츠에서 줄 바꿈을 모두 제거해야 합니다(있는 경우).
 
-이제 사용자가 Azure Active Directory 장치 등록 서비스에 등록되지 않은 장치에서 응용 프로그램에 액세스하면 오류가 표시됩니다.
+이제 사용자가 Azure Active Directory 디바이스 등록 서비스에 등록되지 않은 디바이스에서 응용 프로그램에 액세스하면 오류가 표시됩니다.

@@ -46,7 +46,7 @@ VM에서는 GRID 드라이버 설치 후 다시 시작해야 합니다. CUDA 드
 
 ![GPU 드라이버 속성](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-GPU 장치 상태를 쿼리하려면 드라이버와 설치된 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 명령줄 유틸리티를 실행합니다.
+GPU 디바이스 상태를 쿼리하려면 드라이버와 설치된 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 명령줄 유틸리티를 실행합니다.
 
 1. 명령 프롬프트를 열고 **C:\Program Files\NVIDIA Corporation\NVSMI** 디렉터리로 변경합니다.
 

@@ -29,7 +29,7 @@ Azure IoT Hub는 IoT 장치를 연결하여 비즈니스 인사이트 및 자동
 
 | IoT 기능 | IoT Hub 표준 계층 | IoT Hub 기본 계층 | Event Hubs |
 | --- | --- | --- | --- |
-| 장치-클라우드 메시징 | ![확인][checkmark] | ![확인][checkmark] | ![확인][checkmark] |
+| 디바이스-클라우드 메시징 | ![확인][checkmark] | ![확인][checkmark] | ![확인][checkmark] |
 | 프로토콜: webSocket을 통한 HTTPS, AMQP, AMQP | ![확인][checkmark] | ![확인][checkmark] | ![확인][checkmark] |
 | 프로토콜: webSocket을 통한 MQTT, MQTT | ![확인][checkmark] | ![확인][checkmark] |  |
 | 장치 단위 ID | ![확인][checkmark] | ![확인][checkmark] |  |

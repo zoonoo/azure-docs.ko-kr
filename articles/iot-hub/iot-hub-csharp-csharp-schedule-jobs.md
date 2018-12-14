@@ -70,7 +70,7 @@ Azure IoT Hub를 사용하여 수백만 대의 디바이스를 업데이트하�
 
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 이름을 **SimulateDeviceMethods**로 지정합니다.
    
-    ![새 Visual C# Windows 클래식 장치 앱](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
+    ![새 Visual C# Windows 클래식 디바이스 앱](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
     
 2. 솔루션 탐색기에서 **SimulateDeviceMethods** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
 

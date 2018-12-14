@@ -15,7 +15,7 @@ ms.locfileid: "50164859"
 
 #### <a name="to-add-a-storsimple-backup-policy"></a>StorSimple 백업 정책을 추가하려면
 
-1. StorSimple 장치로 이동하고 **백업 정책**을 클릭합니다.
+1. StorSimple 디바이스로 이동하고 **백업 정책**을 클릭합니다.
 
 2. **Backup 정책** 블레이드의 명령 모음에서 **+ 정책 추가**를 클릭합니다.
    

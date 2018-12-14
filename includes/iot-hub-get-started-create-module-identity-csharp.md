@@ -95,7 +95,7 @@ ms.locfileid: "43086398"
     }
     ```
 
-    AddDeviceAsync() 메서드는 ID **myFirstDevice**로 장치 ID를 만듭니다. ID 레지스트리에 해당 장치 ID가 이미 있는 경우 코드는 기존 장치 정보만 검색합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 이 키를 시뮬레이션된 장치 앱에서 사용하여 IoT Hub에 연결합니다.
+    AddDeviceAsync() 메서드는 ID **myFirstDevice**로 장치 ID를 만듭니다. ID 레지스트리에 해당 디바이스 ID가 이미 있는 경우 코드는 기존 디바이스 정보만 검색합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 이 키를 시뮬레이션된 디바이스 앱에서 사용하여 IoT Hub에 연결합니다.
 
     AddModuleAsync() 메서드는 **myFirstDevice** 장치에서 ID가 **myFirstModule**인 모듈 ID를 만듭니다. ID 레지스트리에 해당 모듈 ID가 이미 있는 경우 코드는 기존 모듈 정보만 검색합니다. 그러면 앱에서 해당 ID에 대한 기본 키를 표시합니다. 이 키를 시뮬레이션된 모듈 앱에서 사용하여 IoT Hub에 연결합니다.
 

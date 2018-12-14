@@ -55,7 +55,7 @@ StorSimple 디바이스 관리자 서비스에 연결된 StorSimple 디바이스
 
 ![일반 설정의 디바이스 설명](./media/storsimple-8000-modify-device-config/modify-general-settings4.png)
 
-일반적으로 장치 설명은 장치의 소유자 및 물리적 위치를 식별하는 데 도움이 됩니다. 설명 필드에는 256자 미만의 문자가 포함되어야 합니다.
+일반적으로 디바이스 설명은 디바이스의 소유자 및 물리적 위치를 식별하는 데 도움이 됩니다. 설명 필드에는 256자 미만의 문자가 포함되어야 합니다.
 
 ## <a name="modify-time-settings"></a>시간 설정 수정
 

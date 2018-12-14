@@ -61,7 +61,7 @@ UI의 밝은 테마 또는 어두운 테마 중에서 선택할 수 있습니다
 
 홈 페이지는 Azure IoT Central 응용 프로그램에 로그인할 때 표시되는 첫 번째 페이지입니다. 개발자는 타일을 추가하여 응용 프로그램의 다른 사용자를 위해 홈 페이지를 사용자 지정할 수 있습니다. 자세한 내용은 [Azure IoT Central 운영자 보기 사용자 지정](tutorial-customize-operator.md) 자습서를 참조하세요.
 
-## <a name="device-explorer"></a>장치 탐색기
+## <a name="device-explorer"></a>디바이스 탐색기
 
 ![Explorer 페이지](media/overview-iot-central-tour/explorer.png)
 

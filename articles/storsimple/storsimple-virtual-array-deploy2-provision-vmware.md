@@ -198,7 +198,7 @@ VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 �
 2. 설정 태스크를 완료하려면 몇 분 정도 걸립니다. 디바이스가 실행되면 **콘솔** 탭으로 이동합니다. Ctrl+Alt+Delete 키를 눌러서 장치에 로그온합니다. 또는, 콘솔 창의 커서를 가리키고 Ctrl+Alt+Insert 키를 누릅니다. 기본 사용자는 *StorSimpleAdmin*이고 기본 암호는 *Password1*입니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
-3. 보안상의 이유로 장치 관리자 암호는 처음 로그인하면 만료됩니다. 암호를 변경하라는 메시지가 표시됩니다.
+3. 보안상의 이유로 디바이스 관리자 암호는 처음 로그인하면 만료됩니다. 암호를 변경하라는 메시지가 표시됩니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image39.png)
 4. 8자 이상을 포함하는 암호를 입력합니다. 암호는 4가지 요구 사항(대문자, 소문자, 숫자 및 특수 문자) 중 3가지를 포함해야 합니다. 확인을 위해 암호를 다시 입력합니다. 암호가 변경되었다는 메시지가 표시됩니다.
@@ -207,7 +207,7 @@ VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 �
 5. 암호 변경이 완료되면 가상 장치가 다시 부팅될 수 있습니다. 재부팅이 완료될 때가지 기다립니다. 디바이스의 Windows PowerShell 콘솔이 진행률 표시줄과 함께 표시될 수 있습니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image41.png)
-6. 6-8단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우에는 이 단계를 건너뛰고 9단계로 이동하세요. DHCP 환경이 아닌 곳에서 장치를 부팅하는 경우에는 다음 화면이 표시됩니다.
+6. 6-8단계는 DHCP 환경이 아닌 곳에서 부팅하는 경우에만 적용됩니다. DHCP 환경인 경우에는 이 단계를 건너뛰고 9단계로 이동하세요. DHCP 환경이 아닌 곳에서 디바이스를 부팅하는 경우에는 다음 화면이 표시됩니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image42m.png)
 
@@ -220,22 +220,22 @@ VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 �
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image44.png)
-9. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 장치 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 장치의 웹 UI를 연결하고 로컬 설정 및 등록을 완료합니다.
+9. 초기 설정이 완료된 후 디바이스가 부팅되면 디바이스 배너 텍스트가 표시됩니다. 디바이스 관리를 위해 배너 텍스트에 표시되는 IP 주소와 URL을 기록해 둡니다. IP 주소를 사용하여 가상 장치의 웹 UI를 연결하고 로컬 설정 및 등록을 완료합니다.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image45.png)
-10. (선택 사항) 이 단계는 정부 클라우드에서 장치를 배포하는 경우에만 수행합니다. 이제 장치에서 미국 FIPS(Federal Information Processing Standard) 모드를 사용할 수 있습니다. FIPS 140 표준은 중요한 데이터의 보호를 위해 미국 연방 정부 컴퓨터 시스템에서 사용할 수 있도록 승인된 암호화 알고리즘을 정의합니다.
+10. (선택 사항) 이 단계는 정부 클라우드에서 디바이스를 배포하는 경우에만 수행합니다. 이제 디바이스에서 미국 FIPS(Federal Information Processing Standard) 모드를 사용할 수 있습니다. FIPS 140 표준은 중요한 데이터의 보호를 위해 미국 연방 정부 컴퓨터 시스템에서 사용할 수 있도록 승인된 암호화 알고리즘을 정의합니다.
 
     1. FIPS 모드를 사용하도록 설정하려면 다음 cmdlet을 실행합니다.
 
         `Enable-HcsFIPSMode`
-    2. 암호화 유효성 검사에 적용되도록 FIPS 모드를 사용하도록 설정한 후 장치를 다시 부팅합니다.
+    2. 암호화 유효성 검사에 적용되도록 FIPS 모드를 사용하도록 설정한 후 디바이스를 다시 부팅합니다.
 
        > [!NOTE]
-       > 장치에서 FIPS 모드를 사용 또는 사용하지 않도록 설정할 수 있습니다. 장치에서 FIPS 모드와 비 FIPS 모드가 교대로 반복되는 기능은 지원되지 않습니다.
+       > 디바이스에서 FIPS 모드를 사용 또는 사용하지 않도록 설정할 수 있습니다. 장치에서 FIPS 모드와 비 FIPS 모드가 교대로 반복되는 기능은 지원되지 않습니다.
        >
        >
 
-장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음 다시 시작하고 장치에 연결합니다. [1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
+장치가 최소 구성 요구 사항을 충족하지 못하면 배너 텍스트에 오류(아래 참고)가 표시됩니다. 최소 요구 사항을 충족하기에 충분한 리소스를 확보하도록 디바이스 구성을 수정해야 합니다. 그런 다음, 다시 시작하고 디바이스에 연결합니다. [1단계: 호스트 시스템이 최소 가상 장치 요구 사항을 충족하도록 합니다.](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)에서 최소 구성 요구 사항을 참조하세요.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
 

@@ -94,7 +94,7 @@ StorSimple 디바이스를 구성하여 StorSimple 디바이스 관리자 서비
 다음 단계별 지침을 사용하여 데이터 센터에서 StorSimple 디바이스를 배포합니다.
 
 ## <a name="step-1-create-a-new-service"></a>1단계: 새 서비스 만들기
-StorSimple 디바이스 관리자 서비스는 여러 StorSimple 디바이스를 관리할 수 있습니다. StorSimple 장치 관리자 서비스의 인스턴스를 만들려면 다음 단계를 수행합니다.
+StorSimple 디바이스 관리자 서비스는 여러 StorSimple 디바이스를 관리할 수 있습니다. StorSimple 디바이스 관리자 서비스의 인스턴스를 만들려면 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-8000-create-new-service.md)]
 
@@ -106,7 +106,7 @@ StorSimple 디바이스 관리자 서비스는 여러 StorSimple 디바이스를
 
 
 ## <a name="step-2-get-the-service-registration-key"></a>2단계: 서비스 등록 키 받기
-StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 장치를 서비스에 등록 및 연결하는 데 사용됩니다.
+StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등록 키를 받아야 합니다. 이 키는 StorSimple 디바이스를 서비스에 등록 및 연결하는 데 사용됩니다.
 
 Azure Portal에서 다음 단계를 수행합니다.
 
@@ -128,7 +128,7 @@ StorSimple 디바이스의 최소 디바이스 구성에는 다음 사항이 필
 
 [!INCLUDE [storsimple-8000-complete-minimum-device-setup-u2](../../includes/storsimple-8000-complete-minimum-device-setup-u2.md)]
 
-최소 장치 설치를 완료한 후 [최신 업데이트를 검색하고 적용](#scan-for-and-apply-updates)하는 것이 가장 좋습니다.
+최소 디바이스 설치를 완료한 후 [최신 업데이트를 검색하고 적용](#scan-for-and-apply-updates)하는 것이 가장 좋습니다.
 
 ## <a name="step-5-create-a-volume-container"></a>5단계: 볼륨 컨테이너 만들기
 볼륨 컨테이너에는 저장소 계정, 대역폭 및 그 안에 포함된 모든 볼륨에 대한 암호화 설정이 있습니다. StorSimple 디바이스에서 볼륨 프로비저닝을 시작하려면 볼륨 컨테이너를 만들어야 합니다.
@@ -184,7 +184,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>업데이트 검색 및 적용
-장치 업데이트는 몇 시간이 걸릴 수 있습니다. 최신 업데이트를 설치하는 방법에 대한 자세한 단계는 [업데이트 5 설치](storsimple-8000-install-update-5.md)로 이동하세요.
+디바이스 업데이트는 몇 시간이 걸릴 수 있습니다. 최신 업데이트를 설치하는 방법에 대한 자세한 단계는 [업데이트 5 설치](storsimple-8000-install-update-5.md)로 이동하세요.
 
 
 ## <a name="get-the-iqn-of-a-windows-server-host"></a>Windows Server 호스트의 IQN 가져오기

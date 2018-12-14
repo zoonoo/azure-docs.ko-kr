@@ -90,7 +90,7 @@ SELECT * FROM devices
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md)는 큰 결과의 페이징을 지원합니다.
 
-IoT Hub는 임의의 조건으로 장치 쌍 필터링을 검색하도록 허용합니다. 예를 들어 **location.region** 태그가 **US**로 설정된 장치 쌍을 받으려면 다음 쿼리를 사용합니다.
+IoT Hub는 임의의 조건으로 디바이스 쌍 필터링을 검색하도록 허용합니다. 예를 들어 **location.region** 태그가 **US**로 설정된 디바이스 쌍을 받으려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT * FROM devices
@@ -105,14 +105,14 @@ SELECT * FROM devices
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
-편의를 위해 **IN** 및**NIN**(IN이 아님) 연산자와 함께 배열 상수를 사용할 수도 있습니다. 예를 들어 WiFi 또는 유선 연결을 보고하는 장치 쌍을 검색하려면 다음 쿼리를 사용합니다.
+편의를 위해 **IN** 및**NIN**(IN이 아님) 연산자와 함께 배열 상수를 사용할 수도 있습니다. 예를 들어 WiFi 또는 유선 연결을 보고하는 디바이스 쌍을 검색하려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT * FROM devices
   WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-특정 속성을 포함하는 모든 장치 쌍을 식별해야 하는 경우가 종종 있습니다. IoT Hub는 이러한 용도로 `is_defined()` 함수를 지원합니다. 예를 들어 `connectivity` 속성을 정의하는 장치 쌍을 검색하려면 다음 쿼리를 사용합니다.
+특정 속성을 포함하는 모든 장치 쌍을 식별해야 하는 경우가 종종 있습니다. IoT Hub는 이러한 용도로 `is_defined()` 함수를 지원합니다. 예를 들어 `connectivity` 속성을 정의하는 디바이스 쌍을 검색하려면 다음 쿼리를 사용합니다.
 
 ```SQL
 SELECT * FROM devices
@@ -233,7 +233,7 @@ query 개체는 쿼리에 필요한 역직렬화 옵션에 따라 여러 개의 
 ### <a name="limitations"></a>제한 사항
 
 > [!IMPORTANT]
-> 쿼리 결과는 장치 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID별로 개별 디바이스 쌍을 쿼리하는 경우 디바이스 쌍 검색 API를 사용합니다. 이 API는 항상 최신 값을 포함하며 더 높은 제한을 적용합니다.
+> 쿼리 결과는 디바이스 쌍의 최신 값에 따라 몇 분 정도 지연될 수 있습니다. ID별로 개별 디바이스 쌍을 쿼리하는 경우 디바이스 쌍 검색 API를 사용합니다. 이 API는 항상 최신 값을 포함하며 더 높은 제한을 적용합니다.
 
 현재 비교는 기본 형식(개체 없음) 간에만 지원됩니다. 예를 들어 `... WHERE properties.desired.config = properties.reported.config`는 해당 속성에 기본 값이 있는 경우에만 지원됩니다.
 
@@ -284,11 +284,11 @@ SELECT * FROM devices.jobs
   WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
-이 쿼리가 반환된 각 작업의 장치별 상태(및 가능한 경우 직접 메서드 응답)를 제공하는 방법에 유의합니다.
+이 쿼리가 반환된 각 작업의 디바이스별 상태(및 가능한 경우 직접 메서드 응답)를 제공하는 방법에 유의합니다.
 
 **devices.jobs** 컬렉션의 모든 개체 속성에 대해 임의의 부울 조건으로 필터링할 수도 있습니다.
 
-예를 들어, 특정 장치에 대해 2016년 9월 이후에 작성되어 완료된 장치 트윈 업데이트 작업을 모두 검색하려면 다음 쿼리를 사용합니다.
+예를 들어, 특정 디바이스에 대해 2016년 9월 이후에 작성되어 완료된 디바이스 트윈 업데이트 작업을 모두 검색하려면 다음 쿼리를 사용합니다.
 
 ```sql
 SELECT * FROM devices.jobs
@@ -310,12 +310,12 @@ SELECT * FROM devices.jobs
 현재 **devices.jobs**에 대한 쿼리는 다음을 지원하지 않습니다.
 
 * 프로젝션(따라서 `SELECT *`만 가능)
-* 작업 속성 외에 장치 쌍을 참조하는 조건(앞 섹션 참조)
+* 작업 속성 외에 디바이스 쌍을 참조하는 조건(앞 섹션 참조)
 * 집계 수행(예: count, avg, group by)
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT Hub 쿼리의 기초
 
-모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 장치 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복이 수행될 문서 컬렉션을 나타냅니다(예: **devices** 또는 **devices.jobs**). 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
+모든 IoT Hub 쿼리는 SELECT 및 FROM 절로 이루어지며 선택적으로 WHERE 및 GROUP BY 절이 포함됩니다. 모든 쿼리는 JSON 문서(예: 디바이스 쌍) 컬렉션에 대해 실행됩니다. FROM 절은 반복이 수행될 문서 컬렉션을 나타냅니다(예: **devices** 또는 **devices.jobs**). 그런 다음 WHERE 절의 필터가 적용됩니다. 집계를 사용할 경우 이 단계의 결과는 GROUP BY 절에 지정된 대로 그룹화됩니다. 각 그룹에 대해 SELECT 절에 지정된 대로 행이 생성됩니다.
 
 ```sql
 SELECT <select_list>
@@ -388,7 +388,7 @@ GROUP BY <group_by_element>
 
 **Attribute_name**은 FROM 컬렉션에 있는 JSON 문서의 속성을 참조합니다.
 
-현재 GROUP BY 절은 장치 쌍을 쿼리하는 경우에만 지원됩니다.
+현재 GROUP BY 절은 디바이스 쌍을 쿼리하는 경우에만 지원됩니다.
 
 > [!IMPORTANT]
 > 용어 `group`은 현재 쿼리에서 특수 키워드로 취급됩니다. 이 경우 속성 이름으로 `group`을 사용하고 오류를 방지하기 위해 이중 괄호를 사용하여 묶는 것이 좋습니다. 예를 들면 `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`입니다.

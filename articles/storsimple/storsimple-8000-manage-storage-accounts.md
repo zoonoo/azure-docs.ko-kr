@@ -25,7 +25,7 @@ ms.locfileid: "47225728"
 
 ## <a name="overview"></a>개요
 
-StorSimple 디바이스 관리자 서비스 블레이드의 **구성** 섹션에서는 StorSimple 디바이스 관리자 서비스에서 만들 수 있는 모든 글로벌 서비스 매개 변수를 표시합니다. 이러한 매개 변수는 서비스에 연결된 모든 장치에 적용할 수 있으며 다음을 포함합니다.
+StorSimple 디바이스 관리자 서비스 블레이드의 **구성** 섹션에서는 StorSimple 디바이스 관리자 서비스에서 만들 수 있는 모든 글로벌 서비스 매개 변수를 표시합니다. 이러한 매개 변수는 서비스에 연결된 모든 디바이스에 적용할 수 있으며 다음을 포함합니다.
 
 * Storage 계정 자격 증명
 * 대역폭 템플릿 
@@ -68,7 +68,7 @@ StorSimple 디바이스에서 사용할 수 있는 저장소 계정에는 다음
 
 Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합니다.
 
-* 장치 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
+* 디바이스 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
 * 장치 관리자 서비스 구독 외부에 있는 Azure Storage 계정 자격 증명을 추가하려면
 
 [!INCLUDE [add-a-storage-account-update2](../../includes/storsimple-8000-configure-new-storage-account-u2.md)]

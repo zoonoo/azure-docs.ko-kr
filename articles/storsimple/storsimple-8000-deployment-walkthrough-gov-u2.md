@@ -182,7 +182,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 [!INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 ## <a name="scan-for-and-apply-updates"></a>업데이트 검색 및 적용
-장치 업데이트는 몇 시간이 걸릴 수 있습니다. 최신 업데이트를 설치하는 방법에 대한 자세한 단계는 [업데이트 4 설치](storsimple-8000-install-update-4.md)로 이동하세요.
+디바이스 업데이트는 몇 시간이 걸릴 수 있습니다. 최신 업데이트를 설치하는 방법에 대한 자세한 단계는 [업데이트 4 설치](storsimple-8000-install-update-4.md)로 이동하세요.
 
 ## <a name="get-the-iqn-of-a-windows-server-host"></a>Windows Server 호스트의 IQN 가져오기
 Windows Server® 2012를 실행하는 Windows 호스트의 iSCSI 정규화된 이름(IQN)을 가져오려면 다음 단계를 수행합니다.

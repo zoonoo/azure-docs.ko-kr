@@ -161,7 +161,7 @@ StorSimple용 Windows PowerShell 또는 Azure Portal에 액세스한 후 [StorSi
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>EBOD 인클로저가 있는 디바이스 <a name="8600a">
 > [!IMPORTANT]
-> 기본 인클로저 및 EBOD 인클로저를 종료 기 전에 모든 장치 구성 요소가 정상인지 확인합니다. Azure Portal에서 **디바이스** > **모니터** > **하드웨어 상태**로 이동한 다음, 모든 구성 요소의 상태가 정상인지 확인합니다.
+> 기본 인클로저 및 EBOD 인클로저를 종료 기 전에 모든 디바이스 구성 요소가 정상인지 확인합니다. Azure Portal에서 **디바이스** > **모니터** > **하드웨어 상태**로 이동한 다음, 모든 구성 요소의 상태가 정상인지 확인합니다.
 
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>EBOD 인클로저가 있는 실행 중인 디바이스를 종료하려면

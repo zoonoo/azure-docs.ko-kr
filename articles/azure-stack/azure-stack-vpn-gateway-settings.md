@@ -93,7 +93,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 
 ### <a name="vpn-types"></a>VPN 유형
 
-VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 유형을 지정해야 합니다. 선택하는 VPN 유형은 만들려는 연결 토폴로지에 따라 달라집니다.  VPN 유형을 사용 하는 하드웨어에도 달라질 수 있습니다. S2S 구성에는 VPN 장치가 필요합니다. 일부 VPN 디바이스는 특정 VPN 유형을 지원합니다.
+VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 유형을 지정해야 합니다. 선택하는 VPN 유형은 만들려는 연결 토폴로지에 따라 달라집니다.  VPN 유형을 사용 하는 하드웨어에도 달라질 수 있습니다. S2S 구성에는 VPN 디바이스가 필요합니다. 일부 VPN 디바이스는 특정 VPN 유형을 지원합니다.
 
 > [!IMPORTANT]  
 > 현재 Azure Stack 경로 기반 VPN 유형을 지원합니다. 장치를 정책 기반 Vpn만 지 원하는 경우 Azure Stack에서 해당 장치에 대 한 연결 지원 되지 않습니다.  

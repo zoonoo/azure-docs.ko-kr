@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 디바이스 관리 시작(Java) | Microsoft Docs
-description: Azure IoT Hub 장치 관리를 사용하여 원격 장치 재부팅을 시작하는 방법입니다. Java용 Azure IoT 디바이스 SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 디바이스 앱을 구현하며 Java용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다.
+description: Azure IoT Hub 디바이스 관리를 사용하여 원격 디바이스 재부팅을 시작하는 방법입니다. Java용 Azure IoT 디바이스 SDK를 사용하여 직접 메서드를 포함한 시뮬레이션된 디바이스 앱을 구현하며 Java용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다.
 author: dominicbetts
 ms.service: iot-hub
 services: iot-hub
@@ -150,7 +150,7 @@ ms.locfileid: "51515287"
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-10. 장치 쌍에서 10초마다 보고되는 속성을 읽는 스레드를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다.
+10. 디바이스 쌍에서 10초마다 보고되는 속성을 읽는 스레드를 구현하려면 **App** 클래스에 다음 중첩 클래스를 추가합니다.
 
     ```java
     private static class ShowReportedProperties implements Runnable {

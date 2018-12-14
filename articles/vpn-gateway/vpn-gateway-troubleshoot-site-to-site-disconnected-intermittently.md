@@ -41,7 +41,7 @@ Azure Virtual Network Gateway의 형식을 확인합니다.
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>1단계 온-프레미스 VPN 디바이스가 확인되었는지 확인
 
 1. [확인된 VPN 장치 및 운영 체제 버전](vpn-gateway-about-vpn-devices.md#devicetable)을 사용 중인지 확인합니다. VPN 디바이스가 확인되지 않은 경우 디바이스 제조업체에 호환성 문제가 있는지 문의해야 할 수 있습니다.
-2. VPN 디바이스가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [장치 구성 샘플 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
+2. VPN 디바이스가 올바르게 구성되었는지 확인합니다. 자세한 내용은 [디바이스 구성 샘플 편집](vpn-gateway-about-vpn-devices.md#editing)을 참조하세요.
 
 ### <a name="step-2-check-the-security-association-settingsfor-policy-based-azure-virtual-network-gateways"></a>2단계 보안 연결 설정 확인(정책 기반 Azure Virtual Network Gateway의 경우)
 

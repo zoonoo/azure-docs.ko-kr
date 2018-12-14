@@ -51,7 +51,7 @@ OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-
 
 ## <a name="simulation"></a>시뮬레이션
 
-시뮬레이션된 스테이션과 시뮬레이션된 MES(제조 실행 시스템)는 공장 생산 라인을 구성합니다. 시뮬레이션된 장치 및 OPC 게시자 모듈은 OPC Foundation에서 게시한 [OPC UA .NET 표준][lnk-OPC-UA-NET-Standard]을 기반으로 합니다.
+시뮬레이션된 스테이션과 시뮬레이션된 MES(제조 실행 시스템)는 공장 생산 라인을 구성합니다. 시뮬레이션된 디바이스 및 OPC 게시자 모듈은 OPC Foundation에서 게시한 [OPC UA .NET 표준][lnk-OPC-UA-NET-Standard]을 기반으로 합니다.
 
 OPC 프록시 및 OPC 게시자는 [Azure IoT Edge][lnk-Azure-IoT-Gateway]를 기반으로 하는 모듈로 구현됩니다. 각 시뮬레이션된 생산 라인에는 게이트웨이가 연결되었습니다.
 

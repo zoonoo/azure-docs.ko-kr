@@ -31,7 +31,7 @@ ms.locfileid: "51239052"
 Azure는 매우 다양한 운영 체제, 프로그래밍 언어, 프레임워크, 도구, 데이터베이스 및 디바이스를 지원하는 개방적이고 유연한 클라우드 서비스 플랫폼입니다. 예를 들어 다음을 수행할 수 있습니다.
 - Docker 통합으로 Linux 컨테이너를 실행합니다.
 - JavaScript, Python, .NET, PHP, Java 및 Node.js를 사용하여 앱을 빌드합니다.
-- iOS, Android 및 Windows 장치용 백 엔드를 빌드합니다.
+- iOS, Android 및 Windows 디바이스용 백 엔드를 빌드합니다.
 
 Microsoft Azure는 수백만의 개발자와 IT 전문가가 이미 믿고 사용하고 있는 동일한 수준의 기술을 지원합니다.
 

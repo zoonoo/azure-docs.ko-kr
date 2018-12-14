@@ -271,7 +271,7 @@ IoT Hub와의 모든 장치 통신에 다음 IoT Hub 연결 옵션이 사용됩�
 
 | Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
-| 측정값: 원격 분석 | 장치-클라우드 메시징 |
+| 측정값: 원격 분석 | 디바이스-클라우드 메시징 |
 | 장치 속성 | 디바이스 쌍 reported 속성 |
 | 설정 | 장치 쌍 desired 및 reported 속성 |
 

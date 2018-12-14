@@ -118,7 +118,7 @@ IoT Hub 솔루션의 크기를 조정하는 가장 적절한 방법은 장치별
 이 처리량 정보 외에도 [IoT Hub 할당량 및 제한][IoT Hub quotas and throttles]을 참조하고 솔루션을 적절히 디자인하세요.
 
 ### <a name="identity-registry-operation-throughput"></a>ID 레지스트리 작업 처리량
-IoT Hub ID 레지스트리 작업은 대부분이 장치 프로비전과 관련되므로 런타임 작업으로 간주되지 않습니다.
+IoT Hub ID 레지스트리 작업은 대부분이 디바이스 프로비저닝과 관련되므로 런타임 작업으로 간주되지 않습니다.
 
 관련 버스트 성능 수치는 [IoT Hub 할당량 및 제한][IoT Hub quotas and throttles]을 참조하세요.
 
@@ -126,7 +126,7 @@ IoT Hub ID 레지스트리 작업은 대부분이 장치 프로비전과 관련�
 IoT Hub에 허용된 메시지 제한에 도달하면 [자동으로 크기 조정하는 이러한 단계](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/)을 사용하여 동일한 IoT Hub 계층에서 IoT Hub 단위를 증가시킬 수 있습니다.
 
 ## <a name="sharding"></a>분할
-단일 IoT Hub를 수백만 대의 장치로 확장할 수 있기는 하지만, 솔루션에서 단일 IoT Hub에서 보장할 수 없는 특정 성능 특성을 필요로 하는 경우가 있습니다. 이 경우에 여러 IoT 허브에서 디바이스를 분할할 수 있습니다. 여러 IoT Hub가 갑작스러운 트래픽 증가를 원활하게 처리하고 필요한 처리량 또는 필요한 작업 속도를 얻습니다.
+단일 IoT Hub를 수백만 대의 디바이스로 확장할 수 있기는 하지만, 솔루션에서 단일 IoT Hub에서 보장할 수 없는 특정 성능 특성을 필요로 하는 경우가 있습니다. 이 경우에 여러 IoT 허브에서 디바이스를 분할할 수 있습니다. 여러 IoT Hub가 갑작스러운 트래픽 증가를 원활하게 처리하고 필요한 처리량 또는 필요한 작업 속도를 얻습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

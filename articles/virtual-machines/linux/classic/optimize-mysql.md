@@ -125,7 +125,7 @@ SSD 및 기타 장비의 경우 NOOP 또는 Deadline을 사용하면 기본 스�
     noop [deadline] cfq
 
 
-### <a name="change-the-current-device-devsda-of-the-io-scheduling-algorithm"></a>I/O 스케줄링 알고리즘의 현재 장치(/dev/sda) 변경
+### <a name="change-the-current-device-devsda-of-the-io-scheduling-algorithm"></a>I/O 스케줄링 알고리즘의 현재 디바이스(/dev/sda) 변경
 다음 명령을 실행하여 현재 디렉터리를 변경합니다.  
 
     azureuser@mysqlnode1:~$ sudo su -

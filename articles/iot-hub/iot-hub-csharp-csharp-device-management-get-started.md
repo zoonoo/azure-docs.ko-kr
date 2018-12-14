@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 디바이스 관리 시작(.NET/.NET) | Microsoft Docs
-description: Azure IoT Hub 장치 관리를 사용하여 원격 장치 재부팅을 시작하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 직접 메서드를 포함한 시뮬레이트된 디바이스 앱을 구현하며 .NET용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다.
+description: Azure IoT Hub 디바이스 관리를 사용하여 원격 디바이스 재부팅을 시작하는 방법입니다. .NET용 Azure IoT 디바이스 SDK를 사용하여 직접 메서드를 포함한 시뮬레이트된 디바이스 앱을 구현하며 .NET용 Azure IoT service SDK를 사용하여 직접 메서드를 호출하는 서비스 앱을 구현합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -24,9 +24,9 @@ ms.locfileid: "51515148"
 
 * Azure Portal을 사용하여 IoT Hub를 만들고 IoT Hub에 디바이스 ID를 만듭니다.
 
-* 장치를 다시 시작하는 직접 메서드가 포함된 시뮬레이트된 장치 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
+* 디바이스를 다시 시작하는 직접 메서드가 포함된 시뮬레이트된 디바이스 앱을 만듭니다. 직접 메서드는 클라우드에서 호출됩니다.
 
-* IoT Hub를 통해 시뮬레이션된 장치 앱에서 재부팅 직접 메서드를 호출하는 .NET 콘솔 앱을 만듭니다.
+* IoT Hub를 통해 시뮬레이션된 디바이스 앱에서 재부팅 직접 메서드를 호출하는 .NET 콘솔 앱을 만듭니다.
 
 이 자습서를 마치면 다음과 같은 두 개의 .NET 콘솔 앱이 생깁니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "51515148"
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>직접 메서드를 사용하여 디바이스에서 원격 재부팅 트리거
 
-이 섹션에서는 장치에서 직접 메서드를 사용하여 원격 다시 시작을 시작하는 .NET 콘솔 앱(C# 사용)을 만듭니다. 앱은 장치 쌍 쿼리를 사용하여 해당 장치에 대한 마지막 다시 시작 시간을 검색합니다.
+이 섹션에서는 디바이스에서 직접 메서드를 사용하여 원격 다시 시작을 시작하는 .NET 콘솔 앱(C# 사용)을 만듭니다. 앱은 디바이스 쌍 쿼리를 사용하여 해당 디바이스에 대한 마지막 다시 시작 시간을 검색합니다.
 
 1. Visual Studio에서 **콘솔 앱(.NET Framework)** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 바탕화면 프로젝트를 새 솔루션에 추가합니다. .NET Framework 버전이 4.5.1 이상인지 확인합니다. 프로젝트 이름을 **TriggerReboot**로 지정합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "51515148"
    static string targetDevice = "myDeviceId";
    ```
 
-6. **Program** 클래스에 다음 메서드를 추가합니다.  이 코드는 재부팅 장치에 대한 장치 쌍을 가져오고 reported 속성을 출력합니다.
+6. **Program** 클래스에 다음 메서드를 추가합니다.  이 코드는 재부팅 디바이스에 대한 디바이스 쌍을 가져오고 reported 속성을 출력합니다.
    
    ```csharp
    public static async Task QueryTwinRebootReported()
@@ -92,7 +92,7 @@ ms.locfileid: "51515148"
    }
    ```
         
-7. **Program** 클래스에 다음 메서드를 추가합니다.  이 코드는 직접 메서드를 사용하여 장치에서 재부팅을 시작합니다.
+7. **Program** 클래스에 다음 메서드를 추가합니다.  이 코드는 직접 메서드를 사용하여 디바이스에서 재부팅을 시작합니다.
 
    ```csharp
    public static async Task StartReboot()
@@ -135,7 +135,7 @@ ms.locfileid: "51515148"
 
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# Windows 클래식 데스크톱 프로젝트를 최신 솔루션에 추가합니다. 프로젝트 **SimulateManagedDevice**의 이름을 지정합니다.
    
-    ![새 Visual C# Windows 클래식 장치 앱](./media/iot-hub-csharp-csharp-device-management-get-started/createdeviceapp.png)
+    ![새 Visual C# Windows 클래식 디바이스 앱](./media/iot-hub-csharp-csharp-device-management-get-started/createdeviceapp.png)
     
 2. [솔루션 탐색기]에서 **SimulateManagedDevice** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리...** 를 클릭합니다.
 

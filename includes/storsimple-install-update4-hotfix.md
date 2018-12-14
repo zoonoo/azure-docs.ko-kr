@@ -34,13 +34,13 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 > [!NOTE]
 > 피어 컨트롤러의 잠재적 오류 메시지를 검색하려면 컨트롤러 둘 다에서 핫픽스에 액세스할 수 있어야 합니다.
 >
-> 핫픽스는 3개의 별도 폴더에 복사해야 합니다. 예를 들어, 장치 소프트웨어/Cis/MDS 에이전트 업데이트는 _FirstOrderUpdate_ 폴더에 복사할 수 있으며, 다른 정기적인 업데이트는 모두 _SecondOrderUpdate_ 폴더에 복사되고, 유지 관리 모드 업데이트는 _ThirdOrderUpdate_ 폴더에 복사할 수 있습니다.
+> 핫픽스는 3개의 별도 폴더에 복사해야 합니다. 예를 들어, 디바이스 소프트웨어/Cis/MDS 에이전트 업데이트는 _FirstOrderUpdate_ 폴더에 복사할 수 있으며, 다른 정기적인 업데이트는 모두 _SecondOrderUpdate_ 폴더에 복사되고, 유지 관리 모드 업데이트는 _ThirdOrderUpdate_ 폴더에 복사할 수 있습니다.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>일반 모드 핫픽스를 설치 및 확인하려면
 
 일반 모드 핫픽스를 설치 및 확인하려면 다음 단계를 수행합니다. 이미 Azure 클래식 포털을 사용하여 설치한 경우 [유지 관리 모드 핫픽스 설치 및 확인](#to-install-and-verify-maintenance-mode-hotfixes)으로 건너뜁니다.
 
-1. 핫픽스를 설치하려면 StorSimple 장치 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. [PuTTy를 사용하여 직렬 콘솔에 연결](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)에서 자세한 지침을 따르세요. 명령 프롬프트에서 **Enter**키를 누릅니다.
+1. 핫픽스를 설치하려면 StorSimple 디바이스 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. [PuTTy를 사용하여 직렬 콘솔에 연결](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console)에서 자세한 지침을 따르세요. 명령 프롬프트에서 **Enter**키를 누릅니다.
 2. 옵션 1, **모든 권한으로 로그인**을 선택합니다. 먼저 수동 컨트롤러에 핫픽스를 설치하는 것이 좋습니다.
 3. 핫픽스를 설치하려면 명령 프롬프트에 다음을 입력합니다.
    
@@ -119,13 +119,13 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
 
 
 #### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>유지 관리 모드 핫픽스를 설치 및 확인하려면
-KB4011837을 사용하여 디스크 펌웨어 업데이트를 설치합니다. 작업 중단 업데이트이며 완료하는 데 약 30분이 소요됩니다. 장치 직렬 콘솔에 연결하여 계획된 유지 관리 기간에 설치하도록 선택할 수 있습니다.
+KB4011837을 사용하여 디스크 펌웨어 업데이트를 설치합니다. 작업 중단 업데이트이며 완료하는 데 약 30분이 소요됩니다. 디바이스 직렬 콘솔에 연결하여 계획된 유지 관리 기간에 설치하도록 선택할 수 있습니다.
 
 디스크 펌웨어가 이미 최신 상태인 경우 이러한 업데이트를 설치할 필요가 없습니다. 디바이스 일련 번호 콘솔에서 `Get-HcsUpdateAvailability` cmdlet을 실행하여 업데이트가 사용 가능한지 여부와 업데이트가 중단(유지 관리 모드) 또는 비중단(일반 모드)인지에 대해 확인합니다.
 
 디스크 펌웨어 업데이트를 설치하려면 아래 지침을 따릅니다.
 
-1. 장치를 유지 관리 모드로 설정합니다. **유지 관리 모드에서 장치에 연결할 때는 Windows PowerShell 원격을 사용해서는 안 됩니다. 장치 직렬 콘솔을 통해 연결된 경우에는 장치 컨트롤러에서 이 cmdlet을 실행해야 합니다.** 형식:
+1. 디바이스를 유지 관리 모드로 설정합니다. **유지 관리 모드에서 장치에 연결할 때는 Windows PowerShell 원격을 사용해서는 안 됩니다. 디바이스 직렬 콘솔을 통해 연결된 경우에는 디바이스 컨트롤러에서 이 cmdlet을 실행해야 합니다.** 형식:
    
     `Enter-HcsMaintenanceMode`
    

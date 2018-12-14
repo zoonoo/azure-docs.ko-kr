@@ -19,7 +19,7 @@ ms.locfileid: "48831103"
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 장치를 연결하는 방법을 보여줍니다. 제한된 장치에서 실행되는 포함된 응용 프로그램과 마찬가지로 Raspberry Pi 장치 응용 프로그램에 대한 클라이언트 코드는 C에서 작성되었습니다. 이 자습서에서는 Raspbian OS를 실행 중인 Raspberry Pi에서 응용 프로그램을 빌드합니다.
+이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 장치를 연결하는 방법을 보여줍니다. 제한된 디바이스에서 실행되는 포함된 응용 프로그램과 마찬가지로 Raspberry Pi 디바이스 응용 프로그램에 대한 클라이언트 코드는 C에서 작성되었습니다. 이 자습서에서는 Raspbian OS를 실행 중인 Raspberry Pi에서 응용 프로그램을 빌드합니다.
 
 ### <a name="required-hardware"></a>필수 하드웨어
 

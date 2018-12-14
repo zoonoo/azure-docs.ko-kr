@@ -206,7 +206,7 @@ ASR에서 복구 계획을 만들어 파일 공유의 장애 조치(failover) �
             C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.2.9-preview
       ```
       
-   1. StorSimple 8000 Series 장치 관리를 위한 Azure Automation Runbook 모듈을 만듭니다. 아래 명령을 사용하여 Automation 모듈 zip 파일을 만듭니다.
+   1. StorSimple 8000 Series 디바이스 관리를 위한 Azure Automation Runbook 모듈을 만듭니다. 아래 명령을 사용하여 Automation 모듈 zip 파일을 만듭니다.
          
       ```
             # set path variables

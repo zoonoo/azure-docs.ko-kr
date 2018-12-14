@@ -1,36 +1,33 @@
 ---
-title: Azure 기반 원격 모니터링 솔루션에서 장치 관리 자습서 | Microsoft Docs
-description: 이 자습서에서는 원격 모니터링 솔루션 가속기에 연결된 장치를 관리하는 방법을 보여 줍니다.
+title: Azure 기반 원격 모니터링 솔루션에서 디바이스 구성 자습서 | Microsoft Docs
+description: 이 자습서에서는 원격 모니터링 솔루션 가속기에 연결된 디바이스를 구성하는 방법을 보여 줍니다.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b8352b062efdb49df01834bd3c2a5e1393e11a44
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821070"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679157"
 ---
-# <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 장치 구성 및 관리
+# <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스 구성
 
-이 자습서에서는 원격 모니터링 솔루션 가속기를 사용하여 연결된 IoT 장치를 구성하고 관리합니다. 솔루션 가속기에 새 장치를 추가하고 장치를 구성한 다음, 장치의 펌웨어를 업데이트합니다.
+이 자습서에서는 원격 모니터링 솔루션 가속기를 사용하여 연결된 IoT 장치를 구성하고 관리합니다. 솔루션 가속기에 새 디바이스를 추가하고 이 디바이스를 구성합니다.
 
-Contoso는 해당 시설 중 하나를 확장하기 위해 새로운 기계를 주문했습니다. 배달될 새 기계를 기다리는 동안 솔루션의 동작을 테스트하는 시뮬레이션을 실행하려고 합니다. 시뮬레이션을 실행하려면 원격 모니터링 솔루션 가속기에 시뮬레이션된 새 엔진 장치를 추가하고 시뮬레이션된 이 장치가 작업 및 구성 업데이트에 올바르게 응답하는지 테스트합니다.
-
-장치를 구성 및 관리하는 확장 가능한 방법을 제공하기 위해 원격 모니터링 솔루션 가속기는 [작업](../iot-hub/iot-hub-devguide-jobs.md) 및 [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)와 같은 IoT Hub 기능을 사용합니다. 이 자습서에서는 시뮬레이션된 장치를 사용하지만 장치 개발자가 [원격 모니터링 솔루션 가속기에 연결된 물리적 장치](iot-accelerators-connecting-devices.md)에 직접 메서드를 구현할 수 있습니다.
+Contoso는 해당 시설 중 하나를 확장하기 위해 새로운 기계를 주문했습니다. 배달될 새 기계를 기다리는 동안 솔루션의 동작을 테스트하는 시뮬레이션을 실행하려고 합니다. 시뮬레이션을 실행하려면 원격 모니터링 솔루션 가속기에 시뮬레이션된 새 엔진 디바이스를 추가하고, 이 시뮬레이션된 디바이스에서 구성 업데이트에 올바르게 응답하는지 테스트합니다. 이 자습서에서는 시뮬레이션된 장치를 사용하지만 장치 개발자가 [원격 모니터링 솔루션 가속기에 연결된 물리적 장치](iot-accelerators-connecting-devices.md)에 직접 메서드를 구현할 수 있습니다.
 
 이 자습서에서는 다음을 수행했습니다.
 
 >[!div class="checklist"]
-> * 시뮬레이트된 장치 프로비전
+> * 시뮬레이트된 디바이스 프로비전
 > * 시뮬레이션된 장치 테스트
-> * 장치의 펌웨어 업데이트
-> * 장치 다시 구성
+> * 디바이스 다시 구성
 > * 장치 구성
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -47,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [![시뮬레이션된 엔진 장치 프로비전](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine-expanded.png#lightbox)
 
-## <a name="test-the-simulated-device"></a>시뮬레이트된 장치 테스트
+## <a name="test-the-simulated-device"></a>시뮬레이트된 디바이스 테스트
 
 시뮬레이션된 엔진 장치가 원격 분석 데이터 및 보고 속성 값을 보내는지 테스트하려면 **장치** 페이지의 장치 목록에서 해당 항목을 선택합니다. 엔진에 대한 실시간 정보가 **장치 세부 정보** 패널에 표시됩니다.
 
@@ -61,25 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 자세한 진단 정보를 보려면 **장치 세부 정보** 패널에서 아래로 스크롤하여 **진단** 섹션을 살펴보세요.
 
-## <a name="act-on-a-device"></a>장치에서 작동
-
-시뮬레이션된 엔진 장치가 대시보드에서 시작된 작업에 제대로 응답하는지 테스트하려면 **FirmwareUpdate** 메서드를 실행합니다. 메서드를 실행하여 장치에 조치를 취하려면 장치 목록에서 장치를 선택한 다음, **작업**을 선택합니다. 여러 장치에 조치를 취하려면 둘 이상의 장치를 선택할 수 있습니다. **작업** 패널에서 **메서드**를 선택합니다. **엔진** 장치 모델은 세 가지 메서드 즉, **FirmwareUpdate**, **FillTank** 및 **EmptyTank**를 지정합니다.
-
-[![엔진 메서드](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
-
-**FirmwareUpdate**를 선택하고 작업 이름을 **UpdateEngineFirmware**로 설정하고 펌웨어 버전을 **2.0.0**으로 설정하고 펌웨어 URI를 **http://contoso.com/engine.bin**으로 설정한 다음, **적용**을 클릭합니다.
-
-[![펌웨어 업데이트 예약 메서드](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatejob-expanded.png#lightbox)
-
-작업의 상태를 추적하려면 **작업 상태 보기**를 클릭합니다.
-
-[![예약된 펌웨어 업데이트 작업 모니터링](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-inline.png)](./media/iot-accelerators-remote-monitoring-manage/firmwareupdatestatus-expanded.png#lightbox)
-
-작업이 완료되면 **장치** 페이지로 다시 돌아갑니다. 엔진 장치에 새 펌웨어 버전이 표시됩니다.
-
-**장치** 페이지에서 다른 유형의 여러 장치를 선택하더라도 여러 장치에서 메서드를 실행할 작업을 만들 수 있습니다. **작업** 패널은 선택한 모든 장치에 공통적인 메서드만 표시합니다.
-
-## <a name="reconfigure-a-device"></a>장치 다시 구성
+## <a name="reconfigure-a-device"></a>디바이스 다시 구성
 
 엔진의 구성 속성을 업데이트할 수 있는지 테스트하려면 **장치** 페이지의 장치 목록에서 해당 항목을 선택합니다. 그런 다음, **작업**을 클릭하고 **속성**을 선택합니다. 작업 패널에 선택한 장치에 대해 업데이트 가능한 속성 값이 표시됩니다.
 
@@ -101,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 운영자로서 장치를 쉽게 구성하고 관리하기 위해 팀 이름으로 태그를 지정하려고 합니다. Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습니다.
 
-* Smart Vehicle 팀은 트럭 및 프로토타입 장치를 관리합니다.
+* Smart Vehicle 팀은 트럭 및 프로토타입 디바이스를 관리합니다.
 * Smart Building 팀은 냉각기, 엘리베이터 및 엔진을 관리합니다.
 
 모든 장치를 표시하려면 **장치** 페이지로 이동하고 **모든 장치** 필터를 선택합니다.

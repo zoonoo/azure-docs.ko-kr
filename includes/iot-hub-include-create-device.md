@@ -21,7 +21,7 @@ ms.locfileid: "51516119"
 
 1. IoT 허브 탐색 메뉴에서 **IoT 디바이스**를 열고 **추가**를 클릭하여 IoT 허브에 새 디바이스를 등록합니다.
 
-    ![포털에서 장치 ID 만들기](./media/iot-hub-include-create-device/create-identity-portal.png)
+    ![포털에서 디바이스 ID 만들기](./media/iot-hub-include-create-device/create-identity-portal.png)
 
 1. **myDeviceId**와 같은 새 장치의 이름을 입력하고 **저장**을 클릭합니다. 이 작업은 IoT Hub에 대한 새 장치 ID를 만듭니다.
 

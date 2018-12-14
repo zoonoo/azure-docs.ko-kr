@@ -15,7 +15,7 @@ ms.locfileid: "50165364"
 
 #### <a name="to-delete-a-storsimple-backup-policy"></a>StorSimple 백업 정책을 삭제하려면
 
-1. StorSimple 장치로 이동하고 **백업 정책**을 클릭합니다.
+1. StorSimple 디바이스로 이동하고 **백업 정책**을 클릭합니다.
 
 2. 테이블 형식의 백업 정책 목록에서 삭제하려는 정책을 선택합니다. 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **삭제**를 선택합니다.
 

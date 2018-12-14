@@ -72,7 +72,7 @@ StorSimple 디바이스에 대한 백업 정책을 추가하려면 Azure Portal�
 
 ## <a name="add-or-modify-a-schedule"></a>일정 추가 또는 수정
 
-StorSimple 장치의 기존 백업 정책에 첨부된 일정을 추가하거나 수정할 수 있습니다. 일정을 추가하거나 수정하려면 Azure Portal에서 다음 단계를 수행합니다.
+StorSimple 디바이스의 기존 백업 정책에 첨부된 일정을 추가하거나 수정할 수 있습니다. 일정을 추가하거나 수정하려면 Azure Portal에서 다음 단계를 수행합니다.
 
 [!INCLUDE [storsimple-8000-add-modify-backup-schedule](../../includes/storsimple-8000-add-modify-backup-schedule-u2.md)]
 

@@ -141,7 +141,7 @@ ms.locfileid: "51231400"
 
 이러한 메커니즘은 IIS의 동적 IP 보안에 자세히 설명되어 있는 기능을 기반으로 합니다. 이 구성을 변경할 때 다음과 같은 요인에 주의하세요.
 
-* 프록시 및 원격 호스트 정보를 통한 Network Address Translation 장치의 동작
+* 프록시 및 원격 호스트 정보를 통한 Network Address Translation 디바이스의 동작
 * 웹 역할의 모든 리소스에 대한 각 요청(예: 스크립트, 이미지 등 로드) 이 고려됨
 
 ## <a name="restricting-number-of-concurrent-accesses"></a>동시 액세스 수 제한

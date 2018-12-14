@@ -28,7 +28,7 @@ ms.locfileid: "52429988"
 
 이 문서에서는 Log Analytics의 Surface Hub 솔루션을 사용하여 Microsoft Surface Hub 디바이스를 모니터링하는 방법을 설명합니다. Log Analytics는 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악하는 데 도움이 됩니다.
 
-Surface Hub마다 Microsoft Monitoring Agent가 설치되어 있습니다. 에이전트를 통해야만 데이터를 Surface Hub에서 Log Analytics로 보낼 수 있습니다. 로그 파일은 먼저 Surface Hub에서 읽힌 다음 Log Analytics로 전송됩니다. 오프라인 상태에 있는 서버, 동기화되지 않는 일정 또는 Skype에 로그인할 수 없는 디바이스 계정과 같은 문제들이 Log Analytics의 Surface Hub 대시보드에 표시됩니다. 대시보드의 데이터를 통해 실행되지 않거나 다른 문제가 있는 장치를 확인하고, 잠재적으로는 발견된 문제에 대한 픽스도 적용할 수 있습니다.
+Surface Hub마다 Microsoft Monitoring Agent가 설치되어 있습니다. 에이전트를 통해야만 데이터를 Surface Hub에서 Log Analytics로 보낼 수 있습니다. 로그 파일은 먼저 Surface Hub에서 읽힌 다음 Log Analytics로 전송됩니다. 오프라인 상태에 있는 서버, 동기화되지 않는 일정 또는 Skype에 로그인할 수 없는 디바이스 계정과 같은 문제들이 Log Analytics의 Surface Hub 대시보드에 표시됩니다. 대시보드의 데이터를 통해 실행되지 않거나 다른 문제가 있는 디바이스를 확인하고, 잠재적으로는 발견된 문제에 대한 픽스도 적용할 수 있습니다.
 
 ## <a name="install-and-configure-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다. Log Analytics에서 Surface Hub를 관리하려면 다음이 필요합니다.
@@ -46,14 +46,14 @@ Log Analytics를 사용하여 Surface Hub의 상태와 활동을 모니터링할
 ## <a name="connect-surface-hubs-to-log-analytics-through-intune"></a>Intune 통해 Log Analytics에 Surface Hub 연결
 Surface Hub를 관리할 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다. Azure Portal의 작업 영역 설정에서 해당 항목을 가져올 수 있습니다.
 
-Intune은 하나 이상의 디바이스에 적용되는 Log Analytics 구성 설정을 중앙에서 관리할 수 있게 하는 Microsoft 제품입니다. InTune 통해 장치를 구성하려면 다음 단계를 수행합니다.
+Intune은 하나 이상의 디바이스에 적용되는 Log Analytics 구성 설정을 중앙에서 관리할 수 있게 하는 Microsoft 제품입니다. InTune 통해 디바이스를 구성하려면 다음 단계를 수행합니다.
 
 1. InTune에 로그인합니다.
 2. **설정** > **연결된 원본**으로 이동합니다.
 3. Surface Hub 템플릿을 기반으로 하는 정책을 만들거나 편집합니다.
 4. 정책의 Azure Operational Insights 섹션으로 이동하여 해당 정책에 Log Analytics *작업 영역 ID* 및 *작업 영역 키*를 추가합니다.
 5. 해당 정책을 저장합니다.
-6. 장치가 속한 그룹에 해당 정책을 연결합니다.
+6. 디바이스가 속한 그룹에 해당 정책을 연결합니다.
 
    ![InTune 정책](./media/surface-hubs/intune.png)
 
@@ -62,10 +62,10 @@ Intune은 하나 이상의 디바이스에 적용되는 Log Analytics 구성 설
 ## <a name="connect-surface-hubs-to-log-analytics-using-the-settings-app"></a>설정 앱을 통해 Log Analytics에 Surface Hub 연결
 Surface Hub를 관리할 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다. Azure Portal에서 Log Analytics 작업 영역에 대한 설정에서 해당 항목을 가져올 수 있습니다.
 
-사용자 환경을 관리하는 데 InTune을 사용하지 않을 경우 다음과 같이 각 Surface Hub의 **설정**을 통해 수동으로 장치를 등록할 수 있습니다.
+사용자 환경을 관리하는 데 InTune을 사용하지 않을 경우 다음과 같이 각 Surface Hub의 **설정**을 통해 수동으로 디바이스를 등록할 수 있습니다.
 
 1. Surface Hub에서 **설정**을 엽니다.
-2. 메시지가 표시되면 장치 관리자 자격 증명을 입력합니다.
+2. 메시지가 표시되면 디바이스 관리자 자격 증명을 입력합니다.
 3. **이 장치**를 클릭한 다음, **모니터링**에서 **Log Analytics 설정 구성**을 클릭합니다.
 4. **모니터링 사용**을 선택합니다.
 5. Log Analytics 설정 대화 상자에서 Log Analytics **작업 영역 ID**, **작업 영역 키**를 차례로 입력합니다.  
@@ -80,7 +80,7 @@ Log Analytics를 통한 Surface Hub 모니터링은 등록된 다른 디바이�
 1. Azure 포털에 로그인합니다.
 2. Log Analytics 작업 영역으로 이동한 후 **개요**를 선택합니다.
 2. Surface Hub 타일을 클릭합니다.
-3. 장치 상태가 표시됩니다.
+3. 디바이스 상태가 표시됩니다.
 
    ![Surface Hub 대시보드](./media/surface-hubs/surface-hub-dashboard.png)
 

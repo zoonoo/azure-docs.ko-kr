@@ -108,7 +108,7 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 | `clientPerformance.sendRequest.value` |요청 전송 시간 |브라우저가 요청을 보내는 데 소요된 시간입니다. |
 | `clientPerformance.total.value` |브라우저 페이지 로드 시간 |사용자가 요청한 때부터 DOM, 스타일시트, 스크립트 및 이미지가 로드될 때까지 소요된 시간입니다. |
 | `performanceCounter.available_bytes.value` |사용 가능한 메모리 |처리를 위해서나 시스템에서 바로 사용할 수 있는 실제 메모리입니다. |
-| `performanceCounter.io_data_bytes_per_sec.value` |프로세스 IO 속도 |파일, 네트워크 및 장치에서 읽고 쓴 초당 총 바이트 수입니다. |
+| `performanceCounter.io_data_bytes_per_sec.value` |프로세스 IO 속도 |파일, 네트워크 및 디바이스에서 읽고 쓴 초당 총 바이트 수입니다. |
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |예외 속도 |초당 발생한 예외입니다. |
 | `performanceCounter.percentage_processor_time.value` |CPU 프로세스 |응용 프로그램 프로세스에 대한 지침 실행을 위해 프로세서가 사용한 모든 프로세스 스레드의 경과 시간 비율입니다. |
 | `performanceCounter.percentage_processor_total.value` |프로세서 시간 |프로세서가 비 유휴 스레드에 소요한 시간의 비율입니다. |

@@ -25,12 +25,12 @@ ms.locfileid: "38630197"
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Azure Portal을 통해서와 핫픽스 방법을 사용하여 이전 소프트웨어 버전을 실행하는 StorSimple 디바이스에 업데이트 4를 설치하는 방법에 대해 설명합니다. 핫픽스 방법은 StorSimple 장치의 DATA 0 이외의 네트워크 인터페이스에 게이트웨이가 구성되어 있고 업데이트 1 이전 소프트웨어 버전에서 업데이트하려는 경우에 사용됩니다.
+이 자습서에서는 Azure Portal을 통해서와 핫픽스 방법을 사용하여 이전 소프트웨어 버전을 실행하는 StorSimple 디바이스에 업데이트 4를 설치하는 방법에 대해 설명합니다. 핫픽스 방법은 StorSimple 디바이스의 DATA 0 이외의 네트워크 인터페이스에 게이트웨이가 구성되어 있고 업데이트 1 이전 소프트웨어 버전에서 업데이트하려는 경우에 사용됩니다.
 
 업데이트 4는 디바이스 소프트웨어, USM 펌웨어, LSI 드라이버 및 펌웨어, Storport 및 Spaceport, OS 보안 업데이트 및 기타 OS 업데이트의 호스트를 포함합니다.  디바이스 소프트웨어, USM 펌웨어, Spaceport, Storport 및 기타 OS 업데이트는 무중단 업데이트입니다. Azure Portal을 통해 또는 핫픽스 메서드를 통해 무중단 또는 정기적인 업데이트를 적용할 수 있습니다. 디스크 펌웨어 업데이트는 작업 중단 업데이트이며 디바이스의 Windows PowerShell 인터페이스를 사용하여 핫픽스 메서드를 통해서만 적용할 수 있습니다.
 
 > [!IMPORTANT]
-> * 설치하기 전에 일련의 수동 및 자동 전 검사를 수행하며 하드웨어 상태와 네트워크 연결 측면에서 장치 상태를 확인합니다. Azure Portal에서 업데이트를 적용하는 경우 이러한 사전 검사를 수행합니다.
+> * 설치하기 전에 일련의 수동 및 자동 전 검사를 수행하며 하드웨어 상태와 네트워크 연결 측면에서 디바이스 상태를 확인합니다. Azure Portal에서 업데이트를 적용하는 경우 이러한 사전 검사를 수행합니다.
 > * Azure Portal을 통해 소프트웨어 및 기타 정기적인 업데이트를 설치하는 것이 좋습니다. 포털에서 사전 업데이트 게이트웨이 검사가 실패한 경우 (업데이트를 설치하려면) 디바이스의 Windows PowerShell 인터페이스로 이동해야 합니다. 업데이트하는 버전에 따라 업데이트 설치에 4시간(이상)이 걸릴 수 있습니다. 디바이스의 Windows PowerShell 인터페이스를 통해 유지 관리 모드 업데이트도 설치해야 합니다. 유지 관리 모드 업데이트는 중단 업데이트입니다. 이는 디바이스에 중단 시간을 발생시킵니다.
 > * 선택적 StorSimple Snapshot Manager를 실행하는 경우 디바이스를 업데이트하기 전에 Snapshot Manager 버전을 업데이트 4로 업그레이드했는지 확인합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "38630197"
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
 ## <a name="install-update-4-via-the-azure-portal"></a>Azure Portal을 통해 업데이트 4 설치
-다음 단계를 수행하여 장치를 [업데이트 4](storsimple-update4-release-notes.md)로 업데이트합니다.
+다음 단계를 수행하여 디바이스를 [업데이트 4](storsimple-update4-release-notes.md)로 업데이트합니다.
 
 > [!NOTE]
 > Microsoft는 디바이스로부터 추가적인 진단 정보를 확보할 수 있습니다. 따라서 운영 팀에서 문제가 있는 디바이스를 확인하는 경우, 디바이스로부터 정보를 수집하고 문제를 진단할 준비가 더욱 잘 갖추어져 있습니다. 

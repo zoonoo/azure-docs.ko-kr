@@ -221,7 +221,7 @@ Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만�
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    이 쿼리는 테이블에서 장치 플랫폼(Android, Windows, iOS 등)을 선택하고 문자열을 소문자로 변환한 다음 표시하게 됩니다. 출력은 다음 텍스트와 유사합니다.
+    이 쿼리는 테이블에서 디바이스 플랫폼(Android, Windows, iOS 등)을 선택하고 문자열을 소문자로 변환한 다음 표시하게 됩니다. 출력은 다음 텍스트와 유사합니다.
 
         +----------+--+
         |   _c0    |

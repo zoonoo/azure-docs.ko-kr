@@ -133,7 +133,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 ```
 
 #### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3. 게이트웨이 공용 IP 주소 및 BGP 피어 IP 주소 획득
-게이트웨이를 만든 후 Azure VPN Gateway에서 BGP 피어 IP 주소를 가져와야 합니다. 온-프레미스 VPN 장치에 대해 Azure VPN Gateway를 BGP 피어로 구성하려면 이 주소가 필요합니다.
+게이트웨이를 만든 후 Azure VPN Gateway에서 BGP 피어 IP 주소를 가져와야 합니다. 온-프레미스 VPN 디바이스에 대해 Azure VPN Gateway를 BGP 피어로 구성하려면 이 주소가 필요합니다.
 
 ```powershell
 $gw1pip1 = Get-AzureRmPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1
@@ -158,14 +158,14 @@ PS D:\> $vnet1gw.BgpSettingsText
 }
 ```
 
-게이트웨이 인스턴스에 대한 공용 IP 주소와 해당 BGP 피어링 주소의 순서는 동일합니다. 이 예제에서는 공용 IP가 40.112.190.5인 게이트웨이 VM은 BGP 피어링 주소로 10.12.255.4를 사용하고 138.91.156.129를 갖는 게이트웨이는 10.12.255.5를 사용합니다. 활성-활성 게이트웨이에 연결되는 온-프레미스 VPN 장치를 설정할 때 이 정보가 필요합니다. 게이트웨이 및 모든 주소는 다음 다이어그램에 표시됩니다.
+게이트웨이 인스턴스에 대한 공용 IP 주소와 해당 BGP 피어링 주소의 순서는 동일합니다. 이 예제에서는 공용 IP가 40.112.190.5인 게이트웨이 VM은 BGP 피어링 주소로 10.12.255.4를 사용하고 138.91.156.129를 갖는 게이트웨이는 10.12.255.5를 사용합니다. 활성-활성 게이트웨이에 연결되는 온-프레미스 VPN 디바이스를 설정할 때 이 정보가 필요합니다. 게이트웨이 및 모든 주소는 다음 다이어그램에 표시됩니다.
 
 ![활성-활성 게이트웨이](./media/vpn-gateway-activeactive-rm-powershell/active-active-gw.png)
 
 게이트웨이가 만들어지면 이 게이트웨이를 사용하여 활성-활성 프레미스 간 연결 또는 VNet 간 연결을 설정할 수 있습니다. 다음 섹션에서는 연습을 완료하는 단계를 안내합니다.
 
 ## <a name ="aacrossprem"></a>2부 - 활성-활성 프레미스 간 연결 설정
-프레미스 간 연결을 설정하려면 온-프레미스 VPN 장치를 나타내는 로컬 네트워크 게이트웨이를 만들고 Azure VPN 게이트웨이와 로컬 네트워크 게이트웨이를 연결하는 연결을 만들어야 합니다. 이 예제에서 Azure VPN Gateway는 활성-활성 모드입니다. 따라서 온-프레미스 VPN 장치(로컬 네트워크 게이트웨이)와 연결 리소스가 하나씩만 있더라도 Azure VPN Gateway 인스턴스는 온-프레미스 장치와의 S2S VPN 터널을 설정합니다.
+프레미스 간 연결을 설정하려면 온-프레미스 VPN 디바이스를 나타내는 로컬 네트워크 게이트웨이를 만들고 Azure VPN 게이트웨이와 로컬 네트워크 게이트웨이를 연결하는 연결을 만들어야 합니다. 이 예제에서 Azure VPN Gateway는 활성-활성 모드입니다. 따라서 온-프레미스 VPN 디바이스(로컬 네트워크 게이트웨이)와 연결 리소스가 하나씩만 있더라도 Azure VPN Gateway 인스턴스는 온-프레미스 디바이스와의 S2S VPN 터널을 설정합니다.
 
 계속하기 전에 이 연습의 [1부](#aagateway) 를 완료했는지 확인하세요.
 
@@ -186,9 +186,9 @@ $BGPPeerIP51 = "10.52.255.253"
 로컬 네트워크 게이트웨이 매개 변수와 관련하여 몇 가지 주의할 점은 다음과 같습니다.
 
 * 로컬 네트워크 게이트웨이는 VPN 게이트웨이와 같거나 다른 위치 및 리소스 그룹에 있을 수 있습니다. 이 예제에서는 리소스 그룹은 다르지만 Azure 위치는 같은 게이트웨이를 표시합니다.
-* 위와 같이 온-프레미스 VPN 장치가 하나뿐이면 BGP 프로토콜 사용 여부에 관계없이 활성-활성 연결이 작동할 수 있습니다. 이 예제에서는 프레미스 간 연결에 대해 BGP를 사용합니다.
-* BGP가 사용되도록 설정되면 로컬 네트워크 게이트웨이에 대해 선언해야 하는 접두사는 VPN 장치의 BGP 피어 IP 주소의 호스트 주소입니다. 이 경우에는 "10.52.255.253/32"의 접두사 /32입니다.
-* 다시 확인하면 온-프레미스 네트워크와 Azure VNet 간에는 서로 다른 BGP ASN을 사용해야 합니다. 동일한 경우 온-프레미스 VPN 장치가 이미 다른 BGP 인접과의 피어에 ASN을 사용하고 있으면 VNet ASN을 변경해야 합니다.
+* 위와 같이 온-프레미스 VPN 디바이스가 하나뿐이면 BGP 프로토콜 사용 여부에 관계없이 활성-활성 연결이 작동할 수 있습니다. 이 예제에서는 프레미스 간 연결에 대해 BGP를 사용합니다.
+* BGP가 사용되도록 설정되면 로컬 네트워크 게이트웨이에 대해 선언해야 하는 접두사는 VPN 디바이스의 BGP 피어 IP 주소의 호스트 주소입니다. 이 경우에는 "10.52.255.253/32"의 접두사 /32입니다.
+* 다시 확인하면 온-프레미스 네트워크와 Azure VNet 간에는 서로 다른 BGP ASN을 사용해야 합니다. 동일한 경우 온-프레미스 VPN 디바이스가 이미 다른 BGP 인접과의 피어에 ASN을 사용하고 있으면 VNet ASN을 변경해야 합니다.
 
 #### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Site5용 로컬 네트워크 게이트웨이를 만듭니다.
 계속하기 전에 여전히 구독 1에 연결되어 있는지 확인하십시오. 아직 만들지 않은 경우 리소스 그룹을 만듭니다.
@@ -213,7 +213,7 @@ $lng5gw1 = Get-AzureRmLocalNetworkGateway  -Name $LNGName51 -ResourceGroupName $
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw1 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
-#### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. 온-프레미스 VPN 장치에 대한 VPN 및 BGP 매개 변수
+#### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. 온-프레미스 VPN 디바이스에 대한 VPN 및 BGP 매개 변수
 아래 예제에서 이 연습을 위해 온-프레미스 VPN 디바이스의 BGP 구성 섹션에 입력할 매개 변수를 나열합니다.
 
 ```
@@ -228,12 +228,12 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupNa
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-몇 분 후 연결이 설정되어야 하며, IPsec 연결이 설정되면 BGP 피어링 세션이 시작됩니다. 지금까지 이 예제에서는 하나의 온-프레미스 VPN 장치만 구성했으며 그 결과는 아래 다이어그램과 같습니다.
+몇 분 후 연결이 설정되어야 하며, IPsec 연결이 설정되면 BGP 피어링 세션이 시작됩니다. 지금까지 이 예제에서는 하나의 온-프레미스 VPN 디바이스만 구성했으며 그 결과는 아래 다이어그램과 같습니다.
 
 ![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
-### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>3단계 - 두 개의 온-프레미스 VPN 장치를 활성-활성 VPN Gateway에 연결
-두 개의 VPN 장치가 동일한 온-프레미스 네트워크에 있는 경우 Azure VPN Gateway를 두 번째 VPN 장치에 연결하여 이중 중복성을 얻을 수 있습니다.
+### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>3단계 - 두 개의 온-프레미스 VPN 디바이스를 활성-활성 VPN Gateway에 연결
+두 개의 VPN 디바이스가 동일한 온-프레미스 네트워크에 있는 경우 Azure VPN Gateway를 두 번째 VPN 디바이스에 연결하여 이중 중복성을 얻을 수 있습니다.
 
 #### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Site5용 두 번째 로컬 네트워크 게이트웨이 만들기
 두 번째 로컬 네트워크 게이트웨이에 대한 게이트웨이 IP 주소, 주소 접두사 및 BGP 피어링 주소는 동일한 온-프레미스 네트워크에 대한 이전 로컬 네트워크 게이트웨이와 겹치지 않아야 합니다.
@@ -260,7 +260,7 @@ $lng5gw2 = Get-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $R
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw2 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
 ```
 
-#### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. 두 번째 온-프레미스 VPN 장치에 대한 VPN 및 BGP 매개 변수
+#### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. 두 번째 온-프레미스 VPN 디바이스에 대한 VPN 및 BGP 매개 변수
 마찬가지로 아래에는 두 번째 VPN 디바이스에 입력하는 매개 변수가 나와 있습니다.
 
 ```

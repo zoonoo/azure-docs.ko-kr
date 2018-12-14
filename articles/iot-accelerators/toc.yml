@@ -65,7 +65,7 @@ items:
   items:
   - name: 원격 모니터링
     items:
-    - name: 실제 장치 연결
+    - name: 실제 디바이스 연결
       items:
       - name: Windows에서 C
         href: iot-accelerators-connecting-devices.md

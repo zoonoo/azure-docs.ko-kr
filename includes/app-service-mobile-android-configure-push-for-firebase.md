@@ -16,4 +16,4 @@ ms.locfileid: "42809478"
 
     ![포털에서 API 키 설정](./media/app-service-mobile-android-configure-push/mobile-push-api-key.png)
 
-이제 Mobile Apps 백 엔드가 Firebase Cloud Messaging을 사용하도록 구성됩니다. 알림 허브를 사용하여 Android 장치에서 실행 중인 앱에 푸시 알림을 보낼 수 있습니다.
+이제 Mobile Apps 백 엔드가 Firebase Cloud Messaging을 사용하도록 구성됩니다. 알림 허브를 사용하여 Android 디바이스에서 실행 중인 앱에 푸시 알림을 보낼 수 있습니다.

@@ -25,7 +25,7 @@ ms.locfileid: "51232745"
 | 제품/서비스 | 문서 |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Azure AD를 사용하는 경우에 ADAL 메서드를 사용하여 적절한 로그아웃 구현](#logout-adal)</li></ul> |
-| IoT 장치 | <ul><li>[생성된 SaS 토큰에 대해 한정된 수명 사용](#finite-tokens)</li></ul> |
+| IoT 디바이스 | <ul><li>[생성된 SaS 토큰에 대해 한정된 수명 사용](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[생성된 리소스 토큰에 대해 최소 토큰 수명 사용](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[ADFS를 사용하는 경우에 WsFederation 메서드를 사용하여 적절한 로그아웃 구현](#wsfederation-logout)</li></ul> |
 | **Identity Server** | <ul><li>[ID 서버를 사용하는 경우 적절한 로그아웃 구현](#proper-logout)</li></ul> |
@@ -71,7 +71,7 @@ Session.Abandon() 메서드를 호출하여 사용자의 세션을 삭제해야 
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | IoT 장치 | 
+| **구성 요소**               | IoT 디바이스 | 
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |

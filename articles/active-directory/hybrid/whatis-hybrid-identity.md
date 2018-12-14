@@ -131,7 +131,7 @@ Azure AD와 온-프레미스 디렉터리를 통합하면 온-프레미스 및 �
 * 시나리오에 대한 최신 기능을 제공합니다. Azure AD Connect는 DirSync 및 Azure AD Sync와 같은 이전 버전의 ID 통합 도구를 대체합니다. 자세한 내용은 [하이브리드 ID 디렉터리 통합 도구 비교](plan-hybrid-identity-design-considerations-tools-comparison.md)를 참조하세요.
 
 ## <a name="why-use-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하는 이유
-온-프레미스 디렉터리와 Azure AD를 통합하면 클라우드 및 온-프레미스 리소스 모두에 액세스할 수 있는 공통 ID가 제공되므로 사용자의 생산성이 향상됩니다. 그러나 이 통합에는 사용자가 아무 장치에서 온-프레미스와 클라우드의 리소스에 안정적으로 액세스할 수 있도록 환경을 정상적으로 유지해야 하는 과제가 발생합니다. Azure AD Connect Health를 사용하면 Office 365 또는 다른 Azure AD 응용 프로그램에 액세스하는 데 사용되는 온-프레미스 ID 인프라를 모니터링하고 통찰력을 얻을 수 있습니다. 각 온-프레미스 ID 서버에 에이전트를 설치하는 것만큼 간단합니다.
+온-프레미스 디렉터리와 Azure AD를 통합하면 클라우드 및 온-프레미스 리소스 모두에 액세스할 수 있는 공통 ID가 제공되므로 사용자의 생산성이 향상됩니다. 그러나 이 통합에는 사용자가 아무 디바이스에서 온-프레미스와 클라우드의 리소스에 안정적으로 액세스할 수 있도록 환경을 정상적으로 유지해야 하는 과제가 발생합니다. Azure AD Connect Health를 사용하면 Office 365 또는 다른 Azure AD 응용 프로그램에 액세스하는 데 사용되는 온-프레미스 ID 인프라를 모니터링하고 통찰력을 얻을 수 있습니다. 각 온-프레미스 ID 서버에 에이전트를 설치하는 것만큼 간단합니다.
 
 ### <a name="azure-ad-connect-health-for-ad-fshow-to-connect-health-adfsmd"></a>[AD FS에 대한 Azure AD Connect Health](how-to-connect-health-adfs.md)
 AD FS용 Azure AD Connect Health는 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016에서 AD FS 2.0을 지원합니다. 또한 엑스트라넷 액세스에 대한 인증 지원을 제공하는 AD FS 프록시 또는 웹 응용 프로그램 프록시 서버의 모니터링을 지원합니다. AD FS에 대한 Azure AD Connect Health는 Health 에이전트를 쉽고 빠르게 설치하며 주요 기능 집합을 제공합니다.

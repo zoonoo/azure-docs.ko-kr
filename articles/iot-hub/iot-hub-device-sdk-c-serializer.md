@@ -1,6 +1,6 @@
 ---
 title: C용 Azure IoT 디바이스 SDK - 직렬 변환기 | Microsoft Docs
-description: C용 Azure IoT 장치 SDK에서 Serializer 라이브러리를 사용하여 IoT Hub와 통신하는 장치 앱을 만드는 방법입니다.
+description: C용 Azure IoT 디바이스 SDK에서 Serializer 라이브러리를 사용하여 IoT Hub와 통신하는 디바이스 앱을 만드는 방법입니다.
 author: yzhong94
 ms.service: iot-hub
 services: iot-hub
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/25/2018
 ms.locfileid: "50024869"
 ---
-# <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>C용 Azure IoT 장치 SDK - 직렬 변환기에 대한 자세한 정보
+# <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>C용 Azure IoT 디바이스 SDK - 직렬 변환기에 대한 자세한 정보
 
 이 시리즈의 첫 번째 문서에서는 [C용 Azure IoT 디바이스 SDK에 대해 소개](iot-hub-device-sdk-c-intro.md)했습니다. 다음 문서에서는 [C용 Azure IoT 디바이스 SDK -- IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)에 대해 보다 자세히 설명했습니다. 이 문서에서는 나머지 구성 요소인 **serializer** 라이브러리에 대한 보다 자세한 설명을 제공하여 SDK의 범위를 보완합니다.
 
@@ -508,7 +508,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 직렬화된 버전의 메시지가 어떤 모습인지는 아직 설명하지 않았습니다. 즉, **SetAirResistance** 메시지를 디바이스로 전송하는 경우 어떤 모습일까요?
 
-메시지를 장치로 전송하는 경우 Azure IoT 서비스 SDK를 통해 수행할 것입니다. 특정 동작을 호출하기 위해 어떤 문자열을 전송하는지 여전히 알아야 합니다. 메시지 전송을 위한 일반적인 형식은 다음과 같습니다.
+메시지를 디바이스로 전송하는 경우 Azure IoT 서비스 SDK를 통해 수행할 것입니다. 특정 동작을 호출하기 위해 어떤 문자열을 전송하는지 여전히 알아야 합니다. 메시지 전송을 위한 일반적인 형식은 다음과 같습니다.
 
 ```C
 {"Name" : "", "Parameters" : "" }
@@ -524,7 +524,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 
 동작 이름은 모델에 정의된 동작과 정확히 일치해야 합니다. 매개 변수 이름도 일치해야 합니다. 또한 대/소문자 구분 여부도 확인합니다. **Name** 및 **Parameters**는 항상 대문자입니다. 모델에서 동작 이름 및 매개 변수의 대/소문자와 일치해야 합니다. 이 예에서 동작 이름은 "setairresistance"가 아닌, "SetAirResistance"입니다.
 
-두 가지 작업 **TurnFanOn** 및 **TurnFanOff**는 장치에 다음 메시지를 전송하여 호출할 수 있습니다.
+두 가지 작업 **TurnFanOn** 및 **TurnFanOff**는 디바이스에 다음 메시지를 전송하여 호출할 수 있습니다.
 
 ```C
 {"Name" : "TurnFanOn", "Parameters" : {}}
@@ -631,7 +631,7 @@ WITH_DATA(int, MyData)
 **serializer** 라이브러리와 하위 수준 API를 사용하는 방법에 대한 예제는 **simplesample\_http** 응용 프로그램을 참조하세요.
 
 ## <a name="additional-topics"></a>추가 항목
-속성 처리, 대체 장치 자격 증명 사용 및 구성 옵션은 다시 강조할 필요가 있습니다. 이러한 모든 항목은 [이전 문서](iot-hub-device-sdk-c-iothubclient.md)에서 다뤘습니다. 중요한 점은 **IoTHubClient** 라이브러리로 작업할 때와 마찬가지로 **serializer** 라이브러리를 사용할 때 해당 기능이 동일하게 작동한다는 것입니다. 예를 들어 모델에서 이벤트에 속성을 첨부하려는 경우 **IoTHubMessage\_Properties** 및 **Map**\_**AddorUpdate**는 이전에 설명한 것과 동일한 방식으로 사용합니다.
+속성 처리, 대체 디바이스 자격 증명 사용 및 구성 옵션은 다시 강조할 필요가 있습니다. 이러한 모든 항목은 [이전 문서](iot-hub-device-sdk-c-iothubclient.md)에서 다뤘습니다. 중요한 점은 **IoTHubClient** 라이브러리로 작업할 때와 마찬가지로 **serializer** 라이브러리를 사용할 때 해당 기능이 동일하게 작동한다는 것입니다. 예를 들어 모델에서 이벤트에 속성을 첨부하려는 경우 **IoTHubMessage\_Properties** 및 **Map**\_**AddorUpdate**는 이전에 설명한 것과 동일한 방식으로 사용합니다.
 
 ```C
 MAP_HANDLE propMap = IoTHubMessage_Properties(message.messageHandle);

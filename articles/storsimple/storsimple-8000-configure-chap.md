@@ -94,7 +94,7 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 ## <a name="bidirectional-or-mutual-authentication"></a>양방향 또는 상호 인증
 
-양방향 인증에서 대상은 초기자를 인증한 다음 초기자는 대상을 인증합니다. 이 절차를 수행하려면 사용자가 CHAP 초기자 설정과 장치의 역방향 CHAP 설정 및 호스트의 iSCSI 초기자 소프트웨어를 구성해야 합니다. 다음 절차는 장치와 Windows 호스트에서 상호 인증을 구성하는 단계를 설명합니다.
+양방향 인증에서 대상은 초기자를 인증한 다음 초기자는 대상을 인증합니다. 이 절차를 수행하려면 사용자가 CHAP 초기자 설정과 장치의 역방향 CHAP 설정 및 호스트의 iSCSI 초기자 소프트웨어를 구성해야 합니다. 다음 절차는 디바이스와 Windows 호스트에서 상호 인증을 구성하는 단계를 설명합니다.
 
 #### <a name="to-configure-your-device-for-mutual-authentication"></a>상호 인증에 대한 장치를 구성하려면
 

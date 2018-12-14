@@ -46,17 +46,17 @@ StorSimple Cloud Appliance는 두 가지 모델 즉, 표준 8010(이전의 1100)
 | **Azure VM** |Standard_A3(4 코어, 7GB 메모리)| Standard_DS3 (4 코어, 14GB 메모리)|
 | **지역 가용성** |모든 Azure 지역 |Premium Storage 및 DS3 Azure VM을 지원하는 Azure 지역<br></br>[이 목록](https://azure.microsoft.com/regions/services/)을 사용하여 **Virtual Machines > DS 시리즈** 및 **저장소 > 디스크 저장소**를 자신의 지역에서 사용할 수 있습니다. |
 | **저장소 유형** |로컬 디스크에 Azure Standard Storage 사용<br></br> [Standard Storage 계정을 만드는](../storage/common/storage-create-storage-account.md) |로컬 디스크용 Azure Premium Storage 사용<sup>2</sup> <br></br>[Premium Storage 계정을 만드는](../virtual-machines/windows/premium-storage.md) |
-| **워크로드 지침** |백업으로부터 항목 수준 파일 읽어오기 |클라우드 개발 및 테스트 시나리오 <br></br>짧은 대기 시간 및 더 높은 성능 워크로드<br></br>재해 복구용 보조 장치 |
+| **워크로드 지침** |백업으로부터 항목 수준 파일 읽어오기 |클라우드 개발 및 테스트 시나리오 <br></br>짧은 대기 시간 및 더 높은 성능 워크로드<br></br>재해 복구용 보조 디바이스 |
 
 <sup>1</sup> *이전에 1100로 알려짐*.
 
-<sup>2</sup>*8010와 8020은 모두 클라우드 계층에 Azure Standard Storage를 사용합니다. 차이점은 장치* 내의 로컬 계층에만 존재한다는 것입니다.
+<sup>2</sup>*8010와 8020은 모두 클라우드 계층에 Azure Standard Storage를 사용합니다. 차이점은 디바이스* 내의 로컬 계층에만 존재한다는 것입니다.
 
 ## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>클라우드 어플라이언스와 물리적 디바이스의 차이
 
 StorSimple Cloud Appliance는 Microsoft Azure Virtual Machine의 단일 노드에서 실행되는 StorSimple의 소프트웨어 전용 버전입니다. 클라우드 어플라이언스는 물리적 디바이스를 사용할 수 없는 재해 복구 시나리오를 지원합니다. 클라우드 어플라이언스는 백업, 온-프레미스 재해 복구 및 클라우드 개발/테스트 시나리오의 항목 수준 검색에서 사용하기에 적합합니다.
 
-#### <a name="differences-from-the-physical-device"></a>물리적 장치와의 차이점
+#### <a name="differences-from-the-physical-device"></a>물리적 디바이스와의 차이점
 
 다음 표는 StorSimple Cloud Appliance와 StorSimple 물리적 디바이스 간의 몇 가지 주요 차이점을 보여줍니다
 
@@ -124,13 +124,13 @@ StorSimple Cloud Appliance를 만들려면 다음 단계를 수행합니다.
 
 [!INCLUDE [Configure and register a cloud appliance](../../includes/storsimple-8000-configure-register-cloud-appliance.md)]
 
-### <a name="step-3-optional-modify-the-device-configuration-settings"></a>3단계: (선택 사항) 장치 구성 설정 수정
+### <a name="step-3-optional-modify-the-device-configuration-settings"></a>3단계: (선택 사항) 디바이스 구성 설정 수정
 
 다음 섹션에서는 CHAP 또는 StorSimple Snapshot Manager를 사용하거나 디바이스 관리자 암호를 변경하려는 경우 StorSimple Cloud Appliance에 필요한 디바이스 구성 설정을 설명합니다.
 
 #### <a name="configure-the-chap-initiator"></a>CHAP 시작자 구성
 
-이 매개 변수는 볼륨 액세스를 시도 중인 개시 장치(서버)에서 클라우드 어플라이언스(대상)가 예상하는 자격 증명을 포함합니다. 개시 디바이스는 CHAP 사용자 이름 및 CHAP 암호를 제공하여 인증 중 디바이스를 자체적으로 식별합니다. 자세한 단계를 보려면 [장치에 CHAP 구성](storsimple-8000-configure-chap.md#unidirectional-or-one-way-authentication)으로 이동합니다.
+이 매개 변수는 볼륨 액세스를 시도 중인 개시 장치(서버)에서 클라우드 어플라이언스(대상)가 예상하는 자격 증명을 포함합니다. 개시 디바이스는 CHAP 사용자 이름 및 CHAP 암호를 제공하여 인증 중 디바이스를 자체적으로 식별합니다. 자세한 단계를 보려면 [디바이스에 CHAP 구성](storsimple-8000-configure-chap.md#unidirectional-or-one-way-authentication)으로 이동합니다.
 
 #### <a name="configure-the-chap-target"></a>CHAP 대상 구성
 
@@ -139,20 +139,20 @@ StorSimple Cloud Appliance를 만들려면 다음 단계를 수행합니다.
 > [!NOTE]
 > CHAP 대상 설정은 전역 설정입니다. 이 설정을 적용하면 클라우드 어플라이언스에 연결된 모든 볼륨이 CHAP 인증을 사용합니다.
 
-자세한 단계를 보려면 [장치에 CHAP 구성](storsimple-8000-configure-chap.md#bidirectional-or-mutual-authentication)으로 이동합니다.
+자세한 단계를 보려면 [디바이스에 CHAP 구성](storsimple-8000-configure-chap.md#bidirectional-or-mutual-authentication)으로 이동합니다.
 
 #### <a name="configure-the-storsimple-snapshot-manager-password"></a>StorSimple 스냅숏 관리자 암호 구성
 
-StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬 및 클라우드 스냅숏의 형태로 StorSimple 장치의 백업을 관리할 수 있습니다.
+StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬 및 클라우드 스냅숏의 형태로 StorSimple 디바이스의 백업을 관리할 수 있습니다.
 
 > [!NOTE]
 > 클라우드 어플라이언스의 경우, Windows 호스트는 Azure 가상 머신입니다.
 
 StorSimple Snapshot Manager에서 디바이스를 구성하면, StorSimple 디바이스 IP 주소 및 암호를 입력하여 저장소 디바이스를 인증하라는 메시지가 표시됩니다. 자세한 단계를 보려면 [StorSimple 스냅숏 관리자 암호 구성](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)으로 이동합니다.
 
-#### <a name="change-the-device-administrator-password"></a>장치 관리자 암호 구성
+#### <a name="change-the-device-administrator-password"></a>디바이스 관리자 암호 구성
 
-Windows PowerShell 인터페이스를 사용하여 클라우드 어플라이언스에 액세스할 때 디바이스 관리자 암호를 입력해야 합니다. 데이터의 보안을 위해, 클라우드 어플라이언스를 사용하려면 먼저 이 암호를 변경해야 합니다. 자세한 단계를 보려면 [장치 관리자 암호 구성](../storsimple/storsimple-8000-change-passwords.md#change-the-device-administrator-password)으로 이동합니다.
+Windows PowerShell 인터페이스를 사용하여 클라우드 어플라이언스에 액세스할 때 디바이스 관리자 암호를 입력해야 합니다. 데이터의 보안을 위해, 클라우드 어플라이언스를 사용하려면 먼저 이 암호를 변경해야 합니다. 자세한 단계를 보려면 [디바이스 관리자 암호 구성](../storsimple/storsimple-8000-change-passwords.md#change-the-device-administrator-password)으로 이동합니다.
 
 ## <a name="connect-remotely-to-the-cloud-appliance"></a>클라우드 어플라이언스에 원격으로 연결
 
@@ -205,7 +205,7 @@ StorSimple Cloud Appliance를 만들고 구성했으므로 작업을 시작할 �
 
 ### <a name="maintain-a-storsimple-cloud-appliance"></a>StorSimple Cloud Appliance 유지 관리
 
-소프트웨어 전용 장치이기 때문에 물리적 장치에 대한 유지 관리와 비교할 때 클라우드 어플라이언스의 유지 관리는 최소입니다.
+소프트웨어 전용 디바이스이기 때문에 물리적 디바이스에 대한 유지 관리와 비교할 때 클라우드 어플라이언스의 유지 관리는 최소입니다.
 
 클라우드 어플라이언스를 업데이트할 수 없습니다. 새 클라우드 어플라이언스를 만들려면 소프트웨어의 최신 버전을 사용합니다.
 
@@ -227,7 +227,7 @@ Storage 계정은 StorSimple 디바이스 관리자 서비스, 클라우드 어�
 * 프로비전 중 호스티드 서비스 및 가상 네트워크가 유지됩니다. 사용하지 않는 경우 수동으로 삭제해야 합니다.
 * 클라우드 어플라이언스에 대해 생성된 클라우드 스냅숏이 보존됩니다.
 
-단계별 절차는 [StorSimple 장치 비활성화 및 삭제](storsimple-8000-deactivate-and-delete-device.md)를 참조하세요.
+단계별 절차는 [StorSimple 디바이스 비활성화 및 삭제](storsimple-8000-deactivate-and-delete-device.md)를 참조하세요.
 
 StorSimple 디바이스 관리자 서비스 블레이드에서 비활성화된 클라우드 어플라이언스로 표시되면 **디바이스** 블레이드의 디바이스 목록에서 해당 클라우드 어플라이언스를 즉시 삭제할 수 있습니다.
 
@@ -258,7 +258,7 @@ DR의 필수 조건은 다음과 같습니다.
 ## <a name="delete-the-cloud-appliance"></a>클라우드 어플라이언스 삭제
 StorSimple Cloud Appliance를 이전에 구성하고 사용했지만 이제 용도에 맞게 계산 비용 발생을 중지하려는 경우, 클라우드 어플라이언스를 종료해야 합니다. 클라우드 어플라이언스를 중지하면 VM의 할당이 취소됩니다. 이 작업은 구독에서 요금이 발생되지 않도록 합니다. 그러나 OS 및 데이터 디스크에 대한 저장소 비용은 계속 발생합니다.
 
-모든 요금을 중지하려면 클라우드 어플라이언스를 삭제해야 합니다. 클라우드 어플라이언스에서 만든 백업을 삭제하려면 장치를 비활성화하거나 삭제할 수 있습니다. 자세한 내용은 [StorSimple 장치 비활성화 및 삭제](storsimple-8000-deactivate-and-delete-device.md)를 참조하세요.
+모든 요금을 중지하려면 클라우드 어플라이언스를 삭제해야 합니다. 클라우드 어플라이언스에서 만든 백업을 삭제하려면 디바이스를 비활성화하거나 삭제할 수 있습니다. 자세한 내용은 [StorSimple 디바이스 비활성화 및 삭제](storsimple-8000-deactivate-and-delete-device.md)를 참조하세요.
 
 [!INCLUDE [Delete a cloud appliance](../../includes/storsimple-8000-delete-cloud-appliance.md)]
 

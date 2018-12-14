@@ -24,7 +24,7 @@ ms.locfileid: "45736736"
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>StorSimple 장치 관리자를 사용하여 StorSimple 가상 배열의 저장소 계정 자격 증명 관리
 
 ## <a name="overview"></a>개요
-StorSimple 가상 배열의 StorSimple 장치 관리자 서비스 블레이드 중 **구성** 섹션에서는 StorSimple Manager 서비스에서 만들 수 있는 글로벌 서비스 매개 변수를 표시합니다. 이러한 매개 변수는 서비스에 연결된 모든 장치에 적용할 수 있으며 다음을 포함합니다.
+StorSimple 가상 배열의 StorSimple 장치 관리자 서비스 블레이드 중 **구성** 섹션에서는 StorSimple Manager 서비스에서 만들 수 있는 글로벌 서비스 매개 변수를 표시합니다. 이러한 매개 변수는 서비스에 연결된 모든 디바이스에 적용할 수 있으며 다음을 포함합니다.
 
 * Storage 계정 자격 증명
 * 액세스 제어 레코드
@@ -62,10 +62,10 @@ StorSimple 장치에서 사용할 수 있는 저장소 계정 자격 증명에�
 
 Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합니다.
 
-* 장치 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
+* 디바이스 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
 * 장치 관리자 서비스 구독 외부에 있는 Azure Storage 계정 자격 증명을 추가하려면
 
-#### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>장치 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
+#### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>디바이스 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
 
 1. 장치 관리자 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
 2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다.

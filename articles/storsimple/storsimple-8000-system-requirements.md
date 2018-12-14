@@ -94,9 +94,9 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 #### <a name="url-patterns-for-azure-portal"></a>Azure 포털의 URL 패턴
 
-| URL 패턴 | 구성 요소/기능 | 장치 IP |
+| URL 패턴 | 구성 요소/기능 | 디바이스 IP |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple 장치 관리자 서비스<br>Access Control Service<br>Azure Service Bus<br>인증 서비스 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple 디바이스 관리자 서비스<br>Access Control Service<br>Azure Service Bus<br>인증 서비스 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.backup.windowsazure.com` |디바이스 등록 |데이터 0만 해당 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |클라우드 사용 네트워크 인터페이스 |
@@ -106,9 +106,9 @@ StorSimple 고정 IP 주소에 따라 대부분의 경우에서 자유롭게 아
 
 #### <a name="url-patterns-for-azure-government-portal"></a>Azure Government 포털의 URL 패턴
 
-| URL 패턴 | 구성 요소/기능 | 장치 IP |
+| URL 패턴 | 구성 요소/기능 | 디바이스 IP |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple 장치 관리자 서비스<br>Access Control Service<br>Azure Service Bus<br>인증 서비스 |클라우드 사용 네트워크 인터페이스 |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple 디바이스 관리자 서비스<br>Access Control Service<br>Azure Service Bus<br>인증 서비스 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.backup.windowsazure.us` |디바이스 등록 |데이터 0만 해당 |
 | `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |인증서 해지 |클라우드 사용 네트워크 인터페이스 |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure 저장소 계정 및 모니터링 |클라우드 사용 네트워크 인터페이스 |
@@ -195,7 +195,7 @@ StorSimple 디바이스에는 운영 중 스왑 가능한 중복 컨트롤러 �
 * 컨트롤러 모듈에 문제가 있으면 즉시 교체를 요청합니다.
 * 교체가 있고 설치 준비가 되었을 때에만 문제가 있는 컨트롤러 모듈을 제거합니다. 오랫동안 모듈을 제거하면 기류에 영향을 미치므로 시스템 냉각에도 영향을 미칩니다.
 * 두 컨트롤러 모듈에 대한 네트워크 연결이 동일해야 하며 연결된 네트워크 인터페이스에 동일한 네트워크 구성이 있어야 합니다.
-* 한 컨트롤러 모듈에 장애가 발생하거나 교체가 필요한 경우, 장애가 발생한 컨트롤러 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인해야 합니다. 컨트롤러가 활성인지 확인하려면 [장치의 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
+* 한 컨트롤러 모듈에 장애가 발생하거나 교체가 필요한 경우, 장애가 발생한 컨트롤러 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인해야 합니다. 컨트롤러가 활성인지 확인하려면 [디바이스의 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
 * 두 컨트롤러 모듈을 동시에 제거하지 마십시오. 컨트롤러 장애 조치가 진행 중이면 대기 컨트롤러 모듈을 종료하거나 섀시에서 제거하지 마십시오.
 * 컨트롤러 장애 조치 후 컨트롤러 모듈을 제거하기 전에 5분 이상 기다립니다.
 
@@ -230,7 +230,7 @@ StorSimple 디바이스 모델 8600에는 기본 인클로저 외에도 확장 E
 
 * 두 EBOD 인클로저 컨트롤러 모듈, 두 SAS 케이블 및 모든 하드 디스크 드라이브가 설치되어 있어야 합니다.
 * EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 즉시 교체를 요청합니다.
-* EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 오류가 있는 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인합니다. 컨트롤러가 활성인지 확인하려면 [장치의 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
+* EBOD 인클로저 컨트롤러 모듈에 오류가 있는 경우 오류가 있는 모듈을 교체하기 전에 다른 컨트롤러 모듈이 활성 상태인지 확인합니다. 컨트롤러가 활성인지 확인하려면 [디바이스의 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동하세요.
 * EBOD 컨트롤러 모듈을 교체하는 동안 **모니터** > **하드웨어 상태**에 액세스하여 StorSimple 디바이스 관리자 서비스의 구성 요소 상태를 연속해서 모니터링합니다.
 * SAS 케이블에 오류가 있거나 교체가 필요한 경우(확인을 위해 Microsoft 지원이 포함되어야 함) 교체가 필요한 SAS 케이블만 제거해야 합니다.
 * 언제든지 시스템에서 두 SAS 케이블을 동시에 제거하지 마십시오.

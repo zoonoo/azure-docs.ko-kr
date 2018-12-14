@@ -37,7 +37,7 @@ VPN Gateway 연결을 통해 Azure 내 Virtual Network와 온-프레미스 IT �
 
 VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 
-- 온-프레미스 VPN 장치([유효성 검사된 VPN 장치](vpn-gateway-about-vpn-devices.md#devicetable) 목록 보기).
+- 온-프레미스 VPN 디바이스([유효성 검사된 VPN 디바이스](vpn-gateway-about-vpn-devices.md#devicetable) 목록 보기).
 - 공용 인터넷
 - Azure VPN Gateway
 - Azure VM
@@ -126,11 +126,11 @@ Windows 탐색기를 사용하거나 RDP 세션을 통해 끌어서 놓으면 �
 ![느린 파일 복사 문제](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - 부족한 VM 디스크 읽기/쓰기 속도. 자세한 내용은 [Azure Storage 문제 해결](../storage/common/storage-e2e-troubleshooting.md)을 참조하세요.
 
-## <a name="on-premises-device-external-facing-interface"></a>온-프레미스 장치 외부 연결 인터페이스
-온-프레미스 VPN 장치 인터넷 연결 IP 주소가 Azure의 [로컬 네트워크](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) 정의에 포함된 경우 VPN, 간헐적인 연결 해제 또는 성능 문제가 표시되지 않을 수 있습니다.
+## <a name="on-premises-device-external-facing-interface"></a>온-프레미스 디바이스 외부 연결 인터페이스
+온-프레미스 VPN 디바이스 인터넷 연결 IP 주소가 Azure의 [로컬 네트워크](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) 정의에 포함된 경우 VPN, 간헐적인 연결 해제 또는 성능 문제가 표시되지 않을 수 있습니다.
 
 ## <a name="checking-latency"></a>대기 시간 확인
-tracert를 통해 Microsoft Azure Edge 장치를 추적하여 홉 사이에 100ms를 초과하는 지연이 있는지 확인합니다.
+tracert를 통해 Microsoft Azure Edge 디바이스를 추적하여 홉 사이에 100ms를 초과하는 지연이 있는지 확인합니다.
 
 온-프레미스 네트워크에서 Azure Gateway 또는 VM의 VIP에 대해 *tracert*를 실행합니다. 반환된 *만 확인하면 Azure 가장자리에 도달했음을 알 수 있습니다. 반환된 “MSN”이 포함된 DNS 이름을 확인하면 Microsoft 백본에 도달했음을 알 수 있습니다.<br><br>
 ![대기 시간 확인](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)

@@ -30,7 +30,7 @@ ms.locfileid: "51621264"
 ![단일 AD FS로 다중 테넌트 페더레이션](./media/how-to-connect-fed-single-adfs-multitenant-federation/concept.png)
  
 > [!NOTE]
-> 이 시나리오에서는 장치 쓰기 저장 및 자동 장치 연결이 지원되지 않습니다.
+> 이 시나리오에서는 디바이스 쓰기 저장 및 자동 디바이스 연결이 지원되지 않습니다.
 
 > [!NOTE]
 > Azure AD Connect는 단일 Azure AD에서 도메인에 대한 페더레이션을 구성할 수 있으므로 이 시나리오에서 페더레이션을 구성하는 데 사용할 수 없습니다.

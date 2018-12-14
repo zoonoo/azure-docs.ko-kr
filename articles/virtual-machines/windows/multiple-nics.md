@@ -276,7 +276,7 @@ Azure에서는 가상 머신에 연결된 첫 번째(기본) 네트워크 인터
     ping 192.168.3.4 -S 192.168.2.4
     ```
 
-    다음 명령을 사용하여 ping하는 장치의 Windows 방화벽을 통해 ICMP를 열어야 할 수도 있습니다.
+    다음 명령을 사용하여 ping하는 디바이스의 Windows 방화벽을 통해 ICMP를 열어야 할 수도 있습니다.
   
       ```
       netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow

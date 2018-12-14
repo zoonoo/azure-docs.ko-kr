@@ -36,7 +36,7 @@ ms.locfileid: "51004887"
 
     [![장치 세부 정보 페이지](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
-## <a name="add-a-device"></a>장치 추가
+## <a name="add-a-device"></a>디바이스 추가
 
 Azure IoT Central 응용 프로그램에 장치를 추가하려면:
 
@@ -49,7 +49,7 @@ Azure IoT Central 응용 프로그램에 장치를 추가하려면:
 1. **실제 장치** 또는 **시뮬레이션된 장치**를 선택합니다. 실제 장치는 Azure IoT Central 응용 프로그램에 연결하는 물리적 장치입니다. 시뮬레이션된 장치에는 Azure IoT Central에서 생성한 샘플 데이터가 있습니다. 이 예제에서는 실제 장치를 사용합니다. **실제 장치**를 선택하여 새 장치의 **장치 세부 정보** 페이지로 이동합니다.
 
 
-## <a name="import-devices"></a>장치 가져오기
+## <a name="import-devices"></a>디바이스 가져오기
 
 대량의 장치를 응용 프로그램에 연결할 수 있도록 Azure IoT Central은 CSV 파일을 통해 장치 대량 가져오기 기능을 제공합니다. CSV 파일에는 다음 열 및 헤더가 있어야 합니다.
 1.  IOTC_DeviceID**<span style="color:Red">(소문자여야 함)</span>**

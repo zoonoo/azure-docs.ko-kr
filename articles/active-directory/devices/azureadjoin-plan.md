@@ -347,7 +347,7 @@ MAM은 Azure AD 조인에 적용되지 않습니다.
 
 Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급자는 디바이스 관리가 시작되는 즉시 디바이스에 준수 플래그를 지정합니다. 
 
-![규정 준수 장치](./media/azureadjoin-plan/46.png)
+![규정 준수 디바이스](./media/azureadjoin-plan/46.png)
 
 이 구현을 사용하여 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스를 요구](../conditional-access/require-managed-devices.md)할 수 있습니다.
 

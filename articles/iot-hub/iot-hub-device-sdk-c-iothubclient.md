@@ -1,6 +1,6 @@
 ---
-title: C용 Azure IoT 장치 SDK – IoTHubClient | Microsoft Docs
-description: C용 Azure IoT 장치 SDK에서 IoTHubClient 라이브러리를 사용하여 IoT Hub와 통신하는 장치 앱을 만드는 방법입니다.
+title: C용 Azure IoT 디바이스 SDK – IoTHubClient | Microsoft Docs
+description: C용 Azure IoT 디바이스 SDK에서 IoTHubClient 라이브러리를 사용하여 IoT Hub와 통신하는 디바이스 앱을 만드는 방법입니다.
 author: yzhong94
 ms.service: iot-hub
 services: iot-hub
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/25/2018
 ms.locfileid: "50024772"
 ---
-# <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 장치 SDK – IoTHubClient에 대한 자세한 정보
+# <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C용 Azure IoT 디바이스 SDK – IoTHubClient에 대한 자세한 정보
 
 [C용 Azure IoT 장치 SDK](iot-hub-device-sdk-c-intro.md)는 **C용 Azure IoT 장치 SDK**를 소개하는 이 시리즈의 첫 번째 문서입니다. 첫 번째 문서에서 SDK에 두 아키텍처 계층이 있다는 것을 설명했습니다. 맨 하단은 IoT Hub와의 통신을 직접 관리하는 **IoTHubClient** 라이브러리입니다. 직렬화 서비스를 제공하기 위해 위쪽에 구축되는 **serializer** 라이브러리도 있습니다. 이 문서에서는 **IoTHubClient** 라이브러리에 대한 추가 세부 정보를 제공합니다.
 
@@ -114,7 +114,7 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 }
 ```
 
-이 코드는 버퍼의 모든 이벤트가 IoT Hub로 전송될 때까지 **IoTHubClient\_LL\_DoWork**를 호출합니다. 이 또한 대기 상태인 모든 메시지를 수신함을 의미하지 않습니다. 이것은 "모든" 메시지를 확인하는 것으로 동작이 결정되는 것은 아니기 때문입니다. 가령, "모든" 메시지를 가져온 직후 장치에 다른 메시지가 전송된다면 어떻게 될까요? 이를 처리하기 위한 더 나은 방법은 프로그래밍 방식의 시간 제한을 사용하는 것입니다. 예를 들어, 메시지 콜백 함수가 호출될 때마다 타이머를 재설정할 수 있습니다. 그런 다음 예를 들어, 마지막 *X* 초에 수신된 메시지가 없으면 처리를 진행하는 논리를 작성할 수 있습니다.
+이 코드는 버퍼의 모든 이벤트가 IoT Hub로 전송될 때까지 **IoTHubClient\_LL\_DoWork**를 호출합니다. 이 또한 대기 상태인 모든 메시지를 수신함을 의미하지 않습니다. 이것은 "모든" 메시지를 확인하는 것으로 동작이 결정되는 것은 아니기 때문입니다. 가령, "모든" 메시지를 가져온 직후 디바이스에 다른 메시지가 전송된다면 어떻게 될까요? 이를 처리하기 위한 더 나은 방법은 프로그래밍 방식의 시간 제한을 사용하는 것입니다. 예를 들어, 메시지 콜백 함수가 호출될 때마다 타이머를 재설정할 수 있습니다. 그런 다음 예를 들어, 마지막 *X* 초에 수신된 메시지가 없으면 처리를 진행하는 논리를 작성할 수 있습니다.
 
 이벤트 수신 및 메시지 수신을 완료했으면 해당 함수를 호출하여 리소스를 정리해야 합니다.
 
@@ -122,7 +122,7 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-기본적으로 백그라운드 스레드로 데이터를 전송 및 수신하는 API 집합이 하나만 있으며 백그라운드 스레드 없이 동일한 작업을 수행하는 API 집합도 있습니다. 많은 개발자들이 비-LL API를 선호하지만, 개발자가 네트워크 전송을 명시적으로 제어하고자 하는 경우에는 하위 수준 API가 유용합니다. 예를 들어, 일부 장치에서 시간에 따라 데이터를 수집하고 지정된 간격(예: 1시간에 한 번, 하루에 한 번)으로만 이벤트를 수신합니다. 하위 수준 API는 IoT Hub에서 데이터 전송 및 수신 시 명시적으로 제어하는 기능을 제공합니다. 하위 수준 API가 제공하는 단순성만을 선호하는 사람도 있습니다. 일부 작업이 백그라운드로 수행되지 않고 모두 메인 스레드에서 수행됩니다.
+기본적으로 백그라운드 스레드로 데이터를 전송 및 수신하는 API 집합이 하나만 있으며 백그라운드 스레드 없이 동일한 작업을 수행하는 API 집합도 있습니다. 많은 개발자들이 비-LL API를 선호하지만, 개발자가 네트워크 전송을 명시적으로 제어하고자 하는 경우에는 하위 수준 API가 유용합니다. 예를 들어, 일부 디바이스에서 시간에 따라 데이터를 수집하고 지정된 간격(예: 1시간에 한 번, 하루에 한 번)으로만 이벤트를 수신합니다. 하위 수준 API는 IoT Hub에서 데이터 전송 및 수신 시 명시적으로 제어하는 기능을 제공합니다. 하위 수준 API가 제공하는 단순성만을 선호하는 사람도 있습니다. 일부 작업이 백그라운드로 수행되지 않고 모두 메인 스레드에서 수행됩니다.
 
 어떤 모델을 선택하든 사용하는 API와 일관되어야 합니다. **IoTHubClient\_LL\_CreateFromConnectionString**을 호출하여 시작하는 경우 후속 작업에 해당하는 하위 수준 API만 사용해야 합니다.
 
@@ -214,13 +214,13 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 
 * **IOTHUBMESSAGE\_ABANDONED** – 메시지가 성공적으로 처리되지 않았지만 **IoTHubClient** 라이브러리는 같은 메시지로 콜백 함수를 다시 호출해야 합니다.
 
-처음 두 반환 코드에서 **IoTHubClient** 라이브러리는 IoT Hub에 메시지를 전송하며 해당 메시지를 디바이스의 큐에서 삭제하고 다시 전달하지 않아야 함을 나타냅니다. 최종 결과는 동일하지만(장치의 큐에서 메시지가 삭제됨) 메시지를 수락 또는 거부할지 여부는 계속 기록됩니다.  이러한 구분을 기록하는 것은 피드백을 수신 대기하고 장치가 특정 메시지를 수락 또는 거부했는지를 파악하는 메시지 보낸 사람에게 유용합니다.
+처음 두 반환 코드에서 **IoTHubClient** 라이브러리는 IoT Hub에 메시지를 전송하며 해당 메시지를 디바이스의 큐에서 삭제하고 다시 전달하지 않아야 함을 나타냅니다. 최종 결과는 동일하지만(디바이스의 큐에서 메시지가 삭제됨) 메시지를 수락 또는 거부할지 여부는 계속 기록됩니다.  이러한 구분을 기록하는 것은 피드백을 수신 대기하고 디바이스가 특정 메시지를 수락 또는 거부했는지를 파악하는 메시지 보낸 사람에게 유용합니다.
 
 마지막 경우에서 메시지는 IoT Hub로 전송되지만 메시지를 다시 전달해야 함을 나타냅니다. 일반적으로 일부 오류가 발생하지만 메시지를 다시 처리하려는 경우 메시지를 중단합니다. 이와 반대로, 복구할 수 없는 메시지가 발생하는 메시지를 거부하는 것이 적합합니다(또는 메시지를 처리하지 않기로 결정한 경우).
 
 어떤 경우든 다양한 반환 코드를 파악하여 **IoTHubClient** 라이브러리에서 원하는 동작을 유도할 수 있습니다.
 
-## <a name="alternate-device-credentials"></a>대체 장치 자격 증명
+## <a name="alternate-device-credentials"></a>대체 디바이스 자격 증명
 
 이전에 설명한 것처럼 **IoTHubClient** 라이브러리로 작업할 때 가장 먼저 할 일은 다음과 같은 호출로 **IOTHUB\_CLIENT\_HANDLE**을 얻는 것입니다.
 
@@ -229,15 +229,15 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle;
 iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, AMQP_Protocol);
 ```
 
-**IoTHubClient\_CreateFromConnectionString** 인수는 IoT Hub와 통신하는 데 사용할 프로토콜을 나타내는 장치 연결 문자열 및 매개 변수입니다. 장치 연결 문자열은 다음과 같은 형식입니다.
+**IoTHubClient\_CreateFromConnectionString** 인수는 IoT Hub와 통신하는 데 사용할 프로토콜을 나타내는 장치 연결 문자열 및 매개 변수입니다. 디바이스 연결 문자열은 다음과 같은 형식입니다.
 
 ```C
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-이 문자열에는 IoT Hub 이름, IoT Hub 접미사, 디바이스 ID 및 공유 액세스 키의 네 가지 정보가 있습니다. Azure 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. 장치를 IoT Hub에 등록할 때 장치 ID 및 공유 액세스 키를 가져옵니다([이전 문서](iot-hub-device-sdk-c-intro.md)에서 설명).
+이 문자열에는 IoT Hub 이름, IoT Hub 접미사, 디바이스 ID 및 공유 액세스 키의 네 가지 정보가 있습니다. Azure 포털에서 IoT Hub 인스턴스를 만들 때 IoT Hub의 정규화된 도메인 이름(FQDN)을 가져옵니다. 여기서 IoT Hub 이름(FQDN의 첫 번째 부분) 및 IoT Hub 접미사(FQDN의 나머지 부분)가 제공됩니다. 디바이스를 IoT Hub에 등록할 때 디바이스 ID 및 공유 액세스 키를 가져옵니다([이전 문서](iot-hub-device-sdk-c-intro.md)에서 설명).
 
-**IoTHubClient\_CreateFromConnectionString**은 라이브러리를 초기화하는 한 가지 방법을 제공합니다. 원하는 경우 장치 연결 문자열 대신 개별 매개 변수를 사용하여 새 **IOTHUB\_CLIENT\_HANDLE**을 만들 수 있습니다. 다음 코드로 이 작업을 수행합니다.
+**IoTHubClient\_CreateFromConnectionString**은 라이브러리를 초기화하는 한 가지 방법을 제공합니다. 원하는 경우 디바이스 연결 문자열 대신 개별 매개 변수를 사용하여 새 **IOTHUB\_CLIENT\_HANDLE**을 만들 수 있습니다. 다음 코드로 이 작업을 수행합니다.
 
 ```C
 IOTHUB_CLIENT_CONFIG iotHubClientConfig;
@@ -251,7 +251,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 
 **IoTHubClient\_CreateFromConnectionString**과 동일하게 수행됩니다.
 
-보다 구체적인 초기화 메서드보다 **IoTHubClient\_CreateFromConnectionString**을 사용하려는 것이 분명해 보일 수 있습니다. 하지만 장치를 IoT Hub에 등록할 때 연결 문자열이 아닌, 장치 ID 및 장치 키를 얻게 되는 것을 유의해야 합니다. [이전 문서](iot-hub-device-sdk-c-intro.md)에서 소개한 *장치 Explorer* SDK 도구는 **Azure IoT 서비스 SDK**의 라이브러리를 사용하여 장치 ID, 장치 키 및 IoT Hub 호스트 이름에서 장치 연결 문자열을 만듭니다. 따라서 **IoTHubClient\_LL\_Create**를 호출하면 연결 문자열을 생성하는 단계가 필요 없으므로 더 적합할 수 있습니다. 어떤 것이든 편한 방법을 사용하세요.
+보다 구체적인 초기화 메서드보다 **IoTHubClient\_CreateFromConnectionString**을 사용하려는 것이 분명해 보일 수 있습니다. 하지만 디바이스를 IoT Hub에 등록할 때 연결 문자열이 아닌, 디바이스 ID 및 디바이스 키를 얻게 되는 것을 유의해야 합니다. [이전 문서](iot-hub-device-sdk-c-intro.md)에서 소개한 *장치 Explorer* SDK 도구는 **Azure IoT 서비스 SDK**의 라이브러리를 사용하여 장치 ID, 장치 키 및 IoT Hub 호스트 이름에서 장치 연결 문자열을 만듭니다. 따라서 **IoTHubClient\_LL\_Create**를 호출하면 연결 문자열을 생성하는 단계가 필요 없으므로 더 적합할 수 있습니다. 어떤 것이든 편한 방법을 사용하세요.
 
 ## <a name="configuration-options"></a>구성 옵션
 

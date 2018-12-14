@@ -35,7 +35,7 @@ ms.locfileid: "51514739"
 * **FileUpload.py**는 Python 장치 SDK를 사용하여 파일을 저장소로 업로드합니다.
 
 > [!NOTE]
-> IoT Hub는 Azure IoT 장치 SDK를 통해 많은 장치 플랫폼 및 언어(C, .NET, Javascript, Python 및 Java 포함)를 지원합니다. Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
+> IoT Hub는 Azure IoT 디바이스 SDK를 통해 많은 디바이스 플랫폼 및 언어(C, .NET, Javascript, Python 및 Java 포함)를 지원합니다. Azure IoT Hub에 디바이스를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "51514739"
 
 ## <a name="upload-a-file-from-a-device-app"></a>디바이스 앱에서 파일 업로드
 
-이 섹션에서는 IoT Hub에 파일을 업로드하는 장치 앱을 만듭니다.
+이 섹션에서는 IoT Hub에 파일을 업로드하는 디바이스 앱을 만듭니다.
 
 1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iothub-device-client** 패키지를 설치합니다.
 

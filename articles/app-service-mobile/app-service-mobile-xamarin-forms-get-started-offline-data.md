@@ -38,7 +38,7 @@ ms.locfileid: "27594720"
 2. 솔루션 탐색기에서 이름에 **이식 가능** 이 있는 프로젝트(이식 가능한 클래스 라이브러리 프로젝트)에서 TodoItemManager.cs 파일을 연 후 다음 전처리기 지시문의 주석 처리를 제거합니다.
 
         #define OFFLINE_SYNC_ENABLED
-3. (선택 사항) Windows 장치를 지원하려면 다음 SQLite 런타임 패키지 중 하나를 설치합니다.
+3. (선택 사항) Windows 디바이스를 지원하려면 다음 SQLite 런타임 패키지 중 하나를 설치합니다.
 
    * **Windows 8.1 런타임:** [Windows 8.1][3]용 SQLite를 설치합니다.
    * **Windows Phone 8.1:** [Windows Phone 8.1][4]용 SQLite를 설치합니다.
