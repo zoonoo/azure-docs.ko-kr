@@ -571,7 +571,7 @@ Azure Storage에 관한 자세한 내용은 다음 항목에서 찾을 수 있�
 * <https://blogs.msdn.com/b/azuresecurity/archive/2015/11/17/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview.aspx>
 
 #### <a name="azure-standard-storage"></a>Azure Standard Storage
-Azure Standard Storage는 Azure IaaS가 출시되었을 때 사용할 수 있던 저장소의 유형입니다. 이 저장소에서는 IOPS 할당량이 단일 디스크 단위로 적용되었습니다. 대기 시간도 온-프레미스에 호스트된 고성능 SAP 시스템에 대해 일반적으로 배포되는 SAN/NAS 장치와 동일한 수준이 아니었습니다. 그럼에도 불구하고 Azure Standard Storage는 Azure에 배포되는 수백 가지 SAP 시스템에 충분한 것으로 입증되었습니다.
+Azure Standard Storage는 Azure IaaS가 출시되었을 때 사용할 수 있던 저장소의 유형입니다. 이 저장소에서는 IOPS 할당량이 단일 디스크 단위로 적용되었습니다. 대기 시간도 온-프레미스에 호스트된 고성능 SAP 시스템에 대해 일반적으로 배포되는 SAN/NAS 디바이스와 동일한 수준이 아니었습니다. 그럼에도 불구하고 Azure Standard Storage는 Azure에 배포되는 수백 가지 SAP 시스템에 충분한 것으로 입증되었습니다.
 
 Azure Standard Storage 계정에 저장되는 데이터는 저장된 실제 데이터, 저장소 트랜잭션 볼륨, 아웃바운드 데이터 전송 및 선택한 중복성 옵션에 따라 비용이 청구됩니다. 많은 디스크를 최대 1TB의 크기로 만들 수 있지만 비어 있는 경우에는 무료입니다. VHD를 각각 100GB로 채우면 VHD가 만들어질 때의 보통 크기가 아니라 100GB를 저장하기 위한 비용이 청구됩니다.
 
@@ -692,9 +692,9 @@ Azure Virtual Machine에 대해 여러 개의 vNIC(가상 네트워크 인터페
 
 크로스-프레미스에서는 투명한 영구 VPN 연결을 사용하여 Azure VM과 온-프레미스가 연결되어 있습니다. 이것이 Azure에서 가장 일반적인 SAP 배포 패턴이 될 것입니다. 그렇지만 Azure의 SAP 인스턴스에 대한 운영 절차 및 프로세스가 투명하게 진행되어야 합니다. 즉, 이러한 시스템에서 결과를 출력하고 SAP TMS(전송 관리 시스템)를 사용하여 Azure의 개발 시스템 변경 내용을 온-프레미스에 배포되는 테스트 시스템으로 전송할 수 있어야 합니다. 사이트 간 연결에 대한 추가 설명서는 [이 문서][vpn-gateway-create-site-to-site-rm-powershell]에 있습니다.
 
-##### <a name="vpn-tunnel-device"></a>VPN 터널 장치
+##### <a name="vpn-tunnel-device"></a>VPN 터널 디바이스
 
-사이트 간 연결(온-프레미스 데이터에서 Azure 데이터 센터로의 연결)을 만들려면 VPN 장치를 얻은 후 구성하거나 Windows Server 2012에 소프트웨어 구성 요소로 도입된 RRAS(라우팅 및 원격 액세스 서비스)를 사용해야 합니다.
+사이트 간 연결(온-프레미스 데이터에서 Azure 데이터 센터로의 연결)을 만들려면 VPN 디바이스를 얻은 후 구성하거나 Windows Server 2012에 소프트웨어 구성 요소로 도입된 RRAS(라우팅 및 원격 액세스 서비스)를 사용해야 합니다.
 
 * [PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기][vpn-gateway-create-site-to-site-rm-powershell]
 * [사이트 간 VPN Gateway 연결을 위한 VPN 장치 정보][vpn-gateway-about-vpn-devices]
@@ -1671,7 +1671,7 @@ Azure의 SAP 구현 세부 사항에 대한 배경 지식을 얻으려면 이 �
 **) sid = SAP-System-ID
 
 여러 SAP 제품에 필요한 포트 또는 SAP 제품 서비스에 대한 자세한 내용은 여기 <http://scn.sap.com/docs/DOC-17124>에서 확인할 수 있습니다.
-이 문서를 사용할 경우 특정 SAP 제품 및 시나리오에 필요한 VPN 장치에서 전용 포트를 열 수 있습니다.
+이 문서를 사용할 경우 특정 SAP 제품 및 시나리오에 필요한 VPN 디바이스에서 전용 포트를 열 수 있습니다.
 
 이러한 시나리오에서 VM을 배포할 경우 다른 보안 조치는 [네트워크 보안 그룹][virtual-networks-nsg]을 만들어 액세스 규칙을 정의할 수 있습니다.
 
@@ -1739,7 +1739,7 @@ Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정�
 - - -
 ##### <a name="usb-printer-printer-forwarding"></a>USB 프린터(프린터 전달)
 
-Azure에서는 원격 세션에서 사용자가 로컬 프린터 장치에 액세스할 수 있도록 하는 원격 데스크톱 서비스의 기능을 사용할 수 없습니다.
+Azure에서는 원격 세션에서 사용자가 로컬 프린터 디바이스에 액세스할 수 있도록 하는 원격 데스크톱 서비스의 기능을 사용할 수 없습니다.
 
 - - -
 > ![Windows][Logo_Windows] Windows
