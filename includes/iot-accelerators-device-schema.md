@@ -17,7 +17,7 @@ ms.locfileid: "39285649"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>디바이스 모델 스키마 파트
 
-냉각기 또는 트럭과 같은 장치 모델 각각은 시뮬레이션 서비스가 시뮬레이션할 수 있는 장치의 종류를 정의합니다. 각 디바이스 모델은 다음 최상위 스키마를 사용하여 JSON 파일에 저장됩니다.
+냉각기 또는 트럭과 같은 디바이스 모델 각각은 시뮬레이션 서비스가 시뮬레이션할 수 있는 디바이스의 종류를 정의합니다. 각 디바이스 모델은 다음 최상위 스키마를 사용하여 JSON 파일에 저장됩니다.
 
 ```json
 {
@@ -181,12 +181,12 @@ GitHub의 [devicemodels 폴더](https://github.com/Azure/device-simulation-dotne
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-시뮬레이션된 장치는 IoT Hub에서 호출된 클라우드-장치 메서드에 응답할 수 있습니다. 디바이스 모델 스키마 파일의 `CloudToDeviceMethods` 섹션은 다음을 수행합니다.
+시뮬레이션된 디바이스는 IoT Hub에서 호출된 클라우드-디바이스 메서드에 응답할 수 있습니다. 디바이스 모델 스키마 파일의 `CloudToDeviceMethods` 섹션은 다음을 수행합니다.
 
 * 시뮬레이션된 디바이스가 응답할 수 있는 메서드를 정의합니다.
 * 실행할 논리를 포함하는 JavaScript 파일을 식별합니다.
 
-시뮬레이션된 장치는 지원하는 메서드 목록을 연결된 IoT Hub에 전송합니다.
+시뮬레이션된 디바이스는 지원하는 메서드 목록을 연결된 IoT Hub에 전송합니다.
 
 디바이스의 동작을 구현하는 JavaScript 파일에 대한 자세한 내용은 [디바이스 모델 동작 이해](../articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md)를 참조하세요.
 

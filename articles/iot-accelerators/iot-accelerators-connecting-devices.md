@@ -15,11 +15,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/06/2018
 ms.locfileid: "48829413"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>장치를 원격 모니터링 솔루션 가속기에 연결(Windows)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>디바이스를 원격 모니터링 솔루션 가속기에 연결(Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 장치를 연결하는 방법을 보여줍니다.
+이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 디바이스를 연결하는 방법을 보여줍니다.
 
 제한된 디바이스에서 실행되는 대부분의 임베디드 애플리케이션과 마찬가지로, 디바이스 애플리케이션의 클라이언트 코드는 C로 작성됩니다. 이 자습서에서는 Windows를 실행하는 머신에서 디바이스 클라이언트 애플리케이션을 빌드합니다.
 

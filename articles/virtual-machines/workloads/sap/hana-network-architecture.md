@@ -93,7 +93,7 @@ VM과 HANA 대규모 인스턴스 간에 결정적인 네트워크 대기 시간
 앞에서 보여 준 온-프레미스 인프라는 ExpressRoute를 통해 Azure에 연결됩니다. ExpressRoute 회로는 엔터프라이즈 에지 라우터에 연결됩니다. 자세한 내용은 [ExpressRoute 기술 개요](../../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 경로가 설정되면 해당 경로가 Azure 백본에 연결되고 모든 Azure 지역에 액세스할 수 있습니다.
 
 > [!NOTE] 
-> Azure에서 SAP 자산을 실행하려면 SAP 자산에서 Azure 지역과 가장 가까운 엔터프라이즈 에지 라우터에 연결합니다. Azure 대규모 인스턴스 스탬프는 Azure IaaS 및 대규모 인스턴스 스탬프에서 VM 간의 네트워크 대기 시간을 최소화하기 위해 전용 엔터프라이즈 에지 라우터 장치를 통해 연결됩니다.
+> Azure에서 SAP 자산을 실행하려면 SAP 자산에서 Azure 지역과 가장 가까운 엔터프라이즈 에지 라우터에 연결합니다. Azure 대규모 인스턴스 스탬프는 Azure IaaS 및 대규모 인스턴스 스탬프에서 VM 간의 네트워크 대기 시간을 최소화하기 위해 전용 엔터프라이즈 에지 라우터 디바이스를 통해 연결됩니다.
 
 SAP 응용 프로그램 인스턴스를 호스팅하는 VM에 대한 가상 네트워크 게이트웨이는 ExpressRoute 회로에 연결됩니다. 동일한 가상 네트워크는 대규모 인스턴스 스탬프에 전용으로 연결하기 위해 별도의 엔터프라이즈 에지 라우터에 연결됩니다.
 

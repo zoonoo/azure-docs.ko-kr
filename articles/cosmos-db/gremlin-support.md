@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB Gremlin 지원 | Microsoft Docs
+title: Azure Cosmos DB Gremlin 지원
 description: Apache TinkerPop에서 Gremlin 언어를 알아봅니다. Azure Cosmos DB에서 어떤 기능과 단계를 사용할 수 있는지 알아보기
 services: cosmos-db
 author: LuisBosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 593b7ac636b92db5c72cfad8f73fc2c418639358
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1c54eff207de61a02a1ef752da66bb3b4f6d1580
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700215"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850349"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin 그래프 지원
 Azure Cosmos DB는 [Apache Tinkerpop](http://tinkerpop.apache.org)의 그래프 통과 언어로서, 그래프 엔터티를 만들고 그래프 쿼리를 수행하기 위한 Graph API인 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)을 지원합니다. Gremlin 언어를 사용하여 그래프 엔터티(예: 꼭짓점 및 에지)를 만들고, 해당 엔터티 내에서 속성을 수정하고, 쿼리 및 순회를 수행하고, 엔터티를 삭제할 수 있습니다. 
@@ -25,15 +23,15 @@ Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능�
 이 문서에서는 Gremlin을 빠르게 연습해볼 수 있는 과정을 제공하고, Gremlin API에서 지원되는 Gremlin 기능 및 단계를 설명합니다.
 
 ## <a name="gremlin-by-example"></a>Gremlin 예제
-샘플 그래프를 사용하여 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 장치에 대한 데이터를 그래프 형태로 관리하는 비즈니스 응용 프로그램을 보여 줍니다.  
+샘플 그래프를 사용하여 Gremlin에서 쿼리를 표현할 수 있는 방법을 살펴봅니다. 다음 그림에서는 사용자, 관심 영역 및 디바이스에 대한 데이터를 그래프 형태로 관리하는 비즈니스 응용 프로그램을 보여줍니다.  
 
-![사람, 장치 및 관심 분야를 보여 주는 샘플 데이터베이스](./media/gremlin-support/sample-graph.png) 
+![사람, 디바이스 및 관심 분야를 보여주는 샘플 데이터베이스](./media/gremlin-support/sample-graph.png) 
 
 이 그래프에는 다음과 같은 꼭짓점 유형(Gremlin의 "레이블")이 있습니다.
 
 - 사람: 그래프에는 Robin, Thomas 및 Ben 세 사람이 있음
 - 관심 분야: 관심 있는 분야로 이 예제에서는 축구 게임
-- 장치: 사람들이 사용하는 장치
+- 디바이스: 사람들이 사용하는 디바이스
 - 운영 체제: 장치가 실행되는 운영 체제
 
 위 엔터티 간 관계는 다음 에지 유형/레이블을 통해 나타냅니다.
@@ -41,7 +39,7 @@ Azure Cosmos DB는 그래프 데이터베이스에 엔터프라이즈급 기능�
 - Knows: 예: "Thomas knows Robin"
 - Interested: 그래프에서 사람의 관심 분야를 나타내는 데 사용합니다(예: "Ben is interested in Football").
 - RunsOS: 랩톱은 Windows OS를 실행합니다.
-- Uses: 사람이 사용하는 장치를 나타냅니다. 예를 들어 Robin은 일련 번호가 77인 Motorola 휴대폰을 사용합니다.
+- Uses: 사람이 사용하는 디바이스를 나타냅니다. 예를 들어 Robin은 일련 번호가 77인 Motorola 휴대폰을 사용합니다.
 
 [Gremlin 콘솔](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)을 사용하여 이 그래프에 대해 일부 작업을 실행해 보겠습니다. 또한 원하는 플랫폼(Java, Node.js, Python 또는 .NET)에서 Gremlin 드라이버를 사용하여 이러한 작업을 수행할 수도 있습니다.  Azure Cosmos DB에서 지원되는 기능을 살펴보기 전에 구문에 익숙해질 수 있는 몇 가지 예제를 확인해 보겠습니다.
 

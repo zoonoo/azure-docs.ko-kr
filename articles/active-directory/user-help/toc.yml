@@ -63,7 +63,7 @@ items:
     href: active-directory-saas-access-panel-introduction.md
   - name: 문제 해결
     href: active-directory-saas-access-panel-user-help.md
-- name: 장치 관리 도움말
+- name: 디바이스 관리 도움말
   items:
   - name: 개요
     href: user-help-device-mgmt-overview.md

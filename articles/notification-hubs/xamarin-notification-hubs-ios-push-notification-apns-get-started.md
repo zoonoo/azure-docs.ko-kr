@@ -222,7 +222,7 @@ ms.locfileid: "42917706"
 
 ## <a name="send-test-push-notifications"></a>테스트 푸시 알림 보내기
 
-[Azure Portal]에서 *테스트 보내기* 옵션을 사용하여 앱에서 알림 수신을 테스트할 수 있습니다. 이렇게 하면 테스트 푸시 알림이 장치로 전송됩니다.
+[Azure Portal]에서 *테스트 보내기* 옵션을 사용하여 앱에서 알림 수신을 테스트할 수 있습니다. 이렇게 하면 테스트 푸시 알림이 디바이스로 전송됩니다.
 
 ![Azure Portal - 보내기 테스트][30]
 
@@ -230,7 +230,7 @@ ms.locfileid: "42917706"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 백 엔드에 등록된 모든 iOS 장치로 브로드캐스트 알림을 보냈습니다. 특정 iOS 장치로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
+이 자습서에서는 백 엔드에 등록된 모든 iOS 장치로 브로드캐스트 알림을 보냈습니다. 특정 iOS 디바이스로 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 >[특정 장치에 알림 푸시](notification-hubs-ios-xplat-segmented-apns-push-notification.md)

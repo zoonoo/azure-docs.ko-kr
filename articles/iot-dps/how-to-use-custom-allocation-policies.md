@@ -387,7 +387,7 @@ Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하
     cd cmake
     ```
 
-4. 개발 클라이언트 플랫폼에 관련된 SDK 버전을 빌드하는 다음 명령을 실행합니다. 또한 시뮬레이션된 장치에 대한 Visual Studio 솔루션이 `cmake` 디렉터리에서 생성됩니다. 
+4. 개발 클라이언트 플랫폼에 관련된 SDK 버전을 빌드하는 다음 명령을 실행합니다. 또한 시뮬레이션된 디바이스에 대한 Visual Studio 솔루션이 `cmake` 디렉터리에서 생성됩니다. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON ..

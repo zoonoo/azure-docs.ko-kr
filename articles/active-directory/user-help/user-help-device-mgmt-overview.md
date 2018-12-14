@@ -1,6 +1,6 @@
 ---
-title: 장치 개요 관리 - Azure Active Directory | Microsoft Docs
-description: 조직의 네트워크에서 장치를 조인 및 등록하는 방법을 알아봅니다.
+title: 디바이스 개요 관리 - Azure Active Directory | Microsoft Docs
+description: 조직의 네트워크에서 디바이스를 조인 및 등록하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/17/2018
 ms.locfileid: "42023599"
 ---
-# <a name="manage-my-devices-overview"></a>장치 개요 관리
+# <a name="manage-my-devices-overview"></a>디바이스 개요 관리
 
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.

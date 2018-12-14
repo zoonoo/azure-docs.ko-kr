@@ -15,13 +15,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/06/2018
 ms.locfileid: "48829837"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>장치를 원격 모니터링 솔루션 가속기에 연결(Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>디바이스를 원격 모니터링 솔루션 가속기에 연결(Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 장치를 연결하는 방법을 보여줍니다.
+이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 디바이스를 연결하는 방법을 보여줍니다.
 
-제한된 장치에서 실행되는 대부분의 임베디드 응용 프로그램과 마찬가지로, 장치 응용 프로그램의 클라이언트 코드는 C로 작성됩니다. 이 자습서에서는 Ubuntu(Linux)를 실행하는 컴퓨터에서 응용 프로그램을 빌드합니다.
+제한된 디바이스에서 실행되는 대부분의 임베디드 응용 프로그램과 마찬가지로, 디바이스 응용 프로그램의 클라이언트 코드는 C로 작성됩니다. 이 자습서에서는 Ubuntu(Linux)를 실행하는 컴퓨터에서 응용 프로그램을 빌드합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

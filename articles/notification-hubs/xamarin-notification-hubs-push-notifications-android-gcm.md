@@ -239,7 +239,7 @@ ms.locfileid: "41918511"
 16. 장치 또는 로드된 에뮬레이터에서 앱을 **실행**합니다.
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Azure Portal에서 테스트 알림 전송
-[Azure Portal]에서 *테스트 보내기* 옵션을 사용하여 앱에서 알림 수신을 테스트할 수 있습니다. 이렇게 하면 테스트 푸시 알림이 장치로 전송됩니다.
+[Azure Portal]에서 *테스트 보내기* 옵션을 사용하여 앱에서 알림 수신을 테스트할 수 있습니다. 이렇게 하면 테스트 푸시 알림이 디바이스로 전송됩니다.
 
 ![Azure Portal - 보내기 테스트](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 

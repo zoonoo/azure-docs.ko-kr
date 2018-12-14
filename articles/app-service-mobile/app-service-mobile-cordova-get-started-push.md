@@ -43,7 +43,7 @@ ms.locfileid: "42817959"
 * 완료된 [Apache Cordova 빠른 시작][5] 프로젝트
 * (Android)검증된 메일 주소를 사용하는 [Google 계정][6]
 * (iOS)[Apple 개발자 프로그램 멤버 자격][7] 및 iOS 장치(iOS 시뮬레이터는 푸시 알림을 지원하지 않음)
-* (Windows)[Microsoft Store 개발자 계정][8] 및 Windows 10 장치
+* (Windows) [Microsoft Store 개발자 계정][8] 및 Windows 10 디바이스
 
 ## <a name="configure-hub"></a>알림 허브 구성
 

@@ -32,9 +32,9 @@ ms.locfileid: "51037364"
 
 디바이스를 통해 사용자가 회사 자산에 액세스하게 됩니다. IT 관리자로써 회사 자산을 보호하기 위해 이러한 디바이스를 제어할 수 있어야 합니다. 이 기능을 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 디바이스에서 사용자 리소스에 사용자가 액세스할 수 있습니다. 
 
-디바이스 관리는 [디바이스 기반 조건부 액세스](../conditional-access/require-managed-devices.md)의 토대이기도 합니다. 장치 기반 조건부 액세스를 사용할 경우 관리 장치를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.   
+디바이스 관리는 [디바이스 기반 조건부 액세스](../conditional-access/require-managed-devices.md)의 토대이기도 합니다. 디바이스 기반 조건부 액세스를 사용할 경우 관리 디바이스를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.   
 
-이 문서에서는 Azure Active Directory에서 장치 관리가 작동되는 방식을 설명합니다.
+이 문서에서는 Azure Active Directory에서 디바이스 관리가 작동되는 방식을 설명합니다.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Azure AD에서 제어하는 디바이스 얻기
 
@@ -70,7 +70,7 @@ Azure AD 가입 디바이스의 목표는 단순화하는 것입니다.
 
 - 회사 소유 디바이스의 Windows 배포 
 - 모든 Windows 디바이스에서 조직의 앱 및 리소스에 액세스
-- 회사 소유 장치의 클라우드 기반 관리
+- 회사 소유 디바이스의 클라우드 기반 관리
 
 ![Azure AD 등록 디바이스](./media/overview/02.png)
 
@@ -128,9 +128,9 @@ Windows 10 디바이스에 대한 Azure AD 가입 디바이스를 구성할 수 
 
 다음과 같은 경우에 Azure AD 하이브리드 가입 디바이스를 사용해야 합니다.
 
-- Active Directory 컴퓨터 인증을 사용하는 장치에 Win32 앱을 배포했습니다.
+- Active Directory 컴퓨터 인증을 사용하는 디바이스에 Win32 앱을 배포했습니다.
 
-- 장치를 관리하는 데 GP가 필요합니다.
+- 디바이스를 관리하는 데 GP가 필요합니다.
 
 - 직원에 대해 장치를 구성하도록 이미징 솔루션을 계속 사용하려고 합니다.
 
@@ -183,6 +183,6 @@ thumb의 규칙으로 인해 다음을 사용해야 합니다.
 - 설정:
     - Azure Active Directory Windows 10 디바이스를 설정하려면 [Azure Active Directory 등록 Windows 10 디바이스를 구성하는 방법](../user-help/device-management-azuread-registered-devices-windows10-setup.md) 참조
     - Azure Active Directory 조인 디바이스를 설정하려면 [Azure Active Directory 조인 디바이스를 구성하는 방법](../user-help/device-management-azuread-joined-devices-setup.md) 참조
-    - 하이브리드 Azure AD 조인 장치는 [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](hybrid-azuread-join-plan.md)을 참조하세요.
+    - 하이브리드 Azure AD 조인 디바이스는 [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](hybrid-azuread-join-plan.md)을 참조하세요.
 
 

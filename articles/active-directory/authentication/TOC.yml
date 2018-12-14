@@ -129,9 +129,9 @@ items:
     - name: 인증서 인증 시작
       href: active-directory-certificate-based-authentication-get-started.md
       items:
-      - name: Android 장치의 CBA
+      - name: Android 디바이스의 CBA
         href: active-directory-certificate-based-authentication-android.md
-      - name: iOS 장치의 CBA
+      - name: iOS 디바이스의 CBA
         href: active-directory-certificate-based-authentication-ios.md
   - name: 개발
     items:

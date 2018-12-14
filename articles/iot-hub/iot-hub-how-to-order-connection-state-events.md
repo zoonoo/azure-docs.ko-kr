@@ -267,7 +267,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 ### <a name="register-a-device-in-iot-hub"></a>IoT Hub에 디바이스 등록
 
-1. IoT 허브에서 **IoT 장치**를 선택합니다. 
+1. IoT 허브에서 **IoT 디바이스**를 선택합니다. 
 
 2. **추가**를 선택합니다.
 

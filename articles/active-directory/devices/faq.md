@@ -47,7 +47,7 @@ Azure Portal에서 모든 디바이스 보기를 사용해야 합니다. PowerSh
 
 **Q: Azure Portal에서 사용자 정보에 장치 레코드가 표시되고 장치에 등록된 상태로 표시됩니다. 조건부 액세스를 사용할 수 있게 제대로 설정되어 있는 것인가요?**
 
-**A:** deviceID로 리플렉션된 장치 가입 상태는 Azure AD의 가입 상태와 일치해야 하며 조건부 액세스에 대한 평가 조건을 만족해야 합니다. 자세한 내용은 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 장치 필요](../conditional-access/require-managed-devices.md)를 참조하세요.
+**A:** deviceID로 리플렉션된 장치 가입 상태는 Azure AD의 가입 상태와 일치해야 하며 조건부 액세스에 대한 평가 조건을 만족해야 합니다. 자세한 내용은 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스 필요](../conditional-access/require-managed-devices.md)를 참조하세요.
 
 ---
 
@@ -77,13 +77,13 @@ Azure Portal에서 모든 디바이스 보기를 사용해야 합니다. PowerSh
 
 **A:**
 
--   Windows 10 및 Windows Server 2016의 경우 같은 장치를 반복해서 조인을 취소했다가 다시 조인하면 중복된 항목이 나타날 수 있습니다. 
+-   Windows 10 및 Windows Server 2016의 경우 같은 디바이스를 반복해서 조인을 취소했다가 다시 조인하면 중복된 항목이 나타날 수 있습니다. 
 
 -   회사 또는 학교 계정 추가를 사용한 경우 회사 또는 학교 계정 추가를 사용하는 각 Windows 사용자는 디바이스 이름이 같은 새 디바이스 레코드를 만들게 됩니다.
 
 -   자동 등록을 사용하여 온-프레미스 AD 도메인에 가입된 하위 수준 Windows OS 버전을 장치에 로그인하는 각 도메인 사용자에 대해 장치 이름이 같은 새 장치 레코드를 만듭니다. 
 
--   초기화되었다가 같은 이름으로 다시 설치되고 다시 조인한 Azure AD 가입 머신은 장치 이름이 같은 다른 레코드로 표시됩니다.
+-   초기화되었다가 같은 이름으로 다시 설치되고 다시 조인한 Azure AD 가입 머신은 디바이스 이름이 같은 다른 레코드로 표시됩니다.
 
 ---
 
@@ -92,7 +92,7 @@ Azure Portal에서 모든 디바이스 보기를 사용해야 합니다. PowerSh
 **A:** 해지가 적용되는 데는 최대 1시간이 소요될 수 있습니다.
 
 >[!Note] 
->등록된 장치의 경우에는 장치를 초기화하여 사용자가 리소스에 액세스하지 못하게 하는 것이 좋습니다. 자세한 내용은 [Intune에서 관리를 위해 장치 등록](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)을 참조하세요. 
+>등록된 장치의 경우에는 장치를 초기화하여 사용자가 리소스에 액세스하지 못하게 하는 것이 좋습니다. 자세한 내용은 [Intune에서 관리를 위해 디바이스 등록](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)을 참조하세요. 
 
 ---
 
@@ -121,7 +121,7 @@ Azure Portal에서 모든 디바이스 보기를 사용해야 합니다. PowerSh
 
 ---
 
-**Q: 사용자가 Azure AD 조인 장치에서 프린터를 검색할 수 없습니다. Azure AD 조인 장치에서 어떻게 인쇄를 사용하도록 설정할 수 있나요?**
+**Q: 사용자가 Azure AD 조인 장치에서 프린터를 검색할 수 없습니다. Azure AD 조인 디바이스에서 어떻게 인쇄를 사용하도록 설정할 수 있나요?**
 
 **A:** Azure AD 조인 장치용 프린터를 배포하려면 [Hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)(하이브리드 클라우드 인쇄)를 참조하세요. 하이브리드 클라우드 인쇄를 배포하려면 온-프레미스 Windows Server가 필요합니다. 현재는 클라우드 기반 인쇄 서비스를 사용할 수 없습니다. 
 
@@ -140,7 +140,7 @@ Azure Portal에서 모든 디바이스 보기를 사용해야 합니다. PowerSh
 
 **Q: 일부 사용자가 Azure AD 조인 장치에서 MFA 프롬프트를 확인하지 못하는 이유는 무엇인가요?**
 
-**A:** 사용자가 다단계 인증을 사용하여 Azure AD에 장치를 조인하거나 등록하는 경우, 장치 자체는 해당 특정 사용자에 대한 신뢰할 수 있는 두 번째 요소가 됩니다. 이후에 동일한 사용자가 장치에 로그인하고 응용 프로그램에 액세스할 때마다 Azure AD는 장치를 두 번째 요소로 간주하고 사용자가 추가 MFA 프롬프트 없이 응용 프로그램에 원활하게 액세스할 수 있도록 합니다. 이 동작은 해당 장치에 로그인하는 다른 사용자에게 적용되지 않으므로, 해당 장치에 액세스하는 다른 모든 사용자에게 MFA가 필요한 응용 프로그램에 액세스하기 전에 MFA 인증 질문이 표시됩니다.
+**A:** 사용자가 다단계 인증을 사용하여 Azure AD에 장치를 조인하거나 등록하는 경우, 장치 자체는 해당 특정 사용자에 대한 신뢰할 수 있는 두 번째 요소가 됩니다. 이후에 동일한 사용자가 디바이스에 로그인하고 응용 프로그램에 액세스할 때마다 Azure AD는 디바이스를 두 번째 요소로 간주하고 사용자가 추가 MFA 프롬프트 없이 응용 프로그램에 원활하게 액세스할 수 있도록 합니다. 이 동작은 해당 디바이스에 로그인하는 다른 사용자에게 적용되지 않으므로, 해당 디바이스에 액세스하는 다른 모든 사용자에게 MFA가 필요한 응용 프로그램에 액세스하기 전에 MFA 인증 질문이 표시됩니다.
 
 ---
 
@@ -160,7 +160,7 @@ Azure Portal에서 모든 디바이스 보기를 사용해야 합니다. PowerSh
 
 **Q: PC를 Azure AD에 가입하려고 할 때 "오류가 발생했습니다." 대화 상자가 표시되는 이유는 무엇인가요?**
 
-**A:** Intune에 Azure Active Directory를 등록했기 때문입니다. Azure AD 가입을 시도하는 사용자에게 올바른 Intune 라이선스가 할당되어 있는지 확인하세요. 자세한 내용은 [Windows 장치 관리 설정](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment)을 참조하세요.  
+**A:** Intune에 Azure Active Directory를 등록했기 때문입니다. Azure AD 가입을 시도하는 사용자에게 올바른 Intune 라이선스가 할당되어 있는지 확인하세요. 자세한 내용은 [Windows 디바이스 관리 설정](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment)을 참조하세요.  
 
 ---
 
@@ -187,7 +187,7 @@ Azure Portal에서 모든 디바이스 보기를 사용해야 합니다. PowerSh
 
 **Q: Android 또는 iOS BYOD 장치를 등록할 수 있나요?**
 
-**A:** 예, 하이브리드 고객만 Azure 장치 등록 서비스를 사용하여 등록할 수 있습니다. AD FS의 온-프레미스 장치 등록 서비스에서는 지원되지 않습니다.
+**A:** 예, 하이브리드 고객만 Azure 장치 등록 서비스를 사용하여 등록할 수 있습니다. AD FS의 온-프레미스 디바이스 등록 서비스에서는 지원되지 않습니다.
 
 **Q: macOS 장치를 등록하려면 어떻게 할까요?**
 

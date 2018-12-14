@@ -48,7 +48,7 @@ Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표�
 
 메뉴 모음에서 **디바이스 모델**을 선택합니다. **장치 모델** 페이지는 이 장치 시뮬레이션의 인스턴스에 있는 사용 가능한 모든 장치 모델을 나열합니다.
 
-![장치 모델](media/iot-accelerators-device-simulation-create-custom-device/devicemodelnav.png)
+![디바이스 모델](media/iot-accelerators-device-simulation-create-custom-device/devicemodelnav.png)
 
 ## <a name="create-a-device-model"></a>디바이스 모델 만들기
 

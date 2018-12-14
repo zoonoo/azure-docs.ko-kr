@@ -67,7 +67,7 @@ Python용 Azure IoT Hub 장치 SDK:
 * [소스 코드](https://github.com/Azure/azure-iot-sdk-python)
 * API 참조: [C API 참조](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/) 참조
 
-iOS용 Azure IoT Hub 장치 SDK: 
+iOS용 Azure IoT Hub 디바이스 SDK: 
 
 * [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)에서 설치
 * [샘플](https://github.com/Azure-Samples/azure-iot-samples-ios)

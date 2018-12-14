@@ -50,7 +50,7 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 
 디바이스의 직접 메서드 호출은 다음 항목으로 구성된 HTTPS 호출입니다.
 
-* 장치와 관련된 *요청 URI* 및 [API 버전](/rest/api/iothub/service/invokedevicemethod):
+* 디바이스와 관련된 *요청 URI* 및 [API 버전](/rest/api/iothub/service/invokedevicemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30

@@ -37,7 +37,7 @@ ms.locfileid: "52446741"
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다. 
 
-장치에서 모듈을 테스트하려면 하나 이상의 IoT Edge 장치가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 디바이스로 사용하려면 [Linux](quickstart-linux.md)용 빠른 시작의 단계에 따릅니다. 
+디바이스에서 모듈을 테스트하려면 하나 이상의 IoT Edge 디바이스가 있는 활성 IoT Hub가 필요합니다. 컴퓨터를 IoT Edge 디바이스로 사용하려면 [Linux](quickstart-linux.md)용 빠른 시작의 단계에 따릅니다. 
 
 ## <a name="create-a-new-solution-template"></a>새 솔루션 템플릿 만들기
 
@@ -79,9 +79,9 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 
 ## <a name="develop-your-module"></a>모듈 개발
 
-솔루션과 함께 제공되는 기본 C 모듈 코드는 **modules** > [모듈 이름] > **main.c**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
+솔루션과 함께 제공되는 기본 C 모듈 코드는 **modules** > [모듈 이름] > **main.c**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 디바이스에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
-고유한 코드를 사용하여 C 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
+고유한 코드를 사용하여 C 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 디바이스 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
 
 ## <a name="build-and-deploy-your-module-for-debugging"></a>디버그를 위해 모듈 빌드 및 배포
 
@@ -90,7 +90,7 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만든 다음,
 1. VS Code에서 `deployment.debug.template.json` 파일로 이동합니다. 이 파일에는 적절한 만들기 옵션이 있는 디버그 버전의 모듈 이미지가 포함됩니다. 
 2. VS Code 명령 팔레트에서 **Azure IoT Edge: IoT Edge 솔루션 빌드 및 푸시** 명령을 입력하고 실행합니다.
 3. 명령 팔레트에서 솔루션의 `deployment.debug.template.json` 파일을 선택합니다. 
-4. Azure IoT Hub Device Explorer에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭합니다. 그런 후 **단일 디바이스용 배포 만들기**를 선택합니다. 
+4. Azure IoT Hub Device Explorer에서 IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭합니다. 그런 후 **단일 디바이스용 배포 만들기**를 선택합니다. 
 5. 솔루션의 **config** 폴더를 엽니다. 그런 다음, `deployment.debug.amd64.json` 파일을 선택합니다. **Edge 배포 매니페스트 선택**을 선택합니다. 
 
 VS Code 통합 터미널에서 배포 ID를 사용하여 생성된 배포가 표시됩니다.

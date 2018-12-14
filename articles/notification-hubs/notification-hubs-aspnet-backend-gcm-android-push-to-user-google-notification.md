@@ -25,7 +25,7 @@ ms.locfileid: "33776290"
 # <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 Android 응용 프로그램 사용자에게 알림 푸시
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-이 자습서에서는 Azure Notification Hubs를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. [앱 백 엔드에서 등록](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) 지침 문서에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다. 이 자습서는 만든 알림 허브에 빌드는 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 장치에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)에서 만든 알림 허브에 대한 내용을 제공합니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. [앱 백 엔드에서 등록](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) 지침 문서에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다. 이 자습서는 만든 알림 허브에 빌드는 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)에서 만든 알림 허브에 대한 내용을 제공합니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다. 
 
@@ -35,12 +35,12 @@ ms.locfileid: "33776290"
 > * 앱 테스트
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서의 내용을 진행하기 전에 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 장치에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)를 완료합니다. 
+이 자습서의 내용을 진행하기 전에 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)를 완료합니다. 
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="create-the-android-project"></a>Android 프로젝트 만들기
-다음 단계는 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 장치에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)에서 만든 Android 응용 프로그램을 업데이트하는 것입니다. 
+다음 단계는 [자습서: Azure Notification Hubs 및 Google Cloud Messaging을 사용하여 Android 디바이스에 알림 푸시](notification-hubs-android-push-notification-google-gcm-get-started.md)에서 만든 Android 응용 프로그램을 업데이트하는 것입니다. 
 
 1. **res/layout/activity_main.xml** 파일을 열고 다음 콘텐츠 정의로 바꿉니다.
    
@@ -469,7 +469,7 @@ ms.locfileid: "33776290"
 4. 토글 단추를 클릭하여 앱을 실행하고 사용자를 등록한 모든 플랫폼을 활성화합니다.
 5. 알림 메시지를 받을 사용자의 이름을 입력합니다. 대상 디바이스에 이 사용자에 대한 알림이 등록되어 있어야 합니다.
 6. 사용자가 푸시 알림 메시지로 받을 메시지를 입력합니다.
-7. **Send Notification**을 클릭합니다.  일치하는 사용자 이름 태그로 등록된 각 장치에 푸시 알림이 수신됩니다.
+7. **Send Notification**을 클릭합니다.  일치하는 사용자 이름 태그로 등록된 각 디바이스에 푸시 알림이 수신됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 등록에 태그가 연결된 특정 사용자에게 알림을 푸시하는 방법을 배웠습니다. 위치 기반 알림을 푸시하는 방법을 알아보려면 다음 자습서를 계속 진행합니다. 

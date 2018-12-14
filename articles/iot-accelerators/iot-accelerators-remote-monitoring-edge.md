@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 329bc41555f2def0e2b7001a7b445cd3de16d439
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 51c19447e115426bd39d39fedc86193c8f091df1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826336"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843311"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>자습서: 원격 모니터링 솔루션 가속기를 사용하여 에지에서 변칙 검색
 
@@ -24,16 +24,26 @@ ms.locfileid: "51826336"
 
 Contoso는 오일 펌프 잭에 온도 이상을 감지하는 지능형 에지 모듈을 배포하려고 합니다. 또 다른 Edge 모듈은 원격 모니터링 솔루션에 경고를 보냅니다. 경고가 수신되면 Contoso 운영자는 유지 관리 기술자를 발송할 수 있습니다. 또한 Contoso는 솔루션이 경고를 수신할 때 이메일 전송과 같은 자동 작업이 실행되도록 구성할 수도 있습니다.
 
-이 자습서에서는 로컬 Windows 개발 컴퓨터를 IoT Edge 디바이스로 사용합니다. 에지 모듈을 설치하여 오일 펌프 잭 디바이스를 시뮬레이트하고 온도 이상을 감지합니다.
+다음 다이어그램은 자습서 시나리오의 주요 구성 요소입니다.
+
+![개요](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 이 자습서에서는 다음을 수행했습니다.
 
 >[!div class="checklist"]
 > * 솔루션에 IoT Edge 디바이스 추가
 > * Edge 매니페스트 만들기
-> * 디바이스에서 실행할 모듈을 정의하는 패키지 가져오기
+> * 디바이스에서 실행할 모듈을 정의하는 패키지로 매니페스트 가져오기
 > * IoT Edge 디바이스에 패키지 배포
 > * 디바이스에서 경고 보기
+
+IoT Edge 디바이스에서:
+
+* 런타임은 패키지를 수신하고 모듈을 설치합니다.
+* Stream Analytics 모듈은 펌프의 온도 이상을 감지하고 문제를 해결하는 명령을 보냅니다.
+* Stream Analytics 모듈은 필터링된 데이터를 솔루션 가속기에 전달합니다.
+
+이 자습서에서는 Linux 가상 머신을 IoT Edge 디바이스로 사용합니다. 또한 에지 모듈을 설치하여 오일 펌프 잭 디바이스를 시뮬레이션합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -111,54 +121,23 @@ Edge 디바이스에는 Edge 런타임을 설치해야 합니다. 이 자습서�
     az vm create \
       --resource-group IoTEdgeDevices \
       --name EdgeVM \
-      --image Canonical:UbuntuServer:16.04-LTS:latest \
+      --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest \
       --admin-username azureuser \
       --generate-ssh-keys \
       --size Standard_B1ms
     ```
 
-    공용 IP 주소를 기록해 둡니다. 다음 단계에서 SSH를 사용하여 연결할 때 필요합니다.
-
-1. SSH를 사용하여 VM에 연결하려면 Cloud Shell에서 다음 명령을 실행합니다.
+1. 디바이스 연결 문자열로 Edge 런타임을 구성하려면 이전에 메모를 만든 디바이스 연결 문자열을 사용하여 다음 명령을 실행합니다.
 
     ```azurecli-interactive
-    ssh azureuser@{vm IP address}
+    az vm run-command invoke \
+      --resource-group IoTEdgeDevices \
+      --name EdgeVM \
+      --command-id RunShellScript \
+      --scripts 'sudo /etc/iotedge/configedge.sh "YOUR_DEVICE_CONNECTION_STRING"'
     ```
 
-1. VM에 연결하는 경우 다음 명령을 실행하여 VM에서 리포지토리를 설정합니다.
-
-    ```azurecli-interactive
-    curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-    sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-    ```
-
-1. VM에 컨테이너와 Edge 런타임을 설치하려면 다음 명령을 실행합니다.
-
-    ```azurecli-interactive
-    sudo apt-get update
-    sudo apt-get install moby-engine
-    sudo apt-get install moby-cli
-    sudo apt-get update
-    sudo apt-get install iotedge
-    ```
-
-1. 디바이스 연결 문자열을 사용하여 Edge 런타임을 구성하려면 구성 파일을 편집합니다.
-
-    ```azurecli-interactive
-    sudo nano /etc/iotedge/config.yaml
-    ```
-
-    디바이스 연결 문자열을 **device_connection_string** 변수에 할당하고 변경 내용을 저장한 후 편집기를 종료합니다.
-
-1. Edge 런타임을 다시 시작하여 새 구성을 사용합니다.
-
-    ```azurecli-interactive
-    sudo systemctl restart iotedge
-    ```
-
-1. 이제 SSH 세션을 종료하고 Cloud Shell을 닫을 수 있습니다.
+    큰따옴표 안에 연결 문자열을 포함해야 합니다.
 
 이제 Linux 디바이스에서 IoT Edge 런타임을 설치 및 구성했습니다. 이 자습서의 뒷부분에서 원격 모니터링 솔루션을 사용하여 이 디바이스에 IoT Edge 모듈을 배포합니다.
 
@@ -337,7 +316,7 @@ Edge 모듈로 패키징하기 전에 포털에서 Stream Analytics 작업을 �
     | ------ | ----- |
     | 규칙 이름 | 오일 펌프 온도 |
     | 설명 | 오일 펌프 온도가 300을 초과했습니다. |
-    | 장치 그룹 | OilPumps |
+    | 디바이스 그룹 | OilPumps |
     | 계산 | 인스턴트 |
     | 필드 | 온도 |
     | 연산자 | > |

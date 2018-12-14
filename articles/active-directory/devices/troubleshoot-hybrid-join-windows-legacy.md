@@ -1,6 +1,6 @@
 ---
-title: 하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 | Microsoft Docs
-description: 하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결
+title: 하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결 | Microsoft Docs
+description: 하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -54,7 +54,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 
 - 운영 체제 재설치 또는 수동 재등록으로 인해 사용자 정보 탭에 디바이스에 대한 여러 항목이 있을 수도 있습니다.
 
-- 초기 장치 등록/조인은 로그온 또는 잠금/잠금 해제 상태에서 시도를 수행하도록 구성됩니다. 작업 스케줄러 작업에 의해 트리거되는 5분 지연이 있을 수 있습니다. 
+- 초기 디바이스 등록/조인은 로그온 또는 잠금/잠금 해제 상태에서 시도를 수행하도록 구성됩니다. 작업 스케줄러 작업에 의해 트리거되는 5분 지연이 있을 수 있습니다. 
 
 - Windows 7 SP1 또는 Windows Server 2008 R2 SP1의 경우, [KB4284842](https://support.microsoft.com/help/4284842)가 설치되어 있는지 확인합니다. 이 업데이트는 암호를 변경한 후 고객이 보호된 키에 액세스할 수 없어서 발생하는 이후의 인증 실패를 방지합니다.
 

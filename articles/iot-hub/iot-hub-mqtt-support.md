@@ -85,12 +85,12 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
 Azure IoT Toolkit의 경우
 
-  1. Visual Studio Code의 왼쪽 아래 모퉁이에 있는 **AZURE IOT HUB 장치** 탭을 확장합니다.
-  2. 장치를 마우스 오른쪽 단추로 클릭하고 **장치에 대한 SAS 토큰 생성**을 선택합니다.
+  1. Visual Studio Code의 왼쪽 아래 모퉁이에 있는 **AZURE IOT HUB 디바이스** 탭을 확장합니다.
+  2. 디바이스를 마우스 오른쪽 단추로 클릭하고 **디바이스에 대한 SAS 토큰 생성**을 선택합니다.
   3. **만료 시간**을 설정하고 'Enter' 키를 누릅니다.
   4. SAS 토큰이 생성되어 클립보드에 복사됩니다.
 
-장치 탐색기의 경우
+Device Explorer의 경우
 
   1. **장치 탐색기**의 **관리** 탭으로 이동합니다.
   2. **SAS 토큰** (오른쪽 위)을 클릭합니다.

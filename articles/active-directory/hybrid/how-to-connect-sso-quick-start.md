@@ -206,7 +206,7 @@ Firefox 및 Microsoft Edge 브라우저의 개인 검색 모드에서는 Seamles
 
 특정 사용자에 대한 기능을 테스트하려면 다음 조건이 제대로 갖추어져 있는지 확인합니다.
   - 사용자가 회사 디바이스에 로그인합니다.
-  - 디바이스가 Active Directory 도메인에 가입되어 있습니다. 장치가 [Azure AD 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
+  - 디바이스가 Active Directory 도메인에 가입되어 있습니다. 디바이스가 [Azure AD 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
   - 디바이스가 회사의 유선/무선 네트워크 또는 원격 액세스 연결(예: VPN 연결)을 통해 DC(도메인 컨트롤러)에 직접 연결되어 있습니다.
   - 그룹 정책을 통해 해당 사용자에게 [기능을 롤아웃](##step-3-roll-out-the-feature)했습니다.
 

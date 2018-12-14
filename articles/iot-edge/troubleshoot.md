@@ -261,8 +261,8 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
-## <a name="stability-issues-on-resource-constrained-devices"></a>리소스가 제한된 장치의 안정성 문제 
-Raspberry Pi와 같이 제한된 장치를 사용하는 경우, 특히 이 장치를 게이트웨이로 사용하는 경우에는 안정성 문제가 발생할 수 있습니다. 증상에는 에지 허브 모듈의 메모리 부족 예외가 있으며, 다운스트림 장치를 연결할 수 없거나 몇 시간 후 장치가 원격 분석 메시지를 보내지 않습니다.
+## <a name="stability-issues-on-resource-constrained-devices"></a>리소스가 제한된 디바이스의 안정성 문제 
+Raspberry Pi와 같이 제한된 디바이스를 사용하는 경우, 특히 이 디바이스를 게이트웨이로 사용하는 경우에는 안정성 문제가 발생할 수 있습니다. 증상에는 에지 허브 모듈의 메모리 부족 예외가 있으며, 다운스트림 디바이스를 연결할 수 없거나 몇 시간 후 디바이스가 원격 분석 메시지를 보내지 않습니다.
 
 ### <a name="root-cause"></a>근본 원인
 에지 런타임에 속하는 에지 허브는 기본적으로 성능에 최적화되어 있으며 많은 양의 메모리를 할당하려고 합니다. 이 최적화는 제한된 에지 디바이스에 대해 이상적이지 않으며 안정성 문제를 유발할 수 있습니다.
@@ -272,7 +272,7 @@ Raspberry Pi와 같이 제한된 장치를 사용하는 경우, 특히 이 장�
 
 UI의 경우: 
 
-포털의 *장치 세부 정보*->*모듈 설정*->*고급 Edge 런타임 설정 구성*에서 *에지 허브*에 대해 *false*로 설정된 *OptimizeForPerformance*라는 환경 변수를 만듭니다.
+포털의 *디바이스 세부 정보*->*모듈 설정*->*고급 Edge 런타임 설정 구성*에서 *에지 허브*에 대해 *false*로 설정된 *OptimizeForPerformance*라는 환경 변수를 만듭니다.
 
 ![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
 

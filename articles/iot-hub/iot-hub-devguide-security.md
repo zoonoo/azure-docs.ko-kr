@@ -41,7 +41,7 @@ IoT Hub 엔드포인트에 액세스하려면 적절한 권한이 있어야 합�
   | -------------------- | ----------- |
   | iothubowner | 모든 권한 |
   | 서비스 | **ServiceConnect** 권한 |
-  | device | **DeviceConnect** 권한 |
+  | 디바이스 | **DeviceConnect** 권한 |
   | registryRead | **RegistryRead** 권한 |
   | registryReadWrite | **RegistryRead** 및 **RegistryWrite** 권한 |
 
@@ -354,13 +354,13 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 디바이스는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다.
 
-인증 기관을 사용한 인증에 대한 자세한 내용은 [X.509 CA 인증서를 사용한 장치 인증](iot-hub-x509ca-overview.md)을 참조하세요.
+인증 기관을 사용한 인증에 대한 자세한 내용은 [X.509 CA 인증서를 사용한 디바이스 인증](iot-hub-x509ca-overview.md)을 참조하세요.
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>디바이스에 대해 X.509 인증서 등록
 
 [C#용 Azure IoT 서비스 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service)(버전 1.0.8 이상)는 인증에 X.509 인증서를 사용하는 장치의 등록을 지원합니다. 디바이스 가져오기/내보내기 같은 기타 API에서도 X.509 인증서를 지원합니다.
 
-CLI 확장 명령 [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)를 사용하여 장치에 대한 X.509 인증서를 구성할 수도 있습니다.
+CLI 확장 명령 [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)를 사용하여 디바이스에 대한 X.509 인증서를 구성할 수도 있습니다.
 
 ### <a name="c-support"></a>C\# 지원
 
@@ -422,7 +422,7 @@ IoT Hub [ID 레지스트리](iot-hub-devguide-identity-registry.md)를 사용하
 
 토큰 서비스는 토큰 만료를 원하는 대로 설정할 수 있습니다. 토큰이 만료되면 IoT Hub가 장치/모듈 연결을 끊습니다. 이렇게 되면 장치/모듈이 토큰 서비스에 새 토큰을 요청해야 합니다. 만료 시간이 짧으면 장치/모듈 및 토큰 서비스에 대한 부하가 증가합니다.
 
-허브에 연결하는 장치/모듈의 경우, 연결에 키가 아니라 토큰을 사용하더라도 IoT Hub ID 레지스트리에 장치/모듈을 추가해야 합니다. 그러므로 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에서 디바이스/모듈 ID를 사용하지 않도록 설정하여 디바이스별/모듈별 액세스 제어를 계속 사용할 수 있습니다. 이 방법은 긴 만료 시간으로 토큰을 사용하는 위험을 완화합니다.
+허브에 연결하는 디바이스/모듈의 경우, 연결에 키가 아니라 토큰을 사용하더라도 IoT Hub ID 레지스트리에 디바이스/모듈을 추가해야 합니다. 그러므로 [ID 레지스트리](iot-hub-devguide-identity-registry.md)에서 디바이스/모듈 ID를 사용하지 않도록 설정하여 디바이스별/모듈별 액세스 제어를 계속 사용할 수 있습니다. 이 방법은 긴 만료 시간으로 토큰을 사용하는 위험을 완화합니다.
 
 ### <a name="comparison-with-a-custom-gateway"></a>사용자 지정 게이트웨이와 비교
 

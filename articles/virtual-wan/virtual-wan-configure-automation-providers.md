@@ -46,7 +46,7 @@ ms.locfileid: "49958689"
 
 ###  <a name="access"></a>액세스 제어
 
-고객은 장치 UI에서 Virtual WAN에 적절한 액세스 제어를 설정할 수 있어야 합니다. 이 경우, Azure 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체 기반 액세스는 분기 정보 업로드에 적합한 인증을 장치 컨트롤러에 제공합니다. 자세한 내용은 [서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요. 이 기능은 Azure Virtual WAN 제품의 외부이지만 관련 세부 정보가 디바이스 관리 대시보드에 입력된 후 Azure에서 액세스를 설정하는 데 수행되는 일반적인 단계를 아래에 나열합니다.
+고객은 디바이스 UI에서 Virtual WAN에 적절한 액세스 제어를 설정할 수 있어야 합니다. 이 경우, Azure 서비스 주체를 사용하는 것이 좋습니다. 서비스 주체 기반 액세스는 분기 정보 업로드에 적합한 인증을 디바이스 컨트롤러에 제공합니다. 자세한 내용은 [서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요. 이 기능은 Azure Virtual WAN 제품의 외부이지만 관련 세부 정보가 디바이스 관리 대시보드에 입력된 후 Azure에서 액세스를 설정하는 데 수행되는 일반적인 단계를 아래에 나열합니다.
 
 * 온-프레미스 디바이스 컨트롤러에 대한 Azure Active Directory 애플리케이션을 만듭니다.
 * 응용 프로그램 ID 및 인증 키 가져오기
@@ -60,16 +60,16 @@ Azure에 분기(온-프레미스 사이트) 정보를 업로드하도록 사용�
 
 ### <a name="device"></a>장치 구성 다운로드 및 연결
 
-이 단계는 Azure 구성 다운로드 및 분기 디바이스에서 Azure Virtual WAN으로 연결 설정을 포함합니다. 이 단계에서는 공급자를 사용하지 않는 고객은 수동으로 Azure 구성을 다운로드하고 온-프레미스 SDWAN/VPN 장치에 적용합니다. 공급자는 이 단계를 자동화해야 합니다. 디바이스 컨트롤러는 'GetVpnConfiguration' REST API를 호출하여 일반적으로 다음 파일과 비슷하게 표시되는 Azure 구성을 다운로드할 수 있습니다.
+이 단계는 Azure 구성 다운로드 및 분기 디바이스에서 Azure Virtual WAN으로 연결 설정을 포함합니다. 이 단계에서는 공급자를 사용하지 않는 고객은 수동으로 Azure 구성을 다운로드하고 온-프레미스 SDWAN/VPN 디바이스에 적용합니다. 공급자는 이 단계를 자동화해야 합니다. 디바이스 컨트롤러는 'GetVpnConfiguration' REST API를 호출하여 일반적으로 다음 파일과 비슷하게 표시되는 Azure 구성을 다운로드할 수 있습니다.
 
 **구성 정보**
 
   * 가상 허브에 연결된 Azure VNet은 ConnectedSubnet으로 표시됩니다.
   * VPN 연결에는 경로 기반 구성 및 IKEv2/IKEv1이 사용됩니다.
 
-#### <a name="understanding-the-device-configuration-file"></a>장치 구성 파일 이해
+#### <a name="understanding-the-device-configuration-file"></a>디바이스 구성 파일 이해
 
-장치 구성 파일에는 온-프레미스 VPN 장치를 구성할 때 사용할 설정이 포함되어 있습니다. 이 파일을 볼 때 다음 정보를 확인합니다.
+디바이스 구성 파일에는 온-프레미스 VPN 디바이스를 구성할 때 사용할 설정이 포함되어 있습니다. 이 파일을 볼 때 다음 정보를 확인합니다.
 
 * **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 장치 정보를 나타냅니다. 여기에는 분기 디바이스의 이름 및 공용 IP 주소가 포함됩니다.
 * **vpnSiteConnections -** 이 섹션에서는 다음 정보를 제공합니다.
@@ -263,9 +263,9 @@ Azure에 분기(온-프레미스 사이트) 정보를 업로드하도록 사용�
 * AES_128, SHA_256, PFS_14
 * CBC_3DES, SHA_1, PFS_14
 
-### <a name="does-everything-need-to-match-between-the-virtual-hub-vpngateway-policy-and-my-on-premises-sdwanvpn-device-or-sd-wan-configuration"></a>가상 허브 vpngateway 정책과 온-프레미스 SDWAN/VPN 장치 또는 SD-WAN 구성 간에 모든 항목이 일치해야 하나요?
+### <a name="does-everything-need-to-match-between-the-virtual-hub-vpngateway-policy-and-my-on-premises-sdwanvpn-device-or-sd-wan-configuration"></a>가상 허브 vpngateway 정책과 온-프레미스 SDWAN/VPN 디바이스 또는 SD-WAN 구성 간에 모든 항목이 일치해야 하나요?
 
-온-프레미스 SDWAN/VPN 장치 또는 SD-WAN 구성은 Azure IPsec/IKE 정책에서 지정한 다음과 같은 알고리즘 및 매개 변수와 일치하거나 해당 항목을 포함해야 합니다.
+온-프레미스 SDWAN/VPN 디바이스 또는 SD-WAN 구성은 Azure IPsec/IKE 정책에서 지정한 다음과 같은 알고리즘 및 매개 변수와 일치하거나 해당 항목을 포함해야 합니다.
 
 * IKE 암호화 알고리즘
 * IKE 무결성 알고리즘

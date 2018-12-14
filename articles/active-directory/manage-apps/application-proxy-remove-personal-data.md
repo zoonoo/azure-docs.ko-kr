@@ -23,7 +23,7 @@ ms.locfileid: "39366045"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시에 대한 개인 데이터 제거  
 
-Azure Active Directory 응용 프로그램 프록시에서는 장치에 커넥터를 설치해야 합니다. 즉 장치에 개인 데이터가 있을 수 있습니다. 이 문서에서는 개인 정보 보호 수준을 높이기 위해 이러한 개인 데이터를 삭제하는 단계를 제공합니다. 
+Azure Active Directory 응용 프로그램 프록시에서는 디바이스에 커넥터를 설치해야 합니다. 즉 디바이스에 개인 데이터가 있을 수 있습니다. 이 문서에서는 개인 정보 보호 수준을 높이기 위해 이러한 개인 데이터를 삭제하는 단계를 제공합니다. 
 
 
 ## <a name="where-is-the-personal-data"></a>개인 데이터의 위치
@@ -45,7 +45,7 @@ Windows 이벤트 로그에 대한 데이터 보존을 구성하는 방법은 [�
 - 필요한 경우 데이터를 삭제하거나 확인, 또는
 - 로깅 해제
 
-다음 섹션을 사용하여 커넥터 이벤트 로그에서 개인 데이터를 제거합니다. 커넥터가 설치된 모든 장치에 대해 제거 프로세스를 완료해야 합니다.
+다음 섹션을 사용하여 커넥터 이벤트 로그에서 개인 데이터를 제거합니다. 커넥터가 설치된 모든 디바이스에 대해 제거 프로세스를 완료해야 합니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

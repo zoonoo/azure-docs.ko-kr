@@ -34,9 +34,9 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 ### <a name="remote-monitoring"></a>원격 모니터링
 
-이 솔루션 가속기를 사용하여 원격 디바이스에서 원격 분석을 수집하고 제어합니다. 예제 장치에는 고객의 온-프레미스에 설치된 시스템 또는 원격 펌프 스테이션에 설치된 밸브를 냉각하는 작업이 포함됩니다.
+이 솔루션 가속기를 사용하여 원격 디바이스에서 원격 분석을 수집하고 제어합니다. 예제 디바이스에는 고객의 온-프레미스에 설치된 시스템 또는 원격 펌프 스테이션에 설치된 밸브를 냉각하는 작업이 포함됩니다.
 
-원격 모니터링 대시보드를 사용하여 연결된 장치의 원격 분석을 보고, 새 장치를 프로비전하고, 연결된 장치에서 펌웨어를 업그레이드할 수 있습니다.
+원격 모니터링 대시보드를 사용하여 연결된 디바이스의 원격 분석을 보고, 새 디바이스를 프로비전하고, 연결된 디바이스에서 펌웨어를 업그레이드할 수 있습니다.
 
 [![원격 모니터링 솔루션 대시보드](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
 
@@ -44,23 +44,23 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 이 솔루션 가속기를 사용하여 [OPC 통합 아키텍처](https://opcfoundation.org/about/opc-technologies/opc-ua/) 인터페이스를 사용하여 산업 자산의 원격 분석을 수집하고 제어합니다. 산업 자산에는 공장 생산 라인에서 어셈블리 및 테스트 스테이션이 포함될 수 있습니다.
 
-연결된 팩터리 대시보드를 사용하여 산업용 장치를 모니터링하고 관리할 수 있습니다.
+연결된 팩터리 대시보드를 사용하여 산업용 디바이스를 모니터링하고 관리할 수 있습니다.
 
 [![연결된 팩터리 솔루션 대시보드](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
 
 ### <a name="predictive-maintenance"></a>예측 유지 관리
 
-이 솔루션 가속기를 사용하여 원격 디바이스가 실패한다고 예측되는 시기를 예측합니다. 따라서 디바이스에 오류가 발생하기 전에 유지 관리를 수행할 수 있습니다. 이 솔루션 가속기는 기계 학습 알고리즘을 사용하여 장치 원격 분석에서 오류를 예측합니다. 예제 장치는 항공기 엔진 또는 엘리베이터일 수 있습니다.
+이 솔루션 가속기를 사용하여 원격 디바이스가 실패한다고 예측되는 시기를 예측합니다. 따라서 디바이스에 오류가 발생하기 전에 유지 관리를 수행할 수 있습니다. 이 솔루션 가속기는 기계 학습 알고리즘을 사용하여 디바이스 원격 분석에서 오류를 예측합니다. 예제 디바이스는 항공기 엔진 또는 엘리베이터일 수 있습니다.
 
 예측 유지 관리 대시보드를 사용하여 예측 유지 관리 분석을 볼 수 있습니다.
 
 [![연결된 팩터리 솔루션 대시보드](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
 
-### <a name="device-simulation"></a>장치 시뮬레이션
+### <a name="device-simulation"></a>디바이스 시뮬레이션
 
 이 솔루션 가속기를 사용하여 사실적 원격 분석을 생성하는 시뮬레이션된 디바이스를 실행합니다. 이 솔루션 가속기를 사용하여 다른 솔루션 가속기의 동작을 테스트하거나 고유한 사용자 지정 IoT 솔루션을 테스트할 수 있습니다.
 
-장치 시뮬레이션 웹앱을 사용하여 시뮬레이션을 구성하고 실행할 수 있습니다.
+디바이스 시뮬레이션 웹앱을 사용하여 시뮬레이션을 구성하고 실행할 수 있습니다.
 
 [![연결된 팩터리 솔루션 대시보드](./media/about-iot-accelerators/ds-dashboard-inline.png)](./media/about-iot-accelerators/ds-dashboard-expanded.png#lightbox)
 
@@ -83,7 +83,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 | 원격 모니터링      | 마이크로 서비스 | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 및 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
 | 예측 유지 관리 | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
 | 연결된 팩터리      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
-| 장치 시뮬레이션      | 마이크로 서비스 | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
+| 디바이스 시뮬레이션      | 마이크로 서비스 | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
 마이크로 서비스 아키텍처에 대한 자세한 내용은 [.NET 응용 프로그램 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로 서비스: 클라우드에서 제공하는 응용 프로그램 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
 

@@ -41,7 +41,7 @@ IoT Edge 보안 관리자는 세 가지 주요 구성 요소로 이루어져 있
 
 ## <a name="the-iot-edge-security-daemon"></a>IoT Edge 보안 디먼
 
-IoT Edge 보안 디먼은 IoT Edge 보안 관리자의 논리 연산을 담당하는 소프트웨어입니다.  IoT Edge 장치의 신뢰할 수 있는 컴퓨팅 기반의 상당 부분을 구성합니다. 
+IoT Edge 보안 디먼은 IoT Edge 보안 관리자의 논리 연산을 담당하는 소프트웨어입니다.  IoT Edge 디바이스의 신뢰할 수 있는 컴퓨팅 기반의 상당 부분을 구성합니다. 
 
 ### <a name="design-principles"></a>디자인 원칙
 
@@ -75,7 +75,7 @@ IoT Edge 보안 디먼은 보안 강화를 위해 사용 가능한 신뢰할 수
 
 #### <a name="cloud-interface"></a>클라우드 인터페이스
 
-클라우드 인터페이스를 통해 IoT Edge 보안 디먼은 cloud compliment와 같은 클라우드 서비스에 액세스하고 보안 갱신과 같은 디바이스 보안에 액세스할 수 있습니다.  예를 들어 IoT Edge 보안 디먼은 현재 이 인터페이스를 통해 장치 ID 수명 주기 관리를 위해 Azure IoT Hub [DPS(Device Provisioning Service)](https://docs.microsoft.com/azure/iot-dps/)에 액세스합니다.  
+클라우드 인터페이스를 통해 IoT Edge 보안 디먼은 cloud compliment와 같은 클라우드 서비스에 액세스하고 보안 갱신과 같은 디바이스 보안에 액세스할 수 있습니다.  예를 들어 IoT Edge 보안 디먼은 현재 이 인터페이스를 통해 디바이스 ID 수명 주기 관리를 위해 Azure IoT Hub [DPS(Device Provisioning Service)](https://docs.microsoft.com/azure/iot-dps/)에 액세스합니다.  
 
 #### <a name="management-api"></a>관리 API
 
@@ -101,7 +101,7 @@ Microsoft는 [IoT Edge 보안 디먼용 기본 코드 베이스를 GitHub](https
 
 #### <a name="installation-and-updates"></a>설치 및 업데이트
 
-IoT Edge 보안 디먼의 설치 및 업데이트는 기본 프로세스이므로 운영 체제의 패키지 관리 시스템을 통해 관리됩니다.  하지만 신뢰할 수 있는 하드웨어 루트가 있는 IoT Edge 디바이스는 디바이스 보안 부트 및 업데이트 관리 시스템을 통해 수명 주기를 관리하여 디먼의 무결성을 강화할 것으로 예상됩니다.  장치 각각의 기능에 따라 이러한 방법을 찾는 것은 장치 제조업체의 몫입니다.
+IoT Edge 보안 디먼의 설치 및 업데이트는 기본 프로세스이므로 운영 체제의 패키지 관리 시스템을 통해 관리됩니다.  하지만 신뢰할 수 있는 하드웨어 루트가 있는 IoT Edge 디바이스는 디바이스 보안 부트 및 업데이트 관리 시스템을 통해 수명 주기를 관리하여 디먼의 무결성을 강화할 것으로 예상됩니다.  디바이스 각각의 기능에 따라 이러한 방법을 찾는 것은 디바이스 제조업체의 몫입니다.
 
 #### <a name="versioning"></a>버전 관리
 
@@ -117,7 +117,7 @@ HSM PAL은 트러스트 하드웨어의 모든 루트를 추상화하여 IoT Edg
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>IoT Edge 보안 관리자 통합 및 유지 관리
 
-IoT Edge 보안 관리자의 주요 목표 중 하나는 사용자 지정 강화를 위해 Azure IoT Edge 플랫폼의 보안 및 무결성을 방어하는 데 필요한 구성 요소를 식별하고 격리하는 것입니다.  따라서 타사(예: 디바이스 제조업체)는 자체 디바이스 하드웨어에서 사용할 수 있는 사용자 지정 보안 기능을 사용해야 합니다.  아래의 다음 섹션에서 Linux 및 Windows 플랫폼에서 TPM(신뢰할 수 있는 플랫폼 모듈)을 사용하여 Azure IoT 보안 관리자를 강화하는 방법에 대한 예제 링크를 참조하세요.  이 예제는 소프트웨어 또는 가상 TPM을 사용하지만 개별 TPM 장치를 사용하는 데 직접 적용됩니다.  
+IoT Edge 보안 관리자의 주요 목표 중 하나는 사용자 지정 강화를 위해 Azure IoT Edge 플랫폼의 보안 및 무결성을 방어하는 데 필요한 구성 요소를 식별하고 격리하는 것입니다.  따라서 타사(예: 디바이스 제조업체)는 자체 디바이스 하드웨어에서 사용할 수 있는 사용자 지정 보안 기능을 사용해야 합니다.  아래의 다음 섹션에서 Linux 및 Windows 플랫폼에서 TPM(신뢰할 수 있는 플랫폼 모듈)을 사용하여 Azure IoT 보안 관리자를 강화하는 방법에 대한 예제 링크를 참조하세요.  이 예제는 소프트웨어 또는 가상 TPM을 사용하지만 개별 TPM 디바이스를 사용하는 데 직접 적용됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

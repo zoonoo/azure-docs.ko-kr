@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 장치 구성 템플릿 다운로드 | Microsoft Docs
-description: 장치 구성 템플릿을 다운로드합니다.
+title: Azure PowerShell 스크립트 샘플 - 디바이스 구성 템플릿 다운로드 | Microsoft Docs
+description: 디바이스 구성 템플릿을 다운로드합니다.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: anzaman
@@ -16,9 +16,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/24/2018
 ms.locfileid: "42887132"
 ---
-# <a name="download-vpn-device-template-using-powershell"></a>PowerShell을 사용한 VPN 장치 템플릿 다운로드
+# <a name="download-vpn-device-template-using-powershell"></a>PowerShell을 사용한 VPN 디바이스 템플릿 다운로드
 
-이 스크립트는 연결을 위해 VPN 장치 템플릿을 다운로드합니다.
+이 스크립트는 연결을 위해 VPN 디바이스 템플릿을 다운로드합니다.
 
 
 ```azurepowershell-interactive
@@ -49,7 +49,7 @@ Remove-AzureRmResourceGroup -Name TestRG1
 
 | 명령 | 메모 |
 |---|---|
-| [Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice) | 사용 가능한 모든 VPN 장치 모델 및 버전을 나열합니다. |
+| [Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice) | 사용 가능한 모든 VPN 디바이스 모델 및 버전을 나열합니다. |
 | [Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript) | 연결에 대한 구성 템플릿을 다운로드합니다. |
 
 ## <a name="next-steps"></a>다음 단계

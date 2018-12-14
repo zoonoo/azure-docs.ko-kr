@@ -22,7 +22,7 @@ Microsoft는 모든 사람이 디지털 변환의 혜택을 누릴 수 있도록
     - [Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/) - 사용자 지정 IoT 솔루션 개발 속도를 높일 수 있도록 미리 구성된 엔터프라이즈급 솔루션 컬렉션. 
     - [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) - 물리적 환경을 모델링하여 공간 인텔리전스 그래프 및 도메인 관련 개체 모델을 사용하여 컨텍스트 인식 IoT 솔루션을 만들 수 있습니다.
 
-- SaaS(Software as a Service): IoT 솔루션의 복잡성에 노출되지 않고 IoT 응용 프로그램을 개발할 수 있는 새로운 SaaS 솔루션인 [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)로 빠르게 시작하세요. 조직에 고유의 IoT 솔루션을 빌드하는 데 필요한 리소스가 없는 경우 Azure IoT Central은 몇 분 안에 장치 모델, 대시보드 및 규칙을 만들 수 있는 코드 없는 IoT 솔루션입니다.
+- SaaS(Software as a Service): IoT 솔루션의 복잡성에 노출되지 않고 IoT 응용 프로그램을 개발할 수 있는 새로운 SaaS 솔루션인 [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)로 빠르게 시작하세요. 조직에 고유의 IoT 솔루션을 빌드하는 데 필요한 리소스가 없는 경우 Azure IoT Central은 몇 분 안에 디바이스 모델, 대시보드 및 규칙을 만들 수 있는 코드 없는 IoT 솔루션입니다.
 
 ![Azure IoT 기술 및 솔루션](./media/iot-services-and-technologies/paas-saas-technologies-solutions.png)
 
@@ -49,7 +49,7 @@ Azure IoT 솔루션 가속기는 사용자 지정이 가능한 PaaS 솔루션으
 
 Azure IoT Central은 최소의 IoT 경험만 있으면 빠르게 시작할 수 있는 완전히 관리되는 SaaS 솔루션입니다. 회사에서 사용자 지정보다 속도를 더 추구하는 경우 SaaS 모델이 IoT 구현 요구 사항에 대한 완벽한 솔루션이 될 수 있습니다. 
 
-장치 모델이 몇 개 되지 않고, 시나리오의 예측 가능성이 높고, IoT/IT 기능이 제한된 조직은 이제 SaaS 접근 방식을 통해 IoT의 장점을 활용할 수 있습니다. 이전에 연결된 제품을 개발하기 위한 시간, 비용, 전문 지식이 부족했던 기업은 이제 Azure IoT Central로 빠르게 시작할 수 있습니다. Microsoft는 일반적인 IoT 구현 요구 사항을 해결하는 완성도 높은 SaaS 솔루션을 제공한다는 측면에서 업계를 주도하고 있습니다. 
+디바이스 모델이 몇 개 되지 않고, 시나리오의 예측 가능성이 높고, IoT/IT 기능이 제한된 조직은 이제 SaaS 접근 방식을 통해 IoT의 장점을 활용할 수 있습니다. 이전에 연결된 제품을 개발하기 위한 시간, 비용, 전문 지식이 부족했던 기업은 이제 Azure IoT Central로 빠르게 시작할 수 있습니다. Microsoft는 일반적인 IoT 구현 요구 사항을 해결하는 완성도 높은 SaaS 솔루션을 제공한다는 측면에서 업계를 주도하고 있습니다. 
 
 - 완전하게 관리되는 IoT SaaS
 - 클라우드 솔루션 개발 전문 지식이 필요 없음
@@ -62,9 +62,9 @@ Azure IoT Central은 최소의 IoT 경험만 있으면 빠르게 시작할 수 �
 
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)는 Azure IoT Central 및 Azure IoT 솔루션 가속기 모두에서 사용하는 Azure PaaS의 핵심입니다. IoT Hub를 사용하면 수백만 개의 IoT 디바이스와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
 
-* 대용량 장치 연결 및 관리
+* 대용량 디바이스 연결 및 관리
 * 대용량 원격 분석 수집
-* 장치 명령 및 제어
+* 디바이스 명령 및 제어
 * 디바이스 보안 강화
 
 Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 종단 간 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. IoT Hub는 모든 IoT 솔루션의 시작점으로 사용할 수 있으며, Azure IoT 솔루션 가속기 또는 Azure IoT Central을 사용할 필요가 없습니다. Azure IoT 솔루션 가속기와 Azure IoT Central 모두 다른 Azure 서비스와 함께 IoT Hub를 사용합니다. 다음 표에는 요구 사항에 맞게 적절히 선택할 수 있도록 Azure IoT 솔루션 가속기와 Azure IoT Central의 주요 차이점이 요약되어 있습니다.
@@ -86,11 +86,11 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 
 ## <a name="technologies-paas"></a>기술(PaaS)
 
-가장 포괄적인 IoT 플랫폼 서비스 포트폴리오를 제공하고 Azure 플랫폼을 아우르는 PaaS(Platform-as-a-Service) 기술을 사용하면 IoT 솔루션의 모든 측면을 간편하게 만들고, 사용자 지정하고, 제어할 수 있습니다. 수십 억 대의 IoT 장치로 양방향 통신을 설정하고 IoT 장치를 대규모로 관리할 수 있습니다. 그리고 IoT 장치 데이터를 Azure Cosmos DB 및 Azure Time Series Insights 같은 다른 플랫폼 서비스와 통합하여 솔루션에 대한 인사이트를 강화할 수 있습니다. 
+가장 포괄적인 IoT 플랫폼 서비스 포트폴리오를 제공하고 Azure 플랫폼을 아우르는 PaaS(Platform-as-a-Service) 기술을 사용하면 IoT 솔루션의 모든 측면을 간편하게 만들고, 사용자 지정하고, 제어할 수 있습니다. 수십 억 대의 IoT 디바이스로 양방향 통신을 설정하고 IoT 디바이스를 대규모로 관리할 수 있습니다. 그리고 IoT 장치 데이터를 Azure Cosmos DB 및 Azure Time Series Insights 같은 다른 플랫폼 서비스와 통합하여 솔루션에 대한 인사이트를 강화할 수 있습니다. 
 
 ### <a name="device-support"></a>장치 지원
 
-[Azure IoT 시작 키트](https://catalog.azureiotsuite.com/kits)를 활용하거나 [장치 카탈로그](http://catalog.azureiotsuite.com/)에 있는 수백 대의 IoT용 Certified 장치 중에서 선택하여 자신 있게 IoT 프로젝트를 시작하세요. 모든 장치는 플랫폼의 제약을 받지 않으며 IoT Hub에 원활하게 연결되도록 테스트를 마쳤습니다.
+[Azure IoT 시작 키트](https://catalog.azureiotsuite.com/kits)를 활용하거나 [장치 카탈로그](http://catalog.azureiotsuite.com/)에 있는 수백 대의 IoT용 Certified 장치 중에서 선택하여 자신 있게 IoT 프로젝트를 시작하세요. 모든 디바이스는 플랫폼의 제약을 받지 않으며 IoT Hub에 원활하게 연결되도록 테스트를 마쳤습니다.
 오픈 소스 [디바이스 SDK](/azure/iot-hub/iot-hub-devguide-sdks)를 사용하여 모든 디바이스를 Azure IoT에 연결하세요. SDK는 [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) 및 [Python](https://github.com/Azure/azure-iot-sdk-python) 같은 여러 프로그래밍 언어뿐 아니라 Linux, Windows 및 실시간 운영 체제 같은 여러 운영 체제도 지원합니다.
 
 ### <a name="iot"></a>IoT 

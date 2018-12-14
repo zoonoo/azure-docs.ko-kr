@@ -1,6 +1,6 @@
 ---
-title: 장치 시뮬레이션 솔루션에서 기존 IoT Hub 사용 - Azure | Microsoft Docs
-description: 이 문서에서는 기존 IoT Hub를 사용하도록 장치 시뮬레이션 솔루션 가속기를 구성하는 방법을 설명합니다.
+title: 디바이스 시뮬레이션 솔루션에서 기존 IoT Hub 사용 - Azure | Microsoft Docs
+description: 이 문서에서는 기존 IoT Hub를 사용하도록 디바이스 시뮬레이션 솔루션 가속기를 구성하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -15,7 +15,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/01/2018
 ms.locfileid: "50753922"
 ---
-# <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>장치 시뮬레이션 솔루션 가속기에서 기존 IoT Hub 사용
+# <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>디바이스 시뮬레이션 솔루션 가속기에서 기존 IoT Hub 사용
 
 디바이스 시뮬레이션을 배포하면 시뮬레이션에서 사용할 IoT Hub를 배포하도록 선택할 수도 있습니다. 이 옵션은 [단일 배율 단위를 사용하는 S2 계층 IoT Hub](../iot-hub/iot-hub-scaling.md)를 배포합니다. 이 선택적 IoT Hub를 배포한 경우 시뮬레이션 실행에 다른 IoT Hub를 대상으로 하도록 선택할 수 있습니다.
 

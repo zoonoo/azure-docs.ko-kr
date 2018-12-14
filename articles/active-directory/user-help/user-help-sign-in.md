@@ -25,14 +25,14 @@ ms.locfileid: "39347833"
 >[!Note]
 >2단계 인증 방법을 계속 사용하는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서의 지침에 따라 인증 방법을 설정해야 합니다. 관리자가 보안 정보 환경을 켠 경우 이러한 단계별 가이드를 사용하여 인증 방법을 설정해야 합니다.<ul><li>[인증 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)</li><li>[문자 메시지를 사용하도록 보안 정보 설정](security-info-setup-text-msg.md)</li><li>[전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)</li></ul>
 
-## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>모바일 장치에서 인증자 앱 알림을 사용하여 로그인
+## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>모바일 디바이스에서 인증자 앱 알림을 사용하여 로그인
 
 1. 사용자 이름 및 암호를 사용하여 회사 또는 학교 계정에 로그인합니다.
 
-2. 모바일 장치로 보낸 승인 알림에서 **승인**을 선택합니다.
+2. 모바일 디바이스로 보낸 승인 알림에서 **승인**을 선택합니다.
 
 
-## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>모바일 장치에서 인증자 앱 코드를 사용하여 로그인
+## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>모바일 디바이스에서 인증자 앱 코드를 사용하여 로그인
 
 1. 사용자 이름 및 암호를 사용하여 회사 또는 학교 계정에 로그인합니다.
 

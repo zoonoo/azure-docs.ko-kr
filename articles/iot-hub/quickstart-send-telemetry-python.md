@@ -51,7 +51,7 @@ https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip에�
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-device"></a>장치 등록
+## <a name="register-a-device"></a>디바이스 등록
 
 연결을 위해 장치를 IoT Hub에 등록해야 합니다. 이 빠른 시작에서는 Azure Cloud Shell을 사용하여 시뮬레이션된 디바이스를 등록합니다.
 

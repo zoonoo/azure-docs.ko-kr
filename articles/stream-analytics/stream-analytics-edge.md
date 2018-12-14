@@ -96,15 +96,15 @@ ASA 컴파일된 쿼리 및 작업 구성을 내보내려면 저장소 컨테이
 Edge 작업은 Azure IoT Edge를 실행하는 디바이스에 배포할 수 있습니다.
 이를 위해 다음 단계를 수행해야 합니다.
 - IoT Hub를 만듭니다.
-- Edge 장치에 Docker 및 IoT Edge 런타임을 설치합니다.
-- IoT Hub에서 장치를 **IoT Edge 장치**로 설정합니다.
+- Edge 디바이스에 Docker 및 IoT Edge 런타임을 설치합니다.
+- IoT Hub에서 디바이스를 **IoT Edge 디바이스**로 설정합니다.
 
 이러한 단계는 [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 또는 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)에 대한 IoT Edge 설명서에 나와 있습니다.  
 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>IoT Edge 디바이스에 ASA 배포
 ##### <a name="add-asa-to-your-deployment"></a>배포에 ASA 추가
-- Azure Portal에서 IoT Hub를 열고 **IoT Edge**로 이동한 후, 이 배포에 대상을 지정할 장치를 클릭합니다.
+- Azure Portal에서 IoT Hub를 열고 **IoT Edge**로 이동한 후, 이 배포에 대상을 지정할 디바이스를 클릭합니다.
 - **모듈 설정**을 선택한 다음, **+ 추가**를 선택하고 **Azure Stream Analytics 모듈**을 선택합니다.
 - 구독 및 사용자가 만든 ASA Edge 작업을 선택합니다. 저장을 클릭합니다.
 ![모듈에 ASA 배포 추가](media/stream-analytics-edge/set_module.png)
@@ -165,7 +165,7 @@ ASA 작업에서 만든 입/출력의 이름은 라우팅을 위한 엔드포인
 
 
 ### <a name="runtime-and-hardware-requirements"></a>런타임 및 하드웨어 요구 사항
-IoT Edge에서 ASA를 실행하려면 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/)를 실행할 수 있는 장치가 필요합니다. 
+IoT Edge에서 ASA를 실행하려면 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/)를 실행할 수 있는 디바이스가 필요합니다. 
 
 ASA 및 Azure IoT Edge는 **Docker** 컨테이너를 사용하여 여러 호스트 운영 체제(Windows, Linux)에서 실행되는 이식 가능한 솔루션을 제공합니다.
 

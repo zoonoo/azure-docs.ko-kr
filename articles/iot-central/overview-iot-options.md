@@ -28,9 +28,9 @@ IoT 솔루션을 구현하기 위해 Microsoft Azure IoT Central과 Azure IoT는
 
 Azure IoT Hub는 Azure IoT Central 및 Azure IoT 솔루션 가속기 모두에서 사용하는 Azure PaaS의 핵심입니다. IoT Hub는 수백만 개의 IoT 장치와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
 
-* 대용량 장치 연결 및 관리
+* 대용량 디바이스 연결 및 관리
 * 대용량 원격 분석 수집
-* 장치 명령 및 제어
+* 디바이스 명령 및 제어
 * 디바이스 보안 강화
 
 ## <a name="compare-azure-iot-central-and-azure-iot-solution-accelerators"></a>Azure IoT Central과 Azure IoT 솔루션 가속기 비교

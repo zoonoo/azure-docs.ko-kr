@@ -26,7 +26,7 @@ ms.locfileid: "50963995"
 1. Azure IoT Central 응용 프로그램. 자세한 내용은 [애플리케이션 만들기 빠른 시작](quick-deploy-iot-central.md)을 참조하세요.
 1. [Node.js](https://nodejs.org/) 버전 4.0.0 이상이 설치된 개발 컴퓨터. 명령줄에서 `node --version` 명령을 실행하여 버전을 확인할 수 있습니다. Node.js는 다양한 운영 체제에 사용할 수 있습니다.
 
-## <a name="create-a-device-template"></a>장치 템플릿 만들기
+## <a name="create-a-device-template"></a>디바이스 템플릿 만들기
 
 Azure IoT Central 응용 프로그램에서 다음 측정값 및 장치 속성이 정의된 장치 템플릿이 필요합니다.
 
@@ -91,7 +91,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정값 및 장치 속성�
 
 테이블에 표시된 필드 이름을 장치 템플릿에 똑같이 입력합니다. 필드 이름이 해당 디바이스 코드의 속성 이름과 일치하지 않는 경우 디바이스는 설정 값을 수신할 수 없습니다.
 
-## <a name="add-a-real-device"></a>실제 장치 추가
+## <a name="add-a-real-device"></a>실제 디바이스 추가
 
 Azure IoT Central 응용 프로그램에서, 자신이 만든 장치 템플릿으로 실제 장치를 추가하고 장치 연결 문자열을 기록해 둡니다. IoT Central에 Node.js 응용 프로그램을 연결하는 방법에 대한 단계별 지침은 [응용 프로그램에서 실제 장치에 대한 연결 문자열 생성](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) 및 자습서 > 장치 추가에서 [클라이언트 코드 준비](tutorial-add-device.md#prepare-the-client-code)를 참조하세요.
 
@@ -271,7 +271,7 @@ node connectedAirConditionerAdv.js
 
 * **속성** 페이지에서, 장치에서 보낸 장치 속성 값을 봅니다. 연결이 성공하는 경우 디바이스 속성 타일이 업데이트됩니다. 
 
-    ![장치 속성 보기](media/howto-connect-nodejs/viewproperties.png)
+    ![디바이스 속성 보기](media/howto-connect-nodejs/viewproperties.png)
 
 * **설정** 페이지에서 팬 속도 및 목표 온도를 설정합니다. 연결이 성공하는 경우 설정 값이 동기화됩니다. 
 

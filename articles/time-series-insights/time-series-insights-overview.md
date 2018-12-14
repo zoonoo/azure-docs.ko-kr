@@ -19,7 +19,7 @@ ms.locfileid: "52868806"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 
-Time Series Insights는 IoT 장치에 의해 생성된 것과 같은 대량의 시계열 데이터를 저장하고, 시각화하고, 쿼리하기 위해 구축되었습니다.  클라우드의 시계열 데이터를 저장, 관리, 쿼리 또는 시각화하려면 Time Series Insights를 사용하는 것이 좋습니다.  
+Time Series Insights는 IoT 디바이스에 의해 생성된 것과 같은 대량의 시계열 데이터를 저장하고, 시각화하고, 쿼리하기 위해 구축되었습니다.  클라우드의 시계열 데이터를 저장, 관리, 쿼리 또는 시각화하려면 Time Series Insights를 사용하는 것이 좋습니다.  
 
 ![Time Series Insights 순서도](media/overview/time-series-insights-flowchart.png)
 
@@ -46,7 +46,7 @@ Time Series Insights에는 다음 4가지 핵심 작업이 포함됩니다.
   - 기본적으로 Time Series Insights에서는 시계열 데이터를 고려해서 디자인된 데이터베이스를 제공합니다.  확장 가능하고 완전히 관리되므로 Time Series Insights는 이벤트의 저장과 관리 작업을 처리할 수 있습니다.
 
 - 거의 실시간으로 데이터 탐색.  
-  - Time Series Insights는 모든 데이터 스트리밍을 단일 환경으로 시각화하는 탐색기를 제공합니다.  이벤트 원본을 연결한 후 즉시 Time Series Insights 내에서 이벤트 데이터를 보고, 탐색하고, 쿼리할 수 있습니다.  이러한 데이터는 장치가 예상대로 데이터 내보내는지를 확인하고, IoT 자산의 상태, 생산성 및 전반적인 효율성을 모니터링하는 데 유용합니다.  
+  - Time Series Insights는 모든 데이터 스트리밍을 단일 환경으로 시각화하는 탐색기를 제공합니다.  이벤트 원본을 연결한 후 즉시 Time Series Insights 내에서 이벤트 데이터를 보고, 탐색하고, 쿼리할 수 있습니다.  이러한 데이터는 디바이스가 예상대로 데이터를 내보내는지 확인하고 IoT 자산의 상태, 생산성 및 전반적인 효율성을 모니터링하는 데 유용합니다.  
 
 - 근본 원인 분석 및 변칙 검색.
   - Time Series Insights에는 다단계 근본 원인 분석을 이행하고 저장하기 위한 패턴 및 큐브 뷰와 같은 도구를 제공합니다.  또한 Time Series Insights는 Azure Stream Analytics 등의 경고 서비스와 함께 작동하므로 Time Series Insights 탐색기에서 거의 실시간으로 경고 및 검색된 변칙을 확인할 수 있습니다.  

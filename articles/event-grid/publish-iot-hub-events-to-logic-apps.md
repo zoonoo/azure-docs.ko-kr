@@ -23,7 +23,7 @@ ms.locfileid: "51242522"
 
 Azure Event Grid를 사용하면 다운스트림 비즈니스 응용 프로그램에서 작업을 트리거하여 IoT Hub에서 이벤트에 대응할 수 있습니다.
 
-이 아티클은 IoT Hub 및 Event Grid를 사용하는 샘플 구성을 안내합니다. 결과적으로 장치가 IoT 허브에 추가될 때마다 Azure 논리 앱이 알림 이메일을 보내도록 설정합니다. 
+이 아티클은 IoT Hub 및 Event Grid를 사용하는 샘플 구성을 안내합니다. 결과적으로 디바이스가 IoT 허브에 추가될 때마다 Azure 논리 앱이 알림 이메일을 보내도록 설정합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -168,7 +168,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
     * **이벤트 구독 정보**: 설명이 포함된 이름을 제공하고 **Event Grid 스키마**를 선택합니다.
 
-  여기에 이벤트 구독을 저장하고 IoT 허브에서 생성된 모든 장치에 대한 알림을 받을 수 있습니다. 이 자습서의 경우 선택적 필드를 사용하여 특정 장치에 대해 필터링해 보겠습니다. 
+  여기에 이벤트 구독을 저장하고 IoT 허브에서 생성된 모든 디바이스에 대한 알림을 받을 수 있습니다. 이 자습서의 경우 선택적 필드를 사용하여 특정 디바이스에 대해 필터링해 보겠습니다. 
 
   * **제목 시작 문자**: 건물 1의 장치 이벤트를 필터링하려면 `devices/Building1_`을 입력합니다.
   * **제목 종료 문자**: 온도와 관련된 장치 이벤트를 필터링하려면 `_Temperature`를 입력합니다.
@@ -179,25 +179,25 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
     
 5. **만들기**를 선택하여 이벤트 구독을 저장합니다.
 
-## <a name="create-a-new-device"></a>새 장치 만들기
+## <a name="create-a-new-device"></a>새 디바이스 만들기
 
-이벤트 알림 이메일을 트리거하는 새 장치를 만들어 논리 앱을 테스트합니다. 
+이벤트 알림 이메일을 트리거하는 새 디바이스를 만들어 논리 앱을 테스트합니다. 
 
-1. IoT 허브에서 **IoT 장치**를 선택합니다. 
+1. IoT 허브에서 **IoT 디바이스**를 선택합니다. 
 2. **추가**를 선택합니다.
 3. **장치 ID**에 대해 `Building1_Floor1_Room1_Temperature`를 입력합니다.
 4. **저장**을 선택합니다. 
-5. 이벤트 구독 필터를 테스트하기 위해 다른 장치 ID를 사용하여 여러 장치를 추가할 수 있습니다. 이러한 예제를 시도해 보십시오. 
+5. 이벤트 구독 필터를 테스트하기 위해 다른 디바이스 ID를 사용하여 여러 디바이스를 추가할 수 있습니다. 이러한 예제를 시도해 보십시오. 
    * Building1_Floor1_Room1_Light
    * Building1_Floor2_Room2_Temperature
    * Building2_Floor1_Room1_Temperature
    * Building2_Floor1_Room1_Light
 
-IoT 허브에 몇 개의 장치를 추가한 후 이메일을 확인하여 어떤 장치가 논리 앱을 트리거했는지 알아봅니다. 
+IoT 허브에 몇 개의 디바이스를 추가한 후 이메일을 확인하여 어떤 디바이스가 논리 앱을 트리거했는지 알아봅니다. 
 
 ## <a name="use-the-azure-cli"></a>Azure CLI 사용
 
-Azure Portal을 사용하는 대신 Azure 명령줄 인터페이스를 사용하여 Azure IoT Hub 단계를 수행할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) 및 [IoT 장치 만들기](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
+Azure Portal을 사용하는 대신 Azure 명령줄 인터페이스를 사용하여 Azure IoT Hub 단계를 수행할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) 및 [IoT 디바이스 만들기](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

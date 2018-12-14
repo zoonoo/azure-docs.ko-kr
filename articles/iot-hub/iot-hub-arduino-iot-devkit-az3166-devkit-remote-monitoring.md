@@ -50,7 +50,7 @@ ms.locfileid: "42144641"
   
    ![솔루션 만들기](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
 
-4. 프로비전을 완료한 후 **시작**을 클릭합니다. 프로비전 프로세스 도중에 솔루션에 대해 시뮬레이션된 일부 장치가 생성됩니다. **장치**를 클릭하여 체크 아웃합니다.
+4. 프로비전을 완료한 후 **시작**을 클릭합니다. 프로비전 프로세스 도중에 솔루션에 대해 시뮬레이션된 일부 디바이스가 생성됩니다. **장치**를 클릭하여 체크 아웃합니다.
 
    ![대시보드](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
@@ -60,11 +60,11 @@ ms.locfileid: "42144641"
 
 6. **사용자 지정 장치**에 **새로 추가**를 클릭합니다.
   
-   ![새 장치 추가](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
+   ![새 디바이스 추가](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
 
 7. **직접 나만의 장치 ID 정의**를 클릭하고 `AZ3166`을 입력한 다음, **만들기**를 클릭합니다.
   
-   ![ID가 있는 장치 만들기](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
+   ![ID가 있는 디바이스 만들기](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
 
 8. **IoT Hub 호스트 이름**을 메모하고 **완료**를 클릭합니다.
 

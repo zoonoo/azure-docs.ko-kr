@@ -31,8 +31,8 @@ Speech Devices SDK를 사용하여 개발을 시작하기 전에 필요한 정�
 
     |개발 키트 구성|스피커 위치|
     |-----------------------------|------------|
-    |순환|장치로부터 임의 방향|
-    |선형|장치 정면|
+    |순환|디바이스로부터 임의 방향|
+    |선형|디바이스 정면|
 
 * [Speech 장치 SDK 다운로드 사이트](https://shares.datatransfer.microsoft.com/)에서 Android 샘플 앱이 포함된 최신 버전의 Speech 장치 SDK를 가져옵니다. .zip 파일을 로컬 폴더(예: C:\SDSDK)에 추출합니다.
 
@@ -61,7 +61,7 @@ Speech Devices SDK를 사용하여 개발을 시작하기 전에 필요한 정�
 
     ![선형 개발 키트 방향](media/speech-devices-sdk/qsg-2.png)
 
-1. 인증서 및 절전 모드 해제 단어(키워드) 표 파일을 설치하고 사운드 장치의 사용 권한을 설정합니다. [명령 프롬프트] 창에서 다음 명령을 입력합니다.
+1. 인증서 및 절전 모드 해제 단어(키워드) 표 파일을 설치하고 사운드 디바이스의 사용 권한을 설정합니다. [명령 프롬프트] 창에서 다음 명령을 입력합니다.
 
    ```
    adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/ 

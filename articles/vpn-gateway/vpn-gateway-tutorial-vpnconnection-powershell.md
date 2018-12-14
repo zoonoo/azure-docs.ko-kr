@@ -82,7 +82,7 @@ S2S VPN 연결을 만드는 워크플로는 간단합니다.
 
 로컬 네트워크 게이트웨이는 온-프레미스 네트워크를 나타냅니다. 다음을 포함하여 로컬 네트워크 게이트웨이에서 온-프레미스 네트워크의 속성을 지정할 수 있습니다.
 
-* VPN 장치의 공용 IP 주소
+* VPN 디바이스의 공용 IP 주소
 * 온-프레미스 주소 공간
 * (선택 사항) BGP 특성(BGP 피어 IP 주소 및 AS 번호)
 
@@ -95,7 +95,7 @@ New-AzureRmLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
 
 ## <a name="create-a-s2s-vpn-connection"></a>S2S VPN 연결 만들기
 
-다음으로, [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 명령을 사용하여 가상 네트워크 게이트웨이와 VPN 장치 사이에 사이트 간 VPN 연결을 만듭니다. 사이트 간 VPN에 대한 '-ConnectionType'은 *IPsec*입니다.
+다음으로, [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 명령을 사용하여 가상 네트워크 게이트웨이와 VPN 디바이스 사이에 사이트 간 VPN 연결을 만듭니다. 사이트 간 VPN에 대한 '-ConnectionType'은 *IPsec*입니다.
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -112,7 +112,7 @@ BGP를 사용하는 경우 연결에 BGP를 사용하려면 선택적 "**-Enable
 
 ### <a name="view-and-update-your-pre-shared-key"></a>미리 공유한 키 보기 및 업데이트
 
-Azure S2S VPN 연결은 미리 공유한 키(비밀)를 사용하여 온-프레미스 VPN 장치와 Azure VPN 게이트웨이 사이에서 인증합니다. [Get-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) 및 [Set-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) 명령을 사용하여 연결에 대해 미리 공유한 키를 보고 업데이트할 수 있습니다.
+Azure S2S VPN 연결은 미리 공유한 키(비밀)를 사용하여 온-프레미스 VPN 디바이스와 Azure VPN 게이트웨이 사이에서 인증합니다. [Get-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) 및 [Set-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) 명령을 사용하여 연결에 대해 미리 공유한 키를 보고 업데이트할 수 있습니다.
 
 > [!IMPORTANT]
 > 미리 공유한 키는 **인쇄 가능한 ASCII 문자**로 구성된 128자 미만의 문자열입니다.
@@ -134,7 +134,7 @@ Set-AzureRmVirtualNetworkGatewayConnectionSharedKey `
 
 ### <a name="enable-bgp-on-vpn-connection"></a>VPN 연결에서 BGP를 사용하도록 설정
 
-Azure VPN 게이트웨이는 BGP 동적 라우팅 프로토콜을 지원합니다. 온-프레미스 네트워크 및 장치에 BGP를 사용하는지 여부에 따라 개별 연결에 BGP를 사용할 수 있습니다. 다음 BGP 속성을 지정한 후 연결에서 BGP를 사용하도록 설정합니다.
+Azure VPN 게이트웨이는 BGP 동적 라우팅 프로토콜을 지원합니다. 온-프레미스 네트워크 및 디바이스에 BGP를 사용하는지 여부에 따라 개별 연결에 BGP를 사용할 수 있습니다. 다음 BGP 속성을 지정한 후 연결에서 BGP를 사용하도록 설정합니다.
 
 * Azure VPN ASN(자치 시스템 번호)
 * 온-프레미스 로컬 네트워크 게이트웨이 ASN

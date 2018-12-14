@@ -17,7 +17,7 @@ ms.locfileid: "45979068"
 ---
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
 
-1.  URL <https://portal.azure.com/>에서 Microsoft 계정 자격 증명을 사용하여 Azure Portal에 로그인합니다. 정부 포털에서 장치를 배포하는 경우, <https://portal.azure.us/>에서 로그인합니다.
+1.  URL <https://portal.azure.com/>에서 Microsoft 계정 자격 증명을 사용하여 Azure Portal에 로그인합니다. 정부 포털에서 디바이스를 배포하는 경우, <https://portal.azure.us/>에서 로그인합니다.
 
 2.  Azure Portal에서 **+리소스 만들기** &gt; **저장소** &gt; **StorSimple 가상 시리즈**를 클릭합니다.
 

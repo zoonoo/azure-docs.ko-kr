@@ -45,7 +45,7 @@ items:
       href: quickstart-dotnet-text-to-speech.md
     - name: Python, REST 사용
       href: quickstart-python-text-to-speech.md
-  - name: 음성 장치 SDK 시작
+  - name: 음성 디바이스 SDK 시작
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk-qsg.md
 - name: 자습서
@@ -84,7 +84,7 @@ items:
   - name: 일괄 처리 전사(REST)
     displayName: recognize speech, speech recognition, speech to text, stt
     href: batch-transcription.md
-  - name: 음성 장치 SDK 가져오기
+  - name: 음성 디바이스 SDK 가져오기
     displayName: roobo, speech devices sdk, download
     href: get-speech-devices-sdk.md
   - name: 사용자 지정
@@ -99,7 +99,7 @@ items:
       href: how-to-create-custom-endpoint.md
     - name: 음성 글꼴 사용자 지정(봇 브랜드 음성)
       href: how-to-customize-voice-font.md
-    - name: 장치 절전 모드 해제 단어 사용자 지정(장치 SDK)
+    - name: 디바이스 절전 모드 해제 단어 사용자 지정(디바이스 SDK)
       displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
       href: speech-devices-sdk-create-kws.md
   - name: 음성 샘플 기록

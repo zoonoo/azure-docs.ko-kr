@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 디바이스 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징을 관리하는 방법
-description: Azure IoT Hub 장치 SDK를 사용할 때 장치 연결 및 메시징을 개선하는 방법을 알아봅니다.
+description: Azure IoT Hub 디바이스 SDK를 사용할 때 디바이스 연결 및 메시지를 개선하는 방법을 알아봅니다.
 services: iot-hub
 keywords: ''
 author: yzhong94
@@ -53,7 +53,7 @@ Azure IoT Hub 디바이스 SDK의 목적은 클라우드-디바이스 및 디바
 - HTTP, AMQP 및 MQTT 전송에 대한 프로토콜 수준 오류: 연결 분리 또는 세션 만료
 - 로컬 실수에서 발생하는 애플리케이션 수준 오류: 잘못된 자격 증명 또는 서비스 동작(예: 할당량 또는 제한 초과)
 
-디바이스 SDK는 세 수준의 오류를 모두 검색합니다. OS 관련 오류 및 하드웨어 오류는 장치 SDK에서 검색 및 처리되지 않습니다. SDK 디자인은 Azure 아키텍처 센터의 [일시적 오류 처리 지침](/azure/architecture/best-practices/transient-faults#general-guidelines)을 기반으로 합니다.
+디바이스 SDK는 세 수준의 오류를 모두 검색합니다. OS 관련 오류 및 하드웨어 오류는 디바이스 SDK에서 검색 및 처리되지 않습니다. SDK 디자인은 Azure 아키텍처 센터의 [일시적 오류 처리 지침](/azure/architecture/best-practices/transient-faults#general-guidelines)을 기반으로 합니다.
 
 ### <a name="retry-patterns"></a>재시도 패턴
 

@@ -63,11 +63,11 @@ Visual Studio Code용 Azure IoT 확장을 사용하여 IoT Hub에 대한 작업�
 
 IoT Hub에 연결하는 모든 디바이스는 Visual Studio Code Explorer의 **Azure IoT Hub 디바이스** 섹션에 나열됩니다. IoT Edge 디바이스는 다른 아이콘 및 확장하여 각 디바이스에 배포된 모듈을 표시할 수 있다는 점에서 비 Edge 디바이스와 구분됩니다. 
 
-   ![VS Code에서 장치 보기](./media/how-to-register-device-vscode/view-devices.png)
+   ![VS Code에서 디바이스 보기](./media/how-to-register-device-vscode/view-devices.png)
 
 ## <a name="retrieve-the-connection-string"></a>연결 문자열 검색
 
-장치를 설정할 준비가 되면, 물리적 장치를 IoT Hub에 있는 해당 ID와 연결하는 연결 문자열이 필요합니다.
+디바이스를 설정할 준비가 되면, 물리적 디바이스를 IoT Hub에 있는 해당 ID와 연결하는 연결 문자열이 필요합니다.
 
 1. **Azure IoT Hub 장치** 섹션에서 장치 ID를 마우스 오른쪽 단추로 클릭합니다. 
 2. **장치 연결 문자열 복사**를 선택합니다.

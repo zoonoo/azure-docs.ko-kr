@@ -47,7 +47,7 @@ Azure AD Connect는 Azure AD 신뢰와 관련된 설정**만** 관리합니다. 
 | 발급 변환 규칙 | 페더레이션된 설정에서 Azure AD의 기능이 최적의 성능을 발휘하는 데 필요한 여러 가지 클레임 규칙이 있습니다. Azure AD Connect는 Azure AD 트러스트가 항상 올바른 권장 클레임 규칙 집합으로 구성되도록 합니다. |
 | 대체 ID | 동기화가 대체 ID를 사용하도록 구성된 경우, Azure AD Connect는 대체 ID를 사용하여 인증을 수행하도록 AD FS를 구성합니다. |
 | 자동 메타데이터 업데이트 | 자동 메타 데이터 업데이트를 위해 Azure AD와 신뢰가 구성됩니다. AD FS는 Azure AD 신뢰의 메타데이터를 정기적으로 확인하고 Azure AD 쪽에서 변경된 경우 최신 상태로 유지합니다. |
-| IWA(Windows 통합 인증) | Hybrid Azure AD 조인 작업 중에 하위 장치에 대한 Hybrid Azure AD 조인을 용이하게 하기 위해 IWA에 장치 등록이 활성화됩니다. |
+| IWA(Windows 통합 인증) | Hybrid Azure AD 조인 작업 중에 하위 디바이스에 대한 Hybrid Azure AD 조인을 용이하게 하기 위해 IWA에 디바이스 등록이 활성화됩니다. |
 
 ## <a name="execution-flows-and-federation-settings-configured-by-azure-ad-connect"></a>Azure AD Connect에서 구성하는 실행 흐름 및 페더레이션 설정
 
@@ -61,7 +61,7 @@ Azure AD Connect는 구성 흐름 중에 Azure AD 신뢰에 대한 모든 설정
 | Azure AD 신뢰 재설정 | 토큰 서명 인증서, 토큰 서명 알고리즘, Azure AD 신뢰 식별자, 발급 변환 규칙, Azure AD 엔드포인트, 대체 ID(필요한 경우), 자동 메타데이터 업데이트 |
 | 페더레이션 서버 추가 | 없음 |
 | WAP 서버 추가 | 없음 |
-| 디바이스 옵션 | 발급 변환 규칙, 장치 등록을 위한 IWA |
+| 디바이스 옵션 | 발급 변환 규칙, 디바이스 등록을 위한 IWA |
 | 페더레이션된 도메인 추가 | 도메인이 처음으로 추가되는 경우, 즉 단일 도메인 페더레이션에서 다중 도메인 페더레이션으로 설치가 변경되는 경우, Azure AD Connect는 신뢰를 처음부터 다시 만듭니다. Azure AD와의 신뢰가 이미 여러 도메인에 구성된 경우, 발급 변환 규칙만 수정됩니다. |
 | SSL 업데이트 | 없음 |
 
@@ -84,11 +84,11 @@ Azure AD Connect는 Azure AD 트러스트가 항상 올바른 권장 클레임 �
 | 있는 경우 변경이 불가능한 ID로 msdsconsistencyguid 발급 | 있는 경우 ImmutableId로 msdsconsistencyguid를 발급합니다. |
 | msdsConsistencyGuid 규칙이 없으면 objectGuidRule 발급 | msdsconsistencyguid 값이 없는 경우 objectguid 값이 ImmutableId로 발급됩니다. |
 | nameidentifier 발급 | 이 규칙은 nameidentifier 클레임의 값을 발급합니다.|
-| 도메인에 가입된 컴퓨터의 accounttype 발급 | 인증되는 엔터티가 도메인에 가입된 장치인 경우 이 규칙은 계정 유형을 도메인에 가입된 장치를 의미하는 DJ로 발급합니다. |
+| 도메인에 가입된 컴퓨터의 accounttype 발급 | 인증되는 엔터티가 도메인에 가입된 디바이스인 경우 이 규칙은 계정 유형을 도메인에 가입된 디바이스를 의미하는 DJ로 발급합니다. |
 | 컴퓨터 계정이 아닐 경우 USER 값을 사용하여 AccountType 발급 | 인증되는 엔터티가 사용자일 경우, 이 규칙은 계정 유형을 User로 발급합니다. |
-| 컴퓨터 계정이 아닐 경우 issuerid 발급 | 이 규칙은 인증 엔터티가 장치가 아닐 경우 issuerId 값을 발급합니다. 값은 Azure AD Connect에서 구성한 정규식을 통해 생성됩니다. 이 정규식은 Azure AD Connect를 사용하여 페더레이션된 모든 도메인을 고려한 후 생성됩니다. |
-| DJ 컴퓨터 인증에 대한 issuerid 발급 | 이 규칙은 인증 엔터티가 장치일 경우 issuerId 값을 발급합니다. |
-| 도메인에 가입된 컴퓨터의 onpremobjectguid 발급 | 인증되는 엔터티가 도메인에 가입된 장치인 경우 이 규칙은 장치의 온-프레미스 objectguid를 발급합니다. |
+| 컴퓨터 계정이 아닐 경우 issuerid 발급 | 이 규칙은 인증 엔터티가 디바이스가 아닐 경우 issuerId 값을 발급합니다. 값은 Azure AD Connect에서 구성한 정규식을 통해 생성됩니다. 이 정규식은 Azure AD Connect를 사용하여 페더레이션된 모든 도메인을 고려한 후 생성됩니다. |
+| DJ 컴퓨터 인증에 대한 issuerid 발급 | 이 규칙은 인증 엔터티가 디바이스일 경우 issuerId 값을 발급합니다. |
+| 도메인에 가입된 컴퓨터의 onpremobjectguid 발급 | 인증되는 엔터티가 도메인에 가입된 디바이스인 경우 이 규칙은 디바이스의 온-프레미스 objectguid를 발급합니다. |
 | 주 SID를 통해 전달 | 이 규칙은 인증 엔터티의 주 SID를 발급합니다. |
 | 클레임을 통해 전달 - insideCorporateNetwork | 이 규칙은 인증이 내부 회사 네트워크에서 이루어지는지, 외부에서 이루어지는지 Azure AD가 알 수 있게 도와주는 클레임을 발급합니다. |
 | 클레임을 통해 전달 – Psso |   |

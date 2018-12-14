@@ -24,7 +24,7 @@ ms.locfileid: "51218902"
 이 문서에서는 Cognitive Services [Speech SDK](speech-sdk.md)를 사용하여 C# UWP(유니버설 Windows 플랫폼) 응용 프로그램을 만드는 방법을 설명합니다. 디바이스에서 마이크를 사용하여 실시간으로 음성을 텍스트로 기록합니다. 이 응용 프로그램은 [Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017(모든 버전)로 빌드되었습니다.
 
 > [!NOTE]
-> 유니버설 Windows 플랫폼을 사용하여 PC, Xbox, Surface Hub 및 기타 장치를 비롯하여 Windows 10을 지원하는 모든 장치에서 실행되는 앱을 개발할 수 있습니다.
+> 유니버설 Windows 플랫폼을 사용하여 PC, Xbox, Surface Hub 및 기타 디바이스를 비롯하여 Windows 10을 지원하는 모든 디바이스에서 실행되는 앱을 개발할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

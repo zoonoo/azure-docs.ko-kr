@@ -41,7 +41,7 @@ ms.locfileid: "49319101"
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>IoT Hub에서 디바이스 ID 및 모듈 ID 만들기
 
-이 섹션에서는 IoT Hub의 ID 레지스트리에 디바이스 ID 및 모듈 ID를 만드는 Python 앱을 만듭니다. ID 레지스트리에 항목이 없는 경우 장치 또는 모듈을 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 "ID 레지스트리" 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 장치 및 모듈은 IoT Hub에 장치-클라우드 메시지를 보낼 때 이러한 값을 사용하여 자신을 식별합니다. ID는 대/소문자를 구분합니다.
+이 섹션에서는 IoT Hub의 ID 레지스트리에 디바이스 ID 및 모듈 ID를 만드는 Python 앱을 만듭니다. ID 레지스트리에 항목이 없는 경우 장치 또는 모듈을 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]의 "ID 레지스트리" 섹션을 참조하세요. 이 콘솔 앱을 실행하면 장치 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 디바이스 및 모듈은 IoT Hub에 디바이스-클라우드 메시지를 보낼 때 이러한 값을 사용하여 자신을 식별합니다. ID는 대/소문자를 구분합니다.
 
 Python 파일에 다음 코드를 추가합니다.
 
@@ -125,7 +125,7 @@ except KeyboardInterrupt:
 
 ## <a name="get-updates-on-the-device-side"></a>디바이스 쪽에서 업데이트
 
-위의 코드 외에도 아래 코드 블록을 추가하여 장치에서 쌍 업데이트 메시지를 가져올 수 있습니다.
+위의 코드 외에도 아래 코드 블록을 추가하여 디바이스에서 쌍 업데이트 메시지를 가져올 수 있습니다.
 
 ```python
 import random

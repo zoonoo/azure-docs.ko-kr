@@ -17,7 +17,7 @@ ms.locfileid: "30198114"
 ---
 **VPN 장치 구성 스크립트를 다운로드하려면,**
 
-사용하고 있는 VPN 장치에 따라 VPN 장치 구성 스크립트를 다운로드할 수 있습니다. 자세한 내용은 [VPN 장치 구성 스크립트 다운로드](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md)를 참조하세요.
+사용하고 있는 VPN 디바이스에 따라 VPN 디바이스 구성 스크립트를 다운로드할 수 있습니다. 자세한 내용은 [VPN 디바이스 구성 스크립트 다운로드](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md)를 참조하세요.
 
 **추가 구성 정보는 다음 링크를 참조하세요.**
 
@@ -25,7 +25,7 @@ ms.locfileid: "30198114"
 
 - VPN 디바이스를 구성하기 전에 사용하려는 VPN 디바이스에 대한 [알려진 디바이스 호환성 문제](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known)를 확인합니다.
 
-- 디바이스 구성 설정에 대한 링크는 [확인된 VPN 디바이스](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)를 참조하세요. 디바이스 구성에 대한 링크가 가장 효율적으로 제공됩니다. 최신 구성 정보에 대해서는 항상 디바이스 제조업체에 문의하는 것이 가장 좋습니다. 목록에는 테스트 한 버전이 표시됩니다. OS가 해당 목록에 없는 경우에 버전이 호환되는 것이 여전히 가능합니다. VPN 장치에 대한 OS 버전이 호환되는지 확인하려면 해당 장치 제조업체에 문의하십시오.
+- 디바이스 구성 설정에 대한 링크는 [확인된 VPN 디바이스](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)를 참조하세요. 디바이스 구성에 대한 링크가 가장 효율적으로 제공됩니다. 최신 구성 정보에 대해서는 항상 디바이스 제조업체에 문의하는 것이 가장 좋습니다. 목록에는 테스트 한 버전이 표시됩니다. OS가 해당 목록에 없는 경우에 버전이 호환되는 것이 여전히 가능합니다. VPN 디바이스에 대한 OS 버전이 호환되는지 확인하려면 해당 디바이스 제조업체에 문의하십시오.
 
 - VPN 디바이스 구성의 개요는 [타사 VPN 디바이스 구성의 개요](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md)를 참조하세요.
 
@@ -37,4 +37,4 @@ ms.locfileid: "30198114"
 
 - IPsec/IKE 정책 구성 단계는 [S2S VPN 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)을 참조하세요.
 
-- 여러 정책 기반 VPN 장치를 연결하려면 [PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 장치에 Azure VPN Gateway 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
+- 여러 정책 기반 VPN 디바이스를 연결하려면 [PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.

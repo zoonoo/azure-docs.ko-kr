@@ -20,7 +20,7 @@ Azure IoT Hub C SDK는 ANSI C(C99)로 작성되었으며, 작은 디스크 및 �
 
 C SDK는 apt-get, NuGet 및 MBED의 패키지 형태로 사용할 수 있습니다. 제한된 디바이스를 대상으로 지정하려면 대상 플랫폼에 맞게 SDK를 로컬로 빌드하는 것이 좋습니다. 이 설명서에서는 C SDK의 공간을 줄이기 위해 [cmake](https://cmake.org/)를 사용하여 특정 기능을 제거하는 방법을 보여줍니다. 또한 제한된 디바이스를 사용하기 위한 최적의 프로그래밍 모델에 대해 설명합니다.
 
-## <a name="building-the-c-sdk-for-constrained-devices"></a>제한된 장치에 대한 C SDK 빌드
+## <a name="building-the-c-sdk-for-constrained-devices"></a>제한된 디바이스에 대한 C SDK 빌드
 
 제한된 디바이스에 대한 C SDK를 빌드합니다.
 
@@ -72,9 +72,9 @@ C SDK에는 선언적 매핑 테이블을 사용하여 메서드 및 디바이�
 
 ### <a name="use-the-lower-layer-ll"></a>_LL_(하위 계층) 사용
 
-C SDK는 두 가지 프로그래밍 모델을 지원합니다. 한 집합에는 하위 계층을 나타내는 _LL_ 중위가 있는 API가 있습니다. 이 API 집합은 더 간단하며 작업자 스레드를 회전하지 않으므로 사용자가 일정 예약을 수동으로 제어해야 합니다. 예를 들어 장치 클라이언트의 경우 _LL_ API는 이 [헤더 파일](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h)에 있습니다. 
+C SDK는 두 가지 프로그래밍 모델을 지원합니다. 한 집합에는 하위 계층을 나타내는 _LL_ 중위가 있는 API가 있습니다. 이 API 집합은 더 간단하며 작업자 스레드를 회전하지 않으므로 사용자가 일정 예약을 수동으로 제어해야 합니다. 예를 들어 디바이스 클라이언트의 경우 _LL_ API는 이 [헤더 파일](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client_ll.h)에 있습니다. 
 
-_LL_ 인덱스가 없는 다른 API 집합을 편의 계층이라고 하며 작업자 스레드가 자동으로 회전합니다. 예를 들어 디바이스 클라이언트용 편의 계층 API는 이 [IoT 디바이스 클라이언트 헤더 파일](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h)에서 찾을 수 있습니다. 각각의 추가 스레드에서 상당한 양의 시스템 리소스를 사용할 수 있는 제한된 장치의 경우 _LL_ API를 사용하는 것이 좋습니다.
+_LL_ 인덱스가 없는 다른 API 집합을 편의 계층이라고 하며 작업자 스레드가 자동으로 회전합니다. 예를 들어 디바이스 클라이언트용 편의 계층 API는 이 [IoT 디바이스 클라이언트 헤더 파일](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h)에서 찾을 수 있습니다. 각각의 추가 스레드에서 상당한 양의 시스템 리소스를 사용할 수 있는 제한된 디바이스의 경우 _LL_ API를 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

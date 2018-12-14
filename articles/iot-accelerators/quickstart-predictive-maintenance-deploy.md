@@ -16,7 +16,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50139842"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>빠른 시작: 연결된 장치에서 예측 유지 관리 분석을 실행하는 클라우드 기반 솔루션 시도
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>빠른 시작: 연결된 디바이스에서 예측 유지 관리 분석을 실행하는 클라우드 기반 솔루션 시도
 
 이 빠른 시작에서는 Azure IoT 예측 유지 관리 솔루션 가속기를 배포하여 클라우드 기반 예측 유지 관리 시뮬레이션을 실행하는 방법을 보여줍니다. 솔루션 가속기를 배포한 후 시뮬레이션된 항공기 엔진 데이터에서 예측 유지 관리 분석을 실행하기 위해 솔루션 **대시보드** 페이지를 사용합니다. 학습 도구로 또는 고유한 구현을 위한 시작점으로 이 솔루션 가속기를 사용할 수 있습니다.
 

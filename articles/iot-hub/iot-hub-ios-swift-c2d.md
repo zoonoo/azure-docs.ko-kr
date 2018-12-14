@@ -55,7 +55,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 이 섹션에서는 IoT Hub에서 클라우드-장치 메시지를 수신하는 Swift 응용 프로그램을 실행하는 iOS 장치를 시뮬레이션합니다. 
 
-이것은 [장치에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-ios.md) 문서에서 만드는 샘플 장치입니다. 이미 샘플 장치를 실행 중인 경우 이 섹션을 건너뛰어도 됩니다.
+이것은 [디바이스에서 IoT Hub로 원격 분석 데이터 보내기](quickstart-send-telemetry-ios.md) 문서에서 만드는 샘플 디바이스입니다. 이미 샘플 장치를 실행 중인 경우 이 섹션을 건너뛰어도 됩니다.
 
 ### <a name="install-cocoapods"></a>CocoaPods 설치
 

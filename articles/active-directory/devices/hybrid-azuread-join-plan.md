@@ -1,6 +1,6 @@
 ---
 title: 하이브리드 Azure Active Directory 가입 디바이스 구성 방법 | Microsoft Docs
-description: 하이브리드 Azure Active Directory 가입 장치를 구성하는 방법에 대해 알아봅니다.
+description: 하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -33,12 +33,12 @@ ms.locfileid: "50959990"
 
 Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소스에서 SSO(Single Sign-On)를 통해 사용자의 생산성을 극대화할 수 있습니다. 이와 동시에 [조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용하여 클라우드 및 온-프레미스 리소스에 대한 액세스를 보호할 수 있습니다.
 
-온-프레미스 Active Directory 환경을 사용하고, Azure AD에 도메인 가입 장치를 연결하려는 경우 하이브리드 Azure AD 가입 장치를 구성하여 이를 수행할 수 있습니다. 이 문서에서는 사용자 환경에서 하이브리드 Azure AD 조인을 구현하는 데 관련된 단계를 제공합니다. 
+온-프레미스 Active Directory 환경을 사용하고, Azure AD에 도메인 가입 디바이스를 연결하려는 경우 하이브리드 Azure AD 가입 디바이스를 구성하여 이를 수행할 수 있습니다. 이 문서에서는 사용자 환경에서 하이브리드 Azure AD 조인을 구현하는 데 관련된 단계를 제공합니다. 
 
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 사용자가 [Azure Active Directory의 장치 관리 소개](../device-management-introduction.md)를 잘 알고 있다고 가정합니다.
+이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](../device-management-introduction.md)를 잘 알고 있다고 가정합니다.
 
 
 ## <a name="plan-your-implementation"></a>구현 계획
@@ -47,7 +47,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 |   |   |
 |---|---|
-|![확인][1]|지원되는 장치 검토|
+|![확인][1]|지원되는 디바이스 검토|
 |![확인][1]|알아야 할 사항 검토|
 |![확인][1]|디바이스의 하이브리드 Azure AD 조인을 제어하는 방법 검토|
 |![확인][1]|시나리오 선택|
@@ -56,9 +56,9 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
  
 
 
-## <a name="review-supported-devices"></a>지원되는 장치 검토 
+## <a name="review-supported-devices"></a>지원되는 디바이스 검토 
 
-하이브리드 Azure AD 조인은 광범위한 Windows 장치를 지원합니다. 이전 버전의 Windows를 실행하는 장치에 대한 구성에는 추가 또는 다른 단계가 필요하므로 지원되는 장치는 두 가지 범주로 그룹화됩니다.
+하이브리드 Azure AD 조인은 광범위한 Windows 디바이스를 지원합니다. 이전 버전의 Windows를 실행하는 디바이스에 대한 구성에는 추가 또는 다른 단계가 필요하므로 지원되는 디바이스는 두 가지 범주로 그룹화됩니다.
 
 **Windows 현재 장치**
 
@@ -84,7 +84,7 @@ Windows 데스크톱 운영 체제를 실행하는 디바이스의 경우 지원
 - Windows Server 2008 R2 
 
 
-첫 번째 계획 단계에서는 사용자 환경을 검토하고 Windows 하위 수준 장치를 지원해야 하는지 여부를 결정해야 합니다.
+첫 번째 계획 단계에서는 사용자 환경을 검토하고 Windows 하위 수준 디바이스를 지원해야 하는지 여부를 결정해야 합니다.
 
 
 
@@ -110,12 +110,12 @@ DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 �
 조직에서 인증된 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 아웃바운드 프록시를 성공적으로 인증할 수 있는지 확인해야 합니다. Windows 10 컴퓨터는 머신 컨텍스트를 사용하여 디바이스 등록을 실행하므로 머신 컨텍스트를 사용하여 아웃바운드 프록시 인증을 구성해야 합니다.
 
 
-하이브리드 Azure AD 조인은 Azure AD를 사용하여 온-프레미스 도메인 가입 장치를 자동으로 등록하는 프로세스입니다. 모든 장치가 자동으로 등록되지 않도록 하려는 경우가 있습니다. 이 경우 [장치의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)을 참조하세요.
+하이브리드 Azure AD 조인은 Azure AD를 사용하여 온-프레미스 도메인 가입 디바이스를 자동으로 등록하는 프로세스입니다. 모든 디바이스가 자동으로 등록되지 않도록 하려는 경우가 있습니다. 이 경우 [디바이스의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)을 참조하세요.
 
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>디바이스의 하이브리드 Azure AD 조인을 제어하는 방법 검토
 
-하이브리드 Azure AD 조인은 Azure AD를 사용하여 온-프레미스 도메인 가입 장치를 자동으로 등록하는 프로세스입니다. 모든 장치가 자동으로 등록되지 않도록 하려는 경우가 있습니다. 예를 들어, 초기 롤아웃 동안 모든 항목이 예상대로 작동하는지 확인하려는 경우가 여기에 해당합니다.
+하이브리드 Azure AD 조인은 Azure AD를 사용하여 온-프레미스 도메인 가입 디바이스를 자동으로 등록하는 프로세스입니다. 모든 디바이스가 자동으로 등록되지 않도록 하려는 경우가 있습니다. 예를 들어, 초기 롤아웃 동안 모든 항목이 예상대로 작동하는지 확인하려는 경우가 여기에 해당합니다.
 
 자세한 내용은 [디바이스의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)을 참조하세요.
 
@@ -142,7 +142,7 @@ DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 �
 - [관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-managed-domains.md)
 
 
- 필요한 버전의 Azure AD Connect를 설치할 수 없는 경우 [장치 등록을 수동으로 구성하는 방법](../device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요. 
+ 필요한 버전의 Azure AD Connect를 설치할 수 없는 경우 [디바이스 등록을 수동으로 구성하는 방법](../device-management-hybrid-azuread-joined-devices-setup.md)을 참조하세요. 
 
 
 

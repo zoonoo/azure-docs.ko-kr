@@ -31,14 +31,14 @@ ms.locfileid: "51974758"
 
 **샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Windows IoT Core** 장치가 포함됩니다. 
 
-- 장치에 대한 측정값 **습도**, **온도** 및 **압력**을 포함하는 원격 분석입니다. 
+- 디바이스에 대한 측정값 **습도**, **온도** 및 **압력**을 포함하는 원격 분석입니다. 
 - **팬 속도**를 보여주는 설정입니다.
 - 디바이스 속성 **다이 번호** 및 **위치** 클라우드 속성을 포함하는 속성입니다.
 
 
-장치 템플릿 구성에 대한 자세한 내용은 [Windows IoT Core 장치 템플릿 세부 정보](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details) 참조
+디바이스 템플릿 구성에 대한 자세한 내용은 [Windows IoT Core 디바이스 템플릿 세부 정보](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details)를 참조하세요.
 
-## <a name="add-a-real-device"></a>실제 장치 추가
+## <a name="add-a-real-device"></a>실제 디바이스 추가
 
 Azure IoT Central 애플리케이션에서 **Windows IoT Core** 디바이스 템플릿으로 실제 디바이스를 추가하고 디바이스 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 디바이스 추가](tutorial-add-device.md)를 참조하세요.
 
@@ -46,7 +46,7 @@ Azure IoT Central 애플리케이션에서 **Windows IoT Core** 디바이스 템
 
 Windows IoT Core 디바이스를 설정하려면 [Windows IoT Core 디바이스 설정](https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device)의 단계별 지침을 따릅니다.
 
-### <a name="add-a-real-device"></a>실제 장치 추가
+### <a name="add-a-real-device"></a>실제 디바이스 추가
 
 Azure IoT Central 애플리케이션에서 **Windows IoT Core** 디바이스 템플릿으로 실제 디바이스를 추가하고 디바이스 연결 정보(**범위 ID, 디바이스 ID, 기본 키**)를 기록해 둡니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 디바이스 추가](tutorial-add-device.md)를 참조하세요.
 
@@ -96,7 +96,7 @@ Azure IoT Central에서, Raspberry Pi에서 실행되는 코드가 응용 프로
 > [!NOTE]
 > 개발 환경에 **git**이 설치되지 않은 경우 [https://git-scm.com/download](https://git-scm.com/download)에서 다운로드할 수 있습니다.
 
-## <a name="windows-iot-core-device-template-details"></a>Windows IoT Core 장치 템플릿 세부 정보
+## <a name="windows-iot-core-device-template-details"></a>Windows IoT Core 디바이스 템플릿 세부 정보
 
 **샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Windows IoT Core** 장치가 포함됩니다.
 

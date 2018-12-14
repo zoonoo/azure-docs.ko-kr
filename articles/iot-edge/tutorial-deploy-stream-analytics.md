@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure IoT Edge 장치에 ASA 작업 배포 | Microsoft Docs
-description: 이 자습서에서는 Iot Edge 장치에 Azure Stream Analytics를 모듈로 배포합니다.
+title: 자습서 - Azure IoT Edge 디바이스에 ASA 작업 배포 | Microsoft Docs
+description: 이 자습서에서는 Iot Edge 디바이스에 Azure Stream Analytics를 모듈로 배포합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -18,7 +18,7 @@ ms.locfileid: "51566944"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포(미리 보기)
 
-많은 IoT 솔루션에서는 분석 서비스를 사용하여 IoT 장치에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 얻습니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) 논리를 가져와서 디바이스 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
+많은 IoT 솔루션에서는 분석 서비스를 사용하여 IoT 디바이스에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 얻습니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) 논리를 가져와서 디바이스 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
 
 Azure IoT Edge와 Azure Stream Analytics가 통합되어 Azure Portal에서 Azure Stream Analytics 작업을 만든 다음, 추가 코드 없이 IoT Edge 모듈로 배포할 수 있습니다.  
 
@@ -31,7 +31,7 @@ ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 디바이스 둘 다에
 > [!div class="checklist"]
 > * 에지에서 데이터를 처리하는 Azure Stream Analytics 작업을 만듭니다.
 > * 새 Azure Stream Analytics 작업을 다른 IoT Edge 모듈에 연결합니다.
-> * Azure Portal에서 Azure Stream Analytics 작업을 IoT Edge 장치에 배포합니다.
+> * Azure Portal에서 Azure Stream Analytics 작업을 IoT Edge 디바이스에 배포합니다.
 
 <center>
 ![자습서 아키텍처 다이어그램](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
@@ -44,7 +44,7 @@ ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 디바이스 둘 다에
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure IoT Edge 장치:
+Azure IoT Edge 디바이스:
 
 * [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
 
@@ -55,7 +55,7 @@ Azure IoT Edge 장치:
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업 만들기
 
-이 섹션에서는 IoT Hub에서 데이터를 가져오고, 장치에서 전송된 원격 분석 데이터를 쿼리하고, 결과를 Azure Blob Storage 컨테이너로 전달하기 위한 Azure Stream Analytics 작업을 만듭니다. 
+이 섹션에서는 IoT Hub에서 데이터를 가져오고, 디바이스에서 전송된 원격 분석 데이터를 쿼리하고, 결과를 Azure Blob Storage 컨테이너로 전달하기 위한 Azure Stream Analytics 작업을 만듭니다. 
 
 ### <a name="create-a-storage-account"></a>저장소 계정 만들기
 
@@ -157,7 +157,7 @@ IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 �
 
 이 자습서에서는 두 개의 모듈을 배포합니다. 첫 번째는 온도 및 습도 센서를 시뮬레이션하는 **tempSensor** 모듈입니다. 두 번째는 Stream Analytics 작업입니다. 센서 모듈은 작업 쿼리에서 분석할 데이터 스트림을 제공합니다. 
 
-1. Azure Portal의 IoT 허브에서 **IoT Edge**로 이동한 다음, IoT Edge 장치의 세부 정보 페이지를 엽니다.
+1. Azure Portal의 IoT 허브에서 **IoT Edge**로 이동한 다음, IoT Edge 디바이스의 세부 정보 페이지를 엽니다.
 
 1. **모듈 설정**을 선택합니다.  
 
@@ -244,7 +244,7 @@ IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 IoT Edge 장치의 데이터를 분석하도록 Azure Stream Analytics 작업을 구성했습니다. 그런 다음, 이 Azure Stream Analytics 모듈을 IoT Edge 장치에 로드하여 온도 상승을 로컬에서 처리하고, 이에 대응하며, 집계된 데이터 스트림을 클라우드로 보냈습니다. Azure IoT Edge에서 추가 업무용 솔루션을 만드는 방법을 확인하려는 경우 다른 자습서를 계속 진행할 수 있습니다.
+이 자습서에서는 IoT Edge 디바이스의 데이터를 분석하도록 Azure Stream Analytics 작업을 구성했습니다. 그런 다음, 이 Azure Stream Analytics 모듈을 IoT Edge 디바이스에 로드하여 온도 상승을 로컬에서 처리하고, 이에 대응하며, 집계된 데이터 스트림을 클라우드로 보냈습니다. Azure IoT Edge에서 추가 업무용 솔루션을 만드는 방법을 확인하려는 경우 다른 자습서를 계속 진행할 수 있습니다.
 
 > [!div class="nextstepaction"] 
 > [Azure Machine Learning 모델을 모듈로 배포](tutorial-deploy-machine-learning.md)

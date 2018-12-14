@@ -1,5 +1,5 @@
 ---
-title: 음성 장치 SDK 가져오기
+title: 음성 디바이스 SDK 가져오기
 titleSuffix: Azure Cognitive Services
 description: Speech Devices SDK에 대한 액세스 권한을 얻는 방법을 알아봅니다.
 services: cognitive-services

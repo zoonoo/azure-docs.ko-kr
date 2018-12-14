@@ -25,7 +25,7 @@ Microsoft Authenticator 앱은 계정에 대한 권한이 없는 액세스를 �
 
 2단계 인증에 앱을 사용할 때 다음 두 가지 방법 중 하나로 작동할 수 있습니다.
 
-- **알림.** 앱에서 사용자의 장치에 알림을 보냅니다. 알림이 올바른지 확인한 다음, **확인**을 선택합니다. 모르는 알림이라면 **거부**를 선택합니다. **거부**를 클릭한 후에 요청을 사기로 표시할 수도 있습니다.
+- **알림.** 앱에서 사용자의 디바이스에 알림을 보냅니다. 알림이 올바른지 확인한 다음, **확인**을 선택합니다. 모르는 알림이라면 **거부**를 선택합니다. **거부**를 클릭한 후에 요청을 사기로 표시할 수도 있습니다.
 
 - **확인 코드.** 사용자 이름 및 암호를 입력한 후 앱을 열고 **계정** 화면에 제공한 확인 코드를 로그인 화면에 복사합니다. 확인 코드는 인증의 두 번째 형식으로 작동합니다.
 
@@ -51,7 +51,7 @@ Microsoft Authenticator 앱에 회사 또는 학교 계정이나 개인 계정�
 
 ### <a name="add-a-work-or-school-account"></a>회사 또는 학교 계정 추가
 
-1. 가능한 경우 다른 PC 또는 장치에서 [추가 보안 인증](https://aka.ms/mfasetup) 화면으로 이동합니다. 이 화면으로 이동하는 방법에 대한 정보는 [보안 설정 변경](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)을 참조하거나 관리자에게 문의하세요.
+1. 가능한 경우 다른 PC 또는 디바이스에서 [추가 보안 인증](https://aka.ms/mfasetup) 화면으로 이동합니다. 이 화면으로 이동하는 방법에 대한 정보는 [보안 설정 변경](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)을 참조하거나 관리자에게 문의하세요.
 
     >[!Note]
     >관리자가 보안 정보 미리 보기 환경을 켠 경우 [인증자 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md) 섹션의 지침을 따를 수 있습니다.
@@ -66,7 +66,7 @@ Microsoft Authenticator 앱에 회사 또는 학교 계정이나 개인 계정�
 
 3. Microsoft Authenticator 앱을 엽니다. **계정** 화면에서 **계정 추가**를 선택한 다음, **회사 또는 학교 계정**을 선택합니다.
 
-4. 장치의 카메라를 사용하여 QR 코드를 스캔한 다음, **완료**를 선택하여 QR 코드 화면을 닫습니다.
+4. 디바이스의 카메라를 사용하여 QR 코드를 스캔한 다음, **완료**를 선택하여 QR 코드 화면을 닫습니다.
 
     >[!Note]
     >카메라가 올바르게 작동하지 않으면 [QR 코드 및 URL을 수동으로 입력](#add-an-account-to-the-app-manually)할 수 있습니다.
@@ -97,9 +97,9 @@ Microsoft Authenticator 앱에 회사 또는 학교 계정이나 개인 계정�
 
     앱의 **계정** 화면에 사용자 계정 이름 및 6자리 확인 코드가 표시됩니다. 추가 보안을 위해 확인 코드는 동일한 코드를 두 번 사용하지 않도록 30초마다 변경됩니다.
 
-### <a name="using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>장치의 지문 또는 안면 인식 기능 사용
+### <a name="using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>디바이스의 지문 또는 안면 인식 기능 사용
 
-조직에서는 본인 확인을 완료하기 위해 PIN을 요구할 수 있습니다. PIN 대신 장치의 지문이나 안면 인식 기능을 사용하도록 Microsoft Authenticator 앱을 설정할 수 있습니다. 처음으로 인증자 앱을 사용하여 계정을 확인하는 경우 PIN 대신 사용자 장치 생체 인식 기능을 신원 확인으로 사용하는 옵션을 선택하여 이를 설정할 수 있습니다.
+조직에서는 본인 확인을 완료하기 위해 PIN을 요구할 수 있습니다. PIN 대신 디바이스의 지문이나 안면 인식 기능을 사용하도록 Microsoft Authenticator 앱을 설정할 수 있습니다. 처음으로 인증자 앱을 사용하여 계정을 확인하는 경우 PIN 대신 사용자 디바이스 생체 인식 기능을 신원 확인으로 사용하는 옵션을 선택하여 이를 설정할 수 있습니다.
 
 ## <a name="use-the-app-when-you-sign-in"></a>로그인할 때 앱 사용
 

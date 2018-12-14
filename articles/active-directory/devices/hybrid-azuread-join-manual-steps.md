@@ -23,9 +23,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/14/2018
 ms.locfileid: "51622179"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 장치를 수동으로 구성 
+# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 디바이스를 수동으로 구성 
 
-Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory의 디바이스 관리 소개](overview.md)를 참조하세요.
+Azure AD(Active Directory)의 디바이스 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 디바이스에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory의 디바이스 관리 소개](overview.md)를 참조하세요.
 
 
 > [!TIP]
@@ -33,7 +33,7 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 
 
-온-프레미스 Active Directory 환경을 사용하고, Azure AD에 도메인 가입 장치를 연결하려는 경우 하이브리드 Azure AD 가입 장치를 구성하여 이를 수행할 수 있습니다. 이 자습서에서는 디바이스에 하이브리드 Azure AD 조인을 수동으로 구성하는 방법에 대해 알아봅니다.
+온-프레미스 Active Directory 환경을 사용하고, Azure AD에 도메인 가입 디바이스를 연결하려는 경우 하이브리드 Azure AD 가입 디바이스를 구성하여 이를 수행할 수 있습니다. 이 자습서에서는 디바이스에 하이브리드 Azure AD 조인을 수동으로 구성하는 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 필수 조건
@@ -91,7 +91,7 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 
 조직이 온-프레미스 AD에서 자동 관리(페더레이션되지 않은) 설정을 사용하고, ADFS를 사용하여 Azure AD에 페더레이션하지 않는 경우 Windows 10의 하이브리드 Azure AD 연결은 Azure AD에 동기화할 AD의 컴퓨터 개체에 의존합니다. 따라서 하이브리드 Azure AD를 연결해야 하는 컴퓨터 개체가 포함된 OU(조직 구성 단위)는 Azure AD Connect 동기화 구성에서 동기화에 대해 활성화되어 있어야 합니다.
 
-버전 1703 이하의 Windows 10 장치를 사용하며 조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있도록 WPAD(웹 프록시 자동 검색)를 구현해야 합니다. 
+버전 1703 이하의 Windows 10 디바이스를 사용하며 조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있도록 WPAD(웹 프록시 자동 검색)를 구현해야 합니다. 
 
 Windows 10 1803부터는 페더레이션된 도메인에서 AD FS를 사용한 디바이스의 하이브리드 Azure AD 조인 시도가 실패하더라도 Azure AD Connect가 컴퓨터/디바이스 개체를 Azure AD와 동기화하도록 구성되어 있으면 디바이스가 동기화된 컴퓨터/디바이스를 사용하여 하이브리드 Azure AD 조인을 완료하려고 시도합니다.
 
@@ -192,7 +192,7 @@ Windows Server 2008 이전 버전을 실행하는 도메인 컨트롤러의 경�
 
 ## <a name="setup-issuance-of-claims"></a>클레임 발급 설정
 
-페더레이션된 Azure AD 구성에서는 장치가 AD FS(Active Directory Federation Services) 또는 타사 온-프레미스 페더레이션 서비스를 사용하여 Azure AD를 인증합니다. 디바이스는 인증을 통해 Azure DRS(Azure Active Directory Device Registration Service)에 등록하는 액세스 토큰을 가져옵니다.
+페더레이션된 Azure AD 구성에서는 디바이스가 AD FS(Active Directory Federation Services) 또는 타사 온-프레미스 페더레이션 서비스를 사용하여 Azure AD를 인증합니다. 디바이스는 인증을 통해 Azure DRS(Azure Active Directory Device Registration Service)에 등록하는 액세스 토큰을 가져옵니다.
 
 Windows 현재 디바이스는 Windows 통합 인증을 사용하여 온-프레미스 페더레이션 서비스에서 호스트하는 활성 WS-Trust 엔드포인트(1.3 또는 2005 버전)에 인증합니다.
 
@@ -496,15 +496,15 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 ## <a name="enable-windows-down-level-devices"></a>Windows 하위 수준 디바이스 설정
 
-도메인에 가입된 장치 중 일부가 Windows 하위 수준 장치인 경우 다음을 수행해야 합니다.
+도메인에 가입된 디바이스 중 일부가 Windows 하위 수준 디바이스인 경우 다음을 수행해야 합니다.
 
-- 사용자가 장치를 등록할 수 있도록 Azure AD에 정책을 설정합니다.
+- 사용자가 디바이스를 등록할 수 있도록 Azure AD에 정책을 설정합니다.
  
 - 디바이스 등록에 **IWA(통합 Windows 인증)** 를 지원하는 클레임을 발급하도록 온-프레미스 페더레이션 서비스를 구성합니다.
  
 - 디바이스를 인증할 때 인증서 프롬프트가 나타나지 않도록 로컬 인트라넷 영역에 Azure AD 디바이스 인증 끝점을 추가합니다.
 
-- Windows 하위 수준 장치 제어 
+- Windows 하위 수준 디바이스 제어 
 
 
 ### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>사용자가 디바이스를 등록할 수 있도록 Azure AD에 정책 설정
@@ -551,12 +551,12 @@ AD FS에서 인증 메서드를 통과하는 발급 변환 규칙을 추가해�
 
 ### <a name="add-the-azure-ad-device-authentication-end-point-to-the-local-intranet-zones"></a>로컬 인트라넷 영역에 Azure AD 디바이스 인증 끝점 추가
 
-등록 장치의 사용자가 Azure AD에 인증할 때 인증서 프롬프트를 표시하지 않으려는 경우 Internet Explorer의 로컬 인트라넷 영역에 다음 URL을 추가하도록 도메인에 가입된 장치에 정책을 푸시하면 됩니다.
+등록 디바이스의 사용자가 Azure AD에 인증할 때 인증서 프롬프트를 표시하지 않으려는 경우 Internet Explorer의 로컬 인트라넷 영역에 다음 URL을 추가하도록 도메인에 가입된 디바이스에 정책을 푸시하면 됩니다.
 
 `https://device.login.microsoftonline.com`
 
 
-### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 장치 제어 
+### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 디바이스 제어 
 
 Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다. 자세한 내용은 [여기](hybrid-azuread-join-control.md#control-windows-down-level-devices)를 클릭하세요. 
 

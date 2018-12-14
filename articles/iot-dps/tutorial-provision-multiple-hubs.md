@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub Device Provisioning Service를 사용하여 부하가 분산된 IoT Hub 간 장치 프로비전 | Microsoft Docs
+title: Azure IoT Hub Device Provisioning Service를 사용하여 부하가 분산된 IoT Hub 간 디바이스 프로비전 | Microsoft Docs
 description: Azure Portal에서 부하가 분산된 IoT Hub에 Device Provisioning Service 자동 디바이스 프로비저닝
 author: sethmanheim
 ms.author: sethm
@@ -16,13 +16,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 08/17/2018
 ms.locfileid: "41919831"
 ---
-# <a name="provision-devices-across-load-balanced-iot-hubs"></a>부하가 분산된 IoT Hub 간 장치 프로비전
+# <a name="provision-devices-across-load-balanced-iot-hubs"></a>부하가 분산된 IoT Hub 간 디바이스 프로비전
 
 이 자습서에서는 Device Provisioning Service를 사용하여 부하가 분산된 여러 IoT Hub에 대해 디바이스를 프로비전하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Azure Portal을 사용하여 두 번째 IoT Hub에 두 번째 장치를 프로비전 
-> * 두 번째 장치에 등록 목록 항목 추가
+> * Azure Portal을 사용하여 두 번째 IoT Hub에 두 번째 디바이스를 프로비전 
+> * 두 번째 디바이스에 등록 목록 항목 추가
 > * Device Provisioning Service 할당 정책을 **균등하게 배포**로 설정
 > * Device Provisioning Service에 새 IoT Hub 연결
 
@@ -30,15 +30,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 이전 [허브에 장치 프로비전](tutorial-provision-device-to-hub.md) 자습서를 토대로 작성되었습니다.
+이 자습서에서는 이전 [허브에 디바이스 프로비전](tutorial-provision-device-to-hub.md) 자습서를 토대로 작성되었습니다.
 
-## <a name="use-the-azure-portal-to-provision-a-second-device-to-a-second-iot-hub"></a>Azure Portal을 사용하여 두 번째 IoT Hub에 두 번째 장치를 프로비전
+## <a name="use-the-azure-portal-to-provision-a-second-device-to-a-second-iot-hub"></a>Azure Portal을 사용하여 두 번째 IoT Hub에 두 번째 디바이스를 프로비전
 
 [허브에 장치 프로비전](tutorial-provision-device-to-hub.md) 자습서의 단계를 수행하여 다른 IoT Hub에 두 번째 장치를 프로비전합니다.
 
-## <a name="add-an-enrollment-list-entry-to-the-second-device"></a>두 번째 장치에 등록 목록 항목 추가
+## <a name="add-an-enrollment-list-entry-to-the-second-device"></a>두 번째 디바이스에 등록 목록 항목 추가
 
-등록 목록은 디바이스와 함께 사용 중인 증명 메서드(디바이스 ID 확인을 위한 메서드)가 무엇인지를 Device Provisioning Service에 알려줍니다. 다음 단계는 두 번째 장치에 대한 등록 목록 항목을 추가하는 것입니다. 
+등록 목록은 디바이스와 함께 사용 중인 증명 메서드(디바이스 ID 확인을 위한 메서드)가 무엇인지를 Device Provisioning Service에 알려줍니다. 다음 단계는 두 번째 디바이스에 대한 등록 목록 항목을 추가하는 것입니다. 
 
 1. Device Provisioning Service에 대한 페이지에서 **관리 등록**을 클릭합니다. **등록 목록 항목 추가** 페이지가 나타납니다. 
 2. 페이지 위쪽에서 **저장**을 클릭합니다.
@@ -73,8 +73,8 @@ Device Provisioning Service가 해당 허브에 디바이스를 등록할 수 �
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * Azure Portal을 사용하여 두 번째 IoT Hub에 두 번째 장치를 프로비전 
-> * 두 번째 장치에 등록 목록 항목 추가
+> * Azure Portal을 사용하여 두 번째 IoT Hub에 두 번째 디바이스를 프로비전 
+> * 두 번째 디바이스에 등록 목록 항목 추가
 > * Device Provisioning Service 할당 정책을 **균등하게 배포**로 설정
 > * Device Provisioning Service에 새 IoT Hub 연결
 

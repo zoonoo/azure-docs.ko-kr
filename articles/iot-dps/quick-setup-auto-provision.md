@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>IoT Hub 및 Device Provisioning Service 연결
 
-이 섹션에서는 Device Provisioning service 인스턴스에 구성을 추가합니다. 이 구성은 장치가 프로비전될 IoT 허브를 설정합니다.
+이 섹션에서는 Device Provisioning service 인스턴스에 구성을 추가합니다. 이 구성은 디바이스가 프로비전될 IoT 허브를 설정합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭합니다. 이전 섹션에서 만든 Device Provisioning Service 인스턴스를 선택합니다.  
 

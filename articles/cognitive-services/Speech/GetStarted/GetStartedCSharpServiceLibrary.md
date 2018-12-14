@@ -21,7 +21,7 @@ ms.locfileid: "49343694"
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-서비스 라이브러리는 자신의 클라우드 서비스가 있고 이 서비스에서 Speech Service를 호출하려는 개발자를 위한 것입니다. 장치에 바인딩된 응용 프로그램에서 음성 인식 서비스를 호출하려면 이 SDK를 사용하지 마세요. 대신 다른 클라이언트 라이브러리 또는 REST API를 사용합니다.
+서비스 라이브러리는 자신의 클라우드 서비스가 있고 이 서비스에서 Speech Service를 호출하려는 개발자를 위한 것입니다. 디바이스에 바인딩된 응용 프로그램에서 음성 인식 서비스를 호출하려면 이 SDK를 사용하지 마세요. 대신 다른 클라이언트 라이브러리 또는 REST API를 사용합니다.
 
 C# 서비스 라이브러리를 사용하려면 [Microsoft.Bing.Speech NuGet 패키지](https://www.nuget.org/packages/Microsoft.Bing.Speech/)를 설치합니다. 라이브러리 API 참조는 [Microsoft Speech C# 서비스 라이브러리](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-ServiceLibrary/master/docs/index.html)를 참조하세요.
 

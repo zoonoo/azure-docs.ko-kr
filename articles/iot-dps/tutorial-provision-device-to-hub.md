@@ -67,15 +67,15 @@ Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 �
 
 등록 후 프로비전 서비스는 향후 특정한 시점에 이러한 장치가 부팅 및 연결될 때까지 대기합니다. 장치를 처음으로 부팅하는 경우 클라이언트 SDK 라이브러리는 칩과 상호 작용하여 장치에서 보안 아티팩트를 추출하고, Device Provisioning Service에 등록을 확인합니다. 
 
-## <a name="start-the-iot-device"></a>IoT 장치 시작
+## <a name="start-the-iot-device"></a>IoT 디바이스 시작
 
-IoT 장치는 실제 장치일 수도 있고 시뮬레이션된 장치일 수도 있습니다. IoT 장치가 장치 프로비전 서비스 인스턴스에 등록되었으니, 이제 장치를 부팅하고, 증명 메커니즘을 사용하여 프로비전 서비스를 호출하고 인식할 수 있습니다. 프로비전 서비스에서 장치를 인식하면 장치가 IoT Hub에 할당됩니다. 
+IoT 디바이스는 실제 디바이스일 수도 있고 시뮬레이션된 디바이스일 수도 있습니다. IoT 디바이스가 디바이스 프로비전 서비스 인스턴스에 등록되었으니, 이제 디바이스를 부팅하고, 증명 메커니즘을 사용하여 프로비전 서비스를 호출하고 인식할 수 있습니다. 프로비전 서비스에서 디바이스를 인식하면 디바이스가 IoT Hub에 할당됩니다. 
 
-TPM 및 X.509 증명을 사용하여 시뮬레이션된 장치 예제가 C, Java, C#, Node.js 및 Python용으로 포함되어 있습니다. 예를 들어 TPM 및 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 사용하여 시뮬레이션된 장치는 [장치의 첫 번째 부팅 시퀀스 시뮬레이션](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) 섹션에 설명된 프로세스를 따릅니다. X.509 인증서 증명을 사용하는 동일한 장치는 이 [부팅 시퀀스](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device) 섹션을 참조하세요.
+TPM 및 X.509 증명을 사용하여 시뮬레이션된 디바이스 예제가 C, Java, C#, Node.js 및 Python용으로 포함되어 있습니다. 예를 들어 TPM 및 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 사용하여 시뮬레이션된 디바이스는 [디바이스의 첫 번째 부팅 시퀀스 시뮬레이션](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) 섹션에 설명된 프로세스를 따릅니다. X.509 인증서 증명을 사용하는 동일한 디바이스는 이 [부팅 시퀀스](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device) 섹션을 참조하세요.
 
-실제 장치의 예제는 [MXChip Iot DevKit에 대한 방법 가이드](how-to-connect-mxchip-iot-devkit.md)를 참조하세요.
+실제 디바이스의 예제는 [MXChip Iot DevKit에 대한 방법 가이드](how-to-connect-mxchip-iot-devkit.md)를 참조하세요.
 
-장치를 시작하고 장치의 클라이언트 응용 프로그램이 Device Provisioning Service에 등록할 수 있도록 허용하세요.  
+디바이스를 시작하고 디바이스의 클라이언트 응용 프로그램이 Device Provisioning Service에 등록할 수 있도록 허용하세요.  
 
 ## <a name="verify-the-device-is-registered"></a>장치가 등록되어 있는지 확인
 
@@ -85,7 +85,7 @@ TPM 및 X.509 증명을 사용하여 시뮬레이션된 장치 예제가 C, Java
 2. TPM 디바이스의 경우 Device Provisioning Service에서 디바이스가 응답하는 등록 챌린지를 다시 보냅니다. 
 3. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 디바이스 ID 및 암호화된 키를 디바이스로 다시 보냅니다. 
 4. 그러면 디바이스의 IoT Hub 클라이언트 응용 프로그램이 사용자 허브에 연결됩니다. 
-5. 허브에 성공적으로 연결되면 IoT Hub의 **IoT 장치** 탐색기에 장치가 표시됩니다. 
+5. 허브에 성공적으로 연결되면 IoT Hub의 **IoT 디바이스** 탐색기에 디바이스가 표시됩니다. 
 
     ![포털에서 허브에 연결 성공](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 

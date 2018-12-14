@@ -1,5 +1,5 @@
 ---
-title: 새 Azure IoT Edge 장치 등록(CLI) | Microsoft Docs
+title: 새 Azure IoT Edge 디바이스 등록(CLI) | Microsoft Docs
 description: Azure CLI용 IoT 확장을 사용하여 새 IoT Edge 디바이스 등록
 author: kgremban
 manager: philmea
@@ -18,7 +18,7 @@ ms.locfileid: "51569253"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Azure CLI를 사용하여 새 Azure IoT Edge 디바이스 등록
 
-Azure IoT Edge에서 IoT 디바이스를 사용하려면 먼저 IoT Hub에 등록해야 합니다. 장치를 등록하면 에지 워크로드에 대해 장치를 설정하는 데 사용할 수 있는 연결 문자열을 받게 됩니다. 
+Azure IoT Edge에서 IoT 디바이스를 사용하려면 먼저 IoT Hub에 등록해야 합니다. 디바이스를 등록하면 Edge 워크로드에 대해 디바이스를 설정하는 데 사용할 수 있는 연결 문자열을 받게 됩니다. 
 
 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)는 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. 이 기능을 사용하면 Azure IoT Hub 리소스, 디바이스 프로비전 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다. 새로운 IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
 
@@ -32,7 +32,7 @@ Azure IoT Edge에서 IoT 디바이스를 사용하려면 먼저 IoT Hub에 등�
 
 ## <a name="create-a-device"></a>디바이스 만들기
 
-다음 명령을 사용하여 IoT Hub에서 새 장치 ID를 만듭니다. 
+다음 명령을 사용하여 IoT Hub에서 새 디바이스 ID를 만듭니다. 
 
    ```cli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -47,17 +47,17 @@ Azure IoT Edge에서 IoT 디바이스를 사용하려면 먼저 IoT Hub에 등�
 
 ## <a name="view-all-devices"></a>모든 디바이스 보기
 
-다음 명령을 사용하여 IoT Hub에서 모든 장치를 봅니다.
+다음 명령을 사용하여 IoT Hub에서 모든 디바이스를 봅니다.
 
    ```cli
    az iot hub device-identity list --hub-name [hub name]
    ```
 
-IoT Edge 장치로 등록된 모든 장치에서는 **capabilities.iotEdge** 속성이 **true**로 설정됩니다. 
+IoT Edge 디바이스로 등록된 모든 디바이스에서는 **capabilities.iotEdge** 속성이 **true**로 설정됩니다. 
 
 ## <a name="retrieve-the-connection-string"></a>연결 문자열 검색
 
-장치를 설정할 준비가 되면, 물리적 장치를 IoT Hub에 있는 해당 ID와 연결하는 연결 문자열이 필요합니다. 다음 명령을 실행하여 단일 장치에 대한 연결 문자열을 반환합니다.
+디바이스를 설정할 준비가 되면, 물리적 디바이스를 IoT Hub에 있는 해당 ID와 연결하는 연결 문자열이 필요합니다. 다음 명령을 실행하여 단일 디바이스에 대한 연결 문자열을 반환합니다.
 
    ```cli
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name] 

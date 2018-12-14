@@ -19,7 +19,7 @@ ms.locfileid: "51239596"
 
 [!INCLUDE [howto-raspberrypi-selector](../../includes/iot-central-howto-raspberrypi-selector.md)]
 
-이 문서에서는 장치 개발자로서 Python 프로그래밍 언어를 사용하여 Raspberry Pi를 Microsoft Azure IoT Central 응용 프로그램에 연결하는 방법을 설명합니다.
+이 문서에서는 디바이스 개발자로서 Python 프로그래밍 언어를 사용하여 Raspberry Pi를 Microsoft Azure IoT Central 응용 프로그램에 연결하는 방법을 설명합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -52,7 +52,7 @@ ms.locfileid: "51239596"
 디바이스 템플릿 구성에 대한 자세한 내용은 [Raspberry PI 디바이스 템플릿 세부 정보](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details) 참조
     
 
-## <a name="add-a-real-device"></a>실제 장치 추가
+## <a name="add-a-real-device"></a>실제 디바이스 추가
 
 Azure IoT Central 애플리케이션에서 **Raspberry Pi** 디바이스 템플릿으로 실제 디바이스를 추가하고 디바이스 연결 정보(**범위 ID, 디바이스 ID, 기본 키**)를 계속 추적합니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 디바이스 추가](tutorial-add-device.md)를 참조하세요.
 
@@ -79,7 +79,7 @@ Azure IoT Central 애플리케이션에서 **Raspberry Pi** 디바이스 템플�
     * **설정** 페이지에서, 전압, 팬 속도 등 Raspberry Pi의 다양한 설정을 변경할 수 있습니다. Raspberry Pi가 변경 내용을 확인하면 Azure IoT Central에서 설정이 **동기화됨**으로 표시됩니다.
 
 
-## <a name="raspberry-pi-device-template-details"></a>Raspberry PI 장치 템플릿 세부 정보
+## <a name="raspberry-pi-device-template-details"></a>Raspberry PI 디바이스 템플릿 세부 정보
 
 **샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Raspberry Pi** 장치가 포함됩니다.
 

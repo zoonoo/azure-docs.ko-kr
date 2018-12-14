@@ -343,7 +343,7 @@ SAP ASE 실행 파일을 VM의 OS 디스크에 있는 시스템 드라이브(드
 * SAP 설치 루틴에 의해 만들어지는 SAP ASE 및 추가 saptempdb를 설치하여 만들어지는 SAP ASE tempdb
 * ERP/BW 특정 tempdb 요구 사항에 맞게 SAP ASE 및 수동으로 만든 추가 tempdb를 설치하여 만들어지는 SAP ASE tempdb(예: SAP Note [1752266])
 
-특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 장치를 C:\가 아닌 다른 드라이브에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
+특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 디바이스를 C:\가 아닌 다른 드라이브에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
 
 이러한 시스템의 경우, 추가로 생성된 tempdb에 대해 다음 단계를 실행해야 합니다.
 
@@ -498,7 +498,7 @@ SAP ASE 실행 파일을 VM의 루트 파일 시스템(/sybase)에 배치 또는
 * SAP 설치 루틴에 의해 만들어지는 SAP ASE 및 추가 saptempdb를 설치하여 만들어지는 SAP ASE tempdb
 * ERP/BW 특정 tempdb 요구 사항에 맞게 SAP ASE 및 수동으로 만든 추가 tempdb를 설치하여 만들어지는 SAP ASE tempdb(예: SAP Note [1752266])
 
-특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 장치(SWPM을 통해 또는 수동으로)를 단일 Azure 데이터 디스크 또는 여러 Azure 데이터 디스크에 걸친 Linux RAID로 표현될 수 있는 별도의 파일 시스템에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
+특정 ERP 또는 모든 BW 워크로드의 성능상 이유로 추가로 생성된 tempdb 디바이스(SWPM을 통해 또는 수동으로)를 단일 Azure 데이터 디스크 또는 여러 Azure 데이터 디스크에 걸친 Linux RAID로 표현될 수 있는 별도의 파일 시스템에 저장하는 것이 좋습니다. 추가 tempdb가 없는 경우 새로 만드는 것이 좋습니다(SAP Note [1752266]).
 
 이러한 시스템의 경우 추가로 생성된 tempdb에 대해 다음 단계를 수행해야 합니다.
 

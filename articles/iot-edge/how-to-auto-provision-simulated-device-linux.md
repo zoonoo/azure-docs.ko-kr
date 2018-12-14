@@ -77,11 +77,11 @@ Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>가상 머신 시작 및 TPM 데이터 수집
 
-가상 머신에서 장치의 **등록 ID** 및 **인증 키**를 검색하는 데 사용할 수 있는 C SDK 도구를 빌드합니다. 
+가상 머신에서 디바이스의 **등록 ID** 및 **인증 키**를 검색하는 데 사용할 수 있는 C SDK 도구를 빌드합니다. 
 
 1. VM을 시작하고 연결하여 설치 프로세스를 완료합니다. 
 
-2. VM에서 [Linux 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux)의 단계를 C에 대한 Azure IoT 장치 SDK를 설치 및 빌드합니다. 
+2. VM에서 [Linux 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux)의 단계를 C에 대한 Azure IoT 디바이스 SDK를 설치 및 빌드합니다. 
 
 3. 디바이스 프로비전 정보를 검색하는 C SDK 도구를 빌드하려면 다음 명령을 실행합니다. 
 
@@ -105,7 +105,7 @@ Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위*
 
 가상 머신에서 프로비전 정보를 검색하고 이를 사용하여 Device Provisioning Service에서 개별 등록을 만듭니다. 
 
-DPS에서 등록을 만들 때 **초기 장치 쌍 상태**를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-monitor.md)를 만드는 데 사용됩니다. 
+DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-monitor.md)를 만드는 데 사용됩니다. 
 
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동합니다. 
@@ -117,17 +117,17 @@ DPS에서 등록을 만들 때 **초기 장치 쌍 상태**를 선언할 기회�
    1. **메커니즘**의 경우 **TPM**을 선택합니다. 
    2. 가상 머신에서 복사한 **인증 키** 및 **등록 ID**를 삽입합니다.
    3. **사용**을 선택하여 이 가상 머신이 IoT Edge 장치임을 선언합니다. 
-   4. 장치를 연결하려는 링크된 **IoT Hub**를 선택합니다. 
+   4. 디바이스를 연결하려는 링크된 **IoT Hub**를 선택합니다. 
    5. 원하는 경우 디바이스에 대한 ID를 제공합니다. 디바이스 ID를 사용하여 모듈 배포에 대한 개별 디바이스를 대상으로 할 수 있습니다. 
-   6. 원하는 경우 **초기 장치 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 장치 그룹을 대상으로 할 수 있습니다. 
+   6. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 
    7. **저장**을 선택합니다. 
 
 
 ## <a name="install-the-iot-edge-runtime"></a>IoT Edge 런타임 설치
 
-IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 장치에 추가 컨테이너의 배포를 허용합니다. IoT Edge 런타임을 가상 머신에 설치합니다. 
+IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 디바이스에 추가 컨테이너의 배포를 허용합니다. IoT Edge 런타임을 가상 머신에 설치합니다. 
 
-장치 유형과 일치하는 문서를 시작하기 전에 DPS **ID 범위** 및 장치 **등록 ID**를 알아야 합니다. 예제 Ubuntu 서버를 설치했으면 **x64** 지침을 사용합니다. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다. 
+디바이스 유형과 일치하는 문서를 시작하기 전에 DPS **ID 범위** 및 디바이스 **등록 ID**를 알아야 합니다. 예제 Ubuntu 서버를 설치했으면 **x64** 지침을 사용합니다. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다. 
 
 * [Linux(x64)](how-to-install-iot-edge-linux.md)
 * [Linux(ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
@@ -259,4 +259,4 @@ iotedge list
 
 ## <a name="next-steps"></a>다음 단계
 
-Device Provisioning Service 등록 프로세스를 사용하면 새 장치를 프로비전할 때 장치 ID 및 장치 쌍 태그를 동시에 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-monitor-cli.md)하거나 [Azure Portal을 사용하여 대규모로 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-monitor.md)하는 방법을 알아봅니다.
+Device Provisioning Service 등록 프로세스를 사용하면 새 디바이스를 프로비전할 때 디바이스 ID 및 디바이스 쌍 태그를 동시에 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-monitor-cli.md)하거나 [Azure Portal을 사용하여 대규모로 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-monitor.md)하는 방법을 알아봅니다.

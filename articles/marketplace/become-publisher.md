@@ -49,7 +49,7 @@ Microsoft의 클라우드 마켓플레이스에 참여하려면 MPN(Microsoft �
 
 ## <a name="2-create-a-microsoft-account"></a>2. Microsoft 계정 만들기  
 | 15분 |  
-Microsoft 계정(예: *@outlook.com 또는 @live.com*)은 많은 Microsoft 장치 및 서비스에 액세스하는 데 사용됩니다. Azure Marketplace 거래 제품에 필요하며, 모든 클라우드 게시자에 사용하도록 권장합니다. Microsoft 계정의 이점 및 사용에 대한 자세한 내용은 [이 페이지를 방문](https://account.microsoft.com/account/)합니다. 개인 Microsoft 계정을 사용하여 마켓플레이스 제품을 만들고 관리하는 데 사용할 Cloud 파트너 포털, 게시 플랫폼에 액세스합니다. 
+Microsoft 계정(예: *@outlook.com 또는 @live.com*)은 많은 Microsoft 디바이스 및 서비스에 액세스하는 데 사용됩니다. Azure Marketplace 거래 제품에 필요하며, 모든 클라우드 게시자에 사용하도록 권장합니다. Microsoft 계정의 이점 및 사용에 대한 자세한 내용은 [이 페이지를 방문](https://account.microsoft.com/account/)합니다. 개인 Microsoft 계정을 사용하여 마켓플레이스 제품을 만들고 관리하는 데 사용할 Cloud 파트너 포털, 게시 플랫폼에 액세스합니다. 
 
 [! 중요] 업무용 이메일과 연결된 Microsoft 계정은 포털에 대한 액세스를 허용하지 않습니다.
 

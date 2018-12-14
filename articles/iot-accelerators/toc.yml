@@ -15,27 +15,27 @@ items:
     href: quickstart-connected-factory-deploy.md
   - name: 예측 유지 관리 솔루션 사용
     href: quickstart-predictive-maintenance-deploy.md
-  - name: 장치 시뮬레이션 솔루션 사용
+  - name: 디바이스 시뮬레이션 솔루션 사용
     href: quickstart-device-simulation-deploy.md
 - name: 자습서
   items:
   - name: 원격 모니터링
     items:
-    - name: IoT 장치 모니터링
+    - name: IoT 디바이스 모니터링
       href: iot-accelerators-remote-monitoring-monitor.md
-    - name: 장치 문제 검색
+    - name: 디바이스 문제 검색
       href: iot-accelerators-remote-monitoring-automate.md
     - name: 디바이스 구성
       href: iot-accelerators-remote-monitoring-manage.md
     - name: 경고에 대한 근본 원인 분석 수행
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
-    - name: 경고 사용 및 장치 문제 수정
+    - name: 경고 사용 및 디바이스 문제 수정
       href: iot-accelerators-remote-monitoring-maintain.md
     - name: 디바이스 구성 일괄 업데이트
       href: iot-accelerators-remote-monitoring-bulk-configuration-update.md
     - name: 에지에서 이상 검색
       href: iot-accelerators-remote-monitoring-edge.md
-  - name: 장치 시뮬레이션
+  - name: 디바이스 시뮬레이션
     items:
     - name: 시뮬레이션 만들기 및 실행
       href: iot-accelerators-device-simulation-create-simulation.md
@@ -48,9 +48,9 @@ items:
     items:
     - name: 아키텍처 선택
       href: iot-accelerators-remote-monitoring-architectural-choices.md
-    - name: 장치 모델 스키마
+    - name: 디바이스 모델 스키마
       href: iot-accelerators-remote-monitoring-device-schema.md
-    - name: 장치 모델 동작
+    - name: 디바이스 모델 동작
       href: iot-accelerators-remote-monitoring-device-behavior.md
   - name: 예측 유지 관리
     href: iot-accelerators-predictive-walkthrough.md
@@ -59,7 +59,7 @@ items:
     items:
     - name: 아키텍처
       href: iot-accelerators-connected-factory-sample-walkthrough.md
-  - name: 장치 시뮬레이션
+  - name: 디바이스 시뮬레이션
     href: iot-accelerators-device-simulation-overview.md
   - name: azureiotsolutions.com에 대한 사용 권한
     href: iot-accelerators-permissions.md
@@ -141,7 +141,7 @@ items:
       href: iot-accelerators-connected-factory-configure.md
     - name: 솔루션 가속기 사용자 지정
       href: iot-accelerators-connected-factory-customize.md
-  - name: 장치 시뮬레이션
+  - name: 디바이스 시뮬레이션
     items:
     - name: 기존 IoT Hub 사용
       href: iot-accelerators-device-simulation-choose-hub.md
@@ -161,7 +161,7 @@ items:
       href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide
     - name: 개발자 문제 해결 가이드
       href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide
-  - name: 장치 시뮬레이션
+  - name: 디바이스 시뮬레이션
     items:
     - name: 개발자 참조 가이드
       href: https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide
@@ -219,7 +219,7 @@ items:
       href: https://github.com/Azure/azure-iot-connected-factory
     - name: 예측 유지 관리
       href: https://github.com/Azure/azure-iot-predictive-maintenance
-    - name: 장치 시뮬레이션
+    - name: 디바이스 시뮬레이션
       href: https://github.com/Azure/device-simulation-dotnet
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/

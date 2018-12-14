@@ -33,7 +33,7 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
  
 ## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 사용자가 [Azure Active Directory의 장치 관리 소개](../device-management-introduction.md)를 잘 알고 있다고 가정합니다.
+이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](../device-management-introduction.md)를 잘 알고 있다고 가정합니다.
 
 
 

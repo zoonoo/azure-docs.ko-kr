@@ -136,7 +136,7 @@ az vm show \
 
 * 위치에 전송된 트래픽에 다음 홉 형식을 결정하기 위해 간단한 테스트를 실행하려면 Azure Network Watcher의 [다음 홉](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 기능을 사용합니다. 다음 홉 형식을 통해 지정된 위치에 전송된 트래픽의 다음 홉 형식을 알 수 있습니다.
 * VM의 네트워크 통신 실패를 일으키는 경로가 없으면 VM의 운영 체제 내에서 실행되는 방화벽 소프트웨어로 인해 문제가 발생할 수 있습니다.
-* VPN Gateway 또는 NVA를 통해 온-프레미스 장치에 대한 [강제 터널링](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 트래픽이 있는 경우 장치에 대한 라우팅을 구성하는 방법에 따라 인터넷을 통해 VM에 연결하지 못할 수 있습니다. 장치에 구성한 라우팅이 트래픽을 VM의 공개 또는 개인 IP 주소로 라우팅했는지 확인합니다.
+* VPN Gateway 또는 NVA를 통해 온-프레미스 디바이스에 대한 [강제 터널링](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 트래픽이 있는 경우 디바이스에 대한 라우팅을 구성하는 방법에 따라 인터넷을 통해 VM에 연결하지 못할 수 있습니다. 디바이스에 구성한 라우팅이 트래픽을 VM의 공개 또는 개인 IP 주소로 라우팅했는지 확인합니다.
 * Network Watcher의 [연결 문제 해결](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 기능을 사용하여 아웃바운드 통신 문제의 라우팅, 필터링 및 OS 내 원인을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계

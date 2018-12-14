@@ -232,7 +232,7 @@ LVM-on-crypt 설정을 사용하는 것이 좋습니다. 다음의 모든 예제
 - VM을 구성할 데이터 디스크를 추가합니다.
 - 이러한 디스크를 포맷하고, 탑재하고, fstab 파일에 추가합니다.
 
-    1. 새로 추가된 디스크를 포맷합니다. 여기서는 Azure에서 생성한 바로 가기 링크를 사용합니다. 바로 가기 링크를 사용하면 장치 이름 변경과 관련된 문제를 방지할 수 있습니다. 자세한 내용은 [장치 이름 문제 해결](../virtual-machines/linux/troubleshoot-device-names-problems.md) 문서를 참조하세요.
+    1. 새로 추가된 디스크를 포맷합니다. 여기서는 Azure에서 생성한 바로 가기 링크를 사용합니다. 바로 가기 링크를 사용하면 디바이스 이름 변경과 관련된 문제를 방지할 수 있습니다. 자세한 내용은 [디바이스 이름 문제 해결](../virtual-machines/linux/troubleshoot-device-names-problems.md) 문서를 참조하세요.
     
          `mkfs -t ext4 /dev/disk/azure/scsi1/lun0`
     

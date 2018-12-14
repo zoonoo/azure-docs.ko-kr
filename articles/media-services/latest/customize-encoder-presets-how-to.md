@@ -21,7 +21,7 @@ ms.locfileid: "49376638"
 ---
 # <a name="how-to-encode-with-a-custom-transform"></a>사용자 지정 Transform을 사용하여 인코딩하는 방법
 
-Azure Media Services를 사용하여 인코딩하는 경우, [파일 스트리밍](stream-files-tutorial-with-api.md) 자습서에 나와 있는 업계 모범 사례에 따라 권장되는 기본 제공 미리 설정 중 하나를 사용하여 빠르게 시작하거나 특정 시나리오 또는 장치 요구 사항을 대상으로 지정하는 사용자 지정 미리 설정을 작성할 수 있습니다. 
+Azure Media Services를 사용하여 인코딩하는 경우, [파일 스트리밍](stream-files-tutorial-with-api.md) 자습서에 나와 있는 업계 모범 사례에 따라 권장되는 기본 제공 미리 설정 중 하나를 사용하여 빠르게 시작하거나 특정 시나리오 또는 디바이스 요구 사항을 대상으로 지정하는 사용자 지정 미리 설정을 작성할 수 있습니다. 
 
 > [!Note]
 > Azure Media Services v3에서 모든 인코딩 비트 전송률은 비트/초입니다. 이는 REST v2 Media Encoder Standard 미리 설정과 다릅니다. 예를 들어 v2의 비트 전송률은 128로 지정되지만 v3에서는 128000이 됩니다.

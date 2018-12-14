@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central 응용 프로그램에 실제 장치 추가 | Microsoft Docs
-description: 운영자로서 Azure IoT Central 응용 프로그램에 실제 장치를 추가합니다.
+title: Azure IoT Central 응용 프로그램에 실제 디바이스 추가 | Microsoft Docs
+description: 운영자로서 Azure IoT Central 응용 프로그램에 실제 디바이스를 추가합니다.
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 10/12/2018
@@ -16,23 +16,23 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50154814"
 ---
-# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 응용 프로그램에 실제 장치 추가
+# <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 응용 프로그램에 실제 디바이스 추가
 
-이 자습서에서는 Microsoft Azure IoT Central 응용 프로그램에 실제 장치를 추가하고 구성하는 방법을 알려줍니다.
+이 자습서에서는 Microsoft Azure IoT Central 응용 프로그램에 실제 디바이스를 추가하고 구성하는 방법을 알려줍니다.
 
 이 자습서는 2부로 구성되어 있습니다.
 
-1. 먼저 운영자로서 Azure IoT Central 응용 프로그램에서 실제 장치를 추가하고 구성하는 방법을 알아봅니다. 1부의 끝에 2부에서 사용할 연결 문자열을 검색합니다.
-2. 그런 다음, 장치 개발자로서 실제 장치에서 코드에 대해 알아봅니다. 1부의 연결 문자열을 샘플 코드에 추가합니다.
+1. 먼저 운영자로서 Azure IoT Central 응용 프로그램에서 실제 디바이스를 추가하고 구성하는 방법을 알아봅니다. 1부의 끝에 2부에서 사용할 연결 문자열을 검색합니다.
+2. 그런 다음, 디바이스 개발자로서 실제 디바이스의 코드에 대해 알아봅니다. 1부의 연결 문자열을 샘플 코드에 추가합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 새 실제 장치 추가
+> * 새 실제 디바이스 추가
 > * 실제 디바이스 구성
-> * 응용 프로그램에서 실제 장치에 대한 연결 문자열 가져오기
+> * 응용 프로그램에서 실제 디바이스에 대한 연결 문자열 가져오기
 > * 클라이언트 코드가 응용 프로그램에 매핑되는 방법 이해
-> * 실제 장치에 대한 클라이언트 코드 구성
+> * 실제 디바이스에 대한 클라이언트 코드 구성
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,27 +42,27 @@ ms.locfileid: "50154814"
 * [장치에 대한 규칙 및 작업 구성](tutorial-configure-rules.md)(선택 사항)
 * [연산자의 뷰 사용자 지정](tutorial-customize-operator.md)(선택 사항)
 
-## <a name="add-a-real-device"></a>실제 장치 추가
+## <a name="add-a-real-device"></a>실제 디바이스 추가
 
-응용 프로그램에 실제 장치를 추가하려면 [새 장치 유형을 정의](tutorial-define-device-type.md) 자습서에서 만든 **연결 된 공조 장치** 템플릿을 사용합니다.
+응용 프로그램에 실제 디바이스를 추가하려면 [새 디바이스 유형을 정의](tutorial-define-device-type.md) 자습서에서 만든 **연결된 공조 디바이스** 템플릿을 사용합니다.
 
-1. 운영자로서 새 장치를 추가하려면 왼쪽 탐색 메뉴에서 **Device Explorer**를 선택합니다.
+1. 운영자로서 새 디바이스를 추가하려면 왼쪽 탐색 메뉴에서 **Device Explorer**를 선택합니다.
 
-   ![연결된 공조 장치를 표시하는 장치 탐색기 페이지](media/tutorial-add-device/explorer.png)
+   ![연결된 공조 디바이스를 표시하는 Device Explorer 페이지](media/tutorial-add-device/explorer.png)
 
    **Device Explorer**는 작성기가 장치 템플릿을 만들 때 자동으로 생성된 시뮬레이션된 장치 및 **연결된 공조 장치**를 표시합니다.
 
-2. 실제 연결된 공조 장치에 연결을 시작하려면 **새로 만들기** 및 **실제 장치**를 차례로 선택합니다.
+2. 실제 연결된 공조 디바이스에 연결을 시작하려면 **새로 만들기**, **실제 디바이스**를 차례로 선택합니다.
 
-   ![실제 연결된 새 공조 장치 추가 시작](media/tutorial-add-device/newreal.png)
+   ![실제 연결된 새 공조 디바이스 추가 시작](media/tutorial-add-device/newreal.png)
 
 3. 디바이스 ID(**소문자여야 함**)를 입력하거나 제안된 디바이스 ID를 사용합니다. 새 디바이스의 이름을 입력하고 **만들기**를 선택할 수도 있습니다.  
 
-   ![장치 이름 바꾸기](media/tutorial-add-device/rename.png)
+   ![디바이스 이름 바꾸기](media/tutorial-add-device/rename.png)
 
 
 
-## <a name="configure-a-real-device"></a>실제 장치 구성
+## <a name="configure-a-real-device"></a>실제 디바이스 구성
 
 **연결된 공조 장치** 템플릿에서 실제 장치를 만듭니다. 디바이스에 대한 정보를 기록하려면 **설정**을 사용하여 디바이스를 구성하고 속성 값을 설정합니다.
 
@@ -78,20 +78,20 @@ ms.locfileid: "50154814"
 
 ## <a name="generate-connection-string-for-real-device-from-application"></a>애플리케이션에서 실제 디바이스에 대한 연결 문자열 생성
 
-장치 개발자는 장치에서 실행되는 코드에서 실제 장치에 대한 *연결 문자열*을 포함해야 합니다. 연결 문자열을 사용하면 장치를 Azure IoT Central 응용 프로그램에 안전하게 연결할 수 있습니다. 다음 단계에서는 Node.js로 작성한 클라이언트 노드 준비의 일환으로 연결 문자열을 생성합니다. Node.js 응용 프로그램은 실제 연결된 공조를 나타냅니다. 
+디바이스 개발자는 디바이스에서 실행되는 코드에서 실제 디바이스에 대한 *연결 문자열*을 포함해야 합니다. 연결 문자열을 사용하면 디바이스를 Azure IoT Central 응용 프로그램에 안전하게 연결할 수 있습니다. 다음 단계에서는 Node.js로 작성한 클라이언트 노드 준비의 일환으로 연결 문자열을 생성합니다. Node.js 응용 프로그램은 실제 연결된 공조를 나타냅니다. 
 
 ## <a name="prepare-the-client-code"></a>클라이언트 코드 준비
 
 이 문서의 예제 코드는 [Node.js](https://nodejs.org/)에서 작성되고 다음을 하기에 충분한 코드를 보여줍니다.
 
-* 장치로서 Azure IoT Central 응용 프로그램에 연결합니다.
-* 연결된 공조 장치로서 온도 원격 분석을 보냅니다.
+* 디바이스로 Azure IoT Central 응용 프로그램에 연결합니다.
+* 연결된 공조 디바이스로써 온도 원격 분석을 보냅니다.
 * Azure IoT Central 애플리케이션에 디바이스 속성을 보냅니다.
 * **온도 설정** 설정을 사용하는 운영자에게 응답합니다.
 * Azure IoT Central 응용 프로그램에서 Echo 명령을 처리합니다.
 
 
-[다음 단계](#next-steps)에서 참조하는 "방법" 문서는 더 완벽한 샘플을 제공하고 다른 프로그래밍 언어의 사용을 보여줍니다. 장치를 Azure IoT Central에 연결하는 방법에 대한 자세한 내용은 [장치 연결](concepts-connectivity.md) 문서를 참조합니다.
+[다음 단계](#next-steps)에서 참조하는 "방법" 문서는 더 완벽한 샘플을 제공하고 다른 프로그래밍 언어의 사용을 보여줍니다. 디바이스를 Azure IoT Central에 연결하는 방법에 대한 자세한 내용은 [디바이스 연결](concepts-connectivity.md) 문서를 참조하세요.
 
 다음 단계에서는 [Node.js](https://nodejs.org/) 샘플을 준비하는 방법을 보여줍니다.
 
@@ -117,7 +117,7 @@ ms.locfileid: "50154814"
 
    IoT Central 포털로 돌아갑니다. 실제 연결된 공조의 디바이스 화면에서 **연결**을 선택합니다.
 
-   ![연결 정보 링크를 보여주는 장치 페이지](media/tutorial-add-device/connectionlink.png)
+   ![연결 정보 링크를 보여주는 디바이스 페이지](media/tutorial-add-device/connectionlink.png)
 
 
 1. 디바이스 연결 페이지에서 범위 ID, 디바이스 ID 및 기본 키를 복사하여 텍스트 편집기에 붙여 넣은 다음, 저장합니다. 다음 단계에서 이 값을 사용합니다.
@@ -193,7 +193,7 @@ ms.locfileid: "50154814"
    }
    ```
 
-   보내는 JSON의 필드 이름이 장치 템플릿에서 온도 원격 분석에 대해 지정한 필드 이름과 일치해야 합니다. 이 예제에서는 필드 이름이 **온도**합니다.
+   보내는 JSON의 필드 이름이 디바이스 템플릿에서 온도 원격 분석에 대해 지정한 필드 이름과 일치해야 합니다. 이 예제에서는 필드 이름이 **온도**합니다.
 
 
 1. **firmwareVersion** 및 **serialNumber** 같은 장치 속성을 보내려면 다음 정의를 추가합니다.
@@ -230,7 +230,7 @@ ms.locfileid: "50154814"
    };
    ```
 
-1. Azure IoT Central에서 전송된 설정을 처리하려면 적절한 장치 코드를 찾아 실행하는 다음 함수를 추가합니다.
+1. Azure IoT Central에서 전송된 설정을 처리하려면 적절한 디바이스 코드를 찾아 실행하는 다음 함수를 추가합니다.
 
    ```javascript
    // Handle settings changes that come from Azure IoT Central via the device twin.
@@ -307,7 +307,7 @@ ms.locfileid: "50154814"
 
 1. 지금까지 한 변경을 저장하지만 파일을 열어 놓습니다.
 
-## <a name="configure-client-code-for-the-real-device"></a>실제 장치에 대한 클라이언트 코드 구성
+## <a name="configure-client-code-for-the-real-device"></a>실제 디바이스에 대한 클라이언트 코드 구성
 
 <!-- Add the connection string to the sample code, build, and run --> Azure IoT Central 응용 프로그램에 연결할 클라이언트 코드를 구성하려면 이 자습서의 앞부분에서 언급한 실제 장치에 대한 연결 문자열을 추가해야 합니다.
 
@@ -334,11 +334,11 @@ ms.locfileid: "50154814"
 
    ![클라이언트 응용 프로그램 출력](media/tutorial-add-device/output.png)
 
-1. 약 30초 후 장치 **측정** 페이지에서 원격 분석을 확인합니다.
+1. 약 30초 후 디바이스 **측정** 페이지에서 원격 분석을 확인합니다.
 
    ![실제 원격 분석](media/tutorial-add-device/realtelemetry.png)
 
-1. **설정** 페이지에서 설정이 동기화됐는지 확인할 수 있습니다. 장치가 처음 연결된 경우 설정 값을 수신하고 변경 내용을 승인했습니다.
+1. **설정** 페이지에서 설정이 동기화됐는지 확인할 수 있습니다. 디바이스가 처음 연결된 경우 설정 값을 수신하고 변경 내용을 승인했습니다.
 
    ![동기화됨 설정](media/tutorial-add-device/settingsynced.png)
 
@@ -358,13 +358,13 @@ ms.locfileid: "50154814"
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="nextstepaction"]
-> * 새 실제 장치 추가
-> * 새 장치 구성
-> * 응용 프로그램에서 실제 장치에 대한 연결 문자열 가져오기
+> * 새 실제 디바이스 추가
+> * 새 디바이스 구성
+> * 응용 프로그램에서 실제 디바이스에 대한 연결 문자열 가져오기
 > * 클라이언트 코드가 응용 프로그램에 매핑되는 방법 이해
-> * 실제 장치에 대한 클라이언트 코드 구성
+> * 실제 디바이스에 대한 클라이언트 코드 구성
 
-Azure IoT Central 응용 프로그램에 실제 장치를 연결했으므로 제안된 다음 단계는 다음과 같습니다.
+Azure IoT Central 응용 프로그램에 실제 디바이스를 연결했으므로 제안된 다음 단계는 다음과 같습니다.
 
 운영자로서 방법을 알아볼 수 있습니다.
 
@@ -372,7 +372,7 @@ Azure IoT Central 응용 프로그램에 실제 장치를 연결했으므로 제
 * [장치 설정 사용](howto-use-device-sets.md)
 * [사용자 지정 분석 만들기](howto-create-analytics.md)
 
-장치 개발자로서 방법을 알아볼 수 있습니다.
+디바이스 개발자로서 다음 작업 방법을 알아볼 수 있습니다.
 
 * [DevKit 준비 및 연결](howto-connect-devkit.md)
 * [Raspberry Pi 준비 및 연결](howto-connect-raspberry-pi-python.md)

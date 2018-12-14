@@ -30,7 +30,7 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 이 문서에서는 Visual Studio 2017용 Azure IoT Edge 도구를 사용하여 C#에서 IoT Edge 모듈을 개발하는 방법을 설명합니다. Azure IoT Edge 디바이스에 프로젝트를 배포하는 방법도 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 문서에서는 Windows를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. IoT Edge 장치는 다른 물리적 장치일 수 있습니다.
+이 문서에서는 Windows를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. IoT Edge 디바이스는 다른 물리적 디바이스일 수 있습니다.
 
 이 문서에서는 Visual Studio 2017을 기본 개발 도구로 사용하기 때문에 Visual Studio를 설치해야 합니다. Visual Studio 2017 설치에 **Azure 개발 워크로드**를 포함해야 합니다. [Visual Studio 2017을 수정](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2017)하고 Azure 개발 워크로드를 추가할 수 있습니다.
 
@@ -87,9 +87,9 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 
 ## <a name="develop-your-module"></a>모듈 개발
 
-솔루션과 함께 제공되는 기본 C# 모듈 코드는 **IoTEdgeModule1** > **Program.cs**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
+솔루션과 함께 제공되는 기본 C# 모듈 코드는 **IoTEdgeModule1** > **Program.cs**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 디바이스에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
-고유한 코드를 사용하여 C# 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
+고유한 코드를 사용하여 C# 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 디바이스 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
 
 ## <a name="initialize-iotegehubdev-with-iot-edge-device-connection-string"></a>IoT Edge 디바이스 연결 문자열을 사용하여 **iotegehubdev** 초기화
 

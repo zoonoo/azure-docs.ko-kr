@@ -3390,7 +3390,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Event Hubs</h3>
-                                                    <p>수백만 개의 장치에서 원격 분석 수신</p>
+                                                    <p>수백만 개의 디바이스에서 원격 분석 수신</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3958,7 +3958,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT 기본 사항</h3>
-                                                    <p>장치 연결 시작</p>
+                                                    <p>디바이스 연결 시작</p>
                                                 </div>
                                             </div>
                                         </div>

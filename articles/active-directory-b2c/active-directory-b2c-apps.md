@@ -106,7 +106,7 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 
 ## <a name="mobile-and-native-applications"></a>모바일 및 네이티브 응용 프로그램
 
-모바일 및 데스크톱 응용 프로그램과 같은 장치에 설치된 응용 프로그램은 사용자 대신 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 네이티브 응용 프로그램에 사용자 지정된 ID 관리 환경을 추가하고 Azure AD B2C 및 [OAuth 2.0 권한 부여 코드 흐름](active-directory-b2c-reference-oauth-code.md)을 사용하여 안전하게 백 엔드 서비스를 호출할 수 있습니다.  
+모바일 및 데스크톱 응용 프로그램과 같은 디바이스에 설치된 응용 프로그램은 사용자 대신 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 네이티브 응용 프로그램에 사용자 지정된 ID 관리 환경을 추가하고 Azure AD B2C 및 [OAuth 2.0 권한 부여 코드 흐름](active-directory-b2c-reference-oauth-code.md)을 사용하여 안전하게 백 엔드 서비스를 호출할 수 있습니다.  
 
 이 흐름에서 응용 프로그램은 [정책](active-directory-b2c-reference-policies.md)을 실행하고 사용자가 정책을 완료하면 Azure AD에서 `authorization_code`를 수신합니다. `authorization_code`는 현재 로그인한 사용자를 대신하여 백 엔드 서비스를 호출할 응용 프로그램의 사용 권한을 나타냅니다. 그러면 응용 프로그램은 백그라운드에서 `id_token` 및 `refresh_token`에 대한 `authorization_code`를 교환할 수 있습니다.  응용 프로그램은 HTTP 요청에서 백 엔드 Web API를 인증하는 데 `id_token`을 사용할 수 있습니다. 또한 이전 항목이 만료된 경우 `refresh_token`을 사용하여 새 `id_token`을 가져올 수도 있습니다.
 

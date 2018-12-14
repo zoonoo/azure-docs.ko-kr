@@ -16,11 +16,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50157856"
 ---
-# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 시뮬레이션된 TPM 장치 프로비전
+# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 시뮬레이션된 TPM 디바이스 프로비전
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-이 빠른 시작에서는 Windows 개발 머신에서 TPM(신뢰할 수 있는 플랫폼 모듈) 장치 시뮬레이터를 만들고 실행하는 방법을 알아봅니다. Device Provisioning Service 인스턴스를 사용하여 이 시뮬레이션된 장치를 IoT Hub에 연결합니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플 코드를 사용하여 Device Provisioning Service 인스턴스에 장치를 등록하고 장치에 대한 부팅 시퀀스를 시뮬레이션할 수 있습니다.
+이 빠른 시작에서는 Windows 개발 머신에서 TPM(신뢰할 수 있는 플랫폼 모듈) 디바이스 시뮬레이터를 만들고 실행하는 방법을 알아봅니다. Device Provisioning Service 인스턴스를 사용하여 이 시뮬레이션된 디바이스를 IoT Hub에 연결합니다. [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 샘플 코드를 사용하여 Device Provisioning Service 인스턴스에 장치를 등록하고 장치에 대한 부팅 시퀀스를 시뮬레이션할 수 있습니다.
 
 자동 프로비전 프로세스에 익숙하지 않은 경우 [자동 프로비전 개념](concepts-auto-provisioning.md)을 검토하세요. 이 빠른 시작을 계속하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)의 단계를 완료해야 합니다. 
 
@@ -42,7 +42,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="prepare-a-development-environment-for-the-azure-iot-c-sdk"></a>Azure IoT C SDK에 대한 개발 환경 준비
 
-이 섹션에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 및 [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) 장치 시뮬레이터 샘플을 빌드하는 데 사용되는 개발 환경을 준비합니다.
+이 섹션에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 및 [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) 디바이스 시뮬레이터 샘플을 빌드하는 데 사용되는 개발 환경을 준비합니다.
 
 1. [CMake 빌드 시스템](https://cmake.org/download/)의 버전 3.11.4를 다운로드합니다. 해당하는 암호화 해시 값을 사용하여 다운로드된 이진 파일을 확인합니다. 다음 예제에서는 Windows PowerShell을 사용하여 x64 MSI 배포의 3.11.4 버전에 대한 암호화 해시를 확인했습니다.
 
@@ -78,11 +78,11 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     cd cmake
     ```
 
-## <a name="build-the-sdk-and-run-the-tpm-device-simulator"></a>SDK를 빌드하고 TPM 장치 시뮬레이터를 실행합니다.
+## <a name="build-the-sdk-and-run-the-tpm-device-simulator"></a>SDK를 빌드하고 TPM 디바이스 시뮬레이터를 실행합니다.
 
-이 섹션에서는 TPM 장치 시뮬레이터 샘플 코드를 포함하는 Azure IoT C SDK를 빌드합니다. 이 샘플에서는 SAS(공유 액세스 서명) 토큰 인증을 통해 TPM [증명 메커니즘](concepts-security.md#attestation-mechanism)을 제공합니다.
+이 섹션에서는 TPM 디바이스 시뮬레이터 샘플 코드를 포함하는 Azure IoT C SDK를 빌드합니다. 이 샘플에서는 SAS(공유 액세스 서명) 토큰 인증을 통해 TPM [증명 메커니즘](concepts-security.md#attestation-mechanism)을 제공합니다.
 
-1. azure-iot-sdk-c git 리포지토리에서 만든 `cmake` 하위 디렉터리에서 다음 명령을 실행하여 샘플을 빌드합니다. 또한 시뮬레이션된 장치에 대한 Visual Studio 솔루션도 이 빌드 명령에 의해 생성됩니다.
+1. azure-iot-sdk-c git 리포지토리에서 만든 `cmake` 하위 디렉터리에서 다음 명령을 실행하여 샘플을 빌드합니다. 또한 시뮬레이션된 디바이스에 대한 Visual Studio 솔루션도 이 빌드 명령에 의해 생성됩니다.
 
     ```cmd/sh
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
@@ -115,13 +115,13 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
     ```
 
-    시뮬레이터의 출력이 표시되지 않습니다. 계속해서 TPM 장치의 시뮬레이션을 실행합니다.
+    시뮬레이터의 출력이 표시되지 않습니다. 계속해서 TPM 디바이스의 시뮬레이션을 실행합니다.
 
 <a id="simulatetpm"></a>
 
-## <a name="read-cryptographic-keys-from-the-tpm-device"></a>TPM 장치의 암호화 키 읽기
+## <a name="read-cryptographic-keys-from-the-tpm-device"></a>TPM 디바이스의 암호화 키 읽기
 
-이 섹션에서는 포트 2321 및 2322에서 실행하고 수신 대기해 둔 TPM 시뮬레이터의 인증 키 및 등록 ID를 읽을 샘플을 빌드하고 실행합니다. 이러한 값은 Device Provisioning Service 인스턴스를 사용하는 장치 등록에 사용됩니다.
+이 섹션에서는 포트 2321 및 2322에서 실행하고 수신 대기해 둔 TPM 시뮬레이터의 인증 키 및 등록 ID를 읽을 샘플을 빌드하고 실행합니다. 이러한 값은 Device Provisioning Service 인스턴스를 사용하는 디바이스 등록에 사용됩니다.
 
 1. Visual Studio를 시작하고 `azure_iot_sdks.sln`이라는 새 솔루션 파일을 엽니다. 이 솔루션 파일은 azure-iot-sdk-c git 리포지토리의 루트에서 이전에 만든 `cmake` 폴더에 위치합니다.
 
@@ -129,7 +129,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 3. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Tools** 폴더로 이동합니다. **tpm_device_provision** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 선택합니다. 
 
-4. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 앱은 **_등록 ID_** 및 **_인증 키_** 를 읽고 표시합니다. 이러한 값을 복사합니다. 해당 값은 장치 등록을 위해 다음 섹션에서 사용됩니다. 
+4. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 앱은 **_등록 ID_** 및 **_인증 키_** 를 읽고 표시합니다. 이러한 값을 복사합니다. 해당 값은 디바이스 등록을 위해 다음 섹션에서 사용됩니다. 
 
 
 <a id="portalenrollment"></a>
@@ -148,7 +148,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     - **IoT Edge 장치:** **사용 안 함**을 선택합니다.
     - **IoT Hub 장치 ID:** **test-docs-device**를 입력하여 장치에 ID를 제공합니다.
 
-    ![포털에 장치 등록 정보 입력](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+    ![포털에 디바이스 등록 정보 입력](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
     등록에 성공하면 디바이스의 *등록 ID*가 *개별 등록* 탭 아래 목록에 나타납니다. 
 
@@ -157,7 +157,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>디바이스에 대한 첫 번째 부팅 시퀀스 시뮬레이션
 
-이 섹션에서는 샘플 코드가 [AMQP(고급 메시지 큐 프로토콜)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol)을 사용하도록 구성하여 장치의 부팅 시퀀스를 Device Provisioning Service 인스턴스에 보냅니다. 이 부팅 시퀀스를 사용하면 장치를 인식하고 Device Provisioning Service 인스턴스에 연결된 IoT Hub에 할당합니다.
+이 섹션에서는 샘플 코드가 [AMQP(고급 메시지 큐 프로토콜)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol)를 사용하도록 구성하여 디바이스의 부팅 시퀀스를 Device Provisioning Service 인스턴스에 보냅니다. 이 부팅 시퀀스를 사용하면 디바이스를 인식하고 Device Provisioning Service 인스턴스에 연결된 IoT Hub에 할당합니다.
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 복사합니다.
 
@@ -165,7 +165,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 2. Visual Studio의 *솔루션 탐색기* 창에서 **Provision\_Samples** 폴더로 이동합니다. **prov\_dev\_client\_sample**이라는 샘플 프로젝트를 확장합니다. **원본 파일**을 확장하고, **prov\_dev\_client\_sample.c**를 엽니다.
 
-3. 아래에 표시된 대로 파일의 맨 위쪽 가까이에 있는 각 장치 프로토콜에 대한 `#define` 문을 찾습니다. `SAMPLE_AMQP`의 주석 처리를 제거했는지 확인합니다.
+3. 아래에 표시된 대로 파일의 맨 위쪽 가까이에 있는 각 디바이스 프로토콜에 대한 `#define` 문을 찾습니다. `SAMPLE_AMQP`의 주석 처리를 제거했는지 확인합니다.
 
     현재 [MQTT 프로토콜은 TPM 개별 등록에 지원되지 않습니다](https://github.com/Azure/azure-iot-sdk-c#provisioning-client-sdk).
 
@@ -198,7 +198,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 7. Visual Studio 메뉴에서 **디버그** > **디버깅하지 않고 시작**을 선택하여 솔루션을 실행합니다. 프로젝트를 다시 빌드하라는 프롬프트에서 **예**를 클릭하여 실행하기 전에 프로젝트를 다시 빌드합니다.
 
-    다음 출력은 프로비전 장치 클라이언트 샘플을 성공적으로 부팅하고, IoT Hub 정보를 가져오기 위해 Device Provisioning Service 인스턴스에 연결하고, 등록하는 예제입니다.
+    다음 출력은 프로비전 디바이스 클라이언트 샘플을 성공적으로 부팅하고, IoT Hub 정보를 가져오기 위해 Device Provisioning Service 인스턴스에 연결하고, 등록하는 예제입니다.
 
     ```cmd
     Provisioning API Version: 1.2.7
@@ -214,7 +214,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
     test-docs-hub.azure-devices.net, deviceId: test-docs-device
     ```
 
-8. 시뮬레이션된 장치를 프로비전 서비스별로 IoT Hub에 프로비전하면 장치 ID가 허브의 **IoT 장치**에 표시됩니다. 
+8. 시뮬레이션된 디바이스를 프로비전 서비스별로 IoT Hub에 프로비전하면 디바이스 ID가 허브의 **IoT 디바이스**에 표시됩니다. 
 
     ![디바이스가 IoT Hub에 등록됨](./media/quick-create-simulated-device/hub-registration.png) 
 
@@ -226,7 +226,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 1. 컴퓨터에서 장치 클라이언트 샘플 출력 창을 닫습니다.
 2. 컴퓨터에서 TPM 시뮬레이터 창을 닫습니다.
 3. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 사용자의 Device Provisioning Service를 선택합니다. 서비스에 대한 **등록 관리**를 연 다음, **개별 등록** 탭을 클릭합니다. 이 빠른 시작에서 등록한 디바이스의 *등록 ID*를 선택하고, 위쪽의 **삭제** 단추를 클릭합니다. 
-4. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. 허브에 대한 **IoT 장치**를 열고, 이 빠른 시작에서 등록한 장치의 *장치 ID*를 선택한 다음, 위쪽의 **삭제** 단추를 클릭합니다.
+4. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음 사용자의 IoT Hub를 선택합니다. 허브에 대한 **IoT 디바이스**를 열고, 이 빠른 시작에서 등록한 디바이스의 *디바이스 ID*를 선택한 다음, 위쪽의 **삭제** 단추를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -34,11 +34,11 @@ LUIS는 20가지의 미리 작성된 도메인을 제공합니다.
 | 이벤트 | 콘서트, 축제, 스포츠 게임 및 코미디 쇼 티켓 예약| en-US |
 | Fitness | 피트니스 활동 추적과 관련된 요청 처리| en-US |
 | 게임 | 멀티플레이 게임의 게임 파티와 관련된 요청 처리| en-US |
-| HomeAutomation | 조명 및 어플라이언스와 같은 스마트 홈 장치 제어| en-US<br/> zh-CN |
+| HomeAutomation | 조명 및 어플라이언스와 같은 스마트 홈 디바이스 제어| en-US<br/> zh-CN |
 | MovieTickets | 영화관의 영화 티켓 예약| en-US |
 | 음악 | 뮤직 플레이어에서 음악 재생| en-US<br/> zh-CN |
 | 참고 | Note 도메인은 메모 생성, 편집 및 찾기와 관련된 의도 및 엔터티를 제공합니다.| en-US<br/> zh-CN |
-| OnDevice | OnDevice 도메인은 장치 제어와 관련된 의도 및 엔터티를 제공합니다.| en-US<br/> zh-CN |
+| OnDevice | OnDevice 도메인은 디바이스 제어와 관련된 의도 및 엔터티를 제공합니다.| en-US<br/> zh-CN |
 | 장소  | 회사, 기관, 식당, 공용 공간 및 주소와 같은 장소 관련 쿼리 처리| en-US<br/> zh-CN |
 | 미리 알림 | 미리 알림 생성, 편집 및 찾기와 관련된 요청 처리| en-US<br/> zh-CN |
 | RestaurantReservation | 식당 예약에 대한 관리 요청 처리| en-US<br/> zh-CN |
@@ -129,7 +129,7 @@ Communication 도메인은 전자 메일, 메시지 및 전화 통화와 관련�
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| AudioDeviceType | 오디오 장치(스피커, 헤드셋, 마이크 등)의 종류입니다.| 발표자<br/>핸즈프리<br/>Bluetooth|
+| AudioDeviceType | 오디오 디바이스(스피커, 헤드셋, 마이크 등)의 종류입니다.| 발표자<br/>핸즈프리<br/>Bluetooth|
 | Category | 메시지 또는 전자 메일의 범주입니다.| 중요<br/>높은 우선 순위|
 | ContactAttribute | 사용자가 조회하는 연락처의 특성입니다.| Birthdays<br/>주소<br/>전화 번호|
 | ContactName | 연락처 또는 메시지 받는 사람의 이름입니다.| Carol<br/>Jim<br/>Chris|
@@ -221,13 +221,13 @@ Gaming 도메인은 멀티플레이어 게임의 게임 파티 관리와 관련�
 
 
 ## <a name="homeautomation"></a>HomeAutomation 
-HomeAutomation 도메인은 조명 및 어플라이언스와 같은 스마트 홈 장치 제어와 관련된 의도 및 엔터티를 제공합니다.
+HomeAutomation 도메인은 조명 및 어플라이언스와 같은 스마트 홈 디바이스 제어와 관련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| TurnOff| 장치를 끄거나, 닫거나, 잠금을 해제합니다.|조명 끄기<br/>커피 메이커 중지<br/>차고 문 닫기|
-|TurnOn| 장치를 켜거나 장치를 특정 설정 또는 모드로 지정합니다.|커피 메이커 켜기<br/>내 커피 메이커를 켤 수 있나요?<br/>자동 온도 조절기를 72도로 설정합니다.|
+| TurnOff| 디바이스를 끄거나, 닫거나, 잠금을 해제합니다.|조명 끄기<br/>커피 메이커 중지<br/>차고 문 닫기|
+|TurnOn| 디바이스를 켜거나 디바이스를 특정 설정 또는 모드로 지정합니다.|커피 메이커 켜기<br/>내 커피 메이커를 켤 수 있나요?<br/>자동 온도 조절기를 72도로 설정합니다.|
 
 
 ### <a name="entities"></a>엔터티
@@ -235,7 +235,7 @@ HomeAutomation 도메인은 조명 및 어플라이언스와 같은 스마트 �
 | ---------------- |-----------------------|----|
 | 장치 | 켜거나 끌 수 있는 디바이스 유형입니다.|커피 메이커<br/>자동 온도 조절기<br/>조명|
 | 작업(Operation) | 디바이스의 설정 상태입니다.|lock<br/>open<br/>on<br/>끄기|
-| 공간 | 장치가 있는 위치 또는 방입니다.|거실<br/>침실<br/>주방|
+| 공간 | 디바이스가 있는 위치 또는 방입니다.|거실<br/>침실<br/>주방|
 
 ## <a name="movietickets"></a>MovieTickets 
 MovieTickets 도메인은 영화관의 영화 티켓 예약과 관련된 의도 및 엔터티를 제공합니다.
@@ -275,22 +275,22 @@ Skip to the next song
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| DecreaseVolume | 장치 볼륨을 줄입니다.|트랙 볼륨 낮추기<br/>볼륨 작게|
-| IncreaseVolume | 장치 볼륨을 높입니다.|트랙 볼륨 높이기<br/>볼륨 크게|
+| DecreaseVolume | 디바이스 볼륨을 줄입니다.|트랙 볼륨 낮추기<br/>볼륨 작게|
+| IncreaseVolume | 디바이스 볼륨을 높입니다.|트랙 볼륨 높이기<br/>볼륨 크게|
 | Mute |재생 음악을 음소거합니다.|노래 음소거<br/>트랙 음소거<br/>음악 음소거 |
 | 일시 중지 | 음악 재생을 일시 중지합니다.|일시 중지<br/>음악 일시 중지<br/>트랙 일시 중지|
-| PlayMusic | 장치에서 음악을 재생합니다.|Kevin Durant 재생<br/>Coldplay의 Paradise 재생<br/>Adele의 Hello 재생|
+| PlayMusic | 디바이스에서 음악을 재생합니다.|Kevin Durant 재생<br/>Coldplay의 Paradise 재생<br/>Adele의 Hello 재생|
 | Repeat |음악 재생을 반복합니다.|노래 반복<br/>트랙 다시 재생<br/>음악 반복|
 | 다시 시작 | 음악 재생을 다시 시작합니다.|노래 다시 시작<br/>음악 다시 시작<br/>일시 중지 해제|
 | SkipBack | 한 트랙 뒤로 건너뜁니다.|다음 노래로 이동<br/>다음 곡 재생|
 | SkipForward |한 트랙 앞으로 건너뜁니다.|이전 곡 재생<br/>이전 트랙으로 돌아가기 |
 | 중지 | 음악 재생에 관련된 작업을 중지합니다. |이 앨범 재생을 중지합니다.|
-| Unmute | 음악 재생 장치의 음소거를 해제합니다.| 음소거를 해제합니다.|
+| Unmute | 음악 재생 디바이스의 음소거를 해제합니다.| 음소거를 해제합니다.|
 
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| ArtistName | 장치에서 재생할 미디어와 관련된 배우, 감독, 프로듀서, 작가, 음악가 또는 예술가입니다.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
+| ArtistName | 디바이스에서 재생할 미디어와 관련된 배우, 감독, 프로듀서, 작가, 음악가 또는 예술가입니다.|Elvis Presley<br/>Taylor Swift<br/>Adele<br/>Mozart|
 | Genre | 요청된 음악의 장르입니다.|컨트리 음악<br/>브로드웨이 클래식<br/>바로크 시대의 고전 음악 재생|
 
 ## <a name="note"></a>참고 
@@ -327,7 +327,7 @@ Remove all items from my vacation list
 | 제목 | 메모의 제목입니다.|식료품<br/>통화할 사람<br/>할 일|
 
 ## <a name="ondevice"></a>OnDevice 
-OnDevice 도메인은 장치 제어와 관련된 의도 및 엔터티를 제공합니다.
+OnDevice 도메인은 디바이스 제어와 관련된 의도 및 엔터티를 제공합니다.
 
 ### <a name="examples"></a>예
 ```
@@ -339,42 +339,42 @@ Can you make the screen brighter?
 ### <a name="intents"></a>의도
 | 의도 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| AreYouListening | 장치가 수신 대기 중인지 문의합니다.|켜져 있나요?<br/>수신 증인가요?|
-|CloseApplication|장치 응용 프로그램을 닫습니다.|비디오 플레이어 닫기|
-|FileBug|장치의 버그를 정리합니다.|버그를 정리하세요.<br/>버그를 정리해줄 수 있나요?<br/>이 버그를 보고하겠습니다.|
+| AreYouListening | 디바이스가 수신 대기 중인지 문의합니다.|켜져 있나요?<br/>수신 증인가요?|
+|CloseApplication|디바이스 응용 프로그램을 닫습니다.|비디오 플레이어 닫기|
+|FileBug|디바이스의 버그를 정리합니다.|버그를 정리하세요.<br/>버그를 정리해줄 수 있나요?<br/>이 버그를 보고하겠습니다.|
 |GoBack|한 단계 뒤로 돌아가거나 이전 단계로 돌아가도록 요청합니다.|돌아가세요.<br/>이전 화면으로 이동<br/>돌아가서 수신 중지|
 |도움말| 도움을 요청합니다.|도와주세요.<br/>안녕하세요.<br/>어떻게 해야 합니까?<br/>도움이 필요합니다.| 
-|LocateDevice|장치를 찾습니다.|내 휴대폰을 찾을 수 있나요?<br/>Tom의 iphone 찾기<br/>내 휴대폰 찾기|
-|LogIn|장치를 사용하여 서비스에 로그인합니다.|로그인하세요.<br/>Facebook 로그인<br/>LinkedIn에 로그인|
-|LogOut|장치를 사용하여 서비스에서 로그아웃합니다.|내 휴대폰에서 로그오프<br/>Twitter에 로그온<br/>로그아웃|
-|MainMenu|장치의 주 메뉴를 표시합니다.|보기 메뉴|
-|OpenApplication|장치에서 응용 프로그램을 엽니다.|경보를 여세요.<br/>카메라 켜기<br/>일정 시작|
-|OpenSetting|장치에서 설정을 엽니다.|네트워크 설정을 엽니다.|
-|PairDevice|장치와 쌍으로 연결합니다.|Bluetooth 신호를 휴대폰에 연결하는 데 도움을 줄 수 있나요?<br/>Bluetooth를 켜고 랩톱에 연결<br/>Bluetooth 신호를 랩톱에 연결|
-|PowerOff | 장치를 끕니다.|내 컴퓨터를 종료할 수 있나요?<br/>Shutdown<br/>내 휴대폰 끄기|
+|LocateDevice|디바이스를 찾습니다.|내 휴대폰을 찾을 수 있나요?<br/>Tom의 iphone 찾기<br/>내 휴대폰 찾기|
+|LogIn|디바이스를 사용하여 서비스에 로그인합니다.|로그인하세요.<br/>Facebook 로그인<br/>LinkedIn에 로그인|
+|LogOut|디바이스를 사용하여 서비스에서 로그아웃합니다.|내 휴대폰에서 로그오프<br/>Twitter에 로그온<br/>로그아웃|
+|MainMenu|디바이스의 주 메뉴를 표시합니다.|보기 메뉴|
+|OpenApplication|디바이스에서 응용 프로그램을 엽니다.|경보를 여세요.<br/>카메라 켜기<br/>일정 시작|
+|OpenSetting|디바이스에서 설정을 엽니다.|네트워크 설정을 엽니다.|
+|PairDevice|디바이스와 쌍으로 연결합니다.|Bluetooth 신호를 휴대폰에 연결하는 데 도움을 줄 수 있나요?<br/>Bluetooth를 켜고 랩톱에 연결<br/>Bluetooth 신호를 랩톱에 연결|
+|PowerOff | 디바이스를 끕니다.|내 컴퓨터를 종료할 수 있나요?<br/>Shutdown<br/>내 휴대폰 끄기|
 |QueryBattery|배터리 수명에 대한 정보를 얻습니다.|배터리 수명을 표시합니다.<br/>내 배터리 상태<br/>남아 있는 배터리 용량은 얼마나 되나요?<br/>배터리 표시|
 |QueryWifi|WiFi에 대한 정보를 얻습니다.|WiFi 정보를 얻습니다.|
 |다시 시작|디바이스를 다시 시작합니다.|다시 시작하세요.|
-|RingDevice| 장치를 분실한 경우 찾기 위해 벨소리를 내도록 요청합니다.|휴대폰이 울리도록 합니다.| 
-|SetBrightness|장치 밝기를 설정합니다.|밝기를 중간으로 설정<br/>밝기를 높음으로 설정<br/>밝기를 낮음으로 설정|
-|SetupDevice|장치 설치를 시작합니다.|OS 설치 프로그램을 설치합니다.<br/>설치하세요.<br/>자동으로 설치|
+|RingDevice| 디바이스를 분실한 경우 찾기 위해 벨소리를 내도록 요청합니다.|휴대폰이 울리도록 합니다.| 
+|SetBrightness|디바이스 밝기를 설정합니다.|밝기를 중간으로 설정<br/>밝기를 높음으로 설정<br/>밝기를 낮음으로 설정|
+|SetupDevice|디바이스 설치를 시작합니다.|OS 설치 프로그램을 설치합니다.<br/>설치하세요.<br/>자동으로 설치|
 |ShowAppBar|앱 바를 표시합니다.|응용 프로그램 표시줄 표시<br/>응용 프로그램 표시줄<br/>응용 프로그램 표시줄을 표시하겠습니다.|
 |ShowContextMenu|상황에 맞는 메뉴를 표시합니다.|상황에 맞는 메뉴를 표시하겠습니다.<br/>상황에 맞는 메뉴<br/>상황에 맞는 메뉴는 표시할 수 있나요?|
-|절전|장치를 절전 모드로 전환합니다.|절전 모드로 전환<br/>절전<br/>내 컴퓨터 절전 모드|
-|SwitchApplication|장치에서 사용하도록 응용 프로그램을 전환합니다.|내 미디어 플레이어로 전환합니다.|
-|TurnDownBrightness|장치 밝기를 줄입니다.|화면을 흐리게 표시합니다.|
-|TurnOffSetting|장치 설정을 해제합니다.|Bluetooth 비활성화<br/>데이터 사용 안 함<br/>Bluetooth 연결 끊기|
+|절전|디바이스를 절전 모드로 전환합니다.|절전 모드로 전환<br/>절전<br/>내 컴퓨터 절전 모드|
+|SwitchApplication|디바이스에서 사용하도록 응용 프로그램을 전환합니다.|내 미디어 플레이어로 전환합니다.|
+|TurnDownBrightness|디바이스 밝기를 줄입니다.|화면을 흐리게 표시합니다.|
+|TurnOffSetting|디바이스 설정을 해제합니다.|Bluetooth 비활성화<br/>데이터 사용 안 함<br/>Bluetooth 연결 끊기|
 |TurnOnSetting|디바이스 설정을 켭니다.|다른 <br/> 꺼짐|
-|TurnUpBrightness|장치 밝기를 높입니다.|화면을 더 밝게 만들 수 있나요?|
+|TurnUpBrightness|디바이스 밝기를 높입니다.|화면을 더 밝게 만들 수 있나요?|
 
 ### <a name="entities"></a>엔터티
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
-| AppName | 장치의 응용 프로그램 이름입니다.|SoundCloud<br/>YouTube|
-| BrightnessLevel | 장치의 밝기 수준을 설정합니다.|100%<br/>50<br/>40%|
-| ContactName | 장치에 있는 연락처의 이름입니다.|Paul<br/>Marlen Max|
-| DeviceType | 장치의 유형입니다. |Phone<br/>Kindle<br/>랩톱|
-| MediaType | 장치에서 처리하는 미디어 유형입니다.|음악<br/>영화<br/>TV 쇼|
+| AppName | 디바이스의 응용 프로그램 이름입니다.|SoundCloud<br/>YouTube|
+| BrightnessLevel | 디바이스의 밝기 수준을 설정합니다.|100%<br/>50<br/>40%|
+| ContactName | 디바이스에 있는 연락처의 이름입니다.|Paul<br/>Marlen Max|
+| DeviceType | 디바이스의 유형입니다. |Phone<br/>Kindle<br/>랩톱|
+| MediaType | 디바이스에서 처리하는 미디어 유형입니다.|음악<br/>영화<br/>TV 쇼|
 | SettingType | 사용자가 편집하려는 설정 또는 설정 패널의 유형입니다.|WiFi<br/>무선 네트워크<br/>색 구성표<br/>알림 센터|
 
 ## <a name="places"></a>Places  

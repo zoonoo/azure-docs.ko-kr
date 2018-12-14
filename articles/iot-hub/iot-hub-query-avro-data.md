@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Analytics를 사용하여 Avro 데이터 쿼리 | Microsoft Docs
-description: 메시지 본문 속성을 사용하여 장치 원격 분석을 Blob Storage에 라우팅하고 Blob Storage에 작성된 Avro 형식 데이터를 쿼리합니다.
+description: 메시지 본문 속성을 사용하여 디바이스 원격 분석을 Blob Storage에 라우팅하고 Blob Storage에 작성된 Avro 형식 데이터를 쿼리합니다.
 author: ash2017
 ms.service: iot-hub
 services: iot-hub
@@ -38,7 +38,7 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
 
    경로 및 사용자 지정 엔드포인트 설정에 대한 자세한 내용은 [IoT 허브에 대한 메시지 라우팅](iot-hub-create-through-portal.md#message-routing-for-an-iot-hub)을 참조하세요.
 
-2. 제품 설명서에서 참조하도록 속성 또는 메시지 본문에서 인코딩, 콘텐츠 형식 및 필요한 데이터가 장치에 포함되는지 확인합니다. 여기에 표시된 대로 Device Explorer에서 이러한 특성을 볼 때 해당 특성이 올바로 설정되어 있는지 확인할 수 있습니다.
+2. 제품 설명서에서 참조하도록 속성 또는 메시지 본문에서 인코딩, 콘텐츠 형식 및 필요한 데이터가 디바이스에 포함되는지 확인합니다. 여기에 표시된 대로 Device Explorer에서 이러한 특성을 볼 때 해당 특성이 올바로 설정되어 있는지 확인할 수 있습니다.
 
    ![이벤트 허브 데이터 창](./media/iot-hub-query-avro-data/query-avro-data-2.png)
 

@@ -35,7 +35,7 @@ ms.locfileid: "52426420"
 - 사용자가 로그인 Exchange ActiveSync, EAS, SMTP, POP 및 IMAP 등의 레거시 프로토콜을 사용하여 Outlook 클라이언트에 로그인합니다.
 - 사용자가 [최신 인증](https://aka.ms/modernauthga)(Office 2010, 2013 및 2016 버전)을 지원하는 레거시 Office 클라이언트 응용 프로그램 및 Office 응용 프로그램에 로그인합니다.
 - 사용자가 PowerShell 버전 1.0 등과 같은 레거시 프로토콜 응용 프로그램에 로그인합니다.
-- Azure AD가 Windows 10 장치에 조인합니다.
+- Azure AD가 Windows 10 디바이스에 조인합니다.
 - Multi-Factor Authentication에 사용할 앱 암호.
 
 ## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오

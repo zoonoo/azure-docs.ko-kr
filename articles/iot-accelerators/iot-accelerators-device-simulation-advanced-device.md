@@ -36,7 +36,7 @@ Azure 구독 자격 증명을 사용하여 로그인하라는 메시지가 표�
 
 그런 다음, [Azure에서 IoT 디바이스 시뮬레이션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작에서 배포한 디바이스 시뮬레이션에 대한 타일에서 **시작**을 클릭합니다.
 
-## <a name="device-models"></a>장치 모델
+## <a name="device-models"></a>디바이스 모델
 
 각 시뮬레이션된 디바이스는 시뮬레이션 동작을 정의하는 특정 디바이스 모델에 속합니다. 이 동작에는 원격 분석을 보내는 빈도, 전송할 메시지 종류 및 지원되는 방법이 포함됩니다.
 
@@ -496,7 +496,7 @@ function main(context, state) {
 
 메뉴 모음에서 **디바이스 모델**을 선택합니다. **디바이스 모델** 페이지는 디바이스 시뮬레이션의 이 인스턴스에서 사용 가능한 디바이스 모델을 나열합니다.
 
-![장치 모델](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
+![디바이스 모델](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
 페이지의 오른쪽 위 모서리에서 **+ 디바이스 모델 추가**를 클릭합니다.
 

@@ -304,7 +304,7 @@ GPU 장치 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이�
  
 
 ### <a name="x11-server"></a>X11 서버
-NV 또는 NVv2 VM에 대한 원격 연결을 위해 X11 서버가 필요한 경우 그래픽의 하드웨어 가속화가 가능하기 때문에 [x11vnc](http://www.karlrunge.com/x11vnc/)가 권장됩니다. M60 장치의 BusID를 X11 구성 파일(일반적으로 `etc/X11/xorg.conf`)에 직접 추가해야 합니다. 다음과 유사한 `"Device"` 섹션을 추가합니다.
+NV 또는 NVv2 VM에 대한 원격 연결을 위해 X11 서버가 필요한 경우 그래픽의 하드웨어 가속화가 가능하기 때문에 [x11vnc](http://www.karlrunge.com/x11vnc/)가 권장됩니다. M60 디바이스의 BusID를 X11 구성 파일(일반적으로 `etc/X11/xorg.conf`)에 직접 추가해야 합니다. 다음과 유사한 `"Device"` 섹션을 추가합니다.
  
 ```
 Section "Device"

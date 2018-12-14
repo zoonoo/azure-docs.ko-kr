@@ -163,11 +163,11 @@ Content-Length: 0
 
 클라이언트 응용 프로그램이 음성 서비스에 보낸 각 메시지는 *X-Timestamp* 헤더를 포함*해야 합니다*. 이 헤더에 대한 값은 클라이언트가 메시지를 보내는 시간입니다. *X-Timestamp* 헤더가 없거나 잘못된 형식을 사용하는 헤더 값을 가진 요청은 서비스가 WebSocket 연결을 종료하게 합니다.
 
-*X-Timestamp* 헤더 값은 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffZ' 형식이어야 합니다. 단, 'fffffff'는 초의 분수입니다. 예를 들어 '12.5'는 '12 + 5/10초'를 의미하며 '12.526'은 '12 plus 526/1000초'를 의미합니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)를 준수하며 표준 HTTP *Date* 헤더와 달리 밀리초 분해능을 제공할 수 있습니다. 클라이언트 응용 프로그램은 타임스탬프를 가장 가까운 밀리초로 반올림할 수 있습니다. 클라이언트 응용 프로그램은 [NTP(Network Time Protocol) 서버](https://en.wikipedia.org/wiki/Network_Time_Protocol)를 사용하여 장치 시계가 시간을 정확히 추적하도록 해야 합니다.
+*X-Timestamp* 헤더 값은 'yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'fffffffZ' 형식이어야 합니다. 단, 'fffffff'는 초의 분수입니다. 예를 들어 '12.5'는 '12 + 5/10초'를 의미하며 '12.526'은 '12 plus 526/1000초'를 의미합니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)를 준수하며 표준 HTTP *Date* 헤더와 달리 밀리초 분해능을 제공할 수 있습니다. 클라이언트 응용 프로그램은 타임스탬프를 가장 가까운 밀리초로 반올림할 수 있습니다. 클라이언트 응용 프로그램은 [NTP(Network Time Protocol) 서버](https://en.wikipedia.org/wiki/Network_Time_Protocol)를 사용하여 디바이스 시계가 시간을 정확히 추적하도록 해야 합니다.
 
 ### <a name="message-speechconfig"></a>메시지 `speech.config`
 
-음성 서비스가 최상의 예상 음성 인식을 제공하려면 응용 프로그램의 특성을 알아야 합니다. 필요한 특성 데이터는 응용 프로그램을 구동하는 장치 및 OS에 관한 정보를 포함합니다. 이 정보를 `speech.config` 메시지에 제공합니다.
+음성 서비스가 최상의 예상 음성 인식을 제공하려면 응용 프로그램의 특성을 알아야 합니다. 필요한 특성 데이터는 응용 프로그램을 구동하는 디바이스 및 OS에 관한 정보를 포함합니다. 이 정보를 `speech.config` 메시지에 제공합니다.
 
 클라이언트는 음성 서비스에 대한 연결을 설정한 후 `audio` 메시지를 보내기 전에 `speech.config` 메시지를 *보내야 합니다*. `speech.config` 메시지를 연결당 한 번만 보내야 합니다.
 
@@ -187,7 +187,7 @@ Content-Length: 0
 음성 서비스 프로토콜의 모든 클라이언트 시작 메시지와 마찬가지로 `speech.config` 메시지도 메시지를 서비스에 보낸 클라이언트 UTC 시계 시간을 기록하는 *X-Timestamp* 헤더를 포함*해야 합니다*. `speech.config` 메시지는 특정 음성 요청과 연결되지 않으므로 *X-RequestId* 헤더를 요구하지 *않습니다*.
 
 #### <a name="message-payload"></a>메시지 페이로드
-`speech.config` 메시지의 페이로드는 응용 프로그램에 관한 정보를 포함하는 JSON 구조입니다. 다음 예제는 이 정보를 보여줍니다. 클라이언트 및 장치 컨텍스트 정보는 JSON 구조의 *context* 요소에 포함됩니다. 
+`speech.config` 메시지의 페이로드는 응용 프로그램에 관한 정보를 포함하는 JSON 구조입니다. 다음 예제는 이 정보를 보여줍니다. 클라이언트 및 디바이스 컨텍스트 정보는 JSON 구조의 *context* 요소에 포함됩니다. 
 
 ```JSON
 {
@@ -222,13 +222,13 @@ Content-Length: 0
 | os.name | OS 제품 이름. 예: Debian 또는 Windows 10 | 필수 |
 | os.version | *major.minor.build.branch* 형식의 OS 버전 | 필수 |
 
-##### <a name="device-element"></a>장치 요소
+##### <a name="device-element"></a>디바이스 요소
 
 | 필드 | 설명 | 사용 현황 |
 |-|-|-|
-| device.manufacturer | 장치 하드웨어 제조업체 | 필수 |
-| device.model | 장치 모델 | 필수 |
-| device.version | 장치 제조업체가 제공한 장치 소프트웨어 버전. 이 값은 제조업체가 추적할 수 있는 장치의 버전을 지정합니다. | 필수 |
+| device.manufacturer | 디바이스 하드웨어 제조업체 | 필수 |
+| device.model | 디바이스 모델 | 필수 |
+| device.version | 디바이스 제조업체가 제공한 디바이스 소프트웨어 버전. 이 값은 제조업체가 추적할 수 있는 디바이스의 버전을 지정합니다. | 필수 |
 
 ### <a name="message-audio"></a>메시지 `audio`
 

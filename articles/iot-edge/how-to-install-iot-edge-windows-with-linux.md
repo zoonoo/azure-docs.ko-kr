@@ -51,7 +51,7 @@ IoT Hub에서 제공하는 디바이스 연결 문자열을 사용하여 단일 
 
 1. [새 Azure IoT Edge 장치 등록](how-to-register-device-portal.md)의 단계를 따라 장치를 등록하고 장치 연결 문자열을 검색합니다. 
 
-2. IoT Edge 장치에서 관리자 권한으로 PowerShell을 실행합니다. 
+2. IoT Edge 디바이스에서 관리자 권한으로 PowerShell을 실행합니다. 
 
 3. IoT Edge 런타임을 다운로드 및 설치합니다. 
 
@@ -69,7 +69,7 @@ IoT Hub에서 제공하는 디바이스 연결 문자열을 사용하여 단일 
    >[!TIP]
    >설치 및 테스트를 수행하는 동안 TPM 시뮬레이터를 실행하는 창을 열린 상태로 유지합니다. 
 
-2. IoT Edge 장치에서 관리자 권한으로 PowerShell을 실행합니다. 
+2. IoT Edge 디바이스에서 관리자 권한으로 PowerShell을 실행합니다. 
 
 3. IoT Edge 런타임을 다운로드 및 설치합니다. 
 

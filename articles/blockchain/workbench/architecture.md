@@ -27,11 +27,11 @@ Azure Blockchain Workbench는 여러 Azure 구성 요소를 사용하는 솔루�
 
 Blockchain Workbench를 사용하면 컨소시엄이 Azure AD(Azure Active Directory)를 사용하여 해당 엔터프라이즈 ID를 페더레이션할 수 있습니다. Workbench는 Azure AD에 저장된 엔터프라이즈 ID를 사용하여 온체인 ID에 대한 새 사용자 계정을 생성합니다. ID 매핑은 클라이언트 API 및 응용 프로그램에 인증된 로그인을 용이하게 하며 조직의 인증 정책을 사용합니다. Workbench는 지정된 스마트 계약 내에서 특정 역할에 엔터프라이즈 ID를 연관시키는 기능도 제공합니다. 또한 Workbench는 해당 역할이 수행할 수 있는 작업과 시간을 식별할 수 있는 메커니즘을 제공합니다.
 
-Blockchain Workbench를 배포한 후 사용자는 클라이언트 응용 프로그램, REST 기반 클라이언트 API 또는 메시징 API를 통해 Blockchain Workbench와 상호 작용합니다. 모든 경우에 있어 상호 작용은 Azure AD(Azure Active Directory) 또는 장치별 자격 증명을 통해 인증되어야 합니다.
+Blockchain Workbench를 배포한 후 사용자는 클라이언트 응용 프로그램, REST 기반 클라이언트 API 또는 메시징 API를 통해 Blockchain Workbench와 상호 작용합니다. 모든 경우에 있어 상호 작용은 Azure AD(Azure Active Directory) 또는 디바이스별 자격 증명을 통해 인증되어야 합니다.
 
 사용자는 참석자의 메일 주소로 메일 초대장을 보냄으로써 컨소시엄 Azure AD로 해당 ID를 페더레이션합니다. 이들 사용자는 로그인 시 이름, 암호 및 정책을 통해 인증됩니다. 해당 조직의 2단계 인증이 그 예입니다.
 
-Azure AD는 Blockchain Workbench에 액세스할 수 있는 모든 사용자를 관리하는 데 사용됩니다. 스마트 계약에 연결된 각 장치는 Azure AD에도 연결되어 있습니다.
+Azure AD는 Blockchain Workbench에 액세스할 수 있는 모든 사용자를 관리하는 데 사용됩니다. 스마트 계약에 연결된 각 디바이스는 Azure AD에도 연결되어 있습니다.
 
 사용자를 특수 관리자 그룹에 할당할 때도 Azure AD가 사용됩니다. 관리자 그룹과 연결된 사용자는 계약의 배포 및 계약에 액세스하기 위해 사용자에게 권한을 부여하는 등의 권한 및 작업에 대한 액세스를 Blockchain Workbench 내에서 부여받습니다. 이 그룹에 속하지 않은 사용자는 관리자 작업에 액세스할 수 없습니다.
 
@@ -56,7 +56,7 @@ Blockchain Workbench에는 REST 기반 게이트웨이 서비스 API가 포함�
 
 ## <a name="message-broker-for-incoming-messages"></a>수신 메시지를 위한 메시지 브로커
 
-Blockchain Workbench로 직접 메시지를 보내려는 개발자는 직접 메시지를 Service Bus에 보낼 수 있습니다. 예를 들어 메시지 API를 시스템 간 통합 또는 IoT 장치에 사용할 수 있습니다.
+Blockchain Workbench로 직접 메시지를 보내려는 개발자는 직접 메시지를 Service Bus에 보낼 수 있습니다. 예를 들어 메시지 API를 시스템 간 통합 또는 IoT 디바이스에 사용할 수 있습니다.
 
 ## <a name="message-broker-for-downstream-consumers"></a>다운스트림 소비자를 위한 메시지 브로커
 

@@ -201,9 +201,9 @@ Azure 하이퍼바이저, 루트 OS/FA 및 고객 VM/GA의 모음은 계산 노�
 
 -   FC VLAN - 신뢰할 수 있는 FC 및 지원 시스템을 포함합니다.
 
--   장치 VLAN - 신뢰할 수 있는 네트워크 및 기타 인프라 장치를 포함합니다.
+-   디바이스 VLAN - 신뢰할 수 있는 네트워크 및 기타 인프라 디바이스를 포함합니다.
 
-FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 FC VLAN으로 초기화할 수는 없습니다. 또한 기본 VLAN에서 장치 VLAN으로의 통신은 차단됩니다. 이렇게 하면 고객 코드를 실행하는 노드가 손상되더라도 FC VLAN 또는 장치 VLAN의 노드는 공격할 수 없습니다.
+FC VLAN에서 기본 VLAN으로의 통신은 허용되지만, 기본 VLAN에서 FC VLAN으로 초기화할 수는 없습니다. 또한 기본 VLAN에서 디바이스 VLAN으로의 통신은 차단됩니다. 이렇게 하면 고객 코드를 실행하는 노드가 손상되더라도 FC VLAN 또는 디바이스 VLAN의 노드는 공격할 수 없습니다.
 
 ## <a name="storage-isolation"></a>저장소 격리
 ### <a name="logical-isolation-between-compute-and-storage"></a>Compute 및 저장소 간의 논리적 격리

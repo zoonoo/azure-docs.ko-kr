@@ -313,7 +313,7 @@ SAP HANA 스케일 아웃에 대한 VM 노드의 기본 구성은 다음과 같�
 - 결국 **/hana/shared**에 대한 트래픽의 경우 SAP HANA 스케일 아웃 구성을 배포하고 해당 서브넷에 호스트되는 세 번째 vNIC를 할당하는 VNet에 세 번째 서브넷을 배포합니다. NFS 공유에 대한 트래픽의 세 번째 vNIC와 연결된 IP 주소를 사용합니다. 그런 다음, 별도의 액세스 및 라우팅 규칙을 적용할 수 있습니다.
 
 >[!IMPORTANT]
->고가용성 NFS와 배포된 스케일 아웃 방식의 SAP HANA가 있는 VM 간 네트워크 트래픽은 어떠한 경우라도 [NVA](https://azure.microsoft.com/solutions/network-appliances/) 또는 유사한 가상 어플라이언스를 통해 라우팅됩니다. 반면 Azure NSG에는 이러한 장치가 없습니다. SAP HANA를 실행하는 VM에서 고가용성 NFS 공유에 액세스할 때 NVA 또는 유사한 가상 어플라이언스가 우회하는지 확인하기 위해 라우팅 규칙을 검사합니다.
+>고가용성 NFS와 배포된 스케일 아웃 방식의 SAP HANA가 있는 VM 간 네트워크 트래픽은 어떠한 경우라도 [NVA](https://azure.microsoft.com/solutions/network-appliances/) 또는 유사한 가상 어플라이언스를 통해 라우팅됩니다. 반면 Azure NSG에는 이러한 디바이스가 없습니다. SAP HANA를 실행하는 VM에서 고가용성 NFS 공유에 액세스할 때 NVA 또는 유사한 가상 어플라이언스가 우회하는지 확인하기 위해 라우팅 규칙을 검사합니다.
 > 
 
 SAP HANA 구성 간 고가용성 NFS 클러스터를 공유하려는 경우 이러한 모든 HANA 구성을 동일한 VNet으로 이동합니다. 

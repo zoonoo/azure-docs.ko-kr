@@ -21,7 +21,7 @@ ms.locfileid: "52446707"
 Azure IoT Edge용 모듈로 전환하여 비즈니스 논리를 에지에서 작동하도록 전송할 수 있습니다. 이 문서에서는 VS Code(Visual Studio Code)를 주 개발 도구로 사용하여 Node.js 모듈을 개발하기 위한 자세한 지침을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 아티클에서는 사용자가 Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. IoT Edge 장치는 다른 물리적 장치일 수 있습니다.
+이 아티클에서는 사용자가 Windows, macOS 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. IoT Edge 디바이스는 다른 물리적 디바이스일 수 있습니다.
 
 > [!NOTE]
 > 이 디버깅 문서에서는 VS Code에서 Node.js 모듈을 디버그하는 두 가지 일반적인 방법을 보여 줍니다. 한 가지 방법은 모듈 컨테이너에서 프로세스를 연결하는 것이고, 다른 하나는 디버그 모드에서 모듈 코드를 시작하는 것입니다. Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다.
@@ -84,9 +84,9 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만들고 새 
 
 ## <a name="develop-your-module"></a>모듈 개발
 
-솔루션과 함께 제공되는 기본 Node.js 코드는 **모듈** > [모듈 이름] > **app.js**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
+솔루션과 함께 제공되는 기본 Node.js 코드는 **모듈** > [모듈 이름] > **app.js**에 있습니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 디바이스에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
-고유한 코드를 사용하여 Node.js 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
+고유한 코드를 사용하여 Node.js 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 디바이스 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
 
 Visual Studio Code는 Node.js를 지원합니다. [VS Code에서 Node.js를 사용하여 작업하는 방법](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)에 대해 자세히 알아보세요.
 

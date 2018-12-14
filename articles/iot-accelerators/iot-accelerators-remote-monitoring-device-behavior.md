@@ -26,7 +26,7 @@ ms.locfileid: "43338509"
 
 >[!div class="checklist"]
 > * 시뮬레이션된 장치의 상태 제어
-> * 시뮬레이션된 장치가 원격 모니터링 솔루션의 메서드 호출에 응답하는 방법 정의
+> * 시뮬레이션된 디바이스가 원격 모니터링 솔루션의 메서드 호출에 응답하는 방법 정의
 > * 스크립트 디버그
 
 [!INCLUDE [iot-accelerators-device-schema](../../includes/iot-accelerators-device-schema.md)]
@@ -38,10 +38,10 @@ ms.locfileid: "43338509"
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
 > * 시뮬레이션된 장치의 상태 제어
-> * 시뮬레이션된 장치가 원격 모니터링 솔루션의 메서드 호출에 응답하는 방법 정의
+> * 시뮬레이션된 디바이스가 원격 모니터링 솔루션의 메서드 호출에 응답하는 방법 정의
 > * 스크립트 디버그
 
-이제 시뮬레이션된 장치의 동작을 지정하는 방법을 배웠으므로 다음 단계에서는 [시뮬레이션된 장치를 만드는](iot-accelerators-remote-monitoring-create-simulated-device.md) 방법을 알아보는 것이 좋습니다.
+이제 시뮬레이션된 디바이스의 동작을 지정하는 방법을 배웠으므로 다음 단계에서는 [시뮬레이션된 디바이스를 만드는](iot-accelerators-remote-monitoring-create-simulated-device.md) 방법을 알아보는 것이 좋습니다.
 
 원격 모니터링 솔루션에 대한 자세한 개발자 정보는 다음을 참조하세요.
 

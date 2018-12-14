@@ -16,11 +16,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50158077"
 ---
-# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>자습서: Azure IoT Central에서 장치에 대한 규칙 및 작업 구성
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>자습서: Azure IoT Central에서 디바이스에 대한 규칙 및 작업 구성
 
 *이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
-이 자습서에서는 연결된 공조 장치 장치의 온도가 90&deg; F를 초과하는 경우 이메일을 보내는 규칙을 만듭니다.
+이 자습서에서는 연결된 공조 디바이스의 온도가 90&deg; F를 초과하는 경우 이메일을 보내는 규칙을 만듭니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "50158077"
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 [응용 프로그램에서 새 장치 유형 정의](tutorial-define-device-type.md) 자습서를 완료해야 작업할 **연결된 공조 장치** 템플릿을 만들 수 있습니다.
+시작하기 전에 [응용 프로그램에서 새 디바이스 유형 정의](tutorial-define-device-type.md) 자습서를 완료해야 작업할 **연결된 공조 디바이스** 템플릿을 만들 수 있습니다.
 
 ## <a name="create-a-telemetry-based-rule"></a>원격 분석 기반 규칙 만들기
 
@@ -38,9 +38,9 @@ ms.locfileid: "50158077"
 
     ![Device Explorer 페이지](media/tutorial-configure-rules/explorerpage1.png)
 
-    이전 자습서에서 만든 **연결된 공조 장치(1.0.0)** 템플릿 및 **연결된 공조 장치-1**을 확인할 수 있습니다.
+    이전 자습서에서 만든 **연결된 공조 디바이스(1.0.0)** 템플릿 및 **연결된 공조 디바이스-1**을 확인할 수 있습니다.
 
-2. 연결된 공조 장치의 사용자 지정을 시작하려면 이전 자습서에서 만든 장치를 선택합니다.
+2. 연결된 공조 디바이스의 사용자 지정을 시작하려면 이전 자습서에서 만든 디바이스를 선택합니다.
 
     ![연결된 공조 장치 페이지](media/tutorial-configure-rules/builderdevicelist1.png)
 

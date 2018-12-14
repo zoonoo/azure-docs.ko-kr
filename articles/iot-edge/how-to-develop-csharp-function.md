@@ -20,7 +20,7 @@ ms.locfileid: "52315106"
 이 아티클에서는 [VS Code(Visual Studio Code)](https://code.visualstudio.com/)를 사용하여 Azure IoT Edge에서 Azure Functions를 디버그하는 방법을 보여줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 아티클에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. IoT Edge 장치는 다른 물리적 장치일 수 있습니다. 또는 개발 머신에서 IoT Edge 장치를 시뮬레이션할 수 있습니다.
+이 아티클에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. IoT Edge 디바이스는 다른 물리적 디바이스일 수 있습니다. 또는 개발 머신에서 IoT Edge 디바이스를 시뮬레이션할 수 있습니다.
 
 > [!NOTE]
 > 이 디버깅 아티클에서는 모듈 컨테이너에서 프로세스를 연결하고 VS Code로 디버그하는 방법을 설명합니다. C# 함수는 Linux amd64 컨테이너에서만 디버그할 수 있습니다. Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다. 
@@ -39,7 +39,7 @@ ms.locfileid: "52315106"
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 또는 [Docker 허브](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다. 
 
-장치에서 모듈을 테스트하려면 하나 이상의 IoT Edge 장치가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 장치로 사용하려면 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md)용 빠른 시작의 단계에 따릅니다. 
+디바이스에서 모듈을 테스트하려면 하나 이상의 IoT Edge 디바이스가 있는 활성 IoT Hub가 필요합니다. 컴퓨터를 IoT Edge 디바이스로 사용하려면 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md)용 빠른 시작의 단계에 따릅니다. 
 
 ## <a name="create-a-new-solution-template"></a>새 솔루션 템플릿 만들기
 
@@ -75,15 +75,15 @@ VS Code는 입력한 정보를 사용하고, Azure Functions 프로젝트로 IoT
 
 ## <a name="develop-your-module"></a>모듈 개발
 
-솔루션과 함께 제공되는 기본 Azure Function 코드는 **모듈** > [모듈 이름] > **modulename.cs**에 위치합니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
+솔루션과 함께 제공되는 기본 Azure Function 코드는 **모듈** > [모듈 이름] > **modulename.cs**에 위치합니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 디바이스에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 
-고유한 코드를 사용하여 Azure Function 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 장치 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
+고유한 코드를 사용하여 Azure Function 템플릿을 사용자 지정할 준비가 된 경우 [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md)를 사용하여 보안, 디바이스 관리 및 안정성 등 IoT 솔루션에 대한 주요 요구 사항을 해결하는 모듈을 빌드합니다. 
 
 ## <a name="build-your-module-for-debugging"></a>디버깅을 위한 모듈 빌드
 1. 디버깅을 시작하려면 **Dockerfile.amd64.debug**를 사용하여 Docker 이미지를 다시 빌드하고 Edge 솔루션을 배포합니다. VS Code 탐색기에서 `deployment.debug.template.json` 파일로 이동합니다.
 2. 솔루션을 다시 빌드합니다. VS Code 명령 팔레트에서 **Azure IoT Edge: IoT Edge 솔루션 빌드** 명령을 입력하고 실행합니다.
 3. 명령 팔레트에서 솔루션의 `deployment.debug.template.json` 파일을 선택합니다. 
-4. Azure IoT Hub 장치 탐색기에서 IoT Edge 장치 ID를 마우스 오른쪽 단추로 클릭한 다음, **Edge 장치에 대한 배포 만들기**를 선택합니다. `config` 폴더에서 `deployment.debug.amd64.json` 파일을 선택합니다. VS Code 통합 터미널에서 배포 ID를 사용하여 생성된 배포가 표시됩니다.
+4. Azure IoT Hub 디바이스 탐색기에서 IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭한 다음, **Edge 디바이스에 대한 배포 만들기**를 선택합니다. `config` 폴더에서 `deployment.debug.amd64.json` 파일을 선택합니다. VS Code 통합 터미널에서 배포 ID를 사용하여 생성된 배포가 표시됩니다.
 
 VS Code Docker 탐색기를 사용하거나 터미널에서 `docker ps` 명령을 실행하여 컨테이너 상태를 확인합니다.
 

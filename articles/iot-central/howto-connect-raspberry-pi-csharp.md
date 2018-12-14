@@ -50,10 +50,10 @@ ms.locfileid: "50956726"
     - 다이 번호 디바이스 속성
     - 위치 클라우드 속성
 
-장치 템플릿 구성에 대한 자세한 내용은 [Raspberry PI 장치 템플릿 세부 정보](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details) 참조
+디바이스 템플릿 구성에 대한 자세한 내용은 [Raspberry PI 디바이스 템플릿 세부 정보](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)를 참조하세요.
 
 
-## <a name="add-a-real-device"></a>실제 장치 추가
+## <a name="add-a-real-device"></a>실제 디바이스 추가
 
 Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 애플리케이션에 실제 디바이스 추가](tutorial-add-device.md)를 참조하세요.
 
@@ -322,7 +322,7 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
     ![설정 변경 내용을 수신하는 Raspberry Pi](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
 
-## <a name="raspberry-pi-device-template-details"></a>Raspberry PI 장치 템플릿 세부 정보
+## <a name="raspberry-pi-device-template-details"></a>Raspberry PI 디바이스 템플릿 세부 정보
 
 **샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Raspberry Pi** 장치가 포함됩니다.
 

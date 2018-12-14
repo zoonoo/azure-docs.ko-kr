@@ -63,7 +63,7 @@ Visual Studio Code의 여러 모듈을 사용하여 Azure IoT Edge 솔루션을 
 
 2. Azure IoT Hub **Device Explorer**에서 IoT Edge 디바이스 ID를 마우스 오른쪽 단추로 클릭한 다음, **Edge 디바이스에 대한 배포 만들기** 명령을 선택합니다. config 폴더에서 deployment.json 파일을 선택합니다. VS Code의 통합 터미널은 배포 ID를 사용하여 성공적으로 생성된 배포를 보여줍니다.
 
-3. 개발 컴퓨터에서 IoT Edge 장치를 시뮬레이션하는 경우 몇 분 안에 모든 모듈 이미지 컨테이너가 시작되는 것을 확인할 수 있습니다.
+3. 개발 컴퓨터에서 IoT Edge 디바이스를 시뮬레이션하는 경우 몇 분 안에 모든 모듈 이미지 컨테이너가 시작되는 것을 확인할 수 있습니다.
 
 ## <a name="view-the-generated-data"></a>생성된 데이터 보기
 

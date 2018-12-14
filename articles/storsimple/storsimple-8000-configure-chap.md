@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 시리즈 장치에 대한 CHAP 구성 | Microsoft Docs
+title: StorSimple 8000 시리즈 디바이스에 대한 CHAP 구성 | Microsoft Docs
 description: StorSimple 디바이스에 CHAP(Challenge Handshake 인증 프로토콜)를 구성하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: ''
@@ -23,29 +23,29 @@ ms.locfileid: "34012661"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple 디바이스에 대한 CHAP 구성
 
-이 자습서에서는 StorSimple 장치에 대한 CHAP를 구성하는 방법에 대해 설명합니다. 이 문서에서 설명하는 절차는 StorSimple 8000 시리즈 장치에 적용됩니다.
+이 자습서에서는 StorSimple 디바이스에 대한 CHAP를 구성하는 방법에 대해 설명합니다. 이 문서에서 설명하는 절차는 StorSimple 8000 시리즈 디바이스에 적용됩니다.
 
 CHAP는 Challenge Handshake Authentication Protocol의 약어입니다. CHAP는 서버에서 원격 클라이언트의 ID를 확인하는데 사용하는 인증 체계입니다. 확인은 공유 암호 또는 암호를 기반으로 합니다. CHAP는 일방(단방향)이거나 상호적(양방향)일 수 있습니다. 단방향 CHAP는 대상이 초기자를 인증하는 경우입니다. 상호 또는 역방향 CHAP는 대상이 초기자를 인증한 다음 초기자가 대상을 인증해야 합니다. 대상 인증 없이 초기자 인증을 구현할 수 있습니다. 그러나 초기자 인증도 구현하는 경우 대상 인증을 구현할 수 있습니다.
 
 모범 사례로 CHAP를 사용하여 iSCSI 보안을 강화하는 것이 좋습니다.
 
 > [!NOTE]
-> IPSEC는 StorSimple 장치에서 현재 지원되지 않습니다.
+> IPSEC는 StorSimple 디바이스에서 현재 지원되지 않습니다.
 
-StorSimple 장치에서 CHAP 설정은 다음과 같은 방법으로 구성할 수 있습니다.
+StorSimple 디바이스에서 CHAP 설정은 다음과 같은 방법으로 구성할 수 있습니다.
 
 * 단방향 또는 일방 인증
 * 양방향 또는 상호 또는 역방향 인증
 
-각 경우에서 장치 포털 및 서버 iSCSI 초기자 소프트웨어를 구성해야 합니다. 이 구성에 대한 자세한 단계는 다음 자습서에 설명되어있습니다.
+각 경우에서 디바이스 포털 및 서버 iSCSI 초기자 소프트웨어를 구성해야 합니다. 이 구성에 대한 자세한 단계는 다음 자습서에 설명되어있습니다.
 
 ## <a name="unidirectional-or-one-way-authentication"></a>단방향 또는 일방 인증
 
-단방향 인증에서 대상이 초기자를 인증합니다. 이 인증은 StorSimple 장치의 CHAP 초기자 설정 및 호스트의 iSCSI 초기자 소프트웨어를 구성해야 합니다. StorSimple 장치 및 Windows 호스트에 대한 자세한 절차는 다음과 같습니다.
+단방향 인증에서 대상이 초기자를 인증합니다. 이 인증은 StorSimple 디바이스의 CHAP 초기자 설정 및 호스트의 iSCSI 초기자 소프트웨어를 구성해야 합니다. StorSimple 디바이스 및 Windows 호스트에 대한 자세한 절차는 다음과 같습니다.
 
-#### <a name="to-configure-your-device-for-one-way-authentication"></a>단방향 인증에 대한 장치를 구성하려면
+#### <a name="to-configure-your-device-for-one-way-authentication"></a>단방향 인증에 대한 디바이스를 구성하려면
 
-1. Azure Portal에서 StorSimple 장치 관리자 서비스로 이동합니다. **장치**를 클릭하고 CHAP를 구성하려는 장치를 클릭하여 선택합니다. **장치 설정 > 보안**으로 이동합니다. **보안 설정** 블레이드에서 **CHAP**를 클릭합니다.
+1. Azure Portal에서 StorSimple 디바이스 관리자 서비스로 이동합니다. **장치**를 클릭하고 CHAP를 구성하려는 장치를 클릭하여 선택합니다. **장치 설정 > 보안**으로 이동합니다. **보안 설정** 블레이드에서 **CHAP**를 클릭합니다.
    
     ![CHAP 초기자](./media/storsimple-8000-configure-chap/configure-chap5.png)
 2. **CHAP** 블레이드의 **CHAP 초기자** 섹션에서 다음을 수행합니다.
@@ -71,7 +71,7 @@ StorSimple 장치에서 CHAP 설정은 다음과 같은 방법으로 구성할 �
    2. **포털 검색**을 클릭합니다.
 3. **대상 포털 검색** 대화 상자에서 다음을 수행합니다.
    
-   1. 장치의 IP 주소를 지정합니다.
+   1. 디바이스의 IP 주소를 지정합니다.
    2. **고급**을 클릭합니다.
       
        ![대상 포털 검색](./media/storsimple-configure-chap/IC740945.png)
@@ -83,7 +83,7 @@ StorSimple 장치에서 CHAP 설정은 다음과 같은 방법으로 구성할 �
    4. **확인**을 클릭합니다.
       
        ![고급 설정 일반](./media/storsimple-configure-chap/IC740946.png)
-5. **iSCSI 초기자 속성** 창의 **대상** 탭에서 장치 상태는 **Connected**로 표시되어야 합니다. StorSimple 1200 장치를 사용하는 경우 각 볼륨은 iSCSI 대상으로 탑재됩니다. 따라서 3-4단계는 각 볼륨에 대해 반복해야 할 수 있습니다.
+5. **iSCSI 초기자 속성** 창의 **대상** 탭에서 장치 상태는 **Connected**로 표시되어야 합니다. StorSimple 1200 디바이스를 사용하는 경우 각 볼륨은 iSCSI 대상으로 탑재됩니다. 따라서 3-4단계는 각 볼륨에 대해 반복해야 할 수 있습니다.
    
     ![별도 대상으로 탑재된 볼륨](./media/storsimple-configure-chap/chap4.png)
    
@@ -94,11 +94,11 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 ## <a name="bidirectional-or-mutual-authentication"></a>양방향 또는 상호 인증
 
-양방향 인증에서 대상은 초기자를 인증한 다음 초기자는 대상을 인증합니다. 이 절차를 수행하려면 사용자가 CHAP 초기자 설정과 장치의 역방향 CHAP 설정 및 호스트의 iSCSI 초기자 소프트웨어를 구성해야 합니다. 다음 절차는 디바이스와 Windows 호스트에서 상호 인증을 구성하는 단계를 설명합니다.
+양방향 인증에서 대상은 초기자를 인증한 다음 초기자는 대상을 인증합니다. 이 절차를 수행하려면 사용자가 CHAP 초기자 설정과 디바이스의 역방향 CHAP 설정 및 호스트의 iSCSI 초기자 소프트웨어를 구성해야 합니다. 다음 절차는 디바이스와 Windows 호스트에서 상호 인증을 구성하는 단계를 설명합니다.
 
-#### <a name="to-configure-your-device-for-mutual-authentication"></a>상호 인증에 대한 장치를 구성하려면
+#### <a name="to-configure-your-device-for-mutual-authentication"></a>상호 인증에 대한 디바이스를 구성하려면
 
-1. Azure Portal에서 StorSimple 장치 관리자 서비스로 이동합니다. **장치**를 클릭하고 CHAP를 구성하려는 장치를 클릭하여 선택합니다. **장치 설정 > 보안**으로 이동합니다. **보안 설정** 블레이드에서 **CHAP**를 클릭합니다.
+1. Azure Portal에서 StorSimple 디바이스 관리자 서비스로 이동합니다. **장치**를 클릭하고 CHAP를 구성하려는 장치를 클릭하여 선택합니다. **장치 설정 > 보안**으로 이동합니다. **보안 설정** 블레이드에서 **CHAP**를 클릭합니다.
    
     ![CHAP 대상](./media/storsimple-8000-configure-chap/configure-chap5.png)
 2. 이 페이지에서 아래로 스크롤하고 **CHAP 대상** 섹션에서 다음을 수행합니다.

@@ -1,6 +1,6 @@
 ---
 title: 하이브리드 Azure Active Directory 가입 디바이스 구성 방법 | Microsoft Docs
-description: 하이브리드 Azure Active Directory 가입 장치를 구성하는 방법에 대해 알아봅니다.
+description: 하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -150,13 +150,13 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 
 ## <a name="enable-windows-down-level-devices"></a>Windows 하위 수준 디바이스 설정
 
-도메인에 가입된 장치 중 일부가 Windows 하위 수준 장치인 경우 다음을 수행해야 합니다.
+도메인에 가입된 디바이스 중 일부가 Windows 하위 수준 디바이스인 경우 다음을 수행해야 합니다.
 
 - 디바이스 설정 업데이트
  
 - 디바이스 등록에 대한 로컬 인트라넷 설정 구성
 
-- Windows 하위 수준 장치 제어 
+- Windows 하위 수준 디바이스 제어 
 
 
 ### <a name="update-device-settings"></a>디바이스 설정 업데이트 
@@ -186,7 +186,7 @@ Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공�
 
 
 
-### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 장치 제어 
+### <a name="control-windows-down-level-devices"></a>Windows 하위 수준 디바이스 제어 
 
 Windows 하위 수준 디바이스를 등록하려면 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치해야 합니다. 자세한 내용을 보려면 [여기](hybrid-azuread-join-control.md#control-windows-down-level-devices)를 클릭하세요. 
 

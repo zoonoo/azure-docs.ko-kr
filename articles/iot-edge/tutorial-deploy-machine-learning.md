@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge를 사용하여 Azure Machine Learning 배포 | Microsoft Docs
-description: 이 자습서에서는 Azure Machine Learning을 Edge 장치에 모듈로 배포합니다.
+description: 이 자습서에서는 Azure Machine Learning을 Edge 디바이스에 모듈로 배포합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -18,7 +18,7 @@ ms.locfileid: "51977213"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
-비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 장치가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure ML에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/service/how-to-deploy-to-iot.md)를 참조하세요.
+비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 디바이스가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure ML에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/service/how-to-deploy-to-iot.md)를 참조하세요.
 
 이 자습서에서 만드는 Azure Machine Learning 모듈은 디바이스에서 생성된 환경 데이터를 읽고, 메시지에 비정상 레이블을 지정하기도 합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "51977213"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure IoT Edge 장치:
+Azure IoT Edge 디바이스:
 
 * [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
 * Azure Machine Learning 모듈은 ARM 프로세서를 지원하지 않습니다.
@@ -56,7 +56,7 @@ Azure IoT Edge 장치:
 > 미리 보기로 있는 동안 Azure Machine Learning은 IoT Edge에서 기본적으로 사용하도록 설정된 프로세스 식별 보안 기능을 지원하지 않습니다. 
 > 이를 사용하지 않도록 설정하는 단계는 다음과 같습니다. 그러나 프로덕션 환경에서 사용하는 경우 이러한 단계는 적합하지 않습니다. Windows Edge 런타임 설치 시 이 단계를 이미 완료했으므로 Linux에서만 이 단계를 수행하면 됩니다.
 
-IoT Edge 장치에서 프로세스 식별을 사용하지 않도록 설정하려면 IoT Edge 디먼 구성의 **연결** 섹션에서 **workload_uri** 및 **management_uri**의 IP 주소와 포트를 입력해야 합니다.
+IoT Edge 디바이스에서 프로세스 식별을 사용하지 않도록 설정하려면 IoT Edge 디먼 구성의 **연결** 섹션에서 **workload_uri** 및 **management_uri**의 IP 주소와 포트를 입력해야 합니다.
 
 먼저 IP 주소를 가져옵니다. 명령줄에 `ipconfig`를 입력하고 **docker0** 인터페이스의 IP 주소를 복사합니다.
 
@@ -100,7 +100,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**로 이동하여 **컨테이너 레지스트리**를 선택합니다.
 2. 레지스트리를 선택합니다. 이름은 **mlcr**로 시작되어야 하며 모듈 관리를 설정하는 데 사용한 리소스 그룹, 위치 및 구독에 속합니다.
 3. **액세스 키**를 선택합니다.
-4. **로그인 서버**, **사용자 이름** 및 **암호**를 복사합니다.  Edge 장치에서 레지스트리에 액세스하려면 이러한 항목이 필요합니다.
+4. **로그인 서버**, **사용자 이름** 및 **암호**를 복사합니다.  Edge 디바이스에서 레지스트리에 액세스하려면 이러한 항목이 필요합니다.
 5. **리포지토리** 선택
 6. **machinelearningmodule** 선택
 7. 이제 컨테이너의 전체 이미지 경로가 있습니다. 다음 섹션에서 사용하기 위해 이 이미지 경로를 적어둡니다. **<registry_name>.azurecr.io/machinelearningmodule:1**처럼 표시됩니다.
@@ -154,19 +154,19 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 각 IoT Edge 모듈에서 생성된 메시지를 볼 수 있으며 IoT 허브에 전달된 메시지도 볼 수 있습니다.
 
-### <a name="view-data-on-your-iot-edge-device"></a>IoT Edge 장치에서 데이터 보기
+### <a name="view-data-on-your-iot-edge-device"></a>IoT Edge 디바이스에서 데이터 보기
 
-IoT Edge 장치에서 모든 개별 모듈에서 보낸 메시지를 볼 수 있습니다. 
+IoT Edge 디바이스에서 모든 개별 모듈에서 보낸 메시지를 볼 수 있습니다. 
 
-Linux 장치에서 이러한 명령을 수행하는 경우 승격된 권한에 대해 `sudo`를 사용해야 할 수 있습니다.
+Linux 디바이스에서 이러한 명령을 수행하는 경우 승격된 권한에 대해 `sudo`를 사용해야 할 수 있습니다.
 
-1. IoT Edge 장치에서 모든 모듈을 봅니다.
+1. IoT Edge 디바이스에서 모든 모듈을 봅니다.
 
    ```cmd/sh
    iotedge list
    ```
 
-2. 특정 장치에서 보낸 메시지를 봅니다. 이전 명령의 출력에서 나온 모듈 이름을 사용합니다.
+2. 특정 디바이스에서 보낸 메시지를 봅니다. 이전 명령의 출력에서 나온 모듈 이름을 사용합니다.
 
    ```cmd/sh
    iotedge logs <module_name> -f
@@ -176,15 +176,15 @@ Linux 장치에서 이러한 명령을 수행하는 경우 승격된 권한에 �
 
 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT Hub가 받는 장치-클라우드 메시지를 볼 수 있습니다.
 
-다음 단계에서는 IoT 허브에 도착한 장치-클라우드 메시지를 모니터링하도록 Visual Studio Code를 설정하는 방법을 보여 줍니다. 
+다음 단계에서는 IoT 허브에 도착한 디바이스-클라우드 메시지를 모니터링하도록 Visual Studio Code를 설정하는 방법을 보여줍니다. 
 
 1. Visual Studio Code에서 **IoT Hub 디바이스**를 선택합니다.
 
 2. **...** 를 선택하고 나서 메뉴에서 **IoT Hub 연결 문자열 설정**을 선택합니다.
 
-   ![IoT Hub 장치 추가 메뉴](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![IoT Hub 디바이스 추가 메뉴](./media/tutorial-deploy-machine-learning/set-connection.png)
 
-3. 페이지의 맨 위에 열리는 텍스트 상자에 IoT Hub의 iothubowner 연결 문자열을 입력합니다. IoT Edge 장치가 IoT Hub 장치 목록에 표시됩니다.
+3. 페이지의 맨 위에 열리는 텍스트 상자에 IoT Hub의 iothubowner 연결 문자열을 입력합니다. IoT Edge 디바이스가 IoT Hub 디바이스 목록에 표시됩니다.
 
 4. **...** 를 다시 선택한 후 **D2C 메시지 모니터링 시작**을 선택합니다.
 

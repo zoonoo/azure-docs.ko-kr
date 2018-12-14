@@ -26,7 +26,7 @@ ms.locfileid: "51515086"
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스를 관리하는 방법
 
 
-Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 
+Azure AD(Active Directory)의 디바이스 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 디바이스에서 사용자 리소스에 액세스할 수 있습니다. 
 
 이 문서의 내용:
 
@@ -170,7 +170,7 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 
 
 **설명**
 
-- 장치를 삭제하려면 Azure AD에서 글로벌 관리자 또는 Intune 관리자여야 합니다.
+- 디바이스를 삭제하려면 Azure AD에서 글로벌 관리자 또는 Intune 관리자여야 합니다.
 
 - 디바이스 삭제:
  
@@ -207,7 +207,7 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 - Intune 서비스 관리자
 
 > [!NOTE]
-> 하이브리드 Azure AD 조인 Windows 10 장치에는 소유자가 없습니다. 따라서 소유자로 장치를 찾으려는 경우 찾지 못하면 장치 ID로 검색합니다.
+> 하이브리드 Azure AD 조인 Windows 10 디바이스에는 소유자가 없습니다. 따라서 소유자로 디바이스를 찾으려는 경우 찾지 못하면 디바이스 ID로 검색합니다.
 
 
 ## <a name="audit-logs"></a>감사 로그

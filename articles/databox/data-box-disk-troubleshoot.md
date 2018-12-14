@@ -18,7 +18,7 @@ ms.locfileid: "49091853"
 
 이 아티클은 미리 보기 릴리스를 실행하는 Microsoft Azure Data Box에 적용됩니다. 이 아티클에서는 Data Box 및 Data Box Disk에서 수행할 수 있는 복잡한 워크플로 및 관리 작업 중 일부를 설명합니다. 
 
-Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티클은 Azure Portal을 사용하여 수행할 수 있는 작업에 중점을 둡니다. Azure Portal을 사용하여 주문을 관리하고, 장치를 관리하고, 완료 단계가 진행될 때 주문 상태를 추적합니다.
+Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티클은 Azure Portal을 사용하여 수행할 수 있는 작업에 중점을 둡니다. Azure Portal을 사용하여 주문을 관리하고, 디바이스를 관리하고, 완료 단계가 진행될 때 주문 상태를 추적합니다.
 
 이 문서에는 다음 자습서가 포함되어 있습니다.
 

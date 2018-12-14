@@ -33,4 +33,4 @@ ms.locfileid: "34271762"
 | [VPN Gateway 및 P2S 구성 만들기 - 인증서 인증](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md) | 네이티브 Azure 인증서 인증을 사용하는 경로 기반 VPN Gateway 및 P2S 구성을 만듭니다. |
 | [VPN Gateway 및 사이트 간 연결 만들기](./scripts/vpn-gateway-sample-site-to-site-powershell.md) | 경로 기반 VPN Gateway 및 S2S 연결을 만듭니다. |
 | [vnet 간 연결 만들기](./scripts/vpn-gateway-sample-vnet-vnet-powershell.md) | vnet 간 연결을 만듭니다. |
-| [VPN 장치 템플릿 다운로드](./scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md) | VPN 장치 템플릿을 다운로드합니다. |
+| [VPN 장치 템플릿 다운로드](./scripts/vpn-gateway-sample-site-to-site-download-devicescript-powershell.md) | VPN 디바이스 템플릿을 다운로드합니다. |

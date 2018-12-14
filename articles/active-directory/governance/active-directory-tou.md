@@ -131,7 +131,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 ![감사 이벤트](./media/active-directory-tou/user-tou.png)
 
-다음 화면은 모바일 장치에서 사용 약관이 어떻게 표시되는지 보여줍니다.
+다음 화면은 모바일 디바이스에서 사용 약관이 어떻게 표시되는지 보여줍니다.
 
 ![감사 이벤트](./media/active-directory-tou/mobile-tou.png)
 

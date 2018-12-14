@@ -17,9 +17,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/19/2018
 ms.locfileid: "46364944"
 ---
-# <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 장치에 사용할 모델 내보내기
+# <a name="export-your-model-for-use-with-mobile-devices"></a>모바일 디바이스에 사용할 모델 내보내기
 
-Custom Vision Service를 사용하면 분류자를 내보내서 오프라인으로 실행할 수 있습니다. 내보낸 분류자를 응용 프로그램에 포함하여 장치에서 실행하면 실시간 분류가 가능합니다. 
+Custom Vision Service를 사용하면 분류자를 내보내서 오프라인으로 실행할 수 있습니다. 내보낸 분류자를 응용 프로그램에 포함하여 디바이스에서 실행하면 실시간 분류가 가능합니다. 
 
 Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 
@@ -29,7 +29,7 @@ Custom Vision Service는 다음과 같은 내보내기를 지원합니다.
 * Windows 또는 Linux __컨테이너__. 컨테이너에는 Custom Vision Service API를 사용할 Tensorflow 모델 및 서비스 코드가 포함됩니다. 
 
 > [!IMPORTANT]
-> Custom Vision Service는 __소형__ 도메인만 내보냅니다. 소형 도메인을 통해 생성된 모델은 모바일 장치의 실시간 분류 제약 조건에 맞게 최적화됩니다. 소형 도메인을 사용하여 만든 분류자는 교육 데이터의 양이 동일한 표준 도메인보다 정확도가 살짝 떨어질 수 있습니다.
+> Custom Vision Service는 __소형__ 도메인만 내보냅니다. 소형 도메인을 통해 생성된 모델은 모바일 디바이스의 실시간 분류 제약 조건에 맞게 최적화됩니다. 소형 도메인을 사용하여 만든 분류자는 교육 데이터의 양이 동일한 표준 도메인보다 정확도가 살짝 떨어질 수 있습니다.
 >
 > 분류자를 향상하는 방법은 [분류자 향상](getting-started-improving-your-classifier.md) 문서를 참조하세요.
 

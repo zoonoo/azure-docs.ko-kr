@@ -52,7 +52,7 @@ Seamless SSO는 [여기](how-to-connect-sso-quick-start.md)서 보여 주듯이 
 
 웹 브라우저의 로그인 흐름은 다음과 같습니다.
 
-1. 사용자가 회사 네트워크의 도메인 가입 회사 장치에서 웹 응용 프로그램(예: Outlook 웹앱 https://outlook.office365.com/owa/))에 액세스하려고 합니다.
+1. 사용자가 회사 네트워크의 도메인 가입 회사 디바이스에서 웹 응용 프로그램(예: Outlook 웹앱 https://outlook.office365.com/owa/))에 액세스하려고 합니다.
 2. 사용자가 아직 로그인하지 않은 경우 해당 사용자는 Azure AD 로그인 페이지로 리디렉션됩니다.
 3. 사용자는 자신의 사용자 이름을 Azure AD 로그인 페이지에 입력합니다.
 

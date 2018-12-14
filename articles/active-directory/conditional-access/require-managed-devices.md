@@ -54,7 +54,7 @@ Azure AD 조건부 액세스를 사용하면 액세스 권한을 부여하는 �
 
 ## <a name="managed-devices"></a>관리되는 장치  
 
-간단히 말해서 관리되는 장치는 *일종*의 조직 제어 하에 있는 장치입니다. Azure AD에서 관리되는 장치의 필수 조건은 Azure AD에 등록된 것입니다. 장치를 등록하면 장치 개체 형태로 장치의 ID가 만들어집니다. 이 개체는 Azure에서 장치에 대한 상태 정보를 추적하는 데 사용됩니다. Azure AD 관리자는 이미 이 개체를 사용하여 장치의 상태를 토글(설정/해제)할 수 있습니다.
+간단히 말해서 관리되는 디바이스는 *일종*의 조직 제어 하에 있는 디바이스입니다. Azure AD에서 관리되는 장치의 필수 조건은 Azure AD에 등록된 것입니다. 장치를 등록하면 장치 개체 형태로 장치의 ID가 만들어집니다. 이 개체는 Azure에서 장치에 대한 상태 정보를 추적하는 데 사용됩니다. Azure AD 관리자는 이미 이 개체를 사용하여 장치의 상태를 토글(설정/해제)할 수 있습니다.
   
 ![장치 기반 조건](./media/require-managed-devices/32.png)
 
@@ -77,7 +77,7 @@ Azure AD에 등록된 장치를 가져오는 데는 세 가지 옵션이 있습�
 
 ![장치 기반 조건](./media/require-managed-devices/10.png)
 
-이 설정은 온-프레미스 AD에 조인된 Windows 10 또는 Windows 7 또는 Windows 8과 같은 하위 수준 장치에만 적용됩니다. 등록된 Windows 10 장치를 가져오기 위한 [자동화된 프로세스](../devices/hybrid-azuread-join-plan.md)인 하이브리드 Azure AD 조인을 사용하여 이러한 장치를 Azure AD에만 등록할 수 있습니다. 
+이 설정은 온-프레미스 AD에 조인된 Windows 10 또는 Windows 7 또는 Windows 8과 같은 하위 수준 디바이스에만 적용됩니다. 등록된 Windows 10 장치를 가져오기 위한 [자동화된 프로세스](../devices/hybrid-azuread-join-plan.md)인 하이브리드 Azure AD 조인을 사용하여 이러한 장치를 Azure AD에만 등록할 수 있습니다. 
 
 ![장치 기반 조건](./media/require-managed-devices/45.png)
 
