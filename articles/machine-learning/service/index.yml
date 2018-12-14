@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 30a415fb0df910333b81f36cfb925faafd1c8c1b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: da46b78d764465d8b9e5ce438b0843e0b79e16a9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080166"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271150"
 documentType: LandingData
-title: 설명서 - Azure Machine Learning 서비스
+title: Azure Machine Learning 서비스 설명서
 metadata:
-  title: Azure Machine Learning 서비스 설명서 - 자습서, API 참조 | Microsoft Docs
+  title: 설명서 - Azure Machine Learning 서비스 - 자습서, API 참조 | Microsoft Docs
   description: 앱 및 웹 사이트에 지능형 알고리즘을 빌드하는 방법을 알아봅니다. Scikit-learn, Tensorflow, Pytorch 또는 다른 Python 기반 프레임워크를 사용하여 기계 학습 모델을 빌드하고 로컬로 또는 클라우드에서 학습할 수 있습니다. 자습서, 빠른 시작, API 참조 및 예제는 방법을 보여줍니다.
   services: machine-learning
   author: j-martens
@@ -27,13 +27,13 @@ sections:
 - items:
   - type: list
     style: cards
-    className: cardsB
-    columns: 1
+    className: cardsFTitle
     items:
-    - html: <p>Azure 클라우드 서비스에서 ML 모델을 학습하고 배포하세요. <a href="overview-what-is-azure-ml.md">서비스에 대한 자세한 정보...</a></p>
+    - title: Azure Machine Learning 서비스에 대해 알아보기 시작
+      href: /azure/machine-learning/service/overview-what-is-azure-ml
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
-      title: Azure Machine Learning 서비스
+        href: /azure/machine-learning/service/overview-what-is-azure-ml
 - title: 5분 빠른 시작
   items:
   - type: paragraph
@@ -46,16 +46,23 @@ sections:
 - title: 단계별 자습서
   items:
   - type: paragraph
-    text: '<b>자습서</b>: 실험을 설정하고, 모델을 조작하는 방법을 알아봅니다.'
+    text: 실험을 설정하고, 모델을 조작하는 방법을 알아봅니다.
+  - type: paragraph
+    text: <b>MNIST 데이터를 사용하는 이미지 분류 자습서:</b>
   - type: list
     style: unordered
     items:
-    - html: 이미지 분류(1부)&#58; <a href="tutorial-train-models-with-aml">사용자 고유의 기계 학습 모델 교육</a>
-    - html: 이미지 분류(2부)&#58; <a href="tutorial-deploy-models-with-aml">해당 모델 배포</a></br>&nbsp;
-    - html: 회귀(1부)&#58; <a href="tutorial-data-prep">모델링용 NYC 택시 데이터 준비</a>
-    - html: 회귀(2부)&#58; <a href="tutorial-auto-train-models">자동화된 기계 학습을 사용하여 모델 생성</a>
+    - html: '1부: <a href="tutorial-train-models-with-aml">고유한 기계 학습 모델 학습</a>'
+    - html: '2부: <a href="tutorial-deploy-models-with-aml">해당 모델 배포</a>'
   - type: paragraph
-    text: '<b>샘플 Notebooks</b>: GitHub에서 <a href="https://aka.ms/aml-notebooks">이러한 Jupyter Notebook</a>을 사용하여 Azure Machine Learning을 탐색합니다.'
+    text: <b>NYC 택시 데이터를 사용하는 회귀 모델링 자습서:</b>
+  - type: list
+    style: unordered
+    items:
+    - html: '1부: <a href="tutorial-data-prep">모델링을 위해 NYC 택시 데이터 준비</a>'
+    - html: '2부: <a href="tutorial-auto-train-models">자동화된 기계 학습을 사용하여 모델 빌드</a>'
+  - type: paragraph
+    text: '<b>샘플 Notebook</b>: 다음으로 서비스 살펴보기 <br/>GitHub의 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://aka.ms/aml-notebooks">Jupyter Notebooks</a>'
 - title: 참고 자료
   items:
   - type: list

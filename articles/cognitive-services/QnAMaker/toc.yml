@@ -7,6 +7,12 @@ items:
     href: Overview/overview.md
 - name: 빠른 시작
   items:
+  - name: 기술 자료에서 응답 가져오기
+    items:
+    - name: Postman 사용
+      href: Quickstarts/get-answer-from-kb-using-postman.md
+    - name: cURL 사용
+      href: Quickstarts/get-answer-from-kb-using-cURL.md
   - name: REST API 사용
     items:
     - name: 새 기술 자료 만들기
@@ -77,8 +83,6 @@ items:
       href: How-To/create-knowledge-base.md
     - name: 기술 자료에 chit-chat 추가
       href: How-to/chit-chat-knowledge-base.md
-    - name: GenerateAnswer API로 메타데이터 사용
-      href: How-To/metadata-generateanswer-usage.md
     - name: 미리 보기에서 기술 자료 마이그레이션
       href: Tutorials/migrate-knowledge-base.md
     - name: 기술 자료 편집
@@ -91,9 +95,11 @@ items:
       href: How-To/publish-knowledge-base.md
     - name: 기술 자료 테스트
       href: How-To/test-knowledge-base.md
-  - name: 다른 서비스와 통합
+  - name: 기술 자료 사용
     items:
-    - name: QnA Maker 및 LUIS 통합
+    - name: GenerateAnswer API로 메타데이터 사용
+      href: How-To/metadata-generateanswer-usage.md
+    - name: 봇 사용
       href: Tutorials/integrate-qnamaker-luis.md
   - name: 서비스 관리
     items:
@@ -134,7 +140,22 @@ items:
   - name: 용어
     href: glossary.md
   - name: HTTP 응답 코드
+    displayName: 200, 2xx, 400, 401, 403, 404
     href: http-response-codes.md
+  - name: SDK
+    items:
+    - name: C#
+      items:
+      - name: NuGet
+        href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
+    - name: Node.js
+      items:
+      - name: NPM
+        href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+    - name: Ruby
+      items:
+      - name: Gem
+        href: https://rubygems.org/gems/azure_cognitiveservices_qnamaker
 - name: 리소스
   items:
   - name: 국가별 가용성
@@ -153,9 +174,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: 블로그
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: f757bf7c5187d700a7276dc602c85cec1c91ab2d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f4323dcd58b35fefcfa91864bd58ce2129f1a53c
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976879"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272449"

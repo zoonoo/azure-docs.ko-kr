@@ -1,16 +1,18 @@
 # [Azure Marketplace 및 AppSource 설명서](index.md)
-## [등급 및 검토 정책](./rating-review-policies.md)   
+
 ## [Azure Marketplace 및 AppSource 개요 및 이점](./marketplace-publishers-guide.md)  
 
 ### [마켓플레이스에서 게시자 되기](./become-publisher.md)  
 #### [Microsoft 계정 만들기](./guidelines.md)
 #### [개발자 센터에 등록](./register-dev-center.md) 
 #### [Azure 파트너 고객 사용량 특성](./azure-partner-customer-usage-attribution.md)
-#### [클라우드 마켓플레이스의 잠재 고객 관리](./lead-management-for-cloud-marketplace.md)
 
-### [상점](./comparing-appsource-azure-marketplace.md)  
+### [하나의 마켓플레이스, 두 개의 상점](./comparing-appsource-azure-marketplace.md)  
 
-### [솔루션에 대한 게시 옵션 확인](./determine-your-listing-type.md)  
+### [옵션 및 고려 사항 게시](./determine-your-listing-type.md)
+#### [잠재 고객 관리](./lead-management-for-cloud-marketplace.md)
+#### [Azure Marketplace에서 거래](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [전용 제품](./private-offers.md)
 
 ### [제품 형식별 게시 가이드](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
@@ -26,8 +28,7 @@
 ### [마켓플레이스를 통한 비즈니스 성장](./grow-your-business-with-azure-marketplace.md)  
 #### [기본 설정 솔루션](./preferred-solutions.md) 
 #### [Marketplace 콘텐츠 유효성 검사](./marketplace-criteria-content-validation.md)
-#### [전용 제품](./private-offers.md)
-#### [Marketplace 상업용 트랜잭션 기능 및 고려 사항](./marketplace-commercial-transaction-capabilities-and-considerations.md)
+#### [등급 및 검토 정책](./rating-review-policies.md)   
 
 ### [Azure Marketplace 및 AppSource 지원](./support-azure-marketplace.md)  
 
@@ -67,8 +68,15 @@
 #### [일반적인 VHD 생성 문제](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 #### [VM에 연결](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
 #### [VM 구성](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
-#### [VHD에서 VM 배포](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [VHD 배포 템플릿(JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+#### [Windows 원격 관리](./cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md) 
+##### [VM 생성 후 WinRM 구성](./cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md)
+#### [VM 배포](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [사용자 VM 이미지 만들기](./cloud-partner-portal/virtual-machine/cpp-create-user-image.md)
+##### [키 자격 증명 모음 인증서 만들기](./cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md)
+###### [키 자격 증명 모음 배포 템플릿](./cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md)
+#### [사용자 VHD의 VM 배포](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md)
+##### [VHD 배포 템플릿](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+##### [마켓플레이스의 VM 배포](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 #### [VM 이미지 인증](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
 #### [SAS URI 가져오기](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 #### [일반적인 SAS URL 문제](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
@@ -88,21 +96,53 @@
 ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
 ### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
 -->
+<!-- new section for Azure apps -->
 
-## [Azure 응용 프로그램 제품](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
-### [관리되는 응용 프로그램 작성](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
-### [솔루션 템플릿 작성](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
-### [P관리 솔루션 게시](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
-### [SEO 지침](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [제품 라이브 제공](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
-### [기존 제품 업데이트](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
-### [제품 삭제](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
-<!-- Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  -->
+## [Azure 응용 프로그램 제품](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
+### [필수 구성 요소](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
+### [Azure 애플리케이션 제품 만들기](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
+#### [제품 설정 탭](./cloud-partner-portal/azure-applications/cpp-offer-settings-tab.md)
+#### [SKU 탭](./cloud-partner-portal/azure-applications/cpp-skus-tab.md)
+#### [시험 사용 탭](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
+#### [Marketplace 탭](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
+#### [지원 탭](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
+<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Azure 애플리케이션 제품 게시](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+### [기존 제품 업데이트](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
-## [SaaS 응용 프로그램 제품](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
-### [SaaS 앱 게시 가이드](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
-### [Azure 통한 SaaS 판매](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
+<!-- Legacy Azure App section replaced
+## [Azure application offer](./cloud-partner-portal-orig/cpp-azure-app-offer.md)
+    Obsolete ### [Author managed application](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md)
+### [Author solution template](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)
+### [Publish a Management Solution](./cloud-partner-portal-orig/cloud-partner-portal-management-solution-publish.md)
+### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
+### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md)
+### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md)
+### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md)
+   Obsolete ### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)  
+-->
+
+<!-- new for SaaS 12/05/2018 -->
+## [SaaS 응용 프로그램 제품](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
+### [필수 구성 요소](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
+### [SaaS 애플리케이션 제품 만들기](./cloud-partner-portal/saas-app/cpp-create-offer.md)
+#### [제품 설정 탭](./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md)
+#### [기술 정보 탭](./cloud-partner-portal/saas-app/cpp-technical-info-tab.md)
+#### [계획 탭](./cloud-partner-portal/saas-app/cpp-plans-tab.md)
+#### [채널 정보 탭](./cloud-partner-portal/saas-app/cpp-channel-info-tab.md)
+#### [시험 사용 탭](./cloud-partner-portal/saas-app/cpp-testdrive-tab.md)
+#### [상점 세부 정보 탭](./cloud-partner-portal/saas-app/cpp-storefront-tab.md)
+#### [연락처 탭](./cloud-partner-portal/saas-app/cpp-contacts-tab.md)
+### [제품 게시](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
+### [기존 제품 업데이트](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 ### [SaaS API](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+
+<!-- Legacy SaaS Offer replaced
+## [SaaS application offer](./cloud-partner-portal-orig/cpp-saas-app-offer.md)
+### [SaaS apps technical publishing guide](./cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md)
+### [SaaS Sell through Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
+### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+-->
 
 ## [컨테이너 제품](./cloud-partner-portal/containers/cpp-containers-offer.md)
 ### [필수 구성 요소](./cloud-partner-portal/containers/cpp-prerequisites.md)

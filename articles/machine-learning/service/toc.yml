@@ -4,30 +4,32 @@ items:
 - name: 개요
   items:
   - name: Azure Machine Learning 서비스란?
-    displayName: AML, services, overview
+    displayName: AML services overview
     href: overview-what-is-azure-ml.md
   - name: 서비스의 작동 방식
-    displayName: architecture
+    displayName: architecture concepts definitions
     href: concept-azure-machine-learning-architecture.md
   - name: Workbench에 대한 새로운 소식
-    displayName: desktop
+    displayName: desktop ui
     href: overview-what-happened-to-workbench.md
   - name: 릴리스 정보
-    displayName: what's new
+    displayName: what's new issues bugs
     href: azure-machine-learning-release-notes.md
   expanded: true
 - name: 빠른 시작
   items:
   - name: 시작 - Portal
+    displayName: install sdk workspace
     href: quickstart-get-started.md
   - name: 시작 - Python
-    displayName: create workspace
+    displayName: create workspace install sdk
     href: quickstart-create-workspace-with-python.md
 - name: 자습서
   items:
   - name: 이미지 분류(MNIST 데이터)
     items:
     - name: 1. 모델 학습
+      displayName: build modeling
       href: tutorial-train-models-with-aml.md
     - name: 2. 모델 배포
       href: tutorial-deploy-models-with-aml.md
@@ -43,6 +45,9 @@ items:
   href: samples-notebooks.md
 - name: 개념
   items:
+  - name: 자동화된 기계 학습
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
   - name: 모델 관리
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
@@ -68,7 +73,6 @@ items:
         href: how-to-vscode-train-deploy.md
   - name: 데이터 준비
     displayName: data prep, etl, elt, data preparation
-    href: how-to-data-prep.md
     items:
     - name: 데이터 로드
       href: how-to-load-data.md
@@ -79,7 +83,7 @@ items:
   - name: 모델 학습
     items:
     - name: 학습 환경 설정
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: 학습에서 데이터에 액세스
       href: how-to-access-data.md
@@ -96,11 +100,11 @@ items:
       href: how-to-track-experiments.md
   - name: 기계 학습 자동화
     displayName: automl, auto ml
-    href: how-to-automated-ml.md
     items:
     - name: 자동 학습 구성
       href: how-to-configure-auto-train.md
     - name: 원격 계산 대상 사용
+      displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX 모델
     items:
@@ -109,9 +113,9 @@ items:
   - name: 모델 배포
     items:
     - name: 모델 배포 위치
-      displayName: publish, azure kubernetes, azure container instances
+      displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
-    - name: FPGA에 배포
+    - name: FPGA
       href: how-to-deploy-fpga-web-service.md
     - name: 문제 해결
       href: how-to-troubleshoot-deployment.md
@@ -120,7 +124,7 @@ items:
   - name: 웹 서비스 사용
     items:
     - name: 실시간 사용
-      displayName: create client, client, consume
+      displayName: create client consume
       href: how-to-consume-web-service.md
     - name: 일괄 처리 예측 실행
       href: how-to-run-batch-predictions.md
@@ -136,18 +140,18 @@ items:
     displayName: limits
     href: how-to-manage-quotas.md
   - name: Machine Learning CLI 사용
-    displayName: cli, command line, command-line, az,
+    displayName: cli command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
 - name: 참고 자료
   items:
   - name: Machine Learning SDK
-    displayName: api, core, package
+    displayName: api core package python
     href: https://aka.ms/aml-sdk
   - name: 데이터 준비 SDK
-    displayName: api, preparation, package
+    displayName: api preparation package python
     href: https://aka.ms/data-prep-sdk
   - name: 모니터링 SDK
-    displayName: api, package
+    displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
 - name: 리소스
   items:
@@ -158,6 +162,7 @@ items:
   - name: 국가별 가용성
     href: https://azure.microsoft.com/regions/services/
   - name: 알려진 문제
+    displayName: bugs errors troubleshoot
     href: resource-known-issues.md
   - name: 지원 받기
     href: support-for-aml-services.md
@@ -167,7 +172,7 @@ items:
   - name: 사용되지 않는 문서
     items:
     - name: Workbench에서 마이그레이션
-      displayName: Workbench, upgrade, update, transfer
+      displayName: Workbench upgrade update transfer
       href: how-to-migrate.md
     - name: 계정 데이터 내보내기 또는 삭제(사용되지 않음)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
@@ -365,9 +370,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 이전 문제
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: a5c26bd2ef020ca737907c8a66776a3769bfeefd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf7216271dea4bcdda7bea91c1b386a4ba612f8f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101248"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310514"

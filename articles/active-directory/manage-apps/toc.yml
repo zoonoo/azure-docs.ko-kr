@@ -7,7 +7,7 @@ items:
     href: what-is-application-management.md
 - name: 빠른 시작
   items:
-  - name: 응용 프로그램 추가 - 포털
+  - name: 갤러리 애플리케이션 추가 - 포털
     href: add-application-portal.md
   - name: 테넌트 앱 보기 - 포털
     href: view-applications-portal.md
@@ -16,6 +16,8 @@ items:
   items:
   - name: Single Sign-On 구성 - 포털
     href: configure-single-sign-on-portal.md
+  - name: 온-프레미스 앱 추가 - 포털
+    href: application-proxy-add-on-premises-application.md
 - name: 개념
   items:
   - name: 클라우드 앱 통합 계획
@@ -86,10 +88,6 @@ items:
       href: change-name-or-logo-portal.md
   - name: 온-프레미스 앱 통합
     items:
-    - name: 응용 프로그램 프록시 사용
-      href: application-proxy-enable.md
-    - name: 원격 액세스에 대한 앱 게시
-      href: application-proxy-publish-azure-portal.md
     - name: 커넥터 구성
       href: application-proxy-configure-connectors-with-proxy-servers.md
     - name: 클레임 인식 앱 구성
@@ -284,9 +282,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: ff883fd034f3ceabc556071d7a9e8f40d87fc75d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0d2f830cd3f5e66c69ae5f839c8f536747ce4d36
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848162"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141903"

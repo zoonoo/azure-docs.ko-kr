@@ -9,31 +9,31 @@ items:
     href: time-series-insights-update-overview.md
 - name: 빠른 시작
   items:
-  - name: Azure Time Series Insights(GA)
+  - name: Azure Time Series Insights GA
     items:
     - name: Time Series Insights 탐색
       href: time-series-quickstart.md
-  - name: Azure Time Series Insights(미리 보기)
+  - name: Azure Time Series Insights 미리 보기
     items:
-    - name: Time Series Insights(미리 보기) 살펴보기
+    - name: Time Series Insights 미리 보기 살펴보기
       href: time-series-insights-update-quickstart.md
 - name: 자습서
   items:
-  - name: TSI JavaScript 클라이언트 라이브러리 탐색
+  - name: Time Series Insights JavaScript 클라이언트 라이브러리
     href: tutorial-explore-js-client-lib.md
-  - name: TSI 단일 페이지 웹앱 만들기
+  - name: Time Series Insights 단일 페이지 웹앱 만들기
     href: tutorial-create-tsi-sample-spa.md
-  - name: Azure Time Series Insights(GA)
+  - name: Azure Time Series Insights GA
     items:
-    - name: TSI 환경 만들기
+    - name: Time Series Insights 환경 만들기
       href: tutorial-create-populate-tsi-environment.md
-  - name: Azure Time Series Insights(미리 보기)
+  - name: Azure Time Series Insights 미리 보기
     items:
-    - name: Azure TSI(미리 보기) 자습서
+    - name: Azure Time Series Insights 미리 보기 자습서
       href: time-series-insights-update-create-environment.md
 - name: 개념
   items:
-  - name: Azure Time Series Insights(GA)
+  - name: Azure Time Series Insights GA
     items:
     - name: Time Series Insights 정보
       href: time-series-insights-overview.md
@@ -43,7 +43,7 @@ items:
       href: time-series-insights-explorer.md
     - name: 데이터 보존의 이해
       href: time-series-insights-concepts-retention.md
-  - name: Azure Time Series Insights(미리 보기)
+  - name: Azure Time Series Insights 미리 보기
     items:
     - name: 환경 계획
       href: time-series-insights-update-plan.md
@@ -71,13 +71,13 @@ items:
   items:
   - name: 데이터 액세스 권한 부여
     href: time-series-insights-data-access.md
-  - name: Event Hub에 연결
+  - name: Event Hubs에 연결
     href: time-series-insights-how-to-add-an-event-source-eventhub.md
   - name: IoT Hub에 연결
     href: time-series-insights-how-to-add-an-event-source-iothub.md
   - name: 템플릿을 사용하여 리소스 관리
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
-  - name: Azure Time Series Insights(GA)
+  - name: Azure Time Series Insights GA
     items:
     - name: 환경 만들기
       href: time-series-insights-get-started.md
@@ -95,8 +95,10 @@ items:
       href: time-series-insights-environment-mitigate-latency.md
     - name: 진단 및 문제 해결
       href: time-series-insights-diagnose-and-solve-problems.md
-  - name: Azure Time Series Insights(미리 보기)
+  - name: Azure Time Series Insights 미리 보기
     items:
+    - name: 프로비전 및 관리
+      href: time-series-insights-update-how-to-manage.md
     - name: 시계열 ID 선택
       href: time-series-insights-update-how-to-id.md
     - name: 진단 및 문제 해결
@@ -109,7 +111,7 @@ items:
   items:
   - name: Time Series Insights
     items:
-    - name: Azure Time Series Insights(GA)
+    - name: Azure Time Series Insights GA
       href: /rest/api/time-series-insights/ga
       items:
       - name: 쿼리
@@ -121,7 +123,7 @@ items:
           href: /rest/api/time-series-insights/ga-query-syntax
       - name: 참조 데이터 API
         href: /rest/api/time-series-insights/ga-reference-data-api
-    - name: Azure Time Series Insights(미리 보기)
+    - name: Azure Time Series Insights 미리 보기
       href: /rest/api/time-series-insights/preview
       items:
       - name: 시계열 쿼리
@@ -152,11 +154,11 @@ items:
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: Microsoft Edge
     items:
     - name: IoT Edge
       href: /azure/iot-edge
-    - name: IoT 장치 SDK
+    - name: IoT 디바이스 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
   - name: Azure Stream Analytics
     href: /azure/stream-analytics/
@@ -180,9 +182,9 @@ items:
     href: https://azure.microsoft.com/support/options/
   - name: 동영상
     href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights
-ms.openlocfilehash: c75c034e0f54b33e28aa7f0ef5d0c18ad0004e55
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 3ae33ba02eb21c748fcea541f3eecff689fb2e8e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889994"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250640"

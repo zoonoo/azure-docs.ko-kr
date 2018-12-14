@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ceb148953952228e3c1c277454f93fe44f478b44
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 84bac57a763bf7089ac7e6af22247bc981eb7e43
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386674"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161205"
 documentType: LandingData
 title: Azure Event Hubs 설명서
 metadata:
@@ -83,7 +83,7 @@ sections:
       text: C
       href: /azure/event-hubs/event-hubs-c-getstarted-send
   - type: paragraph
-    text: '<b>이벤트 허브로 이벤트를 받는 방법</b> 알아보기:'
+    text: 이벤트 허브에서 <b>이벤트를 받는</b> 방법을 알아봅니다.
   - type: list
     style: icon48
     items:

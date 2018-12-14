@@ -80,6 +80,11 @@ items:
       href: howto-trigger-azure-functions.md
     - name: 데이터 내보내기
       href: howto-export-data.md
+      items:
+      - name: Event Hubs 및 Service Bus 내보내기
+        href: howto-export-data-event-hubs-service-bus.md
+      - name: Blob Storage 살펴보기
+        href: howto-export-data-blob-storage.md
     - name: Power BI에서 데이터 시각화
       href: howto-connect-powerbi.md
     - name: 다른 IoT 클라우드 연결
@@ -128,9 +133,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: 지원되는 브라우저
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: 59ca634e96dc1ca47bb4a1c1f550a9fd07317f90
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 691a3c5da906a66d4773ebaf458c3e99e6a03f99
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998968"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316321"
