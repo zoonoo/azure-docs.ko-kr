@@ -177,8 +177,8 @@
 ### [Content Moderator를 사용하여 처리](media-services-content-moderation.md)
 
 ## [원격 분석 구성](media-services-telemetry-overview.md)
-###[.NET](media-services-dotnet-telemetry.md)
-###[REST (영문)](media-services-rest-telemetry.md)
+### [.NET](media-services-dotnet-telemetry.md)
+### [REST (영문)](media-services-rest-telemetry.md)
 
 ## 확장
 ### [미디어 처리](media-services-scale-media-processing-overview.md)
