@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126329"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966265"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Storage 탐색기를 사용하여 Azure Data Lake Storage Gen1 리소스 관리
 
@@ -136,7 +136,7 @@ Data Lake Storage Gen1 계정을 만든 후 다음 작업을 수행할 수 있�
 
    ![진행 중인 업로드 대화 상자](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-> [!NOTE] 
+> [!NOTE]
 > 로컬 컴퓨터에 있는 폴더와 파일을 직접 끌어서 업로드를 시작할 수 있습니다. 
        
 ### <a name="download-folders-or-files-to-your-local-computer"></a>로컬 컴퓨터에 폴더 또는 파일 다운로드
@@ -164,7 +164,7 @@ Data Lake Storage Gen1 계정을 만든 후 다음 작업을 수행할 수 있�
 
 ![폴더를 복사하기 위한 선택 항목](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-> [!NOTE] 
+> [!NOTE]
 > 저장소 형식에서의 복사/붙여넣기 작업은 지원되지 않습니다. Data Lake Storage Gen1 폴더 또는 파일을 복사해 다른 Data Lake Storage Gen1 계정에 붙여넣을 수 있습니다. Azure Blob Storage에 또는 다른 방법으로는 Data Lake Storage Gen1 폴더나 파일을 복사해 붙여넣을 *수 없습니다*.
 > 
 > 복사-붙여넣기 작업은 폴더 또는 파일을 로컬 컴퓨터로 다운로드한 다음, 대상에 업로드하여 작동합니다. 도구는 백 엔드에서 작업을 수행*하지 않습니다*. 큰 파일의 복사-붙여넣기 작업은 느립니다. 고성능 파일 복사-이동 최적화는 현재 진행 중입니다.

@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: 209ee97f65f13037d5c87082615bcf37074a91c7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 02e945d838da552e2054c9547a2a6a26c73e273d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055863"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963670"
 ---
 # <a name="use-powershell-to-copy-a-sql-database-to-a-new-server"></a>PowerShell을 사용하여 SQL Database를 새 서버에 복사
 
-PowerShell 스크립트 예제에서는 새 서버에 기존 데이터베이스의 복사본을 만듭니다. 
+PowerShell 스크립트 예제에서는 새 서버에 기존 데이터베이스의 복사본을 만듭니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

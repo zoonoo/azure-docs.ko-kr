@@ -9,16 +9,15 @@ ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 59bb8564613e9a0cebda00c2c847283ff218b882
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3c3ff606958503efcf2df5fd99b6e52e4687de4a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294720"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996248"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 Azure Application Insights는 Microsoft Azure *리소스*에 응용 프로그램에 대한 데이터를 표시합니다. 따라서 새 리소스 만들기는 [새 응용 프로그램을 모니터링하도록 Application Insights를 설정][start]하는 과정에 포함됩니다. 대부분의 경우에 리소스를 만드는 작업은 IDE에 의해 자동으로 할 수 있습니다. 하지만 일부 경우에는 리소스를 수동으로 만듭니다. 예를 들어, 응용 프로그램의 제품 개발과 빌드를 위한 별도의 리소스가 있습니다.
@@ -26,11 +25,11 @@ Azure Application Insights는 Microsoft Azure *리소스*에 응용 프로그램
 리소스를 만든 후에 해당 계측 키를 가져오고 이 키를 사용하여 응용 프로그램에서 SDK를 구성합니다. 리소스 키는 원격 분석을 리소스로 연결합니다.
 
 ## <a name="sign-up-to-microsoft-azure"></a>Microsoft Azure에 등록
-[Microsoft 계정이 없는 경우 계정을 만듭니다](http://live.com). Outlook.com, OneDrive, Windows Phone 또는 XBox Live 등의 서비스를 이용하는 경우 Microsoft 계정이 이미 있습니다.
+[Microsoft 계정이 없는 경우 계정을 만듭니다](https://live.com). Outlook.com, OneDrive, Windows Phone 또는 XBox Live 등의 서비스를 이용하는 경우 Microsoft 계정이 이미 있습니다.
 
-또한 [Microsoft Azure](http://azure.com)를 구독해야 합니다. 팀 또는 조직이 Azure를 구독하는 경우 소유자가 사용자의 Windows Live ID를 사용하여 사용자를 구독에 추가할 수 있습니다. 사용하는 구독에 대해서만 요금이 부과됩니다. 기본 계획은 무료로 일정 시험 사용을 허용합니다.
+또한 [Microsoft Azure](https://azure.com)를 구독해야 합니다. 팀 또는 조직이 Azure를 구독하는 경우 소유자가 사용자의 Windows Live ID를 사용하여 사용자를 구독에 추가할 수 있습니다. 사용하는 구독에 대해서만 요금이 부과됩니다. 기본 계획은 무료로 일정 시험 사용을 허용합니다.
 
-구독에 액세스할 수 있으면 [http://portal.azure.com](https://portal.azure.com)에서 Application Insights에 로그인하고 Live ID를 사용하여 로그인합니다.
+구독에 액세스할 수 있으면 [https://portal.azure.com](https://portal.azure.com)에서 Application Insights에 로그인하고 Live ID를 사용하여 로그인합니다.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 [portal.azure.com](https://portal.azure.com)에서 Application Insights 리소스를 추가합니다.

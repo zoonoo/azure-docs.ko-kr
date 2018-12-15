@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6f538fa821e546d12c5a2bdb9585cc85871241fa
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 010fd442419f57f8b53705be8d3f49fdb84e28fd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094155"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262455"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>다중 컨테이너 응용 프로그램 및 서비스 매니페스트 예제
 다음은 다중 컨테이너 Service Fabric 응용 프로그램에 대한 응용 프로그램 및 서비스 매니페스트의 예제입니다. 이러한 예제의 목적은 사용 가능한 설정 및 사용 방법을 보여주는 것입니다. 이러한 응용 프로그램 및 서비스 매니페스트는 [Windows Server 2016 컨테이너 샘플](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) 매니페스트를 기반으로 합니다.
@@ -295,7 +295,7 @@ ms.locfileid: "47094155"
 이미지를 끌어올 컨테이너 이미지 리포지토리에 대한 자격 증명입니다. 자세한 내용은 [RepositoryCredentials 요소](service-fabric-service-model-schema-elements.md#RepositoryCredentialsElementRepositoryCredentialsTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)를 참조하세요.
 
 ### <a name="portbinding-element"></a>PortBinding 요소
-노출된 컨테이너 포트에 바인딩할 엔드포인트 리소스를 지정합니다. 자세한 내용은 [PortBinding 요소](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)를 참조하세요.
+노출된 컨테이너 포트에 바인딩할 엔드포인트 리소스를 지정합니다. 자세한 내용은 [PortBinding 요소](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInServicePackageContainerPolicyTypecomplexTypeDefinedInContainerHostPoliciesTypecomplexType)를 참조하세요.
 
 ### <a name="volume-element"></a>Volume 요소
 컨테이너에 바인딩할 볼륨을 지정합니다. 자세한 내용은 [Volume 요소](service-fabric-service-model-schema-elements.md#VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)를 참조하세요.
@@ -313,7 +313,7 @@ Windows Server 컨테이너는 여러 OS 버전에서 호환되지 않을 수 �
  자세한 내용은 [EnvironmentOverrides 요소](service-fabric-service-model-schema-elements.md#EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement)를 참조하세요.
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable 요소
-환경 변수입니다. 자세한 내용은 [EnvironmentVariable 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)를 참조하세요.
+환경 변수입니다. 자세한 내용은 [EnvironmentVariable 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)를 참조하세요.
 
 ### <a name="certificateref-element"></a>CertificateRef 요소
 컨테이너 환경에 노출해야 하는 X509 인증서에 대한 정보를 지정합니다. 모든 클러스터 노드의 LocalMachine 저장소에 인증서를 설치해야 합니다.
@@ -356,7 +356,7 @@ https://hub.docker.com의 리포지토리 및 이미지 또는 Azure Container R
 환경 변수를 컨테이너 또는 exe.에 전달합니다.  자세한 내용은 [EnvironmentVariables 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)를 참조하세요.
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable 요소
-환경 변수입니다. 자세한 내용은 [EnvironmentVariable 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)를 참조하세요.
+환경 변수입니다. 자세한 내용은 [EnvironmentVariable 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)를 참조하세요.
 
 ### <a name="configpackage-element"></a>ConfigPackage 요소
 Name 특성으로 명명되고 Settings.xml 파일이 포함된 폴더를 선언합니다. 이 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 ConfigPackage 버전만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. 자세한 내용은 [ConfigPackage 요소](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)를 참조하세요.
@@ -403,7 +403,7 @@ https://hub.docker.com의 리포지토리 및 이미지 또는 Azure Container R
 환경 변수를 컨테이너 또는 exe.에 전달합니다.  자세한 내용은 [EnvironmentVariables 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)를 참조하세요.
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable 요소
-환경 변수입니다. 자세한 내용은 [EnvironmentVariable 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)를 참조하세요.
+환경 변수입니다. 자세한 내용은 [EnvironmentVariable 요소](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)를 참조하세요.
 
 ### <a name="configpackage-element"></a>ConfigPackage 요소
 Name 특성으로 명명되고 Settings.xml 파일이 포함된 폴더를 선언합니다. 이 파일은 런타임에 프로세스에서 다시 읽을 수 있는 사용자 정의 키-값 쌍 설정의 섹션을 포함합니다. 업그레이드하는 동안 ConfigPackage 버전만 변경되면 실행 중인 프로세스가 다시 시작되지 않습니다. 대신, 콜백에서는 구성 설정이 변경되어 동적으로 다시 로드할 수 있음을 프로세스에 알립니다. 자세한 내용은 [ConfigPackage 요소](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)를 참조하세요.

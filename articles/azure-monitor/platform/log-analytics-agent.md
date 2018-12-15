@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 9729c7313f275201fc61bb5c7552066eecb13373
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637988"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185973"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics 에이전트를 사용하여 로그 데이터 수집
 
@@ -36,7 +34,7 @@ Azure Log Analytics(OMS) 에이전트(이전 명칭: Microsoft Monitoring Agent(
 
 Linux 및 Windows용 에이전트는 TCP 포트 443을 통해 Log Analytics 서비스로 아웃바운드 통신을 수행합니다. 머신이 인터넷을 통해 통신하기 위해 방화벽 또는 프록시 서버에 연결하는 경우, 아래의 요구 사항을 검토하여 필요한 네트워크 구성을 파악하세요. IT 보안 정책에는 네트워크의 컴퓨터가 인터넷에 연결할 수 있도록 허용하지 않을 경우 [Log Analytics 게이트웨이](gateway.md)를 설정한 후 에이전트가 게이트웨이를 통해 Log Analytics에 연결하도록 구성할 수 있습니다. 그러면 에이전트는 구성 정보를 수신하고, 사용하도록 설정한 데이터 수집 규칙 및 모니터링 솔루션에 따라 수집된 데이터를 보낼 수 있습니다. 
 
-System Center Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 Log Analytics 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 [Operations Manager](../../log-analytics/log-analytics-om-agents.md)에서 계속 모니터링될 수도 있습니다. Log Analytics와 통합된 Operations Manager 관리 그룹에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다. Windows 에이전트는 최대 4개의 Log Analytics 작업 영역을 보고할 수 있는 반면 Linux 에이전트는 단일 작업 영역에 대한 보고만 지원합니다.  
+System Center Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 Log Analytics 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 [Operations Manager](../../azure-monitor/platform/om-agents.md)에서 계속 모니터링될 수도 있습니다. Log Analytics와 통합된 Operations Manager 관리 그룹에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다. Windows 에이전트는 최대 4개의 Log Analytics 작업 영역을 보고할 수 있는 반면 Linux 에이전트는 단일 작업 영역에 대한 보고만 지원합니다.  
 
 Linux 및 Windows용 에이전트는 Log Analytics에 연결할 뿐만 아니라, [변경 내용 추적](../../automation/automation-change-tracking.md) 및 [업데이트 관리](../../automation/automation-update-management.md)와 같은 Hybrid Runbook Worker 역할 및 기타 서비스를 호스트하도록 Azure Automation도 지원합니다. Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
 
@@ -73,7 +71,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 >
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 프로토콜
-Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송 계층 보안) 1.2 이상을 사용하도록 에이전트를 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.  자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
+Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송 계층 보안) 1.2 이상을 사용하도록 에이전트를 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.  자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
 
 ## <a name="network-firewall-requirements"></a>네트워크 방화벽 요구 사항
 아래 정보는 Linux 및 Windows 에이전트가 Log Analytics와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다.  
@@ -115,15 +113,15 @@ Azure 구독 또는 하이브리드 환경에 포함된 머신을 Azure Log Anal
 
 |원본 | 방법 | 설명|
 |-------|-------------|-------------|
-|Azure VM| - Azure CLI 또는 Azure Resource Manager 템플릿을 사용한 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장<br>- [Azure Portal에서 수동으로 연결합니다](../../log-analytics/log-analytics-quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | 이 확장은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Azure Monitor 작업 영역에 등록합니다.|
+|Azure VM| - Azure CLI 또는 Azure Resource Manager 템플릿을 사용한 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장<br>- [Azure Portal에서 수동으로 연결합니다](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | 이 확장은 Azure Virtual Machines에 Log Analytics 에이전트를 설치하고 기존 Azure Monitor 작업 영역에 등록합니다.|
 | 하이브리드 Windows 컴퓨터|- [수동 설치](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) 또는 Azure Resource Manager 템플릿(데이터 센터에 Microsoft Azure Stack을 배포한 경우)과 같은 자동화된 방법을 사용하거나 명령줄에서 Microsoft Monitoring Agent를 설치합니다.| 
-| 하이브리드 Linux 컴퓨터| [수동 설치](../../log-analytics/log-analytics-quick-collect-linux-computer.md)|GitHub에 호스트된 래퍼 스크립트를 호출하는 Linux용 에이전트를 설치합니다. | 
-| System Center Operations Manager|[Operations Manager를 Log Analytics와 통합](../../log-analytics/log-analytics-om-agents.md) | Linux 및 Windows 컴퓨터 보고에서 수집된 데이터를 관리 그룹에 전달하도록 Operations Manager와 Log Analytics 간에 통합을 구성합니다.|  
+| 하이브리드 Linux 컴퓨터| [수동 설치](../../azure-monitor/learn/quick-collect-linux-computer.md)|GitHub에 호스트된 래퍼 스크립트를 호출하는 Linux용 에이전트를 설치합니다. | 
+| System Center Operations Manager|[Operations Manager를 Log Analytics와 통합](../../azure-monitor/platform/om-agents.md) | Linux 및 Windows 컴퓨터 보고에서 수집된 데이터를 관리 그룹에 전달하도록 Operations Manager와 Log Analytics 간에 통합을 구성합니다.|  
 
 ## <a name="next-steps"></a>다음 단계
 
 * [데이터 원본](../../azure-monitor/platform/agent-data-sources.md)을 검토하여 Windows 또는 Linux 시스템에서 데이터를 수집할 수 있는 데이터 원본을 이해하세요. 
 
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../../log-analytics/log-analytics-queries.md)에 대해 알아봅니다. 
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하는 [로그 쿼리](../../azure-monitor/log-query/log-query-overview.md)에 대해 알아봅니다. 
 
 * Azure Monitor에 기능을 추가하고 Log Analytics 작업 영역으로 데이터를 수집하는 [모니터링 솔루션](../../azure-monitor/insights/solutions.md)에 대해 알아봅니다.

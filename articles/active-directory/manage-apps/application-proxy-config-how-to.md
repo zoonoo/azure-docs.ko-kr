@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cf3e367dad528017a98e103962c57cb758da55cb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: a7a5c097f0400d89398cef66eeb7bd0ce8d5e97b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355362"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132434"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램을 구성하는 방법
 
@@ -28,15 +28,15 @@ ms.locfileid: "44355362"
 
 ## <a name="recommended-documents"></a>권장되는 문서 
 
-관리 포털을 통한 응용 프로그램 프록시 응용 프로그램의 초기 구성 및 생성에 대해 배우려면 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)를 따릅니다.
+관리 포털을 통한 응용 프로그램 프록시 응용 프로그램의 초기 구성 및 생성에 대해 배우려면 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)를 따릅니다.
 
-커넥터를 구성하는 방법에 대한 자세한 내용은 [Azure Portal에서 응용 프로그램 프록시 사용](application-proxy-enable.md)을 참조하세요.
+커넥터를 구성하는 방법에 대한 자세한 내용은 [Azure Portal에서 응용 프로그램 프록시 사용](application-proxy-add-on-premises-application.md)을 참조하세요.
 
 인증서 업로드 및 사용자 지정 도메인 사용에 대한 자세한 내용은 [Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업](application-proxy-configure-custom-domain.md)을 참조하세요.
 
 ## <a name="create-the-applicationsetting-the-urls"></a>응용 프로그램 만들기/URL 설정
 
-[Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md) 문서의 단계에 따라 응용 프로그램을 만드는 중 오류가 발생한 경우 오류 세부 정보에서 응용 프로그램 문제 해결 방법에 대한 정보 및 제안 사항을 참조하세요. 대부분의 오류 메시지에는 제안 수정이 포함되어 있습니다. 일반적인 오류를 방지하려면 다음을 확인합니다.
+[Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md) 문서의 단계에 따라 응용 프로그램을 만드는 중 오류가 발생한 경우 오류 세부 정보에서 응용 프로그램 문제 해결 방법에 대한 정보 및 제안 사항을 참조하세요. 대부분의 오류 메시지에는 제안 수정이 포함되어 있습니다. 일반적인 오류를 방지하려면 다음을 확인합니다.
 
 -   응용 프로그램 프록시 응용 프로그램을 만들 수 있는 권한을 가진 관리자여야 합니다.
 
@@ -75,4 +75,4 @@ ms.locfileid: "44355362"
    ![알림 프롬프트](./media/application-proxy-config-how-to/error-message2.png)
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)
+[Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)

@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 45d1275ac3b78836cbb77c4e1508d0689c215d69
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246516"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998598"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java 웹 응용 프로그램 모니터링 시작
 
@@ -29,7 +29,7 @@ Azure Application Insights를 사용하면 웹 응용 프로그램의 가용성,
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
 - JRE 1.7 또는 1.8 설치
-- [Java EE 개발자용 Eclipse IDE 평가판](http://www.eclipse.org/downloads/)을 설치합니다. 이 빠른 시작에서는 Eclipse Oxygen(4.7)을 사용합니다.
+- [Java EE 개발자용 Eclipse IDE 평가판](https://www.eclipse.org/downloads/)을 설치합니다. 이 빠른 시작에서는 Eclipse Oxygen(4.7)을 사용합니다.
 - Azure 구독과 기존 Java 동적 웹 프로젝트가 필요합니다.
  
 Java 동적 웹 프로젝트가 없는 경우 [Java 웹앱 만들기 빠른 시작](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java)을 사용하여 Java 동적 웹 프로젝트를 만들 수 있습니다.
@@ -67,7 +67,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![새로운 App Insights 리소스 형식](./media/app-insights-java-quick-start/000-j.png)
 
-2. "Work With(작업 항목)" 필드에 ```http://dl.microsoft.com/eclipse```를 복사하고, **Java용 Azure 도구 키트**를 선택하고, **Java용 Application Insights 플러그 인**을 선택하고,  > "설치하는 동안 모든 업데이트 사이트에 문의하여 필요한 소프트웨어를 찾습니다."를 **선택 취소**합니다.
+2. "Work With(작업 항목)" 필드에 ```https://dl.microsoft.com/eclipse```를 복사하고, **Java용 Azure 도구 키트**를 선택하고, **Java용 Application Insights 플러그 인**을 선택하고,  > "설치하는 동안 모든 업데이트 사이트에 문의하여 필요한 소프트웨어를 찾습니다."를 **선택 취소**합니다.
 
 3. 설치가 완료되면 **Eclipse를 다시 시작**하라는 메시지가 표시됩니다.
 
@@ -130,7 +130,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
    ![서버 메트릭 그래프](./media/app-insights-java-quick-start/livemetricsjava.png)
 
-Java 모니터링에 대한 자세한 내용은 [Application Insights Java 추가 설명서](.\app-insights-java-get-started.md)를 참조하세요.
+Java 모니터링에 대한 자세한 내용은 [Application Insights Java 추가 설명서](./app-insights-java-get-started.md)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 0b42a51f255080905cb0104d06ed18f1d18f8e5d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945198"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015418"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 리소스 섹션
 
@@ -141,7 +141,7 @@ ms.locfileid: "49945198"
 * Azure App Service의 Web Apps 기능
 * SQL Server
 * Azure Key Vault
-* Azure Redis 캐시(영문)
+* Azure Cache for Redis
 * Azure Batch
 * Azure Traffic Manager
 * Azure Search

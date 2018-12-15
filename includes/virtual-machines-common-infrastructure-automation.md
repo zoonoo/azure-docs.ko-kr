@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981609"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53027922"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure의 가상 머신에서 인프라 자동화 도구 사용
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
@@ -23,7 +23,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
     - [Azure Automation](#azure-automation)은 Azure와 온-프레미스 인프라에 걸쳐 작업을 수행할 수 있습니다.
 
 - 응용 프로그램 배포 및 전달 자동화
-    - 예로는 [Azure DevOps Services](#visual-studio-team-services)와 [Jenkins](#jenkins)가 있습니다.
+    - 예로는 [Azure DevOps Services](#azure-devops-services)와 [Jenkins](#jenkins)가 있습니다.
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/)은 구성 관리, VM 만들기 또는 응용 프로그램 배포를 위한 자동화 엔진입니다. Ansible은 대개 SSH 키가 있는 에이전트 없는 모델을 사용하여 대상 컴퓨터를 인증하고 관리합니다. 구성 작업은 플레이북에서 정의되며, 특정 작업을 수행하는 데 사용할 수 있는 다양한 Ansible 모듈이 포함됩니다. 자세한 내용은 [Ansible 작동 방법(영문)](https://www.ansible.com/how-ansible-works)을 참조하세요.

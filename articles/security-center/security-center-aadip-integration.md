@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2ed5791b352ee4b19f707e52bc6f8f78e1f0e5b5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8c0e90436cf030f1280b3c50f3fdc91c7429d542
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635308"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340303"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Azure Security Center에 Azure Active Directory Identity Protection 연결
 이 문서는 Azure AD(Active Directory) Identity Protection과 Azure Security Center 간에 통합을 구성하는 데 도움이 됩니다.
@@ -48,7 +48,7 @@ ms.locfileid: "52635308"
 이 문서에서는 Azure AD Identity Protection을 Security Center에 연결하는 방법을 알아보았습니다. Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure Security Center에 Microsoft Advanced Threat Analytics 연결](security-center-ata-integration.md)
-* [Azure Security Center에서 보안 정책 설정](security-center-azure-policy.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) - Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md) - 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.

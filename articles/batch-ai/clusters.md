@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 61294d8b6b84b03b1e0c8d79b4d2855452c7f0e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9af8ce84805e48dd3c91dd7fb4fcf0b136fbfc60
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056968"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410094"
 ---
 # <a name="work-with-batch-ai-clusters"></a>Batch AI 클러스터 작업 
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 이 문서에서는 Azure Batch AI에서 클러스터를 사용하는 방법을 설명합니다. 여기에서 클러스터의 개념, 가능한 구성 형식 및 예제를 소개합니다. 이 문서에서 클러스터를 만들고 관리하는 작업에 대한 예제는 대부분 Azure CLI를 사용합니다. 그러나 Azure Portal 및 Azure Batch AI SDK를 비롯한 다른 도구를 사용해도 클러스터 작업을 수행할 수 있습니다.
 

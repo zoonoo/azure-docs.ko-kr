@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 427c3601d6a4ca65407a98d54b0206cde9af4235
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638398"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343159"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 지속성 함수를 실행하는 방법
 
@@ -35,7 +35,7 @@ ms.locfileid: "52638398"
 
 * **Azure 개발** 워크로드를 통해 [Visual Studio 2017 버전 15.6 이상을 설치](https://docs.microsoft.com/visualstudio/install/)합니다.
 
-  Visual Studio는 있지만 해당 워크로드가 없는 경우 **도구 > 도구 및 기능 가져오기**를 선택하여 워크로드를 추가합니다. 
+  Visual Studio는 있지만 해당 워크로드가 없는 경우 **도구 > 도구 및 기능 가져오기**를 선택하여 워크로드를 추가합니다.
 
   (대신 [Visual Studio Code](https://code.visualstudio.com/)를 사용할 수 있지만 지침 중 일부는 Visual Studio에 국한됩니다.)
 
@@ -43,7 +43,7 @@ ms.locfileid: "52638398"
 
 ## <a name="webjobs-sdk-versions"></a>WebJobs SDK 버전
 
-이 문서에서는 WebJobs SDK 2.x 프로젝트를 개발하는 방법에 대해 설명합니다(Azure Functions 버전 1.x와 동일). 버전 3.x에 대한 내용은 이 문서의 뒷부분에 나오는 [WebJobs SDK 3.x](#webjobs-sdk-3x)를 참조하세요. 
+이 문서에서는 WebJobs SDK 2.x 프로젝트를 개발하는 방법에 대해 설명합니다(Azure Functions 버전 1.x와 동일). 버전 3.x에 대한 내용은 이 문서의 뒷부분에 나오는 [WebJobs SDK 3.x](#webjobs-sdk-3x)를 참조하세요.
 
 ## <a name="create-console-app"></a>콘솔 앱 만들기
 
@@ -190,9 +190,9 @@ while (true)
 
 1. 로컬로 실행하는 경우 Application Insights에서 로그를 확인하려면 다음을 수행합니다.
 
-  a. 앱 유형이 **일반**인 Application Insights 리소스를 만듭니다.
+    a. 앱 유형이 **일반**인 Application Insights 리소스를 만듭니다.
 
-  b. *App.config* 파일에 계측 키를 저장합니다.
+    b. *App.config* 파일에 계측 키를 저장합니다.
 
 1. 프로젝트를 실행합니다.
 
@@ -216,8 +216,8 @@ while (true)
 
 1. 다음 패키지의 시험판 버전 3.x를 선택합니다.
 
-  * `Microsoft.Azure.WebJobs.Extensions`
-  * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
+    * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
 1. .NET Core 구성 프레임워크를 사용하여 *appsettings.json* 파일에서 저장소 연결 문자열 및 Application Insights 계측 키를 가져오도록 `Main` 메서드 코드를 변경합니다.  예를 들면 다음과 같습니다.
 
@@ -235,7 +235,7 @@ while (true)
            var config = new JobHostConfiguration();
 
            config.DashboardConnectionString = "";
-           config.StorageConnectionString = 
+           config.StorageConnectionString =
                appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
            var instrumentationKey =
                appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
@@ -258,4 +258,3 @@ while (true)
 ## <a name="next-steps"></a>다음 단계
 
 WebJobs SDK에 대한 자세한 내용은 [WebJobs SDK를 사용하는 방법](../../app-service/webjobs-sdk-how-to.md)을 참조하세요.
-

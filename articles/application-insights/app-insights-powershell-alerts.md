@@ -9,21 +9,20 @@ ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 2a5717f95e5e40fe04f4fa22eaedf168539e20f3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dda4e26de74dbd5579f2dd45ea47f42c904f028f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309232"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271728"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
 [Application Insights](app-insights-overview.md)에서 [경고](app-insights-alerts.md)의 구성을 자동화할 수 있습니다.
 
-또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../monitoring-and-diagnostics/insights-webhooks-alerts.md)할 수 있습니다.
+또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다.
 
 > [!NOTE]
 > 리소스와 경고를 동시에 만들려면 [Azure Resource Manager 템플릿을 사용](app-insights-powershell.md)하는 것이 좋습니다.
@@ -133,10 +132,10 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 | request,<br/>requestFailed |[서버 요청](app-insights-configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhook
-[경고에 대한 응답을 자동화](../monitoring-and-diagnostics/insights-webhooks-alerts.md)할 수 있습니다. 경고가 발생한 경우 Azure에서 사용자가 선택한 웹 주소를 호출합니다.
+[경고에 대한 응답을 자동화](../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다. 경고가 발생한 경우 Azure에서 사용자가 선택한 웹 주소를 호출합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [Application Insights를 구성하는 스크립트](app-insights-powershell-script-create-resource.md)
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](app-insights-powershell.md)
 * [Application Insights에 Microsoft Azure 진단 결합 자동화](app-insights-powershell-azure-diagnostics.md)
-* [경고에 대한 응답 자동화](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [경고에 대한 응답 자동화](../azure-monitor/platform/alerts-webhooks.md)

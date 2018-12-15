@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5a67cdcef7f39830b747dec5f2c980483e1ab91
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978338"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967898"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>RBAC 변경 사항에 대한 활동 로그 보기
 
@@ -117,15 +117,15 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 기본적인 시작 단계는 다음과 같습니다.
 
-1. [Log Analytics 작업 영역을 만듭니다](../log-analytics/log-analytics-quick-create-workspace.md).
+1. [Log Analytics 작업 영역을 만듭니다](../azure-monitor/learn/quick-create-workspace.md).
 
-1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../log-analytics/log-analytics-activity.md#configuration)합니다.
+1. 작업 영역에 대해 [활동 로그 분석 솔루션을 구성](../azure-monitor/platform/collect-activity-logs.md#configuration)합니다.
 
-1. [작업 로그를 봅니다](../log-analytics/log-analytics-activity.md#using-the-solution). 활동 로그 분석 개요 페이지로 빠르게 이동하는 방법은 **Log Analytics** 옵션을 클릭하는 것입니다.
+1. [작업 로그를 봅니다](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). 활동 로그 분석 개요 페이지로 빠르게 이동하는 방법은 **Log Analytics** 옵션을 클릭하는 것입니다.
 
    ![포털의 Log Analytics 옵션](./media/change-history-report/azure-log-analytics-option.png)
 
-1. 선택적으로 [로그 검색](../log-analytics/log-analytics-log-search.md) 페이지 또는 [고급 분석 포털](../log-analytics/query-language/get-started-analytics-portal.md)을 사용하여 로그를 쿼리하고 봅니다. 이러한 두 옵션에 대한 자세한 내용은 [로그 검색 페이지 또는 고급 분석 포털](../log-analytics/log-analytics-log-search-portals.md)을 참조하세요.
+1. 선택적으로 [로그 검색](../log-analytics/log-analytics-log-search.md) 페이지 또는 [고급 분석 포털](../azure-monitor/log-query/get-started-portal.md)을 사용하여 로그를 쿼리하고 봅니다. 이러한 두 옵션에 대한 자세한 내용은 [로그 검색 페이지 또는 고급 분석 포털](../azure-monitor/log-query/portals.md)을 참조하세요.
 
 다음은 대상 리소스 공급자가 구성한 새 역할 할당을 반환하는 쿼리입니다.
 

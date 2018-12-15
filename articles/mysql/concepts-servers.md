@@ -9,14 +9,15 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 9d94f897546ea1e1190aab91e80eb9868224e5a7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0ddab6a982f54f0309e87d3b74a7f21c0bb67ced
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265462"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955516"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스의 서버 개념
+
 이 문서에서는 Azure Database for MySQL 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
 
 ## <a name="what-is-an-azure-database-for-mysql-server"></a>MySQL용 Azure 데이터베이스 서버란?
@@ -30,7 +31,7 @@ MySQL용 Azure 데이터베이스 서버:
 - 데이터베이스에 대한 네임스페이스를 제공합니다.
 - 강력한 수명 의미 체계를 가진 컨테이너로서 서버를 삭제하고 포함된 데이터베이스를 삭제합니다.
 - 하위 지역에 리소스를 배치합니다.
-- 서버 및 데이터베이스 액세스에 대한 연결 끝점을 제공합니다.
+- 서버 및 데이터베이스 액세스에 대한 연결 엔드포인트를 제공합니다.
 - 로그인, 방화벽, 사용자, 역할 구성 등 해당 데이터베이스에 적용되는 관리 정책에 대한 범위를 제공합니다.
 - 여러 버전으로 제공됩니다. 자세한 내용은 [지원되는 MySQL용 Azure 데이터베이스 버전](./concepts-supported-versions.md)을 참조하세요.
 
@@ -39,7 +40,7 @@ Azure Database for MySQL 서버 내에서 하나 이상의 데이터베이스를
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>MySQL용 Azure 데이터베이스 서버에 연결하고 인증을 받으려면 어떻게 해야 하나요?
 
 다음과 같은 요소가 데이터베이스에 안전하게 액세스할 수 있도록 도와줍니다.
-|||
+|     |     |
 | :-- | :-- |
 | **인증 및 권한 부여** | MySQL용 Azure 데이터베이스 서버는 네이티브 MySQL 인증을 지원합니다. 서버의 관리자 로그인을 사용하여 서버에 연결하고 인증을 받을 수 있습니다. |
 | **프로토콜** | 이 서비스는 MySQL에서 사용되는 메시지 기반 프로토콜을 지원합니다. |
@@ -48,9 +49,11 @@ Azure Database for MySQL 서버 내에서 하나 이상의 데이터베이스를
 | **SSL** | 이 서비스는 응용 프로그램 및 데이터베이스 서버 간의 SSL 연결 적용을 지원합니다.  [MySQL용 Azure 데이터베이스에 안전하게 연결하기 위한 사용자 응용 프로그램의 SSL 연결 구성](./howto-configure-ssl.md)을 참조하세요. |
 
 ## <a name="how-do-i-manage-a-server"></a>서버는 어떻게 관리해야 하나요?
+
 Azure Portal 또는 Azure CLI를 사용하여 MySQL용 Azure 데이터베이스 서버를 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 - 서비스 개요를 보려면 [MySQL용 Azure 데이터베이스 개요](./overview.md)를 참조하세요.
 - **서비스 계층**에 따른 특정 리소스 할당량 및 제한 사항에 대한 자세한 내용은 [서비스 계층](./concepts-service-tiers.md)을 참조하세요.
 - 서비스 연결에 대한 자세한 내용은 [MySQL용 Azure 데이터베이스에 대한 연결 라이브러리](./concepts-connection-libraries.md)를 참조하세요.

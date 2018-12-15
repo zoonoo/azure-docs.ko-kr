@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 45afd0d4c038123a1daf5f57de18e5f2799faa31
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 953868f90c4f761b1d02c314e0e1a4e04b8404d9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181263"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842614"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 WeChat 계정으로 등록 설정 및 로그인
 
@@ -25,7 +25,7 @@ ms.locfileid: "47181263"
 
 ## <a name="create-a-wechat-application"></a>WeChat 응용 프로그램 만들기
 
-Azure AD(Azure Active Directory) B2C에서 WeChat 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 응용 프로그램을 만들어야 합니다. WeChat 계정이 없는 경우 [http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html)에서 정보를 얻을 수 있습니다.
+Azure AD(Azure Active Directory) B2C에서 WeChat 계정을 ID 공급자로 사용하려면 테넌트에 해당 계정을 나타내는 응용 프로그램을 만들어야 합니다. WeChat 계정이 없는 경우 [https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html)에서 정보를 얻을 수 있습니다.
 
 ### <a name="register-a-wechat-application"></a>WeChat 응용 프로그램 등록
 

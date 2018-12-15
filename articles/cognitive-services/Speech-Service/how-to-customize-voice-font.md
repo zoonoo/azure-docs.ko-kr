@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467721"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867583"
 ---
 # <a name="creating-custom-voice-fonts"></a>사용자 지정 음성 글꼴 만들기
 
@@ -87,7 +87,7 @@ Azure 계정 및 Speech Service에 대한 구독이 필요합니다. 구독이 �
 사용자 지정 음성 시스템은 텍스트를 소문자로 변환하고 불필요한 문장 부호를 제거하여 스크립트를 정규화합니다. 스크립트는 해당 오디오 녹음과 100% 정확히 일치하는 것이 중요합니다.
 
 > [!TIP]
-> 프로덕션용 Text-to-Speech 음성을 작성할 때는 음성 적용 범위와 효율성을 둘 다 고려해서 발화를 선택(또는 스크립트를 작성)합니다. 원하는 결과를 얻는 데 문제가 있으세요? 문의하기에 관한 자세한 내용을 알아보려면 [사용자 지정 음성 팀에 문의](mailto:tts@microsoft.com)하세요.
+> 프로덕션용 Text-to-Speech 음성을 작성할 때는 음성 적용 범위와 효율성을 둘 다 고려해서 발화를 선택(또는 스크립트를 작성)합니다. 원하는 결과를 얻는 데 문제가 있으세요? 문의하기에 관한 자세한 내용을 알아보려면 [사용자 지정 음성 팀에 문의](mailto:speechsupport@microsoft.com)하세요.
 
 ## <a name="upload-your-datasets"></a>데이터 세트 업로드
 
@@ -102,7 +102,7 @@ Azure 계정 및 Speech Service에 대한 구독이 필요합니다. 구독이 �
 
     **내 음성** 테이블이 표시됩니다. 음성 데이터 세트를 아직 업로드하지 않았으면 이 테이블이 빈 상태로 표시됩니다.
 
-3. **데이터 가져오기**를 클릭하여 새 데이터 집합을 업로드하기 위한 페이지를 엽니다. 
+3. **데이터 가져오기**를 클릭하여 새 데이터 세트를 업로드하기 위한 페이지를 엽니다. 
 
     ![음성 데이터 가져오기](media/custom-voice/import-voice-data.png)
 
@@ -157,7 +157,7 @@ SNR(신호 대 잡음 비율)이 더 높을 수록 오디오의 잡음이 더 �
 
     신중하게 이름을 선택합니다. 여기에 입력한 이름은 음성 합성 요청에서 음성을 지정할 때 SSML 입력의 일부로 사용됩니다. 문자, 숫자 및 몇 가지 문장 부호 문자(예: '-', '_' '(', ')')만 허용됩니다.
 
-    **설명** 필드의 일반적인 용도는 모델을 만드는 데 사용된 데이터 집합의 이름을 기록하는 것입니다.
+    **설명** 필드의 일반적인 용도는 모델을 만드는 데 사용된 데이터 세트의 이름을 기록하는 것입니다.
 
 1. 음성 글꼴의 성별을 선택합니다. 데이터 세트의 성별과 일치해야 합니다.
 

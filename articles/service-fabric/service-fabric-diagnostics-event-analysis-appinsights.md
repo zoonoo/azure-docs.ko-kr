@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291048"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322792"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Application Insights를 사용하여 이벤트 분석 및 시각화
 
@@ -54,7 +54,7 @@ Application Insights 포털의 기능을 좀 더 자세히 살펴보려면 [Appl
 >[!NOTE]
 >이는 해당 시점의 Windows 클러스터에만 적용됩니다.
 
-WAD에서 Azure Application Insights로 데이터를 전송하는 두 가지 기본적인 방법이 있습니다. 이 방법은 [이 문서](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)에 설명된 대로 Application Insights 싱크를 WAD 구성에 추가하여 이루어집니다.
+WAD에서 Azure Application Insights로 데이터를 전송하는 두 가지 기본적인 방법이 있습니다. 이 방법은 [이 문서](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)에 설명된 대로 Application Insights 싱크를 WAD 구성에 추가하여 이루어집니다.
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Azure Portal에서 클러스터를 만들 때 Application Insights 계측 키 추가
 
@@ -88,7 +88,7 @@ Resource Manager 템플릿의 "WadCfg"에서 다음 두 가지 변경 사항을 
 
 위의 두 코드 조각에서 "applicationInsights"라는 이름은 싱크를 설명하는 데 사용되었습니다. 이는 요구 사항은 아니며 싱크의 이름이 "sinks"에 포함되어 있는 한 이름을 임의의 문자열로 설정할 수 있습니다.
 
-현재 클러스터의 로그는 Application Insights의 로그 뷰어에 **추적**으로 표시됩니다. 플랫폼에서 발생하는 대부분의 추적은 "정보" 수준이므로 "위험" 또는 "오류" 유형의 로그만 보내도록 싱크 구성을 변경할 수도 있습니다. 이 작업은 [이 문서](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)에서 설명한 것처럼 싱크에 "채널"을 추가하여 수행할 수 있습니다.
+현재 클러스터의 로그는 Application Insights의 로그 뷰어에 **추적**으로 표시됩니다. 플랫폼에서 발생하는 대부분의 추적은 "정보" 수준이므로 "위험" 또는 "오류" 유형의 로그만 보내도록 싱크 구성을 변경할 수도 있습니다. 이 작업은 [이 문서](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)에서 설명한 것처럼 싱크에 "채널"을 추가하여 수행할 수 있습니다.
 
 >[!NOTE]
 >포털 또는 Resource Manager 템플릿에서 잘못된 Application Insights 키를 사용하는 경우 수동으로 키를 변경하고 클러스터를 업데이트/재배포해야 합니다.

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 7c67cac7a5579386921b2b949e9312cb4e5da172
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984675"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966911"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>덤프 및 복원을 사용하여 PostgreSQL 데이터베이스 마이그레이션
 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html)를 사용하여 PostgreSQL 데이터베이스를 덤프 파일로 추출하고 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html)를 사용하여 pg_dump에 의해 생성된 보관 파일에서 PostgreSQL 데이터베이스를 복원할 수 있습니다.
@@ -71,7 +71,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
     ```
 
 ### <a name="for-the-restore"></a>복원
-- 네트워크 대기 시간을 줄이기 위해 마이그레이션 대상인 Azure Database for PostgreSQL 서버와 같은 지역의 Azure VM으로 백업 파일을 이동한 다음 해당 VM에서 pg_restore를 수행하는 것이 좋습니다. 또한 [가속화된 네트워킹](..\virtual-network\create-vm-accelerated-networking-powershell.md)을 사용하도록 설정하여 VM을 만드는 것이 좋습니다.
+- 네트워크 대기 시간을 줄이기 위해 마이그레이션 대상인 Azure Database for PostgreSQL 서버와 같은 지역의 Azure VM으로 백업 파일을 이동한 다음 해당 VM에서 pg_restore를 수행하는 것이 좋습니다. 또한 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-powershell.md)을 사용하도록 설정하여 VM을 만드는 것이 좋습니다.
 - create index 문이 이미 기본적으로 포함되어 있겠지만, 덤프 파일을 열어 create index 문이 데이터 삽입 부분 뒤에 있는지 확인합니다. 해당 위치에 문이 없으면 create index 문을 데이터 삽입 부분 뒤로 이동합니다.
 - -Fc 및 -j *#* 스위치를 사용하여 복원을 병렬로 수행합니다. *#* 는 대상 서버의 코어 수입니다. *#* 를 대상 서버 코어 수의 2배로 설정한 다음 복원을 수행하여 영향을 확인해 볼 수도 있습니다. 예: 
 

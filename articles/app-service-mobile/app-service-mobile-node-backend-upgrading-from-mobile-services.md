@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 07ebf23270addc63793278d4e0510c187289b82c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154548"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002123"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>기존 Node.js Azure 모바일 서비스를 App Service로 업그레이드
 App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
@@ -39,7 +39,7 @@ App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>Mobile Apps Node.js 서버 SDK에서 향상된 기능
 새 [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) 업그레이드는 다음을 포함하여 다양한 향상된 기능을 제공합니다.
 
-* [Express 프레임워크](http://expressjs.com/en/index.html)에 기반하여 새 노드 SDK는 간단하고 새 노드 버전을 유지할 수 있도록 설계됩니다. Express 미들웨어를 통해 응용 프로그램 동작을 사용자 지정할 수 있습니다.
+* [Express 프레임워크](https://expressjs.com/en/index.html)에 기반하여 새 노드 SDK는 간단하고 새 노드 버전을 유지할 수 있도록 설계됩니다. Express 미들웨어를 통해 응용 프로그램 동작을 사용자 지정할 수 있습니다.
 * Mobile Services SDK에 비해 성능이 크게 개선되었습니다.
 * 모바일 백 엔드를 통해 웹 사이트를 호스팅할 수 있습니다. 마찬가지로 기존 v4 응용 프로그램에 Azure 모바일 SDK를 추가하기는 쉽습니다.
 * 플랫폼 간 및 로컬 개발을 위해 작성된 Mobile Apps SDK는 Windows, Linux 및 OSX 플랫폼에서 개발되고 로컬로 실행될 수 있습니다. 배포하기 전에 [Mocha](https://mochajs.org/) 테스트를 실행하는 것 같은 일반적인 노드 개발 기술을 사용하는 것은 쉽습니다.
@@ -166,7 +166,7 @@ Azure Mobile Apps를 사용하면 서비스 내에서 Azure Active Directory, Fa
 [인증 빠른 시작]: app-service-mobile-auth.md
 
 [Azure Portal]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [todo sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -175,6 +175,6 @@ Azure Mobile Apps를 사용하면 서비스 내에서 Azure Active Directory, Fa
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js package]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS Middleware]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

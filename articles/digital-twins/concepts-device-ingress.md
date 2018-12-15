@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 9ce2f65af89e186a3cd32bd2900b5444fb556b08
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 374a27b10b3928838b10e4fba24e1f36721c162a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636716"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433682"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>디바이스 연결 및 원격 분석 수신
 
@@ -81,4 +81,3 @@ Digital Twins에 메시지를 보내려면 DeviceClient [SendEventAsync](https:/
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins의 데이터 처리 및 사용자 정의 함수 기능에 대해 알아보려면 [Azure Digital Twins 데이터 처리 및 사용자 정의 함수](concepts-user-defined-functions.md)를 참조하세요.
-

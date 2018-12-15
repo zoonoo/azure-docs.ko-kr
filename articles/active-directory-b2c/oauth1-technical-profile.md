@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 10c90b060c184bb911ac149640e8a9570b59e2fb
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 15c6730d752adf48cee2ff509220a033cac91ef2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382821"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842121"
 ---
 # <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](http://tools.ietf.org/html/rfc5849) 프로토콜 ID 공급자를 지원합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. OAuth1 기술 프로필을 사용하면 Twitter와 같은 OAuth1 기반 ID 공급자를 페더레이션할 수 있습니다. 그러면 사용자가 기존 소셜 또는 엔터프라이즈 ID로 로그인할 수 있게 됩니다.
+Azure AD(Azure Active Directory) B2C는 [OAuth 1.0](https://tools.ietf.org/html/rfc5849) 프로토콜 ID 공급자를 지원합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. OAuth1 기술 프로필을 사용하면 Twitter와 같은 OAuth1 기반 ID 공급자를 페더레이션할 수 있습니다. 그러면 사용자가 기존 소셜 또는 엔터프라이즈 ID로 로그인할 수 있게 됩니다.
 
 ## <a name="protocol"></a>프로토콜
 

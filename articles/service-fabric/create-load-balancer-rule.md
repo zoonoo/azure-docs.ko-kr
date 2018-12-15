@@ -14,26 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: ryanwi
-ms.openlocfilehash: e4c3bf627c4a5e01c4d9001fcbb0feed0b92209f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e41e5d48141b120ec1f80b0faa899bda07a2934e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008045"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962066"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
 
 Azure Service Fabric 클러스터를 사용하여 배포한 부하 분산 장치는 트래픽을 노드에서 실행되는 앱으로 보냅니다. 다른 포트를 사용하도록 앱을 변경하면 Azure Load Balancer에서 해당 포트를 노출(또는 다른 포트로 라우팅)해야 합니다.
 
-Azure에 Service Fabric 클러스터를 배포한 경우 부하 분산 장치가 자동으로 만들어집니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](..\load-balancer\load-balancer-get-started-internet-portal.md)을 참조하세요.
+Azure에 Service Fabric 클러스터를 배포한 경우 부하 분산 장치가 자동으로 만들어집니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/load-balancer-get-started-internet-portal.md)을 참조하세요.
 
 ## <a name="configure-service-fabric"></a>Service Fabric 구성
 
-Service Fabric 응용 프로그램 **ServiceManifest.xml** 구성 파일은 응용 프로그램에 사용하는 끝점을 정의합니다. 구성 파일이 끝점을 정의하도록 업데이트된 후에 부하 분산 장치를 업데이트하여 해당(또는 다른) 포트를 노출해야 합니다. Service Fabric 끝점을 만드는 방법에 대한 자세한 내용은 [끝점 설정](service-fabric-service-manifest-resources.md)을 참조하세요.
+Service Fabric 응용 프로그램 **ServiceManifest.xml** 구성 파일은 응용 프로그램에 사용하는 엔드포인트를 정의합니다. 구성 파일이 엔드포인트를 정의하도록 업데이트된 후에 부하 분산 장치를 업데이트하여 해당(또는 다른) 포트를 노출해야 합니다. Service Fabric 엔드포인트를 만드는 방법에 대한 자세한 내용은 [엔드포인트 설정](service-fabric-service-manifest-resources.md)을 참조하세요.
 
 ## <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-Load Balancer 규칙은 인터넷 연결 포트를 열고 응용 프로그램에서 사용하는 내부 노드의 포트에 트래픽을 전달합니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](..\load-balancer\load-balancer-get-started-internet-portal.md)을 참조하세요.
+Load Balancer 규칙은 인터넷 연결 포트를 열고 응용 프로그램에서 사용하는 내부 노드의 포트에 트래픽을 전달합니다. 부하 분산 장치가 없는 경우 [인터넷 연결 부하 분산 장치 구성](../load-balancer/load-balancer-get-started-internet-portal.md)을 참조하세요.
 
 Load Balancer 규칙을 만들려면 다음 정보를 수집해야 합니다.
 
@@ -68,7 +68,7 @@ Azure CLI 명령에는 다음 표에 설명되어 있는 몇 가지 매개 변�
 
 
 >[!NOTE]
->Azure CLI를 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 부하 분산 장치 만들기](..\load-balancer\load-balancer-get-started-internet-arm-cli.md)를 참조하세요.
+>Azure CLI를 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-cli.md)를 참조하세요.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -104,7 +104,7 @@ $lb | Set-AzureRmLoadBalancer
 `New-AzureRmLoadBalancerRuleConfig` 명령과 관련해서 `-FrontendPort`는 부하 분산 장치가 외부 연결을 위해 노출하는 포트이고 `-BackendPort`는 Service Fabric 앱이 수신 대기하는 포트입니다.
 
 >[!NOTE]
->PowerShell을 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 부하 분산 장치 만들기](..\load-balancer\load-balancer-get-started-internet-arm-ps.md)를 참조하세요.
+>PowerShell을 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-ps.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

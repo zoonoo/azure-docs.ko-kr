@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 110f487d486ccd2f1a26065aa225838a3a83c197
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6fc3fc0b7717242b6949d93f0668d7c56525ac49
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167225"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342824"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -70,13 +70,13 @@ ms.locfileid: "49167225"
 * [Red Hat Gluster Storage용 제품 설명서](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [pacemaker 클러스터의 SAP Netweaver](https://access.redhat.com/articles/3150081)
 * 일반 RHEL 설명서
-  * [고가용성 추가 기능 개요](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [고가용성 추가 기능 관리](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
+  * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)(고가용성 추가 기능 관리)
   * [고가용성 추가 기능 참조](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [RHEL 7.5에서 독립 실행형 리소스를 사용하여 SAP Netweaver용 ASCS/ERS 구성](https://access.redhat.com/articles/3569681)
 * Azure 관련 RHEL 설명서:
-  * [RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버)](https://access.redhat.com/articles/3131341)
-  * [Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성](https://access.redhat.com/articles/3252491)
+  * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)(RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버))
+  * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)(Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성)
 
 ## <a name="overview"></a>개요
 
@@ -146,7 +146,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    1. 관리자 사용자 이름, 관리자 암호 또는 SSH 키  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    1. 서브넷 ID  
-   VM을 할당해야 하는 서브넷이 정의된 기존 VNet에 VM을 배포해야 하는 경우에는 해당 특정 서브넷의 ID 이름을 지정합니다. ID는 대개 /subscriptions/**&lt;구독 ID&gt;**/resourceGroups/**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt;** 과 같은 형식입니다.
+   서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 /subscriptions/**&lt;구독 ID&gt;**/resourceGroups/**&lt;리소스 그룹 이름&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;가상 네트워크 이름&gt;**/subnets/**&lt;서브넷 이름&gt;** 과 같은 형식입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
@@ -157,10 +157,10 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기  
-   RHEL 7 이상(이 예제에서는 Red Hat Enterprise Linux 7.4 이미지 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>)을 사용합니다.  
+   RHEL 7 이상(이 예제에서는 Red Hat Enterprise Linux 7.4 이미지 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>)을 사용합니다.  
    이전에 만든 가용성 집합 선택  
 1. Virtual Machine 2 만들기  
-   RHEL 7 이상(이 예제에서는 Red Hat Enterprise Linux 7.4 이미지 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>)을 사용합니다.  
+   RHEL 7 이상(이 예제에서는 Red Hat Enterprise Linux 7.4 이미지 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>)을 사용합니다.  
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신 모두에 하나 이상의 데이터 디스크 추가  
    데이터 디스크는 /usr/sap/`<SAPSID`> 디렉터리에 사용됩니다

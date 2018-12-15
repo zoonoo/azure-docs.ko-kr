@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634271"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438203"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 모니터링 에이전트 개요 
 Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자에 호스팅되는 Microsoft Windows 및 Linux를 실행하는 가상 머신에서 다양한 형식의 데이터를 수집하는 여러 방법을 제공합니다. VM을 모니터링하는 데 사용할 수 있는 세 가지 에이전트 유형은 다음과 같습니다.
@@ -31,7 +30,7 @@ Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자�
 이 문서에서는 IT 서비스 관리 또는 일반 모니터링 요구 사항을 지원할 기능을 결정하기 위해 이러한 서비스와 해당 기능 간의 차이점을 설명합니다.  
 
 ## <a name="azure-diagnostic-extension"></a>Azure 진단 확장
-2010년에 일반적으로 지원된 이후로 Azure Cloud Services에 대해 제공되는 [Azure 진단 확장](../../monitoring-and-diagnostics/azure-diagnostics.md)(일반적으로 WAD(Windows Azure Diagnostic) 또는 LAD(Linux Azure Diagnostic) 확장이라고 함)은 VM과 같은 Azure 컴퓨팅 리소스에서 진단 데이터의 간단한 컬렉션을 제공하고 Azure Storage에 저장하는 에이전트입니다. 저장소에 저장되면 [Visual Studio의 서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 및 [Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같이 지원되는 여러 도구 중 하나를 사용하여 볼 수 있습니다.
+2010년에 일반적으로 지원된 이후로 Azure Cloud Services에 대해 제공되는 [Azure 진단 확장](../../azure-monitor/platform/diagnostics-extension-overview.md)(일반적으로 WAD(Windows Azure Diagnostic) 또는 LAD(Linux Azure Diagnostic) 확장이라고 함)은 VM과 같은 Azure 컴퓨팅 리소스에서 진단 데이터의 간단한 컬렉션을 제공하고 Azure Storage에 저장하는 에이전트입니다. 저장소에 저장되면 [Visual Studio의 서버 탐색기](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) 및 [Azure Storage 탐색기](../../vs-azure-tools-storage-manage-with-storage-explorer.md)와 같이 지원되는 여러 도구 중 하나를 사용하여 볼 수 있습니다.
 
 다음을 수집하도록 선택할 수 있습니다.
 
@@ -45,8 +44,8 @@ Microsoft Azure는 Azure, 데이터 센터 또는 기타 클라우드 공급자�
 Azure 진단 에이전트는 다음 작업을 수행할 때 사용해야 합니다.
 
 * 로그 및 메트릭을 Azure Storage에 보관
-* 모니터링 데이터를 타사 도구와 통합합니다. 이러한 도구는 스토리지 계정 쿼리, [Event Hubs](../../event-hubs/event-hubs-about.md)로 전달 또는 [Azure Monitoring REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)를 사용하여 쿼리하는 등 다양한 방법을 사용합니다.
-* Azure Monitor에 데이터를 업로드하여 Azure Portal에서 메트릭 차트를 만들거나 거의 실시간 [메트릭 경고](../../monitoring-and-diagnostics/alert-metric-overview.md)를 만듭니다. 
+* 모니터링 데이터를 타사 도구와 통합합니다. 이러한 도구는 스토리지 계정 쿼리, [Event Hubs](../../event-hubs/event-hubs-about.md)로 전달 또는 [Azure Monitoring REST API](../../azure-monitor/platform/rest-api-walkthrough.md)를 사용하여 쿼리하는 등 다양한 방법을 사용합니다.
+* Azure Monitor에 데이터를 업로드하여 Azure Portal에서 메트릭 차트를 만들거나 거의 실시간 [메트릭 경고](../../azure-monitor/platform/alerts-metric-overview.md)를 만듭니다. 
 * 게스트 OS 메트릭을 기반으로 가상 머신 확장 집합 및 Classic Cloud Services를 자동 크기 조정합니다.
 * [부팅 진단](../../virtual-machines/troubleshooting/boot-diagnostics.md)을 사용하여 VM 부팅 문제를 조사합니다.
 * 애플리케이션을 수행하는 방법을 이해하고 [Application Insights](../../azure-monitor/overview.md)를 통해 애플리케이션에 영향을 주는 문제를 사전에 식별합니다.

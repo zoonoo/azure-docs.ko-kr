@@ -1,21 +1,20 @@
 ---
-title: Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법 | Microsoft Docs
+title: Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 7ba8671942b0676fb920b051b7d1a0aa75c3eed6
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: b00c7168891c848f4b153acb1bf09728b7a78908
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284696"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106484"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -163,7 +162,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 });
 ```
 
-작업에 성공할 경우 `result` 값에는 삽입한 레코드의 [ETag](http://en.wikipedia.org/wiki/HTTP_ETag)가 포함되고 `response` 값에는 작업에 대한 정보가 포함됩니다.
+작업에 성공할 경우 `result` 값에는 삽입한 레코드의 [ETag](https://en.wikipedia.org/wiki/HTTP_ETag)가 포함되고 `response` 값에는 작업에 대한 정보가 포함됩니다.
 
 예제 응답:
 

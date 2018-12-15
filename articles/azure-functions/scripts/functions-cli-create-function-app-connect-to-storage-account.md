@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: deddfe16e4ad3eeee099ce1d7b53b9f15cbf85d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 48f6124373d80d22766d319ec58ed4ad7adaf6f5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956696"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963371"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Azure Storage 계정에 연결하는 함수 앱 만들기
 
-이 Azure Functions 샘플 스크립트는 함수 앱을 만들고 해당 함수를 Azure Storage 계정에 연결합니다. 연결을 포함하는 생성된 앱 설정을 [저장소 트리거 또는 바인딩](..\functions-bindings-storage-blob.md)에 사용할 수 있습니다. 
+이 Azure Functions 샘플 스크립트는 함수 앱을 만들고 해당 함수를 Azure Storage 계정에 연결합니다. 연결을 포함하는 생성된 앱 설정을 [저장소 트리거 또는 바인딩](../functions-bindings-storage-blob.md)에 사용할 수 있습니다. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 

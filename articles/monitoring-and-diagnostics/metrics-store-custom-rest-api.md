@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 8afa6a29d7d97b1d961f8a8ea44a2b62896ec4da
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636767"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323066"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소로 보내기
 
@@ -94,7 +94,7 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
 1. 구독 또는 리소스 그룹에 대한 메트릭을 Azure 리소스로 실행할 수 없습니다. 
 1. 20분 이상 경과된 메트릭을 저장소에 저장할 수 없습니다. 메트릭 저장소는 경고 및 실시간 차트 작성에 최적화되어 있습니다. 
 2. 차원 이름 수는 값과 일치해야 하고, 그 반대의 경우도 마찬가지입니다. 값을 확인합니다. 
-2. 사용자 지정 메트릭을 지원하지 않는 지역에 대해 메트릭을 내보내는 경우가 발생할 수 있습니다. [지원되는 지역](metrics-custom-overview.md#supported-regions)을 참조하세요. 
+2. 사용자 지정 메트릭을 지원하지 않는 지역에 대해 메트릭을 내보내는 경우가 발생할 수 있습니다. [지원되는 지역](../azure-monitor/platform/metrics-custom-overview.md#supported-regions)을 참조하세요. 
 
 
 
@@ -118,4 +118,4 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
 
  
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
+- [사용자 지정 메트릭](../azure-monitor/platform/metrics-custom-overview.md)에 대해 자세히 알아보세요.

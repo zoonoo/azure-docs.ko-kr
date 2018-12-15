@@ -9,19 +9,19 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: af1d00e49819f1d69e08c0fa99891690e07b489f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 5cfab07e19e543b7a46fcce8f449a46395c144d6
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233755"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995314"
 ---
 # <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>Azure Logic Apps용 Azure Log Analytics에서 B2B 메시지의 추적 쿼리 만들기
 
 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)를 사용하여 추적 중인 AS2, X12 또는 EDIFACT 메시지를 찾기 위해 특정 조건에 따라 작업을 필터링하는 쿼리를 만들 수 있습니다. 예를 들어 특정 교환 컨트롤 번호에 따라 메시지를 찾을 수 있습니다.
 
 > [!NOTE]
-> 이 페이지에서는 [2019년 1월에 사용 중지](../log-analytics/log-analytics-oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
+> 이 페이지에서는 [2019년 1월에 사용 중지](../azure-monitor/platform/oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 

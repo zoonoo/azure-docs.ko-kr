@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/05/2018
-ms.openlocfilehash: 77c761ce72449f91cf91c66219ebc815d1620e94
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/04/2018
+ms.openlocfilehash: 637afab45e04c68777f8d1b42817c912cdc09941
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343677"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133750"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -22,10 +22,6 @@ ms.locfileid: "49343677"
 ## <a name="public-previews"></a>공개 미리 보기
 
 다음 기능은 공개 미리 보기에 있습니다. 현재 이러한 기능을 활용할 수 있지만 프로덕션 환경에서는 사용하지 마세요.
-
-### <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge의 Azure Stream Analytics
-
-IoT Edge의 Azure Stream Analytics를 통해 개발자는 거의 실시간으로 IoT Edge 디바이스에 분석을 배포할 수 있습니다. 자세한 내용은 [IoT Edge의 Azure Stream Analytics](stream-analytics-edge.md) 설명서를 참조하세요.
 
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning과 통합
 

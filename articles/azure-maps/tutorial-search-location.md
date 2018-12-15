@@ -3,18 +3,18 @@ title: Azure Maps를 사용하여 검색 | Microsoft Docs
 description: Azure Maps를 사용하여 주변 관심 지점 검색
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/22/2018
+ms.date: 12/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c11274b8f9d6c3b8c934201b4ec4acd6842d7c0b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262060"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435364"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -103,7 +103,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
          margin: 0;
       }
 
-      #map {
+      #myMap {
          width: 100%;
          height: 100%;
       }

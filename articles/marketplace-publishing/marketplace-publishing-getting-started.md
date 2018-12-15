@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 3556384d71649391d094172a136b863ed26fd2ad
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c8c97d8f5477e7640df87030ed6ef27c4c7b979
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227402"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310082"
 ---
+# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Azure Marketplace에 제품 게시 및 관리
+
 > [!NOTE]
 > 이 설명서는 최신 정보가 아니며 정확하지 않습니다. Azure Marketplace에 제품을 게시하는 방법에 대한 지침을 보려면 Azure Marketplace [판매자 가이드](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide)로 이동하세요.
 
-# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Azure Marketplace에 제품 게시 및 관리
 다른 Azure 고객 및 파트너가 구매하여 사용하도록 개발자가 Azure Marketplace에 나열된 솔루션을 만들고, 배포하고, 관리하는 데 도움을 주기 위해 이 문서를 제공합니다.
 
 ## <a name="marketplace-publishing"></a>Marketplace 게시

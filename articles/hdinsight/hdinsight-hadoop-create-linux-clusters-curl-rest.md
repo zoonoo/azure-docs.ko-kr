@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9a8c39864d05a4e2b89da7bdfc937f8d2e5dbec9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b6ec48085d5dd2ea31543e208e8d32b954cb0bca
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038422"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872854"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기
 
@@ -353,19 +353,19 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 HDInsight 클러스터를 성공적으로 만들었으므로 다음을 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다.
 
-### <a name="hadoop-clusters"></a>Hadoop 클러스터
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop 클러스터
 
-* [HDInsight에서 Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Pig 사용](hadoop/hdinsight-use-pig.md)
-* [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
+* [HDInsight에서 Apache Hadoop MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase 클러스터
+### <a name="apache-hbase-clusters"></a>Apache HBase 클러스터
 
-* [HDInsight에서 HBase 시작](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [HDInsight에서 HBase용 Java 응용 프로그램 개발](hbase/apache-hbase-build-java-maven-linux.md)
+* [HDInsight에서 Apache HBase 사용 시작](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [HDInsight에서 Apache HBase용 Java 애플리케이션 개발](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Storm 클러스터
+### <a name="apache-storm-clusters"></a>Apache Storm 클러스터
 
-* [HDInsight에서 Storm용 Java 토폴로지 개발](storm/apache-storm-develop-java-topology.md)
-* [HDInsight의 Storm에서 Python 구성 요소 사용](storm/apache-storm-develop-python-topology.md)
-* [HDInsight에서 Storm을 사용하는 토폴로지 배포 및 모니터링](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [HDInsight에서 Apache Storm용 Java 토폴로지 개발](storm/apache-storm-develop-java-topology.md)
+* [HDInsight의 Apache Storm에서 Python 구성 요소 사용](storm/apache-storm-develop-python-topology.md)
+* [HDInsight에서 Apache Storm을 사용하는 토폴로지 배포 및 모니터링](storm/apache-storm-deploy-monitor-topology-linux.md)

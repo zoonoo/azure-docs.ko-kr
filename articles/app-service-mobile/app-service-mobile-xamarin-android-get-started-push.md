@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 71cb39465bd6c180861325ab451aa11be14a80e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c58d64a662a6e2be355c1f672c01e5a679b3f8
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231672"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993236"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Xamarin.Android 앱에 푸시 알림 추가
 
@@ -36,7 +36,7 @@ ms.locfileid: "51231672"
 이 자습서를 사용하려면 설정이 필요합니다.
 
 * 활성 Google 계정. [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302)에서 Google 계정을 등록할 수 있습니다.
-* [Google Cloud Messaging 클라이언트 구성 요소](http://components.xamarin.com/view/GCMClient/).
+* [Google Cloud Messaging 클라이언트 구성 요소](https://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>알림 허브 구성
 
@@ -70,7 +70,7 @@ ms.locfileid: "51231672"
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 
-2. **앱** > **설정** > **계정 추가**를 클릭하여 Android 장치에 Google 계정을 추가한 다음 지시를 따릅니다.
+2. **앱** > **설정** > **계정 추가**를 클릭하여 Android 디바이스에 Google 계정을 추가한 다음, 지시를 따릅니다.
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
 
@@ -80,5 +80,5 @@ ms.locfileid: "51231672"
 
 <!-- URLs. -->
 [Xamarin.Android quick start]: app-service-mobile-xamarin-android-get-started.md
-[Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
+[Google Cloud Messaging Client Component]: https://components.xamarin.com/view/GCMClient/
+[Azure Mobile Services Component]: https://components.xamarin.com/view/azure-mobile-services/
