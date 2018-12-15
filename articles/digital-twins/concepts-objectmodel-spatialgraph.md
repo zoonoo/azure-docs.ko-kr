@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636886"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436928"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 
@@ -48,11 +48,11 @@ Digital Twins 개체 모델은 다음과 같은 주요 범주를 지원합니다
 - **역할**은 공간 그래프의 사용자 및 디바이스에 할당된 권한 집합입니다(예: `Space Administrator`, `User Administrator` 및 `Device Administrator`).
 - **역할 할당**은 역할과 공간 그래프에서 역할과 개체 간의 연결입니다. 예를 들어, 사용자 또는 서비스 주체에 공간 그래프의 공간을 관리할 수 있는 권한이 부여될 수 있습니다.
 - **보안 키 저장소**는 디바이스가 Digital Twins와 안전하게 통신할 수 있도록 특정 공간 개체 아래의 계층 구조에 있는 모든 디바이스를 위한 보안 키를 제공합니다.
-- **사용자 정의 함수**(UDF)를 사용하면 공간 그래프 내에서 사용자 지정 가능한 센서 원격 분석 데이터를 처리할 수 있습니다. 예를 들어 UDF는 다음과 같은 작업을 수행할 수 있습니다. 
-    - 센서 값을 설정합니다. 
-    - 센서 판독값을 기반으로 하는 사용자 지정 논리를 수행하고 출력을 공간으로 설정합니다. 
-    - 공간에 메타데이터를 연결합니다. 
-    - 미리 정의된 조건이 충족되면 알림을 보냅니다. 현재 UDF는 JavaScript로 작성할 수 있습니다.
+- **사용자 정의 함수**(UDF)를 사용하면 공간 그래프 내에서 사용자 지정 가능한 센서 원격 분석 데이터를 처리할 수 있습니다. 예를 들어 UDF는 다음과 같은 작업을 수행할 수 있습니다.
+  - 센서 값을 설정합니다.
+  - 센서 판독값을 기반으로 하는 사용자 지정 논리를 수행하고 출력을 공간으로 설정합니다.
+  - 공간에 메타데이터를 연결합니다.
+  - 미리 정의된 조건이 충족되면 알림을 보냅니다. 현재 UDF는 JavaScript로 작성할 수 있습니다.
 - **검사기**는 지정된 원격 분석 메시지에 대해 실행할 UDF를 결정하는 개체입니다.
 - **엔드포인트**는 원격 분석 메시지 및 Digital Twins 이벤트를 라우팅할 수 있는 위치입니다(예: `Event Hub`, `Service Bus` 및 `Event Grid`).
 
@@ -103,9 +103,9 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 ## <a name="next-steps"></a>다음 단계
 
-* 디바이스 연결 및 Digital Twins에 원격 분석 메시지를 보내는 방법에 대한 자세한 내용은 [Azure Digital Twins 디바이스 연결 및 원격 분석 데이터 수신](concepts-device-ingress.md)을 참조하세요.
+- 디바이스 연결 및 Digital Twins에 원격 분석 메시지를 보내는 방법에 대한 자세한 내용은 [Azure Digital Twins 디바이스 연결 및 원격 분석 데이터 수신](concepts-device-ingress.md)을 참조하세요.
 
-* 관리 API 제한에 대한 자세한 내용은 [Azure Digital Twins API 관리 및 제한](concepts-service-limits.md)을 참조하세요.
+- 관리 API 제한에 대한 자세한 내용은 [Azure Digital Twins API 관리 및 제한](concepts-service-limits.md)을 참조하세요.
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

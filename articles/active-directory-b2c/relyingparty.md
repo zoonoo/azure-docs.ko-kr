@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8f56f287fde9e17d2a17298ca04eda63b69e3636
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: aaae119ec72a713adc2faa311dbcb6bd204035fd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159927"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835100"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -28,8 +28,8 @@ ms.locfileid: "47159927"
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="your-tenant.onmicrosoft.com"
@@ -74,7 +74,7 @@ ms.locfileid: "47159927"
 
 선택적 **RelyingParty** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | RP 응용 프로그램의 기본 사용자 경험입니다. |
 | UserJourneyBehaviors | 0:1 | 사용자 경험 동작의 범위입니다. |
@@ -110,7 +110,7 @@ ms.locfileid: "47159927"
 
 **UserJourneyBehaviors** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | SingleSignOn | 0:1 | 사용자 경험의 SSO(Single Sign-On) 세션 동작 범위입니다. |
 | SessionExpiryType |0:1 | 세션의 인증 동작입니다. 가능한 값은 `Rolling` 또는 `Absolute`입니다. `Rolling` 값(기본값)은 사용자가 응용 프로그램에서 계속 활성 상태이면 로그인된 상태로유지됨 을 나타냅니다. `Absolute` 값은 응용 프로그램 세션 수명에 따라 지정된 기간 후 사용자가 강제로 다시 인증을 해야 함을 나타냅니다. |
@@ -137,7 +137,7 @@ ms.locfileid: "47159927"
 | DeveloperMode | yes | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 Application Insights는 처리 파이프라인을 통해 원격 분석을 빠르게 수행합니다. 이 설정은 개발 시에는 유용하지만 정보의 양이 많은 경우에는 제약이 있습니다. 세부 활동 로그는 사용자 정의 정책 개발 시에만 도움이 되기 때문입니다. 프로덕션에서 개발 모드를 사용하지 않습니다. 로그는 개발 중에 ID 공급자 간에 전송된 모든 클레임을 수집합니다. 프로덕션에서 사용하는 경우 개발자는 소유한 App Insights 로그에서 수집된 PII(개인적으로 식별 가능한 정보)에 대한 책임이 있다고 가정합니다. 이 값이 `true`로 설정되어 있을 때만 이와 같은 자세한 로그가 수집됩니다.|
 | ClientEnabled | yes | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 페이지 보기 및 클라이언트 쪽 오류 추적용으로 Application Insights 클라이언트 쪽 스크립트를 전송합니다. | 
 | ServerEnabled | yes | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 Application Insights에 전송합니다. | 
-| TelemetryVersion | yes | 값은 `1.0.0`이어야 합니다. | 
+| TelemetryVersion | yes | 값은 `1.0.0`여야 합니다. | 
 
 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요.
 
@@ -151,7 +151,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 **ContentDefinitionParameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0:n | 콘텐츠 정의 로드 URI의 쿼리 문자열에 추가되는 키 값 쌍을 포함하는 문자열입니다. |
 
@@ -165,15 +165,15 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 
-**TechnicalProfile** 요소에는 다음과 같은 특성이 포함됩니다.
+**TechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- | 
-| Id | yes | 값은 `PolicyProfile`이어야 합니다. |
+| Id | yes | 값은 `PolicyProfile`여야 합니다. |
 
-**TechnicalProfile** 요소에는 다음과 같은 요소가 포함됩니다.
+**TechnicalProfile**에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 사용자에게 표시되는 기술 프로필의 이름이 들어 있는 문자열입니다. |
 | 설명 | 0:1 | 사용자에게 표시되는 기술 프로필의 설명이 들어 있는 문자열입니다. |
@@ -190,13 +190,13 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 ## <a name="outputclaims"></a>OutputClaims
 
-**OutputClaims** 요소에는 다음과 같은 요소가 포함됩니다.
+**OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 빈도 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | 신뢰 당사자가 구독하는 정책에 대해 지원되는 목록에 필요한 클레임 형식의 이름입니다. 이 클레임은 기술 프로필의 출력으로 사용됩니다. |
 
-**OutputClaim** 요소에는 다음과 같은 특성이 포함됩니다.
+**OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |

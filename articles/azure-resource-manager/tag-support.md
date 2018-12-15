@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284985"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409669"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그 지정](resource-group-using-tags.md)을 지원하는지 여부를 설명합니다.
@@ -68,18 +68,6 @@ ms.locfileid: "52284985"
 | 리소스 종류 | 태그 지원 |
 | ------------- | ----------- |
 | batchAccounts | yes | 
-
-## <a name="batch-ai"></a>Batch AI
-| 리소스 종류 | 태그 지원 |
-| ------------- | ----------- |
-| clusters | yes | 
-| jobs | yes | 
-| fileservers | yes | 
-| workspaces | yes | 
-| workspaces/clusters | 아니요 | 
-| workspaces/fileservers | 아니요 | 
-| workspaces/experiments | 아니요 | 
-| workspaces/experiments/jobs | 아니요 | 
 
 ## <a name="bing-maps"></a>Bing 지도
 | 리소스 종류 | 태그 지원 |

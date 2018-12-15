@@ -10,32 +10,33 @@ ms.service: mariadb
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 11/10/2018
-ms.openlocfilehash: 9e8edb2aaeaa116ac71889f7007e435a1a869b7f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 1f17ab167c6487d59ce31106f1bbcffd86a29fd8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516558"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955198"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB에서 서버를 백업 및 복원하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
+
 Azure Database for MariaDB 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
+
 이 방법 가이드를 완료하려면 다음이 필요합니다.
+
 - [Azure Database for MariaDB 서버 및 데이터베이스](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
- 
 
 > [!IMPORTANT]
 > 이 방법 가이드에서는 Azure CLI 버전 2.0 이상을 사용해야 합니다. 버전을 확인하려면 Azure CLI 명령 프롬프트에서 `az --version`을 입력합니다. 설치하거나 업그레이드하려면 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="set-backup-configuration"></a>백업 구성 설정
 
-서버를 만들 때 로컬 중복 백업 또는 지역 중복 백업을 위한 서버 구성 중에서 선택할 수 있습니다. 
+서버를 만들 때 로컬 중복 백업 또는 지역 중복 백업을 위한 서버 구성 중에서 선택할 수 있습니다.
 
 > [!NOTE]
 > 서버가 만들어지면 지리적으로 중복되거나 로컬로 중복된 중복 형식은 전환할 수 없습니다.
@@ -58,7 +59,8 @@ az mariadb server update --name mydemoserver --resource-group myresourcegroup --
 백업 보존 기간은 사용 가능한 백업을 기반으로 하기 때문에 특정 시점 복원을 검색할 수 있는 시간을 제어합니다. 특정 시점 복원은 다음 섹션에서 자세히 설명합니다.
 
 ## <a name="server-point-in-time-restore"></a>서버 지정 시간 복원
-이전의 특정 시점으로 서버를 복원할 수 있습니다. 복원된 데이터는 새 서버에 복사되고 기존 서버는 그대로 유지됩니다. 예를 들어 테이블이 오늘 정오에 실수로 삭제된 경우 정오 바로 전 시간으로 복원할 수 있습니다. 그런 다음 서버의 복원된 복사본에서 누락된 테이블 및 데이터를 검색할 수 있습니다. 
+
+이전의 특정 시점으로 서버를 복원할 수 있습니다. 복원된 데이터는 새 서버에 복사되고 기존 서버는 그대로 유지됩니다. 예를 들어 테이블이 오늘 정오에 실수로 삭제된 경우 정오 바로 전 시간으로 복원할 수 있습니다. 그런 다음 서버의 복원된 복사본에서 누락된 테이블 및 데이터를 검색할 수 있습니다.
 
 서버를 복원하려면 Azure CLI [az mariadb server restore](/cli/azure/mariadb/server#az-mariadb-server-restore) 명령을 사용합니다.
 
@@ -85,6 +87,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다.
 
 ## <a name="geo-restore"></a>지역 복원
+
 서버를 지리적으로 중복된 백업으로 구성한 경우 기존 서버의 백업에서 새 서버를 만들 수 있습니다. 이 새 서버는 Azure Database for MariaDB를 사용할 수 있는 모든 지역에서 만들 수 있습니다.  
 
 지역 중복 백업을 사용하여 서버를 만들려면 Azure CLI `az mariadb server georestore` 명령을 사용합니다.
@@ -96,8 +99,9 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 서버를 지역 복원하려면 Azure CLI 명령 프롬프트에서 다음 명령을 입력합니다.
 
 ```azurecli-interactive
-az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
+az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
+
 이 명령은 *myresourcegroup*에 속하는 미국 동부에 *mydemoserver-georestored*라는 새 서버를 만듭니다. 이 서버는 vCore가 8개인 범용 5세대 서버입니다. 서버가 *mydemoserver*의 지역 중복 백업에서 생성되며 이는 리소스 그룹 *myresourcegroup*에도 있습니다.
 
 기존 서버에서 다른 리소스 그룹에 새 서버를 만들려는 경우 `--source-server` 매개 변수에서 다음 예제에서와 같이 서버 이름을 한정합니다.
@@ -116,12 +120,12 @@ az mariadb server georestore --resource-group newresourcegroup --name mydemoserv
 |location | eastus | 새 서버의 위치입니다. |
 |sku-name| GP_Gen5_8 | 이 매개 변수는 가격 책정 계층, 계산 생성 및 새 서버의 vCore 수를 설정합니다. GP_Gen5_8은 vCore가 8개인 범용 5세대 서버로 매핑합니다.|
 
-
 >[!Important]
 >지역 복원으로 새 서버를 만들 때 원본 서버와 동일한 저장소 크기 및 가격 책정 계층을 상속합니다. 만드는 동안 이러한 값을 변경할 수 없습니다. 새 서버를 만든 후에 저장소 크기를 확장할 수 있습니다.
 
 복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 - 서비스의 [백업](concepts-backup.md)을 자세히 알아봅니다.
 - [비즈니스 연속성](concepts-business-continuity.md) 옵션을 자세히 알아봅니다.

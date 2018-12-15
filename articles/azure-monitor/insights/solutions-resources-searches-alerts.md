@@ -7,19 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c496bd6f7ccec4cc08ca5eead02cb06ff3efde09
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 6f16325183f0a13382dd4533fd867a518f1750c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714374"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344298"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -27,7 +26,7 @@ ms.locfileid: "51714374"
 > 현재 Preview로 제공되는 관리 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.   
 
 
-[관리 솔루션](solutions.md)은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 [저장된 검색](../../log-analytics/log-analytics-queries.md)을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 [경고](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 정의합니다.  이 문서에서는 [관리 솔루션](solutions-creating.md)에 포함되도록 [리소스 관리 템플릿](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다.
+[관리 솔루션](solutions.md)은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 [저장된 검색](../../azure-monitor/log-query/log-query-overview.md)을 포함하게 됩니다.  또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 [경고](../../azure-monitor/platform/alerts-overview.md)를 정의합니다.  이 문서에서는 [관리 솔루션](solutions-creating.md)에 포함되도록 [리소스 관리 템플릿](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다.
 
 > [!NOTE]
 > 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [Azure의 관리 솔루션 디자인 및 빌드](solutions-creating.md)에서 설명한 매개 변수와 변수가 사용  
@@ -37,7 +36,7 @@ ms.locfileid: "51714374"
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
-Log Analytics의 모든 리소스는 [작업 영역](../../log-analytics/log-analytics-manage-access.md)에 포함됩니다.  [Log Analytics 작업 영역 및 Automation 계정](solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 작업 영역은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
+Log Analytics의 모든 리소스는 [작업 영역](../../azure-monitor/platform/manage-access.md)에 포함됩니다.  [Log Analytics 작업 영역 및 Automation 계정](solutions.md#log-analytics-workspace-and-automation-account)에서 설명한 대로 작업 영역은 관리 솔루션에 포함되지 않지만, 솔루션이 설치되기 전에 존재해야 합니다.  계정을 사용할 수 없으면 솔루션 설치에 실패합니다.
 
 작업 영역 이름은 각 Log Analytics 리소스의 이름을 사용합니다.  이 작업은 SavedSearch 리소스 예제와 같이 **workspace** 매개 변수가 포함된 솔루션에서 이루어집니다.
 
@@ -54,9 +53,9 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 
 ## <a name="saved-searches"></a>저장된 검색
-솔루션에서 수집한 데이터를 사용자가 쿼리할 수 있도록 솔루션에 [저장된 검색](../../log-analytics/log-analytics-queries.md)을 포함합니다.  저장된 검색은 Azure Portal의 **저장된 검색**에 표시됩니다.  각 경고에도 저장된 검색이 필요합니다.   
+솔루션에서 수집한 데이터를 사용자가 쿼리할 수 있도록 솔루션에 [저장된 검색](../../azure-monitor/log-query/log-query-overview.md)을 포함합니다.  저장된 검색은 Azure Portal의 **저장된 검색**에 표시됩니다.  각 경고에도 저장된 검색이 필요합니다.   
 
-[Log Analytics 및 저장된 검색](../../log-analytics/log-analytics-queries.md) 리소스는 `Microsoft.OperationalInsights/workspaces/savedSearches` 형식을 가지며 구조는 다음과 같습니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다. 
+[Log Analytics 및 저장된 검색](../../azure-monitor/log-query/log-query-overview.md) 리소스는 `Microsoft.OperationalInsights/workspaces/savedSearches` 형식을 가지며 구조는 다음과 같습니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
@@ -87,16 +86,16 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 > JSON으로 해석될 수 있는 문자를 포함하고 있는 경우 쿼리에 이스케이프 문자를 사용해야 합니다.  예를 들어, 쿼리가 **AzureActivity | OperationName:“Microsoft.Compute/virtualMachines/write”** 이면 솔루션 파일에 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** 라고 써야 합니다.
 
 ## <a name="alerts"></a>경고
-[Azure 로그 경고](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md)는 일정한 간격으로 지정된 로그 쿼리를 실행하는 Azure Alerts에 의해 생성됩니다.  쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 [작업 그룹](../../monitoring-and-diagnostics/monitoring-action-groups.md)을 사용하여 실행됩니다.  
+[Azure 로그 경고](../../azure-monitor/platform/alerts-unified-log.md)는 일정한 간격으로 지정된 로그 쿼리를 실행하는 Azure Alerts에 의해 생성됩니다.  쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 [작업 그룹](../../azure-monitor/platform/action-groups.md)을 사용하여 실행됩니다.  
 
 > [!NOTE]
-> 2018년 5월 14일부터 Log Analytics 작업 영역의 Azure 공용 클라우드 인스턴스에서 발생하는 모든 경고가 Azure로 확장됩니다. 자세한 내용은 [Azure로 경고 확장](../../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일부터 Log Analytics 작업 영역의 Azure 공용 클라우드 인스턴스에서 발생하는 모든 경고가 Azure로 확장됩니다. 자세한 내용은 [Azure로 경고 확장](../../azure-monitor/platform/alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
 
 관리 솔루션의 경고 규칙은 다음 세 가지 리소스로 구성됩니다.
 
 - **저장된 검색.**  실행될 로그 검색을 정의합니다.  여러 경고 규칙이 하나의 저장된 검색을 공유할 수 있습니다.
 - **일정.**  로그 검색이 실행될 빈도를 정의합니다.  각 경고 규칙은 일정을 하나만 갖습니다.
-- **경고 작업.**  각 경고 규칙은 경고 레코드가 생성되는 시기, 경고 심각도 등의 경고 세부 정보를 정의하는 **경고** 형식의 작업 그룹 리소스 또는 작업 리소스(레거시) 하나를 갖게 됩니다. [작업 그룹](../../monitoring-and-diagnostics/monitoring-action-groups.md) 리소스에는 음성 통화, SMS, 이메일, 웹후크, ITSM 도구, 자동화 Runbook, 논리 앱 등 경고가 발생할 때 수행되도록 구성된 작업 목록이 있을 수 있습니다.
+- **경고 작업.**  각 경고 규칙은 경고 레코드가 생성되는 시기, 경고 심각도 등의 경고 세부 정보를 정의하는 **경고** 형식의 작업 그룹 리소스 또는 작업 리소스(레거시) 하나를 갖게 됩니다. [작업 그룹](../../azure-monitor/platform/action-groups.md) 리소스에는 음성 통화, SMS, 이메일, 웹후크, ITSM 도구, 자동화 Runbook, 논리 앱 등 경고가 발생할 때 수행되도록 구성된 작업 목록이 있을 수 있습니다.
  
 작업 리소스(레거시)는 메일 및 Runbook 응답을 선택적으로 정의합니다.
 - **웹후크 작업(레거시).**  경고 규칙이 웹후크를 호출하면 **웹후크** 형식의 추가 작업 리소스가 필요합니다.    
@@ -146,7 +145,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 [작업 그룹] 리소스 또는 작업 리소스를 사용하여 작업을 정의할 수 있습니다.
 
 > [!NOTE]
-> 2018년 5월 14일부터 Log Analytics 작업 영역의 Azure 공용 클라우드 인스턴스에서 발생하는 모든 경고가 Azure로 자동 확장됩니다. 자세한 내용은 [Azure로 경고 확장](../../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일부터 Log Analytics 작업 영역의 Azure 공용 클라우드 인스턴스에서 발생하는 모든 경고가 Azure로 자동 확장됩니다. 자세한 내용은 [Azure로 경고 확장](../../azure-monitor/platform/alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
 
 
 **Type** 속성에서 지정하는 두 가지 형식의 작업 리소스가 있습니다.  일정에는 경고 규칙 세부 정보 그리고 경고가 생성될 때 수행할 작업을 정의하는 **경고** 작업 하나가 필요합니다. 작업 리소스의 형식은 `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`입니다.  
@@ -228,7 +227,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 #### <a name="azure-action-group"></a>Azure 작업 그룹
 Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘으로 작업 그룹을 사용합니다. 작업 그룹을 사용하여 작업을 한 번 지정한 다음, 작업 그룹을 Azure 전체에서 여러 경고에 연결할 수 있습니다. 필요가 없으면, 반복적으로 동일한 작업을 반복하고 다시 선언합니다. 작업 그룹은 이메일, SMS, 음성 통화, ITSM 연결, Automation Runbook, 웹후크 URI 등을 포함하는 여러 작업을 지원합니다. 
 
-자신의 경고를 Azure로 확장한 사용자의 경우 일정은 이제 경고를 만들 수 있도록 임계값과 함께 전달된 작업 그룹 세부 정보가 있어야 합니다. 경고를 만들려면 먼저 작업 그룹 내에서 이메일 세부 정보, 웹후크 URL, Runbook Automation 세부 정보 및 기타 작업을 정의해야 합니다. 사용자는 포털에서 [Azure Monitor로 작업 그룹](../../monitoring-and-diagnostics/monitoring-action-groups.md)을 만들거나 [작업 그룹 - 리소스 템플릿](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용할 수 있습니다.
+자신의 경고를 Azure로 확장한 사용자의 경우 일정은 이제 경고를 만들 수 있도록 임계값과 함께 전달된 작업 그룹 세부 정보가 있어야 합니다. 경고를 만들려면 먼저 작업 그룹 내에서 이메일 세부 정보, 웹후크 URL, Runbook Automation 세부 정보 및 기타 작업을 정의해야 합니다. 사용자는 포털에서 [Azure Monitor로 작업 그룹](../../azure-monitor/platform/action-groups.md)을 만들거나 [작업 그룹 - 리소스 템플릿](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)을 사용할 수 있습니다.
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
@@ -242,7 +241,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 모든 일정은 하나의 **경고** 작업을 갖게 됩니다.  이 경고 작업은 경고의 세부 정보를 정의하고 필요에 따라 알림 및 재구성 작업을 정의합니다.  알림은 하나 이상의 주소에 전자 메일을 보냅니다.  재구성은 Azure Automation에서 runbook을 시작하여 검색된 문제 해결을 시도합니다.
 
 > [!NOTE]
-> 2018년 5월 14일부터 Log Analytics 작업 영역의 Azure 공용 클라우드 인스턴스에서 발생하는 모든 경고가 Azure로 자동 확장됩니다. 자세한 내용은 [Azure로 경고 확장](../../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
+> 2018년 5월 14일부터 Log Analytics 작업 영역의 Azure 공용 클라우드 인스턴스에서 발생하는 모든 경고가 Azure로 자동 확장됩니다. 자세한 내용은 [Azure로 경고 확장](../../azure-monitor/platform/alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
 
 ##### <a name="emailnotification"></a>EmailNotification
  이 섹션은 선택 사항입니다. 한 명 이상의 수신자에게 메일을 보내 경고하려면 이 섹션을 포함해야 합니다.

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/19/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 8b5b94c959ae9820cab338f3ee3317fb3ee166d6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c1e8f94a0131ace6354d070e932e414a1897260e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286604"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166305"
 ---
 # <a name="planning-for-maintenance-on-your-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 유지 관리 계획 수집
 
@@ -32,9 +32,9 @@ Azure SQL Data Warehouse에 대한 계획된 유지 관리 이벤트를 준비�
 
 ## <a name="setting-up-alerts"></a>경고 설정
 
-[Azure Monitor](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)를 사용하여 계획된 유지 관리 로그 경고를 설정하는 것이 좋습니다. 경고는 필수 유지 관리를 계획하여 비즈니스에 미치는 영향을 최소화하는 데 도움이 될 수 있습니다. 
+[Azure Monitor](../azure-monitor/platform/alerts-activity-log-service-notifications.md)를 사용하여 계획된 유지 관리 로그 경고를 설정하는 것이 좋습니다. 경고는 필수 유지 관리를 계획하여 비즈니스에 미치는 영향을 최소화하는 데 도움이 될 수 있습니다. 
 
-알림을 설정하려면 이러한 [로그 경고 지침](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)을 사용하세요. 
+알림을 설정하려면 이러한 [로그 경고 지침](../azure-monitor/platform/alerts-activity-log-service-notifications.md)을 사용하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 모니터링에 대한 자세한 내용은 [워크로드 모니터링](sql-data-warehouse-manage-monitor.md)을 참조하세요.

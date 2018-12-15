@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 136279a94d64b846247c436eb7a5fb487e05b41a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d095be8c5d921001ab4a492d2385938020fa8ce0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946904"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967217"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 
@@ -55,7 +55,7 @@ ms.locfileid: "46946904"
 
 [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) 또는 [GetMetric 및 TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) API 호출을 사용하여 보내는 모든 메트릭은 자동으로 로그와 메트릭 저장소에 모두 저장됩니다. 그러나 사용자 지정 메트릭의 로그 기반 버전은 모든 차원을 유지하는 반면 사전 집계 메트릭 버전은 기본적으로 차원을 저장하지 않습니다. [사용량 및 예상 비용](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) 탭에서 "사용자 지정 메트릭 차원에 경고 사용"을 선택하여 사용자 지정 메트릭의 차원 수집을 실행할 수 있습니다. 
 
-![사용량 및 예상 비용](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
+![사용량 및 예상 비용](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>사용자 지정 메트릭 차원의 수집이 기본적으로 꺼진 이유는 무엇인가요?
 
@@ -65,7 +65,7 @@ ms.locfileid: "46946904"
 
 Azure Monitor 메트릭 탐색기를 사용하여 사전 집계 및 로그 기반 메트릭으로부터 차트를 만들고 차트로 대시보드를 작성합니다. 원하는 Application Insights 리소스를 선택한 다음, 네임스페이스 선택기를 사용하여 표준(미리 보기)과 로그 기반 메트릭 사이를 전환하거나 사용자 지정 메트릭 네임스페이스를 선택합니다.
 
-![메트릭 네임스페이스](.\media\pre-aggregated-metrics-log-metrics\002-metric-namespace.png)
+![메트릭 네임스페이스](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>다음 단계
 
