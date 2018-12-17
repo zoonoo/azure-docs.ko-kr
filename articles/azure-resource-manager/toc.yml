@@ -44,6 +44,19 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: 개념
   items:
+  - name: 템플릿 구조
+    href: resource-group-authoring-templates.md
+    items:
+    - name: 매개 변수
+      href: resource-manager-templates-parameters.md
+    - name: variables
+      href: resource-manager-templates-variables.md
+    - name: Functions
+      href: resource-group-authoring-templates.md#functions
+    - name: 리소스
+      href: resource-manager-templates-resources.md
+    - name: outputs
+      href: resource-manager-templates-outputs.md
   - name: 리소스 공급자 및 형식
     href: resource-manager-supported-services.md
   - name: 관리 그룹
@@ -65,65 +78,50 @@ items:
   items:
   - name: 템플릿 만들기
     items:
-    - name: 템플릿 섹션
-      href: resource-group-authoring-templates.md
-      items:
-      - name: 매개 변수
-        href: resource-manager-templates-parameters.md
-      - name: variables
-        href: resource-manager-templates-variables.md
-      - name: Functions
-        href: resource-group-authoring-templates.md#functions
-      - name: 리소스
-        href: resource-manager-templates-resources.md
-      - name: outputs
-        href: resource-manager-templates-outputs.md
-    - name: 연결된 템플릿 및 중첩된 템플릿
-      href: resource-group-linked-templates.md
-    - name: 리소스 종속성
+    - name: 구독에서 리소스 그룹 및 리소스 만들기
+      href: deploy-to-subscription.md
+    - name: 리소스 종속성 정의
       href: resource-group-define-dependencies.md
+    - name: 템플릿 모듈화
+      href: resource-group-linked-templates.md
+    - name: 비밀 관리
+      href: resource-manager-keyvault-parameter.md
     - name: 여러 인스턴스 만들기
       href: resource-group-create-multiple.md
-    - name: 템플릿에 리소스 그룹 만들기
-      href: create-resource-group-in-template.md
-    - name: 구독에서 리소스 만들기
-      href: deploy-to-subscription.md
+    - name: 템플릿 확장 사용
+      href: resource-manager-use-extensions.md
     - name: 리소스 업데이트
       href: /azure/architecture/building-blocks/extending-templates/update-resource
-  - name: 배포
+  - name: 템플릿 배포
     items:
-    - name: Azure PowerShell
-      items:
-      - name: 템플릿 배포
-        href: resource-group-template-deploy.md
-      - name: SAS 토큰으로 개인 템플릿 배포
-        href: resource-manager-powershell-sas-token.md
-      - name: 템플릿 내보내기 및 재배포
-        href: resource-manager-export-template-powershell.md
-    - name: Azure CLI
-      items:
-      - name: 템플릿 배포
-        href: resource-group-template-deploy-cli.md
-      - name: SAS 토큰으로 개인 템플릿 배포
-        href: resource-manager-cli-sas-token.md
-      - name: 템플릿 내보내기 및 재배포
-        href: resource-manager-export-template-cli.md
-    - name: Azure portal
-      items:
-      - name: 리소스 배포
-        href: resource-group-template-deploy-portal.md
-      - name: 템플릿 내보내기
-        href: resource-manager-export-template.md
-    - name: REST API
+    - name: 포털을 사용하여 배포
+      href: resource-group-template-deploy-portal.md
+    - name: Azure CLI를 사용하여 배포
+      href: resource-group-template-deploy-cli.md
+    - name: Azure PowerShell을 사용하여 배포
+      href: resource-group-template-deploy.md
+    - name: REST API를 사용하여 배포
       href: resource-group-template-deploy-rest.md
-    - name: 여러 리소스 그룹 또는 구독
+    - name: 템플릿 내보내기
+      items:
+      - name: 포털 사용
+        href: resource-manager-export-template.md
+      - name: Azure CLI 사용
+        href: resource-manager-export-template-cli.md
+      - name: Azure PowerShell 사용
+        href: resource-manager-export-template-powershell.md
+    - name: SAS 토큰을 사용하여 템플릿 보호
+      items:
+      - name: Azure CLI 사용
+        href: resource-manager-cli-sas-token.md
+      - name: PowerShell 사용
+        href: resource-manager-powershell-sas-token.md
+    - name: 여러 리소스 그룹 또는 구독에 배포
       href: resource-manager-cross-resource-group-deployment.md
     - name: Azure DevOps Services를 사용하여 지속적인 통합
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-    - name: 배포 중 보안 값 전달
-      href: resource-manager-keyvault-parameter.md
-  - name: 관리
+  - name: 템플릿 관리
     items:
     - name: Azure PowerShell
       href: powershell-azure-resource-manager.md
@@ -146,13 +144,13 @@ items:
       href: resource-manager-api-authentication.md
     - name: 리소스 잠금
       href: resource-group-lock-resources.md
-  - name: 감사
+  - name: 배포 감사
     items:
     - name: 활동 로그 보기
       href: resource-group-audit.md
     - name: 배포 작업 보기
       href: resource-manager-deployment-operations.md
-  - name: 문제 해결
+  - name: 배포 문제 해결
     items:
     - name: 배포 오류 문제 해결
       href: resource-manager-common-deployment-errors.md
@@ -237,9 +235,9 @@ items:
     href: resource-manager-personal-data.md
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 47af6826974759a1b0dfea7949429c5acaca004d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 166a23d480db7dfda7a78a5a63e7717b5e721bb9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252340"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436792"
