@@ -108,7 +108,7 @@ configuration LAMPServer {
 
 ## <a name="compile-a-configuration"></a>구성 컴파일
 
-DSC 구성을 노드에 할당하기 전에 먼저 노드 구성(MOF 문서)으로 컴파일해야 합니다. 컴파일은 구성에 대한 유효성을 검사하고 매개 변수 값의 입력을 허용합니다. 구성 컴파일에 대한 자세한 내용은 [Azure Automation 상태 구성에서 DSC 구성 컴파일](https://docs.microsoft.com/azure/automation/automation-dsc-compile)을 참조하세요.
+DSC 구성은 노드에 할당하기 전에 먼저 노드 구성(MOF 문서)으로 컴파일해야 합니다. 컴파일은 구성에 대한 유효성을 검사하고 매개 변수 값의 입력을 허용합니다. 구성 컴파일에 대한 자세한 내용은 [Azure 자동화 DSC에서 구성 컴파일](https://docs.microsoft.com/azure/automation/automation-dsc-compile)을 참조하세요.
 
 구성을 컴파일하려면:
 
@@ -142,6 +142,6 @@ DSC 구성을 노드에 할당하기 전에 먼저 노드 구성(MOF 문서)으�
 > [!div class="nextstepaction"]
 > [DSC 및 Chocolatey를 사용하여 VM에 지속적으로 배포](./automation-dsc-cd-chocolatey.md)
 
-* PowerShell DSC에 대한 자세한 내용은 [Windows PowerShell 필요한 상태 구성 개요](https://docs.microsoft.com/powershell/dsc/overview)를 참조하세요.
+* PowerShell DSC에 대한 자세한 내용은 [Windows PowerShell DSC(필요한 상태 구성) 개요](https://docs.microsoft.com/powershell/dsc/overview)를 참조하세요.
 * PowerShell에서 자동화 DSC를 관리하는 방법에 대한 자세한 내용은 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)을 참조하세요.
-* 보고 및 경고를 위해 Log Analytics에 DSC 보고서를 전달하는 방법에 대한 자세한 내용은 [Log Analytics에 Azure Automation 상태 구성 보고 데이터 전달](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics)을 참조하세요. 
+* 보고 및 경고를 위해 Log Analytics에 DSC 보고서를 전달하는 방법에 대한 자세한 내용은 [Log Analytics에 DSC 보고서 전달](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics)을 참조하세요. 
