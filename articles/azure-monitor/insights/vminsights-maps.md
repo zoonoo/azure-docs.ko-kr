@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3e8230ea7b2d6d0e44468bd90289ee82d5a82367
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714270"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337073"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>VM용 Azure Monitor(미리 보기) 맵을 사용하여 응용 프로그램 구성 요소 이해
 Azure에서 실행 중인 Windows 및 Linux 가상 머신에서 검색된 응용 프로그램 구성 요소를 보고 VM용 Azure Monitor를 사용하여 가상 머신에서 직접 또는 Azure Monitor에서 VM 그룹을 통해서와 같이 두 가지 방법으로 환경을 관찰할 수 있습니다. 
@@ -52,7 +51,7 @@ VM에서 직접 또는 Azure Monitor에서 맵 기능을 선택하는 경우 일
 - 컴퓨터별로 그룹화할 절(예, **by Computer interval 1 minute**)을 포함합니다.
 - 미터법을 기준으로 경고하도록 선택
 
-Azure 경고 및 경고 규칙 만들기에 대한 자세한 내용은 [Azure Monitor의 통합 경고](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 참조하세요.
+Azure 경고 및 경고 규칙 만들기에 대한 자세한 내용은 [Azure Monitor의 통합 경고](../../azure-monitor/platform/alerts-overview.md)를 참조하세요.
 
 오른쪽 위 모서리에서 **범례** 옵션은 맵의 기호 및 역할을 설명합니다.  맵을 좀 더 자세히 살펴보고 사용해 보기 위해 페이지의 오른쪽 아래에 있는 확대/축소 컨트롤에서는 확대/축소 수준을 설정하고 현재 페이지 크기로 페이지를 맞춥니다.  
 
@@ -107,7 +106,7 @@ Azure Monitor에서 맵 기능은 가상 머신 및 해당 종속성의 글로�
 
 ![Azure Monitor 다중 VM 맵 개요](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-페이지 위쪽의 **작업 영역** 선택기에서 Log Analytics 작업 영역이 둘 이상 있는 경우 솔루션에서 사용하도록 설정되고 가상 머신에서 보고하는 작업 영역을 선택합니다. **그룹** 선택기에서 선택한 작업 영역과 관련된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../../log-analytics/log-analytics-computer-groups.md) 및 VM 확장 집합을 반환합니다. 선택 항목은 맵 기능에만 적용되며 성능 또는 맵으로 전달되지 않습니다.
+페이지 위쪽의 **작업 영역** 선택기에서 Log Analytics 작업 영역이 둘 이상 있는 경우 솔루션에서 사용하도록 설정되고 가상 머신에서 보고하는 작업 영역을 선택합니다. **그룹** 선택기에서 선택한 작업 영역과 관련된 컴퓨터의 구독, 리소스 그룹, [컴퓨터 그룹](../../azure-monitor/platform/computer-groups.md) 및 VM 확장 집합을 반환합니다. 선택 항목은 맵 기능에만 적용되며 성능 또는 맵으로 전달되지 않습니다.
 
 기본적으로 맵은 최근 30분을 보여줍니다. **TimeRange** 선택기를 사용하여 최대 1시간이라는 기록 시간 범위에 대해 쿼리하여 과거의 종속성(예: 인시던트 중 또는 변경되기 전)을 보여줄 수 있습니다.   
 

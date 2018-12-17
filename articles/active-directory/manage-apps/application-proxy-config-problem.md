@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2344d35827cf541f0230f74917be3ae0ea39e074
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e75b04b3220347bdaa90dbc2f21d92475df3aa47
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355352"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136259"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램을 만들 때 문제 발생 
 
@@ -28,7 +28,7 @@ ms.locfileid: "44355352"
 
 ## <a name="recommended-documents"></a>권장되는 문서 
 
-관리 포털을 통해 응용 프로그램 프록시 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)를 참조하세요.
+관리 포털을 통해 응용 프로그램 프록시 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)를 참조하세요.
 
 해당 문서의 단계에 따라 응용 프로그램을 만드는 중 오류가 발생하면 오류 세부 정보에서 응용 프로그램 문제 해결 방법에 대한 정보 및 제안 사항을 참조하세요. 대부분의 오류 메시지에는 제안 수정이 포함되어 있습니다. 
 
@@ -51,4 +51,4 @@ ms.locfileid: "44355352"
    ![알림 프롬프트](./media/application-proxy-config-problem/error-message.png)
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Portal에서 응용 프로그램 프록시 사용](application-proxy-enable.md)
+[Azure Portal에서 응용 프로그램 프록시 사용](application-proxy-add-on-premises-application.md)

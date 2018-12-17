@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b61ee3c3baa4590dc8a2fbf91b1ff941626a01e4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7be724a93eb951a3f9e35048a3c70571e43e79cf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959829"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184749"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Windows 가상 머신 만들기
 
@@ -42,7 +42,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 1. 리소스를 만들 수 있는 사용 가능한 위치 목록을 가져옵니다.
    
     ```powershell   
-    Get-AzureRmLocation | sort DisplayName | Select DisplayName
+    Get-AzureRmLocation | sort-object DisplayName | Select DisplayName
     ```
 
 2. 선택한 위치에서 리소스 그룹을 만듭니다. 이 예제에서는 **미국 서부** 지역에 **myResourceGroup**이라는 이름의 리소스 그룹을 만드는 과정을 보여 줍니다.

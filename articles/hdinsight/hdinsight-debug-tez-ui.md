@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c96e195d425cff640a4961e34305c1af447f6f28
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 1e529b2276d2e68c67696ba9d142760f5881a25e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499435"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012813"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Tez UI를 사용하여 Tez 작업 디버깅
 [Apache TEZ](https://tez.apache.org/) UI는 Tez를 실행 엔진으로 사용하는 [Apache Hive](https://hive.apache.org/) 작업을 디버그하는 데 사용할 수 있습니다. Tez UI를 사용하면 연결된 항목의 그래프로 작업을 시각화하고 각 항목을 자세히 알아보며 통계 및 로깅 정보를 검색할 수 있습니다.
@@ -136,4 +136,4 @@ Tez를 사용하는 Hive 쿼리를 실행하려면 다음 단계를 사용합니
 ## <a name="next-steps"></a>다음 단계
 [Apache TEZ](https://tez.apache.org/) 보기를 사용하는 방법을 알아보았으면 [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)에 대해 자세히 알아세요.
 
-Tez에 대한 자세한 기술 정보는 [Hortonworks의 Apache Tez 페이지](http://hortonworks.com/hadoop/tez/)를 참조하세요.
+Tez에 대한 자세한 기술 정보는 [Hortonworks의 Apache Tez 페이지](https://hortonworks.com/hadoop/tez/)를 참조하세요.

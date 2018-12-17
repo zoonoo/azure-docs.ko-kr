@@ -8,19 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: a983c7307308534140ab8999593ac4c8c6992a42
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 70f9ccbbe737bad4d6f88365e804d4421c418d28
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338509"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164010"
 ---
 # <a name="implement-the-device-model-behavior"></a>디바이스 모델 동작 구현
 
-[장치 모델 스키마 이해](iot-accelerators-remote-monitoring-device-schema.md) 문서에서는 시뮬레이션된 장치 모델을 정의하는 스키마에 대해 설명했습니다. 해당 문서에서는 시뮬레이션된 디바이스의 동작을 구현하는 다음 두 가지 유형의 JavaScript 파일을 참조했습니다.
+[디바이스 모델 스키마 이해](iot-accelerators-remote-monitoring-device-schema.md) 문서에서는 시뮬레이션된 디바이스 모델을 정의하는 스키마에 대해 설명했습니다. 해당 문서에서는 시뮬레이션된 디바이스의 동작을 구현하는 다음 두 가지 유형의 JavaScript 파일을 참조했습니다.
 
-- 장치의 내부 상태를 업데이트하기 위해 고정 간격으로 실행되는 **상태** JavaScript 파일
-- 솔루션이 장치에서 메서드를 호출할 때 실행되는 **메서드** JavaScript 파일
+- 디바이스의 내부 상태를 업데이트하기 위해 고정 간격으로 실행되는 **상태** JavaScript 파일
+- 솔루션이 디바이스에서 메서드를 호출할 때 실행되는 **메서드** JavaScript 파일
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "43338509"
 > * 시뮬레이션된 디바이스가 원격 모니터링 솔루션의 메서드 호출에 응답하는 방법 정의
 > * 스크립트 디버그
 
-[!INCLUDE [iot-accelerators-device-schema](../../includes/iot-accelerators-device-schema.md)]
+[!INCLUDE [iot-accelerators-device-behavior](../../includes/iot-accelerators-device-behavior.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

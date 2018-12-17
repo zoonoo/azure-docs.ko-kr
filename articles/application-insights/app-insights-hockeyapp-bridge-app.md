@@ -9,16 +9,15 @@ ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1951f001de1b9d0667e5d4430454b32b5a3c890e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2f9b61a212251332cd94379b40f93eb52d49c729
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957491"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870076"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Application Insights에서 HockeyApp 데이터 탐색
 
@@ -61,7 +60,7 @@ HockeyApp 브리지 필드가 나타납니다.
 
 ![분석](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [분석에 대해 자세히 알아보기](../log-analytics/query-language/get-started-analytics-portal.md)
+* [분석에 대해 자세히 알아보기](../azure-monitor/log-query/get-started-portal.md)
 
 ## <a name="continuous-export"></a>연속 내보내기
 연속 내보내기를 사용하면 Azure Blob Storage 컨테이너에 데이터를 내보낼 수 있습니다. 현재 Application Insights에서 제공하는 보존 기간보다 오래 데이터를 유지해야 하는 경우 매우 유용합니다. Blob Storage에 데이터를 유지하고 SQL Database 또는 기본 데이터 웨어하우스 솔루션으로 처리할 수 있습니다.
@@ -69,5 +68,5 @@ HockeyApp 브리지 필드가 나타납니다.
 [연속 내보내기에 대해 자세히 알아보기](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>다음 단계
-* [데이터에 분석 적용](../log-analytics/query-language/get-started-analytics-portal.md)
+* [데이터에 분석 적용](../azure-monitor/log-query/get-started-portal.md)
 

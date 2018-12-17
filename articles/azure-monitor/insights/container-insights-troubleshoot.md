@@ -1,5 +1,5 @@
 ---
-title: 컨테이너용 Azure Monitor 문제 해결 방법(미리 보기) | Microsoft Docs
+title: 컨테이너용 Azure Monitor 문제 해결 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너용 Azure Monitor의 문제를 해결하는 방법을 설명합니다.
 services: azure-monitor
 documentationcenter: ''
@@ -8,20 +8,19 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: magoedte
-ms.openlocfilehash: da35f88550bb7bd1a4543f03936dcd52ddd926d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5a9211abdbc4c9ea7907dfac00d449317dd13089
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308362"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190750"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers-preview"></a>컨테이너용 Azure Monitor 문제 해결(미리 보기)
+# <a name="troubleshooting-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor 문제 해결
 
 컨테이너용 Azure Monitor로 Azure Kubernetes Service(AKS) 클러스터 모니터링을 구성할 때 데이터 컬렉션 또는 상태 보고를 방지하는 문제가 발생할 수 있습니다. 이 문서에서는 몇 가지 일반적인 문제 및 문제 해결 단계를 자세히 설명합니다.
 
@@ -99,7 +98,7 @@ ms.locfileid: "52308362"
 | 오류 메시지  | 조치 |  
 | ---- | --- |  
 | 오류 메시지: `No data for selected filters`  | 새로 만든 클러스터에 대한 모니터링 데이터 흐름을 설정하는 데는 약간의 시간이 걸릴 수 있습니다. 클러스터에 대한 데이터가 표시될 때까지 10-15분 이상 기다려주세요. |   
-| 오류 메시지: `Error retrieving data` | Azure Kubenetes 서비스 클러스터에서 상태 및 성능 모니터링을 설정하는 동안 클러스터와 Azure Log Analytics 작업 영역 간에 연결이 설정됩니다. Log Analytics 작업 영역은 클러스터에 대한 모든 모니터링 데이터를 저장하는 데 사용됩니다. Log Analytics 작업 영역이 삭제되거나 손실되었으면 이 오류가 발생할 수 있습니다. [액세스 관리](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information)를 검토하여 작업 영역을 사용할 수 있는지 확인합니다. 작업 영역이 없는 경우 컨테이너용 Azure Monitor를 사용하여 클러스터를 다시 온보딩해야 합니다. 다시 온보딩하려면 클러스터에 대한 모니터링을 [비활성화](container-insights-optout.md)하고 컨테이너용 Azure Monitor를 다시 [활성화](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster)해야 합니다. |  
+| 오류 메시지: `Error retrieving data` | Azure Kubenetes 서비스 클러스터에서 상태 및 성능 모니터링을 설정하는 동안 클러스터와 Azure Log Analytics 작업 영역 간에 연결이 설정됩니다. Log Analytics 작업 영역은 클러스터에 대한 모든 모니터링 데이터를 저장하는 데 사용됩니다. Log Analytics 작업 영역이 삭제되거나 손실되었으면 이 오류가 발생할 수 있습니다. [액세스 관리](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information)를 검토하여 작업 영역을 사용할 수 있는지 확인합니다. 작업 영역이 없는 경우 컨테이너용 Azure Monitor를 사용하여 클러스터를 다시 온보딩해야 합니다. 다시 온보딩하려면 클러스터에 대한 모니터링을 [비활성화](container-insights-optout.md)하고 컨테이너용 Azure Monitor를 다시 [활성화](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster)해야 합니다. |  
 | 오류 메시지: `Error retrieving data`(az aks cli를 통해 컨테이너용 Azure Monitor를 추가한 후) | `az aks cli`를 사용하여 온보딩하는 경우 드문 경우이지만 컨테이너용 Azure Monitor가 제대로 온보딩되지 않을 수 있습니다. 솔루션이 온보딩되었는지 확인합니다. 이렇게 하려면 Log Analytics 작업 영역으로 이동하여 왼쪽 창에서 **솔루션**을 선택하여 해당 솔루션을 사용할 수 있는지 확인합니다. 이 문제를 해결하려면 [컨테이너용 Azure Monitor를 배포하는 방법](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json)의 지침에 따라 솔루션을 다시 배포해야 합니다. |  
 
 문제 진단을 지원하기 위해 [여기](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script)서 사용할 수 있는 문제 해결 스크립트를 제공했습니다.  

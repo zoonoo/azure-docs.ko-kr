@@ -3,7 +3,7 @@ title: Azure SQL 탄력적인 확장 FAQ | Microsoft Docs
 description: Azure SQL Database의 탄력적인 확장에 대한 질문과 대답을 제공합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 52f507d8040f6ad628f7427253ce040ac69978ef
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a8a26a0a273c8e3cf1880ce277c2d4b4241e35ee
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250971"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874739"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Elastic Database 도구 관련 FAQ(질문과 대답)
 
@@ -55,6 +55,6 @@ ms.locfileid: "51250971"
 
 #### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>분할 또는 병합 작업 중 분할 병합 도구에서 데이터베이스를 프로비전(또는 삭제)하나요?
 
-아니요. **분할** 작업의 경우 적절한 스키마를 가진 대상 데이터베이스가 있고 분할된 데이터베이스 맵 관리자에 등록되어 있어야 합니다.  **병합** 작업의 경우 분할된 데이터베이스 맵 관리자에서 분할된 데이터베이스를 삭제한 후 데이터베이스를 삭제해야 합니다.
+ 아니요. **분할** 작업의 경우 적절한 스키마를 가진 대상 데이터베이스가 있고 분할된 데이터베이스 맵 관리자에 등록되어 있어야 합니다.  **병합** 작업의 경우 분할된 데이터베이스 맵 관리자에서 분할된 데이터베이스를 삭제한 후 데이터베이스를 삭제해야 합니다.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

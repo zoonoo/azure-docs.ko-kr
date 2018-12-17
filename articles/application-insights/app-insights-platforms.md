@@ -9,17 +9,16 @@ ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 9d23c680d1ec43a671eba29b4e0168af18af4e1e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f7f7731490467ff32a72507239bfeedc794f2f2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229427"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000545"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
 이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](app-insights-overview.md) 의 구현입니다.
@@ -57,7 +56,7 @@ ms.locfileid: "51229427"
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [안전 스택](https://safe-stack.github.io/docs/template-azure-ai/)
-* [스프링](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
+* [스프링](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [유니버설 Windows 앱](app-insights-mobile-center-quickstart.md)(App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows 데스크톱 응용 프로그램, 서비스 및 작업자 역할](app-insights-windows-desktop.md)

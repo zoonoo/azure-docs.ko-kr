@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: af43b1dd0a6ccb60ba6911bce8dd540aed5c0db4
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: bd3c0d2dffb2f3ed4569d115c21524377074bed3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355382"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136633"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램에 필요한 방화벽 포트를 여는 방법
 
-각 포트의 기능 및 필요한 포트의 전체 목록을 보려면 [응용 프로그램 프록시 설명서](application-proxy-enable.md)의 필수 조건 섹션을 참조하세요. 응용 프로그램 프록시는 아웃바운드 포트만 사용합니다.
+각 포트의 기능 및 필요한 포트의 전체 목록을 보려면 [응용 프로그램 프록시 설명서](application-proxy-add-on-premises-application.md)의 필수 조건 섹션을 참조하세요. 응용 프로그램 프록시는 아웃바운드 포트만 사용합니다.
 
 또한 온-프레미스 네트워크에서 [커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/)를 열어 필요한 모든 포트가 열려 있는지 확인할 수 있습니다. 녹색 확인 표시가 많을수록 복원력이 더 뛰어난 것입니다. 
 

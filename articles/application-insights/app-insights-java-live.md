@@ -9,16 +9,15 @@ ms.assetid: 12f3dbb9-915f-4087-87c9-807286030b0b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: 92b13c27d5f9c110dbcb4aa70aa9b8ddde17531a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8e8a2e19e97bc07ed481adb3ecc3ae1d34ea8368
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096743"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721003"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>이미 라이브 상태인 Java 웹앱용 Application Insights
 
@@ -32,7 +31,7 @@ J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 
 > 
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키 가져오기
-1. [Microsoft Azure 포털](https://portal.azure.com)
+1.  [Microsoft Azure 포털](https://portal.azure.com)
 2. 새 Application Insights 리소스를 만들고 Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
    
     ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-live/02-create.png)

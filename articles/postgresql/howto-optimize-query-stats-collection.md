@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 8b8d1a5a16a948953838f51edca091121dc14df1
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 076442d85d7f628504cca95c36f3e99f4d0c5117
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628835"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966690"
 ---
 # <a name="optimize-query-statistics-collection-in-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 쿼리 통계 컬렉션 최적화 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 쿼리 통계 컬렉션을 최적화하는 방법을 설명합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "51628835"
 
 - Azure Portal에서 [PostgreSQL 리소스 관리 페이지로 이동하고 서버 매개 변수 블레이드를 선택합니다](howto-configure-server-parameters-using-portal.md).
 
-![PostgreSQL 서버 매개 변수 블레이드](.\media\howto-optimize-query-stats-collection\pg_stats_statements_portal.png)
+![PostgreSQL 서버 매개 변수 블레이드](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
 
 - [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용하여 az postgres server configuration set`--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 

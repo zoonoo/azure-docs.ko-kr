@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 63f4c4c48dd0fed3130dc99929a0e84c3cba2026
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 531d19925d24930b6a2bd642a8ff0ec55bd6d16f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466050"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841577"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>PIM에서 관리할 수 있는 Azure AD 디렉터리 역할
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -75,7 +75,7 @@ Microsoft Online Services에 액세스하려면 서비스 포털을 열거나 �
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Azure AD에서 사용자에게 라이선스 할당
 
-1. 글로벌 관리자 또는 소유자 역할로 [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. 글로벌 관리자 또는 소유자 역할로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. 연결된 라이선스가 있고, 사용하려는 Azure AD 디렉터리를 선택합니다.
 

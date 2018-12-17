@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 78f9fa6c3d15d43c1505b5a84a2e269992290afa
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b37a419affcaffeec6c9931f7ff4ecca49e377d5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082223"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410383"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -383,12 +383,6 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/batch-ai/">
-                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch AI</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
@@ -753,12 +747,6 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                             <a href="/azure/azure-databricks/">
                                                 <img src="media/index/logo_databricks.svg" alt="" />
                                                 <p>Azure Databricks</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/batch-ai/">
-                                                <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Azure Batch AI</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1361,7 +1349,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                         <li>
                                             <a href="/azure/iot-dps/">
                                                 <img src="media/index/dps.svg" alt="" />
-                                                <p>IoT Hub Device Provisioning Service</p>
+                                                <p>IoT Hub Device Provisioning 서비스</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1893,25 +1881,6 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>단일 명령으로 컨테이너를 쉽게 실행</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch-ai/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/batch-ai.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Batch AI</h3>
-                                                    <p>심층 학습 및 AI 모델을 대규모 및 병렬로 쉽게 실험 및 학습</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2510,7 +2479,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Box 제품군</h3>
-                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 저장소 디바이스 제품군</p>
+                                                    <p>오프라인 또는 네트워크 기반 데이터 전송으로 사용하는 저장소 장치 제품군</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3390,7 +3359,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Event Hubs</h3>
-                                                    <p>수백만 개의 디바이스에서 원격 분석 수신</p>
+                                                    <p>수백만 개의 장치에서 원격 분석 수신</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3608,25 +3577,6 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 <div class="cardText">
                                                     <h3>Azure Databricks</h3>
                                                     <p>Spark 클러스터를 사용하여 Azure Databricks 작업 영역 만들기</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch-ai/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Batch AI</h3>
-                                                    <p>심층 학습 및 AI 모델을 대규모 및 병렬로 쉽게 실험 및 학습</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3958,7 +3908,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT 기본 사항</h3>
-                                                    <p>디바이스 연결 시작</p>
+                                                    <p>장치 연결 시작</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4015,7 +3965,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>클라우드로부터 Edge 디바이스까지 인텔리전스 확장</p>
+                                                    <p>클라우드로부터 에지 장치까지 인텔리전스 확장</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4071,7 +4021,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Hub Device Provisioning Service</h3>
+                                                    <h3>IoT Hub Device Provisioning 서비스</h3>
                                                     <p>Azure IoT Hub에 대한 Just-In-Time 무인 프로비전</p>
                                                 </div>
                                             </div>
@@ -5532,7 +5482,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Live and on-demand streaming</h3>
-                                                    <p>사실상 모든 디바이스에 비즈니스 요구에 맞는 규모로 콘텐츠 전송</p>
+                                                    <p>사실상 모든 장치에 비즈니스 요구에 맞는 규모로 콘텐츠 전송</p>
                                                 </div>
                                             </div>
                                         </div>

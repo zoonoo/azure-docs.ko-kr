@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 36b64912eb3393ad496d04ff656bed5b0c41566c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 790d05201550461b095cfefd32f0330f37697e0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444770"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970334"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API Management 템플릿 리소스
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 종류의 리소스를 제공합니다.  
@@ -176,7 +176,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |WebDocumentationTemplatesDeveloperKey|구독 키를 지정합니다.|  
 |WebDocumentationTemplatesJavaApache|이 샘플에서는 HTTP 구성 요소의 Apache HTTP 클라이언트를 사용합니다(http://hc.apache.org/httpcomponents-client-ga/)).|  
 |WebDocumentationTemplatesOptionalParams|필요에 따라 선택적 매개 변수 값을 지정합니다.|  
-|WebDocumentationTemplatesPhpPackage|이 샘플에서는 HTTP_Request2 패키지를 사용합니다. (추가 정보: http://pear.php.net/package/HTTP_Request2)|  
+|WebDocumentationTemplatesPhpPackage|이 샘플에서는 HTTP_Request2 패키지를 사용합니다. (추가 정보: https://pear.php.net/package/HTTP_Request2)|  
 |WebDocumentationTemplatesPythonValuesForPath|경로 매개 변수 값({...}로 표시)을 지정하고 필요한 경우 본문을 요청합니다.|  
 |WebDocumentationTemplatesRequestBody|요청 본문을 지정합니다.|  
 |WebDocumentationTemplatesRequiredParams|다음 필수 매개 변수 값을 지정합니다.|  
@@ -571,13 +571,13 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 |ApiManagementUserLimitReached|이 서비스는 허용되는 최대 사용자 수에 도달했습니다. 더 높은 가격 책정 계층으로 업그레이드하세요.|  
   
 ##  <a name="glyphs"></a> 문자 모양 리소스  
- API Management 개발자 포털 템플릿에서는 [부트스트랩의 문자 모양 아이콘](http://getbootstrap.com/components/#glyphicons)(영문)의 문자 표시를 사용할 수 있습니다. 이 문자 표시 집합에는 [Glyphicon](http://glyphicons.com/) Halflings 집합의 글꼴 서식으로 250개 이상의 문자 표시가 포함되어 있습니다. 이 집합의 문자 표시를 사용하려면 다음 구문을 사용합니다.  
+ API Management 개발자 포털 템플릿에서는 [부트스트랩의 문자 모양 아이콘](https://getbootstrap.com/components/#glyphicons)(영문)의 문자 표시를 사용할 수 있습니다. 이 문자 표시 집합에는 [Glyphicon](https://glyphicons.com/) Halflings 집합의 글꼴 서식으로 250개 이상의 문자 표시가 포함되어 있습니다. 이 집합의 문자 표시를 사용하려면 다음 구문을 사용합니다.  
   
 ```html  
 <span class="glyphicon glyphicon-user">  
 ```  
   
- 문자 표시의 전체 목록은 [부트스트랩의 문자 모양 아이콘](http://getbootstrap.com/components/#glyphicons)(영문)을 참조하세요.
+ 문자 표시의 전체 목록은 [부트스트랩의 문자 모양 아이콘](https://getbootstrap.com/components/#glyphicons)(영문)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 참조하세요.

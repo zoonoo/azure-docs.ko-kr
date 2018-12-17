@@ -1,33 +1,31 @@
 ---
-title: Azure Cosmos DB에 Apache Spark 연결 | Microsoft Docs
+title: Azure Cosmos DB에 Apache Spark 연결
 description: Azure Cosmos DB에 Apache Spark를 연결할 수 있도록 하는 Azure Cosmos DB Spark 커넥터에 대해 알아봅니다. Microsoft의 다중 테넌트, 글로벌하게 분산된 데이터베이스 시스템에서 분산된 집계를 수행할 수 있습니다.
 keywords: Apache Spark
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: fd1fa105a880acb0d2b18a3b69ba8d475d8f82a3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707183"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081594"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Apache Spark-Azure Cosmos DB 커넥터를 사용하여 빅 데이터 분석 가속화
  
-Apache Spark-Azure Cosmos DB 커넥터를 사용하면 Azure Cosmos DB가 Apache Spark 작업의 입력 또는 출력이 될 수 있습니다. [Spark](http://spark.apache.org/)를 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에 연결하면 빠르게 움직이는 데이터 과학 문제를 해결하는 능력을 가속화합니다. Azure Cosmos DB를 사용하여 데이터를 신속하게 저장하고 쿼리할 수 있습니다. 커넥터는 네이티브 Azure Cosmos DB 관리 인덱스를 효율적으로 사용합니다. 인덱스는 급변하는 글로벌 분산 데이터에 대한 분석 및 푸시다운 조건자 필터링을 수행할 때 업데이트할 수 있는 열을 사용할 수 있도록 합니다. 이러한 종류의 데이터는 IoT(사물 인터넷)에서 데이터 과학 및 분석 시나리오에 이를 수 있습니다.
+Apache Spark-Azure Cosmos DB 커넥터를 사용하면 Azure Cosmos DB가 Apache Spark 작업의 입력 또는 출력이 될 수 있습니다. [Spark](https://spark.apache.org//)를 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)에 연결하면 빠르게 움직이는 데이터 과학 문제를 해결하는 능력을 가속화합니다. Azure Cosmos DB를 사용하여 데이터를 신속하게 저장하고 쿼리할 수 있습니다. 커넥터는 네이티브 Azure Cosmos DB 관리 인덱스를 효율적으로 사용합니다. 인덱스는 급변하는 글로벌 분산 데이터에 대한 분석 및 푸시다운 조건자 필터링을 수행할 때 업데이트할 수 있는 열을 사용할 수 있도록 합니다. 이러한 종류의 데이터는 IoT(사물 인터넷)에서 데이터 과학 및 분석 시나리오에 이를 수 있습니다.
 
 ## <a name="connector-components"></a>커넥터 구성 요소
 
 Spark-Azure Cosmos DB 커넥터는 다음 구성 요소가 있습니다.
 
-* [Azure Cosmos DB](http://documentdb.com)를 사용하면 여러 지리적 영역에서 처리량과 저장소를 프로비전하고 탄력적으로 확장할 수 있습니다.  
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)를 사용하면 여러 지리적 영역에서 처리량과 저장소를 프로비전하고 탄력적으로 확장할 수 있습니다.  
 
-* [Apache Spark](http://spark.apache.org/)는 속도, 사용 편의성 및 정교한 분석에 기반하여 구축된 강력한 오픈 소스 처리 엔진입니다.  
+* [Apache Spark](https://spark.apache.org/)는 속도, 사용 편의성 및 정교한 분석에 기반하여 구축된 강력한 오픈 소스 처리 엔진입니다.  
 
 * [Azure Databricks의 Apache Spark 클러스터](https://docs.azuredatabricks.net/getting-started/index.html)를 사용하여 Spark 클러스터에서 Spark 작업을 실행할 수 있습니다.
 
@@ -179,7 +177,7 @@ Spark 작업자 노드와 Azure Cosmos DB 데이터 노드(파티션) 간에 데
 
 4. Twitter 피드 샘플의 콘텐츠를 추출하고 config.py 파일을 엽니다. masterKey, host, databaseId, collectionId 및 preferredLocations 값을 업데이트합니다.  
 
-5. `http://apps.twitter.com/`으로 이동하고 Twitter 피드 응용 프로그램을 등록합니다. 응용 프로그램 이름을 선택하면 **소비자 키, 소비자 암호, 액세스 토큰 및 액세스 토큰 암호**가 제공됩니다. 이 값을 복사하고 config.py 파일에서 업데이트하여 Twitter에 대한 응용 프로그램의 프로그래밍 방식 액세스를 Twitter 피드에 제공합니다.   
+5. `https://apps.twitter.com/`으로 이동하고 Twitter 피드 응용 프로그램을 등록합니다. 응용 프로그램 이름을 선택하면 **소비자 키, 소비자 암호, 액세스 토큰 및 액세스 토큰 암호**가 제공됩니다. 이 값을 복사하고 config.py 파일에서 업데이트하여 Twitter에 대한 응용 프로그램의 프로그래밍 방식 액세스를 Twitter 피드에 제공합니다.   
 
 6. config.py 파일을 저장합니다. 명령 프롬프트를 열고, 다음 명령을 사용하여 Python 응용 프로그램을 실행합니다.
 
@@ -513,4 +511,4 @@ Java SDK는 구성 매핑에 다음 값을 지원합니다.
 * [집계 예제](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [샘플 스크립트 및 노트북](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-또한 [Apache Spark SQL, DataFrame 및 데이터 세트 가이드](http://spark.apache.org/docs/latest/sql-programming-guide.html) 및 [Azure HDInsight의 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 문서를 검토할 수도 있습니다.
+또한 [Apache Spark SQL, DataFrame 및 데이터 세트 가이드](https://spark.apache.org/docs/latest/sql-programming-guide.html) 및 [Azure HDInsight의 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 문서를 검토할 수도 있습니다.

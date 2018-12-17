@@ -9,16 +9,15 @@ ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: ee6597b78ac8de8fc3a7f3796010f22919243b23
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6686b241b93a0ae46b6de134f6f01526bb1a3ad2
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294897"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723451"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
 이 테이블은 [Application Insights](app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
@@ -230,7 +229,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](ap
 
 | path | type | 메모 |
 | --- | --- | --- |
-| request [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
+| request [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예:  4 =&gt; 25%. |
 | request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
 | request [0] id |string |작업 ID |
 | request [0] name |string |GET/POST + url 기본입니다.  최대 길이 250 |

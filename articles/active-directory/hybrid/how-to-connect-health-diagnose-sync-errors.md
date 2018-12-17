@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: c077e8592157b5c09dd1bc99934afd9f687b1da1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8841a4d216160af4ed731570b40754307ffbb5a4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282529"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996054"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>중복된 특성 동기화 오류 진단 및 수정
 
@@ -28,7 +28,7 @@ ms.locfileid: "51282529"
 - 중복된 특성 동기화 오류의 범위를 좁히는 진단 프로시저를 제공합니다. 관련 픽스를 제공합니다.
 - 한 단계로 오류를 해결하는 Azure AD의 전용 시나리오에 대한 픽스를 적용합니다.
 - 이 기능을 사용하기위 해 업그레이드 또는 구성이 필요하지 않습니다.
-Azure AD에 대한 자세한 내용은 [ID 동기화 및 중복 특성 복원력](https://aka.ms/dupattributeresdocs)을 참조하세요.
+Azure AD에 대한 자세한 내용은 [ID 동기화 및 중복 특성 복원력](how-to-connect-syncservice-duplicate-attribute-resiliency.md)을 참조하세요.
 
 ## <a name="problems"></a>문제
 ### <a name="a-common-scenario"></a>일반적인 시나리오

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 4cce49509a452153815c845d9ab72a1b4a8a5b7f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13a628d37ef67d0a1dc3ad8231229493191c4e7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355422"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849567"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>로그인한 후 응용 프로그램 페이지의 오류
 
@@ -30,7 +30,7 @@ ms.locfileid: "44355422"
 
 -   응용 프로그램이 Azure AD 갤러리인 경우 [Azure Active Directory의 응용 프로그램에 SAML 기반 Single Sign-On을 디버깅하는 방법](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging) 문서에 있는 모든 단계를 수행했는지 확인합니다.
 
--   [Fiddler](http://www.telerik.com/fiddler)와 같은 도구를 사용하여 SAML 요청, SAML 응답 및 SAML 토큰을 캡처합니다.
+-   [Fiddler](https://www.telerik.com/fiddler)와 같은 도구를 사용하여 SAML 요청, SAML 응답 및 SAML 토큰을 캡처합니다.
 
 -   응용 프로그램 공급 업체와 함께 SAML 응답을 공유하여 누락된 내용을 파악합니다.
 

@@ -4,9 +4,8 @@ description: Azure AI 갤러리의 분석 리소스 등을 공유 및 검색합�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cf518538-6046-4657-a7cb-a0bc487c67e6
 ms.service: machine-learning
@@ -16,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 99742e8b25a406dcc08371812b943c0d01dde113
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c9acd902eb536bbd252f0aca6d162ff92d9e6e00
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310614"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270963"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 
 **[Azure AI Gallery](http://gallery.cortanaintelligence.com)**.
 갤러리에는 자체 분석 솔루션을 개발하는 데 사용할 수 있는 다양한 리소스가 있습니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="what-can-i-find-in-the-gallery"></a>갤러리에는 어떤 응용 프로그램이 있습니까?
 Azure AI 갤러리에는 자체 분석 솔루션을 개발하는 데 사용할 수 있는 다양한 리소스가 있습니다.

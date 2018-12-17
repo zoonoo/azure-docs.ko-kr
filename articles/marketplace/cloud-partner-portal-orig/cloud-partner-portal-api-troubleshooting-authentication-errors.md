@@ -14,26 +14,25 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 82a5ef86d1ca35cddb05cb4e126e64cc3759bcc0
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 12ed395855b9d870f8f6e3564dc5b3b899b9c6c1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807265"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313873"
 ---
-<a name="troubleshooting-common-authentication-errors"></a>일반적인 인증 오류 해결
-------------------------------------------
+# <a name="troubleshooting-common-authentication-errors"></a>일반적인 인증 오류 해결
 
 이 문서에서는 Cloud 파트너 포털 API를 사용하는 경우 일반적인 인증 오류에 필요한 지원을 제공합니다.
 
-### <a name="unauthorized-error"></a>권한 없음 오류 발생
+## <a name="unauthorized-error"></a>권한 없음 오류 발생
 
 `401 unauthorized` 오류가 일관되게 발생하면 유효한 액세스 토큰을 사용하는지 확인합니다.  [포털을 사용하여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)에 설명된 기본 Azure AD(Azure Active Directory) 응용 프로그램 및 서비스 주체를 아직 만들지 않았으면 만듭니다. 그런 다음, 응용 프로그램 또는 간단한 HTTP POST 요청을 사용하여 액세스를 확인합니다.  다음 그림에 나와 있는 것처럼 테넌트 ID, 응용 프로그램 ID, 개체 ID 및 비밀 키를 포함하여 액세스 토큰을 획득합니다.
 
 ![401 오류 해결](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 
 
-### <a name="forbidden-error"></a>사용 권한 없음 오류
+## <a name="forbidden-error"></a>사용 권한 없음 오류
 
 `403 forbidden` 오류가 발생하면 Cloud 파트너 포털의 게시자 계정에 올바른 서비스 주체를 추가했는지 확인합니다.
 [필수 구성 요소](./cloud-partner-portal-api-prerequisites.md) 페이지의 단계에 따라 포털에 서비스 주체를 추가합니다.

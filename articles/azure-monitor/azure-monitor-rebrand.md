@@ -7,18 +7,17 @@ editor: tysonn
 services: azure-monitor
 documentationcenter: azure-monitor
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: bwren
-ms.openlocfilehash: f85f0785f180bf333477bd45508f8c670349669e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68986b3d60566ee190a92c6ccf8cda767824350f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980477"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000144"
 ---
 # <a name="azure-monitor-branding-changes"></a>Azure Monitor 브랜딩 변경 사항
 이 문서에서는 Azure 관리 서비스에 대한 최신 브랜딩 및 이름 변경 사항을 설명합니다. 
@@ -47,4 +46,4 @@ OMS(Operations Management Suite)는 라이센스 부여에 사용되는 다음 A
 ## <a name="next-steps"></a>다음 단계
 
 - 여러 다른 구성 요소와 기능을 설명하는 [Azure Monitor 개요](overview.md)를 읽어 보세요.
-- [OMS 포털 상태 전환](../log-analytics/log-analytics-oms-portal-transition.md)에 관해 알아보세요.
+- [OMS 포털 상태 전환](../azure-monitor/platform/oms-portal-transition.md)에 관해 알아보세요.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635155"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877584"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이터 모델을 사용하면 원하는 대로 사용자 지정 쿼리와 대시보드를 만들거나 Azure Backup 데이터를 사용자 지정할 수 있습니다.
@@ -30,7 +30,7 @@ Log Analytics 데이터 모델을 사용하여 보고서를 만듭니다. 데이
 | AlertUniqueId_s |텍스트 |생성된 경고의 고유 식별자 |
 | AlertType_s |텍스트 |경고의 형식(예: Backup) |
 | AlertStatus_s |텍스트 |경고의 상태(예: Active) |
-| AlertOccurenceDateTime_s |날짜/시간 |경고를 만든 날짜 및 시간 |
+| AlertOccurrenceDateTime_s |날짜/시간 |경고를 만든 날짜 및 시간 |
 | AlertSeverity_s |텍스트 |경고의 심각도(예: Critical) |
 | EventName_s |텍스트 |이벤트의 이름, 항상 AzureBackupCentralReport임 |
 | BackupItemUniqueId_s |텍스트 |경고와 관련된 백업 항목의 고유 식별자 |

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: d9a0342332c2483b859e916b50fd05c9cb1e3395
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986768"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187370"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Traffic Manager에서 다중값 라우팅 방법 구성
 
@@ -39,6 +39,7 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
 
 1. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Traffic Manager 프로필** > **만들기**를 선택합니다.
 2. **Traffic Manager 프로필 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
+    
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | 이름                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
@@ -46,7 +47,7 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
     | 구독            | 구독을 선택합니다.                          |
     | 리소스 그룹          | *myResourceGroupTM1*을 선택합니다. |
     | 위치                | 이 설정은 리소스 그룹의 위치를 나타내며 전역적으로 배포되는 Traffic Manager 프로필에는 영향을 미치지 않습니다.                              |
-    |
+    
   
     ![Traffic Manager 프로필 만들기](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 

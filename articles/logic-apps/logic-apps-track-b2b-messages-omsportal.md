@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233562"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996509"
 ---
 # <a name="track-b2b-messages-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 B2B 메시지 추적
 
@@ -27,7 +27,7 @@ ms.locfileid: "50233562"
 * 검색 기능
 
 > [!NOTE]
-> 이 페이지에서는 [2019년 1월에 사용 중지](../log-analytics/log-analytics-oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
+> 이 페이지에서는 [2019년 1월에 사용 중지](../azure-monitor/platform/oms-portal-transition.md)되고 대신 Azure Log Analytics로 해당 단계를 대체하는 Microsoft OMS(Operations Management Suite)를 사용하여 이러한 작업을 수행하는 방법에 대한 단계를 설명했습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,11 +37,11 @@ ms.locfileid: "50233562"
 
 * 아직 없는 경우 [Log Analytics에 진단 데이터를 게시](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)합니다.
 
-* 이전 요구 사항이 충족되면 Log Analytics를 통해 B2B 통신을 추적하는 데 사용할 수 있는 Log Analytics 작업 영역도 필요합니다. Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../log-analytics/log-analytics-quick-create-workspace.md)을 알아봅니다.
+* 이전 요구 사항이 충족되면 Log Analytics를 통해 B2B 통신을 추적하는 데 사용할 수 있는 Log Analytics 작업 영역도 필요합니다. Log Analytics 작업 영역이 없는 경우 [Log Analytics 작업 영역을 만드는 방법](../azure-monitor/learn/quick-create-workspace.md)을 알아봅니다.
 
 ## <a name="install-logic-apps-b2b-solution"></a>Logic Apps B2B 솔루션 설치
 
-Log Analytics가 논리 앱에 대한 B2B 메시지를 추적하도록 하려면 먼저 Log Analytics에 **Logic Apps B2B** 솔루션을 추가해야 합니다. [Log Analytics에 솔루션 추가](../log-analytics/log-analytics-quick-create-workspace.md)에 대해 자세히 알아봅니다.
+Log Analytics가 논리 앱에 대한 B2B 메시지를 추적하도록 하려면 먼저 Log Analytics에 **Logic Apps B2B** 솔루션을 추가해야 합니다. [Log Analytics에 솔루션 추가](../azure-monitor/learn/quick-create-workspace.md)에 대해 자세히 알아봅니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택합니다. 검색 상자에서 "로그 분석"을 찾고 **Log Analytics**를 선택합니다.
 

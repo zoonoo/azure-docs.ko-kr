@@ -9,19 +9,18 @@ ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499497"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993369"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
-[Power BI](http://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
+[Power BI](https://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
 
 Power BI에 Application Insights 데이터를 내보내는 세 가지 방법이 있습니다.
 
@@ -41,7 +40,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)을 설치합니다.
 
 ### <a name="export-an-analytics-query"></a>Analytics 쿼리 내보내기
-1. [Analytics 열기 및 쿼리 작성](../log-analytics/query-language/get-started-analytics-portal.md).
+1. [Analytics 열기 및 쿼리 작성](../azure-monitor/log-query/get-started-portal.md).
 2. 결과에 만족할 때까지 쿼리를 테스트하고 수정합니다. 내보내기 전에 Analytics에서 쿼리가 제대로 실행되는지 확인합니다.
 3. **내보내기** 메뉴에서 **Power BI(M)** 를 선택합니다. 텍스트 파일을 저장합니다.
    
@@ -52,18 +51,18 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
     ![고급 편집기가 강조 표시된 Power BI Desktop 스크린샷](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. Power BI가 Azure에 액세스할 수 있도록 자격 증명을 제공해야 할 수 있습니다. **조직 계정**을 사용하여 Microsoft 계정에 로그인합니다.
+5. Power BI가 Azure에 액세스할 수 있도록 자격 증명을 제공해야 할 수 있습니다. **조직 계정**을 사용하여 Microsoft 계정에 로그인합니다.
    
     ![Power BI 쿼리 설정 대화 상자 스크린샷](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
     자격 증명을 확인해야 하는 경우 쿼리 편집기에서 **데이터 원본 설정** 메뉴 명령을 사용합니다. Azure에 사용할 자격 증명은 Power BI용 자격 증명과 다를 수 있습니다.
-2. 쿼리에 대한 시각화를 선택하고 x축, y축 및 차원 분할에 대한 필드를 선택합니다.
+6. 쿼리에 대한 시각화를 선택하고 x축, y축 및 차원 분할에 대한 필드를 선택합니다.
    
     ![Power BI Desktop 시각화 옵션 스크린샷](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. Power BI 클라우드 작업 영역에 보고서를 게시합니다. 여기에서 다른 웹 페이지에 동기화된 버전을 포함할 수 있습니다.
+7. Power BI 클라우드 작업 영역에 보고서를 게시합니다. 여기에서 다른 웹 페이지에 동기화된 버전을 포함할 수 있습니다.
    
     ![게시 단추가 강조 표시된 Power BI Desktop 스크린샷](./media/app-insights-export-power-bi/publish-power-bi.png)
-4. 간격을 두고 보고서를 수동으로 새로 고치거나 옵션 페이지에서 예약된 새로 고침을 설정합니다.
+8. 간격을 두고 보고서를 수동으로 새로 고치거나 옵션 페이지에서 예약된 새로 고침을 설정합니다.
 
 ### <a name="export-a-funnel"></a>깔때기 내보내기
 1. [깔때기를 만듭니다](usage-funnels.md).
@@ -153,6 +152,6 @@ Application Insights 차트를 다른 원본의 차트 및 Analytics 쿼리와 �
 초기 가져오기 후에는 대시보드와 보고서가 지속적으로 매일 업데이트됩니다. 데이터 세트에 대한 새로 고침 일정을 제어할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Power BI - 알아보기](http://www.powerbi.com/learning/)
-* [Analytics 자습서](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Power BI - 알아보기](https://www.powerbi.com/learning/)
+* [Analytics 자습서](../azure-monitor/log-query/get-started-portal.md)
 

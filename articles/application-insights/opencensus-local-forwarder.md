@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: ddfcb90090d82d8fe947292737163a81c715b32d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972830"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970589"
 ---
 # <a name="local-forwarder"></a>로컬 전달자
 
@@ -28,7 +27,7 @@ ms.locfileid: "46972830"
 
 로컬 전달자는 [GitHub의 오픈 소스 프로젝트](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases)입니다. 여러 플랫폼에서 로컬 전달자를 실행하는 방법에는 여러 가지가 있습니다.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 #### <a name="windows-service"></a>Windows 서비스
 
@@ -40,7 +39,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. LF.WindowsServiceHost.zip 파일을 GitHub의 [로컬 전달자 릴리스 페이지](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases)에서 다운로드합니다.
 
-    ![로컬 전달자 릴리스 다운로드 페이지의 스크린샷](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![로컬 전달자 릴리스 다운로드 페이지의 스크린샷](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. 데모의 편의 위해 이 예제에서는 .zip 파일을 `C:\LF-WindowsServiceHost` 경로에 추출합니다.
 
@@ -56,7 +55,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     Services GUI 형식 ``services.msc``를 통해 새 서비스를 검사하려면
         
-     ![로컬 전달자 서비스의 스크린샷](.\media\opencensus-local-forwarder\002-services.png)
+     ![로컬 전달자 서비스의 스크린샷](./media/opencensus-local-forwarder/002-services.png)
 
 3. 새 로컬 전달자를 **마우스 오른쪽 단추로 클릭**하고 **시작**을 선택합니다. 이제 서비스가 실행 중인 상태입니다.
 
@@ -74,7 +73,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. 원하는 설정이 지정되어 있고 로컬 전달자가 예상대로 추적 데이터를 수신 대기하는지 확인하려면 ``LocalForwarder.log`` 파일을 확인합니다. 결과는 파일의 맨 아래 이미지와 비슷하게 표시됩니다.
 
-    ![LocalForwarder.log 파일의 스크린샷](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![LocalForwarder.log 파일의 스크린샷](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### <a name="console-application"></a>콘솔 응용 프로그램
 

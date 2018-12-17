@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: dbc72e040f3d68ca77c036c41612f57616d1e74e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: b72b2183cb796602f05a0a6858d4de108d3cc2c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016831"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964801"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>CSP로서 고객을 대신하여 Azure IoT Central 응용 프로그램 만들기 및 관리 
 
@@ -23,21 +23,21 @@ CSP로서 고객을 대신해 [Microsoft 파트너 센터](https://partnercenter
 
 시작하려면 Microsoft 파트너 포털의 계정에 로그인하고 Azure IoT Central 응용 프로그램을 만들어 주려는 고객을 선택합니다. 왼쪽 탐색에서 고객에 대한 서비스 관리로 이동합니다.
 
-![Microsoft 파트너 센터, 고객 보기](media\howto-create-application-asCSP\image1.png)
+![Microsoft 파트너 센터, 고객 보기](media/howto-create-application-asCSP/image1.png)
 
 Azure IoT Central은 관리할 수 있는 서비스로 나열됩니다. 새 응용 프로그램을 만들거나 이 고객에 대해 기존 응용 프로그램을 관리하려면 페이지에서 Azure IoT Central 링크를 클릭합니다.
 
-![관리할 수 있는 Azure IoT Central](media\howto-create-application-asCSP\image2.png)
+![관리할 수 있는 Azure IoT Central](media/howto-create-application-asCSP/image2.png)
 
 Azure IoT Central 응용 프로그램 관리자 페이지로 이동합니다. Azure IoT Central은 Microsoft 파트너 센터에서 제공하고 해당 특정 고객을 관리하기 위해 제공된 컨텍스트를 유지합니다. 응용 프로그램 관리자 페이지의 헤더에 승인이 표시됩니다. 여기에서 이 고객을 위해 전에 만든 기존 애플리케이션으로 이동하거나 고객을 위한 새 애플리케이션을 만들 수 있습니다.
 
-![CSP를 위한 관리자 만들기](media\howto-create-application-asCSP\image3.png)
+![CSP를 위한 관리자 만들기](media/howto-create-application-asCSP/image3.png)
 
 Azure IoT Central 응용 프로그램을 만들려면 **새 응용 프로그램** 타일을 클릭합니다. 그러면 응용 프로그램 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
 
-![CSP에 대한 응용 프로그램 페이지 만들기](media\howto-create-application-asCSP\image4.png)
+![CSP에 대한 응용 프로그램 페이지 만들기](media/howto-create-application-asCSP/image4.png)
 
-![CSP에 대한 응용 프로그램 페이지 만들기](media\howto-create-application-asCSP\image4-1.png)
+![CSP에 대한 응용 프로그램 페이지 만들기](media/howto-create-application-asCSP/image4-1.png)
 
 ## <a name="payment-plan"></a>결제 계획
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: raynew
-ms.openlocfilehash: d0cfab51b686b5b6eb9617d4424ac3f834de8d6f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2423c4fde177ab50552af580a60c7a15550e5586
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241075"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840438"
 ---
 # <a name="customize-an-assessment"></a>평가 사용자 지정
 
@@ -26,7 +26,6 @@ ms.locfileid: "50241075"
     **설정** | **세부 정보** | **기본값**
     --- | --- | ---
     **대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/> Azure Migrate는 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 중국 동부, 중국 북부, 동아시아, 미국 동부, 독일 중부, 독일 북동부, 미국 동부 2, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 영국 서부, US Gov 애리조나, US Gov 텍사스, US Gov 버지니아, 미국 서중부, 유럽 서부, 인도 서부, 미국 서부 및 미국 서부 2를 비롯한 30개 지역을 지원합니다. |  미국 서부 2가 기본 위치입니다.
-    **가격 책정 계층** | 대상 Azure VM의 [가격 책정 계층(기본/표준)](../virtual-machines/windows/sizes-general.md)을 지정할 수 있습니다. 예를 들어 프로덕션 환경을 마이그레이션할 계획이라면 표준 계층을 고려하는 것이 좋습니다. 반면, 개발-테스트 환경을 사용하는 경우 VM 대기 시간이 긴 대신 비용이 저렴한 기본 계층을 고려하는 것이 좋습니다. | 기본적으로 [표준](../virtual-machines/windows/sizes-general.md) 계층이 사용됩니다.
     **저장소 유형** | 이 속성을 사용하여 Azure에서 할당할 디스크의 형식을 지정할 수 있습니다. 온-프레미스 크기 조정의 경우 대상 디스크 형식을 프리미엄 관리 디스크 또는 표준 관리 디스크로 지정할 수 있습니다. 성능 기반 크기 조정의 경우 대상 디스크 형식을 자동 관리 디스크, 프리미엄 관리 디스크 또는 표준 관리 디스크 중에서 지정할 수 있습니다. 자동으로 저장소 형식을 지정할 때 디스크 권장 사항은 디스크의 성능 데이터를 기반으로 수행됩니다(IOPS 및 처리량). 예를 들어 [99.9%의 단일 인스턴스 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 달성하려는 경우, 저장소 유형을 프리미엄 관리 디스크로 지정하고자 할 수도 있습니다. 즉, 평가 시 모든 디스크가 프리미엄 관리 디스크로 권장됩니다. 마이그레이션 평가의 경우 Azure Migrate는 관리 디스크만을 지원합니다. | 기본값은 프리미엄 관리 디스크(크기 조정 조건을 *온-프레미스 크기 조정*으로 지정).
     **예약 인스턴스** |  또한 Azure에 [예약 인스턴스](https://azure.microsoft.com/pricing/reserved-vm-instances/)가 있는지 지정하면 Azure Migrate가 그에 따라 비용을 계산합니다. 예약 인스턴스는 소버린 지역(Azure Government, 독일 및 중국)에 적용할 수 없으며 Azure Migrate의 종량제 제품에만 적용 가능합니다. | 이 속성에 대한 기본값은 3년 예약 인스턴스입니다.
     **크기 조정 기준** | Azure Migrate가 Azure에 사용할 VM의 적정 크기를 산정하는 데 사용되는 기준입니다. *성능 기반* 크기 조정을 수행하거나, 성능 기록을 고려하지 않고 *온-프레미스로* VM 크기를 조정할 수 있습니다. | 기본 옵션은 성능 기반 크기 조정입니다.

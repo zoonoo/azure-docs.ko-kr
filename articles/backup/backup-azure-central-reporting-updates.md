@@ -10,16 +10,15 @@ ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: adigan;
-ms.openlocfilehash: 73a5e8126ebe6223d790a5b58db7bd5d04b5350f
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.author: adigan
+ms.openlocfilehash: 65ab497b2467846a324d10f8487ab384a01441ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267315"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968888"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Azure Backup 중앙 보고 콘텐츠 팩 업데이트 
 
@@ -42,30 +41,30 @@ Azure Backup 콘텐츠 팩과 함께 제공되는 미리 구성된 보고서는 
 
 ### <a name="summary"></a>요약
    
-![요약](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Summary.png)
+![요약](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
 ### <a name="billing"></a>결제
 
-![결제](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Billing.png)
+![결제](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
 
 ### <a name="compliance"></a>규정 준수
 
-![규정 준수](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Compliance.png)
+![규정 준수](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
 ### <a name="storage"></a>Storage
 
-![Storage](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
+![Storage](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>Backup 항목
-![Backup 항목](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+![Backup 항목](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
 
 ### <a name="alerts"></a>경고
 
-![경고](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Alerts.png)
+![경고](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
 ### <a name="jobs"></a>교육
 
-![교육](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
+![교육](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## <a name="next-steps"></a>다음 단계

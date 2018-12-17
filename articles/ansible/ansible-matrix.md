@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: accb7b84793b9fc98bc20f1637ec30f97a7f4a87
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649944"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962083"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 모듈 및 버전 매트릭스
 
@@ -80,7 +80,7 @@ Ansible은 원격 호스트에서 직접 또는 플레이북을 통해 실행할
 | azure_rm_containerregistryreplication_facts | -            | -                           | -            | -            | yes                                 | 
 | azure_rm_containerregistrywebhook           | -            | -                           | -            | -            | yes                                 | 
 | azure_rm_containerregistrywebhook_facts     | -            | -                           | -            | -            | yes                                 | 
-| **Azure 기능**                    |           |                          |                          |                            |                                | 
+| **Azure Functions**                    |           |                          |                          |                            |                                | 
 | azure_rm_functionapp                        | yes          | 예                         | 예          | 예          | yes                                 | 
 | azure_rm_functionapp_facts                  | yes          | 예                         | 예          | 예          | yes                                 | 
 | **데이터베이스**                    |           |                          |                          |                             |                               | 
@@ -133,4 +133,4 @@ Ansible은 원격 호스트에서 직접 또는 플레이북을 통해 실행할
 azure_preview_module 플레이북 역할은 3주마다 릴리스됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-플레이북 역할과 관련된 자세한 내용은 [다시 사용할 수 있는 플레이북 만들기](http://docs.ansible.com/ansible/latest/playbooks_reuse.html)를 참조하세요. 
+플레이북 역할과 관련된 자세한 내용은 [다시 사용할 수 있는 플레이북 만들기](https://docs.ansible.com/ansible/latest/playbooks_reuse.html)를 참조하세요. 

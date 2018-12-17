@@ -7,17 +7,16 @@ manager: carmonm
 ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2b9aee39942562ec7f17c08c0fcf46143a7a25d3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986426"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961810"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
 
@@ -29,19 +28,19 @@ ms.locfileid: "49986426"
 2. 탐색하려는 리소스 그룹 중 하나를 선택합니다. (많은 수의 리소스 그룹이 있는 경우 구독별로 필터링하는 것이 경우에 따라 유용할 수 있습니다.)
 3. 리소스 그룹에 대한 인사이트에 액세스하려면 모든 리소스 그룹의 왼쪽 메뉴에서 **인사이트**를 클릭합니다.
 
-![리소스 그룹 인사이트 개요 페이지 스크린샷](.\media\resource-group-insights\0001-overview.png)
+![리소스 그룹 인사이트 개요 페이지 스크린샷](./media/resource-group-insights/0001-overview.png)
 
 ## <a name="resources-with-active-alerts-and-health-issues"></a>활성 경고 및 상태 문제가 있는 리소스
 
 개요 페이지에는 발생한 경고 횟수와 여전히 활성 상태인 경고 수가 각 리소스의 현재 Azure Resource Health와 함께 표시됩니다. 이러한 정보는 문제가 발생한 리소스를 빠르게 찾아내는 데 도움이 될 수 있습니다. 경고는 코드의 문제를 감지하고, 인프라 구성 방법을 파악하는 데 도움이 됩니다. Azure Resource Health는 개별 응용 프로그램에 국한되지 않은 Azure 플랫폼 자체의 문제를 드러냅니다.
 
-![Azure Resource Health 창 스크린샷](.\media\resource-group-insights\0002-overview.png)
+![Azure Resource Health 창 스크린샷](./media/resource-group-insights/0002-overview.png)
 
 ### <a name="azure-resource-health"></a>Azure Resource Health
 
 Azure Resource Health를 표시하려면 표 위에 있는 **Azure Resource Health 표시** 확인란을 선택합니다. 이 열은 기본적으로는 페이지를 빠르게 로드하기 위해 숨겨집니다.
 
-![리소스 상태 그래프가 추가된 스크린샷](.\media\resource-group-insights\0003-overview.png)
+![리소스 상태 그래프가 추가된 스크린샷](./media/resource-group-insights/0003-overview.png)
 
 기본적으로 리소스는 앱 계층 및 리소스 종류별로 그룹화됩니다. **앱 계층**은 리소스 그룹 인사이트 개요 페이지의 컨텍스트 내에서만 존재하는 리소스 종류의 간단한 분류 입니다. 응용 프로그램 코드, 계산 인프라, 네트워킹, 저장소 + 데이터베이스와 관련된 리소스 종류가 있습니다. 관리 도구에는 자체 앱 계층이 있으며 다른 모든 리소스는 **기타** 앱 계층으로 분류됩니다. 이러한 그룹화는 응용 프로그램에서 정상 및 비정상 상태의 하위 시스템을 일목요연하게 확인하는 데 도움이 될 수 있습니다.
 
@@ -70,33 +69,33 @@ Azure Resource Health를 표시하려면 표 위에 있는 **Azure Resource Heal
 
 선택을 수행하면 왼쪽 메뉴 모음이 변경되면서 새 옵션을 표시합니다.
 
-![오류 개요 창 스크린샷](.\media\resource-group-insights\00004-failures.png)
+![오류 개요 창 스크린샷](./media/resource-group-insights/00004-failures.png)
 
 App Service를 선택하면 Azure Monitor 통합 문서 템플릿 갤러리가 제공됩니다.
 
-![응용 프로그램 통합 문서 갤러리 스크린샷](.\media\resource-group-insights\0005-failure-insights-workbook.png)
+![응용 프로그램 통합 문서 갤러리 스크린샷](./media/resource-group-insights/0005-failure-insights-workbook.png)
 
 오류 인사이트를 위한 템플릿을 선택하면 통합 문서가 열립니다.
 
-![오류 보고서 스크린샷](.\media\resource-group-insights\0006-failure-visual.png)
+![오류 보고서 스크린샷](./media/resource-group-insights/0006-failure-visual.png)
 
 아무 행이나 선택할 수 있습니다. 그러면 선택 항목이 그래픽 세부 정보 보기에 표시됩니다.
 
-![오류 세부 정보 스크린샷](.\media\resource-group-insights\0007-failure-details.png)
+![오류 세부 정보 스크린샷](./media/resource-group-insights/0007-failure-details.png)
 
 통합 문서는 사용자 지정 보고서 및 시각화를 쉽게 사용할 수 있는 형식으로 만드는 까다로운 작업을 추상화합니다. 일부 사용자는 미리 작성된 매개 변수를 조정하기만 하면 될 수 있지만 통합 문서는 완전히 사용자 지정할 수 있습니다.
 
 이러한 통합 문서가 내부적으로 작동하는 방식을 이해하려면 위쪽 메뉴 모음에서 **편집**을 선택합니다.
 
-![추가 편집 옵션 스크린샷](.\media\resource-group-insights\0008-failure-edit.png)
+![추가 편집 옵션 스크린샷](./media/resource-group-insights/0008-failure-edit.png)
 
 통합 문서의 다양한 요소 옆에 여러 **편집** 상자가 표시됩니다. 작업 표 아래의 **편집**을 선택합니다.
 
-![편집 상자 스크린샷](.\media\resource-group-insights\0009-failure-edit-graph.png)
+![편집 상자 스크린샷](./media/resource-group-insights/0009-failure-edit-graph.png)
 
 그러면 표 시각화를 제공하는 기본 Log Analytics 쿼리가 표시됩니다.
 
- ![Log analytics 쿼리 창 스크린샷](.\media\resource-group-insights\0010-failure-edit-query.png)
+ ![Log analytics 쿼리 창 스크린샷](./media/resource-group-insights/0010-failure-edit-query.png)
 
 쿼리를 직접 수정할 수 있습니다. 또는 쿼리를 참조하여 매개 변수화된 사용자 지정 통합 문서를 디자인할 때 활용할 수 있습니다.
 
@@ -104,11 +103,11 @@ App Service를 선택하면 Azure Monitor 통합 문서 템플릿 갤러리가 �
 
 성능은 자체적인 통합 문서 갤러리를 제공합니다. App Service의 경우 미리 작성된 응용 프로그램 성능 통합 문서가 다음 보기를 제공합니다.
 
- ![성능 보기 스크린샷](.\media\resource-group-insights\0011-performance.png)
+ ![성능 보기 스크린샷](./media/resource-group-insights/0011-performance.png)
 
 이 경우 편집을 선택하면 이러한 시각화 집합이 Azure Monitor 메트릭을 기준으로 한다는 것을 알 수 있습니다.
 
- ![Azure 메트릭을 사용한 성능 보기 스크린샷](.\media\resource-group-insights\0012-performance-metrics.png)
+ ![Azure 메트릭을 사용한 성능 보기 스크린샷](./media/resource-group-insights/0012-performance-metrics.png)
 
 ## <a name="troubleshooting"></a>문제 해결
 

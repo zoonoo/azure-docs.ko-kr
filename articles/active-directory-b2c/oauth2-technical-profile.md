@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3f1e34b4d527d076a0bac2e0cb6ef3a901296c57
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cc09998a982f319cfc1d60924d2175a3c17c8465
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612478"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836682"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth2 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD(Azure Active Directory) B2C는 OAuth2 프로토콜 ID 공급자를 지원합니다. 이는 권한 부여 및 위임된 인증에 대한 기본 프로토콜입니다. 자세한 내용은 [RFC 6749 OAuth 2.0 권한 부여 프레임워크](http://tools.ietf.org/html/rfc6749)를 참조하세요. OAuth2 기술 프로필을 사용하면 Facebook 및 Live.com과 같은 OAuth2 기반 ID 공급자를 페더레이션할 수 있습니다. 그러면 사용자가 기존 소셜 또는 엔터프라이즈 ID로 로그인할 수 있게 됩니다.
+Azure AD(Azure Active Directory) B2C는 OAuth2 프로토콜 ID 공급자를 지원합니다. 이는 권한 부여 및 위임된 인증에 대한 기본 프로토콜입니다. 자세한 내용은 [RFC 6749 OAuth 2.0 권한 부여 프레임워크](https://tools.ietf.org/html/rfc6749)를 참조하세요. OAuth2 기술 프로필을 사용하면 Facebook 및 Live.com과 같은 OAuth2 기반 ID 공급자를 페더레이션할 수 있습니다. 그러면 사용자가 기존 소셜 또는 엔터프라이즈 ID로 로그인할 수 있게 됩니다.
 
 ## <a name="protocol"></a>프로토콜
 

@@ -3,7 +3,7 @@ title: 분할된 Azure SQL Database 쿼리 | Microsoft Docs
 description: 분할된 데이터베이스간의 쿼리를 실행할 때는 탄력적 데이터베이스 클라이언트 라이브러리를 사용합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 93408b266a239e897b49ab2482818a5221742685
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: bc0ca62699c21848e4d5fdc18bef292dce4634bf
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870405"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863468"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 쿼리 다중 분할
 

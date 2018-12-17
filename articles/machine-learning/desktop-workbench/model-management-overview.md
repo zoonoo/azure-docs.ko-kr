@@ -2,20 +2,20 @@
 title: Azure Machine Learning 모델 관리에 대한 개념적 개요 | Microsoft Docs
 description: 이 문서에서는 Azure Machine Learning 모델 관리에 대한 개념을 설명합니다.
 services: machine-learning
-author: hjerezmsft
-ms.author: hjerez
+author: chris-lauren
+ms.author: clauren
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: d3f7e206e7f4aa61a8ec1272ff2670d81bb7a33e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b89e80051ec53649a3da8fadcf412c58c177525c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974683"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260211"
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning 모델 관리
 
@@ -123,7 +123,7 @@ Azure Machine Learning 모델 관리는 모델을 다시 학습하는 데 사용
 
    구성할 수 있습니다. 기본적으로 단일 복제본당 최대 10개로 설정되지만, 응용 프로그램 요구 사항에 따라 늘리거나 줄일 수 있습니다. 일반적으로 큐에 대기하는 요청 수를 늘리면, 서비스 처리량이 늘어나지만 더 높은 백분위수의 대기 시간도 늘어납니다. 대기 시간을 일관되게 유지하려면 큐를 낮은 값(1-5)으로 설정하고 복제본의 수를 늘려서 처리량을 처리하는 것이 좋습니다. 또한 자동 크기 조정을 사용하도록 설정하여 복제본 수가 부하에 따라 자동으로 조정되도록 할 수 있습니다. 
 
-- **동일한 컴퓨터 또는 클러스터를 여러 웹 서비스 엔드포인트에 사용할 수 있나요?**
+- **동일한 컴퓨터 또는 클러스터를 여러 웹 서비스 끝점에 사용할 수 있나요?**
 
    그렇습니다. 동일한 클러스터에서 서비스/끝점 수의 100배까지 실행할 수 있습니다. 
 

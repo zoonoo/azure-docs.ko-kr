@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b0ad4aa63dbeefce6b55e099fd51d3608ae3abb8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368481"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133352"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업
 
@@ -40,7 +40,7 @@ Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그�
 사용자 지정 도메인을 구성하기 전에 다음 요구 사항이 준비되어 있는지 확인합니다. 
 - [Azure Active Directory에 추가된 확인된 도메인](../fundamentals/add-custom-domain.md).
 - PFX 파일 형태의 도메인에 대한 사용자 지정 인증서. 
-- [응용 프로그램 프록시를 통해 게시된](application-proxy-publish-azure-portal.md) 온-프레미스 앱.
+- [응용 프로그램 프록시를 통해 게시된](application-proxy-add-on-premises-application.md) 온-프레미스 앱.
 
 ### <a name="configure-your-custom-domain"></a>사용자 지정 도메인 구성
 

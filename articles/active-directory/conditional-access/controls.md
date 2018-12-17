@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 12/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a40774faadc4393a1ebbb6e26673ba7dff22560c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 042be0b818ba448d64aa5e8631926420f00f4b5e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092307"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679667"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어란? 
 
@@ -77,7 +77,7 @@ ms.locfileid: "50092307"
 
 ### <a name="compliant-device"></a>규정 준수 디바이스
 
-디바이스 기반인 조건부 액세스 정책을 구성할 수 있습니다. 디바이스 기반 조건부 액세스 정책의 목적은 [관리 디바이스](require-managed-devices.md)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 디바이스를 정의해야 하는 한 가지 옵션은 준수 디바이스가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](../devices/overview.md)되어 있고 Intune(모든 디바이스 OS) 또는 Windows 10 디바이스에 대한 타사 MDM 시스템 규격으로 표시되는 디바이스의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 디바이스 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다.
+디바이스 기반인 조건부 액세스 정책을 구성할 수 있습니다. 디바이스 기반 조건부 액세스 정책의 목적은 [관리 디바이스](require-managed-devices.md)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 디바이스를 정의해야 하는 한 가지 옵션은 준수 디바이스가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](../devices/overview.md)되어 있고 Intune(모든 디바이스 OS) 또는 Windows 10 디바이스에 대한 타사 MDM 시스템 규격으로 표시되는 디바이스의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 디바이스 OS 유형에 대한 타사 MDM 시스템은 지원되지 않습니다.
 
 자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조하세요.
 
@@ -121,6 +121,7 @@ Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
+- [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
 이러한 서비스에 대한 자세한 내용은 공급자에게 직접 문의하세요.

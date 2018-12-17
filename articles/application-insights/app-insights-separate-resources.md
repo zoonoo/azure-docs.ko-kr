@@ -9,16 +9,15 @@ ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 83852333d8e66c76f2d2710b1813a4400622e624
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 77c0baba1c30153730e87181e24137d9a20ea6b1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417313"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012473"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
 
@@ -33,7 +32,7 @@ ms.locfileid: "50417313"
 일반적으로 다양한 시나리오에 별도의 리소스 또는 단일 공유 리소스를 사용하도록 선택합니다.
 
 * 서로 다른 독립적인 응용 프로그램 - 각 앱에 대해 별도의 리소스와 ikey를 사용합니다.
-* 한 비즈니스 응용 프로그램의 여러 구성 요소 또는 역할 - 모든 구성 요소 앱에 대해 [단일 공유 리소스](app-insights-monitor-multi-role-apps.md)를 사용합니다. cloud_RoleName 속성에 따라 원격 분석을 필터링 또는 분할할 수 있습니다.
+* 한 비즈니스 응용 프로그램의 여러 구성 요소 또는 역할 - 모든 구성 요소 앱에 대해 [단일 공유 리소스](app-insights-app-map.md)를 사용합니다. cloud_RoleName 속성에 따라 원격 분석을 필터링 또는 분할할 수 있습니다.
 * 개발, 테스트 및 릴리스 - '스탬프' 프로덕션 단계에서 시스템 버전에 따라 별도의 리소스 및 ikey를 사용합니다.
 * A | B 테스트 - 단일 리소스를 사용합니다. 변형을 식별하는 원격 분석에 속성을 추가하는 TelemetryInitializer를 만듭니다.
 
@@ -114,7 +113,7 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
     ```XML
 
     <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+    <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
       <Build type="MSBuild">
         <MSBuild>

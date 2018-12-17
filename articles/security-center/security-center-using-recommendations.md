@@ -3,7 +3,7 @@ title: Azure Security Center 권장 사항을 사용하여 보안 강화 | Micro
 description: " Azure Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 알아봅니다. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
-ms.author: terrylan
-ms.openlocfilehash: 3640e4affe42986106791cba50f6cbfd97906806
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: rkarlin
+ms.openlocfilehash: d496f3f28cee711109c5c200102d48482bf6cd9c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308327"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340699"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Azure Security Center 권장 사항을 사용하여 보안 강화
 보안 정책을 구성한 다음 Azure Security Center에서 제공한 권장 사항을 구현하여 중요한 보안 이벤트의 가능성을 줄일 수 있습니다. 이 문서에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다.
@@ -30,7 +30,7 @@ ms.locfileid: "52308327"
 >
 
 ## <a name="managing-security-recommendations"></a>보안 권장 사항 관리
-보안 정책은 지정된 구독 또는 리소스 그룹 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다. Security Center에서 회사의 보안 요구 사항에 따라 정책을 정의합니다. 자세한 내용은 [Security Center에서 보안 정책 설정](security-center-azure-policy.md)을 참조하세요.
+보안 정책은 지정된 구독 또는 리소스 그룹 내에서 리소스에 대해 권장되는 제어 집합을 정의합니다. Security Center에서 회사의 보안 요구 사항에 따라 정책을 정의합니다. 자세한 내용은 [Security Center에서 보안 정책 설정](tutorial-security-policy.md)을 참조하세요.
 
 리소스 그룹에 대한 보안 정책은 구독 수준에서 상속됩니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 3fe268b6491a2a3cc1237173506ef5a91beb7d26
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 99405f9ae3e86324aba7a6fdc583225c1f71f83a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625084"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845113"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션을 추가할 때 애플리케이션 유형 선택
 Azure AD(Azure Active Directory)에 추가할 수 있는 네 가지 유형의 애플리케이션에 대해 알아봅니다. Azure Active Directory에서 애플리케이션을 추가할 때 4개의 애플리케이션 유형 중 하나를 선택하라는 메시지가 표시됩니다. 
@@ -101,7 +101,7 @@ Azure AD는 **엔터프라이즈 응용 프로그램** 아래에 있는 **추가
 
 -   [OpenID Connect 1.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) 기반 로그온
 
--   [WS-Federation 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) 기반 로그온
+-   [WS-Federation 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html) 기반 로그온
 
 -   [SAML 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-protocol-reference) 기반 로그온
 

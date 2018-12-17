@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b42ce119db2c435f05424cceb5bb90627668bece
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f3ab50c4fdc080b157212bcc662a2acf6629483d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407200"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097967"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>업데이트 관리와 System Center Configuration Manager 통합
 
@@ -26,7 +26,7 @@ Configuration Manager에서 소프트웨어 업데이트 배포를 만들고 미
 
 * Automation 계정에 추가된 [업데이트 관리 솔루션](automation-update-management.md)이 있어야 합니다.
 * 현재 System Center Configuration Manager 환경에서 관리되는 Windows 서버는 업데이트 관리 솔루션을 사용하도록 설정되어 있는 Log Analytics 작업 영역에 보고해야 합니다.
-* 이 기능은 System Center Configuration Manager 현재 분기 버전 1606 이상에서 사용할 수 있습니다. Configuration Manager 중앙 관리 사이트 또는 독립 실행형 기본 사이트를 Log Analytics와 통합하고 컬렉션을 가져오려면 [Log Analytics에 Configuration Manager 연결](../log-analytics/log-analytics-sccm.md)을 검토하세요.  
+* 이 기능은 System Center Configuration Manager 현재 분기 버전 1606 이상에서 사용할 수 있습니다. Configuration Manager 중앙 관리 사이트 또는 독립 실행형 기본 사이트를 Log Analytics와 통합하고 컬렉션을 가져오려면 [Log Analytics에 Configuration Manager 연결](../azure-monitor/platform/collect-sccm.md)을 검토하세요.  
 * Windows 에이전트는 WSUS(Windows Server Update Services) 서버와 통신하도록 구성되거나 Configuration Manager에서 보안 업데이트를 받지 않는 경우 Microsoft Update에 대한 액세스 권한이 있어야 합니다.   
 
 주로 기존 Configuration Manager 환경으로 Azure IaaS에 호스트되는 클라이언트를 관리하는 방법은 Azure 데이터 센터와 사용자 인프라 사이의 연결에 따라 달라집니다. 이 연결은 디자인 변경에 영향을 줍니다. 사용자는 Configuration Manager 인프라 및 그러한 필수 변경 사항을 지원하기 위해 관련된 비용을 마련해야 할 수도 있습니다. 계속하기 전에 평가해야 하는 계획 고려 사항에 대해 알아보려면 [Azure에서 Configuration Manager - 질문과 대답](/sccm/core/understand/configuration-manager-on-azure#networking)을 검토하세요.

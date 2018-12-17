@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c43497a69b3188b4bc38e91b6ff9b1cc8b6bd21a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e81b87a6cbaddf61492fa1fc41e66950eb7ce1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624151"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191634"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
 
@@ -31,7 +31,7 @@ Microsoft는 환경을 안전하게 유지하기 위해 최선을 다하고 있�
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>위험 플래그가 지정된 사용자 보고서에 액세스
 
-Azure Portal에서 [위험에 노출된 사용자 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk)를 통해 위험 플래그가 지정된 사용자를 검토할 수 있습니다. Azure AD가 없으면 [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD)에서 무료로 등록할 수 있습니다. 
+Azure Portal에서 [위험에 노출된 사용자 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers)를 통해 위험 플래그가 지정된 사용자를 검토할 수 있습니다. Azure AD가 없으면 [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD)에서 무료로 등록할 수 있습니다. 
 
 위험 플래그가 지정된 사용자 보고서에서 각 사용자에 대해 다음과 같은 조치를 취할 수 있습니다.
 
@@ -58,9 +58,9 @@ Office 365 관리 센터에서 **위험 플래그가 지정된 사용자** 보�
 
 다음 작업을 수행하면 영향을 받는 계정을 수정하고 환경을 보호할 수 있습니다.
 
-1.  다단계 인증 및 셀프 서비스 암호 재설정에 대한 [올바른 정보를 확인](http://aka.ms/MFAValid)합니다. 
-2.  모든 사용자에 대해 [다단계 인증을 사용하도록 설정](http://aka.ms/MFAuth)합니다. 
-3.  영향을 받는 모든 계정에 대해 이 [수정 스크립트](http://aka.ms/remediate)를 사용하여 다음 단계를 자동으로 수행합니다. 
+1.  다단계 인증 및 셀프 서비스 암호 재설정에 대한 [올바른 정보를 확인](https://aka.ms/MFAValid)합니다. 
+2.  모든 사용자에 대해 [다단계 인증을 사용하도록 설정](https://aka.ms/MFAuth)합니다. 
+3.  영향을 받는 모든 계정에 대해 이 [수정 스크립트](https://aka.ms/remediate)를 사용하여 다음 단계를 자동으로 수행합니다. 
 
     a. 암호를 다시 설정하여 계정을 보호하고 활성 세션을 종료합니다.
 
@@ -84,10 +84,10 @@ Office 365 관리 센터에서 **위험 플래그가 지정된 사용자** 보�
 
 또한 다음을 수행해야 합니다.
 
-- [비정상적인 활동 해결에 대한 이 지침](http://aka.ms/fixaccount)을 살펴보고 구현합니다. 
-- 테넌트의 활동을 분석할 수 있도록 [감사 파이프라인을 사용하도록 설정](http://aka.ms/improvesecurity)합니다. 설정이 완료되면 감사 스토리지에 활동 로그가 채워지기 시작합니다. 이 시점에서 [보안 및 준수 센터의 검색 및 조사 리소스](http://aka.ms/sccsearch)를 활용할 수도 있습니다. 
-- [이 스크립트](http://aka.ms/mailboxaudit1)를 사용하여 모든 계정에 대해 사서함 감사를 사용하도록 설정합니다. 
-- 모든 사서함에 대한 대리자 권한 및 메일 전달 규칙을 검토합니다. 이 [PowerShell 스크립트](http://aka.ms/delegateforwardrules)를 사용하여 이 작업을 수행할 수 있습니다. 
+- [비정상적인 활동 해결에 대한 이 지침](https://aka.ms/fixaccount)을 살펴보고 구현합니다. 
+- 테넌트의 활동을 분석할 수 있도록 [감사 파이프라인을 사용하도록 설정](https://aka.ms/improvesecurity)합니다. 설정이 완료되면 감사 스토리지에 활동 로그가 채워지기 시작합니다. 이 시점에서 [보안 및 준수 센터의 검색 및 조사 리소스](https://aka.ms/sccsearch)를 활용할 수도 있습니다. 
+- [이 스크립트](https://aka.ms/mailboxaudit1)를 사용하여 모든 계정에 대해 사서함 감사를 사용하도록 설정합니다. 
+- 모든 사서함에 대한 대리자 권한 및 메일 전달 규칙을 검토합니다. 이 [PowerShell 스크립트](https://aka.ms/delegateforwardrules)를 사용하여 이 작업을 수행할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 07/18/2018
-ms.openlocfilehash: 686db4dc15eb42abead3eef6798ed2b83e248811
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.date: 12/06/2018
+ms.openlocfilehash: 451316b32bcda43d62bbabf0c4f73d239698c85b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136454"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078725"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성 방법
 
@@ -42,9 +42,9 @@ InnoDB 버퍼 풀 및 최대 연결은 구성할 수 없으며 [가격 책정 �
 
 |**가격 책정 계층**| **계산 세대**|**vCore**|**InnoDB 버퍼 풀(MB)**| **최대 연결**|
 |---|---|---|---|--|
-|Basic| 4세대| 1| 1024| 50|
+|Basic| 4세대| 1| 960| 50|
 |Basic| 4세대| 2| 2560| 100|
-|Basic| 5세대| 1| 1024| 50|
+|Basic| 5세대| 1| 960| 50|
 |Basic| 5세대| 2| 2560| 100|
 |범용| 4세대| 2| 3584| 300|
 |범용| 4세대| 4| 7680| 625|
@@ -56,10 +56,12 @@ InnoDB 버퍼 풀 및 최대 연결은 구성할 수 없으며 [가격 책정 �
 |범용| 5세대| 8| 15360| 1250|
 |범용| 5세대| 16| 31232| 2500|
 |범용| 5세대| 32| 62976| 5,000|
+|범용| 5세대| 64| 125952| 10000|
 |메모리 최적화| 5세대| 2| 7168| 600|
 |메모리 최적화| 5세대| 4| 15360| 1250|
 |메모리 최적화| 5세대| 8| 30720| 2500|
 |메모리 최적화| 5세대| 16| 62464| 5,000|
+|메모리 최적화| 5세대| 32| 125952| 10000|
 
 이러한 추가 서버 매개 변수는 시스템에서 구성할 수 없습니다.
 

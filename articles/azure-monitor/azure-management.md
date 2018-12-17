@@ -6,18 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 30898be58db228484bcd85e8896da10d0bfc29dd
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277463"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965108"
 ---
 # <a name="azure-management---monitoring"></a>Azure Government - 모니터링
 
@@ -38,7 +37,7 @@ Azure의 모니터링은 Azure 관리의 측면 중 하나입니다.  이 아티
 모니터링은 비즈니스 응용 프로그램 및 종속 리소스의 성능, 상태 및 가용성을 결정하기 위해 데이터를 수집 및 분석하는 작업입니다. 효과적인 모니터링 전략은 응용 프로그램의 다양한 구성 요소에 대한 자세한 작동을 이해하고, 문제가 심각해지기 전에 해결할 수 있도록 중대한 문제를 사전에 알림으로써 작동 시간을 늘리는 데 도움을 줍니다. Azure의 모니터링은 주로 모니터링 데이터를 저장하기 위한 공용 저장소, 사용자 응용 프로그램을 지원하는 다양한 계층의 데이터를 수집하기 위한 여러 데이터 원본 및 수집된 데이터를 분석하고 대응하기 위한 기능을 제공하는 [Azure Monitor](../azure-monitor/overview.md)에 의해 제공됩니다.
 
 ## <a name="configure"></a>구성
-구성은 응용 프로그램 및 리소스의 초기 배포 및 구성 그리고 패치 및 업데이트를 통한 지속적인 유지 관리를 참조합니다.  정책 및 스크립트를 통해 이러한 태스크의 Automation을 사용하면 중복을 제거하고 시간과 노력을 최소화하고 정확성과 효율성을 증가할 수 있습니다.  [Azure Automation](..\automation\automation-intro.md)에서는 구성 작업을 자동화하는 일련의 서비스를 제공합니다.  프로세스 자동화를 위한 Runbook 외에도 구성과 업데이트 관리를 제공해 정책을 통해 구성을 관리하고 업데이트를 식별하고 배포하는 데 도움이 됩니다.
+구성은 응용 프로그램 및 리소스의 초기 배포 및 구성 그리고 패치 및 업데이트를 통한 지속적인 유지 관리를 참조합니다.  정책 및 스크립트를 통해 이러한 태스크의 Automation을 사용하면 중복을 제거하고 시간과 노력을 최소화하고 정확성과 효율성을 증가할 수 있습니다.  [Azure Automation](../automation/automation-intro.md)에서는 구성 작업을 자동화하는 일련의 서비스를 제공합니다.  프로세스 자동화를 위한 Runbook 외에도 구성과 업데이트 관리를 제공해 정책을 통해 구성을 관리하고 업데이트를 식별하고 배포하는 데 도움이 됩니다.
 
 ## <a name="govern"></a>거버넌스
 거버넌스는 Azure에서 응용 프로그램 및 리소스에 대한 제어를 유지 관리하는 프로세스와 메커니즘을 제공합니다.  거버넌스에는 이니셔티브 계획과 전략적 우선 순위 설정이 필요합니다.  Azure에서 거버넌스는 주로 두 서비스를 통해 구현됩니다.  [Azure Policy](../governance/policy/overview.md)는 리소스에 대해 다양한 규칙과 작업을 적용하는 정책 정의를 만들고 할당하고 관리할 수 있어 이러한 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. [Cloudyn에서 개발한 Azure Cost Management](../cost-management/overview.md)를 사용하면 Azure 리소스와 AWS 및 Google을 포함한 다른 클라우드 공급자에 대한 클라우드 사용량 및 비용을 추적할 수 있습니다.

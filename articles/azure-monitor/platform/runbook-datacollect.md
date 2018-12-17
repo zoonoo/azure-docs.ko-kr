@@ -10,19 +10,18 @@ ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: monitoring
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 87ceb682f35626c5bf468afd83a2f4a35901ef2b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2ecb50bdf44b93e8620d6d98a98fc735da6e87c3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632350"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186721"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Automation Runbook을 사용하여 Log Analytics에서 데이터 수집
-에이전트의 [데이터 원본](../../azure-monitor/platform/agent-data-sources.md)을 비롯한 다양한 원본에서 Log Analytics으로 대량의 데이터를 수집할 수 있고 [Azure에서 수집된 데이터](../../log-analytics/log-analytics-azure-storage.md)도 가져올 수 있습니다.  이러한 표준 원본을 통해 액세스할 수 없는 데이터를 수집해야 하는 경우도 있습니다.  이러한 경우 [HTTP 데이터 수집기 API](../../log-analytics/log-analytics-data-collector-api.md)를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 쓸 수 있습니다.  이 데이터 수집을 수행하는 일반적인 방법은 Azure Automation에서 Runbook을 사용하는 것입니다.   
+에이전트의 [데이터 원본](../../azure-monitor/platform/agent-data-sources.md)을 비롯한 다양한 원본에서 Log Analytics으로 대량의 데이터를 수집할 수 있고 [Azure에서 수집된 데이터](../../azure-monitor/platform/collect-azure-metrics-logs.md)도 가져올 수 있습니다.  이러한 표준 원본을 통해 액세스할 수 없는 데이터를 수집해야 하는 경우도 있습니다.  이러한 경우 [HTTP 데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md)를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 쓸 수 있습니다.  이 데이터 수집을 수행하는 일반적인 방법은 Azure Automation에서 Runbook을 사용하는 것입니다.   
 
 이 자습서는 Azure Automation에서 Runbook을 만들고 Log Analytics에 데이터를 쓰도록 예약하는 프로세스를 안내합니다.
 
@@ -30,7 +29,7 @@ ms.locfileid: "52632350"
 ## <a name="prerequisites"></a>필수 조건
 이 시나리오를 수행하려면 다음 리소스가 Azure 구독에 구성되어야 합니다.  둘 다 무료 계정일 수 있습니다.
 
-- [Log Analytics 작업 영역](../../log-analytics/log-analytics-quick-create-workspace.md)
+- [Log Analytics 작업 영역](../../azure-monitor/learn/quick-create-workspace.md)
 - [Azure Automation 계정](../..//automation/automation-quickstart-create-account.md)
 
 ## <a name="overview-of-scenario"></a>시나리오의 개요
@@ -41,7 +40,7 @@ ms.locfileid: "52632350"
 
 
 ## <a name="1-install-data-collector-api-module"></a>1. 데이터 수집기 API 모듈 설치
-모든 [HTTP 데이터 수집기 API의 요청](../../log-analytics/log-analytics-data-collector-api.md#create-a-request)은 서식을 적절히 지정해야 하며 권한 부여 헤더를 포함해야 합니다.  Runbook에서 이 작업을 수행할 수 있지만 이 프로세스를 간소화하는 모듈을 사용하여 필요한 코드의 양을 줄일 수 있습니다.  사용할 수 있는 모듈 하나는 PowerShell 갤러리에 있는 [OMSIngestionAPI 모듈](https://www.powershellgallery.com/packages/OMSIngestionAPI)입니다.
+모든 [HTTP 데이터 수집기 API의 요청](../../azure-monitor/platform/data-collector-api.md#create-a-request)은 서식을 적절히 지정해야 하며 권한 부여 헤더를 포함해야 합니다.  Runbook에서 이 작업을 수행할 수 있지만 이 프로세스를 간소화하는 모듈을 사용하여 필요한 코드의 양을 줄일 수 있습니다.  사용할 수 있는 모듈 하나는 PowerShell 갤러리에 있는 [OMSIngestionAPI 모듈](https://www.powershellgallery.com/packages/OMSIngestionAPI)입니다.
 
 Runbook에서 [모듈](../../automation/automation-integration-modules.md)을 사용하려면 Automation 계정에 설치되어야 합니다.  그러면 같은 계정에 있는 모든 Runbook이 해당 모듈의 함수를 사용할 수 있습니다.  Automation 계정에서 **자산** > **모듈** > **모듈 추가**를 선택하여 새 모듈을 설치할 수 있습니다.  
 
@@ -145,7 +144,7 @@ Azure Automation에는 Runbook을 게시하기 전에 [runbook을 테스트](../
     ![POST 출력](media/runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5. Log Analytics의 레코드 확인
-Runbook 테스트가 완료되고 출력이 성공적으로 수신되었음을 확인한 후에는 [Log Analytics의 로그 검색](../../log-analytics/log-analytics-queries.md)을 사용하여 레코드를 생성되었는지 확인할 수 있습니다.
+Runbook 테스트가 완료되고 출력이 성공적으로 수신되었음을 확인한 후에는 [Log Analytics의 로그 검색](../../azure-monitor/log-query/log-query-overview.md)을 사용하여 레코드를 생성되었는지 확인할 수 있습니다.
 
 ![로그 출력](media/runbook-datacollect/log-output.png)
 
@@ -216,4 +215,4 @@ Runbook이 시작될 때마다 [작업이 만들어지고](../../automation/auto
 - Runbook을 [관리 솔루션](../../azure-monitor/insights/solutions-creating.md)으로 패키지하여 고객에게 배포합니다.
 - [Log Analytics](https://docs.microsoft.com/azure/log-analytics/)에 대해 자세히 알아보기
 - [Azure Automation](https://docs.microsoft.com/azure/automation/)에 대해 자세히 알아보기
-- [HTTP 데이터 수집기 API](../../log-analytics/log-analytics-data-collector-api.md)에 대해 자세히 알아보기
+- [HTTP 데이터 수집기 API](../../azure-monitor/platform/data-collector-api.md)에 대해 자세히 알아보기

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9f237d9eed5b8500f0f80b8b73d638f374bf5ca9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165291"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999523"
 ---
 # <a name="working-with-azure-cosmos-account"></a>Azure Cosmos 계정 작업
 
@@ -38,7 +38,7 @@ Azure 구독을 사용하면 현재 Azure Cosmos 계정을 최대 100개까지 �
 * [글로벌 분포](distribute-data-globally.md)
 * [일관성 수준](consistency-levels.md)
 * [Azure Cosmos 컨테이너와 항목으로 작업](databases-containers-items.md)
-* [Azure Cosmos 계정에 대한 VNET 서비스 엔드포인트](firewall-support.md)
-* [Azure Cosmos 계정에 대한 IP 방화벽](vnet-service-endpoint.md)
+* [Azure Cosmos 계정에 대한 VNET 서비스 엔드포인트](vnet-service-endpoint.md)
+* [Azure Cosmos 계정에 대한 IP 방화벽](firewall-support.md)
 * [Azure Cosmos 계정에서 Azure 지역을 추가하고 제거하는 방법](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 73e95f6259c916b06fe61cb47fd36beac4c7a427
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 212e45a7b593a9607aa19a10efdf2aaf61c78d17
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572451"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344590"
 ---
 DNS(Domain Name System)는 인터넷에서 대상을 찾는 데 사용됩니다. 예를 들어 브라우저에서 주소를 입력하거나 웹 페이지의 링크를 클릭하면 브라우저에서 DNS를 사용하여 도메인을 IP 주소로 변환합니다. IP 주소는 일종의 거리 주소와 비슷하지만 사람에게 그다지 친화적이지는 않습니다. 예를 들어 192.168.1.88 또는 2001:0:4137:1f67:24a2:3888:9cce:fea3과 같은 IP 주소보다는 **contoso.com** 과 같은 DNS 이름을 기억하기는 것이 훨씬 쉽습니다.
 
@@ -32,7 +32,7 @@ CNAME 레코드는 **mail.contoso.com** 또는 **www.contoso.com**과 같은 *�
 Traffic Manager에 트래픽이 도착하면 Traffic Manager는 구성된 부하 분산 방법을 사용하여 트래픽을 웹 사이트로 라우팅합니다. 이러한 과정이 웹 사이트의 방문자에게는 전혀 노출되지 않습니다. 방문자의 브라우저에는 사용자 지정 도메인 이름만 표시됩니다.
 
 > [!NOTE]
-> **www.contoso.com**과 같은 CNAME 레코드를 사용하고 **contoso.com**과 같은 비루트 이름을 사용하면 일부 도메인 등록 기관에서 하위 도메인만 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a> 또는 <a href="http://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a> 문서를 참조하세요.
+> **www.contoso.com**과 같은 CNAME 레코드를 사용하고 **contoso.com**과 같은 비루트 이름을 사용하면 일부 도메인 등록 기관에서 하위 도메인만 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="https://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a> 또는 <a href="https://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a> 문서를 참조하세요.
 > 
 > 
 

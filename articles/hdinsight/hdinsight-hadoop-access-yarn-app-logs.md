@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62499c35fd71d83f80a60e0511e6a27ce0109275
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: da105be19f7d546e530298f87974fe7f3f78989f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495858"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012218"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
 이 문서에서는 Azure HDInsight의 Windows 기반 Apache Hadoop 클러스터에서 완료된 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 애플리케이션에 대한 로그에 액세스하는 방법에 대해 설명합니다.
@@ -76,7 +76,7 @@ YARN ResourceManager UI 클러스터 헤드 노드에서 실행되며 Azure 포�
 4. **HDInsight 쿼리 콘솔**에서 **Yarn UI**를 클릭합니다.
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
-[log-aggregation]:http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
+[log-aggregation]:https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
-[YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+[YARN-concepts]:https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/

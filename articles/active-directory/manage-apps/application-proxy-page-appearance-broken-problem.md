@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2ebcf225fb0959b5c72c3cea50f2f1386beb1457
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6354b4b0224effb1eef063779dba736cb6263286
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355457"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141631"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>응용 프로그램 페이지가 응용 프로그램 프록시 응용 프로그램에 올바르게 표시되지 않음
 
@@ -39,4 +39,4 @@ ms.locfileid: "44355457"
 이렇게 하려면 [사용자 지정 도메인](application-proxy-configure-custom-domain.md) 솔루션을 사용하는 것이 좋습니다. 그러나 이 솔루션에서 사용자는 도메인의 인증서를 소유하고 응용 프로그램은 FQDN(정규화된 도메인 이름)을 사용해야 합니다. 다른 옵션은 [끊어진 링크 문제 해결 설명서](application-proxy-page-links-broken-problem.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-publish-azure-portal.md)
+[Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시](application-proxy-add-on-premises-application.md)

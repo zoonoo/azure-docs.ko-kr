@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: dc27b6c088388a76546e5be1cd13c1bc404cd1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c5437833bdf4e670c298c1be0a575bd52df49cd2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984673"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994890"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 외부 리디렉션을 포함하는 응용 프로그램 게이트웨이 만들기
 
@@ -101,7 +101,7 @@ az network application-gateway redirect-config create \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --type Temporary \
-  --target-url "http://bing.com"
+  --target-url "https://bing.com"
 ```
 
 ### <a name="add-a-listener-and-routing-rule"></a>수신기 및 라우팅 규칙 추가

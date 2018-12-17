@@ -2,21 +2,20 @@
 title: Functions 1.x에 대한 Azure Cosmos DB 바인딩
 description: Azure Functions에서 Azure Cosmos DB 트리거 및 바인딩을 사용하는 방법을 파악합니다.
 services: functions
-documentationcenter: na
 author: craigshoemaker
+ms.author: cshoe
 manager: jeconnoc
 keywords: Azure Functions, 함수, 이벤트 처리, 동적 계산, 서버를 사용하지 않는 아키텍처
 ms.service: azure-functions; cosmos-db
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: cshoe
-ms.openlocfilehash: 3d4c9e974f92f26b93900318c01dc8a659d8edbe
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 2a501129720447462d1e6e961597b51fa683dc1e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276213"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136208"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Functions 1.x의 Azure Cosmos DB 바인딩
 
@@ -24,7 +23,7 @@ ms.locfileid: "52276213"
 > * [버전 1](functions-bindings-cosmosdb.md)
 > * [버전 2](functions-bindings-cosmosdb-v2.md)
 
-이 문서에서는 Azure Functions에서 [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) 바인딩을 사용하는 방법을 설명합니다. Azure Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
+이 문서에서는 Azure Functions에서 [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) 바인딩을 사용하는 방법을 설명합니다. Azure Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
 
 > [!NOTE]
 > 이 문서는 Azure Functions 1.x에 대한 것입니다.  Functions 2.x에서 이러한 바인딩을 사용하는 방법에 대한 내용은 [Azure Functions 2.x에 대한 Azure Cosmos DB 바인딩](functions-bindings-cosmosdb-v2.md)을 참조하세요.
@@ -38,7 +37,7 @@ ms.locfileid: "52276213"
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Functions 버전 1.x에 대한 Azure Cosmos DB 바인딩은 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet 패키지 버전 1.x에서 제공됩니다. 이 바인딩에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub 리포지토리에 있습니다.
+Functions 버전 1.x에 대한 Azure Cosmos DB 바인딩은 [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet 패키지 버전 1.x에서 제공됩니다. 이 바인딩에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -895,7 +894,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
-* [큐 트리거, JSON에서 ID 조회](#queue-trigger-look-up-id-from-string-javascript)
+* [큐 트리거, JSON에서 ID 조회](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP 트리거, 쿼리 문자열에서 ID 조회](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP 트리거, 경로 데이터에서 ID 조회](#http-trigger-look-up-id-from-route-data-javascript)
 * [큐 트리거, 여러 문서 가져오기, SqlQuery 사용](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1177,7 +1176,7 @@ F# 코드는 다음과 같습니다.
 
 C# 및 F# 함수에서 함수가 성공적으로 종료되면 명명된 입력 매개 변수를 통해 입력 문서에 변경한 내용이 자동으로 유지됩니다. 
 
-JavaScript 함수에서는 함수 종료 시 자동으로 업데이트되지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. [JavaScript 예제](#input---javascript-example)를 참조하세요.
+JavaScript 함수에서는 함수 종료 시 자동으로 업데이트되지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. [JavaScript 예제](#input---javascript-examples)를 참조하세요.
 
 ## <a name="output"></a>출력
 
@@ -1571,7 +1570,7 @@ F# 코드는 다음과 같습니다.
     }
 ```
 
-전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
+전체 예제는 [출력 - C# 예제](#output---c-examples)를 참조하세요.
 
 ## <a name="output---configuration"></a>출력 - 구성
 
@@ -1606,7 +1605,7 @@ F# 코드는 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Cosmos DB로 서버를 사용하지 않는 데이터베이스 컴퓨팅에 대해 자세히 알아보기](..\cosmos-db\serverless-computing-database.md)
+* [Cosmos DB로 서버를 사용하지 않는 데이터베이스 컴퓨팅에 대해 자세히 알아보기](../cosmos-db/serverless-computing-database.md)
 * [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
 
 <!---
