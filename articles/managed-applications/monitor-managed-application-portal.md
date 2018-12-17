@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea9f55d7c6002aaba2fd4fdc2a76b93f98e1d6b0
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 754d2a246a86585e9f05f8a070c51e158f73affd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807805"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342598"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>관리되는 응용 프로그램의 배포된 인스턴스 모니터링
 
@@ -48,7 +48,7 @@ ms.locfileid: "48807805"
 
    ![경고 만들기](./media/monitor-managed-application-portal/create-new-alert.png)
 
-관리되는 응용 프로그램 인스턴스 또는 관리되는 응용 프로그램의 리소스에 대해 경고를 만들 수 있습니다. 경고 만들기에 대한 자세한 내용은 [Microsoft Azure의 경고 개요](../monitoring-and-diagnostics/monitoring-overview-alerts.md)를 참조하세요.
+관리되는 응용 프로그램 인스턴스 또는 관리되는 응용 프로그램의 리소스에 대해 경고를 만들 수 있습니다. 경고 만들기에 대한 자세한 내용은 [Microsoft Azure의 경고 개요](../azure-monitor/platform/alerts-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

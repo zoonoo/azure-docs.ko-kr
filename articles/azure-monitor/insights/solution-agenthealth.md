@@ -10,22 +10,21 @@ ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 5823e6e3bf2614bf834a9ab64c3403829d58a779
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714438"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335963"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Azure의 에이전트 상태 솔루션
 Azure의 에이전트 상태 솔루션은 응답이 없고 운영 데이터를 제출하는 Log Analytic 작업 영역에 직접 보고하는 모든 에이전트 또는 Log Analytic에 연결된 System Center Operations Manager 관리 그룹을 이해하는 데 도움이 됩니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
 
 ## <a name="prerequisites"></a>필수 조건
-이 솔루션을 배포하기 전에 [Windows 에이전트](../../log-analytics/log-analytics-windows-agent.md)가 Log Analytic 작업 영역 또는 작업 영역에 통합된 [Operations Manager 관리 그룹](../../log-analytics/log-analytics-om-agents.md)에 보고하도록 지원하는지 확인합니다.    
+이 솔루션을 배포하기 전에 [Windows 에이전트](../../log-analytics/log-analytics-windows-agent.md)가 Log Analytic 작업 영역 또는 작업 영역에 통합된 [Operations Manager 관리 그룹](../../azure-monitor/platform/om-agents.md)에 보고하도록 지원하는지 확인합니다.    
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 이 솔루션은 작업 영역 및 직접 연결된 에이전트 또는 Operations Manager와 연결된 관리 그룹에 추가되는 다음 리소스로 구성됩니다.
@@ -36,7 +35,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 * Microsoft System Center Advisor 상태 평가 직접 채널 인텔리전스 팩(Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor 상태 평가 서버 채널 인텔리전스 팩(Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../../log-analytics/log-analytics-om-agents.md)을 참조하세요.
+솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../../azure-monitor/platform/om-agents.md)을 참조하세요.
 
 ## <a name="configuration"></a>구성
 [솔루션 추가](solutions.md)에 설명된 프로세스를 사용하여 에이전트 상태 솔루션을 Log Analytics 작업 영역에 추가합니다. 추가 구성은 필요 없습니다.
@@ -118,4 +117,4 @@ Operations Manager 관리 서버에 보고하는 각 에이전트는 두 개의 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) 에 관하여 알아보세요. 
+* Log Analytics에서 경고 생성에 대한 자세한 내용은 [Log Analytics의 경고](../../azure-monitor/platform/alerts-overview.md) 에 관하여 알아보세요. 

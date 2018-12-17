@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f340b9843ed5763a20d2035e3add86123a1298e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: abc551f796cb2d8921b6b1f67fb6a6714655ffde
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971147"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134678"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 가상 머신(클래식)에 대한 개인 IP 주소 구성
 
@@ -75,7 +75,7 @@ ms.locfileid: "46971147"
    * **TestService**. VM이 만들어지는 클라우드 서비스의 이름입니다.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. VM을 만드는 데 사용한 이미지입니다.
    * **adminuser**. Windows VM에 대한 로컬 관리자입니다.
-   * **AdminP@ssw0rd**. Windows VM에 대한 로컬 관리자 암호입니다.
+   * <strong>AdminP@ssw0rd</strong>. Windows VM에 대한 로컬 관리자 암호입니다.
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>VM의 정적 개인 IP 주소 정보를 검색하는 방법
 위의 스크립트로 만든 VM에 대한 정적 개인 IP 주소 정보를 보려면 다음 Azure CLI 명령을 실행하고 *Network StaticIP*에 대한 값을 확인합니다.

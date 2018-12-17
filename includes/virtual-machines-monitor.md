@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 109f4621af3e3ca617dfe521575d9352f22c5917
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227285"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399930"
 ---
-진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/azure-monitor/overview.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/application-insights/app-insights-overview.md) 및 [Log Analytics](../articles/log-analytics/log-analytics-queries.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
+진단 및 로그 데이터를 수집, 보기 및 분석하여 VM을 모니터링하는 데 많은 기회를 활용할 수 있습니다. VM의 간단한 [모니터링](../articles/azure-monitor/overview.md)을 수행하려면 Azure Portal에서 VM에 대한 개요 화면을 사용할 수 있습니다. [확장](../articles/virtual-machines/windows/extensions-features.md)을 사용하여 추가 메트릭 데이터를 수집하도록 VM에서 진단을 구성할 수 있습니다. [Application Insights](../articles/application-insights/app-insights-overview.md) 및 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)와 같은 더 많은 고급 모니터링 옵션을 사용할 수도 있습니다.
 
 ## <a name="diagnostics-and-metrics"></a>진단 및 메트릭 
 
@@ -31,7 +31,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(응용 프로�
 
 ## <a name="alerts"></a>경고
 
-특정 성능 메트릭을 기반으로 하는 [경고](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md)를 만들 수 있습니다. 경고를 받을 수 있는 경우의 예는 평균 CPU 사용량이 특정 임계값을 초과하거나 사용 가능한 디스크 공간이 일정량 이하로 떨어지는 경우를 포함합니다. [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) 또는 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md)를 사용하여 [Azure Portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)에서 경고를 구성할 수 있습니다.
+특정 성능 메트릭을 기반으로 하는 [경고](../articles/azure-monitor/platform/alerts-overview.md)를 만들 수 있습니다. 경고를 받을 수 있는 경우의 예는 평균 CPU 사용량이 특정 임계값을 초과하거나 사용 가능한 디스크 공간이 일정량 이하로 떨어지는 경우를 포함합니다. [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) 또는 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md)를 사용하여 [Azure Portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)에서 경고를 구성할 수 있습니다.
 
 ## <a name="azure-service-health"></a>Azure Service Health
 
@@ -50,7 +50,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(응용 프로�
 - [활동 로그 이벤트에서 경고](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)를 만듭니다.
 - 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)에서 수집하도록 [Event Hub로 스트리밍합니다](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
 - [PowerBI 콘텐츠 팩](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)을 사용하여 PowerBI에서 분석합니다.
-- 보관 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md). 로그 프로필을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+- 보관 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/azure-monitor/platform/archive-activity-log.md). 로그 프로필을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 
 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor) 또는 [REST API 모니터](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 활동 로그 데이터에 액세스할 수도 있습니다.
 
@@ -58,7 +58,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(응용 프로�
 
 진단 로그를 통해 수행할 수 있는 몇 가지 작업은 다음과 같습니다.
 
-- 감사 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
+- 감사 또는 수동 검사를 위해 [저장소 계정에 저장합니다](../articles/azure-monitor/platform/archive-diagnostic-logs.md). 리소스 진단 설정을 사용하여 보존 기간(일)을 지정할 수 있습니다.
 - 타사 서비스 또는 사용자 지정 분석 솔루션(예: PowerBI)으로 수집을 위해 [Event Hubs로 스트림](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)합니다.
 - [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md)를 사용하여 분석합니다.
 

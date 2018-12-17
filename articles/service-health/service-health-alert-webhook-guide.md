@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 8535caf482b10912e6f7bc6df445756094d7603f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5d32c3539446482f2dcdaeb954bb704dc9b78c58
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30261415"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274927"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>웹후크를 사용하여 기존 문제 관리 시스템에 대한 상태 알림 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "30261415"
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>서비스 상태 웹후크 페이로드를 사용하여 사용자 지정 알림 구성
 고유의 사용자 지정 웹후크 통합을 설정하려면 서비스 상태 알림 중 전송되는 JSON 페이로드를 구문 분석해야 합니다.
 
-`ServiceHealth` 웹후크 페이로드에 대한 [예제를 보려면 여기](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)를 확인합니다.
+`ServiceHealth` 웹후크 페이로드에 대한 [예제를 보려면 여기](../azure-monitor/platform/activity-log-alerts-webhook.md)를 확인합니다.
 
 `context.eventSource == "ServiceHealth"`를 보면 서비스 상태 경고인지 검색할 수 있습니다. 여기에서 수집할 가장 연관된 속성은 다음과 같습니다.
  * `data.context.activityLog.status`
@@ -102,7 +102,7 @@ Australia East 및 Southeast에서 "Alerts & Metrics"에 문제가 있고 Austra
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 웹후크 통합 테스트
-1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대한 웹후크](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)에서 예제 서비스 상태 웹후크 페이로드를 찾을 수 있습니다.
+1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대한 웹후크](../azure-monitor/platform/activity-log-alerts-webhook.md)에서 예제 서비스 상태 웹후크 페이로드를 찾을 수 있습니다.
 
 2. 다음과 같이 HTTP POST 요청을 만듭니다.
 
@@ -118,6 +118,6 @@ Australia East 및 Southeast에서 "Alerts & Metrics"에 문제가 있고 Austra
 4. [PagerDuty](https://www.pagerduty.com/)로 이동하여 통합이 성공적으로 설정되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [활동 로그 경고 웹후크 스키마](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)를 검토하세요. 
+- [활동 로그 경고 웹후크 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)를 검토하세요. 
 - [서비스 상태 알림](../monitoring-and-diagnostics/monitoring-service-notifications.md)에 대해 자세히 알아보세요.
-- [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)에 대해 자세히 알아보세요.
+- [작업 그룹](../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보세요.

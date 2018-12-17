@@ -14,15 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2d75a432e84c3490186da6f8342562fddcaa32e1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c0109839144775e9064db4f8396f19688fcc13e8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807070"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308637"
 ---
-<a name="lcs-subscription"></a>LCS 구독
-================
+# <a name="lcs-subscription"></a>LCS 구독
 
 이 자습서에서는 구독을 만드는 방법을 알아봅니다. 이 구독에서는 환경을 배포할 수 있는 Microsoft Online 테스트 테넌트 및 Microsoft Dynamics Lifecycle Services 프로젝트를 제공합니다. 또한 Microsoft Online 테넌트에서 추가 사용자도 설정하며, 다음 서비스 관리 기능을 사용해 봅니다. 이 문서의 작업을 통해 익힐 수 있는 기술은 다음과 같습니다.
 
@@ -32,8 +31,7 @@ ms.locfileid: "48807070"
 - Microsoft Azure Active Directory 및 클라이언트에 사용자 더 추가
 - 구독 전자 메일에서 리소스 확인
 
-<a name="key-terms"></a>주요 용어
-=========
+## <a name="key-terms"></a>주요 용어
 
 **Microsoft Online Services 테넌트** - 조직의 모든 구독과 사용자가 포함된 그룹인 테넌트는 Microsoft Online Services 첫 번째 구독과 동시에 생성됩니다.
 

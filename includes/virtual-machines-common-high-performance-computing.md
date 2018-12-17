@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 8f43edfe468958bbc4a6fde14e8e03e5b4d4e0f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88aeaf1246583345d1d28218e8e91b3ecbcd166b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263897"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53430002"
 ---
 조직에는 대규모 컴퓨팅 요구 사항이 있습니다. 이러한 큰 계산 작업에는 엔지니어링 설계 및 분석, 재무 위험 계산, 이미지 렌더링, 복잡한 모델링, 몬테카를로 시뮬레이션 등이 포함됩니다. 
 
@@ -86,7 +86,6 @@ Azure에서 사용자 지정 또는 상용 HPC 응용 프로그램을 실행합�
 
 ### <a name="ai-and-deep-learning"></a>AI 및 심층 학습
 
-* 심층 학습 모델에 대한 [Batch AI](../articles/batch-ai/overview.md) 학습
 * [Microsoft Cognitive 도구 키트](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [심층 학습 VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [심층 학습용 Batch Shipyard 레시피](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -168,7 +167,6 @@ Azure 가상 머신, 가상 머신 확장 집합, Batch 및 관련 계산 서비
 
 ### <a name="ai-and-machine-learning"></a>AI 및 기계 학습
 * [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Batch AI](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>네트워킹

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5bb820d816115dccf470b6c32d080862495e8310
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6f1869b83f46f97d0c54eb874a8879521a43b1e2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434979"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387066"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 
@@ -35,7 +35,7 @@ Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | F
 Azure CLI의 경우 
 
 ```azurecli-interactive
-az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
+az resource list -g demogroup --query '[].{name:name, resourceType:type}' --output table
 ```
 
 리소스 종류는 `<resource-provider>/<resource-type-name>` 형식으로 반환됩니다. 따라서 `Microsoft.OperationalInsights/workspaces` 값의 경우 리소스 공급자는 **Microsoft.OperationalInsights**이고 리소스 종류 이름은 **workspaces**입니다.
@@ -89,14 +89,6 @@ az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
 | 리소스 종류 | 리소스 그룹 | 구독 |
 | ------------- | -------------- | ------------ |
 | batchaccounts | yes | yes |
-
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-| 리소스 종류 | 리소스 그룹 | 구독 |
-| ------------- | -------------- | ------------ |
-| clusters | 아니요 | 아니요 |
-| fileservers | 아니요 | 아니요 |
-| jobs | 아니요 | 아니요 |
-| workspaces | 아니요 | 아니요 |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | 리소스 종류 | 리소스 그룹 | 구독 |

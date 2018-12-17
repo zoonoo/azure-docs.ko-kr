@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 2f2da5b38ab39e3636ff0ac09ac2c5515e02b0c1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 034ae29b5fabae15aa2b6b96e7fefaef23c1c5a1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492338"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275230"
 ---
 # <a name="sfctl-store"></a>sfctl store
 클러스터 이미지 저장소에서 기본 파일 수준 작업을 수행합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "39492338"
 ## <a name="sfctl-store-delete"></a>sfctl store delete
 기존 이미지 저장소 콘텐츠를 삭제합니다.
 
-지정된 이미지 저장소 상대 경로 내에서 발견되는 기존 이미지 저장소 콘텐츠를 삭제합니다. 업로드된 응용 프로그램 패키지가 프로비저닝된 후에 해당 패키지를 삭제하는 데 사용할 수 있습니다.
+지정된 이미지 저장소 상대 경로 내에서 발견되는 기존 이미지 저장소 콘텐츠를 삭제합니다. 이 명령은 업로드된 응용 프로그램 패키지가 프로비저닝된 후에 이를 삭제하는 데 사용할 수 있습니다.
 
 ### <a name="arguments"></a>인수
 

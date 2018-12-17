@@ -5,9 +5,8 @@ keywords: AML, ALM, Azure ML, 응용 프로그램 수명 주기 관리, 버전 �
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 1be6577d-f2c7-425b-b6b9-d5038e52b395
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: e0255d43828b49e98494f8f8e9ee998c1af90685
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f331ebb85e1cf47dc1235138376704b08d217e82
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307256"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249756"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 응용 프로그램 수명 주기 관리
 Azure Machine Learning 스튜디오는 Machine Learning 실험을 개발하기 위한 도구로, Azure 클라우드 플랫폼에서 작동합니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양한 자산 버전 관리에서 자동화된 실행 및 배포에 이르는 표준 ALM(응용 프로그램 수명 주기 관리) 사례를 Azure Machine Learning 스튜디오에 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.
@@ -88,9 +87,9 @@ Azure Machine Learning 실험에서 두 종류의 웹 서비스를 배포할 수
 ## <a name="automate-experiment-execution-and-deployment"></a>실험 실행 및 배포 자동화
 ALM의 중요한 부분은 응용 프로그램의 실행 및 배포 프로세스를 자동화할 수 있다는 것입니다. 이 작업은 Azure Machine Learning에서 [PowerShell 모듈](https://aka.ms/amlps)을 사용하여 수행할 수 있습니다. [Azure Machine Learning Studio PowerShell 모듈](https://aka.ms/amlps)을 사용하여 표준 ALM 자동 실행/배포 프로세스에 관련된 종단 간 단계의 예는 다음과 같습니다. 각 단계는 해당 단계를 수행하는 데 사용할 수 있는 하나 이상의 PowerShell commandlet에 연결됩니다.
 
-1. [데이터 집합을 업로드](https://github.com/hning86/azuremlps#upload-amldataset)합니다.
+1. [데이터 세트를 업로드](https://github.com/hning86/azuremlps#upload-amldataset)합니다.
 2. [작업 영역](https://github.com/hning86/azuremlps#copy-amlexperiment) 또는 [갤러리](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery)에서 작업 영역에 학습 실험을 복사하거나 로컬 디스크에서 [내보낸](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 실험을 [가져옵니다](https://github.com/hning86/azuremlps#import-amlexperimentgraph).
-3. 학습 실험에서 [데이터 집합을 업데이트](https://github.com/hning86/azuremlps#update-amlexperimentuserasset)합니다.
+3. 학습 실험에서 [데이터 세트를 업데이트](https://github.com/hning86/azuremlps#update-amlexperimentuserasset)합니다.
 4. [학습 실험을 실행](https://github.com/hning86/azuremlps#start-amlexperiment)합니다.
 5. [학습된 모델을 승격](https://github.com/hning86/azuremlps#promote-amltrainedmodel)합니다.
 6. 작업 영역에서 [예측 실험을 복사](https://github.com/hning86/azuremlps#copy-amlexperiment)합니다.

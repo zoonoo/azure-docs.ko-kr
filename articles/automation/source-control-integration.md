@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023750"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342241"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
@@ -50,7 +50,7 @@ Automation 계정 내에서 **소스 제어(미리 보기)** 를 선택하고 **
 |자산  |설명  |
 |---------|---------|
 |소스 제어 이름     | 소스 제어의 친숙한 이름        |
-|소스 제어 형식     | 소스 제어 소스의 형식입니다. 사용 가능한 옵션은 다음과 같습니다.</br> Github</br>Azure DevOps(Git)</br> Azure DevOps(TFVC)        |
+|소스 제어 형식     | 소스 제어 소스의 형식입니다. 사용 가능한 옵션은 다음과 같습니다.</br> GitHub</br>Azure DevOps(Git)</br> Azure DevOps(TFVC)        |
 |리포지토리     | 리포지토리 또는 프로젝트의 이름입니다. 이 값은 소스 제어 리포지토리에서 끌어옵니다. 예: $/ContosoFinanceTFVCExample         |
 |Branch     | 소스 파일을 끌어올 분기입니다. 분기 대상 지정은 TFVC 소스 제어 형식에는 사용할 수 없습니다.          |
 |폴더 경로     | 동기화할 Runbook이 포함된 폴더입니다. 예: /Runbooks         |
@@ -62,7 +62,7 @@ Automation 계정 내에서 **소스 제어(미리 보기)** 를 선택하고 **
 
 ## <a name="syncing"></a>동기화 중
 
-소스 제어 통합을 구성할 때 자동 동기화를 구성하면 초기 동기화가 자동으로 시작됩니다. 자동 동기화가 설정되지 않은 경우 **소스 제어(미리 보기)** 페이지의 표에서 소스를 선택합니다. **동기화 시작**을 클릭하여 동기화 프로세스를 시작합니다.  
+소스 제어 통합을 구성할 때 자동 동기화를 구성하면 초기 동기화가 자동으로 시작됩니다. 자동 동기화가 설정되지 않은 경우 **소스 제어(미리 보기)** 페이지의 표에서 소스를 선택합니다. **동기화 시작**을 클릭하여 동기화 프로세스를 시작합니다.
 
 **동기화 작업** 탭을 클릭하여 현재 동기화 작업 또는 이전 작업의 상태를 볼 수 있습니다. **소스 제어** 드롭다운 목록에서 소스 제어를 선택합니다.
 

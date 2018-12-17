@@ -9,16 +9,15 @@ ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: a1244076efe1c920a23f29de9d25ab6845747fe4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 48232402ee091d6e41381f54cbfa3276cefc47ac
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245854"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682234"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Application Insights의 추가 원격 분석
 [ASP.NET 코드에 Application Insights를 추가](app-insights-asp-net.md)한 후 추가 원격 분석을 위해 수행할 수 있는 몇 가지 작업이 있습니다. 

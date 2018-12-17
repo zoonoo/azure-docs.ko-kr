@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615606"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408003"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Azure Storage를 사용하여 Batch AI 작업 입출력 저장
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 이 가이드에서는 작업을 실행하는 경우 입출력 파일을 저장하기 위해 Azure Storage를 사용하는 방법을 설명합니다. Azure Storage는 Batch AI에서 지원하는 여러 저장소 옵션 중 하나입니다. Batch AI는 클라우드에 저장된 파일에 대한 원활한 액세스를 허용하면서 Batch AI 작업 또는 클러스터 파일 시스템에 Azure Storage 시스템을 탑재하여 Azure Storage와 통합합니다. 
 

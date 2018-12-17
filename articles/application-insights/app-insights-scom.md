@@ -9,16 +9,15 @@ ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8880fbeaad85bc2615292820527c6a9e87000d66
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d7c3134c36707fcfa079968d19d93b73d7a5f5cc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246670"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724080"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>SCOM에 대해 Application Insights를 사용하여 응용 프로그램 성능 모니터링
 서버를 관리하는 데 SCOM(System Center Operations Manager)을 사용하는 경우 [Azure Application Insights](app-insights-asp-net.md)를 활용해 성능을 모니터링하고 성능 문제를 진단할 수 있습니다. Application Insights는 사용자 웹 응용 프로그램에 들어오는 요청과 나가는 REST 및 SQL 호출, 예외 및 로그 추적을 모니터링합니다. 메트릭 차트 및 스마트 경고뿐만 아니라 이 원격 분석을 통한 강력한 진단 검색 및 분석 쿼리가 포함된 대시보드를 제공합니다. 
