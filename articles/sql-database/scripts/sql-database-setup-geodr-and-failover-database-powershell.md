@@ -12,12 +12,12 @@ ms.date: 09/07/2018
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 3a9a3fc0413ebf0eb46487624dfc000df07f48d5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d102cde625865ea1db6ed09382161366d3994def
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877930"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961912"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>PowerShell을 사용하여 단일 Azure SQL Database에 대한 활성 지역 복제 구성
 
@@ -30,7 +30,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1?highlight=17-20 "Set up active geo-replication for single database")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-single-database.ps1?highlight=17-20 "Set up active geo-replication for single database")]
 
 ## <a name="clean-up-deployment"></a>배포 정리
 

@@ -12,16 +12,16 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496041"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993170"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>함수에 대한 OpenAPI 정의 만들기
 
-REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swagger](http://swagger.io/) 파일). 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다.
+REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swagger](https://swagger.io/) 파일). 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다.
 
 이 자습서에서는 풍차의 응급 복구가 비용 효율적인지 여부를 결정하는 함수를 만듭니다. 그런 다음 해당 함수가 다른 앱 및 서비스에서 호출될 수 있도록 함수 앱에 대한 OpenAPI 정의를 만듭니다.
 
@@ -123,7 +123,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
 
 ## <a name="generate-the-openapi-definition"></a>OpenAPI 정의 생성
 
-이제 OpenAPI 정의를 생성할 준비가 되었습니다. 이 정의는 API Apps, [PowerApps](functions-powerapps-scenario.md) 및 [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md)와 같은 기타 Microsoft 기술뿐만 아니라 [Postman](https://www.getpostman.com/docs/importing_swagger) 및 [많은 추가 패키지](http://swagger.io/tools/) 등의 타사 개발자 도구에서도 사용될 수 있습니다.
+이제 OpenAPI 정의를 생성할 준비가 되었습니다. 이 정의는 API Apps, [PowerApps](functions-powerapps-scenario.md) 및 [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md)와 같은 기타 Microsoft 기술뿐만 아니라 [Postman](https://www.getpostman.com/docs/importing_swagger) 및 [많은 추가 패키지](https://swagger.io/tools/) 등의 타사 개발자 도구에서도 사용될 수 있습니다.
 
 1. API(이 경우 POST)에서 지원하는 *동사*만 선택합니다. 이를 통해 생성된 API 정의가 더 분명해집니다.
 
@@ -141,7 +141,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
 
     ![API 정의 원본](media/functions-openapi-definition/api-definition-source.png)
 
-    이 단계에서는 함수 앱의 도메인에서 OpenAPI 파일을 호스팅하는 엔드포인트, [OpenAPI 편집기](http://editor.swagger.io)의 인라인 복사, API 정의 템플릿 생성기를 포함하여 함수 앱의 OpenAPI 옵션을 사용하도록 설정합니다.
+    이 단계에서는 함수 앱의 도메인에서 OpenAPI 파일을 호스팅하는 엔드포인트, [OpenAPI 편집기](https://editor.swagger.io)의 인라인 복사, API 정의 템플릿 생성기를 포함하여 함수 앱의 OpenAPI 옵션을 사용하도록 설정합니다.
 
 1. **API 정의 템플릿 생성** > **저장**을 클릭합니다.
 
@@ -168,7 +168,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swa
         parameters: []
         description: >-
             Replace with Operation Object
-            #http://swagger.io/specification/#operationObject
+            #https://swagger.io/specification/#operationObject
         responses:
             '200':
             description: Success operation

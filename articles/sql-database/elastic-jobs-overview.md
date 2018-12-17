@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: 9df51626a1bd36b0ea171c89c67a5c1ca79d60e6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0d593e52c8dc3bc961df706ccef2da9da2f3f778
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873703"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087136"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Elastic Database 작업을 사용하여 데이터베이스 그룹 관리
 
@@ -127,7 +127,7 @@ ms.locfileid: "52873703"
 
 ![대상 그룹 예제](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-**예제 5** 및 *예제 6*은 포함 및 제외 규칙을 사용하여 Azure SQL Server, 탄력적 풀, 데이터베이스를 결합할 수 있는 고급 시나리오를 보여줍니다.<br>
+**예제 5** 및 **예제 6**은 포함 및 제외 규칙을 사용하여 Azure SQL Server, 탄력적 풀, 데이터베이스를 결합할 수 있는 고급 시나리오를 보여줍니다.<br>
 **예제 7**은 분할된 데이터베이스 맵의 분할된 데이터베이스를 런타임에도 평가할 수 있음을 보여줍니다.
 
 ### <a name="job"></a>작업
