@@ -215,6 +215,17 @@ items:
         href: ../common/storage-security-tls.md
       - name: 규정 준수 제안
         href: ../common/storage-compliance-offerings.md
+    - name: 데이터 전송 솔루션 비교
+      href: ../common/storage-choose-data-transfer-solution.md
+      items:
+      - name: 대형 데이터 세트, 낮은 네트워크 대역폭
+        href: ../common/storage-solution-large-dataset-low-network.md
+      - name: 대형 데이터 세트, 보통 및 높은 네트워크 대역폭
+        href: ../common/storage-solution-large-dataset-moderate-high-network.md
+      - name: 소형 데이터 세트, 보통 및 낮은 네트워크 대역폭
+        href: ../common/storage-solution-small-dataset-low-moderate-network.md
+      - name: 정기적 데이터 전송
+        href: ../common/storage-solution-periodic-data-transfer.md
     - name: 모니터링 및 문제 해결
       items:
       - name: 문제 해결 자습서
@@ -595,7 +606,7 @@ items:
     - name: Azure Databricks에 연결
       href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
     - name: Azure SQL Data Warehouse에 연결
-      href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#azure-sql-data-warehouse-polybase
+      href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase
   - name: 참고 자료
     items:
     - name: REST (영문)
@@ -620,9 +631,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: 동영상
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: fb4a261b19f08e5dcf4bedda60eacca42e97c7e4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: fe6113657f033501f53b761b71fe4bc0104bf611
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099616"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386981"

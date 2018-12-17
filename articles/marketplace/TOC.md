@@ -83,21 +83,6 @@
 ### [VM 제품 게시](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 ### [기존 제품 업데이트](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-<!-- Following legacy VM section was replaced.  -->
-<!-- 
-## Virtual machines
-### [Dev center account registration](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [Author virtual machine offer](./cloud-partner-portal-orig/cloud-partner-portal-publish-virtual-machine.md)
-### [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md)
-### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer.md)
-### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer.md)
-### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
-### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
--->
-<!-- new section for Azure apps -->
-
 ## [Azure 응용 프로그램 제품](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 ### [필수 구성 요소](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
 ### [Azure 애플리케이션 제품 만들기](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
@@ -201,7 +186,16 @@
 ### [BPM 및 방법론](./cloud-partner-portal-orig/bpm-and-methodologies.md)
 ### [도움말 wiki](./cloud-partner-portal-orig/help-wiki.md)
 
-## [컨설팅 서비스](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+<!--
+## [Consulting services](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+-->
+## [컨설팅 서비스](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
+### [필수 구성 요소](./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md)
+### [컨설팅 서비스 솔루션 만들기](./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md)
+#### [제품 설정 탭](./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md)
+#### [상점 세부 정보 탭](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
+### [컨설팅 서비스 솔루션 게시](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
+
 ## [게시자 프로필 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
 ## [사용자 관리](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
 ## [GDPR 규정 준수](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)

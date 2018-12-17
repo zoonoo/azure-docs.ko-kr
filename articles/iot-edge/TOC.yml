@@ -58,7 +58,7 @@ items:
       href: module-deployment-monitoring.md
   - name: 오프라인 기능
     href: offline-capabilities.md
-  - name: IoT Edge 디바이스를 게이트웨이로
+  - name: IoT Edge 장치를 게이트웨이로
     href: iot-edge-as-gateway.md
   - name: 보안
     items:
@@ -142,7 +142,7 @@ items:
     items:
     - name: 투명 게이트웨이 구성
       href: how-to-create-transparent-gateway.md
-    - name: 다운스트림 디바이스 연결
+    - name: 다운스트림 장치 연결
       href: how-to-connect-downstream-device.md
     - name: Modbus 프로토콜 게이트웨이
       href: deploy-modbus-gateway.md
@@ -172,7 +172,7 @@ items:
     items:
     - name: IoT Hub
       href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
+    - name: IoT Hub Device Provisioning 서비스
       href: /azure/iot-dps
     - name: 지도
       href: /azure/azure-maps
@@ -198,7 +198,7 @@ items:
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-python/
   - name: iOS 플랫폼용 Azure IoT 샘플
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
-  - name: IoT용 Azure Certified 디바이스 카탈로그
+  - name: IoT용 Azure Certified 장치 카탈로그
     href: https://catalog.azureiotsuite.com/
   - name: Azure IoT 개발자 센터
     href: https://azure.microsoft.com/develop/iot/
@@ -206,7 +206,7 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: VS Code용 Azure IoT Edge
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge
-  - name: VS Code용 Azure IoT Toolkit
+  - name: VS Code용 Azure IoT Hub Toolkit
     href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit
   - name: DeviceExplorer 도구
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
@@ -226,9 +226,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 36f90f4ff43b16a7f9127d5efbabd02f15e14b2c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0f761c4395dc1e96aa58acc9dc737f115fcde09b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101707"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340847"
