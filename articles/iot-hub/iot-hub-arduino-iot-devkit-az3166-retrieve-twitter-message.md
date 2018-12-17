@@ -206,6 +206,6 @@ Arduino 스케치가 Azure IoT Hub에 이벤트를 보냅니다. 이 이벤트�
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 DevKit 장치를 Azure IoT 원격 모니터링 솔루션 가속기에 연결하고 트윗을 검색하는 방법을 알아보았으며, 이제부터는 다음 단계를 살펴볼 것을 권장합니다.
+지금까지 DevKit 디바이스를 Azure IoT 원격 모니터링 솔루션 가속기에 연결하고 트윗을 검색하는 방법을 알아보았으며, 이제부터는 다음 단계를 살펴볼 것을 권장합니다.
 
 * [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)

@@ -28,7 +28,7 @@ ms.locfileid: "37342436"
 이 정보는 StorSimple 8000 시리즈 물리적 장치 및 StorSimple Cloud Appliance에 모두 적용됩니다.
 
 > [!NOTE]
-> 발생할 수 있는 장치 구성 관련 문제는 처음으로 장치를 배포할 때 나타나거나 장치가 작동 가능한 경우 나중에 나타날 수 있습니다. 이 문서는 처음 배포 시 문제 해결에 중점을 둡니다. 운영 디바이스 문제를 해결하려면 [진단 도구를 사용하여 운영 디바이스 문제 해결](storsimple-8000-diagnostics.md)로 이동합니다.
+> 발생할 수 있는 디바이스 구성 관련 문제는 처음으로 디바이스를 배포할 때 나타나거나 디바이스가 작동 가능한 경우 나중에 나타날 수 있습니다. 이 문서는 처음 배포 시 문제 해결에 중점을 둡니다. 운영 디바이스 문제를 해결하려면 [진단 도구를 사용하여 운영 디바이스 문제 해결](storsimple-8000-diagnostics.md)로 이동합니다.
 
 또한 이 문서는 StorSimple 배포 문제 해결을 위한 도구에 대해 설명하며 단계별 문제 해결 예제를 제공합니다.
 
@@ -53,20 +53,20 @@ ms.locfileid: "37342436"
    * NTP 서버 – [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 NTP 서버 설정을 구성합니다.
    * 선택적 웹 프록시 - [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 웹 프록시 구성을 설정하고 사용합니다.
 3. 암호 설정: 다음 단계는 장치 관리자 암호 설정입니다.
-   장치 관리자 암호는 장치에 로그온하는 데 사용됩니다. 기본 디바이스 암호는 **Password1**입니다.
+   디바이스 관리자 암호는 디바이스에 로그온하는 데 사용됩니다. 기본 디바이스 암호는 **Password1**입니다.
         
      > [!IMPORTANT]
      > 등록 하기 전에 암호가 수집되지만 장치를 성공적으로 등록한 후에만 적용됩니다. 암호를 적용하지 못한 경우 필요한 암호(복잡성 요구 사항에 맞는)가 수집될 때까지 다시 암호를 입력하라는 메시지가 표시됩니다.
      
 4. 장치 등록: 최종 단계는 Microsoft Azure에서 실행되는 StorSimple 장치 관리자 서비스를 사용하는 장치 등록입니다. 등록할 때 Azure Portal에서 [서비스 등록 키를 가져와](storsimple-8000-manage-service.md#get-the-service-registration-key) 설치 마법사에서 제공해야 합니다. **장치가 성공적으로 등록되면 서비스 데이터 암호화 키가 제공됩니다. 해당 서비스로 모든 후속 디바이스 서비스를 등록할 때 필요하기 때문에 이 암호화 키를 안전한 위치에 보관해야 합니다.**
 
-## <a name="common-errors-during-device-deployment"></a>장치 배포 중 일반 오류
+## <a name="common-errors-during-device-deployment"></a>디바이스 배포 중 일반 오류
 다음의 경우 발생할 수 있는 일반 오류를 아래 표에서 표시합니다.
 
 * 필요한 네트워크 설정을 구성합니다.
 * 선택적 웹 프록시 설정을 구성합니다.
 * 장치 관리자 암호를 설정합니다.
-* 장치를 등록합니다.
+* 디바이스를 등록합니다.
 
 ## <a name="errors-during-the-required-network-settings"></a>필요한 네트워크 설정 중 오류
 |  아니요. | 오류 메시지 | 가능한 원인 | 권장 작업 |
@@ -89,11 +89,11 @@ ms.locfileid: "37342436"
 | 5 |Invoke-HcsSetupWizard: 클러스터 리소스가 온라인 상태가 아님(HRESULT: 0x8007138c에서 예외 발생) |클러스터 리소스가 온라인 상태가 아닙니다. |[Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 
 ## <a name="errors-related-to-device-administrator-password"></a>장치 관리자 암호 관련 오류
-기본 디바이스 관리자 암호는 **Password1**입니다. 처음 로그온한 후 이 암호가 만료되므로 변경하려면 설치 마법사를 사용해야 합니다. 처음으로 장치를 등록하는 경우 새 장치 관리자 암호를 입력해야 합니다. 
+기본 디바이스 관리자 암호는 **Password1**입니다. 처음 로그온한 후 이 암호가 만료되므로 변경하려면 설치 마법사를 사용해야 합니다. 처음으로 디바이스를 등록하는 경우 새 디바이스 관리자 암호를 입력해야 합니다. 
 
 암호는 다음 요구 사항을 충족하는지 확인합니다.
 
-* 장치 관리자 암호는 8자에서 15자 사이여야 합니다.
+* 디바이스 관리자 암호는 8자에서 15자 사이여야 합니다.
 * 암호는 대문자, 소문자, 숫자 및 특수 문자의 4가지 문자 유형 중 3가지 문자 유형을 포함해야 합니다. 
 * 암호는 마지막 24개의 암호와 동일할 수 없습니다.
 
@@ -123,7 +123,7 @@ ms.locfileid: "37342436"
 
 StorSimple 장치 관리자 서비스를 통해 Azure Portal에서 암호를 재설정할 수 있습니다. 자세한 내용을 보려면 [디바이스 관리자 암호 변경](storsimple-8000-change-passwords.md#change-the-device-administrator-password)으로 이동합니다.
 
-## <a name="errors-during-device-registration"></a>장치 등록 중 오류
+## <a name="errors-during-device-registration"></a>디바이스 등록 중 오류
 Microsoft Azure에서 실행되는 StorSimple 장치 관리자 서비스를 사용하여 장치를 등록합니다. 장치를 등록하는 동안 다음 문제 중 하나 이상이 발생할 수 있습니다.
 
 |  아니요. | 오류 메시지 | 가능한 원인 | 권장 작업 |
@@ -144,7 +144,7 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 * 지원 패키지 및 장치 로그
 * 문제 해결을 위해 특별히 설계된 Cmdlet
 
-## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>문제 해결에 사용 가능한 지원 패키지 및 장치 로그
+## <a name="support-packages-and-device-logs-available-for-troubleshooting"></a>문제 해결에 사용 가능한 지원 패키지 및 디바이스 로그
 지원 패키지는 장치 문제를 해결하는 Microsoft 기술 지원 서비스 팀을 지원할 수 있는 모든 관련 로그를 포함합니다. StorSimple용 Windows PowerShell을 사용하여 지원 담당자와 공유할 수 있는 암호화된 지원 패키지를 생성할 수 있습니다.
 
 ### <a name="to-view-the-logs-or-the-contents-of-the-support-package"></a>지원 패키지의 로그 또는 내용을 보려면
@@ -271,11 +271,11 @@ Ping이 비활성화된 경우 ping을 활성화하여 이 cmdlet과 연결 문�
 
 ### <a name="to-run-the-test-hcsmconnection-cmdlet"></a>Test-HcsmConnection cmdlet을 실행하려면
 1. 장치가 등록되어 있는지 확인합니다.
-2. 장치 상태를 확인합니다. 유지 관리 모드 또는 오프라인으로 장치를 비활성화한 경우 다음 오류 중 하나가 나타날 수 있습니다.
+2. 디바이스 상태를 확인합니다. 유지 관리 모드 또는 오프라인으로 장치를 비활성화한 경우 다음 오류 중 하나가 나타날 수 있습니다.
    
-   * ErrorCode.CiSDeviceDecommissioned – 장치가 비활성화되었음을 표시합니다.
+   * ErrorCode.CiSDeviceDecommissioned – 디바이스가 비활성화되었음을 표시합니다.
    * ErrorCode.DeviceNotReady – 장치가 유지 관리 모드에 있음을 나타냅니다.
-   * ErrorCode.DeviceNotReady – 장치가 온라인 상태가 아님을 나타냅니다.
+   * ErrorCode.DeviceNotReady – 디바이스가 온라인 상태가 아님을 나타냅니다.
 3. StorSimple 디바이스 관리자 서비스가 실행 중인지 확인합니다([Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx) cmdlet 사용). 서비스를 실행하지 않는 경우 다음 오류가 나타날 수 있습니다.
    
    * ErrorCode.CiSApplianceAgentNotOnline
@@ -363,7 +363,7 @@ Azure Portal의 **오프라인** 상태인 디바이스에서 이 예제를 가�
      Controller0>
 
 ## <a name="troubleshoot-with-the-enable-hcsping-and-disable-hcsping-cmdlets"></a>HcsPing 활성화 및 HcsPing cmdlet 비활성화를 사용하여 문제 해결
-장치의 네트워크 인터페이스가 ICMP ping 요청에 응답하도록 이 cmdlet를 사용하세요. 기본적으로 StorSimple 네트워크 인터페이스는 ping 요청에 응답하지 않습니다. 이 cmdlet을 사용하는 것이 장치가 온라인 상태이고 연결할 수 있는지 확인할 수 있는 가장 쉬운 방법입니다.
+디바이스의 네트워크 인터페이스가 ICMP ping 요청에 응답하도록 이 cmdlet를 사용하세요. 기본적으로 StorSimple 네트워크 인터페이스는 ping 요청에 응답하지 않습니다. 이 cmdlet을 사용하는 것이 장치가 온라인 상태이고 연결할 수 있는지 확인할 수 있는 가장 쉬운 방법입니다.
 
 **샘플 출력 – HcsPing 사용 및 HcsPing 사용 안함**
 
@@ -518,7 +518,7 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
    * 사용된 등록 확인 키를 확인합니다. 동일한 등록 키를 여러 장치에서 StorSimple 장치 관리자 서비스에 연결하는데 사용할 수 있습니다. [서비스 등록 키 받기](storsimple-8000-manage-service.md#get-the-service-registration-key) 의 절차를 사용하여 올바른 등록 키를 사용하고 있는지 확인합니다.
      
      > [!IMPORTANT]
-     > 여러 서비스를 실행하는 경우 적절한 서비스를 위한 등록 키가 장치를 등록하는데 사용되는지 확인해야 합니다. 잘못된 StorSimple 디바이스 관리자 서비스로 디바이스를 등록한 경우 다음 단계는 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. 장치의 공장 기본 설정(데이터가 손실될 수 있음)을 수행하여 원하는 서비스에 연결해야 합니다.
+     > 여러 서비스를 실행하는 경우 적절한 서비스를 위한 등록 키가 디바이스를 등록하는데 사용되는지 확인해야 합니다. 잘못된 StorSimple 디바이스 관리자 서비스로 디바이스를 등록한 경우 다음 단계는 [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. 디바이스의 공장 기본 설정(데이터가 손실될 수 있음)을 수행하여 원하는 서비스에 연결해야 합니다.
      > 
      > 
 6. Test-Connection cmdlet을 사용하여 외부 네트워크에 연결했는지 확인합니다. 자세한 내용은 [Test-Connection cmdlet 문제 해결](#troubleshoot-with-the-test-connection-cmdlet)로 이동합니다.

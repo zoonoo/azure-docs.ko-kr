@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fcc0badc17675c1c8923c744afd3fa46e98fef32
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d3b2edefd602a90ff28b8e0645d3c48932ba44dd
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954709"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410315"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 
@@ -36,7 +36,7 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>응용 프로그램에 로그인하기 위한 방법으로 Azure AD 지원
 **로그인 충돌을 줄이고 지원 비용을 절감합니다.** Azure AD를 사용하여 응용 프로그램에 로그인하면 사용자는 이름 및 암호를 기억하지 않아도 되며 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Azure AD에서는 Office 365, Microsoft Azure 등과 같이 전 세계에서 인기가 많은 다양한 클라우드 응용 프로그램에 로그인할 수 있도록 지원합니다. 약 500만 개의 조직에서 4억 3천 만명 이상이 사용 중이므로 사용자가 이미 Azure AD에 로그인되어 있을 가능성이 높습니다. [Azure AD 로그인 지원 추가](authentication-scenarios.md)에 대해 자세히 알아보세요.
 
-**응용 프로그램 등록을 단순화합니다.**   응용 프로그램을 등록하는 동안 등록 양식을 사전에 입력하거나 완전히 제거할 수 있도록 Azure AD가 사용자에 대한 필수 정보를 보낼 수 있습니다. 사용자는 소셜 미디어 및 모바일 응용 프로그램에서 본 것과 비슷한 친숙한 동의 환경을 통해 자신의 Azure AD 계정을 사용하여 응용 프로그램을 등록할 수 있습니다. 모든 사용자는 IT 담당자의 도움 없이 Azure AD와 통합된 응용 프로그램을 등록 및 로그인할 수 있습니다. [Azure AD 계정 로그인을 위해 응용 프로그램 등록](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)에 대해 자세히 알아보세요.
+**응용 프로그램 등록을 단순화합니다.**   응용 프로그램을 등록하는 동안 등록 양식을 사전에 입력하거나 완전히 제거할 수 있도록 Azure AD가 사용자에 대한 필수 정보를 보낼 수 있습니다. 사용자는 소셜 미디어 및 모바일 응용 프로그램에서 본 것과 비슷한 친숙한 동의 환경을 통해 자신의 Azure AD 계정을 사용하여 응용 프로그램을 등록할 수 있습니다. 모든 사용자는 IT 담당자의 도움 없이 Azure AD와 통합된 응용 프로그램을 등록 및 로그인할 수 있습니다. [Azure AD 계정 로그인을 위해 응용 프로그램 등록](../../app-service/configure-authentication-provider-aad.md)에 대해 자세히 알아보세요.
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>사용자 검색, 사용자 프로비전 관리, 응용 프로그램에 대한 액세스 제어
 **디렉터리에서 사용자를 찾습니다.**   다른 사람을 초대하거나 액세스 권한을 부여할 때 사용자가 메일 주소를 입력할 필요 없이 Graph API를 사용하면 조직에서 다른 사람을 검색하고 찾는 데 도움이 됩니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
@@ -56,7 +56,7 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 **사용자가 응용 프로그램에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.**   사용자가 나중에 응용 프로그램으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 대해 자세히 알아보세요.
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>디바이스와 서비스 및 서비스와 서비스 간의 안전한 통신
-**서비스 및 장치의 ID 관리에 Azure AD를 사용하면 써야 할 코드를 줄일 수 있으며 IT 담당자가 액세스를 관리할 수 있습니다.**   서비스 및 디바이스는 OAuth를 사용하여 Azure AD에서 토큰을 가져올 수 있으며 이 토큰으로 웹 API에 액세스할 수 있습니다. Azure AD를 사용하면 복잡한 인증 코드를 작성할 필요가 없습니다. 서비스 및 디바이스의 ID가 Azure AD에 저장되므로 IT 담당자는 키 및 해지를 응용 프로그램에서 별도로 수행하지 않고도 한 곳에서 관리할 수 있습니다.
+**서비스 및 디바이스의 ID 관리에 Azure AD를 사용하면 써야 할 코드를 줄일 수 있으며 IT 담당자가 액세스를 관리할 수 있습니다.**   서비스 및 디바이스는 OAuth를 사용하여 Azure AD에서 토큰을 가져올 수 있으며 이 토큰으로 웹 API에 액세스할 수 있습니다. Azure AD를 사용하면 복잡한 인증 코드를 작성할 필요가 없습니다. 서비스 및 디바이스의 ID가 Azure AD에 저장되므로 IT 담당자는 키 및 해지를 응용 프로그램에서 별도로 수행하지 않고도 한 곳에서 관리할 수 있습니다.
 
 ## <a name="benefits-of-integration"></a>통합의 이점
 Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점이 있습니다.

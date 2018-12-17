@@ -150,7 +150,7 @@ StorSimple 디바이스 관리자 서비스를 실행한 후에는 서비스 등
 
 #### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>장치 관리자 서비스와 동일한 Azure 구독에 있는 저장소 계정 자격 증명을 추가하려면
 
-1. 장치 관리자 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
+1. Device Manager 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
 2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다.
 3. **추가**를 클릭합니다.
 4. **저장소 계정 추가** 블레이드에서 다음을 수행합니다.

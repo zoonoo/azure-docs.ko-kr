@@ -20,9 +20,9 @@ ms.locfileid: "42143914"
 이 문서에서는 Azure IoT Hub Device Provisioning 서비스 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 Azure IoT Hub에 MXChip IoT DevKit을 등록하는 방법을 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 * 디바이스에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
-* UDS(고유 장치 비밀)를 사용하여 X.509 인증서를 생성합니다.
-* 개별 장치를 등록합니다.
-* 장치가 등록되었는지 확인합니다.
+* UDS(고유 디바이스 비밀)를 사용하여 X.509 인증서를 생성합니다.
+* 개별 디바이스를 등록합니다.
+* 디바이스가 등록되었는지 확인합니다.
 
 [MXChip IoT DevKit](https://aka.ms/iot-devkit)는 풍부한 주변 장치 및 센서가 포함된 올인원 Arduino 호환 보드입니다. [Arduino용 Visual Studio Code 확장](https://aka.ms/arduino)을 사용하여 개발할 수 있습니다. DevKit에는 Azure 서비스를 활용하는 IoT(사물 인터넷) 솔루션의 프로토타입을 안내하기 위해 확장 중인 [프로젝트 카탈로그](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/)가 제공됩니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "42143914"
 * [DevKit 펌웨어 업데이트](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) 자습서를 사용하여 최신 펌웨어(1.3.0 이상)로 업그레이드합니다.
 * [Azure Portal에서 IoT Hub Device Provisioning 서비스 설정](/azure/iot-dps/quick-setup-auto-provision) 단계에 따라 IoT Hub를 만들어 Device Provisioning Service 인스턴스와 연결합니다.
 
-## <a name="build-and-deploy-auto-provisioning-registration-software-to-the-device"></a>자동프로 비전 등록 소프트웨어를 빌드한 후 장치에 배포
+## <a name="build-and-deploy-auto-provisioning-registration-software-to-the-device"></a>자동 프로비전 등록 소프트웨어를 빌드한 후 디바이스에 배포
 
 만든 Device Provisioning Service 인스턴스에 DevKit를 연결하려면 다음을 수행합니다.
 
@@ -57,11 +57,11 @@ ms.locfileid: "42143914"
 
 7. 출력 창에 작업의 성공 여부가 표시됩니다.
 
-## <a name="save-a-unique-device-secret-on-an-stsafe-security-chip"></a>STSAFE 보안 칩에 고유 장치 비밀 저장
+## <a name="save-a-unique-device-secret-on-an-stsafe-security-chip"></a>STSAFE 보안 칩에 고유 디바이스 비밀 저장
 
-자동 프로비전은 장치의 [증명 메커니즘](concepts-security.md#attestation-mechanism)에 따라 장치에 구성할 수 있습니다. MXChip IoT DevKit는 [신뢰할 수 있는 컴퓨팅 그룹](https://trustedcomputinggroup.org)의 [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf)을 사용합니다. DevKit의 STSAFE 보안 칩에 저장된 UDS(*고유 장치 비밀*)가 장치 고유의 [X.509 인증서](concepts-security.md#x509-certificates)를 생성하는 데 사용됩니다. 이 인증서는 나중에 Device Provisioning Service의 등록 프로세스에 사용되며 런타임에 등록하는 동안에도 사용됩니다.
+자동 프로비전은 디바이스의 [증명 메커니즘](concepts-security.md#attestation-mechanism)에 따라 디바이스에 구성할 수 있습니다. MXChip IoT DevKit는 [신뢰할 수 있는 컴퓨팅 그룹](https://trustedcomputinggroup.org)의 [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf)을 사용합니다. DevKit의 STSAFE 보안 칩에 저장된 UDS(*고유 디바이스 비밀*)가 디바이스 고유의 [X.509 인증서](concepts-security.md#x509-certificates)를 생성하는 데 사용됩니다. 이 인증서는 나중에 Device Provisioning Service의 등록 프로세스에 사용되며 런타임에 등록하는 동안에도 사용됩니다.
 
-다음 샘플에서처럼 일반적인 고유 장치 암호는 64자 문자열입니다.
+다음 샘플에서처럼 일반적인 고유 디바이스 암호는 64자 문자열입니다.
 
 ```
 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eae
@@ -69,7 +69,7 @@ ms.locfileid: "42143914"
 
 이 문자열은 보안 계산에 사용되는 문자 쌍으로 구분됩니다. 위의 샘플 UDS는 다음과 같이 확인됩니다. `0x19`, `0xe2`, `0x5a`, `0x25`, `0x9d`, `0x0c`, `0x2b`, `0xe0`, `0x3a`, `0x02`, `0xd4`, `0x16`, `0xc0`, `0x5c`, `0x48`, `0xcc`, `0xd0`, `0xcc`, `0x7d`, `0x17`, `0x43`, `0x45`, `0x8a`, `0xae`, `0x1c`, `0xb4`, `0x88`, `0xb0`, `0x74`, `0x99`, `0x3e`, `0xae`.
 
-DevKit에 고유 장치 암호를 저장하려면 다음을 수행합니다.
+DevKit에 고유 디바이스 암호를 저장하려면 다음을 수행합니다.
 
 1. Putty와 같은 도구를 사용하여 직렬 모니터를 엽니다. 자세한 내용은 [구성 모드 사용](https://microsoft.github.io/azure-iot-developer-kit/docs/use-configuration-mode/)을 참조하세요.
 
@@ -141,13 +141,13 @@ DevKit에서 Device Provisioning Service에 등록하는 과정을 시작합니�
 
 ## <a name="verify-that-the-devkit-is-registered-with-azure-iot-hub"></a>DevKit가 Azure IoT Hub에 등록되었는지 확인
 
-장치가 부팅되면 다음 작업이 수행됩니다.
+디바이스가 부팅되면 다음 작업이 수행됩니다.
 
-1. 장치가 Device Provisioning Service에 등록 요청을 보냅니다.
+1. 디바이스가 Device Provisioning Service에 등록 요청을 보냅니다.
 2. Device Provisioning Service에서 디바이스가 응답하는 등록 챌린지를 다시 보냅니다.
 3. 등록에 성공하면 Device Provisioning Service는 IoT Hub URI, 디바이스 ID 및 암호화된 키를 디바이스로 다시 보냅니다.
-4. 장치의 IoT Hub 클라이언트 응용 프로그램이 사용자 허브에 연결됩니다.
-5. 허브에 성공적으로 연결되면 IoT Hub의 Device Explorer에 장치가 표시됩니다.
+4. 디바이스의 IoT Hub 클라이언트 응용 프로그램이 사용자 허브에 연결됩니다.
+5. 허브에 성공적으로 연결되면 IoT Hub의 Device Explorer에 디바이스가 표시됩니다.
   ![등록된 장치](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
@@ -165,9 +165,9 @@ DevKit에서 Device Provisioning Service에 등록하는 과정을 시작합니�
 
 > [!div class="checklist"]
 > * 디바이스에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
-> * 고유 장치 비밀을 사용하여 X.509 인증서를 생성합니다.
-> * 개별 장치를 등록합니다.
-> * 장치가 등록되었는지 확인합니다.
+> * 고유 디바이스 비밀을 사용하여 X.509 인증서를 생성합니다.
+> * 개별 디바이스를 등록합니다.
+> * 디바이스가 등록되었는지 확인합니다.
 
 [시뮬레이트된 장치 만들기 및 프로비전](./quick-create-simulated-device.md) 방법을 알아봅니다.
 

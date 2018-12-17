@@ -15,7 +15,7 @@ items:
     href: quick-setup-auto-provision.md
   - name: 자동 프로비전 설정 - 템플릿
     href: quick-setup-auto-provision-rm.md
-  - name: 시뮬레이트된 장치 자동 프로비전
+  - name: 시뮬레이트된 디바이스 자동 프로비전
     items:
     - name: TPM 증명
       items:
@@ -45,7 +45,7 @@ items:
       items:
       - name: C
         href: quick-create-simulated-device-symm-key.md
-  - name: 프로비전 서비스 API를 사용하여 장치 등록
+  - name: 프로비전 서비스 API를 사용하여 디바이스 등록
     items:
     - name: TPM 증명
       items:
@@ -182,7 +182,7 @@ items:
     items:
     - name: IoT Edge
       href: /azure/iot-edge
-    - name: IoT 장치 SDK
+    - name: IoT 디바이스 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: 리소스
   items:

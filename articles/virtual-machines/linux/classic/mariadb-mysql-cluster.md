@@ -94,13 +94,13 @@ ms.locfileid: "39426856"
     다. 탑재 지점 디렉터리를 만듭니다.
 
               mkdir /mnt/data
-    d. 새로 만든 RAID 장치의 UUID를 검색합니다.
+    d. 새로 만든 RAID 디바이스의 UUID를 검색합니다.
 
               blkid | grep /dev/md0
     e. /etc/fstab을 편집합니다.
 
               vi /etc/fstab
-    f. UUID를 이전 **blkid** 명령에서 가져온 값으로 바꾸고, 장치를 추가하여 재부팅할 때 자동 탑재를 사용하도록 설정합니다.
+    f. UUID를 이전 **blkid** 명령에서 가져온 값으로 바꾸고, 디바이스를 추가하여 재부팅할 때 자동 탑재를 사용하도록 설정합니다.
 
               UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
     g. 새 파티션을 탑재합니다.
@@ -127,7 +127,7 @@ ms.locfileid: "39426856"
 
            yum install MariaDB-Galera-server MariaDB-client galera
 
-1. MySQL 데이터 디렉터리를 RAID 블록 장치로 이동합니다.
+1. MySQL 데이터 디렉터리를 RAID 블록 디바이스로 이동합니다.
 
     a. 현재 MySQL 디렉터리를 새 위치에 복사하고 이전 디렉터리를 제거합니다.
 

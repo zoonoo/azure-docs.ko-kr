@@ -26,7 +26,7 @@ ms.locfileid: "51251545"
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>개요
-이 자습서에서는 Azure Notification Hubs를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 응용 프로그램 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다. 
+이 자습서에서는 Azure Notification Hubs를 사용하여 특정 디바이스에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. ASP.NET WebAPI 백 엔드는 클라이언트를 인증하는 데 사용 됩니다. 백 엔드가 클라이언트 응용 프로그램 사용자를 인증하는 경우 알림 등록에 자동으로 태그를 추가합니다. 백 엔드는 이 태그를 사용하여 특정 사용자에게 알림을 보냅니다. 
 
 > [!NOTE]
 > 이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)에서 찾을 수 있습니다. 
@@ -213,7 +213,7 @@ ms.locfileid: "51251545"
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-1. **App.xaml.cs** 파일을 엽니다. `InitNotificationsAsync()` in the `OnLaunched()` 에 대한 호출을 찾습니다. `InitNotificationsAsync()`에 대한 호출을 주석으로 처리하거나 삭제합니다. 단추 처리기는 알림 등록을 초기화합니다.
+1. **App.xaml.cs** 파일을 엽니다.  `InitNotificationsAsync()` in the `OnLaunched()` 에 대한 호출을 찾습니다. `InitNotificationsAsync()`에 대한 호출을 주석으로 처리하거나 삭제합니다. 단추 처리기는 알림 등록을 초기화합니다.
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
@@ -330,7 +330,7 @@ ms.locfileid: "51251545"
    
     ![][14]
 5. 그런 다음, **받는 사람 사용자 이름 태그** 필드에 등록한 사용자 이름을 입력합니다. 알림 메시지를 입력하고 **Send Push(푸시 전송)** 를 클릭합니다.
-6. 일치하는 사용자 이름 태그로 등록된 장치만 이 알림 메시지를 받습니다.
+6. 일치하는 사용자 이름 태그로 등록된 디바이스만 이 알림 메시지를 받습니다.
    
     ![][15]
 

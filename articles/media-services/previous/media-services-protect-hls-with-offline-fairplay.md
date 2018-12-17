@@ -38,7 +38,7 @@ ms.locfileid: "51251835"
 * 일부 콘텐츠 공급자는 해당 국가 외에는 DRM 라이선스 배달을 허용하지 않을 수도 있습니다. 해외 여행 중 콘텐츠를 보고 싶은 경우 오프라인 다운로드가 필요합니다.
 * 일부 국가에서는 인터넷 사용 및/또는 대역폭이 여전히 제한됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우, 일반적으로 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT(Over-the-top)/OVP(온라인 비디오 플랫폼) 공급자는 오프라인 모드 지원을 요청합니다.
 
-이 문서에서는 iOS 10 이상을 실행하는 장치를 대상으로 하는 FairPlay 스트리밍(FPS) 오프라인 모드 지원에 대해 설명합니다. 이 기능은 watchOS, tvOS, 또는 macOS의 Safari와 같은 다른 Apple 플랫폼을 지원하지 않습니다.
+이 문서에서는 iOS 10 이상을 실행하는 디바이스를 대상으로 하는 FairPlay 스트리밍(FPS) 오프라인 모드 지원에 대해 설명합니다. 이 기능은 watchOS, tvOS, 또는 macOS의 Safari와 같은 다른 Apple 플랫폼을 지원하지 않습니다.
 
 ## <a name="preliminary-steps"></a>준비 단계
 iOS 10+ 디바이스에서 FairPlay에 대한 오프라인 DRM을 구현하기 전에 다음을 수행합니다.
@@ -120,7 +120,7 @@ FPS 오프라인 모드 지원은 iOS 10 이상에서만 제공됩니다. FPS Se
 
     - AssetPersistenceManager.swift 코드 파일: AssetPersistenceManager는 다음 방법을 보여 주는 이 샘플의 기본 클래스입니다.
 
-        - 다운로드를 시작 및 취소하고, 장치에서 기존 자산을 삭제하는 데 사용되는 API와 같은 HLS 스트림 다운로드를 관리합니다.
+        - 다운로드를 시작 및 취소하고, 디바이스에서 기존 자산을 삭제하는 데 사용되는 API와 같은 HLS 스트림 다운로드를 관리합니다.
         - 다운로드 진행률을 모니터링합니다.
     - AssetListTableViewController.swift 및 AssetListTableViewCell.swif 코드 파일: AssetListTableViewController는 이 샘플의 기본 인터페이스입니다. 이 인터페이스는 샘플이 재생, 다운로드, 삭제 또는 다운로드 취소에 사용할 수 있는 자산 목록을 제공합니다. 
 

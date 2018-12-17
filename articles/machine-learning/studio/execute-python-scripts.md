@@ -5,9 +5,8 @@ keywords: python 기계 학습, pandas, python pandas, python 스크립트, pyth
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 958dd91277a81a9082a4149d2b0026fc11bf882a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f0fa2401e37e15137e9d5387d1395baf64b0fe61
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317588"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274074"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행
 
@@ -52,7 +51,7 @@ Python은 기계 학습 모델링에서 일반적으로 사용되는 워크플�
 
 Azure Machine Learning Studio에서는 기계 학습 실험의 다양한 부분에 Python 스크립트를 포함할 수 있으며, 해당 스크립트를 Microsoft Azure의 웹 서비스로 원활하게 게시할 수도 있습니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 
 ## <a name="design-principles-of-python-scripts-in-machine-learning"></a>Machine Learning에서 Python 스크립트의 디자인 원칙
@@ -69,7 +68,7 @@ Azure ML Studio의 [Python 스크립트 실행][execute-python-script] 모듈에
 
 1. *Python 사용자에게 자연스러워야 합니다.* 대부분의 Python 사용자는 코드를 모듈 내의 함수로 고려합니다. 따라서 최상위 모듈에 실행 가능 문을 많이 포함하는 경우는 거의 없습니다. 따라서 스크립트 상자도 일련의 문장이 아니라 특별하게 명명된 Python 함수를 사용합니다. 함수에 노출된 개체는 [Pandas](http://pandas.pydata.org/) 데이터 프레임 및 [NumPy](http://www.numpy.org/) 배열과 같은 표준 Python 라이브러리입니다.
 2. *로컬 및 클라우드 실행 간의 충실도가 높아야 합니다.* Python 코드를 실행하는 데 사용하는 백 엔드는 널리 사용되는 플랫폼 간 과학 Python 배포인 [Anaconda](https://store.continuum.io/cshop/anaconda/)를 기반으로 합니다. 가장 일반적인 Python 패키지가 거의 200개 포함되어 있습니다. 따라서 데이터 과학자는 자신의 로컬 Azure Machine Learning 호환 Anaconda 환경에서 코드를 디버그하고 한정할 수 있습니다. 그런 후에 [IPython](http://ipython.org/) Notebook 또는 [Visual Studio용 Python 도구](https://aka.ms/ptvs)와 같은 기존 개발 환경을 사용하여 코드를 Azure ML 실험의 일부분으로 실행할 수 있습니다. `azureml_main` 진입점은 바닐라 Python 함수이며 Azure ML 관련 코드 또는 SDK가 설치되어 있지 않아도 ****작성할 수 있습니다.
-3. *다른 Azure Machine Learning 모듈로 원활하게 구성할 수 있어야 합니다.* [Python 스크립트 실행][execute-python-script] 모듈이 입력 및 출력으로 표준 Azure Machine Learning 데이터 집합을 허용합니다. 기본 프레임워크는 Azure ML 및 Python 런타임을 효율적이며 투명한 방식으로 연결합니다. 따라서 Python을 기존 Azure ML 워크플로(R 및 SQLite를 호출하는 워크플로 포함)와 함께 사용할 수 있습니다. 이를 통해 데이터 과학자는 다음과 같은 워크플로를 작성할 수 있습니다.
+3. *다른 Azure Machine Learning 모듈로 원활하게 구성할 수 있어야 합니다.* [Python 스크립트 실행][execute-python-script] 모듈이 입력 및 출력으로 표준 Azure Machine Learning 데이터 세트를 허용합니다. 기본 프레임워크는 Azure ML 및 Python 런타임을 효율적이며 투명한 방식으로 연결합니다. 따라서 Python을 기존 Azure ML 워크플로(R 및 SQLite를 호출하는 워크플로 포함)와 함께 사용할 수 있습니다. 이를 통해 데이터 과학자는 다음과 같은 워크플로를 작성할 수 있습니다.
    * 데이터 전처리 및 정리에 Python 및 Pandas를 사용하는 워크플로
    * SQL 변환으로 데이터를 공급해 여러 데이터 세트를 연결하여 기능을 생성하는 워크플로
    * Azure Machine Learning의 알고리즘을 사용하여 모델 학습을 수행하는 워크플로 
