@@ -80,7 +80,7 @@ items:
       href: consistency-levels.md
     - name: 올바른 일관성 수준 선택
       href: consistency-levels-choosing.md
-    - name: 일관성 수준 및 Azure Cosmos DB API
+    - name: 일관성 수준 및 Cosmos DB API
       href: consistency-levels-across-apis.md
     - name: 일관성, 가용성 및 성능의 장단점
       href: consistency-levels-tradeoffs.md
@@ -144,6 +144,12 @@ items:
       href: unique-keys.md
     - name: 트랜잭션 및 낙관적 동시성
       href: database-transactions-optimistic-concurrency.md
+  - name: 서버 쪽 프로그래밍
+    items:
+    - name: 저장 프로시저, 트리거 및 UDF
+      href: stored-procedures-triggers-udfs.md
+    - name: JavaScript 쿼리 API
+      href: javascript-query-api.md
   - name: Azure Cosmos DB 비용 최적화
     items:
     - name: 가격 책정 모델
@@ -178,8 +184,6 @@ items:
       href: firewall-support.md
     - name: 가상 네트워크에서 액세스
       href: vnet-service-endpoint.md
-    - name: 키 자격 증명 모음 지원
-      href: access-secrets-from-keyvault.md
   - name: 엔터프라이즈 준비
     items:
     - name: 온라인 백업 및 복원
@@ -250,8 +254,14 @@ items:
       items:
       - name: 쿼리 성능 조정
         href: sql-api-query-metrics.md
-      - name: 저장 프로시저, 트리거 및 UDF
-        href: programming.md
+      - name: 서버 쪽 프로그래밍
+        items:
+        - name: 저장 프로시저, 트리거 및 UDF 작성
+          href: how-to-write-stored-procedures-triggers-udfs.md
+        - name: 저장 프로시저 및 JavaScript 쿼리 API를 사용하는 트리거 작성
+          href: how-to-write-javascript-query-api.md
+        - name: 저장 프로시저, 트리거 및 UDF 사용
+          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: 데이터 형식
         items:
         - name: Datetime
@@ -308,7 +318,7 @@ items:
             href: tutorial-develop-mongodb-nodejs-part3.md
           - name: 4부 - 계정 만들기
             href: tutorial-develop-mongodb-nodejs-part4.md
-          - name: 5부 - Azure Cosmos DB에 연결
+          - name: 5부 - Cosmos DB에 연결
             href: tutorial-develop-mongodb-nodejs-part5.md
           - name: 6부 - CRUD 작업 수행
             href: tutorial-develop-mongodb-nodejs-part6.md
@@ -479,6 +489,8 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: CORS(원본 간 리소스 공유) 구성
       href: how-to-configure-cross-origin-resource-sharing.md
+    - name: Key Vault를 사용하여 보안
+      href: access-secrets-from-keyvault.md
   - name: 엔터프라이즈 준비
     items:
     - name: 백업에서 데이터 복원
@@ -529,7 +541,7 @@ items:
         href: performance-testing.md
     - name: 비용 효율적인 읽기 및 쓰기
       href: key-value-store-cost.md
-  - name: Azure Cosmos DB 데이터 시각화
+  - name: Cosmos DB 데이터 시각화
     items:
     - name: Power BI 사용
       href: powerbi-visualize.md
@@ -603,9 +615,9 @@ items:
       href: use-cases.md
     - name: 소셜 미디어 앱
       href: social-media-apps.md
-ms.openlocfilehash: d31364cb9d458e54ae407d10fd88d8db4e9f457f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 34fc77f13f0c0bd394d96e19b86a1632ce2846b1
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384669"
+ms.locfileid: "53410111"

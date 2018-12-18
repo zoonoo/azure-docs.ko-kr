@@ -79,11 +79,11 @@
 #### [템플릿을 사용하여 ASE 만들기](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## 배포
-### [클라우드 동기화 배포](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [연속 배포](../app-service/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [클라우드 동기화 배포](../app-service/deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [연속 배포](../app-service/deploy-continuous-deployment.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [스테이징 환경](../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [로컬 Git 배포](../app-service/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure Resource Manager 배포](../app-service/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [로컬 Git 배포](../app-service/deploy-local-git.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure Resource Manager 배포](../app-service/deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## 확장
 ### [앱 강화](../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

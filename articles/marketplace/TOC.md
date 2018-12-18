@@ -91,7 +91,7 @@
 #### [시험 사용 탭](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [Marketplace 탭](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [지원 탭](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [기술 자산 만들기](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [Azure 애플리케이션 제품 게시](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [기존 제품 업데이트](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
