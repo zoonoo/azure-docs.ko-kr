@@ -19,7 +19,7 @@ ms.locfileid: "48239703"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Azure Blockchain Workbench란?
 
-Azure Blockchain Workbench는 비즈니스 프로세스 및 데이터를 다른 조직과 공유하기 위해 블록체인 응용 프로그램을 만들고 배포할 수 있도록 설계된 Azure 서비스 및 기능의 모음입니다. Azure Blockchain Workbench는 개발자가 비즈니스 로직 및 스마트 컨트랙트을 만드는 데 집중할 수 있도록 블록체인 응용 프로그램을 빌드하기 위한 인프라 기반을 제공합니다. 또한 일반적인 개발 작업을 자동화할 수 있도록 여러 Azure 서비스와 기능을 통합하여 블록체인 응용 프로그램을 쉽게 만들 수도 있습니다.
+Azure Blockchain Workbench는 비즈니스 프로세스 및 데이터를 다른 조직과 공유하기 위해 블록체인 응용 프로그램을 만들고 배포할 수 있도록 설계된 Azure 서비스 및 기능의 모음입니다. Azure Blockchain Workbench는 개발자가 비즈니스 논리 및 스마트 계약을 만드는 데 집중할 수 있도록 블록체인 응용 프로그램을 빌드하기 위한 인프라 스캐폴딩을 제공합니다. 또한 일반적인 개발 작업을 자동화할 수 있도록 여러 Azure 서비스와 기능을 통합하여 블록체인 응용 프로그램을 쉽게 만들 수도 있습니다.
 
 ## <a name="create-blockchain-applications"></a>블록체인 응용 프로그램 만들기
 
@@ -27,7 +27,7 @@ Blockchain Workbench를 통해 구성 및 스마트 컨트랙트 코드 작성�
 
 ## <a name="manage-applications-and-users"></a>응용 프로그램 및 사용자 관리
 
-Azure Blockchain Workbench는 블록체인 응용 프로그램과 사용자를 관리하기 위한 웹 응용 프로그램 및 REST API를 제공합니다. Blockchain Workbench 관리자는 응용 프로그램 접근을 관리하고 사용자를 응용 프로그램의 역할에 할당할 수 있습니다. Azure AD 사용자는 응용 프로그램의 멤버로 자동으로 매핑됩니다.
+Azure Blockchain Workbench는 블록체인 응용 프로그램과 사용자를 관리하기 위한 웹 응용 프로그램 및 REST API를 제공합니다. Blockchain Workbench 관리자는 응용 프로그램 액세스를 관리하고 사용자를 응용 프로그램 역할에 할당할 수 있습니다. Azure AD 사용자는 응용 프로그램의 멤버에 자동으로 매핑됩니다.
 
 ## <a name="integrate-blockchain-with-applications"></a>블록체인과 응용 프로그램의 통합
 
@@ -35,7 +35,7 @@ Blockchain Workbench REST API와 메시지 기반 API를 사용하여 기존 시
 
 Blockchain Workbench는 메시지 기반 API에 보내진 메시지를 변환하여 트랜잭션을 해당 블록체인의 네이티브 API에 필요한 형식으로 빌드할 수 있습니다.  Workbench는 트랜잭션을 적절한 블록체인에 서명하고 라우팅할 수 있습니다. 
 
-Workbench는 이벤트를 Service Bus 및 Event Grid에 자동으로 전달하여 하부 소비자에게 메시지를 보냅니다. 개발자는 이러한 메시징 시스템 중 하나와 통합하여 트랜잭션을 구동하고 결과를 살펴볼 수 있습니다.
+Workbench는 이벤트를 Service Bus 및 Event Grid에 자동으로 전달하여 다운스트림 소비자에게 메시지를 보냅니다. 개발자는 이러한 메시징 시스템 중 하나와 통합하여 트랜잭션을 구동하고 결과를 살펴볼 수 있습니다.
 
 ## <a name="deploy-a-blockchain-network"></a>블록체인 네트워크 배포
 
