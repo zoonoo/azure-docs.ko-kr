@@ -23,7 +23,7 @@ Azure Blockchain Workbench는 비즈니스 프로세스 및 데이터를 다른 
 
 ## <a name="create-blockchain-applications"></a>블록체인 응용 프로그램 만들기
 
-Blockchain Workbench를 통해 구성 및 스마트 계약 코드 작성을 사용하여 블록체인 응용 프로그램을 정의할 수 있습니다. 블록체인 응용 프로그램 개발에 착수하고, 스캐폴딩 및 설정 지원 서비스를 작성하는 대신 계약을 정의하고 비즈니스 논리를 작성하는 데 집중할 수 있습니다.
+Blockchain Workbench를 통해 구성 및 스마트 컨트랙트 코드 작성을 사용하여 블록체인 응용 프로그램을 정의할 수 있습니다. 블록체인 응용 프로그램 개발에 착수하고, 인프라 및 설정 지원 서비스를 작성하는 대신 계약을 정의하고 비즈니스 로직를 작성하는 데 집중할 수 있습니다.
 
 ## <a name="manage-applications-and-users"></a>응용 프로그램 및 사용자 관리
 
