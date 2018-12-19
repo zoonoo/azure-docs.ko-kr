@@ -26,18 +26,18 @@
 
 # 샘플
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-cli)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## Azure PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-powershell)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # 개념
 ## [청구 및 구독](https://docs.microsoft.com/azure/billing/billing-getting-started)
 ## [호스팅 비교](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
-## [App Service란?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+## [App Service란?](https://docs.microsoft.com/azure/app-service/overview)
 ## 가상 머신
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/overview)

@@ -19,6 +19,7 @@
 ## [PowerShell을 사용하여 SQL Server를 Azure SQL DB로 마이그레이션](howto-sql-server-to-azure-sql-powershell.md)
 ## [PowerShell을 사용하여 SQL Server를 Azure SQL DB MI로 마이그레이션](howto-sql-server-to-azure-sql-mi-powershell.md)
 ## [마이그레이션 작업 모니터링](how-to-monitor-migration-activity.md)
+## [Azure에 SSIS 패키지 마이그레이션](how-to-migrate-ssis-packages.md)
 
 # 리소스
 ## [데이터베이스 마이그레이션 시나리오 상태](resource-scenario-status.md)

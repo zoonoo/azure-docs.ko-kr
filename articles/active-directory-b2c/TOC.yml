@@ -87,10 +87,22 @@ items:
     href: active-directory-b2c-reference-mfa.md
   - name: ID 경험 프레임워크
     items:
-    - name: 사용자 지정 정책 만들기
-      href: active-directory-b2c-get-started-custom.md
     - name: Application Insights를 사용하여 로그 수집
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: 사용자 입력 구성
+      href: active-directory-b2c-configure-signup-self-asserted-custom.md
+    - name: 사용자 지정 정책 만들기
+      href: active-directory-b2c-get-started-custom.md
+    - name: UI 사용자 지정
+      href: active-directory-b2c-ui-customization-custom.md
+    - name: 동적으로 UI 사용자 지정
+      href: active-directory-b2c-ui-customization-custom-dynamic.md
+    - name: 토큰 사용자 지정
+      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+    - name: 사용자 지정 특성 정의
+      href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+    - name: 로그인 유지 사용
+      href: active-directory-b2c-reference-kmsi-custom.md
     - name: RESTful API 통합
       items:
       - name: 사용자 입력 유효성 검사
@@ -123,6 +135,10 @@ items:
       href: page-contract.md
     - name: 액세스 토큰을 통해 전달
       href: idp-pass-through-custom.md
+    - name: 암호 복잡성
+      href: active-directory-b2c-reference-password-complexity-custom.md
+    - name: 암호 변경
+      href: active-directory-b2c-reference-password-change-custom.md
     - name: SAML 공급자
       items:
       - name: ADFS
@@ -131,24 +147,6 @@ items:
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: 사용자 동작 추적
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: 사용자 흐름
-      items:
-      - name: 사용자 입력 구성
-        href: active-directory-b2c-configure-signup-self-asserted-custom.md
-      - name: 사용자 지정 특성
-        href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-      - name: UI 사용자 지정
-        href: active-directory-b2c-ui-customization-custom.md
-      - name: 동적으로 UI 사용자 지정
-        href: active-directory-b2c-ui-customization-custom-dynamic.md
-      - name: 토큰 사용자 지정
-        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-      - name: 암호 복잡성
-        href: active-directory-b2c-reference-password-complexity-custom.md
-      - name: 암호 변경
-        href: active-directory-b2c-reference-password-change-custom.md
-      - name: 로그인 유지 사용
-        href: active-directory-b2c-reference-kmsi-custom.md
     - name: 참고 자료
       items:
       - name: 클레임 해결자
@@ -326,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 80e90efcc500f04e3ec1f3e10c157c9b415f0eda
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d61d6726d388fd7bf18f1bcbc168078afadd1a71
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079078"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579807"

@@ -19,8 +19,14 @@ items:
         href: data-box-deploy-ordered.md
       - name: 2 - 설정
         href: data-box-deploy-set-up.md
-      - name: 3 - 데이터 복사
-        href: data-box-deploy-copy-data.md
+      - name: 3 - 연결 및 복사
+        items:
+        - name: SMB를 통해
+          href: data-box-deploy-copy-data.md
+        - name: NFS를 통해
+          href: data-box-deploy-copy-data-via-nfs.md
+        - name: REST를 통해
+          href: data-box-deploy-copy-data-via-rest.md
       - name: 4 - 반환, 업로드, 확인
         href: data-box-deploy-picked-up.md
     - name: 개념
@@ -28,7 +34,11 @@ items:
       - name: 보안 지침 읽기
         href: data-box-safety.md
       - name: 요구 사항 검토
-        href: data-box-system-requirements.md
+        items:
+        - name: Data Box
+          href: data-box-system-requirements.md
+        - name: Data Box Blob Storage의 경우
+          href: data-box-system-requirements-rest.md
       - name: 제한 이해
         href: data-box-limits.md
       - name: 보안 검토
@@ -98,9 +108,9 @@ items:
       href: https://azure.microsoft.com/pricing/details/storage/databox/
     - name: Data Box Disk 가격 책정
       href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
-ms.openlocfilehash: bd23df1abd99ba3fd89a4b382c6c5f00c8b80f1f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ca0a1e04f558396cb72b0617c9bee6349a0fe54
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739195"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540523"

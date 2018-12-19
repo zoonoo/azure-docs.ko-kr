@@ -43,9 +43,11 @@ items:
     items:
     - name: C#, REST 사용
       href: quickstart-dotnet-text-to-speech.md
+    - name: Node.js, REST 사용
+      href: quickstart-nodejs-text-to-speech.md
     - name: Python, REST 사용
       href: quickstart-python-text-to-speech.md
-  - name: 음성 디바이스 SDK 시작
+  - name: 음성 장치 SDK 시작
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk-qsg.md
 - name: 자습서
@@ -84,7 +86,7 @@ items:
   - name: 일괄 처리 전사(REST)
     displayName: recognize speech, speech recognition, speech to text, stt
     href: batch-transcription.md
-  - name: 음성 디바이스 SDK 가져오기
+  - name: 음성 장치 SDK 가져오기
     displayName: roobo, speech devices sdk, download
     href: get-speech-devices-sdk.md
   - name: 사용자 지정
@@ -99,7 +101,7 @@ items:
       href: how-to-create-custom-endpoint.md
     - name: 음성 글꼴 사용자 지정(봇 브랜드 음성)
       href: how-to-customize-voice-font.md
-    - name: 디바이스 절전 모드 해제 단어 사용자 지정(디바이스 SDK)
+    - name: 장치 절전 모드 해제 단어 사용자 지정(장치 SDK)
       displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
       href: speech-devices-sdk-create-kws.md
   - name: 음성 샘플 기록
@@ -202,9 +204,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: 개인정보처리방침
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 58ce67b6aecd137f526c275d3a7803e1eda43389
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5217e0b088f6b7ae77e677caf7532620adaceffb
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099531"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547867"
