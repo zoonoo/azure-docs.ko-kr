@@ -50,7 +50,7 @@ Synergi와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 - Azure AD 평가판 환경이 없으면 [1개월 평가판을 얻을](https://azure.microsoft.com/pricing/free-trial/) 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Synergi 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -182,7 +182,7 @@ Synergi에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **Synergi**를 선택합니다.
+1. 애플리케이션 목록에서 **Synergi**를 선택합니다.
 
     ![응용 프로그램 목록의 Synergi 링크](./media/synergi-tutorial/tutorial_synergi_app.png)  
 

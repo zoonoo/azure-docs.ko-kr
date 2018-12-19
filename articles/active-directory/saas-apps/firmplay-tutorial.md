@@ -52,7 +52,7 @@ FirmPlay - Employee Advocacy for Recruiting과 Azure AD 통합을 구성하려�
 
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 FirmPlay - Employee Advocacy for Recruiting 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -69,11 +69,11 @@ Azure AD와 FirmPlay - Employee Advocacy for Recruiting이 통합되도록 구�
 
 1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
 1. 대화 상자 위쪽에 있는 **추가** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 1. 검색 상자에 **FirmPlay - Employee Advocacy for Recruiting**을 입력합니다.
 

@@ -49,7 +49,7 @@ Keeper Password Manager & Digital Vault와 Azure AD 통합을 구성하려면 �
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Keeper Password Manager & Digital Vault 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -65,11 +65,11 @@ Keeper Password Manager & Digital Vault의 Azure AD 통합을 구성하려면 �
 
 1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
 1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 1. 검색 상자에서 **Keeper Password Manager & Digital Vault**를 입력합니다.
 
@@ -208,7 +208,7 @@ Keeper Password Manager & Digital Vault에 로그인할 수 있도록 Azure AD �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Keeper Password Manager & Digital Vault 타일을 클릭하면 Keeper Password Manager & Digital Vault 응용 프로그램의 로그인 페이지가 표시됩니다. 인증에 성공하면 응용 프로그램으로 가져와야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에서 Keeper Password Manager & Digital Vault 타일을 클릭하면 Keeper Password Manager & Digital Vault 응용 프로그램의 로그인 페이지가 표시됩니다. 인증에 성공하면 애플리케이션으로 가져와야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -154,7 +154,7 @@ ms.locfileid: "39426856"
    나. MySQL 설치 보안을 유지하고, 루트 암호를 설정하며, 익명 사용자를 제거하여 원격 루트 로그인을 사용하지 않도록 설정하고, 테스트 데이터베이스를 제거합니다.
 
            mysql_secure_installation
-   다. 클러스터 작업 및 선택적으로 응용 프로그램을 위해 데이터베이스에 사용자를 만듭니다.
+   다. 클러스터 작업 및 선택적으로 애플리케이션을 위해 데이터베이스에 사용자를 만듭니다.
 
            mysql -u root -p
            GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;

@@ -24,9 +24,9 @@ ms.locfileid: "51231722"
 
 이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터베이스 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
 
-상시 암호화는 클라이언트와 서버 사이의 이동 중에, 그리고 데이터를 사용 중일 때 서버에서 중요한 미사용 데이터를 보호하는 Azure SQL Database 및 SQL Server 내의 새로운 데이터 암호 기술로서, 중요한 데이터가 데이터베이스 시스템에서 일반 텍스트로 나타나지 않도록 보장합니다. 키에 액세스할 수 있는 클라이언트 응용 프로그램 또는 앱 서버는 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
+상시 암호화는 클라이언트와 서버 사이의 이동 중에, 그리고 데이터를 사용 중일 때 서버에서 중요한 미사용 데이터를 보호하는 Azure SQL Database 및 SQL Server 내의 새로운 데이터 암호 기술로서, 중요한 데이터가 데이터베이스 시스템에서 일반 텍스트로 나타나지 않도록 보장합니다. 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 앱 서버는 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
 
-상시 암호화를 사용하는 데이터베이스를 구성한 후에 Visual Studio로 C#에서 클라이언트 응용 프로그램을 만들어 암호화된 데이터로 작업합니다.
+상시 암호화를 사용하는 데이터베이스를 구성한 후에 Visual Studio로 C#에서 클라이언트 애플리케이션을 만들어 암호화된 데이터로 작업합니다.
 
 이 문서의 단계를 수행하고 Azure SQL 데이터베이스에 대해 상시 암호화를 설정하는 방법을 알아봅니다. 이 문서에서는 다음 작업을 수행하는 방법을 배웁니다.
 
@@ -93,7 +93,7 @@ SSMS를 열고 클리닉 데이터베이스가 있는 서버에 연결합니다.
 ## <a name="encrypt-columns-configure-always-encrypted"></a>열 암호화(상시 암호화 구성)
 SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게 구성하는 마법사를 제공합니다.
 
-1. **데이터베이스** > **빈** > **테이블**를 사용하여 데이터베이스 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하는 방법을 보여 줍니다.
+1.  **데이터베이스** > **빈** > **테이블**를 사용하여 데이터베이스 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하는 방법을 보여 줍니다.
 2. **Patients** 테이블을 마우스 오른쪽 단추로 클릭하고 **열 암호화**를 선택하여 상시 암호화 마법사를 엽니다.
    
     ![열 암호화](./media/sql-database-always-encrypted/encrypt-columns.png)
@@ -134,27 +134,27 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 **Clinic** > **보안** > **상시 암호화 키**로 이동하여 SSMS에서 키 만들기를 확인할 수 있습니다. 이제 마법사에서 생성한 새 키를 볼 수 있습니다.
 
 ## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>암호화된 데이터로 작동하는 클라이언트 응용 프로그램 만들기
-상시 암호화가 설정되었으므로 암호화된 열에서 *삽입* 및 *선택*을 수행하는 응용 프로그램을 빌드할 수 있습니다. 샘플 응용 프로그램을 성공적으로 실행하려면 상시 암호화 마법사를 실행한 동일한 컴퓨터에서 실행해야 합니다. 다른 컴퓨터에서 이 응용 프로그램을 실행하려면 클라이언트 앱을 실행하는 컴퓨터에 상시 암호화 인증서를 배포해야 합니다.  
+상시 암호화가 설정되었으므로 암호화된 열에서 *삽입* 및 *선택*을 수행하는 애플리케이션을 빌드할 수 있습니다. 샘플 애플리케이션을 성공적으로 실행하려면 상시 암호화 마법사를 실행한 동일한 컴퓨터에서 실행해야 합니다. 다른 컴퓨터에서 이 애플리케이션을 실행하려면 클라이언트 앱을 실행하는 컴퓨터에 상시 암호화 인증서를 배포해야 합니다.  
 
 > [!IMPORTANT]
 > 상시 암호화 열이 있는 서버에 일반 텍스트 데이터를 전달하는 경우 응용 프로그램은 [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) 개체를 사용해야 합니다. SqlParameter 개체를 사용하지 않고 리터럴 값을 전달하면 예외가 발생합니다.
 > 
 > 
 
-1. Visual Studio를 열고 새 C# 콘솔 응용 프로그램을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
+1. Visual Studio를 열고 새 C# 콘솔 애플리케이션을 만듭니다. 프로젝트가 **.NET Framework 4.6** 이상으로 설정되도록 합니다.
 2. 프로젝트 이름을 **AlwaysEncryptedConsoleApp**으로 지정하고 **확인**을 클릭합니다.
 
 ![새 콘솔 응용 프로그램](./media/sql-database-always-encrypted/console-app.png)
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>연결 문자열을 수정하여 상시 암호화 사용
-이 섹션에는 데이터베이스 연결 문자열에서 상시 암호화를 사용하는 방법을 설명합니다. 다음 섹션 "상시 암호화 샘플 콘솔 응용 프로그램"에서 실제로 방금 만든 콘솔 앱을 수정합니다.
+이 섹션에는 데이터베이스 연결 문자열에서 상시 암호화를 사용하는 방법을 설명합니다. 다음 섹션 "상시 암호화 샘플 콘솔 애플리케이션"에서 실제로 방금 만든 콘솔 앱을 수정합니다.
 
 상시 암호화를 사용하려면 **열 암호화 설정** 키워드를 연결 문자열에 추가하고 **사용함**으로 설정해야 합니다.
 
-이 연결 문자열에서 직접 설정하거나 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx)를 사용하여 설정할 수 있습니다. 다음 섹션에서 응용 프로그램 예제는 **SqlConnectionStringBuilder**를 사용하는 방법을 보여 줍니다.
+이 연결 문자열에서 직접 설정하거나 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx)를 사용하여 설정할 수 있습니다. 다음 섹션에서 애플리케이션 예제는 **SqlConnectionStringBuilder**를 사용하는 방법을 보여줍니다.
 
 > [!NOTE]
-> 상시 암호화에 특정된 클라이언트 응용 프로그램에서 필요한 유일한 변경 내용입니다. 외부(즉, 구성 파일)에서 연결 문자열을 저장하는 기존 응용 프로그램이 있는 경우 코드를 변경하지 않고 상시 암호화를 사용할 수 있습니다.
+> 상시 암호화에 특정된 클라이언트 애플리케이션에서 필요한 유일한 변경 내용입니다. 외부(즉, 구성 파일)에서 연결 문자열을 저장하는 기존 애플리케이션이 있는 경우 코드를 변경하지 않고 상시 암호화를 사용할 수 있습니다.
 > 
 > 
 

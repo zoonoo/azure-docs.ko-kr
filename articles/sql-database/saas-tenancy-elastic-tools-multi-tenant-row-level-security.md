@@ -19,7 +19,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51242911"
 ---
-# <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 응용 프로그램
+# <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
 
 [탄력적 데이터베이스 도구](sql-database-elastic-scale-get-started.md) 및 [RLS(행 수준 보안)][rls]는 Azure SQL Database를 사용하여 다중 테넌트 응용 프로그램의 데이터 계층을 확장할 수 있도록 지원합니다. 이러한 기술을 함께 사용하면 확장성이 뛰어난 데이터 계층이 있는 응용 프로그램을 작성할 수 있습니다. 데이터 계층은 다중 테넌트 분할된 데이터베이스를 지원하며 **ADO.NET SqlClient** 또는 **Entity Framework**를 사용합니다. 자세한 내용은 [Azure SQL Database를 사용한 다중 테넌트 SaaS 응용 프로그램의 설계 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 
@@ -42,7 +42,7 @@ ms.locfileid: "51242911"
 - Visual Studio 2012 이상 사용
 - Azure SQL 데이터베이스 3개 만들기
 - 샘플 프로젝트 다운로드: [Azure SQL을 위한 탄력적 DB 도구 - 다중 테넌트 분할된 데이터베이스](https://go.microsoft.com/?linkid=9888163)
-  - **Program.cs** 
+  -  **Program.cs** 
 
 이 프로젝트는 [Azure SQL을 위한 탄력적 DB 도구 - Entity Framework 통합](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 에서 설명한 프로젝트에 다중 테넌트 분할된 데이터베이스에 대한 지원을 추가하는 확장 프로젝트입니다. 이 프로젝트는 블로그 및 게시물을 만들기 위한 간단한 콘솔 응용 프로그램을 작성합니다. 프로젝트에는 4명의 테넌트와 두 개의 다중 테넌트 분할 데이터베이스가 포함됩니다. 이 구성은 이전 다이어그램에 설명되어 있습니다. 
 
@@ -285,7 +285,7 @@ ALTER TABLE Posts
 GO 
 ```
 
-이제 행을 삽입할 때 응용 프로그램에서 TenantId를 지정할 필요가 없습니다. 
+이제 행을 삽입할 때 애플리케이션에서 TenantId를 지정할 필요가 없습니다. 
 
 ```csharp
 SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
@@ -346,7 +346,7 @@ GO
 
 ## <a name="summary"></a>요약
 
-탄력적 데이터베이스 도구와 행 수준 보안을 함께 사용하면 다중 테넌트 및 단일 테넌트 분할된 데이터베이스를 모두 지원하여 응용 프로그램의 데이터 계층을 확장할 수 있습니다. 다중 테넌트 분할된 데이터베이스는 데이터를 보다 효율적으로 저장하는 데 사용할 수 있습니다. 이러한 효율성은 많은 수의 테넌트가 몇 개의 데이터 행만 가진 경우 분명합니다. 단일 테넌트의 분할된 데이터베이스는 보다 엄격한 성능 및 격리 요구 사항을 갖는 프리미엄 테넌트를 지원할 수 있습니다.  자세한 내용은 [행 수준 보안 참조][rls]를 참조하세요.
+탄력적 데이터베이스 도구와 행 수준 보안을 함께 사용하면 다중 테넌트 및 단일 테넌트 분할된 데이터베이스를 모두 지원하여 애플리케이션의 데이터 계층을 확장할 수 있습니다. 다중 테넌트 분할된 데이터베이스는 데이터를 보다 효율적으로 저장하는 데 사용할 수 있습니다. 이러한 효율성은 많은 수의 테넌트가 몇 개의 데이터 행만 가진 경우 분명합니다. 단일 테넌트의 분할된 데이터베이스는 보다 엄격한 성능 및 격리 요구 사항을 갖는 프리미엄 테넌트를 지원할 수 있습니다.  자세한 내용은 [행 수준 보안 참조][rls]를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

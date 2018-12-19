@@ -94,11 +94,11 @@ EverBridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 EverBridge 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 EverBridge 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **EverBridge에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **EverBridge** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **EverBridge** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Single Sign-On 구성 링크][4]
 
@@ -218,7 +218,7 @@ EverBridge에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![사용자 할당][201]
 
-2. 응용 프로그램 목록에서 **EverBridge**를 선택합니다.
+2. 애플리케이션 목록에서 **EverBridge**를 선택합니다.
 
     ![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_app.png) 
 

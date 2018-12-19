@@ -1,6 +1,6 @@
 ---
 title: 이미 라이브 상태인 Java 웹앱용 Application Insights
-description: 서버에서 이미 실행 중인 웹 응용 프로그램 모니터링 시작
+description: 서버에서 이미 실행 중인 웹 애플리케이션 모니터링 시작
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -21,7 +21,7 @@ ms.locfileid: "52721003"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>이미 라이브 상태인 Java 웹앱용 Application Insights
 
-J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 코드를 변경하거나 프로젝트를 다시 컴파일할 필요 없이 [Application Insights](app-insights-overview.md) 를 사용하여 모니터링을 시작할 수 있습니다. 이 옵션을 사용하면 서버로 전송된 HTTP 요청, 처리되지 않은 예외 및 성능 카운터에 대한 정보를 얻을 수 있습니다.
+J2EE 서버에서 이미 실행 중인 웹 애플리케이션이 있는 경우 코드를 변경하거나 프로젝트를 다시 컴파일할 필요 없이 [Application Insights](app-insights-overview.md)를 사용하여 모니터링을 시작할 수 있습니다. 이 옵션을 사용하면 서버로 전송된 HTTP 요청, 처리되지 않은 예외 및 성능 카운터에 대한 정보를 얻을 수 있습니다.
 
 [Microsoft Azure](https://azure.com)를 구독해야 합니다.
 
@@ -32,7 +32,7 @@ J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키 가져오기
 1.  [Microsoft Azure 포털](https://portal.azure.com)
-2. 새 Application Insights 리소스를 만들고 Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
+2. 새 Application Insights 리소스를 만들고 Java 웹 애플리케이션에 대한 애플리케이션 종류를 설정합니다.
    
     ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-live/02-create.png)
 
@@ -91,7 +91,7 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 * 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이 식별자를 속성으로 추가합니다. [진단 검색](app-insights-diagnostic-search.md)에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
 
 ## <a name="4-add-an-http-filter"></a>4. HTTP 필터 추가
-프로젝트에서 web.xml 파일을 찾아 열고, 응용 프로그램 필터가 구성된 웹 앱 노드 아래 다음 코드 조각을 병합합니다.
+프로젝트에서 web.xml 파일을 찾아 열고, 애플리케이션 필터가 구성된 웹 앱 노드 아래 다음 코드 조각을 병합합니다.
 
 가장 정확한 결과를 얻으려면 필터를 다른 모든 필터 전에 매핑해야 합니다.
 

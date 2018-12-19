@@ -202,12 +202,12 @@ Tomcat 사용자 구성 파일을 편집하여 관리자 자격 증명을 설정
 브라우저를 열고 URL로 **http://<your tomcat server DNS name>/manager/html**을 입력합니다. 이 문서의 예제에서 URL은 http://tomcatexample.cloudapp.net/manager/html입니다.  
 
 연결되면 다음과 유사한 페이지가 표시됩니다.  
-![Tomcat 웹 응용 프로그램 관리자의 스크린샷][18]
+![Tomcat 웹 애플리케이션 관리자의 스크린샷][18]
 
 ## <a name="common-issues"></a>일반적인 문제
 ### <a name="cant-access-the-virtual-machine-with-tomcat-and-moodle-from-the-internet"></a>인터넷에서 Tomcat 및 Moodle이 있는 가상 머신에 액세스할 수 없음
 #### <a name="symptom"></a>증상  
-  Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 볼 수 없습니다.
+   Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 볼 수 없습니다.
 #### <a name="possible-root-cause"></a>가능한 근본 원인   
 
   * Tomcat 수신 대기 포트는 Tomcat 트래픽에 대한 가상 머신 엔드포인트의 개인 포트와 다릅니다.  

@@ -106,7 +106,7 @@ namespace HDInsightManagement
 }
 ```
 
-이 프로그램을 실행하면 프롬프트가 나타납니다.  프롬프트를 표시하지 않으려면 [비대화형 인증 .NET HDInsight 응용 프로그램 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)를 참조하세요.
+이 프로그램을 실행하면 프롬프트가 나타납니다.  프롬프트를 표시하지 않으려면 [비대화형 인증 .NET HDInsight 애플리케이션 만들기](hdinsight-create-non-interactive-authentication-dotnet-applications.md)를 참조하세요.
 
 ## <a name="create-clusters"></a>클러스터 만들기
  [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)

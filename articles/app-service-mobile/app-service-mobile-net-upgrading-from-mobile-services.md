@@ -24,7 +24,7 @@ ms.locfileid: "53278617"
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>기존 .NET Azure 모바일 서비스를 App Service로 업그레이드
 App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
 
-이 항목에서는 기존 .NET 백 엔드 응용 프로그램을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 응용 프로그램이 계속 작동할 수 있습니다.   Node.js 백 엔드 응용 프로그램을 업그레이드해야 하는 경우 [Node.js Mobile Services 업그레이드](app-service-mobile-node-backend-upgrading-from-mobile-services.md)를 참조하세요.
+이 항목에서는 기존 .NET 백 엔드 응용 프로그램을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 애플리케이션이 계속 작동할 수 있습니다.   Node.js 백 엔드 응용 프로그램을 업그레이드해야 하는 경우 [Node.js Mobile Services 업그레이드](app-service-mobile-node-backend-upgrading-from-mobile-services.md)를 참조하세요.
 
 모바일 백 엔드가 Azure App Service로 업그레이드되면 모든 App Service 기능에 액세스할 수 있고 Mobile Services 가격 책정이 아닌 [App Service 가격 책정]에 따라 요금이 청구됩니다.
 
@@ -258,7 +258,7 @@ string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
 앱이 사용자 지정 인증 솔루션을 사용하는 경우 업그레이드된 사이트가 시스템에 액세스하도록 하려 합니다. [.NET 서버 SDK 개요] 에서 사용자 지정 인증에 대한 새 지침을 수행하여 솔루션을 통합할 수 있습니다. 사용자 지정 인증 구성 요소가 여전히 미리 보기 상태입니다.
 
 ## <a name="updating-clients"></a>클라이언트 업데이트
-작동하는 모바일 앱 백 엔드가 있으면 그것을 사용하는 클라이언트 응용 프로그램의 새 버전에서 작동할 수 있습니다. 또한 Mobile Apps는 클라이언트 SDK의 새 버전을 포함하고 위의 서버 업그레이드와 유사합니다. 따라서 Mobile Apps 버전을 설치하기 전에 Mobile Services SDK에 대한 모든 참조를 제거해야 합니다.
+작동하는 모바일 앱 백 엔드가 있으면 그것을 사용하는 클라이언트 애플리케이션의 새 버전에서 작동할 수 있습니다. 또한 Mobile Apps는 클라이언트 SDK의 새 버전을 포함하고 위의 서버 업그레이드와 유사합니다. 따라서 Mobile Apps 버전을 설치하기 전에 Mobile Services SDK에 대한 모든 참조를 제거해야 합니다.
 
 버전 간의 주요 변경 사항 중 하나는 생성자가 응용 프로그램 키를 더 이상 필요로 하지 않는다는 점입니다. 이제 모바일 앱의 URL에 간단히 전달할 수 있습니다. 예를 들어 .NET 클라이언트에서 `MobileServiceClient` 생성자는 다음과 같습니다.
 

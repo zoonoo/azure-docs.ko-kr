@@ -49,7 +49,7 @@ SAML SSO for Confluence by resolution GmbH와 Azure AD를 통합하도록 구성
 - Azure AD 평가판 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 얻을 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 SAML SSO for Confluence by resolution GmbH 추가
 1. Azure AD Single Sign-on 구성 및 테스트
@@ -66,11 +66,11 @@ Azure AD에 SAML SSO for Confluence by resolution GmbH를 통합하도록 구성
 
 1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
-    ![응용 프로그램][2]
+    ![애플리케이션][2]
     
 1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
-    ![응용 프로그램][3]
+    ![애플리케이션][3]
 
 1. 검색 상자에서 **SAML SSO for Confluence by resolution GmbH**를 입력합니다.
 
