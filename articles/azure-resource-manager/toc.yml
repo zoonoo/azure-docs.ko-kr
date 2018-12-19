@@ -94,7 +94,7 @@ items:
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: 템플릿 배포
     items:
-    - name: 포털을 사용하여 배포
+    - name: Azure Portal을 사용하여 배포
       href: resource-group-template-deploy-portal.md
     - name: Azure CLI를 사용하여 배포
       href: resource-group-template-deploy-cli.md
@@ -123,27 +123,27 @@ items:
       maintainContext: true
   - name: 템플릿 관리
     items:
-    - name: Azure PowerShell
-      href: powershell-azure-resource-manager.md
-    - name: Azure CLI
-      href: cli-azure-resource-manager.md
-    - name: Azure portal
+    - name: Azure Portal을 사용하여 관리
       href: resource-group-portal.md
-    - name: 태그를 사용하여 리소스 구성
-      href: resource-group-using-tags.md
-    - name: 새 그룹 또는 구독으로 리소스 이동
+    - name: Azure PowerShell을 사용하여 관리
+      href: powershell-azure-resource-manager.md
+    - name: Azure CLI를 사용하여 관리
+      href: cli-azure-resource-manager.md
+    - name: 리소스 이동
       href: resource-group-move-resources.md
       items:
       - name: 리소스 유형별 지원 이동
         href: move-support-resources.md
+    - name: 태그를 사용하여 리소스 관리
+      href: resource-group-using-tags.md
+    - name: 리소스 잠금
+      href: resource-group-lock-resources.md
+    - name: 구독에 액세스하는 인증 API
+      href: resource-manager-api-authentication.md
     - name: EA 구독 만들기
       href: programmatically-create-subscription.md
     - name: EA 구독을 만드는 액세스 권한 부여
       href: grant-access-to-create-subscription.md
-    - name: 구독에 액세스하는 인증 API
-      href: resource-manager-api-authentication.md
-    - name: 리소스 잠금
-      href: resource-group-lock-resources.md
   - name: 배포 감사
     items:
     - name: 활동 로그 보기
@@ -211,7 +211,7 @@ items:
     href: /rest/api/resources/
   - name: REST - 배포 관리자
     href: /rest/api/deploymentmanager/
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/azurerm.resources
   - name: Azure CLI
     href: /cli/azure/resource
@@ -235,9 +235,9 @@ items:
     href: resource-manager-personal-data.md
   - name: 동영상
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 166a23d480db7dfda7a78a5a63e7717b5e721bb9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 47766ce1bd0250c1eeaa269c4bc2436a2e117f02
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436792"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600967"
