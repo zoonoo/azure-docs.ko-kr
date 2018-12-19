@@ -136,9 +136,9 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 이 섹션에서는 Feather HUZZAH ESP8266에 대한 응용 프로그램 예제를 배포하고 실행합니다. 샘플 응용 프로그램은 Feather HUZZAH ESP8266의 LED를 깜박이고 DHT22 센서에서 수집된 온도 및 습도 데이터를 IoT Hub로 보냅니다.
 
-### <a name="get-the-sample-application-from-github"></a>GitHub에서 샘플 응용 프로그램 가져오기
+### <a name="get-the-sample-application-from-github"></a>GitHub에서 샘플 애플리케이션 가져오기
 
-샘플 응용 프로그램은 GitHub에서 호스팅됩니다. GitHub에서 응용 프로그램 예제가 포함된 샘플 리포지토리를 복제합니다. 샘플 리포지토리를 복제하려면 다음 단계를 수행합니다.
+샘플 응용 프로그램은 GitHub에서 호스팅됩니다. GitHub에서 샘플 애플리케이션이 포함된 샘플 리포지토리를 복제합니다. 샘플 리포지토리를 복제하려면 다음 단계를 수행합니다.
 
 1. 명령 프롬프트 또는 터미널 창을 엽니다.
 
@@ -152,7 +152,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
    다음으로 Visual Studio Code에 Feather HUZZAH ESP8266 패키지를 설치합니다.
 
-4. 응용 프로그램 예제가 저장된 폴더를 엽니다.
+4. 샘플 애플리케이션가 저장된 폴더를 엽니다.
 
 5. Visual Studio Code의 앱 폴더에서 app.ino 파일을 엽니다.
 
@@ -218,7 +218,7 @@ Ubuntu를 사용하는 경우 Feather HUZZAH ESP8266의 USB 포트에서 작동�
 
 3. 파일을 저장합니다.
 
-### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Feather HUZZAH ESP8266에 응용 프로그램 예제 배포
+### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Feather HUZZAH ESP8266에 샘플 애플리케이션 배포
 
 1. Visual Studio Code의 상태 표시줄에서 **<Select Serial Port>** 를 클릭한 후 Feather HUZZAH ESP8266에 대한 직렬 포트를 클릭합니다.
 

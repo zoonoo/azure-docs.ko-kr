@@ -52,7 +52,7 @@ Azure MFA(Multi-Factor Authentication) 서버의 IIS 인증 섹션을 사용하�
 1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴에 있는 IIS 인증 아이콘을 클릭합니다.
 2. **HTTP** 탭을 클릭합니다.
 3. **추가**를 클릭합니다.
-4. Add Base URL(기준 URL 추가) 대화 상자에서 HTTP 인증이 수행되는 웹 사이트의 URL(예: http://localhost/owa)을 입력하고 응용 프로그램 이름을 제공합니다(선택 사항). 응용 프로그램 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
+4. Add Base URL(기준 URL 추가) 대화 상자에서 HTTP 인증이 수행되는 웹 사이트의 URL(예: http://localhost/owa)을 입력하고 애플리케이션 이름을 제공합니다(선택 사항). 응용 프로그램 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 5. 기본값이 충분하지 않으면 유휴 제한 시간 및 최대 세션 시간을 조정합니다.
 6. 모든 사용자를 내부 서버로 가져왔거나 가져올 예정이고 Multi-Factor Authentication을 사용하려는 경우 **Require Azure Multi-Factor Authentication user match**(Azure Multi-Factor Authentication 사용자 일치 필요) 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 다단계 인증에서 제외할 예정이면 이 확인란을 선택 취소합니다.
 7. 원하는 경우 **쿠키 캐시** 상자를 선택합니다.

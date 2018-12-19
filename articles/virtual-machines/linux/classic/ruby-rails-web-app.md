@@ -22,7 +22,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 07/07/2018
 ms.locfileid: "37901156"
 ---
-# <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM의 Ruby on Rails 웹 응용 프로그램
+# <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM의 Ruby on Rails 웹 애플리케이션
 이 자습서에서는 Azure에서 Linux 가상 머신을 사용하여 Ruby on Rails 웹 사이트를 호스트하는 방법을 보여줍니다.  
 
 이 자습서의 내용은 Ubuntu Server 14.04 LTS를 사용하여 유효성이 검사되었습니다. 다른 Linux 배포를 사용하는 경우, Rails를 설치하는 단계를 수정해야 합니다.
@@ -124,7 +124,7 @@ SSH를 통해 로그인한 경우.다음 명령을 실행합니다.
 
 5. 확인을 클릭하여 끝점을 저장합니다.
 
-6. 메시지가 **가상 머신 끝점 저장**을 표시해야 합니다. 이 메시지가 사라지면 끝점이 활성 상태가 됩니다. 이제 가상 머신의 DNS 이름으로 이동하여 응용 프로그램을 테스트할 수 있습니다. 웹 사이트는 다음과 유사합니다.
+6. 메시지가 **가상 머신 끝점 저장**을 표시해야 합니다. 이 메시지가 사라지면 끝점이 활성 상태가 됩니다. 이제 가상 머신의 DNS 이름으로 이동하여 애플리케이션을 테스트할 수 있습니다. 웹 사이트는 다음과 유사합니다.
 
     ![기본 Rails 페이지][default-rails-cloud]
 

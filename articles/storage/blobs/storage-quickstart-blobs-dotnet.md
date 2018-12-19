@@ -44,7 +44,7 @@ ms.locfileid: "51712027"
 
 ---
 
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
 이 빠른 시작 가이드에서 사용되는 샘플 응용 프로그램은 기본적인 콘솔 응용 프로그램입니다. [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart)에서 샘플 응용 프로그램을 탐색할 수 있습니다.
 

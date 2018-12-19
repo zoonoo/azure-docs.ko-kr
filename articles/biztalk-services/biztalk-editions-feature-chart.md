@@ -245,7 +245,7 @@ BizTalk 어댑터 서비스는 Azure BizTalk 서비스에서 사용됩니다. Bi
 네. BizTalk 어댑터 서비스는 BizTalk Adapter Pack과 함께 Azure BizTalk Services SDK [다운로드](https://www.microsoft.com/download/details.aspx?id=39087)에 포함되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Portal에서 Azure BizTalk Services를 만들려면 [BizTalk Services: Azure Portal을 사용하여 프로비전](biztalk-provision-services.md)으로 이동하세요. 응용 프로그램을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
+Azure Portal에서 Azure BizTalk Services를 만들려면 [BizTalk Services: Azure Portal을 사용하여 프로비전](biztalk-provision-services.md)으로 이동하세요. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 * [BizTalk Services: Azure Portal을 사용하여 프로비전](biztalk-provision-services.md)<br/>

@@ -41,7 +41,7 @@ ms.locfileid: "44355687"
 
 Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 응용 프로그램이 요청한 형식을 기반으로 NameID 특성(사용자 ID)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
 
-## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 가져오는 위치
+## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Azure AD에서 애플리케이션 메타데이터 또는 인증서를 가져오는 위치
 
 Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로드하려면 아래 단계를 수행합니다.
 
@@ -57,7 +57,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
    * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
 
-6.  Single Sign-On을 구성한 응용 프로그램을 선택합니다.
+6.  Single Sign-On을 구성한 애플리케이션을 선택합니다.
 
 7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 

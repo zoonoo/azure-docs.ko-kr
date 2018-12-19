@@ -166,7 +166,7 @@ items:
       href: service-fabric-guest-executables-introduction.md
   - name: 응용 프로그램 및 서비스
     items:
-    - name: 응용 프로그램 모델
+    - name: 애플리케이션 모델
       href: service-fabric-application-model.md
     - name: 응용 프로그램 및 서비스 매니페스트
       href: service-fabric-application-and-service-manifests.md

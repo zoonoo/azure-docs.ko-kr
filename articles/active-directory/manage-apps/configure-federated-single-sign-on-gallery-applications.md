@@ -1,6 +1,6 @@
 ---
-title: Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하는 방법 | Microsoft Docs
-description: 기존 Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하고 자습서를 사용하여 신속하게 준비하는 방법
+title: Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법 | Microsoft Docs
+description: 기존 Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하고 자습서를 사용하여 신속하게 준비하는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -21,12 +21,12 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44355672"
 ---
-# <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하는 방법
+# <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
-Azure AD 갤러리에서 Enterprise Single Sign-On 기능을 사용하도록 설정된 모든 응용 프로그램은 단계별 자습서를 사용할 수 있습니다. [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)에 액세스하면 자세한 단계별 지침을 볼 수 있습니다.
+Azure AD 갤러리에서 Enterprise Single Sign-On 기능을 사용하도록 설정된 모든 애플리케이션은 단계별 자습서를 사용할 수 있습니다. [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/)에 액세스하면 자세한 단계별 지침을 볼 수 있습니다.
 
 ## <a name="overview-of-steps-required"></a>필요한 단계 개요
-Azure AD 갤러리에서 응용 프로그램을 구성하려면 다음을 수행해야 합니다.
+Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
 -   [Azure AD 갤러리에서 응용 프로그램 추가](#add-an-application-from-the-azure-ad-gallery)
 
@@ -64,7 +64,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
 잠시 후 응용 프로그램의 구성 창을 볼 수 있습니다.
 
-## <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 응용 프로그램의 Single Sign-On 구성
+## <a name="configure-single-sign-on-for-an-application-from-the-azure-ad-gallery"></a>Azure AD 갤러리에서 애플리케이션의 Single Sign-On 구성
 
 응용 프로그램에 Single Sign-On을 구성하려면 아래 단계를 수행합니다.
 
@@ -126,7 +126,7 @@ Azure AD 갤러리에서 응용 프로그램을 추가하려면 아래 단계를
 
    * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
 
-6.  Single Sign-On을 구성한 응용 프로그램을 선택합니다.
+6.  Single Sign-On을 구성한 애플리케이션을 선택합니다.
 
 7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 
@@ -159,9 +159,9 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 5.  **모든 응용 프로그램**을 클릭하여 모든 응용 프로그램의 목록을 봅니다.
 
-  *  여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
+  *  여기에 표시하려는 애플리케이션이 표시되지 않으면 **모든 애플리케이션 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 애플리케이션**으로 설정합니다.
 
-6.  Single Sign-On을 구성한 응용 프로그램을 선택합니다.
+6.  Single Sign-On을 구성한 애플리케이션을 선택합니다.
 
 7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 

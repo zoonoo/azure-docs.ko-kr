@@ -25,7 +25,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure Storage 계정을 만듭니다. 저장소 계정을 만드는 데 도움이 필요한 경우 [저장소 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
 
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
 [샘플 애플리케이션](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)은 간단한 Node.js 콘솔 애플리케이션입니다. 시작하려면 다음 명령을 사용하여 리포지토리를 컴퓨터에 복제합니다.
 

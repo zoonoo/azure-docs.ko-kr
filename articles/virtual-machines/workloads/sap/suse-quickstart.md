@@ -80,7 +80,7 @@ SAP "향상된 모니터링"은 Azure에서 SAP를 실행하기 위한 필수 �
 ## <a name="attaching-azure-data-disks-to-an-azure-linux-vm"></a>Azure Linux VM에 Azure 데이터 디스크 연결
 디바이스 ID를 사용하여 Azure 데이터 디스크를 Azure Linux VM에 탑재해서는 안됩니다. 대신 UUID(Universally Unique Identifier)를 사용합니다. 예를 들어 Azure 데이터 디스크를 탑재하기 위해 그래픽 도구를 사용하는 경우 주의해야 합니다. /etc/fstab의 항목을 재차 확인하세요.
 
-디바이스 ID의 문제점은 변경될 가능성이 있고 그렇게 되면 Azure VM이 부팅 프로세스에 머무를 수 있다는 점입니다. 문제를 완화시키려면 /etc/fstab에 nofail 매개 변수를 추가할 수 있습니다. 하지만 응용 프로그램이 전과 같이 탑재 지점을 사용할 수 있고, 외부 Azure 데이터 디스크가 부팅 중에 탑재되지 않은 경우에 루트 파일 시스템에 작성할 수 있기 때문에 nofail에 유의합니다.
+디바이스 ID의 문제점은 변경될 가능성이 있고 그렇게 되면 Azure VM이 부팅 프로세스에 머무를 수 있다는 점입니다. 문제를 완화시키려면 /etc/fstab에 nofail 매개 변수를 추가할 수 있습니다. 하지만 애플리케이션이 전과 같이 탑재 지점을 사용할 수 있고, 외부 Azure 데이터 디스크가 부팅 중에 탑재되지 않은 경우에 루트 파일 시스템에 작성할 수 있기 때문에 nofail에 유의합니다.
 
 UUID를 통한 탑재에서 유일한 예외는 다음 섹션에 설명된 대로 문제 해결을 위해 OS 디스크를 연결하는 것입니다.
 
@@ -134,7 +134,7 @@ SUSE는 일련의 SAP 관련 설정을 관리하는 "sapconf"라는 패키지를
 - ‘tuned-adm’을 사용하여 SAP 워크로드를 위한 시스템 튜닝은 6.2장의 [여기](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf)에서 확인할 수 있습니다.
 
 ## <a name="nfs-share-in-distributed-sap-installations"></a>분산된 SAP 설치에서 NFS 공유
-예를 들어 데이터베이스 및 SAP 응용 프로그램 서버를 별도의 VM에 설치하려는 분산 설치의 경우 NFS(네트워크 파일 시스템)을 통해 /sapmnt 디렉터리를 공유할 수 있습니다. /sapmnt에 NFS 공유를 생성한 후에 설치 단계에서 문제가 발생하면 공유에 "no_root_squash"가 설정되어 있는지 확인합니다.
+예를 들어 데이터베이스 및 SAP 애플리케이션 서버를 별도의 VM에 설치하려는 분산 설치의 경우 NFS(네트워크 파일 시스템)을 통해 /sapmnt 디렉터리를 공유할 수 있습니다. /sapmnt에 NFS 공유를 생성한 후에 설치 단계에서 문제가 발생하면 공유에 "no_root_squash"가 설정되어 있는지 확인합니다.
 
 ## <a name="logical-volumes"></a>논리 볼륨
 과거에는 여러 Azure 데이터 디스크에 큰 논리 볼륨이 필요한 경우(예: SAP 데이터베이스에 대해) Linux LVM(논리 볼륨 관리자)은 아직 Azure에서 유효성이 완전하게 확인되지 않았으므로 Raid 관리 도구 MDADM을 사용하는 것이 권장되었습니다. mdadm을 사용하여 Azure에서 Linux RAID를 설정하는 방법을 알아보려면 [Linux에서 소프트웨어 RAID 구성](../../linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요. 그동안 2016년 5월부터 Linux 논리 볼륨 관리자가 Azure에서 완전히 지원되어 MDADM 대신 사용할 수 있게 되었습니다. Azure에서 LVM에 관한 자세한 내용을 보려면 다음을 읽어 보세요.  

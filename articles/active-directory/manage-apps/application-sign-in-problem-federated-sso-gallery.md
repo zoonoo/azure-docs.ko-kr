@@ -34,7 +34,7 @@ ms.locfileid: "44356191"
 
 ## <a name="application-not-found-in-directory"></a>응용 프로그램을 디렉터리에서 찾을 수 없습니다
 
-*오류 AADSTS70001: ‘ https://contoso.com’ 식별자를 가진 응용 프로그램이 디렉터리에 없습니다*.
+*오류 AADSTS70001: ‘https://contoso.com’ 식별자를 가진 응용 프로그램이 디렉터리에 없습니다*.
 
 **가능한 원인**
 
@@ -66,7 +66,7 @@ Azure AD에서 식별자 값을 업데이트하고 SAML 요청에서 응용 프�
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>회신 주소가 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.
 
-*오류 AADSTS50011: 회신 주소 ‘ https://contoso.com’이 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.*
+*오류 AADSTS50011: 회신 주소 ‘https://contoso.com’이 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다.*
 
 **가능한 원인**
 
@@ -191,7 +191,7 @@ Single Sign-On에 Azure AD SAML 구현을 지원하는지 유효성을 검사해
 
   * 여기에 표시하려는 응용 프로그램이 표시되지 않으면 **모든 응용 프로그램 목록**의 맨 위에서 **필터** 컨트롤을 사용하고 **표시** 옵션을 **모든 응용 프로그램**으로 설정합니다.
 
-6.  Single Sign-On을 구성한 응용 프로그램을 선택합니다.
+6.  Single Sign-On을 구성한 애플리케이션을 선택합니다.
 
 7.  응용 프로그램이 로드되면 응용 프로그램의 왼쪽 탐색 메뉴에서 **Single Sign-On**을 클릭합니다.
 

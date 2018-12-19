@@ -32,7 +32,7 @@ ms.locfileid: "39529830"
 
 * 이 문서의 예제는 저장소 계정의 컨테이너를 나열하는 방법을 보여 줍니다. 출력을 보려면 시작하기 전에 저장소 계정의 BLOB 저장소에 컨테이너를 몇 개 추가합니다.
 
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
 응용 프로그램 예제는 C#으로 작성된 콘솔 응용 프로그램입니다.
 

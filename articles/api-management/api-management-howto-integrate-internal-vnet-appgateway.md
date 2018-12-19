@@ -220,7 +220,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -name "p
 
 ## <a name="create-application-gateway-configuration"></a>응용 프로그램 게이트웨이 구성 만들기
 
-응용 프로그램 게이트웨이를 만들기 전에 모든 구성 항목을 설정해야 합니다. 다음 단계 응용 프로그램 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
+응용 프로그램 게이트웨이를 만들기 전에 모든 구성 항목을 설정해야 합니다. 다음 단계 애플리케이션 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
 
 ### <a name="step-1"></a>1단계
 

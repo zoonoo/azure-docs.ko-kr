@@ -87,7 +87,7 @@ Visual Studio에서 Virtual Machine Scale Sets 배포를 시작하려면 다음 
    ![출력 창][output_window]
 
 ## <a name="exploring-your-virtual-machine-scale-set"></a>Virtual Machine Scale Set 탐색
-배포가 완료되면 Visual Studio **클라우드 탐색기**에서(목록 새로 고침) 새로운 Virtual Machine Scale Set를 볼 수 있습니다. Cloud Explorer를 사용하면 응용 프로그램을 배포하는 동안 Visual Studio에서 Azure 리소스를 관리할 수 있습니다. [Azure Portal](https://portal.azure.com) 및 [Azure 리소스 탐색기](https://resources.azure.com/)에서 Virtual Machine Scale Set를 볼 수도 있습니다.
+배포가 완료되면 Visual Studio **클라우드 탐색기**에서(목록 새로 고침) 새로운 Virtual Machine Scale Set를 볼 수 있습니다. Cloud Explorer를 사용하면 애플리케이션을 배포하는 동안 Visual Studio에서 Azure 리소스를 관리할 수 있습니다. [Azure Portal](https://portal.azure.com) 및 [Azure 리소스 탐색기](https://resources.azure.com/)에서 Virtual Machine Scale Set를 볼 수도 있습니다.
 
 ![Cloud Explorer][cloud_explorer]
 

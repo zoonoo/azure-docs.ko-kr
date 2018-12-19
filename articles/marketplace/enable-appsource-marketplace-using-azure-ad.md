@@ -31,7 +31,7 @@ Microsoft AppSource 및 Azure Marketplace 고객은 제품 내 환경을 사용�
 
 - 더 빠른 참여 및 최적화된 사용자 환경
 - 수백만 명의 엔터프라이즈 사용자를 위한 SSO(Single Sign-On)
-- 여러 파트너가 게시한 다양한 응용 프로그램에 걸쳐 일관된 로그인 환경
+- 여러 파트너가 게시한 다양한 애플리케이션에 걸쳐 일관된 로그인 환경
 - 모바일 및 클라우드 앱의 확장성 있는 플랫폼 간 인증
 
 ## <a name="offers-that-require-azure-ad"></a>Azure AD가 필요한 제공 사항
@@ -53,7 +53,7 @@ SaaS 기술 요구 사항에 대한 자세한 내용은 [SaaS 응용 프로그�
 ## <a name="azure-ad-integration"></a>Azure AD 통합
 
 - Azure AD를 목록에 통합하여 Single Sign-On을 사용하도록 설정하는 방법에 대한 자세한 내용은 [개발자용 Azure Active Directory]( https://aka.ms/aaddev)를 참조하세요.
-- Azure AD Single Sign-On에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)를 참조하세요.
+- Azure AD Single Sign-On에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)를 참조하세요.
 
 ## <a name="enable-a-trial-listing"></a>평가판 목록 사용
 

@@ -74,7 +74,7 @@ Azure stack에서 사용자 계정:
 
 게스트 사용자로 다른 조직의 디렉터리 테 넌 트에 로그인 하는 것이 있습니다. 해당 조직의 디렉터리 이름을 포털에 추가 하면이 위해 URL입니다. 예를 들어 Contoso 조직에 속해야 하 고 Fabrikam 디렉터리에 로그인 하려고 할 경우 사용할 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com합니다.
 
-### <a name="applications"></a>응용 프로그램
+### <a name="applications"></a>애플리케이션
 
 응용 프로그램을 Azure AD 또는 AD FS 등록 하 고 조직에서 사용자에 게 응용 프로그램을 제공할 수 있습니다.
 

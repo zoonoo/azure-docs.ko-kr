@@ -23,7 +23,7 @@ ms.lasthandoff: 12/01/2018
 ms.locfileid: "52721632"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens에서 Application Insights 원격 분석
-웹앱의 코드에 있는 메서드는 런타임 예외 및 요청 응답 시간에 대한 원격 분석을 사용하여 주석이 추가될 수 있습니다. 응용 프로그램에 [Azure Application Insights](app-insights-overview.md)를 설치하는 경우 원격 분석은 Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx)에 표시됩니다. 즉, 각 함수의 상단에 있는 메모에서 해당 함수가 참조된 횟수 또는 마지막으로 편집한 사용자 등 유용한 정보를 볼 수 있습니다.
+웹앱의 코드에 있는 메서드는 런타임 예외 및 요청 응답 시간에 대한 원격 분석을 사용하여 주석이 추가될 수 있습니다. 애플리케이션에 [Azure Application Insights](app-insights-overview.md)를 설치하는 경우 원격 분석은 Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx)에 표시됩니다. 즉, 각 함수의 상단에 있는 메모에서 해당 함수가 참조된 횟수 또는 마지막으로 편집한 사용자 등 유용한 정보를 볼 수 있습니다.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
 
@@ -33,7 +33,7 @@ ms.locfileid: "52721632"
 > 
 
 ## <a name="where-to-find-application-insights-data"></a>Application Insights 데이터의 위치
-웹 응용 프로그램의 공용 요청 메서드의 CodeLens 지표에서 Application Insights 원격 분석을 찾습니다. CodeLens 지표는 C# 및 Visual Basic 코드로 위의 메서드 및 다른 선언을 보여 줍니다. Application Insights 데이터를 메서드에 사용할 수 있는 경우 "100개의 요청, 1% 실패함" 또는 "10개의 예외"와 같은 요청 및 예외에 대한 표시를 볼 수 있습니다. 자세한 내용은 CodeLens 지표를 클릭합니다. 
+웹 애플리케이션의 공용 요청 메서드의 CodeLens 지표에서 Application Insights 원격 분석을 찾습니다. CodeLens 지표는 C# 및 Visual Basic 코드로 위의 메서드 및 다른 선언을 보여 줍니다. Application Insights 데이터를 메서드에 사용할 수 있는 경우 "100개의 요청, 1% 실패함" 또는 "10개의 예외"와 같은 요청 및 예외에 대한 표시를 볼 수 있습니다. 자세한 내용은 CodeLens 지표를 클릭합니다. 
 
 > [!TIP]
 > Application Insights 요청 및 예외 지표를 로드하려면 다른 CodeLens 지표가 표시된 후에 몇 초가 더 걸릴 수 있습니다.
@@ -43,7 +43,7 @@ ms.locfileid: "52721632"
 ## <a name="exceptions-in-codelens"></a>CodeLens의 예외
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
-예외 CodeLens 지표는 해당 기간 동안 응용 프로그램에서 가장 자주 발생한 15개의 예외 지난 24시간 동안 발생한 예외의 수를 보여 주고 메서드에서 제공한 요청을 처리합니다.
+예외 CodeLens 지표는 해당 기간 동안 애플리케이션에서 가장 자주 발생한 15개의 예외 지난 24시간 동안 발생한 예외의 수를 보여주고 메서드에서 제공한 요청을 처리합니다.
 
 자세한 세부 정보를 보려면 예외 CodeLens 지표를 클릭합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "52721632"
 * **예외 추세 탐색** 을 선택하여 지난 24시간 동안 발생한 모든 예외의 추세 시각화를 봅니다. 
 
 > [!TIP]
-> CodeLens에서 "0개의 예외"가 표시되지만 예외가 있다는 점을 아는 경우 CodeLens에서 올바른 Application Insights 리소스가 선택되었는지 확인합니다. 다른 리소스를 선택하려면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Application Insights > 원격 분석 원본 선택**을 선택합니다. CodeLens는 지난 24시간 동안 응용 프로그램에서 가장 자주 발생한 15개의 예외에 대해서만 표시되므로, 가장 자주 발생하는 16번째 이후의 예외인 경우 "0 exceptions(0개의 예외)"가 표시됩니다. ASP.NET 보기에서 예외는 해당 보기를 생성하는 컨트롤러 메서드에 나타나지 않을 수 있습니다.
+> CodeLens에서 "0개의 예외"가 표시되지만 예외가 있다는 점을 아는 경우 CodeLens에서 올바른 Application Insights 리소스가 선택되었는지 확인합니다. 다른 리소스를 선택하려면 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Application Insights > 원격 분석 원본 선택**을 선택합니다. CodeLens는 지난 24시간 동안 애플리케이션에서 가장 자주 발생한 15개의 예외에 대해서만 표시되므로, 가장 자주 발생하는 16번째 이후의 예외인 경우 "0 exceptions(0개의 예외)"가 표시됩니다. ASP.NET 보기에서 예외는 해당 보기를 생성하는 컨트롤러 메서드에 나타나지 않을 수 있습니다.
 > 
 > [!TIP]
 > ”가 표시되면? CodeLens에 "?개의 예외"가 표시되면 Azure 계정을 Visual Studio에 연결해야 합니다. 또는 Azure 계정 자격 증명이 만료되었을 수 있습니다. 두 경우 모두 "? 예외"를 클릭하고 **계정 추가...** 를 선택하여 자격 증명을 입력합니다.

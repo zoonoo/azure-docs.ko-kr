@@ -359,7 +359,7 @@ ODBC 데이터 저장소에서 데이터를 이동할 때 [ODBC 데이터 형식
 ## <a name="troubleshoot-connectivity-issues"></a>연결 문제 해결
 연결 문제를 해결하려면 **데이터 관리 게이트웨이 구성 관리자**의 **진단** 탭을 사용합니다.
 
-1. **데이터 관리 게이트웨이 구성 관리자**를 시작합니다. "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe"를 직접 실행하거나 다음 이미지에서처럼 **게이트웨이**를 검색하여 **Microsoft 데이터 관리 게이트웨이** 응용 프로그램에 대한 링크를 찾을 수 있습니다.
+1. **데이터 관리 게이트웨이 구성 관리자**를 시작합니다. "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe"를 직접 실행하거나 다음 이미지에서처럼 **게이트웨이**를 검색하여 **Microsoft 데이터 관리 게이트웨이** 애플리케이션에 대한 링크를 찾을 수 있습니다.
 
     ![게이트웨이 검색](./media/data-factory-odbc-connector/search-gateway.png)
 2. **진단** 탭으로 전환합니다.

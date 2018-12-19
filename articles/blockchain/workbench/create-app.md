@@ -273,11 +273,11 @@ contract WorkbenchBase {
 
 ### <a name="configuration-and-smart-contract-code-relationship"></a>구성 및 스마트 계약 코드 관계
 
-Blockchain Workbench는 구성 파일과 스마트 계약 코드 파일을 사용하여 블록체인 응용 프로그램을 만듭니다. 구성에 정의된 것과 스마트 계약의 코드 사이에는 관계가 있습니다. 계약 세부 정보, 함수, 매개 변수 및 유형이 일치해야 응용 프로그램을 만들 수 있습니다. 응용 프로그램을 만들기 전에 Blockchain Workbench에서 파일을 확인합니다. 
+Blockchain Workbench는 구성 파일과 스마트 계약 코드 파일을 사용하여 블록체인 애플리케이션을 만듭니다. 구성에 정의된 것과 스마트 계약의 코드 사이에는 관계가 있습니다. 계약 세부 정보, 함수, 매개 변수 및 유형이 일치해야 응용 프로그램을 만들 수 있습니다. 응용 프로그램을 만들기 전에 Blockchain Workbench에서 파일을 확인합니다. 
 
 ### <a name="contract"></a>계약
 
-Blockchain Workbench의 경우 계약은 **WorkbenchBase** 기본 클래스에서 상속받아야 합니다. 계약을 선언할 때는 응용 프로그램 이름과 워크플로 이름을 인수로 전달해야 합니다.
+Blockchain Workbench의 경우 계약은 **WorkbenchBase** 기본 클래스에서 상속받아야 합니다. 계약을 선언할 때는 애플리케이션 이름과 워크플로 이름을 인수로 전달해야 합니다.
 
 **contract** 헤더를 `HelloBlockchain.sol` 스마트 계약 코드 파일에 추가합니다. 
 

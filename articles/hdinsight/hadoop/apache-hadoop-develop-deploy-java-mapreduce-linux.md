@@ -267,7 +267,7 @@ __USERNAME__을 클러스터의 SSH 사용자 이름으로 바꿉니다. __CLUST
    yarn jar wordcountjava-1.0-SNAPSHOT.jar org.apache.hadoop.examples.WordCount /example/data/gutenberg/davinci.txt /example/data/wordcountout
    ```
    
-    이 명령은 WordCount MapReduce 응용 프로그램을 시작합니다. 입력된 파일은 `/example/data/gutenberg/davinci.txt`이며 출력 디렉터리는 `/example/data/wordcountout`입니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
+    이 명령은 WordCount MapReduce 애플리케이션을 시작합니다. 입력된 파일은 `/example/data/gutenberg/davinci.txt`이며 출력 디렉터리는 `/example/data/wordcountout`입니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
 
 3. 작업이 완료되면 다음 명령을 사용하여 결과를 확인합니다.
    

@@ -122,7 +122,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 |이름|텍스트|  
 |----------|----------|  
-|WebApplicationsHeader|응용 프로그램|  
+|WebApplicationsHeader|애플리케이션|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   

@@ -74,7 +74,7 @@ Resource Manager 템플릿은 새 Data Lake Storage Gen1 계정을 만들어 HDI
 HDInsight 클러스터에서 업로드한 샘플 데이터에 액세스할 수 있는지 확인하려면 HDInsight 클러스터와 Data Lake Storage Gen1 간의 ID를 설정하는 데 사용되는 Azure AD 응용 프로그램에서 액세스하려는 파일/폴더에 액세스할 수 있는지 확인해야 합니다. 이렇게 하려면 다음 단계를 수행합니다.
 
 1. HDInsight 클러스터 및 Data Lake Storage Gen1 계정과 연결된 Azure AD 응용 프로그램의 이름을 찾습니다. 이름을 찾는 한 가지 방법은 Resource Manager 템플릿을 사용하여 만든 HDInsight 클러스터 블레이드를 열고 **클러스터 AAD ID** 탭을 클릭한 다음 **서비스 사용자 표시 이름** 값을 확인하는 것입니다.
-2. 이제 HDInsight 클러스터에서 액세스하려는 파일/폴더에서 Azure AD 응용 프로그램에 대한 액세스를 제공합니다. Data Lake Storage Gen1의 파일/폴더에 대한 올바른 ACL을 설정하려면 [Data Lake Storage Gen1의 데이터 보안](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
+2. 이제 HDInsight 클러스터에서 액세스하려는 파일/폴더에서 Azure AD 애플리케이션에 대한 액세스를 제공합니다. Data Lake Storage Gen1의 파일/폴더에 대한 올바른 ACL을 설정하려면 [Data Lake Storage Gen1의 데이터 보안](data-lake-store-secure-data.md#filepermissions)을 참조하세요.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>HDInsight 클러스터에서 테스트 작업을 실행하여 Data Lake Storage Gen1 사용
 HDInsight 클러스터를 구성한 후에 클러스터에서 테스트 작업을 실행하여 HDInsight 클러스터가 Data Lake Storage Gen1에 액세스할 수 있는지 테스트할 수 있습니다. 이렇게 하려면 Data Lake Storage Gen1 계정에 이전에 업로드한 샘플 데이터를 사용하여 테이블을 만드는 샘플 Hive 작업을 실행합니다.

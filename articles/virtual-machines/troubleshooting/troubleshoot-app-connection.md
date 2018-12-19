@@ -7,7 +7,7 @@ author: genlin
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: 응용 프로그램을 시작할 수 없음, 프로그램이 열리지 않음, 수신 포트가 차단됨, 프로그램을 시작할 수 없음, 수신 포트 차단됨
+keywords: 애플리케이션을 시작할 수 없음, 프로그램이 열리지 않음, 수신 포트가 차단됨, 프로그램을 시작할 수 없음, 수신 포트 차단됨
 ms.assetid: b9ff7cd0-0c5d-4c3c-a6be-3ac47abf31ba
 ms.service: virtual-machines
 ms.workload: infrastructure-services

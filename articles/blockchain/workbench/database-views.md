@@ -41,7 +41,7 @@ Azure Blockchain Workbench는 쿼리를 수행할 때 도움이 되는 데이터
 | ApplicationDisplayName           | nvarchar(255) | 아니요          | 사용자 인터페이스에 표시할 이름 |
 | ApplicationEnabled               | bit           | 아니요          | 애플리케이션을 사용하도록 현재 설정되어 있는지 식별합니다.</br> **참고:** 데이터베이스에 응용 프로그램이 비활성화된 것으로 반영될 수 있지만, 블록체인에 관련 계약이 유지되고 계약에 대한 데이터도 데이터베이스에 남습니다. |
 | UploadedDtTm                     | datetime2(7)  | 아니요          | 계약이 업로드된 날짜와 시간입니다. |
-| UploadedByUserId                 | int           | 아니요          | 애플리케이션을 업로드한 사용자의 ID입니다. |
+| UploadedByUserId                 | int           | 아니요          | 애플리케이션을 업로드한 사용자 ID |
 | UploadedByUserExternalId         | nvarchar(255) | 아니요          | 응용 프로그램을 업로드한 사용자의 외부 식별자입니다. 기본적으로 컨소시엄을 위한 Azure Active Directory의 사용자 ID입니다.                                                                                                |
 | UploadedByUserProvisioningStatus | int           | 아니요          | 사용자에 대한 프로비전 프로세스의 현재 상태를 식별합니다. 가능한 값은 다음과 같습니다. </br>0 – API에 의해 사용자가 생성됨<br>1 – 키가 데이터베이스의 사용자와 연결됨</br>2 – 사용자가 완전히 프로비전됨                         |
 | UploadedByUserFirstName          | nvarchar(50)  | yes         | 계약을 업로드한 사용자의 이름입니다. |

@@ -90,7 +90,7 @@ items:
     items:
     - name: 덤프 및 복원
       href: howto-migrate-dump-restore.md
-  - name: 응용 프로그램 연결
+  - name: 애플리케이션 연결
     items:
     - name: 사용자 만들기
       href: howto-create-users.md

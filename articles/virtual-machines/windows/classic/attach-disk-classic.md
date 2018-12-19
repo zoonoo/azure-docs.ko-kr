@@ -110,7 +110,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 ## <a name="next-steps"></a>다음 단계
-응용 프로그램이 데이터를 저장하는 데 D: 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](../../virtual-machines-windows-change-drive-letter.md)할 수 있습니다.
+애플리케이션이 데이터를 저장하는 데 D: 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](../../virtual-machines-windows-change-drive-letter.md)할 수 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 [가상 머신용 디스크 및 VHD에 대하여](../../virtual-machines-linux-about-disks-vhds.md)

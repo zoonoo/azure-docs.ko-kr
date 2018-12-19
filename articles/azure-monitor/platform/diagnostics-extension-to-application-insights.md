@@ -86,7 +86,7 @@ Application Insights에 대한 싱크 예제 구성:
 ## <a name="complete-sink-configuration-example"></a>전체 싱크 구성 예제
 다음은 공용 구성 파일의 완전한 예제로, 공용 구성 파일이 다음과 같은 작업을 합니다.
 1. 모든 오류를 Application Insights로 보냅니다(**DiagnosticMonitorConfiguration** 노드에서 지정).
-2. 또한 응용 프로그램 로그(**로그** 노드에서 지정함)에 대한 자세한 정보 표시 수준 로그를 보냅니다.
+2. 또한 애플리케이션 로그(**로그** 노드에서 지정함)에 대한 자세한 정보 표시 수준 로그를 보냅니다.
 
 ```XML
 <WadCfg>

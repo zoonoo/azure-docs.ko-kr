@@ -28,12 +28,12 @@ Azure 진단 확장은 다음과 같은 유형의 데이터를 수집할 수 있
 | 데이터 원본 | 설명 |
 | --- | --- |
 | 성능 카운터 |운영 체제 및 사용자 지정 성능 카운터 |
-| 응용 프로그램 로그 |응용 프로그램에서 작성한 메시지 추적 |
+| 응용 프로그램 로그 |애플리케이션에서 작성한 메시지 추적 |
 | Windows 이벤트 로그 |Windows 이벤트 로깅 시스템으로 전송된 정보 |
 | .NET 이벤트 원본 |.NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 클래스를 사용하여 이벤트를 작성하는 코드 |
 | IIS 로그 |IIS 웹 사이트에 대한 정보 |
 | 매니페스트 기반 ETW |모든 프로세스에서 생성된 ETW(Windows용 이벤트 추적) 이벤트.(1) |
-| 크래시 덤프 |응용 프로그램 크래시가 발생할 경우의 프로세스 상태에 대한 정보 |
+| 크래시 덤프 |애플리케이션 크래시가 발생할 경우의 프로세스 상태에 대한 정보 |
 | 사용자 지정 오류 로그 |응용 프로그램 또는 서비스에서 생성한 로그 |
 | Azure 진단 인프라 로그 |진단 자체에 대한 정보입니다. |
 
@@ -60,7 +60,7 @@ Azure Monitor에 데이터를 보낼 수도 있습니다. 지금은 성능 카�
 진단을 수집할 서비스를 선택하고 다음 문서를 사용하여 시작합니다. 특정 작업에 대한 참조로 일반 Azure 진단 링크를 사용합니다.
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Azure 진단을 사용하는 Cloud Services
-* Visual Studio를 사용하는 경우 시작하려면 [Visual Studio를 사용하여 Cloud Services 응용 프로그램 추적](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) 을 참조하세요. 그렇지 않은 경우 다음을 참조하세요.
+* Visual Studio를 사용하는 경우 시작하려면 [Visual Studio를 사용하여 Cloud Services 애플리케이션 추적](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)을 참조하세요. 그렇지 않은 경우 다음을 참조하세요.
 * [Azure 진단을 사용하여 클라우드 서비스를 모니터링하는 방법](../../cloud-services/cloud-services-how-to-monitor.md)
 * [Cloud Services 응용 프로그램에서 Azure 진단 설정](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 

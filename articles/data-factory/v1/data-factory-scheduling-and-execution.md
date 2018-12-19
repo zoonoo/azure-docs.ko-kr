@@ -25,7 +25,7 @@ ms.locfileid: "37054605"
 > [!NOTE]
 > 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [파이프라인 실행 및 트리거](../concepts-pipeline-execution-triggers.md) 문서를 참조하세요.
 
-이 문서에서는 Azure Data Factory 응용 프로그램 모델의 예약 및 실행에 대한 내용을 설명합니다. 이 문서는 사용자가 작업, 파이프라인, 연결된 서비스 및 데이터 세트와 같은 Data Factory 응용 프로그램 모델 개념을 이해하고 있다고 가정합니다. Azure Data Factory의 기본 개념은 다음 문서를 참조하세요.
+이 문서에서는 Azure Data Factory 애플리케이션 모델의 예약 및 실행에 대한 내용을 설명합니다. 이 문서는 사용자가 작업, 파이프라인, 연결된 서비스 및 데이터 세트와 같은 Data Factory 응용 프로그램 모델 개념을 이해하고 있다고 가정합니다. Azure Data Factory의 기본 개념은 다음 문서를 참조하세요.
 
 * [데이터 팩터리 소개](data-factory-introduction.md)
 * [파이프라인](data-factory-create-pipelines.md)

@@ -1,6 +1,6 @@
 ---
 title: Azure에서 Linux VM의 가용성 관리 | Microsoft Docs
-description: Azure에서 여러 가상 머신을 사용하여 Linux 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다.
+description: Azure에서 여러 가상 머신을 사용하여 Linux 애플리케이션의 고가용성을 유지하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: zr-msft

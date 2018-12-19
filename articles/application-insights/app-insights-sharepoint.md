@@ -1,6 +1,6 @@
 ---
 title: Application Insights를 사용하여 SharePoint 사이트 모니터링
-description: 새 계측 키를 사용하여 새 응용 프로그램 모니터링 시작
+description: 새 계측 키를 사용하여 새 애플리케이션 모니터링 시작
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -20,7 +20,7 @@ ms.lasthandoff: 12/01/2018
 ms.locfileid: "52726035"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Application Insights를 사용하여 SharePoint 사이트 모니터링
-Azure Application Insights는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링합니다. 여기에서는 SharePoint 사이트에 맞게 설정하는 방법을 알아봅니다.
+Azure Application Insights는 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다. 여기에서는 SharePoint 사이트에 맞게 설정하는 방법을 알아봅니다.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 [Azure 포털](https://portal.azure.com)에서 새 Application Insights 리소스를 만듭니다. 응용 프로그램 유형으로 ASP.NET을 선택합니다.

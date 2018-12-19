@@ -44,7 +44,7 @@ ms.locfileid: "44355958"
 다음 섹션에서는 [Azure AD 응용 프로그램 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery)에 이미 있는 응용 프로그램에 대해 [암호 기반 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work)을 사용하도록 설정하는 방법을 설명합니다.
 
 ## <a name="overview-of-steps-required"></a>필요한 단계 개요
-Azure AD 갤러리에서 응용 프로그램을 구성하려면 다음을 수행해야 합니다.
+Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
 -   [Azure AD 갤러리에서 응용 프로그램 추가](#add-an-application-from-the-azure-ad-gallery)
 

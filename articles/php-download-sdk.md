@@ -25,12 +25,12 @@ ms.locfileid: "52421490"
 
 ## <a name="overview"></a>개요
 
-PHP용 Azure SDK에는 Azure용 PHP 응용 프로그램을 개발, 배포 및 관리할 수 있는 구성 요소가 포함되어 있습니다. 구체적으로 말해서 PHP용 Azure SDK에는 다음이 포함되어 있습니다.
+PHP용 Azure SDK에는 Azure용 PHP 애플리케이션을 개발, 배포 및 관리할 수 있는 구성 요소가 포함되어 있습니다. 구체적으로 말해서 PHP용 Azure SDK에는 다음이 포함되어 있습니다.
 
 * **Azure용 PHP 클라이언트 라이브러리**. 이러한 클래스 라이브러리는 Azure 기능(예: 데이터 관리 서비스 및 클라우드 서비스)에 액세스하기 위한 인터페이스를 제공합니다.
 * **Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)**. Azure Websites 및 Azure Virtual Machines와 같은 Azure 서비스를 배포 및 관리하기 위한 명령 집합입니다. Azure CLI는 Mac, Linux 및 Windows를 포함한 모든 플랫폼에서 작동합니다.
 * **Azure PowerShell(Windows에만 해당)**. Cloud Services 및 Virtual Machines와 같은 Azure 서비스를 배포 및 관리하기 위한 PowerShell cmdlet 집합입니다.
-* **Azure 에뮬레이터(Windows에만 해당)**. 계산 및 저장소 에뮬레이터는 응용 프로그램을 로컬로 테스트할 수 있는 클라우드 서비스 및 데이터 관리 서비스의 로컬 에뮬레이터입니다. Azure 에뮬레이터는 Windows에서만 실행됩니다.
+* **Azure 에뮬레이터(Windows에만 해당)**. 계산 및 스토리지 에뮬레이터는 애플리케이션을 로컬로 테스트할 수 있는 클라우드 서비스 및 데이터 관리 서비스의 로컬 에뮬레이터입니다. Azure 에뮬레이터는 Windows에서만 실행됩니다.
 
 아래 섹션에서는 위에서 언급한 구성 요소를 다운로드하고 설치하는 방법에 대해 설명합니다.
 
@@ -67,7 +67,7 @@ Azure용 PHP 클라이언트 라이브러리를 사용하는 방법에 대한 �
 
 ## <a name="azure-powershell-and-azure-emulators"></a>Azure PowerShell 및 Azure 에뮬레이터
 
-Azure PowerShell는 Azure 서비스(예: Cloud Services 및 Virtual Machines)를 배포 및 관리하기 위한 PowerShell cmdlet 집합입니다. Azure 에뮬레이터는 응용 프로그램을 로컬로 테스트할 수 있는 클라우드 서비스 및 데이터 관리 서비스의 에뮬레이터입니다. 이러한 구성 요소는 Windows에서만 지원됩니다.
+Azure PowerShell는 Azure 서비스(예: Cloud Services 및 Virtual Machines)를 배포 및 관리하기 위한 PowerShell cmdlet 집합입니다. Azure 에뮬레이터는 애플리케이션을 로컬로 테스트할 수 있는 클라우드 서비스 및 데이터 관리 서비스의 에뮬레이터입니다. 이러한 구성 요소는 Windows에서만 지원됩니다.
 
 Azure PowerShell 및 Azure 에뮬레이터는 [Microsoft 웹 플랫폼 설치 관리자][download-wpi]를 사용하여 설치하는 것이 좋습니다. PHP, SQL Server, PHP용 Microsoft Drivers for SQL Server, WebMatrix와 같은 다른 개발 구성 요소를 설치하도록 선택할 수도 있습니다.
 

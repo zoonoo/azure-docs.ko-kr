@@ -624,7 +624,7 @@ Log Analytics는 네트워크를 모니터링하기 위해 다음과 같은 솔�
 
 -   데이터 센터와 사용자 위치(지점)
 
--   다중 계층 응용 프로그램의 다양한 계층을 호스팅하는 서브넷
+-   다중 계층 애플리케이션의 다양한 계층을 호스팅하는 서브넷.
 
 
 #### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Log Analytics의 Azure Application Gateway 분석

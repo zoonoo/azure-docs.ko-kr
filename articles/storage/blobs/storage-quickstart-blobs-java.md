@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 가이드에서는 "Java 개발자를 위한 Eclipse IDE" 구성으로 [Eclipse](http://www.eclipse.org/downloads/)를 사용합니다.
 
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
 [애플리케이션 예제](https://github.com/Azure-Samples/storage-blobs-java-quickstart)는 기본 콘솔 애플리케이션입니다.  
 

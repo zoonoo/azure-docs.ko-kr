@@ -25,7 +25,7 @@ ms.locfileid: "52878009"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-대부분의 모바일 앱은 클라우드에 데이터를 저장해야 하며 Azure Cosmos DB는 모바일 앱용 클라우드 데이터베이스입니다. 이 기능에는 모바일 개발자에게 필요한 모든 항목이 있습니다. 필요에 따라 규모를 조정할 수 있는 Database as a Service입니다. 사용자가 전 세계 어디에 있든 데이터를 응용 프로그램으로 투명하게 가져올 수 있습니다. [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)를 사용하면 중간 계층 없이 Azure Cosmos DB와 직접 상호 작용하도록 Xamarin 모바일 앱을 활성화할 수 있습니다.
+대부분의 모바일 앱은 클라우드에 데이터를 저장해야 하며 Azure Cosmos DB는 모바일 앱용 클라우드 데이터베이스입니다. 이 기능에는 모바일 개발자에게 필요한 모든 항목이 있습니다. 필요에 따라 규모를 조정할 수 있는 Database as a Service입니다. 사용자가 전 세계 어디에 있든 데이터를 애플리케이션으로 투명하게 가져올 수 있습니다. [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)를 사용하면 중간 계층 없이 Azure Cosmos DB와 직접 상호 작용하도록 Xamarin 모바일 앱을 활성화할 수 있습니다.
 
 이 문서에서는 Xamarin 및 Azure Cosmos DB를 사용하여 모바일 앱을 빌드하는 자습서를 제공합니다. [GitHub의 Xamarin 및 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin)에서 사용자 및 사용 권한을 관리하는 방법을 비롯하여 자습서의 전체 소스 코드를 찾을 수 있습니다.
 

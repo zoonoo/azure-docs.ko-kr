@@ -437,7 +437,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 
 </br></br>
 
-### <a name="application-policies"></a>응용 프로그램 정책
+### <a name="application-policies"></a>애플리케이션 정책
 응용 프로그램 정책에 다음 cmdlet을 사용할 수 있습니다.</br></br>
 
 #### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicationPolicy

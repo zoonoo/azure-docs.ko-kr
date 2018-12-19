@@ -209,7 +209,7 @@ Service Fabric 서비스를 기존 Service Fabric 응용 프로그램에 추가�
 
 **응용 프로그램 및 서비스 버전 자동 업데이트** 옵션을 확인한 다음 버전을 업데이트하면 매니페스트 버전이 자동으로 업데이트됩니다. 예를 들어 확인란을 먼저 선택한 다음 **코드** 버전을 0.0.0에서 0.0.1로 업데이트하고 **마침**을 클릭하면 서비스 매니페스트 버전 및 응용 프로그램 매니페스트 버전이 0.0.1로 자동 업데이트됩니다.
 
-## <a name="upgrade-your-service-fabric-java-application"></a>Service Fabric Java 응용 프로그램 업그레이드
+## <a name="upgrade-your-service-fabric-java-application"></a>Service Fabric Java 애플리케이션 업그레이드
 
 업그레이드 시나리오의 경우 Eclipse에서 Service Fabric 플러그 인을 사용하여 **App1** 프로젝트를 만들었다고 가정합니다. **fabric:/App1Application**라는 응용 프로그램을 만드는 플러그 인을 사용하여 배포합니다. 응용 프로그램 유형은 **App1AppicationType**이고 응용 프로그램 버전은 1.0입니다. 이제 가용성을 해치지 않고 응용 프로그램을 업그레이드하려고 합니다.
 

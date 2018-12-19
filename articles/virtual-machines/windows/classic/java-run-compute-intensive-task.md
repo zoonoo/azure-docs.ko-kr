@@ -26,25 +26,25 @@ ms.locfileid: "31528463"
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-Azure에서 가상 머신을 사용하여 계산 집약적인 작업을 처리할 수 있습니다. 예를 들어 가상 머신은 작업을 처리하고 그 결과를 클라이언트 컴퓨터 또는 모바일 응용 프로그램에 제공할 수 있습니다. 이 문서를 읽고 나면 다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 머신을 만드는 방법을 이해할 수 있게 됩니다.
+Azure에서 가상 머신을 사용하여 계산 집약적인 작업을 처리할 수 있습니다. 예를 들어 가상 머신은 작업을 처리하고 그 결과를 클라이언트 머신 또는 모바일 애플리케이션에 제공할 수 있습니다. 이 문서를 읽고 나면 다른 Java 애플리케이션에 의해 모니터링될 수 있는 계산 집약적인 Java 애플리케이션을 실행하는 가상 머신을 만드는 방법을 이해할 수 있게 됩니다.
 
-이 자습서에서는 사용자가 Java 콘솔 응용 프로그램을 만드는 방법을  알고 있으며 라이브러리를 Java 응용 프로그램으로 가져오고 Java 아카이브(JAR)를 생성할 수 있다고 가정합니다. Microsoft Azure에 대한 지식은 없는 것으로 가정합니다.
+이 자습서에서는 사용자가 Java 콘솔 애플리케이션을 만드는 방법을 알고 있으며 라이브러리를 Java 애플리케이션으로 가져오고 Java 아카이브(JAR)를 생성할 수 있다고 가정합니다. Microsoft Azure에 대한 지식은 없는 것으로 가정합니다.
 
 다음 내용을 배웁니다.
 
 * Java 개발 키트(JDK)가 이미 설치된 가상 컴퓨터를 만드는 방법
 * 가상 머신에 원격으로 로그인하는 방법
 * 서비스 버스 네임스페이스를 만드는 방법
-* 계산 집약적인 작업을 수행하는 Java 응용 프로그램을 만드는 방법
-* 계산 집약적인 작업의 진행 상황을 모니터링하는 Java 응용 프로그램을 만드는 방법
-* Java 응용 프로그램을 실행하는 방법
-* Java 응용 프로그램을 중지하는 방법
+* 계산 집약적인 작업을 수행하는 Java 애플리케이션을 만드는 방법.
+* 계산 집약적인 작업의 진행 상황을 모니터링하는 Java 애플리케이션을 만드는 방법.
+* Java 애플리케이션을 실행하는 방법.
+* Java 애플리케이션을 중지하는 방법.
 
-이 자습서에서는 계산 집약적인 작업으로 순회 외판원 문제를 사용합니다. 다음은 계산 집약적인 작업을 실행하는 Java 응용 프로그램의 예제입니다.
+이 자습서에서는 계산 집약적인 작업으로 순회 외판원 문제를 사용합니다. 다음은 계산 집약적인 작업을 실행하는 Java 애플리케이션의 예제입니다.
 
 ![순회 외판원 문제 해 찾기][solver_output]
 
-다음은 계산 집약적인 작업을 모니터링하는 Java 응용 프로그램의 예제입니다.
+다음은 계산 집약적인 작업을 모니터링하는 Java 애플리케이션의 예제입니다.
 
 ![순회 외판원 문제 클라이언트][client_output]
 
@@ -83,7 +83,7 @@ Azure에서 가상 머신을 사용하여 계산 집약적인 작업을 처리�
 Azure Service Bus 기능을 사용하려면 Baltimore CyberTrust 루트 인증서가 JRE의 **cacerts** 저장소의 일부로 설치되어야 합니다. 이 인증서는 본 자습서에서 사용하는 JRE(Java Runtime Environment)에 자동으로 포함되어 있습니다. 이 인증서가 JRE **cacerts** 저장소에 없는 경우, [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]에서 인증서 추가에 대한 내용 및 cacerts 저장소의 인증서 보기에 대한 정보를 참조하십시오.
 
 ## <a name="how-to-create-a-service-bus-namespace"></a>서비스 버스 네임스페이스를 만드는 방법
-Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 응용 프로그램 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
+Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스페이스를 만들어야 합니다. 서비스 네임스페이스는 애플리케이션 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
 
 서비스 네임스페이스를 만들려면
 
@@ -112,8 +112,8 @@ Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스
 
 ## <a name="how-to-create-a-java-application-that-performs-a-compute-intensive-task"></a>계산 집약적인 작업을 수행하는 Java 응용 프로그램을 만드는 방법
 1. 개발 컴퓨터(직접 생성한 가상 머신일 필요는 없음)에서 [Java용 Azure SDK](https://azure.microsoft.com/develop/java/)를 다운로드합니다.
-2. 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPSolver.java** 를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 Service Bus **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
-3. 코딩 후에 응용 프로그램을 실행 가능한 Java 아카이브(JAR)로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR 이름으로 **TSPSolver.jar** 을 사용합니다.
+2. 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 애플리케이션을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPSolver.java** 를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 Service Bus **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
+3. 코딩 후에 애플리케이션을 실행 가능한 Java 아카이브(JAR)로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR 이름으로 **TSPSolver.jar** 을 사용합니다.
 
 <p/>
 
@@ -300,8 +300,8 @@ Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스
 
 
 
-## <a name="how-to-create-a-java-application-that-monitors-the-progress-of-the-compute-intensive-task"></a>계산 집약적인 작업의 진행 상황을 모니터링하는 Java 응용 프로그램을 만드는 방법
-1. 개발 컴퓨터에서 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPClient.java** 를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 Service Bus **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
+## <a name="how-to-create-a-java-application-that-monitors-the-progress-of-the-compute-intensive-task"></a>계산 집약적인 작업의 진행 상황을 모니터링하는 Java 애플리케이션을 만드는 방법
+1. 개발 머신에서 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 애플리케이션을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPClient.java** 를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 Service Bus **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
 2. 응용 프로그램을 실행 가능한 JAR로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR 이름으로 **TSPClient.jar** 을 사용합니다.
 
 <p/>
@@ -417,11 +417,11 @@ Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스
     }
 
 ## <a name="how-to-run-the-java-applications"></a>Java 응용 프로그램을 실행하는 방법
-계산 집약적인 응용 프로그램을 실행하여 먼저 큐를 만든 후에 순회 외판원 문제를 해결합니다. 그러면 현 시점에서의 최상의 경로가 서비스 버스 큐에 추가됩니다. 계산 집약적인 응용 프로그램이 실행 중인 동안 또는 실행된 이후에 클라이언트를 실행하여 서비스 버스 큐에서 가져온 결과를 표시합니다.
+계산 집약적인 애플리케이션을 실행하여 먼저 큐를 만든 후에 순회 외판원 문제를 해결합니다. 그러면 현 시점에서의 최상의 경로가 서비스 버스 큐에 추가됩니다. 계산 집약적인 애플리케이션이 실행 중인 동안 또는 실행된 이후에 클라이언트를 실행하여 서비스 버스 큐에서 가져온 결과를 표시합니다.
 
 ### <a name="to-run-the-compute-intensive-application"></a>계산 집약적인 응용 프로그램을 실행하려면
 1. 가상 컴퓨터에 로그온합니다.
-2. 응용 프로그램을 실행할 폴더(예: **c:\TSP**를 만듭니다.
+2. 애플리케이션을 실행할 폴더를 만듭니다. **c:\TSP**를 만듭니다.
 3. **TSPSolver.jar**를 **c:\TSP**에 복사합니다.
 4. 다음과 같은 콘텐츠가 포함된 **c:\TSP\cities.txt** 파일을 만듭니다.
    
@@ -492,8 +492,8 @@ Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스
 > 
 
 ### <a name="how-to-run-the-monitoring-client-application"></a>모니터링하는 클라이언트 응용 프로그램을 실행하는 방법
-1. 클라이언트 응용 프로그램을 실행할 컴퓨터에 로그온합니다. 이 컴퓨터가 **TSPSolver** 응용 프로그램을 실행하는 컴퓨터와 같을 수도 있지만 반드시 같아야 하는 것은 아닙니다.
-2. 응용 프로그램을 실행할 폴더(예: **c:\TSP**를 만듭니다.
+1. 클라이언트 애플리케이션을 실행할 머신에 로그온합니다. 이 머신이 **TSPSolver** 애플리케이션을 실행하는 머신과 같을 수도 있지만 반드시 같아야 하는 것은 아닙니다.
+2. 애플리케이션을 실행할 폴더를 만듭니다. **c:\TSP**를 만듭니다.
 3. **TSPClient.jar**를 **c:\TSP**에 복사합니다.
 4. JRE의 bin 폴더가 PATH 환경 변수에 포함되어 있는지 확인합니다.
 5. 명령 프롬프트에서 디렉터리를 c:\TSP로 변경합니다.
@@ -511,8 +511,8 @@ Azure에서 Service Bus 큐 사용을 시작하려면 먼저 서비스 네임스
    
     모든 경로에 대한 조사를 마칠 때까지 해 찾기가 실행됩니다.
 
-## <a name="how-to-stop-the-java-applications"></a>Java 응용 프로그램을 중지하는 방법
-해 찾기 및 클라이언트 응용 프로그램을 정상적인 완료 이전에 종료하고 싶으면 **Ctrl+C** 를 누르면 됩니다.
+## <a name="how-to-stop-the-java-applications"></a>Java 애플리케이션을 중지하는 방법
+해결 찾기 및 클라이언트 애플리케이션을 정상적인 완료 이전에 종료하고 싶으면 **Ctrl+C**를 누르면 됩니다.
 
 [solver_output]:media/java-run-compute-intensive-task/WA_JavaTSPSolver.png
 [client_output]:media/java-run-compute-intensive-task/WA_JavaTSPClient.png

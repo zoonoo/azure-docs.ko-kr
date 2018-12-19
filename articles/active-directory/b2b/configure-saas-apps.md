@@ -34,7 +34,7 @@ Azure AD(Azure Active Directory) B2B 공동 작업은 Azure AD와 통합되는 �
 
 사용자가 조직 계정을 사용하여 로그인할 수 있게 하려면 SAML(Security Assertion Markup Language) ID 공급자로 Azure AD를 사용하도록 수동으로 Dropbox Business를 구성해야 합니다. Dropbox Business가 그렇게 구성되지 않으면 프롬프트를 표시할 수 없거나 사용자가 Azure AD를 사용하여 로그인할 수 없게 됩니다.
 
-1. Azure AD에 Dropbox Business를 추가하려면 왼쪽 창에서 **엔터프라이즈 응용 프로그램**을 선택한 다음 **추가**를 클릭합니다.
+1. Azure AD에 Dropbox Business를 추가하려면 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **추가**를 클릭합니다.
 
   ![엔터프라이즈 응용 프로그램 페이지의 "추가" 단추](media/configure-saas-apps/add-dropbox.png)
 

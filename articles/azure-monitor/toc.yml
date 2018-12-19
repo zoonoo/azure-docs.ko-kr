@@ -9,7 +9,7 @@ items:
     href: azure-monitor-rebrand.md
 - name: 빠른 시작
   items:
-  - name: 응용 프로그램
+  - name: 애플리케이션
     items:
     - name: .NET 응용 프로그램
       href: ../application-insights/quick-monitor-portal.md?toc=/azure/azure-monitor/toc.json
@@ -154,7 +154,7 @@ items:
         href: platform/roles-permissions-security.md
       - name: 작업 영역
         href: platform/manage-access.md
-      - name: 응용 프로그램
+      - name: 애플리케이션
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: IP 주소
         href: ../application-insights/app-insights-ip-addresses.md?toc=/azure/azure-monitor/toc.json
@@ -638,7 +638,7 @@ items:
       items:
       - name: 로그
         href: platform/dashboards.md
-      - name: 응용 프로그램
+      - name: 애플리케이션
         href: ../application-insights/app-insights-dashboards.md?toc=/azure/azure-monitor/toc.json
     - name: Power BI
       items:
@@ -845,7 +845,7 @@ items:
         href: platform/powershell-quickstart-samples.md
       - name: PowerShell cmdlet
         href: platform/powershell-workspace-configuration.md
-      - name: 응용 프로그램
+      - name: 애플리케이션
         items:
         - name: Application Insights 리소스 만들기
           href: ../application-insights/app-insights-powershell.md?toc=/azure/azure-monitor/toc.json
@@ -865,7 +865,7 @@ items:
         href: platform/rest-api-walkthrough.md
       - name: 알림 API
         href: platform/api-alerts.md
-    - name: 응용 프로그램
+    - name: 애플리케이션
       items:
       - name: Microsoft Flow 자동화
         href: ../application-insights/app-insights-automate-with-flow.md?toc=/azure/azure-monitor/toc.json
@@ -875,7 +875,7 @@ items:
         href: ../application-insights/automate-custom-reports.md?toc=/azure/azure-monitor/toc.json
   - name: Extend
     items:
-    - name: 응용 프로그램
+    - name: 애플리케이션
       items:
       - name: 사용자 지정 이벤트 및 메트릭용 API
         href: ../application-insights/app-insights-api-custom-events-metrics.md?toc=/azure/azure-monitor/toc.json

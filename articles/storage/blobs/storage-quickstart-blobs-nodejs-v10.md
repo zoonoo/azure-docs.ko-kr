@@ -23,7 +23,7 @@ ms.locfileid: "51711245"
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 
 이 빠른 시작의 [샘플 응용 프로그램](https://github.com/Azure-Samples/azure-storage-js-v10-quickstart.git)은 간단한 Node.js 콘솔 응용 프로그램입니다. 시작하려면 다음 명령을 사용하여 리포지토리를 컴퓨터에 복제합니다.
 

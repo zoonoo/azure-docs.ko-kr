@@ -19,7 +19,7 @@ ms.locfileid: "52494584"
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Blob 스토리지에서 힙 덤프를 수집하여 Apache Hadoop 서비스 디버깅 및 분석
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-힙 덤프는 덤프가 만들어질 당시의 변수 값을 비롯해 응용 프로그램의 메모리에 대한 스냅숏을 포함합니다. 따라서 런타임에 발생하는 문제를 진단하는 데 유용합니다. 힙 덤프는 [Apache Hadoop](https://hadoop.apache.org/) 서비스에 대해 자동으로 수집되고 HDInsightHeapDumps/ 아래에서 사용자의 Azure Blob Storage 계정 내에 배치될 수 있습니다.
+힙 덤프는 덤프가 만들어질 당시의 변수 값을 비롯해 애플리케이션의 메모리에 대한 스냅숏을 포함합니다. 따라서 런타임에 발생하는 문제를 진단하는 데 유용합니다. 힙 덤프는 [Apache Hadoop](https://hadoop.apache.org/) 서비스에 대해 자동으로 수집되고 HDInsightHeapDumps/ 아래에서 사용자의 Azure Blob Storage 계정 내에 배치될 수 있습니다.
 
 개별 클러스터의 서비스에 대해 다양한 서비스의 힙 덤프 수집을 사용하도록 설정해야 합니다. 이 기능은 클러스터에 대해 기본적으로 해제됩니다. 이러한 힙 덤프는 크기가 클 수 있으므로 수집을 사용하도록 설정했으면 힙 덤프가 저장되는 Blob 저장소 계정을 모니터링하는 것이 좋습니다.
 

@@ -114,7 +114,7 @@ Application Gateway를 사용하여 종단 간 SSL을 구성하려면 게이트�
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
 
-Application Gateway에 사용할 공용 IP 리소스를 만듭니다. 이 공용 IP 주소는 다음 단계 중 하나에 사용됩니다.
+애플리케이션 게이트웨이에 사용할 공용 IP 리소스를 만듭니다. 이 공용 IP 주소는 다음 단계 중 하나에 사용됩니다.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01' -Location "West US" -AllocationMethod Dynamic
@@ -125,7 +125,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 ## <a name="create-an-application-gateway-configuration-object"></a>응용 프로그램 게이트웨이 구성 개체 만들기
 
-Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다. 다음 단계 응용 프로그램 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
+Application Gateway를 만들기 전에 모든 구성 항목을 설정합니다. 다음 단계 애플리케이션 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
 
 1. Application Gateway IP 구성 만들기 이 설정으로 Application Gateway에서 사용하는 서브넷을 구성합니다. Application Gateway가 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
 

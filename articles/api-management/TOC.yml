@@ -170,7 +170,7 @@ items:
       href: api-management-api-templates.md
     - name: 제품
       href: api-management-product-templates.md
-    - name: 응용 프로그램
+    - name: 애플리케이션
       href: api-management-application-templates.md
     - name: 문제
       href: api-management-issue-templates.md

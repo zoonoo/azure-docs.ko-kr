@@ -86,7 +86,7 @@ items:
   items:
   - name: 일반적인 질문
     href: service-fabric-mesh-faq.md
-  - name: 샘플 응용 프로그램
+  - name: 샘플 애플리케이션
     href: https://github.com/Azure-Samples/service-fabric-mesh
   - name: Azure 로드맵
     href: https://azure.microsoft.com/roadmap/?category=service-fabric-mesh

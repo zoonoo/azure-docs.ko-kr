@@ -37,7 +37,7 @@ Azure Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사�
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-## <a name="step-1-create-an-active-directory-web-application"></a>1단계: Active Directory 웹 응용 프로그램 만들기
+## <a name="step-1-create-an-active-directory-web-application"></a>1단계: Active Directory 웹 애플리케이션 만들기
 
 Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스 간 인증을 위한 Azure AD 웹 응용 프로그램을 만들고 구성합니다. 지침에 대해서는 [Azure AD 응용 프로그램 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
 

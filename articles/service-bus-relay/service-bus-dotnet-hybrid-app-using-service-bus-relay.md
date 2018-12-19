@@ -435,7 +435,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 ### <a name="set-productsportal-as-web-app"></a>웹앱으로 ProductsPortal 설정
 
-클라우드에서 응용 프로그램을 실행하기 전에 Visual Studio 내에서 **ProductsPortal**이 웹앱으로 시작되는지 확인해야 합니다.
+클라우드에서 애플리케이션을 실행하기 전에 Visual Studio 내에서 **ProductsPortal**이 웹앱으로 시작되는지 확인해야 합니다.
 
 1. Visual Studio에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다.
 2. 왼쪽 열에서 **웹**을 클릭합니다.

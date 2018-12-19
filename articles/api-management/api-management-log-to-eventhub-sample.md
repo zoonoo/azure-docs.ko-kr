@@ -260,12 +260,12 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 }
 ```
 
-해당 서비스에 `HttpRequestMessage` 및 `HttpResponseMessage` 인스턴스를 쉽게 푸시하도록 하는 [Runscope용 기존 클라이언트 라이브러리](https://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha)를 활용할 수 있었습니다. Runscope API에 액세스하기 위해 계정 및 API 키가 필요합니다. API 키를 가져오는 지침은 [Runscope API에 액세스하는 응용 프로그램 만들기](https://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) 동영상 가이드에서 찾을 수 있습니다.
+해당 서비스에 `HttpRequestMessage` 및 `HttpResponseMessage` 인스턴스를 쉽게 푸시하도록 하는 [Runscope용 기존 클라이언트 라이브러리](https://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha)를 활용할 수 있었습니다. Runscope API에 액세스하기 위해 계정 및 API 키가 필요합니다. API 키를 가져오는 지침은 [Runscope API에 액세스하는 애플리케이션 만들기](https://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) 동영상 가이드에서 찾을 수 있습니다.
 
 ## <a name="complete-sample"></a>전체 샘플
 샘플의 [원본 코드](https://github.com/darrelmiller/ApimEventProcessor) 및 테스트는 GitHub에 있습니다. 샘플을 직접 실행하려면 [API Management 서비스](get-started-create-service-instance.md), [연결된 Event Hub](api-management-howto-log-event-hubs.md) 및 [Storage 계정](../storage/common/storage-create-storage-account.md)이 있어야 합니다.   
 
-샘플은 이벤트 허브에서 들어오는 이벤트를 수신하는 간단한 콘솔 응용 프로그램으로 해당 이벤트를 `HttpRequestMessage` 및 `HttpResponseMessage` 개체에 변환한 다음 Runscope API에 전달합니다.
+샘플은 이벤트 허브에서 들어오는 이벤트를 수신하는 간단한 콘솔 애플리케이션으로 해당 이벤트를 `HttpRequestMessage` 및 `HttpResponseMessage` 개체에 변환한 다음, Runscope API에 전달합니다.
 
 다음 애니메이션 이미지에서 개발자 포털에서 API에 생성된 요청과 수신, 처리 및 전달된 메시지를 보여주는 콘솔 응용 프로그램 그리고 Runscope 트래픽 관리자에 표시되는 요청 및 응답을 확인할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory B2B 공동 작업 사용자에 대한 조건부 액세스 | Microsoft Docs
-description: Azure Active Directory B2B 공동 작업 기능은 회사 응용 프로그램에 대한 선택적 액세스를 위해 MFA(Multi-Factor Authentication)를 지원합니다.
+description: Azure Active Directory B2B 공동 작업 기능은 회사 애플리케이션에 대한 선택적 액세스를 위해 MFA(Multi-Factor Authentication)를 지원합니다.
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
@@ -23,7 +23,7 @@ ms.locfileid: "45981765"
 Azure AD B2B 공동 작업을 통해 조직에서는 B2B 사용자에 대한 MFA(Multi-Factor Authentication) 정책을 적용할 수 있습니다. 조직의 전일제 직원과 구성원에 대해 이러한 정책을 사용하는 것과 같은 방법으로 이러한 정책을 테넌트, 앱 또는 개별 사용자 수준에서 적용할 수 있습니다. MFA 정책은 리소스 조직에서 적용됩니다.
 
 예제:
-1. 회사 A의 관리자 또는 정보 근로자가 회사 B의 사용자를 회사 A의 *Foo* 응용 프로그램에 초대합니다.
+1. 회사 A의 관리자 또는 정보 근로자가 회사 B의 사용자를 회사 A의 *Foo* 애플리케이션에 초대합니다.
 2. 회사 A의 응용 프로그램 *Foo*는 액세스 시 MFA를 요구하도록 구성됩니다.
 3. 회사 B의 사용자가 회사 A 테넌트에서 *Foo* 앱에 액세스하려고 하면 MFA 챌린지를 완료하도록 요구됩니다.
 4. 사용자는 회사 A와 MFA를 설정할 수 있고 해당 MFA 옵션을 선택합니다.

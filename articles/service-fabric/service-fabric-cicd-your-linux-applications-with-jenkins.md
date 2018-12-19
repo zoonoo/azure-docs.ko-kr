@@ -20,7 +20,7 @@ ms.lasthandoff: 08/02/2018
 ms.locfileid: "39444541"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 응용 프로그램 빌드 및 배포
-Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 응용 프로그램을 빌드하고 배포하는 방법은 다음과 같습니다.
+Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 애플리케이션을 빌드하고 배포하는 방법은 다음과 같습니다.
 
 ## <a name="topic-overview"></a>항목 개요
 이 문서에서는 Jenkins 환경을 설정할 수 있는 몇 가지 방법과 Service Fabric 클러스터가 구축된 후에 응용 프로그램을 배포하는 다양한 방법을 설명합니다. Jenkins를 성공적으로 설치하고, GitHub에서 변경 내용을 끌어오고, 응용 프로그램을 빌드하고, 클러스터에 배포하려면 다음과 같은 일반적인 단계를 따르세요.
@@ -117,7 +117,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
    </Certificates> 
    ```
 
-1. 클러스터에 연결하고 컨테이너 응용 프로그램을 설치합니다.
+1. 클러스터에 연결하고 컨테이너 애플리케이션을 설치합니다.
 
    **보안 클러스터**
    ```sh
@@ -213,9 +213,9 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
 1. 항목 이름을 입력합니다(예: **MyJob**). **자유로운 프로젝트**를 선택하고 **확인**을 클릭합니다.
 1. 작업 구성 페이지가 열립니다. Jenkins 대시보드에서 구성으로 이동하려면 작업을 클릭하고 **구성**을 클릭합니다.
 
-1. **일반** 탭에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트합니다(예: `https://github.com/{your-github-account}/service-fabric-java-getting-started`).
+1. **일반** 탭에서 **GitHub 프로젝트**에 대한 확인란을 선택하고 GitHub 프로젝트 URL을 지정합니다. 이 URL은 Jenkins CI/CD(연속 통합, 연속 배포) 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트합니다(예: `https://github.com/{your-github-account}/service-fabric-java-getting-started`).
 
-1. **소스 코드 관리** 탭에서 **Git**을 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 응용 프로그램을 호스트하는 리포지토리 URL을 지정합니다(예: `https://github.com/{your-github-account}/service-fabric-java-getting-started`). 또한 빌드할 분기를 지정할 수도 있습니다(예: `/master`).
+1. **소스 코드 관리** 탭에서 **Git**을 선택합니다. Jenkins CI/CD 흐름과 통합하려는 Service Fabric Java 애플리케이션을 호스트하는 리포지토리 URL을 지정합니다(예: `https://github.com/{your-github-account}/service-fabric-java-getting-started`). 또한 빌드할 분기를 지정할 수도 있습니다(예: `/master`).
 1. Jenkins와 통신하도록 *GitHub* 리포지토리를 구성합니다.
 
    a. GitHub 리포지토리 페이지에서 **설정** > **통합 및 서비스**로 이동합니다.

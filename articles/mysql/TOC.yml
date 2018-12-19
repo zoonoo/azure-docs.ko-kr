@@ -132,7 +132,7 @@ items:
       href: concepts-migrate-import-export.md
     - name: 최소 가동 중지 시간 마이그레이션
       href: howto-migrate-online.md
-  - name: 응용 프로그램 연결
+  - name: 애플리케이션 연결
     items:
     - name: 사용자 만들기
       href: howto-create-users.md

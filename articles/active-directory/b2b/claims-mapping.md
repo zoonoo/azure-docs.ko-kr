@@ -19,7 +19,7 @@ ms.locfileid: "45985682"
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Azure Active Directory의 B2B 공동 작업 사용자 클레임 매핑
 
-Azure AD(Azure Active Directory)에서는 B2B 공동 작업 사용자에 대해 SAML 토큰에 발급된 클레임을 사용자 지정할 수 있습니다. 사용자가 응용 프로그램에 인증할 때 Azure AD는 고유하게 식별하는 사용자에 대한 정보(또는 클레임)를 포함하는 앱에 SAML 토큰을 발급합니다. 기본적으로 사용자의 사용자 이름, 전자 메일 주소, 이름 및 성을 포함합니다.
+Azure AD(Azure Active Directory)에서는 B2B 공동 작업 사용자에 대해 SAML 토큰에 발급된 클레임을 사용자 지정할 수 있습니다. 사용자가 애플리케이션에 인증할 때 Azure AD는 고유하게 식별하는 사용자에 대한 정보(또는 클레임)를 포함하는 앱에 SAML 토큰을 발급합니다. 기본적으로 사용자의 사용자 이름, 전자 메일 주소, 이름 및 성을 포함합니다.
 
 [Azure Portal](https://portal.azure.com)에서는 SAML 토큰으로 응용 프로그램에 전송된 클레임을 보거나 편집할 수 있습니다. 설정에 액세스하려면 **Azure Active Directory** > **엔터프라이즈 응용 프로그램** > Single Sign-On용으로 구성된 응용 프로그램 > **Single Sign-On**을 선택합니다. SAML 토큰 설정은 **사용자 특성** 섹션을 참조하세요.
 

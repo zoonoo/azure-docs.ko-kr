@@ -74,7 +74,7 @@ Cloud Services를 디자인하기 위한 최신 게스트 OS 제품군을 사용
 
 **내 웹 응용 프로그램을 사용하려면 OS와 밀접하게 통합되어야 하는 경우 어떻게 하나요?**
 
-웹 응용 프로그램 아키텍처가 운영 체제의 기본 기능에 의존할 경우 [시작 작업](cloud-services-startup-tasks.md) 또는 기타 확장성 메커니즘과 같은 플랫폼 지원 기능을 사용합니다. 또는 [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/)(IaaS – 서비스로서의 인프라)를 사용할 수도 있으며, 기본 운영 체제를 유지 관리하게 됩니다.
+웹 애플리케이션 아키텍처가 운영 체제의 기본 기능에 의존할 경우 [시작 작업](cloud-services-startup-tasks.md) 또는 기타 확장성 메커니즘과 같은 플랫폼 지원 기능을 사용합니다. 또는 [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/)(IaaS – 서비스로서의 인프라)를 사용할 수도 있으며, 기본 운영 체제를 유지 관리하게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.

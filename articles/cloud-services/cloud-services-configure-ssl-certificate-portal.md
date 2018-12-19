@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/09/2018
 ms.locfileid: "51300194"
 ---
-# <a name="configuring-ssl-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대한 SSL 구성
+# <a name="configuring-ssl-for-an-application-in-azure"></a>Azure에서 애플리케이션에 대한 SSL 구성
 
 SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 엔드포인트를 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
 
@@ -34,7 +34,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 클라우드 서비스를 아직 만들지 않은 경우 먼저 [이 문서를](cloud-services-how-to-create-deploy-portal.md) 읽어보세요.
 
 ## <a name="step-1-get-an-ssl-certificate"></a>1단계: SSL 인증서 다운로드
-응용 프로그램에 대해 SSL을 구성하려면 먼저 이 목적으로 인증서를 발급하는 신뢰할 수 있는 타사 CA(인증 기관)에서 서명한 SSL 인증서를 가져와야 합니다. 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
+애플리케이션에 대해 SSL을 구성하려면 먼저 이 목적으로 인증서를 발급하는 신뢰할 수 있는 타사 CA(인증 기관)에서 서명한 SSL 인증서를 가져와야 합니다. 아직 없는 경우 SSL 인증서를 판매하는 회사에서 구입해야 합니다.
 
 인증서는 Azure의 SSL 인증서에 대한 다음 요구 사항을 충족해야 합니다.
 
@@ -50,7 +50,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 <a name="modify"> </a>
 
 ## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>2단계: 서비스 정의 및 구성 파일 수정
-인증서를 사용하도록 응용 프로그램을 구성하고 HTTPS 엔드포인트를 추가해야 합니다. 따라서 서비스 정의 및 서비스 구성 파일을 업데이트해야 합니다.
+인증서를 사용하도록 애플리케이션을 구성하고 HTTPS 엔드포인트를 추가해야 합니다. 따라서 서비스 정의 및 서비스 구성 파일을 업데이트해야 합니다.
 
 1. 개발 환경에서 서비스 정의 파일(CSDEF)을 열고 **WebRole** 섹션 내에 **Certificates** 섹션을 추가한 후 인증서(및 중간 인증서)에 대한 다음 정보를 포함합니다.
 

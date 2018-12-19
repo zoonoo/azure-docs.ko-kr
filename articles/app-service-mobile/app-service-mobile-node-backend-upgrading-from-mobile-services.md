@@ -24,7 +24,7 @@ ms.locfileid: "53002123"
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>기존 Node.js Azure 모바일 서비스를 App Service로 업그레이드
 App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로그램을 빌드하는 새로운 방법입니다. 자세한 내용은 [Mobile Apps 정의]를 참조하세요.
 
-이 문서에서는 기존 Node.js 백 엔드 응용 프로그램을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 응용 프로그램이 계속 작동할 수 있습니다.  Node.js 백 엔드 응용 프로그램을 업그레이드해야 하는 경우 [.NET Mobile Services 업그레이드](app-service-mobile-net-upgrading-from-mobile-services.md)를 참조하세요.
+이 문서에서는 기존 Node.js 백 엔드 응용 프로그램을 Azure Mobile Services에서 새로운 App Service Mobile Apps로 업그레이드하는 방법을 설명합니다. 이 업그레이드를 수행하는 동안 기존 Mobile Services 애플리케이션이 계속 작동할 수 있습니다.  Node.js 백 엔드 애플리케이션을 업그레이드해야 하는 경우 [.NET Mobile Services 업그레이드](app-service-mobile-net-upgrading-from-mobile-services.md)를 참조하세요.
 
 모바일 백 엔드가 Azure App Service로 업그레이드되면 모든 App Service 기능에 액세스할 수 있고 Mobile Services 가격 책정이 아닌 [App Service 가격 책정]에 따라 요금이 청구됩니다.
 
@@ -39,9 +39,9 @@ App Service 모바일은 Microsoft Azure를 사용하여 모바일 응용 프로
 ### <a name="improvements-in-mobile-apps-nodejs-server-sdk"></a>Mobile Apps Node.js 서버 SDK에서 향상된 기능
 새 [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobile-apps) 업그레이드는 다음을 포함하여 다양한 향상된 기능을 제공합니다.
 
-* [Express 프레임워크](https://expressjs.com/en/index.html)에 기반하여 새 노드 SDK는 간단하고 새 노드 버전을 유지할 수 있도록 설계됩니다. Express 미들웨어를 통해 응용 프로그램 동작을 사용자 지정할 수 있습니다.
+* [Express 프레임워크](https://expressjs.com/en/index.html)에 기반하여 새 노드 SDK는 간단하고 새 노드 버전을 유지할 수 있도록 설계됩니다. Express 미들웨어를 통해 애플리케이션 동작을 사용자 지정할 수 있습니다.
 * Mobile Services SDK에 비해 성능이 크게 개선되었습니다.
-* 모바일 백 엔드를 통해 웹 사이트를 호스팅할 수 있습니다. 마찬가지로 기존 v4 응용 프로그램에 Azure 모바일 SDK를 추가하기는 쉽습니다.
+* 모바일 백 엔드를 통해 웹 사이트를 호스팅할 수 있습니다. 마찬가지로 기존 v4 애플리케이션에 Azure 모바일 SDK를 추가하기는 쉽습니다.
 * 플랫폼 간 및 로컬 개발을 위해 작성된 Mobile Apps SDK는 Windows, Linux 및 OSX 플랫폼에서 개발되고 로컬로 실행될 수 있습니다. 배포하기 전에 [Mocha](https://mochajs.org/) 테스트를 실행하는 것 같은 일반적인 노드 개발 기술을 사용하는 것은 쉽습니다.
 
 ## <a name="overview"></a>기본 업그레이드 개요
@@ -49,7 +49,7 @@ Node.js 백 엔드 업그레이드를 지원하기 위해 Azure App Service는 �
 
 Mobile Services 클라이언트 SDK는 새 Mobile Apps 서버 SDK와 호환할 수 **없습니다** . 앱에 대한 서비스 연속성을 제공하기 위해 현재 게시된 클라이언트를 제공하는 사이트에 변경 내용을 게시하지 않아야 합니다. 대신 중복으로 제공한 새 모바일 앱을 만들어야 합니다. 이 응용 프로그램을 동일한 App Service 계획에 두어 추가 비용이 발생하지 않도록 할 수 있습니다.
 
-다음 두 가지 버전의 응용 프로그램이 있습니다. 하나는 동일하게 유지되고 야생에서 게시된 앱을 제공하며 다른 하나는 업그레이드하고 새 클라이언트 릴리스를 대상으로 할 수 있습니다. 진도에 맞게 코드를 이동하고 테스트할 수 있지만 수행한 버그 수정이 둘 모두에 적용되도록 해야 합니다. 야생에서 원하는 수의 클라이언트 앱이 최신 버전으로 업데이트되면 원하는 경우 원래 마이그레이션된 앱을 삭제할 수 있습니다. 동일한 App Service 계획에서 모바일 앱으로 호스팅되는 경우 금전적인 추가 비용이 발생하지 않습니다.
+다음 두 가지 버전의 애플리케이션이 있습니다. 하나는 동일하게 유지되고 야생에서 게시된 앱을 제공하며 다른 하나는 업그레이드하고 새 클라이언트 릴리스를 대상으로 할 수 있습니다. 진도에 맞게 코드를 이동하고 테스트할 수 있지만 수행한 버그 수정이 둘 모두에 적용되도록 해야 합니다. 야생에서 원하는 수의 클라이언트 앱이 최신 버전으로 업데이트되면 원하는 경우 원래 마이그레이션된 앱을 삭제할 수 있습니다. 동일한 App Service 계획에서 모바일 앱으로 호스팅되는 경우 금전적인 추가 비용이 발생하지 않습니다.
 
 업그레이드 프로세스에 대한 전체 개요는 다음과 같습니다.
 
@@ -125,7 +125,7 @@ SQL Server Management Studio 또는 Visual Studio 내에서 이 스크립트를 
 Azure Mobile Apps를 사용하면 서비스 내에서 Azure Active Directory, Facebook, Google, Microsoft 및 Twitter 인증을 구성할 수 있습니다.  사용자 지정 인증을 개별적으로 개발해야 합니다.  자세한 내용은 [인증 개념] 설명서 및 [인증 빠른 시작] 설명서를 참조하세요.  
 
 ## <a name="updating-clients"></a>모바일 클라이언트 업데이트
-작동하는 모바일 앱 백 엔드가 있으면 그것을 사용하는 클라이언트 응용 프로그램의 새 버전에서 작동할 수 있습니다. 또한 Mobile Apps는 클라이언트 SDK의 새 버전을 포함하고 위의 서버 업그레이드와 유사합니다. 따라서 Mobile Apps 버전을 설치하기 전에 Mobile Services SDK에 대한 모든 참조를 제거해야 합니다.
+작동하는 모바일 앱 백 엔드가 있으면 그것을 사용하는 클라이언트 애플리케이션의 새 버전에서 작동할 수 있습니다. 또한 Mobile Apps는 클라이언트 SDK의 새 버전을 포함하고 위의 서버 업그레이드와 유사합니다. 따라서 Mobile Apps 버전을 설치하기 전에 Mobile Services SDK에 대한 모든 참조를 제거해야 합니다.
 
 버전 간의 주요 변경 사항 중 하나는 생성자가 응용 프로그램 키를 더 이상 필요로 하지 않는다는 점입니다.
 이제 모바일 앱의 URL에 간단히 전달할 수 있습니다. 예를 들어 .NET 클라이언트에서 `MobileServiceClient` 생성자는 다음과 같습니다.

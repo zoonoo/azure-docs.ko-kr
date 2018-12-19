@@ -5704,7 +5704,7 @@ PowerShell을 사용하여 스크립트로 Azure 작업 자동화 </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure US Government</h3>
-                                                    <p>Azure의 전용 인스턴스에서 미국 정부 기관 임무를 위한 응용 프로그램 빌드 및 호스팅</p>
+                                                    <p>Azure의 전용 인스턴스에서 미국 정부 기관 임무를 위한 애플리케이션 빌드 및 호스팅</p>
                                                 </div>
                                             </div>
                                         </div>

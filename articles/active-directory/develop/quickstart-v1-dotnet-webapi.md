@@ -28,7 +28,7 @@ ms.locfileid: "46952548"
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-보호된 리소스에 액세스할 수 있는 응용 프로그램을 빌드하는 경우 허가되지 않은 액세스로부터 해당 리소스를 보호하는 방법을 알고 있어야 합니다. Azure Active Directory(Azure AD)를 사용하면 몇 개의 코드 줄만으로 단순하고 간편하게 OAuth 2.0 Bearer 액세스 토큰을 사용하여 Web API를 보호할 수 있습니다.
+보호된 리소스에 액세스할 수 있는 애플리케이션을 빌드하는 경우 허가되지 않은 액세스로부터 해당 리소스를 보호하는 방법을 알고 있어야 합니다. Azure Active Directory(Azure AD)를 사용하면 몇 개의 코드 줄만으로 단순하고 간편하게 OAuth 2.0 Bearer 액세스 토큰을 사용하여 Web API를 보호할 수 있습니다.
 
 ASP.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현한 커뮤니티 기반 OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다. 여기서는 OWIN을 사용하여 "할 일 목록" 웹 API를 빌드합니다.
 
@@ -37,9 +37,9 @@ ASP.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현�
 
 이 빠른 시작에서는 할 일 목록 API를 빌드하고 다음 작업을 수행하는 방법을 알아봅니다.
 
-1. Azure AD에 응용 프로그램을 등록합니다.
+1. Azure AD에 애플리케이션을 등록합니다.
 2. OWIN 인증 파이프라인을 사용하도록 앱을 설정합니다.
-3. Web API를 호출하도록 클라이언트 응용 프로그램을 구성합니다.
+3. Web API를 호출하도록 클라이언트 애플리케이션을 구성합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,7 +50,7 @@ ASP.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현�
 
 ## <a name="step-1-register-an-application-with-azure-ad"></a>1단계: Azure AD에 응용 프로그램 등록
 
-응용 프로그램 보안을 유지하려면 먼저 테넌트에서 응용 프로그램을 만들고 몇 가지 중요 정보로 Azure AD를 제공해야 합니다.
+애플리케이션 보안을 유지하려면 먼저 테넌트에서 애플리케이션을 만들고 몇 가지 중요 정보로 Azure AD를 제공해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 페이지 오른쪽 위 모서리에서 계정을 선택하고, **디렉터리 전환** 탐색을 선택한 다음, 적절한 테넌트를 선택하여 Azure AD 테넌트를 선택합니다.
@@ -58,7 +58,7 @@ ASP.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft에서 구현�
 
 3. 왼쪽 탐색 창에서 **Azure Active Directory**를 선택합니다.
 4. **앱 등록**을 선택하고 **추가**를 선택합니다.
-5. 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 Web API**를 만듭니다.
+5. 프롬프트에 따라 새 **웹 애플리케이션 및/또는 Web API**를 만듭니다.
     * **이름**은 사용자에게 응용 프로그램을 설명합니다. **To Do List Service**를 입력합니다.
     * **리디렉션 URI**는 Azure AD가 앱이 요청한 토큰을 반환하는 데 사용하는 구성표 및 문자열 조합입니다. 이 값으로 `https://localhost:44321/` 을 입력합니다.
 

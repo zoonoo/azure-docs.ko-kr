@@ -86,7 +86,7 @@ ms.locfileid: "44356026"
 
 ## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성하는 방법
 
-Azure AD 갤러리에서 응용 프로그램을 구성하려면 다음을 수행해야 합니다.
+Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
 -   [Azure AD 갤러리에서 응용 프로그램 추가](#_Add_an_application)
 

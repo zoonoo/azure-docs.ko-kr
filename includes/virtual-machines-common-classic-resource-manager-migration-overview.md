@@ -46,7 +46,7 @@ Resource Manager는 템플릿을 사용하여 복잡한 응용 프로그램을 �
 * [연결되지 않은 리소스 마이그레이션](#migration-of-unattached-resources)
 
 ### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>가상 머신 마이그레이션(가상 네트워크가 아님)
-Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보안이 적용되어 있습니다. 모든 VM은 Resource Manager 모델의 가상 네트워크에 있어야 합니다. Azure 플랫폼은 마이그레이션의 일부로 VM을 다시 시작합니다(`Stop`, `Deallocate` 및 `Start`). Virtual Machines이 마이그레이션될 가상 네트워크에 대해서는 두 가지 옵션이 있습니다.
+Resource Manager 배포 모델에서는 기본적으로 애플리케이션 보안이 적용되어 있습니다. 모든 VM은 Resource Manager 모델의 가상 네트워크에 있어야 합니다. Azure 플랫폼은 마이그레이션의 일부로 VM을 다시 시작합니다(`Stop`, `Deallocate` 및 `Start`). Virtual Machines이 마이그레이션될 가상 네트워크에 대해서는 두 가지 옵션이 있습니다.
 
 * 플랫폼에서 새 가상 네트워크를 만들도록 요청하고 가상 머신을 새 가상 네트워크로 마이그레이션할 수 있습니다.
 * 가상 머신을 Resource Manager의 기존 가상 네트워크로 마이그레이션할 수 있습니다.

@@ -165,7 +165,7 @@ Azure BizTalk 서비스를 만들면 **하이브리드 연결** 탭을 사용할
  하이브리드 연결을 만들고 관리하는 방법을 비롯한 자세한 내용은 [하이브리드 연결](integration-hybrid-connection-overview.md) 을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)도 익숙해질 수 있습니다. 응용 프로그램에 BizTalk 서비스를 사용할 준비가 되었습니다. 응용 프로그램을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
+BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk Services: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)도 익숙해질 수 있습니다. 응용 프로그램에 BizTalk 서비스를 사용할 준비가 되었습니다. 애플리케이션을 만들려면 [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동합니다.
 
 ## <a name="see-also"></a>참고 항목
 * [BizTalk Services: Editions 차트](biztalk-editions-feature-chart.md)<br/>

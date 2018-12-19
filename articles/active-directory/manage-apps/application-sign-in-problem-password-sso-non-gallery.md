@@ -87,7 +87,7 @@ ms.locfileid: "44356196"
 
 ## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성하는 방법
 
-Azure AD 갤러리에서 응용 프로그램을 구성하려면 다음을 수행해야 합니다.
+Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
 -   [비갤러리 응용 프로그램 추가](#add-a-non-gallery-application)
 

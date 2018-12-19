@@ -36,14 +36,14 @@ Node.js 모듈, **package.json** 및 **npm-shrinkwrap.json** 파일 사용법을
 > 
 
 ## <a name="nodejs-modules"></a>Node.js 모듈
-모듈은 응용 프로그램의 특정 기능을 제공하는 로드 가능한 JavaScript 패키지입니다. 모듈은 일반적으로 **npm** 명령줄 도구를 사용하여 설치되지만, http 모듈과 같은 일부 모듈은 핵심 Node.js 패키지의 일부로 제공됩니다.
+모듈은 애플리케이션의 특정 기능을 제공하는 로드 가능한 JavaScript 패키지입니다. 모듈은 일반적으로 **npm** 명령줄 도구를 사용하여 설치되지만, http 모듈과 같은 일부 모듈은 핵심 Node.js 패키지의 일부로 제공됩니다.
 
 모듈이 설치되면 **node\_modules** 디렉터리에서 응용 프로그램 디렉터리 구조 루트에 저장됩니다. **node\_modules** 디렉터리 내의 각 모듈에서는 종속되는 모든 모듈이 포함된 자체의 디렉터리를 유지하며, 이 동작은 종속성 체인의 모든 모듈에 대해 일관되게 반복됩니다. 이 환경에서는 설치된 각 모듈이 종속되는 모듈에 대해 고유한 버전 요구 사항을 가지지만 상당히 큰 규모의 디렉터리 구조가 생길 수 있습니다.
 
 **node\_modules** 디렉터리를 응용 프로그램의 일부로 배포하면 **package.json** 또는 **npm-shrinkwrap.json** 파일을 사용하는 경우에 비해 배포의 크기가 커지지만 프로덕션에 사용되는 모듈 버전과 개발에 사용되는 모듈 버전이 항상 동일합니다.
 
 ### <a name="native-modules"></a>네이티브 모듈
-대부분의 모듈이 단순히 일반 텍스트 JavaScript 파일인 반면, 일부 모듈은 플랫폼별 이진 이미지입니다. 이 모듈은 설치 시간에 대개 Python 및 node-gyp를 사용하여 컴파일됩니다. Azure Cloud Services에서는 **node\_modules** 폴더가 응용 프로그램의 일부로 배포되므로, 설치되는 모듈의 일부로 포함된 네이티브 모듈은 Windows 개발 시스템에서 설치 및 컴파일된 경우 클라우드 서비스에서 작동합니다.
+대부분의 모듈이 단순히 일반 텍스트 JavaScript 파일인 반면, 일부 모듈은 플랫폼별 이진 이미지입니다. 이 모듈은 설치 시간에 대개 Python 및 node-gyp를 사용하여 컴파일됩니다. Azure Cloud Services에서는 **node\_modules** 폴더가 애플리케이션의 일부로 배포되므로, 설치되는 모듈의 일부로 포함된 네이티브 모듈은 Windows 개발 시스템에서 설치 및 컴파일된 경우 클라우드 서비스에서 작동합니다.
 
 Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정 필수 구성 요소가 필요한 모듈을 컴파일할 때는 오류가 발생할 수 있습니다. MongoDB와 같은 일부 일반적인 모듈에는 선택적 네이티브 종속성이 있으며 이러한 종속성 없이도 정상적으로 작동하지만 다음 두 가지 해결 방법은 현재 사용 가능한 거의 모든 네이티브 모듈에 효과적인 것으로 입증되었습니다.
 
@@ -55,7 +55,7 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 
 ### <a name="using-a-packagejson-file"></a>package.json 파일 사용
 
-**package.json** 파일을 사용하여 응용 프로그램에서 요구하는 최상위 종속성을 지정할 수 있습니다. 그러면 호스팅 플랫폼이 배포의 일부로 **node\_modules** 폴더를 포함하도록 요구하는 대신 종속성을 설치할 수 있게 됩니다. 응용 프로그램이 배포된 후에는 **npm install** 명령을 사용하여 **package.json** 파일을 구문 분석하고 나열된 모든 종속성을 설치합니다.
+**package.json** 파일을 사용하여 응용 프로그램에서 요구하는 최상위 종속성을 지정할 수 있습니다. 그러면 호스팅 플랫폼이 배포의 일부로 **node\_modules** 폴더를 포함하도록 요구하는 대신 종속성을 설치할 수 있게 됩니다. 애플리케이션이 배포된 후에는 **npm install** 명령을 사용하여 **package.json** 파일을 구문 분석하고 나열된 모든 종속성을 설치합니다.
 
 개발하는 동안 모듈 설치 시 **package.json** 파일에 모듈의 항목이 자동으로 추가되도록 **--save**, **--save-dev** 또는 **--save-optional** 매개 변수를 사용할 수 있습니다. 자세한 내용은 [npm-install](https://docs.npmjs.com/cli/install)(영문)을 참조하십시오.
 
@@ -73,7 +73,7 @@ Azure App Service는 일부 네이티브 모듈을 지원하지 않으며 특정
 ### <a name="using-a-npm-shrinkwrapjson-file"></a>npm-shrinkwrap.json 파일 사용
 **npm-shrinkwrap.json** 파일은 **package.json** 파일의 모듈 버전 관리 제한 사항을 해결하기 위한 것입니다. **package.json** 파일은 최상위 모듈에 대한 버전만 포함하는 반면, **npm-shrinkwrap.json** 파일은 전체 모듈 종속성 체인에 대한 버전 요구 사항을 포함합니다.
 
-응용 프로그램을 프로덕션에 적용할 준비가 되면 버전 요구 사항을 잠그고 **npm shrinkwrap** 명령을 사용하여 **npm-shrinkwrap.json** 파일을 만들 수 있습니다. 이 명령은 현재 **node\_modules** 폴더에 설치되어 있는 버전이 사용되며 이러한 버전이 **npm-shrinkwrap.json** 파일에 기록됩니다. 응용 프로그램이 호스팅 환경에 배포된 후에는 **npm install** 명령을 사용하여 **npm-shrinkwrap.json** 파일을 구문 분석하고 나열된 모든 종속성을 설치합니다. 자세한 내용은 [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap)을 참조하세요.
+응용 프로그램을 프로덕션에 적용할 준비가 되면 버전 요구 사항을 잠그고 **npm shrinkwrap** 명령을 사용하여 **npm-shrinkwrap.json** 파일을 만들 수 있습니다. 이 명령은 현재 **node\_modules** 폴더에 설치되어 있는 버전이 사용되며 이러한 버전이 **npm-shrinkwrap.json** 파일에 기록됩니다. 애플리케이션이 호스팅 환경에 배포된 후에는 **npm install** 명령을 사용하여 **npm-shrinkwrap.json** 파일을 구문 분석하고 나열된 모든 종속성을 설치합니다. 자세한 내용은 [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap)을 참조하세요.
 
 > [!NOTE]
 > Azure App Service에 배포할 때는 <b>npm-shrinkwrap.json</b> 파일이 네이티브 모듈을 참조하는 경우 Git를 사용하는 응용 프로그램을 게시하면 다음 예제와 유사한 오류가 발생할 수 있습니다.

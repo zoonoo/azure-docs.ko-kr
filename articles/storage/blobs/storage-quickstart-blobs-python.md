@@ -28,7 +28,7 @@ ms.locfileid: "51713183"
 * [Python](https://www.python.org/downloads/)
 * [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python)
 
-## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
+## <a name="download-the-sample-application"></a>샘플 애플리케이션 다운로드
 이 빠른 시작 가이드에서 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git)은 기본 Python 응용 프로그램입니다.  
 
 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 

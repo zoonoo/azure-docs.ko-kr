@@ -51,7 +51,7 @@ Azure AD 응용 프로그램 갤러리 내에서 찾을 수 있는 선택 항목
 
 ## <a name="overview-of-steps-required"></a>필요한 단계 개요
 
-Azure AD 갤러리에서 응용 프로그램을 구성하려면 다음을 수행해야 합니다.
+Azure AD 갤러리에서 애플리케이션을 구성하려면 다음을 수행해야 합니다.
 
 -   [비갤러리 응용 프로그램 추가](#add-a-non-gallery-application)
 

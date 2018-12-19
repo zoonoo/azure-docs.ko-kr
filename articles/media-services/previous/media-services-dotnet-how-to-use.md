@@ -90,7 +90,7 @@ ms.locfileid: "50233534"
             using System.Linq;
     ```
 
-    이제 Media Services 응용 프로그램 개발을 시작할 준비가 되었습니다.    
+    이제 Media Services 애플리케이션 개발을 시작할 준비가 되었습니다.    
 
 ## <a name="example"></a>예
 

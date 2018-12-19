@@ -82,7 +82,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 |자산|type|설명|  
 |--------------|----------|-----------------|  
 |페이징|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|응용 프로그램 컬렉션에 대한 페이징 정보입니다.|  
-|응용 프로그램|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 응용 프로그램입니다.|  
+|애플리케이션|[응용 프로그램](api-management-template-data-model-reference.md#Application) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 응용 프로그램입니다.|  
 |CategoryName|string|응용 프로그램의 범주입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  

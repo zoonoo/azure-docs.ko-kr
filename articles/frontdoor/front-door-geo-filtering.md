@@ -21,9 +21,9 @@ ms.locfileid: "52865508"
 ---
 # <a name="geo-filtering-geographic-based-access-control-to-azure-front-door-service-frontends"></a>지역 필터링: Azure Front Door Service 프런트 엔드에 대한 지역 기준 액세스
 
-기본적으로 Azure Front Door Service는 요청을 수행하는 사용자의 위치에 관계없이 사용자 요청에 응답합니다. 그러나 경우에 따라 국가별로 웹 응용 프로그램에 대한 액세스를 제한할 수 있습니다. Azure Front Door의 응용 프로그램 계층 보안을 통해 엔드포인트의 특정 경로에 대해 사용자 지정 보호 규칙을 사용하는 정책을 정의하여 특정 국가로부터의 트래픽을 허용하거나 차단할 수 있습니다. 
+기본적으로 Azure Front Door Service는 요청을 수행하는 사용자의 위치에 관계없이 사용자 요청에 응답합니다. 그러나 경우에 따라 국가별로 웹 애플리케이션에 대한 액세스를 제한할 수 있습니다. Azure Front Door의 애플리케이션 계층 보안을 통해 엔드포인트의 특정 경로에 대해 사용자 지정 보호 규칙을 사용하는 정책을 정의하여 특정 국가로부터의 트래픽을 허용하거나 차단할 수 있습니다. 
 
-응용 프로그램 보안 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니다. 규칙은 일치 조건, 작업 및 우선 순위로 구성됩니다. 일치 조건에서는 일치 변수, 연산자, 일치 값을 정의합니다.  지역 필터링 규칙에서 일치 변수는 REMOTE_ADDR, 연산자는 GeoMatch, 값은 해당 국가의 2자 국가 코드입니다. GeoMatch 조건과 REQUEST_URI 문자열 일치 조건을 결합하여 경로 기준 지역 필터링 규칙을 만들 수 있습니다.
+애플리케이션 보안 정책에는 일반적으로 사용자 지정 규칙 집합이 포함됩니다. 규칙은 일치 조건, 작업 및 우선 순위로 구성됩니다. 일치 조건에서는 일치 변수, 연산자, 일치 값을 정의합니다.  지역 필터링 규칙에서 일치 변수는 REMOTE_ADDR, 연산자는 GeoMatch, 값은 해당 국가의 2자 국가 코드입니다. GeoMatch 조건과 REQUEST_URI 문자열 일치 조건을 결합하여 경로 기준 지역 필터링 규칙을 만들 수 있습니다.
 
 [Azure PowerShell](front-door-tutorial-geo-filtering.md) 또는 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)을 사용하여 Front Door에 대한 지역 필터링 정책을 구성할 수 있습니다.
 

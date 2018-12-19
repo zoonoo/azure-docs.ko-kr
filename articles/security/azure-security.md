@@ -106,7 +106,7 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 사용하면 Azure 리소스의 보안에 대한 향상된 가시성과 제어를 통해 위협을 예방, 검색 및 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
 또한 Azure Security Center는 즉시 수행할 수 있는 경고와 권장 사항을 보여 주는 단일 대시보드를 제공하여 보안 운영을 지원합니다. 종종 Azure Security Center 콘솔에서 한 번의 클릭으로 문제를 해결할 수 있습니다.
-## <a name="applications"></a>응용 프로그램
+## <a name="applications"></a>애플리케이션
 이 섹션에서는 응용 프로그램 보안의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
 
 ### <a name="web-application-vulnerability-scanning"></a>웹 응용 프로그램 취약성 스캔

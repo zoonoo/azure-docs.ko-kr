@@ -97,7 +97,7 @@ Microsoft 시작 장애 조치(failover)가 제공하는 RTO로는 비즈니스 
 
 장애 조치(failover) 후에 IoT hub의 FQDN(및 따라서 연결 문자열)는 동일하지만 기본 IP 주소가 변경됩니다. 따라서 장애 조치(failover) 프로세스가 트리거된 후 완전히 작동하게 되는 IoT hub 인스턴스에 대해 수행되는 런타임 작업의 전체 시간은 다음 함수를 통해 나타낼 수 있습니다.
 
-복구 시간 = RTO [수동 장애 조치(failover)의 경우 10분~2시간 | Microsoft 시작 장애 조치(failover)의 경우 2~26시간 ] + DNS 전파 지연 + 클라이언트 응용 프로그램이 캐시된 IoT Hub IP 주소를 새로 고치는 데 걸리는 시간
+복구 시간 = RTO [수동 장애 조치(failover)의 경우 10분~2시간 | Microsoft 시작 장애 조치(failover)의 경우 2~26시간 ] + DNS 전파 지연 + 클라이언트 애플리케이션이 캐시된 IoT Hub IP 주소를 새로 고치는 데 걸리는 시간.
 
 > [!IMPORTANT]
 > IoT SDK는 IoT Hub의 IP 주소를 캐시하지 않습니다. SDK와 상호 작용하는 사용자 코드는 IoT Hub의 IP 주소를 캐시하지 않는 것이 좋습니다. 
