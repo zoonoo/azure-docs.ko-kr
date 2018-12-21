@@ -173,7 +173,7 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Microsoft Azure Storage 탐색기를 사용하여 일기 예보 보기
 
-클라이언트 응용 프로그램을 실행하여 온도 및 습도 데이터를 수집하여 IoT Hub로 보냅니다. Stream Analytics 작업에서는 IoT Hub에서 받은 각 메시지에 대해 일기 예보 웹 서비스를 호출하여 강우 확률을 생성합니다. 그런 다음 Azure Blob 저장소에 결과를 저장합니다. Azure Storage 탐색기는 결과를 보는 데 사용할 수 있는 도구입니다.
+클라이언트 애플리케이션을 실행하여 온도 및 습도 데이터를 수집하여 IoT Hub로 보냅니다. Stream Analytics 작업에서는 IoT Hub에서 받은 각 메시지에 대해 일기 예보 웹 서비스를 호출하여 강우 확률을 생성합니다. 그런 다음 Azure Blob 저장소에 결과를 저장합니다. Azure Storage 탐색기는 결과를 보는 데 사용할 수 있는 도구입니다.
 
 1. [Microsoft Azure Storage 탐색기를 다운로드하고 설치합니다](http://storageexplorer.com/).
 1. Azure Storage 탐색기를 엽니다.

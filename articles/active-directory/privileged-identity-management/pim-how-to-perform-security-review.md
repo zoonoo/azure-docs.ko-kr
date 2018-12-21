@@ -27,7 +27,7 @@ Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업
 
 액세스 검토에 관심이 있는 권한 있는 역할 관리자 또는 전역 관리자인 경우 [액세스 검토를 시작하는 방법](pim-how-to-start-security-review.md)에서 자세한 내용을 참조하세요.
 
-## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management 응용 프로그램 추가
+## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management 애플리케이션 추가
 [Azure 포털](https://portal.azure.com/) 에서 Azure AD PIM(Privileged Identity Management) 응용 프로그램을 사용하여 검토를 수행할 수 있습니다.  Azure AD Privileged Identity Management 응용 프로그램이 포털에 없는 경우 다음 단계에 따라 시작합니다.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.

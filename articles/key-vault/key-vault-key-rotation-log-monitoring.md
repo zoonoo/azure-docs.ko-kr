@@ -25,7 +25,7 @@ ms.locfileid: "44302020"
 
 ## <a name="introduction"></a>소개
 
-Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있습니다. 사용자 응용 프로그램에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며, 필요에 따라 자격 증명 모음에서 요청할 수 있습니다. 이렇게 하면 응용 프로그램의 동작에 영향을 주지 않고 키 및 비밀을 업데이트할 수 있으며 키 및 비밀 관리 동작에 대한 다양한 가능성이 열립니다.
+Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있습니다. 사용자 응용 프로그램에서는 키 또는 암호 정보를 더 이상 유지할 필요가 없으며, 필요에 따라 자격 증명 모음에서 요청할 수 있습니다. 이렇게 하면 애플리케이션의 동작에 영향을 주지 않고 키 및 비밀을 업데이트할 수 있으며 키 및 비밀 관리 동작에 대한 다양한 가능성이 열립니다.
 
 >[!IMPORTANT]
 > 이 문서의 예제는 설명 용도로만 제공됩니다. 프로덕션 용도로는 사용하지 말아야 합니다. 
@@ -43,7 +43,7 @@ Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있�
 
 ## <a name="set-up-key-vault"></a>주요 자격 증명 모음 설정
 
-응용 프로그램을 통해 Azure Key Vault에서 비밀을 검색하려면 먼저 비밀을 만들어 Key Vault에 업로드해야 합니다. 이렇게 하려면 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.
+애플리케이션을 통해 Azure Key Vault에서 비밀을 검색하려면 먼저 비밀을 만들어 Key Vault에 업로드해야 합니다. 이렇게 하려면 Azure PowerShell 세션을 시작하고 다음 명령 사용하여 Azure 계정에 로그인합니다.
 
 ```powershell
 Connect-AzureRmAccount
@@ -83,12 +83,12 @@ Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $
 Get-AzureKeyVaultSecret –VaultName <vaultName>
 ```
 
-## <a name="set-up-the-application"></a>응용 프로그램 설정
+## <a name="set-up-the-application"></a>애플리케이션 설정
 
-비밀이 저장되었으니 이제 코드를 사용하여 비밀을 검색하고 사용할 수 있습니다. 이 작업을 수행하려면 몇 가지 단계가 필요합니다. 가장 중요한 첫 번째 단계는 응용 프로그램을 Azure Active Directory에 등록한 후 응용 프로그램의 요청을 허용하도록 Key Vault에 응용 프로그램을 알리는 것입니다.
+비밀이 저장되었으니 이제 코드를 사용하여 비밀을 검색하고 사용할 수 있습니다. 이 작업을 수행하려면 몇 가지 단계가 필요합니다. 가장 중요한 첫 번째 단계는 애플리케이션을 Azure Active Directory에 등록한 다음, 애플리케이션의 요청을 허용하도록 Key Vault에 애플리케이션을 알리는 것입니다.
 
 > [!NOTE]
-> 응용 프로그램은 Key Vault와 동일한 Azure Active Directory에서 만들어야 합니다.
+> 애플리케이션은 Key Vault와 동일한 Azure Active Directory에서 만들어야 합니다.
 >
 >
 
@@ -96,25 +96,25 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 2. **앱 등록**을 선택합니다. 
 3. **새 응용 프로그램 등록**을 선택하여 응용 프로그램을 Azure Active Directory에 추가합니다.
 
-    ![Azure Active Directory에서 응용 프로그램 열기](./media/keyvault-keyrotation/azure-ad-application.png)
+    ![Azure Active Directory에서 애플리케이션 열기](./media/keyvault-keyrotation/azure-ad-application.png)
 
 4. **만들기** 섹션에서 응용 프로그램 유형을 **웹 응용 프로그램 및/또는 웹 API**로 두고 응용 프로그램 이름을 지정합니다. 응용 프로그램에 **SIGN-ON URL**을 제공합니다. 이 데모에서 원하는 어느 것이든 될 수 있습니다.
 
     ![응용 프로그램 등록 만들기](./media/keyvault-keyrotation/create-app.png)
 
-5. 응용 프로그램이 Azure Active Directory에 추가되면 응용 프로그램 페이지로 이동됩니다. **설정**을 선택한 후 속성을 선택합니다. **응용 프로그램 ID** 값을 복사합니다. 이 값은 이후 단계에서 필요합니다.
+5. 애플리케이션이 Azure Active Directory에 추가되면 애플리케이션 페이지로 이동됩니다. **설정**을 선택한 후 속성을 선택합니다. **응용 프로그램 ID** 값을 복사합니다. 이 값은 이후 단계에서 필요합니다.
 
-다음으로, Azure Active Directory와 상호 작용할 수 있도록 응용 프로그램에 대한 키를 생성합니다. **설정**아래의 **키** 섹션으로 이동하여 키를 만들 수 있습니다. 이후 단계에서 사용할 수 있도록 Azure Active Directory 응용 프로그램에서 새로 생성된 키를 기록해 둡니다. 이 섹션 외부로 이동한 후에는 키를 사용할 수 없습니다. 
+그런 다음, Azure Active Directory와 상호 작용할 수 있도록 애플리케이션에 대한 키를 생성합니다. **설정**아래의 **키** 섹션으로 이동하여 키를 만들 수 있습니다. 이후 단계에서 사용할 수 있도록 Azure Active Directory 애플리케이션에서 새로 생성된 키를 기록해 둡니다. 이 섹션 외부로 이동한 후에는 키를 사용할 수 없습니다. 
 
 ![Azure Active Directory 앱 키](./media/keyvault-keyrotation/create-key.png)
 
-응용 프로그램에서 Key Vault로 모든 호출을 설정하기 전에 Key Vault에 응용 프로그램 및 해당 권한에 대한 정보를 알려야 합니다. 다음 명령은 Azure Active Directory 앱에서 Key Vault 이름 및 응용 프로그램 ID를 가져와 Key Vault에 응용 프로그램에 대한 **Get** 액세스 권한을 부여합니다.
+애플리케이션에서 Key Vault로 모든 호출을 설정하기 전에 Key Vault에 애플리케이션 및 해당 권한에 대한 정보를 알려야 합니다. 다음 명령은 Azure Active Directory 앱에서 Key Vault 이름 및 응용 프로그램 ID를 가져와 Key Vault에 응용 프로그램에 대한 **Get** 액세스 권한을 부여합니다.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
 ```
 
-이제 응용 프로그램 호출의 빌드를 시작할 준비가 되었습니다. 응용 프로그램에서 Azure Key Vault 및 Azure Active Directory와 상호 작용하는 데 필요한 NuGet 패키지를 먼저 설치해야 합니다. Visual Studio 패키지 관리자 콘솔에서 다음 명령을 입력합니다. 이 문서를 작성할 당시 Azure Active Directory 패키지의 최신 버전은 3.10.305231913이므로 최신 버전을 확인하고 그에 따라 업데이트해야 할 수 있습니다.
+이제 애플리케이션 호출의 빌드를 시작할 준비가 되었습니다. 애플리케이션에서 Azure Key Vault 및 Azure Active Directory와 상호 작용하는 데 필요한 NuGet 패키지를 먼저 설치해야 합니다. Visual Studio 패키지 관리자 콘솔에서 다음 명령을 입력합니다. 이 문서를 작성할 당시 Azure Active Directory 패키지의 최신 버전은 3.10.305231913이므로 최신 버전을 확인하고 그에 따라 업데이트해야 할 수 있습니다.
 
 ```powershell
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.305231913
@@ -122,13 +122,13 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.30
 Install-Package Microsoft.Azure.KeyVault
 ```
 
-응용 프로그램 코드에서 Azure Active Directory 인증에 대한 메서드를 보유할 클래스를 만듭니다. 이 예제에서 이 클래스는 **Utils**입니다. 다음 using 문을 추가합니다.
+애플리케이션 코드에서 Azure Active Directory 인증에 대한 메서드를 보유할 클래스를 만듭니다. 이 예제에서 이 클래스는 **Utils**입니다. 다음 using 문을 추가합니다.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-다음으로, Azure Active Directory에서 JWT 토큰을 검색하는 다음 메서드를 추가합니다. 유지 관리를 위해 하드 코딩된 문자열 값을 웹 또는 응용 프로그램 구성으로 이동하려고 할 수 있습니다.
+다음으로, Azure Active Directory에서 JWT 토큰을 검색하는 다음 메서드를 추가합니다. 유지 관리를 위해 하드 코딩된 문자열 값을 웹 또는 애플리케이션 구성으로 이동하려고 할 수 있습니다.
 
 ```csharp
 public async static Task<string> GetToken(string authority, string resource, string scope)
@@ -161,7 +161,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetT
 var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 ```
 
-응용 프로그램을 실행하면 Azure Active Directory에 인증된 후 Azure Key Vault에서 비밀 값을 검색합니다.
+애플리케이션을 실행하면 Azure Active Directory에 인증된 후 Azure Key Vault에서 비밀 값을 검색합니다.
 
 ## <a name="key-rotation-using-azure-automation"></a>Azure Automation을 사용하여 키 회전
 
@@ -186,7 +186,7 @@ Azure Automation이 Key Vault의 비밀 값을 설정할 수 있도록 허용하
 >
 >
 
-Azure Automation 연결에 대한 응용 프로그램 ID를 검색한 후에는 이 응용 프로그램에서 Key Vault의 비밀을 업데이트할 권한이 있음을 Key Vault에 알려야 합니다. 다음 PowerShell 명령을 사용하여 이 작업을 수행할 수 있습니다.
+Azure Automation 연결에 대한 애플리케이션 ID를 검색한 후에는 이 애플리케이션에서 Key Vault의 비밀을 업데이트할 권한이 있음을 Key Vault에 알려야 합니다. 다음 PowerShell 명령을 사용하여 이 작업을 수행할 수 있습니다.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set
@@ -446,4 +446,4 @@ project.json이라는 파일에 다음 콘텐츠를 추가합니다.
 
 작업의 경우 **Office 365 - 전자 메일 보내기**를 선택합니다. 정의된 조건에서 **false**를 반환하는 경우 보낼 전자 메일을 작성하도록 필드를 채웁니다. Office 365가 없는 경우 같은 결과를 얻을 수 있는 대안을 살펴볼 수 있습니다.
 
-현재는 1분마다 새로운 Key Vault 감사 로그를 확인하는 종단 간 파이프라인이 있습니다. 이 파이프라인은 새 로그가 발견되면 Service Bus 큐에 푸시합니다. 새 메시지가 큐에 도착하면 논리 앱이 트리거됩니다. 이벤트 내의 *appid*가 호출 응용 프로그램의 앱 ID와 일치하지 않으면 전자 메일이 발송됩니다.
+현재는 1분마다 새로운 Key Vault 감사 로그를 확인하는 종단 간 파이프라인이 있습니다. 이 파이프라인은 새 로그가 발견되면 Service Bus 큐에 푸시합니다. 새 메시지가 큐에 도착하면 논리 앱이 트리거됩니다. 이벤트 내의 *appid*가 호출 애플리케이션의 앱 ID와 일치하지 않으면 이메일이 발송됩니다.

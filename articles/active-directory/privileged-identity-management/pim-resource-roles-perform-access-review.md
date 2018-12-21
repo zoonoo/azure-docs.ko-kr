@@ -29,7 +29,7 @@ Azure 리소스에 대한 PIM(Privileged Identity Management)에서는 기업이
 
 액세스 검토에 관심이 있는 권한 있는 역할 관리자인 경우 [액세스 검토를 시작하는 방법](pim-resource-roles-start-access-review.md)에서 자세한 내용을 참조하세요.
 
-## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management 응용 프로그램 추가
+## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management 애플리케이션 추가
 [Azure Portal](https://portal.azure.com/)에서 Azure AD(Active Directory) PIM 응용 프로그램을 사용하여 검토를 수행할 수 있습니다. 포털에 응용 프로그램이 없는 경우 다음 단계에 따라 시작하세요.
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.

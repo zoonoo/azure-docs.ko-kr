@@ -37,12 +37,12 @@ Service Fabric은 필요에 따라 작은 규모로 시작하여 수백 또는 �
 
 오늘날 인터넷 범위의 서비스는 마이크로 서비스를 토대로 빌드됩니다. 마이크로 서비스의 예로는 프로토콜 게이트웨이, 사용자 프로필, 쇼핑 카트, 인벤토리 처리, 큐, 캐시 등을 들 수 있습니다. Service Fabric은 모든 마이크로 서비스(또는 컨테이너)에 상태 비저장 또는 상태 저장 중 하나일 수 있는 고유한 이름을 제공하는 마이크로 서비스 플랫폼입니다.
 
-Service Fabric은 이러한 마이크로 서비스로 구성된 응용 프로그램에 포괄적인 런타임 및 수명 주기 관리 기능을 제공합니다. 서비스 패브릭 클러스터에 걸쳐 배포 및 활성화된 컨테이너 내에서 마이크로 서비스를 호스트합니다. 가상 머신에서 컨테이너로 이동하면 밀도가 큰 순서대로 정렬됩니다. 마찬가지로, 컨테이너에서 다음과 같은 컨테이너의 마이크로 서비스로 이동하면 또 다른 밀도 순서대로 정렬됩니다. 예를 들어, 단일 Azure SQL Database 클러스터는 수십만 개의 데이터베이스를 호스트하는 수만 개의 컨테이너를 실행하는 수백 대의 컴퓨터로 구성됩니다. 각 데이터베이스는 서비스 패브릭 상태 저장 마이크로 서비스입니다. 
+Service Fabric은 이러한 마이크로 서비스로 구성된 애플리케이션에 포괄적인 런타임 및 수명 주기 관리 기능을 제공합니다. 서비스 패브릭 클러스터에 걸쳐 배포 및 활성화된 컨테이너 내에서 마이크로 서비스를 호스트합니다. 가상 머신에서 컨테이너로 이동하면 밀도가 큰 순서대로 정렬됩니다. 마찬가지로, 컨테이너에서 다음과 같은 컨테이너의 마이크로 서비스로 이동하면 또 다른 밀도 순서대로 정렬됩니다. 예를 들어, 단일 Azure SQL Database 클러스터는 수십만 개의 데이터베이스를 호스트하는 수만 개의 컨테이너를 실행하는 수백 대의 컴퓨터로 구성됩니다. 각 데이터베이스는 서비스 패브릭 상태 저장 마이크로 서비스입니다. 
 
 마이크로 서비스 접근 방식에 대한 자세한 내용은 [응용 프로그램 구축에 마이크로 서비스 접근 방식이 필요한 이유](service-fabric-overview-microservices.md)
 
 ## <a name="container-deployment-and-orchestration"></a>컨테이너 배포 및 오케스트레이션
-Service Fabric은 컴퓨터 클러스터에 걸쳐 마이크로 서비스를 배포하는 Microsoft의 [컨테이너 조정자](service-fabric-cluster-resource-manager-introduction.md)입니다. 마이크로 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 사용부터 [선택한 코드](service-fabric-guest-executables-introduction.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 응용 프로그램의 컨테이너의 서비스를 혼합할 수 있습니다. [이미지를 배포 및 관리](service-fabric-containers-overview.md)하려는 경우 Service Fabric은 컨테이너 조정자로 선택하기에 가장 적합합니다.
+Service Fabric은 컴퓨터 클러스터에 걸쳐 마이크로 서비스를 배포하는 Microsoft의 [컨테이너 조정자](service-fabric-cluster-resource-manager-introduction.md)입니다. 마이크로 서비스는 [Service Fabric 프로그래밍 모델](service-fabric-choose-framework.md), [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 사용부터 [선택한 코드](service-fabric-guest-executables-introduction.md) 배포에 이르는 다양한 방식으로 개발될 수 있습니다. 중요한 점은 프로세스의 서비스와 동일한 애플리케이션의 컨테이너의 서비스를 혼합할 수 있습니다. [이미지를 배포 및 관리](service-fabric-containers-overview.md)하려는 경우 Service Fabric은 컨테이너 조정자로 선택하기에 가장 적합합니다.
 
 ## <a name="any-os-any-cloud"></a>모든 OS, 모든 클라우드
 Service Fabric은 어디에서나 실행됩니다. Azure 또는 온-프레미스, Windows Server 또는 Linux 등 수많은 환경에서 Service Fabric용 클러스터를 만들 수 있습니다. 다른 공용 클라우드에서 클러스터를 만들 수도 있습니다. 또한 SDK의 개발 환경은 에뮬레이터가 포함되지 않은 프로덕션 환경과 **동일**합니다. 즉, 로컬 개발 클러스터에서 실행되는 항목은 다른 환경의 클러스터에 배포됩니다.
@@ -59,7 +59,7 @@ Service Fabric을 사용하면 마이크로 서비스 또는 컨테이너로 구
 Service Fabric의 주요 차이점은 [기본 제공 프로그래밍 모델](service-fabric-choose-framework.md) 또는 컨테이너화된 상태 저장 서비스 중 하나를 사용하여 상태 저장 서비스를 빌드하는 데 집중한다는 것입니다. [응용 프로그램 시나리오](service-fabric-application-scenarios.md)는 상태 저장 서비스를 사용하는 시나리오를 설명합니다.
 
 
-## <a name="application-lifecycle-management"></a>응용 프로그램 수명 주기 관리
+## <a name="application-lifecycle-management"></a>애플리케이션 수명 주기 관리
 Service Fabric은 컨테이너를 비롯하여 클라우드 응용 프로그램의 전체 응용 프로그램 수명 주기 관리 및 CI/CD를 지원합니다. 이 수명 주기는 개발부터 배포, 일상적인 관리, 유지 관리, 최종 서비스 해제까지 포함합니다.
 
 Service Fabric 응용 프로그램 수명 주기 관리 기능을 사용하면 응용 프로그램 관리자와 IT 운영자가 간단하고 개입할 필요성이 적은 워크플로를 사용하여 응용 프로그램을 프로비전, 배포, 패치 및 모니터링할 수 있습니다. 이러한 기본 제공 워크플로는 응용 프로그램을 지속적으로 사용 가능하게 유지해야 하는 IT 운영자의 부담을 크게 줄여줍니다.
@@ -79,7 +79,7 @@ Service Fabric은 [Azure Pipelines](https://www.visualstudio.com/team-services/)
 * 새로운 Reliable Actors 프로그래밍 모델을 사용하여 자체 포함된 코드 및 상태를 사용하여 클라우드 개체를 만듭니다.
 * Windows 컨테이너 및 Linux 컨테이너를 포함하는 컨테이너를 배포하고 조정합니다. Service Fabric은 데이터를 인식하는 상태 저장 컨테이너 조정자입니다.
 * 수백 또는 수천 개의 응용 프로그램 또는 컴퓨터당 컨테이너를 사용하여 몇 초 내로 밀도가 높게 응용 프로그램을 배포합니다.
-* 동일한 응용 프로그램의 서로 다른 버전을 병렬로 배포하고 각 응용 프로그램을 독립적으로 업그레이드.
+* 동일한 애플리케이션의 서로 다른 버전을 병렬로 배포하고 각 애플리케이션을 독립적으로 업그레이드.
 * 중단 및 무중단 업그레이드를 포함하여, 중단 시간 없이 응용 프로그램의 수명 주기를 관리합니다.
 * 클러스터의 노드 수를 확장하거나 감축합니다. 노드의 크기를 조정하면 응용 프로그램이 자동으로 조정됩니다.
 * 응용 프로그램의 상태를 모니터링 및 진단하고 자동 복구를 수행하는 정책 설정.
