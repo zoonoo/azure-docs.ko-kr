@@ -36,7 +36,7 @@
 
 # 개념
 ## [청구 및 구독](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [호스팅 비교](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [호스팅 비교](https://docs.microsoft.com/azure/app-service/overview-compare)
 ## [App Service란?](https://docs.microsoft.com/azure/app-service/overview)
 ## 가상 머신
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
@@ -76,11 +76,11 @@
 ### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Backup
-### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/manage-backup)
 ### [가상 머신](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## 모니터
-### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
+### [웹 및 모바일 앱](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [마이크로 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
