@@ -1,5 +1,5 @@
 ---
-title: Web App for Containers에 사용자 지정 Docker 이미지 사용 - Azure | Microsoft Docs
+title: Web App for Containers에 사용자 지정 Docker 이미지 사용 - Azure App Service | Microsoft Docs
 description: Web App for Containers에 사용자 지정 Docker 이미지를 사용하는 방법.
 keywords: azure app service, 웹앱, linux, docker, 컨테이너
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 517926a3c78e9c95a9ecef9ae058c33e47566adb
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: seodec18
+ms.openlocfilehash: ae9da43ac40a3da188e6030659cfb6de166c53bb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432611"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256080"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Web App for Containers에 사용자 지정 Docker 이미지 사용
 
@@ -292,7 +292,7 @@ SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설�
     > [!NOTE]
     > 이 구성을 사용하면 컨테이너에 대한 외부 연결이 허용되지 않습니다. Kudu/SCM 사이트를 통해서만 SSH를 사용할 수 있습니다. Kudu/SCM 사이트는 게시 자격 증명으로 인증됩니다.
 
-* [sshd_config](http://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사하도록 Docker 엔진에 지시하는 [COPY](https://docs.docker.com/engine/reference/builder/#copy) 지침입니다. 구성 파일은 [이 sshd_config 파일](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config)을 기반으로 해야 합니다.
+* [sshd_config](https://man.openbsd.org/sshd_config) 파일을 */etc/ssh/* 디렉터리에 복사하도록 Docker 엔진에 지시하는 [COPY](https://docs.docker.com/engine/reference/builder/#copy) 지침입니다. 구성 파일은 [이 sshd_config 파일](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config)을 기반으로 해야 합니다.
 
     ```docker
     COPY sshd_config /etc/ssh/

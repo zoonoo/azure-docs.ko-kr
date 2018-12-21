@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f08de2398174363604576874627026dcc6199ac5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282512"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104665"
 ---
-# <a name="automate-resizing-uploaded-images-using-event-grid"></a>Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
 [Azure Event Grid](overview.md)는 클라우드용 이벤트 서비스입니다. Event Grid를 사용하면 Azure 서비스나 타 리소스에서 발생하는 이벤트에 대한 구독을 만들 수 있습니다.  
 
-이 자습서는 스토리지 자습서의 2부입니다. [이전 저장소 자습서][previous-tutorial]를 확장하여 Azure Event Grid 및 Azure Functions를 통해 서버 없는 자동 미리 보기 생성을 추가합니다. Event Grid를 사용하면 [Azure Functions](..\azure-functions\functions-overview.md)가 [Azure Blob 저장소](..\storage\blobs\storage-blobs-introduction.md) 이벤트에 응답하고 업로드된 이미지의 미리 보기를 생성할 수 있습니다. BLOB 저장소 만들기 이벤트에 대해 이벤트 구독을 만듭니다. BLOB이 특정 BLOB 저장소 컨테이너에 추가되면 함수 엔드포인트가 호출됩니다. Event Grid에서 함수 바인딩에 전달된 데이터를 사용하여 BLOB에 액세스하고 미리 보기 이미지를 생성합니다.
+이 자습서는 스토리지 자습서의 2부입니다. [이전 저장소 자습서][previous-tutorial]를 확장하여 Azure Event Grid 및 Azure Functions를 통해 서버 없는 자동 미리 보기 생성을 추가합니다. Event Grid를 사용하면 [Azure Functions](../azure-functions/functions-overview.md)가 [Azure Blob 저장소](../storage/blobs/storage-blobs-introduction.md) 이벤트에 응답하고 업로드된 이미지의 미리 보기를 생성할 수 있습니다. BLOB 저장소 만들기 이벤트에 대해 이벤트 구독을 만듭니다. BLOB이 특정 BLOB 저장소 컨테이너에 추가되면 함수 엔드포인트가 호출됩니다. Event Grid에서 함수 바인딩에 전달된 데이터를 사용하여 BLOB에 액세스하고 미리 보기 이미지를 생성합니다.
 
 Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미지 업로드 앱에 추가합니다.
 
@@ -40,7 +40,7 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-이전 BLOB 저장소 자습서 [Azure Storage로 클라우드에 이미지 데이터 업로드][previous-tutorial]를 마쳐야 합니다.
+이전 Blob 스토리지 자습서: [Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드][previous-tutorial]를 완료했습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -200,6 +200,6 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 > [클라우드에서 응용 프로그램 데이터에 대한 보안 액세스](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 + Event Grid에 대한 소개는 [Azure Event Grid](overview.md)를 참조하세요. 
-+ Azure Functions를 다룬 다른 자습서를 살펴보려면 [Azure Logic Apps와 통합하는 함수 만들기](..\azure-functions\functions-twitter-email.md)를 참조하세요. 
++ Azure Functions를 다룬 다른 자습서를 살펴보려면 [Azure Logic Apps와 통합하는 함수 만들기](../azure-functions/functions-twitter-email.md)를 참조하세요. 
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md

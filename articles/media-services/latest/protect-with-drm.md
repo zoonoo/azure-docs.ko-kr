@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 84bdc560a135f8f1eb7d6c86fe4f3749135ff7e1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395082"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139047"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>DRM 동적 암호화 및 라이선스 배달 서비스 사용
 
@@ -40,7 +41,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 
         앱은 정책에 대한 JWT 토큰 형식 제한을 설정합니다.
 
-* 지정된스트리밍 정책 이름을 사용하여 지정된 자산에 대한 StreamingLocator를 만듭니다. 이 경우에 미리 정의된 정책이 사용됩니다. StreamingLocator에 대해 AES-128(봉투) 및 CENC(PlayReady 및 Widevine)라는 두 가지 콘텐츠 키를 설정합니다.  
+* 지정된스트리밍 정책 이름을 사용하여 지정된 자산에 대한 StreamingLocator를 만듭니다. 이 경우에 미리 정의된 정책이 사용됩니다. StreamingLocator에 AES-128(봉투)과 CENC(PlayReady 및 Widevine)의 두 가지 콘텐츠 키를 설정합니다.  
     
     StreamingLocator가 생성되면 출력 자산이 게시되고 재생용 클라이언트에 지원됩니다.
 
@@ -58,7 +59,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 
 이 아티클에서 설명된 샘플에서는 다음과 같은 결과를 생성합니다.
 
-![DRM으로 보호](./media/protect-with-drm/ams_player.png)
+![DRM으로 보호된 비디오가 있는 AMS](./media/protect-with-drm/ams_player.png)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -116,7 +117,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 
 작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. 아래 코드 샘플은 [Job](https://docs.microsoft.com/rest/api/media/jobs)의 상태에 대한 서비스를 폴링하는 방법을 보여줍니다. 폴링은 잠재적인 대기 시간 때문에 프로덕션 응용 프로그램에는 권장되지 않습니다. 폴링이 계정에서 초과 사용되면 정체될 수 있습니다. 대신 Event Grid를 사용해야 합니다. [이벤트를 사용자 지정 웹 엔드포인트로 라우팅](job-state-events-cli-how-to.md)을 참조하세요.
 
-**작업**은 일반적으로 **예약됨**, **큐에 대기됨**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고 완료되면 **취소됨**이 표시됩니다.
+**작업**은 일반적으로 **예약됨**, **대기**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중**이 표시되고 완료되면 **취소됨**이 표시됩니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 

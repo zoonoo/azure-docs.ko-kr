@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 샘플 - ACS DC/OS 클러스터 만들기 | Micros
 description: Azure CLI 스크립트 샘플 - ACS DC/OS 클러스터 만들기
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: db136fb1c68c243086d3e83424ed2c9864638c8f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: iainfou
+ms.openlocfilehash: 2d9f58527908a17dd445b6afecbcd7e93f70de2c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433388"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001627"
 ---
-# <a name="create-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터 만들기
+# <a name="deprecated-create-an-azure-container-service-dcos-cluster"></a>(사용되지 않음) Azure Container Service DC/OS 클러스터 만들기
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 이 샘플에서는 DC/OS를 실행하는 Azure Container Service 클러스터를 만듭니다.
 

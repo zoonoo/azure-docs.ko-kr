@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 246b423e69fa8fb73db45f44fa17c1bc65407681
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090728"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963524"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob 저장소에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -189,7 +189,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정은 **참여자** 또는 **소유자** 역할의 구성원이거나, 또는 Azure 구독의 **관리자**이어야 합니다.
-* Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* 현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
@@ -198,7 +198,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ### <a name="create-azure-storage-linked-service"></a>Azure Storage 연결된 서비스를 만듭니다.
 이 단계에서는 Azure Storage 계정을 데이터 팩터리에 연결합니다.
 
-1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더에 다음 내용이 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 만듭니다. (폴더가 없는 경우 만듭니다.) 파일을 저장하기 전에 `<accountName>`과 `<accountKey>`를 Azure Storage 계정의 이름과 키로 바꿉니다.
+1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 폴더에 다음 내용이 포함된 **AzureStorageLinkedService.json**이라는 JSON 파일을 만듭니다. (이 폴더가 아직 없으면 만듭니다.) 파일을 저장하기 전에 `<accountName>`과 `<accountKey>`를 Azure Storage 계정의 이름과 키로 바꿉니다.
 
     ```json
     {
@@ -249,7 +249,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         }
     }
     ```
-2. **Azure PowerShell**에서 **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureSQLDatabaseLinkedService**라는 연결된 서비스를 만듭니다. 
+2. **Azure PowerShell**에서 **Set-AzureRmDataFactoryV2LinkedService** cmdlet을 실행하여 **AzureSQLDatabaseLinkedService** 연결된 서비스를 만듭니다. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -387,7 +387,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="create-a-pipeline-for-the-full-copy"></a>전체 복사본에 대한 파이프라인 만들기
 이 단계에서는 원본 데이터 저장소(Azure SQL Database)에서 대상 데이터 저장소(Azure Blob Storage)로 전체 데이터를 복사하는 복사 작업이 있는 파이프라인을 만듭니다.
 
-1. JSON 파일 만들기: 동일한 폴더에 다음 내용이 있는 FullCopyPipeline.json을 만듭니다. 
+1. JSON 파일 만들기: 동일한 폴더에 다음 내용이 포함된 FullCopyPipeline.json을 만듭니다. 
 
     ```json
     {
@@ -434,7 +434,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    ```
  
 ### <a name="run-the-full-copy-pipeline"></a>전체 복사 파이프라인 실행
-**Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 **FullCopyPipeline** 파이프라인을 실행합니다. 
+파이프라인 실행: **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 **FullCopyPipeline** 파이프라인을 실행합니다. 
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
@@ -445,26 +445,26 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스**를 클릭하고 `data factories` 키워드를 사용하여 검색하고 **데이터 팩터리**를 선택합니다. 
 
-    ![데이터 팩터리 메뉴](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
+    ![데이터 팩터리 메뉴](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
 3. 데이터 팩터리 목록에서 **데이터 팩터리**를 검색하고 선택하여 데이터 팩터리 페이지를 시작합니다. 
 
-    ![데이터 팩터리 검색](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-search-data-factory-2.png)
+    ![데이터 팩터리 검색](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
 4. 데이터 팩터리 페이지에서 **모니터링 및 관리** 타일을 클릭합니다. 
 
-    ![타일 모니터링 및 관리](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-monitor-manage-tile-3.png)    
+    ![타일 모니터링 및 관리](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. **데이터 통합 응용 프로그램**이 별도의 탭에서 시작됩니다. 모든 **파이프라인 실행**과 해당 상태를 볼 수 있습니다. 다음 예제에서 파이프라인 실행의 상태는 **성공**입니다. **매개 변수** 열의 링크를 클릭하면 파이프라인에 전달된 매개 변수를 확인할 수 있습니다. 오류가 있으면 **오류** 열에 링크가 표시됩니다. **작업** 열의 링크를 클릭합니다. 
 
-    ![파이프라인 실행](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-4.png)    
+    ![파이프라인 실행](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. **작업** 열에 있는 링크를 클릭하면 파이프라인의 모든 **작업 실행**을 보여주는 다음 페이지가 표시됩니다. 
 
-    ![작업 실행](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-5.png)
+    ![작업 실행](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. **파이프라인 실행** 보기로 다시 전환하려면 다음 이미지와 같이 **파이프라인**을 클릭합니다. 
 
 
 ### <a name="review-the-results"></a>결과 검토
 `adftutorial` 컨테이너의 `incchgtracking` 폴더에 `incremental-<GUID>.txt`라는 파일이 표시됩니다. 
 
-![전체 복사의 출력 파일](media\tutorial-incremental-copy-change-tracking-feature-powershell\full-copy-output-file.png)
+![전체 복사의 출력 파일](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
 파일에는 Azure SQL 데이터베이스의 데이터가 포함됩니다.
 
@@ -495,7 +495,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>델타 복사를 위한 파이프라인 만들기
 이 단계에서는 다음 작업이 있는 파이프라인을 만들어서 주기적으로 실행합니다. **조회 작업**은 Azure SQL Database에서 SYS_CHANGE_VERSION의 기존 및 새 값을 가져와서 만들어서 복사 작업에 전달합니다. **복사 작업**은 두 가지 SYS_CHANGE_VERSION 값 사이에 삽입된/업데이트된/삭제된 데이터를 Azure SQL Database에서 Azure Blob Storage로 복사합니다. **저장 프로시저 작업**은 다음 번 파이프라인 실행을 위해 SYS_CHANGE_VERSION 값을 업데이트합니다.
 
-1. 동일한 폴더에 다음 내용이 포함된 IncrementalCopyPipeline.json이라는 JSON 파일을 만듭니다. 
+1. JSON 파일 만들기: 동일한 폴더에 다음 내용이 포함된 IncrementalCopyPipeline.json을 만듭니다. 
 
     ```json
     {
@@ -623,7 +623,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 실행
-**Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 **IncrementalCopyPipeline** 파이프라인을 실행합니다. 
+파이프라인 실행: **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 **IncrementalCopyPipeline** 파이프라인을 실행합니다. 
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
@@ -633,16 +633,16 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Res
 ### <a name="monitor-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 모니터링
 1. **데이터 통합 응용 프로그램**에서 **파이프라인 실행** 보기를 새로 고칩니다. 목록에 IncrementalCopyPipeline이 표시되는지 확인합니다. **작업** 열의 링크를 클릭합니다.  
 
-    ![파이프라인 실행](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-6.png)    
+    ![파이프라인 실행](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. **작업** 열에 있는 링크를 클릭하면 파이프라인의 모든 **작업 실행**을 보여주는 다음 페이지가 표시됩니다. 
 
-    ![작업 실행](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-7.png)
+    ![작업 실행](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. **파이프라인 실행** 보기로 다시 전환하려면 다음 이미지와 같이 **파이프라인**을 클릭합니다. 
 
 ### <a name="review-the-results"></a>결과 검토
 `adftutorial` 컨테이너의 `incchgtracking` 폴더에 두 번째 파일이 표시됩니다. 
 
-![증분 복사의 출력 파일](media\tutorial-incremental-copy-change-tracking-feature-powershell\incremental-copy-output-file.png)
+![증분 복사의 출력 파일](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
 파일에는 Azure SQL 데이터베이스의 델타 데이터만 포함됩니다. `U`가 포함된 레코드가 데이터베이스에서 업데이트된 행이고 `I`가 추가된 행입니다. 
 
@@ -650,7 +650,7 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Res
 1,update,10,2,U
 6,new,50,1,I
 ```
-처음 세 열은 data_source_table에서 변경된 데이터입니다. 마지막 두 열은 변경 내용 추적 시스템 테이블의 메타데이터입니다. 네 번째 열은 변경된 각 행의 SYS_CHANGE_VERSION입니다. 다섯 번째 열의 U=업데이트, I=삽입 작업입니다.  변경 내용 추적 정보에 대한 자세한 내용은 [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql)을 참조하세요. 
+처음 세 열은 data_source_table에서 변경된 데이터입니다. 마지막 두 열은 변경 내용 추적 시스템 테이블의 메타데이터입니다. 네 번째 열은 변경된 각 행의 SYS_CHANGE_VERSION입니다. 다섯 번째 열에서  U는 업데이트 작업, I는 삽입 작업을 나타냅니다.  변경 내용 추적 정보에 대한 자세한 내용은 [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql)을 참조하세요. 
 
 ```
 ==================================================================

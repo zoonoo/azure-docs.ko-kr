@@ -1,5 +1,5 @@
 ---
-title: Azure Policy 샘플 ‑ VM 네트워크 인터페이스에 승인된 서브넷 사용
+title: 샘플 - VM 네트워크 인터페이스에 대해 승인된 서브넷 사용
 description: 이 샘플 정책에서는 네트워크 인터페이스가 승인된 서브넷을 사용해야 합니다.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 60a79c73765a201f4ed3c9ad6f45900e13753c1c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ed09740e7929dc2505a98b00e020eb7149dc4eab
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995876"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308535"
 ---
 # <a name="use-approved-subnet-for-vm-network-interfaces"></a>VM 네트워크 인터페이스에 승인된 서브넷을 사용합니다.
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy 샘플](index.md)에서 더 많은 샘플을 검토합니다.
+- [Azure Policy 샘플](index.md)에서 더 많은 샘플 검토

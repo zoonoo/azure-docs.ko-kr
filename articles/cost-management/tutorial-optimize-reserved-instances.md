@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: db4a2356d3de91e4951acd69dc858730349019d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a5376aed3e9cdb12be58cb07d7eb00303a03a963
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274555"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074880"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -112,7 +112,7 @@ Cloudyn 포털에서 **최적화 프로그램** > **RI 비교**로 차례로 이
 
 그러나 50%만 실행하는 경우 손익 분기점은 10개월이며 절약 비용은 연간 49.74달러에 불과합니다. 이 예에서 해당 인스턴스 유형에 대한 예약을 구매하면 도움이 되지 않을 수 있습니다. 다음 이미지를 참조하세요.
 
-![Azure의 손익 분기점](./media/tutorial-optimize-reserved-instances/azure04.png)
+![Azure VM의 손익 분기점 예](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## <a name="view-ri-costs"></a>RI 비용 보기
 
@@ -127,11 +127,11 @@ Cloudyn 포털에서 **최적화 프로그램** > **RI 비교**로 차례로 이
 
 Cloudyn 포털에서 **비용** > **비용 분석**으로 이동한 다음, **실제 비용 분석** 또는 **시간 경과별 실제 비용** 중 하나를 선택합니다. 다음으로, 필터를 설정합니다. 예를 들어 Azure/VM 서비스만 필터링하고 리소스 종류 및 가격 모델별로 그룹화합니다. 다음 이미지를 참조하세요.
 
-![예약 인스턴스의 실제 비용](./media/tutorial-optimize-reserved-instances/azure05.png)
+![예약 인스턴스의 실제 비용 예](./media/tutorial-optimize-reserved-instances/azure05.png)
 
 이 예에서 서비스, 즉 **Azure/VM** 기준으로 필터링하고, 다음 이미지와 같이 **가격 모델** 및 **리소스 종류** 기준으로 그룹화할 수 있습니다.
 
-![실제 비용 보고서 그룹 및 필터](./media/tutorial-optimize-reserved-instances/azure06.png)
+![가격 모델 및 리소스 종류별로 그룹화된 실제 비용 보고서 그룹 및 필터의 예](./media/tutorial-optimize-reserved-instances/azure06.png)
 
 일시불 요금, 사용량 요금 및 라이선스 요금과 같은 지불 유형을 분석할 수도 있습니다.
 
@@ -145,7 +145,7 @@ RI 구매 시 구매 월에 표시되는 선불 요금을 지불합니다. 후�
 
 이를 확인하려면 **비용** > **비용 분석**으로 이동한 다음, **분할 상환 비용 분석** 또는 **시간 경과별 분할 상환 비용**을 선택합니다.
 
-![분할 상환 예약 인스턴스 비용](./media/tutorial-optimize-reserved-instances/azure07.png)
+![분할 상환 예약 인스턴스 비용을 보여 주는 보고서의 예](./media/tutorial-optimize-reserved-instances/azure07.png)
 
 ## <a name="optimize-aws-ri-costs"></a>AWS RI 비용 최적화
 
@@ -166,25 +166,25 @@ Cloudyn에서는 요청 시 인스턴스 사용량과 잠재적 예약 인스턴
 
 다음 이미지에서는 보고서의 구매 권장 사항을 보여줍니다.
 
-![구매 권장 사항](./media/tutorial-optimize-reserved-instances/aws01.png)
+![EC2 구매 추천 사항 보고서에서 구매 추천 사항을 보여 주는 예](./media/tutorial-optimize-reserved-instances/aws01.png)
 
 이 예에서 Cloudyn\_A 계정에는 32개 예약 인스턴스 구매 권장 사항이 있습니다. 모든 구매 권장 사항을 따르는 경우 잠재적으로 매년 137,770달러를 절약할 수 있습니다. Cloudyn에서 제공하는 구매 권장 사항은 실행되는 작업에 대한 사용량을 일관되게 유지한다고 가정하고 있음을 명심하세요.
 
 각 구매가 권장되는 이유를 설명하는 세부 정보를 보려면 **근거** 아래의 더하기 기호(**+**)를 클릭합니다. 목록의 첫 번째 권장 사항에 대한 예는 다음과 같습니다.
 
-![구매 근거](./media/tutorial-optimize-reserved-instances/aws02.png)
+![구매 근거 세부 정보를 보여 주는 예](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 위의 예에서는 요청 시 작업을 실행하는 경우 매년 90,456달러의 비용이 발생한다는 것을 보여줍니다. 그러나 예약을 미리 구매하는 경우 동일한 작업에 56,592달러의 비용이 들며 매년 33,864달러를 절약할 수 있습니다.
 
 **EC2 RI 구매 영향** 옆에 있는 더하기 기호를 클릭하여 1년 동안의 손익 분기점을 확인함으로써 구매 투자가 실현되는 시기를 대략적으로 확인합니다. 다음 예에서는 구매한 후 약 8개월 동안의 요청 시 누적 비용이 RI 누적 비용을 초과하기 시작합니다.
 
-![구매 영향](./media/tutorial-optimize-reserved-instances/aws03.png)
+![구매 영향 세부 정보를 보여 주는 예](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 해당 시점에서 비용을 절약하기 시작합니다.
 
 **시간 경과별 인스턴스 수**를 검토하여 제안된 구매 권장 사항의 정확도를 확인할 수 있습니다. 다음 예에서는 지난 30일 기간 동안 평균 6개의 인스턴스가 작업에 사용되었음을 확인할 수 있습니다.
 
-![시간 경과별 인스턴스 수](./media/tutorial-optimize-reserved-instances/aws04.png)
+![시간 경과에 따른 인스턴스의 사용 내역을 보여 주는 예](./media/tutorial-optimize-reserved-instances/aws04.png)
 
 ## <a name="modify-unused-reservations"></a>사용되지 않는 예약 수정
 
@@ -196,23 +196,23 @@ AWS는 특정 가용성 영역 및 지역에 대한 예약 인스턴스를 판�
 
 다음 이미지에서는 사용되지 않은 예약 인스턴스가 있는 보고서를 보여줍니다.
 
-![사용되지 않는 예약](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
+![사용되지 않은 예약에 대한 요약 정보를 보여 주는 예](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
 
 **세부 정보** 아래에서 더하기 기호를 클릭하여 특정 예약에 대한 예약 세부 정보를 확인합니다.
 
-![사용되지 않는 예약 세부 정보](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
+![사용되지 않은 예약 세부 정보를 보여 주는 예](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
 
 앞의 예에서 다양한 가용성 영역에 총 77개의 사용되지 않은 예약이 있습니다. 첫 번째 예약에는 51개의 사용되지 않은 인스턴스가 있습니다. 목록의 아래쪽을 살펴보면 **us-east-1c** 가용성 영역에서 **m3.2xlarge** 인스턴스 유형을 사용하여 수정할 수 있는 잠재적 예약 인스턴스가 있습니다.
 
 목록의 첫 번째 예약에 대해 **수정**을 클릭하여 예약에 대한 데이터를 표시하는 **RI 수정** 페이지를 엽니다.
 
-![RI 수정](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
+![수정할 수 있는 예약을 보여 주는 예](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
 
 수정할 수 있는 예약 인스턴스가 나열됩니다. 다음 예제 이미지에는 수정할 수 있는 51개의 사용되지 않은 예약이 있지만, 두 예약 간에는 54개가 필요합니다. 사용되지 않는 예약을 모두 사용할 수 있도록 수정하면 네 개의 인스턴스가 요청 시 계속 실행됩니다. 이 예에서는 첫 번째 예약에서 30을 사용하고 두 번째 예약에서 21을 사용하도록 사용되지 않는 예약을 분할했습니다.
 
 첫 번째 예약 항목에 대한 더하기 기호를 클릭하고 **예약 수량**을 **30**으로 설정합니다. 두 번째 항목에 대해 예약 수량을 **21**로 설정하고 **적용**을 클릭합니다.
 
-![예약 수량 변경](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
+![예약 수량의 변경을 보여 주는 예](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
 
 사용되지 않는 모든 예약 인스턴스가 완전히 활용되고 51개의 인스턴스가 요청 시 더 이상 실행되지 않습니다. 이 예에서는 요청 시 사용을 크게 줄이고 이미 지불한 예약을 사용하여 조직 비용을 절약합니다.
 

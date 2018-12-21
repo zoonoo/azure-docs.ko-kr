@@ -1,5 +1,6 @@
 ---
-title: '자습서: Azure Machine Learning Service로 이미지 분류 모델 학습시키기'
+title: '이미지 분류 자습서: 모델 학습'
+titleSuffix: Azure Machine Learning service
 description: 이 자습서에서는 Azure Machine Learning 서비스를 사용하여 Python Jupyter 노트북의 scikit-learn을 통해 이미지 분류 모델을 학습하는 방법을 보여 줍니다. 이 자습서는 2부로 구성된 시리즈 중 제1부입니다.
 services: machine-learning
 ms.service: machine-learning
@@ -8,19 +9,20 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 11/21/2018
-ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496216"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310116"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서 1: Azure Machine Learning Service로 이미지 분류 모델 학습시키기
+# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>자습서: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습
 
-이 자습서에서는 로컬로 및 원격 계산 리소스에 대해 Machine Learning 모델을 학습합니다. Python Jupyter 노트북에서 Azure Machine Learning 서비스(미리 보기)에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
+이 자습서에서는 로컬로 및 원격 계산 리소스에 대해 Machine Learning 모델을 학습합니다. Python Jupyter Notebook에서 Azure Machine Learning 서비스에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
 
-이 자습서에서는 Azure Machine Learning Service와 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 집합 및 [scikit-learn](http://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀를 학습합니다.  MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 집합입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하기 위한 다중 클래스 분류자를 만드는 것입니다. 
+이 자습서에서는 Azure Machine Learning Service와 [MNIST](https://yann.lecun.com/exdb/mnist/) 데이터 집합 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀를 학습합니다.  MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 집합입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하기 위한 다중 클래스 분류자를 만드는 것입니다. 
 
 방법 배우기:
 
@@ -33,19 +35,17 @@ ms.locfileid: "52496216"
 
 모델을 선택하고 배포하는 방법은 나중에 이 [자습서의 제2부](tutorial-deploy-models-with-aml.md)에서 알아봅니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLfree) 을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](http://aka.ms/AMLFree)을 지금 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 0.1.79에서 테스트했습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.2에서 테스트했습니다.
 
 ## <a name="get-the-notebook"></a>Notebook 가져오기
 
-사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://aka.ms/aml-notebook-tut-01)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `01.train-models.ipynb` 노트북을 실행할 수 있습니다.
+사용자의 편의를 위해 이 자습서는 [Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)으로 제공됩니다. Azure Notebooks 또는 자체 Jupyter 노트북 서버에서 `tutorials/img-classification-part1-training.ipynb` 노트북을 실행할 수 있습니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
->[!NOTE]
-> 이 자습서는 Azure Machine Learning SDK 0.1.74 버전을 사용하여 테스트했습니다. 
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 
@@ -94,11 +94,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-remote-compute-target"></a>원격 계산 대상 만들기
+### <a name="create-or-attach-existing-amlcompute"></a>기존 AMlCompute 만들기 또는 연결
 
-Azure ML Managed Compute는 데이터 과학자가 GPU를 지원하는 VM을 포함하여 Azure Virtual Machines 클러스터에서 기계 학습 모델을 학습시킬 수 있게 해주는 관리 서비스입니다.  이 자습서에서는 학습 환경으로 Azure Managed Compute 클러스터를 만듭니다. 사용자의 작업 영역에 클러스터가 아직 없으면 이 코드가 새로 만듭니다. 
+AmlCompute(Azure Machine Learning Managed Compute)는 데이터 과학자가 GPU 지원의 VM을 포함하여 Azure 가상 머신 클러스터에서 기계 학습 모델을 학습시킬 수 있는 관리형 서비스입니다.  이 자습서에서는 학습 환경으로 AmlCompute를 만듭니다. 사용자의 작업 영역에 컴퓨팅 클러스터가 아직 없으면 이 코드가 새로 만듭니다.
 
- **클러스터를 만드는 데 약 5분이 소요됩니다.** 클러스터가 이미 작업 영역에 있는 경우 이 코드는 해당 클러스터를 사용하고 클러스터 생성 프로세스를 건너뜁니다.
+ **컴퓨팅을 만드는 데 약 5분이 소요됩니다.** 컴퓨팅이 이미 작업 영역에 있는 경우 이 코드는 해당 컴퓨팅을 사용하고 컴퓨팅 생성 프로세스를 건너뜁니다.
 
 
 ```python
@@ -107,12 +107,17 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
-compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
 # This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
 
 
 if compute_name in ws.compute_targets:
@@ -132,7 +137,7 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+     # For a more detailed view of current AmlCompute status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -142,13 +147,13 @@ else:
 
 모델을 학습하기 전에 이 모델을 학습하는 데 사용할 데이터를 이해해야 합니다.  클라우드 학습 환경에서 액세스할 수 있도록 데이터를 클라우드에 복사해야 합니다.  이 섹션에서는 다음을 수행하는 방법을 알아봅니다.
 
-* MNIST 데이터 집합 다운로드
+* MNIST 데이터 세트 다운로드
 * 일부 샘플 이미지 표시
 * 클라우드에 데이터 업로드
 
-### <a name="download-the-mnist-dataset"></a>MNIST 데이터 집합 다운로드
+### <a name="download-the-mnist-dataset"></a>MNIST 데이터 세트 다운로드
 
-MNIST 데이터 집합을 다운로드하고 파일을 `data` 디렉터리에 로컬로 저장합니다.  학습 및 테스트용 이미지 및 레이블이 모두 다운로드됩니다.
+MNIST 데이터 세트를 다운로드하고 파일을 `data` 디렉터리에 로컬로 저장합니다.  학습 및 테스트용 이미지 및 레이블이 모두 다운로드됩니다.
 
 
 ```python
@@ -320,12 +325,11 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 이 스크립트가 데이터를 가져오고 모델을 저장하는 방법은 다음과 같습니다.
 
 + 학습 스크립트는 인수를 읽어 데이터를 포함하는 디렉터리를 찾습니다.  나중에 작업을 제출할 때 이 인수에 대한 데이터 저장소를 가리킵니다(`parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`).
-    
+
 + 학습 스크립트는 모델을 outputs 디렉터리에 저장합니다. <br/>
 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 이 디렉터리에 작성된 모든 내용은 작업 영역으로 자동 업로드됩니다. 자습서 뒷부분에서 이 디렉터리의 모델에 액세스하게 됩니다.
-
-`utils.py` 파일은 데이터 집합을 올바르게 로드하기 위해 학습 스크립트에서 참조됩니다.  이 스크립트를 원격 리소스의 학습 스크립트와 함께 액세스할 수 있도록 스크립트 폴더에 복사하세요.
+`utils.py` 파일은 데이터 세트를 올바르게 로드하기 위해 학습 스크립트에서 참조됩니다.  이 스크립트를 원격 리소스의 학습 스크립트와 함께 액세스할 수 있도록 스크립트 폴더에 복사하세요.
 
 
 ```python
@@ -340,12 +344,12 @@ shutil.copy('utils.py', script_folder)
 
 * 추정기 개체의 이름 `est`
 * 스크립트를 포함하는 디렉터리. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다. 
-* 계산 대상.  이 경우에는 만든 Batch AI 클러스터를 사용합니다.
+* 계산 대상.  이 경우 사용자가 만든 Azure Machine Learning 컴퓨팅 클러스터 사용
 * 학습 스크립트 이름, train.py
 * 학습 스크립트의 필요한 매개 변수 
 * 학습에 필요한 Python 패키지
 
-이 자습서에서 이 대상은 Batch AI 클러스터입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다. data_folder는 데이터 저장소를 사용하도록 설정되어 있습니다(`ds.as_mount()`).
+이 자습서에서 이 대상은 AmlCompute입니다. 스크립트 폴더의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다. data_folder는 데이터 저장소를 사용하도록 설정되어 있습니다(`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator
@@ -380,15 +384,15 @@ run
 
 대기 중에 발생하는 작업은 다음과 같습니다.
 
-- **이미지 만들기**: 추정기가 지정한 Python 환경과 일치하는 Docker 이미지가 만들어집니다. 이미지는 작업 영역에 업로드됩니다. 이미지 생성 및 업로드는 **약 5분**이 소요됩니다. 
+- **이미지 만들기**: 추정기에서 지정한 Python 환경과 일치하는 Docker 이미지가 만들어집니다. 이미지는 작업 영역에 업로드됩니다. 이미지 생성 및 업로드는 **약 5분**이 소요됩니다. 
 
   이 단계는 후속 실행을 위해 컨테이너가 캐시되므로 각 Python 환경에 대해 한 번만 진행됩니다.  이미지 생성 중에 로그가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 이미지 생성 진행 상태를 모니터링할 수 있습니다.
 
 - **크기 조정 중**: 원격 클러스터에서 현재 사용 가능한 것보다 더 많은 노드를 실행해야 하는 경우 추가 노드가 자동으로 추가됩니다. 크기 조정은 일반적으로 **약 5분**이 소요됩니다.
 
-- **실행 중**: 이 단계에서는 필요한 스크립트와 파일이 계산 대상으로 전송된 다음, 데이터 저장소가 탑재/복사되고, entry_script가 실행됩니다. 작업이 실행 중이지만 stdout 및 ./logs 디렉터리가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 실행 진행 상태를 모니터링할 수 있습니다.
+- **실행 중**: 이 단계에서는 필요한 스크립트와 파일이 컴퓨팅 대상으로 전송되고, 데이터 저장소가 탑재/복사된 다음, entry_script가 실행됩니다. 작업이 실행 중이지만 stdout 및 ./logs 디렉터리가 실행 기록으로 스트리밍됩니다. 이러한 로그를 사용하여 실행 진행 상태를 모니터링할 수 있습니다.
 
-- **Post-Processing**: 실행의 ./outputs 디렉터리가 작업 영역의 실행 기록으로 복사되므로 해당 결과에 액세스할 수 있습니다.
+- **후 처리 중**: 실행의 ./outputs 디렉터리가 작업 영역의 실행 기록으로 복사되므로 이러한 결과에 액세스할 수 있습니다.
 
 
 실행 중인 작업의 진행 상태를 여러 가지 방법으로 확인할 수 있습니다. 이 자습서에서는 `wait_for_completion` 메서드와 Jupyter 위젯을 사용합니다. 

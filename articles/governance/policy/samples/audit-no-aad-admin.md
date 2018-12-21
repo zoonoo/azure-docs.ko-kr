@@ -1,5 +1,5 @@
 ---
-title: Azure Policy 샘플 ‑ Azure AD 관리자가 없을 경우 감사
+title: 샘플 ‑ Azure AD 관리자가 없을 때 감사
 description: 이 샘플 정책은 SQL Server에 할당된 Azure Active Directory 관리자가 없을 때 감사합니다.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: f85653f57d5052c60ca2a6170370513c88c3b8cf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4ca215fbb905eed22b1e1911d25a773e236fe4c2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965299"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311748"
 ---
 # <a name="audit-no-azure-active-directory-administrator"></a>Azure Active Directory 관리자가 없을 경우 감사
 

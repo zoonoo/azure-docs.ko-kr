@@ -1,6 +1,6 @@
 ---
-title: Linux의 Azure App Service에서 종단 간 사용자 인증 및 권한 부여 | Microsoft Docs
-description: App Service 인증 및 권한 부여를 사용하여 원격 API에 대한 액세스를 비롯한 App Service 앱을 보호하는 방법을 알아봅니다.
+title: Linux에서 엔드투엔드 사용자 인증 및 권한 부여 - Azure App Service | Microsoft Docs
+description: App Service 인증 및 권한 부여를 사용하여 Linux에서 실행되는 App Service 앱을 보호하는 방법을 알아봅니다. 여기에는 원격 API에 대한 액세스가 포함됩니다.
 keywords: App Service, Azure App Service, authN, authZ, 보호, 보안, 다중 계층, Azure Active Directory, Azure AD
 services: app-service\web
 documentationcenter: dotnet
@@ -14,16 +14,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
-ms.openlocfilehash: a468c5d0f73cc182927f26ea9b7a85e2c5afb7c8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766362"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409416"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>자습서: Linux의 Azure App Service에서 종단 간 사용자 인증 및 권한 부여
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>자습서: Linux의 Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
-[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 사용하여 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한, App Service는 [사용자 인증 및 권한 부여](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 기본적으로 지원합니다. 이 자습서에는 App Service 인증 및 권한 부여를 통해 앱을 보호하는 방법을 보여줍니다. Angular.js 프런트 엔드가 있는 ASP.NET Core 앱이 사용되지만 예제일 뿐입니다. App Service 인증 및 권한 부여는 모든 언어 런타임을 지원하며 자습서를 수행하면서 원하는 언어에 적용하는 방법을 알아볼 수 있습니다.
+[Linux의 App Service](app-service-linux-intro.md)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한, App Service는 [사용자 인증 및 권한 부여](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 기본적으로 지원합니다. 이 자습서에는 App Service 인증 및 권한 부여를 통해 앱을 보호하는 방법을 보여줍니다. Angular.js 프런트 엔드가 있는 ASP.NET Core 앱이 사용되지만 예제일 뿐입니다. App Service 인증 및 권한 부여는 모든 언어 런타임을 지원하며 자습서를 수행하면서 원하는 언어에 적용하는 방법을 알아볼 수 있습니다.
 
 이 자습서에서는 샘플 앱을 사용하여 자체 포함 앱을 보호하는 방법을 보여줍니다([백 엔드 앱에 대한 인증 및 권한 부여 사용](#enable-authentication-and-authorization-for-back-end-app)).
 
@@ -237,11 +238,11 @@ git push frontend master
 
 이 단계에서는 두 앱에 인증 및 권한 부여를 사용하도록 설정합니다. 또한 백 엔드 앱에 인증된 호출을 수행하는 데 사용할 수 있는 액세스 토큰을 생성하도록 프런트 엔드 앱을 구성합니다.
 
-Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [App Services 응용 프로그램에 대해 Azure Active Directory 인증 구성](../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)을 참조하세요.
+Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [App Services 응용 프로그램에 대해 Azure Active Directory 인증 구성](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)을 참조하세요.
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>백 엔드 앱에 대한 인증 및 권한 부여 사용
 
-[Azure Portal](https://portal.azure.com)에서 왼쪽 메뉴: **리소스 그룹** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_ 을 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
+[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_ 을 차례로 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
 
 ![Azure App Service에서 실행되는 ASP.NET Core API](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 

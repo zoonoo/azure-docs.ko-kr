@@ -1,5 +1,5 @@
 ---
-title: Azure Search에서 Azure SQL Databases를 인덱싱하는 방법에 대한 자습서 | Microsoft Docs
+title: 자습서 - Azure Portal에서 Azure SQL 데이터베이스 인덱싱 - Azure Search
 description: 이 자습서에서 검색 가능한 데이터를 추출하고 Azure Search 인덱스에 입력하기 위해 Azure SQL Databases를 탐색합니다.
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988798"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312054"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>자습서: Azure Search 인덱서를 사용하여 Azure SQL Databases 탐색
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
 
 이 자습서에서는 샘플 Azure SQL Database에서 검색할 수 있는 데이터를 추출하기 위해 인덱서를 구성하는 방법을 보여줍니다. [인덱서](search-indexer-overview.md)는 외부 데이터 원본을 탐색하는 Azure Search의 구성 요소이며 콘텐츠로 [검색 인덱스](search-what-is-an-index.md)를 채웁니다. 모든 인덱서 중에 Azure SQL Database의 인덱서가 가장 널리 사용됩니다. 
 
@@ -33,7 +34,7 @@ ms.locfileid: "38988798"
 > * 인덱스 검색
 > * 포털에서 인덱서 구성 보기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -77,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ### <a name="get-the-search-service-name-and-admin-api-key"></a>검색 서비스 이름 및 관리 api-key 가져오기
 
-포털에서 검색 서비스 끝점 및 키를 찾을 수 있습니다. 키는 서비스 작업에 대한 액세스 권한을 제공합니다. 관리자 키를 사용하면 서비스에서 인덱서 및 인덱스와 같은 개체를 만들고 삭제하는 데 필요한 쓰기 액세스를 허용합니다.
+포털에서 검색 서비스 엔드포인트 및 키를 찾을 수 있습니다. 키는 서비스 작업에 대한 액세스 권한을 제공합니다. 관리자 키를 사용하면 서비스에서 인덱서 및 인덱스와 같은 개체를 만들고 삭제하는 데 필요한 쓰기 액세스를 허용합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 [구독에 대한 검색 서비스](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)를 찾습니다.
 
@@ -90,7 +91,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 4. 해당 항목을 복사하고 Visual Studio에서 **appsettings.json**에 첫 번째 항목으로 붙여넣습니다.
 
   > [!Note]
-  > 서비스 이름은 search.windows.net을 포함하는 끝점의 일부입니다. 자세한 내용을 보려면 개요 페이지의 **Essentials**에서 전체 URL을 확인할 수 있습니다. URL은 https://your-service-name.search.windows.net과 비슷합니다.
+  > 서비스 이름은 search.windows.net을 포함하는 엔드포인트의 일부입니다. 자세한 내용을 보려면 개요 페이지의 **Essentials**에서 전체 URL을 확인할 수 있습니다. URL은 https://your-service-name.search.windows.net과 비슷합니다.
 
 5. 왼쪽의 **설정** > **키**에서 관리자 키 중 하나를 복사하고 i**appsettings.json**에 두 번째 항목으로 붙여넣습니다. 키는 프로비전하는 동안 서비스에 대해 생성되는 영숫자 문자열이며 서비스 작업에 대한 권한 있는 액세스에 필요합니다. 
 
@@ -114,7 +115,7 @@ Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Databas
 
 다음 연습은 기존 서버 또는 데이터베이스를 사용하지 않고 2단계에서 모두 만들도록 지시합니다. 필요에 따라 기존 리소스가 있는 경우 4단계에서부터 여기에 호텔 테이블을 추가할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
 2. **리소스 만들기** > **SQL Database**를 클릭하여 데이터베이스, 서버 및 리소스 그룹을 만듭니다. 기본값 및 가장 낮은 수준의 가격 책정 계층을 사용할 수 있습니다. 서버를 만드는 이점은 이후 단계에서 테이블을 만들고 로드하는 데 필요한 관리자 사용자 이름 및 암호를 지정할 수 있다는 것입니다.
 

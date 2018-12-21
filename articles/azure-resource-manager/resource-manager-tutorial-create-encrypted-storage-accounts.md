@@ -1,6 +1,6 @@
 ---
-title: 암호화된 저장소 계정을 배포하기 위한 Azure Resource Manager 템플릿 만들기 | Microsoft Docs
-description: Visual Studio Code를 사용하여 암호화된 저장소 계정을 배포하기 위한 템플릿을 만듭니다.
+title: Azure Resource Manager 템플릿 참조 활용 | Microsoft Docs
+description: Azure Resource Manager 템플릿 참조를 활용하여 암호화된 스토리지 계정을 배포하는 템플릿을 만듭니다.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,17 +10,18 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c75c0ce7d12f65878ec8cde0f265022c7beeb29
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613514"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097593"
 ---
-# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>자습서: Resource Manager 템플릿 사용하여 암호화된 Azure 저장소 계정 배포
+# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>자습서: Azure Resource Manager 템플릿 참조 활용
 
 템플릿 스키마 정보를 찾고, 그 정보를 사용하여 Azure Resource Manager 템플릿을 만드는 방법을 알아봅니다.
 
@@ -77,9 +78,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. [Azure 템플릿](https://docs.microsoft.com/azure/templates/)으로 이동합니다.
 2. **제목으로 필터링**에 **저장소 계정**을 입력합니다.
-3. 다음 스크린샷에 표시된 대로 **참조/템플릿 참조/저장소/저장소 계정**을 선택합니다.
+3. 다음 스크린샷과 같이 **참조/템플릿 참조/스토리지/<Version>/스토리지 계정**을 차례로 선택합니다.
 
     ![Resource Manager 템플릿 참조 저장소 계정](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    선택할 버전을 모르는 경우 최신 버전을 사용합니다.
 
 4. 암호화 관련 정의 정보를 탐색합니다.  
 

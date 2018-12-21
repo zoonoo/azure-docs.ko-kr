@@ -7,14 +7,14 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 61b81602342b910a50c0cc6318746ec85a659a92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582335"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080592"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>자습서: Azure Digital Twins를 배포하고 공간 그래프 구성
+# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>자습서: Azure Digital Twins 배포 및 공간 그래프 구성
 
 Azure Digital Twins를 사용하여 사람, 장소 및 디바이스를 일관적인 공간 시스템에 결합할 수 있습니다. 이 자습서 시리즈는 Azure Digital Twins를 사용하여 온도 및 공기질이 최적 조건인 방 점유를 검색하는 방법을 보여줍니다. 
 
@@ -136,7 +136,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-이 함수는 같은 폴더에 있는 **provisionSample.yaml** 파일을 사용합니다. 이 파일을 열고, 사무실 건물의 계층 구조인 *구역*, *층*, *영역* 및 *방*을 봅니다. 이러한 물리적 공간은 *디바이스* 및 *센서*를 포함할 수 있습니다. 각 항목에는 미리 정의된 `type`&mdash;이 있습니다(예: 층, 방). 
+이 함수는 같은 폴더에 있는 **provisionSample.yaml** 파일을 사용합니다. 이 파일을 열고, 사무실 건물의 계층 구조인 *구역*, *층*, *영역* 및 *방*을 살펴봅니다. 이러한 물리적 공간은 *디바이스* 및 *센서*를 포함할 수 있습니다. 각 항목에는 미리 정의된 `type`&mdash;이 있습니다(예: 층, 방). 
 
 샘플 **yaml** 파일은 `Default` Digital Twins 개체 모델을 사용하는 공간 그래프를 보여줍니다. 이 모델에서는 대부분의 형식에 대해 일반 이름을 제공합니다. 건물에 일반 이름을 사용하면 충분합니다. 예제는 SensorDataType에 대한 온도 및 SpaceBlobType에 대한 매핑입니다. 예제 공간 형식은 FocusRoom, ConferenceRoom 등의 하위 형식을 사용하는 방입니다. 
 
@@ -147,11 +147,11 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 ### <a name="modify-the-sample-spatial-graph"></a>샘플 공간 그래프 수정
 **provisionSample.yaml** 파일은 다음 노드를 포함합니다.
 
-- **리소스**: `resources` 노드는 설치된 디바이스와 통신하는 Azure IoT Hub 리소스를 만듭니다. 그래프의 루트 노드에 있는 IoT 허브는 그래프의 모든 디바이스 및 센서와 통신할 수 있습니다.  
+- **resources**: `resources` 노드는 설치된 디바이스와 통신하는 Azure IoT Hub 리소스를 만듭니다. 그래프의 루트 노드에 있는 IoT 허브는 그래프의 모든 디바이스 및 센서와 통신할 수 있습니다.  
 
-- **공간**: Digital Twins 개체 모델에서 `spaces`는 물리적 위치를 나타냅니다. 각 공간에는 `Type`&mdash;(예: 영역, 구역 또는 고객)&mdash; 및 친숙한 `Name`이 있습니다. 공간은 계층적 구조를 만드는 다른 공간에 속할 수 있습니다. provisionSample.yaml 파일에는 가상 건물의 공간 그래프가 있습니다. `Venue`의 `Floor`, 층의 `Area`, 영역의 `Room` 노드 형식인 공간의 논리 중첩을 적어둡니다. 
+- **spaces**: Digital Twins 개체 모델에서 `spaces`는 물리적 위치를 나타냅니다. 각 공간에는 `Type`&mdash;(예: 영역, 구역 또는 고객)&mdash; 및 친숙한 `Name`이 있습니다. 공간은 계층적 구조를 만드는 다른 공간에 속할 수 있습니다. provisionSample.yaml 파일에는 가상 건물의 공간 그래프가 있습니다. `Venue`의 `Floor`, 층의 `Area`, 영역의 `Room` 노드 형식인 공간의 논리 중첩을 적어둡니다. 
 
-- **장치**: 공간에는 `devices`가 포함될 수 있으며, 장치는 센서 수를 관리하는 물리적 장치 또는 가상 엔터티입니다. 예를 들어 디바이스는 사용자의 휴대폰, Raspberry Pi 센서 Pod 또는 게이트웨이일 수 있습니다. 샘플의 가상 건물에서 **Focus Room**이라는 이름의 방에 **Raspberry Pi 3 A1** 디바이스가 어떻게 포함되는지 살펴보세요. 각 디바이스 노드는 고유한 `hardwareId`를 통해 식별되며, 이 샘플에서는 이러한 ID가 하드코딩되었습니다. 실제 프로덕션 환경에 사용할 수 있도록 이 샘플을 구성하려면 이러한 ID를 해당 설정의 값으로 바꿔야 합니다.  
+- **devices**: spaces에는 여러 센서를 관리하는 물리적 디바이스 또는 가상 엔터티인 `devices`가 포함될 수 있습니다. 예를 들어 디바이스는 사용자의 휴대폰, Raspberry Pi 센서 Pod 또는 게이트웨이일 수 있습니다. 샘플의 가상 건물에서 **Focus Room**이라는 이름의 방에 **Raspberry Pi 3 A1** 디바이스가 어떻게 포함되는지 살펴보세요. 각 디바이스 노드는 고유한 `hardwareId`를 통해 식별되며, 이 샘플에서는 이러한 ID가 하드코딩되었습니다. 실제 프로덕션 환경에 사용할 수 있도록 이 샘플을 구성하려면 이러한 ID를 해당 설정의 값으로 바꿔야 합니다.  
 
 - **sensors**: 디바이스에는 여러 `sensors`가 포함될 수 있습니다. 온도, 동작 및 배터리 수준과 같은 물리적 변경 내용을 감지하고 기록할 수 있습니다. 각 센서 노드는 `hardwareId`를 통해 식별되며, 여기서는 이 ID가 하드코딩되었습니다. 실제 애플리케이션의 경우 이러한 ID를 해당 설정에 사용되는 센서의 고유 식별자로 바꿔야 합니다. provisionSample.yaml 파일에는 *동작* 및 *이산화탄소*를 기록하는 두 개의 센서가 있습니다. 이산화탄소 센서에 대한 줄 아래에 다음 줄을 추가하여 *온도*를 기록할 또 다른 센서를 추가합니다. 이러한 항목은 provisionSample.yaml에서 주석줄로 제공됩니다. 각 줄의 앞에서 `#` 문자를 제거하여 주석 처리를 제거할 수 있습니다. 
 
@@ -163,6 +163,9 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
     > 이 코드 조각의 명령문과 `dataType` 및 `hardwareId` 키를 정렬합니다. 또한 편집기가 공간을 탭으로 바꾸지 않도록 주의해야 합니다. 
 
 provisionSample.yaml 파일을 저장하고 닫습니다. 다음 자습서에서는 이 파일에 정보를 추가한 다음, Azure Digital Twins 샘플 건물을 프로비전합니다.
+
+> [!TIP]
+> [Azure Digital Twins 그래프 뷰어](https://github.com/Azure/azure-digital-twins-graph-viewer)를 사용하여 공간 그래프를 보고 수정할 수 있습니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

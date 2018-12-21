@@ -1,21 +1,21 @@
 ---
-title: Ansible을 사용하여 Azure Application Gateway로 웹 트래픽 관리(미리 보기)
+title: Ansible을 사용하여 Azure Application Gateway를 통해 웹 트래픽 관리
 description: Ansible을 사용하여 웹 트래픽을 관리하도록 Azure Application Gateway를 만들고 구성하는 방법 알아보기
 ms.service: ansible
-keywords: ansible, azure, devops, bash, 플레이북, azure 응용 프로그램 게이트웨이, 부하 분산 장치, 웹 트래픽
+keywords: Ansible, Azure, DevOps, Bash, 플레이북, 애플리케이션 게이트웨이, 부하 분산 장치, 웹 트래픽
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: e3c165c87d6c179141f2ddd44f00f0f62a84b285
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: af7f22ae5c289a01e6876d8ce586cb32383c8d3b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912869"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253366"
 ---
-# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible-preview"></a>Ansible을 사용하여 Azure Application Gateway로 웹 트래픽 관리(미리 보기)
+# <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Ansible을 사용하여 Azure Application Gateway를 통해 웹 트래픽 관리
 
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/)는 웹 응용 프로그램에 대한 트래픽을 관리할 수 있도록 하는 웹 트래픽 부하 분산 장치입니다.
 
@@ -34,7 +34,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. `sudo pip install ansible[azure]==2.7.0rc2`를 실행하여 Ansible 2.7 RC를 설치할 수 있습니다. Ansible 2.7이 릴리스된 후에 버전을 지정할 필요가 없습니다.
+> Ansible 2.7은 이 자습서에서 다음의 샘플 플레이북을 실행해야 합니다. 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 

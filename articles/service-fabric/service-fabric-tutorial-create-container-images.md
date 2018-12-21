@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dc92524843f47b1327af5e9d3f237656cad2a37
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947537"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313788"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>자습서: Linux Service Fabric 클러스터에서 컨테이너 이미지 만들기
 
@@ -208,7 +208,7 @@ azure-vote-front
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Github에서 응용 프로그램을 끌어오고 컨테이너 이미지를 만들고 레지스트리로 밀어 넣었습니다. 다음 단계가 완료되었습니다.
+이 자습서에서는 GitHub에서 애플리케이션을 끌어오고 컨테이너 이미지를 만들고 레지스트리로 밀어 넣었습니다. 다음 단계가 완료되었습니다.
 
 > [!div class="checklist"]
 > * GitHub에서 응용 프로그램 원본 복제

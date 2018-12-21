@@ -9,36 +9,36 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4784672364e2bdf44f0415ab4e1e386a5a80076b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228405"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313057"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform을 사용하여 Azure Virtual Machine Scale Set 만들기
 
-[Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets)를 사용하면 동일하고 부하 분산된 가상 머신 그룹을 만들고 관리할 수 있습니다. 가상 머신 인스턴스 수는 수요 또는 정의된 일정에 따라 자동으로 증가하거나 감소할 수 있습니다. 
+[Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets)를 사용하면 동일하고 부하 분산된 가상 머신 그룹을 만들고 관리할 수 있습니다. 가상 머신 인스턴스 수는 수요 또는 정의된 일정에 따라 자동으로 증가하거나 감소할 수 있습니다.
 
 이 자습서에서는 [Azure Cloud Shell](/azure/cloud-shell/overview)을 사용하여 다음 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Terraform 배포 설정
-> * Terraform 배포용 변수 및 출력 사용 
+> * Terraform 배포용 변수 및 출력 사용
 > * 네트워크 인프라 만들기 및 배포
 > * 가상 머신 확장 집합을 만들어 배포하고 네트워크에 연결
 > * jumpbox를 만들어 배포하고 SSH를 통해 VM에 연결
 
 > [!NOTE]
-> 이 문서에 사용된 Terraform 구성 파일의 최신 버전은 [Awesome Terraform repository on Github](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss)(Github의 Awesome Terraform 리포지토리)에 있습니다.
+> 이 문서에서 사용되는 Terraform 구성 파일의 최신 버전은 [GitHub의 Awesome Terraform 리포지토리](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss)에 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
 
-- **Terraform 설치**: [Terraform 및 Azure 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure) 문서의 지침을 따릅니다.
+- **Terraform 설치**: [Terraform 및 Azure에 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure) 문서의 지침을 따릅니다.
 
-- **SSH 키 쌍 만들기**: 아직 SSH 키 쌍이 없다면 [Azure에서 Linux VM용 SSH 공개-개인 키 쌍을 만들고 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) 문서의 지침을 따릅니다.
+- **SSH 키 쌍 만들기**: SSH 키 쌍이 아직 없는 경우 [Azure에서 Linux VM용 SSH 공개-개인 키 쌍을 만들고 사용하는 방법](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) 문서의 지침을 따릅니다.
 
 ## <a name="create-the-directory-structure"></a>디렉터리 구조 만들기
 
@@ -122,7 +122,8 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 
 1. I 키를 선택하여 삽입 모드를시작합니다.
 
-1. 편집기에 다음 코드를 붙여넣어 가상 머신의 FQDN(정규화된 도메인 이름)을 표시합니다. :
+1. 편집기에 다음 코드를 붙여넣어 가상 머신의 FQDN(정규화된 도메인 이름)을 표시합니다.
+:
 
   ```JSON
     output "vmss_public_ip" {
@@ -139,9 +140,9 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
     ```
 
 ## <a name="define-the-network-infrastructure-in-a-template"></a>템플릿에 네트워크 인프라 정의
-이 섹션에서는 새 Azure 리소스 그룹에 다음과 같은 네트워크 인프라를 만듭니다. 
+이 섹션에서는 새 Azure 리소스 그룹에 다음과 같은 네트워크 인프라를 만듭니다.
 
-  - 주소 공간이 10.0.0.0/16인 VNET(가상 네트워크) 1개 
+  - 주소 공간이 10.0.0.0/16인 VNET(가상 네트워크) 1개
   - 주소 공간이 10.0.2.0/24인 서브넷 1개
   - 2개의 공용 IP 주소. 하나는 가상 머신 확장 집합 부하 분산 장치에서 사용되고 다른 하나는 SSH jumpbox에 연결하는 데 사용됩니다.
 
@@ -155,7 +156,7 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 
 1. I 키를 선택하여 삽입 모드를시작합니다.
 
-1. 파일 끝에 다음 코드를 붙여넣어 가상 머신의 FQDN(정규화된 도메인 이름)을 표시합니다. 
+1. 파일 끝에 다음 코드를 붙여넣어 가상 머신의 FQDN(정규화된 도메인 이름)을 표시합니다.
 
   ```JSON
   resource "azurerm_resource_group" "vmss" {
@@ -210,7 +211,7 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 1. Terraform을 초기화합니다.
 
   ```bash
-  terraform init 
+  terraform init
   ```
 
 1. 다음 명령을 실행하여 Azure에 정의된 인프라를 배포합니다.
@@ -235,8 +236,8 @@ Azure Cloud Shell 내에서 다음 단계를 수행합니다.
 이 섹션에서는 다음 리소스를 템플릿에 추가하는 방법에 대해 알아봅니다.
 
 - 하나의 Azure Load Balancer 및 응용 프로그램을 제공하여 이 문서의 앞에서 구성된 공용 IP 주소에 연결하는 규칙
-- Azure 백 엔드 주소 풀 및 이를 부하 분산 장치에 할당 
-- 응용 프로그램에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트 
+- Azure 백 엔드 주소 풀 및 이를 부하 분산 장치에 할당
+- 응용 프로그램에서 사용되고 부하 분산 장치에 구성된 상태 프로브 포트
 - 이 문서의 앞부분에서 배포한 VNET에서 실행 중인, 부하 분산 장치 뒤에 있는 가상 머신 확장 집합
 - [cloud-init](http://cloudinit.readthedocs.io/en/latest/)를 사용하는 가상 머신 확장의 노드에 있는 [Nginx](http://nginx.org/)
 
@@ -359,7 +360,7 @@ Cloud Shell에서 다음 단계를 수행합니다.
     :wq
     ```
 
-1. 확장 집합의 일부인 가상 머신의 cloud-init 구성 역할을 수행할 `web.conf` 파일을 만듭니다. 
+1. 확장 집합의 일부인 가상 머신의 cloud-init 구성 역할을 수행할 `web.conf` 파일을 만듭니다.
 
     ```bash
     vi web.conf
@@ -407,7 +408,7 @@ Cloud Shell에서 다음 단계를 수행합니다.
   variable "admin_password" {
       description = "Default password for admin account"
   }
-  ``` 
+  ```
 
 1. Esc 키를 선택하여 삽입 모드를 종료합니다.
 
@@ -430,14 +431,14 @@ Cloud Shell에서 다음 단계를 수행합니다.
 1. Azure에서 새 리소스를 배포합니다.
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
   명령의 출력은 다음 스크린샷과 유사해야 합니다.
 
   ![Terraform 가상 머신 확장 집합 리소스 그룹](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
-1. 브라우저를 열고 명령에 의해 반환된 FQDN에 연결합니다. 
+1. 브라우저를 열고 명령에 의해 반환된 FQDN에 연결합니다.
 
   ![FQDN 검색 결과](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
@@ -545,7 +546,7 @@ SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "점
 1. jumpbox를 배포합니다.
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
 배포가 완료된 후 리소스 그룹의 콘텐츠는 다음 스크린샷과 비슷합니다.
@@ -555,7 +556,7 @@ SSH *jumpbox*는 네트워크상의 다른 서버에 액세스하기 위해 "점
 > [!NOTE]
 > 배포한 가상 머신 확장 집합 및 jumpbox에서 암호를 사용하여 로그인하는 기능이 사용하지 않도록 설정되었습니다. 가상 머신에 액세스하려면 SSH를 사용하여 로그인합니다.
 
-## <a name="environment-cleanup"></a>환경 정리 
+## <a name="environment-cleanup"></a>환경 정리
 
 이 자습서에서 만든 Terraform 리소스를 삭제하려면 Cloud Shell에 다음 명령을 입력합니다.
 
@@ -566,9 +567,9 @@ terraform destroy
 소멸 프로세스를 완료하는 데 몇 분 정도가 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Terraform을 사용하여 Azure Virtual Machine Scale Set를 만드는 방법을 배웠습니다. Azure의 Terraform에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다. 
+이 문서에서는 Terraform을 사용하여 Azure Virtual Machine Scale Set를 만드는 방법을 배웠습니다. Azure의 Terraform에 대해 자세히 알아볼 수 있는 몇 가지 추가 리소스는 다음과 같습니다.
 
- [Microsoft.com의 Terraform 허브](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure 공급자 설명서](https://aka.ms/terraform)  
- [Terraform Azure 공급자 원본](https://aka.ms/tfgit)  
- [Terraform Azure 모듈](https://aka.ms/tfmodules)
+[Microsoft.com의 Terraform 허브](https://docs.microsoft.com/azure/terraform/)
+[Terraform Azure 공급자 설명서](https://aka.ms/terraform)
+[Terraform Azure 공급자 원본](https://aka.ms/tfgit)
+[Terraform Azure 모듈](https://aka.ms/tfmodules)

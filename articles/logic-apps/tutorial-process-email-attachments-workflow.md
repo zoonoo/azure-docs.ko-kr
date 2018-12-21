@@ -1,25 +1,25 @@
 ---
-title: 이메일 및 첨부 파일을 처리하는 워크플로 빌드 - Azure Logic Apps | Microsoft Docs
-description: 이 자습서에서는 Azure Logic Apps, Azure Storage 및 Azure Functions를 사용하여 이메일과 첨부 파일을 처리하는 자동화된 워크플로를 만드는 방법을 보여 줍니다.
+title: 자습서 - 이메일 및 첨부 파일 처리 자동화 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps, Azure Storage 및 Azure Functions를 사용하여 이메일과 첨부 파일을 처리하도록 자동화된 워크플로를 만드는 자습서입니다.
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231971"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140509"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Azure Logic Apps로 이메일 및 첨부 파일 처리
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 이메일 및 첨부 파일 처리 자동화
 
-Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스, Microsoft 서비스, 기타 SaaS(software-as-a-service) 앱 및 온-프레미스 시스템의 데이터를 통합할 수 있습니다. 이 자습서에서는 수신 이메일 및 첨부 파일을 처리하는 [논리 앱](../logic-apps/logic-apps-overview.md)을 빌드하는 방법을 보여줍니다. 이 논리 앱은 이러한 콘텐츠를 처리하고, Azure 저장소에 콘텐츠를 저장하고, 해당 콘텐츠를 검토하라는 알림을 보냅니다. 
+Azure Logic Apps를 사용하면 워크플로를 자동화하고 Azure 서비스, Microsoft 서비스, 기타 SaaS(software-as-a-service) 앱 및 온-프레미스 시스템의 데이터를 통합할 수 있습니다. 이 자습서에서는 수신 이메일 및 첨부 파일을 처리하는 [논리 앱](../logic-apps/logic-apps-overview.md)을 빌드하는 방법을 보여줍니다. 이 논리 앱은 이메일 콘텐츠를 분석하고, Azure 스토리지에 콘텐츠를 저장하고, 해당 콘텐츠를 검토하기 위한 알림을 보냅니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -144,7 +144,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | **리소스 그룹** | LA-Tutorial-RG | 이전에 사용한 동일한 Azure 리소스 그룹 | 
    | **호스팅 계획** | 소비 계획 | 이 설정은 계산 성능처럼 함수 앱을 실행하기 위한 리소스를 할당하고 크기를 조정하는 방법을 결정합니다. [호스팅 계획 비교](../azure-functions/functions-scale.md)를 참조하세요. | 
    | **위치**: | 미국 서부 | 이전에 사용한 동일한 지역 | 
-   | **Storage** | cleantextfunctionstorageacct | 함수 앱에 대한 저장소 계정을 만듭니다. 소문자와 숫자만 사용할 수 있습니다. <p>**참고:** 이 저장소 계정은 함수 앱을 포함하며, 이전에 이메일 첨부 파일용으로 만든 저장소 계정과 다릅니다. | 
+   | **Storage** | cleantextfunctionstorageacct | 함수 앱에 대한 저장소 계정을 만듭니다. 소문자와 숫자만 사용할 수 있습니다. <p>**참고:** 이 스토리지 계정은 함수 앱을 포함하며, 이메일 첨부 파일에 대해 이전에 만든 스토리지 계정과 다릅니다. | 
    | **Application Insights** | 꺼짐 | [Application Insights](../application-insights/app-insights-overview.md)를 통해 응용 프로그램 모니터링을 사용하도록 설정하지만, 이 자습서에서는 **해제** 설정을 선택합니다. | 
    |||| 
 
@@ -274,7 +274,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       | 설정 | 값 | 설명 | 
       | ------- | ----- | ----------- | 
-      | **첨부 파일 있음** | yes | 첨부 파일이 있는 이메일만 받습니다. <p>**참고:** 이 트리거는 계정에서 이메일을 제거하지는 않으며, 새 메시지만 확인하여 제목 필터와 일치하는 이메일만 처리합니다. | 
+      | **첨부 파일 있음** | yes | 첨부 파일이 있는 이메일만 받습니다. <p>**참고:** 이 트리거는 계정에서 이메일을 제거하지 않으며, 새 메시지만 확인하고 제목 필터와 일치하는 이메일만 처리합니다. | 
       | **첨부 파일 포함** | yes | 첨부 파일을 확인하는 데서 그치지 않고 첨부 파일을 워크플로의 입력으로 가져옵니다. | 
       | **제목 필터** | ```Business Analyst 2 #423501``` | 이메일 제목에서 찾을 텍스트 | 
       |  |  |  | 
@@ -328,7 +328,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -377,11 +377,11 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
    !["True인 경우" 내에서 작업 추가](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-2. 검색 상자에서 "Azure 함수"를 찾고 **Azure 함수 선택 - Azure Functions** 작업을 선택합니다.
+2. 검색 상자에서 "azure 함수"를 찾아 **Azure 함수 선택 - Azure Functions** 작업을 선택합니다.
 
    !["Azure 함수 선택" 작업 선택](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. 이전에 만든 함수 앱 **CleanTextFunctionApp**을 선택합니다.
+3. 이전에 만든 **CleanTextFunctionApp** 함수 앱을 선택합니다.
 
    ![Azure 함수 앱 선택](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -572,7 +572,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
 ## <a name="send-email-notifications"></a>이메일 알림 보내기
 
-1. **true인 경우** 분기의 **For each 이메일 첨부 파일** 루프에서 **작업 추가**를 선택합니다. 
+1. **True인 경우** 분기의 **For each 이메일 첨부 파일** 루프 아래에서 **작업 추가**를 선택합니다. 
 
    !["for each" 루프에서 작업 추가](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 

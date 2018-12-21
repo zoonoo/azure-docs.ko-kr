@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 디바이스에 Custom Vision 배포 | Microsoft Docs
-description: Custom Vision 및 IoT Edge를 사용하여 컴퓨터 비전 모델을 컨테이너로 실행하는 방법을 알아봅니다.
+title: 자습서 - 디바이스에 Custom Vision 분류자 배포 - Azure IoT Edge | Microsoft Docs
+description: 이 자습서에서는 Custom Vision 및 IoT Edge를 사용하여 컴퓨터 비전 모델을 컨테이너로 실행하는 방법을 알아봅니다.
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -8,17 +8,17 @@ ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566485"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075831"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행
 
-Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하여 IoT 솔루션의 효율성을 높일 수 있습니다. 이 기능은 컴퓨터 비전 모델과 같은 많은 데이터를 처리하는 서비스에 적합합니다. [Custom Vision Service](../cognitive-services/custom-vision-service/home.md)를 통해 사용자 지정 이미지 분류자를 빌드하고 컨테이너로 장치에 배포할 수 있습니다. 이러한 두 서비스를 함께 사용하여 먼저 모든 데이터를 사이트에서 전송하지 않고도 이미지 또는 비디오 스트림에서 정보를 찾을 수 있습니다. Custom Vision은 이미지를 정보를 생성하는 학습된 모델과 비교하는 분류자를 제공합니다. 
+Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하여 IoT 솔루션의 효율성을 높일 수 있습니다. 이 기능은 컴퓨터 비전 모델과 같은 많은 데이터를 처리하는 서비스에 적합합니다. [Custom Vision Service](../cognitive-services/custom-vision-service/home.md)를 통해 사용자 지정 이미지 분류자를 빌드하고 컨테이너로 디바이스에 배포할 수 있습니다. 이러한 두 서비스를 함께 사용하여 먼저 모든 데이터를 사이트에서 전송하지 않고도 이미지 또는 비디오 스트림에서 정보를 찾을 수 있습니다. Custom Vision은 이미지를 정보를 생성하는 학습된 모델과 비교하는 분류자를 제공합니다. 
 
 예를 들어 IoT Edge 디바이스의 Custom Vision은 고속도로에서 정상보다 높거나 낮은 트래픽이 발생하는지 여부 또는 주차장에 사용 가능한 주차 공간이 연달아 있는지 여부를 확인할 수 있습니다. 작업을 수행하기 위해 다른 서비스와 이러한 정보를 공유할 수 있습니다. 
 
@@ -36,7 +36,7 @@ Azure IoT Edge를 통해 워크로드를 클라우드에서 에지로 이동하�
 
 Azure IoT Edge 디바이스:
 
-* [Linux의 빠른 시작](quickstart-linux.md)에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
+* [Linux의 빠른 시작](quickstart-linux.md)에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 디바이스로 사용할 수 있습니다.
 * 현재 Custom Vision 모듈은 x64 아키텍처용 Linux 컨테이너로만 사용할 수 있습니다. 
 
 클라우드 리소스:
@@ -99,7 +99,7 @@ Azure IoT Edge 디바이스:
 
 5. **10개의 파일 업로드**를 선택합니다. 
 
-   ![Hemlock 태그가 지정된 파일 업로드](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
+   ![Custom Vision에 hemlock 태그가 지정된 파일 업로드](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
 6. 이미지가 성공적으로 업로드되면 **완료**를 선택합니다.
 
@@ -117,7 +117,7 @@ Azure IoT Edge 디바이스:
 
 1. 분류자를 학습한 후 분류자의 성능 페이지에서 **내보내기**를 선택합니다. 
 
-   ![이미지 분류자 내보내기](./media/tutorial-deploy-custom-vision/export.png)
+   ![학습된 이미지 분류자 내보내기](./media/tutorial-deploy-custom-vision/export.png)
 
 2. 플랫폼에 대해 **DockerFile**을 선택합니다. 
 
@@ -151,7 +151,7 @@ Azure IoT Edge 디바이스:
 
 3. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
 
-4. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
+4. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
 
    | 필드 | 값 |
    | ----- | ----- |
@@ -458,7 +458,7 @@ cameraCapture 모듈에서 메시지로 전송되는 Custom Vision 모듈의 결
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 

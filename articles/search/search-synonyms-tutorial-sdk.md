@@ -1,6 +1,6 @@
 ---
-title: Azure Search에서 동의어 C# 자습서 | Microsoft Docs
-description: 이 자습서에서 Azure Search의 인덱스에 동의어 기능을 추가합니다.
+title: 동의어 C# 자습서 - Azure Search
+description: 이 C# 자습서에서는 Azure Search의 인덱스에 동의어 기능을 추가하는 방법을 알아봅니다. 동의어 맵은 동일한 용어 목록입니다. 동의어를 지원하는 필드는 사용자가 제공한 용어 및 모든 관련 동의어를 포함하도록 쿼리를 확장합니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990564"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309232"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>자습서: C#에서 Azure Search에 대 한 동의어 추가
+# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>자습서: C#에서 Azure Search에 대한 동의어 추가
 
 동의어는 입력 용어와 의미상 동일하다고 간주되는 용어를 비교하여 쿼리를 확장합니다. 예를 들어 "car"를 "automobile" 또는 "vehicle"이라는 용어를 포함하는 문서와 비교합니다. 
 

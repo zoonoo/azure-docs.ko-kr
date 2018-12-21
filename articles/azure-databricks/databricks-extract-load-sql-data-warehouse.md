@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 48b2cdb26994d01dfced8216bb70493802f672a7
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265273"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413679"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 자습서를 시작하기 전에 다음 요구 사항이 충족되는지 확인합니다.
 - Azure SQL Data Warehouse를 만들고, 서버 수준 방화벽 규칙을 만들고, 서버 관리자로 서버에 연결합니다. [빠른 시작: Azure SQL Data Warehouse 만들기](../sql-data-warehouse/create-data-warehouse-portal.md)의 지침을 따르세요.
 - Azure SQL Data Warehouse에 대한 데이터베이스 마스터 키를 만듭니다. [데이터베이스 마스터 키 만들기](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)의 지침을 따르세요.
-- Azure Blob Storage 계정을 만들고, 그 안에 컨테이너를 만듭니다. 또한 저장소 계정에 액세스하는 데 사용되는 액세스 키를 검색합니다. [빠른 시작: Azure Blob 저장소 계정 만들기](../storage/blobs/storage-quickstart-blobs-portal.md)의 지침을 따르세요.
+- Azure Blob Storage 계정을 만들고, 그 안에 컨테이너를 만듭니다. 또한 저장소 계정에 액세스하는 데 사용되는 액세스 키를 검색합니다. [빠른 시작: Azure Blob 스토리지 계정 만들기](../storage/blobs/storage-quickstart-blobs-portal.md)의 지침을 따르세요.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
-이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다. 
+이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다.
 
 1. Azure Portal에서 **리소스 만들기** > **데이터 + 분석** > **Azure Databricks**를 차례로 선택합니다.
 
@@ -65,7 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ![Azure Databricks 작업 영역 만들기](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Azure Databricks 작업 영역 만들기")
 
     다음 값을 제공합니다.
-     
+    
     |자산  |설명  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역의 이름을 제공합니다.        |
@@ -106,11 +106,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **저장소** > **Data Lake Store**를 선택합니다.
 3. **새 Data Lake Store** 블레이드에서 아래 스크린샷에 표시된 대로 값을 제공합니다.
-   
+
     ![새 Azure Data Lake Store 계정 만들기](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "새 Azure Data Lake 계정 만들기")
 
-    다음 값을 제공합니다. 
-     
+    다음 값을 제공합니다.
+    
     |자산  |설명  |
     |---------|---------|
     |**Name**     | Data Lake Store 계정의 고유한 이름을 입력합니다.        |
@@ -125,7 +125,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이제 Azure Active Directory 서비스 사용자를 만들고 앞에서 만든 Data Lake Store 계정을 연결합니다.
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>Azure Active Directory 서비스 사용자 만들기
-   
+
 1. [Azure Portal](https://portal.azure.com)에서 **모든 서비스**를 선택한 다음, **Azure Active Directory**를 검색합니다.
 
 2. **앱 등록**을 선택합니다.
@@ -193,7 +193,7 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
 
 ## <a name="upload-data-to-data-lake-store"></a>데이터 레이크 저장소에 데이터 업로드
 
-이 섹션에서는 Data Lake Store에 샘플 데이터 파일을 업로드합니다. 이 파일은 Azure Databricks의 뒷부분에서 변환을 수행하는 데 사용됩니다. 이 자습서에서 사용하는 샘플 데이터(**small_radio_json.json**)는 이 [Github 리포지토리](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)에서 받을 수 있습니다.
+이 섹션에서는 Data Lake Store에 샘플 데이터 파일을 업로드합니다. 이 파일은 Azure Databricks의 뒷부분에서 변환을 수행하는 데 사용됩니다. 이 자습서에서 사용하는 샘플 데이터(**small_radio_json.json**)는 이 [GitHub 리포지토리](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)에서 사용할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서, 앞에서 만든 Data Lake Store 계정을 선택합니다.
 
@@ -376,9 +376,9 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
 
 이 섹션에서는 변환된 데이터를 Azure SQL Data Warehouse로 업로드합니다. Azure Databricks용 Azure SQL Data Warehouse 커넥터를 사용하여 데이터 프레임을 SQL 데이터 웨어하우스의 테이블로 직접 업로드할 수 있습니다.
 
-앞서 언급했듯이, SQL 데이터 웨어하우스 커넥터는 Azure Blob Storage를 임시 저장소 위치로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간의 데이터를 업로드합니다. 따라서 저장소 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
+앞에서 설명한 대로 SQL 데이터 웨어하우스 커넥터는 Azure Blob Storage를 임시 스토리지 위치로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간에 데이터를 업로드합니다. 따라서 저장소 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
 
-1. Azure Databricks에서 Azure Storage 계정에 액세스하기 위한 구성을 입력합니다. 포털에서 Blob 저장소에 대한 URL을 복사하는 경우 처음부터 *https://* 를 제거해야 합니다. 
+1. Azure Databricks에서 Azure Storage 계정에 액세스하기 위한 구성을 입력합니다. 포털에서 Blob 저장소에 대한 URL을 복사하는 경우 처음부터 *https://* 를 제거해야 합니다.
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -410,7 +410,7 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)

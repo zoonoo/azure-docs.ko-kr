@@ -1,28 +1,23 @@
 ---
-title: Azure PowerShell 스크립트 - Azure Cosmos DB Table API 계정 만들기 | Microsoft Docs
+title: Azure PowerShell 스크립트 - Azure Cosmos DB Table API 계정 만들기
 description: Azure PowerShell 스크립트 샘플 - Azure Cosmos DB Table API 계정 만들기
 services: cosmos-db
-documentationcenter: cosmosdb
 author: SnehaGunda
-manager: kfile
-tags: azure-service-management
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 08/08/2018
-ms.author: sngun
-ms.openlocfilehash: 19a163fe20114eb9866ed816c9ac930dd0e3ecf2
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: dacad55370be742dcfc3aa69f9254154568b6a58
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41920069"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954955"
 ---
-# <a name="azure-cosmos-db-create-a-table-api-account-using-powershell"></a>Azure Cosmos DB: PowerShell을 사용하여 Table API 계정 만들기
+# <a name="azure-cosmos-db-create-a-table-api-account-using-powershell"></a>Azure Cosmos DB는 PowerShell을 사용하여 Table API 계정 만들기
 
 이 샘플 PowerShell 스크립트는 Azure Cosmos DB Table API 계정을 만듭니다. 
 

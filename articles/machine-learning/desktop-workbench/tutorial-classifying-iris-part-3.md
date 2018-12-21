@@ -11,16 +11,16 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/13/2018
+ms.date: 03/13/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52757098436349d38538f4c2168a70e53ad58421
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946615"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270164"
 ---
-# <a name="tutorial-3-classify-iris-deploy-a-model"></a>자습서 3: 아이리스 분류: 배포 모델
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>자습서 3: 아이리스 분류: 모델 배포
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
@@ -168,7 +168,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    az provider show -n Microsoft.ContainerRegistry 
    ``` 
 
-   출력의 세 번째 줄에 **“registrationState”: “Registering”** 이 표시됩니다. 몇 분 정도 기다렸다가 출력에 **"registrationState": "Registered"** 가 표시될 때까지 **show** 명령을 반복합니다.
+   출력의 세 번째 줄에 **"registrationState": "Registering"** 이 표시됩니다. 몇 분 정도 기다린 후 출력에 **"registrationState":  "Registered"** 가 표시될 때까지 **show** 명령을 반복합니다.
 
    >[!NOTE] 
    ACS 클러스터를 배포하는 경우 정확히 동일한 방법을 사용하여 **Microsoft.ContainerService** 리소스 공급자를 등록해야 합니다.
@@ -234,24 +234,24 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 
    다음 스위치가 **az ml service create realtime** 명령에 사용됩니다.
 
-   * `-f`: 점수 매기기 스크립트 파일 이름입니다.
+   * `-f`: 채점 스크립트 파일의 이름입니다.
 
    * `--model-file`: 모델 파일입니다. 이 경우 pickle 처리된 model.pkl 파일입니다.
 
    * `-s`: 서비스 스키마입니다. 이는 이전 단계에서 **score_iris.py** 스크립트를 로컬로 실행하여 생성되었습니다.
 
-   * `-n`: 모두 소문자여야 하는 앱 이름입니다.
+   * `-n`: 앱 이름이며, 모두 소문자여야 합니다.
 
    * `-r`: 모델의 런타임입니다. 이 경우 Python 모델입니다. 유효한 런타임은 `python` 및 `spark-py`입니다.
 
-   * `--collect-model-data true`: 이 스위치는 데이터 컬렉션을 활성화합니다.
+   * `--collect-model-data true`: 이 스위치는 데이터 컬렉션을 사용하도록 설정합니다.
 
    * `-c`: 추가 패키지가 지정된 conda 종속성 파일의 경로입니다.
 
    >[!IMPORTANT]
    >서비스 이름(새 Docker 이미지 이름이기도 함)은 모두 소문자여야 합니다. 그렇지 않으면 오류가 발생합니다. 
 
-1. 명령을 실행하면 환경 설정의 일부로 만든 저장소 계정에 모델 및 점수 매기기 파일이 업로드됩니다. 배포 프로세스에서는 모델, 스키마, 점수 매기기 파일이 포함된 Docker 이미지를 빌드하고, 이를 **\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>** Azure 컨테이너 레지스트리에 푸시합니다. 
+1. 명령을 실행하면 환경 설정의 일부로 만든 저장소 계정에 모델 및 점수 매기기 파일이 업로드됩니다. 배포 프로세스에서 모델, 스키마, 채점 파일이 포함된 Docker 이미지를 빌드하고, Azure 컨테이너 레지스트리(**\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>**)로 푸시합니다. 
 
    명령은 이미지를 로컬로 컴퓨터에 가져온 다음, 해당 이미지를 기반으로 하여 Docker 컨테이너를 시작합니다. 환경이 클러스터 모드로 구성된 경우 Docker 컨테이너는 Azure Cloud Services Kubernetes 클러스터에 대신 배포됩니다.
 
@@ -353,11 +353,11 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
 
    * Machine Learning: CSV 파일을 데이터 원본으로 추가하여 CSV 파일을 엽니다.
 
-   * Excel: 일별CSV 파일을 스프레드시트로 엽니다.
+   * Excel: 일별 CSV 파일을 스프레드시트로 엽니다.
 
    * [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): Blob의 CSV 데이터에서 가져온 데이터로 차트를 만듭니다.
 
-   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): Hive 테이블에 CSV 데이터를 로드하고, Blob에 대해 SQL 쿼리를 직접 수행합니다.
+   * [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): CSV 데이터를 Hive 테이블에 로드하고, Blob에 대해 SQL 쿼리를 직접 수행합니다.
 
    * [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): CSV 데이터의 많은 부분을 사용하여 데이터 프레임을 만듭니다.
 

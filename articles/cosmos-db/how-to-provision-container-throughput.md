@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 3b766cfa339e6cbb568cf57383667d270153401f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dd47976bca75569142f1912eee06c66061e92fa6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262423"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097668"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Azure Cosmos DB 컨테이너의 처리량 프로비전
 
@@ -28,6 +28,7 @@ ms.locfileid: "51262423"
 
    * 새 데이터베이스를 만들거나 기존 데이터베이스를 사용합니다.
    * 컬렉션 ID(또는 테이블, 그래프)를 입력합니다.
+   * 파티션 키 값을 입력합니다(예: `/userid`).
    * 처리량을 입력합니다(예: 1000RU).
    * **확인**을 선택합니다.
 

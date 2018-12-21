@@ -1,6 +1,6 @@
 ---
-title: 포털을 통해 Azure Event Hubs를 사용하도록 설정 | Microsoft Docs
-description: Azure Portal을 사용하여 Event Hubs 캡처 기능을 사용하도록 설정합니다.
+title: Azure Portal을 사용하여 스트리밍 이벤트 캡처 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Azure Portal을 사용하여 Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정하는 방법을 설명합니다.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -10,18 +10,19 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5cb3fee975e99af3d86affcbc18d89277dde2dc1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f57e75f90511ace45198d7516a5d2550123d9be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409121"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075117"
 ---
-# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정
+# <a name="enable-capturing-of-events-streaming-through-azure-event-event-hubs"></a>Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정
 
 Azure [Event Hubs 캡처][capture-overview]를 사용하면 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 전달할 수 있습니다.
 
@@ -35,7 +36,7 @@ Azure [Event Hubs 캡처][capture-overview]를 사용하면 Event Hubs의 스트
 
 기본 시간은 5분입니다. 최소값은 1, 최대값은 15입니다. **크기**의 범위는 10-500MB입니다.
 
-![][1]
+![캡처 시간 범위][1]
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Azure Data Lake Store 계정에 데이터를 캡처합니다.
 
@@ -52,7 +53,7 @@ Azure Data Lake Store에 데이터를 캡처하려면 Data Lake Store 계정 및
 2. **Event Hub 만들기** 포털 페이지의 **캡처 공급자** 상자에서 **Azure Data Lake Store**를 선택합니다.
 3. **Data Lake Store 선택**에서 이전에 만든 Data Lake Store 계정을 지정하고 **Data Lake 경로** 필드에서 만든 데이터 폴더에 대한 경로를 입력합니다.
 
-    ![][3]
+    ![Data Lake Storage 계정 선택][3]
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>기존 이벤트 허브에서 캡처 추가 및 구성
 
@@ -60,11 +61,11 @@ Event Hubs 네임스페이스에 있는 기존 이벤트 허브에 캡처를 구
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-![][2]
+![Azure Blob Storage 구성][2]
 
 ### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
-![][4]
+![Azure Data Lake Storage 구성][4]
 
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png

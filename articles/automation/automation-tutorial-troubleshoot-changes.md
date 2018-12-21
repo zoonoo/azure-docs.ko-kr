@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: 변경 내용, 추적, 자동화
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e4ea8f92a562ea4bc90df98d6e459377b9886777
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844909"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190019"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>환경 변경 문제 해결
 
@@ -44,7 +44,7 @@ ms.locfileid: "52844909"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
@@ -102,7 +102,7 @@ Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 
 |사용     | 설정 적용 여부 결정        |
 |Item Name     | 추적할 파일의 이름        |
 |그룹     | 파일을 논리적으로 그룹화하는 그룹 이름        |
-|Windows 레지스트리 키   | 파일을 검사할 경로. 예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 레지스트리 키   | 파일을 확인할 경로입니다(예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup").      |
 
 ### <a name="add-a-windows-file"></a>Windows 파일 추가
 
@@ -117,7 +117,7 @@ Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 
 |그룹     | 파일을 논리적으로 그룹화하는 그룹 이름        |
 |경로 입력     | 파일을 확인할 경로입니다(예: "c:\temp\\\*.txt").<br>"%winDir%\System32\\\*.*"와 같은 환경 변수도 사용할 수 있습니다.         |
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션은 **True** 또는 **False**입니다.|
 
 ### <a name="add-a-linux-file"></a>Linux 파일 추가
 
@@ -135,7 +135,7 @@ Log Analytics에서 로그 파일을 실행하고 검색하는 방법에 대한 
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
 |sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
 |링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **Ignore** - 심볼 링크를 무시하고 참조된 파일/디렉터리를 포함하지 않음<br>**Follow** - 재귀 중에 심볼 링크를 따르고 참조된 파일/디렉터리도 포함<br>**Manage** - 심볼 링크를 따르고 반환된 콘텐츠의 처리를 변경하도록 허용      |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션은 **True** 또는 **False**입니다.|
 
    > [!NOTE]
    > "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.
@@ -177,12 +177,11 @@ Azure Portal에서 변경 내용을 보는 기능도 유용하지만, 중지된 
 
 중지된 서비스에 대한 경고를 추가하려면 Azure Portal에서 **모니터**로 이동합니다. 그런 다음 **Shared Services**에서 **경고**를 선택하고 **+ 새로운 경고 규칙**을 클릭합니다.
 
-**1. 경고 조건 정의** 아래에서 **+ 대상 선택**을 클릭합니다. **리소스 종류별로 필터링**에서 **Log Analytics**를 선택합니다. Log Analytics 작업 영역을 선택한 다음, **완료**를 선택합니다.
+**선택**을 클릭하여 리소스를 선택합니다. **리소스 선택** 페이지의 **리소스 종류별로 필터링** 드롭다운에서 **Log Analytics**를 선택합니다. Log Analytics 작업 영역을 선택한 다음, **완료**를 선택합니다.
 
 ![리소스 선택](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-**+ 기준 추가**를 선택합니다.
-**신호 논리 구성**의 테이블에서 **로그 검색 사용자 지정**을 선택합니다. 검색 쿼리 텍스트 상자에 다음 쿼리를 입력합니다.
+**조건 추가** 클릭하고, **신호 논리 구성** 페이지의 테이블에서 **로그 검색 사용자 지정**을 선택합니다. 검색 쿼리 텍스트 상자에 다음 쿼리를 입력합니다.
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -194,11 +193,9 @@ ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName ==
 
 ![신호 논리 구성](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-**2. 경고 세부 정보**를 정의하고 경고의 이름과 설명을 입력합니다. **심각도**를 **정보(심각도 2)**, **경고(심각도 1)** 또는 **위험(심각도 0)** 으로 설정합니다.
+**작업 그룹** 아래에서 **새로 만들기**를 선택합니다. 작업 그룹은 여러 경고에서 사용할 수 있는 작업의 그룹입니다. 이 작업에는 이메일 알림, Runbook, 웹후크 등이 포함되며 이에 국한되지 않습니다. 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
 
-![경고 세부 정보 정의](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-**3. 작업 그룹 정의**에서 **새 작업 그룹**을 선택합니다. 작업 그룹은 여러 경고에서 사용할 수 있는 작업의 그룹입니다. 이 작업에는 이메일 알림, Runbook, 웹후크 등이 포함되며 이에 국한되지 않습니다. 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../monitoring-and-diagnostics/monitoring-action-groups.md)를 참조하세요.
+**경고 세부 정보** 아래에서 경고에 대한 이름과 설명을 입력합니다. **심각도**를 **정보(심각도 2)**, **경고(심각도 1)** 또는 **위험(심각도 0)** 으로 설정합니다.
 
 **작업 그룹 이름** 상자에 경고의 이름 및 약식 이름을 입력합니다. 약식 이름은 이 그룹을 사용하여 알림을 보내는 경우 전체 작업 그룹 이름 대신 사용됩니다.
 

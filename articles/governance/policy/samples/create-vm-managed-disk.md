@@ -1,5 +1,5 @@
 ---
-title: Azure Policy 샘플 ‑ 관리 디스크를 사용하지 않는 VM 감사
+title: 샘플 ‑ 관리 디스크를 사용하지 않는 VM 감사
 description: 이 json 샘플은 관리 디스크를 사용하지 않는 가상 머신을 만들 때 감사합니다.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 98e0b2cc79d7e2ca8d5308127a63c55c15a4c5bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1f704ed363dfd34bbe3acf134bbf1392f3101f9c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995417"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310868"
 ---
 # <a name="audit-when-vm-does-not-use-managed-disk"></a>VM이 관리 디스크를 사용하지 않을 경우 감사
 

@@ -1,19 +1,20 @@
 ---
-title: Azure Time Series Insights 환경 만들기
+title: Azure Time Series Insights 환경 만들기 | Microsoft Docs
 description: 시뮬레이션된 디바이스의 데이터로 채워진 Time Series Insights 환경을 만드는 방법에 대해 알아봅니다.
 services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 46fecf6f1b2826f0e23b7b6c4f4511ce9a662d1c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 1a5f9901dfb3b08a068d1051b7ea434f1d5d5412
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365692"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278494"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>자습서: Azure Time Series Insights 환경 만들기
 
@@ -26,9 +27,9 @@ ms.locfileid: "46365692"
 > * TSI 환경으로 데이터를 스트리밍하도록 디바이스 시뮬레이션 실행
 > * 시뮬레이션된 원격 분석 데이터 확인
 
-## <a name="video"></a>비디오: 
+## <a name="video"></a>비디오
 
-### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insightsbr"></a>이 비디오에서는 Azure IoT 솔루션 가속기를 사용하여 Time Series Insights를 시작하는 데 사용할 수 있는 데이터를 생성하는 방법을 보여 줍니다.</br>
+이 비디오에서는 Azure IoT 솔루션 가속기를 사용하여 Time Series Insights를 시작하는 데 사용할 수 있는 데이터를 생성하는 방법을 보여 줍니다.
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
@@ -83,7 +84,7 @@ TSI 환경에서 디바이스 데이터가 수집되어 저장됩니다. TSI 환
 
    ![디바이스 시뮬레이션 가속기 실행](media/tutorial-create-populate-tsi-environment/sa-main.png)
 
-2. **장치 시뮬레이션 솔루션 만들기** 페이지에서 필수 매개 변수를 입력합니다.
+2. **디바이스 시뮬레이션 솔루션 만들기** 페이지에서 필수 매개 변수를 입력합니다.
 
    매개 변수|설명
    ---|---
@@ -105,7 +106,7 @@ TSI 환경에서 디바이스 데이터가 수집되어 저장됩니다. TSI 환
 
 4. 이제 Azure Portal로 돌아가 구독에서 새로 만든 리소스를 검사합니다. 포털 **리소스 그룹** 페이지에서 마지막 단계에 제공된 **솔루션 이름**을 사용하여 새 리소스 그룹이 만들어진 것을 확인할 수 있습니다. 또한 모든 리소스가 디바이스 시뮬레이션 솔루션을 지원하도록 생성된 것도 확인할 수 있습니다.
 
-   [![장치 시뮬레이션 솔루션 리소스](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
+   [![디바이스 시뮬레이션 솔루션 리소스](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
 
 ## <a name="connect-the-tsi-environment-to-the-iot-hub"></a>TSI 환경을 IoT Hub에 연결 
 
@@ -123,13 +124,13 @@ IoT Hub는 다른 행위자와 기능을 공유할 수 있는 다양한 엔드�
 
 1. Azure Portal에서 디바이스 시뮬레이션 솔루션에 대해 만든 리소스 그룹의 **개요** 페이지로 이동하고 IoT Hub 리소스를 선택합니다.
 
-   [![장치 시뮬레이션 솔루션 리소스 그룹](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png#lightbox)
+   [![디바이스 시뮬레이션 솔루션 리소스 그룹](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-view-rg.png#lightbox)
 
    나중에 참조할 수 있으므로 해당 리소스에 대해 생성된 IoT Hub 리소스의 **이름**도 기록해 두세요.
 
 2. 아래로 스크롤하고 **엔드포인트** 페이지를 선택한 다음, **이벤트** 엔드포인트를 선택합니다. 엔드포인트 **속성** 페이지에서 “$Default” 소비자 그룹 아래 엔드포인트에 대한 고유한 이름을 입력한 다음, **저장**을 클릭합니다.
 
-   [![장치 시뮬레이션 솔루션 IoT Hub 엔드포인트](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png#lightbox)
+   [![디바이스 시뮬레이션 솔루션 IoT Hub 엔드포인트](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png)](media/tutorial-create-populate-tsi-environment/ap-add-iot-hub-consumer-group-create.png#lightbox)
 
 ### <a name="tsi-environment-configuration-define-an-event-source"></a>TSI 환경 구성: 이벤트 원본 정의
 
@@ -165,7 +166,7 @@ IoT Hub는 다른 행위자와 기능을 공유할 수 있는 다양한 엔드�
 
 이제 모든 구성 작업이 완료되었으므로 TSI 환경을 시뮬레이션된 디바이스의 샘플 데이터로 채우면 됩니다.
 
-[장치 시뮬레이션 만들기 섹션](#create-a-device-simulation)에서 살펴보았듯이 여러 Azure 리소스가 솔루션을 지원하기 위해 가속기에 의해 만들어졌습니다. 앞에서 설명한 IoT Hub와 함께, 시뮬레이션된 디바이스 원격 분석을 만들고 전송하도록 Azure App Service 웹 응용 프로그램이 생성되었습니다.
+[디바이스 시뮬레이션 만들기 섹션](#create-a-device-simulation)에서 살펴보았듯이 여러 Azure 리소스가 솔루션을 지원하기 위해 가속기에 의해 만들어졌습니다. 앞에서 설명한 IoT Hub와 함께, 시뮬레이션된 디바이스 원격 분석을 만들고 전송하도록 Azure App Service 웹 응용 프로그램이 생성되었습니다.
 
 1. [솔루션 가속기 대시보드](https://www.azureiotsolutions.com/Accelerators#dashboard)로 돌아갑니다. 필요한 경우 이 자습서에서 사용한 것과 동일한 Azure 계정을 사용하여 다시 로그인합니다. 이제 “디바이스 시뮬레이션” 솔루션 아래 **실행** 단추를 클릭할 수 있습니다.
 
@@ -180,8 +181,8 @@ IoT Hub는 다른 행위자와 기능을 공유할 수 있는 다양한 엔드�
    매개 변수|설명
    ---|---
    **대상 IoT Hub** | [사전 프로비전된 IoT Hub 사용]을 선택합니다.
-   **장치 모델** | [냉각기]를 선택합니다.
-   **장치 수**  | **양**에 1000을 입력합니다.
+   **디바이스 모델** | [냉각기]를 선택합니다.
+   **디바이스 수**  | **양**에 1000을 입력합니다.
    **원격 분석 빈도** | 10초를 입력합니다.
    **시뮬레이션 기간** | **종료:** 를 선택하고 5분을 입력합니다.
 
@@ -224,7 +225,7 @@ IoT Hub는 다른 행위자와 기능을 공유할 수 있는 다양한 엔드�
 Azure Portal의 왼쪽 메뉴에서:
 
 1. **리소스 그룹** 아이콘을 클릭한 다음, TSI 환경용으로 만든 리소스 그룹을 선택합니다. 페이지 맨 위에서 **리소스 그룹 삭제**를 클릭하고, 리소스 그룹의 이름을 입력한 다음 **삭제**를 클릭합니다. 
-2. **리소스 그룹** 아이콘을 클릭한 다음, 장치 시뮬레이션 솔루션 가속기에서 만든 리소스 그룹을 선택합니다. 페이지 맨 위에서 **리소스 그룹 삭제**를 클릭하고, 리소스 그룹의 이름을 입력한 다음, **삭제**를 클릭합니다. 
+2. **리소스 그룹** 아이콘을 클릭한 다음, 디바이스 시뮬레이션 솔루션 가속기에서 만든 리소스 그룹을 선택합니다. 페이지 맨 위에서 **리소스 그룹 삭제**를 클릭하고, 리소스 그룹의 이름을 입력한 다음, **삭제**를 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

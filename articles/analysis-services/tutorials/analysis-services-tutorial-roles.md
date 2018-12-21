@@ -1,18 +1,19 @@
 ---
-title: 자습서 - Azure Analysis Services 서버 관리자 및 사용자 역할 구성 자습서 단원 | Microsoft Docs
+title: 자습서 - Azure Analysis Services 관리자 및 사용자 역할 구성 | Microsoft Docs
+description: Azure Analysis Services 역할을 구성하는 방법을 알아봅니다.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: a1e6e04c4019086d56cc0eb25176a507e514c477
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929232"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000639"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>자습서: 서버 관리자 및 사용자 역할 구성
 
@@ -35,7 +36,7 @@ Azure Analysis Services의 사용자 보안에 대한 자세한 내용은 [인�
 - 서버에 [adventureworks 샘플 모델을 추가](../analysis-services-create-sample-model.md)합니다.
 - [최신 버전의 SSMS(SQL Server Management Studio)를 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)합니다.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [포털](https://portal.azure.com/)에 로그인합니다.
 
@@ -143,5 +144,5 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 이 자습서에서는 Azure AS 서버에 연결하고 SSMS에서 adventureworks 샘플 모델 데이터베이스 및 속성을 탐색하는 방법을 알아보았습니다. 또한 SSMS 및 TMSL 스크립트를 사용하여 기존 또는 새 역할에 사용자 또는 그룹을 추가하는 방법도 알아보았습니다. 이제 서버 및 샘플 모델 데이터베이스에 대해 구성된 사용자 권한이 있으므로 Power BI와 같은 클라이언트 응용 프로그램을 사용하여 사용자와 다른 사용자가 연결할 수 있습니다. 자세한 내용은 다음 자습서로 계속 진행하세요. 
 
 > [!div class="nextstepaction"]
-> [자습서: Power BI Desktop으로 연결](analysis-services-tutorial-pbid.md)
+> [자습서: Power BI Desktop을 사용하여 연결](analysis-services-tutorial-pbid.md)
 

@@ -12,16 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/15/2016
+ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 7458ad6e0a864d742f74ce743ce3179594113c00
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 549194ce1dcab5cd449c60c934421b3bea154d6a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26127780"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015690"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API Management에서 캐싱을 추가하여 성능 향상
+
 응답 캐싱을 위해 API Management의 작업을 구성할 수 있습니다. 응답 캐싱은 그다지 사용되지 않는 데이터에 대한 API 대기 시간, 대역폭 사용량 및 웹 서비스 부하를 상당히 줄일 수 있습니다.
  
 캐싱에 대한 자세한 내용은 [API Management 캐싱 정책](api-management-caching-policies.md)과 [Azure API Management의 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
@@ -33,6 +34,11 @@ ms.locfileid: "26127780"
 > [!div class="checklist"]
 > * API에 대한 응답 캐싱 추가
 > * 실행 중인 캐싱 확인
+
+## <a name="availability"></a>가용성
+
+> [!NOTE]
+> 내부 캐시는 Azure API Management의 **소비** 계층에서 사용할 수 없습니다. 그 대신 [외부 Azure Cache for Redis를 사용](api-management-howto-cache-external.md)할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -51,11 +57,11 @@ ms.locfileid: "26127780"
 4. API 목록에서 **Demo Conference API**를 선택합니다.
 5. **GetSpeakers**를 선택합니다.
 6. 화면 맨 위에서 **디자인** 탭을 선택합니다.
-7. **인바운드 처리** 창에서 삼각형(연필 옆에 있는)을 클릭합니다.
+7. **인바운드 처리** 섹션에서 **</>** 아이콘을 클릭합니다.
 
-    ![코드 편집기](media/api-management-howto-cache/code-editor.png)
-8. **코드 편집기**를 선택합니다.
-9. **inbound** 요소에 다음 정책을 추가합니다.
+    ![코드 편집기](media/api-management-howto-cache/code-editor.png) 
+
+8. **inbound** 요소에 다음 정책을 추가합니다.
 
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
@@ -63,11 +69,14 @@ ms.locfileid: "26127780"
             <vary-by-header>Authorization</vary-by-header>
         </cache-lookup>
 
-10. **outbound** 요소에 다음 정책을 추가합니다.
+9. **outbound** 요소에 다음 정책을 추가합니다.
 
         <cache-store caching-mode="cache-on" duration="20" />
 
     **기간** 은 캐싱된 응답의 만료 간격을 지정합니다. 이 예제에서는 간격이 **20**초입니다.
+
+> [!TIP]
+> [Azure API Management에서 Azure Cache for Redis 사용](api-management-howto-cache-external.md)에서 설명한 대로 외부 캐시를 사용하는 경우 캐싱 정책의 `cache-preference` 특성을 지정할 수 있습니다. 자세한 내용은 [API Management 캐싱 정책](api-management-caching-policies.md)을 참조하세요.
 
 ## <a name="test-operation"> </a>작업 호출 및 캐싱 테스트
 실행 중인 캐싱을 확인하려면 개발자 포털에서 작업을 호출합니다.
@@ -82,6 +91,7 @@ ms.locfileid: "26127780"
 ## <a name="next-steps"> </a>다음 단계
 * 캐싱 정책에 대한 자세한 내용은 [API Management 정책 참조][API Management policy reference]의 [캐싱 정책][Caching policies]을 참조하세요.
 * 정책 식을 사용하여 키별 캐싱 항목에 대한 자세한 내용은 [Azure API Management에서 사용자 지정 캐싱](api-management-sample-cache-by-key.md)을 참조하세요.
+* 외부 Azure Cache for Redis를 사용하는 방법에 대한 자세한 내용은 [Azure API Management에서 외부 Azure Cache for Redis 사용](api-management-howto-cache-external.md)을 참조하세요.
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

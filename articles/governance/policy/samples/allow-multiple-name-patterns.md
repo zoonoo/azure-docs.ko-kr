@@ -1,5 +1,5 @@
 ---
-title: Azure Policy 샘플 - 여러 이름 패턴
+title: 샘플 - 여러 이름 패턴
 description: 이 샘플 정책에서는 리소스가 제공된 이름 패턴 중 하나와 일치해야 합니다.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: a2dad5529a8c13acb5b929e3113bad658b59ba6f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1cee71394c1fa4143dbbcfaa780c8f2d63a24bbd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975958"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309657"
 ---
 # <a name="allow-multiple-name-patterns"></a>여러 이름 패턴 허용
 

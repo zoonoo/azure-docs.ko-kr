@@ -1,21 +1,21 @@
 ---
-title: 'Azure Container Instances 자습서 - 앱 준비 '
-description: Azure Container Instances 자습서 1/3부 - Azure Container Instances에 배포할 앱 준비
+title: 자습서 - Azure Container Instances에 사용할 컨테이너 이미지 준비
+description: Azure Container Instances 자습서 1/3부 - 컨테이너 이미지에서 Azure Container Instances에 배포할 앱 준비
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: dfe494eba64f546616e4e6cc9898f9d63d81eaa2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 029b4f2d0f0f88f56ca1f3e282d8c80e76f4d5c7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854782"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186415"
 ---
-# <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>자습서: Azure Container Instances에 배포를 위한 컨테이너 만들기
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기
 
 Azure Container Instances를 통해 어떠한 가상 머신을 프로비전하지 않고 또 더 높은 수준의 서비스를 채택하지 않고도 Azure로 Docker 컨테이너를 배포할 수 있습니다. 이 자습서에서는 Azure Container Instances를 사용하여 실행할 수 있는 컨테이너 이미지에 작은 Node.js 웹 응용 프로그램을 패키지합니다.
 

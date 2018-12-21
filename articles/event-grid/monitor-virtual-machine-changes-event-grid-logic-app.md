@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957930"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106076"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure Event Grid와 Logic Apps를 사용하여 가상 머신의 변경 사항 모니터링
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>자습서: Azure Event Grid와 Logic Apps를 사용하여 가상 머신의 변경 사항 모니터링
 
 Azure 리소스 또는 타사 리소스에서 특정 이벤트가 발생하는 경우 자동화된 [논리 앱 워크플로](../logic-apps/logic-apps-overview.md)를 시작할 수 있습니다. 이러한 리소스는 해당 이벤트를 [Azure Event Grid](../event-grid/overview.md)에 게시할 수 있습니다. 이에 따라 Event Grid에서는 큐, 웹후크 또는 [이벤트 허브](../event-hubs/event-hubs-what-is-event-hubs.md)를 엔드포인트로 가지고 있는 구독자에게 해당 이벤트를 보냅니다. 구독자로서 논리 앱은 코드를 작성하지 않고 자동화된 워크플로를 실행하여 작업을 수행하기 전에 Event Grid에서 이러한 이벤트를 기다릴 수 있습니다.
 
@@ -81,9 +81,9 @@ Azure 리소스 또는 타사 리소스에서 특정 이벤트가 발생하는 �
    이제 Logic Apps 디자이너에 논리 앱을 시작하는 데 사용할 수 있는 [*커넥터*](../connectors/apis-list.md) 및 [*트리거*](../logic-apps/logic-apps-overview.md#logic-app-concepts)와 함께 작업을 수행하기 위해 트리거 후에 추가할 수 있는 작업이 표시됩니다. 트리거는 논리 앱 인스턴스를 만들고 논리 앱 워크플로를 시작하는 이벤트입니다. 
    논리 앱에는 첫 번째 항목으로 트리거가 필요합니다.
 
-6. 검색 상자에 필터로 "event grid"를 입력합니다. **Azure Event Grid - On a resource event**(Azure Event Grid - 리소스 이벤트 시) 트리거를 선택합니다.
+6. 검색 상자에 필터로 "event grid"를 입력합니다. 다음 트리거를 선택합니다. **Azure Event Grid - On a resource event**
 
-   !["Azure Event Grid - On a resource event"(Azure Event Grid - 리소스 이벤트 시) 트리거 선택](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![다음 트리거를 선택합니다. "Azure Event Grid - On a resource event"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
 7. 메시지가 표시되면 Azure 자격 증명을 사용하여 Azure Event Grid에 로그인합니다.
 
@@ -183,7 +183,7 @@ Azure 리소스 또는 타사 리소스에서 특정 이벤트가 발생하는 �
    | ------- | --------------- | ----------- | 
    | **To** | *{recipient-email-address}* |수신자의 이메일 주소를 입력합니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다. | 
    | **제목** | 업데이트된 리소스: **제목**| 전자 메일의 제목에 콘텐츠를 입력합니다. 이 자습서의 경우 제안된 텍스트를 입력하고 이벤트의 **제목** 필드를 선택합니다. 여기에서 전자 메일 제목에는 업데이트된 리소스(가상 머신)에 대한 이름이 포함됩니다. | 
-   | **본문** | 리소스 그룹: **토픽** <p>이벤트 유형: **이벤트 유형**<p>이벤트 ID: **ID**<p>시간: **이벤트 시간** | 전자 메일의 본문에 콘텐츠를 입력합니다. 이 자습서의 경우 제안된 텍스트를 입력하고 이벤트의 **토픽**, **이벤트 유형**, **ID** 및 **이벤트 시간** 필드를 선택하여 업데이트에 대한 리소스 그룹 이름, 이벤트 유형, 이벤트 타임스탬프 및 이벤트 ID가 전자 메일에 포함되도록 합니다. <p>콘텐츠에 빈 줄을 추가하려면 Shift + Enter 키를 누릅니다. | 
+   | **본문** | 리소스 그룹: **항목** <p>이벤트 유형: **이벤트 유형**<p>이벤트 ID: **ID**<p>시간: **이벤트 시간** | 전자 메일의 본문에 콘텐츠를 입력합니다. 이 자습서의 경우 제안된 텍스트를 입력하고 이벤트의 **토픽**, **이벤트 유형**, **ID** 및 **이벤트 시간** 필드를 선택하여 업데이트에 대한 리소스 그룹 이름, 이벤트 유형, 이벤트 타임스탬프 및 이벤트 ID가 전자 메일에 포함되도록 합니다. <p>콘텐츠에 빈 줄을 추가하려면 Shift + Enter 키를 누릅니다. | 
    | | | 
 
    > [!NOTE] 

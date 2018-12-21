@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d6342d30c5f5e9ef80213664447c48a62494c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 40d16076a3d995ecccd06591278b330652d960d8
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521903"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189016"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 디바이스를 프로비전
 
@@ -40,26 +40,26 @@ ms.locfileid: "39521903"
     - TPM 칩 제조업체에서 얻은 각 TPM 칩 또는 시뮬레이션에 고유한 *인증 키*.  자세한 정보는 [TPM 인증 키 이해](https://technet.microsoft.com/library/cc770443.aspx)를 읽어보세요.
     - 네임스페이스/범위에서 디바이스를 고유하게 식별하는 데 사용되는 *등록 ID*입니다. 이 ID는 디바이스 ID와 같을 수도 있고 다를 수도 있습니다. ID는 모든 디바이스에 필수입니다. TPM 기반 디바이스의 경우 등록 ID는 TPM 인증 키의 SHA-256 해시와 같이 TPM 자체에서 파생될 수도 있습니다.
 
-    [![포털에서 TPM에 대한 등록 정보](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
+      [![포털에서 TPM에 대한 등록 정보](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - X.509 기반 디바이스의 경우 다음과 같은 항목이 필요합니다.
     - [X.509에 발급된 인증서](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) 칩 또는 시뮬레이션입니다. 형식은 *.pem* 또는 *.cer* 파일 중 하나입니다. 개별 등록은 X.509 시스템에 대한 장치별 *서명자 인증서*를, 등록 그룹의 경우 *루트 인증서*를 사용해야 합니다. 
 
-    [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
+      [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Device Provisioning Service에 디바이스를 등록하는 방법은 두 가지가 있습니다.
 
-- **등록 그룹** 특정 증명 메커니즘을 공유하는 장치의 그룹을 나타냅니다. 원하는 초기 구성을 공유하는 디바이스 수가 많은 경우 또는 디바이스가 모두 동일한 테넌트로 이동하는 경우 등록 그룹을 사용하는 것이 좋습니다. 등록 그룹의 Id 증명에 대한 자세한 내용은 [보안](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)을 참조하세요.
+- **등록 그룹** 특정 증명 메커니즘을 공유하는 디바이스의 그룹을 나타냅니다. 원하는 초기 구성을 공유하는 디바이스 수가 많은 경우 또는 디바이스가 모두 동일한 테넌트로 이동하는 경우 등록 그룹을 사용하는 것이 좋습니다. 등록 그룹의 Id 증명에 대한 자세한 내용은 [보안](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates)을 참조하세요.
 
     [![포털에 X.509 증명에 대한 그룹 등록 추가](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
-- **개별 등록** Device Provisioning Service에 등록할 수도 있는 단일 장치에 대한 항목을 나타냅니다. 개별 등록은 증명 메커니즘으로 x509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 고유한 초기 구성이 필요한 디바이스 및 증명 메커니즘으로 TPM 또는 가상 TPM을 통해 SAS 토큰만을 사용할 수 있는 디바이스의 경우 개별 등록을 사용하는 것이 좋습니다. 개별 등록은 지정된 원하는 IoT Hub 디바이스 ID가 있을 수 있습니다.
+- **개별 등록** Device Provisioning Service에 등록할 수도 있는 단일 디바이스에 대한 항목을 나타냅니다. 개별 등록은 증명 메커니즘으로 x509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 고유한 초기 구성이 필요한 디바이스 및 증명 메커니즘으로 TPM 또는 가상 TPM을 통해 SAS 토큰만을 사용할 수 있는 디바이스의 경우 개별 등록을 사용하는 것이 좋습니다. 개별 등록은 지정된 원하는 IoT Hub 디바이스 ID가 있을 수 있습니다.
 
 이제 디바이스의 증명 메커니즘에 따라 필요한 보안 아티팩트를 사용하여 디바이스를 Device Provisioning Service 인스턴스에 등록합니다. 
 
 1. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, Device Provisioning Service를 엽니다.
 
-2. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭 또는 **등록 그룹** 탭 중 하나를 장치 설정에 따라 탭합니다. 위쪽에 있는 **추가** 단추를 클릭합니다. **TPM** 또는 **X.509**를 ID 증명 *메커니즘*으로 선택하고, 이전에 설명된 대로 적절한 보안 아티팩트를 입력합니다. 새 **IoT Hub 디바이스 ID**를 입력할 수도 있습니다. 완료되면 **저장** 단추를 클릭합니다. 
+2. Device Provisioning Service 요약 블레이드에서 **등록 관리**를 선택합니다. **개별 등록** 탭 또는 **등록 그룹** 탭 중 하나를 디바이스 설정에 따라 탭합니다. 위쪽에 있는 **추가** 단추를 클릭합니다. **TPM** 또는 **X.509**를 ID 증명 *메커니즘*으로 선택하고, 이전에 설명된 대로 적절한 보안 아티팩트를 입력합니다. 새 **IoT Hub 디바이스 ID**를 입력할 수도 있습니다. 완료되면 **저장** 단추를 클릭합니다. 
 
 3. 디바이스를 성공적으로 등록하면 포털에 다음과 같은 화면이 표시됩니다.
 
@@ -89,7 +89,7 @@ TPM 및 X.509 증명을 사용하여 시뮬레이션된 디바이스 예제가 C
 
     ![포털에서 허브에 연결 성공](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-자세한 내용은 TPM 시뮬레이터 응용 프로그램 예제 [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c)을 참조하세요. 
+자세한 내용은 디바이스 클라이언트 프로비전 샘플 [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c)를 참조하세요. 이 샘플은 TPM, X.509 인증서 및 대칭 키를 사용하여 시뮬레이션된 디바이스를 프로비전하는 방법을 보여줍니다. 다시 [TPM](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device), [X.509](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-x509) 및 [대칭 키](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key) 증명 빠른 시작을 참조하여 샘플 사용 방법에 대한 단계별 지침을 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
@@ -102,4 +102,4 @@ TPM 및 X.509 증명을 사용하여 시뮬레이션된 디바이스 예제가 C
 부하가 분산된 허브 간 여러 디바이스를 프로비전하는 방법에 알아보려면 다음 자습서를 진행합니다. 
 
 > [!div class="nextstepaction"]
-> [부하가 분산된 IoT Hub 간 장치 프로비전](./tutorial-provision-multiple-hubs.md)
+> [부하가 분산된 IoT Hub 간 디바이스 프로비전](./tutorial-provision-multiple-hubs.md)

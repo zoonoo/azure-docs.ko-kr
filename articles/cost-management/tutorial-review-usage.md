@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7b9c9a600d105d4b7fbbeb4f52ee42b5eb2bcaaa
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275873"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093610"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -51,15 +51,15 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 
 다음은 예제 보고서입니다.
 
-![예제 보고서](./media/tutorial-review-usage/actual-cost01.png)
+![시간에 따른 실제 비용 보고서 예제](./media/tutorial-review-usage/actual-cost01.png)
 
 이 보고서는 지난 30일 동안의 모든 지출을 보여 줍니다. Azure 서비스에 대한 지출만 보려면 서비스 그룹을 적용한 다음 모든 Azure 서비스를 필터링합니다. 다음 이미지에서는 필터링된 서비스를 보여 줍니다.
 
-![필터링된 서비스](./media/tutorial-review-usage/actual-cost02.png)
+![필터링된 Azure 서비스를 보여주는 예제](./media/tutorial-review-usage/actual-cost02.png)
 
 이전 예제에서는 2018년 10월 29일부터 더 적은 비용이 소요되었습니다. 그러나 열이 너무 많으면 추세가 확실하게 나타나지 않을 수 있습니다. 보고서 보기를 꺾은선형 또는 영역형 차트로 변경하여 다른 보기로 표시된 데이터를 볼 수 있습니다. 다음 이미지에서는 추세를 더 명확하게 보여 줍니다.
 
-![보고서의 추세](./media/tutorial-review-usage/actual-cost03.png)
+![감소하는 Azure VM 비용 추세를 보여주는 예제](./media/tutorial-review-usage/actual-cost03.png)
 
 예제를 계속 진행하면, Azure VM 비용이 감소한 것을 볼 수 있습니다. 이 날짜에 다른 Azure 서비스 비용도 감소하기 시작했습니다. 그래서, 무엇이 그 지출 감소를 초래했습니까? 이 예제에서는 대규모 작업 프로젝트가 완료되어 여러 Azure 서비스의 사용량이 감소했습니다.
 
@@ -77,19 +77,19 @@ Cloudyn 포털에서 모든 사용량 및 비용을 검토합니다. Azure Porta
 
 포털 위쪽의 메뉴에서 **최적화 프로그램** > **크기 조정 최적화** > **비용 효율적 크기 조정 권장 사항**을 차례로 클릭합니다. 필요에 따라 필터를 적용하여 결과를 줄입니다. 다음은 예제 이미지입니다.
 
-![Azure VM](./media/tutorial-review-usage/sizing01.png)
+![Azure VM의 비용 효율적인 크기 조정 추천 보고서](./media/tutorial-review-usage/sizing01.png)
 
 이 예에서는 VM 인스턴스 유형을 변경하기 위한 권장 사항에 따라 $2,382를 절약할 수 있습니다. **세부 정보** 아래에서 첫 번째 권장 사항에 대한 더하기(+) 기호를 클릭합니다. 다음은 첫 번째 권장 사항에 대한 세부 정보입니다.
 
-![권장 사항 세부 정보](./media/tutorial-review-usage/sizing02.png)
+![추천 세부 정보를 보여주는 예제](./media/tutorial-review-usage/sizing02.png)
 
 **후보 목록** 옆에 있는 더하기 기호를 클릭하여 VM 인스턴스 ID를 확인합니다.
 
-![후보 목록](./media/tutorial-review-usage/sizing03.png)
+![크기를 조정할 VM 후보 목록을 보여주는 예제](./media/tutorial-review-usage/sizing03.png)
 
 사용 비효율성을 검색하는 방법에 대한 자습서 비디오를 시청하려면 [Cloudyn에서 VM 크기 최적화](https://youtu.be/1xaZBNmV704)를 참조하세요.
 
-Azure Cost Management는 Azure 서비스에 대한 비용 절감 권장 사항도 제공합니다. 자세한 내용은 [자습서: 권장 사항에서 비용 최적화](tutorial-acm-opt-recommendations.md)를 참조하세요.
+Azure Cost Management는 Azure 서비스에 대한 비용 절감 권장 사항도 제공합니다. 자세한 내용은 [자습서: 추천에서 비용 최적화](tutorial-acm-opt-recommendations.md)를 참조하세요.
 
 ## <a name="create-alerts-for-unusual-spending"></a>비정상적 지출에 대한 경고 만들기
 
@@ -99,7 +99,7 @@ Azure Cost Management는 Azure 서비스에 대한 비용 절감 권장 사항�
 
 Save or Schedule this report(이 보고서 저장 또는 예약) 상자에서 **일정 예약** 탭을 사용하여 원하는 빈도에 따라 자신에게 보고서 이메일을 보냅니다. **이메일로 전송**을 선택해야 합니다. 사용한 모든 태그, 그룹 및 필터링이 전자 메일로 보내는 보고서에 포함됩니다. **임계값** 탭을 클릭하고 **실제 비용 대 임계값**을 선택합니다. 총 예산이 $20,000이고 비용이 절반 정도에 도달할 때 알림을 원하는 경우 $10,000에는 **빨간색 경고**, $9,000에는 **노란색 경고**를 만듭니다. 입력하는 값에 쉼표를 포함하지 마십시오. 그런 다음 연속되는 경고의 횟수를 선택합니다. 지정한 총 경고 수를 받으면 추가 경고가 전송되지 않습니다. 예약된 보고서를 저장합니다.
 
-![예제 보고서](./media/tutorial-review-usage/schedule-alert01.png)
+![지출 임계값에 따라 빨간색 및 노란색 경고를 보여주는 예제](./media/tutorial-review-usage/schedule-alert01.png)
 
 또한 비용 백분율 대 예산 임계값 메트릭을 선택하여 경고를 만들 수도 있습니다. 이 메트릭을 사용하면 통화 값 대신 예산 백분율을 사용할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Policy 샘플 - 일치 패턴 적용
+title: 샘플 - 일치 패턴 적용
 description: 이 샘플 정책에서는 리소스가 명명 규칙에 대한 일치 패턴을 충족해야 합니다.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: da2b4621604a29d9104669e4f0a0c40cc44ca319
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e0b202f8fd348feaa87b9a9409180e22b0781f4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999565"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311969"
 ---
 # <a name="enforce-match-pattern-for-naming-conventions"></a>명명 규칙에 대한 일치 패턴 적용
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy 샘플](index.md)에서 더 많은 샘플을 검토합니다.
+- [Azure Policy 샘플](index.md)에서 더 많은 샘플 검토

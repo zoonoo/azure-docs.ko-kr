@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 1ce74afd8ee2266439a591730686b4f5277e1b03
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603197"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322008"
 ---
-# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API로의 액세스 권한 부여
+# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API에 대한 액세스 권한 부여
 
 이 자습서에서는 WPF(Windows Presentation Foundation)에서 Azure AD(Azure Active Directory) B2C로 보호되는 Node.js Web API 리소스를 호출하는 방법을 보여줍니다.
 
@@ -125,7 +125,7 @@ Node.js Web API 샘플에서는 Passport.js 라이브러리를 사용하여 Azur
 
 ### <a name="configure-the-web-api"></a>Web API 구성
 
-1. Node.js Web API 샘플에서 `index.html` 파일을 엽니다.
+1. Node.js Web API 샘플에서 `index.js` 파일을 엽니다.
 2. Azure AD B2C 테넌트 등록 정보를 사용하여 샘플을 구성합니다. 다음 코드 줄을 변경합니다.
 
 ```nodejs

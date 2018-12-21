@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 783785a73b3a6a99126b07f3759be540fe3098d8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 616b3d965993eb3578a8496069f59c9cc88301d8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959242"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971346"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>자습서: DMS를 사용하여 오프라인에서 SQL Server를 Azure SQL Database로 마이그레이션
 Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)로 데이터베이스를 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2016 이상의 온-프레미스 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database로 마이그레이션합니다.
@@ -69,7 +69,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
     평가가 완료되면 다음 그래픽에 표시된 대로 결과가 표시됩니다.
 
-    ![데이터 마이그레이션 평가](media\tutorial-sql-server-to-azure-sql\dma-assessments.png)
+    ![데이터 마이그레이션 평가](media/tutorial-sql-server-to-azure-sql/dma-assessments.png)
 
     Azure SQL Database의 경우 평가를 통해 기능 패리티 문제와 마이그레이션 차단 문제를 식별합니다.
 
@@ -92,52 +92,52 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
     이전 단계를 수행한 후 다음 그래픽에 표시된 대로 Data Migration Assistant 인터페이스가 표시됩니다.
     
-    ![Data Migration Assistant 프로젝트 만들기](media\tutorial-sql-server-to-azure-sql\dma-create-project.png)
+    ![Data Migration Assistant 프로젝트 만들기](media/tutorial-sql-server-to-azure-sql/dma-create-project.png)
 
 4.  **만들기**를 선택하여 프로젝트를 만듭니다.
 5.  Data Migration Assistant에서 SQL Server에 대한 원본 연결 세부 정보를 지정하고, **연결**을 선택하고 나서, **AdventureWorks2012** 데이터베이스를 선택합니다.
 
-    ![Data Migration Assistant 원본 연결 세부 정보](media\tutorial-sql-server-to-azure-sql\dma-source-connect.png)
+    ![Data Migration Assistant 원본 연결 세부 정보](media/tutorial-sql-server-to-azure-sql/dma-source-connect.png)
 
 6.  **대상 서버에 연결**에서 **다음**을 선택하고, Azure SQL Database에 대한 대상 연결 세부 정보를 지정하고, **연결**을 선택하고 나서, Azure SQL Database에서 미리 프로비전된 **AdventureWorksAzure** 데이터베이스를 선택합니다.
 
-    ![Data Migration Assistant 대상 연결 세부 정보](media\tutorial-sql-server-to-azure-sql\dma-target-connect.png)
+    ![Data Migration Assistant 대상 연결 세부 정보](media/tutorial-sql-server-to-azure-sql/dma-target-connect.png)
 
 7.  **다음**을 선택하여 **개체 선택** 화면으로 이동합니다. 여기에서 Azure SQL Database에 배포해야 하는 **AdventureWorks2012** 데이터베이스의 스키마 개체를 지정할 수 있습니다.
 
     기본적으로 모든 개체가 선택됩니다.
 
-    ![SQL 스크립트 생성](media\tutorial-sql-server-to-azure-sql\dma-assessment-source.png)
+    ![SQL 스크립트 생성](media/tutorial-sql-server-to-azure-sql/dma-assessment-source.png)
 
 8.  **SQL 스크립트 생성**을 선택하여 SQL 스크립트를 만들고 스크립트에 오류가 있는지 검토합니다.
 
-    ![스키마 스크립트](media\tutorial-sql-server-to-azure-sql\dma-schema-script.png)
+    ![스키마 스크립트](media/tutorial-sql-server-to-azure-sql/dma-schema-script.png)
 
 9.  **스키마 배포**를 선택하여 Azure SQL Database에 스키마를 배포하고, 스키마가 배포된 후 대상 서버에 이상이 있는지 확인합니다.
 
-    ![스키마 배포](media\tutorial-sql-server-to-azure-sql\dma-schema-deploy.png)
+    ![스키마 배포](media/tutorial-sql-server-to-azure-sql/dma-schema-deploy.png)
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 1. Azure Portal에 로그인하고 **모든 서비스**를 선택한 후 **구독**을 선택합니다.
  
-   ![포털 구독 표시](media\tutorial-sql-server-to-azure-sql\portal-select-subscription1.png)
+   ![포털 구독 표시](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
        
 2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음 **리소스 공급자**를 선택합니다.
  
-    ![리소스 공급자 보기](media\tutorial-sql-server-to-azure-sql\portal-select-resource-provider.png)
+    ![리소스 공급자 보기](media/tutorial-sql-server-to-azure-sql/portal-select-resource-provider.png)
     
 3.  마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
  
-    ![리소스 공급자 등록](media\tutorial-sql-server-to-azure-sql\portal-register-resource-provider.png)    
+    ![리소스 공급자 등록](media/tutorial-sql-server-to-azure-sql/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>인스턴스 만들기
 1.  Azure Portal에서 **+ 리소스 만들기**를 선택하고, Azure Database Migration Service를 검색한 다음, 드롭다운 목록에서 **Azure Database Migration Service**를 선택합니다.
 
-    ![Azure Marketplace](media\tutorial-sql-server-to-azure-sql\portal-marketplace.png)
+    ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql/portal-marketplace.png)
 
 2.  **Azure Database Migration Service** 화면에서 **만들기**를 선택합니다.
  
-    ![Azure Database Migration Service 인스턴스 만들기](media\tutorial-sql-server-to-azure-sql\dms-create1.png)
+    ![Azure Database Migration Service 인스턴스 만들기](media/tutorial-sql-server-to-azure-sql/dms-create1.png)
   
 3.  **Migration Service 만들기** 화면에서 서비스, 구독, 신규 또는 기존 리소스 그룹의 이름을 지정합니다.
 
@@ -155,7 +155,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
     적합한 Azure Database Migration Service 계층을 선택하는 데 도움이 필요할 경우 [여기](https://go.microsoft.com/fwlink/?linkid=861067)에 있는 게시물에서 권장 사항을 참조하세요.  
 
-     ![Azure Database Migration Service 인스턴스 설정 구성](media\tutorial-sql-server-to-azure-sql\dms-settings2.png)
+     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-sql-server-to-azure-sql/dms-settings2.png)
 
 7.  **만들기**를 선택하여 서비스를 만듭니다.
 
@@ -164,16 +164,16 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 1. Azure Portal에서 **모든 서비스**를 선택하고, Azure Database Migration Service를 검색하고 나서, **Azure Database Migration Services**를 선택합니다.
  
-      ![Azure Database Migration Service의 모든 인스턴스 찾기](media\tutorial-sql-server-to-azure-sql\dms-search.png)
+      ![Azure Database Migration Service의 모든 인스턴스 찾기](media/tutorial-sql-server-to-azure-sql/dms-search.png)
 
 2. **Azure Database Migration Services** 화면에서 방금 만든 Azure Database Migration Service 인스턴스의 이름을 검색하고 인스턴스를 선택합니다.
  
-     ![Azure Database Migration Service 인스턴스 찾기](media\tutorial-sql-server-to-azure-sql\dms-instance-search.png)
+     ![Azure Database Migration Service 인스턴스 찾기](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
  
 3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
 4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 형식** 텍스트 상자에서 **SQL Server**를 선택하고, **대상 서버 형식** 텍스트 상자에서 **Azure SQL Database**를 선택한 다음, **작업 형식 선택**에서 **오프라인 데이터 마이그레이션**을 선택합니다. 
 
-    ![Database Migration Service 프로젝트 만들기](media\tutorial-sql-server-to-azure-sql\dms-create-project2.png)
+    ![Database Migration Service 프로젝트 만들기](media/tutorial-sql-server-to-azure-sql/dms-create-project2.png)
 
 5.  **작업 만들기 및 실행**을 선택하여 프로젝트를 만들고 마이그레이션 작업을 실행합니다.
 
@@ -189,46 +189,46 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
     > [!CAUTION]
     > 자체 서명 인증서를 사용하여 암호화된 SSL 연결은 강력한 보안을 제공하지 않습니다. 메시지 가로채기(man-in-the-middle) 공격을 받기 쉽습니다. 프로덕션 환경이나 인터넷에 연결된 서버에서 자체 서명 인증서를 사용하는 SSL을 신뢰해서는 안 됩니다.
 
-   ![원본 세부 정보](media\tutorial-sql-server-to-azure-sql\dms-source-details2.png)
+   ![원본 세부 정보](media/tutorial-sql-server-to-azure-sql/dms-source-details2.png)
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 1. **저장**을 선택한 다음, **마이그레이션 대상 세부 정보** 화면에서 대상 Azure SQL Database Server에 대한 연결 세부 정보를 지정합니다. 대상은 Data Migration Assistant를 사용하여 **AdventureWorks2012** 스키마가 배포된 미리 프로비전된 Azure SQL Database입니다.
 
-    ![대상 선택](media\tutorial-sql-server-to-azure-sql\dms-select-target2.png)
+    ![대상 선택](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
 
 2. **저장**을 선택한 다음, **대상 데이터베이스에 매핑** 화면에서 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
 
     대상 데이터베이스의 이름이 원본 데이터베이스와 동일하면 Azure Database Migration Service는 기본적으로 대상 데이터베이스를 선택합니다.
 
-    ![대상 데이터베이스에 매핑](media\tutorial-sql-server-to-azure-sql\dms-map-targets-activity2.png)
+    ![대상 데이터베이스에 매핑](media/tutorial-sql-server-to-azure-sql/dms-map-targets-activity2.png)
 
 3. **저장**을 선택하고, **테이블 선택** 화면에서 테이블 목록을 확장하한 다음, 영향받는 필드 목록을 검토합니다.
 
     Azure Database Migration Service는 대상 Azure SQL Database 인스턴스에 있는 모든 빈 원본 테이블을 자동 선택합니다. 이미 데이터를 포함하는 테이블을 다시 마이그레이션하려면 이 블레이드에서 테이블을 명시적으로 선택해야 합니다.
 
-    ![테이블 선택](media\tutorial-sql-server-to-azure-sql\dms-configure-setting-activity2.png)
+    ![테이블 선택](media/tutorial-sql-server-to-azure-sql/dms-configure-setting-activity2.png)
 
 4.  **저장**을 선택하고 **마이그레이션 요약** 화면의 **활동 이름** 텍스트 상자에서 마이그레이션 활동의 이름을 지정합니다.
 
 5. **유효성 검사 옵션** 섹션을 확장하여 **유효성 검사 옵션 선택** 화면을 표시한 다음, 마이그레이션된 데이터베이스의 **스키마 비교**, **데이터 일관성** 및 **쿼리 정확도**를 검사할지 여부를 지정합니다.
     
-    ![유효성 검사 옵션 선택](media\tutorial-sql-server-to-azure-sql\dms-configuration2.png)
+    ![유효성 검사 옵션 선택](media/tutorial-sql-server-to-azure-sql/dms-configuration2.png)
 
 6.  **저장**을 선택하고 요약을 검토하여 원본 및 대상 세부 정보가 이전에 지정한 것과 일치하는지 확인합니다.
 
-    ![마이그레이션 요약](media\tutorial-sql-server-to-azure-sql\dms-run-migration2.png)
+    ![마이그레이션 요약](media/tutorial-sql-server-to-azure-sql/dms-run-migration2.png)
 
 ## <a name="run-the-migration"></a>마이그레이션 실행
 - **마이그레이션 실행**을 선택합니다.
 
     마이그레이션 작업 창이 나타나고, 작업 **상태**는 **보류 중**입니다.
 
-    ![활동 상태](media\tutorial-sql-server-to-azure-sql\dms-activity-status1.png)
+    ![활동 상태](media/tutorial-sql-server-to-azure-sql/dms-activity-status1.png)
 
 ## <a name="monitor-the-migration"></a>마이그레이션 모니터링
 1. 마이그레이션 작업 화면에서 **새로 고침**을 선택하여 마이그레이션 **상태**가 **완료됨**으로 표시될 때까지 디스플레이를 업데이트합니다.
 
-    ![작업 상태 완료됨](media\tutorial-sql-server-to-azure-sql\dms-completed-activity1.png)
+    ![작업 상태 완료됨](media/tutorial-sql-server-to-azure-sql/dms-completed-activity1.png)
 
 2. 마이그레이션이 완료되면 **보고서 다운로드**를 선택하여 마이그레이션 프로세스와 관련된 세부 정보가 나열된 보고서를 받습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 0e9203f5b4e2a9043e242b804c82017cf6fc3ee1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 55a1d16ce1617ecf7bc28c7c62de8557ceeea311
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010806"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412914"
 ---
 # <a name="set-up-a-capacity-pool"></a>용량 풀 설정
 용량 풀 설정을 통해 볼륨을 만들 수 있습니다.  
@@ -55,6 +55,6 @@ NetApp 계정을 만들어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계 
 
-1. [Azure NetApp Files에 대한 볼륨 만들기](azure-netapp-files-create-volumes.md)
-2. [볼륨에 대한 내보내기 정책 구성(선택 사항)](azure-netapp-files-configure-export-policy.md)
+[Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)
+
 

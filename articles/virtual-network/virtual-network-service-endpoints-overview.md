@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 0a582dc3acf17a10bd143988da7dd12627650dff
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8150774a630e6888dcd3bb5a4d219cfbf2c2c477
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834870"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310167"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -32,17 +32,18 @@ VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가�
 
 - **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: 모든 Azure 지역에서 일반 공급됩니다.
 - **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 지역에서 일반 공급됩니다.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 지역에서 일반 공급됩니다.
 - **[Azure Database for PostgreSQL 서버](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 일반적으로 데이터베이스 서비스를 사용할 수 있는 Azure 지역에 제공됩니다.
 - **[Azure Database for MySQL 서버](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 일반적으로 데이터베이스 서비스를 사용할 수 있는 Azure 지역에 제공됩니다.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
 - **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다.
 
 **미리 보기**
 
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 미리 보기 상태로 제공됩니다.
-- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 현재 미리 보기로 제공됩니다.
-- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 현재 미리 보기 상태로 제공됩니다.
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 현재 미리 보기로 제공됩니다.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 미리 보기로 제공됩니다.
 
 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 
@@ -51,10 +52,10 @@ VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가�
 서비스 엔드포인트는 다음과 같은 이점을 제공합니다.
 
 - **Azure 서비스 리소스의 보안 향상**: VNet 개인 주소 공간은 중복될 수 있으므로 VNet에서 발생한 트래픽을 고유하게 식별하는 데 사용할 수 없습니다. 서비스 엔드포인트는 VNet ID를 서비스로 확장하여 Azure 서비스 리소스를 가상 네트워크에 안전하게 저장할 수 있는 기능을 제공합니다. 서비스 엔드포인트를 가상 네트워크에 사용할 수 있게 되면 리소스에 가상 네트워크 규칙을 추가하여 가상 네트워크에 대한 Azure 서비스 리소스를 보호할 수 있습니다. 그러면 리소스에 대한 공용 인터넷 액세스를 완전히 제거하고 가상 네트워크의 트래픽만 허용하여 보안이 향상됩니다.
-- **Virtual Network의 Azure 서비스 트래픽에 대한 최적의 라우팅**: 현재 프레미스 및/또는 가상 어플라이언스에 인터넷 트래픽을 강제하는 가상 네트워크의 경로(강제 터널링이라고 함)는 Azure 서비스 트래픽이 인터넷 트래픽과 동일한 경로를 사용하도록 강제할 수도 있습니다. 서비스 엔드포인트는 Azure 트래픽에 대한 최적의 라우팅을 제공합니다. 
+- **Virtual Network의 Azure 서비스 트래픽에 대한 최적의 라우팅**: 현재 온-프레미스 및/또는 가상 어플라이언스를 통해 인터넷 트래픽을 강제하는 가상 네트워크의 경로(강제 터널링이라고 함)는 Azure 서비스 트래픽이 인터넷 트래픽과 동일한 경로를 사용하도록 강제할 수도 있습니다. 서비스 엔드포인트는 Azure 트래픽에 대한 최적의 라우팅을 제공합니다. 
 
   엔드포인트는 가상 네트워크의 서비스 트래픽을 직접 Microsoft Azure 백본 네트워크의 서비스로 항상 이동시킵니다. 트래픽을 Azure 백본 네트워크에 유지하면 서비스 트래픽에 영향을 주지 않고 강제 터널링을 통해 가상 네트워크의 아웃바운드 인터넷 트래픽을 계속 감사하고 모니터링할 수 있습니다. [사용자 정의 경로 및 강제 터널링](virtual-networks-udr-overview.md)에 대해 알아봅니다.
-- **관리 오버 헤드를 덜 사용하여 간단히 설정**: IP 방화벽을 통해 Azure 리소스를 보호하기 위해 가상 네트워크에서 예약된 공용 IP 주소가 더 이상 필요하지 않습니다. 서비스 엔드포인트를 설정하는 데 NAT 또는 게이트웨이 디바이스가 필요하지 않습니다. 서브넷을 간단히 클릭하여 서비스 엔드포인트를 구성할 수 있습니다. 엔드포인트를 유지하기 위한 추가 오버헤드가 없습니다.
+- **관리 오버헤드를 덜 사용하여 간단히 설정**: IP 방화벽을 통해 Azure 리소스를 보호하기 위해 가상 네트워크에서 예약된 공용 IP 주소가 더 이상 필요하지 않습니다. 서비스 엔드포인트를 설정하는 데 NAT 또는 게이트웨이 디바이스가 필요하지 않습니다. 서브넷을 간단히 클릭하여 서비스 엔드포인트를 구성할 수 있습니다. 엔드포인트를 유지하기 위한 추가 오버헤드가 없습니다.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -100,9 +101,9 @@ VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가�
 ### <a name="scenarios"></a>시나리오
 
 - **피어링되거나 연결된 여러 가상 네트워크**: 하나의 가상 네트워크 또는 여러 가상 네트워크의 여러 서브넷에 대한 Azure 서비스를 보호하려면 각 서브넷에서 서비스 엔드포인트를 독립적으로 활성화하고 모든 서브넷에 대한 Azure 서비스 리소스를 보호할 수 있습니다.
-- **가상 네트워크에서 Azure 서비스로 아웃바운드 트래픽 필터링**: 가상 네트워크에서 Azure 서비스로 대상이 지정된 트래픽을 검사하거나 필터링하려는 경우 해당 가상 네트워크 내에서 네트워크 가상 어플라이언스를 배포할 수 있습니다. 네트워크 가상 어플라이언스를 배포한 서브넷에 서비스 엔드포인트를 적용하고 이 서브넷에 대한 Azure 서비스 리소스만을 보호할 수 있습니다. 네트워크 가상 어플라이언스 필터링을 사용하여 가상 네트워크에서 특정 Azure 리소스로의 Azure 서비스 액세스만을 제한하도록 하려는 경우 이 시나리오가 유용할 수 있습니다. 자세한 내용은 [네트워크 가상 어플라이언스에서 송신](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
-- **가상 네트워크에 직접 배포된 서비스에 대한 Azure 리소스 보호**: 다양한 Azure 서비스는 가상 네트워크의 특정 서브넷에 직접 배포될 수 있습니다. 관리되는 서비스 서브넷에서 서비스 엔드포인트를 설정하여 [관리되는 서비스](virtual-network-for-azure-services.md) 서브넷에 대한 Azure 서비스 리소스를 보호할 수 있습니다.
-- **Azure 가상 머신의 디스크 트래픽**: 가상 머신 디스크 트래픽(탑재 및 탑재 해제 포함, diskIO), 관리되는/관리되지 않는 디스크의 경우 Azure Storage에 대한 서비스 엔드포인트 라우팅 변경 내용에 영향을 받지 않습니다. 서비스 엔드포인트 및 [Azure Storage 네트워크 규칙](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 통해 REST 액세스를 네트워크를 선택하도록 페이지 Blob으로 제한할 수 있습니다. 
+- **가상 네트워크에서 Azure 서비스로의 아웃바운드 트래픽 필터링**: 가상 네트워크에서 Azure 서비스로 대상이 지정된 트래픽을 검사하거나 필터링하려는 경우 가상 네트워크 내에 네트워크 가상 어플라이언스를 배포할 수 있습니다. 네트워크 가상 어플라이언스를 배포한 서브넷에 서비스 엔드포인트를 적용하고 이 서브넷에 대한 Azure 서비스 리소스만을 보호할 수 있습니다. 네트워크 가상 어플라이언스 필터링을 사용하여 가상 네트워크에서 특정 Azure 리소스로의 Azure 서비스 액세스만을 제한하도록 하려는 경우 이 시나리오가 유용할 수 있습니다. 자세한 내용은 [네트워크 가상 어플라이언스에서 송신](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+- **가상 네트워크에 직접 배포된 서비스에 대한 Azure 리소스 보호**: 가상 네트워크에서 특정 서브넷에 다양한 Azure 서비스를 직접 배포할 수 있습니다. 관리되는 서비스 서브넷에서 서비스 엔드포인트를 설정하여 [관리되는 서비스](virtual-network-for-azure-services.md) 서브넷에 대한 Azure 서비스 리소스를 보호할 수 있습니다.
+- **Azure 가상 머신의 디스크 트래픽**: 가상 머신 디스크 트래픽(탑재 및 탑재 해제 포함, diskIO), 관리형/비관리형 디스크의 경우 Azure Storage에 대한 서비스 엔드포인트 라우팅 변경 내용에 영향을 받지 않습니다. 서비스 엔드포인트 및 [Azure Storage 네트워크 규칙](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 통해 REST 액세스를 네트워크를 선택하도록 페이지 Blob으로 제한할 수 있습니다. 
 
 ### <a name="logging-and-troubleshooting"></a>로깅 및 문제 해결
 
@@ -135,15 +136,19 @@ Azure 서비스 리소스(예: Azure Storage 계정)의 경우 서비스는 리�
 
 ## <a name="virtual-network-service-endpoint-policies"></a>Virtual Network 서비스 엔드포인트 정책 
 
-Virtual Network 서비스 엔드포인트 정책을 사용하면 가상 네트워크 트래픽을 Azure 서비스로 필터링하여 특정 Azure 서비스 리소스만 서비스 엔드포인트를 통해 허용할 수 있습니다. 서비스 엔드포인트 정책은 Azure 서비스의 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. 자세한 정보: [Virtual Network 서비스 엔드포인트 정책](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+Virtual Network 서비스 엔드포인트 정책을 사용하면 가상 네트워크 트래픽을 Azure 서비스로 필터링하여 특정 Azure 서비스 리소스만 서비스 엔드포인트를 통해 허용할 수 있습니다. 서비스 엔드포인트 정책은 Azure 서비스의 가상 네트워크 트래픽에 대한 세부적인 액세스 제어를 제공합니다. 자세한 정보: [Virtual Network 서비스 엔드포인트 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
+## <a name="faqs"></a>FAQ
+
+FAQ는 [Virtual Network 서비스 엔드포인트 FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [가상 네트워크 서비스 엔드포인트를 구성](tutorial-restrict-network-access-to-resources.md)하는 방법에 대한 자세한 내용
 - [가상 네트워크에 대한 Azure Storage 계정을 보호](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크에 대한 Azure SQL Database 계정을 보호](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
+- [Azure SQL Data Warehouse를 가상 네트워크에서 안전하게 보호](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)에 대한 자세한 내용
-- [Virtual Network 서비스 엔드포인트 정책](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoint-policies-overview)에 대한 자세한 내용
+- [Virtual Network 서비스 엔드포인트 정책](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)에 대한 자세한 내용
 -  빠른 시작: VNet의 서브넷에 서비스 엔드포인트를 설정하고 해당 서브넷에 Azure Storage 계정을 보호하기 위한 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration).
 

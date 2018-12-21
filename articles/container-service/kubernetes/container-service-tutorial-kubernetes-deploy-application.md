@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 자습서 - 응용 프로그램 배포
+title: (사용되지 않음) Azure Container Service 자습서 - 애플리케이션 배포
 description: Azure Container Service 자습서 - 응용 프로그램 배포
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7f9c0c3ad11cb6988f528503d614ab26dcc0968
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918125"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998792"
 ---
-# <a name="run-applications-in-kubernetes"></a>Kubernetes에서 응용 프로그램 실행
+# <a name="deprecated-run-applications-in-kubernetes"></a>(사용되지 않음) Kubernetes에서 애플리케이션 실행
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 자습서의 업데이트된 버전은 [자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 실행](../../aks/tutorial-kubernetes-deploy-application.md)을 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 7개 중 4단계인 이 자습서에서는 응용 프로그램 예제를 Kubernetes 클러스터에 배포합니다. 완료되는 단계는 다음과 같습니다.
 
