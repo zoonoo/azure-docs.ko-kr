@@ -36,12 +36,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 Azure에 로그인하고 다음 두 방법 중 하나로 Azure CLI 명령을 실행할 수 있습니다.
 
-- Azure Cloud Shell의 Azure 포털에서 CLI 명령 실행 
+- Azure Cloud Shell의 Azure Portal에서 CLI 명령 실행
 - CLI를 설치하고 로컬에서 CLI 실행  
 
 ### <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
 
-Azure Cloud Shell은 Azure 포털에서 직접 실행할 수 있는 무료 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. Azure Portal 오른쪽 위에 있는 메뉴에서 **Cloud Shell** 버튼을 클릭합니다.
+Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. Azure Portal 오른쪽 위에 있는 메뉴에서 **Cloud Shell** 버튼을 클릭합니다.
 
 [![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
@@ -71,7 +71,7 @@ Connect-AzureRmAccount
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure Cloud Shell을 시작하려면 [Azure 포털](https://portal.azure.com)에 로그인합니다.
+Azure Cloud Shell을 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 CLI의 로컬 설치를 사용해 로그인하려면 로그인 명령을 실행합니다.
 
@@ -87,7 +87,7 @@ az login
 
 모든 저장소 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 모아 놓은 논리적 컨테이너입니다. 저장소 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 빠른 시작에는 새 리소스 그룹을 만드는 방법을 보여줍니다. 
 
-**범용 v2** 저장소 계정은 모든 Azure 스토리지 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다.   
+**범용 v2** 저장소 계정은 모든 Azure 저장소 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다.   
 
 # <a name="portaltabportal"></a>[포털](#tab/portal)
 
@@ -121,14 +121,14 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-ZRS(영역 중복 스토리지)(미리 보기), GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하여 범용 v2 저장소 계정을 만들려면 아래 표에서 **SkuName**매개 변수를 원하는 값으로 대체합니다. 
+ZRS(영역 중복 저장소)(미리 보기), GRS(지역 중복 저장소) 또는 RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만들려면 아래 표에서 **SkuName**매개 변수에 대해 원하는 값을 대체합니다. 
 
 |복제 옵션  |SkuName 매개 변수  |
 |---------|---------|
-|LRS(로컬 중복 스토리지)     |Standard_LRS         |
-|ZRS(영역 중복 스토리지)     |Standard_ZRS         |
-|GRS(지역 중복 스토리지)     |Standard_GRS         |
-|읽기 액세스 GRS(지역 중복 스토리지)     |Standard_RAGRS         |
+|LRS(로컬 중복 저장소) |Standard_LRS |
+|ZRS(영역 중복 저장소) |Standard_ZRS |
+|GRS(지역 중복 저장소) |Standard_GRS |
+|읽기 액세스 GRS(지역 중복 저장소) |Standard_RAGRS |
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -148,7 +148,7 @@ az account list-locations \
     --out table
 ```
 
-다음으로, 로컬 중복 스토리지를 사용하여 범용 v2 저장소 계정을 만듭니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용합니다.
+다음으로, 로컬 중복 저장소를 사용하여 범용 v2 저장소 계정을 만듭니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용합니다.
 
 ```azurecli-interactive
 az storage account create \
@@ -159,18 +159,18 @@ az storage account create \
     --kind StorageV2
 ```
 
-영역 중복 스토리지(ZRS 미리 보기), GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하여 범용 v2 저장소 계정을 만들려면 아래 표에서 **sku**매개 변수를 원하는 값으로 대체합니다. 
+영역 중복 저장소(ZRS 미리 보기), GRS(지역 중복 저장소) 또는 RA-GRS(읽기 액세스 지역 중복 저장소)를 사용하여 범용 v2 저장소 계정을 만들려면 아래 표에서 **sku**매개 변수에 대해 원하는 값을 대체합니다. 
 
 |복제 옵션  |sku 매개 변수  |
 |---------|---------|
-|LRS(로컬 중복 스토리지)     |Standard_LRS         |
-|ZRS(영역 중복 스토리지)     |Standard_ZRS         |
-|GRS(지역 중복 스토리지)     |Standard_GRS         |
-|읽기 액세스 GRS(지역 중복 스토리지)     |Standard_RAGRS         |
+|LRS(로컬 중복 저장소) |Standard_LRS |
+|ZRS(영역 중복 저장소) |Standard_ZRS |
+|GRS(지역 중복 저장소) |Standard_GRS |
+|읽기 액세스 GRS(지역 중복 저장소) |Standard_RAGRS |
 
 ---
 
-사용 가능한 복제 옵션에 대한 자세한 내용은 [스토리지 복제 옵션](storage-redundancy.md)을 참조하세요.
+사용 가능한 복제 옵션에 대한 자세한 내용은 [저장소 복제 옵션](storage-redundancy.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -178,9 +178,9 @@ az storage account create \
 
 # <a name="portaltabportal"></a>[포털](#tab/portal)
 
-Azure 포털을 사용하여 리소스 그룹을 제거하려면
+Azure Portal을 사용하여 리소스 그룹을 제거하려면
 
-1. Azure 포털에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 열고 **리소스 그룹**을 선택하여 리소스 그룹 목록을 표시합니다.
+1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 열고 **리소스 그룹**을 선택하여 리소스 그룹 목록을 표시합니다.
 2. 삭제할 리소스 그룹을 찾아 목록 오른쪽에 있는 **자세히** 단추(**...** )를 마우스 오른쪽 단추로 클릭합니다.
 3. **리소스 그룹 삭제**를 선택하고 확인합니다.
 
