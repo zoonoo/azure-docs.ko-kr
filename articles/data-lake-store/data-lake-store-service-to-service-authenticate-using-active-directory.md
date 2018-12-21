@@ -85,7 +85,7 @@ Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1로 서비스
 > 
 >
 
-## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>4단계: OAuth 2.0 토큰 엔드포인트 가져오기(Java 기반 응용 프로그램만 해당)
+## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>4단계: OAuth 2.0 토큰 엔드포인트 가져오기(Java 기반 애플리케이션만 해당)
 
 1. [Azure Portal](https://portal.azure.com)에 로그온하고 왼쪽 창에서 Active Directory를 클릭합니다.
 

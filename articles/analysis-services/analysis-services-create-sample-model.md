@@ -1,19 +1,19 @@
 ---
-title: 자습서 - 포털을 사용하여 Azure Analysis Services 서버에 기본 샘플 모델 추가 | Microsoft Docs
+title: 자습서 - Azure Analysis Services 서버에 샘플 모델 추가 | Microsoft Docs
 description: 이 자습서 단원에서는 Azure Analysis Services에서 샘플 모델을 추가하는 방법을 알아봅니다.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: def7ee54390a716027fcacb433b99826d3650f6f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6a492085984eba165bc7cfc5839fa4e1705e823c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428695"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001651"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>자습서: 포털에서 샘플 모델 추가
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD 갤러리 응용 프로그램에 대해 사용자 프로비전 구성 문제 | Microsoft Docs
-description: Azure AD 응용 프로그램 갤러리에 이미 나열된 응용 프로그램에 대한 사용자 프로비전을 구성할 때 발생하는 일반적인 문제를 해결하는 방법
+title: Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제 | Microsoft Docs
+description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대한 사용자 프로비전을 구성할 때 발생하는 일반적인 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -22,11 +22,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2018
 ms.locfileid: "44355487"
 ---
-# <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 사용자 프로비전 구성 문제
+# <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전 구성 문제
 
-앱에 대해 [자동 사용자 프로비전](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)을 구성하려면(지원되는 경우) 자동 프로비전에 대해 응용 프로그램을 준비하는 특정 지침을 따라야 합니다. 그런 다음 Azure Portal에서 프로비전 서비스를 구성하여 사용자 계정을 응용 프로그램에 동기화할 수 있습니다.
+앱에 대해 [자동 사용자 프로비전](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)을 구성하려면(지원되는 경우) 자동 프로비전에 대해 애플리케이션을 준비하는 특정 지침을 따라야 합니다. 그런 다음, Azure Portal에서 프로비전 서비스를 구성하여 사용자 계정을 애플리케이션에 동기화할 수 있습니다.
 
-항상 응용 프로그램의 프로비전 설정에 대한 설정 자습서를 찾는 것부터 시작해야 합니다. 그런 다음 해당 단계에 따라 앱과 Azure AD를 구성하여 프로비전 연결을 만듭니다. 앱 자습서 목록은 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)에서 찾을 수 있습니다.
+항상 애플리케이션의 프로비전 설정에 대한 설정 자습서를 찾는 것부터 시작해야 합니다. 그런 다음 해당 단계에 따라 앱과 Azure AD를 구성하여 프로비전 연결을 만듭니다. 앱 자습서 목록은 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)에서 찾을 수 있습니다.
 
 ## <a name="how-to-see-if-provisioning-is-working"></a>프로비전이 작동하는지 확인하는 방법 
 

@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: rodrigoa
-ms.openlocfilehash: 56ac08593d29a9003f5509f2be52f50fa250bd75
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431598"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088880"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>자습서: Azure Stream Analytics JavaScript 사용자 정의 함수
  
@@ -58,7 +58,7 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
 4.  **새 함수** 블레이드에서 **함수 유형**에 대해 **JavaScript**를 선택합니다. 기본 함수 템플릿이 편집기에 나타납니다.
 5.  **UDF 별칭**의 경우 **hex2Int**를 입력하고 함수 구현을 다음과 같이 변경합니다.
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -73,7 +73,7 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
 1. 쿼리 편집기에서 **작업 토폴로지** 아래에 있는 **쿼리**를 선택합니다.
 2.  쿼리에 편집하고 다음과 같은 사용자 정의 함수를 호출합니다.
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ Stream Analytics 작업 출력을 입력으로 사용하는 후속 처리 단계
 
 **JavaScript 사용자 정의 함수 정의:**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **샘플 쿼리:**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

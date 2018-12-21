@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 샘플 - ACS 클러스터 크기 조정 | Microsof
 description: Azure CLI 스크립트 샘플 - ACS 클러스터 크기 조정
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: 1e5ca9fb44ea3ad15206f36a16e61f2865d79f5f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: iainfou
+ms.openlocfilehash: 199a2f09df57878d6523cfed6873001f190e14f5
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427774"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992249"
 ---
-# <a name="scale-an-azure-container-service-cluster"></a>Azure Container Service 클러스터 크기 조정
+# <a name="deprecated-scale-an-azure-container-service-cluster"></a>(사용되지 않음) Azure Container Service 클러스터 크기 조정
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 이 샘플에서는 Azure Container Service의 크기를 조정합니다. 
 

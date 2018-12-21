@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge를 사용하여 Azure 함수 배포 | Microsoft Docs
-description: 이 자습서에서는 Azure 함수를 Edge 디바이스에 모듈로 배포합니다.
+title: 자습서 - 디바이스에 Azure 함수 배포 Azure IoT Edge | Microsoft Docs
+description: 이 자습서에서는 Azure 함수를 IoT Edge 모듈로 개발한 다음, 에지 디바이스에 배포합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: d0ae009db0d9470942a4ff5d7c09e2cdd7bcdd53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165623"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081883"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 
@@ -27,7 +27,7 @@ ms.locfileid: "52165623"
 > * 필터링된 데이터를 봅니다.
 
 <center>
-![자습서 아키텍처 다이어그램](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+![다이어그램 - 함수 모듈 아키텍처, 스테이징 및 배포 자습서](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -57,13 +57,13 @@ Azure IoT Edge 디바이스:
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 디바이스에서 실행되도록 레지스트리의 이미지를 배포합니다.  
+이 자습서에서는 Visual Studio Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  
 
 임의 Docker 호환 레지스트리를 사용하여 컨테이너 이미지를 유지할 수 있습니다. 두 개의 인기 있는 Docker 레지스트리 서비스는 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 및 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)입니다. 이 자습서에서는 Azure Container Registry를 사용합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **컨테이너** > **Container Registry**를 선택합니다.
 
-    ![컨테이너 레지스트리 만들기](./media/tutorial-deploy-function/create-container-registry.png)
+    ![Azure Portal에서 컨테이너 레지스트리 만들기](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. 다음 값을 입력하여 컨테이너 레지스트리를 만듭니다.
 
@@ -90,7 +90,7 @@ Azure IoT Edge 디바이스:
 
 2. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다.
 
-3. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트의 프롬프트에 따라 솔루션을 만듭니다.
+3. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트의 프롬프트에 따라 솔루션을 만듭니다.
 
    | 필드 | 값 |
    | ----- | ----- |
@@ -227,7 +227,7 @@ Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge �
 
 2. **Azure: 로그인** 명령을 검색하여 실행합니다. 지침에 따라 Azure 계정에 로그인합니다. 
 
-3. 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택** 명령을 검색하여 실행합니다. 
+3. 명령 팔레트에서 **Azure IoT Hub:  IoT Hub 선택** 명령을 검색하여 실행합니다. 
 
 4. IoT Hub가 있는 구독을 선택한 다음, 액세스하려는 IoT 허브를 선택합니다.
 
@@ -237,22 +237,22 @@ Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge �
 
 7. **CSharpFunction**이 포함된 솔루션 폴더를 찾습니다. config 폴더를 열고 **deployment.json** 파일을 선택한 다음, **Edge 배포 매니페스트 선택**을 클릭합니다.
 
-8. **Azure IoT Hub 장치** 섹션을 새로 고칩니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **CSharpFunction**이 표시됩니다. 모듈을 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 디바이스는 IoT Hub에서 해당 새 배포 정보를 검색하고, 새 컨테이너를 시작하고, 상태를 IoT Hub에 다시 보고해야 합니다. 
+8. **Azure IoT Hub 디바이스** 섹션을 새로 고칩니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **CSharpFunction**이 표시됩니다. 모듈을 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 디바이스는 IoT Hub에서 해당 새 배포 정보를 검색하고, 새 컨테이너를 시작하고, 상태를 IoT Hub에 다시 보고해야 합니다. 
 
    ![VS Code에서 배포된 모듈 보기](./media/tutorial-deploy-function/view-modules.png)
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
-명령 팔레트에서 **Azure IoT Hub: D2C 메시지 모니터링 시작**을 실행하여 IoT Hub에 도달한 모든 메시지를 볼 수 있습니다.
+명령 팔레트에서 **Azure IoT Hub: D2C 메시지 모니터링 시작**을 실행하여 IoT Hub에 도착한 모든 메시지를 볼 수 있습니다.
 
-특정 디바이스에서 IoT Hub에 도달한 모든 메시지를 보려면 보기를 필터링할 수도 있습니다. **Azure IoT Hub 장치** 섹션에서 장치를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
+특정 디바이스에서 IoT Hub에 도달한 모든 메시지를 보려면 보기를 필터링할 수도 있습니다. **Azure IoT Hub 디바이스** 섹션에서 디바이스를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
 
 메시지 모니터링을 중지하려면 명령 팔레트에서 **Azure IoT Hub: D2C 메시지 모니터링 중지** 명령을 실행합니다. 
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 

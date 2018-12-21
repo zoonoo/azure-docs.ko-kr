@@ -29,7 +29,7 @@ SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하�
 
 Service Fabric Explorer를 데스크톱 응용 프로그램으로 다운로드하려면 다음 링크를 사용합니다.
 
-- Windows
+-  Windows
   - https://aka.ms/sfx-windows
 
 - Linux
@@ -93,7 +93,7 @@ Service Fabric Explorer를 사용하는 방법을 알아보려면 다음 Microso
 ![서비스 패브릭 탐색기 기능 창][sfx-service-essentials]
 
 ### <a name="view-the-clusters-nodes"></a>클러스터의 노드 보기
-노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 응용 프로그램을 검사할 수 있습니다. 특히 현재 실행되고 있는 복제본을 확인할 수 있습니다.
+노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다. 특히 현재 실행되고 있는 복제본을 확인할 수 있습니다.
 
 ## <a name="actions"></a>작업
 Service Fabric Explorer는 클러스터 내에서 노드, 응용 프로그램 및 서비스에 대한 작업을 호출하는 빠른 방법을 제공합니다.

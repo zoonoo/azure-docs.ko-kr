@@ -106,7 +106,7 @@ ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>SQL Database가 오래된 행을 삭제하는 방법은?
 정리 프로세스는 기록 테이블의 인덱스 레이아웃에 따라 달라집니다. *클러스터형 인덱스(B-트리 또는 columnstore)가 있는 기록 테이블만이 유한한 재방문 주기 정책을 구성할 수 있다*는 점에 유의해야 합니다 한정된 재방문 주기 기간을 가진 모든 임시 테이블에 대해 오래된 데이터 정리를 수행하는 백그라운드 작업이 만들어집니다.
-rowstore(B-트리) 클러스터형 인덱스에 대한 정리 논리를 사용해 오래된 행을 더 작은 청크(최대 10K)로 삭제하여 데이터베이스 로그 및 IO 하위 시스템에 대한 압력을 최소화합니다. 정리 논리는 필수인 B-트리 인덱스를 활용하지만, 재방문 주기 기간보다 오래된 행의 삭제 순서는 확고히 보장되지 않습니다. 따라서 *응용 프로그램의 정리 순서에 의존하지 않도록 합니다*.
+rowstore(B-트리) 클러스터형 인덱스에 대한 정리 논리를 사용해 오래된 행을 더 작은 청크(최대 10K)로 삭제하여 데이터베이스 로그 및 IO 하위 시스템에 대한 압력을 최소화합니다. 정리 논리는 필수인 B-트리 인덱스를 활용하지만, 재방문 주기 기간보다 오래된 행의 삭제 순서는 확고히 보장되지 않습니다. 따라서 *애플리케이션의 정리 순서에 의존하지 않도록 합니다*.
 
 클러스터형 columnstore에 대한 정리 작업은 전체 [행 그룹](https://msdn.microsoft.com/library/gg492088.aspx)(일반적으로 한 그룹에 백만 행 포함)을 한 번에 제거하여 매우 효율적이며 특히 과거 데이터가 고속으로 생성된 경우에 더욱 그렇습니다.
 
@@ -179,7 +179,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ````
 
 ## <a name="next-steps"></a>다음 단계
-응용 프로그램에서 Temporal Tables을 사용하는 방법을 알아보려면 [Azure SQL Database의 임시 테이블 시작](sql-database-temporal-tables.md)을 확인하세요.
+애플리케이션에서 Temporal Tables을 사용하는 방법을 알아보려면 [Azure SQL Database의 임시 테이블 시작](sql-database-temporal-tables.md)을 확인하세요.
 
 Channel 9을 방문하여 [실제 고객 임시 구현 성공 사례](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)를 듣고 [라이브 임시 데모](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)를 시청합니다.
 

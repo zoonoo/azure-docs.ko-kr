@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 5d209d0290d8ca813101b531f18fc0f08a6edf8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b03a0538e92ac126a50a1346eb1bf7fb003189f9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246891"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966861"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>자습서: Azure Portal 및 토픽/구독을 사용하여 재고 업데이트
 
@@ -70,7 +70,7 @@ Service Bus 메시징 네임스페이스는 [정규화된 도메인 이름][]으
 1. **모든 리소스**를 클릭한 다음 새로 만든 네임스페이스 이름을 클릭합니다.
 2. 네임스페이스 창에서 **공유 액세스 정책**을 클릭합니다.
 3. **공유 액세스 정책** 화면에서 **RootManageSharedAccessKey**를 클릭합니다.
-4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆의 **복사** 단추를 클릭하여 나중에 사용할 수 있도록 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
+4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆에 있는 **복사** 단추를 클릭하여 나중에 사용할 수 있도록 해당 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
 
     ![connection-string][connection-string]
 5. 이전 단계를 반복하여 나중에 사용할 수 있도록 **기본 키** 값을 복사하여 임시 위치에 붙여넣습니다.
@@ -91,7 +91,7 @@ Service Bus 토픽을 만들려면 해당 토픽을 만들 네임스페이스를
 
 ## <a name="create-filter-rules-on-subscriptions"></a>구독에 대한 필터 규칙 만들기
 
-네임스페이스와 토픽/구독이 프로비전되고 필요한 자격 증명이 있으면 구독에 대한 필터 규칙을 만듭니다. 그러면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters)에서 코드를 검사할 수 있습니다.
+네임스페이스와 토픽/구독이 프로비전되고 필요한 자격 증명이 있으면 구독에 대한 필터 규칙을 만듭니다. 그러면 메시지를 보내고 받을 준비가 됩니다. [이 GitHub 샘플 폴더](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters)에서 코드를 검사할 수 있습니다.
 
 ### <a name="send-and-receive-messages"></a>메시지 보내기 및 받기
 

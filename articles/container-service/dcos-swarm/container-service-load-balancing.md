@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS 클러스터의 컨테이너 부하 분산
+title: (사용되지 않음) Azure DC/OS 클러스터의 컨테이너 부하 분산
 description: Azure Container Service DC/OS 클러스터에 있는 여러 컨테이너에 대해 부하를 분산합니다.
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 8e8ad913c6e5b8e947b17ed8920285de3fcfd8ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a1883412a5285c4916c43a5c6ad81168096dd7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964363"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993543"
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터에서 컨테이너 부하 분산
+# <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(사용되지 않음) Azure Container Service DC/OS 클러스터에서 컨테이너 부하 분산
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 이 문서에서는 Marathon-LB를 사용하여 DC/OS로 관리되는 Azure Container Service에 내부 부하 분산 장치를 만드는 방법을 살펴봅니다. 이 구성은 응용 프로그램을 수평으로 확장할 수 있습니다. 또한 부하 분산 장치를 공용 클러스터에 배치하고 응용 프로그램 컨테이너를 개인 클러스터에 배치하여 공용 및 개인 에이전트 클러스터를 활용할 수 있습니다. 이 자습서에서는 다음을 수행했습니다.
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413998"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408377"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합에 응용 프로그램 배포
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 Azure에 응용 프로그램을 배포할 수 있습니다. 이 문서에서는 Azure VMSS(가상 머신 확장 집합)에 Java 응용 프로그램을 배포하는 방법을 보여줍니다.  
@@ -35,7 +35,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 
 다음 샘플 플레이북을 `get-hosts-tasks.yml`로 저장합니다. 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -63,7 +63,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 
 이 섹션에서는 git을 사용하여 GitHub에서 Java 샘플 프로젝트를 복제하고 프로젝트를 빌드합니다. 다음 플레이북을 `app.yml`로 저장합니다.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -87,7 +87,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 
 Ansible 플레이북 명령의 출력은 GitHub에서 복제된 샘플 앱을 빌드한 다음과 비슷하게 표시됩니다.
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -110,7 +110,7 @@ Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트
 
 (`admin_password`를 고유한 암호로 변경합니다.)
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -167,7 +167,7 @@ Ansible 플레이북의 다음 섹션에서는 **saclesethosts**라는 호스트
 
 Ansible 플레이북 명령 실행에서 출력은 샘플 Java 응용 프로그램이 가상 머신 확장 집합의 호스트 그룹에 설치되었음을 나타냅니다.
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -208,4 +208,4 @@ Ansible 플레이북 명령 실행에서 출력은 샘플 Java 응용 프로그�
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [VMSS에 대한 Ansible 샘플 플레이북](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ansible을 사용하여 가상 머신 확장 세트의 크기를 자동으로 조정](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

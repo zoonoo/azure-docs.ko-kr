@@ -28,7 +28,7 @@ ms.locfileid: "47392196"
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="create-a-php-application"></a>PHP 응용 프로그램 만들기
+## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
 Azure Blob service에 액세스하는 PHP 응용 프로그램을 만드는 데 유일한 요구 사항은 코드 내에서 [PHP용 Azure SDK](../php-download-sdk.md)의 클래스를 참조하는 것입니다. 어떠한 개발 도구를 사용해도 응용 프로그램 또는 메모장을 만들 수 있습니다.
 
 > [!NOTE]

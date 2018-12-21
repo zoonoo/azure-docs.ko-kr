@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights 단일 페이지 웹앱 만들기
+title: Azure Time Series Insights 단일 페이지 웹앱 만들기 | Microsoft Docs
 description: TSI 환경에서 데이터를 쿼리하고 렌더링하는 단일 페이지 웹 응용 프로그램을 만드는 방법을 알아봅니다.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,12 +7,13 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626758"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275842"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>자습서: Azure Time Series Insights 단일 페이지 웹앱 만들기
 
@@ -33,8 +34,8 @@ ms.locfileid: "39626758"
 
 앞서 언급했듯이, TSI 응용 프로그램 예제는 이 자습서에 사용되는 설계 및 코드에 대한 기반을 제공합니다. 이 코드에는 TSI 클라이언트 JavaScript 라이브러리가 사용됩니다. TSI 클라이언트 라이브러리는 다음 두 가지 주요 API 범주에 대한 추상화를 제공합니다.
 
-- **TSI 쿼리 API를 호출하기 위한 래퍼 방법**: JSON 기반 식을 사용하여 TSI 데이터를 쿼리할 수 있는 REST API입니다. 메서드는 라이브러리의 `TsiClient.server` 네임스페이스 아래에 구성됩니다.
-- **여러 형식의 차트 컨트롤을 만들고 채우기 위한 메서드**: 웹 페이지의 TSI 데이터를 시각화하는 데 사용되는 메서드입니다. 메서드는 라이브러리의 `TsiClient.ux` 네임스페이스 아래에 구성됩니다.
+- **TSI 쿼리 API를 호출하는 래퍼 메서드**: JSON 기반 식을 사용하여 TSI 데이터를 쿼리할 수 있게 하는 REST API입니다. 메서드는 라이브러리의 `TsiClient.server` 네임스페이스 아래에 구성됩니다.
+- **여러 유형의 차트 작성 컨트롤을 만들고 채우는 메서드**: 웹 페이지에서 TSI 데이터를 시각화하는 데 사용되는 메서드입니다. 메서드는 라이브러리의 `TsiClient.ux` 네임스페이스 아래에 구성됩니다.
 
 이 자습서에서는 응용 프로그램 예제의 TSI 환경에서 제공하는 데이터도 사용합니다. TSI 응용 프로그램 예제의 구조 및 TSI 클라이언트 라이브러리 사용에 대한 자세한 내용은 [Azure Time Series Insights JavaScript 클라이언트 라이브러리 살펴보기](tutorial-explore-js-client-lib.md) 자습서를 참조하세요.
 
@@ -91,7 +92,7 @@ ms.locfileid: "39626758"
    > 브라우저에 따라 파일을 저장하기 전에 파일 확장명을 HTML 또는 CSS로 수정해야 할 수도 있습니다.
 
    - 페이지의 **index.html** HTML 및 JavaScript https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
-   - **sampleStyles.css:** CSS 스타일시트: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
+   - **sampleStyles.css:** CSS 스타일시트(https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css)
     
 1. Visual Studio를 시작하고 로그인하여 웹 응용 프로그램에 대한 프로젝트를 만듭니다. **파일** 메뉴에서 **열기**, **웹 사이트** 옵션을 선택합니다. **웹 사이트 열기** 대화 상자에서 HTML 및 CSS 파일을 저장한 작업 디렉터리를 선택한 다음, **열기**를 클릭합니다.
 
@@ -121,7 +122,7 @@ ms.locfileid: "39626758"
       <link rel="stylesheet" type="text/css" href="dist/tsiclient.css"></link> -->
       ```
 
-   나. 다음으로, 새 Azure AD 응용 프로그램 등록을 사용하도록 액세스 토큰 논리를 변경합니다. [Azure AD에 응용 프로그램 등록](#register-the-application-with-azure-ad) 섹션의 9단계에서 복사한 응용 프로그램 ID 및 홈페이지 URL을 사용하도록 `clientID` 및 `postLogoutRedirectUri` 변수를 각각 변경합니다.
+   b. 다음으로, 새 Azure AD 응용 프로그램 등록을 사용하도록 액세스 토큰 논리를 변경합니다. [Azure AD에 응용 프로그램 등록](#register-the-application-with-azure-ad) 섹션의 9단계에서 복사한 응용 프로그램 ID 및 홈페이지 URL을 사용하도록 `clientID` 및 `postLogoutRedirectUri` 변수를 각각 변경합니다.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -143,7 +144,7 @@ ms.locfileid: "39626758"
 
       ![VS - 솔루션 탐색기 웹앱 게시](media/tutorial-create-tsi-sample-spa/vs-solution-explorer-publish-web-app.png)
 
-   나. **Microsoft Azure App Service**를 선택하여 게시 대상을 만듭니다.  
+   b. **Microsoft Azure App Service**를 선택하여 게시 대상을 만듭니다.  
 
       ![VS - 게시 프로필](media/tutorial-create-tsi-sample-spa/vs-publish-profile-target.png)  
 
@@ -177,8 +178,8 @@ ms.locfileid: "39626758"
 
 오류 코드/조건 | 설명
 ---------------------| -----------
-*AADSTS50011: 응용 프로그램에 등록된 회신 주소가 없습니다.* | Azure AD 등록에 "회신 URL" 속성이 없습니다. Azure AD 응용 프로그램 등록의 **설정** / **회신 URL** 페이지로 이동합니다. [Azure AD에 응용 프로그램 등록](#register-the-application-with-azure-ad)의 3단계에서 지정한 **로그온** URL이 있는지 확인합니다. 
-*AADSTS50011: 요청에 지정된 회신 url이 응용 프로그램에 대해 구성된 회신 url '<Application ID GUID>'와 일치하지 않습니다.* | [웹 응용 프로그램 빌드 및 게시](#build-and-publish-the-web-application)의 4.b 단계에서 지정한 `postLogoutRedirectUri`는 Azure AD 응용 프로그램 등록의 **설정** / **회신 URL** 속성에서 지정한 값과 일치해야 합니다. 또한 `https`를 사용하도록 **대상 URL**을 변경해야 합니다. 자세한 단계는 [웹 응용 프로그램 빌드 및 게시](#build-and-publish-the-web-application)의 5.e를 참조하세요.
+*AADSTS50011: 애플리케이션에 대해 등록된 회신 주소가 없습니다.* | Azure AD 등록에 "회신 URL" 속성이 없습니다. Azure AD 응용 프로그램 등록의 **설정** / **회신 URL** 페이지로 이동합니다. [Azure AD에 응용 프로그램 등록](#register-the-application-with-azure-ad)의 3단계에서 지정한 **로그온** URL이 있는지 확인합니다. 
+*AADSTS50011: 요청에 지정된 회신 URL이 애플리케이션에 대해 구성된 회신 URL('<Application ID GUID>')과 일치하지 않습니다.* | [웹 응용 프로그램 빌드 및 게시](#build-and-publish-the-web-application)의 4.b 단계에서 지정한 `postLogoutRedirectUri`는 Azure AD 응용 프로그램 등록의 **설정** / **회신 URL** 속성에서 지정한 값과 일치해야 합니다. 또한 `https`를 사용하도록 **대상 URL**을 변경해야 합니다. 자세한 단계는 [웹 응용 프로그램 빌드 및 게시](#build-and-publish-the-web-application)의 5.e를 참조하세요.
 웹 응용 프로그램이 로드되지만, 흰색 배경에 스타일 없이 텍스트로만 구성된 로그인 페이지가 표시됩니다. | [웹 응용 프로그램 빌드 및 게시](#build-and-publish-the-web-application)의 4.a 단계에서 설명한 경로가 올바른지 확인합니다. 웹 응용 프로그램이 .css 파일을 찾을 수 없는 경우 페이지 스타일이 올바르게 지정되지 않습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -188,7 +189,7 @@ ms.locfileid: "39626758"
 Azure Portal의 왼쪽 메뉴에서:
 
 1. **리소스 그룹** 아이콘을 클릭한 다음, TSI 환경용으로 만든 리소스 그룹을 선택합니다. 페이지 맨 위에서 **리소스 그룹 삭제**를 클릭하고, 리소스 그룹의 이름을 입력한 다음 **삭제**를 클릭합니다. 
-1. **리소스 그룹** 아이콘을 클릭한 다음, 장치 시뮬레이션 솔루션 가속기에서 만든 리소스 그룹을 선택합니다. 페이지 맨 위에서 **리소스 그룹 삭제**를 클릭하고, 리소스 그룹의 이름을 입력한 다음, **삭제**를 클릭합니다. 
+1. **리소스 그룹** 아이콘을 클릭한 다음, 디바이스 시뮬레이션 솔루션 가속기에서 만든 리소스 그룹을 선택합니다. 페이지 맨 위에서 **리소스 그룹 삭제**를 클릭하고, 리소스 그룹의 이름을 입력한 다음, **삭제**를 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

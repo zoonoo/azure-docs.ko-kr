@@ -1,5 +1,5 @@
 ---
-title: Azure Policy 샘플 ‑ SQL Server 감사 설정 감사
+title: 샘플 - SQL Server 감사 설정 감사
 description: 이 샘플 정책은 SQL Server 감사 설정을 감사합니다.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 258d56f70349c99faf6053de46886b736ffb95cf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7a9f5779b8a0c853d938734f82f3bd63e7f0a45b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949613"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53307872"
 ---
 # <a name="audit-sql-server-audit-settings"></a>SQL Server 감사 설정 감사
 

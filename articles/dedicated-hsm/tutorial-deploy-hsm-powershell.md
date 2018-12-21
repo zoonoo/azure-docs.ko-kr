@@ -1,6 +1,6 @@
 ---
-title: 자습서 – PowerShell을 사용하여 기존 가상 네트워크에 Azure Dedicated HSM 배포 | Microsoft Docs
-description: PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
+title: 자습서 - PowerShell을 사용하여 기존 가상 네트워크에 배포 - Azure Dedicated HSM | Microsoft Docs
+description: PowerShell을 사용하여 전용 HSM을 기존 가상 네트워크에 배포하는 방법을 보여 주는 자습서입니다.
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,17 +8,17 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a714a52ecd6398fde459c5814b8a6cf223655eff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318758"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086311"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>자습서 - PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -37,7 +37,7 @@ Azure Dedicated HSM 서비스는 단일 고객이 사용할 수 있는 완전한
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure Dedicated HSM은 현재 Azure Portal에서 사용할 수 없으므로 이 서비스와의 모든 상호 작용은 명령줄 또는 PowerShell을 통해 이루어집니다. 이 자습서에서는 Azure Cloud Shell에서 PowerShell을 사용합니다. PowerShell을 처음 접하는 경우 여기([Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0))에 있는 시작 지침을 따르세요.
+Azure Dedicated HSM은 현재 Azure Portal에서 사용할 수 없으므로 이 서비스와의 모든 상호 작용은 명령줄 또는 PowerShell을 통해 이루어집니다. 이 자습서에서는 Azure Cloud Shell에서 PowerShell을 사용합니다. PowerShell을 처음 사용하는 경우 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0)에 있는 시작 지침을 따릅니다.
 
 가정:
 
@@ -143,6 +143,14 @@ $delegation = New-AzureRmDelegation `
 ```
 
 ```powershell
+$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+  -Name hsmsubnet ` 
+  -AddressPrefix 10.2.1.0/24 ` 
+  -Delegation $delegation 
+
+```
+
+```powershell
 
 $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
@@ -179,7 +187,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName myRG `
 
 ![프로비전 상태](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-성공적으로 완료되면 “provisioningState”: “Succeeded”가 표시되며, 기존 가상 머신에 로그인하고 SSH를 사용하여 HSM 디바이스의 가용성을 확인할 수 있습니다.
+성공적으로 완료되어 "provisioningState": "Succeededed"가 표시되면 기존 가상 머신에 로그인하고 SSH를 사용하여 HSM 디바이스의 가용성을 보장할 수 있습니다.
 
 ## <a name="verifying-the-deployment"></a>배포 확인
 

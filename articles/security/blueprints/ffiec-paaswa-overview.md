@@ -50,7 +50,7 @@ Azure SQL Database는 일반적으로 보안 VPN 또는 ExpressRoute 연결을 �
 이 솔루션에서는 다음과 같은 Azure 서비스를 사용합니다. 배포 아키텍처에 대한 세부 정보는 [배포 아키텍처](#deployment-architecture) 섹션에 있습니다.
 
 - Application Gateway
-    - 웹 응용 프로그램 방화벽
+    - 웹 애플리케이션 방화벽
         - 방화벽 모드: 방지
         - 규칙 집합: OWASP
         - 수신기 포트: 443

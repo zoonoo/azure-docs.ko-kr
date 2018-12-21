@@ -1,5 +1,5 @@
 ---
-title: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호 | Microsoft Docs
+title: 관리 ID를 사용하여 SQL Database 연결 보호 - Azure App Service | Microsoft Docs
 description: 관리 ID를 사용하여 데이터베이스 연결을 보다 안전하게 만드는 방법과 이를 다른 Azure 서비스에 적용하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: dotnet
@@ -11,19 +11,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 42a25d6c13fe1052f4aa14696a66c9c7f1fb4d65
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685687"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259072"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
-[App Service](app-service-web-overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 [Azure SQL Database](/azure/sql-database/) 및 기타 Azure 서비스에 대한 액세스를 보호하기 위한 턴키 솔루션인 [관리 ID](app-service-managed-service-identity.md)를 앱에 제공합니다. App Service의 관리 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. 이 자습서에서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)에서 만든 샘플 ASP.NET 웹앱에 관리 ID를 추가합니다. 완료되면 샘플 앱은 사용자 이름과 암호 없이도 안전하게 SQL Database에 연결됩니다.
+[App Service](app-service-web-overview.md)는 Azure에서 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 또한 [Azure SQL Database](/azure/sql-database/) 및 기타 Azure 서비스에 대한 액세스를 보호하기 위한 턴키 솔루션인 [관리 ID](app-service-managed-service-identity.md)를 앱에 제공합니다. App Service의 관리 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. 이 자습서에서는 [자습서:  SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)에서 빌드된 ASP.NET 웹앱 샘플에 관리 ID를 추가합니다. 완료되면 샘플 앱은 사용자 이름과 암호 없이도 안전하게 SQL Database에 연결됩니다.
 
 > [!NOTE]
 > 이 시나리오는 현재 .NET Framework 4.6 이상에서 지원되지만, [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows)에서는 지원되지 않습니다. [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)는 이 시나리오를 지원하지만, 아직 App Service의 기본 이미지에 포함되지 않습니다. 
@@ -44,7 +44,7 @@ ms.locfileid: "51685687"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 아티클은 [자습서: SQL Database를 사용하여 Azure에 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)의 중단된 위치부터 계속됩니다. 아직 하지 않은 경우 먼저 해당 자습서를 따릅니다. 또는 SQL Database를 사용하여 해당 ASP.NET 앱에 맞게 단계를 조정할 수 있습니다.
+이 문서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md)에서 중단한 위치부터 계속됩니다. 아직 하지 않은 경우 먼저 해당 자습서를 따릅니다. 또는 SQL Database를 사용하여 해당 ASP.NET 앱에 맞게 단계를 조정할 수 있습니다.
 
 <!-- ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png) -->
 
@@ -95,11 +95,10 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 ## <a name="modify-aspnet-code"></a>ASP.NET 코드 수정
 
-Visual Studio의 **DotNetAppSqlDb** 프로젝트에서 _packages.config_를 열고 패키지 목록에 다음 줄을 추가합니다.
+Visual Studio에서 패키지 관리자 콘솔을 열고, [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지를 추가합니다.
 
-```xml
-<package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
-<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
+```PowerShell
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.1.0-preview
 ```
 
 _Models\MyDatabaseContext.cs_를 열고 파일의 맨 위에 다음 `using` 문을 추가합니다.
@@ -174,6 +173,10 @@ az ad group member list -g $groupid
 ### <a name="reconfigure-azure-ad-administrator"></a>Azure AD 관리자 다시 구성
 
 이전에는 관리 ID를 SQL Database의 Azure AD 관리자로 할당했습니다. 이 ID는 대화형 로그인(데이터베이스 사용자 추가용)에 사용할 수 없으므로, 실제 Azure AD 사용자를 사용해야 합니다. Azure AD 사용자를 추가하려면 [Azure SQL Database 서버에 대한 Azure Active Directory 관리자 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)의 단계를 따릅니다. 
+
+> [!IMPORTANT]
+> 추가된 후에는 모든 Azure AD 계정에서 SQL Database에 대한 Azure AD 액세스를 완전히 사용하지 않도록 설정하려는 경우가 아니면 SQL Database에 대한 이 Azure AD 관리자를 제거하지 마세요.
+> 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Azure Active Directory 그룹에 사용 권한 부여
 

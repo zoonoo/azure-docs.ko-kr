@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge를 사용하여 Azure Machine Learning 배포 | Microsoft Docs
+title: 자습서 - 디바이스에 Azure Machine Learning 배포 - Azure IoT Edge | Microsoft Docs
 description: 이 자습서에서는 Azure Machine Learning을 Edge 디바이스에 모듈로 배포합니다.
 author: kgremban
 manager: philmea
@@ -8,13 +8,13 @@ ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: c98dc9019421133b83ab9aec29f725852315f6ba
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: mvc, seodec18
+ms.openlocfilehash: db8318e94b646d57c00bc2e6958ba9e7f46ec7af
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977213"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344033"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
@@ -38,7 +38,7 @@ ms.locfileid: "51977213"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure IoT Edge 디바이스:
+Azure IoT Edge 장치:
 
 * [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
 * Azure Machine Learning 모듈은 ARM 프로세서를 지원하지 않습니다.
@@ -109,13 +109,13 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub로 이동합니다.
 
-1. **IoT Edge**로 이동하여 IoT Edge 장치를 선택합니다.
+1. **IoT Edge**로 이동하여 IoT Edge 디바이스를 선택합니다.
 
 1. **모듈 설정**을 선택합니다.
 
 1. **레지스트리 설정** 섹션에서 Azure 컨테이너 레지스트리에서 복사한 자격 증명을 추가합니다. 
 
-   ![레지스트리 자격 증명 추가](./media/tutorial-deploy-machine-learning/registry-settings.png)
+   ![매니페스트에 레지스트리 자격 증명 추가](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
 1. 이전에 IoT Edge 디바이스에 tempSensor 모듈을 배포한 경우 자동으로 입력될 수 있습니다. 모듈 목록에 없는 경우 모듈을 추가합니다.
 
@@ -174,7 +174,7 @@ Linux 디바이스에서 이러한 명령을 수행하는 경우 승격된 권�
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>IoT 허브에 도착한 데이터 보기
 
-[Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT Hub가 받는 장치-클라우드 메시지를 볼 수 있습니다.
+[Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전의 Azure IoT Toolkit 확장)을 사용하여 IoT Hub에서 받는 디바이스-클라우드 메시지를 볼 수 있습니다.
 
 다음 단계에서는 IoT 허브에 도착한 디바이스-클라우드 메시지를 모니터링하도록 Visual Studio Code를 설정하는 방법을 보여줍니다. 
 
@@ -182,7 +182,7 @@ Linux 디바이스에서 이러한 명령을 수행하는 경우 승격된 권�
 
 2. **...** 를 선택하고 나서 메뉴에서 **IoT Hub 연결 문자열 설정**을 선택합니다.
 
-   ![IoT Hub 디바이스 추가 메뉴](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![IoT Hub 연결 문자열 설정](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. 페이지의 맨 위에 열리는 텍스트 상자에 IoT Hub의 iothubowner 연결 문자열을 입력합니다. IoT Edge 디바이스가 IoT Hub 디바이스 목록에 표시됩니다.
 
@@ -194,7 +194,7 @@ Linux 디바이스에서 이러한 명령을 수행하는 경우 승격된 권�
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
-권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다. 
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 장치와 동일한 IoT Edge 장치를 계속 사용해도 됩니다. 
 
 그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 

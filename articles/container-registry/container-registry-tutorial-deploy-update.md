@@ -1,21 +1,21 @@
 ---
-title: Azure Container Registry 자습서 - 지역 배포에 업데이트된 이미지 푸시
-description: 수정된 Docker 이미지를 지역에서 복제된 Azure 컨테이너 레지스트리에 푸시한 다음 여러 지역에서 실행되는 웹앱에 자동으로 배포되는 변경 내용을 확인합니다. 3부로 구성된 시리즈 중 제3부입니다.
+title: 자습서 - 업데이트된 컨테이너 이미지를 지역 Azure 앱 배포로 푸시
+description: 수정된 Docker 이미지를 지리적으로 복제된 Azure 컨테이너 레지스트리로 푸시한 다음, 여러 지역에서 실행되는 웹앱에 자동으로 배포되는 변경 내용을 확인합니다. 3부로 구성된 시리즈 중 제3부입니다.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 96e46c84039b7c72d5419972c7a5a401eab64659
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: d9faa89d33dde7da35ad4490b78b9a1d023274ae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855513"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256624"
 ---
-# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>자습서: 지역 배포에 업데이트된 이미지 푸시
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>자습서: 지역 웹앱 배포를 위해 업데이트된 컨테이너 이미지를 지리적으로 복제된 컨테이너 레지스트리로 푸시
 
 세 부분으로 이루어진 자습서 시리즈의 세 번째 부분입니다. [이전 자습서](container-registry-tutorial-deploy-app.md)에서 두 개의 서로 다른 지역 웹앱 배포에 대해 지역에서 복제가 구성되었습니다. 이 자습서에서는 먼저 응용 프로그램을 수정한 다음 새 컨테이너 이미지를 빌드하고 지역에서 복제된 레지스트리를 푸시합니다. 마지막으로 웹앱 인스턴스 모두에서 Azure Container Registry webhook에 의해 자동으로 배포된 변경 내용을 확인합니다.
 
@@ -133,7 +133,7 @@ Webhook는 두 지역 웹앱에 업데이트된 컨테이너를 자동으로 배
 
 이 자습서에서는 지역에서 복제된 레지스트리에 새 버전의 웹 응용 프로그램 컨테이너를 업데이트 및 푸시했습니다. Azure Container Registry의 웹후크가 가장 가까운 레지스트리 복제본에서 로컬 끌어오기를 트리거하는 업데이트를 Web App for Containers에 알렸습니다.
 
-### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: 자동화된 이미지 빌드 및 패치
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR 빌드: 자동화된 이미지 빌드 및 패치
 
 지역 복제 외에도 ACR Build는 컨테이너 배포 파이프라인을 최적화할 수 있는 Azure Container Registry의 또 다른 기능입니다. ACR Build 개요부터 시작하여 그 기능을 알아보세요.
 

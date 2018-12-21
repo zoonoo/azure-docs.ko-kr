@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: cced9a313664eaeaed4dd1298488670960b76413
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d57e251b241297c461b117edec8fee6316b337b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195773"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098035"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성
 
@@ -79,7 +79,7 @@ ms.locfileid: "32195773"
     - “**원격 게이트웨이 사용**” 옵션을 설정합니다.
     - “확인”을 클릭합니다.
 
-    ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
 2. 피어링을 이미 만든 경우 피어링 리소스로 이동한 다음, 단계 (1)에 표시된 스크린샷과 유사하게 “**원격 게이트웨이 사용**” 옵션을 사용하도록 설정합니다.
 
@@ -90,7 +90,7 @@ ms.locfileid: "32195773"
     - “**게이트웨이 전송 허용**” 옵션을 설정합니다.
     - “확인”을 클릭합니다.
 
-    ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
 4. 피어링을 이미 만든 경우 피어링 리소스로 이동한 다음, 단계 (3)에 표시된 스크린샷과 유사하게 “**게이트웨이 전송 허용**” 옵션을 사용하도록 설정합니다.
 

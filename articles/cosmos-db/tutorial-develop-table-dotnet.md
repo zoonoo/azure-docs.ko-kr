@@ -1,23 +1,23 @@
 ---
-title: 'Azure Cosmos DB: .NET의 Table API를 사용하여 개발'
-description: .NET을 사용하는 Azure Cosmos DB의 Table API를 통해 개발하는 방법에 대해 알아봅니다.
-services: cosmos-db
+title: .NET SDK를 사용하여 Table API로 개발
+titleSuffix: Azure Cosmos DB
+description: .NET SDK를 사용하여 Azure Cosmos DB에서 Table API로 개발하는 방법을 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
+ms.date: 12/07/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: f10cb17f0300b6bd21d17b1e2ff204d57e4a7988
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877738"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251184"
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET의 Table API를 사용하여 개발
+# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB의 Table API로 개발
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
@@ -75,9 +75,9 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-이제 github에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
+이제 GitHub에서 Table 앱을 복제하고 연결 문자열을 설정한 다음 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
 1. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 폴더를 변경합니다. 
 
@@ -97,7 +97,7 @@ Azure Portal에서 Azure Cosmos DB 계정을 만들어 보겠습니다.
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다. 
 
-1. [Azure Portal](http://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
+1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 클릭합니다. 
 
     화면의 오른쪽에서 복사 단추를 사용하여 기본 연결 문자열을 복사합니다.
 
@@ -180,7 +180,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 이 클라이언트는 앱 설정에 지정된 경우 `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` 및 `TablePreferredLocations` 구성 값을 사용하여 초기화됩니다.
 
 ## <a name="create-a-table"></a>테이블 만들기
-그런 다음 `CloudTable`을 사용하여 테이블을 만듭니다. Azure Cosmos DB의 테이블은 저장소 및 처리량 측면에서 독립적으로 확장할 수 있으며, 분할은 서비스에서 자동으로 처리됩니다. Azure Cosmos DB는 고정된 크기 및 무제한 테이블을 모두 지원합니다. 자세한 내용은 [Azure Cosmos DB에서 분할](partition-data.md)을 참조하세요. 
+
+그런 다음 `CloudTable`을 사용하여 테이블을 만듭니다. Azure Cosmos DB의 테이블은 저장소 및 처리량 측면에서 독립적으로 확장할 수 있으며, 분할은 서비스에서 자동으로 처리됩니다. 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

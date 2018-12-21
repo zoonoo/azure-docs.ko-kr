@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e25cdd0677efce0ea8d40ad1c8ae07a5d071a67f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614524"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969792"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -61,7 +61,7 @@ ms.locfileid: "51614524"
 
     대략적인 솔루션 다이어그램은 다음과 같습니다. 
 
-    ![데이터 증분 로드](media\tutorial-incremental-copy-multiple-tables-portal\high-level-solution-diagram.png)
+    ![데이터 증분 로드](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
@@ -248,7 +248,7 @@ END
 1. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 1. **대시보드에 고정**을 선택합니다.     
 1. **만들기**를 클릭합니다.      
-1. 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
+1. 대시보드에서 다음과 같은 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
 
     ![데이터 팩터리 배포 중 타일](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
 1. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
@@ -277,7 +277,7 @@ END
 1. **이름**에 대해 **MySelfHostedIR**을 입력하고 **다음**을 클릭합니다. 
 
    ![자체 호스팅 IR 이름](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. **옵션 1: 빠른 설치** 섹션에서 **Click here to launch the express setup for this computer**(이 컴퓨터에 대한 빠른 설치를 시작하려면 여기를 클릭하세요.)를 클릭합니다. 
+1. **옵션 1: 기본 설치** 섹션에서  **이 컴퓨터에 대한 기본 설치를 시작하려면 여기를 클릭하세요**를 클릭합니다. 
 
    ![빠른 설치 링크 클릭](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. **Integration Runtime(자체 호스팅) 빠른 설치** 창에서 **닫기**를 클릭합니다. 
@@ -346,7 +346,7 @@ END
 1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-1. **새 데이터 집합** 창에서 **SQL Server**를 선택하고 **마침**을 클릭합니다. 
+1. **새 데이터 세트** 창에서 **SQL Server**를 선택하고 **마침**을 클릭합니다. 
 
    ![SQL Server 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-sql-server-for-dataset.png)
 1. 웹 브라우저에 데이터 세트를 구성하기 위해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **SourceDataset**를 입력합니다. 
@@ -361,7 +361,7 @@ END
 1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-1. **새 데이터 집합** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
+1. **새 데이터 세트** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
 
    ![Azure SQL Database 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
 1. 웹 브라우저에 데이터 세트를 구성하기 위해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 세트가 표시됩니다. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **SinkDataset**를 입력합니다.
@@ -393,7 +393,7 @@ END
 1. 왼쪽 창에서 **+(더하기)**, **데이터 세트**를 차례로 클릭합니다.
 
    ![새 데이터 세트 메뉴](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-1. **새 데이터 집합** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
+1. **새 데이터 세트** 창에서 **Azure SQL Database**를 선택하고 **마침**을 클릭합니다. 
 
    ![Azure SQL Database 선택](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
 1. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **WatermarkDataset**를 입력합니다.
@@ -444,7 +444,7 @@ END
     ![첫 번째 조회 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
 1. **속성** 창에서 **설정** 탭으로 전환하고 다음 단계를 수행합니다. 
 
-    1. **원본 데이터 집합**에 대해 **WatermarkDataset**을 선택합니다.
+    1. **원본 데이터 세트**에 대해 **WatermarkDataset**을 선택합니다.
     1. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
     1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다. 
 
@@ -458,7 +458,7 @@ END
     ![두 번째 조회 활동 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. **설정** 탭으로 전환합니다.
 
-    1. **원본 데이터 집합**에 대해 **SourceDataset**를 선택합니다. 
+    1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
     1. **쿼리 사용**에 대해 **쿼리**를 선택합니다.
     1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다.
 
@@ -475,7 +475,7 @@ END
     ![조회 활동 및 복사 활동 연결](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. 파이프라인에서 **복사** 활동을 선택합니다. **속성** 창의 **원본** 탭으로 전환합니다. 
 
-    1. **원본 데이터 집합**에 대해 **SourceDataset**를 선택합니다. 
+    1. **원본 데이터 세트**에 대해 **SourceDataset**를 선택합니다. 
     1. **쿼리 사용**에 대해 **쿼리**를 선택합니다. 
     1. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다.
 
@@ -484,14 +484,14 @@ END
         ```
 
         ![복사 활동 - 원본 설정](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
-1. **싱크** 탭으로 전환하고, **싱크 데이터 집합**에 대해 **SinkDataset**을 선택합니다. 
+1. **싱크** 탭으로 전환하고, **싱크 데이터 세트**에 대해 **SinkDataset**을 선택합니다. 
         
     ![복사 활동 - 싱크 설정](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. **매개 변수** 탭으로 전환하고 다음 단계를 수행합니다.
 
     1. **싱크 저장 프로시저 이름** 속성에 `@{item().StoredProcedureNameForMergeOperation}`을 입력합니다.
     1. **싱크 테이블 형식** 속성에 `@{item().TableType}`을 입력합니다.
-    1. **싱크 데이터 집합** 섹션에서 **SinkTableName** 매개 변수에 `@{item().TABLE_NAME}`을 입력합니다.
+    1. **싱크 데이터 세트** 섹션에서 **SinkTableName** 매개 변수에 `@{item().TABLE_NAME}`을 입력합니다.
 
         ![복사 활동 - 매개 변수](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. **저장 프로시저** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. **복사** 활동을 **저장 프로시저** 활동에 연결합니다. 

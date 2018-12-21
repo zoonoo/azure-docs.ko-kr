@@ -1,6 +1,6 @@
 ---
-title: 자습서 – CLI를 사용하여 기존 가상 네트워크에 HSM을 배포하는 Azure Dedicated HSM | Microsoft Docs
-description: CLI를 사용하여 Dedicated HSM을 배포하는 방법을 보여주는 자습서
+title: 자습서 - Azure CLI를 사용하여 기존 가상 네트워크에 배포 - Azure Dedicated HSM | Microsoft Docs
+description: CLI를 사용하여 전용 HSM을 기존 가상 네트워크에 배포하는 방법을 보여 주는 자습서입니다.
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,19 +8,19 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: ca30dc9d86db8faabfdd3791b74b9f86c9480ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679650"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080319"
 ---
-# <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-cli"></a>자습서 – CLI를 사용하여 기존 가상 네트워크에 HSM 배포
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>자습서: CLI를 사용하여 기존 가상 네트워크에 HSM 배포
 
 Azure Dedicated HSM은 단일 고객이 사용할 수 있는 완전한 관리 컨트롤과 전체적인 관리 기능을 지원하는 물리적 디바이스를 제공합니다. 물리적 디바이스를 사용하려면 용량을 효과적으로 관리할 수 있도록 Microsoft에서 디바이스 할당을 제어해야 합니다. 따라서 Azure 구독 내에서 Dedicated HSM 서비스는 일반적으로 리소스 프로비전에 표시되지 않습니다. Dedicated HSM 서비스에 액세스해야 하는 Azure 고객은 먼저 Microsoft 계정 담당자에게 연락하여 Dedicated HSM 서비스에 대한 등록을 요청해야 합니다. 이 프로세스가 성공적으로 완료되어야만 프로비전이 가능해집니다. 
 
@@ -38,7 +38,7 @@ Azure Dedicated HSM은 단일 고객이 사용할 수 있는 완전한 관리 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure Dedicated HSM을 현재 Azure Portal에서 사용할 수 없습니다. 서비스와의 모든 상호 작용은 명령줄이나 PowerShell을 통해 이루어집니다. 이 자습서에서는 Azure Cloud Shell의 명령줄(CLI) 인터페이스를 사용합니다. Azure CLI를 처음 접하는 경우 여기([Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest))에 있는 시작 지침을 따르세요.
+Azure Dedicated HSM을 현재 Azure Portal에서 사용할 수 없습니다. 서비스와의 모든 상호 작용은 명령줄이나 PowerShell을 통해 이루어집니다. 이 자습서에서는 Azure Cloud Shell의 명령줄(CLI) 인터페이스를 사용합니다. Azure CLI를 처음 사용하는 경우 [Azure CLI 2.0 시작](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)에 있는 시작 지침을 따릅니다.
 
 가정:
 
@@ -130,7 +130,7 @@ HSM은 고객의 가상 네트워크에 프로비전되므로 가상 네트워�
 
 명령 셸 도구 모음에는 업로드/다운로드 옵션이 있고, 파일 공유에 템플릿 및 매개 변수 파일을 업로드하려면 이 옵션을 선택해야 합니다.
 
-![구독 상태](media/tutorial-deploy-hsm-cli/file-share.png)
+![파일 공유](media/tutorial-deploy-hsm-cli/file-share.png)
 
 파일이 업로드되면 리소스를 만들 수 있습니다. 새 HSM을 만들기 전에 반드시 갖추어야 하는 일부 필수 리소스가 있습니다. 계산, HSM 및 게이트웨이에 대한 서브넷 범위를 지원하는 가상 네트워크가 있어야 합니다. 다음 명령은 이러한 가상 네트워크를 만드는 요소에 대한 예를 보여줍니다.
 
@@ -191,7 +191,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![프로비전 상태](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![프로비전 출력](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 또한 이제 [Azure 리소스 탐색기](https://resources.azure.com/)를 사용하여 리소스를 볼 수 있습니다.   탐색기에서 왼쪽에 있는 “구독”, Dedicated HSM의 특정 구독, “리소스 그룹”, 사용한 리소스 그룹을 차례로 확장하고, 마지막으로 “리소스” 항목을 선택합니다.
 

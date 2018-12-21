@@ -1,22 +1,21 @@
 ---
-title: Azure Cosmos DB를 사용한 Java 응용 프로그램 개발 자습서 | Microsoft Docs
+title: Azure Cosmos DB를 사용한 Java 애플리케이션 개발 자습서
 description: 이 Java 웹 응용 프로그램 자습서에서는 Azure Cosmos DB 및 SQL API를 사용하여 Azure Websites에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
 keywords: 응용 프로그램 개발, 데이터베이스 자습서, java 응용 프로그램, java 웹 응용 프로그램 자습서, azure, Microsoft azure
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: f60afa88f0730e510a94aae0ac5d4fb3462c8a4e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bdfe390314f2d2174a26e9b321022a3589a06467
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421274"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086542"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 응용 프로그램 빌드
 
@@ -50,19 +49,19 @@ ms.locfileid: "50421274"
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)
-* [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
+* [Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Java 런타임 환경(예: Tomcat 또는 Jetty)을 사용하는 Azure 웹 사이트](../app-service/app-service-web-get-started-java.md)
 
-이러한 도구를 처음 설치하는 경우, coreservlets.com에서 제공되는 단계별 설치 지침을 따르세요. 이 지침은 [자습서: TomCat7 설치 및 Eclipse에서 사용](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) 문서의 빠른 시작 섹션에서 확인할 수 있습니다.
+이러한 도구를 처음 설치하는 경우 coreservlets.com에서 [자습서: TomCat7 설치 및 Eclipse에서 사용](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) 문서에 있는 [빠른 시작] 섹션의 단계별 설치 지침을 제공합니다.
 
 ## <a id="CreateDB"></a>1단계: Azure Cosmos DB 계정 만들기
-Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거나 이 자습서에 Azure Cosmos DB 에뮬레이터를 사용하고 있는 경우 [2단계: Java JSP 응용 프로그램 만들기](#CreateJSP)로 건너뛸 수 있습니다.
+Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 이미 있거나 이 자습서에서 Azure Cosmos DB 에뮬레이터를 사용하는 경우 [2단계: Java JSP 애플리케이션 만들기](#CreateJSP)로 건너뛸 수 있습니다.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a id="CreateJSP"></a>2단계: Java JSP 응용 프로그램 만들기
+## <a id="CreateJSP"></a>2단계: Java JSP 애플리케이션 만들기
 JSP 응용 프로그램을 만들려면 다음을 수행합니다.
 
 1. 먼저, Java 프로젝트를 만듭니다. Eclipse를 시작한 후 **파일**, **새로 만들기**, **동적 웹 프로젝트**를 차례로 클릭합니다. **동적 웹 프로젝트**가 사용 가능한 프로젝트로 나열되지 않았으면 다음을 수행합니다. **파일**, **새로 만들기**, **프로젝트**…를 차례로 클릭하고 **웹**을 확장한 후 **동적 웹 프로젝트**를 클릭하고 **다음**을 클릭합니다.
@@ -85,7 +84,7 @@ JSP 응용 프로그램을 만들려면 다음을 수행합니다.
     ![Hello World - Java 응용 프로그램 자습서](./media/sql-api-java-application/image12.png)
 
 ## <a id="InstallSDK"></a>3단계: SQL Java SDK 설치
-SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apache Maven](http://maven.apache.org/)을 사용하는 것입니다.
+SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apache Maven](https://maven.apache.org/)을 사용하는 것입니다.
 
 이렇게 하려면 다음 단계를 수행해서 프로젝트를 maven 프로젝트로 변환해야 합니다.
 
@@ -107,7 +106,7 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
 6. **확인**을 클릭하면 Maven이 SQL Java SDK를 설치합니다.
 7. pom.xml 파일을 저장합니다.
 
-## <a id="UseService"></a>4단계: Java 응용 프로그램에서 Azure Cosmos DB 서비스 사용
+## <a id="UseService"></a>4단계: Java 애플리케이션에서 Azure Cosmos DB 서비스 사용
 1. 먼저 TodoItem.java에서 TodoItem 개체를 정의하겠습니다.
    
         @Data
@@ -119,7 +118,7 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
             private String name;
         }
    
-    이 프로젝트에서는 [Project Lombok](http://projectlombok.org/)을 사용해서 생성자, getter, setter 및 작성기를 생성합니다. 또는 이 코드를 수동으로 작성하거나 IDE에서 생성하도록 할 수도 있습니다.
+    이 프로젝트에서는 [Project Lombok](https://projectlombok.org/)을 사용해서 생성자, getter, setter 및 작성기를 생성합니다. 또는 이 코드를 수동으로 작성하거나 IDE에서 생성하도록 할 수도 있습니다.
 2. Azure Cosmos DB 서비스를 호출하려면 새 **DocumentClient**를 인스턴스화해야 합니다. 일반적으로 각 후속 요청에 대해 새 클라이언트를 생성하는 것보다는 **DocumentClient** 를 다시 사용하는 것이 가장 좋습니다. **DocumentClientFactory**에 클라이언트를 래핑하면 클라이언트를 다시 사용할 수 있습니다. DocumentClientFactory.java에서 [1단계](#CreateDB)에서 클립보드에 저장한 URI 및 기본 키 값을 붙여 넣어야 합니다. [YOUR\_ENDPOINT\_HERE]를 해당 URI로 바꾸고 [YOUR\_KEY\_HERE]를 해당 기본 키로 바꿉니다.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
@@ -341,7 +340,7 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
             return true;
         }
 
-## <a id="Wire"></a>5단계: Java 응용 프로그램 개발 프로젝트의 나머지 부분 연결
+## <a id="Wire"></a>5단계: Java 애플리케이션 개발 프로젝트의 나머지 부분 연결
 이제 재미있는 부분을 마쳤으므로 빠른 사용자 인터페이스를 빌드하고 DAO에 연결하기만 하면 됩니다.
 
 1. 먼저 DAO를 호출하는 컨트롤러를 빌드하겠습니다.
@@ -713,7 +712,7 @@ SQL Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apach
 5. 멋집니다! 이제 응용 프로그램을 테스트하는 일만 남았습니다. 응용 프로그램을 로컬로 실행하고 항목 이름과 범주를 입력하고 **작업 추가**를 클릭하여 Todo 항목을 추가합니다.
 6. 항목이 표시되면 확인란을 설정/해제하고 **작업 업데이트**를 클릭하여 항목의 완료 여부를 업데이트할 수 있습니다.
 
-## <a id="Deploy"></a>6단계: Azure 웹 사이트에 Java 응용 프로그램 배포
+## <a id="Deploy"></a>6단계: Azure 웹 사이트에 Java 애플리케이션 배포
 Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수 있습니다. 즉, 응용 프로그램을 WAR 파일로 내보내고 소스 제어(예: Git) 또는 FTP를 통해 업로드하면 됩니다.
 
 1. 응용 프로그램을 WAR 파일로 내보내려면 **프로젝트 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **내보내기**를 클릭한 후 **WAR 파일**을 클릭합니다.
@@ -730,7 +729,7 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 ## <a id="GetProject"></a>GitHub에서 프로젝트 가져오기
 이 자습서의 모든 샘플은 GitHub의 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 프로젝트에 포함되어 있습니다. Todo 프로젝트를 Eclipse로 가져오려면 [필수 조건](#Prerequisites) 섹션에 나열된 소프트웨어 및 리소스가 있는지 확인한 후 다음을 수행합니다.
 
-1. [Project Lombok](http://projectlombok.org/)을 설치합니다. Lombok은 프로젝트에서 생성자, getter, setter를 생성하는 데 사용됩니다. lombok.jar 파일을 다운로드한 다음에는 두 번 클릭하여 설치하거나 명령줄을 사용해서 설치합니다.
+1. [Project Lombok](https://projectlombok.org/)을 설치합니다. Lombok은 프로젝트에서 생성자, getter, setter를 생성하는 데 사용됩니다. lombok.jar 파일을 다운로드한 다음에는 두 번 클릭하여 설치하거나 명령줄을 사용해서 설치합니다.
 2. Eclipse가 열려 있으면 닫고 다시 시작해서 Lombok을 로드합니다.
 3. Eclipse의 **파일** 메뉴에서 **가져오기**를 클릭합니다.
 4. **가져오기** 창에서 **Git**, **Git의 프로젝트**, **다음**을 차례로 클릭합니다.

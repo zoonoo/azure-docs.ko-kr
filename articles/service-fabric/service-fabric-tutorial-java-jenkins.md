@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124983"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162225"
 ---
-# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 응용 프로그램에 CI/CD를 사용하도록 Jenkins 환경 구성
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 애플리케이션에 CI/CD를 사용하도록 Jenkins 환경 구성
 
-이 자습서는 시리즈의 5부입니다. 여기서는 Jenkins를 사용하여 응용 프로그램에 업그레이드를 배포하는 방법을 설명합니다. 이 자습서에서는 Service Fabric Jenkins 플러그 인이 클러스터에 응답 응용 프로그램을 배포하기 위해 Voting 응용프로그램을 호스팅하는 Github 리포지토리와 결합하는 데 사용됩니다.
+이 자습서는 시리즈의 5부입니다. 여기서는 Jenkins를 사용하여 응용 프로그램에 업그레이드를 배포하는 방법을 설명합니다. 이 자습서에서는 Voting(투표) 애플리케이션을 호스팅하는 GitHub 리포지토리와 함께 Service Fabric Jenkins 플러그 인을 사용하여 해당 애플리케이션을 클러스터에 배포합니다.
 
 시리즈 5부에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -84,7 +84,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Jenkins 작업 만들기 및 구성
 
-1. 첫째, Github에서 Voting 프로젝트를 호스팅하는 데 사용할 수 있는 리포지토리가 없는 경우 만드세요. 리포지토리는 이 자습서의 나머지에 대해 **dev_test**라고 합니다.
+1. 먼저 GitHub에서 Voting 프로젝트를 호스팅하는 데 사용할 수 있는 리포지토리가 없는 경우 새로 만듭니다. 리포지토리는 이 자습서의 나머지에 대해 **dev_test**라고 합니다.
 
 1. ``http://<HOST-IP>:8080``의 Jenkins 대시보드에 **새 항목**을 만듭니다.
 
@@ -181,7 +181,7 @@ Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 
     </CodePackage>
     ```
 
-1. 응용 프로그램 업그레이드를 수행하는 Jenkins 작업을 초기화하려면 Github 리포지토리에 새 변경 내용을 푸시하십시오.
+1. 애플리케이션 업그레이드를 수행하는 Jenkins 작업을 초기화하려면 새 변경 내용을 GitHub 리포지토리로 푸시합니다.
 
 1. Service Fabric Explorer에서 **응용 프로그램** 드롭다운을 클릭합니다. 업그레이드의 상태를 확인하려면 **진행 중인 업그레이드** 탭을 클릭합니다.
 

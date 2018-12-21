@@ -28,7 +28,7 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 * 응용 프로그램에 **네이티브 클라이언트** 를 포함합니다.
 * **리디렉션 URI** `urn:ietf:wg:oauth:2.0:oob`를 복사합니다. 이 코드 샘플에 대한 기본 URL입니다.
-* 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 이 시간은 나중에 필요합니다.
+* 앱에 할당된 **애플리케이션 ID**를 복사합니다. 이 시간은 나중에 필요합니다.
 
 ## <a name="create-your-policies"></a>정책 만들기
 Azure AD B2C에서 모든 사용자 환경은 [정책](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 코드 샘플은 등록, 로그인 및 프로필 편집 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow)에서 설명한 대로 각 형식에 대한 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.

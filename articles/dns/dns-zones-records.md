@@ -101,7 +101,7 @@ SOA 레코드에서 'host' 속성(Azure DNS에서 제공한 기본 이름 서버
 
 ### <a name="txt-records"></a>TXT 레코드
 
-TXT 레코드는 도메인 이름을 임의의 텍스트 문자열에 매핑하는 데 사용됩니다. 이들은 특히 [SPF(Sender Policy Framework)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) 및 [DKIM(DomainKeys Identified Mail)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail)과 같은 메일 구성과 관련된 여러 응용 프로그램에서 사용됩니다.
+TXT 레코드는 도메인 이름을 임의의 텍스트 문자열에 매핑하는 데 사용됩니다. 이들은 특히 [SPF(Sender Policy Framework)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) 및 [DKIM(DomainKeys Identified Mail)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail)과 같은 이메일 구성과 관련된 여러 애플리케이션에서 사용됩니다.
 
 DNS 표준은 여러 문자열을 포함하는 하나의 TXT 레코드를 허용하며 각각의 문자열 길이는 최대 254자까지 가능합니다. 여러 문자열이 사용되는 경우 이러한 문자열은 클라이언트에 의해 연결되고 단일 문자열로 처리됩니다.
 

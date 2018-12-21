@@ -101,7 +101,7 @@ Azure Traffic Manager 서비스는 전역 DNS 부하 분산을 제공합니다. 
 
 **응용 프로그램 부하 분산**
 
-Azure Application Gateway 서비스는 ADC(Application Deliver Controller)를 서비스로 제공합니다. Application Gateway는 취약점 및 악용으로부터 웹 응용 프로그램을 보호하는 웹 응용 프로그램 방화벽을 비롯한 응용 프로그램에 대한 다양한 계층 7(HTTP/HTTPS) 부하 분산 기능을 제공합니다. Application Gateway를 통해 Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여 웹 팜 생산성을 최적화할 수도 있습니다. 
+Azure Application Gateway 서비스는 ADC(Application Deliver Controller)를 서비스로 제공합니다. Application Gateway는 취약점 및 악용으로부터 웹 응용 프로그램을 보호하는 웹 응용 프로그램 방화벽을 비롯한 응용 프로그램에 대한 다양한 계층 7(HTTP/HTTPS) 부하 분산 기능을 제공합니다. Application Gateway를 통해 애플리케이션 게이트웨이에 CPU 집약적인 SSL 종료를 오프로드하여 웹 팜 생산성을 최적화할 수도 있습니다. 
 
 Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 패스 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스트할 수 있는 기능 등을 포함합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성될 수 있습니다. Application Gateway는 전적으로 Azure에 의해 관리되고, 확장성 및 고가용성을 제공합니다. 관리 효율성을 향상시키기 위한 풍부한 진단 및 로깅 기능을 제공합니다. Application Gateway에 대한 자세한 내용은 [Application Gateway 개요](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 
@@ -113,7 +113,7 @@ Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로
 
 Azure Load Balancer는 모든 UDP 및 TCP 프로토콜에 대해 대기 시간이 낮은 고성능 계층 4 부하 분산을 제공합니다. 인바운드 및 아웃 바운드 연결을 관리합니다. 내부 부하가 분산된 공용 끝점을 구성할 수 있습니다. 서비스 가용성 관리 옵션을 검색하는 TCP 및 HTTP 상태를 사용하여 백 엔드 풀 대상에 인바운드 연결을 매핑하는 규칙을 정의할 수 있습니다. Load Balancer에 대한 자세한 내용은 [Load Balancer 개요](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) 문서를 참고하세요.
 
-다음 그림에서는 외부 및 내부 부하 분산 장치를 모두 활용하는 인터넷 연결 다중 계층 응용 프로그램을 보여줍니다.
+다음 그림에서는 외부 및 내부 부하 분산 장치를 모두 활용하는 인터넷 연결 다중 계층 애플리케이션을 보여줍니다.
 
 ![부하 분산 장치](./media/networking-overview/load-balancer.png)
 

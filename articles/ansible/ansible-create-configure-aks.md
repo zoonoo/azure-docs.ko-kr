@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f7dbc124781992ada9c3538cf415b836d8764064
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f17998957db6fca5b109b5a05aa624e238af8dca
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810823"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257542"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터 만들기 및 구성
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 AKS(Azure Kubernetes Service)를 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 Azure에서 Azure Kubernetes Service 클러스터를 만들고 구성하는 방법을 보여줍니다.
@@ -79,7 +79,7 @@ Ansible을 사용하여 AKS 클러스터를 만들려면 위의 샘플 플레이
 
 **ansible-playbook* 명령의 출력은 AKS 클러스터가 성공적으로 만들어졌음을 보여주는 다음과 비슷합니다.
 
-  ```bash
+  ```Output
   PLAY [Create AKS] ****************************************************************************************
 
   TASK [Gathering Facts] ********************************************************************************************
@@ -140,7 +140,7 @@ Ansible 사용하여 Azure Kubernetes Service 클러스터 크기를 조정하�
 
 다음 출력은 AKS 클러스터가 성공적으로 만들어졌음을 보여줍니다.
 
-  ```bash
+  ```Output
   PLAY [Scale AKS cluster] ***************************************************************
 
   TASK [Gathering Facts] ******************************************************************
@@ -178,7 +178,7 @@ Ansible 사용하여 Azure Kubernetes Service 클러스터를 삭제하려면 �
   ```
 
 다음 출력은 AKS 클러스터가 성공적으로 삭제되었음을 보여줍니다.
-  ```bash
+  ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
 
 TASK [Gathering Facts] ********************************************************************
@@ -192,4 +192,4 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
   
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 크기 조정](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)
+> [자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 크기 조정](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

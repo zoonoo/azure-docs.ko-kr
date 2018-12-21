@@ -51,7 +51,7 @@ FreshDesk와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다.  이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 FreshDesk 추가
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -250,7 +250,7 @@ FreshDesk의 경우 프로비전은 수동 작업입니다.
 
     ![사용자 할당][201]
 
-2. 응용 프로그램 목록에서 **FreshDesk**를 선택합니다.
+2. 애플리케이션 목록에서 **FreshDesk**를 선택합니다.
 
     ![Configure Single Sign-On](./media/freshdesk-tutorial/tutorial_freshdesk_app.png)
 

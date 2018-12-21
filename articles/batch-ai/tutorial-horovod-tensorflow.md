@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure Batch AI 및 Horovod를 사용한 분산 학습 | Microsoft Docs
-description: 자습서 - Azure Batch AI 서비스 및 Azure CLI를 사용하여 Horovod로 분산 모델을 학습하는 방법입니다.
+description: 자습서 - Azure Batch AI 서비스 및 Azure CLI를 사용하여 Horovod로 분산 모델을 학습시키는 방법입니다.
 services: batch-ai
 author: johnwu10
 manager: jeconnoc
@@ -9,14 +9,17 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de19b20865127fd37cd7bc1ac854288a95a68091
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45255845d8645391ee33471830ac2ef27870a40d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058135"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408632"
 ---
-# <a name="tutorial-train-a-distributed-model-with-horovod"></a>자습서: Horovod로 분산 모델 학습
+# <a name="tutorial-train-a-distributed-model-with-horovod"></a>자습서: Horovod를 사용하여 분산 모델 학습
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 이 자습서에서는 Batch AI 클러스터의 여러 노드에서 병렬로 실행하여 분산 Deep Learning 모델을 학습합니다. Batch AI는 Azure GPU에서 기계 학습 및 AI 모델을 대규모로 학습하기 위한 관리 서비스입니다. 
 
@@ -25,7 +28,7 @@ ms.locfileid: "44058135"
 > [!div class="checklist"]
 > * Batch AI 작업 영역, 실험 및 클러스터 설정
 > * 입/출력용 Azure 파일 공유 설정
-> * Horovod를 사용하여 Deep Learning 모델 병렬 처리
+> * Horovod를 사용하여 딥러닝 모델 병렬 처리
 > * 학습 작업 제출
 > * 작업 모니터링
 > * 학습 결과 검색
@@ -40,9 +43,9 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ## <a name="why-use-horovod"></a>Horovod를 사용하는 이유
 
-Horovod는 Tensorflow, Keras 및 PyTorch용 분산 학습 프레임워크로, 이 자습서에 사용됩니다. Horovod를 사용하면 단일 GPU에서 실행되도록 디자인된 학습 스크립트를 코드 줄 몇 개 만으로 분산 시스템에서 효율적으로 실행되는 스크립트로 변환할 수 있습니다.
+Horovod는 Tensorflow, Keras 및 PyTorch용 분산 학습 프레임워크로, 이 자습서에 사용됩니다. Horovod를 사용하면 단 몇 줄의 코드만으로 단일 GPU에서 실행되도록 디자인된 학습 스크립트를 분산 시스템에서 실행되는 스크립트로 변환해 효율적인 사용이 가능합니다.
 
-Horovod 외에도, Batch AI는 다른 인기 있는 오픈 소스 프레임워크를 사용하여 분산 학습을 지원합니다. 프로덕션 환경에서 모델을 학습하는 데 사용하는 프레임워크의 사용 조건을 검토해야 합니다.
+Batch AI는 Horovod 외에도 자주 쓰이는 다른 오픈 소스 프레임워크를 사용하여 분산 학습을 지원할 수 있습니다. 프로덕션 환경에서 모델을 학습하는 데 사용하는 프레임워크의 사용 조건을 검토해야 합니다.
 
 ## <a name="prepare-the-batch-ai-environment"></a>Batch AI 환경 준비
 
@@ -80,7 +83,7 @@ az batchai experiment create --resource-group batchai.horovod --workspace batcha
 az batchai cluster create --resource-group batchai.horovod --workspace batchaidev --name nc6cluster --vm-priority dedicated  --vm-size Standard_NC6 --target 4 --generate-ssh-keys
 ```
 
-`az batchai cluster show` 명령을 실행하여 클러스터 상태를 확인합니다. 일반적으로 클러스터를 안전히 프로비전하는 데 몇 분 정도 걸립니다.
+`az batchai cluster show` 명령을 실행하여 클러스터 상태를 확인합니다. 일반적으로 클러스터를 완전히 프로비전하는 데 몇 분 정도 걸립니다.
 
 ```azurecli-interactive
 az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --output table

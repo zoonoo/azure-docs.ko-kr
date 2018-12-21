@@ -1,20 +1,20 @@
 ---
-title: Azure CLI 스크립트 - Azure Cosmos DB Gremlin API 계정, 데이터베이스 및 그래프 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 - Azure Cosmos DB Gremlin API 계정, 데이터베이스 및 그래프 만들기
 description: Azure CLI 스크립트 샘플 - Azure Cosmos DB Gremlin API 계정, 데이터베이스 및 그래프 만들기
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: c920fd55442897688fab8c88e599fe4837667cf9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0e870b00cefc235a99c084c5a405b69c07187907
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019610"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956672"
 ---
-# <a name="azure-cosmos-db-create-a-gremlin-api-account-using-azure-cli"></a>Azure Cosmos DB: Azure CLI를 사용하여 Gremlin API 계정 만들기
+# <a name="azure-cosmos-db-create-a-gremlin-api-account-using-azure-cli"></a>Azure Cosmos DB는 Azure CLI를 사용하여 Gremlin API 계정 만들기
 
 이 샘플 CLI 스크립트는 Azure Cosmos DB Gremlin API 계정, 데이터베이스 및 그래프를 만듭니다.
 

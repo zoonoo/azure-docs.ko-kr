@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/06/2018
-ms.openlocfilehash: 8b0e15ac6cd59a77e283d9256ab5fa4542dfc9a9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 12/04/2018
+ms.openlocfilehash: a820287c79dcd8d904c9029de3f58d930118e840
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960517"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959515"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 MySQL 인스턴스에서 [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/)로 마이그레이션할 수 있습니다. 즉 응용 프로그램의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **Employees** 샘플 데이터베이스를 MySQL 5.7의 온-프레미스 인스턴스에서 Azure Database for MySQL로 마이그레이션합니다.
@@ -28,6 +28,9 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 > * Azure Database Migration Service를 사용하여 마이그레이션 프로젝트를 만듭니다.
 > * 마이그레이션을 실행합니다.
 > * 마이그레이션을 모니터링합니다.
+
+> [!NOTE]
+> Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄(미리 보기) 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
 
 > [!IMPORTANT]
 > 최적의 마이그레이션 환경을 위해 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것이 좋습니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
@@ -118,24 +121,24 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 1. Azure Portal에 로그인하고, **모든 서비스**를 선택한 다음, **구독**을 선택합니다.
  
-   ![포털 구독 표시](media\tutorial-mysql-to-azure-mysql-online\portal-select-subscriptions.png)
+   ![포털 구독 표시](media/tutorial-mysql-to-azure-mysql-online/portal-select-subscriptions.png)
        
 2. Azure Database Migration Service의 인스턴스를 만들 구독을 선택한 다음 **리소스 공급자**를 선택합니다.
  
-    ![리소스 공급자 보기](media\tutorial-mysql-to-azure-mysql-online\portal-select-resource-provider.png)
+    ![리소스 공급자 보기](media/tutorial-mysql-to-azure-mysql-online/portal-select-resource-provider.png)
     
 3.  마이그레이션을 검색한 다음 **Microsoft.DataMigration**의 오른쪽에서 **등록**을 선택합니다.
  
-    ![리소스 공급자 등록](media\tutorial-mysql-to-azure-mysql-online\portal-register-resource-provider.png)    
+    ![리소스 공급자 등록](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)    
 
 ## <a name="create-a-dms-instance"></a>DMS 인스턴스 만들기
 1.  Azure Portal에서 **+ 리소스 만들기**를 선택하고, Azure Database Migration Service를 검색한 다음, 드롭다운 목록에서 **Azure Database Migration Service**를 선택합니다.
 
-    ![Azure Marketplace](media\tutorial-mysql-to-azure-mysql-online\portal-marketplace.png)
+    ![Azure Marketplace](media/tutorial-mysql-to-azure-mysql-online/portal-marketplace.png)
 
 2.  **Azure Database Migration Service** 화면에서 **만들기**를 선택합니다.
  
-    ![Azure Database Migration Service 인스턴스 만들기](media\tutorial-mysql-to-azure-mysql-online\dms-create1.png)
+    ![Azure Database Migration Service 인스턴스 만들기](media/tutorial-mysql-to-azure-mysql-online/dms-create1.png)
   
 3.  **Migration Service 만들기** 화면에서 서비스, 구독, 신규 또는 기존 리소스 그룹의 이름을 지정합니다.
 
@@ -151,7 +154,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     적합한 Azure Database Migration Service 계층을 선택하는 데 도움이 필요하면 [Azure DMS(Azure Database Migration Service) 계층 선택](https://go.microsoft.com/fwlink/?linkid=861067) 블로그 게시물의 권장 사항을 참조하세요. 
 
-     ![Azure Database Migration Service 인스턴스 설정 구성](media\tutorial-mysql-to-azure-mysql-online\dms-settings3.png)
+     ![Azure Database Migration Service 인스턴스 설정 구성](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
 
 7.  **만들기**를 선택하여 서비스를 만듭니다.
 
@@ -160,17 +163,17 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 1. Azure Portal에서 **모든 서비스**를 선택하고, Azure Database Migration Service를 검색하고 나서, **Azure Database Migration Services**를 선택합니다.
  
-      ![Azure Database Migration Service의 모든 인스턴스 찾기](media\tutorial-mysql-to-azure-mysql-online\dms-search.png)
+      ![Azure Database Migration Service의 모든 인스턴스 찾기](media/tutorial-mysql-to-azure-mysql-online/dms-search.png)
 
 2. **Azure Database Migration Services** 화면에서 방금 만든 Azure Database Migration Service 인스턴스의 이름을 검색하고 인스턴스를 선택합니다.
  
-     ![Azure Database Migration Service 인스턴스 찾기](media\tutorial-mysql-to-azure-mysql-online\dms-instance-search.png)
+     ![Azure Database Migration Service 인스턴스 찾기](media/tutorial-mysql-to-azure-mysql-online/dms-instance-search.png)
  
 3. **+ 새 마이그레이션 프로젝트**를 선택합니다.
 4. **새 마이그레이션 프로젝트** 화면에서 프로젝트 이름을 지정하고, **원본 서버 유형** 텍스트 상자에서 **MySQL**을 선택하고, **대상 서버 유형** 텍스트 상자에서 **AzureDbForMySQL**을 선택합니다.
 5. **활동 유형 선택** 섹션에서 **온라인 데이터 마이그레이션**을 선택합니다.
 
-    ![Database Migration Service 프로젝트 만들기](media\tutorial-mysql-to-azure-mysql-online\dms-create-project4.png)
+    ![Database Migration Service 프로젝트 만들기](media/tutorial-mysql-to-azure-mysql-online/dms-create-project4.png)
 
     > [!NOTE]
     > 또는 **프로젝트만 만들기**를 선택하여 지금 마이그레이션 프로젝트를 만들고 나중에 마이그레이션을 실행할 수 있습니다.
@@ -180,22 +183,22 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 ## <a name="specify-source-details"></a>원본 세부 정보 지정
 1. **원본 세부 정보 추가** 화면에서 원본 MySQL 인스턴스에 대한 연결 세부 정보를 지정합니다.
  
-    ![원본 세부 정보 추가 화면](media\tutorial-mysql-to-azure-mysql-online\dms-add-source-details.png)   
+    ![원본 세부 정보 추가 화면](media/tutorial-mysql-to-azure-mysql-online/dms-add-source-details.png)   
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 1. **저장**을 선택한 다음, **대상 세부 정보** 화면에서 대상 Azure Database for MySQL 서버에 대한 연결 세부 정보를 지정합니다. 이 서버는 mysqldump를 사용하여 **Employees** 스키마가 배포된 Azure Database for MySQL의 미리 프로비전된 인스턴스입니다.
 
-    ![대상 세부 정보 화면](media\tutorial-mysql-to-azure-mysql-online\dms-add-target-details.png)
+    ![대상 세부 정보 화면](media/tutorial-mysql-to-azure-mysql-online/dms-add-target-details.png)
 
 2. **저장**을 선택한 다음, **대상 데이터베이스에 매핑** 화면에서 마이그레이션하기 위해 원본 및 대상 데이터베이스를 매핑합니다.
 
     대상 데이터베이스의 이름이 원본 데이터베이스와 동일하면 Azure Database Migration Service는 기본적으로 대상 데이터베이스를 선택합니다.
 
-    ![대상 데이터베이스에 매핑](media\tutorial-mysql-to-azure-mysql-online\dms-map-target-details.png)
+    ![대상 데이터베이스에 매핑](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
 
 3.  **저장**을 선택하고, **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정한 다음, 요약을 검토하여 원본 및 대상 세부 정보가 이전에 지정한 내용과 일치하는지 확인합니다.
 
-    ![마이그레이션 요약](media\tutorial-mysql-to-azure-mysql-online\dms-migration-summary.png)
+    ![마이그레이션 요약](media/tutorial-mysql-to-azure-mysql-online/dms-migration-summary.png)
 
 ## <a name="run-the-migration"></a>마이그레이션 실행
 - **마이그레이션 실행**을 선택합니다.
@@ -205,22 +208,22 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 ## <a name="monitor-the-migration"></a>마이그레이션 모니터링
 1. 마이그레이션 작업 화면에서 **새로 고침**을 선택하여 마이그레이션 **상태**가 **완료**로 표시될 때까지 디스플레이를 업데이트합니다.
 
-     ![작업 상태 - 완료](media\tutorial-mysql-to-azure-mysql-online\dms-activity-completed.png)
+     ![작업 상태 - 완료](media/tutorial-mysql-to-azure-mysql-online/dms-activity-completed.png)
 
 2. **데이터베이스 이름** 아래에서 특정 데이터베이스를 선택하여 **전체 데이터 로드** 및 **증분 데이터 동기화** 작업에 대한 마이그레이션 상태로 이동합니다.
 
     전체 데이터 로드는 초기 로드 마이그레이션 상태를 표시하는 한편, 증분 데이터 동기화는 CDC(변경 데이터 캡처) 상태를 표시합니다.
    
-     ![작업 상태 - 전체 로드 완료](media\tutorial-mysql-to-azure-mysql-online\dms-activity-full-load-completed.png)
+     ![작업 상태 - 전체 로드 완료](media/tutorial-mysql-to-azure-mysql-online/dms-activity-full-load-completed.png)
 
-     ![작업 상태 - 증분 데이터 동기화](media\tutorial-mysql-to-azure-mysql-online\dms-activity-incremental-data-sync.png)
+     ![작업 상태 - 증분 데이터 동기화](media/tutorial-mysql-to-azure-mysql-online/dms-activity-incremental-data-sync.png)
 
 ## <a name="perform-migration-cutover"></a>마이그레이션 중단 수행
 초기 전체 로드가 완료되면 데이터베이스가 **중단 준비 완료**로 표시됩니다.
 
 1. 데이터베이스 마이그레이션을 완료할 준비가 되면 **중단 시작**을 선택합니다.
 
-    ![중단 시작](media\tutorial-mysql-to-azure-mysql-online\dms-start-cutover.png)
+    ![중단 시작](media/tutorial-mysql-to-azure-mysql-online/dms-start-cutover.png)
  
 2.  원본 데이터베이스로 들어오는 모든 트랜잭션을 중지해야 합니다. **보류 중인 변경 내용** 카운터가 **0**으로 표시될 때까지 기다립니다.
 3.  **확인**, **적용**을 차례로 선택합니다.

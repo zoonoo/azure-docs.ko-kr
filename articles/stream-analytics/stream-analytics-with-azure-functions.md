@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978003"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164163"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -35,34 +35,34 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Stream Analytics 작업을 구성하여 함수 실행 
 
-이 섹션에서는 Azure Redis Cache에 데이터를 기록하는 함수를 실행하기 위해 Stream Analytics 작업을 구성하는 방법을 보여줍니다. Stream Analytics 작업은 Azure Event Hubs에서 이벤트를 읽고 이 함수를 호출하는 쿼리를 실행합니다. 이 함수는 Stream Analytics 작업에서 데이터를 읽고 이를 Azure Redis Cache에 기록합니다.
+이 섹션에서는 Azure Cache for Redis에 데이터를 쓰는 함수를 실행하도록 Stream Analytics 작업을 구성하는 방법을 보여 줍니다. Stream Analytics 작업은 Azure Event Hubs에서 이벤트를 읽고 이 함수를 호출하는 쿼리를 실행합니다. 이 함수는 Stream Analytics 작업에서 데이터를 읽고, 이를 Azure Cache for Redis에 씁니다.
 
 ![Azure 서비스 간 관계를 보여주는 다이어그램](./media/stream-analytics-with-azure-functions/image1.png)
 
 이 작업을 수행하기 위해서는 다음 단계가 필요합니다.
 * [Event Hubs에서 입력으로 사용할 Stream Analytics 작업 만들기](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [Azure Redis Cache 인스턴스 만들기](#create-an-azure-redis-cache-instance)  
-* [Azure Functions에서 Azure Redis Cache에 데이터를 기록할 수 있는 함수 만들기](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [Azure Cache for Redis 인스턴스 만들기](#create-an-azure-redis-cache-instance)  
+* [Azure Functions에서 데이터를 Azure Cache for Redis에 쓸 수 있는 함수 만들기](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
 * [출력으로 사용할 함수로 Stream Analytics 작업 업데이트](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [Azure Redis Cache의 결과 확인](#check-azure-redis-cache-for-results)  
+* [Azure Cache for Redis에서 결과 확인](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Event Hubs에서 입력으로 사용할 Stream Analytics 작업 만들기
 
 [실시간 사기 감지](stream-analytics-real-time-fraud-detection.md) 자습서에 따라 이벤트 허브를 만들고, 이벤트 생성자 응용 프로그램을 시작하고, Stream Analytics 작업을 만듭니다. (쿼리 및 출력을 만드는 단계는 건너뜁니다. 대신 다음 섹션을 참조해서 Functions 출력을 설정합니다.)
 
-## <a name="create-an-azure-redis-cache-instance"></a>Azure Redis Cache 인스턴스 만들기
+## <a name="create-an-azure-cache-for-redis-instance"></a>Azure Cache for Redis 인스턴스 만들기
 
-1. [캐시 만들기](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)에 설명된 단계를 사용하여 Azure Redis Cache에서 캐시를 만듭니다.  
+1. [캐시 만들기](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)에서 설명한 단계를 사용하여 캐시를 Azure Cache for Redis에 만듭니다.  
 
 2. 캐시를 만든 다음 **설정** 아래에서 **액세스 키**를 선택합니다. **기본 연결 문자열**을 기록해 둡니다.
 
-   ![Azure Redis Cache 연결 문자열의 스크린샷](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Azure Cache for Redis 연결 문자열의 스크린샷](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>Azure Functions에서 데이터를 Azure Redis Cache에 기록할 수 있는 함수 만들기
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Azure Functions에서 데이터를 Azure Cache for Redis에 쓸 수 있는 함수 만들기
 
 1. Functions 설명서의 [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 섹션을 참조하십시오. 이 연습에서는 CSharp 언어를 사용하여 [Azure Functions에서 함수 앱 및 HTTP 트리거 함수](../azure-functions/functions-create-first-azure-function.md#create-function)를 만드는 방법을 살펴봅니다.  
 
-2. **run.csx** 함수를 찾습니다. 다음 코드로 업데이트합니다. ("\<redis 캐시 연결 문자열이 여기에 표시됩니다.\>"를 이전 섹션에서 검색한 Azure Redis Cache 기본 연결 문자열로 바꿉니다.)  
+2. **run.csx** 함수를 찾습니다. 다음 코드로 업데이트합니다. ("\<Azure Cache for Redis 연결 문자열이 여기에 표시됩니다.\>"를 이전 섹션에서 검색한 Azure Cache for Redis 기본 연결 문자열로 바꿉니다.)  
 
    ```csharp
    using System;
@@ -85,7 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
       {        
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
-      var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
+      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
       log.Info($"Connection string.. {connection}");
     
       // Connection refers to a property that returns a ConnectionMultiplexer
@@ -185,17 +185,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     
 6.  Stream Analytics 작업을 시작합니다.
 
-## <a name="check-azure-redis-cache-for-results"></a>Azure Redis Cache의 결과 확인
+## <a name="check-azure-cache-for-redis-for-results"></a>Azure Cache for Redis에서 결과 확인
 
-1. Azure 포털을 찾아서 Azure Redis Cache를 찾습니다. **콘솔**을 선택합니다.  
+1. Azure Portal로 이동하여 Azure Cache for Redis를 찾습니다. **콘솔**을 선택합니다.  
 
-2. [Redis 캐시 명령](https://redis.io/commands)을 사용하여 데이터가 Redis 캐시에 있는지 확인합니다. (이 명령은 Get {key} 형식을 사용합니다.) 예: 
+2. [Azure Cache for Redis 명령](https://redis.io/commands)을 사용하여 데이터가 Azure Cache for Redis에 있는지 확인합니다. (이 명령은 Get {key} 형식을 사용합니다.) 예: 
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
    이 명령은 지정된 키에 대해 값을 인쇄합니다.
 
-   ![Azure Redis Cache 출력의 스크린샷](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Azure Cache for Redis 출력의 스크린샷](./media/stream-analytics-with-azure-functions/image5.png)
    
 ## <a name="error-handling-and-retries"></a>오류 처리 및 재시도
 Azure Functions로 이벤트를 전송하는 동안 오류가 발생하면 Stream Analytics는 작업을 완료하기 위해 다시 시도합니다. 그러나 다시 시도하지 않는 몇 가지 오류가 있으며, 다음은 그 예입니다.
@@ -207,6 +207,8 @@ Azure Functions로 이벤트를 전송하는 동안 오류가 발생하면 Strea
 ## <a name="known-issues"></a>알려진 문제
 
 Azure 포털에서 최대 일괄 처리 크기/최대 일괄 처리 수 값을 빈 값(기본값)으로 재설정하려고 시도하면, 저장할 때 값이 이전에 입력된 값으로 다시 변경됩니다. 이 경우 이러한 필드에 대해 기본값을 수동으로 입력하십시오.
+
+Azure Functions에서 [Http 라우팅](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp)을 사용하는 것은 현재 Stream Analytics에서 지원하지 않습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

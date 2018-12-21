@@ -1,6 +1,6 @@
 ---
 title: 사용자가 Azure AD 갤러리 응용 프로그램에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제 | Microsoft Docs
-description: Azure AD 응용 프로그램 갤러리에 이미 나열된 응용 프로그램에 대한 사용자 프로비전을 구성할 때 발생하는 일반적인 문제를 해결하는 방법
+description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대한 사용자 프로비전을 구성할 때 발생하는 일반적인 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
 author: barbkess

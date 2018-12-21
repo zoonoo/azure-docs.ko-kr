@@ -10,14 +10,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9c779e1f214369de9390e2c0f1037042c161c8aa
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cddf60c3e9356b9c18ab60adbea8eb5af768ad90
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426013"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269264"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-powershell"></a>PowerShell을 사용하여 사용자 지정 항목에 대한 이벤트 구독
 
@@ -25,9 +25,15 @@ ms.locfileid: "31426013"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>샘플 스크립트
+미리 보기 샘플 스크립트에는 Event Grid 모듈이 필요합니다. 설치하려면 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`를 실행합니다.
+
+## <a name="sample-script---stable"></a>샘플 스크립트 - 안정적
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-custom-topic/subscribe-to-custom-topic.ps1 "Subscribe to custom topic")]
+
+## <a name="sample-script---preview-module"></a>샘플 스크립트 - 미리 보기 모듈
+
+[!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-custom-topic-preview/subscribe-to-custom-topic-preview.ps1 "Subscribe to custom topic")]
 
 ## <a name="script-explanation"></a>스크립트 설명
 

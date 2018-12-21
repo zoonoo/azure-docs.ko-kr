@@ -88,7 +88,7 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 
 1. Azure Portal에서 **Azure Active Directory**를 선택하고 **앱 등록**을 클릭한 다음 만든 Azure AD 네이티브 응용 프로그램을 찾아서 클릭합니다.
 
-2. 응용 프로그램에 대한 **설정** 블레이드에서 **리디렉션 URI**를 클릭합니다.
+2. 애플리케이션에 대한 **설정** 블레이드에서 **리디렉션 URI**를 클릭합니다.
 
     ![리디렉션 URI 가져오기](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-redirect-uri.png)
 
@@ -99,7 +99,7 @@ Azure Active Directory를 사용하여 Data Lake Storage Gen1로 최종 사용�
 
 1. Azure Portal에서 **Azure Active Directory**를 선택하고 **앱 등록**을 클릭한 다음 만든 Azure AD 네이티브 응용 프로그램을 찾아서 클릭합니다.
 
-2. 응용 프로그램에 대한 **설정** 블레이드에서 **필요한 사용 권한**을 클릭하고 **추가**를 클릭합니다.
+2. 애플리케이션에 대한 **설정** 블레이드에서 **필요한 사용 권한**을 클릭한 다음, **추가**를 클릭합니다.
 
     ![클라이언트 ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 

@@ -78,7 +78,7 @@ Azure Storage는 세 가지 유형의 저장소 계정을 제공합니다. 각�
 
 * 응용 프로그램이 트랜잭션이 많거나 상당한 지역 복제 대역폭을 사용하지만 대용량이 필요하지는 않습니다. 이 경우 범용 v1이 가장 경제적인 선택이 될 수 있습니다.
 
-* 2014-02-14 이전 버전인 [Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 나, 4.x 미만인 클라이언트 라이브러리를 사용하며 응용 프로그램을 업그레이드할 수 없습니다.
+* 2014-02-14 이전 버전인 [Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 또는 4.x 미만인 클라이언트 라이브러리를 사용하며 애플리케이션을 업그레이드할 수 없습니다.
 
 ### <a name="blob-storage-accounts"></a>Blob 저장소 계정
 
@@ -182,7 +182,7 @@ AzCopy는 Azure Storage의 데이터를 고속으로 복사하기 위해 설계�
 
 ### <a name="rest-api-or-client-library"></a>REST API 또는 클라이언트 라이브러리
 
-Azure 클라이언트 라이브러리 또는 Azure 저장소 서비스 REST API 중 하나를 통해 데이터를 Blob 저장소 계정으로 마이그레이션하는 사용자 지정 응용 프로그램을 만들 수 있습니다. Azure Storage는 NET, Java, C++, Node.JS, PHP, Ruby, Python 등, 여러 언어와 플랫폼을 위한 다양한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
+Azure 클라이언트 라이브러리 또는 Azure 스토리지 서비스 REST API 중 하나를 통해 데이터를 Blob 스토리지 계정으로 마이그레이션하는 사용자 지정 애플리케이션을 만들 수 있습니다. Azure Storage는 NET, Java, C++, Node.JS, PHP, Ruby, Python 등, 여러 언어와 플랫폼을 위한 다양한 클라이언트 라이브러리를 제공합니다. 이 클라이언트 라이브러리는 재시도 논리, 로깅, 병렬 업로드와 같은 고급 기능을 제공합니다. HTTP/HTTPS 요청이 가능한 모든 언어로 호출할 수 있는 REST API에 대해 바로 개발할 수도 있습니다.
 
 Azure Storage REST API에 대한 자세한 내용은 [Azure Storage REST API 참조](https://docs.microsoft.com/rest/api/storageservices/)를 참조하세요. 
 

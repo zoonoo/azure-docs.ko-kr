@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 Azure에 로그인하고 다음 두 방법 중 하나로 Azure CLI 명령을 실행할 수 있습니다.
 
-- Azure Cloud Shell의 Azure Portal에서 CLI 명령 실행 
+- Azure Cloud Shell의 Azure Portal에서 CLI 명령 실행
 - CLI를 설치하고 로컬에서 CLI 실행  
 
 ### <a name="use-azure-cloud-shell"></a>Azure Cloud Shell 사용
@@ -73,7 +73,7 @@ Connect-AzureRmAccount
 
 Azure Cloud Shell을 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-CLI의 로컬 설치에 로그인하려면 로그인 명령을 실행합니다.
+CLI의 로컬 설치를 사용해 로그인하려면 로그인 명령을 실행합니다.
 
 ```cli
 az login
@@ -85,9 +85,9 @@ az login
 
 이제 저장소 계정을 만들 준비가 되었습니다.
 
-모든 저장소 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 저장소 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 빠른 시작에는 새 리소스 그룹을 만드는 방법을 보여줍니다. 
+모든 저장소 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 모아 놓은 논리적 컨테이너입니다. 저장소 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 빠른 시작에는 새 리소스 그룹을 만드는 방법을 보여줍니다. 
 
-**범용 v2** 저장소 계정은 모든 Azure Storage 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다.   
+**범용 v2** 저장소 계정은 모든 Azure 저장소 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 빠른 시작에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다.   
 
 # <a name="portaltabportal"></a>[포털](#tab/portal)
 
@@ -125,10 +125,10 @@ ZRS(영역 중복 저장소)(미리 보기), GRS(지역 중복 저장소) 또는
 
 |복제 옵션  |SkuName 매개 변수  |
 |---------|---------|
-|LRS(로컬 중복 저장소)     |Standard_LRS         |
-|ZRS(영역 중복 저장소)     |Standard_ZRS         |
-|GRS(지역 중복 저장소)     |Standard_GRS         |
-|읽기 액세스 GRS(지역 중복 저장소)     |Standard_RAGRS         |
+|LRS(로컬 중복 저장소) |Standard_LRS |
+|ZRS(영역 중복 저장소) |Standard_ZRS |
+|GRS(지역 중복 저장소) |Standard_GRS |
+|읽기 액세스 GRS(지역 중복 저장소) |Standard_RAGRS |
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -163,10 +163,10 @@ az storage account create \
 
 |복제 옵션  |sku 매개 변수  |
 |---------|---------|
-|LRS(로컬 중복 저장소)     |Standard_LRS         |
-|ZRS(영역 중복 저장소)     |Standard_ZRS         |
-|GRS(지역 중복 저장소)     |Standard_GRS         |
-|읽기 액세스 GRS(지역 중복 저장소)     |Standard_RAGRS         |
+|LRS(로컬 중복 저장소) |Standard_LRS |
+|ZRS(영역 중복 저장소) |Standard_ZRS |
+|GRS(지역 중복 저장소) |Standard_GRS |
+|읽기 액세스 GRS(지역 중복 저장소) |Standard_RAGRS |
 
 ---
 

@@ -75,7 +75,7 @@ Azure AD에 SAML SSO for Jira by resolution GmbH를 통합하도록 구성하려
 
     ![Azure AD 테스트 사용자 만들기](./media/samlssojira-tutorial/tutorial_samlssojira_search.png)
 
-1. 결과 창에서 **SAML SSO for Jira by resolution GmbH**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **SAML SSO for Jira by resolution GmbH**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/samlssojira-tutorial/tutorial_samlssojira_addfromgallery.png)
 
@@ -96,11 +96,11 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SAML SSO for Jira by resolution GmbH 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 SAML SSO for Jira by resolution GmbH 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **SAML SSO for Jira by resolution GmbH** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **SAML SSO for Jira by resolution GmbH** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -291,7 +291,7 @@ SAML SSO for Jira by resolution GmbH에서 프로비전은 수동 작업입니�
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **SAML SSO for Jira by resolution GmbH**를 선택합니다.
+1. 애플리케이션 목록에서 **SAML SSO for Jira by resolution GmbH**를 선택합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_app.png) 
 
@@ -313,7 +313,7 @@ SAML SSO for Jira by resolution GmbH에서 프로비전은 수동 작업입니�
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-[액세스 패널]에서 [SAML SSO for Jira by resolution GmbH] 타일을 클릭하면 SAML SSO for Jira by resolution GmbH 응용 프로그램에 자동으로 로그온됩니다.
+[액세스 패널]에서 [SAML SSO for Jira by resolution GmbH] 타일을 클릭하면 SAML SSO for Jira by resolution GmbH 애플리케이션에 자동으로 로그온됩니다.
 액세스 패널에 대한 자세한 내용은 [Azure 시작](../user-help/active-directory-saas-access-panel-introduction.md)을 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스

@@ -1,20 +1,20 @@
 ---
-title: Azure CLI 스크립트 - Azure Cosmos DB SQL API 계정, 데이터베이스 및 컨테이너 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 - Azure Cosmos DB SQL API 계정, 데이터베이스 및 컨테이너 만들기
 description: Azure CLI 스크립트 샘플 - Azure Cosmos DB SQL API 계정, 데이터베이스 및 컨테이너 만들기
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: b38c836efce9f0bd2e29dcfa8c88f6894cf29b38
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a39786d2ccc8b0b57f539b10ee12d7b55bba381
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016372"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964597"
 ---
-# <a name="azure-cosmos-db-create-a-sql-api-account-using-cli"></a>Azure Cosmos DB: CLI를 사용하여 SQL API 계정 만들기
+# <a name="azure-cosmos-db-create-a-sql-api-account-using-cli"></a>Azure Cosmos DB는 CLI를 사용하여 SQL API 계정 만들기
 
 이 샘플 CLI 스크립트는 Azure Cosmos DB SQL API 계정, 데이터베이스 및 컨테이너를 만듭니다.  
 

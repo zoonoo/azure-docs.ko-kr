@@ -36,7 +36,7 @@ ms.locfileid: "53095307"
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="create-a-php-application"></a>PHP 응용 프로그램 만들기
+## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
 
 Storage Table service 또는 Azure Cosmos DB Table API에 액세스하는 PHP 응용 프로그램을 만들기 위한 유일한 요구 사항은 코드 내에서 PHP에 대한 azure-storage-table SDK의 클래스를 참조하는 것입니다. 응용 프로그램을 만드는 데는 메모장을 포함한 어떠한 개발 도구도 사용할 수 있습니다.
 

@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
-ms.openlocfilehash: 01281c0328fab85814ff93c73f9ea25e0d4c1b08
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 41a3a801214ff00c01397034e26fde6946ab97f0
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232803"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407816"
 ---
 # <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>CLI 예제: 클러스터 구성 파일을 사용하여 Batch AI 클러스터 만들기
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 이 스크립트는 JSON 구성 파일을 사용하여 Batch AI 클러스터에 대한 설정을 지정하는 방법을 보여 줍니다. `az batchai cluster create`에 해당하는 명령줄 매개 변수 대신 이러한 설정을 사용합니다. 구성 파일은 클러스터 노드에 여러 파일 시스템을 탑재해야 하거나 여러 클러스터에서 동일한 구성을 사용하려는 경우에 유용합니다.
 

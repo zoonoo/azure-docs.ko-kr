@@ -1,6 +1,6 @@
 ---
-title: Azure에서 연속 통합으로 Service Fabric 앱 배포(Azure DevOps Services) | Microsoft Docs
-description: 이 자습서에서는 Azure DevOps Services를 사용하여 Service Fabric 응용 프로그램에 대한 지속적인 통합 및 배포를 설정하는 방법을 알아봅니다.
+title: Azure에서 지속적인 통합 및 Azure Pipelines를 사용하여 Service Fabric 앱 배포 | Microsoft Docs
+description: 이 자습서에서는 Azure Pipelines를 사용하여 Service Fabric 애플리케이션에 대한 지속적인 통합 및 배포를 설정하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,26 +12,26 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2018
+ms.date: 12/02/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 766c0c780807ff7627ae9fb96aca4a896918f9c6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853743"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094960"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 응용 프로그램 배포
 
-이 자습서는 시리즈의 4부로, Azure DevOps를 사용하여 Azure Service Fabric 응용 프로그램에 대한 연속 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 응용 프로그램이 필요하며 [.NET 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 만든 응용 프로그램을 예제로 사용합니다.
+이 자습서는 시리즈의 4부로, Azure Pipelines를 사용하여 Azure Service Fabric 애플리케이션에 대한 지속적인 통합 및 배포를 설정하는 방법을 설명합니다.  기존 Service Fabric 응용 프로그램이 필요하며 [.NET 응용 프로그램 빌드](service-fabric-tutorial-create-dotnet-app.md)에서 만든 응용 프로그램을 예제로 사용합니다.
 
 시리즈 3부에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 프로젝트에 소스 제어 추가
-> * Azure DevOps에서 빌드 파이프라인 만들기
-> * Azure DevOps에서 릴리스 파이프라인 만들기
+> * Azure Pipelines에서 빌드 파이프라인 만들기
+> * Azure Pipelines에서 릴리스 파이프라인 만들기
 > * 응용 프로그램 자동 배포 및 업그레이드
 
 이 자습서 시리즈에서는 다음 방법에 대해 알아봅니다.
@@ -50,7 +50,7 @@ ms.locfileid: "51853743"
 * [Visual Studio 2017을 설치](https://www.visualstudio.com/)하고 **Azure 개발**과 **ASP.NET 및 웹 개발** 워크로드를 설치합니다.
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 * 예를 들어 [이 자습서를 따라](service-fabric-tutorial-create-vnet-and-windows-cluster.md) Windows Service Fabric 클러스터를 Azure에 만듭니다.
-* [Azure DevOps 조직](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)을 만듭니다.
+* [Azure DevOps 조직](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)을 만듭니다. 이렇게 하면 Azure DevOps에서 프로젝트를 만들고 Azure Pipelines를 사용할 수 있습니다.
 
 ## <a name="download-the-voting-sample-application"></a>투표 응용 프로그램 예제 다운로드
 
@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="prepare-a-publish-profile"></a>게시 프로필 준비
 
-이제 [응용 프로그램을 만들었고](service-fabric-tutorial-create-dotnet-app.md) [응용 프로그램을 Azure에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)했으므로 연속 통합을 설정할 준비가 되었습니다.  먼저, Azure DevOps 내에서 실행할 배포 프로세스에 사용할 게시 프로필을 응용 프로그램 내에서 준비하는 것입니다.  게시 프로필은 이전에 만든 클러스터를 대상으로 지정하도록 구성해야 합니다.  Visual Studio를 시작하고 기존 Service Fabric 응용 프로그램 프로젝트를 엽니다.  **솔루션 탐색기**에서 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
+이제 [응용 프로그램을 만들었고](service-fabric-tutorial-create-dotnet-app.md) [응용 프로그램을 Azure에 배포](service-fabric-tutorial-deploy-app-to-party-cluster.md)했으므로 연속 통합을 설정할 준비가 되었습니다.  먼저, Azure Pipelines 내에서 실행되는 배포 프로세스에 사용할 게시 프로필을 애플리케이션 내에서 준비합니다.  게시 프로필은 이전에 만든 클러스터를 대상으로 지정하도록 구성해야 합니다.  Visual Studio를 시작하고 기존 Service Fabric 응용 프로그램 프로젝트를 엽니다.  **솔루션 탐색기**에서 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **게시...** 를 선택합니다.
 
 연속 통합 워크플로로 사용할 대상 프로필을 응용 프로그램 프로젝트 내에서 선택합니다(예: 클라우드).  클러스터 연결 엔드포인트를 지정합니다.  **응용 프로그램 업그레이드** 확인란을 선택하여 Azure DevOps의 각 배포에 대해 응용 프로그램이 업그레이드되도록 합니다.  **저장** 하이퍼링크를 클릭하여 설정을 게시 프로필에 저장한 후 **취소**를 클릭하여 대화 상자를 닫습니다.
 
@@ -84,11 +84,11 @@ Visual Studio의 오른쪽 하단의 상태 표시줄에서 **소스 제어에 �
 
 리포지토리를 게시하면 사용자 계정에 로컬 리포지토리와 같은 이름으로 새 프로젝트가 만들어집니다. 기존 프로젝트에서 리포지토리를 만들려면 **리포지토리** 이름 옆에서 **고급**을 클릭하고 프로젝트를 선택합니다. **See it on the web(웹에서 보기)** 을 선택하여 웹에서 코드를 볼 수 있습니다.
 
-## <a name="configure-continuous-delivery-with-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트 구성
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Azure Pipelines를 사용한 지속적인 배달 구성
 
-Azure DevOps 빌드 파이프라인은 순차적으로 실행되는 빌드 단계 집합으로 구성된 워크플로를 설명합니다. Service Fabric 응용 프로그램 패키지 및 기타 아티팩트를 생성하는 빌드 파이프라인을 만들어 Service Fabric 클러스터를 배포합니다. [Azure DevOps 빌드 파이프라인](https://www.visualstudio.com/docs/build/define/create)에 대해 자세히 알아봅니다. 
+Azure Pipelines 빌드 파이프라인은 순차적으로 실행되는 빌드 단계 세트로 구성된 워크플로를 설명합니다. Service Fabric 응용 프로그램 패키지 및 기타 아티팩트를 생성하는 빌드 파이프라인을 만들어 Service Fabric 클러스터를 배포합니다. [Azure Pipelines 빌드 파이프라인](https://www.visualstudio.com/docs/build/define/create)에 대해 자세히 알아봅니다. 
 
-Azure DevOps 릴리스 파이프라인에서는 응용 프로그램 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인과 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. Azure DevOps [릴리스 파이프라인](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)에 대해 자세히 알아봅니다.
+Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인과 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 응용 프로그램에서 종료할 때까지 전체 워크플로를 실행합니다. [Azure Pipelines 릴리스 파이프라인](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)에 대해 자세히 알아봅니다.
 
 ### <a name="create-a-build-pipeline"></a>빌드 파이프라인 만들기
 
@@ -156,11 +156,11 @@ Azure DevOps의 일부 코드 변경을 체크 인하여 연속 통합 파이프
 
 ![모두 커밋][changes]
 
-팀 탐색기에서 게시 취소된 변경 내용 상태 표시줄 아이콘(![게시 취소된 변경 내용][unpublished-changes]) 또는 동기화 보기를 선택합니다. **푸시**를 선택하여 Azure DevOps Services/TFS에서 코드를 업데이트합니다.
+팀 탐색기에서 게시 취소된 변경 내용 상태 표시줄 아이콘(![게시 취소된 변경 내용][unpublished-changes]) 또는 동기화 보기를 선택합니다. **푸시**를 선택하여 Azure Pipelines에서 코드를 업데이트합니다.
 
 ![변경 내용 푸시][push]
 
-Azure DevOps에 변경 내용을 푸시하면 빌드가 자동으로 트리거됩니다.  빌드 파이프라인이 성공적으로 완료되면 릴리스가 자동으로 만들어지고 클러스터에서 응용 프로그램 업그레이드가 시작됩니다.
+Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리거됩니다.  빌드 파이프라인이 성공적으로 완료되면 릴리스가 자동으로 만들어지고 클러스터에서 응용 프로그램 업그레이드가 시작됩니다.
 
 빌드 진행률을 확인하려면 Visual Studio의 **팀 탐색기**에서 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 응용 프로그램을 클러스터에 배포하는 릴리스 파이프라인을 정의합니다.
 

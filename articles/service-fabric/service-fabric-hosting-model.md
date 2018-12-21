@@ -33,7 +33,7 @@ ms.locfileid: "44348483"
 
 호스팅 모델을 이해하기 위해 한 가지 예를 살펴보겠습니다. *ServiceType* 'MyServiceType'이 있는 *ApplicationType* 'MyAppType'이 있다고 가정합니다. 'MyServiceType'은 *CodePackage* 'MyCodePackage'가 있는 *ServicePackage* 'MyServicePackage'에서 제공됩니다. 'MyCodePackage'는 실행될 때 *ServiceType* 'MyServiceType'을 등록합니다.
 
-3개의 노드 클러스터가 있고, 'MyAppType' 형식의 *응용 프로그램* **fabric:/App1**을 만든다고 가정합니다. 이 응용 프로그램 **fabric:/App1** 내에서 'MyServiceType' 형식의 **fabric:/App1/ServiceA** 서비스를 만듭니다. 이 서비스에는 두 개의 파티션(예: **P1** 및 **P2**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 이 응용 프로그램이 노드에 배포된 상태 보기를 보여 줍니다.
+3개의 노드 클러스터가 있고, 'MyAppType' 형식의 *응용 프로그램* **fabric:/App1**을 만든다고 가정합니다. 이 응용 프로그램 **fabric:/App1** 내에서 'MyServiceType' 형식의 **fabric:/App1/ServiceA** 서비스를 만듭니다. 이 서비스에는 두 개의 파티션(예: **P1** 및 **P2**) 및 파티션당 세 개의 복제본이 있습니다. 다음 다이어그램은 이 애플리케이션이 노드에 배포된 상태 보기를 보여 줍니다.
 
 
 ![배포된 응용 프로그램의 노드 보기 다이어그램][node-view-one]
@@ -126,7 +126,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 >
 >
 
-## <a name="guest-executable-and-container-applications"></a>게스트 실행 파일 및 컨테이너 응용 프로그램
+## <a name="guest-executable-and-container-applications"></a>게스트 실행 파일 및 컨테이너 애플리케이션
 Service Fabric은 [게스트 실행 파일][a2] 및 [컨테이너][a3] 응용 프로그램을 자체 포함된 상태 비저장 서비스로 처리합니다. *ServiceHost*(프로세스 또는 컨테이너)에는 Service Fabric 런타임이 없습니다. 이러한 서비스가 자체 포함되기 때문에 *ServiceHost*당 복제본 수가 적용되지 않습니다. 이러한 서비스에 사용되는 가장 일반적인 구성은 [InstanceCount][c2]가 -1과 같은 단일 파티션입니다(클러스터의 각 노드에서 서비스 코드 복사본 하나가 실행되고 있음). 
 
 이러한 서비스에 대한 기본 **ServicePackageActivationMode**는 **SharedProcess**입니다. 이 경우에 Service Fabric은 지정된 응용 프로그램에 대해 노드에서 *ServicePackage* 복사본 하나만을 활성화합니다.  즉, 서비스 코드 복사본 하나만 노드를 실행합니다. 서비스 코드의 여러 복사본을 노드에서 실행하려는 경우 서비스를 만들 때 **ServicePackageActivationMode**를 **ExclusiveProcess**로 지정합니다. 예를 들어 *ServiceType*(*ServiceManifest*에 지정)의 여러 서비스(*Service1*에서 *ServiceN*)를 만들 때 또는 서비스를 다중 분할할 때 수행할 수 있습니다. 

@@ -1,6 +1,6 @@
 ---
-title: 비갤러리 응용 프로그램에 대해 암호 Single Sign-On 구성 문제 | Microsoft Docs
-description: Azure AD 응용 프로그램 갤러리에 나열되지 않은 사용자 지정 비갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성할 때 발생하는 일반적인 문제 이해
+title: 비갤러리 애플리케이션에 대해 암호 Single Sign-On 구성 문제 | Microsoft Docs
+description: Azure AD 애플리케이션 갤러리에 나열되지 않은 사용자 지정 비갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성할 때 발생하는 일반적인 문제 이해
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/04/2018
 ms.locfileid: "52834301"
 ---
-# <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 응용 프로그램에 대해 암호 Single Sign-On 구성 문제
+# <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 암호 Single Sign-On 구성 문제
 
 이 문서는 비갤러리 응용 프로그램에 대해 **암호 Single Sign-On**을 구성할 때 발생하는 일반적인 문제를 이해하는 데 도움이 됩니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "52834301"
 
 로그인 필드 캡처는 HTML 기반 로그인 페이지에 대해서만 지원되고 Flash나 기타 비HTML 기반 기술을 사용하는 로그인 페이지처럼 **비표준 로그인 페이지에 대해서는 지원되지 않습니다.**
 
-두 가지 방법으로 사용자 지정 응용 프로그램에 대한 로그인 필드를 캡처할 수 있습니다.
+두 가지 방법으로 사용자 지정 애플리케이션에 대한 로그인 필드를 캡처할 수 있습니다.
 
 -   자동 로그인 필드 캡처
 
@@ -41,7 +41,7 @@ ms.locfileid: "52834301"
 
 일반적으로 **자동 로그인 필드 캡처가 작동하지 않는 경우 수동 옵션을 사용해 보세요.**
 
-### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>응용 프로그램에 대한 로그인 필드를 자동으로 캡처하는 방법
+### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>애플리케이션에 대한 로그인 필드를 자동으로 캡처하는 방법
 
 **자동 로그인 필드 캡처**를 사용하여 응용 프로그램에 대한 **암호 기반 Single Sign-On**을 구성하려면 아래 단계를 수행합니다.
 
@@ -127,7 +127,7 @@ ms.locfileid: "52834301"
 
 -   캡처 프로세스를 수행할 때 올바른 필드가 강조 표시되지 않음
 
--   캡처 프로세스를 통해 예상대로 응용 프로그램의 로그인 페이지로 이동하지만 아무 일도 발생하지 않음
+-   캡처 프로세스를 통해 예상대로 애플리케이션의 로그인 페이지로 이동하지만 아무 일도 발생하지 않음
 
 -   수동 캡처가 작동하는 것처럼 보이지만 사용자가 액세스 패널에서 응용 프로그램으로 이동할 때 SSO가 발생하지 않음
 
@@ -239,7 +239,7 @@ ms.locfileid: "52834301"
 
 -   **표시 이름** – **(비어 있을 수 있음)** 오류에 대한 보다 자세한 표시 이름
 
-    -   예* - **응용 프로그램 프록시 설정**
+    -   예* - **애플리케이션 프록시 설정**
 
 -   **상태** - 알림의 특정 상태
 

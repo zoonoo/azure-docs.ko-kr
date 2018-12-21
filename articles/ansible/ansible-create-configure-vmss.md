@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8dacfb054a36801c076435037a530daa87c4a89c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918578"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409408"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible을 사용하여 Azure에서 가상 머신 확장 집합 만들기
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Ansible을 사용하여 다른 Azure 리소스와 동일한 방식으로 Azure에서 가상 머신 확장 집합(VMSS)을 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 가상 머신 확장 집합을 만들고 확장하는 방법을 보여줍니다. 
@@ -37,7 +37,7 @@ Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을
 
 *admin_password* 값에 사용자 고유의 암호를 입력합니다.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -141,7 +141,7 @@ Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** �
 
 플레이북을 실행한 후 다음 예제와 비슷한 출력에서 가상 머신 확장 집합이 성공적으로 만들어졌음을 보여줍니다.
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -190,7 +190,7 @@ Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** �
 
 이제 두 개의 인스턴스에서 세 개의 인스턴스로 확장해보겠습니다. 다음 Ansible 플레이북 코드는 가상 머신 확장에 대한 정보를 검색하고 해당 용량을 2에서 3으로 변경합니다. 
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -225,7 +225,7 @@ Ansible 플레이북을 실행하려면 다음과 같이 **ansible-playbook** �
 
 Ansible 플레이북을 실행한 결과는 가상 머신 확장 집합이 성공적으로 확장됐음을 보여줍니다.
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -275,4 +275,6 @@ Cloud Shell에서 명령을 실행한 결과에서는 이제 세 개의 인스�
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 
-> [VMSS에 대한 Ansible 샘플 플레이북](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ansible을 사용하여 가상 머신 확장 세트에 애플리케이션 배포](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
+
+> [Ansible을 사용하여 가상 머신 확장 세트의 크기를 자동으로 조정](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

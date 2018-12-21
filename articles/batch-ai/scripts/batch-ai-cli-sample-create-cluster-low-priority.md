@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
-ms.openlocfilehash: 1fb21ab754e85dd347ff3bd66bafc2fadd95f8b1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: c56cd7d25ce391b67798c7833894e248f37300bf
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058157"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406609"
 ---
 # <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-low-priority-nodes"></a>CLI 예제: 우선 순위가 낮은 노드의 Batch AI 클러스터 만들기 및 관리
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 이 스크립트는 Azure Batch에서 우선 순위가 낮은 노드(가상 머신)로 구성된 Batch AI 클러스터를 만들고 관리할 수 있는 Azure CLI 명령 중 일부를 보여 줍니다.
 

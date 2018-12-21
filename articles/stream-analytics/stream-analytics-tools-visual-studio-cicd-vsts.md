@@ -1,22 +1,22 @@
 ---
-title: Azure DevOps Services 자습서를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포
+title: Azure DevOps를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포
 description: 이 문서에서는 Azure DevOps Services를 사용하여 CI/CD로 Stream Analytics 작업을 배포하는 방법을 설명합니다.
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 07/10/2018
-ms.openlocfilehash: 0f729725a04b19a513ca92953e997b51e4558884
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7e9ce598dbd8987ab32747f5fa9d14646ed4ee71
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986268"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164078"
 ---
-# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>자습서: Azure Pipelines를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포
+# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>자습서: Azure Pipelines를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포
 이 자습서에서는 Azure Pipelines를 사용하여 Azure Stream Analytics 작업의 연속 통합 및 배포를 설정하는 방법을 설명합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -55,11 +55,11 @@ ms.locfileid: "49986268"
 
 2. **팀 탐색기**의 **동기화** 보기에서 **Azure DevOps Services에 푸시** 아래에 있는 **Git 리포지토리 게시** 단추를 선택합니다.
 
-   ![Git 리포지토리 푸시](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishgitrepo.png)
+   ![Azure DevOps Services에 푸시 - Git 리포지토리 게시 단추](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-git-repo-devops.png)
 
 3. 사용자의 전자 메일을 확인하고 **Azure DevOps Services 도메인** 드롭다운에서 조직을 선택합니다. 리포지토리 이름을 입력하고 **리포지토리 게시**를 선택합니다.
 
-   ![Git 리포지토리 푸시](./media/stream-analytics-tools-visual-studio-cicd-vsts/publishcode.png)
+   ![Git 리포지토리 푸시 - 리포지토리 게시 단추](./media/stream-analytics-tools-visual-studio-cicd-vsts/publish-repository-devops.png)
 
     리포지토리를 게시하면 조직에 로컬 리포지토리와 같은 이름으로 새 프로젝트가 만들어집니다. 기존 프로젝트에서 리포지토리를 만들려면 **리포지토리** 이름 옆의 **고급**을 클릭하고 프로젝트를 선택합니다. **웹에서 확인하세요**를 선택하면 웹에서 코드를 볼 수 있습니다.
  
@@ -73,33 +73,33 @@ Azure Pipelines 릴리스 파이프라인에서는 응용 프로그램 패키지
 
 1. **빌드 및 릴리스** 탭 아래에서 **빌드**를 선택한 다음, **+새로 만들기**를 선택합니다.  **Azure DevOps Services Git** 및 **계속**을 차례로 선택합니다.
     
-    ![원본 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source.png)
+    ![Azure DevOps에서 DevOps Git 원본 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-source-devops.png)
 
 2. **템플릿 선택**에서 **빈 프로세스**를 클릭하여 빈 파이프라인으로 시작합니다.
     
-    ![빌드 템플릿 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template.png)
+    ![DevOps의 템플릿 옵션에서 빈 프로세스 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-select-template-empty-process.png)
 
 3. **트리거** 아래에서 **지속적인 통합 사용** 트리거 상태를 확인하여 연속 통합을 사용하도록 설정합니다.  **저장 및 큐**를 선택하여 수동으로 빌드를 시작합니다. 
     
-    ![트리거 상태](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger.png)
+    ![지속적인 통합 사용 트리거 상태](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-trigger-status-ci.png)
 
 4. 빌드는 푸시 또는 체크인할 때도 트리거됩니다. 빌드 진행률을 확인하려면 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후에는 응용 프로그램을 클러스터에 배포하는 릴리스 파이프라인을 정의해야 합니다. 빌드 파이프라인 옆의 줄임표를 마우스 오른쪽 단추로 클릭하고 **편집**을 선택합니다.
 
 5.  **작업**에서 **에이전트 큐**로 "호스트된"을 입력합니다.
     
-    ![에이전트 큐 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue.png) 
+    ![작업 메뉴에서 에이전트 큐 선택](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-agent-queue-task.png) 
 
 6. **1 단계**에서 **+** 를 클릭하고 **NuGet** 작업을 추가합니다.
     
-    ![NuGet 작업 추가](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget.png)
+    ![에이전트 큐에 NuGet 작업 추가](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-nuget-task.png)
 
 7. **고급**을 펼치고 `$(Build.SourcesDirectory)\packages`를 **대상 디렉터리**에 추가합니다. 나머지 기본 NuGet 구성 값을 유지합니다.
 
-   ![NuGet 작업 구성](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-config.png)
+   ![NuGet 복원 작업 구성](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-nuget-restore-config.png)
 
 8. **1 단계**에서 **+** 를 클릭하고 **MSBuild** 작업을 추가합니다.
 
-   ![MSBuild 작업 추가](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-msbuild-task.png)
+   ![에이전트 큐에 MSBuild 작업 추가](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-msbuild-task.png)
 
 9. **MSBuild 인수**를 다음과 같이 변경합니다.
 
@@ -107,11 +107,11 @@ Azure Pipelines 릴리스 파이프라인에서는 응용 프로그램 패키지
    /p:CompilerTaskAssemblyFile="Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll"  /p:ASATargetsFilePath="$(Build.SourcesDirectory)\packages\Microsoft.Azure.StreamAnalytics.CICD.1.0.0\build\StreamAnalytics.targets"
    ```
 
-   ![MSBuild 작업 구성](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-msbuild.png)
+   ![DevOps에서 MSBuild 작업 구성](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-config-msbuild-task.png)
 
 10. **1단계**에서 **+** 를 클릭하고 **Azure Resource Group 배포** 작업을 추가합니다. 
     
-    ![Azure 리소스 그룹 배포 작업 추가](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy.png)
+    ![Azure 리소스 그룹 배포 작업 추가](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-add-resource-group-deployment.png)
 
 11. **Azure 세부 정보**를 펼쳐서 다음과 같이 구성을 채웁니다.
     
@@ -124,16 +124,16 @@ Azure Pipelines 릴리스 파이프라인에서는 응용 프로그램 패키지
     |템플릿 매개 변수  | [솔루션 경로]\bin\Debug\Deploy\\[프로젝트 이름].JobTemplate.parameters.json   |
     |템플릿 매개 변수 재정의  | 텍스트 상자에 재정의할 템플릿 매개 변수를 입력합니다. 예: –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). 이 속성은 선택 사항이지만 키 매개 변수를 재정의하지 않으면 빌드에 오류가 발생합니다.    |
     
-    ![속성 설정](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deploy-2.png)
+    ![Azure 리소스 그룹 배포에 대한 속성 설정](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
 12. **저장 및 큐에 넣기**를 클릭하여 빌드 파이프라인을 테스트합니다.
     
-    ![재정의 매개 변수 설정](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-queue.png)
+    ![DevOps에 빌드 저장 및 큐 대기](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-save-and-queue-build.png)
 
 ### <a name="failed-build-process"></a>실패한 빌드 프로세스
 빌드 파이프라인의 **Azure Resource 그룹 배포** 작업에서 템플릿 매개 변수를 재정의하지 않은 경우 null 배포 매개 변수에 대한 오류가 발생할 수 있습니다. 빌드 파이프라인으로 돌아가서 null 매개 변수를 재정의하여 오류를 해결합니다.
 
-   ![빌드 프로세스 실패](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-process-failed.png)
+   ![DevOps Stream Analytics 빌드 프로세스 실패](./media/stream-analytics-tools-visual-studio-cicd-vsts/devops-build-process-failed.png)
 
 ### <a name="commit-and-push-changes-to-trigger-a-release"></a>변경 내용을 커밋 및 푸시하여 릴리스 트리거
 Azure DevOps의 일부 코드 변경을 체크 인하여 연속 통합 파이프라인이 작동하는지 확인합니다.    
@@ -142,11 +142,11 @@ Azure DevOps의 일부 코드 변경을 체크 인하여 연속 통합 파이프
 
 1. 팀 탐색기의 **변경 내용** 보기에서 업데이트를 설명하는 메시지를 추가하고 변경 내용을 커밋합니다.
 
-    ![변경 내용 커밋 및 푸시](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes.png)
+    ![Visual Studio에서 리포지토리 변경 내용 커밋](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-commit-changes-visual-studio.png)
 
 2. 팀 탐색기에서 게시 취소된 변경 내용 상태 표시줄 아이콘 또는 동기화 보기를 선택합니다. **푸시**를 선택하여 Azure DevOps에서 코드를 업데이트합니다.
 
-    ![변경 내용 커밋 및 푸시](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-2.png)
+    ![Visual Studio에서 변경 내용 푸시](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-push-changes-visual-studio.png)
 
 Azure DevOps Services에 변경 내용을 푸시하면 빌드가 자동으로 트리거됩니다.  빌드 파이프라인이 성공적으로 완료되면 릴리스가 자동으로 만들어지고 클러스터에서 작업 업데이트가 시작됩니다.
 

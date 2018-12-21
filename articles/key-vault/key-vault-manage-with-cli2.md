@@ -210,7 +210,7 @@ az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
 
 ## <a name="authorizing-an-application-to-use-a-key-or-secret"></a>키 또는 비밀을 사용하여 응용 프로그램에 권한 부여
 
-응용 프로그램이 자격 증명 모음의 키 또는 암호에 대한 액세스를 인증하려면 `az keyvault set-policy` 명령을 사용합니다.
+애플리케이션이 자격 증명 모음의 키 또는 암호에 대한 액세스를 인증하려면 `az keyvault set-policy` 명령을 사용합니다.
 
 예를 들어 자격 증명 모음 이름이 ContosoKeyVault이고, 응용 프로그램의 appID가 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed이며, 자격 증명 모음의 키를 사용하여 암호를 해독하고 서명하도록 응용 프로그램에 권한을 부여하려면 다음 명령을 사용합니다.
 

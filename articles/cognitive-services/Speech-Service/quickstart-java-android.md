@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Speech Service SDK를 사용하여 Android의 Java에서 음성 인식'
+title: '빠른 시작: 음성 인식, Java(Android) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Speech Service SDK를 사용하여 Android의 Java에서 음성을 인식하는 방법 알아보기
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 0785383d8b5a8ab282d8097d5229fa5a8aade06f
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219429"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090111"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android의 Java에서 음성 인식
 
@@ -23,10 +23,10 @@ ms.locfileid: "51219429"
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 음성을 텍스트로 변환하는 Android용 Java 응용 프로그램을 만드는 방법을 설명합니다.
 이 응용 프로그램은 Microsoft Cognitive Services Speech SDK Maven Package 버전 1.1.0 및 Android Studio 3.1을 기반으로 합니다.
-Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 탑재한 Android 장치와 호환됩니다.
+Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 탑재한 Android 디바이스와 호환됩니다.
 
 > [!NOTE]
-> Speech Devices SDK 및 Roobo 장치에 대한 내용은 [Speech Devices SDK](speech-devices-sdk.md)를 참조하세요.
+> Speech Devices SDK 및 Roobo 디바이스에 대한 내용은 [Speech Devices SDK](speech-devices-sdk.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,7 +42,7 @@ Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 �
 
    ![새 프로젝트 만들기 마법사의 스크린샷](media/sdk/qs-java-android-02-create-android-project.png)
 
-1. **대상 Android 장치** 화면에서 **휴대폰 및 태블릿**만 선택합니다. 그 아래의 드롭다운 목록에서 **API 23: Android 6.0 (Marshmallow)** 를 선택하고 **다음**을 선택합니다.
+1. **대상 Android 디바이스** 화면에서 **휴대폰 및 태블릿**만 선택합니다. 아래의 드롭다운 목록에서 **API 23: Android 6.0(Marshmallow)** 을 선택하고, **다음**을 선택합니다.
 
    ![새 프로젝트 만들기 마법사의 스크린샷](media/sdk/qs-java-android-03-target-android-devices.png)
 
@@ -63,7 +63,7 @@ Cognitive Services 음성 SDK의 현재 버전은 `1.1.0`입니다.
 Android용 Speech SDK는 필요한 라이브러리와 이 SDK를 사용하는 데 필요한 Android 권한을 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다.
 https://csspeechstorage.blob.core.windows.net/maven/의 Maven 리포지토리에서 호스트됩니다.
 
-Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio 메뉴 모음에서 **파일** > **프로젝트 구조**를 선택하여 프로젝트 구조 창을 엽니다. 프로젝트 구조 창에서 다음과 같이 변경합니다. 
+Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio 메뉴 모음에서 **파일** > **프로젝트 구조**를 선택하여 프로젝트 구조 창을 엽니다. 프로젝트 구조 창에서 다음과 같이 변경합니다.
 
 1. 창의 왼쪽 목록에서 **프로젝트**를 선택합니다. 작은따옴표로 묶은 Maven 리포지토리 URL을 추가하여 **기본 라이브러리 리포지토리** 설정을 편집합니다. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
@@ -118,7 +118,7 @@ Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio �
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * `onCreate` 메서드에는 네이티브 플랫폼 바인딩을 초기화하고 마이크 및 인터넷 권한을 요청하는 코드도 포함되어 있습니다. 원시 플랫폼 바인딩 구성은 한 번만 필요합니다. 응용 프로그램을 초기화하는 동안 초기 단계에서 수행되어야 합니다.
-   
+
    * `onSpeechButtonClicked` 메서드는 앞에서 설명한 것처럼 단추 클릭 처리기입니다. 단추를 누르면 음성 텍스트 변환 전사가 트리거됩니다.
 
 1. 동일한 파일에서 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
@@ -127,13 +127,13 @@ Speech SDK를 사용하도록 프로젝트를 설정합니다. Android Studio �
 
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 
-1. 개발 PC에 Android 장치를 연결합니다. 장치에서 [개발 모드 및 USB 디버깅](https://developer.android.com/studio/debug/dev-options)이 사용하도록 설정되어 있는지 확인합니다.
+1. 개발 PC에 Android 디바이스를 연결합니다. 디바이스에서 [개발 모드 및 USB 디버깅](https://developer.android.com/studio/debug/dev-options)이 사용하도록 설정되어 있는지 확인합니다.
 
 1. 응용 프로그램을 빌드하려면 Ctrl + F9를 누르거나 메뉴 모음에서 **빌드** > **프로젝트 만들기**를 선택합니다.
 
 1. 응용 프로그램을 시작하려면 Shift+F10을 누르거나 **실행** > **'앱' 실행**을 선택합니다.
 
-1. 나타나는 배포 대상 창에서 Android장치를 선택합니다.
+1. 나타나는 배포 대상 창에서 Android 디바이스를 선택합니다.
 
    ![배포 대상 선택 창 스크린샷 ](media/sdk/qs-java-android-12-deploy.png)
 

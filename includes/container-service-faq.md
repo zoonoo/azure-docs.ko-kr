@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: c5200e7e4d5550f26343fab1561c214ee19d6741
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b385c3e3e5f39e812545143df4a3adcc08ebfce5
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572460"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002199"
 ---
-# <a name="container-service-frequently-asked-questions"></a>Container Service 질문과 대답
+# <a name="deprecated-container-service-frequently-asked-questions"></a>(사용되지 않음) Container Service 질문과 대답
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 ## <a name="orchestrators"></a>오케스트레이터
 

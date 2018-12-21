@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 자습서 - 응용 프로그램 업데이트
+title: (사용되지 않음) Azure Container Service 자습서 - 애플리케이션 업데이트
 description: Azure Container Service 자습서 - 응용 프로그램 업데이트
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9cb5769d7f54a1036bf14199c87961c95ed2e7ce
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 99e282b720bb29ed5fb94ad2c9779ae56a019836
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432409"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993509"
 ---
-# <a name="update-an-application-in-kubernetes"></a>Kubernetes에서 응용 프로그램 업데이트
+# <a name="deprecated-update-an-application-in-kubernetes"></a>(사용되지 않음) Kubernetes에서 애플리케이션 업데이트
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 자습서의 업데이트된 버전은 [자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트](../../aks/tutorial-kubernetes-app-update.md)를 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 해당 응용 프로그램을 업데이트할 수 있습니다. 응용 프로그램을 업데이트할 때는 배포의 일부분만 동시에 업데이트되도록 업데이트가 스테이징됩니다. 이처럼 스테이징 업데이트가 수행되므로 업데이트 중에도 응용 프로그램을 계속 실행할 수 있습니다. 또한 배포 오류가 발생하는 경우에는 롤백 메커니즘도 제공됩니다. 
 

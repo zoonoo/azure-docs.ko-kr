@@ -11,14 +11,14 @@ ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
+ms.date: 03/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd10581888da64114debec40cba8564023033864
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990164"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278511"
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>자습서 1: 아이리스 분류 - 데이터 준비
 
@@ -45,11 +45,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - Azure Machine Learning 실험 계정
 - Azure Machine Learning Workbench 설치
 
-이러한 필수 조건이 아직 없으면 [빠른 시작: 설치 및 시작](quickstart-installation.md) 문서의 단계에 따라 계정을 설정하고 Azure Machine Learning Workbench 응용 프로그램을 설치합니다. 
+이러한 필수 구성 요소가 아직 없는 경우 [빠른 시작: 설치 및 시작](quickstart-installation.md) 문서의 단계에 따라 계정을 설정하고 Azure Machine Learning Workbench 애플리케이션을 설치합니다. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Workbench에서 새 프로젝트 만들기
 
-[빠른 시작: 설치 및 시작](quickstart-installation.md) 문서의 단계를 수행한 경우에는 프로젝트가 이미 있으므로 다음 섹션으로 건너뛸 수 있습니다.
+[빠른 시작: 설치 및 시작](quickstart-installation.md) 문서의 단계를 수행한 경우 이 프로젝트가 이미 있으므로 다음 섹션으로 건너뛸 수 있습니다.
 
 1. Azure Machine Learning Workbench 앱을 열고 필요한 경우 로그인합니다. 
    
@@ -152,7 +152,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    1. 마우스 오른쪽 단추를 클릭하여 선택합니다. 
    1. 드롭다운 메뉴에서 **값 계산**을 선택합니다. 
 
-   데이터 아래에 **검사기** 창이 열립니다. 네 개의 막대가 있는 히스토그램이 나타납니다. 대상 열에는 4개의 고유 값, 즉 **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** 및 **(null)** 값이 있습니다.
+   데이터 아래에 **검사기** 창이 열립니다. 네 개의 막대가 있는 히스토그램이 나타납니다. 대상 열에는 네 개의 고유한 값, 즉 **Iris-virginica**, **Iris-versolor**, **Iris-setosa** 및 **(null)** 이 있습니다.
 
    ![값 개수 선택](media/tutorial-classifying-iris/value_count.png)
 

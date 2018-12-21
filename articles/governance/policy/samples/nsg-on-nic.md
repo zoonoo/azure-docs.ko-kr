@@ -1,5 +1,5 @@
 ---
-title: Azure Policy 샘플 - 모든 NIC의 NSG x
+title: 샘플 - 모든 NIC에서 NSG x
 description: 이 샘플 정책에서는 특정 네트워크 보안 그룹이 모든 가상 네트워크 인터페이스와 함께 사용됩니다.
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 9e853e293611d58ac936228fd02fcd0c0a6d8dda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e24697620b61e942699f2748590c94f1063d3216
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948301"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313482"
 ---
 # <a name="nsg-x-on-every-nic"></a>모든 NIC에서 NSG x
 

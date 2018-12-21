@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights JavaScript 클라이언트 라이브러리
+title: Azure Time Series Insights JavaScript 클라이언트 라이브러리 살펴보기 | Microsoft Docs
 description: Azure Time Series Insights JavaScript 클라이언트 라이브러리 및 관련 프로그래밍 모델에 대해 알아봅니다.
 author: ashannon7
 manager: cshankar
@@ -8,12 +8,13 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 33dcf6f69d1287b4e040b3cccf4164667db2b75f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706996"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269977"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>자습서: Azure Time Series Insights JavaScript 클라이언트 라이브러리
 
@@ -82,7 +83,7 @@ ms.locfileid: "51706996"
 
 3. `<div class="chartsWrapper">` 요소를 확장하면 더 많은 하위 `<div>` 요소를 찾을 수 있습니다. 이러한 요소는 각 차트 컨트롤 예제의 위치를 지정하는 데 사용됩니다. 각 차트 예제마다 하나씩 `<div>` 요소 여러 쌍이 있는 것을 확인할 수 있습니다.
 
-   - 첫 번째(`class="rowOfCardsTitle"`) 요소는 차트가 보여 주는 내용을 요약하는 설명 텍스트를 포함합니다. 예: "전체 크기 범례를 포함한 고정적 꺾은선형 차트"
+   - 첫 번째(`class="rowOfCardsTitle"`) 요소는 차트가 보여 주는 내용을 요약하는 설명 텍스트를 포함합니다. 예:  "전체 크기 범례가 있는 고정 꺾은선형 차트"
    - 두 번째(`class="rowOfCards"`) 요소는 실제 차트 컨트롤을 한 줄 안에 배치하는 추가 하위 `<div>` 요소를 포함한 상위 요소입니다.
 
    ![본문 div 요소](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
@@ -95,8 +96,8 @@ ms.locfileid: "51706996"
 
 여기서는 자세히 검토하지 않지만, 기본적으로 TSI 라이브러리**tsclient.js**는 두 가지 중요한 범주에 대한 추상화를 제공합니다.
 
-- **TSI 쿼리 API를 호출하기 위한 래퍼 방법** - 집계 식을 사용하여 TSI 데이터를 쿼리할 수 있는 REST API입니다. 메서드는 라이브러리의 `TsiClient.Server` 네임스페이스 아래에 구성됩니다.
-- **여러 형식의 차트 컨트롤을 만들고 채우기 위한 메서드**: 웹 페이지의 TSI 집계 데이터를 렌더링하는 데 사용되는 메서드입니다. 메서드는 라이브러리의 `TsiClient.UX` 네임스페이스 아래에 구성됩니다.
+- **TSI 쿼리 API를 호출하는 래퍼 메서드**: 집계 식을 사용하여 TSI 데이터를 쿼리할 수 있게 하는 REST API입니다. 메서드는 라이브러리의 `TsiClient.Server` 네임스페이스 아래에 구성됩니다.
+- **여러 유형의 차트 작성 컨트롤을 만들고 채우는 메서드**: 웹 페이지에서 TSI 집계 데이터를 렌더링하는 데 사용되는 메서드입니다. 메서드는 라이브러리의 `TsiClient.UX` 네임스페이스 아래에 구성됩니다.
 
 다음 개념은 다목적이며 TSI 클라이언트 라이브러리 API에 일반적으로 적용할 수 있습니다.
 
@@ -235,15 +236,15 @@ TSI 클라이언트 라이브러리는 현재 꺾은선형 차트, 원형 차트
 
 1. 먼저 일련의 사용자 지정 작업을 정의합니다. 하나 이상의 요소가 있는 배열을 포함하는 각 작업. 각 요소는 단일 바로 가기 메뉴 항목을 정의합니다.
 
-   - `barChartActions`: 이 작업은 원형 차트에 대한 바로 가기 메뉴를 정의하며, 단일 항목을 정의하는 단일 항목을 포함합니다.
-     - `name`: 메뉴 항목에 사용하는 텍스트: "매개 변수를 콘솔에 인쇄"
+   - `barChartActions`: 이 작업은 원형 차트에 대한 바로 가기 메뉴를 정의하며, 이 메뉴에는 단일 항목을 정의하는 하나의 요소가 포함됩니다.
+     - `name`: 메뉴 항목에 사용되는 텍스트, 즉 "콘솔에 매개 변수 출력"입니다.
      - `action`: 메뉴 항목과 연결된 작업입니다. 이 작업은 언제나 차트를 만드는 데 사용한 집계 식을 기반으로 인수 3개를 취하는 익명 함수입니다. 이 경우 인수를 브라우저 콘솔 창에 씁니다.
        - `ae`: 집계 식 배열입니다.
-       - `splitBy`: 분할 값입니다.
+       - `splitBy`: splitBy 값입니다.
        - `timestamp`: 타임스탬프입니다.
 
-   - `pieChartActions`: 이 작업은 가로 막대형 차트에 대한 바로 가기 메뉴를 정의하며, 단일 항목을 정의하는 단일 항목을 포함합니다. 도형 및 스키마는 이전의 `barChartActions` 요소와 같지만 `action` 함수는 가로 막대형 차트를 인스턴스화하고 렌더링하므로 크게 다르다는 데 주목하세요. 또한 `ae` 인수를 사용하여 런타임에 메뉴 항목이 열릴 때 전달된 집계 식 배열을 지정한다는 데 주목하세요. 또한 이 함수는 `barChartActions` 바로 가기 메뉴를 사용하여 `ae.contextMenu` 속성을 설정합니다.
-   - `contextMenuActions`: 이 작업은 메뉴 항목 3개를 정의하는 요소 3개를 포함하는 꺾은선형 차트에 대한 바로 가기 메뉴를 정의합니다. 각 요소에 대한 도형과 스키마는 이전에 설명한 요소와 같습니다. `barChartActions` 요소와 마찬가지로, 첫 번째 항목은 함수 인수 3개를 브라우저 콘솔 창에 씁니다. `pieChartActions` 요소와 유사하게, 두 번째 항목은 각각 원형 및 가로 막대형 차트를 인스턴스화 및 렌더링합니다. 두 번째 항목 두 개도 각각 `pieChartActions` 및 `barChartActions` 바로 가기 메뉴를 사용하여 해당 `ae.contextMenu` 속성을 설정합니다.
+   - `pieChartActions`: 이 작업은 가로 막대형 차트에 대한 바로 가기 메뉴를 정의하며, 이 메뉴에는 단일 항목을 정의하는 하나의 요소가 포함됩니다. 도형 및 스키마는 이전의 `barChartActions` 요소와 같지만 `action` 함수는 가로 막대형 차트를 인스턴스화하고 렌더링하므로 크게 다르다는 데 주목하세요. 또한 `ae` 인수를 사용하여 런타임에 메뉴 항목이 열릴 때 전달된 집계 식 배열을 지정한다는 데 주목하세요. 또한 이 함수는 `barChartActions` 바로 가기 메뉴를 사용하여 `ae.contextMenu` 속성을 설정합니다.
+   - `contextMenuActions`: 이 작업은 꺾은선형 차트에 대한 바로 가기 메뉴를 정의하며, 이 메뉴에는 세 개의 메뉴 항목을 정의하는 세 개의 요소가 포함됩니다. 각 요소에 대한 도형과 스키마는 이전에 설명한 요소와 같습니다. `barChartActions` 요소와 마찬가지로, 첫 번째 항목은 함수 인수 3개를 브라우저 콘솔 창에 씁니다. `pieChartActions` 요소와 유사하게, 두 번째 항목은 각각 원형 및 가로 막대형 차트를 인스턴스화 및 렌더링합니다. 두 번째 항목 두 개도 각각 `pieChartActions` 및 `barChartActions` 바로 가기 메뉴를 사용하여 해당 `ae.contextMenu` 속성을 설정합니다.
 
 2. 그런 다음, 집계 식 두 개를 `aes` 집계 식 배열에 푸시하여 각 항목에 대한 `contextMenuActions` 배열을 지정합니다. 이 식은 꺾은선형 차트 컨트롤과 함께 사용됩니다.
 
@@ -262,10 +263,10 @@ TSI 클라이언트 라이브러리는 현재 꺾은선형 차트, 원형 차트
 브러시를 보여 주기 위해 사용하는 코드는 [팝업 바로 가기 메뉴](#popup-context-menus-section)를 다루는 이전의 "원형/가로 막대형 차트를 만드는 바로 가기 메뉴를 설명하는 꺾은선형 차트"에 표시됩니다.
 
 1. 브러시 작업은 바로 가기 메뉴와 유사하게 브러시에 대한 일련의 사용자 지정 작업을 정의합니다. 하나 이상의 요소가 있는 배열을 포함하는 각 작업. 각 요소는 단일 바로 가기 메뉴 항목을 정의합니다.
-   - `name`: 메뉴 항목에 사용하는 텍스트: "매개 변수를 콘솔에 인쇄"
-   - `action`: 메뉴 항목과 연결된 작업이며, 언제나 인수 두 개를 취하는 익명 함수입니다. 이 경우 인수를 브라우저 콘솔 창에 씁니다.
-      - `fromTime`: 브러시 선택 영역의 "부터" 타임스탬프입니다.
-      - `toTime`: 브러시 선택 영역의 "까지" 타임스탬프입니다.
+   - `name`: 메뉴 항목에 사용되는 텍스트, 즉 "콘솔에 매개 변수 출력"입니다.
+   - `action`: 메뉴 항목과 연결된 작업이며, 항상 두 개의 인수를 사용하는 익명 함수입니다. 이 경우 인수를 브라우저 콘솔 창에 씁니다.
+      - `fromTime`: 브러시 선택 영역의 "from"(시작) 타임스탬프입니다.
+      - `toTime`: 브러시 선택 영역의 "to"(종료) 타임스탬프입니다.
 
 2. 브러시 작업은 또 다른 차트 옵션 속성으로 추가됩니다. `brushContextMenuActions: brushActions` 속성이 `linechart.Render` 호출에 전달된다는 데 주목하세요.
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5d64aa8b50cdde23d1bb8980510cfac202204f9a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11c68b61802f6c7b3755da71c176ea777f171e4c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262457"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409839"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>Azure Cosmos DB에서 컨테이너 쿼리
 
@@ -20,7 +20,7 @@ ms.locfileid: "51262457"
 
 ## <a name="in-partition-query"></a>파티션 내 쿼리
 
-컨테이너의 데이터를 쿼리하면 Azure Cosmos DB는 필터에 지정된 파티션 키 값(있는 경우)에 해당하는 파티션으로 쿼리를 자동 라우팅합니다. 예를 들어 이 쿼리는 파티션 키 "XMS-0001"이 포함된 파티션으로만 라우팅됩니다.
+컨테이너에서 데이터를 쿼리할 때 파티션 키 필터가 쿼리에 지정되어 있으면 Azure Cosmos DB에서 자동으로 쿼리를 필터에 지정된 파티션 키 값에 해당하는 파티션으로 라우팅합니다. 예를 들어 다음 쿼리는 "XMS-0001" 파티션 키 값에 해당하는 모든 문서를 포함하는 DeviceId 파티션으로 라우팅됩니다.
 
 ```csharp
 // Query using partition key into a class called, DeviceReading

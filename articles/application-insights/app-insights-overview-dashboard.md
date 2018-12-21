@@ -39,7 +39,7 @@ Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈�
 
 ![오류](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
-## <a name="application-dashboard"></a>응용 프로그램 대시보드
+## <a name="application-dashboard"></a>애플리케이션 대시보드
 
 응용 프로그램 대시보드는 Azure의 기존 대시보드 기술을 활용하여 응용 프로그램의 상태와 성능을 완벽하게 사용자 지정할 수 있는 단일 창 보기를 제공합니다.
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 48e338a08330e0674cc4410adf135ec546a5e1c3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230600"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084015"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
@@ -75,20 +75,20 @@ Application Insights는 응용 프로그램에서 모든 오류를 수집하고 
     ![예외 세부 정보](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>실패 코드 식별
-스냅숏 디버거는 응용 프로그램에서 가장 빈번한 예외의 스냅숏을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그런 다음 스냅숏을 다운로드하고 Visual Studio 2017에서 열어 소스 코드를 디버깅할 수 있습니다.
+스냅숏 디버거는 응용 프로그램에서 가장 빈번한 예외의 스냅숏을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅숏을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그 후 스냅숏을 다운로드하여 Visual Studio 2017 Enterprise에서 열고 소스 코드를 디버그할 수 있습니다.
 
 1. 예외 속성에서 **디버그 스냅숏 열기**를 클릭합니다.
 2. **디버그 스냅숏** 패널이 요청에 대한 호출 스택과 함께 열립니다.  메서드를 클릭하여 요청 시 모든 지역 변수의 값을 봅니다.  이 예제에서는 맨 위 메서드에서부터 시작하여 값이 없는 지역 변수를 볼 수 있습니다.
 
     ![디버그 스냅숏](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. 유효한 값을 가진 첫 번째 호출은 **ValidZipCode**이며 우편 번호가 정수로 변환할 수 없는 문자와 함께 제공된 것을 볼 수 있습니다.  이는 코드에서 수정되어야 하는 오류로 보입니다.
+3. 유효한 값을 가진 첫 번째 호출은 **ValidZipCode**이며 우편 번호가 정수로 변환할 수 없는 문자와 함께 제공된 것을 볼 수 있습니다.  이는 코드에서 수정되어야 하는 오류로 보입니다.
 
     ![디버그 스냅숏](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. 수정되어야 하는 실제 코드를 찾을 수 있는 Visual Studio로 이 스냅숏을 다운로드하려면 **스냅숏 다운로드**를 클릭합니다.
-6. 스냅숏이 Visual Studio로 로드됩니다.
-7. 이제 Visual Studio에서 예외를 발생시킨 코드 줄을 신속하게 식별하는 디버그 세션을 실행할 수 있습니다.
+4. 그러면 수정해야 하는 실제 코드를 찾을 수 있는 Visual Studio로 이 스냅숏을 다운로드할 수 있습니다. 이렇게 하려면 **스냅숏 다운로드**를 클릭합니다.
+5. 스냅숏이 Visual Studio로 로드됩니다.
+6. 이제 Visual Studio Enterprise에서 예외를 발생시킨 코드 줄을 신속하게 식별하는 디버그 세션을 실행할 수 있습니다.
 
     ![코드의 예외](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 

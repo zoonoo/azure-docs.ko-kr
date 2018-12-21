@@ -33,8 +33,8 @@ ms.locfileid: "50156089"
 | **오류 메시지** | **해결 방법** |
 | --- |:--- |
 | *contoso100.com 이름은 이 네트워크에서 이미 사용 중입니다. 사용하지 않는 이름을 지정하십시오.* |[가상 네트워크에서 도메인 이름 충돌](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. 이 서비스에는 'Azure AD Domain Services Sync'라는 응용 프로그램에 대한 적절한 권한이 없습니다. 'Azure AD Domain Services Sync'라는 응용 프로그램을 삭제한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.* |[Domain Services에 Azure AD Domain Services Sync 응용 프로그램에 대한 적절한 권한이 없음](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트의 Domain Services 응용 프로그램에는 Domain Services를 사용하는 데 필요한 권한이 없습니다. d87dcbc6-a371-462e-88e3-28ad15ec4e64 응용 프로그램 식별자를 사용하여 응용 프로그램을 삭제한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.* |[테넌트에서 Domain Services 응용 프로그램을 제대로 구성하지 않음](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. 이 서비스에는 'Azure AD Domain Services Sync'라는 애플리케이션에 대한 적절한 권한이 없습니다. 'Azure AD Domain Services Sync'라는 애플리케이션을 삭제한 다음, Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하세요.* |[Domain Services에 Azure AD Domain Services Sync 응용 프로그램에 대한 적절한 권한이 없음](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트의 Domain Services 애플리케이션에는 Domain Services를 사용하는 데 필요한 권한이 없습니다. d87dcbc6-a371-462e-88e3-28ad15ec4e64 애플리케이션 식별자를 사용하여 애플리케이션을 삭제한 다음, Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하세요.* |[테넌트에서 Domain Services 응용 프로그램을 제대로 구성하지 않음](active-directory-ds-troubleshooting.md#invalid-configuration) |
 | *이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트에서 Microsoft Azure AD 애플리케이션을 사용할 수 없습니다. 00000002-0000-0000-c000-000000000000 응용 프로그램 식별자를 사용하여 응용 프로그램을 사용하도록 설정한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.* |[Azure AD 테넌트에서 Microsoft Graph 응용 프로그램을 사용할 수 없음](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>도메인 이름 충돌
@@ -51,7 +51,7 @@ ms.locfileid: "50156089"
 ### <a name="inadequate-permissions"></a>부적절한 권한
 **오류 메시지:**
 
-*이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. 이 서비스에는 'Azure AD Domain Services Sync'라는 응용 프로그램에 대한 적절한 권한이 없습니다. 'Azure AD Domain Services Sync'라는 응용 프로그램을 삭제한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.*
+*이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. 이 서비스에는 'Azure AD Domain Services Sync'라는 애플리케이션에 대한 적절한 권한이 없습니다. 'Azure AD Domain Services Sync'라는 애플리케이션을 삭제한 다음, Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하세요.*
 
 **재구성:**
 
@@ -67,7 +67,7 @@ Azure AD 디렉터리에 'Azure AD Domain Services Sync'라는 이름의 애플�
 ### <a name="invalid-configuration"></a>유효하지 않은 구성
 **오류 메시지:**
 
-*이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트의 Domain Services 응용 프로그램에는 Domain Services를 사용하는 데 필요한 권한이 없습니다. d87dcbc6-a371-462e-88e3-28ad15ec4e64 응용 프로그램 식별자를 사용하여 응용 프로그램을 삭제한 다음 Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하십시오.*
+*이 Azure AD 테넌트에서는 Domain Services를 사용할 수 없습니다. Azure AD 테넌트의 Domain Services 애플리케이션에는 Domain Services를 사용하는 데 필요한 권한이 없습니다. d87dcbc6-a371-462e-88e3-28ad15ec4e64 애플리케이션 식별자를 사용하여 애플리케이션을 삭제한 다음, Azure AD 테넌트에 대해 Domain Services를 사용하도록 설정하세요.*
 
 **재구성:**
 

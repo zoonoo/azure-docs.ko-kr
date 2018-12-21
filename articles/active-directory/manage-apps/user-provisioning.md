@@ -236,7 +236,7 @@ Azure Portal에서 감사 로그를 읽는 방법에 대한 자세한 내용은 
 
 ## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>사용자 프로비저닝 문제를 어떻게 해결하나요?
 
-자동 사용자 프로비전 문제를 해결하는 방법에 대한 시나리오 기반 지침은 [응용 프로그램에 사용자를 구성 및 프로비전하는 문제](application-provisioning-config-problem.md)를 참조하세요.
+자동 사용자 프로비전 문제를 해결하는 방법에 대한 시나리오 기반 지침은 [애플리케이션에 사용자를 구성 및 프로비전하는 문제](application-provisioning-config-problem.md)를 참조하세요.
 
 
 ## <a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>자동 사용자 프로비저닝을 롤아웃하기 위한 모범 사례는 무엇인가요?

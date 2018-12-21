@@ -1,20 +1,20 @@
 ---
-title: Azure CLI 스크립트 - Azure Cosmos DB Table API 계정, 데이터베이스 및 테이블 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 - Azure Cosmos DB Table API 계정, 데이터베이스 및 테이블 만들기
 description: Azure CLI 스크립트 샘플 - Azure Cosmos DB Table API 계정, 데이터베이스 및 테이블 만들기
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 178ecfe6971a47009781d8866986d936f8e3a5d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5e9cd406f02ea17c4d91e316cbd3f0cc937f6afc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019559"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957575"
 ---
-# <a name="azure-cosmos-db-create-a-table-api-account-using-azure-cli"></a>Azure Cosmos DB: Azure CLI를 사용하여 Table API 계정 만들기
+# <a name="azure-cosmos-db-create-a-table-api-account-using-azure-cli"></a>Azure Cosmos DB는 Azure CLI를 사용하여 Table API 계정 만들기
 
 이 샘플 CLI 스크립트는 Azure Cosmos DB Table API 계정, 데이터베이스 및 테이블을 만듭니다.
 

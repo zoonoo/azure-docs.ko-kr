@@ -1,28 +1,29 @@
 ---
-title: 'NoSQL 자습서: Azure Cosmos DB Java SDK용 SQL API | Microsoft Docs'
+title: 'NoSQL 자습서: Azure Cosmos DB Java SDK용 SQL API'
 description: Azure Cosmos DB용 SQL API를 사용하여 온라인 데이터베이스 및 Java 콘솔 응용 프로그램을 만드는 NoSQL 자습서입니다. Azure SQL은 JSON의 NoSQL 데이터베이스입니다.
 keywords: NoSQL 자습서, 온라인 데이터베이스, Java 콘솔 응용 프로그램
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: d4f5a174efb6679bfa29b1a2dfbcf3b1adb91053
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0bab289fedbbceb2d5cb763bd0f55e455bb60a29
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162459"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093027"
 ---
-# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 자습서: SQL API Java 콘솔 응용 프로그램 빌드
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 자습서: SQL API Java 콘솔 애플리케이션 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
+> * [.NET(미리 보기)](sql-api-dotnet-get-started-preview.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core(미리 보기)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [비동기 Java](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
@@ -55,7 +56,7 @@ Azure Cosmos DB Java SDK용 SQL API에 대한 NoSQL 자습서를 시작합니다
 
 * [Git](https://git-scm.com/downloads)
 * [JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1단계: Azure Cosmos DB 계정 만들기
 Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 이미 있는 경우 [GitHub 프로젝트 복제](#GitClone)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용할 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설정하고 [GitHub 프로젝트 복제](#GitClone)로 건너뜁니다.
@@ -173,7 +174,7 @@ Azure Cosmos DB는 [replaceDocument](/java/api/com.microsoft.azure.documentdb._d
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
-## <a id="Run"></a>11단계: Java 콘솔 응용 프로그램 모두 함께 실행
+## <a id="Run"></a>11단계: Java 콘솔 애플리케이션 모두 실행!
 콘솔에서 응용 프로그램을 실행하려면 프로젝트 폴더로 이동하고 Maven을 사용하여 컴파일합니다.
     
     mvn package

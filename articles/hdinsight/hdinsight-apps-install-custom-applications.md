@@ -20,7 +20,7 @@ ms.locfileid: "52496969"
 
 이 문서에서는 Azure Portal에 게시되지 않은 [Apache Hadoop](https://hadoop.apache.org/) 애플리케이션을 Azure HDInsight에 설치하는 방법에 대해 알아봅니다. 이 문서에서 설치할 애플리케이션은 [Hue](http://gethue.com/)입니다.
 
-HDInsight 응용 프로그램은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 응용 프로그램입니다.  Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 응용 프로그램을 개발할 수 있습니다.  
+HDInsight 애플리케이션은 Linux 기반 HDInsight 클러스터에 사용자가 설치할 수 있는 애플리케이션입니다.  Microsoft, ISV(독립 소프트웨어 공급 업체) 또는 사용자가 직접 이러한 애플리케이션을 개발할 수 있습니다.  
 
 다른 관련 문서:
 

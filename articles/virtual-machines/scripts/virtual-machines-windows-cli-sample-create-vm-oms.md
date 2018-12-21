@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - Log Analytics 모니터링을 사용하여 Windows Server 2016 VM 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Log Analytics 모니터링을 사용하여 Windows Server 2016 VM 만들기
+title: Azure CLI 샘플 - Log Analytics 모니터링을 실행하는 Azure VM 만들기 | Microsoft Docs
+description: Azure CLI 샘플 - Windows Server 2016 VM 및 Log Analytics 모니터링을 실행하는 Azure VM 만들기
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.custom: mvc
-ms.openlocfilehash: d4b73981e3cb21f7b4caefaf443014853929b708
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: mvc,seodec18
+ms.openlocfilehash: a3dcb7a7c15c3bf8e5578371e05519e802355fdc
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403392"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188166"
 ---
 # <a name="monitor-a-vm-with-log-analytics"></a>Log Analytics로 VM 모니터링
 

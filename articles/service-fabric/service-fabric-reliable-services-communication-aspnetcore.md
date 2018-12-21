@@ -43,12 +43,12 @@ ASP.NET Core 및 Service Fabric 앱은 전체.NET Framework 뿐만 아니라 .NE
 
 Service Fabric에서 서비스의 인스턴스 및/또는 복제본이 하나 이상 *서비스 호스트 프로세스*(서비스 코드를 실행하는 실행 파일)에서 실행됩니다. 서비스 작성자는 서비스 호스트 프로세스를 소유하고, Service Fabric은 이 사용자를 위해 해당 프로세스를 활성화하고 모니터링합니다.
 
-기존 ASP.NET(MVC 5 이하)은 System.Web.dll을 통해 IIS에 긴밀하게 결합됩니다. ASP.NET Core는 웹 서버와 웹 응용 프로그램 간의 분리를 제공합니다. 이렇게 하면 웹 응용 프로그램을 여러 웹 서버 간에 이동할 수 있으며 웹 서버를 *자체 호스팅*할 수도 있습니다. 즉, IIS와 같은 전용 웹 서버 소프트웨어에서 소유한 프로세스가 아니라 자신의 프로세스에서 웹 서버를 시작할 수 있습니다. 
+기존 ASP.NET(MVC 5 이하)은 System.Web.dll을 통해 IIS에 긴밀하게 결합됩니다. ASP.NET Core는 웹 서버와 웹 응용 프로그램 간의 분리를 제공합니다. 이렇게 하면 웹 애플리케이션을 여러 웹 서버 간에 이동할 수 있으며 웹 서버를 *자체 호스팅*할 수도 있습니다. 즉, IIS와 같은 전용 웹 서버 소프트웨어에서 소유한 프로세스가 아니라 자신의 프로세스에서 웹 서버를 시작할 수 있습니다. 
 
 Service Fabric 서비스와 ASP.NET을 게스트 실행 파일로 또는 Reliable Service에서 결합하려면 서비스 호스트 프로세스 내에서 ASP.NET을 시작할 수 있어야 합니다. ASP.NET Core 자체 호스팅을 사용하면 이 작업을 수행할 수 있습니다.
 
 ## <a name="hosting-aspnet-core-in-a-reliable-service"></a>Reliable Service에서 ASP.NET Core 호스팅
-일반적으로 자체 호스팅되는 ASP.NET Core 응용 프로그램은 `Program.cs`의 `static void Main()` 메서드와 같이 응용 프로그램의 진입점에 WebHost를 만듭니다. 이 경우 WebHost의 수명 주기는 프로세스의 수명 주기와 바인딩됩니다.
+일반적으로 자체 호스팅되는 ASP.NET Core 애플리케이션은 `Program.cs`의 `static void Main()` 메서드와 같이 애플리케이션의 진입점에 WebHost를 만듭니다. 이 경우 WebHost의 수명 주기는 프로세스의 수명 주기와 바인딩됩니다.
 
 ![프로세스에서 ASP.NET Core 호스팅][0]
 
@@ -64,7 +64,7 @@ Reliable Service 인스턴스는 `StatelessService` 또는 `StatefulService`에�
 두 통신 수신기는 다음 인수를 사용하는 생성자를 제공합니다.
  - **`ServiceContext serviceContext`**: 실행 중인 서비스에 대한 정보가 포함된 `ServiceContext` 개체입니다.
  - **`string endpointName`**: ServiceManifest.xml의 `Endpoint` 구성 이름입니다. 이는 주로 두 통신 수신기가 다른 부분입니다. 즉 HttpSys에는 `Endpoint` 구성이 **필요하지만**, Kestrel에는 필요하지 않습니다.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: `IWebHost`를 만들고 반환하는 사용자 구현 람다입니다. 이렇게 하면 일반적으로 ASP.NET Core 응용 프로그램에서 구성하는 방식으로 `IWebHost`를 구성할 수 있습니다. 람다는 사용하는 Service Fabric 통합 옵션과 제공하는 `Endpoint` 구성에 따라 생성된 URL을 제공합니다. 그런 다음 해당 URL을 수정하거나 그대로 사용하여 웹 서버를 시작할 수 있습니다.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: `IWebHost`를 만들고 반환하는 사용자 구현 람다입니다. 이렇게 하면 일반적으로 ASP.NET Core 애플리케이션에서 구성하는 방식으로 `IWebHost`를 구성할 수 있습니다. 람다는 사용하는 Service Fabric 통합 옵션과 제공하는 `Endpoint` 구성에 따라 생성된 URL을 제공합니다. 그런 다음 해당 URL을 수정하거나 그대로 사용하여 웹 서버를 시작할 수 있습니다.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 통합 미들웨어
 `Microsoft.ServiceFabric.AspNetCore` NuGet 패키지에는 Service Fabric 인식 미들웨어를 추가하는 `IWebHostBuilder`의 `UseServiceFabricIntegration` 확장 메서드가 포함되어 있습니다. 이 미들웨어는 Kestrel 또는 HttpSys `ICommunicationListener`를 구성하여 Service Fabric 명명 서비스에 고유한 서비스 URL을 등록한 다음, 클라이언트 요청의 유효성을 검사하여 클라이언트가 적절한 서비스에 연결하고 있는지 확인합니다. 이는 Service Fabric과 같은 공유 호스트 환경에서 필요합니다. 여기서는 여러 웹 응용 프로그램이 동일한 물리적 컴퓨터 또는 가상 머신에서 실행될 수 있지만, 클라이언트에서 실수로 잘못된 서비스에 연결하지 못하도록 고유한 호스트 이름을 사용하지 않습니다. 이 시나리오에 대해서는 다음 섹션에서 자세히 설명합니다.
@@ -99,7 +99,7 @@ Kestrel과 HttpSys `ICommunicationListener` 구현은 모두 똑같은 방식으
 ## <a name="httpsys-in-reliable-services"></a>Reliable Services의 HttpSys
 HttpSys는 **Microsoft.ServiceFabric.AspNetCore.HttpSys** NuGet 패키지를 가져와서 신뢰할 수 있는 서비스에서 사용할 수 있습니다. 이 패키지에는 `ICommunicationListener` 구현인 `HttpSysCommunicationListener`가 포함되어 있으므로 웹 서버로 HttpSys를 사용하여 신뢰할 수 있는 서비스 내에 ASP.NET Core WebHost를 만들 수 있습니다.
 
-HttpSys는 [Windows HTTP 서버 API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx)(영문)를 기반으로 합니다. IIS에서 사용하는 *http.sys* 커널 드라이버를 사용하여 HTTP 요청을 처리하고 이를 웹 응용 프로그램을 실행하는 프로세스로 라우팅합니다. 이렇게 하면 동일한 물리적 컴퓨터 또는 가상 머신의 여러 프로세스가 동일한 포트에서 고유한 URL 경로 또는 호스트 이름으로 구분되는 웹 응용 프로그램을 호스팅할 수 있습니다. 이러한 기능은 동일한 클러스터에서 여러 웹 사이트를 호스팅하는 Service Fabric에서 유용합니다.
+HttpSys는 [Windows HTTP 서버 API](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx)(영문)를 기반으로 합니다. IIS에서 사용하는 *http.sys* 커널 드라이버를 사용하여 HTTP 요청을 처리하고 이를 웹 애플리케이션을 실행하는 프로세스로 라우팅합니다. 이렇게 하면 동일한 물리적 컴퓨터 또는 가상 머신의 여러 프로세스가 동일한 포트에서 고유한 URL 경로 또는 호스트 이름으로 구분되는 웹 응용 프로그램을 호스팅할 수 있습니다. 이러한 기능은 동일한 클러스터에서 여러 웹 사이트를 호스팅하는 Service Fabric에서 유용합니다.
 
 >[!NOTE]
 >HttpSys 구현은 Windows 플랫폼에서만 작동합니다.
@@ -332,7 +332,7 @@ Kestrel에서 동적 포트 할당을 사용하려면 ServiceManifest.xml에서 
 new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
-이 구성에서 `KestrelCommunicationListener`는 응용 프로그램 포트 범위에서 사용되지 않는 포트를 자동으로 선택합니다.
+이 구성에서 `KestrelCommunicationListener`는 애플리케이션 포트 범위에서 사용되지 않는 포트를 자동으로 선택합니다.
 
 ## <a name="scenarios-and-configurations"></a>시나리오 및 구성
 이 섹션에서는 다음 시나리오에 대해 설명하고, 웹 서버, 포트 구성, Service Fabric 통합 옵션 및 기타 설정에 권장되는 조합을 제공하여 적절하게 작동하는 서비스를 달성합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure에서 PHP 및 MySQL 웹앱 빌드 | Microsoft Docs
+title: MySQL을 사용하여 PHP 앱 빌드 - Azure App Service | Microsoft Docs
 description: MySQL 데이터베이스에 연결하여 Azure에서 PHP 앱이 작동하도록 하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: php
@@ -14,13 +14,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 9a1468c27e668663ca9079f5f1c9e5e97e51d2d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291290"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251677"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>자습서: Azure에서 PHP 및 MySQL 웹앱 빌드
 
@@ -49,9 +49,9 @@ ms.locfileid: "52291290"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Git 설치](https://git-scm.com/)
-* [PHP 5.6.4 이상 설치](http://php.net/downloads.php)
+* [PHP 5.6.4 이상 설치](https://php.net/downloads.php)
 * [작성기 설치](https://getcomposer.org/doc/00-intro.md)
-* PHP 확장 Laravel에 필요한 OpenSSL, Pdo-mysql, Mbstring, Tokenizer, XML 사용
+* Laravel에 필요한 OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML 등의 PHP 확장 사용
 * [MySQL 설치 및 시작](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>로컬 MySQL 준비
@@ -66,7 +66,7 @@ ms.locfileid: "52291290"
 mysql -u root -p
 ```
 
-암호를 묻는 메시지가 표시되면 `root` 계정에 대한 암호를 입력합니다. 루트 계정 암호를 기억하지 못하는 경우 [MySQL: 루트 암호를 재설정하는 방법](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html)을 참조하세요.
+암호를 묻는 메시지가 표시되면 `root` 계정에 대한 암호를 입력합니다. 루트 계정 암호가 기억나지 않는 경우 [MySQL: 루트 암호를 재설정하는 방법](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html)을 참조하세요.
 
 명령이 성공적으로 실행되면 MySQL 서버가 실행되고 있습니다. 그렇지 않은 경우 [MySQL 설치 후 단계](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html)에 따라 로컬 MySQL 서버가 시작되었는지 확인합니다.
 
@@ -394,7 +394,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 ### <a name="set-the-virtual-application-path"></a>가상 응용 프로그램 경로 설정
 
-웹앱에 대한 가상 응용 프로그램 경로를 설정합니다. [Laravel 응용 프로그램 수명 주기](https://laravel.com/docs/5.4/lifecycle)(영문)가 응용 프로그램의 루트 디렉터리 대신 _public_ 디렉터리에서 시작되므로 이 단계가 필요합니다. 해당 수명 주기가 루트 디렉터리에서 시작하는 다른 PHP 프레임워크는 가상 응용 프로그램 경로를 수동으로 구성하지 않아도 작동될 수 있습니다.
+웹앱에 대한 가상 응용 프로그램 경로를 설정합니다. [Laravel 응용 프로그램 수명 주기](https://laravel.com/docs/5.4/lifecycle)(영문)가 응용 프로그램의 루트 디렉터리 대신 _public_ 디렉터리에서 시작되므로 이 단계가 필요합니다. 해당 수명 주기가 루트 디렉터리에서 시작하는 다른 PHP 프레임워크는 가상 애플리케이션 경로를 수동으로 구성하지 않아도 작동될 수 있습니다.
 
 Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update) 명령을 사용하여 가상 응용 프로그램 경로를 설정합니다. _&lt;appname>_ 자리 표시자를 바꿉니다.
 
@@ -491,7 +491,7 @@ php artisan migrate
 
 [Laravel 명명 규칙](https://laravel.com/docs/5.4/eloquent#defining-models)에 따라 `Task`(_app/Task.php_ 참조) 모델은 기본적으로 `tasks` 테이블에 매핑됩니다.
 
-### <a name="update-application-logic"></a>응용 프로그램 논리 업데이트
+### <a name="update-application-logic"></a>애플리케이션 논리 업데이트
 
 *routes/web.php* 파일을 엽니다. 응용 프로그램에서 해당 경로 및 비즈니스 논리를 여기에 정의합니다.
 
@@ -598,9 +598,9 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 언제든지 로그 스트리밍을 중지하려면 `Ctrl`+`C`를 입력합니다.
 
 > [!TIP]
-> PHP 응용 프로그램은 표준 [error_log()](http://php.net/manual/function.error-log.php)를 사용하여 콘솔에 출력할 수 있습니다. 샘플 응용 프로그램에서 _app/Http/routes.php_에서 이 접근 방식을 사용합니다.
+> PHP 응용 프로그램은 표준 [error_log()](https://php.net/manual/function.error-log.php)를 사용하여 콘솔에 출력할 수 있습니다. 샘플 응용 프로그램에서 _app/Http/routes.php_에서 이 접근 방식을 사용합니다.
 >
-> 웹 프레임워크로서 [Laravel은 Monolog](https://laravel.com/docs/5.4/errors) 로깅 공급자로 사용합니다. Monolog에서 콘솔에 메시지를 출력하게 하는 방법을 보려면 [PHP: monolog를 사용하여 콘솔에 로깅하는 방법(php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out)을 참조하세요.
+> 웹 프레임워크로서 [Laravel은 Monolog](https://laravel.com/docs/5.4/errors) 로깅 공급자로 사용합니다. Monolog가 메시지를 콘솔로 출력하게 하는 방법은 [PHP: monolog를 사용하여 콘솔에 기록하는 방법(php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out)을 참조하세요.
 >
 >
 

@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/12/2018
 ms.locfileid: "44719361"
 ---
-# <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 응용 프로그램 프로비전
+# <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 응용 프로그램에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
 
 ## <a name="scoping-filter-use-cases"></a>범위 지정 필터 사용 사례

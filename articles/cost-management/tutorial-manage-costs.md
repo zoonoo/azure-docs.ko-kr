@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7d319c82da09ec5c960e1f40bc26edce8ee372b9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274426"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083566"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>자습서: Cloudyn을 사용하여 비용 관리
 
@@ -53,13 +53,11 @@ Cloudyn은 Azure에서 리소스 그룹 태그 데이터를 가져오고 리소�
 
 사용자 지정 비용 할당 모델을 만들려면 보고서의 메뉴에서 **비용** &gt; **비용 관리** &gt; **비용 할당 360°**를 선택합니다.
 
-![비용 할당 360 선택](./media/tutorial-manage-costs/cost-allocation-360.png)
+![비용 할당 360을 선택하는 대시보드를 보여 주는 예](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 **비용 할당 360** 페이지에서 **추가**를 선택한 다음 비용 모델에 사용할 이름 및 설명을 입력합니다. 모든 계정 또는 개별 계정 중에 선택합니다. 개별 계정을 사용하려는 경우 여러 클라우드 서비스 공급자에서 여러 계정을 선택할 수 있습니다. 그런 다음 **분류**를 클릭하여 비용 데이터를 분류하는 검색된 태그를 선택합니다. 모델에 포함하려는 태그(범주)를 선택합니다. 다음 예제에서는 **단위** 태그를 선택합니다.
 
-![예제 비용 모델 분류](./media/tutorial-manage-costs/cost-model01.png)
-
-
+![비용 모델 분류를 보여 주는 예](./media/tutorial-manage-costs/cost-model01.png)
 
 예제에 분류되지 않은 $19,680가 있습니다(태그 없음).
 
@@ -97,7 +95,7 @@ Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **범주 관
 
 다음 이미지에는 **Work-Load**라는 새 범주에 대해 만들어진 규칙의 예가 나와 있습니다.
 
-![예제 범주](./media/tutorial-manage-costs/category01.png)
+![새 워크로드 범주를 보여 주는 예](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>원본 및 보고서에 태그 지정
 
@@ -124,7 +122,7 @@ Cloudyn 엔터티 태그 및 수동으로 만든 태그는 모든 비용 보고�
 
 비용 할당의 결과를 보려면 비용 분석 보고서를 열고, 만든 비용 모델을 선택합니다. 그런 다음 비용 모델에서 선택한 하나 이상의 태그로 그룹화를 추가합니다.
 
-![비용 분석 보고서](./media/tutorial-manage-costs/cost-analysis.png)
+![새 비용의 데이터 예를 보여 주는 비용 분석 보고서](./media/tutorial-manage-costs/cost-analysis.png)
 
 특정 그룹에서 소비되는 특정 서비스에 초점을 맞춰 보고서를 손쉽게 만들고 저장할 수 있습니다. 예를 들어 Azure VM을 광범위하게 사용하는 부서가 있을 수 있습니다. 소비 및 비용을 보여주도록 Azure VM에서 필터링된 보고서를 만들 수 있습니다.
 

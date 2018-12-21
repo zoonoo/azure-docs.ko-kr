@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 자습서 - 클러스터 배포
+title: (사용되지 않음) Azure Container Service 자습서 - 클러스터 배포
 description: Azure Container Service 자습서 - 클러스터 배포
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d77396cdcaa3f2f291aff52dfd1e6793aee4039c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434427"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997852"
 ---
-# <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Azure Container Service에서 Kubernetes 클러스터 배포
+# <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(사용되지 않음) Azure Container Service에서 Kubernetes 클러스터 배포
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> Azure Kubernetes Service를 사용하는 이 자습서의 업데이트된 버전은 [자습서: AKS(Azure Kubernetes Service) 클러스터 배포](../../aks/tutorial-kubernetes-deploy-cluster.md)를 참조하세요.
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제공합니다. Azure Container Service를 통해 프로덕션이 준비된 Kubernetes 클러스터를 프로비전하는 작업은 간단하고 빠릅니다. 이 자습서(전체 7부 중 3부)에서는 Azure Container Service Kubernetes 클러스터를 배포했습니다. 완료되는 단계는 다음과 같습니다.
 

@@ -72,4 +72,4 @@ ssh azureuser@<ipAddress>
 ```
 
 ## <a name="next-steps"></a>다음 단계
-이 예제에서는 기본 Linux VM을 만들었습니다. 응용 프로그램 프레임워크를 포함하거나 더 복잡한 환경을 만드는 더 많은 Resource Manager 템플릿은 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/)를 찾아보세요.
+이 예제에서는 기본 Linux VM을 만들었습니다. 애플리케이션 프레임워크를 포함하거나 더 복잡한 환경을 만드는 더 많은 Resource Manager 템플릿은 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/documentation/templates/)를 찾아보세요.

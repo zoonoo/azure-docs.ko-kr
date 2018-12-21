@@ -1,25 +1,20 @@
 ---
-title: Azure PowerShell 스크립트 - cosmosdb에 대한 계정 키 가져오기 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - cosmosdb에 대한 계정 키 가져오기
+title: Azure PowerShell 스크립트 - Azure Cosmos DB의 계정 키 가져오기
+description: Azure PowerShell 스크립트 샘플 - Azure Cosmos DB의 계정 키 가져오기
 services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
-ms.openlocfilehash: 4ae2b185d5fd25f9d8e0949f956ca4d14e502bd6
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4eaf50a2e1ce86353bcaa514c26b517c8d448959
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41919922"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970878"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB의 계정 키 가져오기
 
