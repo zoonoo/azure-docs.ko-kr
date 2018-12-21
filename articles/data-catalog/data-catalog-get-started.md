@@ -41,7 +41,7 @@ Azure 구독에서는 Azure 데이터 카탈로그와 같은 클라우드 서비
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Azure Data Catalog를 설정하려면 Azure Active Directory(Azure AD) 사용자 계정으로 로그인해야 합니다. Azure 구독의 소유자 또는 공동 소유자여야 합니다.  
 
-Azure AD는 클라우드 및 온-프레미스 모두에서 비즈니스가 ID와 액세스를 쉽게 관리하는 방법을 제공합니다. 클라우드 및 온-프레미스 웹 응용 프로그램에 로그인하기 위해 단일 회사 또는 학교 계정을 사용할 수 있습니다. Azure Data Catalog는 로그인 인증에 Azure AD를 사용합니다. 자세히 알아보려면 [Azure Active Directory란](../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
+Azure AD는 클라우드 및 온-프레미스 모두에서 비즈니스가 ID와 액세스를 쉽게 관리하는 방법을 제공합니다. 클라우드 및 온-프레미스 웹 애플리케이션에 로그인하기 위해 단일 회사 또는 학교 계정을 사용할 수 있습니다. Azure Data Catalog는 로그인 인증에 Azure AD를 사용합니다. 자세히 알아보려면 [Azure Active Directory란](../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
 
 ### <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory 정책 구성
 Azure Data Catalog 포털에 로그인할 수 있는 상황이 발생할 수 있지만, 데이터 원본 등록 도구에 로그인을 시도할 때 로그인하지 않도록 하는 오류 메시지가 발생합니다. 이 오류는 회사 네트워크에 있거나 회사 네트워크 외부에서 연결 시 발생할 수 있습니다.
@@ -270,7 +270,7 @@ Azure Data Catalog는 주석에 대한 크라우드 소싱 접근 방식을 지�
 이 연습에서는 연결 정보를 사용하여 통합 클라이언트 도구(Excel)와 통합되지 않은 도구(SQL Server Management Studio)에서 데이터 자산을 엽니다.
 
 > [!NOTE]
-> Azure Data Catalog를 통해 실제 데이터 원본에 액세스할 수 있는 것은 아닙니다. 단지 사용자가 더 쉽게 검색하고 이해하는 데 도움이 됩니다. 데이터 원본에 연결할 때 선택한 클라이언트 응용 프로그램은 Windows 자격 증명을 사용하거나 필요에 따라 자격 증명에 대한 메시지를 표시합니다. 이전에 데이터 원본에 대해 액세스가 허용되지 않은 경우 연결하기 전에 액세스가 허용되어야 합니다.
+> Azure Data Catalog를 통해 실제 데이터 원본에 액세스할 수 있는 것은 아닙니다. 단지 사용자가 더 쉽게 검색하고 이해하는 데 도움이 됩니다. 데이터 원본에 연결할 때 선택한 클라이언트 애플리케이션은 Windows 자격 증명을 사용하거나 필요에 따라 자격 증명에 대한 메시지를 표시합니다. 이전에 데이터 원본에 대해 액세스가 허용되지 않은 경우 연결하기 전에 액세스가 허용되어야 합니다.
 > 
 > 
 
@@ -291,7 +291,7 @@ Azure Data Catalog는 주석에 대한 크라우드 소싱 접근 방식을 지�
    
     ![Azure Data Catalog - Excel의 제품 테이블](media/data-catalog-get-started/data-catalog-connect2.png)
 
-이 연습에서는 Azure Data Catalog를 사용하여 검색된 데이터 자산에 연결했습니다. Azure Data Catalog 포털에서 **열기** 메뉴에 통합된 클라이언트 응용 프로그램을 사용하여 직접 연결할 수 있습니다. 자산 메타데이터에 포함된 연결 위치 정보를 사용하여 선택한 응용 프로그램과 연결할 수도 있습니다. 예를 들어 SQL Server Management Studio를 사용하여 AdventureWorks2014 데이터베이스에 연결하고 이 자습서에 등록된 데이터 자산의 데이터에 액세스할 수 있습니다.
+이 연습에서는 Azure Data Catalog를 사용하여 검색된 데이터 자산에 연결했습니다. Azure Data Catalog 포털에서 **열기** 메뉴에 통합된 클라이언트 애플리케이션을 사용하여 직접 연결할 수 있습니다. 자산 메타데이터에 포함된 연결 위치 정보를 사용하여 선택한 애플리케이션과 연결할 수도 있습니다. 예를 들어 SQL Server Management Studio를 사용하여 AdventureWorks2014 데이터베이스에 연결하고 이 자습서에 등록된 데이터 자산의 데이터에 액세스할 수 있습니다.
 
 1. **SQL Server Management Studio**를 엽니다.
 2. **서버에 연결** 대화 상자에서 Azure Data Catalog 포털의 **속성** 창에 있는 서버 이름을 입력합니다.

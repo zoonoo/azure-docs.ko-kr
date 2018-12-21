@@ -153,7 +153,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>3단계: Service Fabric Explorer를 사용하여 클러스터 시각화
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 클러스터를 시각화하고 응용 프로그램을 관리할 수 있는 좋은 도구입니다.  Service Fabric Explorer는 브라우저를 사용하여 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)로 이동하여 액세스할 수 있는 클러스터에서 실행되는 서비스입니다.
 
-클러스터 대시보드는 응용 프로그램 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다. 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 응용 프로그램을 검사할 수 있습니다.
+클러스터 대시보드는 애플리케이션 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다. 노드 보기는 클러스터의 물리적 레이아웃을 보여 줍니다. 지정된 노드의 경우 해당 노드에 배포된 코드를 가진 애플리케이션을 검사할 수 있습니다.
 
 ![Service Fabric Explorer][service-fabric-explorer]
 

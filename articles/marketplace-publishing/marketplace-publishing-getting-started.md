@@ -37,7 +37,7 @@ Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT �
 
 |솔루션 형식|가상 머신|솔루션 템플릿|
 |---|---|---|
-|**정의**|완전히 설치된 운영 체제 및 하나 이상의 응용 프로그램이 포함된 미리 구성된 이미지입니다. Virtual Machines 이미지는 Azure Virtual Machines 서비스에서 Virtual Machines를 만들고 배포하는 데 필요한 정보를 제공합니다.|하나 이상의 서로 다른 Azure 서비스를 참조할 수 있는 데이터 구조는 다른 판매자가 게시한 서비스를 포함합니다. Azure 구독자는 단일 조정된 방식으로 하나 이상의 제품을 배포하는 데 사용할 수 있습니다.|
+|**정의**|완전히 설치된 운영 체제 및 하나 이상의 애플리케이션이 포함된 미리 구성된 이미지입니다. Virtual Machines 이미지는 Azure Virtual Machines 서비스에서 Virtual Machines를 만들고 배포하는 데 필요한 정보를 제공합니다.|하나 이상의 서로 다른 Azure 서비스를 참조할 수 있는 데이터 구조는 다른 판매자가 게시한 서비스를 포함합니다. Azure 구독자는 단일 조정된 방식으로 하나 이상의 제품을 배포하는 데 사용할 수 있습니다.|
 |**예제**|Azure 게시자인 사용자는 혁신적인 데이터베이스 서비스를 사용하여 VM을 만들고 유효성을 검사했습니다. 다른 Azure 구독자는 해당 클라우드 서비스 환경에 이 VM을 확보하고 배포하려고 합니다.|Azure 게시자로 부하 분산, 강화된 보안 및 고가용성 기능을 갖춘 클라우드 서비스를 빠르게 배포할 수 있도록 하는 Azure의 서비스 집합을 포함했습니다. 다른 Azure 구독자는 해당 목표를 충족하는 솔루션 템플릿을 확보하여 시간을 절약할 수 있습니다. 동일하거나 유사한 Azure 서비스를 수동으로 찾고, 확보하고, 배포하고 구성하지 않아도 됩니다.|
 
 > [!NOTE]
@@ -50,7 +50,7 @@ Azure 게시자인 사용자는 Marketplace에서 다른 개발자, ISV 및 IT �
 가상 머신 [솔루션](https://createopportunity.azurewebsites.net)을 Marketplace에 게시하려면 Microsoft Azure Certified **솔루션 추천 양식**을 완료합니다.
 
 >[!NOTE]
-> 파트너 계정 관리자나 DX 파트너 관리자와 함께 작업하는 경우에는 Azure Certified 프로그램에 솔루션을 추천해달라고 요청하세요. 또는 [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) 웹 페이지로 이동하여 응용 프로그램 양식을 작성하면 됩니다. **Microsoft 스폰서 연락처** 상자에서 파트너 계정 관리자 또는 DX 파트너 관리자의 이메일을 입력합니다.
+> 파트너 계정 관리자나 DX 파트너 관리자와 함께 작업하는 경우에는 Azure Certified 프로그램에 솔루션을 추천해달라고 요청하세요. 또는 [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) 웹 페이지로 이동하여 애플리케이션 양식을 작성하면 됩니다. **Microsoft 스폰서 연락처** 상자에서 파트너 계정 관리자 또는 DX 파트너 관리자의 이메일을 입력합니다.
 
 [Azure Marketplace 참여 정책](https://go.microsoft.com/fwlink/?LinkID=526833)의 자격 조건을 충족하고 응용 프로그램이 승인되면 Marketplace에 솔루션을 등록하기 위한 작업을 시작합니다.
 

@@ -103,7 +103,7 @@ Data Lake Tools for Visual Studio는 다음 템플릿을 제공합니다.
 
 | 프로젝트 형식 | 데모 |
 | --- | --- |
-| Storm 응용 프로그램 |빈 Storm 토폴로지 프로젝트 |
+| Storm 애플리케이션 |빈 Storm 토폴로지 프로젝트 |
 | Storm Azure SQL 기록기 샘플 |Azure SQL Database에 쓰는 방법 |
 | Storm Azure Cosmos DB 판독기 샘플 |Azure Cosmos DB에서 읽는 방법 |
 | Storm Azure Cosmos DB 기록기 샘플 |Azure Cosmos DB에 기록하는 방법 |
@@ -134,7 +134,7 @@ HBase 판독기 및 기록기 템플릿은 HBase Java API가 아니라 HBase RES
 
 1. Visual Studio를 열고 **파일** > **새로 만들기**를 선택한 다음 **프로젝트**를 선택합니다.
 
-2. **새 프로젝트** 창에서 **설치됨** > **템플릿**을 확장하고 **Azure Data Lake**를 선택합니다. 템플릿 목록에서 **Storm 응용 프로그램**을 선택합니다. 화면 아래쪽에서 응용 프로그램 이름으로 **WordCount** 를 입력합니다.
+2. **새 프로젝트** 창에서 **설치됨** > **템플릿**을 확장하고 **Azure Data Lake**를 선택합니다. 템플릿 목록에서 **Storm 애플리케이션**을 선택합니다. 화면 아래쪽에서 애플리케이션 이름으로 **WordCount**를 입력합니다.
 
     ![새 프로젝트 창의 스크린샷](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
 
@@ -565,7 +565,7 @@ Linux 기반 HDInsight 클러스터의 경우 프로젝트에서 .NET 4.5에 대
 > [!WARNING]
 > 로컬 테스트는 기본 C# 전용 토폴로지에서만 작동합니다. 하이브리드 토폴로지나 여러 스트림을 사용하는 토폴로지에는 로컬 테스트를 사용할 수 없습니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 프로젝트 속성에서 **출력 유형**을 **콘솔 응용 프로그램**으로 변경합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다. 프로젝트 속성에서 **출력 유형**을 **콘솔 애플리케이션**으로 변경합니다.
 
     ![출력 유형이 강조 표시된 프로젝트 속성의 스크린샷](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
 

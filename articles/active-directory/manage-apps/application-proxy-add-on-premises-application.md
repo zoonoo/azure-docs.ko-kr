@@ -160,7 +160,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 
 3. **모두**를 선택한 다음 **온-프레미스 응용 프로그램**을 선택합니다.  
 
-    ![응용 프로그램 직접 추가](./media/application-proxy-publish-azure-portal/add-your-own.png)
+    ![애플리케이션 직접 추가](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
 4. 응용 프로그램에 대한 다음과 같은 정보를 제공합니다.
 

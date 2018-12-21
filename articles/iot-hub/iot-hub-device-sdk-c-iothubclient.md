@@ -31,7 +31,7 @@ GitHub 리포지토리에서 [**C용 Azure IoT 디바이스 SDK**](https://githu
 
 ## <a name="the-lower-level-apis"></a>하위 수준 API
 
-이전 문서에서는 **iothub\_client\_sample\_amqp** 응용 프로그램 컨텍스트 내에 있는 **IotHubClient**의 기본적인 동작을 설명했습니다. 예를 들어 다음 코드를 사용하여 라이브러리를 초기화하는 방법을 설명했습니다.
+이전 문서에서는 **iothub\_client\_sample\_amqp** 애플리케이션 컨텍스트 내에 있는 **IotHubClient**의 기본적인 동작을 설명했습니다. 예를 들어 다음 코드를 사용하여 라이브러리를 초기화하는 방법을 설명했습니다.
 
 ```C
 IOTHUB_CLIENT_HANDLE iotHubClientHandle;
@@ -76,7 +76,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 
 **LL** API는 백그라운드 스레드를 만들지 않습니다. 대신, IoT Hub에서 데이터를 명시적으로 전송 및 수신하는 새 API를 호출해야 합니다. 다음 예제에 이 내용이 나와 있습니다.
 
-SDK에 포함된 **iothub\_client\_sample\_http** 응용 프로그램은 하위 수준 API를 보여줍니다. 이 샘플에서는 다음과 같은 코드로 IoT Hub에 이벤트를 전송합니다.
+SDK에 포함된 **iothub\_client\_sample\_http** 애플리케이션은 하위 수준 API를 보여줍니다. 이 샘플에서는 다음과 같은 코드로 IoT Hub에 이벤트를 전송합니다.
 
 ```C
 EVENT_INSTANCE message;
@@ -96,7 +96,7 @@ while (1)
 }
 ```
 
-이 코드(**iothub\_client\_sample\_http** 응용 프로그램에 있음)는 **IoTHubClient\_LL\_DoWork**를 반복적으로 호출합니다. **IoTHubClient\_LL\_DoWork**가 호출될 때마다 버퍼에서 IoT Hub로 몇 개의 이벤트가 전송되고 장치로 전송된 대기 중인 메시지를 가져옵니다. 후자의 경우 메시지에 대한 콜백 함수를 등록한 후 콜백을 호출했음을 의미합니다(모든 메시지가 대기 상태임을 가정). 다음과 같은 코드로 이러한 콜백 함수를 등록했습니다.
+이 코드(**iothub\_client\_sample\_http** 애플리케이션에 있음)는 **IoTHubClient\_LL\_DoWork**를 반복적으로 호출합니다. **IoTHubClient\_LL\_DoWork**가 호출될 때마다 버퍼에서 IoT Hub로 몇 개의 이벤트가 전송되고 장치로 전송된 대기 중인 메시지를 가져옵니다. 후자의 경우 메시지에 대한 콜백 함수를 등록한 후 콜백을 호출했음을 의미합니다(모든 메시지가 대기 상태임을 가정). 다음과 같은 코드로 이러한 콜백 함수를 등록했습니다.
 
 ```C
 IoTHubClient_LL_SetMessageCallback(iotHubClientHandle, ReceiveMessageCallback, &receiveContext)
@@ -133,7 +133,7 @@ IoTHubClient_LL_Destroy(iotHubClientHandle);
 
 반대의 경우도 마찬가지입니다. **IoTHubClient\_CreateFromConnectionString**으로 시작한 후 비-LL API를 사용하여 추가 처리를 계속합니다.
 
-C용 Azure IoT 디바이스 SDK에서 하위 수준 API에 대한 전체 예제는 **iothub\_client\_sample\_http** 애플리케이션을 참조하세요. 비-LL API의 전체 예제는 **iothub\_client\_sample\_amqp** 응용 프로그램을 참조하면 됩니다.
+C용 Azure IoT 디바이스 SDK에서 하위 수준 API에 대한 전체 예제는 **iothub\_client\_sample\_http** 애플리케이션을 참조하세요. 비-LL API의 전체 예제는 **iothub\_client\_sample\_amqp** 애플리케이션을 참조하면 됩니다.
 
 ## <a name="property-handling"></a>속성 처리
 
@@ -192,11 +192,11 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 
 **IoTHubMessage\_Properties**를 호출하면 **MAP\_HANDLE** 참조를 반환합니다. 그런 다음 **Map\_GetInternals**로 참조를 전달하여 이름/값 쌍의 배열에 대한 참조를 얻습니다(속성 개수 포함). 이 때 속성을 열거하여 원하는 값을 얻는 것은 간단합니다.
 
-응용 프로그램에서 속성을 사용할 필요가 없습니다. 하지만 이벤트에 속성을 설정하거나 메시지에서 속성을 가져와야 하는 경우 **IoTHubClient** 라이브러리로 쉽게 작업할 수 있습니다.
+애플리케이션에서 속성을 사용할 필요가 없습니다. 하지만 이벤트에 속성을 설정하거나 메시지에서 속성을 가져와야 하는 경우 **IoTHubClient** 라이브러리로 쉽게 작업할 수 있습니다.
 
 ## <a name="message-handling"></a>메시지 처리
 
-앞서 설명한 것처럼 IoT Hub에서 메시지가 도착할 때 **IoTHubClient** 라이브러리가 등록된 콜백 함수를 호출하여 응답합니다. 이 함수에는 반환 매개 변수가 있으며 이에 대한 추가 설명이 필요합니다. 다음은 **iothub\_client\_sample\_http** 응용 프로그램 예제에 있는 콜백 함수를 발췌한 것입니다.
+앞서 설명한 것처럼 IoT Hub에서 메시지가 도착할 때 **IoTHubClient** 라이브러리가 등록된 콜백 함수를 호출하여 응답합니다. 이 함수에는 반환 매개 변수가 있으며 이에 대한 추가 설명이 필요합니다. 다음은 **iothub\_client\_sample\_http** 애플리케이션 예제에 있는 콜백 함수를 발췌한 것입니다.
 
 ```C
 static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)

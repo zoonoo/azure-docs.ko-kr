@@ -49,7 +49,7 @@ Application Insights는 Azure Log Analytics를 통해 실시간 응용 프로그
     - (4) /24 네트워크
     - (4) 네트워크 보안 그룹
 - Azure Application Gateway
-    - 웹 응용 프로그램 방화벽
+    - 웹 애플리케이션 방화벽
         - 방화벽 모드: 방지
         - 규칙 집합: OWASP
         - 수신기 포트: 443

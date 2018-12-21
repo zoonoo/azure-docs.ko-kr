@@ -38,7 +38,7 @@ ms.locfileid: "51711313"
 5. **엔터프라이즈 응용 프로그램 - 모든 응용 프로그램** 블레이드에서 앱을 선택합니다.
 6. ***appname*** 블레이드(즉, 제목에서 선택된 앱의 이름을 가진 블레이드)에서 **사용자 및 그룹**을 선택합니다.
 
-    ![모든 응용 프로그램 명령 선택](./media/assign-user-or-group-access-portal/select-app-users.png)
+    ![모든 애플리케이션 명령 선택](./media/assign-user-or-group-access-portal/select-app-users.png)
 7. ***appname*** **- 사용자 및 그룹 할당** 블레이드에서 **추가** 명령을 선택합니다.
 8. **할당 추가** 블레이드에서 **사용자 및 그룹**을 선택합니다.
 

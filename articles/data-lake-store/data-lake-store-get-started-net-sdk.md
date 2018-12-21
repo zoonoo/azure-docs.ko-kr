@@ -36,7 +36,7 @@ ms.locfileid: "46123915"
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-## <a name="create-a-net-application"></a>.NET 응용 프로그램 만들기
+## <a name="create-a-net-application"></a>.NET 애플리케이션 만들기
 1. Visual Studio를 열고 콘솔 애플리케이션을 만듭니다.
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.

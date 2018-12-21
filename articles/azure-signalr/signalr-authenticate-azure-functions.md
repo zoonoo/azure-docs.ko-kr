@@ -91,7 +91,7 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
     func extensions install -p Microsoft.Azure.WebJobs.Extensions.SignalRService -v 1.0.0-preview1-10002
     ```
 
-### <a name="configure-application-settings"></a>응용 프로그램 설정 구성
+### <a name="configure-application-settings"></a>애플리케이션 설정 구성
 
 Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **local.settings.json**에서 응용 프로그램 설정을 읽습니다. 이 파일을 앞에서 만든 SignalR Service 인스턴스의 연결 문자열로 업데이트합니다.
 

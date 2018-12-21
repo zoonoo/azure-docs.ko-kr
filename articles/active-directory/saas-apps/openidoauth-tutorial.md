@@ -130,7 +130,7 @@ Graph API는 또한 더 많은 Microsoft 클라우드 서비스에서 사용자 
 
 관리자가 동의하고 서비스 주체가 고객 테넌트에 만들어진 후 이후의 로그인 요청은 *prompt=admin_consent* 매개 변수를 필요로 하지 않습니다. 관리자가 요청된 권한이 허용된다고 결정했다면 테넌트의 다른 사용자들에게 그 시점 이후로 동의하라는 메시지가 표시되지 않습니다.
 
-테넌트 관리자는 일반 사용자가 응용 프로그램에 동의하는 기능을 사용하지 않도록 설정할 수 있습니다. 이 기능이 사용되지 않는 경우 테넌트에서 응용 프로그램을 사용하려면 항상 관리자 동의가 필요합니다. 최종 사용자 동의를 사용하지 않도록 설정된 응용 프로그램을 테스트하려면 [Azure Portal](https://portal.azure.com/)에서 구성 스위치를 찾을 수 있습니다. **엔터프라이즈 응용 프로그램** 아래의 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) 섹션에 있습니다.
+테넌트 관리자는 일반 사용자가 애플리케이션에 동의하는 기능을 사용하지 않도록 설정할 수 있습니다. 이 기능이 사용되지 않는 경우 테넌트에서 응용 프로그램을 사용하려면 항상 관리자 동의가 필요합니다. 최종 사용자 동의를 사용하지 않도록 설정된 응용 프로그램을 테스트하려면 [Azure Portal](https://portal.azure.com/)에서 구성 스위치를 찾을 수 있습니다. **엔터프라이즈 응용 프로그램** 아래의 [사용자 설정](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) 섹션에 있습니다.
 
 관리 동의가 필요하지 않은 사용 권한을 요청하는 응용 프로그램에서 *prompt=admin_consent* 매개 변수를 사용할 수도 있습니다. 예제는 테넌트 관리자가 한 번 "등록"한 환경이 필요하고, 다른 사용자에게 해당 지점에서 동의를 확인하는 메시지가 표시되지 않는 응용 프로그램입니다.
 

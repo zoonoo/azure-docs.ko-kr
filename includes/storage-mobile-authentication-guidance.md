@@ -11,7 +11,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50164578"
 ---
-## <a name="configure-your-application-to-access-azure-storage"></a>Azure Storage에 액세스하도록 응용 프로그램 구성
+## <a name="configure-your-application-to-access-azure-storage"></a>Azure Storage에 액세스하도록 애플리케이션 구성
 Storage 서비스에 액세스하려면 응용 프로그램을 인증하는 두 가지 방법이 있습니다.
 
 * 공유 키: 테스트 목적으로만 공유 키 사용

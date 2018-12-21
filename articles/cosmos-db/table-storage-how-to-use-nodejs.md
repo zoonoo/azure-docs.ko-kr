@@ -55,7 +55,7 @@ Azure Storage 또는 Azure Cosmos DB를 사용하려면 저장소 REST 서비스
 3. **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
-응용 프로그램에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
+애플리케이션에서 아래 코드를 **server.js** 파일의 맨 위에 추가합니다.
 
 ```nodejs
 var azure = require('azure-storage');
@@ -393,7 +393,7 @@ var host = tableSvc.host;
 
 SAS 소유자가 테이블에 액세스할 때 필요하므로 호스트 정보도 제공해야 합니다.
 
-그러고 나면 클라이언트 응용 프로그램에서 **TableServiceWithSAS** 에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다. tableSAS의 형식에 대해서는 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)을 참조하세요. 
+그러고 나면 클라이언트 애플리케이션에서 **TableServiceWithSAS**에 SAS를 사용하여 테이블에 대한 작업을 수행합니다. 다음 예에서는 테이블을 연결하고 쿼리를 수행합니다. tableSAS의 형식에 대해서는 [공유 액세스 서명 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)을 참조하세요. 
 
 ```nodejs
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;

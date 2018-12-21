@@ -121,7 +121,7 @@ e.AddProperty("customProperty", "value");
 * **무제한 컬렉션**을 사용하는 Azure Cosmos DB Gremlin API 데이터베이스. 이 가이드에서는 [.NET의 Azure Cosmos DB Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet)를 시작하는 방법을 보여줍니다.
 * Git. 자세한 내용은 [Git 다운로드 페이지](https://git-scm.com/downloads)를 참조하세요.
 
-### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 이 자습서에서는 GitHub에 호스트된 [Azure Cosmos DB Graph BulkExecutor 샘플](https://aka.ms/graph-bulkexecutor-sample)을 사용하여 시작 단계를 따라 할 것입니다. 이 응용 프로그램은 임의로 꼭짓점 및 에지 개체를 생성한 후 지정된 그래프 데이터베이스 계정에 대량으로 삽입하는 .NET 솔루션으로 구성됩니다. 이 응용 프로그램을 받으려면 아래의 `git clone` 명령을 실행합니다.
 
 ```bash

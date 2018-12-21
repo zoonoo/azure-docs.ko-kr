@@ -20,9 +20,9 @@ ms.locfileid: "52582771"
 
 Azure Toolkit for IntelliJ 플러그 인을 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 [Apache Spark](https://spark.apache.org/) 애플리케이션을 개발한 후 IntelliJ IDE(통합 개발 환경)에서 직접 HDInsight Spark 클러스터로 제출합니다. 다음과 같은 몇 가지 방식으로 플러그 인을 사용할 수 있습니다.
 
-* HDInsight Spark 클러스터에서 Scala Spark 응용 프로그램을 개발 및 제출합니다.
+* HDInsight Spark 클러스터에서 Scala Spark 애플리케이션을 개발 및 제출합니다.
 * Azure HDInsight Spark 클러스터 리소스에 액세스합니다.
-* Scala Spark 응용 프로그램을 로컬로 개발 및 실행합니다.
+* Scala Spark 애플리케이션을 로컬로 개발 및 실행합니다.
 
 프로젝트를 만들려면 [Azure Toolkit for IntelliJ를 사용하여 Apache Spark 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) 비디오를 시청하세요.
 

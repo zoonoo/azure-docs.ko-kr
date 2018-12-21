@@ -67,7 +67,7 @@ iLMS가 Azure AD에 통합되도록 구성하려면 갤러리에서 iLMS를 관�
 
     ![애플리케이션][2]
     
-1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 애플리케이션을 추가하려면 대화 상자 맨 위 있는 **새 애플리케이션** 단추를 클릭합니다.
 
     ![애플리케이션][3]
 
@@ -75,7 +75,7 @@ iLMS가 Azure AD에 통합되도록 구성하려면 갤러리에서 iLMS를 관�
 
     ![Azure AD 테스트 사용자 만들기](./media/ilms-tutorial/tutorial_ilms_search.png)
 
-1. 결과 창에서 **iLMS**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **iLMS**를 선택한 다음, **추가** 단추를 클릭하여 애플리케이션을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/ilms-tutorial/tutorial_ilms_addfromgallery.png)
 
@@ -96,11 +96,11 @@ iLMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 iLMS 응용 프로그램에서 Single Sign-On을 구성합니다.
+이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 iLMS 애플리케이션에서 Single Sign-On을 구성합니다.
 
 **iLMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure Portal의 **iLMS** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 클릭합니다.
+1. Azure Portal의 **iLMS** 애플리케이션 통합 페이지에서 **Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On][4]
 
@@ -125,7 +125,7 @@ iLMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     **로그온 URL** 텍스트 상자에 iLMS 관리 포털에 있는 SAML 설정의 **서비스 공급자** 섹션에서 복사한 **끝점(URL)** 값을 다음과 같은 패턴으로 붙여 넣습니다. `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
-1. JIT 프로비전을 사용하도록 설정하려면 iLMS 응용 프로그램에 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
+1. JIT 프로비전을 사용하도록 설정하려면 iLMS 애플리케이션에 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다.
     
     ![Configure Single Sign-On](./media/ilms-tutorial/4.png)
     
@@ -281,7 +281,7 @@ iLMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
     ![사용자 할당][201] 
 
-1. 응용 프로그램 목록에서 **iLMS**를 선택합니다.
+1. 애플리케이션 목록에서 **iLMS**를 선택합니다.
 
     ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_app.png) 
 
@@ -303,7 +303,7 @@ iLMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 iLMS 타일을 클릭하면 iLMS 응용 프로그램에 자동으로 로그온됩니다.
+액세스 패널에서 iLMS 타일을 클릭하면 iLMS 애플리케이션에 자동으로 로그온됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

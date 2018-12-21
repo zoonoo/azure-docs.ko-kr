@@ -245,7 +245,7 @@ ms.locfileid: "51345003"
 
 ![수정된 등록 옵션의 스크린샷](./media/active-directory-b2c-configure-signup-self-asserted-custom/signup-with-city-claim-dropdown-example.png)
 
-  이제 응용 프로그램에 반환되는 토큰은 아래 표시된 것처럼 `city` 클레임을 포함합니다.
+  이제 애플리케이션에 반환되는 토큰은 아래 표시된 것처럼 `city` 클레임을 포함합니다.
 ```json
 {
   "exp": 1493596822,

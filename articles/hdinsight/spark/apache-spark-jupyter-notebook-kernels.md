@@ -68,7 +68,7 @@ HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache S
           sc = SparkContext('yarn-client')
           sqlContext = HiveContext(sc)
    
-   대신 응용 프로그램에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
+   대신 애플리케이션에서 직접 미리 설정된 컨텍스트를 사용할 수 있습니다.
 
 - **매직 셀**입니다. PySpark 커널은 특수 명령인 일부 미리 정의된 “매직”을 제공하며 이러한 매직은 `%%`(예: `%%MAGIC` <args>)를 사용하여 호출할 수 있습니다. 매직 명령은 코드 셀의 첫 번째 단어여야 하고 여러 콘텐츠 줄에 허용됩니다. 매직 단어는 셀의 첫 번째 단어여야 합니다. 매직 앞에 다른 단어(주석 포함)가 있으면 오류가 발생합니다.     매직에 대한 자세한 내용은 [여기](http://ipython.readthedocs.org/en/stable/interactive/magics.html)를 참조하세요.
    

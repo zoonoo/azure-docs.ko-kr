@@ -72,7 +72,7 @@ MongoDB 데이터베이스를 테스트했으면 터미널에서 `Ctrl+C`를 입
 
 이 단계에서는 로컬 Node.js 프로젝트를 설정합니다.
 
-### <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+### <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 터미널 창에서 `cd`를 사용하여 작업 디렉터리로 이동합니다.  
 
@@ -230,7 +230,7 @@ $env:NODE_ENV = "production"
 node server.js
 ```
 
-`NODE_ENV=production`은 프로덕션 환경에서 실행되도록 Node.js에 지시하는 환경 변수를 설정합니다.  `node server.js`는 리포지토리 루트의 `server.js`로 Node.js 서버를 시작합니다. 이 방법으로 Node.js 응용 프로그램을 Azure에 로드합니다. 
+`NODE_ENV=production`은 프로덕션 환경에서 실행되도록 Node.js에 지시하는 환경 변수를 설정합니다.  `node server.js`는 리포지토리 루트의 `server.js`로 Node.js 서버를 시작합니다. 이 방법으로 Node.js 애플리케이션을 Azure에 로드합니다. 
 
 앱이 로드되면 프로덕션 환경에서 실행 중인지 확인해야 합니다.
 

@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2018
 ms.locfileid: "53262762"
 ---
-## <a name="clone-the-sample-application"></a>샘플 응용 프로그램 복제
+## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
 서비스가 배포되는 동안 코드로 작업을 전환해 보겠습니다. [GitHub의 샘플 앱](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat)을 복제하고, SignalR Service 연결 문자열을 설정하고, 응용 프로그램을 로컬로 실행합니다.
 

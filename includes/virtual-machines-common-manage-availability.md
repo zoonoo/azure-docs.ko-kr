@@ -66,7 +66,7 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 2. 저장소 계정에 더 많은 VHD를 추가하기 전에 **Storage 계정에서 관리되지 않는 디스크의 수에 대한 [제한](../articles/storage/common/storage-scalability-targets.md) 검토**
 3. **가용성 집합의 각 VM마다 별도의 저장소 계정을 사용합니다.** 동일한 가용성 집합에서 여러 VM을 사용하여 Storage 계정을 공유하지 않습니다. 위의 모범 사례를 따르면 여러 가용성 집합의 VM에서 저장소 계정을 공유할 수 있습니다. ![관리되지 않는 디스크 FD](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
-## <a name="configure-each-application-tier-into-separate-availability-sets"></a>각 응용 프로그램 계층을 별도의 가용성 집합으로 구성
+## <a name="configure-each-application-tier-into-separate-availability-sets"></a>각 애플리케이션 계층을 별도의 가용성 집합으로 구성
 가상 머신이 모두 거의 동일하고 응용 프로그램에 같은 목적으로 사용될 경우에는 응용 프로그램의 각 계층에 대해 가용성 집합을 구성하는 것이 좋습니다.  동일한 가용성 집합에 두 가지 계층을 배치하면 같은 응용 프로그램 계층에 있는 모든 가상 머신이 동시에 재부팅될 수 있습니다. 각 계층에 대해 최소 두 개의 가상 머신을 가용성 집합 안에 구성하면 각 계층에서 최소한 하나의 가상 머신은 사용할 수 있습니다.
 
 예를 들어 IIS, Apache, Nginx를 실행하는 응용 프로그램의 프런트 엔드에 있는 모든 가상 머신을 단일 가용성 집합에 배치할 수 있습니다. 프런트 엔드 가상 머신만 같은 가용성 집합에 배치해야 합니다. 마찬가지로 데이터 계층 가상 머신만 자체의 가용성 집합(예: 복제된 SQL Server 가상 머신 또는 MySQL 가상 머신)에 배치해야 합니다.
